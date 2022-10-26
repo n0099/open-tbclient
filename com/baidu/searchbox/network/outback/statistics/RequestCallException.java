@@ -35,18 +35,6 @@ public class RequestCallException extends Exception {
         this.mStatRecord = networkStatRecord;
     }
 
-    public Exception getRealException() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mRealException : (Exception) invokeV.objValue;
-    }
-
-    public NetworkStatRecord getStatRecord() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mStatRecord : (NetworkStatRecord) invokeV.objValue;
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RequestCallException(String str, Exception exc, NetworkStatRecord networkStatRecord) {
         super(str, exc);
@@ -68,5 +56,23 @@ public class RequestCallException extends Exception {
         }
         this.mRealException = exc;
         this.mStatRecord = networkStatRecord;
+    }
+
+    public Exception getRealException() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mRealException;
+        }
+        return (Exception) invokeV.objValue;
+    }
+
+    public NetworkStatRecord getStatRecord() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mStatRecord;
+        }
+        return (NetworkStatRecord) invokeV.objValue;
     }
 }

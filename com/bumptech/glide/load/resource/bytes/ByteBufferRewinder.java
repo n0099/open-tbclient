@@ -1,6 +1,5 @@
 package com.bumptech.glide.load.resource.bytes;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,13 +9,20 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.data.DataRewinder;
 import java.nio.ByteBuffer;
 /* loaded from: classes7.dex */
-public class ByteBufferRewinder implements DataRewinder<ByteBuffer> {
+public class ByteBufferRewinder implements DataRewinder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ByteBuffer buffer;
 
+    @Override // com.bumptech.glide.load.data.DataRewinder
+    public void cleanup() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
     /* loaded from: classes7.dex */
-    public static class Factory implements DataRewinder.Factory<ByteBuffer> {
+    public class Factory implements DataRewinder.Factory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,20 +41,24 @@ public class ByteBufferRewinder implements DataRewinder<ByteBuffer> {
         }
 
         @Override // com.bumptech.glide.load.data.DataRewinder.Factory
-        @NonNull
-        public Class<ByteBuffer> getDataClass() {
+        public Class getDataClass() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ByteBuffer.class : (Class) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return ByteBuffer.class;
+            }
+            return (Class) invokeV.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.bumptech.glide.load.data.DataRewinder.Factory
-        @NonNull
-        public DataRewinder<ByteBuffer> build(ByteBuffer byteBuffer) {
+        public DataRewinder build(ByteBuffer byteBuffer) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, byteBuffer)) == null) ? new ByteBufferRewinder(byteBuffer) : (DataRewinder) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, byteBuffer)) == null) {
+                return new ByteBufferRewinder(byteBuffer);
+            }
+            return (DataRewinder) invokeL.objValue;
         }
     }
 
@@ -70,16 +80,8 @@ public class ByteBufferRewinder implements DataRewinder<ByteBuffer> {
         this.buffer = byteBuffer;
     }
 
-    @Override // com.bumptech.glide.load.data.DataRewinder
-    public void cleanup() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.data.DataRewinder
-    @NonNull
     public ByteBuffer rewindAndGet() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

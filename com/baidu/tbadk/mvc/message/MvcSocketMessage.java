@@ -2,15 +2,15 @@ package com.baidu.tbadk.mvc.message;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
-import com.baidu.tieba.tb5;
-import com.baidu.tieba.ub5;
+import com.baidu.tieba.yb5;
+import com.baidu.tieba.zb5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class MvcSocketMessage<T extends ub5, D extends tb5> extends TbSocketMessage {
+public class MvcSocketMessage<T extends zb5, D extends yb5> extends TbSocketMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isNeedCache;
@@ -43,25 +43,37 @@ public class MvcSocketMessage<T extends ub5, D extends tb5> extends TbSocketMess
     public Object encode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.requestData.g(false) : invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.requestData.g(false);
+        }
+        return invokeV.objValue;
     }
 
     public T getRequestData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.requestData : (T) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.requestData;
+        }
+        return (T) invokeV.objValue;
     }
 
     public Class<D> getResponseDataClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.responseDataClass : (Class) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.responseDataClass;
+        }
+        return (Class) invokeV.objValue;
     }
 
     public boolean isNeedCache() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.isNeedCache : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.isNeedCache;
+        }
+        return invokeV.booleanValue;
     }
 
     public void setNeedCache(boolean z) {

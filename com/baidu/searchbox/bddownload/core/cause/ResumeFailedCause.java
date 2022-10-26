@@ -69,12 +69,18 @@ public final class ResumeFailedCause {
     public static ResumeFailedCause valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (ResumeFailedCause) Enum.valueOf(ResumeFailedCause.class, str) : (ResumeFailedCause) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (ResumeFailedCause) Enum.valueOf(ResumeFailedCause.class, str);
+        }
+        return (ResumeFailedCause) invokeL.objValue;
     }
 
     public static ResumeFailedCause[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ResumeFailedCause[]) $VALUES.clone() : (ResumeFailedCause[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (ResumeFailedCause[]) $VALUES.clone();
+        }
+        return (ResumeFailedCause[]) invokeV.objValue;
     }
 }

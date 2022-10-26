@@ -1,162 +1,107 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.os.Looper;
 import android.util.Log;
-import android.util.LruCache;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.List;
 /* loaded from: classes3.dex */
-public final class eo2 {
+public class eo2 implements qo2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final LruCache<String, Object> a;
 
-    /* loaded from: classes3.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes3.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final eo2 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-826665789, "Lcom/baidu/tieba/eo2$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-826665789, "Lcom/baidu/tieba/eo2$b;");
-                    return;
-                }
-            }
-            a = new eo2(null);
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947740993, "Lcom/baidu/tieba/eo2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947740993, "Lcom/baidu/tieba/eo2;");
-                return;
-            }
-        }
-        b = vj1.a;
-    }
-
-    public /* synthetic */ eo2(a aVar) {
-        this();
-    }
-
-    public static eo2 c() {
-        InterceptResult invokeV;
+    public static SwanAppConfigData a(File file) {
+        InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.a : (eo2) invokeV.objValue;
-    }
-
-    public synchronized void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this) {
-                if (this.a != null) {
-                    this.a.evictAll();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, file)) == null) {
+            if (file != null && file.exists()) {
+                long currentTimeMillis = System.currentTimeMillis();
+                SwanAppConfigData b = y33.b(file.getAbsolutePath());
+                if (qo2.a) {
+                    long currentTimeMillis2 = System.currentTimeMillis();
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("buildAppJsonConfig cost = ");
+                    sb.append(currentTimeMillis2 - currentTimeMillis);
+                    sb.append("ms ; current thread is main = ");
+                    if (Looper.getMainLooper() == Looper.myLooper()) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    sb.append(z);
+                    sb.append(" ; path = ");
+                    sb.append(file);
+                    Log.d("SwanPerformance", sb.toString());
                 }
+                return b;
             }
+            return null;
         }
+        return (SwanAppConfigData) invokeL.objValue;
     }
 
-    public synchronized <RESULT> RESULT b(String str) {
+    public static SwanAppConfigData b(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            synchronized (this) {
-                if (TextUtils.isEmpty(str)) {
-                    return null;
-                }
-                RESULT result = (RESULT) this.a.get(str);
-                if (result == null) {
-                    if (b) {
-                        Log.d("SwanAppLaunchCache", "doesn't hit the cache result, key = " + str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
+            if (file != null && file.exists()) {
+                SwanAppConfigData swanAppConfigData = (SwanAppConfigData) fo2.c().b(file.getAbsolutePath());
+                if (swanAppConfigData == null) {
+                    swanAppConfigData = px2.e().j(file);
+                    if (swanAppConfigData == null) {
+                        swanAppConfigData = a(file);
                     }
-                    return null;
+                    fo2.c().d(file.getAbsolutePath(), swanAppConfigData);
+                } else if (qo2.a) {
+                    Log.d("SwanPerformance", "adopt cached app.json");
                 }
-                try {
-                    if (b) {
-                        Log.d("SwanAppLaunchCache", "hit the cache result, key = " + str);
-                    }
-                    return result;
-                } catch (Exception e) {
-                    if (b) {
-                        Log.e("SwanAppLaunchCache", Log.getStackTraceString(e));
-                    }
-                    return null;
-                }
+                return swanAppConfigData;
             }
+            return null;
         }
-        return (RESULT) invokeL.objValue;
+        return (SwanAppConfigData) invokeL.objValue;
     }
 
-    public synchronized <RESULT> void d(String str, RESULT result) {
+    public static Boolean c(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, result) == null) {
-            synchronized (this) {
-                if (!TextUtils.isEmpty(str) && result != null) {
-                    if (b) {
-                        Log.d("SwanAppLaunchCache", "putConfig key: " + str);
-                    }
-                    this.a.put(str, result);
-                }
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
+            Boolean bool = (Boolean) fo2.c().b("getNightModeStateCache");
+            if (bool == null) {
+                return Boolean.valueOf(tm2.M().a());
             }
+            if (z) {
+                fo2.c().e("getNightModeStateCache");
+            }
+            return bool;
         }
+        return (Boolean) invokeZ.objValue;
     }
 
-    public synchronized void e(String str) {
+    public static List d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            synchronized (this) {
-                if (TextUtils.isEmpty(str)) {
-                    return;
-                }
-                if (b) {
-                    Log.d("SwanAppLaunchCache", "removeConfig key: " + str);
-                }
-                this.a.remove(str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            List list = (List) fo2.c().b("getStorageListCache");
+            if (list == null) {
+                List d = ah3.d();
+                fo2.c().d("getStorageListCache", d);
+                return d;
             }
+            return list;
         }
+        return (List) invokeV.objValue;
     }
 
-    public eo2() {
+    public static void e(Boolean bool) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bool) == null) {
+            fo2.c().d("getNightModeStateCache", bool);
         }
-        this.a = new LruCache<>(10);
     }
 }

@@ -6,16 +6,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class iq2 implements kt2 {
+public class iq2 implements lt2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public ArrayList a;
     public int b;
-    public int c;
-    public int d;
+    public float c;
+    public boolean d;
 
     public iq2() {
         Interceptable interceptable = $ic;
@@ -30,27 +32,60 @@ public class iq2 implements kt2 {
                 return;
             }
         }
-        this.a = Integer.MIN_VALUE;
-        this.b = Integer.MIN_VALUE;
-        this.c = -1;
-        this.d = -1;
+        this.b = 0;
+        this.c = 0.0f;
+        this.d = false;
     }
 
-    @Override // com.baidu.tieba.kt2
-    public void a(JSONObject jSONObject) throws JSONException {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && jSONObject.has("left") && jSONObject.has("top")) {
-            this.a = ch3.g(jSONObject.optInt("left"));
-            this.b = ch3.g(jSONObject.optInt("top"));
-            this.c = jSONObject.has("width") ? Math.abs(ch3.g(jSONObject.optInt("width"))) : -1;
-            this.d = jSONObject.has("height") ? Math.abs(ch3.g(jSONObject.optInt("height"))) : -1;
-        }
-    }
-
-    @Override // com.baidu.tieba.kt2
+    @Override // com.baidu.tieba.lt2
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (this.a == Integer.MIN_VALUE || this.b == Integer.MIN_VALUE) ? false : true : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            ArrayList arrayList = this.a;
+            if (arrayList != null && arrayList.size() > 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.lt2
+    public void a(JSONObject jSONObject) throws JSONException {
+        int length;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null || !jSONObject.has("points")) {
+            return;
+        }
+        JSONArray optJSONArray = jSONObject.optJSONArray("points");
+        if (optJSONArray == null) {
+            length = 0;
+        } else {
+            length = optJSONArray.length();
+        }
+        if (length > 0) {
+            this.a = new ArrayList(length);
+            for (int i = 0; i < length; i++) {
+                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                if (optJSONObject != null) {
+                    fq2 fq2Var = new fq2();
+                    fq2Var.a(optJSONObject);
+                    if (fq2Var.isValid()) {
+                        this.a.add(fq2Var);
+                    }
+                }
+            }
+        }
+        ArrayList arrayList = this.a;
+        if (arrayList != null && arrayList.size() > 0) {
+            this.b = zp2.a(jSONObject.optString("color"), 0);
+            this.c = Math.abs(zp2.b(jSONObject.optDouble("width", 0.0d)));
+            this.d = jSONObject.optBoolean("dottedLine", false);
+            jSONObject.optBoolean("arrowLine", false);
+            jSONObject.optString("arrowIconPath");
+            zp2.a(jSONObject.optString("borderColor"), 0);
+            Math.abs(zp2.b(jSONObject.optDouble("borderWidth", 0.0d)));
+        }
     }
 }

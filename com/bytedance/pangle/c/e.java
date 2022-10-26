@@ -41,36 +41,39 @@ public final class e {
     public static ExecutorService a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? Executors.newFixedThreadPool(i, new ThreadFactory() { // from class: com.bytedance.pangle.c.e.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public AtomicInteger a;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            return Executors.newFixedThreadPool(i, new ThreadFactory() { // from class: com.bytedance.pangle.c.e.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public AtomicInteger a;
 
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
                     }
+                    this.a = new AtomicInteger(1);
                 }
-                this.a = new AtomicInteger(1);
-            }
 
-            @Override // java.util.concurrent.ThreadFactory
-            public final Thread newThread(Runnable runnable) {
-                InterceptResult invokeL;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, runnable)) == null) {
-                    return new Thread(runnable, ZeusConstants.BASE_LIB_NAME + "-Install-" + this.a.getAndIncrement());
+                @Override // java.util.concurrent.ThreadFactory
+                public final Thread newThread(Runnable runnable) {
+                    InterceptResult invokeL;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, runnable)) == null) {
+                        return new Thread(runnable, ZeusConstants.BASE_LIB_NAME + "-Install-" + this.a.getAndIncrement());
+                    }
+                    return (Thread) invokeL.objValue;
                 }
-                return (Thread) invokeL.objValue;
-            }
-        }) : (ExecutorService) invokeI.objValue;
+            });
+        }
+        return (ExecutorService) invokeI.objValue;
     }
 }

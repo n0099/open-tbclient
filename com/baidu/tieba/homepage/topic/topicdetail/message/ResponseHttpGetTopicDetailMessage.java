@@ -3,7 +3,7 @@ package com.baidu.tieba.homepage.topic.topicdetail.message;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.a57;
+import com.baidu.tieba.i57;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import tbclient.NewHottopic.NewHottopicResIdl;
 public class ResponseHttpGetTopicDetailMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a57 mTopicDetailData;
+    public i57 mTopicDetailData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseHttpGetTopicDetailMessage() {
@@ -35,10 +35,13 @@ public class ResponseHttpGetTopicDetailMessage extends TbHttpResponsedMessage {
         }
     }
 
-    public a57 getTopicDetailData() {
+    public i57 getTopicDetailData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mTopicDetailData : (a57) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mTopicDetailData;
+        }
+        return (i57) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -46,16 +49,15 @@ public class ResponseHttpGetTopicDetailMessage extends TbHttpResponsedMessage {
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         NewHottopicResIdl newHottopicResIdl;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (newHottopicResIdl = (NewHottopicResIdl) new Wire(new Class[0]).parseFrom(bArr, NewHottopicResIdl.class)) == null) {
+        if ((interceptable != null && interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) != null) || (newHottopicResIdl = (NewHottopicResIdl) new Wire(new Class[0]).parseFrom(bArr, NewHottopicResIdl.class)) == null) {
             return;
         }
         setError(newHottopicResIdl.error.errorno.intValue());
         setErrorString(newHottopicResIdl.error.usermsg);
-        if (getError() != 0 || newHottopicResIdl.data == null) {
-            return;
+        if (getError() == 0 && newHottopicResIdl.data != null) {
+            i57 i57Var = new i57();
+            this.mTopicDetailData = i57Var;
+            i57Var.b(newHottopicResIdl.data);
         }
-        a57 a57Var = new a57();
-        this.mTopicDetailData = a57Var;
-        a57Var.b(newHottopicResIdl.data);
     }
 }

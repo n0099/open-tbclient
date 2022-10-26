@@ -1,33 +1,64 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
+import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Objects;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tbclient.TabPic;
-import tbclient.TabPicDesc;
 /* loaded from: classes4.dex */
 public class k15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public long a;
     public String b;
     public String c;
-    public String d;
-    public String e;
-    public boolean f;
-    public TabPic g;
-    public String h;
-    public int i;
+    public int d;
+    public int e;
+    public int f;
+    public int g;
+    public int h;
+    public String i;
+    public String j;
+
+    /* loaded from: classes4.dex */
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-712059843, "Lcom/baidu/tieba/k15$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-712059843, "Lcom/baidu/tieba/k15$a;");
+                    return;
+                }
+            }
+            int[] iArr = new int[EmotionGroupType.values().length];
+            a = iArr;
+            try {
+                iArr[EmotionGroupType.LOCAL.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[EmotionGroupType.USER_COLLECT.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[EmotionGroupType.USER_DIY.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+        }
+    }
 
     public k15() {
         Interceptable interceptable = $ic;
@@ -43,155 +74,52 @@ public class k15 {
         }
     }
 
-    @Nullable
-    public static k15 a(String str) {
-        InterceptResult invokeL;
-        JSONObject jSONObject;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (!TextUtils.isEmpty(str) && str.startsWith("[pic-tab]")) {
-                try {
-                    jSONObject = new JSONObject(str.substring(9));
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    jSONObject = null;
-                }
-                try {
-                    k15 k15Var = new k15();
-                    k15Var.g = b(jSONObject);
-                    if (jSONObject != null) {
-                        k15Var.b = jSONObject.optString("tabName");
-                    }
-                    return k15Var;
-                } catch (Exception unused) {
-                    return null;
-                }
-            }
-            return null;
-        }
-        return (k15) invokeL.objValue;
-    }
-
-    public static TabPic b(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            TabPic.Builder builder = new TabPic.Builder();
-            JSONObject optJSONObject = jSONObject.optJSONObject("normal");
-            if (optJSONObject != null) {
-                TabPicDesc.Builder builder2 = new TabPicDesc.Builder();
-                builder2.selected_pic_url = optJSONObject.optString("selected_pic_url");
-                builder2.unselected_pic_url = optJSONObject.optString("unselected_pic_url");
-                builder2.pic_height = Integer.valueOf(optJSONObject.optInt(VrPlayerActivityConfig.PIC_HEIGHT));
-                builder2.pic_width = Integer.valueOf(optJSONObject.optInt(VrPlayerActivityConfig.PIC_WIDTH));
-                builder.normal = builder2.build(true);
-            }
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("dark");
-            if (optJSONObject2 != null) {
-                TabPicDesc.Builder builder3 = new TabPicDesc.Builder();
-                builder3.selected_pic_url = optJSONObject2.optString("selected_pic_url");
-                builder3.unselected_pic_url = optJSONObject2.optString("unselected_pic_url");
-                builder3.pic_height = Integer.valueOf(optJSONObject2.optInt(VrPlayerActivityConfig.PIC_HEIGHT));
-                builder3.pic_width = Integer.valueOf(optJSONObject2.optInt(VrPlayerActivityConfig.PIC_WIDTH));
-                builder.dark = builder3.build(true);
-            }
-            return builder.build(true);
-        }
-        return (TabPic) invokeL.objValue;
-    }
-
-    public String c() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (g()) {
-                try {
-                    JSONObject jSONObject = new JSONObject(this.h);
-                    jSONObject.put("tabName", this.b);
-                    return "[pic-tab]" + jSONObject.toString();
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    return "[pic-tab]" + this.h;
-                }
-            }
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.j;
         }
         return (String) invokeV.objValue;
     }
 
-    public boolean e() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? TextUtils.isEmpty(this.b) || this.a <= 0 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.i;
+        }
+        return (String) invokeV.objValue;
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
+    public void c(d65 d65Var, String str) {
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            if (this == obj) {
-                return true;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, d65Var, str) == null) {
+            EmotionGroupType h = d65Var.h();
+            if (str != null) {
+                str2 = z95.b.b(str);
+            } else {
+                str2 = null;
             }
-            if (obj == null || k15.class != obj.getClass()) {
-                return false;
+            int i = a.a[h.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        this.j = d65Var.f();
+                        this.i = str2;
+                        return;
+                    }
+                    this.j = "3";
+                    this.i = str2;
+                    return;
+                }
+                this.j = "2";
+                this.i = str2;
+                return;
             }
-            k15 k15Var = (k15) obj;
-            return this.a == k15Var.a && this.f == k15Var.f && this.i == k15Var.i && Objects.equals(this.b, k15Var.b) && Objects.equals(this.c, k15Var.c) && Objects.equals(this.d, k15Var.d) && Objects.equals(this.e, k15Var.e) && Objects.equals(this.h, k15Var.h);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.i == 1 : invokeV.booleanValue;
-    }
-
-    public boolean g() {
-        InterceptResult invokeV;
-        TabPic tabPic;
-        TabPicDesc tabPicDesc;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (TextUtils.isEmpty(this.h) || (tabPic = this.g) == null || (tabPicDesc = tabPic.normal) == null || TextUtils.isEmpty(tabPicDesc.unselected_pic_url) || this.g.normal.pic_width.intValue() <= 0) ? false : true : invokeV.booleanValue;
-    }
-
-    public void h(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        this.a = jSONObject.optInt("tab_type");
-        this.b = jSONObject.optString("tab_name");
-        this.c = jSONObject.optString("tab_code");
-        this.i = jSONObject.optInt("is_main_tab", 0);
-        this.d = jSONObject.optString("tab_url");
-        this.e = jSONObject.optString("tab_version");
-        JSONObject optJSONObject = jSONObject.optJSONObject("head_pics");
-        if (optJSONObject != null) {
-            this.h = optJSONObject.toString();
-            this.g = b(optJSONObject);
-        }
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? Objects.hash(Integer.valueOf(this.a), this.b, this.c, this.d, this.e, Boolean.valueOf(this.f), this.h) : invokeV.intValue;
-    }
-
-    public void i(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.i = z ? 1 : 0;
+            this.j = "1";
+            this.i = str;
         }
     }
 }

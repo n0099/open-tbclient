@@ -17,7 +17,7 @@ import androidx.core.view.MotionEventCompat;
 import androidx.core.view.ViewConfigurationCompat;
 import com.baidu.adp.widget.SwipeBackLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
 import java.util.Queue;
 /* loaded from: classes3.dex */
-public class HorizontalListView extends AdapterView<ListAdapter> {
+public class HorizontalListView extends AdapterView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -39,7 +39,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
     public int h;
     public Scroller i;
     public GestureDetector j;
-    public Queue<View> k;
+    public Queue k;
     public AdapterView.OnItemSelectedListener l;
     public AdapterView.OnItemClickListener m;
     public AdapterView.OnItemLongClickListener n;
@@ -55,6 +55,21 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
     public boolean x;
     public DataSetObserver y;
     public GestureDetector.OnGestureListener z;
+
+    /* loaded from: classes3.dex */
+    public interface d {
+        void a(int i);
+    }
+
+    @Override // android.widget.AdapterView
+    public View getSelectedView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (View) invokeV.objValue;
+    }
 
     /* loaded from: classes3.dex */
     public class a extends DataSetObserver {
@@ -95,11 +110,12 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
         @Override // android.database.DataSetObserver
         public void onInvalidated() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.u();
-                this.a.invalidate();
-                this.a.requestLayout();
+            if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
+                return;
             }
+            this.a.u();
+            this.a.invalidate();
+            this.a.requestLayout();
         }
     }
 
@@ -160,6 +176,16 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
             this.a = horizontalListView;
         }
 
+        @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
+        public boolean onDown(MotionEvent motionEvent) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
+                return this.a.q(motionEvent);
+            }
+            return invokeL.booleanValue;
+        }
+
         public final boolean a(MotionEvent motionEvent, View view2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -176,17 +202,13 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
-        public boolean onDown(MotionEvent motionEvent) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) ? this.a.q(motionEvent) : invokeL.booleanValue;
-        }
-
-        @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
         public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) ? this.a.r(motionEvent, motionEvent2, f, f2) : invokeCommon.booleanValue;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
+                return this.a.r(motionEvent, motionEvent2, f, f2);
+            }
+            return invokeCommon.booleanValue;
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
@@ -265,11 +287,6 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
         }
     }
 
-    /* loaded from: classes3.dex */
-    public interface d {
-        void a(int i);
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HorizontalListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -305,126 +322,6 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
         o();
     }
 
-    private int getMiddleViewPosition() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
-            int childCount = getChildCount();
-            if (childCount > 0) {
-                for (int i = 0; i < childCount; i++) {
-                    View childAt = getChildAt(i);
-                    if (childAt.getLeft() + childAt.getWidth() >= this.q) {
-                        return i + 1 + this.c;
-                    }
-                }
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-            boolean dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
-            int action = motionEvent.getAction();
-            if (action == 1 || action == 3) {
-                this.x = false;
-            }
-            return this.j.onTouchEvent(motionEvent) | dispatchTouchEvent;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // android.widget.AdapterView
-    public View getSelectedView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return null;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public final void i(View view2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, view2, i) == null) {
-            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
-            if (layoutParams == null) {
-                layoutParams = new ViewGroup.LayoutParams(-1, -1);
-            }
-            addViewInLayout(view2, i, layoutParams, true);
-            view2.measure(View.MeasureSpec.makeMeasureSpec(getWidth(), Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(getHeight(), Integer.MIN_VALUE));
-        }
-    }
-
-    public final void j(MotionEvent motionEvent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, motionEvent) == null) {
-            int i = this.u;
-            int n = n(motionEvent, i);
-            if (i == -1) {
-                return;
-            }
-            try {
-                float x = MotionEventCompat.getX(motionEvent, n);
-                float y = MotionEventCompat.getY(motionEvent, n);
-                float abs = Math.abs(x - this.s);
-                float abs2 = Math.abs(y - this.t);
-                if (abs <= this.a || abs <= abs2) {
-                    return;
-                }
-                this.v = true;
-            } catch (IllegalArgumentException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public final void k(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            View childAt = getChildAt(getChildCount() - 1);
-            m(childAt != null ? childAt.getRight() : 0, i);
-            View childAt2 = getChildAt(0);
-            l(childAt2 != null ? childAt2.getLeft() : 0, i);
-        }
-    }
-
-    public final void l(int i, int i2) {
-        int i3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048583, this, i, i2) == null) {
-            while (i + i2 > 0 && (i3 = this.c) >= 0) {
-                View view2 = this.b.getView(i3, this.k.poll(), this);
-                i(view2, 0);
-                i -= view2.getMeasuredWidth();
-                this.c--;
-                this.h -= view2.getMeasuredWidth();
-            }
-        }
-    }
-
-    public final void m(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2) == null) {
-            while (i + i2 < getWidth() && this.d < this.b.getCount()) {
-                View view2 = this.b.getView(this.d, this.k.poll(), this);
-                i(view2, -1);
-                i += view2.getMeasuredWidth();
-                if (this.d == this.b.getCount() - 1) {
-                    this.g = (this.e + i) - getWidth();
-                }
-                if (this.g < 0) {
-                    this.g = 0;
-                }
-                this.d++;
-            }
-        }
-    }
-
     public final int n(MotionEvent motionEvent, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
@@ -436,121 +333,6 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
             return findPointerIndex;
         }
         return invokeLI.intValue;
-    }
-
-    public final synchronized void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            synchronized (this) {
-                this.c = -1;
-                this.d = 0;
-                this.h = 0;
-                this.e = 0;
-                this.f = 0;
-                this.g = Integer.MAX_VALUE;
-                this.i = new Scroller(getContext());
-                this.j = new GestureDetector(getContext(), this.z);
-                this.q = ej.k(getContext()) / 2;
-                this.a = ViewConfigurationCompat.getScaledPagingTouchSlop(ViewConfiguration.get(getContext()));
-            }
-        }
-    }
-
-    @Override // android.view.ViewGroup
-    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, motionEvent)) == null) {
-            if (this.r) {
-                if (getParent() != null) {
-                    getParent().requestDisallowInterceptTouchEvent(true);
-                }
-                return super.onInterceptTouchEvent(motionEvent);
-            } else if (this.v) {
-                return true;
-            } else {
-                int action = motionEvent.getAction();
-                if (action != 3 && action != 1) {
-                    if (action == 0) {
-                        int actionIndex = MotionEventCompat.getActionIndex(motionEvent);
-                        int pointerId = MotionEventCompat.getPointerId(motionEvent, actionIndex);
-                        this.u = pointerId;
-                        if (pointerId != -1) {
-                            this.s = MotionEventCompat.getX(motionEvent, actionIndex);
-                            this.t = MotionEventCompat.getY(motionEvent, actionIndex);
-                            SwipeBackLayout.c cVar = this.w;
-                            if (cVar != null) {
-                                cVar.H0();
-                            }
-                        }
-                    } else if (action != 2) {
-                        SwipeBackLayout.c cVar2 = this.w;
-                        if (cVar2 != null) {
-                            cVar2.b0();
-                        }
-                    } else {
-                        SwipeBackLayout.c cVar3 = this.w;
-                        if (cVar3 != null) {
-                            cVar3.H0();
-                        }
-                        j(motionEvent);
-                        if (this.v) {
-                            return true;
-                        }
-                    }
-                    return super.onInterceptTouchEvent(motionEvent);
-                }
-                this.v = false;
-                SwipeBackLayout.c cVar4 = this.w;
-                if (cVar4 != null) {
-                    cVar4.b0();
-                }
-                return super.onInterceptTouchEvent(motionEvent);
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // android.widget.AdapterView, android.view.ViewGroup, android.view.View
-    public synchronized void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            synchronized (this) {
-                super.onLayout(z, i, i2, i3, i4);
-                if (this.b == null) {
-                    return;
-                }
-                if (this.p) {
-                    int i5 = this.e;
-                    o();
-                    removeAllViewsInLayout();
-                    this.f = i5;
-                    this.p = false;
-                }
-                if (this.i.computeScrollOffset()) {
-                    this.f = this.i.getCurrX();
-                }
-                if (this.f <= 0) {
-                    this.f = 0;
-                    this.i.forceFinished(true);
-                }
-                if (this.f >= this.g) {
-                    this.f = this.g;
-                    this.i.forceFinished(true);
-                }
-                int i6 = this.e - this.f;
-                t(i6);
-                k(i6);
-                s(i6);
-                if (this.o != null) {
-                    this.o.a(getMiddleViewPosition());
-                }
-                this.e = this.f;
-                if (!this.i.isFinished()) {
-                    post(new b(this));
-                }
-            }
-        }
     }
 
     @Override // android.view.View
@@ -568,76 +350,19 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
         }
     }
 
-    @Override // android.view.View
-    public boolean onTouchEvent(MotionEvent motionEvent) {
+    @Override // android.view.ViewGroup, android.view.View
+    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, motionEvent)) == null) {
-            if (this.r) {
-                if (getParent() != null) {
-                    getParent().requestDisallowInterceptTouchEvent(true);
-                }
-                return super.onTouchEvent(motionEvent);
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
+            boolean dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
             int action = motionEvent.getAction();
-            if (action == 0) {
-                this.u = MotionEventCompat.getPointerId(motionEvent, MotionEventCompat.getActionIndex(motionEvent));
-                SwipeBackLayout.c cVar = this.w;
-                if (cVar != null) {
-                    cVar.H0();
-                }
-            } else if (action == 1) {
-                this.v = false;
-                SwipeBackLayout.c cVar2 = this.w;
-                if (cVar2 != null) {
-                    cVar2.b0();
-                }
-            } else if (action != 2) {
-                SwipeBackLayout.c cVar3 = this.w;
-                if (cVar3 != null) {
-                    cVar3.b0();
-                }
-            } else {
-                SwipeBackLayout.c cVar4 = this.w;
-                if (cVar4 != null) {
-                    cVar4.H0();
-                }
-                if (!this.v) {
-                    j(motionEvent);
-                }
-                if (this.v && getParent() != null) {
-                    getParent().requestDisallowInterceptTouchEvent(true);
-                }
+            if (action == 1 || action == 3) {
+                this.x = false;
             }
-            return super.onTouchEvent(motionEvent);
+            return this.j.onTouchEvent(motionEvent) | dispatchTouchEvent;
         }
         return invokeL.booleanValue;
-    }
-
-    public final int p(int i, int i2) {
-        InterceptResult invokeII;
-        View view2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048591, this, i, i2)) == null) {
-            if (this.b == null) {
-                return getPaddingLeft() + getPaddingRight();
-            }
-            int paddingLeft = getPaddingLeft() + getPaddingRight();
-            int count = this.b.getCount();
-            for (int i3 = 0; i3 < count; i3++) {
-                View poll = this.k.poll();
-                if (poll == null) {
-                    view2 = this.b.getView(i3, null, this);
-                } else {
-                    view2 = this.b.getView(i3, poll, this);
-                }
-                view2.measure(i, 0);
-                paddingLeft += view2.getMeasuredWidth();
-                this.k.add(view2);
-            }
-            return Math.min(paddingLeft, i2);
-        }
-        return invokeII.intValue;
     }
 
     public boolean q(MotionEvent motionEvent) {
@@ -648,34 +373,6 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
             return true;
         }
         return invokeL.booleanValue;
-    }
-
-    public boolean r(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048593, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
-            synchronized (this) {
-                this.i.fling(this.f, 0, (int) (-f), 0, 0, this.g, 0, 0);
-            }
-            requestLayout();
-            return true;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public final void s(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048594, this, i) == null) || getChildCount() <= 0) {
-            return;
-        }
-        int i2 = this.h + i;
-        this.h = i2;
-        for (int i3 = 0; i3 < getChildCount(); i3++) {
-            View childAt = getChildAt(i3);
-            int measuredWidth = childAt.getMeasuredWidth();
-            childAt.layout(i2, 0, i2 + measuredWidth, childAt.getMeasuredHeight());
-            i2 += measuredWidth + childAt.getPaddingRight();
-        }
     }
 
     public void setDisableParentEvent(boolean z) {
@@ -739,6 +436,307 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
         }
     }
 
+    public synchronized void v(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048606, this, i) == null) {
+            synchronized (this) {
+                this.i.startScroll(this.f, 0, i - this.f, 0);
+                requestLayout();
+            }
+        }
+    }
+
+    private int getMiddleViewPosition() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
+            int childCount = getChildCount();
+            if (childCount > 0) {
+                for (int i = 0; i < childCount; i++) {
+                    View childAt = getChildAt(i);
+                    if (childAt.getLeft() + childAt.getWidth() >= this.q) {
+                        return i + 1 + this.c;
+                    }
+                }
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public final synchronized void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
+            synchronized (this) {
+                o();
+                removeAllViewsInLayout();
+                requestLayout();
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.AdapterView
+    public ListAdapter getAdapter() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (ListAdapter) invokeV.objValue;
+    }
+
+    public final void i(View view2, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048580, this, view2, i) == null) {
+            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+            if (layoutParams == null) {
+                layoutParams = new ViewGroup.LayoutParams(-1, -1);
+            }
+            addViewInLayout(view2, i, layoutParams, true);
+            view2.measure(View.MeasureSpec.makeMeasureSpec(getWidth(), Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(getHeight(), Integer.MIN_VALUE));
+        }
+    }
+
+    public final void l(int i, int i2) {
+        int i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048583, this, i, i2) == null) {
+            while (i + i2 > 0 && (i3 = this.c) >= 0) {
+                View view2 = this.b.getView(i3, (View) this.k.poll(), this);
+                i(view2, 0);
+                i -= view2.getMeasuredWidth();
+                this.c--;
+                this.h -= view2.getMeasuredWidth();
+            }
+        }
+    }
+
+    public final void j(MotionEvent motionEvent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, motionEvent) == null) {
+            int i = this.u;
+            int n = n(motionEvent, i);
+            if (i == -1) {
+                return;
+            }
+            try {
+                float x = MotionEventCompat.getX(motionEvent, n);
+                float y = MotionEventCompat.getY(motionEvent, n);
+                float abs = Math.abs(x - this.s);
+                float abs2 = Math.abs(y - this.t);
+                if (abs > this.a && abs > abs2) {
+                    this.v = true;
+                }
+            } catch (IllegalArgumentException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public final void k(int i) {
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            View childAt = getChildAt(getChildCount() - 1);
+            int i3 = 0;
+            if (childAt != null) {
+                i2 = childAt.getRight();
+            } else {
+                i2 = 0;
+            }
+            m(i2, i);
+            View childAt2 = getChildAt(0);
+            if (childAt2 != null) {
+                i3 = childAt2.getLeft();
+            }
+            l(i3, i);
+        }
+    }
+
+    public final void s(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048594, this, i) == null) && getChildCount() > 0) {
+            int i2 = this.h + i;
+            this.h = i2;
+            for (int i3 = 0; i3 < getChildCount(); i3++) {
+                View childAt = getChildAt(i3);
+                int measuredWidth = childAt.getMeasuredWidth();
+                childAt.layout(i2, 0, i2 + measuredWidth, childAt.getMeasuredHeight());
+                i2 += measuredWidth + childAt.getPaddingRight();
+            }
+        }
+    }
+
+    public final void m(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2) == null) {
+            while (i + i2 < getWidth() && this.d < this.b.getCount()) {
+                View view2 = this.b.getView(this.d, (View) this.k.poll(), this);
+                i(view2, -1);
+                i += view2.getMeasuredWidth();
+                if (this.d == this.b.getCount() - 1) {
+                    this.g = (this.e + i) - getWidth();
+                }
+                if (this.g < 0) {
+                    this.g = 0;
+                }
+                this.d++;
+            }
+        }
+    }
+
+    public final int p(int i, int i2) {
+        InterceptResult invokeII;
+        View view2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048591, this, i, i2)) == null) {
+            if (this.b == null) {
+                return getPaddingLeft() + getPaddingRight();
+            }
+            int paddingLeft = getPaddingLeft() + getPaddingRight();
+            int count = this.b.getCount();
+            for (int i3 = 0; i3 < count; i3++) {
+                View view3 = (View) this.k.poll();
+                if (view3 == null) {
+                    view2 = this.b.getView(i3, null, this);
+                } else {
+                    view2 = this.b.getView(i3, view3, this);
+                }
+                view2.measure(i, 0);
+                paddingLeft += view2.getMeasuredWidth();
+                this.k.add(view2);
+            }
+            return Math.min(paddingLeft, i2);
+        }
+        return invokeII.intValue;
+    }
+
+    public final synchronized void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            synchronized (this) {
+                this.c = -1;
+                this.d = 0;
+                this.h = 0;
+                this.e = 0;
+                this.f = 0;
+                this.g = Integer.MAX_VALUE;
+                this.i = new Scroller(getContext());
+                this.j = new GestureDetector(getContext(), this.z);
+                this.q = fj.k(getContext()) / 2;
+                this.a = ViewConfigurationCompat.getScaledPagingTouchSlop(ViewConfiguration.get(getContext()));
+            }
+        }
+    }
+
+    @Override // android.view.ViewGroup
+    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, motionEvent)) == null) {
+            if (this.r) {
+                if (getParent() != null) {
+                    getParent().requestDisallowInterceptTouchEvent(true);
+                }
+                return super.onInterceptTouchEvent(motionEvent);
+            } else if (this.v) {
+                return true;
+            } else {
+                int action = motionEvent.getAction();
+                if (action != 3 && action != 1) {
+                    if (action != 0) {
+                        if (action != 2) {
+                            SwipeBackLayout.c cVar = this.w;
+                            if (cVar != null) {
+                                cVar.b0();
+                            }
+                        } else {
+                            SwipeBackLayout.c cVar2 = this.w;
+                            if (cVar2 != null) {
+                                cVar2.G0();
+                            }
+                            j(motionEvent);
+                            if (this.v) {
+                                return true;
+                            }
+                        }
+                    } else {
+                        int actionIndex = MotionEventCompat.getActionIndex(motionEvent);
+                        int pointerId = MotionEventCompat.getPointerId(motionEvent, actionIndex);
+                        this.u = pointerId;
+                        if (pointerId != -1) {
+                            this.s = MotionEventCompat.getX(motionEvent, actionIndex);
+                            this.t = MotionEventCompat.getY(motionEvent, actionIndex);
+                            SwipeBackLayout.c cVar3 = this.w;
+                            if (cVar3 != null) {
+                                cVar3.G0();
+                            }
+                        }
+                    }
+                    return super.onInterceptTouchEvent(motionEvent);
+                }
+                this.v = false;
+                SwipeBackLayout.c cVar4 = this.w;
+                if (cVar4 != null) {
+                    cVar4.b0();
+                }
+                return super.onInterceptTouchEvent(motionEvent);
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.view.View
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, motionEvent)) == null) {
+            if (this.r) {
+                if (getParent() != null) {
+                    getParent().requestDisallowInterceptTouchEvent(true);
+                }
+                return super.onTouchEvent(motionEvent);
+            }
+            int action = motionEvent.getAction();
+            if (action != 0) {
+                if (action != 1) {
+                    if (action != 2) {
+                        SwipeBackLayout.c cVar = this.w;
+                        if (cVar != null) {
+                            cVar.b0();
+                        }
+                    } else {
+                        SwipeBackLayout.c cVar2 = this.w;
+                        if (cVar2 != null) {
+                            cVar2.G0();
+                        }
+                        if (!this.v) {
+                            j(motionEvent);
+                        }
+                        if (this.v && getParent() != null) {
+                            getParent().requestDisallowInterceptTouchEvent(true);
+                        }
+                    }
+                } else {
+                    this.v = false;
+                    SwipeBackLayout.c cVar3 = this.w;
+                    if (cVar3 != null) {
+                        cVar3.b0();
+                    }
+                }
+            } else {
+                this.u = MotionEventCompat.getPointerId(motionEvent, MotionEventCompat.getActionIndex(motionEvent));
+                SwipeBackLayout.c cVar4 = this.w;
+                if (cVar4 != null) {
+                    cVar4.G0();
+                }
+            }
+            return super.onTouchEvent(motionEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
     public final void t(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048604, this, i) == null) {
@@ -760,33 +758,59 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
         }
     }
 
-    public final synchronized void u() {
+    @Override // android.widget.AdapterView, android.view.ViewGroup, android.view.View
+    public synchronized void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             synchronized (this) {
-                o();
-                removeAllViewsInLayout();
-                requestLayout();
+                super.onLayout(z, i, i2, i3, i4);
+                if (this.b == null) {
+                    return;
+                }
+                if (this.p) {
+                    int i5 = this.e;
+                    o();
+                    removeAllViewsInLayout();
+                    this.f = i5;
+                    this.p = false;
+                }
+                if (this.i.computeScrollOffset()) {
+                    this.f = this.i.getCurrX();
+                }
+                if (this.f <= 0) {
+                    this.f = 0;
+                    this.i.forceFinished(true);
+                }
+                if (this.f >= this.g) {
+                    this.f = this.g;
+                    this.i.forceFinished(true);
+                }
+                int i6 = this.e - this.f;
+                t(i6);
+                k(i6);
+                s(i6);
+                if (this.o != null) {
+                    this.o.a(getMiddleViewPosition());
+                }
+                this.e = this.f;
+                if (!this.i.isFinished()) {
+                    post(new b(this));
+                }
             }
         }
     }
 
-    public synchronized void v(int i) {
+    public boolean r(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048606, this, i) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048593, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
             synchronized (this) {
-                this.i.startScroll(this.f, 0, i - this.f, 0);
-                requestLayout();
+                this.i.fling(this.f, 0, (int) (-f), 0, 0, this.g, 0, 0);
             }
+            requestLayout();
+            return true;
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.AdapterView
-    public ListAdapter getAdapter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (ListAdapter) invokeV.objValue;
+        return invokeCommon.booleanValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

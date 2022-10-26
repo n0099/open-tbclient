@@ -1,11 +1,10 @@
 package com.baidu.tieba.imMessageCenter.mention.agree.message;
 
-import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ie7;
-import com.baidu.tieba.mu4;
+import com.baidu.tieba.ou4;
+import com.baidu.tieba.qe7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +20,7 @@ import tbclient.Error;
 public class AgreeMeSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<ie7> datas;
+    public ArrayList datas;
     public boolean hasMore;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -40,18 +39,27 @@ public class AgreeMeSocketResponseMessage extends SocketResponsedMessage {
                 return;
             }
         }
-        this.datas = new ArrayList<>();
+        this.datas = new ArrayList();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.ResponsedMessage
+    public void afterDispatchInBackGround(int i, byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) && !hasError() && (getOrginalMessage().getExtra() instanceof AgreeMeRequestMessage) && ((AgreeMeRequestMessage) getOrginalMessage().getExtra()).id == 0) {
+            ou4.f();
+            ou4.e("tb_user_agreeme", TbadkCoreApplication.getCurrentAccountName()).a("agree_me_cache_key", bArr);
+        }
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
-        DataRes dataRes;
         String str;
         Integer num;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, bArr)) == null) {
+            boolean z = false;
             AgreeMeResIdl agreeMeResIdl = (AgreeMeResIdl) new Wire(new Class[0]).parseFrom(bArr, AgreeMeResIdl.class);
             if (agreeMeResIdl == null) {
                 return null;
@@ -64,28 +72,25 @@ public class AgreeMeSocketResponseMessage extends SocketResponsedMessage {
             if (error2 != null && (str = error2.usermsg) != null && str.length() > 0) {
                 setErrorString(agreeMeResIdl.error.usermsg);
             }
-            if (getError() == 0 && (dataRes = agreeMeResIdl.data) != null) {
-                this.hasMore = dataRes.has_more.intValue() == 1;
+            if (getError() != 0) {
+                return agreeMeResIdl;
+            }
+            DataRes dataRes = agreeMeResIdl.data;
+            if (dataRes != null) {
+                if (dataRes.has_more.intValue() == 1) {
+                    z = true;
+                }
+                this.hasMore = z;
                 for (AgreeList agreeList : agreeMeResIdl.data.agree_list) {
                     if (agreeList != null) {
-                        ie7 ie7Var = new ie7();
-                        ie7Var.I(agreeList);
-                        this.datas.add(ie7Var);
+                        qe7 qe7Var = new qe7();
+                        qe7Var.I(agreeList);
+                        this.datas.add(qe7Var);
                     }
                 }
             }
             return agreeMeResIdl;
         }
         return invokeIL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void afterDispatchInBackGround(int i, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) && !hasError() && (getOrginalMessage().getExtra() instanceof AgreeMeRequestMessage) && ((AgreeMeRequestMessage) getOrginalMessage().getExtra()).id == 0) {
-            mu4.f();
-            mu4.e("tb_user_agreeme", TbadkCoreApplication.getCurrentAccountName()).a("agree_me_cache_key", bArr);
-        }
     }
 }

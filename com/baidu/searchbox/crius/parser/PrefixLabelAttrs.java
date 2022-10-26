@@ -37,7 +37,11 @@ public class PrefixLabelAttrs {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
             PrefixLabelAttrs prefixLabelAttrs = new PrefixLabelAttrs();
-            prefixLabelAttrs.hasPrefix = jSONObject.optInt(NativeConstants.HAS_PREFIX) == 1;
+            boolean z = true;
+            if (jSONObject.optInt(NativeConstants.HAS_PREFIX) != 1) {
+                z = false;
+            }
+            prefixLabelAttrs.hasPrefix = z;
             prefixLabelAttrs.prefixTitleMargin = CriusUtil.getDoubleIfExist(jSONObject, NativeConstants.PREFIX_MARGIN);
             prefixLabelAttrs.bindingId = jSONObject.optString(NativeConstants.BINDING_ID);
             prefixLabelAttrs.prefixWidthWithoutText = CriusUtil.getDoubleIfExist(jSONObject, NativeConstants.PREFIX_WIDTH_WITHOUT_TEXT);

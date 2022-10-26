@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.plugin.capture.download.utils.LogUtils;
 import com.baidu.minivideo.plugin.capture.utils.FileUtils;
-import com.baidu.tieba.te0;
+import com.baidu.tieba.ue0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,6 +36,22 @@ public class DuFaceItem extends FaceItem {
         this.arType = 10;
     }
 
+    @Override // com.baidu.minivideo.plugin.capture.bean.FaceItem, com.baidu.minivideo.plugin.capture.bean.Jsonable
+    public JSONObject toJson() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            JSONObject json = super.toJson();
+            try {
+                json.put("sub_type", this.arType);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return json;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
     private boolean deleteFile(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -51,6 +67,17 @@ public class DuFaceItem extends FaceItem {
             }
         }
         return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.minivideo.plugin.capture.bean.FaceItem
+    public void parse(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
+            if (jSONObject != null) {
+                this.arType = jSONObject.optInt("sub_type");
+            }
+            super.parse(jSONObject);
+        }
     }
 
     @Override // com.baidu.minivideo.plugin.capture.bean.FaceItem
@@ -97,7 +124,7 @@ public class DuFaceItem extends FaceItem {
             boolean z2 = false;
             try {
                 FileUtils.unzipFile(new File(str), getFilePath());
-                z = te0.k1(getFilePath());
+                z = ue0.k1(getFilePath());
                 if (!z) {
                     LogUtils.d("DuFaceData", getFilePath() + " not verify");
                     FileUtils.deleteDir(new File(getFilePath()));
@@ -120,32 +147,5 @@ public class DuFaceItem extends FaceItem {
             return z;
         }
         return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.minivideo.plugin.capture.bean.FaceItem
-    public void parse(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
-            if (jSONObject != null) {
-                this.arType = jSONObject.optInt("sub_type");
-            }
-            super.parse(jSONObject);
-        }
-    }
-
-    @Override // com.baidu.minivideo.plugin.capture.bean.FaceItem, com.baidu.minivideo.plugin.capture.bean.Jsonable
-    public JSONObject toJson() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            JSONObject json = super.toJson();
-            try {
-                json.put("sub_type", this.arType);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return json;
-        }
-        return (JSONObject) invokeV.objValue;
     }
 }

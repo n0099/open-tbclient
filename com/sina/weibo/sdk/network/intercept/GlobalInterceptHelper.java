@@ -13,7 +13,7 @@ public class GlobalInterceptHelper {
     public static /* synthetic */ Interceptable $ic;
     public static GlobalInterceptHelper globalInterceptHelper;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, IRequestIntercept> globalIntercept;
+    public HashMap globalIntercept;
 
     public GlobalInterceptHelper() {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public class GlobalInterceptHelper {
                 return;
             }
         }
-        HashMap<String, IRequestIntercept> hashMap = new HashMap<>();
+        HashMap hashMap = new HashMap();
         this.globalIntercept = hashMap;
         hashMap.put(GuestParamInterception.class.getName(), new GuestParamInterception());
         this.globalIntercept.put(CommonParamInterception.class.getName(), new CommonParamInterception());
@@ -46,21 +46,24 @@ public class GlobalInterceptHelper {
         return (GlobalInterceptHelper) invokeV.objValue;
     }
 
+    public HashMap getGlobalIntercept() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            HashMap hashMap = this.globalIntercept;
+            if (hashMap == null) {
+                return new HashMap();
+            }
+            return hashMap;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
     public void addIntercept(String str, IRequestIntercept iRequestIntercept) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, iRequestIntercept) == null) {
             this.globalIntercept.put(str, iRequestIntercept);
         }
-    }
-
-    public HashMap<String, IRequestIntercept> getGlobalIntercept() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            HashMap<String, IRequestIntercept> hashMap = this.globalIntercept;
-            return hashMap == null ? new HashMap<>() : hashMap;
-        }
-        return (HashMap) invokeV.objValue;
     }
 
     public void removeIntercept(String str) {

@@ -10,6 +10,8 @@ public abstract class CloseableBitmap extends CloseableImage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract Bitmap getUnderlyingBitmap();
+
     public CloseableBitmap() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -23,6 +25,4 @@ public abstract class CloseableBitmap extends CloseableImage {
             }
         }
     }
-
-    public abstract Bitmap getUnderlyingBitmap();
 }

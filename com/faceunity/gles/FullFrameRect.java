@@ -41,36 +41,41 @@ public class FullFrameRect {
         }
     }
 
+    public void release(boolean z) {
+        Texture2dProgram texture2dProgram;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048580, this, z) == null) && (texture2dProgram = this.mProgram) != null) {
+            if (z) {
+                texture2dProgram.release();
+            }
+            this.mProgram = null;
+        }
+    }
+
     public int createTextureObject() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mProgram.createTextureObject() : invokeV.intValue;
-    }
-
-    public void drawFrame(int i, float[] fArr) {
-        Texture2dProgram texture2dProgram;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, fArr) == null) || (texture2dProgram = this.mProgram) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mProgram.createTextureObject();
         }
-        texture2dProgram.draw(GlUtil.IDENTITY_MATRIX, this.mRectDrawable.getVertexArray(), 0, this.mRectDrawable.getVertexCount(), this.mRectDrawable.getCoordsPerVertex(), this.mRectDrawable.getVertexStride(), fArr, this.mRectDrawable.getTexCoordArray(), i, this.mRectDrawable.getTexCoordStride());
+        return invokeV.intValue;
     }
 
     public Texture2dProgram getProgram() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mProgram : (Texture2dProgram) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mProgram;
+        }
+        return (Texture2dProgram) invokeV.objValue;
     }
 
-    public void release(boolean z) {
+    public void drawFrame(int i, float[] fArr) {
         Texture2dProgram texture2dProgram;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048580, this, z) == null) || (texture2dProgram = this.mProgram) == null) {
+        if ((interceptable != null && interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, fArr) != null) || (texture2dProgram = this.mProgram) == null) {
             return;
         }
-        if (z) {
-            texture2dProgram.release();
-        }
-        this.mProgram = null;
+        texture2dProgram.draw(GlUtil.IDENTITY_MATRIX, this.mRectDrawable.getVertexArray(), 0, this.mRectDrawable.getVertexCount(), this.mRectDrawable.getCoordsPerVertex(), this.mRectDrawable.getVertexStride(), fArr, this.mRectDrawable.getTexCoordArray(), i, this.mRectDrawable.getTexCoordStride());
     }
 }

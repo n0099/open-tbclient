@@ -1,77 +1,109 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
-import tbclient.NewFloorInfo;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class re7 {
+public class re7 extends rn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext a;
+    public p26 b;
+    public String c;
 
-    public static void a(ie7 ie7Var, int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public re7(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getContext(), bdUniqueId);
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65536, null, ie7Var, i) == null) || ie7Var == null || ie7Var.C() == null || ListUtils.isEmpty(ie7Var.n()) || ie7Var.n().size() < 2) {
-            return;
-        }
-        List<NewFloorInfo> n = ie7Var.n();
-        if (n.size() > 2) {
-            if (StringHelper.equals(ie7Var.C().getUserId(), TbadkCoreApplication.getCurrentAccount())) {
-                if (n.get(1) != null) {
-                    if (n.get(1).is_floor.intValue() == 0) {
-                        b(ie7Var, 12, i);
-                        return;
-                    } else if (n.get(1).is_floor.intValue() == 1) {
-                        b(ie7Var, 13, i);
-                        return;
-                    } else {
-                        return;
-                    }
-                }
-                return;
-            } else if (n.get(1) != null) {
-                if (n.get(1).is_floor.intValue() == 0) {
-                    if (ie7Var.z() != null) {
-                        if (StringHelper.equals(ie7Var.z().getUserId(), TbadkCoreApplication.getCurrentAccount())) {
-                            b(ie7Var, 14, i);
-                            return;
-                        } else {
-                            b(ie7Var, 15, i);
-                            return;
-                        }
-                    }
-                    return;
-                } else if (n.get(1).is_floor.intValue() == 1) {
-                    b(ie7Var, 16, i);
-                    return;
-                } else {
-                    return;
-                }
-            } else {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        b(ie7Var, 11, i);
+        this.a = tbPageContext;
     }
 
-    public static void b(ie7 ie7Var, int i, int i2) {
+    @Override // com.baidu.tieba.rn
+    public oo getOnAdapterItemClickListener() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(65537, null, ie7Var, i, i2) == null) || ie7Var == null || ie7Var.A() == null || ie7Var.r() == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return super.getOnAdapterItemClickListener();
         }
-        StatisticItem statisticItem = new StatisticItem("c12928");
-        statisticItem.param("tid", ie7Var.r().f);
-        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-        statisticItem.param("fid", ie7Var.r().e);
-        statisticItem.param("fname", ie7Var.r().d);
-        statisticItem.param("pid", ie7Var.t());
-        statisticItem.param("obj_type", i);
-        statisticItem.param("obj_locate", i2);
-        TiebaStatic.log(statisticItem);
+        return (oo) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.rn
+    /* renamed from: s */
+    public CardViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
+            ve7 ve7Var = new ve7(this.a, viewGroup);
+            p26 p26Var = this.b;
+            if (p26Var != null) {
+                ve7Var.n(p26Var);
+            }
+            return new CardViewHolder(ve7Var);
+        }
+        return (CardViewHolder) invokeL.objValue;
+    }
+
+    public void u(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.c = str;
+        }
+    }
+
+    public void v(p26 p26Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, p26Var) == null) {
+            this.b = p26Var;
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.rn
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, qe7 qe7Var, CardViewHolder cardViewHolder) {
+        InterceptResult invokeCommon;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, qe7Var, cardViewHolder})) == null) {
+            if (qe7Var != null && cardViewHolder != null && cardViewHolder.a() != null) {
+                ((ve7) cardViewHolder.a()).x(this.c);
+                ve7 ve7Var = (ve7) cardViewHolder.a();
+                if (i == 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                ve7Var.y(z);
+                ((ve7) cardViewHolder.a()).l(qe7Var);
+                return cardViewHolder.getView();
+            }
+            return null;
+        }
+        return (View) invokeCommon.objValue;
     }
 }

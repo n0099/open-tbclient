@@ -1,6 +1,5 @@
 package com.ss.android.downloadlib.addownload.b;
 
-import android.util.Pair;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
@@ -12,7 +11,7 @@ public class b {
     public String e;
     public String f;
     public String g;
-    public final List<Pair<String, String>> h = new ArrayList();
+    public final List h = new ArrayList();
     public String i;
 
     public static long a(long j, long j2) {

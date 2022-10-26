@@ -64,24 +64,36 @@ public final class OpusReader extends StreamReader {
 
     private long getPacketDurationUs(byte[] bArr) {
         InterceptResult invokeL;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, bArr)) == null) {
-            int i = bArr[0] & 255;
-            int i2 = i & 3;
-            int i3 = 2;
-            if (i2 == 0) {
-                i3 = 1;
-            } else if (i2 != 1 && i2 != 2) {
-                i3 = bArr[1] & 63;
+            int i2 = bArr[0] & 255;
+            int i3 = i2 & 3;
+            int i4 = 2;
+            if (i3 != 0) {
+                if (i3 != 1 && i3 != 2) {
+                    i4 = bArr[1] & 63;
+                }
+            } else {
+                i4 = 1;
             }
-            int i4 = i >> 3;
-            int i5 = i4 & 3;
-            return i3 * (i4 >= 16 ? 2500 << i5 : i4 >= 12 ? 10000 << (i5 & 1) : i5 == 3 ? 60000 : 10000 << i5);
+            int i5 = i2 >> 3;
+            int i6 = i5 & 3;
+            if (i5 >= 16) {
+                i = 2500 << i6;
+            } else if (i5 >= 12) {
+                i = 10000 << (i6 & 1);
+            } else if (i6 == 3) {
+                i = 60000;
+            } else {
+                i = 10000 << i6;
+            }
+            return i4 * i;
         }
         return invokeL.longValue;
     }
 
-    private void putNativeOrderLong(List<byte[]> list, int i) {
+    private void putNativeOrderLong(List list, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65539, this, list, i) == null) {
             list.add(ByteBuffer.allocate(8).order(ByteOrder.nativeOrder()).putLong((i * C.NANOS_PER_SECOND) / 48000).array());
@@ -108,30 +120,10 @@ public final class OpusReader extends StreamReader {
     public long preparePayload(ParsableByteArray parsableByteArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parsableByteArray)) == null) ? convertTimeToGranule(getPacketDurationUs(parsableByteArray.data)) : invokeL.longValue;
-    }
-
-    @Override // com.google.android.exoplayer2.extractor.ogg.StreamReader
-    public boolean readHeaders(ParsableByteArray parsableByteArray, long j, StreamReader.SetupData setupData) throws IOException, InterruptedException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{parsableByteArray, Long.valueOf(j), setupData})) == null) {
-            if (!this.headerRead) {
-                byte[] copyOf = Arrays.copyOf(parsableByteArray.data, parsableByteArray.limit());
-                int i = copyOf[9] & 255;
-                ArrayList arrayList = new ArrayList(3);
-                arrayList.add(copyOf);
-                putNativeOrderLong(arrayList, ((copyOf[11] & 255) << 8) | (copyOf[10] & 255));
-                putNativeOrderLong(arrayList, 3840);
-                setupData.format = Format.createAudioSampleFormat(null, MimeTypes.AUDIO_OPUS, null, -1, -1, i, 48000, arrayList, null, 0, null);
-                this.headerRead = true;
-                return true;
-            }
-            boolean z = parsableByteArray.readInt() == OPUS_CODE;
-            parsableByteArray.setPosition(0);
-            return z;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parsableByteArray)) == null) {
+            return convertTimeToGranule(getPacketDurationUs(parsableByteArray.data));
         }
-        return invokeCommon.booleanValue;
+        return invokeL.longValue;
     }
 
     @Override // com.google.android.exoplayer2.extractor.ogg.StreamReader
@@ -143,5 +135,31 @@ public final class OpusReader extends StreamReader {
                 this.headerRead = false;
             }
         }
+    }
+
+    @Override // com.google.android.exoplayer2.extractor.ogg.StreamReader
+    public boolean readHeaders(ParsableByteArray parsableByteArray, long j, StreamReader.SetupData setupData) throws IOException, InterruptedException {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{parsableByteArray, Long.valueOf(j), setupData})) == null) {
+            boolean z = true;
+            if (!this.headerRead) {
+                byte[] copyOf = Arrays.copyOf(parsableByteArray.data, parsableByteArray.limit());
+                int i = copyOf[9] & 255;
+                ArrayList arrayList = new ArrayList(3);
+                arrayList.add(copyOf);
+                putNativeOrderLong(arrayList, ((copyOf[11] & 255) << 8) | (copyOf[10] & 255));
+                putNativeOrderLong(arrayList, 3840);
+                setupData.format = Format.createAudioSampleFormat(null, MimeTypes.AUDIO_OPUS, null, -1, -1, i, 48000, arrayList, null, 0, null);
+                this.headerRead = true;
+                return true;
+            }
+            if (parsableByteArray.readInt() != OPUS_CODE) {
+                z = false;
+            }
+            parsableByteArray.setPosition(0);
+            return z;
+        }
+        return invokeCommon.booleanValue;
     }
 }

@@ -1,12 +1,12 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.app.Application;
+import android.content.Context;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.qp2;
-import com.baidu.tieba.rp2;
-import com.baidu.tieba.sp2;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.apps.lifecycle.process.LifecycleProcessType;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,15 +14,77 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes5.dex */
 public class op2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static final boolean c;
+    public static final op2 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<qp2> a;
+    public final AtomicBoolean a;
+    public final List b;
+
+    /* loaded from: classes5.dex */
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes5.dex */
+    public class b extends uo2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public final /* synthetic */ op2 b;
+
+        public b(op2 op2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {op2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = op2Var;
+            this.a = 0;
+        }
+
+        @Override // com.baidu.tieba.uo2, android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityStarted(Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
+                int i = this.a + 1;
+                this.a = i;
+                if (i == 1) {
+                    this.b.d(activity);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.uo2, android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityStopped(Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+                int i = this.a - 1;
+                this.a = i;
+                if (i == 0) {
+                    this.b.e(activity);
+                }
+            }
+        }
+
+        public /* synthetic */ b(op2 op2Var, a aVar) {
+            this(op2Var);
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -37,10 +99,33 @@ public class op2 {
                 return;
             }
         }
-        b = vj1.a;
+        c = wj1.a;
+        d = new op2();
+    }
+
+    public static op2 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return d;
+        }
+        return (op2) invokeV.objValue;
+    }
+
+    public final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (LifecycleProcessType.getCurrent() == LifecycleProcessType.MAIN) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public op2() {
+        List list;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -53,92 +138,59 @@ public class op2 {
                 return;
             }
         }
-        this.a = new ArrayList();
-        e();
+        this.a = new AtomicBoolean(false);
+        ue1 ue1Var = new np2().a;
+        if (ue1Var == null) {
+            list = null;
+        } else {
+            list = ue1Var.getList();
+        }
+        this.b = list;
     }
 
-    @Nullable
-    public final rp2 a(@NonNull String str, int i, int i2, @NonNull String str2, @NonNull Object obj) {
-        InterceptResult invokeCommon;
+    public void b(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), str2, obj})) == null) {
-            rp2.a aVar = new rp2.a();
-            aVar.e(str);
-            aVar.g(i);
-            aVar.c(i2);
-            aVar.b(str2);
-            aVar.f(obj);
-            rp2 a = aVar.a();
-            if (a == null) {
-                if (b) {
-                    Log.e("SwanLocalABTestAutoRegister", "build branch(" + str + ") fail: " + aVar.d().getMessage());
-                    return null;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, context) == null) && !this.a.getAndSet(true) && c()) {
+            Context applicationContext = context.getApplicationContext();
+            if (applicationContext instanceof Application) {
+                ((Application) applicationContext).registerActivityLifecycleCallbacks(new b(this, null));
+            }
+        }
+    }
+
+    public void d(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
+            if (c) {
+                String curProcessName = ProcessUtils.getCurProcessName();
+                Log.d("ProcessLifecycleDispatcher", curProcessName + " to foreground");
+            }
+            if (this.b != null) {
+                LifecycleProcessType current = LifecycleProcessType.getCurrent();
+                for (lp2 lp2Var : this.b) {
+                    if (current == lp2Var.b()) {
+                        lp2Var.a(true, activity);
+                    }
                 }
-                return null;
             }
-            return a;
         }
-        return (rp2) invokeCommon.objValue;
     }
 
-    @Nullable
-    public final sp2 b(int i, @NonNull String str, @NonNull Object obj) {
-        InterceptResult invokeILL;
+    public void e(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, obj)) == null) {
-            sp2.a aVar = new sp2.a();
-            aVar.e(i);
-            aVar.d(str);
-            aVar.b(obj);
-            sp2 a = aVar.a();
-            if (a == null) {
-                if (b) {
-                    Log.e("SwanLocalABTestAutoRegister", "build switch(" + str + ") fail: " + aVar.c().getMessage());
+        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+            if (c) {
+                String curProcessName = ProcessUtils.getCurProcessName();
+                Log.d("ProcessLifecycleDispatcher", curProcessName + " to background");
+            }
+            if (this.b != null) {
+                LifecycleProcessType current = LifecycleProcessType.getCurrent();
+                for (lp2 lp2Var : this.b) {
+                    if (current == lp2Var.b()) {
+                        lp2Var.a(false, activity);
+                    }
                 }
-                return null;
             }
-            return a;
-        }
-        return (sp2) invokeILL.objValue;
-    }
-
-    @NonNull
-    public List<qp2> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Collections.unmodifiableList(this.a) : (List) invokeV.objValue;
-    }
-
-    public final boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            sp2 b2 = b(3, "swan_local_first_installation_update_core_delay", 0L);
-            if (b2 == null) {
-                return false;
-            }
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(a("local_1000", 0, 20, "control group", 0L));
-            arrayList.add(a("local_1001", 1, 20, "test group 1", 100L));
-            arrayList.add(a("local_1002", 1, 20, "test group 2", 500L));
-            arrayList.add(a("local_1003", 1, 20, "test group 3", 1000L));
-            arrayList.add(a("local_1004", 1, 20, "test group 4", 2000L));
-            qp2.a aVar = new qp2.a();
-            aVar.c(b2);
-            aVar.a(arrayList);
-            qp2 b3 = aVar.b();
-            if (b3 == null) {
-                return false;
-            }
-            return this.a.add(b3);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && d()) {
-            l02.c("SwanLocalABTestAutoRegister", "test 'first install updateCore delay' register failed'");
         }
     }
 }

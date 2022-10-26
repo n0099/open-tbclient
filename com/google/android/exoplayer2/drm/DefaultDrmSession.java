@@ -1,7 +1,5 @@
 package com.google.android.exoplayer2.drm;
 
-import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.media.NotProvisionedException;
 import android.os.Handler;
 import android.os.HandlerThread;
@@ -19,15 +17,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.drm.DefaultDrmSessionManager;
 import com.google.android.exoplayer2.drm.DrmSession;
-import com.google.android.exoplayer2.drm.ExoMediaCrypto;
 import com.google.android.exoplayer2.drm.ExoMediaDrm;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
-@TargetApi(18)
 /* loaded from: classes7.dex */
-public class DefaultDrmSession<T extends ExoMediaCrypto> implements DrmSession<T> {
+public class DefaultDrmSession implements DrmSession {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_LICENSE_DURATION_TO_RENEW = 60;
     public static final int MSG_KEYS = 1;
@@ -40,22 +36,30 @@ public class DefaultDrmSession<T extends ExoMediaCrypto> implements DrmSession<T
     public final byte[] initData;
     public final int initialDrmRequestRetryCount;
     public DrmSession.DrmSessionException lastException;
-    public T mediaCrypto;
-    public final ExoMediaDrm<T> mediaDrm;
+    public ExoMediaCrypto mediaCrypto;
+    public final ExoMediaDrm mediaDrm;
     public final String mimeType;
     public final int mode;
     public byte[] offlineLicenseKeySetId;
     public int openCount;
-    public final HashMap<String, String> optionalKeyRequestParameters;
-    public DefaultDrmSession<T>.PostRequestHandler postRequestHandler;
-    public final DefaultDrmSession<T>.PostResponseHandler postResponseHandler;
-    public final ProvisioningManager<T> provisioningManager;
+    public final HashMap optionalKeyRequestParameters;
+    public PostRequestHandler postRequestHandler;
+    public final PostResponseHandler postResponseHandler;
+    public final ProvisioningManager provisioningManager;
     public HandlerThread requestHandlerThread;
     public byte[] sessionId;
     public int state;
     public final UUID uuid;
 
-    @SuppressLint({"HandlerLeak"})
+    /* loaded from: classes7.dex */
+    public interface ProvisioningManager {
+        void onProvisionCompleted();
+
+        void onProvisionError(Exception exc);
+
+        void provisionRequired(DefaultDrmSession defaultDrmSession);
+    }
+
     /* loaded from: classes7.dex */
     public class PostRequestHandler extends Handler {
         public static /* synthetic */ Interceptable $ic;
@@ -86,21 +90,30 @@ public class DefaultDrmSession<T extends ExoMediaCrypto> implements DrmSession<T
         private long getRetryDelayMillis(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i)) == null) ? Math.min((i - 1) * 1000, 5000) : invokeI.longValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i)) == null) {
+                return Math.min((i - 1) * 1000, 5000);
+            }
+            return invokeI.longValue;
         }
 
         private boolean maybeRetryRequest(Message message) {
             InterceptResult invokeL;
+            boolean z;
             int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, message)) == null) {
-                if ((message.arg1 == 1) && (i = message.arg2 + 1) <= this.this$0.initialDrmRequestRetryCount) {
-                    Message obtain = Message.obtain(message);
-                    obtain.arg2 = i;
-                    sendMessageDelayed(obtain, getRetryDelayMillis(i));
-                    return true;
+                if (message.arg1 == 1) {
+                    z = true;
+                } else {
+                    z = false;
                 }
-                return false;
+                if (!z || (i = message.arg2 + 1) > this.this$0.initialDrmRequestRetryCount) {
+                    return false;
+                }
+                Message obtain = Message.obtain(message);
+                obtain.arg2 = i;
+                sendMessageDelayed(obtain, getRetryDelayMillis(i));
+                return true;
             }
             return invokeL.booleanValue;
         }
@@ -111,12 +124,14 @@ public class DefaultDrmSession<T extends ExoMediaCrypto> implements DrmSession<T
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 try {
                     int i = message.what;
-                    if (i == 0) {
-                        e = this.this$0.callback.executeProvisionRequest(this.this$0.uuid, (ExoMediaDrm.ProvisionRequest) message.obj);
-                    } else if (i == 1) {
-                        e = this.this$0.callback.executeKeyRequest(this.this$0.uuid, (ExoMediaDrm.KeyRequest) message.obj);
+                    if (i != 0) {
+                        if (i == 1) {
+                            e = this.this$0.callback.executeKeyRequest(this.this$0.uuid, (ExoMediaDrm.KeyRequest) message.obj);
+                        } else {
+                            throw new RuntimeException();
+                        }
                     } else {
-                        throw new RuntimeException();
+                        e = this.this$0.callback.executeProvisionRequest(this.this$0.uuid, (ExoMediaDrm.ProvisionRequest) message.obj);
                     }
                 } catch (Exception e) {
                     e = e;
@@ -138,7 +153,6 @@ public class DefaultDrmSession<T extends ExoMediaCrypto> implements DrmSession<T
         }
     }
 
-    @SuppressLint({"HandlerLeak"})
     /* loaded from: classes7.dex */
     public class PostResponseHandler extends Handler {
         public static /* synthetic */ Interceptable $ic;
@@ -171,26 +185,19 @@ public class DefaultDrmSession<T extends ExoMediaCrypto> implements DrmSession<T
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 int i = message.what;
-                if (i == 0) {
-                    this.this$0.onProvisionResponse(message.obj);
-                } else if (i != 1) {
-                } else {
+                if (i != 0) {
+                    if (i != 1) {
+                        return;
+                    }
                     this.this$0.onKeyResponse(message.obj);
+                    return;
                 }
+                this.this$0.onProvisionResponse(message.obj);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public interface ProvisioningManager<T extends ExoMediaCrypto> {
-        void onProvisionCompleted();
-
-        void onProvisionError(Exception exc);
-
-        void provisionRequired(DefaultDrmSession<T> defaultDrmSession);
-    }
-
-    public DefaultDrmSession(UUID uuid, ExoMediaDrm<T> exoMediaDrm, ProvisioningManager<T> provisioningManager, byte[] bArr, String str, int i, byte[] bArr2, HashMap<String, String> hashMap, MediaDrmCallback mediaDrmCallback, Looper looper, Handler handler, DefaultDrmSessionManager.EventListener eventListener, int i2) {
+    public DefaultDrmSession(UUID uuid, ExoMediaDrm exoMediaDrm, ProvisioningManager provisioningManager, byte[] bArr, String str, int i, byte[] bArr2, HashMap hashMap, MediaDrmCallback mediaDrmCallback, Looper looper, Handler handler, DefaultDrmSessionManager.EventListener eventListener, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -228,94 +235,6 @@ public class DefaultDrmSession<T extends ExoMediaCrypto> implements DrmSession<T
         }
         this.initData = null;
         this.mimeType = null;
-    }
-
-    private void doLicense(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65541, this, z) == null) {
-            int i = this.mode;
-            if (i != 0 && i != 1) {
-                if (i != 2) {
-                    if (i == 3 && restoreKeys()) {
-                        postKeyRequest(3, z);
-                    }
-                } else if (this.offlineLicenseKeySetId == null) {
-                    postKeyRequest(2, z);
-                } else if (restoreKeys()) {
-                    postKeyRequest(2, z);
-                }
-            } else if (this.offlineLicenseKeySetId == null) {
-                postKeyRequest(1, z);
-            } else if (this.state == 4 || restoreKeys()) {
-                long licenseDurationRemainingSec = getLicenseDurationRemainingSec();
-                if (this.mode == 0 && licenseDurationRemainingSec <= 60) {
-                    Log.d(TAG, "Offline license has expired or will expire soon. Remaining seconds: " + licenseDurationRemainingSec);
-                    postKeyRequest(2, z);
-                } else if (licenseDurationRemainingSec <= 0) {
-                    onError(new KeysExpiredException());
-                } else {
-                    this.state = 4;
-                    Handler handler = this.eventHandler;
-                    if (handler == null || this.eventListener == null) {
-                        return;
-                    }
-                    handler.post(new Runnable(this) { // from class: com.google.android.exoplayer2.drm.DefaultDrmSession.1
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ DefaultDrmSession this$0;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.this$0 = this;
-                        }
-
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                this.this$0.eventListener.onDrmKeysRestored();
-                            }
-                        }
-                    });
-                }
-            }
-        }
-    }
-
-    private long getLicenseDurationRemainingSec() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
-            if (C.WIDEVINE_UUID.equals(this.uuid)) {
-                Pair<Long, Long> licenseDurationRemainingSec = WidevineUtil.getLicenseDurationRemainingSec(this);
-                return Math.min(((Long) licenseDurationRemainingSec.first).longValue(), ((Long) licenseDurationRemainingSec.second).longValue());
-            }
-            return Long.MAX_VALUE;
-        }
-        return invokeV.longValue;
-    }
-
-    private boolean isOpen() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
-            int i = this.state;
-            return i == 3 || i == 4;
-        }
-        return invokeV.booleanValue;
     }
 
     private void onError(Exception exc) {
@@ -364,102 +283,6 @@ public class DefaultDrmSession<T extends ExoMediaCrypto> implements DrmSession<T
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void onKeyResponse(Object obj) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65545, this, obj) == null) && isOpen()) {
-            if (obj instanceof Exception) {
-                onKeysError((Exception) obj);
-                return;
-            }
-            try {
-                byte[] bArr = (byte[]) obj;
-                if (C.CLEARKEY_UUID.equals(this.uuid)) {
-                    bArr = ClearKeyUtil.adjustResponseData(bArr);
-                }
-                if (this.mode == 3) {
-                    this.mediaDrm.provideKeyResponse(this.offlineLicenseKeySetId, bArr);
-                    if (this.eventHandler == null || this.eventListener == null) {
-                        return;
-                    }
-                    this.eventHandler.post(new Runnable(this) { // from class: com.google.android.exoplayer2.drm.DefaultDrmSession.2
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ DefaultDrmSession this$0;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i = newInitContext.flag;
-                                if ((i & 1) != 0) {
-                                    int i2 = i & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.this$0 = this;
-                        }
-
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                this.this$0.eventListener.onDrmKeysRemoved();
-                            }
-                        }
-                    });
-                    return;
-                }
-                byte[] provideKeyResponse = this.mediaDrm.provideKeyResponse(this.sessionId, bArr);
-                if ((this.mode == 2 || (this.mode == 0 && this.offlineLicenseKeySetId != null)) && provideKeyResponse != null && provideKeyResponse.length != 0) {
-                    this.offlineLicenseKeySetId = provideKeyResponse;
-                }
-                this.state = 4;
-                if (this.eventHandler == null || this.eventListener == null) {
-                    return;
-                }
-                this.eventHandler.post(new Runnable(this) { // from class: com.google.android.exoplayer2.drm.DefaultDrmSession.3
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ DefaultDrmSession this$0;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.this$0.eventListener.onDrmKeysLoaded();
-                        }
-                    }
-                });
-            } catch (Exception e) {
-                onKeysError(e);
-            }
-        }
-    }
-
     private void onKeysError(Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, this, exc) == null) {
@@ -471,73 +294,173 @@ public class DefaultDrmSession<T extends ExoMediaCrypto> implements DrmSession<T
         }
     }
 
+    public boolean hasInitData(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bArr)) == null) {
+            return Arrays.equals(this.initData, bArr);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean hasSessionId(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bArr)) == null) {
+            return Arrays.equals(this.sessionId, bArr);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void onMediaDrmEvent(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048583, this, i) != null) || !isOpen()) {
+            return;
+        }
+        if (i != 1) {
+            if (i != 2) {
+                if (i == 3) {
+                    onKeysExpired();
+                    return;
+                }
+                return;
+            }
+            doLicense(false);
+            return;
+        }
+        this.state = 3;
+        this.provisioningManager.provisionRequired(this);
+    }
+
+    public void onProvisionError(Exception exc) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, exc) == null) {
+            onError(exc);
+        }
+    }
+
+    private void doLicense(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65541, this, z) == null) {
+            int i = this.mode;
+            if (i != 0 && i != 1) {
+                if (i != 2) {
+                    if (i == 3 && restoreKeys()) {
+                        postKeyRequest(3, z);
+                    }
+                } else if (this.offlineLicenseKeySetId == null) {
+                    postKeyRequest(2, z);
+                } else if (restoreKeys()) {
+                    postKeyRequest(2, z);
+                }
+            } else if (this.offlineLicenseKeySetId == null) {
+                postKeyRequest(1, z);
+            } else if (this.state == 4 || restoreKeys()) {
+                long licenseDurationRemainingSec = getLicenseDurationRemainingSec();
+                if (this.mode == 0 && licenseDurationRemainingSec <= 60) {
+                    Log.d(TAG, "Offline license has expired or will expire soon. Remaining seconds: " + licenseDurationRemainingSec);
+                    postKeyRequest(2, z);
+                } else if (licenseDurationRemainingSec <= 0) {
+                    onError(new KeysExpiredException());
+                } else {
+                    this.state = 4;
+                    Handler handler = this.eventHandler;
+                    if (handler != null && this.eventListener != null) {
+                        handler.post(new Runnable(this) { // from class: com.google.android.exoplayer2.drm.DefaultDrmSession.1
+                            public static /* synthetic */ Interceptable $ic;
+                            public transient /* synthetic */ FieldHolder $fh;
+                            public final /* synthetic */ DefaultDrmSession this$0;
+
+                            {
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 != null) {
+                                    InitContext newInitContext = TitanRuntime.newInitContext();
+                                    newInitContext.initArgs = r2;
+                                    Object[] objArr = {this};
+                                    interceptable2.invokeUnInit(65536, newInitContext);
+                                    int i2 = newInitContext.flag;
+                                    if ((i2 & 1) != 0) {
+                                        int i3 = i2 & 2;
+                                        newInitContext.thisArg = this;
+                                        interceptable2.invokeInitBody(65536, newInitContext);
+                                        return;
+                                    }
+                                }
+                                this.this$0 = this;
+                            }
+
+                            @Override // java.lang.Runnable
+                            public void run() {
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                    this.this$0.eventListener.onDrmKeysRestored();
+                                }
+                            }
+                        });
+                    }
+                }
+            }
+        }
+    }
+
+    private long getLicenseDurationRemainingSec() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
+            if (!C.WIDEVINE_UUID.equals(this.uuid)) {
+                return Long.MAX_VALUE;
+            }
+            Pair licenseDurationRemainingSec = WidevineUtil.getLicenseDurationRemainingSec(this);
+            return Math.min(((Long) licenseDurationRemainingSec.first).longValue(), ((Long) licenseDurationRemainingSec.second).longValue());
+        }
+        return invokeV.longValue;
+    }
+
+    public boolean release() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            int i = this.openCount - 1;
+            this.openCount = i;
+            if (i != 0) {
+                return false;
+            }
+            this.state = 0;
+            this.postResponseHandler.removeCallbacksAndMessages(null);
+            this.postRequestHandler.removeCallbacksAndMessages(null);
+            this.postRequestHandler = null;
+            this.requestHandlerThread.quit();
+            this.requestHandlerThread = null;
+            this.mediaCrypto = null;
+            this.lastException = null;
+            byte[] bArr = this.sessionId;
+            if (bArr != null) {
+                this.mediaDrm.closeSession(bArr);
+                this.sessionId = null;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    private boolean isOpen() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
+            int i = this.state;
+            if (i != 3 && i != 4) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
     private void onKeysExpired() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65547, this) == null) && this.state == 4) {
             this.state = 3;
             onError(new KeysExpiredException());
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void onProvisionResponse(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65548, this, obj) == null) {
-            if (this.state == 2 || isOpen()) {
-                if (obj instanceof Exception) {
-                    this.provisioningManager.onProvisionError((Exception) obj);
-                    return;
-                }
-                try {
-                    this.mediaDrm.provideProvisionResponse((byte[]) obj);
-                    this.provisioningManager.onProvisionCompleted();
-                } catch (Exception e) {
-                    this.provisioningManager.onProvisionError(e);
-                }
-            }
-        }
-    }
-
-    private boolean openInternal(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65549, this, z)) == null) {
-            if (isOpen()) {
-                return true;
-            }
-            try {
-                byte[] openSession = this.mediaDrm.openSession();
-                this.sessionId = openSession;
-                this.mediaCrypto = this.mediaDrm.createMediaCrypto(openSession);
-                this.state = 3;
-                return true;
-            } catch (NotProvisionedException e) {
-                if (z) {
-                    this.provisioningManager.provisionRequired(this);
-                    return false;
-                }
-                onError(e);
-                return false;
-            } catch (Exception e2) {
-                onError(e2);
-                return false;
-            }
-        }
-        return invokeZ.booleanValue;
-    }
-
-    private void postKeyRequest(int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65550, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            try {
-                ExoMediaDrm.KeyRequest keyRequest = this.mediaDrm.getKeyRequest(i == 3 ? this.offlineLicenseKeySetId : this.sessionId, this.initData, this.mimeType, i, this.optionalKeyRequestParameters);
-                if (C.CLEARKEY_UUID.equals(this.uuid)) {
-                    keyRequest = new ExoMediaDrm.DefaultKeyRequest(ClearKeyUtil.adjustRequestData(keyRequest.getData()), keyRequest.getDefaultUrl());
-                }
-                this.postRequestHandler.obtainMessage(1, keyRequest, z).sendToTarget();
-            } catch (Exception e) {
-                onKeysError(e);
-            }
         }
     }
 
@@ -582,64 +505,39 @@ public class DefaultDrmSession<T extends ExoMediaCrypto> implements DrmSession<T
     }
 
     @Override // com.google.android.exoplayer2.drm.DrmSession
-    public final T getMediaCrypto() {
+    public final ExoMediaCrypto getMediaCrypto() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mediaCrypto : (T) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mediaCrypto;
+        }
+        return (ExoMediaCrypto) invokeV.objValue;
     }
 
     @Override // com.google.android.exoplayer2.drm.DrmSession
     public byte[] getOfflineLicenseKeySetId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.offlineLicenseKeySetId : (byte[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.offlineLicenseKeySetId;
+        }
+        return (byte[]) invokeV.objValue;
     }
 
     @Override // com.google.android.exoplayer2.drm.DrmSession
     public final int getState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.state : invokeV.intValue;
-    }
-
-    public boolean hasInitData(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bArr)) == null) ? Arrays.equals(this.initData, bArr) : invokeL.booleanValue;
-    }
-
-    public boolean hasSessionId(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bArr)) == null) ? Arrays.equals(this.sessionId, bArr) : invokeL.booleanValue;
-    }
-
-    public void onMediaDrmEvent(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048583, this, i) == null) && isOpen()) {
-            if (i == 1) {
-                this.state = 3;
-                this.provisioningManager.provisionRequired(this);
-            } else if (i == 2) {
-                doLicense(false);
-            } else if (i != 3) {
-            } else {
-                onKeysExpired();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.state;
         }
+        return invokeV.intValue;
     }
 
     public void onProvisionCompleted() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && openInternal(false)) {
             doLicense(true);
-        }
-    }
-
-    public void onProvisionError(Exception exc) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, exc) == null) {
-            onError(exc);
         }
     }
 
@@ -651,7 +549,7 @@ public class DefaultDrmSession<T extends ExoMediaCrypto> implements DrmSession<T
     }
 
     @Override // com.google.android.exoplayer2.drm.DrmSession
-    public Map<String, String> queryKeyStatus() {
+    public Map queryKeyStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
@@ -664,30 +562,168 @@ public class DefaultDrmSession<T extends ExoMediaCrypto> implements DrmSession<T
         return (Map) invokeV.objValue;
     }
 
-    public boolean release() {
-        InterceptResult invokeV;
+    /* JADX INFO: Access modifiers changed from: private */
+    public void onKeyResponse(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            int i = this.openCount - 1;
-            this.openCount = i;
-            if (i == 0) {
-                this.state = 0;
-                this.postResponseHandler.removeCallbacksAndMessages(null);
-                this.postRequestHandler.removeCallbacksAndMessages(null);
-                this.postRequestHandler = null;
-                this.requestHandlerThread.quit();
-                this.requestHandlerThread = null;
-                this.mediaCrypto = null;
-                this.lastException = null;
-                byte[] bArr = this.sessionId;
-                if (bArr != null) {
-                    this.mediaDrm.closeSession(bArr);
-                    this.sessionId = null;
+        if ((interceptable != null && interceptable.invokeL(65545, this, obj) != null) || !isOpen()) {
+            return;
+        }
+        if (obj instanceof Exception) {
+            onKeysError((Exception) obj);
+            return;
+        }
+        try {
+            byte[] bArr = (byte[]) obj;
+            if (C.CLEARKEY_UUID.equals(this.uuid)) {
+                bArr = ClearKeyUtil.adjustResponseData(bArr);
+            }
+            if (this.mode == 3) {
+                this.mediaDrm.provideKeyResponse(this.offlineLicenseKeySetId, bArr);
+                if (this.eventHandler != null && this.eventListener != null) {
+                    this.eventHandler.post(new Runnable(this) { // from class: com.google.android.exoplayer2.drm.DefaultDrmSession.2
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+                        public final /* synthetic */ DefaultDrmSession this$0;
+
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {this};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.this$0 = this;
+                        }
+
+                        @Override // java.lang.Runnable
+                        public void run() {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                this.this$0.eventListener.onDrmKeysRemoved();
+                            }
+                        }
+                    });
+                    return;
                 }
+                return;
+            }
+            byte[] provideKeyResponse = this.mediaDrm.provideKeyResponse(this.sessionId, bArr);
+            if ((this.mode == 2 || (this.mode == 0 && this.offlineLicenseKeySetId != null)) && provideKeyResponse != null && provideKeyResponse.length != 0) {
+                this.offlineLicenseKeySetId = provideKeyResponse;
+            }
+            this.state = 4;
+            if (this.eventHandler != null && this.eventListener != null) {
+                this.eventHandler.post(new Runnable(this) { // from class: com.google.android.exoplayer2.drm.DefaultDrmSession.3
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ DefaultDrmSession this$0;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                    }
+
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            this.this$0.eventListener.onDrmKeysLoaded();
+                        }
+                    }
+                });
+            }
+        } catch (Exception e) {
+            onKeysError(e);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void onProvisionResponse(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65548, this, obj) == null) {
+            if (this.state != 2 && !isOpen()) {
+                return;
+            }
+            if (obj instanceof Exception) {
+                this.provisioningManager.onProvisionError((Exception) obj);
+                return;
+            }
+            try {
+                this.mediaDrm.provideProvisionResponse((byte[]) obj);
+                this.provisioningManager.onProvisionCompleted();
+            } catch (Exception e) {
+                this.provisioningManager.onProvisionError(e);
+            }
+        }
+    }
+
+    private boolean openInternal(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65549, this, z)) == null) {
+            if (isOpen()) {
                 return true;
             }
-            return false;
+            try {
+                byte[] openSession = this.mediaDrm.openSession();
+                this.sessionId = openSession;
+                this.mediaCrypto = this.mediaDrm.createMediaCrypto(openSession);
+                this.state = 3;
+                return true;
+            } catch (NotProvisionedException e) {
+                if (z) {
+                    this.provisioningManager.provisionRequired(this);
+                    return false;
+                }
+                onError(e);
+                return false;
+            } catch (Exception e2) {
+                onError(e2);
+                return false;
+            }
         }
-        return invokeV.booleanValue;
+        return invokeZ.booleanValue;
+    }
+
+    private void postKeyRequest(int i, boolean z) {
+        byte[] bArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65550, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            if (i == 3) {
+                bArr = this.offlineLicenseKeySetId;
+            } else {
+                bArr = this.sessionId;
+            }
+            try {
+                ExoMediaDrm.KeyRequest keyRequest = this.mediaDrm.getKeyRequest(bArr, this.initData, this.mimeType, i, this.optionalKeyRequestParameters);
+                if (C.CLEARKEY_UUID.equals(this.uuid)) {
+                    keyRequest = new ExoMediaDrm.DefaultKeyRequest(ClearKeyUtil.adjustRequestData(keyRequest.getData()), keyRequest.getDefaultUrl());
+                }
+                this.postRequestHandler.obtainMessage(1, keyRequest, z).sendToTarget();
+            } catch (Exception e) {
+                onKeysError(e);
+            }
+        }
     }
 }

@@ -107,59 +107,6 @@ public final class GenericGFPoly {
         return (GenericGFPoly[]) invokeL.objValue;
     }
 
-    public int evaluateAt(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            if (i == 0) {
-                return getCoefficient(0);
-            }
-            if (i == 1) {
-                int i2 = 0;
-                for (int i3 : this.coefficients) {
-                    i2 = GenericGF.addOrSubtract(i2, i3);
-                }
-                return i2;
-            }
-            int[] iArr = this.coefficients;
-            int i4 = iArr[0];
-            int length = iArr.length;
-            for (int i5 = 1; i5 < length; i5++) {
-                i4 = GenericGF.addOrSubtract(this.field.multiply(i, i4), this.coefficients[i5]);
-            }
-            return i4;
-        }
-        return invokeI.intValue;
-    }
-
-    public int getCoefficient(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            int[] iArr = this.coefficients;
-            return iArr[(iArr.length - 1) - i];
-        }
-        return invokeI.intValue;
-    }
-
-    public int[] getCoefficients() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.coefficients : (int[]) invokeV.objValue;
-    }
-
-    public int getDegree() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.coefficients.length - 1 : invokeV.intValue;
-    }
-
-    public boolean isZero() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.coefficients[0] == 0 : invokeV.booleanValue;
-    }
-
     public GenericGFPoly multiply(GenericGFPoly genericGFPoly) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -185,6 +132,91 @@ public final class GenericGFPoly {
             throw new IllegalArgumentException("GenericGFPolys do not have same GenericGF field");
         }
         return (GenericGFPoly) invokeL.objValue;
+    }
+
+    public int evaluateAt(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            if (i == 0) {
+                return getCoefficient(0);
+            }
+            if (i == 1) {
+                int i2 = 0;
+                for (int i3 : this.coefficients) {
+                    i2 = GenericGF.addOrSubtract(i2, i3);
+                }
+                return i2;
+            }
+            int[] iArr = this.coefficients;
+            int i4 = iArr[0];
+            int length = iArr.length;
+            for (int i5 = 1; i5 < length; i5++) {
+                i4 = GenericGF.addOrSubtract(this.field.multiply(i, i4), this.coefficients[i5]);
+            }
+            return i4;
+        }
+        return invokeI.intValue;
+    }
+
+    public GenericGFPoly multiply(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            if (i == 0) {
+                return this.field.getZero();
+            }
+            if (i == 1) {
+                return this;
+            }
+            int length = this.coefficients.length;
+            int[] iArr = new int[length];
+            for (int i2 = 0; i2 < length; i2++) {
+                iArr[i2] = this.field.multiply(this.coefficients[i2], i);
+            }
+            return new GenericGFPoly(this.field, iArr);
+        }
+        return (GenericGFPoly) invokeI.objValue;
+    }
+
+    public int getCoefficient(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            int[] iArr = this.coefficients;
+            return iArr[(iArr.length - 1) - i];
+        }
+        return invokeI.intValue;
+    }
+
+    public int[] getCoefficients() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.coefficients;
+        }
+        return (int[]) invokeV.objValue;
+    }
+
+    public int getDegree() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.coefficients.length - 1;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean isZero() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (this.coefficients[0] != 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     public GenericGFPoly multiplyByMonomial(int i, int i2) {
@@ -245,25 +277,5 @@ public final class GenericGFPoly {
             return sb.toString();
         }
         return (String) invokeV.objValue;
-    }
-
-    public GenericGFPoly multiply(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            if (i == 0) {
-                return this.field.getZero();
-            }
-            if (i == 1) {
-                return this;
-            }
-            int length = this.coefficients.length;
-            int[] iArr = new int[length];
-            for (int i2 = 0; i2 < length; i2++) {
-                iArr[i2] = this.field.multiply(this.coefficients[i2], i);
-            }
-            return new GenericGFPoly(this.field, iArr);
-        }
-        return (GenericGFPoly) invokeI.objValue;
     }
 }

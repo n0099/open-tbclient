@@ -6,7 +6,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.ox4;
+import com.baidu.tieba.ux4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,6 +36,27 @@ public class ChannelInitHelper {
         }
     }
 
+    public static String getFromByShare() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return ux4.k().q("from_id", null);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean hasInitFinish() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (TbConfig.getCurrentFrom() != null && TbConfig.getFrom() != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     public static String getFromByFile() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -43,13 +64,13 @@ public class ChannelInitHelper {
             String str = null;
             try {
                 File GetFile = FileHelper.GetFile(TbConfig.FROM_FILE);
-                if (GetFile != null) {
-                    BufferedReader bufferedReader = new BufferedReader(new FileReader(GetFile));
-                    str = bufferedReader.readLine();
-                    bufferedReader.close();
-                    return str;
+                if (GetFile == null) {
+                    return null;
                 }
-                return null;
+                BufferedReader bufferedReader = new BufferedReader(new FileReader(GetFile));
+                str = bufferedReader.readLine();
+                bufferedReader.close();
+                return str;
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
                 TiebaStatic.file(e, "TiebaApplication.getFromByFile");
@@ -57,18 +78,6 @@ public class ChannelInitHelper {
             }
         }
         return (String) invokeV.objValue;
-    }
-
-    public static String getFromByShare() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? ox4.k().q("from_id", null) : (String) invokeV.objValue;
-    }
-
-    public static boolean hasInitFinish() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (TbConfig.getCurrentFrom() == null || TbConfig.getFrom() == null) ? false : true : invokeV.booleanValue;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:33:0x0077 */
@@ -150,28 +159,27 @@ public class ChannelInitHelper {
 
     public static void saveFromToFile(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65541, null, str) == null) || str == null || str.length() <= 0) {
-            return;
-        }
-        try {
-            File CreateFile = FileHelper.CreateFile(TbConfig.FROM_FILE);
-            if (CreateFile != null) {
-                FileWriter fileWriter = new FileWriter(CreateFile);
-                fileWriter.append((CharSequence) str);
-                fileWriter.flush();
-                fileWriter.close();
+        if ((interceptable == null || interceptable.invokeL(65541, null, str) == null) && str != null && str.length() > 0) {
+            try {
+                File CreateFile = FileHelper.CreateFile(TbConfig.FROM_FILE);
+                if (CreateFile != null) {
+                    FileWriter fileWriter = new FileWriter(CreateFile);
+                    fileWriter.append((CharSequence) str);
+                    fileWriter.flush();
+                    fileWriter.close();
+                }
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                TiebaStatic.file(e, "TiebaApplication.saveFromToFile");
             }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-            TiebaStatic.file(e, "TiebaApplication.saveFromToFile");
         }
     }
 
     public static void saveFromToShare(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65542, null, str) == null) || str == null || str.length() <= 0 || !TbadkCoreApplication.getInst().isMainProcess(true)) {
+        if ((interceptable != null && interceptable.invokeL(65542, null, str) != null) || str == null || str.length() <= 0 || !TbadkCoreApplication.getInst().isMainProcess(true)) {
             return;
         }
-        ox4.k().y("from_id", str);
+        ux4.k().y("from_id", str);
     }
 }

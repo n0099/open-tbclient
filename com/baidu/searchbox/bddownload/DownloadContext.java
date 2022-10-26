@@ -4,8 +4,6 @@ import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.SystemClock;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bddownload.DownloadTask;
@@ -39,7 +37,6 @@ public class DownloadContext {
     public static final Executor SERIAL_EXECUTOR;
     public static final String TAG = "DownloadContext";
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
     public final DownloadContextListener contextListener;
     public final QueueSet set;
     public volatile boolean started;
@@ -47,7 +44,7 @@ public class DownloadContext {
     public Handler uiHandler;
 
     /* loaded from: classes2.dex */
-    public static class AlterContext {
+    public class AlterContext {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final DownloadContext context;
@@ -73,24 +70,24 @@ public class DownloadContext {
         public AlterContext replaceTask(DownloadTask downloadTask, DownloadTask downloadTask2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, downloadTask, downloadTask2)) == null) {
-                DownloadTask[] downloadTaskArr = this.context.tasks;
-                for (int i = 0; i < downloadTaskArr.length; i++) {
-                    if (downloadTaskArr[i] == downloadTask) {
-                        downloadTaskArr[i] = downloadTask2;
-                    }
-                }
-                return this;
+            if (interceptable != null && (invokeLL = interceptable.invokeLL(1048576, this, downloadTask, downloadTask2)) != null) {
+                return (AlterContext) invokeLL.objValue;
             }
-            return (AlterContext) invokeLL.objValue;
+            DownloadTask[] downloadTaskArr = this.context.tasks;
+            for (int i = 0; i < downloadTaskArr.length; i++) {
+                if (downloadTaskArr[i] == downloadTask) {
+                    downloadTaskArr[i] = downloadTask2;
+                }
+            }
+            return this;
         }
     }
 
     /* loaded from: classes2.dex */
-    public static class Builder {
+    public class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final ArrayList<DownloadTask> boundTaskList;
+        public final ArrayList boundTaskList;
         public DownloadContextListener listener;
         public final QueueSet set;
 
@@ -112,54 +109,13 @@ public class DownloadContext {
             }
         }
 
-        public DownloadTask bind(@NonNull String str, PriorityStrategy.Priority priority) throws IllegalArgumentException {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, priority)) == null) {
-                if (this.set.uri != null) {
-                    return bind(new DownloadTask.Builder(str, this.set.uri).setFilenameFromResponse(Boolean.TRUE), priority);
-                }
-                throw new IllegalArgumentException("If you want to bind only with url, you have to provide parentPath on QueueSet!");
-            }
-            return (DownloadTask) invokeLL.objValue;
-        }
-
-        public Builder bindSetTask(@NonNull DownloadTask downloadTask) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadTask)) == null) {
-                int indexOf = this.boundTaskList.indexOf(downloadTask);
-                if (indexOf >= 0) {
-                    this.boundTaskList.set(indexOf, downloadTask);
-                } else {
-                    this.boundTaskList.add(downloadTask);
-                }
-                return this;
-            }
-            return (Builder) invokeL.objValue;
-        }
-
         public DownloadContext build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new DownloadContext((DownloadTask[]) this.boundTaskList.toArray(new DownloadTask[this.boundTaskList.size()]), this.listener, this.set) : (DownloadContext) invokeV.objValue;
-        }
-
-        public Builder setListener(DownloadContextListener downloadContextListener) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, downloadContextListener)) == null) {
-                this.listener = downloadContextListener;
-                return this;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return new DownloadContext((DownloadTask[]) this.boundTaskList.toArray(new DownloadTask[this.boundTaskList.size()]), this.listener, this.set);
             }
-            return (Builder) invokeL.objValue;
-        }
-
-        public void unbind(@NonNull DownloadTask downloadTask) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, downloadTask) == null) {
-                this.boundTaskList.remove(downloadTask);
-            }
+            return (DownloadContext) invokeV.objValue;
         }
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -194,7 +150,7 @@ public class DownloadContext {
             }
         }
 
-        public Builder(QueueSet queueSet, ArrayList<DownloadTask> arrayList) {
+        public Builder(QueueSet queueSet, ArrayList arrayList) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -213,7 +169,19 @@ public class DownloadContext {
             this.boundTaskList = arrayList;
         }
 
-        public DownloadTask bind(@NonNull DownloadTask.Builder builder, PriorityStrategy.Priority priority) {
+        public DownloadTask bind(String str, PriorityStrategy.Priority priority) throws IllegalArgumentException {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, priority)) == null) {
+                if (this.set.uri != null) {
+                    return bind(new DownloadTask.Builder(str, this.set.uri).setFilenameFromResponse(Boolean.TRUE), priority);
+                }
+                throw new IllegalArgumentException("If you want to bind only with url, you have to provide parentPath on QueueSet!");
+            }
+            return (DownloadTask) invokeLL.objValue;
+        }
+
+        public DownloadTask bind(DownloadTask.Builder builder, PriorityStrategy.Priority priority) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, builder, priority)) == null) {
@@ -256,19 +224,56 @@ public class DownloadContext {
             }
             return (DownloadTask) invokeLL.objValue;
         }
+
+        public Builder bindSetTask(DownloadTask downloadTask) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadTask)) == null) {
+                int indexOf = this.boundTaskList.indexOf(downloadTask);
+                if (indexOf >= 0) {
+                    this.boundTaskList.set(indexOf, downloadTask);
+                } else {
+                    this.boundTaskList.add(downloadTask);
+                }
+                return this;
+            }
+            return (Builder) invokeL.objValue;
+        }
+
+        public Builder setListener(DownloadContextListener downloadContextListener) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, downloadContextListener)) == null) {
+                this.listener = downloadContextListener;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
+        }
+
+        public void unbind(DownloadTask downloadTask) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, downloadTask) == null) {
+                this.boundTaskList.remove(downloadTask);
+            }
+        }
     }
 
     /* loaded from: classes2.dex */
-    public static class QueueAttachTaskStartEndListener extends DownloadTaskStartEndListener {
+    public class QueueAttachTaskStartEndListener extends DownloadTaskStartEndListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        @NonNull
         public final DownloadContextListener contextListener;
-        @NonNull
         public final DownloadContext hostContext;
         public final AtomicInteger remainCount;
 
-        public QueueAttachTaskStartEndListener(@NonNull DownloadContext downloadContext, @NonNull DownloadContextListener downloadContextListener, int i) {
+        @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
+        public void taskStart(DownloadTask downloadTask) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadTask) == null) {
+            }
+        }
+
+        public QueueAttachTaskStartEndListener(DownloadContext downloadContext, DownloadContextListener downloadContextListener, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -289,7 +294,7 @@ public class DownloadContext {
         }
 
         @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-        public void taskEnd(@NonNull DownloadTask downloadTask, @NonNull EndCause endCause, @Nullable Exception exc) {
+        public void taskEnd(DownloadTask downloadTask, EndCause endCause, Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, downloadTask, endCause, exc) == null) {
                 int decrementAndGet = this.remainCount.decrementAndGet();
@@ -300,22 +305,15 @@ public class DownloadContext {
                 }
             }
         }
-
-        @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-        public void taskStart(@NonNull DownloadTask downloadTask) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadTask) == null) {
-            }
-        }
     }
 
     /* loaded from: classes2.dex */
-    public static class QueueSet {
+    public class QueueSet {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Boolean autoCallbackToUIThread;
         public Integer flushBufferSize;
-        public Map<String, List<String>> headerMapFields;
+        public Map headerMapFields;
         public Integer minIntervalMillisCallbackProcess;
         public Boolean passIfAlreadyCompleted;
         public Integer readBufferSize;
@@ -342,13 +340,19 @@ public class DownloadContext {
         public Builder commit() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new Builder(this) : (Builder) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new Builder(this);
+            }
+            return (Builder) invokeV.objValue;
         }
 
         public Uri getDirUri() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.uri : (Uri) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.uri;
+            }
+            return (Uri) invokeV.objValue;
         }
 
         public int getFlushBufferSize() {
@@ -364,10 +368,13 @@ public class DownloadContext {
             return invokeV.intValue;
         }
 
-        public Map<String, List<String>> getHeaderMapFields() {
+        public Map getHeaderMapFields() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.headerMapFields : (Map) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.headerMapFields;
+            }
+            return (Map) invokeV.objValue;
         }
 
         public int getMinIntervalMillisCallbackProcess() {
@@ -425,7 +432,10 @@ public class DownloadContext {
         public Object getTag() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.tag : invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                return this.tag;
+            }
+            return invokeV.objValue;
         }
 
         public boolean isAutoCallbackToUIThread() {
@@ -487,7 +497,7 @@ public class DownloadContext {
             return (QueueSet) invokeI.objValue;
         }
 
-        public void setHeaderMapFields(Map<String, List<String>> map) {
+        public void setHeaderMapFields(Map map) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048590, this, map) == null) {
                 this.headerMapFields = map;
@@ -504,13 +514,16 @@ public class DownloadContext {
             return (QueueSet) invokeL.objValue;
         }
 
-        public QueueSet setParentPath(@NonNull String str) {
+        public QueueSet setParentPath(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) ? setParentPathFile(new File(str)) : (QueueSet) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
+                return setParentPathFile(new File(str));
+            }
+            return (QueueSet) invokeL.objValue;
         }
 
-        public QueueSet setParentPathFile(@NonNull File file) {
+        public QueueSet setParentPathFile(File file) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, file)) == null) {
@@ -523,7 +536,7 @@ public class DownloadContext {
             return (QueueSet) invokeL.objValue;
         }
 
-        public QueueSet setParentPathUri(@NonNull Uri uri) {
+        public QueueSet setParentPathUri(Uri uri) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, uri)) == null) {
@@ -610,8 +623,29 @@ public class DownloadContext {
         SERIAL_EXECUTOR = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 30L, TimeUnit.SECONDS, new SynchronousQueue(), Util.threadFactory("BdDownload Serial", false));
     }
 
+    public DownloadContext(DownloadTask[] downloadTaskArr, DownloadContextListener downloadContextListener, QueueSet queueSet) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {downloadTaskArr, downloadContextListener, queueSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.started = false;
+        this.tasks = downloadTaskArr;
+        this.contextListener = downloadContextListener;
+        this.set = queueSet;
+    }
+
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public DownloadContext(@NonNull DownloadTask[] downloadTaskArr, @Nullable DownloadContextListener downloadContextListener, @NonNull QueueSet queueSet, @NonNull Handler handler) {
+    public DownloadContext(DownloadTask[] downloadTaskArr, DownloadContextListener downloadContextListener, QueueSet queueSet, Handler handler) {
         this(downloadTaskArr, downloadContextListener, queueSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -632,11 +666,40 @@ public class DownloadContext {
         this.uiHandler = handler;
     }
 
+    public void addOneTask(int i, DownloadListener downloadListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, downloadListener) == null) {
+            this.started = true;
+            this.tasks[i].enqueue(downloadListener);
+        }
+    }
+
+    public void executeOnSerialExecutor(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable) == null) {
+            SERIAL_EXECUTOR.execute(runnable);
+        }
+    }
+
+    public void startOnParallel(DownloadListener downloadListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, downloadListener) == null) {
+            start(downloadListener, false);
+        }
+    }
+
+    public void startOnSerial(DownloadListener downloadListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, downloadListener) == null) {
+            start(downloadListener, true);
+        }
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public void callbackQueueEndOnSerialLoop(boolean z) {
         DownloadContextListener downloadContextListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(65541, this, z) == null) || (downloadContextListener = this.contextListener) == null) {
+        if ((interceptable != null && interceptable.invokeZ(65541, this, z) != null) || (downloadContextListener = this.contextListener) == null) {
             return;
         }
         if (z) {
@@ -680,40 +743,53 @@ public class DownloadContext {
         downloadContextListener.queueEnd(this);
     }
 
-    public void addOneTask(int i, DownloadListener downloadListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, downloadListener) == null) {
-            this.started = true;
-            this.tasks[i].enqueue(downloadListener);
-        }
-    }
-
     public AlterContext alter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new AlterContext(this) : (AlterContext) invokeV.objValue;
-    }
-
-    public void executeOnSerialExecutor(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable) == null) {
-            SERIAL_EXECUTOR.execute(runnable);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return new AlterContext(this);
         }
+        return (AlterContext) invokeV.objValue;
     }
 
     public DownloadTask[] getTasks() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.tasks : (DownloadTask[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.tasks;
+        }
+        return (DownloadTask[]) invokeV.objValue;
     }
 
     public boolean isStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.started : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.started;
+        }
+        return invokeV.booleanValue;
     }
 
-    public void start(@Nullable DownloadListener downloadListener, boolean z) {
+    public void stop() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            if (this.started) {
+                BdDownload.with().downloadDispatcher().cancel(this.tasks);
+            }
+            this.started = false;
+        }
+    }
+
+    public Builder toBuilder() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return new Builder(this.set, new ArrayList(Arrays.asList(this.tasks))).setListener(this.contextListener);
+        }
+        return (Builder) invokeV.objValue;
+    }
+
+    public void start(DownloadListener downloadListener, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048581, this, downloadListener, z) == null) {
             long uptimeMillis = SystemClock.uptimeMillis();
@@ -758,11 +834,12 @@ public class DownloadContext {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                             for (DownloadTask downloadTask : this.val$scheduleTaskList) {
-                                if (!this.this$0.isStarted()) {
+                                if (this.this$0.isStarted()) {
+                                    downloadTask.execute(this.val$targetListener);
+                                } else {
                                     this.this$0.callbackQueueEndOnSerialLoop(downloadTask.isAutoCallbackToUIThread());
                                     return;
                                 }
-                                downloadTask.execute(this.val$targetListener);
                             }
                         }
                     }
@@ -772,56 +849,5 @@ public class DownloadContext {
             }
             Util.d(TAG, "start finish " + z + " " + (SystemClock.uptimeMillis() - uptimeMillis) + "ms");
         }
-    }
-
-    public void startOnParallel(DownloadListener downloadListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, downloadListener) == null) {
-            start(downloadListener, false);
-        }
-    }
-
-    public void startOnSerial(DownloadListener downloadListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, downloadListener) == null) {
-            start(downloadListener, true);
-        }
-    }
-
-    public void stop() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            if (this.started) {
-                BdDownload.with().downloadDispatcher().cancel(this.tasks);
-            }
-            this.started = false;
-        }
-    }
-
-    public Builder toBuilder() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? new Builder(this.set, new ArrayList(Arrays.asList(this.tasks))).setListener(this.contextListener) : (Builder) invokeV.objValue;
-    }
-
-    public DownloadContext(@NonNull DownloadTask[] downloadTaskArr, @Nullable DownloadContextListener downloadContextListener, @NonNull QueueSet queueSet) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {downloadTaskArr, downloadContextListener, queueSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.started = false;
-        this.tasks = downloadTaskArr;
-        this.contextListener = downloadContextListener;
-        this.set = queueSet;
     }
 }

@@ -14,21 +14,27 @@ public class U1 {
     public transient /* synthetic */ FieldHolder $fh;
 
     public static void a(Context context) {
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65536, null, context) == null) {
             S1 s1 = new S1(null);
             try {
                 LocationManager locationManager = (LocationManager) context.getSystemService("location");
                 List<String> providers = locationManager.getProviders(true);
-                String str = providers.contains("network") ? "network" : providers.contains("gps") ? "gps" : null;
-                if (TextUtils.isEmpty(str)) {
-                    return;
-                }
-                Location lastKnownLocation = locationManager.getLastKnownLocation(str);
-                if (lastKnownLocation != null) {
-                    s1.onLocationChanged(lastKnownLocation);
+                if (providers.contains("network")) {
+                    str = "network";
+                } else if (providers.contains("gps")) {
+                    str = "gps";
                 } else {
-                    locationManager.requestLocationUpdates(str, 1000L, 0.0f, s1, Looper.getMainLooper());
+                    str = null;
+                }
+                if (!TextUtils.isEmpty(str)) {
+                    Location lastKnownLocation = locationManager.getLastKnownLocation(str);
+                    if (lastKnownLocation != null) {
+                        s1.onLocationChanged(lastKnownLocation);
+                    } else {
+                        locationManager.requestLocationUpdates(str, 1000L, 0.0f, s1, Looper.getMainLooper());
+                    }
                 }
             } catch (Exception e) {
                 e.printStackTrace();

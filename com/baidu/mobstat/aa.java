@@ -1,33 +1,95 @@
 package com.baidu.mobstat;
 
-import android.os.Build;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public final class aa {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static boolean a = true;
-    public static final String b;
-    public static final String c;
+public class aa {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public String b;
+    public boolean c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(581656850, "Lcom/baidu/mobstat/aa;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(581656850, "Lcom/baidu/mobstat/aa;");
+    public aa() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        b = Build.VERSION.SDK_INT < 9 ? "http://datax.baidu.com/xs.gif" : "https://datax.baidu.com/xs.gif";
-        c = Build.VERSION.SDK_INT < 9 ? "http://dxp.baidu.com/upgrade" : "https://dxp.baidu.com/upgrade";
+        this.a = false;
+        this.b = "";
+        this.c = false;
+    }
+
+    public aa(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONObject};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = false;
+        this.b = "";
+        this.c = false;
+        try {
+            this.a = jSONObject.getBoolean("SDK_BPLUS_SERVICE");
+        } catch (Exception e) {
+            ba.c().b(e);
+        }
+        try {
+            this.b = jSONObject.getString("SDK_PRODUCT_LY");
+        } catch (Exception e2) {
+            ba.c().b(e2);
+        }
+        try {
+            this.c = jSONObject.getBoolean("SDK_LOCAL_SERVER");
+        } catch (Exception e3) {
+            ba.c().b(e3);
+        }
+    }
+
+    public JSONObject a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("SDK_BPLUS_SERVICE", this.a);
+            } catch (JSONException e) {
+                ba.c().b(e);
+            }
+            try {
+                jSONObject.put("SDK_PRODUCT_LY", this.b);
+            } catch (JSONException e2) {
+                ba.c().b(e2);
+            }
+            try {
+                jSONObject.put("SDK_LOCAL_SERVER", this.c);
+            } catch (JSONException e3) {
+                ba.c().b(e3);
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
     }
 }

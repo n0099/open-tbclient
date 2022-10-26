@@ -1,6 +1,6 @@
 package com.baidu.searchbox.ubcprocessor;
 
-import com.baidu.tieba.pe1;
+import com.baidu.tieba.qe1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
-public class UBCCloudConfigObserver_UBCCloudConfigObservers_ListProvider implements pe1 {
+public class UBCCloudConfigObserver_UBCCloudConfigObservers_ListProvider implements qe1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,7 +26,7 @@ public class UBCCloudConfigObserver_UBCCloudConfigObservers_ListProvider impleme
         }
     }
 
-    @Override // com.baidu.tieba.pe1
+    @Override // com.baidu.tieba.qe1
     public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

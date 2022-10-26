@@ -36,84 +36,28 @@ public class PostPrefixData extends OrmObject implements Serializable {
         this.prefixs = new ArrayList<>();
     }
 
-    public void addPreFix(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.prefixs.add(str);
-        }
-    }
-
     public String getImplicitTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.implicitTitle : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.implicitTitle;
+        }
+        return (String) invokeV.objValue;
     }
 
     public ArrayList<String> getPrefixs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.prefixs : (ArrayList) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.prefixs;
+        }
+        return (ArrayList) invokeV.objValue;
     }
 
-    public void parserJson(JSONObject jSONObject) {
+    public void addPreFix(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        int optInt = jSONObject.optInt("mode", 0);
-        if (optInt == 0) {
-            String optString = jSONObject.optString("text");
-            if (TextUtils.isEmpty(optString)) {
-                return;
-            }
-            this.prefixs.add(optString);
-        } else if (optInt == 1) {
-            String optString2 = jSONObject.optString("text");
-            if (TextUtils.isEmpty(optString2)) {
-                return;
-            }
-            String optString3 = jSONObject.optString("type");
-            if (!TextUtils.isEmpty(optString3)) {
-                String[] split = optString3.split(" ");
-                for (int i = 0; i < split.length; i++) {
-                    if (!TextUtils.isEmpty(split[i].trim())) {
-                        this.prefixs.add(optString2.replace("#type#", split[i]));
-                    }
-                }
-                return;
-            }
-            this.prefixs.add(optString2);
-        }
-    }
-
-    public void parserProtobuf(PostPrefix postPrefix) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, postPrefix) == null) || postPrefix == null) {
-            return;
-        }
-        int intValue = postPrefix.mode.intValue();
-        if (intValue == 0) {
-            String str = postPrefix.text;
-            if (TextUtils.isEmpty(str)) {
-                return;
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             this.prefixs.add(str);
-        } else if (intValue == 1) {
-            String str2 = postPrefix.text;
-            if (TextUtils.isEmpty(str2)) {
-                return;
-            }
-            String str3 = postPrefix.type;
-            if (!TextUtils.isEmpty(str3)) {
-                String[] split = str3.split(" ");
-                for (int i = 0; i < split.length; i++) {
-                    if (!TextUtils.isEmpty(split[i].trim())) {
-                        this.prefixs.add(str2.replace("#type#", split[i]));
-                    }
-                }
-                return;
-            }
-            this.prefixs.add(str2);
         }
     }
 
@@ -124,34 +68,90 @@ public class PostPrefixData extends OrmObject implements Serializable {
         }
     }
 
-    public void parserProtobuf(tbclient.PostPrefix postPrefix) {
+    public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, postPrefix) == null) || postPrefix == null) {
+        if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        int optInt = jSONObject.optInt("mode", 0);
+        if (optInt == 0) {
+            String optString = jSONObject.optString("text");
+            if (!TextUtils.isEmpty(optString)) {
+                this.prefixs.add(optString);
+            }
+        } else if (optInt == 1) {
+            String optString2 = jSONObject.optString("text");
+            if (!TextUtils.isEmpty(optString2)) {
+                String optString3 = jSONObject.optString("type");
+                if (!TextUtils.isEmpty(optString3)) {
+                    String[] split = optString3.split(" ");
+                    for (int i = 0; i < split.length; i++) {
+                        if (!TextUtils.isEmpty(split[i].trim())) {
+                            this.prefixs.add(optString2.replace("#type#", split[i]));
+                        }
+                    }
+                    return;
+                }
+                this.prefixs.add(optString2);
+            }
+        }
+    }
+
+    public void parserProtobuf(PostPrefix postPrefix) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, postPrefix) != null) || postPrefix == null) {
             return;
         }
         int intValue = postPrefix.mode.intValue();
         if (intValue == 0) {
             String str = postPrefix.text;
-            if (TextUtils.isEmpty(str)) {
-                return;
+            if (!TextUtils.isEmpty(str)) {
+                this.prefixs.add(str);
             }
-            this.prefixs.add(str);
         } else if (intValue == 1) {
             String str2 = postPrefix.text;
-            if (TextUtils.isEmpty(str2)) {
-                return;
-            }
-            String str3 = postPrefix.type;
-            if (!TextUtils.isEmpty(str3)) {
-                String[] split = str3.split(" ");
-                for (int i = 0; i < split.length; i++) {
-                    if (!TextUtils.isEmpty(split[i].trim())) {
-                        this.prefixs.add(str2.replace("#type#", split[i]));
+            if (!TextUtils.isEmpty(str2)) {
+                String str3 = postPrefix.type;
+                if (!TextUtils.isEmpty(str3)) {
+                    String[] split = str3.split(" ");
+                    for (int i = 0; i < split.length; i++) {
+                        if (!TextUtils.isEmpty(split[i].trim())) {
+                            this.prefixs.add(str2.replace("#type#", split[i]));
+                        }
                     }
+                    return;
                 }
-                return;
+                this.prefixs.add(str2);
             }
-            this.prefixs.add(str2);
+        }
+    }
+
+    public void parserProtobuf(tbclient.PostPrefix postPrefix) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, postPrefix) != null) || postPrefix == null) {
+            return;
+        }
+        int intValue = postPrefix.mode.intValue();
+        if (intValue == 0) {
+            String str = postPrefix.text;
+            if (!TextUtils.isEmpty(str)) {
+                this.prefixs.add(str);
+            }
+        } else if (intValue == 1) {
+            String str2 = postPrefix.text;
+            if (!TextUtils.isEmpty(str2)) {
+                String str3 = postPrefix.type;
+                if (!TextUtils.isEmpty(str3)) {
+                    String[] split = str3.split(" ");
+                    for (int i = 0; i < split.length; i++) {
+                        if (!TextUtils.isEmpty(split[i].trim())) {
+                            this.prefixs.add(str2.replace("#type#", split[i]));
+                        }
+                    }
+                    return;
+                }
+                this.prefixs.add(str2);
+            }
         }
     }
 }

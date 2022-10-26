@@ -15,7 +15,6 @@ import android.view.animation.LinearInterpolator;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import androidx.annotation.NonNull;
 import androidx.constraintlayout.motion.widget.Key;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.view.InputDeviceCompat;
@@ -39,14 +38,14 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.coreExtra.floatCardView.AlaLiveTipView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aq4;
-import com.baidu.tieba.d25;
-import com.baidu.tieba.dh;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.gh;
+import com.baidu.tieba.bq4;
+import com.baidu.tieba.eh;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.hh;
 import com.baidu.tieba.homepage.personalize.view.HomeTabBarView;
-import com.baidu.tieba.hv4;
-import com.baidu.tieba.ox4;
+import com.baidu.tieba.j25;
+import com.baidu.tieba.nv4;
+import com.baidu.tieba.ux4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -64,6 +63,157 @@ public class FixedAppBarLayout extends AppBarLayout {
     public CustomMessageListener e;
     public View.OnClickListener f;
     public Runnable g;
+
+    /* loaded from: classes4.dex */
+    public class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ FixedAppBarLayout a;
+
+        /* loaded from: classes4.dex */
+        public class a implements ValueAnimator.AnimatorUpdateListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ d a;
+
+            public a(d dVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {dVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = dVar;
+            }
+
+            @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+            public void onAnimationUpdate(ValueAnimator valueAnimator) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
+                    float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
+                    if (this.a.a.a != null) {
+                        this.a.a.a.h.setAlpha(floatValue);
+                    }
+                }
+            }
+        }
+
+        /* loaded from: classes4.dex */
+        public class b implements Animator.AnimatorListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ d a;
+
+            @Override // android.animation.Animator.AnimatorListener
+            public void onAnimationCancel(Animator animator) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+                }
+            }
+
+            @Override // android.animation.Animator.AnimatorListener
+            public void onAnimationRepeat(Animator animator) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
+                }
+            }
+
+            @Override // android.animation.Animator.AnimatorListener
+            public void onAnimationStart(Animator animator) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
+                }
+            }
+
+            public b(d dVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {dVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = dVar;
+            }
+
+            @Override // android.animation.Animator.AnimatorListener
+            public void onAnimationEnd(Animator animator) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
+                    this.a.a.a.h.setVisibility(8);
+                    this.a.a.a.f.setVisibility(8);
+                    this.a.a.a.e.setVisibility(0);
+                }
+            }
+        }
+
+        public d(FixedAppBarLayout fixedAppBarLayout) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fixedAppBarLayout};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = fixedAppBarLayout;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.a == null) {
+                return;
+            }
+            this.a.c = new AnimatorSet();
+            int[] iArr = new int[2];
+            this.a.a.f.getLocationInWindow(iArr);
+            int i = iArr[0];
+            int i2 = iArr[1];
+            int[] iArr2 = new int[2];
+            this.a.a.e.getLocationInWindow(iArr2);
+            int i3 = iArr2[0];
+            int i4 = iArr2[1];
+            float width = (i3 - i) + (this.a.a.f.getWidth() / 2) + 2;
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.a.a.f, Key.SCALE_X, 1.0f, 1.5f);
+            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.a.a.f, Key.SCALE_Y, 1.0f, 1.5f);
+            ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(this.a.a.g, Key.SCALE_X, 1.0f, 0.0f);
+            ObjectAnimator ofFloat4 = ObjectAnimator.ofFloat(this.a.a.g, Key.SCALE_Y, 1.0f, 0.0f);
+            ofFloat3.setDuration(400L);
+            ofFloat4.setDuration(400L);
+            ObjectAnimator ofFloat5 = ObjectAnimator.ofFloat(this.a.a.f, Key.TRANSLATION_X, width);
+            ObjectAnimator ofFloat6 = ObjectAnimator.ofFloat(this.a.a.f, Key.TRANSLATION_Y, -((float) (((-(Math.abs(i4) - Math.abs(i2))) / 2) - 8)));
+            ofFloat3.addUpdateListener(new a(this));
+            this.a.a.f.setPivotX(0.0f);
+            this.a.a.f.setPivotY(0.0f);
+            this.a.c.setInterpolator(new LinearInterpolator());
+            this.a.c.setDuration(500L);
+            this.a.c.play(ofFloat).with(ofFloat2).with(ofFloat5).with(ofFloat6).with(ofFloat3).with(ofFloat4);
+            this.a.c.addListener(new b(this));
+            this.a.c.start();
+        }
+    }
 
     /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
@@ -94,11 +244,12 @@ public class FixedAppBarLayout extends AppBarLayout {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001371) {
-                this.a.g();
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2001371) {
+                return;
             }
+            this.a.g();
         }
     }
 
@@ -170,158 +321,7 @@ public class FixedAppBarLayout extends AppBarLayout {
     }
 
     /* loaded from: classes4.dex */
-    public class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ FixedAppBarLayout a;
-
-        /* loaded from: classes4.dex */
-        public class a implements ValueAnimator.AnimatorUpdateListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ d a;
-
-            public a(d dVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {dVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = dVar;
-            }
-
-            @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-            public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                    float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                    if (this.a.a.a != null) {
-                        this.a.a.a.h.setAlpha(floatValue);
-                    }
-                }
-            }
-        }
-
-        /* loaded from: classes4.dex */
-        public class b implements Animator.AnimatorListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ d a;
-
-            public b(d dVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {dVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = dVar;
-            }
-
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationCancel(Animator animator) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                }
-            }
-
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationEnd(Animator animator) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                    this.a.a.a.h.setVisibility(8);
-                    this.a.a.a.f.setVisibility(8);
-                    this.a.a.a.e.setVisibility(0);
-                }
-            }
-
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationRepeat(Animator animator) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
-                }
-            }
-
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationStart(Animator animator) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-                }
-            }
-        }
-
-        public d(FixedAppBarLayout fixedAppBarLayout) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fixedAppBarLayout};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = fixedAppBarLayout;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.a == null) {
-                return;
-            }
-            this.a.c = new AnimatorSet();
-            int[] iArr = new int[2];
-            this.a.a.f.getLocationInWindow(iArr);
-            int i = iArr[0];
-            int i2 = iArr[1];
-            int[] iArr2 = new int[2];
-            this.a.a.e.getLocationInWindow(iArr2);
-            int i3 = iArr2[0];
-            int i4 = iArr2[1];
-            float width = (i3 - i) + (this.a.a.f.getWidth() / 2) + 2;
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.a.a.f, Key.SCALE_X, 1.0f, 1.5f);
-            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.a.a.f, Key.SCALE_Y, 1.0f, 1.5f);
-            ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(this.a.a.g, Key.SCALE_X, 1.0f, 0.0f);
-            ObjectAnimator ofFloat4 = ObjectAnimator.ofFloat(this.a.a.g, Key.SCALE_Y, 1.0f, 0.0f);
-            ofFloat3.setDuration(400L);
-            ofFloat4.setDuration(400L);
-            ObjectAnimator ofFloat5 = ObjectAnimator.ofFloat(this.a.a.f, Key.TRANSLATION_X, width);
-            ObjectAnimator ofFloat6 = ObjectAnimator.ofFloat(this.a.a.f, Key.TRANSLATION_Y, -((float) (((-(Math.abs(i4) - Math.abs(i2))) / 2) - 8)));
-            ofFloat3.addUpdateListener(new a(this));
-            this.a.a.f.setPivotX(0.0f);
-            this.a.a.f.setPivotY(0.0f);
-            this.a.c.setInterpolator(new LinearInterpolator());
-            this.a.c.setDuration(500L);
-            this.a.c.play(ofFloat).with(ofFloat2).with(ofFloat5).with(ofFloat6).with(ofFloat3).with(ofFloat4);
-            this.a.c.addListener(new b(this));
-            this.a.c.start();
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class e {
+    public class e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public View a;
@@ -349,25 +349,24 @@ public class FixedAppBarLayout extends AppBarLayout {
             }
         }
 
-        @NonNull
         public static e a(View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
                 e eVar = new e();
                 eVar.a = view2;
-                eVar.b = (AlaLiveTipView) view2.findViewById(R.id.obfuscated_res_0x7f0913b0);
-                eVar.c = (HomeTabBarView) view2.findViewById(R.id.obfuscated_res_0x7f090da1);
-                eVar.d = view2.findViewById(R.id.obfuscated_res_0x7f090772);
-                eVar.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091dfb);
-                eVar.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091e0f);
-                eVar.g = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091e16);
-                eVar.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091ddb);
-                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ec7);
+                eVar.b = (AlaLiveTipView) view2.findViewById(R.id.obfuscated_res_0x7f0913a1);
+                eVar.c = (HomeTabBarView) view2.findViewById(R.id.obfuscated_res_0x7f090daa);
+                eVar.d = view2.findViewById(R.id.obfuscated_res_0x7f09077b);
+                eVar.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091df7);
+                eVar.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091e0b);
+                eVar.g = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091e12);
+                eVar.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091dd7);
+                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ebb);
                 eVar.i = tbImageView;
                 tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 eVar.i.setUseNightOrDarkMask(false);
-                eVar.j = view2.findViewById(R.id.obfuscated_res_0x7f0906e9);
+                eVar.j = view2.findViewById(R.id.obfuscated_res_0x7f0906f2);
                 return eVar;
             }
             return (e) invokeL.objValue;
@@ -398,11 +397,90 @@ public class FixedAppBarLayout extends AppBarLayout {
         e(context);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public FixedAppBarLayout(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.e = new a(this, 2001371);
+        this.f = new c(this);
+        this.g = new d(this);
+        e(context);
+    }
+
+    public void setSearchStyle(boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            int i = R.color.CAM_X0101;
+            if (z) {
+                if (z2) {
+                    i = R.color.CAM_X0105;
+                }
+                this.a.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a26, getResources().getColor(i), WebPManager.ResourceStateType.NORMAL_PRESS));
+                return;
+            }
+            this.a.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a26, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS));
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public FixedAppBarLayout(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.e = new a(this, 2001371);
+        this.f = new c(this);
+        this.g = new d(this);
+        e(context);
+    }
+
+    public void setImageBackground(Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, bitmap) == null) {
+            this.a.i.setImageBitmap(bitmap);
+        }
+    }
+
+    public void setImageBackgroundVisibility(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.a.i.setVisibility(i);
+        }
+    }
+
     public final void e(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             this.b = context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d028d, (ViewGroup) this, true);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d028c, (ViewGroup) this, true);
             this.a = e.a(this);
             o();
             p();
@@ -415,58 +493,17 @@ public class FixedAppBarLayout extends AppBarLayout {
     }
 
     public final void f() {
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.d.setVisibility(aq4.h() ? 0 : 8);
-            this.a.d.setOnClickListener(new b(this));
-        }
-    }
-
-    public final void g() {
-        AlaLiveTipView alaLiveTipView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (alaLiveTipView = this.a.b) == null) {
-            return;
-        }
-        alaLiveTipView.setViewLocate(1);
-        this.a.b.setHasBubble(false);
-        if (this.a.b.getVisibility() != 0) {
-            d25.f();
-        }
-        this.a.b.setVisibility(0);
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a.g.setText(this.b.getString(R.string.obfuscated_res_0x7f0f10d4));
-            if (k()) {
-                this.d = true;
-                this.a.h.setVisibility(0);
-                this.a.e.setVisibility(4);
+            View view2 = this.a.d;
+            if (bq4.h()) {
+                i = 0;
             } else {
-                this.d = false;
-                this.a.h.setVisibility(8);
-                this.a.e.setVisibility(0);
+                i = 8;
             }
-            this.a.h.setOnClickListener(this.f);
-            this.a.e.setOnClickListener(this.f);
-        }
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && UtilHelper.canUseStyleImmersiveSticky()) {
-            if (this.a.j.getLayoutParams() instanceof FrameLayout.LayoutParams) {
-                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.a.j.getLayoutParams();
-                layoutParams.topMargin = UtilHelper.getStatusBarHeight();
-                this.a.j.setLayoutParams(layoutParams);
-            }
-            if (this.a.i.getLayoutParams() instanceof FrameLayout.LayoutParams) {
-                FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.a.i.getLayoutParams();
-                layoutParams2.height = UtilHelper.getStatusBarHeight() + ej.f(getContext(), R.dimen.tbds156);
-                this.a.i.setLayoutParams(layoutParams2);
-            }
+            view2.setVisibility(i);
+            this.a.d.setOnClickListener(new b(this));
         }
     }
 
@@ -477,56 +514,10 @@ public class FixedAppBarLayout extends AppBarLayout {
         }
     }
 
-    public final boolean k() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            String[] split = ox4.k().q("key_home_page_seacher_anim_show_number", "").split(",");
-            long currentTimeMillis = System.currentTimeMillis();
-            if (split.length >= 7 || TimeHelper.isSameDay(dh.g(split[split.length - 1], 0L), currentTimeMillis)) {
-                return false;
-            }
-            ox4 k = ox4.k();
-            if (split.length == 6) {
-                str = String.valueOf(currentTimeMillis);
-            } else {
-                str = currentTimeMillis + ",";
-            }
-            k.y("key_home_page_seacher_anim_show_number", str);
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            setImageBackgroundVisibility(8);
-            SkinManager.setBackgroundColor(this, R.color.CAM_X0208);
-            this.a.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a25, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
-            hv4 d2 = hv4.d(this.a.g);
-            d2.z(R.dimen.T_X09);
-            d2.v(R.color.CAM_X0105);
-            if (TbadkApplication.getInst().getSkinType() != 1 && TbadkApplication.getInst().getSkinType() != 4) {
-                hv4 d3 = hv4.d(this.a.h);
-                d3.l(R.dimen.L_X01);
-                d3.k(R.color.CAM_X0113);
-                d3.n(R.string.J_X01);
-                d3.f(R.color.CAM_X0211);
-            } else {
-                hv4 d4 = hv4.d(this.a.h);
-                d4.n(R.string.J_X01);
-                d4.f(R.color.CAM_X0211);
-            }
-            this.a.f.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080769, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL));
-        }
-    }
-
     public void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            gh.a().removeCallbacks(this.g);
+            hh.a().removeCallbacks(this.g);
             AnimatorSet animatorSet = this.c;
             if (animatorSet != null) {
                 animatorSet.cancel();
@@ -537,7 +528,7 @@ public class FixedAppBarLayout extends AppBarLayout {
     public void n() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && this.d) {
-            gh.a().postDelayed(this.g, 2000L);
+            hh.a().postDelayed(this.g, 2000L);
             this.d = false;
         }
     }
@@ -579,82 +570,97 @@ public class FixedAppBarLayout extends AppBarLayout {
         }
     }
 
-    public void setImageBackground(Bitmap bitmap) {
+    public final void g() {
+        AlaLiveTipView alaLiveTipView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, bitmap) == null) {
-            this.a.i.setImageBitmap(bitmap);
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || (alaLiveTipView = this.a.b) == null) {
+            return;
+        }
+        alaLiveTipView.setViewLocate(1);
+        this.a.b.setHasBubble(false);
+        if (this.a.b.getVisibility() != 0) {
+            j25.f();
+        }
+        this.a.b.setVisibility(0);
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a.g.setText(this.b.getString(R.string.obfuscated_res_0x7f0f10e6));
+            if (k()) {
+                this.d = true;
+                this.a.h.setVisibility(0);
+                this.a.e.setVisibility(4);
+            } else {
+                this.d = false;
+                this.a.h.setVisibility(8);
+                this.a.e.setVisibility(0);
+            }
+            this.a.h.setOnClickListener(this.f);
+            this.a.e.setOnClickListener(this.f);
         }
     }
 
-    public void setImageBackgroundVisibility(int i) {
+    public final boolean k() {
+        InterceptResult invokeV;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            this.a.i.setVisibility(i);
-        }
-    }
-
-    public void setSearchStyle(boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            int i = R.color.CAM_X0101;
-            if (z) {
-                if (z2) {
-                    i = R.color.CAM_X0105;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            String[] split = ux4.k().q("key_home_page_seacher_anim_show_number", "").split(",");
+            long currentTimeMillis = System.currentTimeMillis();
+            if (split.length < 7 && !TimeHelper.isSameDay(eh.g(split[split.length - 1], 0L), currentTimeMillis)) {
+                ux4 k = ux4.k();
+                if (split.length == 6) {
+                    str = String.valueOf(currentTimeMillis);
+                } else {
+                    str = currentTimeMillis + ",";
                 }
-                this.a.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a25, getResources().getColor(i), WebPManager.ResourceStateType.NORMAL_PRESS));
-                return;
+                k.y("key_home_page_seacher_anim_show_number", str);
+                return true;
             }
-            this.a.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a25, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS));
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && UtilHelper.canUseStyleImmersiveSticky()) {
+            if (this.a.j.getLayoutParams() instanceof FrameLayout.LayoutParams) {
+                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.a.j.getLayoutParams();
+                layoutParams.topMargin = UtilHelper.getStatusBarHeight();
+                this.a.j.setLayoutParams(layoutParams);
+            }
+            if (this.a.i.getLayoutParams() instanceof FrameLayout.LayoutParams) {
+                FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.a.i.getLayoutParams();
+                layoutParams2.height = UtilHelper.getStatusBarHeight() + fj.f(getContext(), R.dimen.tbds156);
+                this.a.i.setLayoutParams(layoutParams2);
+            }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FixedAppBarLayout(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
+    public void l() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            setImageBackgroundVisibility(8);
+            SkinManager.setBackgroundColor(this, R.color.CAM_X0208);
+            this.a.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a26, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
+            nv4 d2 = nv4.d(this.a.g);
+            d2.z(R.dimen.T_X09);
+            d2.v(R.color.CAM_X0105);
+            if (TbadkApplication.getInst().getSkinType() != 1 && TbadkApplication.getInst().getSkinType() != 4) {
+                nv4 d3 = nv4.d(this.a.h);
+                d3.l(R.dimen.L_X01);
+                d3.k(R.color.CAM_X0113);
+                d3.n(R.string.J_X01);
+                d3.f(R.color.CAM_X0211);
+            } else {
+                nv4 d4 = nv4.d(this.a.h);
+                d4.n(R.string.J_X01);
+                d4.f(R.color.CAM_X0211);
             }
+            this.a.f.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08076c, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL));
         }
-        this.e = new a(this, 2001371);
-        this.f = new c(this);
-        this.g = new d(this);
-        e(context);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FixedAppBarLayout(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.e = new a(this, 2001371);
-        this.f = new c(this);
-        this.g = new d(this);
-        e(context);
     }
 }

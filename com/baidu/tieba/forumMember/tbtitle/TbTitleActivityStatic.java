@@ -18,7 +18,7 @@ public class TbTitleActivityStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public static class a implements CustomMessageTask.CustomRunnable<TbTitleActivityConfig> {
+    public final class a implements CustomMessageTask.CustomRunnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -37,12 +37,12 @@ public class TbTitleActivityStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<TbTitleActivityConfig> customMessage) {
+        public CustomResponsedMessage run(CustomMessage customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null) {
-                    customMessage.getData().startActivity(TbTitleActivity.class);
+                    ((TbTitleActivityConfig) customMessage.getData()).startActivity(TbTitleActivity.class);
                 }
                 return null;
             }

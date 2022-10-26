@@ -29,6 +29,21 @@ public class WidgetGroup {
     public ArrayList<MeasureResult> results;
     public ArrayList<ConstraintWidget> widgets;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-423254277, "Landroidx/constraintlayout/solver/widgets/analyzer/WidgetGroup;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-423254277, "Landroidx/constraintlayout/solver/widgets/analyzer/WidgetGroup;");
+        }
+    }
+
     /* loaded from: classes.dex */
     public class MeasureResult {
         public static /* synthetic */ Interceptable $ic;
@@ -70,25 +85,9 @@ public class WidgetGroup {
         public void apply() {
             ConstraintWidget constraintWidget;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (constraintWidget = this.widgetRef.get()) == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (constraintWidget = this.widgetRef.get()) != null) {
+                constraintWidget.setFinalFrame(this.left, this.top, this.right, this.bottom, this.baseline, this.orientation);
             }
-            constraintWidget.setFinalFrame(this.left, this.top, this.right, this.bottom, this.baseline, this.orientation);
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-423254277, "Landroidx/constraintlayout/solver/widgets/analyzer/WidgetGroup;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-423254277, "Landroidx/constraintlayout/solver/widgets/analyzer/WidgetGroup;");
         }
     }
 
@@ -122,7 +121,51 @@ public class WidgetGroup {
     private boolean contains(ConstraintWidget constraintWidget) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, this, constraintWidget)) == null) ? this.widgets.contains(constraintWidget) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, constraintWidget)) == null) {
+            return this.widgets.contains(constraintWidget);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean add(ConstraintWidget constraintWidget) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, constraintWidget)) == null) {
+            if (this.widgets.contains(constraintWidget)) {
+                return false;
+            }
+            this.widgets.add(constraintWidget);
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean intersectWith(WidgetGroup widgetGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, widgetGroup)) == null) {
+            for (int i = 0; i < this.widgets.size(); i++) {
+                if (widgetGroup.contains(this.widgets.get(i))) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void setAuthoritative(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.authoritative = z;
+        }
+    }
+
+    public void setOrientation(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.orientation = i;
+        }
     }
 
     private String getOrientationString() {
@@ -130,9 +173,71 @@ public class WidgetGroup {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             int i = this.orientation;
-            return i == 0 ? "Horizontal" : i == 1 ? "Vertical" : i == 2 ? "Both" : "Unknown";
+            if (i == 0) {
+                return "Horizontal";
+            }
+            if (i == 1) {
+                return "Vertical";
+            }
+            if (i == 2) {
+                return "Both";
+            }
+            return "Unknown";
         }
         return (String) invokeV.objValue;
+    }
+
+    public void apply() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.results == null || !this.authoritative) {
+            return;
+        }
+        for (int i = 0; i < this.results.size(); i++) {
+            this.results.get(i).apply();
+        }
+    }
+
+    public void clear() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.widgets.clear();
+        }
+    }
+
+    public int getId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.id;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getOrientation() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.orientation;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean isAuthoritative() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.authoritative;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int size() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.widgets.size();
+        }
+        return invokeV.intValue;
     }
 
     private int measureWrap(int i, ConstraintWidget constraintWidget) {
@@ -140,13 +245,13 @@ public class WidgetGroup {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, this, i, constraintWidget)) == null) {
             ConstraintWidget.DimensionBehaviour dimensionBehaviour = constraintWidget.getDimensionBehaviour(i);
-            if (dimensionBehaviour == ConstraintWidget.DimensionBehaviour.WRAP_CONTENT || dimensionBehaviour == ConstraintWidget.DimensionBehaviour.MATCH_PARENT || dimensionBehaviour == ConstraintWidget.DimensionBehaviour.FIXED) {
-                if (i == 0) {
-                    return constraintWidget.getWidth();
-                }
-                return constraintWidget.getHeight();
+            if (dimensionBehaviour != ConstraintWidget.DimensionBehaviour.WRAP_CONTENT && dimensionBehaviour != ConstraintWidget.DimensionBehaviour.MATCH_PARENT && dimensionBehaviour != ConstraintWidget.DimensionBehaviour.FIXED) {
+                return -1;
             }
-            return -1;
+            if (i == 0) {
+                return constraintWidget.getWidth();
+            }
+            return constraintWidget.getHeight();
         }
         return invokeIL.intValue;
     }
@@ -192,28 +297,6 @@ public class WidgetGroup {
         return invokeLLI.intValue;
     }
 
-    public boolean add(ConstraintWidget constraintWidget) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, constraintWidget)) == null) {
-            if (this.widgets.contains(constraintWidget)) {
-                return false;
-            }
-            this.widgets.add(constraintWidget);
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void apply() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.results != null && this.authoritative) {
-            for (int i = 0; i < this.results.size(); i++) {
-                this.results.get(i).apply();
-            }
-        }
-    }
-
     public void cleanup(ArrayList<WidgetGroup> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
@@ -232,43 +315,16 @@ public class WidgetGroup {
         }
     }
 
-    public void clear() {
+    public int measureWrap(LinearSystem linearSystem, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.widgets.clear();
-        }
-    }
-
-    public int getId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.id : invokeV.intValue;
-    }
-
-    public int getOrientation() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.orientation : invokeV.intValue;
-    }
-
-    public boolean intersectWith(WidgetGroup widgetGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, widgetGroup)) == null) {
-            for (int i = 0; i < this.widgets.size(); i++) {
-                if (widgetGroup.contains(this.widgets.get(i))) {
-                    return true;
-                }
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, linearSystem, i)) == null) {
+            if (this.widgets.size() == 0) {
+                return 0;
             }
-            return false;
+            return solverMeasure(linearSystem, this.widgets, i);
         }
-        return invokeL.booleanValue;
-    }
-
-    public boolean isAuthoritative() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.authoritative : invokeV.booleanValue;
+        return invokeLI.intValue;
     }
 
     public void moveTo(int i, WidgetGroup widgetGroup) {
@@ -288,26 +344,6 @@ public class WidgetGroup {
         }
     }
 
-    public void setAuthoritative(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.authoritative = z;
-        }
-    }
-
-    public void setOrientation(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.orientation = i;
-        }
-    }
-
-    public int size() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.widgets.size() : invokeV.intValue;
-    }
-
     public String toString() {
         InterceptResult invokeV;
         Iterator<ConstraintWidget> it;
@@ -320,17 +356,5 @@ public class WidgetGroup {
             return str + " >";
         }
         return (String) invokeV.objValue;
-    }
-
-    public int measureWrap(LinearSystem linearSystem, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, linearSystem, i)) == null) {
-            if (this.widgets.size() == 0) {
-                return 0;
-            }
-            return solverMeasure(linearSystem, this.widgets, i);
-        }
-        return invokeLI.intValue;
     }
 }

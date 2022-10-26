@@ -17,6 +17,21 @@ public abstract class AbstractCommandListener<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract void addPostData(Context context, String str, String str2, CommandPostData commandPostData) throws JSONException;
+
+    public abstract boolean executeCommand(Context context, String str, String str2, ActionData<T> actionData);
+
+    public abstract String getLocalVersion(Context context, String str, String str2);
+
+    public TypeAdapter<T> getTypeAdapter() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return null;
+        }
+        return (TypeAdapter) invokeV.objValue;
+    }
+
     public AbstractCommandListener() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -31,15 +46,14 @@ public abstract class AbstractCommandListener<T> {
         }
     }
 
-    public abstract void addPostData(Context context, String str, String str2, CommandPostData commandPostData) throws JSONException;
-
     public final ActionData<T> createDataObject() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new ActionData<>() : (ActionData) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return new ActionData();
+        }
+        return (ActionData) invokeV.objValue;
     }
-
-    public abstract boolean executeCommand(Context context, String str, String str2, ActionData<T> actionData);
 
     public final Type getDataType() {
         InterceptResult invokeV;
@@ -54,16 +68,5 @@ public abstract class AbstractCommandListener<T> {
             return null;
         }
         return (Type) invokeV.objValue;
-    }
-
-    public abstract String getLocalVersion(Context context, String str, String str2);
-
-    public TypeAdapter<T> getTypeAdapter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return null;
-        }
-        return (TypeAdapter) invokeV.objValue;
     }
 }

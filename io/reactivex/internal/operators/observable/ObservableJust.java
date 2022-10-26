@@ -11,17 +11,17 @@ import io.reactivex.Observer;
 import io.reactivex.internal.fuseable.ScalarCallable;
 import io.reactivex.internal.operators.observable.ObservableScalarXMap;
 /* loaded from: classes8.dex */
-public final class ObservableJust<T> extends Observable<T> implements ScalarCallable<T> {
+public final class ObservableJust extends Observable implements ScalarCallable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final T value;
+    public final Object value;
 
-    public ObservableJust(T t) {
+    public ObservableJust(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {t};
+            Object[] objArr = {obj};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,23 +31,26 @@ public final class ObservableJust<T> extends Observable<T> implements ScalarCall
                 return;
             }
         }
-        this.value = t;
-    }
-
-    @Override // io.reactivex.internal.fuseable.ScalarCallable, java.util.concurrent.Callable
-    public T call() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.value : (T) invokeV.objValue;
+        this.value = obj;
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer<? super T> observer) {
+    public void subscribeActual(Observer observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, observer) == null) {
             ObservableScalarXMap.ScalarDisposable scalarDisposable = new ObservableScalarXMap.ScalarDisposable(observer, this.value);
             observer.onSubscribe(scalarDisposable);
             scalarDisposable.run();
         }
+    }
+
+    @Override // io.reactivex.internal.fuseable.ScalarCallable, java.util.concurrent.Callable
+    public Object call() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.value;
+        }
+        return invokeV.objValue;
     }
 }

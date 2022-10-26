@@ -113,7 +113,10 @@ public class QzonePublish extends BaseApi {
                 e = e;
                 str = "";
             }
-            if (bundle2 != null) {
+            if (bundle2 == null) {
+                str = "";
+                str2 = string2;
+            } else {
                 Set<String> keySet = bundle2.keySet();
                 str = "";
                 try {
@@ -122,9 +125,7 @@ public class QzonePublish extends BaseApi {
                     while (it.hasNext()) {
                         Iterator<String> it2 = it;
                         String next = it.next();
-                        if (TextUtils.isEmpty(bundle2.getString(next))) {
-                            str2 = string2;
-                        } else {
+                        if (!TextUtils.isEmpty(bundle2.getString(next))) {
                             str2 = string2;
                             try {
                                 jSONObject.put(next, bundle2.getString(next));
@@ -135,7 +136,7 @@ public class QzonePublish extends BaseApi {
                                 appId = this.c.getAppId();
                                 openId = this.c.getOpenId();
                                 SLog.v("openSDK_LOG.QzonePublish", "openId:" + openId);
-                                if (3 == i) {
+                                if (3 != i) {
                                 }
                                 str4 = str3;
                                 str5 = "openSDK_LOG.QzonePublish";
@@ -165,6 +166,8 @@ public class QzonePublish extends BaseApi {
                                 }
                                 SLog.i(SLog.TAG, "doPublishToQzone() --end");
                             }
+                        } else {
+                            str2 = string2;
                         }
                         it = it2;
                         string2 = str2;
@@ -178,7 +181,7 @@ public class QzonePublish extends BaseApi {
                     appId = this.c.getAppId();
                     openId = this.c.getOpenId();
                     SLog.v("openSDK_LOG.QzonePublish", "openId:" + openId);
-                    if (3 == i) {
+                    if (3 != i) {
                     }
                     str4 = str3;
                     str5 = "openSDK_LOG.QzonePublish";
@@ -213,12 +216,7 @@ public class QzonePublish extends BaseApi {
                     appId = this.c.getAppId();
                     openId = this.c.getOpenId();
                     SLog.v("openSDK_LOG.QzonePublish", "openId:" + openId);
-                    if (3 == i || stringArrayList == null) {
-                        str4 = str3;
-                        str5 = "openSDK_LOG.QzonePublish";
-                        str6 = openId;
-                        str7 = str;
-                    } else {
+                    if (3 != i && stringArrayList != null) {
                         StringBuffer stringBuffer2 = new StringBuffer();
                         StringBuffer stringBuffer3 = new StringBuffer();
                         str5 = "openSDK_LOG.QzonePublish";
@@ -245,6 +243,11 @@ public class QzonePublish extends BaseApi {
                             stringBuffer.append("&image_uri=" + Base64.encodeToString(l.i(stringBuffer3.toString()), 2));
                         }
                         str7 = "7";
+                    } else {
+                        str4 = str3;
+                        str5 = "openSDK_LOG.QzonePublish";
+                        str6 = openId;
+                        str7 = str;
                     }
                     if (4 == i) {
                         stringBuffer.append("&videoPath=" + Base64.encodeToString(l.i(string3), 2));
@@ -290,15 +293,12 @@ public class QzonePublish extends BaseApi {
                     }
                     SLog.i(SLog.TAG, "doPublishToQzone() --end");
                 }
-            } else {
-                str = "";
-                str2 = string2;
             }
             str3 = str;
             appId = this.c.getAppId();
             openId = this.c.getOpenId();
             SLog.v("openSDK_LOG.QzonePublish", "openId:" + openId);
-            if (3 == i) {
+            if (3 != i) {
             }
             str4 = str3;
             str5 = "openSDK_LOG.QzonePublish";

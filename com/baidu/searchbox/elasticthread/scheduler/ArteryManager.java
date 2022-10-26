@@ -41,7 +41,22 @@ public class ArteryManager implements Recordable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, elasticTask)) == null) {
             int priority = elasticTask.getPriority();
-            return (priority == 0 || priority == 1) ? this.mUserRelatedArteryExecutor.execute(elasticTask) || this.mInTimeArteryExecutor.execute(elasticTask) || this.mBackgroundArteryExecutor.execute(elasticTask) : priority == 2 ? this.mInTimeArteryExecutor.execute(elasticTask) || this.mBackgroundArteryExecutor.execute(elasticTask) : priority == 3 && this.mBackgroundArteryExecutor.execute(elasticTask);
+            if (priority != 0 && priority != 1) {
+                if (priority == 2) {
+                    if (!this.mInTimeArteryExecutor.execute(elasticTask) && !this.mBackgroundArteryExecutor.execute(elasticTask)) {
+                        return false;
+                    }
+                    return true;
+                } else if (priority != 3 || !this.mBackgroundArteryExecutor.execute(elasticTask)) {
+                    return false;
+                } else {
+                    return true;
+                }
+            } else if (!this.mUserRelatedArteryExecutor.execute(elasticTask) && !this.mInTimeArteryExecutor.execute(elasticTask) && !this.mBackgroundArteryExecutor.execute(elasticTask)) {
+                return false;
+            } else {
+                return true;
+            }
         }
         return invokeL.booleanValue;
     }
@@ -49,19 +64,28 @@ public class ArteryManager implements Recordable {
     public BaseExecutorCell getBackgroundArteryExecutor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mBackgroundArteryExecutor : (BaseExecutorCell) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mBackgroundArteryExecutor;
+        }
+        return (BaseExecutorCell) invokeV.objValue;
     }
 
     public BaseExecutorCell getInTimeArteryExecutor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mInTimeArteryExecutor : (BaseExecutorCell) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mInTimeArteryExecutor;
+        }
+        return (BaseExecutorCell) invokeV.objValue;
     }
 
     public BaseExecutorCell getUserRelatedArteryExecutor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mUserRelatedArteryExecutor : (BaseExecutorCell) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mUserRelatedArteryExecutor;
+        }
+        return (BaseExecutorCell) invokeV.objValue;
     }
 
     @Override // com.baidu.searchbox.elasticthread.statistic.Recordable

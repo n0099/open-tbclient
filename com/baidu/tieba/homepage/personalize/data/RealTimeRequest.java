@@ -5,7 +5,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.sh5;
+import com.baidu.tieba.yh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -66,7 +66,7 @@ public class RealTimeRequest extends NetMessage {
             builder.ori_ugc_type = this.ori_ugc_type;
             builder.ori_ugc_vid = this.ori_ugc_vid;
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                sh5.a(builder, true);
+                yh5.a(builder, true);
             }
             RealtimeReqIdl.Builder builder2 = new RealtimeReqIdl.Builder();
             builder2.data = builder.build(false);
@@ -78,43 +78,64 @@ public class RealTimeRequest extends NetMessage {
     public String getAbtest_tag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.abtest_tag : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.abtest_tag;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getLocation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.location : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.location;
+        }
+        return invokeV.intValue;
     }
 
     public String getPage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.page : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.page;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getSource() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.source : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.source;
+        }
+        return (String) invokeV.objValue;
     }
 
     public long getTid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.tid : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.tid;
+        }
+        return invokeV.longValue;
     }
 
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.type : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.type;
+        }
+        return invokeV.intValue;
     }
 
     public String getWeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.weight : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.weight;
+        }
+        return (String) invokeV.objValue;
     }
 
     public void setAbtest_tag(String str) {

@@ -22,31 +22,6 @@ public final class LiveUserSecurityBehaviorServiceImpl implements LiveUserSecuri
     public static final String scene = "live";
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Metadata(d1 = {"\u0000\u0014\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\b\u0086\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000¨\u0006\u0006"}, d2 = {"Lcom/baidu/searchbox/live/imp/LiveUserSecurityBehaviorServiceImpl$Companion;", "", "()V", "purpose", "", "scene", "alaLiveSDK_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
-    /* loaded from: classes2.dex */
-    public static final class Companion {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public Companion() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-    }
-
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -61,6 +36,31 @@ public final class LiveUserSecurityBehaviorServiceImpl implements LiveUserSecuri
             }
         }
         Companion = new Companion(null);
+    }
+
+    @Metadata(d1 = {"\u0000\u0014\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\b\u0086\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000¨\u0006\u0006"}, d2 = {"Lcom/baidu/searchbox/live/imp/LiveUserSecurityBehaviorServiceImpl$Companion;", "", "()V", "purpose", "", "scene", "alaLiveSDK_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
+    /* loaded from: classes2.dex */
+    public final class Companion {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public Companion() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
     public LiveUserSecurityBehaviorServiceImpl() {
@@ -83,10 +83,9 @@ public final class LiveUserSecurityBehaviorServiceImpl implements LiveUserSecuri
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, infoName) == null) {
             Intrinsics.checkNotNullParameter(infoName, "infoName");
             IBehaviorApi iBehaviorApi = (IBehaviorApi) ServiceManager.getService(IBehaviorApi.SERVICE_REFERENCE);
-            if (iBehaviorApi == null) {
-                return;
+            if (iBehaviorApi != null) {
+                iBehaviorApi.addBehavior(i, infoName, "", "live");
             }
-            iBehaviorApi.addBehavior(i, infoName, "", "live");
         }
     }
 }

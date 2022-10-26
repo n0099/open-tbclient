@@ -44,14 +44,14 @@ public final class DataCacheMgr {
     public NetStatusInfo mCacheNetStatusInfo;
     public int mCountFailedDns;
     public int mCountLocalDns;
-    public HashMap<String, ArrayList<DelayTB>> mDelayCacheLower;
-    public HashMap<String, ArrayList<DelayTB>> mDelayCacheUpper;
-    public HashMap<String, Integer> mHitCacheNum;
-    public ConcurrentHashMap<String, ResultTB> mHttpDNSCache;
-    public HashMap<String, Integer> mInvokeApiNum;
-    public List<Long> mListDnsCost;
-    public ConcurrentHashMap<String, DnsInfo> mLocalDNSCache;
-    public ArrayList<ProbeTB> mProbeCache;
+    public HashMap mDelayCacheLower;
+    public HashMap mDelayCacheUpper;
+    public HashMap mHitCacheNum;
+    public ConcurrentHashMap mHttpDNSCache;
+    public HashMap mInvokeApiNum;
+    public List mListDnsCost;
+    public ConcurrentHashMap mLocalDNSCache;
+    public ArrayList mProbeCache;
 
     static {
         InterceptResult invokeClinit;
@@ -69,6 +69,158 @@ public final class DataCacheMgr {
         DataCacheMgr dataCacheMgr = new DataCacheMgr("INSTANCE", 0);
         INSTANCE = dataCacheMgr;
         $VALUES = new DataCacheMgr[]{dataCacheMgr};
+    }
+
+    public static DataCacheMgr[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (DataCacheMgr[]) $VALUES.clone();
+        }
+        return (DataCacheMgr[]) invokeV.objValue;
+    }
+
+    public void addFailedDnsCount() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.mCountFailedDns++;
+        }
+    }
+
+    public void addLocalDnsCount() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.mCountLocalDns++;
+        }
+    }
+
+    public synchronized void clearAllHitCacheNum() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            synchronized (this) {
+                this.mHitCacheNum.clear();
+            }
+        }
+    }
+
+    public synchronized void clearAllInvokeApiNum() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            synchronized (this) {
+                this.mInvokeApiNum.clear();
+            }
+        }
+    }
+
+    public void deleteAllDelay() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            synchronized (this.mDelayCacheLower) {
+                this.mDelayCacheLower.clear();
+            }
+            synchronized (this.mDelayCacheUpper) {
+                this.mDelayCacheUpper.clear();
+            }
+        }
+    }
+
+    public ArrayList getALlProbe() {
+        InterceptResult invokeV;
+        ArrayList arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            synchronized (this.mProbeCache) {
+                arrayList = (ArrayList) this.mProbeCache.clone();
+            }
+            return arrayList;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public ConcurrentHashMap getAllLocalDNSFromCache() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return this.mLocalDNSCache;
+        }
+        return (ConcurrentHashMap) invokeV.objValue;
+    }
+
+    public NetStatusInfo getCachedNetStatusInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            if (this.mCacheNetStatusInfo == null) {
+                NetStatusInfo networkInfo = DeviceMgr.getNetworkInfo(GlobalTools.APP_CONTEXT);
+                synchronized (this) {
+                    this.mCacheNetStatusInfo = networkInfo;
+                }
+            }
+            return this.mCacheNetStatusInfo;
+        }
+        return (NetStatusInfo) invokeV.objValue;
+    }
+
+    public int getFailedDnsCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return this.mCountFailedDns;
+        }
+        return invokeV.intValue;
+    }
+
+    public List getListDnsCost() {
+        InterceptResult invokeV;
+        List list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            if (this.mListDnsCost == null) {
+                this.mListDnsCost = new LinkedList();
+            }
+            synchronized (this.mListDnsCost) {
+                list = (List) ((LinkedList) this.mListDnsCost).clone();
+            }
+            return list;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public int getLocalDnsCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+            return this.mCountLocalDns;
+        }
+        return invokeV.intValue;
+    }
+
+    public void resetFailedDnsCount() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
+            this.mCountFailedDns = 0;
+        }
+    }
+
+    public void resetListDnsCost() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
+            List list = this.mListDnsCost;
+            if (list == null) {
+                this.mListDnsCost = new LinkedList();
+                return;
+            }
+            synchronized (list) {
+                this.mListDnsCost.clear();
+            }
+        }
+    }
+
+    public void resetLocalDnsCount() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
+            this.mCountLocalDns = 0;
+        }
     }
 
     public DataCacheMgr(String str, int i) {
@@ -89,13 +241,13 @@ public final class DataCacheMgr {
                 return;
             }
         }
-        this.mLocalDNSCache = new ConcurrentHashMap<>();
-        this.mHttpDNSCache = new ConcurrentHashMap<>();
-        this.mProbeCache = new ArrayList<>();
-        this.mDelayCacheUpper = new HashMap<>();
-        this.mDelayCacheLower = new HashMap<>();
-        this.mInvokeApiNum = new HashMap<>();
-        this.mHitCacheNum = new HashMap<>();
+        this.mLocalDNSCache = new ConcurrentHashMap();
+        this.mHttpDNSCache = new ConcurrentHashMap();
+        this.mProbeCache = new ArrayList();
+        this.mDelayCacheUpper = new HashMap();
+        this.mDelayCacheLower = new HashMap();
+        this.mInvokeApiNum = new HashMap();
+        this.mHitCacheNum = new HashMap();
         this.mCacheNetStatusInfo = null;
         this.mCacheIdentity = null;
         this.mCountFailedDns = 0;
@@ -106,39 +258,10 @@ public final class DataCacheMgr {
     public static DataCacheMgr valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (DataCacheMgr) Enum.valueOf(DataCacheMgr.class, str) : (DataCacheMgr) invokeL.objValue;
-    }
-
-    public static DataCacheMgr[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (DataCacheMgr[]) $VALUES.clone() : (DataCacheMgr[]) invokeV.objValue;
-    }
-
-    public void addDelay(DelayTB delayTB) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, delayTB) == null) || delayTB == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (DataCacheMgr) Enum.valueOf(DataCacheMgr.class, str);
         }
-        if (delayTB.getDelay() >= 500) {
-            synchronized (this.mDelayCacheUpper) {
-                ArrayList<DelayTB> arrayList = this.mDelayCacheUpper.get(delayTB.getHost());
-                if (arrayList == null) {
-                    arrayList = new ArrayList<>();
-                    this.mDelayCacheUpper.put(delayTB.getHost(), arrayList);
-                }
-                arrayList.add(delayTB);
-            }
-            return;
-        }
-        synchronized (this.mDelayCacheLower) {
-            ArrayList<DelayTB> arrayList2 = this.mDelayCacheLower.get(delayTB.getHost());
-            if (arrayList2 == null) {
-                arrayList2 = new ArrayList<>();
-                this.mDelayCacheLower.put(delayTB.getHost(), arrayList2);
-            }
-            arrayList2.add(delayTB);
-        }
+        return (DataCacheMgr) invokeL.objValue;
     }
 
     public void addDnsCost(long j) {
@@ -153,64 +276,13 @@ public final class DataCacheMgr {
         }
     }
 
-    public void addFailedDnsCount() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.mCountFailedDns++;
-        }
-    }
-
-    public synchronized void addHitCacheNum(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            synchronized (this) {
-                this.mHitCacheNum.put(str, Integer.valueOf((this.mHitCacheNum.containsKey(str) ? this.mHitCacheNum.get(str).intValue() : 0) + 1));
-            }
-        }
-    }
-
-    public synchronized void addInvokeApiNum(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            synchronized (this) {
-                this.mInvokeApiNum.put(str, Integer.valueOf((this.mInvokeApiNum.containsKey(str) ? this.mInvokeApiNum.get(str).intValue() : 0) + 1));
-            }
-        }
-    }
-
-    public void addLocalDnsCount() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.mCountLocalDns++;
-        }
-    }
-
     public void addProbe(ProbeTB probeTB) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, probeTB) == null) || probeTB == null) {
-            return;
-        }
-        synchronized (this.mProbeCache) {
-            if (!this.mProbeCache.contains(probeTB)) {
-                this.mProbeCache.add(probeTB);
-            }
-        }
-    }
-
-    public synchronized void clearAllHitCacheNum() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            synchronized (this) {
-                this.mHitCacheNum.clear();
-            }
-        }
-    }
-
-    public synchronized void clearAllInvokeApiNum() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            synchronized (this) {
-                this.mInvokeApiNum.clear();
+        if ((interceptable == null || interceptable.invokeL(1048582, this, probeTB) == null) && probeTB != null) {
+            synchronized (this.mProbeCache) {
+                if (!this.mProbeCache.contains(probeTB)) {
+                    this.mProbeCache.add(probeTB);
+                }
             }
         }
     }
@@ -233,35 +305,21 @@ public final class DataCacheMgr {
         }
     }
 
-    public void deleteAllDelay() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            synchronized (this.mDelayCacheLower) {
-                this.mDelayCacheLower.clear();
-            }
-            synchronized (this.mDelayCacheUpper) {
-                this.mDelayCacheUpper.clear();
-            }
-        }
-    }
-
     public void deleteDelayByHostFromLower(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048588, this, str) == null) || str == null) {
-            return;
-        }
-        synchronized (this.mDelayCacheLower) {
-            this.mDelayCacheLower.remove(str);
+        if ((interceptable == null || interceptable.invokeL(1048588, this, str) == null) && str != null) {
+            synchronized (this.mDelayCacheLower) {
+                this.mDelayCacheLower.remove(str);
+            }
         }
     }
 
     public void deleteDelayByHostFromUpper(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, str) == null) || str == null) {
-            return;
-        }
-        synchronized (this.mDelayCacheUpper) {
-            this.mDelayCacheUpper.remove(str);
+        if ((interceptable == null || interceptable.invokeL(1048589, this, str) == null) && str != null) {
+            synchronized (this.mDelayCacheUpper) {
+                this.mDelayCacheUpper.remove(str);
+            }
         }
     }
 
@@ -276,98 +334,171 @@ public final class DataCacheMgr {
         }
     }
 
-    public ArrayList<ProbeTB> getALlProbe() {
-        InterceptResult invokeV;
-        ArrayList<ProbeTB> arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            synchronized (this.mProbeCache) {
-                arrayList = (ArrayList) this.mProbeCache.clone();
-            }
-            return arrayList;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public ArrayList<DelayTB> getAllDelayLower() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            ArrayList<DelayTB> arrayList = new ArrayList<>();
-            synchronized (this.mDelayCacheLower) {
-                for (Map.Entry<String, ArrayList<DelayTB>> entry : this.mDelayCacheLower.entrySet()) {
-                    arrayList.addAll(entry.getValue());
-                }
-            }
-            return arrayList;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public ArrayList<DelayTB> getAllDelayUpper() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            ArrayList<DelayTB> arrayList = new ArrayList<>();
-            synchronized (this.mDelayCacheUpper) {
-                for (Map.Entry<String, ArrayList<DelayTB>> entry : this.mDelayCacheUpper.entrySet()) {
-                    arrayList.addAll(entry.getValue());
-                }
-            }
-            return arrayList;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public ConcurrentHashMap<String, DnsInfo> getAllLocalDNSFromCache() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.mLocalDNSCache : (ConcurrentHashMap) invokeV.objValue;
-    }
-
-    public NetStatusInfo getCachedNetStatusInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            if (this.mCacheNetStatusInfo == null) {
-                NetStatusInfo networkInfo = DeviceMgr.getNetworkInfo(GlobalTools.APP_CONTEXT);
-                synchronized (this) {
-                    this.mCacheNetStatusInfo = networkInfo;
-                }
-            }
-            return this.mCacheNetStatusInfo;
-        }
-        return (NetStatusInfo) invokeV.objValue;
-    }
-
-    public int getFailedDnsCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.mCountFailedDns : invokeV.intValue;
-    }
-
     public synchronized int getHitCacheNum(String str) {
         InterceptResult invokeL;
-        int intValue;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, str)) == null) {
             synchronized (this) {
-                intValue = this.mHitCacheNum.containsKey(str) ? this.mHitCacheNum.get(str).intValue() : 0;
+                i = 0;
+                if (this.mHitCacheNum.containsKey(str)) {
+                    i = ((Integer) this.mHitCacheNum.get(str)).intValue();
+                }
             }
-            return intValue;
+            return i;
         }
         return invokeL.intValue;
     }
 
+    public synchronized int getInvokeApiNum(String str) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, str)) == null) {
+            synchronized (this) {
+                i = 0;
+                if (this.mInvokeApiNum.containsKey(str)) {
+                    i = ((Integer) this.mInvokeApiNum.get(str)).intValue();
+                }
+            }
+            return i;
+        }
+        return invokeL.intValue;
+    }
+
+    public int putHttpDNSIntoMemCache(ResultTB resultTB) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048607, this, resultTB)) == null) {
+            if (resultTB != null) {
+                try {
+                    this.mHttpDNSCache.put(resultTB.getHost(), resultTB);
+                    return 0;
+                } catch (Exception e) {
+                    LogTools.printWarning(TAG, e);
+                    return 0;
+                }
+            }
+            return 0;
+        }
+        return invokeL.intValue;
+    }
+
+    public void putLocalDNSIntoCache(DnsInfo dnsInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048608, this, dnsInfo) == null) && dnsInfo != null) {
+            this.mLocalDNSCache.put(dnsInfo.getHost(), dnsInfo);
+        }
+    }
+
+    public void setCachedNetStateInfo(NetStatusInfo netStatusInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048612, this, netStatusInfo) == null) {
+            synchronized (this) {
+                this.mCacheNetStatusInfo = netStatusInfo;
+            }
+        }
+    }
+
+    public void addDelay(DelayTB delayTB) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, delayTB) == null) && delayTB != null) {
+            if (delayTB.getDelay() >= 500) {
+                synchronized (this.mDelayCacheUpper) {
+                    ArrayList arrayList = (ArrayList) this.mDelayCacheUpper.get(delayTB.getHost());
+                    if (arrayList == null) {
+                        arrayList = new ArrayList();
+                        this.mDelayCacheUpper.put(delayTB.getHost(), arrayList);
+                    }
+                    arrayList.add(delayTB);
+                }
+                return;
+            }
+            synchronized (this.mDelayCacheLower) {
+                ArrayList arrayList2 = (ArrayList) this.mDelayCacheLower.get(delayTB.getHost());
+                if (arrayList2 == null) {
+                    arrayList2 = new ArrayList();
+                    this.mDelayCacheLower.put(delayTB.getHost(), arrayList2);
+                }
+                arrayList2.add(delayTB);
+            }
+        }
+    }
+
+    public synchronized void addHitCacheNum(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            synchronized (this) {
+                int i = 0;
+                if (this.mHitCacheNum.containsKey(str)) {
+                    i = ((Integer) this.mHitCacheNum.get(str)).intValue();
+                }
+                this.mHitCacheNum.put(str, Integer.valueOf(i + 1));
+            }
+        }
+    }
+
+    public synchronized void addInvokeApiNum(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            synchronized (this) {
+                int i = 0;
+                if (this.mInvokeApiNum.containsKey(str)) {
+                    i = ((Integer) this.mInvokeApiNum.get(str)).intValue();
+                }
+                this.mInvokeApiNum.put(str, Integer.valueOf(i + 1));
+            }
+        }
+    }
+
+    public String getReportDate(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, context)) == null) {
+            return context.getSharedPreferences("reportConfig", 0).getString("last_hijack", new SimpleDateFormat("yyyy-MM-dd").format(new Date(System.currentTimeMillis() - GlobalTools.ONE_DAY_MILSEC)));
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public ArrayList getAllDelayLower() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            synchronized (this.mDelayCacheLower) {
+                for (Map.Entry entry : this.mDelayCacheLower.entrySet()) {
+                    arrayList.addAll((ArrayList) entry.getValue());
+                }
+            }
+            return arrayList;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public ArrayList getAllDelayUpper() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            synchronized (this.mDelayCacheUpper) {
+                for (Map.Entry entry : this.mDelayCacheUpper.entrySet()) {
+                    arrayList.addAll((ArrayList) entry.getValue());
+                }
+            }
+            return arrayList;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
     public int getHttpDNSFromCache(Context context, String str, String str2, DnsInfo dnsInfo) {
         InterceptResult invokeLLLL;
-        List<ResultTB> resultByNetworkHost;
+        List resultByNetworkHost;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048598, this, context, str, str2, dnsInfo)) == null) {
             if (dnsInfo != null) {
                 ResultTB httpDNSFromMemCache = getHttpDNSFromMemCache(str, str2);
                 if (httpDNSFromMemCache == null && (resultByNetworkHost = DBAccessMgr.getInstance(context).getResultByNetworkHost(str, str2)) != null && !resultByNetworkHost.isEmpty()) {
-                    httpDNSFromMemCache = resultByNetworkHost.get(0);
+                    httpDNSFromMemCache = (ResultTB) resultByNetworkHost.get(0);
                 }
                 if (httpDNSFromMemCache != null) {
                     dnsInfo.setHost(httpDNSFromMemCache.getHost());
@@ -393,7 +524,7 @@ public final class DataCacheMgr {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048599, this, str, str2)) == null) {
             try {
-                ResultTB resultTB = this.mHttpDNSCache.get(str2);
+                ResultTB resultTB = (ResultTB) this.mHttpDNSCache.get(str2);
                 if (resultTB != null) {
                     if (str.equals(resultTB.getNetwork())) {
                         return resultTB;
@@ -407,6 +538,13 @@ public final class DataCacheMgr {
             }
         }
         return (ResultTB) invokeLL.objValue;
+    }
+
+    public void setReportDate(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048613, this, context, str) == null) {
+            context.getSharedPreferences("reportConfig", 0).edit().putString("last_hijack", str).commit();
+        }
     }
 
     public synchronized String getIdentity(Context context) {
@@ -430,42 +568,13 @@ public final class DataCacheMgr {
         return (String) invokeL.objValue;
     }
 
-    public synchronized int getInvokeApiNum(String str) {
-        InterceptResult invokeL;
-        int intValue;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, str)) == null) {
-            synchronized (this) {
-                intValue = this.mInvokeApiNum.containsKey(str) ? this.mInvokeApiNum.get(str).intValue() : 0;
-            }
-            return intValue;
-        }
-        return invokeL.intValue;
-    }
-
-    public List<Long> getListDnsCost() {
-        InterceptResult invokeV;
-        List<Long> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            if (this.mListDnsCost == null) {
-                this.mListDnsCost = new LinkedList();
-            }
-            synchronized (this.mListDnsCost) {
-                list = (List) ((LinkedList) this.mListDnsCost).clone();
-            }
-            return list;
-        }
-        return (List) invokeV.objValue;
-    }
-
     public int getLocalDNSFromCache(String str, DnsInfo dnsInfo) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048603, this, str, dnsInfo)) == null) {
             if (dnsInfo != null) {
                 if (this.mLocalDNSCache.containsKey(str)) {
-                    DnsInfo dnsInfo2 = this.mLocalDNSCache.get(str);
+                    DnsInfo dnsInfo2 = (DnsInfo) this.mLocalDNSCache.get(str);
                     if (dnsInfo2.getEndTime() > System.currentTimeMillis()) {
                         dnsInfo.cloneDnsInfo(dnsInfo2);
                         return 0;
@@ -476,18 +585,6 @@ public final class DataCacheMgr {
             return 5;
         }
         return invokeLL.intValue;
-    }
-
-    public int getLocalDnsCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.mCountLocalDns : invokeV.intValue;
-    }
-
-    public String getReportDate(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, context)) == null) ? context.getSharedPreferences("reportConfig", 0).getString("last_hijack", new SimpleDateFormat("yyyy-MM-dd").format(new Date(System.currentTimeMillis() - GlobalTools.ONE_DAY_MILSEC))) : (String) invokeL.objValue;
     }
 
     public int putHttpDNSIntoCache(Context context, ResInfo resInfo) {
@@ -522,75 +619,5 @@ public final class DataCacheMgr {
             return 5;
         }
         return invokeLL.intValue;
-    }
-
-    public int putHttpDNSIntoMemCache(ResultTB resultTB) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048607, this, resultTB)) == null) {
-            if (resultTB != null) {
-                try {
-                    this.mHttpDNSCache.put(resultTB.getHost(), resultTB);
-                    return 0;
-                } catch (Exception e) {
-                    LogTools.printWarning(TAG, e);
-                    return 0;
-                }
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    public void putLocalDNSIntoCache(DnsInfo dnsInfo) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048608, this, dnsInfo) == null) || dnsInfo == null) {
-            return;
-        }
-        this.mLocalDNSCache.put(dnsInfo.getHost(), dnsInfo);
-    }
-
-    public void resetFailedDnsCount() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
-            this.mCountFailedDns = 0;
-        }
-    }
-
-    public void resetListDnsCost() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
-            List<Long> list = this.mListDnsCost;
-            if (list == null) {
-                this.mListDnsCost = new LinkedList();
-                return;
-            }
-            synchronized (list) {
-                this.mListDnsCost.clear();
-            }
-        }
-    }
-
-    public void resetLocalDnsCount() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
-            this.mCountLocalDns = 0;
-        }
-    }
-
-    public void setCachedNetStateInfo(NetStatusInfo netStatusInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048612, this, netStatusInfo) == null) {
-            synchronized (this) {
-                this.mCacheNetStatusInfo = netStatusInfo;
-            }
-        }
-    }
-
-    public void setReportDate(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048613, this, context, str) == null) {
-            context.getSharedPreferences("reportConfig", 0).edit().putString("last_hijack", str).commit();
-        }
     }
 }

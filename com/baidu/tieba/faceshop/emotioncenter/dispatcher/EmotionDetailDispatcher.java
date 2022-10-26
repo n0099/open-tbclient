@@ -4,14 +4,14 @@ import android.content.Context;
 import android.content.Intent;
 import com.baidu.tbadk.core.atomData.EmotionDetailActivityConfig;
 import com.baidu.tieba.faceshop.emotiondetail.EmotionDetailActivity;
-import com.baidu.tieba.zf8;
+import com.baidu.tieba.jg8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class EmotionDetailDispatcher implements zf8 {
+public class EmotionDetailDispatcher implements jg8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,18 +29,17 @@ public class EmotionDetailDispatcher implements zf8 {
         }
     }
 
-    @Override // com.baidu.tieba.zf8
+    @Override // com.baidu.tieba.jg8
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) || jSONObject == null || context == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) && jSONObject != null && context != null) {
+            int optInt = jSONObject.optInt("pckId");
+            Long valueOf = Long.valueOf(jSONObject.optLong("picId"));
+            Intent intent = new Intent();
+            intent.putExtra("pck_id", optInt);
+            intent.putExtra(EmotionDetailActivityConfig.EMOTION_PIC_ID_KEY, valueOf);
+            intent.setClass(context, EmotionDetailActivity.class);
+            context.startActivity(intent);
         }
-        int optInt = jSONObject.optInt("pckId");
-        Long valueOf = Long.valueOf(jSONObject.optLong("picId"));
-        Intent intent = new Intent();
-        intent.putExtra("pck_id", optInt);
-        intent.putExtra(EmotionDetailActivityConfig.EMOTION_PIC_ID_KEY, valueOf);
-        intent.setClass(context, EmotionDetailActivity.class);
-        context.startActivity(intent);
     }
 }

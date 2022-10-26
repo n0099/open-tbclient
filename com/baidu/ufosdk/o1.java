@@ -11,7 +11,7 @@ import java.lang.ref.WeakReference;
 public class o1 extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<a> a;
+    public WeakReference a;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -33,16 +33,15 @@ public class o1 extends Handler {
                 return;
             }
         }
-        this.a = new WeakReference<>(aVar);
+        this.a = new WeakReference(aVar);
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || (aVar = this.a.get()) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && (aVar = (a) this.a.get()) != null) {
+            aVar.handleMessage(message);
         }
-        aVar.handleMessage(message);
     }
 }

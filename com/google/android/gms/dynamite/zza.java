@@ -34,16 +34,15 @@ public final class zza extends Thread {
     @Override // java.lang.Thread, java.lang.Runnable
     public final void run() {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-            return;
-        }
-        Process.setThreadPriority(19);
-        synchronized (this) {
-            while (true) {
-                try {
-                    wait();
-                } catch (InterruptedException unused) {
-                    return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            Process.setThreadPriority(19);
+            synchronized (this) {
+                while (true) {
+                    try {
+                        wait();
+                    } catch (InterruptedException unused) {
+                        return;
+                    }
                 }
             }
         }

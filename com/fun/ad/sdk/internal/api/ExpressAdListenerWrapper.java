@@ -6,11 +6,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunAdInteractionListener;
 /* loaded from: classes7.dex */
-public class ExpressAdListenerWrapper<A> {
+public class ExpressAdListenerWrapper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public FunAdInteractionListener funListener;
-    public A listener;
+    public Object listener;
 
     public ExpressAdListenerWrapper() {
         Interceptable interceptable = $ic;

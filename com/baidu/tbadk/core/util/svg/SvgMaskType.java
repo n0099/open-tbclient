@@ -32,13 +32,6 @@ public class SvgMaskType extends AbsSvgType {
         }
     }
 
-    @Override // com.baidu.tbadk.core.util.svg.AbsSvgType
-    public Drawable getDrawable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? SvgManager.getInstance().getMaskDrawable(this.drawableId, this.stateType) : (Drawable) invokeV.objValue;
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SvgMaskType(int i, SvgManager.SvgResourceStateType svgResourceStateType) {
         super(i, svgResourceStateType);
@@ -58,5 +51,15 @@ public class SvgMaskType extends AbsSvgType {
                 return;
             }
         }
+    }
+
+    @Override // com.baidu.tbadk.core.util.svg.AbsSvgType
+    public Drawable getDrawable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return SvgManager.getInstance().getMaskDrawable(this.drawableId, this.stateType);
+        }
+        return (Drawable) invokeV.objValue;
     }
 }

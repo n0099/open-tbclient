@@ -2,7 +2,6 @@ package com.kwad.components.ad.splashscreen;
 
 import android.content.Context;
 import android.graphics.Rect;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -68,7 +67,7 @@ public class a extends com.kwad.sdk.components.d implements com.kwad.components.
     }
 
     @Override // com.kwad.components.ad.a.h
-    public final void loadSplashScreenAd(@NonNull KsScene ksScene, @NonNull KsLoadManager.SplashScreenAdListener splashScreenAdListener) {
+    public final void loadSplashScreenAd(KsScene ksScene, KsLoadManager.SplashScreenAdListener splashScreenAdListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, ksScene, splashScreenAdListener) == null) {
             b.loadSplashScreenAd(ksScene, splashScreenAdListener);

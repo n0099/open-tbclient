@@ -21,6 +21,12 @@ public class BitstreamReader {
     public int nBit;
     public int nextByte;
 
+    public void close() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
     public BitstreamReader(InputStream inputStream) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -51,41 +57,107 @@ public class BitstreamReader {
         }
     }
 
-    public void close() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
-
     public long getBitPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (bitsRead * 8) + (this.nBit % 8) : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return (bitsRead * 8) + (this.nBit % 8);
+        }
+        return invokeV.longValue;
     }
 
     public int getCurBit() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.nBit : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.nBit;
+        }
+        return invokeV.intValue;
     }
 
     public boolean isByteAligned() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.nBit % 8 == 0 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.nBit % 8 == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int readByte() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (this.nBit > 0) {
+                advance();
+            }
+            int i = this.curByte;
+            advance();
+            return i;
+        }
+        return invokeV.intValue;
+    }
+
+    public long readRemainingByte() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return readNBit(8 - this.nBit);
+        }
+        return invokeV.longValue;
     }
 
     public boolean moreRBSPData() throws IOException {
         InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             if (this.nBit == 8) {
                 advance();
             }
             int i = 1 << ((8 - this.nBit) - 1);
-            return (this.curByte == -1 || (this.nextByte == -1 && ((((i << 1) - 1) & this.curByte) == i))) ? false : true;
+            if ((((i << 1) - 1) & this.curByte) == i) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (this.curByte != -1 && (this.nextByte != -1 || !z)) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
+    }
+
+    public int read1Bit() throws IOException {
+        InterceptResult invokeV;
+        char c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (this.nBit == 8) {
+                advance();
+                if (this.curByte == -1) {
+                    return -1;
+                }
+            }
+            int i = this.curByte;
+            int i2 = this.nBit;
+            int i3 = (i >> (7 - i2)) & 1;
+            this.nBit = i2 + 1;
+            CharCache charCache = this.debugBits;
+            if (i3 == 0) {
+                c = '0';
+            } else {
+                c = '1';
+            }
+            charCache.append(c);
+            bitsRead++;
+            return i3;
+        }
+        return invokeV.intValue;
     }
 
     public int peakNextBits(int i) throws IOException {
@@ -124,41 +196,6 @@ public class BitstreamReader {
         return invokeI.intValue;
     }
 
-    public int read1Bit() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.nBit == 8) {
-                advance();
-                if (this.curByte == -1) {
-                    return -1;
-                }
-            }
-            int i = this.curByte;
-            int i2 = this.nBit;
-            int i3 = (i >> (7 - i2)) & 1;
-            this.nBit = i2 + 1;
-            this.debugBits.append(i3 == 0 ? '0' : '1');
-            bitsRead++;
-            return i3;
-        }
-        return invokeV.intValue;
-    }
-
-    public int readByte() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.nBit > 0) {
-                advance();
-            }
-            int i = this.curByte;
-            advance();
-            return i;
-        }
-        return invokeV.intValue;
-    }
-
     public long readNBit(int i) throws IOException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -173,11 +210,5 @@ public class BitstreamReader {
             throw new IllegalArgumentException("Can not readByte more then 64 bit");
         }
         return invokeI.longValue;
-    }
-
-    public long readRemainingByte() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? readNBit(8 - this.nBit) : invokeV.longValue;
     }
 }

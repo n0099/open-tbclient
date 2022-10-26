@@ -11,32 +11,46 @@ public interface p extends IInterface {
     boolean a(long j, long j2, o oVar) throws RemoteException;
 
     /* loaded from: classes8.dex */
-    public static abstract class a extends Binder implements p {
+    public abstract class a extends Binder implements p {
+        @Override // android.os.IInterface
+        public IBinder asBinder() {
+            return this;
+        }
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.p$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public static class C0685a implements p {
+        public class C0681a implements p {
             public static p a;
             public IBinder b;
 
-            public C0685a(IBinder iBinder) {
+            public C0681a(IBinder iBinder) {
                 this.b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.p
             public boolean a(long j, long j2, o oVar) throws RemoteException {
+                IBinder iBinder;
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadDiskSpaceAidlHandler");
                     obtain.writeLong(j);
                     obtain.writeLong(j2);
-                    obtain.writeStrongBinder(oVar != null ? oVar.asBinder() : null);
+                    if (oVar != null) {
+                        iBinder = oVar.asBinder();
+                    } else {
+                        iBinder = null;
+                    }
+                    obtain.writeStrongBinder(iBinder);
+                    boolean z = false;
                     if (!this.b.transact(1, obtain, obtain2, 0) && a.a() != null) {
                         return a.a().a(j, j2, oVar);
                     }
                     obtain2.readException();
-                    return obtain2.readInt() != 0;
+                    if (obtain2.readInt() != 0) {
+                        z = true;
+                    }
+                    return z;
                 } finally {
                     obtain2.recycle();
                     obtain.recycle();
@@ -53,6 +67,10 @@ public interface p extends IInterface {
             attachInterface(this, "com.ss.android.socialbase.downloader.depend.IDownloadDiskSpaceAidlHandler");
         }
 
+        public static p a() {
+            return C0681a.a;
+        }
+
         public static p a(IBinder iBinder) {
             if (iBinder == null) {
                 return null;
@@ -61,12 +79,7 @@ public interface p extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof p)) {
                 return (p) queryLocalInterface;
             }
-            return new C0685a(iBinder);
-        }
-
-        @Override // android.os.IInterface
-        public IBinder asBinder() {
-            return this;
+            return new C0681a(iBinder);
         }
 
         @Override // android.os.Binder
@@ -83,10 +96,6 @@ public interface p extends IInterface {
             parcel2.writeNoException();
             parcel2.writeInt(a ? 1 : 0);
             return true;
-        }
-
-        public static p a() {
-            return C0685a.a;
         }
     }
 }

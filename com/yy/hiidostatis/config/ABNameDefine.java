@@ -67,25 +67,10 @@ public final class ABNameDefine {
     public static ABNameDefine valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (ABNameDefine) Enum.valueOf(ABNameDefine.class, str) : (ABNameDefine) invokeL.objValue;
-    }
-
-    public static ABNameDefine[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ABNameDefine[]) $VALUES.clone() : (ABNameDefine[]) invokeV.objValue;
-    }
-
-    public int getDefaultValue() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.defaultValue : invokeV.intValue;
-    }
-
-    public String getName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.name : (String) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (ABNameDefine) Enum.valueOf(ABNameDefine.class, str);
+        }
+        return (ABNameDefine) invokeL.objValue;
     }
 
     public void setDefaultValue(int i) {
@@ -100,5 +85,32 @@ public final class ABNameDefine {
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             this.name = str;
         }
+    }
+
+    public static ABNameDefine[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (ABNameDefine[]) $VALUES.clone();
+        }
+        return (ABNameDefine[]) invokeV.objValue;
+    }
+
+    public int getDefaultValue() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.defaultValue;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.name;
+        }
+        return (String) invokeV.objValue;
     }
 }

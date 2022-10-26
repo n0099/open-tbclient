@@ -42,68 +42,68 @@ public class JSONTools {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            if (str == null || str.trim().length() == 0) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList();
-            while (str.length() > 0) {
-                String token = getToken(str);
-                str = str.substring(token.length());
-                arrayList.add(token.trim());
-            }
-            int i2 = 0;
-            int i3 = 0;
-            for (int i4 = 0; i4 < arrayList.size(); i4++) {
-                int length = ((String) arrayList.get(i4)).getBytes().length;
-                if (length > i3 && i4 < arrayList.size() - 1 && ((String) arrayList.get(i4 + 1)).equals(":")) {
-                    i3 = length;
+            if (str != null && str.trim().length() != 0) {
+                ArrayList arrayList = new ArrayList();
+                while (str.length() > 0) {
+                    String token = getToken(str);
+                    str = str.substring(token.length());
+                    arrayList.add(token.trim());
                 }
-            }
-            StringBuilder sb = new StringBuilder();
-            int i5 = 0;
-            while (i2 < arrayList.size()) {
-                String str3 = (String) arrayList.get(i2);
-                if (str3.equals(",")) {
-                    sb.append(str3);
-                    doFill(sb, i5, str2);
-                } else if (str3.equals(":")) {
-                    sb.append("");
-                    sb.append(str3);
-                    sb.append(" ");
-                } else if (str3.equals("{")) {
-                    i = i2 + 1;
-                    if (((String) arrayList.get(i)).equals("}")) {
-                        sb.append("{ }");
-                        i2 = i;
-                    } else {
-                        i5++;
+                int i2 = 0;
+                int i3 = 0;
+                for (int i4 = 0; i4 < arrayList.size(); i4++) {
+                    int length = ((String) arrayList.get(i4)).getBytes().length;
+                    if (length > i3 && i4 < arrayList.size() - 1 && ((String) arrayList.get(i4 + 1)).equals(":")) {
+                        i3 = length;
+                    }
+                }
+                StringBuilder sb = new StringBuilder();
+                int i5 = 0;
+                while (i2 < arrayList.size()) {
+                    String str3 = (String) arrayList.get(i2);
+                    if (str3.equals(",")) {
                         sb.append(str3);
                         doFill(sb, i5, str2);
-                    }
-                } else if (str3.equals("}")) {
-                    i5--;
-                    doFill(sb, i5, str2);
-                    sb.append(str3);
-                } else if (str3.equals(PreferencesUtil.LEFT_MOUNT)) {
-                    i = i2 + 1;
-                    if (((String) arrayList.get(i)).equals(PreferencesUtil.RIGHT_MOUNT)) {
-                        sb.append("[ ]");
-                        i2 = i;
-                    } else {
-                        i5++;
+                    } else if (str3.equals(":")) {
+                        sb.append("");
                         sb.append(str3);
+                        sb.append(" ");
+                    } else if (str3.equals("{")) {
+                        i = i2 + 1;
+                        if (((String) arrayList.get(i)).equals("}")) {
+                            sb.append("{ }");
+                            i2 = i;
+                        } else {
+                            i5++;
+                            sb.append(str3);
+                            doFill(sb, i5, str2);
+                        }
+                    } else if (str3.equals("}")) {
+                        i5--;
                         doFill(sb, i5, str2);
+                        sb.append(str3);
+                    } else if (str3.equals(PreferencesUtil.LEFT_MOUNT)) {
+                        i = i2 + 1;
+                        if (((String) arrayList.get(i)).equals(PreferencesUtil.RIGHT_MOUNT)) {
+                            sb.append("[ ]");
+                            i2 = i;
+                        } else {
+                            i5++;
+                            sb.append(str3);
+                            doFill(sb, i5, str2);
+                        }
+                    } else if (str3.equals(PreferencesUtil.RIGHT_MOUNT)) {
+                        i5--;
+                        doFill(sb, i5, str2);
+                        sb.append(str3);
+                    } else {
+                        sb.append(str3);
                     }
-                } else if (str3.equals(PreferencesUtil.RIGHT_MOUNT)) {
-                    i5--;
-                    doFill(sb, i5, str2);
-                    sb.append(str3);
-                } else {
-                    sb.append(str3);
+                    i2++;
                 }
-                i2++;
+                return sb.toString();
             }
-            return sb.toString();
+            return null;
         }
         return (String) invokeLL.objValue;
     }

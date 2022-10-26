@@ -1,80 +1,89 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.View;
-import androidx.appcompat.app.AlertDialog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.TBAlertBuilder;
-import com.baidu.tbadk.core.dialog.TBAlertConfig;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class ad5 {
+public abstract class ad5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
 
-    /* loaded from: classes3.dex */
-    public static class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AlertDialog a;
+    public abstract int b();
 
-        public a(AlertDialog alertDialog) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {alertDialog};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = alertDialog;
-        }
+    public abstract boolean c();
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                AlertDialog alertDialog = this.a;
-                if (alertDialog != null) {
-                    alertDialog.dismiss();
-                }
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_USER_BAN_PAY_HINT_CLICK));
-            }
-        }
-    }
-
-    public static void a(Activity activity) {
+    public ad5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, activity) == null) {
-            if (activity == null) {
-                activity = TbadkCoreApplication.getInst().getCurrentActivity();
-            }
-            if (activity == null || activity.isFinishing()) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            TBAlertConfig.a aVar = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f04ef, TBAlertConfig.OperateBtnStyle.MAIN);
-            TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(activity);
-            tBAlertBuilder.t(R.string.obfuscated_res_0x7f0f0fb0);
-            tBAlertBuilder.k(R.string.obfuscated_res_0x7f0f0faf);
-            tBAlertBuilder.r(aVar);
-            tBAlertBuilder.m(true);
-            tBAlertBuilder.h(false);
-            tBAlertBuilder.l(3);
-            AlertDialog w = tBAlertBuilder.w();
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_USER_BAN_PAY_HINT_SHOW));
-            aVar.a(new a(w));
+        }
+        this.a = ux4.k().h("page_stay_duration_switch", false);
+    }
+
+    public boolean a(cd5 cd5Var) {
+        InterceptResult invokeL;
+        int b;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cd5Var)) == null) {
+            if (cd5Var != null && !cd5Var.p()) {
+                if (cd5Var.a) {
+                    cd5Var.x(bd5.b(cd5Var.h(), 6));
+                } else {
+                    if (b() > dd5.b().c()) {
+                        b = dd5.b().c();
+                    } else {
+                        b = b();
+                    }
+                    if (b > 5) {
+                        b = 5;
+                    }
+                    cd5Var.x(bd5.b(cd5Var.h(), b));
+                }
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (!TbadkCoreApplication.getInst().isMainProcess(true)) {
+                return this.a;
+            }
+            if (!TbadkCoreApplication.getInst().isPageStayOpen()) {
+                e(false);
+                return false;
+            } else if (!dd5.b().f()) {
+                e(false);
+                return false;
+            } else {
+                e(true);
+                return true;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048580, this, z) == null) && this.a != z) {
+            ux4.k().u("page_stay_duration_switch", true);
+            this.a = z;
         }
     }
 }

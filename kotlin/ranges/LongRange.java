@@ -26,14 +26,36 @@ public final class LongRange extends LongProgression implements ClosedRange<Long
         }
     }
 
+    @Override // kotlin.ranges.LongProgression
+    public int hashCode() {
+        if (isEmpty()) {
+            return -1;
+        }
+        return (int) ((31 * (getFirst() ^ (getFirst() >>> 32))) + (getLast() ^ (getLast() >>> 32)));
+    }
+
+    @Override // kotlin.ranges.LongProgression, kotlin.ranges.ClosedRange
+    public boolean isEmpty() {
+        if (getFirst() > getLast()) {
+            return true;
+        }
+        return false;
+    }
+
+    @Override // kotlin.ranges.LongProgression
+    public String toString() {
+        return getFirst() + IStringUtil.TOP_PATH + getLast();
+    }
+
     public LongRange(long j, long j2) {
         super(j, j2, 1L);
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Comparable] */
-    @Override // kotlin.ranges.ClosedRange
-    public /* bridge */ /* synthetic */ boolean contains(Long l) {
-        return contains(l.longValue());
+    public boolean contains(long j) {
+        if (getFirst() <= j && j <= getLast()) {
+            return true;
+        }
+        return false;
     }
 
     @Override // kotlin.ranges.LongProgression
@@ -49,26 +71,9 @@ public final class LongRange extends LongProgression implements ClosedRange<Long
         return false;
     }
 
-    @Override // kotlin.ranges.LongProgression
-    public int hashCode() {
-        if (isEmpty()) {
-            return -1;
-        }
-        return (int) ((31 * (getFirst() ^ (getFirst() >>> 32))) + (getLast() ^ (getLast() >>> 32)));
-    }
-
-    @Override // kotlin.ranges.LongProgression, kotlin.ranges.ClosedRange
-    public boolean isEmpty() {
-        return getFirst() > getLast();
-    }
-
-    @Override // kotlin.ranges.LongProgression
-    public String toString() {
-        return getFirst() + IStringUtil.TOP_PATH + getLast();
-    }
-
-    public boolean contains(long j) {
-        return getFirst() <= j && j <= getLast();
+    @Override // kotlin.ranges.ClosedRange
+    public /* bridge */ /* synthetic */ boolean contains(Comparable comparable) {
+        return contains(((Number) comparable).longValue());
     }
 
     /* JADX DEBUG: Method merged with bridge method */

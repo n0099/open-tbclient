@@ -32,6 +32,18 @@ public abstract class p implements f {
     public volatile int e;
     public volatile int f;
 
+    public abstract RandomAccessFile a(File file, String str, long j);
+
+    public abstract Map b(l lVar);
+
+    public abstract int i();
+
+    public abstract void j(l lVar);
+
+    public abstract String k();
+
+    public abstract void l(l lVar);
+
     public p(j jVar, l lVar, f.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -58,10 +70,6 @@ public abstract class p implements f {
         }
     }
 
-    public abstract RandomAccessFile a(File file, String str, long j);
-
-    public abstract Map<String, String> b(l lVar);
-
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:24:0x0058 */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Removed duplicated region for block: B:41:0x0076  */
@@ -76,57 +84,56 @@ public abstract class p implements f {
         IOException e;
         ProtocolException e2;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) {
-            return;
-        }
-        try {
-            URL url = new URL(this.c.a);
-            ?? r2 = 0;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             try {
+                URL url = new URL(this.c.a);
+                ?? r2 = 0;
                 try {
-                    HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
                     try {
-                        httpURLConnection.setConnectTimeout(4000);
-                        httpURLConnection.setReadTimeout(4000);
-                        httpURLConnection.setRequestMethod("GET");
-                        h(b(this.c), httpURLConnection);
-                        int responseCode = httpURLConnection.getResponseCode();
-                        if (responseCode == i()) {
-                            g(httpURLConnection);
-                            httpURLConnection.disconnect();
-                            return;
+                        HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                        try {
+                            httpURLConnection.setConnectTimeout(4000);
+                            httpURLConnection.setReadTimeout(4000);
+                            httpURLConnection.setRequestMethod("GET");
+                            h(b(this.c), httpURLConnection);
+                            int responseCode = httpURLConnection.getResponseCode();
+                            if (responseCode == i()) {
+                                g(httpURLConnection);
+                                httpURLConnection.disconnect();
+                                return;
+                            }
+                            StringBuilder sb = new StringBuilder();
+                            sb.append("UnSupported response code:");
+                            sb.append(responseCode);
+                            throw new DownloadException(108, sb.toString());
+                        } catch (ProtocolException e3) {
+                            e2 = e3;
+                            throw new DownloadException(108, "Protocol error", e2);
+                        } catch (IOException e4) {
+                            e = e4;
+                            throw new DownloadException(108, "IO error", e);
                         }
-                        StringBuilder sb = new StringBuilder();
-                        sb.append("UnSupported response code:");
-                        sb.append(responseCode);
-                        throw new DownloadException(108, sb.toString());
-                    } catch (ProtocolException e3) {
-                        e2 = e3;
-                        throw new DownloadException(108, "Protocol error", e2);
-                    } catch (IOException e4) {
-                        e = e4;
-                        throw new DownloadException(108, "IO error", e);
+                    } catch (Throwable th) {
+                        th = th;
+                        r2 = url;
+                        if (r2 != 0) {
+                            r2.disconnect();
+                        }
+                        throw th;
                     }
-                } catch (Throwable th) {
-                    th = th;
-                    r2 = url;
+                } catch (ProtocolException e5) {
+                    e2 = e5;
+                } catch (IOException e6) {
+                    e = e6;
+                } catch (Throwable th2) {
+                    th = th2;
                     if (r2 != 0) {
-                        r2.disconnect();
                     }
                     throw th;
                 }
-            } catch (ProtocolException e5) {
-                e2 = e5;
-            } catch (IOException e6) {
-                e = e6;
-            } catch (Throwable th2) {
-                th = th2;
-                if (r2 != 0) {
-                }
-                throw th;
+            } catch (MalformedURLException e7) {
+                throw new DownloadException(108, "Bad url.", e7);
             }
-        } catch (MalformedURLException e7) {
-            throw new DownloadException(108, "Bad url.", e7);
         }
     }
 
@@ -160,11 +167,10 @@ public abstract class p implements f {
 
     public final void e(Closeable closeable) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, closeable) == null) || closeable == null) {
-            return;
-        }
-        synchronized (p.class) {
-            closeable.close();
+        if ((interceptable == null || interceptable.invokeL(1048580, this, closeable) == null) && closeable != null) {
+            synchronized (p.class) {
+                closeable.close();
+            }
         }
     }
 
@@ -203,73 +209,69 @@ public abstract class p implements f {
         Throwable th;
         InputStream inputStream;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeL(1048582, this, httpURLConnection) != null) {
-            return;
-        }
-        try {
+        if (interceptable == null || interceptable.invokeL(1048582, this, httpURLConnection) == null) {
             try {
-                inputStream = httpURLConnection.getInputStream();
                 try {
-                    long j = this.c.b + this.c.d;
+                    inputStream = httpURLConnection.getInputStream();
                     try {
-                        File file = this.b.b;
-                        if (!file.exists()) {
-                            file.mkdirs();
+                        long j = this.c.b + this.c.d;
+                        try {
+                            File file = this.b.b;
+                            if (!file.exists()) {
+                                file.mkdirs();
+                            }
+                            RandomAccessFile a = a(file, this.b.a, j);
+                            f(inputStream, a);
+                            try {
+                                e(inputStream);
+                                e(a);
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        } catch (IOException e2) {
+                            throw new DownloadException(108, "File occur IOException ", e2);
+                        } catch (Exception e3) {
+                            throw new DownloadException(108, "Occur Exception ", e3);
                         }
-                        RandomAccessFile a = a(file, this.b.a, j);
-                        f(inputStream, a);
+                    } catch (Throwable th2) {
+                        th = th2;
                         try {
                             e(inputStream);
-                            e(a);
-                        } catch (IOException e) {
-                            e.printStackTrace();
+                            e(null);
+                        } catch (IOException e4) {
+                            e4.printStackTrace();
                         }
-                    } catch (IOException e2) {
-                        throw new DownloadException(108, "File occur IOException ", e2);
-                    } catch (Exception e3) {
-                        throw new DownloadException(108, "Occur Exception ", e3);
+                        throw th;
                     }
-                } catch (Throwable th2) {
-                    th = th2;
-                    try {
-                        e(inputStream);
-                        e(null);
-                    } catch (IOException e4) {
-                        e4.printStackTrace();
-                    }
-                    throw th;
+                } catch (IOException e5) {
+                    throw new DownloadException(108, "http get inputStream error", e5);
                 }
-            } catch (IOException e5) {
-                throw new DownloadException(108, "http get inputStream error", e5);
+            } catch (Throwable th3) {
+                th = th3;
+                inputStream = null;
             }
-        } catch (Throwable th3) {
-            th = th3;
-            inputStream = null;
         }
     }
 
-    public final void h(Map<String, String> map, URLConnection uRLConnection) {
+    public final void h(Map map, URLConnection uRLConnection) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048583, this, map, uRLConnection) == null) || map == null) {
-            return;
-        }
-        for (String str : map.keySet()) {
-            uRLConnection.setRequestProperty(str, map.get(str));
+        if ((interceptable == null || interceptable.invokeLL(1048583, this, map, uRLConnection) == null) && map != null) {
+            for (String str : map.keySet()) {
+                uRLConnection.setRequestProperty(str, (String) map.get(str));
+            }
         }
     }
-
-    public abstract int i();
-
-    public abstract void j(l lVar);
-
-    public abstract String k();
-
-    public abstract void l(l lVar);
 
     public boolean m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.e == 104 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            if (this.e == 104) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // java.lang.Runnable

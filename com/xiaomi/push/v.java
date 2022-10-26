@@ -38,7 +38,7 @@ public class v {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             try {
-                Class<?> a2 = a(null, "miui.os.Build");
+                Class a2 = a(null, "miui.os.Build");
                 if (a2.getField("IS_STABLE_VERSION").getBoolean(null)) {
                     return 3;
                 }
@@ -51,13 +51,13 @@ public class v {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static Context m688a() {
+    public static Context m687a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : (Context) invokeV.objValue;
     }
 
-    public static Class<?> a(Context context, String str) {
+    public static Class a(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
@@ -74,7 +74,7 @@ public class v {
             try {
                 return Class.forName(str);
             } catch (Throwable th) {
-                com.xiaomi.channel.commonutils.logger.b.m90a(String.format("loadClass fail hasContext= %s, errMsg = %s", Boolean.valueOf(z), th.getLocalizedMessage()));
+                com.xiaomi.channel.commonutils.logger.b.m89a(String.format("loadClass fail hasContext= %s, errMsg = %s", Boolean.valueOf(z), th.getLocalizedMessage()));
                 throw new ClassNotFoundException("loadClass fail ", th);
             }
         }
@@ -82,7 +82,7 @@ public class v {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized String m689a() {
+    public static synchronized String m688a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
@@ -119,14 +119,14 @@ public class v {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m690a() {
+    public static boolean m689a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? TextUtils.equals((String) bk.a("android.os.SystemProperties", "get", "sys.boot_completed"), "1") : invokeV.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m691a(Context context) {
+    public static boolean m690a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
@@ -152,7 +152,7 @@ public class v {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static boolean m692b() {
+    public static boolean m691b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {

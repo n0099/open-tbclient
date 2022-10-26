@@ -10,8 +10,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.coremedia.iso.boxes.Box;
-import com.coremedia.iso.boxes.CompositionTimeToSample;
-import com.coremedia.iso.boxes.SampleDependencyTypeBox;
 import com.coremedia.iso.boxes.SampleDescriptionBox;
 import com.coremedia.iso.boxes.SoundMediaHeaderBox;
 import com.coremedia.iso.boxes.SubSampleInformationBox;
@@ -40,8 +38,8 @@ import java.util.Map;
 /* loaded from: classes7.dex */
 public class AACTrackImpl extends AbstractTrack {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<Integer, String> audioObjectTypes;
-    public static Map<Integer, Integer> samplingFrequencyIndexMap;
+    public static Map audioObjectTypes;
+    public static Map samplingFrequencyIndexMap;
     public transient /* synthetic */ FieldHolder $fh;
     public long avgBitRate;
     public int bufferSizeDB;
@@ -50,8 +48,55 @@ public class AACTrackImpl extends AbstractTrack {
     public String lang;
     public long maxBitRate;
     public SampleDescriptionBox sampleDescriptionBox;
-    public List<Sample> samples;
+    public List samples;
     public TrackMetaData trackMetaData;
+
+    @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
+    public List getCompositionTimeEntries() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // com.googlecode.mp4parser.authoring.Track
+    public String getHandler() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "soun" : (String) invokeV.objValue;
+    }
+
+    @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
+    public List getSampleDependencies() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
+    public SubSampleInformationBox getSubsampleInformationBox() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return null;
+        }
+        return (SubSampleInformationBox) invokeV.objValue;
+    }
+
+    @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
+    public long[] getSyncSamples() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return null;
+        }
+        return (long[]) invokeV.objValue;
+    }
 
     /* loaded from: classes7.dex */
     public class AdtsHeader {
@@ -93,9 +138,15 @@ public class AACTrackImpl extends AbstractTrack {
 
         public int getSize() {
             InterceptResult invokeV;
+            int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return (this.protectionAbsent == 0 ? 2 : 0) + 7;
+                if (this.protectionAbsent == 0) {
+                    i = 2;
+                } else {
+                    i = 0;
+                }
+                return i + 7;
             }
             return invokeV.intValue;
         }
@@ -189,6 +240,26 @@ public class AACTrackImpl extends AbstractTrack {
         samplingFrequencyIndexMap.put(11, 8000);
     }
 
+    public AACTrackImpl(DataSource dataSource) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {dataSource};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.trackMetaData = new TrackMetaData();
+        this.lang = "eng";
+        parse(dataSource);
+    }
+
     public AACTrackImpl(DataSource dataSource, String str) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -219,14 +290,14 @@ public class AACTrackImpl extends AbstractTrack {
             double d = readSamples.sampleRate / 1024.0d;
             double size = this.samples.size() / d;
             LinkedList linkedList = new LinkedList();
-            Iterator<Sample> it = this.samples.iterator();
+            Iterator it = this.samples.iterator();
             long j = 0;
             while (true) {
                 int i = 0;
                 if (!it.hasNext()) {
                     break;
                 }
-                int size2 = (int) it.next().getSize();
+                int size2 = (int) ((Sample) it.next()).getSize();
                 j += size2;
                 linkedList.add(Integer.valueOf(size2));
                 while (linkedList.size() > d) {
@@ -309,7 +380,7 @@ public class AACTrackImpl extends AbstractTrack {
                 adtsHeader.profile = bitReaderBuffer.readBits(2) + 1;
                 int readBits = bitReaderBuffer.readBits(4);
                 adtsHeader.sampleFrequencyIndex = readBits;
-                adtsHeader.sampleRate = samplingFrequencyIndexMap.get(Integer.valueOf(readBits)).intValue();
+                adtsHeader.sampleRate = ((Integer) samplingFrequencyIndexMap.get(Integer.valueOf(readBits))).intValue();
                 bitReaderBuffer.readBits(1);
                 adtsHeader.channelconfig = bitReaderBuffer.readBits(3);
                 adtsHeader.original = bitReaderBuffer.readBits(1);
@@ -336,105 +407,74 @@ public class AACTrackImpl extends AbstractTrack {
     private AdtsHeader readSamples(DataSource dataSource) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65541, this, dataSource)) != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, dataSource)) == null) {
+            AdtsHeader adtsHeader = null;
+            while (true) {
+                AdtsHeader readADTSHeader = readADTSHeader(dataSource);
+                if (readADTSHeader == null) {
+                    return adtsHeader;
+                }
+                if (adtsHeader == null) {
+                    adtsHeader = readADTSHeader;
+                }
+                ByteBuffer map = dataSource.map(dataSource.position(), readADTSHeader.frameLength - readADTSHeader.getSize());
+                this.samples.add(new SampleImpl(map));
+                dataSource.position((dataSource.position() + readADTSHeader.frameLength) - readADTSHeader.getSize());
+                map.rewind();
+            }
+        } else {
             return (AdtsHeader) invokeL.objValue;
         }
-        AdtsHeader adtsHeader = null;
-        while (true) {
-            AdtsHeader readADTSHeader = readADTSHeader(dataSource);
-            if (readADTSHeader == null) {
-                return adtsHeader;
-            }
-            if (adtsHeader == null) {
-                adtsHeader = readADTSHeader;
-            }
-            ByteBuffer map = dataSource.map(dataSource.position(), readADTSHeader.frameLength - readADTSHeader.getSize());
-            this.samples.add(new SampleImpl(map));
-            dataSource.position((dataSource.position() + readADTSHeader.frameLength) - readADTSHeader.getSize());
-            map.rewind();
-        }
-    }
-
-    @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
-    public List<CompositionTimeToSample.Entry> getCompositionTimeEntries() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    @Override // com.googlecode.mp4parser.authoring.Track
-    public String getHandler() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "soun" : (String) invokeV.objValue;
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
     public Box getMediaHeaderBox() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new SoundMediaHeaderBox() : (Box) invokeV.objValue;
-    }
-
-    @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
-    public List<SampleDependencyTypeBox.Entry> getSampleDependencies() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return new SoundMediaHeaderBox();
         }
-        return (List) invokeV.objValue;
+        return (Box) invokeV.objValue;
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
     public SampleDescriptionBox getSampleDescriptionBox() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.sampleDescriptionBox : (SampleDescriptionBox) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.sampleDescriptionBox;
+        }
+        return (SampleDescriptionBox) invokeV.objValue;
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
     public long[] getSampleDurations() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.decTimes : (long[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.decTimes;
+        }
+        return (long[]) invokeV.objValue;
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
-    public List<Sample> getSamples() {
+    public List getSamples() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.samples : (List) invokeV.objValue;
-    }
-
-    @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
-    public SubSampleInformationBox getSubsampleInformationBox() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.samples;
         }
-        return (SubSampleInformationBox) invokeV.objValue;
-    }
-
-    @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
-    public long[] getSyncSamples() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return null;
-        }
-        return (long[]) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
     public TrackMetaData getTrackMetaData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.trackMetaData : (TrackMetaData) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.trackMetaData;
+        }
+        return (TrackMetaData) invokeV.objValue;
     }
 
     public String toString() {
@@ -444,25 +484,5 @@ public class AACTrackImpl extends AbstractTrack {
             return "AACTrackImpl{sampleRate=" + this.firstHeader.sampleRate + ", channelconfig=" + this.firstHeader.channelconfig + '}';
         }
         return (String) invokeV.objValue;
-    }
-
-    public AACTrackImpl(DataSource dataSource) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {dataSource};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.trackMetaData = new TrackMetaData();
-        this.lang = "eng";
-        parse(dataSource);
     }
 }

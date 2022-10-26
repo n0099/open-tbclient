@@ -1,6 +1,5 @@
 package tv.athena.revenue.payui.view.dialog;
 
-import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +8,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-@Keep
 /* loaded from: classes9.dex */
 public final class PayDialogType {
     public static final /* synthetic */ PayDialogType[] $VALUES;
@@ -71,12 +69,18 @@ public final class PayDialogType {
     public static PayDialogType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (PayDialogType) Enum.valueOf(PayDialogType.class, str) : (PayDialogType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (PayDialogType) Enum.valueOf(PayDialogType.class, str);
+        }
+        return (PayDialogType) invokeL.objValue;
     }
 
     public static PayDialogType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PayDialogType[]) $VALUES.clone() : (PayDialogType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (PayDialogType[]) $VALUES.clone();
+        }
+        return (PayDialogType[]) invokeV.objValue;
     }
 }

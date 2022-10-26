@@ -31,47 +31,35 @@ public final class PercentageRating implements Rating {
         this.mPercent = -1.0f;
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? (obj instanceof PercentageRating) && this.mPercent == ((PercentageRating) obj).mPercent : invokeL.booleanValue;
-    }
-
     public float getPercentRating() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mPercent : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mPercent;
+        }
+        return invokeV.floatValue;
     }
 
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ObjectsCompat.hash(Float.valueOf(this.mPercent)) : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return ObjectsCompat.hash(Float.valueOf(this.mPercent));
+        }
+        return invokeV.intValue;
     }
 
     @Override // androidx.media2.common.Rating
     public boolean isRated() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mPercent != -1.0f : invokeV.booleanValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("PercentageRating: ");
-            if (isRated()) {
-                str = "percentage=" + this.mPercent;
-            } else {
-                str = "unrated";
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.mPercent != -1.0f) {
+                return true;
             }
-            sb.append(str);
-            return sb.toString();
+            return false;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
     public PercentageRating(float f) {
@@ -94,5 +82,35 @@ public final class PercentageRating implements Rating {
             return;
         }
         throw new IllegalArgumentException("percent should be in the rage of [0, 100]");
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (!(obj instanceof PercentageRating) || this.mPercent != ((PercentageRating) obj).mPercent) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("PercentageRating: ");
+            if (isRated()) {
+                str = "percentage=" + this.mPercent;
+            } else {
+                str = "unrated";
+            }
+            sb.append(str);
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

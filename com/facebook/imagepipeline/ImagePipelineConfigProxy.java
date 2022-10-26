@@ -34,7 +34,10 @@ public class ImagePipelineConfigProxy {
     public static ImagePipelineConfig getImagePipelineConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? imagePipelineConfig : (ImagePipelineConfig) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return imagePipelineConfig;
+        }
+        return (ImagePipelineConfig) invokeV.objValue;
     }
 
     public static void setImagePipelineConfig(ImagePipelineConfig imagePipelineConfig2) {

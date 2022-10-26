@@ -1,6 +1,5 @@
 package com.baidu.pyramid.runtime.service;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,7 +13,7 @@ public final class ServiceReference {
     public final String mName;
     public final String mNameSpace;
 
-    public ServiceReference(@NonNull String str, @NonNull String str2) {
+    public ServiceReference(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -48,10 +47,10 @@ public final class ServiceReference {
                 return false;
             }
             ServiceReference serviceReference = (ServiceReference) obj;
-            if (this.mNameSpace.equals(serviceReference.mNameSpace)) {
-                return this.mName.equals(serviceReference.mName);
+            if (!this.mNameSpace.equals(serviceReference.mNameSpace)) {
+                return false;
             }
-            return false;
+            return this.mName.equals(serviceReference.mName);
         }
         return invokeL.booleanValue;
     }
@@ -59,7 +58,10 @@ public final class ServiceReference {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (this.mNameSpace.hashCode() * 31) + this.mName.hashCode() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return (this.mNameSpace.hashCode() * 31) + this.mName.hashCode();
+        }
+        return invokeV.intValue;
     }
 
     public String toIdentity() {

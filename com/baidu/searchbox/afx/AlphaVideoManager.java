@@ -29,7 +29,10 @@ public class AlphaVideoManager {
     public static OnReportListener getOnReportListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? sOnReportListener : (OnReportListener) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return sOnReportListener;
+        }
+        return (OnReportListener) invokeV.objValue;
     }
 
     public static void setOnReportListener(OnReportListener onReportListener) {

@@ -23,27 +23,6 @@ public final class YYPluginBundleInfo {
     public final String packageName;
     public final int versionCode;
 
-    public YYPluginBundleInfo(String str, int i, boolean z, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), Boolean.valueOf(z), str2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.packageName = str;
-        this.versionCode = i;
-        this.needUpdate = z;
-        this.ext = str2;
-    }
-
     public static /* synthetic */ YYPluginBundleInfo copy$default(YYPluginBundleInfo yYPluginBundleInfo, String str, int i, boolean z, String str2, int i2, Object obj) {
         if ((i2 & 1) != 0) {
             str = yYPluginBundleInfo.packageName;
@@ -106,30 +85,6 @@ public final class YYPluginBundleInfo {
         return invokeL.booleanValue;
     }
 
-    public final String getExt() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.ext : (String) invokeV.objValue;
-    }
-
-    public final boolean getNeedUpdate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.needUpdate : invokeV.booleanValue;
-    }
-
-    public final String getPackageName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.packageName : (String) invokeV.objValue;
-    }
-
-    public final int getVersionCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.versionCode : invokeV.intValue;
-    }
-
     /* JADX DEBUG: Multi-variable search result rejected for r2v2, resolved type: boolean */
     /* JADX WARN: Multi-variable type inference failed */
     public int hashCode() {
@@ -150,6 +105,67 @@ public final class YYPluginBundleInfo {
         return invokeV.intValue;
     }
 
+    public YYPluginBundleInfo(String str, int i, boolean z, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), Boolean.valueOf(z), str2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.packageName = str;
+        this.versionCode = i;
+        this.needUpdate = z;
+        this.ext = str2;
+    }
+
+    public /* synthetic */ YYPluginBundleInfo(String str, int i, boolean z, String str2, int i2, DefaultConstructorMarker defaultConstructorMarker) {
+        this(str, (i2 & 2) != 0 ? 0 : i, (i2 & 4) != 0 ? false : z, str2);
+    }
+
+    public final String getExt() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.ext;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final boolean getNeedUpdate() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.needUpdate;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final String getPackageName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.packageName;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final int getVersionCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.versionCode;
+        }
+        return invokeV.intValue;
+    }
+
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -157,9 +173,5 @@ public final class YYPluginBundleInfo {
             return "YYPluginBundleInfo { packageName=" + this.packageName + " versionCode=" + this.versionCode + " needUpdate=" + this.needUpdate + " ext=" + this.ext + " }";
         }
         return (String) invokeV.objValue;
-    }
-
-    public /* synthetic */ YYPluginBundleInfo(String str, int i, boolean z, String str2, int i2, DefaultConstructorMarker defaultConstructorMarker) {
-        this(str, (i2 & 2) != 0 ? 0 : i, (i2 & 4) != 0 ? false : z, str2);
     }
 }

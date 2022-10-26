@@ -11,8 +11,8 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
+import com.baidu.tieba.cn7;
 import com.baidu.tieba.memberCenter.memberprivilege.MemberCenterStatic;
-import com.baidu.tieba.rm7;
 import com.baidu.tieba.w9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -27,7 +27,7 @@ public class CategoryView extends LinearLayout {
     public TextView c;
     public TextView d;
     public ImageView e;
-    public rm7 f;
+    public cn7 f;
     public View.OnClickListener g;
 
     /* loaded from: classes5.dex */
@@ -57,18 +57,21 @@ public class CategoryView extends LinearLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || view2 == null || this.a.f == null || StringUtils.isNull(this.a.f.c()) || StringUtils.isNull(this.a.f.b())) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2 != null && this.a.f != null && !StringUtils.isNull(this.a.f.c()) && !StringUtils.isNull(this.a.f.b())) {
+                int a = this.a.f.a();
+                if (a != 1) {
+                    if (a != 2) {
+                        if (a == 3) {
+                            TiebaStatic.log("c10449");
+                        }
+                    } else {
+                        TiebaStatic.log("c10443");
+                    }
+                } else {
+                    TiebaStatic.log("c10441");
+                }
+                MemberCenterStatic.a((TbPageContext) w9.a(this.a.a), new String[]{this.a.f.c()});
             }
-            int a = this.a.f.a();
-            if (a == 1) {
-                TiebaStatic.log("c10441");
-            } else if (a == 2) {
-                TiebaStatic.log("c10443");
-            } else if (a == 3) {
-                TiebaStatic.log("c10449");
-            }
-            MemberCenterStatic.a((TbPageContext) w9.a(this.a.a), new String[]{this.a.f.c()});
         }
     }
 
@@ -93,19 +96,6 @@ public class CategoryView extends LinearLayout {
         this.g = new a(this);
         this.a = context;
         c();
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03d3, this);
-            this.b = inflate;
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090643);
-            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091f3e);
-            this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091f3c);
-            this.b.setOnClickListener(this.g);
-            this.e.setOnClickListener(this.g);
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -154,5 +144,18 @@ public class CategoryView extends LinearLayout {
         this.g = new a(this);
         this.a = context;
         c();
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03d0, this);
+            this.b = inflate;
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09064c);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091f3d);
+            this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091f3b);
+            this.b.setOnClickListener(this.g);
+            this.e.setOnClickListener(this.g);
+        }
     }
 }

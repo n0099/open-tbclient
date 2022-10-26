@@ -41,6 +41,26 @@ public class PatchManagerService {
         this.mContext = context.getApplicationContext();
     }
 
+    private int getDexCount(ZipFile zipFile) {
+        if (zipFile.getEntry("classes.dex") != null) {
+            int i = 2;
+            int i2 = 1;
+            while (true) {
+                if (zipFile.getEntry(MultiDexExtractor.DEX_PREFIX + i + ".dex") == null) {
+                    return i2;
+                }
+                i2++;
+                i++;
+            }
+        } else {
+            return 0;
+        }
+    }
+
+    public PatchInstallInfo createPatchInstallInfo(String str) {
+        return new PatchInstallInfo(new File(TitanPaths.getPatchsDir(), str));
+    }
+
     private boolean dexOpt(PatchInstallInfo patchInstallInfo, JSONObject jSONObject) {
         File dexOptDir = patchInstallInfo.getDexOptDir();
         dexOptDir.mkdirs();
@@ -111,104 +131,6 @@ public class PatchManagerService {
         }
     }
 
-    private void extractDex(ZipFile zipFile, ZipEntry zipEntry, File file) throws IOException {
-        ZipOutputStream zipOutputStream;
-        File file2 = new File(file, zipEntry.getName().replace("dex", "jar"));
-        InputStream inputStream = null;
-        try {
-            zipOutputStream = new ZipOutputStream(new BufferedOutputStream(new FileOutputStream(file2)));
-            try {
-                inputStream = zipFile.getInputStream(zipEntry);
-                ZipEntry zipEntry2 = new ZipEntry("classes.dex");
-                zipEntry2.setTime(zipEntry.getTime());
-                zipOutputStream.putNextEntry(zipEntry2);
-                byte[] bArr = new byte[16384];
-                while (true) {
-                    int read = inputStream.read(bArr);
-                    if (read <= 0) {
-                        break;
-                    }
-                    zipOutputStream.write(bArr, 0, read);
-                }
-                zipOutputStream.closeEntry();
-                if (inputStream != null) {
-                    try {
-                        inputStream.close();
-                    } catch (Exception unused) {
-                    }
-                }
-                try {
-                    zipOutputStream.close();
-                } catch (Exception unused2) {
-                }
-            } catch (Throwable th) {
-                th = th;
-                if (inputStream != null) {
-                    try {
-                        inputStream.close();
-                    } catch (Exception unused3) {
-                    }
-                }
-                if (zipOutputStream != null) {
-                    try {
-                        zipOutputStream.close();
-                    } catch (Exception unused4) {
-                    }
-                }
-                throw th;
-            }
-        } catch (Throwable th2) {
-            th = th2;
-            zipOutputStream = null;
-        }
-    }
-
-    private boolean extractDexs(ZipFile zipFile, File file) {
-        try {
-            ZipEntry entry = zipFile.getEntry("classes.dex");
-            if (entry != null) {
-                extractDex(zipFile, entry, file);
-            }
-            int i = 2;
-            while (true) {
-                ZipEntry entry2 = zipFile.getEntry(MultiDexExtractor.DEX_PREFIX + i + ".dex");
-                if (entry2 == null) {
-                    return true;
-                }
-                extractDex(zipFile, entry2, file);
-                i++;
-            }
-        } catch (IOException unused) {
-            return false;
-        }
-    }
-
-    private int getDexCount(ZipFile zipFile) {
-        if (zipFile.getEntry("classes.dex") == null) {
-            return 0;
-        }
-        int i = 2;
-        int i2 = 1;
-        while (true) {
-            if (zipFile.getEntry(MultiDexExtractor.DEX_PREFIX + i + ".dex") == null) {
-                return i2;
-            }
-            i2++;
-            i++;
-        }
-    }
-
-    public static PatchManagerService getInstance() {
-        PatchManagerService patchManagerService;
-        synchronized (PatchManagerService.class) {
-            if (sInstance == null) {
-                sInstance = new PatchManagerService(TitanIniter.getAppContext());
-            }
-            patchManagerService = sInstance;
-        }
-        return patchManagerService;
-    }
-
     private File prepareInstallTempPatch(InputStream inputStream, JSONObject jSONObject) {
         File file;
         FileOutputStream fileOutputStream;
@@ -269,52 +191,56 @@ public class PatchManagerService {
         }
     }
 
-    public PatchInstallInfo createPatchInstallInfo(String str) {
-        return new PatchInstallInfo(new File(TitanPaths.getPatchsDir(), str));
-    }
-
-    public void doCleanPatchsLocked() {
-        LoaderHead createFromJson;
-        File headFile = TitanPaths.getHeadFile();
-        String str = null;
-        if (headFile.exists()) {
-            String fileStringContent = Files.getFileStringContent(headFile);
-            if (!TextUtils.isEmpty(fileStringContent) && (createFromJson = LoaderHead.createFromJson(fileStringContent)) != null && !TextUtils.isEmpty(createFromJson.targetId) && !TextUtils.isEmpty(createFromJson.patchHash) && TextUtils.equals(LoaderManager.getInstance().getCurrentApkId(), createFromJson.targetId)) {
-                str = createFromJson.patchHash;
-            }
-            if (TextUtils.isEmpty(str)) {
-                headFile.delete();
-            }
-        }
-        File[] listFiles = TitanPaths.getPatchsDir().listFiles();
-        int i = 0;
-        if (listFiles != null) {
-            int length = listFiles.length;
-            int i2 = 0;
-            while (i < length) {
-                PatchInstallInfo patchInstallInfo = new PatchInstallInfo(listFiles[i]);
-                if (TextUtils.isEmpty(str) || !patchInstallInfo.getId().equals(str)) {
-                    if (patchInstallInfo.writeLock()) {
-                        patchInstallInfo.cleanIfNeed();
-                        patchInstallInfo.releaseWriteLock();
-                    } else {
-                        i2 = 1;
+    private void extractDex(ZipFile zipFile, ZipEntry zipEntry, File file) throws IOException {
+        ZipOutputStream zipOutputStream;
+        File file2 = new File(file, zipEntry.getName().replace("dex", "jar"));
+        InputStream inputStream = null;
+        try {
+            zipOutputStream = new ZipOutputStream(new BufferedOutputStream(new FileOutputStream(file2)));
+            try {
+                inputStream = zipFile.getInputStream(zipEntry);
+                ZipEntry zipEntry2 = new ZipEntry("classes.dex");
+                zipEntry2.setTime(zipEntry.getTime());
+                zipOutputStream.putNextEntry(zipEntry2);
+                byte[] bArr = new byte[16384];
+                while (true) {
+                    int read = inputStream.read(bArr);
+                    if (read <= 0) {
+                        break;
+                    }
+                    zipOutputStream.write(bArr, 0, read);
+                }
+                zipOutputStream.closeEntry();
+                if (inputStream != null) {
+                    try {
+                        inputStream.close();
+                    } catch (Exception unused) {
                     }
                 }
-                i++;
+                try {
+                    zipOutputStream.close();
+                } catch (Exception unused2) {
+                }
+            } catch (Throwable th) {
+                th = th;
+                if (inputStream != null) {
+                    try {
+                        inputStream.close();
+                    } catch (Exception unused3) {
+                    }
+                }
+                if (zipOutputStream != null) {
+                    try {
+                        zipOutputStream.close();
+                    } catch (Exception unused4) {
+                    }
+                }
+                throw th;
             }
-            i = i2;
+        } catch (Throwable th2) {
+            th = th2;
+            zipOutputStream = null;
         }
-        File pendingCleanFile = PatchManager.getPendingCleanFile();
-        if (i != 0) {
-            try {
-                pendingCleanFile.createNewFile();
-                return;
-            } catch (IOException unused) {
-                return;
-            }
-        }
-        pendingCleanFile.delete();
     }
 
     public int installSyncLocked(Uri uri, Bundle bundle, Bundle bundle2) {
@@ -345,6 +271,37 @@ public class PatchManagerService {
             doCleanPatchsLocked();
             throw th;
         }
+    }
+
+    private boolean extractDexs(ZipFile zipFile, File file) {
+        try {
+            ZipEntry entry = zipFile.getEntry("classes.dex");
+            if (entry != null) {
+                extractDex(zipFile, entry, file);
+            }
+            int i = 2;
+            while (true) {
+                ZipEntry entry2 = zipFile.getEntry(MultiDexExtractor.DEX_PREFIX + i + ".dex");
+                if (entry2 == null) {
+                    return true;
+                }
+                extractDex(zipFile, entry2, file);
+                i++;
+            }
+        } catch (IOException unused) {
+            return false;
+        }
+    }
+
+    public static PatchManagerService getInstance() {
+        PatchManagerService patchManagerService;
+        synchronized (PatchManagerService.class) {
+            if (sInstance == null) {
+                sInstance = new PatchManagerService(TitanIniter.getAppContext());
+            }
+            patchManagerService = sInstance;
+        }
+        return patchManagerService;
     }
 
     private int installSyncLocked(InputStream inputStream, Bundle bundle, Bundle bundle2) throws IOException {
@@ -493,5 +450,49 @@ public class PatchManagerService {
             th = th2;
             file = null;
         }
+    }
+
+    public void doCleanPatchsLocked() {
+        LoaderHead createFromJson;
+        File headFile = TitanPaths.getHeadFile();
+        String str = null;
+        if (headFile.exists()) {
+            String fileStringContent = Files.getFileStringContent(headFile);
+            if (!TextUtils.isEmpty(fileStringContent) && (createFromJson = LoaderHead.createFromJson(fileStringContent)) != null && !TextUtils.isEmpty(createFromJson.targetId) && !TextUtils.isEmpty(createFromJson.patchHash) && TextUtils.equals(LoaderManager.getInstance().getCurrentApkId(), createFromJson.targetId)) {
+                str = createFromJson.patchHash;
+            }
+            if (TextUtils.isEmpty(str)) {
+                headFile.delete();
+            }
+        }
+        File[] listFiles = TitanPaths.getPatchsDir().listFiles();
+        int i = 0;
+        if (listFiles != null) {
+            int length = listFiles.length;
+            int i2 = 0;
+            while (i < length) {
+                PatchInstallInfo patchInstallInfo = new PatchInstallInfo(listFiles[i]);
+                if (TextUtils.isEmpty(str) || !patchInstallInfo.getId().equals(str)) {
+                    if (patchInstallInfo.writeLock()) {
+                        patchInstallInfo.cleanIfNeed();
+                        patchInstallInfo.releaseWriteLock();
+                    } else {
+                        i2 = 1;
+                    }
+                }
+                i++;
+            }
+            i = i2;
+        }
+        File pendingCleanFile = PatchManager.getPendingCleanFile();
+        if (i != 0) {
+            try {
+                pendingCleanFile.createNewFile();
+                return;
+            } catch (IOException unused) {
+                return;
+            }
+        }
+        pendingCleanFile.delete();
     }
 }

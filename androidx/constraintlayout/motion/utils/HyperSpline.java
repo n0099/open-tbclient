@@ -53,13 +53,33 @@ public class HyperSpline {
         public double eval(double d) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Double.valueOf(d)})) == null) ? (((((this.mD * d) + this.mC) * d) + this.mB) * d) + this.mA : invokeCommon.doubleValue;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Double.valueOf(d)})) == null) {
+                return (((((this.mD * d) + this.mC) * d) + this.mB) * d) + this.mA;
+            }
+            return invokeCommon.doubleValue;
         }
 
         public double vel(double d) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Double.valueOf(d)})) == null) ? (((this.mD * 0.3333333333333333d * d) + (this.mC * 0.5d)) * d) + this.mB : invokeCommon.doubleValue;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Double.valueOf(d)})) == null) {
+                return (((this.mD * 0.3333333333333333d * d) + (this.mC * 0.5d)) * d) + this.mB;
+            }
+            return invokeCommon.doubleValue;
+        }
+    }
+
+    public HyperSpline() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
@@ -163,6 +183,44 @@ public class HyperSpline {
         return invokeL.doubleValue;
     }
 
+    public double getPos(double d, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Double.valueOf(d), Integer.valueOf(i)})) == null) {
+            double d2 = d * this.mTotalLength;
+            int i2 = 0;
+            while (true) {
+                double[] dArr = this.mCurveLength;
+                if (i2 >= dArr.length - 1 || dArr[i2] >= d2) {
+                    break;
+                }
+                d2 -= dArr[i2];
+                i2++;
+            }
+            return this.mCurve[i][i2].eval(d2 / this.mCurveLength[i2]);
+        }
+        return invokeCommon.doubleValue;
+    }
+
+    public void getVelocity(double d, double[] dArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Double.valueOf(d), dArr}) == null) {
+            double d2 = d * this.mTotalLength;
+            int i = 0;
+            while (true) {
+                double[] dArr2 = this.mCurveLength;
+                if (i >= dArr2.length - 1 || dArr2[i] >= d2) {
+                    break;
+                }
+                d2 -= dArr2[i];
+                i++;
+            }
+            for (int i2 = 0; i2 < dArr.length; i2++) {
+                dArr[i2] = this.mCurve[i2][i].vel(d2 / this.mCurveLength[i]);
+            }
+        }
+    }
+
     public void getPos(double d, double[] dArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Double.valueOf(d), dArr}) == null) {
@@ -182,21 +240,21 @@ public class HyperSpline {
         }
     }
 
-    public void getVelocity(double d, double[] dArr) {
+    public void getPos(double d, float[] fArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Double.valueOf(d), dArr}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Double.valueOf(d), fArr}) == null) {
             double d2 = d * this.mTotalLength;
             int i = 0;
             while (true) {
-                double[] dArr2 = this.mCurveLength;
-                if (i >= dArr2.length - 1 || dArr2[i] >= d2) {
+                double[] dArr = this.mCurveLength;
+                if (i >= dArr.length - 1 || dArr[i] >= d2) {
                     break;
                 }
-                d2 -= dArr2[i];
+                d2 -= dArr[i];
                 i++;
             }
-            for (int i2 = 0; i2 < dArr.length; i2++) {
-                dArr[i2] = this.mCurve[i2][i].vel(d2 / this.mCurveLength[i]);
+            for (int i2 = 0; i2 < fArr.length; i2++) {
+                fArr[i2] = (float) this.mCurve[i2][i].eval(d2 / this.mCurveLength[i]);
             }
         }
     }
@@ -241,57 +299,5 @@ public class HyperSpline {
                 this.mTotalLength = d + approxLength;
             }
         }
-    }
-
-    public HyperSpline() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public void getPos(double d, float[] fArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Double.valueOf(d), fArr}) == null) {
-            double d2 = d * this.mTotalLength;
-            int i = 0;
-            while (true) {
-                double[] dArr = this.mCurveLength;
-                if (i >= dArr.length - 1 || dArr[i] >= d2) {
-                    break;
-                }
-                d2 -= dArr[i];
-                i++;
-            }
-            for (int i2 = 0; i2 < fArr.length; i2++) {
-                fArr[i2] = (float) this.mCurve[i2][i].eval(d2 / this.mCurveLength[i]);
-            }
-        }
-    }
-
-    public double getPos(double d, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Double.valueOf(d), Integer.valueOf(i)})) == null) {
-            double d2 = d * this.mTotalLength;
-            int i2 = 0;
-            while (true) {
-                double[] dArr = this.mCurveLength;
-                if (i2 >= dArr.length - 1 || dArr[i2] >= d2) {
-                    break;
-                }
-                d2 -= dArr[i2];
-                i2++;
-            }
-            return this.mCurve[i][i2].eval(d2 / this.mCurveLength[i2]);
-        }
-        return invokeCommon.doubleValue;
     }
 }

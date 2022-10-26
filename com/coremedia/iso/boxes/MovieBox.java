@@ -49,7 +49,10 @@ public class MovieBox extends AbstractContainerBox {
     public int getTrackCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? getBoxes(TrackBox.class).size() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return getBoxes(TrackBox.class).size();
+        }
+        return invokeV.intValue;
     }
 
     public long[] getTrackNumbers() {

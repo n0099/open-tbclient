@@ -11,6 +11,16 @@ public final class X12Encoder extends C40Encoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.google.zxing.datamatrix.encoder.C40Encoder, com.google.zxing.datamatrix.encoder.Encoder
+    public int getEncodingMode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 3;
+        }
+        return invokeV.intValue;
+    }
+
     public X12Encoder() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -73,16 +83,6 @@ public final class X12Encoder extends C40Encoder {
             return 1;
         }
         return invokeCommon.intValue;
-    }
-
-    @Override // com.google.zxing.datamatrix.encoder.C40Encoder, com.google.zxing.datamatrix.encoder.Encoder
-    public int getEncodingMode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 3;
-        }
-        return invokeV.intValue;
     }
 
     @Override // com.google.zxing.datamatrix.encoder.C40Encoder

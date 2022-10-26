@@ -73,67 +73,100 @@ public final class TrdVpnConfig {
     public final int getADDRPrefixLength() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ADDRPrefixLength : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return ADDRPrefixLength;
+        }
+        return invokeV.intValue;
     }
 
     public final int getADDRPrefixLength6() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ADDRPrefixLength6 : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return ADDRPrefixLength6;
+        }
+        return invokeV.intValue;
     }
 
     public final String getAddr() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Addr : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return Addr;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String getAddr6() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Addr6 : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return Addr6;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String getDnsServer1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? DnsServer1 : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return DnsServer1;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String getDnsServer2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? DnsServer2 : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return DnsServer2;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String getDnsServer6() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? DnsServer6 : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return DnsServer6;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final int getMtu() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? Mtu : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return Mtu;
+        }
+        return invokeV.intValue;
     }
 
     public final String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? Name : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return Name;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String getRoute() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? Route : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return Route;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final int getRoutePrefixLength() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? RoutePrefixLength : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return RoutePrefixLength;
+        }
+        return invokeV.intValue;
     }
 
     public final void setADDRPrefixLength(int i) {

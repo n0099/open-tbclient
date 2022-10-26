@@ -14,6 +14,23 @@ public class GetYYCloudTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
+    public String getName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "GetYYCloud" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
+    public int getProcess() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 1;
+        }
+        return invokeV.intValue;
+    }
+
     public GetYYCloudTask() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -34,22 +51,5 @@ public class GetYYCloudTask extends LaunchTask {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921545, null));
         }
-    }
-
-    @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
-    public String getName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "GetYYCloud" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
-    public int getProcess() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 1;
-        }
-        return invokeV.intValue;
     }
 }

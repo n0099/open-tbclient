@@ -16,11 +16,57 @@ import java.util.Map;
 public interface DiskStorage {
 
     /* loaded from: classes7.dex */
-    public static class DiskDumpInfo {
+    public interface Entry {
+        String getId();
+
+        BinaryResource getResource();
+
+        long getSize();
+
+        long getTimestamp();
+    }
+
+    /* loaded from: classes7.dex */
+    public interface Inserter {
+        boolean cleanUp();
+
+        BinaryResource commit(Object obj) throws IOException;
+
+        void writeData(WriterCallback writerCallback, Object obj) throws IOException;
+    }
+
+    void clearAll() throws IOException;
+
+    boolean contains(String str, Object obj) throws IOException;
+
+    DiskDumpInfo getDumpInfo() throws IOException;
+
+    Collection getEntries() throws IOException;
+
+    BinaryResource getResource(String str, Object obj) throws IOException;
+
+    String getStorageName();
+
+    Inserter insert(String str, Object obj) throws IOException;
+
+    boolean isEnabled();
+
+    boolean isExternal();
+
+    void purgeUnexpectedResources();
+
+    long remove(Entry entry) throws IOException;
+
+    long remove(String str) throws IOException;
+
+    boolean touch(String str, Object obj) throws IOException;
+
+    /* loaded from: classes7.dex */
+    public class DiskDumpInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<DiskDumpInfoEntry> entries;
-        public Map<String, Integer> typeCounts;
+        public List entries;
+        public Map typeCounts;
 
         public DiskDumpInfo() {
             Interceptable interceptable = $ic;
@@ -41,7 +87,7 @@ public interface DiskStorage {
     }
 
     /* loaded from: classes7.dex */
-    public static class DiskDumpInfoEntry {
+    public class DiskDumpInfoEntry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String firstBits;
@@ -72,50 +118,4 @@ public interface DiskStorage {
             this.firstBits = str4;
         }
     }
-
-    /* loaded from: classes7.dex */
-    public interface Entry {
-        String getId();
-
-        BinaryResource getResource();
-
-        long getSize();
-
-        long getTimestamp();
-    }
-
-    /* loaded from: classes7.dex */
-    public interface Inserter {
-        boolean cleanUp();
-
-        BinaryResource commit(Object obj) throws IOException;
-
-        void writeData(WriterCallback writerCallback, Object obj) throws IOException;
-    }
-
-    void clearAll() throws IOException;
-
-    boolean contains(String str, Object obj) throws IOException;
-
-    DiskDumpInfo getDumpInfo() throws IOException;
-
-    Collection<Entry> getEntries() throws IOException;
-
-    BinaryResource getResource(String str, Object obj) throws IOException;
-
-    String getStorageName();
-
-    Inserter insert(String str, Object obj) throws IOException;
-
-    boolean isEnabled();
-
-    boolean isExternal();
-
-    void purgeUnexpectedResources();
-
-    long remove(Entry entry) throws IOException;
-
-    long remove(String str) throws IOException;
-
-    boolean touch(String str, Object obj) throws IOException;
 }

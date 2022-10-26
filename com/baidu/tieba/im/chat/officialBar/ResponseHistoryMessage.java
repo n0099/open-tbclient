@@ -1,12 +1,11 @@
 package com.baidu.tieba.im.chat.officialBar;
 
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
-import com.baidu.tieba.dj;
-import com.baidu.tieba.jf;
-import com.baidu.tieba.mu4;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.kf;
+import com.baidu.tieba.ou4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,11 +21,11 @@ import protobuf.QueryHistoryMsg.QueryHistoryMsgResIdl;
 public class ResponseHistoryMessage extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<a> msg;
+    public List msg;
     public int msgCount;
 
     /* loaded from: classes4.dex */
-    public static class a {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -66,7 +65,6 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -82,7 +80,7 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
                     if (msgInfo != null) {
                         Date date = new Date();
                         date.setTime(msgInfo.sendTime.longValue() * 1000);
-                        dj.getDateStringMouth(date);
+                        ej.getDateStringMouth(date);
                         msgInfo.type.intValue();
                         String str = msgInfo.content;
                         msgInfo.id.intValue();
@@ -91,8 +89,8 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
                 }
             }
             if (!this.msg.isEmpty()) {
-                mu4.f();
-                jf<byte[]> d = mu4.d("tb.im_official_history");
+                ou4.f();
+                kf d = ou4.d("tb.im_official_history");
                 RequestHistoryMessage requestHistoryMessage = (RequestHistoryMessage) getOrginalMessage();
                 if (requestHistoryMessage != null && requestHistoryMessage.getRequestId() == 0) {
                     d.g(TbadkCoreApplication.getCurrentAccount() + "@" + String.valueOf(requestHistoryMessage.getFid()), bArr);
@@ -103,15 +101,21 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
         return invokeIL.objValue;
     }
 
-    public List<a> getMsg() {
+    public List getMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.msg : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.msg;
+        }
+        return (List) invokeV.objValue;
     }
 
     public int getMsgCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.msgCount : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.msgCount;
+        }
+        return invokeV.intValue;
     }
 }

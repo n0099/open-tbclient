@@ -21,13 +21,16 @@ public final class e {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
+            Signature[] signatureArr = null;
             try {
                 if (com.bytedance.pangle.util.h.a()) {
                     a = d.a(str);
                 } else {
                     a = a.a(str);
                 }
-                Signature[] signatureArr = a != null ? a.b : null;
+                if (a != null) {
+                    signatureArr = a.b;
+                }
                 byte[] decode = Base64.decode(Zeus.getPlugin(str2).mSignature, 0);
                 if (decode != null && decode.length != 0) {
                     int i = 0;

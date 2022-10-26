@@ -1,8 +1,6 @@
 package com.baidu.searchbox.aperf.param;
 
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.tieba.bi8;
+import com.baidu.tieba.li8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +8,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Autowired
 /* loaded from: classes2.dex */
 public class AperfOverlayRuntime {
     public static /* synthetic */ Interceptable $ic;
@@ -34,6 +31,16 @@ public class AperfOverlayRuntime {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
+            @Override // com.baidu.searchbox.aperf.param.IAperfOverlayContext
+            public String getAppVersion() {
+                InterceptResult invokeV;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                    return null;
+                }
+                return (String) invokeV.objValue;
+            }
+
             {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 != null) {
@@ -46,16 +53,6 @@ public class AperfOverlayRuntime {
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
                 }
-            }
-
-            @Override // com.baidu.searchbox.aperf.param.IAperfOverlayContext
-            public String getAppVersion() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    return null;
-                }
-                return (String) invokeV.objValue;
             }
         };
     }
@@ -74,10 +71,12 @@ public class AperfOverlayRuntime {
         }
     }
 
-    @Inject(force = false)
     public static IAperfOverlayContext getAperfOverlayContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? bi8.a() : (IAperfOverlayContext) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return li8.a();
+        }
+        return (IAperfOverlayContext) invokeV.objValue;
     }
 }

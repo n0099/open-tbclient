@@ -3,9 +3,6 @@ package com.google.android.material.transition;
 import android.animation.Animator;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
 import androidx.core.view.GravityCompat;
 import androidx.transition.TransitionValues;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 /* loaded from: classes7.dex */
-public final class MaterialSharedAxis extends MaterialVisibility<VisibilityAnimatorProvider> {
+public final class MaterialSharedAxis extends MaterialVisibility {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int X = 0;
     public static final int Y = 1;
@@ -26,7 +23,6 @@ public final class MaterialSharedAxis extends MaterialVisibility<VisibilityAnima
     public final boolean forward;
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     /* loaded from: classes7.dex */
     public @interface Axis {
     }
@@ -56,17 +52,30 @@ public final class MaterialSharedAxis extends MaterialVisibility<VisibilityAnima
 
     public static VisibilityAnimatorProvider createPrimaryAnimatorProvider(int i, boolean z) {
         InterceptResult invokeCommon;
+        int i2;
+        int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            if (i == 0) {
-                return new SlideDistanceProvider(z ? 8388613 : GravityCompat.START);
-            } else if (i == 1) {
-                return new SlideDistanceProvider(z ? 80 : 48);
-            } else if (i == 2) {
-                return new ScaleProvider(z);
-            } else {
-                throw new IllegalArgumentException("Invalid axis: " + i);
+            if (i != 0) {
+                if (i != 1) {
+                    if (i == 2) {
+                        return new ScaleProvider(z);
+                    }
+                    throw new IllegalArgumentException("Invalid axis: " + i);
+                }
+                if (z) {
+                    i3 = 80;
+                } else {
+                    i3 = 48;
+                }
+                return new SlideDistanceProvider(i3);
             }
+            if (z) {
+                i2 = 8388613;
+            } else {
+                i2 = GravityCompat.START;
+            }
+            return new SlideDistanceProvider(i2);
         }
         return (VisibilityAnimatorProvider) invokeCommon.objValue;
     }
@@ -74,23 +83,27 @@ public final class MaterialSharedAxis extends MaterialVisibility<VisibilityAnima
     public static VisibilityAnimatorProvider createSecondaryAnimatorProvider() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new FadeThroughProvider() : (VisibilityAnimatorProvider) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new FadeThroughProvider();
+        }
+        return (VisibilityAnimatorProvider) invokeV.objValue;
     }
 
     public int getAxis() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.axis : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.axis;
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.google.android.material.transition.MaterialVisibility
-    @NonNull
     public /* bridge */ /* synthetic */ VisibilityAnimatorProvider getPrimaryAnimatorProvider() {
         return super.getPrimaryAnimatorProvider();
     }
 
     @Override // com.google.android.material.transition.MaterialVisibility
-    @Nullable
     public /* bridge */ /* synthetic */ VisibilityAnimatorProvider getSecondaryAnimatorProvider() {
         return super.getSecondaryAnimatorProvider();
     }
@@ -98,7 +111,10 @@ public final class MaterialSharedAxis extends MaterialVisibility<VisibilityAnima
     public boolean isForward() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.forward : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.forward;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.google.android.material.transition.MaterialVisibility, androidx.transition.Visibility
@@ -112,7 +128,7 @@ public final class MaterialSharedAxis extends MaterialVisibility<VisibilityAnima
     }
 
     @Override // com.google.android.material.transition.MaterialVisibility
-    public /* bridge */ /* synthetic */ void setSecondaryAnimatorProvider(@Nullable VisibilityAnimatorProvider visibilityAnimatorProvider) {
+    public /* bridge */ /* synthetic */ void setSecondaryAnimatorProvider(VisibilityAnimatorProvider visibilityAnimatorProvider) {
         super.setSecondaryAnimatorProvider(visibilityAnimatorProvider);
     }
 }

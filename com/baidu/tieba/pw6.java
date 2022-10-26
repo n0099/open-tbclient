@@ -1,27 +1,31 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.ry6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import com.squareup.wire.Message;
 /* loaded from: classes5.dex */
-public class pw6 {
+public class pw6 implements ki7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<ThreadData> a;
-    public hq7 b;
+    public ry6.d a;
 
-    public pw6() {
+    @Override // com.baidu.tieba.ki7
+    public void c(long j, String str, Message message, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), str, message, Boolean.valueOf(z)}) == null) {
+        }
+    }
+
+    public pw6(ry6.d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {dVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,68 +35,35 @@ public class pw6 {
                 return;
             }
         }
-        this.a = new ArrayList();
+        this.a = dVar;
     }
 
-    public final void a(p47 p47Var) {
-        hq7 hq7Var;
+    @Override // com.baidu.tieba.ki7
+    public void a(boolean z, Message message, boolean z2, long j, String str, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, p47Var) == null) || (hq7Var = this.b) == null || ListUtils.isEmpty(hq7Var.b)) {
-            return;
-        }
-        p47Var.a.add(0, this.b);
-    }
-
-    public p47 b(int i, boolean z, ow6 ow6Var) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), ow6Var})) == null) {
-            p47 p47Var = new p47();
-            p47Var.c = ow6Var.f();
-            p47Var.e = ow6Var.a();
-            p47Var.f = ow6Var.b();
-            ArrayList<ThreadData> e = ow6Var.e();
-            if (z) {
-                this.b = ow6Var.d();
-                if (!ListUtils.isEmpty(e)) {
-                    this.a.clear();
-                    this.a.addAll(e);
-                    p47Var.d = 1;
-                }
-            } else if (!ListUtils.isEmpty(e)) {
-                this.a.addAll(e);
-                p47Var.d = i + 1;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), message, Boolean.valueOf(z2), Long.valueOf(j), str, Integer.valueOf(i)}) == null) {
+            qw6 qw6Var = new qw6();
+            di7 di7Var = new di7();
+            di7Var.a = j;
+            di7Var.b = str;
+            zh7 a = ii7.d().a(di7Var);
+            if (a != null) {
+                a.c(z, message, z2, i);
             }
-            ArrayList arrayList = new ArrayList();
-            arrayList.addAll(this.a);
-            m37.h(true, arrayList, ow6Var.c());
-            p47Var.a = m37.c(arrayList);
-            a(p47Var);
-            hq7 hq7Var = this.b;
-            if (hq7Var != null && hq7Var.a && TbSingleton.getInstance().isShouldShowHomeLocalCompleteInfoCard()) {
-                p47Var.a.add(0, new m47());
+            qw6Var.b(a);
+            ry6.d dVar = this.a;
+            if (dVar != null) {
+                dVar.e(z, qw6Var, z2, "", str, true);
             }
-            return p47Var;
         }
-        return (p47) invokeCommon.objValue;
     }
 
-    public List<ThreadData> c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ki7
+    public void b(long j, String str, String str2, int i) {
+        ry6.d dVar;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (List) invokeV.objValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<ThreadData> list = this.a;
-            if (list == null) {
-                return false;
-            }
-            return !ListUtils.isEmpty(list);
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), str, str2, Integer.valueOf(i)}) == null) && (dVar = this.a) != null) {
+            dVar.c(str, str2, i, true, 1);
         }
-        return invokeV.booleanValue;
     }
 }

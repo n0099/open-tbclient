@@ -54,7 +54,10 @@ public class HttpManager extends AbstractHttpManager {
     public static HttpManager newHttpManager(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? new HttpManager(context) : (HttpManager) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            return new HttpManager(context);
+        }
+        return (HttpManager) invokeL.objValue;
     }
 
     public static HttpManager newHttpManager(Context context, String str) {

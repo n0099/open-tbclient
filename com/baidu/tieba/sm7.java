@@ -1,98 +1,54 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.live.interfaces.service.ToastService;
+import com.baidu.searchbox.live.interfaces.toast.ToastClickListener;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.SevenZipUtils;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetVipInfo.VipSpecialItem;
-import tbclient.GetVipInfo.VipSpecialList;
 /* loaded from: classes5.dex */
-public class sm7 implements Cdo {
+public class sm7 implements ToastService {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c;
-    public static int d;
-    public static boolean e;
-    public static String f;
     public transient /* synthetic */ FieldHolder $fh;
-    public rm7 a;
-    public List<tm7> b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948156300, "Lcom/baidu/tieba/sm7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948156300, "Lcom/baidu/tieba/sm7;");
-                return;
-            }
-        }
-        c = BdUniqueId.gen();
-        d = 3;
-        e = false;
-    }
-
-    public sm7(VipSpecialList vipSpecialList) {
-        List<VipSpecialItem> list;
+    public sm7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vipSpecialList};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        if (vipSpecialList == null || (list = vipSpecialList.item) == null || list.size() <= 0) {
-            return;
-        }
-        String str = vipSpecialList.card_id;
-        rm7 rm7Var = new rm7();
-        this.a = rm7Var;
-        rm7Var.e(4);
-        this.a.d(vipSpecialList.class_name);
-        this.a.f(vipSpecialList.class_url_name);
-        this.a.g(vipSpecialList.class_url);
-        String currentAccount = TbadkCoreApplication.isLogin() ? TbadkCoreApplication.getCurrentAccount() : SevenZipUtils.FILE_NAME_TEMP;
-        if (StringUtils.isNull(f) || !f.equals(currentAccount)) {
-            e = false;
-            f = currentAccount;
-        }
-        this.b = new ArrayList();
-        for (int i3 = 0; i3 < vipSpecialList.item.size(); i3++) {
-            this.b.add(new tm7(vipSpecialList.item.get(i3)));
-            if (e) {
-                if (i3 == vipSpecialList.item.size() - 1 && vipSpecialList.item.size() > d) {
-                    this.b.add(new tm7(true, true));
-                }
-            } else if (i3 == d - 1 && vipSpecialList.item.size() > d) {
-                this.b.add(new tm7(true, false));
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.Cdo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.live.interfaces.service.ToastService
+    public void showClickableToast(Context context, String str, String str2, int i, ToastClickListener toastClickListener) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c : (BdUniqueId) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, str, str2, Integer.valueOf(i), toastClickListener}) == null) {
+            fj.N(TbadkCoreApplication.getInst(), str);
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.ToastService
+    public void showNormal(Context context, String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, i) == null) {
+            fj.N(TbadkCoreApplication.getInst(), str);
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.ToastService
+    public void showToastBottom(Context context, String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, context, str, i) == null) {
+            fj.N(TbadkCoreApplication.getInst(), str);
+        }
     }
 }

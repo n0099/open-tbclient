@@ -56,55 +56,82 @@ public class AddrSelectorRequestParam extends MapObject {
     public String getClient() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? getStrValue(KEY_CLIENT) : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return getStrValue(KEY_CLIENT);
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getClientFrom() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? getStrValue(KEY_CLIENTFROM) : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return getStrValue(KEY_CLIENTFROM);
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? getStrValue(KEY_ID) : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return getStrValue(KEY_ID);
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getLeafs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? getStrValue(KEY_LEAFS) : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return getStrValue(KEY_LEAFS);
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getSort() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? getStrValue(KEY_SORT) : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return getStrValue(KEY_SORT);
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getTpl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? getStrValue(KEY_TPL) : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return getStrValue(KEY_TPL);
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getTplse() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? getStrValue(KEY_TPLSE) : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return getStrValue(KEY_TPLSE);
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getTplt() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? getStrValue(KEY_TPLT) : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return getStrValue(KEY_TPLT);
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getTtt() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? getStrValue(KEY_TTT) : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return getStrValue(KEY_TTT);
+        }
+        return (String) invokeV.objValue;
     }
 
     public void setClient(String str) {

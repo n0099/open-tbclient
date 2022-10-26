@@ -6,9 +6,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* renamed from: com.kwad.sdk.core.b.kwai.do  reason: invalid class name */
 /* loaded from: classes7.dex */
-public final class Cdo implements com.kwad.sdk.core.d<AdMatrixInfo.MerchantLiveReservationInfo> {
-    /* renamed from: a  reason: avoid collision after fix types in other method */
-    public static void a2(AdMatrixInfo.MerchantLiveReservationInfo merchantLiveReservationInfo, JSONObject jSONObject) {
+public final class Cdo implements com.kwad.sdk.core.d {
+    public static void a(AdMatrixInfo.MerchantLiveReservationInfo merchantLiveReservationInfo, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
@@ -39,8 +38,7 @@ public final class Cdo implements com.kwad.sdk.core.d<AdMatrixInfo.MerchantLiveR
         liveReservationPlayEndInfo.parseJson(jSONObject.optJSONObject("playEndCard"));
     }
 
-    /* renamed from: b  reason: avoid collision after fix types in other method */
-    public static JSONObject b2(AdMatrixInfo.MerchantLiveReservationInfo merchantLiveReservationInfo, JSONObject jSONObject) {
+    public static JSONObject b(AdMatrixInfo.MerchantLiveReservationInfo merchantLiveReservationInfo, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
@@ -73,15 +71,13 @@ public final class Cdo implements com.kwad.sdk.core.d<AdMatrixInfo.MerchantLiveR
         return jSONObject;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ void a(AdMatrixInfo.MerchantLiveReservationInfo merchantLiveReservationInfo, JSONObject jSONObject) {
-        a2(merchantLiveReservationInfo, jSONObject);
+    public final /* bridge */ /* synthetic */ void a(com.kwad.sdk.core.b bVar, JSONObject jSONObject) {
+        a((AdMatrixInfo.MerchantLiveReservationInfo) bVar, jSONObject);
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ JSONObject b(AdMatrixInfo.MerchantLiveReservationInfo merchantLiveReservationInfo, JSONObject jSONObject) {
-        return b2(merchantLiveReservationInfo, jSONObject);
+    public final /* bridge */ /* synthetic */ JSONObject b(com.kwad.sdk.core.b bVar, JSONObject jSONObject) {
+        return b((AdMatrixInfo.MerchantLiveReservationInfo) bVar, jSONObject);
     }
 }

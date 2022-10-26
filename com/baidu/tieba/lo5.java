@@ -1,69 +1,16 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import com.baidu.adp.TbadkCore;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class lo5 extends ff1<TbadkCore> {
+public class lo5 {
     public static /* synthetic */ Interceptable $ic;
+    public static lo5 b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes4.dex */
-    public class a implements TbadkCore {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(lo5 lo5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lo5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.adp.TbadkCore
-        public boolean permissionUtilCheckReadPhoneState(@NonNull Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? PermissionUtil.checkReadPhoneState(context) : invokeL.booleanValue;
-        }
-
-        @Override // com.baidu.adp.TbadkCore
-        public boolean permissionUtilIsAgreePrivacyPolicy() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? PermissionUtil.isAgreePrivacyPolicy() : invokeV.booleanValue;
-        }
-
-        @Override // com.baidu.adp.TbadkCore
-        @NonNull
-        public String tbConfigGetVersion() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                String version = TbConfig.getVersion();
-                return version == null ? "" : version;
-            }
-            return (String) invokeV.objValue;
-        }
-    }
+    public vm0 a;
 
     public lo5() {
         Interceptable interceptable = $ic;
@@ -75,16 +22,34 @@ public class lo5 extends ff1<TbadkCore> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = rm0.b().a();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ff1
-    /* renamed from: a */
-    public TbadkCore createService() throws ServiceNotFoundException {
+    public static lo5 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this) : (TbadkCore) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (lo5.class) {
+                    if (b == null) {
+                        b = new lo5();
+                    }
+                }
+            }
+            return b;
+        }
+        return (lo5) invokeV.objValue;
+    }
+
+    public int b(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
+            return this.a.a(str, i);
+        }
+        return invokeLI.intValue;
     }
 }

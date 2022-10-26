@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.dh;
+import com.baidu.tieba.eh;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,10 +34,13 @@ public class VersionInitHelper {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (TextUtils.isEmpty(TbConfig.getVersion()) || TbConfig.getVersionType() == -1) {
+            if (!TextUtils.isEmpty(TbConfig.getVersion()) && TbConfig.getVersionType() != -1) {
+                if (TbConfig.getVersionType() != 1 || !TextUtils.isEmpty(TbConfig.getSubVersion())) {
+                    return true;
+                }
                 return false;
             }
-            return (TbConfig.getVersionType() == 1 && TextUtils.isEmpty(TbConfig.getSubVersion())) ? false : true;
+            return false;
         }
         return invokeV.booleanValue;
     }
@@ -48,7 +51,7 @@ public class VersionInitHelper {
             ApplicationInfo applicationInfo = null;
             try {
                 applicationInfo = TbadkCoreApplication.getInst().getContext().getPackageManager().getApplicationInfo(TbadkCoreApplication.getInst().getContext().getPackageName(), 128);
-                TbConfig.setVersionType(dh.e(String.valueOf(applicationInfo.metaData.get("versionType")), 3));
+                TbConfig.setVersionType(eh.e(String.valueOf(applicationInfo.metaData.get("versionType")), 3));
             } catch (Exception e) {
                 TbConfig.setVersionType(3);
                 BdLog.e(e.getMessage());
@@ -62,10 +65,9 @@ public class VersionInitHelper {
                     return;
                 }
                 TbConfig.setVersion(TbadkCoreApplication.getInst().getContext().getPackageManager().getPackageInfo(TbadkCoreApplication.getInst().getContext().getPackageName(), 0).versionName);
-                if (TbConfig.getVersionType() != 1 || applicationInfo == null) {
-                    return;
+                if (TbConfig.getVersionType() == 1 && applicationInfo != null) {
+                    TbConfig.setSubVersion(String.valueOf(applicationInfo.metaData.get("subVersion")));
                 }
-                TbConfig.setSubVersion(String.valueOf(applicationInfo.metaData.get("subVersion")));
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             }

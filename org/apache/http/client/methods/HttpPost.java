@@ -39,24 +39,6 @@ public class HttpPost extends HttpEntityEnclosingRequestBase {
         return (String) invokeV.objValue;
     }
 
-    public HttpPost(URI uri) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {uri};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        throw new RuntimeException("Stub!");
-    }
-
     public HttpPost(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -69,6 +51,24 @@ public class HttpPost extends HttpEntityEnclosingRequestBase {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        throw new RuntimeException("Stub!");
+    }
+
+    public HttpPost(URI uri) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {uri};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }

@@ -1,7 +1,6 @@
 package com.baidu.searchbox.logsystem.logsys;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import com.baidu.searchbox.aperf.runtime.AperfRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -17,8 +16,76 @@ public class CrashUtil {
     public static final String SEPERATOR = "#";
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static void init() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+        }
+    }
+
     /* loaded from: classes2.dex */
-    public static final class CrashpadConstant {
+    public final class CrashTAG {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String mCrashProcessUUID;
+        public long mTimeStamp;
+
+        public CrashTAG(String str, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Long.valueOf(j)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.mCrashProcessUUID = str;
+            this.mTimeStamp = j;
+        }
+
+        public static CrashTAG getCrashTAG(String str) {
+            InterceptResult invokeL;
+            String[] split;
+            long j;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+                if (str == null || TextUtils.isEmpty(str) || (split = str.split("#")) == null || split.length != 2 || TextUtils.isEmpty(split[0])) {
+                    return null;
+                }
+                try {
+                    j = Long.valueOf(split[1]).longValue();
+                } catch (NumberFormatException e) {
+                    e.printStackTrace();
+                    j = 0;
+                }
+                if (j <= 0) {
+                    return null;
+                }
+                return new CrashTAG(split[0], j);
+            }
+            return (CrashTAG) invokeL.objValue;
+        }
+
+        public static String getCrashTAG(CrashTAG crashTAG) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, crashTAG)) == null) {
+                if (crashTAG != null && !TextUtils.isEmpty(crashTAG.mCrashProcessUUID) && crashTAG.mTimeStamp >= 0) {
+                    return crashTAG.mCrashProcessUUID.replaceAll("#", "") + "#" + crashTAG.mTimeStamp;
+                }
+                return null;
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public final class CrashpadConstant {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String FULL_BDMP_PERFIX = "fullbdmp-";
         public static final String JSON_EXTRA = "json-extra_info";
@@ -74,74 +141,9 @@ public class CrashUtil {
     public static final String getCrashTAG() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? CRASH_TAG : (String) invokeV.objValue;
-    }
-
-    public static void init() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return CRASH_TAG;
         }
-    }
-
-    /* loaded from: classes2.dex */
-    public static final class CrashTAG {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String mCrashProcessUUID;
-        public long mTimeStamp;
-
-        public CrashTAG(@NonNull String str, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Long.valueOf(j)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.mCrashProcessUUID = str;
-            this.mTimeStamp = j;
-        }
-
-        public static CrashTAG getCrashTAG(@NonNull String str) {
-            InterceptResult invokeL;
-            String[] split;
-            long j;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-                if (str == null || TextUtils.isEmpty(str) || (split = str.split("#")) == null || split.length != 2 || TextUtils.isEmpty(split[0])) {
-                    return null;
-                }
-                try {
-                    j = Long.valueOf(split[1]).longValue();
-                } catch (NumberFormatException e) {
-                    e.printStackTrace();
-                    j = 0;
-                }
-                if (j <= 0) {
-                    return null;
-                }
-                return new CrashTAG(split[0], j);
-            }
-            return (CrashTAG) invokeL.objValue;
-        }
-
-        public static String getCrashTAG(@NonNull CrashTAG crashTAG) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, crashTAG)) == null) {
-                if (crashTAG == null || TextUtils.isEmpty(crashTAG.mCrashProcessUUID) || crashTAG.mTimeStamp < 0) {
-                    return null;
-                }
-                return crashTAG.mCrashProcessUUID.replaceAll("#", "") + "#" + crashTAG.mTimeStamp;
-            }
-            return (String) invokeL.objValue;
-        }
+        return (String) invokeV.objValue;
     }
 }

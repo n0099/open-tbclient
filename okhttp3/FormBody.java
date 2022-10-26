@@ -50,6 +50,35 @@ public final class FormBody extends RequestBody {
             }
         }
 
+        public FormBody build() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return new FormBody(this.names, this.values);
+            }
+            return (FormBody) invokeV.objValue;
+        }
+
+        public Builder(Charset charset) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {charset};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.names = new ArrayList();
+            this.values = new ArrayList();
+            this.charset = charset;
+        }
+
         public Builder add(String str, String str2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -83,32 +112,6 @@ public final class FormBody extends RequestBody {
             }
             return (Builder) invokeLL.objValue;
         }
-
-        public FormBody build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new FormBody(this.names, this.values) : (FormBody) invokeV.objValue;
-        }
-
-        public Builder(Charset charset) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {charset};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.names = new ArrayList();
-            this.values = new ArrayList();
-            this.charset = charset;
-        }
     }
 
     static {
@@ -125,6 +128,35 @@ public final class FormBody extends RequestBody {
             }
         }
         CONTENT_TYPE = MediaType.get("application/x-www-form-urlencoded");
+    }
+
+    @Override // okhttp3.RequestBody
+    public long contentLength() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return writeOrCountBytes(null, true);
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // okhttp3.RequestBody
+    public MediaType contentType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return CONTENT_TYPE;
+        }
+        return (MediaType) invokeV.objValue;
+    }
+
+    public int size() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.encodedNames.size();
+        }
+        return invokeV.intValue;
     }
 
     public FormBody(List<String> list, List<String> list2) {
@@ -175,48 +207,40 @@ public final class FormBody extends RequestBody {
         return invokeLZ.longValue;
     }
 
-    @Override // okhttp3.RequestBody
-    public long contentLength() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? writeOrCountBytes(null, true) : invokeV.longValue;
-    }
-
-    @Override // okhttp3.RequestBody
-    public MediaType contentType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? CONTENT_TYPE : (MediaType) invokeV.objValue;
-    }
-
     public String encodedName(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? this.encodedNames.get(i) : (String) invokeI.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            return this.encodedNames.get(i);
+        }
+        return (String) invokeI.objValue;
     }
 
     public String encodedValue(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? this.encodedValues.get(i) : (String) invokeI.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            return this.encodedValues.get(i);
+        }
+        return (String) invokeI.objValue;
     }
 
     public String name(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? HttpUrl.percentDecode(encodedName(i), true) : (String) invokeI.objValue;
-    }
-
-    public int size() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.encodedNames.size() : invokeV.intValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            return HttpUrl.percentDecode(encodedName(i), true);
+        }
+        return (String) invokeI.objValue;
     }
 
     public String value(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? HttpUrl.percentDecode(encodedValue(i), true) : (String) invokeI.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            return HttpUrl.percentDecode(encodedValue(i), true);
+        }
+        return (String) invokeI.objValue;
     }
 
     @Override // okhttp3.RequestBody

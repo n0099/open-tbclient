@@ -29,6 +29,16 @@ public class AudioPlayData implements Parcelable, Serializable, Cloneable {
     public int start;
     public float volume;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -66,7 +76,10 @@ public class AudioPlayData implements Parcelable, Serializable, Cloneable {
             public AudioPlayData createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new AudioPlayData(parcel) : (AudioPlayData) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new AudioPlayData(parcel);
+                }
+                return (AudioPlayData) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -75,30 +88,12 @@ public class AudioPlayData implements Parcelable, Serializable, Cloneable {
             public AudioPlayData[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new AudioPlayData[i] : (AudioPlayData[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new AudioPlayData[i];
+                }
+                return (AudioPlayData[]) invokeI.objValue;
             }
         };
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AudioPlayData(String str, int i, int i2, float f) {
-        this(str, i, i2, f, 1.0f);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Float) objArr2[3]).floatValue(), ((Float) objArr2[4]).floatValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
     }
 
     private boolean hasSoundTypes() {
@@ -111,66 +106,15 @@ public class AudioPlayData implements Parcelable, Serializable, Cloneable {
             }
             boolean z = false;
             for (int i : iArr) {
-                z = i > 0;
+                if (i > 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
             }
             return z;
         }
         return invokeV.booleanValue;
-    }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean isNeedEdit() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (!hasSoundTypes() && this.mSpeed == 1.0f && this.start == 0 && this.end <= 0 && this.volume == 1.0f) ? false : true : invokeV.booleanValue;
-    }
-
-    @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, parcel, i) == null) {
-            parcel.writeString(this.id);
-            parcel.writeString(this.audioPath);
-            parcel.writeString(this.audioName);
-            parcel.writeInt(this.offset);
-            parcel.writeInt(this.start);
-            parcel.writeInt(this.end);
-            parcel.writeInt(this.realDuration);
-            parcel.writeInt(this.relativeMaxDuration);
-            parcel.writeFloat(this.volume);
-            parcel.writeFloat(this.mSpeed);
-            parcel.writeIntArray(this.mSoundTypes);
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AudioPlayData(String str, int i, int i2, float f, float f2) {
-        this(str, i, i2, f, f2, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Float.valueOf(f2)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Float) objArr2[3]).floatValue(), ((Float) objArr2[4]).floatValue(), (int[]) objArr2[5]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -189,31 +133,16 @@ public class AudioPlayData implements Parcelable, Serializable, Cloneable {
         return (AudioPlayData) invokeV.objValue;
     }
 
-    public AudioPlayData(String str, int i, int i2, float f, float f2, int[] iArr) {
+    public boolean isNeedEdit() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Float.valueOf(f2), iArr};
-            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (!hasSoundTypes() && this.mSpeed == 1.0f && this.start == 0 && this.end <= 0 && this.volume == 1.0f) {
+                return false;
             }
+            return true;
         }
-        this.mSpeed = 1.0f;
-        this.audioPath = str;
-        this.start = i;
-        this.end = i2;
-        this.volume = f;
-        if (i2 < i) {
-            this.end = i;
-        }
-        this.mSpeed = f2;
-        this.mSoundTypes = iArr;
+        return invokeV.booleanValue;
     }
 
     public AudioPlayData(Parcel parcel) {
@@ -243,5 +172,92 @@ public class AudioPlayData implements Parcelable, Serializable, Cloneable {
         this.volume = parcel.readFloat();
         this.mSpeed = parcel.readFloat();
         this.mSoundTypes = parcel.createIntArray();
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public AudioPlayData(String str, int i, int i2, float f) {
+        this(str, i, i2, f, 1.0f);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Float) objArr2[3]).floatValue(), ((Float) objArr2[4]).floatValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public AudioPlayData(String str, int i, int i2, float f, float f2) {
+        this(str, i, i2, f, f2, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Float.valueOf(f2)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Float) objArr2[3]).floatValue(), ((Float) objArr2[4]).floatValue(), (int[]) objArr2[5]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public AudioPlayData(String str, int i, int i2, float f, float f2, int[] iArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Float.valueOf(f2), iArr};
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+                return;
+            }
+        }
+        this.mSpeed = 1.0f;
+        this.audioPath = str;
+        this.start = i;
+        this.end = i2;
+        this.volume = f;
+        if (i2 < i) {
+            this.end = i;
+        }
+        this.mSpeed = f2;
+        this.mSoundTypes = iArr;
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048580, this, parcel, i) == null) {
+            parcel.writeString(this.id);
+            parcel.writeString(this.audioPath);
+            parcel.writeString(this.audioName);
+            parcel.writeInt(this.offset);
+            parcel.writeInt(this.start);
+            parcel.writeInt(this.end);
+            parcel.writeInt(this.realDuration);
+            parcel.writeInt(this.relativeMaxDuration);
+            parcel.writeFloat(this.volume);
+            parcel.writeFloat(this.mSpeed);
+            parcel.writeIntArray(this.mSoundTypes);
+        }
     }
 }

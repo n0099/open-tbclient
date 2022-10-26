@@ -23,6 +23,27 @@ public final class JsonStreamParser implements Iterator<JsonElement> {
     public final Object lock;
     public final JsonReader parser;
 
+    public JsonStreamParser(Reader reader) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {reader};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        JsonReader jsonReader = new JsonReader(reader);
+        this.parser = jsonReader;
+        jsonReader.setLenient(true);
+        this.lock = new Object();
+    }
+
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public JsonStreamParser(String str) {
         this(new StringReader(str));
@@ -52,7 +73,11 @@ public final class JsonStreamParser implements Iterator<JsonElement> {
             synchronized (this.lock) {
                 try {
                     try {
-                        z = this.parser.peek() != JsonToken.END_DOCUMENT;
+                        if (this.parser.peek() != JsonToken.END_DOCUMENT) {
+                            z = true;
+                        } else {
+                            z = false;
+                        }
                     } catch (MalformedJsonException e) {
                         throw new JsonSyntaxException(e);
                     } catch (IOException e2) {
@@ -65,35 +90,6 @@ public final class JsonStreamParser implements Iterator<JsonElement> {
             return z;
         }
         return invokeV.booleanValue;
-    }
-
-    @Override // java.util.Iterator
-    public void remove() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            throw new UnsupportedOperationException();
-        }
-    }
-
-    public JsonStreamParser(Reader reader) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {reader};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        JsonReader jsonReader = new JsonReader(reader);
-        this.parser = jsonReader;
-        jsonReader.setLenient(true);
-        this.lock = new Object();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -120,5 +116,13 @@ public final class JsonStreamParser implements Iterator<JsonElement> {
             throw new NoSuchElementException();
         }
         return (JsonElement) invokeV.objValue;
+    }
+
+    @Override // java.util.Iterator
+    public void remove() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            throw new UnsupportedOperationException();
+        }
     }
 }

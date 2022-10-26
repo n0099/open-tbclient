@@ -40,7 +40,7 @@ public interface InnerPOFactory {
 
     NEIADI getNativeExpressADDelegate2(Context context, String str, String str2, ADListener aDListener);
 
-    NEADVI getNativeExpressADView(NEADI neadi, NEADVI neadvi, NativeExpressADData2 nativeExpressADData2, Context context, ViewGroup viewGroup, ADSize aDSize, String str, String str2, JSONObject jSONObject, HashMap<String, Object> hashMap);
+    NEADVI getNativeExpressADView(NEADI neadi, NEADVI neadvi, NativeExpressADData2 nativeExpressADData2, Context context, ViewGroup viewGroup, ADSize aDSize, String str, String str2, JSONObject jSONObject, HashMap hashMap);
 
     NSPVI getNativeSplashAdView(Context context, String str, String str2, String str3);
 

@@ -57,12 +57,18 @@ public final class ToastRightAreaStyle {
     public static ToastRightAreaStyle valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (ToastRightAreaStyle) Enum.valueOf(ToastRightAreaStyle.class, str) : (ToastRightAreaStyle) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (ToastRightAreaStyle) Enum.valueOf(ToastRightAreaStyle.class, str);
+        }
+        return (ToastRightAreaStyle) invokeL.objValue;
     }
 
     public static ToastRightAreaStyle[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ToastRightAreaStyle[]) $VALUES.clone() : (ToastRightAreaStyle[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (ToastRightAreaStyle[]) $VALUES.clone();
+        }
+        return (ToastRightAreaStyle[]) invokeV.objValue;
     }
 }

@@ -74,7 +74,13 @@ public class RequiresParseDetailAspect {
     public static boolean hasAspect() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? ajc$perSingletonInstance != null : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (ajc$perSingletonInstance != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Before("this(com.googlecode.mp4parser.AbstractBox) && ((execution(public * * (..)) && !( execution(* parseDetails()) || execution(* getNumOfBytesToFirstChild()) || execution(* getType()) || execution(* isParsed()) || execution(* getHeader(*)) || execution(* parse()) || execution(* getBox(*)) || execution(* getSize()) || execution(* getOffset()) || execution(* parseDetails()) || execution(* _parseDetails(*)) || execution(* parse(*,*,*,*)) || execution(* getIsoFile()) || execution(* getParent()) || execution(* setParent(*)) || execution(* getUserType()) || execution(* setUserType(*))) && !@annotation(com.googlecode.mp4parser.annotations.DoNotParseDetail)) || @annotation(com.googlecode.mp4parser.annotations.ParseDetail))")
@@ -82,10 +88,10 @@ public class RequiresParseDetailAspect {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, joinPoint) == null) {
             if (joinPoint.getTarget() instanceof AbstractBox) {
-                if (((AbstractBox) joinPoint.getTarget()).isParsed()) {
+                if (!((AbstractBox) joinPoint.getTarget()).isParsed()) {
+                    ((AbstractBox) joinPoint.getTarget()).parseDetails();
                     return;
                 }
-                ((AbstractBox) joinPoint.getTarget()).parseDetails();
                 return;
             }
             throw new RuntimeException("Only methods in subclasses of " + AbstractBox.class.getName() + " can  be annotated with ParseDetail");

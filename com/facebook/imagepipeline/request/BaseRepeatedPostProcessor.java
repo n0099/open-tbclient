@@ -39,6 +39,14 @@ public abstract class BaseRepeatedPostProcessor extends BasePostprocessor implem
         return (RepeatedPostprocessorRunner) invokeV.objValue;
     }
 
+    public void update() {
+        RepeatedPostprocessorRunner callback;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (callback = getCallback()) != null) {
+            callback.update();
+        }
+    }
+
     @Override // com.facebook.imagepipeline.request.RepeatedPostprocessor
     public synchronized void setCallback(RepeatedPostprocessorRunner repeatedPostprocessorRunner) {
         Interceptable interceptable = $ic;
@@ -47,14 +55,5 @@ public abstract class BaseRepeatedPostProcessor extends BasePostprocessor implem
                 this.mCallback = repeatedPostprocessorRunner;
             }
         }
-    }
-
-    public void update() {
-        RepeatedPostprocessorRunner callback;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (callback = getCallback()) == null) {
-            return;
-        }
-        callback.update();
     }
 }

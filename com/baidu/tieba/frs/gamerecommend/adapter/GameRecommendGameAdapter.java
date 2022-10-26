@@ -15,22 +15,22 @@ import com.baidu.tbadk.widget.horizonalScrollListView.FlexibleHorizontalScrollVi
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.CardFrsGameRecommendGameItemView;
 import com.baidu.tieba.card.CardFrsGameRecommendGameLayout;
-import com.baidu.tieba.dh6;
-import com.baidu.tieba.e76;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.ug;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.kh6;
+import com.baidu.tieba.l76;
 import com.baidu.tieba.vg;
+import com.baidu.tieba.wg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class GameRecommendGameAdapter extends dh6<e76, CardFrsGameRecommendGameHolder> {
+public class GameRecommendGameAdapter extends kh6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String l;
-    public ug<CardFrsGameRecommendGameItemView> m;
+    public vg m;
 
     /* loaded from: classes4.dex */
     public class CardFrsGameRecommendGameHolder extends TypeAdapter.ViewHolder {
@@ -61,23 +61,44 @@ public class GameRecommendGameAdapter extends dh6<e76, CardFrsGameRecommendGameH
                     return;
                 }
             }
-            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090534);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c75);
-            this.c = (FlexibleHorizontalScrollView) view2.findViewById(R.id.obfuscated_res_0x7f090c74);
-            CardFrsGameRecommendGameLayout cardFrsGameRecommendGameLayout = (CardFrsGameRecommendGameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090c73);
+            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09053d);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c7f);
+            this.c = (FlexibleHorizontalScrollView) view2.findViewById(R.id.obfuscated_res_0x7f090c7e);
+            CardFrsGameRecommendGameLayout cardFrsGameRecommendGameLayout = (CardFrsGameRecommendGameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090c7d);
             this.d = cardFrsGameRecommendGameLayout;
-            cardFrsGameRecommendGameLayout.setItemSpace(ej.f(view2.getContext(), R.dimen.tbds27));
-            this.d.setItemWidth(ej.f(view2.getContext(), R.dimen.tbds192));
-            this.e = view2.findViewById(R.id.obfuscated_res_0x7f09080d);
-            this.f = view2.findViewById(R.id.obfuscated_res_0x7f09080e);
+            cardFrsGameRecommendGameLayout.setItemSpace(fj.f(view2.getContext(), R.dimen.tbds27));
+            this.d.setItemWidth(fj.f(view2.getContext(), R.dimen.tbds192));
+            this.e = view2.findViewById(R.id.obfuscated_res_0x7f090816);
+            this.f = view2.findViewById(R.id.obfuscated_res_0x7f090817);
         }
     }
 
     /* loaded from: classes4.dex */
-    public class a implements vg<CardFrsGameRecommendGameItemView> {
+    public class a implements wg {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ GameRecommendGameAdapter a;
+
+        public CardFrsGameRecommendGameItemView e(CardFrsGameRecommendGameItemView cardFrsGameRecommendGameItemView) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cardFrsGameRecommendGameItemView)) == null) ? cardFrsGameRecommendGameItemView : (CardFrsGameRecommendGameItemView) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.wg
+        /* renamed from: f */
+        public void b(CardFrsGameRecommendGameItemView cardFrsGameRecommendGameItemView) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, cardFrsGameRecommendGameItemView) == null) {
+            }
+        }
+
+        public CardFrsGameRecommendGameItemView h(CardFrsGameRecommendGameItemView cardFrsGameRecommendGameItemView) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, cardFrsGameRecommendGameItemView)) == null) ? cardFrsGameRecommendGameItemView : (CardFrsGameRecommendGameItemView) invokeL.objValue;
+        }
 
         public a(GameRecommendGameAdapter gameRecommendGameAdapter) {
             Interceptable interceptable = $ic;
@@ -97,41 +118,22 @@ public class GameRecommendGameAdapter extends dh6<e76, CardFrsGameRecommendGameH
             this.a = gameRecommendGameAdapter;
         }
 
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.vg
-        public /* bridge */ /* synthetic */ CardFrsGameRecommendGameItemView a(CardFrsGameRecommendGameItemView cardFrsGameRecommendGameItemView) {
-            CardFrsGameRecommendGameItemView cardFrsGameRecommendGameItemView2 = cardFrsGameRecommendGameItemView;
-            e(cardFrsGameRecommendGameItemView2);
-            return cardFrsGameRecommendGameItemView2;
+        @Override // com.baidu.tieba.wg
+        public /* bridge */ /* synthetic */ Object a(Object obj) {
+            CardFrsGameRecommendGameItemView cardFrsGameRecommendGameItemView = (CardFrsGameRecommendGameItemView) obj;
+            e(cardFrsGameRecommendGameItemView);
+            return cardFrsGameRecommendGameItemView;
         }
 
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.vg
-        public /* bridge */ /* synthetic */ CardFrsGameRecommendGameItemView c(CardFrsGameRecommendGameItemView cardFrsGameRecommendGameItemView) {
-            CardFrsGameRecommendGameItemView cardFrsGameRecommendGameItemView2 = cardFrsGameRecommendGameItemView;
-            h(cardFrsGameRecommendGameItemView2);
-            return cardFrsGameRecommendGameItemView2;
-        }
-
-        public CardFrsGameRecommendGameItemView e(CardFrsGameRecommendGameItemView cardFrsGameRecommendGameItemView) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cardFrsGameRecommendGameItemView)) == null) ? cardFrsGameRecommendGameItemView : (CardFrsGameRecommendGameItemView) invokeL.objValue;
+        @Override // com.baidu.tieba.wg
+        public /* bridge */ /* synthetic */ Object c(Object obj) {
+            CardFrsGameRecommendGameItemView cardFrsGameRecommendGameItemView = (CardFrsGameRecommendGameItemView) obj;
+            h(cardFrsGameRecommendGameItemView);
+            return cardFrsGameRecommendGameItemView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.vg
-        /* renamed from: f */
-        public void b(CardFrsGameRecommendGameItemView cardFrsGameRecommendGameItemView) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, cardFrsGameRecommendGameItemView) == null) {
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.vg
+        @Override // com.baidu.tieba.wg
         /* renamed from: g */
         public CardFrsGameRecommendGameItemView d() {
             InterceptResult invokeV;
@@ -142,12 +144,6 @@ public class GameRecommendGameAdapter extends dh6<e76, CardFrsGameRecommendGameH
                 return cardFrsGameRecommendGameItemView;
             }
             return (CardFrsGameRecommendGameItemView) invokeV.objValue;
-        }
-
-        public CardFrsGameRecommendGameItemView h(CardFrsGameRecommendGameItemView cardFrsGameRecommendGameItemView) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, cardFrsGameRecommendGameItemView)) == null) ? cardFrsGameRecommendGameItemView : (CardFrsGameRecommendGameItemView) invokeL.objValue;
         }
     }
 
@@ -170,18 +166,18 @@ public class GameRecommendGameAdapter extends dh6<e76, CardFrsGameRecommendGameH
                 return;
             }
         }
-        this.m = new ug<>(new a(this), 10, 0);
+        this.m = new vg(new a(this), 10, 0);
         this.l = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
+    @Override // com.baidu.tieba.rn
     /* renamed from: G */
     public CardFrsGameRecommendGameHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            CardFrsGameRecommendGameHolder cardFrsGameRecommendGameHolder = new CardFrsGameRecommendGameHolder(this, LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d018c, viewGroup, false));
+            CardFrsGameRecommendGameHolder cardFrsGameRecommendGameHolder = new CardFrsGameRecommendGameHolder(this, LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d018b, viewGroup, false));
             cardFrsGameRecommendGameHolder.d.setViewPool(this.m);
             return cardFrsGameRecommendGameHolder;
         }
@@ -189,18 +185,18 @@ public class GameRecommendGameAdapter extends dh6<e76, CardFrsGameRecommendGameH
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.dh6, com.baidu.tieba.qn
+    @Override // com.baidu.tieba.kh6, com.baidu.tieba.rn
     /* renamed from: H */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, e76 e76Var, CardFrsGameRecommendGameHolder cardFrsGameRecommendGameHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, l76 l76Var, CardFrsGameRecommendGameHolder cardFrsGameRecommendGameHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, e76Var, cardFrsGameRecommendGameHolder})) == null) {
-            if (e76Var != null && e76Var.a() != null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, l76Var, cardFrsGameRecommendGameHolder})) == null) {
+            if (l76Var != null && l76Var.a() != null) {
                 int skinType = TbadkCoreApplication.getInst().getSkinType();
-                cardFrsGameRecommendGameHolder.b.setText(e76Var.a().title);
+                cardFrsGameRecommendGameHolder.b.setText(l76Var.a().title);
                 cardFrsGameRecommendGameHolder.b.setTextColor(SkinManager.getColor(skinType, (int) R.color.CAM_X0105));
                 cardFrsGameRecommendGameHolder.d.setPageContext(this.c);
-                cardFrsGameRecommendGameHolder.d.setData(e76Var.a().sub_nodes);
+                cardFrsGameRecommendGameHolder.d.setData(l76Var.a().sub_nodes);
                 cardFrsGameRecommendGameHolder.c.setMaxOverScrollDistance(cardFrsGameRecommendGameHolder.d.getChildItemWidth());
                 cardFrsGameRecommendGameHolder.a.setBackgroundColor(SkinManager.getColor(skinType, (int) R.color.CAM_X0201));
                 SkinManager.setBackgroundResource(cardFrsGameRecommendGameHolder.e, R.color.CAM_X0205);

@@ -50,7 +50,7 @@ public class SelectTagActivityConfig extends IntentConfig {
         }
     }
 
-    public void setTagList(ArrayList<String> arrayList) {
+    public void setTagList(ArrayList arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
             getIntent().putStringArrayListExtra(SELECT_INIT_TAG, arrayList);

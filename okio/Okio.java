@@ -25,7 +25,6 @@ import java.nio.file.Path;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.Nullable;
-import org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement;
 /* loaded from: classes8.dex */
 public final class Okio {
     public static /* synthetic */ Interceptable $ic;
@@ -62,6 +61,64 @@ public final class Okio {
         }
     }
 
+    public static Sink blackhole() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return new Sink() { // from class: okio.Okio.3
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // okio.Sink, java.io.Closeable, java.lang.AutoCloseable
+                public void close() throws IOException {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    }
+                }
+
+                @Override // okio.Sink, java.io.Flushable
+                public void flush() throws IOException {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                    }
+                }
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                        }
+                    }
+                }
+
+                @Override // okio.Sink
+                public Timeout timeout() {
+                    InterceptResult invokeV2;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                        return Timeout.NONE;
+                    }
+                    return (Timeout) invokeV2.objValue;
+                }
+
+                @Override // okio.Sink
+                public void write(Buffer buffer, long j) throws IOException {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLJ(1048579, this, buffer, j) == null) {
+                        buffer.skip(j);
+                    }
+                }
+            };
+        }
+        return (Sink) invokeV.objValue;
+    }
+
     public static Sink appendingSink(File file) throws FileNotFoundException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -74,150 +131,143 @@ public final class Okio {
         return (Sink) invokeL.objValue;
     }
 
-    public static Sink blackhole() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new Sink() { // from class: okio.Okio.3
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
-            @Override // okio.Sink, java.io.Closeable, java.lang.AutoCloseable
-            public void close() throws IOException {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                }
-            }
-
-            @Override // okio.Sink, java.io.Flushable
-            public void flush() throws IOException {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                }
-            }
-
-            @Override // okio.Sink
-            public Timeout timeout() {
-                InterceptResult invokeV2;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV2 = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Timeout.NONE : (Timeout) invokeV2.objValue;
-            }
-
-            @Override // okio.Sink
-            public void write(Buffer buffer, long j) throws IOException {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLJ(1048579, this, buffer, j) == null) {
-                    buffer.skip(j);
-                }
-            }
-        } : (Sink) invokeV.objValue;
-    }
-
-    public static BufferedSource buffer(Source source) {
+    public static BufferedSink buffer(Sink sink) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, source)) == null) ? new RealBufferedSource(source) : (BufferedSource) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, sink)) == null) {
+            return new RealBufferedSink(sink);
+        }
+        return (BufferedSink) invokeL.objValue;
     }
 
     public static boolean isAndroidGetsocknameError(AssertionError assertionError) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, assertionError)) == null) ? (assertionError.getCause() == null || assertionError.getMessage() == null || !assertionError.getMessage().contains("getsockname failed")) ? false : true : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, assertionError)) == null) {
+            if (assertionError.getCause() != null && assertionError.getMessage() != null && assertionError.getMessage().contains("getsockname failed")) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
-    public static Sink sink(OutputStream outputStream) {
+    public static Sink sink(File file) throws FileNotFoundException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, outputStream)) == null) ? sink(outputStream, new Timeout()) : (Sink) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, file)) == null) {
+            if (file != null) {
+                return sink(new FileOutputStream(file));
+            }
+            throw new IllegalArgumentException("file == null");
+        }
+        return (Sink) invokeL.objValue;
     }
 
-    public static Source source(InputStream inputStream) {
+    public static Source source(File file) throws FileNotFoundException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65549, null, inputStream)) == null) ? source(inputStream, new Timeout()) : (Source) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, file)) == null) {
+            if (file != null) {
+                return source(new FileInputStream(file));
+            }
+            throw new IllegalArgumentException("file == null");
+        }
+        return (Source) invokeL.objValue;
     }
 
     public static AsyncTimeout timeout(Socket socket) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65553, null, socket)) == null) ? new AsyncTimeout(socket) { // from class: okio.Okio.4
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ Socket val$socket;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, socket)) == null) {
+            return new AsyncTimeout(socket) { // from class: okio.Okio.4
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ Socket val$socket;
 
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {socket};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.val$socket = socket;
-            }
-
-            @Override // okio.AsyncTimeout
-            public IOException newTimeoutException(@Nullable IOException iOException) {
-                InterceptResult invokeL2;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, iOException)) == null) {
-                    SocketTimeoutException socketTimeoutException = new SocketTimeoutException("timeout");
-                    if (iOException != null) {
-                        socketTimeoutException.initCause(iOException);
-                    }
-                    return socketTimeoutException;
-                }
-                return (IOException) invokeL2.objValue;
-            }
-
-            @Override // okio.AsyncTimeout
-            public void timedOut() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    try {
-                        this.val$socket.close();
-                    } catch (AssertionError e) {
-                        if (Okio.isAndroidGetsocknameError(e)) {
-                            Logger logger2 = Okio.logger;
-                            Level level = Level.WARNING;
-                            logger2.log(level, "Failed to close timed out socket " + this.val$socket, (Throwable) e);
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {socket};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
-                        throw e;
-                    } catch (Exception e2) {
-                        Logger logger3 = Okio.logger;
-                        Level level2 = Level.WARNING;
-                        logger3.log(level2, "Failed to close timed out socket " + this.val$socket, (Throwable) e2);
+                    }
+                    this.val$socket = socket;
+                }
+
+                @Override // okio.AsyncTimeout
+                public IOException newTimeoutException(@Nullable IOException iOException) {
+                    InterceptResult invokeL2;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, iOException)) == null) {
+                        SocketTimeoutException socketTimeoutException = new SocketTimeoutException("timeout");
+                        if (iOException != null) {
+                            socketTimeoutException.initCause(iOException);
+                        }
+                        return socketTimeoutException;
+                    }
+                    return (IOException) invokeL2.objValue;
+                }
+
+                @Override // okio.AsyncTimeout
+                public void timedOut() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                        try {
+                            this.val$socket.close();
+                        } catch (AssertionError e) {
+                            if (Okio.isAndroidGetsocknameError(e)) {
+                                Logger logger2 = Okio.logger;
+                                Level level = Level.WARNING;
+                                logger2.log(level, "Failed to close timed out socket " + this.val$socket, (Throwable) e);
+                                return;
+                            }
+                            throw e;
+                        } catch (Exception e2) {
+                            Logger logger3 = Okio.logger;
+                            Level level2 = Level.WARNING;
+                            logger3.log(level2, "Failed to close timed out socket " + this.val$socket, (Throwable) e2);
+                        }
                     }
                 }
-            }
-        } : (AsyncTimeout) invokeL.objValue;
+            };
+        }
+        return (AsyncTimeout) invokeL.objValue;
     }
 
-    public static BufferedSink buffer(Sink sink) {
+    public static BufferedSource buffer(Source source) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, sink)) == null) ? new RealBufferedSink(sink) : (BufferedSink) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, source)) == null) {
+            return new RealBufferedSource(source);
+        }
+        return (BufferedSource) invokeL.objValue;
+    }
+
+    public static Sink sink(OutputStream outputStream) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, outputStream)) == null) {
+            return sink(outputStream, new Timeout());
+        }
+        return (Sink) invokeL.objValue;
+    }
+
+    public static Source source(InputStream inputStream) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, inputStream)) == null) {
+            return source(inputStream, new Timeout());
+        }
+        return (Source) invokeL.objValue;
     }
 
     public static Sink sink(OutputStream outputStream, Timeout timeout) {
@@ -271,7 +321,10 @@ public final class Okio {
                         public Timeout timeout() {
                             InterceptResult invokeV;
                             Interceptable interceptable2 = $ic;
-                            return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.val$timeout : (Timeout) invokeV.objValue;
+                            if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                                return this.val$timeout;
+                            }
+                            return (Timeout) invokeV.objValue;
                         }
 
                         public String toString() {
@@ -354,16 +407,34 @@ public final class Okio {
                         }
 
                         @Override // okio.Source
+                        public Timeout timeout() {
+                            InterceptResult invokeV;
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                                return this.val$timeout;
+                            }
+                            return (Timeout) invokeV.objValue;
+                        }
+
+                        public String toString() {
+                            InterceptResult invokeV;
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048579, this)) == null) {
+                                return "source(" + this.val$in + SmallTailInfo.EMOTION_SUFFIX;
+                            }
+                            return (String) invokeV.objValue;
+                        }
+
+                        @Override // okio.Source
                         public long read(Buffer buffer, long j) throws IOException {
                             InterceptResult invokeLJ;
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || (invokeLJ = interceptable2.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j)) == null) {
                                 int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-                                if (i < 0) {
-                                    throw new IllegalArgumentException("byteCount < 0: " + j);
-                                } else if (i == 0) {
-                                    return 0L;
-                                } else {
+                                if (i >= 0) {
+                                    if (i == 0) {
+                                        return 0L;
+                                    }
                                     try {
                                         this.val$timeout.throwIfReached();
                                         Segment writableSegment = buffer.writableSegment(1);
@@ -382,24 +453,9 @@ public final class Okio {
                                         throw e;
                                     }
                                 }
+                                throw new IllegalArgumentException("byteCount < 0: " + j);
                             }
                             return invokeLJ.longValue;
-                        }
-
-                        @Override // okio.Source
-                        public Timeout timeout() {
-                            InterceptResult invokeV;
-                            Interceptable interceptable2 = $ic;
-                            return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.val$timeout : (Timeout) invokeV.objValue;
-                        }
-
-                        public String toString() {
-                            InterceptResult invokeV;
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048579, this)) == null) {
-                                return "source(" + this.val$in + SmallTailInfo.EMOTION_SUFFIX;
-                            }
-                            return (String) invokeV.objValue;
                         }
                     };
                 }
@@ -426,31 +482,6 @@ public final class Okio {
         return (Sink) invokeL.objValue;
     }
 
-    public static Source source(File file) throws FileNotFoundException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, file)) == null) {
-            if (file != null) {
-                return source(new FileInputStream(file));
-            }
-            throw new IllegalArgumentException("file == null");
-        }
-        return (Source) invokeL.objValue;
-    }
-
-    @IgnoreJRERequirement
-    public static Source source(Path path, OpenOption... openOptionArr) throws IOException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65552, null, path, openOptionArr)) == null) {
-            if (path != null) {
-                return source(Files.newInputStream(path, openOptionArr));
-            }
-            throw new IllegalArgumentException("path == null");
-        }
-        return (Source) invokeLL.objValue;
-    }
-
     public static Source source(Socket socket) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -467,19 +498,6 @@ public final class Okio {
         return (Source) invokeL.objValue;
     }
 
-    public static Sink sink(File file) throws FileNotFoundException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, file)) == null) {
-            if (file != null) {
-                return sink(new FileOutputStream(file));
-            }
-            throw new IllegalArgumentException("file == null");
-        }
-        return (Sink) invokeL.objValue;
-    }
-
-    @IgnoreJRERequirement
     public static Sink sink(Path path, OpenOption... openOptionArr) throws IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -490,5 +508,17 @@ public final class Okio {
             throw new IllegalArgumentException("path == null");
         }
         return (Sink) invokeLL.objValue;
+    }
+
+    public static Source source(Path path, OpenOption... openOptionArr) throws IOException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65552, null, path, openOptionArr)) == null) {
+            if (path != null) {
+                return source(Files.newInputStream(path, openOptionArr));
+            }
+            throw new IllegalArgumentException("path == null");
+        }
+        return (Source) invokeLL.objValue;
     }
 }

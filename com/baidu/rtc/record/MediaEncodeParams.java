@@ -74,91 +74,136 @@ public class MediaEncodeParams {
     public int getAudioBitrate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mAudioBitrate : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mAudioBitrate;
+        }
+        return invokeV.intValue;
     }
 
     public int getAudioChannel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mAudioChannel : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mAudioChannel;
+        }
+        return invokeV.intValue;
     }
 
     public String getAudioCodec() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mAudioCodec : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mAudioCodec;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getAudioFrameSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mAudioFrameSize : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mAudioFrameSize;
+        }
+        return invokeV.intValue;
     }
 
     public int getAudioSampleRate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mAudioSampleRate : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mAudioSampleRate;
+        }
+        return invokeV.intValue;
     }
 
     public int getOutputFormat() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mOutputFormat : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mOutputFormat;
+        }
+        return invokeV.intValue;
     }
 
     public long getOutputTotalMs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mOutputTotalMs : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mOutputTotalMs;
+        }
+        return invokeV.longValue;
     }
 
     public int getVideoBitrate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mVideoBitrate : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mVideoBitrate;
+        }
+        return invokeV.intValue;
     }
 
     public String getVideoCodec() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mVideoCodec : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mVideoCodec;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getVideoFrameRate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mVideoFrameRate : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mVideoFrameRate;
+        }
+        return invokeV.intValue;
     }
 
     public int getVideoHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mVideoHeight : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.mVideoHeight;
+        }
+        return invokeV.intValue;
     }
 
     public int getVideoIFrameInterval() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mVideoIFrameInterval : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.mVideoIFrameInterval;
+        }
+        return invokeV.intValue;
     }
 
     public int getVideoWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mVideoWidth : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.mVideoWidth;
+        }
+        return invokeV.intValue;
     }
 
     public boolean isAudioIncluded() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mAudioIncluded : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.mAudioIncluded;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isVideoIncluded() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mVideoIncluded : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.mVideoIncluded;
+        }
+        return invokeV.booleanValue;
     }
 
     public void setAudioBitrate(int i) {

@@ -13,6 +13,7 @@ public final class b {
 
     public static String a(String str, String str2, Uri uri) {
         InterceptResult invokeLLL;
+        String str3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, str, str2, uri)) == null) {
             if (str2 == null || TextUtils.isEmpty(str2)) {
@@ -22,7 +23,12 @@ public final class b {
             try {
                 jSONObject.put(ContentProviderManager.PLUGIN_PROCESS_NAME, str);
                 jSONObject.put("plugin_pkg_name", str2);
-                jSONObject.put("uri", uri != null ? uri.toString() : "");
+                if (uri != null) {
+                    str3 = uri.toString();
+                } else {
+                    str3 = "";
+                }
+                jSONObject.put("uri", str3);
             } catch (Throwable unused) {
             }
             return jSONObject.toString();

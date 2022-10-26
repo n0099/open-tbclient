@@ -1,7 +1,6 @@
 package com.baidu.tbadk.browser;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Build;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,12 +16,12 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
 import com.baidu.searchbox.v8engine.V8ExceptionInfo;
-import com.baidu.tieba.bo8;
-import com.baidu.tieba.dj;
+import com.baidu.tieba.ej;
 import com.baidu.tieba.fo8;
-import com.baidu.tieba.ih;
-import com.baidu.tieba.m15;
-import com.baidu.tieba.yn8;
+import com.baidu.tieba.io8;
+import com.baidu.tieba.jh;
+import com.baidu.tieba.mo8;
+import com.baidu.tieba.s15;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,7 +31,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class TbWebChromeClient extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public yn8 callback;
+    public fo8 callback;
     public TbWebViewActivity mActivity;
 
     public TbWebChromeClient(TbWebViewActivity tbWebViewActivity) {
@@ -53,16 +52,33 @@ public class TbWebChromeClient extends WebChromeClient {
         this.mActivity = tbWebViewActivity;
     }
 
+    public void openFileChooser(ValueCallback valueCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, valueCallback) == null) {
+            this.mActivity.setUploadMessage(valueCallback);
+            Intent intent = new Intent("android.intent.action.GET_CONTENT");
+            intent.addCategory("android.intent.category.OPENABLE");
+            intent.setType(BdUploadHandler.IMAGE_MIME_TYPE);
+            this.mActivity.startActivityForResult(Intent.createChooser(intent, "File Chooser"), 1);
+        }
+    }
+
+    public void setOnJsPromptCallback(fo8 fo8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, fo8Var) == null) {
+            this.callback = fo8Var;
+        }
+    }
+
     private void callJsMethod(WebView webView, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65537, this, webView, str, str2) == null) || webView == null || dj.isEmpty(str) || dj.isEmpty(str2)) {
-            return;
+        if ((interceptable == null || interceptable.invokeLLL(65537, this, webView, str, str2) == null) && webView != null && !ej.isEmpty(str) && !ej.isEmpty(str2)) {
+            if (Build.VERSION.SDK_INT >= 19) {
+                webView.evaluateJavascript("javascript:" + str + "('" + str2 + "')", null);
+                return;
+            }
+            webView.loadUrl("javascript:" + str + "('" + str2 + "')");
         }
-        if (Build.VERSION.SDK_INT >= 19) {
-            webView.evaluateJavascript("javascript:" + str + "('" + str2 + "')", null);
-            return;
-        }
-        webView.loadUrl("javascript:" + str + "('" + str2 + "')");
     }
 
     @Override // android.webkit.WebChromeClient
@@ -92,10 +108,10 @@ public class TbWebChromeClient extends WebChromeClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, str2, jsResult)) == null) {
             TbWebViewActivity tbWebViewActivity = this.mActivity;
-            if (tbWebViewActivity == null || !ih.f(tbWebViewActivity.getPageContext())) {
-                return true;
+            if (tbWebViewActivity != null && jh.f(tbWebViewActivity.getPageContext())) {
+                return super.onJsAlert(webView, str, str2, jsResult);
             }
-            return super.onJsAlert(webView, str, str2, jsResult);
+            return true;
         }
         return invokeLLLL.booleanValue;
     }
@@ -106,10 +122,10 @@ public class TbWebChromeClient extends WebChromeClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, webView, str, str2, jsResult)) == null) {
             TbWebViewActivity tbWebViewActivity = this.mActivity;
-            if (tbWebViewActivity == null || !ih.f(tbWebViewActivity.getPageContext())) {
-                return true;
+            if (tbWebViewActivity != null && jh.f(tbWebViewActivity.getPageContext())) {
+                return super.onJsBeforeUnload(webView, str, str2, jsResult);
             }
-            return super.onJsBeforeUnload(webView, str, str2, jsResult);
+            return true;
         }
         return invokeLLLL.booleanValue;
     }
@@ -120,10 +136,10 @@ public class TbWebChromeClient extends WebChromeClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, webView, str, str2, jsResult)) == null) {
             TbWebViewActivity tbWebViewActivity = this.mActivity;
-            if (tbWebViewActivity == null || !ih.f(tbWebViewActivity.getPageContext())) {
-                return true;
+            if (tbWebViewActivity != null && jh.f(tbWebViewActivity.getPageContext())) {
+                return super.onJsConfirm(webView, str, str2, jsResult);
             }
-            return super.onJsConfirm(webView, str, str2, jsResult);
+            return true;
         }
         return invokeLLLL.booleanValue;
     }
@@ -131,16 +147,16 @@ public class TbWebChromeClient extends WebChromeClient {
     @Override // android.webkit.WebChromeClient
     public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLLL;
-        yn8 yn8Var;
+        fo8 fo8Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048581, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            if (!m15.a(str) && str2.startsWith("tiebaapp")) {
-                bo8 bo8Var = new bo8();
-                bo8Var.v(fo8.b(str2));
-                bo8Var.x(301);
-                callJsMethod(webView, bo8Var.c(), bo8Var.d());
+            if (!s15.a(str) && str2.startsWith("tiebaapp")) {
+                io8 io8Var = new io8();
+                io8Var.v(mo8.b(str2));
+                io8Var.x(301);
+                callJsMethod(webView, io8Var.c(), io8Var.d());
             }
-            if (m15.a(str) && (yn8Var = this.callback) != null && yn8Var.onJsPrompt(str2, jsPromptResult)) {
+            if (s15.a(str) && (fo8Var = this.callback) != null && fo8Var.onJsPrompt(str2, jsPromptResult)) {
                 return true;
             }
             jsPromptResult.cancel();
@@ -155,11 +171,21 @@ public class TbWebChromeClient extends WebChromeClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048582, this, webView, i) == null) {
             super.onProgressChanged(webView, i);
-            if (i < 80 || (tbWebViewActivity = this.mActivity) == null) {
-                return;
+            if (i >= 80 && (tbWebViewActivity = this.mActivity) != null) {
+                tbWebViewActivity.hideProgressBar();
+                this.mActivity.stopLoadTimer();
             }
-            tbWebViewActivity.hideProgressBar();
-            this.mActivity.stopLoadTimer();
+        }
+    }
+
+    public void openFileChooser(ValueCallback valueCallback, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, valueCallback, str) == null) {
+            this.mActivity.setUploadMessage(valueCallback);
+            Intent intent = new Intent("android.intent.action.GET_CONTENT");
+            intent.addCategory("android.intent.category.OPENABLE");
+            intent.setType("*/*");
+            this.mActivity.startActivityForResult(Intent.createChooser(intent, "File Browser"), 1);
         }
     }
 
@@ -182,36 +208,7 @@ public class TbWebChromeClient extends WebChromeClient {
         }
     }
 
-    public void openFileChooser(ValueCallback<Uri> valueCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, valueCallback) == null) {
-            this.mActivity.setUploadMessage(valueCallback);
-            Intent intent = new Intent("android.intent.action.GET_CONTENT");
-            intent.addCategory("android.intent.category.OPENABLE");
-            intent.setType(BdUploadHandler.IMAGE_MIME_TYPE);
-            this.mActivity.startActivityForResult(Intent.createChooser(intent, "File Chooser"), 1);
-        }
-    }
-
-    public void setOnJsPromptCallback(yn8 yn8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, yn8Var) == null) {
-            this.callback = yn8Var;
-        }
-    }
-
-    public void openFileChooser(ValueCallback valueCallback, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, valueCallback, str) == null) {
-            this.mActivity.setUploadMessage(valueCallback);
-            Intent intent = new Intent("android.intent.action.GET_CONTENT");
-            intent.addCategory("android.intent.category.OPENABLE");
-            intent.setType("*/*");
-            this.mActivity.startActivityForResult(Intent.createChooser(intent, "File Browser"), 1);
-        }
-    }
-
-    public void openFileChooser(ValueCallback<Uri> valueCallback, String str, String str2) {
+    public void openFileChooser(ValueCallback valueCallback, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048586, this, valueCallback, str, str2) == null) {
             this.mActivity.setUploadMessage(valueCallback);

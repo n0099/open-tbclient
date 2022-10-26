@@ -14,7 +14,7 @@ import java.util.HashMap;
 public final class x extends com.vivo.push.o {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, String> a;
+    public HashMap a;
     public long b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -32,31 +32,6 @@ public final class x extends com.vivo.push.o {
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-        }
-    }
-
-    public final void a(HashMap<String, String> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) {
-            this.a = hashMap;
-        }
-    }
-
-    @Override // com.vivo.push.o
-    public final void c(com.vivo.push.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            aVar.a("ReporterCommand.EXTRA_PARAMS", this.a);
-            aVar.a("ReporterCommand.EXTRA_REPORTER_TYPE", this.b);
-        }
-    }
-
-    @Override // com.vivo.push.o
-    public final void d(com.vivo.push.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.a = (HashMap) aVar.d("ReporterCommand.EXTRA_PARAMS");
-            this.b = aVar.b("ReporterCommand.EXTRA_REPORTER_TYPE", this.b);
         }
     }
 
@@ -91,6 +66,31 @@ public final class x extends com.vivo.push.o {
         this.b = j;
     }
 
+    public final void a(HashMap hashMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) {
+            this.a = hashMap;
+        }
+    }
+
+    @Override // com.vivo.push.o
+    public final void c(com.vivo.push.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            aVar.a("ReporterCommand.EXTRA_PARAMS", this.a);
+            aVar.a("ReporterCommand.EXTRA_REPORTER_TYPE", this.b);
+        }
+    }
+
+    @Override // com.vivo.push.o
+    public final void d(com.vivo.push.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+            this.a = (HashMap) aVar.d("ReporterCommand.EXTRA_PARAMS");
+            this.b = aVar.b("ReporterCommand.EXTRA_REPORTER_TYPE", this.b);
+        }
+    }
+
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -101,9 +101,9 @@ public final class x extends com.vivo.push.o {
             StringBuilder sb = new StringBuilder("report message reportType:");
             sb.append(this.b);
             sb.append(",msgId:");
-            String str = this.a.get("messageID");
+            String str = (String) this.a.get("messageID");
             if (TextUtils.isEmpty(str)) {
-                str = this.a.get("message_id");
+                str = (String) this.a.get("message_id");
             }
             sb.append(str);
             com.vivo.push.util.p.d("ReporterCommand", sb.toString());

@@ -46,31 +46,6 @@ public final class TrdVpnService extends VpnService implements TrdVpnBinderInter
     public final ExecutorService executorService;
     public ParcelFileDescriptor pfd;
 
-    @Metadata(d1 = {"\u0000\u0012\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\b\u0086\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000¨\u0006\u0005"}, d2 = {"Lcom/baidu/yunjiasu/tornadosdk/TrdVpnService$Companion;", "", "()V", "TAG", "", "tornadosdk_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
-    /* loaded from: classes7.dex */
-    public static final class Companion {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public Companion() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-    }
-
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -85,6 +60,31 @@ public final class TrdVpnService extends VpnService implements TrdVpnBinderInter
             }
         }
         Companion = new Companion(null);
+    }
+
+    @Metadata(d1 = {"\u0000\u0012\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\b\u0086\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000¨\u0006\u0005"}, d2 = {"Lcom/baidu/yunjiasu/tornadosdk/TrdVpnService$Companion;", "", "()V", "TAG", "", "tornadosdk_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
+    /* loaded from: classes7.dex */
+    public static final class Companion {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public Companion() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
     public TrdVpnService() {
@@ -111,7 +111,30 @@ public final class TrdVpnService extends VpnService implements TrdVpnBinderInter
     private final ConnectivityManager getConnectivityManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? (ConnectivityManager) this.connectivityManager$delegate.getValue() : (ConnectivityManager) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+            return (ConnectivityManager) this.connectivityManager$delegate.getValue();
+        }
+        return (ConnectivityManager) invokeV.objValue;
+    }
+
+    @Override // android.app.Service
+    public void onCreate() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.onCreate();
+            TrdVpnBroadcast.Companion.register(this, this.broadcastReceiver);
+        }
+    }
+
+    @Override // android.app.Service
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            TrdVpnBroadcast.Companion.unRegister(this, this.broadcastReceiver);
+            super.onDestroy();
+            System.exit(0);
+            throw new RuntimeException("System.exit returned normally, while it was supposed to halt JVM.");
+        }
     }
 
     private final boolean setupVPN(Intent intent) {
@@ -142,7 +165,7 @@ public final class TrdVpnService extends VpnService implements TrdVpnBinderInter
             LogTo.INSTANCE.d("*****", Intrinsics.stringPlus("ENV_CUID:", tornadoSetting.getAuthCUID()));
             LogTo.INSTANCE.d("*****", Intrinsics.stringPlus("ENV_TOKEN:", tornadoSetting.getAuthToken()));
             LogTo.INSTANCE.d("*****", Intrinsics.stringPlus("ENV_CLIENT_VERSION:", tornadoSetting.getClientVersion()));
-            this.executorService.submit(new Runnable() { // from class: com.baidu.tieba.tj9
+            this.executorService.submit(new Runnable() { // from class: com.baidu.tieba.lk9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -161,6 +184,7 @@ public final class TrdVpnService extends VpnService implements TrdVpnBinderInter
 
     /* renamed from: setupVPN$lambda-0  reason: not valid java name */
     public static final void m73setupVPN$lambda0(TornadoSetting setting, TrdVpnService this$0, TrdVpnConfig trdConf) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, setting, this$0, trdConf) == null) {
             Intrinsics.checkNotNullParameter(setting, "$setting");
@@ -176,7 +200,12 @@ public final class TrdVpnService extends VpnService implements TrdVpnBinderInter
                 blocking.addDnsServer(trdConf.getDnsServer1()).addDnsServer(trdConf.getDnsServer2()).addRoute(trdConf.getRoute(), trdConf.getRoutePrefixLength());
                 if (!setting.getVpnAllowedAllApp()) {
                     int i = 0;
-                    if (!(setting.getVpnDisallowedPackages().length == 0)) {
+                    if (setting.getVpnDisallowedPackages().length == 0) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    if (!z) {
                         String[] vpnDisallowedPackages = setting.getVpnDisallowedPackages();
                         int length = vpnDisallowedPackages.length;
                         while (i < length) {
@@ -216,10 +245,9 @@ public final class TrdVpnService extends VpnService implements TrdVpnBinderInter
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, this, intent) == null) {
             Tun2tornado.INSTANCE.init();
-            if (setupVPN(intent)) {
-                return;
+            if (!setupVPN(intent)) {
+                stopVPN();
             }
-            stopVPN();
         }
     }
 
@@ -227,7 +255,10 @@ public final class TrdVpnService extends VpnService implements TrdVpnBinderInter
     public String getRuntimeInfo(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) ? TrdVpnBinderInterface.DefaultImpls.getRuntimeInfo(this, j) : (String) invokeJ.objValue;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+            return TrdVpnBinderInterface.DefaultImpls.getRuntimeInfo(this, j);
+        }
+        return (String) invokeJ.objValue;
     }
 
     @Override // android.net.VpnService, android.app.Service
@@ -235,36 +266,16 @@ public final class TrdVpnService extends VpnService implements TrdVpnBinderInter
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent)) == null) {
-            if (intent == null || !Intrinsics.areEqual("android.net.VpnService", intent.getAction())) {
-                if (intent == null) {
-                    return null;
-                }
-                start(intent);
-                return this.binder;
+            if (intent != null && Intrinsics.areEqual("android.net.VpnService", intent.getAction())) {
+                return super.onBind(intent);
             }
-            return super.onBind(intent);
+            if (intent == null) {
+                return null;
+            }
+            start(intent);
+            return this.binder;
         }
         return (IBinder) invokeL.objValue;
-    }
-
-    @Override // android.app.Service
-    public void onCreate() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.onCreate();
-            TrdVpnBroadcast.Companion.register(this, this.broadcastReceiver);
-        }
-    }
-
-    @Override // android.app.Service
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            TrdVpnBroadcast.Companion.unRegister(this, this.broadcastReceiver);
-            super.onDestroy();
-            System.exit(0);
-            throw new RuntimeException("System.exit returned normally, while it was supposed to halt JVM.");
-        }
     }
 
     @Override // android.app.Service

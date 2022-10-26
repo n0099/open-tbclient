@@ -60,6 +60,130 @@ public class ShareWebViewRequestParam extends BaseWebViewRequestParam {
         }
     }
 
+    @Override // com.sina.weibo.sdk.web.param.BaseWebViewRequestParam
+    public boolean hasExtraTask() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            byte[] bArr = this.mBase64ImgData;
+            if (bArr != null && bArr.length > 0) {
+                return true;
+            }
+            return super.hasExtraTask();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public ShareWebViewRequestParam(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.context = context;
+    }
+
+    @Override // com.sina.weibo.sdk.web.param.BaseWebViewRequestParam
+    public void childFillBundle(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            WeiboMultiMessage weiboMultiMessage = this.multiMessage;
+            if (weiboMultiMessage != null) {
+                weiboMultiMessage.toBundle(bundle);
+            }
+            bundle.putString("token", this.token);
+            bundle.putString("packageName", this.packageName);
+            bundle.putString("hashKey", this.hashKey);
+        }
+    }
+
+    public void setHashKey(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.hashKey = str;
+        }
+    }
+
+    public void setMultiMessage(WeiboMultiMessage weiboMultiMessage) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, weiboMultiMessage) == null) {
+            this.multiMessage = weiboMultiMessage;
+        }
+    }
+
+    public void setPackageName(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.packageName = str;
+        }
+    }
+
+    public void setToken(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.token = str;
+        }
+    }
+
+    @Override // com.sina.weibo.sdk.web.param.BaseWebViewRequestParam
+    public void updateRequestUrl(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.picId = str;
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ShareWebViewRequestParam(AuthInfo authInfo, WebRequestType webRequestType, String str, int i, String str2, String str3, Context context) {
+        super(authInfo, webRequestType, str, i, str2, str3, context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {authInfo, webRequestType, str, Integer.valueOf(i), str2, str3, context};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((AuthInfo) objArr2[0], (WebRequestType) objArr2[1], (String) objArr2[2], ((Integer) objArr2[3]).intValue(), (String) objArr2[4], (String) objArr2[5], (Context) objArr2[6]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public ShareWebViewRequestParam(AuthInfo authInfo, WebRequestType webRequestType, String str, String str2, String str3, Context context) {
+        this(authInfo, webRequestType, str, 0, str2, str3, context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {authInfo, webRequestType, str, str2, str3, context};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((AuthInfo) objArr2[0], (WebRequestType) objArr2[1], (String) objArr2[2], ((Integer) objArr2[3]).intValue(), (String) objArr2[4], (String) objArr2[5], (Context) objArr2[6]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+    }
+
     private void getBaseUrl() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
@@ -110,8 +234,7 @@ public class ShareWebViewRequestParam extends BaseWebViewRequestParam {
                             if (fileInputStream2 != null) {
                                 fileInputStream2.close();
                             }
-                            if (bArr != null) {
-                                return;
+                            if (bArr == null) {
                             }
                             return;
                         } catch (Throwable th2) {
@@ -129,24 +252,9 @@ public class ShareWebViewRequestParam extends BaseWebViewRequestParam {
                 }
             } catch (SecurityException | Exception unused5) {
             }
-            if (bArr != null || bArr.length <= 0) {
-                return;
+            if (bArr == null && bArr.length > 0) {
+                this.mBase64ImgData = Base64.encodebyte(bArr);
             }
-            this.mBase64ImgData = Base64.encodebyte(bArr);
-        }
-    }
-
-    @Override // com.sina.weibo.sdk.web.param.BaseWebViewRequestParam
-    public void childFillBundle(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            WeiboMultiMessage weiboMultiMessage = this.multiMessage;
-            if (weiboMultiMessage != null) {
-                weiboMultiMessage.toBundle(bundle);
-            }
-            bundle.putString("token", this.token);
-            bundle.putString("packageName", this.packageName);
-            bundle.putString("hashKey", this.hashKey);
         }
     }
 
@@ -264,48 +372,6 @@ public class ShareWebViewRequestParam extends BaseWebViewRequestParam {
     }
 
     @Override // com.sina.weibo.sdk.web.param.BaseWebViewRequestParam
-    public boolean hasExtraTask() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            byte[] bArr = this.mBase64ImgData;
-            if (bArr == null || bArr.length <= 0) {
-                return super.hasExtraTask();
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void setHashKey(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.hashKey = str;
-        }
-    }
-
-    public void setMultiMessage(WeiboMultiMessage weiboMultiMessage) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, weiboMultiMessage) == null) {
-            this.multiMessage = weiboMultiMessage;
-        }
-    }
-
-    public void setPackageName(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.packageName = str;
-        }
-    }
-
-    public void setToken(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.token = str;
-        }
-    }
-
-    @Override // com.sina.weibo.sdk.web.param.BaseWebViewRequestParam
     public void transformChildBundle(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
@@ -316,74 +382,6 @@ public class ShareWebViewRequestParam extends BaseWebViewRequestParam {
             this.packageName = bundle.getString("packageName");
             this.hashKey = bundle.getString("hashKey");
             getBaseUrl();
-        }
-    }
-
-    @Override // com.sina.weibo.sdk.web.param.BaseWebViewRequestParam
-    public void updateRequestUrl(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.picId = str;
-        }
-    }
-
-    public ShareWebViewRequestParam(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.context = context;
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ShareWebViewRequestParam(AuthInfo authInfo, WebRequestType webRequestType, String str, String str2, String str3, Context context) {
-        this(authInfo, webRequestType, str, 0, str2, str3, context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {authInfo, webRequestType, str, str2, str3, context};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((AuthInfo) objArr2[0], (WebRequestType) objArr2[1], (String) objArr2[2], ((Integer) objArr2[3]).intValue(), (String) objArr2[4], (String) objArr2[5], (Context) objArr2[6]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ShareWebViewRequestParam(AuthInfo authInfo, WebRequestType webRequestType, String str, int i, String str2, String str3, Context context) {
-        super(authInfo, webRequestType, str, i, str2, str3, context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {authInfo, webRequestType, str, Integer.valueOf(i), str2, str3, context};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((AuthInfo) objArr2[0], (WebRequestType) objArr2[1], (String) objArr2[2], ((Integer) objArr2[3]).intValue(), (String) objArr2[4], (String) objArr2[5], (Context) objArr2[6]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
         }
     }
 }

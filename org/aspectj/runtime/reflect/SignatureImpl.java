@@ -38,8 +38,10 @@ public abstract class SignatureImpl implements Signature {
         void set(int i, String str);
     }
 
+    public abstract String createToString(StringMaker stringMaker);
+
     /* loaded from: classes8.dex */
-    public static final class CacheImpl implements Cache {
+    public final class CacheImpl implements Cache {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public SoftReference toStringCacheRef;
@@ -63,7 +65,10 @@ public abstract class SignatureImpl implements Signature {
         private String[] array() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? (String[]) this.toStringCacheRef.get() : (String[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+                return (String[]) this.toStringCacheRef.get();
+            }
+            return (String[]) invokeV.objValue;
         }
 
         private String[] makeCache() {
@@ -121,28 +126,6 @@ public abstract class SignatureImpl implements Signature {
         EMPTY_CLASS_ARRAY = new Class[0];
     }
 
-    public SignatureImpl(int i, String str, Class cls) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, cls};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.modifiers = -1;
-        this.lookupClassLoader = null;
-        this.modifiers = i;
-        this.name = str;
-        this.declaringType = cls;
-    }
-
     private ClassLoader getLookupClassLoader() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -158,130 +141,10 @@ public abstract class SignatureImpl implements Signature {
     public static boolean getUseCache() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? useCache : invokeV.booleanValue;
-    }
-
-    public static void setUseCache(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65541, null, z) == null) {
-            useCache = z;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return useCache;
         }
-    }
-
-    public void addFullTypeNames(StringBuffer stringBuffer, Class[] clsArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, stringBuffer, clsArr) == null) {
-            for (int i = 0; i < clsArr.length; i++) {
-                if (i > 0) {
-                    stringBuffer.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                }
-                stringBuffer.append(fullTypeName(clsArr[i]));
-            }
-        }
-    }
-
-    public void addShortTypeNames(StringBuffer stringBuffer, Class[] clsArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, stringBuffer, clsArr) == null) {
-            for (int i = 0; i < clsArr.length; i++) {
-                if (i > 0) {
-                    stringBuffer.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                }
-                stringBuffer.append(shortTypeName(clsArr[i]));
-            }
-        }
-    }
-
-    public void addTypeArray(StringBuffer stringBuffer, Class[] clsArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, stringBuffer, clsArr) == null) {
-            addFullTypeNames(stringBuffer, clsArr);
-        }
-    }
-
-    public abstract String createToString(StringMaker stringMaker);
-
-    public int extractInt(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? Integer.parseInt(extractString(i), 16) : invokeI.intValue;
-    }
-
-    public String extractString(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            int indexOf = this.stringRep.indexOf(45);
-            int i2 = 0;
-            while (true) {
-                int i3 = i - 1;
-                if (i <= 0) {
-                    break;
-                }
-                i2 = indexOf + 1;
-                indexOf = this.stringRep.indexOf(45, i2);
-                i = i3;
-            }
-            if (indexOf == -1) {
-                indexOf = this.stringRep.length();
-            }
-            return this.stringRep.substring(i2, indexOf);
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public String[] extractStrings(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            StringTokenizer stringTokenizer = new StringTokenizer(extractString(i), ":");
-            int countTokens = stringTokenizer.countTokens();
-            String[] strArr = new String[countTokens];
-            for (int i2 = 0; i2 < countTokens; i2++) {
-                strArr[i2] = stringTokenizer.nextToken();
-            }
-            return strArr;
-        }
-        return (String[]) invokeI.objValue;
-    }
-
-    public Class extractType(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? Factory.makeClass(extractString(i), getLookupClassLoader()) : (Class) invokeI.objValue;
-    }
-
-    public Class[] extractTypes(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-            StringTokenizer stringTokenizer = new StringTokenizer(extractString(i), ":");
-            int countTokens = stringTokenizer.countTokens();
-            Class[] clsArr = new Class[countTokens];
-            for (int i2 = 0; i2 < countTokens; i2++) {
-                clsArr[i2] = Factory.makeClass(stringTokenizer.nextToken(), getLookupClassLoader());
-            }
-            return clsArr;
-        }
-        return (Class[]) invokeI.objValue;
-    }
-
-    public String fullTypeName(Class cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, cls)) == null) {
-            if (cls == null) {
-                return "ANONYMOUS";
-            }
-            if (cls.isArray()) {
-                StringBuffer stringBuffer = new StringBuffer();
-                stringBuffer.append(fullTypeName(cls.getComponentType()));
-                stringBuffer.append("[]");
-                return stringBuffer.toString();
-            }
-            return cls.getName().replace('$', IStringUtil.EXTENSION_SEPARATOR);
-        }
-        return (String) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
     @Override // org.aspectj.lang.Signature
@@ -336,53 +199,132 @@ public abstract class SignatureImpl implements Signature {
         return (String) invokeV.objValue;
     }
 
-    public void setLookupClassLoader(ClassLoader classLoader) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, classLoader) == null) {
-            this.lookupClassLoader = classLoader;
-        }
-    }
-
-    public String shortTypeName(Class cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, cls)) == null) {
-            if (cls == null) {
-                return "ANONYMOUS";
-            }
-            if (cls.isArray()) {
-                StringBuffer stringBuffer = new StringBuffer();
-                stringBuffer.append(shortTypeName(cls.getComponentType()));
-                stringBuffer.append("[]");
-                return stringBuffer.toString();
-            }
-            return stripPackageName(cls.getName()).replace('$', IStringUtil.EXTENSION_SEPARATOR);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public String stripPackageName(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
-            int lastIndexOf = str.lastIndexOf(46);
-            return lastIndexOf == -1 ? str : str.substring(lastIndexOf + 1);
-        }
-        return (String) invokeL.objValue;
-    }
-
     @Override // org.aspectj.lang.Signature
     public final String toLongString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? toString(StringMaker.longStringMaker) : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return toString(StringMaker.longStringMaker);
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // org.aspectj.lang.Signature
     public final String toShortString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? toString(StringMaker.shortStringMaker) : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return toString(StringMaker.shortStringMaker);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // org.aspectj.lang.Signature
+    public final String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return toString(StringMaker.middleStringMaker);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public SignatureImpl(int i, String str, Class cls) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str, cls};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.modifiers = -1;
+        this.lookupClassLoader = null;
+        this.modifiers = i;
+        this.name = str;
+        this.declaringType = cls;
+    }
+
+    public SignatureImpl(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.modifiers = -1;
+        this.lookupClassLoader = null;
+        this.stringRep = str;
+    }
+
+    public String extractString(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            int indexOf = this.stringRep.indexOf(45);
+            int i2 = 0;
+            while (true) {
+                int i3 = i - 1;
+                if (i <= 0) {
+                    break;
+                }
+                i2 = indexOf + 1;
+                indexOf = this.stringRep.indexOf(45, i2);
+                i = i3;
+            }
+            if (indexOf == -1) {
+                indexOf = this.stringRep.length();
+            }
+            return this.stringRep.substring(i2, indexOf);
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public Class[] extractTypes(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+            StringTokenizer stringTokenizer = new StringTokenizer(extractString(i), ":");
+            int countTokens = stringTokenizer.countTokens();
+            Class[] clsArr = new Class[countTokens];
+            for (int i2 = 0; i2 < countTokens; i2++) {
+                clsArr[i2] = Factory.makeClass(stringTokenizer.nextToken(), getLookupClassLoader());
+            }
+            return clsArr;
+        }
+        return (Class[]) invokeI.objValue;
+    }
+
+    public String fullTypeName(Class cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, cls)) == null) {
+            if (cls == null) {
+                return "ANONYMOUS";
+            }
+            if (cls.isArray()) {
+                StringBuffer stringBuffer = new StringBuffer();
+                stringBuffer.append(fullTypeName(cls.getComponentType()));
+                stringBuffer.append("[]");
+                return stringBuffer.toString();
+            }
+            return cls.getName().replace('$', IStringUtil.EXTENSION_SEPARATOR);
+        }
+        return (String) invokeL.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:14:0x0022  */
@@ -424,30 +366,112 @@ public abstract class SignatureImpl implements Signature {
         return (String) invokeL.objValue;
     }
 
-    public SignatureImpl(String str) {
+    public static void setUseCache(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeZ(65541, null, z) == null) {
+            useCache = z;
         }
-        this.modifiers = -1;
-        this.lookupClassLoader = null;
-        this.stringRep = str;
     }
 
-    @Override // org.aspectj.lang.Signature
-    public final String toString() {
-        InterceptResult invokeV;
+    public int extractInt(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? toString(StringMaker.middleStringMaker) : (String) invokeV.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            return Integer.parseInt(extractString(i), 16);
+        }
+        return invokeI.intValue;
+    }
+
+    public String[] extractStrings(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            StringTokenizer stringTokenizer = new StringTokenizer(extractString(i), ":");
+            int countTokens = stringTokenizer.countTokens();
+            String[] strArr = new String[countTokens];
+            for (int i2 = 0; i2 < countTokens; i2++) {
+                strArr[i2] = stringTokenizer.nextToken();
+            }
+            return strArr;
+        }
+        return (String[]) invokeI.objValue;
+    }
+
+    public Class extractType(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            return Factory.makeClass(extractString(i), getLookupClassLoader());
+        }
+        return (Class) invokeI.objValue;
+    }
+
+    public void setLookupClassLoader(ClassLoader classLoader) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, classLoader) == null) {
+            this.lookupClassLoader = classLoader;
+        }
+    }
+
+    public String stripPackageName(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
+            int lastIndexOf = str.lastIndexOf(46);
+            if (lastIndexOf == -1) {
+                return str;
+            }
+            return str.substring(lastIndexOf + 1);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void addFullTypeNames(StringBuffer stringBuffer, Class[] clsArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, stringBuffer, clsArr) == null) {
+            for (int i = 0; i < clsArr.length; i++) {
+                if (i > 0) {
+                    stringBuffer.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+                }
+                stringBuffer.append(fullTypeName(clsArr[i]));
+            }
+        }
+    }
+
+    public void addShortTypeNames(StringBuffer stringBuffer, Class[] clsArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, stringBuffer, clsArr) == null) {
+            for (int i = 0; i < clsArr.length; i++) {
+                if (i > 0) {
+                    stringBuffer.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+                }
+                stringBuffer.append(shortTypeName(clsArr[i]));
+            }
+        }
+    }
+
+    public void addTypeArray(StringBuffer stringBuffer, Class[] clsArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, stringBuffer, clsArr) == null) {
+            addFullTypeNames(stringBuffer, clsArr);
+        }
+    }
+
+    public String shortTypeName(Class cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, cls)) == null) {
+            if (cls == null) {
+                return "ANONYMOUS";
+            }
+            if (cls.isArray()) {
+                StringBuffer stringBuffer = new StringBuffer();
+                stringBuffer.append(shortTypeName(cls.getComponentType()));
+                stringBuffer.append("[]");
+                return stringBuffer.toString();
+            }
+            return stripPackageName(cls.getName()).replace('$', IStringUtil.EXTENSION_SEPARATOR);
+        }
+        return (String) invokeL.objValue;
     }
 }

@@ -1,31 +1,59 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.os.Bundle;
+import android.os.RemoteException;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Set;
-import kotlin.collections.SetsKt__SetsKt;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.ar.core.ArCoreApk;
 /* loaded from: classes5.dex */
-public final class rs9 {
+public final class rs9 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Set<String> a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ Context a;
+    public final /* synthetic */ ArCoreApk.a b;
+    public final /* synthetic */ os9 c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948132337, "Lcom/baidu/tieba/rs9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948132337, "Lcom/baidu/tieba/rs9;");
+    public rs9(os9 os9Var, Context context, ArCoreApk.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {os9Var, context, aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = SetsKt__SetsKt.setOf((Object[]) new String[]{"M", "L", "H", "V", "C", "S", "Q", "R", "A", "Z", "m", "l", "h", "v", "c", "s", "q", "r", "a", "z"});
+        this.c = os9Var;
+        this.a = context;
+        this.b = aVar;
+    }
+
+    @Override // java.lang.Runnable
+    public final void run() {
+        com.google.a.b.a.a.a.a aVar;
+        Bundle l;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+            return;
+        }
+        try {
+            aVar = this.c.d;
+            String str = this.a.getApplicationInfo().packageName;
+            os9 os9Var = this.c;
+            l = os9.l();
+            aVar.a(str, l, new com.google.ar.core.u(this));
+        } catch (RemoteException e) {
+            Log.e("ARCore-InstallService", "requestInfo threw", e);
+            this.b.a(ArCoreApk.Availability.UNKNOWN_ERROR);
+        }
     }
 }

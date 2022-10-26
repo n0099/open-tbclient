@@ -13,12 +13,12 @@ public final class Pools {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
-    public interface Pool<T> {
-        T acquire();
+    public interface Pool {
+        Object acquire();
 
-        boolean release(T t);
+        boolean release(Object obj);
 
-        void releaseAll(T[] tArr, int i);
+        void releaseAll(Object[] objArr, int i);
     }
 
     /* loaded from: classes.dex */
@@ -65,25 +65,6 @@ public final class Pools {
         }
 
         @Override // androidx.constraintlayout.solver.Pools.Pool
-        public T acquire() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                int i = this.mPoolSize;
-                if (i > 0) {
-                    int i2 = i - 1;
-                    Object[] objArr = this.mPool;
-                    T t = (T) objArr[i2];
-                    objArr[i2] = null;
-                    this.mPoolSize = i - 1;
-                    return t;
-                }
-                return null;
-            }
-            return (T) invokeV.objValue;
-        }
-
-        @Override // androidx.constraintlayout.solver.Pools.Pool
         public boolean release(T t) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -98,6 +79,25 @@ public final class Pools {
                 return false;
             }
             return invokeL.booleanValue;
+        }
+
+        @Override // androidx.constraintlayout.solver.Pools.Pool
+        public T acquire() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                int i = this.mPoolSize;
+                if (i <= 0) {
+                    return null;
+                }
+                int i2 = i - 1;
+                Object[] objArr = this.mPool;
+                T t = (T) objArr[i2];
+                objArr[i2] = null;
+                this.mPoolSize = i - 1;
+                return t;
+            }
+            return (T) invokeV.objValue;
         }
 
         @Override // androidx.constraintlayout.solver.Pools.Pool

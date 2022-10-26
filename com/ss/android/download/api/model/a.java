@@ -9,44 +9,44 @@ public class a {
 
     /* renamed from: com.ss.android.download.api.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C0651a {
+    public class C0647a {
         public String a;
         public String b;
         public String c;
         public String d;
         public String e;
 
-        public C0651a a(String str) {
+        public a a() {
+            return new a(this);
+        }
+
+        public C0647a a(String str) {
             this.a = str;
             return this;
         }
 
-        public C0651a b(String str) {
+        public C0647a b(String str) {
             this.b = str;
             return this;
         }
 
-        public C0651a c(String str) {
+        public C0647a c(String str) {
             this.d = str;
             return this;
         }
 
-        public C0651a d(String str) {
+        public C0647a d(String str) {
             this.e = str;
             return this;
         }
-
-        public a a() {
-            return new a(this);
-        }
     }
 
-    public a(C0651a c0651a) {
+    public a(C0647a c0647a) {
         this.b = "";
-        this.a = c0651a.a;
-        this.b = c0651a.b;
-        this.c = c0651a.c;
-        this.d = c0651a.d;
-        this.e = c0651a.e;
+        this.a = c0647a.a;
+        this.b = c0647a.b;
+        this.c = c0647a.c;
+        this.d = c0647a.d;
+        this.e = c0647a.e;
     }
 }

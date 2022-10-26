@@ -52,9 +52,23 @@ public abstract class AbstractPoolEntry {
         return invokeV.objValue;
     }
 
+    public void shutdownEntry() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
     public void layerProtocol(HttpContext httpContext, HttpParams httpParams) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpContext, httpParams) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    public void tunnelTarget(boolean z, HttpParams httpParams) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(1048582, this, z, httpParams) == null) {
             throw new RuntimeException("Stub!");
         }
     }
@@ -66,20 +80,6 @@ public abstract class AbstractPoolEntry {
         }
     }
 
-    public void setState(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
-    public void shutdownEntry() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
     public void tunnelProxy(HttpHost httpHost, boolean z, HttpParams httpParams) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{httpHost, Boolean.valueOf(z), httpParams}) == null) {
@@ -87,9 +87,9 @@ public abstract class AbstractPoolEntry {
         }
     }
 
-    public void tunnelTarget(boolean z, HttpParams httpParams) throws IOException {
+    public void setState(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048582, this, z, httpParams) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
             throw new RuntimeException("Stub!");
         }
     }

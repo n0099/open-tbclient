@@ -10,9 +10,9 @@ import android.view.Surface;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.cp7;
-import com.baidu.tieba.ip7;
-import com.baidu.tieba.mp7;
+import com.baidu.tieba.np7;
+import com.baidu.tieba.tp7;
+import com.baidu.tieba.xp7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,12 +33,13 @@ public class VideoEncoderCore {
     public long mLastFrameSyncTime;
     public MediaMuxerWrapper mMuxer;
     public boolean mMuxerStarted;
-    public ip7 mPostMonitorManager;
+    public tp7 mPostMonitorManager;
     public boolean mRequestStop;
     public int mTrackIndex;
     public Bundle params;
 
     public VideoEncoderCore(int i, int i2, int i3, MediaMuxerWrapper mediaMuxerWrapper) throws IOException {
+        xp7 xp7Var;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -56,10 +57,14 @@ public class VideoEncoderCore {
         this.params = new Bundle();
         this.mLastFrameSyncTime = 0L;
         this.mRequestStop = false;
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, mp7.class);
-        mp7 mp7Var = runTask != null ? (mp7) runTask.getData() : null;
-        if (mp7Var != null) {
-            this.mPostMonitorManager = mp7Var.get();
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, xp7.class);
+        if (runTask != null) {
+            xp7Var = (xp7) runTask.getData();
+        } else {
+            xp7Var = null;
+        }
+        if (xp7Var != null) {
+            this.mPostMonitorManager = xp7Var.get();
         }
         this.mBufferInfo = new MediaCodec.BufferInfo();
         MediaFormat createVideoFormat = MediaFormat.createVideoFormat("video/avc", i, i2);
@@ -83,78 +88,78 @@ public class VideoEncoderCore {
 
     public void drainEncoder(boolean z) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeZ(1048576, this, z) != null) {
-            return;
-        }
-        if (z) {
-            this.mEncoder.signalEndOfInputStream();
-        }
-        ByteBuffer[] outputBuffers = this.mEncoder.getOutputBuffers();
-        while (true) {
-            int dequeueOutputBuffer = this.mEncoder.dequeueOutputBuffer(this.mBufferInfo, 10000L);
-            if (dequeueOutputBuffer == -1) {
-                if (!z) {
-                    return;
-                }
-            } else if (dequeueOutputBuffer == -3) {
-                outputBuffers = this.mEncoder.getOutputBuffers();
-            } else if (dequeueOutputBuffer == -2) {
-                if (!this.mMuxerStarted) {
-                    MediaFormat outputFormat = this.mEncoder.getOutputFormat();
-                    Log.d(TAG, "encoder output format changed: " + outputFormat);
-                    this.mTrackIndex = this.mMuxer.addTrack(outputFormat);
-                    if (!this.mMuxer.start()) {
-                        synchronized (this.mMuxer) {
-                            while (!this.mMuxer.isStarted() && !this.mRequestStop) {
-                                try {
-                                    this.mMuxer.wait(100L);
-                                } catch (InterruptedException e) {
-                                    e.printStackTrace();
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            if (z) {
+                this.mEncoder.signalEndOfInputStream();
+            }
+            ByteBuffer[] outputBuffers = this.mEncoder.getOutputBuffers();
+            while (true) {
+                int dequeueOutputBuffer = this.mEncoder.dequeueOutputBuffer(this.mBufferInfo, 10000L);
+                if (dequeueOutputBuffer == -1) {
+                    if (!z) {
+                        return;
+                    }
+                } else if (dequeueOutputBuffer == -3) {
+                    outputBuffers = this.mEncoder.getOutputBuffers();
+                } else if (dequeueOutputBuffer == -2) {
+                    if (!this.mMuxerStarted) {
+                        MediaFormat outputFormat = this.mEncoder.getOutputFormat();
+                        Log.d(TAG, "encoder output format changed: " + outputFormat);
+                        this.mTrackIndex = this.mMuxer.addTrack(outputFormat);
+                        if (!this.mMuxer.start()) {
+                            synchronized (this.mMuxer) {
+                                while (!this.mMuxer.isStarted() && !this.mRequestStop) {
+                                    try {
+                                        this.mMuxer.wait(100L);
+                                    } catch (InterruptedException e) {
+                                        e.printStackTrace();
+                                    }
                                 }
                             }
                         }
-                    }
-                    if (this.mRequestStop) {
-                        return;
-                    }
-                    this.mMuxerStarted = true;
-                } else {
-                    throw new RuntimeException("format changed twice");
-                }
-            } else if (dequeueOutputBuffer < 0) {
-                Log.w(TAG, "unexpected result from encoder.dequeueOutputBuffer: " + dequeueOutputBuffer);
-            } else {
-                ByteBuffer byteBuffer = outputBuffers[dequeueOutputBuffer];
-                if (byteBuffer != null) {
-                    MediaCodec.BufferInfo bufferInfo = this.mBufferInfo;
-                    if ((bufferInfo.flags & 2) != 0) {
-                        bufferInfo.size = 0;
-                    }
-                    MediaCodec.BufferInfo bufferInfo2 = this.mBufferInfo;
-                    if (bufferInfo2.size != 0) {
-                        if (this.mMuxerStarted) {
-                            byteBuffer.position(bufferInfo2.offset);
-                            MediaCodec.BufferInfo bufferInfo3 = this.mBufferInfo;
-                            byteBuffer.limit(bufferInfo3.offset + bufferInfo3.size);
-                            this.mMuxer.writeSampleData(this.mTrackIndex, byteBuffer, this.mBufferInfo);
+                        if (!this.mRequestStop) {
+                            this.mMuxerStarted = true;
                         } else {
-                            throw new RuntimeException("muxer hasn't started");
-                        }
-                    }
-                    this.mEncoder.releaseOutputBuffer(dequeueOutputBuffer, false);
-                    if (Build.VERSION.SDK_INT >= 19 && System.currentTimeMillis() - this.mLastFrameSyncTime >= 500) {
-                        this.mEncoder.setParameters(this.params);
-                        this.mLastFrameSyncTime = System.currentTimeMillis();
-                    }
-                    if ((this.mBufferInfo.flags & 4) != 0) {
-                        if (z) {
                             return;
                         }
-                        Log.w(TAG, "reached end of stream unexpectedly");
-                        return;
+                    } else {
+                        throw new RuntimeException("format changed twice");
                     }
+                } else if (dequeueOutputBuffer < 0) {
+                    Log.w(TAG, "unexpected result from encoder.dequeueOutputBuffer: " + dequeueOutputBuffer);
                 } else {
-                    throw new RuntimeException("encoderOutputBuffer " + dequeueOutputBuffer + " was null");
+                    ByteBuffer byteBuffer = outputBuffers[dequeueOutputBuffer];
+                    if (byteBuffer != null) {
+                        MediaCodec.BufferInfo bufferInfo = this.mBufferInfo;
+                        if ((bufferInfo.flags & 2) != 0) {
+                            bufferInfo.size = 0;
+                        }
+                        MediaCodec.BufferInfo bufferInfo2 = this.mBufferInfo;
+                        if (bufferInfo2.size != 0) {
+                            if (this.mMuxerStarted) {
+                                byteBuffer.position(bufferInfo2.offset);
+                                MediaCodec.BufferInfo bufferInfo3 = this.mBufferInfo;
+                                byteBuffer.limit(bufferInfo3.offset + bufferInfo3.size);
+                                this.mMuxer.writeSampleData(this.mTrackIndex, byteBuffer, this.mBufferInfo);
+                            } else {
+                                throw new RuntimeException("muxer hasn't started");
+                            }
+                        }
+                        this.mEncoder.releaseOutputBuffer(dequeueOutputBuffer, false);
+                        if (Build.VERSION.SDK_INT >= 19 && System.currentTimeMillis() - this.mLastFrameSyncTime >= 500) {
+                            this.mEncoder.setParameters(this.params);
+                            this.mLastFrameSyncTime = System.currentTimeMillis();
+                        }
+                        if ((this.mBufferInfo.flags & 4) != 0) {
+                            if (!z) {
+                                Log.w(TAG, "reached end of stream unexpectedly");
+                                return;
+                            }
+                            return;
+                        }
+                    } else {
+                        throw new RuntimeException("encoderOutputBuffer " + dequeueOutputBuffer + " was null");
+                    }
                 }
             }
         }
@@ -163,7 +168,19 @@ public class VideoEncoderCore {
     public Surface getInputSurface() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mInputSurface : (Surface) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mInputSurface;
+        }
+        return (Surface) invokeV.objValue;
+    }
+
+    public synchronized void requestStop() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            synchronized (this) {
+                this.mRequestStop = true;
+            }
+        }
     }
 
     public void release() {
@@ -180,21 +197,12 @@ public class VideoEncoderCore {
                 try {
                     mediaMuxerWrapper.stop();
                 } catch (IllegalStateException e) {
-                    ip7 ip7Var = this.mPostMonitorManager;
-                    if (ip7Var != null) {
-                        ip7Var.b(17, cp7.a(e));
+                    tp7 tp7Var = this.mPostMonitorManager;
+                    if (tp7Var != null) {
+                        tp7Var.b(17, np7.a(e));
                     }
                 }
                 this.mMuxer = null;
-            }
-        }
-    }
-
-    public synchronized void requestStop() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (this) {
-                this.mRequestStop = true;
             }
         }
     }

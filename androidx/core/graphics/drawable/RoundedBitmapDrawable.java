@@ -12,8 +12,6 @@ import android.graphics.RectF;
 import android.graphics.Shader;
 import android.graphics.drawable.Drawable;
 import android.util.DisplayMetrics;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,6 +37,12 @@ public abstract class RoundedBitmapDrawable extends Drawable {
     public final Paint mPaint;
     public final Matrix mShaderMatrix;
     public int mTargetDensity;
+
+    public static boolean isGreaterThanZero(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeF = interceptable.invokeF(65538, null, f)) == null) ? f > 0.05f : invokeF.booleanValue;
+    }
 
     public RoundedBitmapDrawable(Resources resources, Bitmap bitmap) {
         Interceptable interceptable = $ic;
@@ -86,12 +90,6 @@ public abstract class RoundedBitmapDrawable extends Drawable {
         }
     }
 
-    public static boolean isGreaterThanZero(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(65538, null, f)) == null) ? f > 0.05f : invokeF.booleanValue;
-    }
-
     private void updateCircularCornerRadius() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
@@ -100,95 +98,88 @@ public abstract class RoundedBitmapDrawable extends Drawable {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void draw(@NonNull Canvas canvas) {
-        Bitmap bitmap;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) || (bitmap = this.mBitmap) == null) {
-            return;
-        }
-        updateDstRect();
-        if (this.mPaint.getShader() == null) {
-            canvas.drawBitmap(bitmap, (Rect) null, this.mDstRect, this.mPaint);
-            return;
-        }
-        RectF rectF = this.mDstRectF;
-        float f = this.mCornerRadius;
-        canvas.drawRoundRect(rectF, f, f, this.mPaint);
-    }
-
-    @Override // android.graphics.drawable.Drawable
     public int getAlpha() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mPaint.getAlpha() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mPaint.getAlpha();
+        }
+        return invokeV.intValue;
     }
 
-    @Nullable
     public final Bitmap getBitmap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mBitmap : (Bitmap) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mBitmap;
+        }
+        return (Bitmap) invokeV.objValue;
     }
 
     @Override // android.graphics.drawable.Drawable
     public ColorFilter getColorFilter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mPaint.getColorFilter() : (ColorFilter) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mPaint.getColorFilter();
+        }
+        return (ColorFilter) invokeV.objValue;
     }
 
     public float getCornerRadius() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mCornerRadius : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mCornerRadius;
+        }
+        return invokeV.floatValue;
     }
 
     public int getGravity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mGravity : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mGravity;
+        }
+        return invokeV.intValue;
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mBitmapHeight : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mBitmapHeight;
+        }
+        return invokeV.intValue;
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mBitmapWidth : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mBitmapWidth;
+        }
+        return invokeV.intValue;
     }
 
-    @Override // android.graphics.drawable.Drawable
-    public int getOpacity() {
-        InterceptResult invokeV;
-        Bitmap bitmap;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (this.mGravity != 119 || this.mIsCircular || (bitmap = this.mBitmap) == null || bitmap.hasAlpha() || this.mPaint.getAlpha() < 255 || isGreaterThanZero(this.mCornerRadius)) ? -3 : -1 : invokeV.intValue;
-    }
-
-    @NonNull
     public final Paint getPaint() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mPaint : (Paint) invokeV.objValue;
-    }
-
-    public void gravityCompatApply(int i, int i2, int i3, Rect rect, Rect rect2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), rect, rect2}) == null) {
-            throw new UnsupportedOperationException();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mPaint;
         }
+        return (Paint) invokeV.objValue;
     }
 
     public boolean hasAntiAlias() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mPaint.isAntiAlias() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.mPaint.isAntiAlias();
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean hasMipMap() {
@@ -203,7 +194,27 @@ public abstract class RoundedBitmapDrawable extends Drawable {
     public boolean isCircular() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mIsCircular : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.mIsCircular;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public void draw(Canvas canvas) {
+        Bitmap bitmap;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, canvas) != null) || (bitmap = this.mBitmap) == null) {
+            return;
+        }
+        updateDstRect();
+        if (this.mPaint.getShader() == null) {
+            canvas.drawBitmap(bitmap, (Rect) null, this.mDstRect, this.mPaint);
+            return;
+        }
+        RectF rectF = this.mDstRectF;
+        float f = this.mCornerRadius;
+        canvas.drawRoundRect(rectF, f, f, this.mPaint);
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -221,11 +232,10 @@ public abstract class RoundedBitmapDrawable extends Drawable {
     @Override // android.graphics.drawable.Drawable
     public void setAlpha(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048591, this, i) == null) || i == this.mPaint.getAlpha()) {
-            return;
+        if ((interceptable == null || interceptable.invokeI(1048591, this, i) == null) && i != this.mPaint.getAlpha()) {
+            this.mPaint.setAlpha(i);
+            invalidateSelf();
         }
-        this.mPaint.setAlpha(i);
-        invalidateSelf();
     }
 
     public void setAntiAlias(boolean z) {
@@ -260,21 +270,6 @@ public abstract class RoundedBitmapDrawable extends Drawable {
         }
     }
 
-    public void setCornerRadius(float f) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048595, this, f) == null) || this.mCornerRadius == f) {
-            return;
-        }
-        this.mIsCircular = false;
-        if (isGreaterThanZero(f)) {
-            this.mPaint.setShader(this.mBitmapShader);
-        } else {
-            this.mPaint.setShader(null);
-        }
-        this.mCornerRadius = f;
-        invalidateSelf();
-    }
-
     @Override // android.graphics.drawable.Drawable
     public void setDither(boolean z) {
         Interceptable interceptable = $ic;
@@ -295,12 +290,11 @@ public abstract class RoundedBitmapDrawable extends Drawable {
 
     public void setGravity(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048598, this, i) == null) || this.mGravity == i) {
-            return;
+        if ((interceptable == null || interceptable.invokeI(1048598, this, i) == null) && this.mGravity != i) {
+            this.mGravity = i;
+            this.mApplyGravity = true;
+            invalidateSelf();
         }
-        this.mGravity = i;
-        this.mApplyGravity = true;
-        invalidateSelf();
     }
 
     public void setMipMap(boolean z) {
@@ -310,10 +304,67 @@ public abstract class RoundedBitmapDrawable extends Drawable {
         }
     }
 
-    public void setTargetDensity(@NonNull Canvas canvas) {
+    public void setTargetDensity(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048600, this, i) == null) && this.mTargetDensity != i) {
+            if (i == 0) {
+                i = 160;
+            }
+            this.mTargetDensity = i;
+            if (this.mBitmap != null) {
+                computeBitmapSize();
+            }
+            invalidateSelf();
+        }
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public int getOpacity() {
+        InterceptResult invokeV;
+        Bitmap bitmap;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (this.mGravity != 119 || this.mIsCircular || (bitmap = this.mBitmap) == null || bitmap.hasAlpha() || this.mPaint.getAlpha() < 255 || isGreaterThanZero(this.mCornerRadius)) {
+                return -3;
+            }
+            return -1;
+        }
+        return invokeV.intValue;
+    }
+
+    public void gravityCompatApply(int i, int i2, int i3, Rect rect, Rect rect2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), rect, rect2}) == null) {
+            throw new UnsupportedOperationException();
+        }
+    }
+
+    public void setCornerRadius(float f) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeF(1048595, this, f) != null) || this.mCornerRadius == f) {
+            return;
+        }
+        this.mIsCircular = false;
+        if (isGreaterThanZero(f)) {
+            this.mPaint.setShader(this.mBitmapShader);
+        } else {
+            this.mPaint.setShader(null);
+        }
+        this.mCornerRadius = f;
+        invalidateSelf();
+    }
+
+    public void setTargetDensity(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, canvas) == null) {
             setTargetDensity(canvas.getDensity());
+        }
+    }
+
+    public void setTargetDensity(DisplayMetrics displayMetrics) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048602, this, displayMetrics) == null) {
+            setTargetDensity(displayMetrics.densityDpi);
         }
     }
 
@@ -340,27 +391,5 @@ public abstract class RoundedBitmapDrawable extends Drawable {
             }
             this.mApplyGravity = false;
         }
-    }
-
-    public void setTargetDensity(@NonNull DisplayMetrics displayMetrics) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, displayMetrics) == null) {
-            setTargetDensity(displayMetrics.densityDpi);
-        }
-    }
-
-    public void setTargetDensity(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048600, this, i) == null) || this.mTargetDensity == i) {
-            return;
-        }
-        if (i == 0) {
-            i = 160;
-        }
-        this.mTargetDensity = i;
-        if (this.mBitmap != null) {
-            computeBitmapSize();
-        }
-        invalidateSelf();
     }
 }

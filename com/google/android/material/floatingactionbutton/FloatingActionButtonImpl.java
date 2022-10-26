@@ -19,8 +19,6 @@ import android.graphics.drawable.LayerDrawable;
 import android.os.Build;
 import android.view.View;
 import android.view.ViewTreeObserver;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.util.Preconditions;
 import androidx.core.view.InputDeviceCompat;
@@ -74,56 +72,92 @@ public class FloatingActionButtonImpl {
     public static final float SHOW_SCALE = 1.0f;
     public transient /* synthetic */ FieldHolder $fh;
     public int animState;
-    @Nullable
     public BorderDrawable borderDrawable;
-    @Nullable
     public Drawable contentBackground;
-    @Nullable
     public Animator currentAnimator;
-    @Nullable
     public MotionSpec defaultHideMotionSpec;
-    @Nullable
     public MotionSpec defaultShowMotionSpec;
     public float elevation;
     public boolean ensureMinTouchTargetSize;
-    public ArrayList<Animator.AnimatorListener> hideListeners;
-    @Nullable
+    public ArrayList hideListeners;
     public MotionSpec hideMotionSpec;
     public float hoveredFocusedTranslationZ;
     public float imageMatrixScale;
     public int maxImageSize;
     public int minTouchTargetSize;
-    @Nullable
     public ViewTreeObserver.OnPreDrawListener preDrawListener;
     public float pressedTranslationZ;
-    @Nullable
     public Drawable rippleDrawable;
     public float rotation;
     public boolean shadowPaddingEnabled;
     public final ShadowViewDelegate shadowViewDelegate;
-    @Nullable
     public ShapeAppearanceModel shapeAppearance;
-    @Nullable
     public MaterialShapeDrawable shapeDrawable;
-    public ArrayList<Animator.AnimatorListener> showListeners;
-    @Nullable
+    public ArrayList showListeners;
     public MotionSpec showMotionSpec;
-    @NonNull
     public final StateListAnimator stateListAnimator;
     public final Matrix tmpMatrix;
     public final Rect tmpRect;
     public final RectF tmpRectF1;
     public final RectF tmpRectF2;
-    public ArrayList<InternalTransformationCallback> transformationCallbacks;
+    public ArrayList transformationCallbacks;
 
     /* renamed from: view  reason: collision with root package name */
     public final FloatingActionButton f1073view;
+
+    /* loaded from: classes7.dex */
+    public interface InternalTransformationCallback {
+        void onScaleChanged();
+
+        void onTranslationChanged();
+    }
+
+    /* loaded from: classes7.dex */
+    public interface InternalVisibilityChangedListener {
+        void onHidden();
+
+        void onShown();
+    }
+
+    public void onCompatShadowChanged() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+        }
+    }
+
+    public boolean requirePreDrawListener() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean shouldAddPadding() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
 
     /* loaded from: classes7.dex */
     public class DisabledElevationAnimation extends ShadowAnimatorImpl {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FloatingActionButtonImpl this$0;
+
+        @Override // com.google.android.material.floatingactionbutton.FloatingActionButtonImpl.ShadowAnimatorImpl
+        public float getTargetShadowSize() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return 0.0f;
+            }
+            return invokeV.floatValue;
+        }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public DisabledElevationAnimation(FloatingActionButtonImpl floatingActionButtonImpl) {
@@ -145,16 +179,6 @@ public class FloatingActionButtonImpl {
                 }
             }
             this.this$0 = floatingActionButtonImpl;
-        }
-
-        @Override // com.google.android.material.floatingactionbutton.FloatingActionButtonImpl.ShadowAnimatorImpl
-        public float getTargetShadowSize() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return 0.0f;
-            }
-            return invokeV.floatValue;
         }
     }
 
@@ -239,20 +263,6 @@ public class FloatingActionButtonImpl {
     }
 
     /* loaded from: classes7.dex */
-    public interface InternalTransformationCallback {
-        void onScaleChanged();
-
-        void onTranslationChanged();
-    }
-
-    /* loaded from: classes7.dex */
-    public interface InternalVisibilityChangedListener {
-        void onHidden();
-
-        void onShown();
-    }
-
-    /* loaded from: classes7.dex */
     public class ResetElevationAnimation extends ShadowAnimatorImpl {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -284,7 +294,10 @@ public class FloatingActionButtonImpl {
         public float getTargetShadowSize() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.this$0.elevation : invokeV.floatValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.this$0.elevation;
+            }
+            return invokeV.floatValue;
         }
     }
 
@@ -296,6 +309,8 @@ public class FloatingActionButtonImpl {
         public float shadowSizeStart;
         public final /* synthetic */ FloatingActionButtonImpl this$0;
         public boolean validValues;
+
+        public abstract float getTargetShadowSize();
 
         public ShadowAnimatorImpl(FloatingActionButtonImpl floatingActionButtonImpl) {
             Interceptable interceptable = $ic;
@@ -315,8 +330,6 @@ public class FloatingActionButtonImpl {
             this.this$0 = floatingActionButtonImpl;
         }
 
-        public abstract float getTargetShadowSize();
-
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
@@ -327,12 +340,18 @@ public class FloatingActionButtonImpl {
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(@NonNull ValueAnimator valueAnimator) {
+        public void onAnimationUpdate(ValueAnimator valueAnimator) {
+            float elevation;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, valueAnimator) == null) {
                 if (!this.validValues) {
                     MaterialShapeDrawable materialShapeDrawable = this.this$0.shapeDrawable;
-                    this.shadowSizeStart = materialShapeDrawable == null ? 0.0f : materialShapeDrawable.getElevation();
+                    if (materialShapeDrawable == null) {
+                        elevation = 0.0f;
+                    } else {
+                        elevation = materialShapeDrawable.getElevation();
+                    }
+                    this.shadowSizeStart = elevation;
                     this.shadowSizeEnd = getTargetShadowSize();
                     this.validValues = true;
                 }
@@ -400,27 +419,25 @@ public class FloatingActionButtonImpl {
         this.rotation = this.f1073view.getRotation();
     }
 
-    private void calculateImageMatrixFromScale(float f, @NonNull Matrix matrix) {
+    private void calculateImageMatrixFromScale(float f, Matrix matrix) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{Float.valueOf(f), matrix}) == null) {
             matrix.reset();
             Drawable drawable = this.f1073view.getDrawable();
-            if (drawable == null || this.maxImageSize == 0) {
-                return;
+            if (drawable != null && this.maxImageSize != 0) {
+                RectF rectF = this.tmpRectF1;
+                RectF rectF2 = this.tmpRectF2;
+                rectF.set(0.0f, 0.0f, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+                int i = this.maxImageSize;
+                rectF2.set(0.0f, 0.0f, i, i);
+                matrix.setRectToRect(rectF, rectF2, Matrix.ScaleToFit.CENTER);
+                int i2 = this.maxImageSize;
+                matrix.postScale(f, f, i2 / 2.0f, i2 / 2.0f);
             }
-            RectF rectF = this.tmpRectF1;
-            RectF rectF2 = this.tmpRectF2;
-            rectF.set(0.0f, 0.0f, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-            int i = this.maxImageSize;
-            rectF2.set(0.0f, 0.0f, i, i);
-            matrix.setRectToRect(rectF, rectF2, Matrix.ScaleToFit.CENTER);
-            int i2 = this.maxImageSize;
-            matrix.postScale(f, f, i2 / 2.0f, i2 / 2.0f);
         }
     }
 
-    @NonNull
-    private AnimatorSet createAnimator(@NonNull MotionSpec motionSpec, float f, float f2, float f3) {
+    private AnimatorSet createAnimator(MotionSpec motionSpec, float f, float f2, float f3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, this, new Object[]{motionSpec, Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
@@ -461,16 +478,15 @@ public class FloatingActionButtonImpl {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.google.android.material.animation.MatrixEvaluator, android.animation.TypeEvaluator
-                public Matrix evaluate(float f4, @NonNull Matrix matrix, @NonNull Matrix matrix2) {
+                public Matrix evaluate(float f4, Matrix matrix, Matrix matrix2) {
                     InterceptResult invokeCommon2;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeCommon2 = interceptable2.invokeCommon(1048576, this, new Object[]{Float.valueOf(f4), matrix, matrix2})) == null) {
-                        this.this$0.imageMatrixScale = f4;
-                        return super.evaluate(f4, matrix, matrix2);
+                    if (interceptable2 != null && (invokeCommon2 = interceptable2.invokeCommon(1048576, this, new Object[]{Float.valueOf(f4), matrix, matrix2})) != null) {
+                        return (Matrix) invokeCommon2.objValue;
                     }
-                    return (Matrix) invokeCommon2.objValue;
+                    this.this$0.imageMatrixScale = f4;
+                    return super.evaluate(f4, matrix, matrix2);
                 }
             }, new Matrix(this.tmpMatrix));
             motionSpec.getTiming("iconScale").apply(ofObject);
@@ -482,8 +498,7 @@ public class FloatingActionButtonImpl {
         return (AnimatorSet) invokeCommon.objValue;
     }
 
-    @NonNull
-    private ValueAnimator createElevationAnimator(@NonNull ShadowAnimatorImpl shadowAnimatorImpl) {
+    private ValueAnimator createElevationAnimator(ShadowAnimatorImpl shadowAnimatorImpl) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, shadowAnimatorImpl)) == null) {
@@ -496,6 +511,18 @@ public class FloatingActionButtonImpl {
             return valueAnimator;
         }
         return (ValueAnimator) invokeL.objValue;
+    }
+
+    public void onPaddingUpdated(Rect rect) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048599, this, rect) == null) {
+            Preconditions.checkNotNull(this.contentBackground, "Didn't initialize content background");
+            if (shouldAddPadding()) {
+                this.shadowViewDelegate.setBackgroundDrawable(new InsetDrawable(this.contentBackground, rect.left, rect.top, rect.right, rect.bottom));
+                return;
+            }
+            this.shadowViewDelegate.setBackgroundDrawable(this.contentBackground);
+        }
     }
 
     private MotionSpec getDefaultHideMotionSpec() {
@@ -522,7 +549,6 @@ public class FloatingActionButtonImpl {
         return (MotionSpec) invokeV.objValue;
     }
 
-    @NonNull
     private ViewTreeObserver.OnPreDrawListener getOrCreatePreDrawListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -571,157 +597,497 @@ public class FloatingActionButtonImpl {
     private boolean shouldAnimateVisibilityChange() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) ? ViewCompat.isLaidOut(this.f1073view) && !this.f1073view.isInEditMode() : invokeV.booleanValue;
-    }
-
-    private void workAroundOreoBug(ObjectAnimator objectAnimator) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65548, this, objectAnimator) == null) && Build.VERSION.SDK_INT == 26) {
-            objectAnimator.setEvaluator(new TypeEvaluator<Float>(this) { // from class: com.google.android.material.floatingactionbutton.FloatingActionButtonImpl.4
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public FloatEvaluator floatEvaluator;
-                public final /* synthetic */ FloatingActionButtonImpl this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.floatEvaluator = new FloatEvaluator();
-                }
-
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // android.animation.TypeEvaluator
-                public Float evaluate(float f, Float f2, Float f3) {
-                    InterceptResult invokeCommon;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), f2, f3})) == null) {
-                        float floatValue = this.floatEvaluator.evaluate(f, (Number) f2, (Number) f3).floatValue();
-                        if (floatValue < 0.1f) {
-                            floatValue = 0.0f;
-                        }
-                        return Float.valueOf(floatValue);
-                    }
-                    return (Float) invokeCommon.objValue;
-                }
-            });
-        }
-    }
-
-    public void addOnHideAnimationListener(@NonNull Animator.AnimatorListener animatorListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, animatorListener) == null) {
-            if (this.hideListeners == null) {
-                this.hideListeners = new ArrayList<>();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
+            if (ViewCompat.isLaidOut(this.f1073view) && !this.f1073view.isInEditMode()) {
+                return true;
             }
-            this.hideListeners.add(animatorListener);
+            return false;
         }
-    }
-
-    public void addOnShowAnimationListener(@NonNull Animator.AnimatorListener animatorListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animatorListener) == null) {
-            if (this.showListeners == null) {
-                this.showListeners = new ArrayList<>();
-            }
-            this.showListeners.add(animatorListener);
-        }
-    }
-
-    public void addTransformationCallback(@NonNull InternalTransformationCallback internalTransformationCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, internalTransformationCallback) == null) {
-            if (this.transformationCallbacks == null) {
-                this.transformationCallbacks = new ArrayList<>();
-            }
-            this.transformationCallbacks.add(internalTransformationCallback);
-        }
+        return invokeV.booleanValue;
     }
 
     public MaterialShapeDrawable createShapeDrawable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new MaterialShapeDrawable((ShapeAppearanceModel) Preconditions.checkNotNull(this.shapeAppearance)) : (MaterialShapeDrawable) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return new MaterialShapeDrawable((ShapeAppearanceModel) Preconditions.checkNotNull(this.shapeAppearance));
+        }
+        return (MaterialShapeDrawable) invokeV.objValue;
     }
 
-    @Nullable
     public final Drawable getContentBackground() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.contentBackground : (Drawable) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.contentBackground;
+        }
+        return (Drawable) invokeV.objValue;
     }
 
     public float getElevation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.elevation : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.elevation;
+        }
+        return invokeV.floatValue;
     }
 
     public boolean getEnsureMinTouchTargetSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.ensureMinTouchTargetSize : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.ensureMinTouchTargetSize;
+        }
+        return invokeV.booleanValue;
     }
 
-    @Nullable
     public final MotionSpec getHideMotionSpec() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.hideMotionSpec : (MotionSpec) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.hideMotionSpec;
+        }
+        return (MotionSpec) invokeV.objValue;
     }
 
     public float getHoveredFocusedTranslationZ() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.hoveredFocusedTranslationZ : invokeV.floatValue;
-    }
-
-    public void getPadding(@NonNull Rect rect) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, rect) == null) {
-            int sizeDimension = this.ensureMinTouchTargetSize ? (this.minTouchTargetSize - this.f1073view.getSizeDimension()) / 2 : 0;
-            float elevation = this.shadowPaddingEnabled ? getElevation() + this.pressedTranslationZ : 0.0f;
-            int max = Math.max(sizeDimension, (int) Math.ceil(elevation));
-            int max2 = Math.max(sizeDimension, (int) Math.ceil(elevation * 1.5f));
-            rect.set(max, max2, max, max2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.hoveredFocusedTranslationZ;
         }
+        return invokeV.floatValue;
     }
 
     public float getPressedTranslationZ() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.pressedTranslationZ : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.pressedTranslationZ;
+        }
+        return invokeV.floatValue;
     }
 
-    @Nullable
     public final ShapeAppearanceModel getShapeAppearance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.shapeAppearance : (ShapeAppearanceModel) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.shapeAppearance;
+        }
+        return (ShapeAppearanceModel) invokeV.objValue;
     }
 
-    @Nullable
     public final MotionSpec getShowMotionSpec() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.showMotionSpec : (MotionSpec) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.showMotionSpec;
+        }
+        return (MotionSpec) invokeV.objValue;
     }
 
-    public void hide(@Nullable InternalVisibilityChangedListener internalVisibilityChangedListener, boolean z) {
+    public boolean isOrWillBeHidden() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048589, this, internalVisibilityChangedListener, z) == null) || isOrWillBeHidden()) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            if (this.f1073view.getVisibility() == 0) {
+                if (this.animState != 1) {
+                    return false;
+                }
+                return true;
+            } else if (this.animState == 2) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isOrWillBeShown() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            if (this.f1073view.getVisibility() != 0) {
+                if (this.animState != 2) {
+                    return false;
+                }
+                return true;
+            } else if (this.animState == 1) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void jumpDrawableToCurrentState() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            this.stateListAnimator.jumpToCurrentState();
+        }
+    }
+
+    public void onAttachedToWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            MaterialShapeDrawable materialShapeDrawable = this.shapeDrawable;
+            if (materialShapeDrawable != null) {
+                MaterialShapeUtils.setParentAbsoluteElevation(this.f1073view, materialShapeDrawable);
+            }
+            if (requirePreDrawListener()) {
+                this.f1073view.getViewTreeObserver().addOnPreDrawListener(getOrCreatePreDrawListener());
+            }
+        }
+    }
+
+    public void onDetachedFromWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+            ViewTreeObserver viewTreeObserver = this.f1073view.getViewTreeObserver();
+            ViewTreeObserver.OnPreDrawListener onPreDrawListener = this.preDrawListener;
+            if (onPreDrawListener != null) {
+                viewTreeObserver.removeOnPreDrawListener(onPreDrawListener);
+                this.preDrawListener = null;
+            }
+        }
+    }
+
+    public void onPreDraw() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
+            float rotation = this.f1073view.getRotation();
+            if (this.rotation != rotation) {
+                this.rotation = rotation;
+                updateFromViewRotation();
+            }
+        }
+    }
+
+    public void onScaleChanged() {
+        ArrayList arrayList;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048601, this) == null) && (arrayList = this.transformationCallbacks) != null) {
+            Iterator it = arrayList.iterator();
+            while (it.hasNext()) {
+                ((InternalTransformationCallback) it.next()).onScaleChanged();
+            }
+        }
+    }
+
+    public void onTranslationChanged() {
+        ArrayList arrayList;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048602, this) == null) && (arrayList = this.transformationCallbacks) != null) {
+            Iterator it = arrayList.iterator();
+            while (it.hasNext()) {
+                ((InternalTransformationCallback) it.next()).onTranslationChanged();
+            }
+        }
+    }
+
+    public final boolean shouldExpandBoundsForA11y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) {
+            if (this.ensureMinTouchTargetSize && this.f1073view.getSizeDimension() < this.minTouchTargetSize) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void updateImageMatrixScale() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048625, this) == null) {
+            setImageMatrixScale(this.imageMatrixScale);
+        }
+    }
+
+    public final void updatePadding() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048626, this) == null) {
+            Rect rect = this.tmpRect;
+            getPadding(rect);
+            onPaddingUpdated(rect);
+            this.shadowViewDelegate.setShadowPadding(rect.left, rect.top, rect.right, rect.bottom);
+        }
+    }
+
+    private void workAroundOreoBug(ObjectAnimator objectAnimator) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65548, this, objectAnimator) != null) || Build.VERSION.SDK_INT != 26) {
+            return;
+        }
+        objectAnimator.setEvaluator(new TypeEvaluator(this) { // from class: com.google.android.material.floatingactionbutton.FloatingActionButtonImpl.4
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public FloatEvaluator floatEvaluator;
+            public final /* synthetic */ FloatingActionButtonImpl this$0;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+                this.floatEvaluator = new FloatEvaluator();
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // android.animation.TypeEvaluator
+            public Float evaluate(float f, Float f2, Float f3) {
+                InterceptResult invokeCommon;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), f2, f3})) == null) {
+                    float floatValue = this.floatEvaluator.evaluate(f, (Number) f2, (Number) f3).floatValue();
+                    if (floatValue < 0.1f) {
+                        floatValue = 0.0f;
+                    }
+                    return Float.valueOf(floatValue);
+                }
+                return (Float) invokeCommon.objValue;
+            }
+        });
+    }
+
+    public void addOnHideAnimationListener(Animator.AnimatorListener animatorListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, animatorListener) == null) {
+            if (this.hideListeners == null) {
+                this.hideListeners = new ArrayList();
+            }
+            this.hideListeners.add(animatorListener);
+        }
+    }
+
+    public void addOnShowAnimationListener(Animator.AnimatorListener animatorListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animatorListener) == null) {
+            if (this.showListeners == null) {
+                this.showListeners = new ArrayList();
+            }
+            this.showListeners.add(animatorListener);
+        }
+    }
+
+    public void addTransformationCallback(InternalTransformationCallback internalTransformationCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, internalTransformationCallback) == null) {
+            if (this.transformationCallbacks == null) {
+                this.transformationCallbacks = new ArrayList();
+            }
+            this.transformationCallbacks.add(internalTransformationCallback);
+        }
+    }
+
+    public void onDrawableStateChanged(int[] iArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, iArr) == null) {
+            this.stateListAnimator.setState(iArr);
+        }
+    }
+
+    public void removeOnHideAnimationListener(Animator.AnimatorListener animatorListener) {
+        ArrayList arrayList;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048603, this, animatorListener) != null) || (arrayList = this.hideListeners) == null) {
+            return;
+        }
+        arrayList.remove(animatorListener);
+    }
+
+    public void removeOnShowAnimationListener(Animator.AnimatorListener animatorListener) {
+        ArrayList arrayList;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048604, this, animatorListener) != null) || (arrayList = this.showListeners) == null) {
+            return;
+        }
+        arrayList.remove(animatorListener);
+    }
+
+    public void removeTransformationCallback(InternalTransformationCallback internalTransformationCallback) {
+        ArrayList arrayList;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048605, this, internalTransformationCallback) != null) || (arrayList = this.transformationCallbacks) == null) {
+            return;
+        }
+        arrayList.remove(internalTransformationCallback);
+    }
+
+    public void setBackgroundTintList(ColorStateList colorStateList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048607, this, colorStateList) == null) {
+            MaterialShapeDrawable materialShapeDrawable = this.shapeDrawable;
+            if (materialShapeDrawable != null) {
+                materialShapeDrawable.setTintList(colorStateList);
+            }
+            BorderDrawable borderDrawable = this.borderDrawable;
+            if (borderDrawable != null) {
+                borderDrawable.setBorderTint(colorStateList);
+            }
+        }
+    }
+
+    public void setBackgroundTintMode(PorterDuff.Mode mode) {
+        MaterialShapeDrawable materialShapeDrawable;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048608, this, mode) == null) && (materialShapeDrawable = this.shapeDrawable) != null) {
+            materialShapeDrawable.setTintMode(mode);
+        }
+    }
+
+    public final void setElevation(float f) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeF(1048609, this, f) == null) && this.elevation != f) {
+            this.elevation = f;
+            onElevationsChanged(f, this.hoveredFocusedTranslationZ, this.pressedTranslationZ);
+        }
+    }
+
+    public void setEnsureMinTouchTargetSize(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048610, this, z) == null) {
+            this.ensureMinTouchTargetSize = z;
+        }
+    }
+
+    public final void setHideMotionSpec(MotionSpec motionSpec) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048611, this, motionSpec) == null) {
+            this.hideMotionSpec = motionSpec;
+        }
+    }
+
+    public final void setHoveredFocusedTranslationZ(float f) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeF(1048612, this, f) == null) && this.hoveredFocusedTranslationZ != f) {
+            this.hoveredFocusedTranslationZ = f;
+            onElevationsChanged(this.elevation, f, this.pressedTranslationZ);
+        }
+    }
+
+    public final void setImageMatrixScale(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048613, this, f) == null) {
+            this.imageMatrixScale = f;
+            Matrix matrix = this.tmpMatrix;
+            calculateImageMatrixFromScale(f, matrix);
+            this.f1073view.setImageMatrix(matrix);
+        }
+    }
+
+    public final void setMaxImageSize(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048614, this, i) == null) && this.maxImageSize != i) {
+            this.maxImageSize = i;
+            updateImageMatrixScale();
+        }
+    }
+
+    public void setMinTouchTargetSize(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048615, this, i) == null) {
+            this.minTouchTargetSize = i;
+        }
+    }
+
+    public final void setPressedTranslationZ(float f) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeF(1048616, this, f) == null) && this.pressedTranslationZ != f) {
+            this.pressedTranslationZ = f;
+            onElevationsChanged(this.elevation, this.hoveredFocusedTranslationZ, f);
+        }
+    }
+
+    public void setRippleColor(ColorStateList colorStateList) {
+        Drawable drawable;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048617, this, colorStateList) == null) && (drawable = this.rippleDrawable) != null) {
+            DrawableCompat.setTintList(drawable, RippleUtils.sanitizeRippleDrawableColor(colorStateList));
+        }
+    }
+
+    public void setShadowPaddingEnabled(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048618, this, z) == null) {
+            this.shadowPaddingEnabled = z;
+            updatePadding();
+        }
+    }
+
+    public final void setShapeAppearance(ShapeAppearanceModel shapeAppearanceModel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048619, this, shapeAppearanceModel) == null) {
+            this.shapeAppearance = shapeAppearanceModel;
+            MaterialShapeDrawable materialShapeDrawable = this.shapeDrawable;
+            if (materialShapeDrawable != null) {
+                materialShapeDrawable.setShapeAppearanceModel(shapeAppearanceModel);
+            }
+            Drawable drawable = this.rippleDrawable;
+            if (drawable instanceof Shapeable) {
+                ((Shapeable) drawable).setShapeAppearanceModel(shapeAppearanceModel);
+            }
+            BorderDrawable borderDrawable = this.borderDrawable;
+            if (borderDrawable != null) {
+                borderDrawable.setShapeAppearanceModel(shapeAppearanceModel);
+            }
+        }
+    }
+
+    public final void setShowMotionSpec(MotionSpec motionSpec) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048620, this, motionSpec) == null) {
+            this.showMotionSpec = motionSpec;
+        }
+    }
+
+    public void updateShapeElevation(float f) {
+        MaterialShapeDrawable materialShapeDrawable;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeF(1048627, this, f) == null) && (materialShapeDrawable = this.shapeDrawable) != null) {
+            materialShapeDrawable.setElevation(f);
+        }
+    }
+
+    public void getPadding(Rect rect) {
+        int i;
+        float f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, rect) == null) {
+            if (this.ensureMinTouchTargetSize) {
+                i = (this.minTouchTargetSize - this.f1073view.getSizeDimension()) / 2;
+            } else {
+                i = 0;
+            }
+            if (this.shadowPaddingEnabled) {
+                f = getElevation() + this.pressedTranslationZ;
+            } else {
+                f = 0.0f;
+            }
+            int max = Math.max(i, (int) Math.ceil(f));
+            int max2 = Math.max(i, (int) Math.ceil(f * 1.5f));
+            rect.set(max, max2, max, max2);
+        }
+    }
+
+    public void hide(InternalVisibilityChangedListener internalVisibilityChangedListener, boolean z) {
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLZ(1048589, this, internalVisibilityChangedListener, z) != null) || isOrWillBeHidden()) {
             return;
         }
         Animator animator = this.currentAnimator;
@@ -749,9 +1115,9 @@ public class FloatingActionButtonImpl {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, Boolean.valueOf(z), internalVisibilityChangedListener};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -771,23 +1137,6 @@ public class FloatingActionButtonImpl {
                 }
 
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-                public void onAnimationEnd(Animator animator2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator2) == null) {
-                        this.this$0.animState = 0;
-                        this.this$0.currentAnimator = null;
-                        if (this.cancelled) {
-                            return;
-                        }
-                        this.this$0.f1073view.internalSetVisibility(this.val$fromUser ? 8 : 4, this.val$fromUser);
-                        InternalVisibilityChangedListener internalVisibilityChangedListener2 = this.val$listener;
-                        if (internalVisibilityChangedListener2 != null) {
-                            internalVisibilityChangedListener2.onHidden();
-                        }
-                    }
-                }
-
-                @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationStart(Animator animator2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator2) == null) {
@@ -797,340 +1146,55 @@ public class FloatingActionButtonImpl {
                         this.cancelled = false;
                     }
                 }
+
+                @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+                public void onAnimationEnd(Animator animator2) {
+                    int i2;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator2) == null) {
+                        this.this$0.animState = 0;
+                        this.this$0.currentAnimator = null;
+                        if (!this.cancelled) {
+                            FloatingActionButton floatingActionButton = this.this$0.f1073view;
+                            if (this.val$fromUser) {
+                                i2 = 8;
+                            } else {
+                                i2 = 4;
+                            }
+                            floatingActionButton.internalSetVisibility(i2, this.val$fromUser);
+                            InternalVisibilityChangedListener internalVisibilityChangedListener2 = this.val$listener;
+                            if (internalVisibilityChangedListener2 != null) {
+                                internalVisibilityChangedListener2.onHidden();
+                            }
+                        }
+                    }
+                }
             });
-            ArrayList<Animator.AnimatorListener> arrayList = this.hideListeners;
+            ArrayList arrayList = this.hideListeners;
             if (arrayList != null) {
-                Iterator<Animator.AnimatorListener> it = arrayList.iterator();
+                Iterator it = arrayList.iterator();
                 while (it.hasNext()) {
-                    createAnimator.addListener(it.next());
+                    createAnimator.addListener((Animator.AnimatorListener) it.next());
                 }
             }
             createAnimator.start();
             return;
         }
-        this.f1073view.internalSetVisibility(z ? 8 : 4, z);
+        FloatingActionButton floatingActionButton = this.f1073view;
+        if (z) {
+            i = 8;
+        } else {
+            i = 4;
+        }
+        floatingActionButton.internalSetVisibility(i, z);
         if (internalVisibilityChangedListener != null) {
             internalVisibilityChangedListener.onHidden();
         }
     }
 
-    public void initializeBackgroundDrawable(ColorStateList colorStateList, @Nullable PorterDuff.Mode mode, ColorStateList colorStateList2, int i) {
+    public void show(InternalVisibilityChangedListener internalVisibilityChangedListener, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(1048590, this, colorStateList, mode, colorStateList2, i) == null) {
-            MaterialShapeDrawable createShapeDrawable = createShapeDrawable();
-            this.shapeDrawable = createShapeDrawable;
-            createShapeDrawable.setTintList(colorStateList);
-            if (mode != null) {
-                this.shapeDrawable.setTintMode(mode);
-            }
-            this.shapeDrawable.setShadowColor(-12303292);
-            this.shapeDrawable.initializeElevationOverlay(this.f1073view.getContext());
-            RippleDrawableCompat rippleDrawableCompat = new RippleDrawableCompat(this.shapeDrawable.getShapeAppearanceModel());
-            rippleDrawableCompat.setTintList(RippleUtils.sanitizeRippleDrawableColor(colorStateList2));
-            this.rippleDrawable = rippleDrawableCompat;
-            this.contentBackground = new LayerDrawable(new Drawable[]{(Drawable) Preconditions.checkNotNull(this.shapeDrawable), rippleDrawableCompat});
-        }
-    }
-
-    public boolean isOrWillBeHidden() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f1073view.getVisibility() == 0 ? this.animState == 1 : this.animState != 2 : invokeV.booleanValue;
-    }
-
-    public boolean isOrWillBeShown() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f1073view.getVisibility() != 0 ? this.animState == 2 : this.animState != 1 : invokeV.booleanValue;
-    }
-
-    public void jumpDrawableToCurrentState() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            this.stateListAnimator.jumpToCurrentState();
-        }
-    }
-
-    public void onAttachedToWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            MaterialShapeDrawable materialShapeDrawable = this.shapeDrawable;
-            if (materialShapeDrawable != null) {
-                MaterialShapeUtils.setParentAbsoluteElevation(this.f1073view, materialShapeDrawable);
-            }
-            if (requirePreDrawListener()) {
-                this.f1073view.getViewTreeObserver().addOnPreDrawListener(getOrCreatePreDrawListener());
-            }
-        }
-    }
-
-    public void onCompatShadowChanged() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-        }
-    }
-
-    public void onDetachedFromWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            ViewTreeObserver viewTreeObserver = this.f1073view.getViewTreeObserver();
-            ViewTreeObserver.OnPreDrawListener onPreDrawListener = this.preDrawListener;
-            if (onPreDrawListener != null) {
-                viewTreeObserver.removeOnPreDrawListener(onPreDrawListener);
-                this.preDrawListener = null;
-            }
-        }
-    }
-
-    public void onDrawableStateChanged(int[] iArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, iArr) == null) {
-            this.stateListAnimator.setState(iArr);
-        }
-    }
-
-    public void onElevationsChanged(float f, float f2, float f3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            updatePadding();
-            updateShapeElevation(f);
-        }
-    }
-
-    public void onPaddingUpdated(@NonNull Rect rect) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, rect) == null) {
-            Preconditions.checkNotNull(this.contentBackground, "Didn't initialize content background");
-            if (shouldAddPadding()) {
-                this.shadowViewDelegate.setBackgroundDrawable(new InsetDrawable(this.contentBackground, rect.left, rect.top, rect.right, rect.bottom));
-                return;
-            }
-            this.shadowViewDelegate.setBackgroundDrawable(this.contentBackground);
-        }
-    }
-
-    public void onPreDraw() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
-            float rotation = this.f1073view.getRotation();
-            if (this.rotation != rotation) {
-                this.rotation = rotation;
-                updateFromViewRotation();
-            }
-        }
-    }
-
-    public void onScaleChanged() {
-        ArrayList<InternalTransformationCallback> arrayList;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048601, this) == null) || (arrayList = this.transformationCallbacks) == null) {
-            return;
-        }
-        Iterator<InternalTransformationCallback> it = arrayList.iterator();
-        while (it.hasNext()) {
-            it.next().onScaleChanged();
-        }
-    }
-
-    public void onTranslationChanged() {
-        ArrayList<InternalTransformationCallback> arrayList;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048602, this) == null) || (arrayList = this.transformationCallbacks) == null) {
-            return;
-        }
-        Iterator<InternalTransformationCallback> it = arrayList.iterator();
-        while (it.hasNext()) {
-            it.next().onTranslationChanged();
-        }
-    }
-
-    public void removeOnHideAnimationListener(@NonNull Animator.AnimatorListener animatorListener) {
-        ArrayList<Animator.AnimatorListener> arrayList;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048603, this, animatorListener) == null) || (arrayList = this.hideListeners) == null) {
-            return;
-        }
-        arrayList.remove(animatorListener);
-    }
-
-    public void removeOnShowAnimationListener(@NonNull Animator.AnimatorListener animatorListener) {
-        ArrayList<Animator.AnimatorListener> arrayList;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048604, this, animatorListener) == null) || (arrayList = this.showListeners) == null) {
-            return;
-        }
-        arrayList.remove(animatorListener);
-    }
-
-    public void removeTransformationCallback(@NonNull InternalTransformationCallback internalTransformationCallback) {
-        ArrayList<InternalTransformationCallback> arrayList;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048605, this, internalTransformationCallback) == null) || (arrayList = this.transformationCallbacks) == null) {
-            return;
-        }
-        arrayList.remove(internalTransformationCallback);
-    }
-
-    public boolean requirePreDrawListener() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void setBackgroundTintList(@Nullable ColorStateList colorStateList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048607, this, colorStateList) == null) {
-            MaterialShapeDrawable materialShapeDrawable = this.shapeDrawable;
-            if (materialShapeDrawable != null) {
-                materialShapeDrawable.setTintList(colorStateList);
-            }
-            BorderDrawable borderDrawable = this.borderDrawable;
-            if (borderDrawable != null) {
-                borderDrawable.setBorderTint(colorStateList);
-            }
-        }
-    }
-
-    public void setBackgroundTintMode(@Nullable PorterDuff.Mode mode) {
-        MaterialShapeDrawable materialShapeDrawable;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048608, this, mode) == null) || (materialShapeDrawable = this.shapeDrawable) == null) {
-            return;
-        }
-        materialShapeDrawable.setTintMode(mode);
-    }
-
-    public final void setElevation(float f) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048609, this, f) == null) || this.elevation == f) {
-            return;
-        }
-        this.elevation = f;
-        onElevationsChanged(f, this.hoveredFocusedTranslationZ, this.pressedTranslationZ);
-    }
-
-    public void setEnsureMinTouchTargetSize(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048610, this, z) == null) {
-            this.ensureMinTouchTargetSize = z;
-        }
-    }
-
-    public final void setHideMotionSpec(@Nullable MotionSpec motionSpec) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048611, this, motionSpec) == null) {
-            this.hideMotionSpec = motionSpec;
-        }
-    }
-
-    public final void setHoveredFocusedTranslationZ(float f) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048612, this, f) == null) || this.hoveredFocusedTranslationZ == f) {
-            return;
-        }
-        this.hoveredFocusedTranslationZ = f;
-        onElevationsChanged(this.elevation, f, this.pressedTranslationZ);
-    }
-
-    public final void setImageMatrixScale(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048613, this, f) == null) {
-            this.imageMatrixScale = f;
-            Matrix matrix = this.tmpMatrix;
-            calculateImageMatrixFromScale(f, matrix);
-            this.f1073view.setImageMatrix(matrix);
-        }
-    }
-
-    public final void setMaxImageSize(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048614, this, i) == null) || this.maxImageSize == i) {
-            return;
-        }
-        this.maxImageSize = i;
-        updateImageMatrixScale();
-    }
-
-    public void setMinTouchTargetSize(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048615, this, i) == null) {
-            this.minTouchTargetSize = i;
-        }
-    }
-
-    public final void setPressedTranslationZ(float f) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048616, this, f) == null) || this.pressedTranslationZ == f) {
-            return;
-        }
-        this.pressedTranslationZ = f;
-        onElevationsChanged(this.elevation, this.hoveredFocusedTranslationZ, f);
-    }
-
-    public void setRippleColor(@Nullable ColorStateList colorStateList) {
-        Drawable drawable;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048617, this, colorStateList) == null) || (drawable = this.rippleDrawable) == null) {
-            return;
-        }
-        DrawableCompat.setTintList(drawable, RippleUtils.sanitizeRippleDrawableColor(colorStateList));
-    }
-
-    public void setShadowPaddingEnabled(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048618, this, z) == null) {
-            this.shadowPaddingEnabled = z;
-            updatePadding();
-        }
-    }
-
-    public final void setShapeAppearance(@NonNull ShapeAppearanceModel shapeAppearanceModel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048619, this, shapeAppearanceModel) == null) {
-            this.shapeAppearance = shapeAppearanceModel;
-            MaterialShapeDrawable materialShapeDrawable = this.shapeDrawable;
-            if (materialShapeDrawable != null) {
-                materialShapeDrawable.setShapeAppearanceModel(shapeAppearanceModel);
-            }
-            Drawable drawable = this.rippleDrawable;
-            if (drawable instanceof Shapeable) {
-                ((Shapeable) drawable).setShapeAppearanceModel(shapeAppearanceModel);
-            }
-            BorderDrawable borderDrawable = this.borderDrawable;
-            if (borderDrawable != null) {
-                borderDrawable.setShapeAppearanceModel(shapeAppearanceModel);
-            }
-        }
-    }
-
-    public final void setShowMotionSpec(@Nullable MotionSpec motionSpec) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048620, this, motionSpec) == null) {
-            this.showMotionSpec = motionSpec;
-        }
-    }
-
-    public boolean shouldAddPadding() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean shouldExpandBoundsForA11y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) ? !this.ensureMinTouchTargetSize || this.f1073view.getSizeDimension() >= this.minTouchTargetSize : invokeV.booleanValue;
-    }
-
-    public void show(@Nullable InternalVisibilityChangedListener internalVisibilityChangedListener, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048623, this, internalVisibilityChangedListener, z) == null) || isOrWillBeShown()) {
+        if ((interceptable != null && interceptable.invokeLZ(1048623, this, internalVisibilityChangedListener, z) != null) || isOrWillBeShown()) {
             return;
         }
         Animator animator = this.currentAnimator;
@@ -1179,13 +1243,14 @@ public class FloatingActionButtonImpl {
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, animator2) == null) {
-                        this.this$0.animState = 0;
-                        this.this$0.currentAnimator = null;
-                        InternalVisibilityChangedListener internalVisibilityChangedListener2 = this.val$listener;
-                        if (internalVisibilityChangedListener2 != null) {
-                            internalVisibilityChangedListener2.onShown();
-                        }
+                    if (interceptable2 != null && interceptable2.invokeL(1048576, this, animator2) != null) {
+                        return;
+                    }
+                    this.this$0.animState = 0;
+                    this.this$0.currentAnimator = null;
+                    InternalVisibilityChangedListener internalVisibilityChangedListener2 = this.val$listener;
+                    if (internalVisibilityChangedListener2 != null) {
+                        internalVisibilityChangedListener2.onShown();
                     }
                 }
 
@@ -1199,11 +1264,11 @@ public class FloatingActionButtonImpl {
                     }
                 }
             });
-            ArrayList<Animator.AnimatorListener> arrayList = this.showListeners;
+            ArrayList arrayList = this.showListeners;
             if (arrayList != null) {
-                Iterator<Animator.AnimatorListener> it = arrayList.iterator();
+                Iterator it = arrayList.iterator();
                 while (it.hasNext()) {
-                    createAnimator.addListener(it.next());
+                    createAnimator.addListener((Animator.AnimatorListener) it.next());
                 }
             }
             createAnimator.start();
@@ -1216,6 +1281,32 @@ public class FloatingActionButtonImpl {
         setImageMatrixScale(1.0f);
         if (internalVisibilityChangedListener != null) {
             internalVisibilityChangedListener.onShown();
+        }
+    }
+
+    public void initializeBackgroundDrawable(ColorStateList colorStateList, PorterDuff.Mode mode, ColorStateList colorStateList2, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLI(1048590, this, colorStateList, mode, colorStateList2, i) == null) {
+            MaterialShapeDrawable createShapeDrawable = createShapeDrawable();
+            this.shapeDrawable = createShapeDrawable;
+            createShapeDrawable.setTintList(colorStateList);
+            if (mode != null) {
+                this.shapeDrawable.setTintMode(mode);
+            }
+            this.shapeDrawable.setShadowColor(-12303292);
+            this.shapeDrawable.initializeElevationOverlay(this.f1073view.getContext());
+            RippleDrawableCompat rippleDrawableCompat = new RippleDrawableCompat(this.shapeDrawable.getShapeAppearanceModel());
+            rippleDrawableCompat.setTintList(RippleUtils.sanitizeRippleDrawableColor(colorStateList2));
+            this.rippleDrawable = rippleDrawableCompat;
+            this.contentBackground = new LayerDrawable(new Drawable[]{(Drawable) Preconditions.checkNotNull(this.shapeDrawable), rippleDrawableCompat});
+        }
+    }
+
+    public void onElevationsChanged(float f, float f2, float f3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+            updatePadding();
+            updateShapeElevation(f);
         }
     }
 
@@ -1236,31 +1327,5 @@ public class FloatingActionButtonImpl {
                 materialShapeDrawable.setShadowCompatRotation((int) this.rotation);
             }
         }
-    }
-
-    public final void updateImageMatrixScale() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048625, this) == null) {
-            setImageMatrixScale(this.imageMatrixScale);
-        }
-    }
-
-    public final void updatePadding() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048626, this) == null) {
-            Rect rect = this.tmpRect;
-            getPadding(rect);
-            onPaddingUpdated(rect);
-            this.shadowViewDelegate.setShadowPadding(rect.left, rect.top, rect.right, rect.bottom);
-        }
-    }
-
-    public void updateShapeElevation(float f) {
-        MaterialShapeDrawable materialShapeDrawable;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048627, this, f) == null) || (materialShapeDrawable = this.shapeDrawable) == null) {
-            return;
-        }
-        materialShapeDrawable.setElevation(f);
     }
 }

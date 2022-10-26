@@ -16,6 +16,16 @@ public class StatisticInterception implements IRequestIntercept {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.sina.weibo.sdk.network.IRequestIntercept
+    public boolean needIntercept(IRequestParam iRequestParam, Bundle bundle) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iRequestParam, bundle)) == null) {
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
     public StatisticInterception() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -39,16 +49,6 @@ public class StatisticInterception implements IRequestIntercept {
             bundle.putString("from", "2578195010");
             bundle.putString("wm", "20004_90015");
             return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.sina.weibo.sdk.network.IRequestIntercept
-    public boolean needIntercept(IRequestParam iRequestParam, Bundle bundle) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iRequestParam, bundle)) == null) {
-            return true;
         }
         return invokeLL.booleanValue;
     }

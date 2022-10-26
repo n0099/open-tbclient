@@ -188,6 +188,25 @@ public final class TrdVpnNetwork {
         };
     }
 
+    public final synchronized void pingGateway() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            synchronized (this) {
+                Pinger.INSTANCE.get();
+                if (!enablePingCMD) {
+                    return;
+                }
+                InetAddress gateway = getGateway();
+                if (gateway == null) {
+                    LogTo.INSTANCE.e(TAG, "Not found gateway");
+                    Pinger.INSTANCE.stop();
+                } else {
+                    Pinger.INSTANCE.run(gateway);
+                }
+            }
+        }
+    }
+
     public TrdVpnNetwork() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -199,6 +218,47 @@ public final class TrdVpnNetwork {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
+        }
+    }
+
+    public final void register() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            registerNetCallback(wifiCallback, 1);
+            registerNetCallback(cellCallback, 0);
+        }
+    }
+
+    public final void unregister() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            unregisterNetCallback(wifiCallback);
+            unregisterNetCallback(cellCallback);
+        }
+    }
+
+    private final void unregisterNetCallback(ConnectivityManager.NetworkCallback networkCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65545, this, networkCallback) == null) {
+            try {
+                ConnectivityManager connectivityManager2 = connectivityManager;
+                if (connectivityManager2 == null) {
+                    Intrinsics.throwUninitializedPropertyAccessException("connectivityManager");
+                    connectivityManager2 = null;
+                }
+                connectivityManager2.unregisterNetworkCallback(networkCallback);
+            } catch (Exception e) {
+                LogTo.INSTANCE.e(TAG, Intrinsics.stringPlus("unregisterNetCallback(): Exception: ", e.getMessage()));
+            }
+        }
+    }
+
+    private final void updateStatus(ConnectivityManager connectivityManager2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65546, this, connectivityManager2) == null) {
+            networkWifi = TornadoNetwork.INSTANCE.getNetworkFromAll(connectivityManager2, 1, ipVersion, true);
+            networkCell = TornadoNetwork.INSTANCE.getNetworkFromAll(connectivityManager2, 0, ipVersion, true);
+            networkFirst = TornadoNetwork.COMMON.INSTANCE.getFirstDefaultNetwork(connectivityManager2);
         }
     }
 
@@ -253,6 +313,7 @@ public final class TrdVpnNetwork {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, this, network, i)) == null) {
             String str = "";
+            int i2 = 32;
             TornadoNetData tornadoNetData = new TornadoNetData("", "", 32, "");
             if (network == null) {
                 return tornadoNetData;
@@ -287,7 +348,10 @@ public final class TrdVpnNetwork {
                 hostAddress = "";
             }
             tornadoNetData.setIp(hostAddress);
-            tornadoNetData.setMask(linkAddressByProperties != null ? linkAddressByProperties.getPrefixLength() : 32);
+            if (linkAddressByProperties != null) {
+                i2 = linkAddressByProperties.getPrefixLength();
+            }
+            tornadoNetData.setMask(i2);
             if (defaultRouteOfNetwork != null && (gateway = defaultRouteOfNetwork.getGateway()) != null && (hostAddress2 = gateway.getHostAddress()) != null) {
                 str = hostAddress2;
             }
@@ -316,31 +380,6 @@ public final class TrdVpnNetwork {
         }
     }
 
-    private final void unregisterNetCallback(ConnectivityManager.NetworkCallback networkCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, this, networkCallback) == null) {
-            try {
-                ConnectivityManager connectivityManager2 = connectivityManager;
-                if (connectivityManager2 == null) {
-                    Intrinsics.throwUninitializedPropertyAccessException("connectivityManager");
-                    connectivityManager2 = null;
-                }
-                connectivityManager2.unregisterNetworkCallback(networkCallback);
-            } catch (Exception e) {
-                LogTo.INSTANCE.e(TAG, Intrinsics.stringPlus("unregisterNetCallback(): Exception: ", e.getMessage()));
-            }
-        }
-    }
-
-    private final void updateStatus(ConnectivityManager connectivityManager2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, this, connectivityManager2) == null) {
-            networkWifi = TornadoNetwork.INSTANCE.getNetworkFromAll(connectivityManager2, 1, ipVersion, true);
-            networkCell = TornadoNetwork.INSTANCE.getNetworkFromAll(connectivityManager2, 0, ipVersion, true);
-            networkFirst = TornadoNetwork.COMMON.INSTANCE.getFirstDefaultNetwork(connectivityManager2);
-        }
-    }
-
     public final long bindSocket(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -356,10 +395,10 @@ public final class TrdVpnNetwork {
                     declaredField.setAccessible(true);
                     declaredField.setInt(fileDescriptor, i);
                     Network network = networkCell;
-                    if (network == null) {
+                    if (network != null) {
+                        network.bindSocket(fileDescriptor);
                         return 0L;
                     }
-                    network.bindSocket(fileDescriptor);
                     return 0L;
                 } catch (Exception e) {
                     Log.e(TAG, Intrinsics.stringPlus("bindSocket(): Exception: ", e.getMessage()));
@@ -414,40 +453,6 @@ public final class TrdVpnNetwork {
             updateStatus(cm);
             enablePingCMD = z;
             pingGateway();
-        }
-    }
-
-    public final synchronized void pingGateway() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (this) {
-                Pinger.INSTANCE.get();
-                if (enablePingCMD) {
-                    InetAddress gateway = getGateway();
-                    if (gateway == null) {
-                        LogTo.INSTANCE.e(TAG, "Not found gateway");
-                        Pinger.INSTANCE.stop();
-                    } else {
-                        Pinger.INSTANCE.run(gateway);
-                    }
-                }
-            }
-        }
-    }
-
-    public final void register() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            registerNetCallback(wifiCallback, 1);
-            registerNetCallback(cellCallback, 0);
-        }
-    }
-
-    public final void unregister() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            unregisterNetCallback(wifiCallback);
-            unregisterNetCallback(cellCallback);
         }
     }
 }

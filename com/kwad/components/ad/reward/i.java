@@ -1,7 +1,6 @@
 package com.kwad.components.ad.reward;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -21,10 +20,10 @@ public final class i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile boolean fq;
-    public com.kwad.sdk.core.network.m<j, BaseResultData> fr;
+    public com.kwad.sdk.core.network.m fr;
 
     /* loaded from: classes7.dex */
-    public static class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public static i mi;
         public transient /* synthetic */ FieldHolder $fh;
@@ -78,7 +77,7 @@ public final class i {
             return;
         }
         this.fq = true;
-        com.kwad.sdk.core.network.m<j, BaseResultData> mVar = new com.kwad.sdk.core.network.m<j, BaseResultData>(this, adTemplate) { // from class: com.kwad.components.ad.reward.i.1
+        com.kwad.sdk.core.network.m mVar = new com.kwad.sdk.core.network.m(this, adTemplate) { // from class: com.kwad.components.ad.reward.i.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ AdTemplate kp;
@@ -106,7 +105,6 @@ public final class i {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: private */
             @Override // com.kwad.sdk.core.network.a
-            @NonNull
             /* renamed from: fo */
             public j createRequest() {
                 InterceptResult invokeV;
@@ -115,7 +113,6 @@ public final class i {
             }
 
             @Override // com.kwad.sdk.core.network.m
-            @NonNull
             public final BaseResultData parseData(String str) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
@@ -156,7 +153,7 @@ public final class i {
             }
         };
         this.fr = mVar;
-        mVar.request(new com.kwad.sdk.core.network.n<j, BaseResultData>(this, adTemplate) { // from class: com.kwad.components.ad.reward.i.2
+        mVar.request(new com.kwad.sdk.core.network.n(this, adTemplate) { // from class: com.kwad.components.ad.reward.i.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ AdTemplate kp;
@@ -185,7 +182,7 @@ public final class i {
             /* JADX INFO: Access modifiers changed from: private */
             @Override // com.kwad.sdk.core.network.n, com.kwad.sdk.core.network.h
             /* renamed from: a */
-            public void onError(@NonNull j jVar, int i, String str) {
+            public void onError(j jVar, int i, String str) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLIL(65537, this, jVar, i, str) == null) {
                     super.onError(jVar, i, str);
@@ -199,7 +196,7 @@ public final class i {
             /* JADX INFO: Access modifiers changed from: private */
             @Override // com.kwad.sdk.core.network.n, com.kwad.sdk.core.network.h
             /* renamed from: a */
-            public void onSuccess(@NonNull j jVar, @NonNull BaseResultData baseResultData) {
+            public void onSuccess(j jVar, BaseResultData baseResultData) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(65538, this, jVar, baseResultData) == null) {
                     super.onSuccess(jVar, baseResultData);
@@ -224,7 +221,7 @@ public final class i {
     }
 
     public final void release() {
-        com.kwad.sdk.core.network.m<j, BaseResultData> mVar;
+        com.kwad.sdk.core.network.m mVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (mVar = this.fr) == null) {
             return;

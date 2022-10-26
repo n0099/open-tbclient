@@ -6,17 +6,13 @@ import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.StateListDrawable;
 import android.view.View;
 import android.widget.ImageView;
-import androidx.annotation.ColorRes;
-import androidx.annotation.DimenRes;
-import androidx.annotation.DrawableRes;
-import androidx.annotation.IntRange;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.tbselector.interfaces.ISelector;
 import com.baidu.tbadk.core.util.tbselector.utils.SelectorHelper;
-import com.baidu.tieba.ol8;
+import com.baidu.tieba.vl8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +21,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 /* loaded from: classes3.dex */
-public class DrawableSelector extends AbsDrawableSelector implements ISelector<StateListDrawable, View> {
+public class DrawableSelector extends AbsDrawableSelector implements ISelector {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BL_TR = "BL_TR";
     public static final String BOTTOM_TOP = "BOTTOM_TOP";
@@ -221,7 +217,103 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
     public static DrawableSelector make() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new DrawableSelector() : (DrawableSelector) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new DrawableSelector();
+        }
+        return (DrawableSelector) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tbadk.core.util.tbselector.interfaces.ISelector
+    public StateListDrawable build() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            StateListDrawable create = create();
+            this.mStateListDrawable = create;
+            return create;
+        }
+        return (StateListDrawable) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.util.tbselector.selector.AbsDrawableSelector
+    public Drawable onItemDefaultDrawable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) {
+            Drawable drawable = this.mNormalDrawable;
+            if (drawable == null) {
+                return makeItemShapeDrawable(this.mShape, this.mDefaultBgColor, this.mDefaultStrokeColor, this.dashLineColor);
+            }
+            return drawable;
+        }
+        return (Drawable) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.util.tbselector.selector.AbsDrawableSelector
+    public Drawable onItemDisabledDrawable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) {
+            Drawable drawable = this.mDisabledDrawable;
+            boolean z = this.hasSetDisabledDrawable;
+            if (this.hasSetDisabledBgColor || this.hasSetDisabledStrokeColor) {
+                return makeItemShapeDrawable(this.mShape, this.mDisabledBgColor, this.mDisabledStrokeColor, this.dashLineColor);
+            }
+            return drawable;
+        }
+        return (Drawable) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.util.tbselector.selector.AbsDrawableSelector
+    public Drawable onItemFocusedDrawable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) {
+            Drawable drawable = this.mFocusedDrawable;
+            if (!this.hasSetFocusedDrawable) {
+                if (this.hasSetFocusedBgColor || this.hasSetFocusedStrokeColor) {
+                    return makeItemShapeDrawable(this.mShape, this.mFocusedBgColor, this.mFocusedStrokeColor, this.dashLineColor);
+                }
+                return drawable;
+            }
+            return drawable;
+        }
+        return (Drawable) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.util.tbselector.selector.AbsDrawableSelector
+    public Drawable onItemPressedDrawable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) {
+            Drawable drawable = this.mPressedDrawable;
+            if (!this.hasSetPressedDrawable) {
+                if (this.hasSetPressedBgColor || this.hasSetPressedStrokeColor) {
+                    return makeItemShapeDrawable(this.mShape, this.mPressedBgColor, this.mPressedStrokeColor, this.dashLineColor);
+                }
+                return drawable;
+            }
+            return drawable;
+        }
+        return (Drawable) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.util.tbselector.selector.AbsDrawableSelector
+    public Drawable onItemSelectedDrawable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
+            Drawable drawable = this.mSelectedDrawable;
+            if (!this.hasSetSelectedDrawable) {
+                if (this.hasSetSelectedBgColor || this.hasSetSelectedStrokeColor) {
+                    return makeItemShapeDrawable(this.mShape, this.mSelectedBgColor, this.mSelectedStrokeColor, this.dashLineColor);
+                }
+                return drawable;
+            }
+            return drawable;
+        }
+        return (Drawable) invokeV.objValue;
     }
 
     private GradientDrawable makeItemShapeDrawable(int i, int i2, int i3, int i4) {
@@ -272,7 +364,7 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
         return (GradientDrawable) invokeIIII.objValue;
     }
 
-    public DrawableSelector autoGradient(@ColorRes int i) {
+    public DrawableSelector autoGradient(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
@@ -280,7 +372,7 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
             this.gradientColors = r1;
             int[] iArr = {0, SelectorHelper.getColor(i)};
             int[] iArr2 = this.gradientColors;
-            iArr2[0] = ol8.c(iArr2[1]);
+            iArr2[0] = vl8.c(iArr2[1]);
             this.gradientType = 0;
             this.gradientOrientation = TOP_BOTTOM;
             return this;
@@ -315,101 +407,6 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
             this.mCornerRadius = i;
-            return this;
-        }
-        return (DrawableSelector) invokeI.objValue;
-    }
-
-    public StateListDrawable create() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            StateListDrawable stateListDrawable = new StateListDrawable();
-            Drawable onItemDisabledDrawable = onItemDisabledDrawable();
-            if (onItemDisabledDrawable != null) {
-                stateListDrawable.addState(new int[]{-16842910}, onItemDisabledDrawable);
-            }
-            Drawable onItemPressedDrawable = onItemPressedDrawable();
-            if (onItemPressedDrawable != null) {
-                stateListDrawable.addState(new int[]{16842919}, onItemPressedDrawable);
-            }
-            Drawable onItemSelectedDrawable = onItemSelectedDrawable();
-            if (onItemSelectedDrawable != null) {
-                stateListDrawable.addState(new int[]{16842913}, onItemSelectedDrawable);
-            }
-            Drawable onItemFocusedDrawable = onItemFocusedDrawable();
-            if (onItemFocusedDrawable != null) {
-                stateListDrawable.addState(new int[]{16842908}, onItemFocusedDrawable);
-            }
-            Drawable onItemDefaultDrawable = onItemDefaultDrawable();
-            if (onItemDefaultDrawable == null) {
-                onItemDefaultDrawable = new ColorDrawable(0);
-            }
-            if (onItemDefaultDrawable != null) {
-                stateListDrawable.addState(new int[0], onItemDefaultDrawable);
-            }
-            return stateListDrawable;
-        }
-        return (StateListDrawable) invokeV.objValue;
-    }
-
-    public DrawableSelector dashLine(@ColorRes int i, int i2, float f, float f2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Float.valueOf(f2)})) == null) {
-            this.isDashLine = true;
-            this.dashLineWidth = i2;
-            this.dashWidth = f;
-            this.dashGap = f2;
-            this.dashLineColor = SelectorHelper.getColor(i);
-            return this;
-        }
-        return (DrawableSelector) invokeCommon.objValue;
-    }
-
-    public DrawableSelector defaultColor(@ColorRes int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
-            int color = SelectorHelper.getColor(i);
-            this.mDefaultBgColor = color;
-            this.isSolid = true;
-            if (!this.hasSetDisabledBgColor) {
-                this.mDisabledBgColor = color;
-            }
-            if (!this.hasSetPressedBgColor) {
-                this.mPressedBgColor = color;
-            }
-            if (!this.hasSetSelectedBgColor) {
-                this.mSelectedBgColor = color;
-            }
-            if (!this.hasSetFocusedBgColor) {
-                this.mFocusedBgColor = color;
-            }
-            return this;
-        }
-        return (DrawableSelector) invokeI.objValue;
-    }
-
-    public DrawableSelector defaultColorNotAutoChangeSkinType(@ColorRes int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
-            int color = TbadkCoreApplication.getInst().getApp().getResources().getColor(i);
-            this.mDefaultBgColor = color;
-            this.isSolid = true;
-            if (!this.hasSetDisabledBgColor) {
-                this.mDisabledBgColor = color;
-            }
-            if (!this.hasSetPressedBgColor) {
-                this.mPressedBgColor = color;
-            }
-            if (!this.hasSetSelectedBgColor) {
-                this.mSelectedBgColor = color;
-            }
-            if (!this.hasSetFocusedBgColor) {
-                this.mFocusedBgColor = color;
-            }
             return this;
         }
         return (DrawableSelector) invokeI.objValue;
@@ -461,29 +458,361 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
         return (DrawableSelector) invokeI.objValue;
     }
 
-    public DrawableSelector defaultDrawable(Drawable drawable) {
-        InterceptResult invokeL;
+    public DrawableSelector defaultDrawable(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, drawable)) == null) {
-            this.mNormalDrawable = drawable;
-            if (!this.hasSetDisabledDrawable) {
-                this.mDisabledDrawable = drawable;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i)) == null) {
+            return defaultDrawable(SelectorHelper.getDrawable(i));
+        }
+        return (DrawableSelector) invokeI.objValue;
+    }
+
+    public DrawableSelector disabledColor(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i)) == null) {
+            this.mDisabledBgColor = SelectorHelper.getColor(i);
+            this.hasSetDisabledBgColor = true;
+            this.isSolid = true;
+            return this;
+        }
+        return (DrawableSelector) invokeI.objValue;
+    }
+
+    public DrawableSelector disabledDrawable(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i)) == null) {
+            return disabledDrawable(SelectorHelper.getDrawable(i));
+        }
+        return (DrawableSelector) invokeI.objValue;
+    }
+
+    public DrawableSelector disabledStrokeColor(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i)) == null) {
+            this.mDisabledStrokeColor = SelectorHelper.getColor(i);
+            this.hasSetDisabledStrokeColor = true;
+            this.isStroke = true;
+            return this;
+        }
+        return (DrawableSelector) invokeI.objValue;
+    }
+
+    public DrawableSelector focusedColor(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048602, this, i)) == null) {
+            this.mFocusedBgColor = SelectorHelper.getColor(i);
+            this.isSolid = true;
+            this.hasSetPressedBgColor = true;
+            return this;
+        }
+        return (DrawableSelector) invokeI.objValue;
+    }
+
+    public DrawableSelector focusedDrawable(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048604, this, i)) == null) {
+            return focusedDrawable(SelectorHelper.getDrawable(i));
+        }
+        return (DrawableSelector) invokeI.objValue;
+    }
+
+    public DrawableSelector focusedStrokeColor(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048606, this, i)) == null) {
+            this.mFocusedStrokeColor = SelectorHelper.getColor(i);
+            this.hasSetFocusedStrokeColor = true;
+            this.isStroke = true;
+            return this;
+        }
+        return (DrawableSelector) invokeI.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.util.tbselector.interfaces.ISelector
+    public void into(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048619, this, view2) != null) || view2 == null) {
+            return;
+        }
+        build();
+        int i = this.mType;
+        if (i == 2) {
+            if (view2 instanceof ImageView) {
+                ((ImageView) view2).setImageDrawable(this.mStateListDrawable);
             }
-            if (!this.hasSetPressedDrawable) {
-                this.mPressedDrawable = drawable;
+        } else if (i == 1) {
+            view2.setBackgroundDrawable(this.mStateListDrawable);
+        }
+    }
+
+    public DrawableSelector pressedColor(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048625, this, i)) == null) {
+            this.mPressedBgColor = SelectorHelper.getColor(i);
+            this.hasSetPressedBgColor = true;
+            this.isSolid = true;
+            return this;
+        }
+        return (DrawableSelector) invokeI.objValue;
+    }
+
+    public DrawableSelector pressedDrawable(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048628, this, i)) == null) {
+            return pressedDrawable(SelectorHelper.getDrawable(i));
+        }
+        return (DrawableSelector) invokeI.objValue;
+    }
+
+    public DrawableSelector pressedStrokeColor(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048630, this, i)) == null) {
+            this.mPressedStrokeColor = SelectorHelper.getColor(i);
+            this.hasSetPressedStrokeColor = true;
+            this.isStroke = true;
+            return this;
+        }
+        return (DrawableSelector) invokeI.objValue;
+    }
+
+    public DrawableSelector radius(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048632, this, f)) == null) {
+            this.isRadius = true;
+            this.topRightRadius = f;
+            this.topLeftRadius = f;
+            this.bottomRightRadius = f;
+            this.bottomLeftRadius = f;
+            return this;
+        }
+        return (DrawableSelector) invokeF.objValue;
+    }
+
+    public DrawableSelector selectedColor(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048633, this, i)) == null) {
+            this.mSelectedBgColor = SelectorHelper.getColor(i);
+            this.hasSetSelectedBgColor = true;
+            this.isSolid = true;
+            return this;
+        }
+        return (DrawableSelector) invokeI.objValue;
+    }
+
+    public DrawableSelector selectedDrawable(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048635, this, i)) == null) {
+            return selectedDrawable(SelectorHelper.getDrawable(i));
+        }
+        return (DrawableSelector) invokeI.objValue;
+    }
+
+    public DrawableSelector selectedStrokeColor(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048637, this, i)) == null) {
+            this.mSelectedStrokeColor = SelectorHelper.getColor(i);
+            this.hasSetSelectedStrokeColor = true;
+            this.isStroke = true;
+            return this;
+        }
+        return (DrawableSelector) invokeI.objValue;
+    }
+
+    public DrawableSelector setAlpha(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048639, this, i)) == null) {
+            this.mAlpha = i;
+            this.hasSetAlpha = true;
+            return this;
+        }
+        return (DrawableSelector) invokeI.objValue;
+    }
+
+    public DrawableSelector setShape(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048641, this, i)) == null) {
+            this.mShape = i;
+            return this;
+        }
+        return (DrawableSelector) invokeI.objValue;
+    }
+
+    public DrawableSelector setType(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048643, this, i)) == null) {
+            this.mType = i;
+            return this;
+        }
+        return (DrawableSelector) invokeI.objValue;
+    }
+
+    public DrawableSelector strokeWidth(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048644, this, i)) == null) {
+            this.mStrokeWidth = i;
+            return this;
+        }
+        return (DrawableSelector) invokeI.objValue;
+    }
+
+    public DrawableSelector strokeWidthDimenId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048645, this, i)) == null) {
+            this.mStrokeWidth = SelectorHelper.getDimens(i);
+            return this;
+        }
+        return (DrawableSelector) invokeI.objValue;
+    }
+
+    public DrawableSelector tlRadius(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048646, this, f)) == null) {
+            this.isRadius = true;
+            this.topLeftRadius = f;
+            return this;
+        }
+        return (DrawableSelector) invokeF.objValue;
+    }
+
+    public DrawableSelector trRadius(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048647, this, f)) == null) {
+            this.isRadius = true;
+            this.topRightRadius = f;
+            return this;
+        }
+        return (DrawableSelector) invokeF.objValue;
+    }
+
+    public StateListDrawable create() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            StateListDrawable stateListDrawable = new StateListDrawable();
+            Drawable onItemDisabledDrawable = onItemDisabledDrawable();
+            if (onItemDisabledDrawable != null) {
+                stateListDrawable.addState(new int[]{-16842910}, onItemDisabledDrawable);
             }
-            if (!this.hasSetSelectedDrawable) {
-                this.mSelectedDrawable = drawable;
+            Drawable onItemPressedDrawable = onItemPressedDrawable();
+            if (onItemPressedDrawable != null) {
+                stateListDrawable.addState(new int[]{16842919}, onItemPressedDrawable);
             }
-            if (!this.hasSetFocusedDrawable) {
-                this.mFocusedDrawable = drawable;
+            Drawable onItemSelectedDrawable = onItemSelectedDrawable();
+            if (onItemSelectedDrawable != null) {
+                stateListDrawable.addState(new int[]{16842913}, onItemSelectedDrawable);
+            }
+            Drawable onItemFocusedDrawable = onItemFocusedDrawable();
+            if (onItemFocusedDrawable != null) {
+                stateListDrawable.addState(new int[]{16842908}, onItemFocusedDrawable);
+            }
+            Drawable onItemDefaultDrawable = onItemDefaultDrawable();
+            if (onItemDefaultDrawable == null) {
+                onItemDefaultDrawable = new ColorDrawable(0);
+            }
+            if (onItemDefaultDrawable != null) {
+                stateListDrawable.addState(new int[0], onItemDefaultDrawable);
+            }
+            return stateListDrawable;
+        }
+        return (StateListDrawable) invokeV.objValue;
+    }
+
+    public DrawableSelector dashLine(int i, int i2, float f, float f2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            this.isDashLine = true;
+            this.dashLineWidth = i2;
+            this.dashWidth = f;
+            this.dashGap = f2;
+            this.dashLineColor = SelectorHelper.getColor(i);
+            return this;
+        }
+        return (DrawableSelector) invokeCommon.objValue;
+    }
+
+    public DrawableSelector dashLine(String str, int i, float f, float f2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, Integer.valueOf(i), Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            this.isDashLine = true;
+            this.dashLineWidth = i;
+            this.dashWidth = f;
+            this.dashGap = f2;
+            this.dashLineColor = SelectorHelper.parseColor(str);
+            return this;
+        }
+        return (DrawableSelector) invokeCommon.objValue;
+    }
+
+    public DrawableSelector defaultColor(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
+            int color = SelectorHelper.getColor(i);
+            this.mDefaultBgColor = color;
+            this.isSolid = true;
+            if (!this.hasSetDisabledBgColor) {
+                this.mDisabledBgColor = color;
+            }
+            if (!this.hasSetPressedBgColor) {
+                this.mPressedBgColor = color;
+            }
+            if (!this.hasSetSelectedBgColor) {
+                this.mSelectedBgColor = color;
+            }
+            if (!this.hasSetFocusedBgColor) {
+                this.mFocusedBgColor = color;
             }
             return this;
         }
-        return (DrawableSelector) invokeL.objValue;
+        return (DrawableSelector) invokeI.objValue;
     }
 
-    public DrawableSelector defaultStrokeColor(@ColorRes int i) {
+    public DrawableSelector defaultColorNotAutoChangeSkinType(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
+            int color = TbadkCoreApplication.getInst().getApp().getResources().getColor(i);
+            this.mDefaultBgColor = color;
+            this.isSolid = true;
+            if (!this.hasSetDisabledBgColor) {
+                this.mDisabledBgColor = color;
+            }
+            if (!this.hasSetPressedBgColor) {
+                this.mPressedBgColor = color;
+            }
+            if (!this.hasSetSelectedBgColor) {
+                this.mSelectedBgColor = color;
+            }
+            if (!this.hasSetFocusedBgColor) {
+                this.mFocusedBgColor = color;
+            }
+            return this;
+        }
+        return (DrawableSelector) invokeI.objValue;
+    }
+
+    public DrawableSelector defaultStrokeColor(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) {
@@ -507,92 +836,7 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
         return (DrawableSelector) invokeI.objValue;
     }
 
-    public DrawableSelector disabledColor(@ColorRes int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i)) == null) {
-            this.mDisabledBgColor = SelectorHelper.getColor(i);
-            this.hasSetDisabledBgColor = true;
-            this.isSolid = true;
-            return this;
-        }
-        return (DrawableSelector) invokeI.objValue;
-    }
-
-    public DrawableSelector disabledDrawable(Drawable drawable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, drawable)) == null) {
-            this.mDisabledDrawable = drawable;
-            this.hasSetDisabledDrawable = true;
-            return this;
-        }
-        return (DrawableSelector) invokeL.objValue;
-    }
-
-    public DrawableSelector disabledStrokeColor(@ColorRes int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i)) == null) {
-            this.mDisabledStrokeColor = SelectorHelper.getColor(i);
-            this.hasSetDisabledStrokeColor = true;
-            this.isStroke = true;
-            return this;
-        }
-        return (DrawableSelector) invokeI.objValue;
-    }
-
-    public DrawableSelector focusedColor(@ColorRes int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048602, this, i)) == null) {
-            this.mFocusedBgColor = SelectorHelper.getColor(i);
-            this.isSolid = true;
-            this.hasSetPressedBgColor = true;
-            return this;
-        }
-        return (DrawableSelector) invokeI.objValue;
-    }
-
-    public DrawableSelector focusedDrawable(Drawable drawable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, drawable)) == null) {
-            this.mFocusedDrawable = drawable;
-            this.hasSetFocusedDrawable = true;
-            return this;
-        }
-        return (DrawableSelector) invokeL.objValue;
-    }
-
-    public DrawableSelector focusedStrokeColor(@ColorRes int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048606, this, i)) == null) {
-            this.mFocusedStrokeColor = SelectorHelper.getColor(i);
-            this.hasSetFocusedStrokeColor = true;
-            this.isStroke = true;
-            return this;
-        }
-        return (DrawableSelector) invokeI.objValue;
-    }
-
-    public DrawableSelector gradient(@ColorRes int i, @ColorRes int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048608, this, i, i2)) == null) {
-            this.isGradient = true;
-            this.gradientColors = r1;
-            int[] iArr = {SelectorHelper.getColor(i)};
-            this.gradientColors[1] = SelectorHelper.getColor(i2);
-            this.gradientType = 0;
-            this.gradientOrientation = TOP_BOTTOM;
-            return this;
-        }
-        return (DrawableSelector) invokeII.objValue;
-    }
-
-    public DrawableSelector gradientLinear(@ColorRes int... iArr) {
+    public DrawableSelector gradientLinear(int... iArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048612, this, iArr)) == null) {
@@ -611,7 +855,410 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
         return (DrawableSelector) invokeL.objValue;
     }
 
-    public DrawableSelector gradientLinearNotAutoChangeSkinType(@ColorRes int... iArr) {
+    public DrawableSelector gradientSweep(int... iArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048617, this, iArr)) == null) {
+            this.isGradient = true;
+            this.gradientType = 2;
+            if (iArr.length > 1) {
+                this.gradientColors = new int[iArr.length];
+                for (int i = 0; i < iArr.length; i++) {
+                    this.gradientColors[i] = SelectorHelper.getColor(iArr[i]);
+                }
+                return this;
+            }
+            throw new ExceptionInInitializerError("渐变颜色数组至少需要两个颜色");
+        }
+        return (DrawableSelector) invokeL.objValue;
+    }
+
+    public DrawableSelector defaultColor(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048586, this, i, i2)) == null) {
+            int color = SkinManager.getColor(i2, i);
+            this.mDefaultBgColor = color;
+            this.isSolid = true;
+            if (!this.hasSetDisabledBgColor) {
+                this.mDisabledBgColor = color;
+            }
+            if (!this.hasSetPressedBgColor) {
+                this.mPressedBgColor = color;
+            }
+            if (!this.hasSetSelectedBgColor) {
+                this.mSelectedBgColor = color;
+            }
+            if (!this.hasSetFocusedBgColor) {
+                this.mFocusedBgColor = color;
+            }
+            return this;
+        }
+        return (DrawableSelector) invokeII.objValue;
+    }
+
+    public DrawableSelector disabledColor(int i, float f) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048596, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)})) == null) {
+            this.mDisabledBgColor = SelectorHelper.getColor(i, f);
+            this.hasSetDisabledBgColor = true;
+            this.isSolid = true;
+            return this;
+        }
+        return (DrawableSelector) invokeCommon.objValue;
+    }
+
+    public DrawableSelector gradientLinear(String str, int... iArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048610, this, str, iArr)) == null) {
+            this.isGradient = true;
+            this.gradientType = 0;
+            this.gradientOrientation = str;
+            if (iArr.length > 1) {
+                this.gradientColors = new int[iArr.length];
+                for (int i = 0; i < iArr.length; i++) {
+                    this.gradientColors[i] = SelectorHelper.getColor(iArr[i]);
+                }
+                return this;
+            }
+            throw new ExceptionInInitializerError("渐变颜色数组至少需要两个颜色");
+        }
+        return (DrawableSelector) invokeLL.objValue;
+    }
+
+    public DrawableSelector pressedColor(int i, float f) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048626, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)})) == null) {
+            this.mPressedBgColor = SelectorHelper.getColor(i, f);
+            this.hasSetPressedBgColor = true;
+            this.isSolid = true;
+            return this;
+        }
+        return (DrawableSelector) invokeCommon.objValue;
+    }
+
+    public DrawableSelector defaultColor(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
+            int parseColor = SelectorHelper.parseColor(str);
+            this.mDefaultBgColor = parseColor;
+            this.isSolid = true;
+            if (!this.hasSetDisabledBgColor) {
+                this.mDisabledBgColor = parseColor;
+            }
+            if (!this.hasSetPressedBgColor) {
+                this.mPressedBgColor = parseColor;
+            }
+            if (!this.hasSetSelectedBgColor) {
+                this.mSelectedBgColor = parseColor;
+            }
+            if (!this.hasSetFocusedBgColor) {
+                this.mFocusedBgColor = parseColor;
+            }
+            return this;
+        }
+        return (DrawableSelector) invokeL.objValue;
+    }
+
+    public DrawableSelector defaultStrokeColor(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
+            int parseColor = SelectorHelper.parseColor(str);
+            this.mDefaultStrokeColor = parseColor;
+            this.isStroke = true;
+            if (!this.hasSetDisabledStrokeColor) {
+                this.mDisabledStrokeColor = parseColor;
+            }
+            if (!this.hasSetPressedStrokeColor) {
+                this.mPressedStrokeColor = parseColor;
+            }
+            if (!this.hasSetSelectedStrokeColor) {
+                this.mSelectedStrokeColor = parseColor;
+            }
+            if (!this.hasSetFocusedStrokeColor) {
+                this.mFocusedStrokeColor = parseColor;
+            }
+            return this;
+        }
+        return (DrawableSelector) invokeL.objValue;
+    }
+
+    public DrawableSelector gradientLinear(String... strArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048613, this, strArr)) == null) {
+            this.isGradient = true;
+            this.gradientType = 0;
+            this.gradientOrientation = TOP_BOTTOM;
+            if (strArr.length > 1) {
+                this.gradientColors = new int[strArr.length];
+                for (int i = 0; i < strArr.length; i++) {
+                    this.gradientColors[i] = SelectorHelper.parseColor(strArr[i]);
+                }
+                return this;
+            }
+            throw new ExceptionInInitializerError("渐变颜色数组至少需要两个颜色");
+        }
+        return (DrawableSelector) invokeL.objValue;
+    }
+
+    public DrawableSelector gradientSweep(String... strArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048618, this, strArr)) == null) {
+            this.isGradient = true;
+            this.gradientType = 2;
+            if (strArr.length > 1) {
+                this.gradientColors = new int[strArr.length];
+                for (int i = 0; i < strArr.length; i++) {
+                    this.gradientColors[i] = SelectorHelper.parseColor(strArr[i]);
+                }
+                return this;
+            }
+            throw new ExceptionInInitializerError("渐变颜色数组至少需要两个颜色");
+        }
+        return (DrawableSelector) invokeL.objValue;
+    }
+
+    public DrawableSelector defaultDrawable(Drawable drawable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, drawable)) == null) {
+            this.mNormalDrawable = drawable;
+            if (!this.hasSetDisabledDrawable) {
+                this.mDisabledDrawable = drawable;
+            }
+            if (!this.hasSetPressedDrawable) {
+                this.mPressedDrawable = drawable;
+            }
+            if (!this.hasSetSelectedDrawable) {
+                this.mSelectedDrawable = drawable;
+            }
+            if (!this.hasSetFocusedDrawable) {
+                this.mFocusedDrawable = drawable;
+            }
+            return this;
+        }
+        return (DrawableSelector) invokeL.objValue;
+    }
+
+    public DrawableSelector disabledColor(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, str)) == null) {
+            this.mDisabledBgColor = SelectorHelper.parseColor(str);
+            this.hasSetDisabledBgColor = true;
+            this.isSolid = true;
+            return this;
+        }
+        return (DrawableSelector) invokeL.objValue;
+    }
+
+    public DrawableSelector disabledDrawable(Drawable drawable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, drawable)) == null) {
+            this.mDisabledDrawable = drawable;
+            this.hasSetDisabledDrawable = true;
+            return this;
+        }
+        return (DrawableSelector) invokeL.objValue;
+    }
+
+    public DrawableSelector disabledStrokeColor(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, str)) == null) {
+            this.mDisabledStrokeColor = SelectorHelper.parseColor(str);
+            this.hasSetDisabledStrokeColor = true;
+            this.isStroke = true;
+            return this;
+        }
+        return (DrawableSelector) invokeL.objValue;
+    }
+
+    public DrawableSelector focusedColor(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, str)) == null) {
+            this.mFocusedBgColor = SelectorHelper.parseColor(str);
+            this.isSolid = true;
+            this.hasSetPressedBgColor = true;
+            return this;
+        }
+        return (DrawableSelector) invokeL.objValue;
+    }
+
+    public DrawableSelector focusedDrawable(Drawable drawable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, drawable)) == null) {
+            this.mFocusedDrawable = drawable;
+            this.hasSetFocusedDrawable = true;
+            return this;
+        }
+        return (DrawableSelector) invokeL.objValue;
+    }
+
+    public DrawableSelector focusedStrokeColor(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048607, this, str)) == null) {
+            this.mFocusedStrokeColor = SelectorHelper.parseColor(str);
+            this.hasSetFocusedStrokeColor = true;
+            this.isStroke = true;
+            return this;
+        }
+        return (DrawableSelector) invokeL.objValue;
+    }
+
+    public DrawableSelector pressedColor(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048627, this, str)) == null) {
+            this.mPressedBgColor = SelectorHelper.parseColor(str);
+            this.hasSetPressedBgColor = true;
+            this.isSolid = true;
+            return this;
+        }
+        return (DrawableSelector) invokeL.objValue;
+    }
+
+    public DrawableSelector pressedDrawable(Drawable drawable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048629, this, drawable)) == null) {
+            this.mPressedDrawable = drawable;
+            this.hasSetPressedDrawable = true;
+            return this;
+        }
+        return (DrawableSelector) invokeL.objValue;
+    }
+
+    public DrawableSelector pressedStrokeColor(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048631, this, str)) == null) {
+            this.mPressedStrokeColor = SelectorHelper.parseColor(str);
+            this.hasSetPressedStrokeColor = true;
+            this.isStroke = true;
+            return this;
+        }
+        return (DrawableSelector) invokeL.objValue;
+    }
+
+    public DrawableSelector selectedColor(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048634, this, str)) == null) {
+            this.mSelectedBgColor = SelectorHelper.parseColor(str);
+            this.hasSetSelectedBgColor = true;
+            this.isSolid = true;
+            return this;
+        }
+        return (DrawableSelector) invokeL.objValue;
+    }
+
+    public DrawableSelector selectedDrawable(Drawable drawable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048636, this, drawable)) == null) {
+            this.mSelectedDrawable = drawable;
+            this.hasSetSelectedDrawable = true;
+            return this;
+        }
+        return (DrawableSelector) invokeL.objValue;
+    }
+
+    public DrawableSelector selectedStrokeColor(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048638, this, str)) == null) {
+            this.mSelectedStrokeColor = SelectorHelper.parseColor(str);
+            this.hasSetSelectedStrokeColor = true;
+            this.isStroke = true;
+            return this;
+        }
+        return (DrawableSelector) invokeL.objValue;
+    }
+
+    public DrawableSelector gradient(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048608, this, i, i2)) == null) {
+            this.isGradient = true;
+            this.gradientColors = r1;
+            int[] iArr = {SelectorHelper.getColor(i)};
+            this.gradientColors[1] = SelectorHelper.getColor(i2);
+            this.gradientType = 0;
+            this.gradientOrientation = TOP_BOTTOM;
+            return this;
+        }
+        return (DrawableSelector) invokeII.objValue;
+    }
+
+    public DrawableSelector setGradientCenter(float f, float f2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048640, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            this.centerX = f;
+            this.centerY = f2;
+            return this;
+        }
+        return (DrawableSelector) invokeCommon.objValue;
+    }
+
+    public DrawableSelector setSize(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048642, this, i, i2)) == null) {
+            this.width = i;
+            this.height = i2;
+            return this;
+        }
+        return (DrawableSelector) invokeII.objValue;
+    }
+
+    public DrawableSelector gradient(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048609, this, str, str2)) == null) {
+            this.isGradient = true;
+            this.gradientColors = r1;
+            int[] iArr = {SelectorHelper.parseColor(str)};
+            this.gradientColors[1] = SelectorHelper.parseColor(str2);
+            this.gradientType = 0;
+            this.gradientOrientation = TOP_BOTTOM;
+            return this;
+        }
+        return (DrawableSelector) invokeLL.objValue;
+    }
+
+    public DrawableSelector gradientLinear(String str, String... strArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048611, this, str, strArr)) == null) {
+            this.isGradient = true;
+            this.gradientType = 0;
+            this.gradientOrientation = str;
+            if (strArr.length > 1) {
+                this.gradientColors = new int[strArr.length];
+                for (int i = 0; i < strArr.length; i++) {
+                    this.gradientColors[i] = SelectorHelper.parseColor(strArr[i]);
+                }
+                return this;
+            }
+            throw new ExceptionInInitializerError("渐变颜色数组至少需要两个颜色");
+        }
+        return (DrawableSelector) invokeLL.objValue;
+    }
+
+    public DrawableSelector gradientLinearNotAutoChangeSkinType(int... iArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048614, this, iArr)) == null) {
@@ -649,500 +1296,6 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
         return (DrawableSelector) invokeCommon.objValue;
     }
 
-    public DrawableSelector gradientSweep(int... iArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048617, this, iArr)) == null) {
-            this.isGradient = true;
-            this.gradientType = 2;
-            if (iArr.length > 1) {
-                this.gradientColors = new int[iArr.length];
-                for (int i = 0; i < iArr.length; i++) {
-                    this.gradientColors[i] = SelectorHelper.getColor(iArr[i]);
-                }
-                return this;
-            }
-            throw new ExceptionInInitializerError("渐变颜色数组至少需要两个颜色");
-        }
-        return (DrawableSelector) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tbadk.core.util.tbselector.interfaces.ISelector
-    public void into(View view2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048619, this, view2) == null) || view2 == null) {
-            return;
-        }
-        build();
-        int i = this.mType;
-        if (i == 2) {
-            if (view2 instanceof ImageView) {
-                ((ImageView) view2).setImageDrawable(this.mStateListDrawable);
-            }
-        } else if (i == 1) {
-            view2.setBackgroundDrawable(this.mStateListDrawable);
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.util.tbselector.selector.AbsDrawableSelector
-    public Drawable onItemDefaultDrawable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) {
-            Drawable drawable = this.mNormalDrawable;
-            return drawable == null ? makeItemShapeDrawable(this.mShape, this.mDefaultBgColor, this.mDefaultStrokeColor, this.dashLineColor) : drawable;
-        }
-        return (Drawable) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tbadk.core.util.tbselector.selector.AbsDrawableSelector
-    public Drawable onItemDisabledDrawable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) {
-            Drawable drawable = this.mDisabledDrawable;
-            boolean z = this.hasSetDisabledDrawable;
-            return (this.hasSetDisabledBgColor || this.hasSetDisabledStrokeColor) ? makeItemShapeDrawable(this.mShape, this.mDisabledBgColor, this.mDisabledStrokeColor, this.dashLineColor) : drawable;
-        }
-        return (Drawable) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tbadk.core.util.tbselector.selector.AbsDrawableSelector
-    public Drawable onItemFocusedDrawable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) {
-            Drawable drawable = this.mFocusedDrawable;
-            return this.hasSetFocusedDrawable ? drawable : (this.hasSetFocusedBgColor || this.hasSetFocusedStrokeColor) ? makeItemShapeDrawable(this.mShape, this.mFocusedBgColor, this.mFocusedStrokeColor, this.dashLineColor) : drawable;
-        }
-        return (Drawable) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tbadk.core.util.tbselector.selector.AbsDrawableSelector
-    public Drawable onItemPressedDrawable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) {
-            Drawable drawable = this.mPressedDrawable;
-            return this.hasSetPressedDrawable ? drawable : (this.hasSetPressedBgColor || this.hasSetPressedStrokeColor) ? makeItemShapeDrawable(this.mShape, this.mPressedBgColor, this.mPressedStrokeColor, this.dashLineColor) : drawable;
-        }
-        return (Drawable) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tbadk.core.util.tbselector.selector.AbsDrawableSelector
-    public Drawable onItemSelectedDrawable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
-            Drawable drawable = this.mSelectedDrawable;
-            return this.hasSetSelectedDrawable ? drawable : (this.hasSetSelectedBgColor || this.hasSetSelectedStrokeColor) ? makeItemShapeDrawable(this.mShape, this.mSelectedBgColor, this.mSelectedStrokeColor, this.dashLineColor) : drawable;
-        }
-        return (Drawable) invokeV.objValue;
-    }
-
-    public DrawableSelector pressedColor(@ColorRes int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048625, this, i)) == null) {
-            this.mPressedBgColor = SelectorHelper.getColor(i);
-            this.hasSetPressedBgColor = true;
-            this.isSolid = true;
-            return this;
-        }
-        return (DrawableSelector) invokeI.objValue;
-    }
-
-    public DrawableSelector pressedDrawable(Drawable drawable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048629, this, drawable)) == null) {
-            this.mPressedDrawable = drawable;
-            this.hasSetPressedDrawable = true;
-            return this;
-        }
-        return (DrawableSelector) invokeL.objValue;
-    }
-
-    public DrawableSelector pressedStrokeColor(@ColorRes int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048630, this, i)) == null) {
-            this.mPressedStrokeColor = SelectorHelper.getColor(i);
-            this.hasSetPressedStrokeColor = true;
-            this.isStroke = true;
-            return this;
-        }
-        return (DrawableSelector) invokeI.objValue;
-    }
-
-    public DrawableSelector radius(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048632, this, f)) == null) {
-            this.isRadius = true;
-            this.topRightRadius = f;
-            this.topLeftRadius = f;
-            this.bottomRightRadius = f;
-            this.bottomLeftRadius = f;
-            return this;
-        }
-        return (DrawableSelector) invokeF.objValue;
-    }
-
-    public DrawableSelector selectedColor(@ColorRes int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048633, this, i)) == null) {
-            this.mSelectedBgColor = SelectorHelper.getColor(i);
-            this.hasSetSelectedBgColor = true;
-            this.isSolid = true;
-            return this;
-        }
-        return (DrawableSelector) invokeI.objValue;
-    }
-
-    public DrawableSelector selectedDrawable(Drawable drawable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048636, this, drawable)) == null) {
-            this.mSelectedDrawable = drawable;
-            this.hasSetSelectedDrawable = true;
-            return this;
-        }
-        return (DrawableSelector) invokeL.objValue;
-    }
-
-    public DrawableSelector selectedStrokeColor(@ColorRes int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048637, this, i)) == null) {
-            this.mSelectedStrokeColor = SelectorHelper.getColor(i);
-            this.hasSetSelectedStrokeColor = true;
-            this.isStroke = true;
-            return this;
-        }
-        return (DrawableSelector) invokeI.objValue;
-    }
-
-    public DrawableSelector setAlpha(@IntRange(from = 0, to = 255) int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048639, this, i)) == null) {
-            this.mAlpha = i;
-            this.hasSetAlpha = true;
-            return this;
-        }
-        return (DrawableSelector) invokeI.objValue;
-    }
-
-    public DrawableSelector setGradientCenter(float f, float f2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048640, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
-            this.centerX = f;
-            this.centerY = f2;
-            return this;
-        }
-        return (DrawableSelector) invokeCommon.objValue;
-    }
-
-    public DrawableSelector setShape(@Shape int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048641, this, i)) == null) {
-            this.mShape = i;
-            return this;
-        }
-        return (DrawableSelector) invokeI.objValue;
-    }
-
-    public DrawableSelector setSize(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048642, this, i, i2)) == null) {
-            this.width = i;
-            this.height = i2;
-            return this;
-        }
-        return (DrawableSelector) invokeII.objValue;
-    }
-
-    public DrawableSelector setType(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048643, this, i)) == null) {
-            this.mType = i;
-            return this;
-        }
-        return (DrawableSelector) invokeI.objValue;
-    }
-
-    public DrawableSelector strokeWidth(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048644, this, i)) == null) {
-            this.mStrokeWidth = i;
-            return this;
-        }
-        return (DrawableSelector) invokeI.objValue;
-    }
-
-    public DrawableSelector strokeWidthDimenId(@DimenRes int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048645, this, i)) == null) {
-            this.mStrokeWidth = SelectorHelper.getDimens(i);
-            return this;
-        }
-        return (DrawableSelector) invokeI.objValue;
-    }
-
-    public DrawableSelector tlRadius(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048646, this, f)) == null) {
-            this.isRadius = true;
-            this.topLeftRadius = f;
-            return this;
-        }
-        return (DrawableSelector) invokeF.objValue;
-    }
-
-    public DrawableSelector trRadius(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048647, this, f)) == null) {
-            this.isRadius = true;
-            this.topRightRadius = f;
-            return this;
-        }
-        return (DrawableSelector) invokeF.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tbadk.core.util.tbselector.interfaces.ISelector
-    public StateListDrawable build() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            StateListDrawable create = create();
-            this.mStateListDrawable = create;
-            return create;
-        }
-        return (StateListDrawable) invokeV.objValue;
-    }
-
-    public DrawableSelector disabledDrawable(@DrawableRes int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i)) == null) ? disabledDrawable(SelectorHelper.getDrawable(i)) : (DrawableSelector) invokeI.objValue;
-    }
-
-    public DrawableSelector focusedDrawable(@DrawableRes int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048604, this, i)) == null) ? focusedDrawable(SelectorHelper.getDrawable(i)) : (DrawableSelector) invokeI.objValue;
-    }
-
-    public DrawableSelector pressedDrawable(@DrawableRes int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048628, this, i)) == null) ? pressedDrawable(SelectorHelper.getDrawable(i)) : (DrawableSelector) invokeI.objValue;
-    }
-
-    public DrawableSelector selectedDrawable(@DrawableRes int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048635, this, i)) == null) ? selectedDrawable(SelectorHelper.getDrawable(i)) : (DrawableSelector) invokeI.objValue;
-    }
-
-    public DrawableSelector disabledColor(@ColorRes int i, float f) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048596, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)})) == null) {
-            this.mDisabledBgColor = SelectorHelper.getColor(i, f);
-            this.hasSetDisabledBgColor = true;
-            this.isSolid = true;
-            return this;
-        }
-        return (DrawableSelector) invokeCommon.objValue;
-    }
-
-    public DrawableSelector disabledStrokeColor(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, str)) == null) {
-            this.mDisabledStrokeColor = SelectorHelper.parseColor(str);
-            this.hasSetDisabledStrokeColor = true;
-            this.isStroke = true;
-            return this;
-        }
-        return (DrawableSelector) invokeL.objValue;
-    }
-
-    public DrawableSelector focusedColor(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, str)) == null) {
-            this.mFocusedBgColor = SelectorHelper.parseColor(str);
-            this.isSolid = true;
-            this.hasSetPressedBgColor = true;
-            return this;
-        }
-        return (DrawableSelector) invokeL.objValue;
-    }
-
-    public DrawableSelector focusedStrokeColor(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048607, this, str)) == null) {
-            this.mFocusedStrokeColor = SelectorHelper.parseColor(str);
-            this.hasSetFocusedStrokeColor = true;
-            this.isStroke = true;
-            return this;
-        }
-        return (DrawableSelector) invokeL.objValue;
-    }
-
-    public DrawableSelector pressedColor(@ColorRes int i, float f) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048626, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)})) == null) {
-            this.mPressedBgColor = SelectorHelper.getColor(i, f);
-            this.hasSetPressedBgColor = true;
-            this.isSolid = true;
-            return this;
-        }
-        return (DrawableSelector) invokeCommon.objValue;
-    }
-
-    public DrawableSelector pressedStrokeColor(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048631, this, str)) == null) {
-            this.mPressedStrokeColor = SelectorHelper.parseColor(str);
-            this.hasSetPressedStrokeColor = true;
-            this.isStroke = true;
-            return this;
-        }
-        return (DrawableSelector) invokeL.objValue;
-    }
-
-    public DrawableSelector selectedColor(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048634, this, str)) == null) {
-            this.mSelectedBgColor = SelectorHelper.parseColor(str);
-            this.hasSetSelectedBgColor = true;
-            this.isSolid = true;
-            return this;
-        }
-        return (DrawableSelector) invokeL.objValue;
-    }
-
-    public DrawableSelector selectedStrokeColor(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048638, this, str)) == null) {
-            this.mSelectedStrokeColor = SelectorHelper.parseColor(str);
-            this.hasSetSelectedStrokeColor = true;
-            this.isStroke = true;
-            return this;
-        }
-        return (DrawableSelector) invokeL.objValue;
-    }
-
-    public DrawableSelector dashLine(String str, int i, float f, float f2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, Integer.valueOf(i), Float.valueOf(f), Float.valueOf(f2)})) == null) {
-            this.isDashLine = true;
-            this.dashLineWidth = i;
-            this.dashWidth = f;
-            this.dashGap = f2;
-            this.dashLineColor = SelectorHelper.parseColor(str);
-            return this;
-        }
-        return (DrawableSelector) invokeCommon.objValue;
-    }
-
-    public DrawableSelector disabledColor(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, str)) == null) {
-            this.mDisabledBgColor = SelectorHelper.parseColor(str);
-            this.hasSetDisabledBgColor = true;
-            this.isSolid = true;
-            return this;
-        }
-        return (DrawableSelector) invokeL.objValue;
-    }
-
-    public DrawableSelector gradient(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048609, this, str, str2)) == null) {
-            this.isGradient = true;
-            this.gradientColors = r1;
-            int[] iArr = {SelectorHelper.parseColor(str)};
-            this.gradientColors[1] = SelectorHelper.parseColor(str2);
-            this.gradientType = 0;
-            this.gradientOrientation = TOP_BOTTOM;
-            return this;
-        }
-        return (DrawableSelector) invokeLL.objValue;
-    }
-
-    public DrawableSelector pressedColor(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048627, this, str)) == null) {
-            this.mPressedBgColor = SelectorHelper.parseColor(str);
-            this.hasSetPressedBgColor = true;
-            this.isSolid = true;
-            return this;
-        }
-        return (DrawableSelector) invokeL.objValue;
-    }
-
-    public DrawableSelector gradientSweep(String... strArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048618, this, strArr)) == null) {
-            this.isGradient = true;
-            this.gradientType = 2;
-            if (strArr.length > 1) {
-                this.gradientColors = new int[strArr.length];
-                for (int i = 0; i < strArr.length; i++) {
-                    this.gradientColors[i] = SelectorHelper.parseColor(strArr[i]);
-                }
-                return this;
-            }
-            throw new ExceptionInInitializerError("渐变颜色数组至少需要两个颜色");
-        }
-        return (DrawableSelector) invokeL.objValue;
-    }
-
-    public DrawableSelector gradientLinear(String... strArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048613, this, strArr)) == null) {
-            this.isGradient = true;
-            this.gradientType = 0;
-            this.gradientOrientation = TOP_BOTTOM;
-            if (strArr.length > 1) {
-                this.gradientColors = new int[strArr.length];
-                for (int i = 0; i < strArr.length; i++) {
-                    this.gradientColors[i] = SelectorHelper.parseColor(strArr[i]);
-                }
-                return this;
-            }
-            throw new ExceptionInInitializerError("渐变颜色数组至少需要两个颜色");
-        }
-        return (DrawableSelector) invokeL.objValue;
-    }
-
     public DrawableSelector gradientRadial(float f, String... strArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -1160,121 +1313,5 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
             throw new ExceptionInInitializerError("渐变颜色数组至少需要两个颜色");
         }
         return (DrawableSelector) invokeCommon.objValue;
-    }
-
-    public DrawableSelector defaultDrawable(@DrawableRes int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i)) == null) ? defaultDrawable(SelectorHelper.getDrawable(i)) : (DrawableSelector) invokeI.objValue;
-    }
-
-    public DrawableSelector defaultColor(@ColorRes int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048586, this, i, i2)) == null) {
-            int color = SkinManager.getColor(i2, i);
-            this.mDefaultBgColor = color;
-            this.isSolid = true;
-            if (!this.hasSetDisabledBgColor) {
-                this.mDisabledBgColor = color;
-            }
-            if (!this.hasSetPressedBgColor) {
-                this.mPressedBgColor = color;
-            }
-            if (!this.hasSetSelectedBgColor) {
-                this.mSelectedBgColor = color;
-            }
-            if (!this.hasSetFocusedBgColor) {
-                this.mFocusedBgColor = color;
-            }
-            return this;
-        }
-        return (DrawableSelector) invokeII.objValue;
-    }
-
-    public DrawableSelector defaultStrokeColor(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
-            int parseColor = SelectorHelper.parseColor(str);
-            this.mDefaultStrokeColor = parseColor;
-            this.isStroke = true;
-            if (!this.hasSetDisabledStrokeColor) {
-                this.mDisabledStrokeColor = parseColor;
-            }
-            if (!this.hasSetPressedStrokeColor) {
-                this.mPressedStrokeColor = parseColor;
-            }
-            if (!this.hasSetSelectedStrokeColor) {
-                this.mSelectedStrokeColor = parseColor;
-            }
-            if (!this.hasSetFocusedStrokeColor) {
-                this.mFocusedStrokeColor = parseColor;
-            }
-            return this;
-        }
-        return (DrawableSelector) invokeL.objValue;
-    }
-
-    public DrawableSelector gradientLinear(String str, @ColorRes int... iArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048610, this, str, iArr)) == null) {
-            this.isGradient = true;
-            this.gradientType = 0;
-            this.gradientOrientation = str;
-            if (iArr.length > 1) {
-                this.gradientColors = new int[iArr.length];
-                for (int i = 0; i < iArr.length; i++) {
-                    this.gradientColors[i] = SelectorHelper.getColor(iArr[i]);
-                }
-                return this;
-            }
-            throw new ExceptionInInitializerError("渐变颜色数组至少需要两个颜色");
-        }
-        return (DrawableSelector) invokeLL.objValue;
-    }
-
-    public DrawableSelector defaultColor(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            int parseColor = SelectorHelper.parseColor(str);
-            this.mDefaultBgColor = parseColor;
-            this.isSolid = true;
-            if (!this.hasSetDisabledBgColor) {
-                this.mDisabledBgColor = parseColor;
-            }
-            if (!this.hasSetPressedBgColor) {
-                this.mPressedBgColor = parseColor;
-            }
-            if (!this.hasSetSelectedBgColor) {
-                this.mSelectedBgColor = parseColor;
-            }
-            if (!this.hasSetFocusedBgColor) {
-                this.mFocusedBgColor = parseColor;
-            }
-            return this;
-        }
-        return (DrawableSelector) invokeL.objValue;
-    }
-
-    public DrawableSelector gradientLinear(String str, String... strArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048611, this, str, strArr)) == null) {
-            this.isGradient = true;
-            this.gradientType = 0;
-            this.gradientOrientation = str;
-            if (strArr.length > 1) {
-                this.gradientColors = new int[strArr.length];
-                for (int i = 0; i < strArr.length; i++) {
-                    this.gradientColors[i] = SelectorHelper.parseColor(strArr[i]);
-                }
-                return this;
-            }
-            throw new ExceptionInInitializerError("渐变颜色数组至少需要两个颜色");
-        }
-        return (DrawableSelector) invokeLL.objValue;
     }
 }

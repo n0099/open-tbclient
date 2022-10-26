@@ -18,7 +18,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class GalleryMsg extends NormalMsg {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<GalleryMsg> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public String text;
 
@@ -35,7 +35,7 @@ public class GalleryMsg extends NormalMsg {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<GalleryMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.GalleryMsg.1
+        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.GalleryMsg.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -54,77 +54,83 @@ public class GalleryMsg extends NormalMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public GalleryMsg createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new GalleryMsg(parcel) : (GalleryMsg) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new GalleryMsg(parcel);
+                }
+                return (GalleryMsg) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public GalleryMsg[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new GalleryMsg[i] : (GalleryMsg[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new GalleryMsg[i];
+                }
+                return (GalleryMsg[]) invokeI.objValue;
             }
         };
     }
 
-    private String getTextJson(String str) {
-        InterceptResult invokeL;
+    public GalleryMsg() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, str)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("text", str);
-            } catch (JSONException e) {
-                LogUtils.e(LogUtils.TAG, "getTextJson", e);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return jSONObject.toString();
         }
-        return (String) invokeL.objValue;
+        setMsgType(80);
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
     public String getRecommendDescription() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? getText() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return getText();
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.text : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.text;
+        }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
-    public boolean parseJsonString() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public GalleryMsg(Parcel parcel) {
+        super(parcel);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String jsonContent = getJsonContent();
-            if (!TextUtils.isEmpty(jsonContent)) {
-                try {
-                    this.text = new JSONObject(jsonContent).optString("text");
-                    return true;
-                } catch (JSONException e) {
-                    LogUtils.e("TextMsg", "parse json err!", e);
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Parcel) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
             }
-            return false;
         }
-        return invokeV.booleanValue;
-    }
-
-    public void setText(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            setMsgContent(getTextJson(str));
-        }
+        this.text = parcel.readString();
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
@@ -156,40 +162,44 @@ public class GalleryMsg extends NormalMsg {
         setText(str);
     }
 
-    public GalleryMsg() {
+    private String getTextJson(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, str)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("text", str);
+            } catch (JSONException e) {
+                LogUtils.e(LogUtils.TAG, "getTextJson", e);
             }
+            return jSONObject.toString();
         }
-        setMsgType(80);
+        return (String) invokeL.objValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GalleryMsg(Parcel parcel) {
-        super(parcel);
+    public void setText(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Parcel) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            setMsgContent(getTextJson(str));
         }
-        this.text = parcel.readString();
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
+    public boolean parseJsonString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            String jsonContent = getJsonContent();
+            if (!TextUtils.isEmpty(jsonContent)) {
+                try {
+                    this.text = new JSONObject(jsonContent).optString("text");
+                    return true;
+                } catch (JSONException e) {
+                    LogUtils.e("TextMsg", "parse json err!", e);
+                }
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

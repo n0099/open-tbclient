@@ -3,9 +3,9 @@ package com.baidu.tieba.barselect.data;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.l06;
-import com.baidu.tieba.m06;
-import com.baidu.tieba.n06;
+import com.baidu.tieba.s06;
+import com.baidu.tieba.t06;
+import com.baidu.tieba.u06;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ import tbclient.Myrecord;
 public class VoteElectionHttpResMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public n06 mVoteData;
+    public u06 mVoteData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VoteElectionHttpResMessage() {
@@ -42,10 +42,13 @@ public class VoteElectionHttpResMessage extends TbHttpResponsedMessage {
         }
     }
 
-    public n06 getVoteData() {
+    public u06 getVoteData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mVoteData : (n06) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mVoteData;
+        }
+        return (u06) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -53,37 +56,43 @@ public class VoteElectionHttpResMessage extends TbHttpResponsedMessage {
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
+            boolean z = false;
             ElectionInfoResIdl electionInfoResIdl = (ElectionInfoResIdl) new Wire(new Class[0]).parseFrom(bArr, ElectionInfoResIdl.class);
             if (electionInfoResIdl != null) {
                 setError(electionInfoResIdl.error.errorno.intValue());
                 setErrorString(electionInfoResIdl.error.usermsg);
-                if (getError() == 0 && electionInfoResIdl.data != null) {
-                    if (this.mVoteData == null) {
-                        this.mVoteData = new n06();
+                if (getError() != 0 || electionInfoResIdl.data == null) {
+                    return;
+                }
+                if (this.mVoteData == null) {
+                    this.mVoteData = new u06();
+                }
+                if (electionInfoResIdl.data.election_list != null) {
+                    ArrayList arrayList = new ArrayList();
+                    for (ElectionList electionList : electionInfoResIdl.data.election_list) {
+                        arrayList.add(s06.o(electionList));
                     }
-                    if (electionInfoResIdl.data.election_list != null) {
-                        ArrayList<l06> arrayList = new ArrayList<>();
-                        for (ElectionList electionList : electionInfoResIdl.data.election_list) {
-                            arrayList.add(l06.o(electionList));
-                        }
-                        this.mVoteData.h(arrayList);
+                    this.mVoteData.h(arrayList);
+                }
+                Basic basic = electionInfoResIdl.data.basic;
+                if (basic != null) {
+                    this.mVoteData.m(t06.j(basic));
+                }
+                Myrecord myrecord = electionInfoResIdl.data.my_record;
+                if (myrecord != null) {
+                    this.mVoteData.n(s06.p(myrecord));
+                }
+                Integer num = electionInfoResIdl.data.has_more;
+                if (num != null) {
+                    u06 u06Var = this.mVoteData;
+                    if (num.intValue() == 1) {
+                        z = true;
                     }
-                    Basic basic = electionInfoResIdl.data.basic;
-                    if (basic != null) {
-                        this.mVoteData.m(m06.j(basic));
-                    }
-                    Myrecord myrecord = electionInfoResIdl.data.my_record;
-                    if (myrecord != null) {
-                        this.mVoteData.n(l06.p(myrecord));
-                    }
-                    Integer num = electionInfoResIdl.data.has_more;
-                    if (num != null) {
-                        this.mVoteData.j(num.intValue() == 1);
-                    }
-                    ManagerElection managerElection = electionInfoResIdl.data.vote_limit;
-                    if (managerElection != null) {
-                        this.mVoteData.k(managerElection);
-                    }
+                    u06Var.j(z);
+                }
+                ManagerElection managerElection = electionInfoResIdl.data.vote_limit;
+                if (managerElection != null) {
+                    this.mVoteData.k(managerElection);
                 }
             }
         }

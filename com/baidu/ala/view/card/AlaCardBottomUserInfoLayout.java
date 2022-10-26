@@ -17,7 +17,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ji5;
+import com.baidu.tieba.oi5;
 import com.baidu.tieba.view.AlaPlayAnimationView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -52,77 +52,6 @@ public class AlaCardBottomUserInfoLayout extends LinearLayout {
             }
         }
         init(context);
-    }
-
-    private void init(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00e9, (ViewGroup) this, true);
-            this.alaCardUserHeadImg = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0901ca);
-            this.alaCardUserName = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0901cb);
-            this.alaPlayAnim = (AlaPlayAnimationView) inflate.findViewById(R.id.obfuscated_res_0x7f090223);
-            this.alaWatchCount = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090235);
-            initHeaderImg();
-        }
-    }
-
-    private void initHeaderImg() {
-        HeadImageView headImageView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || (headImageView = this.alaCardUserHeadImg) == null) {
-            return;
-        }
-        headImageView.setDefaultResource(17170445);
-        this.alaCardUserHeadImg.setDefaultBgResource(R.color.CAM_X0205);
-        this.alaCardUserHeadImg.setIsRound(true);
-    }
-
-    public void onChangeSkinType(TbPageContext<?> tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
-            SkinManager.setViewTextColor(this.alaCardUserName, R.color.CAM_X0101, TbadkCoreApplication.getInst().getSkinType());
-            SkinManager.setViewTextColor(this.alaWatchCount, R.color.CAM_X0101, TbadkCoreApplication.getInst().getSkinType());
-        }
-    }
-
-    public void setData(ThreadData threadData) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadData) == null) || threadData == null || threadData.getThreadAlaInfo() == null) {
-            return;
-        }
-        AlaUserInfoData alaUserInfoData = threadData.getThreadAlaInfo().user_info;
-        if (threadData.getAuthor() != null) {
-            str = threadData.getAuthor().getName_show();
-        } else {
-            str = alaUserInfoData != null ? alaUserInfoData.user_name : "";
-        }
-        if (ji5.d(str) > 10) {
-            str = ji5.n(str, 10) + StringHelper.STRING_MORE;
-        }
-        if (alaUserInfoData != null) {
-            this.alaCardUserHeadImg.K(alaUserInfoData.portrait, 28, false);
-        }
-        this.alaCardUserName.setText(str);
-        this.alaWatchCount.setText(String.format(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0208), StringHelper.numFormatOverWan(threadData.getThreadAlaInfo().audience_count)));
-    }
-
-    public void setUserHeadImgVisible(int i) {
-        HeadImageView headImageView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || (headImageView = this.alaCardUserHeadImg) == null) {
-            return;
-        }
-        headImageView.setVisibility(i);
-    }
-
-    public void startPlayAnimation() {
-        AlaPlayAnimationView alaPlayAnimationView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (alaPlayAnimationView = this.alaPlayAnim) == null) {
-            return;
-        }
-        alaPlayAnimationView.b();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -167,5 +96,67 @@ public class AlaCardBottomUserInfoLayout extends LinearLayout {
             }
         }
         init(context);
+    }
+
+    private void init(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00e9, (ViewGroup) this, true);
+            this.alaCardUserHeadImg = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0901ca);
+            this.alaCardUserName = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0901cb);
+            this.alaPlayAnim = (AlaPlayAnimationView) inflate.findViewById(R.id.obfuscated_res_0x7f090223);
+            this.alaWatchCount = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090235);
+            initHeaderImg();
+        }
+    }
+
+    private void initHeaderImg() {
+        HeadImageView headImageView;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) != null) || (headImageView = this.alaCardUserHeadImg) == null) {
+            return;
+        }
+        headImageView.setDefaultResource(17170445);
+        this.alaCardUserHeadImg.setDefaultBgResource(R.color.CAM_X0205);
+        this.alaCardUserHeadImg.setIsRound(true);
+    }
+
+    public void onChangeSkinType(TbPageContext tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
+            SkinManager.setViewTextColor(this.alaCardUserName, R.color.CAM_X0101, TbadkCoreApplication.getInst().getSkinType());
+            SkinManager.setViewTextColor(this.alaWatchCount, R.color.CAM_X0101, TbadkCoreApplication.getInst().getSkinType());
+        }
+    }
+
+    public void setUserHeadImgVisible(int i) {
+        HeadImageView headImageView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && (headImageView = this.alaCardUserHeadImg) != null) {
+            headImageView.setVisibility(i);
+        }
+    }
+
+    public void setData(ThreadData threadData) {
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadData) == null) && threadData != null && threadData.getThreadAlaInfo() != null) {
+            AlaUserInfoData alaUserInfoData = threadData.getThreadAlaInfo().user_info;
+            if (threadData.getAuthor() != null) {
+                str = threadData.getAuthor().getName_show();
+            } else if (alaUserInfoData != null) {
+                str = alaUserInfoData.user_name;
+            } else {
+                str = "";
+            }
+            if (oi5.d(str) > 10) {
+                str = oi5.l(str, 10) + StringHelper.STRING_MORE;
+            }
+            if (alaUserInfoData != null) {
+                this.alaCardUserHeadImg.L(alaUserInfoData.portrait, 28, false);
+            }
+            this.alaCardUserName.setText(str);
+            this.alaWatchCount.setText(String.format(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0208), StringHelper.numFormatOverWan(threadData.getThreadAlaInfo().audience_count)));
+        }
     }
 }

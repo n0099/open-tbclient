@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ox4;
+import com.baidu.tieba.ux4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -64,24 +64,32 @@ public class BigdayActivity extends BaseActivity {
         }
     }
 
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onPause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.onPause();
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921348, Boolean.TRUE));
+        }
+    }
+
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
             if (view2.getId() == this.a.getId()) {
-                if (StringUtils.isNULL(this.d)) {
-                    return;
+                if (!StringUtils.isNULL(this.d)) {
+                    UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{this.d});
+                    TiebaStatic.log(new StatisticItem("c13112").param("obj_id", this.e).param(TiebaStatic.Params.OBJ_TO, this.d));
+                    finish();
                 }
-                UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{this.d});
-                TiebaStatic.log(new StatisticItem("c13112").param("obj_id", this.e).param(TiebaStatic.Params.OBJ_TO, this.d));
-                finish();
             } else if (view2.getId() == this.b.getId()) {
                 Calendar calendar = Calendar.getInstance();
                 calendar.set(11, 23);
                 calendar.set(12, 59);
                 calendar.set(13, 59);
                 calendar.set(14, 0);
-                ox4.k().x("key_bigday_next_showtime_home", calendar.getTimeInMillis());
+                ux4.k().x("key_bigday_next_showtime_home", calendar.getTimeInMillis());
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921349, null));
                 finish();
             }
@@ -95,10 +103,10 @@ public class BigdayActivity extends BaseActivity {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d015a);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090392);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09039b);
             this.a = tbImageView;
             tbImageView.setAutoChangeStyle(false);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f090391);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f09039a);
             if (UtilHelper.canUseStyleImmersiveSticky()) {
                 ((FrameLayout.LayoutParams) this.b.getLayoutParams()).topMargin = (int) (UtilHelper.getStatusBarHeight() + getResources().getDimension(R.dimen.obfuscated_res_0x7f070287));
             }
@@ -109,19 +117,10 @@ public class BigdayActivity extends BaseActivity {
                 this.e = intent.getLongExtra(BigdayActivityConfig.BIGDAY_ID, 0L);
             }
             this.a.setTag(getPageContext().getUniqueId());
-            this.a.K(this.c, 41, false);
+            this.a.L(this.c, 41, false);
             this.a.setOnClickListener(this);
             this.b.setOnClickListener(this);
             TiebaStatic.log(new StatisticItem("c13111").param("obj_id", this.e).param(TiebaStatic.Params.OBJ_TO, this.d));
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onPause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.onPause();
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921348, Boolean.TRUE));
         }
     }
 }

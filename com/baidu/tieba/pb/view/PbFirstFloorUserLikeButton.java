@@ -9,23 +9,30 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ny4;
-import com.baidu.tieba.qz4;
+import com.baidu.tieba.ty4;
+import com.baidu.tieba.vz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements qz4 {
+public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements vz4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String o;
     public String p;
-    public ny4 q;
-    public ny4 r;
+    public ty4 q;
+    public ty4 r;
     public View.OnClickListener s;
     public View.OnClickListener t;
     public boolean u;
+
+    @Override // com.baidu.tieba.vz4
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbFirstFloorUserLikeButton(Context context) {
@@ -46,136 +53,6 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements qz
             }
         }
         m();
-    }
-
-    private void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.o = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fdd);
-            this.p = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b0);
-            setTextSize(R.dimen.T_X08);
-            setText(this.p);
-            ny4 ny4Var = new ny4();
-            this.q = ny4Var;
-            ny4Var.r(R.color.CAM_X0304);
-            ny4 ny4Var2 = new ny4();
-            this.r = ny4Var2;
-            ny4Var2.t(R.color.CAM_X0109);
-            setConfig(this.q);
-        }
-    }
-
-    public void a(View view2) {
-        View.OnClickListener onClickListener;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (onClickListener = this.s) == null) {
-            return;
-        }
-        onClickListener.onClick(view2);
-    }
-
-    @Override // com.baidu.tieba.qz4
-    public void b(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
-            setOnClickListener(onClickListener);
-        }
-    }
-
-    @Override // com.baidu.tieba.qz4
-    public void c(boolean z, int i, boolean z2) {
-        View.OnClickListener onClickListener;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Boolean.valueOf(z2)}) == null) {
-            s(z);
-            setVisibility(0);
-            if (!z || (onClickListener = this.t) == null) {
-                return;
-            }
-            onClickListener.onClick(this);
-        }
-    }
-
-    @Override // com.baidu.tieba.qz4
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.qz4
-    public void e(boolean z, int i) {
-        View.OnClickListener onClickListener;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-            s(z);
-            if (!z || (onClickListener = this.t) == null) {
-                return;
-            }
-            onClickListener.onClick(this);
-        }
-    }
-
-    public void r(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            k();
-        }
-    }
-
-    public void s(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            Object obj = this.a;
-            if ((obj instanceof Boolean) && ((Boolean) obj).booleanValue() == z) {
-                return;
-            }
-            this.a = Boolean.valueOf(z);
-            if (z) {
-                setVisibility(8);
-                setClickable(false);
-                setText(this.o);
-                setConfig(this.r);
-            } else {
-                setVisibility(0);
-                setClickable(true);
-                setText(this.p);
-                if (this.u) {
-                    UtilHelper.addFollowUserIconStyle(this.q);
-                }
-                setConfig(this.q);
-            }
-            r(TbadkCoreApplication.getInst().getSkinType());
-        }
-    }
-
-    public void setAfterStatusUpdateListener(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, onClickListener) == null) {
-            this.t = onClickListener;
-        }
-    }
-
-    public void setFollowIconSize(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.q.g(i);
-        }
-    }
-
-    public void setIsShowIcon(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.u = z;
-        }
-    }
-
-    @Override // android.view.View
-    public void setVisibility(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            super.setVisibility(i);
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -220,5 +97,125 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements qz
             }
         }
         m();
+    }
+
+    private void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+            this.o = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fef);
+            this.p = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b0);
+            setTextSize(R.dimen.T_X08);
+            setText(this.p);
+            ty4 ty4Var = new ty4();
+            this.q = ty4Var;
+            ty4Var.r(R.color.CAM_X0304);
+            ty4 ty4Var2 = new ty4();
+            this.r = ty4Var2;
+            ty4Var2.t(R.color.CAM_X0109);
+            setConfig(this.q);
+        }
+    }
+
+    public void a(View view2) {
+        View.OnClickListener onClickListener;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (onClickListener = this.s) != null) {
+            onClickListener.onClick(view2);
+        }
+    }
+
+    @Override // com.baidu.tieba.vz4
+    public void e(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
+            setOnClickListener(onClickListener);
+        }
+    }
+
+    public void r(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            k();
+        }
+    }
+
+    public void setAfterStatusUpdateListener(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, onClickListener) == null) {
+            this.t = onClickListener;
+        }
+    }
+
+    public void setFollowIconSize(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.q.g(i);
+        }
+    }
+
+    public void setIsShowIcon(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.u = z;
+        }
+    }
+
+    @Override // android.view.View
+    public void setVisibility(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            super.setVisibility(i);
+        }
+    }
+
+    @Override // com.baidu.tieba.vz4
+    public void b(boolean z, int i, boolean z2) {
+        View.OnClickListener onClickListener;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Boolean.valueOf(z2)}) == null) {
+            s(z);
+            setVisibility(0);
+            if (z && (onClickListener = this.t) != null) {
+                onClickListener.onClick(this);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.vz4
+    public void d(boolean z, int i) {
+        View.OnClickListener onClickListener;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+            s(z);
+            if (z && (onClickListener = this.t) != null) {
+                onClickListener.onClick(this);
+            }
+        }
+    }
+
+    public void s(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            Object obj = this.a;
+            if ((obj instanceof Boolean) && ((Boolean) obj).booleanValue() == z) {
+                return;
+            }
+            this.a = Boolean.valueOf(z);
+            if (z) {
+                setVisibility(8);
+                setClickable(false);
+                setText(this.o);
+                setConfig(this.r);
+            } else {
+                setVisibility(0);
+                setClickable(true);
+                setText(this.p);
+                if (this.u) {
+                    UtilHelper.addFollowUserIconStyle(this.q);
+                }
+                setConfig(this.q);
+            }
+            r(TbadkCoreApplication.getInst().getSkinType());
+        }
     }
 }

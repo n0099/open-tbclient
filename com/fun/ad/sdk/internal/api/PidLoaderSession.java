@@ -13,29 +13,29 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes7.dex */
-public class PidLoaderSession<A> {
+public class PidLoaderSession {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<A> a;
+    public final List a;
     public final long b;
     public int c;
     public boolean d;
     public boolean e;
     public final SidSessionMeta f;
-    public final AdDestroyListener<A> g;
-    public final Map<A, SidSessionMeta> h;
+    public final AdDestroyListener g;
+    public final Map h;
 
     /* loaded from: classes7.dex */
-    public interface AdDestroyListener<A> {
-        void onDestroy(A a);
+    public interface AdDestroyListener {
+        void onDestroy(Object obj);
     }
 
     /* loaded from: classes7.dex */
-    public interface ISelect<A> {
-        boolean selected(A a);
+    public interface ISelect {
+        boolean selected(Object obj);
     }
 
-    public PidLoaderSession(SidSessionMeta sidSessionMeta, AdDestroyListener<A> adDestroyListener) {
+    public PidLoaderSession(SidSessionMeta sidSessionMeta, AdDestroyListener adDestroyListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -58,17 +58,17 @@ public class PidLoaderSession<A> {
         this.b = System.currentTimeMillis();
     }
 
-    public synchronized boolean cacheOrDestroy(A a, boolean z) {
+    public synchronized boolean cacheOrDestroy(Object obj, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, a, z)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, obj, z)) == null) {
             synchronized (this) {
                 this.d = true;
                 if (!this.e || z) {
-                    this.a.add(a);
+                    this.a.add(obj);
                     return true;
                 }
-                this.g.onDestroy(a);
+                this.g.onDestroy(obj);
                 return false;
             }
         }
@@ -79,7 +79,7 @@ public class PidLoaderSession<A> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
             synchronized (this) {
-                Iterator<A> it = this.a.iterator();
+                Iterator it = this.a.iterator();
                 int i = 0;
                 while (it.hasNext()) {
                     if (!z) {
@@ -89,7 +89,7 @@ public class PidLoaderSession<A> {
                         }
                         i = i2;
                     }
-                    A next = it.next();
+                    Object next = it.next();
                     if (next != null) {
                         this.g.onDestroy(next);
                     }
@@ -130,12 +130,12 @@ public class PidLoaderSession<A> {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f : (SidSessionMeta) invokeV.objValue;
     }
 
-    public SidSessionMeta getShowSidSessionMeta(A a) {
+    public SidSessionMeta getShowSidSessionMeta(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, a)) == null) {
-            if (a != null) {
-                return this.h.get(a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (obj != null) {
+                return (SidSessionMeta) this.h.get(obj);
             }
             return null;
         }
@@ -167,13 +167,13 @@ public class PidLoaderSession<A> {
         return invokeV.booleanValue;
     }
 
-    public synchronized boolean isIncludeAd(A a) {
+    public synchronized boolean isIncludeAd(Object obj) {
         InterceptResult invokeL;
         boolean contains;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, a)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, obj)) == null) {
             synchronized (this) {
-                contains = this.a.contains(a);
+                contains = this.a.contains(obj);
             }
             return contains;
         }
@@ -193,7 +193,7 @@ public class PidLoaderSession<A> {
         return invokeV.booleanValue;
     }
 
-    public synchronized boolean iteratorAvailableAd(ISelect<A> iSelect) {
+    public synchronized boolean iteratorAvailableAd(ISelect iSelect) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, iSelect)) == null) {
@@ -220,7 +220,7 @@ public class PidLoaderSession<A> {
         }
     }
 
-    public synchronized A peekAd() {
+    public synchronized Object peekAd() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
@@ -231,10 +231,10 @@ public class PidLoaderSession<A> {
                 return this.a.get(this.c);
             }
         }
-        return (A) invokeV.objValue;
+        return invokeV.objValue;
     }
 
-    public synchronized A pollAd() {
+    public synchronized Object pollAd() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
@@ -242,18 +242,18 @@ public class PidLoaderSession<A> {
                 if (this.c >= this.a.size()) {
                     return null;
                 }
-                A a = this.a.get(this.c);
+                Object obj = this.a.get(this.c);
                 this.c++;
-                return a;
+                return obj;
             }
         }
-        return (A) invokeV.objValue;
+        return invokeV.objValue;
     }
 
-    public void setShowSidSessionMeta(A a, SidSessionMeta sidSessionMeta) {
+    public void setShowSidSessionMeta(Object obj, SidSessionMeta sidSessionMeta) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048589, this, a, sidSessionMeta) == null) && isIncludeAd(a)) {
-            this.h.put(a, sidSessionMeta);
+        if ((interceptable == null || interceptable.invokeLL(1048589, this, obj, sidSessionMeta) == null) && isIncludeAd(obj)) {
+            this.h.put(obj, sidSessionMeta);
         }
     }
 

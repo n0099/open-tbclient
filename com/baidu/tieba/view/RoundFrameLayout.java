@@ -42,43 +42,6 @@ public class RoundFrameLayout extends FrameLayout {
         a();
     }
 
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            setWillNotDraw(false);
-            this.a = new Path();
-            this.b = new RectF();
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void dispatchDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            Paint paint = new Paint();
-            paint.setAntiAlias(true);
-            paint.setColor(-1);
-            int saveLayer = canvas.saveLayer(0.0f, 0.0f, getWidth(), getHeight(), null, 31);
-            super.dispatchDraw(canvas);
-            paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.MULTIPLY));
-            canvas.drawPath(this.a, paint);
-            if (saveLayer >= 1 && saveLayer <= canvas.getSaveCount()) {
-                canvas.restoreToCount(saveLayer);
-            }
-            paint.setXfermode(null);
-        }
-    }
-
-    @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            super.onLayout(z, i, i2, i3, i4);
-            this.b.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
-            this.a.addOval(this.b, Path.Direction.CW);
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RoundFrameLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -121,5 +84,42 @@ public class RoundFrameLayout extends FrameLayout {
             }
         }
         a();
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            setWillNotDraw(false);
+            this.a = new Path();
+            this.b = new RectF();
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void dispatchDraw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
+            Paint paint = new Paint();
+            paint.setAntiAlias(true);
+            paint.setColor(-1);
+            int saveLayer = canvas.saveLayer(0.0f, 0.0f, getWidth(), getHeight(), null, 31);
+            super.dispatchDraw(canvas);
+            paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.MULTIPLY));
+            canvas.drawPath(this.a, paint);
+            if (saveLayer >= 1 && saveLayer <= canvas.getSaveCount()) {
+                canvas.restoreToCount(saveLayer);
+            }
+            paint.setXfermode(null);
+        }
+    }
+
+    @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            super.onLayout(z, i, i2, i3, i4);
+            this.b.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
+            this.a.addOval(this.b, Path.Direction.CW);
+        }
     }
 }

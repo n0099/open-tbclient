@@ -2,7 +2,7 @@ package com.baidu.tbadk.data;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.q26;
+import com.baidu.tieba.x26;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import tbclient.CardLinkInfo;
 /* loaded from: classes3.dex */
-public class CardLinkInfoData extends q26 implements Serializable {
+public class CardLinkInfoData extends x26 implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ARROW_BTN_STYLE = "2";
     public static final String DEL_BTN_STYLE = "3";
@@ -33,6 +33,16 @@ public class CardLinkInfoData extends q26 implements Serializable {
     public String type;
     public String url;
 
+    @Override // com.baidu.tieba.x26
+    public int sort() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            return Integer.MAX_VALUE;
+        }
+        return invokeV.intValue;
+    }
+
     public CardLinkInfoData() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -50,72 +60,105 @@ public class CardLinkInfoData extends q26 implements Serializable {
     public String getBtnStyle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.btnStyle : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.btnStyle;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getBtnText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.btnText : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.btnText;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getContent1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.content1 : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.content1;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getContent2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.content2 : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.content2;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getImageUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.imageUrl : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.imageUrl;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getTagColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.tagColor : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.tagColor;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getTagText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.tagText : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.tagText;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getTextBtnStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.textBtnStatus : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.textBtnStatus;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.title : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.title;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.type : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.type;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.url : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.url;
+        }
+        return (String) invokeV.objValue;
     }
 
     public void parse(CardLinkInfo cardLinkInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, cardLinkInfo) == null) || cardLinkInfo == null) {
+        if ((interceptable != null && interceptable.invokeL(1048587, this, cardLinkInfo) != null) || cardLinkInfo == null) {
             return;
         }
         this.type = cardLinkInfo.type;
@@ -206,15 +249,5 @@ public class CardLinkInfoData extends q26 implements Serializable {
         if (interceptable == null || interceptable.invokeL(1048598, this, str) == null) {
             this.url = str;
         }
-    }
-
-    @Override // com.baidu.tieba.q26
-    public int sort() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            return Integer.MAX_VALUE;
-        }
-        return invokeV.intValue;
     }
 }

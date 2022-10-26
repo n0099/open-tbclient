@@ -37,14 +37,10 @@ public class AddPollPostHttpResponseMessage extends TbHttpResponsedMessage {
     public AddPollPostResIdl getIdl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.idl : (AddPollPostResIdl) invokeV.objValue;
-    }
-
-    public void setIdl(AddPollPostResIdl addPollPostResIdl) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, addPollPostResIdl) == null) {
-            this.idl = addPollPostResIdl;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.idl;
         }
+        return (AddPollPostResIdl) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -53,6 +49,13 @@ public class AddPollPostHttpResponseMessage extends TbHttpResponsedMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             this.idl = (AddPollPostResIdl) new Wire(new Class[0]).parseFrom(bArr, AddPollPostResIdl.class);
+        }
+    }
+
+    public void setIdl(AddPollPostResIdl addPollPostResIdl) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, addPollPostResIdl) == null) {
+            this.idl = addPollPostResIdl;
         }
     }
 }

@@ -38,25 +38,40 @@ public class PkgNameAndNodeInfoData implements Serializable {
     public boolean compare(PkgNameAndNodeInfoData pkgNameAndNodeInfoData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pkgNameAndNodeInfoData)) == null) ? pkgNameAndNodeInfoData != null && this.packageName.equals(pkgNameAndNodeInfoData.packageName) && this.nodeInfo.compare(pkgNameAndNodeInfoData.nodeInfo) && this.gameId.equals(pkgNameAndNodeInfoData.gameId) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pkgNameAndNodeInfoData)) == null) {
+            if (pkgNameAndNodeInfoData == null || !this.packageName.equals(pkgNameAndNodeInfoData.packageName) || !this.nodeInfo.compare(pkgNameAndNodeInfoData.nodeInfo) || !this.gameId.equals(pkgNameAndNodeInfoData.gameId)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
     public String getGameId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.gameId : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.gameId;
+        }
+        return (String) invokeV.objValue;
     }
 
     public NodeInfo getNodeInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.nodeInfo : (NodeInfo) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.nodeInfo;
+        }
+        return (NodeInfo) invokeV.objValue;
     }
 
     public String getPackageName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.packageName : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.packageName;
+        }
+        return (String) invokeV.objValue;
     }
 
     public void setGameId(String str) {

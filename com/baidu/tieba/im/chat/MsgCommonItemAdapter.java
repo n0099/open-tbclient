@@ -11,10 +11,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.chat.AbsMsglistView;
 import com.baidu.tieba.im.data.MsgCacheData;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.im.message.chat.ReportPrivateMsgData;
-import com.baidu.tieba.qn;
-import com.baidu.tieba.xf;
+import com.baidu.tieba.rn;
 import com.baidu.tieba.yf;
+import com.baidu.tieba.zf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,35 +21,35 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public abstract class MsgCommonItemAdapter<T> extends qn<ChatMessage, MsgViewHolder<T>> {
+public abstract class MsgCommonItemAdapter extends rn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<MsglistActivity<?>> a;
-    public xf b;
-    public yf c;
+    public TbPageContext a;
+    public yf b;
+    public zf c;
     public long d;
     public boolean e;
     public boolean f;
     public int g;
     public boolean h;
-    public ArrayList<ReportPrivateMsgData> i;
+    public ArrayList i;
     public AbsMsglistView.j j;
     public int k;
 
     /* loaded from: classes4.dex */
-    public static class MsgViewHolder<T> extends TypeAdapter.ViewHolder {
+    public class MsgViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public T a;
+        public Object a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public MsgViewHolder(View view2, T t) {
+        public MsgViewHolder(View view2, Object obj) {
             super(view2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {view2, t};
+                Object[] objArr = {view2, obj};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -61,18 +60,21 @@ public abstract class MsgCommonItemAdapter<T> extends qn<ChatMessage, MsgViewHol
                     return;
                 }
             }
-            this.a = t;
+            this.a = obj;
         }
 
-        public T a() {
+        public Object a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (T) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a;
+            }
+            return invokeV.objValue;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MsgCommonItemAdapter(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
+    public MsgCommonItemAdapter(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -100,14 +102,14 @@ public abstract class MsgCommonItemAdapter<T> extends qn<ChatMessage, MsgViewHol
         this.a = tbPageContext;
     }
 
-    public void A(yf yfVar) {
+    public void A(zf zfVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, yfVar) == null) {
-            this.c = yfVar;
+        if (interceptable == null || interceptable.invokeL(1048576, this, zfVar) == null) {
+            this.c = zfVar;
         }
     }
 
-    public void B(ArrayList<ReportPrivateMsgData> arrayList) {
+    public void B(ArrayList arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList) == null) {
             this.i = arrayList;
@@ -126,41 +128,6 @@ public abstract class MsgCommonItemAdapter<T> extends qn<ChatMessage, MsgViewHol
         if (interceptable == null || interceptable.invokeL(1048579, this, jVar) == null) {
             this.j = jVar;
         }
-    }
-
-    public final void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.d = System.currentTimeMillis() / 1000;
-        }
-    }
-
-    public boolean t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f : invokeV.booleanValue;
-    }
-
-    public boolean u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.e : invokeV.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: v */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, MsgViewHolder<T> msgViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), view2, viewGroup, chatMessage, msgViewHolder})) == null) {
-            if (chatMessage != null && chatMessage.getCacheData() == null) {
-                chatMessage.setCacheData(new MsgCacheData());
-            }
-            s();
-            return view2;
-        }
-        return (View) invokeCommon.objValue;
     }
 
     public void w(boolean z) {
@@ -184,10 +151,51 @@ public abstract class MsgCommonItemAdapter<T> extends qn<ChatMessage, MsgViewHol
         }
     }
 
-    public void z(xf xfVar) {
+    public void z(yf yfVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, xfVar) == null) {
-            this.b = xfVar;
+        if (interceptable == null || interceptable.invokeL(1048588, this, yfVar) == null) {
+            this.b = yfVar;
         }
+    }
+
+    public final void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.d = System.currentTimeMillis() / 1000;
+        }
+    }
+
+    public boolean t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.f;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.e;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.rn
+    /* renamed from: v */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, MsgViewHolder msgViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), view2, viewGroup, chatMessage, msgViewHolder})) == null) {
+            if (chatMessage != null && chatMessage.getCacheData() == null) {
+                chatMessage.setCacheData(new MsgCacheData());
+            }
+            s();
+            return view2;
+        }
+        return (View) invokeCommon.objValue;
     }
 }

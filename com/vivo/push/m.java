@@ -63,10 +63,9 @@ public final class m {
     public static void c(Runnable runnable) {
         Handler handler;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, runnable) == null) || (handler = c) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, runnable) == null) && (handler = c) != null) {
+            handler.post(runnable);
         }
-        handler.post(runnable);
     }
 
     public static void a(Runnable runnable) {

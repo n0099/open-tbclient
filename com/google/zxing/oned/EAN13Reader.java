@@ -50,6 +50,16 @@ public final class EAN13Reader extends UPCEANReader {
         this.decodeMiddleCounters = new int[4];
     }
 
+    @Override // com.google.zxing.oned.UPCEANReader
+    public BarcodeFormat getBarcodeFormat() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return BarcodeFormat.EAN_13;
+        }
+        return (BarcodeFormat) invokeV.objValue;
+    }
+
     public static void determineFirstDigit(StringBuilder sb, int i) throws NotFoundException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65538, null, sb, i) == null) {
@@ -97,12 +107,5 @@ public final class EAN13Reader extends UPCEANReader {
             return i5;
         }
         return invokeLLL.intValue;
-    }
-
-    @Override // com.google.zxing.oned.UPCEANReader
-    public BarcodeFormat getBarcodeFormat() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? BarcodeFormat.EAN_13 : (BarcodeFormat) invokeV.objValue;
     }
 }

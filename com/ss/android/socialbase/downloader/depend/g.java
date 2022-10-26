@@ -11,20 +11,25 @@ public interface g extends IInterface {
     Uri a(String str, String str2) throws RemoteException;
 
     /* loaded from: classes8.dex */
-    public static abstract class a extends Binder implements g {
+    public abstract class a extends Binder implements g {
+        @Override // android.os.IInterface
+        public IBinder asBinder() {
+            return this;
+        }
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.g$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public static class C0679a implements g {
+        public class C0675a implements g {
             public static g a;
             public IBinder b;
 
-            public C0679a(IBinder iBinder) {
+            public C0675a(IBinder iBinder) {
                 this.b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.g
             public Uri a(String str, String str2) throws RemoteException {
+                Uri uri;
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
@@ -35,7 +40,12 @@ public interface g extends IInterface {
                         return a.a().a(str, str2);
                     }
                     obtain2.readException();
-                    return obtain2.readInt() != 0 ? (Uri) Uri.CREATOR.createFromParcel(obtain2) : null;
+                    if (obtain2.readInt() != 0) {
+                        uri = (Uri) Uri.CREATOR.createFromParcel(obtain2);
+                    } else {
+                        uri = null;
+                    }
+                    return uri;
                 } finally {
                     obtain2.recycle();
                     obtain.recycle();
@@ -52,6 +62,10 @@ public interface g extends IInterface {
             attachInterface(this, "com.ss.android.socialbase.downloader.depend.IDownloadAidlFileProvider");
         }
 
+        public static g a() {
+            return C0675a.a;
+        }
+
         public static g a(IBinder iBinder) {
             if (iBinder == null) {
                 return null;
@@ -60,12 +74,7 @@ public interface g extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof g)) {
                 return (g) queryLocalInterface;
             }
-            return new C0679a(iBinder);
-        }
-
-        @Override // android.os.IInterface
-        public IBinder asBinder() {
-            return this;
+            return new C0675a(iBinder);
         }
 
         @Override // android.os.Binder
@@ -87,10 +96,6 @@ public interface g extends IInterface {
                 parcel2.writeInt(0);
             }
             return true;
-        }
-
-        public static g a() {
-            return C0679a.a;
         }
     }
 }

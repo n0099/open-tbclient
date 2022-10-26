@@ -4,8 +4,6 @@ import android.content.Context;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.ViewTreeObserver;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.kwad.sdk.core.e.b;
 import com.kwad.sdk.utils.bf;
 import com.kwad.sdk.widget.j;
@@ -21,7 +19,7 @@ public class AdBasePvFrameLayout extends AdBaseFrameLayout {
     public bf afk;
     public j bx;
 
-    public AdBasePvFrameLayout(@NonNull Context context) {
+    public AdBasePvFrameLayout(Context context) {
         super(context);
         this.afe = 500L;
         this.aff = 0.1f;
@@ -29,7 +27,7 @@ public class AdBasePvFrameLayout extends AdBaseFrameLayout {
         init();
     }
 
-    public AdBasePvFrameLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+    public AdBasePvFrameLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.afe = 500L;
         this.aff = 0.1f;
@@ -37,7 +35,7 @@ public class AdBasePvFrameLayout extends AdBaseFrameLayout {
         init();
     }
 
-    public AdBasePvFrameLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+    public AdBasePvFrameLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.afe = 500L;
         this.aff = 0.1f;

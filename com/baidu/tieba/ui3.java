@@ -1,20 +1,66 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.ContextWrapper;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.swan.apps.process.SwanAppProcessInfo;
-import com.baidu.swan.menu.BaseMenuView;
+import com.baidu.tieba.q23;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ui3 implements m94 {
+public class ui3 implements q23.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public FrameLayout a;
+
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ViewGroup a;
+        public final /* synthetic */ ui3 b;
+
+        public a(ui3 ui3Var, ViewGroup viewGroup) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ui3Var, viewGroup};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ui3Var;
+            this.a = viewGroup;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.b.a == null) {
+                    this.b.a = new FrameLayout(this.a.getContext());
+                    this.b.a.setBackgroundResource(R.color.obfuscated_res_0x7f0603de);
+                }
+                this.a.removeView(this.b.a);
+                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
+                layoutParams.gravity = 17;
+                this.a.addView(this.b.a, layoutParams);
+            }
+        }
+    }
 
     public ui3() {
         Interceptable interceptable = $ic;
@@ -32,39 +78,50 @@ public class ui3 implements m94 {
         this.a = null;
     }
 
-    @Override // com.baidu.tieba.m94
-    public void a(BaseMenuView baseMenuView) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, baseMenuView) == null) || baseMenuView == null || ProcessUtils.isMainProcess() || !SwanAppProcessInfo.isSwanAppProcess(ProcessUtils.getCurProcessName())) {
-            return;
-        }
-        if (sm2.M().a()) {
-            b(baseMenuView);
-        } else {
-            c(baseMenuView);
-        }
-    }
-
-    public final void b(ViewGroup viewGroup) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) == null) && viewGroup != null && (viewGroup instanceof FrameLayout)) {
-            if (this.a == null) {
-                FrameLayout frameLayout = new FrameLayout(viewGroup.getContext());
-                this.a = frameLayout;
-                frameLayout.setBackgroundResource(R.color.obfuscated_res_0x7f0603de);
-            }
-            viewGroup.removeView(this.a);
-            viewGroup.addView(this.a, new FrameLayout.LayoutParams(-1, -1));
-        }
-    }
-
-    public final void c(ViewGroup viewGroup) {
+    public final void e(ViewGroup viewGroup) {
         FrameLayout frameLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) == null) || viewGroup == null || (frameLayout = this.a) == null) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) == null) && viewGroup != null && (frameLayout = this.a) != null) {
+            viewGroup.removeView(frameLayout);
+            this.a = null;
+        }
+    }
+
+    public final void f(q23 q23Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, q23Var) == null) {
+            Context context = q23Var.getContext();
+            if (q23Var.getContext() instanceof ContextWrapper) {
+                context = ((ContextWrapper) q23Var.getContext()).getBaseContext();
+            }
+            if (context instanceof Activity) {
+                vf3.b((Activity) context, q23Var);
+            }
+        }
+    }
+
+    public final void d(ViewGroup viewGroup, View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, view2) != null) || viewGroup == null || view2 == null || !(viewGroup instanceof FrameLayout)) {
             return;
         }
-        viewGroup.removeView(frameLayout);
-        this.a = null;
+        view2.post(new a(this, viewGroup));
+    }
+
+    @Override // com.baidu.tieba.q23.c
+    public void a(q23 q23Var, q23.b bVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, q23Var, bVar) != null) || q23Var == null || bVar == null || ProcessUtils.isMainProcess() || !SwanAppProcessInfo.isSwanAppProcess(ProcessUtils.getCurProcessName())) {
+            return;
+        }
+        f(q23Var);
+        ViewGroup viewGroup = (ViewGroup) q23Var.findViewById(16908290);
+        if (viewGroup != null) {
+            if (tm2.M().a()) {
+                d(viewGroup, bVar.r);
+            } else {
+                e(viewGroup);
+            }
+        }
     }
 }

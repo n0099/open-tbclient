@@ -3,13 +3,11 @@ package androidx.cardview.widget;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.RectF;
-import androidx.annotation.RequiresApi;
 import androidx.cardview.widget.RoundRectDrawableWithShadow;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@RequiresApi(17)
 /* loaded from: classes.dex */
 public class CardViewApi17Impl extends CardViewBaseImpl {
     public static /* synthetic */ Interceptable $ic;

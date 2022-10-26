@@ -36,6 +36,11 @@ public class SmartBubbleAnimatedView extends View {
     public boolean l;
 
     /* loaded from: classes2.dex */
+    public interface e {
+        void a();
+    }
+
+    /* loaded from: classes2.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -159,6 +164,20 @@ public class SmartBubbleAnimatedView extends View {
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SmartBubbleAnimatedView a;
 
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationRepeat(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
+            }
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationStart(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
+            }
+        }
+
         public d(SmartBubbleAnimatedView smartBubbleAnimatedView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -180,39 +199,18 @@ public class SmartBubbleAnimatedView extends View {
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationCancel(Animator animator) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, animator) == null) || this.a.j == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, animator) == null) && this.a.j != null) {
+                this.a.j.a();
             }
-            this.a.j.a();
         }
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) || this.a.j == null) {
-                return;
-            }
-            this.a.j.a();
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationRepeat(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) && this.a.j != null) {
+                this.a.j.a();
             }
         }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationStart(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-            }
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public interface e {
-        void a();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -241,116 +239,6 @@ public class SmartBubbleAnimatedView extends View {
         this.i = new Rect();
         this.l = false;
         d();
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f.setColor(-16711681);
-            this.g.setColor(-7829368);
-            this.g.setTextSize(getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07060e));
-            this.k = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07060d);
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.l) {
-                e eVar = this.j;
-                if (eVar != null) {
-                    eVar.a();
-                    return;
-                }
-                return;
-            }
-            ValueAnimator ofFloat = ValueAnimator.ofFloat(1.0f, 0.0f);
-            this.e = ofFloat;
-            ofFloat.addUpdateListener(new c(this));
-            this.e.addListener(new d(this));
-            this.e.setDuration(300L);
-            this.e.start();
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.d = ValueAnimator.ofFloat(0.0f, 1.1f);
-            if (this.l) {
-                ViewGroup.LayoutParams layoutParams = getLayoutParams();
-                if (layoutParams instanceof LinearLayout.LayoutParams) {
-                    ((LinearLayout.LayoutParams) layoutParams).topMargin = 20;
-                    setLayoutParams(layoutParams);
-                }
-            }
-            this.d.addUpdateListener(new a(this));
-            this.d.setDuration(400L);
-            this.d.start();
-            if (getHandler() != null) {
-                getHandler().postDelayed(new b(this), this.b);
-            }
-        }
-    }
-
-    public int getTipViewHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.k : invokeV.intValue;
-    }
-
-    @Override // android.view.View
-    public void onDetachedFromWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.onDetachedFromWindow();
-            if (getHandler() != null) {
-                getHandler().removeCallbacksAndMessages(null);
-            }
-            ValueAnimator valueAnimator = this.d;
-            if (valueAnimator != null && valueAnimator.isRunning()) {
-                this.d.cancel();
-            }
-            ValueAnimator valueAnimator2 = this.e;
-            if (valueAnimator2 == null || !valueAnimator2.isRunning()) {
-                return;
-            }
-            this.e.cancel();
-        }
-    }
-
-    @Override // android.view.View
-    public void onDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
-            float height = ((1.0f - this.c) * getHeight()) / 2.0f;
-            float width = (getWidth() / 2) + ((this.c * getWidth()) / 2.0f);
-            float height2 = (getHeight() / 2) + ((this.c * getHeight()) / 2.0f);
-            this.h.set(((1.0f - this.c) * getWidth()) / 2.0f, height, width, height2);
-            float f = (height2 - height) / 2.0f;
-            canvas.drawRoundRect(this.h, f, f, this.f);
-            Paint paint = this.g;
-            String str = this.a;
-            paint.getTextBounds(str, 0, str.length(), this.i);
-            int width2 = this.i.width();
-            int height3 = this.i.height();
-            String str2 = this.a;
-            canvas.drawText(str2, 0, str2.length(), (getWidth() - width2) / 2, getHeight() - ((getHeight() - height3) / 2), this.g);
-        }
-    }
-
-    public void setExtrusionRemind(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.l = z;
-        }
-    }
-
-    public void setOnBubbleAnimateListener(e eVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, eVar) == null) {
-            this.j = eVar;
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -409,5 +297,117 @@ public class SmartBubbleAnimatedView extends View {
         this.i = new Rect();
         this.l = false;
         d();
+    }
+
+    public void setExtrusionRemind(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.l = z;
+        }
+    }
+
+    public void setOnBubbleAnimateListener(e eVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, eVar) == null) {
+            this.j = eVar;
+        }
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.f.setColor(-16711681);
+            this.g.setColor(-7829368);
+            this.g.setTextSize(getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07060e));
+            this.k = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07060d);
+        }
+    }
+
+    @Override // android.view.View
+    public void onDetachedFromWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.onDetachedFromWindow();
+            if (getHandler() != null) {
+                getHandler().removeCallbacksAndMessages(null);
+            }
+            ValueAnimator valueAnimator = this.d;
+            if (valueAnimator != null && valueAnimator.isRunning()) {
+                this.d.cancel();
+            }
+            ValueAnimator valueAnimator2 = this.e;
+            if (valueAnimator2 != null && valueAnimator2.isRunning()) {
+                this.e.cancel();
+            }
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (this.l) {
+                e eVar = this.j;
+                if (eVar != null) {
+                    eVar.a();
+                    return;
+                }
+                return;
+            }
+            ValueAnimator ofFloat = ValueAnimator.ofFloat(1.0f, 0.0f);
+            this.e = ofFloat;
+            ofFloat.addUpdateListener(new c(this));
+            this.e.addListener(new d(this));
+            this.e.setDuration(300L);
+            this.e.start();
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.d = ValueAnimator.ofFloat(0.0f, 1.1f);
+            if (this.l) {
+                ViewGroup.LayoutParams layoutParams = getLayoutParams();
+                if (layoutParams instanceof LinearLayout.LayoutParams) {
+                    ((LinearLayout.LayoutParams) layoutParams).topMargin = 20;
+                    setLayoutParams(layoutParams);
+                }
+            }
+            this.d.addUpdateListener(new a(this));
+            this.d.setDuration(400L);
+            this.d.start();
+            if (getHandler() != null) {
+                getHandler().postDelayed(new b(this), this.b);
+            }
+        }
+    }
+
+    public int getTipViewHeight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.k;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.view.View
+    public void onDraw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
+            float height = ((1.0f - this.c) * getHeight()) / 2.0f;
+            float width = (getWidth() / 2) + ((this.c * getWidth()) / 2.0f);
+            float height2 = (getHeight() / 2) + ((this.c * getHeight()) / 2.0f);
+            this.h.set(((1.0f - this.c) * getWidth()) / 2.0f, height, width, height2);
+            float f = (height2 - height) / 2.0f;
+            canvas.drawRoundRect(this.h, f, f, this.f);
+            Paint paint = this.g;
+            String str = this.a;
+            paint.getTextBounds(str, 0, str.length(), this.i);
+            int width2 = this.i.width();
+            int height3 = this.i.height();
+            String str2 = this.a;
+            canvas.drawText(str2, 0, str2.length(), (getWidth() - width2) / 2, getHeight() - ((getHeight() - height3) / 2), this.g);
+        }
     }
 }

@@ -33,9 +33,10 @@ public class z0 implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            this.a.B = true;
-            this.a.a();
+        if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
+            return;
         }
+        this.a.B = true;
+        this.a.a();
     }
 }

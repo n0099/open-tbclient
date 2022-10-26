@@ -2,6 +2,7 @@ package com.google.android.exoplayer2.audio;
 
 import android.support.v4.media.session.MediaSessionCompat;
 import androidx.core.view.InputDeviceCompat;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.pass.face.platform.utils.FileUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -33,13 +34,22 @@ public final class Ac3Util {
 
     /* renamed from: com.google.android.exoplayer2.audio.Ac3Util$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
+    public static int getAc3SyncframeAudioSampleCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return 1536;
+        }
+        return invokeV.intValue;
+    }
+
     /* loaded from: classes7.dex */
-    public static final class Ac3SyncFrameInfo {
+    public final class Ac3SyncFrameInfo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int STREAM_TYPE_TYPE0 = 0;
         public static final int STREAM_TYPE_TYPE1 = 1;
@@ -52,10 +62,6 @@ public final class Ac3Util {
         public final int sampleCount;
         public final int sampleRate;
         public final int streamType;
-
-        public /* synthetic */ Ac3SyncFrameInfo(String str, int i, int i2, int i3, int i4, int i5, AnonymousClass1 anonymousClass1) {
-            this(str, i, i2, i3, i4, i5);
-        }
 
         public Ac3SyncFrameInfo(String str, int i, int i2, int i3, int i4, int i5) {
             Interceptable interceptable = $ic;
@@ -78,6 +84,10 @@ public final class Ac3Util {
             this.sampleRate = i3;
             this.frameSize = i4;
             this.sampleCount = i5;
+        }
+
+        public /* synthetic */ Ac3SyncFrameInfo(String str, int i, int i2, int i3, int i4, int i5, AnonymousClass1 anonymousClass1) {
+            this(str, i, i2, i3, i4, i5);
         }
     }
 
@@ -116,15 +126,6 @@ public final class Ac3Util {
         }
     }
 
-    public static int getAc3SyncframeAudioSampleCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return 1536;
-        }
-        return invokeV.intValue;
-    }
-
     public static int getAc3SyncframeSize(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
@@ -132,19 +133,22 @@ public final class Ac3Util {
             int i3 = i2 / 2;
             if (i >= 0) {
                 int[] iArr = SAMPLE_RATE_BY_FSCOD;
-                if (i >= iArr.length || i2 < 0) {
+                if (i < iArr.length && i2 >= 0) {
+                    int[] iArr2 = SYNCFRAME_SIZE_WORDS_BY_HALF_FRMSIZECOD_44_1;
+                    if (i3 < iArr2.length) {
+                        int i4 = iArr[i];
+                        if (i4 == 44100) {
+                            return (iArr2[i3] + (i2 % 2)) * 2;
+                        }
+                        int i5 = BITRATE_BY_HALF_FRMSIZECOD[i3];
+                        if (i4 == 32000) {
+                            return i5 * 6;
+                        }
+                        return i5 * 4;
+                    }
                     return -1;
                 }
-                int[] iArr2 = SYNCFRAME_SIZE_WORDS_BY_HALF_FRMSIZECOD_44_1;
-                if (i3 >= iArr2.length) {
-                    return -1;
-                }
-                int i4 = iArr[i];
-                if (i4 == 44100) {
-                    return (iArr2[i3] + (i2 % 2)) * 2;
-                }
-                int i5 = BITRATE_BY_HALF_FRMSIZECOD[i3];
-                return i4 == 32000 ? i5 * 6 : i5 * 4;
+                return -1;
             }
             return -1;
         }
@@ -168,6 +172,7 @@ public final class Ac3Util {
 
     public static Ac3SyncFrameInfo parseAc3SyncframeInfo(ParsableBitArray parsableBitArray) {
         InterceptResult invokeL;
+        boolean z;
         int i;
         int i2;
         int i3;
@@ -179,7 +184,11 @@ public final class Ac3Util {
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, parsableBitArray)) == null) {
             int position = parsableBitArray.getPosition();
             parsableBitArray.skipBits(40);
-            boolean z = parsableBitArray.readBits(5) == 16;
+            if (parsableBitArray.readBits(5) == 16) {
+                z = true;
+            } else {
+                z = false;
+            }
             parsableBitArray.setPosition(position);
             int i7 = 6;
             if (z) {
@@ -234,7 +243,7 @@ public final class Ac3Util {
             if (bArr.length < 5) {
                 return -1;
             }
-            return getAc3SyncframeSize((bArr[4] & 192) >> 6, bArr[4] & 63);
+            return getAc3SyncframeSize((bArr[4] & ExifInterface.MARKER_SOF0) >> 6, bArr[4] & 63);
         }
         return invokeL.intValue;
     }
@@ -262,7 +271,11 @@ public final class Ac3Util {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, byteBuffer)) == null) {
-            return (((byteBuffer.get(byteBuffer.position() + 4) & 192) >> 6) != 3 ? BLOCKS_PER_SYNCFRAME_BY_NUMBLKSCOD[(byteBuffer.get(byteBuffer.position() + 4) & 48) >> 4] : 6) * 256;
+            int i = 6;
+            if (((byteBuffer.get(byteBuffer.position() + 4) & ExifInterface.MARKER_SOF0) >> 6) != 3) {
+                i = BLOCKS_PER_SYNCFRAME_BY_NUMBLKSCOD[(byteBuffer.get(byteBuffer.position() + 4) & 48) >> 4];
+            }
+            return i * 256;
         }
         return invokeL.intValue;
     }

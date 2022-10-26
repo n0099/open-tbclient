@@ -1,22 +1,30 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.adp.lib.util.BdLog;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.switchs.LoginPassV6Switch;
-import com.baidu.tbadk.switchs.LowVersionLoginPassV6Switch;
-import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.imageManager.TbFaceManager;
+import com.baidu.tieba.memberCenter.tail.data.TailData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class ap7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public View a;
+    public Context b;
+    public TextView c;
+    public ImageView d;
+    public TailData e;
+    public View f;
 
     public ap7() {
         Interceptable interceptable = $ic;
@@ -32,45 +40,78 @@ public class ap7 {
         }
     }
 
-    public void a(String str) {
+    public TailData b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            try {
-                b(new JSONObject(str));
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.e;
+        }
+        return (TailData) invokeV.objValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            SkinManager.setBackgroundResource(this.f, R.drawable.tail_item_bg);
+            SkinManager.setViewTextColor(this.c, R.color.CAM_X0106, 1);
+            SkinManager.setBackgroundResource(this.d, R.drawable.tail_tool_list_item_checkbox_bg);
+            SkinManager.setImageResource(this.d, R.drawable.tail_tool_list_item_checkbox_selector);
         }
     }
 
-    public void b(JSONObject jSONObject) {
-        JSONArray optJSONArray;
+    public View a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0862, (ViewGroup) null);
+            this.a = inflate;
+            this.b = context;
+            inflate.setTag(this);
+            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0920c3);
+            this.d = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0920c2);
+            View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f0920c1);
+            this.f = findViewById;
+            findViewById.setTag(this);
+            return this.a;
+        }
+        return (View) invokeL.objValue;
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.c.setTextColor(gp7.a(str));
+        }
+    }
+
+    public void e(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
+            this.f.setOnClickListener(onClickListener);
+        }
+    }
+
+    public void f(TailData tailData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, tailData) == null) {
+            this.e = tailData;
+        }
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.c.setText(TbFaceManager.i().t(this.b, hp7.a(str), null));
+        }
+    }
+
+    public void h(TailData tailData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048583, this, tailData) != null) || tailData == null) {
             return;
         }
-        try {
-            JSONObject optJSONObject = jSONObject.optJSONObject("config");
-            if (optJSONObject == null || (optJSONArray = optJSONObject.optJSONArray(SetImageWatermarkTypeReqMsg.SWITCH)) == null) {
-                return;
-            }
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
-                if (jSONObject2 != null) {
-                    String optString = jSONObject2.optString("name");
-                    Integer valueOf = Integer.valueOf(jSONObject2.optInt("type", 0));
-                    if (LoginPassV6Switch.KEY.equals(optString)) {
-                        SwitchManager.getInstance().turn(optString, valueOf.intValue());
-                        g05.a();
-                    }
-                    if (TextUtils.equals(LowVersionLoginPassV6Switch.KEY, optString)) {
-                        SwitchManager.getInstance().turn(optString, valueOf.intValue());
-                        g05.a();
-                    }
-                }
-            }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
+        g(tailData.getContent());
+        d(tailData.getFontColor());
+        this.d.setSelected(tailData.isSelected());
     }
 }

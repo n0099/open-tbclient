@@ -34,19 +34,6 @@ public class PullLeftViewPager extends BdBaseViewPager {
         }
     }
 
-    @Override // androidx.viewpager.widget.ViewPager
-    public boolean canScroll(View view2, boolean z, int i, int i2, int i3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{view2, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
-            if (view2 != this && (view2 instanceof PullLeftRefreshLayout) && ((PullLeftRefreshLayout) view2).h()) {
-                return true;
-            }
-            return super.canScroll(view2, z, i, i2, i3);
-        }
-        return invokeCommon.booleanValue;
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PullLeftViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -66,5 +53,18 @@ public class PullLeftViewPager extends BdBaseViewPager {
                 return;
             }
         }
+    }
+
+    @Override // androidx.viewpager.widget.ViewPager
+    public boolean canScroll(View view2, boolean z, int i, int i2, int i3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{view2, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+            if (view2 != this && (view2 instanceof PullLeftRefreshLayout) && ((PullLeftRefreshLayout) view2).h()) {
+                return true;
+            }
+            return super.canScroll(view2, z, i, i2, i3);
+        }
+        return invokeCommon.booleanValue;
     }
 }

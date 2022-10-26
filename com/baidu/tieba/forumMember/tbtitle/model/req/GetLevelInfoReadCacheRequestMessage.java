@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class GetLevelInfoReadCacheRequestMessage extends CustomMessage<Object> {
+public class GetLevelInfoReadCacheRequestMessage extends CustomMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String cacheKey;
@@ -34,7 +34,10 @@ public class GetLevelInfoReadCacheRequestMessage extends CustomMessage<Object> {
     public String getCacheKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.cacheKey : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.cacheKey;
+        }
+        return (String) invokeV.objValue;
     }
 
     public void setCacheKey(String str) {

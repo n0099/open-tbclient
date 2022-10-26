@@ -1,19 +1,8 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.content.Context;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class jg8 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public static String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            return "{\"clickFidList\":[\"" + str + "\"]}";
-        }
-        return (String) invokeL.objValue;
-    }
+public interface jg8 {
+    void dispatch(JSONObject jSONObject, Context context);
 }

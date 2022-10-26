@@ -3,14 +3,12 @@ package androidx.transition;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.content.res.XmlResourceParser;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.annotation.NonNull;
 import androidx.core.content.res.TypedArrayUtils;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
@@ -76,6 +74,20 @@ public class Fade extends Visibility {
         }
     }
 
+    public Fade() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     public Fade(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -92,6 +104,30 @@ public class Fade extends Visibility {
             }
         }
         setMode(i);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public Fade(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, Styleable.FADE);
+        setMode(TypedArrayUtils.getNamedInt(obtainStyledAttributes, (XmlResourceParser) attributeSet, "fadingMode", 0, getMode()));
+        obtainStyledAttributes.recycle();
     }
 
     private Animator createAnimation(View view2, float f, float f2) {
@@ -130,7 +166,7 @@ public class Fade extends Visibility {
                 }
 
                 @Override // androidx.transition.TransitionListenerAdapter, androidx.transition.Transition.TransitionListener
-                public void onTransitionEnd(@NonNull Transition transition) {
+                public void onTransitionEnd(Transition transition) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, transition) == null) {
                         ViewUtils.setTransitionAlpha(this.val$view, 1.0f);
@@ -148,11 +184,17 @@ public class Fade extends Visibility {
         InterceptResult invokeLF;
         Float f2;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLF = interceptable.invokeLF(InputDeviceCompat.SOURCE_TRACKBALL, null, transitionValues, f)) == null) ? (transitionValues == null || (f2 = (Float) transitionValues.values.get(PROPNAME_TRANSITION_ALPHA)) == null) ? f : f2.floatValue() : invokeLF.floatValue;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(InputDeviceCompat.SOURCE_TRACKBALL, null, transitionValues, f)) == null) {
+            if (transitionValues != null && (f2 = (Float) transitionValues.values.get(PROPNAME_TRANSITION_ALPHA)) != null) {
+                return f2.floatValue();
+            }
+            return f;
+        }
+        return invokeLF.floatValue;
     }
 
     @Override // androidx.transition.Visibility, androidx.transition.Transition
-    public void captureStartValues(@NonNull TransitionValues transitionValues) {
+    public void captureStartValues(TransitionValues transitionValues) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, transitionValues) == null) {
             super.captureStartValues(transitionValues);
@@ -165,8 +207,12 @@ public class Fade extends Visibility {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, view2, transitionValues, transitionValues2)) == null) {
+            float f = 0.0f;
             float startAlpha = getStartAlpha(transitionValues, 0.0f);
-            return createAnimation(view2, startAlpha != 1.0f ? startAlpha : 0.0f, 1.0f);
+            if (startAlpha != 1.0f) {
+                f = startAlpha;
+            }
+            return createAnimation(view2, f, 1.0f);
         }
         return (Animator) invokeLLLL.objValue;
     }
@@ -180,44 +226,5 @@ public class Fade extends Visibility {
             return createAnimation(view2, getStartAlpha(transitionValues, 1.0f), 0.0f);
         }
         return (Animator) invokeLLLL.objValue;
-    }
-
-    public Fade() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    @SuppressLint({"RestrictedApi"})
-    public Fade(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, Styleable.FADE);
-        setMode(TypedArrayUtils.getNamedInt(obtainStyledAttributes, (XmlResourceParser) attributeSet, "fadingMode", 0, getMode()));
-        obtainStyledAttributes.recycle();
     }
 }

@@ -51,23 +51,22 @@ public class FileUtil {
 
     public void copyFileFromAssets(Context context, String str, String str2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2) != null) {
-            return;
-        }
-        InputStream open = context.getAssets().open(str);
-        File file = new File(str2);
-        FileOutputStream fileOutputStream = new FileOutputStream(file);
-        byte[] bArr = new byte[1024];
-        while (true) {
-            int read = open.read(bArr);
-            if (read != -1) {
-                fileOutputStream.write(bArr, 0, read);
-            } else {
-                fileOutputStream.flush();
-                open.close();
-                fileOutputStream.close();
-                file.setReadable(true);
-                return;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2) == null) {
+            InputStream open = context.getAssets().open(str);
+            File file = new File(str2);
+            FileOutputStream fileOutputStream = new FileOutputStream(file);
+            byte[] bArr = new byte[1024];
+            while (true) {
+                int read = open.read(bArr);
+                if (read != -1) {
+                    fileOutputStream.write(bArr, 0, read);
+                } else {
+                    fileOutputStream.flush();
+                    open.close();
+                    fileOutputStream.close();
+                    file.setReadable(true);
+                    return;
+                }
             }
         }
     }
@@ -77,17 +76,17 @@ public class FileUtil {
         File[] listFiles;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, file)) == null) {
-            if (file.exists()) {
-                if (file.isFile()) {
-                    return file.delete();
-                }
-                for (File file2 : file.listFiles()) {
-                    deleteFile(file2);
-                    file2.delete();
-                }
-                return true;
+            if (!file.exists()) {
+                return false;
             }
-            return false;
+            if (file.isFile()) {
+                return file.delete();
+            }
+            for (File file2 : file.listFiles()) {
+                deleteFile(file2);
+                file2.delete();
+            }
+            return true;
         }
         return invokeL.booleanValue;
     }

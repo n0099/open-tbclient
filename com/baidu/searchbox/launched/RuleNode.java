@@ -11,7 +11,7 @@ import java.util.List;
 public class RuleNode {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<RuleNode> mChildParts;
+    public List mChildParts;
     public String mName;
 
     public RuleNode(String str) {
@@ -32,22 +32,28 @@ public class RuleNode {
         this.mName = str;
     }
 
-    public List<RuleNode> getChildParts() {
+    public void setChildParts(List list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.mChildParts = list;
+        }
+    }
+
+    public List getChildParts() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mChildParts : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mChildParts;
+        }
+        return (List) invokeV.objValue;
     }
 
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mName : (String) invokeV.objValue;
-    }
-
-    public void setChildParts(List<RuleNode> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.mChildParts = list;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mName;
         }
+        return (String) invokeV.objValue;
     }
 }

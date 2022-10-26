@@ -1,75 +1,87 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tieba.ve0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
 /* loaded from: classes3.dex */
 public class av8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public float b;
-    public float c;
-    public float d;
-    public float e;
-    public float f;
 
-    public av8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes3.dex */
+    public class a implements ve0.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final WeakReference a;
+
+        @Override // com.baidu.tieba.ve0.a
+        public void onProgress(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
             }
         }
-    }
 
-    public static av8 a(int i, float f, float f2, float f3, float f4, float f5) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) == null) {
-            av8 av8Var = new av8();
-            av8Var.a = i;
-            av8Var.b = f;
-            av8Var.c = f2;
-            av8Var.d = f3;
-            av8Var.e = f4;
-            av8Var.f = f5;
-            return av8Var;
-        }
-        return (av8) invokeCommon.objValue;
-    }
-
-    public static av8 b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2) {
-                        if (i != 3) {
-                            if (i != 4) {
-                                if (i != 5) {
-                                    return null;
-                                }
-                                return a(i, 0.47f, 3.0f, 2.14f, 1.41f, 1.03f);
-                            }
-                            return a(i, 0.53f, 3.0f, 1.64f, 1.08f, 0.62f);
-                        }
-                        return a(i, 0.59f, 3.0f, 1.11f, 0.71f, 0.67f);
-                    }
-                    return a(i, 0.1f, 2.0f, 0.39f, 0.31f, 0.66f);
+        public a(ev8 ev8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ev8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                return a(i, 0.1f, 1.0f, 0.0f, 0.0f, 0.09f);
             }
-            return a(i, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
+            this.a = new WeakReference(ev8Var);
         }
-        return (av8) invokeI.objValue;
+
+        @Override // com.baidu.tieba.ve0.a
+        public void onResult(boolean z, String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, str) == null) && this.a.get() != null) {
+                if (z) {
+                    ((ev8) this.a.get()).a();
+                } else {
+                    ((ev8) this.a.get()).b();
+                }
+            }
+        }
+    }
+
+    public static boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return ve0.n();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void b(Context context, ev8 ev8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, context, ev8Var) == null) {
+            c(context);
+            ve0.p(new a(ev8Var));
+        }
+    }
+
+    public static void c(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
+            new sf0(context).a("cover_style", FileHelper.CreateFileIfNotFound(".cover_style"));
+            FileHelper.makeDirectory(".stickers");
+            FileHelper.makeDirectory(".filters");
+        }
     }
 }

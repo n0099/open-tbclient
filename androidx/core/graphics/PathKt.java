@@ -1,7 +1,6 @@
 package androidx.core.graphics;
 
 import android.graphics.Path;
-import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +14,6 @@ public final class PathKt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @RequiresApi(19)
     public static final Path and(Path path, Path path2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -27,7 +25,6 @@ public final class PathKt {
         return (Path) invokeLL.objValue;
     }
 
-    @RequiresApi(26)
     public static final Iterable<PathSegment> flatten(Path path, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
@@ -39,14 +36,6 @@ public final class PathKt {
         return (Iterable) invokeLF.objValue;
     }
 
-    public static /* synthetic */ Iterable flatten$default(Path path, float f, int i, Object obj) {
-        if ((i & 1) != 0) {
-            f = 0.5f;
-        }
-        return flatten(path, f);
-    }
-
-    @RequiresApi(19)
     public static final Path minus(Path path, Path path2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -58,7 +47,6 @@ public final class PathKt {
         return (Path) invokeLL.objValue;
     }
 
-    @RequiresApi(19)
     public static final Path or(Path path, Path path2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -70,7 +58,6 @@ public final class PathKt {
         return (Path) invokeLL.objValue;
     }
 
-    @RequiresApi(19)
     public static final Path plus(Path path, Path path2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -82,7 +69,6 @@ public final class PathKt {
         return (Path) invokeLL.objValue;
     }
 
-    @RequiresApi(19)
     public static final Path xor(Path path, Path path2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -92,5 +78,12 @@ public final class PathKt {
             return path3;
         }
         return (Path) invokeLL.objValue;
+    }
+
+    public static /* synthetic */ Iterable flatten$default(Path path, float f, int i, Object obj) {
+        if ((i & 1) != 0) {
+            f = 0.5f;
+        }
+        return flatten(path, f);
     }
 }

@@ -1,6 +1,5 @@
 package com.baidu.mapsdkplatform.comapi.map;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Rect;
 import android.graphics.SurfaceTexture;
@@ -18,6 +17,7 @@ import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.WinRound;
 import com.baidu.mapapi.model.inner.GeoPoint;
 import com.baidu.mapsdkplatform.comapi.map.m;
+import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +27,6 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONException;
 import org.json.JSONObject;
-@SuppressLint({"NewApi"})
 /* loaded from: classes2.dex */
 public class ac extends TextureView implements GestureDetector.OnDoubleTapListener, GestureDetector.OnGestureListener, TextureView.SurfaceTextureListener, m.a {
     public static /* synthetic */ Interceptable $ic;
@@ -407,7 +406,7 @@ public class ac extends TextureView implements GestureDetector.OnDoubleTapListen
                 }
                 try {
                     jSONObject.put("px", (int) motionEvent.getX());
-                    jSONObject.put("py", (int) motionEvent.getY());
+                    jSONObject.put(Config.PY, (int) motionEvent.getY());
                 } catch (JSONException e2) {
                     e = e2;
                     jSONObject2 = jSONObject;

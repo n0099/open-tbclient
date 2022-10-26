@@ -1,147 +1,119 @@
 package com.baidu.tieba;
 
-import android.net.wifi.WifiManager;
-import android.os.Build;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobstat.Config;
-import com.baidu.tbadk.core.util.ApiReplaceUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.net.InetAddress;
-import java.net.NetworkInterface;
-import java.util.Enumeration;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.Executor;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes3.dex */
 public class dc1 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile Executor a;
+    public static final int b;
+    public static final int c;
+    public static final ThreadFactory d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static InetAddress a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(65536, null)) != null) {
-            return (InetAddress) invokeV.objValue;
-        }
-        InetAddress inetAddress = null;
-        try {
-            Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
-            if (networkInterfaces == null) {
-                return null;
-            }
-            InetAddress inetAddress2 = null;
-            do {
-                try {
-                    if (!networkInterfaces.hasMoreElements()) {
-                        return inetAddress2;
-                    }
-                    Enumeration<InetAddress> inetAddresses = networkInterfaces.nextElement().getInetAddresses();
-                    while (true) {
-                        if (inetAddresses.hasMoreElements()) {
-                            InetAddress nextElement = inetAddresses.nextElement();
-                            try {
-                                if (!nextElement.isLoopbackAddress() && !nextElement.getHostAddress().contains(":")) {
-                                    inetAddress2 = nextElement;
-                                    continue;
-                                    break;
-                                }
-                                inetAddress2 = null;
-                            } catch (Exception unused) {
-                                return nextElement;
-                            }
-                        }
-                    }
-                } catch (Exception unused2) {
-                    inetAddress = inetAddress2;
-                    return inetAddress;
+    /* loaded from: classes3.dex */
+    public final class a implements ThreadFactory {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final AtomicInteger a;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-            } while (inetAddress2 == null);
-            return inetAddress2;
-        } catch (Exception unused3) {
+            }
+            this.a = new AtomicInteger(1);
+        }
+
+        @Override // java.util.concurrent.ThreadFactory
+        public Thread newThread(Runnable runnable) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
+                return new Thread(runnable, "cashier #" + this.a.getAndIncrement());
+            }
+            return (Thread) invokeL.objValue;
         }
     }
 
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? ApiReplaceUtil.getMacAddress(((WifiManager) oc1.a().getApplicationContext().getSystemService("wifi")).getConnectionInfo()) : (String) invokeV.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        String d;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (Build.VERSION.SDK_INT < 23) {
-                d = b();
-            } else {
-                d = d();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947699639, "Lcom/baidu/tieba/dc1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            if (!f(d)) {
-                d = e();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947699639, "Lcom/baidu/tieba/dc1;");
+                return;
             }
-            return !TextUtils.isEmpty(d) ? d.toUpperCase() : d;
         }
-        return (String) invokeV.objValue;
+        int availableProcessors = Runtime.getRuntime().availableProcessors();
+        b = availableProcessors;
+        c = (availableProcessors * 2) + 1;
+        d = new a();
     }
 
-    public static String d() {
+    public dc1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static void a(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, runnable) == null) {
+            b().execute(runnable);
+        }
+    }
+
+    public static synchronized Executor b() {
         InterceptResult invokeV;
-        byte[] hardwareAddress;
+        Executor executor;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            try {
-                NetworkInterface byName = NetworkInterface.getByName("wlan0");
-                if (byName != null && (hardwareAddress = ApiReplaceUtil.getHardwareAddress(byName)) != null) {
-                    StringBuilder sb = new StringBuilder();
-                    int length = hardwareAddress.length;
-                    for (int i = 0; i < length; i++) {
-                        sb.append(String.format("%02X:", Byte.valueOf(hardwareAddress[i])));
+            synchronized (dc1.class) {
+                if (a == null) {
+                    synchronized (dc1.class) {
+                        if (a == null) {
+                            ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(2, c, 8L, TimeUnit.SECONDS, new LinkedBlockingQueue(), d);
+                            threadPoolExecutor.allowCoreThreadTimeOut(true);
+                            a = threadPoolExecutor;
+                        }
                     }
-                    if (sb.length() > 0) {
-                        sb.deleteCharAt(sb.length() - 1);
-                    }
-                    return sb.toString();
                 }
-            } catch (Exception unused) {
+                executor = a;
             }
-            return "";
+            return executor;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public static String e() {
-        InterceptResult invokeV;
-        byte[] hardwareAddress;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            try {
-                InetAddress a = a();
-                if (a == null || (hardwareAddress = ApiReplaceUtil.getHardwareAddress(NetworkInterface.getByInetAddress(a))) == null) {
-                    return "";
-                }
-                StringBuilder sb = new StringBuilder();
-                for (int i = 0; i < hardwareAddress.length; i++) {
-                    if (i != 0) {
-                        sb.append(':');
-                    }
-                    String hexString = Integer.toHexString(hardwareAddress[i] & 255);
-                    if (hexString.length() == 1) {
-                        hexString = 0 + hexString;
-                    }
-                    sb.append(hexString);
-                }
-                return sb.toString();
-            } catch (Exception unused) {
-                return "";
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? (TextUtils.isEmpty(str) || str.equals(Config.DEF_MAC_ID)) ? false : true : invokeL.booleanValue;
+        return (Executor) invokeV.objValue;
     }
 }

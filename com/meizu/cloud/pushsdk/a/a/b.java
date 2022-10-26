@@ -47,9 +47,9 @@ public class b {
         return c;
     }
 
-    private Map<String, String> a(Map<String, String> map) {
+    private Map a(Map map) {
         if (map == null) {
-            map = new HashMap<>();
+            map = new HashMap();
         }
         byte[] c2 = a.a().c();
         if (c2 == null || c2.length <= 0) {
@@ -132,7 +132,6 @@ public class b {
     /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: java.io.InputStream */
     /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: java.io.InputStream */
     /* JADX DEBUG: Multi-variable search result rejected for r0v9, resolved type: java.io.InputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r8v6, resolved type: boolean */
     /* JADX WARN: Code restructure failed: missing block: B:37:0x0104, code lost:
         if (r9 != null) goto L24;
      */
@@ -153,7 +152,7 @@ public class b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private c b(String str, Map<String, String> map, String str2) throws Exception {
+    private c b(String str, Map map, String str2) throws Exception {
         InputStream inputStream;
         byte[] a2;
         c cVar = null;
@@ -176,20 +175,20 @@ public class b {
                 httpURLConnection.setRequestProperty(BOSTokenRequest.CHARSET, "UTF-8");
                 httpURLConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
                 httpURLConnection.setRequestProperty("Content-Encoding", "gzip");
-                Map<String, String> map2 = map;
+                Map map2 = map;
                 try {
                     try {
                         if (map != null) {
                             int size = map.size();
                             map2 = map;
                             if (size > 0) {
-                                Iterator<Map.Entry<String, String>> it = map.entrySet().iterator();
+                                Iterator it = map.entrySet().iterator();
                                 while (true) {
                                     boolean hasNext = it.hasNext();
                                     map2 = hasNext;
-                                    if (hasNext != 0) {
-                                        Map.Entry<String, String> next = it.next();
-                                        httpURLConnection.setRequestProperty(next.getKey(), next.getValue());
+                                    if (hasNext) {
+                                        Map.Entry entry = (Map.Entry) it.next();
+                                        httpURLConnection.setRequestProperty((String) entry.getKey(), (String) entry.getValue());
                                     }
                                 }
                                 a(httpURLConnection, str3.getBytes());
@@ -285,7 +284,7 @@ public class b {
         }
     }
 
-    public c a(String str, Map<String, String> map, String str2) {
+    public c a(String str, Map map, String str2) {
         try {
             return b(str, a(map), str2);
         } catch (Exception e) {

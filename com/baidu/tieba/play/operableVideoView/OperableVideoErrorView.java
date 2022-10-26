@@ -4,11 +4,10 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.my4;
+import com.baidu.tieba.sy4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -44,23 +43,16 @@ public class OperableVideoErrorView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0692, this);
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f091c0b);
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f091c07);
             this.a = tBSpecificationBtn;
             tBSpecificationBtn.setTextSize(R.dimen.tbds36);
-            this.a.setText(getResources().getString(R.string.obfuscated_res_0x7f0f03f3));
-            this.a.setConfig(new my4());
-        }
-    }
-
-    public void setOutOnClickListener(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
-            this.a.setOnClickListener(onClickListener);
+            this.a.setText(getResources().getString(R.string.obfuscated_res_0x7f0f03fa));
+            this.a.setConfig(new sy4());
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public OperableVideoErrorView(Context context, @Nullable AttributeSet attributeSet) {
+    public OperableVideoErrorView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -82,7 +74,7 @@ public class OperableVideoErrorView extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public OperableVideoErrorView(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public OperableVideoErrorView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -101,5 +93,12 @@ public class OperableVideoErrorView extends LinearLayout {
             }
         }
         a(context);
+    }
+
+    public void setOutOnClickListener(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
+            this.a.setOnClickListener(onClickListener);
+        }
     }
 }

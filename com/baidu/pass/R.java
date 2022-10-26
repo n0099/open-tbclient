@@ -10,7 +10,7 @@ public final class R {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public static final class color {
+    public final class color {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int pass_base_ui_dialog_bg_color = 0x7f0608b9;
         public static final int pass_base_ui_dialog_bg_dark_color = 0x7f0608ba;
@@ -42,10 +42,10 @@ public final class R {
     }
 
     /* loaded from: classes2.dex */
-    public static final class drawable {
+    public final class drawable {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int pass_base_ui_common_dialog_bg = 0x7f080e87;
-        public static final int pass_base_ui_common_dialog_dark_bg = 0x7f080e88;
+        public static final int pass_base_ui_common_dialog_bg = 0x7f080e98;
+        public static final int pass_base_ui_common_dialog_dark_bg = 0x7f080e99;
         public transient /* synthetic */ FieldHolder $fh;
 
         public drawable() {
@@ -64,16 +64,16 @@ public final class R {
     }
 
     /* loaded from: classes2.dex */
-    public static final class id {
+    public final class id {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int negative_btn = 0x7f091672;
-        public static final int pass_base_ui_dialog_content = 0x7f091797;
-        public static final int pass_base_ui_dialog_horizontal_split_line = 0x7f091798;
-        public static final int pass_base_ui_dialog_root_view = 0x7f091799;
-        public static final int pass_base_ui_dialog_title = 0x7f09179a;
-        public static final int pass_base_ui_dialog_vertical_split_line = 0x7f09179b;
-        public static final int pass_base_ui_first_btn_layout = 0x7f09179c;
-        public static final int positive_btn = 0x7f091a38;
+        public static final int negative_btn = 0x7f091664;
+        public static final int pass_base_ui_dialog_content = 0x7f091789;
+        public static final int pass_base_ui_dialog_horizontal_split_line = 0x7f09178a;
+        public static final int pass_base_ui_dialog_root_view = 0x7f09178b;
+        public static final int pass_base_ui_dialog_title = 0x7f09178c;
+        public static final int pass_base_ui_dialog_vertical_split_line = 0x7f09178d;
+        public static final int pass_base_ui_first_btn_layout = 0x7f09178e;
+        public static final int positive_btn = 0x7f091a34;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {
@@ -92,7 +92,7 @@ public final class R {
     }
 
     /* loaded from: classes2.dex */
-    public static final class layout {
+    public final class layout {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int pass_sdk_base_ui_common_dialog = 0x7f0d069c;
         public transient /* synthetic */ FieldHolder $fh;
@@ -113,11 +113,11 @@ public final class R {
     }
 
     /* loaded from: classes2.dex */
-    public static final class style {
+    public final class style {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: pass_base_ui_common_dialog_style */
-        public static final int obfuscated_res_0x7f1003d0 = 0x7f1003d0;
+        public static final int obfuscated_res_0x7f1003d1 = 0x7f1003d1;
         public transient /* synthetic */ FieldHolder $fh;
 
         public style() {

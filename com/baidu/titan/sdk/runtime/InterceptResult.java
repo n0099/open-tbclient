@@ -1,7 +1,4 @@
 package com.baidu.titan.sdk.runtime;
-
-import com.baidu.titan.sdk.runtime.annotation.DisableIntercept;
-@DisableIntercept
 /* loaded from: classes6.dex */
 public class InterceptResult {
     public static final int MAX_POOL_SIZE = 50;

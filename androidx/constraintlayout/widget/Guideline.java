@@ -15,6 +15,20 @@ public class Guideline extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // android.view.View
+    public void draw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
+        }
+    }
+
+    @Override // android.view.View
+    public void setVisibility(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public Guideline(Context context) {
         super(context);
@@ -34,55 +48,6 @@ public class Guideline extends View {
             }
         }
         super.setVisibility(8);
-    }
-
-    @Override // android.view.View
-    public void draw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-        }
-    }
-
-    @Override // android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
-            setMeasuredDimension(0, 0);
-        }
-    }
-
-    public void setGuidelineBegin(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) getLayoutParams();
-            layoutParams.guideBegin = i;
-            setLayoutParams(layoutParams);
-        }
-    }
-
-    public void setGuidelineEnd(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) getLayoutParams();
-            layoutParams.guideEnd = i;
-            setLayoutParams(layoutParams);
-        }
-    }
-
-    public void setGuidelinePercent(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048580, this, f) == null) {
-            ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) getLayoutParams();
-            layoutParams.guidePercent = f;
-            setLayoutParams(layoutParams);
-        }
-    }
-
-    @Override // android.view.View
-    public void setVisibility(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -149,5 +114,40 @@ public class Guideline extends View {
             }
         }
         super.setVisibility(8);
+    }
+
+    @Override // android.view.View
+    public void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            setMeasuredDimension(0, 0);
+        }
+    }
+
+    public void setGuidelineBegin(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) getLayoutParams();
+            layoutParams.guideBegin = i;
+            setLayoutParams(layoutParams);
+        }
+    }
+
+    public void setGuidelineEnd(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) getLayoutParams();
+            layoutParams.guideEnd = i;
+            setLayoutParams(layoutParams);
+        }
+    }
+
+    public void setGuidelinePercent(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048580, this, f) == null) {
+            ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) getLayoutParams();
+            layoutParams.guidePercent = f;
+            setLayoutParams(layoutParams);
+        }
     }
 }

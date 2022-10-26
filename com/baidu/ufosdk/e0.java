@@ -54,26 +54,31 @@ public class e0 implements Handler.Callback {
         this.b = b.a(context);
         this.c = b.c(context);
         this.d = b.d(context);
-        if (TextUtils.isEmpty(this.b)) {
-            return;
+        if (!TextUtils.isEmpty(this.b)) {
+            b.a(this.e, this.b);
         }
-        b.a(this.e, this.b);
     }
 
-    public static e0 a(Context context) {
-        InterceptResult invokeL;
+    public void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (i == null) {
-                synchronized (e0.class) {
-                    if (i == null) {
-                        i = new e0(context);
-                    }
-                }
-            }
-            return i;
+        if ((interceptable != null && interceptable.invokeZ(1048576, this, z) != null) || !TextUtils.isEmpty(this.b)) {
+            return;
         }
-        return (e0) invokeL.objValue;
+        HandlerThread handlerThread = this.f;
+        if (handlerThread != null && !handlerThread.isInterrupted()) {
+            String str = "Signature client app : " + z;
+            if (z) {
+                this.g.removeMessages(1001);
+                this.g.sendEmptyMessage(1001);
+                return;
+            }
+            this.g.obtainMessage(1002).sendToTarget();
+            return;
+        }
+        HandlerThread handlerThread2 = new HandlerThread("Thread#UFOSignatures");
+        this.f = handlerThread2;
+        handlerThread2.start();
+        this.g = new Handler(this.f.getLooper(), this);
     }
 
     @Override // android.os.Handler.Callback
@@ -108,6 +113,22 @@ public class e0 implements Handler.Callback {
             return true;
         }
         return invokeL.booleanValue;
+    }
+
+    public static e0 a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (i == null) {
+                synchronized (e0.class) {
+                    if (i == null) {
+                        i = new e0(context);
+                    }
+                }
+            }
+            return i;
+        }
+        return (e0) invokeL.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:20:0x0171  */
@@ -198,26 +219,5 @@ public class e0 implements Handler.Callback {
             return z;
         }
         return invokeV.booleanValue;
-    }
-
-    public void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && TextUtils.isEmpty(this.b)) {
-            HandlerThread handlerThread = this.f;
-            if (handlerThread != null && !handlerThread.isInterrupted()) {
-                String str = "Signature client app : " + z;
-                if (z) {
-                    this.g.removeMessages(1001);
-                    this.g.sendEmptyMessage(1001);
-                    return;
-                }
-                this.g.obtainMessage(1002).sendToTarget();
-                return;
-            }
-            HandlerThread handlerThread2 = new HandlerThread("Thread#UFOSignatures");
-            this.f = handlerThread2;
-            handlerThread2.start();
-            this.g = new Handler(this.f.getLooper(), this);
-        }
     }
 }

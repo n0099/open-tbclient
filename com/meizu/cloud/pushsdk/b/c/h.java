@@ -20,14 +20,14 @@ public final class h extends j {
     public final com.meizu.cloud.pushsdk.b.g.e i;
     public final g j;
     public final g k;
-    public final List<b> l;
+    public final List l;
     public long m = -1;
 
     /* loaded from: classes8.dex */
-    public static final class a {
+    public final class a {
         public final com.meizu.cloud.pushsdk.b.g.e a;
         public g b;
-        public final List<b> c;
+        public final List c;
 
         public a() {
             this(UUID.randomUUID().toString());
@@ -71,7 +71,7 @@ public final class h extends j {
     }
 
     /* loaded from: classes8.dex */
-    public static final class b {
+    public final class b {
         public final c a;
         public final j b;
 
@@ -94,7 +94,7 @@ public final class h extends j {
         }
     }
 
-    public h(com.meizu.cloud.pushsdk.b.g.e eVar, g gVar, List<b> list) {
+    public h(com.meizu.cloud.pushsdk.b.g.e eVar, g gVar, List list) {
         this.i = eVar;
         this.j = gVar;
         this.k = g.a(gVar + "; boundary=" + eVar.a());
@@ -116,7 +116,7 @@ public final class h extends j {
         int size = this.l.size();
         long j = 0;
         for (int i = 0; i < size; i++) {
-            b bVar2 = this.l.get(i);
+            b bVar2 = (b) this.l.get(i);
             c cVar2 = bVar2.a;
             j jVar = bVar2.b;
             cVar.c(h);

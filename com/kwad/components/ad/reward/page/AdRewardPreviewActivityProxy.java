@@ -1,6 +1,5 @@
 package com.kwad.components.ad.reward.page;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -13,7 +12,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import androidx.annotation.Keep;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tieba.R;
@@ -42,7 +40,6 @@ import com.kwad.sdk.core.view.AdBaseFrameLayout;
 import com.kwad.sdk.utils.ae;
 import org.json.JSONObject;
 @KsAdSdkDynamicImpl(AdWebViewActivity.class)
-@Keep
 /* loaded from: classes7.dex */
 public class AdRewardPreviewActivityProxy extends a {
     public static /* synthetic */ Interceptable $ic = null;
@@ -149,16 +146,15 @@ public class AdRewardPreviewActivityProxy extends a {
         } : (KsAdWebView.d) invokeV.objValue;
     }
 
-    @SuppressLint({"SetTextI18n"})
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65553, this) == null) {
-            KsAdWebView ksAdWebView = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f09123b);
+            KsAdWebView ksAdWebView = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f09122f);
             this.mAdWebView = ksAdWebView;
             this.mAdWebView.setClientConfig(ksAdWebView.getClientConfig().b(getClientParams()).R(this.mAdTemplate).aA(false).b(getWebErrorListener()));
             this.mAdWebView.pp();
-            this.mWebCloseBtn = (ImageView) findViewById(R.id.obfuscated_res_0x7f09123f);
-            this.mWebContainer = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0910ee);
+            this.mWebCloseBtn = (ImageView) findViewById(R.id.obfuscated_res_0x7f091233);
+            this.mWebContainer = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0910e2);
             this.mWebCloseBtn.setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.ad.reward.page.AdRewardPreviewActivityProxy.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -191,7 +187,7 @@ public class AdRewardPreviewActivityProxy extends a {
                     }
                 }
             });
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0911bf);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0911b3);
             this.mCountDownTips = textView;
             textView.setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.ad.reward.page.AdRewardPreviewActivityProxy.2
                 public static /* synthetic */ Interceptable $ic;
@@ -250,7 +246,6 @@ public class AdRewardPreviewActivityProxy extends a {
                 }
 
                 @Override // java.lang.Runnable
-                @SuppressLint({"SetTextI18n"})
                 public final void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
@@ -274,7 +269,7 @@ public class AdRewardPreviewActivityProxy extends a {
             if (this.mUrl != null) {
                 com.kwad.components.core.c.a.c cVar = new com.kwad.components.core.c.a.c(this.mAdTemplate);
                 if (com.kwad.sdk.core.response.a.a.am(bQ) && com.kwad.sdk.core.config.d.rT() && ae.isWifiConnected(getActivity())) {
-                    cVar.m(new a.C0570a(getActivity()).aj(false).ak(false).L(this.mAdTemplate).am(false));
+                    cVar.m(new a.C0566a(getActivity()).aj(false).ak(false).L(this.mAdTemplate).am(false));
                 }
             }
             this.mAdWebView.loadUrl(!TextUtils.isEmpty(this.mUrl) ? this.mUrl : com.kwad.sdk.core.response.a.a.ar(d.bQ(this.mAdTemplate)));
@@ -302,7 +297,6 @@ public class AdRewardPreviewActivityProxy extends a {
                 }
 
                 @Override // android.view.View.OnTouchListener
-                @SuppressLint({"ClickableViewAccessibility"})
                 public final boolean onTouch(View view2, MotionEvent motionEvent) {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
@@ -453,7 +447,7 @@ public class AdRewardPreviewActivityProxy extends a {
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d0407);
+            setContentView(R.layout.obfuscated_res_0x7f0d0404);
             String stringExtra = getIntent().getStringExtra("key_template_json");
             this.mUrl = getIntent().getStringExtra(KEY_URL);
             try {

@@ -1,53 +1,69 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.util.AttributeSet;
-import android.view.LayoutInflater;
-import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes6.dex */
-public class wp4 implements LayoutInflater.Factory {
+public class wp4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public yp4 a;
+    public ArrayList a;
+    public Context b;
 
-    public wp4() {
+    public wp4(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = new ArrayList();
+        this.b = context;
+    }
+
+    public void a(p95 p95Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, p95Var) == null) && p95Var != null && p95Var.b() != null) {
+            Iterator it = this.a.iterator();
+            while (it.hasNext()) {
+                p95 p95Var2 = (p95) it.next();
+                if (p95Var2 != null && p95Var2.b() != null && p95Var2.b().e == p95Var.b().e) {
+                    return;
+                }
+            }
+            this.a.add(p95Var);
         }
     }
 
-    public void a(yp4 yp4Var) {
+    public ArrayList b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, yp4Var) == null) {
-            this.a = yp4Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
+        return (ArrayList) invokeV.objValue;
     }
 
-    @Override // android.view.LayoutInflater.Factory
-    public View onCreateView(String str, Context context, AttributeSet attributeSet) {
-        InterceptResult invokeLLL;
+    public Context getContext() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, context, attributeSet)) == null) {
-            if (this.a == null) {
-                this.a = new yp4();
-            }
-            this.a.j(str, context, attributeSet);
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
         }
-        return (View) invokeLLL.objValue;
+        return (Context) invokeV.objValue;
     }
 }

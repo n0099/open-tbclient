@@ -23,35 +23,15 @@ public final class RawResourceDataSource implements DataSource {
     public AssetFileDescriptor assetFileDescriptor;
     public long bytesRemaining;
     public InputStream inputStream;
-    public final TransferListener<? super RawResourceDataSource> listener;
+    public final TransferListener listener;
     public boolean opened;
     public final Resources resources;
     public Uri uri;
 
     /* loaded from: classes7.dex */
-    public static class RawResourceDataSourceException extends IOException {
+    public class RawResourceDataSourceException extends IOException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public RawResourceDataSourceException(String str) {
-            super(str);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((String) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-        }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public RawResourceDataSourceException(IOException iOException) {
@@ -68,6 +48,26 @@ public final class RawResourceDataSource implements DataSource {
                     super((Throwable) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public RawResourceDataSourceException(String str) {
+            super(str);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((String) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
                     return;
                 }
             }
@@ -93,6 +93,25 @@ public final class RawResourceDataSource implements DataSource {
                 return;
             }
         }
+    }
+
+    public RawResourceDataSource(Context context, TransferListener transferListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, transferListener};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.resources = context.getResources();
+        this.listener = transferListener;
     }
 
     public static Uri buildRawResourceUri(int i) {
@@ -129,7 +148,7 @@ public final class RawResourceDataSource implements DataSource {
                         this.assetFileDescriptor = null;
                         if (this.opened) {
                             this.opened = false;
-                            TransferListener<? super RawResourceDataSource> transferListener = this.listener;
+                            TransferListener transferListener = this.listener;
                             if (transferListener != null) {
                                 transferListener.onTransferEnd(this);
                             }
@@ -148,7 +167,7 @@ public final class RawResourceDataSource implements DataSource {
                         this.assetFileDescriptor = null;
                         if (this.opened) {
                             this.opened = false;
-                            TransferListener<? super RawResourceDataSource> transferListener2 = this.listener;
+                            TransferListener transferListener2 = this.listener;
                             if (transferListener2 != null) {
                                 transferListener2.onTransferEnd(this);
                             }
@@ -161,7 +180,7 @@ public final class RawResourceDataSource implements DataSource {
                     this.assetFileDescriptor = null;
                     if (this.opened) {
                         this.opened = false;
-                        TransferListener<? super RawResourceDataSource> transferListener3 = this.listener;
+                        TransferListener transferListener3 = this.listener;
                         if (transferListener3 != null) {
                             transferListener3.onTransferEnd(this);
                         }
@@ -175,7 +194,10 @@ public final class RawResourceDataSource implements DataSource {
     public Uri getUri() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.uri : (Uri) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.uri;
+        }
+        return (Uri) invokeV.objValue;
     }
 
     @Override // com.google.android.exoplayer2.upstream.DataSource
@@ -204,7 +226,7 @@ public final class RawResourceDataSource implements DataSource {
                                 this.bytesRemaining = j;
                             }
                             this.opened = true;
-                            TransferListener<? super RawResourceDataSource> transferListener = this.listener;
+                            TransferListener transferListener = this.listener;
                             if (transferListener != null) {
                                 transferListener.onTransferStart(this, dataSpec);
                             }
@@ -253,31 +275,12 @@ public final class RawResourceDataSource implements DataSource {
             if (j2 != -1) {
                 this.bytesRemaining = j2 - read;
             }
-            TransferListener<? super RawResourceDataSource> transferListener = this.listener;
+            TransferListener transferListener = this.listener;
             if (transferListener != null) {
                 transferListener.onBytesTransferred(this, read);
             }
             return read;
         }
         return invokeLII.intValue;
-    }
-
-    public RawResourceDataSource(Context context, TransferListener<? super RawResourceDataSource> transferListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, transferListener};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.resources = context.getResources();
-        this.listener = transferListener;
     }
 }

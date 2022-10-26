@@ -34,7 +34,7 @@ public class MessageConfig {
     public String from;
     public boolean gaidEnable;
     public float gyroscopeThreshold;
-    public Set<String> ignoreActivity;
+    public Set ignoreActivity;
     public int interval;
     public boolean isLogOn;
     public final boolean isMainConfig;
@@ -92,174 +92,6 @@ public class MessageConfig {
         if (interceptable == null || interceptable.invokeL(1048576, this, actListener) == null) {
             this.mActListenerController.add(actListener);
         }
-    }
-
-    public float getAccelerometerThreshold() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.accelerometerThreshold : invokeV.floatValue;
-    }
-
-    public ActAdditionListenerController getActListenerController() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mActListenerController : (ActAdditionListenerController) invokeV.objValue;
-    }
-
-    public String getAppId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.appId : (String) invokeV.objValue;
-    }
-
-    public String getAppkey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.appkey : (String) invokeV.objValue;
-    }
-
-    public Context getApplicationContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.ApplicationContext : (Context) invokeV.objValue;
-    }
-
-    public String getAppsflyer() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.appsflyer : (String) invokeV.objValue;
-    }
-
-    public int getBatchThreshold() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.batchThreshold : invokeV.intValue;
-    }
-
-    public String getBdCuid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.bdCuid : (String) invokeV.objValue;
-    }
-
-    public String getCacheFileName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.cacheFileName : (String) invokeV.objValue;
-    }
-
-    public int getDefaultMetricsExpire() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.defaultMetricsExpire : invokeV.intValue;
-    }
-
-    public int getDefaultMetricsInterval() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.defaultMetricsInterval : invokeV.intValue;
-    }
-
-    public String getFrom() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.from : (String) invokeV.objValue;
-    }
-
-    public float getGyroscopeThreshold() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.gyroscopeThreshold : invokeV.floatValue;
-    }
-
-    public Set<String> getIgnoreActivity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.ignoreActivity : (Set) invokeV.objValue;
-    }
-
-    public int getInterval() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.interval : invokeV.intValue;
-    }
-
-    public float getLightThreshold() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.lightThreshold : invokeV.floatValue;
-    }
-
-    public String getSessionId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.sessionId : (String) invokeV.objValue;
-    }
-
-    public OnStatisListener getUidProvider() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.uidProvider : (OnStatisListener) invokeV.objValue;
-    }
-
-    public String getVer() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.ver : (String) invokeV.objValue;
-    }
-
-    public boolean isGaidEnable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.gaidEnable : invokeV.booleanValue;
-    }
-
-    public boolean isLifecycleMonitor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.lifecycleMonitor : invokeV.booleanValue;
-    }
-
-    public boolean isLogOn() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.isLogOn : invokeV.booleanValue;
-    }
-
-    public boolean isMainConfig() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.isMainConfig : invokeV.booleanValue;
-    }
-
-    public boolean isOpenAutoTrack() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.openAutoTrack : invokeV.booleanValue;
-    }
-
-    public boolean isOpenCrashMonitor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.isOpenCrashMonitor : invokeV.booleanValue;
-    }
-
-    public boolean isOpenSDKMetrics() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.openSDKMetrics : invokeV.booleanValue;
-    }
-
-    public boolean isOpenSensorMonitor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.openSensorMonitor : invokeV.booleanValue;
-    }
-
-    public boolean isReportApplist() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.reportApplist : invokeV.booleanValue;
     }
 
     public void removeActAdditionListerner(ActListener actListener) {
@@ -353,7 +185,7 @@ public class MessageConfig {
         }
     }
 
-    public void setIgnoreActivity(Set<String> set) {
+    public void setIgnoreActivity(Set set) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048618, this, set) == null) {
             this.ignoreActivity = set;
@@ -442,5 +274,257 @@ public class MessageConfig {
         if (interceptable == null || interceptable.invokeL(1048630, this, str) == null) {
             this.ver = str;
         }
+    }
+
+    public float getAccelerometerThreshold() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.accelerometerThreshold;
+        }
+        return invokeV.floatValue;
+    }
+
+    public ActAdditionListenerController getActListenerController() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mActListenerController;
+        }
+        return (ActAdditionListenerController) invokeV.objValue;
+    }
+
+    public String getAppId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.appId;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getAppkey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.appkey;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public Context getApplicationContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.ApplicationContext;
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    public String getAppsflyer() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.appsflyer;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getBatchThreshold() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.batchThreshold;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getBdCuid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.bdCuid;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getCacheFileName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.cacheFileName;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getDefaultMetricsExpire() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.defaultMetricsExpire;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getDefaultMetricsInterval() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.defaultMetricsInterval;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getFrom() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.from;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public float getGyroscopeThreshold() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.gyroscopeThreshold;
+        }
+        return invokeV.floatValue;
+    }
+
+    public Set getIgnoreActivity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.ignoreActivity;
+        }
+        return (Set) invokeV.objValue;
+    }
+
+    public int getInterval() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.interval;
+        }
+        return invokeV.intValue;
+    }
+
+    public float getLightThreshold() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.lightThreshold;
+        }
+        return invokeV.floatValue;
+    }
+
+    public String getSessionId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.sessionId;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public OnStatisListener getUidProvider() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return this.uidProvider;
+        }
+        return (OnStatisListener) invokeV.objValue;
+    }
+
+    public String getVer() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return this.ver;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean isGaidEnable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return this.gaidEnable;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isLifecycleMonitor() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return this.lifecycleMonitor;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isLogOn() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return this.isLogOn;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isMainConfig() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            return this.isMainConfig;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isOpenAutoTrack() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            return this.openAutoTrack;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isOpenCrashMonitor() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            return this.isOpenCrashMonitor;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isOpenSDKMetrics() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            return this.openSDKMetrics;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isOpenSensorMonitor() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            return this.openSensorMonitor;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isReportApplist() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+            return this.reportApplist;
+        }
+        return invokeV.booleanValue;
     }
 }

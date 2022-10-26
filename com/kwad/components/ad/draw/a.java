@@ -1,7 +1,6 @@
 package com.kwad.components.ad.draw;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -45,7 +44,7 @@ public class a extends com.kwad.sdk.components.d implements com.kwad.components.
     }
 
     @Override // com.kwad.components.ad.a.b
-    public final void loadDrawAd(KsScene ksScene, @NonNull KsLoadManager.DrawAdListener drawAdListener) {
+    public final void loadDrawAd(KsScene ksScene, KsLoadManager.DrawAdListener drawAdListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, ksScene, drawAdListener) == null) {
             d.loadDrawAd(ksScene, drawAdListener);

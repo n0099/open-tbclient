@@ -1,6 +1,5 @@
 package com.baidu.tieba.lego.card.view;
 
-import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,18 +13,17 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.ge5;
-import com.baidu.tieba.ig7;
+import com.baidu.tieba.fj;
 import com.baidu.tieba.lego.card.model.RankDetailTrendCard;
+import com.baidu.tieba.me5;
+import com.baidu.tieba.tg7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@SuppressLint({"ViewConstructor"})
 /* loaded from: classes4.dex */
-public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
+public class RankDetailTrendCardView extends BaseCardView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout m;
@@ -68,11 +66,12 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && ViewHelper.checkUpIsLogin(this.b.getContext())) {
-                ig7 a = ig7.a();
-                RankDetailTrendCard rankDetailTrendCard = this.a;
-                a.e(rankDetailTrendCard, rankDetailTrendCard.getPostUrl(), null, null);
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || !ViewHelper.checkUpIsLogin(this.b.getContext())) {
+                return;
             }
+            tg7 a = tg7.a();
+            RankDetailTrendCard rankDetailTrendCard = this.a;
+            a.e(rankDetailTrendCard, rankDetailTrendCard.getPostUrl(), null, null);
         }
     }
 
@@ -129,16 +128,15 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
                 return;
             }
         }
-        this.u = ej.k(tbPageContext.getPageActivity());
+        this.u = fj.k(tbPageContext.getPageActivity());
         this.v = tbPageContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701e8) * 2;
     }
 
     private void setTrendTextColor(RankDetailTrendCard rankDetailTrendCard) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, this, rankDetailTrendCard) == null) || rankDetailTrendCard == null || TextUtils.isEmpty(rankDetailTrendCard.getTrendText())) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(65537, this, rankDetailTrendCard) == null) && rankDetailTrendCard != null && !TextUtils.isEmpty(rankDetailTrendCard.getTrendText())) {
+            y(this.r, rankDetailTrendCard.getTrendColor(), rankDetailTrendCard.getTrendColorNight(), R.color.CAM_X0308);
         }
-        y(this.r, rankDetailTrendCard.getTrendColor(), rankDetailTrendCard.getTrendColorNight(), R.color.CAM_X0308);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -147,7 +145,7 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
     public void t(RankDetailTrendCard rankDetailTrendCard, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, rankDetailTrendCard, i) == null) {
-            ge5.a(this.i, getRootView());
+            me5.a(this.i, getRootView());
             SkinManager.setBackgroundResource(this.m, R.drawable.addresslist_item_bg);
             SkinManager.setViewTextColor(this.o, (int) R.color.CAM_X0108);
             SkinManager.setViewTextColor(this.p, (int) R.color.CAM_X0105);
@@ -173,7 +171,7 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
             if (!TextUtils.isEmpty(rankDetailTrendCard.getIconUrl())) {
                 this.n.setVisibility(0);
                 this.n.setImageDrawable(null);
-                this.n.K(rankDetailTrendCard.getIconUrl(), 10, false);
+                this.n.L(rankDetailTrendCard.getIconUrl(), 10, false);
                 this.o.setVisibility(8);
             } else if (rankDetailTrendCard.getRank() <= 0) {
                 this.n.setVisibility(8);
@@ -183,15 +181,19 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
                     this.n.setVisibility(0);
                     this.o.setVisibility(8);
                     int rank = rankDetailTrendCard.getRank();
-                    if (rank == 1) {
-                        SkinManager.setImageResource(this.n, R.drawable.icon_grade_shaitu1);
-                    } else if (rank == 2) {
-                        SkinManager.setImageResource(this.n, R.drawable.icon_grade_shaitu2);
-                    } else if (rank != 3) {
-                        this.n.setVisibility(8);
-                        SkinManager.setImageResource(this.n, R.drawable.icon_grade_shaitu1);
+                    if (rank != 1) {
+                        if (rank != 2) {
+                            if (rank != 3) {
+                                this.n.setVisibility(8);
+                                SkinManager.setImageResource(this.n, R.drawable.icon_grade_shaitu1);
+                            } else {
+                                SkinManager.setImageResource(this.n, R.drawable.icon_grade_shaitu3);
+                            }
+                        } else {
+                            SkinManager.setImageResource(this.n, R.drawable.icon_grade_shaitu2);
+                        }
                     } else {
-                        SkinManager.setImageResource(this.n, R.drawable.icon_grade_shaitu3);
+                        SkinManager.setImageResource(this.n, R.drawable.icon_grade_shaitu1);
                     }
                 } else {
                     this.n.setVisibility(8);
@@ -219,7 +221,7 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
                     this.q.setVisibility(0);
                     this.r.setVisibility(8);
                     this.q.setImageDrawable(null);
-                    this.q.K(rankDetailTrendCard.getPicTrendUrl(), 10, false);
+                    this.q.L(rankDetailTrendCard.getPicTrendUrl(), 10, false);
                 } else if (!TextUtils.isEmpty(rankDetailTrendCard.getTrendText())) {
                     this.r.setVisibility(0);
                     this.q.setVisibility(8);
@@ -229,17 +231,21 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
                 } else {
                     this.r.setVisibility(8);
                     int picTrendType = rankDetailTrendCard.getPicTrendType();
-                    if (picTrendType == 1) {
-                        this.q.setVisibility(0);
-                        SkinManager.setImageResource(this.q, R.drawable.icon_arrow_ranking_up);
-                    } else if (picTrendType == 2) {
-                        this.q.setVisibility(0);
-                        SkinManager.setImageResource(this.q, R.drawable.icon_arrow_ranking_keep);
-                    } else if (picTrendType != 3) {
-                        this.q.setVisibility(8);
+                    if (picTrendType != 1) {
+                        if (picTrendType != 2) {
+                            if (picTrendType != 3) {
+                                this.q.setVisibility(8);
+                            } else {
+                                this.q.setVisibility(0);
+                                SkinManager.setImageResource(this.q, R.drawable.icon_arrow_ranking_down);
+                            }
+                        } else {
+                            this.q.setVisibility(0);
+                            SkinManager.setImageResource(this.q, R.drawable.icon_arrow_ranking_keep);
+                        }
                     } else {
                         this.q.setVisibility(0);
-                        SkinManager.setImageResource(this.q, R.drawable.icon_arrow_ranking_down);
+                        SkinManager.setImageResource(this.q, R.drawable.icon_arrow_ranking_up);
                     }
                 }
             }
@@ -250,7 +256,7 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
             } else {
                 this.t.setVisibility(0);
                 this.t.setTag(rankDetailTrendCard.getPicUrl());
-                this.t.K(rankDetailTrendCard.getPicUrl(), 10, false);
+                this.t.L(rankDetailTrendCard.getPicUrl(), 10, false);
             }
             setCardOnClickListener(new b(this, rankDetailTrendCard));
         }
@@ -261,15 +267,15 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01b6, (ViewGroup) null);
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01b5, (ViewGroup) null);
             this.m = linearLayout;
-            this.n = (TbImageView) l(linearLayout, R.id.obfuscated_res_0x7f0912c4);
-            this.o = (TextView) l(this.m, R.id.obfuscated_res_0x7f090f8e);
-            this.p = (TextView) l(this.m, R.id.obfuscated_res_0x7f092337);
-            this.q = (TbImageView) l(this.m, R.id.obfuscated_res_0x7f092335);
-            this.r = (TextView) l(this.m, R.id.obfuscated_res_0x7f092336);
-            this.s = (TextView) l(this.m, R.id.obfuscated_res_0x7f090456);
-            HeadImageView headImageView = (HeadImageView) l(this.m, R.id.obfuscated_res_0x7f090d25);
+            this.n = (TbImageView) l(linearLayout, R.id.obfuscated_res_0x7f0912b8);
+            this.o = (TextView) l(this.m, R.id.obfuscated_res_0x7f090f82);
+            this.p = (TextView) l(this.m, R.id.obfuscated_res_0x7f092322);
+            this.q = (TbImageView) l(this.m, R.id.obfuscated_res_0x7f092320);
+            this.r = (TextView) l(this.m, R.id.obfuscated_res_0x7f092321);
+            this.s = (TextView) l(this.m, R.id.obfuscated_res_0x7f09045f);
+            HeadImageView headImageView = (HeadImageView) l(this.m, R.id.obfuscated_res_0x7f090d32);
             this.t = headImageView;
             headImageView.setIsRound(true);
             return this.m;

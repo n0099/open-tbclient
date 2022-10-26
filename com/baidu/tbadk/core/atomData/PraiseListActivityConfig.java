@@ -41,17 +41,15 @@ public class PraiseListActivityConfig extends IntentConfig {
 
     public void setIsAuthor(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || getIntent() == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && getIntent() != null) {
+            getIntent().putExtra(IS_AUTHOR, z);
         }
-        getIntent().putExtra(IS_AUTHOR, z);
     }
 
     public void setIsGraffitiPraiseList() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || getIntent() == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && getIntent() != null) {
+            getIntent().putExtra(IntentConfig.LIST_TYPE, 1);
         }
-        getIntent().putExtra(IntentConfig.LIST_TYPE, 1);
     }
 }

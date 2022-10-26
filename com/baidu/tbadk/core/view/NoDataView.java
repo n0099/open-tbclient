@@ -18,9 +18,10 @@ import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.my4;
+import com.baidu.tieba.fj;
 import com.baidu.tieba.r9;
+import com.baidu.tieba.sy4;
+import com.baidu.tieba.zp4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -55,7 +56,7 @@ public class NoDataView extends LinearLayout {
     public int p;
 
     /* loaded from: classes3.dex */
-    public static /* synthetic */ class a {
+    public /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -160,6 +161,40 @@ public class NoDataView extends LinearLayout {
         b(context, null);
     }
 
+    public void setSubTitleCompoundDrawable(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            Drawable drawable = SkinManager.getDrawable(i);
+            int f = fj.f(this.a, R.dimen.obfuscated_res_0x7f070207);
+            int f2 = fj.f(this.a, R.dimen.obfuscated_res_0x7f070302);
+            drawable.setBounds(0, 0, f, f);
+            this.f.setCompoundDrawablePadding(f2);
+            this.f.setCompoundDrawables(drawable, null, null, null);
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public NoDataView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        b(context, attributeSet);
+    }
+
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -219,55 +254,36 @@ public class NoDataView extends LinearLayout {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, attributeSet) == null) {
             View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0660, this);
             this.b = inflate;
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09101c);
+            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091010);
             this.c = tbImageView;
             tbImageView.setDefaultBgResource(0);
             this.c.setDefaultResource(0);
-            this.d = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f092228);
-            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092414);
-            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09240f);
-            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09241a);
-            this.h = (TBSpecificationBtn) this.b.findViewById(R.id.obfuscated_res_0x7f090437);
-            my4 my4Var = new my4();
+            this.d = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f092212);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0923ff);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0923fa);
+            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092405);
+            this.h = (TBSpecificationBtn) this.b.findViewById(R.id.obfuscated_res_0x7f090440);
+            sy4 sy4Var = new sy4();
             this.h.setTextSize(R.dimen.T_X05);
-            this.h.setConfig(my4Var);
-            this.l = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f092430);
+            this.h.setConfig(sy4Var);
+            this.l = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f09241a);
             this.o = R.color.CAM_X0107;
             this.p = R.color.CAM_X0109;
             h();
         }
     }
 
-    public void c(NoDataViewFactory.c cVar, NoDataViewFactory.d dVar, NoDataViewFactory.e eVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, cVar, dVar, eVar) == null) {
-            setButtonOption(cVar);
-            setImgOption(dVar);
-            setTextOption(eVar);
-        }
-    }
-
-    public void d(r9<?> r9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, r9Var) == null) {
-            f(r9Var, TbadkCoreApplication.getInst().getSkinType());
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.c.setImageDrawable(null);
-            this.c.K(null, 10, false);
-        }
-    }
-
-    public void f(r9<?> r9Var, int i) {
+    public void f(r9 r9Var, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, r9Var, i) == null) {
             if (r9Var instanceof TbPageContext) {
                 TbPageContext tbPageContext = (TbPageContext) r9Var;
-                tbPageContext.getLayoutMode().l(i == 1);
+                zp4 layoutMode = tbPageContext.getLayoutMode();
+                boolean z = true;
+                if (i != 1) {
+                    z = false;
+                }
+                layoutMode.l(z);
                 tbPageContext.getLayoutMode().k(this);
             }
             TBSpecificationBtn tBSpecificationBtn = this.h;
@@ -299,7 +315,72 @@ public class NoDataView extends LinearLayout {
         }
     }
 
-    public void g(NoDataViewFactory.d dVar, r9<?> r9Var) {
+    public void c(NoDataViewFactory.c cVar, NoDataViewFactory.d dVar, NoDataViewFactory.e eVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, cVar, dVar, eVar) == null) {
+            setButtonOption(cVar);
+            setImgOption(dVar);
+            setTextOption(eVar);
+        }
+    }
+
+    public void d(r9 r9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, r9Var) == null) {
+            f(r9Var, TbadkCoreApplication.getInst().getSkinType());
+        }
+    }
+
+    public void setRemarkTextColor(int i) {
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048587, this, i) == null) && (textView = this.e) != null) {
+            SkinManager.setViewTextColor(textView, i, 1);
+        }
+    }
+
+    public void setSubTitleTextColor(int i) {
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048589, this, i) == null) && (textView = this.f) != null) {
+            SkinManager.setViewTextColor(textView, i, 1);
+        }
+    }
+
+    public void setSubTitleTextSize(int i) {
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048590, this, i) == null) && (textView = this.f) != null) {
+            textView.setTextSize(i);
+        }
+    }
+
+    public void setTitleTextColor(int i) {
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048592, this, i) == null) && (textView = this.g) != null) {
+            SkinManager.setViewTextColor(textView, i, 1);
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.c.setImageDrawable(null);
+            this.c.L(null, 10, false);
+        }
+    }
+
+    public TextView getSuTextView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.f;
+        }
+        return (TextView) invokeV.objValue;
+    }
+
+    public void g(NoDataViewFactory.d dVar, r9 r9Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, dVar, r9Var) == null) {
             setImgOption(dVar);
@@ -307,24 +388,17 @@ public class NoDataView extends LinearLayout {
         }
     }
 
-    public TextView getSuTextView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f : (TextView) invokeV.objValue;
-    }
-
     public final void h() {
         int i;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (i = ej.i(TbadkCoreApplication.getInst())) <= 0) {
-            return;
-        }
-        int i2 = (int) (i * 0.16d);
-        ViewGroup.LayoutParams layoutParams = this.c.getLayoutParams();
-        if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-            marginLayoutParams.topMargin = i2;
-            this.c.setLayoutParams(marginLayoutParams);
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (i = fj.i(TbadkCoreApplication.getInst())) > 0) {
+            int i2 = (int) (i * 0.16d);
+            ViewGroup.LayoutParams layoutParams = this.c.getLayoutParams();
+            if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
+                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
+                marginLayoutParams.topMargin = i2;
+                this.c.setLayoutParams(marginLayoutParams);
+            }
         }
     }
 
@@ -349,13 +423,13 @@ public class NoDataView extends LinearLayout {
                 }
             }
             if (bVar2 != null && bVar != null) {
-                this.i = (TBSpecificationBtn) this.l.findViewById(R.id.obfuscated_res_0x7f09043f);
-                this.j = (TBSpecificationBtn) this.l.findViewById(R.id.obfuscated_res_0x7f090459);
-                my4 my4Var = new my4();
+                this.i = (TBSpecificationBtn) this.l.findViewById(R.id.obfuscated_res_0x7f090448);
+                this.j = (TBSpecificationBtn) this.l.findViewById(R.id.obfuscated_res_0x7f090462);
+                sy4 sy4Var = new sy4();
                 this.i.setTextSize(R.dimen.obfuscated_res_0x7f070207);
-                this.i.setConfig(my4Var);
+                this.i.setConfig(sy4Var);
                 this.j.setTextSize(R.dimen.obfuscated_res_0x7f070207);
-                this.j.setConfig(my4Var);
+                this.j.setConfig(sy4Var);
                 this.i.setOnClickListener(bVar.a);
                 this.i.setText(bVar.b);
                 this.j.setOnClickListener(bVar2.a);
@@ -369,7 +443,7 @@ public class NoDataView extends LinearLayout {
     public void setImgOption(NoDataViewFactory.d dVar) {
         int i;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, dVar) == null) || dVar == null) {
+        if ((interceptable != null && interceptable.invokeL(1048586, this, dVar) != null) || dVar == null) {
             return;
         }
         NoDataViewFactory.ImgType imgType = dVar.a;
@@ -420,48 +494,9 @@ public class NoDataView extends LinearLayout {
         this.c.setLayoutParams(layoutParams);
     }
 
-    public void setRemarkTextColor(int i) {
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048587, this, i) == null) || (textView = this.e) == null) {
-            return;
-        }
-        SkinManager.setViewTextColor(textView, i, 1);
-    }
-
-    public void setSubTitleCompoundDrawable(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            Drawable drawable = SkinManager.getDrawable(i);
-            int f = ej.f(this.a, R.dimen.obfuscated_res_0x7f070207);
-            int f2 = ej.f(this.a, R.dimen.obfuscated_res_0x7f070302);
-            drawable.setBounds(0, 0, f, f);
-            this.f.setCompoundDrawablePadding(f2);
-            this.f.setCompoundDrawables(drawable, null, null, null);
-        }
-    }
-
-    public void setSubTitleTextColor(int i) {
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048589, this, i) == null) || (textView = this.f) == null) {
-            return;
-        }
-        SkinManager.setViewTextColor(textView, i, 1);
-    }
-
-    public void setSubTitleTextSize(int i) {
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048590, this, i) == null) || (textView = this.f) == null) {
-            return;
-        }
-        textView.setTextSize(i);
-    }
-
     public void setTextOption(NoDataViewFactory.e eVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048591, this, eVar) == null) || eVar == null) {
+        if ((interceptable != null && interceptable.invokeL(1048591, this, eVar) != null) || eVar == null) {
             return;
         }
         if (!TextUtils.isEmpty(eVar.a)) {
@@ -492,36 +527,5 @@ public class NoDataView extends LinearLayout {
             this.e.setVisibility(8);
         }
         a();
-    }
-
-    public void setTitleTextColor(int i) {
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048592, this, i) == null) || (textView = this.g) == null) {
-            return;
-        }
-        SkinManager.setViewTextColor(textView, i, 1);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NoDataView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        b(context, attributeSet);
     }
 }

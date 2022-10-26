@@ -9,13 +9,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.gms.common.annotation.KeepForSdk;
 import com.google.android.gms.common.internal.Preconditions;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import javax.annotation.Nullable;
-@KeepForSdk
 /* loaded from: classes7.dex */
 public class ProcessUtils {
     public static /* synthetic */ Interceptable $ic;
@@ -53,8 +51,6 @@ public class ProcessUtils {
         }
     }
 
-    @androidx.annotation.Nullable
-    @KeepForSdk
     public static String getMyProcessName() {
         InterceptResult invokeV;
         BufferedReader bufferedReader;

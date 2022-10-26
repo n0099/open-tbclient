@@ -3,7 +3,7 @@ package com.baidu.tieba.livesdk.share.message;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.ni7;
+import com.baidu.tieba.yi7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +14,7 @@ import org.json.JSONObject;
 public class AlaShareInBarResponsedMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ni7 data;
+    public yi7 data;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaShareInBarResponsedMessage() {
@@ -34,23 +34,25 @@ public class AlaShareInBarResponsedMessage extends JsonHttpResponsedMessage {
         }
     }
 
+    public yi7 getShareInBarData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.data;
+        }
+        return (yi7) invokeV.objValue;
+    }
+
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
             super.decodeLogicInBackGround(i, jSONObject);
-            if (getStatusCode() != 200 || jSONObject == null) {
-                return;
+            if (getStatusCode() == 200 && jSONObject != null) {
+                yi7 yi7Var = new yi7();
+                this.data = yi7Var;
+                yi7Var.a(jSONObject);
             }
-            ni7 ni7Var = new ni7();
-            this.data = ni7Var;
-            ni7Var.a(jSONObject);
         }
-    }
-
-    public ni7 getShareInBarData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.data : (ni7) invokeV.objValue;
     }
 }

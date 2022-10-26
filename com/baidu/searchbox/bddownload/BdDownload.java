@@ -1,9 +1,6 @@
 package com.baidu.searchbox.bddownload;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bddownload.core.Util;
@@ -26,7 +23,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class BdDownload {
     public static /* synthetic */ Interceptable $ic;
-    @SuppressLint({"StaticFieldLeak"})
     public static volatile BdDownload singleton;
     public transient /* synthetic */ FieldHolder $fh;
     public final BreakpointStore breakpointStore;
@@ -35,15 +31,13 @@ public class BdDownload {
     public final Context context;
     public final DownloadDispatcher downloadDispatcher;
     public final DownloadStrategy downloadStrategy;
-    @Nullable
     public DownloadMonitor monitor;
     public final DownloadOutputStream.Factory outputStreamFactory;
     public final ProcessFileStrategy processFileStrategy;
-    @Nullable
     public IBDDownloadStatistic statistic;
 
     /* loaded from: classes2.dex */
-    public static class Builder {
+    public class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public IBDDownloadStatistic bdDownloadStatistic;
@@ -57,7 +51,7 @@ public class BdDownload {
         public DownloadOutputStream.Factory outputStreamFactory;
         public ProcessFileStrategy processFileStrategy;
 
-        public Builder(@NonNull Context context) {
+        public Builder(Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -83,40 +77,6 @@ public class BdDownload {
                 return this;
             }
             return (Builder) invokeL.objValue;
-        }
-
-        public BdDownload build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (this.downloadDispatcher == null) {
-                    this.downloadDispatcher = new DownloadDispatcher();
-                }
-                if (this.callbackDispatcher == null) {
-                    this.callbackDispatcher = new CallbackDispatcher();
-                }
-                if (this.downloadStore == null) {
-                    this.downloadStore = Util.createDefaultDatabase(this.context);
-                }
-                if (this.connectionFactory == null) {
-                    this.connectionFactory = Util.createHttpManagerConnectionFactory();
-                }
-                if (this.outputStreamFactory == null) {
-                    this.outputStreamFactory = new DownloadUriOutputStream.Factory();
-                }
-                if (this.processFileStrategy == null) {
-                    this.processFileStrategy = new ProcessFileStrategy();
-                }
-                if (this.downloadStrategy == null) {
-                    this.downloadStrategy = new DownloadStrategy();
-                }
-                BdDownload bdDownload = new BdDownload(this.context, this.downloadDispatcher, this.callbackDispatcher, this.downloadStore, this.connectionFactory, this.outputStreamFactory, this.processFileStrategy, this.downloadStrategy);
-                bdDownload.setMonitor(this.monitor);
-                bdDownload.setBDDownloadStatistic(this.bdDownloadStatistic);
-                Util.d("BdDownload", "downloadStore[" + this.downloadStore + "] connectionFactory[" + this.connectionFactory);
-                return bdDownload;
-            }
-            return (BdDownload) invokeV.objValue;
         }
 
         public Builder callbackDispatcher(CallbackDispatcher callbackDispatcher) {
@@ -198,6 +158,40 @@ public class BdDownload {
             }
             return (Builder) invokeL.objValue;
         }
+
+        public BdDownload build() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (this.downloadDispatcher == null) {
+                    this.downloadDispatcher = new DownloadDispatcher();
+                }
+                if (this.callbackDispatcher == null) {
+                    this.callbackDispatcher = new CallbackDispatcher();
+                }
+                if (this.downloadStore == null) {
+                    this.downloadStore = Util.createDefaultDatabase(this.context);
+                }
+                if (this.connectionFactory == null) {
+                    this.connectionFactory = Util.createHttpManagerConnectionFactory();
+                }
+                if (this.outputStreamFactory == null) {
+                    this.outputStreamFactory = new DownloadUriOutputStream.Factory();
+                }
+                if (this.processFileStrategy == null) {
+                    this.processFileStrategy = new ProcessFileStrategy();
+                }
+                if (this.downloadStrategy == null) {
+                    this.downloadStrategy = new DownloadStrategy();
+                }
+                BdDownload bdDownload = new BdDownload(this.context, this.downloadDispatcher, this.callbackDispatcher, this.downloadStore, this.connectionFactory, this.outputStreamFactory, this.processFileStrategy, this.downloadStrategy);
+                bdDownload.setMonitor(this.monitor);
+                bdDownload.setBDDownloadStatistic(this.bdDownloadStatistic);
+                Util.d("BdDownload", "downloadStore[" + this.downloadStore + "] connectionFactory[" + this.connectionFactory);
+                return bdDownload;
+            }
+            return (BdDownload) invokeV.objValue;
+        }
     }
 
     public BdDownload(Context context, DownloadDispatcher downloadDispatcher, CallbackDispatcher callbackDispatcher, DownloadStore downloadStore, DownloadConnection.Factory factory, DownloadOutputStream.Factory factory2, ProcessFileStrategy processFileStrategy, DownloadStrategy downloadStrategy) {
@@ -226,7 +220,7 @@ public class BdDownload {
         downloadDispatcher.setDownloadStore(Util.createRemitDatabase(downloadStore));
     }
 
-    public static void setSingletonInstance(@NonNull BdDownload bdDownload) {
+    public static void setSingletonInstance(BdDownload bdDownload) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, bdDownload) == null) {
             if (singleton == null) {
@@ -267,72 +261,101 @@ public class BdDownload {
     public BreakpointStore breakpointStore() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.breakpointStore : (BreakpointStore) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.breakpointStore;
+        }
+        return (BreakpointStore) invokeV.objValue;
     }
 
     public CallbackDispatcher callbackDispatcher() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.callbackDispatcher : (CallbackDispatcher) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.callbackDispatcher;
+        }
+        return (CallbackDispatcher) invokeV.objValue;
     }
 
     public DownloadConnection.Factory connectionFactory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.connectionFactory : (DownloadConnection.Factory) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.connectionFactory;
+        }
+        return (DownloadConnection.Factory) invokeV.objValue;
     }
 
     public Context context() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.context : (Context) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.context;
+        }
+        return (Context) invokeV.objValue;
     }
 
     public DownloadDispatcher downloadDispatcher() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.downloadDispatcher : (DownloadDispatcher) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.downloadDispatcher;
+        }
+        return (DownloadDispatcher) invokeV.objValue;
     }
 
     public DownloadStrategy downloadStrategy() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.downloadStrategy : (DownloadStrategy) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.downloadStrategy;
+        }
+        return (DownloadStrategy) invokeV.objValue;
     }
 
-    @Nullable
     public DownloadMonitor getMonitor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.monitor : (DownloadMonitor) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.monitor;
+        }
+        return (DownloadMonitor) invokeV.objValue;
     }
 
     public IBDDownloadStatistic getStatistic() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.statistic : (IBDDownloadStatistic) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.statistic;
+        }
+        return (IBDDownloadStatistic) invokeV.objValue;
     }
 
     public DownloadOutputStream.Factory outputStreamFactory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.outputStreamFactory : (DownloadOutputStream.Factory) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.outputStreamFactory;
+        }
+        return (DownloadOutputStream.Factory) invokeV.objValue;
     }
 
     public ProcessFileStrategy processFileStrategy() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.processFileStrategy : (ProcessFileStrategy) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.processFileStrategy;
+        }
+        return (ProcessFileStrategy) invokeV.objValue;
     }
 
-    public void setBDDownloadStatistic(@Nullable IBDDownloadStatistic iBDDownloadStatistic) {
+    public void setBDDownloadStatistic(IBDDownloadStatistic iBDDownloadStatistic) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, iBDDownloadStatistic) == null) {
             this.statistic = iBDDownloadStatistic;
         }
     }
 
-    public void setMonitor(@Nullable DownloadMonitor downloadMonitor) {
+    public void setMonitor(DownloadMonitor downloadMonitor) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, downloadMonitor) == null) {
             this.monitor = downloadMonitor;

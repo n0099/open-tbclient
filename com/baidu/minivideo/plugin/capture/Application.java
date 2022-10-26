@@ -29,7 +29,10 @@ public class Application {
     public static Context get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? sInstance : (Context) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return sInstance;
+        }
+        return (Context) invokeV.objValue;
     }
 
     public static void set(Context context) {

@@ -45,7 +45,7 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
-    public static class a extends SSLSocketFactory {
+    public class a extends SSLSocketFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public HostnameVerifier a;
@@ -200,7 +200,7 @@ public class c {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static b a(Context context, String str, String str2, String str3, HashMap<String, String> hashMap, String str4) {
+    public static b a(Context context, String str, String str2, String str3, HashMap hashMap, String str4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, str, str2, str3, hashMap, str4})) != null) {
@@ -226,7 +226,7 @@ public class c {
         }
     }
 
-    public static b a(Context context, String str, String str2, HashMap<String, String> hashMap) {
+    public static b a(Context context, String str, String str2, HashMap hashMap) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, context, str, str2, hashMap)) == null) ? b(context, str, str2, hashMap, null, null) : (b) invokeLLLL.objValue;
@@ -247,7 +247,7 @@ public class c {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static b a(Context context, String str, String str2, HashMap<String, String> hashMap, String str3, String str4) {
+    public static b a(Context context, String str, String str2, HashMap hashMap, String str3, String str4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{context, str, str2, hashMap, str3, str4})) != null) {
@@ -303,7 +303,7 @@ public class c {
         return (b) invokeLL.objValue;
     }
 
-    public static String a(HashMap<String, String> hashMap) throws Exception {
+    public static String a(HashMap hashMap) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, hashMap)) == null) {
@@ -312,16 +312,16 @@ public class c {
             }
             StringBuffer stringBuffer = new StringBuffer();
             int i = 0;
-            for (Map.Entry<String, String> entry : hashMap.entrySet()) {
+            for (Map.Entry entry : hashMap.entrySet()) {
                 if (i != 0) {
                     stringBuffer.append("&");
                 }
-                String key = entry.getKey();
-                if (!TextUtils.isEmpty(key)) {
-                    stringBuffer.append(key);
+                String str = (String) entry.getKey();
+                if (!TextUtils.isEmpty(str)) {
+                    stringBuffer.append(str);
                     stringBuffer.append("=");
-                    String value = entry.getValue();
-                    stringBuffer.append(!TextUtils.isEmpty(value) ? URLEncoder.encode(value, "UTF-8") : URLEncoder.encode("", "UTF-8"));
+                    String str2 = (String) entry.getValue();
+                    stringBuffer.append(!TextUtils.isEmpty(str2) ? URLEncoder.encode(str2, "UTF-8") : URLEncoder.encode("", "UTF-8"));
                 }
                 i++;
             }
@@ -429,7 +429,7 @@ public class c {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static HttpURLConnection a(String str, String str2, HashMap<String, String> hashMap, String str3) {
+    public static HttpURLConnection a(String str, String str2, HashMap hashMap, String str3) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65543, null, str, str2, hashMap, str3)) == null) {
@@ -446,8 +446,8 @@ public class c {
                     httpURLConnection.setRequestMethod(str2);
                     httpURLConnection.setRequestProperty("Content-type", str3);
                     httpURLConnection.setRequestProperty("Accept-Encoding", "gzip");
-                    for (Map.Entry<String, String> entry : hashMap.entrySet()) {
-                        httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
+                    for (Map.Entry entry : hashMap.entrySet()) {
+                        httpURLConnection.setRequestProperty((String) entry.getKey(), (String) entry.getValue());
                     }
                     if (httpURLConnection instanceof HttpsURLConnection) {
                         httpURLConnection.setInstanceFollowRedirects(false);
@@ -640,7 +640,7 @@ public class c {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static b b(Context context, String str, String str2, HashMap<String, String> hashMap, String str3, String str4) {
+    public static b b(Context context, String str, String str2, HashMap hashMap, String str3, String str4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{context, str, str2, hashMap, str3, str4})) != null) {

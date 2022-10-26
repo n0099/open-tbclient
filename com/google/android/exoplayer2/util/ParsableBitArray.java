@@ -31,23 +31,32 @@ public final class ParsableBitArray {
     }
 
     private void assertValidOffset() {
+        boolean z;
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             int i2 = this.byteOffset;
-            Assertions.checkState(i2 >= 0 && (i2 < (i = this.byteLimit) || (i2 == i && this.bitOffset == 0)));
+            if (i2 >= 0 && (i2 < (i = this.byteLimit) || (i2 == i && this.bitOffset == 0))) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Assertions.checkState(z);
         }
     }
 
     public int bitsLeft() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ((this.byteLimit - this.byteOffset) * 8) - this.bitOffset : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return ((this.byteLimit - this.byteOffset) * 8) - this.bitOffset;
+        }
+        return invokeV.intValue;
     }
 
     public void byteAlign() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.bitOffset == 0) {
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.bitOffset == 0) {
             return;
         }
         this.bitOffset = 0;
@@ -57,9 +66,15 @@ public final class ParsableBitArray {
 
     public int getBytePosition() {
         InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Assertions.checkState(this.bitOffset == 0);
+            if (this.bitOffset == 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Assertions.checkState(z);
             return this.byteOffset;
         }
         return invokeV.intValue;
@@ -68,18 +83,79 @@ public final class ParsableBitArray {
     public int getPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.byteOffset * 8) + this.bitOffset : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return (this.byteOffset * 8) + this.bitOffset;
+        }
+        return invokeV.intValue;
     }
 
     public boolean readBit() {
         InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            boolean z = (this.data[this.byteOffset] & (128 >> this.bitOffset)) != 0;
+            if ((this.data[this.byteOffset] & (128 >> this.bitOffset)) != 0) {
+                z = true;
+            } else {
+                z = false;
+            }
             skipBit();
             return z;
         }
         return invokeV.booleanValue;
+    }
+
+    public void skipBit() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            int i = this.bitOffset + 1;
+            this.bitOffset = i;
+            if (i == 8) {
+                this.bitOffset = 0;
+                this.byteOffset++;
+            }
+            assertValidOffset();
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public ParsableBitArray(byte[] bArr) {
+        this(bArr, bArr.length);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bArr};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((byte[]) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public ParsableBitArray(byte[] bArr, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bArr, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.data = bArr;
+        this.byteLimit = i;
     }
 
     public int readBits(int i) {
@@ -115,129 +191,6 @@ public final class ParsableBitArray {
             return i7;
         }
         return invokeI.intValue;
-    }
-
-    public void readBytes(byte[] bArr, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048583, this, bArr, i, i2) == null) {
-            Assertions.checkState(this.bitOffset == 0);
-            System.arraycopy(this.data, this.byteOffset, bArr, i, i2);
-            this.byteOffset += i2;
-            assertValidOffset();
-        }
-    }
-
-    public void reset(byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, bArr) == null) {
-            reset(bArr, bArr.length);
-        }
-    }
-
-    public void setPosition(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            int i2 = i / 8;
-            this.byteOffset = i2;
-            this.bitOffset = i - (i2 * 8);
-            assertValidOffset();
-        }
-    }
-
-    public void skipBit() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            int i = this.bitOffset + 1;
-            this.bitOffset = i;
-            if (i == 8) {
-                this.bitOffset = 0;
-                this.byteOffset++;
-            }
-            assertValidOffset();
-        }
-    }
-
-    public void skipBits(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            int i2 = i / 8;
-            int i3 = this.byteOffset + i2;
-            this.byteOffset = i3;
-            int i4 = this.bitOffset + (i - (i2 * 8));
-            this.bitOffset = i4;
-            if (i4 > 7) {
-                this.byteOffset = i3 + 1;
-                this.bitOffset = i4 - 8;
-            }
-            assertValidOffset();
-        }
-    }
-
-    public void skipBytes(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            Assertions.checkState(this.bitOffset == 0);
-            this.byteOffset += i;
-            assertValidOffset();
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ParsableBitArray(byte[] bArr) {
-        this(bArr, bArr.length);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bArr};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((byte[]) objArr2[0], ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public void reset(ParsableByteArray parsableByteArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, parsableByteArray) == null) {
-            reset(parsableByteArray.data, parsableByteArray.limit());
-            setPosition(parsableByteArray.getPosition() * 8);
-        }
-    }
-
-    public ParsableBitArray(byte[] bArr, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bArr, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.data = bArr;
-        this.byteLimit = i;
-    }
-
-    public void reset(byte[] bArr, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048586, this, bArr, i) == null) {
-            this.data = bArr;
-            this.byteOffset = 0;
-            this.bitOffset = 0;
-            this.byteLimit = i;
-        }
     }
 
     public void readBits(byte[] bArr, int i, int i2) {
@@ -279,6 +232,88 @@ public final class ParsableBitArray {
                 this.byteOffset = i11 + 1;
             }
             assertValidOffset();
+        }
+    }
+
+    public void readBytes(byte[] bArr, int i, int i2) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048583, this, bArr, i, i2) == null) {
+            if (this.bitOffset == 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Assertions.checkState(z);
+            System.arraycopy(this.data, this.byteOffset, bArr, i, i2);
+            this.byteOffset += i2;
+            assertValidOffset();
+        }
+    }
+
+    public void reset(ParsableByteArray parsableByteArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, parsableByteArray) == null) {
+            reset(parsableByteArray.data, parsableByteArray.limit());
+            setPosition(parsableByteArray.getPosition() * 8);
+        }
+    }
+
+    public void setPosition(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            int i2 = i / 8;
+            this.byteOffset = i2;
+            this.bitOffset = i - (i2 * 8);
+            assertValidOffset();
+        }
+    }
+
+    public void skipBits(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            int i2 = i / 8;
+            int i3 = this.byteOffset + i2;
+            this.byteOffset = i3;
+            int i4 = this.bitOffset + (i - (i2 * 8));
+            this.bitOffset = i4;
+            if (i4 > 7) {
+                this.byteOffset = i3 + 1;
+                this.bitOffset = i4 - 8;
+            }
+            assertValidOffset();
+        }
+    }
+
+    public void skipBytes(int i) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            if (this.bitOffset == 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Assertions.checkState(z);
+            this.byteOffset += i;
+            assertValidOffset();
+        }
+    }
+
+    public void reset(byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, bArr) == null) {
+            reset(bArr, bArr.length);
+        }
+    }
+
+    public void reset(byte[] bArr, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048586, this, bArr, i) == null) {
+            this.data = bArr;
+            this.byteOffset = 0;
+            this.bitOffset = 0;
+            this.byteLimit = i;
         }
     }
 }

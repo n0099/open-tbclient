@@ -38,6 +38,18 @@ public final class WebEventTypeEnum {
         $VALUES = new WebEventTypeEnum[]{webEventTypeEnum, webEventTypeEnum2};
     }
 
+    public static WebEventTypeEnum valueOf(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (WebEventTypeEnum) Enum.valueOf(WebEventTypeEnum.class, str) : (WebEventTypeEnum) invokeL.objValue;
+    }
+
+    public static WebEventTypeEnum[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (WebEventTypeEnum[]) $VALUES.clone() : (WebEventTypeEnum[]) invokeV.objValue;
+    }
+
     public WebEventTypeEnum(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -55,17 +67,5 @@ public final class WebEventTypeEnum {
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-    }
-
-    public static WebEventTypeEnum valueOf(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (WebEventTypeEnum) Enum.valueOf(WebEventTypeEnum.class, str) : (WebEventTypeEnum) invokeL.objValue;
-    }
-
-    public static WebEventTypeEnum[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (WebEventTypeEnum[]) $VALUES.clone() : (WebEventTypeEnum[]) invokeV.objValue;
     }
 }

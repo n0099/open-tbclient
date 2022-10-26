@@ -1,154 +1,157 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.LayoutInflater;
+import android.content.res.Resources;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.RelativeLayout;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.model.AdOperator;
 import com.baidu.nadcore.widget.view.NadExpressNaBaseView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class w71 {
+public abstract class w71 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final NadExpressNaBaseView a;
-    public final Context b;
+    public final int a;
+    public final View b;
+    public String c;
+    public o71 d;
+    public n71 e;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-363088069, "Lcom/baidu/tieba/w71$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-363088069, "Lcom/baidu/tieba/w71$a;");
-                    return;
-                }
-            }
-            int[] iArr = new int[AdOperator.TYPE.values().length];
-            a = iArr;
-            try {
-                iArr[AdOperator.TYPE.DOWNLOAD.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[AdOperator.TYPE.CHECK.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
     }
 
-    public w71(NadExpressNaBaseView nadExpressNaBaseView) {
+    public w71(int i, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {nadExpressNaBaseView};
+            Object[] objArr = {Integer.valueOf(i), view2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = nadExpressNaBaseView;
-        this.b = nadExpressNaBaseView.getContext();
+        this.c = null;
+        this.a = i;
+        this.b = view2;
     }
 
-    public final boolean a(AdBaseModel adBaseModel, int i) {
-        InterceptResult invokeLI;
-        AdOperator adOperator;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, adBaseModel, i)) == null) {
-            if (adBaseModel == null || (adOperator = adBaseModel.h) == null) {
-                return false;
-            }
-            int i2 = a.a[adOperator.a.ordinal()];
-            if (i2 != 1) {
-                return i2 == 2 && i == 2;
-            }
-            np0 np0Var = adBaseModel.i;
-            return (np0Var == null || !np0Var.k) ? i == 1 : i == 3;
-        }
-        return invokeLI.booleanValue;
-    }
-
-    public final void b(View view2, float f) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, f) == null) || view2 == null) {
-            return;
-        }
-        m31.a(view2.getContext(), view2, f);
-    }
-
-    public v71 c(AdBaseModel adBaseModel) {
+    public static boolean c(AdBaseModel adBaseModel) {
         InterceptResult invokeL;
-        AdOperator adOperator;
+        vo0 vo0Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adBaseModel)) == null) {
-            v71 operateBar = this.a.getOperateBar();
-            if (v71.d(adBaseModel) && (adOperator = adBaseModel.h) != null) {
-                if (operateBar == null || !a(adBaseModel, operateBar.a)) {
-                    RelativeLayout relativeLayout = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0915ef);
-                    relativeLayout.removeAllViews();
-                    AdOperator.TYPE type = adOperator.a;
-                    AdOperator.TYPE type2 = AdOperator.TYPE.DOWNLOAD;
-                    if (type == type2) {
-                        uo0 uo0Var = adBaseModel.l;
-                        if (uo0Var == null || !uo0Var.e) {
-                            return null;
-                        }
-                        int i = R.layout.obfuscated_res_0x7f0d0607;
-                        mp0 mp0Var = adBaseModel.p;
-                        if (mp0Var != null && mp0Var.b(type2) != 0) {
-                            i = adBaseModel.p.b(AdOperator.TYPE.DOWNLOAD);
-                        }
-                        np0 np0Var = adBaseModel.i;
-                        if (np0Var != null && np0Var.k) {
-                            View inflate = LayoutInflater.from(this.b).inflate(i, (ViewGroup) relativeLayout, true);
-                            b(inflate.findViewById(R.id.obfuscated_res_0x7f0915ee), 6.0f);
-                            return new x71(3, inflate);
-                        }
-                        View inflate2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0609, (ViewGroup) relativeLayout, true);
-                        b(inflate2.findViewById(R.id.obfuscated_res_0x7f0915ee), 6.0f);
-                        return new z71(1, inflate2);
-                    }
-                    AdOperator.TYPE type3 = AdOperator.TYPE.CHECK;
-                    if (type == type3) {
-                        int i2 = R.layout.obfuscated_res_0x7f0d0608;
-                        mp0 mp0Var2 = adBaseModel.p;
-                        if (mp0Var2 != null && mp0Var2.b(type3) != 0) {
-                            i2 = adBaseModel.p.b(AdOperator.TYPE.CHECK);
-                        }
-                        View inflate3 = LayoutInflater.from(this.b).inflate(i2, (ViewGroup) relativeLayout, true);
-                        b(inflate3.findViewById(R.id.obfuscated_res_0x7f0915ed), 6.0f);
-                        return new y71(2, inflate3);
-                    }
-                    return null;
-                }
-                return operateBar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, adBaseModel)) == null) {
+            if (d(adBaseModel) && adBaseModel.h.a == AdOperator.TYPE.DOWNLOAD && (vo0Var = adBaseModel.l) != null && vo0Var.e) {
+                return true;
             }
-            return null;
+            return false;
         }
-        return (v71) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public static boolean d(AdBaseModel adBaseModel) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, adBaseModel)) == null) {
+            if (adBaseModel != null && adBaseModel.h != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final Object a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return this.b.findViewById(i);
+        }
+        return invokeI.objValue;
+    }
+
+    public void f(o71 o71Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, o71Var) == null) {
+            this.d = o71Var;
+        }
+    }
+
+    public final void g(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+            this.b.setTag(obj);
+        }
+    }
+
+    public void h(n71 n71Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, n71Var) == null) {
+            this.e = n71Var;
+        }
+    }
+
+    public final void i(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.b.setVisibility(i);
+        }
+    }
+
+    public final Object b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b.getTag();
+        }
+        return invokeV.objValue;
+    }
+
+    public final Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.b.getContext();
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    public final Resources getResources() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.b.getResources();
+        }
+        return (Resources) invokeV.objValue;
+    }
+
+    public void j() {
+        View view2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (view2 = this.b) != null && view2.getLayoutParams() != null) {
+            this.b.getLayoutParams().height = -2;
+            View view3 = this.b;
+            view3.setLayoutParams(view3.getLayoutParams());
+        }
+    }
+
+    public void update(AdBaseModel adBaseModel, NadExpressNaBaseView nadExpressNaBaseView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, adBaseModel, nadExpressNaBaseView) == null) {
+            g(adBaseModel);
+        }
     }
 }

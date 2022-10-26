@@ -16,6 +16,8 @@ public abstract class Token {
     public transient /* synthetic */ FieldHolder $fh;
     public final Token previous;
 
+    public abstract void appendTo(BitArray bitArray, byte[] bArr);
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -30,6 +32,15 @@ public abstract class Token {
             }
         }
         EMPTY = new SimpleToken(null, 0, 0);
+    }
+
+    public final Token getPrevious() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.previous;
+        }
+        return (Token) invokeV.objValue;
     }
 
     public Token(Token token) {
@@ -53,20 +64,18 @@ public abstract class Token {
     public final Token add(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) ? new SimpleToken(this, i, i2) : (Token) invokeII.objValue;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
+            return new SimpleToken(this, i, i2);
+        }
+        return (Token) invokeII.objValue;
     }
 
     public final Token addBinaryShift(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2)) == null) ? new BinaryShiftToken(this, i, i2) : (Token) invokeII.objValue;
-    }
-
-    public abstract void appendTo(BitArray bitArray, byte[] bArr);
-
-    public final Token getPrevious() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.previous : (Token) invokeV.objValue;
+        if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2)) == null) {
+            return new BinaryShiftToken(this, i, i2);
+        }
+        return (Token) invokeII.objValue;
     }
 }

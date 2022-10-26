@@ -29,8 +29,18 @@ public class Configuration implements Parcelable {
     public View mTargetView;
     public int mTargetViewId;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     /* loaded from: classes.dex */
-    public static class a implements Parcelable.Creator<Configuration> {
+    public final class a implements Parcelable.Creator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -53,6 +63,8 @@ public class Configuration implements Parcelable {
         /* renamed from: a */
         public Configuration createFromParcel(Parcel parcel) {
             InterceptResult invokeL;
+            boolean z;
+            boolean z2;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
                 Configuration configuration = new Configuration();
@@ -60,9 +72,23 @@ public class Configuration implements Parcelable {
                 configuration.mFullingViewId = parcel.readInt();
                 configuration.mTargetViewId = parcel.readInt();
                 configuration.mFullingColorId = parcel.readInt();
-                configuration.mAutoDismiss = parcel.readByte() == 1;
-                configuration.mKeyBackEventDismiss = parcel.readByte() == 1;
-                configuration.mOverlayTarget = parcel.readByte() == 1;
+                boolean z3 = false;
+                if (parcel.readByte() == 1) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                configuration.mAutoDismiss = z;
+                if (parcel.readByte() == 1) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                configuration.mKeyBackEventDismiss = z2;
+                if (parcel.readByte() == 1) {
+                    z3 = true;
+                }
+                configuration.mOverlayTarget = z3;
                 return configuration;
             }
             return (Configuration) invokeL.objValue;
@@ -74,7 +100,10 @@ public class Configuration implements Parcelable {
         public Configuration[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new Configuration[i] : (Configuration[]) invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                return new Configuration[i];
+            }
+            return (Configuration[]) invokeI.objValue;
         }
     }
 
@@ -117,16 +146,6 @@ public class Configuration implements Parcelable {
         this.mShowCloseButton = false;
         this.mEnterAnimationId = -1;
         this.mExitAnimationId = -1;
-    }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
     }
 
     @Override // android.os.Parcelable

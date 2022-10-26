@@ -31,15 +31,15 @@ public class a {
     public com.baidu.mapsdkplatform.comjni.map.favorite.a a;
     public boolean c;
     public boolean d;
-    public Vector<String> e;
-    public Vector<String> f;
+    public Vector e;
+    public Vector f;
     public boolean g;
     public c h;
     public b i;
 
     /* renamed from: com.baidu.mapsdkplatform.comapi.favrite.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0108a implements Comparator<String> {
+    public class C0108a implements Comparator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
@@ -311,14 +311,14 @@ public class a {
                 }
                 if (str != null && !str.equals("") && favSyncPoi != null) {
                     j();
-                    ArrayList<String> e = e();
+                    ArrayList e = e();
                     if ((e != null ? e.size() : 0) + 1 > 500) {
                         return -2;
                     }
                     if (e != null && e.size() > 0) {
-                        Iterator<String> it = e.iterator();
+                        Iterator it = e.iterator();
                         while (it.hasNext()) {
-                            FavSyncPoi b2 = b(it.next());
+                            FavSyncPoi b2 = b((String) it.next());
                             if (b2 != null && str.equals(b2.b)) {
                                 return -1;
                             }
@@ -507,7 +507,7 @@ public class a {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) ? (this.a == null || str == null || str.equals("") || !this.a.c(str)) ? false : true : invokeL.booleanValue;
     }
 
-    public ArrayList<String> d() {
+    public ArrayList d() {
         InterceptResult invokeV;
         String b2;
         Interceptable interceptable = $ic;
@@ -522,7 +522,7 @@ public class a {
                     String[] stringArray = bundle.getStringArray("rstString");
                     if (stringArray != null) {
                         if (this.f == null) {
-                            this.f = new Vector<>();
+                            this.f = new Vector();
                         } else {
                             this.f.clear();
                         }
@@ -544,19 +544,19 @@ public class a {
                         this.f = null;
                     }
                     if (this.f != null && !this.f.isEmpty()) {
-                        return new ArrayList<>(this.f);
+                        return new ArrayList(this.f);
                     }
                     return null;
                 } catch (Exception unused) {
                     return null;
                 }
             }
-            return new ArrayList<>(this.f);
+            return new ArrayList(this.f);
         }
         return (ArrayList) invokeV.objValue;
     }
 
-    public ArrayList<String> e() {
+    public ArrayList e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
@@ -570,7 +570,7 @@ public class a {
                     String[] stringArray = bundle.getStringArray("rstString");
                     if (stringArray != null) {
                         if (this.e == null) {
-                            this.e = new Vector<>();
+                            this.e = new Vector();
                         } else {
                             this.e.clear();
                         }
@@ -591,16 +591,16 @@ public class a {
                         this.e.clear();
                         this.e = null;
                     }
-                    Vector<String> vector = this.e;
+                    Vector vector = this.e;
                     if (vector == null || vector.size() == 0) {
                         return null;
                     }
-                    return new ArrayList<>(this.e);
+                    return new ArrayList(this.e);
                 } catch (Exception unused) {
                     return null;
                 }
             }
-            return new ArrayList<>(this.e);
+            return new ArrayList(this.e);
         }
         return (ArrayList) invokeV.objValue;
     }
@@ -615,18 +615,18 @@ public class a {
                 if (this.a == null) {
                     return null;
                 }
-                ArrayList<String> d = d();
+                ArrayList d = d();
                 JSONObject jSONObject = new JSONObject();
                 if (d != null) {
                     try {
                         JSONArray jSONArray = new JSONArray();
                         int i = 0;
-                        Iterator<String> it = d.iterator();
+                        Iterator it = d.iterator();
                         while (it.hasNext()) {
-                            String next = it.next();
-                            if (next != null && !next.equals("data_version") && (b2 = this.a.b(next)) != null && !b2.equals("")) {
+                            String str = (String) it.next();
+                            if (str != null && !str.equals("data_version") && (b2 = this.a.b(str)) != null && !b2.equals("")) {
                                 JSONObject optJSONObject = new JSONObject(b2).optJSONObject("Fav_Sync");
-                                optJSONObject.put("key", next);
+                                optJSONObject.put("key", str);
                                 jSONArray.put(i, optJSONObject);
                                 i++;
                             }

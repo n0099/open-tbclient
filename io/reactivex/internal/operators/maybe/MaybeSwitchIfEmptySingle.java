@@ -16,28 +16,28 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.fuseable.HasUpstreamMaybeSource;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class MaybeSwitchIfEmptySingle<T> extends Single<T> implements HasUpstreamMaybeSource<T> {
+public final class MaybeSwitchIfEmptySingle extends Single implements HasUpstreamMaybeSource {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SingleSource<? extends T> other;
-    public final MaybeSource<T> source;
+    public final SingleSource other;
+    public final MaybeSource source;
 
     /* loaded from: classes8.dex */
-    public static final class SwitchIfEmptyMaybeObserver<T> extends AtomicReference<Disposable> implements MaybeObserver<T>, Disposable {
+    public final class SwitchIfEmptyMaybeObserver extends AtomicReference implements MaybeObserver, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4603919676453758899L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SingleObserver<? super T> actual;
-        public final SingleSource<? extends T> other;
+        public final SingleObserver actual;
+        public final SingleSource other;
 
         /* loaded from: classes8.dex */
-        public static final class OtherSingleObserver<T> implements SingleObserver<T> {
+        public final class OtherSingleObserver implements SingleObserver {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final SingleObserver<? super T> actual;
-            public final AtomicReference<Disposable> parent;
+            public final SingleObserver actual;
+            public final AtomicReference parent;
 
-            public OtherSingleObserver(SingleObserver<? super T> singleObserver, AtomicReference<Disposable> atomicReference) {
+            public OtherSingleObserver(SingleObserver singleObserver, AtomicReference atomicReference) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -73,15 +73,15 @@ public final class MaybeSwitchIfEmptySingle<T> extends Single<T> implements HasU
             }
 
             @Override // io.reactivex.SingleObserver
-            public void onSuccess(T t) {
+            public void onSuccess(Object obj) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-                    this.actual.onSuccess(t);
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+                    this.actual.onSuccess(obj);
                 }
             }
         }
 
-        public SwitchIfEmptyMaybeObserver(SingleObserver<? super T> singleObserver, SingleSource<? extends T> singleSource) {
+        public SwitchIfEmptyMaybeObserver(SingleObserver singleObserver, SingleSource singleSource) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -112,14 +112,17 @@ public final class MaybeSwitchIfEmptySingle<T> extends Single<T> implements HasU
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? DisposableHelper.isDisposed(get()) : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return DisposableHelper.isDisposed((Disposable) get());
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.MaybeObserver
         public void onComplete() {
             Disposable disposable;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (disposable = get()) != DisposableHelper.DISPOSED && compareAndSet(disposable, null)) {
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (disposable = (Disposable) get()) != DisposableHelper.DISPOSED && compareAndSet(disposable, null)) {
                 this.other.subscribe(new OtherSingleObserver(this.actual, this));
             }
         }
@@ -141,15 +144,15 @@ public final class MaybeSwitchIfEmptySingle<T> extends Single<T> implements HasU
         }
 
         @Override // io.reactivex.MaybeObserver
-        public void onSuccess(T t) {
+        public void onSuccess(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
-                this.actual.onSuccess(t);
+            if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
+                this.actual.onSuccess(obj);
             }
         }
     }
 
-    public MaybeSwitchIfEmptySingle(MaybeSource<T> maybeSource, SingleSource<? extends T> singleSource) {
+    public MaybeSwitchIfEmptySingle(MaybeSource maybeSource, SingleSource singleSource) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -169,14 +172,17 @@ public final class MaybeSwitchIfEmptySingle<T> extends Single<T> implements HasU
     }
 
     @Override // io.reactivex.internal.fuseable.HasUpstreamMaybeSource
-    public MaybeSource<T> source() {
+    public MaybeSource source() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.source : (MaybeSource) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.source;
+        }
+        return (MaybeSource) invokeV.objValue;
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver<? super T> singleObserver) {
+    public void subscribeActual(SingleObserver singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, singleObserver) == null) {
             this.source.subscribe(new SwitchIfEmptyMaybeObserver(singleObserver, this.other));

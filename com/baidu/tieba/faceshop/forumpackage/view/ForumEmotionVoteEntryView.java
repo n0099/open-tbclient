@@ -17,6 +17,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class ForumEmotionVoteEntryView extends RelativeLayout {
@@ -47,52 +48,6 @@ public class ForumEmotionVoteEntryView extends RelativeLayout {
             }
         }
         a(context);
-    }
-
-    public final void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02b1, this);
-            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090ac5);
-            this.a = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070225);
-            this.b = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090a66);
-            this.e = findViewById(R.id.obfuscated_res_0x7f090ac6);
-        }
-    }
-
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
-            SkinManager.setBackgroundColor(this.c, R.color.CAM_X0201);
-            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0105);
-            SkinManager.setBackgroundColor(this.e, R.color.common_color_10312);
-        }
-    }
-
-    public void setAvatarList(List<String> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.c.removeAllViews();
-            if (list == null || list.isEmpty()) {
-                return;
-            }
-            for (String str : list) {
-                if (!StringUtils.isNull(str)) {
-                    TbImageView tbImageView = new TbImageView(getContext());
-                    tbImageView.setDrawerType(1);
-                    tbImageView.setIsRound(true);
-                    tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
-                    int i = this.a;
-                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(i, i);
-                    layoutParams.leftMargin = this.b;
-                    layoutParams.gravity = 17;
-                    tbImageView.K(str, 10, false);
-                    this.c.addView(tbImageView, layoutParams);
-                }
-            }
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -137,5 +92,52 @@ public class ForumEmotionVoteEntryView extends RelativeLayout {
             }
         }
         a(context);
+    }
+
+    public final void a(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02b0, this);
+            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090acf);
+            this.a = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070225);
+            this.b = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090a70);
+            this.e = findViewById(R.id.obfuscated_res_0x7f090ad0);
+        }
+    }
+
+    public void setAvatarList(List list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.c.removeAllViews();
+            if (list != null && !list.isEmpty()) {
+                Iterator it = list.iterator();
+                while (it.hasNext()) {
+                    String str = (String) it.next();
+                    if (!StringUtils.isNull(str)) {
+                        TbImageView tbImageView = new TbImageView(getContext());
+                        tbImageView.setDrawerType(1);
+                        tbImageView.setIsRound(true);
+                        tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
+                        int i = this.a;
+                        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(i, i);
+                        layoutParams.leftMargin = this.b;
+                        layoutParams.gravity = 17;
+                        tbImageView.L(str, 10, false);
+                        this.c.addView(tbImageView, layoutParams);
+                    }
+                }
+            }
+        }
+    }
+
+    public void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
+            SkinManager.setBackgroundColor(this.c, R.color.CAM_X0201);
+            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0105);
+            SkinManager.setBackgroundColor(this.e, R.color.common_color_10312);
+        }
     }
 }

@@ -9,7 +9,7 @@ import io.reactivex.Flowable;
 import io.reactivex.internal.observers.SubscriberCompletableObserver;
 import org.reactivestreams.Subscriber;
 /* loaded from: classes8.dex */
-public final class CompletableToFlowable<T> extends Flowable<T> {
+public final class CompletableToFlowable extends Flowable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final CompletableSource source;
@@ -33,7 +33,7 @@ public final class CompletableToFlowable<T> extends Flowable<T> {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber<? super T> subscriber) {
+    public void subscribeActual(Subscriber subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             this.source.subscribe(new SubscriberCompletableObserver(subscriber));

@@ -1,30 +1,44 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.ad.AbsDataRecorder;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TiebaDatabase;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class cp5 extends AbsDataRecorder {
+public class cp5 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cp5() {
-        super(AbsDataRecorder.Scene.RECOMMEND);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((AbsDataRecorder.Scene) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947682465, "Lcom/baidu/tieba/cp5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947682465, "Lcom/baidu/tieba/cp5;");
                 return;
             }
         }
+        a = TbConfig.TIEBA_ADDRESS + "mo/q/account_page";
+    }
+
+    public static void a(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65537, null, str) != null) || str == null) {
+            return;
+        }
+        y9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+        mainDBDatabaseManager.e("delete from cash_data where account=?", new String[]{str});
+        mainDBDatabaseManager.e("delete from mark_data where account=?", new String[]{str});
+        mainDBDatabaseManager.e("delete from draft_box where account=?", new Object[]{str});
+        mainDBDatabaseManager.e("delete from account_data where id=?", new Object[]{str});
+        mainDBDatabaseManager.e("delete from setting where account=?", new Object[]{str});
     }
 }

@@ -25,10 +25,10 @@ public class FontTableBox extends AbstractBox {
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_0 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_1 = null;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<FontRecord> entries;
+    public List entries;
 
     /* loaded from: classes7.dex */
-    public static class FontRecord {
+    public class FontRecord {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int fontId;
@@ -48,36 +48,13 @@ public class FontTableBox extends AbstractBox {
             }
         }
 
-        public void getContent(ByteBuffer byteBuffer) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, byteBuffer) == null) {
-                IsoTypeWriter.writeUInt16(byteBuffer, this.fontId);
-                IsoTypeWriter.writeUInt8(byteBuffer, this.fontname.length());
-                byteBuffer.put(Utf8.convert(this.fontname));
-            }
-        }
-
         public int getSize() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Utf8.utf8StringLengthInBytes(this.fontname) + 3 : invokeV.intValue;
-        }
-
-        public void parse(ByteBuffer byteBuffer) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, byteBuffer) == null) {
-                this.fontId = IsoTypeReader.readUInt16(byteBuffer);
-                this.fontname = IsoTypeReader.readString(byteBuffer, IsoTypeReader.readUInt8(byteBuffer));
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return Utf8.utf8StringLengthInBytes(this.fontname) + 3;
             }
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return "FontRecord{fontId=" + this.fontId + ", fontname='" + this.fontname + "'}";
-            }
-            return (String) invokeV.objValue;
+            return invokeV.intValue;
         }
 
         public FontRecord(int i, String str) {
@@ -98,6 +75,32 @@ public class FontTableBox extends AbstractBox {
             this.fontId = i;
             this.fontname = str;
         }
+
+        public void getContent(ByteBuffer byteBuffer) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, byteBuffer) == null) {
+                IsoTypeWriter.writeUInt16(byteBuffer, this.fontId);
+                IsoTypeWriter.writeUInt8(byteBuffer, this.fontname.length());
+                byteBuffer.put(Utf8.convert(this.fontname));
+            }
+        }
+
+        public void parse(ByteBuffer byteBuffer) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, byteBuffer) == null) {
+                this.fontId = IsoTypeReader.readUInt16(byteBuffer);
+                this.fontname = IsoTypeReader.readString(byteBuffer, IsoTypeReader.readUInt8(byteBuffer));
+            }
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return "FontRecord{fontId=" + this.fontId + ", fontname='" + this.fontname + "'}";
+            }
+            return (String) invokeV.objValue;
+        }
     }
 
     static {
@@ -114,6 +117,30 @@ public class FontTableBox extends AbstractBox {
             }
         }
         ajc$preClinit();
+    }
+
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public long getContentSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            int i = 2;
+            for (FontRecord fontRecord : this.entries) {
+                i += fontRecord.getSize();
+            }
+            return i;
+        }
+        return invokeV.longValue;
+    }
+
+    public List getEntries() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
+            return this.entries;
+        }
+        return (List) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -165,31 +192,7 @@ public class FontTableBox extends AbstractBox {
         }
     }
 
-    @Override // com.googlecode.mp4parser.AbstractBox
-    public long getContentSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int i = 2;
-            for (FontRecord fontRecord : this.entries) {
-                i += fontRecord.getSize();
-            }
-            return i;
-        }
-        return invokeV.longValue;
-    }
-
-    public List<FontRecord> getEntries() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
-            return this.entries;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public void setEntries(List<FontRecord> list) {
+    public void setEntries(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, list));

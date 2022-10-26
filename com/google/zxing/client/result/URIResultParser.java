@@ -61,7 +61,10 @@ public final class URIResultParser extends ResultParser {
                 return true;
             }
             Matcher matcher2 = URL_WITHOUT_PROTOCOL_PATTERN.matcher(str);
-            return matcher2.find() && matcher2.start() == 0;
+            if (!matcher2.find() || matcher2.start() != 0) {
+                return false;
+            }
+            return true;
         }
         return invokeL.booleanValue;
     }
@@ -75,10 +78,10 @@ public final class URIResultParser extends ResultParser {
             String massagedText = ResultParser.getMassagedText(result);
             if (!massagedText.startsWith("URL:") && !massagedText.startsWith("URI:")) {
                 String trim = massagedText.trim();
-                if (isBasicallyValidURI(trim)) {
-                    return new URIParsedResult(trim, null);
+                if (!isBasicallyValidURI(trim)) {
+                    return null;
                 }
-                return null;
+                return new URIParsedResult(trim, null);
             }
             return new URIParsedResult(massagedText.substring(4).trim(), null);
         }

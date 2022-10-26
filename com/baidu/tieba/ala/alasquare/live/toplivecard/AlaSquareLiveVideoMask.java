@@ -65,83 +65,6 @@ public class AlaSquareLiveVideoMask extends FrameLayout {
         a(context);
     }
 
-    public final void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.a = context;
-            this.n = AnimationUtils.loadAnimation(context, R.anim.obfuscated_res_0x7f01014c);
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d064c, this);
-            this.b = inflate;
-            this.m = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090989);
-            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091347);
-            this.c = tbImageView;
-            tbImageView.setDefaultBgResource(R.drawable.pic_bg_video_frs);
-            this.c.setAutoChangeStyle(false);
-            View findViewById = this.b.findViewById(R.id.obfuscated_res_0x7f090d35);
-            this.d = findViewById;
-            findViewById.setBackgroundResource(R.drawable.obfuscated_res_0x7f080fea);
-            this.e = (HeadImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090dc5);
-            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090dc6);
-            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090dc4);
-            this.e.setIsRound(true);
-            this.e.setAutoChangeStyle(false);
-            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09235c);
-            this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092352);
-            this.j = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090eaf);
-            NoActiveStopAlaPlayAnimationView noActiveStopAlaPlayAnimationView = (NoActiveStopAlaPlayAnimationView) this.b.findViewById(R.id.obfuscated_res_0x7f090222);
-            this.k = noActiveStopAlaPlayAnimationView;
-            noActiveStopAlaPlayAnimationView.setFromSpecialForum(this.o);
-            SkinManager.setImageResource(this.j, R.drawable.obfuscated_res_0x7f080399);
-            this.l = (ProgressBar) this.b.findViewById(R.id.obfuscated_res_0x7f090304);
-            b();
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0101);
-            SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0101);
-            SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0101);
-            SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0101);
-        }
-    }
-
-    public void setData(ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadData) == null) || threadData == null || threadData.getThreadAlaInfo() == null || threadData.getAuthor() == null) {
-            return;
-        }
-        AlaInfoData threadAlaInfo = threadData.getThreadAlaInfo();
-        this.c.K(threadAlaInfo.cover, 10, false);
-        AlaUserInfoData alaUserInfoData = threadAlaInfo.user_info;
-        if (alaUserInfoData != null && !StringUtils.isNull(alaUserInfoData.portrait) && alaUserInfoData.ala_id > 0) {
-            this.d.setVisibility(0);
-            this.e.K(alaUserInfoData.portrait, 10, false);
-            this.f.setText(threadData.getAuthor().getName_show());
-            this.g.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f11f7), String.valueOf(alaUserInfoData.ala_id)));
-        } else {
-            this.d.setVisibility(8);
-        }
-        this.h.setText(threadData.getTitle());
-        this.i.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f11fc, String.valueOf(threadAlaInfo.audience_count)));
-        if (this.o) {
-            return;
-        }
-        this.k.b();
-    }
-
-    public void setFromSpecialForum(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.o = z;
-            this.j.setVisibility(8);
-            this.l.setVisibility(8);
-            this.k.setVisibility(8);
-            this.k.setFromSpecialForum(this.o);
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaSquareLiveVideoMask(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -186,5 +109,80 @@ public class AlaSquareLiveVideoMask extends FrameLayout {
         }
         this.o = false;
         a(context);
+    }
+
+    public final void a(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            this.a = context;
+            this.n = AnimationUtils.loadAnimation(context, R.anim.obfuscated_res_0x7f01014c);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d064c, this);
+            this.b = inflate;
+            this.m = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090993);
+            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091338);
+            this.c = tbImageView;
+            tbImageView.setDefaultBgResource(R.drawable.pic_bg_video_frs);
+            this.c.setAutoChangeStyle(false);
+            View findViewById = this.b.findViewById(R.id.obfuscated_res_0x7f090d42);
+            this.d = findViewById;
+            findViewById.setBackgroundResource(R.drawable.obfuscated_res_0x7f080ffb);
+            this.e = (HeadImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090db9);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090dba);
+            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090db8);
+            this.e.setIsRound(true);
+            this.e.setAutoChangeStyle(false);
+            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092347);
+            this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09233d);
+            this.j = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090ea3);
+            NoActiveStopAlaPlayAnimationView noActiveStopAlaPlayAnimationView = (NoActiveStopAlaPlayAnimationView) this.b.findViewById(R.id.obfuscated_res_0x7f090222);
+            this.k = noActiveStopAlaPlayAnimationView;
+            noActiveStopAlaPlayAnimationView.setFromSpecialForum(this.o);
+            SkinManager.setImageResource(this.j, R.drawable.obfuscated_res_0x7f080399);
+            this.l = (ProgressBar) this.b.findViewById(R.id.obfuscated_res_0x7f090304);
+            b();
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0101);
+            SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0101);
+            SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0101);
+            SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0101);
+        }
+    }
+
+    public void setData(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadData) == null) && threadData != null && threadData.getThreadAlaInfo() != null && threadData.getAuthor() != null) {
+            AlaInfoData threadAlaInfo = threadData.getThreadAlaInfo();
+            this.c.L(threadAlaInfo.cover, 10, false);
+            AlaUserInfoData alaUserInfoData = threadAlaInfo.user_info;
+            if (alaUserInfoData != null && !StringUtils.isNull(alaUserInfoData.portrait) && alaUserInfoData.ala_id > 0) {
+                this.d.setVisibility(0);
+                this.e.L(alaUserInfoData.portrait, 10, false);
+                this.f.setText(threadData.getAuthor().getName_show());
+                this.g.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f120b), String.valueOf(alaUserInfoData.ala_id)));
+            } else {
+                this.d.setVisibility(8);
+            }
+            this.h.setText(threadData.getTitle());
+            this.i.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1210, String.valueOf(threadAlaInfo.audience_count)));
+            if (!this.o) {
+                this.k.b();
+            }
+        }
+    }
+
+    public void setFromSpecialForum(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.o = z;
+            this.j.setVisibility(8);
+            this.l.setVisibility(8);
+            this.k.setVisibility(8);
+            this.k.setFromSpecialForum(this.o);
+        }
     }
 }

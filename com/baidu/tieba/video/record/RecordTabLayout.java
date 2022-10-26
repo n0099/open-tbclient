@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,6 +26,11 @@ public class RecordTabLayout extends LinearLayout {
     public boolean c;
     public int d;
     public c e;
+
+    /* loaded from: classes6.dex */
+    public interface c {
+        void x(int i, boolean z);
+    }
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
@@ -56,16 +61,17 @@ public class RecordTabLayout extends LinearLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                int i = this.b.d;
-                int i2 = this.a;
-                if (i == i2) {
-                    return;
-                }
-                this.b.setCurrentTab(i2, true);
-                if (this.b.e != null) {
-                    this.b.e.x(this.a, true);
-                }
+            if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
+                return;
+            }
+            int i = this.b.d;
+            int i2 = this.a;
+            if (i == i2) {
+                return;
+            }
+            this.b.setCurrentTab(i2, true);
+            if (this.b.e != null) {
+                this.b.e.x(this.a, true);
             }
         }
     }
@@ -115,11 +121,6 @@ public class RecordTabLayout extends LinearLayout {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public interface c {
-        void x(int i, boolean z);
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RecordTabLayout(Context context) {
         super(context);
@@ -140,90 +141,6 @@ public class RecordTabLayout extends LinearLayout {
         }
         this.c = true;
         e();
-    }
-
-    public void d(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-            TextView textView = new TextView(getContext());
-            textView.setTextSize(0, ej.f(getContext(), R.dimen.obfuscated_res_0x7f0702b5));
-            textView.setTextColor(getResources().getColor(R.color.CAM_X0101));
-            textView.setText(str);
-            textView.setTag(Integer.valueOf(i));
-            textView.setOnClickListener(new a(this, i));
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-            if (this.a.getChildCount() != 0) {
-                layoutParams.leftMargin = ej.f(getContext(), R.dimen.obfuscated_res_0x7f0702c3);
-            }
-            this.a.addView(textView, layoutParams);
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            setOrientation(1);
-            LinearLayout linearLayout = new LinearLayout(getContext());
-            this.a = linearLayout;
-            linearLayout.setOrientation(0);
-            this.a.setGravity(17);
-            addView(this.a, new ViewGroup.LayoutParams(-1, -2));
-            View view2 = new View(getContext());
-            this.b = view2;
-            view2.setBackgroundColor(getResources().getColor(R.color.CAM_X0101));
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ej.f(getContext(), R.dimen.obfuscated_res_0x7f0702c3), ej.f(getContext(), R.dimen.obfuscated_res_0x7f070224));
-            layoutParams.topMargin = ej.f(getContext(), R.dimen.obfuscated_res_0x7f07025f);
-            addView(this.b, layoutParams);
-        }
-    }
-
-    public int getCurrentTab() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : invokeV.intValue;
-    }
-
-    public void setCurrentTab(int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) || this.d == i) {
-            return;
-        }
-        this.d = i;
-        TextView textView = null;
-        for (int i2 = 0; i2 < this.a.getChildCount(); i2++) {
-            View childAt = this.a.getChildAt(i2);
-            if (childAt instanceof TextView) {
-                Object tag = childAt.getTag();
-                if ((tag instanceof Integer) && ((Integer) tag).intValue() == i) {
-                    TextView textView2 = (TextView) childAt;
-                    textView2.setTextColor(getResources().getColor(R.color.CAM_X0101));
-                    textView = textView2;
-                } else {
-                    ((TextView) childAt).setTextColor(getResources().getColor(R.color.white_alpha80));
-                }
-            }
-        }
-        if (this.c) {
-            textView.post(new b(this, textView, z));
-        }
-    }
-
-    public void setListener(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
-            this.e = cVar;
-        }
-    }
-
-    public void setShowIndicator(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.c = z;
-            if (z) {
-                return;
-            }
-            this.b.setVisibility(4);
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -270,5 +187,91 @@ public class RecordTabLayout extends LinearLayout {
         }
         this.c = true;
         e();
+    }
+
+    public void setListener(c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
+            this.e = cVar;
+        }
+    }
+
+    public void setShowIndicator(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.c = z;
+            if (!z) {
+                this.b.setVisibility(4);
+            }
+        }
+    }
+
+    public void d(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+            TextView textView = new TextView(getContext());
+            textView.setTextSize(0, fj.f(getContext(), R.dimen.obfuscated_res_0x7f0702b5));
+            textView.setTextColor(getResources().getColor(R.color.CAM_X0101));
+            textView.setText(str);
+            textView.setTag(Integer.valueOf(i));
+            textView.setOnClickListener(new a(this, i));
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
+            if (this.a.getChildCount() != 0) {
+                layoutParams.leftMargin = fj.f(getContext(), R.dimen.obfuscated_res_0x7f0702c3);
+            }
+            this.a.addView(textView, layoutParams);
+        }
+    }
+
+    public void setCurrentTab(int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) != null) || this.d == i) {
+            return;
+        }
+        this.d = i;
+        TextView textView = null;
+        for (int i2 = 0; i2 < this.a.getChildCount(); i2++) {
+            View childAt = this.a.getChildAt(i2);
+            if (childAt instanceof TextView) {
+                Object tag = childAt.getTag();
+                if ((tag instanceof Integer) && ((Integer) tag).intValue() == i) {
+                    TextView textView2 = (TextView) childAt;
+                    textView2.setTextColor(getResources().getColor(R.color.CAM_X0101));
+                    textView = textView2;
+                } else {
+                    ((TextView) childAt).setTextColor(getResources().getColor(R.color.white_alpha80));
+                }
+            }
+        }
+        if (this.c) {
+            textView.post(new b(this, textView, z));
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            setOrientation(1);
+            LinearLayout linearLayout = new LinearLayout(getContext());
+            this.a = linearLayout;
+            linearLayout.setOrientation(0);
+            this.a.setGravity(17);
+            addView(this.a, new ViewGroup.LayoutParams(-1, -2));
+            View view2 = new View(getContext());
+            this.b = view2;
+            view2.setBackgroundColor(getResources().getColor(R.color.CAM_X0101));
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(fj.f(getContext(), R.dimen.obfuscated_res_0x7f0702c3), fj.f(getContext(), R.dimen.obfuscated_res_0x7f070224));
+            layoutParams.topMargin = fj.f(getContext(), R.dimen.obfuscated_res_0x7f07025f);
+            addView(this.b, layoutParams);
+        }
+    }
+
+    public int getCurrentTab() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return invokeV.intValue;
     }
 }

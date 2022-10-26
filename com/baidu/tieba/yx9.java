@@ -1,5 +1,9 @@
 package com.baidu.tieba;
 /* loaded from: classes6.dex */
-public interface yx9<T1, T2, R> {
-    R call(T1 t1, T2 t2);
+public interface yx9 {
+    void onCompleted();
+
+    void onError(Throwable th);
+
+    void onNext(Object obj);
 }

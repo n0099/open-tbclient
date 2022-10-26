@@ -38,10 +38,9 @@ public class QuestionTagListResponseMessage extends JsonHttpResponsedMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
             super.decodeLogicInBackGround(i, jSONObject);
-            if (jSONObject == null || getError() != 0) {
-                return;
+            if (jSONObject != null && getError() == 0) {
+                this.data = (QuestionTagListData) DataExt.toEntity(jSONObject.toString(), QuestionTagListData.class);
             }
-            this.data = (QuestionTagListData) DataExt.toEntity(jSONObject.toString(), QuestionTagListData.class);
         }
     }
 }

@@ -28,6 +28,9 @@ public class ResponseBodyConverter {
     public static ResponseBody fromOks(okhttp3.ResponseBody responseBody) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, responseBody)) == null) ? ResponseBody.create(MediaTypeConverter.fromOks(responseBody.contentType()), responseBody.contentLength(), responseBody.source().inputStream()) : (ResponseBody) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, responseBody)) == null) {
+            return ResponseBody.create(MediaTypeConverter.fromOks(responseBody.contentType()), responseBody.contentLength(), responseBody.source().inputStream());
+        }
+        return (ResponseBody) invokeL.objValue;
     }
 }

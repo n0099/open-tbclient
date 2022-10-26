@@ -61,17 +61,21 @@ public class PassBioDisplayUtil {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, windowManager)) == null) {
-            if (Build.VERSION.SDK_INT >= 19) {
-                Display defaultDisplay = windowManager.getDefaultDisplay();
-                DisplayMetrics displayMetrics = new DisplayMetrics();
-                defaultDisplay.getRealMetrics(displayMetrics);
-                int i = displayMetrics.heightPixels;
-                int i2 = displayMetrics.widthPixels;
-                DisplayMetrics displayMetrics2 = new DisplayMetrics();
-                defaultDisplay.getMetrics(displayMetrics2);
-                return i2 - displayMetrics2.widthPixels > 0 || i - displayMetrics2.heightPixels > 0;
+            if (Build.VERSION.SDK_INT < 19) {
+                return false;
             }
-            return false;
+            Display defaultDisplay = windowManager.getDefaultDisplay();
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            defaultDisplay.getRealMetrics(displayMetrics);
+            int i = displayMetrics.heightPixels;
+            int i2 = displayMetrics.widthPixels;
+            DisplayMetrics displayMetrics2 = new DisplayMetrics();
+            defaultDisplay.getMetrics(displayMetrics2);
+            int i3 = displayMetrics2.heightPixels;
+            if (i2 - displayMetrics2.widthPixels <= 0 && i - i3 <= 0) {
+                return false;
+            }
+            return true;
         }
         return invokeL.booleanValue;
     }

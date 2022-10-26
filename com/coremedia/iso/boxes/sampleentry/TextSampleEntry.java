@@ -29,14 +29,30 @@ public class TextSampleEntry extends AbstractSampleEntry {
     public StyleRecord styleRecord;
     public int verticalJustification;
 
+    @Override // com.googlecode.mp4parser.BasicContainer
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? "TextSampleEntry" : (String) invokeV.objValue;
+    }
+
     /* loaded from: classes7.dex */
-    public static class BoxRecord {
+    public class BoxRecord {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int bottom;
         public int left;
         public int right;
         public int top;
+
+        public int getSize() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return 8;
+            }
+            return invokeV.intValue;
+        }
 
         public BoxRecord() {
             Interceptable interceptable = $ic;
@@ -52,55 +68,13 @@ public class TextSampleEntry extends AbstractSampleEntry {
             }
         }
 
-        public boolean equals(Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-                if (this == obj) {
-                    return true;
-                }
-                if (obj == null || BoxRecord.class != obj.getClass()) {
-                    return false;
-                }
-                BoxRecord boxRecord = (BoxRecord) obj;
-                return this.bottom == boxRecord.bottom && this.left == boxRecord.left && this.right == boxRecord.right && this.top == boxRecord.top;
-            }
-            return invokeL.booleanValue;
-        }
-
-        public void getContent(ByteBuffer byteBuffer) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, byteBuffer) == null) {
-                IsoTypeWriter.writeUInt16(byteBuffer, this.top);
-                IsoTypeWriter.writeUInt16(byteBuffer, this.left);
-                IsoTypeWriter.writeUInt16(byteBuffer, this.bottom);
-                IsoTypeWriter.writeUInt16(byteBuffer, this.right);
-            }
-        }
-
-        public int getSize() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return 8;
-            }
-            return invokeV.intValue;
-        }
-
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (((((this.top * 31) + this.left) * 31) + this.bottom) * 31) + this.right : invokeV.intValue;
-        }
-
-        public void parse(ByteBuffer byteBuffer) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, byteBuffer) == null) {
-                this.top = IsoTypeReader.readUInt16(byteBuffer);
-                this.left = IsoTypeReader.readUInt16(byteBuffer);
-                this.bottom = IsoTypeReader.readUInt16(byteBuffer);
-                this.right = IsoTypeReader.readUInt16(byteBuffer);
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return (((((this.top * 31) + this.left) * 31) + this.bottom) * 31) + this.right;
             }
+            return invokeV.intValue;
         }
 
         public BoxRecord(int i, int i2, int i3, int i4) {
@@ -122,6 +96,174 @@ public class TextSampleEntry extends AbstractSampleEntry {
             this.left = i2;
             this.bottom = i3;
             this.right = i4;
+        }
+
+        public boolean equals(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+                if (this == obj) {
+                    return true;
+                }
+                if (obj == null || BoxRecord.class != obj.getClass()) {
+                    return false;
+                }
+                BoxRecord boxRecord = (BoxRecord) obj;
+                if (this.bottom == boxRecord.bottom && this.left == boxRecord.left && this.right == boxRecord.right && this.top == boxRecord.top) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+
+        public void getContent(ByteBuffer byteBuffer) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, byteBuffer) == null) {
+                IsoTypeWriter.writeUInt16(byteBuffer, this.top);
+                IsoTypeWriter.writeUInt16(byteBuffer, this.left);
+                IsoTypeWriter.writeUInt16(byteBuffer, this.bottom);
+                IsoTypeWriter.writeUInt16(byteBuffer, this.right);
+            }
+        }
+
+        public void parse(ByteBuffer byteBuffer) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, byteBuffer) == null) {
+                this.top = IsoTypeReader.readUInt16(byteBuffer);
+                this.left = IsoTypeReader.readUInt16(byteBuffer);
+                this.bottom = IsoTypeReader.readUInt16(byteBuffer);
+                this.right = IsoTypeReader.readUInt16(byteBuffer);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class StyleRecord {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int endChar;
+        public int faceStyleFlags;
+        public int fontId;
+        public int fontSize;
+        public int startChar;
+        public int[] textColor;
+
+        public int getSize() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return 12;
+            }
+            return invokeV.intValue;
+        }
+
+        public StyleRecord() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.textColor = new int[]{255, 255, 255, 255};
+        }
+
+        public int hashCode() {
+            InterceptResult invokeV;
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                int i2 = ((((((((this.startChar * 31) + this.endChar) * 31) + this.fontId) * 31) + this.faceStyleFlags) * 31) + this.fontSize) * 31;
+                int[] iArr = this.textColor;
+                if (iArr != null) {
+                    i = Arrays.hashCode(iArr);
+                } else {
+                    i = 0;
+                }
+                return i2 + i;
+            }
+            return invokeV.intValue;
+        }
+
+        public StyleRecord(int i, int i2, int i3, int i4, int i5, int[] iArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), iArr};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i6 = newInitContext.flag;
+                if ((i6 & 1) != 0) {
+                    int i7 = i6 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.textColor = new int[]{255, 255, 255, 255};
+            this.startChar = i;
+            this.endChar = i2;
+            this.fontId = i3;
+            this.faceStyleFlags = i4;
+            this.fontSize = i5;
+            this.textColor = iArr;
+        }
+
+        public boolean equals(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+                if (this == obj) {
+                    return true;
+                }
+                if (obj == null || StyleRecord.class != obj.getClass()) {
+                    return false;
+                }
+                StyleRecord styleRecord = (StyleRecord) obj;
+                if (this.endChar == styleRecord.endChar && this.faceStyleFlags == styleRecord.faceStyleFlags && this.fontId == styleRecord.fontId && this.fontSize == styleRecord.fontSize && this.startChar == styleRecord.startChar && Arrays.equals(this.textColor, styleRecord.textColor)) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+
+        public void getContent(ByteBuffer byteBuffer) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, byteBuffer) == null) {
+                IsoTypeWriter.writeUInt16(byteBuffer, this.startChar);
+                IsoTypeWriter.writeUInt16(byteBuffer, this.endChar);
+                IsoTypeWriter.writeUInt16(byteBuffer, this.fontId);
+                IsoTypeWriter.writeUInt8(byteBuffer, this.faceStyleFlags);
+                IsoTypeWriter.writeUInt8(byteBuffer, this.fontSize);
+                IsoTypeWriter.writeUInt8(byteBuffer, this.textColor[0]);
+                IsoTypeWriter.writeUInt8(byteBuffer, this.textColor[1]);
+                IsoTypeWriter.writeUInt8(byteBuffer, this.textColor[2]);
+                IsoTypeWriter.writeUInt8(byteBuffer, this.textColor[3]);
+            }
+        }
+
+        public void parse(ByteBuffer byteBuffer) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, byteBuffer) == null) {
+                this.startChar = IsoTypeReader.readUInt16(byteBuffer);
+                this.endChar = IsoTypeReader.readUInt16(byteBuffer);
+                this.fontId = IsoTypeReader.readUInt16(byteBuffer);
+                this.faceStyleFlags = IsoTypeReader.readUInt8(byteBuffer);
+                this.fontSize = IsoTypeReader.readUInt8(byteBuffer);
+                int[] iArr = new int[4];
+                this.textColor = iArr;
+                iArr[0] = IsoTypeReader.readUInt8(byteBuffer);
+                this.textColor[1] = IsoTypeReader.readUInt8(byteBuffer);
+                this.textColor[2] = IsoTypeReader.readUInt8(byteBuffer);
+                this.textColor[3] = IsoTypeReader.readUInt8(byteBuffer);
+            }
         }
     }
 
@@ -146,10 +288,161 @@ public class TextSampleEntry extends AbstractSampleEntry {
         this.styleRecord = new StyleRecord();
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public TextSampleEntry(String str) {
+        super(str);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.backgroundColorRgba = new int[4];
+        this.boxRecord = new BoxRecord();
+        this.styleRecord = new StyleRecord();
+    }
+
     public int[] getBackgroundColorRgba() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.backgroundColorRgba : (int[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.backgroundColorRgba;
+        }
+        return (int[]) invokeV.objValue;
+    }
+
+    public BoxRecord getBoxRecord() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.boxRecord;
+        }
+        return (BoxRecord) invokeV.objValue;
+    }
+
+    public int getHorizontalJustification() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.horizontalJustification;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
+    public long getSize() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            long containerSize = getContainerSize() + 38;
+            if (!this.largeBox && containerSize < 4294967296L) {
+                i = 8;
+            } else {
+                i = 16;
+            }
+            return containerSize + i;
+        }
+        return invokeV.longValue;
+    }
+
+    public StyleRecord getStyleRecord() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.styleRecord;
+        }
+        return (StyleRecord) invokeV.objValue;
+    }
+
+    public int getVerticalJustification() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.verticalJustification;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean isContinuousKaraoke() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if ((this.displayFlags & 2048) == 2048) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isFillTextRegion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if ((this.displayFlags & 262144) == 262144) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isScrollDirection() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            if ((this.displayFlags & 384) == 384) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isScrollIn() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            if ((this.displayFlags & 32) == 32) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isScrollOut() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            if ((this.displayFlags & 64) == 64) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isWriteTextVertically() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            if ((this.displayFlags & PlaybackStateCompat.ACTION_PREPARE_FROM_URI) == PlaybackStateCompat.ACTION_PREPARE_FROM_URI) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.coremedia.iso.boxes.sampleentry.AbstractSampleEntry, com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
@@ -172,77 +465,6 @@ public class TextSampleEntry extends AbstractSampleEntry {
             writableByteChannel.write((ByteBuffer) allocate.rewind());
             writeContainer(writableByteChannel);
         }
-    }
-
-    public BoxRecord getBoxRecord() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.boxRecord : (BoxRecord) invokeV.objValue;
-    }
-
-    public int getHorizontalJustification() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.horizontalJustification : invokeV.intValue;
-    }
-
-    @Override // com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
-    public long getSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            long containerSize = getContainerSize() + 38;
-            return containerSize + ((this.largeBox || containerSize >= 4294967296L) ? 16 : 8);
-        }
-        return invokeV.longValue;
-    }
-
-    public StyleRecord getStyleRecord() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.styleRecord : (StyleRecord) invokeV.objValue;
-    }
-
-    public int getVerticalJustification() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.verticalJustification : invokeV.intValue;
-    }
-
-    public boolean isContinuousKaraoke() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? (this.displayFlags & 2048) == 2048 : invokeV.booleanValue;
-    }
-
-    public boolean isFillTextRegion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (this.displayFlags & 262144) == 262144 : invokeV.booleanValue;
-    }
-
-    public boolean isScrollDirection() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? (this.displayFlags & 384) == 384 : invokeV.booleanValue;
-    }
-
-    public boolean isScrollIn() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? (this.displayFlags & 32) == 32 : invokeV.booleanValue;
-    }
-
-    public boolean isScrollOut() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? (this.displayFlags & 64) == 64 : invokeV.booleanValue;
-    }
-
-    public boolean isWriteTextVertically() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? (this.displayFlags & PlaybackStateCompat.ACTION_PREPARE_FROM_URI) == PlaybackStateCompat.ACTION_PREPARE_FROM_URI : invokeV.booleanValue;
     }
 
     @Override // com.coremedia.iso.boxes.sampleentry.AbstractSampleEntry, com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
@@ -378,155 +600,5 @@ public class TextSampleEntry extends AbstractSampleEntry {
                 this.displayFlags &= -131073;
             }
         }
-    }
-
-    @Override // com.googlecode.mp4parser.BasicContainer
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? "TextSampleEntry" : (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes7.dex */
-    public static class StyleRecord {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int endChar;
-        public int faceStyleFlags;
-        public int fontId;
-        public int fontSize;
-        public int startChar;
-        public int[] textColor;
-
-        public StyleRecord() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.textColor = new int[]{255, 255, 255, 255};
-        }
-
-        public boolean equals(Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-                if (this == obj) {
-                    return true;
-                }
-                if (obj == null || StyleRecord.class != obj.getClass()) {
-                    return false;
-                }
-                StyleRecord styleRecord = (StyleRecord) obj;
-                return this.endChar == styleRecord.endChar && this.faceStyleFlags == styleRecord.faceStyleFlags && this.fontId == styleRecord.fontId && this.fontSize == styleRecord.fontSize && this.startChar == styleRecord.startChar && Arrays.equals(this.textColor, styleRecord.textColor);
-            }
-            return invokeL.booleanValue;
-        }
-
-        public void getContent(ByteBuffer byteBuffer) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, byteBuffer) == null) {
-                IsoTypeWriter.writeUInt16(byteBuffer, this.startChar);
-                IsoTypeWriter.writeUInt16(byteBuffer, this.endChar);
-                IsoTypeWriter.writeUInt16(byteBuffer, this.fontId);
-                IsoTypeWriter.writeUInt8(byteBuffer, this.faceStyleFlags);
-                IsoTypeWriter.writeUInt8(byteBuffer, this.fontSize);
-                IsoTypeWriter.writeUInt8(byteBuffer, this.textColor[0]);
-                IsoTypeWriter.writeUInt8(byteBuffer, this.textColor[1]);
-                IsoTypeWriter.writeUInt8(byteBuffer, this.textColor[2]);
-                IsoTypeWriter.writeUInt8(byteBuffer, this.textColor[3]);
-            }
-        }
-
-        public int getSize() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return 12;
-            }
-            return invokeV.intValue;
-        }
-
-        public int hashCode() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                int i = ((((((((this.startChar * 31) + this.endChar) * 31) + this.fontId) * 31) + this.faceStyleFlags) * 31) + this.fontSize) * 31;
-                int[] iArr = this.textColor;
-                return i + (iArr != null ? Arrays.hashCode(iArr) : 0);
-            }
-            return invokeV.intValue;
-        }
-
-        public void parse(ByteBuffer byteBuffer) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, byteBuffer) == null) {
-                this.startChar = IsoTypeReader.readUInt16(byteBuffer);
-                this.endChar = IsoTypeReader.readUInt16(byteBuffer);
-                this.fontId = IsoTypeReader.readUInt16(byteBuffer);
-                this.faceStyleFlags = IsoTypeReader.readUInt8(byteBuffer);
-                this.fontSize = IsoTypeReader.readUInt8(byteBuffer);
-                int[] iArr = new int[4];
-                this.textColor = iArr;
-                iArr[0] = IsoTypeReader.readUInt8(byteBuffer);
-                this.textColor[1] = IsoTypeReader.readUInt8(byteBuffer);
-                this.textColor[2] = IsoTypeReader.readUInt8(byteBuffer);
-                this.textColor[3] = IsoTypeReader.readUInt8(byteBuffer);
-            }
-        }
-
-        public StyleRecord(int i, int i2, int i3, int i4, int i5, int[] iArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), iArr};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i6 = newInitContext.flag;
-                if ((i6 & 1) != 0) {
-                    int i7 = i6 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.textColor = new int[]{255, 255, 255, 255};
-            this.startChar = i;
-            this.endChar = i2;
-            this.fontId = i3;
-            this.faceStyleFlags = i4;
-            this.fontSize = i5;
-            this.textColor = iArr;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TextSampleEntry(String str) {
-        super(str);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.backgroundColorRgba = new int[4];
-        this.boxRecord = new BoxRecord();
-        this.styleRecord = new StyleRecord();
     }
 }

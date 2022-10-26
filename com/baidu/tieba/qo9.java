@@ -1,99 +1,82 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.internal.api.PidLoader;
-import com.fun.ad.sdk.internal.api.PidLoaderCreator;
-import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.CustomInflater;
+import com.fun.ad.sdk.ExpressInflater;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.internal.api.BaseNativeAd2;
+import com.fun.ad.sdk.internal.api.ExpressAdListenerWrapper;
+import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
+import com.fun.ad.sdk.internal.api.ReporterPidLoader;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.qq.e.ads.nativ.express2.NativeExpressADData2;
 /* loaded from: classes5.dex */
-public class qo9 implements PidLoaderCreator {
+public class qo9 extends FunNativeAd2Bridger {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean b;
+    public final /* synthetic */ oo9 c;
 
-    public qo9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qo9(oo9 oo9Var, ReporterPidLoader reporterPidLoader) {
+        super(reporterPidLoader);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {oo9Var, reporterPidLoader};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((ReporterPidLoader) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.c = oo9Var;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showCustom(Activity activity, CustomInflater customInflater, String str, Object obj, BaseNativeAd2 baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, obj, baseNativeAd2, funAdInteractionListener}) == null) {
+            NativeExpressADData2 nativeExpressADData2 = (NativeExpressADData2) obj;
         }
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    @Override // com.fun.ad.sdk.internal.api.PidLoaderCreator
-    public PidLoader create(Ssp.Pid pid) {
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public View createExpressView(Object obj) {
         InterceptResult invokeL;
-        char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) {
-            String str = pid.type;
-            str.hashCode();
-            switch (str.hashCode()) {
-                case -1900686778:
-                    if (str.equals(FunAdType.JY_NATIVE)) {
-                        c = 0;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1743934314:
-                    if (str.equals(FunAdType.JY_SPLASH)) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1659486968:
-                    if (str.equals(FunAdType.JY_DRAW_VIDEO)) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -39027267:
-                    if (str.equals(FunAdType.JY_REWARD_VIDEO)) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1872382491:
-                    if (str.equals(FunAdType.JY_INTERSTITIAL)) {
-                        c = 4;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c != 2) {
-                        if (c != 3) {
-                            if (c != 4) {
-                                return null;
-                            }
-                            return new to9(pid);
-                        }
-                        return new wo9(pid);
-                    }
-                    return new ro9(pid);
-                }
-                return new xo9(pid);
-            }
-            return new uo9(pid);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            return ((NativeExpressADData2) obj).getAdView();
         }
-        return (PidLoader) invokeL.objValue;
+        return (View) invokeL.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, Object obj, BaseNativeAd2 baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, obj, baseNativeAd2, funAdInteractionListener}) == null) {
+            NativeExpressADData2 nativeExpressADData2 = (NativeExpressADData2) obj;
+            this.c.onShowStart(nativeExpressADData2, this.b);
+            this.b = true;
+            ExpressAdListenerWrapper expressAdListenerWrapper = (ExpressAdListenerWrapper) this.c.e.get(nativeExpressADData2);
+            if (expressAdListenerWrapper == null) {
+                LogPrinter.e("Can not get correspond listener by gdtNativeExpress2.", new Object[0]);
+            } else {
+                expressAdListenerWrapper.funListener = funAdInteractionListener;
+            }
+            expressInflater.inflate();
+        }
     }
 }

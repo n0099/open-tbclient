@@ -1,8 +1,6 @@
 package com.bumptech.glide.load.engine.prefill;
 
 import android.graphics.Bitmap;
-import androidx.annotation.Nullable;
-import androidx.annotation.VisibleForTesting;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,7 +13,6 @@ import com.bumptech.glide.util.Preconditions;
 /* loaded from: classes7.dex */
 public final class PreFillType {
     public static /* synthetic */ Interceptable $ic;
-    @VisibleForTesting
     public static final Bitmap.Config DEFAULT_CONFIG;
     public transient /* synthetic */ FieldHolder $fh;
     public final Bitmap.Config config;
@@ -24,7 +21,7 @@ public final class PreFillType {
     public final int width;
 
     /* loaded from: classes7.dex */
-    public static class Builder {
+    public class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Bitmap.Config config;
@@ -53,19 +50,52 @@ public final class PreFillType {
             }
         }
 
+        public Builder(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.weight = 1;
+            if (i > 0) {
+                if (i2 > 0) {
+                    this.width = i;
+                    this.height = i2;
+                    return;
+                }
+                throw new IllegalArgumentException("Height must be > 0");
+            }
+            throw new IllegalArgumentException("Width must be > 0");
+        }
+
         public PreFillType build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new PreFillType(this.width, this.height, this.config, this.weight) : (PreFillType) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new PreFillType(this.width, this.height, this.config, this.weight);
+            }
+            return (PreFillType) invokeV.objValue;
         }
 
         public Bitmap.Config getConfig() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.config : (Bitmap.Config) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.config;
+            }
+            return (Bitmap.Config) invokeV.objValue;
         }
 
-        public Builder setConfig(@Nullable Bitmap.Config config) {
+        public Builder setConfig(Bitmap.Config config) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, config)) == null) {
@@ -87,33 +117,6 @@ public final class PreFillType {
             }
             return (Builder) invokeI.objValue;
         }
-
-        public Builder(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.weight = 1;
-            if (i <= 0) {
-                throw new IllegalArgumentException("Width must be > 0");
-            }
-            if (i2 > 0) {
-                this.width = i;
-                this.height = i2;
-                return;
-            }
-            throw new IllegalArgumentException("Height must be > 0");
-        }
     }
 
     static {
@@ -130,6 +133,51 @@ public final class PreFillType {
             }
         }
         DEFAULT_CONFIG = Bitmap.Config.RGB_565;
+    }
+
+    public Bitmap.Config getConfig() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.config;
+        }
+        return (Bitmap.Config) invokeV.objValue;
+    }
+
+    public int getHeight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.height;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getWeight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.weight;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getWidth() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.width;
+        }
+        return invokeV.intValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return (((((this.width * 31) + this.height) * 31) + this.config.hashCode()) * 31) + this.weight;
+        }
+        return invokeV.intValue;
     }
 
     public PreFillType(int i, int i2, Bitmap.Config config, int i3) {
@@ -157,43 +205,16 @@ public final class PreFillType {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (obj instanceof PreFillType) {
-                PreFillType preFillType = (PreFillType) obj;
-                return this.height == preFillType.height && this.width == preFillType.width && this.weight == preFillType.weight && this.config == preFillType.config;
+            if (!(obj instanceof PreFillType)) {
+                return false;
             }
-            return false;
+            PreFillType preFillType = (PreFillType) obj;
+            if (this.height != preFillType.height || this.width != preFillType.width || this.weight != preFillType.weight || this.config != preFillType.config) {
+                return false;
+            }
+            return true;
         }
         return invokeL.booleanValue;
-    }
-
-    public Bitmap.Config getConfig() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.config : (Bitmap.Config) invokeV.objValue;
-    }
-
-    public int getHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.height : invokeV.intValue;
-    }
-
-    public int getWeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.weight : invokeV.intValue;
-    }
-
-    public int getWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.width : invokeV.intValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (((((this.width * 31) + this.height) * 31) + this.config.hashCode()) * 31) + this.weight : invokeV.intValue;
     }
 
     public String toString() {

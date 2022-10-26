@@ -1,89 +1,41 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class fw5 extends i16<bw5> {
+public class fw5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gw5 i;
-    public gw5 j;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fw5(TbPageContext<?> tbPageContext, boolean z) {
-        super(tbPageContext);
+    public fw5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.i = new gw5(g(), z);
-        this.j = new gw5(g(), z);
-        ViewGroup viewGroup = (ViewGroup) h();
-        View view2 = new View(getContext());
-        viewGroup.addView(this.i.h());
-        viewGroup.addView(view2, new LinearLayout.LayoutParams(g().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224), -1));
-        viewGroup.addView(this.j.h());
     }
 
-    @Override // com.baidu.tieba.i16
-    public int d() {
-        InterceptResult invokeV;
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0101 : invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.i16
-    public void j(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            this.i.j(tbPageContext, i);
-            this.j.j(tbPageContext, i);
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.i16
-    /* renamed from: r */
-    public void i(bw5 bw5Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, bw5Var) == null) || bw5Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        this.i.i(bw5Var.a);
-        this.j.i(bw5Var.b);
-    }
-
-    public void s(kw5 kw5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, kw5Var) == null) {
-            this.i.y(kw5Var);
-            this.j.y(kw5Var);
-        }
+        jSONObject.optLong("user_id");
+        jSONObject.optInt("sign_time");
+        jSONObject.optInt("cont_sign_num");
+        jSONObject.optInt("cout_total_sign_num");
+        jSONObject.optInt("total_resign_num");
+        jSONObject.optInt("miss_sign_num");
+        jSONObject.optInt("is_sign_in");
+        jSONObject.optInt("user_sign_rank");
     }
 }

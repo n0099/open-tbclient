@@ -51,7 +51,19 @@ public class BitReaderBuffer {
     public int getPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.position : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.position;
+        }
+        return invokeV.intValue;
+    }
+
+    public int remainingBits() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return (this.buffer.limit() * 8) - this.position;
+        }
+        return invokeV.intValue;
     }
 
     public int readBits(int i) {
@@ -76,11 +88,5 @@ public class BitReaderBuffer {
             return readBits;
         }
         return invokeI.intValue;
-    }
-
-    public int remainingBits() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.buffer.limit() * 8) - this.position : invokeV.intValue;
     }
 }

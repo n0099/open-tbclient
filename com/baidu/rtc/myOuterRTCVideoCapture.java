@@ -22,6 +22,30 @@ public class myOuterRTCVideoCapture extends RTCVideoCapture {
     public final TimerTask tickTask;
     public final Timer timer;
 
+    @Override // com.baidu.rtc.RTCVideoCapture, org.webrtc.VideoCapturer
+    public void changeCaptureFormat(int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIII(1048576, this, i, i2, i3) == null) {
+        }
+    }
+
+    @Override // com.baidu.rtc.RTCVideoCapture, org.webrtc.VideoCapturer
+    public void dispose() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.rtc.RTCVideoCapture, org.webrtc.VideoCapturer
+    public boolean isScreencast() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     public myOuterRTCVideoCapture() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -72,20 +96,6 @@ public class myOuterRTCVideoCapture extends RTCVideoCapture {
         };
     }
 
-    @Override // com.baidu.rtc.RTCVideoCapture, org.webrtc.VideoCapturer
-    public void changeCaptureFormat(int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(1048576, this, i, i2, i3) == null) {
-        }
-    }
-
-    @Override // com.baidu.rtc.RTCVideoCapture, org.webrtc.VideoCapturer
-    public void dispose() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
-
     public RTCVideoFrame getNextFrame() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -109,16 +119,6 @@ public class myOuterRTCVideoCapture extends RTCVideoCapture {
         if (interceptable == null || interceptable.invokeL(1048579, this, rTCCapturerObserver) == null) {
             this.capturerObserver = rTCCapturerObserver;
         }
-    }
-
-    @Override // com.baidu.rtc.RTCVideoCapture, org.webrtc.VideoCapturer
-    public boolean isScreencast() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.rtc.RTCVideoCapture, org.webrtc.VideoCapturer

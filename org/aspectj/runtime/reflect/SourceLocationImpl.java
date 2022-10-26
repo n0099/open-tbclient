@@ -15,6 +15,16 @@ public class SourceLocationImpl implements SourceLocation {
     public int line;
     public Class withinType;
 
+    @Override // org.aspectj.lang.reflect.SourceLocation
+    public int getColumn() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return -1;
+        }
+        return invokeV.intValue;
+    }
+
     public SourceLocationImpl(Class cls, String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -36,34 +46,33 @@ public class SourceLocationImpl implements SourceLocation {
     }
 
     @Override // org.aspectj.lang.reflect.SourceLocation
-    public int getColumn() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return -1;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // org.aspectj.lang.reflect.SourceLocation
     public String getFileName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.fileName : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.fileName;
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // org.aspectj.lang.reflect.SourceLocation
     public int getLine() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.line : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.line;
+        }
+        return invokeV.intValue;
     }
 
     @Override // org.aspectj.lang.reflect.SourceLocation
     public Class getWithinType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.withinType : (Class) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.withinType;
+        }
+        return (Class) invokeV.objValue;
     }
 
     public String toString() {

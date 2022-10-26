@@ -31,54 +31,32 @@ public final class HeartRating implements Rating {
         this.mIsRated = false;
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (obj instanceof HeartRating) {
-                HeartRating heartRating = (HeartRating) obj;
-                return this.mHasHeart == heartRating.mHasHeart && this.mIsRated == heartRating.mIsRated;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
     public boolean hasHeart() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mHasHeart : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mHasHeart;
+        }
+        return invokeV.booleanValue;
     }
 
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ObjectsCompat.hash(Boolean.valueOf(this.mIsRated), Boolean.valueOf(this.mHasHeart)) : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return ObjectsCompat.hash(Boolean.valueOf(this.mIsRated), Boolean.valueOf(this.mHasHeart));
+        }
+        return invokeV.intValue;
     }
 
     @Override // androidx.media2.common.Rating
     public boolean isRated() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mIsRated : invokeV.booleanValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("HeartRating: ");
-            if (this.mIsRated) {
-                str = "hasHeart=" + this.mHasHeart;
-            } else {
-                str = "unrated";
-            }
-            sb.append(str);
-            return sb.toString();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mIsRated;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
     public HeartRating(boolean z) {
@@ -98,5 +76,39 @@ public final class HeartRating implements Rating {
         }
         this.mHasHeart = z;
         this.mIsRated = true;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (!(obj instanceof HeartRating)) {
+                return false;
+            }
+            HeartRating heartRating = (HeartRating) obj;
+            if (this.mHasHeart != heartRating.mHasHeart || this.mIsRated != heartRating.mIsRated) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("HeartRating: ");
+            if (this.mIsRated) {
+                str = "hasHeart=" + this.mHasHeart;
+            } else {
+                str = "unrated";
+            }
+            sb.append(str);
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

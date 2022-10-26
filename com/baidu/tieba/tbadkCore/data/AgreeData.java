@@ -65,28 +65,52 @@ public class AgreeData implements Serializable {
 
     public void parseJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         this.agreeNum = jSONObject.optInt("agree_num");
         this.disAgreeNum = jSONObject.optLong("disagree_num");
         this.agreeType = jSONObject.optInt("agree_type");
-        this.hasAgree = jSONObject.optInt("has_agree") == 1;
+        boolean z = true;
+        if (jSONObject.optInt("has_agree") != 1) {
+            z = false;
+        }
+        this.hasAgree = z;
         this.diffAgreeNum = jSONObject.optLong("diff_agree_num");
     }
 
     public void parseProtobuf(Agree agree) {
+        long longValue;
+        int intValue;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, agree) == null) || agree == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, agree) != null) || agree == null) {
             return;
         }
         Long l = agree.agree_num;
-        this.agreeNum = l == null ? 0L : l.longValue();
+        long j = 0;
+        if (l == null) {
+            longValue = 0;
+        } else {
+            longValue = l.longValue();
+        }
+        this.agreeNum = longValue;
         this.disAgreeNum = agree.disagree_num.longValue();
         Integer num = agree.agree_type;
-        this.agreeType = num == null ? 0 : num.intValue();
-        this.hasAgree = agree.has_agree.intValue() == 1;
+        boolean z = false;
+        if (num == null) {
+            intValue = 0;
+        } else {
+            intValue = num.intValue();
+        }
+        this.agreeType = intValue;
+        if (agree.has_agree.intValue() == 1) {
+            z = true;
+        }
+        this.hasAgree = z;
         Long l2 = agree.diff_agree_num;
-        this.diffAgreeNum = l2 != null ? l2.longValue() : 0L;
+        if (l2 != null) {
+            j = l2.longValue();
+        }
+        this.diffAgreeNum = j;
     }
 }

@@ -47,29 +47,6 @@ public abstract class BaseActivity extends Activity {
         this.c = false;
     }
 
-    public final boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(1048576, this)) != null) {
-            return invokeV.booleanValue;
-        }
-        boolean z = false;
-        try {
-            TypedArray obtainStyledAttributes = obtainStyledAttributes((int[]) Class.forName("com.android.internal.R$styleable").getField("Window").get(null));
-            Method method = ActivityInfo.class.getMethod("isTranslucentOrFloating", TypedArray.class);
-            method.setAccessible(true);
-            boolean booleanValue = ((Boolean) method.invoke(null, obtainStyledAttributes)).booleanValue();
-            try {
-                method.setAccessible(false);
-                return booleanValue;
-            } catch (Exception unused) {
-                z = booleanValue;
-                return z;
-            }
-        } catch (Exception unused2) {
-        }
-    }
-
     @Override // android.app.Activity
     public void finish() {
         Interceptable interceptable = $ic;
@@ -78,6 +55,30 @@ public abstract class BaseActivity extends Activity {
             if (this.a) {
                 overridePendingTransition(R.anim.ufo_slide_in_from_left, R.anim.ufo_slide_out_to_right);
             }
+        }
+    }
+
+    public final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            boolean z = false;
+            try {
+                TypedArray obtainStyledAttributes = obtainStyledAttributes((int[]) Class.forName("com.android.internal.R$styleable").getField("Window").get(null));
+                Method method = ActivityInfo.class.getMethod("isTranslucentOrFloating", TypedArray.class);
+                method.setAccessible(true);
+                boolean booleanValue = ((Boolean) method.invoke(null, obtainStyledAttributes)).booleanValue();
+                try {
+                    method.setAccessible(false);
+                    return booleanValue;
+                } catch (Exception unused) {
+                    z = booleanValue;
+                    return z;
+                }
+            } catch (Exception unused2) {
+            }
+        } else {
+            return invokeV.booleanValue;
         }
     }
 
@@ -101,50 +102,54 @@ public abstract class BaseActivity extends Activity {
 
     @Override // android.app.Activity
     public void onStart() {
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onStart();
-            if (this.c) {
-                return;
-            }
-            if (Build.VERSION.SDK_INT >= 21) {
-                int identifier = getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.g, EMABTest.TYPE_DIMEN, "android");
-                boolean z = false;
-                int dimensionPixelOffset = identifier > 0 ? getResources().getDimensionPixelOffset(identifier) : 0;
-                Log.d(com.sina.weibo.sdk.share.BaseActivity.TAG, "onSetDefaultStatusBarColor: " + dimensionPixelOffset);
-                ViewGroup viewGroup = (ViewGroup) findViewById(R.id.webload_titlebar);
-                if (viewGroup != null && dimensionPixelOffset > 0) {
-                    if (!getSharedPreferences("feedback_switch_prefs", 0).getBoolean("f_stu_b", false)) {
-                        ((ViewGroup) viewGroup.getParent()).setPadding(0, dimensionPixelOffset, 0, 0);
+            if (!this.c) {
+                if (Build.VERSION.SDK_INT >= 21) {
+                    int identifier = getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.g, EMABTest.TYPE_DIMEN, "android");
+                    boolean z = false;
+                    if (identifier > 0) {
+                        i = getResources().getDimensionPixelOffset(identifier);
+                    } else {
+                        i = 0;
                     }
-                    z = true;
-                }
-                if (z) {
-                    Window window = getWindow();
-                    window.getDecorView().setSystemUiVisibility(1280);
-                    window.addFlags(Integer.MIN_VALUE);
-                    window.clearFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
-                    if (Build.VERSION.SDK_INT >= 23) {
-                        if (this.b) {
-                            window.getDecorView().setSystemUiVisibility(1024);
-                        } else {
-                            window.getDecorView().setSystemUiVisibility(9216);
+                    Log.d(com.sina.weibo.sdk.share.BaseActivity.TAG, "onSetDefaultStatusBarColor: " + i);
+                    ViewGroup viewGroup = (ViewGroup) findViewById(R.id.webload_titlebar);
+                    if (viewGroup != null && i > 0) {
+                        if (!getSharedPreferences("feedback_switch_prefs", 0).getBoolean("f_stu_b", false)) {
+                            ((ViewGroup) viewGroup.getParent()).setPadding(0, i, 0, 0);
                         }
+                        z = true;
                     }
-                    window.setStatusBarColor(getResources().getColor(R.color.common_transparent));
-                } else {
-                    int color = getResources().getColor(R.color.common_transparent);
-                    if (Build.VERSION.SDK_INT >= 21) {
-                        Window window2 = getWindow();
-                        window2.addFlags(Integer.MIN_VALUE);
+                    if (z) {
+                        Window window = getWindow();
+                        window.getDecorView().setSystemUiVisibility(1280);
+                        window.addFlags(Integer.MIN_VALUE);
+                        window.clearFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
                         if (Build.VERSION.SDK_INT >= 23) {
-                            window2.getDecorView().setSystemUiVisibility(8192);
+                            if (this.b) {
+                                window.getDecorView().setSystemUiVisibility(1024);
+                            } else {
+                                window.getDecorView().setSystemUiVisibility(9216);
+                            }
                         }
-                        window2.setStatusBarColor(color);
+                        window.setStatusBarColor(getResources().getColor(R.color.common_transparent));
+                    } else {
+                        int color = getResources().getColor(R.color.common_transparent);
+                        if (Build.VERSION.SDK_INT >= 21) {
+                            Window window2 = getWindow();
+                            window2.addFlags(Integer.MIN_VALUE);
+                            if (Build.VERSION.SDK_INT >= 23) {
+                                window2.getDecorView().setSystemUiVisibility(8192);
+                            }
+                            window2.setStatusBarColor(color);
+                        }
                     }
                 }
+                this.c = true;
             }
-            this.c = true;
         }
     }
 

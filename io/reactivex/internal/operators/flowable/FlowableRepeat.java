@@ -13,23 +13,23 @@ import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableRepeat<T> extends AbstractFlowableWithUpstream<T, T> {
+public final class FlowableRepeat extends AbstractFlowableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long count;
 
     /* loaded from: classes8.dex */
-    public static final class RepeatSubscriber<T> extends AtomicInteger implements FlowableSubscriber<T> {
+    public final class RepeatSubscriber extends AtomicInteger implements FlowableSubscriber {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7098360935104053232L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber<? super T> actual;
+        public final Subscriber actual;
         public long produced;
         public long remaining;
         public final SubscriptionArbiter sa;
-        public final Publisher<? extends T> source;
+        public final Publisher source;
 
-        public RepeatSubscriber(Subscriber<? super T> subscriber, long j, SubscriptionArbiter subscriptionArbiter, Publisher<? extends T> publisher) {
+        public RepeatSubscriber(Subscriber subscriber, long j, SubscriptionArbiter subscriptionArbiter, Publisher publisher) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -75,11 +75,11 @@ public final class FlowableRepeat<T> extends AbstractFlowableWithUpstream<T, T> 
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
                 this.produced++;
-                this.actual.onNext(t);
+                this.actual.onNext(obj);
             }
         }
 
@@ -112,7 +112,7 @@ public final class FlowableRepeat<T> extends AbstractFlowableWithUpstream<T, T> 
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableRepeat(Flowable<T> flowable, long j) {
+    public FlowableRepeat(Flowable flowable, long j) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -133,13 +133,17 @@ public final class FlowableRepeat<T> extends AbstractFlowableWithUpstream<T, T> 
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber<? super T> subscriber) {
+    public void subscribeActual(Subscriber subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             SubscriptionArbiter subscriptionArbiter = new SubscriptionArbiter();
             subscriber.onSubscribe(subscriptionArbiter);
             long j = this.count;
-            new RepeatSubscriber(subscriber, j != Long.MAX_VALUE ? j - 1 : Long.MAX_VALUE, subscriptionArbiter, this.source).subscribeNext();
+            long j2 = Long.MAX_VALUE;
+            if (j != Long.MAX_VALUE) {
+                j2 = j - 1;
+            }
+            new RepeatSubscriber(subscriber, j2, subscriptionArbiter, this.source).subscribeNext();
         }
     }
 }

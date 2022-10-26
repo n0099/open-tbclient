@@ -54,48 +54,13 @@ public class a {
             KeyStore keyStore = KeyStore.getInstance("AndroidKeyStore");
             this.a = keyStore;
             keyStore.load(null);
-            if (this.a.containsAlias("KEYSTORE_AES")) {
-                return;
+            if (!this.a.containsAlias("KEYSTORE_AES")) {
+                c("");
+                a(context);
+                a();
             }
-            c("");
-            a(context);
-            a();
         } catch (Exception e) {
             SLog.d("KEYSTORE", "Exception", e);
-        }
-    }
-
-    private void a(Context context) throws Exception {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, this, context) == null) {
-            SLog.d("KEYSTORE", "Build.VERSION.SDK_INT=" + Build.VERSION.SDK_INT);
-            int i = Build.VERSION.SDK_INT;
-            if (i >= 23) {
-                KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance(RSAUtil.ALGORITHM_RSA, "AndroidKeyStore");
-                keyPairGenerator.initialize(new KeyGenParameterSpec.Builder("KEYSTORE_AES", 3).setDigests("SHA-256", "SHA-512").setEncryptionPaddings("PKCS1Padding").build());
-                keyPairGenerator.generateKeyPair();
-            } else if (i >= 18) {
-                KeyPairGenerator keyPairGenerator2 = KeyPairGenerator.getInstance(RSAUtil.ALGORITHM_RSA, "AndroidKeyStore");
-                Calendar calendar = Calendar.getInstance();
-                Calendar calendar2 = Calendar.getInstance();
-                calendar2.add(1, 30);
-                keyPairGenerator2.initialize(new KeyPairGeneratorSpec.Builder(context).setAlias("KEYSTORE_AES").setSubject(new X500Principal("CN=KEYSTORE_AES")).setSerialNumber(BigInteger.TEN).setStartDate(calendar.getTime()).setEndDate(calendar2.getTime()).build());
-                keyPairGenerator2.generateKeyPair();
-            }
-        }
-    }
-
-    private void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, this, str) == null) {
-            this.b.edit().putString("PREF_KEY_IV", str).apply();
-        }
-    }
-
-    private void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, this, str) == null) {
-            this.b.edit().putString("PREF_KEY_AES", str).apply();
         }
     }
 
@@ -108,43 +73,6 @@ public class a {
                 Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
                 cipher.init(2, c(), new IvParameterSpec(b()));
                 return new String(cipher.doFinal(decode));
-            } catch (Exception e) {
-                SLog.e("KEYSTORE", "Exception", e);
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    private SecretKeySpec c() throws Exception {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            String string = this.b.getString("PREF_KEY_AES", "");
-            if (Build.VERSION.SDK_INT >= 18) {
-                Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
-                cipher.init(2, (PrivateKey) this.a.getKey("KEYSTORE_AES", null));
-                return new SecretKeySpec(cipher.doFinal(Base64.decode(string, 0)), "AES/GCM/NoPadding");
-            }
-            return new SecretKeySpec(Base64.decode(string, 0), "AES/GCM/NoPadding");
-        }
-        return (SecretKeySpec) invokeV.objValue;
-    }
-
-    private byte[] b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? Base64.decode(this.b.getString("PREF_KEY_IV", ""), 0) : (byte[]) invokeV.objValue;
-    }
-
-    public String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            try {
-                Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
-                cipher.init(1, c(), new IvParameterSpec(b()));
-                return Base64.encodeToString(cipher.doFinal(str.getBytes()), 0);
             } catch (Exception e) {
                 SLog.e("KEYSTORE", "Exception", e);
                 return "";
@@ -171,5 +99,79 @@ public class a {
             messageDigest.update(bArr);
             d(Base64.encodeToString(messageDigest.digest(), 0));
         }
+    }
+
+    private void a(Context context) throws Exception {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, this, context) == null) {
+            SLog.d("KEYSTORE", "Build.VERSION.SDK_INT=" + Build.VERSION.SDK_INT);
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 23) {
+                KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance(RSAUtil.ALGORITHM_RSA, "AndroidKeyStore");
+                keyPairGenerator.initialize(new KeyGenParameterSpec.Builder("KEYSTORE_AES", 3).setDigests("SHA-256", "SHA-512").setEncryptionPaddings("PKCS1Padding").build());
+                keyPairGenerator.generateKeyPair();
+            } else if (i >= 18) {
+                KeyPairGenerator keyPairGenerator2 = KeyPairGenerator.getInstance(RSAUtil.ALGORITHM_RSA, "AndroidKeyStore");
+                Calendar calendar = Calendar.getInstance();
+                Calendar calendar2 = Calendar.getInstance();
+                calendar2.add(1, 30);
+                keyPairGenerator2.initialize(new KeyPairGeneratorSpec.Builder(context).setAlias("KEYSTORE_AES").setSubject(new X500Principal("CN=KEYSTORE_AES")).setSerialNumber(BigInteger.TEN).setStartDate(calendar.getTime()).setEndDate(calendar2.getTime()).build());
+                keyPairGenerator2.generateKeyPair();
+            }
+        }
+    }
+
+    private byte[] b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+            return Base64.decode(this.b.getString("PREF_KEY_IV", ""), 0);
+        }
+        return (byte[]) invokeV.objValue;
+    }
+
+    private SecretKeySpec c() throws Exception {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
+            String string = this.b.getString("PREF_KEY_AES", "");
+            if (Build.VERSION.SDK_INT >= 18) {
+                Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+                cipher.init(2, (PrivateKey) this.a.getKey("KEYSTORE_AES", null));
+                return new SecretKeySpec(cipher.doFinal(Base64.decode(string, 0)), "AES/GCM/NoPadding");
+            }
+            return new SecretKeySpec(Base64.decode(string, 0), "AES/GCM/NoPadding");
+        }
+        return (SecretKeySpec) invokeV.objValue;
+    }
+
+    private void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, this, str) == null) {
+            this.b.edit().putString("PREF_KEY_IV", str).apply();
+        }
+    }
+
+    private void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, this, str) == null) {
+            this.b.edit().putString("PREF_KEY_AES", str).apply();
+        }
+    }
+
+    public String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            try {
+                Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
+                cipher.init(1, c(), new IvParameterSpec(b()));
+                return Base64.encodeToString(cipher.doFinal(str.getBytes()), 0);
+            } catch (Exception e) {
+                SLog.e("KEYSTORE", "Exception", e);
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
     }
 }

@@ -6,7 +6,6 @@ import android.animation.TimeInterpolator;
 import android.animation.ValueAnimator;
 import android.view.View;
 import android.view.ViewPropertyAnimator;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.RecyclerView;
@@ -36,6 +35,71 @@ public class DefaultItemAnimator extends SimpleItemAnimator {
     public ArrayList<MoveInfo> mPendingMoves;
     public ArrayList<RecyclerView.ViewHolder> mPendingRemovals;
     public ArrayList<RecyclerView.ViewHolder> mRemoveAnimations;
+
+    /* loaded from: classes.dex */
+    public static class ChangeInfo {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int fromX;
+        public int fromY;
+        public RecyclerView.ViewHolder newHolder;
+        public RecyclerView.ViewHolder oldHolder;
+        public int toX;
+        public int toY;
+
+        public ChangeInfo(RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder viewHolder2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {viewHolder, viewHolder2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.oldHolder = viewHolder;
+            this.newHolder = viewHolder2;
+        }
+
+        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+        public ChangeInfo(RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder viewHolder2, int i, int i2, int i3, int i4) {
+            this(viewHolder, viewHolder2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {viewHolder, viewHolder2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i5 = newInitContext.flag;
+                if ((i5 & 1) != 0) {
+                    int i6 = i5 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    this((RecyclerView.ViewHolder) objArr2[0], (RecyclerView.ViewHolder) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.fromX = i;
+            this.fromY = i2;
+            this.toX = i3;
+            this.toY = i4;
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return "ChangeInfo{oldHolder=" + this.oldHolder + ", newHolder=" + this.newHolder + ", fromX=" + this.fromX + ", fromY=" + this.fromY + ", toX=" + this.toX + ", toY=" + this.toY + '}';
+            }
+            return (String) invokeV.objValue;
+        }
+    }
 
     /* loaded from: classes.dex */
     public static class MoveInfo {
@@ -96,6 +160,19 @@ public class DefaultItemAnimator extends SimpleItemAnimator {
         this.mChangeAnimations = new ArrayList<>();
     }
 
+    @Override // androidx.recyclerview.widget.RecyclerView.ItemAnimator
+    public boolean isRunning() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            if (this.mPendingAdditions.isEmpty() && this.mPendingChanges.isEmpty() && this.mPendingMoves.isEmpty() && this.mPendingRemovals.isEmpty() && this.mMoveAnimations.isEmpty() && this.mRemoveAnimations.isEmpty() && this.mAddAnimations.isEmpty() && this.mChangeAnimations.isEmpty() && this.mMovesList.isEmpty() && this.mAdditionsList.isEmpty() && this.mChangesList.isEmpty()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
     private void animateRemoveImpl(RecyclerView.ViewHolder viewHolder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, viewHolder) == null) {
@@ -152,56 +229,6 @@ public class DefaultItemAnimator extends SimpleItemAnimator {
                 }
             }).start();
         }
-    }
-
-    private void endChangeAnimation(List<ChangeInfo> list, RecyclerView.ViewHolder viewHolder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, this, list, viewHolder) == null) {
-            for (int size = list.size() - 1; size >= 0; size--) {
-                ChangeInfo changeInfo = list.get(size);
-                if (endChangeAnimationIfNecessary(changeInfo, viewHolder) && changeInfo.oldHolder == null && changeInfo.newHolder == null) {
-                    list.remove(changeInfo);
-                }
-            }
-        }
-    }
-
-    private void endChangeAnimationIfNecessary(ChangeInfo changeInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, this, changeInfo) == null) {
-            RecyclerView.ViewHolder viewHolder = changeInfo.oldHolder;
-            if (viewHolder != null) {
-                endChangeAnimationIfNecessary(changeInfo, viewHolder);
-            }
-            RecyclerView.ViewHolder viewHolder2 = changeInfo.newHolder;
-            if (viewHolder2 != null) {
-                endChangeAnimationIfNecessary(changeInfo, viewHolder2);
-            }
-        }
-    }
-
-    private void resetAnimation(RecyclerView.ViewHolder viewHolder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, this, viewHolder) == null) {
-            if (sDefaultInterpolator == null) {
-                sDefaultInterpolator = new ValueAnimator().getInterpolator();
-            }
-            viewHolder.itemView.animate().setInterpolator(sDefaultInterpolator);
-            endAnimation(viewHolder);
-        }
-    }
-
-    @Override // androidx.recyclerview.widget.SimpleItemAnimator
-    public boolean animateAdd(RecyclerView.ViewHolder viewHolder) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewHolder)) == null) {
-            resetAnimation(viewHolder);
-            viewHolder.itemView.setAlpha(0.0f);
-            this.mPendingAdditions.add(viewHolder);
-            return true;
-        }
-        return invokeL.booleanValue;
     }
 
     public void animateAddImpl(RecyclerView.ViewHolder viewHolder) {
@@ -269,6 +296,112 @@ public class DefaultItemAnimator extends SimpleItemAnimator {
         }
     }
 
+    private void endChangeAnimation(List<ChangeInfo> list, RecyclerView.ViewHolder viewHolder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, this, list, viewHolder) == null) {
+            for (int size = list.size() - 1; size >= 0; size--) {
+                ChangeInfo changeInfo = list.get(size);
+                if (endChangeAnimationIfNecessary(changeInfo, viewHolder) && changeInfo.oldHolder == null && changeInfo.newHolder == null) {
+                    list.remove(changeInfo);
+                }
+            }
+        }
+    }
+
+    @Override // androidx.recyclerview.widget.RecyclerView.ItemAnimator
+    public boolean canReuseUpdatedViewHolder(RecyclerView.ViewHolder viewHolder, List<Object> list) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, viewHolder, list)) == null) {
+            if (list.isEmpty() && !super.canReuseUpdatedViewHolder(viewHolder, list)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    private void endChangeAnimationIfNecessary(ChangeInfo changeInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, this, changeInfo) == null) {
+            RecyclerView.ViewHolder viewHolder = changeInfo.oldHolder;
+            if (viewHolder != null) {
+                endChangeAnimationIfNecessary(changeInfo, viewHolder);
+            }
+            RecyclerView.ViewHolder viewHolder2 = changeInfo.newHolder;
+            if (viewHolder2 != null) {
+                endChangeAnimationIfNecessary(changeInfo, viewHolder2);
+            }
+        }
+    }
+
+    private void resetAnimation(RecyclerView.ViewHolder viewHolder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, this, viewHolder) == null) {
+            if (sDefaultInterpolator == null) {
+                sDefaultInterpolator = new ValueAnimator().getInterpolator();
+            }
+            viewHolder.itemView.animate().setInterpolator(sDefaultInterpolator);
+            endAnimation(viewHolder);
+        }
+    }
+
+    @Override // androidx.recyclerview.widget.SimpleItemAnimator
+    public boolean animateAdd(RecyclerView.ViewHolder viewHolder) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewHolder)) == null) {
+            resetAnimation(viewHolder);
+            viewHolder.itemView.setAlpha(0.0f);
+            this.mPendingAdditions.add(viewHolder);
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // androidx.recyclerview.widget.SimpleItemAnimator
+    public boolean animateRemove(RecyclerView.ViewHolder viewHolder) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, viewHolder)) == null) {
+            resetAnimation(viewHolder);
+            this.mPendingRemovals.add(viewHolder);
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void cancelAll(List<RecyclerView.ViewHolder> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
+            for (int size = list.size() - 1; size >= 0; size--) {
+                list.get(size).itemView.animate().cancel();
+            }
+        }
+    }
+
+    private boolean endChangeAnimationIfNecessary(ChangeInfo changeInfo, RecyclerView.ViewHolder viewHolder) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, changeInfo, viewHolder)) == null) {
+            boolean z = false;
+            if (changeInfo.newHolder == viewHolder) {
+                changeInfo.newHolder = null;
+            } else if (changeInfo.oldHolder != viewHolder) {
+                return false;
+            } else {
+                changeInfo.oldHolder = null;
+                z = true;
+            }
+            viewHolder.itemView.setAlpha(1.0f);
+            viewHolder.itemView.setTranslationX(0.0f);
+            viewHolder.itemView.setTranslationY(0.0f);
+            dispatchChangeFinished(viewHolder, z);
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
     @Override // androidx.recyclerview.widget.SimpleItemAnimator
     public boolean animateChange(RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder viewHolder2, int i, int i2, int i3, int i4) {
         InterceptResult invokeCommon;
@@ -299,12 +432,20 @@ public class DefaultItemAnimator extends SimpleItemAnimator {
     }
 
     public void animateChangeImpl(ChangeInfo changeInfo) {
+        View view2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, changeInfo) == null) {
             RecyclerView.ViewHolder viewHolder = changeInfo.oldHolder;
-            View view2 = viewHolder == null ? null : viewHolder.itemView;
+            View view3 = null;
+            if (viewHolder == null) {
+                view2 = null;
+            } else {
+                view2 = viewHolder.itemView;
+            }
             RecyclerView.ViewHolder viewHolder2 = changeInfo.newHolder;
-            View view3 = viewHolder2 != null ? viewHolder2.itemView : null;
+            if (viewHolder2 != null) {
+                view3 = viewHolder2.itemView;
+            }
             if (view2 != null) {
                 ViewPropertyAnimator duration = view2.animate().setDuration(getChangeDuration());
                 this.mChangeAnimations.add(changeInfo.oldHolder);
@@ -529,40 +670,11 @@ public class DefaultItemAnimator extends SimpleItemAnimator {
         }
     }
 
-    @Override // androidx.recyclerview.widget.SimpleItemAnimator
-    public boolean animateRemove(RecyclerView.ViewHolder viewHolder) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, viewHolder)) == null) {
-            resetAnimation(viewHolder);
-            this.mPendingRemovals.add(viewHolder);
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // androidx.recyclerview.widget.RecyclerView.ItemAnimator
-    public boolean canReuseUpdatedViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, @NonNull List<Object> list) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, viewHolder, list)) == null) ? !list.isEmpty() || super.canReuseUpdatedViewHolder(viewHolder, list) : invokeLL.booleanValue;
-    }
-
-    public void cancelAll(List<RecyclerView.ViewHolder> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
-            for (int size = list.size() - 1; size >= 0; size--) {
-                list.get(size).itemView.animate().cancel();
-            }
-        }
-    }
-
     public void dispatchFinishedWhenDone() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || isRunning()) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && !isRunning()) {
+            dispatchAnimationsFinished();
         }
-        dispatchAnimationsFinished();
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemAnimator
@@ -672,308 +784,232 @@ public class DefaultItemAnimator extends SimpleItemAnimator {
                 endChangeAnimationIfNecessary(this.mPendingChanges.get(size4));
             }
             this.mPendingChanges.clear();
-            if (isRunning()) {
-                for (int size5 = this.mMovesList.size() - 1; size5 >= 0; size5--) {
-                    ArrayList<MoveInfo> arrayList = this.mMovesList.get(size5);
-                    for (int size6 = arrayList.size() - 1; size6 >= 0; size6--) {
-                        MoveInfo moveInfo2 = arrayList.get(size6);
-                        View view3 = moveInfo2.holder.itemView;
-                        view3.setTranslationY(0.0f);
-                        view3.setTranslationX(0.0f);
-                        dispatchMoveFinished(moveInfo2.holder);
-                        arrayList.remove(size6);
-                        if (arrayList.isEmpty()) {
-                            this.mMovesList.remove(arrayList);
-                        }
-                    }
-                }
-                for (int size7 = this.mAdditionsList.size() - 1; size7 >= 0; size7--) {
-                    ArrayList<RecyclerView.ViewHolder> arrayList2 = this.mAdditionsList.get(size7);
-                    for (int size8 = arrayList2.size() - 1; size8 >= 0; size8--) {
-                        RecyclerView.ViewHolder viewHolder2 = arrayList2.get(size8);
-                        viewHolder2.itemView.setAlpha(1.0f);
-                        dispatchAddFinished(viewHolder2);
-                        arrayList2.remove(size8);
-                        if (arrayList2.isEmpty()) {
-                            this.mAdditionsList.remove(arrayList2);
-                        }
-                    }
-                }
-                for (int size9 = this.mChangesList.size() - 1; size9 >= 0; size9--) {
-                    ArrayList<ChangeInfo> arrayList3 = this.mChangesList.get(size9);
-                    for (int size10 = arrayList3.size() - 1; size10 >= 0; size10--) {
-                        endChangeAnimationIfNecessary(arrayList3.get(size10));
-                        if (arrayList3.isEmpty()) {
-                            this.mChangesList.remove(arrayList3);
-                        }
-                    }
-                }
-                cancelAll(this.mRemoveAnimations);
-                cancelAll(this.mMoveAnimations);
-                cancelAll(this.mAddAnimations);
-                cancelAll(this.mChangeAnimations);
-                dispatchAnimationsFinished();
+            if (!isRunning()) {
+                return;
             }
+            for (int size5 = this.mMovesList.size() - 1; size5 >= 0; size5--) {
+                ArrayList<MoveInfo> arrayList = this.mMovesList.get(size5);
+                for (int size6 = arrayList.size() - 1; size6 >= 0; size6--) {
+                    MoveInfo moveInfo2 = arrayList.get(size6);
+                    View view3 = moveInfo2.holder.itemView;
+                    view3.setTranslationY(0.0f);
+                    view3.setTranslationX(0.0f);
+                    dispatchMoveFinished(moveInfo2.holder);
+                    arrayList.remove(size6);
+                    if (arrayList.isEmpty()) {
+                        this.mMovesList.remove(arrayList);
+                    }
+                }
+            }
+            for (int size7 = this.mAdditionsList.size() - 1; size7 >= 0; size7--) {
+                ArrayList<RecyclerView.ViewHolder> arrayList2 = this.mAdditionsList.get(size7);
+                for (int size8 = arrayList2.size() - 1; size8 >= 0; size8--) {
+                    RecyclerView.ViewHolder viewHolder2 = arrayList2.get(size8);
+                    viewHolder2.itemView.setAlpha(1.0f);
+                    dispatchAddFinished(viewHolder2);
+                    arrayList2.remove(size8);
+                    if (arrayList2.isEmpty()) {
+                        this.mAdditionsList.remove(arrayList2);
+                    }
+                }
+            }
+            for (int size9 = this.mChangesList.size() - 1; size9 >= 0; size9--) {
+                ArrayList<ChangeInfo> arrayList3 = this.mChangesList.get(size9);
+                for (int size10 = arrayList3.size() - 1; size10 >= 0; size10--) {
+                    endChangeAnimationIfNecessary(arrayList3.get(size10));
+                    if (arrayList3.isEmpty()) {
+                        this.mChangesList.remove(arrayList3);
+                    }
+                }
+            }
+            cancelAll(this.mRemoveAnimations);
+            cancelAll(this.mMoveAnimations);
+            cancelAll(this.mAddAnimations);
+            cancelAll(this.mChangeAnimations);
+            dispatchAnimationsFinished();
         }
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemAnimator
-    public boolean isRunning() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? (this.mPendingAdditions.isEmpty() && this.mPendingChanges.isEmpty() && this.mPendingMoves.isEmpty() && this.mPendingRemovals.isEmpty() && this.mMoveAnimations.isEmpty() && this.mRemoveAnimations.isEmpty() && this.mAddAnimations.isEmpty() && this.mChangeAnimations.isEmpty() && this.mMovesList.isEmpty() && this.mAdditionsList.isEmpty() && this.mChangesList.isEmpty()) ? false : true : invokeV.booleanValue;
-    }
-
-    @Override // androidx.recyclerview.widget.RecyclerView.ItemAnimator
     public void runPendingAnimations() {
+        long j;
+        long j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             boolean z = !this.mPendingRemovals.isEmpty();
             boolean z2 = !this.mPendingMoves.isEmpty();
             boolean z3 = !this.mPendingChanges.isEmpty();
             boolean z4 = !this.mPendingAdditions.isEmpty();
-            if (z || z2 || z4 || z3) {
-                Iterator<RecyclerView.ViewHolder> it = this.mPendingRemovals.iterator();
-                while (it.hasNext()) {
-                    animateRemoveImpl(it.next());
-                }
-                this.mPendingRemovals.clear();
-                if (z2) {
-                    ArrayList<MoveInfo> arrayList = new ArrayList<>();
-                    arrayList.addAll(this.mPendingMoves);
-                    this.mMovesList.add(arrayList);
-                    this.mPendingMoves.clear();
-                    Runnable runnable = new Runnable(this, arrayList) { // from class: androidx.recyclerview.widget.DefaultItemAnimator.1
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ DefaultItemAnimator this$0;
-                        public final /* synthetic */ ArrayList val$moves;
+            if (!z && !z2 && !z4 && !z3) {
+                return;
+            }
+            Iterator<RecyclerView.ViewHolder> it = this.mPendingRemovals.iterator();
+            while (it.hasNext()) {
+                animateRemoveImpl(it.next());
+            }
+            this.mPendingRemovals.clear();
+            if (z2) {
+                ArrayList<MoveInfo> arrayList = new ArrayList<>();
+                arrayList.addAll(this.mPendingMoves);
+                this.mMovesList.add(arrayList);
+                this.mPendingMoves.clear();
+                Runnable runnable = new Runnable(this, arrayList) { // from class: androidx.recyclerview.widget.DefaultItemAnimator.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ DefaultItemAnimator this$0;
+                    public final /* synthetic */ ArrayList val$moves;
 
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this, arrayList};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i = newInitContext.flag;
-                                if ((i & 1) != 0) {
-                                    int i2 = i & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.this$0 = this;
-                            this.val$moves = arrayList;
-                        }
-
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                Iterator it2 = this.val$moves.iterator();
-                                while (it2.hasNext()) {
-                                    MoveInfo moveInfo = (MoveInfo) it2.next();
-                                    this.this$0.animateMoveImpl(moveInfo.holder, moveInfo.fromX, moveInfo.fromY, moveInfo.toX, moveInfo.toY);
-                                }
-                                this.val$moves.clear();
-                                this.this$0.mMovesList.remove(this.val$moves);
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, arrayList};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
                             }
                         }
-                    };
-                    if (z) {
-                        ViewCompat.postOnAnimationDelayed(arrayList.get(0).holder.itemView, runnable, getRemoveDuration());
-                    } else {
-                        runnable.run();
+                        this.this$0 = this;
+                        this.val$moves = arrayList;
                     }
+
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            Iterator it2 = this.val$moves.iterator();
+                            while (it2.hasNext()) {
+                                MoveInfo moveInfo = (MoveInfo) it2.next();
+                                this.this$0.animateMoveImpl(moveInfo.holder, moveInfo.fromX, moveInfo.fromY, moveInfo.toX, moveInfo.toY);
+                            }
+                            this.val$moves.clear();
+                            this.this$0.mMovesList.remove(this.val$moves);
+                        }
+                    }
+                };
+                if (z) {
+                    ViewCompat.postOnAnimationDelayed(arrayList.get(0).holder.itemView, runnable, getRemoveDuration());
+                } else {
+                    runnable.run();
+                }
+            }
+            if (z3) {
+                ArrayList<ChangeInfo> arrayList2 = new ArrayList<>();
+                arrayList2.addAll(this.mPendingChanges);
+                this.mChangesList.add(arrayList2);
+                this.mPendingChanges.clear();
+                Runnable runnable2 = new Runnable(this, arrayList2) { // from class: androidx.recyclerview.widget.DefaultItemAnimator.2
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ DefaultItemAnimator this$0;
+                    public final /* synthetic */ ArrayList val$changes;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, arrayList2};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                        this.val$changes = arrayList2;
+                    }
+
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            Iterator it2 = this.val$changes.iterator();
+                            while (it2.hasNext()) {
+                                this.this$0.animateChangeImpl((ChangeInfo) it2.next());
+                            }
+                            this.val$changes.clear();
+                            this.this$0.mChangesList.remove(this.val$changes);
+                        }
+                    }
+                };
+                if (z) {
+                    ViewCompat.postOnAnimationDelayed(arrayList2.get(0).oldHolder.itemView, runnable2, getRemoveDuration());
+                } else {
+                    runnable2.run();
+                }
+            }
+            if (z4) {
+                ArrayList<RecyclerView.ViewHolder> arrayList3 = new ArrayList<>();
+                arrayList3.addAll(this.mPendingAdditions);
+                this.mAdditionsList.add(arrayList3);
+                this.mPendingAdditions.clear();
+                Runnable runnable3 = new Runnable(this, arrayList3) { // from class: androidx.recyclerview.widget.DefaultItemAnimator.3
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ DefaultItemAnimator this$0;
+                    public final /* synthetic */ ArrayList val$additions;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, arrayList3};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                        this.val$additions = arrayList3;
+                    }
+
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            Iterator it2 = this.val$additions.iterator();
+                            while (it2.hasNext()) {
+                                this.this$0.animateAddImpl((RecyclerView.ViewHolder) it2.next());
+                            }
+                            this.val$additions.clear();
+                            this.this$0.mAdditionsList.remove(this.val$additions);
+                        }
+                    }
+                };
+                if (!z && !z2 && !z3) {
+                    runnable3.run();
+                    return;
+                }
+                long j3 = 0;
+                if (z) {
+                    j = getRemoveDuration();
+                } else {
+                    j = 0;
+                }
+                if (z2) {
+                    j2 = getMoveDuration();
+                } else {
+                    j2 = 0;
                 }
                 if (z3) {
-                    ArrayList<ChangeInfo> arrayList2 = new ArrayList<>();
-                    arrayList2.addAll(this.mPendingChanges);
-                    this.mChangesList.add(arrayList2);
-                    this.mPendingChanges.clear();
-                    Runnable runnable2 = new Runnable(this, arrayList2) { // from class: androidx.recyclerview.widget.DefaultItemAnimator.2
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ DefaultItemAnimator this$0;
-                        public final /* synthetic */ ArrayList val$changes;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this, arrayList2};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i = newInitContext.flag;
-                                if ((i & 1) != 0) {
-                                    int i2 = i & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.this$0 = this;
-                            this.val$changes = arrayList2;
-                        }
-
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                Iterator it2 = this.val$changes.iterator();
-                                while (it2.hasNext()) {
-                                    this.this$0.animateChangeImpl((ChangeInfo) it2.next());
-                                }
-                                this.val$changes.clear();
-                                this.this$0.mChangesList.remove(this.val$changes);
-                            }
-                        }
-                    };
-                    if (z) {
-                        ViewCompat.postOnAnimationDelayed(arrayList2.get(0).oldHolder.itemView, runnable2, getRemoveDuration());
-                    } else {
-                        runnable2.run();
-                    }
+                    j3 = getChangeDuration();
                 }
-                if (z4) {
-                    ArrayList<RecyclerView.ViewHolder> arrayList3 = new ArrayList<>();
-                    arrayList3.addAll(this.mPendingAdditions);
-                    this.mAdditionsList.add(arrayList3);
-                    this.mPendingAdditions.clear();
-                    Runnable runnable3 = new Runnable(this, arrayList3) { // from class: androidx.recyclerview.widget.DefaultItemAnimator.3
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ DefaultItemAnimator this$0;
-                        public final /* synthetic */ ArrayList val$additions;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this, arrayList3};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i = newInitContext.flag;
-                                if ((i & 1) != 0) {
-                                    int i2 = i & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.this$0 = this;
-                            this.val$additions = arrayList3;
-                        }
-
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                Iterator it2 = this.val$additions.iterator();
-                                while (it2.hasNext()) {
-                                    this.this$0.animateAddImpl((RecyclerView.ViewHolder) it2.next());
-                                }
-                                this.val$additions.clear();
-                                this.this$0.mAdditionsList.remove(this.val$additions);
-                            }
-                        }
-                    };
-                    if (!z && !z2 && !z3) {
-                        runnable3.run();
-                    } else {
-                        ViewCompat.postOnAnimationDelayed(arrayList3.get(0).itemView, runnable3, (z ? getRemoveDuration() : 0L) + Math.max(z2 ? getMoveDuration() : 0L, z3 ? getChangeDuration() : 0L));
-                    }
-                }
+                ViewCompat.postOnAnimationDelayed(arrayList3.get(0).itemView, runnable3, j + Math.max(j2, j3));
             }
         }
-    }
-
-    /* loaded from: classes.dex */
-    public static class ChangeInfo {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int fromX;
-        public int fromY;
-        public RecyclerView.ViewHolder newHolder;
-        public RecyclerView.ViewHolder oldHolder;
-        public int toX;
-        public int toY;
-
-        public ChangeInfo(RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder viewHolder2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {viewHolder, viewHolder2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.oldHolder = viewHolder;
-            this.newHolder = viewHolder2;
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "ChangeInfo{oldHolder=" + this.oldHolder + ", newHolder=" + this.newHolder + ", fromX=" + this.fromX + ", fromY=" + this.fromY + ", toX=" + this.toX + ", toY=" + this.toY + '}';
-            }
-            return (String) invokeV.objValue;
-        }
-
-        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public ChangeInfo(RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder viewHolder2, int i, int i2, int i3, int i4) {
-            this(viewHolder, viewHolder2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {viewHolder, viewHolder2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i5 = newInitContext.flag;
-                if ((i5 & 1) != 0) {
-                    int i6 = i5 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    this((RecyclerView.ViewHolder) objArr2[0], (RecyclerView.ViewHolder) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.fromX = i;
-            this.fromY = i2;
-            this.toX = i3;
-            this.toY = i4;
-        }
-    }
-
-    private boolean endChangeAnimationIfNecessary(ChangeInfo changeInfo, RecyclerView.ViewHolder viewHolder) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, changeInfo, viewHolder)) == null) {
-            boolean z = false;
-            if (changeInfo.newHolder == viewHolder) {
-                changeInfo.newHolder = null;
-            } else if (changeInfo.oldHolder != viewHolder) {
-                return false;
-            } else {
-                changeInfo.oldHolder = null;
-                z = true;
-            }
-            viewHolder.itemView.setAlpha(1.0f);
-            viewHolder.itemView.setTranslationX(0.0f);
-            viewHolder.itemView.setTranslationY(0.0f);
-            dispatchChangeFinished(viewHolder, z);
-            return true;
-        }
-        return invokeLL.booleanValue;
     }
 }

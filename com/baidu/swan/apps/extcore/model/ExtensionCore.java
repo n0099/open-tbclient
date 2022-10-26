@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.process.SwanAppIPCData;
-import com.baidu.tieba.ah3;
+import com.baidu.tieba.bh3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class ExtensionCore extends SwanAppIPCData {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator<ExtensionCore> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public static final int TYPE_DEBUG = 2;
     public static final int TYPE_PRESET = 0;
     public static final int TYPE_REMOTE = 1;
@@ -25,8 +25,18 @@ public class ExtensionCore extends SwanAppIPCData {
     public long extensionCoreVersionCode;
     public String extensionCoreVersionName;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     /* loaded from: classes2.dex */
-    public static class a implements Parcelable.Creator<ExtensionCore> {
+    public final class a implements Parcelable.Creator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -50,7 +60,10 @@ public class ExtensionCore extends SwanAppIPCData {
         public ExtensionCore createFromParcel(Parcel parcel) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new ExtensionCore(parcel, null) : (ExtensionCore) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+                return new ExtensionCore(parcel, null);
+            }
+            return (ExtensionCore) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -59,7 +72,10 @@ public class ExtensionCore extends SwanAppIPCData {
         public ExtensionCore[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new ExtensionCore[i] : (ExtensionCore[]) invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                return new ExtensionCore[i];
+            }
+            return (ExtensionCore[]) invokeI.objValue;
         }
     }
 
@@ -79,46 +95,6 @@ public class ExtensionCore extends SwanAppIPCData {
         CREATOR = new a();
     }
 
-    public /* synthetic */ ExtensionCore(Parcel parcel, a aVar) {
-        this(parcel);
-    }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean isAvailable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ah3.e(this.extensionCorePath) : invokeV.booleanValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "ExtensionCore{extensionCoreType=" + this.extensionCoreType + ", extensionCoreVersionCode=" + this.extensionCoreVersionCode + ", extensionCoreVersionName=" + this.extensionCoreVersionName + ", extensionCorePath='" + this.extensionCorePath + "', isAvailable='" + isAvailable() + "'}";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i) == null) {
-            parcel.writeInt(this.extensionCoreType);
-            parcel.writeLong(this.extensionCoreVersionCode);
-            parcel.writeString(this.extensionCoreVersionName);
-            parcel.writeString(this.extensionCorePath);
-        }
-    }
-
     public ExtensionCore() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -131,6 +107,15 @@ public class ExtensionCore extends SwanAppIPCData {
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
+    }
+
+    public boolean isAvailable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return bh3.e(this.extensionCorePath);
+        }
+        return invokeV.booleanValue;
     }
 
     public ExtensionCore(Parcel parcel) {
@@ -152,5 +137,29 @@ public class ExtensionCore extends SwanAppIPCData {
         this.extensionCoreVersionCode = parcel.readLong();
         this.extensionCoreVersionName = parcel.readString();
         this.extensionCorePath = parcel.readString();
+    }
+
+    public /* synthetic */ ExtensionCore(Parcel parcel, a aVar) {
+        this(parcel);
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i) == null) {
+            parcel.writeInt(this.extensionCoreType);
+            parcel.writeLong(this.extensionCoreVersionCode);
+            parcel.writeString(this.extensionCoreVersionName);
+            parcel.writeString(this.extensionCorePath);
+        }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return "ExtensionCore{extensionCoreType=" + this.extensionCoreType + ", extensionCoreVersionCode=" + this.extensionCoreVersionCode + ", extensionCoreVersionName=" + this.extensionCoreVersionName + ", extensionCorePath='" + this.extensionCorePath + "', isAvailable='" + isAvailable() + "'}";
+        }
+        return (String) invokeV.objValue;
     }
 }

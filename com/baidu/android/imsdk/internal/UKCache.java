@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class UKCache {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LruCache<Long, Long> mCache;
+    public LruCache mCache;
 
     public UKCache(int i) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public class UKCache {
             }
         }
         this.mCache = null;
-        this.mCache = new LruCache<>(i);
+        this.mCache = new LruCache(i);
     }
 
     public Long get(long j) {
@@ -38,9 +38,18 @@ public class UKCache {
             if (j < 0) {
                 return null;
             }
-            return this.mCache.get(Long.valueOf(j));
+            return (Long) this.mCache.get(Long.valueOf(j));
         }
         return (Long) invokeJ.objValue;
+    }
+
+    public Long remove(Long l) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, l)) == null) {
+            return (Long) this.mCache.remove(l);
+        }
+        return (Long) invokeL.objValue;
     }
 
     public boolean put(Long l, Long l2) {
@@ -54,12 +63,6 @@ public class UKCache {
             return true;
         }
         return invokeLL.booleanValue;
-    }
-
-    public Long remove(Long l) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, l)) == null) ? this.mCache.remove(l) : (Long) invokeL.objValue;
     }
 
     public void removeAll() {

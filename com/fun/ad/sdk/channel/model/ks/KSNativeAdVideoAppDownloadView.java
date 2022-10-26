@@ -10,10 +10,9 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.yp9;
+import com.baidu.tieba.qq9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -59,7 +58,7 @@ public class KSNativeAdVideoAppDownloadView extends x {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public KSNativeAdVideoAppDownloadView(Context context, @Nullable AttributeSet attributeSet) {
+    public KSNativeAdVideoAppDownloadView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -80,7 +79,7 @@ public class KSNativeAdVideoAppDownloadView extends x {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public KSNativeAdVideoAppDownloadView(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public KSNativeAdVideoAppDownloadView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -97,6 +96,34 @@ public class KSNativeAdVideoAppDownloadView extends x {
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
+        }
+    }
+
+    @Override // android.view.View
+    public void onFinishInflate() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.onFinishInflate();
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0900a1);
+            this.c = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0900fd);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900d5);
+            this.e = (TextView) findViewById(R.id.ad_app_source);
+            this.f = (ImageView) findViewById(R.id.ad_app_icon);
+            this.g = (TextView) findViewById(R.id.ad_app_title);
+            this.h = (Button) findViewById(R.id.ad_app_download);
+        }
+    }
+
+    @Override // android.view.View
+    public void onSizeChanged(int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4) == null) {
+            super.onSizeChanged(i, i2, i3, i4);
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.c.getLayoutParams();
+            int i5 = (i - layoutParams.leftMargin) - layoutParams.rightMargin;
+            layoutParams.width = i5;
+            layoutParams.height = (int) (i5 / 1.78f);
+            this.c.setLayoutParams(layoutParams);
         }
     }
 
@@ -133,35 +160,7 @@ public class KSNativeAdVideoAppDownloadView extends x {
             }
             this.g.setText(ksNativeAd.getAppName());
             this.h.setText(ksNativeAd.getActionDescription());
-            ksNativeAd.setDownloadListener(new yp9(ksNativeAd.getActionDescription(), this.h));
-        }
-    }
-
-    @Override // android.view.View
-    public void onFinishInflate() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.onFinishInflate();
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0900a1);
-            this.c = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0900fd);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900d5);
-            this.e = (TextView) findViewById(R.id.ad_app_source);
-            this.f = (ImageView) findViewById(R.id.ad_app_icon);
-            this.g = (TextView) findViewById(R.id.ad_app_title);
-            this.h = (Button) findViewById(R.id.ad_app_download);
-        }
-    }
-
-    @Override // android.view.View
-    public void onSizeChanged(int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4) == null) {
-            super.onSizeChanged(i, i2, i3, i4);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.c.getLayoutParams();
-            int i5 = (i - layoutParams.leftMargin) - layoutParams.rightMargin;
-            layoutParams.width = i5;
-            layoutParams.height = (int) (i5 / 1.78f);
-            this.c.setLayoutParams(layoutParams);
+            ksNativeAd.setDownloadListener(new qq9(ksNativeAd.getActionDescription(), this.h));
         }
     }
 }

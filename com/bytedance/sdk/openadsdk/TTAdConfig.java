@@ -20,144 +20,21 @@ public final class TTAdConfig implements AdConfig {
     public String[] m;
     public boolean n;
     public int o;
-    public Map<String, Object> p;
+    public Map p;
     public TTCustomController q;
     public int r;
 
-    /* loaded from: classes7.dex */
-    public static class Builder {
-        public String a;
-        public String b;
-        public String d;
-        public String e;
-        public int[] j;
-        public String[] m;
-        public TTCustomController o;
-        public int p;
-        public boolean c = false;
-        public int f = 0;
-        public boolean g = true;
-        public boolean h = false;
-        public boolean i = false;
-        public boolean k = true;
-        public boolean l = false;
-        public boolean n = false;
-        public int q = 2;
-        public int r = 0;
-
-        public Builder allowShowNotify(boolean z) {
-            this.g = z;
-            return this;
-        }
-
-        @Deprecated
-        public Builder allowShowPageWhenScreenLock(boolean z) {
-            this.i = z;
-            return this;
-        }
-
-        public Builder appId(String str) {
-            this.a = str;
-            return this;
-        }
-
-        public Builder appName(String str) {
-            this.b = str;
-            return this;
-        }
-
-        public Builder asyncInit(boolean z) {
-            this.n = z;
-            return this;
-        }
-
-        public TTAdConfig build() {
-            TTAdConfig tTAdConfig = new TTAdConfig();
-            tTAdConfig.setAppId(this.a);
-            tTAdConfig.setAppName(this.b);
-            tTAdConfig.setPaid(this.c);
-            tTAdConfig.setKeywords(this.d);
-            tTAdConfig.setData(this.e);
-            tTAdConfig.setTitleBarTheme(this.f);
-            tTAdConfig.setAllowShowNotify(this.g);
-            tTAdConfig.setDebug(this.h);
-            tTAdConfig.setAllowShowPageWhenScreenLock(this.i);
-            tTAdConfig.setDirectDownloadNetworkType(this.j);
-            tTAdConfig.setUseTextureView(this.k);
-            tTAdConfig.setSupportMultiProcess(this.l);
-            tTAdConfig.setNeedClearTaskReset(this.m);
-            tTAdConfig.setAsyncInit(this.n);
-            tTAdConfig.setCustomController(this.o);
-            tTAdConfig.setThemeStatus(this.p);
-            tTAdConfig.setExtra("plugin_update_conf", Integer.valueOf(this.q));
-            tTAdConfig.setExtra(TTAdConstant.KEY_AGE_GROUP, Integer.valueOf(this.r));
-            return tTAdConfig;
-        }
-
-        public Builder customController(TTCustomController tTCustomController) {
-            this.o = tTCustomController;
-            return this;
-        }
-
-        public Builder data(String str) {
-            this.e = str;
-            return this;
-        }
-
-        public Builder debug(boolean z) {
-            this.h = z;
-            return this;
-        }
-
-        public Builder directDownloadNetworkType(int... iArr) {
-            this.j = iArr;
-            return this;
-        }
-
-        public Builder keywords(String str) {
-            this.d = str;
-            return this;
-        }
-
-        public Builder needClearTaskReset(String... strArr) {
-            this.m = strArr;
-            return this;
-        }
-
-        public Builder paid(boolean z) {
-            this.c = z;
-            return this;
-        }
-
-        public Builder setAgeGroup(int i) {
-            this.r = i;
-            return this;
-        }
-
-        public Builder setPluginUpdateConfig(int i) {
-            this.q = i;
-            return this;
-        }
-
-        public Builder supportMultiProcess(boolean z) {
-            this.l = z;
-            return this;
-        }
-
-        public Builder themeStatus(int i) {
-            this.p = i;
-            return this;
-        }
-
-        public Builder titleBarTheme(int i) {
-            this.f = i;
-            return this;
-        }
-
-        public Builder useTextureView(boolean z) {
-            this.k = z;
-            return this;
-        }
+    public TTAdConfig() {
+        this.c = false;
+        this.f = 0;
+        this.g = true;
+        this.h = false;
+        this.i = false;
+        this.k = true;
+        this.l = false;
+        this.n = false;
+        this.o = 0;
+        this.p = new HashMap();
     }
 
     @Override // com.bytedance.sdk.openadsdk.AdConfig
@@ -183,12 +60,6 @@ public final class TTAdConfig implements AdConfig {
     @Override // com.bytedance.sdk.openadsdk.AdConfig
     public int[] getDirectDownloadNetworkType() {
         return this.j;
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.AdConfig
-    @Deprecated
-    public Object getExtra(String str) {
-        return this.p.get(str);
     }
 
     @Override // com.bytedance.sdk.openadsdk.AdConfig
@@ -270,6 +141,148 @@ public final class TTAdConfig implements AdConfig {
         return this.k;
     }
 
+    /* loaded from: classes7.dex */
+    public class Builder {
+        public String a;
+        public String b;
+        public String d;
+        public String e;
+        public int[] j;
+        public String[] m;
+        public TTCustomController o;
+        public int p;
+        public boolean c = false;
+        public int f = 0;
+        public boolean g = true;
+        public boolean h = false;
+        public boolean i = false;
+        public boolean k = true;
+        public boolean l = false;
+        public boolean n = false;
+        public int q = 2;
+        public int r = 0;
+
+        public Builder allowShowNotify(boolean z) {
+            this.g = z;
+            return this;
+        }
+
+        @Deprecated
+        public Builder allowShowPageWhenScreenLock(boolean z) {
+            this.i = z;
+            return this;
+        }
+
+        public Builder appId(String str) {
+            this.a = str;
+            return this;
+        }
+
+        public Builder appName(String str) {
+            this.b = str;
+            return this;
+        }
+
+        public Builder asyncInit(boolean z) {
+            this.n = z;
+            return this;
+        }
+
+        public Builder customController(TTCustomController tTCustomController) {
+            this.o = tTCustomController;
+            return this;
+        }
+
+        public Builder data(String str) {
+            this.e = str;
+            return this;
+        }
+
+        public Builder debug(boolean z) {
+            this.h = z;
+            return this;
+        }
+
+        public Builder directDownloadNetworkType(int... iArr) {
+            this.j = iArr;
+            return this;
+        }
+
+        public Builder keywords(String str) {
+            this.d = str;
+            return this;
+        }
+
+        public Builder needClearTaskReset(String... strArr) {
+            this.m = strArr;
+            return this;
+        }
+
+        public Builder paid(boolean z) {
+            this.c = z;
+            return this;
+        }
+
+        public Builder setAgeGroup(int i) {
+            this.r = i;
+            return this;
+        }
+
+        public Builder setPluginUpdateConfig(int i) {
+            this.q = i;
+            return this;
+        }
+
+        public Builder supportMultiProcess(boolean z) {
+            this.l = z;
+            return this;
+        }
+
+        public Builder themeStatus(int i) {
+            this.p = i;
+            return this;
+        }
+
+        public Builder titleBarTheme(int i) {
+            this.f = i;
+            return this;
+        }
+
+        public Builder useTextureView(boolean z) {
+            this.k = z;
+            return this;
+        }
+
+        public TTAdConfig build() {
+            TTAdConfig tTAdConfig = new TTAdConfig();
+            tTAdConfig.setAppId(this.a);
+            tTAdConfig.setAppName(this.b);
+            tTAdConfig.setPaid(this.c);
+            tTAdConfig.setKeywords(this.d);
+            tTAdConfig.setData(this.e);
+            tTAdConfig.setTitleBarTheme(this.f);
+            tTAdConfig.setAllowShowNotify(this.g);
+            tTAdConfig.setDebug(this.h);
+            tTAdConfig.setAllowShowPageWhenScreenLock(this.i);
+            tTAdConfig.setDirectDownloadNetworkType(this.j);
+            tTAdConfig.setUseTextureView(this.k);
+            tTAdConfig.setSupportMultiProcess(this.l);
+            tTAdConfig.setNeedClearTaskReset(this.m);
+            tTAdConfig.setAsyncInit(this.n);
+            tTAdConfig.setCustomController(this.o);
+            tTAdConfig.setThemeStatus(this.p);
+            tTAdConfig.setExtra("plugin_update_conf", Integer.valueOf(this.q));
+            tTAdConfig.setExtra(TTAdConstant.KEY_AGE_GROUP, Integer.valueOf(this.r));
+            return tTAdConfig;
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.AdConfig
+    @Deprecated
+    public Object getExtra(String str) {
+        return this.p.get(str);
+    }
+
     @Override // com.bytedance.sdk.openadsdk.AdConfig
     public Object removeExtra(String str) {
         return this.p.remove(str);
@@ -316,12 +329,6 @@ public final class TTAdConfig implements AdConfig {
         this.j = iArr;
     }
 
-    @Override // com.bytedance.sdk.openadsdk.AdConfig
-    @Deprecated
-    public void setExtra(String str, Object obj) {
-        this.p.put(str, obj);
-    }
-
     public void setKeywords(String str) {
         this.d = str;
     }
@@ -350,16 +357,9 @@ public final class TTAdConfig implements AdConfig {
         this.k = z;
     }
 
-    public TTAdConfig() {
-        this.c = false;
-        this.f = 0;
-        this.g = true;
-        this.h = false;
-        this.i = false;
-        this.k = true;
-        this.l = false;
-        this.n = false;
-        this.o = 0;
-        this.p = new HashMap();
+    @Override // com.bytedance.sdk.openadsdk.AdConfig
+    @Deprecated
+    public void setExtra(String str, Object obj) {
+        this.p.put(str, obj);
     }
 }

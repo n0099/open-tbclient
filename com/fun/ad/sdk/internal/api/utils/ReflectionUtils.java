@@ -27,37 +27,6 @@ public class ReflectionUtils {
         }
     }
 
-    public static Object findField(String str, Object obj) {
-        InterceptResult invokeLL;
-        Field[] declaredFields;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, obj)) == null) {
-            if (obj != null) {
-                try {
-                    Class<?> cls = obj.getClass();
-                    while (cls != null) {
-                        for (Field field : cls.getDeclaredFields()) {
-                            if (TextUtils.equals(str, field.getType().getName())) {
-                                field.setAccessible(true);
-                                return field.get(obj);
-                            }
-                        }
-                        cls = cls.getSuperclass();
-                        if (cls == Object.class) {
-                            return null;
-                        }
-                    }
-                    return null;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return null;
-                }
-            }
-            return null;
-        }
-        return invokeLL.objValue;
-    }
-
     public static Object getField(Object obj, String... strArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -94,7 +63,7 @@ public class ReflectionUtils {
         return invokeLL.objValue;
     }
 
-    public static Object invoke(Object obj, String str, Class<?>[] clsArr, Object... objArr) {
+    public static Object invoke(Object obj, String str, Class[] clsArr, Object... objArr) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, str, clsArr, objArr)) == null) {
@@ -132,5 +101,36 @@ public class ReflectionUtils {
                 }
             }
         }
+    }
+
+    public static Object findField(String str, Object obj) {
+        InterceptResult invokeLL;
+        Field[] declaredFields;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, obj)) == null) {
+            if (obj != null) {
+                try {
+                    Class<?> cls = obj.getClass();
+                    while (cls != null) {
+                        for (Field field : cls.getDeclaredFields()) {
+                            if (TextUtils.equals(str, field.getType().getName())) {
+                                field.setAccessible(true);
+                                return field.get(obj);
+                            }
+                        }
+                        cls = cls.getSuperclass();
+                        if (cls == Object.class) {
+                            return null;
+                        }
+                    }
+                    return null;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return null;
+                }
+            }
+            return null;
+        }
+        return invokeLL.objValue;
     }
 }

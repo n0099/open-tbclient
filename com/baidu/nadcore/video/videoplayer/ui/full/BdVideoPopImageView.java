@@ -11,7 +11,7 @@ import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c41;
+import com.baidu.tieba.d41;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -54,12 +54,12 @@ public class BdVideoPopImageView extends View {
                 return;
             }
         }
-        l = c41.a(12.0f);
-        m = c41.d(30.0f);
-        n = c41.a(16.0f);
-        o = c41.a(9.0f) + n;
-        p = c41.b(90.0f);
-        q = c41.b(90.0f);
+        l = d41.a(12.0f);
+        m = d41.d(30.0f);
+        n = d41.a(16.0f);
+        o = d41.a(9.0f) + n;
+        p = d41.b(90.0f);
+        q = d41.b(90.0f);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -100,7 +100,7 @@ public class BdVideoPopImageView extends View {
             this.f.setColor(-1);
             this.f.setTextAlign(Paint.Align.CENTER);
             this.h = new Rect();
-            this.g = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e2b);
+            this.g = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e3c);
         }
     }
 
@@ -158,11 +158,10 @@ public class BdVideoPopImageView extends View {
         }
     }
 
-    public void setMsg(String str) {
+    public void setMsg(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.e = str;
-            invalidate();
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.e = this.a.getResources().getString(i);
         }
     }
 
@@ -194,10 +193,11 @@ public class BdVideoPopImageView extends View {
         }
     }
 
-    public void setMsg(int i) {
+    public void setMsg(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.e = this.a.getResources().getString(i);
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.e = str;
+            invalidate();
         }
     }
 }

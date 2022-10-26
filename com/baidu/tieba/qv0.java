@@ -1,27 +1,33 @@
 package com.baidu.tieba;
 
+import com.baidu.tieba.bn0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class qv0 {
+public class qv0 implements bn0 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile pv0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized pv0 a() {
-        InterceptResult invokeV;
-        pv0 pv0Var;
+    @Override // com.baidu.tieba.bn0
+    public void a(String str, String str2, bn0.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (qv0.class) {
-                if (a == null) {
-                    a = new pv0();
-                }
-                pv0Var = a;
-            }
-            return pv0Var;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, aVar) == null) {
         }
-        return (pv0) invokeV.objValue;
+    }
+
+    public qv0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 }

@@ -172,7 +172,7 @@ public interface WebViewProvider {
 
     Picture capturePicture(int i, int i2, boolean z);
 
-    void capturePicture(int i, int i2, ValueCallback<Picture> valueCallback);
+    void capturePicture(int i, int i2, ValueCallback valueCallback);
 
     void clearCache(boolean z);
 
@@ -208,11 +208,11 @@ public interface WebViewProvider {
 
     void enableMedia();
 
-    void evaluateJavaScript(String str, ValueCallback<String> valueCallback);
+    void evaluateJavaScript(String str, ValueCallback valueCallback);
 
-    void evaluateJavaScriptMethod(String str, String str2, String str3, ValueCallback<String> valueCallback);
+    void evaluateJavaScriptMethod(String str, String str2, String str3, ValueCallback valueCallback);
 
-    void evaluateJavaScriptOnPrerender(String str, ValueCallback<String> valueCallback);
+    void evaluateJavaScriptOnPrerender(String str, ValueCallback valueCallback);
 
     void exitFullScreenMode();
 
@@ -306,7 +306,7 @@ public interface WebViewProvider {
 
     void hitAd(String str);
 
-    void init(Map<String, Object> map, boolean z);
+    void init(Map map, boolean z);
 
     void initNet();
 
@@ -336,9 +336,9 @@ public interface WebViewProvider {
 
     void loadUrl(String str);
 
-    void loadUrl(String str, Map<String, String> map);
+    void loadUrl(String str, Map map);
 
-    void loadUrl(String str, Map<String, String> map, boolean z);
+    void loadUrl(String str, Map map, boolean z);
 
     void notifyUkmPageLeave();
 
@@ -400,7 +400,7 @@ public interface WebViewProvider {
 
     void saveWebArchive(String str);
 
-    void saveWebArchive(String str, boolean z, ValueCallback<String> valueCallback);
+    void saveWebArchive(String str, boolean z, ValueCallback valueCallback);
 
     void selectionDone();
 

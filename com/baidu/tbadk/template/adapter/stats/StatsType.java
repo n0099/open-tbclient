@@ -57,12 +57,18 @@ public final class StatsType {
     public static StatsType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (StatsType) Enum.valueOf(StatsType.class, str) : (StatsType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (StatsType) Enum.valueOf(StatsType.class, str);
+        }
+        return (StatsType) invokeL.objValue;
     }
 
     public static StatsType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (StatsType[]) $VALUES.clone() : (StatsType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (StatsType[]) $VALUES.clone();
+        }
+        return (StatsType[]) invokeV.objValue;
     }
 }

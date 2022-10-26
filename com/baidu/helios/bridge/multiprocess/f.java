@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public interface f extends IInterface {
 
     /* loaded from: classes2.dex */
-    public static class a implements f {
+    public class a implements f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -59,7 +59,7 @@ public interface f extends IInterface {
     }
 
     /* loaded from: classes2.dex */
-    public static abstract class b extends Binder implements f {
+    public abstract class b extends Binder implements f {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int a = 1;
         public static final int b = 2;
@@ -67,7 +67,7 @@ public interface f extends IInterface {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* loaded from: classes2.dex */
-        public static class a implements f {
+        public class a implements f {
             public static /* synthetic */ Interceptable $ic;
             public static f a;
             public transient /* synthetic */ FieldHolder $fh;

@@ -31,14 +31,14 @@ public final class SecurityUtils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
-            if (activity == null || !checkIntentRefuseService(activity.getIntent())) {
-                return false;
+            if (activity != null && checkIntentRefuseService(activity.getIntent())) {
+                try {
+                    activity.finish();
+                } catch (Exception unused) {
+                }
+                return true;
             }
-            try {
-                activity.finish();
-            } catch (Exception unused) {
-            }
-            return true;
+            return false;
         }
         return invokeL.booleanValue;
     }
@@ -48,15 +48,15 @@ public final class SecurityUtils {
         Bundle extras;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, intent)) == null) {
-            if (intent == null || (extras = intent.getExtras()) == null) {
-                return false;
+            if (intent != null && (extras = intent.getExtras()) != null) {
+                try {
+                    extras.isEmpty();
+                    return false;
+                } catch (Exception unused) {
+                    return true;
+                }
             }
-            try {
-                extras.isEmpty();
-                return false;
-            } catch (Exception unused) {
-                return true;
-            }
+            return false;
         }
         return invokeL.booleanValue;
     }

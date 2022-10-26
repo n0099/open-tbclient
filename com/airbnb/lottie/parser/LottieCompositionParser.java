@@ -4,7 +4,6 @@ import android.graphics.Rect;
 import androidx.collection.LongSparseArray;
 import androidx.collection.SparseArrayCompat;
 import com.airbnb.lottie.LottieComposition;
-import com.airbnb.lottie.model.FontCharacter;
 import com.airbnb.lottie.model.layer.Layer;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.airbnb.lottie.utils.Logger;
@@ -23,13 +22,13 @@ public class LottieCompositionParser {
         ArrayList arrayList;
         JsonReader jsonReader2 = jsonReader;
         float dpScale = Utils.dpScale();
-        LongSparseArray<Layer> longSparseArray = new LongSparseArray<>();
+        LongSparseArray longSparseArray = new LongSparseArray();
         ArrayList arrayList2 = new ArrayList();
         HashMap hashMap2 = new HashMap();
         HashMap hashMap3 = new HashMap();
         HashMap hashMap4 = new HashMap();
         ArrayList arrayList3 = new ArrayList();
-        SparseArrayCompat<FontCharacter> sparseArrayCompat = new SparseArrayCompat<>();
+        SparseArrayCompat sparseArrayCompat = new SparseArrayCompat();
         LottieComposition lottieComposition = new LottieComposition();
         jsonReader.beginObject();
         int i = 0;
@@ -85,7 +84,7 @@ public class LottieCompositionParser {
         return lottieComposition;
     }
 
-    public static void parseLayers(JsonReader jsonReader, LottieComposition lottieComposition, List<Layer> list, LongSparseArray<Layer> longSparseArray) throws IOException {
+    public static void parseLayers(JsonReader jsonReader, LottieComposition lottieComposition, List list, LongSparseArray longSparseArray) throws IOException {
         jsonReader.beginArray();
         int i = 0;
         while (jsonReader.hasNext()) {

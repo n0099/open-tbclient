@@ -3,7 +3,7 @@ package com.baidu.tieba.personExtra;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.c98;
+import com.baidu.tieba.m98;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -15,7 +15,7 @@ import tbclient.GetRecommendGodList.GetRecommendGodListResIdl;
 public class RecommendGodHttpResponseMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c98 recommendGodData;
+    public m98 recommendGodData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RecommendGodHttpResponseMessage() {
@@ -40,7 +40,7 @@ public class RecommendGodHttpResponseMessage extends HttpResponsedMessage {
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         GetRecommendGodListResIdl getRecommendGodListResIdl;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (getRecommendGodListResIdl = (GetRecommendGodListResIdl) new Wire(new Class[0]).parseFrom(bArr, GetRecommendGodListResIdl.class)) == null) {
+        if ((interceptable != null && interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) != null) || (getRecommendGodListResIdl = (GetRecommendGodListResIdl) new Wire(new Class[0]).parseFrom(bArr, GetRecommendGodListResIdl.class)) == null) {
             return;
         }
         Error error = getRecommendGodListResIdl.error;
@@ -51,8 +51,8 @@ public class RecommendGodHttpResponseMessage extends HttpResponsedMessage {
             }
             setErrorString(getRecommendGodListResIdl.error.usermsg);
         }
-        c98 c98Var = new c98();
-        this.recommendGodData = c98Var;
-        c98Var.b(getRecommendGodListResIdl.data);
+        m98 m98Var = new m98();
+        this.recommendGodData = m98Var;
+        m98Var.b(getRecommendGodListResIdl.data);
     }
 }

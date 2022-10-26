@@ -1,187 +1,50 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import android.view.Choreographer;
-import androidx.annotation.Nullable;
+import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.tieba.l12;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.tieba.pw2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.Set;
+import java.util.TreeMap;
+import java.util.concurrent.ConcurrentSkipListSet;
 import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.TimeUnit;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class j93 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static volatile boolean b;
-    public static volatile boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public float b;
+    public Set c;
+    public List d;
+    public List e;
+    public List f;
+    public List g;
+    public List h;
+    public List i;
+    public a j;
 
     /* loaded from: classes4.dex */
-    public static class a implements Runnable {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: com.baidu.tieba.j93$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public class RunnableC0298a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public RunnableC0298a(a aVar, b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    Choreographer.getInstance().postFrameCallback(this.a);
-                }
-            }
-        }
-
-        /* loaded from: classes4.dex */
-        public class b extends TimerTask {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final ExecutorService a;
-            public final AtomicInteger b;
-            public final List<Float> c;
-            public final /* synthetic */ boolean d;
-            public final /* synthetic */ int e;
-            public final /* synthetic */ Timer f;
-            public final /* synthetic */ i93 g;
-            public final /* synthetic */ boolean h;
-            public final /* synthetic */ b i;
-
-            /* renamed from: com.baidu.tieba.j93$a$b$a  reason: collision with other inner class name */
-            /* loaded from: classes4.dex */
-            public class RunnableC0299a implements Runnable {
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ b a;
-
-                public RunnableC0299a(b bVar) {
-                    Interceptable interceptable = $ic;
-                    if (interceptable != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {bVar};
-                        interceptable.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.a = bVar;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable = $ic;
-                    if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                        float b = k12.b();
-                        this.a.g.d.add(Long.valueOf(System.currentTimeMillis()));
-                        b bVar = this.a;
-                        bVar.g.e.add(Integer.valueOf(bVar.i.b.get()));
-                        this.a.g.f.add(Float.valueOf(b));
-                        l12.c i = l12.i();
-                        this.a.g.h.add(Float.valueOf(i.a));
-                        this.a.g.i.add(Float.valueOf(i.b));
-                        this.a.g.g.add(Float.valueOf(i.c));
-                        this.a.c.add(ch3.D() ? Float.valueOf(b) : null);
-                    }
-                }
-            }
-
-            public b(a aVar, boolean z, int i, Timer timer, i93 i93Var, boolean z2, b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, Boolean.valueOf(z), Integer.valueOf(i), timer, i93Var, Boolean.valueOf(z2), bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.d = z;
-                this.e = i;
-                this.f = timer;
-                this.g = i93Var;
-                this.h = z2;
-                this.i = bVar;
-                this.a = Executors.newCachedThreadPool();
-                this.b = new AtomicInteger(0);
-                this.c = new CopyOnWriteArrayList();
-            }
-
-            @Override // java.util.TimerTask, java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    if (this.d && this.b.getAndIncrement() >= this.e) {
-                        j93.l(true);
-                    }
-                    if (!j93.b) {
-                        this.f.cancel();
-                        this.a.shutdown();
-                        l02.b("SwanAppStabilityDataUtil", "采集静态数据");
-                        this.g.b = l12.e().floatValue();
-                        this.g.c = v82.k().m(k33.K().getAppId(), true);
-                        this.g.a(this.c);
-                        l02.i("SwanAppStabilityDataUtil", "采集结果：" + this.g);
-                        if (j93.c) {
-                            l02.b("SwanAppStabilityDataUtil", "发送JSMessage=" + this.g);
-                            j93.i(this.g);
-                        }
-                        if (this.h) {
-                            ix2.e(this.g.c());
-                            return;
-                        }
-                        return;
-                    }
-                    this.a.submit(new RunnableC0299a(this));
-                }
-            }
-        }
+        public volatile long a;
+        public float b;
+        public float c;
+        public float d;
+        public float e;
+        public float f;
+        public int g;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -197,195 +60,288 @@ public class j93 {
             }
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        public static long c() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                i93 i93Var = new i93();
-                i93Var.a = k93.d(i93Var.a);
-                boolean f = k93.f();
-                int c = k93.c(0);
-                boolean z = k93.e(0) == 1;
-                Timer timer = new Timer();
-                b bVar = new b(null);
-                fh3.e0(new RunnableC0298a(this, bVar));
-                timer.schedule(new b(this, f, c, timer, i93Var, z, bVar), 0L, i93Var.a);
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return pw2.a.a().a;
             }
+            return invokeV.longValue;
         }
-    }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947838085, "Lcom/baidu/tieba/j93;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+        public static float g() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+                PMSAppInfo u = jb4.i().u(l33.K().getAppId());
+                if (u == null) {
+                    return 0.0f;
+                }
+                return ((float) u.pkgSize) / 1024.0f;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947838085, "Lcom/baidu/tieba/j93;");
-                return;
-            }
+            return invokeV.floatValue;
         }
-        a = vj1.a;
-        b = false;
-        c = false;
-    }
 
-    public static boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? k93.g() && e() : invokeV.booleanValue;
-    }
-
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? ee2.a() || p22.c() : invokeV.booleanValue;
-    }
-
-    public static boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? k93.h() && e() : invokeV.booleanValue;
-    }
-
-    public static boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? k93.f() : invokeV.booleanValue;
-    }
-
-    public static synchronized void h(JSONObject jSONObject, @Nullable String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, null, jSONObject, str) == null) {
-            synchronized (j93.class) {
-                h93.c(jSONObject, str);
-            }
-        }
-    }
-
-    public static void i(i93 i93Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, null, i93Var) == null) {
-            Map<String, String> d = i93Var.d();
-            if (a) {
-                Log.d("SwanAppStabilityDataUtil", "#sendJsMessage data=" + JSONObject.wrap(d));
-            }
-            yo2.U().u(new md2("sendStabilityData", d));
-        }
-    }
-
-    public static void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65546, null, z) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("status", z ? "0" : "1");
-            yo2.U().u(new md2("toggleStabilityTestStatus", hashMap));
-        }
-    }
-
-    public static void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65547, null) == null) {
-            if (b) {
-                l02.i("SwanAppStabilityDataUtil", "#startObtainData 正在采集中，退出");
-                return;
-            }
-            b = true;
-            l02.i("SwanAppStabilityDataUtil", "#startObtainData 开始采集数据");
-            ExecutorUtilsExt.postOnElastic(new a(), "稳定性工具链-设备数据采集", 3);
-        }
-    }
-
-    public static void l(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65548, null, z) == null) {
-            c = z;
-            b = false;
-            k93.b();
-            l02.b("SwanAppStabilityDataUtil", "#stopObtainData 已停止采集数据");
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class b implements Choreographer.FrameCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public long a;
-        public AtomicInteger b;
-
-        /* loaded from: classes4.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
+        public static float a(List list, List list2, long j, boolean z) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{list, list2, Long.valueOf(j), Boolean.valueOf(z)})) == null) {
+                float f = 0.0f;
+                if (j == 0 || list == null || list.isEmpty() || list2 == null || list2.isEmpty() || list.size() != list2.size()) {
+                    return 0.0f;
+                }
+                m02.b("SwanAppStabilityData", "#calcFirstAndMaxMemDiff memList=" + list + " timeList=" + list2 + " fmp=" + j + " isBefore=" + z);
+                float f2 = Float.MIN_VALUE;
+                Float f3 = (Float) list.get(0);
+                if (f3 != null) {
+                    f = f3.floatValue();
+                }
+                for (int i = 0; i < list.size(); i++) {
+                    Long l = (Long) list2.get(i);
+                    Float f4 = (Float) list.get(i);
+                    if (l != null && f4 != null) {
+                        if (z) {
+                            if (l.longValue() <= j) {
+                                f2 = Math.max(f2, f4.floatValue());
+                            }
+                        } else if (l.longValue() >= j) {
+                            f2 = Math.max(f2, f4.floatValue());
+                        }
                     }
                 }
-                this.a = bVar;
+                return f2 - f;
             }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    Choreographer.getInstance().removeFrameCallback(this.a);
-                }
-            }
+            return invokeCommon.floatValue;
         }
 
-        public b() {
+        public static float b(List list) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
+                Iterator it = list.iterator();
+                int i = 0;
+                float f = 0.0f;
+                while (it.hasNext()) {
+                    Integer num = (Integer) it.next();
+                    if (num != null && num.intValue() > 0) {
+                        i++;
+                        f += num.intValue();
+                    }
                 }
+                if (i == 0) {
+                    return 0.0f;
+                }
+                return f / i;
             }
-            this.a = -1L;
-            this.b = new AtomicInteger(-1);
+            return invokeL.floatValue;
         }
 
-        @Override // android.view.Choreographer.FrameCallback
-        public void doFrame(long j) {
-            int i;
+        public static float e(List list) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-                if (!j93.b) {
-                    fh3.e0(new a(this));
-                    return;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, list)) == null) {
+                float f = 0.0f;
+                if (list == null || list.isEmpty()) {
+                    return 0.0f;
                 }
-                long j2 = this.a;
-                if (j2 > 0 && this.b.get() != (i = (int) (1.0E9d / (j - j2)))) {
-                    this.b.set(i);
-                    l02.b("SwanAppStabilityDataUtil", "#doFrame fps=" + this.b);
+                int i = 0;
+                Iterator it = list.iterator();
+                while (it.hasNext()) {
+                    Float f2 = (Float) it.next();
+                    if (f2 != null) {
+                        i++;
+                        f += f2.floatValue();
+                    }
                 }
-                this.a = j;
-                Choreographer.getInstance().postFrameCallback(this);
+                if (i == 0) {
+                    return -1.0f;
+                }
+                return f / i;
             }
+            return invokeL.floatValue;
         }
 
-        public /* synthetic */ b(a aVar) {
-            this();
+        public static int h(long j) {
+            InterceptResult invokeJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(65544, null, j)) == null) {
+                int i = 0;
+                for (c42 c42Var : d42.d().c()) {
+                    if (c42Var != null && c42Var.e() < j) {
+                        i++;
+                    }
+                }
+                return i;
+            }
+            return invokeJ.intValue;
         }
+
+        public static long d() {
+            InterceptResult invokeV;
+            u22 o;
+            sp1 o3;
+            dq1 M;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+                v22 V = zo2.U().V();
+                if (V == null || (o = V.o()) == null || (o3 = o.o3()) == null) {
+                    return 0L;
+                }
+                vp1 k = o3.k();
+                if (k == null) {
+                    M = o3.M();
+                } else {
+                    M = k.M();
+                }
+                if (M == null) {
+                    return 0L;
+                }
+                return M.c;
+            }
+            return invokeV.longValue;
+        }
+
+        public static float f(List list, List list2, long j) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{list, list2, Long.valueOf(j)})) == null) {
+                return a(list, list2, j, true);
+            }
+            return invokeCommon.floatValue;
+        }
+
+        public static float i(List list, List list2, long j) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{list, list2, Long.valueOf(j)})) == null) {
+                return a(list, list2, j, false);
+            }
+            return invokeCommon.floatValue;
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return "VerificationData{mFmp=" + this.a + ", mMainPkgSize=" + this.b + ", mIdleCpuAvg=" + this.c + ", mFpsAvg=" + this.d + ", mLaunchDiffMem=" + this.e + ", mRunningDiffMem=" + this.f + ", mLaunchRequestCount=" + this.g + '}';
+            }
+            return (String) invokeV.objValue;
+        }
+    }
+
+    public j93() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = 500;
+        this.b = 0.0f;
+        this.c = new ConcurrentSkipListSet();
+        this.d = new CopyOnWriteArrayList();
+        this.e = new CopyOnWriteArrayList();
+        this.f = new CopyOnWriteArrayList();
+        this.g = new CopyOnWriteArrayList();
+        this.h = new CopyOnWriteArrayList();
+        this.i = new CopyOnWriteArrayList();
+        this.j = new a();
+    }
+
+    public void a(List list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+            a aVar = this.j;
+            Pair b = b(10000);
+            long longValue = ((Long) b.first).longValue();
+            aVar.a = ((Long) b.second).longValue();
+            aVar.c = a.e(list);
+            aVar.b = a.g();
+            aVar.e = a.f(this.i, this.d, longValue);
+            aVar.f = a.i(this.i, this.d, longValue);
+            aVar.g = a.h(longValue);
+            aVar.d = a.b(this.e);
+        }
+    }
+
+    public final Pair b(int i) {
+        InterceptResult invokeI;
+        long c;
+        long d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            long currentTimeMillis = i + System.currentTimeMillis();
+            do {
+                c = a.c();
+                d = a.d();
+                if (c > 0 && d > 0) {
+                    break;
+                }
+                try {
+                    TimeUnit.MILLISECONDS.sleep(100L);
+                } catch (InterruptedException e) {
+                    m02.l("SwanAppStabilityData", "sleep 中断", e);
+                }
+            } while (currentTimeMillis > System.currentTimeMillis());
+            m02.i("SwanAppStabilityData", "fmpTimestamp=" + d + " fmp=" + c);
+            return Pair.create(Long.valueOf(d), Long.valueOf(c));
+        }
+        return (Pair) invokeI.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return String.valueOf(JSONObject.wrap(d()));
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public Map d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            TreeMap treeMap = new TreeMap();
+            try {
+                treeMap.put("obtainInterval", String.valueOf(this.a));
+                treeMap.put("totalMem", String.valueOf(this.b));
+                treeMap.put("prelinkUrlList", JSONObject.wrap(this.c).toString());
+                treeMap.put("timestampList", JSONObject.wrap(this.d).toString());
+                treeMap.put("fpsList", JSONObject.wrap(this.e).toString());
+                treeMap.put("cpuList", JSONObject.wrap(this.f).toString());
+                treeMap.put("deviceMemList", JSONObject.wrap(this.g).toString());
+                treeMap.put("hostMemList", JSONObject.wrap(this.h).toString());
+                treeMap.put("mnpMemList", JSONObject.wrap(this.i).toString());
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("fmp", String.valueOf(this.j.a));
+                jSONObject.put("mainPkgSize", String.valueOf(this.j.b));
+                jSONObject.put("idleCpuAvg", String.valueOf(this.j.c));
+                jSONObject.put("fpsAvg", String.valueOf(this.j.d));
+                jSONObject.put("launchMemDiff", String.valueOf(this.j.e));
+                jSONObject.put("runningMemDiff", String.valueOf(this.j.f));
+                jSONObject.put("launchRequestCount", String.valueOf(this.j.g));
+                treeMap.put("verificationData", jSONObject.toString());
+            } catch (Exception e) {
+                m02.l("SwanAppStabilityData", "#toMap 出错", e);
+            }
+            return treeMap;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return "SwanAppStabilityData{mObtainInterval=" + this.a + ", mTotalMem=" + this.b + ", mPrelinkUrlList=" + this.c + ", mTimestampList=" + this.d + ", mFpsList=" + this.e + ", mCpuList=" + this.f + ", mDeviceMemList=" + this.g + ", mHostMemList=" + this.h + ", mMnpMemList=" + this.i + ", mVerificationData=" + this.j + '}';
+        }
+        return (String) invokeV.objValue;
     }
 }

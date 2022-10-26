@@ -16,6 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubc.UBCManager;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONException;
@@ -42,7 +43,7 @@ public class LaunchedTaskSpeedStats {
     public String mUbcPage;
     public String mUbcType;
     public String mUbcValue;
-    public Map<String, SpeedStatisticsNode> nodesMap;
+    public Map nodesMap;
 
     static {
         InterceptResult invokeClinit;
@@ -81,13 +82,19 @@ public class LaunchedTaskSpeedStats {
     private RuleNode getFeedReadyRuleNode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? new RuleNode(KEY_FEED_READY) : (RuleNode) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+            return new RuleNode(KEY_FEED_READY);
+        }
+        return (RuleNode) invokeV.objValue;
     }
 
     private RuleNode getHomeResumeRuleNode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? new RuleNode(KEY_HOME_VIEW_RESUME) : (RuleNode) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+            return new RuleNode(KEY_HOME_VIEW_RESUME);
+        }
+        return (RuleNode) invokeV.objValue;
     }
 
     public static LaunchedTaskSpeedStats getInstance() {
@@ -104,93 +111,6 @@ public class LaunchedTaskSpeedStats {
             return mInstance;
         }
         return (LaunchedTaskSpeedStats) invokeV.objValue;
-    }
-
-    private JSONObject getNodePart() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("duration", this.mEndTimeStamp - this.mStartTimeStamp);
-                jSONObject.put(KEY_START_TIME, this.mStartTimeStamp);
-                jSONObject.put("stage", getSpeedNodeParts(getStatisticsRule().getChildParts()));
-            } catch (JSONException e) {
-                if (DEBUG) {
-                    Log.e(TAG, e.getMessage());
-                }
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    private JSONObject getSpeedNodeJson(RuleNode ruleNode) {
-        InterceptResult invokeL;
-        SpeedStatisticsNode speedStatisticsNode;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, ruleNode)) == null) {
-            if (TextUtils.isEmpty(ruleNode.getName()) || (speedStatisticsNode = this.nodesMap.get(ruleNode.getName())) == null) {
-                return null;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("begin", speedStatisticsNode.getBeginTimestamp());
-                jSONObject.put("duration", speedStatisticsNode.getDuration());
-                JSONObject speedNodeParts = getSpeedNodeParts(ruleNode.getChildParts());
-                if (speedNodeParts != null) {
-                    jSONObject.put("part", speedNodeParts);
-                }
-                return jSONObject;
-            } catch (JSONException e) {
-                if (DEBUG) {
-                    Log.e(TAG, e.getMessage());
-                    return null;
-                }
-                return null;
-            }
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    private JSONObject getSpeedNodeParts(List<RuleNode> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, list)) == null) {
-            if (list == null || list.size() <= 0) {
-                return null;
-            }
-            JSONObject jSONObject = new JSONObject();
-            for (RuleNode ruleNode : list) {
-                JSONObject speedNodeJson = getSpeedNodeJson(ruleNode);
-                if (speedNodeJson != null) {
-                    try {
-                        jSONObject.put(ruleNode.getName(), speedNodeJson);
-                    } catch (JSONException e) {
-                        if (DEBUG) {
-                            Log.e(TAG, e.getMessage());
-                        }
-                    }
-                }
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    private RuleNode getStatisticsRule() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
-            RuleNode ruleNode = new RuleNode("stage");
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(getUIReadyRuleNode());
-            arrayList.add(getHomeResumeRuleNode());
-            arrayList.add(getFeedReadyRuleNode());
-            ruleNode.setChildParts(arrayList);
-            return ruleNode;
-        }
-        return (RuleNode) invokeV.objValue;
     }
 
     private RuleNode getUIReadyRuleNode() {
@@ -220,9 +140,107 @@ public class LaunchedTaskSpeedStats {
 
     public void endStatistics() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.canStats) {
-            this.mEndTimeStamp = System.currentTimeMillis();
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !this.canStats) {
+            return;
         }
+        this.mEndTimeStamp = System.currentTimeMillis();
+    }
+
+    public void startStatistics() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.canStats = true;
+            this.mStartTimeStamp = System.currentTimeMillis();
+        }
+    }
+
+    private JSONObject getNodePart() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("duration", this.mEndTimeStamp - this.mStartTimeStamp);
+                jSONObject.put(KEY_START_TIME, this.mStartTimeStamp);
+                jSONObject.put("stage", getSpeedNodeParts(getStatisticsRule().getChildParts()));
+            } catch (JSONException e) {
+                if (DEBUG) {
+                    Log.e(TAG, e.getMessage());
+                }
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    private JSONObject getSpeedNodeJson(RuleNode ruleNode) {
+        InterceptResult invokeL;
+        SpeedStatisticsNode speedStatisticsNode;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, ruleNode)) == null) {
+            if (!TextUtils.isEmpty(ruleNode.getName()) && (speedStatisticsNode = (SpeedStatisticsNode) this.nodesMap.get(ruleNode.getName())) != null) {
+                try {
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("begin", speedStatisticsNode.getBeginTimestamp());
+                    jSONObject.put("duration", speedStatisticsNode.getDuration());
+                    JSONObject speedNodeParts = getSpeedNodeParts(ruleNode.getChildParts());
+                    if (speedNodeParts != null) {
+                        jSONObject.put("part", speedNodeParts);
+                    }
+                    return jSONObject;
+                } catch (JSONException e) {
+                    if (DEBUG) {
+                        Log.e(TAG, e.getMessage());
+                        return null;
+                    }
+                    return null;
+                }
+            }
+            return null;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    private JSONObject getSpeedNodeParts(List list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, list)) == null) {
+            if (list != null && list.size() > 0) {
+                JSONObject jSONObject = new JSONObject();
+                Iterator it = list.iterator();
+                while (it.hasNext()) {
+                    RuleNode ruleNode = (RuleNode) it.next();
+                    JSONObject speedNodeJson = getSpeedNodeJson(ruleNode);
+                    if (speedNodeJson != null) {
+                        try {
+                            jSONObject.put(ruleNode.getName(), speedNodeJson);
+                        } catch (JSONException e) {
+                            if (DEBUG) {
+                                Log.e(TAG, e.getMessage());
+                            }
+                        }
+                    }
+                }
+                return jSONObject;
+            }
+            return null;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    private RuleNode getStatisticsRule() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
+            RuleNode ruleNode = new RuleNode("stage");
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(getUIReadyRuleNode());
+            arrayList.add(getHomeResumeRuleNode());
+            arrayList.add(getFeedReadyRuleNode());
+            ruleNode.setChildParts(arrayList);
+            return ruleNode;
+        }
+        return (RuleNode) invokeV.objValue;
     }
 
     public void setStatsSwitch(boolean z) {
@@ -260,40 +278,33 @@ public class LaunchedTaskSpeedStats {
         }
     }
 
-    public void startStatistics() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.canStats = true;
-            this.mStartTimeStamp = System.currentTimeMillis();
-        }
-    }
-
     public void upload() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             if (DEBUG) {
                 Log.w(TAG, "endStatistics canStats:" + this.canStats);
             }
-            if (this.canStats) {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("type", this.mUbcType);
-                    jSONObject.put("value", this.mUbcValue);
-                    jSONObject.put("page", this.mUbcPage);
-                    jSONObject.put("from", this.mUbcFrom);
-                    jSONObject.put("ext", getNodePart());
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-                if (uBCManager != null) {
-                    uBCManager.onEvent(UBC_ID, jSONObject);
-                }
-                if (DEBUG) {
-                    Log.e(TAG, "endStatistics ubc:" + jSONObject.toString());
-                }
-                reset();
+            if (!this.canStats) {
+                return;
             }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("type", this.mUbcType);
+                jSONObject.put("value", this.mUbcValue);
+                jSONObject.put("page", this.mUbcPage);
+                jSONObject.put("from", this.mUbcFrom);
+                jSONObject.put("ext", getNodePart());
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+            if (uBCManager != null) {
+                uBCManager.onEvent(UBC_ID, jSONObject);
+            }
+            if (DEBUG) {
+                Log.e(TAG, "endStatistics ubc:" + jSONObject.toString());
+            }
+            reset();
         }
     }
 }

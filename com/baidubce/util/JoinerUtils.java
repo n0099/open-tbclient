@@ -29,17 +29,20 @@ public class JoinerUtils {
     public static String cut(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) ? str2.replace(str, "") : (String) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            return str2.replace(str, "");
+        }
+        return (String) invokeLL.objValue;
     }
 
-    public static String on(String str, List<String> list) {
+    public static String on(String str, List list) {
         InterceptResult invokeLL;
-        Iterator<String> it;
+        Iterator it;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, list)) == null) {
             String str2 = "";
             while (list.iterator().hasNext()) {
-                str2 = str2 + it.next() + str;
+                str2 = str2 + ((String) it.next()) + str;
             }
             return str2.substring(0, str2.length() - 1);
         }

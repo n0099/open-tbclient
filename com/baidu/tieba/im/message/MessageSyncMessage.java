@@ -1,12 +1,11 @@
 package com.baidu.tieba.im.message;
 
-import androidx.annotation.Nullable;
 import androidx.collection.LongSparseArray;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
-import com.baidu.tieba.za7;
+import com.baidu.tieba.hb7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +24,7 @@ public class MessageSyncMessage extends TbSocketMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int height;
-    public LongSparseArray<Long> mMids;
+    public LongSparseArray mMids;
     public NewpushRepair newpushRepire;
     public long notifyMsgId;
     public int smallHeight;
@@ -52,7 +51,7 @@ public class MessageSyncMessage extends TbSocketMessage {
         this.mMids = null;
     }
 
-    public static String groupLastIdToString(@Nullable GroupLastId groupLastId) {
+    public static String groupLastIdToString(GroupLastId groupLastId) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, groupLastId)) == null) {
@@ -64,33 +63,34 @@ public class MessageSyncMessage extends TbSocketMessage {
         return (String) invokeL.objValue;
     }
 
-    public static String groupMidsToString(@Nullable List<GroupLastId> list) {
+    public static String groupMidsToString(List list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65538, null, list)) != null) {
-            return (String) invokeL.objValue;
-        }
-        if (list == null) {
-            return "[null]";
-        }
-        Iterator<GroupLastId> it = list.iterator();
-        if (!it.hasNext()) {
-            return "[]";
-        }
-        StringBuilder sb = new StringBuilder();
-        sb.append('[');
-        while (true) {
-            sb.append(groupLastIdToString(it.next()));
-            if (!it.hasNext()) {
-                sb.append(']');
-                return sb.toString();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
+            if (list == null) {
+                return "[null]";
             }
-            sb.append(',');
-            sb.append(WebvttCueParser.CHAR_SPACE);
+            Iterator it = list.iterator();
+            if (!it.hasNext()) {
+                return "[]";
+            }
+            StringBuilder sb = new StringBuilder();
+            sb.append('[');
+            while (true) {
+                sb.append(groupLastIdToString((GroupLastId) it.next()));
+                if (!it.hasNext()) {
+                    sb.append(']');
+                    return sb.toString();
+                }
+                sb.append(',');
+                sb.append(WebvttCueParser.CHAR_SPACE);
+            }
+        } else {
+            return (String) invokeL.objValue;
         }
     }
 
-    public static String newpushRepairToString(@Nullable NewpushRepair newpushRepair) {
+    public static String newpushRepairToString(NewpushRepair newpushRepair) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, newpushRepair)) == null) {
@@ -117,27 +117,27 @@ public class MessageSyncMessage extends TbSocketMessage {
             if (builder.groupMids == null) {
                 builder.groupMids = new ArrayList();
             }
-            long d = za7.e().d();
+            long d = hb7.e().d();
             boolean z = false;
             for (int i = 0; i < this.mMids.size(); i++) {
                 long keyAt = this.mMids.keyAt(i);
-                Long valueAt = this.mMids.valueAt(i);
-                if (valueAt != null) {
+                Long l = (Long) this.mMids.valueAt(i);
+                if (l != null) {
                     GroupLastId.Builder builder2 = new GroupLastId.Builder();
                     builder2.groupId = Long.valueOf(keyAt);
-                    builder2.lastMsgId = valueAt;
+                    builder2.lastMsgId = l;
                     if (d == keyAt) {
-                        builder2.excludeMid = za7.e().g();
+                        builder2.excludeMid = hb7.e().g();
                         z = true;
                     }
                     builder.groupMids.add(builder2.build(false));
                 }
             }
-            if (!z && za7.e().i()) {
+            if (!z && hb7.e().i()) {
                 GroupLastId.Builder builder3 = new GroupLastId.Builder();
                 builder3.groupId = Long.valueOf(d);
-                builder3.lastMsgId = za7.e().f();
-                builder3.excludeMid = za7.e().g();
+                builder3.lastMsgId = hb7.e().f();
+                builder3.excludeMid = hb7.e().g();
                 builder.groupMids.add(builder3.build(false));
             }
             builder.newpushRepire = getNewpushRepire();
@@ -149,49 +149,70 @@ public class MessageSyncMessage extends TbSocketMessage {
         return invokeV.objValue;
     }
 
-    public LongSparseArray<Long> getGroupMids() {
+    public LongSparseArray getGroupMids() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mMids : (LongSparseArray) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mMids;
+        }
+        return (LongSparseArray) invokeV.objValue;
     }
 
     public int getHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.height : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.height;
+        }
+        return invokeV.intValue;
     }
 
     public NewpushRepair getNewpushRepire() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.newpushRepire : (NewpushRepair) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.newpushRepire;
+        }
+        return (NewpushRepair) invokeV.objValue;
     }
 
     public int getSmallHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.smallHeight : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.smallHeight;
+        }
+        return invokeV.intValue;
     }
 
     public int getSmallWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.smallWidth : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.smallWidth;
+        }
+        return invokeV.intValue;
     }
 
     public String getSyncTypeString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.syncTypeString : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.syncTypeString;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.width : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.width;
+        }
+        return invokeV.intValue;
     }
 
-    public void setGroupMids(LongSparseArray<Long> longSparseArray) {
+    public void setGroupMids(LongSparseArray longSparseArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, longSparseArray) == null) {
             this.mMids = longSparseArray;

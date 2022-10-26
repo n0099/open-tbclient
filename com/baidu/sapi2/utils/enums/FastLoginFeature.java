@@ -95,7 +95,28 @@ public final class FastLoginFeature {
     public static FastLoginFeature getDefault() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? SINA_WEIBO_SSO : (FastLoginFeature) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return SINA_WEIBO_SSO;
+        }
+        return (FastLoginFeature) invokeV.objValue;
+    }
+
+    public static FastLoginFeature[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return (FastLoginFeature[]) $VALUES.clone();
+        }
+        return (FastLoginFeature[]) invokeV.objValue;
+    }
+
+    public String getStrValue() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mStrValue;
+        }
+        return (String) invokeV.objValue;
     }
 
     public static FastLoginFeature mapStrToValue(String str) {
@@ -119,18 +140,9 @@ public final class FastLoginFeature {
     public static FastLoginFeature valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? (FastLoginFeature) Enum.valueOf(FastLoginFeature.class, str) : (FastLoginFeature) invokeL.objValue;
-    }
-
-    public static FastLoginFeature[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? (FastLoginFeature[]) $VALUES.clone() : (FastLoginFeature[]) invokeV.objValue;
-    }
-
-    public String getStrValue() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mStrValue : (String) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            return (FastLoginFeature) Enum.valueOf(FastLoginFeature.class, str);
+        }
+        return (FastLoginFeature) invokeL.objValue;
     }
 }

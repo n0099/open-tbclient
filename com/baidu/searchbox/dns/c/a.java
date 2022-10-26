@@ -19,14 +19,14 @@ public class a {
 
     /* renamed from: com.baidu.searchbox.dns.c.a$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* renamed from: com.baidu.searchbox.dns.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0143a {
+    public class C0144a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long A;
@@ -36,7 +36,7 @@ public class a {
         public final com.baidu.searchbox.dns.d.a x;
         public final com.baidu.searchbox.dns.d.a.a z;
 
-        public C0143a(long j, com.baidu.searchbox.dns.d.a aVar, com.baidu.searchbox.dns.d.a.a aVar2) {
+        public C0144a(long j, com.baidu.searchbox.dns.d.a aVar, com.baidu.searchbox.dns.d.a.a aVar2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -120,28 +120,6 @@ public class a {
         }
     }
 
-    public /* synthetic */ a(com.baidu.searchbox.dns.d.a aVar, com.baidu.searchbox.dns.d.a.a aVar2, int i, AnonymousClass1 anonymousClass1) {
-        this(aVar, aVar2, i);
-    }
-
-    public com.baidu.searchbox.dns.d.a.a h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.w : (com.baidu.searchbox.dns.d.a.a) invokeV.objValue;
-    }
-
-    public com.baidu.searchbox.dns.d.a i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.x : (com.baidu.searchbox.dns.d.a) invokeV.objValue;
-    }
-
-    public int j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.y : invokeV.intValue;
-    }
-
     public a(com.baidu.searchbox.dns.d.a aVar, com.baidu.searchbox.dns.d.a.a aVar2, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -160,5 +138,36 @@ public class a {
         this.x = aVar;
         this.w = aVar2;
         this.y = i;
+    }
+
+    public /* synthetic */ a(com.baidu.searchbox.dns.d.a aVar, com.baidu.searchbox.dns.d.a.a aVar2, int i, AnonymousClass1 anonymousClass1) {
+        this(aVar, aVar2, i);
+    }
+
+    public com.baidu.searchbox.dns.d.a.a h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.w;
+        }
+        return (com.baidu.searchbox.dns.d.a.a) invokeV.objValue;
+    }
+
+    public com.baidu.searchbox.dns.d.a i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.x;
+        }
+        return (com.baidu.searchbox.dns.d.a) invokeV.objValue;
+    }
+
+    public int j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.y;
+        }
+        return invokeV.intValue;
     }
 }

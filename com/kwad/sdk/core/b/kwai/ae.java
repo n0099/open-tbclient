@@ -5,9 +5,8 @@ import com.baidu.tbadk.core.util.TbEnum;
 import com.kwad.sdk.core.response.model.AdInfo;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class ae implements com.kwad.sdk.core.d<AdInfo.AdvertiserInfo> {
-    /* renamed from: a  reason: avoid collision after fix types in other method */
-    public static void a2(AdInfo.AdvertiserInfo advertiserInfo, JSONObject jSONObject) {
+public final class ae implements com.kwad.sdk.core.d {
+    public static void a(AdInfo.AdvertiserInfo advertiserInfo, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
@@ -44,8 +43,7 @@ public final class ae implements com.kwad.sdk.core.d<AdInfo.AdvertiserInfo> {
         }
     }
 
-    /* renamed from: b  reason: avoid collision after fix types in other method */
-    public static JSONObject b2(AdInfo.AdvertiserInfo advertiserInfo, JSONObject jSONObject) {
+    public static JSONObject b(AdInfo.AdvertiserInfo advertiserInfo, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
@@ -92,15 +90,13 @@ public final class ae implements com.kwad.sdk.core.d<AdInfo.AdvertiserInfo> {
         return jSONObject;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ void a(AdInfo.AdvertiserInfo advertiserInfo, JSONObject jSONObject) {
-        a2(advertiserInfo, jSONObject);
+    public final /* bridge */ /* synthetic */ void a(com.kwad.sdk.core.b bVar, JSONObject jSONObject) {
+        a((AdInfo.AdvertiserInfo) bVar, jSONObject);
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ JSONObject b(AdInfo.AdvertiserInfo advertiserInfo, JSONObject jSONObject) {
-        return b2(advertiserInfo, jSONObject);
+    public final /* bridge */ /* synthetic */ JSONObject b(com.kwad.sdk.core.b bVar, JSONObject jSONObject) {
+        return b((AdInfo.AdvertiserInfo) bVar, jSONObject);
     }
 }

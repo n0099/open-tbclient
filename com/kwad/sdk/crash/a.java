@@ -3,8 +3,6 @@ package com.kwad.sdk.crash;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.storage.swankv.SwanKV;
 import com.kwad.sdk.crash.f;
 import com.kwad.sdk.crash.handler.AnrHandler;
@@ -16,7 +14,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.aspectj.lang.JoinPoint;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class a {
     public static volatile boolean agy;
     public static volatile boolean agz;
@@ -26,7 +24,7 @@ public final class a {
     public static boolean agB = false;
     public static boolean agC = false;
 
-    public static void a(@NonNull b bVar) {
+    public static void a(b bVar) {
         if (bVar.context == null || agz) {
             return;
         }
@@ -73,7 +71,7 @@ public final class a {
             }
         }, new com.kwad.sdk.crash.report.c() { // from class: com.kwad.sdk.crash.a.4
             @Override // com.kwad.sdk.crash.report.e
-            public final void a(ExceptionMessage exceptionMessage, @Nullable CountDownLatch countDownLatch) {
+            public final void a(ExceptionMessage exceptionMessage, CountDownLatch countDownLatch) {
                 a(exceptionMessage, 1, countDownLatch);
             }
 
@@ -89,7 +87,7 @@ public final class a {
         if (com.kwad.sdk.crash.kwai.a.x(com.kwad.sdk.crash.kwai.a.wL())) {
             NativeCrashHandler.getInstance().init(com.kwad.sdk.crash.kwai.a.wL(), z, str, new com.kwad.sdk.crash.report.c() { // from class: com.kwad.sdk.crash.a.7
                 @Override // com.kwad.sdk.crash.report.e
-                public final void a(ExceptionMessage exceptionMessage, @Nullable CountDownLatch countDownLatch) {
+                public final void a(ExceptionMessage exceptionMessage, CountDownLatch countDownLatch) {
                     com.kwad.sdk.core.e.b.d("ExceptionCollector", "Native upload");
                     a(exceptionMessage, 4, countDownLatch);
                 }
@@ -102,7 +100,7 @@ public final class a {
         }
     }
 
-    public static void h(@NonNull final Throwable th) {
+    public static void h(final Throwable th) {
         com.kwad.sdk.utils.g.runOnDefaultExecutor(new Runnable() { // from class: com.kwad.sdk.crash.a.2
             @Override // java.lang.Runnable
             public final void run() {
@@ -141,7 +139,7 @@ public final class a {
             }
         }, new com.kwad.sdk.crash.report.c() { // from class: com.kwad.sdk.crash.a.6
             @Override // com.kwad.sdk.crash.report.e
-            public final void a(ExceptionMessage exceptionMessage, @Nullable CountDownLatch countDownLatch) {
+            public final void a(ExceptionMessage exceptionMessage, CountDownLatch countDownLatch) {
                 com.kwad.sdk.core.e.b.d("ExceptionCollector", "ANR upload");
                 a(exceptionMessage, 3, countDownLatch);
             }

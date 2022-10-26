@@ -26,7 +26,7 @@ public final class c extends com.baidu.bdtask.service.cache.storage.a {
     public final com.baidu.bdtask.service.cache.storage.serializer.raw.a g;
 
     /* loaded from: classes.dex */
-    public static final class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -47,7 +47,10 @@ public final class c extends com.baidu.bdtask.service.cache.storage.a {
         public final c a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c.h : (c) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return c.h;
+            }
+            return (c) invokeV.objValue;
         }
 
         public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
@@ -56,7 +59,7 @@ public final class c extends com.baidu.bdtask.service.cache.storage.a {
     }
 
     /* loaded from: classes.dex */
-    public static final class b implements Runnable {
+    public final class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c a;
@@ -107,6 +110,32 @@ public final class c extends com.baidu.bdtask.service.cache.storage.a {
         h = new c();
     }
 
+    @Override // com.baidu.bdtask.service.cache.storage.a
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            j(MapsKt__MapsKt.toMap(c()));
+            DebugTrace.a.c(new Storage$onStorageChanged$1(this));
+        }
+    }
+
+    public final void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            c().putAll(o());
+            e(true);
+        }
+    }
+
+    public final Map o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.g.a(this.f.e(this.e.c()));
+        }
+        return (Map) invokeV.objValue;
+    }
+
     public c() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -125,33 +154,10 @@ public final class c extends com.baidu.bdtask.service.cache.storage.a {
         this.g = com.baidu.bdtask.service.cache.storage.serializer.raw.a.a;
     }
 
-    @Override // com.baidu.bdtask.service.cache.storage.a
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            j(MapsKt__MapsKt.toMap(c()));
-            DebugTrace.a.c(new Storage$onStorageChanged$1(this));
-        }
-    }
-
-    public final void j(Map<String, ? extends Object> map) {
+    public final void j(Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map) == null) {
             ExecutorUtilsExt.postOnSerial(new b(this, map), "Storage");
         }
-    }
-
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            c().putAll(o());
-            e(true);
-        }
-    }
-
-    public final Map<String, Object> o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.g.a(this.f.e(this.e.c())) : (Map) invokeV.objValue;
     }
 }

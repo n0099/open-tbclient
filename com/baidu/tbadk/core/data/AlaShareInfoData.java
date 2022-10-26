@@ -34,7 +34,7 @@ public class AlaShareInfoData extends OrmObject {
 
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         try {
@@ -49,7 +49,7 @@ public class AlaShareInfoData extends OrmObject {
 
     public void z(AlaShareInfo alaShareInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, alaShareInfo) == null) || alaShareInfo == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, alaShareInfo) != null) || alaShareInfo == null) {
             return;
         }
         try {

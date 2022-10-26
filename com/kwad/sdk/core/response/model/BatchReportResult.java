@@ -1,6 +1,5 @@
 package com.kwad.sdk.core.response.model;
 
-import androidx.annotation.Nullable;
 import com.kwad.sdk.core.network.BaseResultData;
 import com.kwad.sdk.utils.r;
 import org.json.JSONObject;
@@ -21,7 +20,7 @@ public class BatchReportResult extends BaseResultData implements com.kwad.sdk.co
     }
 
     @Override // com.kwad.sdk.core.network.BaseResultData, com.kwad.sdk.core.b
-    public void parseJson(@Nullable JSONObject jSONObject) {
+    public void parseJson(JSONObject jSONObject) {
         super.parseJson(jSONObject);
         if (jSONObject == null) {
             return;

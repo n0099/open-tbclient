@@ -52,6 +52,59 @@ public class CFlowCounter {
         this.flowHeightHandler = tsFactory.getNewThreadCounter();
     }
 
+    public static ThreadStackFactory getThreadLocalStackFactory() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return new ThreadStackFactoryImpl();
+        }
+        return (ThreadStackFactory) invokeV.objValue;
+    }
+
+    public static ThreadStackFactory getThreadLocalStackFactoryFor11() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return new ThreadStackFactoryImpl11();
+        }
+        return (ThreadStackFactory) invokeV.objValue;
+    }
+
+    public static String getThreadStackFactoryClassName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return tsFactory.getClass().getName();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void dec() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.flowHeightHandler.dec();
+            if (!this.flowHeightHandler.isNotZero()) {
+                this.flowHeightHandler.removeThreadCounter();
+            }
+        }
+    }
+
+    public void inc() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.flowHeightHandler.inc();
+        }
+    }
+
+    public boolean isValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.flowHeightHandler.isNotZero();
+        }
+        return invokeV.booleanValue;
+    }
+
     public static String getSystemPropertyWithoutSecurityException(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -63,24 +116,6 @@ public class CFlowCounter {
             }
         }
         return (String) invokeLL.objValue;
-    }
-
-    public static ThreadStackFactory getThreadLocalStackFactory() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new ThreadStackFactoryImpl() : (ThreadStackFactory) invokeV.objValue;
-    }
-
-    public static ThreadStackFactory getThreadLocalStackFactoryFor11() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? new ThreadStackFactoryImpl11() : (ThreadStackFactory) invokeV.objValue;
-    }
-
-    public static String getThreadStackFactoryClassName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? tsFactory.getClass().getName() : (String) invokeV.objValue;
     }
 
     public static void selectFactoryForVMVersion() {
@@ -97,29 +132,5 @@ public class CFlowCounter {
                 tsFactory = getThreadLocalStackFactoryFor11();
             }
         }
-    }
-
-    public void dec() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.flowHeightHandler.dec();
-            if (this.flowHeightHandler.isNotZero()) {
-                return;
-            }
-            this.flowHeightHandler.removeThreadCounter();
-        }
-    }
-
-    public void inc() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.flowHeightHandler.inc();
-        }
-    }
-
-    public boolean isValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.flowHeightHandler.isNotZero() : invokeV.booleanValue;
     }
 }

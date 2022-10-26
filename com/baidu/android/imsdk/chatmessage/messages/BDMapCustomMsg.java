@@ -13,59 +13,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class BDMapCustomMsg extends NormalMsg {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<BDMapCustomMsg> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(481176553, "Lcom/baidu/android/imsdk/chatmessage/messages/BDMapCustomMsg;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(481176553, "Lcom/baidu/android/imsdk/chatmessage/messages/BDMapCustomMsg;");
-                return;
-            }
-        }
-        CREATOR = new Parcelable.Creator<BDMapCustomMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.BDMapCustomMsg.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
-            @Override // android.os.Parcelable.Creator
-            public BDMapCustomMsg createFromParcel(Parcel parcel) {
-                InterceptResult invokeL;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new BDMapCustomMsg(parcel) : (BDMapCustomMsg) invokeL.objValue;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
-            @Override // android.os.Parcelable.Creator
-            public BDMapCustomMsg[] newArray(int i) {
-                InterceptResult invokeI;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new BDMapCustomMsg[i] : (BDMapCustomMsg[]) invokeI.objValue;
-            }
-        };
-    }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
     public String getRecommendDescription() {
@@ -84,12 +33,59 @@ public class BDMapCustomMsg extends NormalMsg {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i) == null) {
-            super.writeToParcel(parcel, i);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(481176553, "Lcom/baidu/android/imsdk/chatmessage/messages/BDMapCustomMsg;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(481176553, "Lcom/baidu/android/imsdk/chatmessage/messages/BDMapCustomMsg;");
+                return;
+            }
         }
+        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.BDMapCustomMsg.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // android.os.Parcelable.Creator
+            public BDMapCustomMsg createFromParcel(Parcel parcel) {
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new BDMapCustomMsg(parcel);
+                }
+                return (BDMapCustomMsg) invokeL.objValue;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // android.os.Parcelable.Creator
+            public BDMapCustomMsg[] newArray(int i) {
+                InterceptResult invokeI;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new BDMapCustomMsg[i];
+                }
+                return (BDMapCustomMsg[]) invokeI.objValue;
+            }
+        };
     }
 
     public BDMapCustomMsg() {
@@ -125,6 +121,14 @@ public class BDMapCustomMsg extends NormalMsg {
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
+        }
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i) == null) {
+            super.writeToParcel(parcel, i);
         }
     }
 }

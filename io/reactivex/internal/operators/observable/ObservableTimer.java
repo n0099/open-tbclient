@@ -15,7 +15,7 @@ import io.reactivex.internal.disposables.EmptyDisposable;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class ObservableTimer extends Observable<Long> {
+public final class ObservableTimer extends Observable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long delay;
@@ -23,13 +23,13 @@ public final class ObservableTimer extends Observable<Long> {
     public final TimeUnit unit;
 
     /* loaded from: classes8.dex */
-    public static final class TimerObserver extends AtomicReference<Disposable> implements Disposable, Runnable {
+    public final class TimerObserver extends AtomicReference implements Disposable, Runnable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -2809475196591179431L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer<? super Long> actual;
+        public final Observer actual;
 
-        public TimerObserver(Observer<? super Long> observer) {
+        public TimerObserver(Observer observer) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -47,6 +47,13 @@ public final class ObservableTimer extends Observable<Long> {
             this.actual = observer;
         }
 
+        public void setResource(Disposable disposable) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, disposable) == null) {
+                DisposableHelper.trySet(this, disposable);
+            }
+        }
+
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
             Interceptable interceptable = $ic;
@@ -59,24 +66,22 @@ public final class ObservableTimer extends Observable<Long> {
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? get() == DisposableHelper.DISPOSED : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (get() == DisposableHelper.DISPOSED) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || isDisposed()) {
-                return;
-            }
-            this.actual.onNext(0L);
-            lazySet(EmptyDisposable.INSTANCE);
-            this.actual.onComplete();
-        }
-
-        public void setResource(Disposable disposable) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, disposable) == null) {
-                DisposableHelper.trySet(this, disposable);
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && !isDisposed()) {
+                this.actual.onNext(0L);
+                lazySet(EmptyDisposable.INSTANCE);
+                this.actual.onComplete();
             }
         }
     }
@@ -102,7 +107,7 @@ public final class ObservableTimer extends Observable<Long> {
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer<? super Long> observer) {
+    public void subscribeActual(Observer observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             TimerObserver timerObserver = new TimerObserver(observer);

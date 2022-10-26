@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public interface e extends IInterface {
 
     /* loaded from: classes2.dex */
-    public static class a implements e {
+    public class a implements e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -80,7 +80,7 @@ public interface e extends IInterface {
     }
 
     /* loaded from: classes2.dex */
-    public static abstract class b extends Binder implements e {
+    public abstract class b extends Binder implements e {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String a = "com.baidu.helios.bridge.multiprocess.IMultiProcessBridge";
         public static final int b = 1;
@@ -90,7 +90,7 @@ public interface e extends IInterface {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* loaded from: classes2.dex */
-        public static class a implements e {
+        public class a implements e {
             public static /* synthetic */ Interceptable $ic;
             public static e a;
             public transient /* synthetic */ FieldHolder $fh;

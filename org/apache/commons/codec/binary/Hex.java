@@ -50,6 +50,26 @@ public class Hex implements BinaryEncoder, BinaryDecoder {
         return (char[]) invokeL.objValue;
     }
 
+    @Override // org.apache.commons.codec.Decoder
+    public Object decode(Object obj) throws DecoderException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeL.objValue;
+    }
+
+    @Override // org.apache.commons.codec.Encoder
+    public Object encode(Object obj) throws EncoderException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeL.objValue;
+    }
+
     public static int toDigit(char c, int i) throws DecoderException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -77,25 +97,5 @@ public class Hex implements BinaryEncoder, BinaryDecoder {
             throw new RuntimeException("Stub!");
         }
         return (byte[]) invokeL.objValue;
-    }
-
-    @Override // org.apache.commons.codec.Decoder
-    public Object decode(Object obj) throws DecoderException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeL.objValue;
-    }
-
-    @Override // org.apache.commons.codec.Encoder
-    public Object encode(Object obj) throws EncoderException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeL.objValue;
     }
 }

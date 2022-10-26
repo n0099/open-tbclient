@@ -24,7 +24,7 @@ public class MMessageActV2 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public static class Args {
+    public class Args {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int INVALID_FLAGS = -1;
         public transient /* synthetic */ FieldHolder $fh;

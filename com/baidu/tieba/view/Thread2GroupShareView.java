@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.data.ShareFromPBMsgData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dj;
+import com.baidu.tieba.ej;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,6 +28,27 @@ public final class Thread2GroupShareView extends LinearLayout {
     public TextView d;
     public TextView e;
     public ShareFromPBMsgData f;
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public Thread2GroupShareView(Context context) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        b(context);
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public Thread2GroupShareView(Context context, AttributeSet attributeSet) {
@@ -60,34 +81,6 @@ public final class Thread2GroupShareView extends LinearLayout {
         }
     }
 
-    public final void b(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d088a, this);
-            setOrientation(1);
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091e81);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091eb2);
-            this.b = (EditText) findViewById(R.id.obfuscated_res_0x7f090609);
-            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090602);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090601);
-            SkinManager.setViewTextColor(this.e, R.color.CAM_X0105, 1);
-            SkinManager.setViewTextColor(this.b, R.color.CAM_X0105, 2);
-            SkinManager.setViewTextColor(this.d, R.color.CAM_X0106, 1);
-            this.b.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
-            this.b.setPadding(context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5), 0, 0, 0);
-            a();
-        }
-    }
-
-    public void c(String str, boolean z) {
-        TbImageView tbImageView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z) == null) || (tbImageView = this.c) == null) {
-            return;
-        }
-        tbImageView.K(str, z ? 17 : 18, false);
-    }
-
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -100,7 +93,10 @@ public final class Thread2GroupShareView extends LinearLayout {
     public EditText getChatMsgView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : (EditText) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.b;
+        }
+        return (EditText) invokeV.objValue;
     }
 
     public String getLeaveMsg() {
@@ -108,19 +104,44 @@ public final class Thread2GroupShareView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             EditText editText = this.b;
-            if (editText != null) {
-                return dj.charSequence2String(editText.getText(), null);
+            if (editText == null) {
+                return null;
             }
-            return null;
+            return ej.charSequence2String(editText.getText(), null);
         }
         return (String) invokeV.objValue;
     }
 
-    public void setData(ShareFromPBMsgData shareFromPBMsgData) {
+    public final void b(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, shareFromPBMsgData) == null) {
-            this.f = shareFromPBMsgData;
-            d();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d088b, this);
+            setOrientation(1);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091e7d);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091eb1);
+            this.b = (EditText) findViewById(R.id.obfuscated_res_0x7f090612);
+            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09060b);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09060a);
+            SkinManager.setViewTextColor(this.e, R.color.CAM_X0105, 1);
+            SkinManager.setViewTextColor(this.b, R.color.CAM_X0105, 2);
+            SkinManager.setViewTextColor(this.d, R.color.CAM_X0106, 1);
+            this.b.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
+            this.b.setPadding(context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5), 0, 0, 0);
+            a();
+        }
+    }
+
+    public void c(String str, boolean z) {
+        TbImageView tbImageView;
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z) == null) && (tbImageView = this.c) != null) {
+            if (z) {
+                i = 17;
+            } else {
+                i = 18;
+            }
+            tbImageView.L(str, i, false);
         }
     }
 
@@ -129,27 +150,17 @@ public final class Thread2GroupShareView extends LinearLayout {
     public LinearLayout.LayoutParams generateDefaultLayoutParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? new LinearLayout.LayoutParams(-1, -2) : (LinearLayout.LayoutParams) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return new LinearLayout.LayoutParams(-1, -2);
+        }
+        return (LinearLayout.LayoutParams) invokeV.objValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public Thread2GroupShareView(Context context) {
-        super(context);
+    public void setData(ShareFromPBMsgData shareFromPBMsgData) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, shareFromPBMsgData) == null) {
+            this.f = shareFromPBMsgData;
+            d();
         }
-        b(context);
     }
 }

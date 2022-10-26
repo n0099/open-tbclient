@@ -7,7 +7,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Flowable;
-import io.reactivex.annotations.Nullable;
 import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.internal.fuseable.ConditionalSubscriber;
 import io.reactivex.internal.subscriptions.BasicQueueSubscription;
@@ -15,26 +14,26 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.internal.util.BackpressureHelper;
 import org.reactivestreams.Subscriber;
 /* loaded from: classes8.dex */
-public final class FlowableFromArray<T> extends Flowable<T> {
+public final class FlowableFromArray extends Flowable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final T[] array;
+    public final Object[] array;
 
     /* loaded from: classes8.dex */
-    public static final class ArrayConditionalSubscription<T> extends BaseArraySubscription<T> {
+    public final class ArrayConditionalSubscription extends BaseArraySubscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 2587302975077663557L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final ConditionalSubscriber<? super T> actual;
+        public final ConditionalSubscriber actual;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ArrayConditionalSubscription(ConditionalSubscriber<? super T> conditionalSubscriber, T[] tArr) {
-            super(tArr);
+        public ArrayConditionalSubscription(ConditionalSubscriber conditionalSubscriber, Object[] objArr) {
+            super(objArr);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {conditionalSubscriber, tArr};
+                Object[] objArr2 = {conditionalSubscriber, objArr};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -52,19 +51,19 @@ public final class FlowableFromArray<T> extends Flowable<T> {
         public void fastPath() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                T[] tArr = this.array;
-                int length = tArr.length;
-                ConditionalSubscriber<? super T> conditionalSubscriber = this.actual;
+                Object[] objArr = this.array;
+                int length = objArr.length;
+                ConditionalSubscriber conditionalSubscriber = this.actual;
                 for (int i = this.index; i != length; i++) {
                     if (this.cancelled) {
                         return;
                     }
-                    T t = tArr[i];
-                    if (t == null) {
+                    Object obj = objArr[i];
+                    if (obj == null) {
                         conditionalSubscriber.onError(new NullPointerException("array element is null"));
                         return;
                     }
-                    conditionalSubscriber.tryOnNext(t);
+                    conditionalSubscriber.tryOnNext(obj);
                 }
                 if (this.cancelled) {
                     return;
@@ -77,38 +76,38 @@ public final class FlowableFromArray<T> extends Flowable<T> {
         public void slowPath(long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-                T[] tArr = this.array;
-                int length = tArr.length;
+                Object[] objArr = this.array;
+                int length = objArr.length;
                 int i = this.index;
-                ConditionalSubscriber<? super T> conditionalSubscriber = this.actual;
+                ConditionalSubscriber conditionalSubscriber = this.actual;
                 do {
                     long j2 = 0;
                     while (true) {
-                        if (j2 == j || i == length) {
-                            if (i == length) {
-                                if (this.cancelled) {
-                                    return;
-                                }
+                        if (j2 != j && i != length) {
+                            if (this.cancelled) {
+                                return;
+                            }
+                            Object obj = objArr[i];
+                            if (obj == null) {
+                                conditionalSubscriber.onError(new NullPointerException("array element is null"));
+                                return;
+                            }
+                            if (conditionalSubscriber.tryOnNext(obj)) {
+                                j2++;
+                            }
+                            i++;
+                        } else if (i == length) {
+                            if (!this.cancelled) {
                                 conditionalSubscriber.onComplete();
                                 return;
                             }
+                            return;
+                        } else {
                             j = get();
                             if (j2 == j) {
                                 this.index = i;
                                 j = addAndGet(-j2);
                             }
-                        } else if (this.cancelled) {
-                            return;
-                        } else {
-                            T t = tArr[i];
-                            if (t == null) {
-                                conditionalSubscriber.onError(new NullPointerException("array element is null"));
-                                return;
-                            }
-                            if (conditionalSubscriber.tryOnNext(t)) {
-                                j2++;
-                            }
-                            i++;
                         }
                     }
                 } while (j != 0);
@@ -117,20 +116,20 @@ public final class FlowableFromArray<T> extends Flowable<T> {
     }
 
     /* loaded from: classes8.dex */
-    public static final class ArraySubscription<T> extends BaseArraySubscription<T> {
+    public final class ArraySubscription extends BaseArraySubscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 2587302975077663557L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber<? super T> actual;
+        public final Subscriber actual;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ArraySubscription(Subscriber<? super T> subscriber, T[] tArr) {
-            super(tArr);
+        public ArraySubscription(Subscriber subscriber, Object[] objArr) {
+            super(objArr);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subscriber, tArr};
+                Object[] objArr2 = {subscriber, objArr};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -148,19 +147,19 @@ public final class FlowableFromArray<T> extends Flowable<T> {
         public void fastPath() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                T[] tArr = this.array;
-                int length = tArr.length;
-                Subscriber<? super T> subscriber = this.actual;
+                Object[] objArr = this.array;
+                int length = objArr.length;
+                Subscriber subscriber = this.actual;
                 for (int i = this.index; i != length; i++) {
                     if (this.cancelled) {
                         return;
                     }
-                    T t = tArr[i];
-                    if (t == null) {
+                    Object obj = objArr[i];
+                    if (obj == null) {
                         subscriber.onError(new NullPointerException("array element is null"));
                         return;
                     }
-                    subscriber.onNext(t);
+                    subscriber.onNext(obj);
                 }
                 if (this.cancelled) {
                     return;
@@ -173,37 +172,37 @@ public final class FlowableFromArray<T> extends Flowable<T> {
         public void slowPath(long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-                T[] tArr = this.array;
-                int length = tArr.length;
+                Object[] objArr = this.array;
+                int length = objArr.length;
                 int i = this.index;
-                Subscriber<? super T> subscriber = this.actual;
+                Subscriber subscriber = this.actual;
                 do {
                     long j2 = 0;
                     while (true) {
-                        if (j2 == j || i == length) {
-                            if (i == length) {
-                                if (this.cancelled) {
-                                    return;
-                                }
+                        if (j2 != j && i != length) {
+                            if (this.cancelled) {
+                                return;
+                            }
+                            Object obj = objArr[i];
+                            if (obj == null) {
+                                subscriber.onError(new NullPointerException("array element is null"));
+                                return;
+                            }
+                            subscriber.onNext(obj);
+                            j2++;
+                            i++;
+                        } else if (i == length) {
+                            if (!this.cancelled) {
                                 subscriber.onComplete();
                                 return;
                             }
+                            return;
+                        } else {
                             j = get();
                             if (j2 == j) {
                                 this.index = i;
                                 j = addAndGet(-j2);
                             }
-                        } else if (this.cancelled) {
-                            return;
-                        } else {
-                            T t = tArr[i];
-                            if (t == null) {
-                                subscriber.onError(new NullPointerException("array element is null"));
-                                return;
-                            }
-                            subscriber.onNext(t);
-                            j2++;
-                            i++;
                         }
                     }
                 } while (j != 0);
@@ -212,20 +211,31 @@ public final class FlowableFromArray<T> extends Flowable<T> {
     }
 
     /* loaded from: classes8.dex */
-    public static abstract class BaseArraySubscription<T> extends BasicQueueSubscription<T> {
+    public abstract class BaseArraySubscription extends BasicQueueSubscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -2252972430506210021L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final T[] array;
+        public final Object[] array;
         public volatile boolean cancelled;
         public int index;
 
-        public BaseArraySubscription(T[] tArr) {
+        public abstract void fastPath();
+
+        @Override // io.reactivex.internal.fuseable.QueueFuseable
+        public final int requestFusion(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? i & 1 : invokeI.intValue;
+        }
+
+        public abstract void slowPath(long j);
+
+        public BaseArraySubscription(Object[] objArr) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {tArr};
+                Object[] objArr2 = {objArr};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -235,7 +245,19 @@ public final class FlowableFromArray<T> extends Flowable<T> {
                     return;
                 }
             }
-            this.array = tArr;
+            this.array = objArr;
+        }
+
+        @Override // org.reactivestreams.Subscription
+        public final void request(long j) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeJ(1048581, this, j) == null) && SubscriptionHelper.validate(j) && BackpressureHelper.add(this, j) == 0) {
+                if (j == Long.MAX_VALUE) {
+                    fastPath();
+                } else {
+                    slowPath(j);
+                }
+            }
         }
 
         @Override // org.reactivestreams.Subscription
@@ -254,60 +276,42 @@ public final class FlowableFromArray<T> extends Flowable<T> {
             }
         }
 
-        public abstract void fastPath();
-
         @Override // io.reactivex.internal.fuseable.SimpleQueue
         public final boolean isEmpty() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.index == this.array.length : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                if (this.index == this.array.length) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.internal.fuseable.SimpleQueue
-        @Nullable
-        public final T poll() {
+        public final Object poll() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
                 int i = this.index;
-                T[] tArr = this.array;
-                if (i == tArr.length) {
+                Object[] objArr = this.array;
+                if (i == objArr.length) {
                     return null;
                 }
                 this.index = i + 1;
-                return (T) ObjectHelper.requireNonNull(tArr[i], "array element is null");
+                return ObjectHelper.requireNonNull(objArr[i], "array element is null");
             }
-            return (T) invokeV.objValue;
+            return invokeV.objValue;
         }
-
-        @Override // org.reactivestreams.Subscription
-        public final void request(long j) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048581, this, j) == null) && SubscriptionHelper.validate(j) && BackpressureHelper.add(this, j) == 0) {
-                if (j == Long.MAX_VALUE) {
-                    fastPath();
-                } else {
-                    slowPath(j);
-                }
-            }
-        }
-
-        @Override // io.reactivex.internal.fuseable.QueueFuseable
-        public final int requestFusion(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? i & 1 : invokeI.intValue;
-        }
-
-        public abstract void slowPath(long j);
     }
 
-    public FlowableFromArray(T[] tArr) {
+    public FlowableFromArray(Object[] objArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tArr};
+            Object[] objArr2 = {objArr};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -317,11 +321,11 @@ public final class FlowableFromArray<T> extends Flowable<T> {
                 return;
             }
         }
-        this.array = tArr;
+        this.array = objArr;
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber<? super T> subscriber) {
+    public void subscribeActual(Subscriber subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             if (subscriber instanceof ConditionalSubscriber) {

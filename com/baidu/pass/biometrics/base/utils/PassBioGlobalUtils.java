@@ -1,6 +1,5 @@
 package com.baidu.pass.biometrics.base.utils;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -16,7 +15,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@SuppressLint({"InlinedApi", "NewApi"})
 /* loaded from: classes2.dex */
 public final class PassBioGlobalUtils {
     public static /* synthetic */ Interceptable $ic;
@@ -41,9 +39,19 @@ public final class PassBioGlobalUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, context, str, i)) == null) {
             String gzfi = FH.gzfi(context, str, i);
-            return TextUtils.isEmpty(gzfi) ? "NoZidYet" : gzfi;
+            if (TextUtils.isEmpty(gzfi)) {
+                return "NoZidYet";
+            }
+            return gzfi;
         }
         return (String) invokeLLI.objValue;
+    }
+
+    public static void toastWithText(Context context, CharSequence charSequence, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65539, null, context, charSequence, i) == null) {
+            toast(context, charSequence, -1, i);
+        }
     }
 
     public static void toast(Context context, CharSequence charSequence, int i, int i2) {
@@ -68,13 +76,6 @@ public final class PassBioGlobalUtils {
             toast.setDuration(i2);
             toast.setView(inflate);
             toast.show();
-        }
-    }
-
-    public static void toastWithText(Context context, CharSequence charSequence, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65539, null, context, charSequence, i) == null) {
-            toast(context, charSequence, -1, i);
         }
     }
 }

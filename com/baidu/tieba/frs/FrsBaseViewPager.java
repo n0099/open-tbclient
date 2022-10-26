@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.viewpager.BdBaseViewPager;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -52,54 +52,6 @@ public class FrsBaseViewPager extends BdBaseViewPager {
         }
     }
 
-    @Override // com.baidu.tbadk.core.view.viewpager.BdBaseViewPager, android.view.ViewGroup, android.view.View
-    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-            this.g = motionEvent.getRawX();
-            int action = motionEvent.getAction();
-            boolean z = false;
-            if (action == 0) {
-                a aVar = this.j;
-                if (aVar != null) {
-                    aVar.a();
-                }
-                if (this.g >= getMeasuredWidth() - this.f && this.g <= getMeasuredWidth()) {
-                    setmDisallowSlip(false);
-                    this.i = true;
-                    this.l = true;
-                } else {
-                    this.l = false;
-                }
-            } else if (action != 1) {
-                if (action == 2 && this.l) {
-                    a aVar2 = this.j;
-                    boolean b = aVar2 != null ? aVar2.b() : true;
-                    setmDisallowSlip((this.i && b) ? true : true);
-                    this.l = b;
-                }
-            } else {
-                this.l = true;
-            }
-            return super.dispatchTouchEvent(motionEvent);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.core.view.viewpager.BdBaseViewPager, androidx.viewpager.widget.ViewPager, android.view.ViewGroup
-    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
-            if (this.k || this.i) {
-                return true;
-            }
-            return super.onInterceptTouchEvent(motionEvent);
-        }
-        return invokeL.booleanValue;
-    }
-
     @Override // com.baidu.tbadk.core.view.viewpager.BdBaseViewPager, androidx.viewpager.widget.ViewPager, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
@@ -118,20 +70,6 @@ public class FrsBaseViewPager extends BdBaseViewPager {
             return super.onTouchEvent(motionEvent);
         }
         return invokeL.booleanValue;
-    }
-
-    public void setForceIntercept(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.k = z;
-        }
-    }
-
-    public void setOnTouchEventListener(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.j = aVar;
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -157,9 +95,78 @@ public class FrsBaseViewPager extends BdBaseViewPager {
         this.l = true;
         Activity activity = (Activity) context;
         this.h = activity;
-        this.f = ej.d(activity, 0);
+        this.f = fj.d(activity, 0);
         BdBaseViewPager.a aVar = new BdBaseViewPager.a(this, this.h);
         aVar.b(1000);
         aVar.a(this);
+    }
+
+    @Override // com.baidu.tbadk.core.view.viewpager.BdBaseViewPager, android.view.ViewGroup, android.view.View
+    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
+            this.g = motionEvent.getRawX();
+            int action = motionEvent.getAction();
+            boolean z2 = false;
+            if (action != 0) {
+                if (action != 1) {
+                    if (action == 2 && this.l) {
+                        a aVar = this.j;
+                        if (aVar != null) {
+                            z = aVar.b();
+                        } else {
+                            z = true;
+                        }
+                        setmDisallowSlip((this.i && z) ? true : true);
+                        this.l = z;
+                    }
+                } else {
+                    this.l = true;
+                }
+            } else {
+                a aVar2 = this.j;
+                if (aVar2 != null) {
+                    aVar2.a();
+                }
+                if (this.g >= getMeasuredWidth() - this.f && this.g <= getMeasuredWidth()) {
+                    setmDisallowSlip(false);
+                    this.i = true;
+                    this.l = true;
+                } else {
+                    this.l = false;
+                }
+            }
+            return super.dispatchTouchEvent(motionEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tbadk.core.view.viewpager.BdBaseViewPager, androidx.viewpager.widget.ViewPager, android.view.ViewGroup
+    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
+            if (this.k || this.i) {
+                return true;
+            }
+            return super.onInterceptTouchEvent(motionEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void setForceIntercept(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.k = z;
+        }
+    }
+
+    public void setOnTouchEventListener(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
+            this.j = aVar;
+        }
     }
 }

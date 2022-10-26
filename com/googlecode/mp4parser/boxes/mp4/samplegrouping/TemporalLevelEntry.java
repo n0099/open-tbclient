@@ -29,29 +29,19 @@ public class TemporalLevelEntry extends GroupEntry {
         }
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj == null || TemporalLevelEntry.class != obj.getClass()) {
-                return false;
-            }
-            TemporalLevelEntry temporalLevelEntry = (TemporalLevelEntry) obj;
-            return this.levelIndependentlyDecodable == temporalLevelEntry.levelIndependentlyDecodable && this.reserved == temporalLevelEntry.reserved;
-        }
-        return invokeL.booleanValue;
-    }
-
     @Override // com.googlecode.mp4parser.boxes.mp4.samplegrouping.GroupEntry
     public ByteBuffer get() {
         InterceptResult invokeV;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ByteBuffer allocate = ByteBuffer.allocate(1);
-            allocate.put((byte) (this.levelIndependentlyDecodable ? 128 : 0));
+            if (this.levelIndependentlyDecodable) {
+                i = 128;
+            } else {
+                i = 0;
+            }
+            allocate.put((byte) i);
             allocate.rewind();
             return allocate;
         }
@@ -70,22 +60,10 @@ public class TemporalLevelEntry extends GroupEntry {
     public boolean isLevelIndependentlyDecodable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.levelIndependentlyDecodable : invokeV.booleanValue;
-    }
-
-    @Override // com.googlecode.mp4parser.boxes.mp4.samplegrouping.GroupEntry
-    public void parse(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, byteBuffer) == null) {
-            this.levelIndependentlyDecodable = (byteBuffer.get() & 128) == 128;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.levelIndependentlyDecodable;
         }
-    }
-
-    public void setLevelIndependentlyDecodable(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.levelIndependentlyDecodable = z;
-        }
+        return invokeV.booleanValue;
     }
 
     public String toString() {
@@ -95,5 +73,45 @@ public class TemporalLevelEntry extends GroupEntry {
             return "TemporalLevelEntry{levelIndependentlyDecodable=" + this.levelIndependentlyDecodable + '}';
         }
         return (String) invokeV.objValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj == null || TemporalLevelEntry.class != obj.getClass()) {
+                return false;
+            }
+            TemporalLevelEntry temporalLevelEntry = (TemporalLevelEntry) obj;
+            if (this.levelIndependentlyDecodable == temporalLevelEntry.levelIndependentlyDecodable && this.reserved == temporalLevelEntry.reserved) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.googlecode.mp4parser.boxes.mp4.samplegrouping.GroupEntry
+    public void parse(ByteBuffer byteBuffer) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, byteBuffer) == null) {
+            if ((byteBuffer.get() & 128) == 128) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.levelIndependentlyDecodable = z;
+        }
+    }
+
+    public void setLevelIndependentlyDecodable(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.levelIndependentlyDecodable = z;
+        }
     }
 }

@@ -34,13 +34,13 @@ public final class AESUtil {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, bArr)) == null) {
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || bArr == null) {
-                return null;
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && bArr != null) {
+                SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "AES");
+                Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+                cipher.init(2, secretKeySpec, new IvParameterSpec(str.getBytes()));
+                return cipher.doFinal(bArr);
             }
-            SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "AES");
-            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-            cipher.init(2, secretKeySpec, new IvParameterSpec(str.getBytes()));
-            return cipher.doFinal(bArr);
+            return null;
         }
         return (byte[]) invokeLLL.objValue;
     }

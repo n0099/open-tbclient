@@ -29,6 +29,9 @@ public class ContextCompatApi21 {
     public static Drawable getDrawable(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) ? context.getDrawable(i) : (Drawable) invokeLI.objValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
+            return context.getDrawable(i);
+        }
+        return (Drawable) invokeLI.objValue;
     }
 }

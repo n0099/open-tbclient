@@ -11,16 +11,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class es8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
+    public final pq8 a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public es8(MainTabActivity mainTabActivity, xp8 xp8Var) {
-        super(2921504);
+    public es8(MainTabActivity mainTabActivity) {
+        super(2921725);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, xp8Var};
+            Object[] objArr = {mainTabActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,15 +31,22 @@ public class es8 extends CustomMessageListener {
                 return;
             }
         }
-        this.a = mainTabActivity;
+        this.a = mainTabActivity.e;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+    public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        pq8 pq8Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-            this.a.n1();
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (pq8Var = this.a) != null && pq8Var.f() != null && (customResponsedMessage.getData() instanceof Boolean)) {
+            if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
+                Runnable runnable = this.a.f().c;
+                hh.a().removeCallbacks(runnable);
+                hh.a().post(runnable);
+                return;
+            }
+            hh.a().removeCallbacks(this.a.f().c);
         }
     }
 }

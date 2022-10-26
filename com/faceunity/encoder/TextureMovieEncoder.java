@@ -1,6 +1,5 @@
 package com.faceunity.encoder;
 
-import android.annotation.TargetApi;
 import android.graphics.SurfaceTexture;
 import android.opengl.EGL14;
 import android.opengl.EGLContext;
@@ -15,9 +14,9 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.cp7;
-import com.baidu.tieba.ip7;
-import com.baidu.tieba.mp7;
+import com.baidu.tieba.np7;
+import com.baidu.tieba.tp7;
+import com.baidu.tieba.xp7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,7 +34,6 @@ import java.io.IOException;
 import java.lang.ref.WeakReference;
 import java.nio.ByteBuffer;
 import kotlinx.coroutines.CoroutineContextKt;
-@TargetApi(18)
 /* loaded from: classes7.dex */
 public class TextureMovieEncoder {
     public static /* synthetic */ Interceptable $ic = null;
@@ -66,7 +64,7 @@ public class TextureMovieEncoder {
     public int mHeight;
     public WindowSurface mInputWindowSurface;
     public MediaMuxerWrapper mMuxer;
-    public ip7 mPostMonitorManager;
+    public tp7 mPostMonitorManager;
     public boolean mReady;
     public Object mReadyFence;
     public int mRecordingStatus;
@@ -86,9 +84,16 @@ public class TextureMovieEncoder {
 
     /* renamed from: com.faceunity.encoder.TextureMovieEncoder$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes7.dex */
+    public interface OnEncoderStatusUpdateListener {
+        void onStartSuccess();
+
+        void onStopSuccess();
     }
 
     /* loaded from: classes7.dex */
@@ -113,6 +118,10 @@ public class TextureMovieEncoder {
                 }
             }
             this.this$0 = textureMovieEncoder;
+        }
+
+        public /* synthetic */ AudioThread(TextureMovieEncoder textureMovieEncoder, AnonymousClass1 anonymousClass1) {
+            this(textureMovieEncoder);
         }
 
         @Override // java.lang.Thread, java.lang.Runnable
@@ -165,14 +174,10 @@ public class TextureMovieEncoder {
                 }
             }
         }
-
-        public /* synthetic */ AudioThread(TextureMovieEncoder textureMovieEncoder, AnonymousClass1 anonymousClass1) {
-            this(textureMovieEncoder);
-        }
     }
 
     /* loaded from: classes7.dex */
-    public static class EncoderConfig {
+    public class EncoderConfig {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long firstTimeStampBase;
@@ -220,17 +225,10 @@ public class TextureMovieEncoder {
     }
 
     /* loaded from: classes7.dex */
-    public interface OnEncoderStatusUpdateListener {
-        void onStartSuccess();
-
-        void onStopSuccess();
-    }
-
-    /* loaded from: classes7.dex */
-    public static class VideoEncoderHandler extends Handler {
+    public class VideoEncoderHandler extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public WeakReference<TextureMovieEncoder> mWeakEncoder;
+        public WeakReference mWeakEncoder;
 
         public VideoEncoderHandler(TextureMovieEncoder textureMovieEncoder) {
             Interceptable interceptable = $ic;
@@ -247,7 +245,7 @@ public class TextureMovieEncoder {
                     return;
                 }
             }
-            this.mWeakEncoder = new WeakReference<>(textureMovieEncoder);
+            this.mWeakEncoder = new WeakReference(textureMovieEncoder);
         }
 
         @Override // android.os.Handler
@@ -256,29 +254,41 @@ public class TextureMovieEncoder {
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 int i = message.what;
                 Object obj = message.obj;
-                TextureMovieEncoder textureMovieEncoder = this.mWeakEncoder.get();
+                TextureMovieEncoder textureMovieEncoder = (TextureMovieEncoder) this.mWeakEncoder.get();
                 if (textureMovieEncoder == null) {
                     Log.w(TextureMovieEncoder.TAG, "VideoEncoderHandler.handleMessage: encoder is null");
-                } else if (i == 0) {
-                    textureMovieEncoder.handleStartRecording((EncoderConfig) obj);
-                } else if (i == 1) {
+                } else if (i != 0) {
+                    if (i != 1) {
+                        if (i != 2) {
+                            if (i != 3) {
+                                if (i != 4) {
+                                    if (i == 5) {
+                                        Looper.myLooper().quit();
+                                        return;
+                                    }
+                                    throw new RuntimeException("Unhandled msg what=" + i);
+                                } else if (!textureMovieEncoder.videoEncoderReadyFlag) {
+                                    return;
+                                } else {
+                                    textureMovieEncoder.handleUpdateSharedContext((EGLContext) message.obj);
+                                    return;
+                                }
+                            } else if (!textureMovieEncoder.videoEncoderReadyFlag) {
+                                return;
+                            } else {
+                                textureMovieEncoder.handleSetTexture(message.arg1);
+                                return;
+                            }
+                        } else if (!textureMovieEncoder.videoEncoderReadyFlag) {
+                            return;
+                        } else {
+                            textureMovieEncoder.handleFrameAvailable((float[]) obj, (message.arg1 << 32) | (message.arg2 & 4294967295L));
+                            return;
+                        }
+                    }
                     textureMovieEncoder.handleStopRecording();
-                } else if (i == 2) {
-                    if (textureMovieEncoder.videoEncoderReadyFlag) {
-                        textureMovieEncoder.handleFrameAvailable((float[]) obj, (message.arg1 << 32) | (message.arg2 & 4294967295L));
-                    }
-                } else if (i == 3) {
-                    if (textureMovieEncoder.videoEncoderReadyFlag) {
-                        textureMovieEncoder.handleSetTexture(message.arg1);
-                    }
-                } else if (i == 4) {
-                    if (textureMovieEncoder.videoEncoderReadyFlag) {
-                        textureMovieEncoder.handleUpdateSharedContext((EGLContext) message.obj);
-                    }
-                } else if (i == 5) {
-                    Looper.myLooper().quit();
                 } else {
-                    throw new RuntimeException("Unhandled msg what=" + i);
+                    textureMovieEncoder.handleStartRecording((EncoderConfig) obj);
                 }
             }
         }
@@ -347,7 +357,33 @@ public class TextureMovieEncoder {
         AUDIO_SOURCES = new int[]{1, 0, 5, 7, 6};
     }
 
+    public long getPTSUs() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            long nanoTime = System.nanoTime();
+            if (this.firstTimeStampBase != 0) {
+                if (this.firstNanoTime == 0) {
+                    this.firstNanoTime = nanoTime;
+                }
+                nanoTime = (nanoTime - this.firstNanoTime) + this.firstTimeStampBase;
+            }
+            long j = nanoTime / 1000;
+            long j2 = this.prevOutputPTSUs;
+            if (j < j2) {
+                j += j2 - j;
+            }
+            if (j == this.prevOutputPTSUs) {
+                j += 100;
+            }
+            this.prevOutputPTSUs = j;
+            return j;
+        }
+        return invokeV.longValue;
+    }
+
     public TextureMovieEncoder() {
+        xp7 xp7Var;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -364,10 +400,14 @@ public class TextureMovieEncoder {
         this.mRecordingStatus = 4;
         this.firstTimeStampBase = 0L;
         this.firstNanoTime = 0L;
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, mp7.class);
-        mp7 mp7Var = runTask != null ? (mp7) runTask.getData() : null;
-        if (mp7Var != null) {
-            this.mPostMonitorManager = mp7Var.get();
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, xp7.class);
+        if (runTask != null) {
+            xp7Var = (xp7) runTask.getData();
+        } else {
+            xp7Var = null;
+        }
+        if (xp7Var != null) {
+            this.mPostMonitorManager = xp7Var.get();
         }
         this.config = null;
         this.prepareEncoderFence = new Object();
@@ -381,33 +421,58 @@ public class TextureMovieEncoder {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void handleFrameAvailable(float[] fArr, long j) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(65556, this, fArr, j) == null) || this.texture == 0) {
-            return;
-        }
-        try {
-            this.mVideoEncoder.drainEncoder(false);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        EncoderConfig encoderConfig = this.config;
-        GLES20.glViewport(0, 0, encoderConfig.mWidth, encoderConfig.mHeight);
-        synchronized (TextureMovieEncoder.class) {
-            this.mFullScreen.drawFrame(this.mTextureId, fArr);
-        }
-        WindowSurface windowSurface = this.mInputWindowSurface;
-        if (windowSurface != null) {
-            windowSurface.setPresentationTime(getPTSUs() * 1000);
-            this.mInputWindowSurface.swapBuffers();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
     public void handleSetTexture(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65557, this, i) == null) {
             this.mTextureId = i;
+        }
+    }
+
+    public boolean checkRecordingStatus(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (this.mRecordingStatus == i) {
+                return true;
+            }
+            return false;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public void setOnEncoderStatusUpdateListener(OnEncoderStatusUpdateListener onEncoderStatusUpdateListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, onEncoderStatusUpdateListener) == null) {
+            this.onEncoderStatusUpdateListener = onEncoderStatusUpdateListener;
+        }
+    }
+
+    public void updateSharedContext(EGLContext eGLContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, eGLContext) == null) {
+            this.mHandler.sendMessage(this.mHandler.obtainMessage(4, eGLContext));
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void handleFrameAvailable(float[] fArr, long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLJ(65556, this, fArr, j) == null) && this.texture != 0) {
+            try {
+                this.mVideoEncoder.drainEncoder(false);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            EncoderConfig encoderConfig = this.config;
+            GLES20.glViewport(0, 0, encoderConfig.mWidth, encoderConfig.mHeight);
+            synchronized (TextureMovieEncoder.class) {
+                this.mFullScreen.drawFrame(this.mTextureId, fArr);
+            }
+            WindowSurface windowSurface = this.mInputWindowSurface;
+            if (windowSurface != null) {
+                windowSurface.setPresentationTime(getPTSUs() * 1000);
+                this.mInputWindowSurface.swapBuffers();
+            }
         }
     }
 
@@ -457,6 +522,54 @@ public class TextureMovieEncoder {
         }
     }
 
+    private void releaseEncoder() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65562, this) == null) {
+            try {
+                this.mVideoEncoder.release();
+                if (this.mInputWindowSurface != null) {
+                    this.mInputWindowSurface.release();
+                    this.mInputWindowSurface = null;
+                }
+                if (this.mFullScreen != null) {
+                    this.mFullScreen.release(false);
+                    this.mFullScreen = null;
+                }
+                if (this.mEglCore != null) {
+                    this.mEglCore.release();
+                    this.mEglCore = null;
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                tp7 tp7Var = this.mPostMonitorManager;
+                if (tp7Var != null) {
+                    tp7Var.b(14, np7.a(e));
+                }
+            }
+        }
+    }
+
+    public void stopRecording() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            GLES20.glDeleteFramebuffers(1, new int[]{this.frameBuffer}, 0);
+            GLES20.glDeleteTextures(1, new int[]{this.texture}, 0);
+            this.frameBuffer = 0;
+            this.texture = 0;
+            MediaMuxerWrapper mediaMuxerWrapper = this.mMuxer;
+            if (mediaMuxerWrapper == null || !mediaMuxerWrapper.isStarted()) {
+                this.mRequestStop = true;
+                VideoEncoderCore videoEncoderCore = this.mVideoEncoder;
+                if (videoEncoderCore != null) {
+                    videoEncoderCore.requestStop();
+                }
+            }
+            this.mRecordingStatus = 4;
+            this.mHandler.sendMessage(this.mHandler.obtainMessage(1));
+            this.mHandler.sendMessage(this.mHandler.obtainMessage(5));
+        }
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public void handleUpdateSharedContext(EGLContext eGLContext) {
         Interceptable interceptable = $ic;
@@ -482,6 +595,25 @@ public class TextureMovieEncoder {
         }
     }
 
+    public void frameAvailable(SurfaceTexture surfaceTexture) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, surfaceTexture) == null) {
+            synchronized (this.mReadyFence) {
+                if (!this.mReady) {
+                    return;
+                }
+                float[] fArr = new float[16];
+                Matrix.setIdentityM(fArr, 0);
+                long timestamp = surfaceTexture.getTimestamp();
+                if (timestamp == 0) {
+                    Log.w(TAG, "HEY: got SurfaceTexture with timestamp of zero");
+                } else {
+                    this.mHandler.sendMessage(this.mHandler.obtainMessage(2, (int) (timestamp >> 32), (int) timestamp, fArr));
+                }
+            }
+        }
+    }
+
     private void prepareEncoder(EGLContext eGLContext, int i, int i2, int i3, File file) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65561, this, new Object[]{eGLContext, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), file}) == null) {
@@ -496,15 +628,15 @@ public class TextureMovieEncoder {
                     this.prepareEncoderFence.notify();
                 }
             } catch (IOException e) {
-                ip7 ip7Var = this.mPostMonitorManager;
-                if (ip7Var != null) {
-                    ip7Var.b(12, cp7.a(e));
+                tp7 tp7Var = this.mPostMonitorManager;
+                if (tp7Var != null) {
+                    tp7Var.b(12, np7.a(e));
                 }
             } catch (IllegalStateException e2) {
                 this.videoEncoderReadyFlag = false;
-                ip7 ip7Var2 = this.mPostMonitorManager;
-                if (ip7Var2 != null) {
-                    ip7Var2.b(13, cp7.a(e2));
+                tp7 tp7Var2 = this.mPostMonitorManager;
+                if (tp7Var2 != null) {
+                    tp7Var2.b(13, np7.a(e2));
                     return;
                 }
                 return;
@@ -516,82 +648,6 @@ public class TextureMovieEncoder {
             windowSurface.makeCurrent();
             this.mFullScreen = new FullFrameRect(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
         }
-    }
-
-    private void releaseEncoder() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65562, this) == null) {
-            try {
-                this.mVideoEncoder.release();
-                if (this.mInputWindowSurface != null) {
-                    this.mInputWindowSurface.release();
-                    this.mInputWindowSurface = null;
-                }
-                if (this.mFullScreen != null) {
-                    this.mFullScreen.release(false);
-                    this.mFullScreen = null;
-                }
-                if (this.mEglCore != null) {
-                    this.mEglCore.release();
-                    this.mEglCore = null;
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-                ip7 ip7Var = this.mPostMonitorManager;
-                if (ip7Var != null) {
-                    ip7Var.b(14, cp7.a(e));
-                }
-            }
-        }
-    }
-
-    public boolean checkRecordingStatus(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? this.mRecordingStatus == i : invokeI.booleanValue;
-    }
-
-    public void frameAvailable(SurfaceTexture surfaceTexture) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, surfaceTexture) == null) {
-            synchronized (this.mReadyFence) {
-                if (this.mReady) {
-                    float[] fArr = new float[16];
-                    Matrix.setIdentityM(fArr, 0);
-                    long timestamp = surfaceTexture.getTimestamp();
-                    if (timestamp == 0) {
-                        Log.w(TAG, "HEY: got SurfaceTexture with timestamp of zero");
-                    } else {
-                        this.mHandler.sendMessage(this.mHandler.obtainMessage(2, (int) (timestamp >> 32), (int) timestamp, fArr));
-                    }
-                }
-            }
-        }
-    }
-
-    public long getPTSUs() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            long nanoTime = System.nanoTime();
-            if (this.firstTimeStampBase != 0) {
-                if (this.firstNanoTime == 0) {
-                    this.firstNanoTime = nanoTime;
-                }
-                nanoTime = (nanoTime - this.firstNanoTime) + this.firstTimeStampBase;
-            }
-            long j = nanoTime / 1000;
-            long j2 = this.prevOutputPTSUs;
-            if (j < j2) {
-                j += j2 - j;
-            }
-            if (j == this.prevOutputPTSUs) {
-                j += 100;
-            }
-            this.prevOutputPTSUs = j;
-            return j;
-        }
-        return invokeV.longValue;
     }
 
     public boolean isRecording() {
@@ -607,30 +663,23 @@ public class TextureMovieEncoder {
         return invokeV.booleanValue;
     }
 
-    public void setOnEncoderStatusUpdateListener(OnEncoderStatusUpdateListener onEncoderStatusUpdateListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onEncoderStatusUpdateListener) == null) {
-            this.onEncoderStatusUpdateListener = onEncoderStatusUpdateListener;
-        }
-    }
-
     public void setTextureId(FullFrameRect fullFrameRect, int i, float[] fArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(1048581, this, fullFrameRect, i, fArr) == null) || this.texture == 0) {
-            return;
-        }
-        int[] iArr = new int[4];
-        GLES20.glGetIntegerv(2978, iArr, 0);
-        GLES20.glBindFramebuffer(36160, this.frameBuffer);
-        GLES20.glFramebufferTexture2D(36160, 36064, 3553, this.texture, 0);
-        GLES20.glViewport(0, 0, this.mWidth, this.mHeight);
-        if (fullFrameRect != null) {
-            fullFrameRect.drawFrame(i, fArr);
-        }
-        GLES20.glBindFramebuffer(36160, 0);
-        GLES20.glViewport(iArr[0], iArr[1], iArr[2], iArr[3]);
-        synchronized (this.mReadyFence) {
-            if (this.mReady) {
+        if ((interceptable == null || interceptable.invokeLIL(1048581, this, fullFrameRect, i, fArr) == null) && this.texture != 0) {
+            int[] iArr = new int[4];
+            GLES20.glGetIntegerv(2978, iArr, 0);
+            GLES20.glBindFramebuffer(36160, this.frameBuffer);
+            GLES20.glFramebufferTexture2D(36160, 36064, 3553, this.texture, 0);
+            GLES20.glViewport(0, 0, this.mWidth, this.mHeight);
+            if (fullFrameRect != null) {
+                fullFrameRect.drawFrame(i, fArr);
+            }
+            GLES20.glBindFramebuffer(36160, 0);
+            GLES20.glViewport(iArr[0], iArr[1], iArr[2], iArr[3]);
+            synchronized (this.mReadyFence) {
+                if (!this.mReady) {
+                    return;
+                }
                 this.mHandler.sendMessage(this.mHandler.obtainMessage(3, this.texture, 0, null));
             }
         }
@@ -673,34 +722,6 @@ public class TextureMovieEncoder {
                 }
                 this.mHandler.sendMessage(this.mHandler.obtainMessage(0, encoderConfig));
             }
-        }
-    }
-
-    public void stopRecording() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            GLES20.glDeleteFramebuffers(1, new int[]{this.frameBuffer}, 0);
-            GLES20.glDeleteTextures(1, new int[]{this.texture}, 0);
-            this.frameBuffer = 0;
-            this.texture = 0;
-            MediaMuxerWrapper mediaMuxerWrapper = this.mMuxer;
-            if (mediaMuxerWrapper == null || !mediaMuxerWrapper.isStarted()) {
-                this.mRequestStop = true;
-                VideoEncoderCore videoEncoderCore = this.mVideoEncoder;
-                if (videoEncoderCore != null) {
-                    videoEncoderCore.requestStop();
-                }
-            }
-            this.mRecordingStatus = 4;
-            this.mHandler.sendMessage(this.mHandler.obtainMessage(1));
-            this.mHandler.sendMessage(this.mHandler.obtainMessage(5));
-        }
-    }
-
-    public void updateSharedContext(EGLContext eGLContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, eGLContext) == null) {
-            this.mHandler.sendMessage(this.mHandler.obtainMessage(4, eGLContext));
         }
     }
 }

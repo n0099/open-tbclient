@@ -6,9 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public abstract class FaceIDCallback<R extends SapiResult> {
+public abstract class FaceIDCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract void onFailure(SapiResult sapiResult);
+
+    public abstract void onSuccess(SapiResult sapiResult);
 
     public FaceIDCallback() {
         Interceptable interceptable = $ic;
@@ -23,8 +27,4 @@ public abstract class FaceIDCallback<R extends SapiResult> {
             }
         }
     }
-
-    public abstract void onFailure(R r);
-
-    public abstract void onSuccess(R r);
 }

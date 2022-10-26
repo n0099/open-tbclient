@@ -11,7 +11,7 @@ import java.util.LinkedList;
 public class UpdateServerInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<String> ips;
+    public LinkedList ips;
     public int isp;
     public int ver;
 
@@ -28,28 +28,37 @@ public class UpdateServerInfo {
                 return;
             }
         }
-        this.ips = new LinkedList<>();
+        this.ips = new LinkedList();
     }
 
-    public LinkedList<String> getIps() {
+    public LinkedList getIps() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.ips : (LinkedList) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.ips;
+        }
+        return (LinkedList) invokeV.objValue;
     }
 
     public int getIsp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.isp : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.isp;
+        }
+        return invokeV.intValue;
     }
 
     public int getVer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.ver : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.ver;
+        }
+        return invokeV.intValue;
     }
 
-    public void setIps(LinkedList<String> linkedList) {
+    public void setIps(LinkedList linkedList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, linkedList) == null) {
             this.ips = linkedList;

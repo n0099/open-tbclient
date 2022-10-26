@@ -27,12 +27,24 @@ public class StringTools {
     public static String optString(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? optString(str, "") : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return optString(str, "");
+        }
+        return (String) invokeL.objValue;
     }
 
     public static String optString(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) ? (str != null || str.length() < 1) ? str : str2 != null ? str2 : "" : (String) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            if (str == null && str.length() >= 1) {
+                if (str2 != null) {
+                    return str2;
+                }
+                return "";
+            }
+            return str;
+        }
+        return (String) invokeLL.objValue;
     }
 }

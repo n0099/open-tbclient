@@ -31,6 +31,18 @@ public class CharCache {
         this.cache = new char[i];
     }
 
+    public void append(char c) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Character.valueOf(c)}) == null) {
+            int i = this.pos;
+            char[] cArr = this.cache;
+            if (i < cArr.length - 1) {
+                cArr[i] = c;
+                this.pos = i + 1;
+            }
+        }
+    }
+
     public void append(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -54,24 +66,18 @@ public class CharCache {
     public int length() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.pos : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.pos;
+        }
+        return invokeV.intValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? new String(this.cache, 0, this.pos) : (String) invokeV.objValue;
-    }
-
-    public void append(char c) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Character.valueOf(c)}) == null) {
-            int i = this.pos;
-            char[] cArr = this.cache;
-            if (i < cArr.length - 1) {
-                cArr[i] = c;
-                this.pos = i + 1;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return new String(this.cache, 0, this.pos);
         }
+        return (String) invokeV.objValue;
     }
 }

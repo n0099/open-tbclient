@@ -38,20 +38,6 @@ public class UserInfo extends BaseApi {
         }
     }
 
-    public void getOpenId(IUiListener iUiListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, iUiListener) == null) {
-            HttpUtils.requestAsync(this.c, f.a(), GRAPH_OPEN_ID, a(), "GET", new BaseApi.TempRequestListener(this, iUiListener));
-        }
-    }
-
-    public void getUserInfo(IUiListener iUiListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iUiListener) == null) {
-            HttpUtils.requestAsync(this.c, f.a(), "user/get_simple_userinfo", a(), "GET", new BaseApi.TempRequestListener(this, iUiListener));
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public UserInfo(Context context, c cVar, QQToken qQToken) {
         super(cVar, qQToken);
@@ -70,6 +56,20 @@ public class UserInfo extends BaseApi {
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
+        }
+    }
+
+    public void getOpenId(IUiListener iUiListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, iUiListener) == null) {
+            HttpUtils.requestAsync(this.c, f.a(), GRAPH_OPEN_ID, a(), "GET", new BaseApi.TempRequestListener(this, iUiListener));
+        }
+    }
+
+    public void getUserInfo(IUiListener iUiListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iUiListener) == null) {
+            HttpUtils.requestAsync(this.c, f.a(), "user/get_simple_userinfo", a(), "GET", new BaseApi.TempRequestListener(this, iUiListener));
         }
     }
 }

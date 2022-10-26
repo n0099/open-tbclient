@@ -11,7 +11,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.Supplier;
-import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.common.memory.PooledByteBuffer;
 import com.facebook.common.memory.PooledByteBufferInputStream;
 import com.facebook.common.references.CloseableReference;
@@ -26,12 +25,9 @@ import com.facebook.imageutils.ImageMetaData;
 import com.facebook.imageutils.JfifUtil;
 import com.facebook.imageutils.WebpUtil;
 import java.io.Closeable;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import javax.annotation.Nullable;
-import javax.annotation.concurrent.Immutable;
-@Immutable
 /* loaded from: classes7.dex */
 public class EncodedImage implements Closeable {
     public static /* synthetic */ Interceptable $ic = null;
@@ -49,15 +45,92 @@ public class EncodedImage implements Closeable {
     public int mHeight;
     public ImageFormat mImageFormat;
     @Nullable
-    public final Supplier<FileInputStream> mInputStreamSupplier;
+    public final Supplier mInputStreamSupplier;
     @Nullable
-    public final CloseableReference<PooledByteBuffer> mPooledByteBufferRef;
+    public final CloseableReference mPooledByteBufferRef;
     public int mRotationAngle;
     public int mSampleSize;
     public int mStreamSize;
     public int mWidth;
 
-    public EncodedImage(CloseableReference<PooledByteBuffer> closeableReference) {
+    public EncodedImage(Supplier supplier) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {supplier};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mImageFormat = ImageFormat.UNKNOWN;
+        this.mRotationAngle = -1;
+        this.mExifOrientation = 0;
+        this.mWidth = -1;
+        this.mHeight = -1;
+        this.mSampleSize = 1;
+        this.mStreamSize = -1;
+        Preconditions.checkNotNull(supplier);
+        this.mPooledByteBufferRef = null;
+        this.mInputStreamSupplier = supplier;
+    }
+
+    public String getFirstBytesAsHexString(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            CloseableReference byteBufferRef = getByteBufferRef();
+            if (byteBufferRef == null) {
+                return "";
+            }
+            int min = Math.min(getSize(), i);
+            byte[] bArr = new byte[min];
+            try {
+                PooledByteBuffer pooledByteBuffer = (PooledByteBuffer) byteBufferRef.get();
+                if (pooledByteBuffer == null) {
+                    return "";
+                }
+                pooledByteBuffer.read(0, bArr, 0, min);
+                byteBufferRef.close();
+                StringBuilder sb = new StringBuilder(min * 2);
+                for (int i2 = 0; i2 < min; i2++) {
+                    sb.append(String.format("%02X", Byte.valueOf(bArr[i2])));
+                }
+                return sb.toString();
+            } finally {
+                byteBufferRef.close();
+            }
+        }
+        return (String) invokeI.objValue;
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public EncodedImage(Supplier supplier, int i) {
+        this(supplier);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {supplier, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                this((Supplier) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mStreamSize = i;
+    }
+
+    public EncodedImage(CloseableReference closeableReference) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -80,7 +153,7 @@ public class EncodedImage implements Closeable {
         this.mSampleSize = 1;
         this.mStreamSize = -1;
         Preconditions.checkArgument(CloseableReference.isValid(closeableReference));
-        this.mPooledByteBufferRef = closeableReference.m77clone();
+        this.mPooledByteBufferRef = closeableReference.m76clone();
         this.mInputStreamSupplier = null;
     }
 
@@ -99,318 +172,33 @@ public class EncodedImage implements Closeable {
 
     public static void closeSafely(@Nullable EncodedImage encodedImage) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, encodedImage) == null) || encodedImage == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, encodedImage) == null) && encodedImage != null) {
+            encodedImage.close();
         }
-        encodedImage.close();
     }
 
     public static boolean isMetaDataAvailable(EncodedImage encodedImage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, encodedImage)) == null) ? encodedImage.mRotationAngle >= 0 && encodedImage.mWidth >= 0 && encodedImage.mHeight >= 0 : invokeL.booleanValue;
-    }
-
-    private void parseMetaDataIfNeeded() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            if (this.mWidth < 0 || this.mHeight < 0) {
-                parseMetaData();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, encodedImage)) == null) {
+            if (encodedImage.mRotationAngle >= 0 && encodedImage.mWidth >= 0 && encodedImage.mHeight >= 0) {
+                return true;
             }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    private ImageMetaData readImageMetaData() {
-        InputStream inputStream;
-        InterceptResult invokeV;
+    public static boolean isValid(@Nullable EncodedImage encodedImage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(65544, this)) != null) {
-            return (ImageMetaData) invokeV.objValue;
-        }
-        try {
-            inputStream = getInputStream();
-            try {
-                ImageMetaData decodeDimensionsAndColorSpace = BitmapUtil.decodeDimensionsAndColorSpace(inputStream);
-                this.mColorSpace = decodeDimensionsAndColorSpace.getColorSpace();
-                Pair<Integer, Integer> dimensions = decodeDimensionsAndColorSpace.getDimensions();
-                if (dimensions != null) {
-                    this.mWidth = ((Integer) dimensions.first).intValue();
-                    this.mHeight = ((Integer) dimensions.second).intValue();
-                }
-                if (inputStream != null) {
-                    try {
-                        inputStream.close();
-                    } catch (IOException unused) {
-                    }
-                }
-                return decodeDimensionsAndColorSpace;
-            } catch (Throwable th) {
-                th = th;
-                if (inputStream != null) {
-                    try {
-                        inputStream.close();
-                    } catch (IOException unused2) {
-                    }
-                }
-                throw th;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, encodedImage)) == null) {
+            if (encodedImage != null && encodedImage.isValid()) {
+                return true;
             }
-        } catch (Throwable th2) {
-            th = th2;
-            inputStream = null;
+            return false;
         }
-    }
-
-    private Pair<Integer, Integer> readWebPImageSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
-            Pair<Integer, Integer> size = WebpUtil.getSize(getInputStream());
-            if (size != null) {
-                this.mWidth = ((Integer) size.first).intValue();
-                this.mHeight = ((Integer) size.second).intValue();
-            }
-            return size;
-        }
-        return (Pair) invokeV.objValue;
-    }
-
-    @Override // java.io.Closeable, java.lang.AutoCloseable
-    public void close() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            CloseableReference.closeSafely(this.mPooledByteBufferRef);
-        }
-    }
-
-    public void copyMetaDataFrom(EncodedImage encodedImage) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, encodedImage) == null) {
-            this.mImageFormat = encodedImage.getImageFormat();
-            this.mWidth = encodedImage.getWidth();
-            this.mHeight = encodedImage.getHeight();
-            this.mRotationAngle = encodedImage.getRotationAngle();
-            this.mExifOrientation = encodedImage.getExifOrientation();
-            this.mSampleSize = encodedImage.getSampleSize();
-            this.mStreamSize = encodedImage.getSize();
-            this.mBytesRange = encodedImage.getBytesRange();
-            this.mColorSpace = encodedImage.getColorSpace();
-        }
-    }
-
-    public CloseableReference<PooledByteBuffer> getByteBufferRef() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? CloseableReference.cloneOrNull(this.mPooledByteBufferRef) : (CloseableReference) invokeV.objValue;
-    }
-
-    @Nullable
-    public BytesRange getBytesRange() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mBytesRange : (BytesRange) invokeV.objValue;
-    }
-
-    @Nullable
-    public ColorSpace getColorSpace() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            parseMetaDataIfNeeded();
-            return this.mColorSpace;
-        }
-        return (ColorSpace) invokeV.objValue;
-    }
-
-    public int getExifOrientation() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            parseMetaDataIfNeeded();
-            return this.mExifOrientation;
-        }
-        return invokeV.intValue;
-    }
-
-    public String getFirstBytesAsHexString(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            CloseableReference<PooledByteBuffer> byteBufferRef = getByteBufferRef();
-            if (byteBufferRef == null) {
-                return "";
-            }
-            int min = Math.min(getSize(), i);
-            byte[] bArr = new byte[min];
-            try {
-                PooledByteBuffer pooledByteBuffer = byteBufferRef.get();
-                if (pooledByteBuffer == null) {
-                    return "";
-                }
-                pooledByteBuffer.read(0, bArr, 0, min);
-                byteBufferRef.close();
-                StringBuilder sb = new StringBuilder(min * 2);
-                for (int i2 = 0; i2 < min; i2++) {
-                    sb.append(String.format("%02X", Byte.valueOf(bArr[i2])));
-                }
-                return sb.toString();
-            } finally {
-                byteBufferRef.close();
-            }
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public int getHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            parseMetaDataIfNeeded();
-            return this.mHeight;
-        }
-        return invokeV.intValue;
-    }
-
-    public ImageFormat getImageFormat() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            parseMetaDataIfNeeded();
-            return this.mImageFormat;
-        }
-        return (ImageFormat) invokeV.objValue;
-    }
-
-    @Nullable
-    public InputStream getInputStream() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            Supplier<FileInputStream> supplier = this.mInputStreamSupplier;
-            if (supplier != null) {
-                return supplier.get();
-            }
-            CloseableReference cloneOrNull = CloseableReference.cloneOrNull(this.mPooledByteBufferRef);
-            if (cloneOrNull != null) {
-                try {
-                    return new PooledByteBufferInputStream((PooledByteBuffer) cloneOrNull.get());
-                } finally {
-                    CloseableReference.closeSafely(cloneOrNull);
-                }
-            }
-            return null;
-        }
-        return (InputStream) invokeV.objValue;
-    }
-
-    public int getRotationAngle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            parseMetaDataIfNeeded();
-            return this.mRotationAngle;
-        }
-        return invokeV.intValue;
-    }
-
-    public int getSampleSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mSampleSize : invokeV.intValue;
-    }
-
-    public int getSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            CloseableReference<PooledByteBuffer> closeableReference = this.mPooledByteBufferRef;
-            if (closeableReference != null && closeableReference.get() != null) {
-                return this.mPooledByteBufferRef.get().size();
-            }
-            return this.mStreamSize;
-        }
-        return invokeV.intValue;
-    }
-
-    @VisibleForTesting
-    @Nullable
-    public synchronized SharedReference<PooledByteBuffer> getUnderlyingReferenceTestOnly() {
-        InterceptResult invokeV;
-        SharedReference<PooledByteBuffer> underlyingReferenceTestOnly;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            synchronized (this) {
-                underlyingReferenceTestOnly = this.mPooledByteBufferRef != null ? this.mPooledByteBufferRef.getUnderlyingReferenceTestOnly() : null;
-            }
-            return underlyingReferenceTestOnly;
-        }
-        return (SharedReference) invokeV.objValue;
-    }
-
-    public int getWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            parseMetaDataIfNeeded();
-            return this.mWidth;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean isCompleteAt(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
-            ImageFormat imageFormat = this.mImageFormat;
-            if ((imageFormat == DefaultImageFormats.JPEG || imageFormat == DefaultImageFormats.DNG) && this.mInputStreamSupplier == null) {
-                Preconditions.checkNotNull(this.mPooledByteBufferRef);
-                PooledByteBuffer pooledByteBuffer = this.mPooledByteBufferRef.get();
-                return pooledByteBuffer.read(i + (-2)) == -1 && pooledByteBuffer.read(i - 1) == -39;
-            }
-            return true;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public synchronized boolean isValid() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            synchronized (this) {
-                if (!CloseableReference.isValid(this.mPooledByteBufferRef)) {
-                    z = this.mInputStreamSupplier != null;
-                }
-            }
-            return z;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void parseMetaData() {
-        Pair<Integer, Integer> dimensions;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            ImageFormat imageFormat_WrapIOException = ImageFormatChecker.getImageFormat_WrapIOException(getInputStream());
-            this.mImageFormat = imageFormat_WrapIOException;
-            if (DefaultImageFormats.isWebpFormat(imageFormat_WrapIOException)) {
-                dimensions = readWebPImageSize();
-            } else {
-                dimensions = readImageMetaData().getDimensions();
-            }
-            if (imageFormat_WrapIOException == DefaultImageFormats.JPEG && this.mRotationAngle == -1) {
-                if (dimensions != null) {
-                    int orientation = JfifUtil.getOrientation(getInputStream());
-                    this.mExifOrientation = orientation;
-                    this.mRotationAngle = JfifUtil.getAutoRotateAngleFromOrientation(orientation);
-                }
-            } else if (imageFormat_WrapIOException == DefaultImageFormats.HEIF && this.mRotationAngle == -1) {
-                int orientation2 = HeifExifUtil.getOrientation(getInputStream());
-                this.mExifOrientation = orientation2;
-                this.mRotationAngle = JfifUtil.getAutoRotateAngleFromOrientation(orientation2);
-            } else if (this.mRotationAngle == -1) {
-                this.mRotationAngle = 0;
-            }
-        }
+        return invokeL.booleanValue;
     }
 
     public void setBytesRange(@Nullable BytesRange bytesRange) {
@@ -469,10 +257,214 @@ public class EncodedImage implements Closeable {
         }
     }
 
-    public static boolean isValid(@Nullable EncodedImage encodedImage) {
-        InterceptResult invokeL;
+    private void parseMetaDataIfNeeded() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, encodedImage)) == null) ? encodedImage != null && encodedImage.isValid() : invokeL.booleanValue;
+        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
+            if (this.mWidth < 0 || this.mHeight < 0) {
+                parseMetaData();
+            }
+        }
+    }
+
+    private Pair readWebPImageSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
+            Pair size = WebpUtil.getSize(getInputStream());
+            if (size != null) {
+                this.mWidth = ((Integer) size.first).intValue();
+                this.mHeight = ((Integer) size.second).intValue();
+            }
+            return size;
+        }
+        return (Pair) invokeV.objValue;
+    }
+
+    @Override // java.io.Closeable, java.lang.AutoCloseable
+    public void close() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            CloseableReference.closeSafely(this.mPooledByteBufferRef);
+        }
+    }
+
+    public CloseableReference getByteBufferRef() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return CloseableReference.cloneOrNull(this.mPooledByteBufferRef);
+        }
+        return (CloseableReference) invokeV.objValue;
+    }
+
+    @Nullable
+    public BytesRange getBytesRange() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mBytesRange;
+        }
+        return (BytesRange) invokeV.objValue;
+    }
+
+    @Nullable
+    public ColorSpace getColorSpace() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            parseMetaDataIfNeeded();
+            return this.mColorSpace;
+        }
+        return (ColorSpace) invokeV.objValue;
+    }
+
+    public int getExifOrientation() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            parseMetaDataIfNeeded();
+            return this.mExifOrientation;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getHeight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            parseMetaDataIfNeeded();
+            return this.mHeight;
+        }
+        return invokeV.intValue;
+    }
+
+    public ImageFormat getImageFormat() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            parseMetaDataIfNeeded();
+            return this.mImageFormat;
+        }
+        return (ImageFormat) invokeV.objValue;
+    }
+
+    public int getRotationAngle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            parseMetaDataIfNeeded();
+            return this.mRotationAngle;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getSampleSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.mSampleSize;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            CloseableReference closeableReference = this.mPooledByteBufferRef;
+            if (closeableReference != null && closeableReference.get() != null) {
+                return ((PooledByteBuffer) this.mPooledByteBufferRef.get()).size();
+            }
+            return this.mStreamSize;
+        }
+        return invokeV.intValue;
+    }
+
+    @Nullable
+    public synchronized SharedReference getUnderlyingReferenceTestOnly() {
+        InterceptResult invokeV;
+        SharedReference sharedReference;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            synchronized (this) {
+                if (this.mPooledByteBufferRef != null) {
+                    sharedReference = this.mPooledByteBufferRef.getUnderlyingReferenceTestOnly();
+                } else {
+                    sharedReference = null;
+                }
+            }
+            return sharedReference;
+        }
+        return (SharedReference) invokeV.objValue;
+    }
+
+    public int getWidth() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            parseMetaDataIfNeeded();
+            return this.mWidth;
+        }
+        return invokeV.intValue;
+    }
+
+    public synchronized boolean isValid() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            synchronized (this) {
+                if (!CloseableReference.isValid(this.mPooledByteBufferRef)) {
+                    if (this.mInputStreamSupplier == null) {
+                        z = false;
+                    }
+                }
+                z = true;
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    private ImageMetaData readImageMetaData() {
+        InputStream inputStream;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
+            try {
+                inputStream = getInputStream();
+                try {
+                    ImageMetaData decodeDimensionsAndColorSpace = BitmapUtil.decodeDimensionsAndColorSpace(inputStream);
+                    this.mColorSpace = decodeDimensionsAndColorSpace.getColorSpace();
+                    Pair dimensions = decodeDimensionsAndColorSpace.getDimensions();
+                    if (dimensions != null) {
+                        this.mWidth = ((Integer) dimensions.first).intValue();
+                        this.mHeight = ((Integer) dimensions.second).intValue();
+                    }
+                    if (inputStream != null) {
+                        try {
+                            inputStream.close();
+                        } catch (IOException unused) {
+                        }
+                    }
+                    return decodeDimensionsAndColorSpace;
+                } catch (Throwable th) {
+                    th = th;
+                    if (inputStream != null) {
+                        try {
+                            inputStream.close();
+                        } catch (IOException unused2) {
+                        }
+                    }
+                    throw th;
+                }
+            } catch (Throwable th2) {
+                th = th2;
+                inputStream = null;
+            }
+        } else {
+            return (ImageMetaData) invokeV.objValue;
+        }
     }
 
     @Nullable
@@ -481,7 +473,7 @@ public class EncodedImage implements Closeable {
         EncodedImage encodedImage;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Supplier<FileInputStream> supplier = this.mInputStreamSupplier;
+            Supplier supplier = this.mInputStreamSupplier;
             if (supplier != null) {
                 encodedImage = new EncodedImage(supplier, this.mStreamSize);
             } else {
@@ -504,51 +496,85 @@ public class EncodedImage implements Closeable {
         return (EncodedImage) invokeV.objValue;
     }
 
-    public EncodedImage(Supplier<FileInputStream> supplier) {
+    @Nullable
+    public InputStream getInputStream() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {supplier};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            Supplier supplier = this.mInputStreamSupplier;
+            if (supplier != null) {
+                return (InputStream) supplier.get();
             }
+            CloseableReference cloneOrNull = CloseableReference.cloneOrNull(this.mPooledByteBufferRef);
+            if (cloneOrNull != null) {
+                try {
+                    return new PooledByteBufferInputStream((PooledByteBuffer) cloneOrNull.get());
+                } finally {
+                    CloseableReference.closeSafely(cloneOrNull);
+                }
+            }
+            return null;
         }
-        this.mImageFormat = ImageFormat.UNKNOWN;
-        this.mRotationAngle = -1;
-        this.mExifOrientation = 0;
-        this.mWidth = -1;
-        this.mHeight = -1;
-        this.mSampleSize = 1;
-        this.mStreamSize = -1;
-        Preconditions.checkNotNull(supplier);
-        this.mPooledByteBufferRef = null;
-        this.mInputStreamSupplier = supplier;
+        return (InputStream) invokeV.objValue;
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public EncodedImage(Supplier<FileInputStream> supplier, int i) {
-        this(supplier);
+    public void copyMetaDataFrom(EncodedImage encodedImage) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {supplier, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                this((Supplier) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, encodedImage) == null) {
+            this.mImageFormat = encodedImage.getImageFormat();
+            this.mWidth = encodedImage.getWidth();
+            this.mHeight = encodedImage.getHeight();
+            this.mRotationAngle = encodedImage.getRotationAngle();
+            this.mExifOrientation = encodedImage.getExifOrientation();
+            this.mSampleSize = encodedImage.getSampleSize();
+            this.mStreamSize = encodedImage.getSize();
+            this.mBytesRange = encodedImage.getBytesRange();
+            this.mColorSpace = encodedImage.getColorSpace();
+        }
+    }
+
+    public boolean isCompleteAt(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
+            ImageFormat imageFormat = this.mImageFormat;
+            if ((imageFormat != DefaultImageFormats.JPEG && imageFormat != DefaultImageFormats.DNG) || this.mInputStreamSupplier != null) {
+                return true;
+            }
+            Preconditions.checkNotNull(this.mPooledByteBufferRef);
+            PooledByteBuffer pooledByteBuffer = (PooledByteBuffer) this.mPooledByteBufferRef.get();
+            if (pooledByteBuffer.read(i - 2) == -1 && pooledByteBuffer.read(i - 1) == -39) {
+                return true;
+            }
+            return false;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public void parseMetaData() {
+        Pair dimensions;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            ImageFormat imageFormat_WrapIOException = ImageFormatChecker.getImageFormat_WrapIOException(getInputStream());
+            this.mImageFormat = imageFormat_WrapIOException;
+            if (DefaultImageFormats.isWebpFormat(imageFormat_WrapIOException)) {
+                dimensions = readWebPImageSize();
+            } else {
+                dimensions = readImageMetaData().getDimensions();
+            }
+            if (imageFormat_WrapIOException == DefaultImageFormats.JPEG && this.mRotationAngle == -1) {
+                if (dimensions != null) {
+                    int orientation = JfifUtil.getOrientation(getInputStream());
+                    this.mExifOrientation = orientation;
+                    this.mRotationAngle = JfifUtil.getAutoRotateAngleFromOrientation(orientation);
+                }
+            } else if (imageFormat_WrapIOException == DefaultImageFormats.HEIF && this.mRotationAngle == -1) {
+                int orientation2 = HeifExifUtil.getOrientation(getInputStream());
+                this.mExifOrientation = orientation2;
+                this.mRotationAngle = JfifUtil.getAutoRotateAngleFromOrientation(orientation2);
+            } else if (this.mRotationAngle == -1) {
+                this.mRotationAngle = 0;
             }
         }
-        this.mStreamSize = i;
     }
 }

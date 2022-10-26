@@ -1,20 +1,14 @@
 package com.baidu.tieba;
 
-import android.view.Surface;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.inlinewidget.rtcroom.model.RtcStatus;
-import com.baidu.tieba.ih2;
-import com.baidu.tieba.vj2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
 /* loaded from: classes5.dex */
-public class ok4 implements vj2 {
+public class ok4 implements ho1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -32,119 +26,53 @@ public class ok4 implements vj2 {
         }
     }
 
-    @Override // com.baidu.tieba.ih2
-    public void A(@NonNull ih2.a aVar) {
+    @Override // com.baidu.tieba.ho1
+    public xj2 a(ZeusPluginFactory.Invoker invoker, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, invoker, str)) == null) {
+            return new qk4();
         }
+        return (xj2) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.vj2
-    public void R(int i, int i2) {
+    @Override // com.baidu.tieba.ho1
+    public xl2 b(ZeusPluginFactory.Invoker invoker, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, invoker, str)) == null) {
+            return new tk4(invoker, str);
         }
+        return (xl2) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.vj2
-    public void X(long j) {
+    @Override // com.baidu.tieba.ho1
+    public xl2 c(ZeusPluginFactory.Invoker invoker, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, invoker, str)) == null) {
+            return new sk4(invoker, str);
         }
+        return (xl2) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.xj2
-    public RtcStatus a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ho1
+    public wj2 d(ZeusPluginFactory.Invoker invoker, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? RtcStatus.UNKNOWN : (RtcStatus) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ih2
-    @Nullable
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.vj2
-    public int getVideoHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return 0;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, invoker, str)) == null) {
+            return new pk4();
         }
-        return invokeV.intValue;
+        return (wj2) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.vj2
-    public int getVideoWidth() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ho1
+    public uh2 e(ZeusPluginFactory.Invoker invoker, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return 0;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, invoker, str)) == null) {
+            return new dl4(invoker, str);
         }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.ih2
-    @Nullable
-    public String k0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? "" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.vj2
-    public void m(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.vj2
-    public void o(@NonNull vj2.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, aVar) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.xj2
-    public void onRelease() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.xj2
-    public boolean q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.vj2
-    public void s(int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048588, this, i, i2, i3, i4) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.vj2
-    public void setSurface(Surface surface) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, surface) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.vj2
-    public void z(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-        }
+        return (uh2) invokeLL.objValue;
     }
 }

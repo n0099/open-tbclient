@@ -1,6 +1,5 @@
 package com.baidu.searchbox.fluency.listener;
 
-import androidx.annotation.CallSuper;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.fluency.listener.FrameRateListener;
@@ -24,39 +23,44 @@ import kotlin.jvm.internal.Intrinsics;
 public class FrameRateListener {
     public static /* synthetic */ Interceptable $ic;
     public static final Companion Companion;
-    public static final LinkedList<FrameReplay> framePool;
+    public static final LinkedList framePool;
     public transient /* synthetic */ FieldHolder $fh;
     public final Executor executor;
-    public final LinkedList<FrameReplay> frameList;
+    public final LinkedList frameList;
 
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0010\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0005\u0010\u0006R\u001c\u0010\u0003\u001a\b\u0012\u0004\u0012\u00020\u00020\u00018\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u0003\u0010\u0004¨\u0006\u0007"}, d2 = {"Lcom/baidu/searchbox/fluency/listener/FrameRateListener$Companion;", "Ljava/util/LinkedList;", "Lcom/baidu/searchbox/fluency/listener/FrameRateListener$FrameReplay;", "framePool", "Ljava/util/LinkedList;", "<init>", "()V", "lib-fps_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-    /* loaded from: classes2.dex */
-    public static final class Companion {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public Companion() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    public void doFrameAsync(String topPage, long j, long j2, int i, boolean z, long j3, long j4, long j5) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{topPage, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Boolean.valueOf(z), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5)}) == null) {
+            Intrinsics.checkNotNullParameter(topPage, "topPage");
         }
+    }
 
-        public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
+    public void doFrameSync(String topPage, long j, long j2, int i, boolean z, long j3, long j4, long j5) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{topPage, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Boolean.valueOf(z), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5)}) == null) {
+            Intrinsics.checkNotNullParameter(topPage, "topPage");
         }
+    }
+
+    public void doReplay(List frameList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, frameList) == null) {
+            Intrinsics.checkNotNullParameter(frameList, "frameList");
+        }
+    }
+
+    public int getIntervalFrameReplay() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
     }
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000,\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\t\n\u0002\b\u0006\n\u0002\u0010\b\n\u0002\b\f\n\u0002\u0010\u000b\n\u0002\b\b\n\u0002\u0010\u000e\n\u0002\b\f\u0018\u0000 ,:\u0001,B\u0007¢\u0006\u0004\b+\u0010\u0003J\r\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\u0002\u0010\u0003R\"\u0010\u0005\u001a\u00020\u00048\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0005\u0010\u0006\u001a\u0004\b\u0007\u0010\b\"\u0004\b\t\u0010\nR\"\u0010\f\u001a\u00020\u000b8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\f\u0010\r\u001a\u0004\b\u000e\u0010\u000f\"\u0004\b\u0010\u0010\u0011R\"\u0010\u0012\u001a\u00020\u00048\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0012\u0010\u0006\u001a\u0004\b\u0013\u0010\b\"\u0004\b\u0014\u0010\nR\"\u0010\u0015\u001a\u00020\u00048\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0015\u0010\u0006\u001a\u0004\b\u0016\u0010\b\"\u0004\b\u0017\u0010\nR\"\u0010\u0019\u001a\u00020\u00188\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0019\u0010\u001a\u001a\u0004\b\u0019\u0010\u001b\"\u0004\b\u001c\u0010\u001dR\"\u0010\u001e\u001a\u00020\u00048\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u001e\u0010\u0006\u001a\u0004\b\u001f\u0010\b\"\u0004\b \u0010\nR\"\u0010\"\u001a\u00020!8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\"\u0010#\u001a\u0004\b$\u0010%\"\u0004\b&\u0010'R\"\u0010(\u001a\u00020\u00048\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b(\u0010\u0006\u001a\u0004\b)\u0010\b\"\u0004\b*\u0010\n¨\u0006-"}, d2 = {"Lcom/baidu/searchbox/fluency/listener/FrameRateListener$FrameReplay;", "", "recycle", "()V", "", "animationCostNs", "J", "getAnimationCostNs", "()J", "setAnimationCostNs", "(J)V", "", "dropFrame", "I", "getDropFrame", "()I", "setDropFrame", "(I)V", "endNs", "getEndNs", "setEndNs", "inputCostNs", "getInputCostNs", "setInputCostNs", "", "isVsyncFrame", "Z", "()Z", "setVsyncFrame", "(Z)V", "startNs", "getStartNs", "setStartNs", "", "topPage", "Ljava/lang/String;", "getTopPage", "()Ljava/lang/String;", "setTopPage", "(Ljava/lang/String;)V", "traversalCostNs", "getTraversalCostNs", "setTraversalCostNs", "<init>", "Companion", "lib-fps_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public static final class FrameReplay {
+    public final class FrameReplay {
         public static /* synthetic */ Interceptable $ic;
         public static final Companion Companion;
         public transient /* synthetic */ FieldHolder $fh;
@@ -69,9 +73,25 @@ public class FrameRateListener {
         public String topPage;
         public long traversalCostNs;
 
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-772653942, "Lcom/baidu/searchbox/fluency/listener/FrameRateListener$FrameReplay;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-772653942, "Lcom/baidu/searchbox/fluency/listener/FrameRateListener$FrameReplay;");
+                    return;
+                }
+            }
+            Companion = new Companion(null);
+        }
+
         @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0004\u0010\u0005J\r\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\u0002\u0010\u0003¨\u0006\u0006"}, d2 = {"Lcom/baidu/searchbox/fluency/listener/FrameRateListener$FrameReplay$Companion;", "Lcom/baidu/searchbox/fluency/listener/FrameRateListener$FrameReplay;", "create", "()Lcom/baidu/searchbox/fluency/listener/FrameRateListener$FrameReplay;", "<init>", "()V", "lib-fps_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
         /* loaded from: classes2.dex */
-        public static final class Companion {
+        public final class Companion {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -87,6 +107,10 @@ public class FrameRateListener {
                         interceptable.invokeInitBody(65536, newInitContext);
                     }
                 }
+            }
+
+            public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
+                this();
             }
 
             public final FrameReplay create() {
@@ -106,26 +130,6 @@ public class FrameRateListener {
                 }
                 return (FrameReplay) invokeV.objValue;
             }
-
-            public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
-                this();
-            }
-        }
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-772653942, "Lcom/baidu/searchbox/fluency/listener/FrameRateListener$FrameReplay;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-772653942, "Lcom/baidu/searchbox/fluency/listener/FrameRateListener$FrameReplay;");
-                    return;
-                }
-            }
-            Companion = new Companion(null);
         }
 
         public FrameReplay() {
@@ -147,66 +151,89 @@ public class FrameRateListener {
         public final long getAnimationCostNs() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.animationCostNs : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.animationCostNs;
+            }
+            return invokeV.longValue;
         }
 
         public final int getDropFrame() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.dropFrame : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.dropFrame;
+            }
+            return invokeV.intValue;
         }
 
         public final long getEndNs() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.endNs : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.endNs;
+            }
+            return invokeV.longValue;
         }
 
         public final long getInputCostNs() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.inputCostNs : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.inputCostNs;
+            }
+            return invokeV.longValue;
         }
 
         public final long getStartNs() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.startNs : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.startNs;
+            }
+            return invokeV.longValue;
         }
 
         public final String getTopPage() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.topPage : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return this.topPage;
+            }
+            return (String) invokeV.objValue;
         }
 
         public final long getTraversalCostNs() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.traversalCostNs : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return this.traversalCostNs;
+            }
+            return invokeV.longValue;
         }
 
         public final boolean isVsyncFrame() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.isVsyncFrame : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                return this.isVsyncFrame;
+            }
+            return invokeV.booleanValue;
         }
 
         public final void recycle() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || FrameRateListener.framePool.size() > 1000) {
-                return;
-            }
-            synchronized (FrameRateListener.framePool) {
-                this.topPage = "";
-                this.startNs = 0L;
-                this.endNs = 0L;
-                this.dropFrame = 0;
-                this.isVsyncFrame = false;
-                this.inputCostNs = 0L;
-                this.animationCostNs = 0L;
-                this.traversalCostNs = 0L;
-                FrameRateListener.framePool.add(this);
+            if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && FrameRateListener.framePool.size() <= 1000) {
+                synchronized (FrameRateListener.framePool) {
+                    this.topPage = "";
+                    this.startNs = 0L;
+                    this.endNs = 0L;
+                    this.dropFrame = 0;
+                    this.isVsyncFrame = false;
+                    this.inputCostNs = 0L;
+                    this.animationCostNs = 0L;
+                    this.traversalCostNs = 0L;
+                    FrameRateListener.framePool.add(this);
+                }
             }
         }
 
@@ -268,6 +295,31 @@ public class FrameRateListener {
         }
     }
 
+    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0010\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0005\u0010\u0006R\u001c\u0010\u0003\u001a\b\u0012\u0004\u0012\u00020\u00020\u00018\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u0003\u0010\u0004¨\u0006\u0007"}, d2 = {"Lcom/baidu/searchbox/fluency/listener/FrameRateListener$Companion;", "Ljava/util/LinkedList;", "Lcom/baidu/searchbox/fluency/listener/FrameRateListener$FrameReplay;", "framePool", "Ljava/util/LinkedList;", "<init>", "()V", "lib-fps_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    /* loaded from: classes2.dex */
+    public final class Companion {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public Companion() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -282,7 +334,7 @@ public class FrameRateListener {
             }
         }
         Companion = new Companion(null);
-        framePool = new LinkedList<>();
+        framePool = new LinkedList();
     }
 
     public FrameRateListener() {
@@ -298,10 +350,18 @@ public class FrameRateListener {
                 return;
             }
         }
-        this.frameList = new LinkedList<>();
+        this.frameList = new LinkedList();
     }
 
-    @CallSuper
+    public Executor getExecutor() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.executor;
+        }
+        return (Executor) invokeV.objValue;
+    }
+
     public void collect(String topPage, long j, long j2, int i, boolean z, long j3, long j4, long j5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{topPage, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Boolean.valueOf(z), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5)}) == null) {
@@ -360,41 +420,5 @@ public class FrameRateListener {
                 });
             }
         }
-    }
-
-    public void doFrameAsync(String topPage, long j, long j2, int i, boolean z, long j3, long j4, long j5) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{topPage, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Boolean.valueOf(z), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5)}) == null) {
-            Intrinsics.checkNotNullParameter(topPage, "topPage");
-        }
-    }
-
-    public void doFrameSync(String topPage, long j, long j2, int i, boolean z, long j3, long j4, long j5) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{topPage, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Boolean.valueOf(z), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5)}) == null) {
-            Intrinsics.checkNotNullParameter(topPage, "topPage");
-        }
-    }
-
-    public void doReplay(List<FrameReplay> frameList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, frameList) == null) {
-            Intrinsics.checkNotNullParameter(frameList, "frameList");
-        }
-    }
-
-    public Executor getExecutor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.executor : (Executor) invokeV.objValue;
-    }
-
-    public int getIntervalFrameReplay() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
     }
 }

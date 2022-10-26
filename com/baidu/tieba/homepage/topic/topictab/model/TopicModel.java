@@ -6,8 +6,8 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.homepage.topic.topictab.message.RequestGetTopicListMessage;
-import com.baidu.tieba.m57;
-import com.baidu.tieba.pb;
+import com.baidu.tieba.qb;
+import com.baidu.tieba.u57;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -15,28 +15,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 public class TopicModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public m57 a;
-    public pb b;
-    public pb c;
+    public u57 a;
+    public qb b;
+    public qb c;
     public boolean d;
-
-    public void A(m57 m57Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, m57Var) == null) {
-            this.a = m57Var;
-        }
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            cancelMessage();
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean loadData() {
@@ -48,12 +30,10 @@ public class TopicModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public void onDestroy() {
+    public void A(u57 u57Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.b);
-            MessageManager.getInstance().unRegisterListener(this.c);
-            this.d = false;
+        if (interceptable == null || interceptable.invokeL(1048576, this, u57Var) == null) {
+            this.a = u57Var;
         }
     }
 
@@ -69,13 +49,33 @@ public class TopicModel extends BdBaseModel {
         }
     }
 
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            cancelMessage();
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.b);
+            MessageManager.getInstance().unRegisterListener(this.c);
+            this.d = false;
+        }
+    }
+
     public void z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                m57 m57Var = this.a;
-                if (m57Var != null) {
-                    m57Var.j(-1, null);
+                u57 u57Var = this.a;
+                if (u57Var != null) {
+                    u57Var.j(-1, null);
                 }
             } else if (this.d) {
             } else {

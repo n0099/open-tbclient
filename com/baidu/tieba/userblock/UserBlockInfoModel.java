@@ -10,13 +10,13 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kp4;
-import com.baidu.tieba.pb;
+import com.baidu.tieba.lp4;
+import com.baidu.tieba.qb;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.sm8;
 import com.baidu.tieba.userblock.message.UserBlockInfoHttpResponseMessage;
 import com.baidu.tieba.userblock.message.UserBlockInfoRequestMessage;
 import com.baidu.tieba.userblock.message.UserBlockInfoSocketResponseMessage;
+import com.baidu.tieba.zm8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,11 +28,31 @@ public class UserBlockInfoModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
-    public kp4 b;
-    public pb c;
+    public lp4 b;
+    public qb c;
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
     /* loaded from: classes6.dex */
-    public class a extends pb {
+    public class a extends qb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UserBlockInfoModel a;
@@ -59,28 +79,30 @@ public class UserBlockInfoModel extends BdBaseModel {
             this.a = userBlockInfoModel;
         }
 
-        @Override // com.baidu.tieba.pb
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
+        @Override // com.baidu.tieba.qb
+        public void onMessage(ResponsedMessage responsedMessage) {
             UserBlockInfoRequestMessage userBlockInfoRequestMessage;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || this.a.b == null || responsedMessage == null || (userBlockInfoRequestMessage = (UserBlockInfoRequestMessage) responsedMessage.getmOrginalMessage().getExtra()) == null || userBlockInfoRequestMessage.getBlockUserId() != this.a.a) {
-                return;
-            }
-            int error = responsedMessage.getError();
-            String errorString = responsedMessage.getErrorString();
-            if (error == 0 && !responsedMessage.hasError()) {
-                DataRes data = responsedMessage instanceof UserBlockInfoSocketResponseMessage ? ((UserBlockInfoSocketResponseMessage) responsedMessage).getData() : null;
-                if (responsedMessage instanceof UserBlockInfoHttpResponseMessage) {
-                    data = ((UserBlockInfoHttpResponseMessage) responsedMessage).getData();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) && this.a.b != null && responsedMessage != null && (userBlockInfoRequestMessage = (UserBlockInfoRequestMessage) responsedMessage.getmOrginalMessage().getExtra()) != null && userBlockInfoRequestMessage.getBlockUserId() == this.a.a) {
+                int error = responsedMessage.getError();
+                String errorString = responsedMessage.getErrorString();
+                if (error == 0 && !responsedMessage.hasError()) {
+                    DataRes dataRes = null;
+                    if (responsedMessage instanceof UserBlockInfoSocketResponseMessage) {
+                        dataRes = ((UserBlockInfoSocketResponseMessage) responsedMessage).getData();
+                    }
+                    if (responsedMessage instanceof UserBlockInfoHttpResponseMessage) {
+                        dataRes = ((UserBlockInfoHttpResponseMessage) responsedMessage).getData();
+                    }
+                    this.a.b.onSuccess(dataRes);
+                    this.a.a = -1L;
+                    return;
                 }
-                this.a.b.onSuccess(data);
-                this.a.a = -1L;
-                return;
+                if (StringUtils.isNull(errorString)) {
+                    errorString = this.a.D(R.string.error_unkown_try_again);
+                }
+                this.a.b.onError(error, errorString);
             }
-            if (StringUtils.isNull(errorString)) {
-                errorString = this.a.D(R.string.error_unkown_try_again);
-            }
-            this.a.b.onError(error, errorString);
         }
     }
 
@@ -110,18 +132,10 @@ public class UserBlockInfoModel extends BdBaseModel {
     public final String D(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? TbadkCoreApplication.getInst().getString(i) : (String) invokeI.objValue;
-    }
-
-    public void E() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            sm8.h(309698, UserBlockInfoSocketResponseMessage.class, false, false);
-            sm8.c(309698, CmdConfigHttp.CMD_GET_USER_BLOCK_INFO, TbConfig.URL_GET_USER_BLOCK_INFO, UserBlockInfoHttpResponseMessage.class, true, false, true, false);
-            this.c.getHttpMessageListener().setSelfListener(true);
-            this.c.getSocketMessageListener().setSelfListener(true);
-            registerListener(this.c);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return TbadkCoreApplication.getInst().getString(i);
         }
+        return (String) invokeI.objValue;
     }
 
     public void F(long j) {
@@ -134,31 +148,22 @@ public class UserBlockInfoModel extends BdBaseModel {
         }
     }
 
-    public void G(kp4 kp4Var) {
+    public void G(lp4 lp4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, kp4Var) == null) {
-            this.b = kp4Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, lp4Var) == null) {
+            this.b = lp4Var;
         }
     }
 
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        InterceptResult invokeV;
+    public void E() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return false;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            zm8.h(309698, UserBlockInfoSocketResponseMessage.class, false, false);
+            zm8.c(309698, CmdConfigHttp.CMD_GET_USER_BLOCK_INFO, TbConfig.URL_GET_USER_BLOCK_INFO, UserBlockInfoHttpResponseMessage.class, true, false, true, false);
+            this.c.getHttpMessageListener().setSelfListener(true);
+            this.c.getSocketMessageListener().setSelfListener(true);
+            registerListener(this.c);
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean loadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 
     public void onDestroy() {

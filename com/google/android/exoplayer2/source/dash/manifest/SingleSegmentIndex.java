@@ -13,24 +13,6 @@ public final class SingleSegmentIndex implements DashSegmentIndex {
     public transient /* synthetic */ FieldHolder $fh;
     public final RangedUri uri;
 
-    public SingleSegmentIndex(RangedUri rangedUri) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {rangedUri};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.uri = rangedUri;
-    }
-
     @Override // com.google.android.exoplayer2.source.dash.DashSegmentIndex
     public long getDurationUs(int i, long j) {
         InterceptResult invokeCommon;
@@ -69,13 +51,6 @@ public final class SingleSegmentIndex implements DashSegmentIndex {
     }
 
     @Override // com.google.android.exoplayer2.source.dash.DashSegmentIndex
-    public RangedUri getSegmentUrl(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? this.uri : (RangedUri) invokeI.objValue;
-    }
-
-    @Override // com.google.android.exoplayer2.source.dash.DashSegmentIndex
     public long getTimeUs(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -93,5 +68,33 @@ public final class SingleSegmentIndex implements DashSegmentIndex {
             return true;
         }
         return invokeV.booleanValue;
+    }
+
+    public SingleSegmentIndex(RangedUri rangedUri) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {rangedUri};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.uri = rangedUri;
+    }
+
+    @Override // com.google.android.exoplayer2.source.dash.DashSegmentIndex
+    public RangedUri getSegmentUrl(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            return this.uri;
+        }
+        return (RangedUri) invokeI.objValue;
     }
 }

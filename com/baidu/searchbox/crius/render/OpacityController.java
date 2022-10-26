@@ -19,6 +19,12 @@ public final class OpacityController {
     public double opacity;
     public double opacityActive;
 
+    private final boolean isOpacityValid(double d) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{Double.valueOf(d)})) == null) ? d >= 0.0d && d <= 1.0d : invokeCommon.booleanValue;
+    }
+
     public OpacityController(boolean z, boolean z2, RenderData.Opacities opacities) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -37,7 +43,7 @@ public final class OpacityController {
         Intrinsics.checkNotNullParameter(opacities, "opacities");
         this.opacity = -10000.0d;
         this.opacityActive = -10000.0d;
-        if (z && z2) {
+        if (z & z2) {
             if (isOpacityValid(opacities.opacityNightVisitedActive)) {
                 this.opacityActive = opacities.opacityNightVisitedActive;
             } else if (isOpacityValid(opacities.opacityNightActive)) {
@@ -52,7 +58,7 @@ public final class OpacityController {
             } else {
                 this.opacity = opacities.opacity;
             }
-        } else if ((!z2) && z) {
+        } else if ((!z2) & z) {
             if (isOpacityValid(opacities.opacityNightActive)) {
                 this.opacityActive = opacities.opacityNightActive;
             } else {
@@ -63,12 +69,7 @@ public final class OpacityController {
             } else {
                 this.opacity = opacities.opacity;
             }
-        } else if (!(!z) || !z2) {
-            if ((!z) && (!z2)) {
-                this.opacityActive = opacities.opacityActive;
-                this.opacity = opacities.opacity;
-            }
-        } else {
+        } else if ((!z) & z2) {
             if (isOpacityValid(opacities.opacityVisitedActive)) {
                 this.opacityActive = opacities.opacityVisitedActive;
             } else {
@@ -79,13 +80,10 @@ public final class OpacityController {
             } else {
                 this.opacity = opacities.opacity;
             }
+        } else if ((!z) & (!z2)) {
+            this.opacityActive = opacities.opacityActive;
+            this.opacity = opacities.opacity;
         }
-    }
-
-    private final boolean isOpacityValid(double d) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{Double.valueOf(d)})) == null) ? d >= 0.0d && d <= 1.0d : invokeCommon.booleanValue;
     }
 
     public final void updateOpacity(View view2, boolean z) {
@@ -95,13 +93,12 @@ public final class OpacityController {
             if (z && isOpacityValid(this.opacityActive)) {
                 view2.setAlpha((float) this.opacityActive);
             }
-            if (z) {
-                return;
-            }
-            if (isOpacityValid(this.opacity)) {
-                view2.setAlpha((float) this.opacity);
-            } else {
-                view2.setAlpha(1.0f);
+            if (!z) {
+                if (isOpacityValid(this.opacity)) {
+                    view2.setAlpha((float) this.opacity);
+                } else {
+                    view2.setAlpha(1.0f);
+                }
             }
         }
     }

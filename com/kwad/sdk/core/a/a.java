@@ -1,7 +1,6 @@
 package com.kwad.sdk.core.a;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
 import com.kwad.sdk.service.ServiceProvider;
 import com.kwad.sdk.utils.au;
 import com.kwad.sdk.utils.n;
@@ -17,7 +16,7 @@ public final class a implements h {
     }
 
     @Override // com.kwad.sdk.core.a.h
-    public final void a(String str, Map<String, String> map, String str2) {
+    public final void a(String str, Map map, String str2) {
         e.a(str, map, str2);
     }
 
@@ -33,7 +32,7 @@ public final class a implements h {
     }
 
     @Override // com.kwad.sdk.core.a.h
-    public final void c(@NonNull Map<String, String> map) {
+    public final void c(Map map) {
         map.put("Ks-PkgId", tf());
         map.put("Ks-Encoding", "2");
     }

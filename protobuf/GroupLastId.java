@@ -27,10 +27,16 @@ public final class GroupLastId extends Message {
     public final Long lastMsgId;
 
     /* loaded from: classes9.dex */
-    public static final class Builder extends Message.Builder<GroupLastId> {
+    public /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<Long> excludeMid;
+    }
+
+    /* loaded from: classes9.dex */
+    public final class Builder extends Message.Builder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public List excludeMid;
         public Long groupId;
         public Long lastMsgId;
 
@@ -79,14 +85,11 @@ public final class GroupLastId extends Message {
         public GroupLastId build(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) ? new GroupLastId(this, z, null) : (GroupLastId) invokeZ.objValue;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+                return new GroupLastId(this, z, null);
+            }
+            return (GroupLastId) invokeZ.objValue;
         }
-    }
-
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
     }
 
     static {
@@ -105,10 +108,6 @@ public final class GroupLastId extends Message {
         DEFAULT_GROUPID = 0L;
         DEFAULT_LASTMSGID = 0L;
         DEFAULT_EXCLUDEMID = Collections.emptyList();
-    }
-
-    public /* synthetic */ GroupLastId(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -142,7 +141,7 @@ public final class GroupLastId extends Message {
             } else {
                 this.lastMsgId = l2;
             }
-            List<Long> list = builder.excludeMid;
+            List list = builder.excludeMid;
             if (list == null) {
                 this.excludeMid = DEFAULT_EXCLUDEMID;
                 return;
@@ -154,5 +153,9 @@ public final class GroupLastId extends Message {
         this.groupId = builder.groupId;
         this.lastMsgId = builder.lastMsgId;
         this.excludeMid = Message.immutableCopyOf(builder.excludeMid);
+    }
+
+    public /* synthetic */ GroupLastId(Builder builder, boolean z, a aVar) {
+        this(builder, z);
     }
 }

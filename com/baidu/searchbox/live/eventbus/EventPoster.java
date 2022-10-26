@@ -10,12 +10,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class EventPoster {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Class<?> eventType;
+    public Class eventType;
     public IActionHandler handler;
     public EventAction mAction;
     public volatile int threadMode;
 
-    public EventPoster(int i, Class<?> cls, EventAction eventAction, IActionHandler iActionHandler) {
+    public EventPoster(int i, Class cls, EventAction eventAction, IActionHandler iActionHandler) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -38,10 +38,21 @@ public class EventPoster {
 
     public void call(Object obj) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, obj) == null) || this.mAction == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && this.mAction != null) {
+            this.handler.execute(this.threadMode, obj, this.mAction);
         }
-        this.handler.execute(this.threadMode, obj, this.mAction);
+    }
+
+    public boolean isSupport(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (obj.getClass() == this.eventType) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     public void clear() {
@@ -50,11 +61,5 @@ public class EventPoster {
             this.threadMode = 1;
             this.mAction = null;
         }
-    }
-
-    public boolean isSupport(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) ? obj.getClass() == this.eventType : invokeL.booleanValue;
     }
 }

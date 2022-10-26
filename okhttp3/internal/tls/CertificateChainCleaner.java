@@ -16,6 +16,8 @@ public abstract class CertificateChainCleaner {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract List<Certificate> clean(List<Certificate> list, String str) throws SSLPeerUnverifiedException;
+
     public CertificateChainCleaner() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -33,14 +35,18 @@ public abstract class CertificateChainCleaner {
     public static CertificateChainCleaner get(X509TrustManager x509TrustManager) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, x509TrustManager)) == null) ? Platform.get().buildCertificateChainCleaner(x509TrustManager) : (CertificateChainCleaner) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, x509TrustManager)) == null) {
+            return Platform.get().buildCertificateChainCleaner(x509TrustManager);
+        }
+        return (CertificateChainCleaner) invokeL.objValue;
     }
-
-    public abstract List<Certificate> clean(List<Certificate> list, String str) throws SSLPeerUnverifiedException;
 
     public static CertificateChainCleaner get(X509Certificate... x509CertificateArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, x509CertificateArr)) == null) ? new BasicCertificateChainCleaner(new BasicTrustRootIndex(x509CertificateArr)) : (CertificateChainCleaner) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, x509CertificateArr)) == null) {
+            return new BasicCertificateChainCleaner(new BasicTrustRootIndex(x509CertificateArr));
+        }
+        return (CertificateChainCleaner) invokeL.objValue;
     }
 }

@@ -14,7 +14,7 @@ import org.aspectj.lang.reflect.TypePattern;
 public class DeclarePrecedenceImpl implements DeclarePrecedence {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AjType<?> declaringType;
+    public AjType declaringType;
     public TypePattern[] precedenceList;
     public String precedenceString;
 
@@ -40,11 +40,12 @@ public class DeclarePrecedenceImpl implements DeclarePrecedence {
         int i3 = 0;
         while (true) {
             TypePattern[] typePatternArr = this.precedenceList;
-            if (i3 >= typePatternArr.length) {
+            if (i3 < typePatternArr.length) {
+                typePatternArr[i3] = new TypePatternImpl(stringTokenizer.nextToken().trim());
+                i3++;
+            } else {
                 return;
             }
-            typePatternArr[i3] = new TypePatternImpl(stringTokenizer.nextToken().trim());
-            i3++;
         }
     }
 
@@ -52,14 +53,20 @@ public class DeclarePrecedenceImpl implements DeclarePrecedence {
     public AjType getDeclaringType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.declaringType : (AjType) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.declaringType;
+        }
+        return (AjType) invokeV.objValue;
     }
 
     @Override // org.aspectj.lang.reflect.DeclarePrecedence
     public TypePattern[] getPrecedenceOrder() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.precedenceList : (TypePattern[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.precedenceList;
+        }
+        return (TypePattern[]) invokeV.objValue;
     }
 
     public String toString() {

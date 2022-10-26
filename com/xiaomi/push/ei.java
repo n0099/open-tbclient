@@ -80,7 +80,7 @@ public class ei implements eg {
                 try {
                     if (TextUtils.isEmpty(a2)) {
                         dz.a(context, d, 1008, "info is empty");
-                    } else if (a == 1 && !ed.m306a(context)) {
+                    } else if (a == 1 && !ed.m305a(context)) {
                         dz.a(context, d, 1008, "A not in foreground");
                     } else {
                         String type = context.getContentResolver().getType(dy.a(b, a2));

@@ -36,7 +36,7 @@ import java.util.Queue;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes7.dex */
-public final class HlsPlaylistParser implements ParsingLoadable.Parser<HlsPlaylist> {
+public final class HlsPlaylistParser implements ParsingLoadable.Parser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ATTR_CLOSED_CAPTIONS_NONE = "CLOSED-CAPTIONS=NONE";
     public static final String BOOLEAN_FALSE = "NO";
@@ -97,14 +97,14 @@ public final class HlsPlaylistParser implements ParsingLoadable.Parser<HlsPlayli
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static class LineIterator {
+    public class LineIterator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Queue<String> extraLines;
+        public final Queue extraLines;
         public String next;
         public final BufferedReader reader;
 
-        public LineIterator(Queue<String> queue, BufferedReader bufferedReader) {
+        public LineIterator(Queue queue, BufferedReader bufferedReader) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -132,17 +132,18 @@ public final class HlsPlaylistParser implements ParsingLoadable.Parser<HlsPlayli
                     return true;
                 }
                 if (!this.extraLines.isEmpty()) {
-                    this.next = this.extraLines.poll();
+                    this.next = (String) this.extraLines.poll();
                     return true;
                 }
                 do {
                     String readLine = this.reader.readLine();
                     this.next = readLine;
-                    if (readLine == null) {
+                    if (readLine != null) {
+                        trim = readLine.trim();
+                        this.next = trim;
+                    } else {
                         return false;
                     }
-                    trim = readLine.trim();
-                    this.next = trim;
                 } while (trim.isEmpty());
                 return true;
             }
@@ -153,12 +154,12 @@ public final class HlsPlaylistParser implements ParsingLoadable.Parser<HlsPlayli
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (hasNext()) {
-                    String str = this.next;
-                    this.next = null;
-                    return str;
+                if (!hasNext()) {
+                    return null;
                 }
-                return null;
+                String str = this.next;
+                this.next = null;
+                return str;
             }
             return (String) invokeV.objValue;
         }
@@ -254,7 +255,10 @@ public final class HlsPlaylistParser implements ParsingLoadable.Parser<HlsPlayli
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, pattern, z)) == null) {
             Matcher matcher = pattern.matcher(str);
-            return matcher.find() ? matcher.group(1).equals(BOOLEAN_TRUE) : z;
+            if (matcher.find()) {
+                return matcher.group(1).equals(BOOLEAN_TRUE);
+            }
+            return z;
         }
         return invokeLLZ.booleanValue;
     }
@@ -262,13 +266,32 @@ public final class HlsPlaylistParser implements ParsingLoadable.Parser<HlsPlayli
     public static double parseDoubleAttr(String str, Pattern pattern) throws ParserException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, pattern)) == null) ? Double.parseDouble(parseStringAttr(str, pattern)) : invokeLL.doubleValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, pattern)) == null) {
+            return Double.parseDouble(parseStringAttr(str, pattern));
+        }
+        return invokeLL.doubleValue;
     }
 
     public static int parseIntAttr(String str, Pattern pattern) throws ParserException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, pattern)) == null) ? Integer.parseInt(parseStringAttr(str, pattern)) : invokeLL.intValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, pattern)) == null) {
+            return Integer.parseInt(parseStringAttr(str, pattern));
+        }
+        return invokeLL.intValue;
+    }
+
+    public static String parseOptionalStringAttr(String str, Pattern pattern) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, str, pattern)) == null) {
+            Matcher matcher = pattern.matcher(str);
+            if (matcher.find()) {
+                return matcher.group(1);
+            }
+            return null;
+        }
+        return (String) invokeLL.objValue;
     }
 
     /* JADX WARN: Multi-variable type inference failed */
@@ -280,26 +303,28 @@ public final class HlsPlaylistParser implements ParsingLoadable.Parser<HlsPlayli
     */
     public static HlsMasterPlaylist parseMasterPlaylist(LineIterator lineIterator, String str) throws IOException {
         InterceptResult invokeLL;
+        ArrayList arrayList;
         char c;
         int parseInt;
         String str2;
         int i;
         int i2;
+        float f;
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, lineIterator, str)) == null) {
             HashSet hashSet = new HashSet();
-            ArrayList arrayList = new ArrayList();
             ArrayList arrayList2 = new ArrayList();
             ArrayList arrayList3 = new ArrayList();
             ArrayList arrayList4 = new ArrayList();
-            ArrayList arrayList5 = null;
+            ArrayList arrayList5 = new ArrayList();
+            ArrayList arrayList6 = null;
             Format format = null;
             boolean z = false;
             while (lineIterator.hasNext()) {
                 String next = lineIterator.next();
                 if (next.startsWith(TAG_PREFIX)) {
-                    arrayList4.add(next);
+                    arrayList5.add(next);
                 }
                 if (next.startsWith(TAG_MEDIA)) {
                     int parseSelectionFlags = parseSelectionFlags(next);
@@ -308,55 +333,61 @@ public final class HlsPlaylistParser implements ParsingLoadable.Parser<HlsPlayli
                     String parseOptionalStringAttr2 = parseOptionalStringAttr(next, REGEX_LANGUAGE);
                     String parseStringAttr2 = parseStringAttr(next, REGEX_TYPE);
                     int hashCode = parseStringAttr2.hashCode();
-                    if (hashCode == -959297733) {
-                        if (parseStringAttr2.equals(TYPE_SUBTITLES)) {
-                            c = 1;
-                            if (c != 0) {
-                            }
-                        }
-                        c = 65535;
-                        if (c != 0) {
-                        }
-                    } else if (hashCode != -333210994) {
-                        if (hashCode == 62628790 && parseStringAttr2.equals(TYPE_AUDIO)) {
-                            c = 0;
-                            if (c != 0) {
-                                Format createAudioContainerFormat = Format.createAudioContainerFormat(parseStringAttr, MimeTypes.APPLICATION_M3U8, null, null, -1, -1, -1, null, parseSelectionFlags, parseOptionalStringAttr2);
-                                if (parseOptionalStringAttr == null) {
-                                    format = createAudioContainerFormat;
+                    if (hashCode != -959297733) {
+                        if (hashCode != -333210994) {
+                            if (hashCode == 62628790 && parseStringAttr2.equals(TYPE_AUDIO)) {
+                                c = 0;
+                                if (c == 0) {
+                                    if (c != 1) {
+                                        if (c == 2) {
+                                            String parseStringAttr3 = parseStringAttr(next, REGEX_INSTREAM_ID);
+                                            if (parseStringAttr3.startsWith("CC")) {
+                                                parseInt = Integer.parseInt(parseStringAttr3.substring(2));
+                                                str2 = MimeTypes.APPLICATION_CEA608;
+                                            } else {
+                                                parseInt = Integer.parseInt(parseStringAttr3.substring(7));
+                                                str2 = MimeTypes.APPLICATION_CEA708;
+                                            }
+                                            int i4 = parseInt;
+                                            String str3 = str2;
+                                            if (arrayList6 == null) {
+                                                arrayList6 = new ArrayList();
+                                            }
+                                            arrayList6.add(Format.createTextContainerFormat(parseStringAttr, null, str3, null, -1, parseSelectionFlags, parseOptionalStringAttr2, i4));
+                                        }
+                                    } else {
+                                        arrayList4.add(new HlsMasterPlaylist.HlsUrl(parseOptionalStringAttr, Format.createTextContainerFormat(parseStringAttr, MimeTypes.APPLICATION_M3U8, MimeTypes.TEXT_VTT, null, -1, parseSelectionFlags, parseOptionalStringAttr2)));
+                                    }
                                 } else {
-                                    arrayList2.add(new HlsMasterPlaylist.HlsUrl(parseOptionalStringAttr, createAudioContainerFormat));
+                                    Format createAudioContainerFormat = Format.createAudioContainerFormat(parseStringAttr, MimeTypes.APPLICATION_M3U8, null, null, -1, -1, -1, null, parseSelectionFlags, parseOptionalStringAttr2);
+                                    if (parseOptionalStringAttr == null) {
+                                        format = createAudioContainerFormat;
+                                    } else {
+                                        arrayList3.add(new HlsMasterPlaylist.HlsUrl(parseOptionalStringAttr, createAudioContainerFormat));
+                                    }
                                 }
-                            } else if (c == 1) {
-                                arrayList3.add(new HlsMasterPlaylist.HlsUrl(parseOptionalStringAttr, Format.createTextContainerFormat(parseStringAttr, MimeTypes.APPLICATION_M3U8, MimeTypes.TEXT_VTT, null, -1, parseSelectionFlags, parseOptionalStringAttr2)));
-                            } else if (c == 2) {
-                                String parseStringAttr3 = parseStringAttr(next, REGEX_INSTREAM_ID);
-                                if (parseStringAttr3.startsWith("CC")) {
-                                    parseInt = Integer.parseInt(parseStringAttr3.substring(2));
-                                    str2 = MimeTypes.APPLICATION_CEA608;
-                                } else {
-                                    parseInt = Integer.parseInt(parseStringAttr3.substring(7));
-                                    str2 = MimeTypes.APPLICATION_CEA708;
-                                }
-                                int i4 = parseInt;
-                                String str3 = str2;
-                                if (arrayList5 == null) {
-                                    arrayList5 = new ArrayList();
-                                }
-                                arrayList5.add(Format.createTextContainerFormat(parseStringAttr, null, str3, null, -1, parseSelectionFlags, parseOptionalStringAttr2, i4));
                             }
-                        }
-                        c = 65535;
-                        if (c != 0) {
+                            c = 65535;
+                            if (c == 0) {
+                            }
+                        } else {
+                            if (parseStringAttr2.equals(TYPE_CLOSED_CAPTIONS)) {
+                                c = 2;
+                                if (c == 0) {
+                                }
+                            }
+                            c = 65535;
+                            if (c == 0) {
+                            }
                         }
                     } else {
-                        if (parseStringAttr2.equals(TYPE_CLOSED_CAPTIONS)) {
-                            c = 2;
-                            if (c != 0) {
+                        if (parseStringAttr2.equals(TYPE_SUBTITLES)) {
+                            c = 1;
+                            if (c == 0) {
                             }
                         }
                         c = 65535;
-                        if (c != 0) {
+                        if (c == 0) {
                         }
                     }
                 } else if (next.startsWith(TAG_STREAM_INF)) {
@@ -373,11 +404,11 @@ public final class HlsPlaylistParser implements ParsingLoadable.Parser<HlsPlayli
                         String[] split = parseOptionalStringAttr5.split("x");
                         int parseInt2 = Integer.parseInt(split[0]);
                         int parseInt3 = Integer.parseInt(split[1]);
-                        if (parseInt2 <= 0 || parseInt3 <= 0) {
+                        if (parseInt2 > 0 && parseInt3 > 0) {
+                            i3 = parseInt3;
+                        } else {
                             parseInt2 = -1;
                             i3 = -1;
-                        } else {
-                            i3 = parseInt3;
                         }
                         i = parseInt2;
                         i2 = i3;
@@ -386,20 +417,31 @@ public final class HlsPlaylistParser implements ParsingLoadable.Parser<HlsPlayli
                         i2 = -1;
                     }
                     String parseOptionalStringAttr6 = parseOptionalStringAttr(next, REGEX_FRAME_RATE);
-                    float parseFloat = parseOptionalStringAttr6 != null ? Float.parseFloat(parseOptionalStringAttr6) : -1.0f;
+                    if (parseOptionalStringAttr6 != null) {
+                        f = Float.parseFloat(parseOptionalStringAttr6);
+                    } else {
+                        f = -1.0f;
+                    }
                     String next2 = lineIterator.next();
                     if (hashSet.add(next2)) {
-                        arrayList.add(new HlsMasterPlaylist.HlsUrl(next2, Format.createVideoContainerFormat(Integer.toString(arrayList.size()), MimeTypes.APPLICATION_M3U8, null, parseOptionalStringAttr4, i5, i, i2, parseFloat, null, 0)));
+                        arrayList2.add(new HlsMasterPlaylist.HlsUrl(next2, Format.createVideoContainerFormat(Integer.toString(arrayList2.size()), MimeTypes.APPLICATION_M3U8, null, parseOptionalStringAttr4, i5, i, i2, f, null, 0)));
                     }
                 }
             }
-            return new HlsMasterPlaylist(str, arrayList4, arrayList, arrayList2, arrayList3, format, z ? Collections.emptyList() : arrayList5);
+            if (z) {
+                arrayList = Collections.emptyList();
+            } else {
+                arrayList = arrayList6;
+            }
+            return new HlsMasterPlaylist(str, arrayList5, arrayList2, arrayList3, arrayList4, format, arrayList);
         }
         return (HlsMasterPlaylist) invokeLL.objValue;
     }
 
     public static HlsMediaPlaylist parseMediaPlaylist(LineIterator lineIterator, String str) throws IOException {
         InterceptResult invokeLL;
+        boolean z;
+        String str2;
         String hexString;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, lineIterator, str)) == null) {
@@ -410,20 +452,20 @@ public final class HlsPlaylistParser implements ParsingLoadable.Parser<HlsPlayli
             int i = 0;
             int i2 = 0;
             long j3 = 0;
-            boolean z = false;
+            boolean z2 = false;
             int i3 = 0;
             int i4 = 0;
             int i5 = 1;
-            boolean z2 = false;
             boolean z3 = false;
+            boolean z4 = false;
             DrmInitData drmInitData = null;
             HlsMediaPlaylist.Segment segment = null;
             long j4 = 0;
             int i6 = 0;
             long j5 = -1;
-            String str2 = null;
-            long j6 = 0;
             String str3 = null;
+            long j6 = 0;
+            String str4 = null;
             loop0: while (true) {
                 long j7 = 0;
                 while (lineIterator.hasNext()) {
@@ -465,22 +507,27 @@ public final class HlsPlaylistParser implements ParsingLoadable.Parser<HlsPlayli
                     } else if (next.startsWith(TAG_KEY)) {
                         String parseStringAttr3 = parseStringAttr(next, REGEX_METHOD);
                         String parseOptionalStringAttr2 = parseOptionalStringAttr(next, REGEX_KEYFORMAT);
-                        if (METHOD_NONE.equals(parseStringAttr3)) {
-                            str2 = null;
-                            str3 = null;
-                        } else {
+                        if (!METHOD_NONE.equals(parseStringAttr3)) {
                             String parseOptionalStringAttr3 = parseOptionalStringAttr(next, REGEX_IV);
                             if (!"identity".equals(parseOptionalStringAttr2) && parseOptionalStringAttr2 != null) {
                                 DrmInitData.SchemeData parseWidevineSchemeData = parseWidevineSchemeData(next, parseOptionalStringAttr2);
                                 if (parseWidevineSchemeData != null) {
-                                    drmInitData = new DrmInitData(METHOD_SAMPLE_AES_CENC.equals(parseStringAttr3) ? "cenc" : C.CENC_TYPE_cbcs, parseWidevineSchemeData);
+                                    if (METHOD_SAMPLE_AES_CENC.equals(parseStringAttr3)) {
+                                        str2 = "cenc";
+                                    } else {
+                                        str2 = C.CENC_TYPE_cbcs;
+                                    }
+                                    drmInitData = new DrmInitData(str2, parseWidevineSchemeData);
                                 }
                             } else if (METHOD_AES_128.equals(parseStringAttr3)) {
-                                str2 = parseStringAttr(next, REGEX_URI);
-                                str3 = parseOptionalStringAttr3;
+                                str3 = parseStringAttr(next, REGEX_URI);
+                                str4 = parseOptionalStringAttr3;
                             }
-                            str3 = parseOptionalStringAttr3;
-                            str2 = null;
+                            str4 = parseOptionalStringAttr3;
+                            str3 = null;
+                        } else {
+                            str3 = null;
+                            str4 = null;
                         }
                     } else if (next.startsWith(TAG_BYTERANGE)) {
                         String[] split2 = parseStringAttr(next, REGEX_BYTERANGE).split("@");
@@ -490,7 +537,7 @@ public final class HlsPlaylistParser implements ParsingLoadable.Parser<HlsPlayli
                         }
                     } else if (next.startsWith(TAG_DISCONTINUITY_SEQUENCE)) {
                         i3 = Integer.parseInt(next.substring(next.indexOf(58) + 1));
-                        z = true;
+                        z2 = true;
                     } else if (next.equals(TAG_DISCONTINUITY)) {
                         i++;
                     } else if (next.startsWith(TAG_PROGRAM_DATE_TIME)) {
@@ -498,17 +545,19 @@ public final class HlsPlaylistParser implements ParsingLoadable.Parser<HlsPlayli
                             j3 = C.msToUs(Util.parseXsDateTime(next.substring(next.indexOf(58) + 1))) - j6;
                         }
                     } else if (!next.startsWith("#")) {
-                        if (str2 == null) {
+                        if (str3 == null) {
                             hexString = null;
+                        } else if (str4 != null) {
+                            hexString = str4;
                         } else {
-                            hexString = str3 != null ? str3 : Integer.toHexString(i6);
+                            hexString = Integer.toHexString(i6);
                         }
                         int i7 = i6 + 1;
                         int i8 = (j5 > (-1L) ? 1 : (j5 == (-1L) ? 0 : -1));
                         if (i8 == 0) {
                             j4 = 0;
                         }
-                        arrayList.add(new HlsMediaPlaylist.Segment(next, j7, i, j6, str2, hexString, j4, j5));
+                        arrayList.add(new HlsMediaPlaylist.Segment(next, j7, i, j6, str3, hexString, j4, j5));
                         j6 += j7;
                         if (i8 != 0) {
                             j4 += j5;
@@ -516,36 +565,40 @@ public final class HlsPlaylistParser implements ParsingLoadable.Parser<HlsPlayli
                         i6 = i7;
                         j5 = -1;
                     } else if (next.equals(TAG_INDEPENDENT_SEGMENTS)) {
-                        z2 = true;
-                    } else if (next.equals(TAG_ENDLIST)) {
                         z3 = true;
+                    } else if (next.equals(TAG_ENDLIST)) {
+                        z4 = true;
                     }
                 }
                 break loop0;
             }
-            return new HlsMediaPlaylist(i2, str, arrayList2, j, j3, z, i3, i4, i5, j2, z2, z3, j3 != 0, drmInitData, segment, arrayList);
+            if (j3 != 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            return new HlsMediaPlaylist(i2, str, arrayList2, j, j3, z2, i3, i4, i5, j2, z3, z4, z, drmInitData, segment, arrayList);
         }
         return (HlsMediaPlaylist) invokeLL.objValue;
     }
 
-    public static String parseOptionalStringAttr(String str, Pattern pattern) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, str, pattern)) == null) {
-            Matcher matcher = pattern.matcher(str);
-            if (matcher.find()) {
-                return matcher.group(1);
-            }
-            return null;
-        }
-        return (String) invokeLL.objValue;
-    }
-
     public static int parseSelectionFlags(String str) {
         InterceptResult invokeL;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
-            return (parseBooleanAttribute(str, REGEX_DEFAULT, false) ? 1 : 0) | (parseBooleanAttribute(str, REGEX_FORCED, false) ? 2 : 0) | (parseBooleanAttribute(str, REGEX_AUTOSELECT, false) ? 4 : 0);
+            int i2 = 0;
+            boolean parseBooleanAttribute = parseBooleanAttribute(str, REGEX_DEFAULT, false);
+            if (parseBooleanAttribute(str, REGEX_FORCED, false)) {
+                i = 2;
+            } else {
+                i = 0;
+            }
+            int i3 = (parseBooleanAttribute ? 1 : 0) | i;
+            if (parseBooleanAttribute(str, REGEX_AUTOSELECT, false)) {
+                i2 = 4;
+            }
+            return i3 | i2;
         }
         return invokeL.intValue;
     }
@@ -596,7 +649,6 @@ public final class HlsPlaylistParser implements ParsingLoadable.Parser<HlsPlayli
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.google.android.exoplayer2.upstream.ParsingLoadable.Parser
     public HlsPlaylist parse(Uri uri, InputStream inputStream) throws IOException {
         InterceptResult invokeLL;

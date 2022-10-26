@@ -256,6 +256,14 @@ public class KeyCycle extends Key {
         this.mCustomConstraints = new HashMap<>();
     }
 
+    @Override // androidx.constraintlayout.motion.widget.Key
+    public void load(Context context, AttributeSet attributeSet) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, context, attributeSet) == null) {
+            Loader.read(this, context.obtainStyledAttributes(attributeSet, R.styleable.KeyCycle));
+        }
+    }
+
     public void addCycleValues(HashMap<String, KeyCycleOscillator> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) {
@@ -592,14 +600,6 @@ public class KeyCycle extends Key {
             }
         }
         return invokeL.floatValue;
-    }
-
-    @Override // androidx.constraintlayout.motion.widget.Key
-    public void load(Context context, AttributeSet attributeSet) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, context, attributeSet) == null) {
-            Loader.read(this, context.obtainStyledAttributes(attributeSet, R.styleable.KeyCycle));
-        }
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */

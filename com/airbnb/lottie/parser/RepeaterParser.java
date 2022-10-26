@@ -19,18 +19,26 @@ public class RepeaterParser {
         boolean z = false;
         while (jsonReader.hasNext()) {
             int selectName = jsonReader.selectName(NAMES);
-            if (selectName == 0) {
-                str = jsonReader.nextString();
-            } else if (selectName == 1) {
-                animatableFloatValue = AnimatableValueParser.parseFloat(jsonReader, lottieComposition, false);
-            } else if (selectName == 2) {
-                animatableFloatValue2 = AnimatableValueParser.parseFloat(jsonReader, lottieComposition, false);
-            } else if (selectName == 3) {
-                animatableTransform = AnimatableTransformParser.parse(jsonReader, lottieComposition);
-            } else if (selectName != 4) {
-                jsonReader.skipValue();
+            if (selectName != 0) {
+                if (selectName != 1) {
+                    if (selectName != 2) {
+                        if (selectName != 3) {
+                            if (selectName != 4) {
+                                jsonReader.skipValue();
+                            } else {
+                                z = jsonReader.nextBoolean();
+                            }
+                        } else {
+                            animatableTransform = AnimatableTransformParser.parse(jsonReader, lottieComposition);
+                        }
+                    } else {
+                        animatableFloatValue2 = AnimatableValueParser.parseFloat(jsonReader, lottieComposition, false);
+                    }
+                } else {
+                    animatableFloatValue = AnimatableValueParser.parseFloat(jsonReader, lottieComposition, false);
+                }
             } else {
-                z = jsonReader.nextBoolean();
+                str = jsonReader.nextString();
             }
         }
         return new Repeater(str, animatableFloatValue, animatableFloatValue2, animatableTransform, z);

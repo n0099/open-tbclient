@@ -10,7 +10,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.source.TrackGroup;
-import com.google.android.exoplayer2.source.chunk.MediaChunk;
 import com.google.android.exoplayer2.util.Assertions;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -28,13 +27,13 @@ public abstract class BaseTrackSelection implements TrackSelection {
 
     /* renamed from: com.google.android.exoplayer2.trackselection.BaseTrackSelection$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes7.dex */
-    public static final class DecreasingBandwidthComparator implements Comparator<Format> {
+    public final class DecreasingBandwidthComparator implements Comparator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -61,11 +60,15 @@ public abstract class BaseTrackSelection implements TrackSelection {
         public int compare(Format format, Format format2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, format, format2)) == null) ? format2.bitrate - format.bitrate : invokeLL.intValue;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, format, format2)) == null) {
+                return format2.bitrate - format.bitrate;
+            }
+            return invokeLL.intValue;
         }
     }
 
     public BaseTrackSelection(TrackGroup trackGroup, int... iArr) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -81,7 +84,12 @@ public abstract class BaseTrackSelection implements TrackSelection {
             }
         }
         int i3 = 0;
-        Assertions.checkState(iArr.length > 0);
+        if (iArr.length > 0) {
+            z = true;
+        } else {
+            z = false;
+        }
+        Assertions.checkState(z);
         this.group = (TrackGroup) Assertions.checkNotNull(trackGroup);
         int length = iArr.length;
         this.length = length;
@@ -110,17 +118,19 @@ public abstract class BaseTrackSelection implements TrackSelection {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
             long elapsedRealtime = SystemClock.elapsedRealtime();
             boolean isBlacklisted = isBlacklisted(i, elapsedRealtime);
-            int i2 = 0;
-            while (i2 < this.length && !isBlacklisted) {
-                isBlacklisted = (i2 == i || isBlacklisted(i2, elapsedRealtime)) ? false : true;
-                i2++;
+            for (int i2 = 0; i2 < this.length && !isBlacklisted; i2++) {
+                if (i2 != i && !isBlacklisted(i2, elapsedRealtime)) {
+                    isBlacklisted = true;
+                } else {
+                    isBlacklisted = false;
+                }
             }
-            if (isBlacklisted) {
-                long[] jArr = this.blacklistUntilTimes;
-                jArr[i] = Math.max(jArr[i], elapsedRealtime + j);
-                return true;
+            if (!isBlacklisted) {
+                return false;
             }
-            return false;
+            long[] jArr = this.blacklistUntilTimes;
+            jArr[i] = Math.max(jArr[i], elapsedRealtime + j);
+            return true;
         }
         return invokeCommon.booleanValue;
     }
@@ -136,51 +146,99 @@ public abstract class BaseTrackSelection implements TrackSelection {
                 return false;
             }
             BaseTrackSelection baseTrackSelection = (BaseTrackSelection) obj;
-            return this.group == baseTrackSelection.group && Arrays.equals(this.tracks, baseTrackSelection.tracks);
+            if (this.group == baseTrackSelection.group && Arrays.equals(this.tracks, baseTrackSelection.tracks)) {
+                return true;
+            }
+            return false;
         }
         return invokeL.booleanValue;
     }
 
     @Override // com.google.android.exoplayer2.trackselection.TrackSelection
-    public int evaluateQueueSize(long j, List<? extends MediaChunk> list) {
+    public int evaluateQueueSize(long j, List list) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, list)) == null) ? list.size() : invokeJL.intValue;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, list)) == null) {
+            return list.size();
+        }
+        return invokeJL.intValue;
+    }
+
+    public final boolean isBlacklisted(int i, long j) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
+            if (this.blacklistUntilTimes[i] > j) {
+                return true;
+            }
+            return false;
+        }
+        return invokeCommon.booleanValue;
     }
 
     @Override // com.google.android.exoplayer2.trackselection.TrackSelection
     public final Format getFormat(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? this.formats[i] : (Format) invokeI.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            return this.formats[i];
+        }
+        return (Format) invokeI.objValue;
     }
 
     @Override // com.google.android.exoplayer2.trackselection.TrackSelection
     public final int getIndexInTrackGroup(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? this.tracks[i] : invokeI.intValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            return this.tracks[i];
+        }
+        return invokeI.intValue;
+    }
+
+    @Override // com.google.android.exoplayer2.trackselection.TrackSelection
+    public final int indexOf(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
+            for (int i2 = 0; i2 < this.length; i2++) {
+                if (this.tracks[i2] == i) {
+                    return i2;
+                }
+            }
+            return -1;
+        }
+        return invokeI.intValue;
     }
 
     @Override // com.google.android.exoplayer2.trackselection.TrackSelection
     public final Format getSelectedFormat() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.formats[getSelectedIndex()] : (Format) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.formats[getSelectedIndex()];
+        }
+        return (Format) invokeV.objValue;
     }
 
     @Override // com.google.android.exoplayer2.trackselection.TrackSelection
     public final int getSelectedIndexInTrackGroup() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.tracks[getSelectedIndex()] : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.tracks[getSelectedIndex()];
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.google.android.exoplayer2.trackselection.TrackSelection
     public final TrackGroup getTrackGroup() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.group : (TrackGroup) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.group;
+        }
+        return (TrackGroup) invokeV.objValue;
     }
 
     public int hashCode() {
@@ -191,6 +249,16 @@ public abstract class BaseTrackSelection implements TrackSelection {
                 this.hashCode = (System.identityHashCode(this.group) * 31) + Arrays.hashCode(this.tracks);
             }
             return this.hashCode;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.google.android.exoplayer2.trackselection.TrackSelection
+    public final int length() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.tracks.length;
         }
         return invokeV.intValue;
     }
@@ -208,33 +276,5 @@ public abstract class BaseTrackSelection implements TrackSelection {
             return -1;
         }
         return invokeL.intValue;
-    }
-
-    public final boolean isBlacklisted(int i, long j) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) ? this.blacklistUntilTimes[i] > j : invokeCommon.booleanValue;
-    }
-
-    @Override // com.google.android.exoplayer2.trackselection.TrackSelection
-    public final int length() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.tracks.length : invokeV.intValue;
-    }
-
-    @Override // com.google.android.exoplayer2.trackselection.TrackSelection
-    public final int indexOf(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
-            for (int i2 = 0; i2 < this.length; i2++) {
-                if (this.tracks[i2] == i) {
-                    return i2;
-                }
-            }
-            return -1;
-        }
-        return invokeI.intValue;
     }
 }

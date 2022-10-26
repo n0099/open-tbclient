@@ -74,41 +74,43 @@ public final class TlsVersion {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             int hashCode = str.hashCode();
-            if (hashCode == 79201641) {
-                if (str.equals("SSLv3")) {
-                    c = 4;
-                }
-                c = 65535;
-            } else if (hashCode != 79923350) {
-                switch (hashCode) {
-                    case -503070503:
-                        if (str.equals("TLSv1.1")) {
-                            c = 2;
+            if (hashCode != 79201641) {
+                if (hashCode != 79923350) {
+                    switch (hashCode) {
+                        case -503070503:
+                            if (str.equals("TLSv1.1")) {
+                                c = 2;
+                                break;
+                            }
+                            c = 65535;
                             break;
-                        }
-                        c = 65535;
-                        break;
-                    case -503070502:
-                        if (str.equals("TLSv1.2")) {
-                            c = 1;
+                        case -503070502:
+                            if (str.equals("TLSv1.2")) {
+                                c = 1;
+                                break;
+                            }
+                            c = 65535;
                             break;
-                        }
-                        c = 65535;
-                        break;
-                    case -503070501:
-                        if (str.equals("TLSv1.3")) {
-                            c = 0;
+                        case -503070501:
+                            if (str.equals("TLSv1.3")) {
+                                c = 0;
+                                break;
+                            }
+                            c = 65535;
                             break;
-                        }
-                        c = 65535;
-                        break;
-                    default:
-                        c = 65535;
-                        break;
+                        default:
+                            c = 65535;
+                            break;
+                    }
+                } else {
+                    if (str.equals("TLSv1")) {
+                        c = 3;
+                    }
+                    c = 65535;
                 }
             } else {
-                if (str.equals("TLSv1")) {
-                    c = 3;
+                if (str.equals("SSLv3")) {
+                    c = 4;
                 }
                 c = 65535;
             }
@@ -148,18 +150,27 @@ public final class TlsVersion {
     public static TlsVersion valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? (TlsVersion) Enum.valueOf(TlsVersion.class, str) : (TlsVersion) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            return (TlsVersion) Enum.valueOf(TlsVersion.class, str);
+        }
+        return (TlsVersion) invokeL.objValue;
     }
 
     public static TlsVersion[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? (TlsVersion[]) $VALUES.clone() : (TlsVersion[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return (TlsVersion[]) $VALUES.clone();
+        }
+        return (TlsVersion[]) invokeV.objValue;
     }
 
     public String javaName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.javaName : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.javaName;
+        }
+        return (String) invokeV.objValue;
     }
 }

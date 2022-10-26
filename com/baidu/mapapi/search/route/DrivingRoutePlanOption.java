@@ -17,12 +17,12 @@ public class DrivingRoutePlanOption {
     public PlanNode mFrom;
     public DrivingPolicy mPolicy;
     public PlanNode mTo;
-    public List<PlanNode> mWayPoints;
+    public List mWayPoints;
     public DrivingTrafficPolicy mtrafficPolicy;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class DrivingPolicy {
+    public final class DrivingPolicy {
         public static /* synthetic */ Interceptable $ic;
         public static final DrivingPolicy ECAR_AVOID_JAM;
         public static final DrivingPolicy ECAR_DIS_FIRST;
@@ -95,7 +95,7 @@ public class DrivingRoutePlanOption {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class DrivingTrafficPolicy {
+    public final class DrivingTrafficPolicy {
         public static /* synthetic */ Interceptable $ic;
         public static final DrivingTrafficPolicy ROUTE_PATH;
         public static final DrivingTrafficPolicy ROUTE_PATH_AND_TRAFFIC;
@@ -202,7 +202,7 @@ public class DrivingRoutePlanOption {
         return (DrivingRoutePlanOption) invokeL.objValue;
     }
 
-    public DrivingRoutePlanOption passBy(List<PlanNode> list) {
+    public DrivingRoutePlanOption passBy(List list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {

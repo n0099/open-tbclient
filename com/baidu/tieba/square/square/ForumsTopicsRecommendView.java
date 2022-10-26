@@ -10,9 +10,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.g85;
-import com.baidu.tieba.on;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.k85;
+import com.baidu.tieba.pn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import kotlinx.coroutines.internal.LockFreeTaskQueueCore;
 /* loaded from: classes5.dex */
-public class ForumsTopicsRecommendView extends ViewGroup implements g85 {
+public class ForumsTopicsRecommendView extends ViewGroup implements k85 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
@@ -28,7 +28,7 @@ public class ForumsTopicsRecommendView extends ViewGroup implements g85 {
     public final int c;
     public final int d;
     public final int e;
-    public ArrayList<TbImageView> f;
+    public ArrayList f;
     public int g;
     public float h;
     public int i;
@@ -55,10 +55,50 @@ public class ForumsTopicsRecommendView extends ViewGroup implements g85 {
         }
     }
 
-    @Override // com.baidu.tieba.g85
-    public void a(on onVar, String str, boolean z) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ForumsTopicsRecommendView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048576, this, onVar, str, z) == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f = new ArrayList(4);
+        this.g = 0;
+        this.h = 0.62222224f;
+        this.i = 0;
+        this.j = null;
+        this.a = context;
+        this.d = fj.k(context);
+        this.b = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5);
+        this.c = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701b2);
+        this.e = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070279);
+        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02d0, (ViewGroup) this, true);
+        this.f.add((TbImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090ac9));
+        this.f.add((TbImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090aca));
+        this.f.add((TbImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090acb));
+        this.f.add((TbImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090acc));
+        int i3 = this.d;
+        int i4 = this.b;
+        this.g = ((i3 - (i4 * 2)) - this.c) / 2;
+        setPadding(i4, 0, i4, 0);
+    }
+
+    @Override // com.baidu.tieba.k85
+    public void a(pn pnVar, String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(1048576, this, pnVar, str, z) == null) {
             b(str);
         }
     }
@@ -67,11 +107,10 @@ public class ForumsTopicsRecommendView extends ViewGroup implements g85 {
         View view2;
         HeadImageView headImageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (view2 = this.j) == null || (headImageView = (HeadImageView) view2.findViewWithTag(str)) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && (view2 = this.j) != null && (headImageView = (HeadImageView) view2.findViewWithTag(str)) != null) {
+            headImageView.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+            headImageView.invalidate();
         }
-        headImageView.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-        headImageView.invalidate();
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -112,45 +151,5 @@ public class ForumsTopicsRecommendView extends ViewGroup implements g85 {
             int i7 = this.i / 2;
             setMeasuredDimension(i3, (i5 * i7) + ((i7 - 1) * this.c) + this.e);
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ForumsTopicsRecommendView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.f = new ArrayList<>(4);
-        this.g = 0;
-        this.h = 0.62222224f;
-        this.i = 0;
-        this.j = null;
-        this.a = context;
-        this.d = ej.k(context);
-        this.b = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5);
-        this.c = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701b2);
-        this.e = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070279);
-        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02d1, (ViewGroup) this, true);
-        this.f.add((TbImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090abf));
-        this.f.add((TbImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090ac0));
-        this.f.add((TbImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090ac1));
-        this.f.add((TbImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090ac2));
-        int i3 = this.d;
-        int i4 = this.b;
-        this.g = ((i3 - (i4 * 2)) - this.c) / 2;
-        setPadding(i4, 0, i4, 0);
     }
 }

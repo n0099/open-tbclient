@@ -52,17 +52,6 @@ public class l {
         return (l) invokeV.objValue;
     }
 
-    public final String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            String string = this.a.getString("HOST_IDENTITY_".concat(String.valueOf(str)), "");
-            ZeusLogger.i(ZeusLogger.TAG_INIT, "ZeusSpUtils getHostIdentity pluginPKg = " + str + ", hostIdentity = " + string);
-            return string;
-        }
-        return (String) invokeL.objValue;
-    }
-
     public final int a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -72,6 +61,17 @@ public class l {
             return i;
         }
         return invokeL.intValue;
+    }
+
+    public final String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            String string = this.a.getString("HOST_IDENTITY_".concat(String.valueOf(str)), "");
+            ZeusLogger.i(ZeusLogger.TAG_INIT, "ZeusSpUtils getHostIdentity pluginPKg = " + str + ", hostIdentity = " + string);
+            return string;
+        }
+        return (String) invokeL.objValue;
     }
 
     public final void a(String str, int i, boolean z) {
@@ -91,6 +91,9 @@ public class l {
     public final boolean a(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i)) == null) ? this.a.getBoolean(String.format(Locale.getDefault(), "INSTALLED_%s-%d", str, Integer.valueOf(i)), false) : invokeLI.booleanValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i)) == null) {
+            return this.a.getBoolean(String.format(Locale.getDefault(), "INSTALLED_%s-%d", str, Integer.valueOf(i)), false);
+        }
+        return invokeLI.booleanValue;
     }
 }

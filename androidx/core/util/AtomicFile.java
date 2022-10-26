@@ -1,8 +1,6 @@
 package androidx.core.util;
 
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -21,7 +19,7 @@ public class AtomicFile {
     public final File mBackupName;
     public final File mBaseName;
 
-    public AtomicFile(@NonNull File file) {
+    public AtomicFile(File file) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -40,7 +38,7 @@ public class AtomicFile {
         this.mBackupName = new File(file.getPath() + ".bak");
     }
 
-    public static boolean sync(@NonNull FileOutputStream fileOutputStream) {
+    public static boolean sync(FileOutputStream fileOutputStream) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, fileOutputStream)) == null) {
@@ -54,6 +52,33 @@ public class AtomicFile {
         return invokeL.booleanValue;
     }
 
+    public void failWrite(FileOutputStream fileOutputStream) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fileOutputStream) == null) && fileOutputStream != null) {
+            sync(fileOutputStream);
+            try {
+                fileOutputStream.close();
+                this.mBaseName.delete();
+                this.mBackupName.renameTo(this.mBaseName);
+            } catch (IOException e) {
+                Log.w(com.google.android.exoplayer2.util.AtomicFile.TAG, "failWrite: Got exception:", e);
+            }
+        }
+    }
+
+    public void finishWrite(FileOutputStream fileOutputStream) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fileOutputStream) == null) && fileOutputStream != null) {
+            sync(fileOutputStream);
+            try {
+                fileOutputStream.close();
+                this.mBackupName.delete();
+            } catch (IOException e) {
+                Log.w(com.google.android.exoplayer2.util.AtomicFile.TAG, "finishWrite: Got exception:", e);
+            }
+        }
+    }
+
     public void delete() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -62,43 +87,15 @@ public class AtomicFile {
         }
     }
 
-    public void failWrite(@Nullable FileOutputStream fileOutputStream) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fileOutputStream) == null) || fileOutputStream == null) {
-            return;
-        }
-        sync(fileOutputStream);
-        try {
-            fileOutputStream.close();
-            this.mBaseName.delete();
-            this.mBackupName.renameTo(this.mBaseName);
-        } catch (IOException e) {
-            Log.w(com.google.android.exoplayer2.util.AtomicFile.TAG, "failWrite: Got exception:", e);
-        }
-    }
-
-    public void finishWrite(@Nullable FileOutputStream fileOutputStream) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fileOutputStream) == null) || fileOutputStream == null) {
-            return;
-        }
-        sync(fileOutputStream);
-        try {
-            fileOutputStream.close();
-            this.mBackupName.delete();
-        } catch (IOException e) {
-            Log.w(com.google.android.exoplayer2.util.AtomicFile.TAG, "finishWrite: Got exception:", e);
-        }
-    }
-
-    @NonNull
     public File getBaseFile() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mBaseName : (File) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mBaseName;
+        }
+        return (File) invokeV.objValue;
     }
 
-    @NonNull
     public FileInputStream openRead() throws FileNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -112,36 +109,35 @@ public class AtomicFile {
         return (FileInputStream) invokeV.objValue;
     }
 
-    @NonNull
     public byte[] readFully() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(1048581, this)) != null) {
-            return (byte[]) invokeV.objValue;
-        }
-        FileInputStream openRead = openRead();
-        try {
-            byte[] bArr = new byte[openRead.available()];
-            int i = 0;
-            while (true) {
-                int read = openRead.read(bArr, i, bArr.length - i);
-                if (read <= 0) {
-                    return bArr;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            FileInputStream openRead = openRead();
+            try {
+                byte[] bArr = new byte[openRead.available()];
+                int i = 0;
+                while (true) {
+                    int read = openRead.read(bArr, i, bArr.length - i);
+                    if (read <= 0) {
+                        return bArr;
+                    }
+                    i += read;
+                    int available = openRead.available();
+                    if (available > bArr.length - i) {
+                        byte[] bArr2 = new byte[available + i];
+                        System.arraycopy(bArr, 0, bArr2, 0, i);
+                        bArr = bArr2;
+                    }
                 }
-                i += read;
-                int available = openRead.available();
-                if (available > bArr.length - i) {
-                    byte[] bArr2 = new byte[available + i];
-                    System.arraycopy(bArr, 0, bArr2, 0, i);
-                    bArr = bArr2;
-                }
+            } finally {
+                openRead.close();
             }
-        } finally {
-            openRead.close();
+        } else {
+            return (byte[]) invokeV.objValue;
         }
     }
 
-    @NonNull
     public FileOutputStream startWrite() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

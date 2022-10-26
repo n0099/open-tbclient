@@ -44,9 +44,8 @@ public class FoldCommentActivityConfig extends IntentConfig {
     public void setFromVideoPageUniqueId(BdUniqueId bdUniqueId) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, bdUniqueId) == null) || (intent = getIntent()) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, bdUniqueId) == null) && (intent = getIntent()) != null) {
+            intent.putExtra("key_from_video_page_id", bdUniqueId);
         }
-        intent.putExtra("key_from_video_page_id", bdUniqueId);
     }
 }

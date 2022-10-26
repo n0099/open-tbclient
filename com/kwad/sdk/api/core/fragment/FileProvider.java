@@ -12,10 +12,6 @@ import android.os.Environment;
 import android.os.ParcelFileDescriptor;
 import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
-import androidx.annotation.GuardedBy;
-import androidx.annotation.Keep;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
@@ -26,7 +22,6 @@ import java.util.HashMap;
 import java.util.Map;
 import org.xmlpull.v1.XmlPullParserException;
 @KsAdSdkDynamicApi
-@Keep
 /* loaded from: classes7.dex */
 public class FileProvider extends ContentProvider {
     public static final String ATTR_NAME = "name";
@@ -41,26 +36,22 @@ public class FileProvider extends ContentProvider {
     public PathStrategy mStrategy;
     public static final String[] COLUMNS = {"_display_name", "_size"};
     public static final File DEVICE_ROOT = new File("/");
-    @GuardedBy("sCache")
-    public static HashMap<String, PathStrategy> sCache = new HashMap<>();
+    public static HashMap sCache = new HashMap();
 
     @KsAdSdkDynamicApi
-    @Keep
     /* loaded from: classes7.dex */
     public interface PathStrategy {
         @KsAdSdkDynamicApi
-        @Keep
         File getFileForUri(Uri uri);
 
         @KsAdSdkDynamicApi
-        @Keep
         Uri getUriForFile(File file);
     }
 
     /* loaded from: classes7.dex */
-    public static class SimplePathStrategy implements PathStrategy {
+    public class SimplePathStrategy implements PathStrategy {
         public final String mAuthority;
-        public final HashMap<String, File> mRoots = new HashMap<>();
+        public final HashMap mRoots = new HashMap();
 
         public SimplePathStrategy(String str) {
             this.mAuthority = str;
@@ -79,13 +70,12 @@ public class FileProvider extends ContentProvider {
 
         @Override // com.kwad.sdk.api.core.fragment.FileProvider.PathStrategy
         @KsAdSdkDynamicApi
-        @Keep
         public File getFileForUri(Uri uri) {
             String encodedPath = uri.getEncodedPath();
             int indexOf = encodedPath.indexOf(47, 1);
             String decode = Uri.decode(encodedPath.substring(1, indexOf));
             String decode2 = Uri.decode(encodedPath.substring(indexOf + 1));
-            File file = this.mRoots.get(decode);
+            File file = (File) this.mRoots.get(decode);
             if (file != null) {
                 File file2 = new File(file, decode2);
                 try {
@@ -103,26 +93,25 @@ public class FileProvider extends ContentProvider {
 
         @Override // com.kwad.sdk.api.core.fragment.FileProvider.PathStrategy
         @KsAdSdkDynamicApi
-        @Keep
         public Uri getUriForFile(File file) {
             try {
                 String canonicalPath = file.getCanonicalPath();
-                Map.Entry<String, File> entry = null;
-                for (Map.Entry<String, File> entry2 : this.mRoots.entrySet()) {
-                    String path = entry2.getValue().getPath();
-                    if (canonicalPath.startsWith(path) && (entry == null || path.length() > entry.getValue().getPath().length())) {
+                Map.Entry entry = null;
+                for (Map.Entry entry2 : this.mRoots.entrySet()) {
+                    String path = ((File) entry2.getValue()).getPath();
+                    if (canonicalPath.startsWith(path) && (entry == null || path.length() > ((File) entry.getValue()).getPath().length())) {
                         entry = entry2;
                     }
                 }
                 if (entry != null) {
-                    String path2 = entry.getValue().getPath();
+                    String path2 = ((File) entry.getValue()).getPath();
                     boolean endsWith = path2.endsWith("/");
                     int length = path2.length();
                     if (!endsWith) {
                         length++;
                     }
                     String substring = canonicalPath.substring(length);
-                    return new Uri.Builder().scheme("content").authority(this.mAuthority).encodedPath(Uri.encode(entry.getKey()) + WebvttCueParser.CHAR_SLASH + Uri.encode(substring, "/")).build();
+                    return new Uri.Builder().scheme("content").authority(this.mAuthority).encodedPath(Uri.encode((String) entry.getKey()) + WebvttCueParser.CHAR_SLASH + Uri.encode(substring, "/")).build();
                 }
                 throw new IllegalArgumentException("Failed to find configured root that contains ".concat(String.valueOf(canonicalPath)));
             } catch (IOException unused) {
@@ -155,7 +144,7 @@ public class FileProvider extends ContentProvider {
     public static PathStrategy getPathStrategy(Context context, String str) {
         PathStrategy pathStrategy;
         synchronized (sCache) {
-            pathStrategy = sCache.get(str);
+            pathStrategy = (PathStrategy) sCache.get(str);
             if (pathStrategy == null) {
                 try {
                     pathStrategy = parsePathStrategy(context, str);
@@ -171,8 +160,7 @@ public class FileProvider extends ContentProvider {
     }
 
     @KsAdSdkDynamicApi
-    @Keep
-    public static Uri getUriForFile(@NonNull Context context, @NonNull String str, @NonNull File file) {
+    public static Uri getUriForFile(Context context, String str, File file) {
         return getPathStrategy(context, str).getUriForFile(file);
     }
 
@@ -239,8 +227,7 @@ public class FileProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     @KsAdSdkDynamicApi
-    @Keep
-    public void attachInfo(@NonNull Context context, @NonNull ProviderInfo providerInfo) {
+    public void attachInfo(Context context, ProviderInfo providerInfo) {
         super.attachInfo(context, providerInfo);
         if (providerInfo.exported) {
             throw new SecurityException("Provider must not be exported");
@@ -253,15 +240,13 @@ public class FileProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     @KsAdSdkDynamicApi
-    @Keep
-    public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
+    public int delete(Uri uri, String str, String[] strArr) {
         return this.mStrategy.getFileForUri(uri).delete() ? 1 : 0;
     }
 
     @Override // android.content.ContentProvider
     @KsAdSdkDynamicApi
-    @Keep
-    public String getType(@NonNull Uri uri) {
+    public String getType(Uri uri) {
         File fileForUri = this.mStrategy.getFileForUri(uri);
         int lastIndexOf = fileForUri.getName().lastIndexOf(46);
         if (lastIndexOf >= 0) {
@@ -273,29 +258,25 @@ public class FileProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     @KsAdSdkDynamicApi
-    @Keep
-    public Uri insert(@NonNull Uri uri, ContentValues contentValues) {
+    public Uri insert(Uri uri, ContentValues contentValues) {
         throw new UnsupportedOperationException("No external inserts");
     }
 
     @Override // android.content.ContentProvider
     @KsAdSdkDynamicApi
-    @Keep
     public boolean onCreate() {
         return true;
     }
 
     @Override // android.content.ContentProvider
     @KsAdSdkDynamicApi
-    @Keep
-    public ParcelFileDescriptor openFile(@NonNull Uri uri, @NonNull String str) {
+    public ParcelFileDescriptor openFile(Uri uri, String str) {
         return ParcelFileDescriptor.open(this.mStrategy.getFileForUri(uri), modeToMode(str));
     }
 
     @Override // android.content.ContentProvider
     @KsAdSdkDynamicApi
-    @Keep
-    public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
+    public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
         int i;
         File fileForUri = this.mStrategy.getFileForUri(uri);
         if (strArr == null) {
@@ -325,8 +306,7 @@ public class FileProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     @KsAdSdkDynamicApi
-    @Keep
-    public int update(@NonNull Uri uri, ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
+    public int update(Uri uri, ContentValues contentValues, String str, String[] strArr) {
         throw new UnsupportedOperationException("No external updates");
     }
 }

@@ -1,14 +1,12 @@
 package com.baidu.swan.apps.so;
 
-import android.annotation.SuppressLint;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
-import com.baidu.tieba.d93;
-import com.baidu.tieba.vj1;
+import com.baidu.tieba.e93;
+import com.baidu.tieba.wj1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +19,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.HashMap;
-@Keep
 /* loaded from: classes3.dex */
 public final class SoUtils {
     public static /* synthetic */ Interceptable $ic = null;
@@ -57,8 +54,8 @@ public final class SoUtils {
                 return;
             }
         }
-        DEBUG = vj1.a;
-        sUbcImpl = new d93();
+        DEBUG = wj1.a;
+        sUbcImpl = new e93();
         uris = new String[]{"lib/armeabi", "lib/arm64-v8a"};
     }
 
@@ -74,6 +71,30 @@ public final class SoUtils {
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
+    }
+
+    public static String getCurrentCpuAbi() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if ("arm64-v8a".equals(Build.CPU_ABI) || "arm64-v8a".equals(Build.CPU_ABI2)) {
+                return "arm64-v8a";
+            }
+            return "armeabi";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean hasGingerbread() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (Build.VERSION.SDK_INT >= 9) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public static long copyStream(InputStream inputStream, OutputStream outputStream, int i) {
@@ -103,35 +124,34 @@ public final class SoUtils {
         return invokeLLI.longValue;
     }
 
-    public static String getCurrentCpuAbi() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? ("arm64-v8a".equals(Build.CPU_ABI) || "arm64-v8a".equals(Build.CPU_ABI2)) ? "arm64-v8a" : "armeabi" : (String) invokeV.objValue;
-    }
-
     public static String getFullName(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (str.startsWith("lib") && str.endsWith(".so")) {
-                return str;
+            if (!str.startsWith("lib") || !str.endsWith(".so")) {
+                return "lib" + str + ".so";
             }
-            return "lib" + str + ".so";
+            return str;
         }
         return (String) invokeL.objValue;
     }
 
     public static String getSimpleName(String str) {
         InterceptResult invokeL;
+        String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             if (!TextUtils.isEmpty(str) && str.startsWith("lib") && str.endsWith(".so")) {
                 String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
-                String substring = (split == null || split.length != 2) ? str : split[0].substring(3);
-                if (DEBUG) {
-                    Log.e("SoUtils", "SoUtils load but the param soName:" + str + ", name:" + substring);
+                if (split != null && split.length == 2) {
+                    str2 = split[0].substring(3);
+                } else {
+                    str2 = str;
                 }
-                return substring;
+                if (DEBUG) {
+                    Log.e("SoUtils", "SoUtils load but the param soName:" + str + ", name:" + str2);
+                }
+                return str2;
             }
             return str;
         }
@@ -147,17 +167,17 @@ public final class SoUtils {
         return (String) invokeLI.objValue;
     }
 
-    @SuppressLint({"ObsoleteSdkInt"})
-    public static boolean hasGingerbread() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? Build.VERSION.SDK_INT >= 9 : invokeV.booleanValue;
-    }
-
     public static void init(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, null, aVar) == null) {
             sUbcImpl = aVar;
+        }
+    }
+
+    public static void sendLog(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65547, null, str) == null) && !TextUtils.isEmpty(str)) {
+            onEvent("24", str);
         }
     }
 
@@ -174,19 +194,10 @@ public final class SoUtils {
         }
     }
 
-    public static void saveLog(HashMap<String, String> hashMap, String str, String str2) {
+    public static void saveLog(HashMap hashMap, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65546, null, hashMap, str, str2) == null) || TextUtils.isEmpty(str2)) {
-            return;
+        if ((interceptable == null || interceptable.invokeLLL(65546, null, hashMap, str, str2) == null) && !TextUtils.isEmpty(str2)) {
+            hashMap.put(str, str2);
         }
-        hashMap.put(str, str2);
-    }
-
-    public static void sendLog(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65547, null, str) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        onEvent("24", str);
     }
 }

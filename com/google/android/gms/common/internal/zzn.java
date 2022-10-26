@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,14 +18,29 @@ public final class zzn {
     public static /* synthetic */ Interceptable $ic;
     public static final Uri zza;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
     public final String zzb;
-    @Nullable
     public final String zzc;
-    @Nullable
     public final ComponentName zzd;
     public final int zze;
     public final boolean zzf;
+
+    public final int zza() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.zze : invokeV.intValue;
+    }
+
+    public final ComponentName zzb() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.zzd : (ComponentName) invokeV.objValue;
+    }
+
+    public final String zzd() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.zzc : (String) invokeV.objValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -42,6 +56,15 @@ public final class zzn {
             }
         }
         zza = new Uri.Builder().scheme("content").authority("com.google.android.gms.chimera").build();
+    }
+
+    public final int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return Objects.hashCode(this.zzb, this.zzc, this.zzd, Integer.valueOf(this.zze), Boolean.valueOf(this.zzf));
+        }
+        return invokeV.intValue;
     }
 
     public zzn(ComponentName componentName, int i) {
@@ -65,90 +88,6 @@ public final class zzn {
         this.zzd = componentName;
         this.zze = i;
         this.zzf = false;
-    }
-
-    public final boolean equals(@Nullable Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj instanceof zzn) {
-                zzn zznVar = (zzn) obj;
-                return Objects.equal(this.zzb, zznVar.zzb) && Objects.equal(this.zzc, zznVar.zzc) && Objects.equal(this.zzd, zznVar.zzd) && this.zze == zznVar.zze && this.zzf == zznVar.zzf;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Objects.hashCode(this.zzb, this.zzc, this.zzd, Integer.valueOf(this.zze), Boolean.valueOf(this.zzf)) : invokeV.intValue;
-    }
-
-    public final String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String str = this.zzb;
-            if (str == null) {
-                Preconditions.checkNotNull(this.zzd);
-                return this.zzd.flattenToString();
-            }
-            return str;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final int zza() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.zze : invokeV.intValue;
-    }
-
-    @Nullable
-    public final ComponentName zzb() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.zzd : (ComponentName) invokeV.objValue;
-    }
-
-    public final Intent zzc(Context context) {
-        InterceptResult invokeL;
-        Bundle bundle;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
-            if (this.zzb != null) {
-                if (this.zzf) {
-                    Bundle bundle2 = new Bundle();
-                    bundle2.putString("serviceActionBundleKey", this.zzb);
-                    try {
-                        bundle = context.getContentResolver().call(zza, "serviceIntentCall", (String) null, bundle2);
-                    } catch (IllegalArgumentException e) {
-                        Log.w("ConnectionStatusConfig", "Dynamic intent resolution failed: ".concat(e.toString()));
-                        bundle = null;
-                    }
-                    r2 = bundle != null ? (Intent) bundle.getParcelable("serviceResponseIntentKey") : null;
-                    if (r2 == null) {
-                        String valueOf = String.valueOf(this.zzb);
-                        Log.w("ConnectionStatusConfig", valueOf.length() != 0 ? "Dynamic lookup for intent failed for action: ".concat(valueOf) : new String("Dynamic lookup for intent failed for action: "));
-                    }
-                }
-                return r2 != null ? r2 : new Intent(this.zzb).setPackage(this.zzc);
-            }
-            return new Intent().setComponent(this.zzd);
-        }
-        return (Intent) invokeL.objValue;
-    }
-
-    @Nullable
-    public final String zzd() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.zzc : (String) invokeV.objValue;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -194,5 +133,78 @@ public final class zzn {
         this.zzd = null;
         this.zze = i;
         this.zzf = z;
+    }
+
+    public final boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (!(obj instanceof zzn)) {
+                return false;
+            }
+            zzn zznVar = (zzn) obj;
+            if (Objects.equal(this.zzb, zznVar.zzb) && Objects.equal(this.zzc, zznVar.zzc) && Objects.equal(this.zzd, zznVar.zzd) && this.zze == zznVar.zze && this.zzf == zznVar.zzf) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            String str = this.zzb;
+            if (str == null) {
+                Preconditions.checkNotNull(this.zzd);
+                return this.zzd.flattenToString();
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final Intent zzc(Context context) {
+        InterceptResult invokeL;
+        Bundle bundle;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
+            if (this.zzb != null) {
+                Intent intent = null;
+                if (this.zzf) {
+                    Bundle bundle2 = new Bundle();
+                    bundle2.putString("serviceActionBundleKey", this.zzb);
+                    try {
+                        bundle = context.getContentResolver().call(zza, "serviceIntentCall", (String) null, bundle2);
+                    } catch (IllegalArgumentException e) {
+                        Log.w("ConnectionStatusConfig", "Dynamic intent resolution failed: ".concat(e.toString()));
+                        bundle = null;
+                    }
+                    if (bundle != null) {
+                        intent = (Intent) bundle.getParcelable("serviceResponseIntentKey");
+                    }
+                    if (intent == null) {
+                        String valueOf = String.valueOf(this.zzb);
+                        if (valueOf.length() != 0) {
+                            str = "Dynamic lookup for intent failed for action: ".concat(valueOf);
+                        } else {
+                            str = new String("Dynamic lookup for intent failed for action: ");
+                        }
+                        Log.w("ConnectionStatusConfig", str);
+                    }
+                }
+                if (intent == null) {
+                    return new Intent(this.zzb).setPackage(this.zzc);
+                }
+                return intent;
+            }
+            return new Intent().setComponent(this.zzd);
+        }
+        return (Intent) invokeL.objValue;
     }
 }

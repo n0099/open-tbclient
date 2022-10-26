@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.dh;
+import com.baidu.tieba.eh;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -43,14 +43,13 @@ public class NewVcodeActivityConfig extends IntentConfig {
         }
         getIntent().putExtra("model", writeData);
         getIntent().putExtra("is_ad", z);
-        getIntent().putExtra("page_type", dh.e(str, 0));
+        getIntent().putExtra("page_type", eh.e(str, 0));
     }
 
     public void setHideFeedBackButton() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || getIntent() == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && getIntent() != null) {
+            getIntent().putExtra(NEED_FEED_BACK_BUTTON, false);
         }
-        getIntent().putExtra(NEED_FEED_BACK_BUTTON, false);
     }
 }

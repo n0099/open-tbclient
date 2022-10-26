@@ -5,7 +5,6 @@ import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.activity.SlideActiviy;
-import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -69,21 +68,29 @@ public class InvoiceBuildExternalActivity extends InvoiceBuildActivity {
         }
     }
 
-    @Override // com.baidu.sapi2.ecommerce.activity.InvoiceBuildActivity
-    public void loadInvoiceUrl(List<PassNameValuePair> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            String stringExtra = getIntent().getStringExtra("extra_external_url");
-            this.url = stringExtra;
-            this.sapiWebView.loadUrl(stringExtra);
-        }
-    }
-
     @Override // com.baidu.sapi2.ecommerce.activity.InvoiceBuildActivity, com.baidu.sapi2.activity.TitleActivity
     public void onBottomBackBtnClick() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             back();
+        }
+    }
+
+    @Override // com.baidu.sapi2.ecommerce.activity.InvoiceBuildActivity, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
+    public void onLeftBtnClick() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            back();
+        }
+    }
+
+    @Override // com.baidu.sapi2.ecommerce.activity.InvoiceBuildActivity
+    public void loadInvoiceUrl(List list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            String stringExtra = getIntent().getStringExtra("extra_external_url");
+            this.url = stringExtra;
+            this.sapiWebView.loadUrl(stringExtra);
         }
     }
 
@@ -191,14 +198,6 @@ public class InvoiceBuildExternalActivity extends InvoiceBuildActivity {
                     }
                 }
             });
-        }
-    }
-
-    @Override // com.baidu.sapi2.ecommerce.activity.InvoiceBuildActivity, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
-    public void onLeftBtnClick() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            back();
         }
     }
 }

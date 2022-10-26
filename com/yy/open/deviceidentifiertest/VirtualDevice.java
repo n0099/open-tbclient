@@ -10,6 +10,8 @@ public class VirtualDevice {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public native String getDeviceID(Context context);
+
     public VirtualDevice() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -29,6 +31,4 @@ public class VirtualDevice {
             e.printStackTrace();
         }
     }
-
-    public native String getDeviceID(Context context);
 }

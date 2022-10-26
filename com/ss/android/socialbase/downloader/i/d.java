@@ -4,10 +4,16 @@ import com.ss.android.socialbase.downloader.model.DownloadInfo;
 /* loaded from: classes8.dex */
 public class d {
     public static boolean a(DownloadInfo downloadInfo) {
-        return downloadInfo != null && com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId()).b("optimize_head_request") == 1;
+        if (downloadInfo == null || com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId()).b("optimize_head_request") != 1) {
+            return false;
+        }
+        return true;
     }
 
     public static boolean b(DownloadInfo downloadInfo) {
-        return downloadInfo != null && com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId()).b("optimize_save_path") == 1;
+        if (downloadInfo == null || com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId()).b("optimize_save_path") != 1) {
+            return false;
+        }
+        return true;
     }
 }

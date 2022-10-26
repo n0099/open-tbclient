@@ -7,7 +7,6 @@ import androidx.core.app.NotificationCompat;
 import com.baidu.android.imsdk.IMListener;
 import com.baidu.android.imsdk.chatmessage.IFetchMsgByIdExtendListener;
 import com.baidu.android.imsdk.chatmessage.IFetchMsgByIdListener;
-import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.internal.ListenerManager;
@@ -51,6 +50,30 @@ public class IMFetchMsgRequest extends BaseHttpRequest {
     public String mKey;
     public long mUk;
 
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getContentType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "application/x-www-form-urlencoded" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getMethod() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "POST" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public boolean shouldAbort() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     public IMFetchMsgRequest(Context context, String str, long j, long j2, long j3, int i, int i2, long j4, long j5, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -78,15 +101,8 @@ public class IMFetchMsgRequest extends BaseHttpRequest {
         this.mIsReliable = z;
     }
 
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public String getContentType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "application/x-www-form-urlencoded" : (String) invokeV.objValue;
-    }
-
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
-    public Map<String, String> getHeaders() {
+    public Map getHeaders() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -105,24 +121,21 @@ public class IMFetchMsgRequest extends BaseHttpRequest {
             int readIntData = Utility.readIntData(this.mContext, Constants.KEY_ENV, 0);
             String str = "https://pim.baidu.com/";
             if (readIntData != 0) {
-                if (readIntData == 1) {
+                if (readIntData != 1) {
+                    if (readIntData != 2) {
+                        if (readIntData == 3) {
+                            str = Constants.URL_HTTP_BOX;
+                        }
+                    } else {
+                        str = Constants.URL_HTTP_QA;
+                    }
+                } else {
                     str = "http://rd-im-server.bcc-szth.baidu.com:8111/";
-                } else if (readIntData == 2) {
-                    str = Constants.URL_HTTP_QA;
-                } else if (readIntData == 3) {
-                    str = Constants.URL_HTTP_BOX;
                 }
             }
             return str + "imsapi/1.0/fetchmsg/liveshow";
         }
         return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
-    public String getMethod() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "POST" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -176,14 +189,13 @@ public class IMFetchMsgRequest extends BaseHttpRequest {
     public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048581, this, i, bArr, th) == null) {
-            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
+            Pair transErrorCode = transErrorCode(i, bArr, th);
             LogUtils.d(TAG, "  errorCode: " + transErrorCode.first);
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:32:0x00f8  */
-    /* JADX WARN: Removed duplicated region for block: B:34:0x011d  */
-    /* JADX WARN: Type inference failed for: r6v1, types: [T, java.lang.Long] */
+    /* JADX WARN: Removed duplicated region for block: B:32:0x00f9  */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x011e  */
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -191,11 +203,12 @@ public class IMFetchMsgRequest extends BaseHttpRequest {
     public void onSuccess(int i, byte[] bArr) {
         boolean z;
         int i2;
-        ArrayList<ChatMsg> arrayList;
+        ArrayList arrayList;
         String str;
         boolean z2;
         int i3;
         IMListener removeListener;
+        int i4;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048582, this, i, bArr) == null) {
             String str2 = "";
@@ -203,28 +216,32 @@ public class IMFetchMsgRequest extends BaseHttpRequest {
             LogUtils.d(TAG, GlideException.IndentedAppendable.INDENT + str3);
             Type type = new Type();
             type.t = 0L;
-            int i4 = 0;
-            ArrayList<ChatMsg> arrayList2 = null;
+            int i5 = 0;
+            ArrayList arrayList2 = null;
             try {
                 JSONObject jSONObject = new JSONObject(str3);
-                int i5 = jSONObject.getInt(PmsConstant.Statistic.STATISTIC_ERRCODE);
+                int i6 = jSONObject.getInt(PmsConstant.Statistic.STATISTIC_ERRCODE);
                 String optString = jSONObject.optString(PmsConstant.Statistic.STATISTIC_ERRMSG, "");
                 str2 = jSONObject.optString(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID, "0");
                 z = jSONObject.optBoolean("has_more", false);
-                if (i5 == 0) {
+                if (i6 == 0) {
                     try {
                         if (jSONObject.has(NotificationCompat.CarExtender.KEY_MESSAGES)) {
                             JSONArray jSONArray = jSONObject.getJSONArray(NotificationCompat.CarExtender.KEY_MESSAGES);
-                            int length = jSONArray != null ? jSONArray.length() : 0;
+                            if (jSONArray != null) {
+                                i4 = jSONArray.length();
+                            } else {
+                                i4 = 0;
+                            }
                             try {
                                 arrayList2 = MessageParser.parserMessage(this.mContext, jSONArray, type, true, false);
-                                i4 = length;
+                                i5 = i4;
                             } catch (Exception e) {
                                 e = e;
-                                i4 = length;
+                                i5 = i4;
                                 LogUtils.e("IMPaSetDisturbRequest", "JSONException", e);
                                 new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                                i2 = i4;
+                                i2 = i5;
                                 arrayList = null;
                                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
                                 z2 = z;
@@ -245,9 +262,9 @@ public class IMFetchMsgRequest extends BaseHttpRequest {
                                                 newInitContext.initArgs = r2;
                                                 Object[] objArr = {this, arrayList};
                                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                                int i6 = newInitContext.flag;
-                                                if ((i6 & 1) != 0) {
-                                                    int i7 = i6 & 2;
+                                                int i7 = newInitContext.flag;
+                                                if ((i7 & 1) != 0) {
+                                                    int i8 = i7 & 2;
                                                     newInitContext.thisArg = this;
                                                     interceptable2.invokeInitBody(65536, newInitContext);
                                                     return;
@@ -276,11 +293,11 @@ public class IMFetchMsgRequest extends BaseHttpRequest {
                         e = e2;
                     }
                 }
-                i2 = i4;
+                i2 = i5;
                 arrayList = arrayList2;
                 str = optString;
                 z2 = z;
-                i3 = i5;
+                i3 = i6;
             } catch (Exception e3) {
                 e = e3;
                 z = false;
@@ -301,9 +318,9 @@ public class IMFetchMsgRequest extends BaseHttpRequest {
                             newInitContext.initArgs = objArr;
                             Object[] objArr = {this, arrayList};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i6 = newInitContext.flag;
-                            if ((i6 & 1) != 0) {
-                                int i7 = i6 & 2;
+                            int i7 = newInitContext.flag;
+                            if ((i7 & 1) != 0) {
+                                int i8 = i7 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -332,15 +349,5 @@ public class IMFetchMsgRequest extends BaseHttpRequest {
                 LogUtils.d(TAG, "IFetchMsgByIdListener.onFetchMsgByIdResult");
             }
         }
-    }
-
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public boolean shouldAbort() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

@@ -40,7 +40,10 @@ public final class TrdVpnAIDL extends ITrdVpnInterface.Stub {
     public String getRuntimeInfo(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) ? this.vpnService.getRuntimeInfo(j) : (String) invokeJ.objValue;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+            return this.vpnService.getRuntimeInfo(j);
+        }
+        return (String) invokeJ.objValue;
     }
 
     @Override // com.baidu.yunjiasu.tornadosdk.ITrdVpnInterface

@@ -1,8 +1,5 @@
 package androidx.webkit;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
 import androidx.webkit.internal.ServiceWorkerControllerImpl;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,6 +12,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public abstract class ServiceWorkerControllerCompat {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract ServiceWorkerWebSettingsCompat getServiceWorkerWebSettings();
+
+    public abstract void setServiceWorkerClient(ServiceWorkerClientCompat serviceWorkerClientCompat);
 
     /* loaded from: classes.dex */
     public static class LAZY_HOLDER {
@@ -53,7 +54,6 @@ public abstract class ServiceWorkerControllerCompat {
         }
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public ServiceWorkerControllerCompat() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -68,15 +68,12 @@ public abstract class ServiceWorkerControllerCompat {
         }
     }
 
-    @NonNull
     public static ServiceWorkerControllerCompat getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? LAZY_HOLDER.INSTANCE : (ServiceWorkerControllerCompat) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return LAZY_HOLDER.INSTANCE;
+        }
+        return (ServiceWorkerControllerCompat) invokeV.objValue;
     }
-
-    @NonNull
-    public abstract ServiceWorkerWebSettingsCompat getServiceWorkerWebSettings();
-
-    public abstract void setServiceWorkerClient(@Nullable ServiceWorkerClientCompat serviceWorkerClientCompat);
 }

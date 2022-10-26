@@ -10,6 +10,12 @@ public abstract class TransitionPropagation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract void captureValues(TransitionValues transitionValues);
+
+    public abstract String[] getPropagationProperties();
+
+    public abstract long getStartDelay(ViewGroup viewGroup, Transition transition, TransitionValues transitionValues, TransitionValues transitionValues2);
+
     public TransitionPropagation() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -23,10 +29,4 @@ public abstract class TransitionPropagation {
             }
         }
     }
-
-    public abstract void captureValues(TransitionValues transitionValues);
-
-    public abstract String[] getPropagationProperties();
-
-    public abstract long getStartDelay(ViewGroup viewGroup, Transition transition, TransitionValues transitionValues, TransitionValues transitionValues2);
 }

@@ -41,10 +41,15 @@ public class c1 implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
+        String str;
         String b;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            String str = this.a ? x1.b : x1.c;
+            if (this.a) {
+                str = x1.b;
+            } else {
+                str = x1.c;
+            }
             HashMap a = t1.a(this.c.a);
             try {
                 str = str + t1.a(a);
@@ -64,10 +69,10 @@ public class c1 implements Runnable {
                         b = M.b(jSONObject.optString("data"));
                     } catch (Exception unused2) {
                     }
-                    if (TextUtils.isEmpty(b)) {
-                        new JSONObject();
-                    } else {
+                    if (!TextUtils.isEmpty(b)) {
                         new JSONObject(b);
+                    } else {
+                        new JSONObject();
                     }
                 }
             } catch (JSONException e) {

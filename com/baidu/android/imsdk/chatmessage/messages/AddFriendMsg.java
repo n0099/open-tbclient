@@ -16,7 +16,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class AddFriendMsg extends NotifyMsg {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator<AddFriendMsg> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public static final String TAG = "AddFriendMsg";
     public transient /* synthetic */ FieldHolder $fh;
     public String description;
@@ -35,7 +35,7 @@ public class AddFriendMsg extends NotifyMsg {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<AddFriendMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.AddFriendMsg.1
+        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.AddFriendMsg.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -54,21 +54,25 @@ public class AddFriendMsg extends NotifyMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public AddFriendMsg createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new AddFriendMsg(parcel) : (AddFriendMsg) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new AddFriendMsg(parcel);
+                }
+                return (AddFriendMsg) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public AddFriendMsg[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new AddFriendMsg[i] : (AddFriendMsg[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new AddFriendMsg[i];
+                }
+                return (AddFriendMsg[]) invokeI.objValue;
             }
         };
     }
@@ -92,13 +96,41 @@ public class AddFriendMsg extends NotifyMsg {
     public String getDescription() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.description : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.description;
+        }
+        return (String) invokeV.objValue;
     }
 
     public long getFrom() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.from : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.from;
+        }
+        return invokeV.longValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public AddFriendMsg(Parcel parcel) {
+        super(parcel);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Parcel) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.from = parcel.readLong();
+        this.description = parcel.readString();
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
@@ -144,27 +176,5 @@ public class AddFriendMsg extends NotifyMsg {
             parcel.writeLong(this.from);
             parcel.writeString(this.description);
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AddFriendMsg(Parcel parcel) {
-        super(parcel);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Parcel) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.from = parcel.readLong();
-        this.description = parcel.readString();
     }
 }

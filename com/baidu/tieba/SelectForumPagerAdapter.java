@@ -2,7 +2,6 @@ package com.baidu.tieba;
 
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import androidx.viewpager.widget.PagerAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -21,9 +20,16 @@ import java.util.List;
 public class SelectForumPagerAdapter extends PagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<SelectForumActivity> a;
-    public List<an5> b;
+    public TbPageContext a;
+    public List b;
     public int c;
+
+    @Override // androidx.viewpager.widget.PagerAdapter
+    public boolean isViewFromObject(View view2, Object obj) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, view2, obj)) == null) ? view2 == obj : invokeLL.booleanValue;
+    }
 
     public SelectForumPagerAdapter(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
@@ -50,39 +56,30 @@ public class SelectForumPagerAdapter extends PagerAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.viewpager.widget.PagerAdapter
-    @NonNull
     /* renamed from: b */
-    public an5 instantiateItem(@NonNull ViewGroup viewGroup, int i) {
+    public hn5 instantiateItem(ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, viewGroup, i)) == null) {
-            an5 an5Var = (an5) ListUtils.getItem(this.b, i);
-            if (an5Var instanceof View) {
-                View view2 = (View) an5Var;
+            hn5 hn5Var = (hn5) ListUtils.getItem(this.b, i);
+            if (hn5Var instanceof View) {
+                View view2 = (View) hn5Var;
                 if (view2.getParent() != null) {
                     viewGroup.removeView(view2);
                 }
                 viewGroup.addView(view2);
             }
-            return an5Var;
+            return hn5Var;
         }
-        return (an5) invokeLI.objValue;
+        return (hn5) invokeLI.objValue;
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            for (an5 an5Var : this.b) {
-                an5Var.a();
+            for (hn5 hn5Var : this.b) {
+                hn5Var.a();
             }
-        }
-    }
-
-    @Override // androidx.viewpager.widget.PagerAdapter
-    public void destroyItem(@NonNull ViewGroup viewGroup, int i, @NonNull Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i, obj) == null) {
-            super.destroyItem(viewGroup, i, obj);
         }
     }
 
@@ -90,34 +87,31 @@ public class SelectForumPagerAdapter extends PagerAdapter {
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? ListUtils.getCount(this.b) : invokeV.intValue;
-    }
-
-    @Override // androidx.viewpager.widget.PagerAdapter
-    public CharSequence getPageTitle(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? ListUtils.getItem(this.b, i) == null ? "" : ((an5) ListUtils.getItem(this.b, i)).getTitle() : (CharSequence) invokeI.objValue;
-    }
-
-    @Override // androidx.viewpager.widget.PagerAdapter
-    public boolean isViewFromObject(@NonNull View view2, @NonNull Object obj) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, view2, obj)) == null) ? view2 == obj : invokeLL.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return ListUtils.getCount(this.b);
+        }
+        return invokeV.intValue;
     }
 
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            for (an5 an5Var : this.b) {
-                an5Var.onDestroy();
+            for (hn5 hn5Var : this.b) {
+                hn5Var.onDestroy();
             }
         }
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
-    public void setPrimaryItem(@NonNull ViewGroup viewGroup, int i, @NonNull Object obj) {
+    public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i, obj) == null) {
+            super.destroyItem(viewGroup, i, obj);
+        }
+    }
+
+    @Override // androidx.viewpager.widget.PagerAdapter
+    public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup, i, obj) == null) {
             super.setPrimaryItem(viewGroup, i, obj);
@@ -125,10 +119,23 @@ public class SelectForumPagerAdapter extends PagerAdapter {
                 return;
             }
             this.c = i;
-            an5 an5Var = (an5) ListUtils.getItem(this.b, i);
-            if (an5Var != null) {
-                an5Var.c(null);
+            hn5 hn5Var = (hn5) ListUtils.getItem(this.b, i);
+            if (hn5Var != null) {
+                hn5Var.c(null);
             }
         }
+    }
+
+    @Override // androidx.viewpager.widget.PagerAdapter
+    public CharSequence getPageTitle(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            if (ListUtils.getItem(this.b, i) == null) {
+                return "";
+            }
+            return ((hn5) ListUtils.getItem(this.b, i)).getTitle();
+        }
+        return (CharSequence) invokeI.objValue;
     }
 }

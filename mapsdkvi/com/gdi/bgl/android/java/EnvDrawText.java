@@ -24,7 +24,7 @@ public class EnvDrawText {
     public static boolean bBmpChange;
     public static Bitmap bmp;
     public static int[] buffer;
-    public static SparseArray<a> fontCache;
+    public static SparseArray fontCache;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -119,7 +119,7 @@ public class EnvDrawText {
                 }
                 textPaint3.setSubpixelText(true);
                 textPaint3.setAntiAlias(true);
-                if (i21 != 0 && fontCache != null && (aVar = fontCache.get(i21)) != null) {
+                if (i21 != 0 && fontCache != null && (aVar = (a) fontCache.get(i21)) != null) {
                     textPaint3.setTypeface(aVar.a);
                 }
                 textPaint3.setTextSize(f);
@@ -739,9 +739,9 @@ public class EnvDrawText {
                     return;
                 }
                 if (fontCache == null) {
-                    fontCache = new SparseArray<>();
+                    fontCache = new SparseArray();
                 }
-                a aVar = fontCache.get(i);
+                a aVar = (a) fontCache.get(i);
                 if (aVar == null) {
                     a aVar2 = new a();
                     aVar2.a = typeface;
@@ -758,7 +758,7 @@ public class EnvDrawText {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65545, null, i) == null) {
             synchronized (EnvDrawText.class) {
-                a aVar = fontCache.get(i);
+                a aVar = (a) fontCache.get(i);
                 if (aVar == null) {
                     return;
                 }

@@ -63,15 +63,6 @@ public class t9 {
         return (t9) invokeV.objValue;
     }
 
-    public synchronized void b(Resources resources) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, resources) == null) {
-            synchronized (this) {
-                this.a = resources;
-            }
-        }
-    }
-
     public synchronized Resources getResources() {
         InterceptResult invokeV;
         Resources resources;
@@ -83,5 +74,14 @@ public class t9 {
             return resources;
         }
         return (Resources) invokeV.objValue;
+    }
+
+    public synchronized void b(Resources resources) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, resources) == null) {
+            synchronized (this) {
+                this.a = resources;
+            }
+        }
     }
 }

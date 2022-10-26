@@ -35,6 +35,9 @@ public class RTCVideoFrame extends VideoFrame {
     public static RTCVideoFrame newfromVideoFrame(VideoFrame videoFrame) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, videoFrame)) == null) ? new RTCVideoFrame(videoFrame.getBuffer(), videoFrame.getRotation(), videoFrame.getTimestampNs()) : (RTCVideoFrame) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, videoFrame)) == null) {
+            return new RTCVideoFrame(videoFrame.getBuffer(), videoFrame.getRotation(), videoFrame.getTimestampNs());
+        }
+        return (RTCVideoFrame) invokeL.objValue;
     }
 }

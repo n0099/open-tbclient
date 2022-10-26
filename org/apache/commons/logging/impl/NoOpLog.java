@@ -32,38 +32,6 @@ public class NoOpLog implements Log, Serializable {
     }
 
     @Override // org.apache.commons.logging.Log
-    public void debug(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
-    @Override // org.apache.commons.logging.Log
-    public void error(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
-    @Override // org.apache.commons.logging.Log
-    public void fatal(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
-    @Override // org.apache.commons.logging.Log
-    public void info(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, obj) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
-    @Override // org.apache.commons.logging.Log
     public final boolean isDebugEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -123,22 +91,6 @@ public class NoOpLog implements Log, Serializable {
         return invokeV.booleanValue;
     }
 
-    @Override // org.apache.commons.logging.Log
-    public void trace(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, obj) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
-    @Override // org.apache.commons.logging.Log
-    public void warn(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, obj) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
     public NoOpLog(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -155,6 +107,54 @@ public class NoOpLog implements Log, Serializable {
             }
         }
         throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.commons.logging.Log
+    public void debug(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    @Override // org.apache.commons.logging.Log
+    public void error(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    @Override // org.apache.commons.logging.Log
+    public void fatal(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    @Override // org.apache.commons.logging.Log
+    public void info(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, obj) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    @Override // org.apache.commons.logging.Log
+    public void trace(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, obj) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    @Override // org.apache.commons.logging.Log
+    public void warn(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, obj) == null) {
+            throw new RuntimeException("Stub!");
+        }
     }
 
     @Override // org.apache.commons.logging.Log

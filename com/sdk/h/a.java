@@ -79,88 +79,94 @@ public class a extends d {
         int i3;
         int i4;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLLI(1048576, this, pushbackInputStream, outputStream, i) != null) {
-            return;
-        }
-        if (i < 2) {
-            throw new b("BASE64Decoder: Not enough bytes for an atom.");
-        }
-        while (true) {
-            int read = pushbackInputStream.read();
-            byte b6 = -1;
-            if (read == -1) {
-                throw new c();
+        if (interceptable == null || interceptable.invokeLLI(1048576, this, pushbackInputStream, outputStream, i) == null) {
+            if (i < 2) {
+                throw new b("BASE64Decoder: Not enough bytes for an atom.");
             }
-            if (read != 10 && read != 13) {
-                byte[] bArr = this.c;
-                bArr[0] = (byte) read;
-                int i5 = i - 1;
-                int i6 = 0;
-                while (true) {
-                    if (i6 >= i5) {
-                        break;
-                    }
-                    int read2 = pushbackInputStream.read();
-                    if (read2 == -1) {
-                        i5 = i6 == 0 ? -1 : i6;
-                    } else {
-                        i6++;
-                        bArr[i6] = (byte) read2;
-                    }
-                }
-                if (i5 == -1) {
-                    throw new c();
-                }
-                if (i > 3 && this.c[3] == 61) {
-                    i = 3;
-                }
-                if (i > 2 && this.c[2] == 61) {
-                    i = 2;
-                }
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i != 4) {
-                            b4 = -1;
-                            b5 = -1;
-                            b3 = -1;
-                            if (i == 2) {
-                                if (i == 3) {
-                                    outputStream.write((byte) (((b6 << 2) & GDiffPatcher.COPY_INT_UBYTE) | (3 & (b3 >>> 4))));
-                                    i3 = (b3 << 4) & 240;
-                                    i4 = (b4 >>> 2) & 15;
-                                } else if (i != 4) {
-                                    return;
+            while (true) {
+                int read = pushbackInputStream.read();
+                byte b6 = -1;
+                if (read != -1) {
+                    if (read != 10 && read != 13) {
+                        byte[] bArr = this.c;
+                        bArr[0] = (byte) read;
+                        int i5 = i - 1;
+                        int i6 = 0;
+                        while (true) {
+                            if (i6 >= i5) {
+                                break;
+                            }
+                            int read2 = pushbackInputStream.read();
+                            if (read2 == -1) {
+                                if (i6 == 0) {
+                                    i5 = -1;
                                 } else {
-                                    outputStream.write((byte) (((b6 << 2) & GDiffPatcher.COPY_INT_UBYTE) | ((b3 >>> 4) & 3)));
-                                    outputStream.write((byte) (((b3 << 4) & 240) | ((b4 >>> 2) & 15)));
-                                    i3 = (b4 << 6) & 192;
-                                    i4 = b5 & 63;
+                                    i5 = i6;
                                 }
-                                i2 = i3 | i4;
                             } else {
-                                i2 = ((b3 >>> 4) & 3) | ((b6 << 2) & GDiffPatcher.COPY_INT_UBYTE);
+                                i6++;
+                                bArr[i6] = (byte) read2;
+                            }
+                        }
+                        if (i5 != -1) {
+                            if (i > 3 && this.c[3] == 61) {
+                                i = 3;
+                            }
+                            if (i > 2 && this.c[2] == 61) {
+                                i = 2;
+                            }
+                            if (i != 2) {
+                                if (i != 3) {
+                                    if (i != 4) {
+                                        b4 = -1;
+                                        b5 = -1;
+                                        b3 = -1;
+                                        if (i == 2) {
+                                            if (i != 3) {
+                                                if (i == 4) {
+                                                    outputStream.write((byte) (((b6 << 2) & GDiffPatcher.COPY_INT_UBYTE) | ((b3 >>> 4) & 3)));
+                                                    outputStream.write((byte) (((b3 << 4) & 240) | ((b4 >>> 2) & 15)));
+                                                    i3 = (b4 << 6) & 192;
+                                                    i4 = b5 & 63;
+                                                } else {
+                                                    return;
+                                                }
+                                            } else {
+                                                outputStream.write((byte) (((b6 << 2) & GDiffPatcher.COPY_INT_UBYTE) | (3 & (b3 >>> 4))));
+                                                i3 = (b3 << 4) & 240;
+                                                i4 = (b4 >>> 2) & 15;
+                                            }
+                                            i2 = i3 | i4;
+                                        } else {
+                                            i2 = ((b3 >>> 4) & 3) | ((b6 << 2) & GDiffPatcher.COPY_INT_UBYTE);
+                                        }
+                                        outputStream.write((byte) i2);
+                                        return;
+                                    }
+                                    b6 = b[this.c[3] & 255];
+                                }
+                                b2 = b6;
+                                b6 = b[this.c[2] & 255];
+                            } else {
+                                b2 = -1;
+                            }
+                            byte[] bArr2 = b;
+                            byte[] bArr3 = this.c;
+                            b3 = bArr2[bArr3[1] & 255];
+                            byte b7 = b2;
+                            b4 = b6;
+                            b6 = bArr2[bArr3[0] & 255];
+                            b5 = b7;
+                            if (i == 2) {
                             }
                             outputStream.write((byte) i2);
                             return;
                         }
-                        b6 = b[this.c[3] & 255];
+                        throw new c();
                     }
-                    b2 = b6;
-                    b6 = b[this.c[2] & 255];
                 } else {
-                    b2 = -1;
+                    throw new c();
                 }
-                byte[] bArr2 = b;
-                byte[] bArr3 = this.c;
-                b3 = bArr2[bArr3[1] & 255];
-                byte b7 = b2;
-                b4 = b6;
-                b6 = bArr2[bArr3[0] & 255];
-                b5 = b7;
-                if (i == 2) {
-                }
-                outputStream.write((byte) i2);
-                return;
             }
         }
     }

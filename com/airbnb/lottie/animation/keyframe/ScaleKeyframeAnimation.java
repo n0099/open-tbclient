@@ -6,33 +6,29 @@ import com.airbnb.lottie.value.LottieValueCallback;
 import com.airbnb.lottie.value.ScaleXY;
 import java.util.List;
 /* loaded from: classes.dex */
-public class ScaleKeyframeAnimation extends KeyframeAnimation<ScaleXY> {
+public class ScaleKeyframeAnimation extends KeyframeAnimation {
     public final ScaleXY scaleXY;
 
-    public ScaleKeyframeAnimation(List<Keyframe<ScaleXY>> list) {
+    public ScaleKeyframeAnimation(List list) {
         super(list);
         this.scaleXY = new ScaleXY();
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.airbnb.lottie.animation.keyframe.BaseKeyframeAnimation
-    public /* bridge */ /* synthetic */ Object getValue(Keyframe keyframe, float f) {
-        return getValue((Keyframe<ScaleXY>) keyframe, f);
-    }
-
-    @Override // com.airbnb.lottie.animation.keyframe.BaseKeyframeAnimation
-    public ScaleXY getValue(Keyframe<ScaleXY> keyframe, float f) {
+    public ScaleXY getValue(Keyframe keyframe, float f) {
+        Object obj;
         ScaleXY scaleXY;
-        ScaleXY scaleXY2;
-        ScaleXY scaleXY3 = keyframe.startValue;
-        if (scaleXY3 != null && (scaleXY = keyframe.endValue) != null) {
-            ScaleXY scaleXY4 = scaleXY3;
-            ScaleXY scaleXY5 = scaleXY;
-            LottieValueCallback<A> lottieValueCallback = this.valueCallback;
-            if (lottieValueCallback == 0 || (scaleXY2 = (ScaleXY) lottieValueCallback.getValueInternal(keyframe.startFrame, keyframe.endFrame.floatValue(), scaleXY4, scaleXY5, f, getLinearCurrentKeyframeProgress(), getProgress())) == null) {
-                this.scaleXY.set(MiscUtils.lerp(scaleXY4.getScaleX(), scaleXY5.getScaleX(), f), MiscUtils.lerp(scaleXY4.getScaleY(), scaleXY5.getScaleY(), f));
-                return this.scaleXY;
+        Object obj2 = keyframe.startValue;
+        if (obj2 != null && (obj = keyframe.endValue) != null) {
+            ScaleXY scaleXY2 = (ScaleXY) obj2;
+            ScaleXY scaleXY3 = (ScaleXY) obj;
+            LottieValueCallback lottieValueCallback = this.valueCallback;
+            if (lottieValueCallback != null && (scaleXY = (ScaleXY) lottieValueCallback.getValueInternal(keyframe.startFrame, keyframe.endFrame.floatValue(), scaleXY2, scaleXY3, f, getLinearCurrentKeyframeProgress(), getProgress())) != null) {
+                return scaleXY;
             }
-            return scaleXY2;
+            this.scaleXY.set(MiscUtils.lerp(scaleXY2.getScaleX(), scaleXY3.getScaleX(), f), MiscUtils.lerp(scaleXY2.getScaleY(), scaleXY3.getScaleY(), f));
+            return this.scaleXY;
         }
         throw new IllegalStateException("Missing values for keyframe.");
     }

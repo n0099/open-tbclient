@@ -50,10 +50,10 @@ public class RTCCommStatesReport {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            if (this.mPlayTransactionId == null || this.mRoomId == null || this.mUserId == null || this.mRemoteHandleId == null) {
-                return "";
+            if (this.mPlayTransactionId != null && this.mRoomId != null && this.mUserId != null && this.mRemoteHandleId != null) {
+                return "PlayInfo: (transactionId)" + this.mPlayTransactionId + " | (handleId)" + this.mRemoteHandleId + " | (room)" + this.mRoomId + " | (user)" + this.mUserId + "\n";
             }
-            return "PlayInfo: (transactionId)" + this.mPlayTransactionId + " | (handleId)" + this.mRemoteHandleId + " | (room)" + this.mRoomId + " | (user)" + this.mUserId + "\n";
+            return "";
         }
         return (String) invokeV.objValue;
     }
@@ -102,7 +102,10 @@ public class RTCCommStatesReport {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             HUDStatistics hUDStatistics = this.mStates;
-            return hUDStatistics == null ? "" : hUDStatistics.mRemoteIp;
+            if (hUDStatistics == null) {
+                return "";
+            }
+            return hUDStatistics.mRemoteIp;
         }
         return (String) invokeV.objValue;
     }
@@ -110,13 +113,19 @@ public class RTCCommStatesReport {
     public String getRoomId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mRoomId : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mRoomId;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getUserId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mUserId : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mUserId;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getVideoOutputFps() {
@@ -124,10 +133,10 @@ public class RTCCommStatesReport {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             HUDStatistics hUDStatistics = this.mStates;
-            if (hUDStatistics == null || TextUtils.isEmpty(hUDStatistics.mVideoOutputFps)) {
-                return -1;
+            if (hUDStatistics != null && !TextUtils.isEmpty(hUDStatistics.mVideoOutputFps)) {
+                return Integer.valueOf(this.mStates.mVideoOutputFps).intValue();
             }
-            return Integer.valueOf(this.mStates.mVideoOutputFps).intValue();
+            return -1;
         }
         return invokeV.intValue;
     }
@@ -163,10 +172,10 @@ public class RTCCommStatesReport {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             HUDStatistics hUDStatistics = this.mStates;
-            if (hUDStatistics == null || TextUtils.isEmpty(hUDStatistics.mVideoRecvPacketLost)) {
-                return -1;
+            if (hUDStatistics != null && !TextUtils.isEmpty(hUDStatistics.mVideoRecvPacketLost)) {
+                return Integer.valueOf(this.mStates.mVideoRecvPacketLost).intValue();
             }
-            return Integer.valueOf(this.mStates.mVideoRecvPacketLost).intValue();
+            return -1;
         }
         return invokeV.intValue;
     }
@@ -206,22 +215,27 @@ public class RTCCommStatesReport {
         }
     }
 
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            String formatPlayInfo = formatPlayInfo();
-            HUDStatistics hUDStatistics = this.mStates;
-            String statsString = hUDStatistics != null ? hUDStatistics.statsString(this.mDebugStatesFlag) : "";
-            return formatPlayInfo + statsString;
-        }
-        return (String) invokeV.objValue;
-    }
-
     public void updateStates(HUDStatistics hUDStatistics) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, hUDStatistics) == null) {
             this.mStates = hUDStatistics;
         }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            String formatPlayInfo = formatPlayInfo();
+            HUDStatistics hUDStatistics = this.mStates;
+            if (hUDStatistics != null) {
+                str = hUDStatistics.statsString(this.mDebugStatesFlag);
+            } else {
+                str = "";
+            }
+            return formatPlayInfo + str;
+        }
+        return (String) invokeV.objValue;
     }
 }

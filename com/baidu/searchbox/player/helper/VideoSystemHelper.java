@@ -9,7 +9,6 @@ import android.view.ViewConfiguration;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
 import com.baidu.searchbox.player.BDPlayerConfig;
-import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -123,21 +122,22 @@ public class VideoSystemHelper {
                 } catch (Exception unused) {
                 }
             }
-            return i == 0 ? (int) (getDensity() * 25.0f) : i;
+            if (i == 0) {
+                return (int) (getDensity() * 25.0f);
+            }
+            return i;
         }
         return invokeV.intValue;
     }
 
-    @PublicMethod
     public static void setKeepScreenOnOff(Activity activity, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(65543, null, activity, z) == null) || activity == null) {
-            return;
-        }
-        if (z) {
-            activity.getWindow().addFlags(128);
-        } else {
-            activity.getWindow().clearFlags(128);
+        if ((interceptable == null || interceptable.invokeLZ(65543, null, activity, z) == null) && activity != null) {
+            if (z) {
+                activity.getWindow().addFlags(128);
+            } else {
+                activity.getWindow().clearFlags(128);
+            }
         }
     }
 }

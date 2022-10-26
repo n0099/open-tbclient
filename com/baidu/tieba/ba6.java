@@ -1,20 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class ba6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ca6> a;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public MetaData f;
+    public boolean g;
+    public boolean h;
 
     public ba6() {
         Interceptable interceptable = $ic;
@@ -26,39 +28,10 @@ public class ba6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    public static ba6 b(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        JSONArray optJSONArray;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null || (optJSONArray = jSONObject.optJSONArray("recommend_forum_info")) == null) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                arrayList.add(ca6.A(optJSONArray.optJSONObject(i)));
-            }
-            ba6 ba6Var = new ba6();
-            ba6Var.c(arrayList);
-            return ba6Var;
-        }
-        return (ba6) invokeL.objValue;
-    }
-
-    public List<ca6> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (List) invokeV.objValue;
-    }
-
-    public void c(List<ca6> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.a = list;
-        }
+        this.g = false;
+        this.h = false;
     }
 }

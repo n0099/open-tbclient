@@ -24,7 +24,7 @@ public class IMSetSubscriptionRequest extends IMSubscriptionBaseRequest {
     public int mCategory;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public IMSetSubscriptionRequest(Context context, int i, long j, List<Long> list, List<String> list2, String str, String str2) {
+    public IMSetSubscriptionRequest(Context context, int i, long j, List list, List list2, String str, String str2) {
         super(context, j, list, list2, str2, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -49,20 +49,25 @@ public class IMSetSubscriptionRequest extends IMSubscriptionBaseRequest {
     public String getHostUrlParam() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mCategory == 1 ? TableDefine.PaSubscribeColumns.COLUMN_SUBSCRIBE : "unsubscribe" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.mCategory == 1) {
+                return TableDefine.PaSubscribeColumns.COLUMN_SUBSCRIBE;
+            }
+            return "unsubscribe";
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr, th) == null) {
-            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
+            Pair transErrorCode = transErrorCode(i, bArr, th);
             LogUtils.d(TAG, "IMSetSubscriptionRequest onFailure :" + transErrorCode.first + " errmsg = " + ((String) transErrorCode.second));
             IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
-            if (removeListener == null || !(removeListener instanceof ISetSubscriptionListener)) {
-                return;
+            if (removeListener != null && (removeListener instanceof ISetSubscriptionListener)) {
+                ((ISetSubscriptionListener) removeListener).onResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second);
             }
-            ((ISetSubscriptionListener) removeListener).onResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second);
         }
     }
 
@@ -84,10 +89,9 @@ public class IMSetSubscriptionRequest extends IMSubscriptionBaseRequest {
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
             }
             IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
-            if (removeListener == null || !(removeListener instanceof ISetSubscriptionListener)) {
-                return;
+            if (removeListener != null && (removeListener instanceof ISetSubscriptionListener)) {
+                ((ISetSubscriptionListener) removeListener).onResult(i2, str);
             }
-            ((ISetSubscriptionListener) removeListener).onResult(i2, str);
         }
     }
 }

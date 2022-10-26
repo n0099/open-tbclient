@@ -42,48 +42,72 @@ public class HttpRequestCompat {
     public DeleteRequest.DeleteRequestBuilder deleteRequest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new DeleteRequest.DeleteRequestBuilder(this.httpManager.getCallFactoryMap()) : (DeleteRequest.DeleteRequestBuilder) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new DeleteRequest.DeleteRequestBuilder(this.httpManager.getCallFactoryMap());
+        }
+        return (DeleteRequest.DeleteRequestBuilder) invokeV.objValue;
     }
 
     public HeadRequest.HeadRequestBuilder headRequest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new HeadRequest.HeadRequestBuilder(this.httpManager.getCallFactoryMap()) : (HeadRequest.HeadRequestBuilder) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return new HeadRequest.HeadRequestBuilder(this.httpManager.getCallFactoryMap());
+        }
+        return (HeadRequest.HeadRequestBuilder) invokeV.objValue;
     }
 
     public PatchRequest.PatchRequestBuilder patchRequest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new PatchRequest.PatchRequestBuilder(this.httpManager.getCallFactoryMap()) : (PatchRequest.PatchRequestBuilder) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return new PatchRequest.PatchRequestBuilder(this.httpManager.getCallFactoryMap());
+        }
+        return (PatchRequest.PatchRequestBuilder) invokeV.objValue;
     }
 
     public PostFileRequest.PostFileRequestBuilder postFileRequest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new PostFileRequest.PostFileRequestBuilder(this.httpManager.getCallFactoryMap()) : (PostFileRequest.PostFileRequestBuilder) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return new PostFileRequest.PostFileRequestBuilder(this.httpManager.getCallFactoryMap());
+        }
+        return (PostFileRequest.PostFileRequestBuilder) invokeV.objValue;
     }
 
     public PostMultiPartFormRequest.PostMultiPartFormRequestBuilder postMultiPartRequest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? new PostMultiPartFormRequest.PostMultiPartFormRequestBuilder(this.httpManager.getCallFactoryMap()) : (PostMultiPartFormRequest.PostMultiPartFormRequestBuilder) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return new PostMultiPartFormRequest.PostMultiPartFormRequestBuilder(this.httpManager.getCallFactoryMap());
+        }
+        return (PostMultiPartFormRequest.PostMultiPartFormRequestBuilder) invokeV.objValue;
     }
 
     public PostBodyRequest.PostBodyRequestBuilder postRequest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? new PostBodyRequest.PostBodyRequestBuilder(this.httpManager.getCallFactoryMap()) : (PostBodyRequest.PostBodyRequestBuilder) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return new PostBodyRequest.PostBodyRequestBuilder(this.httpManager.getCallFactoryMap());
+        }
+        return (PostBodyRequest.PostBodyRequestBuilder) invokeV.objValue;
     }
 
     public PutFormRequest.PutFormRequestBuilder putFormRequest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new PutFormRequest.PutFormRequestBuilder(this.httpManager.getCallFactoryMap()) : (PutFormRequest.PutFormRequestBuilder) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return new PutFormRequest.PutFormRequestBuilder(this.httpManager.getCallFactoryMap());
+        }
+        return (PutFormRequest.PutFormRequestBuilder) invokeV.objValue;
     }
 
     public PutBodyRequest.PutBodyRequestBuilder putRequest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? new PutBodyRequest.PutBodyRequestBuilder(this.httpManager.getCallFactoryMap()) : (PutBodyRequest.PutBodyRequestBuilder) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return new PutBodyRequest.PutBodyRequestBuilder(this.httpManager.getCallFactoryMap());
+        }
+        return (PutBodyRequest.PutBodyRequestBuilder) invokeV.objValue;
     }
 }

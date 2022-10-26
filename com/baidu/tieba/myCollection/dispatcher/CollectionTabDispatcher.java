@@ -2,15 +2,15 @@ package com.baidu.tieba.myCollection.dispatcher;
 
 import android.content.Context;
 import android.content.Intent;
+import com.baidu.tieba.jg8;
 import com.baidu.tieba.myCollection.CollectTabActivity;
-import com.baidu.tieba.zf8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class CollectionTabDispatcher implements zf8 {
+public class CollectionTabDispatcher implements jg8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,14 +28,13 @@ public class CollectionTabDispatcher implements zf8 {
         }
     }
 
-    @Override // com.baidu.tieba.zf8
+    @Override // com.baidu.tieba.jg8
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) || jSONObject == null || context == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) && jSONObject != null && context != null) {
+            Intent intent = new Intent();
+            intent.setClass(context, CollectTabActivity.class);
+            context.startActivity(intent);
         }
-        Intent intent = new Intent();
-        intent.setClass(context, CollectTabActivity.class);
-        context.startActivity(intent);
     }
 }

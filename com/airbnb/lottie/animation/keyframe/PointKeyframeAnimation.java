@@ -5,36 +5,32 @@ import com.airbnb.lottie.value.Keyframe;
 import com.airbnb.lottie.value.LottieValueCallback;
 import java.util.List;
 /* loaded from: classes.dex */
-public class PointKeyframeAnimation extends KeyframeAnimation<PointF> {
+public class PointKeyframeAnimation extends KeyframeAnimation {
     public final PointF point;
 
-    public PointKeyframeAnimation(List<Keyframe<PointF>> list) {
+    public PointKeyframeAnimation(List list) {
         super(list);
         this.point = new PointF();
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.airbnb.lottie.animation.keyframe.BaseKeyframeAnimation
-    public /* bridge */ /* synthetic */ Object getValue(Keyframe keyframe, float f) {
-        return getValue((Keyframe<PointF>) keyframe, f);
-    }
-
-    @Override // com.airbnb.lottie.animation.keyframe.BaseKeyframeAnimation
-    public PointF getValue(Keyframe<PointF> keyframe, float f) {
+    public PointF getValue(Keyframe keyframe, float f) {
+        Object obj;
         PointF pointF;
-        PointF pointF2;
-        PointF pointF3 = keyframe.startValue;
-        if (pointF3 != null && (pointF = keyframe.endValue) != null) {
-            PointF pointF4 = pointF3;
-            PointF pointF5 = pointF;
-            LottieValueCallback<A> lottieValueCallback = this.valueCallback;
-            if (lottieValueCallback == 0 || (pointF2 = (PointF) lottieValueCallback.getValueInternal(keyframe.startFrame, keyframe.endFrame.floatValue(), pointF4, pointF5, f, getLinearCurrentKeyframeProgress(), getProgress())) == null) {
-                PointF pointF6 = this.point;
-                float f2 = pointF4.x;
-                float f3 = pointF4.y;
-                pointF6.set(f2 + ((pointF5.x - f2) * f), f3 + (f * (pointF5.y - f3)));
-                return this.point;
+        Object obj2 = keyframe.startValue;
+        if (obj2 != null && (obj = keyframe.endValue) != null) {
+            PointF pointF2 = (PointF) obj2;
+            PointF pointF3 = (PointF) obj;
+            LottieValueCallback lottieValueCallback = this.valueCallback;
+            if (lottieValueCallback != null && (pointF = (PointF) lottieValueCallback.getValueInternal(keyframe.startFrame, keyframe.endFrame.floatValue(), pointF2, pointF3, f, getLinearCurrentKeyframeProgress(), getProgress())) != null) {
+                return pointF;
             }
-            return pointF2;
+            PointF pointF4 = this.point;
+            float f2 = pointF2.x;
+            float f3 = pointF2.y;
+            pointF4.set(f2 + ((pointF3.x - f2) * f), f3 + (f * (pointF3.y - f3)));
+            return this.point;
         }
         throw new IllegalStateException("Missing values for keyframe.");
     }

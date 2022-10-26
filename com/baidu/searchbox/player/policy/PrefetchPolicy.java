@@ -44,13 +44,28 @@ public class PrefetchPolicy {
         }
     }
 
+    public String getThreshold() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.lineDuration;
+        }
+        return (String) invokeV.objValue;
+    }
+
     public static boolean isValid(PrefetchPolicy prefetchPolicy) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, prefetchPolicy)) == null) ? (prefetchPolicy == null || TextUtils.isEmpty(prefetchPolicy.lineDuration) || TextUtils.isEmpty(prefetchPolicy.expiredTime) || TextUtils.isEmpty(prefetchPolicy.expiredCount)) ? false : true : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, prefetchPolicy)) == null) {
+            if (prefetchPolicy != null && !TextUtils.isEmpty(prefetchPolicy.lineDuration) && !TextUtils.isEmpty(prefetchPolicy.expiredTime) && !TextUtils.isEmpty(prefetchPolicy.expiredCount)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
-    public static Map<String, String> jsonToMap(JSONObject jSONObject) {
+    public static Map jsonToMap(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
@@ -85,7 +100,7 @@ public class PrefetchPolicy {
         return (PrefetchPolicy) invokeL.objValue;
     }
 
-    public static PrefetchPolicy mapToModel(Map<String, String> map) {
+    public static PrefetchPolicy mapToModel(Map map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, map)) == null) {
@@ -93,24 +108,24 @@ public class PrefetchPolicy {
                 return null;
             }
             PrefetchPolicy prefetchPolicy = new PrefetchPolicy();
-            prefetchPolicy.lineDuration = map.get("lineDuration");
-            prefetchPolicy.expiredTime = map.get("expiredTime");
-            prefetchPolicy.expiredCount = map.get("expiredCount");
-            prefetchPolicy.calcCnt = map.get("calcCnt");
-            prefetchPolicy.ctrPass = map.get("ctrPass");
-            prefetchPolicy.coeDuration = map.get("coeDuration");
-            prefetchPolicy.coeNetwork = map.get("coeNetwork");
-            prefetchPolicy.coeDeviceStatic = map.get("coeDeviceStatic");
-            prefetchPolicy.coeDeviceDynamic = map.get("coeDeviceDynamic");
-            if (isValid(prefetchPolicy)) {
-                return prefetchPolicy;
+            prefetchPolicy.lineDuration = (String) map.get("lineDuration");
+            prefetchPolicy.expiredTime = (String) map.get("expiredTime");
+            prefetchPolicy.expiredCount = (String) map.get("expiredCount");
+            prefetchPolicy.calcCnt = (String) map.get("calcCnt");
+            prefetchPolicy.ctrPass = (String) map.get("ctrPass");
+            prefetchPolicy.coeDuration = (String) map.get("coeDuration");
+            prefetchPolicy.coeNetwork = (String) map.get("coeNetwork");
+            prefetchPolicy.coeDeviceStatic = (String) map.get("coeDeviceStatic");
+            prefetchPolicy.coeDeviceDynamic = (String) map.get("coeDeviceDynamic");
+            if (!isValid(prefetchPolicy)) {
+                return null;
             }
-            return null;
+            return prefetchPolicy;
         }
         return (PrefetchPolicy) invokeL.objValue;
     }
 
-    public static Map<String, String> modelToMap(PrefetchPolicy prefetchPolicy) {
+    public static Map modelToMap(PrefetchPolicy prefetchPolicy) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, prefetchPolicy)) == null) {
@@ -144,45 +159,42 @@ public class PrefetchPolicy {
             int parseIntSafe2 = BdPlayerUtils.parseIntSafe(prefetchPolicy.expiredTime);
             int parseIntSafe3 = BdPlayerUtils.parseIntSafe(prefetchPolicy.expiredCount);
             int parseIntSafe4 = BdPlayerUtils.parseIntSafe(prefetchPolicy.calcCnt, 1);
-            if (parseIntSafe <= 0 || parseIntSafe2 <= 0 || parseIntSafe3 <= 0) {
-                return true;
-            }
-            long j = 0;
-            int size = PlayPerRecord.sRecords.size();
-            int i2 = size - 1;
-            int i3 = 0;
-            while (size >= parseIntSafe4 && i2 >= 0) {
-                PlayPerRecord.PerRecord perRecord = PlayPerRecord.sRecords.get(i2);
-                i = parseIntSafe;
-                if (Math.abs(perRecord.endTime - System.currentTimeMillis()) < parseIntSafe2) {
-                    BdVideoLog.d(TAG, "=======>calculate record : " + perRecord);
-                    j += perRecord.getDuration();
-                    i3++;
-                    if (i3 >= parseIntSafe3) {
-                        break;
+            if (parseIntSafe > 0 && parseIntSafe2 > 0 && parseIntSafe3 > 0) {
+                long j = 0;
+                int size = PlayPerRecord.sRecords.size();
+                int i2 = size - 1;
+                int i3 = 0;
+                while (size >= parseIntSafe4 && i2 >= 0) {
+                    PlayPerRecord.PerRecord perRecord = (PlayPerRecord.PerRecord) PlayPerRecord.sRecords.get(i2);
+                    i = parseIntSafe;
+                    if (Math.abs(perRecord.endTime - System.currentTimeMillis()) < parseIntSafe2) {
+                        BdVideoLog.d(TAG, "=======>calculate record : " + perRecord);
+                        j += perRecord.getDuration();
+                        i3++;
+                        if (i3 >= parseIntSafe3) {
+                            break;
+                        }
                     }
+                    i2--;
+                    parseIntSafe = i;
                 }
-                i2--;
-                parseIntSafe = i;
-            }
-            i = parseIntSafe;
-            if (i3 > 0) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("=======>average time : ");
-                long j2 = j / i3;
-                sb.append(j2);
-                BdVideoLog.d(TAG, sb.toString());
-                return j2 >= ((long) i);
+                i = parseIntSafe;
+                if (i3 > 0) {
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("=======>average time : ");
+                    long j2 = j / i3;
+                    sb.append(j2);
+                    BdVideoLog.d(TAG, sb.toString());
+                    if (j2 < i) {
+                        return false;
+                    }
+                    return true;
+                }
+                return true;
             }
             return true;
         }
         return invokeL.booleanValue;
-    }
-
-    public String getThreshold() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.lineDuration : (String) invokeV.objValue;
     }
 
     public String toString() {

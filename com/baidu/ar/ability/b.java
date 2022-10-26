@@ -14,12 +14,12 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
-    public static final HashMap<String, String> bA;
-    public static final HashMap<ARType, String> bB;
-    public static final HashMap<String, String> bC;
-    public static final HashMap<String, String> bx;
-    public static final List<String> by;
-    public static final HashMap<String, String> bz;
+    public static final HashMap bA;
+    public static final HashMap bB;
+    public static final HashMap bC;
+    public static final HashMap bx;
+    public static final List by;
+    public static final HashMap bz;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -79,7 +79,7 @@ public class b {
                 put("ability_marker", "com.baidu.ar.vps.marker.MarkerAR");
             }
         };
-        by = new ArrayList<String>() { // from class: com.baidu.ar.ability.b.2
+        by = new ArrayList() { // from class: com.baidu.ar.ability.b.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

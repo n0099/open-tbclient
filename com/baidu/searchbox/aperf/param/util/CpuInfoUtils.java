@@ -80,21 +80,12 @@ public class CpuInfoUtils {
             } else {
                 f = 0.0f;
             }
-            if (i <= 0 || f <= 0.0f) {
-                return -1.0f;
+            if (i > 0 && f > 0.0f) {
+                return f / i;
             }
-            return f / i;
+            return -1.0f;
         }
         return invokeV.floatValue;
-    }
-
-    public static String getCpuInfoFilePath(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            return "/sys/devices/system/cpu/cpu" + i + "/cpufreq/cpuinfo_max_freq";
-        }
-        return (String) invokeI.objValue;
     }
 
     public static float getMaxCpuFrequency() {
@@ -114,16 +105,17 @@ public class CpuInfoUtils {
             } else {
                 f = 0.0f;
             }
-            if (f > 0.0f) {
-                return f;
+            if (f <= 0.0f) {
+                return -1.0f;
             }
-            return -1.0f;
+            return f;
         }
         return invokeV.floatValue;
     }
 
     public static int getNumCores() {
         InterceptResult invokeV;
+        int length;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             FileFilter fileFilter = new FileFilter() { // from class: com.baidu.searchbox.aperf.param.util.CpuInfoUtils.1
@@ -148,13 +140,21 @@ public class CpuInfoUtils {
                 public boolean accept(File file) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, file)) == null) ? Pattern.matches("cpu[0-9]", file.getName()) : invokeL.booleanValue;
+                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, file)) == null) {
+                        return Pattern.matches("cpu[0-9]", file.getName());
+                    }
+                    return invokeL.booleanValue;
                 }
             };
             if (sCoreNum <= 0) {
                 try {
                     File[] listFiles = new File("/sys/devices/system/cpu/").listFiles(fileFilter);
-                    sCoreNum = listFiles == null ? -1 : listFiles.length;
+                    if (listFiles == null) {
+                        length = -1;
+                    } else {
+                        length = listFiles.length;
+                    }
+                    sCoreNum = length;
                 } catch (Exception e) {
                     if (DEBUG) {
                         Log.e(TAG, "getNumCores exception occurred, e= ", e);
@@ -165,6 +165,15 @@ public class CpuInfoUtils {
             return sCoreNum;
         }
         return invokeV.intValue;
+    }
+
+    public static String getCpuInfoFilePath(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            return "/sys/devices/system/cpu/cpu" + i + "/cpufreq/cpuinfo_max_freq";
+        }
+        return (String) invokeI.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:49:0x0066 A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -179,80 +188,81 @@ public class CpuInfoUtils {
         BufferedReader bufferedReader;
         Exception e;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65542, null, str)) != null) {
-            return invokeL.floatValue;
-        }
-        try {
-            fileInputStream = new FileInputStream(new File(str));
-        } catch (Exception e2) {
-            fileInputStream = null;
-            e = e2;
-            bufferedReader = null;
-        } catch (Throwable th2) {
-            fileInputStream = null;
-            th = th2;
-            bufferedReader = null;
-        }
-        try {
-            bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
             try {
+                fileInputStream = new FileInputStream(new File(str));
+            } catch (Exception e2) {
+                fileInputStream = null;
+                e = e2;
+                bufferedReader = null;
+            } catch (Throwable th2) {
+                fileInputStream = null;
+                th = th2;
+                bufferedReader = null;
+            }
+            try {
+                bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
                 try {
-                    float parseLong = (((float) Long.parseLong(bufferedReader.readLine())) / 1000.0f) / 1000.0f;
                     try {
-                        fileInputStream.close();
-                    } catch (IOException unused) {
+                        float parseLong = (((float) Long.parseLong(bufferedReader.readLine())) / 1000.0f) / 1000.0f;
+                        try {
+                            fileInputStream.close();
+                        } catch (IOException unused) {
+                        }
+                        try {
+                            bufferedReader.close();
+                        } catch (IOException unused2) {
+                        }
+                        return parseLong;
+                    } catch (Exception e3) {
+                        e = e3;
+                        if (DEBUG) {
+                            Log.e(TAG, "getCpuFrequency Exception occurred, e=", e);
+                        }
+                        if (fileInputStream != null) {
+                            try {
+                                fileInputStream.close();
+                            } catch (IOException unused3) {
+                            }
+                        }
+                        if (bufferedReader != null) {
+                            try {
+                                bufferedReader.close();
+                            } catch (IOException unused4) {
+                            }
+                        }
+                        return -1.0f;
                     }
-                    try {
-                        bufferedReader.close();
-                    } catch (IOException unused2) {
-                    }
-                    return parseLong;
-                } catch (Exception e3) {
-                    e = e3;
-                    if (DEBUG) {
-                        Log.e(TAG, "getCpuFrequency Exception occurred, e=", e);
-                    }
+                } catch (Throwable th3) {
+                    th = th3;
                     if (fileInputStream != null) {
                         try {
                             fileInputStream.close();
-                        } catch (IOException unused3) {
+                        } catch (IOException unused5) {
                         }
                     }
                     if (bufferedReader != null) {
                         try {
                             bufferedReader.close();
-                        } catch (IOException unused4) {
+                        } catch (IOException unused6) {
                         }
                     }
-                    return -1.0f;
+                    throw th;
                 }
-            } catch (Throwable th3) {
-                th = th3;
+            } catch (Exception e4) {
+                e = e4;
+                bufferedReader = null;
+            } catch (Throwable th4) {
+                th = th4;
+                bufferedReader = null;
                 if (fileInputStream != null) {
-                    try {
-                        fileInputStream.close();
-                    } catch (IOException unused5) {
-                    }
                 }
                 if (bufferedReader != null) {
-                    try {
-                        bufferedReader.close();
-                    } catch (IOException unused6) {
-                    }
                 }
                 throw th;
             }
-        } catch (Exception e4) {
-            e = e4;
-            bufferedReader = null;
-        } catch (Throwable th4) {
-            th = th4;
-            bufferedReader = null;
-            if (fileInputStream != null) {
-            }
-            if (bufferedReader != null) {
-            }
-            throw th;
+        } else {
+            return invokeL.floatValue;
         }
     }
 }

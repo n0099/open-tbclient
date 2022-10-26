@@ -33,6 +33,19 @@ public final class e extends j {
         }
     }
 
+    public final int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            long b = b();
+            if (b <= 2147483647L) {
+                return (int) b;
+            }
+            throw new ArithmeticException("The byte count " + b + " is too large to be converted to an int");
+        }
+        return invokeV.intValue;
+    }
+
     @Override // com.bytedance.pangle.res.a.j
     public final synchronized void a(int i) {
         Interceptable interceptable = $ic;
@@ -43,19 +56,6 @@ public final class e extends j {
                 }
             }
         }
-    }
-
-    public final synchronized long b() {
-        InterceptResult invokeV;
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this) {
-                j = this.a;
-            }
-            return j;
-        }
-        return invokeV.longValue;
     }
 
     @Override // com.bytedance.pangle.res.a.j, java.io.FilterInputStream, java.io.InputStream
@@ -73,16 +73,16 @@ public final class e extends j {
         return invokeJ.longValue;
     }
 
-    public final int a() {
+    public final synchronized long b() {
         InterceptResult invokeV;
+        long j;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            long b = b();
-            if (b <= 2147483647L) {
-                return (int) b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this) {
+                j = this.a;
             }
-            throw new ArithmeticException("The byte count " + b + " is too large to be converted to an int");
+            return j;
         }
-        return invokeV.intValue;
+        return invokeV.longValue;
     }
 }

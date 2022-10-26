@@ -20,6 +20,10 @@ public abstract class CollectFragment extends BaseFragment {
     public boolean a;
     public final CustomMessageListener b;
 
+    public abstract int getType();
+
+    public abstract boolean q1();
+
     /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
@@ -49,15 +53,15 @@ public abstract class CollectFragment extends BaseFragment {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage)) {
-                CollectFragment collectFragment = this.a;
-                collectFragment.s1(collectFragment.getType());
-                CollectFragment collectFragment2 = this.a;
-                if (collectFragment2.a) {
-                    return;
-                }
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage.getCmd() != 2000994 || !(customResponsedMessage instanceof NetWorkChangedMessage)) {
+                return;
+            }
+            CollectFragment collectFragment = this.a;
+            collectFragment.s1(collectFragment.getType());
+            CollectFragment collectFragment2 = this.a;
+            if (!collectFragment2.a) {
                 collectFragment2.t1(false, collectFragment2.getType());
             }
         }
@@ -80,8 +84,6 @@ public abstract class CollectFragment extends BaseFragment {
         this.b = new a(this, 2000994);
     }
 
-    public abstract int getType();
-
     @Override // androidx.fragment.app.Fragment
     public void onStart() {
         Interceptable interceptable = $ic;
@@ -100,19 +102,25 @@ public abstract class CollectFragment extends BaseFragment {
         }
     }
 
-    public abstract boolean q1();
-
     public boolean r1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
+        }
+        return invokeV.booleanValue;
     }
 
     public void s1(int i) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             Bundle bundle = new Bundle();
-            boolean z = !q1() && BdNetTypeUtil.isNetWorkAvailable();
+            if (!q1() && BdNetTypeUtil.isNetWorkAvailable()) {
+                z = true;
+            } else {
+                z = false;
+            }
             this.a = z;
             bundle.putBoolean("is_enable_edit", z);
             bundle.putInt("fragment_type", i);

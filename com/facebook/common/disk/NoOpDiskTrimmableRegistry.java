@@ -31,6 +31,20 @@ public class NoOpDiskTrimmableRegistry implements DiskTrimmableRegistry {
         }
     }
 
+    @Override // com.facebook.common.disk.DiskTrimmableRegistry
+    public void registerDiskTrimmable(DiskTrimmable diskTrimmable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, diskTrimmable) == null) {
+        }
+    }
+
+    @Override // com.facebook.common.disk.DiskTrimmableRegistry
+    public void unregisterDiskTrimmable(DiskTrimmable diskTrimmable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, diskTrimmable) == null) {
+        }
+    }
+
     public NoOpDiskTrimmableRegistry() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -59,19 +73,5 @@ public class NoOpDiskTrimmableRegistry implements DiskTrimmableRegistry {
             return noOpDiskTrimmableRegistry;
         }
         return (NoOpDiskTrimmableRegistry) invokeV.objValue;
-    }
-
-    @Override // com.facebook.common.disk.DiskTrimmableRegistry
-    public void registerDiskTrimmable(DiskTrimmable diskTrimmable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, diskTrimmable) == null) {
-        }
-    }
-
-    @Override // com.facebook.common.disk.DiskTrimmableRegistry
-    public void unregisterDiskTrimmable(DiskTrimmable diskTrimmable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, diskTrimmable) == null) {
-        }
     }
 }

@@ -29,13 +29,19 @@ public class ThreadStackFactoryImpl11 implements ThreadStackFactory {
     public ThreadCounter getNewThreadCounter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ThreadCounterImpl11() : (ThreadCounter) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new ThreadCounterImpl11();
+        }
+        return (ThreadCounter) invokeV.objValue;
     }
 
     @Override // org.aspectj.runtime.internal.cflowstack.ThreadStackFactory
     public ThreadStack getNewThreadStack() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new ThreadStackImpl11() : (ThreadStack) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return new ThreadStackImpl11();
+        }
+        return (ThreadStack) invokeV.objValue;
     }
 }

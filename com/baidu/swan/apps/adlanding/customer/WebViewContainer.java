@@ -9,8 +9,8 @@ import android.widget.FrameLayout;
 import android.widget.OverScroller;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ch3;
-import com.baidu.tieba.sp1;
+import com.baidu.tieba.dh3;
+import com.baidu.tieba.tp1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,7 +39,7 @@ public class WebViewContainer extends FrameLayout {
     public float p;
     public int q;
     public int r;
-    public sp1 s;
+    public tp1 s;
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -57,7 +57,7 @@ public class WebViewContainer extends FrameLayout {
     }
 
     /* loaded from: classes2.dex */
-    public static class d extends GestureDetector.SimpleOnGestureListener {
+    public class d extends GestureDetector.SimpleOnGestureListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final WebViewContainer a;
@@ -84,11 +84,11 @@ public class WebViewContainer extends FrameLayout {
         public boolean onDown(MotionEvent motionEvent) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-                this.a.c = motionEvent.getRawY();
-                return false;
+            if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, motionEvent)) != null) {
+                return invokeL.booleanValue;
             }
-            return invokeL.booleanValue;
+            this.a.c = motionEvent.getRawY();
+            return false;
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
@@ -102,10 +102,16 @@ public class WebViewContainer extends FrameLayout {
                 }
                 if (f2 > 0.0f) {
                     this.a.k = true;
-                    return this.a.f > this.a.q;
+                    if (this.a.f <= this.a.q) {
+                        return false;
+                    }
+                    return true;
                 }
                 this.a.k = false;
-                return (this.a.n && this.a.o && this.a.f < this.a.g) || this.a.f < this.a.g;
+                if ((!this.a.n || !this.a.o || this.a.f >= this.a.g) && this.a.f >= this.a.g) {
+                    return false;
+                }
+                return true;
             }
             return invokeCommon.booleanValue;
         }
@@ -136,239 +142,6 @@ public class WebViewContainer extends FrameLayout {
         this.p = 1.0f;
         this.q = 0;
         l(context);
-    }
-
-    @Override // android.view.View
-    public void computeScroll() {
-        b bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.a.computeScrollOffset()) {
-                int i = i(this.a.getCurrY());
-                if (this.j) {
-                    scrollTo(0, i);
-                } else {
-                    scrollBy(0, i);
-                }
-                this.c -= i;
-                invalidate();
-            }
-            if (!this.j || (bVar = this.i) == null) {
-                return;
-            }
-            bVar.a();
-            this.j = false;
-        }
-    }
-
-    public int getMinTopMargin() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.q : invokeV.intValue;
-    }
-
-    public int getTopMargin() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f : invokeV.intValue;
-    }
-
-    public float getYVelocity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.r : invokeV.floatValue;
-    }
-
-    public final int i(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            if (this.j) {
-                this.f = this.g - i;
-                return i;
-            }
-            int i2 = this.f;
-            int i3 = i2 - i;
-            int i4 = this.q;
-            if (i3 < i4) {
-                int i5 = i2 - i4;
-                this.f = i4;
-                return i5;
-            }
-            int i6 = this.g;
-            if (i3 > i6) {
-                int i7 = i2 - i6;
-                this.f = i6;
-                return i7;
-            }
-            this.f = i2 - i;
-            return i;
-        }
-        return invokeI.intValue;
-    }
-
-    public final boolean j(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            OverScroller overScroller = this.a;
-            if (overScroller == null || this.f < this.g) {
-                return false;
-            }
-            overScroller.fling(0, (int) this.c, 0, i, 0, 0, ErrorCode.SERVER_ERROR, 10000);
-            invalidate();
-            return true;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public final void k() {
-        c cVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.e.computeCurrentVelocity(1000);
-            int yVelocity = (int) this.e.getYVelocity();
-            this.r = yVelocity;
-            if (this.k) {
-                float f = this.p;
-                if (f > 0.0f) {
-                    this.r = (int) (yVelocity * f);
-                }
-            }
-            if (Math.abs(this.r) > this.m && ((this.r > 0 && this.f < this.g) || (this.r < 0 && this.f >= this.q))) {
-                a aVar = this.l;
-                r0 = aVar != null ? aVar.a(this.k) : false;
-                if (!r0) {
-                    j(-this.r);
-                }
-            }
-            if (!r0 && (cVar = this.h) != null) {
-                cVar.a(this.k);
-            }
-            this.e.recycle();
-            this.e = null;
-        }
-    }
-
-    public final void l(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, context) == null) {
-            this.a = new OverScroller(context);
-            this.d = new GestureDetector(context, new d(this));
-            setMotionEventSplittingEnabled(false);
-        }
-    }
-
-    @Override // android.view.ViewGroup
-    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, motionEvent)) == null) {
-            boolean z = this.f > ((int) motionEvent.getY());
-            this.o = z;
-            if ((!z || this.n) && this.d.onTouchEvent(motionEvent)) {
-                if (getParent() != null) {
-                    getParent().requestDisallowInterceptTouchEvent(true);
-                }
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // android.view.View
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, motionEvent)) == null) {
-            this.j = false;
-            int y = (int) motionEvent.getY();
-            if (this.f <= y || this.n) {
-                super.onTouchEvent(motionEvent);
-                if (this.e == null) {
-                    this.e = VelocityTracker.obtain();
-                }
-                this.e.addMovement(motionEvent);
-                int action = motionEvent.getAction();
-                if (action != 0) {
-                    if (action == 1) {
-                        k();
-                    } else if (action != 2) {
-                        if (action == 3 && this.n) {
-                            k();
-                        }
-                    } else {
-                        float rawY = motionEvent.getRawY();
-                        this.b = rawY;
-                        int i = i((int) (this.c - rawY));
-                        scrollBy(0, i);
-                        this.c -= i;
-                    }
-                } else if (!this.a.isFinished()) {
-                    this.a.abortAnimation();
-                }
-                return this.f <= y;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void setAutoScroll2TopListener(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, bVar) == null) {
-            this.i = bVar;
-        }
-    }
-
-    public void setInterceptFlingListener(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, aVar) == null) {
-            this.l = aVar;
-        }
-    }
-
-    public void setInternalWebView(sp1 sp1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, sp1Var) == null) {
-            this.s = sp1Var;
-        }
-    }
-
-    public void setMinFlingVelocity(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            this.m = ch3.g(i);
-        }
-    }
-
-    public void setOnUpListener(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, cVar) == null) {
-            this.h = cVar;
-        }
-    }
-
-    public void setTopLimit(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            this.g = i;
-        }
-    }
-
-    public void setTopMargin(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.f = i;
-        }
-    }
-
-    public void setUpYVelocityRatio(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048593, this, f) == null) {
-            this.p = f;
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -425,5 +198,259 @@ public class WebViewContainer extends FrameLayout {
         this.p = 1.0f;
         this.q = 0;
         l(context);
+    }
+
+    public final boolean j(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            OverScroller overScroller = this.a;
+            if (overScroller != null && this.f >= this.g) {
+                overScroller.fling(0, (int) this.c, 0, i, 0, 0, ErrorCode.SERVER_ERROR, 10000);
+                invalidate();
+                return true;
+            }
+            return false;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public final void l(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, context) == null) {
+            this.a = new OverScroller(context);
+            this.d = new GestureDetector(context, new d(this));
+            setMotionEventSplittingEnabled(false);
+        }
+    }
+
+    public void setAutoScroll2TopListener(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, bVar) == null) {
+            this.i = bVar;
+        }
+    }
+
+    public void setInterceptFlingListener(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, aVar) == null) {
+            this.l = aVar;
+        }
+    }
+
+    public void setInternalWebView(tp1 tp1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, tp1Var) == null) {
+            this.s = tp1Var;
+        }
+    }
+
+    public void setMinFlingVelocity(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.m = dh3.g(i);
+        }
+    }
+
+    public void setOnUpListener(c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, cVar) == null) {
+            this.h = cVar;
+        }
+    }
+
+    public void setTopLimit(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.g = i;
+        }
+    }
+
+    public void setTopMargin(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            this.f = i;
+        }
+    }
+
+    public void setUpYVelocityRatio(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048593, this, f) == null) {
+            this.p = f;
+        }
+    }
+
+    @Override // android.view.View
+    public void computeScroll() {
+        b bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (this.a.computeScrollOffset()) {
+                int i = i(this.a.getCurrY());
+                if (this.j) {
+                    scrollTo(0, i);
+                } else {
+                    scrollBy(0, i);
+                }
+                this.c -= i;
+                invalidate();
+            }
+            if (this.j && (bVar = this.i) != null) {
+                bVar.a();
+                this.j = false;
+            }
+        }
+    }
+
+    public int getMinTopMargin() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.q;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getTopMargin() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.f;
+        }
+        return invokeV.intValue;
+    }
+
+    public float getYVelocity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.r;
+        }
+        return invokeV.floatValue;
+    }
+
+    public final int i(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            if (this.j) {
+                this.f = this.g - i;
+                return i;
+            }
+            int i2 = this.f;
+            int i3 = i2 - i;
+            int i4 = this.q;
+            if (i3 < i4) {
+                int i5 = i2 - i4;
+                this.f = i4;
+                return i5;
+            }
+            int i6 = this.g;
+            if (i3 > i6) {
+                int i7 = i2 - i6;
+                this.f = i6;
+                return i7;
+            }
+            this.f = i2 - i;
+            return i;
+        }
+        return invokeI.intValue;
+    }
+
+    @Override // android.view.ViewGroup
+    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, motionEvent)) == null) {
+            if (this.f > ((int) motionEvent.getY())) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.o = z;
+            if ((z && !this.n) || !this.d.onTouchEvent(motionEvent)) {
+                return false;
+            }
+            if (getParent() != null) {
+                getParent().requestDisallowInterceptTouchEvent(true);
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void k() {
+        c cVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.e.computeCurrentVelocity(1000);
+            int yVelocity = (int) this.e.getYVelocity();
+            this.r = yVelocity;
+            if (this.k) {
+                float f = this.p;
+                if (f > 0.0f) {
+                    this.r = (int) (yVelocity * f);
+                }
+            }
+            boolean z = false;
+            if (Math.abs(this.r) > this.m && ((this.r > 0 && this.f < this.g) || (this.r < 0 && this.f >= this.q))) {
+                a aVar = this.l;
+                if (aVar != null) {
+                    z = aVar.a(this.k);
+                }
+                if (!z) {
+                    j(-this.r);
+                }
+            }
+            if (!z && (cVar = this.h) != null) {
+                cVar.a(this.k);
+            }
+            this.e.recycle();
+            this.e = null;
+        }
+    }
+
+    @Override // android.view.View
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, motionEvent)) == null) {
+            this.j = false;
+            int y = (int) motionEvent.getY();
+            if (this.f > y && !this.n) {
+                return false;
+            }
+            super.onTouchEvent(motionEvent);
+            if (this.e == null) {
+                this.e = VelocityTracker.obtain();
+            }
+            this.e.addMovement(motionEvent);
+            int action = motionEvent.getAction();
+            if (action != 0) {
+                if (action != 1) {
+                    if (action != 2) {
+                        if (action == 3 && this.n) {
+                            k();
+                        }
+                    } else {
+                        float rawY = motionEvent.getRawY();
+                        this.b = rawY;
+                        int i = i((int) (this.c - rawY));
+                        scrollBy(0, i);
+                        this.c -= i;
+                    }
+                } else {
+                    k();
+                }
+            } else if (!this.a.isFinished()) {
+                this.a.abortAnimation();
+            }
+            if (this.f > y) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

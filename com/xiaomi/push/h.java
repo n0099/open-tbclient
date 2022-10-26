@@ -1,6 +1,5 @@
 package com.xiaomi.push;
 
-import android.annotation.TargetApi;
 import android.app.ActivityManager;
 import android.app.AppOpsManager;
 import android.app.NotificationManager;
@@ -34,7 +33,7 @@ public class h {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public static final class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;
 
@@ -146,7 +145,7 @@ public class h {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static ApplicationInfo m383a(Context context, String str) {
+    public static ApplicationInfo m382a(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
@@ -156,7 +155,7 @@ public class h {
             try {
                 return context.getPackageManager().getApplicationInfo(str, 0);
             } catch (PackageManager.NameNotFoundException unused) {
-                com.xiaomi.channel.commonutils.logger.b.m90a("not found app info " + str);
+                com.xiaomi.channel.commonutils.logger.b.m89a("not found app info " + str);
                 return null;
             }
         }
@@ -164,20 +163,20 @@ public class h {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static Drawable m384a(Context context, String str) {
+    public static Drawable m383a(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
-            ApplicationInfo m383a = m383a(context, str);
+            ApplicationInfo m382a = m382a(context, str);
             Drawable drawable = null;
-            if (m383a != null) {
+            if (m382a != null) {
                 try {
-                    drawable = m383a.loadIcon(context.getPackageManager());
+                    drawable = m382a.loadIcon(context.getPackageManager());
                     if (drawable == null) {
-                        drawable = m383a.loadLogo(context.getPackageManager());
+                        drawable = m382a.loadLogo(context.getPackageManager());
                     }
                 } catch (Exception e) {
-                    com.xiaomi.channel.commonutils.logger.b.m90a("get app icon drawable failed, " + e);
+                    com.xiaomi.channel.commonutils.logger.b.m89a("get app icon drawable failed, " + e);
                 }
             }
             return drawable != null ? drawable : new ColorDrawable(0);
@@ -207,14 +206,13 @@ public class h {
                     return bool.booleanValue() ? a.b : a.c;
                 }
             } catch (Exception e) {
-                com.xiaomi.channel.commonutils.logger.b.m90a("are notifications enabled error " + e);
+                com.xiaomi.channel.commonutils.logger.b.m89a("are notifications enabled error " + e);
             }
             return a.a;
         }
         return (a) invokeLL.objValue;
     }
 
-    @TargetApi(19)
     public static a a(Context context, String str, boolean z) {
         InterceptResult invokeLLZ;
         ApplicationInfo applicationInfo;
@@ -228,18 +226,18 @@ public class h {
                 applicationInfo = str.equals(context.getPackageName()) ? context.getApplicationInfo() : context.getPackageManager().getApplicationInfo(str, 0);
                 a2 = a(context, applicationInfo);
             } catch (Throwable th) {
-                com.xiaomi.channel.commonutils.logger.b.m90a("get app op error " + th);
+                com.xiaomi.channel.commonutils.logger.b.m89a("get app op error " + th);
             }
             if (a2 != a.a) {
                 return a2;
             }
-            Integer num = (Integer) bk.a((Class<? extends Object>) AppOpsManager.class, NotificationManagerCompat.OP_POST_NOTIFICATION);
+            Integer num = (Integer) bk.a(AppOpsManager.class, NotificationManagerCompat.OP_POST_NOTIFICATION);
             if (num == null) {
                 return a.a;
             }
             Integer num2 = (Integer) bk.a((Object) ((AppOpsManager) context.getSystemService("appops")), NotificationManagerCompat.CHECK_OP_NO_THROW, num, Integer.valueOf(applicationInfo.uid), str);
-            int i = (Integer) bk.a((Class<? extends Object>) AppOpsManager.class, "MODE_ALLOWED");
-            int i2 = (Integer) bk.a((Class<? extends Object>) AppOpsManager.class, "MODE_IGNORED");
+            int i = (Integer) bk.a(AppOpsManager.class, "MODE_ALLOWED");
+            int i2 = (Integer) bk.a(AppOpsManager.class, "MODE_IGNORED");
             com.xiaomi.channel.commonutils.logger.b.b(String.format("get app mode %s|%s|%s", num2, i, i2));
             if (i == null) {
                 i = 0;
@@ -256,7 +254,7 @@ public class h {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m385a(Context context, String str) {
+    public static String m384a(Context context, String str) {
         PackageInfo packageInfo;
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -272,7 +270,7 @@ public class h {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m386a(Context context) {
+    public static boolean m385a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
@@ -286,11 +284,11 @@ public class h {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m387a(Context context, String str) {
+    public static boolean m386a(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, context, str)) == null) {
-            if (m.m561a()) {
+            if (m.m560a()) {
                 List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
                 if (runningAppProcesses != null) {
                     for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
@@ -311,10 +309,10 @@ public class h {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, context, str)) == null) {
-            ApplicationInfo m383a = m383a(context, str);
-            if (m383a != null) {
-                int i = m383a.icon;
-                return i == 0 ? m383a.logo : i;
+            ApplicationInfo m382a = m382a(context, str);
+            if (m382a != null) {
+                int i = m382a.icon;
+                return i == 0 ? m382a.logo : i;
             }
             return 0;
         }
@@ -322,7 +320,7 @@ public class h {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static String m388b(Context context, String str) {
+    public static String m387b(Context context, String str) {
         ApplicationInfo applicationInfo;
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -339,7 +337,7 @@ public class h {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static boolean m389b(Context context, String str) {
+    public static boolean m388b(Context context, String str) {
         InterceptResult invokeLL;
         PackageInfo packageInfo;
         Interceptable interceptable = $ic;

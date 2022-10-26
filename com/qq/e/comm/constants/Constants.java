@@ -13,7 +13,7 @@ public class Constants {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public static final class KEYS {
+    public final class KEYS {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String AD_INFO = "adinfo";
         public static final String AD_NEGATIVE_FEEDBACK_INFO = "negative_feedback_url";
@@ -66,7 +66,7 @@ public class Constants {
     }
 
     /* loaded from: classes8.dex */
-    public static final class PLUGIN {
+    public final class PLUGIN {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ASSET_PLUGIN_VERSION = 1292;
         public transient /* synthetic */ FieldHolder $fh;

@@ -14,7 +14,7 @@ public final class c extends b {
     public long ajR = 0;
     public boolean ajS = true;
     public boolean ajT = false;
-    public Set<String> ajU = new HashSet();
+    public Set ajU = new HashSet();
     public long ajV = 0;
     public long ajW = 0;
     public long ajX = 0;
@@ -24,7 +24,7 @@ public final class c extends b {
 
     /* renamed from: com.kwad.sdk.pngencrypt.c$1  reason: invalid class name */
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public final /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] aka;
 
         static {
@@ -84,7 +84,7 @@ public final class c extends b {
     }
 
     /* renamed from: do  reason: not valid java name */
-    public static boolean m86do(String str) {
+    public static boolean m85do(String str) {
         return !com.kwad.sdk.pngencrypt.chunk.b.dr(str);
     }
 
@@ -128,7 +128,7 @@ public final class c extends b {
             }
             this.ajP = new com.kwad.sdk.pngencrypt.chunk.e(this.ajL);
         }
-        if (chunkReader.ajs == ChunkReader.ChunkReaderMode.BUFFER && m86do(chunkReader.xT().alB)) {
+        if (chunkReader.ajs == ChunkReader.ChunkReaderMode.BUFFER && m85do(chunkReader.xT().alB)) {
             this.ajR += chunkReader.xT().len;
         }
         if (chunkReader.ajs == ChunkReader.ChunkReaderMode.BUFFER || this.ajT) {

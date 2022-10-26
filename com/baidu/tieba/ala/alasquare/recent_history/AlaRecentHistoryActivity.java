@@ -24,6 +24,20 @@ public class AlaRecentHistoryActivity extends AbsTabActivity {
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaRecentHistoryActivity a;
 
+        @Override // com.baidu.ala.widget.multicolumn.absView.AbsTabActivity.CustomOnPageChangeListener
+        public void onPageScrollStateChanged(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            }
+        }
+
+        @Override // com.baidu.ala.widget.multicolumn.absView.AbsTabActivity.CustomOnPageChangeListener
+        public void onPageScrolled(int i, float f, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+            }
+        }
+
         public a(AlaRecentHistoryActivity alaRecentHistoryActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -40,20 +54,6 @@ public class AlaRecentHistoryActivity extends AbsTabActivity {
                 }
             }
             this.a = alaRecentHistoryActivity;
-        }
-
-        @Override // com.baidu.ala.widget.multicolumn.absView.AbsTabActivity.CustomOnPageChangeListener
-        public void onPageScrollStateChanged(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            }
-        }
-
-        @Override // com.baidu.ala.widget.multicolumn.absView.AbsTabActivity.CustomOnPageChangeListener
-        public void onPageScrolled(int i, float f, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
-            }
         }
 
         @Override // com.baidu.ala.widget.multicolumn.absView.AbsTabActivity.CustomOnPageChangeListener
@@ -89,7 +89,19 @@ public class AlaRecentHistoryActivity extends AbsTabActivity {
     public AbsTabPagerAdapter getAdapter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (AbsTabPagerAdapter) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (AbsTabPagerAdapter) invokeV.objValue;
+    }
+
+    @Override // com.baidu.ala.widget.multicolumn.absView.AbsTabActivity
+    public void onPreInit() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.onPreInit();
+            setOnPagerChangeListener(new a(this));
+        }
     }
 
     @Override // com.baidu.ala.widget.multicolumn.absView.AbsTabActivity, com.baidu.tbadk.core.BaseFragmentActivity
@@ -109,19 +121,10 @@ public class AlaRecentHistoryActivity extends AbsTabActivity {
     }
 
     @Override // com.baidu.ala.widget.multicolumn.absView.AbsTabActivity
-    public void onPreInit() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.onPreInit();
-            setOnPagerChangeListener(new a(this));
-        }
-    }
-
-    @Override // com.baidu.ala.widget.multicolumn.absView.AbsTabActivity
     public void setNavigationBar(NavigationBar navigationBar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, navigationBar) == null) {
-            navigationBar.setTitleText(R.string.obfuscated_res_0x7f0f11f4);
+            navigationBar.setTitleText(R.string.obfuscated_res_0x7f0f1208);
         }
     }
 }

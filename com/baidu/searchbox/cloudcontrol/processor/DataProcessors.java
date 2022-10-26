@@ -2,22 +2,19 @@ package com.baidu.searchbox.cloudcontrol.processor;
 
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.cloudcontrol.runtime.ICloudControlRegister;
-import com.baidu.tieba.fi8;
+import com.baidu.tieba.pi8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-@Autowired
 /* loaded from: classes2.dex */
 public class DataProcessors {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, ICloudControlProcessor> mDataProcessors;
+    public HashMap mDataProcessors;
 
     public DataProcessors() {
         Interceptable interceptable = $ic;
@@ -32,38 +29,50 @@ public class DataProcessors {
                 return;
             }
         }
-        this.mDataProcessors = new HashMap<>();
+        this.mDataProcessors = new HashMap();
         collectProcessors();
     }
 
-    @Inject
     private ICloudControlRegister getCloudControlRegister() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? fi8.a() : (ICloudControlRegister) invokeV.objValue;
-    }
-
-    public void addProcessor(String str, ICloudControlProcessor iCloudControlProcessor) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, iCloudControlProcessor) == null) || iCloudControlProcessor == null || TextUtils.isEmpty(str)) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+            return pi8.a();
         }
-        this.mDataProcessors.put(str, iCloudControlProcessor);
+        return (ICloudControlRegister) invokeV.objValue;
     }
 
     public void collectProcessors() {
         ICloudControlRegister cloudControlRegister;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (cloudControlRegister = getCloudControlRegister()) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (cloudControlRegister = getCloudControlRegister()) != null) {
+            cloudControlRegister.registerAllProcessors(this);
         }
-        cloudControlRegister.registerAllProcessors(this);
+    }
+
+    public HashMap getProcessors() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mDataProcessors;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    public void addProcessor(String str, ICloudControlProcessor iCloudControlProcessor) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, iCloudControlProcessor) == null) && iCloudControlProcessor != null && !TextUtils.isEmpty(str)) {
+            this.mDataProcessors.put(str, iCloudControlProcessor);
+        }
     }
 
     public boolean containKey(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.mDataProcessors.containsKey(str) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return this.mDataProcessors.containsKey(str);
+        }
+        return invokeL.booleanValue;
     }
 
     public ICloudControlProcessor getProcessor(String str) {
@@ -73,14 +82,8 @@ public class DataProcessors {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return this.mDataProcessors.get(str);
+            return (ICloudControlProcessor) this.mDataProcessors.get(str);
         }
         return (ICloudControlProcessor) invokeL.objValue;
-    }
-
-    public HashMap<String, ICloudControlProcessor> getProcessors() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mDataProcessors : (HashMap) invokeV.objValue;
     }
 }

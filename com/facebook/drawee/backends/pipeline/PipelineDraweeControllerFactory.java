@@ -7,13 +7,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.cache.common.CacheKey;
 import com.facebook.common.internal.ImmutableList;
 import com.facebook.common.internal.Supplier;
 import com.facebook.drawee.components.DeferredReleaser;
 import com.facebook.imagepipeline.cache.MemoryCache;
 import com.facebook.imagepipeline.drawable.DrawableFactory;
-import com.facebook.imagepipeline.image.CloseableImage;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
@@ -22,11 +20,11 @@ public class PipelineDraweeControllerFactory {
     public transient /* synthetic */ FieldHolder $fh;
     public DrawableFactory mAnimatedDrawableFactory;
     @Nullable
-    public Supplier<Boolean> mDebugOverlayEnabledSupplier;
+    public Supplier mDebugOverlayEnabledSupplier;
     public DeferredReleaser mDeferredReleaser;
     @Nullable
-    public ImmutableList<DrawableFactory> mDrawableFactories;
-    public MemoryCache<CacheKey, CloseableImage> mMemoryCache;
+    public ImmutableList mDrawableFactories;
+    public MemoryCache mMemoryCache;
     public Resources mResources;
     public Executor mUiThreadExecutor;
 
@@ -44,7 +42,7 @@ public class PipelineDraweeControllerFactory {
         }
     }
 
-    public void init(Resources resources, DeferredReleaser deferredReleaser, DrawableFactory drawableFactory, Executor executor, MemoryCache<CacheKey, CloseableImage> memoryCache, @Nullable ImmutableList<DrawableFactory> immutableList, @Nullable Supplier<Boolean> supplier) {
+    public void init(Resources resources, DeferredReleaser deferredReleaser, DrawableFactory drawableFactory, Executor executor, MemoryCache memoryCache, @Nullable ImmutableList immutableList, @Nullable Supplier supplier) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{resources, deferredReleaser, drawableFactory, executor, memoryCache, immutableList, supplier}) == null) {
             this.mResources = resources;
@@ -57,10 +55,13 @@ public class PipelineDraweeControllerFactory {
         }
     }
 
-    public PipelineDraweeController internalCreateController(Resources resources, DeferredReleaser deferredReleaser, DrawableFactory drawableFactory, Executor executor, MemoryCache<CacheKey, CloseableImage> memoryCache, @Nullable ImmutableList<DrawableFactory> immutableList) {
+    public PipelineDraweeController internalCreateController(Resources resources, DeferredReleaser deferredReleaser, DrawableFactory drawableFactory, Executor executor, MemoryCache memoryCache, @Nullable ImmutableList immutableList) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{resources, deferredReleaser, drawableFactory, executor, memoryCache, immutableList})) == null) ? new PipelineDraweeController(resources, deferredReleaser, drawableFactory, executor, memoryCache, immutableList) : (PipelineDraweeController) invokeCommon.objValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{resources, deferredReleaser, drawableFactory, executor, memoryCache, immutableList})) == null) {
+            return new PipelineDraweeController(resources, deferredReleaser, drawableFactory, executor, memoryCache, immutableList);
+        }
+        return (PipelineDraweeController) invokeCommon.objValue;
     }
 
     public PipelineDraweeController newController() {
@@ -68,9 +69,9 @@ public class PipelineDraweeControllerFactory {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             PipelineDraweeController internalCreateController = internalCreateController(this.mResources, this.mDeferredReleaser, this.mAnimatedDrawableFactory, this.mUiThreadExecutor, this.mMemoryCache, this.mDrawableFactories);
-            Supplier<Boolean> supplier = this.mDebugOverlayEnabledSupplier;
+            Supplier supplier = this.mDebugOverlayEnabledSupplier;
             if (supplier != null) {
-                internalCreateController.setDrawDebugOverlay(supplier.get().booleanValue());
+                internalCreateController.setDrawDebugOverlay(((Boolean) supplier.get()).booleanValue());
             }
             return internalCreateController;
         }

@@ -25,39 +25,39 @@ import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableDebounce<T, U> extends AbstractFlowableWithUpstream<T, T> {
+public final class FlowableDebounce extends AbstractFlowableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Function<? super T, ? extends Publisher<U>> debounceSelector;
+    public final Function debounceSelector;
 
     /* loaded from: classes8.dex */
-    public static final class DebounceSubscriber<T, U> extends AtomicLong implements FlowableSubscriber<T>, Subscription {
+    public final class DebounceSubscriber extends AtomicLong implements FlowableSubscriber, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 6725975399620862591L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber<? super T> actual;
-        public final Function<? super T, ? extends Publisher<U>> debounceSelector;
-        public final AtomicReference<Disposable> debouncer;
+        public final Subscriber actual;
+        public final Function debounceSelector;
+        public final AtomicReference debouncer;
         public boolean done;
         public volatile long index;
         public Subscription s;
 
         /* loaded from: classes8.dex */
-        public static final class DebounceInnerSubscriber<T, U> extends DisposableSubscriber<U> {
+        public final class DebounceInnerSubscriber extends DisposableSubscriber {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public boolean done;
             public final long index;
             public final AtomicBoolean once;
-            public final DebounceSubscriber<T, U> parent;
-            public final T value;
+            public final DebounceSubscriber parent;
+            public final Object value;
 
-            public DebounceInnerSubscriber(DebounceSubscriber<T, U> debounceSubscriber, long j, T t) {
+            public DebounceInnerSubscriber(DebounceSubscriber debounceSubscriber, long j, Object obj) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {debounceSubscriber, Long.valueOf(j), t};
+                    Object[] objArr = {debounceSubscriber, Long.valueOf(j), obj};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -70,7 +70,7 @@ public final class FlowableDebounce<T, U> extends AbstractFlowableWithUpstream<T
                 this.once = new AtomicBoolean();
                 this.parent = debounceSubscriber;
                 this.index = j;
-                this.value = t;
+                this.value = obj;
             }
 
             public void emit() {
@@ -83,7 +83,7 @@ public final class FlowableDebounce<T, U> extends AbstractFlowableWithUpstream<T
             @Override // org.reactivestreams.Subscriber
             public void onComplete() {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.done) {
+                if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.done) {
                     return;
                 }
                 this.done = true;
@@ -104,9 +104,9 @@ public final class FlowableDebounce<T, U> extends AbstractFlowableWithUpstream<T
             }
 
             @Override // org.reactivestreams.Subscriber
-            public void onNext(U u) {
+            public void onNext(Object obj) {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048579, this, u) == null) || this.done) {
+                if ((interceptable != null && interceptable.invokeL(1048579, this, obj) != null) || this.done) {
                     return;
                 }
                 this.done = true;
@@ -115,7 +115,7 @@ public final class FlowableDebounce<T, U> extends AbstractFlowableWithUpstream<T
             }
         }
 
-        public DebounceSubscriber(Subscriber<? super T> subscriber, Function<? super T, ? extends Publisher<U>> function) {
+        public DebounceSubscriber(Subscriber subscriber, Function function) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -130,9 +130,22 @@ public final class FlowableDebounce<T, U> extends AbstractFlowableWithUpstream<T
                     return;
                 }
             }
-            this.debouncer = new AtomicReference<>();
+            this.debouncer = new AtomicReference();
             this.actual = subscriber;
             this.debounceSelector = function;
+        }
+
+        public void emit(long j, Object obj) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j, obj) == null) && j == this.index) {
+                if (get() != 0) {
+                    this.actual.onNext(obj);
+                    BackpressureHelper.produced(this, 1L);
+                    return;
+                }
+                cancel();
+                this.actual.onError(new MissingBackpressureException("Could not deliver value due to lack of requests"));
+            }
         }
 
         @Override // org.reactivestreams.Subscription
@@ -144,33 +157,19 @@ public final class FlowableDebounce<T, U> extends AbstractFlowableWithUpstream<T
             }
         }
 
-        public void emit(long j, T t) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j, t) == null) && j == this.index) {
-                if (get() != 0) {
-                    this.actual.onNext(t);
-                    BackpressureHelper.produced(this, 1L);
-                    return;
-                }
-                cancel();
-                this.actual.onError(new MissingBackpressureException("Could not deliver value due to lack of requests"));
-            }
-        }
-
         @Override // org.reactivestreams.Subscriber
         public void onComplete() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.done) {
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.done) {
                 return;
             }
             this.done = true;
-            Disposable disposable = this.debouncer.get();
-            if (DisposableHelper.isDisposed(disposable)) {
-                return;
+            Disposable disposable = (Disposable) this.debouncer.get();
+            if (!DisposableHelper.isDisposed(disposable)) {
+                ((DebounceInnerSubscriber) disposable).emit();
+                DisposableHelper.dispose(this.debouncer);
+                this.actual.onComplete();
             }
-            ((DebounceInnerSubscriber) disposable).emit();
-            DisposableHelper.dispose(this.debouncer);
-            this.actual.onComplete();
         }
 
         @Override // org.reactivestreams.Subscriber
@@ -178,31 +177,6 @@ public final class FlowableDebounce<T, U> extends AbstractFlowableWithUpstream<T
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
                 DisposableHelper.dispose(this.debouncer);
-                this.actual.onError(th);
-            }
-        }
-
-        @Override // org.reactivestreams.Subscriber
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048580, this, t) == null) || this.done) {
-                return;
-            }
-            long j = this.index + 1;
-            this.index = j;
-            Disposable disposable = this.debouncer.get();
-            if (disposable != null) {
-                disposable.dispose();
-            }
-            try {
-                Publisher publisher = (Publisher) ObjectHelper.requireNonNull(this.debounceSelector.apply(t), "The publisher supplied is null");
-                DebounceInnerSubscriber debounceInnerSubscriber = new DebounceInnerSubscriber(this, j, t);
-                if (this.debouncer.compareAndSet(disposable, debounceInnerSubscriber)) {
-                    publisher.subscribe(debounceInnerSubscriber);
-                }
-            } catch (Throwable th) {
-                Exceptions.throwIfFatal(th);
-                cancel();
                 this.actual.onError(th);
             }
         }
@@ -224,10 +198,35 @@ public final class FlowableDebounce<T, U> extends AbstractFlowableWithUpstream<T
                 BackpressureHelper.add(this, j);
             }
         }
+
+        @Override // org.reactivestreams.Subscriber
+        public void onNext(Object obj) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048580, this, obj) != null) || this.done) {
+                return;
+            }
+            long j = this.index + 1;
+            this.index = j;
+            Disposable disposable = (Disposable) this.debouncer.get();
+            if (disposable != null) {
+                disposable.dispose();
+            }
+            try {
+                Publisher publisher = (Publisher) ObjectHelper.requireNonNull(this.debounceSelector.apply(obj), "The publisher supplied is null");
+                DebounceInnerSubscriber debounceInnerSubscriber = new DebounceInnerSubscriber(this, j, obj);
+                if (this.debouncer.compareAndSet(disposable, debounceInnerSubscriber)) {
+                    publisher.subscribe(debounceInnerSubscriber);
+                }
+            } catch (Throwable th) {
+                Exceptions.throwIfFatal(th);
+                cancel();
+                this.actual.onError(th);
+            }
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableDebounce(Flowable<T> flowable, Function<? super T, ? extends Publisher<U>> function) {
+    public FlowableDebounce(Flowable flowable, Function function) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -248,7 +247,7 @@ public final class FlowableDebounce<T, U> extends AbstractFlowableWithUpstream<T
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber<? super T> subscriber) {
+    public void subscribeActual(Subscriber subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             this.source.subscribe((FlowableSubscriber) new DebounceSubscriber(new SerializedSubscriber(subscriber), this.debounceSelector));

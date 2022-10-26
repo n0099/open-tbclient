@@ -29,6 +29,15 @@ public class SmartLaunchController {
         }
     }
 
+    public static boolean isSmartLaunchEnabled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     public SmartLaunchController() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -43,38 +52,35 @@ public class SmartLaunchController {
         }
     }
 
-    public static boolean isSmartLaunchEnabled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
     public static boolean isSmartLaunchScheduleEnd() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? SmartLaunchScheduler.getInstance().isScheduleEnd() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return SmartLaunchScheduler.getInstance().isScheduleEnd();
+        }
+        return invokeV.booleanValue;
     }
 
     public static boolean isSmartLaunchScheduleInterrupted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? SmartLaunchScheduler.getInstance().isScheduleInterrupted() : invokeV.booleanValue;
-    }
-
-    public static void register(SmartLaunchTask smartLaunchTask) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, smartLaunchTask) == null) {
-            SmartLaunchScheduler.getInstance().register(smartLaunchTask);
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return SmartLaunchScheduler.getInstance().isScheduleInterrupted();
         }
+        return invokeV.booleanValue;
     }
 
     public static void scheduleIdleTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, null) == null) {
             SmartLaunchScheduler.getInstance().scheduleIdleTask();
+        }
+    }
+
+    public static void register(SmartLaunchTask smartLaunchTask) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, smartLaunchTask) == null) {
+            SmartLaunchScheduler.getInstance().register(smartLaunchTask);
         }
     }
 }

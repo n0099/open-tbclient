@@ -1,6 +1,5 @@
 package com.baidu.android.imsdk.utils;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.http.Headers;
 import android.text.TextUtils;
@@ -31,7 +30,6 @@ import java.util.Map;
 import java.util.zip.GZIPOutputStream;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.conn.ConnectTimeoutException;
-@SuppressLint({"TrulyRandom"})
 /* loaded from: classes.dex */
 public class HttpHelper {
     public static /* synthetic */ Interceptable $ic = null;
@@ -52,7 +50,7 @@ public class HttpHelper {
 
         String getContentType();
 
-        Map<String, String> getHeaders();
+        Map getHeaders();
 
         String getHost();
 
@@ -72,8 +70,23 @@ public class HttpHelper {
         void onSuccess(int i, byte[] bArr);
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-2130868608, "Lcom/baidu/android/imsdk/utils/HttpHelper;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-2130868608, "Lcom/baidu/android/imsdk/utils/HttpHelper;");
+        }
+    }
+
     /* loaded from: classes.dex */
-    public static class ResponseResult {
+    public class ResponseResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int mErrorCode;
@@ -96,13 +109,19 @@ public class HttpHelper {
         public int getErrorCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mErrorCode : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.mErrorCode;
+            }
+            return invokeV.intValue;
         }
 
         public String getErrorMsg() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mErrorMsg : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.mErrorMsg;
+            }
+            return (String) invokeV.objValue;
         }
 
         public void setErrorCode(int i) {
@@ -152,21 +171,6 @@ public class HttpHelper {
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-2130868608, "Lcom/baidu/android/imsdk/utils/HttpHelper;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-2130868608, "Lcom/baidu/android/imsdk/utils/HttpHelper;");
-        }
-    }
-
     public HttpHelper() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -185,7 +189,7 @@ public class HttpHelper {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static HttpURLConnection createConnection(int i, String str, byte[] bArr, Map<String, String> map, int i2, int i3) throws SocketTimeoutException, ConnectTimeoutException, MalformedURLException, IOException {
+    public static HttpURLConnection createConnection(int i, String str, byte[] bArr, Map map, int i2, int i3) throws SocketTimeoutException, ConnectTimeoutException, MalformedURLException, IOException {
         InterceptResult invokeCommon;
         String str2;
         HttpURLConnection httpURLConnection;
@@ -218,6 +222,51 @@ public class HttpHelper {
         return (HttpURLConnection) invokeCommon.objValue;
     }
 
+    public static void setConnectionParametersForRequest(HttpURLConnection httpURLConnection, int i, byte[] bArr, boolean z, int i2, int i3) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{httpURLConnection, Integer.valueOf(i), bArr, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+            httpURLConnection.setDoInput(true);
+            httpURLConnection.setConnectTimeout(i2);
+            if (z) {
+                httpURLConnection.setRequestProperty(Headers.CONTENT_ENCODING, "gzip");
+            }
+            httpURLConnection.setReadTimeout(i3);
+            if (i != 1) {
+                if (i != 16) {
+                    if (i == 256) {
+                        if (bArr != null && bArr.length > 0) {
+                            httpURLConnection.setRequestMethod(HttpPut.METHOD_NAME);
+                            httpURLConnection.setDoOutput(true);
+                            DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
+                            dataOutputStream.write(bArr);
+                            dataOutputStream.close();
+                            return;
+                        }
+                        return;
+                    }
+                    throw new IllegalStateException("Unknown method type.");
+                } else if (bArr != null && bArr.length > 0) {
+                    httpURLConnection.setDoOutput(true);
+                    httpURLConnection.setRequestMethod("POST");
+                    DataOutputStream dataOutputStream2 = new DataOutputStream(httpURLConnection.getOutputStream());
+                    if (z) {
+                        LogUtils.d(TAG, "This is statistic, compress data");
+                        GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(dataOutputStream2);
+                        gZIPOutputStream.write(bArr);
+                        gZIPOutputStream.close();
+                        return;
+                    }
+                    dataOutputStream2.write(bArr);
+                    dataOutputStream2.close();
+                    return;
+                } else {
+                    return;
+                }
+            }
+            httpURLConnection.setRequestMethod("GET");
+        }
+    }
+
     public static void dealResonsResult(int i, InputStream inputStream, ResponseHandler responseHandler) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(65539, null, i, inputStream, responseHandler) == null) {
@@ -235,7 +284,7 @@ public class HttpHelper {
 
     public static void executor(Context context, Request request, ResponseHandler responseHandler) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65542, null, context, request, responseHandler) == null) || responseHandler == null) {
+        if ((interceptable != null && interceptable.invokeLLL(65542, null, context, request, responseHandler) != null) || responseHandler == null) {
             return;
         }
         if (context != null && request != null && !TextUtils.isEmpty(request.getHost())) {
@@ -284,8 +333,10 @@ public class HttpHelper {
                                 }
                                 if (this.val$request.getMethod().equals("GET")) {
                                     i = 1;
+                                } else if (this.val$request.getMethod().equals("POST")) {
+                                    i = 16;
                                 } else {
-                                    i = this.val$request.getMethod().equals("POST") ? 16 : 256;
+                                    i = 256;
                                 }
                                 HttpExecutor.getInstance().execute(i, this.val$request.getHost(), this.val$request.getRequestParameter(), this.val$request.getHeaders(), this.val$request.getContentType(), this.val$handler);
                             } catch (Exception e) {
@@ -301,158 +352,116 @@ public class HttpHelper {
         responseHandler.onFailure(1005, Constants.ERROR_MSG_PARAMETER_ERROR.getBytes(), null);
     }
 
-    public static void setConnectionHeader(String str, HttpURLConnection httpURLConnection, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65543, null, str, httpURLConnection, map) == null) || map == null) {
-            return;
-        }
-        for (Map.Entry<String, String> entry : map.entrySet()) {
-            try {
-                if (entry.getKey().equalsIgnoreCase("Cookie")) {
-                    CookieManager.getInstance().setCookie(str, entry.getValue());
-                    httpURLConnection.setRequestProperty(entry.getKey(), CookieManager.getInstance().getCookie(str));
-                } else {
-                    httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-                httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
-            }
-        }
-    }
-
-    public static void setConnectionParametersForRequest(HttpURLConnection httpURLConnection, int i, byte[] bArr, boolean z, int i2, int i3) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{httpURLConnection, Integer.valueOf(i), bArr, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
-            httpURLConnection.setDoInput(true);
-            httpURLConnection.setConnectTimeout(i2);
-            if (z) {
-                httpURLConnection.setRequestProperty(Headers.CONTENT_ENCODING, "gzip");
-            }
-            httpURLConnection.setReadTimeout(i3);
-            if (i == 1) {
-                httpURLConnection.setRequestMethod("GET");
-            } else if (i != 16) {
-                if (i == 256) {
-                    if (bArr == null || bArr.length <= 0) {
-                        return;
-                    }
-                    httpURLConnection.setRequestMethod(HttpPut.METHOD_NAME);
-                    httpURLConnection.setDoOutput(true);
-                    DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
-                    dataOutputStream.write(bArr);
-                    dataOutputStream.close();
-                    return;
-                }
-                throw new IllegalStateException("Unknown method type.");
-            } else if (bArr == null || bArr.length <= 0) {
-            } else {
-                httpURLConnection.setDoOutput(true);
-                httpURLConnection.setRequestMethod("POST");
-                DataOutputStream dataOutputStream2 = new DataOutputStream(httpURLConnection.getOutputStream());
-                if (z) {
-                    LogUtils.d(TAG, "This is statistic, compress data");
-                    GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(dataOutputStream2);
-                    gZIPOutputStream.write(bArr);
-                    gZIPOutputStream.close();
-                    return;
-                }
-                dataOutputStream2.write(bArr);
-                dataOutputStream2.close();
-            }
-        }
-    }
-
     public static byte[] dealResonsResult(InputStream inputStream) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, inputStream)) != null) {
-            return (byte[]) invokeL.objValue;
-        }
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        byte[] bArr = new byte[1024];
-        while (true) {
-            try {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, inputStream)) == null) {
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            byte[] bArr = new byte[1024];
+            while (true) {
                 try {
-                    int read = inputStream.read(bArr);
-                    if (read != -1) {
-                        byteArrayOutputStream.write(bArr, 0, read);
-                    } else {
-                        byte[] byteArray = byteArrayOutputStream.toByteArray();
+                    try {
+                        int read = inputStream.read(bArr);
+                        if (read != -1) {
+                            byteArrayOutputStream.write(bArr, 0, read);
+                        } else {
+                            byte[] byteArray = byteArrayOutputStream.toByteArray();
+                            try {
+                                byteArrayOutputStream.close();
+                                return byteArray;
+                            } catch (IOException e) {
+                                LogUtils.e(LogUtils.TAG, "HttpHelper byteArrayOutputStream close", e);
+                                return byteArray;
+                            }
+                        }
+                    } catch (IOException e2) {
+                        LogUtils.e(LogUtils.TAG, "HttpHelper IOException for inputStream", e2);
                         try {
                             byteArrayOutputStream.close();
-                            return byteArray;
-                        } catch (IOException e) {
-                            LogUtils.e(LogUtils.TAG, "HttpHelper byteArrayOutputStream close", e);
-                            return byteArray;
+                        } catch (IOException e3) {
+                            LogUtils.e(LogUtils.TAG, "HttpHelper byteArrayOutputStream close", e3);
                         }
+                        return null;
                     }
-                } catch (IOException e2) {
-                    LogUtils.e(LogUtils.TAG, "HttpHelper IOException for inputStream", e2);
+                } catch (Throwable th) {
                     try {
                         byteArrayOutputStream.close();
-                    } catch (IOException e3) {
-                        LogUtils.e(LogUtils.TAG, "HttpHelper byteArrayOutputStream close", e3);
+                    } catch (IOException e4) {
+                        LogUtils.e(LogUtils.TAG, "HttpHelper byteArrayOutputStream close", e4);
                     }
-                    return null;
+                    throw th;
                 }
-            } catch (Throwable th) {
-                try {
-                    byteArrayOutputStream.close();
-                } catch (IOException e4) {
-                    LogUtils.e(LogUtils.TAG, "HttpHelper byteArrayOutputStream close", e4);
-                }
-                throw th;
             }
+        } else {
+            return (byte[]) invokeL.objValue;
         }
     }
 
-    public static void executor(int i, String str, byte[] bArr, Map<String, String> map, int i2, int i3, ResponseHandler responseHandler) throws SocketTimeoutException, ConnectTimeoutException, MalformedURLException, IOException {
+    public static void executor(int i, String str, byte[] bArr, Map map, int i2, int i3, ResponseHandler responseHandler) throws SocketTimeoutException, ConnectTimeoutException, MalformedURLException, IOException {
         HttpURLConnection httpURLConnection;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i), str, bArr, map, Integer.valueOf(i2), Integer.valueOf(i3), responseHandler}) != null) {
-            return;
-        }
-        InputStream inputStream = null;
-        try {
-            httpURLConnection = createConnection(i, str, bArr, map, i2, i3);
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i), str, bArr, map, Integer.valueOf(i2), Integer.valueOf(i3), responseHandler}) == null) {
+            InputStream inputStream = null;
             try {
-                int responseCode = httpURLConnection.getResponseCode();
-                if (responseCode != -1) {
-                    if (httpURLConnection.getResponseCode() != 200) {
-                        LogUtils.d(TAG, "createConnection responsecode:" + responseCode);
-                        responseHandler.onFailure(responseCode, "http response error".getBytes(), null);
+                httpURLConnection = createConnection(i, str, bArr, map, i2, i3);
+                try {
+                    int responseCode = httpURLConnection.getResponseCode();
+                    if (responseCode != -1) {
+                        if (httpURLConnection.getResponseCode() != 200) {
+                            LogUtils.d(TAG, "createConnection responsecode:" + responseCode);
+                            responseHandler.onFailure(responseCode, "http response error".getBytes(), null);
+                            if (httpURLConnection != null) {
+                                httpURLConnection.disconnect();
+                                return;
+                            }
+                            return;
+                        }
+                        InputStream inputStream2 = httpURLConnection.getInputStream();
+                        dealResonsResult(responseCode, inputStream2, responseHandler);
+                        if (inputStream2 != null) {
+                            inputStream2.close();
+                        }
                         if (httpURLConnection != null) {
                             httpURLConnection.disconnect();
                             return;
                         }
                         return;
                     }
-                    InputStream inputStream2 = httpURLConnection.getInputStream();
-                    dealResonsResult(responseCode, inputStream2, responseHandler);
-                    if (inputStream2 != null) {
-                        inputStream2.close();
+                    throw new IOException("Could not retrieve response code from HttpUrlConnection.");
+                } catch (Throwable th) {
+                    th = th;
+                    if (0 != 0) {
+                        inputStream.close();
                     }
                     if (httpURLConnection != null) {
                         httpURLConnection.disconnect();
-                        return;
                     }
-                    return;
+                    throw th;
                 }
-                throw new IOException("Could not retrieve response code from HttpUrlConnection.");
-            } catch (Throwable th) {
-                th = th;
-                if (0 != 0) {
-                    inputStream.close();
-                }
-                if (httpURLConnection != null) {
-                    httpURLConnection.disconnect();
-                }
-                throw th;
+            } catch (Throwable th2) {
+                th = th2;
+                httpURLConnection = null;
             }
-        } catch (Throwable th2) {
-            th = th2;
-            httpURLConnection = null;
+        }
+    }
+
+    public static void setConnectionHeader(String str, HttpURLConnection httpURLConnection, Map map) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(65543, null, str, httpURLConnection, map) != null) || map == null) {
+            return;
+        }
+        for (Map.Entry entry : map.entrySet()) {
+            try {
+                if (((String) entry.getKey()).equalsIgnoreCase("Cookie")) {
+                    CookieManager.getInstance().setCookie(str, (String) entry.getValue());
+                    httpURLConnection.setRequestProperty((String) entry.getKey(), CookieManager.getInstance().getCookie(str));
+                } else {
+                    httpURLConnection.setRequestProperty((String) entry.getKey(), (String) entry.getValue());
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                httpURLConnection.setRequestProperty((String) entry.getKey(), (String) entry.getValue());
+            }
         }
     }
 }

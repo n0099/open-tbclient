@@ -17,6 +17,25 @@ public class StringEntity extends AbstractHttpEntity {
     public transient /* synthetic */ FieldHolder $fh;
     public final byte[] content;
 
+    public StringEntity(String str) throws UnsupportedEncodingException {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.content = null;
+        throw new RuntimeException("Stub!");
+    }
+
     public StringEntity(String str, String str2) throws UnsupportedEncodingException {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -91,24 +110,5 @@ public class StringEntity extends AbstractHttpEntity {
         if (interceptable == null || interceptable.invokeL(1048581, this, outputStream) == null) {
             throw new RuntimeException("Stub!");
         }
-    }
-
-    public StringEntity(String str) throws UnsupportedEncodingException {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.content = null;
-        throw new RuntimeException("Stub!");
     }
 }

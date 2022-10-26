@@ -1,7 +1,5 @@
 package com.google.android.exoplayer2.ui;
 
-import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
@@ -17,8 +15,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,7 +28,6 @@ import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.metadata.Metadata;
 import com.google.android.exoplayer2.metadata.id3.ApicFrame;
 import com.google.android.exoplayer2.source.TrackGroupArray;
-import com.google.android.exoplayer2.text.Cue;
 import com.google.android.exoplayer2.text.TextOutput;
 import com.google.android.exoplayer2.trackselection.TrackSelection;
 import com.google.android.exoplayer2.trackselection.TrackSelectionArray;
@@ -40,7 +35,6 @@ import com.google.android.exoplayer2.ui.PlaybackControlView;
 import com.google.android.exoplayer2.util.Assertions;
 import com.google.android.exoplayer2.util.Util;
 import java.util.List;
-@TargetApi(16)
 /* loaded from: classes7.dex */
 public final class SimpleExoPlayerView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic = null;
@@ -66,9 +60,15 @@ public final class SimpleExoPlayerView extends FrameLayout {
 
     /* renamed from: com.google.android.exoplayer2.ui.SimpleExoPlayerView$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    private boolean isDpadKey(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65548, this, i)) == null) ? i == 19 || i == 270 || i == 22 || i == 271 || i == 20 || i == 269 || i == 21 || i == 268 || i == 23 : invokeI.booleanValue;
     }
 
     /* loaded from: classes7.dex */
@@ -96,23 +96,10 @@ public final class SimpleExoPlayerView extends FrameLayout {
         }
 
         @Override // com.google.android.exoplayer2.text.TextOutput
-        public void onCues(List<Cue> list) {
+        public void onCues(List list) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, list) == null) || this.this$0.subtitleView == null) {
-                return;
-            }
-            this.this$0.subtitleView.onCues(list);
-        }
-
-        @Override // com.google.android.exoplayer2.Player.DefaultEventListener, com.google.android.exoplayer2.Player.EventListener
-        public void onPlayerStateChanged(boolean z, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-                if (!this.this$0.isPlayingAd()) {
-                    this.this$0.maybeShowController(false);
-                } else {
-                    this.this$0.hideController();
-                }
+            if ((interceptable == null || interceptable.invokeL(1048576, this, list) == null) && this.this$0.subtitleView != null) {
+                this.this$0.subtitleView.onCues(list);
             }
         }
 
@@ -124,34 +111,51 @@ public final class SimpleExoPlayerView extends FrameLayout {
             }
         }
 
-        @Override // com.google.android.exoplayer2.SimpleExoPlayer.VideoListener
-        public void onRenderedFirstFrame() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.this$0.shutterView == null) {
-                return;
-            }
-            this.this$0.shutterView.setVisibility(4);
+        public /* synthetic */ ComponentListener(SimpleExoPlayerView simpleExoPlayerView, AnonymousClass1 anonymousClass1) {
+            this(simpleExoPlayerView);
         }
 
         @Override // com.google.android.exoplayer2.Player.DefaultEventListener, com.google.android.exoplayer2.Player.EventListener
         public void onTracksChanged(TrackGroupArray trackGroupArray, TrackSelectionArray trackSelectionArray) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048580, this, trackGroupArray, trackSelectionArray) == null) {
-                this.this$0.updateForCurrentTrackSelections();
+            if (interceptable != null && interceptable.invokeLL(1048580, this, trackGroupArray, trackSelectionArray) != null) {
+                return;
+            }
+            this.this$0.updateForCurrentTrackSelections();
+        }
+
+        @Override // com.google.android.exoplayer2.Player.DefaultEventListener, com.google.android.exoplayer2.Player.EventListener
+        public void onPlayerStateChanged(boolean z, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+                if (this.this$0.isPlayingAd()) {
+                    this.this$0.hideController();
+                } else {
+                    this.this$0.maybeShowController(false);
+                }
+            }
+        }
+
+        @Override // com.google.android.exoplayer2.SimpleExoPlayer.VideoListener
+        public void onRenderedFirstFrame() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.this$0.shutterView != null) {
+                this.this$0.shutterView.setVisibility(4);
             }
         }
 
         @Override // com.google.android.exoplayer2.SimpleExoPlayer.VideoListener
         public void onVideoSizeChanged(int i, int i2, int i3, float f) {
+            float f2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f)}) == null) || this.this$0.contentFrame == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f)}) == null) && this.this$0.contentFrame != null) {
+                if (i2 == 0) {
+                    f2 = 1.0f;
+                } else {
+                    f2 = (i * f) / i2;
+                }
+                this.this$0.contentFrame.setAspectRatio(f2);
             }
-            this.this$0.contentFrame.setAspectRatio(i2 == 0 ? 1.0f : (i * f) / i2);
-        }
-
-        public /* synthetic */ ComponentListener(SimpleExoPlayerView simpleExoPlayerView, AnonymousClass1 anonymousClass1) {
-            this(simpleExoPlayerView);
         }
     }
 
@@ -176,56 +180,16 @@ public final class SimpleExoPlayerView extends FrameLayout {
         }
     }
 
-    public static void configureEditModeLogo(Resources resources, ImageView imageView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65545, null, resources, imageView) == null) {
-            imageView.setImageDrawable(resources.getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0804f3));
-            imageView.setBackgroundColor(resources.getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f060739));
-        }
-    }
-
-    @TargetApi(23)
-    public static void configureEditModeLogoV23(Resources resources, ImageView imageView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65546, null, resources, imageView) == null) {
-            imageView.setImageDrawable(resources.getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0804f3, null));
-            imageView.setBackgroundColor(resources.getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f060739, null));
-        }
-    }
-
-    private void hideArtwork() {
-        ImageView imageView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65547, this) == null) || (imageView = this.artworkView) == null) {
-            return;
-        }
-        imageView.setImageResource(17170445);
-        this.artworkView.setVisibility(4);
-    }
-
-    @SuppressLint({"InlinedApi"})
-    private boolean isDpadKey(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65548, this, i)) == null) ? i == 19 || i == 270 || i == 22 || i == 271 || i == 20 || i == 269 || i == 21 || i == 268 || i == 23 : invokeI.booleanValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean isPlayingAd() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65549, this)) == null) {
-            SimpleExoPlayer simpleExoPlayer = this.player;
-            return simpleExoPlayer != null && simpleExoPlayer.isPlayingAd() && this.player.getPlayWhenReady();
-        }
-        return invokeV.booleanValue;
-    }
-
     /* JADX INFO: Access modifiers changed from: private */
     public void maybeShowController(boolean z) {
+        boolean z2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(65550, this, z) == null) && !isPlayingAd() && this.useController) {
-            boolean z2 = this.controller.isVisible() && this.controller.getShowTimeoutMs() <= 0;
+            if (this.controller.isVisible() && this.controller.getShowTimeoutMs() <= 0) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
             boolean shouldShowControllerIndefinitely = shouldShowControllerIndefinitely();
             if (z || z2 || shouldShowControllerIndefinitely) {
                 showController(shouldShowControllerIndefinitely);
@@ -271,11 +235,502 @@ public final class SimpleExoPlayerView extends FrameLayout {
         return invokeL.booleanValue;
     }
 
+    @Override // android.view.View
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, motionEvent)) == null) {
+            if (this.useController && this.player != null && motionEvent.getActionMasked() == 0) {
+                if (!this.controller.isVisible()) {
+                    maybeShowController(true);
+                } else if (this.controllerHideOnTouch) {
+                    this.controller.hide();
+                }
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void setUseController(boolean z) {
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048606, this, z) == null) {
+            if (z && this.controller == null) {
+                z2 = false;
+            } else {
+                z2 = true;
+            }
+            Assertions.checkState(z2);
+            if (this.useController == z) {
+                return;
+            }
+            this.useController = z;
+            if (z) {
+                this.controller.setPlayer(this.player);
+                return;
+            }
+            PlaybackControlView playbackControlView = this.controller;
+            if (playbackControlView != null) {
+                playbackControlView.hide();
+                this.controller.setPlayer(null);
+            }
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public SimpleExoPlayerView(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public SimpleExoPlayerView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        boolean z;
+        int i2;
+        boolean z2;
+        int i3;
+        boolean z3;
+        boolean z4;
+        int i4;
+        boolean z5;
+        int i5;
+        boolean z6;
+        boolean z7;
+        View surfaceView;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r3;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i6 = newInitContext.flag;
+            if ((i6 & 1) != 0) {
+                int i7 = i6 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        if (isInEditMode()) {
+            this.contentFrame = null;
+            this.shutterView = null;
+            this.surfaceView = null;
+            this.artworkView = null;
+            this.subtitleView = null;
+            this.controller = null;
+            this.componentListener = null;
+            this.overlayFrameLayout = null;
+            ImageView imageView = new ImageView(context);
+            if (Util.SDK_INT >= 23) {
+                configureEditModeLogoV23(getResources(), imageView);
+            } else {
+                configureEditModeLogo(getResources(), imageView);
+            }
+            addView(imageView);
+            return;
+        }
+        int i8 = com.baidu.tieba.R.layout.obfuscated_res_0x7f0d027b;
+        int i9 = 5000;
+        if (attributeSet != null) {
+            TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, R.styleable.SimpleExoPlayerView, 0, 0);
+            try {
+                z3 = obtainStyledAttributes.hasValue(9);
+                i3 = obtainStyledAttributes.getColor(9, 0);
+                i8 = obtainStyledAttributes.getResourceId(5, com.baidu.tieba.R.layout.obfuscated_res_0x7f0d027b);
+                z4 = obtainStyledAttributes.getBoolean(11, true);
+                i4 = obtainStyledAttributes.getResourceId(2, 0);
+                z5 = obtainStyledAttributes.getBoolean(12, true);
+                i5 = obtainStyledAttributes.getInt(10, 1);
+                i2 = obtainStyledAttributes.getInt(6, 0);
+                i9 = obtainStyledAttributes.getInt(8, 5000);
+                z = obtainStyledAttributes.getBoolean(4, true);
+                boolean z8 = obtainStyledAttributes.getBoolean(0, true);
+                obtainStyledAttributes.recycle();
+                z2 = z8;
+            } catch (Throwable th) {
+                obtainStyledAttributes.recycle();
+                throw th;
+            }
+        } else {
+            z = true;
+            i2 = 0;
+            z2 = true;
+            i3 = 0;
+            z3 = false;
+            z4 = true;
+            i4 = 0;
+            z5 = true;
+            i5 = 1;
+        }
+        LayoutInflater.from(context).inflate(i8, this);
+        this.componentListener = new ComponentListener(this, null);
+        setDescendantFocusability(262144);
+        AspectRatioFrameLayout aspectRatioFrameLayout = (AspectRatioFrameLayout) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09094c);
+        this.contentFrame = aspectRatioFrameLayout;
+        if (aspectRatioFrameLayout != null) {
+            setResizeModeRaw(aspectRatioFrameLayout, i2);
+        }
+        View findViewById = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09095b);
+        this.shutterView = findViewById;
+        if (findViewById != null && z3) {
+            findViewById.setBackgroundColor(i3);
+        }
+        if (this.contentFrame != null && i5 != 0) {
+            ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(-1, -1);
+            if (i5 == 2) {
+                surfaceView = new TextureView(context);
+            } else {
+                surfaceView = new SurfaceView(context);
+            }
+            this.surfaceView = surfaceView;
+            surfaceView.setLayoutParams(layoutParams);
+            this.contentFrame.addView(this.surfaceView, 0);
+        } else {
+            this.surfaceView = null;
+        }
+        this.overlayFrameLayout = (FrameLayout) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090952);
+        ImageView imageView2 = (ImageView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09094b);
+        this.artworkView = imageView2;
+        if (z4 && imageView2 != null) {
+            z6 = true;
+        } else {
+            z6 = false;
+        }
+        this.useArtwork = z6;
+        if (i4 != 0) {
+            this.defaultArtwork = BitmapFactory.decodeResource(context.getResources(), i4);
+        }
+        SubtitleView subtitleView = (SubtitleView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09095c);
+        this.subtitleView = subtitleView;
+        if (subtitleView != null) {
+            subtitleView.setUserDefaultStyle();
+            this.subtitleView.setUserDefaultTextSize();
+        }
+        PlaybackControlView playbackControlView = (PlaybackControlView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09094d);
+        View findViewById2 = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09094e);
+        if (playbackControlView != null) {
+            this.controller = playbackControlView;
+        } else if (findViewById2 != null) {
+            PlaybackControlView playbackControlView2 = new PlaybackControlView(context, null, 0, attributeSet);
+            this.controller = playbackControlView2;
+            playbackControlView2.setLayoutParams(findViewById2.getLayoutParams());
+            ViewGroup viewGroup = (ViewGroup) findViewById2.getParent();
+            int indexOfChild = viewGroup.indexOfChild(findViewById2);
+            viewGroup.removeView(findViewById2);
+            viewGroup.addView(this.controller, indexOfChild);
+        } else {
+            this.controller = null;
+        }
+        this.controllerShowTimeoutMs = this.controller == null ? 0 : i9;
+        this.controllerHideOnTouch = z;
+        this.controllerAutoShow = z2;
+        if (z5 && this.controller != null) {
+            z7 = true;
+        } else {
+            z7 = false;
+        }
+        this.useController = z7;
+        hideController();
+    }
+
+    private void showController(boolean z) {
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(65555, this, z) != null) || !this.useController) {
+            return;
+        }
+        PlaybackControlView playbackControlView = this.controller;
+        if (z) {
+            i = 0;
+        } else {
+            i = this.controllerShowTimeoutMs;
+        }
+        playbackControlView.setShowTimeoutMs(i);
+        this.controller.show();
+    }
+
+    public boolean dispatchMediaKeyEvent(KeyEvent keyEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, keyEvent)) == null) {
+            if (this.useController && this.controller.dispatchMediaKeyEvent(keyEvent)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.view.View
+    public boolean onTrackballEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, motionEvent)) == null) {
+            if (this.useController && this.player != null) {
+                maybeShowController(true);
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void setControlDispatcher(ControlDispatcher controlDispatcher) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, controlDispatcher) == null) {
+            if (this.controller != null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Assertions.checkState(z);
+            this.controller.setControlDispatcher(controlDispatcher);
+        }
+    }
+
+    public void setControllerAutoShow(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
+            this.controllerAutoShow = z;
+        }
+    }
+
+    public void setControllerHideOnTouch(boolean z) {
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
+            if (this.controller != null) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            Assertions.checkState(z2);
+            this.controllerHideOnTouch = z;
+        }
+    }
+
+    public void setControllerShowTimeoutMs(int i) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            if (this.controller != null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Assertions.checkState(z);
+            this.controllerShowTimeoutMs = i;
+        }
+    }
+
+    public void setControllerVisibilityListener(PlaybackControlView.VisibilityListener visibilityListener) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, visibilityListener) == null) {
+            if (this.controller != null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Assertions.checkState(z);
+            this.controller.setVisibilityListener(visibilityListener);
+        }
+    }
+
+    public void setDefaultArtwork(Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048596, this, bitmap) == null) && this.defaultArtwork != bitmap) {
+            this.defaultArtwork = bitmap;
+            updateForCurrentTrackSelections();
+        }
+    }
+
+    public void setFastForwardIncrementMs(int i) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
+            if (this.controller != null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Assertions.checkState(z);
+            this.controller.setFastForwardIncrementMs(i);
+        }
+    }
+
+    public void setRepeatToggleModes(int i) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
+            if (this.controller != null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Assertions.checkState(z);
+            this.controller.setRepeatToggleModes(i);
+        }
+    }
+
+    public void setResizeMode(int i) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
+            if (this.contentFrame != null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Assertions.checkState(z);
+            this.contentFrame.setResizeMode(i);
+        }
+    }
+
+    public void setRewindIncrementMs(int i) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048601, this, i) == null) {
+            if (this.controller != null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Assertions.checkState(z);
+            this.controller.setRewindIncrementMs(i);
+        }
+    }
+
+    public void setShowMultiWindowTimeBar(boolean z) {
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048602, this, z) == null) {
+            if (this.controller != null) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            Assertions.checkState(z2);
+            this.controller.setShowMultiWindowTimeBar(z);
+        }
+    }
+
+    public void setShowShuffleButton(boolean z) {
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048603, this, z) == null) {
+            if (this.controller != null) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            Assertions.checkState(z2);
+            this.controller.setShowShuffleButton(z);
+        }
+    }
+
+    public void setShutterBackgroundColor(int i) {
+        View view2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048604, this, i) == null) && (view2 = this.shutterView) != null) {
+            view2.setBackgroundColor(i);
+        }
+    }
+
+    public void setUseArtwork(boolean z) {
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048605, this, z) == null) {
+            if (z && this.artworkView == null) {
+                z2 = false;
+            } else {
+                z2 = true;
+            }
+            Assertions.checkState(z2);
+            if (this.useArtwork != z) {
+                this.useArtwork = z;
+                updateForCurrentTrackSelections();
+            }
+        }
+    }
+
+    @Override // android.view.View
+    public void setVisibility(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048607, this, i) == null) {
+            super.setVisibility(i);
+            View view2 = this.surfaceView;
+            if (view2 instanceof SurfaceView) {
+                view2.setVisibility(i);
+            }
+        }
+    }
+
+    public static void configureEditModeLogo(Resources resources, ImageView imageView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65545, null, resources, imageView) == null) {
+            imageView.setImageDrawable(resources.getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0804f3));
+            imageView.setBackgroundColor(resources.getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f060739));
+        }
+    }
+
+    public static void configureEditModeLogoV23(Resources resources, ImageView imageView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65546, null, resources, imageView) == null) {
+            imageView.setImageDrawable(resources.getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0804f3, null));
+            imageView.setBackgroundColor(resources.getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f060739, null));
+        }
+    }
+
     public static void setResizeModeRaw(AspectRatioFrameLayout aspectRatioFrameLayout, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65553, null, aspectRatioFrameLayout, i) == null) {
             aspectRatioFrameLayout.setResizeMode(i);
         }
+    }
+
+    private void hideArtwork() {
+        ImageView imageView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65547, this) == null) && (imageView = this.artworkView) != null) {
+            imageView.setImageResource(17170445);
+            this.artworkView.setVisibility(4);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean isPlayingAd() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, this)) == null) {
+            SimpleExoPlayer simpleExoPlayer = this.player;
+            if (simpleExoPlayer != null && simpleExoPlayer.isPlayingAd() && this.player.getPlayWhenReady()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     private boolean shouldShowControllerIndefinitely() {
@@ -287,14 +742,122 @@ public final class SimpleExoPlayerView extends FrameLayout {
                 return true;
             }
             int playbackState = simpleExoPlayer.getPlaybackState();
-            return this.controllerAutoShow && (playbackState == 1 || playbackState == 4 || !this.player.getPlayWhenReady());
+            if (this.controllerAutoShow && (playbackState == 1 || playbackState == 4 || !this.player.getPlayWhenReady())) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    public static void switchTargetView(@NonNull SimpleExoPlayer simpleExoPlayer, @Nullable SimpleExoPlayerView simpleExoPlayerView, @Nullable SimpleExoPlayerView simpleExoPlayerView2) {
+    public boolean getControllerAutoShow() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65556, null, simpleExoPlayer, simpleExoPlayerView, simpleExoPlayerView2) == null) || simpleExoPlayerView == simpleExoPlayerView2) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.controllerAutoShow;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean getControllerHideOnTouch() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.controllerHideOnTouch;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int getControllerShowTimeoutMs() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.controllerShowTimeoutMs;
+        }
+        return invokeV.intValue;
+    }
+
+    public Bitmap getDefaultArtwork() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.defaultArtwork;
+        }
+        return (Bitmap) invokeV.objValue;
+    }
+
+    public FrameLayout getOverlayFrameLayout() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.overlayFrameLayout;
+        }
+        return (FrameLayout) invokeV.objValue;
+    }
+
+    public SimpleExoPlayer getPlayer() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.player;
+        }
+        return (SimpleExoPlayer) invokeV.objValue;
+    }
+
+    public SubtitleView getSubtitleView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.subtitleView;
+        }
+        return (SubtitleView) invokeV.objValue;
+    }
+
+    public boolean getUseArtwork() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.useArtwork;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean getUseController() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.useController;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public View getVideoSurfaceView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.surfaceView;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public void hideController() {
+        PlaybackControlView playbackControlView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (playbackControlView = this.controller) != null) {
+            playbackControlView.hide();
+        }
+    }
+
+    public void showController() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
+            showController(shouldShowControllerIndefinitely());
+        }
+    }
+
+    public static void switchTargetView(SimpleExoPlayer simpleExoPlayer, SimpleExoPlayerView simpleExoPlayerView, SimpleExoPlayerView simpleExoPlayerView2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(65556, null, simpleExoPlayer, simpleExoPlayerView, simpleExoPlayerView2) != null) || simpleExoPlayerView == simpleExoPlayerView2) {
             return;
         }
         if (simpleExoPlayerView2 != null) {
@@ -309,7 +872,7 @@ public final class SimpleExoPlayerView extends FrameLayout {
     public void updateForCurrentTrackSelections() {
         SimpleExoPlayer simpleExoPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65557, this) == null) || (simpleExoPlayer = this.player) == null) {
+        if ((interceptable != null && interceptable.invokeV(65557, this) != null) || (simpleExoPlayer = this.player) == null) {
             return;
         }
         TrackSelectionArray currentTrackSelections = simpleExoPlayer.getCurrentTrackSelections();
@@ -346,6 +909,7 @@ public final class SimpleExoPlayerView extends FrameLayout {
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchKeyEvent(KeyEvent keyEvent) {
         InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, keyEvent)) == null) {
             SimpleExoPlayer simpleExoPlayer = this.player;
@@ -353,180 +917,24 @@ public final class SimpleExoPlayerView extends FrameLayout {
                 this.overlayFrameLayout.requestFocus();
                 return super.dispatchKeyEvent(keyEvent);
             }
-            boolean z = isDpadKey(keyEvent.getKeyCode()) && this.useController && !this.controller.isVisible();
-            maybeShowController(true);
-            return z || dispatchMediaKeyEvent(keyEvent) || super.dispatchKeyEvent(keyEvent);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean dispatchMediaKeyEvent(KeyEvent keyEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, keyEvent)) == null) ? this.useController && this.controller.dispatchMediaKeyEvent(keyEvent) : invokeL.booleanValue;
-    }
-
-    public boolean getControllerAutoShow() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.controllerAutoShow : invokeV.booleanValue;
-    }
-
-    public boolean getControllerHideOnTouch() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.controllerHideOnTouch : invokeV.booleanValue;
-    }
-
-    public int getControllerShowTimeoutMs() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.controllerShowTimeoutMs : invokeV.intValue;
-    }
-
-    public Bitmap getDefaultArtwork() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.defaultArtwork : (Bitmap) invokeV.objValue;
-    }
-
-    public FrameLayout getOverlayFrameLayout() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.overlayFrameLayout : (FrameLayout) invokeV.objValue;
-    }
-
-    public SimpleExoPlayer getPlayer() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.player : (SimpleExoPlayer) invokeV.objValue;
-    }
-
-    public SubtitleView getSubtitleView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.subtitleView : (SubtitleView) invokeV.objValue;
-    }
-
-    public boolean getUseArtwork() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.useArtwork : invokeV.booleanValue;
-    }
-
-    public boolean getUseController() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.useController : invokeV.booleanValue;
-    }
-
-    public View getVideoSurfaceView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.surfaceView : (View) invokeV.objValue;
-    }
-
-    public void hideController() {
-        PlaybackControlView playbackControlView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (playbackControlView = this.controller) == null) {
-            return;
-        }
-        playbackControlView.hide();
-    }
-
-    @Override // android.view.View
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, motionEvent)) == null) {
-            if (this.useController && this.player != null && motionEvent.getActionMasked() == 0) {
-                if (!this.controller.isVisible()) {
-                    maybeShowController(true);
-                } else if (this.controllerHideOnTouch) {
-                    this.controller.hide();
-                }
-                return true;
+            if (isDpadKey(keyEvent.getKeyCode()) && this.useController && !this.controller.isVisible()) {
+                z = true;
+            } else {
+                z = false;
             }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // android.view.View
-    public boolean onTrackballEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, motionEvent)) == null) {
-            if (!this.useController || this.player == null) {
+            maybeShowController(true);
+            if (!z && !dispatchMediaKeyEvent(keyEvent) && !super.dispatchKeyEvent(keyEvent)) {
                 return false;
             }
-            maybeShowController(true);
             return true;
         }
         return invokeL.booleanValue;
     }
 
-    public void setControlDispatcher(@Nullable ControlDispatcher controlDispatcher) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, controlDispatcher) == null) {
-            Assertions.checkState(this.controller != null);
-            this.controller.setControlDispatcher(controlDispatcher);
-        }
-    }
-
-    public void setControllerAutoShow(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
-            this.controllerAutoShow = z;
-        }
-    }
-
-    public void setControllerHideOnTouch(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
-            Assertions.checkState(this.controller != null);
-            this.controllerHideOnTouch = z;
-        }
-    }
-
-    public void setControllerShowTimeoutMs(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
-            Assertions.checkState(this.controller != null);
-            this.controllerShowTimeoutMs = i;
-        }
-    }
-
-    public void setControllerVisibilityListener(PlaybackControlView.VisibilityListener visibilityListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, visibilityListener) == null) {
-            Assertions.checkState(this.controller != null);
-            this.controller.setVisibilityListener(visibilityListener);
-        }
-    }
-
-    public void setDefaultArtwork(Bitmap bitmap) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048596, this, bitmap) == null) || this.defaultArtwork == bitmap) {
-            return;
-        }
-        this.defaultArtwork = bitmap;
-        updateForCurrentTrackSelections();
-    }
-
-    public void setFastForwardIncrementMs(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
-            Assertions.checkState(this.controller != null);
-            this.controller.setFastForwardIncrementMs(i);
-        }
-    }
-
     public void setPlayer(SimpleExoPlayer simpleExoPlayer) {
         SimpleExoPlayer simpleExoPlayer2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048598, this, simpleExoPlayer) == null) || (simpleExoPlayer2 = this.player) == simpleExoPlayer) {
+        if ((interceptable != null && interceptable.invokeL(1048598, this, simpleExoPlayer) != null) || (simpleExoPlayer2 = this.player) == simpleExoPlayer) {
             return;
         }
         if (simpleExoPlayer2 != null) {
@@ -564,269 +972,5 @@ public final class SimpleExoPlayerView extends FrameLayout {
         }
         hideController();
         hideArtwork();
-    }
-
-    public void setRepeatToggleModes(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
-            Assertions.checkState(this.controller != null);
-            this.controller.setRepeatToggleModes(i);
-        }
-    }
-
-    public void setResizeMode(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
-            Assertions.checkState(this.contentFrame != null);
-            this.contentFrame.setResizeMode(i);
-        }
-    }
-
-    public void setRewindIncrementMs(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048601, this, i) == null) {
-            Assertions.checkState(this.controller != null);
-            this.controller.setRewindIncrementMs(i);
-        }
-    }
-
-    public void setShowMultiWindowTimeBar(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048602, this, z) == null) {
-            Assertions.checkState(this.controller != null);
-            this.controller.setShowMultiWindowTimeBar(z);
-        }
-    }
-
-    public void setShowShuffleButton(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048603, this, z) == null) {
-            Assertions.checkState(this.controller != null);
-            this.controller.setShowShuffleButton(z);
-        }
-    }
-
-    public void setShutterBackgroundColor(int i) {
-        View view2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048604, this, i) == null) || (view2 = this.shutterView) == null) {
-            return;
-        }
-        view2.setBackgroundColor(i);
-    }
-
-    public void setUseArtwork(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048605, this, z) == null) {
-            Assertions.checkState((z && this.artworkView == null) ? false : true);
-            if (this.useArtwork != z) {
-                this.useArtwork = z;
-                updateForCurrentTrackSelections();
-            }
-        }
-    }
-
-    public void setUseController(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048606, this, z) == null) {
-            Assertions.checkState((z && this.controller == null) ? false : true);
-            if (this.useController == z) {
-                return;
-            }
-            this.useController = z;
-            if (z) {
-                this.controller.setPlayer(this.player);
-                return;
-            }
-            PlaybackControlView playbackControlView = this.controller;
-            if (playbackControlView != null) {
-                playbackControlView.hide();
-                this.controller.setPlayer(null);
-            }
-        }
-    }
-
-    @Override // android.view.View
-    public void setVisibility(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048607, this, i) == null) {
-            super.setVisibility(i);
-            View view2 = this.surfaceView;
-            if (view2 instanceof SurfaceView) {
-                view2.setVisibility(i);
-            }
-        }
-    }
-
-    public void showController() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
-            showController(shouldShowControllerIndefinitely());
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SimpleExoPlayerView(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    private void showController(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(65555, this, z) == null) && this.useController) {
-            this.controller.setShowTimeoutMs(z ? 0 : this.controllerShowTimeoutMs);
-            this.controller.show();
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SimpleExoPlayerView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        boolean z;
-        int i2;
-        boolean z2;
-        int i3;
-        boolean z3;
-        boolean z4;
-        int i4;
-        boolean z5;
-        int i5;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r3;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i6 = newInitContext.flag;
-            if ((i6 & 1) != 0) {
-                int i7 = i6 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        if (isInEditMode()) {
-            this.contentFrame = null;
-            this.shutterView = null;
-            this.surfaceView = null;
-            this.artworkView = null;
-            this.subtitleView = null;
-            this.controller = null;
-            this.componentListener = null;
-            this.overlayFrameLayout = null;
-            ImageView imageView = new ImageView(context);
-            if (Util.SDK_INT >= 23) {
-                configureEditModeLogoV23(getResources(), imageView);
-            } else {
-                configureEditModeLogo(getResources(), imageView);
-            }
-            addView(imageView);
-            return;
-        }
-        int i8 = com.baidu.tieba.R.layout.obfuscated_res_0x7f0d027c;
-        int i9 = 5000;
-        if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, R.styleable.SimpleExoPlayerView, 0, 0);
-            try {
-                z3 = obtainStyledAttributes.hasValue(9);
-                i3 = obtainStyledAttributes.getColor(9, 0);
-                i8 = obtainStyledAttributes.getResourceId(5, com.baidu.tieba.R.layout.obfuscated_res_0x7f0d027c);
-                z4 = obtainStyledAttributes.getBoolean(11, true);
-                i4 = obtainStyledAttributes.getResourceId(2, 0);
-                z5 = obtainStyledAttributes.getBoolean(12, true);
-                i5 = obtainStyledAttributes.getInt(10, 1);
-                i2 = obtainStyledAttributes.getInt(6, 0);
-                i9 = obtainStyledAttributes.getInt(8, 5000);
-                z = obtainStyledAttributes.getBoolean(4, true);
-                boolean z6 = obtainStyledAttributes.getBoolean(0, true);
-                obtainStyledAttributes.recycle();
-                z2 = z6;
-            } catch (Throwable th) {
-                obtainStyledAttributes.recycle();
-                throw th;
-            }
-        } else {
-            z = true;
-            i2 = 0;
-            z2 = true;
-            i3 = 0;
-            z3 = false;
-            z4 = true;
-            i4 = 0;
-            z5 = true;
-            i5 = 1;
-        }
-        LayoutInflater.from(context).inflate(i8, this);
-        this.componentListener = new ComponentListener(this, null);
-        setDescendantFocusability(262144);
-        AspectRatioFrameLayout aspectRatioFrameLayout = (AspectRatioFrameLayout) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090942);
-        this.contentFrame = aspectRatioFrameLayout;
-        if (aspectRatioFrameLayout != null) {
-            setResizeModeRaw(aspectRatioFrameLayout, i2);
-        }
-        View findViewById = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090951);
-        this.shutterView = findViewById;
-        if (findViewById != null && z3) {
-            findViewById.setBackgroundColor(i3);
-        }
-        if (this.contentFrame != null && i5 != 0) {
-            ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(-1, -1);
-            View textureView = i5 == 2 ? new TextureView(context) : new SurfaceView(context);
-            this.surfaceView = textureView;
-            textureView.setLayoutParams(layoutParams);
-            this.contentFrame.addView(this.surfaceView, 0);
-        } else {
-            this.surfaceView = null;
-        }
-        this.overlayFrameLayout = (FrameLayout) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090948);
-        ImageView imageView2 = (ImageView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090941);
-        this.artworkView = imageView2;
-        this.useArtwork = z4 && imageView2 != null;
-        if (i4 != 0) {
-            this.defaultArtwork = BitmapFactory.decodeResource(context.getResources(), i4);
-        }
-        SubtitleView subtitleView = (SubtitleView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090952);
-        this.subtitleView = subtitleView;
-        if (subtitleView != null) {
-            subtitleView.setUserDefaultStyle();
-            this.subtitleView.setUserDefaultTextSize();
-        }
-        PlaybackControlView playbackControlView = (PlaybackControlView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090943);
-        View findViewById2 = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090944);
-        if (playbackControlView != null) {
-            this.controller = playbackControlView;
-        } else if (findViewById2 != null) {
-            PlaybackControlView playbackControlView2 = new PlaybackControlView(context, null, 0, attributeSet);
-            this.controller = playbackControlView2;
-            playbackControlView2.setLayoutParams(findViewById2.getLayoutParams());
-            ViewGroup viewGroup = (ViewGroup) findViewById2.getParent();
-            int indexOfChild = viewGroup.indexOfChild(findViewById2);
-            viewGroup.removeView(findViewById2);
-            viewGroup.addView(this.controller, indexOfChild);
-        } else {
-            this.controller = null;
-        }
-        this.controllerShowTimeoutMs = this.controller == null ? 0 : i9;
-        this.controllerHideOnTouch = z;
-        this.controllerAutoShow = z2;
-        this.useController = z5 && this.controller != null;
-        hideController();
     }
 }

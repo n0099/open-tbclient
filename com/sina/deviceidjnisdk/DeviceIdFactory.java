@@ -16,6 +16,12 @@ public class DeviceIdFactory {
     public static volatile IDeviceId sInstance;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static native String calculateM(Context context, String str, String str2);
+
+    public static native String getIValueNative(Context context, String str);
+
+    public static native IDeviceId getInstanceNative(Context context, int i);
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -46,8 +52,6 @@ public class DeviceIdFactory {
         }
     }
 
-    public static native String calculateM(Context context, String str, String str2);
-
     public static synchronized String getIValue(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -72,8 +76,6 @@ public class DeviceIdFactory {
         return (String) invokeL.objValue;
     }
 
-    public static native String getIValueNative(Context context, String str);
-
     public static synchronized IDeviceId getInstance(Context context) {
         InterceptResult invokeL;
         IDeviceId iDeviceId;
@@ -89,6 +91,4 @@ public class DeviceIdFactory {
         }
         return (IDeviceId) invokeL.objValue;
     }
-
-    public static native IDeviceId getInstanceNative(Context context, int i);
 }

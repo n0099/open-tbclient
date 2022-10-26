@@ -15,13 +15,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public interface c extends IInterface {
 
     /* loaded from: classes2.dex */
-    public static abstract class a extends Binder implements c {
+    public abstract class a extends Binder implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.baidu.cyberplayer.sdk.remote.c$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public static class C0094a implements c {
+        public class C0094a implements c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder a;
@@ -224,7 +224,7 @@ public interface c extends IInterface {
                     return true;
                 } else if (i == 3) {
                     parcel.enforceInterface("com.baidu.cyberplayer.sdk.remote.IRemotePlayerFactory");
-                    a(parcel.readString(), parcel.readString(), parcel.readString(), parcel.readInt(), parcel.readInt(), parcel.readInt(), parcel.readString(), parcel.readInt(), parcel.readInt(), parcel.readInt(), parcel.readInt(), parcel.readInt() != 0 ? PrefetchOptions.CREATOR.createFromParcel(parcel) : null);
+                    a(parcel.readString(), parcel.readString(), parcel.readString(), parcel.readInt(), parcel.readInt(), parcel.readInt(), parcel.readString(), parcel.readInt(), parcel.readInt(), parcel.readInt(), parcel.readInt(), parcel.readInt() != 0 ? (PrefetchOptions) PrefetchOptions.CREATOR.createFromParcel(parcel) : null);
                     parcel2.writeNoException();
                     return true;
                 } else if (i == 4) {

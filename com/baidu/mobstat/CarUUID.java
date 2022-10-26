@@ -1,11 +1,8 @@
 package com.baidu.mobstat;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.os.Build;
-import android.os.Environment;
-import android.os.Process;
 import android.system.Os;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -60,32 +57,64 @@ public class CarUUID {
     public static String a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? UUID.randomUUID().toString().replace("-", "") : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            return UUID.randomUUID().toString().replace("-", "");
+        }
+        return (String) invokeL.objValue;
     }
 
     public static String b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) ? a(context.getFileStreamPath("libdueros_uuid.so")) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+            return a(context.getFileStreamPath("libdueros_uuid.so"));
+        }
+        return (String) invokeL.objValue;
     }
 
-    public static String c(Context context) {
+    public static String a(File file) {
         InterceptResult invokeL;
+        FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
-            if (c(context, com.kuaishou.weapon.p0.h.i)) {
-                return a(new File(new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig"), ".dueros_uuid"));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, file)) == null) {
+            FileInputStream fileInputStream2 = null;
+            String str = null;
+            if (file != null && file.exists()) {
+                try {
+                    fileInputStream = new FileInputStream(file);
+                    try {
+                        byte[] bArr = new byte[1024];
+                        String str2 = new String(bArr, 0, fileInputStream.read(bArr));
+                        if (a.matcher(str2).matches()) {
+                            str = str2;
+                        }
+                        bt.a(fileInputStream);
+                        return str;
+                    } catch (Exception unused) {
+                        bt.a(fileInputStream);
+                        return null;
+                    } catch (Throwable th) {
+                        th = th;
+                        fileInputStream2 = fileInputStream;
+                        bt.a(fileInputStream2);
+                        throw th;
+                    }
+                } catch (Exception unused2) {
+                    fileInputStream = null;
+                } catch (Throwable th2) {
+                    th = th2;
+                }
             }
             return null;
         }
         return (String) invokeL.objValue;
     }
 
-    public static String d(Context context) {
+    public static String c(Context context) {
         InterceptResult invokeL;
         String a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
             List<ApplicationInfo> installedApplications = context.getPackageManager().getInstalledApplications(0);
             ApplicationInfo applicationInfo = context.getApplicationInfo();
             for (ApplicationInfo applicationInfo2 : installedApplications) {
@@ -98,143 +127,61 @@ public class CarUUID {
         return (String) invokeL.objValue;
     }
 
-    public static String optUUID(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
-            String b = b(context);
-            if (b != null) {
-                return b;
-            }
-            String c = c(context);
-            if (c != null) {
-                a(context, c);
-                return c;
-            }
-            String d = d(context);
-            if (d != null) {
-                a(context, d);
-                b(context, d);
-                return d;
-            }
-            String a2 = a(context);
-            if (a2 != null) {
-                a(context, a2);
-                b(context, a2);
-                return a2;
-            }
-            return "";
-        }
-        return (String) invokeL.objValue;
-    }
-
     public static boolean a(Context context, String str) {
         InterceptResult invokeLL;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
             boolean z = false;
             FileOutputStream fileOutputStream = null;
             try {
-                fileOutputStream = context.openFileOutput("libdueros_uuid.so", Build.VERSION.SDK_INT >= 21 ? 0 : 1);
+                if (Build.VERSION.SDK_INT >= 21) {
+                    i = 0;
+                } else {
+                    i = 1;
+                }
+                fileOutputStream = context.openFileOutput("libdueros_uuid.so", i);
                 if (a(fileOutputStream, str)) {
-                    if (Build.VERSION.SDK_INT < 21) {
-                        bu.a(fileOutputStream);
-                        return true;
-                    }
-                    ApplicationInfo applicationInfo = context.getApplicationInfo();
-                    File fileStreamPath = context.getFileStreamPath("libdueros_uuid.so");
-                    if (a(new File(applicationInfo.dataDir), 457)) {
-                        if (a(fileStreamPath, 484)) {
-                            z = true;
+                    if (Build.VERSION.SDK_INT >= 21) {
+                        ApplicationInfo applicationInfo = context.getApplicationInfo();
+                        File fileStreamPath = context.getFileStreamPath("libdueros_uuid.so");
+                        if (a(new File(applicationInfo.dataDir), 457)) {
+                            if (a(fileStreamPath, 484)) {
+                                z = true;
+                            }
                         }
+                        bt.a(fileOutputStream);
+                        return z;
                     }
-                    bu.a(fileOutputStream);
-                    return z;
+                    bt.a(fileOutputStream);
+                    return true;
                 }
             } catch (Exception unused) {
             } catch (Throwable th) {
-                bu.a(fileOutputStream);
+                bt.a(fileOutputStream);
                 throw th;
             }
-            bu.a(fileOutputStream);
+            bt.a(fileOutputStream);
             return false;
         }
         return invokeLL.booleanValue;
     }
 
-    public static boolean b(Context context, String str) {
-        InterceptResult invokeLL;
-        FileOutputStream fileOutputStream;
-        Throwable th;
+    public static boolean a(File file, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(65544, null, context, str)) != null) {
-            return invokeLL.booleanValue;
-        }
-        if (!c(context, "android.permission.WRITE_EXTERNAL_STORAGE")) {
-            return false;
-        }
-        FileOutputStream fileOutputStream2 = null;
-        try {
-            fileOutputStream = new FileOutputStream(new File(new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig"), ".dueros_uuid"));
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, file, i)) == null) {
+            if (Build.VERSION.SDK_INT < 21) {
+                return true;
+            }
             try {
-                boolean a2 = a(fileOutputStream, str);
-                bu.a(fileOutputStream);
-                return a2;
+                Os.chmod(file.getAbsolutePath(), i);
+                return true;
             } catch (Exception unused) {
-                fileOutputStream2 = fileOutputStream;
-                bu.a(fileOutputStream2);
                 return false;
-            } catch (Throwable th2) {
-                th = th2;
-                bu.a(fileOutputStream);
-                throw th;
             }
-        } catch (Exception unused2) {
-        } catch (Throwable th3) {
-            fileOutputStream = null;
-            th = th3;
         }
-    }
-
-    public static boolean c(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, context, str)) == null) ? context.checkPermission(str, Process.myPid(), Process.myUid()) == 0 : invokeLL.booleanValue;
-    }
-
-    public static String a(File file) {
-        InterceptResult invokeL;
-        FileInputStream fileInputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, file)) == null) {
-            FileInputStream fileInputStream2 = null;
-            if (file != null && file.exists()) {
-                try {
-                    fileInputStream = new FileInputStream(file);
-                    try {
-                        byte[] bArr = new byte[1024];
-                        String str = new String(bArr, 0, fileInputStream.read(bArr));
-                        String str2 = a.matcher(str).matches() ? str : null;
-                        bu.a(fileInputStream);
-                        return str2;
-                    } catch (Exception unused) {
-                        bu.a(fileInputStream);
-                        return null;
-                    } catch (Throwable th) {
-                        th = th;
-                        fileInputStream2 = fileInputStream;
-                        bu.a(fileInputStream2);
-                        throw th;
-                    }
-                } catch (Exception unused2) {
-                    fileInputStream = null;
-                } catch (Throwable th2) {
-                    th = th2;
-                }
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
+        return invokeLI.booleanValue;
     }
 
     public static boolean a(FileOutputStream fileOutputStream, String str) {
@@ -252,21 +199,26 @@ public class CarUUID {
         return invokeLL.booleanValue;
     }
 
-    @SuppressLint({"NewApi"})
-    public static boolean a(File file, int i) {
-        InterceptResult invokeLI;
+    public static String optUUID(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, file, i)) == null) {
-            if (Build.VERSION.SDK_INT < 21) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
+            String b = b(context);
+            if (b != null) {
+                return b;
             }
-            try {
-                Os.chmod(file.getAbsolutePath(), i);
-                return true;
-            } catch (Exception unused) {
-                return false;
+            String c = c(context);
+            if (c != null) {
+                a(context, c);
+                return c;
             }
+            String a2 = a(context);
+            if (a2 != null) {
+                a(context, a2);
+                return a2;
+            }
+            return "";
         }
-        return invokeLI.booleanValue;
+        return (String) invokeL.objValue;
     }
 }

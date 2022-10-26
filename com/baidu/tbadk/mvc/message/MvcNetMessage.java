@@ -2,15 +2,15 @@ package com.baidu.tbadk.mvc.message;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.sb5;
-import com.baidu.tieba.tb5;
+import com.baidu.tieba.xb5;
+import com.baidu.tieba.yb5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class MvcNetMessage<T extends sb5, D extends tb5> extends NetMessage {
+public class MvcNetMessage<T extends xb5, D extends yb5> extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isNeedCache;
@@ -44,25 +44,10 @@ public class MvcNetMessage<T extends sb5, D extends tb5> extends NetMessage {
     public Object encode(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) ? this.requestData.g(z) : invokeZ.objValue;
-    }
-
-    public T getRequestData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.requestData : (T) invokeV.objValue;
-    }
-
-    public Class<D> getResponseDataClass() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.responseDataClass : (Class) invokeV.objValue;
-    }
-
-    public boolean isNeedCache() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.isNeedCache : invokeV.booleanValue;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+            return this.requestData.g(z);
+        }
+        return invokeZ.objValue;
     }
 
     public void setNeedCache(boolean z) {
@@ -84,5 +69,32 @@ public class MvcNetMessage<T extends sb5, D extends tb5> extends NetMessage {
         if (interceptable == null || interceptable.invokeL(1048582, this, cls) == null) {
             this.responseDataClass = cls;
         }
+    }
+
+    public T getRequestData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.requestData;
+        }
+        return (T) invokeV.objValue;
+    }
+
+    public Class<D> getResponseDataClass() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.responseDataClass;
+        }
+        return (Class) invokeV.objValue;
+    }
+
+    public boolean isNeedCache() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.isNeedCache;
+        }
+        return invokeV.booleanValue;
     }
 }

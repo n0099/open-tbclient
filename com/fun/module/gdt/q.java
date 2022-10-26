@@ -26,47 +26,6 @@ public class q extends FrameLayout {
     public float g;
     public final int h;
 
-    /* loaded from: classes7.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ q a;
-
-        public a(q qVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = qVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            View view2;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (view2 = (View) this.a.getParent()) == null) {
-                return;
-            }
-            int width = view2.getWidth();
-            int height = view2.getHeight();
-            q qVar = this.a;
-            int height2 = height - qVar.getHeight();
-            q qVar2 = this.a;
-            qVar.e = height2 - qVar2.c;
-            qVar2.d = (width - qVar2.getWidth()) - this.a.c;
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public q(Context context, int i) {
         super(context);
@@ -156,5 +115,46 @@ public class q extends FrameLayout {
             return super.onInterceptTouchEvent(motionEvent);
         }
         return invokeL.booleanValue;
+    }
+
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ q a;
+
+        public a(q qVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = qVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            View view2;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (view2 = (View) this.a.getParent()) == null) {
+                return;
+            }
+            int width = view2.getWidth();
+            int height = view2.getHeight();
+            q qVar = this.a;
+            int height2 = height - qVar.getHeight();
+            q qVar2 = this.a;
+            qVar.e = height2 - qVar2.c;
+            qVar2.d = (width - qVar2.getWidth()) - this.a.c;
+        }
     }
 }

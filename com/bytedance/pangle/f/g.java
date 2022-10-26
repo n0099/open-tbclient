@@ -22,7 +22,7 @@ public abstract class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ByteBuffer a;
@@ -49,7 +49,7 @@ public abstract class g {
     }
 
     /* loaded from: classes7.dex */
-    public static class b implements j {
+    public final class b implements j {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -57,44 +57,6 @@ public abstract class g {
         public final MessageDigest c;
         public final byte[] d;
         public final byte[] e;
-
-        public /* synthetic */ b(byte[] bArr, ByteBuffer byteBuffer, byte b) {
-            this(bArr, byteBuffer);
-        }
-
-        @Override // com.bytedance.pangle.f.j
-        public final void a(ByteBuffer byteBuffer) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, byteBuffer) == null) {
-                byteBuffer.position();
-                int remaining = byteBuffer.remaining();
-                while (remaining > 0) {
-                    int min = Math.min(remaining, 4096 - this.a);
-                    byteBuffer.limit(byteBuffer.position() + min);
-                    this.c.update(byteBuffer);
-                    remaining -= min;
-                    int i = this.a + min;
-                    this.a = i;
-                    if (i == 4096) {
-                        MessageDigest messageDigest = this.c;
-                        byte[] bArr = this.d;
-                        messageDigest.digest(bArr, 0, bArr.length);
-                        this.b.put(this.d);
-                        this.c.update(this.e);
-                        this.a = 0;
-                    }
-                }
-            }
-        }
-
-        public final void b() {
-            int position;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (position = this.b.position() % 4096) == 0) {
-                return;
-            }
-            this.b.put(ByteBuffer.allocate(4096 - position));
-        }
 
         public b(byte[] bArr, ByteBuffer byteBuffer) {
             Interceptable interceptable = $ic;
@@ -120,12 +82,50 @@ public abstract class g {
             this.a = 0;
         }
 
+        public /* synthetic */ b(byte[] bArr, ByteBuffer byteBuffer, byte b) {
+            this(bArr, byteBuffer);
+        }
+
         public final void a() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a == 0) {
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a == 0) {
                 return;
             }
             throw new IllegalStateException("Buffer is not empty: " + this.a);
+        }
+
+        public final void b() {
+            int position;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || (position = this.b.position() % 4096) == 0) {
+                return;
+            }
+            this.b.put(ByteBuffer.allocate(4096 - position));
+        }
+
+        @Override // com.bytedance.pangle.f.j
+        public final void a(ByteBuffer byteBuffer) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, byteBuffer) == null) {
+                byteBuffer.position();
+                int remaining = byteBuffer.remaining();
+                while (remaining > 0) {
+                    int min = Math.min(remaining, 4096 - this.a);
+                    byteBuffer.limit(byteBuffer.position() + min);
+                    this.c.update(byteBuffer);
+                    remaining -= min;
+                    int i = this.a + min;
+                    this.a = i;
+                    if (i == 4096) {
+                        MessageDigest messageDigest = this.c;
+                        byte[] bArr = this.d;
+                        messageDigest.digest(bArr, 0, bArr.length);
+                        this.b.put(this.d);
+                        this.c.update(this.e);
+                        this.a = 0;
+                    }
+                }
+            }
         }
     }
 
@@ -227,23 +227,17 @@ public abstract class g {
         return (a) invokeLLL.objValue;
     }
 
-    public static long b(long j) {
-        InterceptResult invokeJ;
+    public static ByteBuffer a(ByteBuffer byteBuffer, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65543, null, j)) == null) ? ((j + 4096) - 1) / 4096 : invokeJ.longValue;
-    }
-
-    public static int c(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65544, null, j)) == null) {
-            int i = (int) j;
-            if (i == j) {
-                return i;
-            }
-            throw new ArithmeticException("integer overflow");
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65538, null, byteBuffer, i, i2)) == null) {
+            ByteBuffer duplicate = byteBuffer.duplicate();
+            duplicate.position(0);
+            duplicate.limit(i2);
+            duplicate.position(i);
+            return duplicate.slice();
         }
-        return invokeJ.intValue;
+        return (ByteBuffer) invokeLII.objValue;
     }
 
     public static void a(j jVar, k kVar, int i) {
@@ -258,6 +252,13 @@ public abstract class g {
                 j += j2;
                 a2 -= j2;
             }
+        }
+    }
+
+    public static void a(ByteBuffer byteBuffer, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, byteBuffer, i) == null) {
+            byteBuffer.position(byteBuffer.position() + i);
         }
     }
 
@@ -324,23 +325,25 @@ public abstract class g {
         return (int[]) invokeJ.objValue;
     }
 
-    public static ByteBuffer a(ByteBuffer byteBuffer, int i, int i2) {
-        InterceptResult invokeLII;
+    public static long b(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65538, null, byteBuffer, i, i2)) == null) {
-            ByteBuffer duplicate = byteBuffer.duplicate();
-            duplicate.position(0);
-            duplicate.limit(i2);
-            duplicate.position(i);
-            return duplicate.slice();
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65543, null, j)) == null) {
+            return ((j + 4096) - 1) / 4096;
         }
-        return (ByteBuffer) invokeLII.objValue;
+        return invokeJ.longValue;
     }
 
-    public static void a(ByteBuffer byteBuffer, int i) {
+    public static int c(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, byteBuffer, i) == null) {
-            byteBuffer.position(byteBuffer.position() + i);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65544, null, j)) == null) {
+            int i = (int) j;
+            if (i == j) {
+                return i;
+            }
+            throw new ArithmeticException("integer overflow");
         }
+        return invokeJ.intValue;
     }
 }

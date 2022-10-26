@@ -1,6 +1,5 @@
 package org.webrtc;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
 import android.hardware.display.VirtualDisplay;
@@ -14,8 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.annotation.Nullable;
-@TargetApi(21)
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class ScreenCapturerAndroid implements VideoCapturer, VideoSink {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DISPLAY_FLAGS = 3;
@@ -38,6 +36,16 @@ public class ScreenCapturerAndroid implements VideoCapturer, VideoSink {
     public VirtualDisplay virtualDisplay;
     public int width;
 
+    @Override // org.webrtc.VideoCapturer
+    public boolean isScreencast() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
     public ScreenCapturerAndroid(Intent intent, MediaProjection.Callback callback) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -57,10 +65,90 @@ public class ScreenCapturerAndroid implements VideoCapturer, VideoSink {
         this.mediaProjectionCallback = callback;
     }
 
+    @Override // org.webrtc.VideoSink
+    public void onFrame(VideoFrame videoFrame) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, videoFrame) == null) {
+            this.numCapturedFrames++;
+            this.capturerObserver.onFrameCaptured(videoFrame);
+        }
+    }
+
     private void checkNotDisposed() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65545, this) == null) && this.isDisposed) {
-            throw new RuntimeException("capturer is disposed.");
+        if ((interceptable != null && interceptable.invokeV(65545, this) != null) || !this.isDisposed) {
+            return;
+        }
+        throw new RuntimeException("capturer is disposed.");
+    }
+
+    @Override // org.webrtc.VideoCapturer
+    public synchronized void dispose() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                this.isDisposed = true;
+            }
+        }
+    }
+
+    public long getNumCapturedFrames() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.numCapturedFrames;
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // org.webrtc.VideoCapturer
+    public synchronized void stopCapture() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            synchronized (this) {
+                checkNotDisposed();
+                ThreadUtils.invokeAtFrontUninterruptibly(this.surfaceTextureHelper.getHandler(), new Runnable(this) { // from class: org.webrtc.ScreenCapturerAndroid.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ ScreenCapturerAndroid this$0;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                    }
+
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            this.this$0.surfaceTextureHelper.stopListening();
+                            this.this$0.capturerObserver.onCapturerStopped();
+                            if (this.this$0.virtualDisplay != null) {
+                                this.this$0.virtualDisplay.release();
+                                this.this$0.virtualDisplay = null;
+                            }
+                            if (this.this$0.mediaProjection != null) {
+                                this.this$0.mediaProjection.unregisterCallback(this.this$0.mediaProjectionCallback);
+                                this.this$0.mediaProjection.stop();
+                                this.this$0.mediaProjection = null;
+                            }
+                        }
+                    }
+                });
+            }
         }
     }
 
@@ -121,22 +209,6 @@ public class ScreenCapturerAndroid implements VideoCapturer, VideoSink {
     }
 
     @Override // org.webrtc.VideoCapturer
-    public synchronized void dispose() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                this.isDisposed = true;
-            }
-        }
-    }
-
-    public long getNumCapturedFrames() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.numCapturedFrames : invokeV.longValue;
-    }
-
-    @Override // org.webrtc.VideoCapturer
     public synchronized void initialize(SurfaceTextureHelper surfaceTextureHelper, Context context, CapturerObserver capturerObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, surfaceTextureHelper, context, capturerObserver) == null) {
@@ -158,25 +230,6 @@ public class ScreenCapturerAndroid implements VideoCapturer, VideoSink {
     }
 
     @Override // org.webrtc.VideoCapturer
-    public boolean isScreencast() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // org.webrtc.VideoSink
-    public void onFrame(VideoFrame videoFrame) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, videoFrame) == null) {
-            this.numCapturedFrames++;
-            this.capturerObserver.onFrameCaptured(videoFrame);
-        }
-    }
-
-    @Override // org.webrtc.VideoCapturer
     public synchronized void startCapture(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIII(1048582, this, i, i2, i3) == null) {
@@ -190,57 +243,6 @@ public class ScreenCapturerAndroid implements VideoCapturer, VideoSink {
                 createVirtualDisplay();
                 this.capturerObserver.onCapturerStarted(true);
                 this.surfaceTextureHelper.startListening(this);
-            }
-        }
-    }
-
-    @Override // org.webrtc.VideoCapturer
-    public synchronized void stopCapture() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            synchronized (this) {
-                checkNotDisposed();
-                ThreadUtils.invokeAtFrontUninterruptibly(this.surfaceTextureHelper.getHandler(), new Runnable(this) { // from class: org.webrtc.ScreenCapturerAndroid.1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ ScreenCapturerAndroid this$0;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.this$0.surfaceTextureHelper.stopListening();
-                            this.this$0.capturerObserver.onCapturerStopped();
-                            if (this.this$0.virtualDisplay != null) {
-                                this.this$0.virtualDisplay.release();
-                                this.this$0.virtualDisplay = null;
-                            }
-                            if (this.this$0.mediaProjection != null) {
-                                this.this$0.mediaProjection.unregisterCallback(this.this$0.mediaProjectionCallback);
-                                this.this$0.mediaProjection.stop();
-                                this.this$0.mediaProjection = null;
-                            }
-                        }
-                    }
-                });
             }
         }
     }

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -46,7 +45,7 @@ public final class CSJNativeAdSmallImgView extends g0 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CSJNativeAdSmallImgView(Context context, @Nullable AttributeSet attributeSet) {
+    public CSJNativeAdSmallImgView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -68,7 +67,7 @@ public final class CSJNativeAdSmallImgView extends g0 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CSJNativeAdSmallImgView(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public CSJNativeAdSmallImgView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -95,8 +94,8 @@ public final class CSJNativeAdSmallImgView extends g0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, tTNativeAd) == null) {
             super.a(tTNativeAd);
-            List<TTImage> imageList = tTNativeAd.getImageList();
-            if (imageList == null || imageList.isEmpty() || (tTImage = imageList.get(0)) == null || !tTImage.isValid()) {
+            List imageList = tTNativeAd.getImageList();
+            if (imageList == null || imageList.isEmpty() || (tTImage = (TTImage) imageList.get(0)) == null || !tTImage.isValid()) {
                 return;
             }
             LogPrinter.e("CSJNativeAdView ttImage width: " + tTImage.getWidth() + ", height: " + tTImage.getHeight(), new Object[0]);

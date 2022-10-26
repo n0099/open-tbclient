@@ -9,6 +9,8 @@ public abstract class WebViewRenderProcess {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract boolean terminate();
+
     public WebViewRenderProcess() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -22,6 +24,4 @@ public abstract class WebViewRenderProcess {
             }
         }
     }
-
-    public abstract boolean terminate();
 }

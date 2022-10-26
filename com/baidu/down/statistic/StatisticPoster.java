@@ -5,7 +5,6 @@ import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Base64;
 import com.baidu.down.common.BasicNameValuePair;
-import com.baidu.down.common.NameValuePair;
 import com.baidu.down.loopj.android.http.MultiSrcBinaryTaskHandler;
 import com.baidu.down.loopj.android.urlconnection.ProxyURLConnection;
 import com.baidu.down.request.task.AbstractTask;
@@ -97,10 +96,10 @@ public final class StatisticPoster {
                 e.printStackTrace();
                 bArr = null;
             }
-            if (bArr != null) {
-                return Base64.encodeToString(bArr, 0);
+            if (bArr == null) {
+                return null;
             }
-            return null;
+            return Base64.encodeToString(bArr, 0);
         }
         return (String) invokeL.objValue;
     }
@@ -118,7 +117,7 @@ public final class StatisticPoster {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public List<NameValuePair> getPostData(String str) {
+    public List getPostData(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, str)) == null) {
@@ -131,7 +130,7 @@ public final class StatisticPoster {
 
     public void sendStatisticData(String str, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) || TextUtils.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeLI(1048576, this, str, i) != null) || TextUtils.isEmpty(str)) {
             return;
         }
         String processCommonParams = IdentityManager.getInstance(this.mContext).processCommonParams(DownPrefUtils.getString(this.mContext, DownPrefUtils.PREF_LOG_HOST, Constants.PREF_LOG_HOST_DEFAULT));
@@ -183,50 +182,59 @@ public final class StatisticPoster {
         String str;
         long j2;
         String str2;
+        String str3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, abstractTask, i) == null) {
             MultiSrcBinaryTaskHandler multiSrcBinaryTaskHandler = (MultiSrcBinaryTaskHandler) abstractTask.mTaskHandler;
             long elapsedRealtime = SystemClock.elapsedRealtime() - abstractTask.mStartTime;
             long currentLength = abstractTask.mProgressInfo.getCurrentLength() - abstractTask.mCurLength;
             long j3 = abstractTask.mTotalLength;
-            TreeSet<HttpDNSInfo> priorityDownloadIpInfoSet = ((MultiSrcBinaryReqTask) abstractTask).getPriorityDownloadIpInfoSet();
-            if (priorityDownloadIpInfoSet == null || priorityDownloadIpInfoSet.isEmpty()) {
-                j = j3;
-                str = "";
-            } else {
-                Iterator<HttpDNSInfo> it = priorityDownloadIpInfoSet.iterator();
+            TreeSet priorityDownloadIpInfoSet = ((MultiSrcBinaryReqTask) abstractTask).getPriorityDownloadIpInfoSet();
+            if (priorityDownloadIpInfoSet != null && !priorityDownloadIpInfoSet.isEmpty()) {
+                Iterator it = priorityDownloadIpInfoSet.iterator();
                 str = "";
                 while (it.hasNext()) {
-                    HttpDNSInfo next = it.next();
-                    String str3 = next.mCDNSequence + "@";
+                    HttpDNSInfo httpDNSInfo = (HttpDNSInfo) it.next();
+                    String str4 = httpDNSInfo.mCDNSequence + "@";
                     try {
-                        str3 = str3 + new URI(next.mUrl).getHost() + "@";
+                        str4 = str4 + new URI(httpDNSInfo.mUrl).getHost() + "@";
                     } catch (URISyntaxException e) {
                         e.printStackTrace();
                     }
-                    int i2 = next.mStatus;
+                    int i2 = httpDNSInfo.mStatus;
                     if (i2 != 2) {
-                        str2 = i2 != 3 ? str3 + "2@-1@-1" : str3 + "1@-1@-1";
+                        if (i2 != 3) {
+                            str3 = str4 + "2@-1@-1";
+                        } else {
+                            str3 = str4 + "1@-1@-1";
+                        }
                         j2 = j3;
                     } else {
-                        String str4 = str3 + "0@";
+                        String str5 = str4 + "0@";
                         j2 = j3;
                         long j4 = 0;
-                        String str5 = next.mDownloadTimes == 0 ? str4 + "0@" : str4 + next.getTestAverageSpeed() + "@";
-                        List<Long> list = next.mHttpConnectTime;
-                        if (list != null && list.size() > 0) {
-                            for (int i3 = 0; i3 < next.mHttpConnectTime.size(); i3++) {
-                                j4 += next.mHttpConnectTime.get(i3).longValue();
-                            }
-                            str2 = str5 + (j4 / next.mHttpConnectTime.size());
+                        if (httpDNSInfo.mDownloadTimes == 0) {
+                            str2 = str5 + "0@";
                         } else {
-                            str2 = str5 + "-1";
+                            str2 = str5 + httpDNSInfo.getTestAverageSpeed() + "@";
+                        }
+                        List list = httpDNSInfo.mHttpConnectTime;
+                        if (list != null && list.size() > 0) {
+                            for (int i3 = 0; i3 < httpDNSInfo.mHttpConnectTime.size(); i3++) {
+                                j4 += ((Long) httpDNSInfo.mHttpConnectTime.get(i3)).longValue();
+                            }
+                            str3 = str2 + (j4 / httpDNSInfo.mHttpConnectTime.size());
+                        } else {
+                            str3 = str2 + "-1";
                         }
                     }
-                    str = str + str2 + ",";
+                    str = str + str3 + ",";
                     j3 = j2;
                 }
                 j = j3;
+            } else {
+                j = j3;
+                str = "";
             }
             JSONObject jSONObject = new JSONObject();
             try {

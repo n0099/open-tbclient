@@ -6,7 +6,7 @@ import com.baidu.bdtask.model.ITaskModelData;
 import com.baidu.bdtask.model.rule.TaskRuleData;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.cw;
+import com.baidu.tieba.dw;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -51,36 +51,6 @@ public final class TaskProcess implements ITaskModelData {
     public long stayDurTimeMs;
     public final Set<TaskEnvTag> tags;
 
-    /* loaded from: classes.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public final TaskProcess a(TaskRuleData taskRuleData) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, taskRuleData)) == null) ? new TaskProcess(0, 0L, 0, taskRuleData.getStay(), taskRuleData.getRepeat(), taskRuleData.getNoclickTimes(), null, null, 199, null) : (TaskProcess) invokeL.objValue;
-        }
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-    }
-
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -97,32 +67,6 @@ public final class TaskProcess implements ITaskModelData {
         Companion = new a(null);
     }
 
-    public TaskProcess(int i, long j, int i2, long j2, int i3, int i4, Set<TaskEnvTag> set, Set<String> set2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Long.valueOf(j), Integer.valueOf(i2), Long.valueOf(j2), Integer.valueOf(i3), Integer.valueOf(i4), set, set2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.repeatTimes = i;
-        this.stayDurTimeMs = j;
-        this.curNoClickTimes = i2;
-        this.maxStayTimeMS = j2;
-        this.maxRepeatTimes = i3;
-        this.maxNoClickTimes = i4;
-        this.tags = set;
-        this.duplicateIds = set2;
-        this.fairLock = new ReentrantLock(true);
-    }
-
     private final Set<TaskEnvTag> component7() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -133,180 +77,6 @@ public final class TaskProcess implements ITaskModelData {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? this.duplicateIds : (Set) invokeV.objValue;
-    }
-
-    private final JSONArray serializeDuplicateId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
-            ReentrantLock reentrantLock = this.fairLock;
-            reentrantLock.lock();
-            try {
-                JSONArray jSONArray = new JSONArray();
-                Iterator it = CollectionsKt___CollectionsKt.toHashSet(this.duplicateIds).iterator();
-                while (it.hasNext()) {
-                    jSONArray.put(it.next());
-                }
-                return jSONArray;
-            } finally {
-                reentrantLock.unlock();
-            }
-        }
-        return (JSONArray) invokeV.objValue;
-    }
-
-    private final JSONArray serializeTags() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
-            ReentrantLock reentrantLock = this.fairLock;
-            reentrantLock.lock();
-            try {
-                JSONArray jSONArray = new JSONArray();
-                Iterator it = CollectionsKt___CollectionsKt.toHashSet(this.tags).iterator();
-                while (it.hasNext()) {
-                    jSONArray.put(((TaskEnvTag) it.next()).toJson());
-                }
-                return jSONArray;
-            } finally {
-                reentrantLock.unlock();
-            }
-        }
-        return (JSONArray) invokeV.objValue;
-    }
-
-    public final void addClickNumber() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            int i = this.repeatTimes + 1;
-            this.repeatTimes = i;
-            int i2 = this.maxRepeatTimes;
-            if (i >= i2) {
-                this.repeatTimes = i2;
-            }
-        }
-    }
-
-    public final void addEnvTag(TaskEnvTag taskEnvTag) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskEnvTag) == null) {
-            ReentrantLock reentrantLock = this.fairLock;
-            reentrantLock.lock();
-            try {
-                for (TaskEnvTag taskEnvTag2 : this.tags) {
-                    if (Intrinsics.areEqual(taskEnvTag2, taskEnvTag)) {
-                        if (taskEnvTag.getTimestamp() > taskEnvTag2.getTimestamp()) {
-                            taskEnvTag2.setTimestamp(taskEnvTag.getTimestamp());
-                        }
-                        taskEnvTag2.setValue(taskEnvTag2.getValue() + taskEnvTag.getValue());
-                        return;
-                    }
-                }
-                this.tags.add(taskEnvTag);
-            } finally {
-                reentrantLock.unlock();
-            }
-        }
-    }
-
-    public final void addNoClickTimes() {
-        int i;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (i = this.maxNoClickTimes) <= 0) {
-            return;
-        }
-        int i2 = this.curNoClickTimes + 1;
-        this.curNoClickTimes = i2;
-        if (i2 > i) {
-            this.curNoClickTimes = i;
-        }
-    }
-
-    public final void addStayTime(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            long j2 = this.stayDurTimeMs + j;
-            this.stayDurTimeMs = j2;
-            long j3 = this.maxStayTimeMS;
-            if (j2 > j3) {
-                this.stayDurTimeMs = j3;
-            }
-        }
-    }
-
-    public final void cacheDuplicateId(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            ReentrantLock reentrantLock = this.fairLock;
-            reentrantLock.lock();
-            try {
-                if (this.duplicateIds.size() > 100) {
-                    int size = this.duplicateIds.size() - 100;
-                    Iterator<String> it = this.duplicateIds.iterator();
-                    while (it.hasNext()) {
-                        int i = size - 1;
-                        if (size <= 0) {
-                            break;
-                        }
-                        it.next();
-                        it.remove();
-                        size = i;
-                    }
-                }
-                this.duplicateIds.add(cw.a.b(str));
-            } finally {
-                reentrantLock.unlock();
-            }
-        }
-    }
-
-    public final void cleanDuplicateId() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            ReentrantLock reentrantLock = this.fairLock;
-            reentrantLock.lock();
-            try {
-                this.duplicateIds.clear();
-                Unit unit = Unit.INSTANCE;
-            } finally {
-                reentrantLock.unlock();
-            }
-        }
-    }
-
-    public final void cleanNoClickTimes() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.curNoClickTimes = 0;
-        }
-    }
-
-    public final void clearClickNumber() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.repeatTimes = 0;
-        }
-    }
-
-    public final void clearStayTime() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.stayDurTimeMs = 0L;
-        }
-    }
-
-    public final void clearTags() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            ReentrantLock reentrantLock = this.fairLock;
-            reentrantLock.lock();
-            try {
-                this.tags.clear();
-                Unit unit = Unit.INSTANCE;
-            } finally {
-                reentrantLock.unlock();
-            }
-        }
     }
 
     public final int component1() {
@@ -378,40 +148,310 @@ public final class TaskProcess implements ITaskModelData {
         return invokeL.booleanValue;
     }
 
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+            long j = this.stayDurTimeMs;
+            long j2 = this.maxStayTimeMS;
+            int i = ((((((((((this.repeatTimes * 31) + ((int) (j ^ (j >>> 32)))) * 31) + this.curNoClickTimes) * 31) + ((int) (j2 ^ (j2 >>> 32)))) * 31) + this.maxRepeatTimes) * 31) + this.maxNoClickTimes) * 31;
+            Set<TaskEnvTag> set = this.tags;
+            int hashCode = (i + (set != null ? set.hashCode() : 0)) * 31;
+            Set<String> set2 = this.duplicateIds;
+            return hashCode + (set2 != null ? set2.hashCode() : 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
+            return "TaskProcess(repeatTimes=" + this.repeatTimes + ", stayDurTimeMs=" + this.stayDurTimeMs + ", curNoClickTimes=" + this.curNoClickTimes + ", maxStayTimeMS=" + this.maxStayTimeMS + ", maxRepeatTimes=" + this.maxRepeatTimes + ", maxNoClickTimes=" + this.maxNoClickTimes + ", tags=" + this.tags + ", duplicateIds=" + this.duplicateIds + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public final TaskProcess a(TaskRuleData taskRuleData) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, taskRuleData)) == null) {
+                return new TaskProcess(0, 0L, 0, taskRuleData.getStay(), taskRuleData.getRepeat(), taskRuleData.getNoclickTimes(), null, null, 199, null);
+            }
+            return (TaskProcess) invokeL.objValue;
+        }
+    }
+
+    public TaskProcess(int i, long j, int i2, long j2, int i3, int i4, Set<TaskEnvTag> set, Set<String> set2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Long.valueOf(j), Integer.valueOf(i2), Long.valueOf(j2), Integer.valueOf(i3), Integer.valueOf(i4), set, set2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.repeatTimes = i;
+        this.stayDurTimeMs = j;
+        this.curNoClickTimes = i2;
+        this.maxStayTimeMS = j2;
+        this.maxRepeatTimes = i3;
+        this.maxNoClickTimes = i4;
+        this.tags = set;
+        this.duplicateIds = set2;
+        this.fairLock = new ReentrantLock(true);
+    }
+
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public /* synthetic */ TaskProcess(int i, long j, int i2, long j2, int i3, int i4, Set set, Set set2, int i5, DefaultConstructorMarker defaultConstructorMarker) {
+        this(r4, r5, r7, j2, i3, i4, r12, r13);
+        int i6;
+        long j3;
+        int i7;
+        HashSet hashSet;
+        HashSet hashSet2;
+        if ((i5 & 1) != 0) {
+            i6 = 0;
+        } else {
+            i6 = i;
+        }
+        if ((i5 & 2) != 0) {
+            j3 = 0;
+        } else {
+            j3 = j;
+        }
+        if ((i5 & 4) != 0) {
+            i7 = 0;
+        } else {
+            i7 = i2;
+        }
+        if ((i5 & 64) != 0) {
+            hashSet = new HashSet();
+        } else {
+            hashSet = set;
+        }
+        if ((i5 & 128) != 0) {
+            hashSet2 = new HashSet();
+        } else {
+            hashSet2 = set2;
+        }
+    }
+
+    private final JSONArray serializeDuplicateId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
+            ReentrantLock reentrantLock = this.fairLock;
+            reentrantLock.lock();
+            try {
+                JSONArray jSONArray = new JSONArray();
+                Iterator it = CollectionsKt___CollectionsKt.toHashSet(this.duplicateIds).iterator();
+                while (it.hasNext()) {
+                    jSONArray.put(it.next());
+                }
+                return jSONArray;
+            } finally {
+                reentrantLock.unlock();
+            }
+        }
+        return (JSONArray) invokeV.objValue;
+    }
+
+    private final JSONArray serializeTags() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
+            ReentrantLock reentrantLock = this.fairLock;
+            reentrantLock.lock();
+            try {
+                JSONArray jSONArray = new JSONArray();
+                Iterator it = CollectionsKt___CollectionsKt.toHashSet(this.tags).iterator();
+                while (it.hasNext()) {
+                    jSONArray.put(((TaskEnvTag) it.next()).toJson());
+                }
+                return jSONArray;
+            } finally {
+                reentrantLock.unlock();
+            }
+        }
+        return (JSONArray) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.bdtask.model.ITaskModelData
+    public TaskProcess deepCopy() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            ReentrantLock reentrantLock = this.fairLock;
+            reentrantLock.lock();
+            try {
+                return new TaskProcess(this.repeatTimes, this.stayDurTimeMs, this.curNoClickTimes, this.maxStayTimeMS, this.maxRepeatTimes, this.maxNoClickTimes, CollectionsKt___CollectionsKt.toHashSet(this.tags), CollectionsKt___CollectionsKt.toHashSet(this.duplicateIds));
+            } finally {
+                reentrantLock.unlock();
+            }
+        }
+        return (TaskProcess) invokeV.objValue;
+    }
+
+    public final void addClickNumber() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            int i = this.repeatTimes + 1;
+            this.repeatTimes = i;
+            int i2 = this.maxRepeatTimes;
+            if (i >= i2) {
+                this.repeatTimes = i2;
+            }
+        }
+    }
+
+    public final void addNoClickTimes() {
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || (i = this.maxNoClickTimes) <= 0) {
+            return;
+        }
+        int i2 = this.curNoClickTimes + 1;
+        this.curNoClickTimes = i2;
+        if (i2 > i) {
+            this.curNoClickTimes = i;
+        }
+    }
+
+    public final void cleanDuplicateId() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            ReentrantLock reentrantLock = this.fairLock;
+            reentrantLock.lock();
+            try {
+                this.duplicateIds.clear();
+                Unit unit = Unit.INSTANCE;
+            } finally {
+                reentrantLock.unlock();
+            }
+        }
+    }
+
+    public final void cleanNoClickTimes() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.curNoClickTimes = 0;
+        }
+    }
+
+    public final void clearClickNumber() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.repeatTimes = 0;
+        }
+    }
+
+    public final void clearStayTime() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.stayDurTimeMs = 0L;
+        }
+    }
+
+    public final void clearTags() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            ReentrantLock reentrantLock = this.fairLock;
+            reentrantLock.lock();
+            try {
+                this.tags.clear();
+                Unit unit = Unit.INSTANCE;
+            } finally {
+                reentrantLock.unlock();
+            }
+        }
+    }
+
     public final int getCurNoClickTimes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.curNoClickTimes : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return this.curNoClickTimes;
+        }
+        return invokeV.intValue;
     }
 
     public final long getFormatStay() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.stayDurTimeMs / 1000 : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return this.stayDurTimeMs / 1000;
+        }
+        return invokeV.longValue;
     }
 
     public final int getMaxNoClickTimes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.maxNoClickTimes : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return this.maxNoClickTimes;
+        }
+        return invokeV.intValue;
     }
 
     public final int getMaxRepeatTimes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.maxRepeatTimes : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            return this.maxRepeatTimes;
+        }
+        return invokeV.intValue;
     }
 
     public final long getMaxStayTimeMS() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.maxStayTimeMS : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            return this.maxStayTimeMS;
+        }
+        return invokeV.longValue;
     }
 
     public final int getRepeatTimes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.repeatTimes : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            return this.repeatTimes;
+        }
+        return invokeV.intValue;
     }
 
     public final JSONArray getSerializeTags() {
@@ -432,28 +472,129 @@ public final class TaskProcess implements ITaskModelData {
     public final long getStayDurTimeMs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.stayDurTimeMs : invokeV.longValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
-            long j = this.stayDurTimeMs;
-            long j2 = this.maxStayTimeMS;
-            int i = ((((((((((this.repeatTimes * 31) + ((int) (j ^ (j >>> 32)))) * 31) + this.curNoClickTimes) * 31) + ((int) (j2 ^ (j2 >>> 32)))) * 31) + this.maxRepeatTimes) * 31) + this.maxNoClickTimes) * 31;
-            Set<TaskEnvTag> set = this.tags;
-            int hashCode = (i + (set != null ? set.hashCode() : 0)) * 31;
-            Set<String> set2 = this.duplicateIds;
-            return hashCode + (set2 != null ? set2.hashCode() : 0);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            return this.stayDurTimeMs;
         }
-        return invokeV.intValue;
+        return invokeV.longValue;
     }
 
     public final boolean isCompleted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? isGotClickedNumber() || isGotStayTime() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+            if (!isGotClickedNumber() && !isGotStayTime()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.bdtask.model.ITaskModelData
+    public boolean isEmpty() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
+            return ITaskModelData.a.a(this);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean isGotClickedNumber() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
+            if (this.repeatTimes >= this.maxRepeatTimes) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean isGotMaxNoClickTimes() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
+            int i = this.maxNoClickTimes;
+            if (i == -1 || i == 0 || this.curNoClickTimes < i) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean isGotStayTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
+            if (this.stayDurTimeMs >= this.maxStayTimeMS) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void addEnvTag(TaskEnvTag taskEnvTag) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskEnvTag) == null) {
+            ReentrantLock reentrantLock = this.fairLock;
+            reentrantLock.lock();
+            try {
+                for (TaskEnvTag taskEnvTag2 : this.tags) {
+                    if (Intrinsics.areEqual(taskEnvTag2, taskEnvTag)) {
+                        if (taskEnvTag.getTimestamp() > taskEnvTag2.getTimestamp()) {
+                            taskEnvTag2.setTimestamp(taskEnvTag.getTimestamp());
+                        }
+                        taskEnvTag2.setValue(taskEnvTag2.getValue() + taskEnvTag.getValue());
+                        return;
+                    }
+                }
+                this.tags.add(taskEnvTag);
+            } finally {
+                reentrantLock.unlock();
+            }
+        }
+    }
+
+    public final void cacheDuplicateId(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            ReentrantLock reentrantLock = this.fairLock;
+            reentrantLock.lock();
+            try {
+                if (this.duplicateIds.size() > 100) {
+                    int size = this.duplicateIds.size() - 100;
+                    Iterator<String> it = this.duplicateIds.iterator();
+                    while (it.hasNext()) {
+                        int i = size - 1;
+                        if (size <= 0) {
+                            break;
+                        }
+                        it.next();
+                        it.remove();
+                        size = i;
+                    }
+                }
+                this.duplicateIds.add(dw.a.b(str));
+            } finally {
+                reentrantLock.unlock();
+            }
+        }
+    }
+
+    public final void addStayTime(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            long j2 = this.stayDurTimeMs + j;
+            this.stayDurTimeMs = j2;
+            long j3 = this.maxStayTimeMS;
+            if (j2 > j3) {
+                this.stayDurTimeMs = j3;
+            }
+        }
     }
 
     public final boolean isContainsInDuplicateIds(String str) {
@@ -463,41 +604,12 @@ public final class TaskProcess implements ITaskModelData {
             ReentrantLock reentrantLock = this.fairLock;
             reentrantLock.lock();
             try {
-                return this.duplicateIds.contains(cw.a.b(str));
+                return this.duplicateIds.contains(dw.a.b(str));
             } finally {
                 reentrantLock.unlock();
             }
         }
         return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.bdtask.model.ITaskModelData
-    public boolean isEmpty() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? ITaskModelData.a.a(this) : invokeV.booleanValue;
-    }
-
-    public final boolean isGotClickedNumber() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.repeatTimes >= this.maxRepeatTimes : invokeV.booleanValue;
-    }
-
-    public final boolean isGotMaxNoClickTimes() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
-            int i = this.maxNoClickTimes;
-            return (i == -1 || i == 0 || this.curNoClickTimes < i) ? false : true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean isGotStayTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.stayDurTimeMs >= this.maxStayTimeMS : invokeV.booleanValue;
     }
 
     public final void setCurNoClickTimes(int i) {
@@ -552,35 +664,5 @@ public final class TaskProcess implements ITaskModelData {
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
-            return "TaskProcess(repeatTimes=" + this.repeatTimes + ", stayDurTimeMs=" + this.stayDurTimeMs + ", curNoClickTimes=" + this.curNoClickTimes + ", maxStayTimeMS=" + this.maxStayTimeMS + ", maxRepeatTimes=" + this.maxRepeatTimes + ", maxNoClickTimes=" + this.maxNoClickTimes + ", tags=" + this.tags + ", duplicateIds=" + this.duplicateIds + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.bdtask.model.ITaskModelData
-    public TaskProcess deepCopy() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            ReentrantLock reentrantLock = this.fairLock;
-            reentrantLock.lock();
-            try {
-                return new TaskProcess(this.repeatTimes, this.stayDurTimeMs, this.curNoClickTimes, this.maxStayTimeMS, this.maxRepeatTimes, this.maxNoClickTimes, CollectionsKt___CollectionsKt.toHashSet(this.tags), CollectionsKt___CollectionsKt.toHashSet(this.duplicateIds));
-            } finally {
-                reentrantLock.unlock();
-            }
-        }
-        return (TaskProcess) invokeV.objValue;
-    }
-
-    public /* synthetic */ TaskProcess(int i, long j, int i2, long j2, int i3, int i4, Set set, Set set2, int i5, DefaultConstructorMarker defaultConstructorMarker) {
-        this((i5 & 1) != 0 ? 0 : i, (i5 & 2) != 0 ? 0L : j, (i5 & 4) != 0 ? 0 : i2, j2, i3, i4, (i5 & 64) != 0 ? new HashSet() : set, (i5 & 128) != 0 ? new HashSet() : set2);
     }
 }

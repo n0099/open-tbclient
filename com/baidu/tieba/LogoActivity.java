@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
@@ -18,13 +17,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@SuppressLint({"HandlerLeak"})
 /* loaded from: classes3.dex */
 public class LogoActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public v36 a;
-    public sn5 b;
+    public c46 a;
+    public zn5 b;
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.zc5
+    public String getCurrentPageKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "a064" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+        }
+    }
 
     public LogoActivity() {
         Interceptable interceptable = $ic;
@@ -56,17 +68,31 @@ public class LogoActivity extends BaseFragmentActivity {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.uc5
-    public String getCurrentPageKey() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onPause() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "a064" : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            super.onPause();
+            zn5 zn5Var = this.b;
+            if (zn5Var != null) {
+                zn5Var.f();
+            }
+        }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void onChangeSkinType(int i) {
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            if (this.b != null) {
+                SpeedStatsManager.getInstance().addStatsTimeStamp(3002);
+            }
+            super.onResume();
+            zn5 zn5Var = this.b;
+            if (zn5Var != null) {
+                zn5Var.g();
+                SpeedStatsManager.getInstance().addStatsTimeStamp(3003);
+            }
         }
     }
 
@@ -75,10 +101,19 @@ public class LogoActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, configuration) == null) {
             super.onConfigurationChanged(configuration);
-            sn5 sn5Var = this.b;
-            if (sn5Var != null) {
-                sn5Var.c(configuration);
+            zn5 zn5Var = this.b;
+            if (zn5Var != null) {
+                zn5Var.c(configuration);
             }
+        }
+    }
+
+    @Override // androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    public void onSaveInstanceState(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
+            super.onSaveInstanceState(bundle);
+            bundle.putBoolean("is_first", LogoActivityConfig.isFirst);
         }
     }
 
@@ -95,14 +130,14 @@ public class LogoActivity extends BaseFragmentActivity {
             }
             setContentView(R.layout.obfuscated_res_0x7f0d0569);
             if (PermissionUtil.isAgreePrivacyPolicy()) {
-                sn5 sn5Var = new sn5(this);
-                this.b = sn5Var;
-                sn5Var.d(bundle);
+                zn5 zn5Var = new zn5(this);
+                this.b = zn5Var;
+                zn5Var.d(bundle);
                 return;
             }
-            v36 v36Var = new v36(this);
-            this.a = v36Var;
-            v36Var.i();
+            c46 c46Var = new c46(this);
+            this.a = c46Var;
+            c46Var.i();
         }
     }
 
@@ -114,11 +149,11 @@ public class LogoActivity extends BaseFragmentActivity {
                 SpeedStatsManager.getInstance().addStatsTimeStamp(3004);
             }
             super.onDestroy();
-            sn5 sn5Var = this.b;
-            if (sn5Var != null) {
-                sn5Var.e();
+            zn5 zn5Var = this.b;
+            if (zn5Var != null) {
+                zn5Var.e();
                 SpeedStatsManager.getInstance().addStatsTimeStamp(3005);
-                wv4.m();
+                cw4.m();
             }
         }
     }
@@ -134,42 +169,5 @@ public class LogoActivity extends BaseFragmentActivity {
             return super.onKeyDown(i, keyEvent);
         }
         return invokeIL.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onPause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            super.onPause();
-            sn5 sn5Var = this.b;
-            if (sn5Var != null) {
-                sn5Var.f();
-            }
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            if (this.b != null) {
-                SpeedStatsManager.getInstance().addStatsTimeStamp(3002);
-            }
-            super.onResume();
-            sn5 sn5Var = this.b;
-            if (sn5Var != null) {
-                sn5Var.g();
-                SpeedStatsManager.getInstance().addStatsTimeStamp(3003);
-            }
-        }
-    }
-
-    @Override // androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
-    public void onSaveInstanceState(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
-            super.onSaveInstanceState(bundle);
-            bundle.putBoolean("is_first", LogoActivityConfig.isFirst);
-        }
     }
 }

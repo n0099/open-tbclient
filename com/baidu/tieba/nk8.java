@@ -1,23 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.atomData.ForumListActivityConfig;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.List;
+import tbclient.Page;
+import tbclient.RecommendForumInfo;
 /* loaded from: classes5.dex */
 public class nk8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public ArrayList<nk8> e;
+    public List a;
+    public List b;
+    public Page c;
+    public boolean d;
+    public int e;
+    public int f;
+    public int g;
 
     public nk8() {
         Interceptable interceptable = $ic;
@@ -29,28 +33,47 @@ public class nk8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayList();
+        this.d = true;
+        this.e = 0;
+        this.f = 0;
+        this.g = 0;
     }
 
-    public void a(JSONObject jSONObject) throws JSONException {
+    public List a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            this.a = jSONObject.optString(ForumListActivityConfig.KEY_MENU_TYPE);
-            this.b = jSONObject.optString("menu_name");
-            this.c = jSONObject.optString("menu_id");
-            String optString = jSONObject.optString("default_logo_url", null);
-            this.d = optString;
-            this.d = optString != null ? this.d + "?v=2" : null;
-            if (jSONObject.has("child_menu_list")) {
-                ArrayList<nk8> arrayList = new ArrayList<>();
-                JSONArray optJSONArray = jSONObject.optJSONArray("child_menu_list");
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    nk8 nk8Var = new nk8();
-                    nk8Var.a(optJSONArray.getJSONObject(i));
-                    arrayList.add(nk8Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public void b(o96 o96Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, o96Var) == null) {
+            String str = o96Var.d;
+            this.c = o96Var.c;
+            List list = o96Var.a;
+            this.b = list;
+            if (!ListUtils.isEmpty(list)) {
+                for (RecommendForumInfo recommendForumInfo : this.b) {
+                    mk8 mk8Var = new mk8();
+                    mk8Var.r(recommendForumInfo);
+                    this.a.add(mk8Var);
                 }
-                this.e = arrayList;
+            }
+            Page page = this.c;
+            if (page != null) {
+                boolean z = true;
+                if (page.has_more.intValue() != 1) {
+                    z = false;
+                }
+                this.d = z;
+                this.e = this.c.current_page.intValue();
             }
         }
     }

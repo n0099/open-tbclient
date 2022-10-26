@@ -18,7 +18,7 @@ public class q3 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public static class a {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public static final byte[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -45,46 +45,47 @@ public class q3 {
             Exception e;
             Closeable closeable;
             Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeL = interceptable.invokeL(65537, null, k3Var)) != null) {
-                return (Pixmap) invokeL.objValue;
-            }
-            Closeable closeable2 = null;
-            try {
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, k3Var)) == null) {
+                Closeable closeable2 = null;
                 try {
-                    DataInputStream dataInputStream = new DataInputStream(new InflaterInputStream(new BufferedInputStream(k3Var.m())));
                     try {
-                        Pixmap pixmap = new Pixmap(dataInputStream.readInt(), dataInputStream.readInt(), Pixmap.Format.fromGdx2DPixmapFormat(dataInputStream.readInt()));
-                        ByteBuffer m = pixmap.m();
-                        m.position(0);
-                        m.limit(m.capacity());
-                        synchronized (a) {
-                            while (true) {
-                                int read = dataInputStream.read(a);
-                                if (read > 0) {
-                                    m.put(a, 0, read);
+                        DataInputStream dataInputStream = new DataInputStream(new InflaterInputStream(new BufferedInputStream(k3Var.m())));
+                        try {
+                            Pixmap pixmap = new Pixmap(dataInputStream.readInt(), dataInputStream.readInt(), Pixmap.Format.fromGdx2DPixmapFormat(dataInputStream.readInt()));
+                            ByteBuffer m = pixmap.m();
+                            m.position(0);
+                            m.limit(m.capacity());
+                            synchronized (a) {
+                                while (true) {
+                                    int read = dataInputStream.read(a);
+                                    if (read > 0) {
+                                        m.put(a, 0, read);
+                                    }
                                 }
                             }
+                            m.position(0);
+                            m.limit(m.capacity());
+                            j8.a(dataInputStream);
+                            return pixmap;
+                        } catch (Exception e2) {
+                            e = e2;
+                            throw new GdxRuntimeException("Couldn't read Pixmap from file '" + k3Var + "'", e);
                         }
-                        m.position(0);
-                        m.limit(m.capacity());
-                        j8.a(dataInputStream);
-                        return pixmap;
-                    } catch (Exception e2) {
-                        e = e2;
-                        throw new GdxRuntimeException("Couldn't read Pixmap from file '" + k3Var + "'", e);
+                    } catch (Throwable th) {
+                        th = th;
+                        closeable2 = closeable;
+                        j8.a(closeable2);
+                        throw th;
                     }
-                } catch (Throwable th) {
-                    th = th;
-                    closeable2 = closeable;
+                } catch (Exception e3) {
+                    e = e3;
+                } catch (Throwable th2) {
+                    th = th2;
                     j8.a(closeable2);
                     throw th;
                 }
-            } catch (Exception e3) {
-                e = e3;
-            } catch (Throwable th2) {
-                th = th2;
-                j8.a(closeable2);
-                throw th;
+            } else {
+                return (Pixmap) invokeL.objValue;
             }
         }
     }
@@ -92,6 +93,9 @@ public class q3 {
     public static Pixmap a(k3 k3Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, k3Var)) == null) ? a.a(k3Var) : (Pixmap) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, k3Var)) == null) {
+            return a.a(k3Var);
+        }
+        return (Pixmap) invokeL.objValue;
     }
 }

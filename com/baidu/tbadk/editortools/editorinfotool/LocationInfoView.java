@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.ny4;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.ty4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -53,80 +53,6 @@ public class LocationInfoView extends LinearLayout implements View.OnClickListen
         }
     }
 
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            setOrientation(0);
-            setGravity(16);
-            ny4 ny4Var = new ny4();
-            ny4Var.p(R.color.CAM_X0209, R.color.CAM_X0105);
-            ny4Var.i(R.drawable.obfuscated_res_0x7f080615, 0, TBSpecificationButtonConfig.IconType.WEBP);
-            ny4Var.h(R.color.CAM_X0110);
-            ny4Var.f(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
-            ny4Var.m(ej.f(getContext(), R.dimen.M_W_X004), ej.f(getContext(), R.dimen.M_W_X004));
-            ny4Var.n(ej.f(getContext(), R.dimen.M_H_X002));
-            ny4Var.g(UtilHelper.getDimenPixelSize(R.dimen.tbds31));
-            TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(getContext());
-            this.a = tBSpecificationBtn;
-            tBSpecificationBtn.setConfig(ny4Var);
-            this.a.setTextSize(R.dimen.T_X09);
-            this.a.setOnClickListener(this);
-            this.a.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0546));
-            addView(this.a, new LinearLayout.LayoutParams(-2, ej.f(getContext(), R.dimen.tbds62)));
-            b(TbadkCoreApplication.getInst().getSkinType());
-        }
-    }
-
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || this.c == i) {
-            return;
-        }
-        this.a.k();
-        this.c = i;
-    }
-
-    public TBSpecificationBtn getLocationBtn() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (TBSpecificationBtn) invokeV.objValue;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, view2) == null) || (aVar = this.b) == null) {
-            return;
-        }
-        aVar.a();
-    }
-
-    public void setLocationClickListener(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.b = aVar;
-        }
-    }
-
-    public void setState(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048581, this, i, str) == null) {
-            if (!StringUtils.isNull(str)) {
-                if (str.contains("·")) {
-                    int indexOf = str.indexOf("·");
-                    str = str.substring(0, indexOf) + str.substring(indexOf + 1, str.length());
-                }
-                this.a.setText(StringHelper.cutChineseAndEnglishWithSuffix(str, 8, StringHelper.STRING_MORE));
-            } else if (i == 1) {
-                this.a.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0a6c));
-            } else {
-                this.a.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0a72));
-            }
-            this.a.a = Integer.valueOf(i);
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LocationInfoView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -148,5 +74,81 @@ public class LocationInfoView extends LinearLayout implements View.OnClickListen
         }
         this.c = 3;
         a();
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            setOrientation(0);
+            setGravity(16);
+            ty4 ty4Var = new ty4();
+            ty4Var.p(R.color.CAM_X0209, R.color.CAM_X0105);
+            ty4Var.i(R.drawable.obfuscated_res_0x7f080616, 0, TBSpecificationButtonConfig.IconType.WEBP);
+            ty4Var.h(R.color.CAM_X0110);
+            ty4Var.f(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
+            ty4Var.m(fj.f(getContext(), R.dimen.M_W_X004), fj.f(getContext(), R.dimen.M_W_X004));
+            ty4Var.n(fj.f(getContext(), R.dimen.M_H_X002));
+            ty4Var.g(UtilHelper.getDimenPixelSize(R.dimen.tbds31));
+            TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(getContext());
+            this.a = tBSpecificationBtn;
+            tBSpecificationBtn.setConfig(ty4Var);
+            this.a.setTextSize(R.dimen.T_X09);
+            this.a.setOnClickListener(this);
+            this.a.setText(getContext().getString(R.string.obfuscated_res_0x7f0f054e));
+            addView(this.a, new LinearLayout.LayoutParams(-2, fj.f(getContext(), R.dimen.tbds62)));
+            b(TbadkCoreApplication.getInst().getSkinType());
+        }
+    }
+
+    public void b(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && this.c != i) {
+            this.a.k();
+            this.c = i;
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, view2) != null) || (aVar = this.b) == null) {
+            return;
+        }
+        aVar.a();
+    }
+
+    public void setLocationClickListener(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
+            this.b = aVar;
+        }
+    }
+
+    public TBSpecificationBtn getLocationBtn() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (TBSpecificationBtn) invokeV.objValue;
+    }
+
+    public void setState(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i, str) == null) {
+            if (!StringUtils.isNull(str)) {
+                if (str.contains("·")) {
+                    int indexOf = str.indexOf("·");
+                    str = str.substring(0, indexOf) + str.substring(indexOf + 1, str.length());
+                }
+                this.a.setText(StringHelper.cutChineseAndEnglishWithSuffix(str, 8, StringHelper.STRING_MORE));
+            } else if (i == 1) {
+                this.a.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0a79));
+            } else {
+                this.a.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0a7f));
+            }
+            this.a.a = Integer.valueOf(i);
+        }
     }
 }

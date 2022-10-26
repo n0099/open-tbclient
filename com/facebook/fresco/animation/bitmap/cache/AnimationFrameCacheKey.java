@@ -15,6 +15,16 @@ public class AnimationFrameCacheKey implements CacheKey {
     public transient /* synthetic */ FieldHolder $fh;
     public final String mAnimationUriString;
 
+    @Override // com.facebook.cache.common.CacheKey
+    public boolean isResourceIdForDebugging() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     public AnimationFrameCacheKey(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -37,23 +47,19 @@ public class AnimationFrameCacheKey implements CacheKey {
     public boolean containsUri(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, uri)) == null) ? uri.toString().startsWith(this.mAnimationUriString) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, uri)) == null) {
+            return uri.toString().startsWith(this.mAnimationUriString);
+        }
+        return invokeL.booleanValue;
     }
 
     @Override // com.facebook.cache.common.CacheKey
     public String getUriString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mAnimationUriString : (String) invokeV.objValue;
-    }
-
-    @Override // com.facebook.cache.common.CacheKey
-    public boolean isResourceIdForDebugging() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mAnimationUriString;
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 }

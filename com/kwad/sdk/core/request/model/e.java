@@ -1,6 +1,5 @@
 package com.kwad.sdk.core.request.model;
 
-import androidx.annotation.Nullable;
 import com.kwad.sdk.core.network.l;
 import com.kwad.sdk.service.ServiceProvider;
 import com.kwad.sdk.utils.r;
@@ -19,7 +18,7 @@ public final class e implements com.kwad.sdk.core.b {
     }
 
     @Override // com.kwad.sdk.core.b
-    public final void parseJson(@Nullable JSONObject jSONObject) {
+    public final void parseJson(JSONObject jSONObject) {
     }
 
     @Override // com.kwad.sdk.core.b

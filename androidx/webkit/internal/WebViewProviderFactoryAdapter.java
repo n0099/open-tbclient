@@ -43,48 +43,69 @@ public class WebViewProviderFactoryAdapter implements WebViewProviderFactory {
     public WebViewProviderBoundaryInterface createWebView(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, webView)) == null) ? (WebViewProviderBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(WebViewProviderBoundaryInterface.class, this.mImpl.createWebView(webView)) : (WebViewProviderBoundaryInterface) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, webView)) == null) {
+            return (WebViewProviderBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(WebViewProviderBoundaryInterface.class, this.mImpl.createWebView(webView));
+        }
+        return (WebViewProviderBoundaryInterface) invokeL.objValue;
     }
 
     @Override // androidx.webkit.internal.WebViewProviderFactory
     public ProxyControllerBoundaryInterface getProxyController() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (ProxyControllerBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(ProxyControllerBoundaryInterface.class, this.mImpl.getProxyController()) : (ProxyControllerBoundaryInterface) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return (ProxyControllerBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(ProxyControllerBoundaryInterface.class, this.mImpl.getProxyController());
+        }
+        return (ProxyControllerBoundaryInterface) invokeV.objValue;
     }
 
     @Override // androidx.webkit.internal.WebViewProviderFactory
     public ServiceWorkerControllerBoundaryInterface getServiceWorkerController() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (ServiceWorkerControllerBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(ServiceWorkerControllerBoundaryInterface.class, this.mImpl.getServiceWorkerController()) : (ServiceWorkerControllerBoundaryInterface) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return (ServiceWorkerControllerBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(ServiceWorkerControllerBoundaryInterface.class, this.mImpl.getServiceWorkerController());
+        }
+        return (ServiceWorkerControllerBoundaryInterface) invokeV.objValue;
     }
 
     @Override // androidx.webkit.internal.WebViewProviderFactory
     public StaticsBoundaryInterface getStatics() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (StaticsBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(StaticsBoundaryInterface.class, this.mImpl.getStatics()) : (StaticsBoundaryInterface) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return (StaticsBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(StaticsBoundaryInterface.class, this.mImpl.getStatics());
+        }
+        return (StaticsBoundaryInterface) invokeV.objValue;
     }
 
     @Override // androidx.webkit.internal.WebViewProviderFactory
     public TracingControllerBoundaryInterface getTracingController() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (TracingControllerBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(TracingControllerBoundaryInterface.class, this.mImpl.getTracingController()) : (TracingControllerBoundaryInterface) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return (TracingControllerBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(TracingControllerBoundaryInterface.class, this.mImpl.getTracingController());
+        }
+        return (TracingControllerBoundaryInterface) invokeV.objValue;
     }
 
     @Override // androidx.webkit.internal.WebViewProviderFactory
     public String[] getWebViewFeatures() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mImpl.getSupportedFeatures() : (String[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mImpl.getSupportedFeatures();
+        }
+        return (String[]) invokeV.objValue;
     }
 
     @Override // androidx.webkit.internal.WebViewProviderFactory
     public WebkitToCompatConverterBoundaryInterface getWebkitToCompatConverter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? (WebkitToCompatConverterBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(WebkitToCompatConverterBoundaryInterface.class, this.mImpl.getWebkitToCompatConverter()) : (WebkitToCompatConverterBoundaryInterface) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return (WebkitToCompatConverterBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(WebkitToCompatConverterBoundaryInterface.class, this.mImpl.getWebkitToCompatConverter());
+        }
+        return (WebkitToCompatConverterBoundaryInterface) invokeV.objValue;
     }
 }

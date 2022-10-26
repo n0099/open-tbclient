@@ -75,6 +75,15 @@ public class WebAddress {
         return (String) invokeV.objValue;
     }
 
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (String) invokeV.objValue;
+    }
+
     public void setAuthInfo(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
@@ -108,14 +117,5 @@ public class WebAddress {
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
             throw new RuntimeException("Stub!");
         }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (String) invokeV.objValue;
     }
 }

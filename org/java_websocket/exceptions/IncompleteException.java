@@ -33,6 +33,9 @@ public class IncompleteException extends Throwable {
     public int getPreferredSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.preferredSize : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.preferredSize;
+        }
+        return invokeV.intValue;
     }
 }

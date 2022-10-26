@@ -5,8 +5,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.data.VisitedForumData;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.dh;
-import com.baidu.tieba.sh5;
+import com.baidu.tieba.eh;
+import com.baidu.tieba.yh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ import tbclient.GetHistoryForum.GetHistoryForumReqIdl;
 public class RecentlyVisitedForumRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<VisitedForumData> mForumData;
+    public LinkedList mForumData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RecentlyVisitedForumRequestMessage() {
@@ -52,18 +52,18 @@ public class RecentlyVisitedForumRequestMessage extends NetMessage {
                 DataReq.Builder builder = new DataReq.Builder();
                 JSONArray jSONArray = new JSONArray();
                 if (this.mForumData != null) {
-                    Iterator<VisitedForumData> it = this.mForumData.iterator();
+                    Iterator it = this.mForumData.iterator();
                     while (it.hasNext()) {
-                        VisitedForumData next = it.next();
+                        VisitedForumData visitedForumData = (VisitedForumData) it.next();
                         JSONObject jSONObject = new JSONObject();
-                        jSONObject.put("forum_id", dh.g(next.getForumId(), 0L));
-                        jSONObject.put("visit_time", next.getVisitedTime());
+                        jSONObject.put("forum_id", eh.g(visitedForumData.getForumId(), 0L));
+                        jSONObject.put("visit_time", visitedForumData.getVisitedTime());
                         jSONArray.put(jSONObject);
                     }
                 }
                 builder.history = jSONArray.toString();
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    sh5.a(builder, true);
+                    yh5.a(builder, true);
                 }
                 GetHistoryForumReqIdl.Builder builder2 = new GetHistoryForumReqIdl.Builder();
                 builder2.data = builder.build(false);
@@ -75,13 +75,16 @@ public class RecentlyVisitedForumRequestMessage extends NetMessage {
         return invokeZ.objValue;
     }
 
-    public LinkedList<VisitedForumData> getForumData() {
+    public LinkedList getForumData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mForumData : (LinkedList) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mForumData;
+        }
+        return (LinkedList) invokeV.objValue;
     }
 
-    public void setForumData(LinkedList<VisitedForumData> linkedList) {
+    public void setForumData(LinkedList linkedList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, linkedList) == null) {
             this.mForumData = linkedList;

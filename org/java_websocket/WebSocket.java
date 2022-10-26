@@ -10,10 +10,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.java_websocket.framing.Framedata;
 /* loaded from: classes8.dex */
 public interface WebSocket {
+    void sendFrame(Framedata framedata);
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public static final class READYSTATE {
+    public final class READYSTATE {
         public static final /* synthetic */ READYSTATE[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final READYSTATE CLOSED;
@@ -68,19 +69,25 @@ public interface WebSocket {
         public static READYSTATE valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (READYSTATE) Enum.valueOf(READYSTATE.class, str) : (READYSTATE) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (READYSTATE) Enum.valueOf(READYSTATE.class, str);
+            }
+            return (READYSTATE) invokeL.objValue;
         }
 
         public static READYSTATE[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (READYSTATE[]) $VALUES.clone() : (READYSTATE[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (READYSTATE[]) $VALUES.clone();
+            }
+            return (READYSTATE[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public static final class Role {
+    public final class Role {
         public static final /* synthetic */ Role[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Role CLIENT;
@@ -128,15 +135,19 @@ public interface WebSocket {
         public static Role valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Role) Enum.valueOf(Role.class, str) : (Role) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (Role) Enum.valueOf(Role.class, str);
+            }
+            return (Role) invokeL.objValue;
         }
 
         public static Role[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Role[]) $VALUES.clone() : (Role[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (Role[]) $VALUES.clone();
+            }
+            return (Role[]) invokeV.objValue;
         }
     }
-
-    void sendFrame(Framedata framedata);
 }

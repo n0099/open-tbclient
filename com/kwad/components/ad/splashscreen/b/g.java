@@ -280,8 +280,8 @@ public final class g extends e implements com.kwad.sdk.core.h.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.aq();
-            this.yI = (ImageView) this.yF.mRootContainer.findViewById(R.id.obfuscated_res_0x7f0911f4);
-            this.yH = (ImageView) this.yF.mRootContainer.findViewById(R.id.obfuscated_res_0x7f0911f7);
+            this.yI = (ImageView) this.yF.mRootContainer.findViewById(R.id.obfuscated_res_0x7f0911e8);
+            this.yH = (ImageView) this.yF.mRootContainer.findViewById(R.id.obfuscated_res_0x7f0911eb);
             AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(this.yF.mAdTemplate);
             this.mAdInfo = bQ;
             String str = com.kwad.sdk.core.response.a.a.at(bQ).materialUrl;

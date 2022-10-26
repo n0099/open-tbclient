@@ -16,6 +16,20 @@ public final class DummyTrackOutput implements TrackOutput {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.google.android.exoplayer2.extractor.TrackOutput
+    public void format(Format format) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, format) == null) {
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.extractor.TrackOutput
+    public void sampleMetadata(long j, int i, int i2, int i3, TrackOutput.CryptoData cryptoData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), cryptoData}) == null) {
+        }
+    }
+
     public DummyTrackOutput() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -27,13 +41,6 @@ public final class DummyTrackOutput implements TrackOutput {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.extractor.TrackOutput
-    public void format(Format format) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, format) == null) {
         }
     }
 
@@ -52,13 +59,6 @@ public final class DummyTrackOutput implements TrackOutput {
             return skip;
         }
         return invokeCommon.intValue;
-    }
-
-    @Override // com.google.android.exoplayer2.extractor.TrackOutput
-    public void sampleMetadata(long j, int i, int i2, int i3, TrackOutput.CryptoData cryptoData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), cryptoData}) == null) {
-        }
     }
 
     @Override // com.google.android.exoplayer2.extractor.TrackOutput

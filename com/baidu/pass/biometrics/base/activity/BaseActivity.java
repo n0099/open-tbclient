@@ -1,6 +1,5 @@
 package com.baidu.pass.biometrics.base.activity;
 
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
@@ -24,6 +23,12 @@ public class BaseActivity extends Activity implements NoProguard {
     public String c;
     public boolean d;
 
+    public Activity getActivity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (Activity) invokeV.objValue;
+    }
+
     public BaseActivity() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -42,30 +47,25 @@ public class BaseActivity extends Activity implements NoProguard {
         this.d = false;
     }
 
-    @TargetApi(24)
     private void a() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65537, this) == null) && Build.VERSION.SDK_INT >= 24 && isInMultiWindowMode()) {
             if (this.a) {
                 PassBioGlobalUtils.toastWithText(getActivity(), this.c, 1);
             }
-            if (this.b) {
-                return;
+            if (!this.b) {
+                finish();
             }
-            finish();
         }
-    }
-
-    public Activity getActivity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (Activity) invokeV.objValue;
     }
 
     public boolean isActivityInForeground() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // android.app.Activity
@@ -77,52 +77,10 @@ public class BaseActivity extends Activity implements NoProguard {
     }
 
     @Override // android.app.Activity
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
-            super.onCreate(bundle);
-            this.c = getResources().getString(R.string.pass_bio_multi_window_tips);
-        }
-    }
-
-    @Override // android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroy();
-        }
-    }
-
-    @Override // android.app.Activity, android.view.KeyEvent.Callback
-    @TargetApi(5)
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, keyEvent)) == null) {
-            if (i == 82 && keyEvent.isLongPress()) {
-                return true;
-            }
-            return super.onKeyDown(i, keyEvent);
-        }
-        return invokeIL.booleanValue;
-    }
-
-    @Override // android.app.Activity
-    @TargetApi(24)
-    public void onMultiWindowModeChanged(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || Build.VERSION.SDK_INT < 24) {
-            return;
-        }
-        super.onMultiWindowModeChanged(z);
-        if (z && isActivityInForeground()) {
-            if (this.a) {
-                PassBioGlobalUtils.toastWithText(getActivity(), this.c, 1);
-            }
-            if (this.b) {
-                return;
-            }
-            finish();
         }
     }
 
@@ -145,26 +103,62 @@ public class BaseActivity extends Activity implements NoProguard {
         }
     }
 
+    @Override // android.app.Activity
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+            super.onCreate(bundle);
+            this.c = getResources().getString(R.string.pass_bio_multi_window_tips);
+        }
+    }
+
     public void setIsMultiWindowAvailable(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048585, this, z) == null) || z == this.b) {
-            return;
+        if ((interceptable == null || interceptable.invokeZ(1048585, this, z) == null) && z != this.b) {
+            this.b = z;
         }
-        this.b = z;
     }
 
     public void setIsShowMultiWindowTips(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048586, this, z) == null) || z == this.a) {
-            return;
+        if ((interceptable == null || interceptable.invokeZ(1048586, this, z) == null) && z != this.a) {
+            this.a = z;
         }
-        this.a = z;
     }
 
     public void setMultiWindowTipsId(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
             this.c = str;
+        }
+    }
+
+    @Override // android.app.Activity, android.view.KeyEvent.Callback
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, keyEvent)) == null) {
+            if (i == 82 && keyEvent.isLongPress()) {
+                return true;
+            }
+            return super.onKeyDown(i, keyEvent);
+        }
+        return invokeIL.booleanValue;
+    }
+
+    @Override // android.app.Activity
+    public void onMultiWindowModeChanged(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048582, this, z) == null) && Build.VERSION.SDK_INT >= 24) {
+            super.onMultiWindowModeChanged(z);
+            if (z && isActivityInForeground()) {
+                if (this.a) {
+                    PassBioGlobalUtils.toastWithText(getActivity(), this.c, 1);
+                }
+                if (!this.b) {
+                    finish();
+                }
+            }
         }
     }
 }

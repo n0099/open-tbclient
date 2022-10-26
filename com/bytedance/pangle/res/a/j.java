@@ -15,6 +15,12 @@ public abstract class j extends FilterInputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public void a(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j(InputStream inputStream) {
         super(inputStream);
@@ -32,12 +38,6 @@ public abstract class j extends FilterInputStream {
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-        }
-    }
-
-    public void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
         }
     }
 
@@ -68,20 +68,13 @@ public abstract class j extends FilterInputStream {
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
-    public synchronized void mark(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            synchronized (this) {
-                ((FilterInputStream) this).in.mark(i);
-            }
-        }
-    }
-
-    @Override // java.io.FilterInputStream, java.io.InputStream
     public boolean markSupported() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? ((FilterInputStream) this).in.markSupported() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return ((FilterInputStream) this).in.markSupported();
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
@@ -91,7 +84,11 @@ public abstract class j extends FilterInputStream {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             try {
                 int read = ((FilterInputStream) this).in.read();
-                a(read != -1 ? 1 : -1);
+                int i = -1;
+                if (read != -1) {
+                    i = 1;
+                }
+                a(i);
                 return read;
             } catch (IOException e) {
                 throw e;
@@ -115,17 +112,13 @@ public abstract class j extends FilterInputStream {
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
-    public long skip(long j) {
-        InterceptResult invokeJ;
+    public synchronized void mark(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j)) == null) {
-            try {
-                return ((FilterInputStream) this).in.skip(j);
-            } catch (IOException e) {
-                throw e;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            synchronized (this) {
+                ((FilterInputStream) this).in.mark(i);
             }
         }
-        return invokeJ.longValue;
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
@@ -142,6 +135,20 @@ public abstract class j extends FilterInputStream {
             }
         }
         return invokeL.intValue;
+    }
+
+    @Override // java.io.FilterInputStream, java.io.InputStream
+    public long skip(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j)) == null) {
+            try {
+                return ((FilterInputStream) this).in.skip(j);
+            } catch (IOException e) {
+                throw e;
+            }
+        }
+        return invokeJ.longValue;
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream

@@ -36,7 +36,7 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.util.Arrays;
 /* loaded from: classes7.dex */
-public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput, Loader.Callback<ExtractingLoadable>, Loader.ReleaseCallback, SampleQueue.UpstreamFormatChangedListener {
+public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput, Loader.Callback, Loader.ReleaseCallback, SampleQueue.UpstreamFormatChangedListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long DEFAULT_LAST_SAMPLE_DURATION_US = 10000;
     public transient /* synthetic */ FieldHolder $fh;
@@ -76,6 +76,11 @@ public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput,
     public boolean[] trackIsAudioVideoFlags;
     public TrackGroupArray tracks;
     public final Uri uri;
+
+    /* loaded from: classes7.dex */
+    public interface Listener {
+        void onSourceInfoRefreshed(long j, boolean z);
+    }
 
     /* loaded from: classes7.dex */
     public final class ExtractingLoadable implements Loader.Loadable {
@@ -129,7 +134,10 @@ public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput,
         public boolean isLoadCanceled() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.loadCanceled : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.loadCanceled;
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // com.google.android.exoplayer2.upstream.Loader.Loadable
@@ -195,7 +203,7 @@ public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput,
     }
 
     /* loaded from: classes7.dex */
-    public static final class ExtractorHolder {
+    public final class ExtractorHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Extractor extractor;
@@ -224,11 +232,10 @@ public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput,
         public void release() {
             Extractor extractor;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (extractor = this.extractor) == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (extractor = this.extractor) != null) {
+                extractor.release();
+                this.extractor = null;
             }
-            extractor.release();
-            this.extractor = null;
         }
 
         public Extractor selectExtractor(ExtractorInput extractorInput, Uri uri) throws IOException, InterruptedException {
@@ -274,11 +281,6 @@ public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput,
     }
 
     /* loaded from: classes7.dex */
-    public interface Listener {
-        void onSourceInfoRefreshed(long j, boolean z);
-    }
-
-    /* loaded from: classes7.dex */
     public final class SampleStreamImpl implements SampleStream {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -305,10 +307,23 @@ public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput,
         }
 
         @Override // com.google.android.exoplayer2.source.SampleStream
+        public int skipData(long j) {
+            InterceptResult invokeJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
+                return this.this$0.skipData(this.track, j);
+            }
+            return invokeJ.intValue;
+        }
+
+        @Override // com.google.android.exoplayer2.source.SampleStream
         public boolean isReady() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.this$0.isReady(this.track) : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.this$0.isReady(this.track);
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // com.google.android.exoplayer2.source.SampleStream
@@ -323,14 +338,10 @@ public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput,
         public int readData(FormatHolder formatHolder, DecoderInputBuffer decoderInputBuffer, boolean z) {
             InterceptResult invokeLLZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, formatHolder, decoderInputBuffer, z)) == null) ? this.this$0.readData(this.track, formatHolder, decoderInputBuffer, z) : invokeLLZ.intValue;
-        }
-
-        @Override // com.google.android.exoplayer2.source.SampleStream
-        public int skipData(long j) {
-            InterceptResult invokeJ;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) ? this.this$0.skipData(this.track, j) : invokeJ.intValue;
+            if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, formatHolder, decoderInputBuffer, z)) == null) {
+                return this.this$0.readData(this.track, formatHolder, decoderInputBuffer, z);
+            }
+            return invokeLLZ.intValue;
         }
     }
 
@@ -418,10 +429,9 @@ public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput,
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.released) {
-                    return;
+                if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && !this.this$0.released) {
+                    this.this$0.callback.onContinueLoadingRequested(this.this$0);
                 }
-                this.this$0.callback.onContinueLoadingRequested(this.this$0);
             }
         };
         this.handler = new Handler();
@@ -430,6 +440,123 @@ public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput,
         this.pendingResetPositionUs = C.TIME_UNSET;
         this.length = -1L;
         this.actualMinLoadableRetryCount = i == -1 ? 3 : i;
+    }
+
+    private void copyLengthFromLoader(ExtractingLoadable extractingLoadable) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65546, this, extractingLoadable) == null) && this.length == -1) {
+            this.length = extractingLoadable.length;
+        }
+    }
+
+    private boolean isLoadableExceptionFatal(IOException iOException) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, this, iOException)) == null) {
+            return iOException instanceof UnrecognizedInputFormatException;
+        }
+        return invokeL.booleanValue;
+    }
+
+    private void notifyLoadError(IOException iOException) {
+        Handler handler;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65552, this, iOException) == null) && (handler = this.eventHandler) != null && this.eventListener != null) {
+            handler.post(new Runnable(this, iOException) { // from class: com.google.android.exoplayer2.source.ExtractorMediaPeriod.3
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ ExtractorMediaPeriod this$0;
+                public final /* synthetic */ IOException val$error;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, iOException};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$error = iOException;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        this.this$0.eventListener.onLoadError(this.val$error);
+                    }
+                }
+            });
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.source.MediaPeriod, com.google.android.exoplayer2.source.SequenceableLoader
+    public boolean continueLoading(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+            if (!this.loadingFinished) {
+                if (!this.prepared || this.enabledTrackCount != 0) {
+                    boolean open = this.loadCondition.open();
+                    if (!this.loader.isLoading()) {
+                        startLoading();
+                        return true;
+                    }
+                    return open;
+                }
+                return false;
+            }
+            return false;
+        }
+        return invokeJ.booleanValue;
+    }
+
+    @Override // com.google.android.exoplayer2.source.MediaPeriod
+    public void discardBuffer(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            int length = this.sampleQueues.length;
+            for (int i = 0; i < length; i++) {
+                this.sampleQueues[i].discardTo(j, false, this.trackEnabledStates[i]);
+            }
+        }
+    }
+
+    public boolean isReady(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            if (!suppressRead() && (this.loadingFinished || this.sampleQueues[i].hasNextSample())) {
+                return true;
+            }
+            return false;
+        }
+        return invokeI.booleanValue;
+    }
+
+    @Override // com.google.android.exoplayer2.source.SampleQueue.UpstreamFormatChangedListener
+    public void onUpstreamFormatChanged(Format format) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, format) == null) {
+            this.handler.post(this.maybeFinishPrepareRunnable);
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.extractor.ExtractorOutput
+    public void seekMap(SeekMap seekMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, seekMap) == null) {
+            this.seekMap = seekMap;
+            this.handler.post(this.maybeFinishPrepareRunnable);
+        }
     }
 
     private void configureRetry(ExtractingLoadable extractingLoadable) {
@@ -447,10 +574,35 @@ public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput,
         }
     }
 
-    private void copyLengthFromLoader(ExtractingLoadable extractingLoadable) {
+    /* JADX WARN: Code restructure failed: missing block: B:16:0x0028, code lost:
+        return false;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    private boolean seekInsideBufferUs(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65546, this, extractingLoadable) == null) && this.length == -1) {
-            this.length = extractingLoadable.length;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65553, this, j)) == null) {
+            int length = this.sampleQueues.length;
+            int i = 0;
+            while (true) {
+                boolean z = true;
+                if (i >= length) {
+                    return true;
+                }
+                SampleQueue sampleQueue = this.sampleQueues[i];
+                sampleQueue.rewind();
+                if (sampleQueue.advanceTo(j, true, false) == -1) {
+                    z = false;
+                }
+                if (z || (!this.trackIsAudioVideoFlags[i] && this.haveAudioVideoTracks)) {
+                    sampleQueue.discardToRead();
+                    i++;
+                }
+            }
+        } else {
+            return invokeJ.booleanValue;
         }
     }
 
@@ -480,184 +632,28 @@ public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput,
         return invokeV.longValue;
     }
 
-    private boolean isLoadableExceptionFatal(IOException iOException) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65549, this, iOException)) == null) ? iOException instanceof UnrecognizedInputFormatException : invokeL.booleanValue;
-    }
-
     private boolean isPendingReset() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65550, this)) == null) ? this.pendingResetPositionUs != C.TIME_UNSET : invokeV.booleanValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void maybeFinishPrepare() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65551, this) == null) || this.released || this.prepared || this.seekMap == null || !this.sampleQueuesBuilt) {
-            return;
-        }
-        for (SampleQueue sampleQueue : this.sampleQueues) {
-            if (sampleQueue.getUpstreamFormat() == null) {
-                return;
-            }
-        }
-        this.loadCondition.close();
-        int length = this.sampleQueues.length;
-        TrackGroup[] trackGroupArr = new TrackGroup[length];
-        this.trackIsAudioVideoFlags = new boolean[length];
-        this.trackEnabledStates = new boolean[length];
-        this.durationUs = this.seekMap.getDurationUs();
-        int i = 0;
-        while (true) {
-            boolean z = true;
-            if (i >= length) {
-                break;
-            }
-            Format upstreamFormat = this.sampleQueues[i].getUpstreamFormat();
-            trackGroupArr[i] = new TrackGroup(upstreamFormat);
-            String str = upstreamFormat.sampleMimeType;
-            if (!MimeTypes.isVideo(str) && !MimeTypes.isAudio(str)) {
-                z = false;
-            }
-            this.trackIsAudioVideoFlags[i] = z;
-            this.haveAudioVideoTracks = z | this.haveAudioVideoTracks;
-            i++;
-        }
-        this.tracks = new TrackGroupArray(trackGroupArr);
-        if (this.minLoadableRetryCount == -1 && this.length == -1 && this.seekMap.getDurationUs() == C.TIME_UNSET) {
-            this.actualMinLoadableRetryCount = 6;
-        }
-        this.prepared = true;
-        this.listener.onSourceInfoRefreshed(this.durationUs, this.seekMap.isSeekable());
-        this.callback.onPrepared(this);
-    }
-
-    private void notifyLoadError(IOException iOException) {
-        Handler handler;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65552, this, iOException) == null) || (handler = this.eventHandler) == null || this.eventListener == null) {
-            return;
-        }
-        handler.post(new Runnable(this, iOException) { // from class: com.google.android.exoplayer2.source.ExtractorMediaPeriod.3
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ ExtractorMediaPeriod this$0;
-            public final /* synthetic */ IOException val$error;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this, iOException};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-                this.val$error = iOException;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.this$0.eventListener.onLoadError(this.val$error);
-                }
-            }
-        });
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:16:0x0028, code lost:
-        return false;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    private boolean seekInsideBufferUs(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeJ = interceptable.invokeJ(65553, this, j)) != null) {
-            return invokeJ.booleanValue;
-        }
-        int length = this.sampleQueues.length;
-        int i = 0;
-        while (true) {
-            if (i >= length) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65550, this)) == null) {
+            if (this.pendingResetPositionUs != C.TIME_UNSET) {
                 return true;
             }
-            SampleQueue sampleQueue = this.sampleQueues[i];
-            sampleQueue.rewind();
-            if ((sampleQueue.advanceTo(j, true, false) != -1) || (!this.trackIsAudioVideoFlags[i] && this.haveAudioVideoTracks)) {
-                sampleQueue.discardToRead();
-                i++;
-            }
+            return false;
         }
-    }
-
-    private void startLoading() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65554, this) == null) {
-            ExtractingLoadable extractingLoadable = new ExtractingLoadable(this, this.uri, this.dataSource, this.extractorHolder, this.loadCondition);
-            if (this.prepared) {
-                Assertions.checkState(isPendingReset());
-                long j = this.durationUs;
-                if (j != C.TIME_UNSET && this.pendingResetPositionUs >= j) {
-                    this.loadingFinished = true;
-                    this.pendingResetPositionUs = C.TIME_UNSET;
-                    return;
-                }
-                extractingLoadable.setLoadPosition(this.seekMap.getPosition(this.pendingResetPositionUs), this.pendingResetPositionUs);
-                this.pendingResetPositionUs = C.TIME_UNSET;
-            }
-            this.extractedSamplesCountAtStartOfLoad = getExtractedSamplesCount();
-            this.loader.startLoading(extractingLoadable, this, this.actualMinLoadableRetryCount);
-        }
+        return invokeV.booleanValue;
     }
 
     private boolean suppressRead() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65555, this)) == null) ? this.notifyDiscontinuity || isPendingReset() : invokeV.booleanValue;
-    }
-
-    @Override // com.google.android.exoplayer2.source.MediaPeriod, com.google.android.exoplayer2.source.SequenceableLoader
-    public boolean continueLoading(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            if (this.loadingFinished) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65555, this)) == null) {
+            if (!this.notifyDiscontinuity && !isPendingReset()) {
                 return false;
             }
-            if (this.prepared && this.enabledTrackCount == 0) {
-                return false;
-            }
-            boolean open = this.loadCondition.open();
-            if (this.loader.isLoading()) {
-                return open;
-            }
-            startLoading();
             return true;
         }
-        return invokeJ.booleanValue;
-    }
-
-    @Override // com.google.android.exoplayer2.source.MediaPeriod
-    public void discardBuffer(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            int length = this.sampleQueues.length;
-            for (int i = 0; i < length; i++) {
-                this.sampleQueues[i].discardTo(j, false, this.trackEnabledStates[i]);
-            }
-        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.google.android.exoplayer2.extractor.ExtractorOutput
@@ -667,34 +663,6 @@ public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput,
             this.sampleQueuesBuilt = true;
             this.handler.post(this.maybeFinishPrepareRunnable);
         }
-    }
-
-    @Override // com.google.android.exoplayer2.source.MediaPeriod, com.google.android.exoplayer2.source.SequenceableLoader
-    public long getBufferedPositionUs() {
-        InterceptResult invokeV;
-        long largestQueuedTimestampUs;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.loadingFinished) {
-                return Long.MIN_VALUE;
-            }
-            if (isPendingReset()) {
-                return this.pendingResetPositionUs;
-            }
-            if (this.haveAudioVideoTracks) {
-                largestQueuedTimestampUs = Long.MAX_VALUE;
-                int length = this.sampleQueues.length;
-                for (int i = 0; i < length; i++) {
-                    if (this.trackIsAudioVideoFlags[i]) {
-                        largestQueuedTimestampUs = Math.min(largestQueuedTimestampUs, this.sampleQueues[i].getLargestQueuedTimestampUs());
-                    }
-                }
-            } else {
-                largestQueuedTimestampUs = getLargestQueuedTimestampUs();
-            }
-            return largestQueuedTimestampUs == Long.MIN_VALUE ? this.lastSeekPositionUs : largestQueuedTimestampUs;
-        }
-        return invokeV.longValue;
     }
 
     @Override // com.google.android.exoplayer2.source.MediaPeriod, com.google.android.exoplayer2.source.SequenceableLoader
@@ -714,13 +682,10 @@ public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput,
     public TrackGroupArray getTrackGroups() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.tracks : (TrackGroupArray) invokeV.objValue;
-    }
-
-    public boolean isReady(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? !suppressRead() && (this.loadingFinished || this.sampleQueues[i].hasNextSample()) : invokeI.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.tracks;
+        }
+        return (TrackGroupArray) invokeV.objValue;
     }
 
     public void maybeThrowError() throws IOException {
@@ -749,11 +714,171 @@ public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput,
         }
     }
 
-    @Override // com.google.android.exoplayer2.source.SampleQueue.UpstreamFormatChangedListener
-    public void onUpstreamFormatChanged(Format format) {
+    @Override // com.google.android.exoplayer2.source.MediaPeriod
+    public long readDiscontinuity() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, format) == null) {
-            this.handler.post(this.maybeFinishPrepareRunnable);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            if (this.notifyDiscontinuity) {
+                this.notifyDiscontinuity = false;
+                return this.lastSeekPositionUs;
+            }
+            return C.TIME_UNSET;
+        }
+        return invokeV.longValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void maybeFinishPrepare() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65551, this) == null) && !this.released && !this.prepared && this.seekMap != null && this.sampleQueuesBuilt) {
+            for (SampleQueue sampleQueue : this.sampleQueues) {
+                if (sampleQueue.getUpstreamFormat() == null) {
+                    return;
+                }
+            }
+            this.loadCondition.close();
+            int length = this.sampleQueues.length;
+            TrackGroup[] trackGroupArr = new TrackGroup[length];
+            this.trackIsAudioVideoFlags = new boolean[length];
+            this.trackEnabledStates = new boolean[length];
+            this.durationUs = this.seekMap.getDurationUs();
+            int i = 0;
+            while (true) {
+                boolean z = true;
+                if (i >= length) {
+                    break;
+                }
+                Format upstreamFormat = this.sampleQueues[i].getUpstreamFormat();
+                trackGroupArr[i] = new TrackGroup(upstreamFormat);
+                String str = upstreamFormat.sampleMimeType;
+                if (!MimeTypes.isVideo(str) && !MimeTypes.isAudio(str)) {
+                    z = false;
+                }
+                this.trackIsAudioVideoFlags[i] = z;
+                this.haveAudioVideoTracks = z | this.haveAudioVideoTracks;
+                i++;
+            }
+            this.tracks = new TrackGroupArray(trackGroupArr);
+            if (this.minLoadableRetryCount == -1 && this.length == -1 && this.seekMap.getDurationUs() == C.TIME_UNSET) {
+                this.actualMinLoadableRetryCount = 6;
+            }
+            this.prepared = true;
+            this.listener.onSourceInfoRefreshed(this.durationUs, this.seekMap.isSeekable());
+            this.callback.onPrepared(this);
+        }
+    }
+
+    private void startLoading() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65554, this) == null) {
+            ExtractingLoadable extractingLoadable = new ExtractingLoadable(this, this.uri, this.dataSource, this.extractorHolder, this.loadCondition);
+            if (this.prepared) {
+                Assertions.checkState(isPendingReset());
+                long j = this.durationUs;
+                if (j != C.TIME_UNSET && this.pendingResetPositionUs >= j) {
+                    this.loadingFinished = true;
+                    this.pendingResetPositionUs = C.TIME_UNSET;
+                    return;
+                }
+                extractingLoadable.setLoadPosition(this.seekMap.getPosition(this.pendingResetPositionUs), this.pendingResetPositionUs);
+                this.pendingResetPositionUs = C.TIME_UNSET;
+            }
+            this.extractedSamplesCountAtStartOfLoad = getExtractedSamplesCount();
+            this.loader.startLoading(extractingLoadable, this, this.actualMinLoadableRetryCount);
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.source.MediaPeriod, com.google.android.exoplayer2.source.SequenceableLoader
+    public long getBufferedPositionUs() {
+        InterceptResult invokeV;
+        long largestQueuedTimestampUs;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.loadingFinished) {
+                return Long.MIN_VALUE;
+            }
+            if (isPendingReset()) {
+                return this.pendingResetPositionUs;
+            }
+            if (this.haveAudioVideoTracks) {
+                largestQueuedTimestampUs = Long.MAX_VALUE;
+                int length = this.sampleQueues.length;
+                for (int i = 0; i < length; i++) {
+                    if (this.trackIsAudioVideoFlags[i]) {
+                        largestQueuedTimestampUs = Math.min(largestQueuedTimestampUs, this.sampleQueues[i].getLargestQueuedTimestampUs());
+                    }
+                }
+            } else {
+                largestQueuedTimestampUs = getLargestQueuedTimestampUs();
+            }
+            if (largestQueuedTimestampUs == Long.MIN_VALUE) {
+                return this.lastSeekPositionUs;
+            }
+            return largestQueuedTimestampUs;
+        }
+        return invokeV.longValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.google.android.exoplayer2.upstream.Loader.Callback
+    public void onLoadCanceled(ExtractingLoadable extractingLoadable, long j, long j2, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(1048585, this, new Object[]{extractingLoadable, Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)}) != null) || z) {
+            return;
+        }
+        copyLengthFromLoader(extractingLoadable);
+        for (SampleQueue sampleQueue : this.sampleQueues) {
+            sampleQueue.reset();
+        }
+        if (this.enabledTrackCount > 0) {
+            this.callback.onContinueLoadingRequested(this);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.google.android.exoplayer2.upstream.Loader.Callback
+    public int onLoadError(ExtractingLoadable extractingLoadable, long j, long j2, IOException iOException) {
+        InterceptResult invokeCommon;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{extractingLoadable, Long.valueOf(j), Long.valueOf(j2), iOException})) == null) {
+            copyLengthFromLoader(extractingLoadable);
+            notifyLoadError(iOException);
+            if (isLoadableExceptionFatal(iOException)) {
+                return 3;
+            }
+            if (getExtractedSamplesCount() > this.extractedSamplesCountAtStartOfLoad) {
+                i = 1;
+            } else {
+                i = 0;
+            }
+            configureRetry(extractingLoadable);
+            this.extractedSamplesCountAtStartOfLoad = getExtractedSamplesCount();
+            return i;
+        }
+        return invokeCommon.intValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.google.android.exoplayer2.upstream.Loader.Callback
+    public void onLoadCompleted(ExtractingLoadable extractingLoadable, long j, long j2) {
+        long j3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{extractingLoadable, Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            copyLengthFromLoader(extractingLoadable);
+            this.loadingFinished = true;
+            if (this.durationUs == C.TIME_UNSET) {
+                long largestQueuedTimestampUs = getLargestQueuedTimestampUs();
+                if (largestQueuedTimestampUs == Long.MIN_VALUE) {
+                    j3 = 0;
+                } else {
+                    j3 = largestQueuedTimestampUs + 10000;
+                }
+                this.durationUs = j3;
+                this.listener.onSourceInfoRefreshed(j3, this.seekMap.isSeekable());
+            }
+            this.callback.onContinueLoadingRequested(this);
         }
     }
 
@@ -779,20 +904,6 @@ public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput,
         return invokeCommon.intValue;
     }
 
-    @Override // com.google.android.exoplayer2.source.MediaPeriod
-    public long readDiscontinuity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            if (this.notifyDiscontinuity) {
-                this.notifyDiscontinuity = false;
-                return this.lastSeekPositionUs;
-            }
-            return C.TIME_UNSET;
-        }
-        return invokeV.longValue;
-    }
-
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
@@ -807,15 +918,6 @@ public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput,
         }
     }
 
-    @Override // com.google.android.exoplayer2.extractor.ExtractorOutput
-    public void seekMap(SeekMap seekMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, seekMap) == null) {
-            this.seekMap = seekMap;
-            this.handler.post(this.maybeFinishPrepareRunnable);
-        }
-    }
-
     @Override // com.google.android.exoplayer2.source.MediaPeriod
     public long seekToUs(long j) {
         InterceptResult invokeJ;
@@ -826,17 +928,17 @@ public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput,
             }
             this.lastSeekPositionUs = j;
             this.notifyDiscontinuity = false;
-            if (isPendingReset() || !seekInsideBufferUs(j)) {
-                this.pendingResetPositionUs = j;
-                this.loadingFinished = false;
-                if (this.loader.isLoading()) {
-                    this.loader.cancelLoading();
-                } else {
-                    for (SampleQueue sampleQueue : this.sampleQueues) {
-                        sampleQueue.reset();
-                    }
-                }
+            if (!isPendingReset() && seekInsideBufferUs(j)) {
                 return j;
+            }
+            this.pendingResetPositionUs = j;
+            this.loadingFinished = false;
+            if (this.loader.isLoading()) {
+                this.loader.cancelLoading();
+            } else {
+                for (SampleQueue sampleQueue : this.sampleQueues) {
+                    sampleQueue.reset();
+                }
             }
             return j;
         }
@@ -846,6 +948,9 @@ public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput,
     @Override // com.google.android.exoplayer2.source.MediaPeriod
     public long selectTracks(TrackSelection[] trackSelectionArr, boolean[] zArr, SampleStream[] sampleStreamArr, boolean[] zArr2, long j) {
         InterceptResult invokeCommon;
+        boolean z;
+        boolean z2;
+        boolean z3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048599, this, new Object[]{trackSelectionArr, zArr, sampleStreamArr, zArr2, Long.valueOf(j)})) == null) {
             Assertions.checkState(this.prepared);
@@ -860,12 +965,26 @@ public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput,
                     sampleStreamArr[i3] = null;
                 }
             }
-            boolean z = !this.seenFirstTrackSelection ? j == 0 : i != 0;
+            if (!this.seenFirstTrackSelection ? j != 0 : i == 0) {
+                z = true;
+            } else {
+                z = false;
+            }
             for (int i5 = 0; i5 < trackSelectionArr.length; i5++) {
                 if (sampleStreamArr[i5] == null && trackSelectionArr[i5] != null) {
                     TrackSelection trackSelection = trackSelectionArr[i5];
-                    Assertions.checkState(trackSelection.length() == 1);
-                    Assertions.checkState(trackSelection.getIndexInTrackGroup(0) == 0);
+                    if (trackSelection.length() == 1) {
+                        z2 = true;
+                    } else {
+                        z2 = false;
+                    }
+                    Assertions.checkState(z2);
+                    if (trackSelection.getIndexInTrackGroup(0) == 0) {
+                        z3 = true;
+                    } else {
+                        z3 = false;
+                    }
+                    Assertions.checkState(z3);
                     int indexOf = this.tracks.indexOf(trackSelection.getTrackGroup());
                     Assertions.checkState(!this.trackEnabledStates[indexOf]);
                     this.enabledTrackCount++;
@@ -875,7 +994,11 @@ public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput,
                     if (!z) {
                         SampleQueue sampleQueue = this.sampleQueues[indexOf];
                         sampleQueue.rewind();
-                        z = sampleQueue.advanceTo(j, true, true) == -1 && sampleQueue.getReadIndex() != 0;
+                        if (sampleQueue.advanceTo(j, true, true) == -1 && sampleQueue.getReadIndex() != 0) {
+                            z = true;
+                        } else {
+                            z = false;
+                        }
                     }
                 }
             }
@@ -955,57 +1078,5 @@ public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput,
             return sampleQueue;
         }
         return (TrackOutput) invokeII.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.android.exoplayer2.upstream.Loader.Callback
-    public void onLoadCanceled(ExtractingLoadable extractingLoadable, long j, long j2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{extractingLoadable, Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)}) == null) || z) {
-            return;
-        }
-        copyLengthFromLoader(extractingLoadable);
-        for (SampleQueue sampleQueue : this.sampleQueues) {
-            sampleQueue.reset();
-        }
-        if (this.enabledTrackCount > 0) {
-            this.callback.onContinueLoadingRequested(this);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.android.exoplayer2.upstream.Loader.Callback
-    public void onLoadCompleted(ExtractingLoadable extractingLoadable, long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{extractingLoadable, Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            copyLengthFromLoader(extractingLoadable);
-            this.loadingFinished = true;
-            if (this.durationUs == C.TIME_UNSET) {
-                long largestQueuedTimestampUs = getLargestQueuedTimestampUs();
-                long j3 = largestQueuedTimestampUs == Long.MIN_VALUE ? 0L : largestQueuedTimestampUs + 10000;
-                this.durationUs = j3;
-                this.listener.onSourceInfoRefreshed(j3, this.seekMap.isSeekable());
-            }
-            this.callback.onContinueLoadingRequested(this);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.android.exoplayer2.upstream.Loader.Callback
-    public int onLoadError(ExtractingLoadable extractingLoadable, long j, long j2, IOException iOException) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{extractingLoadable, Long.valueOf(j), Long.valueOf(j2), iOException})) == null) {
-            copyLengthFromLoader(extractingLoadable);
-            notifyLoadError(iOException);
-            if (isLoadableExceptionFatal(iOException)) {
-                return 3;
-            }
-            int i = getExtractedSamplesCount() > this.extractedSamplesCountAtStartOfLoad ? 1 : 0;
-            configureRetry(extractingLoadable);
-            this.extractedSamplesCountAtStartOfLoad = getExtractedSamplesCount();
-            return i;
-        }
-        return invokeCommon.intValue;
     }
 }

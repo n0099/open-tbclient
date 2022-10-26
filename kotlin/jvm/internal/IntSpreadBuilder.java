@@ -19,14 +19,14 @@ public final class IntSpreadBuilder extends PrimitiveSpreadBuilder<int[]> {
         iArr[position] = i;
     }
 
-    public final int[] toArray() {
-        return toArray(this.values, new int[size()]);
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.internal.PrimitiveSpreadBuilder
     public int getSize(int[] getSize) {
         Intrinsics.checkNotNullParameter(getSize, "$this$getSize");
         return getSize.length;
+    }
+
+    public final int[] toArray() {
+        return toArray(this.values, new int[size()]);
     }
 }

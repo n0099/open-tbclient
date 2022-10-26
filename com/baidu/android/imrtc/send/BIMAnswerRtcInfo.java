@@ -2,7 +2,6 @@ package com.baidu.android.imrtc.send;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imrtc.BIMRtcInfo;
 import com.baidu.android.imrtc.utils.LogUtils;
@@ -18,7 +17,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class BIMAnswerRtcInfo extends BIMRtcInfo {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator<BIMAnswerRtcInfo> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public static final String TAG = "IMAnswerRtcInfo";
     public transient /* synthetic */ FieldHolder $fh;
     public String mAnswerDeviceInfo;
@@ -38,7 +37,7 @@ public class BIMAnswerRtcInfo extends BIMRtcInfo {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<BIMAnswerRtcInfo>() { // from class: com.baidu.android.imrtc.send.BIMAnswerRtcInfo.1
+        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imrtc.send.BIMAnswerRtcInfo.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -57,23 +56,91 @@ public class BIMAnswerRtcInfo extends BIMRtcInfo {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public BIMAnswerRtcInfo createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new BIMAnswerRtcInfo(parcel) : (BIMAnswerRtcInfo) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new BIMAnswerRtcInfo(parcel);
+                }
+                return (BIMAnswerRtcInfo) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public BIMAnswerRtcInfo[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new BIMAnswerRtcInfo[i] : (BIMAnswerRtcInfo[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new BIMAnswerRtcInfo[i];
+                }
+                return (BIMAnswerRtcInfo[]) invokeI.objValue;
             }
         };
+    }
+
+    public BIMAnswerRtcInfo() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public String getAnswerDeviceInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mAnswerDeviceInfo;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getAnswerMediaType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mAnswerMediaType;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getAnswerType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mAnswerType;
+        }
+        return invokeV.intValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public BIMAnswerRtcInfo(Parcel parcel) {
+        super(parcel);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Parcel) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.mAnswerDeviceInfo = parcel.readString();
+        this.mAnswerType = parcel.readInt();
+        this.mAnswerMediaType = parcel.readInt();
     }
 
     public BIMAnswerRtcInfo(BIMRtcInfo bIMRtcInfo) {
@@ -95,24 +162,6 @@ public class BIMAnswerRtcInfo extends BIMRtcInfo {
         setRtcRoomId(bIMRtcInfo.getRtcRoomId());
         setRtcExt(bIMRtcInfo.getRtcExt());
         setRtcDeviceId(bIMRtcInfo.getRtcDeviceId());
-    }
-
-    public String getAnswerDeviceInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mAnswerDeviceInfo : (String) invokeV.objValue;
-    }
-
-    public int getAnswerMediaType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mAnswerMediaType : invokeV.intValue;
-    }
-
-    public int getAnswerType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mAnswerType : invokeV.intValue;
     }
 
     public void setAnswerDeviceInfo(String str) {
@@ -137,7 +186,6 @@ public class BIMAnswerRtcInfo extends BIMRtcInfo {
     }
 
     @Override // com.baidu.android.imrtc.BIMRtcInfo
-    @NonNull
     public BIMRtcInfo toRtcInfo(int i, String str, String str2) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
@@ -157,7 +205,6 @@ public class BIMAnswerRtcInfo extends BIMRtcInfo {
     }
 
     @Override // com.baidu.android.imrtc.BIMRtcInfo
-    @NonNull
     public String toRtcInfoString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -195,42 +242,5 @@ public class BIMAnswerRtcInfo extends BIMRtcInfo {
             parcel.writeInt(this.mAnswerType);
             parcel.writeInt(this.mAnswerMediaType);
         }
-    }
-
-    public BIMAnswerRtcInfo() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BIMAnswerRtcInfo(Parcel parcel) {
-        super(parcel);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Parcel) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.mAnswerDeviceInfo = parcel.readString();
-        this.mAnswerType = parcel.readInt();
-        this.mAnswerMediaType = parcel.readInt();
     }
 }

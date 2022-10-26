@@ -1,17 +1,14 @@
 package com.kwad.sdk.core.video.kwai;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.media.MediaDataSource;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.view.Surface;
 import android.view.SurfaceHolder;
-import androidx.annotation.NonNull;
 import com.kwad.sdk.service.ServiceProvider;
 import com.kwad.sdk.utils.bj;
 import com.kwai.video.ksvodplayerkit.IKSVodPlayer;
-import com.kwai.video.ksvodplayerkit.KSVodConstants;
 import com.kwai.video.ksvodplayerkit.KSVodPlayerWrapper;
 import com.kwai.video.ksvodplayerkit.KSVodVideoContext;
 import com.kwai.video.player.IKwaiMediaPlayer;
@@ -25,7 +22,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 /* loaded from: classes7.dex */
 public final class d extends com.kwad.sdk.core.video.kwai.a {
     public static volatile boolean adO;
-    public static final Queue<d> adP = new ConcurrentLinkedQueue();
+    public static final Queue adP = new ConcurrentLinkedQueue();
     public com.kwad.sdk.contentalliance.kwai.kwai.b JK;
     public String adG;
     public MediaDataSource adH;
@@ -40,15 +37,15 @@ public final class d extends com.kwad.sdk.core.video.kwai.a {
     public int mSarNum;
 
     /* loaded from: classes7.dex */
-    public static class a implements IKSVodPlayer.OnBufferingUpdateListener, IKSVodPlayer.OnErrorListener, IKSVodPlayer.OnEventListener, IKSVodPlayer.OnPreparedListener, IKSVodPlayer.OnVideoSizeChangedListener, IKSVodPlayer.OnVodPlayerReleaseListener {
-        public final WeakReference<d> mWeakMediaPlayer;
+    public final class a implements IKSVodPlayer.OnBufferingUpdateListener, IKSVodPlayer.OnErrorListener, IKSVodPlayer.OnEventListener, IKSVodPlayer.OnPreparedListener, IKSVodPlayer.OnVideoSizeChangedListener, IKSVodPlayer.OnVodPlayerReleaseListener {
+        public final WeakReference mWeakMediaPlayer;
 
         public a(d dVar) {
-            this.mWeakMediaPlayer = new WeakReference<>(dVar);
+            this.mWeakMediaPlayer = new WeakReference(dVar);
         }
 
         private d vA() {
-            return this.mWeakMediaPlayer.get();
+            return (d) this.mWeakMediaPlayer.get();
         }
 
         public final void onBufferingUpdate(int i) {
@@ -66,7 +63,7 @@ public final class d extends com.kwad.sdk.core.video.kwai.a {
             }
         }
 
-        public final void onEvent(@KSVodConstants.KSVodPlayerEventType int i, int i2) {
+        public final void onEvent(int i, int i2) {
             com.kwad.sdk.core.e.b.i("KwaiMediaPlayer", "onEvent, what: " + i);
             d vA = vA();
             if (vA != null) {
@@ -106,7 +103,7 @@ public final class d extends com.kwad.sdk.core.video.kwai.a {
         }
     }
 
-    public d(@NonNull Context context) {
+    public d(Context context) {
         Object obj = new Object();
         this.adI = obj;
         this.adN = false;
@@ -119,7 +116,7 @@ public final class d extends com.kwad.sdk.core.video.kwai.a {
         setLooping(false);
     }
 
-    private void setDataSource(String str, Map<String, String> map) {
+    private void setDataSource(String str, Map map) {
         this.adG = str;
         this.adK.setDataSource(str, (Map) null);
     }
@@ -167,15 +164,15 @@ public final class d extends com.kwad.sdk.core.video.kwai.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void vz() {
-        Queue<d> queue;
-        Iterator<d> it = adP.iterator();
+        Queue queue;
+        Iterator it = adP.iterator();
         int i = 0;
         int i2 = 0;
         while (true) {
             if (!it.hasNext()) {
                 i2 = 0;
                 break;
-            } else if (it.next() == this) {
+            } else if (((d) it.next()) == this) {
                 break;
             } else {
                 i2++;
@@ -193,10 +190,10 @@ public final class d extends com.kwad.sdk.core.video.kwai.a {
                 queue.poll();
                 i++;
             }
-            d poll = queue.poll();
+            d dVar = (d) queue.poll();
             adP.clear();
-            if (poll != null) {
-                poll.prepareAsync();
+            if (dVar != null) {
+                dVar.prepareAsync();
             } else {
                 com.kwad.sdk.core.e.b.i("KwaiMediaPlayer", "----------------preloadNextPlayer prepareAsync next player is null----------------");
             }
@@ -215,11 +212,11 @@ public final class d extends com.kwad.sdk.core.video.kwai.a {
     }
 
     @Override // com.kwad.sdk.core.video.kwai.c
-    public final void a(@NonNull com.kwad.sdk.contentalliance.kwai.kwai.b bVar) {
+    public final void a(com.kwad.sdk.contentalliance.kwai.kwai.b bVar) {
         this.JK = bVar;
         a(bVar.Te);
         f fVar = (f) ServiceProvider.get(f.class);
-        setDataSource((TextUtils.isEmpty(bVar.manifest) || fVar == null || !fVar.lv()) ? bVar.videoUrl : bVar.manifest, (Map<String, String>) null);
+        setDataSource((TextUtils.isEmpty(bVar.manifest) || fVar == null || !fVar.lv()) ? bVar.videoUrl : bVar.manifest, (Map) null);
     }
 
     public final void aM(boolean z) {
@@ -355,7 +352,7 @@ public final class d extends com.kwad.sdk.core.video.kwai.a {
     }
 
     @Override // com.kwad.sdk.core.video.kwai.c
-    public final void setDataSource(Context context, Uri uri, Map<String, String> map) {
+    public final void setDataSource(Context context, Uri uri, Map map) {
     }
 
     @Override // com.kwad.sdk.core.video.kwai.c
@@ -364,7 +361,7 @@ public final class d extends com.kwad.sdk.core.video.kwai.a {
 
     @Override // com.kwad.sdk.core.video.kwai.c
     public final void setDataSource(String str) {
-        setDataSource(str, (Map<String, String>) null);
+        setDataSource(str, (Map) null);
     }
 
     @Override // com.kwad.sdk.core.video.kwai.c
@@ -392,7 +389,6 @@ public final class d extends com.kwad.sdk.core.video.kwai.a {
     }
 
     @Override // com.kwad.sdk.core.video.kwai.c
-    @TargetApi(14)
     public final void setSurface(Surface surface) {
         this.adK.setSurface(surface);
     }

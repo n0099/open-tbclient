@@ -55,6 +55,18 @@ public class AccountRealNameActivity extends BaseActivity {
         this.y = new AccountRealNameResult();
     }
 
+    private void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+            SapiWebView sapiWebView = this.sapiWebView;
+            if (sapiWebView != null && sapiWebView.canGoBack()) {
+                this.sapiWebView.back();
+            } else {
+                onClose();
+            }
+        }
+    }
+
     private void finishActivity() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
@@ -71,7 +83,105 @@ public class AccountRealNameActivity extends BaseActivity {
     public SapiWebDTO getWebDTO() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? CoreViewRouter.getInstance().getRealNameDTO() : (SapiWebDTO) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return CoreViewRouter.getInstance().getRealNameDTO();
+        }
+        return (SapiWebDTO) invokeV.objValue;
+    }
+
+    @Override // com.baidu.sapi2.activity.TitleActivity
+    public void onBottomBackBtnClick() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.onBottomBackBtnClick();
+            a();
+        }
+    }
+
+    @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
+    public void onLeftBtnClick() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.onLeftBtnClick();
+            if (!this.executeSubClassMethod) {
+                return;
+            }
+            a();
+        }
+    }
+
+    private void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
+            if (!TextUtils.isEmpty(this.t)) {
+                ArrayList arrayList = new ArrayList();
+                arrayList.add("pp");
+                SapiAccountManager.getInstance().getAccountService().getTplStoken(new GetTplStokenCallback(this) { // from class: com.baidu.sapi2.activity.AccountRealNameActivity.4
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ AccountRealNameActivity a;
+
+                    @Override // com.baidu.sapi2.callback.SapiCallback
+                    public void onFinish() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                        }
+                    }
+
+                    @Override // com.baidu.sapi2.callback.SapiCallback
+                    public void onStart() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048579, this) == null) {
+                        }
+                    }
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.a = this;
+                    }
+
+                    /* JADX DEBUG: Method merged with bridge method */
+                    @Override // com.baidu.sapi2.callback.SapiCallback
+                    public void onFailure(GetTplStokenResult getTplStokenResult) {
+                        AccountRealNameActivity accountRealNameActivity;
+                        SapiWebView sapiWebView;
+                        Interceptable interceptable2 = $ic;
+                        if ((interceptable2 != null && interceptable2.invokeL(1048576, this, getTplStokenResult) != null) || (sapiWebView = (accountRealNameActivity = this.a).sapiWebView) == null) {
+                            return;
+                        }
+                        sapiWebView.loadAccountRealName(null, accountRealNameActivity.u, this.a.v, this.a.w, this.a.x);
+                    }
+
+                    /* JADX DEBUG: Method merged with bridge method */
+                    @Override // com.baidu.sapi2.callback.SapiCallback
+                    public void onSuccess(GetTplStokenResult getTplStokenResult) {
+                        Interceptable interceptable2 = $ic;
+                        if ((interceptable2 != null && interceptable2.invokeL(1048580, this, getTplStokenResult) != null) || this.a.sapiWebView == null) {
+                            return;
+                        }
+                        String str = (String) getTplStokenResult.tplStokenMap.get("pp");
+                        AccountRealNameActivity accountRealNameActivity = this.a;
+                        accountRealNameActivity.sapiWebView.loadAccountRealName(str, accountRealNameActivity.u, this.a.v, this.a.w, this.a.x);
+                    }
+                }, this.t, arrayList);
+                return;
+            }
+            Toast.makeText(this, getString(R.string.obfuscated_res_0x7f0f107e), 1).show();
+            finishActivity();
+        }
     }
 
     @Override // com.baidu.sapi2.activity.TitleActivity
@@ -85,15 +195,6 @@ public class AccountRealNameActivity extends BaseActivity {
             this.v = intent.getBooleanExtra(EXTRA_NEED_CB_KEY, false);
             this.w = intent.getStringExtra(EXTRA_CUSTOM_LINK);
             this.x = intent.getIntExtra(EXTRA_REAL_NAME_LEVEL, 0);
-        }
-    }
-
-    @Override // com.baidu.sapi2.activity.TitleActivity
-    public void onBottomBackBtnClick() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.onBottomBackBtnClick();
-            a();
         }
     }
 
@@ -114,43 +215,12 @@ public class AccountRealNameActivity extends BaseActivity {
         }
     }
 
-    @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
-            super.onCreate(bundle);
-            try {
-                this.z = CoreViewRouter.getInstance().getAccountRealNameCallback();
-                CoreViewRouter.getInstance().releaseAccountRealNameCallback();
-                setContentView(R.layout.obfuscated_res_0x7f0d0508);
-                init();
-                setupViews();
-            } catch (Throwable th) {
-                reportWebviewError(th);
-                this.y.setResultCode(-202);
-                this.y.setResultMsg("网络连接失败，请检查网络设置");
-                finishActivity();
-            }
-        }
-    }
-
-    @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
-    public void onLeftBtnClick() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            super.onLeftBtnClick();
-            if (this.executeSubClassMethod) {
-                a();
-            }
-        }
-    }
-
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void setupViews() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.setupViews();
-            setTitleText(R.string.obfuscated_res_0x7f0f109e);
+            setTitleText(R.string.obfuscated_res_0x7f0f10b0);
             this.sapiWebView.setOnNewBackCallback(new SapiWebView.OnNewBackCallback(this) { // from class: com.baidu.sapi2.activity.AccountRealNameActivity.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -247,97 +317,32 @@ public class AccountRealNameActivity extends BaseActivity {
                 @Override // com.baidu.sapi2.SapiJsCallBacks.RealNameStatusCallback
                 public void onFinish(AccountRealNameResult accountRealNameResult) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, accountRealNameResult) == null) {
-                        this.a.y = accountRealNameResult;
+                    if (interceptable2 != null && interceptable2.invokeL(1048576, this, accountRealNameResult) != null) {
+                        return;
                     }
+                    this.a.y = accountRealNameResult;
                 }
             });
             b();
         }
     }
 
-    private void b() {
+    @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            if (!TextUtils.isEmpty(this.t)) {
-                ArrayList arrayList = new ArrayList();
-                arrayList.add("pp");
-                SapiAccountManager.getInstance().getAccountService().getTplStoken(new GetTplStokenCallback(this) { // from class: com.baidu.sapi2.activity.AccountRealNameActivity.4
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ AccountRealNameActivity a;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.a = this;
-                    }
-
-                    @Override // com.baidu.sapi2.callback.SapiCallback
-                    public void onFinish() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                        }
-                    }
-
-                    @Override // com.baidu.sapi2.callback.SapiCallback
-                    public void onStart() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048579, this) == null) {
-                        }
-                    }
-
-                    /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.baidu.sapi2.callback.SapiCallback
-                    public void onFailure(GetTplStokenResult getTplStokenResult) {
-                        AccountRealNameActivity accountRealNameActivity;
-                        SapiWebView sapiWebView;
-                        Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, getTplStokenResult) == null) || (sapiWebView = (accountRealNameActivity = this.a).sapiWebView) == null) {
-                            return;
-                        }
-                        sapiWebView.loadAccountRealName(null, accountRealNameActivity.u, this.a.v, this.a.w, this.a.x);
-                    }
-
-                    /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.baidu.sapi2.callback.SapiCallback
-                    public void onSuccess(GetTplStokenResult getTplStokenResult) {
-                        Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeL(1048580, this, getTplStokenResult) == null) || this.a.sapiWebView == null) {
-                            return;
-                        }
-                        String str = getTplStokenResult.tplStokenMap.get("pp");
-                        AccountRealNameActivity accountRealNameActivity = this.a;
-                        accountRealNameActivity.sapiWebView.loadAccountRealName(str, accountRealNameActivity.u, this.a.v, this.a.w, this.a.x);
-                    }
-                }, this.t, arrayList);
-                return;
-            }
-            Toast.makeText(this, getString(R.string.obfuscated_res_0x7f0f106c), 1).show();
-            finishActivity();
-        }
-    }
-
-    private void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            SapiWebView sapiWebView = this.sapiWebView;
-            if (sapiWebView != null && sapiWebView.canGoBack()) {
-                this.sapiWebView.back();
-            } else {
-                onClose();
+        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
+            super.onCreate(bundle);
+            try {
+                this.z = CoreViewRouter.getInstance().getAccountRealNameCallback();
+                CoreViewRouter.getInstance().releaseAccountRealNameCallback();
+                setContentView(R.layout.obfuscated_res_0x7f0d0505);
+                init();
+                setupViews();
+            } catch (Throwable th) {
+                reportWebviewError(th);
+                this.y.setResultCode(-202);
+                this.y.setResultMsg("网络连接失败，请检查网络设置");
+                finishActivity();
             }
         }
     }

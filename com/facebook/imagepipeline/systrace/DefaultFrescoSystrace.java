@@ -16,32 +16,11 @@ public class DefaultFrescoSystrace implements FrescoSystrace.Systrace {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public DefaultFrescoSystrace() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     @Override // com.facebook.imagepipeline.systrace.FrescoSystrace.Systrace
     public void beginSection(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
         }
-    }
-
-    @Override // com.facebook.imagepipeline.systrace.FrescoSystrace.Systrace
-    public FrescoSystrace.ArgsBuilder beginSectionWithArgs(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? FrescoSystrace.NO_OP_ARGS_BUILDER : (FrescoSystrace.ArgsBuilder) invokeL.objValue;
     }
 
     @Override // com.facebook.imagepipeline.systrace.FrescoSystrace.Systrace
@@ -62,7 +41,7 @@ public class DefaultFrescoSystrace implements FrescoSystrace.Systrace {
     }
 
     /* loaded from: classes7.dex */
-    public static final class DefaultArgsBuilder implements FrescoSystrace.ArgsBuilder {
+    public final class DefaultArgsBuilder implements FrescoSystrace.ArgsBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final StringBuilder mStringBuilder;
@@ -86,31 +65,18 @@ public class DefaultFrescoSystrace implements FrescoSystrace.Systrace {
         }
 
         @Override // com.facebook.imagepipeline.systrace.FrescoSystrace.ArgsBuilder
-        public FrescoSystrace.ArgsBuilder arg(String str, Object obj) {
-            InterceptResult invokeLL;
+        public FrescoSystrace.ArgsBuilder arg(String str, double d) {
+            InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, obj)) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Double.valueOf(d)})) == null) {
                 StringBuilder sb = this.mStringBuilder;
                 sb.append(WebvttCueParser.CHAR_SEMI_COLON);
                 sb.append(str);
                 sb.append('=');
-                sb.append(obj == null ? StringUtil.NULL_STRING : obj.toString());
+                sb.append(Double.toString(d));
                 return this;
             }
-            return (FrescoSystrace.ArgsBuilder) invokeLL.objValue;
-        }
-
-        @Override // com.facebook.imagepipeline.systrace.FrescoSystrace.ArgsBuilder
-        public void flush() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                if (this.mStringBuilder.length() > 127) {
-                    this.mStringBuilder.setLength(127);
-                }
-                if (Build.VERSION.SDK_INT >= 18) {
-                    Trace.beginSection(this.mStringBuilder.toString());
-                }
-            }
+            return (FrescoSystrace.ArgsBuilder) invokeCommon.objValue;
         }
 
         @Override // com.facebook.imagepipeline.systrace.FrescoSystrace.ArgsBuilder
@@ -144,18 +110,61 @@ public class DefaultFrescoSystrace implements FrescoSystrace.Systrace {
         }
 
         @Override // com.facebook.imagepipeline.systrace.FrescoSystrace.ArgsBuilder
-        public FrescoSystrace.ArgsBuilder arg(String str, double d) {
-            InterceptResult invokeCommon;
+        public FrescoSystrace.ArgsBuilder arg(String str, Object obj) {
+            InterceptResult invokeLL;
+            String obj2;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Double.valueOf(d)})) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, obj)) == null) {
                 StringBuilder sb = this.mStringBuilder;
                 sb.append(WebvttCueParser.CHAR_SEMI_COLON);
                 sb.append(str);
                 sb.append('=');
-                sb.append(Double.toString(d));
+                if (obj == null) {
+                    obj2 = StringUtil.NULL_STRING;
+                } else {
+                    obj2 = obj.toString();
+                }
+                sb.append(obj2);
                 return this;
             }
-            return (FrescoSystrace.ArgsBuilder) invokeCommon.objValue;
+            return (FrescoSystrace.ArgsBuilder) invokeLL.objValue;
         }
+
+        @Override // com.facebook.imagepipeline.systrace.FrescoSystrace.ArgsBuilder
+        public void flush() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                if (this.mStringBuilder.length() > 127) {
+                    this.mStringBuilder.setLength(127);
+                }
+                if (Build.VERSION.SDK_INT >= 18) {
+                    Trace.beginSection(this.mStringBuilder.toString());
+                }
+            }
+        }
+    }
+
+    public DefaultFrescoSystrace() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.facebook.imagepipeline.systrace.FrescoSystrace.Systrace
+    public FrescoSystrace.ArgsBuilder beginSectionWithArgs(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return FrescoSystrace.NO_OP_ARGS_BUILDER;
+        }
+        return (FrescoSystrace.ArgsBuilder) invokeL.objValue;
     }
 }

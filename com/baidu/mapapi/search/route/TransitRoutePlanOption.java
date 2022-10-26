@@ -19,7 +19,7 @@ public class TransitRoutePlanOption {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class TransitPolicy {
+    public final class TransitPolicy {
         public static /* synthetic */ Interceptable $ic;
         public static final TransitPolicy EBUS_NO_SUBWAY;
         public static final TransitPolicy EBUS_TIME_FIRST;

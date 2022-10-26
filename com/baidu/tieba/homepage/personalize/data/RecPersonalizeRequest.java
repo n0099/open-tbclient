@@ -9,13 +9,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TbImageHelper;
 import com.baidu.tbadk.util.AdExtParam;
-import com.baidu.tieba.dh;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.et4;
-import com.baidu.tieba.kf8;
-import com.baidu.tieba.nf8;
-import com.baidu.tieba.sh5;
-import com.baidu.tieba.wg5;
+import com.baidu.tieba.ch5;
+import com.baidu.tieba.eh;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.gt4;
+import com.baidu.tieba.uf8;
+import com.baidu.tieba.xf8;
+import com.baidu.tieba.yh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -69,7 +69,8 @@ public class RecPersonalizeRequest extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            sh5.c(builder, true, false, true);
+            int i = 1;
+            yh5.c(builder, true, false, true);
             builder.need_tags = 0;
             builder.load_type = Integer.valueOf(this.loadType);
             builder.page_thread_count = Integer.valueOf(this.threadCount);
@@ -77,20 +78,23 @@ public class RecPersonalizeRequest extends NetMessage {
             builder.pn = Integer.valueOf(this.pn);
             builder.sug_count = Integer.valueOf(this.suggestCount);
             builder.tag_code = 0;
-            builder.scr_w = Integer.valueOf(ej.k(TbadkCoreApplication.getInst()));
-            builder.scr_h = Integer.valueOf(ej.i(TbadkCoreApplication.getInst()));
-            builder.scr_dip = Double.valueOf(ej.h(TbadkCoreApplication.getInst()));
-            builder.q_type = Integer.valueOf(TbImageHelper.getInstance().isShowBigImage() ? 2 : 1);
+            builder.scr_w = Integer.valueOf(fj.k(TbadkCoreApplication.getInst()));
+            builder.scr_h = Integer.valueOf(fj.i(TbadkCoreApplication.getInst()));
+            builder.scr_dip = Double.valueOf(fj.h(TbadkCoreApplication.getInst()));
+            if (TbImageHelper.getInstance().isShowBigImage()) {
+                i = 2;
+            }
+            builder.q_type = Integer.valueOf(i);
             builder.need_forumlist = Integer.valueOf(this.needForumlist);
             builder.new_net_type = Integer.valueOf(BdNetTypeUtil.netType());
             builder.new_install = Integer.valueOf(TbadkCoreApplication.getInst().checkNewUser() ? 1 : 0);
             builder.request_times = Integer.valueOf(this.requestTime);
             builder.invoke_source = this.sourceFrom;
-            builder.ad_context_list = nf8.f().d("HOME");
-            builder.app_pos = kf8.e().c();
+            builder.ad_context_list = xf8.f().d("HOME");
+            builder.app_pos = uf8.e().c();
             if (TbSingleton.getInstance().getPbToHomeUpdateData() != null) {
-                et4 pbToHomeUpdateData = TbSingleton.getInstance().getPbToHomeUpdateData();
-                builder.from_tid = Long.valueOf(dh.g(pbToHomeUpdateData.a, 0L));
+                gt4 pbToHomeUpdateData = TbSingleton.getInstance().getPbToHomeUpdateData();
+                builder.from_tid = Long.valueOf(eh.g(pbToHomeUpdateData.a, 0L));
                 builder.query_eqid = pbToHomeUpdateData.b;
                 builder.first_dir = pbToHomeUpdateData.c;
                 builder.second_dir = pbToHomeUpdateData.d;
@@ -99,7 +103,7 @@ public class RecPersonalizeRequest extends NetMessage {
             AdExtParam.a b = AdExtParam.a.b();
             b.e(this.adFloorInfo);
             builder.ad_ext_params = b.a();
-            builder.app_transmit_data = wg5.b();
+            builder.app_transmit_data = ch5.b();
             long j = this.pushTid;
             if (j != -1) {
                 builder.push_tid = Long.valueOf(j);
@@ -114,13 +118,19 @@ public class RecPersonalizeRequest extends NetMessage {
     public int getLoadType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.loadType : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.loadType;
+        }
+        return invokeV.intValue;
     }
 
     public int getNeedForumlist() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.needForumlist : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.needForumlist;
+        }
+        return invokeV.intValue;
     }
 
     public void setAdFloorInfo(String str) {

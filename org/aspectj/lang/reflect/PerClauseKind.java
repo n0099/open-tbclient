@@ -65,12 +65,18 @@ public final class PerClauseKind {
     public static PerClauseKind valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (PerClauseKind) Enum.valueOf(PerClauseKind.class, str) : (PerClauseKind) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (PerClauseKind) Enum.valueOf(PerClauseKind.class, str);
+        }
+        return (PerClauseKind) invokeL.objValue;
     }
 
     public static PerClauseKind[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PerClauseKind[]) $VALUES.clone() : (PerClauseKind[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (PerClauseKind[]) $VALUES.clone();
+        }
+        return (PerClauseKind[]) invokeV.objValue;
     }
 }

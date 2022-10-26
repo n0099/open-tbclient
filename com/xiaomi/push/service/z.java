@@ -52,7 +52,7 @@ public final class z extends XMPushService.j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
-                ah.a(this.f1012a, ah.a(this.a.b(), this.a.m467a()));
+                ah.a(this.f1012a, ah.a(this.a.b(), this.a.m466a()));
             } catch (gh e) {
                 com.xiaomi.channel.commonutils.logger.b.a(e);
                 this.f1012a.a(10, e);

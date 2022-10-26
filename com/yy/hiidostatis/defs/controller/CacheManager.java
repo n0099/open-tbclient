@@ -57,13 +57,24 @@ public class CacheManager {
         return (String) invokeV.objValue;
     }
 
+    public void finish() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            saveCacheValue(this.c, this.mCacheKey, this.mCacheValue);
+            this.mCacheValue = null;
+        }
+    }
+
     private String getCacheValue(Context context, String str) {
         InterceptResult invokeLL;
         String prefString;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, context, str)) == null) {
             String prefString2 = DefaultPreference.getPreference().getPrefString(context, this.mPrefCacheKey, null);
-            return (prefString2 == null || !prefString2.equals(this.mCacheKey) || (prefString = DefaultPreference.getPreference().getPrefString(context, this.mPrefCacheValue, null)) == null) ? "" : new String(Base64Util.decode(prefString));
+            if (prefString2 != null && prefString2.equals(this.mCacheKey) && (prefString = DefaultPreference.getPreference().getPrefString(context, this.mPrefCacheValue, null)) != null) {
+                return new String(Base64Util.decode(prefString));
+            }
+            return "";
         }
         return (String) invokeLL.objValue;
     }
@@ -84,14 +95,6 @@ public class CacheManager {
                 this.mCacheValue = "|";
             }
             this.mCacheValue += str + "|";
-        }
-    }
-
-    public void finish() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            saveCacheValue(this.c, this.mCacheKey, this.mCacheValue);
-            this.mCacheValue = null;
         }
     }
 

@@ -31,7 +31,22 @@ public final class PassManagerStaticAutoGenerateUrlCollectorImpl implements ICmd
     }
 
     @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
-    public Map<String, String> getCmdRouterMap() {
+    public Map getConfigRouterMap() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            HashMap hashMap = new HashMap();
+            ArrayList arrayList = new ArrayList();
+            arrayList.add("LoginActivityConfig");
+            arrayList.add(UrlSchemaHelper.GOTO_LOGIN);
+            hashMap.put("com.baidu.tieba.passaccount.framework.PassManagerStatic", arrayList);
+            return hashMap;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
+    public Map getCmdRouterMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -52,21 +67,6 @@ public final class PassManagerStaticAutoGenerateUrlCollectorImpl implements ICmd
             hashMap.put("3001000", "com.baidu.tieba.passaccount.framework.PassManagerStatic");
             hashMap.put("2921709", "com.baidu.tieba.passaccount.framework.PassManagerStatic");
             hashMap.put("2921710", "com.baidu.tieba.passaccount.framework.PassManagerStatic");
-            return hashMap;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
-    public Map<String, ArrayList<String>> getConfigRouterMap() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            HashMap hashMap = new HashMap();
-            ArrayList arrayList = new ArrayList();
-            arrayList.add("LoginActivityConfig");
-            arrayList.add(UrlSchemaHelper.GOTO_LOGIN);
-            hashMap.put("com.baidu.tieba.passaccount.framework.PassManagerStatic", arrayList);
             return hashMap;
         }
         return (Map) invokeV.objValue;

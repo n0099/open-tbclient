@@ -5,12 +5,12 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.yalog.LoggerManager;
 /* loaded from: classes6.dex */
-public final class xj9 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int[] SVGImageView;
-    public static final int SVGImageView_css = 0;
-    public static final int SVGImageView_svg = 1;
+public class xj9 {
+    public static /* synthetic */ Interceptable $ic;
+    public static volatile LoggerManager.c a;
+    public static yj9 b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -26,6 +26,18 @@ public final class xj9 {
                 return;
             }
         }
-        SVGImageView = new int[]{R.attr.obfuscated_res_0x7f0401ef, R.attr.obfuscated_res_0x7f04066d};
+        b = new yj9();
+    }
+
+    public static LoggerManager.c a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                a = b.a();
+            }
+            return a;
+        }
+        return (LoggerManager.c) invokeV.objValue;
     }
 }

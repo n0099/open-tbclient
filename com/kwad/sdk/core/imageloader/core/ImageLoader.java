@@ -38,7 +38,7 @@ public class ImageLoader {
     public ImageLoaderEngine engine;
 
     /* loaded from: classes7.dex */
-    public static class SyncImageLoadingListener extends SimpleImageLoadingListener {
+    public class SyncImageLoadingListener extends SimpleImageLoadingListener {
         public Bitmap loadedImage;
 
         public SyncImageLoadingListener() {

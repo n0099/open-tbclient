@@ -24,12 +24,12 @@ import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, JSONObject> Qb;
+    public static final Map Qb;
     public static boolean Qc;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String Qd;
@@ -84,7 +84,7 @@ public final class b {
         long currentTimeMillis;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(65539, null, str, str2, i, str3) == null) {
-            JSONObject jSONObject = Qb.get(str2);
+            JSONObject jSONObject = (JSONObject) Qb.get(str2);
             if (jSONObject == null) {
                 currentTimeMillis = -3;
             } else {
@@ -152,7 +152,7 @@ public final class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            JSONObject jSONObject = Qb.get(str);
+            JSONObject jSONObject = (JSONObject) Qb.get(str);
             if (jSONObject == null) {
                 JSONObject jSONObject2 = new JSONObject();
                 Qb.put(str, jSONObject2);

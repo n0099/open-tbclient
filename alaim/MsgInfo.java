@@ -64,7 +64,13 @@ public final class MsgInfo extends Message {
     public final UserInfo userInfo;
 
     /* loaded from: classes.dex */
-    public static final class Builder extends Message.Builder<MsgInfo> {
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes.dex */
+    public final class Builder extends Message.Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String content;
@@ -140,19 +146,15 @@ public final class MsgInfo extends Message {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.squareup.wire.Message.Builder
         public MsgInfo build(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) ? new MsgInfo(this, z, null) : (MsgInfo) invokeZ.objValue;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+                return new MsgInfo(this, z, null);
+            }
+            return (MsgInfo) invokeZ.objValue;
         }
-    }
-
-    /* loaded from: classes.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
     }
 
     static {
@@ -180,10 +182,6 @@ public final class MsgInfo extends Message {
         DEFAULT_TASKID = 0L;
         DEFAULT_ISFRIEND = 0;
         DEFAULT_SID = 0L;
-    }
-
-    public /* synthetic */ MsgInfo(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -317,5 +315,9 @@ public final class MsgInfo extends Message {
         this.taskId = builder.taskId;
         this.isFriend = builder.isFriend;
         this.sid = builder.sid;
+    }
+
+    public /* synthetic */ MsgInfo(Builder builder, boolean z, a aVar) {
+        this(builder, z);
     }
 }

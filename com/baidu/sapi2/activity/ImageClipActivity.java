@@ -1,6 +1,5 @@
 package com.baidu.sapi2.activity;
 
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.ContentUris;
 import android.content.Context;
@@ -106,15 +105,25 @@ public class ImageClipActivity extends Activity {
         this.d = 0;
     }
 
+    private void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65551, this) == null) {
+            if (this.a != 0 || this.b != 0) {
+                overridePendingTransition(this.a, this.b);
+                this.a = 0;
+                this.b = 0;
+            }
+        }
+    }
+
     private void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65552, this) == null) {
-            if (this.c == 0 && this.d == 0) {
-                return;
+            if (this.c != 0 || this.d != 0) {
+                overridePendingTransition(this.c, this.d);
+                this.c = 0;
+                this.d = 0;
             }
-            overridePendingTransition(this.c, this.d);
-            this.c = 0;
-            this.d = 0;
         }
     }
 
@@ -137,21 +146,93 @@ public class ImageClipActivity extends Activity {
     }
 
     @Override // android.app.Activity
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
-            super.onCreate(bundle);
-            b();
-        }
-    }
-
-    @Override // android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDestroy();
             ClipBoxView.b();
             ZoomImageView.c();
+        }
+    }
+
+    private Bitmap a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
+            if (str != null) {
+                BitmapFactory.Options options = new BitmapFactory.Options();
+                int i = 1;
+                options.inJustDecodeBounds = true;
+                BitmapFactory.decodeFile(str, options);
+                int i2 = options.outHeight;
+                int i3 = options.outWidth;
+                if (i3 > i2) {
+                    i2 = i3;
+                }
+                while (i2 / i > 1000) {
+                    i++;
+                }
+                options.inJustDecodeBounds = false;
+                options.inSampleSize = i;
+                options.inPreferredConfig = Bitmap.Config.RGB_565;
+                return BitmapFactory.decodeFile(str, options);
+            }
+            return null;
+        }
+        return (Bitmap) invokeL.objValue;
+    }
+
+    private void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65549, this, str) == null) {
+            Bitmap operateBitmap = operateBitmap(str);
+            if (operateBitmap != null) {
+                this.i.setImageBitmap(operateBitmap);
+                if (!TextUtils.isEmpty(this.g)) {
+                    FileUtil.deleteFile(new File(this.g));
+                    return;
+                }
+                return;
+            }
+            Toast.makeText(this, "加载图片失败", 0).show();
+        }
+    }
+
+    private String a(Context context, Uri uri) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, context, uri)) == null) {
+            String a = a(uri);
+            if (!TextUtils.isEmpty(a)) {
+                File file = new File(context.getExternalCacheDir().getPath() + File.separator + "pass_temp_" + a);
+                a(context, uri, file);
+                return file.getAbsolutePath();
+            }
+            return null;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    private String a(Uri uri) {
+        InterceptResult invokeL;
+        String path;
+        int lastIndexOf;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, uri)) == null) {
+            if (uri == null || (lastIndexOf = (path = uri.getPath()).lastIndexOf(47)) == -1) {
+                return null;
+            }
+            return path.substring(lastIndexOf + 1);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // android.app.Activity
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
+            super.onCreate(bundle);
+            b();
         }
     }
 
@@ -164,131 +245,145 @@ public class ImageClipActivity extends Activity {
         }
     }
 
-    public Bitmap operateBitmap(String str) {
-        InterceptResult invokeL;
+    private String a(Uri uri, String str) {
+        InterceptResult invokeLL;
+        String a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            Bitmap a = a(str);
-            if (a == null) {
-                return null;
-            }
-            float f = 0.0f;
-            try {
-                int attributeInt = new ExifInterface(str).getAttributeInt("Orientation", 1);
-                if (attributeInt == 3) {
-                    f = 180.0f;
-                } else if (attributeInt == 6) {
-                    f = 90.0f;
-                } else if (attributeInt == 8) {
-                    f = 270.0f;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, this, uri, str)) == null) {
+            Cursor query = getContentResolver().query(uri, null, str, null, null);
+            String str2 = null;
+            if (query != null) {
+                if (query.moveToFirst()) {
+                    if (query.getColumnIndex("_data") > -1) {
+                        a = query.getString(query.getColumnIndex("_data"));
+                    } else {
+                        a = a(getBaseContext(), uri);
+                        this.g = a;
+                    }
+                    str2 = a;
                 }
-            } catch (IOException e) {
-                e.printStackTrace();
+                query.close();
             }
-            Matrix matrix = new Matrix();
-            matrix.setRotate(f, a.getWidth() / 2, a.getHeight() / 2);
-            return Bitmap.createBitmap(a, 0, 0, a.getWidth(), a.getHeight(), matrix, true);
+            return str2;
         }
-        return (Bitmap) invokeL.objValue;
-    }
-
-    public void setPendingTransition(int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048582, this, i, i2, i3, i4) == null) {
-            this.a = i;
-            this.b = i2;
-            this.c = i3;
-            this.d = i4;
-        }
+        return (String) invokeLL.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    @TargetApi(3)
     public void a() {
+        Bitmap a;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            Bitmap a = ZoomImageView.getInstance() == null ? null : ZoomImageView.getInstance().a();
-            if (a == null || a.isRecycled()) {
-                return;
+            if (ZoomImageView.getInstance() == null) {
+                a = null;
+            } else {
+                a = ZoomImageView.getInstance().a();
             }
-            new AsyncTask<Bitmap, Void, byte[]>(this) { // from class: com.baidu.sapi2.activity.ImageClipActivity.3
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ ImageClipActivity a;
+            if (a != null && !a.isRecycled()) {
+                new AsyncTask(this) { // from class: com.baidu.sapi2.activity.ImageClipActivity.3
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ ImageClipActivity a;
 
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
                         }
+                        this.a = this;
                     }
-                    this.a = this;
-                }
 
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // android.os.AsyncTask
-                public byte[] doInBackground(Bitmap... bitmapArr) {
-                    InterceptResult invokeL;
-                    int i;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmapArr)) == null) {
-                        if (bitmapArr[0] == null || bitmapArr[0].isRecycled()) {
+                    /* JADX DEBUG: Method merged with bridge method */
+                    @Override // android.os.AsyncTask
+                    public byte[] doInBackground(Bitmap... bitmapArr) {
+                        InterceptResult invokeL;
+                        int i;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmapArr)) == null) {
+                            if (bitmapArr[0] != null && !bitmapArr[0].isRecycled()) {
+                                int i2 = 160;
+                                if (this.a.e != 0) {
+                                    i2 = bitmapArr[0].getWidth();
+                                    i = bitmapArr[0].getHeight();
+                                } else {
+                                    i = 160;
+                                }
+                                Bitmap createScaledBitmap = Bitmap.createScaledBitmap(bitmapArr[0], i2, i, true);
+                                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                                int i3 = 100;
+                                createScaledBitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
+                                while (byteArrayOutputStream.toByteArray().length > this.a.f && i3 > 0 && i3 - 5 > 0) {
+                                    byteArrayOutputStream.reset();
+                                    createScaledBitmap.compress(Bitmap.CompressFormat.JPEG, i3, byteArrayOutputStream);
+                                }
+                                if (createScaledBitmap != bitmapArr[0]) {
+                                    createScaledBitmap.recycle();
+                                }
+                                bitmapArr[0].recycle();
+                                return byteArrayOutputStream.toByteArray();
+                            }
                             return null;
                         }
-                        int i2 = 160;
-                        if (this.a.e != 0) {
-                            i2 = bitmapArr[0].getWidth();
-                            i = bitmapArr[0].getHeight();
-                        } else {
-                            i = 160;
-                        }
-                        Bitmap createScaledBitmap = Bitmap.createScaledBitmap(bitmapArr[0], i2, i, true);
-                        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                        int i3 = 100;
-                        createScaledBitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
-                        while (byteArrayOutputStream.toByteArray().length > this.a.f && i3 > 0 && i3 - 5 > 0) {
-                            byteArrayOutputStream.reset();
-                            createScaledBitmap.compress(Bitmap.CompressFormat.JPEG, i3, byteArrayOutputStream);
-                        }
-                        if (createScaledBitmap != bitmapArr[0]) {
-                            createScaledBitmap.recycle();
-                        }
-                        bitmapArr[0].recycle();
-                        return byteArrayOutputStream.toByteArray();
+                        return (byte[]) invokeL.objValue;
                     }
-                    return (byte[]) invokeL.objValue;
-                }
 
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // android.os.AsyncTask
-                public void onPostExecute(byte[] bArr) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048579, this, bArr) == null) {
-                        Intent intent = new Intent();
-                        Bundle bundle = new Bundle();
-                        bundle.putByteArray(ImageClipActivity.EXTRA_IMAGE, bArr);
-                        intent.putExtras(bundle);
-                        this.a.setResult(-1, intent);
-                        this.a.finish();
+                    /* JADX DEBUG: Method merged with bridge method */
+                    @Override // android.os.AsyncTask
+                    public void onPostExecute(byte[] bArr) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048579, this, bArr) == null) {
+                            Intent intent = new Intent();
+                            Bundle bundle = new Bundle();
+                            bundle.putByteArray(ImageClipActivity.EXTRA_IMAGE, bArr);
+                            intent.putExtras(bundle);
+                            this.a.setResult(-1, intent);
+                            this.a.finish();
+                        }
                     }
+                }.execute(a);
+            }
+        }
+    }
+
+    private void a(Context context, Uri uri, File file) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65543, this, context, uri, file) == null) {
+            try {
+                InputStream openInputStream = context.getContentResolver().openInputStream(uri);
+                if (openInputStream == null) {
+                    return;
                 }
-            }.execute(a);
+                FileOutputStream fileOutputStream = new FileOutputStream(file);
+                FileUtil.copy(openInputStream, fileOutputStream);
+                openInputStream.close();
+                fileOutputStream.close();
+            } catch (Exception e) {
+                Log.e(e);
+            }
+        }
+    }
+
+    private void a(Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, this, intent) == null) {
+            b(a(intent.getData(), (String) null));
         }
     }
 
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d04f9);
+            setContentView(R.layout.obfuscated_res_0x7f0d04f6);
             this.e = getIntent().getIntExtra(EXTRA_PARAM_FROM_BUSINESS, 0);
             int intExtra = getIntent().getIntExtra(EXTRA_PARAM_UPLOAD_IMAGE_MAX_SIZE, 512);
             this.f = intExtra;
@@ -296,8 +391,8 @@ public class ImageClipActivity extends Activity {
                 this.f = 512;
             }
             this.f *= 1024;
-            this.h = (ClipBoxView) findViewById(R.id.obfuscated_res_0x7f091cc7);
-            this.i = (ZoomImageView) findViewById(R.id.obfuscated_res_0x7f091cc5);
+            this.h = (ClipBoxView) findViewById(R.id.obfuscated_res_0x7f091cc3);
+            this.i = (ZoomImageView) findViewById(R.id.obfuscated_res_0x7f091cc1);
             if (this.e == 1) {
                 ClipBoxView clipBoxView = this.h;
                 clipBoxView.E = ClipBoxView.G;
@@ -309,8 +404,8 @@ public class ImageClipActivity extends Activity {
                 clipBoxView2.F = false;
             }
             setPendingTransition(R.anim.obfuscated_res_0x7f01011c, R.anim.obfuscated_res_0x7f01011b, R.anim.obfuscated_res_0x7f01011a, R.anim.obfuscated_res_0x7f01011d);
-            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f091fb8);
-            Button button2 = (Button) findViewById(R.id.obfuscated_res_0x7f09049a);
+            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f091fb7);
+            Button button2 = (Button) findViewById(R.id.obfuscated_res_0x7f0904a3);
             if (Build.VERSION.SDK_INT >= 19) {
                 b(getIntent());
             } else {
@@ -374,86 +469,15 @@ public class ImageClipActivity extends Activity {
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        this.a.a();
+                    if (interceptable2 != null && interceptable2.invokeL(1048576, this, view2) != null) {
+                        return;
                     }
+                    this.a.a();
                 }
             });
         }
     }
 
-    private void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65551, this) == null) {
-            if (this.a == 0 && this.b == 0) {
-                return;
-            }
-            overridePendingTransition(this.a, this.b);
-            this.a = 0;
-            this.b = 0;
-        }
-    }
-
-    private void a(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, this, intent) == null) {
-            b(a(intent.getData(), (String) null));
-        }
-    }
-
-    private String a(Uri uri, String str) {
-        InterceptResult invokeLL;
-        String a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, this, uri, str)) == null) {
-            Cursor query = getContentResolver().query(uri, null, str, null, null);
-            String str2 = null;
-            if (query != null) {
-                if (query.moveToFirst()) {
-                    if (query.getColumnIndex("_data") > -1) {
-                        a = query.getString(query.getColumnIndex("_data"));
-                    } else {
-                        a = a(getBaseContext(), uri);
-                        this.g = a;
-                    }
-                    str2 = a;
-                }
-                query.close();
-            }
-            return str2;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    @TargetApi(12)
-    private Bitmap a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
-            if (str != null) {
-                BitmapFactory.Options options = new BitmapFactory.Options();
-                int i = 1;
-                options.inJustDecodeBounds = true;
-                BitmapFactory.decodeFile(str, options);
-                int i2 = options.outHeight;
-                int i3 = options.outWidth;
-                if (i3 > i2) {
-                    i2 = i3;
-                }
-                while (i2 / i > 1000) {
-                    i++;
-                }
-                options.inJustDecodeBounds = false;
-                options.inSampleSize = i;
-                options.inPreferredConfig = Bitmap.Config.RGB_565;
-                return BitmapFactory.decodeFile(str, options);
-            }
-            return null;
-        }
-        return (Bitmap) invokeL.objValue;
-    }
-
-    @TargetApi(19)
     private void b(Intent intent) {
         String[] split;
         Interceptable interceptable = $ic;
@@ -482,66 +506,45 @@ public class ImageClipActivity extends Activity {
         }
     }
 
-    private String a(Context context, Uri uri) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, context, uri)) == null) {
-            String a = a(uri);
-            if (TextUtils.isEmpty(a)) {
-                return null;
-            }
-            File file = new File(context.getExternalCacheDir().getPath() + File.separator + "pass_temp_" + a);
-            a(context, uri, file);
-            return file.getAbsolutePath();
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    private String a(Uri uri) {
+    public Bitmap operateBitmap(String str) {
         InterceptResult invokeL;
-        String path;
-        int lastIndexOf;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, uri)) == null) {
-            if (uri == null || (lastIndexOf = (path = uri.getPath()).lastIndexOf(47)) == -1) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            Bitmap a = a(str);
+            if (a == null) {
                 return null;
             }
-            return path.substring(lastIndexOf + 1);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    private void a(Context context, Uri uri, File file) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65543, this, context, uri, file) == null) {
+            float f = 0.0f;
             try {
-                InputStream openInputStream = context.getContentResolver().openInputStream(uri);
-                if (openInputStream == null) {
-                    return;
+                int attributeInt = new ExifInterface(str).getAttributeInt(androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION, 1);
+                if (attributeInt != 3) {
+                    if (attributeInt != 6) {
+                        if (attributeInt == 8) {
+                            f = 270.0f;
+                        }
+                    } else {
+                        f = 90.0f;
+                    }
+                } else {
+                    f = 180.0f;
                 }
-                FileOutputStream fileOutputStream = new FileOutputStream(file);
-                FileUtil.copy(openInputStream, fileOutputStream);
-                openInputStream.close();
-                fileOutputStream.close();
-            } catch (Exception e) {
-                Log.e(e);
+            } catch (IOException e) {
+                e.printStackTrace();
             }
+            Matrix matrix = new Matrix();
+            matrix.setRotate(f, a.getWidth() / 2, a.getHeight() / 2);
+            return Bitmap.createBitmap(a, 0, 0, a.getWidth(), a.getHeight(), matrix, true);
         }
+        return (Bitmap) invokeL.objValue;
     }
 
-    private void b(String str) {
+    public void setPendingTransition(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65549, this, str) == null) {
-            Bitmap operateBitmap = operateBitmap(str);
-            if (operateBitmap != null) {
-                this.i.setImageBitmap(operateBitmap);
-                if (TextUtils.isEmpty(this.g)) {
-                    return;
-                }
-                FileUtil.deleteFile(new File(this.g));
-                return;
-            }
-            Toast.makeText(this, "加载图片失败", 0).show();
+        if (interceptable == null || interceptable.invokeIIII(1048582, this, i, i2, i3, i4) == null) {
+            this.a = i;
+            this.b = i2;
+            this.c = i3;
+            this.d = i4;
         }
     }
 }

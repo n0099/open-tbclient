@@ -5,7 +5,6 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.widget.LinearLayout;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.SapiAccountManager;
@@ -87,19 +86,20 @@ public class LoginPager extends LinearLayout implements ILoginConfirmCallback, I
         }
 
         @Override // com.baidu.sapi2.callback.ShareModelResultCallback
+        public void onSuccess(List list) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) != null) {
+                return;
+            }
+            this.a.b(list);
+        }
+
+        @Override // com.baidu.sapi2.callback.ShareModelResultCallback
         public void onFailure(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
                 LoginPager loginPager = this.a;
                 loginPager.a(loginPager.a(LoginPager.a(loginPager)));
-            }
-        }
-
-        @Override // com.baidu.sapi2.callback.ShareModelResultCallback
-        public void onSuccess(List<ShareStorage.StorageModel> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-                this.a.b(list);
             }
         }
     }
@@ -148,7 +148,7 @@ public class LoginPager extends LinearLayout implements ILoginConfirmCallback, I
     }
 
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class c {
+    public /* synthetic */ class c {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -184,7 +184,7 @@ public class LoginPager extends LinearLayout implements ILoginConfirmCallback, I
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LoginPager(@NonNull Context context, ColorType colorType, IQuickLoginDialogCallback iQuickLoginDialogCallback, IPagerLoadCallback iPagerLoadCallback, ISendSmsCallback iSendSmsCallback) {
+    public LoginPager(Context context, ColorType colorType, IQuickLoginDialogCallback iQuickLoginDialogCallback, IPagerLoadCallback iPagerLoadCallback, ISendSmsCallback iSendSmsCallback) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -223,153 +223,10 @@ public class LoginPager extends LinearLayout implements ILoginConfirmCallback, I
         this.n = System.currentTimeMillis();
     }
 
-    private void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65552, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04d3, this);
-            this.c = (OneKeyLoginView) findViewById(R.id.obfuscated_res_0x7f091d62);
-            this.d = (ShareLoginView) findViewById(R.id.obfuscated_res_0x7f091d64);
-            this.e = (HistoryLoginView) findViewById(R.id.obfuscated_res_0x7f091d60);
-            this.f = (SendSmsView) findViewById(R.id.obfuscated_res_0x7f091d63);
-            this.g = (ThirdPartyView) findViewById(R.id.obfuscated_res_0x7f091d65);
-            this.h = (AgreementView) findViewById(R.id.obfuscated_res_0x7f091d5f);
-            this.g.setLoginCallback(this);
-            this.h.a((Activity) this.a, this.i);
-            b();
-        }
-    }
-
-    private void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65553, this) == null) {
-            SapiAccountManager.getInstance().checkAvailableLoginHistory(new LoginHistoryCallback(this) { // from class: com.baidu.sapi2.views.logindialog.page.LoginPager.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ LoginPager a;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.a = this;
-                }
-
-                @Override // com.baidu.sapi2.callback.inner.LoginHistoryCallback
-                public void onFailure() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        LoginPager loginPager = this.a;
-                        loginPager.a(loginPager.a(LoginPager.a(loginPager)));
-                    }
-                }
-
-                @Override // com.baidu.sapi2.callback.inner.LoginHistoryCallback
-                public void onResult(JSONArray jSONArray) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-                        super.onResult(jSONArray);
-                    }
-                }
-
-                @Override // com.baidu.sapi2.callback.inner.LoginHistoryCallback
-                public void onSuccess(List<LoginHistoryModel> list) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-                        this.a.a(list);
-                    }
-                }
-            });
-        }
-    }
-
-    private void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65554, this) == null) {
-            SapiAccountManager.getInstance().getOneKeyLoginIsAvailable(new b(this));
-        }
-    }
-
-    private void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65555, this) == null) {
-            SapiAccountManager.getInstance().getShareModels(1500L, new a(this));
-        }
-    }
-
-    private void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65556, this) == null) {
-            IPagerLoadCallback iPagerLoadCallback = this.j;
-            if (iPagerLoadCallback != null) {
-                iPagerLoadCallback.onPageShow(181);
-            }
-            IQuickLoginDialogCallback iQuickLoginDialogCallback = this.i;
-            if (iQuickLoginDialogCallback != null) {
-                iQuickLoginDialogCallback.onPreShowLogin(this.b, QuickLoginType.SMS, this.f.getTvSendSms());
-            }
-            this.c.setVisibility(8);
-            this.d.setVisibility(8);
-            this.f.setVisibility(0);
-            this.f.a((Activity) this.a);
-            this.g.c();
-            this.g.setDialogLoginType(QuickLoginType.SMS);
-            this.f.a(this, this.k, this);
-            com.baidu.sapi2.views.logindialog.utils.a.a(System.currentTimeMillis() - this.n, QuickLoginType.SMS);
-        }
-    }
-
-    public void hideSendMsgErrorTip() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SendSmsView sendSmsView = this.f;
-            if (sendSmsView != null) {
-                sendSmsView.b();
-            }
-            AgreementView agreementView = this.h;
-            if (agreementView != null) {
-                agreementView.setPadding(0, ViewUtils.dp2px(this.a, 25.0f), 0, 0);
-            }
-        }
-    }
-
-    @Override // com.baidu.sapi2.views.logindialog.interf.ILoginConfirmCallback
-    public void onFailure(QuickLoginResult quickLoginResult) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, quickLoginResult) == null) {
-            Log.e(QuickLoginDialog.STAG, "login fail,login type = " + quickLoginResult.mLoginType + ",result code = " + quickLoginResult.getResultCode());
-            IQuickLoginDialogCallback iQuickLoginDialogCallback = this.i;
-            if (iQuickLoginDialogCallback == null) {
-                return;
-            }
-            iQuickLoginDialogCallback.onLoginFailure(quickLoginResult);
-        }
-    }
-
-    @Override // com.baidu.sapi2.views.logindialog.interf.ISendSmsUICallback
-    public void onHideErrorTip() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            hideSendMsgErrorTip();
-        }
-    }
-
-    @Override // com.baidu.sapi2.views.logindialog.interf.ISendSmsUICallback
-    public void onHideThirdParty() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.g.setVisibility(8);
-        }
+    public static /* synthetic */ int a(LoginPager loginPager) {
+        int i = loginPager.m + 1;
+        loginPager.m = i;
+        return i;
     }
 
     @Override // com.baidu.sapi2.views.logindialog.interf.ILoginConfirmCallback
@@ -391,27 +248,6 @@ public class LoginPager extends LinearLayout implements ILoginConfirmCallback, I
         return invokeZ.booleanValue;
     }
 
-    @Override // com.baidu.sapi2.views.logindialog.interf.ISendSmsUICallback
-    public void onShowThirdParty() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.g.setVisibility(0);
-        }
-    }
-
-    @Override // com.baidu.sapi2.views.logindialog.interf.ILoginConfirmCallback
-    public void onSuccess(QuickLoginResult quickLoginResult) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, quickLoginResult) == null) {
-            Log.e(QuickLoginDialog.STAG, "login success,login type = " + quickLoginResult.mLoginType);
-            IQuickLoginDialogCallback iQuickLoginDialogCallback = this.i;
-            if (iQuickLoginDialogCallback == null) {
-                return;
-            }
-            iQuickLoginDialogCallback.onLoginSuccess(quickLoginResult);
-        }
-    }
-
     public void showSendMsgErrorTip(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
@@ -423,60 +259,6 @@ public class LoginPager extends LinearLayout implements ILoginConfirmCallback, I
             if (agreementView != null) {
                 agreementView.setPadding(0, 13, 0, 0);
             }
-        }
-    }
-
-    public static /* synthetic */ int a(LoginPager loginPager) {
-        int i = loginPager.m + 1;
-        loginPager.m = i;
-        return i;
-    }
-
-    private void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65549, this) == null) && this.b == ColorType.DARK) {
-            this.c.a();
-            this.d.a();
-            this.e.a();
-            this.f.a();
-            this.g.a();
-            this.h.a();
-        }
-    }
-
-    private JSONArray a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            JSONArray jSONArray = new JSONArray();
-            jSONArray.put(QuickLoginType.HISTORY.getValue());
-            jSONArray.put(QuickLoginType.SHARE.getValue());
-            jSONArray.put(QuickLoginType.ONEKEY.getValue());
-            jSONArray.put(QuickLoginType.SMS.getValue());
-            return jSONArray;
-        }
-        return (JSONArray) invokeV.objValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b(List<ShareStorage.StorageModel> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65551, this, list) == null) {
-            if (list != null && list.size() != 0) {
-                ShareStorage.StorageModel storageModel = list.get(0);
-                if (storageModel == null) {
-                    int i = this.m + 1;
-                    this.m = i;
-                    a(a(i));
-                    return;
-                }
-                Log.e(QuickLoginDialog.STAG, "share login is available, enable = " + list.size());
-                a(storageModel);
-                return;
-            }
-            int i2 = this.m + 1;
-            this.m = i2;
-            a(a(i2));
         }
     }
 
@@ -497,42 +279,55 @@ public class LoginPager extends LinearLayout implements ILoginConfirmCallback, I
         return (QuickLoginType) invokeI.objValue;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(QuickLoginType quickLoginType) {
+    @Override // com.baidu.sapi2.views.logindialog.interf.ILoginConfirmCallback
+    public void onFailure(QuickLoginResult quickLoginResult) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, this, quickLoginType) == null) {
-            int i = c.a[quickLoginType.ordinal()];
-            if (i == 1) {
-                d();
-            } else if (i == 2) {
-                f();
-            } else if (i != 3) {
-                g();
-            } else {
-                e();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, quickLoginResult) == null) {
+            Log.e(QuickLoginDialog.STAG, "login fail,login type = " + quickLoginResult.mLoginType + ",result code = " + quickLoginResult.getResultCode());
+            IQuickLoginDialogCallback iQuickLoginDialogCallback = this.i;
+            if (iQuickLoginDialogCallback == null) {
+                return;
             }
+            iQuickLoginDialogCallback.onLoginFailure(quickLoginResult);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(List<LoginHistoryModel> list) {
+    @Override // com.baidu.sapi2.views.logindialog.interf.ILoginConfirmCallback
+    public void onSuccess(QuickLoginResult quickLoginResult) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65548, this, list) == null) {
-            if (list != null && list.size() != 0) {
-                LoginHistoryModel loginHistoryModel = list.get(0);
-                if (loginHistoryModel == null) {
-                    int i = this.m + 1;
-                    this.m = i;
-                    a(a(i));
-                    return;
-                }
-                Log.e(QuickLoginDialog.STAG, "history login is available, enable = " + list.size());
-                a(loginHistoryModel);
+        if (interceptable == null || interceptable.invokeL(1048582, this, quickLoginResult) == null) {
+            Log.e(QuickLoginDialog.STAG, "login success,login type = " + quickLoginResult.mLoginType);
+            IQuickLoginDialogCallback iQuickLoginDialogCallback = this.i;
+            if (iQuickLoginDialogCallback == null) {
                 return;
             }
-            int i2 = this.m + 1;
-            this.m = i2;
-            a(a(i2));
+            iQuickLoginDialogCallback.onLoginSuccess(quickLoginResult);
+        }
+    }
+
+    private JSONArray a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
+            JSONArray jSONArray = new JSONArray();
+            jSONArray.put(QuickLoginType.HISTORY.getValue());
+            jSONArray.put(QuickLoginType.SHARE.getValue());
+            jSONArray.put(QuickLoginType.ONEKEY.getValue());
+            jSONArray.put(QuickLoginType.SMS.getValue());
+            return jSONArray;
+        }
+        return (JSONArray) invokeV.objValue;
+    }
+
+    private void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65549, this) == null) && this.b == ColorType.DARK) {
+            this.c.a();
+            this.d.a();
+            this.e.a();
+            this.f.a();
+            this.g.a();
+            this.h.a();
         }
     }
 
@@ -557,24 +352,25 @@ public class LoginPager extends LinearLayout implements ILoginConfirmCallback, I
         }
     }
 
-    private void a(ShareStorage.StorageModel storageModel) {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b(List list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, this, storageModel) == null) {
-            IPagerLoadCallback iPagerLoadCallback = this.j;
-            if (iPagerLoadCallback != null) {
-                iPagerLoadCallback.onPageShow(256);
+        if (interceptable == null || interceptable.invokeL(65551, this, list) == null) {
+            if (list != null && list.size() != 0) {
+                ShareStorage.StorageModel storageModel = (ShareStorage.StorageModel) list.get(0);
+                if (storageModel == null) {
+                    int i = this.m + 1;
+                    this.m = i;
+                    a(a(i));
+                    return;
+                }
+                Log.e(QuickLoginDialog.STAG, "share login is available, enable = " + list.size());
+                a(storageModel);
+                return;
             }
-            IQuickLoginDialogCallback iQuickLoginDialogCallback = this.i;
-            if (iQuickLoginDialogCallback != null) {
-                iQuickLoginDialogCallback.onPreShowLogin(this.b, QuickLoginType.SHARE, this.d.getTvButton());
-            }
-            this.c.setVisibility(8);
-            this.d.setVisibility(0);
-            this.e.setVisibility(8);
-            this.g.b();
-            this.g.setDialogLoginType(QuickLoginType.SHARE);
-            this.d.a((Activity) this.a, storageModel, this);
-            com.baidu.sapi2.views.logindialog.utils.a.a(System.currentTimeMillis() - this.n, QuickLoginType.SHARE);
+            int i2 = this.m + 1;
+            this.m = i2;
+            a(a(i2));
         }
     }
 
@@ -613,6 +409,216 @@ public class LoginPager extends LinearLayout implements ILoginConfirmCallback, I
             int i = this.m + 1;
             this.m = i;
             a(a(i));
+        }
+    }
+
+    private void a(ShareStorage.StorageModel storageModel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, this, storageModel) == null) {
+            IPagerLoadCallback iPagerLoadCallback = this.j;
+            if (iPagerLoadCallback != null) {
+                iPagerLoadCallback.onPageShow(256);
+            }
+            IQuickLoginDialogCallback iQuickLoginDialogCallback = this.i;
+            if (iQuickLoginDialogCallback != null) {
+                iQuickLoginDialogCallback.onPreShowLogin(this.b, QuickLoginType.SHARE, this.d.getTvButton());
+            }
+            this.c.setVisibility(8);
+            this.d.setVisibility(0);
+            this.e.setVisibility(8);
+            this.g.b();
+            this.g.setDialogLoginType(QuickLoginType.SHARE);
+            this.d.a((Activity) this.a, storageModel, this);
+            com.baidu.sapi2.views.logindialog.utils.a.a(System.currentTimeMillis() - this.n, QuickLoginType.SHARE);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(QuickLoginType quickLoginType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, this, quickLoginType) == null) {
+            int i = c.a[quickLoginType.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        g();
+                        return;
+                    } else {
+                        e();
+                        return;
+                    }
+                }
+                f();
+                return;
+            }
+            d();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(List list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65548, this, list) == null) {
+            if (list != null && list.size() != 0) {
+                LoginHistoryModel loginHistoryModel = (LoginHistoryModel) list.get(0);
+                if (loginHistoryModel == null) {
+                    int i = this.m + 1;
+                    this.m = i;
+                    a(a(i));
+                    return;
+                }
+                Log.e(QuickLoginDialog.STAG, "history login is available, enable = " + list.size());
+                a(loginHistoryModel);
+                return;
+            }
+            int i2 = this.m + 1;
+            this.m = i2;
+            a(a(i2));
+        }
+    }
+
+    private void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65552, this) == null) {
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04d0, this);
+            this.c = (OneKeyLoginView) findViewById(R.id.obfuscated_res_0x7f091d5e);
+            this.d = (ShareLoginView) findViewById(R.id.obfuscated_res_0x7f091d60);
+            this.e = (HistoryLoginView) findViewById(R.id.obfuscated_res_0x7f091d5c);
+            this.f = (SendSmsView) findViewById(R.id.obfuscated_res_0x7f091d5f);
+            this.g = (ThirdPartyView) findViewById(R.id.obfuscated_res_0x7f091d61);
+            this.h = (AgreementView) findViewById(R.id.obfuscated_res_0x7f091d5b);
+            this.g.setLoginCallback(this);
+            this.h.a((Activity) this.a, this.i);
+            b();
+        }
+    }
+
+    private void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65553, this) == null) {
+            SapiAccountManager.getInstance().checkAvailableLoginHistory(new LoginHistoryCallback(this) { // from class: com.baidu.sapi2.views.logindialog.page.LoginPager.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ LoginPager a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.a = this;
+                }
+
+                @Override // com.baidu.sapi2.callback.inner.LoginHistoryCallback
+                public void onResult(JSONArray jSONArray) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+                        super.onResult(jSONArray);
+                    }
+                }
+
+                @Override // com.baidu.sapi2.callback.inner.LoginHistoryCallback
+                public void onSuccess(List list) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null && interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) != null) {
+                        return;
+                    }
+                    this.a.a(list);
+                }
+
+                @Override // com.baidu.sapi2.callback.inner.LoginHistoryCallback
+                public void onFailure() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        LoginPager loginPager = this.a;
+                        loginPager.a(loginPager.a(LoginPager.a(loginPager)));
+                    }
+                }
+            });
+        }
+    }
+
+    private void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65554, this) == null) {
+            SapiAccountManager.getInstance().getOneKeyLoginIsAvailable(new b(this));
+        }
+    }
+
+    private void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65555, this) == null) {
+            SapiAccountManager.getInstance().getShareModels(1500L, new a(this));
+        }
+    }
+
+    public void hideSendMsgErrorTip() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            SendSmsView sendSmsView = this.f;
+            if (sendSmsView != null) {
+                sendSmsView.b();
+            }
+            AgreementView agreementView = this.h;
+            if (agreementView != null) {
+                agreementView.setPadding(0, ViewUtils.dp2px(this.a, 25.0f), 0, 0);
+            }
+        }
+    }
+
+    @Override // com.baidu.sapi2.views.logindialog.interf.ISendSmsUICallback
+    public void onHideErrorTip() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            hideSendMsgErrorTip();
+        }
+    }
+
+    @Override // com.baidu.sapi2.views.logindialog.interf.ISendSmsUICallback
+    public void onHideThirdParty() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.g.setVisibility(8);
+        }
+    }
+
+    @Override // com.baidu.sapi2.views.logindialog.interf.ISendSmsUICallback
+    public void onShowThirdParty() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.g.setVisibility(0);
+        }
+    }
+
+    private void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65556, this) == null) {
+            IPagerLoadCallback iPagerLoadCallback = this.j;
+            if (iPagerLoadCallback != null) {
+                iPagerLoadCallback.onPageShow(181);
+            }
+            IQuickLoginDialogCallback iQuickLoginDialogCallback = this.i;
+            if (iQuickLoginDialogCallback != null) {
+                iQuickLoginDialogCallback.onPreShowLogin(this.b, QuickLoginType.SMS, this.f.getTvSendSms());
+            }
+            this.c.setVisibility(8);
+            this.d.setVisibility(8);
+            this.f.setVisibility(0);
+            this.f.a((Activity) this.a);
+            this.g.c();
+            this.g.setDialogLoginType(QuickLoginType.SMS);
+            this.f.a(this, this.k, this);
+            com.baidu.sapi2.views.logindialog.utils.a.a(System.currentTimeMillis() - this.n, QuickLoginType.SMS);
         }
     }
 }

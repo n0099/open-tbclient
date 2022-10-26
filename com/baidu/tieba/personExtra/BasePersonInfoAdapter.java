@@ -17,7 +17,9 @@ public abstract class BasePersonInfoAdapter extends FragmentPagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int[] a;
-    public ArrayList<BaseFragment> b;
+    public ArrayList b;
+
+    public abstract BaseFragment b();
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BasePersonInfoAdapter(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
@@ -37,7 +39,7 @@ public abstract class BasePersonInfoAdapter extends FragmentPagerAdapter {
                 return;
             }
         }
-        this.b = new ArrayList<>();
+        this.b = new ArrayList();
         Bundle bundle = new Bundle();
         bundle.putInt("page_type", 0);
         BaseFragment b = b();
@@ -55,19 +57,13 @@ public abstract class BasePersonInfoAdapter extends FragmentPagerAdapter {
         this.a = new int[]{0, 1};
     }
 
-    public abstract BaseFragment b();
-
     public int c(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.a[i] : invokeI.intValue;
-    }
-
-    @Override // androidx.viewpager.widget.PagerAdapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.length : invokeV.intValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return this.a[i];
+        }
+        return invokeI.intValue;
     }
 
     @Override // androidx.fragment.app.FragmentPagerAdapter
@@ -75,11 +71,21 @@ public abstract class BasePersonInfoAdapter extends FragmentPagerAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            if (i >= this.a.length || i < 0) {
-                return null;
+            if (i < this.a.length && i >= 0) {
+                return (Fragment) this.b.get(i);
             }
-            return this.b.get(i);
+            return null;
         }
         return (Fragment) invokeI.objValue;
+    }
+
+    @Override // androidx.viewpager.widget.PagerAdapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a.length;
+        }
+        return invokeV.intValue;
     }
 }

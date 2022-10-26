@@ -1,77 +1,82 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
+import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
 /* loaded from: classes4.dex */
-public class gh7 implements Runnable {
+public class gh7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
-    public int c;
-    public boolean d;
-    public mh7 e;
 
-    public gh7(mh7 mh7Var) {
+    public static fh7 a(AdvertAppInfo advertAppInfo) {
+        InterceptResult invokeL;
+        AdvertAppInfo.ILegoAdvert iLegoAdvert;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mh7Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, advertAppInfo)) == null) {
+            if (advertAppInfo == null || (iLegoAdvert = advertAppInfo.h) == null || !(iLegoAdvert instanceof fh7)) {
+                return null;
+            }
+            return (fh7) iLegoAdvert;
+        }
+        return (fh7) invokeL.objValue;
+    }
+
+    public static void b(fh7 fh7Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65537, null, fh7Var) == null) && fh7Var != null && fh7Var.getParallelCharge() != null) {
+            j01.b(fh7Var.getParallelCharge().b);
+            Iterator it = fh7Var.getParallelCharge().c.iterator();
+            while (it.hasNext()) {
+                j01.b((String) it.next());
             }
         }
-        this.d = false;
-        this.e = mh7Var;
     }
 
-    public void a(int i) {
+    public static void c(AdvertAppInfo advertAppInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    public void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.a = z;
+        if ((interceptable == null || interceptable.invokeL(65538, null, advertAppInfo) == null) && d(a(advertAppInfo))) {
+            ClogBuilder clogBuilder = new ClogBuilder();
+            clogBuilder.y(ClogBuilder.LogType.EXCEPTION).k("1").l(DpStatConstants.FILECACHE_CLOSE_TYPE_OPT_DISABLE).p(advertAppInfo.g);
+            AdvertAppInfo.ILegoAdvert iLegoAdvert = advertAppInfo.h;
+            if (iLegoAdvert != null) {
+                clogBuilder.m(String.valueOf(iLegoAdvert.getGoodsStyle()));
+            }
+            i01.b(clogBuilder);
         }
     }
 
-    public void c(int i) {
+    public static boolean d(fh7 fh7Var) {
+        InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.c = i;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, fh7Var)) == null) {
+            if (fh7Var == null || fh7Var.getParallelCharge() == null) {
+                return false;
+            }
+            String str = fh7Var.getParallelCharge().a;
+            j01.b(str);
+            if (!TextUtils.isEmpty(str)) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Iterator it = fh7Var.getParallelCharge().d.iterator();
+            while (it.hasNext()) {
+                String str2 = (String) it.next();
+                if (!z && TextUtils.isEmpty(str2)) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                j01.b(str2);
+            }
+            return z;
         }
-    }
-
-    public void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.d = z;
-        }
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        mh7 mh7Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (mh7Var = this.e) == null) {
-            return;
-        }
-        if (!this.d) {
-            mh7Var.j(this.b, this.c, this.a, 2);
-        }
-        this.e.j(this.b, this.c, this.a, 1);
+        return invokeL.booleanValue;
     }
 }

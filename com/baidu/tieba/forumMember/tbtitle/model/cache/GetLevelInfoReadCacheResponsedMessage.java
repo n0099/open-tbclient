@@ -12,7 +12,7 @@ import tbclient.Error;
 import tbclient.GetLevelInfo.DataRes;
 import tbclient.GetLevelInfo.GetLevelInfoResIdl;
 /* loaded from: classes4.dex */
-public class GetLevelInfoReadCacheResponsedMessage extends CustomResponsedMessage<Object> {
+public class GetLevelInfoReadCacheResponsedMessage extends CustomResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public DataRes mResult;
@@ -35,6 +35,15 @@ public class GetLevelInfoReadCacheResponsedMessage extends CustomResponsedMessag
         }
     }
 
+    public DataRes getResult() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mResult;
+        }
+        return (DataRes) invokeV.objValue;
+    }
+
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         DataRes dataRes;
         Interceptable interceptable = $ic;
@@ -49,11 +58,5 @@ public class GetLevelInfoReadCacheResponsedMessage extends CustomResponsedMessag
                 this.mResult = dataRes;
             }
         }
-    }
-
-    public DataRes getResult() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mResult : (DataRes) invokeV.objValue;
     }
 }

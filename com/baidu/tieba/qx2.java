@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class qx2 implements ei3<HybridUbcFlow> {
+public class qx2 implements fi3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,14 +26,13 @@ public class qx2 implements ei3<HybridUbcFlow> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ei3
+    @Override // com.baidu.tieba.fi3
     /* renamed from: b */
     public void a(HybridUbcFlow hybridUbcFlow) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) == null) {
-            hybridUbcFlow.J("967");
-            hybridUbcFlow.H("component_reporter", new nw2());
-            hybridUbcFlow.H("component_reporter", new jw2());
+            hybridUbcFlow.J("670");
+            hybridUbcFlow.D("with_preload", "0");
         }
     }
 }

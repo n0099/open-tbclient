@@ -1,6 +1,5 @@
 package com.baidu.android.pushservice.job;
 
-import android.annotation.TargetApi;
 import android.app.job.JobInfo;
 import android.app.job.JobScheduler;
 import android.content.ComponentName;
@@ -16,7 +15,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@TargetApi(21)
 /* loaded from: classes.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
@@ -26,7 +24,7 @@ public class a {
 
     /* renamed from: com.baidu.android.pushservice.job.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0043a {
+    public class C0043a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Context a;

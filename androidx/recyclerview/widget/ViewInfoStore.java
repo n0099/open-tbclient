@@ -1,8 +1,5 @@
 package androidx.recyclerview.widget;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.VisibleForTesting;
 import androidx.collection.LongSparseArray;
 import androidx.collection.SimpleArrayMap;
 import androidx.core.util.Pools;
@@ -21,10 +18,19 @@ public class ViewInfoStore {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean DEBUG = false;
     public transient /* synthetic */ FieldHolder $fh;
-    @VisibleForTesting
     public final SimpleArrayMap<RecyclerView.ViewHolder, InfoRecord> mLayoutHolderMap;
-    @VisibleForTesting
     public final LongSparseArray<RecyclerView.ViewHolder> mOldChangedHolders;
+
+    /* loaded from: classes.dex */
+    public interface ProcessCallback {
+        void processAppeared(RecyclerView.ViewHolder viewHolder, RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo, RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo2);
+
+        void processDisappeared(RecyclerView.ViewHolder viewHolder, RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo, RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo2);
+
+        void processPersistent(RecyclerView.ViewHolder viewHolder, RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo, RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo2);
+
+        void unused(RecyclerView.ViewHolder viewHolder);
+    }
 
     /* loaded from: classes.dex */
     public static class InfoRecord {
@@ -39,9 +45,7 @@ public class ViewInfoStore {
         public static Pools.Pool<InfoRecord> sPool;
         public transient /* synthetic */ FieldHolder $fh;
         public int flags;
-        @Nullable
         public RecyclerView.ItemAnimator.ItemHolderInfo postInfo;
-        @Nullable
         public RecyclerView.ItemAnimator.ItemHolderInfo preInfo;
 
         static {
@@ -86,8 +90,11 @@ public class ViewInfoStore {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-                InfoRecord acquire = sPool.acquire();
-                return acquire == null ? new InfoRecord() : acquire;
+                InfoRecord infoRecord = (InfoRecord) sPool.acquire();
+                if (infoRecord == null) {
+                    return new InfoRecord();
+                }
+                return infoRecord;
             }
             return (InfoRecord) invokeV.objValue;
         }
@@ -101,17 +108,6 @@ public class ViewInfoStore {
                 sPool.release(infoRecord);
             }
         }
-    }
-
-    /* loaded from: classes.dex */
-    public interface ProcessCallback {
-        void processAppeared(RecyclerView.ViewHolder viewHolder, @Nullable RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo, RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo2);
-
-        void processDisappeared(RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo, @Nullable RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo2);
-
-        void processPersistent(RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo, @NonNull RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo2);
-
-        void unused(RecyclerView.ViewHolder viewHolder);
     }
 
     public ViewInfoStore() {
@@ -129,6 +125,21 @@ public class ViewInfoStore {
         }
         this.mLayoutHolderMap = new SimpleArrayMap<>();
         this.mOldChangedHolders = new LongSparseArray<>();
+    }
+
+    public void clear() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.mLayoutHolderMap.clear();
+            this.mOldChangedHolders.clear();
+        }
+    }
+
+    public void onDetach() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            InfoRecord.drainCache();
+        }
     }
 
     private RecyclerView.ItemAnimator.ItemHolderInfo popFromLayoutStep(RecyclerView.ViewHolder viewHolder, int i) {
@@ -174,18 +185,6 @@ public class ViewInfoStore {
         }
     }
 
-    public void addToDisappearedInLayout(RecyclerView.ViewHolder viewHolder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewHolder) == null) {
-            InfoRecord infoRecord = this.mLayoutHolderMap.get(viewHolder);
-            if (infoRecord == null) {
-                infoRecord = InfoRecord.obtain();
-                this.mLayoutHolderMap.put(viewHolder, infoRecord);
-            }
-            infoRecord.flags |= 1;
-        }
-    }
-
     public void addToOldChangeHolders(long j, RecyclerView.ViewHolder viewHolder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, viewHolder) == null) {
@@ -219,18 +218,25 @@ public class ViewInfoStore {
         }
     }
 
-    public void clear() {
+    public void addToDisappearedInLayout(RecyclerView.ViewHolder viewHolder) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.mLayoutHolderMap.clear();
-            this.mOldChangedHolders.clear();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewHolder) == null) {
+            InfoRecord infoRecord = this.mLayoutHolderMap.get(viewHolder);
+            if (infoRecord == null) {
+                infoRecord = InfoRecord.obtain();
+                this.mLayoutHolderMap.put(viewHolder, infoRecord);
+            }
+            infoRecord.flags |= 1;
         }
     }
 
     public RecyclerView.ViewHolder getFromOldChangeHolders(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) ? this.mOldChangedHolders.get(j) : (RecyclerView.ViewHolder) invokeJ.objValue;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
+            return this.mOldChangedHolders.get(j);
+        }
+        return (RecyclerView.ViewHolder) invokeJ.objValue;
     }
 
     public boolean isDisappearing(RecyclerView.ViewHolder viewHolder) {
@@ -238,7 +244,10 @@ public class ViewInfoStore {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, viewHolder)) == null) {
             InfoRecord infoRecord = this.mLayoutHolderMap.get(viewHolder);
-            return (infoRecord == null || (infoRecord.flags & 1) == 0) ? false : true;
+            if (infoRecord != null && (infoRecord.flags & 1) != 0) {
+                return true;
+            }
+            return false;
         }
         return invokeL.booleanValue;
     }
@@ -248,16 +257,12 @@ public class ViewInfoStore {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewHolder)) == null) {
             InfoRecord infoRecord = this.mLayoutHolderMap.get(viewHolder);
-            return (infoRecord == null || (infoRecord.flags & 4) == 0) ? false : true;
+            if (infoRecord != null && (infoRecord.flags & 4) != 0) {
+                return true;
+            }
+            return false;
         }
         return invokeL.booleanValue;
-    }
-
-    public void onDetach() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            InfoRecord.drainCache();
-        }
     }
 
     public void onViewDetached(RecyclerView.ViewHolder viewHolder) {
@@ -267,18 +272,31 @@ public class ViewInfoStore {
         }
     }
 
-    @Nullable
     public RecyclerView.ItemAnimator.ItemHolderInfo popFromPostLayout(RecyclerView.ViewHolder viewHolder) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, viewHolder)) == null) ? popFromLayoutStep(viewHolder, 8) : (RecyclerView.ItemAnimator.ItemHolderInfo) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, viewHolder)) == null) {
+            return popFromLayoutStep(viewHolder, 8);
+        }
+        return (RecyclerView.ItemAnimator.ItemHolderInfo) invokeL.objValue;
     }
 
-    @Nullable
     public RecyclerView.ItemAnimator.ItemHolderInfo popFromPreLayout(RecyclerView.ViewHolder viewHolder) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, viewHolder)) == null) ? popFromLayoutStep(viewHolder, 4) : (RecyclerView.ItemAnimator.ItemHolderInfo) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, viewHolder)) == null) {
+            return popFromLayoutStep(viewHolder, 4);
+        }
+        return (RecyclerView.ItemAnimator.ItemHolderInfo) invokeL.objValue;
+    }
+
+    public void removeFromDisappearedInLayout(RecyclerView.ViewHolder viewHolder) {
+        InfoRecord infoRecord;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048590, this, viewHolder) != null) || (infoRecord = this.mLayoutHolderMap.get(viewHolder)) == null) {
+            return;
+        }
+        infoRecord.flags &= -2;
     }
 
     public void process(ProcessCallback processCallback) {
@@ -309,15 +327,6 @@ public class ViewInfoStore {
                 InfoRecord.recycle(removeAt);
             }
         }
-    }
-
-    public void removeFromDisappearedInLayout(RecyclerView.ViewHolder viewHolder) {
-        InfoRecord infoRecord;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048590, this, viewHolder) == null) || (infoRecord = this.mLayoutHolderMap.get(viewHolder)) == null) {
-            return;
-        }
-        infoRecord.flags &= -2;
     }
 
     public void removeViewHolder(RecyclerView.ViewHolder viewHolder) {

@@ -1,18 +1,15 @@
 package com.huawei.hms.ads.identifier;
 
-import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Keep
 /* loaded from: classes7.dex */
 public class AdIdVerifyException extends Exception {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    @Keep
     public AdIdVerifyException(String str) {
         super(str);
         Interceptable interceptable = $ic;

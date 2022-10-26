@@ -28,25 +28,37 @@ public class NativeLoaderToSoLoaderDelegate implements NativeLoaderDelegate {
     }
 
     @Override // com.facebook.soloader.nativeloader.NativeLoaderDelegate
-    public String getLibraryPath(String str) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? SoLoader.getLibraryPath(str) : (String) invokeL.objValue;
-    }
-
-    @Override // com.facebook.soloader.nativeloader.NativeLoaderDelegate
     public int getSoSourcesVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? SoLoader.getSoSourcesVersion() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return SoLoader.getSoSourcesVersion();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.facebook.soloader.nativeloader.NativeLoaderDelegate
+    public String getLibraryPath(String str) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return SoLoader.getLibraryPath(str);
+        }
+        return (String) invokeL.objValue;
     }
 
     @Override // com.facebook.soloader.nativeloader.NativeLoaderDelegate
     public boolean loadLibrary(String str, int i) {
         InterceptResult invokeLI;
+        int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i)) == null) {
-            return SoLoader.loadLibrary(str, ((i & 1) != 0 ? 16 : 0) | 0);
+            if ((i & 1) != 0) {
+                i2 = 16;
+            } else {
+                i2 = 0;
+            }
+            return SoLoader.loadLibrary(str, i2 | 0);
         }
         return invokeLI.booleanValue;
     }

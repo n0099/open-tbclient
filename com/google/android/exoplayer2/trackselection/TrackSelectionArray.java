@@ -41,10 +41,10 @@ public final class TrackSelectionArray {
             if (this == obj) {
                 return true;
             }
-            if (obj == null || TrackSelectionArray.class != obj.getClass()) {
-                return false;
+            if (obj != null && TrackSelectionArray.class == obj.getClass()) {
+                return Arrays.equals(this.trackSelections, ((TrackSelectionArray) obj).trackSelections);
             }
-            return Arrays.equals(this.trackSelections, ((TrackSelectionArray) obj).trackSelections);
+            return false;
         }
         return invokeL.booleanValue;
     }
@@ -52,13 +52,19 @@ public final class TrackSelectionArray {
     public TrackSelection get(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.trackSelections[i] : (TrackSelection) invokeI.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return this.trackSelections[i];
+        }
+        return (TrackSelection) invokeI.objValue;
     }
 
     public TrackSelection[] getAll() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (TrackSelection[]) this.trackSelections.clone() : (TrackSelection[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return (TrackSelection[]) this.trackSelections.clone();
+        }
+        return (TrackSelection[]) invokeV.objValue;
     }
 
     public int hashCode() {

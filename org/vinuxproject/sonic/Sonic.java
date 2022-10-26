@@ -14,42 +14,6 @@ public class Sonic {
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(10700015, "Lorg/vinuxproject/sonic/Sonic;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(10700015, "Lorg/vinuxproject/sonic/Sonic;");
-                return;
-            }
-        }
-        System.loadLibrary("sonic");
-    }
-
-    public Sonic(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = 0L;
-        b();
-        this.a = initNative(i, i2);
-    }
-
     private native int availableBytesNative(long j);
 
     private native void closeNative(long j);
@@ -90,10 +54,29 @@ public class Sonic {
 
     private native void setVolumeNative(long j, float f);
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(10700015, "Lorg/vinuxproject/sonic/Sonic;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(10700015, "Lorg/vinuxproject/sonic/Sonic;");
+                return;
+            }
+        }
+        System.loadLibrary("sonic");
+    }
+
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? availableBytesNative(this.a) : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return availableBytesNative(this.a);
+        }
+        return invokeV.intValue;
     }
 
     public void b() {
@@ -114,29 +97,55 @@ public class Sonic {
         }
     }
 
+    public void finalize() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            b();
+        }
+    }
+
+    public Sonic(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = 0L;
+        b();
+        this.a = initNative(i, i2);
+    }
+
     public boolean d(byte[] bArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, bArr, i)) == null) ? putBytesNative(this.a, bArr, i) : invokeLI.booleanValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, bArr, i)) == null) {
+            return putBytesNative(this.a, bArr, i);
+        }
+        return invokeLI.booleanValue;
     }
 
     public int e(byte[] bArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, bArr, i)) == null) ? receiveBytesNative(this.a, bArr, i) : invokeLI.intValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, bArr, i)) == null) {
+            return receiveBytesNative(this.a, bArr, i);
+        }
+        return invokeLI.intValue;
     }
 
     public void f(float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048581, this, f) == null) {
             setSpeedNative(this.a, f);
-        }
-    }
-
-    public void finalize() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            b();
         }
     }
 }

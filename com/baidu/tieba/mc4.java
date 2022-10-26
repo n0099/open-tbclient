@@ -1,19 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class mc4 extends jc4 {
+public class mc4 extends kc4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long o;
+    public String o;
     public String p;
-    public String q;
-    public String r;
+    public int q;
+    public boolean r;
     public String s;
 
     public mc4() {
@@ -30,15 +30,16 @@ public class mc4 extends jc4 {
         }
     }
 
-    public long b() {
+    @Override // com.baidu.tieba.kc4
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? System.currentTimeMillis() / 1000 : invokeV.longValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b() - this.d > this.o : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (super.a() && !TextUtils.isEmpty(this.p)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

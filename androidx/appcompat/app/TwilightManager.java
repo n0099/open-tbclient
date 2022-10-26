@@ -1,13 +1,9 @@
 package androidx.appcompat.app;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.location.Location;
 import android.location.LocationManager;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresPermission;
-import androidx.annotation.VisibleForTesting;
 import androidx.core.content.PermissionChecker;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -55,8 +51,7 @@ public class TwilightManager {
         }
     }
 
-    @VisibleForTesting
-    public TwilightManager(@NonNull Context context, @NonNull LocationManager locationManager) {
+    public TwilightManager(Context context, LocationManager locationManager) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -76,7 +71,7 @@ public class TwilightManager {
         this.mLocationManager = locationManager;
     }
 
-    public static TwilightManager getInstance(@NonNull Context context) {
+    public static TwilightManager getInstance(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
@@ -89,19 +84,6 @@ public class TwilightManager {
         return (TwilightManager) invokeL.objValue;
     }
 
-    @SuppressLint({"MissingPermission"})
-    private Location getLastKnownLocation() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            Location lastKnownLocationForProvider = PermissionChecker.checkSelfPermission(this.mContext, h.h) == 0 ? getLastKnownLocationForProvider("network") : null;
-            Location lastKnownLocationForProvider2 = PermissionChecker.checkSelfPermission(this.mContext, h.g) == 0 ? getLastKnownLocationForProvider("gps") : null;
-            return (lastKnownLocationForProvider2 == null || lastKnownLocationForProvider == null) ? lastKnownLocationForProvider2 != null ? lastKnownLocationForProvider2 : lastKnownLocationForProvider : lastKnownLocationForProvider2.getTime() > lastKnownLocationForProvider.getTime() ? lastKnownLocationForProvider2 : lastKnownLocationForProvider;
-        }
-        return (Location) invokeV.objValue;
-    }
-
-    @RequiresPermission(anyOf = {h.h, h.g})
     private Location getLastKnownLocationForProvider(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -119,13 +101,6 @@ public class TwilightManager {
         return (Location) invokeL.objValue;
     }
 
-    private boolean isStateValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? this.mTwilightState.nextUpdate > System.currentTimeMillis() : invokeV.booleanValue;
-    }
-
-    @VisibleForTesting
     public static void setInstance(TwilightManager twilightManager) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, null, twilightManager) == null) {
@@ -133,32 +108,85 @@ public class TwilightManager {
         }
     }
 
-    private void updateState(@NonNull Location location) {
+    private Location getLastKnownLocation() {
+        InterceptResult invokeV;
+        Location location;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+            Location location2 = null;
+            if (PermissionChecker.checkSelfPermission(this.mContext, h.h) == 0) {
+                location = getLastKnownLocationForProvider("network");
+            } else {
+                location = null;
+            }
+            if (PermissionChecker.checkSelfPermission(this.mContext, h.g) == 0) {
+                location2 = getLastKnownLocationForProvider("gps");
+            }
+            if (location2 != null && location != null) {
+                if (location2.getTime() > location.getTime()) {
+                    return location2;
+                }
+                return location;
+            } else if (location2 != null) {
+                return location2;
+            } else {
+                return location;
+            }
+        }
+        return (Location) invokeV.objValue;
+    }
+
+    private boolean isStateValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
+            if (this.mTwilightState.nextUpdate > System.currentTimeMillis()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    private void updateState(Location location) {
+        boolean z;
         long j;
+        long j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, this, location) == null) {
             TwilightState twilightState = this.mTwilightState;
             long currentTimeMillis = System.currentTimeMillis();
             TwilightCalculator twilightCalculator = TwilightCalculator.getInstance();
             twilightCalculator.calculateTwilight(currentTimeMillis - 86400000, location.getLatitude(), location.getLongitude());
-            long j2 = twilightCalculator.sunset;
+            long j3 = twilightCalculator.sunset;
             twilightCalculator.calculateTwilight(currentTimeMillis, location.getLatitude(), location.getLongitude());
-            boolean z = twilightCalculator.state == 1;
-            long j3 = twilightCalculator.sunrise;
-            long j4 = twilightCalculator.sunset;
+            if (twilightCalculator.state == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            long j4 = twilightCalculator.sunrise;
+            long j5 = twilightCalculator.sunset;
             boolean z2 = z;
             twilightCalculator.calculateTwilight(86400000 + currentTimeMillis, location.getLatitude(), location.getLongitude());
-            long j5 = twilightCalculator.sunrise;
-            if (j3 == -1 || j4 == -1) {
-                j = 43200000 + currentTimeMillis;
+            long j6 = twilightCalculator.sunrise;
+            if (j4 != -1 && j5 != -1) {
+                if (currentTimeMillis > j5) {
+                    j2 = 0 + j6;
+                } else if (currentTimeMillis > j4) {
+                    j2 = 0 + j5;
+                } else {
+                    j2 = 0 + j4;
+                }
+                j = j2 + 60000;
             } else {
-                j = (currentTimeMillis > j4 ? 0 + j5 : currentTimeMillis > j3 ? 0 + j4 : 0 + j3) + 60000;
+                j = 43200000 + currentTimeMillis;
             }
             twilightState.isNight = z2;
-            twilightState.yesterdaySunset = j2;
-            twilightState.todaySunrise = j3;
-            twilightState.todaySunset = j4;
-            twilightState.tomorrowSunrise = j5;
+            twilightState.yesterdaySunset = j3;
+            twilightState.todaySunrise = j4;
+            twilightState.todaySunset = j5;
+            twilightState.tomorrowSunrise = j6;
             twilightState.nextUpdate = j;
         }
     }
@@ -178,7 +206,10 @@ public class TwilightManager {
             }
             Log.i(TAG, "Could not get last known location. This is probably because the app does not have any location permissions. Falling back to hardcoded sunrise/sunset values.");
             int i = Calendar.getInstance().get(11);
-            return i < 6 || i >= 22;
+            if (i >= 6 && i < 22) {
+                return false;
+            }
+            return true;
         }
         return invokeV.booleanValue;
     }

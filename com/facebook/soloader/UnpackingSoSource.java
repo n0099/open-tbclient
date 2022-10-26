@@ -40,10 +40,12 @@ public abstract class UnpackingSoSource extends DirectorySoSource {
     public final Context mContext;
     @Nullable
     public String mCorruptedLib;
-    public final Map<String, Object> mLibsBeingLoaded;
+    public final Map mLibsBeingLoaded;
+
+    public abstract Unpacker makeUnpacker() throws IOException;
 
     /* loaded from: classes7.dex */
-    public static class Dso {
+    public class Dso {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String hash;
@@ -70,7 +72,7 @@ public abstract class UnpackingSoSource extends DirectorySoSource {
     }
 
     /* loaded from: classes7.dex */
-    public static final class DsoManifest {
+    public final class DsoManifest {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Dso[] dsos;
@@ -93,6 +95,25 @@ public abstract class UnpackingSoSource extends DirectorySoSource {
             this.dsos = dsoArr;
         }
 
+        public final void write(DataOutput dataOutput) throws IOException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dataOutput) == null) {
+                dataOutput.writeByte(1);
+                dataOutput.writeInt(this.dsos.length);
+                int i = 0;
+                while (true) {
+                    Dso[] dsoArr = this.dsos;
+                    if (i < dsoArr.length) {
+                        dataOutput.writeUTF(dsoArr[i].name);
+                        dataOutput.writeUTF(this.dsos[i].hash);
+                        i++;
+                    } else {
+                        return;
+                    }
+                }
+            }
+        }
+
         public static final DsoManifest read(DataInput dataInput) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -112,29 +133,10 @@ public abstract class UnpackingSoSource extends DirectorySoSource {
             }
             return (DsoManifest) invokeL.objValue;
         }
-
-        public final void write(DataOutput dataOutput) throws IOException {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, dataOutput) != null) {
-                return;
-            }
-            dataOutput.writeByte(1);
-            dataOutput.writeInt(this.dsos.length);
-            int i = 0;
-            while (true) {
-                Dso[] dsoArr = this.dsos;
-                if (i >= dsoArr.length) {
-                    return;
-                }
-                dataOutput.writeUTF(dsoArr[i].name);
-                dataOutput.writeUTF(this.dsos[i].hash);
-                i++;
-            }
-        }
     }
 
     /* loaded from: classes7.dex */
-    public static final class InputDso implements Closeable {
+    public final class InputDso implements Closeable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final InputStream content;
@@ -169,9 +171,20 @@ public abstract class UnpackingSoSource extends DirectorySoSource {
     }
 
     /* loaded from: classes7.dex */
-    public static abstract class InputDsoIterator implements Closeable {
+    public abstract class InputDsoIterator implements Closeable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // java.io.Closeable, java.lang.AutoCloseable
+        public void close() throws IOException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            }
+        }
+
+        public abstract boolean hasNext();
+
+        public abstract InputDso next() throws IOException;
 
         public InputDsoIterator() {
             Interceptable interceptable = $ic;
@@ -186,6 +199,12 @@ public abstract class UnpackingSoSource extends DirectorySoSource {
                 }
             }
         }
+    }
+
+    /* loaded from: classes7.dex */
+    public abstract class Unpacker implements Closeable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         @Override // java.io.Closeable, java.lang.AutoCloseable
         public void close() throws IOException {
@@ -194,15 +213,9 @@ public abstract class UnpackingSoSource extends DirectorySoSource {
             }
         }
 
-        public abstract boolean hasNext();
+        public abstract DsoManifest getDsoManifest() throws IOException;
 
-        public abstract InputDso next() throws IOException;
-    }
-
-    /* loaded from: classes7.dex */
-    public static abstract class Unpacker implements Closeable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+        public abstract InputDsoIterator openDsoIterator() throws IOException;
 
         public Unpacker() {
             Interceptable interceptable = $ic;
@@ -217,17 +230,46 @@ public abstract class UnpackingSoSource extends DirectorySoSource {
                 }
             }
         }
+    }
 
-        @Override // java.io.Closeable, java.lang.AutoCloseable
-        public void close() throws IOException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public UnpackingSoSource(Context context, File file) {
+        super(file, 1);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, file};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((File) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.mLibsBeingLoaded = new HashMap();
+        this.mContext = context;
+    }
 
-        public abstract DsoManifest getDsoManifest() throws IOException;
-
-        public abstract InputDsoIterator openDsoIterator() throws IOException;
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+    public static void writeState(File file, byte b) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{file, Byte.valueOf(b)}) == null) {
+            RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
+            try {
+                randomAccessFile.seek(0L);
+                randomAccessFile.write(b);
+                randomAccessFile.setLength(randomAccessFile.getFilePointer());
+                randomAccessFile.getFD().sync();
+                randomAccessFile.close();
+            } finally {
+            }
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -334,6 +376,25 @@ public abstract class UnpackingSoSource extends DirectorySoSource {
         return invokeL.objValue;
     }
 
+    public synchronized void prepare(String str) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            synchronized (this) {
+                synchronized (getLibraryLock(str)) {
+                    this.mCorruptedLib = str;
+                    prepare(2);
+                }
+            }
+        }
+    }
+
+    public void setSoSourceAbis(String[] strArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, strArr) == null) {
+            this.mAbis = strArr;
+        }
+    }
+
     public static File getSoStorePath(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -359,142 +420,143 @@ public abstract class UnpackingSoSource extends DirectorySoSource {
         InputDsoIterator openDsoIterator;
         DsoManifest dsoManifest;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLIL = interceptable.invokeLIL(65543, this, fileLocker, i, bArr)) != null) {
-            return invokeLIL.booleanValue;
-        }
-        File file = new File(this.soDirectory, STATE_FILE_NAME);
-        RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
-        try {
-            b = randomAccessFile.readByte();
-        } catch (EOFException unused) {
-        } catch (Throwable th) {
-        }
-        if (b != 1) {
-            Log.v(TAG, "dso store " + this.soDirectory + " regeneration interrupted: wiping clean");
-            b = 0;
-        }
-        randomAccessFile.close();
-        File file2 = new File(this.soDirectory, DEPS_FILE_NAME);
-        DsoManifest dsoManifest2 = null;
-        randomAccessFile = new RandomAccessFile(file2, "rw");
-        try {
-            int length = (int) randomAccessFile.length();
-            byte[] bArr2 = new byte[length];
-            if (randomAccessFile.read(bArr2) != length) {
-                Log.v(TAG, "short read of so store deps file: marking unclean");
-                b = 0;
-            }
-            if (!Arrays.equals(bArr2, bArr)) {
-                Log.v(TAG, "deps mismatch on deps store: regenerating");
-                b = 0;
-            }
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65543, this, fileLocker, i, bArr)) == null) {
+            File file = new File(this.soDirectory, STATE_FILE_NAME);
+            RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
             try {
-                if (b != 0) {
-                    if ((i & 2) != 0) {
+                b = randomAccessFile.readByte();
+            } catch (EOFException unused) {
+            } catch (Throwable th) {
+            }
+            if (b != 1) {
+                Log.v(TAG, "dso store " + this.soDirectory + " regeneration interrupted: wiping clean");
+                b = 0;
+            }
+            randomAccessFile.close();
+            File file2 = new File(this.soDirectory, DEPS_FILE_NAME);
+            DsoManifest dsoManifest2 = null;
+            randomAccessFile = new RandomAccessFile(file2, "rw");
+            try {
+                int length = (int) randomAccessFile.length();
+                byte[] bArr2 = new byte[length];
+                if (randomAccessFile.read(bArr2) != length) {
+                    Log.v(TAG, "short read of so store deps file: marking unclean");
+                    b = 0;
+                }
+                if (!Arrays.equals(bArr2, bArr)) {
+                    Log.v(TAG, "deps mismatch on deps store: regenerating");
+                    b = 0;
+                }
+                try {
+                    if (b != 0) {
+                        if ((i & 2) != 0) {
+                        }
+                        dsoManifest = dsoManifest2;
+                        randomAccessFile.close();
+                        if (dsoManifest != null) {
+                            return false;
+                        }
+                        Runnable runnable = new Runnable(this, file2, bArr, dsoManifest, file, fileLocker) { // from class: com.facebook.soloader.UnpackingSoSource.1
+                            public static /* synthetic */ Interceptable $ic;
+                            public transient /* synthetic */ FieldHolder $fh;
+                            public final /* synthetic */ UnpackingSoSource this$0;
+                            public final /* synthetic */ byte[] val$deps;
+                            public final /* synthetic */ File val$depsFileName;
+                            public final /* synthetic */ FileLocker val$lock;
+                            public final /* synthetic */ DsoManifest val$manifest;
+                            public final /* synthetic */ File val$stateFileName;
+
+                            {
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 != null) {
+                                    InitContext newInitContext = TitanRuntime.newInitContext();
+                                    newInitContext.initArgs = r2;
+                                    Object[] objArr = {this, file2, bArr, dsoManifest, file, fileLocker};
+                                    interceptable2.invokeUnInit(65536, newInitContext);
+                                    int i2 = newInitContext.flag;
+                                    if ((i2 & 1) != 0) {
+                                        int i3 = i2 & 2;
+                                        newInitContext.thisArg = this;
+                                        interceptable2.invokeInitBody(65536, newInitContext);
+                                        return;
+                                    }
+                                }
+                                this.this$0 = this;
+                                this.val$depsFileName = file2;
+                                this.val$deps = bArr;
+                                this.val$manifest = dsoManifest;
+                                this.val$stateFileName = file;
+                                this.val$lock = fileLocker;
+                            }
+
+                            @Override // java.lang.Runnable
+                            public void run() {
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                    try {
+                                        Log.v(UnpackingSoSource.TAG, "starting syncer worker");
+                                        RandomAccessFile randomAccessFile2 = new RandomAccessFile(this.val$depsFileName, "rw");
+                                        randomAccessFile2.write(this.val$deps);
+                                        randomAccessFile2.setLength(randomAccessFile2.getFilePointer());
+                                        randomAccessFile2.close();
+                                        RandomAccessFile randomAccessFile3 = new RandomAccessFile(new File(this.this$0.soDirectory, UnpackingSoSource.MANIFEST_FILE_NAME), "rw");
+                                        this.val$manifest.write(randomAccessFile3);
+                                        randomAccessFile3.close();
+                                        SysUtil.fsyncRecursive(this.this$0.soDirectory);
+                                        UnpackingSoSource.writeState(this.val$stateFileName, (byte) 1);
+                                        Log.v(UnpackingSoSource.TAG, "releasing dso store lock for " + this.this$0.soDirectory + " (from syncer thread)");
+                                        this.val$lock.close();
+                                    } catch (IOException e) {
+                                        throw new RuntimeException(e);
+                                    }
+                                }
+                            }
+                        };
+                        if ((i & 1) != 0) {
+                            new Thread(runnable, "SoSync:" + this.soDirectory.getName()).start();
+                        } else {
+                            runnable.run();
+                        }
+                        return true;
+                    }
+                    regenerate(b, dsoManifest2, openDsoIterator);
+                    if (openDsoIterator != null) {
+                        openDsoIterator.close();
+                    }
+                    if (makeUnpacker != null) {
+                        makeUnpacker.close();
                     }
                     dsoManifest = dsoManifest2;
                     randomAccessFile.close();
                     if (dsoManifest != null) {
-                        return false;
                     }
-                    Runnable runnable = new Runnable(this, file2, bArr, dsoManifest, file, fileLocker) { // from class: com.facebook.soloader.UnpackingSoSource.1
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ UnpackingSoSource this$0;
-                        public final /* synthetic */ byte[] val$deps;
-                        public final /* synthetic */ File val$depsFileName;
-                        public final /* synthetic */ FileLocker val$lock;
-                        public final /* synthetic */ DsoManifest val$manifest;
-                        public final /* synthetic */ File val$stateFileName;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this, file2, bArr, dsoManifest, file, fileLocker};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.this$0 = this;
-                            this.val$depsFileName = file2;
-                            this.val$deps = bArr;
-                            this.val$manifest = dsoManifest;
-                            this.val$stateFileName = file;
-                            this.val$lock = fileLocker;
-                        }
-
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                try {
-                                    Log.v(UnpackingSoSource.TAG, "starting syncer worker");
-                                    RandomAccessFile randomAccessFile2 = new RandomAccessFile(this.val$depsFileName, "rw");
-                                    randomAccessFile2.write(this.val$deps);
-                                    randomAccessFile2.setLength(randomAccessFile2.getFilePointer());
-                                    randomAccessFile2.close();
-                                    RandomAccessFile randomAccessFile3 = new RandomAccessFile(new File(this.this$0.soDirectory, UnpackingSoSource.MANIFEST_FILE_NAME), "rw");
-                                    this.val$manifest.write(randomAccessFile3);
-                                    randomAccessFile3.close();
-                                    SysUtil.fsyncRecursive(this.this$0.soDirectory);
-                                    UnpackingSoSource.writeState(this.val$stateFileName, (byte) 1);
-                                    Log.v(UnpackingSoSource.TAG, "releasing dso store lock for " + this.this$0.soDirectory + " (from syncer thread)");
-                                    this.val$lock.close();
-                                } catch (IOException e) {
-                                    throw new RuntimeException(e);
-                                }
+                } catch (Throwable th2) {
+                    try {
+                        throw th2;
+                    } catch (Throwable th3) {
+                        if (openDsoIterator != null) {
+                            try {
+                                openDsoIterator.close();
+                            } catch (Throwable th4) {
+                                th2.addSuppressed(th4);
                             }
                         }
-                    };
-                    if ((i & 1) != 0) {
-                        new Thread(runnable, "SoSync:" + this.soDirectory.getName()).start();
-                    } else {
-                        runnable.run();
+                        throw th3;
                     }
-                    return true;
                 }
-                regenerate(b, dsoManifest2, openDsoIterator);
-                if (openDsoIterator != null) {
-                    openDsoIterator.close();
-                }
-                if (makeUnpacker != null) {
-                    makeUnpacker.close();
-                }
-                dsoManifest = dsoManifest2;
-                randomAccessFile.close();
-                if (dsoManifest != null) {
-                }
-            } catch (Throwable th2) {
-                try {
-                    throw th2;
-                } catch (Throwable th3) {
-                    if (openDsoIterator != null) {
-                        try {
-                            openDsoIterator.close();
-                        } catch (Throwable th4) {
-                            th2.addSuppressed(th4);
-                        }
-                    }
-                    throw th3;
-                }
-            }
-            Log.v(TAG, "so store dirty: regenerating");
-            writeState(file, (byte) 0);
-            makeUnpacker = makeUnpacker();
-            dsoManifest2 = makeUnpacker.getDsoManifest();
-            openDsoIterator = makeUnpacker.openDsoIterator();
-        } finally {
-            try {
-                throw th;
+                Log.v(TAG, "so store dirty: regenerating");
+                writeState(file, (byte) 0);
+                makeUnpacker = makeUnpacker();
+                dsoManifest2 = makeUnpacker.getDsoManifest();
+                openDsoIterator = makeUnpacker.openDsoIterator();
             } finally {
+                try {
+                    throw th;
+                } finally {
+                }
             }
+        } else {
+            return invokeLIL.booleanValue;
         }
     }
 
@@ -554,24 +616,6 @@ public abstract class UnpackingSoSource extends DirectorySoSource {
         }
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    public static void writeState(File file, byte b) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeCommon(65545, null, new Object[]{file, Byte.valueOf(b)}) != null) {
-            return;
-        }
-        RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
-        try {
-            randomAccessFile.seek(0L);
-            randomAccessFile.write(b);
-            randomAccessFile.setLength(randomAccessFile.getFilePointer());
-            randomAccessFile.getFD().sync();
-            randomAccessFile.close();
-        } finally {
-        }
-    }
-
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
     public byte[] getDepsBlock() throws IOException {
         InterceptResult invokeV;
@@ -617,7 +661,10 @@ public abstract class UnpackingSoSource extends DirectorySoSource {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             String[] strArr = this.mAbis;
-            return strArr == null ? super.getSoSourceAbis() : strArr;
+            if (strArr == null) {
+                return super.getSoSourceAbis();
+            }
+            return strArr;
         }
         return (String[]) invokeV.objValue;
     }
@@ -635,8 +682,6 @@ public abstract class UnpackingSoSource extends DirectorySoSource {
         }
         return invokeLIL.intValue;
     }
-
-    public abstract Unpacker makeUnpacker() throws IOException;
 
     @Override // com.facebook.soloader.SoSource
     public void prepare(int i) throws IOException {
@@ -657,48 +702,6 @@ public abstract class UnpackingSoSource extends DirectorySoSource {
                     lock.close();
                 } else {
                     Log.v(TAG, "not releasing dso store lock for " + this.soDirectory + " (syncer thread started)");
-                }
-            }
-        }
-    }
-
-    public void setSoSourceAbis(String[] strArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, strArr) == null) {
-            this.mAbis = strArr;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public UnpackingSoSource(Context context, File file) {
-        super(file, 1);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, file};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((File) objArr2[0], ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.mLibsBeingLoaded = new HashMap();
-        this.mContext = context;
-    }
-
-    public synchronized void prepare(String str) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            synchronized (this) {
-                synchronized (getLibraryLock(str)) {
-                    this.mCorruptedLib = str;
-                    prepare(2);
                 }
             }
         }

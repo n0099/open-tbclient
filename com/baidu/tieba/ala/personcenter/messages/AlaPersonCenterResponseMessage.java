@@ -2,7 +2,7 @@ package com.baidu.tieba.ala.personcenter.messages;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.sy5;
+import com.baidu.tieba.zy5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +13,7 @@ import org.json.JSONObject;
 public class AlaPersonCenterResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public sy5 data;
+    public zy5 data;
     public int errCode;
     public String errMsg;
 
@@ -37,7 +37,7 @@ public class AlaPersonCenterResponseMessage extends JsonHttpResponsedMessage {
         }
         this.errCode = 0;
         this.errMsg = "";
-        this.data = new sy5();
+        this.data = new zy5();
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
@@ -46,31 +46,39 @@ public class AlaPersonCenterResponseMessage extends JsonHttpResponsedMessage {
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
             int statusCode = getStatusCode();
             int error = getError();
-            if (statusCode != 200 || error < 0 || jSONObject == null) {
-                return;
+            if (statusCode == 200 && error >= 0 && jSONObject != null) {
+                this.errCode = jSONObject.optInt("errno");
+                this.errMsg = jSONObject.optString("errmsg");
+                this.data.d(jSONObject);
             }
-            this.errCode = jSONObject.optInt("errno");
-            this.errMsg = jSONObject.optString("errmsg");
-            this.data.d(jSONObject);
         }
     }
 
     public int getErrCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.errCode : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.errCode;
+        }
+        return invokeV.intValue;
     }
 
     public String getErrMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.errMsg : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.errMsg;
+        }
+        return (String) invokeV.objValue;
     }
 
-    public sy5 getPersonCenterData() {
+    public zy5 getPersonCenterData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.data : (sy5) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.data;
+        }
+        return (zy5) invokeV.objValue;
     }
 
     public void setErrCode(int i) {

@@ -1,115 +1,129 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.graphics.Canvas;
+import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ht9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire2.FieldEncoding;
-import com.squareup.wire2.ProtoAdapter;
-import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
+import com.opensource.svgaplayer.SVGAVideoEntity;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
-public final class ft9<E extends ht9> extends ProtoAdapter<E> {
+public class ft9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Class<E> a;
-    public Method b;
+    public final st9 a;
+    public final SVGAVideoEntity b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ft9(Class<E> cls) {
-        super(FieldEncoding.VARINT, cls);
+    /* loaded from: classes4.dex */
+    public final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final String a;
+        public final nt9 b;
+
+        public a(ft9 ft9Var, String str, nt9 nt9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ft9Var, str, nt9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = nt9Var;
+        }
+
+        public final nt9 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.b;
+            }
+            return (nt9) invokeV.objValue;
+        }
+
+        public final String b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.a;
+            }
+            return (String) invokeV.objValue;
+        }
+    }
+
+    public ft9(SVGAVideoEntity sVGAVideoEntity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cls};
+            Object[] objArr = {sVGAVideoEntity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FieldEncoding) objArr2[0], (Class) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = cls;
+        this.b = sVGAVideoEntity;
+        this.a = new st9();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.squareup.wire2.ProtoAdapter
-    /* renamed from: a */
-    public E decode(dt9 dt9Var) throws IOException {
-        InterceptResult invokeL;
+    public void a(Canvas canvas, int i, ImageView.ScaleType scaleType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dt9Var)) == null) {
-            int l = dt9Var.l();
-            try {
-                E e = (E) d().invoke(null, Integer.valueOf(l));
-                if (e != null) {
-                    return e;
+        if (interceptable == null || interceptable.invokeLIL(1048576, this, canvas, i, scaleType) == null) {
+            this.a.f(canvas.getWidth(), canvas.getHeight(), (float) this.b.h().b(), (float) this.b.h().a(), scaleType);
+        }
+    }
+
+    public final st9 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (st9) invokeV.objValue;
+    }
+
+    public final SVGAVideoEntity c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (SVGAVideoEntity) invokeV.objValue;
+    }
+
+    public final List d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            List<mt9> g = this.b.g();
+            ArrayList arrayList = new ArrayList();
+            for (mt9 mt9Var : g) {
+                a aVar = null;
+                if (i >= 0 && i < mt9Var.a().size() && ((nt9) mt9Var.a().get(i)).a() > 0.0d) {
+                    aVar = new a(this, mt9Var.b(), (nt9) mt9Var.a().get(i));
                 }
-                throw new ProtoAdapter.EnumConstantNotFoundException(l, this.a);
-            } catch (IllegalAccessException | InvocationTargetException e2) {
-                throw new AssertionError(e2);
+                if (aVar != null) {
+                    arrayList.add(aVar);
+                }
             }
+            return arrayList;
         }
-        return (E) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.squareup.wire2.ProtoAdapter
-    /* renamed from: b */
-    public void encode(et9 et9Var, E e) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, et9Var, e) == null) {
-            et9Var.q(e.getValue());
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.squareup.wire2.ProtoAdapter
-    /* renamed from: c */
-    public int encodedSize(E e) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, e)) == null) ? et9.i(e.getValue()) : invokeL.intValue;
-    }
-
-    public final Method d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Method method = this.b;
-            if (method != null) {
-                return method;
-            }
-            try {
-                Method method2 = this.a.getMethod("fromValue", Integer.TYPE);
-                this.b = method2;
-                return method2;
-            } catch (NoSuchMethodException e) {
-                throw new AssertionError(e);
-            }
-        }
-        return (Method) invokeV.objValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, obj)) == null) ? (obj instanceof ft9) && ((ft9) obj).a == this.a : invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.a.hashCode() : invokeV.intValue;
+        return (List) invokeI.objValue;
     }
 }

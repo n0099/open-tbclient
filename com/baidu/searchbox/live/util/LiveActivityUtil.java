@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.widget.Toast;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tieba.R;
@@ -60,12 +59,19 @@ public class LiveActivityUtil {
         }
     }
 
-    public static void fixTarget26Crash(@Nullable Activity activity) {
+    public static void fixTarget26Crash(Activity activity) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65538, null, activity) == null) && Build.VERSION.SDK_INT == 26 && activity != null) {
             convertFromTranslucent(activity, new OnTranslucentListener() { // from class: com.baidu.searchbox.live.util.LiveActivityUtil.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // com.baidu.searchbox.live.util.LiveActivityUtil.OnTranslucentListener
+                public void onTranslucent(boolean z) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeZ(1048576, this, z) == null) {
+                    }
+                }
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -80,21 +86,26 @@ public class LiveActivityUtil {
                         }
                     }
                 }
-
-                @Override // com.baidu.searchbox.live.util.LiveActivityUtil.OnTranslucentListener
-                public void onTranslucent(boolean z) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeZ(1048576, this, z) == null) {
-                    }
-                }
             });
         }
+    }
+
+    public static boolean startActivitySafely(Context context, Intent intent) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, intent)) == null) {
+            return startActivitySafely(context, intent, false);
+        }
+        return invokeLL.booleanValue;
     }
 
     public static boolean startActivitySafely(Context context, Intent intent, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, context, intent, z)) == null) ? startActivitySafely(context, intent, z, true) : invokeLLZ.booleanValue;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, context, intent, z)) == null) {
+            return startActivitySafely(context, intent, z, true);
+        }
+        return invokeLLZ.booleanValue;
     }
 
     public static boolean startActivitySafely(Context context, Intent intent, boolean z, boolean z2) {
@@ -108,27 +119,21 @@ public class LiveActivityUtil {
                 context.startActivity(intent);
                 return true;
             } catch (ActivityNotFoundException unused) {
-                if (z2) {
-                    Toast.makeText(context, (int) R.string.liveshow_activity_not_found, 0).show();
+                if (!z2) {
                     return false;
                 }
+                Toast.makeText(context, (int) R.string.liveshow_activity_not_found, 0).show();
                 return false;
             } catch (SecurityException unused2) {
-                if (z2) {
-                    Toast.makeText(context, (int) R.string.liveshow_activity_not_found, 0).show();
+                if (!z2) {
                     return false;
                 }
+                Toast.makeText(context, (int) R.string.liveshow_activity_not_found, 0).show();
                 return false;
             } catch (Exception unused3) {
                 return false;
             }
         }
         return invokeCommon.booleanValue;
-    }
-
-    public static boolean startActivitySafely(Context context, Intent intent) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, intent)) == null) ? startActivitySafely(context, intent, false) : invokeLL.booleanValue;
     }
 }

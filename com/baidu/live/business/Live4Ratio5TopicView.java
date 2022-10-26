@@ -27,17 +27,19 @@ import com.baidu.live.business.view.LiveStatusAnimView;
 import com.baidu.live.business.view.banner.BannerEntity;
 import com.baidu.live.business.view.banner.BannerView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.da0;
-import com.baidu.tieba.fc0;
-import com.baidu.tieba.uc0;
+import com.baidu.tieba.ea0;
+import com.baidu.tieba.gc0;
+import com.baidu.tieba.vc0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.drawee.drawable.ScalingUtils;
+import com.facebook.drawee.generic.GenericDraweeHierarchy;
 import com.facebook.drawee.view.SimpleDraweeView;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class Live4Ratio5TopicView extends LiveBaseItemView {
@@ -56,7 +58,7 @@ public class Live4Ratio5TopicView extends LiveBaseItemView {
     public View r;
     public Context s;
     public LeftLableInfo t;
-    public List<LiveRoomEntity> u;
+    public List u;
 
     /* loaded from: classes2.dex */
     public class a implements View.OnClickListener {
@@ -85,10 +87,9 @@ public class Live4Ratio5TopicView extends LiveBaseItemView {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.f == null || this.a.t == null || TextUtils.isEmpty(this.a.t.cmd)) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.f != null && this.a.t != null && !TextUtils.isEmpty(this.a.t.cmd)) {
+                this.a.f.a(this.a.t.cmd);
             }
-            this.a.f.a(this.a.t.cmd);
         }
     }
 
@@ -119,10 +120,9 @@ public class Live4Ratio5TopicView extends LiveBaseItemView {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.g == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.g != null) {
+                this.a.g.a(this.a.h.getCurrentPosition());
             }
-            this.a.g.a(this.a.h.getCurrentPosition());
         }
     }
 
@@ -153,10 +153,9 @@ public class Live4Ratio5TopicView extends LiveBaseItemView {
         @Override // com.baidu.live.business.view.banner.BannerView.i
         public void onBannerShow(LiveBannerEntity liveBannerEntity) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, liveBannerEntity) == null) || this.a.g == null || liveBannerEntity == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, liveBannerEntity) == null) && this.a.g != null && liveBannerEntity != null) {
+                this.a.g.b(this.a.h.getCurrentPosition());
             }
-            this.a.g.b(this.a.h.getCurrentPosition());
         }
     }
 
@@ -187,7 +186,7 @@ public class Live4Ratio5TopicView extends LiveBaseItemView {
         @Override // com.baidu.live.business.view.banner.BannerView.j
         public void a(int i) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || this.a.u == null) {
+            if ((interceptable != null && interceptable.invokeI(1048576, this, i) != null) || this.a.u == null) {
                 return;
             }
             int i2 = i + 1;
@@ -230,7 +229,7 @@ public class Live4Ratio5TopicView extends LiveBaseItemView {
                 TextView textView = new TextView(this.a.getContext());
                 textView.setMaxLines(1);
                 textView.setTextSize(1, 14.0f);
-                textView.setTextColor(uc0.f().a(this.a.getContext(), this.a.c, "color_white3"));
+                textView.setTextColor(vc0.f().a(this.a.getContext(), this.a.c, "color_white3"));
                 textView.setEllipsize(TextUtils.TruncateAt.END);
                 return textView;
             }
@@ -271,7 +270,7 @@ public class Live4Ratio5TopicView extends LiveBaseItemView {
                 textView.setMaxLines(1);
                 textView.setTextSize(1, 14.0f);
                 textView.setTypeface(Typeface.defaultFromStyle(1));
-                textView.setTextColor(uc0.f().a(this.a.getContext(), this.a.c, "color_white3"));
+                textView.setTextColor(vc0.f().a(this.a.getContext(), this.a.c, "color_white3"));
                 textView.setEllipsize(TextUtils.TruncateAt.END);
                 return textView;
             }
@@ -311,7 +310,7 @@ public class Live4Ratio5TopicView extends LiveBaseItemView {
                 TextView textView = new TextView(this.a.getContext());
                 textView.setMaxLines(1);
                 textView.setTextSize(1, 10.0f);
-                textView.setTextColor(uc0.f().a(this.a.getContext(), this.a.c, "color_white3"));
+                textView.setTextColor(vc0.f().a(this.a.getContext(), this.a.c, "color_white3"));
                 textView.setEllipsize(TextUtils.TruncateAt.END);
                 return textView;
             }
@@ -341,12 +340,37 @@ public class Live4Ratio5TopicView extends LiveBaseItemView {
         s(context);
     }
 
-    private void setCoverBannerData(List<LiveRoomEntity> list) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public Live4Ratio5TopicView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.q = false;
+        s(context);
+    }
+
+    private void setCoverBannerData(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65551, this, list) == null) {
             ArrayList arrayList = new ArrayList();
-            if (!fc0.c(list)) {
-                for (LiveRoomEntity liveRoomEntity : list) {
+            if (!gc0.c(list)) {
+                Iterator it = list.iterator();
+                while (it.hasNext()) {
+                    LiveRoomEntity liveRoomEntity = (LiveRoomEntity) it.next();
                     LiveBannerEntity liveBannerEntity = new LiveBannerEntity();
                     liveBannerEntity.pic = liveRoomEntity.cover;
                     liveBannerEntity.liveStatus = liveRoomEntity.liveStatus;
@@ -359,6 +383,30 @@ public class Live4Ratio5TopicView extends LiveBaseItemView {
                 bannerEntity.mBannerList = arrayList;
                 bannerEntity.mBroadcastInterval = 2000;
                 this.h.setBannerEntity(bannerEntity);
+            }
+        }
+    }
+
+    @Override // com.baidu.live.business.base.LiveBaseItemView
+    public void setIsCurViewing(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            if (z) {
+                View view2 = this.o;
+                if (view2 == null) {
+                    View inflate = this.n.inflate();
+                    this.o = inflate;
+                    LiveBaseLottieView liveBaseLottieView = (LiveBaseLottieView) inflate.findViewById(R.id.obfuscated_res_0x7f091364);
+                    this.p = liveBaseLottieView;
+                    liveBaseLottieView.setRepeatCount(-1);
+                    this.p.setAnimationFromUrl("https://ala-rmb-gift.bj.bcebos.com/lottie/android/liveshow_room_viewing.json");
+                } else {
+                    view2.setVisibility(0);
+                }
+                this.p.playAnimation();
+            } else if (this.o != null) {
+                this.p.cancelAnimation();
+                this.o.setVisibility(8);
             }
         }
     }
@@ -377,10 +425,21 @@ public class Live4Ratio5TopicView extends LiveBaseItemView {
                 this.j.c();
             }
             View view2 = this.o;
-            if (view2 == null || view2.getVisibility() != 0 || (liveBaseLottieView = this.p) == null) {
-                return;
+            if (view2 != null && view2.getVisibility() == 0 && (liveBaseLottieView = this.p) != null) {
+                liveBaseLottieView.playAnimation();
             }
-            liveBaseLottieView.playAnimation();
+        }
+    }
+
+    public final void q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.h.setHasIndicator(false);
+            this.h.setCanTouchScroll(false);
+            this.h.setSwitchDuration(300);
+            this.h.setAspectRatio(1.25f);
+            this.h.setOnBannerShowListener(new c(this));
+            this.h.setOnBannerSwitchListener(new d(this));
         }
     }
 
@@ -424,18 +483,6 @@ public class Live4Ratio5TopicView extends LiveBaseItemView {
         }
     }
 
-    public final void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.h.setHasIndicator(false);
-            this.h.setCanTouchScroll(false);
-            this.h.setSwitchDuration(300);
-            this.h.setAspectRatio(1.25f);
-            this.h.setOnBannerShowListener(new c(this));
-            this.h.setOnBannerSwitchListener(new d(this));
-        }
-    }
-
     public final void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -463,18 +510,18 @@ public class Live4Ratio5TopicView extends LiveBaseItemView {
             setNeedRatio(true);
             setAspectRatio(1.25f);
             this.s = context;
-            View inflate = RelativeLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0533, this);
-            this.h = (BannerView) inflate.findViewById(R.id.obfuscated_res_0x7f091371);
-            this.n = (ViewStub) inflate.findViewById(R.id.obfuscated_res_0x7f091374);
-            this.j = (LiveStatusAnimView) inflate.findViewById(R.id.obfuscated_res_0x7f09135b);
-            this.k = (TextSwitcher) inflate.findViewById(R.id.obfuscated_res_0x7f091360);
-            this.l = (TextSwitcher) inflate.findViewById(R.id.obfuscated_res_0x7f091353);
-            this.i = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f091354);
-            this.m = (TextSwitcher) inflate.findViewById(R.id.obfuscated_res_0x7f09135c);
-            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f091349);
+            View inflate = RelativeLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0532, this);
+            this.h = (BannerView) inflate.findViewById(R.id.obfuscated_res_0x7f091362);
+            this.n = (ViewStub) inflate.findViewById(R.id.obfuscated_res_0x7f091365);
+            this.j = (LiveStatusAnimView) inflate.findViewById(R.id.obfuscated_res_0x7f09134c);
+            this.k = (TextSwitcher) inflate.findViewById(R.id.obfuscated_res_0x7f091351);
+            this.l = (TextSwitcher) inflate.findViewById(R.id.obfuscated_res_0x7f091344);
+            this.i = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f091345);
+            this.m = (TextSwitcher) inflate.findViewById(R.id.obfuscated_res_0x7f09134d);
+            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f09133a);
             this.r = findViewById;
-            findViewById.getLayoutParams().height = da0.b(getContext(), 35.0f);
-            this.r.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080cf0, null));
+            findViewById.getLayoutParams().height = ea0.b(getContext(), 35.0f);
+            this.r.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080d00, null));
             r();
             q();
             this.j.setOnClickListener(new a(this));
@@ -482,11 +529,41 @@ public class Live4Ratio5TopicView extends LiveBaseItemView {
         }
     }
 
+    public void t(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            gradientDrawable.setColor(vc0.f().a(getContext(), this.c, "color_white2"));
+            gradientDrawable.setCornerRadius(ea0.b(getContext(), 10.0f));
+            setBackgroundDrawable(gradientDrawable);
+            BannerView bannerView = this.h;
+            if (bannerView != null) {
+                bannerView.u(str);
+            }
+            SimpleDraweeView simpleDraweeView = this.i;
+            if (simpleDraweeView != null) {
+                ((GenericDraweeHierarchy) simpleDraweeView.getHierarchy()).setPlaceholderImage(vc0.f().l(this.c), ScalingUtils.ScaleType.FIT_XY);
+            }
+            TextSwitcher textSwitcher = this.k;
+            if (textSwitcher != null && textSwitcher.getCurrentView() != null) {
+                ((TextView) this.k.getCurrentView()).setTextColor(vc0.f().a(getContext(), this.c, "color_white3"));
+            }
+            TextSwitcher textSwitcher2 = this.m;
+            if (textSwitcher2 != null && textSwitcher2.getCurrentView() != null) {
+                ((TextView) this.m.getCurrentView()).setTextColor(vc0.f().a(getContext(), this.c, "color_white3"));
+            }
+            TextSwitcher textSwitcher3 = this.l;
+            if (textSwitcher3 != null && textSwitcher3.getCurrentView() != null) {
+                ((TextView) this.l.getCurrentView()).setTextColor(vc0.f().a(getContext(), this.c, "color_white3"));
+            }
+        }
+    }
+
     @Override // com.baidu.live.business.base.LiveBaseItemView
     public void setData(LiveRoomEntity liveRoomEntity, int i) {
         LiveStatusAnimView liveStatusAnimView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048582, this, liveRoomEntity, i) == null) || liveRoomEntity == null) {
+        if ((interceptable != null && interceptable.invokeLI(1048582, this, liveRoomEntity, i) != null) || liveRoomEntity == null) {
             return;
         }
         this.u = liveRoomEntity.topicRoomList;
@@ -513,63 +590,8 @@ public class Live4Ratio5TopicView extends LiveBaseItemView {
                 }
             }
         }
-        u(this.u.get(this.h.getCurrentPosition()), false);
+        u((LiveRoomEntity) this.u.get(this.h.getCurrentPosition()), false);
         t("day");
-    }
-
-    @Override // com.baidu.live.business.base.LiveBaseItemView
-    public void setIsCurViewing(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            if (z) {
-                View view2 = this.o;
-                if (view2 == null) {
-                    View inflate = this.n.inflate();
-                    this.o = inflate;
-                    LiveBaseLottieView liveBaseLottieView = (LiveBaseLottieView) inflate.findViewById(R.id.obfuscated_res_0x7f091373);
-                    this.p = liveBaseLottieView;
-                    liveBaseLottieView.setRepeatCount(-1);
-                    this.p.setAnimationFromUrl("https://ala-rmb-gift.bj.bcebos.com/lottie/android/liveshow_room_viewing.json");
-                } else {
-                    view2.setVisibility(0);
-                }
-                this.p.playAnimation();
-            } else if (this.o != null) {
-                this.p.cancelAnimation();
-                this.o.setVisibility(8);
-            }
-        }
-    }
-
-    public void t(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            GradientDrawable gradientDrawable = new GradientDrawable();
-            gradientDrawable.setColor(uc0.f().a(getContext(), this.c, "color_white2"));
-            gradientDrawable.setCornerRadius(da0.b(getContext(), 10.0f));
-            setBackgroundDrawable(gradientDrawable);
-            BannerView bannerView = this.h;
-            if (bannerView != null) {
-                bannerView.u(str);
-            }
-            SimpleDraweeView simpleDraweeView = this.i;
-            if (simpleDraweeView != null) {
-                simpleDraweeView.getHierarchy().setPlaceholderImage(uc0.f().l(this.c), ScalingUtils.ScaleType.FIT_XY);
-            }
-            TextSwitcher textSwitcher = this.k;
-            if (textSwitcher != null && textSwitcher.getCurrentView() != null) {
-                ((TextView) this.k.getCurrentView()).setTextColor(uc0.f().a(getContext(), this.c, "color_white3"));
-            }
-            TextSwitcher textSwitcher2 = this.m;
-            if (textSwitcher2 != null && textSwitcher2.getCurrentView() != null) {
-                ((TextView) this.m.getCurrentView()).setTextColor(uc0.f().a(getContext(), this.c, "color_white3"));
-            }
-            TextSwitcher textSwitcher3 = this.l;
-            if (textSwitcher3 == null || textSwitcher3.getCurrentView() == null) {
-                return;
-            }
-            ((TextView) this.l.getCurrentView()).setTextColor(uc0.f().a(getContext(), this.c, "color_white3"));
-        }
     }
 
     public final void u(LiveRoomEntity liveRoomEntity, boolean z) {
@@ -589,33 +611,10 @@ public class Live4Ratio5TopicView extends LiveBaseItemView {
             }
             this.l.setVisibility(0);
             if (z) {
-                this.l.setText(da0.a(this.s, liveRoomEntity.audienceCount));
+                this.l.setText(ea0.a(this.s, liveRoomEntity.audienceCount));
             } else {
-                this.l.setCurrentText(da0.a(this.s, liveRoomEntity.audienceCount));
+                this.l.setCurrentText(ea0.a(this.s, liveRoomEntity.audienceCount));
             }
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public Live4Ratio5TopicView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.q = false;
-        s(context);
     }
 }

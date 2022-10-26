@@ -2,7 +2,7 @@ package com.baidu.tieba.frs.profession.permission;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
-import com.baidu.tieba.xq6;
+import com.baidu.tieba.dr6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +12,7 @@ import com.squareup.wire.Wire;
 import java.io.IOException;
 import tbclient.ZoneRight.ZoneRightResIdl;
 /* loaded from: classes4.dex */
-public class ProPermissionHttpResponseMessage extends MvcProtobufHttpResponsedMessage<xq6, ZoneRightResIdl> {
+public class ProPermissionHttpResponseMessage extends MvcProtobufHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -36,13 +36,6 @@ public class ProPermissionHttpResponseMessage extends MvcProtobufHttpResponsedMe
         }
     }
 
-    @Override // com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage
-    public Class<ZoneRightResIdl> getProtobufResponseIdlClass() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ZoneRightResIdl.class : (Class) invokeV.objValue;
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage, com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
@@ -50,12 +43,22 @@ public class ProPermissionHttpResponseMessage extends MvcProtobufHttpResponsedMe
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             super.decodeInBackGround(i, bArr);
             try {
-                xq6 xq6Var = new xq6();
-                xq6Var.initByProtobuf((ZoneRightResIdl) new Wire(new Class[0]).parseFrom(bArr, ZoneRightResIdl.class));
-                setData(xq6Var);
+                dr6 dr6Var = new dr6();
+                dr6Var.initByProtobuf((ZoneRightResIdl) new Wire(new Class[0]).parseFrom(bArr, ZoneRightResIdl.class));
+                setData(dr6Var);
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
+    }
+
+    @Override // com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage
+    public Class getProtobufResponseIdlClass() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return ZoneRightResIdl.class;
+        }
+        return (Class) invokeV.objValue;
     }
 }

@@ -17,12 +17,12 @@ import java.util.List;
 public class MessageFragmentPagerAdapter extends FragmentPagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<a> a;
+    public List a;
     public int b;
     public boolean c;
 
     /* loaded from: classes4.dex */
-    public static class a {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Fragment a;
@@ -44,7 +44,7 @@ public class MessageFragmentPagerAdapter extends FragmentPagerAdapter {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MessageFragmentPagerAdapter(FragmentManager fragmentManager, List<a> list) {
+    public MessageFragmentPagerAdapter(FragmentManager fragmentManager, List list) {
         super(fragmentManager);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -63,10 +63,9 @@ public class MessageFragmentPagerAdapter extends FragmentPagerAdapter {
         }
         this.b = -1;
         this.a = new ArrayList();
-        if (list == null || list.size() <= 0) {
-            return;
+        if (list != null && list.size() > 0) {
+            this.a.addAll(list);
         }
-        this.a.addAll(list);
     }
 
     public void b(boolean z) {
@@ -81,7 +80,7 @@ public class MessageFragmentPagerAdapter extends FragmentPagerAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            List<a> list = this.a;
+            List list = this.a;
             if (list != null) {
                 return list.size();
             }
@@ -95,11 +94,11 @@ public class MessageFragmentPagerAdapter extends FragmentPagerAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            List<a> list = this.a;
-            if (list == null || i < 0 || i >= list.size() || this.a.get(i) == null) {
-                return null;
+            List list = this.a;
+            if (list != null && i >= 0 && i < list.size() && this.a.get(i) != null) {
+                return ((a) this.a.get(i)).a;
             }
-            return this.a.get(i).a;
+            return null;
         }
         return (Fragment) invokeI.objValue;
     }
@@ -109,9 +108,9 @@ public class MessageFragmentPagerAdapter extends FragmentPagerAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            List<a> list = this.a;
+            List list = this.a;
             if (list != null && i >= 0 && i < list.size() && this.a.get(i) != null) {
-                return this.a.get(i).hashCode();
+                return ((a) this.a.get(i)).hashCode();
             }
             return super.getItemId(i);
         }
@@ -123,11 +122,11 @@ public class MessageFragmentPagerAdapter extends FragmentPagerAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            List<a> list = this.a;
-            if (list == null || i < 0 || i >= list.size() || this.a.get(i) == null) {
-                return null;
+            List list = this.a;
+            if (list != null && i >= 0 && i < list.size() && this.a.get(i) != null) {
+                return ((a) this.a.get(i)).b;
             }
-            return this.a.get(i).b;
+            return null;
         }
         return (CharSequence) invokeI.objValue;
     }
@@ -138,15 +137,14 @@ public class MessageFragmentPagerAdapter extends FragmentPagerAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048581, this, viewGroup, i, obj) == null) {
             super.setPrimaryItem(viewGroup, i, obj);
-            if (!this.c || (i2 = this.b) == i) {
-                return;
-            }
-            if (i2 != -1) {
-                ((BaseFragment) getItem(i2)).setPrimary(false);
-            }
-            this.b = i;
-            if (obj instanceof BaseFragment) {
-                ((BaseFragment) obj).setPrimary(true);
+            if (this.c && (i2 = this.b) != i) {
+                if (i2 != -1) {
+                    ((BaseFragment) getItem(i2)).setPrimary(false);
+                }
+                this.b = i;
+                if (obj instanceof BaseFragment) {
+                    ((BaseFragment) obj).setPrimary(true);
+                }
             }
         }
     }

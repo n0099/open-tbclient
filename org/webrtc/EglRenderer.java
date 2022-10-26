@@ -11,7 +11,7 @@ import android.os.Message;
 import android.view.Surface;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.xw9;
+import com.baidu.tieba.px9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,7 +43,7 @@ public class EglRenderer implements VideoSink {
     public final EglSurfaceCreation eglSurfaceCreationRunnable;
     public final Object fpsReductionLock;
     public final VideoFrameDrawer frameDrawer;
-    public final ArrayList<FrameListenerAndParams> frameListeners;
+    public final ArrayList frameListeners;
     public final Object frameLock;
     public int framesDropped;
     public int framesReceived;
@@ -65,6 +65,11 @@ public class EglRenderer implements VideoSink {
     public final Object statisticsLock;
     public long statisticsStartTimeNs;
     public boolean usePresentationTimeStamp;
+
+    /* loaded from: classes8.dex */
+    public interface FrameListener {
+        void onFrame(Bitmap bitmap);
+    }
 
     /* loaded from: classes8.dex */
     public class EglSurfaceCreation implements Runnable {
@@ -91,6 +96,15 @@ public class EglRenderer implements VideoSink {
             this.this$0 = eglRenderer;
         }
 
+        public synchronized void setSurface(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+                synchronized (this) {
+                    this.surface = obj;
+                }
+            }
+        }
+
         @Override // java.lang.Runnable
         public synchronized void run() {
             Interceptable interceptable = $ic;
@@ -110,24 +124,10 @@ public class EglRenderer implements VideoSink {
                 }
             }
         }
-
-        public synchronized void setSurface(Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-                synchronized (this) {
-                    this.surface = obj;
-                }
-            }
-        }
     }
 
     /* loaded from: classes8.dex */
-    public interface FrameListener {
-        void onFrame(Bitmap bitmap);
-    }
-
-    /* loaded from: classes8.dex */
-    public static class FrameListenerAndParams {
+    public class FrameListenerAndParams {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final boolean applyFpsReduction;
@@ -158,7 +158,7 @@ public class EglRenderer implements VideoSink {
     }
 
     /* loaded from: classes8.dex */
-    public static class HandlerWithExceptionCallback extends Handler {
+    public class HandlerWithExceptionCallback extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Runnable exceptionCallback;
@@ -215,7 +215,7 @@ public class EglRenderer implements VideoSink {
             }
         }
         this.handlerLock = new Object();
-        this.frameListeners = new ArrayList<>();
+        this.frameListeners = new ArrayList();
         this.fpsReductionLock = new Object();
         this.frameDrawer = new VideoFrameDrawer();
         this.drawMatrix = new Matrix();
@@ -264,6 +264,132 @@ public class EglRenderer implements VideoSink {
         this.name = str;
     }
 
+    private void createEglSurfaceInternal(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65545, this, obj) == null) {
+            this.eglSurfaceCreationRunnable.setSurface(obj);
+            postToRenderThread(this.eglSurfaceCreationRunnable);
+        }
+    }
+
+    private void logD(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65547, this, str) == null) {
+            Logging.d(TAG, this.name + str);
+        }
+    }
+
+    private void postToRenderThread(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65550, this, runnable) == null) {
+            synchronized (this.handlerLock) {
+                if (this.renderThreadHandler != null) {
+                    this.renderThreadHandler.post(runnable);
+                }
+            }
+        }
+    }
+
+    private void resetStatistics(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(65552, this, j) == null) {
+            synchronized (this.statisticsLock) {
+                this.statisticsStartTimeNs = j;
+                this.framesReceived = 0;
+                this.framesDropped = 0;
+                this.framesRendered = 0;
+                this.renderTimeNs = 0L;
+                this.renderSwapBufferTimeNs = 0L;
+            }
+        }
+    }
+
+    public void createEglSurface(SurfaceTexture surfaceTexture) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, surfaceTexture) == null) {
+            createEglSurfaceInternal(surfaceTexture);
+        }
+    }
+
+    public /* synthetic */ void d(CountDownLatch countDownLatch) {
+        RendererCommon.GlDrawer glDrawer = this.drawer;
+        if (glDrawer != null) {
+            glDrawer.release();
+            this.drawer = null;
+        }
+        this.frameDrawer.release();
+        this.bitmapTextureFramebuffer.release();
+        if (this.eglBase != null) {
+            logD("eglBase detach and release.");
+            this.eglBase.detachCurrent();
+            this.eglBase.release();
+            this.eglBase = null;
+        }
+        this.frameListeners.clear();
+        countDownLatch.countDown();
+    }
+
+    public /* synthetic */ void e(Looper looper) {
+        logD("Quitting render thread.");
+        looper.quit();
+    }
+
+    public /* synthetic */ void f(Runnable runnable) {
+        EglBase eglBase = this.eglBase;
+        if (eglBase != null) {
+            eglBase.detachCurrent();
+            this.eglBase.releaseSurface();
+        }
+        runnable.run();
+    }
+
+    public void setLayoutAspectRatio(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048600, this, f) == null) {
+            logD("setLayoutAspectRatio: " + f);
+            synchronized (this.layoutLock) {
+                this.layoutAspectRatio = f;
+            }
+        }
+    }
+
+    public void setMirror(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
+            logD("setMirror: " + z);
+            synchronized (this.layoutLock) {
+                this.mirror = z;
+            }
+        }
+    }
+
+    public void addFrameListener(FrameListener frameListener, float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, frameListener, f) == null) {
+            addFrameListener(frameListener, f, null, false);
+        }
+    }
+
+    public /* synthetic */ void c(EglBase.Context context, int[] iArr) {
+        if (context == null) {
+            logD("EglBase10.create context");
+            this.eglBase = px9.d(iArr);
+            return;
+        }
+        logD("EglBase.create shared context");
+        this.eglBase = px9.c(context, iArr);
+    }
+
+    public /* synthetic */ void g(CountDownLatch countDownLatch, FrameListener frameListener) {
+        countDownLatch.countDown();
+        Iterator it = this.frameListeners.iterator();
+        while (it.hasNext()) {
+            if (((FrameListenerAndParams) it.next()).listener == frameListener) {
+                it.remove();
+            }
+        }
+    }
+
     private String averageTimeAsString(long j, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -290,18 +416,26 @@ public class EglRenderer implements VideoSink {
         }
     }
 
-    private void createEglSurfaceInternal(Object obj) {
+    public void clearImage(final float f, final float f2, final float f3, final float f4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, this, obj) == null) {
-            this.eglSurfaceCreationRunnable.setSurface(obj);
-            postToRenderThread(this.eglSurfaceCreationRunnable);
-        }
-    }
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
+            synchronized (this.handlerLock) {
+                if (this.renderThreadHandler == null) {
+                    return;
+                }
+                this.renderThreadHandler.postAtFrontOfQueue(new Runnable() { // from class: com.baidu.tieba.tw9
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
 
-    private void logD(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65547, this, str) == null) {
-            Logging.d(TAG, this.name + str);
+                    @Override // java.lang.Runnable
+                    public final void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            EglRenderer.this.b(f, f2, f3, f4);
+                        }
+                    }
+                });
+            }
         }
     }
 
@@ -325,7 +459,7 @@ public class EglRenderer implements VideoSink {
 
     private void notifyCallbacks(VideoFrame videoFrame, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(65549, this, videoFrame, z) == null) || this.frameListeners.isEmpty()) {
+        if ((interceptable != null && interceptable.invokeLZ(65549, this, videoFrame, z) != null) || this.frameListeners.isEmpty()) {
             return;
         }
         this.drawMatrix.reset();
@@ -335,20 +469,20 @@ public class EglRenderer implements VideoSink {
         }
         this.drawMatrix.preScale(1.0f, -1.0f);
         this.drawMatrix.preTranslate(-0.5f, -0.5f);
-        Iterator<FrameListenerAndParams> it = this.frameListeners.iterator();
+        Iterator it = this.frameListeners.iterator();
         while (it.hasNext()) {
-            FrameListenerAndParams next = it.next();
-            if (z || !next.applyFpsReduction) {
+            FrameListenerAndParams frameListenerAndParams = (FrameListenerAndParams) it.next();
+            if (z || !frameListenerAndParams.applyFpsReduction) {
                 it.remove();
-                int rotatedWidth = (int) (next.scale * videoFrame.getRotatedWidth());
-                int rotatedHeight = (int) (next.scale * videoFrame.getRotatedHeight());
+                int rotatedWidth = (int) (frameListenerAndParams.scale * videoFrame.getRotatedWidth());
+                int rotatedHeight = (int) (frameListenerAndParams.scale * videoFrame.getRotatedHeight());
                 if (rotatedWidth != 0 && rotatedHeight != 0) {
                     this.bitmapTextureFramebuffer.setSize(rotatedWidth, rotatedHeight);
                     GLES20.glBindFramebuffer(36160, this.bitmapTextureFramebuffer.getFrameBufferId());
                     GLES20.glFramebufferTexture2D(36160, 36064, 3553, this.bitmapTextureFramebuffer.getTextureId(), 0);
                     GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
                     GLES20.glClear(16384);
-                    this.frameDrawer.drawFrame(videoFrame, next.drawer, this.drawMatrix, 0, 0, rotatedWidth, rotatedHeight);
+                    this.frameDrawer.drawFrame(videoFrame, frameListenerAndParams.drawer, this.drawMatrix, 0, 0, rotatedWidth, rotatedHeight);
                     ByteBuffer allocateDirect = ByteBuffer.allocateDirect(rotatedWidth * rotatedHeight * 4);
                     GLES20.glViewport(0, 0, rotatedWidth, rotatedHeight);
                     GLES20.glReadPixels(0, 0, rotatedWidth, rotatedHeight, GeneratedTexture.FORMAT, 5121, allocateDirect);
@@ -356,20 +490,9 @@ public class EglRenderer implements VideoSink {
                     GlUtil.checkNoGLES2Error("EglRenderer.notifyCallbacks");
                     Bitmap createBitmap = Bitmap.createBitmap(rotatedWidth, rotatedHeight, Bitmap.Config.ARGB_8888);
                     createBitmap.copyPixelsFromBuffer(allocateDirect);
-                    next.listener.onFrame(createBitmap);
+                    frameListenerAndParams.listener.onFrame(createBitmap);
                 } else {
-                    next.listener.onFrame(null);
-                }
-            }
-        }
-    }
-
-    private void postToRenderThread(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65550, this, runnable) == null) {
-            synchronized (this.handlerLock) {
-                if (this.renderThreadHandler != null) {
-                    this.renderThreadHandler.post(runnable);
+                    frameListenerAndParams.listener.onFrame(null);
                 }
             }
         }
@@ -410,7 +533,11 @@ public class EglRenderer implements VideoSink {
                     long nanoTime2 = System.nanoTime();
                     float rotatedWidth = videoFrame.getRotatedWidth() / videoFrame.getRotatedHeight();
                     synchronized (this.layoutLock) {
-                        f = this.layoutAspectRatio != 0.0f ? this.layoutAspectRatio : rotatedWidth;
+                        if (this.layoutAspectRatio != 0.0f) {
+                            f = this.layoutAspectRatio;
+                        } else {
+                            f = rotatedWidth;
+                        }
                     }
                     if (rotatedWidth > f) {
                         f3 = f / rotatedWidth;
@@ -453,20 +580,6 @@ public class EglRenderer implements VideoSink {
         }
     }
 
-    private void resetStatistics(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65552, this, j) == null) {
-            synchronized (this.statisticsLock) {
-                this.statisticsStartTimeNs = j;
-                this.framesReceived = 0;
-                this.framesDropped = 0;
-                this.framesRendered = 0;
-                this.renderTimeNs = 0L;
-                this.renderSwapBufferTimeNs = 0L;
-            }
-        }
-    }
-
     public /* synthetic */ void a(RendererCommon.GlDrawer glDrawer, FrameListener frameListener, float f, boolean z) {
         if (glDrawer == null) {
             glDrawer = this.drawer;
@@ -474,21 +587,36 @@ public class EglRenderer implements VideoSink {
         this.frameListeners.add(new FrameListenerAndParams(frameListener, f, glDrawer, z));
     }
 
-    public void addFrameListener(FrameListener frameListener, float f) {
+    public void addFrameListener(FrameListener frameListener, float f, RendererCommon.GlDrawer glDrawer) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, frameListener, f) == null) {
-            addFrameListener(frameListener, f, null, false);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{frameListener, Float.valueOf(f), glDrawer}) == null) {
+            addFrameListener(frameListener, f, glDrawer, false);
         }
     }
 
-    public /* synthetic */ void c(EglBase.Context context, int[] iArr) {
-        if (context == null) {
-            logD("EglBase10.create context");
-            this.eglBase = xw9.d(iArr);
-            return;
+    public void init(@Nullable EglBase.Context context, int[] iArr, RendererCommon.GlDrawer glDrawer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048591, this, context, iArr, glDrawer) == null) {
+            init(context, iArr, glDrawer, false);
         }
-        logD("EglBase.create shared context");
-        this.eglBase = xw9.c(context, iArr);
+    }
+
+    public void addFrameListener(final FrameListener frameListener, final float f, @Nullable final RendererCommon.GlDrawer glDrawer, final boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{frameListener, Float.valueOf(f), glDrawer, Boolean.valueOf(z)}) == null) {
+            postToRenderThread(new Runnable() { // from class: com.baidu.tieba.rw9
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        EglRenderer.this.a(glDrawer, frameListener, f, z);
+                    }
+                }
+            });
+        }
     }
 
     public void clearImage() {
@@ -498,31 +626,6 @@ public class EglRenderer implements VideoSink {
         }
     }
 
-    public void createEglSurface(Surface surface) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, surface) == null) {
-            createEglSurfaceInternal(surface);
-        }
-    }
-
-    public /* synthetic */ void d(CountDownLatch countDownLatch) {
-        RendererCommon.GlDrawer glDrawer = this.drawer;
-        if (glDrawer != null) {
-            glDrawer.release();
-            this.drawer = null;
-        }
-        this.frameDrawer.release();
-        this.bitmapTextureFramebuffer.release();
-        if (this.eglBase != null) {
-            logD("eglBase detach and release.");
-            this.eglBase.detachCurrent();
-            this.eglBase.release();
-            this.eglBase = null;
-        }
-        this.frameListeners.clear();
-        countDownLatch.countDown();
-    }
-
     public void disableFpsReduction() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
@@ -530,27 +633,17 @@ public class EglRenderer implements VideoSink {
         }
     }
 
-    public /* synthetic */ void e(Looper looper) {
-        logD("Quitting render thread.");
-        looper.quit();
-    }
-
-    public /* synthetic */ void f(Runnable runnable) {
-        EglBase eglBase = this.eglBase;
-        if (eglBase != null) {
-            eglBase.detachCurrent();
-            this.eglBase.releaseSurface();
+    public void pauseVideo() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            setFpsReduction(0.0f);
         }
-        runnable.run();
     }
 
-    public /* synthetic */ void g(CountDownLatch countDownLatch, FrameListener frameListener) {
-        countDownLatch.countDown();
-        Iterator<FrameListenerAndParams> it = this.frameListeners.iterator();
-        while (it.hasNext()) {
-            if (it.next().listener == frameListener) {
-                it.remove();
-            }
+    public void createEglSurface(Surface surface) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, surface) == null) {
+            createEglSurfaceInternal(surface);
         }
     }
 
@@ -598,7 +691,7 @@ public class EglRenderer implements VideoSink {
                         }
                     });
                     this.renderThreadHandler = handlerWithExceptionCallback;
-                    ThreadUtils.invokeAtFrontUninterruptibly(handlerWithExceptionCallback, new Runnable() { // from class: com.baidu.tieba.xv9
+                    ThreadUtils.invokeAtFrontUninterruptibly(handlerWithExceptionCallback, new Runnable() { // from class: com.baidu.tieba.pw9
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -634,13 +727,17 @@ public class EglRenderer implements VideoSink {
                     return;
                 }
                 synchronized (this.frameLock) {
-                    z = this.pendingFrame != null;
+                    if (this.pendingFrame != null) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
                     if (z) {
                         this.pendingFrame.release();
                     }
                     this.pendingFrame = videoFrame;
                     videoFrame.retain();
-                    this.renderThreadHandler.post(new Runnable() { // from class: com.baidu.tieba.cw9
+                    this.renderThreadHandler.post(new Runnable() { // from class: com.baidu.tieba.uw9
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -662,18 +759,34 @@ public class EglRenderer implements VideoSink {
         }
     }
 
-    public void pauseVideo() {
+    public void setFpsReduction(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            setFpsReduction(0.0f);
+        if (interceptable == null || interceptable.invokeF(1048599, this, f) == null) {
+            logD("setFpsReduction: " + f);
+            synchronized (this.fpsReductionLock) {
+                long j = this.minRenderPeriodNs;
+                if (f <= 0.0f) {
+                    this.minRenderPeriodNs = Long.MAX_VALUE;
+                } else {
+                    this.minRenderPeriodNs = ((float) TimeUnit.SECONDS.toNanos(1L)) / f;
+                }
+                if (this.minRenderPeriodNs != j) {
+                    this.nextFrameTimeNs = System.nanoTime();
+                }
+            }
         }
     }
 
     public void printStackTrace() {
+        Thread thread;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             synchronized (this.handlerLock) {
-                Thread thread = this.renderThreadHandler == null ? null : this.renderThreadHandler.getLooper().getThread();
+                if (this.renderThreadHandler == null) {
+                    thread = null;
+                } else {
+                    thread = this.renderThreadHandler.getLooper().getThread();
+                }
                 if (thread != null) {
                     StackTraceElement[] stackTrace = thread.getStackTrace();
                     if (stackTrace.length > 0) {
@@ -698,7 +811,7 @@ public class EglRenderer implements VideoSink {
                     return;
                 }
                 this.renderThreadHandler.removeCallbacks(this.logStatisticsRunnable);
-                this.renderThreadHandler.postAtFrontOfQueue(new Runnable() { // from class: com.baidu.tieba.yv9
+                this.renderThreadHandler.postAtFrontOfQueue(new Runnable() { // from class: com.baidu.tieba.qw9
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -711,7 +824,7 @@ public class EglRenderer implements VideoSink {
                     }
                 });
                 final Looper looper = this.renderThreadHandler.getLooper();
-                this.renderThreadHandler.post(new Runnable() { // from class: com.baidu.tieba.vv9
+                this.renderThreadHandler.post(new Runnable() { // from class: com.baidu.tieba.nw9
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -743,7 +856,7 @@ public class EglRenderer implements VideoSink {
             synchronized (this.handlerLock) {
                 if (this.renderThreadHandler != null) {
                     this.renderThreadHandler.removeCallbacks(this.eglSurfaceCreationRunnable);
-                    this.renderThreadHandler.postAtFrontOfQueue(new Runnable() { // from class: com.baidu.tieba.aw9
+                    this.renderThreadHandler.postAtFrontOfQueue(new Runnable() { // from class: com.baidu.tieba.sw9
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -771,7 +884,7 @@ public class EglRenderer implements VideoSink {
                     return;
                 }
                 if (Thread.currentThread() != this.renderThreadHandler.getLooper().getThread()) {
-                    postToRenderThread(new Runnable() { // from class: com.baidu.tieba.wv9
+                    postToRenderThread(new Runnable() { // from class: com.baidu.tieba.ow9
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -788,106 +901,6 @@ public class EglRenderer implements VideoSink {
                 }
                 throw new RuntimeException("removeFrameListener must not be called on the render thread.");
             }
-        }
-    }
-
-    public void setFpsReduction(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048599, this, f) == null) {
-            logD("setFpsReduction: " + f);
-            synchronized (this.fpsReductionLock) {
-                long j = this.minRenderPeriodNs;
-                if (f <= 0.0f) {
-                    this.minRenderPeriodNs = Long.MAX_VALUE;
-                } else {
-                    this.minRenderPeriodNs = ((float) TimeUnit.SECONDS.toNanos(1L)) / f;
-                }
-                if (this.minRenderPeriodNs != j) {
-                    this.nextFrameTimeNs = System.nanoTime();
-                }
-            }
-        }
-    }
-
-    public void setLayoutAspectRatio(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048600, this, f) == null) {
-            logD("setLayoutAspectRatio: " + f);
-            synchronized (this.layoutLock) {
-                this.layoutAspectRatio = f;
-            }
-        }
-    }
-
-    public void setMirror(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
-            logD("setMirror: " + z);
-            synchronized (this.layoutLock) {
-                this.mirror = z;
-            }
-        }
-    }
-
-    public void addFrameListener(FrameListener frameListener, float f, RendererCommon.GlDrawer glDrawer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{frameListener, Float.valueOf(f), glDrawer}) == null) {
-            addFrameListener(frameListener, f, glDrawer, false);
-        }
-    }
-
-    public void clearImage(final float f, final float f2, final float f3, final float f4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
-            synchronized (this.handlerLock) {
-                if (this.renderThreadHandler == null) {
-                    return;
-                }
-                this.renderThreadHandler.postAtFrontOfQueue(new Runnable() { // from class: com.baidu.tieba.bw9
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // java.lang.Runnable
-                    public final void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            EglRenderer.this.b(f, f2, f3, f4);
-                        }
-                    }
-                });
-            }
-        }
-    }
-
-    public void createEglSurface(SurfaceTexture surfaceTexture) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, surfaceTexture) == null) {
-            createEglSurfaceInternal(surfaceTexture);
-        }
-    }
-
-    public void addFrameListener(final FrameListener frameListener, final float f, @Nullable final RendererCommon.GlDrawer glDrawer, final boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{frameListener, Float.valueOf(f), glDrawer, Boolean.valueOf(z)}) == null) {
-            postToRenderThread(new Runnable() { // from class: com.baidu.tieba.zv9
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        EglRenderer.this.a(glDrawer, frameListener, f, z);
-                    }
-                }
-            });
-        }
-    }
-
-    public void init(@Nullable EglBase.Context context, int[] iArr, RendererCommon.GlDrawer glDrawer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048591, this, context, iArr, glDrawer) == null) {
-            init(context, iArr, glDrawer, false);
         }
     }
 }

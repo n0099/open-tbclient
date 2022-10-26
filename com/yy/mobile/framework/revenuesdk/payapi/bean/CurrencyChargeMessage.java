@@ -1,19 +1,17 @@
 package com.yy.mobile.framework.revenuesdk.payapi.bean;
 
-import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-@Keep
 /* loaded from: classes8.dex */
 public class CurrencyChargeMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long amount;
-    public Map<String, String> appClientExpand;
+    public Map appClientExpand;
     public int appid;
     public int cid;
     public long currencyAmount;

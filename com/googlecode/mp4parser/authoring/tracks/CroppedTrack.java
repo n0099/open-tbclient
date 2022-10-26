@@ -11,12 +11,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.coremedia.iso.boxes.Box;
 import com.coremedia.iso.boxes.CompositionTimeToSample;
-import com.coremedia.iso.boxes.SampleDependencyTypeBox;
 import com.coremedia.iso.boxes.SampleDescriptionBox;
 import com.coremedia.iso.boxes.SubSampleInformationBox;
 import com.coremedia.iso.boxes.TimeToSampleBox;
 import com.googlecode.mp4parser.authoring.AbstractTrack;
-import com.googlecode.mp4parser.authoring.Sample;
 import com.googlecode.mp4parser.authoring.Track;
 import com.googlecode.mp4parser.authoring.TrackMetaData;
 import java.util.ArrayList;
@@ -68,87 +66,128 @@ public class CroppedTrack extends AbstractTrack {
         this.toSample = (int) j2;
     }
 
-    public static List<TimeToSampleBox.Entry> getDecodingTimeEntries(List<TimeToSampleBox.Entry> list, long j, long j2) {
+    public static List getCompositionTimeEntries(List list, long j, long j2) {
         InterceptResult invokeCommon;
-        TimeToSampleBox.Entry next;
+        CompositionTimeToSample.Entry entry;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{list, Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            if (list != null && !list.isEmpty()) {
+                long j3 = 0;
+                ListIterator listIterator = list.listIterator();
+                ArrayList arrayList = new ArrayList();
+                while (true) {
+                    entry = (CompositionTimeToSample.Entry) listIterator.next();
+                    if (entry.getCount() + j3 > j) {
+                        break;
+                    }
+                    j3 += entry.getCount();
+                }
+                if (entry.getCount() + j3 >= j2) {
+                    arrayList.add(new CompositionTimeToSample.Entry((int) (j2 - j), entry.getOffset()));
+                    return arrayList;
+                }
+                arrayList.add(new CompositionTimeToSample.Entry((int) ((entry.getCount() + j3) - j), entry.getOffset()));
+                int count = entry.getCount();
+                while (true) {
+                    j3 += count;
+                    if (!listIterator.hasNext()) {
+                        break;
+                    }
+                    entry = (CompositionTimeToSample.Entry) listIterator.next();
+                    if (entry.getCount() + j3 >= j2) {
+                        break;
+                    }
+                    arrayList.add(entry);
+                    count = entry.getCount();
+                }
+                arrayList.add(new CompositionTimeToSample.Entry((int) (j2 - j3), entry.getOffset()));
+                return arrayList;
+            }
+            return null;
+        }
+        return (List) invokeCommon.objValue;
+    }
+
+    public static List getDecodingTimeEntries(List list, long j, long j2) {
+        InterceptResult invokeCommon;
+        TimeToSampleBox.Entry entry;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{list, Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            if (list == null || list.isEmpty()) {
-                return null;
-            }
-            long j3 = 0;
-            ListIterator<TimeToSampleBox.Entry> listIterator = list.listIterator();
-            LinkedList linkedList = new LinkedList();
-            while (true) {
-                next = listIterator.next();
-                if (next.getCount() + j3 > j) {
-                    break;
+            if (list != null && !list.isEmpty()) {
+                long j3 = 0;
+                ListIterator listIterator = list.listIterator();
+                LinkedList linkedList = new LinkedList();
+                while (true) {
+                    entry = (TimeToSampleBox.Entry) listIterator.next();
+                    if (entry.getCount() + j3 > j) {
+                        break;
+                    }
+                    j3 += entry.getCount();
                 }
-                j3 += next.getCount();
-            }
-            if (next.getCount() + j3 >= j2) {
-                linkedList.add(new TimeToSampleBox.Entry(j2 - j, next.getDelta()));
+                if (entry.getCount() + j3 >= j2) {
+                    linkedList.add(new TimeToSampleBox.Entry(j2 - j, entry.getDelta()));
+                    return linkedList;
+                }
+                linkedList.add(new TimeToSampleBox.Entry((entry.getCount() + j3) - j, entry.getDelta()));
+                long count = entry.getCount();
+                while (true) {
+                    j3 += count;
+                    if (!listIterator.hasNext()) {
+                        break;
+                    }
+                    entry = (TimeToSampleBox.Entry) listIterator.next();
+                    if (entry.getCount() + j3 >= j2) {
+                        break;
+                    }
+                    linkedList.add(entry);
+                    count = entry.getCount();
+                }
+                linkedList.add(new TimeToSampleBox.Entry(j2 - j3, entry.getDelta()));
                 return linkedList;
             }
-            linkedList.add(new TimeToSampleBox.Entry((next.getCount() + j3) - j, next.getDelta()));
-            long count = next.getCount();
-            while (true) {
-                j3 += count;
-                if (!listIterator.hasNext()) {
-                    break;
-                }
-                next = listIterator.next();
-                if (next.getCount() + j3 >= j2) {
-                    break;
-                }
-                linkedList.add(next);
-                count = next.getCount();
-            }
-            linkedList.add(new TimeToSampleBox.Entry(j2 - j3, next.getDelta()));
-            return linkedList;
+            return null;
         }
         return (List) invokeCommon.objValue;
     }
 
     @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
-    public List<CompositionTimeToSample.Entry> getCompositionTimeEntries() {
+    public List getCompositionTimeEntries() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? getCompositionTimeEntries(this.origTrack.getCompositionTimeEntries(), this.fromSample, this.toSample) : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return getCompositionTimeEntries(this.origTrack.getCompositionTimeEntries(), this.fromSample, this.toSample);
+        }
+        return (List) invokeV.objValue;
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
     public String getHandler() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.origTrack.getHandler() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.origTrack.getHandler();
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
     public Box getMediaHeaderBox() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.origTrack.getMediaHeaderBox() : (Box) invokeV.objValue;
-    }
-
-    @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
-    public List<SampleDependencyTypeBox.Entry> getSampleDependencies() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.origTrack.getSampleDependencies() == null || this.origTrack.getSampleDependencies().isEmpty()) {
-                return null;
-            }
-            return this.origTrack.getSampleDependencies().subList(this.fromSample, this.toSample);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.origTrack.getMediaHeaderBox();
         }
-        return (List) invokeV.objValue;
+        return (Box) invokeV.objValue;
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
     public SampleDescriptionBox getSampleDescriptionBox() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.origTrack.getSampleDescriptionBox() : (SampleDescriptionBox) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.origTrack.getSampleDescriptionBox();
+        }
+        return (SampleDescriptionBox) invokeV.objValue;
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
@@ -168,17 +207,46 @@ public class CroppedTrack extends AbstractTrack {
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
-    public List<Sample> getSamples() {
+    public List getSamples() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.origTrack.getSamples().subList(this.fromSample, this.toSample) : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.origTrack.getSamples().subList(this.fromSample, this.toSample);
+        }
+        return (List) invokeV.objValue;
     }
 
     @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
     public SubSampleInformationBox getSubsampleInformationBox() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.origTrack.getSubsampleInformationBox() : (SubSampleInformationBox) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.origTrack.getSubsampleInformationBox();
+        }
+        return (SubSampleInformationBox) invokeV.objValue;
+    }
+
+    @Override // com.googlecode.mp4parser.authoring.Track
+    public TrackMetaData getTrackMetaData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.origTrack.getTrackMetaData();
+        }
+        return (TrackMetaData) invokeV.objValue;
+    }
+
+    @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
+    public List getSampleDependencies() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.origTrack.getSampleDependencies() != null && !this.origTrack.getSampleDependencies().isEmpty()) {
+                return this.origTrack.getSampleDependencies().subList(this.fromSample, this.toSample);
+            }
+            return null;
+        }
+        return (List) invokeV.objValue;
     }
 
     @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
@@ -207,54 +275,5 @@ public class CroppedTrack extends AbstractTrack {
             }
         }
         return (long[]) invokeV.objValue;
-    }
-
-    @Override // com.googlecode.mp4parser.authoring.Track
-    public TrackMetaData getTrackMetaData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.origTrack.getTrackMetaData() : (TrackMetaData) invokeV.objValue;
-    }
-
-    public static List<CompositionTimeToSample.Entry> getCompositionTimeEntries(List<CompositionTimeToSample.Entry> list, long j, long j2) {
-        InterceptResult invokeCommon;
-        CompositionTimeToSample.Entry next;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{list, Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            if (list == null || list.isEmpty()) {
-                return null;
-            }
-            long j3 = 0;
-            ListIterator<CompositionTimeToSample.Entry> listIterator = list.listIterator();
-            ArrayList arrayList = new ArrayList();
-            while (true) {
-                next = listIterator.next();
-                if (next.getCount() + j3 > j) {
-                    break;
-                }
-                j3 += next.getCount();
-            }
-            if (next.getCount() + j3 >= j2) {
-                arrayList.add(new CompositionTimeToSample.Entry((int) (j2 - j), next.getOffset()));
-                return arrayList;
-            }
-            arrayList.add(new CompositionTimeToSample.Entry((int) ((next.getCount() + j3) - j), next.getOffset()));
-            int count = next.getCount();
-            while (true) {
-                j3 += count;
-                if (!listIterator.hasNext()) {
-                    break;
-                }
-                next = listIterator.next();
-                if (next.getCount() + j3 >= j2) {
-                    break;
-                }
-                arrayList.add(next);
-                count = next.getCount();
-            }
-            arrayList.add(new CompositionTimeToSample.Entry((int) (j2 - j3), next.getOffset()));
-            return arrayList;
-        }
-        return (List) invokeCommon.objValue;
     }
 }

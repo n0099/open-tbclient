@@ -15,7 +15,16 @@ public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Pair<ByteBuffer, Long> a(RandomAccessFile randomAccessFile, int i) {
+    public static long a(ByteBuffer byteBuffer, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, byteBuffer, i)) == null) {
+            return byteBuffer.getInt(i) & 4294967295L;
+        }
+        return invokeLI.longValue;
+    }
+
+    public static Pair a(RandomAccessFile randomAccessFile, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, randomAccessFile, i)) == null) {
@@ -43,6 +52,25 @@ public final class c {
         return (Pair) invokeLI.objValue;
     }
 
+    public static void a(ByteBuffer byteBuffer) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65538, null, byteBuffer) != null) || byteBuffer.order() == ByteOrder.LITTLE_ENDIAN) {
+            return;
+        }
+        throw new IllegalArgumentException("ByteBuffer byte order must be little endian");
+    }
+
+    public static void a(ZipFile zipFile) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65539, null, zipFile) != null) || zipFile == null) {
+            return;
+        }
+        try {
+            zipFile.close();
+        } catch (Throwable unused) {
+        }
+    }
+
     public static int b(ByteBuffer byteBuffer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -63,29 +91,5 @@ public final class c {
             return -1;
         }
         return invokeL.intValue;
-    }
-
-    public static void a(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, byteBuffer) == null) && byteBuffer.order() != ByteOrder.LITTLE_ENDIAN) {
-            throw new IllegalArgumentException("ByteBuffer byte order must be little endian");
-        }
-    }
-
-    public static long a(ByteBuffer byteBuffer, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, byteBuffer, i)) == null) ? byteBuffer.getInt(i) & 4294967295L : invokeLI.longValue;
-    }
-
-    public static void a(ZipFile zipFile) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, zipFile) == null) || zipFile == null) {
-            return;
-        }
-        try {
-            zipFile.close();
-        } catch (Throwable unused) {
-        }
     }
 }

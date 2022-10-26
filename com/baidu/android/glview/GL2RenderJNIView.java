@@ -46,13 +46,13 @@ public class GL2RenderJNIView extends GLSurfaceView {
 
     /* renamed from: com.baidu.android.glview.GL2RenderJNIView$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes.dex */
-    public static class ConfigChooser implements GLSurfaceView.EGLConfigChooser {
+    public class ConfigChooser implements GLSurfaceView.EGLConfigChooser {
         public static /* synthetic */ Interceptable $ic = null;
         public static int EGL_OPENGL_ES2_BIT = 4;
         public static int[] s_configAttribs2;
@@ -184,7 +184,7 @@ public class GL2RenderJNIView extends GLSurfaceView {
     }
 
     /* loaded from: classes.dex */
-    public static class ContextFactory implements GLSurfaceView.EGLContextFactory {
+    public class ContextFactory implements GLSurfaceView.EGLContextFactory {
         public static /* synthetic */ Interceptable $ic = null;
         public static int EGL_CONTEXT_CLIENT_VERSION = 12440;
         public transient /* synthetic */ FieldHolder $fh;

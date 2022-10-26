@@ -15,17 +15,17 @@ import java.util.concurrent.atomic.AtomicLong;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableTakeLast<T> extends AbstractFlowableWithUpstream<T, T> {
+public final class FlowableTakeLast extends AbstractFlowableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int count;
 
     /* loaded from: classes8.dex */
-    public static final class TakeLastSubscriber<T> extends ArrayDeque<T> implements FlowableSubscriber<T>, Subscription {
+    public final class TakeLastSubscriber extends ArrayDeque implements FlowableSubscriber, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 7240042530241604978L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber<? super T> actual;
+        public final Subscriber actual;
         public volatile boolean cancelled;
         public final int count;
         public volatile boolean done;
@@ -33,7 +33,7 @@ public final class FlowableTakeLast<T> extends AbstractFlowableWithUpstream<T, T
         public Subscription s;
         public final AtomicInteger wip;
 
-        public TakeLastSubscriber(Subscriber<? super T> subscriber, int i) {
+        public TakeLastSubscriber(Subscriber subscriber, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -63,10 +63,19 @@ public final class FlowableTakeLast<T> extends AbstractFlowableWithUpstream<T, T
             }
         }
 
+        @Override // org.reactivestreams.Subscriber
+        public void onComplete() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                this.done = true;
+                drain();
+            }
+        }
+
         public void drain() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.wip.getAndIncrement() == 0) {
-                Subscriber<? super T> subscriber = this.actual;
+                Subscriber subscriber = this.actual;
                 long j = this.requested.get();
                 while (!this.cancelled) {
                     if (this.done) {
@@ -75,12 +84,12 @@ public final class FlowableTakeLast<T> extends AbstractFlowableWithUpstream<T, T
                             if (this.cancelled) {
                                 return;
                             }
-                            Object obj = (T) poll();
-                            if (obj == null) {
+                            Object poll = poll();
+                            if (poll == null) {
                                 subscriber.onComplete();
                                 return;
                             } else {
-                                subscriber.onNext(obj);
+                                subscriber.onNext(poll);
                                 j2++;
                             }
                         }
@@ -96,15 +105,6 @@ public final class FlowableTakeLast<T> extends AbstractFlowableWithUpstream<T, T
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onComplete() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.done = true;
-                drain();
-            }
-        }
-
-        @Override // org.reactivestreams.Subscriber
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
@@ -113,13 +113,13 @@ public final class FlowableTakeLast<T> extends AbstractFlowableWithUpstream<T, T
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
+            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
                 if (this.count == size()) {
                     poll();
                 }
-                offer(t);
+                offer(obj);
             }
         }
 
@@ -144,7 +144,7 @@ public final class FlowableTakeLast<T> extends AbstractFlowableWithUpstream<T, T
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableTakeLast(Flowable<T> flowable, int i) {
+    public FlowableTakeLast(Flowable flowable, int i) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -165,7 +165,7 @@ public final class FlowableTakeLast<T> extends AbstractFlowableWithUpstream<T, T
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber<? super T> subscriber) {
+    public void subscribeActual(Subscriber subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             this.source.subscribe((FlowableSubscriber) new TakeLastSubscriber(subscriber, this.count));

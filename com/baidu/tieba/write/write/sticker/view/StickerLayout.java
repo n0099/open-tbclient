@@ -6,9 +6,9 @@ import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.bh5;
-import com.baidu.tieba.j69;
-import com.baidu.tieba.l69;
+import com.baidu.tieba.b79;
+import com.baidu.tieba.d79;
+import com.baidu.tieba.hh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,24 +22,38 @@ public class StickerLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public List<StickerView> b;
+    public List b;
     public FrameLayout.LayoutParams c;
     public int d;
 
     /* loaded from: classes6.dex */
-    public class a implements j69 {
+    public class a implements b79 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ StickerView a;
-        public final /* synthetic */ l69 b;
+        public final /* synthetic */ d79 b;
         public final /* synthetic */ StickerLayout c;
 
-        public a(StickerLayout stickerLayout, StickerView stickerView, l69 l69Var) {
+        @Override // com.baidu.tieba.b79
+        public void a(StickerView stickerView) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, stickerView) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.b79
+        public void c(StickerView stickerView) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, stickerView) == null) {
+            }
+        }
+
+        public a(StickerLayout stickerLayout, StickerView stickerView, d79 d79Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {stickerLayout, stickerView, l69Var};
+                Object[] objArr = {stickerLayout, stickerView, d79Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -51,17 +65,10 @@ public class StickerLayout extends FrameLayout {
             }
             this.c = stickerLayout;
             this.a = stickerView;
-            this.b = l69Var;
+            this.b = d79Var;
         }
 
-        @Override // com.baidu.tieba.j69
-        public void a(StickerView stickerView) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, stickerView) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.j69
+        @Override // com.baidu.tieba.b79
         public void b(StickerView stickerView, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, stickerView, z) == null) {
@@ -72,23 +79,16 @@ public class StickerLayout extends FrameLayout {
             }
         }
 
-        @Override // com.baidu.tieba.j69
-        public void c(StickerView stickerView) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, stickerView) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.j69
+        @Override // com.baidu.tieba.b79
         public void onDelete() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                 this.c.removeView(this.a);
                 this.c.b.remove(this.a);
                 this.c.e();
-                l69 l69Var = this.b;
-                if (l69Var != null) {
-                    l69Var.a();
+                d79 d79Var = this.b;
+                if (d79Var != null) {
+                    d79Var.a();
                 }
             }
         }
@@ -115,88 +115,21 @@ public class StickerLayout extends FrameLayout {
         }
     }
 
-    public StickerView b(Bitmap bitmap, l69 l69Var) {
-        InterceptResult invokeLL;
+    public void f(d79 d79Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bitmap, l69Var)) == null) {
-            StickerView stickerView = new StickerView(this.a);
-            stickerView.setImageBitmap(bitmap);
-            stickerView.setLayoutParams(this.c);
-            stickerView.setmOnStickerActionListener(new a(this, stickerView, l69Var));
-            addView(stickerView);
-            this.b.add(stickerView);
-            e();
-            if (l69Var != null) {
-                l69Var.d();
-            }
-            return stickerView;
-        }
-        return (StickerView) invokeLL.objValue;
-    }
-
-    public Bitmap c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (ListUtils.isEmpty(this.b)) {
-                return null;
-            }
-            e();
-            return bh5.c(this);
-        }
-        return (Bitmap) invokeV.objValue;
-    }
-
-    public final void d(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            this.a = context;
-            this.b = new ArrayList();
-            this.c = new FrameLayout.LayoutParams(-1, -1);
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.b.size() <= 0) {
-            return;
-        }
-        for (StickerView stickerView : this.b) {
-            if (stickerView != null) {
-                stickerView.setRemoveRes(this.d);
-                stickerView.setEdit(false);
-            }
-        }
-    }
-
-    public void f(l69 l69Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, l69Var) == null) {
-            Iterator<StickerView> it = this.b.iterator();
+        if (interceptable == null || interceptable.invokeL(1048580, this, d79Var) == null) {
+            Iterator it = this.b.iterator();
             while (it.hasNext()) {
-                StickerView next = it.next();
-                if (next != null) {
-                    removeView(next);
+                StickerView stickerView = (StickerView) it.next();
+                if (stickerView != null) {
+                    removeView(stickerView);
                     it.remove();
                     e();
-                    if (l69Var != null) {
-                        l69Var.a();
+                    if (d79Var != null) {
+                        d79Var.a();
                     }
                 }
             }
-        }
-    }
-
-    public List<StickerView> getStickerViews() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : (List) invokeV.objValue;
-    }
-
-    public void setRemoveRes(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.d = i;
         }
     }
 
@@ -241,5 +174,75 @@ public class StickerLayout extends FrameLayout {
             }
         }
         d(context);
+    }
+
+    public final void d(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
+            this.a = context;
+            this.b = new ArrayList();
+            this.c = new FrameLayout.LayoutParams(-1, -1);
+        }
+    }
+
+    public void setRemoveRes(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    public StickerView b(Bitmap bitmap, d79 d79Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bitmap, d79Var)) == null) {
+            StickerView stickerView = new StickerView(this.a);
+            stickerView.setImageBitmap(bitmap);
+            stickerView.setLayoutParams(this.c);
+            stickerView.setmOnStickerActionListener(new a(this, stickerView, d79Var));
+            addView(stickerView);
+            this.b.add(stickerView);
+            e();
+            if (d79Var != null) {
+                d79Var.d();
+            }
+            return stickerView;
+        }
+        return (StickerView) invokeLL.objValue;
+    }
+
+    public Bitmap c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (ListUtils.isEmpty(this.b)) {
+                return null;
+            }
+            e();
+            return hh5.c(this);
+        }
+        return (Bitmap) invokeV.objValue;
+    }
+
+    public List getStickerViews() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.b;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || this.b.size() <= 0) {
+            return;
+        }
+        for (StickerView stickerView : this.b) {
+            if (stickerView != null) {
+                stickerView.setRemoveRes(this.d);
+                stickerView.setEdit(false);
+            }
+        }
     }
 }

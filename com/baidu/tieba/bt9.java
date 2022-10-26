@@ -1,44 +1,58 @@
 package com.baidu.tieba;
 
+import android.graphics.Canvas;
+import android.graphics.ColorFilter;
+import android.graphics.drawable.Drawable;
+import android.widget.ImageView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire2.Message;
-import com.squareup.wire2.Message.a;
-import com.squareup.wire2.ProtoAdapter;
-import com.squareup.wire2.WireField;
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.List;
-import java.util.Map;
+import com.opensource.svgaplayer.SVGAVideoEntity;
 /* loaded from: classes3.dex */
-public final class bt9<M extends Message<M, B>, B extends Message.a<M, B>> {
+public final class bt9 extends Drawable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final WireField.Label a;
-    public final String b;
-    public final int c;
-    public final String d;
-    public final String e;
-    public final boolean f;
-    public final Field g;
-    public final Field h;
-    public final Method i;
-    public ProtoAdapter<?> j;
-    public ProtoAdapter<?> k;
-    public ProtoAdapter<Object> l;
+    public boolean a;
+    public int b;
+    public ImageView.ScaleType c;
+    public final gt9 d;
+    public final SVGAVideoEntity e;
+    public final ct9 f;
 
-    public bt9(WireField wireField, Field field, Class<B> cls) {
+    @Override // android.graphics.drawable.Drawable
+    public int getOpacity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return -2;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public void setAlpha(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+        }
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public void setColorFilter(ColorFilter colorFilter) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, colorFilter) == null) {
+        }
+    }
+
+    public bt9(SVGAVideoEntity sVGAVideoEntity, ct9 ct9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {wireField, field, cls};
+            Object[] objArr = {sVGAVideoEntity, ct9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -48,150 +62,61 @@ public final class bt9<M extends Message<M, B>, B extends Message.a<M, B>> {
                 return;
             }
         }
-        this.a = wireField.label();
-        this.b = field.getName();
-        this.c = wireField.tag();
-        this.d = wireField.keyAdapter();
-        this.e = wireField.adapter();
-        this.f = wireField.redacted();
-        this.g = field;
-        this.h = c(cls, this.b);
-        this.i = d(cls, this.b, field.getType());
+        this.e = sVGAVideoEntity;
+        this.f = ct9Var;
+        this.a = true;
+        this.c = ImageView.ScaleType.MATRIX;
+        this.d = new gt9(sVGAVideoEntity, ct9Var);
     }
 
-    public static Field c(Class<?> cls, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cls, str)) == null) {
-            try {
-                return cls.getField(str);
-            } catch (NoSuchFieldException unused) {
-                throw new AssertionError("No builder field " + cls.getName() + "." + str);
-            }
-        }
-        return (Field) invokeLL.objValue;
-    }
-
-    public static Method d(Class<?> cls, String str, Class<?> cls2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, cls, str, cls2)) == null) {
-            try {
-                return cls.getMethod(str, cls2);
-            } catch (NoSuchMethodException unused) {
-                throw new AssertionError("No builder method " + cls.getName() + "." + str + "(" + cls2.getName() + SmallTailInfo.EMOTION_SUFFIX);
-            }
-        }
-        return (Method) invokeLLL.objValue;
-    }
-
-    public ProtoAdapter<Object> a() {
+    public final int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ProtoAdapter<Object> protoAdapter = this.l;
-            if (protoAdapter != null) {
-                return protoAdapter;
-            }
-            if (f()) {
-                ProtoAdapter<Object> newMapAdapter = ProtoAdapter.newMapAdapter(g(), i());
-                this.l = newMapAdapter;
-                return newMapAdapter;
-            }
-            ProtoAdapter<?> withLabel = i().withLabel(this.a);
-            this.l = withLabel;
-            return withLabel;
+            return this.b;
         }
-        return (ProtoAdapter) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public Object b(M m) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, m)) == null) {
-            try {
-                return this.g.get(m);
-            } catch (IllegalAccessException e) {
-                throw new AssertionError(e);
-            }
-        }
-        return invokeL.objValue;
-    }
-
-    public Object e(B b) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b)) == null) {
-            try {
-                return this.h.get(b);
-            } catch (IllegalAccessException e) {
-                throw new AssertionError(e);
-            }
-        }
-        return invokeL.objValue;
-    }
-
-    public boolean f() {
+    public final SVGAVideoEntity b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? !this.d.isEmpty() : invokeV.booleanValue;
-    }
-
-    public ProtoAdapter<?> g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            ProtoAdapter<?> protoAdapter = this.k;
-            if (protoAdapter != null) {
-                return protoAdapter;
-            }
-            ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.d);
-            this.k = protoAdapter2;
-            return protoAdapter2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.e;
         }
-        return (ProtoAdapter) invokeV.objValue;
+        return (SVGAVideoEntity) invokeV.objValue;
     }
 
-    public void h(B b, Object obj) {
+    public final void c(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, b, obj) == null) {
-            try {
-                if (this.a.isOneOf()) {
-                    this.i.invoke(b, obj);
-                } else {
-                    this.h.set(b, obj);
-                }
-            } catch (IllegalAccessException | InvocationTargetException e) {
-                throw new AssertionError(e);
-            }
+        if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) != null) || this.a == z) {
+            return;
+        }
+        this.a = z;
+        invalidateSelf();
+    }
+
+    public final void d(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048579, this, i) != null) || this.b == i) {
+            return;
+        }
+        this.b = i;
+        invalidateSelf();
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public void draw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) && !this.a && canvas != null) {
+            this.d.a(canvas, this.b, this.c);
         }
     }
 
-    public ProtoAdapter<?> i() {
-        InterceptResult invokeV;
+    public final void e(ImageView.ScaleType scaleType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            ProtoAdapter<?> protoAdapter = this.j;
-            if (protoAdapter != null) {
-                return protoAdapter;
-            }
-            ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.e);
-            this.j = protoAdapter2;
-            return protoAdapter2;
-        }
-        return (ProtoAdapter) invokeV.objValue;
-    }
-
-    public void j(B b, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, b, obj) == null) {
-            if (this.a.isRepeated()) {
-                ((List) e(b)).add(obj);
-            } else if (!this.d.isEmpty()) {
-                ((Map) e(b)).putAll((Map) obj);
-            } else {
-                h(b, obj);
-            }
+        if (interceptable == null || interceptable.invokeL(1048581, this, scaleType) == null) {
+            this.c = scaleType;
         }
     }
 }

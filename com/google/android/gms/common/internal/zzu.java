@@ -1,6 +1,5 @@
 package com.google.android.gms.common.internal;
 
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,13 +9,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public final class zzu {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
     public final String zza;
     public final String zzb;
     public final int zzc;
     public final boolean zzd;
 
-    public zzu(String str, @Nullable String str2, boolean z, int i, boolean z2) {
+    public zzu(String str, String str2, boolean z, int i, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -49,7 +47,6 @@ public final class zzu {
         return (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.zzb : (String) invokeV.objValue;
     }
 
-    @Nullable
     public final String zzc() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

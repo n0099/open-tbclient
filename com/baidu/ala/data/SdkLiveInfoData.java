@@ -7,6 +7,7 @@ import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.data.AlaChallengeInfoData;
 import com.baidu.tbadk.core.data.YyExtData;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.mutiprocess.live.YyLiveRoomConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +18,6 @@ import org.json.JSONObject;
 public class SdkLiveInfoData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TYPE_CHUSHOU_GAME_LIVE = 1;
-    public static final int TYPE_TIEBA_GAME_LIVE = 2;
     public transient /* synthetic */ FieldHolder $fh;
     public long createTime;
     public int from;
@@ -42,7 +42,7 @@ public class SdkLiveInfoData {
     public UiTransParam uiTransParam;
 
     /* loaded from: classes.dex */
-    public static class AlaLiveInfo {
+    public class AlaLiveInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long audienceCount;
@@ -75,7 +75,7 @@ public class SdkLiveInfoData {
 
         public void fromJson(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
                 return;
             }
             this.cover = jSONObject.optString(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY);
@@ -105,7 +105,7 @@ public class SdkLiveInfoData {
     }
 
     /* loaded from: classes.dex */
-    public static class LiveAuthor {
+    public class LiveAuthor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int gender;
@@ -128,18 +128,6 @@ public class SdkLiveInfoData {
             }
         }
 
-        public void fromJson(JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-                return;
-            }
-            this.name = jSONObject.optString("name");
-            this.nameShow = jSONObject.optString("name_show");
-            this.gender = jSONObject.optInt("gender");
-            this.portrait = jSONObject.optString("portrait");
-            this.open_id = jSONObject.optString("open_id");
-        }
-
         public String getName_show() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -151,10 +139,22 @@ public class SdkLiveInfoData {
             }
             return (String) invokeV.objValue;
         }
+
+        public void fromJson(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+                return;
+            }
+            this.name = jSONObject.optString("name");
+            this.nameShow = jSONObject.optString("name_show");
+            this.gender = jSONObject.optInt("gender");
+            this.portrait = jSONObject.optString("portrait");
+            this.open_id = jSONObject.optString("open_id");
+        }
     }
 
     /* loaded from: classes.dex */
-    public static class UiTransParam {
+    public class UiTransParam {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String abTag;
@@ -178,7 +178,7 @@ public class SdkLiveInfoData {
 
         public void fromJson(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
                 return;
             }
             this.abTag = jSONObject.optString("ab_tag");
@@ -189,7 +189,7 @@ public class SdkLiveInfoData {
     }
 
     /* loaded from: classes.dex */
-    public static class YYExt {
+    public class YYExt {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int isYYGame;
@@ -215,11 +215,11 @@ public class SdkLiveInfoData {
 
         public void fromJson(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
                 return;
             }
             this.sid = jSONObject.optString("sid");
-            this.ssid = jSONObject.optString("ssid");
+            this.ssid = jSONObject.optString(YyLiveRoomConfig.KEY_SSID);
             this.templateId = jSONObject.optString("template_id");
             this.yyUid = jSONObject.optString("yy_uid");
             this.isYYGame = jSONObject.optInt("is_yy_game");
@@ -235,7 +235,11 @@ public class SdkLiveInfoData {
                 yyExtData.mSsid = this.ssid;
                 yyExtData.mTemplateId = this.templateId;
                 yyExtData.mYyUid = this.yyUid;
-                yyExtData.isYyGame = this.isYYGame == 1;
+                boolean z = true;
+                if (this.isYYGame != 1) {
+                    z = false;
+                }
+                yyExtData.isYyGame = z;
                 yyExtData.liveId = str;
                 yyExtData.streamInfo = this.streamInfo;
                 return yyExtData;
@@ -262,7 +266,7 @@ public class SdkLiveInfoData {
 
     public void fromJson(JSONObject jSONObject, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, str) == null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, jSONObject, str) != null) || jSONObject == null) {
             return;
         }
         this.liveId = jSONObject.optString("live_id");
@@ -298,11 +302,5 @@ public class SdkLiveInfoData {
         if (optJSONObject3 != null) {
             this.uiTransParam.fromJson(optJSONObject3);
         }
-    }
-
-    public boolean shouldJumpChushouLiveRoom() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.from != 2 : invokeV.booleanValue;
     }
 }

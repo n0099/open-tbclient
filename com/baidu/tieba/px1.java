@@ -8,10 +8,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public class px1 extends rw1 {
+public class px1 extends sw1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public ax1 a;
 
     public px1() {
         Interceptable interceptable = $ic;
@@ -27,29 +27,26 @@ public class px1 extends rw1 {
         }
     }
 
-    @Override // com.baidu.tieba.rw1
-    public void a(sw1 sw1Var, Canvas canvas) {
-        int i;
+    @Override // com.baidu.tieba.sw1
+    public void a(tw1 tw1Var, Canvas canvas) {
+        ax1 ax1Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, sw1Var, canvas) == null) || (i = this.a) <= 0) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, tw1Var, canvas) == null) && (ax1Var = this.a) != null && ax1Var.d()) {
+            if (this.a.c()) {
+                tw1Var.b.setShader(this.a.b());
+                return;
+            }
+            tw1Var.e.setColor(this.a.a());
+            tw1Var.b.setColor(this.a.a());
+            tw1Var.b.setShader(null);
         }
-        sw1Var.e.setTextSize(i);
     }
 
-    @Override // com.baidu.tieba.rw1
+    @Override // com.baidu.tieba.sw1
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            try {
-                if (jSONArray.length() > 0) {
-                    this.a = ch3.g((float) jSONArray.optDouble(0));
-                }
-            } catch (Exception e) {
-                if (vj1.a) {
-                    e.printStackTrace();
-                }
-            }
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 0) {
+            this.a = new ax1(jSONArray);
         }
     }
 }

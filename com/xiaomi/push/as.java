@@ -75,7 +75,7 @@ public class as implements au {
             if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
                 try {
                     this.a.f112a = b.a(iBinder);
-                    this.a.f113b = b.m173a(iBinder);
+                    this.a.f113b = b.m172a(iBinder);
                     this.a.b();
                     this.a.f108a = 2;
                     synchronized (this.a.f111a) {
@@ -116,7 +116,7 @@ public class as implements au {
     }
 
     /* loaded from: classes8.dex */
-    public static class b {
+    public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -140,7 +140,7 @@ public class as implements au {
         }
 
         /* renamed from: a  reason: collision with other method in class */
-        public static boolean m173a(IBinder iBinder) {
+        public static boolean m172a(IBinder iBinder) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, iBinder)) == null) {
@@ -205,7 +205,7 @@ public class as implements au {
         if ((interceptable == null || interceptable.invokeL(65542, this, str) == null) && this.f108a == 1 && Looper.myLooper() != Looper.getMainLooper()) {
             synchronized (this.f111a) {
                 try {
-                    com.xiaomi.channel.commonutils.logger.b.m90a("huawei's " + str + " wait...");
+                    com.xiaomi.channel.commonutils.logger.b.m89a("huawei's " + str + " wait...");
                     this.f111a.wait(3000L);
                 } catch (Exception unused) {
                 }

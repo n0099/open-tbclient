@@ -1,8 +1,6 @@
 package androidx.fragment.app;
 
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
@@ -66,13 +64,53 @@ public final class FragmentManagerViewModel extends ViewModel {
             }
 
             @Override // androidx.lifecycle.ViewModelProvider.Factory
-            @NonNull
-            public <T extends ViewModel> T create(@NonNull Class<T> cls) {
+            public <T extends ViewModel> T create(Class<T> cls) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, cls)) == null) ? new FragmentManagerViewModel(true) : (T) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, cls)) == null) {
+                    return new FragmentManagerViewModel(true);
+                }
+                return (T) invokeL.objValue;
             }
         };
+    }
+
+    public Collection<Fragment> getRetainedFragments() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mRetainedFragments.values();
+        }
+        return (Collection) invokeV.objValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return (((this.mRetainedFragments.hashCode() * 31) + this.mChildNonConfigs.hashCode()) * 31) + this.mViewModelStores.hashCode();
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean isCleared() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mHasBeenCleared;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // androidx.lifecycle.ViewModel
+    public void onCleared() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            if (FragmentManager.isLoggingEnabled(3)) {
+                Log.d("FragmentManager", "onCleared called for " + this);
+            }
+            this.mHasBeenCleared = true;
+        }
     }
 
     public FragmentManagerViewModel(boolean z) {
@@ -98,27 +136,7 @@ public final class FragmentManagerViewModel extends ViewModel {
         this.mStateAutomaticallySaved = z;
     }
 
-    @NonNull
-    public static FragmentManagerViewModel getInstance(ViewModelStore viewModelStore) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, viewModelStore)) == null) ? (FragmentManagerViewModel) new ViewModelProvider(viewModelStore, FACTORY).get(FragmentManagerViewModel.class) : (FragmentManagerViewModel) invokeL.objValue;
-    }
-
-    public boolean addRetainedFragment(@NonNull Fragment fragment) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fragment)) == null) {
-            if (this.mRetainedFragments.containsKey(fragment.mWho)) {
-                return false;
-            }
-            this.mRetainedFragments.put(fragment.mWho, fragment);
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void clearNonConfigState(@NonNull Fragment fragment) {
+    public void clearNonConfigState(Fragment fragment) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fragment) == null) {
             if (FragmentManager.isLoggingEnabled(3)) {
@@ -137,31 +155,38 @@ public final class FragmentManagerViewModel extends ViewModel {
         }
     }
 
-    public boolean equals(Object obj) {
+    public static FragmentManagerViewModel getInstance(ViewModelStore viewModelStore) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj == null || FragmentManagerViewModel.class != obj.getClass()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, viewModelStore)) == null) {
+            return (FragmentManagerViewModel) new ViewModelProvider(viewModelStore, FACTORY).get(FragmentManagerViewModel.class);
+        }
+        return (FragmentManagerViewModel) invokeL.objValue;
+    }
+
+    public boolean addRetainedFragment(Fragment fragment) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fragment)) == null) {
+            if (this.mRetainedFragments.containsKey(fragment.mWho)) {
                 return false;
             }
-            FragmentManagerViewModel fragmentManagerViewModel = (FragmentManagerViewModel) obj;
-            return this.mRetainedFragments.equals(fragmentManagerViewModel.mRetainedFragments) && this.mChildNonConfigs.equals(fragmentManagerViewModel.mChildNonConfigs) && this.mViewModelStores.equals(fragmentManagerViewModel.mViewModelStores);
+            this.mRetainedFragments.put(fragment.mWho, fragment);
+            return true;
         }
         return invokeL.booleanValue;
     }
 
-    @Nullable
     public Fragment findRetainedFragmentByWho(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? this.mRetainedFragments.get(str) : (Fragment) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return this.mRetainedFragments.get(str);
+        }
+        return (Fragment) invokeL.objValue;
     }
 
-    @NonNull
-    public FragmentManagerViewModel getChildNonConfig(@NonNull Fragment fragment) {
+    public FragmentManagerViewModel getChildNonConfig(Fragment fragment) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, fragment)) == null) {
@@ -176,14 +201,67 @@ public final class FragmentManagerViewModel extends ViewModel {
         return (FragmentManagerViewModel) invokeL.objValue;
     }
 
-    @NonNull
-    public Collection<Fragment> getRetainedFragments() {
-        InterceptResult invokeV;
+    public ViewModelStore getViewModelStore(Fragment fragment) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mRetainedFragments.values() : (Collection) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, fragment)) == null) {
+            ViewModelStore viewModelStore = this.mViewModelStores.get(fragment.mWho);
+            if (viewModelStore == null) {
+                ViewModelStore viewModelStore2 = new ViewModelStore();
+                this.mViewModelStores.put(fragment.mWho, viewModelStore2);
+                return viewModelStore2;
+            }
+            return viewModelStore;
+        }
+        return (ViewModelStore) invokeL.objValue;
     }
 
-    @Nullable
+    public boolean removeRetainedFragment(Fragment fragment) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, fragment)) == null) {
+            if (this.mRetainedFragments.remove(fragment.mWho) != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean shouldDestroy(Fragment fragment) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, fragment)) == null) {
+            if (!this.mRetainedFragments.containsKey(fragment.mWho)) {
+                return true;
+            }
+            if (this.mStateAutomaticallySaved) {
+                return this.mHasBeenCleared;
+            }
+            return !this.mHasSavedSnapshot;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj == null || FragmentManagerViewModel.class != obj.getClass()) {
+                return false;
+            }
+            FragmentManagerViewModel fragmentManagerViewModel = (FragmentManagerViewModel) obj;
+            if (this.mRetainedFragments.equals(fragmentManagerViewModel.mRetainedFragments) && this.mChildNonConfigs.equals(fragmentManagerViewModel.mChildNonConfigs) && this.mViewModelStores.equals(fragmentManagerViewModel.mViewModelStores)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
     @Deprecated
     public FragmentManagerNonConfig getSnapshot() {
         InterceptResult invokeV;
@@ -208,53 +286,8 @@ public final class FragmentManagerViewModel extends ViewModel {
         return (FragmentManagerNonConfig) invokeV.objValue;
     }
 
-    @NonNull
-    public ViewModelStore getViewModelStore(@NonNull Fragment fragment) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, fragment)) == null) {
-            ViewModelStore viewModelStore = this.mViewModelStores.get(fragment.mWho);
-            if (viewModelStore == null) {
-                ViewModelStore viewModelStore2 = new ViewModelStore();
-                this.mViewModelStores.put(fragment.mWho, viewModelStore2);
-                return viewModelStore2;
-            }
-            return viewModelStore;
-        }
-        return (ViewModelStore) invokeL.objValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (((this.mRetainedFragments.hashCode() * 31) + this.mChildNonConfigs.hashCode()) * 31) + this.mViewModelStores.hashCode() : invokeV.intValue;
-    }
-
-    public boolean isCleared() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mHasBeenCleared : invokeV.booleanValue;
-    }
-
-    @Override // androidx.lifecycle.ViewModel
-    public void onCleared() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            if (FragmentManager.isLoggingEnabled(3)) {
-                Log.d("FragmentManager", "onCleared called for " + this);
-            }
-            this.mHasBeenCleared = true;
-        }
-    }
-
-    public boolean removeRetainedFragment(@NonNull Fragment fragment) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, fragment)) == null) ? this.mRetainedFragments.remove(fragment.mWho) != null : invokeL.booleanValue;
-    }
-
     @Deprecated
-    public void restoreFromSnapshot(@Nullable FragmentManagerNonConfig fragmentManagerNonConfig) {
+    public void restoreFromSnapshot(FragmentManagerNonConfig fragmentManagerNonConfig) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, fragmentManagerNonConfig) == null) {
             this.mRetainedFragments.clear();
@@ -286,22 +319,6 @@ public final class FragmentManagerViewModel extends ViewModel {
         }
     }
 
-    public boolean shouldDestroy(@NonNull Fragment fragment) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, fragment)) == null) {
-            if (this.mRetainedFragments.containsKey(fragment.mWho)) {
-                if (this.mStateAutomaticallySaved) {
-                    return this.mHasBeenCleared;
-                }
-                return !this.mHasSavedSnapshot;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @NonNull
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -18,6 +18,7 @@ public class VirtualImageCustomFigure implements Serializable {
     public transient /* synthetic */ FieldHolder $fh;
     public String backGroundType;
     public String backgroundValue;
+    public String dynamicFigureUrl;
     public String figureUrl;
 
     static {
@@ -52,48 +53,67 @@ public class VirtualImageCustomFigure implements Serializable {
     public String getBackGroundType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.backGroundType : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.backGroundType;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getBackgroundValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.backgroundValue : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.backgroundValue;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getDynamicFigureUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.dynamicFigureUrl;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getFigureUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.figureUrl : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.figureUrl;
+        }
+        return (String) invokeV.objValue;
     }
 
     public void parseProto(CustomFigure customFigure) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, customFigure) == null) || customFigure == null) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, customFigure) != null) || customFigure == null) {
             return;
         }
         this.figureUrl = customFigure.figure_url;
         this.backGroundType = customFigure.background_type;
         this.backgroundValue = customFigure.background_value;
+        this.dynamicFigureUrl = customFigure.dynamic_figure_url;
     }
 
     public void setBackGroundType(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             this.backGroundType = str;
         }
     }
 
     public void setBackgroundValue(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
             this.backgroundValue = str;
         }
     }
 
     public void setFigureUrl(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
             this.figureUrl = str;
         }
     }

@@ -10,18 +10,15 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.util.AttributeSet;
 import android.view.View;
-import androidx.annotation.IdRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dj;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.gj;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.hj;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -59,7 +56,7 @@ public class MessageRedDotView extends View {
     public boolean z;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MessageRedDotView(@NonNull Context context) {
+    public MessageRedDotView(Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -84,25 +81,107 @@ public class MessageRedDotView extends View {
         d();
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public MessageRedDotView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.e = 1;
+        this.u = false;
+        this.v = false;
+        this.x = 3;
+        this.y = 0;
+        d();
+    }
+
+    @Override // android.view.View
+    public void onMeasure(int i, int i2) {
+        int i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048585, this, i, i2) == null) {
+            Drawable drawable = this.a;
+            if (drawable != null) {
+                if (this.u && this.z) {
+                    int intrinsicWidth = drawable.getIntrinsicWidth();
+                    int intrinsicHeight = this.a.getIntrinsicHeight();
+                    int f = fj.f(getContext(), R.dimen.tbds4);
+                    setMeasuredDimension(intrinsicWidth + f, intrinsicHeight + f);
+                    return;
+                }
+                int i4 = this.k;
+                int i5 = this.l;
+                if (i4 >= i5) {
+                    i3 = this.m + i4;
+                } else {
+                    i3 = i5 + this.m;
+                }
+                this.o = i3;
+                setMeasuredDimension(this.a.getIntrinsicWidth() + (this.o * 2), this.a.getIntrinsicHeight() + (this.o * 2));
+                return;
+            }
+            setMeasuredDimension(0, 0);
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public MessageRedDotView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.e = 1;
+        this.u = false;
+        this.v = false;
+        this.x = 3;
+        this.y = 0;
+        d();
+    }
+
     public final void a(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) || dj.isEmpty(this.d) || this.a == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) && !ej.isEmpty(this.d) && this.a != null) {
+            Paint paint = this.f;
+            String str = this.d;
+            paint.getTextBounds(str, 0, str.length(), this.g);
+            Paint.FontMetrics fontMetrics = this.f.getFontMetrics();
+            int intrinsicWidth = (this.a.getIntrinsicWidth() / 2) + this.o + (this.y / 2);
+            float height = (((getHeight() - getPaddingBottom()) + getPaddingTop()) / 2.0f) - this.g.centerY();
+            if (this.u) {
+                Rect bounds = this.a.getBounds();
+                float f = fontMetrics.descent;
+                float height2 = this.w + ((bounds.height() / 2) - (f - (((-fontMetrics.ascent) + f) / 2.0f)));
+                intrinsicWidth = bounds.width() / 2;
+                height = height2;
+            }
+            canvas.drawText(this.d, intrinsicWidth, height, this.f);
         }
-        Paint paint = this.f;
-        String str = this.d;
-        paint.getTextBounds(str, 0, str.length(), this.g);
-        Paint.FontMetrics fontMetrics = this.f.getFontMetrics();
-        int intrinsicWidth = (this.a.getIntrinsicWidth() / 2) + this.o + (this.y / 2);
-        float height = (((getHeight() - getPaddingBottom()) + getPaddingTop()) / 2.0f) - this.g.centerY();
-        if (this.u) {
-            Rect bounds = this.a.getBounds();
-            float f = fontMetrics.descent;
-            float height2 = this.w + ((bounds.height() / 2) - (f - (((-fontMetrics.ascent) + f) / 2.0f)));
-            intrinsicWidth = bounds.width() / 2;
-            height = height2;
-        }
-        canvas.drawText(this.d, intrinsicWidth, height, this.f);
     }
 
     public final void b(Canvas canvas) {
@@ -110,7 +189,7 @@ public class MessageRedDotView extends View {
         int i;
         int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) || (drawable = this.a) == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) != null) || (drawable = this.a) == null) {
             return;
         }
         int intrinsicWidth = (drawable.getIntrinsicWidth() / 2) + this.o;
@@ -139,11 +218,20 @@ public class MessageRedDotView extends View {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            String g = gj.g();
+            String g = hj.g();
             if (g.contains("vivo") && g.contains("X20")) {
-                ej.f(getContext(), R.dimen.tbds2);
+                fj.f(getContext(), R.dimen.tbds2);
             }
         }
+    }
+
+    public String getRedNum() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final void d() {
@@ -155,30 +243,30 @@ public class MessageRedDotView extends View {
             this.f = paint;
             paint.setColor(SkinManager.getColor(R.color.CAM_X0101));
             if (!this.u && this.v) {
-                this.f.setTextSize(ej.f(getContext(), R.dimen.tbfontsize26));
+                this.f.setTextSize(fj.f(getContext(), R.dimen.tbfontsize26));
                 this.f.setTypeface(Typeface.MONOSPACE);
             } else {
-                this.f.setTextSize(ej.f(getContext(), R.dimen.tbfontsize28));
+                this.f.setTextSize(fj.f(getContext(), R.dimen.tbfontsize28));
                 this.f.setTypeface(Typeface.DEFAULT_BOLD);
             }
             this.f.setTextAlign(Paint.Align.CENTER);
             this.g = new Rect();
-            this.h = ej.f(getContext(), R.dimen.tbds13);
-            this.i = ej.f(getContext(), R.dimen.tbds42);
+            this.h = fj.f(getContext(), R.dimen.tbds13);
+            this.i = fj.f(getContext(), R.dimen.tbds42);
             Paint paint2 = new Paint();
             this.j = paint2;
             paint2.setAntiAlias(true);
             this.j.setStyle(Paint.Style.FILL);
             this.j.setColor(SkinManager.getColor(R.color.transparent));
             this.k = 0;
-            this.m = ej.f(getContext(), R.dimen.tbds8);
-            int f = ej.f(getContext(), R.dimen.tbds3);
+            this.m = fj.f(getContext(), R.dimen.tbds8);
+            int f = fj.f(getContext(), R.dimen.tbds3);
             this.l = f;
             this.j.setShadowLayer(this.m, this.k, f, SkinManager.getColor(R.color.cp_cont_h_alpha66));
             this.n = new RectF();
-            this.p = ej.f(getContext(), R.dimen.tbds21);
-            this.q = ej.f(getContext(), R.dimen.tbds8);
-            this.r = ej.f(getContext(), R.dimen.tbds6);
+            this.p = fj.f(getContext(), R.dimen.tbds21);
+            this.q = fj.f(getContext(), R.dimen.tbds8);
+            this.r = fj.f(getContext(), R.dimen.tbds6);
             Paint paint3 = new Paint();
             this.s = paint3;
             paint3.setAntiAlias(true);
@@ -258,7 +346,7 @@ public class MessageRedDotView extends View {
             if (z) {
                 this.d = StringHelper.STRING_MORE;
                 i = R.drawable.icon_news_red_dot_three_dot_number;
-            } else if (dj.isEmpty(str)) {
+            } else if (ej.isEmpty(str)) {
                 i = R.drawable.icon_news_red_dot;
                 this.d = null;
             } else {
@@ -296,12 +384,6 @@ public class MessageRedDotView extends View {
         }
     }
 
-    public String getRedNum() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.d : (String) invokeV.objValue;
-    }
-
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
@@ -312,7 +394,7 @@ public class MessageRedDotView extends View {
                 int intrinsicWidth = drawable.getIntrinsicWidth();
                 int intrinsicHeight = this.a.getIntrinsicHeight();
                 if (this.u) {
-                    this.a.setBounds(0, this.w, ej.f(getContext(), R.dimen.tbds4) + intrinsicWidth, ej.f(getContext(), R.dimen.tbds4) + intrinsicHeight + this.w);
+                    this.a.setBounds(0, this.w, fj.f(getContext(), R.dimen.tbds4) + intrinsicWidth, fj.f(getContext(), R.dimen.tbds4) + intrinsicHeight + this.w);
                 } else {
                     Drawable drawable2 = this.a;
                     int i = this.o;
@@ -332,38 +414,14 @@ public class MessageRedDotView extends View {
                         canvas.drawOval(this.n, this.j);
                     }
                 }
-                if (dj.isEmpty(this.d)) {
-                    return;
-                }
-                if (this.d.equals(StringHelper.STRING_MORE)) {
-                    b(canvas);
-                } else {
-                    a(canvas);
+                if (!ej.isEmpty(this.d)) {
+                    if (this.d.equals(StringHelper.STRING_MORE)) {
+                        b(canvas);
+                    } else {
+                        a(canvas);
+                    }
                 }
             }
-        }
-    }
-
-    @Override // android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048585, this, i, i2) == null) {
-            Drawable drawable = this.a;
-            if (drawable != null) {
-                if (this.u && this.z) {
-                    int intrinsicWidth = drawable.getIntrinsicWidth();
-                    int intrinsicHeight = this.a.getIntrinsicHeight();
-                    int f = ej.f(getContext(), R.dimen.tbds4);
-                    setMeasuredDimension(intrinsicWidth + f, intrinsicHeight + f);
-                    return;
-                }
-                int i3 = this.k;
-                int i4 = this.l;
-                this.o = i3 >= i4 ? this.m + i3 : i4 + this.m;
-                setMeasuredDimension(this.a.getIntrinsicWidth() + (this.o * 2), this.a.getIntrinsicHeight() + (this.o * 2));
-                return;
-            }
-            setMeasuredDimension(0, 0);
         }
     }
 
@@ -409,10 +467,10 @@ public class MessageRedDotView extends View {
         }
     }
 
-    public void setTextSize(@IdRes int i) {
+    public void setTextSize(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.f.setTextSize(ej.f(getContext(), i));
+            this.f.setTextSize(fj.f(getContext(), i));
         }
     }
 
@@ -428,59 +486,5 @@ public class MessageRedDotView extends View {
         if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
             this.e = i;
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MessageRedDotView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.e = 1;
-        this.u = false;
-        this.v = false;
-        this.x = 3;
-        this.y = 0;
-        d();
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MessageRedDotView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.e = 1;
-        this.u = false;
-        this.v = false;
-        this.x = 3;
-        this.y = 0;
-        d();
     }
 }

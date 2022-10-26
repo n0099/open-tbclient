@@ -38,6 +38,27 @@ public class PriorityThreadFactory implements ThreadFactory {
         }
     }
 
+    public PriorityThreadFactory(int i, String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mThreadNumber = new AtomicInteger(1);
+        this.mThreadPriority = i;
+        this.mPrefix = str;
+        this.mAddThreadNumber = z;
+    }
+
     @Override // java.util.concurrent.ThreadFactory
     public Thread newThread(Runnable runnable) {
         InterceptResult invokeL;
@@ -89,26 +110,5 @@ public class PriorityThreadFactory implements ThreadFactory {
             return new Thread(runnable2, str);
         }
         return (Thread) invokeL.objValue;
-    }
-
-    public PriorityThreadFactory(int i, String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mThreadNumber = new AtomicInteger(1);
-        this.mThreadPriority = i;
-        this.mPrefix = str;
-        this.mAddThreadNumber = z;
     }
 }

@@ -10,8 +10,6 @@ import android.graphics.PorterDuffXfermode;
 import android.graphics.RectF;
 import android.os.Build;
 import android.util.AttributeSet;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
 import java.util.Arrays;
 /* loaded from: classes8.dex */
@@ -19,14 +17,13 @@ public final class h {
     public Path ZA;
     public float[] arl;
     public boolean arm;
-    @NonNull
     public a arn;
     public Paint mPaint;
     public float wm;
     public RectF zV;
 
     /* loaded from: classes8.dex */
-    public static class a {
+    public final class a {
         public boolean aro = true;
         public boolean arp = true;
         public boolean arq = true;
@@ -107,7 +104,7 @@ public final class h {
         return this.ZA;
     }
 
-    public final void d(Context context, @Nullable AttributeSet attributeSet) {
+    public final void d(Context context, AttributeSet attributeSet) {
         if (attributeSet != null) {
             int[] iArr = {R.attr.obfuscated_res_0x7f0403b4, R.attr.obfuscated_res_0x7f040396};
             Arrays.sort(iArr);
@@ -158,7 +155,6 @@ public final class h {
         canvas.restore();
     }
 
-    @NonNull
     public final a getCornerConf() {
         return this.arn;
     }

@@ -39,6 +39,16 @@ public final class MetadataRenderer extends BaseRenderer implements Handler.Call
     public interface Output extends MetadataOutput {
     }
 
+    @Override // com.google.android.exoplayer2.Renderer
+    public boolean isReady() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public MetadataRenderer(MetadataOutput metadataOutput, Looper looper) {
         this(metadataOutput, looper, MetadataDecoderFactory.DEFAULT);
@@ -60,12 +70,64 @@ public final class MetadataRenderer extends BaseRenderer implements Handler.Call
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public MetadataRenderer(MetadataOutput metadataOutput, Looper looper, MetadataDecoderFactory metadataDecoderFactory) {
+        super(4);
+        Handler handler;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {metadataOutput, looper, metadataDecoderFactory};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.output = (MetadataOutput) Assertions.checkNotNull(metadataOutput);
+        if (looper == null) {
+            handler = null;
+        } else {
+            handler = new Handler(looper, this);
+        }
+        this.outputHandler = handler;
+        this.decoderFactory = (MetadataDecoderFactory) Assertions.checkNotNull(metadataDecoderFactory);
+        this.formatHolder = new FormatHolder();
+        this.buffer = new MetadataInputBuffer();
+        this.pendingMetadata = new Metadata[5];
+        this.pendingMetadataTimestamps = new long[5];
+    }
+
     private void flushPendingMetadata() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             Arrays.fill(this.pendingMetadata, (Object) null);
             this.pendingMetadataIndex = 0;
             this.pendingMetadataCount = 0;
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.Renderer
+    public boolean isEnded() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.inputStreamEnded;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.google.android.exoplayer2.BaseRenderer
+    public void onDisabled() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            flushPendingMetadata();
+            this.decoder = null;
         }
     }
 
@@ -102,30 +164,20 @@ public final class MetadataRenderer extends BaseRenderer implements Handler.Call
         return invokeL.booleanValue;
     }
 
-    @Override // com.google.android.exoplayer2.Renderer
-    public boolean isEnded() {
-        InterceptResult invokeV;
+    @Override // com.google.android.exoplayer2.RendererCapabilities
+    public int supportsFormat(Format format) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.inputStreamEnded : invokeV.booleanValue;
-    }
-
-    @Override // com.google.android.exoplayer2.Renderer
-    public boolean isReady() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, format)) == null) {
+            if (this.decoderFactory.supportsFormat(format)) {
+                if (BaseRenderer.supportsFormatDrm(null, format.drmInitData)) {
+                    return 4;
+                }
+                return 2;
+            }
+            return 0;
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.google.android.exoplayer2.BaseRenderer
-    public void onDisabled() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            flushPendingMetadata();
-            this.decoder = null;
-        }
+        return invokeL.intValue;
     }
 
     @Override // com.google.android.exoplayer2.BaseRenderer
@@ -182,45 +234,5 @@ public final class MetadataRenderer extends BaseRenderer implements Handler.Call
                 }
             }
         }
-    }
-
-    @Override // com.google.android.exoplayer2.RendererCapabilities
-    public int supportsFormat(Format format) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, format)) == null) {
-            if (this.decoderFactory.supportsFormat(format)) {
-                return BaseRenderer.supportsFormatDrm(null, format.drmInitData) ? 4 : 2;
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MetadataRenderer(MetadataOutput metadataOutput, Looper looper, MetadataDecoderFactory metadataDecoderFactory) {
-        super(4);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {metadataOutput, looper, metadataDecoderFactory};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.output = (MetadataOutput) Assertions.checkNotNull(metadataOutput);
-        this.outputHandler = looper == null ? null : new Handler(looper, this);
-        this.decoderFactory = (MetadataDecoderFactory) Assertions.checkNotNull(metadataDecoderFactory);
-        this.formatHolder = new FormatHolder();
-        this.buffer = new MetadataInputBuffer();
-        this.pendingMetadata = new Metadata[5];
-        this.pendingMetadataTimestamps = new long[5];
     }
 }

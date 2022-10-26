@@ -1,17 +1,20 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import com.baidu.nadcore.player.constants.PlayerStatus;
+import com.baidu.searchbox.player.event.StateEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class qt0 extends ut0 {
+public class qt0 extends vt0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public qt0() {
+        super(StateEvent.ACTION_STATE_CHANGED);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -19,28 +22,24 @@ public class qt0 extends ut0 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        v(5);
     }
 
-    public static ut0 w(@NonNull String str) {
-        InterceptResult invokeL;
+    public static vt0 w(PlayerStatus playerStatus, PlayerStatus playerStatus2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            ut0 m = ut0.m(str, 6);
-            m.u(1);
-            m.s(1);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, playerStatus, playerStatus2)) == null) {
+            vt0 m = vt0.m(StateEvent.ACTION_STATE_CHANGED, 5);
+            m.n(1, playerStatus);
+            m.n(2, playerStatus2);
             return m;
         }
-        return (ut0) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.ut0
-    public boolean b(@NonNull vu0 vu0Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, vu0Var)) == null) ? 1 != vu0Var.getType() : invokeL.booleanValue;
+        return (vt0) invokeLL.objValue;
     }
 }

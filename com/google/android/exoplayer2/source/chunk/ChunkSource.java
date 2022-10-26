@@ -6,7 +6,7 @@ import java.util.List;
 public interface ChunkSource {
     void getNextChunk(MediaChunk mediaChunk, long j, long j2, ChunkHolder chunkHolder);
 
-    int getPreferredQueueSize(long j, List<? extends MediaChunk> list);
+    int getPreferredQueueSize(long j, List list);
 
     void maybeThrowError() throws IOException;
 

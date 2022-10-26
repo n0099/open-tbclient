@@ -215,15 +215,15 @@ public class f implements IHttpRequest {
     }
 
     @Override // com.baidu.ar.ihttp.IHttpRequest
-    public IHttpRequest addFormData(Map<String, Object> map) {
+    public IHttpRequest addFormData(Map map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map)) == null) {
             if (map != null && eL()) {
                 b bVar = (b) this.qY;
-                for (Map.Entry<String, Object> entry : map.entrySet()) {
+                for (Map.Entry entry : map.entrySet()) {
                     if (entry.getValue() != null) {
-                        bVar.f(entry.getKey(), entry.getValue().toString());
+                        bVar.f((String) entry.getKey(), entry.getValue().toString());
                     }
                 }
             }
@@ -290,15 +290,15 @@ public class f implements IHttpRequest {
     }
 
     @Override // com.baidu.ar.ihttp.IHttpRequest
-    public IHttpRequest addPartMap(Map<String, Object> map) {
+    public IHttpRequest addPartMap(Map map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, map)) == null) {
             if (map != null && an(null)) {
                 m mVar = (m) this.qY;
-                for (Map.Entry<String, Object> entry : map.entrySet()) {
+                for (Map.Entry entry : map.entrySet()) {
                     if (entry.getValue() != null) {
-                        mVar.g(entry.getKey(), entry.getValue().toString());
+                        mVar.g((String) entry.getKey(), entry.getValue().toString());
                     }
                 }
             }
@@ -321,14 +321,14 @@ public class f implements IHttpRequest {
     }
 
     @Override // com.baidu.ar.ihttp.IHttpRequest
-    public IHttpRequest addQueryMap(Map<String, Object> map) {
+    public IHttpRequest addQueryMap(Map map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, map)) == null) {
             if (map != null) {
-                for (Map.Entry<String, Object> entry : map.entrySet()) {
+                for (Map.Entry entry : map.entrySet()) {
                     if (entry.getValue() != null) {
-                        this.qX.i(entry.getKey(), entry.getValue().toString());
+                        this.qX.i((String) entry.getKey(), entry.getValue().toString());
                     }
                 }
             }

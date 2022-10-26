@@ -7,8 +7,6 @@ import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.DisplayMetrics;
-import androidx.annotation.NonNull;
-import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -19,7 +17,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class VectorEnabledTintResources extends Resources {
     public static /* synthetic */ Interceptable $ic = null;
@@ -44,7 +41,7 @@ public class VectorEnabledTintResources extends Resources {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VectorEnabledTintResources(@NonNull Context context, @NonNull Resources resources) {
+    public VectorEnabledTintResources(Context context, Resources resources) {
         super(resources.getAssets(), resources.getDisplayMetrics(), resources.getConfiguration());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -68,7 +65,22 @@ public class VectorEnabledTintResources extends Resources {
     public static boolean isCompatVectorFromResourcesEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? sCompatVectorFromResourcesEnabled : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return sCompatVectorFromResourcesEnabled;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean shouldBeUsed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (isCompatVectorFromResourcesEnabled() && Build.VERSION.SDK_INT <= 20) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public static void setCompatVectorFromResourcesEnabled(boolean z) {
@@ -76,12 +88,6 @@ public class VectorEnabledTintResources extends Resources {
         if (interceptable == null || interceptable.invokeZ(65539, null, z) == null) {
             sCompatVectorFromResourcesEnabled = z;
         }
-    }
-
-    public static boolean shouldBeUsed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? isCompatVectorFromResourcesEnabled() && Build.VERSION.SDK_INT <= 20 : invokeV.booleanValue;
     }
 
     @Override // android.content.res.Resources
@@ -101,6 +107,9 @@ public class VectorEnabledTintResources extends Resources {
     public final Drawable superGetDrawable(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? super.getDrawable(i) : (Drawable) invokeI.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return super.getDrawable(i);
+        }
+        return (Drawable) invokeI.objValue;
     }
 }

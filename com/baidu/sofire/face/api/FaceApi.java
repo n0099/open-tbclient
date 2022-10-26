@@ -24,6 +24,12 @@ public class FaceApi {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static String getVersion(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? "3.5.9.6" : (String) invokeL.objValue;
+    }
+
     public FaceApi() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -46,18 +52,11 @@ public class FaceApi {
             synchronized (e.class) {
                 eVar = e.c;
             }
-            if (eVar == null || (jVar = eVar.a) == null) {
-                return;
+            if (eVar != null && (jVar = eVar.a) != null) {
+                jVar.a();
+                eVar.a = null;
             }
-            jVar.a();
-            eVar.a = null;
         }
-    }
-
-    public static String getVersion(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? "3.5.9.6" : (String) invokeL.objValue;
     }
 
     public static IVideoRecordProcess getVideoRecordProcess(Activity activity, SurfaceHolder surfaceHolder, RecordCallback recordCallback, int i) {
@@ -65,25 +64,25 @@ public class FaceApi {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65539, null, activity, surfaceHolder, recordCallback, i)) == null) {
             e a = e.a(activity.getApplicationContext());
-            if (a != null) {
-                synchronized (a) {
-                    if (!"3.5.9.6".equals(FH.getVersion(activity.getApplicationContext()))) {
-                        a.a(activity, recordCallback, -21);
-                    } else if (F.getInstance().gct() == null) {
-                        a.a(activity, recordCallback, -13);
-                    } else if (!F.getInstance().cp(activity.getApplicationContext())) {
-                        a.a(activity, recordCallback, -14);
-                    } else if (a.b != null) {
-                        a.a(activity, recordCallback, -1);
-                    } else {
-                        m mVar = new m(a, activity, surfaceHolder, recordCallback, i);
-                        a.b = mVar;
-                        return mVar;
-                    }
-                    return null;
-                }
+            if (a == null) {
+                return null;
             }
-            return null;
+            synchronized (a) {
+                if (!"3.5.9.6".equals(FH.getVersion(activity.getApplicationContext()))) {
+                    a.a(activity, recordCallback, -21);
+                } else if (F.getInstance().gct() == null) {
+                    a.a(activity, recordCallback, -13);
+                } else if (!F.getInstance().cp(activity.getApplicationContext())) {
+                    a.a(activity, recordCallback, -14);
+                } else if (a.b != null) {
+                    a.a(activity, recordCallback, -1);
+                } else {
+                    m mVar = new m(a, activity, surfaceHolder, recordCallback, i);
+                    a.b = mVar;
+                    return mVar;
+                }
+                return null;
+            }
         }
         return (IVideoRecordProcess) invokeLLLI.objValue;
     }
@@ -93,25 +92,25 @@ public class FaceApi {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, textureView, recordCallback, i)) == null) {
             e a = e.a(activity.getApplicationContext());
-            if (a != null) {
-                synchronized (a) {
-                    if (!"3.5.9.6".equals(FH.getVersion(activity.getApplicationContext()))) {
-                        a.a(activity, recordCallback, -21);
-                    } else if (F.getInstance().gct() == null) {
-                        a.a(activity, recordCallback, -13);
-                    } else if (!F.getInstance().cp(activity.getApplicationContext())) {
-                        a.a(activity, recordCallback, -14);
-                    } else if (a.b != null) {
-                        a.a(activity, recordCallback, -1);
-                    } else {
-                        q qVar = new q(a, activity, textureView, recordCallback, i);
-                        a.b = qVar;
-                        return qVar;
-                    }
-                    return null;
-                }
+            if (a == null) {
+                return null;
             }
-            return null;
+            synchronized (a) {
+                if (!"3.5.9.6".equals(FH.getVersion(activity.getApplicationContext()))) {
+                    a.a(activity, recordCallback, -21);
+                } else if (F.getInstance().gct() == null) {
+                    a.a(activity, recordCallback, -13);
+                } else if (!F.getInstance().cp(activity.getApplicationContext())) {
+                    a.a(activity, recordCallback, -14);
+                } else if (a.b != null) {
+                    a.a(activity, recordCallback, -1);
+                } else {
+                    q qVar = new q(a, activity, textureView, recordCallback, i);
+                    a.b = qVar;
+                    return qVar;
+                }
+                return null;
+            }
         }
         return (IVideoRecordProcess) invokeLLLI.objValue;
     }
@@ -131,10 +130,9 @@ public class FaceApi {
             synchronized (e.class) {
                 eVar = e.c;
             }
-            if (eVar == null || (jVar = eVar.a) == null) {
-                return;
+            if (eVar != null && (jVar = eVar.a) != null) {
+                jVar.a(z);
             }
-            jVar.a(z);
         }
     }
 

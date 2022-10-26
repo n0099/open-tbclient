@@ -24,34 +24,6 @@ public final class TornadoGame {
     public String sort;
     public String tag;
 
-    public TornadoGame(String id, String name, String ename, String sort, String tag, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {id, name, ename, sort, tag, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        Intrinsics.checkNotNullParameter(id, "id");
-        Intrinsics.checkNotNullParameter(name, "name");
-        Intrinsics.checkNotNullParameter(ename, "ename");
-        Intrinsics.checkNotNullParameter(sort, "sort");
-        Intrinsics.checkNotNullParameter(tag, "tag");
-        this.id = id;
-        this.name = name;
-        this.ename = ename;
-        this.sort = sort;
-        this.tag = tag;
-        this.free = z;
-    }
-
     public static /* synthetic */ TornadoGame copy$default(TornadoGame tornadoGame, String str, String str2, String str3, String str4, String str5, boolean z, int i, Object obj) {
         if ((i & 1) != 0) {
             str = tornadoGame.id;
@@ -144,42 +116,6 @@ public final class TornadoGame {
         return invokeL.booleanValue;
     }
 
-    public final String getEname() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.ename : (String) invokeV.objValue;
-    }
-
-    public final boolean getFree() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.free : invokeV.booleanValue;
-    }
-
-    public final String getId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.id : (String) invokeV.objValue;
-    }
-
-    public final String getName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.name : (String) invokeV.objValue;
-    }
-
-    public final String getSort() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.sort : (String) invokeV.objValue;
-    }
-
-    public final String getTag() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.tag : (String) invokeV.objValue;
-    }
-
     /* JADX DEBUG: Multi-variable search result rejected for r1v9, resolved type: boolean */
     /* JADX WARN: Multi-variable type inference failed */
     public int hashCode() {
@@ -195,6 +131,97 @@ public final class TornadoGame {
             return hashCode + i;
         }
         return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return "TornadoGame(id=" + this.id + ", name=" + this.name + ", ename=" + this.ename + ", sort=" + this.sort + ", tag=" + this.tag + ", free=" + this.free + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public TornadoGame(String id, String name, String ename, String sort, String tag, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {id, name, ename, sort, tag, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(id, "id");
+        Intrinsics.checkNotNullParameter(name, "name");
+        Intrinsics.checkNotNullParameter(ename, "ename");
+        Intrinsics.checkNotNullParameter(sort, "sort");
+        Intrinsics.checkNotNullParameter(tag, "tag");
+        this.id = id;
+        this.name = name;
+        this.ename = ename;
+        this.sort = sort;
+        this.tag = tag;
+        this.free = z;
+    }
+
+    public final String getEname() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.ename;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final boolean getFree() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.free;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final String getId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.id;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String getName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.name;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String getSort() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.sort;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String getTag() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.tag;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final void setEname(String str) {
@@ -242,14 +269,5 @@ public final class TornadoGame {
             Intrinsics.checkNotNullParameter(str, "<set-?>");
             this.tag = str;
         }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            return "TornadoGame(id=" + this.id + ", name=" + this.name + ", ename=" + this.ename + ", sort=" + this.sort + ", tag=" + this.tag + ", free=" + this.free + ')';
-        }
-        return (String) invokeV.objValue;
     }
 }

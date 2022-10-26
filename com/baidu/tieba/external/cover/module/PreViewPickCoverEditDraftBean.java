@@ -25,7 +25,7 @@ public class PreViewPickCoverEditDraftBean implements Serializable, Cloneable {
     public int mLayoutX;
     @Deprecated
     public int mLayoutY;
-    public List<MultiMediaData> mMultiMediaDataList;
+    public List mMultiMediaDataList;
     @Deprecated
     public float mRotateAngle;
     @Deprecated
@@ -55,7 +55,7 @@ public class PreViewPickCoverEditDraftBean implements Serializable, Cloneable {
         this.mCoverPercent = 0.0f;
     }
 
-    public List<MultiMediaData> cloneMultiMediaDataList() {
+    public List cloneMultiMediaDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -92,10 +92,10 @@ public class PreViewPickCoverEditDraftBean implements Serializable, Cloneable {
                     this.mFontEntity = TextWordsEntity.TextFontEntity.parse(optJSONObject2);
                 }
                 String optString = jSONObject.optString("multiMediaDataList");
-                if (TextUtils.isEmpty(optString)) {
+                if (!TextUtils.isEmpty(optString)) {
+                    this.mMultiMediaDataList = MultiMediaData.parseArrayList(optString);
                     return true;
                 }
-                this.mMultiMediaDataList = MultiMediaData.parseArrayList(optString);
                 return true;
             } catch (Exception unused) {
                 return false;

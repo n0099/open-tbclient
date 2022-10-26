@@ -42,7 +42,7 @@ public class c implements com.baidu.ar.lua.c {
     public static void c(float f, float f2, float f3, float f4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
-            HashMap<String, Object> hashMap = new HashMap<>();
+            HashMap hashMap = new HashMap();
             hashMap.put("id", 10000);
             hashMap.put("max_acc", Float.valueOf(f4));
             ARPMessage.getInstance().sendMessage(1902, hashMap);
@@ -50,7 +50,7 @@ public class c implements com.baidu.ar.lua.c {
     }
 
     @Override // com.baidu.ar.lua.c
-    public void a(int i, int i2, HashMap<String, Object> hashMap) {
+    public void a(int i, int i2, HashMap hashMap) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, hashMap) == null) && i == 1901 && hashMap != null) {
             int a = com.baidu.ar.arplay.c.c.a(hashMap.get("id"), -1);
@@ -113,7 +113,7 @@ public class c implements com.baidu.ar.lua.c {
     }
 
     @Override // com.baidu.ar.lua.c
-    public List<Integer> n() {
+    public List n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Arrays.asList(1901) : (List) invokeV.objValue;

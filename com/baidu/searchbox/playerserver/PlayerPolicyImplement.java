@@ -34,7 +34,7 @@ public class PlayerPolicyImplement implements IPlayerPolicy {
     public static final String TAG = "PlayerServer-PlcyImplmnt";
     public static final int TIMER_UPDATE_WORK_MSG = 1;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<IPlayerConfig> list;
+    public List list;
     public HandlerThread mHandlerThread;
     public Handler mMainHandler;
     public OkHttpClient mOkHttpClient;
@@ -98,6 +98,7 @@ public class PlayerPolicyImplement implements IPlayerPolicy {
 
                 @Override // android.os.Handler
                 public void handleMessage(Message message) {
+                    long j;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, message) == null) {
                         int i3 = message.what;
@@ -106,18 +107,26 @@ public class PlayerPolicyImplement implements IPlayerPolicy {
                             if (PlayerPolicyImplement.access$104(this.this$0) > 1) {
                                 this.this$0.mPullCfgSuccessfully = 1;
                             }
-                            sendEmptyMessageDelayed(1, (this.this$0.mPullCfgSuccessfully == 0 ? 10L : this.this$0.mUpdateInterval) * 1000);
-                        } else if (i3 == 2) {
-                            Object obj = message.obj;
-                            if (obj instanceof IPlayerConfig) {
-                                this.this$0.onRegister((IPlayerConfig) obj);
+                            if (this.this$0.mPullCfgSuccessfully != 0) {
+                                j = this.this$0.mUpdateInterval;
+                            } else {
+                                j = 10;
                             }
-                        } else if (i3 != 3) {
+                            sendEmptyMessageDelayed(1, j * 1000);
+                        } else if (i3 != 2) {
+                            if (i3 == 3) {
+                                Object obj = message.obj;
+                                if (!(obj instanceof IPlayerConfig)) {
+                                    return;
+                                }
+                                this.this$0.onUnregister((IPlayerConfig) obj);
+                            }
                         } else {
                             Object obj2 = message.obj;
-                            if (obj2 instanceof IPlayerConfig) {
-                                this.this$0.onUnregister((IPlayerConfig) obj2);
+                            if (!(obj2 instanceof IPlayerConfig)) {
+                                return;
                             }
+                            this.this$0.onRegister((IPlayerConfig) obj2);
                         }
                     }
                 }
@@ -133,22 +142,83 @@ public class PlayerPolicyImplement implements IPlayerPolicy {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void onRegister(IPlayerConfig iPlayerConfig) {
-        List<IPlayerConfig> list;
+        List list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65547, this, iPlayerConfig) == null) || (list = this.list) == null || iPlayerConfig == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(65547, this, iPlayerConfig) == null) && (list = this.list) != null && iPlayerConfig != null) {
+            list.add(iPlayerConfig);
         }
-        list.add(iPlayerConfig);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void onUnregister(IPlayerConfig iPlayerConfig) {
-        List<IPlayerConfig> list;
+        List list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65548, this, iPlayerConfig) == null) || (list = this.list) == null || iPlayerConfig == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(65548, this, iPlayerConfig) == null) && (list = this.list) != null && iPlayerConfig != null) {
+            list.remove(iPlayerConfig);
         }
-        list.remove(iPlayerConfig);
+    }
+
+    @Override // com.baidu.searchbox.playerserver.IPlayerPolicy
+    public void notify(String str) {
+        Handler handler;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (handler = this.mMainHandler) != null) {
+            handler.post(new Runnable(this, str) { // from class: com.baidu.searchbox.playerserver.PlayerPolicyImplement.3
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ PlayerPolicyImplement this$0;
+                public final /* synthetic */ String val$theJson;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, str};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$theJson = str;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        for (IPlayerConfig iPlayerConfig : this.this$0.list) {
+                            if (iPlayerConfig != null) {
+                                iPlayerConfig.update(this.val$theJson);
+                            }
+                        }
+                    }
+                }
+            });
+        }
+    }
+
+    @Override // com.baidu.searchbox.playerserver.IPlayerPolicy
+    public void register(IPlayerConfig iPlayerConfig) {
+        Handler handler;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iPlayerConfig) == null) && (handler = this.mWorkHandler) != null) {
+            Message.obtain(handler, 2, 0, 0, iPlayerConfig).sendToTarget();
+        }
+    }
+
+    @Override // com.baidu.searchbox.playerserver.IPlayerPolicy
+    public void unregister(IPlayerConfig iPlayerConfig) {
+        Handler handler;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, iPlayerConfig) == null) && (handler = this.mWorkHandler) != null) {
+            Message.obtain(handler, 3, 0, 0, iPlayerConfig).sendToTarget();
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -203,19 +273,18 @@ public class PlayerPolicyImplement implements IPlayerPolicy {
                             this.this$0.mPullCfgSuccessfully = 0;
                             if (response != null) {
                                 try {
-                                    if (response.body() == null || (string = response.body().string()) == null || string.isEmpty()) {
-                                        return;
-                                    }
-                                    this.this$0.notify(string);
-                                    try {
-                                        JSONObject jSONObject = new JSONObject(string);
-                                        if (jSONObject.getInt("errno") == 0) {
-                                            this.this$0.mUpdateInterval = jSONObject.getJSONObject("bandwidth_config").getLong("update_interval");
-                                            this.this$0.mPullCfgSuccessfully = 1;
-                                            this.this$0.mRetryCount = 0L;
+                                    if (response.body() != null && (string = response.body().string()) != null && !string.isEmpty()) {
+                                        this.this$0.notify(string);
+                                        try {
+                                            JSONObject jSONObject = new JSONObject(string);
+                                            if (jSONObject.getInt("errno") == 0) {
+                                                this.this$0.mUpdateInterval = jSONObject.getJSONObject("bandwidth_config").getLong("update_interval");
+                                                this.this$0.mPullCfgSuccessfully = 1;
+                                                this.this$0.mRetryCount = 0L;
+                                            }
+                                        } catch (Exception e) {
+                                            Log.e(PlayerPolicyImplement.TAG, "Get json fail => ", e);
                                         }
-                                    } catch (Exception e) {
-                                        Log.e(PlayerPolicyImplement.TAG, "Get json fail => ", e);
                                     }
                                 } catch (IOException e2) {
                                     Log.e(PlayerPolicyImplement.TAG, "onResponse: ", e2);
@@ -231,62 +300,6 @@ public class PlayerPolicyImplement implements IPlayerPolicy {
     }
 
     @Override // com.baidu.searchbox.playerserver.IPlayerPolicy
-    public void notify(String str) {
-        Handler handler;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (handler = this.mMainHandler) == null) {
-            return;
-        }
-        handler.post(new Runnable(this, str) { // from class: com.baidu.searchbox.playerserver.PlayerPolicyImplement.3
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ PlayerPolicyImplement this$0;
-            public final /* synthetic */ String val$theJson;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this, str};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-                this.val$theJson = str;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    for (IPlayerConfig iPlayerConfig : this.this$0.list) {
-                        if (iPlayerConfig != null) {
-                            iPlayerConfig.update(this.val$theJson);
-                        }
-                    }
-                }
-            }
-        });
-    }
-
-    @Override // com.baidu.searchbox.playerserver.IPlayerPolicy
-    public void register(IPlayerConfig iPlayerConfig) {
-        Handler handler;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iPlayerConfig) == null) || (handler = this.mWorkHandler) == null) {
-            return;
-        }
-        Message.obtain(handler, 2, 0, 0, iPlayerConfig).sendToTarget();
-    }
-
-    @Override // com.baidu.searchbox.playerserver.IPlayerPolicy
     public void start() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.mRequested == 0) {
@@ -299,28 +312,17 @@ public class PlayerPolicyImplement implements IPlayerPolicy {
     public void stop() {
         HandlerThread handlerThread;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (handlerThread = this.mHandlerThread) == null) {
-            return;
-        }
-        if (Build.VERSION.SDK_INT >= 18) {
-            try {
-                handlerThread.getLooper().quitSafely();
-                return;
-            } catch (NoSuchMethodError unused) {
-                this.mHandlerThread.getLooper().quit();
-                return;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (handlerThread = this.mHandlerThread) != null) {
+            if (Build.VERSION.SDK_INT >= 18) {
+                try {
+                    handlerThread.getLooper().quitSafely();
+                    return;
+                } catch (NoSuchMethodError unused) {
+                    this.mHandlerThread.getLooper().quit();
+                    return;
+                }
             }
+            handlerThread.getLooper().quit();
         }
-        handlerThread.getLooper().quit();
-    }
-
-    @Override // com.baidu.searchbox.playerserver.IPlayerPolicy
-    public void unregister(IPlayerConfig iPlayerConfig) {
-        Handler handler;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, iPlayerConfig) == null) || (handler = this.mWorkHandler) == null) {
-            return;
-        }
-        Message.obtain(handler, 3, 0, 0, iPlayerConfig).sendToTarget();
     }
 }

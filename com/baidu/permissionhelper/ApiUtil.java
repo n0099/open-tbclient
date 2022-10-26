@@ -28,6 +28,12 @@ public class ApiUtil {
     public static boolean shouldCheckPermission() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? Build.VERSION.SDK_INT >= 23 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (Build.VERSION.SDK_INT >= 23) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

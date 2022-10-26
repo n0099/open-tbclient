@@ -1,7 +1,5 @@
 package com.baidu.searchbox.aideviceperformanceboxproxy.model;
 
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.aideviceperformance.amendeddevicescore.IAmendedDeviceScoreModelProvider;
 import com.baidu.searchbox.aideviceperformance.device.IDeviceInfoModelProvider;
 import com.baidu.searchbox.aideviceperformance.dynamic.IDynamicModelProvider;
@@ -13,7 +11,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Autowired
 /* loaded from: classes2.dex */
 public class ModelProviderRuntime {
     public static /* synthetic */ Interceptable $ic;
@@ -33,24 +30,30 @@ public class ModelProviderRuntime {
         }
     }
 
-    @Inject(force = false)
     public static IAmendedDeviceScoreModelProvider amendedDeviceScoreModelProvider() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new DefaultAmendedDeviceScoreModelProvider() : (IAmendedDeviceScoreModelProvider) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new DefaultAmendedDeviceScoreModelProvider();
+        }
+        return (IAmendedDeviceScoreModelProvider) invokeV.objValue;
     }
 
-    @Inject(force = false)
     public static IDeviceInfoModelProvider deviceInfoModelProvider() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new DefaultDeviceInfoModelProvider() : (IDeviceInfoModelProvider) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new DefaultDeviceInfoModelProvider();
+        }
+        return (IDeviceInfoModelProvider) invokeV.objValue;
     }
 
-    @Inject(force = false)
     public static IDynamicModelProvider dynamicModelProvider() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new DefaultDynamicModelProvider() : (IDynamicModelProvider) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return new DefaultDynamicModelProvider();
+        }
+        return (IDynamicModelProvider) invokeV.objValue;
     }
 }

@@ -4,8 +4,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.Cdo;
-import com.baidu.tieba.c57;
+import com.baidu.tieba.k57;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +21,7 @@ public class ResponseHttpGetTopicThreadMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean hasMore;
-    public List<Cdo> mDataList;
+    public List mDataList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseHttpGetTopicThreadMessage() {
@@ -43,42 +42,47 @@ public class ResponseHttpGetTopicThreadMessage extends TbHttpResponsedMessage {
         this.hasMore = false;
     }
 
-    public List<Cdo> getDataList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mDataList : (List) invokeV.objValue;
-    }
-
-    public boolean getHasMore() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.hasMore : invokeV.booleanValue;
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         NewTopicThreadResIdl newTopicThreadResIdl;
         DataRes dataRes;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (newTopicThreadResIdl = (NewTopicThreadResIdl) new Wire(new Class[0]).parseFrom(bArr, NewTopicThreadResIdl.class)) == null) {
+        if ((interceptable != null && interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) != null) || (newTopicThreadResIdl = (NewTopicThreadResIdl) new Wire(new Class[0]).parseFrom(bArr, NewTopicThreadResIdl.class)) == null) {
             return;
         }
         setError(newTopicThreadResIdl.error.errorno.intValue());
         setErrorString(newTopicThreadResIdl.error.usermsg);
-        if (getError() != 0 || (dataRes = newTopicThreadResIdl.data) == null || ListUtils.isEmpty(dataRes.thread_list)) {
-            return;
-        }
-        if (newTopicThreadResIdl.data.has_more.intValue() == 1) {
-            this.hasMore = true;
-        }
-        this.mDataList = new ArrayList();
-        for (TopicThread topicThread : newTopicThreadResIdl.data.thread_list) {
-            if (topicThread != null) {
-                c57 c57Var = new c57();
-                c57Var.f(topicThread);
-                this.mDataList.add(c57Var);
+        if (getError() == 0 && (dataRes = newTopicThreadResIdl.data) != null && !ListUtils.isEmpty(dataRes.thread_list)) {
+            if (newTopicThreadResIdl.data.has_more.intValue() == 1) {
+                this.hasMore = true;
+            }
+            this.mDataList = new ArrayList();
+            for (TopicThread topicThread : newTopicThreadResIdl.data.thread_list) {
+                if (topicThread != null) {
+                    k57 k57Var = new k57();
+                    k57Var.f(topicThread);
+                    this.mDataList.add(k57Var);
+                }
             }
         }
+    }
+
+    public List getDataList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mDataList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public boolean getHasMore() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.hasMore;
+        }
+        return invokeV.booleanValue;
     }
 }

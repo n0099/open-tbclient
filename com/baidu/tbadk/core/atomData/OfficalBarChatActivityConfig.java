@@ -62,12 +62,6 @@ public class OfficalBarChatActivityConfig extends IntentConfig {
         intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
     }
 
-    public UserData getUserData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mUserData : (UserData) invokeV.objValue;
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public OfficalBarChatActivityConfig(Context context, long j, String str, String str2, int i, int i2) {
         super(context);
@@ -94,5 +88,14 @@ public class OfficalBarChatActivityConfig extends IntentConfig {
         intent.putExtra("user", userData);
         intent.putExtra("user_type", i2);
         intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
+    }
+
+    public UserData getUserData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mUserData;
+        }
+        return (UserData) invokeV.objValue;
     }
 }

@@ -1,8 +1,7 @@
 package com.baidu.searchbox.ubcprocessor;
 
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.tieba.re1;
-import com.baidu.tieba.te1;
+import com.baidu.tieba.se1;
+import com.baidu.tieba.ue1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -11,8 +10,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class UBCCloudConfigObservers {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Inject(force = false)
-    public te1<UBCCloudConfigObserver> mObservers;
+    public ue1 mObservers;
+
+    public void initmObservers() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            se1 b = se1.b();
+            this.mObservers = b;
+            b.a(new UBCCloudConfigObserver_UBCCloudConfigObservers_ListProvider());
+        }
+    }
 
     public UBCCloudConfigObservers() {
         Interceptable interceptable = $ic;
@@ -28,14 +35,5 @@ public class UBCCloudConfigObservers {
             }
         }
         initmObservers();
-    }
-
-    public void initmObservers() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            re1 b = re1.b();
-            this.mObservers = b;
-            b.a(new UBCCloudConfigObserver_UBCCloudConfigObservers_ListProvider());
-        }
     }
 }

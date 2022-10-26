@@ -40,106 +40,6 @@ public class Emotion {
         }
     }
 
-    public static void init(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
-            SPConfig.init(z);
-            loadEmotionResIfNeed();
-        }
-    }
-
-    public static void initEmotionPanel(Activity activity, View view2, View view3, ViewGroup viewGroup, boolean z, boolean z2, SoftInputUtil.OnSoftInputShowingListener onSoftInputShowingListener, SPSwitchConflictUtil.SwitchClickListener switchClickListener, BDEmotionPanelManager.OnEmotionClickListener onEmotionClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{activity, view2, view3, viewGroup, Boolean.valueOf(z), Boolean.valueOf(z2), onSoftInputShowingListener, switchClickListener, onEmotionClickListener}) == null) {
-            SPConfig.init(z);
-            if (onSoftInputShowingListener == null) {
-                onSoftInputShowingListener = new SoftInputUtil.OnSoftInputShowingListener() { // from class: com.baidu.spswitch.utils.Emotion.2
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                            }
-                        }
-                    }
-
-                    @Override // com.baidu.spswitch.utils.SoftInputUtil.OnSoftInputShowingListener
-                    public void onSoftInputShowing(boolean z3) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeZ(1048576, this, z3) == null) {
-                        }
-                    }
-                };
-            }
-            if (switchClickListener == null) {
-                switchClickListener = new SPSwitchConflictUtil.SwitchClickListener() { // from class: com.baidu.spswitch.utils.Emotion.3
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                            }
-                        }
-                    }
-
-                    @Override // com.baidu.spswitch.utils.SPSwitchConflictUtil.SwitchClickListener
-                    public void onClickSwitch(View view4, boolean z3) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeLZ(1048576, this, view4, z3) == null) {
-                        }
-                    }
-                };
-            }
-            if (onEmotionClickListener == null) {
-                onEmotionClickListener = new BDEmotionPanelManager.OnEmotionClickListener() { // from class: com.baidu.spswitch.utils.Emotion.4
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                            }
-                        }
-                    }
-
-                    @Override // com.baidu.spswitch.utils.BDEmotionPanelManager.OnEmotionClickListener
-                    public void onEmotionClick(EmotionType emotionType, int i, String str, String str2) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeLILL(1048576, this, emotionType, i, str, str2) == null) {
-                        }
-                    }
-                };
-            }
-            SoftInputUtil.attach(activity, (ViewGroup) activity.findViewById(16908290), (IPanelHeightTarget) viewGroup, onSoftInputShowingListener);
-            SPSwitchConflictUtil.attach(activity.getWindow(), viewGroup, view2, view3, switchClickListener);
-            BDEmotionPanelManager.getInstance().loadInnerEmotionPanel(activity, viewGroup, view3, z2);
-            BDEmotionPanelManager.getInstance().setOnEmotionClickListener(onEmotionClickListener);
-        }
-    }
-
     public static void loadEmotionResIfNeed() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
@@ -163,18 +63,123 @@ public class Emotion {
 
                 @Override // java.lang.Runnable
                 public void run() {
+                    boolean z;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         File[] restoreFileList = EmotionAPSManager.getRestoreFileList();
-                        if (restoreFileList == null || restoreFileList.length <= 0) {
-                            EmotionAPSManager.getInstance().presetDoAPSProcess();
-                        } else if (EmotionAPSManager.getInstance().isLoaded()) {
+                        if (restoreFileList != null && restoreFileList.length > 0) {
+                            z = false;
                         } else {
+                            z = true;
+                        }
+                        if (z) {
+                            EmotionAPSManager.getInstance().presetDoAPSProcess();
+                        } else if (!EmotionAPSManager.getInstance().isLoaded()) {
                             EmotionAPSManager.getInstance().loadResourcesIfNeeded();
                         }
                     }
                 }
             }, "loadEmotionResIfNeed");
+        }
+    }
+
+    public static void init(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
+            SPConfig.init(z);
+            loadEmotionResIfNeed();
+        }
+    }
+
+    public static void initEmotionPanel(Activity activity, View view2, View view3, ViewGroup viewGroup, boolean z, boolean z2, SoftInputUtil.OnSoftInputShowingListener onSoftInputShowingListener, SPSwitchConflictUtil.SwitchClickListener switchClickListener, BDEmotionPanelManager.OnEmotionClickListener onEmotionClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{activity, view2, view3, viewGroup, Boolean.valueOf(z), Boolean.valueOf(z2), onSoftInputShowingListener, switchClickListener, onEmotionClickListener}) == null) {
+            SPConfig.init(z);
+            if (onSoftInputShowingListener == null) {
+                onSoftInputShowingListener = new SoftInputUtil.OnSoftInputShowingListener() { // from class: com.baidu.spswitch.utils.Emotion.2
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // com.baidu.spswitch.utils.SoftInputUtil.OnSoftInputShowingListener
+                    public void onSoftInputShowing(boolean z3) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeZ(1048576, this, z3) == null) {
+                        }
+                    }
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                            }
+                        }
+                    }
+                };
+            }
+            if (switchClickListener == null) {
+                switchClickListener = new SPSwitchConflictUtil.SwitchClickListener() { // from class: com.baidu.spswitch.utils.Emotion.3
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // com.baidu.spswitch.utils.SPSwitchConflictUtil.SwitchClickListener
+                    public void onClickSwitch(View view4, boolean z3) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeLZ(1048576, this, view4, z3) == null) {
+                        }
+                    }
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                            }
+                        }
+                    }
+                };
+            }
+            if (onEmotionClickListener == null) {
+                onEmotionClickListener = new BDEmotionPanelManager.OnEmotionClickListener() { // from class: com.baidu.spswitch.utils.Emotion.4
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // com.baidu.spswitch.utils.BDEmotionPanelManager.OnEmotionClickListener
+                    public void onEmotionClick(EmotionType emotionType, int i, String str, String str2) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeLILL(1048576, this, emotionType, i, str, str2) == null) {
+                        }
+                    }
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                            }
+                        }
+                    }
+                };
+            }
+            SoftInputUtil.attach(activity, (ViewGroup) activity.findViewById(16908290), (IPanelHeightTarget) viewGroup, onSoftInputShowingListener);
+            SPSwitchConflictUtil.attach(activity.getWindow(), viewGroup, view2, view3, switchClickListener);
+            BDEmotionPanelManager.getInstance().loadInnerEmotionPanel(activity, viewGroup, view3, z2);
+            BDEmotionPanelManager.getInstance().setOnEmotionClickListener(onEmotionClickListener);
         }
     }
 

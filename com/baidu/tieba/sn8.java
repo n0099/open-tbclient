@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import android.graphics.Bitmap;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -8,10 +9,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class sn8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public long c;
-    public long d;
+    public int a;
+    public String b;
+    public Bitmap c;
+    public String d;
+    public String e;
 
     public sn8() {
         Interceptable interceptable = $ic;
@@ -26,19 +28,6 @@ public class sn8 {
                 return;
             }
         }
-        this.a = 0L;
-        this.b = 0L;
-        this.c = 0L;
-        this.d = 0L;
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = 0L;
-            this.b = 0L;
-            this.c = 0L;
-            this.d = 0L;
-        }
+        this.a = 0;
     }
 }

@@ -9,7 +9,7 @@ import java.lang.ref.WeakReference;
 public final class o implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<Runnable> weakReference;
+    public WeakReference weakReference;
 
     public o(Runnable runnable) {
         Interceptable interceptable = $ic;
@@ -26,14 +26,14 @@ public final class o implements Runnable {
                 return;
             }
         }
-        this.weakReference = new WeakReference<>(runnable);
+        this.weakReference = new WeakReference(runnable);
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         Runnable runnable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (runnable = this.weakReference.get()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (runnable = (Runnable) this.weakReference.get()) == null) {
             return;
         }
         runnable.run();

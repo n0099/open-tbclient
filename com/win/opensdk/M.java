@@ -125,22 +125,6 @@ public class M {
         return (HashMap) invokeCommon.objValue;
     }
 
-    public static HashMap a(Map map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, map)) == null) {
-            HashMap hashMap = new HashMap();
-            if (map != null) {
-                hashMap.putAll(map);
-            }
-            hashMap.put("Accept-Encoding", Collections.singletonList("application/gzip"));
-            hashMap.put("Content-Encoding", Collections.singletonList("application/gzip"));
-            hashMap.put("User-Agent", Collections.singletonList(e2.a));
-            return hashMap;
-        }
-        return (HashMap) invokeL.objValue;
-    }
-
     public static void a(Context context, Info info) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65548, null, context, info) == null) {
@@ -316,44 +300,6 @@ public class M {
         return (interceptable == null || (invokeL = interceptable.invokeL(65559, null, context)) == null) ? context.getPackageName() : (String) invokeL.objValue;
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65560, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
-            }
-            StringBuilder sb = new StringBuilder();
-            byte[] decode = Base64.decode("Y2wyaQ==", 2);
-            StringBuilder sb2 = new StringBuilder();
-            for (byte b : decode) {
-                sb2.append((char) b);
-            }
-            sb.append(sb2.toString());
-            sb.append("4c6k");
-            String sb3 = sb.toString();
-            StringBuilder sb4 = new StringBuilder();
-            byte[] decode2 = Base64.decode("YjJsbw==", 0);
-            StringBuilder sb5 = new StringBuilder();
-            for (byte b2 : decode2) {
-                sb5.append((char) b2);
-            }
-            sb4.append(sb5.toString());
-            sb4.append("o7my");
-            K1 k1 = new K1(sb3, sb4.toString());
-            Cipher cipher = Cipher.getInstance("DES/CBC/NoPadding");
-            cipher.init(2, k1.b, k1.a);
-            int length = str.length() / 2;
-            byte[] bArr = new byte[length];
-            for (int i = 0; i < length; i++) {
-                int i2 = i * 2;
-                bArr[i] = (byte) Integer.parseInt(str.substring(i2, i2 + 2), 16);
-            }
-            return new String(cipher.doFinal(bArr), IMAudioTransRequest.CHARSET);
-        }
-        return (String) invokeL.objValue;
-    }
-
     public static String b(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -431,64 +377,6 @@ public class M {
             }
         }
         return (String) invokeL.objValue;
-    }
-
-    public static byte[] d(String str) {
-        InterceptResult invokeL;
-        Throwable th;
-        InputStream inputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65568, null, str)) == null) {
-            try {
-                HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(URLDecoder.decode(str, "UTF-8")).openConnection();
-                httpURLConnection.setRequestMethod("GET");
-                httpURLConnection.setConnectTimeout(10000);
-                if (httpURLConnection.getResponseCode() == 200) {
-                    inputStream = httpURLConnection.getInputStream();
-                    try {
-                        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                        byte[] bArr = new byte[4096];
-                        while (true) {
-                            int read = inputStream.read(bArr);
-                            if (-1 == read) {
-                                break;
-                            }
-                            byteArrayOutputStream.write(bArr, 0, read);
-                        }
-                        byte[] byteArray = byteArrayOutputStream.toByteArray();
-                        try {
-                            inputStream.close();
-                        } catch (IOException unused) {
-                        }
-                        return byteArray;
-                    } catch (Exception unused2) {
-                        if (inputStream != null) {
-                            try {
-                                inputStream.close();
-                            } catch (IOException unused3) {
-                            }
-                        }
-                        return null;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        if (inputStream != null) {
-                            try {
-                                inputStream.close();
-                            } catch (IOException unused4) {
-                            }
-                        }
-                        throw th;
-                    }
-                }
-            } catch (Exception unused5) {
-                inputStream = null;
-            } catch (Throwable th3) {
-                th = th3;
-                inputStream = null;
-            }
-            return null;
-        }
-        return (byte[]) invokeL.objValue;
     }
 
     public static String e(String str) {
@@ -581,6 +469,128 @@ public class M {
         return (byte[]) invokeL.objValue;
     }
 
+    public static int a(U0 u0, y1 y1Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, u0, y1Var)) == null) {
+            byte[] bArr = u0.b;
+            int i = u0.a;
+            if (i == 200) {
+                y1Var.a(new String(bArr, "UTF-8"));
+                return y1Var.a;
+            }
+            return i;
+        }
+        return invokeLL.intValue;
+    }
+
+    public static Intent a(Info info, Context context, String str) {
+        InterceptResult invokeLLL;
+        Uri fromFile;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, info, context, str)) == null) {
+            Intent intent = new Intent("android.intent.action.VIEW");
+            try {
+                try {
+                    if (Build.VERSION.SDK_INT == 23) {
+                        a("777", a(context) + "/win/");
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                a("777", str);
+                if (Build.VERSION.SDK_INT >= 24) {
+                    intent.setAction("android.intent.action.INSTALL_PACKAGE");
+                    intent.setFlags(268435457);
+                    fromFile = FileProvider.getUriForFile(context, context.getApplicationInfo().packageName + ".fileProvider", new File(str));
+                } else {
+                    intent.setAction("android.intent.action.VIEW");
+                    intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+                    fromFile = Uri.fromFile(new File(str));
+                }
+                intent.setDataAndType(fromFile, "application/vnd.android.package-archive");
+                return intent;
+            } catch (Exception e2) {
+                String str2 = "错误:" + e2.getMessage();
+                e2.printStackTrace();
+                if (info != null) {
+                    d1 a = e1.a(context);
+                    try {
+                        a.b = e1.a("wiin", new f1(info));
+                        a.a("msg", e1.a(str));
+                    } catch (JSONException unused) {
+                    }
+                    a.a();
+                }
+                return intent;
+            }
+        }
+        return (Intent) invokeLLL.objValue;
+    }
+
+    public static String a(Context context) {
+        InterceptResult invokeL;
+        boolean z;
+        File cacheDir;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            if (ContextCompat.checkSelfPermission(context, "android.permission.WRITE_EXTERNAL_STORAGE") == 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
+                cacheDir = context.getExternalCacheDir();
+            } else {
+                cacheDir = context.getCacheDir();
+            }
+            return cacheDir.getPath();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String a(Context context, String str, String str2) {
+        Signature[] signatureArr;
+        String str3;
+        MessageDigest messageDigest;
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, context, str, str2)) == null) {
+            try {
+                try {
+                    signatureArr = context.getPackageManager().getPackageInfo(str, 64).signatures;
+                } catch (PackageManager.NameNotFoundException e) {
+                    e.printStackTrace();
+                    signatureArr = null;
+                }
+                if (signatureArr != null && signatureArr.length > 0) {
+                    byte[] byteArray = signatureArr[0].toByteArray();
+                    try {
+                        messageDigest = MessageDigest.getInstance(str2);
+                    } catch (Exception e2) {
+                        e2.printStackTrace();
+                    }
+                    if (messageDigest != null) {
+                        byte[] digest = messageDigest.digest(byteArray);
+                        StringBuilder sb = new StringBuilder();
+                        for (byte b : digest) {
+                            sb.append(Integer.toHexString((b & 255) | 256).substring(1, 3));
+                        }
+                        str3 = sb.toString().toUpperCase();
+                        return str3.toUpperCase();
+                    }
+                    str3 = "error!";
+                    return str3.toUpperCase();
+                }
+                return "ERROR";
+            } catch (Exception e3) {
+                e3.printStackTrace();
+                return "ERROR";
+            }
+        }
+        return (String) invokeLLL.objValue;
+    }
+
     public static String a(String str) {
         InterceptResult invokeL;
         String str2;
@@ -611,23 +621,119 @@ public class M {
                 cipher.init(1, secretKeySpec);
                 str2 = Base64.encodeToString(cipher.doFinal(str.getBytes(IMAudioTransRequest.CHARSET)), 2);
             }
-            if (TextUtils.isEmpty(str2)) {
-                return str2;
+            if (!TextUtils.isEmpty(str2)) {
+                return "KL_" + str2;
             }
-            return "KL_" + str2;
+            return str2;
         }
         return (String) invokeL.objValue;
     }
 
-    public static void d(Context context) {
+    public static String b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65567, null, context) == null) {
-            long currentTimeMillis = System.currentTimeMillis() - Z1.a(context);
-            if (currentTimeMillis < 0) {
-                Z1.t(context);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65560, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
             }
-            if (currentTimeMillis > context.getSharedPreferences("_prefs", 0).getLong("bdtsi", 24L) * 3600000) {
-                b2.a(new b1(context));
+            StringBuilder sb = new StringBuilder();
+            byte[] decode = Base64.decode("Y2wyaQ==", 2);
+            StringBuilder sb2 = new StringBuilder();
+            for (byte b : decode) {
+                sb2.append((char) b);
+            }
+            sb.append(sb2.toString());
+            sb.append("4c6k");
+            String sb3 = sb.toString();
+            StringBuilder sb4 = new StringBuilder();
+            byte[] decode2 = Base64.decode("YjJsbw==", 0);
+            StringBuilder sb5 = new StringBuilder();
+            for (byte b2 : decode2) {
+                sb5.append((char) b2);
+            }
+            sb4.append(sb5.toString());
+            sb4.append("o7my");
+            K1 k1 = new K1(sb3, sb4.toString());
+            Cipher cipher = Cipher.getInstance("DES/CBC/NoPadding");
+            cipher.init(2, k1.b, k1.a);
+            int length = str.length() / 2;
+            byte[] bArr = new byte[length];
+            for (int i = 0; i < length; i++) {
+                int i2 = i * 2;
+                bArr[i] = (byte) Integer.parseInt(str.substring(i2, i2 + 2), 16);
+            }
+            return new String(cipher.doFinal(bArr), IMAudioTransRequest.CHARSET);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static HashMap a(Map map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, map)) == null) {
+            HashMap hashMap = new HashMap();
+            if (map != null) {
+                hashMap.putAll(map);
+            }
+            hashMap.put("Accept-Encoding", Collections.singletonList("application/gzip"));
+            hashMap.put("Content-Encoding", Collections.singletonList("application/gzip"));
+            hashMap.put("User-Agent", Collections.singletonList(e2.a));
+            return hashMap;
+        }
+        return (HashMap) invokeL.objValue;
+    }
+
+    public static void a(Info info, int i, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLIL(65551, null, info, i, str) == null) && info != null) {
+            g(a((String) info.getEvents().get(i, ""), str, info.isHo_c_sw(), null));
+        }
+    }
+
+    public static void a(String str, Map map, S0 s0) {
+        String message;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65555, null, str, map, s0) == null) {
+            try {
+                s0.a();
+                U0 a = new T0(str, "GET", a(map)).a();
+                y1 y1Var = new y1();
+                int a2 = a(a, y1Var);
+                if (a2 == 200) {
+                    s0.a(y1Var);
+                } else {
+                    s0.a(a2, y1Var.b);
+                }
+            } catch (JSONException e) {
+                message = e.getMessage();
+                i = 101;
+                s0.a(i, message);
+            } catch (Exception e2) {
+                message = e2.getMessage();
+                i = 100;
+                s0.a(i, message);
+            }
+        }
+    }
+
+    public static void b(Info info, Context context, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(65562, null, info, context, str) == null) && !TextUtils.isEmpty(str)) {
+            try {
+                Intent a = a(info, context, str);
+                if (a.getFlags() > 0) {
+                    d1 a2 = e1.a(context);
+                    try {
+                        a2.b = e1.a("wist", new f1(info));
+                        a2.a("msg", e1.a(str));
+                    } catch (JSONException unused) {
+                    }
+                    a2.a();
+                    context.startActivity(a);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
@@ -675,170 +781,79 @@ public class M {
         return false;
     }
 
-    public static void a(String str, Map map, S0 s0) {
-        String message;
-        int i;
+    public static void d(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65555, null, str, map, s0) == null) {
-            try {
-                s0.a();
-                U0 a = new T0(str, "GET", a(map)).a();
-                y1 y1Var = new y1();
-                int a2 = a(a, y1Var);
-                if (a2 == 200) {
-                    s0.a(y1Var);
-                } else {
-                    s0.a(a2, y1Var.b);
-                }
-            } catch (JSONException e) {
-                message = e.getMessage();
-                i = 101;
-                s0.a(i, message);
-            } catch (Exception e2) {
-                message = e2.getMessage();
-                i = 100;
-                s0.a(i, message);
+        if (interceptable == null || interceptable.invokeL(65567, null, context) == null) {
+            long currentTimeMillis = System.currentTimeMillis() - Z1.a(context);
+            if (currentTimeMillis < 0) {
+                Z1.t(context);
             }
+            boolean z = false;
+            if (currentTimeMillis > context.getSharedPreferences("_prefs", 0).getLong("bdtsi", 24L) * 3600000) {
+                z = true;
+            }
+            if (!z) {
+                return;
+            }
+            b2.a(new b1(context));
         }
     }
 
-    public static void b(Info info, Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65562, null, info, context, str) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        try {
-            Intent a = a(info, context, str);
-            if (a.getFlags() > 0) {
-                d1 a2 = e1.a(context);
-                try {
-                    a2.b = e1.a("wist", new f1(info));
-                    a2.a("msg", e1.a(str));
-                } catch (JSONException unused) {
-                }
-                a2.a();
-                context.startActivity(a);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static String a(Context context) {
+    public static byte[] d(String str) {
         InterceptResult invokeL;
+        Throwable th;
+        InputStream inputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            return (ContextCompat.checkSelfPermission(context, "android.permission.WRITE_EXTERNAL_STORAGE") == 0 ? context.getExternalCacheDir() : context.getCacheDir()).getPath();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static Intent a(Info info, Context context, String str) {
-        InterceptResult invokeLLL;
-        Uri fromFile;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, info, context, str)) == null) {
-            Intent intent = new Intent("android.intent.action.VIEW");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65568, null, str)) == null) {
             try {
-                try {
-                    if (Build.VERSION.SDK_INT == 23) {
-                        a("777", a(context) + "/win/");
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                a("777", str);
-                if (Build.VERSION.SDK_INT >= 24) {
-                    intent.setAction("android.intent.action.INSTALL_PACKAGE");
-                    intent.setFlags(268435457);
-                    fromFile = FileProvider.getUriForFile(context, context.getApplicationInfo().packageName + ".fileProvider", new File(str));
-                } else {
-                    intent.setAction("android.intent.action.VIEW");
-                    intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-                    fromFile = Uri.fromFile(new File(str));
-                }
-                intent.setDataAndType(fromFile, "application/vnd.android.package-archive");
-                return intent;
-            } catch (Exception e2) {
-                String str2 = "错误:" + e2.getMessage();
-                e2.printStackTrace();
-                if (info != null) {
-                    d1 a = e1.a(context);
+                HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(URLDecoder.decode(str, "UTF-8")).openConnection();
+                httpURLConnection.setRequestMethod("GET");
+                httpURLConnection.setConnectTimeout(10000);
+                if (httpURLConnection.getResponseCode() == 200) {
+                    inputStream = httpURLConnection.getInputStream();
                     try {
-                        a.b = e1.a("wiin", new f1(info));
-                        a.a("msg", e1.a(str));
-                    } catch (JSONException unused) {
+                        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                        byte[] bArr = new byte[4096];
+                        while (true) {
+                            int read = inputStream.read(bArr);
+                            if (-1 == read) {
+                                break;
+                            }
+                            byteArrayOutputStream.write(bArr, 0, read);
+                        }
+                        byte[] byteArray = byteArrayOutputStream.toByteArray();
+                        try {
+                            inputStream.close();
+                        } catch (IOException unused) {
+                        }
+                        return byteArray;
+                    } catch (Exception unused2) {
+                        if (inputStream != null) {
+                            try {
+                                inputStream.close();
+                            } catch (IOException unused3) {
+                            }
+                        }
+                        return null;
+                    } catch (Throwable th2) {
+                        th = th2;
+                        if (inputStream != null) {
+                            try {
+                                inputStream.close();
+                            } catch (IOException unused4) {
+                            }
+                        }
+                        throw th;
                     }
-                    a.a();
                 }
-                return intent;
+            } catch (Exception unused5) {
+                inputStream = null;
+            } catch (Throwable th3) {
+                th = th3;
+                inputStream = null;
             }
+            return null;
         }
-        return (Intent) invokeLLL.objValue;
-    }
-
-    public static String a(Context context, String str, String str2) {
-        Signature[] signatureArr;
-        String str3;
-        MessageDigest messageDigest;
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, context, str, str2)) == null) {
-            try {
-                try {
-                    signatureArr = context.getPackageManager().getPackageInfo(str, 64).signatures;
-                } catch (PackageManager.NameNotFoundException e) {
-                    e.printStackTrace();
-                    signatureArr = null;
-                }
-                if (signatureArr == null || signatureArr.length <= 0) {
-                    return "ERROR";
-                }
-                byte[] byteArray = signatureArr[0].toByteArray();
-                try {
-                    messageDigest = MessageDigest.getInstance(str2);
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                }
-                if (messageDigest != null) {
-                    byte[] digest = messageDigest.digest(byteArray);
-                    StringBuilder sb = new StringBuilder();
-                    for (byte b : digest) {
-                        sb.append(Integer.toHexString((b & 255) | 256).substring(1, 3));
-                    }
-                    str3 = sb.toString().toUpperCase();
-                    return str3.toUpperCase();
-                }
-                str3 = "error!";
-                return str3.toUpperCase();
-            } catch (Exception e3) {
-                e3.printStackTrace();
-                return "ERROR";
-            }
-        }
-        return (String) invokeLLL.objValue;
-    }
-
-    public static int a(U0 u0, y1 y1Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, u0, y1Var)) == null) {
-            byte[] bArr = u0.b;
-            int i = u0.a;
-            if (i == 200) {
-                y1Var.a(new String(bArr, "UTF-8"));
-                return y1Var.a;
-            }
-            return i;
-        }
-        return invokeLL.intValue;
-    }
-
-    public static void a(Info info, int i, String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(65551, null, info, i, str) == null) || info == null) {
-            return;
-        }
-        g(a((String) info.getEvents().get(i, ""), str, info.isHo_c_sw(), null));
+        return (byte[]) invokeL.objValue;
     }
 }

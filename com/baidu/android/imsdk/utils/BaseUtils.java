@@ -15,6 +15,12 @@ public abstract class BaseUtils {
     public static final String METHOD_SENDMESSAGE = "55";
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static boolean isEmojiCharacter(char c) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Character.valueOf(c)})) == null) ? c == 0 || c == '\t' || c == '\n' || c == '\r' || (c >= ' ' && c <= 55295) || ((c >= 57344 && c <= 65533) || (c >= 0 && c <= 65535)) : invokeCommon.booleanValue;
+    }
+
     public BaseUtils() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -61,11 +67,5 @@ public abstract class BaseUtils {
             }
         }
         return (String) invokeL.objValue;
-    }
-
-    public static boolean isEmojiCharacter(char c) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Character.valueOf(c)})) == null) ? c == 0 || c == '\t' || c == '\n' || c == '\r' || (c >= ' ' && c <= 55295) || ((c >= 57344 && c <= 65533) || (c >= 0 && c <= 65535)) : invokeCommon.booleanValue;
     }
 }

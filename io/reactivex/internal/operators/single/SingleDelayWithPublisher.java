@@ -19,23 +19,23 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class SingleDelayWithPublisher<T, U> extends Single<T> {
+public final class SingleDelayWithPublisher extends Single {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Publisher<U> other;
-    public final SingleSource<T> source;
+    public final Publisher other;
+    public final SingleSource source;
 
     /* loaded from: classes8.dex */
-    public static final class OtherSubscriber<T, U> extends AtomicReference<Disposable> implements FlowableSubscriber<U>, Disposable {
+    public final class OtherSubscriber extends AtomicReference implements FlowableSubscriber, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -8565274649390031272L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SingleObserver<? super T> actual;
+        public final SingleObserver actual;
         public boolean done;
         public Subscription s;
-        public final SingleSource<T> source;
+        public final SingleSource source;
 
-        public OtherSubscriber(SingleObserver<? super T> singleObserver, SingleSource<T> singleSource) {
+        public OtherSubscriber(SingleObserver singleObserver, SingleSource singleSource) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -67,13 +67,16 @@ public final class SingleDelayWithPublisher<T, U> extends Single<T> {
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? DisposableHelper.isDisposed(get()) : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return DisposableHelper.isDisposed((Disposable) get());
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // org.reactivestreams.Subscriber
         public void onComplete() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.done) {
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.done) {
                 return;
             }
             this.done = true;
@@ -94,9 +97,9 @@ public final class SingleDelayWithPublisher<T, U> extends Single<T> {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(U u) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, u) == null) {
+            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
                 this.s.cancel();
                 onComplete();
             }
@@ -113,7 +116,7 @@ public final class SingleDelayWithPublisher<T, U> extends Single<T> {
         }
     }
 
-    public SingleDelayWithPublisher(SingleSource<T> singleSource, Publisher<U> publisher) {
+    public SingleDelayWithPublisher(SingleSource singleSource, Publisher publisher) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -133,7 +136,7 @@ public final class SingleDelayWithPublisher<T, U> extends Single<T> {
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver<? super T> singleObserver) {
+    public void subscribeActual(SingleObserver singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, singleObserver) == null) {
             this.other.subscribe(new OtherSubscriber(singleObserver, this.source));

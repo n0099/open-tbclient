@@ -55,7 +55,7 @@ public class VideoCloudSetting {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes6.dex */
-    public static final class MatchedType {
+    public final class MatchedType {
         public static final /* synthetic */ MatchedType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final MatchedType AND_NEED_CHECK_NEXT;
@@ -118,7 +118,7 @@ public class VideoCloudSetting {
     }
 
     /* loaded from: classes6.dex */
-    public static class VideoCloudSettingItem {
+    public class VideoCloudSettingItem {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean mIsAdd;
@@ -284,10 +284,10 @@ public class VideoCloudSetting {
     }
 
     /* loaded from: classes6.dex */
-    public static class VideoSettings {
+    public class VideoSettings {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public SparseArray<VideoCloudSettingItem> mItems;
+        public SparseArray mItems;
 
         public VideoSettings() {
             Interceptable interceptable = $ic;
@@ -302,7 +302,7 @@ public class VideoCloudSetting {
                     return;
                 }
             }
-            this.mItems = new SparseArray<>();
+            this.mItems = new SparseArray();
         }
 
         public boolean canErrorLogUpload(String str) {
@@ -319,7 +319,7 @@ public class VideoCloudSetting {
                     if (i >= this.mItems.size()) {
                         break;
                     }
-                    VideoCloudSettingItem videoCloudSettingItem = this.mItems.get(i);
+                    VideoCloudSettingItem videoCloudSettingItem = (VideoCloudSettingItem) this.mItems.get(i);
                     int i2 = videoCloudSettingItem.mType;
                     if (i2 == 0) {
                         str2 = str;
@@ -354,7 +354,7 @@ public class VideoCloudSetting {
             return invokeL.booleanValue;
         }
 
-        public SparseArray<VideoCloudSettingItem> getItems() {
+        public SparseArray getItems() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mItems : (SparseArray) invokeV.objValue;

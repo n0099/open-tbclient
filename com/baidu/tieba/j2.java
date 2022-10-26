@@ -42,6 +42,14 @@ public class j2 implements d1 {
     }
 
     @Override // com.baidu.tieba.d1
+    public void error(String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, str, str2, th) == null) {
+            Log.e(str, str2, th);
+        }
+    }
+
+    @Override // com.baidu.tieba.d1
     public void debug(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
@@ -62,14 +70,6 @@ public class j2 implements d1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) {
             Log.i(str, str2);
-        }
-    }
-
-    @Override // com.baidu.tieba.d1
-    public void error(String str, String str2, Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, str, str2, th) == null) {
-            Log.e(str, str2, th);
         }
     }
 }

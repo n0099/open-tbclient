@@ -28,6 +28,24 @@ public class BasicHttpContext implements HttpContext {
         throw new RuntimeException("Stub!");
     }
 
+    public BasicHttpContext(HttpContext httpContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {httpContext};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        throw new RuntimeException("Stub!");
+    }
+
     @Override // org.apache.http.protocol.HttpContext
     public Object getAttribute(String str) {
         InterceptResult invokeL;
@@ -54,23 +72,5 @@ public class BasicHttpContext implements HttpContext {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, obj) == null) {
             throw new RuntimeException("Stub!");
         }
-    }
-
-    public BasicHttpContext(HttpContext httpContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {httpContext};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        throw new RuntimeException("Stub!");
     }
 }

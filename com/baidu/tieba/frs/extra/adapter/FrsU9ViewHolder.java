@@ -20,11 +20,12 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cu4;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.an8;
 import com.baidu.tieba.eu4;
-import com.baidu.tieba.tm8;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.gu4;
 import com.baidu.tieba.w9;
+import com.baidu.tieba.zp4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -43,8 +44,8 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
     public TextView h;
     public View i;
     public TextView j;
-    public cu4 k;
-    public eu4 l;
+    public eu4 k;
+    public gu4 l;
     public ImageView m;
     public View n;
     public int o;
@@ -77,18 +78,17 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && ViewHelper.checkUpIsLogin(this.a.a.getPageActivity()) && ej.D()) {
-                if (view2 == this.a.b) {
-                    if (this.a.k == null || TextUtils.isEmpty(this.a.k.b())) {
-                        return;
-                    }
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || !ViewHelper.checkUpIsLogin(this.a.a.getPageActivity()) || !fj.D()) {
+                return;
+            }
+            if (view2 == this.a.b) {
+                if (this.a.k != null && !TextUtils.isEmpty(this.a.k.b())) {
                     TiebaStatic.eventStat(this.a.a.getPageActivity(), "num_click", "click", 1, new Object[0]);
                     UrlManager.getInstance().dealOneLink((TbPageContext) w9.a(this.a.a.getPageActivity()), new String[]{this.a.k.b()});
-                } else if (view2 != this.a.c || this.a.l == null || TextUtils.isEmpty(this.a.l.j1())) {
-                } else {
-                    TiebaStatic.eventStat(this.a.a.getPageActivity(), "info_click", "click", 1, "page", "frs");
-                    UrlManager.getInstance().dealOneLink((TbPageContext) w9.a(this.a.a.getPageActivity()), new String[]{this.a.l.j1()});
                 }
+            } else if (view2 == this.a.c && this.a.l != null && !TextUtils.isEmpty(this.a.l.k1())) {
+                TiebaStatic.eventStat(this.a.a.getPageActivity(), "info_click", "click", 1, "page", "frs");
+                UrlManager.getInstance().dealOneLink((TbPageContext) w9.a(this.a.a.getPageActivity()), new String[]{this.a.l.k1()});
             }
         }
     }
@@ -114,51 +114,51 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
         this.o = 3;
         this.p = new a(this);
         this.a = tbPageContext;
-        this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f092454);
-        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092453);
-        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f092298);
+        this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09243e);
+        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09243d);
+        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f092282);
         this.d = tbImageView;
         tbImageView.setPageId(bdUniqueId);
-        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092294);
-        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092295);
-        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092291);
-        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092297);
-        this.i = view2.findViewById(R.id.obfuscated_res_0x7f092455);
-        ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0916ae);
+        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09227e);
+        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09227f);
+        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09227b);
+        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092281);
+        this.i = view2.findViewById(R.id.obfuscated_res_0x7f09243f);
+        ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0916a0);
         this.m = imageView;
         imageView.setBackgroundDrawable(SkinManager.getDrawable(R.drawable.icon_frs_news));
-        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0916af);
-        this.n = view2.findViewById(R.id.obfuscated_res_0x7f090ba4);
+        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0916a1);
+        this.n = view2.findViewById(R.id.obfuscated_res_0x7f090bae);
         SkinManager.setBackgroundResource(this.h, R.drawable.frs_star_btn_like);
         SkinManager.setViewTextColor(this.h, (int) R.drawable.frs_text_color_selector);
         h();
     }
 
-    public void f(tm8 tm8Var) {
+    public void f(an8 an8Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, tm8Var) == null) || tm8Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, an8Var) != null) || an8Var == null) {
             return;
         }
-        cu4 c = tm8Var.c();
-        eu4 f = tm8Var.f();
+        eu4 c = an8Var.c();
+        gu4 f = an8Var.f();
         this.k = c;
         this.l = f;
-        if (tm8Var.h()) {
+        if (an8Var.h()) {
             this.n.setVisibility(0);
         } else {
             this.n.setVisibility(8);
         }
-        cu4 cu4Var = this.k;
-        if (cu4Var == null) {
+        eu4 eu4Var = this.k;
+        if (eu4Var == null) {
             this.b.setVisibility(8);
             this.i.setVisibility(8);
-        } else if (StringUtils.isNull(cu4Var.g())) {
+        } else if (StringUtils.isNull(eu4Var.g())) {
             this.b.setVisibility(8);
             this.i.setVisibility(8);
         } else {
             this.b.setVisibility(0);
             this.i.setVisibility(0);
-            this.d.K(this.k.e(), 10, false);
+            this.d.L(this.k.e(), 10, false);
             this.e.setText(this.k.g());
             if (StringUtils.isNull(c.a())) {
                 this.h.setVisibility(8);
@@ -175,7 +175,7 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
                 if (StringUtils.isNull(this.k.h())) {
                     this.f.setVisibility(8);
                 } else {
-                    String str = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f14b5) + this.k.h();
+                    String str = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f14ce) + this.k.h();
                     SpannableString spannableString = new SpannableString(str);
                     UtilHelper.setSpan(spannableString, str, this.k.h(), new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305)));
                     this.f.setText(spannableString);
@@ -184,7 +184,7 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
                 if (c.d() <= 0) {
                     this.g.setVisibility(8);
                 } else {
-                    String str2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f14b6) + this.k.d();
+                    String str2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f14cf) + this.k.d();
                     SpannableString spannableString2 = new SpannableString(str2);
                     UtilHelper.setSpan(spannableString2, str2, String.valueOf(this.k.d()), new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305)));
                     this.g.setText(spannableString2);
@@ -192,9 +192,9 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
                 }
             }
         }
-        if (this.l != null && !StringUtils.isNull(f.k1())) {
+        if (this.l != null && !StringUtils.isNull(f.l1())) {
             this.c.setVisibility(0);
-            this.j.setText(f.k1());
+            this.j.setText(f.l1());
             return;
         }
         this.c.setVisibility(8);
@@ -202,15 +202,19 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
 
     public void g(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || this.o == i) {
-            return;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && this.o != i) {
+            SkinManager.setBackgroundResource(this.m, R.drawable.icon_frs_news);
+            SkinManager.setBackgroundResource(this.h, R.drawable.frs_star_btn_like);
+            SkinManager.setViewTextColor(this.h, (int) R.drawable.frs_text_color_selector);
+            zp4 layoutMode = this.a.getLayoutMode();
+            boolean z = true;
+            if (i != 1) {
+                z = false;
+            }
+            layoutMode.l(z);
+            this.a.getLayoutMode().k(getView());
+            this.o = i;
         }
-        SkinManager.setBackgroundResource(this.m, R.drawable.icon_frs_news);
-        SkinManager.setBackgroundResource(this.h, R.drawable.frs_star_btn_like);
-        SkinManager.setViewTextColor(this.h, (int) R.drawable.frs_text_color_selector);
-        this.a.getLayoutMode().l(i == 1);
-        this.a.getLayoutMode().k(getView());
-        this.o = i;
     }
 
     public void h() {

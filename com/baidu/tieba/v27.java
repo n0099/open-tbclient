@@ -1,97 +1,59 @@
 package com.baidu.tieba;
 
-import android.util.LongSparseArray;
-import android.util.SparseArray;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
-import tbclient.Personalized.DataRes;
-import tbclient.Personalized.DislikeReason;
-import tbclient.Personalized.ThreadPersonalized;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class v27 {
+public class v27 extends t27 {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId f;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(DataRes.Builder builder, List<Cdo> list) {
-        p26 p26Var;
-        ThreadData threadData;
-        ThreadPersonalized threadPersonalized;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65536, null, builder, list) == null) || builder == null || list == null) {
-            return;
-        }
-        LongSparseArray longSparseArray = new LongSparseArray();
-        for (ThreadPersonalized threadPersonalized2 : builder.thread_personalized) {
-            if (threadPersonalized2 != null) {
-                longSparseArray.put(threadPersonalized2.tid.longValue(), threadPersonalized2);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948188974, "Lcom/baidu/tieba/v27;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948188974, "Lcom/baidu/tieba/v27;");
+                return;
             }
         }
-        int count = ListUtils.getCount(list);
-        for (int i = 0; i < count; i++) {
-            Cdo cdo = (Cdo) ListUtils.getItem(list, i);
-            if ((cdo instanceof p26) && (threadData = (p26Var = (p26) cdo).getThreadData()) != null && (threadPersonalized = (ThreadPersonalized) longSparseArray.get(dh.g(threadData.getTid(), 0L))) != null) {
-                p26Var.J(threadPersonalized.source);
-                p26Var.M(threadPersonalized.weight);
-                p26Var.F(threadPersonalized.abtest_tag);
-                threadData.mRecomAbTag = threadPersonalized.abtest_tag;
-                threadData.mRecomSource = threadPersonalized.source;
-                threadData.mRecomWeight = threadPersonalized.weight;
-                if (threadData.getThreadVideoInfo() != null) {
-                    p26Var.H(threadData.getThreadVideoInfo().is_vertical);
-                }
-                List<DislikeReason> list2 = threadPersonalized.dislike_resource;
-                if (list2 != null) {
-                    SparseArray<String> sparseArray = new SparseArray<>();
-                    for (DislikeReason dislikeReason : list2) {
-                        int intValue = dislikeReason.dislike_id.intValue();
-                        sparseArray.put(intValue, dislikeReason.dislike_reason + "%" + dislikeReason.extra);
-                    }
-                    p26Var.feedBackReasonMap = sparseArray;
-                    p26Var.G(threadPersonalized.extra);
-                }
-            }
-        }
+        f = BdUniqueId.gen();
     }
 
-    public static void b(List<Cdo> list) {
+    public v27() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, list) == null) || list == null) {
-            return;
-        }
-        int count = ListUtils.getCount(list);
-        int i = 0;
-        while (i < count) {
-            Cdo cdo = (Cdo) ListUtils.getItem(list, i);
-            boolean z = cdo instanceof d36;
-            if (z) {
-                ((d36) cdo).d(true);
-            }
-            i++;
-            Cdo cdo2 = (Cdo) ListUtils.getItem(list, i);
-            if (z && (cdo2 instanceof d36)) {
-                d36 d36Var = (d36) cdo;
-                d36 d36Var2 = (d36) cdo2;
-                if (d36Var.m()) {
-                    d36Var2.d(false);
-                    if (d36Var2 instanceof b37) {
-                        d36Var.u(false);
-                    }
-                }
-            }
-            if (cdo instanceof b37) {
-                ((b37) cdo).u(false);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        j(a26.g());
+        l("percard#");
     }
 
-    public static void c(DataRes.Builder builder, List<Cdo> list) {
+    @Override // com.baidu.tieba.c36, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.eo
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, builder, list) == null) {
-            b(list);
-            a(builder, list);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return f;
         }
+        return (BdUniqueId) invokeV.objValue;
     }
 }

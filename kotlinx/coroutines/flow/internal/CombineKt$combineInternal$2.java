@@ -1,5 +1,6 @@
 package kotlinx.coroutines.flow.internal;
 
+import androidx.exifinterface.media.ExifInterface;
 import com.google.android.exoplayer2.text.cea.Cea708Decoder;
 import kotlin.Metadata;
 import kotlin.ResultKt;
@@ -20,10 +21,10 @@ import kotlinx.coroutines.flow.Flow;
 import kotlinx.coroutines.flow.FlowCollector;
 import kotlinx.coroutines.selects.SelectBuilderImpl;
 import kotlinx.coroutines.selects.SelectClause1;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0012\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u0003*\u00020\u0004H\u008a@¢\u0006\u0004\b\u0005\u0010\u0006"}, d2 = {"<anonymous>", "", "R", "T", "Lkotlinx/coroutines/CoroutineScope;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0012\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u0003*\u00020\u0004H\u008a@¢\u0006\u0004\b\u0005\u0010\u0006"}, d2 = {"<anonymous>", "", "R", ExifInterface.GPS_DIRECTION_TRUE, "Lkotlinx/coroutines/CoroutineScope;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
 @DebugMetadata(c = "kotlinx.coroutines.flow.internal.CombineKt$combineInternal$2", f = "Combine.kt", i = {0, 0, 0, 0, 0, 0, 0}, l = {Cea708Decoder.COMMAND_RST}, m = "invokeSuspend", n = {"$this$coroutineScope", "size", "channels", "latestValues", "isClosed", "nonClosed", "remainingNulls"}, s = {"L$0", "I$0", "L$1", "L$2", "L$3", "L$4", "L$5"})
 /* loaded from: classes8.dex */
-public final class CombineKt$combineInternal$2 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
+public final class CombineKt$combineInternal$2 extends SuspendLambda implements Function2 {
     public final /* synthetic */ Function0 $arrayFactory;
     public final /* synthetic */ Flow[] $flows;
     public final /* synthetic */ FlowCollector $this_combineInternal;
@@ -49,16 +50,15 @@ public final class CombineKt$combineInternal$2 extends SuspendLambda implements 
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
-    public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
+    public final Continuation create(Object obj, Continuation continuation) {
         CombineKt$combineInternal$2 combineKt$combineInternal$2 = new CombineKt$combineInternal$2(this.$this_combineInternal, this.$flows, this.$arrayFactory, this.$transform, continuation);
         combineKt$combineInternal$2.p$ = (CoroutineScope) obj;
         return combineKt$combineInternal$2;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
     @Override // kotlin.jvm.functions.Function2
-    public final Object invoke(CoroutineScope coroutineScope, Continuation<? super Unit> continuation) {
-        return ((CombineKt$combineInternal$2) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
+    public final Object invoke(Object obj, Object obj2) {
+        return ((CombineKt$combineInternal$2) create(obj, (Continuation) obj2)).invokeSuspend(Unit.INSTANCE);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:17:0x0099  */
@@ -95,20 +95,143 @@ public final class CombineKt$combineInternal$2 extends SuspendLambda implements 
         Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
         int i3 = this.label;
         int i4 = 1;
-        if (i3 == 0) {
+        if (i3 != 0) {
+            if (i3 == 1) {
+                CombineKt$combineInternal$2 combineKt$combineInternal$23 = (CombineKt$combineInternal$2) this.L$6;
+                int i5 = this.I$0;
+                CoroutineScope coroutineScope3 = (CoroutineScope) this.L$0;
+                ResultKt.throwOnFailure(obj);
+                intRef2 = (Ref.IntRef) this.L$5;
+                intRef = (Ref.IntRef) this.L$4;
+                boolArr = (Boolean[]) this.L$3;
+                objArr = (Object[]) this.L$2;
+                receiveChannelArr = (ReceiveChannel[]) this.L$1;
+                obj2 = coroutine_suspended;
+                combineKt$combineInternal$2 = this;
+                i = i5;
+                coroutineScope = coroutineScope3;
+                i4 = 1;
+                if (intRef.element != 0) {
+                    combineKt$combineInternal$2.L$0 = coroutineScope;
+                    combineKt$combineInternal$2.I$0 = i;
+                    combineKt$combineInternal$2.L$1 = receiveChannelArr;
+                    combineKt$combineInternal$2.L$2 = objArr;
+                    combineKt$combineInternal$2.L$3 = boolArr;
+                    combineKt$combineInternal$2.L$4 = intRef;
+                    combineKt$combineInternal$2.L$5 = intRef2;
+                    combineKt$combineInternal$2.L$6 = combineKt$combineInternal$2;
+                    combineKt$combineInternal$2.label = i4;
+                    SelectBuilderImpl selectBuilderImpl2 = new SelectBuilderImpl(combineKt$combineInternal$2);
+                    int i6 = 0;
+                    while (i6 < i) {
+                        try {
+                        } catch (Throwable th) {
+                            th = th;
+                            selectBuilderImpl = selectBuilderImpl2;
+                            combineKt$combineInternal$22 = combineKt$combineInternal$2;
+                            coroutineScope2 = coroutineScope;
+                            i2 = i;
+                            receiveChannelArr2 = receiveChannelArr;
+                            objArr2 = objArr;
+                            boolArr2 = boolArr;
+                            intRef3 = intRef;
+                        }
+                        boolean booleanValue = boolArr[i6].booleanValue();
+                        ReceiveChannel receiveChannel = receiveChannelArr[i6];
+                        selectBuilderImpl = selectBuilderImpl2;
+                        combineKt$combineInternal$22 = combineKt$combineInternal$2;
+                        coroutineScope2 = coroutineScope;
+                        i2 = i;
+                        receiveChannelArr2 = receiveChannelArr;
+                        objArr2 = objArr;
+                        boolArr2 = boolArr;
+                        intRef3 = intRef;
+                        try {
+                        } catch (Throwable th2) {
+                            th = th2;
+                            intRef4 = intRef2;
+                            selectBuilderImpl.handleBuilderException(th);
+                            result = selectBuilderImpl.getResult();
+                            if (result == IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED()) {
+                            }
+                            if (result == obj2) {
+                            }
+                        }
+                        CombineKt$combineInternal$2$invokeSuspend$$inlined$select$lambda$1 combineKt$combineInternal$2$invokeSuspend$$inlined$select$lambda$1 = new CombineKt$combineInternal$2$invokeSuspend$$inlined$select$lambda$1(i6, null, combineKt$combineInternal$2, i, boolArr, receiveChannelArr, objArr, intRef2, intRef);
+                        if (booleanValue) {
+                            intRef4 = intRef2;
+                        } else {
+                            SelectClause1 onReceiveOrNull = receiveChannel.getOnReceiveOrNull();
+                            intRef4 = intRef2;
+                            try {
+                            } catch (Throwable th3) {
+                                th = th3;
+                                selectBuilderImpl.handleBuilderException(th);
+                                result = selectBuilderImpl.getResult();
+                                if (result == IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED()) {
+                                }
+                                if (result == obj2) {
+                                }
+                            }
+                            selectBuilderImpl.invoke(onReceiveOrNull, new CombineKt$combineInternal$2$invokeSuspend$$inlined$select$lambda$2(combineKt$combineInternal$2$invokeSuspend$$inlined$select$lambda$1, null, i6, combineKt$combineInternal$22, i2, boolArr2, receiveChannelArr2, objArr2, intRef2, intRef3));
+                        }
+                        i6++;
+                        selectBuilderImpl2 = selectBuilderImpl;
+                        intRef2 = intRef4;
+                        combineKt$combineInternal$2 = combineKt$combineInternal$22;
+                        coroutineScope = coroutineScope2;
+                        i = i2;
+                        receiveChannelArr = receiveChannelArr2;
+                        objArr = objArr2;
+                        boolArr = boolArr2;
+                        intRef = intRef3;
+                    }
+                    selectBuilderImpl = selectBuilderImpl2;
+                    combineKt$combineInternal$22 = combineKt$combineInternal$2;
+                    coroutineScope2 = coroutineScope;
+                    i2 = i;
+                    receiveChannelArr2 = receiveChannelArr;
+                    objArr2 = objArr;
+                    boolArr2 = boolArr;
+                    intRef3 = intRef;
+                    intRef4 = intRef2;
+                    result = selectBuilderImpl.getResult();
+                    if (result == IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED()) {
+                        DebugProbesKt.probeCoroutineSuspended(combineKt$combineInternal$22);
+                    }
+                    if (result == obj2) {
+                        return obj2;
+                    }
+                    intRef2 = intRef4;
+                    combineKt$combineInternal$2 = combineKt$combineInternal$22;
+                    coroutineScope = coroutineScope2;
+                    i = i2;
+                    receiveChannelArr = receiveChannelArr2;
+                    objArr = objArr2;
+                    boolArr = boolArr2;
+                    intRef = intRef3;
+                    i4 = 1;
+                    if (intRef.element != 0) {
+                        return Unit.INSTANCE;
+                    }
+                }
+            } else {
+                throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
+            }
+        } else {
             ResultKt.throwOnFailure(obj);
-            CoroutineScope coroutineScope3 = this.p$;
+            CoroutineScope coroutineScope4 = this.p$;
             int length = this.$flows.length;
             ReceiveChannel[] receiveChannelArr3 = new ReceiveChannel[length];
-            for (int i5 = 0; i5 < length; i5++) {
-                asFairChannel = CombineKt.asFairChannel(coroutineScope3, this.$flows[Boxing.boxInt(i5).intValue()]);
-                receiveChannelArr3[i5] = asFairChannel;
+            for (int i7 = 0; i7 < length; i7++) {
+                asFairChannel = CombineKt.asFairChannel(coroutineScope4, this.$flows[Boxing.boxInt(i7).intValue()]);
+                receiveChannelArr3[i7] = asFairChannel;
             }
             Object[] objArr3 = new Object[length];
             Boolean[] boolArr3 = new Boolean[length];
-            for (int i6 = 0; i6 < length; i6++) {
-                Boxing.boxInt(i6).intValue();
-                boolArr3[i6] = Boxing.boxBoolean(false);
+            for (int i8 = 0; i8 < length; i8++) {
+                Boxing.boxInt(i8).intValue();
+                boolArr3[i8] = Boxing.boxBoolean(false);
             }
             Ref.IntRef intRef5 = new Ref.IntRef();
             intRef5.element = length;
@@ -120,131 +243,10 @@ public final class CombineKt$combineInternal$2 extends SuspendLambda implements 
             intRef = intRef5;
             intRef2 = intRef6;
             combineKt$combineInternal$2 = this;
-            coroutineScope = coroutineScope3;
+            coroutineScope = coroutineScope4;
             i = length;
             obj2 = coroutine_suspended;
             if (intRef.element != 0) {
-            }
-        } else if (i3 != 1) {
-            throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
-        } else {
-            CombineKt$combineInternal$2 combineKt$combineInternal$23 = (CombineKt$combineInternal$2) this.L$6;
-            int i7 = this.I$0;
-            CoroutineScope coroutineScope4 = (CoroutineScope) this.L$0;
-            ResultKt.throwOnFailure(obj);
-            intRef2 = (Ref.IntRef) this.L$5;
-            intRef = (Ref.IntRef) this.L$4;
-            boolArr = (Boolean[]) this.L$3;
-            objArr = (Object[]) this.L$2;
-            receiveChannelArr = (ReceiveChannel[]) this.L$1;
-            obj2 = coroutine_suspended;
-            combineKt$combineInternal$2 = this;
-            i = i7;
-            coroutineScope = coroutineScope4;
-            i4 = 1;
-            if (intRef.element != 0) {
-                combineKt$combineInternal$2.L$0 = coroutineScope;
-                combineKt$combineInternal$2.I$0 = i;
-                combineKt$combineInternal$2.L$1 = receiveChannelArr;
-                combineKt$combineInternal$2.L$2 = objArr;
-                combineKt$combineInternal$2.L$3 = boolArr;
-                combineKt$combineInternal$2.L$4 = intRef;
-                combineKt$combineInternal$2.L$5 = intRef2;
-                combineKt$combineInternal$2.L$6 = combineKt$combineInternal$2;
-                combineKt$combineInternal$2.label = i4;
-                SelectBuilderImpl selectBuilderImpl2 = new SelectBuilderImpl(combineKt$combineInternal$2);
-                int i8 = 0;
-                while (i8 < i) {
-                    try {
-                    } catch (Throwable th) {
-                        th = th;
-                        selectBuilderImpl = selectBuilderImpl2;
-                        combineKt$combineInternal$22 = combineKt$combineInternal$2;
-                        coroutineScope2 = coroutineScope;
-                        i2 = i;
-                        receiveChannelArr2 = receiveChannelArr;
-                        objArr2 = objArr;
-                        boolArr2 = boolArr;
-                        intRef3 = intRef;
-                    }
-                    boolean booleanValue = boolArr[i8].booleanValue();
-                    ReceiveChannel receiveChannel = receiveChannelArr[i8];
-                    selectBuilderImpl = selectBuilderImpl2;
-                    combineKt$combineInternal$22 = combineKt$combineInternal$2;
-                    coroutineScope2 = coroutineScope;
-                    i2 = i;
-                    receiveChannelArr2 = receiveChannelArr;
-                    objArr2 = objArr;
-                    boolArr2 = boolArr;
-                    intRef3 = intRef;
-                    try {
-                    } catch (Throwable th2) {
-                        th = th2;
-                        intRef4 = intRef2;
-                        selectBuilderImpl.handleBuilderException(th);
-                        result = selectBuilderImpl.getResult();
-                        if (result == IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED()) {
-                        }
-                        if (result == obj2) {
-                        }
-                    }
-                    CombineKt$combineInternal$2$invokeSuspend$$inlined$select$lambda$1 combineKt$combineInternal$2$invokeSuspend$$inlined$select$lambda$1 = new CombineKt$combineInternal$2$invokeSuspend$$inlined$select$lambda$1(i8, null, combineKt$combineInternal$2, i, boolArr, receiveChannelArr, objArr, intRef2, intRef);
-                    if (booleanValue) {
-                        intRef4 = intRef2;
-                    } else {
-                        SelectClause1 onReceiveOrNull = receiveChannel.getOnReceiveOrNull();
-                        intRef4 = intRef2;
-                        try {
-                        } catch (Throwable th3) {
-                            th = th3;
-                            selectBuilderImpl.handleBuilderException(th);
-                            result = selectBuilderImpl.getResult();
-                            if (result == IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED()) {
-                            }
-                            if (result == obj2) {
-                            }
-                        }
-                        selectBuilderImpl.invoke(onReceiveOrNull, new CombineKt$combineInternal$2$invokeSuspend$$inlined$select$lambda$2(combineKt$combineInternal$2$invokeSuspend$$inlined$select$lambda$1, null, i8, combineKt$combineInternal$22, i2, boolArr2, receiveChannelArr2, objArr2, intRef2, intRef3));
-                    }
-                    i8++;
-                    selectBuilderImpl2 = selectBuilderImpl;
-                    intRef2 = intRef4;
-                    combineKt$combineInternal$2 = combineKt$combineInternal$22;
-                    coroutineScope = coroutineScope2;
-                    i = i2;
-                    receiveChannelArr = receiveChannelArr2;
-                    objArr = objArr2;
-                    boolArr = boolArr2;
-                    intRef = intRef3;
-                }
-                selectBuilderImpl = selectBuilderImpl2;
-                combineKt$combineInternal$22 = combineKt$combineInternal$2;
-                coroutineScope2 = coroutineScope;
-                i2 = i;
-                receiveChannelArr2 = receiveChannelArr;
-                objArr2 = objArr;
-                boolArr2 = boolArr;
-                intRef3 = intRef;
-                intRef4 = intRef2;
-                result = selectBuilderImpl.getResult();
-                if (result == IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED()) {
-                    DebugProbesKt.probeCoroutineSuspended(combineKt$combineInternal$22);
-                }
-                if (result == obj2) {
-                    return obj2;
-                }
-                intRef2 = intRef4;
-                combineKt$combineInternal$2 = combineKt$combineInternal$22;
-                coroutineScope = coroutineScope2;
-                i = i2;
-                receiveChannelArr = receiveChannelArr2;
-                objArr = objArr2;
-                boolArr = boolArr2;
-                intRef = intRef3;
-                i4 = 1;
-                if (intRef.element != 0) {
-                    return Unit.INSTANCE;
-                }
             }
         }
     }

@@ -1,7 +1,6 @@
 package com.baidu.tieba.tbadkCore.data;
 
 import android.text.TextUtils;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -26,7 +25,7 @@ public class FaceGroupInfoData implements Serializable {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes5.dex */
-    public static final class Status implements Serializable {
+    public final class Status implements Serializable {
         public static final /* synthetic */ Status[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Status DOWNLOADING;
@@ -78,13 +77,19 @@ public class FaceGroupInfoData implements Serializable {
         public static Status valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Status) Enum.valueOf(Status.class, str) : (Status) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (Status) Enum.valueOf(Status.class, str);
+            }
+            return (Status) invokeL.objValue;
         }
 
         public static Status[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Status[]) $VALUES.clone() : (Status[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (Status[]) $VALUES.clone();
+            }
+            return (Status[]) invokeV.objValue;
         }
     }
 
@@ -104,55 +109,69 @@ public class FaceGroupInfoData implements Serializable {
         this.status = Status.NEW;
     }
 
-    @Nullable
-    public static FaceGroupInfoData parserJson(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject != null) {
-                FaceGroupInfoData faceGroupInfoData = new FaceGroupInfoData();
-                faceGroupInfoData.name = jSONObject.optString("name", "");
-                faceGroupInfoData.cover = jSONObject.optString(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY, "");
-                String optString = jSONObject.optString("id", "");
-                faceGroupInfoData.id = optString;
-                if (TextUtils.isEmpty(optString)) {
-                    return null;
-                }
-                return faceGroupInfoData;
-            }
-            return null;
-        }
-        return (FaceGroupInfoData) invokeL.objValue;
-    }
-
     public String getCover() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.cover : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.cover;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.id : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.id;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.name : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.name;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getProgress() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.progress : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.progress;
+        }
+        return invokeV.intValue;
     }
 
     public Status getStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.status : (Status) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.status;
+        }
+        return (Status) invokeV.objValue;
+    }
+
+    public static FaceGroupInfoData parserJson(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            FaceGroupInfoData faceGroupInfoData = new FaceGroupInfoData();
+            faceGroupInfoData.name = jSONObject.optString("name", "");
+            faceGroupInfoData.cover = jSONObject.optString(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY, "");
+            String optString = jSONObject.optString("id", "");
+            faceGroupInfoData.id = optString;
+            if (TextUtils.isEmpty(optString)) {
+                return null;
+            }
+            return faceGroupInfoData;
+        }
+        return (FaceGroupInfoData) invokeL.objValue;
     }
 
     public void setProgress(int i) {

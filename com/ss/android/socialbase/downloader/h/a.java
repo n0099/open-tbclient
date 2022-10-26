@@ -12,6 +12,12 @@ public class a implements ThreadFactory {
         this(str, false);
     }
 
+    public a(String str, boolean z) {
+        this.b = new AtomicInteger();
+        this.a = str;
+        this.c = z;
+    }
+
     @Override // java.util.concurrent.ThreadFactory
     public Thread newThread(Runnable runnable) {
         int incrementAndGet = this.b.incrementAndGet();
@@ -25,11 +31,5 @@ public class a implements ThreadFactory {
             }
         }
         return thread;
-    }
-
-    public a(String str, boolean z) {
-        this.b = new AtomicInteger();
-        this.a = str;
-        this.c = z;
     }
 }

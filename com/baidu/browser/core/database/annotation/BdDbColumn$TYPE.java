@@ -65,12 +65,18 @@ public final class BdDbColumn$TYPE {
     public static BdDbColumn$TYPE valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (BdDbColumn$TYPE) Enum.valueOf(BdDbColumn$TYPE.class, str) : (BdDbColumn$TYPE) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (BdDbColumn$TYPE) Enum.valueOf(BdDbColumn$TYPE.class, str);
+        }
+        return (BdDbColumn$TYPE) invokeL.objValue;
     }
 
     public static BdDbColumn$TYPE[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (BdDbColumn$TYPE[]) $VALUES.clone() : (BdDbColumn$TYPE[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (BdDbColumn$TYPE[]) $VALUES.clone();
+        }
+        return (BdDbColumn$TYPE[]) invokeV.objValue;
     }
 }

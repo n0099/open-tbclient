@@ -7,9 +7,9 @@ import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
 import com.baidu.tieba.face.data.EmotionImageData;
 import com.baidu.tieba.face.view.EmotionView;
+import com.baidu.tieba.fj;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,59 +41,6 @@ public class PickEmotionView extends FrameLayout {
             }
         }
         a();
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = new EmotionView(getContext());
-            addView(this.a, new FrameLayout.LayoutParams(-1, -1));
-            this.b = new ImageView(getContext());
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
-            layoutParams.gravity = 53;
-            layoutParams.topMargin = ej.f(getContext(), R.dimen.obfuscated_res_0x7f070302);
-            layoutParams.rightMargin = ej.f(getContext(), R.dimen.obfuscated_res_0x7f070302);
-            addView(this.b, layoutParams);
-        }
-    }
-
-    public EmotionView getEmotionView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (EmotionView) invokeV.objValue;
-    }
-
-    public int getLoadType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            EmotionView emotionView = this.a;
-            if (emotionView != null) {
-                return emotionView.getLoadProcType();
-            }
-            return 10;
-        }
-        return invokeV.intValue;
-    }
-
-    public void setChoosed(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            if (z) {
-                SkinManager.setBackgroundResource(this.b, R.drawable.obfuscated_res_0x7f08065a);
-            } else {
-                SkinManager.setBackgroundResource(this.b, R.drawable.obfuscated_res_0x7f080659);
-            }
-        }
-    }
-
-    public void setData(EmotionImageData emotionImageData, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, emotionImageData, i) == null) {
-            this.a.setLoadProcType(i);
-            this.a.k0();
-            this.a.m0(emotionImageData);
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -138,5 +85,61 @@ public class PickEmotionView extends FrameLayout {
             }
         }
         a();
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = new EmotionView(getContext());
+            addView(this.a, new FrameLayout.LayoutParams(-1, -1));
+            this.b = new ImageView(getContext());
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
+            layoutParams.gravity = 53;
+            layoutParams.topMargin = fj.f(getContext(), R.dimen.obfuscated_res_0x7f070302);
+            layoutParams.rightMargin = fj.f(getContext(), R.dimen.obfuscated_res_0x7f070302);
+            addView(this.b, layoutParams);
+        }
+    }
+
+    public EmotionView getEmotionView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (EmotionView) invokeV.objValue;
+    }
+
+    public int getLoadType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            EmotionView emotionView = this.a;
+            if (emotionView != null) {
+                return emotionView.getLoadProcType();
+            }
+            return 10;
+        }
+        return invokeV.intValue;
+    }
+
+    public void setChoosed(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            if (z) {
+                SkinManager.setBackgroundResource(this.b, R.drawable.obfuscated_res_0x7f08065b);
+            } else {
+                SkinManager.setBackgroundResource(this.b, R.drawable.obfuscated_res_0x7f08065a);
+            }
+        }
+    }
+
+    public void setData(EmotionImageData emotionImageData, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048580, this, emotionImageData, i) == null) {
+            this.a.setLoadProcType(i);
+            this.a.l0();
+            this.a.n0(emotionImageData);
+        }
     }
 }

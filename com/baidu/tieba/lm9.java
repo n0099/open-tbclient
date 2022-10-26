@@ -1,54 +1,162 @@
 package com.baidu.tieba;
 
-import android.util.Pair;
-import com.baidu.tieba.km9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.utils.AdReporter;
-import java.util.ArrayList;
-import java.util.List;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.internal.api.PidLoader;
+import com.fun.ad.sdk.internal.api.PidLoaderCreator;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes4.dex */
-public class lm9<A extends km9> extends AdReporter<A> {
+public class lm9 implements PidLoaderCreator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lm9(String str, String str2, String str3) {
-        super(str, str2, str3);
+    public lm9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.fun.ad.sdk.internal.api.utils.AdReporter
-    public List onReport(Object obj, String str) {
-        InterceptResult invokeLL;
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    @Override // com.fun.ad.sdk.internal.api.PidLoaderCreator
+    public PidLoader create(Ssp.Pid pid) {
+        InterceptResult invokeL;
+        char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, str)) == null) {
-            km9 km9Var = (km9) obj;
-            if (km9Var == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) {
+            String str = pid.type;
+            str.hashCode();
+            switch (str.hashCode()) {
+                case -2105157443:
+                    if (str.equals(FunAdType.CSJ_DRAW_VIDEO)) {
+                        c = 0;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -1412451668:
+                    if (str.equals(FunAdType.CSJ_INTERSITIAL_2)) {
+                        c = 1;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -1263692214:
+                    if (str.equals(FunAdType.CSJ_INTERACTION_EXPRESS)) {
+                        c = 2;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -1071311851:
+                    if (str.equals(FunAdType.CSJ_DRAW_NATIVE)) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -950004865:
+                    if (str.equals(FunAdType.CSJ_NATIVE_EXPRESS)) {
+                        c = 4;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 347930415:
+                    if (str.equals(FunAdType.CSJ_SPLASH_EXPRESS)) {
+                        c = 5;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 556489085:
+                    if (str.equals(FunAdType.CSJ_BANNER_NATIVE)) {
+                        c = 6;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1168375858:
+                    if (str.equals(FunAdType.CSJ_REWARD_VIDEO)) {
+                        c = 7;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1319012390:
+                    if (str.equals(FunAdType.CSJ_FULLSCREEN_VIDEO)) {
+                        c = '\b';
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1328722634:
+                    if (str.equals(FunAdType.CSJ_BANNER_EXPRESS)) {
+                        c = '\t';
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1922685617:
+                    if (str.equals(FunAdType.CSJ_NATIVE)) {
+                        c = '\n';
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 2079438081:
+                    if (str.equals(FunAdType.CSJ_SPLASH)) {
+                        c = 11;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    c = 65535;
+                    break;
             }
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(Pair.create("csj_rq_id", km9Var.a()));
-            return arrayList;
+            switch (c) {
+                case 0:
+                    return new fn9(pid);
+                case 1:
+                    return new qn9(pid);
+                case 2:
+                    return new rn9(pid);
+                case 3:
+                    return new bn9(pid);
+                case 4:
+                    return new vn9(pid);
+                case 5:
+                    return new nm9(pid);
+                case 6:
+                    return new um9(FunAdType.obtainType(pid, FunAdType.AdType.BANNER), pid);
+                case 7:
+                    return new bo9(pid);
+                case '\b':
+                    return new ln9(FunAdType.obtainType(pid, FunAdType.AdType.FULL_SCREEN), pid);
+                case '\t':
+                    return new om9(pid);
+                case '\n':
+                    return new ao9(pid);
+                case 11:
+                    return new pm9(pid);
+                default:
+                    LogPrinter.e("Not supported pid.type:%s", pid.type);
+                    return null;
+            }
         }
-        return (List) invokeLL.objValue;
+        return (PidLoader) invokeL.objValue;
     }
 }

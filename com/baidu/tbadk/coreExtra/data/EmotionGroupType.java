@@ -1,6 +1,5 @@
 package com.baidu.tbadk.coreExtra.data;
 
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -24,7 +23,7 @@ public final class EmotionGroupType {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public static /* synthetic */ class a {
+    public /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -102,12 +101,15 @@ public final class EmotionGroupType {
         }
     }
 
-    public static boolean isSendAsPic(@NonNull EmotionGroupType emotionGroupType) {
+    public static boolean isSendAsPic(EmotionGroupType emotionGroupType) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, emotionGroupType)) == null) {
             int i = a.a[emotionGroupType.ordinal()];
-            return i == 1 || i == 2 || i == 3;
+            if (i == 1 || i == 2 || i == 3) {
+                return true;
+            }
+            return false;
         }
         return invokeL.booleanValue;
     }
@@ -115,12 +117,18 @@ public final class EmotionGroupType {
     public static EmotionGroupType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (EmotionGroupType) Enum.valueOf(EmotionGroupType.class, str) : (EmotionGroupType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return (EmotionGroupType) Enum.valueOf(EmotionGroupType.class, str);
+        }
+        return (EmotionGroupType) invokeL.objValue;
     }
 
     public static EmotionGroupType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (EmotionGroupType[]) $VALUES.clone() : (EmotionGroupType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return (EmotionGroupType[]) $VALUES.clone();
+        }
+        return (EmotionGroupType[]) invokeV.objValue;
     }
 }

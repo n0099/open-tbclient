@@ -2,7 +2,7 @@ package rx.internal.util.atomic;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.f0a;
+import com.baidu.tieba.x0a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +14,7 @@ import java.util.Queue;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReferenceArray;
 /* loaded from: classes9.dex */
-public final class SpscExactAtomicArrayQueue<T> extends AtomicReferenceArray<T> implements Queue<T> {
+public final class SpscExactAtomicArrayQueue extends AtomicReferenceArray implements Queue {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 6210984603741293445L;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,7 +25,7 @@ public final class SpscExactAtomicArrayQueue<T> extends AtomicReferenceArray<T> 
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SpscExactAtomicArrayQueue(int i) {
-        super(f0a.b(i));
+        super(x0a.b(i));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -49,23 +49,83 @@ public final class SpscExactAtomicArrayQueue<T> extends AtomicReferenceArray<T> 
     }
 
     @Override // java.util.Queue, java.util.Collection
-    public boolean add(T t) {
+    public boolean add(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
             throw new UnsupportedOperationException();
         }
         return invokeL.booleanValue;
     }
 
     @Override // java.util.Collection
-    public boolean addAll(Collection<? extends T> collection) {
+    public boolean addAll(Collection collection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, collection)) == null) {
             throw new UnsupportedOperationException();
         }
         return invokeL.booleanValue;
+    }
+
+    @Override // java.util.Collection
+    public boolean contains(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            throw new UnsupportedOperationException();
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // java.util.Collection
+    public boolean containsAll(Collection collection) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, collection)) == null) {
+            throw new UnsupportedOperationException();
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // java.util.Collection
+    public boolean remove(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, obj)) == null) {
+            throw new UnsupportedOperationException();
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // java.util.Collection
+    public boolean removeAll(Collection collection) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, collection)) == null) {
+            throw new UnsupportedOperationException();
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // java.util.Collection
+    public boolean retainAll(Collection collection) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, collection)) == null) {
+            throw new UnsupportedOperationException();
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // java.util.Collection
+    public Object[] toArray(Object[] objArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, objArr)) == null) {
+            throw new UnsupportedOperationException();
+        }
+        return (Object[]) invokeL.objValue;
     }
 
     @Override // java.util.Collection
@@ -81,45 +141,31 @@ public final class SpscExactAtomicArrayQueue<T> extends AtomicReferenceArray<T> 
         }
     }
 
-    @Override // java.util.Collection
-    public boolean contains(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            throw new UnsupportedOperationException();
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // java.util.Collection
-    public boolean containsAll(Collection<?> collection) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, collection)) == null) {
-            throw new UnsupportedOperationException();
-        }
-        return invokeL.booleanValue;
-    }
-
     @Override // java.util.Queue
-    public T element() {
+    public Object element() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             throw new UnsupportedOperationException();
         }
-        return (T) invokeV.objValue;
+        return invokeV.objValue;
     }
 
     @Override // java.util.Collection
     public boolean isEmpty() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.producerIndex == this.consumerIndex : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (this.producerIndex == this.consumerIndex) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // java.util.Collection, java.lang.Iterable
-    public Iterator<T> iterator() {
+    public Iterator iterator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -129,95 +175,59 @@ public final class SpscExactAtomicArrayQueue<T> extends AtomicReferenceArray<T> 
     }
 
     @Override // java.util.Queue
-    public boolean offer(T t) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, t)) == null) {
-            if (t != null) {
-                long j = this.producerIndex.get();
-                int i = this.mask;
-                if (get(((int) (this.capacitySkip + j)) & i) != null) {
-                    return false;
-                }
-                this.producerIndex.lazySet(j + 1);
-                lazySet(i & ((int) j), t);
-                return true;
-            }
-            throw null;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // java.util.Queue
-    public T peek() {
+    public Object peek() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? get(this.mask & ((int) this.consumerIndex.get())) : (T) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return get(this.mask & ((int) this.consumerIndex.get()));
+        }
+        return invokeV.objValue;
     }
 
     @Override // java.util.Queue
-    public T poll() {
+    public Object poll() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             long j = this.consumerIndex.get();
             int i = ((int) j) & this.mask;
-            T t = get(i);
-            if (t == null) {
+            Object obj = get(i);
+            if (obj == null) {
                 return null;
             }
             this.consumerIndex.lazySet(j + 1);
             lazySet(i, null);
-            return t;
+            return obj;
         }
-        return (T) invokeV.objValue;
+        return invokeV.objValue;
     }
 
-    @Override // java.util.Collection
-    public boolean remove(Object obj) {
-        InterceptResult invokeL;
+    @Override // java.util.Queue
+    public Object remove() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, obj)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             throw new UnsupportedOperationException();
         }
-        return invokeL.booleanValue;
-    }
-
-    @Override // java.util.Collection
-    public boolean removeAll(Collection<?> collection) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, collection)) == null) {
-            throw new UnsupportedOperationException();
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // java.util.Collection
-    public boolean retainAll(Collection<?> collection) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, collection)) == null) {
-            throw new UnsupportedOperationException();
-        }
-        return invokeL.booleanValue;
+        return invokeV.objValue;
     }
 
     @Override // java.util.Collection
     public int size() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(1048591, this)) != null) {
-            return invokeV.intValue;
-        }
-        long j = this.consumerIndex.get();
-        while (true) {
-            long j2 = this.producerIndex.get();
-            long j3 = this.consumerIndex.get();
-            if (j == j3) {
-                return (int) (j2 - j3);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            long j = this.consumerIndex.get();
+            while (true) {
+                long j2 = this.producerIndex.get();
+                long j3 = this.consumerIndex.get();
+                if (j == j3) {
+                    return (int) (j2 - j3);
+                }
+                j = j3;
             }
-            j = j3;
+        } else {
+            return invokeV.intValue;
         }
     }
 
@@ -232,22 +242,22 @@ public final class SpscExactAtomicArrayQueue<T> extends AtomicReferenceArray<T> 
     }
 
     @Override // java.util.Queue
-    public T remove() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            throw new UnsupportedOperationException();
-        }
-        return (T) invokeV.objValue;
-    }
-
-    @Override // java.util.Collection
-    public <E> E[] toArray(E[] eArr) {
+    public boolean offer(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, eArr)) == null) {
-            throw new UnsupportedOperationException();
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj)) == null) {
+            if (obj != null) {
+                long j = this.producerIndex.get();
+                int i = this.mask;
+                if (get(((int) (this.capacitySkip + j)) & i) != null) {
+                    return false;
+                }
+                this.producerIndex.lazySet(j + 1);
+                lazySet(i & ((int) j), obj);
+                return true;
+            }
+            throw null;
         }
-        return (E[]) ((Object[]) invokeL.objValue);
+        return invokeL.booleanValue;
     }
 }

@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.data.ShareFromGameCenterMsgData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.jo8;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.qo8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,6 +37,28 @@ public class ShareFromGameCenter extends LinearLayout {
     public TextView i;
     public ShareFromGameCenterMsgData j;
     public Context k;
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ShareFromGameCenter(Context context) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.k = context;
+        a();
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ShareFromGameCenter(Context context, AttributeSet attributeSet) {
@@ -64,23 +86,23 @@ public class ShareFromGameCenter extends LinearLayout {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d07bf, this);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d07c0, this);
             setOrientation(1);
-            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091e8b);
-            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090c76);
-            this.g = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091f08);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090c7b);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090c69);
-            HeadImageView headImageView = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090c6a);
+            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091e87);
+            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090c80);
+            this.g = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091f07);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090c85);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090c73);
+            HeadImageView headImageView = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090c74);
             this.c = headImageView;
             headImageView.setDefaultResource(R.drawable.pic_avatar_ba_140);
             this.c.setAutoChangeStyle(false);
             this.d = (Button) findViewById(R.id.obfuscated_res_0x7f09002f);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0920b8);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0920b7);
             this.e = tbImageView;
             tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f081833);
             this.e.setAutoChangeStyle(false);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0920b7);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0920b6);
         }
     }
 
@@ -96,28 +118,28 @@ public class ShareFromGameCenter extends LinearLayout {
                 this.b.setTextColor(this.k.getResources().getColor(R.color.CAM_X0106));
                 this.f.setBackgroundDrawable(this.k.getResources().getDrawable(R.drawable.selector_msg_text_bubble_other));
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-                layoutParams.setMargins(ej.f(getContext(), R.dimen.obfuscated_res_0x7f0701b2), 0, 0, 0);
-                layoutParams.height = ej.f(getContext(), R.dimen.obfuscated_res_0x7f0702cb);
+                layoutParams.setMargins(fj.f(getContext(), R.dimen.obfuscated_res_0x7f0701b2), 0, 0, 0);
+                layoutParams.height = fj.f(getContext(), R.dimen.obfuscated_res_0x7f0702cb);
                 this.g.setLayoutParams(layoutParams);
             }
             this.a.setText(this.j.getTitle());
             this.c.setDefaultResource(R.drawable.pic_avatar_ba_140);
             this.c.setAutoChangeStyle(false);
-            this.c.K(this.j.getImageUrl(), 10, false);
+            this.c.L(this.j.getImageUrl(), 10, false);
             this.b.setText(this.j.getContent());
             this.d.setTextColor(this.k.getResources().getColor(R.color.CAM_X0105));
             this.d.setBackgroundResource(R.drawable.btn_appdownload);
             if (!TextUtils.isEmpty(this.j.getButton())) {
-                LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, ej.f(getContext(), R.dimen.obfuscated_res_0x7f070253));
-                int f = ej.f(getContext(), R.dimen.obfuscated_res_0x7f070201);
-                layoutParams2.setMargins(f, ej.f(getContext(), R.dimen.obfuscated_res_0x7f07025f), f, f);
+                LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, fj.f(getContext(), R.dimen.obfuscated_res_0x7f070253));
+                int f = fj.f(getContext(), R.dimen.obfuscated_res_0x7f070201);
+                layoutParams2.setMargins(f, fj.f(getContext(), R.dimen.obfuscated_res_0x7f07025f), f, f);
                 this.d.setLayoutParams(layoutParams2);
                 this.d.setVisibility(0);
                 this.d.setText(this.j.getButton());
             } else {
                 LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(-2, -2);
-                int f2 = ej.f(getContext(), R.dimen.obfuscated_res_0x7f070201);
-                layoutParams3.setMargins(f2, ej.f(getContext(), R.dimen.obfuscated_res_0x7f0701d5), f2, f2);
+                int f2 = fj.f(getContext(), R.dimen.obfuscated_res_0x7f070201);
+                layoutParams3.setMargins(f2, fj.f(getContext(), R.dimen.obfuscated_res_0x7f0701d5), f2, f2);
                 this.d.setVisibility(8);
                 this.h.setLayoutParams(layoutParams3);
             }
@@ -127,32 +149,41 @@ public class ShareFromGameCenter extends LinearLayout {
             this.i.setText(this.j.getShareSource());
             this.e.setDefaultResource(R.drawable.obfuscated_res_0x7f081833);
             this.e.setAutoChangeStyle(false);
-            this.e.K(this.j.getShareSourceIcon(), 10, false);
-            TiebaStatic.eventStat(this.k, "game_show", "show", 1, "dev_id", jo8.a(this.j.getShareSourceUrl()), "ref_id", GameCenterCoreUtils.REF_TYPE_IM);
+            this.e.L(this.j.getShareSourceIcon(), 10, false);
+            TiebaStatic.eventStat(this.k, "game_show", "show", 1, "dev_id", qo8.a(this.j.getShareSourceUrl()), "ref_id", GameCenterCoreUtils.REF_TYPE_IM);
         }
     }
 
     public LinearLayout getContentBody() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f : (LinearLayout) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.f;
+        }
+        return (LinearLayout) invokeV.objValue;
     }
 
     public LinearLayout getTail() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.g : (LinearLayout) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.g;
+        }
+        return (LinearLayout) invokeV.objValue;
     }
 
     public ImageView getTiebaIcon() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.e : (ImageView) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.e;
+        }
+        return (ImageView) invokeV.objValue;
     }
 
     public void setData(ShareFromGameCenterMsgData shareFromGameCenterMsgData, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048581, this, shareFromGameCenterMsgData, z) == null) || shareFromGameCenterMsgData == null) {
+        if ((interceptable != null && interceptable.invokeLZ(1048581, this, shareFromGameCenterMsgData, z) != null) || shareFromGameCenterMsgData == null) {
             return;
         }
         this.j = shareFromGameCenterMsgData;
@@ -164,27 +195,5 @@ public class ShareFromGameCenter extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(1048582, this, tbImageView) == null) {
             this.e = tbImageView;
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ShareFromGameCenter(Context context) {
-        super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.k = context;
-        a();
     }
 }

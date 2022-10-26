@@ -9,10 +9,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class v85 extends r85 {
+public abstract class v85 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
+
+    public abstract String a();
+
+    public abstract Bitmap b(Bitmap bitmap, boolean z) throws Exception;
+
+    public abstract void d(String str);
 
     public v85() {
         Interceptable interceptable = $ic;
@@ -28,36 +33,12 @@ public class v85 extends r85 {
         }
     }
 
-    @Override // com.baidu.tieba.r85
-    public String a() {
-        InterceptResult invokeV;
+    public Bitmap c(String str) throws Exception {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "round_corner" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.r85
-    public Bitmap b(Bitmap bitmap, boolean z) throws Exception {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, z)) == null) {
-            if (bitmap == null) {
-                return null;
-            }
-            if (this.a <= 0.0f) {
-                return bitmap;
-            }
-            h85.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
-            return BitmapHelper.getRoundedCornerBitmap(bitmap, this.a, z);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return b(BitmapHelper.loadBitmap(str), true);
         }
-        return (Bitmap) invokeLZ.objValue;
-    }
-
-    @Override // com.baidu.tieba.r85
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || str == null) {
-            return;
-        }
-        this.a = dh.d(str, 0.0f);
+        return (Bitmap) invokeL.objValue;
     }
 }

@@ -1,62 +1,43 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Build;
+import android.view.Window;
+import android.view.WindowManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.Field;
 /* loaded from: classes6.dex */
-public abstract class zu8<T> extends yu8<T> {
+public class zu8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zu8(String str, T t, String str2) {
-        super(str, t, str2);
+    public static int a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, t, str2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], objArr2[1], (String) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            if (Build.VERSION.SDK_INT >= 26) {
+                return 2038;
             }
+            return i;
         }
+        return invokeI.intValue;
     }
 
-    @Override // com.baidu.tieba.yu8
-    public long e(String str, long j) {
-        InterceptResult invokeLJ;
+    public static void b(int i, WindowManager.LayoutParams layoutParams, Window window) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, str, j)) == null) ? ox4.k().m(str, j) : invokeLJ.longValue;
-    }
-
-    @Override // com.baidu.tieba.yu8
-    public void g(String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
-            ox4.k().x(str, j);
-        }
-    }
-
-    public int l(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i)) == null) ? ox4.k().l(str, i) : invokeLI.intValue;
-    }
-
-    public void m(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, str, i) == null) {
-            ox4.k().w(str, i);
+        if ((interceptable == null || interceptable.invokeILL(65537, null, i, layoutParams, window) == null) && layoutParams != null && window != null) {
+            try {
+                Field declaredField = layoutParams.getClass().getDeclaredField("layoutInDisplayCutoutMode");
+                if (declaredField != null) {
+                    declaredField.set(layoutParams, Integer.valueOf(i));
+                    window.setAttributes(layoutParams);
+                }
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            } catch (NoSuchFieldException e2) {
+                e2.printStackTrace();
+            }
         }
     }
 }

@@ -1,35 +1,60 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.content.pm.PackageManager;
-import androidx.annotation.NonNull;
+import android.os.IBinder;
+import android.view.inputmethod.InputMethodManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
 public class ng3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(@NonNull Context context, @NonNull String str) {
-        InterceptResult invokeLL;
-        String[] strArr;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948001455, "Lcom/baidu/tieba/ng3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948001455, "Lcom/baidu/tieba/ng3;");
+                return;
+            }
+        }
+        a = wj1.a;
+    }
+
+    public static void a(Context context, IBinder iBinder) {
+        InputMethodManager inputMethodManager;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
+        if ((interceptable == null || interceptable.invokeLL(65537, null, context, iBinder) == null) && (inputMethodManager = (InputMethodManager) context.getSystemService("input_method")) != null) {
             try {
-                strArr = context.getPackageManager().getPackageInfo(context.getPackageName(), 4096).requestedPermissions;
-            } catch (PackageManager.NameNotFoundException unused) {
-            }
-            if (strArr == null) {
-                return false;
-            }
-            for (String str2 : strArr) {
-                if (str.equals(str2)) {
-                    return true;
+                inputMethodManager.hideSoftInputFromWindow(iBinder, 0);
+            } catch (Exception e) {
+                if (a) {
+                    e.printStackTrace();
                 }
             }
-            return false;
         }
-        return invokeLL.booleanValue;
+    }
+
+    public static void b(Context context, boolean z) {
+        InputMethodManager inputMethodManager;
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(65538, null, context, z) == null) && (inputMethodManager = (InputMethodManager) context.getSystemService("input_method")) != null) {
+            if (z) {
+                i = 2;
+            } else {
+                i = 0;
+            }
+            inputMethodManager.toggleSoftInput(i, 2);
+        }
     }
 }

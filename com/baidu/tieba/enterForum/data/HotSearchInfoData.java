@@ -30,17 +30,34 @@ public class HotSearchInfoData extends OrmObject {
         }
     }
 
+    public long getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return invokeV.longValue;
+    }
+
+    public String z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
     public void A(HotSearch hotSearch) {
         SearchValue searchValue;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, hotSearch) == null) || hotSearch == null || (searchValue = hotSearch.search_value) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, hotSearch) == null) && hotSearch != null && (searchValue = hotSearch.search_value) != null) {
+            this.a = hotSearch.search_title;
+            searchValue.id.longValue();
+            SearchValue searchValue2 = hotSearch.search_value;
+            String str = searchValue2.name;
+            this.b = searchValue2.type.longValue();
         }
-        this.a = hotSearch.search_title;
-        searchValue.id.longValue();
-        SearchValue searchValue2 = hotSearch.search_value;
-        String str = searchValue2.name;
-        this.b = searchValue2.type.longValue();
     }
 
     public void B(String str) {
@@ -48,17 +65,5 @@ public class HotSearchInfoData extends OrmObject {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             this.a = str;
         }
-    }
-
-    public long getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : invokeV.longValue;
-    }
-
-    public String z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 }

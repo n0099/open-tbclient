@@ -10,6 +10,10 @@ public abstract class IFetchJob {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract void dispatch(JSONObject jSONObject);
+
+    public abstract String getFetchJobType();
+
     public IFetchJob() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -23,8 +27,4 @@ public abstract class IFetchJob {
             }
         }
     }
-
-    public abstract void dispatch(JSONObject jSONObject);
-
-    public abstract String getFetchJobType();
 }

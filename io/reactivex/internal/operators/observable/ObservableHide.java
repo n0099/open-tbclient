@@ -11,18 +11,18 @@ import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 /* loaded from: classes8.dex */
-public final class ObservableHide<T> extends AbstractObservableWithUpstream<T, T> {
+public final class ObservableHide extends AbstractObservableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public static final class HideDisposable<T> implements Observer<T>, Disposable {
+    public final class HideDisposable implements Observer, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer<? super T> actual;
+        public final Observer actual;
         public Disposable d;
 
-        public HideDisposable(Observer<? super T> observer) {
+        public HideDisposable(Observer observer) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -40,6 +40,31 @@ public final class ObservableHide<T> extends AbstractObservableWithUpstream<T, T
             this.actual = observer;
         }
 
+        @Override // io.reactivex.Observer
+        public void onError(Throwable th) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
+                this.actual.onError(th);
+            }
+        }
+
+        @Override // io.reactivex.Observer
+        public void onNext(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+                this.actual.onNext(obj);
+            }
+        }
+
+        @Override // io.reactivex.Observer
+        public void onSubscribe(Disposable disposable) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048581, this, disposable) == null) && DisposableHelper.validate(this.d, disposable)) {
+                this.d = disposable;
+                this.actual.onSubscribe(this);
+            }
+        }
+
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
             Interceptable interceptable = $ic;
@@ -52,7 +77,10 @@ public final class ObservableHide<T> extends AbstractObservableWithUpstream<T, T
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d.isDisposed() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.d.isDisposed();
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.Observer
@@ -62,35 +90,10 @@ public final class ObservableHide<T> extends AbstractObservableWithUpstream<T, T
                 this.actual.onComplete();
             }
         }
-
-        @Override // io.reactivex.Observer
-        public void onError(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
-                this.actual.onError(th);
-            }
-        }
-
-        @Override // io.reactivex.Observer
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
-                this.actual.onNext(t);
-            }
-        }
-
-        @Override // io.reactivex.Observer
-        public void onSubscribe(Disposable disposable) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048581, this, disposable) == null) && DisposableHelper.validate(this.d, disposable)) {
-                this.d = disposable;
-                this.actual.onSubscribe(this);
-            }
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableHide(ObservableSource<T> observableSource) {
+    public ObservableHide(ObservableSource observableSource) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -110,7 +113,7 @@ public final class ObservableHide<T> extends AbstractObservableWithUpstream<T, T
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer<? super T> observer) {
+    public void subscribeActual(Observer observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             this.source.subscribe(new HideDisposable(observer));

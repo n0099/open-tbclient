@@ -10,20 +10,18 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.references.ResourceReleaser;
 import com.facebook.imageutils.BitmapUtil;
-import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes7.dex */
 public class BitmapCounter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @GuardedBy("this")
     public int mCount;
     public final int mMaxCount;
     public final int mMaxSize;
-    @GuardedBy("this")
     public long mSize;
-    public final ResourceReleaser<Bitmap> mUnpooledBitmapsReleaser;
+    public final ResourceReleaser mUnpooledBitmapsReleaser;
 
     public BitmapCounter(int i, int i2) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -38,11 +36,16 @@ public class BitmapCounter {
                 return;
             }
         }
-        Preconditions.checkArgument(i > 0);
+        if (i > 0) {
+            z = true;
+        } else {
+            z = false;
+        }
+        Preconditions.checkArgument(z);
         Preconditions.checkArgument(i2 > 0);
         this.mMaxCount = i;
         this.mMaxSize = i2;
-        this.mUnpooledBitmapsReleaser = new ResourceReleaser<Bitmap>(this) { // from class: com.facebook.imagepipeline.memory.BitmapCounter.1
+        this.mUnpooledBitmapsReleaser = new ResourceReleaser(this) { // from class: com.facebook.imagepipeline.memory.BitmapCounter.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ BitmapCounter this$0;
@@ -81,13 +84,25 @@ public class BitmapCounter {
     }
 
     public synchronized void decrease(Bitmap bitmap) {
+        boolean z;
+        boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bitmap) == null) {
             synchronized (this) {
                 int sizeInBytes = BitmapUtil.getSizeInBytes(bitmap);
-                Preconditions.checkArgument(this.mCount > 0, "No bitmaps registered.");
+                if (this.mCount > 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                Preconditions.checkArgument(z, "No bitmaps registered.");
                 long j = sizeInBytes;
-                Preconditions.checkArgument(j <= this.mSize, "Bitmap size bigger than the total registered size: %d, %d", Integer.valueOf(sizeInBytes), Long.valueOf(this.mSize));
+                if (j <= this.mSize) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                Preconditions.checkArgument(z2, "Bitmap size bigger than the total registered size: %d, %d", Integer.valueOf(sizeInBytes), Long.valueOf(this.mSize));
                 this.mSize -= j;
                 this.mCount--;
             }
@@ -133,10 +148,13 @@ public class BitmapCounter {
         return invokeV.intValue;
     }
 
-    public ResourceReleaser<Bitmap> getReleaser() {
+    public ResourceReleaser getReleaser() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mUnpooledBitmapsReleaser : (ResourceReleaser) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mUnpooledBitmapsReleaser;
+        }
+        return (ResourceReleaser) invokeV.objValue;
     }
 
     public synchronized long getSize() {

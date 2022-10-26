@@ -34,8 +34,18 @@ public class MediaTextureData implements Parcelable, Cloneable {
     public float x;
     public float y;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     /* loaded from: classes2.dex */
-    public static class a implements Parcelable.Creator<MediaTextureData> {
+    public final class a implements Parcelable.Creator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -59,7 +69,10 @@ public class MediaTextureData implements Parcelable, Cloneable {
         public MediaTextureData createFromParcel(Parcel parcel) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new MediaTextureData(parcel) : (MediaTextureData) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+                return new MediaTextureData(parcel);
+            }
+            return (MediaTextureData) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -68,7 +81,10 @@ public class MediaTextureData implements Parcelable, Cloneable {
         public MediaTextureData[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new MediaTextureData[i] : (MediaTextureData[]) invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                return new MediaTextureData[i];
+            }
+            return (MediaTextureData[]) invokeI.objValue;
         }
     }
 
@@ -118,37 +134,8 @@ public class MediaTextureData implements Parcelable, Cloneable {
         return invokeV.objValue;
     }
 
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i) == null) {
-            parcel.writeString(this.type);
-            parcel.writeString(this.path);
-            parcel.writeInt(this.width);
-            parcel.writeInt(this.height);
-            parcel.writeFloat(this.x);
-            parcel.writeFloat(this.y);
-            parcel.writeByte(this.mipmap ? (byte) 1 : (byte) 0);
-            parcel.writeInt(this.frameFps);
-            parcel.writeInt(this.frameCount);
-            parcel.writeString(this.frameSuffix);
-            parcel.writeByte(this.loop ? (byte) 1 : (byte) 0);
-            parcel.writeInt(this.textureId);
-            parcel.writeFloatArray(this.textureMtx);
-        }
-    }
-
     public MediaTextureData(Parcel parcel) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -170,12 +157,37 @@ public class MediaTextureData implements Parcelable, Cloneable {
         this.height = parcel.readInt();
         this.x = parcel.readFloat();
         this.y = parcel.readFloat();
-        this.mipmap = parcel.readByte() != 0;
+        if (parcel.readByte() != 0) {
+            z = true;
+        } else {
+            z = false;
+        }
+        this.mipmap = z;
         this.frameFps = parcel.readInt();
         this.frameCount = parcel.readInt();
         this.frameSuffix = parcel.readString();
         this.loop = parcel.readByte() != 0;
         this.textureId = parcel.readInt();
         this.textureMtx = parcel.createFloatArray();
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i) == null) {
+            parcel.writeString(this.type);
+            parcel.writeString(this.path);
+            parcel.writeInt(this.width);
+            parcel.writeInt(this.height);
+            parcel.writeFloat(this.x);
+            parcel.writeFloat(this.y);
+            parcel.writeByte(this.mipmap ? (byte) 1 : (byte) 0);
+            parcel.writeInt(this.frameFps);
+            parcel.writeInt(this.frameCount);
+            parcel.writeString(this.frameSuffix);
+            parcel.writeByte(this.loop ? (byte) 1 : (byte) 0);
+            parcel.writeInt(this.textureId);
+            parcel.writeFloatArray(this.textureMtx);
+        }
     }
 }

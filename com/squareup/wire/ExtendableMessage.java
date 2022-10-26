@@ -37,6 +37,30 @@ public abstract class ExtendableMessage<T extends ExtendableMessage<?>> extends 
             }
         }
 
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public ExtendableBuilder(ExtendableMessage<T> extendableMessage) {
+            super(extendableMessage);
+            ExtensionMap<T> extensionMap;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {extendableMessage};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Message) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            if (extendableMessage != null && (extensionMap = extendableMessage.extensionMap) != null) {
+                this.extensionMap = new ExtensionMap<>(extensionMap);
+            }
+        }
+
         public <E> E getExtension(Extension<T, E> extension) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -61,31 +85,6 @@ public abstract class ExtendableMessage<T extends ExtendableMessage<?>> extends 
                 return this;
             }
             return (ExtendableBuilder) invokeLL.objValue;
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ExtendableBuilder(ExtendableMessage<T> extendableMessage) {
-            super(extendableMessage);
-            ExtensionMap<T> extensionMap;
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {extendableMessage};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Message) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            if (extendableMessage == null || (extensionMap = extendableMessage.extensionMap) == null) {
-                return;
-            }
-            this.extensionMap = new ExtensionMap<>(extensionMap);
         }
     }
 
@@ -119,11 +118,27 @@ public abstract class ExtendableMessage<T extends ExtendableMessage<?>> extends 
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, extendableMessage)) == null) {
             ExtensionMap<T> extensionMap = this.extensionMap;
             if (extensionMap == null) {
-                return extendableMessage.extensionMap == null;
+                if (extendableMessage.extensionMap == null) {
+                    return true;
+                }
+                return false;
             }
             return extensionMap.equals(extendableMessage.extensionMap);
         }
         return invokeL.booleanValue;
+    }
+
+    public <E> E getExtension(Extension<T, E> extension) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, extension)) == null) {
+            ExtensionMap<T> extensionMap = this.extensionMap;
+            if (extensionMap == null) {
+                return null;
+            }
+            return (E) extensionMap.get(extension);
+        }
+        return (E) invokeL.objValue;
     }
 
     public int extensionsHashCode() {
@@ -144,22 +159,12 @@ public abstract class ExtendableMessage<T extends ExtendableMessage<?>> extends 
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             ExtensionMap<T> extensionMap = this.extensionMap;
-            return extensionMap == null ? StringUtil.EMPTY_ARRAY : extensionMap.toString();
+            if (extensionMap == null) {
+                return StringUtil.EMPTY_ARRAY;
+            }
+            return extensionMap.toString();
         }
         return (String) invokeV.objValue;
-    }
-
-    public <E> E getExtension(Extension<T, E> extension) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, extension)) == null) {
-            ExtensionMap<T> extensionMap = this.extensionMap;
-            if (extensionMap == null) {
-                return null;
-            }
-            return (E) extensionMap.get(extension);
-        }
-        return (E) invokeL.objValue;
     }
 
     public List<Extension<T, ?>> getExtensions() {
@@ -167,7 +172,10 @@ public abstract class ExtendableMessage<T extends ExtendableMessage<?>> extends 
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             ExtensionMap<T> extensionMap = this.extensionMap;
-            return extensionMap == null ? Collections.emptyList() : extensionMap.getExtensions();
+            if (extensionMap == null) {
+                return Collections.emptyList();
+            }
+            return extensionMap.getExtensions();
         }
         return (List) invokeV.objValue;
     }

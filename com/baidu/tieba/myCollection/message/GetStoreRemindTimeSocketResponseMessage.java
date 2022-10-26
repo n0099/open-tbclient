@@ -1,6 +1,5 @@
 package com.baidu.tieba.myCollection.message;
 
-import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +17,7 @@ import tbclient.GetStoreRemindTime.GetStoreRemindTimeResIdl;
 public class GetStoreRemindTimeSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<String> timeList;
+    public List timeList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetStoreRemindTimeSocketResponseMessage() {
@@ -40,10 +39,8 @@ public class GetStoreRemindTimeSocketResponseMessage extends SocketResponsedMess
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
-        DataRes dataRes;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
             GetStoreRemindTimeResIdl getStoreRemindTimeResIdl = (GetStoreRemindTimeResIdl) new Wire(new Class[0]).parseFrom(bArr, GetStoreRemindTimeResIdl.class);
@@ -52,7 +49,11 @@ public class GetStoreRemindTimeSocketResponseMessage extends SocketResponsedMess
                 setError(error.errorno.intValue());
                 setErrorString(getStoreRemindTimeResIdl.error.usermsg);
             }
-            if (getError() == 0 && (dataRes = getStoreRemindTimeResIdl.data) != null) {
+            if (getError() != 0) {
+                return getStoreRemindTimeResIdl;
+            }
+            DataRes dataRes = getStoreRemindTimeResIdl.data;
+            if (dataRes != null) {
                 this.timeList = dataRes.remind_time;
             }
             return getStoreRemindTimeResIdl;
@@ -60,9 +61,12 @@ public class GetStoreRemindTimeSocketResponseMessage extends SocketResponsedMess
         return invokeIL.objValue;
     }
 
-    public List<String> getTimeList() {
+    public List getTimeList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.timeList : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.timeList;
+        }
+        return (List) invokeV.objValue;
     }
 }

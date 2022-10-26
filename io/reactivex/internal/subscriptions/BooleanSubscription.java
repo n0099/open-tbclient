@@ -40,15 +40,10 @@ public final class BooleanSubscription extends AtomicBoolean implements Subscrip
     public boolean isCancelled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? get() : invokeV.booleanValue;
-    }
-
-    @Override // org.reactivestreams.Subscription
-    public void request(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            SubscriptionHelper.validate(j);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return get();
         }
+        return invokeV.booleanValue;
     }
 
     @Override // java.util.concurrent.atomic.AtomicBoolean
@@ -59,5 +54,13 @@ public final class BooleanSubscription extends AtomicBoolean implements Subscrip
             return "BooleanSubscription(cancelled=" + get() + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
+    }
+
+    @Override // org.reactivestreams.Subscription
+    public void request(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            SubscriptionHelper.validate(j);
+        }
     }
 }

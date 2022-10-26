@@ -12,19 +12,19 @@ import io.reactivex.SingleSource;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 /* loaded from: classes8.dex */
-public final class SingleHide<T> extends Single<T> {
+public final class SingleHide extends Single {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SingleSource<? extends T> source;
+    public final SingleSource source;
 
     /* loaded from: classes8.dex */
-    public static final class HideSingleObserver<T> implements SingleObserver<T>, Disposable {
+    public final class HideSingleObserver implements SingleObserver, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SingleObserver<? super T> actual;
+        public final SingleObserver actual;
         public Disposable d;
 
-        public HideSingleObserver(SingleObserver<? super T> singleObserver) {
+        public HideSingleObserver(SingleObserver singleObserver) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -40,21 +40,6 @@ public final class SingleHide<T> extends Single<T> {
                 }
             }
             this.actual = singleObserver;
-        }
-
-        @Override // io.reactivex.disposables.Disposable
-        public void dispose() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.d.dispose();
-            }
-        }
-
-        @Override // io.reactivex.disposables.Disposable
-        public boolean isDisposed() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d.isDisposed() : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.SingleObserver
@@ -75,15 +60,33 @@ public final class SingleHide<T> extends Single<T> {
         }
 
         @Override // io.reactivex.SingleObserver
-        public void onSuccess(T t) {
+        public void onSuccess(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
-                this.actual.onSuccess(t);
+            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+                this.actual.onSuccess(obj);
             }
+        }
+
+        @Override // io.reactivex.disposables.Disposable
+        public void dispose() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.d.dispose();
+            }
+        }
+
+        @Override // io.reactivex.disposables.Disposable
+        public boolean isDisposed() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.d.isDisposed();
+            }
+            return invokeV.booleanValue;
         }
     }
 
-    public SingleHide(SingleSource<? extends T> singleSource) {
+    public SingleHide(SingleSource singleSource) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -102,7 +105,7 @@ public final class SingleHide<T> extends Single<T> {
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver<? super T> singleObserver) {
+    public void subscribeActual(SingleObserver singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, singleObserver) == null) {
             this.source.subscribe(new HideSingleObserver(singleObserver));

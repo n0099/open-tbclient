@@ -37,7 +37,7 @@ public final class k extends a implements View.OnClickListener, com.kwad.compone
     public TextView pW;
     public boolean pX;
     public float pY;
-    public WeakReference<View> pZ;
+    public WeakReference pZ;
     public n qa;
     public boolean qb;
 
@@ -121,8 +121,8 @@ public final class k extends a implements View.OnClickListener, com.kwad.compone
                 int dimensionPixelSize = this.pV.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703e5);
                 if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                     ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) layoutParams;
-                    WeakReference<View> weakReference = this.pZ;
-                    View view2 = weakReference != null ? weakReference.get() : null;
+                    WeakReference weakReference = this.pZ;
+                    View view2 = weakReference != null ? (View) weakReference.get() : null;
                     int i2 = marginLayoutParams2.height;
                     if (i2 <= 0 && view2 != null) {
                         i2 = view2.getHeight();
@@ -210,10 +210,10 @@ public final class k extends a implements View.OnClickListener, com.kwad.compone
         if (!(interceptable == null || interceptable.invokeV(65542, this) == null) || (viewGroup = this.pV) == null) {
             return;
         }
-        ImageView imageView = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091130);
+        ImageView imageView = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091124);
         this.nC = imageView;
         imageView.setBackgroundColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f060782));
-        this.pW = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091131);
+        this.pW = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091125);
         this.pV.setOnClickListener(this);
     }
 
@@ -224,9 +224,9 @@ public final class k extends a implements View.OnClickListener, com.kwad.compone
             return;
         }
         gY();
-        WeakReference<View> weakReference = this.pZ;
+        WeakReference weakReference = this.pZ;
         if (weakReference != null && weakReference.get() != null) {
-            a(this.pZ.get().getLayoutParams());
+            a(((View) this.pZ.get()).getLayoutParams());
         }
         this.pV.setVisibility(0);
         if (z) {
@@ -268,7 +268,7 @@ public final class k extends a implements View.OnClickListener, com.kwad.compone
     public final void a(RewardActionBarControl.ShowActionBarResult showActionBarResult, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, showActionBarResult, view2) == null) {
-            this.pZ = new WeakReference<>(view2);
+            this.pZ = new WeakReference(view2);
             ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
             com.kwad.sdk.core.e.b.d("RewardPlayablePreTips", "onActionBarShown: type: " + showActionBarResult + ", params.height: " + layoutParams.height + ", params.width: " + layoutParams.width);
             a(layoutParams);
@@ -281,8 +281,8 @@ public final class k extends a implements View.OnClickListener, com.kwad.compone
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.aq();
             if (this.pV == null) {
-                ViewStub viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f091136);
-                this.pV = (ViewGroup) (viewStub != null ? viewStub.inflate() : findViewById(R.id.obfuscated_res_0x7f091135));
+                ViewStub viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f09112a);
+                this.pV = (ViewGroup) (viewStub != null ? viewStub.inflate() : findViewById(R.id.obfuscated_res_0x7f091129));
                 initView();
             }
             if (!this.nM.fy()) {

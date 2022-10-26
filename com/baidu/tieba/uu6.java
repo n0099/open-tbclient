@@ -1,23 +1,45 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.os.Bundle;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.module.frs.Frs$From;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.Serializable;
 /* loaded from: classes6.dex */
-public class uu6 {
+public final class uu6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str, long j, String str2, pu6 pu6Var, int i) {
+    public static final long d(Bundle bundle) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, Long.valueOf(j), str2, pu6Var, Integer.valueOf(i)}) == null) {
-            StatisticItem param = new StatisticItem(str).param("fid", j).param("fname", str2).param("obj_param1", UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE).param(TiebaStatic.Params.OBJ_PARAM2, i);
-            if (pu6Var != null) {
-                param.param(TiebaStatic.Params.OBJ_PARAM3, pu6Var.e);
-            }
-            param.eventStat();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bundle)) == null) {
+            return bundle.getLong("extra_fid");
         }
+        return invokeL.longValue;
+    }
+
+    public static final String e(Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bundle)) == null) {
+            return bundle.getString("extra_forum_name");
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static final Frs$From f(Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bundle)) == null) {
+            Serializable serializable = bundle.getSerializable("extra_from");
+            if (serializable != null) {
+                return (Frs$From) serializable;
+            }
+            throw new NullPointerException("null cannot be cast to non-null type com.baidu.tbadk.module.frs.Frs.From");
+        }
+        return (Frs$From) invokeL.objValue;
     }
 }

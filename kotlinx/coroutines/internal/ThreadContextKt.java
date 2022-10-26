@@ -10,10 +10,10 @@ import kotlinx.coroutines.ThreadContextElement;
 /* loaded from: classes8.dex */
 public final class ThreadContextKt {
     public static final Symbol ZERO = new Symbol("ZERO");
-    public static final Function2<Object, CoroutineContext.Element, Object> countAll = ThreadContextKt$countAll$1.INSTANCE;
-    public static final Function2<ThreadContextElement<?>, CoroutineContext.Element, ThreadContextElement<?>> findOne = ThreadContextKt$findOne$1.INSTANCE;
-    public static final Function2<ThreadState, CoroutineContext.Element, ThreadState> updateState = ThreadContextKt$updateState$1.INSTANCE;
-    public static final Function2<ThreadState, CoroutineContext.Element, ThreadState> restoreState = ThreadContextKt$restoreState$1.INSTANCE;
+    public static final Function2 countAll = ThreadContextKt$countAll$1.INSTANCE;
+    public static final Function2 findOne = ThreadContextKt$findOne$1.INSTANCE;
+    public static final Function2 updateState = ThreadContextKt$updateState$1.INSTANCE;
+    public static final Function2 restoreState = ThreadContextKt$restoreState$1.INSTANCE;
 
     public static final void restoreThreadContext(CoroutineContext coroutineContext, Object obj) {
         if (obj == ZERO) {

@@ -6,26 +6,24 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.widget.FrameLayout;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.ScrollingView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.z84;
+import com.baidu.tieba.a94;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class FlipperFrameLayout extends FrameLayout implements z84.b {
+public class FlipperFrameLayout extends FrameLayout implements a94.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public float a;
-    public z84 b;
+    public a94 b;
     public boolean c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlipperFrameLayout(@NonNull Context context) {
+    public FlipperFrameLayout(Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -44,92 +42,8 @@ public class FlipperFrameLayout extends FrameLayout implements z84.b {
         }
     }
 
-    @Override // com.baidu.tieba.z84.b
-    public void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.c = false;
-        }
-    }
-
-    @Override // com.baidu.tieba.z84.b
-    public void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.c = true;
-        }
-    }
-
-    public final boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (getChildCount() <= 0) {
-                return true;
-            }
-            View childAt = getChildAt(0);
-            if (childAt instanceof ScrollingView) {
-                return !childAt.canScrollVertically(-1);
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean d(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(1048579, this, f)) == null) ? Math.abs(f) >= ((float) ViewConfiguration.getTouchSlop()) : invokeF.booleanValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:16:0x001a, code lost:
-        if (r0 != 3) goto L15;
-     */
-    @Override // android.view.ViewGroup
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
-            if (!this.c && this.b != null) {
-                int action = motionEvent.getAction();
-                if (action != 0) {
-                    if (action != 1) {
-                        if (action == 2) {
-                            float rawY = motionEvent.getRawY() - this.a;
-                            boolean z = rawY <= 0.0f;
-                            if (z && !this.b.d() && d(rawY)) {
-                                this.b.e(true);
-                                return true;
-                            } else if (!z && c() && this.b.d() && d(rawY)) {
-                                this.b.e(false);
-                                return true;
-                            }
-                        }
-                    }
-                    this.a = motionEvent.getRawY();
-                } else {
-                    this.a = motionEvent.getRawY();
-                }
-                return super.onInterceptTouchEvent(motionEvent);
-            }
-            this.a = motionEvent.getRawY();
-            return super.onInterceptTouchEvent(motionEvent);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void setViewFlipper(z84 z84Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, z84Var) == null) {
-            this.b = z84Var;
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlipperFrameLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+    public FlipperFrameLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -150,7 +64,7 @@ public class FlipperFrameLayout extends FrameLayout implements z84.b {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlipperFrameLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+    public FlipperFrameLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -168,5 +82,100 @@ public class FlipperFrameLayout extends FrameLayout implements z84.b {
                 return;
             }
         }
+    }
+
+    @Override // com.baidu.tieba.a94.b
+    public void a(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.c = false;
+        }
+    }
+
+    @Override // com.baidu.tieba.a94.b
+    public void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.c = true;
+        }
+    }
+
+    public final boolean d(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048579, this, f)) == null) {
+            if (Math.abs(f) >= ViewConfiguration.getTouchSlop()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeF.booleanValue;
+    }
+
+    public void setViewFlipper(a94 a94Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, a94Var) == null) {
+            this.b = a94Var;
+        }
+    }
+
+    public final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (getChildCount() <= 0) {
+                return true;
+            }
+            View childAt = getChildAt(0);
+            if (!(childAt instanceof ScrollingView)) {
+                return true;
+            }
+            return !childAt.canScrollVertically(-1);
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:16:0x001a, code lost:
+        if (r0 != 3) goto L15;
+     */
+    @Override // android.view.ViewGroup
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
+            if (!this.c && this.b != null) {
+                int action = motionEvent.getAction();
+                if (action != 0) {
+                    if (action != 1) {
+                        if (action == 2) {
+                            float rawY = motionEvent.getRawY() - this.a;
+                            if (rawY <= 0.0f) {
+                                z = true;
+                            } else {
+                                z = false;
+                            }
+                            if (z && !this.b.d() && d(rawY)) {
+                                this.b.e(true);
+                                return true;
+                            } else if (!z && c() && this.b.d() && d(rawY)) {
+                                this.b.e(false);
+                                return true;
+                            }
+                        }
+                    }
+                    this.a = motionEvent.getRawY();
+                } else {
+                    this.a = motionEvent.getRawY();
+                }
+                return super.onInterceptTouchEvent(motionEvent);
+            }
+            this.a = motionEvent.getRawY();
+            return super.onInterceptTouchEvent(motionEvent);
+        }
+        return invokeL.booleanValue;
     }
 }

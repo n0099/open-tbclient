@@ -7,10 +7,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.ksad.json.annotation.KsJson;
 import java.io.Serializable;
 import java.util.List;
-@KsJson
 /* loaded from: classes7.dex */
 public class SplashMonitorInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
@@ -54,16 +52,16 @@ public class SplashMonitorInfo extends com.kwad.sdk.core.response.kwai.a impleme
     public long costTime;
     public int count;
     public long creativeId;
-    public List<String> creativeIds;
+    public List creativeIds;
     public int errorCode;
     public String errorMsg;
     public String failUrl;
-    public List<String> ids;
+    public List ids;
     public long loadAndCheckDataTime;
     public long loadDataTime;
     public int materialType;
     public String preloadId;
-    public List<String> preloadIds;
+    public List preloadIds;
     public double ratioCount;
     public long size;
     public int status;
@@ -134,7 +132,7 @@ public class SplashMonitorInfo extends com.kwad.sdk.core.response.kwai.a impleme
         return (SplashMonitorInfo) invokeJ.objValue;
     }
 
-    public SplashMonitorInfo setCreativeIds(List<String> list) {
+    public SplashMonitorInfo setCreativeIds(List list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, list)) == null) {
@@ -174,7 +172,7 @@ public class SplashMonitorInfo extends com.kwad.sdk.core.response.kwai.a impleme
         return (SplashMonitorInfo) invokeL.objValue;
     }
 
-    public SplashMonitorInfo setIds(List<String> list) {
+    public SplashMonitorInfo setIds(List list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, list)) == null) {
@@ -224,7 +222,7 @@ public class SplashMonitorInfo extends com.kwad.sdk.core.response.kwai.a impleme
         return (SplashMonitorInfo) invokeL.objValue;
     }
 
-    public SplashMonitorInfo setPreloadIds(List<String> list) {
+    public SplashMonitorInfo setPreloadIds(List list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, list)) == null) {

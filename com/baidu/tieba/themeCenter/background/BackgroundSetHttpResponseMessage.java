@@ -40,10 +40,9 @@ public class BackgroundSetHttpResponseMessage extends TbHttpResponsedMessage {
         SetBackgroundResIdl setBackgroundResIdl;
         Error error;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (setBackgroundResIdl = (SetBackgroundResIdl) new Wire(new Class[0]).parseFrom(bArr, SetBackgroundResIdl.class)) == null || (error = setBackgroundResIdl.error) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) && (setBackgroundResIdl = (SetBackgroundResIdl) new Wire(new Class[0]).parseFrom(bArr, SetBackgroundResIdl.class)) != null && (error = setBackgroundResIdl.error) != null) {
+            setError(error.errorno.intValue());
+            setErrorString(setBackgroundResIdl.error.usermsg);
         }
-        setError(error.errorno.intValue());
-        setErrorString(setBackgroundResIdl.error.usermsg);
     }
 }

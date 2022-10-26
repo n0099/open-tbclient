@@ -53,6 +53,23 @@ public final class VarintReader {
         this.scratch = new byte[8];
     }
 
+    public int getLastLength() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.length;
+        }
+        return invokeV.intValue;
+    }
+
+    public void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.state = 0;
+            this.length = 0;
+        }
+    }
+
     public static long assembleVarint(byte[] bArr, int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -72,26 +89,22 @@ public final class VarintReader {
     public static int parseUnsignedVarintLength(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeI = interceptable.invokeI(65539, null, i)) != null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            int i2 = 0;
+            while (true) {
+                long[] jArr = VARINT_LENGTH_MASKS;
+                if (i2 < jArr.length) {
+                    if ((jArr[i2] & i) != 0) {
+                        return i2 + 1;
+                    }
+                    i2++;
+                } else {
+                    return -1;
+                }
+            }
+        } else {
             return invokeI.intValue;
         }
-        int i2 = 0;
-        while (true) {
-            long[] jArr = VARINT_LENGTH_MASKS;
-            if (i2 >= jArr.length) {
-                return -1;
-            }
-            if ((jArr[i2] & i) != 0) {
-                return i2 + 1;
-            }
-            i2++;
-        }
-    }
-
-    public int getLastLength() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.length : invokeV.intValue;
     }
 
     public long readUnsignedVarint(ExtractorInput extractorInput, boolean z, boolean z2, int i) throws IOException, InterruptedException {
@@ -122,13 +135,5 @@ public final class VarintReader {
             return assembleVarint(this.scratch, this.length, z2);
         }
         return invokeCommon.longValue;
-    }
-
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.state = 0;
-            this.length = 0;
-        }
     }
 }

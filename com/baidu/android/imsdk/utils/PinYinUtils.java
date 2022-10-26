@@ -17,7 +17,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class PinYinUtils {
     public static /* synthetic */ Interceptable $ic;
-    public static Comparator<PinYinObject> pyComparator;
+    public static Comparator pyComparator;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -38,7 +38,7 @@ public class PinYinUtils {
                 return;
             }
         }
-        pyComparator = new Comparator<PinYinObject>() { // from class: com.baidu.android.imsdk.utils.PinYinUtils.1
+        pyComparator = new Comparator() { // from class: com.baidu.android.imsdk.utils.PinYinUtils.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -61,7 +61,10 @@ public class PinYinUtils {
             public int compare(PinYinObject pinYinObject, PinYinObject pinYinObject2) {
                 InterceptResult invokeLL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, pinYinObject, pinYinObject2)) == null) ? pinYinObject.getPy().compareToIgnoreCase(pinYinObject2.getPy()) : invokeLL.intValue;
+                if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, pinYinObject, pinYinObject2)) == null) {
+                    return pinYinObject.getPy().compareToIgnoreCase(pinYinObject2.getPy());
+                }
+                return invokeLL.intValue;
             }
         };
     }
@@ -84,16 +87,16 @@ public class PinYinUtils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            ArrayList<HanziToPinyin.Token> arrayList = HanziToPinyin.getInstance().get(str);
+            ArrayList arrayList = HanziToPinyin.getInstance().get(str);
             StringBuilder sb = new StringBuilder();
             if (arrayList != null && arrayList.size() > 0) {
-                Iterator<HanziToPinyin.Token> it = arrayList.iterator();
+                Iterator it = arrayList.iterator();
                 while (it.hasNext()) {
-                    HanziToPinyin.Token next = it.next();
-                    if (2 == next.type) {
-                        sb.append(next.target);
+                    HanziToPinyin.Token token = (HanziToPinyin.Token) it.next();
+                    if (2 == token.type) {
+                        sb.append(token.target);
                     } else {
-                        sb.append(next.source);
+                        sb.append(token.source);
                     }
                 }
             }
@@ -109,14 +112,17 @@ public class PinYinUtils {
             if (str == null) {
                 return null;
             }
-            return "".equals(str) ? str : getPinYin(str);
+            if ("".equals(str)) {
+                return str;
+            }
+            return getPinYin(str);
         }
         return (String) invokeL.objValue;
     }
 
-    public static void sortByPinYin(List<? extends PinYinObject> list) {
+    public static void sortByPinYin(List list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list) == null) || list == null) {
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list) != null) || list == null) {
             return;
         }
         Collections.sort(list, pyComparator);

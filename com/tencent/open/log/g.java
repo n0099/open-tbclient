@@ -2,6 +2,7 @@ package com.tencent.open.log;
 
 import android.text.format.Time;
 import android.util.Log;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -17,6 +18,12 @@ public final class g {
     public static /* synthetic */ Interceptable $ic;
     public static final g a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public final String a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? i != 1 ? i != 2 ? i != 4 ? i != 8 ? i != 16 ? i != 32 ? "-" : ExifInterface.GPS_MEASUREMENT_IN_PROGRESS : ExifInterface.LONGITUDE_EAST : ExifInterface.LONGITUDE_WEST : "I" : "D" : ExifInterface.GPS_MEASUREMENT_INTERRUPTED : (String) invokeI.objValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -46,12 +53,6 @@ public final class g {
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-    }
-
-    public final String a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? i != 1 ? i != 2 ? i != 4 ? i != 8 ? i != 16 ? i != 32 ? "-" : "A" : "E" : "W" : "I" : "D" : "V" : (String) invokeI.objValue;
     }
 
     public String a(int i, Thread thread, long j, String str, String str2, Throwable th) {

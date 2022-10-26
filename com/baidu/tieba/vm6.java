@@ -1,9 +1,19 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.LayerDrawable;
+import android.text.SpannableStringBuilder;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.TextView;
-import com.baidu.tbadk.core.view.BarImageView;
-import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.elementsMaven.span.EMRichTextAnyIconSpan;
+import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
+import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -12,20 +22,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class vm6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public BarImageView b;
-    public TextView c;
-    public TextView d;
-    public TextView e;
-    public EntelechyUserLikeButton f;
-    public View g;
+    public Context a;
+    public View b;
+    public RelativeLayout c;
+    public EMTextView d;
+    public EMTextView e;
+    public final int f;
 
-    public vm6(View view2) {
+    public vm6(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,12 +44,70 @@ public class vm6 {
                 return;
             }
         }
-        this.a = view2;
-        this.b = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090b12);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b15);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b13);
-        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b14);
-        this.f = (EntelechyUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f090b10);
-        this.g = view2.findViewById(R.id.obfuscated_res_0x7f090b11);
+        this.f = fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds21);
+        this.a = context;
+        b(context);
+    }
+
+    public void a(BdTypeRecyclerView bdTypeRecyclerView) {
+        RelativeLayout relativeLayout;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, bdTypeRecyclerView) == null) && bdTypeRecyclerView != null && (relativeLayout = this.c) != null) {
+            relativeLayout.setVisibility(0);
+            bdTypeRecyclerView.s(this.c);
+        }
+    }
+
+    public void d(BdTypeRecyclerView bdTypeRecyclerView) {
+        RelativeLayout relativeLayout;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, bdTypeRecyclerView) == null) && bdTypeRecyclerView != null && (relativeLayout = this.c) != null) {
+            relativeLayout.setVisibility(8);
+            bdTypeRecyclerView.removeHeaderView(this.c);
+        }
+    }
+
+    public void e(String str) {
+        EMTextView eMTextView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (eMTextView = this.e) != null) {
+            eMTextView.setText(str);
+        }
+    }
+
+    public final void b(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) != null) || this.b != null) {
+            return;
+        }
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02c2, (ViewGroup) null);
+        this.b = inflate;
+        this.c = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09244f);
+        this.d = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f092451);
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(context.getResources().getString(R.string.obfuscated_res_0x7f0f06d6));
+        EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f08092c, R.color.CAM_X0109, EMRichTextAnyIconSpan.IconType.WEBP);
+        eMRichTextAnyIconSpan.b(fj.f(context, R.dimen.tbds0));
+        eMRichTextAnyIconSpan.d(fj.f(context, R.dimen.M_W_X002));
+        spannableStringBuilder.setSpan(eMRichTextAnyIconSpan, 0, 1, 33);
+        this.d.setText(spannableStringBuilder);
+        this.e = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f092450);
+        c(TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{DrawableSelector.make().setShape(0).radius(this.f).gradientLinear(DrawableSelector.TL_BR, R.color.CAM_X0212, R.color.CAM_X0212).build(), DrawableSelector.make().setShape(0).radius(this.f).defaultColor("#4D000000").build()});
+            if (TbadkCoreApplication.getInst().getSkinType() == 1) {
+                if (layerDrawable.getDrawable(1) != null) {
+                    layerDrawable.getDrawable(1).setAlpha(255);
+                }
+            } else if (layerDrawable.getDrawable(1) != null) {
+                layerDrawable.getDrawable(1).setAlpha(0);
+            }
+            this.c.setBackgroundDrawable(layerDrawable);
+            nv4.d(this.d).v(R.color.CAM_X0109);
+            nv4.d(this.e).v(R.color.CAM_X0109);
+        }
     }
 }

@@ -28,18 +28,18 @@ public class B64 {
 
     public static void b64from24bit(byte b, byte b2, byte b3, int i, StringBuilder sb) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeCommon(65537, null, new Object[]{Byte.valueOf(b), Byte.valueOf(b2), Byte.valueOf(b3), Integer.valueOf(i), sb}) != null) {
-            return;
-        }
-        int i2 = ((b << 16) & 16777215) | ((b2 << 8) & 65535) | (b3 & 255);
-        while (true) {
-            int i3 = i - 1;
-            if (i <= 0) {
-                return;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Byte.valueOf(b), Byte.valueOf(b2), Byte.valueOf(b3), Integer.valueOf(i), sb}) == null) {
+            int i2 = ((b << 16) & 16777215) | ((b2 << 8) & 65535) | (b3 & 255);
+            while (true) {
+                int i3 = i - 1;
+                if (i > 0) {
+                    sb.append(B64T.charAt(i2 & 63));
+                    i2 >>= 6;
+                    i = i3;
+                } else {
+                    return;
+                }
             }
-            sb.append(B64T.charAt(i2 & 63));
-            i2 >>= 6;
-            i = i3;
         }
     }
 

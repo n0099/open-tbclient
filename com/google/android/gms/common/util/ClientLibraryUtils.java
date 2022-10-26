@@ -5,16 +5,12 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.gms.common.annotation.KeepForSdk;
 import com.google.android.gms.common.wrappers.Wrappers;
-@KeepForSdk
 /* loaded from: classes7.dex */
 public class ClientLibraryUtils {
     public static /* synthetic */ Interceptable $ic;
@@ -34,8 +30,16 @@ public class ClientLibraryUtils {
         }
     }
 
-    @KeepForSdk
-    public static int getClientVersion(@NonNull Context context, @NonNull String str) {
+    public static boolean isPackageSide() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static int getClientVersion(Context context, String str) {
         InterceptResult invokeLL;
         ApplicationInfo applicationInfo;
         Bundle bundle;
@@ -50,9 +54,7 @@ public class ClientLibraryUtils {
         return invokeLL.intValue;
     }
 
-    @Nullable
-    @KeepForSdk
-    public static PackageInfo getPackageInfo(@NonNull Context context, @NonNull String str) {
+    public static PackageInfo getPackageInfo(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
@@ -63,15 +65,5 @@ public class ClientLibraryUtils {
             }
         }
         return (PackageInfo) invokeLL.objValue;
-    }
-
-    @KeepForSdk
-    public static boolean isPackageSide() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

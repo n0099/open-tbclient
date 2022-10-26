@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,22 +21,21 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bo;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.ao;
+import com.baidu.tieba.co;
+import com.baidu.tieba.fj;
 import com.baidu.tieba.homepage.concern.adapter.ConcernRecommendListAdapter;
-import com.baidu.tieba.qp4;
-import com.baidu.tieba.st4;
-import com.baidu.tieba.xx;
-import com.baidu.tieba.zn;
+import com.baidu.tieba.rp4;
+import com.baidu.tieba.ut4;
+import com.baidu.tieba.yx;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ConcernRecommendLayout extends LinearLayout implements xx {
+public class ConcernRecommendLayout extends LinearLayout implements yx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
@@ -45,7 +43,7 @@ public class ConcernRecommendLayout extends LinearLayout implements xx {
     public TextView c;
     public RecyclerView d;
     public ConcernRecommendListAdapter e;
-    public bo f;
+    public co f;
     public int g;
     public CustomMessageListener h;
 
@@ -78,12 +76,12 @@ public class ConcernRecommendLayout extends LinearLayout implements xx {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
                 if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
                     if (this.a.f == null) {
-                        this.a.f = new bo(new zn());
+                        this.a.f = new co(new ao());
                     }
                     this.a.f.q(this.a.d, 1);
                 } else if (this.a.f != null) {
@@ -114,115 +112,8 @@ public class ConcernRecommendLayout extends LinearLayout implements xx {
         }
     }
 
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01f2, (ViewGroup) this, true);
-            setOrientation(1);
-            setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092219);
-            this.d = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f092180);
-            ConcernRecommendListAdapter concernRecommendListAdapter = new ConcernRecommendListAdapter(this.a);
-            this.e = concernRecommendListAdapter;
-            this.d.setAdapter(concernRecommendListAdapter);
-            this.d.setClipChildren(false);
-            if (TbSingleton.getInstance().isSlideAnimEnable()) {
-                bo boVar = new bo(new zn());
-                this.f = boVar;
-                boVar.q(this.d, 1);
-            }
-            int f = ej.f(this.a, R.dimen.tbds21);
-            int f2 = ej.f(this.a, R.dimen.tbds44);
-            this.d.setLayoutManager(new LinearLayoutManager(this.a, 0, false));
-            this.d.setItemAnimator(new DefaultItemAnimator());
-            this.d.addItemDecoration(new SpaceItemDecoration(f2, f, f2));
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.d.getLayoutParams();
-            if (UbsABTestHelper.showNewUI()) {
-                layoutParams.bottomMargin = ej.f(this.a, R.dimen.tbds39);
-            } else {
-                layoutParams.bottomMargin = ej.f(this.a, R.dimen.tbds22);
-            }
-            this.d.setLayoutParams(layoutParams);
-        }
-    }
-
-    @Override // com.baidu.tieba.xx
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
-            if (i != this.b) {
-                SkinManager.setViewTextColor(this.c, this.g);
-                this.e.h(i);
-            }
-            this.b = i;
-        }
-    }
-
-    @Override // android.widget.LinearLayout, android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
-            super.onMeasure(i, i2);
-        }
-    }
-
-    public void setData(st4 st4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, st4Var) == null) {
-            if (st4Var == null) {
-                setVisibility(8);
-                return;
-            }
-            setVisibility(0);
-            if (!TextUtils.isEmpty(st4Var.a) && st4Var.b != 0) {
-                this.c.setTextSize(0, ej.f(this.a, R.dimen.tbds37));
-                this.c.setText(st4Var.a);
-                this.c.setTypeface(Typeface.DEFAULT_BOLD);
-                this.g = st4Var.b;
-            } else {
-                this.c.setTextSize(0, ej.f(this.a, R.dimen.tbds37));
-                this.c.setText(R.string.obfuscated_res_0x7f0f0431);
-                this.c.setTypeface(Typeface.DEFAULT_BOLD);
-                this.g = R.color.CAM_X0105;
-            }
-            this.e.h(TbadkCoreApplication.getInst().getSkinType());
-            this.e.setData(st4Var.c());
-            this.e.notifyDataSetChanged();
-        }
-    }
-
-    public void setHasBorder(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.e.k(z);
-        }
-    }
-
-    public void setOnItemCoverListener(qp4<MetaData> qp4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, qp4Var) == null) {
-            this.e.l(qp4Var);
-        }
-    }
-
-    public void setPageContext(TbPageContext tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, tbPageContext) == null) {
-            this.e.m(tbPageContext);
-        }
-    }
-
-    public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bdUniqueId) == null) {
-            this.h.setTag(bdUniqueId);
-            MessageManager.getInstance().registerListener(this.h);
-            this.e.n(bdUniqueId);
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ConcernRecommendLayout(Context context, @Nullable AttributeSet attributeSet) {
+    public ConcernRecommendLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -245,5 +136,112 @@ public class ConcernRecommendLayout extends LinearLayout implements xx {
         this.h = new a(this, 2156674);
         this.a = context;
         d();
+    }
+
+    public void setHasBorder(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.e.k(z);
+        }
+    }
+
+    public void setOnItemCoverListener(rp4 rp4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, rp4Var) == null) {
+            this.e.l(rp4Var);
+        }
+    }
+
+    public void setPageContext(TbPageContext tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, tbPageContext) == null) {
+            this.e.m(tbPageContext);
+        }
+    }
+
+    public void setPageUniqueId(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bdUniqueId) == null) {
+            this.h.setTag(bdUniqueId);
+            MessageManager.getInstance().registerListener(this.h);
+            this.e.n(bdUniqueId);
+        }
+    }
+
+    @Override // com.baidu.tieba.yx
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
+            if (i != this.b) {
+                SkinManager.setViewTextColor(this.c, this.g);
+                this.e.h(i);
+            }
+            this.b = i;
+        }
+    }
+
+    @Override // android.widget.LinearLayout, android.view.View
+    public void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            super.onMeasure(i, i2);
+        }
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01f1, (ViewGroup) this, true);
+            setOrientation(1);
+            setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092203);
+            this.d = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f09217c);
+            ConcernRecommendListAdapter concernRecommendListAdapter = new ConcernRecommendListAdapter(this.a);
+            this.e = concernRecommendListAdapter;
+            this.d.setAdapter(concernRecommendListAdapter);
+            this.d.setClipChildren(false);
+            if (TbSingleton.getInstance().isSlideAnimEnable()) {
+                co coVar = new co(new ao());
+                this.f = coVar;
+                coVar.q(this.d, 1);
+            }
+            int f = fj.f(this.a, R.dimen.tbds21);
+            int f2 = fj.f(this.a, R.dimen.tbds44);
+            this.d.setLayoutManager(new LinearLayoutManager(this.a, 0, false));
+            this.d.setItemAnimator(new DefaultItemAnimator());
+            this.d.addItemDecoration(new SpaceItemDecoration(f2, f, f2));
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.d.getLayoutParams();
+            if (UbsABTestHelper.showNewUI()) {
+                layoutParams.bottomMargin = fj.f(this.a, R.dimen.tbds39);
+            } else {
+                layoutParams.bottomMargin = fj.f(this.a, R.dimen.tbds22);
+            }
+            this.d.setLayoutParams(layoutParams);
+        }
+    }
+
+    public void setData(ut4 ut4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, ut4Var) == null) {
+            if (ut4Var == null) {
+                setVisibility(8);
+                return;
+            }
+            setVisibility(0);
+            if (!TextUtils.isEmpty(ut4Var.a) && ut4Var.b != 0) {
+                this.c.setTextSize(0, fj.f(this.a, R.dimen.tbds37));
+                this.c.setText(ut4Var.a);
+                this.c.setTypeface(Typeface.DEFAULT_BOLD);
+                this.g = ut4Var.b;
+            } else {
+                this.c.setTextSize(0, fj.f(this.a, R.dimen.tbds37));
+                this.c.setText(R.string.obfuscated_res_0x7f0f0438);
+                this.c.setTypeface(Typeface.DEFAULT_BOLD);
+                this.g = R.color.CAM_X0105;
+            }
+            this.e.h(TbadkCoreApplication.getInst().getSkinType());
+            this.e.setData(ut4Var.c());
+            this.e.notifyDataSetChanged();
+        }
     }
 }

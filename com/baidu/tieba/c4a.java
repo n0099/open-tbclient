@@ -1,38 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUIEventType;
-import tv.athena.revenue.payui.view.dialog.CancelType;
+import tv.athena.revenue.payui.model.PayFlowType;
+import tv.athena.revenue.payui.view.dialog.PayDialogType;
 /* loaded from: classes3.dex */
-public class c4a {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface c4a {
+    void a(String str, PayFlowType payFlowType);
 
-    public static void a(int i, int i2, CancelType cancelType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(65536, null, i, i2, cancelType) == null) {
-            if (cancelType == CancelType.BUTTOM_AREA_CLICK) {
-                t4a.b(i, i2, PayUIEventType.purchaseclose_bt);
-                RLog.info("PayDialogStatistic", PayUIEventType.purchaseclose_bt);
-            } else if (cancelType == CancelType.EMPTY_AREA_CLICK) {
-                t4a.b(i, i2, PayUIEventType.purchaseclose_transparent);
-                RLog.info("PayDialogStatistic", PayUIEventType.purchaseclose_transparent);
-            }
-        }
-    }
+    void b(PayFlowType payFlowType);
 
-    public static void b(int i, int i2, CancelType cancelType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(65537, null, i, i2, cancelType) == null) {
-            if (cancelType == CancelType.BUTTOM_AREA_CLICK) {
-                t4a.b(i, i2, PayUIEventType.paypageclose_bt);
-                RLog.info("PayDialogStatistic", PayUIEventType.paypageclose_bt);
-            } else if (cancelType == CancelType.EMPTY_AREA_CLICK) {
-                t4a.b(i, i2, PayUIEventType.paypageclose_transparent);
-                RLog.info("PayDialogStatistic", PayUIEventType.paypageclose_transparent);
-            }
-        }
-    }
+    void c(String str, PayFlowType payFlowType);
+
+    void d(PayFlowType payFlowType, PayDialogType payDialogType);
 }

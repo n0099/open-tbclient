@@ -29,7 +29,7 @@ public class JsonUtils {
         }
     }
 
-    public static Map<String, Object> getMapForJson(String str) {
+    public static Map getMapForJson(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {

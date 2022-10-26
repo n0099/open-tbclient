@@ -2,7 +2,6 @@ package com.baidu.tbadk.coreExtra.data;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.data.QmFilterItem;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -22,19 +21,26 @@ public class TbMultiMediaData extends MultiMediaData implements Parcelable, Seri
     public transient /* synthetic */ FieldHolder $fh;
     public String coverPath;
     public int coverSource;
-    @Nullable
     public List<MultiMediaData> coverStickerList;
     public float lastCoverPercent;
     public String orignalCoverPath;
-    @Nullable
     public String orignalVideoPath;
-    @Nullable
     public QmFilterItem videoFilter;
     public int videoInfoSource;
     public float videoRatio;
 
+    @Override // com.baidu.ugc.editvideo.data.MultiMediaData, android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     /* loaded from: classes3.dex */
-    public static class a implements Parcelable.Creator<TbMultiMediaData> {
+    public final class a implements Parcelable.Creator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -58,7 +64,10 @@ public class TbMultiMediaData extends MultiMediaData implements Parcelable, Seri
         public TbMultiMediaData createFromParcel(Parcel parcel) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new TbMultiMediaData(parcel) : (TbMultiMediaData) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+                return new TbMultiMediaData(parcel);
+            }
+            return (TbMultiMediaData) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -67,7 +76,10 @@ public class TbMultiMediaData extends MultiMediaData implements Parcelable, Seri
         public TbMultiMediaData[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new TbMultiMediaData[i] : (TbMultiMediaData[]) invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                return new TbMultiMediaData[i];
+            }
+            return (TbMultiMediaData[]) invokeI.objValue;
         }
     }
 
@@ -103,73 +115,31 @@ public class TbMultiMediaData extends MultiMediaData implements Parcelable, Seri
         this.videoInfoSource = 2;
     }
 
-    @Override // com.baidu.ugc.editvideo.data.MultiMediaData, android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Nullable
     public List<MultiMediaData> getCoverStickerList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.coverStickerList : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.coverStickerList;
+        }
+        return (List) invokeV.objValue;
     }
 
-    @Nullable
     public String getOrignalVideoPath() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.orignalVideoPath : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.orignalVideoPath;
+        }
+        return (String) invokeV.objValue;
     }
 
-    @Nullable
     public QmFilterItem getVideoFilter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.videoFilter : (QmFilterItem) invokeV.objValue;
-    }
-
-    public void setCoverStickerList(@Nullable List<MultiMediaData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            this.coverStickerList = list;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.videoFilter;
         }
-    }
-
-    public void setOrignalVideoPath(@Nullable String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.orignalVideoPath = str;
-        }
-    }
-
-    public void setVideoFilter(@Nullable QmFilterItem qmFilterItem) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, qmFilterItem) == null) {
-            this.videoFilter = qmFilterItem;
-        }
-    }
-
-    @Override // com.baidu.ugc.editvideo.data.MultiMediaData, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048583, this, parcel, i) == null) {
-            super.writeToParcel(parcel, i);
-            parcel.writeFloat(this.videoRatio);
-            parcel.writeString(this.coverPath);
-            parcel.writeString(this.orignalCoverPath);
-            parcel.writeInt(this.coverSource);
-            parcel.writeFloat(this.lastCoverPercent);
-            parcel.writeInt(this.videoInfoSource);
-            parcel.writeTypedList(this.coverStickerList);
-            parcel.writeString(this.orignalVideoPath);
-            parcel.writeParcelable(this.videoFilter, i);
-        }
+        return (QmFilterItem) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -200,5 +170,43 @@ public class TbMultiMediaData extends MultiMediaData implements Parcelable, Seri
         this.coverStickerList = parcel.createTypedArrayList(MultiMediaData.CREATOR);
         this.orignalVideoPath = parcel.readString();
         this.videoFilter = (QmFilterItem) parcel.readParcelable(QmFilterItem.class.getClassLoader());
+    }
+
+    public void setCoverStickerList(List<MultiMediaData> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
+            this.coverStickerList = list;
+        }
+    }
+
+    public void setOrignalVideoPath(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.orignalVideoPath = str;
+        }
+    }
+
+    public void setVideoFilter(QmFilterItem qmFilterItem) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, qmFilterItem) == null) {
+            this.videoFilter = qmFilterItem;
+        }
+    }
+
+    @Override // com.baidu.ugc.editvideo.data.MultiMediaData, android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048583, this, parcel, i) == null) {
+            super.writeToParcel(parcel, i);
+            parcel.writeFloat(this.videoRatio);
+            parcel.writeString(this.coverPath);
+            parcel.writeString(this.orignalCoverPath);
+            parcel.writeInt(this.coverSource);
+            parcel.writeFloat(this.lastCoverPercent);
+            parcel.writeInt(this.videoInfoSource);
+            parcel.writeTypedList(this.coverStickerList);
+            parcel.writeString(this.orignalVideoPath);
+            parcel.writeParcelable(this.videoFilter, i);
+        }
     }
 }

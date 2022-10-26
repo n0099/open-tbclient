@@ -52,6 +52,16 @@ public class ContentLengthInputStream extends InputStream {
     }
 
     @Override // java.io.InputStream
+    public int read(byte[] bArr) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeL.intValue;
+    }
+
+    @Override // java.io.InputStream
     public long skip(long j) throws IOException {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
@@ -69,15 +79,5 @@ public class ContentLengthInputStream extends InputStream {
             throw new RuntimeException("Stub!");
         }
         return invokeLII.intValue;
-    }
-
-    @Override // java.io.InputStream
-    public int read(byte[] bArr) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeL.intValue;
     }
 }

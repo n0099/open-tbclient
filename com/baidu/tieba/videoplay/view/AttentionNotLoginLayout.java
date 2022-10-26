@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.my4;
+import com.baidu.tieba.sy4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -60,71 +60,6 @@ public final class AttentionNotLoginLayout extends LinearLayout implements View.
         a(context);
     }
 
-    public final void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0126, (ViewGroup) this, true);
-            Intrinsics.checkNotNullExpressionValue(inflate, "from(context).inflate(R.…login_layout, this, true)");
-            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f0902d9);
-            if (findViewById != null) {
-                this.b = (ImageView) findViewById;
-                View findViewById2 = inflate.findViewById(R.id.obfuscated_res_0x7f0902df);
-                if (findViewById2 != null) {
-                    this.a = (TextView) findViewById2;
-                    View findViewById3 = inflate.findViewById(R.id.obfuscated_res_0x7f0902dd);
-                    if (findViewById3 != null) {
-                        this.c = (TBSpecificationBtn) findViewById3;
-                        my4 my4Var = new my4();
-                        TBSpecificationBtn tBSpecificationBtn = this.c;
-                        if (tBSpecificationBtn != null) {
-                            tBSpecificationBtn.setText(context.getString(R.string.obfuscated_res_0x7f0f03eb));
-                        }
-                        TBSpecificationBtn tBSpecificationBtn2 = this.c;
-                        if (tBSpecificationBtn2 != null) {
-                            tBSpecificationBtn2.setTextSize(R.dimen.T_X06);
-                        }
-                        TBSpecificationBtn tBSpecificationBtn3 = this.c;
-                        if (tBSpecificationBtn3 != null) {
-                            tBSpecificationBtn3.setTextHorizontalCenter(true);
-                        }
-                        TBSpecificationBtn tBSpecificationBtn4 = this.c;
-                        if (tBSpecificationBtn4 != null) {
-                            tBSpecificationBtn4.setConfig(my4Var);
-                        }
-                        TBSpecificationBtn tBSpecificationBtn5 = this.c;
-                        if (tBSpecificationBtn5 == null) {
-                            return;
-                        }
-                        tBSpecificationBtn5.setOnClickListener(this);
-                        return;
-                    }
-                    throw new NullPointerException("null cannot be cast to non-null type com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn");
-                }
-                throw new NullPointerException("null cannot be cast to non-null type android.widget.TextView");
-            }
-            throw new NullPointerException("null cannot be cast to non-null type android.widget.ImageView");
-        }
-    }
-
-    public final void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            SkinManager.setImageResource(this.b, R.drawable.new_pic_emotion_09, 4);
-            SkinManager.setViewTextColor(this.a, R.color.CAM_X0107, 1, 4);
-            TBSpecificationBtn tBSpecificationBtn = this.c;
-            if (tBSpecificationBtn == null) {
-                return;
-            }
-            tBSpecificationBtn.l(4);
-        }
-    }
-
-    public final a getOnAttentionLogin() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (a) invokeV.objValue;
-    }
-
     @Override // android.view.View.OnClickListener
     public void onClick(View v) {
         Interceptable interceptable = $ic;
@@ -136,18 +71,10 @@ public final class AttentionNotLoginLayout extends LinearLayout implements View.
                     TbSingleton.loginFrom = 1;
                 }
                 a aVar = this.d;
-                if (aVar == null) {
-                    return;
+                if (aVar != null) {
+                    aVar.a(checkUpIsLogin);
                 }
-                aVar.a(checkUpIsLogin);
             }
-        }
-    }
-
-    public final void setOnAttentionLogin(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.d = aVar;
         }
     }
 
@@ -195,5 +122,79 @@ public final class AttentionNotLoginLayout extends LinearLayout implements View.
         }
         Intrinsics.checkNotNullParameter(context, "context");
         a(context);
+    }
+
+    public final void a(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0126, (ViewGroup) this, true);
+            Intrinsics.checkNotNullExpressionValue(inflate, "from(context).inflate(R.…login_layout, this, true)");
+            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f0902d9);
+            if (findViewById != null) {
+                this.b = (ImageView) findViewById;
+                View findViewById2 = inflate.findViewById(R.id.obfuscated_res_0x7f0902df);
+                if (findViewById2 != null) {
+                    this.a = (TextView) findViewById2;
+                    View findViewById3 = inflate.findViewById(R.id.obfuscated_res_0x7f0902dd);
+                    if (findViewById3 != null) {
+                        this.c = (TBSpecificationBtn) findViewById3;
+                        sy4 sy4Var = new sy4();
+                        TBSpecificationBtn tBSpecificationBtn = this.c;
+                        if (tBSpecificationBtn != null) {
+                            tBSpecificationBtn.setText(context.getString(R.string.obfuscated_res_0x7f0f03f2));
+                        }
+                        TBSpecificationBtn tBSpecificationBtn2 = this.c;
+                        if (tBSpecificationBtn2 != null) {
+                            tBSpecificationBtn2.setTextSize(R.dimen.T_X06);
+                        }
+                        TBSpecificationBtn tBSpecificationBtn3 = this.c;
+                        if (tBSpecificationBtn3 != null) {
+                            tBSpecificationBtn3.setTextHorizontalCenter(true);
+                        }
+                        TBSpecificationBtn tBSpecificationBtn4 = this.c;
+                        if (tBSpecificationBtn4 != null) {
+                            tBSpecificationBtn4.setConfig(sy4Var);
+                        }
+                        TBSpecificationBtn tBSpecificationBtn5 = this.c;
+                        if (tBSpecificationBtn5 != null) {
+                            tBSpecificationBtn5.setOnClickListener(this);
+                            return;
+                        }
+                        return;
+                    }
+                    throw new NullPointerException("null cannot be cast to non-null type com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn");
+                }
+                throw new NullPointerException("null cannot be cast to non-null type android.widget.TextView");
+            }
+            throw new NullPointerException("null cannot be cast to non-null type android.widget.ImageView");
+        }
+    }
+
+    public final void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            SkinManager.setImageResource(this.b, R.drawable.new_pic_emotion_09, 4);
+            SkinManager.setViewTextColor(this.a, R.color.CAM_X0107, 1, 4);
+            TBSpecificationBtn tBSpecificationBtn = this.c;
+            if (tBSpecificationBtn != null) {
+                tBSpecificationBtn.l(4);
+            }
+        }
+    }
+
+    public final void setOnAttentionLogin(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
+            this.d = aVar;
+        }
+    }
+
+    public final a getOnAttentionLogin() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return (a) invokeV.objValue;
     }
 }

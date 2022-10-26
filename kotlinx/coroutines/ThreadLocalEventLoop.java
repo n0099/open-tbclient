@@ -5,20 +5,20 @@ import kotlin.Metadata;
 /* loaded from: classes8.dex */
 public final class ThreadLocalEventLoop {
     public static final ThreadLocalEventLoop INSTANCE = new ThreadLocalEventLoop();
-    public static final ThreadLocal<EventLoop> ref = new ThreadLocal<>();
+    public static final ThreadLocal ref = new ThreadLocal();
 
     public final EventLoop currentOrNull$kotlinx_coroutines_core() {
-        return ref.get();
+        return (EventLoop) ref.get();
     }
 
     public final EventLoop getEventLoop$kotlinx_coroutines_core() {
-        EventLoop eventLoop = ref.get();
-        if (eventLoop != null) {
-            return eventLoop;
+        EventLoop eventLoop = (EventLoop) ref.get();
+        if (eventLoop == null) {
+            EventLoop createEventLoop = EventLoopKt.createEventLoop();
+            ref.set(createEventLoop);
+            return createEventLoop;
         }
-        EventLoop createEventLoop = EventLoopKt.createEventLoop();
-        ref.set(createEventLoop);
-        return createEventLoop;
+        return eventLoop;
     }
 
     public final void resetEventLoop$kotlinx_coroutines_core() {

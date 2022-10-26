@@ -8,7 +8,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.zxing.DecodeHintType;
 import com.google.zxing.FormatException;
 import com.google.zxing.common.BitSource;
 import com.google.zxing.common.CharacterSetECI;
@@ -60,87 +59,101 @@ public final class DecodedBitStreamParser {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static DecoderResult decode(byte[] bArr, Version version, ErrorCorrectionLevel errorCorrectionLevel, Map<DecodeHintType, ?> map) throws FormatException {
+    public static DecoderResult decode(byte[] bArr, Version version, ErrorCorrectionLevel errorCorrectionLevel, Map map) throws FormatException {
         InterceptResult invokeLLLL;
         Mode forBits;
         Mode mode;
+        ArrayList arrayList;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLLLL = interceptable.invokeLLLL(65538, null, bArr, version, errorCorrectionLevel, map)) != null) {
-            return (DecoderResult) invokeLLLL.objValue;
-        }
-        BitSource bitSource = new BitSource(bArr);
-        StringBuilder sb = new StringBuilder(50);
-        int i = 1;
-        ArrayList arrayList = new ArrayList(1);
-        CharacterSetECI characterSetECI = null;
-        boolean z = false;
-        int i2 = -1;
-        int i3 = -1;
-        while (true) {
-            try {
-                if (bitSource.available() < 4) {
-                    forBits = Mode.TERMINATOR;
-                } else {
-                    forBits = Mode.forBits(bitSource.readBits(4));
-                }
-                Mode mode2 = forBits;
-                if (mode2 != Mode.TERMINATOR) {
-                    if (mode2 != Mode.FNC1_FIRST_POSITION && mode2 != Mode.FNC1_SECOND_POSITION) {
-                        if (mode2 == Mode.STRUCTURED_APPEND) {
-                            if (bitSource.available() >= 16) {
-                                int readBits = bitSource.readBits(8);
-                                i3 = bitSource.readBits(8);
-                                i2 = readBits;
-                            } else {
-                                throw FormatException.getFormatInstance();
-                            }
-                        } else if (mode2 == Mode.ECI) {
-                            characterSetECI = CharacterSetECI.getCharacterSetECIByValue(parseECIValue(bitSource));
-                            if (characterSetECI == null) {
-                                throw FormatException.getFormatInstance();
-                            }
-                        } else if (mode2 == Mode.HANZI) {
-                            int readBits2 = bitSource.readBits(4);
-                            int readBits3 = bitSource.readBits(mode2.getCharacterCountBits(version));
-                            if (readBits2 == i) {
-                                decodeHanziSegment(bitSource, sb, readBits3);
-                            }
-                        } else {
-                            int readBits4 = bitSource.readBits(mode2.getCharacterCountBits(version));
-                            if (mode2 == Mode.NUMERIC) {
-                                decodeNumericSegment(bitSource, sb, readBits4);
-                            } else if (mode2 == Mode.ALPHANUMERIC) {
-                                decodeAlphanumericSegment(bitSource, sb, readBits4, z);
-                            } else {
-                                if (mode2 == Mode.BYTE) {
-                                    mode = mode2;
-                                    decodeByteSegment(bitSource, sb, readBits4, characterSetECI, arrayList, map);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, bArr, version, errorCorrectionLevel, map)) == null) {
+            BitSource bitSource = new BitSource(bArr);
+            StringBuilder sb = new StringBuilder(50);
+            int i = 1;
+            ArrayList arrayList2 = new ArrayList(1);
+            CharacterSetECI characterSetECI = null;
+            boolean z = false;
+            int i2 = -1;
+            int i3 = -1;
+            while (true) {
+                try {
+                    if (bitSource.available() < 4) {
+                        forBits = Mode.TERMINATOR;
+                    } else {
+                        forBits = Mode.forBits(bitSource.readBits(4));
+                    }
+                    Mode mode2 = forBits;
+                    if (mode2 != Mode.TERMINATOR) {
+                        if (mode2 != Mode.FNC1_FIRST_POSITION && mode2 != Mode.FNC1_SECOND_POSITION) {
+                            if (mode2 == Mode.STRUCTURED_APPEND) {
+                                if (bitSource.available() >= 16) {
+                                    int readBits = bitSource.readBits(8);
+                                    i3 = bitSource.readBits(8);
+                                    i2 = readBits;
                                 } else {
-                                    mode = mode2;
-                                    if (mode == Mode.KANJI) {
-                                        decodeKanjiSegment(bitSource, sb, readBits4);
+                                    throw FormatException.getFormatInstance();
+                                }
+                            } else if (mode2 == Mode.ECI) {
+                                characterSetECI = CharacterSetECI.getCharacterSetECIByValue(parseECIValue(bitSource));
+                                if (characterSetECI == null) {
+                                    throw FormatException.getFormatInstance();
+                                }
+                            } else if (mode2 == Mode.HANZI) {
+                                int readBits2 = bitSource.readBits(4);
+                                int readBits3 = bitSource.readBits(mode2.getCharacterCountBits(version));
+                                if (readBits2 == i) {
+                                    decodeHanziSegment(bitSource, sb, readBits3);
+                                }
+                            } else {
+                                int readBits4 = bitSource.readBits(mode2.getCharacterCountBits(version));
+                                if (mode2 == Mode.NUMERIC) {
+                                    decodeNumericSegment(bitSource, sb, readBits4);
+                                } else if (mode2 == Mode.ALPHANUMERIC) {
+                                    decodeAlphanumericSegment(bitSource, sb, readBits4, z);
+                                } else {
+                                    if (mode2 == Mode.BYTE) {
+                                        mode = mode2;
+                                        decodeByteSegment(bitSource, sb, readBits4, characterSetECI, arrayList2, map);
                                     } else {
-                                        throw FormatException.getFormatInstance();
+                                        mode = mode2;
+                                        if (mode == Mode.KANJI) {
+                                            decodeKanjiSegment(bitSource, sb, readBits4);
+                                        } else {
+                                            throw FormatException.getFormatInstance();
+                                        }
                                     }
+                                    if (mode == Mode.TERMINATOR) {
+                                        String sb2 = sb.toString();
+                                        if (arrayList2.isEmpty()) {
+                                            arrayList = null;
+                                        } else {
+                                            arrayList = arrayList2;
+                                        }
+                                        if (errorCorrectionLevel == null) {
+                                            str = null;
+                                        } else {
+                                            str = errorCorrectionLevel.toString();
+                                        }
+                                        return new DecoderResult(bArr, sb2, arrayList, str, i2, i3);
+                                    }
+                                    i = 1;
                                 }
-                                if (mode == Mode.TERMINATOR) {
-                                    return new DecoderResult(bArr, sb.toString(), arrayList.isEmpty() ? null : arrayList, errorCorrectionLevel == null ? null : errorCorrectionLevel.toString(), i2, i3);
-                                }
-                                i = 1;
                             }
+                        }
+                        mode = mode2;
+                        z = true;
+                        if (mode == Mode.TERMINATOR) {
                         }
                     }
                     mode = mode2;
-                    z = true;
                     if (mode == Mode.TERMINATOR) {
                     }
+                } catch (IllegalArgumentException unused) {
+                    throw FormatException.getFormatInstance();
                 }
-                mode = mode2;
-                if (mode == Mode.TERMINATOR) {
-                }
-            } catch (IllegalArgumentException unused) {
-                throw FormatException.getFormatInstance();
             }
+        } else {
+            return (DecoderResult) invokeLLLL.objValue;
         }
     }
 
@@ -180,7 +193,7 @@ public final class DecodedBitStreamParser {
         }
     }
 
-    public static void decodeByteSegment(BitSource bitSource, StringBuilder sb, int i, CharacterSetECI characterSetECI, Collection<byte[]> collection, Map<DecodeHintType, ?> map) throws FormatException {
+    public static void decodeByteSegment(BitSource bitSource, StringBuilder sb, int i, CharacterSetECI characterSetECI, Collection collection, Map map) throws FormatException {
         String name;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{bitSource, sb, Integer.valueOf(i), characterSetECI, collection, map}) == null) {
@@ -207,18 +220,24 @@ public final class DecodedBitStreamParser {
     }
 
     public static void decodeHanziSegment(BitSource bitSource, StringBuilder sb, int i) throws FormatException {
+        int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65541, null, bitSource, sb, i) == null) {
             if (i * 13 <= bitSource.available()) {
                 byte[] bArr = new byte[i * 2];
-                int i2 = 0;
+                int i3 = 0;
                 while (i > 0) {
                     int readBits = bitSource.readBits(13);
-                    int i3 = (readBits % 96) | ((readBits / 96) << 8);
-                    int i4 = i3 + (i3 < 959 ? 41377 : 42657);
-                    bArr[i2] = (byte) (i4 >> 8);
-                    bArr[i2 + 1] = (byte) i4;
-                    i2 += 2;
+                    int i4 = (readBits % 96) | ((readBits / 96) << 8);
+                    if (i4 < 959) {
+                        i2 = 41377;
+                    } else {
+                        i2 = 42657;
+                    }
+                    int i5 = i4 + i2;
+                    bArr[i3] = (byte) (i5 >> 8);
+                    bArr[i3 + 1] = (byte) i5;
+                    i3 += 2;
                     i--;
                 }
                 try {
@@ -233,18 +252,24 @@ public final class DecodedBitStreamParser {
     }
 
     public static void decodeKanjiSegment(BitSource bitSource, StringBuilder sb, int i) throws FormatException {
+        int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65542, null, bitSource, sb, i) == null) {
             if (i * 13 <= bitSource.available()) {
                 byte[] bArr = new byte[i * 2];
-                int i2 = 0;
+                int i3 = 0;
                 while (i > 0) {
                     int readBits = bitSource.readBits(13);
-                    int i3 = (readBits % 192) | ((readBits / 192) << 8);
-                    int i4 = i3 + (i3 < 7936 ? 33088 : 49472);
-                    bArr[i2] = (byte) (i4 >> 8);
-                    bArr[i2 + 1] = (byte) i4;
-                    i2 += 2;
+                    int i4 = (readBits % 192) | ((readBits / 192) << 8);
+                    if (i4 < 7936) {
+                        i2 = 33088;
+                    } else {
+                        i2 = 49472;
+                    }
+                    int i5 = i4 + i2;
+                    bArr[i3] = (byte) (i5 >> 8);
+                    bArr[i3 + 1] = (byte) i5;
+                    i3 += 2;
                     i--;
                 }
                 try {

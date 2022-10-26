@@ -63,24 +63,36 @@ public final class BindInfoAction {
     public static BindInfoAction valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (BindInfoAction) Enum.valueOf(BindInfoAction.class, str) : (BindInfoAction) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (BindInfoAction) Enum.valueOf(BindInfoAction.class, str);
+        }
+        return (BindInfoAction) invokeL.objValue;
     }
 
     public static BindInfoAction[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (BindInfoAction[]) $VALUES.clone() : (BindInfoAction[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (BindInfoAction[]) $VALUES.clone();
+        }
+        return (BindInfoAction[]) invokeV.objValue;
     }
 
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.name : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.name;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.value : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.value;
+        }
+        return (String) invokeV.objValue;
     }
 }

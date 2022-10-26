@@ -22,9 +22,11 @@ import kotlin.Metadata;
 public interface Media2YYService {
     public static final Companion Companion = Companion.$$INSTANCE;
 
+    void startPayment(Context context, IPaymentStateCallback iPaymentStateCallback, IPaymentLogDelegate iPaymentLogDelegate, String str, Long l, Boolean bool, Map map, Map map2);
+
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0006\u0010\u0007R\u0019\u0010\u0002\u001a\u00020\u00018\u0006@\u0006¢\u0006\f\n\u0004\b\u0002\u0010\u0003\u001a\u0004\b\u0004\u0010\u0005¨\u0006\b"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/service/Media2YYService$Companion;", "Lcom/baidu/pyramid/runtime/service/ServiceReference;", "SERVICE_REFERENCE", "Lcom/baidu/pyramid/runtime/service/ServiceReference;", "getSERVICE_REFERENCE", "()Lcom/baidu/pyramid/runtime/service/ServiceReference;", "<init>", "()V", "lib-live-interfaces_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public static final class Companion {
+    public final class Companion {
         public static final /* synthetic */ Companion $$INSTANCE;
         public static /* synthetic */ Interceptable $ic;
         public static final ServiceReference SERVICE_REFERENCE;
@@ -64,24 +66,61 @@ public interface Media2YYService {
         public final ServiceReference getSERVICE_REFERENCE() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? SERVICE_REFERENCE : (ServiceReference) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return SERVICE_REFERENCE;
+            }
+            return (ServiceReference) invokeV.objValue;
         }
     }
 
     @Metadata(bv = {1, 0, 3}, d1 = {}, d2 = {}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public static final class DefaultImpls {
+    public final class DefaultImpls {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         public static /* synthetic */ void startPayment$default(Media2YYService media2YYService, Context context, IPaymentStateCallback iPaymentStateCallback, IPaymentLogDelegate iPaymentLogDelegate, String str, Long l, Boolean bool, Map map, Map map2, int i, Object obj) {
+            IPaymentStateCallback iPaymentStateCallback2;
+            String str2;
+            Long l2;
+            Boolean bool2;
+            Map map3;
+            Map map4;
             if (obj == null) {
-                media2YYService.startPayment(context, (i & 2) != 0 ? null : iPaymentStateCallback, iPaymentLogDelegate, (i & 8) != 0 ? null : str, (i & 16) != 0 ? null : l, (i & 32) != 0 ? null : bool, (i & 64) != 0 ? null : map, (i & 128) != 0 ? null : map2);
+                if ((i & 2) != 0) {
+                    iPaymentStateCallback2 = null;
+                } else {
+                    iPaymentStateCallback2 = iPaymentStateCallback;
+                }
+                if ((i & 8) != 0) {
+                    str2 = null;
+                } else {
+                    str2 = str;
+                }
+                if ((i & 16) != 0) {
+                    l2 = null;
+                } else {
+                    l2 = l;
+                }
+                if ((i & 32) != 0) {
+                    bool2 = null;
+                } else {
+                    bool2 = bool;
+                }
+                if ((i & 64) != 0) {
+                    map3 = null;
+                } else {
+                    map3 = map;
+                }
+                if ((i & 128) != 0) {
+                    map4 = null;
+                } else {
+                    map4 = map2;
+                }
+                media2YYService.startPayment(context, iPaymentStateCallback2, iPaymentLogDelegate, str2, l2, bool2, map3, map4);
                 return;
             }
             throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: startPayment");
         }
     }
-
-    void startPayment(Context context, IPaymentStateCallback iPaymentStateCallback, IPaymentLogDelegate iPaymentLogDelegate, String str, Long l, Boolean bool, Map<String, String> map, Map<String, ? extends Object> map2);
 }

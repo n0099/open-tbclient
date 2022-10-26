@@ -5,8 +5,9 @@ import com.baidu.ala.gift.AlaDynamicGift;
 import com.baidu.ala.gift.AlaDynamicGiftConfigInfo;
 import com.baidu.ala.gift.AlaDynamicGiftZip;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.Cdo;
-import com.baidu.tieba.dh;
+import com.baidu.searchbox.download.center.clearcache.DiskUpdateListener;
+import com.baidu.tieba.eh;
+import com.baidu.tieba.eo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class AlaEnterEffectData implements Serializable, Cdo {
+public class AlaEnterEffectData implements Serializable, eo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ALA_ENTER_EFFECT_DOWNLOADING = 102;
     public static final int ALA_ENTER_EFFECT_HAS_DOWNLOAD = 101;
@@ -83,29 +84,44 @@ public class AlaEnterEffectData implements Serializable, Cdo {
         }
     }
 
-    @Override // com.baidu.tieba.Cdo
+    @Override // com.baidu.tieba.eo
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TYPE_ENTER_EFFECT_DATA : (BdUniqueId) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return TYPE_ENTER_EFFECT_DATA;
+        }
+        return (BdUniqueId) invokeV.objValue;
     }
 
     public boolean isUsing() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.use_status == 1 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.use_status == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public void parserJson(JSONObject jSONObject) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         this.id = jSONObject.optString("id");
         this.type = jSONObject.optInt("type");
         this.name = jSONObject.optString("name");
         this.use_status = jSONObject.optInt("use_status");
-        this.isOwn = jSONObject.optInt("is_own") == 1;
+        if (jSONObject.optInt("is_own") == 1) {
+            z = true;
+        } else {
+            z = false;
+        }
+        this.isOwn = z;
         this.color = jSONObject.optString("color");
         this.startColor = jSONObject.optString("start_color");
         this.endColor = jSONObject.optString("end_color");
@@ -115,7 +131,7 @@ public class AlaEnterEffectData implements Serializable, Cdo {
         this.content_last = jSONObject.optString("content_last");
         this.effect_range_name = jSONObject.optString("effect_range_name");
         this.end_time = jSONObject.optLong("end_time");
-        this.begin_time = jSONObject.optLong("begin_time");
+        this.begin_time = jSONObject.optLong(DiskUpdateListener.BEGIN_TIME);
         this.categoryType = jSONObject.optInt("effect_type");
         this.obtain_way = jSONObject.optString("obtain_way");
         JSONObject optJSONObject = jSONObject.optJSONObject("nobility_info");
@@ -125,36 +141,33 @@ public class AlaEnterEffectData implements Serializable, Cdo {
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("props_info");
         if (optJSONObject2 != null) {
-            this.propId = dh.e(optJSONObject2.optString("props_id"), 0);
-            this.price = dh.g(optJSONObject2.optString("price"), 0L);
+            this.propId = eh.e(optJSONObject2.optString("props_id"), 0);
+            this.price = eh.g(optJSONObject2.optString("price"), 0L);
             this.time = optJSONObject2.optString("buy_cycle");
             this.buy_staus = optJSONObject2.optInt("buy_staus");
         }
         int i = this.type;
-        if (i != 1) {
-            if (i == 0) {
-                this.thumbnail_url = this.icon_url;
-                return;
+        if (i == 1) {
+            this.thumbnail_url = jSONObject.optString("thumbnail_url");
+            JSONObject optJSONObject3 = jSONObject.optJSONObject("gift");
+            if (optJSONObject3 != null) {
+                AlaDynamicGift alaDynamicGift = new AlaDynamicGift();
+                this.gift = alaDynamicGift;
+                alaDynamicGift.giftId = optJSONObject3.optString("gift_id");
+                this.gift.giftName = optJSONObject3.optString("gift_name");
+                JSONObject optJSONObject4 = optJSONObject3.optJSONObject("gift_zip");
+                if (optJSONObject4 != null) {
+                    this.gift.giftZip = new AlaDynamicGiftZip();
+                    this.gift.giftZip.parseJson(optJSONObject4);
+                }
+                JSONObject optJSONObject5 = optJSONObject3.optJSONObject("config_info");
+                if (optJSONObject5 != null) {
+                    this.gift.configInfo = new AlaDynamicGiftConfigInfo();
+                    this.gift.configInfo.parseJson(optJSONObject5);
+                }
             }
-            return;
-        }
-        this.thumbnail_url = jSONObject.optString("thumbnail_url");
-        JSONObject optJSONObject3 = jSONObject.optJSONObject("gift");
-        if (optJSONObject3 != null) {
-            AlaDynamicGift alaDynamicGift = new AlaDynamicGift();
-            this.gift = alaDynamicGift;
-            alaDynamicGift.giftId = optJSONObject3.optString("gift_id");
-            this.gift.giftName = optJSONObject3.optString("gift_name");
-            JSONObject optJSONObject4 = optJSONObject3.optJSONObject("gift_zip");
-            if (optJSONObject4 != null) {
-                this.gift.giftZip = new AlaDynamicGiftZip();
-                this.gift.giftZip.parseJson(optJSONObject4);
-            }
-            JSONObject optJSONObject5 = optJSONObject3.optJSONObject("config_info");
-            if (optJSONObject5 != null) {
-                this.gift.configInfo = new AlaDynamicGiftConfigInfo();
-                this.gift.configInfo.parseJson(optJSONObject5);
-            }
+        } else if (i == 0) {
+            this.thumbnail_url = this.icon_url;
         }
     }
 }

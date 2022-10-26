@@ -18,10 +18,10 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.util.io.ActionJsonData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dj;
-import com.baidu.tieba.i25;
-import com.baidu.tieba.k25;
-import com.baidu.tieba.wj;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.o25;
+import com.baidu.tieba.q25;
+import com.baidu.tieba.xj;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -42,8 +42,23 @@ public class NotificationHelper {
     public static int lastProgressNotifiyId;
     public transient /* synthetic */ FieldHolder $fh;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(712878082, "Lcom/baidu/tbadk/core/util/NotificationHelper;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(712878082, "Lcom/baidu/tbadk/core/util/NotificationHelper;");
+        }
+    }
+
     /* loaded from: classes3.dex */
-    public static class SwitchData {
+    public class SwitchData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean isLight;
@@ -69,21 +84,6 @@ public class NotificationHelper {
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(712878082, "Lcom/baidu/tbadk/core/util/NotificationHelper;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(712878082, "Lcom/baidu/tbadk/core/util/NotificationHelper;");
-        }
-    }
-
     public NotificationHelper() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -101,12 +101,29 @@ public class NotificationHelper {
     public static boolean canSupportClickPendingIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Build.VERSION.SDK_INT >= 11 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (Build.VERSION.SDK_INT < 11) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static Bitmap getLargeIcon() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inJustDecodeBounds = true;
+            return BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getResources(), R.drawable.obfuscated_res_0x7f081833, options);
+        }
+        return (Bitmap) invokeV.objValue;
     }
 
     public static void cancelAllNotification(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, context) == null) || context == null) {
+        if ((interceptable != null && interceptable.invokeL(65539, null, context) != null) || context == null) {
             return;
         }
         try {
@@ -153,12 +170,28 @@ public class NotificationHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, null, context) == null) {
             if ((UtilHelper.isOppoDevice() || RomTypeUtil.isOnePlus()) && Build.VERSION.SDK_INT >= 26) {
-                NotificationChannel notificationChannel = new NotificationChannel(OPPO_IM_CHANNEL, wj.a(R.string.obfuscated_res_0x7f0f0ccb), 4);
-                notificationChannel.setDescription(wj.a(R.string.obfuscated_res_0x7f0f0ccc));
+                NotificationChannel notificationChannel = new NotificationChannel(OPPO_IM_CHANNEL, xj.a(R.string.obfuscated_res_0x7f0f0cdc), 4);
+                notificationChannel.setDescription(xj.a(R.string.obfuscated_res_0x7f0f0cdd));
                 notificationChannel.enableLights(true);
                 ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).createNotificationChannel(notificationChannel);
             }
         }
+    }
+
+    public static Notification notif_excption(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
+            NotificationCompat.Builder builder = new NotificationCompat.Builder(context, PRIMARY_CHANNEL);
+            builder.setContentTitle(context.getString(R.string.obfuscated_res_0x7f0f0ce3));
+            if (RomTypeUtil.isOnePlus()) {
+                builder.setSmallIcon(R.drawable.obfuscated_res_0x7f08121d).setColor(ContextCompat.getColor(TbadkCoreApplication.getInst(), R.color.CAM_X0302));
+            } else {
+                builder.setSmallIcon(R.drawable.obfuscated_res_0x7f08121c);
+            }
+            return builder.build();
+        }
+        return (Notification) invokeL.objValue;
     }
 
     public static Notification createNotificationByAPI(Context context, int i, String str, int i2, String str2, String str3, PendingIntent pendingIntent, boolean z, RemoteViews remoteViews, boolean z2) {
@@ -199,35 +232,34 @@ public class NotificationHelper {
         return (Notification) invokeCommon.objValue;
     }
 
-    public static Bitmap getLargeIcon() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inJustDecodeBounds = true;
-            return BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getResources(), R.drawable.obfuscated_res_0x7f081833, options);
-        }
-        return (Bitmap) invokeV.objValue;
-    }
-
     public static SwitchData getSwitchData(Context context) {
         InterceptResult invokeL;
+        boolean z;
+        boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
             SwitchData switchData = new SwitchData();
-            if (!i25.L() && i25.R()) {
+            if (!o25.L() && o25.R()) {
                 long currentTimeMillis = System.currentTimeMillis();
                 if (currentTimeMillis - TbadkCoreApplication.getInst().getLastNotifyTime() >= 5000) {
                     AudioManager audioManager = (AudioManager) context.getSystemService("audio");
-                    boolean z = audioManager.getRingerMode() == 0;
-                    boolean z2 = audioManager.getRingerMode() == 1;
-                    if (k25.d().z()) {
+                    if (audioManager.getRingerMode() == 0) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    if (audioManager.getRingerMode() == 1) {
+                        z2 = true;
+                    } else {
+                        z2 = false;
+                    }
+                    if (q25.d().z()) {
                         switchData.isSound = true;
                         if (z || z2) {
                             switchData.isSound = false;
                         }
                     }
-                    if (k25.d().A()) {
+                    if (q25.d().A()) {
                         switchData.isVibrate = true;
                         if (z) {
                             switchData.isVibrate = false;
@@ -239,28 +271,12 @@ public class NotificationHelper {
                     TbadkCoreApplication.getInst().setLastNotifyTime(currentTimeMillis);
                 }
             }
-            if (k25.d().v()) {
+            if (q25.d().v()) {
                 switchData.isLight = true;
             }
             return switchData;
         }
         return (SwitchData) invokeL.objValue;
-    }
-
-    public static Notification notif_excption(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
-            NotificationCompat.Builder builder = new NotificationCompat.Builder(context, PRIMARY_CHANNEL);
-            builder.setContentTitle(context.getString(R.string.obfuscated_res_0x7f0f0cd2));
-            if (RomTypeUtil.isOnePlus()) {
-                builder.setSmallIcon(R.drawable.obfuscated_res_0x7f08120c).setColor(ContextCompat.getColor(TbadkCoreApplication.getInst(), R.color.CAM_X0302));
-            } else {
-                builder.setSmallIcon(R.drawable.obfuscated_res_0x7f08120b);
-            }
-            return builder.build();
-        }
-        return (Notification) invokeL.objValue;
     }
 
     public static boolean processNotification(Context context, int i, Notification notification) {
@@ -270,7 +286,7 @@ public class NotificationHelper {
             try {
                 NotificationManager notificationManager = (NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION);
                 if (Build.VERSION.SDK_INT >= 26) {
-                    NotificationChannel notificationChannel = new NotificationChannel(PRIMARY_CHANNEL_2, wj.a(R.string.obfuscated_res_0x7f0f0cca), 3);
+                    NotificationChannel notificationChannel = new NotificationChannel(PRIMARY_CHANNEL_2, xj.a(R.string.obfuscated_res_0x7f0f0cdb), 3);
                     notificationChannel.setLightColor(-16776961);
                     notificationChannel.setLockscreenVisibility(0);
                     notificationChannel.enableVibration(false);
@@ -292,24 +308,30 @@ public class NotificationHelper {
 
     public static void processNotificationIcon(NotificationCompat.Builder builder) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65548, null, builder) == null) || builder == null) {
+        if ((interceptable != null && interceptable.invokeL(65548, null, builder) != null) || builder == null) {
             return;
         }
         if (RomTypeUtil.isOnePlus()) {
-            builder.setSmallIcon(R.drawable.obfuscated_res_0x7f08120c).setColor(ContextCompat.getColor(TbadkCoreApplication.getInst(), R.color.CAM_X0302));
+            builder.setSmallIcon(R.drawable.obfuscated_res_0x7f08121d).setColor(ContextCompat.getColor(TbadkCoreApplication.getInst(), R.color.CAM_X0302));
         } else {
-            builder.setSmallIcon(R.drawable.obfuscated_res_0x7f08120b);
+            builder.setSmallIcon(R.drawable.obfuscated_res_0x7f08121c);
         }
     }
 
     public static boolean processNotificationWithSoundAndVibration(Context context, int i, Notification notification, SwitchData switchData) {
         InterceptResult invokeLILL;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLILL = interceptable.invokeLILL(65549, null, context, i, notification, switchData)) == null) {
             try {
                 NotificationManager notificationManager = (NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION);
                 if (Build.VERSION.SDK_INT >= 26) {
-                    NotificationChannel notificationChannel = new NotificationChannel(switchData.isSound ? PRIMARY_CHANNEL_3 : PRIMARY_CHANNEL_2, wj.a(R.string.obfuscated_res_0x7f0f0cca), 3);
+                    if (switchData.isSound) {
+                        str = PRIMARY_CHANNEL_3;
+                    } else {
+                        str = PRIMARY_CHANNEL_2;
+                    }
+                    NotificationChannel notificationChannel = new NotificationChannel(str, xj.a(R.string.obfuscated_res_0x7f0f0cdb), 3);
                     notificationChannel.setLightColor(-16776961);
                     notificationChannel.setLockscreenVisibility(0);
                     notificationChannel.enableVibration(switchData.isVibrate);
@@ -336,6 +358,7 @@ public class NotificationHelper {
         InterceptResult invokeCommon;
         Notification notif_excption;
         NotificationCompat.Builder builder;
+        String str4;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{context, Integer.valueOf(i), str, str2, str3, pendingIntent, remoteViews, bitmap, Boolean.valueOf(z)})) == null) {
             if (pendingIntent == null) {
@@ -345,14 +368,20 @@ public class NotificationHelper {
             if (switchData == null) {
                 return false;
             }
-            if (dj.isEmpty(str)) {
+            if (ej.isEmpty(str)) {
                 str = context.getString(R.string.obfuscated_res_0x7f0f029e);
             }
             try {
                 if (Build.VERSION.SDK_INT < 26) {
                     builder = new NotificationCompat.Builder(TbadkCoreApplication.getInst(), PRIMARY_CHANNEL);
                 } else {
-                    builder = new NotificationCompat.Builder(TbadkCoreApplication.getInst(), switchData.isSound ? PRIMARY_CHANNEL_3 : PRIMARY_CHANNEL_2);
+                    TbadkCoreApplication inst = TbadkCoreApplication.getInst();
+                    if (switchData.isSound) {
+                        str4 = PRIMARY_CHANNEL_3;
+                    } else {
+                        str4 = PRIMARY_CHANNEL_2;
+                    }
+                    builder = new NotificationCompat.Builder(inst, str4);
                 }
                 builder.setContentTitle(str).setContentText(str2).setTicker(str3);
                 processNotificationIcon(builder);
@@ -396,19 +425,41 @@ public class NotificationHelper {
     public static boolean showCustomViewNotification(Context context, int i, String str, String str2, PendingIntent pendingIntent, RemoteViews remoteViews, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{context, Integer.valueOf(i), str, str2, pendingIntent, remoteViews, Boolean.valueOf(z)})) == null) ? showBaseNotification(context, i, str, null, str2, pendingIntent, remoteViews, null, z) : invokeCommon.booleanValue;
-    }
-
-    public static boolean showLargeIconNotification(Context context, int i, String str, String str2, String str3, PendingIntent pendingIntent, Bitmap bitmap, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65552, null, new Object[]{context, Integer.valueOf(i), str, str2, str3, pendingIntent, bitmap, Boolean.valueOf(z)})) == null) ? showBaseNotification(context, i, str, str2, str3, pendingIntent, null, bitmap, z) : invokeCommon.booleanValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{context, Integer.valueOf(i), str, str2, pendingIntent, remoteViews, Boolean.valueOf(z)})) == null) {
+            return showBaseNotification(context, i, str, null, str2, pendingIntent, remoteViews, null, z);
+        }
+        return invokeCommon.booleanValue;
     }
 
     public static boolean showNotification(Context context, int i, String str, String str2, String str3, PendingIntent pendingIntent, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65553, null, new Object[]{context, Integer.valueOf(i), str, str2, str3, pendingIntent, Boolean.valueOf(z)})) == null) ? showBaseNotification(context, i, str, str2, str3, pendingIntent, null, null, z) : invokeCommon.booleanValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65553, null, new Object[]{context, Integer.valueOf(i), str, str2, str3, pendingIntent, Boolean.valueOf(z)})) == null) {
+            return showBaseNotification(context, i, str, str2, str3, pendingIntent, null, null, z);
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public static synchronized boolean showProgressNotification(Context context, int i, String str, int i2, String str2, String str3, boolean z) {
+        InterceptResult invokeCommon;
+        boolean showProgressNotification;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65556, null, new Object[]{context, Integer.valueOf(i), str, Integer.valueOf(i2), str2, str3, Boolean.valueOf(z)})) == null) {
+            synchronized (NotificationHelper.class) {
+                showProgressNotification = showProgressNotification(context, i, str, i2, str2, str3, null, z);
+            }
+            return showProgressNotification;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public static boolean showLargeIconNotification(Context context, int i, String str, String str2, String str3, PendingIntent pendingIntent, Bitmap bitmap, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65552, null, new Object[]{context, Integer.valueOf(i), str, str2, str3, pendingIntent, bitmap, Boolean.valueOf(z)})) == null) {
+            return showBaseNotification(context, i, str, str2, str3, pendingIntent, null, bitmap, z);
+        }
+        return invokeCommon.booleanValue;
     }
 
     public static synchronized boolean showProgressNotification(Context context, int i, String str, int i2, String str2, String str3, PendingIntent pendingIntent, boolean z) {
@@ -426,10 +477,15 @@ public class NotificationHelper {
 
     public static synchronized boolean showProgressNotification(Context context, int i, String str, int i2, String str2, String str3, PendingIntent pendingIntent, boolean z, RemoteViews remoteViews, boolean z2) {
         InterceptResult invokeCommon;
+        PendingIntent activity;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65555, null, new Object[]{context, Integer.valueOf(i), str, Integer.valueOf(i2), str2, str3, pendingIntent, Boolean.valueOf(z), remoteViews, Boolean.valueOf(z2)})) == null) {
             synchronized (NotificationHelper.class) {
-                PendingIntent activity = pendingIntent == null ? PendingIntent.getActivity(context, 0, new Intent(), 0) : pendingIntent;
+                if (pendingIntent == null) {
+                    activity = PendingIntent.getActivity(context, 0, new Intent(), 0);
+                } else {
+                    activity = pendingIntent;
+                }
                 if (!IS_SUPPORT_PROGRESS_NOTIFICATION) {
                     return showNotification(context, i, str3, str3, str, activity, z);
                 }
@@ -446,19 +502,6 @@ public class NotificationHelper {
                 }
                 return processNotification(context, i, createNotificationByAPI);
             }
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public static synchronized boolean showProgressNotification(Context context, int i, String str, int i2, String str2, String str3, boolean z) {
-        InterceptResult invokeCommon;
-        boolean showProgressNotification;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65556, null, new Object[]{context, Integer.valueOf(i), str, Integer.valueOf(i2), str2, str3, Boolean.valueOf(z)})) == null) {
-            synchronized (NotificationHelper.class) {
-                showProgressNotification = showProgressNotification(context, i, str, i2, str2, str3, null, z);
-            }
-            return showProgressNotification;
         }
         return invokeCommon.booleanValue;
     }

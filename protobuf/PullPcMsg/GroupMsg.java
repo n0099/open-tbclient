@@ -28,12 +28,18 @@ public final class GroupMsg extends Message {
     public final List<MsgInfo> msgList;
 
     /* loaded from: classes9.dex */
-    public static final class Builder extends Message.Builder<GroupMsg> {
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes9.dex */
+    public final class Builder extends Message.Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public GroupInfo groupInfo;
         public Integer hasMore;
-        public List<MsgInfo> msgList;
+        public List msgList;
 
         public Builder() {
             Interceptable interceptable = $ic;
@@ -80,14 +86,11 @@ public final class GroupMsg extends Message {
         public GroupMsg build(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) ? new GroupMsg(this, z, null) : (GroupMsg) invokeZ.objValue;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+                return new GroupMsg(this, z, null);
+            }
+            return (GroupMsg) invokeZ.objValue;
         }
-    }
-
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
     }
 
     static {
@@ -105,10 +108,6 @@ public final class GroupMsg extends Message {
         }
         DEFAULT_MSGLIST = Collections.emptyList();
         DEFAULT_HASMORE = 0;
-    }
-
-    public /* synthetic */ GroupMsg(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -131,7 +130,7 @@ public final class GroupMsg extends Message {
         }
         if (z) {
             this.groupInfo = builder.groupInfo;
-            List<MsgInfo> list = builder.msgList;
+            List list = builder.msgList;
             if (list == null) {
                 this.msgList = DEFAULT_MSGLIST;
             } else {
@@ -149,5 +148,9 @@ public final class GroupMsg extends Message {
         this.groupInfo = builder.groupInfo;
         this.msgList = Message.immutableCopyOf(builder.msgList);
         this.hasMore = builder.hasMore;
+    }
+
+    public /* synthetic */ GroupMsg(Builder builder, boolean z, a aVar) {
+        this(builder, z);
     }
 }

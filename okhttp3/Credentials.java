@@ -30,7 +30,10 @@ public final class Credentials {
     public static String basic(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) ? basic(str, str2, Util.ISO_8859_1) : (String) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            return basic(str, str2, Util.ISO_8859_1);
+        }
+        return (String) invokeLL.objValue;
     }
 
     public static String basic(String str, String str2, Charset charset) {

@@ -12,6 +12,13 @@ public class DummyProvider extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
+        }
+    }
+
     public DummyProvider() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -23,13 +30,6 @@ public class DummyProvider extends BroadcastReceiver {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-    }
-
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
         }
     }
 }

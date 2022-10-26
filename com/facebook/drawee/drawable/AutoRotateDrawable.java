@@ -11,7 +11,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
-import com.facebook.common.internal.VisibleForTesting;
 /* loaded from: classes7.dex */
 public class AutoRotateDrawable extends ForwardingDrawable implements Runnable, CloneableDrawable {
     public static /* synthetic */ Interceptable $ic = null;
@@ -21,7 +20,6 @@ public class AutoRotateDrawable extends ForwardingDrawable implements Runnable, 
     public boolean mClockwise;
     public int mInterval;
     public boolean mIsScheduled;
-    @VisibleForTesting
     public float mRotationAngle;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -42,67 +40,6 @@ public class AutoRotateDrawable extends ForwardingDrawable implements Runnable, 
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-        }
-    }
-
-    private int getIncrement() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? (int) ((20.0f / this.mInterval) * 360.0f) : invokeV.intValue;
-    }
-
-    private void scheduleNextFrame() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || this.mIsScheduled) {
-            return;
-        }
-        this.mIsScheduled = true;
-        scheduleSelf(this, SystemClock.uptimeMillis() + 20);
-    }
-
-    @Override // com.facebook.drawee.drawable.ForwardingDrawable, android.graphics.drawable.Drawable
-    public void draw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
-            int save = canvas.save();
-            Rect bounds = getBounds();
-            int i = bounds.right - bounds.left;
-            int i2 = bounds.bottom - bounds.top;
-            float f = this.mRotationAngle;
-            if (!this.mClockwise) {
-                f = 360.0f - f;
-            }
-            canvas.rotate(f, bounds.left + (i / 2), bounds.top + (i2 / 2));
-            super.draw(canvas);
-            canvas.restoreToCount(save);
-            scheduleNextFrame();
-        }
-    }
-
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.mRotationAngle = 0.0f;
-            this.mIsScheduled = false;
-            unscheduleSelf(this);
-            invalidateSelf();
-        }
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.mIsScheduled = false;
-            this.mRotationAngle += getIncrement();
-            invalidateSelf();
-        }
-    }
-
-    public void setClockwise(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.mClockwise = z;
         }
     }
 
@@ -130,11 +67,77 @@ public class AutoRotateDrawable extends ForwardingDrawable implements Runnable, 
         this.mClockwise = z;
     }
 
+    private int getIncrement() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+            return (int) ((20.0f / this.mInterval) * 360.0f);
+        }
+        return invokeV.intValue;
+    }
+
+    private void scheduleNextFrame() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && !this.mIsScheduled) {
+            this.mIsScheduled = true;
+            scheduleSelf(this, SystemClock.uptimeMillis() + 20);
+        }
+    }
+
+    public void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.mRotationAngle = 0.0f;
+            this.mIsScheduled = false;
+            unscheduleSelf(this);
+            invalidateSelf();
+        }
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.mIsScheduled = false;
+            this.mRotationAngle += getIncrement();
+            invalidateSelf();
+        }
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.drawee.drawable.CloneableDrawable
     public AutoRotateDrawable cloneDrawable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new AutoRotateDrawable(DrawableUtils.cloneDrawable(getDrawable()), this.mInterval, this.mClockwise) : (AutoRotateDrawable) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return new AutoRotateDrawable(DrawableUtils.cloneDrawable(getDrawable()), this.mInterval, this.mClockwise);
+        }
+        return (AutoRotateDrawable) invokeV.objValue;
+    }
+
+    @Override // com.facebook.drawee.drawable.ForwardingDrawable, android.graphics.drawable.Drawable
+    public void draw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
+            int save = canvas.save();
+            Rect bounds = getBounds();
+            int i = bounds.right - bounds.left;
+            int i2 = bounds.bottom - bounds.top;
+            float f = this.mRotationAngle;
+            if (!this.mClockwise) {
+                f = 360.0f - f;
+            }
+            canvas.rotate(f, bounds.left + (i / 2), bounds.top + (i2 / 2));
+            super.draw(canvas);
+            canvas.restoreToCount(save);
+            scheduleNextFrame();
+        }
+    }
+
+    public void setClockwise(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.mClockwise = z;
+        }
     }
 }

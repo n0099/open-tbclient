@@ -13,12 +13,11 @@ import tbclient.Error;
 import tbclient.GetMsgRecForumlist.DataRes;
 import tbclient.GetMsgRecForumlist.GetMsgRecForumlistResIdl;
 import tbclient.Page;
-import tbclient.RecommendForumInfo;
 /* loaded from: classes4.dex */
 public class MsgRecForumHttpResMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<RecommendForumInfo> forumList;
+    public List forumList;
     public Page pageInfo;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -44,7 +43,7 @@ public class MsgRecForumHttpResMessage extends TbHttpResponsedMessage {
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         GetMsgRecForumlistResIdl getMsgRecForumlistResIdl;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (getMsgRecForumlistResIdl = (GetMsgRecForumlistResIdl) new Wire(new Class[0]).parseFrom(bArr, GetMsgRecForumlistResIdl.class)) == null) {
+        if ((interceptable != null && interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) != null) || (getMsgRecForumlistResIdl = (GetMsgRecForumlistResIdl) new Wire(new Class[0]).parseFrom(bArr, GetMsgRecForumlistResIdl.class)) == null) {
             return;
         }
         Error error = getMsgRecForumlistResIdl.error;

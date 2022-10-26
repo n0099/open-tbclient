@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jv4;
+import com.baidu.tieba.pv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -61,16 +61,15 @@ public class EMTextView extends TextView {
         public final void a(Paint.FontMetricsInt fontMetricsInt) {
             ViewGroup.MarginLayoutParams b;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, fontMetricsInt) == null) || (b = b()) == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, fontMetricsInt) == null) && (b = b()) != null) {
+                this.d = b.topMargin;
+                this.e = b.bottomMargin;
+                this.f = fontMetricsInt.top - fontMetricsInt.ascent;
+                int dimenPixelSize = (fontMetricsInt.descent - fontMetricsInt.bottom) - UtilHelper.getDimenPixelSize(R.dimen.tbds3);
+                this.g = dimenPixelSize;
+                b.topMargin += this.f;
+                b.bottomMargin += dimenPixelSize;
             }
-            this.d = b.topMargin;
-            this.e = b.bottomMargin;
-            this.f = fontMetricsInt.top - fontMetricsInt.ascent;
-            int dimenPixelSize = (fontMetricsInt.descent - fontMetricsInt.bottom) - UtilHelper.getDimenPixelSize(R.dimen.tbds3);
-            this.g = dimenPixelSize;
-            b.topMargin += this.f;
-            b.bottomMargin += dimenPixelSize;
         }
 
         public final ViewGroup.MarginLayoutParams b() {
@@ -82,10 +81,10 @@ public class EMTextView extends TextView {
                     return null;
                 }
                 ViewGroup.LayoutParams layoutParams = c.getLayoutParams();
-                if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
-                    return (ViewGroup.MarginLayoutParams) layoutParams;
+                if (!(layoutParams instanceof ViewGroup.MarginLayoutParams)) {
+                    return null;
                 }
-                return null;
+                return (ViewGroup.MarginLayoutParams) layoutParams;
             }
             return (ViewGroup.MarginLayoutParams) invokeV.objValue;
         }
@@ -95,25 +94,12 @@ public class EMTextView extends TextView {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 WeakReference<TextView> weakReference = this.b;
-                if (weakReference == null || weakReference.get() == null) {
-                    return null;
+                if (weakReference != null && weakReference.get() != null) {
+                    return this.b.get();
                 }
-                return this.b.get();
+                return null;
             }
             return (TextView) invokeV.objValue;
-        }
-
-        @Override // android.text.style.LineHeightSpan
-        public void chooseHeight(CharSequence charSequence, int i, int i2, int i3, int i4, Paint.FontMetricsInt fontMetricsInt) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{charSequence, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), fontMetricsInt}) == null) {
-                f();
-                jv4.a(fontMetricsInt, this.a);
-                TextView c = c();
-                if (c == null || (c.getGravity() & 112) != 16) {
-                    a(fontMetricsInt);
-                }
-            }
         }
 
         public void d() {
@@ -134,14 +120,37 @@ public class EMTextView extends TextView {
             }
         }
 
+        @Override // android.text.style.LineHeightSpan
+        public void chooseHeight(CharSequence charSequence, int i, int i2, int i3, int i4, Paint.FontMetricsInt fontMetricsInt) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{charSequence, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), fontMetricsInt}) == null) {
+                f();
+                pv4.a(fontMetricsInt, this.a);
+                TextView c = c();
+                if (c == null || (c.getGravity() & 112) != 16) {
+                    a(fontMetricsInt);
+                }
+            }
+        }
+
         public boolean e() {
             InterceptResult invokeV;
             ViewGroup.MarginLayoutParams b;
+            boolean z;
+            boolean z2;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
                 if (this.c != null && (b = b()) != null && this.c == b) {
-                    boolean z = this.d + this.f == b.topMargin;
-                    boolean z2 = this.e + this.g == b.bottomMargin;
+                    if (this.d + this.f == b.topMargin) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    if (this.e + this.g == b.bottomMargin) {
+                        z2 = true;
+                    } else {
+                        z2 = false;
+                    }
                     if (z && z2) {
                         return false;
                     }
@@ -195,37 +204,6 @@ public class EMTextView extends TextView {
         }
     }
 
-    @Override // android.widget.TextView
-    @Deprecated
-    public void setLineSpacing(float f, float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
-            super.setLineSpacing(f, f2);
-        }
-    }
-
-    @Override // android.widget.TextView
-    public void setText(CharSequence charSequence, TextView.BufferType bufferType) {
-        SpannableStringBuilder spannableStringBuilder;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, bufferType) == null) {
-            super.setText(charSequence, bufferType);
-            if (charSequence == null) {
-                return;
-            }
-            if (charSequence instanceof SpannableStringBuilder) {
-                spannableStringBuilder = (SpannableStringBuilder) charSequence;
-            } else {
-                spannableStringBuilder = new SpannableStringBuilder(charSequence);
-            }
-            if (this.a == null) {
-                this.a = new a(this);
-            }
-            spannableStringBuilder.setSpan(this.a, 0, charSequence.length(), 33);
-            super.setText(spannableStringBuilder, bufferType);
-        }
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public EMTextView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
@@ -265,6 +243,37 @@ public class EMTextView extends TextView {
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
+        }
+    }
+
+    @Override // android.widget.TextView
+    @Deprecated
+    public void setLineSpacing(float f, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            super.setLineSpacing(f, f2);
+        }
+    }
+
+    @Override // android.widget.TextView
+    public void setText(CharSequence charSequence, TextView.BufferType bufferType) {
+        SpannableStringBuilder spannableStringBuilder;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, bufferType) == null) {
+            super.setText(charSequence, bufferType);
+            if (charSequence == null) {
+                return;
+            }
+            if (charSequence instanceof SpannableStringBuilder) {
+                spannableStringBuilder = (SpannableStringBuilder) charSequence;
+            } else {
+                spannableStringBuilder = new SpannableStringBuilder(charSequence);
+            }
+            if (this.a == null) {
+                this.a = new a(this);
+            }
+            spannableStringBuilder.setSpan(this.a, 0, charSequence.length(), 33);
+            super.setText(spannableStringBuilder, bufferType);
         }
     }
 }

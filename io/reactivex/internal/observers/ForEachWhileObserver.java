@@ -17,16 +17,16 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class ForEachWhileObserver<T> extends AtomicReference<Disposable> implements Observer<T>, Disposable {
+public final class ForEachWhileObserver extends AtomicReference implements Observer, Disposable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -4403180040475402120L;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean done;
     public final Action onComplete;
-    public final Consumer<? super Throwable> onError;
-    public final Predicate<? super T> onNext;
+    public final Consumer onError;
+    public final Predicate onNext;
 
-    public ForEachWhileObserver(Predicate<? super T> predicate, Consumer<? super Throwable> consumer, Action action) {
+    public ForEachWhileObserver(Predicate predicate, Consumer consumer, Action action) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -58,13 +58,16 @@ public final class ForEachWhileObserver<T> extends AtomicReference<Disposable> i
     public boolean isDisposed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? DisposableHelper.isDisposed(get()) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return DisposableHelper.isDisposed((Disposable) get());
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // io.reactivex.Observer
     public void onComplete() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.done) {
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.done) {
             return;
         }
         this.done = true;
@@ -95,17 +98,16 @@ public final class ForEachWhileObserver<T> extends AtomicReference<Disposable> i
     }
 
     @Override // io.reactivex.Observer
-    public void onNext(T t) {
+    public void onNext(Object obj) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, t) == null) || this.done) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, obj) != null) || this.done) {
             return;
         }
         try {
-            if (this.onNext.test(t)) {
-                return;
+            if (!this.onNext.test(obj)) {
+                dispose();
+                onComplete();
             }
-            dispose();
-            onComplete();
         } catch (Throwable th) {
             Exceptions.throwIfFatal(th);
             dispose();

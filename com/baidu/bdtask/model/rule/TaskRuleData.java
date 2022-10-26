@@ -48,30 +48,6 @@ public final class TaskRuleData implements ITaskModelData {
     public final String url;
     public final String versionLimit;
 
-    /* loaded from: classes.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-    }
-
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -105,34 +81,6 @@ public final class TaskRuleData implements ITaskModelData {
                 return;
             }
         }
-    }
-
-    public TaskRuleData(String str, String str2, long j, int i, int i2, boolean z, boolean z2, boolean z3, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r3;
-            Object[] objArr = {str, str2, Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Integer.valueOf(i3), Integer.valueOf(i4)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.versionLimit = str;
-        this.url = str2;
-        this.expireTime = j;
-        this._stay = i;
-        this.repeat = i2;
-        this.uniq = z;
-        this.persist = z2;
-        this.auto = z3;
-        this.noclickTimes = i3;
-        this.persistOnFail = i4;
-        this.stay = i;
     }
 
     private final int component4() {
@@ -238,72 +186,6 @@ public final class TaskRuleData implements ITaskModelData {
         return invokeL.booleanValue;
     }
 
-    public final boolean getAuto() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.auto : invokeV.booleanValue;
-    }
-
-    public final long getExpireTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.expireTime : invokeV.longValue;
-    }
-
-    public final long getFormatStay() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? getStay() / 1000 : invokeV.longValue;
-    }
-
-    public final int getNoclickTimes() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.noclickTimes : invokeV.intValue;
-    }
-
-    public final boolean getPersist() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.persist : invokeV.booleanValue;
-    }
-
-    public final int getPersistOnFail() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.persistOnFail : invokeV.intValue;
-    }
-
-    public final int getRepeat() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.repeat : invokeV.intValue;
-    }
-
-    public final long getStay() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this._stay * 1000 : invokeV.longValue;
-    }
-
-    public final boolean getUniq() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.uniq : invokeV.booleanValue;
-    }
-
-    public final String getUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.url : (String) invokeV.objValue;
-    }
-
-    public final String getVersionLimit() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.versionLimit : (String) invokeV.objValue;
-    }
-
     /* JADX DEBUG: Multi-variable search result rejected for r1v7, resolved type: boolean */
     /* JADX DEBUG: Multi-variable search result rejected for r1v9, resolved type: boolean */
     /* JADX WARN: Multi-variable type inference failed */
@@ -335,29 +217,277 @@ public final class TaskRuleData implements ITaskModelData {
         return invokeV.intValue;
     }
 
+    /* loaded from: classes.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+    }
+
+    public TaskRuleData(String str, String str2, long j, int i, int i2, boolean z, boolean z2, boolean z3, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r3;
+            Object[] objArr = {str, str2, Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Integer.valueOf(i3), Integer.valueOf(i4)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.versionLimit = str;
+        this.url = str2;
+        this.expireTime = j;
+        this._stay = i;
+        this.repeat = i2;
+        this.uniq = z;
+        this.persist = z2;
+        this.auto = z3;
+        this.noclickTimes = i3;
+        this.persistOnFail = i4;
+        this.stay = i;
+    }
+
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public /* synthetic */ TaskRuleData(String str, String str2, long j, int i, int i2, boolean z, boolean z2, boolean z3, int i3, int i4, int i5, DefaultConstructorMarker defaultConstructorMarker) {
+        this(r1, r2, r3, r5, r7, r8, r9, r10, r11, (i5 & 512) == 0 ? i4 : 0);
+        String str3;
+        long j2;
+        int i6;
+        int i7;
+        boolean z4;
+        boolean z5;
+        boolean z6;
+        int i8;
+        if ((i5 & 1) != 0) {
+            str3 = "";
+        } else {
+            str3 = str;
+        }
+        String str4 = (i5 & 2) == 0 ? str2 : "";
+        if ((i5 & 4) != 0) {
+            j2 = 0;
+        } else {
+            j2 = j;
+        }
+        if ((i5 & 8) != 0) {
+            i6 = 0;
+        } else {
+            i6 = i;
+        }
+        if ((i5 & 16) != 0) {
+            i7 = 0;
+        } else {
+            i7 = i2;
+        }
+        if ((i5 & 32) != 0) {
+            z4 = false;
+        } else {
+            z4 = z;
+        }
+        if ((i5 & 64) != 0) {
+            z5 = false;
+        } else {
+            z5 = z2;
+        }
+        if ((i5 & 128) != 0) {
+            z6 = true;
+        } else {
+            z6 = z3;
+        }
+        if ((i5 & 256) != 0) {
+            i8 = -1;
+        } else {
+            i8 = i3;
+        }
+    }
+
+    public final boolean getAuto() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.auto;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final long getExpireTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.expireTime;
+        }
+        return invokeV.longValue;
+    }
+
+    public final long getFormatStay() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return getStay() / 1000;
+        }
+        return invokeV.longValue;
+    }
+
+    public final int getNoclickTimes() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.noclickTimes;
+        }
+        return invokeV.intValue;
+    }
+
+    public final boolean getPersist() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.persist;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final int getPersistOnFail() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return this.persistOnFail;
+        }
+        return invokeV.intValue;
+    }
+
+    public final int getRepeat() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return this.repeat;
+        }
+        return invokeV.intValue;
+    }
+
+    public final long getStay() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return this._stay * 1000;
+        }
+        return invokeV.longValue;
+    }
+
+    public final boolean getUniq() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return this.uniq;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final String getUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return this.url;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String getVersionLimit() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            return this.versionLimit;
+        }
+        return (String) invokeV.objValue;
+    }
+
     @Override // com.baidu.bdtask.model.ITaskModelData
     public boolean isEmpty() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.expireTime == 0 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            if (this.expireTime == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public final boolean isNeedPersist() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.persist : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            return this.persist;
+        }
+        return invokeV.booleanValue;
     }
 
     public final boolean isNeedSkipRequestError() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.persistOnFail == 1 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            if (this.persistOnFail == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public final boolean isNeedUnique() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.uniq : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+            return this.uniq;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
+            String jSONObject = toJson().toString();
+            Intrinsics.checkExpressionValueIsNotNull(jSONObject, "toJson().toString()");
+            return jSONObject;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.bdtask.model.ITaskModelData
+    public TaskRuleData deepCopy() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return copy$default(this, null, null, 0L, 0, 0, false, false, false, 0, 0, 1023, null);
+        }
+        return (TaskRuleData) invokeV.objValue;
     }
 
     public final void setRepeat(int i) {
@@ -371,6 +501,20 @@ public final class TaskRuleData implements ITaskModelData {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048606, this, j) == null) {
             this.stay = j;
+        }
+    }
+
+    public final void updateMaxRepeat(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048609, this, i) == null) {
+            this.repeat = i;
+        }
+    }
+
+    public final void updateMaxStay(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048610, this, i) == null) {
+            this._stay = i;
         }
     }
 
@@ -393,42 +537,5 @@ public final class TaskRuleData implements ITaskModelData {
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
-            String jSONObject = toJson().toString();
-            Intrinsics.checkExpressionValueIsNotNull(jSONObject, "toJson().toString()");
-            return jSONObject;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void updateMaxRepeat(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048609, this, i) == null) {
-            this.repeat = i;
-        }
-    }
-
-    public final void updateMaxStay(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048610, this, i) == null) {
-            this._stay = i;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.bdtask.model.ITaskModelData
-    public TaskRuleData deepCopy() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? copy$default(this, null, null, 0L, 0, 0, false, false, false, 0, 0, 1023, null) : (TaskRuleData) invokeV.objValue;
-    }
-
-    public /* synthetic */ TaskRuleData(String str, String str2, long j, int i, int i2, boolean z, boolean z2, boolean z3, int i3, int i4, int i5, DefaultConstructorMarker defaultConstructorMarker) {
-        this((i5 & 1) != 0 ? "" : str, (i5 & 2) == 0 ? str2 : "", (i5 & 4) != 0 ? 0L : j, (i5 & 8) != 0 ? 0 : i, (i5 & 16) != 0 ? 0 : i2, (i5 & 32) != 0 ? false : z, (i5 & 64) != 0 ? false : z2, (i5 & 128) != 0 ? true : z3, (i5 & 256) != 0 ? -1 : i3, (i5 & 512) == 0 ? i4 : 0);
     }
 }

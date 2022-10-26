@@ -13,7 +13,7 @@ public final class f extends com.kwai.filedownloader.event.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public static class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final f atc;
         public transient /* synthetic */ FieldHolder $fh;

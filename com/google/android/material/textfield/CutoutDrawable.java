@@ -8,8 +8,6 @@ import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,9 +21,7 @@ import com.google.android.material.shape.ShapeAppearanceModel;
 public class CutoutDrawable extends MaterialShapeDrawable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
     public final RectF cutoutBounds;
-    @NonNull
     public final Paint cutoutPaint;
     public int savedLayer;
 
@@ -47,41 +43,6 @@ public class CutoutDrawable extends MaterialShapeDrawable {
         }
     }
 
-    private void postDraw(@NonNull Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, this, canvas) == null) || useHardwareLayer(getCallback())) {
-            return;
-        }
-        canvas.restoreToCount(this.savedLayer);
-    }
-
-    private void preDraw(@NonNull Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, this, canvas) == null) {
-            Drawable.Callback callback = getCallback();
-            if (useHardwareLayer(callback)) {
-                View view2 = (View) callback;
-                if (view2.getLayerType() != 2) {
-                    view2.setLayerType(2, null);
-                    return;
-                }
-                return;
-            }
-            saveCanvasLayer(canvas);
-        }
-    }
-
-    private void saveCanvasLayer(@NonNull Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, canvas) == null) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                this.savedLayer = canvas.saveLayer(0.0f, 0.0f, canvas.getWidth(), canvas.getHeight(), null);
-            } else {
-                this.savedLayer = canvas.saveLayer(0.0f, 0.0f, canvas.getWidth(), canvas.getHeight(), null, 31);
-            }
-        }
-    }
-
     private void setPaintStyles() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
@@ -91,27 +52,13 @@ public class CutoutDrawable extends MaterialShapeDrawable {
         }
     }
 
-    private boolean useHardwareLayer(Drawable.Callback callback) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, this, callback)) == null) ? callback instanceof View : invokeL.booleanValue;
-    }
-
-    @Override // com.google.android.material.shape.MaterialShapeDrawable, android.graphics.drawable.Drawable
-    public void draw(@NonNull Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            preDraw(canvas);
-            super.draw(canvas);
-            canvas.drawRect(this.cutoutBounds, this.cutoutPaint);
-            postDraw(canvas);
-        }
-    }
-
     public boolean hasCutout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? !this.cutoutBounds.isEmpty() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return !this.cutoutBounds.isEmpty();
+        }
+        return invokeV.booleanValue;
     }
 
     public void removeCutout() {
@@ -121,20 +68,8 @@ public class CutoutDrawable extends MaterialShapeDrawable {
         }
     }
 
-    public void setCutout(float f, float f2, float f3, float f4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
-            RectF rectF = this.cutoutBounds;
-            if (f == rectF.left && f2 == rectF.top && f3 == rectF.right && f4 == rectF.bottom) {
-                return;
-            }
-            this.cutoutBounds.set(f, f2, f3, f4);
-            invalidateSelf();
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CutoutDrawable(@Nullable ShapeAppearanceModel shapeAppearanceModel) {
+    public CutoutDrawable(ShapeAppearanceModel shapeAppearanceModel) {
         super(shapeAppearanceModel == null ? new ShapeAppearanceModel() : shapeAppearanceModel);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -156,10 +91,75 @@ public class CutoutDrawable extends MaterialShapeDrawable {
         this.cutoutBounds = new RectF();
     }
 
-    public void setCutout(@NonNull RectF rectF) {
+    private void postDraw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65538, this, canvas) == null) && !useHardwareLayer(getCallback())) {
+            canvas.restoreToCount(this.savedLayer);
+        }
+    }
+
+    private void preDraw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, this, canvas) == null) {
+            Drawable.Callback callback = getCallback();
+            if (useHardwareLayer(callback)) {
+                View view2 = (View) callback;
+                if (view2.getLayerType() != 2) {
+                    view2.setLayerType(2, null);
+                    return;
+                }
+                return;
+            }
+            saveCanvasLayer(canvas);
+        }
+    }
+
+    private boolean useHardwareLayer(Drawable.Callback callback) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, callback)) == null) {
+            return callback instanceof View;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.google.android.material.shape.MaterialShapeDrawable, android.graphics.drawable.Drawable
+    public void draw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
+            preDraw(canvas);
+            super.draw(canvas);
+            canvas.drawRect(this.cutoutBounds, this.cutoutPaint);
+            postDraw(canvas);
+        }
+    }
+
+    public void setCutout(RectF rectF) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, rectF) == null) {
             setCutout(rectF.left, rectF.top, rectF.right, rectF.bottom);
+        }
+    }
+
+    private void saveCanvasLayer(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, canvas) == null) {
+            if (Build.VERSION.SDK_INT >= 21) {
+                this.savedLayer = canvas.saveLayer(0.0f, 0.0f, canvas.getWidth(), canvas.getHeight(), null);
+            } else {
+                this.savedLayer = canvas.saveLayer(0.0f, 0.0f, canvas.getWidth(), canvas.getHeight(), null, 31);
+            }
+        }
+    }
+
+    public void setCutout(float f, float f2, float f3, float f4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
+            RectF rectF = this.cutoutBounds;
+            if (f != rectF.left || f2 != rectF.top || f3 != rectF.right || f4 != rectF.bottom) {
+                this.cutoutBounds.set(f, f2, f3, f4);
+                invalidateSelf();
+            }
         }
     }
 }

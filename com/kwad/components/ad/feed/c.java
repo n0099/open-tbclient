@@ -19,7 +19,7 @@ public final class c {
 
     /* renamed from: com.kwad.components.ad.feed.c$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public final /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] cI;
         public transient /* synthetic */ FieldHolder $fh;

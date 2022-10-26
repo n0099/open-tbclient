@@ -1,110 +1,94 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileFilter;
-import java.util.concurrent.PriorityBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-import java.util.regex.Pattern;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes5.dex */
-public class si1 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static si1 b = null;
-    public static int c = Integer.MAX_VALUE;
-    public static long d = 120;
+public class si1 implements ThreadFactory {
+    public static /* synthetic */ Interceptable $ic;
+    public static final AtomicInteger d;
     public transient /* synthetic */ FieldHolder $fh;
-    public ThreadPoolExecutor a;
+    public final AtomicInteger a;
+    public String b;
+    public int c;
 
-    /* loaded from: classes5.dex */
-    public class a implements FileFilter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(si1 si1Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948152270, "Lcom/baidu/tieba/si1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {si1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
             }
-        }
-
-        @Override // java.io.FileFilter
-        public boolean accept(File file) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) ? Pattern.matches("cpu[0-9]", file.getName()) : invokeL.booleanValue;
-        }
-    }
-
-    public si1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948152270, "Lcom/baidu/tieba/si1;");
                 return;
             }
         }
-        int a2 = (a() / 2) + 2;
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(a2 > 3 ? 3 : a2, c, d, TimeUnit.SECONDS, new PriorityBlockingQueue());
-        this.a = threadPoolExecutor;
-        threadPoolExecutor.setThreadFactory(new ri1());
-        this.a.allowCoreThreadTimeOut(true);
+        d = new AtomicInteger(1);
     }
 
-    public static si1 c() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public si1() {
+        this(5);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (si1.class) {
-                if (b == null) {
-                    b = new si1();
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                this(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return b;
         }
-        return (si1) invokeV.objValue;
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public si1(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                return new File("/sys/devices/system/cpu/").listFiles(new a(this)).length;
-            } catch (Throwable unused) {
-                return 2;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
             }
         }
-        return invokeV.intValue;
+        this.a = new AtomicInteger(1);
+        this.b = "sso-" + d.getAndIncrement() + "-thread-";
+        this.c = i;
     }
 
-    public void b(oi1 oi1Var) {
+    @Override // java.util.concurrent.ThreadFactory
+    public Thread newThread(Runnable runnable) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, oi1Var) == null) {
-            try {
-                this.a.execute(oi1Var);
-            } catch (Throwable th) {
-                vi1.d(th);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
+            Thread thread = new Thread(runnable, this.b + this.a.getAndIncrement());
+            if (thread.isDaemon()) {
+                thread.setDaemon(false);
             }
+            int i = this.c;
+            if (i != 5) {
+                thread.setPriority(i);
+            } else {
+                thread.setPriority(5);
+            }
+            return thread;
         }
+        return (Thread) invokeL.objValue;
     }
 }

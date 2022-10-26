@@ -18,14 +18,20 @@ import com.vivo.push.util.y;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
-public abstract class c<T> {
+public abstract class c {
     public static /* synthetic */ Interceptable $ic;
     public static final Object a;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<T> b;
+    public List b;
     public Context c;
     public byte[] d;
     public byte[] e;
+
+    public abstract String a();
+
+    public abstract List a(String str);
+
+    public abstract String b(String str) throws Exception;
 
     static {
         InterceptResult invokeClinit;
@@ -41,6 +47,52 @@ public abstract class c<T> {
             }
         }
         a = new Object();
+    }
+
+    private String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+            return y.b(this.c).a(a(), null);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            synchronized (a) {
+                g.a(a());
+                this.b.clear();
+                c(b());
+            }
+        }
+    }
+
+    public final byte[] e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            byte[] bArr = this.d;
+            if (bArr != null && bArr.length > 0) {
+                return bArr;
+            }
+            return w.b().c();
+        }
+        return (byte[]) invokeV.objValue;
+    }
+
+    public final byte[] f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            byte[] bArr = this.e;
+            if (bArr != null && bArr.length > 0) {
+                return bArr;
+            }
+            return w.b().d();
+        }
+        return (byte[]) invokeV.objValue;
     }
 
     public c(Context context) {
@@ -67,67 +119,6 @@ public abstract class c<T> {
         c();
     }
 
-    private String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? y.b(this.c).a(a(), null) : (String) invokeV.objValue;
-    }
-
-    private void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str) == null) {
-            y.b(this.c).b(a(), str);
-        }
-    }
-
-    public abstract String a();
-
-    public abstract List<T> a(String str);
-
-    public abstract String b(String str) throws Exception;
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (a) {
-                g.a(a());
-                this.b.clear();
-                c(b());
-            }
-        }
-    }
-
-    public final byte[] e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            byte[] bArr = this.d;
-            return (bArr == null || bArr.length <= 0) ? w.b().c() : bArr;
-        }
-        return (byte[]) invokeV.objValue;
-    }
-
-    public final byte[] f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            byte[] bArr = this.e;
-            return (bArr == null || bArr.length <= 0) ? w.b().d() : bArr;
-        }
-        return (byte[]) invokeV.objValue;
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (a) {
-                this.b.clear();
-                d("");
-                p.d("CacheSettings", "clear " + a() + " strApps");
-            }
-        }
-    }
-
     private void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, str) == null) {
@@ -139,7 +130,7 @@ public abstract class c<T> {
             } else {
                 try {
                     p.d("CacheSettings", "ClientManager init " + a() + " strApps : " + str);
-                    List<T> a2 = a(b(str));
+                    List a2 = a(b(str));
                     if (a2 != null) {
                         this.b.addAll(a2);
                     }
@@ -147,6 +138,24 @@ public abstract class c<T> {
                     d();
                     p.d("CacheSettings", p.a(e));
                 }
+            }
+        }
+    }
+
+    private void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str) == null) {
+            y.b(this.c).b(a(), str);
+        }
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (a) {
+                this.b.clear();
+                d("");
+                p.d("CacheSettings", "clear " + a() + " strApps");
             }
         }
     }

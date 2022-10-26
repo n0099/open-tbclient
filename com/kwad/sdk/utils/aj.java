@@ -13,8 +13,8 @@ import java.util.Map;
 import java.util.Set;
 /* loaded from: classes8.dex */
 public final class aj {
-    public static Map<String, Integer> anQ;
-    public static Set<String> anR;
+    public static Map anQ;
+    public static Set anR;
     public static Method anS;
 
     static {
@@ -94,7 +94,7 @@ public final class aj {
         }
         if (anQ.containsKey(str)) {
             try {
-                Integer num = anQ.get(str);
+                Integer num = (Integer) anQ.get(str);
                 if (num == null) {
                     return -2;
                 }
@@ -144,7 +144,7 @@ public final class aj {
         anQ = new HashMap();
         for (String str : strArr) {
             try {
-                int intValue = ((Integer) q.c((Class<?>) AppOpsManager.class, "OP_" + dP(str))).intValue();
+                int intValue = ((Integer) q.c(AppOpsManager.class, "OP_" + dP(str))).intValue();
                 if (intValue >= 0) {
                     anQ.put(str, Integer.valueOf(intValue));
                 }

@@ -22,10 +22,10 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.data.SelectForumData;
 import com.baidu.tieba.R;
 import com.baidu.tieba.adapter.SelectForumItemAdapter;
-import com.baidu.tieba.an5;
-import com.baidu.tieba.f95;
-import com.baidu.tieba.g95;
-import com.baidu.tieba.jo5;
+import com.baidu.tieba.hn5;
+import com.baidu.tieba.j95;
+import com.baidu.tieba.k95;
+import com.baidu.tieba.qo5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,21 +34,33 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class AttentionView extends FrameLayout implements an5<String> {
+public class AttentionView extends FrameLayout implements hn5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public RecyclerView b;
     public SelectForumItemAdapter c;
     public LinearLayoutManager d;
-    public f95 e;
-    public g95 f;
-    public List<SelectForumData> g;
-    public List<SelectForumData> h;
+    public j95 e;
+    public k95 f;
+    public List g;
+    public List h;
     public boolean i;
     public int j;
     public d k;
     public HttpMessageListener l;
+
+    /* loaded from: classes3.dex */
+    public interface d {
+        void a();
+    }
+
+    @Override // com.baidu.tieba.hn5
+    public void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+        }
+    }
 
     /* loaded from: classes3.dex */
     public class a extends HttpMessageListener {
@@ -93,7 +105,7 @@ public class AttentionView extends FrameLayout implements an5<String> {
                     }
                 } else {
                     AttentionResMsg attentionResMsg = (AttentionResMsg) httpResponsedMessage;
-                    List<SelectForumData> selectForumDataList = attentionResMsg.getSelectForumDataList();
+                    List selectForumDataList = attentionResMsg.getSelectForumDataList();
                     if (ListUtils.isEmpty(selectForumDataList)) {
                         if (ListUtils.isEmpty(this.a.h)) {
                             this.a.w(false, false);
@@ -183,11 +195,6 @@ public class AttentionView extends FrameLayout implements an5<String> {
         }
     }
 
-    /* loaded from: classes3.dex */
-    public interface d {
-        void a();
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AttentionView(Context context) {
         this(context, null);
@@ -209,104 +216,6 @@ public class AttentionView extends FrameLayout implements an5<String> {
         }
     }
 
-    public static /* synthetic */ int h(AttentionView attentionView) {
-        int i = attentionView.j;
-        attentionView.j = i + 1;
-        return i;
-    }
-
-    @Override // com.baidu.tieba.an5
-    public void a() {
-        int skinType;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.a) {
-            return;
-        }
-        this.a = skinType;
-        f95 f95Var = this.e;
-        if (f95Var != null) {
-            f95Var.onChangeSkinType();
-        }
-        g95 g95Var = this.f;
-        if (g95Var != null) {
-            g95Var.onChangeSkinType();
-        }
-        this.c.notifyDataSetChanged();
-    }
-
-    @Override // com.baidu.tieba.an5
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.an5
-    public String getTitle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? getContext().getString(R.string.obfuscated_res_0x7f0f0091) : (String) invokeV.objValue;
-    }
-
-    public void l() {
-        f95 f95Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (f95Var = this.e) == null) {
-            return;
-        }
-        f95Var.dettachView(this);
-        this.e = null;
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            g95 g95Var = this.f;
-            if (g95Var != null) {
-                g95Var.dettachView(this);
-                this.f = null;
-            }
-            this.b.setVisibility(0);
-        }
-    }
-
-    public final void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d07ac, (ViewGroup) this, true);
-            this.b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091e40);
-            SelectForumItemAdapter selectForumItemAdapter = new SelectForumItemAdapter(this);
-            this.c = selectForumItemAdapter;
-            selectForumItemAdapter.k(2);
-            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-            this.d = linearLayoutManager;
-            this.b.setLayoutManager(linearLayoutManager);
-            this.b.setAdapter(this.c);
-            this.b.addOnScrollListener(new b(this));
-            MessageManager.getInstance().registerListener(this.l);
-        }
-    }
-
-    public void o(ArrayList<SelectForumData> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, arrayList) == null) {
-            this.g = arrayList;
-        }
-    }
-
-    @Override // com.baidu.tieba.an5
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            SelectForumItemAdapter selectForumItemAdapter = this.c;
-            if (selectForumItemAdapter != null) {
-                selectForumItemAdapter.j(null);
-            }
-            MessageManager.getInstance().unRegisterListener(this.l);
-            l();
-        }
-    }
-
     public final boolean p(SelectForumData selectForumData) {
         InterceptResult invokeL;
         String str;
@@ -314,7 +223,7 @@ public class AttentionView extends FrameLayout implements an5<String> {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, selectForumData)) == null) {
             if (selectForumData != null && !ListUtils.isEmpty(this.g)) {
                 for (int i = 0; i < this.g.size(); i++) {
-                    SelectForumData selectForumData2 = this.g.get(i);
+                    SelectForumData selectForumData2 = (SelectForumData) this.g.get(i);
                     if (selectForumData2 != null && (str = selectForumData.forumId) != null && str.equals(selectForumData2.forumId)) {
                         return true;
                     }
@@ -325,39 +234,13 @@ public class AttentionView extends FrameLayout implements an5<String> {
         return invokeL.booleanValue;
     }
 
-    public boolean q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            f95 f95Var = this.e;
-            if (f95Var != null) {
-                return f95Var.isViewAttached();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            g95 g95Var = this.f;
-            if (g95Var != null) {
-                return g95Var.isViewAttached();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final List<SelectForumData> s(List<SelectForumData> list) {
+    public final List s(List list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, list)) == null) {
             if (!ListUtils.isEmpty(list) && !ListUtils.isEmpty(this.g)) {
                 for (int i = 0; i < list.size(); i++) {
-                    SelectForumData selectForumData = list.get(i);
+                    SelectForumData selectForumData = (SelectForumData) list.get(i);
                     if (p(selectForumData)) {
                         selectForumData.isInterestForumSelected = true;
                     }
@@ -366,88 +249,6 @@ public class AttentionView extends FrameLayout implements an5<String> {
             return list;
         }
         return (List) invokeL.objValue;
-    }
-
-    public void setForumSelectStateChangedListener(jo5.e eVar) {
-        SelectForumItemAdapter selectForumItemAdapter;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, eVar) == null) || (selectForumItemAdapter = this.c) == null) {
-            return;
-        }
-        selectForumItemAdapter.j(eVar);
-    }
-
-    public void setResultEmptyListener(d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, dVar) == null) {
-            this.k = dVar;
-        }
-    }
-
-    public void t(int i) {
-        SelectForumItemAdapter selectForumItemAdapter;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048591, this, i) == null) || (selectForumItemAdapter = this.c) == null) {
-            return;
-        }
-        selectForumItemAdapter.notifyItemChanged(i);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.an5
-    /* renamed from: u */
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-            if (ListUtils.isEmpty(this.h)) {
-                if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                    w(false, true);
-                    return;
-                } else {
-                    m();
-                    v(false);
-                }
-            }
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SELECT_FORUM_ATTENTION);
-            httpMessage.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            httpMessage.addParam("from_index", 1);
-            httpMessage.addParam(SuggestAddrField.KEY_PAGE_SIZE, 50);
-            httpMessage.addParam("page_no", this.j);
-            MessageManager.getInstance().sendMessage(httpMessage);
-        }
-    }
-
-    public void v(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048593, this, z) == null) || q()) {
-            return;
-        }
-        if (this.e == null) {
-            f95 f95Var = new f95(getContext());
-            this.e = f95Var;
-            f95Var.onChangeSkinType();
-        }
-        this.e.attachView(this, z);
-    }
-
-    public void w(boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || r()) {
-            return;
-        }
-        if (this.f == null) {
-            this.f = new g95(getContext(), new c(this));
-        }
-        this.f.k(getResources().getDimensionPixelSize(R.dimen.tbds380));
-        this.f.attachView(this, z);
-        if (z2) {
-            this.f.p();
-        } else {
-            this.f.h(R.drawable.new_pic_emotion_01);
-            this.f.e();
-        }
-        this.f.o(getContext().getString(R.string.obfuscated_res_0x7f0f008e));
-        this.b.setVisibility(8);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -496,5 +297,204 @@ public class AttentionView extends FrameLayout implements an5<String> {
         this.j = 1;
         this.l = new a(this, CmdConfigHttp.CMD_SELECT_FORUM_ATTENTION);
         n();
+    }
+
+    public static /* synthetic */ int h(AttentionView attentionView) {
+        int i = attentionView.j;
+        attentionView.j = i + 1;
+        return i;
+    }
+
+    public void o(ArrayList arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, arrayList) == null) {
+            this.g = arrayList;
+        }
+    }
+
+    public void setForumSelectStateChangedListener(qo5.e eVar) {
+        SelectForumItemAdapter selectForumItemAdapter;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048589, this, eVar) == null) && (selectForumItemAdapter = this.c) != null) {
+            selectForumItemAdapter.j(eVar);
+        }
+    }
+
+    public void setResultEmptyListener(d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, dVar) == null) {
+            this.k = dVar;
+        }
+    }
+
+    public void t(int i) {
+        SelectForumItemAdapter selectForumItemAdapter;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048591, this, i) == null) && (selectForumItemAdapter = this.c) != null) {
+            selectForumItemAdapter.notifyItemChanged(i);
+        }
+    }
+
+    public void v(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(1048593, this, z) != null) || q()) {
+            return;
+        }
+        if (this.e == null) {
+            j95 j95Var = new j95(getContext());
+            this.e = j95Var;
+            j95Var.onChangeSkinType();
+        }
+        this.e.attachView(this, z);
+    }
+
+    @Override // com.baidu.tieba.hn5
+    public void a() {
+        int skinType;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.a) {
+            return;
+        }
+        this.a = skinType;
+        j95 j95Var = this.e;
+        if (j95Var != null) {
+            j95Var.onChangeSkinType();
+        }
+        k95 k95Var = this.f;
+        if (k95Var != null) {
+            k95Var.onChangeSkinType();
+        }
+        this.c.notifyDataSetChanged();
+    }
+
+    @Override // com.baidu.tieba.hn5
+    public String getTitle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return getContext().getString(R.string.obfuscated_res_0x7f0f0091);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void l() {
+        j95 j95Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (j95Var = this.e) != null) {
+            j95Var.dettachView(this);
+            this.e = null;
+        }
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            k95 k95Var = this.f;
+            if (k95Var != null) {
+                k95Var.dettachView(this);
+                this.f = null;
+            }
+            this.b.setVisibility(0);
+        }
+    }
+
+    @Override // com.baidu.tieba.hn5
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            SelectForumItemAdapter selectForumItemAdapter = this.c;
+            if (selectForumItemAdapter != null) {
+                selectForumItemAdapter.j(null);
+            }
+            MessageManager.getInstance().unRegisterListener(this.l);
+            l();
+        }
+    }
+
+    public boolean q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            j95 j95Var = this.e;
+            if (j95Var != null) {
+                return j95Var.isViewAttached();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            k95 k95Var = this.f;
+            if (k95Var != null) {
+                return k95Var.isViewAttached();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d07ad, (ViewGroup) this, true);
+            this.b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091e3c);
+            SelectForumItemAdapter selectForumItemAdapter = new SelectForumItemAdapter(this);
+            this.c = selectForumItemAdapter;
+            selectForumItemAdapter.k(2);
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+            this.d = linearLayoutManager;
+            this.b.setLayoutManager(linearLayoutManager);
+            this.b.setAdapter(this.c);
+            this.b.addOnScrollListener(new b(this));
+            MessageManager.getInstance().registerListener(this.l);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.hn5
+    /* renamed from: u */
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+            if (ListUtils.isEmpty(this.h)) {
+                if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
+                    w(false, true);
+                    return;
+                } else {
+                    m();
+                    v(false);
+                }
+            }
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SELECT_FORUM_ATTENTION);
+            httpMessage.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            httpMessage.addParam("from_index", 1);
+            httpMessage.addParam(SuggestAddrField.KEY_PAGE_SIZE, 50);
+            httpMessage.addParam("page_no", this.j);
+            MessageManager.getInstance().sendMessage(httpMessage);
+        }
+    }
+
+    public void w(boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(1048594, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) != null) || r()) {
+            return;
+        }
+        if (this.f == null) {
+            this.f = new k95(getContext(), new c(this));
+        }
+        this.f.k(getResources().getDimensionPixelSize(R.dimen.tbds380));
+        this.f.attachView(this, z);
+        if (z2) {
+            this.f.p();
+        } else {
+            this.f.h(R.drawable.new_pic_emotion_01);
+            this.f.e();
+        }
+        this.f.o(getContext().getString(R.string.obfuscated_res_0x7f0f008e));
+        this.b.setVisibility(8);
     }
 }

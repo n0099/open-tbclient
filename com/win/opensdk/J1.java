@@ -53,39 +53,40 @@ public class J1 {
     public void a(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, str) == null) {
-            if (context == null) {
-                throw new RuntimeException("Error:Context is not allowed to be null");
-            }
-            context.getApplicationContext();
-            if (!TextUtils.isEmpty(str)) {
-                Z1.e(context, str);
-            }
-            b2.a(new I1(this, context));
-            try {
-                b2.a(new Z0(context));
-            } catch (Throwable th) {
-                th.printStackTrace();
-            }
-            k1 a2 = k1.a(context);
-            long i = Z1.i(a2.a);
-            boolean z = true;
-            if (i > 0) {
-                try {
-                    long time = (new Date().getTime() - i) / 1000;
-                    if (time < 0) {
-                        a2.b();
-                    }
-                    z = false;
-                } catch (Exception e) {
-                    e.printStackTrace();
+            if (context != null) {
+                context.getApplicationContext();
+                if (!TextUtils.isEmpty(str)) {
+                    Z1.e(context, str);
                 }
+                b2.a(new I1(this, context));
+                try {
+                    b2.a(new Z0(context));
+                } catch (Throwable th) {
+                    th.printStackTrace();
+                }
+                k1 a2 = k1.a(context);
+                long i = Z1.i(a2.a);
+                boolean z = true;
+                if (i > 0) {
+                    try {
+                        long time = (new Date().getTime() - i) / 1000;
+                        if (time < 0) {
+                            a2.b();
+                        }
+                        z = false;
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+                if (z) {
+                    a2.b = System.currentTimeMillis();
+                    b2.a(new j1(a2));
+                }
+                M.d(context);
+                U1.a(context);
+                return;
             }
-            if (z) {
-                a2.b = System.currentTimeMillis();
-                b2.a(new j1(a2));
-            }
-            M.d(context);
-            U1.a(context);
+            throw new RuntimeException("Error:Context is not allowed to be null");
         }
     }
 }

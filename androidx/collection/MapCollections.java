@@ -1,6 +1,5 @@
 package androidx.collection;
 
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,12 +17,27 @@ import java.util.Set;
 public abstract class MapCollections<K, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
     public MapCollections<K, V>.EntrySet mEntrySet;
-    @Nullable
     public MapCollections<K, V>.KeySet mKeySet;
-    @Nullable
     public MapCollections<K, V>.ValuesCollection mValues;
+
+    public abstract void colClear();
+
+    public abstract Object colGetEntry(int i, int i2);
+
+    public abstract Map<K, V> colGetMap();
+
+    public abstract int colGetSize();
+
+    public abstract int colIndexOfKey(Object obj);
+
+    public abstract int colIndexOfValue(Object obj);
+
+    public abstract void colPut(K k, V v);
+
+    public abstract void colRemoveAt(int i);
+
+    public abstract V colSetValue(int i, V v);
 
     /* loaded from: classes.dex */
     public final class ArrayIterator<T> implements Iterator<T> {
@@ -60,7 +74,13 @@ public abstract class MapCollections<K, V> {
         public boolean hasNext() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mIndex < this.mSize : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.mIndex < this.mSize) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // java.util.Iterator
@@ -126,46 +146,6 @@ public abstract class MapCollections<K, V> {
         }
 
         @Override // java.util.Set, java.util.Collection
-        public boolean addAll(Collection<? extends Map.Entry<K, V>> collection) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, collection)) == null) {
-                int colGetSize = this.this$0.colGetSize();
-                for (Map.Entry<K, V> entry : collection) {
-                    this.this$0.colPut(entry.getKey(), entry.getValue());
-                }
-                return colGetSize != this.this$0.colGetSize();
-            }
-            return invokeL.booleanValue;
-        }
-
-        @Override // java.util.Set, java.util.Collection
-        public void clear() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.this$0.colClear();
-            }
-        }
-
-        @Override // java.util.Set, java.util.Collection
-        public boolean contains(Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
-                if (obj instanceof Map.Entry) {
-                    Map.Entry entry = (Map.Entry) obj;
-                    int colIndexOfKey = this.this$0.colIndexOfKey(entry.getKey());
-                    if (colIndexOfKey < 0) {
-                        return false;
-                    }
-                    return ContainerHelpers.equal(this.this$0.colGetEntry(colIndexOfKey, 1), entry.getValue());
-                }
-                return false;
-            }
-            return invokeL.booleanValue;
-        }
-
-        @Override // java.util.Set, java.util.Collection
         public boolean containsAll(Collection<?> collection) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -185,37 +165,10 @@ public abstract class MapCollections<K, V> {
         public boolean equals(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) ? MapCollections.equalsSetHelper(this, obj) : invokeL.booleanValue;
-        }
-
-        @Override // java.util.Set, java.util.Collection
-        public int hashCode() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                int i = 0;
-                for (int colGetSize = this.this$0.colGetSize() - 1; colGetSize >= 0; colGetSize--) {
-                    Object colGetEntry = this.this$0.colGetEntry(colGetSize, 0);
-                    Object colGetEntry2 = this.this$0.colGetEntry(colGetSize, 1);
-                    i += (colGetEntry == null ? 0 : colGetEntry.hashCode()) ^ (colGetEntry2 == null ? 0 : colGetEntry2.hashCode());
-                }
-                return i;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
+                return MapCollections.equalsSetHelper(this, obj);
             }
-            return invokeV.intValue;
-        }
-
-        @Override // java.util.Set, java.util.Collection
-        public boolean isEmpty() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.this$0.colGetSize() == 0 : invokeV.booleanValue;
-        }
-
-        @Override // java.util.Set, java.util.Collection, java.lang.Iterable
-        public Iterator<Map.Entry<K, V>> iterator() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? new MapIterator(this.this$0) : (Iterator) invokeV.objValue;
+            return invokeL.booleanValue;
         }
 
         @Override // java.util.Set, java.util.Collection
@@ -249,20 +202,13 @@ public abstract class MapCollections<K, V> {
         }
 
         @Override // java.util.Set, java.util.Collection
-        public int size() {
-            InterceptResult invokeV;
+        public <T> T[] toArray(T[] tArr) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.this$0.colGetSize() : invokeV.intValue;
-        }
-
-        @Override // java.util.Set, java.util.Collection
-        public Object[] toArray() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, tArr)) == null) {
                 throw new UnsupportedOperationException();
             }
-            return (Object[]) invokeV.objValue;
+            return (T[]) ((Object[]) invokeL.objValue);
         }
 
         public boolean add(Map.Entry<K, V> entry) {
@@ -275,13 +221,117 @@ public abstract class MapCollections<K, V> {
         }
 
         @Override // java.util.Set, java.util.Collection
-        public <T> T[] toArray(T[] tArr) {
+        public boolean addAll(Collection<? extends Map.Entry<K, V>> collection) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, tArr)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, collection)) == null) {
+                int colGetSize = this.this$0.colGetSize();
+                for (Map.Entry<K, V> entry : collection) {
+                    this.this$0.colPut(entry.getKey(), entry.getValue());
+                }
+                if (colGetSize != this.this$0.colGetSize()) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // java.util.Set, java.util.Collection
+        public boolean contains(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
+                if (!(obj instanceof Map.Entry)) {
+                    return false;
+                }
+                Map.Entry entry = (Map.Entry) obj;
+                int colIndexOfKey = this.this$0.colIndexOfKey(entry.getKey());
+                if (colIndexOfKey < 0) {
+                    return false;
+                }
+                return ContainerHelpers.equal(this.this$0.colGetEntry(colIndexOfKey, 1), entry.getValue());
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // java.util.Set, java.util.Collection
+        public void clear() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                this.this$0.colClear();
+            }
+        }
+
+        @Override // java.util.Set, java.util.Collection
+        public boolean isEmpty() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                if (this.this$0.colGetSize() == 0) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // java.util.Set, java.util.Collection, java.lang.Iterable
+        public Iterator<Map.Entry<K, V>> iterator() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+                return new MapIterator(this.this$0);
+            }
+            return (Iterator) invokeV.objValue;
+        }
+
+        @Override // java.util.Set, java.util.Collection
+        public int size() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+                return this.this$0.colGetSize();
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // java.util.Set, java.util.Collection
+        public Object[] toArray() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
                 throw new UnsupportedOperationException();
             }
-            return (T[]) ((Object[]) invokeL.objValue);
+            return (Object[]) invokeV.objValue;
+        }
+
+        @Override // java.util.Set, java.util.Collection
+        public int hashCode() {
+            InterceptResult invokeV;
+            int hashCode;
+            int hashCode2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                int i = 0;
+                for (int colGetSize = this.this$0.colGetSize() - 1; colGetSize >= 0; colGetSize--) {
+                    Object colGetEntry = this.this$0.colGetEntry(colGetSize, 0);
+                    Object colGetEntry2 = this.this$0.colGetEntry(colGetSize, 1);
+                    if (colGetEntry == null) {
+                        hashCode = 0;
+                    } else {
+                        hashCode = colGetEntry.hashCode();
+                    }
+                    if (colGetEntry2 == null) {
+                        hashCode2 = 0;
+                    } else {
+                        hashCode2 = colGetEntry2.hashCode();
+                    }
+                    i += hashCode ^ hashCode2;
+                }
+                return i;
+            }
+            return invokeV.intValue;
         }
     }
 
@@ -330,61 +380,36 @@ public abstract class MapCollections<K, V> {
         }
 
         @Override // java.util.Set, java.util.Collection
-        public void clear() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.this$0.colClear();
-            }
-        }
-
-        @Override // java.util.Set, java.util.Collection
         public boolean contains(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) ? this.this$0.colIndexOfKey(obj) >= 0 : invokeL.booleanValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+                if (this.this$0.colIndexOfKey(obj) >= 0) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
         }
 
         @Override // java.util.Set, java.util.Collection
         public boolean containsAll(Collection<?> collection) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, collection)) == null) ? MapCollections.containsAllHelper(this.this$0.colGetMap(), collection) : invokeL.booleanValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, collection)) == null) {
+                return MapCollections.containsAllHelper(this.this$0.colGetMap(), collection);
+            }
+            return invokeL.booleanValue;
         }
 
         @Override // java.util.Set, java.util.Collection
         public boolean equals(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) ? MapCollections.equalsSetHelper(this, obj) : invokeL.booleanValue;
-        }
-
-        @Override // java.util.Set, java.util.Collection
-        public int hashCode() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                int i = 0;
-                for (int colGetSize = this.this$0.colGetSize() - 1; colGetSize >= 0; colGetSize--) {
-                    Object colGetEntry = this.this$0.colGetEntry(colGetSize, 0);
-                    i += colGetEntry == null ? 0 : colGetEntry.hashCode();
-                }
-                return i;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+                return MapCollections.equalsSetHelper(this, obj);
             }
-            return invokeV.intValue;
-        }
-
-        @Override // java.util.Set, java.util.Collection
-        public boolean isEmpty() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.this$0.colGetSize() == 0 : invokeV.booleanValue;
-        }
-
-        @Override // java.util.Set, java.util.Collection, java.lang.Iterable
-        public Iterator<K> iterator() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? new ArrayIterator(this.this$0, 0) : (Iterator) invokeV.objValue;
+            return invokeL.booleanValue;
         }
 
         @Override // java.util.Set, java.util.Collection
@@ -406,35 +431,102 @@ public abstract class MapCollections<K, V> {
         public boolean removeAll(Collection<?> collection) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, collection)) == null) ? MapCollections.removeAllHelper(this.this$0.colGetMap(), collection) : invokeL.booleanValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, collection)) == null) {
+                return MapCollections.removeAllHelper(this.this$0.colGetMap(), collection);
+            }
+            return invokeL.booleanValue;
         }
 
         @Override // java.util.Set, java.util.Collection
         public boolean retainAll(Collection<?> collection) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, collection)) == null) ? MapCollections.retainAllHelper(this.this$0.colGetMap(), collection) : invokeL.booleanValue;
-        }
-
-        @Override // java.util.Set, java.util.Collection
-        public int size() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.this$0.colGetSize() : invokeV.intValue;
-        }
-
-        @Override // java.util.Set, java.util.Collection
-        public Object[] toArray() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.this$0.toArrayHelper(0) : (Object[]) invokeV.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, collection)) == null) {
+                return MapCollections.retainAllHelper(this.this$0.colGetMap(), collection);
+            }
+            return invokeL.booleanValue;
         }
 
         @Override // java.util.Set, java.util.Collection
         public <T> T[] toArray(T[] tArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, tArr)) == null) ? (T[]) this.this$0.toArrayHelper(tArr, 0) : (T[]) ((Object[]) invokeL.objValue);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, tArr)) == null) {
+                return (T[]) this.this$0.toArrayHelper(tArr, 0);
+            }
+            return (T[]) ((Object[]) invokeL.objValue);
+        }
+
+        @Override // java.util.Set, java.util.Collection
+        public void clear() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                this.this$0.colClear();
+            }
+        }
+
+        @Override // java.util.Set, java.util.Collection
+        public int hashCode() {
+            InterceptResult invokeV;
+            int hashCode;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                int i = 0;
+                for (int colGetSize = this.this$0.colGetSize() - 1; colGetSize >= 0; colGetSize--) {
+                    Object colGetEntry = this.this$0.colGetEntry(colGetSize, 0);
+                    if (colGetEntry == null) {
+                        hashCode = 0;
+                    } else {
+                        hashCode = colGetEntry.hashCode();
+                    }
+                    i += hashCode;
+                }
+                return i;
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // java.util.Set, java.util.Collection
+        public boolean isEmpty() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                if (this.this$0.colGetSize() == 0) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // java.util.Set, java.util.Collection, java.lang.Iterable
+        public Iterator<K> iterator() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                return new ArrayIterator(this.this$0, 0);
+            }
+            return (Iterator) invokeV.objValue;
+        }
+
+        @Override // java.util.Set, java.util.Collection
+        public int size() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+                return this.this$0.colGetSize();
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // java.util.Set, java.util.Collection
+        public Object[] toArray() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+                return this.this$0.toArrayHelper(0);
+            }
+            return (Object[]) invokeV.objValue;
         }
     }
 
@@ -474,11 +566,14 @@ public abstract class MapCollections<K, V> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
                 if (this.mEntryValid) {
-                    if (obj instanceof Map.Entry) {
-                        Map.Entry entry = (Map.Entry) obj;
-                        return ContainerHelpers.equal(entry.getKey(), this.this$0.colGetEntry(this.mIndex, 0)) && ContainerHelpers.equal(entry.getValue(), this.this$0.colGetEntry(this.mIndex, 1));
+                    if (!(obj instanceof Map.Entry)) {
+                        return false;
                     }
-                    return false;
+                    Map.Entry entry = (Map.Entry) obj;
+                    if (!ContainerHelpers.equal(entry.getKey(), this.this$0.colGetEntry(this.mIndex, 0)) || !ContainerHelpers.equal(entry.getValue(), this.this$0.colGetEntry(this.mIndex, 1))) {
+                        return false;
+                    }
+                    return true;
                 }
                 throw new IllegalStateException("This container does not support retaining Map.Entry objects");
             }
@@ -515,22 +610,13 @@ public abstract class MapCollections<K, V> {
         public boolean hasNext() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mIndex < this.mEnd : invokeV.booleanValue;
-        }
-
-        @Override // java.util.Map.Entry
-        public int hashCode() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                if (this.mEntryValid) {
-                    Object colGetEntry = this.this$0.colGetEntry(this.mIndex, 0);
-                    Object colGetEntry2 = this.this$0.colGetEntry(this.mIndex, 1);
-                    return (colGetEntry == null ? 0 : colGetEntry.hashCode()) ^ (colGetEntry2 != null ? colGetEntry2.hashCode() : 0);
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                if (this.mIndex < this.mEnd) {
+                    return true;
                 }
-                throw new IllegalStateException("This container does not support retaining Map.Entry objects");
+                return false;
             }
-            return invokeV.intValue;
+            return invokeV.booleanValue;
         }
 
         @Override // java.util.Iterator
@@ -548,19 +634,6 @@ public abstract class MapCollections<K, V> {
             }
         }
 
-        @Override // java.util.Map.Entry
-        public V setValue(V v) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, v)) == null) {
-                if (this.mEntryValid) {
-                    return (V) this.this$0.colSetValue(this.mIndex, v);
-                }
-                throw new IllegalStateException("This container does not support retaining Map.Entry objects");
-            }
-            return (V) invokeL.objValue;
-        }
-
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -568,6 +641,31 @@ public abstract class MapCollections<K, V> {
                 return getKey() + "=" + getValue();
             }
             return (String) invokeV.objValue;
+        }
+
+        @Override // java.util.Map.Entry
+        public int hashCode() {
+            InterceptResult invokeV;
+            int hashCode;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                if (this.mEntryValid) {
+                    int i = 0;
+                    Object colGetEntry = this.this$0.colGetEntry(this.mIndex, 0);
+                    Object colGetEntry2 = this.this$0.colGetEntry(this.mIndex, 1);
+                    if (colGetEntry == null) {
+                        hashCode = 0;
+                    } else {
+                        hashCode = colGetEntry.hashCode();
+                    }
+                    if (colGetEntry2 != null) {
+                        i = colGetEntry2.hashCode();
+                    }
+                    return hashCode ^ i;
+                }
+                throw new IllegalStateException("This container does not support retaining Map.Entry objects");
+            }
+            return invokeV.intValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -584,6 +682,19 @@ public abstract class MapCollections<K, V> {
                 throw new NoSuchElementException();
             }
             return (Map.Entry) invokeV.objValue;
+        }
+
+        @Override // java.util.Map.Entry
+        public V setValue(V v) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, v)) == null) {
+                if (this.mEntryValid) {
+                    return (V) this.this$0.colSetValue(this.mIndex, v);
+                }
+                throw new IllegalStateException("This container does not support retaining Map.Entry objects");
+            }
+            return (V) invokeL.objValue;
         }
     }
 
@@ -632,18 +743,16 @@ public abstract class MapCollections<K, V> {
         }
 
         @Override // java.util.Collection
-        public void clear() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.this$0.colClear();
-            }
-        }
-
-        @Override // java.util.Collection
         public boolean contains(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) ? this.this$0.colIndexOfValue(obj) >= 0 : invokeL.booleanValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+                if (this.this$0.colIndexOfValue(obj) >= 0) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
         }
 
         @Override // java.util.Collection
@@ -663,20 +772,6 @@ public abstract class MapCollections<K, V> {
         }
 
         @Override // java.util.Collection
-        public boolean isEmpty() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.this$0.colGetSize() == 0 : invokeV.booleanValue;
-        }
-
-        @Override // java.util.Collection, java.lang.Iterable
-        public Iterator<V> iterator() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new ArrayIterator(this.this$0, 1) : (Iterator) invokeV.objValue;
-        }
-
-        @Override // java.util.Collection
         public boolean remove(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -689,6 +784,67 @@ public abstract class MapCollections<K, V> {
                 return false;
             }
             return invokeL.booleanValue;
+        }
+
+        @Override // java.util.Collection
+        public <T> T[] toArray(T[] tArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, tArr)) == null) {
+                return (T[]) this.this$0.toArrayHelper(tArr, 1);
+            }
+            return (T[]) ((Object[]) invokeL.objValue);
+        }
+
+        @Override // java.util.Collection
+        public void clear() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                this.this$0.colClear();
+            }
+        }
+
+        @Override // java.util.Collection
+        public boolean isEmpty() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                if (this.this$0.colGetSize() == 0) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // java.util.Collection, java.lang.Iterable
+        public Iterator<V> iterator() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return new ArrayIterator(this.this$0, 1);
+            }
+            return (Iterator) invokeV.objValue;
+        }
+
+        @Override // java.util.Collection
+        public int size() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+                return this.this$0.colGetSize();
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // java.util.Collection
+        public Object[] toArray() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+                return this.this$0.toArrayHelper(1);
+            }
+            return (Object[]) invokeV.objValue;
         }
 
         @Override // java.util.Collection
@@ -734,27 +890,6 @@ public abstract class MapCollections<K, V> {
             }
             return invokeL.booleanValue;
         }
-
-        @Override // java.util.Collection
-        public int size() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.this$0.colGetSize() : invokeV.intValue;
-        }
-
-        @Override // java.util.Collection
-        public Object[] toArray() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.this$0.toArrayHelper(1) : (Object[]) invokeV.objValue;
-        }
-
-        @Override // java.util.Collection
-        public <T> T[] toArray(T[] tArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, tArr)) == null) ? (T[]) this.this$0.toArrayHelper(tArr, 1) : (T[]) ((Object[]) invokeL.objValue);
-        }
     }
 
     public MapCollections() {
@@ -769,6 +904,42 @@ public abstract class MapCollections<K, V> {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    public Set<Map.Entry<K, V>> getEntrySet() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            if (this.mEntrySet == null) {
+                this.mEntrySet = new EntrySet(this);
+            }
+            return this.mEntrySet;
+        }
+        return (Set) invokeV.objValue;
+    }
+
+    public Set<K> getKeySet() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            if (this.mKeySet == null) {
+                this.mKeySet = new KeySet(this);
+            }
+            return this.mKeySet;
+        }
+        return (Set) invokeV.objValue;
+    }
+
+    public Collection<V> getValues() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            if (this.mValues == null) {
+                this.mValues = new ValuesCollection(this);
+            }
+            return this.mValues;
+        }
+        return (Collection) invokeV.objValue;
     }
 
     public static <K, V> boolean containsAllHelper(Map<K, V> map, Collection<?> collection) {
@@ -819,7 +990,10 @@ public abstract class MapCollections<K, V> {
             while (it.hasNext()) {
                 map.remove(it.next());
             }
-            return size != map.size();
+            if (size != map.size()) {
+                return true;
+            }
+            return false;
         }
         return invokeLL.booleanValue;
     }
@@ -835,77 +1009,12 @@ public abstract class MapCollections<K, V> {
                     it.remove();
                 }
             }
-            return size != map.size();
+            if (size != map.size()) {
+                return true;
+            }
+            return false;
         }
         return invokeLL.booleanValue;
-    }
-
-    public abstract void colClear();
-
-    public abstract Object colGetEntry(int i, int i2);
-
-    public abstract Map<K, V> colGetMap();
-
-    public abstract int colGetSize();
-
-    public abstract int colIndexOfKey(Object obj);
-
-    public abstract int colIndexOfValue(Object obj);
-
-    public abstract void colPut(K k, V v);
-
-    public abstract void colRemoveAt(int i);
-
-    public abstract V colSetValue(int i, V v);
-
-    public Set<Map.Entry<K, V>> getEntrySet() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (this.mEntrySet == null) {
-                this.mEntrySet = new EntrySet(this);
-            }
-            return this.mEntrySet;
-        }
-        return (Set) invokeV.objValue;
-    }
-
-    public Set<K> getKeySet() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (this.mKeySet == null) {
-                this.mKeySet = new KeySet(this);
-            }
-            return this.mKeySet;
-        }
-        return (Set) invokeV.objValue;
-    }
-
-    public Collection<V> getValues() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            if (this.mValues == null) {
-                this.mValues = new ValuesCollection(this);
-            }
-            return this.mValues;
-        }
-        return (Collection) invokeV.objValue;
-    }
-
-    public Object[] toArrayHelper(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
-            int colGetSize = colGetSize();
-            Object[] objArr = new Object[colGetSize];
-            for (int i2 = 0; i2 < colGetSize; i2++) {
-                objArr[i2] = colGetEntry(i2, i);
-            }
-            return objArr;
-        }
-        return (Object[]) invokeI.objValue;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r5v9, resolved type: T[] */
@@ -927,5 +1036,19 @@ public abstract class MapCollections<K, V> {
             return tArr;
         }
         return (T[]) ((Object[]) invokeLI.objValue);
+    }
+
+    public Object[] toArrayHelper(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
+            int colGetSize = colGetSize();
+            Object[] objArr = new Object[colGetSize];
+            for (int i2 = 0; i2 < colGetSize; i2++) {
+                objArr[i2] = colGetEntry(i2, i);
+            }
+            return objArr;
+        }
+        return (Object[]) invokeI.objValue;
     }
 }

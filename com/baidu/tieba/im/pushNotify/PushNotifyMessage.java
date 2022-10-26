@@ -1,6 +1,5 @@
 package com.baidu.tieba.im.pushNotify;
 
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -22,6 +21,16 @@ public class PushNotifyMessage extends SocketResponsedMessage {
     public long pushTime;
     public int type;
 
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
+            return null;
+        }
+        return invokeIL.objValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PushNotifyMessage() {
         super(202006);
@@ -40,57 +49,67 @@ public class PushNotifyMessage extends SocketResponsedMessage {
         }
     }
 
-    @Override // com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
-    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
-            return null;
-        }
-        return invokeIL.objValue;
-    }
-
     public String getContent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.content : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.content;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getEmitTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.emitTime : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.emitTime;
+        }
+        return (String) invokeV.objValue;
     }
 
     public long getGroupId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.groupId : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.groupId;
+        }
+        return invokeV.longValue;
     }
 
     public int getGroupType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.groupType : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.groupType;
+        }
+        return invokeV.intValue;
     }
 
     public long getNewestMsgId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.newestMsgId : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.newestMsgId;
+        }
+        return invokeV.longValue;
     }
 
     public long getPushTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.pushTime : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.pushTime;
+        }
+        return invokeV.longValue;
     }
 
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.type : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.type;
+        }
+        return invokeV.intValue;
     }
 
     public void setContent(String str) {

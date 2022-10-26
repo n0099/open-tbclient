@@ -58,15 +58,37 @@ public final class ErrorBusinessStatPlugin extends AbsPlugin {
         }
     }
 
+    @Override // com.baidu.searchbox.player.plugin.AbsPlugin, com.baidu.searchbox.player.interfaces.INeuron
+    public void onVideoEventNotify(VideoEvent event) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, event) == null) {
+            Intrinsics.checkNotNullParameter(event, "event");
+            super.onVideoEventNotify(event);
+            String action = event.getAction();
+            if (action.hashCode() == -2127352417 && action.equals(StatisticsEvent.ACTION_UPDATE_CONTENT)) {
+                Object extra = event.getExtra(13);
+                if (extra != null) {
+                    this.ubcContent = (BDVideoPlayerUbcContent) extra;
+                    return;
+                }
+                throw new NullPointerException("null cannot be cast to non-null type com.baidu.searchbox.player.ubc.BDVideoPlayerUbcContent");
+            }
+        }
+    }
+
     @Override // com.baidu.searchbox.player.interfaces.INeuron
     public int[] getSubscribeEvent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new int[]{6, 4} : (int[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new int[]{6, 4};
+        }
+        return (int[]) invokeV.objValue;
     }
 
     @Override // com.baidu.searchbox.player.plugin.AbsPlugin, com.baidu.searchbox.player.interfaces.INeuron
     public void onPlayerEventNotify(VideoEvent event) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
             Intrinsics.checkNotNullParameter(event, "event");
@@ -80,27 +102,15 @@ public final class ErrorBusinessStatPlugin extends AbsPlugin {
                 VideoUrlModel videoUrlModel = (VideoUrlModel) extra;
                 if (videoUrlModel != null) {
                     String str = videoUrlModel.videoUrl;
-                    if (str == null || str.length() == 0) {
+                    if (str != null && str.length() != 0) {
+                        z = false;
+                    } else {
+                        z = true;
+                    }
+                    if (z) {
                         uploadBusinessError(10005);
                     }
                 }
-            }
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.plugin.AbsPlugin, com.baidu.searchbox.player.interfaces.INeuron
-    public void onVideoEventNotify(VideoEvent event) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, event) == null) {
-            Intrinsics.checkNotNullParameter(event, "event");
-            super.onVideoEventNotify(event);
-            String action = event.getAction();
-            if (action.hashCode() == -2127352417 && action.equals(StatisticsEvent.ACTION_UPDATE_CONTENT)) {
-                Object extra = event.getExtra(13);
-                if (extra == null) {
-                    throw new NullPointerException("null cannot be cast to non-null type com.baidu.searchbox.player.ubc.BDVideoPlayerUbcContent");
-                }
-                this.ubcContent = (BDVideoPlayerUbcContent) extra;
             }
         }
     }

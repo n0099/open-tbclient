@@ -63,153 +63,155 @@ public class OkHttpDownloader extends OkHttpRequest implements Downloader {
         FileOutputStream fileOutputStream;
         IOException e;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, call, response) != null) {
-            return;
-        }
-        if (response == null || response.body() == null) {
-            if (response != null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, call, response) == null) {
+            int i = 4;
+            if (response != null && response.body() != null) {
+                if (!response.isSuccessful()) {
+                    this.mCallback.onFail(4, new Exception("http error code=" + response.code()));
+                    return;
+                }
+                DownloadCallback downloadCallback = (DownloadCallback) this.mCallback;
+                InputStream inputStream = null;
+                r0 = null;
+                r0 = null;
+                FileOutputStream fileOutputStream2 = null;
+                inputStream = null;
+                try {
+                    InputStream byteStream = response.body().byteStream();
+                    try {
+                        long contentLength = response.body().contentLength();
+                        if (byteStream != null) {
+                            fileOutputStream = new FileOutputStream(new File(((DownloadEntity) getHttpRequestEntity()).getLocalPath()));
+                            try {
+                                byte[] bArr = new byte[1024];
+                                int i2 = 0;
+                                while (true) {
+                                    int read = byteStream.read(bArr);
+                                    if (read == -1) {
+                                        break;
+                                    }
+                                    fileOutputStream.write(bArr, 0, read);
+                                    i2 += read;
+                                    if (downloadCallback != null) {
+                                        downloadCallback.onFileUpdateProgress(i2, contentLength);
+                                    }
+                                }
+                                fileOutputStream.flush();
+                                fileOutputStream2 = fileOutputStream;
+                            } catch (Exception e2) {
+                                e = e2;
+                                inputStream = byteStream;
+                                if (downloadCallback != null) {
+                                    try {
+                                        downloadCallback.onFail(-1, e);
+                                    } catch (Throwable th) {
+                                        th = th;
+                                        if (inputStream != null) {
+                                            try {
+                                                inputStream.close();
+                                            } catch (IOException e3) {
+                                                if (downloadCallback != null) {
+                                                    downloadCallback.onFail(3, e3);
+                                                }
+                                            }
+                                        }
+                                        if (fileOutputStream != null) {
+                                            try {
+                                                fileOutputStream.close();
+                                            } catch (IOException e4) {
+                                                if (downloadCallback != null) {
+                                                    downloadCallback.onFail(3, e4);
+                                                }
+                                            }
+                                        }
+                                        throw th;
+                                    }
+                                }
+                                if (inputStream != null) {
+                                    try {
+                                        inputStream.close();
+                                    } catch (IOException e5) {
+                                        if (downloadCallback != null) {
+                                            downloadCallback.onFail(3, e5);
+                                        }
+                                    }
+                                }
+                                if (fileOutputStream != null) {
+                                    try {
+                                        fileOutputStream.close();
+                                        return;
+                                    } catch (IOException e6) {
+                                        e = e6;
+                                        if (downloadCallback == null) {
+                                            return;
+                                        }
+                                        downloadCallback.onFail(3, e);
+                                    }
+                                }
+                                return;
+                            } catch (Throwable th2) {
+                                th = th2;
+                                inputStream = byteStream;
+                                if (inputStream != null) {
+                                }
+                                if (fileOutputStream != null) {
+                                }
+                                throw th;
+                            }
+                        }
+                        if (fileOutputStream2 != null) {
+                            fileOutputStream2.close();
+                        }
+                        if (downloadCallback != null) {
+                            downloadCallback.onSuccess(getHttpResponse(response));
+                        }
+                        if (byteStream != null) {
+                            try {
+                                byteStream.close();
+                            } catch (IOException e7) {
+                                if (downloadCallback != null) {
+                                    downloadCallback.onFail(3, e7);
+                                }
+                            }
+                        }
+                        if (fileOutputStream2 != null) {
+                            try {
+                                fileOutputStream2.close();
+                            } catch (IOException e8) {
+                                e = e8;
+                                if (downloadCallback == null) {
+                                    return;
+                                }
+                                downloadCallback.onFail(3, e);
+                            }
+                        }
+                    } catch (Exception e9) {
+                        e = e9;
+                        fileOutputStream = fileOutputStream2;
+                    } catch (Throwable th3) {
+                        th = th3;
+                        fileOutputStream = fileOutputStream2;
+                    }
+                } catch (Exception e10) {
+                    e = e10;
+                    fileOutputStream = null;
+                } catch (Throwable th4) {
+                    th = th4;
+                    fileOutputStream = null;
+                }
+            } else if (response != null) {
                 ResponseCallback responseCallback = this.mCallback;
-                int i = response.isSuccessful() ? -1 : 4;
+                if (response.isSuccessful()) {
+                    i = -1;
+                }
                 if (response.isSuccessful()) {
                     exc = new Exception("http error code=" + response.code());
                 } else {
                     exc = new Exception("response body is null");
                 }
                 responseCallback.onFail(i, exc);
-                return;
-            }
-            this.mCallback.onFail(-1, new Exception(ADConfigError.REASON_NULL_RESPONSE));
-        } else if (!response.isSuccessful()) {
-            this.mCallback.onFail(4, new Exception("http error code=" + response.code()));
-        } else {
-            DownloadCallback downloadCallback = (DownloadCallback) this.mCallback;
-            InputStream inputStream = null;
-            r0 = null;
-            r0 = null;
-            FileOutputStream fileOutputStream2 = null;
-            inputStream = null;
-            try {
-                InputStream byteStream = response.body().byteStream();
-                try {
-                    long contentLength = response.body().contentLength();
-                    if (byteStream != null) {
-                        fileOutputStream = new FileOutputStream(new File(((DownloadEntity) getHttpRequestEntity()).getLocalPath()));
-                        try {
-                            byte[] bArr = new byte[1024];
-                            int i2 = 0;
-                            while (true) {
-                                int read = byteStream.read(bArr);
-                                if (read == -1) {
-                                    break;
-                                }
-                                fileOutputStream.write(bArr, 0, read);
-                                i2 += read;
-                                if (downloadCallback != null) {
-                                    downloadCallback.onFileUpdateProgress(i2, contentLength);
-                                }
-                            }
-                            fileOutputStream.flush();
-                            fileOutputStream2 = fileOutputStream;
-                        } catch (Exception e2) {
-                            e = e2;
-                            inputStream = byteStream;
-                            if (downloadCallback != null) {
-                                try {
-                                    downloadCallback.onFail(-1, e);
-                                } catch (Throwable th) {
-                                    th = th;
-                                    if (inputStream != null) {
-                                        try {
-                                            inputStream.close();
-                                        } catch (IOException e3) {
-                                            if (downloadCallback != null) {
-                                                downloadCallback.onFail(3, e3);
-                                            }
-                                        }
-                                    }
-                                    if (fileOutputStream != null) {
-                                        try {
-                                            fileOutputStream.close();
-                                        } catch (IOException e4) {
-                                            if (downloadCallback != null) {
-                                                downloadCallback.onFail(3, e4);
-                                            }
-                                        }
-                                    }
-                                    throw th;
-                                }
-                            }
-                            if (inputStream != null) {
-                                try {
-                                    inputStream.close();
-                                } catch (IOException e5) {
-                                    if (downloadCallback != null) {
-                                        downloadCallback.onFail(3, e5);
-                                    }
-                                }
-                            }
-                            if (fileOutputStream != null) {
-                                try {
-                                    fileOutputStream.close();
-                                    return;
-                                } catch (IOException e6) {
-                                    e = e6;
-                                    if (downloadCallback == null) {
-                                        return;
-                                    }
-                                    downloadCallback.onFail(3, e);
-                                }
-                            }
-                            return;
-                        } catch (Throwable th2) {
-                            th = th2;
-                            inputStream = byteStream;
-                            if (inputStream != null) {
-                            }
-                            if (fileOutputStream != null) {
-                            }
-                            throw th;
-                        }
-                    }
-                    if (fileOutputStream2 != null) {
-                        fileOutputStream2.close();
-                    }
-                    if (downloadCallback != null) {
-                        downloadCallback.onSuccess(getHttpResponse(response));
-                    }
-                    if (byteStream != null) {
-                        try {
-                            byteStream.close();
-                        } catch (IOException e7) {
-                            if (downloadCallback != null) {
-                                downloadCallback.onFail(3, e7);
-                            }
-                        }
-                    }
-                    if (fileOutputStream2 != null) {
-                        try {
-                            fileOutputStream2.close();
-                        } catch (IOException e8) {
-                            e = e8;
-                            if (downloadCallback == null) {
-                                return;
-                            }
-                            downloadCallback.onFail(3, e);
-                        }
-                    }
-                } catch (Exception e9) {
-                    e = e9;
-                    fileOutputStream = fileOutputStream2;
-                } catch (Throwable th3) {
-                    th = th3;
-                    fileOutputStream = fileOutputStream2;
-                }
-            } catch (Exception e10) {
-                e = e10;
-                fileOutputStream = null;
-            } catch (Throwable th4) {
-                th = th4;
-                fileOutputStream = null;
+            } else {
+                this.mCallback.onFail(-1, new Exception(ADConfigError.REASON_NULL_RESPONSE));
             }
         }
     }

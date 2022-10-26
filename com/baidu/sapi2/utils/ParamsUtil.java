@@ -35,9 +35,15 @@ public class ParamsUtil implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static String getAdapterParamValue(boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? z ? "3" : z2 ? "8" : "" : (String) invokeCommon.objValue;
+    }
+
     /* renamed from: com.baidu.sapi2.utils.ParamsUtil$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$sapi2$utils$enums$BindInfoAction;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -82,7 +88,7 @@ public class ParamsUtil implements NoProguard {
         }
     }
 
-    public static String addExtras(String str, Map<String, String> map) {
+    public static String addExtras(String str, Map map) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, map)) == null) {
@@ -106,10 +112,71 @@ public class ParamsUtil implements NoProguard {
     public static String buildH5CommonParams(SapiConfiguration sapiConfiguration) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, sapiConfiguration)) == null) ? buildH5CommonParams(sapiConfiguration, true) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, sapiConfiguration)) == null) {
+            return buildH5CommonParams(sapiConfiguration, true);
+        }
+        return (String) invokeL.objValue;
     }
 
-    public static List<HttpCookie> buildLoginStatusCookie(String str, SapiConfiguration sapiConfiguration) {
+    public static String getBindInfoType(BindInfoAction bindInfoAction) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, bindInfoAction)) == null) {
+            if (bindInfoAction == null || AnonymousClass1.$SwitchMap$com$baidu$sapi2$utils$enums$BindInfoAction[bindInfoAction.ordinal()] != 1) {
+                return "";
+            }
+            return "&type=email";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String buildH5CommonParams(SapiConfiguration sapiConfiguration, boolean z) {
+        InterceptResult invokeLZ;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, sapiConfiguration, z)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("clientfrom", "native");
+            hashMap.put("tpl", sapiConfiguration.tpl);
+            hashMap.put("login_share_strategy", sapiConfiguration.loginShareStrategy().getStrValue());
+            hashMap.put("client", "android");
+            if (z) {
+                if (sapiConfiguration.customActionBarEnabled) {
+                    str = "3";
+                } else {
+                    str = "";
+                }
+                hashMap.put("adapter", str);
+            } else if (sapiConfiguration.showBottomBack) {
+                hashMap.put("adapter", "8");
+            }
+            hashMap.put("t", String.valueOf(System.currentTimeMillis()));
+            hashMap.put("act", sapiConfiguration.socialBindType.getName());
+            hashMap.put("hideExtraEntry", String.valueOf(sapiConfiguration.smsLoginConfig.flagHideExtraEntry.ordinal()));
+            hashMap.put("loginLink", String.valueOf(sapiConfiguration.smsLoginConfig.flagShowLoginLink.ordinal()));
+            hashMap.put("smsLoginLink", String.valueOf(sapiConfiguration.smsLoginConfig.flagShowSmsLoginLink.ordinal()));
+            hashMap.put("lPFastRegLink", String.valueOf(sapiConfiguration.smsLoginConfig.flagShowFastRegLink.ordinal()));
+            hashMap.put("lPlayout", String.valueOf(sapiConfiguration.configurableViewLayout.ordinal()));
+            if (sapiConfiguration.uniteVerify) {
+                hashMap.put("connect", "1");
+            }
+            if (sapiConfiguration.language == Language.ENGLISH) {
+                hashMap.put(WebvttCueParser.TAG_LANG, "en");
+            }
+            hashMap.put("suppcheck", "1");
+            if (sapiConfiguration.supportFaceLogin) {
+                hashMap.put("scanface", "1");
+                hashMap.put("liveAbility", "1");
+            }
+            if (sapiConfiguration.disableVoiceVerify) {
+                hashMap.put("disable_voice_vcode", "1");
+            }
+            return SapiUtils.mapToUrlParams(hashMap, true);
+        }
+        return (String) invokeLZ.objValue;
+    }
+
+    public static List buildLoginStatusCookie(String str, SapiConfiguration sapiConfiguration) {
         InterceptResult invokeLL;
         String wapDomain;
         Interceptable interceptable = $ic;
@@ -131,7 +198,7 @@ public class ParamsUtil implements NoProguard {
         return (List) invokeLL.objValue;
     }
 
-    public static List<HttpCookie> buildNaCookie(String str, SapiConfiguration sapiConfiguration) {
+    public static List buildNaCookie(String str, SapiConfiguration sapiConfiguration) {
         InterceptResult invokeLL;
         String wapDomain;
         Interceptable interceptable = $ic;
@@ -158,6 +225,35 @@ public class ParamsUtil implements NoProguard {
         return (List) invokeLL.objValue;
     }
 
+    public static String getUrlCFOLogin(SapiConfiguration sapiConfiguration, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, sapiConfiguration, str)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("type", SocialType.CFO.getType() + "");
+            hashMap.put("appid", sapiConfiguration.cfoAppKey);
+            hashMap.put("code", str);
+            return sapiConfiguration.environment.getURL() + "/phoenix/account/ssologin?" + buildH5CommonParams(sapiConfiguration) + "&" + SapiUtils.mapToUrlParams(hashMap, true);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String getUrlYYLogin(String str, SapiConfiguration sapiConfiguration) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65553, null, str, sapiConfiguration)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("type", SocialType.YY.getType() + "");
+            hashMap.put("appid", sapiConfiguration.yyAppId);
+            hashMap.put("access_token", str);
+            if (sapiConfiguration.supportGuestAccountLogin) {
+                hashMap.put("supportGuestAccount", "1");
+            }
+            return sapiConfiguration.environment.getURL() + "/phoenix/account/ssologin?" + buildH5CommonParams(sapiConfiguration) + "&" + SapiUtils.mapToUrlParams(hashMap, true);
+        }
+        return (String) invokeLL.objValue;
+    }
+
     public static boolean checkDiUpload(JSONArray jSONArray, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
@@ -172,18 +268,6 @@ public class ParamsUtil implements NoProguard {
             return true;
         }
         return invokeLI.booleanValue;
-    }
-
-    public static String getAdapterParamValue(boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? z ? "3" : z2 ? "8" : "" : (String) invokeCommon.objValue;
-    }
-
-    public static String getBindInfoType(BindInfoAction bindInfoAction) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, bindInfoAction)) == null) ? (bindInfoAction != null && AnonymousClass1.$SwitchMap$com$baidu$sapi2$utils$enums$BindInfoAction[bindInfoAction.ordinal()] == 1) ? "&type=email" : "" : (String) invokeL.objValue;
     }
 
     public static JSONArray getGrayControlParams() {
@@ -276,19 +360,6 @@ public class ParamsUtil implements NoProguard {
         return (String) invokeLLLLL.objValue;
     }
 
-    public static String getUrlCFOLogin(SapiConfiguration sapiConfiguration, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, sapiConfiguration, str)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("type", SocialType.CFO.getType() + "");
-            hashMap.put("appid", sapiConfiguration.cfoAppKey);
-            hashMap.put("code", str);
-            return sapiConfiguration.environment.getURL() + "/phoenix/account/ssologin?" + buildH5CommonParams(sapiConfiguration) + "&" + SapiUtils.mapToUrlParams(hashMap, true);
-        }
-        return (String) invokeLL.objValue;
-    }
-
     public static String getUrlQQBind(SapiConfiguration sapiConfiguration, String str, String str2, String str3) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -352,61 +423,5 @@ public class ParamsUtil implements NoProguard {
             return sapiConfiguration.environment.getURL() + "/phoenix/account/ssologin?" + buildH5CommonParams(sapiConfiguration) + "&" + SapiUtils.mapToUrlParams(hashMap, true);
         }
         return (String) invokeCommon.objValue;
-    }
-
-    public static String getUrlYYLogin(String str, SapiConfiguration sapiConfiguration) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65553, null, str, sapiConfiguration)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("type", SocialType.YY.getType() + "");
-            hashMap.put("appid", sapiConfiguration.yyAppId);
-            hashMap.put("access_token", str);
-            if (sapiConfiguration.supportGuestAccountLogin) {
-                hashMap.put("supportGuestAccount", "1");
-            }
-            return sapiConfiguration.environment.getURL() + "/phoenix/account/ssologin?" + buildH5CommonParams(sapiConfiguration) + "&" + SapiUtils.mapToUrlParams(hashMap, true);
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String buildH5CommonParams(SapiConfiguration sapiConfiguration, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, sapiConfiguration, z)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("clientfrom", "native");
-            hashMap.put("tpl", sapiConfiguration.tpl);
-            hashMap.put("login_share_strategy", sapiConfiguration.loginShareStrategy().getStrValue());
-            hashMap.put("client", "android");
-            if (z) {
-                hashMap.put("adapter", sapiConfiguration.customActionBarEnabled ? "3" : "");
-            } else if (sapiConfiguration.showBottomBack) {
-                hashMap.put("adapter", "8");
-            }
-            hashMap.put("t", String.valueOf(System.currentTimeMillis()));
-            hashMap.put("act", sapiConfiguration.socialBindType.getName());
-            hashMap.put("hideExtraEntry", String.valueOf(sapiConfiguration.smsLoginConfig.flagHideExtraEntry.ordinal()));
-            hashMap.put("loginLink", String.valueOf(sapiConfiguration.smsLoginConfig.flagShowLoginLink.ordinal()));
-            hashMap.put("smsLoginLink", String.valueOf(sapiConfiguration.smsLoginConfig.flagShowSmsLoginLink.ordinal()));
-            hashMap.put("lPFastRegLink", String.valueOf(sapiConfiguration.smsLoginConfig.flagShowFastRegLink.ordinal()));
-            hashMap.put("lPlayout", String.valueOf(sapiConfiguration.configurableViewLayout.ordinal()));
-            if (sapiConfiguration.uniteVerify) {
-                hashMap.put("connect", "1");
-            }
-            if (sapiConfiguration.language == Language.ENGLISH) {
-                hashMap.put(WebvttCueParser.TAG_LANG, "en");
-            }
-            hashMap.put("suppcheck", "1");
-            if (sapiConfiguration.supportFaceLogin) {
-                hashMap.put("scanface", "1");
-                hashMap.put("liveAbility", "1");
-            }
-            if (sapiConfiguration.disableVoiceVerify) {
-                hashMap.put("disable_voice_vcode", "1");
-            }
-            return SapiUtils.mapToUrlParams(hashMap, true);
-        }
-        return (String) invokeLZ.objValue;
     }
 }

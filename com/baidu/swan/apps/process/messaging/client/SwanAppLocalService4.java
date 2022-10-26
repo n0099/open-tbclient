@@ -29,6 +29,9 @@ public class SwanAppLocalService4 extends SwanAppLocalService {
     public SwanAppProcessInfo getProcessInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? SwanAppProcessInfo.P4 : (SwanAppProcessInfo) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return SwanAppProcessInfo.P4;
+        }
+        return (SwanAppProcessInfo) invokeV.objValue;
     }
 }

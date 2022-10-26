@@ -26,12 +26,27 @@ public class RequestParams {
     public static /* synthetic */ Interceptable $ic = null;
     public static String ENCODING = "UTF-8";
     public transient /* synthetic */ FieldHolder $fh;
-    public ConcurrentHashMap<String, FileWrapper> fileParams;
-    public ConcurrentHashMap<String, String> urlParams;
-    public ConcurrentHashMap<String, ArrayList<String>> urlParamsWithArray;
+    public ConcurrentHashMap fileParams;
+    public ConcurrentHashMap urlParams;
+    public ConcurrentHashMap urlParamsWithArray;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(659325157, "Lcom/baidu/down/loopj/android/http/RequestParams;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(659325157, "Lcom/baidu/down/loopj/android/http/RequestParams;");
+        }
+    }
 
     /* loaded from: classes2.dex */
-    public static class FileWrapper {
+    public class FileWrapper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String contentType;
@@ -63,24 +78,12 @@ public class RequestParams {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 String str = this.fileName;
-                return str != null ? str : "nofilename";
+                if (str != null) {
+                    return str;
+                }
+                return "nofilename";
             }
             return (String) invokeV.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(659325157, "Lcom/baidu/down/loopj/android/http/RequestParams;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(659325157, "Lcom/baidu/down/loopj/android/http/RequestParams;");
         }
     }
 
@@ -103,150 +106,19 @@ public class RequestParams {
     private void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            this.urlParams = new ConcurrentHashMap<>();
-            this.fileParams = new ConcurrentHashMap<>();
-            this.urlParamsWithArray = new ConcurrentHashMap<>();
+            this.urlParams = new ConcurrentHashMap();
+            this.fileParams = new ConcurrentHashMap();
+            this.urlParamsWithArray = new ConcurrentHashMap();
         }
     }
 
     public String getParamString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? URLEncodedUtils.format(getParamsList(), ENCODING) : (String) invokeV.objValue;
-    }
-
-    public List<BasicNameValuePair> getParamsList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            LinkedList linkedList = new LinkedList();
-            for (Map.Entry<String, String> entry : this.urlParams.entrySet()) {
-                linkedList.add(new BasicNameValuePair(entry.getKey(), entry.getValue()));
-            }
-            for (Map.Entry<String, ArrayList<String>> entry2 : this.urlParamsWithArray.entrySet()) {
-                Iterator<String> it = entry2.getValue().iterator();
-                while (it.hasNext()) {
-                    linkedList.add(new BasicNameValuePair(entry2.getKey(), it.next()));
-                }
-            }
-            return linkedList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public void put(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) || str == null || str2 == null) {
-            return;
-        }
-        this.urlParams.put(str, str2);
-    }
-
-    public void remove(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.urlParams.remove(str);
-            this.fileParams.remove(str);
-            this.urlParamsWithArray.remove(str);
-        }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (Map.Entry<String, String> entry : this.urlParams.entrySet()) {
-                if (sb.length() > 0) {
-                    sb.append("&");
-                }
-                sb.append(entry.getKey());
-                sb.append("=");
-                sb.append(entry.getValue());
-            }
-            for (Map.Entry<String, FileWrapper> entry2 : this.fileParams.entrySet()) {
-                if (sb.length() > 0) {
-                    sb.append("&");
-                }
-                sb.append(entry2.getKey());
-                sb.append("=");
-                sb.append("FILE");
-            }
-            for (Map.Entry<String, ArrayList<String>> entry3 : this.urlParamsWithArray.entrySet()) {
-                if (sb.length() > 0) {
-                    sb.append("&");
-                }
-                ArrayList<String> value = entry3.getValue();
-                for (int i = 0; i < value.size(); i++) {
-                    if (i != 0) {
-                        sb.append("&");
-                    }
-                    sb.append(entry3.getKey());
-                    sb.append("=");
-                    sb.append(value.get(i));
-                }
-            }
-            return sb.toString();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return URLEncodedUtils.format(getParamsList(), ENCODING);
         }
         return (String) invokeV.objValue;
-    }
-
-    public void put(String str, File file) throws FileNotFoundException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, file) == null) {
-            put(str, new FileInputStream(file), file.getName());
-        }
-    }
-
-    public RequestParams(Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {map};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        init();
-        for (Map.Entry<String, String> entry : map.entrySet()) {
-            put(entry.getKey(), entry.getValue());
-        }
-    }
-
-    public void put(String str, ArrayList<String> arrayList) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048583, this, str, arrayList) == null) || str == null || arrayList == null) {
-            return;
-        }
-        this.urlParamsWithArray.put(str, arrayList);
-    }
-
-    public void put(String str, InputStream inputStream) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, inputStream) == null) {
-            put(str, inputStream, null);
-        }
-    }
-
-    public void put(String str, InputStream inputStream, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, str, inputStream, str2) == null) {
-            put(str, inputStream, str2, null);
-        }
-    }
-
-    public void put(String str, InputStream inputStream, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(1048581, this, str, inputStream, str2, str3) == null) || str == null || inputStream == null) {
-            return;
-        }
-        this.fileParams.put(str, new FileWrapper(inputStream, str2, str3));
     }
 
     public RequestParams(String str, String str2) {
@@ -268,6 +140,27 @@ public class RequestParams {
         put(str, str2);
     }
 
+    public RequestParams(Map map) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {map};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        init();
+        for (Map.Entry entry : map.entrySet()) {
+            put((String) entry.getKey(), (String) entry.getValue());
+        }
+    }
+
     public RequestParams(Object... objArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -285,11 +178,122 @@ public class RequestParams {
         }
         init();
         int length = objArr.length;
-        if (length % 2 != 0) {
-            throw new IllegalArgumentException("Supplied arguments must be even");
+        if (length % 2 == 0) {
+            for (int i3 = 0; i3 < length; i3 += 2) {
+                put(String.valueOf(objArr[i3]), String.valueOf(objArr[i3 + 1]));
+            }
+            return;
         }
-        for (int i3 = 0; i3 < length; i3 += 2) {
-            put(String.valueOf(objArr[i3]), String.valueOf(objArr[i3 + 1]));
+        throw new IllegalArgumentException("Supplied arguments must be even");
+    }
+
+    public List getParamsList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            LinkedList linkedList = new LinkedList();
+            for (Map.Entry entry : this.urlParams.entrySet()) {
+                linkedList.add(new BasicNameValuePair((String) entry.getKey(), (String) entry.getValue()));
+            }
+            for (Map.Entry entry2 : this.urlParamsWithArray.entrySet()) {
+                Iterator it = ((ArrayList) entry2.getValue()).iterator();
+                while (it.hasNext()) {
+                    linkedList.add(new BasicNameValuePair((String) entry2.getKey(), (String) it.next()));
+                }
+            }
+            return linkedList;
         }
+        return (List) invokeV.objValue;
+    }
+
+    public void put(String str, File file) throws FileNotFoundException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, file) == null) {
+            put(str, new FileInputStream(file), file.getName());
+        }
+    }
+
+    public void put(String str, InputStream inputStream) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, inputStream) == null) {
+            put(str, inputStream, null);
+        }
+    }
+
+    public void put(String str, InputStream inputStream, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, str, inputStream, str2) == null) {
+            put(str, inputStream, str2, null);
+        }
+    }
+
+    public void put(String str, InputStream inputStream, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLL(1048581, this, str, inputStream, str2, str3) == null) && str != null && inputStream != null) {
+            this.fileParams.put(str, new FileWrapper(inputStream, str2, str3));
+        }
+    }
+
+    public void put(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) && str != null && str2 != null) {
+            this.urlParams.put(str, str2);
+        }
+    }
+
+    public void put(String str, ArrayList arrayList) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048583, this, str, arrayList) == null) && str != null && arrayList != null) {
+            this.urlParamsWithArray.put(str, arrayList);
+        }
+    }
+
+    public void remove(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.urlParams.remove(str);
+            this.fileParams.remove(str);
+            this.urlParamsWithArray.remove(str);
+        }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (Map.Entry entry : this.urlParams.entrySet()) {
+                if (sb.length() > 0) {
+                    sb.append("&");
+                }
+                sb.append((String) entry.getKey());
+                sb.append("=");
+                sb.append((String) entry.getValue());
+            }
+            for (Map.Entry entry2 : this.fileParams.entrySet()) {
+                if (sb.length() > 0) {
+                    sb.append("&");
+                }
+                sb.append((String) entry2.getKey());
+                sb.append("=");
+                sb.append("FILE");
+            }
+            for (Map.Entry entry3 : this.urlParamsWithArray.entrySet()) {
+                if (sb.length() > 0) {
+                    sb.append("&");
+                }
+                ArrayList arrayList = (ArrayList) entry3.getValue();
+                for (int i = 0; i < arrayList.size(); i++) {
+                    if (i != 0) {
+                        sb.append("&");
+                    }
+                    sb.append((String) entry3.getKey());
+                    sb.append("=");
+                    sb.append((String) arrayList.get(i));
+                }
+            }
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

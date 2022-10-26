@@ -90,12 +90,18 @@ public final class Coordinates2d {
     public static Coordinates2d valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (Coordinates2d) Enum.valueOf(Coordinates2d.class, str) : (Coordinates2d) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return (Coordinates2d) Enum.valueOf(Coordinates2d.class, str);
+        }
+        return (Coordinates2d) invokeL.objValue;
     }
 
     public static Coordinates2d[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (Coordinates2d[]) $VALUES.clone() : (Coordinates2d[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return (Coordinates2d[]) $VALUES.clone();
+        }
+        return (Coordinates2d[]) invokeV.objValue;
     }
 }

@@ -6,7 +6,6 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.view.View;
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
@@ -22,7 +21,7 @@ public class ListRecommendDivider extends RecyclerView.ItemDecoration {
     public int b;
     public Paint c;
 
-    public ListRecommendDivider(@NonNull Context context) {
+    public ListRecommendDivider(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

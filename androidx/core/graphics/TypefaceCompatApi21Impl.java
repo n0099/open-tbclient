@@ -9,9 +9,6 @@ import android.system.ErrnoException;
 import android.system.Os;
 import android.system.OsConstants;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import androidx.annotation.RestrictTo;
 import androidx.core.content.res.FontResourcesParserCompat;
 import androidx.core.provider.FontsContractCompat;
 import androidx.core.view.InputDeviceCompat;
@@ -30,8 +27,6 @@ import java.lang.reflect.Array;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-@RequiresApi(21)
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class TypefaceCompatApi21Impl extends TypefaceCompatBaseImpl {
     public static /* synthetic */ Interceptable $ic = null;
@@ -75,80 +70,6 @@ public class TypefaceCompatApi21Impl extends TypefaceCompatBaseImpl {
         }
     }
 
-    public static boolean addFontWeightStyle(Object obj, String str, int i, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{obj, str, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            init();
-            try {
-                return ((Boolean) sAddFontWeightStyle.invoke(obj, str, Integer.valueOf(i), Boolean.valueOf(z))).booleanValue();
-            } catch (IllegalAccessException | InvocationTargetException e) {
-                throw new RuntimeException(e);
-            }
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public static Typeface createFromFamiliesWithDefault(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, obj)) == null) {
-            init();
-            try {
-                Object newInstance = Array.newInstance(sFontFamily, 1);
-                Array.set(newInstance, 0, obj);
-                return (Typeface) sCreateFromFamiliesWithDefault.invoke(null, newInstance);
-            } catch (IllegalAccessException | InvocationTargetException e) {
-                throw new RuntimeException(e);
-            }
-        }
-        return (Typeface) invokeL.objValue;
-    }
-
-    private File getFile(@NonNull ParcelFileDescriptor parcelFileDescriptor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, parcelFileDescriptor)) == null) {
-            try {
-                String readlink = Os.readlink("/proc/self/fd/" + parcelFileDescriptor.getFd());
-                if (OsConstants.S_ISREG(Os.stat(readlink).st_mode)) {
-                    return new File(readlink);
-                }
-            } catch (ErrnoException unused) {
-            }
-            return null;
-        }
-        return (File) invokeL.objValue;
-    }
-
-    public static void init() {
-        Method method;
-        Class<?> cls;
-        Method method2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65541, null) == null) || sHasInitBeenCalled) {
-            return;
-        }
-        sHasInitBeenCalled = true;
-        Constructor<?> constructor = null;
-        try {
-            cls = Class.forName("android.graphics.FontFamily");
-            Constructor<?> constructor2 = cls.getConstructor(new Class[0]);
-            method2 = cls.getMethod("addFontWeightStyle", String.class, Integer.TYPE, Boolean.TYPE);
-            method = Typeface.class.getMethod("createFromFamiliesWithDefault", Array.newInstance(cls, 1).getClass());
-            constructor = constructor2;
-        } catch (ClassNotFoundException | NoSuchMethodException e) {
-            Log.e(TAG, e.getClass().getName(), e);
-            method = null;
-            cls = null;
-            method2 = null;
-        }
-        sFontFamilyCtor = constructor;
-        sFontFamily = cls;
-        sAddFontWeightStyle = method2;
-        sCreateFromFamiliesWithDefault = method;
-    }
-
     public static Object newFamily() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -161,6 +82,20 @@ public class TypefaceCompatApi21Impl extends TypefaceCompatBaseImpl {
             }
         }
         return invokeV.objValue;
+    }
+
+    public static boolean addFontWeightStyle(Object obj, String str, int i, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{obj, str, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            init();
+            try {
+                return ((Boolean) sAddFontWeightStyle.invoke(obj, str, Integer.valueOf(i), Boolean.valueOf(z))).booleanValue();
+            } catch (IllegalAccessException | InvocationTargetException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return invokeCommon.booleanValue;
     }
 
     @Override // androidx.core.graphics.TypefaceCompatBaseImpl
@@ -194,8 +129,68 @@ public class TypefaceCompatApi21Impl extends TypefaceCompatBaseImpl {
         return (Typeface) invokeLLLI.objValue;
     }
 
+    public static Typeface createFromFamiliesWithDefault(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, obj)) == null) {
+            init();
+            try {
+                Object newInstance = Array.newInstance(sFontFamily, 1);
+                Array.set(newInstance, 0, obj);
+                return (Typeface) sCreateFromFamiliesWithDefault.invoke(null, newInstance);
+            } catch (IllegalAccessException | InvocationTargetException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return (Typeface) invokeL.objValue;
+    }
+
+    private File getFile(ParcelFileDescriptor parcelFileDescriptor) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, parcelFileDescriptor)) == null) {
+            try {
+                String readlink = Os.readlink("/proc/self/fd/" + parcelFileDescriptor.getFd());
+                if (OsConstants.S_ISREG(Os.stat(readlink).st_mode)) {
+                    return new File(readlink);
+                }
+            } catch (ErrnoException unused) {
+            }
+            return null;
+        }
+        return (File) invokeL.objValue;
+    }
+
+    public static void init() {
+        Method method;
+        Class<?> cls;
+        Method method2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(65541, null) != null) || sHasInitBeenCalled) {
+            return;
+        }
+        sHasInitBeenCalled = true;
+        Constructor<?> constructor = null;
+        try {
+            cls = Class.forName("android.graphics.FontFamily");
+            Constructor<?> constructor2 = cls.getConstructor(new Class[0]);
+            method2 = cls.getMethod("addFontWeightStyle", String.class, Integer.TYPE, Boolean.TYPE);
+            method = Typeface.class.getMethod("createFromFamiliesWithDefault", Array.newInstance(cls, 1).getClass());
+            constructor = constructor2;
+        } catch (ClassNotFoundException | NoSuchMethodException e) {
+            Log.e(TAG, e.getClass().getName(), e);
+            method = null;
+            cls = null;
+            method2 = null;
+        }
+        sFontFamilyCtor = constructor;
+        sFontFamily = cls;
+        sAddFontWeightStyle = method2;
+        sCreateFromFamiliesWithDefault = method;
+    }
+
     @Override // androidx.core.graphics.TypefaceCompatBaseImpl
-    public Typeface createFromFontInfo(Context context, CancellationSignal cancellationSignal, @NonNull FontsContractCompat.FontInfo[] fontInfoArr, int i) {
+    public Typeface createFromFontInfo(Context context, CancellationSignal cancellationSignal, FontsContractCompat.FontInfo[] fontInfoArr, int i) {
         InterceptResult invokeLLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, cancellationSignal, fontInfoArr, i)) == null) {

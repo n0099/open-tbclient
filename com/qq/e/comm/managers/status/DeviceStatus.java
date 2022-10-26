@@ -73,16 +73,6 @@ public class DeviceStatus {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{Float.valueOf(f), Integer.valueOf(i)})) == null) ? (this.l.getApplicationInfo().flags & 8192) != 0 ? (int) (i / f) : i : invokeCommon.intValue;
     }
 
-    private void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, this, context) == null) {
-            DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-            this.d = getVersion() > 3 ? displayMetrics.densityDpi : 120;
-            this.b = getVersion() > 3 ? a(displayMetrics.density, displayMetrics.widthPixels) : displayMetrics.widthPixels;
-            this.c = getVersion() > 3 ? a(displayMetrics.density, displayMetrics.heightPixels) : displayMetrics.heightPixels;
-        }
-    }
-
     public Carrier getCarrier() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -184,7 +174,7 @@ public class DeviceStatus {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : invokeV.intValue;
     }
 
-    public Map<String, String> getLacAndCeilId() {
+    public Map getLacAndCeilId() {
         InterceptResult invokeV;
         int i;
         GsmCellLocation gsmCellLocation;
@@ -369,5 +359,33 @@ public class DeviceStatus {
             return this.j;
         }
         return invokeV.booleanValue;
+    }
+
+    private void a(Context context) {
+        int i;
+        int i2;
+        int i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, this, context) == null) {
+            DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
+            if (getVersion() > 3) {
+                i = displayMetrics.densityDpi;
+            } else {
+                i = 120;
+            }
+            this.d = i;
+            if (getVersion() > 3) {
+                i2 = a(displayMetrics.density, displayMetrics.widthPixels);
+            } else {
+                i2 = displayMetrics.widthPixels;
+            }
+            this.b = i2;
+            if (getVersion() > 3) {
+                i3 = a(displayMetrics.density, displayMetrics.heightPixels);
+            } else {
+                i3 = displayMetrics.heightPixels;
+            }
+            this.c = i3;
+        }
     }
 }

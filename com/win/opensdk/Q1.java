@@ -12,22 +12,27 @@ public final class Q1 {
 
     public static String a(Context context) {
         InterceptResult invokeL;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
             String k = Z1.k(context);
-            if (TextUtils.isEmpty(k)) {
-                try {
-                    O1 a = P1.a(context);
-                    String str = a == null ? null : a.a;
-                    if (TextUtils.isEmpty(str)) {
-                        Z1.f(context, str);
-                    }
-                    return str;
-                } catch (Exception unused) {
-                    return null;
-                }
+            if (!TextUtils.isEmpty(k)) {
+                return k;
             }
-            return k;
+            try {
+                O1 a = P1.a(context);
+                if (a == null) {
+                    str = null;
+                } else {
+                    str = a.a;
+                }
+                if (TextUtils.isEmpty(str)) {
+                    Z1.f(context, str);
+                }
+                return str;
+            } catch (Exception unused) {
+                return null;
+            }
         }
         return (String) invokeL.objValue;
     }

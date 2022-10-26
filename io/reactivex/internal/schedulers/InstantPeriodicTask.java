@@ -17,13 +17,13 @@ import java.util.concurrent.Future;
 import java.util.concurrent.FutureTask;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class InstantPeriodicTask implements Callable<Void>, Disposable {
+public final class InstantPeriodicTask implements Callable, Disposable {
     public static /* synthetic */ Interceptable $ic;
-    public static final FutureTask<Void> CANCELLED;
+    public static final FutureTask CANCELLED;
     public transient /* synthetic */ FieldHolder $fh;
     public final ExecutorService executor;
-    public final AtomicReference<Future<?>> first;
-    public final AtomicReference<Future<?>> rest;
+    public final AtomicReference first;
+    public final AtomicReference rest;
     public Thread runner;
     public final Runnable task;
 
@@ -40,7 +40,20 @@ public final class InstantPeriodicTask implements Callable<Void>, Disposable {
                 return;
             }
         }
-        CANCELLED = new FutureTask<>(Functions.EMPTY_RUNNABLE, null);
+        CANCELLED = new FutureTask(Functions.EMPTY_RUNNABLE, null);
+    }
+
+    @Override // io.reactivex.disposables.Disposable
+    public boolean isDisposed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.first.get() == CANCELLED) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public InstantPeriodicTask(Runnable runnable, ExecutorService executorService) {
@@ -59,60 +72,9 @@ public final class InstantPeriodicTask implements Callable<Void>, Disposable {
             }
         }
         this.task = runnable;
-        this.first = new AtomicReference<>();
-        this.rest = new AtomicReference<>();
+        this.first = new AtomicReference();
+        this.rest = new AtomicReference();
         this.executor = executorService;
-    }
-
-    @Override // io.reactivex.disposables.Disposable
-    public void dispose() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            Future<?> andSet = this.first.getAndSet(CANCELLED);
-            if (andSet != null && andSet != CANCELLED) {
-                andSet.cancel(this.runner != Thread.currentThread());
-            }
-            Future<?> andSet2 = this.rest.getAndSet(CANCELLED);
-            if (andSet2 == null || andSet2 == CANCELLED) {
-                return;
-            }
-            andSet2.cancel(this.runner != Thread.currentThread());
-        }
-    }
-
-    @Override // io.reactivex.disposables.Disposable
-    public boolean isDisposed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.first.get() == CANCELLED : invokeV.booleanValue;
-    }
-
-    public void setFirst(Future<?> future) {
-        Future<?> future2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, future) == null) {
-            do {
-                future2 = this.first.get();
-                if (future2 == CANCELLED) {
-                    future.cancel(this.runner != Thread.currentThread());
-                    return;
-                }
-            } while (!this.first.compareAndSet(future2, future));
-        }
-    }
-
-    public void setRest(Future<?> future) {
-        Future<?> future2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, future) == null) {
-            do {
-                future2 = this.rest.get();
-                if (future2 == CANCELLED) {
-                    future.cancel(this.runner != Thread.currentThread());
-                    return;
-                }
-            } while (!this.rest.compareAndSet(future2, future));
-        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -133,5 +95,70 @@ public final class InstantPeriodicTask implements Callable<Void>, Disposable {
             return null;
         }
         return (Void) invokeV.objValue;
+    }
+
+    @Override // io.reactivex.disposables.Disposable
+    public void dispose() {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            Future future = (Future) this.first.getAndSet(CANCELLED);
+            boolean z2 = true;
+            if (future != null && future != CANCELLED) {
+                if (this.runner != Thread.currentThread()) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                future.cancel(z);
+            }
+            Future future2 = (Future) this.rest.getAndSet(CANCELLED);
+            if (future2 != null && future2 != CANCELLED) {
+                if (this.runner == Thread.currentThread()) {
+                    z2 = false;
+                }
+                future2.cancel(z2);
+            }
+        }
+    }
+
+    public void setFirst(Future future) {
+        Future future2;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, future) == null) {
+            do {
+                future2 = (Future) this.first.get();
+                if (future2 == CANCELLED) {
+                    if (this.runner != Thread.currentThread()) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    future.cancel(z);
+                    return;
+                }
+            } while (!this.first.compareAndSet(future2, future));
+        }
+    }
+
+    public void setRest(Future future) {
+        Future future2;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, future) == null) {
+            do {
+                future2 = (Future) this.rest.get();
+                if (future2 == CANCELLED) {
+                    if (this.runner != Thread.currentThread()) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    future.cancel(z);
+                    return;
+                }
+            } while (!this.rest.compareAndSet(future2, future));
+        }
     }
 }

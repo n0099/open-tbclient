@@ -25,10 +25,10 @@ public class TrickPlayBox extends AbstractFullBox {
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_1 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_2 = null;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<Entry> entries;
+    public List entries;
 
     /* loaded from: classes7.dex */
-    public static class Entry {
+    public class Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int value;
@@ -50,13 +50,37 @@ public class TrickPlayBox extends AbstractFullBox {
         public int getDependencyLevel() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.value & 63 : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.value & 63;
+            }
+            return invokeV.intValue;
         }
 
         public int getPicType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (this.value >> 6) & 3 : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return (this.value >> 6) & 3;
+            }
+            return invokeV.intValue;
+        }
+
+        public Entry(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.value = i;
         }
 
         public void setDependencyLevel(int i) {
@@ -83,24 +107,6 @@ public class TrickPlayBox extends AbstractFullBox {
             }
             return (String) invokeV.objValue;
         }
-
-        public Entry(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.value = i;
-        }
     }
 
     static {
@@ -117,6 +123,26 @@ public class TrickPlayBox extends AbstractFullBox {
             }
         }
         ajc$preClinit();
+    }
+
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public long getContentSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.entries.size() + 4;
+        }
+        return invokeV.longValue;
+    }
+
+    public List getEntries() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this));
+            return this.entries;
+        }
+        return (List) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -136,6 +162,16 @@ public class TrickPlayBox extends AbstractFullBox {
             }
         }
         this.entries = new ArrayList();
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
+            return "TrickPlayBox{entries=" + this.entries + '}';
+        }
+        return (String) invokeV.objValue;
     }
 
     public static /* synthetic */ void ajc$preClinit() {
@@ -167,38 +203,11 @@ public class TrickPlayBox extends AbstractFullBox {
         }
     }
 
-    @Override // com.googlecode.mp4parser.AbstractBox
-    public long getContentSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.entries.size() + 4 : invokeV.longValue;
-    }
-
-    public List<Entry> getEntries() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this));
-            return this.entries;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public void setEntries(List<Entry> list) {
+    public void setEntries(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this, list));
             this.entries = list;
         }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
-            return "TrickPlayBox{entries=" + this.entries + '}';
-        }
-        return (String) invokeV.objValue;
     }
 }

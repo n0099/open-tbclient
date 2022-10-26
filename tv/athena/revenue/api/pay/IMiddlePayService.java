@@ -2,7 +2,7 @@ package tv.athena.revenue.api.pay;
 
 import com.baidu.searchbox.account.contants.AccountConstants;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tieba.e2a;
+import com.baidu.tieba.w2a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,11 +15,12 @@ import kotlin.Metadata;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001a\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0005\bf\u0018\u00002\u00020\u00012\u00020\u0002:\u0002\b\tJ\u0017\u0010\u0006\u001a\u00020\u00052\u0006\u0010\u0004\u001a\u00020\u0003H&¢\u0006\u0004\b\u0006\u0010\u0007¨\u0006\n"}, d2 = {"Ltv/athena/revenue/api/pay/IMiddlePayService;", "Lcom/yy/mobile/framework/revenuesdk/payapi/IAppPayService;", "Lkotlin/Any;", "Ltv/athena/revenue/api/pay/params/MiddlePayWithProductInfoParams;", "params", "", "payWithProductInfo", "(Ltv/athena/revenue/api/pay/params/MiddlePayWithProductInfoParams;)V", "ChargeSource", "SubscriptType", "paycore_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes9.dex */
 public interface IMiddlePayService extends IAppPayService {
+    void a(w2a w2aVar);
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0010\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\n\b\u0086\u0001\u0018\u00002\u00020\u0001B\u0011\b\u0002\u0012\u0006\u0010\u0003\u001a\u00020\u0002¢\u0006\u0004\b\u0007\u0010\bR\u0019\u0010\u0003\u001a\u00020\u00028\u0006@\u0006¢\u0006\f\n\u0004\b\u0003\u0010\u0004\u001a\u0004\b\u0005\u0010\u0006j\u0002\b\tj\u0002\b\nj\u0002\b\u000b¨\u0006\f"}, d2 = {"Ltv/athena/revenue/api/pay/IMiddlePayService$ChargeSource;", "Ljava/lang/Enum;", "", "value", "Ljava/lang/String;", "getValue", "()Ljava/lang/String;", "<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "ROOM_CHARGE", "WALLET_CHARGE", "OTHER_CHARGE", "paycore_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes9.dex */
-    public static final class ChargeSource {
+    public final class ChargeSource {
         public static final /* synthetic */ ChargeSource[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final ChargeSource OTHER_CHARGE;
@@ -27,6 +28,18 @@ public interface IMiddlePayService extends IAppPayService {
         public static final ChargeSource WALLET_CHARGE;
         public transient /* synthetic */ FieldHolder $fh;
         public final String value;
+
+        public static ChargeSource valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (ChargeSource) Enum.valueOf(ChargeSource.class, str) : (ChargeSource) invokeL.objValue;
+        }
+
+        public static ChargeSource[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ChargeSource[]) $VALUES.clone() : (ChargeSource[]) invokeV.objValue;
+        }
 
         static {
             InterceptResult invokeClinit;
@@ -71,35 +84,38 @@ public interface IMiddlePayService extends IAppPayService {
             this.value = str2;
         }
 
-        public static ChargeSource valueOf(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (ChargeSource) Enum.valueOf(ChargeSource.class, str) : (ChargeSource) invokeL.objValue;
-        }
-
-        public static ChargeSource[] values() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ChargeSource[]) $VALUES.clone() : (ChargeSource[]) invokeV.objValue;
-        }
-
         public final String getValue() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.value : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.value;
+            }
+            return (String) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0010\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0002\b\t\b\u0086\u0001\u0018\u00002\u00020\u0001B\u0011\b\u0002\u0012\u0006\u0010\u0003\u001a\u00020\u0002¢\u0006\u0004\b\u0007\u0010\bR\u0019\u0010\u0003\u001a\u00020\u00028\u0006@\u0006¢\u0006\f\n\u0004\b\u0003\u0010\u0004\u001a\u0004\b\u0005\u0010\u0006j\u0002\b\tj\u0002\b\n¨\u0006\u000b"}, d2 = {"Ltv/athena/revenue/api/pay/IMiddlePayService$SubscriptType;", "Ljava/lang/Enum;", "", "value", "I", "getValue", "()I", "<init>", "(Ljava/lang/String;II)V", "NORMAL_CHARGE", "SUBSCRIPT_CHARGE", "paycore_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes9.dex */
-    public static final class SubscriptType {
+    public final class SubscriptType {
         public static final /* synthetic */ SubscriptType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final SubscriptType NORMAL_CHARGE;
         public static final SubscriptType SUBSCRIPT_CHARGE;
         public transient /* synthetic */ FieldHolder $fh;
         public final int value;
+
+        public static SubscriptType valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (SubscriptType) Enum.valueOf(SubscriptType.class, str) : (SubscriptType) invokeL.objValue;
+        }
+
+        public static SubscriptType[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (SubscriptType[]) $VALUES.clone() : (SubscriptType[]) invokeV.objValue;
+        }
 
         static {
             InterceptResult invokeClinit;
@@ -142,24 +158,13 @@ public interface IMiddlePayService extends IAppPayService {
             this.value = i2;
         }
 
-        public static SubscriptType valueOf(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (SubscriptType) Enum.valueOf(SubscriptType.class, str) : (SubscriptType) invokeL.objValue;
-        }
-
-        public static SubscriptType[] values() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (SubscriptType[]) $VALUES.clone() : (SubscriptType[]) invokeV.objValue;
-        }
-
         public final int getValue() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.value : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.value;
+            }
+            return invokeV.intValue;
         }
     }
-
-    void a(e2a e2aVar);
 }

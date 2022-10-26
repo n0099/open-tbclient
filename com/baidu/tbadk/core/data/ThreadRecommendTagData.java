@@ -34,19 +34,28 @@ public class ThreadRecommendTagData implements Serializable {
     public ThemeColorInfo getBackgroundColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.backgroundColor : (ThemeColorInfo) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.backgroundColor;
+        }
+        return (ThemeColorInfo) invokeV.objValue;
     }
 
     public String getText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.text : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.text;
+        }
+        return (String) invokeV.objValue;
     }
 
     public ThemeColorInfo getTextColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.textColor : (ThemeColorInfo) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.textColor;
+        }
+        return (ThemeColorInfo) invokeV.objValue;
     }
 
     public void parseProtobuf(ThreadRecommendTag threadRecommendTag) {

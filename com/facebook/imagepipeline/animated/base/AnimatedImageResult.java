@@ -1,6 +1,5 @@
 package com.facebook.imagepipeline.animated.base;
 
-import android.graphics.Bitmap;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -19,11 +18,30 @@ public class AnimatedImageResult {
     @Nullable
     public BitmapTransformation mBitmapTransformation;
     @Nullable
-    public List<CloseableReference<Bitmap>> mDecodedFrames;
+    public List mDecodedFrames;
     public final int mFrameForPreview;
     public final AnimatedImage mImage;
     @Nullable
-    public CloseableReference<Bitmap> mPreviewBitmap;
+    public CloseableReference mPreviewBitmap;
+
+    public AnimatedImageResult(AnimatedImage animatedImage) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {animatedImage};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mImage = (AnimatedImage) Preconditions.checkNotNull(animatedImage);
+        this.mFrameForPreview = 0;
+    }
 
     public AnimatedImageResult(AnimatedImageResultBuilder animatedImageResultBuilder) {
         Interceptable interceptable = $ic;
@@ -50,13 +68,52 @@ public class AnimatedImageResult {
     public static AnimatedImageResult forAnimatedImage(AnimatedImage animatedImage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, animatedImage)) == null) ? new AnimatedImageResult(animatedImage) : (AnimatedImageResult) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, animatedImage)) == null) {
+            return new AnimatedImageResult(animatedImage);
+        }
+        return (AnimatedImageResult) invokeL.objValue;
     }
 
     public static AnimatedImageResultBuilder newBuilder(AnimatedImage animatedImage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, animatedImage)) == null) ? new AnimatedImageResultBuilder(animatedImage) : (AnimatedImageResultBuilder) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, animatedImage)) == null) {
+            return new AnimatedImageResultBuilder(animatedImage);
+        }
+        return (AnimatedImageResultBuilder) invokeL.objValue;
+    }
+
+    @Nullable
+    public synchronized CloseableReference getDecodedFrame(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            synchronized (this) {
+                if (this.mDecodedFrames != null) {
+                    return CloseableReference.cloneOrNull((CloseableReference) this.mDecodedFrames.get(i));
+                }
+                return null;
+            }
+        }
+        return (CloseableReference) invokeI.objValue;
+    }
+
+    public synchronized boolean hasDecodedFrame(int i) {
+        InterceptResult invokeI;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            synchronized (this) {
+                if (this.mDecodedFrames != null) {
+                    if (this.mDecodedFrames.get(i) != null) {
+                        z = true;
+                    }
+                }
+                z = false;
+            }
+            return z;
+        }
+        return invokeI.booleanValue;
     }
 
     public synchronized void dispose() {
@@ -75,39 +132,33 @@ public class AnimatedImageResult {
     public BitmapTransformation getBitmapTransformation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mBitmapTransformation : (BitmapTransformation) invokeV.objValue;
-    }
-
-    @Nullable
-    public synchronized CloseableReference<Bitmap> getDecodedFrame(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            synchronized (this) {
-                if (this.mDecodedFrames != null) {
-                    return CloseableReference.cloneOrNull(this.mDecodedFrames.get(i));
-                }
-                return null;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mBitmapTransformation;
         }
-        return (CloseableReference) invokeI.objValue;
+        return (BitmapTransformation) invokeV.objValue;
     }
 
     public int getFrameForPreview() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mFrameForPreview : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mFrameForPreview;
+        }
+        return invokeV.intValue;
     }
 
     public AnimatedImage getImage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mImage : (AnimatedImage) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mImage;
+        }
+        return (AnimatedImage) invokeV.objValue;
     }
 
-    public synchronized CloseableReference<Bitmap> getPreviewBitmap() {
+    public synchronized CloseableReference getPreviewBitmap() {
         InterceptResult invokeV;
-        CloseableReference<Bitmap> cloneOrNull;
+        CloseableReference cloneOrNull;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             synchronized (this) {
@@ -116,39 +167,5 @@ public class AnimatedImageResult {
             return cloneOrNull;
         }
         return (CloseableReference) invokeV.objValue;
-    }
-
-    public synchronized boolean hasDecodedFrame(int i) {
-        InterceptResult invokeI;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            synchronized (this) {
-                if (this.mDecodedFrames != null) {
-                    z = this.mDecodedFrames.get(i) != null;
-                }
-            }
-            return z;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public AnimatedImageResult(AnimatedImage animatedImage) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {animatedImage};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.mImage = (AnimatedImage) Preconditions.checkNotNull(animatedImage);
-        this.mFrameForPreview = 0;
     }
 }

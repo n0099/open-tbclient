@@ -35,6 +35,13 @@ public final class Ac3Reader implements ElementaryStreamReader {
     public long timeUs;
     public String trackFormatId;
 
+    @Override // com.google.android.exoplayer2.extractor.ts.ElementaryStreamReader
+    public void packetFinished() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public Ac3Reader() {
         this(null);
@@ -53,6 +60,38 @@ public final class Ac3Reader implements ElementaryStreamReader {
         }
     }
 
+    @Override // com.google.android.exoplayer2.extractor.ts.ElementaryStreamReader
+    public void seek() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.state = 0;
+            this.bytesRead = 0;
+            this.lastByteWas0B = false;
+        }
+    }
+
+    public Ac3Reader(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        ParsableBitArray parsableBitArray = new ParsableBitArray(new byte[8]);
+        this.headerScratchBits = parsableBitArray;
+        this.headerScratchBytes = new ParsableByteArray(parsableBitArray.data);
+        this.state = 0;
+        this.language = str;
+    }
+
     private boolean continueRead(ParsableByteArray parsableByteArray, byte[] bArr, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
@@ -61,7 +100,10 @@ public final class Ac3Reader implements ElementaryStreamReader {
             parsableByteArray.readBytes(bArr, this.bytesRead, min);
             int i2 = this.bytesRead + min;
             this.bytesRead = i2;
-            return i2 == i;
+            if (i2 == i) {
+                return true;
+            }
+            return false;
         }
         return invokeLLI.booleanValue;
     }
@@ -89,18 +131,25 @@ public final class Ac3Reader implements ElementaryStreamReader {
             return invokeL.booleanValue;
         }
         while (true) {
+            boolean z = false;
             if (parsableByteArray.bytesLeft() <= 0) {
                 return false;
             }
             if (!this.lastByteWas0B) {
-                this.lastByteWas0B = parsableByteArray.readUnsignedByte() == 11;
+                if (parsableByteArray.readUnsignedByte() == 11) {
+                    z = true;
+                }
+                this.lastByteWas0B = z;
             } else {
                 int readUnsignedByte = parsableByteArray.readUnsignedByte();
                 if (readUnsignedByte == 119) {
                     this.lastByteWas0B = false;
                     return true;
                 }
-                this.lastByteWas0B = readUnsignedByte == 11;
+                if (readUnsignedByte == 11) {
+                    z = true;
+                }
+                this.lastByteWas0B = z;
             }
         }
     }
@@ -153,49 +202,10 @@ public final class Ac3Reader implements ElementaryStreamReader {
     }
 
     @Override // com.google.android.exoplayer2.extractor.ts.ElementaryStreamReader
-    public void packetFinished() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.extractor.ts.ElementaryStreamReader
     public void packetStarted(long j, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
             this.timeUs = j;
         }
-    }
-
-    @Override // com.google.android.exoplayer2.extractor.ts.ElementaryStreamReader
-    public void seek() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.state = 0;
-            this.bytesRead = 0;
-            this.lastByteWas0B = false;
-        }
-    }
-
-    public Ac3Reader(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        ParsableBitArray parsableBitArray = new ParsableBitArray(new byte[8]);
-        this.headerScratchBits = parsableBitArray;
-        this.headerScratchBytes = new ParsableByteArray(parsableBitArray.data);
-        this.state = 0;
-        this.language = str;
     }
 }

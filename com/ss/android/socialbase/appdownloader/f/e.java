@@ -6,8 +6,6 @@ import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.os.Process;
 import android.telephony.TelephonyManager;
-import androidx.annotation.NonNull;
-import androidx.annotation.WorkerThread;
 import com.ss.android.socialbase.downloader.i.f;
 import java.io.BufferedReader;
 import java.io.File;
@@ -21,6 +19,62 @@ import java.util.List;
 /* loaded from: classes8.dex */
 public class e {
     public static Boolean a;
+
+    public static String a(String str) {
+        return f.a(str);
+    }
+
+    public static boolean b(Context context) {
+        try {
+            if ((context.getApplicationInfo().flags & 2) == 0) {
+                return false;
+            }
+            return true;
+        } catch (Exception unused) {
+            return false;
+        }
+    }
+
+    public static boolean c(Context context) {
+        Intent registerReceiver = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+        if (registerReceiver == null || registerReceiver.getIntExtra("plugged", -1) != 2) {
+            return false;
+        }
+        return true;
+    }
+
+    public static boolean d(Context context) {
+        try {
+            int simState = ((TelephonyManager) context.getSystemService("phone")).getSimState();
+            if (simState == 1 || simState == 0) {
+                return false;
+            }
+            return true;
+        } catch (Throwable unused) {
+            return false;
+        }
+    }
+
+    public static boolean e(Context context) {
+        if (!f() && !f(context)) {
+            return false;
+        }
+        return true;
+    }
+
+    public static synchronized void a(Context context) {
+        boolean z;
+        synchronized (e.class) {
+            if (a == null) {
+                if (!b() && !b(context) && !c(context) && d(context) && !c() && !e(context)) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                a = Boolean.valueOf(z);
+            }
+        }
+    }
 
     public static boolean a() {
         Boolean bool = a;
@@ -37,9 +91,14 @@ public class e {
         return e();
     }
 
-    public static boolean c(Context context) {
-        Intent registerReceiver = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
-        return registerReceiver != null && registerReceiver.getIntExtra("plugged", -1) == 2;
+    public static boolean c() {
+        try {
+            InetAddress.getByName(a("3132372e302e302e31"));
+            new Socket(a("3132372e302e302e31"), Integer.parseInt(a("3237303432")));
+            return true;
+        } catch (IOException unused) {
+            return false;
+        }
     }
 
     public static int d() {
@@ -51,7 +110,10 @@ public class e {
             }
         } catch (Exception unused) {
         }
-        return (str != null && "0".equals(str)) ? 0 : 1;
+        if (str != null && "0".equals(str)) {
+            return 0;
+        }
+        return 1;
     }
 
     public static boolean e() {
@@ -92,52 +154,6 @@ public class e {
         } catch (Exception unused) {
             return false;
         }
-    }
-
-    @WorkerThread
-    public static synchronized void a(@NonNull Context context) {
-        synchronized (e.class) {
-            if (a == null) {
-                a = Boolean.valueOf((b() || b(context) || c(context) || !d(context) || c() || e(context)) ? false : true);
-            }
-        }
-    }
-
-    public static boolean b(Context context) {
-        try {
-            return (context.getApplicationInfo().flags & 2) != 0;
-        } catch (Exception unused) {
-            return false;
-        }
-    }
-
-    @WorkerThread
-    public static boolean c() {
-        try {
-            InetAddress.getByName(a("3132372e302e302e31"));
-            new Socket(a("3132372e302e302e31"), Integer.parseInt(a("3237303432")));
-            return true;
-        } catch (IOException unused) {
-            return false;
-        }
-    }
-
-    public static boolean d(Context context) {
-        try {
-            int simState = ((TelephonyManager) context.getSystemService("phone")).getSimState();
-            return (simState == 1 || simState == 0) ? false : true;
-        } catch (Throwable unused) {
-            return false;
-        }
-    }
-
-    public static String a(@NonNull String str) {
-        return f.a(str);
-    }
-
-    @WorkerThread
-    public static boolean e(Context context) {
-        return f() || f(context);
     }
 
     public static boolean f(Context context) {

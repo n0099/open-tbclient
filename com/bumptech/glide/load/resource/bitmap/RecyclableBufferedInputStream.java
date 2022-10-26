@@ -1,7 +1,5 @@
 package com.bumptech.glide.load.resource.bitmap;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,8 +22,18 @@ public class RecyclableBufferedInputStream extends FilterInputStream {
     public int markpos;
     public int pos;
 
+    @Override // java.io.FilterInputStream, java.io.InputStream
+    public boolean markSupported() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
     /* loaded from: classes7.dex */
-    public static class InvalidMarkException extends IOException {
+    public class InvalidMarkException extends IOException {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4338378848813561757L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -52,7 +60,7 @@ public class RecyclableBufferedInputStream extends FilterInputStream {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public RecyclableBufferedInputStream(@NonNull InputStream inputStream, @NonNull ArrayPool arrayPool) {
+    public RecyclableBufferedInputStream(InputStream inputStream, ArrayPool arrayPool) {
         this(inputStream, arrayPool, 65536);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -70,6 +78,29 @@ public class RecyclableBufferedInputStream extends FilterInputStream {
                 return;
             }
         }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public RecyclableBufferedInputStream(InputStream inputStream, ArrayPool arrayPool, int i) {
+        super(inputStream);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {inputStream, arrayPool, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((InputStream) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.markpos = -1;
+        this.byteArrayPool = arrayPool;
+        this.buf = (byte[]) arrayPool.get(i, byte[].class);
     }
 
     private int fillbuf(InputStream inputStream, byte[] bArr) throws IOException {
@@ -174,6 +205,18 @@ public class RecyclableBufferedInputStream extends FilterInputStream {
         }
     }
 
+    public synchronized void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            synchronized (this) {
+                if (this.buf != null) {
+                    this.byteArrayPool.put(this.buf);
+                    this.buf = null;
+                }
+            }
+        }
+    }
+
     @Override // java.io.FilterInputStream, java.io.InputStream
     public synchronized void mark(int i) {
         Interceptable interceptable = $ic;
@@ -186,16 +229,6 @@ public class RecyclableBufferedInputStream extends FilterInputStream {
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
-    public boolean markSupported() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // java.io.FilterInputStream, java.io.InputStream
     public synchronized int read() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -204,35 +237,23 @@ public class RecyclableBufferedInputStream extends FilterInputStream {
                 byte[] bArr = this.buf;
                 InputStream inputStream = ((FilterInputStream) this).in;
                 if (bArr != null && inputStream != null) {
-                    if (this.pos < this.count || fillbuf(inputStream, bArr) != -1) {
-                        if (bArr != this.buf && (bArr = this.buf) == null) {
-                            throw streamClosed();
-                        }
-                        if (this.count - this.pos > 0) {
-                            int i = this.pos;
-                            this.pos = i + 1;
-                            return bArr[i] & 255;
-                        }
+                    if (this.pos >= this.count && fillbuf(inputStream, bArr) == -1) {
                         return -1;
                     }
-                    return -1;
+                    if (bArr != this.buf && (bArr = this.buf) == null) {
+                        throw streamClosed();
+                    }
+                    if (this.count - this.pos <= 0) {
+                        return -1;
+                    }
+                    int i = this.pos;
+                    this.pos = i + 1;
+                    return bArr[i] & 255;
                 }
                 throw streamClosed();
             }
         }
         return invokeV.intValue;
-    }
-
-    public synchronized void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            synchronized (this) {
-                if (this.buf != null) {
-                    this.byteArrayPool.put(this.buf);
-                    this.buf = null;
-                }
-            }
-        }
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
@@ -250,6 +271,87 @@ public class RecyclableBufferedInputStream extends FilterInputStream {
                     throw new IOException("Stream is closed");
                 }
             }
+        }
+    }
+
+    @Override // java.io.FilterInputStream, java.io.InputStream
+    public synchronized int read(byte[] bArr, int i, int i2) throws IOException {
+        InterceptResult invokeLII;
+        int i3;
+        int i4;
+        int i5;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048582, this, bArr, i, i2)) == null) {
+            synchronized (this) {
+                byte[] bArr2 = this.buf;
+                if (bArr2 != null) {
+                    if (i2 == 0) {
+                        return 0;
+                    }
+                    InputStream inputStream = ((FilterInputStream) this).in;
+                    if (inputStream != null) {
+                        if (this.pos < this.count) {
+                            if (this.count - this.pos >= i2) {
+                                i5 = i2;
+                            } else {
+                                i5 = this.count - this.pos;
+                            }
+                            System.arraycopy(bArr2, this.pos, bArr, i, i5);
+                            this.pos += i5;
+                            if (i5 != i2 && inputStream.available() != 0) {
+                                i += i5;
+                                i3 = i2 - i5;
+                            } else {
+                                return i5;
+                            }
+                        } else {
+                            i3 = i2;
+                        }
+                        while (true) {
+                            int i6 = -1;
+                            if (this.markpos == -1 && i3 >= bArr2.length) {
+                                i4 = inputStream.read(bArr, i, i3);
+                                if (i4 == -1) {
+                                    if (i3 != i2) {
+                                        i6 = i2 - i3;
+                                    }
+                                    return i6;
+                                }
+                            } else if (fillbuf(inputStream, bArr2) == -1) {
+                                if (i3 != i2) {
+                                    i6 = i2 - i3;
+                                }
+                                return i6;
+                            } else {
+                                if (bArr2 != this.buf && (bArr2 = this.buf) == null) {
+                                    throw streamClosed();
+                                }
+                                if (this.count - this.pos >= i3) {
+                                    i4 = i3;
+                                } else {
+                                    i4 = this.count - this.pos;
+                                }
+                                System.arraycopy(bArr2, this.pos, bArr, i, i4);
+                                this.pos += i4;
+                            }
+                            i3 -= i4;
+                            if (i3 == 0) {
+                                return i2;
+                            }
+                            if (inputStream.available() == 0) {
+                                return i2 - i3;
+                            }
+                            i += i4;
+                        }
+                    } else {
+                        throw streamClosed();
+                    }
+                } else {
+                    throw streamClosed();
+                }
+            }
+        } else {
+            return invokeLII.intValue;
         }
     }
 
@@ -284,7 +386,11 @@ public class RecyclableBufferedInputStream extends FilterInputStream {
                             this.pos = this.count;
                             return j3;
                         }
-                        return j2 + inputStream.skip(j - j2);
+                        long skip = inputStream.skip(j - j2);
+                        if (skip > 0) {
+                            this.markpos = -1;
+                        }
+                        return j2 + skip;
                     }
                     throw streamClosed();
                 }
@@ -292,91 +398,5 @@ public class RecyclableBufferedInputStream extends FilterInputStream {
             }
         }
         return invokeJ.longValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    @VisibleForTesting
-    public RecyclableBufferedInputStream(@NonNull InputStream inputStream, @NonNull ArrayPool arrayPool, int i) {
-        super(inputStream);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream, arrayPool, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super((InputStream) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.markpos = -1;
-        this.byteArrayPool = arrayPool;
-        this.buf = (byte[]) arrayPool.get(i, byte[].class);
-    }
-
-    @Override // java.io.FilterInputStream, java.io.InputStream
-    public synchronized int read(@NonNull byte[] bArr, int i, int i2) throws IOException {
-        InterceptResult invokeLII;
-        int i3;
-        int i4;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLII = interceptable.invokeLII(1048582, this, bArr, i, i2)) != null) {
-            return invokeLII.intValue;
-        }
-        synchronized (this) {
-            byte[] bArr2 = this.buf;
-            if (bArr2 == null) {
-                throw streamClosed();
-            }
-            if (i2 == 0) {
-                return 0;
-            }
-            InputStream inputStream = ((FilterInputStream) this).in;
-            if (inputStream != null) {
-                if (this.pos < this.count) {
-                    int i5 = this.count - this.pos >= i2 ? i2 : this.count - this.pos;
-                    System.arraycopy(bArr2, this.pos, bArr, i, i5);
-                    this.pos += i5;
-                    if (i5 == i2 || inputStream.available() == 0) {
-                        return i5;
-                    }
-                    i += i5;
-                    i3 = i2 - i5;
-                } else {
-                    i3 = i2;
-                }
-                while (true) {
-                    if (this.markpos == -1 && i3 >= bArr2.length) {
-                        i4 = inputStream.read(bArr, i, i3);
-                        if (i4 == -1) {
-                            return i3 != i2 ? i2 - i3 : -1;
-                        }
-                    } else if (fillbuf(inputStream, bArr2) == -1) {
-                        return i3 != i2 ? i2 - i3 : -1;
-                    } else {
-                        if (bArr2 != this.buf && (bArr2 = this.buf) == null) {
-                            throw streamClosed();
-                        }
-                        i4 = this.count - this.pos >= i3 ? i3 : this.count - this.pos;
-                        System.arraycopy(bArr2, this.pos, bArr, i, i4);
-                        this.pos += i4;
-                    }
-                    i3 -= i4;
-                    if (i3 == 0) {
-                        return i2;
-                    }
-                    if (inputStream.available() == 0) {
-                        return i2 - i3;
-                    }
-                    i += i4;
-                }
-            } else {
-                throw streamClosed();
-            }
-        }
     }
 }

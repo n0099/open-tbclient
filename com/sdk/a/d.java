@@ -1,6 +1,5 @@
 package com.sdk.a;
 
-import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -16,10 +15,43 @@ import java.util.concurrent.ConcurrentHashMap;
 public class d {
     public static /* synthetic */ Interceptable $ic = null;
     public static long a = 60000;
-    public static final ConcurrentHashMap<String, Boolean> b;
+    public static final ConcurrentHashMap b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final com.sdk.b.c<String, String> c;
+    public final com.sdk.b.c c;
     public int d;
+
+    public String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (str != null) {
+                return (String) this.c.a(str);
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void a(String str, String str2, long j) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Long.valueOf(j)}) == null) || str == null || str2 == null || j < 1) {
+            return;
+        }
+        this.c.a(str, str2, System.currentTimeMillis() + j);
+    }
+
+    public boolean b(String str) {
+        InterceptResult invokeL;
+        Boolean bool;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (TextUtils.isEmpty(str) || (bool = (Boolean) b.get(str.toUpperCase())) == null) {
+                return false;
+            }
+            return bool.booleanValue();
+        }
+        return invokeL.booleanValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -34,7 +66,7 @@ public class d {
                 return;
             }
         }
-        ConcurrentHashMap<String, Boolean> concurrentHashMap = new ConcurrentHashMap<>(10);
+        ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap(10);
         b = concurrentHashMap;
         concurrentHashMap.put(g.a.a.l, Boolean.TRUE);
         new ConcurrentHashMap(10);
@@ -57,39 +89,5 @@ public class d {
         this.d = 102400;
         a = 60000L;
         this.c = new c(this, 102400);
-    }
-
-    public String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (str != null) {
-                return this.c.a((com.sdk.b.c<String, String>) str);
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void a(String str, String str2, long j) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Long.valueOf(j)}) == null) || str == null || str2 == null || j < 1) {
-            return;
-        }
-        this.c.a(str, str2, System.currentTimeMillis() + j);
-    }
-
-    @SuppressLint({"DefaultLocale"})
-    public boolean b(String str) {
-        InterceptResult invokeL;
-        Boolean bool;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (TextUtils.isEmpty(str) || (bool = b.get(str.toUpperCase())) == null) {
-                return false;
-            }
-            return bool.booleanValue();
-        }
-        return invokeL.booleanValue;
     }
 }

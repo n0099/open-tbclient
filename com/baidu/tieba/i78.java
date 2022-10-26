@@ -1,78 +1,167 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.av4;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.SmartApp;
 /* loaded from: classes4.dex */
-public class i78 extends qn<t88, CardViewHolder<v98>> {
+public class i78 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public View.OnClickListener b;
+    public Context b;
+    public yu4 c;
+    public av4 d;
+    public List e;
+    public wu4 f;
+    public b g;
+    public SmartApp h;
+    public av4.d i;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i78(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    /* loaded from: classes4.dex */
+    public interface b {
+        void a(String str);
+    }
+
+    /* loaded from: classes4.dex */
+    public class a implements av4.d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ i78 a;
+
+        public a(i78 i78Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {i78Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = i78Var;
+        }
+
+        @Override // com.baidu.tieba.av4.d
+        public void onClick() {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.h == null) {
+                return;
+            }
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SMART_APP_DEL_BROWSE_HISTORY);
+            httpMessage.addParam("swan_app_key", this.a.h.id);
+            MessageManager.getInstance().sendMessage(httpMessage);
+            if (this.a.g != null) {
+                this.a.g.a(this.a.h.id);
+            }
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SMART_APP_HISTORY_DELETE_CLICK);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+            statisticItem.param("obj_id", this.a.h.swan_app_id.longValue());
+            statisticItem.param("obj_name", this.a.h.name);
+            TiebaStatic.log(statisticItem);
+            if (this.a.c != null) {
+                this.a.c.dismiss();
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947806527, "Lcom/baidu/tieba/i78;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947806527, "Lcom/baidu/tieba/i78;");
+                return;
+            }
+        }
+        MessageManager.getInstance().registerTask(new TbHttpMessageTask(CmdConfigHttp.CMD_SMART_APP_DEL_BROWSE_HISTORY, TbConfig.SERVER_ADDRESS + TbConfig.URL_SMART_APP_DEL_BROWSE_HISTORY));
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.c != null) {
+            return;
+        }
+        wu4 wu4Var = new wu4(this.b.getString(R.string.obfuscated_res_0x7f0f04b8), this.d);
+        this.f = wu4Var;
+        wu4Var.m(this.i);
+        this.e.add(this.f);
+        this.d.j(this.e);
+        this.c = new yu4(this.a, this.d);
+    }
+
+    public i78(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.i = new a(this);
         this.a = tbPageContext;
+        Activity pageActivity = tbPageContext.getPageActivity();
+        this.b = pageActivity;
+        this.d = new av4(pageActivity);
+        this.e = new ArrayList();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: s */
-    public CardViewHolder<v98> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public void d(SmartApp smartApp) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new CardViewHolder<>(new v98(this.a)) : (CardViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, t88 t88Var, CardViewHolder<v98> cardViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, t88Var, cardViewHolder})) == null) {
-            if (cardViewHolder == null || cardViewHolder.a() == null || t88Var == null) {
-                return null;
-            }
-            cardViewHolder.a().i(t88Var);
-            if (cardViewHolder.a().h() != null) {
-                cardViewHolder.a().h().setOnClickListener(this.b);
-            }
-            return cardViewHolder.a().h();
+        if (interceptable == null || interceptable.invokeL(1048576, this, smartApp) == null) {
+            this.h = smartApp;
         }
-        return (View) invokeCommon.objValue;
     }
 
-    public void u(View.OnClickListener onClickListener) {
+    public void f(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.b = onClickListener;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.g = bVar;
         }
+    }
+
+    public void g() {
+        yu4 yu4Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (yu4Var = this.c) == null) {
+            return;
+        }
+        yu4Var.k();
     }
 }

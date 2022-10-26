@@ -30,12 +30,18 @@ public class OkHttpImagePipelineConfigFactory {
     public static ImagePipelineConfig.Builder newBuilder(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? ImagePipelineConfig.newBuilder(context).setNetworkFetcher(new OkHttpNetworkFetcher(context)) : (ImagePipelineConfig.Builder) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            return ImagePipelineConfig.newBuilder(context).setNetworkFetcher(new OkHttpNetworkFetcher(context));
+        }
+        return (ImagePipelineConfig.Builder) invokeL.objValue;
     }
 
     public static ImagePipelineConfig.Builder newBuilder(Context context, OkHttpClient okHttpClient) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, okHttpClient)) == null) ? ImagePipelineConfig.newBuilder(context).setNetworkFetcher(new OkHttpNetworkFetcher(okHttpClient)) : (ImagePipelineConfig.Builder) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, okHttpClient)) == null) {
+            return ImagePipelineConfig.newBuilder(context).setNetworkFetcher(new OkHttpNetworkFetcher(okHttpClient));
+        }
+        return (ImagePipelineConfig.Builder) invokeLL.objValue;
     }
 }

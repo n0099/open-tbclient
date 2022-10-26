@@ -16,6 +16,13 @@ public class p0 implements TextWatcher {
     public int a;
     public final /* synthetic */ FeedbackEditActivity b;
 
+    @Override // android.text.TextWatcher
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i, i2, i3) == null) {
+        }
+    }
+
     public p0(FeedbackEditActivity feedbackEditActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -71,13 +78,6 @@ public class p0 implements TextWatcher {
             } else {
                 this.a = 1;
             }
-        }
-    }
-
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i, i2, i3) == null) {
         }
     }
 }

@@ -43,16 +43,6 @@ public class DigestScheme extends RFC2617Scheme {
     }
 
     @Override // org.apache.http.auth.AuthScheme
-    public Header authenticate(Credentials credentials, HttpRequest httpRequest) throws AuthenticationException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, credentials, httpRequest)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (Header) invokeLL.objValue;
-    }
-
-    @Override // org.apache.http.auth.AuthScheme
     public String getSchemeName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -80,6 +70,16 @@ public class DigestScheme extends RFC2617Scheme {
             throw new RuntimeException("Stub!");
         }
         return invokeV.booleanValue;
+    }
+
+    @Override // org.apache.http.auth.AuthScheme
+    public Header authenticate(Credentials credentials, HttpRequest httpRequest) throws AuthenticationException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, credentials, httpRequest)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (Header) invokeLL.objValue;
     }
 
     public void overrideParamter(String str, String str2) {

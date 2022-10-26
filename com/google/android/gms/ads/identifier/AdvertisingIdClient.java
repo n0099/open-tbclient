@@ -6,8 +6,6 @@ import android.content.pm.PackageManager;
 import android.os.RemoteException;
 import android.os.SystemClock;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,52 +18,42 @@ import com.google.android.gms.common.GoogleApiAvailabilityLight;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
 import com.google.android.gms.common.GooglePlayServicesUtilLight;
-import com.google.android.gms.common.annotation.KeepForSdk;
-import com.google.android.gms.common.annotation.KeepForSdkWithMembers;
 import com.google.android.gms.common.internal.Preconditions;
-import com.google.android.gms.common.internal.ShowFirstParty;
 import com.google.android.gms.common.stats.ConnectionTracker;
-import com.google.android.gms.common.util.VisibleForTesting;
 import com.google.android.gms.internal.ads_identifier.zze;
 import com.google.android.gms.internal.ads_identifier.zzf;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.ParametersAreNonnullByDefault;
-import javax.annotation.concurrent.GuardedBy;
-@KeepForSdk
 @ParametersAreNonnullByDefault
 /* loaded from: classes7.dex */
 public class AdvertisingIdClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    @GuardedBy("this")
     public BlockingServiceConnection zza;
-    @Nullable
-    @GuardedBy("this")
     public zzf zzb;
-    @GuardedBy("this")
     public boolean zzc;
     public final Object zzd;
-    @Nullable
-    @GuardedBy("mAutoDisconnectTaskLock")
     public zzb zze;
     public final long zzf;
-    @GuardedBy("this")
     public final Context zzg;
 
-    @KeepForSdkWithMembers
+    public static void setShouldSkipGmsCoreVersionCheck(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, null, z) == null) {
+        }
+    }
+
     /* loaded from: classes7.dex */
-    public static final class Info {
+    public final class Info {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        @Nullable
         public final String zza;
         public final boolean zzb;
 
         @Deprecated
-        public Info(@Nullable String str, boolean z) {
+        public Info(String str, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -84,7 +72,6 @@ public class AdvertisingIdClient {
             this.zzb = z;
         }
 
-        @Nullable
         public String getId() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -97,7 +84,6 @@ public class AdvertisingIdClient {
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.zzb : invokeV.booleanValue;
         }
 
-        @NonNull
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -116,8 +102,7 @@ public class AdvertisingIdClient {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    @KeepForSdk
-    public AdvertisingIdClient(@NonNull Context context) {
+    public AdvertisingIdClient(Context context) {
         this(context, 30000L, false, false);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -138,27 +123,51 @@ public class AdvertisingIdClient {
     }
 
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    @NonNull
-    @KeepForSdk
-    public static Info getAdvertisingIdInfo(@NonNull Context context) throws IOException, IllegalStateException, GooglePlayServicesNotAvailableException, GooglePlayServicesRepairableException {
+    public static Info getAdvertisingIdInfo(Context context) throws IOException, IllegalStateException, GooglePlayServicesNotAvailableException, GooglePlayServicesRepairableException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65538, null, context)) != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            AdvertisingIdClient advertisingIdClient = new AdvertisingIdClient(context, -1L, true, false);
+            try {
+                long elapsedRealtime = SystemClock.elapsedRealtime();
+                advertisingIdClient.zzb(false);
+                Info zzd = advertisingIdClient.zzd(-1);
+                advertisingIdClient.zzc(zzd, true, 0.0f, SystemClock.elapsedRealtime() - elapsedRealtime, "", null);
+                return zzd;
+            } finally {
+            }
+        } else {
             return (Info) invokeL.objValue;
-        }
-        AdvertisingIdClient advertisingIdClient = new AdvertisingIdClient(context, -1L, true, false);
-        try {
-            long elapsedRealtime = SystemClock.elapsedRealtime();
-            advertisingIdClient.zzb(false);
-            Info zzd = advertisingIdClient.zzd(-1);
-            advertisingIdClient.zzc(zzd, true, 0.0f, SystemClock.elapsedRealtime() - elapsedRealtime, "", null);
-            return zzd;
-        } finally {
         }
     }
 
-    @KeepForSdk
-    public static boolean getIsAdIdFakeForDebugLogging(@NonNull Context context) throws IOException, GooglePlayServicesNotAvailableException, GooglePlayServicesRepairableException {
+    public AdvertisingIdClient(Context context, long j, boolean z, boolean z2) {
+        Context applicationContext;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.zzd = new Object();
+        Preconditions.checkNotNull(context);
+        if (z && (applicationContext = context.getApplicationContext()) != null) {
+            context = applicationContext;
+        }
+        this.zzg = context;
+        this.zzc = false;
+        this.zzf = j;
+    }
+
+    public static boolean getIsAdIdFakeForDebugLogging(Context context) throws IOException, GooglePlayServicesNotAvailableException, GooglePlayServicesRepairableException {
         InterceptResult invokeL;
         boolean zzd;
         Interceptable interceptable = $ic;
@@ -200,14 +209,6 @@ public class AdvertisingIdClient {
             }
         }
         return invokeL.booleanValue;
-    }
-
-    @ShowFirstParty
-    @KeepForSdk
-    public static void setShouldSkipGmsCoreVersionCheck(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, null, z) == null) {
-        }
     }
 
     private final Info zzd(int i) throws IOException {
@@ -268,6 +269,23 @@ public class AdvertisingIdClient {
         }
     }
 
+    public final void zza() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            Preconditions.checkNotMainThread("Calling this from your main thread can lead to deadlock");
+            synchronized (this) {
+                if (this.zzg != null && this.zza != null) {
+                    if (this.zzc) {
+                        ConnectionTracker.getInstance().unbindService(this.zzg, this.zza);
+                    }
+                    this.zzc = false;
+                    this.zzb = null;
+                    this.zza = null;
+                }
+            }
+        }
+    }
+
     public final void finalize() throws Throwable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -276,15 +294,15 @@ public class AdvertisingIdClient {
         }
     }
 
-    @NonNull
-    @KeepForSdk
     public Info getInfo() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? zzd(-1) : (Info) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return zzd(-1);
+        }
+        return (Info) invokeV.objValue;
     }
 
-    @KeepForSdk
     public void start() throws IOException, IllegalStateException, GooglePlayServicesNotAvailableException, GooglePlayServicesRepairableException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -292,25 +310,6 @@ public class AdvertisingIdClient {
         }
     }
 
-    public final void zza() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            Preconditions.checkNotMainThread("Calling this from your main thread can lead to deadlock");
-            synchronized (this) {
-                if (this.zzg == null || this.zza == null) {
-                    return;
-                }
-                if (this.zzc) {
-                    ConnectionTracker.getInstance().unbindService(this.zzg, this.zza);
-                }
-                this.zzc = false;
-                this.zzb = null;
-                this.zza = null;
-            }
-        }
-    }
-
-    @VisibleForTesting
     public final void zzb(boolean z) throws IOException, IllegalStateException, GooglePlayServicesNotAvailableException, GooglePlayServicesRepairableException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
@@ -350,16 +349,19 @@ public class AdvertisingIdClient {
         }
     }
 
-    @VisibleForTesting
-    public final boolean zzc(@Nullable Info info, boolean z, float f, long j, String str, @Nullable Throwable th) {
+    public final boolean zzc(Info info, boolean z, float f, long j, String str, Throwable th) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{info, Boolean.valueOf(z), Float.valueOf(f), Long.valueOf(j), str, th})) == null) {
             if (Math.random() <= 0.0d) {
                 HashMap hashMap = new HashMap();
+                String str2 = "1";
                 hashMap.put("app_context", "1");
                 if (info != null) {
-                    hashMap.put("limit_ad_tracking", true != info.isLimitAdTrackingEnabled() ? "0" : "1");
+                    if (true != info.isLimitAdTrackingEnabled()) {
+                        str2 = "0";
+                    }
+                    hashMap.put("limit_ad_tracking", str2);
                     String id = info.getId();
                     if (id != null) {
                         hashMap.put("ad_id_size", Integer.toString(id.length()));
@@ -376,32 +378,5 @@ public class AdvertisingIdClient {
             return false;
         }
         return invokeCommon.booleanValue;
-    }
-
-    @VisibleForTesting
-    public AdvertisingIdClient(@NonNull Context context, long j, boolean z, boolean z2) {
-        Context applicationContext;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.zzd = new Object();
-        Preconditions.checkNotNull(context);
-        if (z && (applicationContext = context.getApplicationContext()) != null) {
-            context = applicationContext;
-        }
-        this.zzg = context;
-        this.zzc = false;
-        this.zzf = j;
     }
 }

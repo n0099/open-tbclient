@@ -7,12 +7,11 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nu4;
+import com.baidu.tieba.pu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -24,7 +23,7 @@ public class NoTipAgainView extends LinearLayout implements View.OnClickListener
     public TextView a;
     public ImageView b;
     public boolean c;
-    public nu4.f d;
+    public pu4.f d;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public NoTipAgainView(Context context) {
@@ -47,62 +46,8 @@ public class NoTipAgainView extends LinearLayout implements View.OnClickListener
         }
     }
 
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d08ee, this);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0916e6);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f090611);
-            b();
-            this.b.setOnClickListener(this);
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c();
-            SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0107);
-        }
-    }
-
-    public final void c() {
-        ImageView imageView;
-        Drawable maskDrawable;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (imageView = this.b) == null) {
-            return;
-        }
-        if (this.c) {
-            maskDrawable = SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f0805f8, R.color.CAM_X0304, null);
-        } else {
-            maskDrawable = SvgManager.getInstance().getMaskDrawable(R.drawable.obfuscated_res_0x7f0805f7, null);
-        }
-        imageView.setImageDrawable(maskDrawable);
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && view2 == this.b) {
-            this.c = !this.c;
-            c();
-            nu4.f fVar = this.d;
-            if (fVar != null) {
-                fVar.a();
-            }
-        }
-    }
-
-    public void setOnNoTipAgainCheckListener(nu4.f fVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, fVar) == null) {
-            this.d = fVar;
-        }
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public NoTipAgainView(Context context, @Nullable AttributeSet attributeSet) {
+    public NoTipAgainView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -123,7 +68,7 @@ public class NoTipAgainView extends LinearLayout implements View.OnClickListener
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NoTipAgainView(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public NoTipAgainView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -143,5 +88,59 @@ public class NoTipAgainView extends LinearLayout implements View.OnClickListener
         }
         this.c = false;
         a();
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d08ef, this);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0916d8);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f09061a);
+            b();
+            this.b.setOnClickListener(this);
+        }
+    }
+
+    public final void c() {
+        ImageView imageView;
+        Drawable maskDrawable;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || (imageView = this.b) == null) {
+            return;
+        }
+        if (this.c) {
+            maskDrawable = SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f0805f9, R.color.CAM_X0304, null);
+        } else {
+            maskDrawable = SvgManager.getInstance().getMaskDrawable(R.drawable.obfuscated_res_0x7f0805f8, null);
+        }
+        imageView.setImageDrawable(maskDrawable);
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            c();
+            SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0107);
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && view2 == this.b) {
+            this.c = !this.c;
+            c();
+            pu4.f fVar = this.d;
+            if (fVar != null) {
+                fVar.a();
+            }
+        }
+    }
+
+    public void setOnNoTipAgainCheckListener(pu4.f fVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, fVar) == null) {
+            this.d = fVar;
+        }
     }
 }

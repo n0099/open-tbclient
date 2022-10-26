@@ -1,8 +1,7 @@
 package com.baidu.tieba.homepage.tabfeed.message;
 
-import androidx.annotation.Nullable;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
-import com.baidu.tieba.n47;
+import com.baidu.tieba.v47;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +14,7 @@ import tbclient.Error;
 public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public n47 tabFeedData;
+    public v47 tabFeedData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TabFeedListSocketResponsedMessage() {
@@ -36,7 +35,6 @@ public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage {
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         String str;
@@ -52,12 +50,15 @@ public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage {
             if (error2 != null && (str = error2.usermsg) != null && str.length() > 0) {
                 setErrorString(activityPageResIdl.error.usermsg);
             }
-            if (getError() == 0 && activityPageResIdl.data != null) {
-                n47 n47Var = new n47();
-                this.tabFeedData = n47Var;
-                n47Var.j(activityPageResIdl.data);
+            if (getError() != 0) {
                 return activityPageResIdl;
             }
+            if (activityPageResIdl.data == null) {
+                return activityPageResIdl;
+            }
+            v47 v47Var = new v47();
+            this.tabFeedData = v47Var;
+            v47Var.j(activityPageResIdl.data);
             return activityPageResIdl;
         }
         return invokeIL.objValue;

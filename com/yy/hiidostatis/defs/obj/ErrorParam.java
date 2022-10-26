@@ -27,9 +27,16 @@ public class ErrorParam extends ParamableElem {
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.yy.hiidostatis.defs.obj.ParamableElem
-    public /* bridge */ /* synthetic */ ParamableElem addParams(List list) {
-        return addParams((List<String>) list);
+    public ErrorParam clearParams() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            super.clearParams();
+            return this;
+        }
+        return (ErrorParam) invokeV.objValue;
     }
 
     public String toString() {
@@ -53,8 +60,9 @@ public class ErrorParam extends ParamableElem {
         return (ErrorParam) invokeL.objValue;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.yy.hiidostatis.defs.obj.ParamableElem
-    public ErrorParam addParams(List<String> list) {
+    public ErrorParam addParams(List list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {
@@ -62,17 +70,5 @@ public class ErrorParam extends ParamableElem {
             return this;
         }
         return (ErrorParam) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.yy.hiidostatis.defs.obj.ParamableElem
-    public ErrorParam clearParams() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            super.clearParams();
-            return this;
-        }
-        return (ErrorParam) invokeV.objValue;
     }
 }

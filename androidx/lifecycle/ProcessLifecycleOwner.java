@@ -6,9 +6,6 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.VisibleForTesting;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.ReportFragment;
 import com.baidu.android.imsdk.internal.Constants;
@@ -22,7 +19,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class ProcessLifecycleOwner implements LifecycleOwner {
     public static /* synthetic */ Interceptable $ic = null;
-    @VisibleForTesting
     public static final long TIMEOUT_MS = 700;
     public static final ProcessLifecycleOwner sInstance;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,6 +45,88 @@ public class ProcessLifecycleOwner implements LifecycleOwner {
             }
         }
         sInstance = new ProcessLifecycleOwner();
+    }
+
+    public static LifecycleOwner get() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return sInstance;
+        }
+        return (LifecycleOwner) invokeV.objValue;
+    }
+
+    public void activityPaused() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            int i = this.mResumedCounter - 1;
+            this.mResumedCounter = i;
+            if (i == 0) {
+                this.mHandler.postDelayed(this.mDelayedPauseRunnable, 700L);
+            }
+        }
+    }
+
+    public void activityResumed() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            int i = this.mResumedCounter + 1;
+            this.mResumedCounter = i;
+            if (i == 1) {
+                if (this.mPauseSent) {
+                    this.mRegistry.handleLifecycleEvent(Lifecycle.Event.ON_RESUME);
+                    this.mPauseSent = false;
+                    return;
+                }
+                this.mHandler.removeCallbacks(this.mDelayedPauseRunnable);
+            }
+        }
+    }
+
+    public void activityStarted() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            int i = this.mStartedCounter + 1;
+            this.mStartedCounter = i;
+            if (i == 1 && this.mStopSent) {
+                this.mRegistry.handleLifecycleEvent(Lifecycle.Event.ON_START);
+                this.mStopSent = false;
+            }
+        }
+    }
+
+    public void activityStopped() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.mStartedCounter--;
+            dispatchStopIfNeeded();
+        }
+    }
+
+    public void dispatchPauseIfNeeded() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.mResumedCounter == 0) {
+            this.mPauseSent = true;
+            this.mRegistry.handleLifecycleEvent(Lifecycle.Event.ON_PAUSE);
+        }
+    }
+
+    public void dispatchStopIfNeeded() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.mStartedCounter == 0 && this.mPauseSent) {
+            this.mRegistry.handleLifecycleEvent(Lifecycle.Event.ON_STOP);
+            this.mStopSent = true;
+        }
+    }
+
+    @Override // androidx.lifecycle.LifecycleOwner
+    public Lifecycle getLifecycle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mRegistry;
+        }
+        return (Lifecycle) invokeV.objValue;
     }
 
     public ProcessLifecycleOwner() {
@@ -106,6 +184,13 @@ public class ProcessLifecycleOwner implements LifecycleOwner {
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ProcessLifecycleOwner this$0;
 
+            @Override // androidx.lifecycle.ReportFragment.ActivityInitializationListener
+            public void onCreate() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                }
+            }
+
             {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 != null) {
@@ -122,13 +207,6 @@ public class ProcessLifecycleOwner implements LifecycleOwner {
                     }
                 }
                 this.this$0 = this;
-            }
-
-            @Override // androidx.lifecycle.ReportFragment.ActivityInitializationListener
-            public void onCreate() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                }
             }
 
             @Override // androidx.lifecycle.ReportFragment.ActivityInitializationListener
@@ -149,64 +227,10 @@ public class ProcessLifecycleOwner implements LifecycleOwner {
         };
     }
 
-    @NonNull
-    public static LifecycleOwner get() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? sInstance : (LifecycleOwner) invokeV.objValue;
-    }
-
     public static void init(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
             sInstance.attach(context);
-        }
-    }
-
-    public void activityPaused() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            int i = this.mResumedCounter - 1;
-            this.mResumedCounter = i;
-            if (i == 0) {
-                this.mHandler.postDelayed(this.mDelayedPauseRunnable, 700L);
-            }
-        }
-    }
-
-    public void activityResumed() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            int i = this.mResumedCounter + 1;
-            this.mResumedCounter = i;
-            if (i == 1) {
-                if (this.mPauseSent) {
-                    this.mRegistry.handleLifecycleEvent(Lifecycle.Event.ON_RESUME);
-                    this.mPauseSent = false;
-                    return;
-                }
-                this.mHandler.removeCallbacks(this.mDelayedPauseRunnable);
-            }
-        }
-    }
-
-    public void activityStarted() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            int i = this.mStartedCounter + 1;
-            this.mStartedCounter = i;
-            if (i == 1 && this.mStopSent) {
-                this.mRegistry.handleLifecycleEvent(Lifecycle.Event.ON_START);
-                this.mStopSent = false;
-            }
-        }
-    }
-
-    public void activityStopped() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.mStartedCounter--;
-            dispatchStopIfNeeded();
         }
     }
 
@@ -239,15 +263,6 @@ public class ProcessLifecycleOwner implements LifecycleOwner {
                 }
 
                 @Override // androidx.lifecycle.EmptyActivityLifecycleCallbacks, android.app.Application.ActivityLifecycleCallbacks
-                public void onActivityCreated(Activity activity, Bundle bundle) {
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeLL(1048576, this, activity, bundle) == null) || Build.VERSION.SDK_INT >= 29) {
-                        return;
-                    }
-                    ReportFragment.get(activity).setProcessListener(this.this$0.mInitializationListener);
-                }
-
-                @Override // androidx.lifecycle.EmptyActivityLifecycleCallbacks, android.app.Application.ActivityLifecycleCallbacks
                 public void onActivityPaused(Activity activity) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
@@ -255,8 +270,24 @@ public class ProcessLifecycleOwner implements LifecycleOwner {
                     }
                 }
 
+                @Override // androidx.lifecycle.EmptyActivityLifecycleCallbacks, android.app.Application.ActivityLifecycleCallbacks
+                public void onActivityStopped(Activity activity) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048579, this, activity) == null) {
+                        this.this$0.activityStopped();
+                    }
+                }
+
+                @Override // androidx.lifecycle.EmptyActivityLifecycleCallbacks, android.app.Application.ActivityLifecycleCallbacks
+                public void onActivityCreated(Activity activity, Bundle bundle) {
+                    Interceptable interceptable2 = $ic;
+                    if ((interceptable2 == null || interceptable2.invokeLL(1048576, this, activity, bundle) == null) && Build.VERSION.SDK_INT < 29) {
+                        ReportFragment.get(activity).setProcessListener(this.this$0.mInitializationListener);
+                    }
+                }
+
                 @Override // android.app.Application.ActivityLifecycleCallbacks
-                public void onActivityPreCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
+                public void onActivityPreCreated(Activity activity, Bundle bundle) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, activity, bundle) == null) {
                         activity.registerActivityLifecycleCallbacks(new EmptyActivityLifecycleCallbacks(this) { // from class: androidx.lifecycle.ProcessLifecycleOwner.3.1
@@ -283,7 +314,7 @@ public class ProcessLifecycleOwner implements LifecycleOwner {
                             }
 
                             @Override // android.app.Application.ActivityLifecycleCallbacks
-                            public void onActivityPostResumed(@NonNull Activity activity2) {
+                            public void onActivityPostResumed(Activity activity2) {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeL(1048576, this, activity2) == null) {
                                     this.this$1.this$0.activityResumed();
@@ -291,7 +322,7 @@ public class ProcessLifecycleOwner implements LifecycleOwner {
                             }
 
                             @Override // android.app.Application.ActivityLifecycleCallbacks
-                            public void onActivityPostStarted(@NonNull Activity activity2) {
+                            public void onActivityPostStarted(Activity activity2) {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity2) == null) {
                                     this.this$1.this$0.activityStarted();
@@ -300,39 +331,7 @@ public class ProcessLifecycleOwner implements LifecycleOwner {
                         });
                     }
                 }
-
-                @Override // androidx.lifecycle.EmptyActivityLifecycleCallbacks, android.app.Application.ActivityLifecycleCallbacks
-                public void onActivityStopped(Activity activity) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048579, this, activity) == null) {
-                        this.this$0.activityStopped();
-                    }
-                }
             });
         }
-    }
-
-    public void dispatchPauseIfNeeded() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.mResumedCounter == 0) {
-            this.mPauseSent = true;
-            this.mRegistry.handleLifecycleEvent(Lifecycle.Event.ON_PAUSE);
-        }
-    }
-
-    public void dispatchStopIfNeeded() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.mStartedCounter == 0 && this.mPauseSent) {
-            this.mRegistry.handleLifecycleEvent(Lifecycle.Event.ON_STOP);
-            this.mStopSent = true;
-        }
-    }
-
-    @Override // androidx.lifecycle.LifecycleOwner
-    @NonNull
-    public Lifecycle getLifecycle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mRegistry : (Lifecycle) invokeV.objValue;
     }
 }

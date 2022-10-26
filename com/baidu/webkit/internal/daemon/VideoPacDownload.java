@@ -35,7 +35,7 @@ public class VideoPacDownload implements IResourceTask, INetListener {
     public static String sPacUrl;
     public transient /* synthetic */ FieldHolder $fh;
     public ByteArrayOutputStream mData;
-    public Map<String, String> mHeader;
+    public Map mHeader;
 
     static {
         InterceptResult invokeClinit;
@@ -243,9 +243,9 @@ public class VideoPacDownload implements IResourceTask, INetListener {
         if (interceptable == null || interceptable.invokeLL(1048589, this, bdNet, bdNetTask) == null) {
             mDownloading = false;
             if (this.mData != null) {
-                Map<String, String> map = this.mHeader;
+                Map map = this.mHeader;
                 if (map != null) {
-                    String str2 = map.get(Headers.LAST_MODIFIED);
+                    String str2 = (String) map.get(Headers.LAST_MODIFIED);
                     Log.w(LOG_TAG, "lastModify ".concat(String.valueOf(str2)));
                     if (str2 != null) {
                         Log.w(LOG_TAG, "lastModify1 ".concat(String.valueOf(str2)));

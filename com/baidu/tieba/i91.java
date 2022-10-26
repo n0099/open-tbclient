@@ -1,36 +1,34 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.content.res.AssetManager;
-import android.content.res.Resources;
+import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.nps.pm.BundleInfo;
-import com.baidu.nps.runtime.InitException;
-import com.baidu.nps.runtime.resources.ResourcesHookUtil;
 import com.baidu.nps.utils.Constant;
-import com.baidu.nps.utils.ContextHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.Array;
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes4.dex */
 public class i91 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile i91 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public BundleInfo a;
-    public j91 b;
-    public k91 c;
+    public Map a;
 
-    public i91(BundleInfo bundleInfo) {
+    public i91() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bundleInfo};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,165 +38,129 @@ public class i91 {
                 return;
             }
         }
-        this.c = null;
-        if (a(bundleInfo)) {
-            this.a = bundleInfo;
-            return;
-        }
-        d91.j().s(bundleInfo);
-        throw new InitException(22, "bad param bundleInfo:" + bundleInfo.toString());
+        this.a = new HashMap();
     }
 
-    public static i91 b(BundleInfo bundleInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bundleInfo)) == null) {
-            i91 i91Var = new i91(bundleInfo);
-            i91Var.d();
-            return i91Var;
-        }
-        return (i91) invokeL.objValue;
-    }
-
-    public final boolean a(BundleInfo bundleInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundleInfo)) == null) {
-            if (bundleInfo == null || TextUtils.isEmpty(bundleInfo.getPackageName())) {
-                return false;
-            }
-            Application applicationContext = ContextHolder.getApplicationContext();
-            StringBuilder sb = new StringBuilder();
-            sb.append(bundleInfo.getPackageName());
-            sb.append(Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
-            return r91.d(applicationContext, sb.toString()).exists();
-        }
-        return invokeL.booleanValue;
-    }
-
-    public ClassLoader c() {
+    public static i91 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (ClassLoader) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (b == null) {
+                synchronized (i91.class) {
+                    if (b == null) {
+                        b = new i91();
+                    }
+                }
+            }
+            return b;
+        }
+        return (i91) invokeV.objValue;
     }
 
-    public final void d() {
+    public static Object[] a(Class cls, Object[] objArr, Object[] objArr2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (e()) {
-                if (Build.VERSION.SDK_INT < 21) {
-                    if (!g()) {
-                        throw new InitException(20, "resources init error");
-                    }
-                    return;
-                } else if (!f()) {
-                    throw new InitException(20, "resources init error");
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, cls, objArr, objArr2)) == null) {
+            Object[] objArr3 = (Object[]) Array.newInstance(cls, objArr.length + objArr2.length);
+            System.arraycopy(objArr, 0, objArr3, 0, objArr.length);
+            System.arraycopy(objArr2, 0, objArr3, objArr.length, objArr2.length);
+            return objArr3;
+        }
+        return (Object[]) invokeLLL.objValue;
+    }
+
+    public static void e(Field field, Object obj, Object obj2) throws IllegalAccessException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, field, obj, obj2) == null) {
+            field.set(obj, c((Object[]) field.get(obj), (Object[]) field.get(obj2)));
+        }
+    }
+
+    public static Object[] c(Object[] objArr, Object[] objArr2) throws IllegalArgumentException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, objArr, objArr2)) == null) {
+            ArrayList arrayList = new ArrayList(Arrays.asList(objArr));
+            for (Object obj : objArr2) {
+                if (!arrayList.contains(obj)) {
+                    arrayList.add(obj);
+                }
+            }
+            Object[] objArr3 = (Object[]) Array.newInstance(objArr.getClass().getComponentType(), arrayList.size());
+            for (int i = 0; i < objArr3.length; i++) {
+                objArr3[i] = arrayList.get(i);
+            }
+            return objArr3;
+        }
+        return (Object[]) invokeLL.objValue;
+    }
+
+    public static void f(Field field, Object obj, Object obj2) throws IllegalAccessException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65541, null, field, obj, obj2) == null) {
+            List list = (List) field.get(obj);
+            list.addAll((List) field.get(obj2));
+            field.set(obj, list);
+            Field b2 = x91.b(obj.getClass(), "nativeLibraryPathElements");
+            b2.set(obj, c((Object[]) b2.get(obj), (Object[]) b2.get(obj2)));
+        }
+    }
+
+    public static ClassLoader g(k91 k91Var, k91 k91Var2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, k91Var, k91Var2)) == null) {
+            if (Build.VERSION.SDK_INT >= 21) {
+                h(k91Var, k91Var2);
+                return k91Var;
+            }
+            return null;
+        }
+        return (ClassLoader) invokeLL.objValue;
+    }
+
+    public static ClassLoader h(k91 k91Var, k91 k91Var2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, k91Var, k91Var2)) == null) {
+            Field b2 = x91.b(k91.class, "pathList");
+            try {
+                Object obj = b2.get(k91Var);
+                Field b3 = x91.b(obj.getClass(), "dexElements");
+                Field b4 = x91.b(obj.getClass(), "nativeLibraryDirectories");
+                Object[] objArr = (Object[]) b3.get(obj);
+                Object obj2 = b2.get(k91Var2);
+                b3.set(obj, a(objArr.getClass().getComponentType(), objArr, (Object[]) b3.get(obj2)));
+                if (Build.VERSION.SDK_INT >= 23) {
+                    f(b4, obj, obj2);
                 } else {
-                    return;
+                    e(b4, obj, obj2);
                 }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            throw new InitException(16, "class loader init error");
+            return k91Var;
         }
+        return (ClassLoader) invokeLL.objValue;
     }
 
-    public final boolean e() {
-        InterceptResult invokeV;
+    public k91 b(BundleInfo bundleInfo, Context context) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            this.b = h91.d().b(this.a, ContextHolder.getApplicationContext());
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final synchronized boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            synchronized (this) {
-                try {
-                    Application applicationContext = ContextHolder.getApplicationContext();
-                    Resources a = s81.c().a();
-                    Resources b = s81.c().b();
-                    Resources[] d = s81.c().d();
-                    m91.a().b(applicationContext);
-                    String absolutePath = r91.d(applicationContext, this.a.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath();
-                    ResourcesHookUtil.hookResources(a, absolutePath, this.a.getGroupName());
-                    ResourcesHookUtil.hookResources(b, absolutePath, this.a.getGroupName());
-                    if (d != null) {
-                        for (Resources resources : d) {
-                            ResourcesHookUtil.hookResources(resources, absolutePath, this.a.getGroupName());
-                        }
-                    }
-                } catch (Exception unused) {
-                    return false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bundleInfo, context)) == null) {
+            boolean z = !TextUtils.isEmpty(bundleInfo.getGroupName());
+            k91 k91Var = new k91(s91.d(context, bundleInfo.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath(), s91.f(context, bundleInfo.getPackageName()).getAbsolutePath(), s91.e(context, bundleInfo.getPackageName()).getAbsolutePath(), context);
+            if (z && Build.VERSION.SDK_INT >= 21) {
+                k91 k91Var2 = (k91) this.a.get(bundleInfo.getGroupName());
+                if (k91Var2 == null) {
+                    this.a.put(bundleInfo.getGroupName(), k91Var);
+                    return k91Var;
                 }
+                g(k91Var2, k91Var);
+                return k91Var2;
             }
-            return true;
+            return k91Var;
         }
-        return invokeV.booleanValue;
-    }
-
-    public final synchronized boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            synchronized (this) {
-                Application applicationContext = ContextHolder.getApplicationContext();
-                String absolutePath = r91.d(applicationContext, this.a.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath();
-                String str = applicationContext.getApplicationInfo().sourceDir;
-                try {
-                    AssetManager assetManager = (AssetManager) AssetManager.class.newInstance();
-                    ResourcesHookUtil.hookAssets(assetManager, absolutePath, this.a.getGroupName());
-                    ResourcesHookUtil.hookAssets(assetManager, str, this.a.getGroupName());
-                    Resources a = s81.c().a();
-                    this.c = new k91(assetManager, a.getDisplayMetrics(), a.getConfiguration(), a);
-                } catch (Exception e) {
-                    if (q91.a()) {
-                        Log.e("Runtime", "resource", e);
-                        return false;
-                    }
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public synchronized Resources getResources(Resources resources) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, resources)) == null) {
-            synchronized (this) {
-                if (Build.VERSION.SDK_INT < 21) {
-                    return this.c;
-                }
-                Application applicationContext = ContextHolder.getApplicationContext();
-                String absolutePath = r91.d(applicationContext, this.a.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath();
-                AssetManager assets = resources.getAssets();
-                if (ResourcesHookUtil.hookAssets(assets, absolutePath, this.a.getGroupName())) {
-                    if (this.c == null || this.c.getAssets().hashCode() != assets.hashCode()) {
-                        if (this.c != null) {
-                            if (Build.VERSION.SDK_INT >= 21) {
-                                ResourcesHookUtil.recoveryAssetsByGroup(assets, this.c.getAssets().hashCode(), this.a.getGroupName());
-                                this.c = new k91(assets, resources.getDisplayMetrics(), resources.getConfiguration(), resources);
-                            }
-                        } else {
-                            this.c = new k91(assets, resources.getDisplayMetrics(), resources.getConfiguration(), resources);
-                        }
-                    }
-                    return this.c;
-                }
-                throw new InitException(21, "resources hook error");
-            }
-        }
-        return (Resources) invokeL.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? super.toString() : (String) invokeV.objValue;
+        return (k91) invokeLL.objValue;
     }
 }

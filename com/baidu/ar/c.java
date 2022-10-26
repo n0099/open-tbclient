@@ -24,6 +24,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -36,10 +37,10 @@ public abstract class c implements c.a {
     public a C;
     public String L;
     public JSONObject M;
-    public HashMap<String, com.baidu.ar.d.e> N;
-    public List<k> O;
+    public HashMap N;
+    public List O;
     public boolean P;
-    public List<String> Q;
+    public List Q;
     public c.b R;
     public int S;
     public boolean T;
@@ -60,7 +61,7 @@ public abstract class c implements c.a {
     public interface a {
         boolean a(String str, com.baidu.ar.d.e eVar);
 
-        boolean a(String str, com.baidu.ar.d.e eVar, HashMap<String, Object> hashMap);
+        boolean a(String str, com.baidu.ar.d.e eVar, HashMap hashMap);
     }
 
     public c() {
@@ -188,7 +189,7 @@ public abstract class c implements c.a {
             if (gVar != null) {
                 gVar.a(kVar);
             }
-            List<k> list = this.O;
+            List list = this.O;
             if (list != null) {
                 list.remove(kVar);
             }
@@ -331,7 +332,7 @@ public abstract class c implements c.a {
             if (this.C == null || TextUtils.isEmpty(str) || eVar == null) {
                 return false;
             }
-            HashMap<String, com.baidu.ar.d.e> hashMap = this.N;
+            HashMap hashMap = this.N;
             if (hashMap != null) {
                 hashMap.remove(str);
             }
@@ -340,7 +341,7 @@ public abstract class c implements c.a {
         return invokeLL.booleanValue;
     }
 
-    public final boolean a(String str, com.baidu.ar.d.e eVar, HashMap<String, Object> hashMap) {
+    public final boolean a(String str, com.baidu.ar.d.e eVar, HashMap hashMap) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048591, this, str, eVar, hashMap)) == null) {
@@ -348,7 +349,7 @@ public abstract class c implements c.a {
                 return false;
             }
             if (this.N == null) {
-                this.N = new HashMap<>();
+                this.N = new HashMap();
             }
             this.N.put(str, eVar);
             return this.C.a(str, eVar, hashMap);
@@ -356,7 +357,7 @@ public abstract class c implements c.a {
         return invokeLLL.booleanValue;
     }
 
-    public void adjust(HashMap<String, Object> hashMap) {
+    public void adjust(HashMap hashMap) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048592, this, hashMap) == null) || hashMap == null) {
             return;
@@ -386,7 +387,7 @@ public abstract class c implements c.a {
         }
     }
 
-    public final void b(int i, HashMap<String, Object> hashMap) {
+    public final void b(int i, HashMap hashMap) {
         com.baidu.ar.lua.b bVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeIL(1048593, this, i, hashMap) == null) || (bVar = this.f) == null) {
@@ -425,13 +426,15 @@ public abstract class c implements c.a {
         }
     }
 
-    public void b(List<String> list) {
+    public void b(List list) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048597, this, list) == null) || list == null || list.size() <= 0) {
             return;
         }
-        for (String str : list) {
-            List<String> list2 = this.Q;
+        Iterator it = list.iterator();
+        while (it.hasNext()) {
+            String str = (String) it.next();
+            List list2 = this.Q;
             if (list2 != null && !list2.contains(str)) {
                 this.Q.add(str);
             }
@@ -475,7 +478,7 @@ public abstract class c implements c.a {
         }
     }
 
-    public final void d(HashMap<String, Object> hashMap) {
+    public final void d(HashMap hashMap) {
         com.baidu.ar.lua.b bVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048600, this, hashMap) == null) || (bVar = this.f) == null) {
@@ -496,14 +499,14 @@ public abstract class c implements c.a {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.L : (String) invokeV.objValue;
     }
 
-    public SparseArray<com.baidu.ar.mdl.a> getMdlConfigs() {
+    public SparseArray getMdlConfigs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
             com.baidu.ar.mdl.b bVar = this.e;
             if (bVar == null) {
                 com.baidu.ar.h.b.b("AbstractAR", "mMdlConfigParams is null.");
-                return new SparseArray<>();
+                return new SparseArray();
             }
             return bVar.fm();
         }
@@ -511,7 +514,7 @@ public abstract class c implements c.a {
     }
 
     public void i(String str) {
-        List<String> list;
+        List list;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048604, this, str) == null) || (list = this.Q) == null || list.contains(str)) {
             return;
@@ -520,7 +523,7 @@ public abstract class c implements c.a {
     }
 
     public void j(String str) {
-        List<String> list;
+        List list;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048605, this, str) == null) || (list = this.Q) == null) {
             return;
@@ -529,7 +532,7 @@ public abstract class c implements c.a {
     }
 
     public void o() {
-        List<String> list;
+        List list;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048606, this) == null) || (list = this.Q) == null) {
             return;
@@ -564,7 +567,7 @@ public abstract class c implements c.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
-            List<String> list = this.Q;
+            List list = this.Q;
             if (list == null || list.size() <= 0) {
                 for (k kVar : this.O) {
                     if (kVar != null && (kVar instanceof com.baidu.ar.d.a) && ((com.baidu.ar.d.a) kVar).db()) {
@@ -584,7 +587,7 @@ public abstract class c implements c.a {
         }
     }
 
-    public final List<String> q() {
+    public final List q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.Q : (List) invokeV.objValue;
@@ -599,10 +602,10 @@ public abstract class c implements c.a {
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
-            HashMap<String, com.baidu.ar.d.e> hashMap = this.N;
+            HashMap hashMap = this.N;
             if (hashMap != null) {
-                for (Map.Entry<String, com.baidu.ar.d.e> entry : hashMap.entrySet()) {
-                    a(entry.getKey(), entry.getValue());
+                for (Map.Entry entry : hashMap.entrySet()) {
+                    a((String) entry.getKey(), (com.baidu.ar.d.e) entry.getValue());
                 }
                 this.N.clear();
                 this.N = null;
@@ -652,7 +655,7 @@ public abstract class c implements c.a {
         }
     }
 
-    public void setup(HashMap<String, Object> hashMap) {
+    public void setup(HashMap hashMap) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048619, this, hashMap) == null) || hashMap == null) {
             return;

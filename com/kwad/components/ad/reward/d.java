@@ -1,6 +1,5 @@
 package com.kwad.components.ad.reward;
 
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -17,10 +16,10 @@ import java.util.Set;
 public final class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Set<com.kwad.components.ad.reward.d.i> lB;
+    public final Set lB;
 
     /* loaded from: classes7.dex */
-    public static class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final d lE;
         public transient /* synthetic */ FieldHolder $fh;
@@ -63,7 +62,7 @@ public final class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(@Nullable com.kwad.components.core.webview.b.a.n nVar) {
+    public void b(com.kwad.components.core.webview.b.a.n nVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(65539, this, nVar) == null) || this.lB.size() == 0) {
             return;
@@ -94,7 +93,7 @@ public final class d {
         }
     }
 
-    public final void c(@Nullable com.kwad.components.core.webview.b.a.n nVar) {
+    public final void c(com.kwad.components.core.webview.b.a.n nVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nVar) == null) {
             bd.runOnUiThread(new Runnable(this, nVar) { // from class: com.kwad.components.ad.reward.d.1

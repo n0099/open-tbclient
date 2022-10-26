@@ -16,7 +16,7 @@ import java.io.Serializable;
 /* loaded from: classes8.dex */
 public class BaseWebViewRequestData implements Parcelable, Serializable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<BaseWebViewRequestData> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public AuthInfo authInfo;
     public String callback;
@@ -24,6 +24,16 @@ public class BaseWebViewRequestData implements Parcelable, Serializable {
     public String specifyTitle;
     public WebRequestType type;
     public String url;
+
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -38,7 +48,7 @@ public class BaseWebViewRequestData implements Parcelable, Serializable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<BaseWebViewRequestData>() { // from class: com.sina.weibo.sdk.web.BaseWebViewRequestData.1
+        CREATOR = new Parcelable.Creator() { // from class: com.sina.weibo.sdk.web.BaseWebViewRequestData.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -57,23 +67,136 @@ public class BaseWebViewRequestData implements Parcelable, Serializable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public BaseWebViewRequestData createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new BaseWebViewRequestData(parcel) : (BaseWebViewRequestData) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new BaseWebViewRequestData(parcel);
+                }
+                return (BaseWebViewRequestData) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public BaseWebViewRequestData[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new BaseWebViewRequestData[i] : (BaseWebViewRequestData[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new BaseWebViewRequestData[i];
+                }
+                return (BaseWebViewRequestData[]) invokeI.objValue;
             }
         };
+    }
+
+    public AuthInfo getAuthInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.authInfo;
+        }
+        return (AuthInfo) invokeV.objValue;
+    }
+
+    public String getCallback() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.callback;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getCallbackType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.callbackType;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getSpecifyTitle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.specifyTitle;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public WebRequestType getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.type;
+        }
+        return (WebRequestType) invokeV.objValue;
+    }
+
+    public String getUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.url;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public BaseWebViewRequestData(Parcel parcel) {
+        WebRequestType webRequestType;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.callbackType = 0;
+        this.url = parcel.readString();
+        this.authInfo = (AuthInfo) parcel.readParcelable(AuthInfo.class.getClassLoader());
+        int readInt = parcel.readInt();
+        if (readInt == -1) {
+            webRequestType = null;
+        } else {
+            webRequestType = WebRequestType.values()[readInt];
+        }
+        this.type = webRequestType;
+        this.callback = parcel.readString();
+        this.specifyTitle = parcel.readString();
+        this.callbackType = parcel.readInt();
+    }
+
+    public BaseWebViewRequestData(AuthInfo authInfo, WebRequestType webRequestType, String str, int i, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {authInfo, webRequestType, str, Integer.valueOf(i), str2, str3};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.callbackType = 0;
+        this.callback = str;
+        this.authInfo = authInfo;
+        this.type = webRequestType;
+        this.specifyTitle = str2;
+        this.url = str3;
+        this.callbackType = i;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -95,52 +218,6 @@ public class BaseWebViewRequestData implements Parcelable, Serializable {
                 return;
             }
         }
-    }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public AuthInfo getAuthInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.authInfo : (AuthInfo) invokeV.objValue;
-    }
-
-    public String getCallback() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.callback : (String) invokeV.objValue;
-    }
-
-    public int getCallbackType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.callbackType : invokeV.intValue;
-    }
-
-    public String getSpecifyTitle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.specifyTitle : (String) invokeV.objValue;
-    }
-
-    public WebRequestType getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.type : (WebRequestType) invokeV.objValue;
-    }
-
-    public String getUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.url : (String) invokeV.objValue;
     }
 
     public void setAuthInfo(AuthInfo authInfo) {
@@ -187,64 +264,21 @@ public class BaseWebViewRequestData implements Parcelable, Serializable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
+        int ordinal;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048589, this, parcel, i) == null) {
             parcel.writeString(this.url);
             parcel.writeParcelable(this.authInfo, i);
             WebRequestType webRequestType = this.type;
-            parcel.writeInt(webRequestType == null ? -1 : webRequestType.ordinal());
+            if (webRequestType == null) {
+                ordinal = -1;
+            } else {
+                ordinal = webRequestType.ordinal();
+            }
+            parcel.writeInt(ordinal);
             parcel.writeString(this.callback);
             parcel.writeString(this.specifyTitle);
             parcel.writeInt(this.callbackType);
         }
-    }
-
-    public BaseWebViewRequestData(AuthInfo authInfo, WebRequestType webRequestType, String str, int i, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {authInfo, webRequestType, str, Integer.valueOf(i), str2, str3};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.callbackType = 0;
-        this.callback = str;
-        this.authInfo = authInfo;
-        this.type = webRequestType;
-        this.specifyTitle = str2;
-        this.url = str3;
-        this.callbackType = i;
-    }
-
-    public BaseWebViewRequestData(Parcel parcel) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.callbackType = 0;
-        this.url = parcel.readString();
-        this.authInfo = (AuthInfo) parcel.readParcelable(AuthInfo.class.getClassLoader());
-        int readInt = parcel.readInt();
-        this.type = readInt == -1 ? null : WebRequestType.values()[readInt];
-        this.callback = parcel.readString();
-        this.specifyTitle = parcel.readString();
-        this.callbackType = parcel.readInt();
     }
 }

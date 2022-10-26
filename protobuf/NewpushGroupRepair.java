@@ -37,7 +37,13 @@ public final class NewpushGroupRepair extends Message {
     public final Long startSid;
 
     /* loaded from: classes9.dex */
-    public static final class Builder extends Message.Builder<NewpushGroupRepair> {
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes9.dex */
+    public final class Builder extends Message.Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Long endSid;
@@ -97,14 +103,11 @@ public final class NewpushGroupRepair extends Message {
         public NewpushGroupRepair build(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) ? new NewpushGroupRepair(this, z, null) : (NewpushGroupRepair) invokeZ.objValue;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+                return new NewpushGroupRepair(this, z, null);
+            }
+            return (NewpushGroupRepair) invokeZ.objValue;
         }
-    }
-
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
     }
 
     static {
@@ -127,10 +130,6 @@ public final class NewpushGroupRepair extends Message {
         DEFAULT_LASTMID = 0L;
         DEFAULT_FROMUID = 0L;
         DEFAULT_FROMUTYPE = 0;
-    }
-
-    public /* synthetic */ NewpushGroupRepair(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -204,5 +203,9 @@ public final class NewpushGroupRepair extends Message {
         this.lastMid = builder.lastMid;
         this.fromUid = builder.fromUid;
         this.fromUType = builder.fromUType;
+    }
+
+    public /* synthetic */ NewpushGroupRepair(Builder builder, boolean z, a aVar) {
+        this(builder, z);
     }
 }

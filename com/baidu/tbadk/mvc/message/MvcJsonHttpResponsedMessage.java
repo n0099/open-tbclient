@@ -7,12 +7,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.BdToastData;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hg;
-import com.baidu.tieba.jf;
-import com.baidu.tieba.mu4;
-import com.baidu.tieba.pb5;
-import com.baidu.tieba.qb5;
-import com.baidu.tieba.tb5;
+import com.baidu.tieba.ig;
+import com.baidu.tieba.kf;
+import com.baidu.tieba.ou4;
+import com.baidu.tieba.ub5;
+import com.baidu.tieba.vb5;
+import com.baidu.tieba.yb5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.UnsupportedEncodingException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class MvcJsonHttpResponsedMessage<D extends tb5> extends MvcHttpResponsedMessage<D> {
+public class MvcJsonHttpResponsedMessage extends MvcHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -47,55 +47,33 @@ public class MvcJsonHttpResponsedMessage<D extends tb5> extends MvcHttpResponsed
 
     private void parseErrorData(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, this, str) == null) || str == null) {
-            return;
-        }
-        try {
-            ErrorData errorData = new ErrorData();
-            errorData.parserJson(str);
-            setError(errorData.getError_code());
-            if (getError() == -1) {
+        if ((interceptable == null || interceptable.invokeL(65537, this, str) == null) && str != null) {
+            try {
+                ErrorData errorData = new ErrorData();
+                errorData.parserJson(str);
+                setError(errorData.getError_code());
+                if (getError() == -1) {
+                    setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.error_unkown_try_again));
+                } else if (getError() != 0) {
+                    setErrorString(errorData.getError_msg());
+                }
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
                 setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.error_unkown_try_again));
-            } else if (getError() != 0) {
-                setErrorString(errorData.getError_msg());
             }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-            setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.error_unkown_try_again));
         }
     }
 
     private void parseToastData(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, this, str) == null) || str == null) {
-            return;
-        }
-        try {
-            BdToastData bdToastData = new BdToastData();
-            bdToastData.parserJson(str);
-            showToast(bdToastData);
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
-    }
-
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048580, this, i, jSONObject) == null) && (getOrginalMessage() instanceof MvcHttpMessage)) {
-            Object createData = createData(((MvcHttpMessage) getOrginalMessage()).getResponseDataClass());
-            if (createData instanceof tb5) {
-                D d = (D) createData;
-                this.data = d;
-                d.initByJson(jSONObject);
+        if ((interceptable == null || interceptable.invokeL(65538, this, str) == null) && str != null) {
+            try {
+                BdToastData bdToastData = new BdToastData();
+                bdToastData.parserJson(str);
+                showToast(bdToastData);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
-        }
-    }
-
-    @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage
-    public void logStatInBackground(int i, hg hgVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048581, this, i, hgVar) == null) {
-            super.logStatInBackground(i, hgVar);
         }
     }
 
@@ -105,61 +83,85 @@ public class MvcJsonHttpResponsedMessage<D extends tb5> extends MvcHttpResponsed
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
             JSONObject jSONObject2 = null;
-            if (str != null) {
-                try {
-                    jSONObject = new JSONObject(str);
-                } catch (Exception e) {
-                    e = e;
-                }
-                try {
-                    parseErrorData(str);
-                    parseToastData(str);
-                    return jSONObject;
-                } catch (Exception e2) {
-                    e = e2;
-                    jSONObject2 = jSONObject;
-                    BdLog.e(e.getMessage());
-                    return jSONObject2;
-                }
+            if (str == null) {
+                return null;
             }
-            return null;
+            try {
+                jSONObject = new JSONObject(str);
+            } catch (Exception e) {
+                e = e;
+            }
+            try {
+                parseErrorData(str);
+                parseToastData(str);
+                return jSONObject;
+            } catch (Exception e2) {
+                e = e2;
+                jSONObject2 = jSONObject;
+                BdLog.e(e.getMessage());
+                return jSONObject2;
+            }
         }
         return (JSONObject) invokeL.objValue;
+    }
+
+    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIL(1048580, this, i, jSONObject) == null) && (getOrginalMessage() instanceof MvcHttpMessage)) {
+            Object createData = createData(((MvcHttpMessage) getOrginalMessage()).getResponseDataClass());
+            if (createData instanceof yb5) {
+                D d = (D) createData;
+                this.data = d;
+                d.initByJson(jSONObject);
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage
+    public void logStatInBackground(int i, ig igVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i, igVar) == null) {
+            super.logStatInBackground(i, igVar);
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             super.afterDispatchInBackGround(i, (int) bArr);
             if (getError() == 0 && (getOrginalMessage() instanceof MvcHttpMessage) && bArr != null) {
                 MvcHttpMessage mvcHttpMessage = (MvcHttpMessage) getOrginalMessage();
-                if (mvcHttpMessage.isNeedCache() && (mvcHttpMessage.getRequestData() instanceof pb5)) {
-                    pb5 pb5Var = (pb5) mvcHttpMessage.getRequestData();
-                    String cacheKey = pb5Var.getCacheKey();
-                    String y = pb5Var.y();
-                    String currentAccount = pb5Var.isNeedUid() ? TbadkCoreApplication.getCurrentAccount() : null;
-                    if (cacheKey == null || TextUtils.isEmpty(y) || bArr == null) {
-                        return;
+                if (mvcHttpMessage.isNeedCache() && (mvcHttpMessage.getRequestData() instanceof ub5)) {
+                    ub5 ub5Var = (ub5) mvcHttpMessage.getRequestData();
+                    String cacheKey = ub5Var.getCacheKey();
+                    String y = ub5Var.y();
+                    if (ub5Var.isNeedUid()) {
+                        str = TbadkCoreApplication.getCurrentAccount();
+                    } else {
+                        str = null;
                     }
-                    if (pb5Var.o()) {
-                        mu4.f();
-                        jf<byte[]> e = mu4.e(y, currentAccount);
-                        if (e == null) {
-                            return;
-                        }
-                        e.g(cacheKey, bArr);
-                    } else if (mvcHttpMessage.getRequestData() instanceof qb5) {
-                        mu4.f();
-                        jf<String> h = mu4.h(y, currentAccount);
-                        if (h == null) {
-                            return;
-                        }
-                        try {
-                            h.g(cacheKey, new String(bArr, "UTF-8"));
-                        } catch (UnsupportedEncodingException e2) {
-                            e2.printStackTrace();
+                    if (cacheKey != null && !TextUtils.isEmpty(y) && bArr != null) {
+                        if (ub5Var.o()) {
+                            ou4.f();
+                            kf e = ou4.e(y, str);
+                            if (e == null) {
+                                return;
+                            }
+                            e.g(cacheKey, bArr);
+                        } else if (mvcHttpMessage.getRequestData() instanceof vb5) {
+                            ou4.f();
+                            kf h = ou4.h(y, str);
+                            if (h == null) {
+                                return;
+                            }
+                            try {
+                                h.g(cacheKey, new String(bArr, "UTF-8"));
+                            } catch (UnsupportedEncodingException e2) {
+                                e2.printStackTrace();
+                            }
                         }
                     }
                 }
@@ -170,10 +172,16 @@ public class MvcJsonHttpResponsedMessage<D extends tb5> extends MvcHttpResponsed
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public final void decodeInBackGround(int i, byte[] bArr) throws Exception {
+        JSONObject jSONObject;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048579, this, i, bArr) == null) {
             String parseToString = parseToString(bArr);
-            decodeLogicInBackGround(i, !TextUtils.isEmpty(parseToString) ? parseServerResponsedData(parseToString) : null);
+            if (!TextUtils.isEmpty(parseToString)) {
+                jSONObject = parseServerResponsedData(parseToString);
+            } else {
+                jSONObject = null;
+            }
+            decodeLogicInBackGround(i, jSONObject);
         }
     }
 }

@@ -30,7 +30,21 @@ public final class SwanAppAbTestStaticAutoGenerateUrlCollectorImpl implements IC
     }
 
     @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
-    public Map<String, String> getCmdRouterMap() {
+    public Map getConfigRouterMap() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            HashMap hashMap = new HashMap();
+            ArrayList arrayList = new ArrayList();
+            arrayList.add("tbcfrom=web_search");
+            hashMap.put("com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic", arrayList);
+            return hashMap;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
+    public Map getCmdRouterMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -41,20 +55,6 @@ public final class SwanAppAbTestStaticAutoGenerateUrlCollectorImpl implements IC
             hashMap.put("2921410", "com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic");
             hashMap.put("3001000", "com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic");
             hashMap.put("2921512", "com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic");
-            return hashMap;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
-    public Map<String, ArrayList<String>> getConfigRouterMap() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            HashMap hashMap = new HashMap();
-            ArrayList arrayList = new ArrayList();
-            arrayList.add("tbcfrom=web_search");
-            hashMap.put("com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic", arrayList);
             return hashMap;
         }
         return (Map) invokeV.objValue;

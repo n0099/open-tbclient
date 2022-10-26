@@ -1,28 +1,69 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.view.TbCheckBox;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.coreExtra.message.HotEventRequestMessage;
+import com.baidu.tbadk.coreExtra.message.HotEventRespondedMessage;
+import com.baidu.tbadk.data.HotEventData;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetAddressList.LbsInfo;
-import tbclient.GetAddressList.friendList;
 /* loaded from: classes6.dex */
-public class v25 implements TbCheckBox.c {
+public class v25 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile v25 d;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
     public String b;
-    public long c;
-    public int d;
-    public String e;
-    public String f;
-    public String g;
-    public w25 h;
-    public String i;
+    public final HttpMessageListener c;
+
+    /* loaded from: classes6.dex */
+    public class a extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ v25 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(v25 v25Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {v25Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = v25Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
+                this.a.a = false;
+                if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003543 || !(httpResponsedMessage instanceof HotEventRespondedMessage) || httpResponsedMessage.getError() != 0) {
+                    return;
+                }
+                m35.h(HotEventData.getInstance());
+            }
+        }
+    }
 
     public v25() {
         Interceptable interceptable = $ic;
@@ -38,152 +79,68 @@ public class v25 implements TbCheckBox.c {
             }
         }
         this.a = false;
+        this.b = "";
+        this.c = new a(this, CmdConfigHttp.CMD_HOT_EVENT);
+        c();
     }
 
-    public String a() {
+    public static v25 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.g : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (d == null) {
+                synchronized (v25.class) {
+                    if (d == null) {
+                        d = new v25();
+                    }
+                }
+            }
+            return d;
+        }
+        return (v25) invokeV.objValue;
     }
 
-    public w25 b() {
-        InterceptResult invokeV;
+    public final void c() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.h : (w25) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            e();
+        }
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    public final void e() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            MessageManager.getInstance().registerListener(this.c);
+        }
     }
 
-    public long d() {
-        InterceptResult invokeV;
+    public final void g() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : invokeV.longValue;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_HOT_EVENT);
+        }
     }
 
-    public String e() {
-        InterceptResult invokeV;
+    public final void d(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HOT_EVENT, TbConfig.SERVER_ADDRESS + str);
+            tbHttpMessageTask.setResponsedClass(HotEventRespondedMessage.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        }
     }
 
-    public String f() {
-        InterceptResult invokeV;
+    public void f(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.i : (String) invokeV.objValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.e : (String) invokeV.objValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.d : invokeV.intValue;
-    }
-
-    public void i(friendList friendlist) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, friendlist) == null) || friendlist == null) {
+        if ((interceptable != null && interceptable.invokeL(1048579, this, str) != null) || this.a) {
             return;
         }
-        this.b = friendlist.user_name;
-        this.c = friendlist.user_id.longValue();
-        this.e = friendlist.portrait;
-        this.i = friendlist.name_show;
-        this.f = friendlist.quanpin;
-        LbsInfo lbsInfo = friendlist.location;
-        int i = -1;
-        long j = 0;
-        if (lbsInfo == null) {
-            this.h = new w25("", 0L, -1);
-            return;
-        }
-        Long l = lbsInfo.time;
-        if (l != null && l.longValue() > 0) {
-            j = friendlist.location.time.longValue();
-        }
-        Integer num = friendlist.location.is_hide;
-        if (num != null && num.intValue() >= 0) {
-            i = friendlist.location.is_hide.intValue();
-        }
-        this.h = new w25(friendlist.location.distance, j, i);
-    }
-
-    @Override // com.baidu.tbadk.core.view.TbCheckBox.c
-    public boolean isChecked() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.a : invokeV.booleanValue;
-    }
-
-    public void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.g = str;
-        }
-    }
-
-    public void k(w25 w25Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, w25Var) == null) {
-            this.h = w25Var;
-        }
-    }
-
-    public void l(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            this.f = str;
-        }
-    }
-
-    public void m(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
-            this.c = j;
-        }
-    }
-
-    public void n(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
+        if (!this.b.equals(str)) {
             this.b = str;
+            g();
+            d(str);
         }
-    }
-
-    public void o(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-            this.i = str;
-        }
-    }
-
-    public void p(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-            this.e = str;
-        }
-    }
-
-    public void q(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
-            this.d = i;
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.view.TbCheckBox.c
-    public void setChecked(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
-            this.a = z;
-        }
+        MessageManager.getInstance().sendMessage(new HotEventRequestMessage(CmdConfigHttp.CMD_HOT_EVENT));
+        this.a = true;
     }
 }

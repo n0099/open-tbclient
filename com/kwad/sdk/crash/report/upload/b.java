@@ -2,7 +2,6 @@ package com.kwad.sdk.crash.report.upload;
 
 import android.text.TextUtils;
 import android.util.Base64;
-import androidx.annotation.NonNull;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidubce.http.Headers;
@@ -21,9 +20,9 @@ import java.util.UUID;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class b {
-    public static Map<String, String> a(f fVar) {
+    public static Map a(f fVar) {
         HashMap hashMap = new HashMap();
         if (fVar == null) {
             return hashMap;
@@ -62,7 +61,7 @@ public final class b {
         a(file, fVar.aid, fVar.aic, a(fVar), aVar);
     }
 
-    public static void a(@NonNull File file, @NonNull String str, String str2, @NonNull Map<String, String> map, @NonNull a aVar) {
+    public static void a(File file, String str, String str2, Map map, a aVar) {
         DataInputStream dataInputStream;
         OutputStream outputStream;
         com.kwad.sdk.core.e.b.d("ExceptionCollector", "uploadLogFile " + Thread.currentThread());
@@ -94,7 +93,7 @@ public final class b {
                 outputStream = httpURLConnection2.getOutputStream();
                 try {
                     for (String str4 : map.keySet()) {
-                        outputStream.write(d(str4, map.get(str4), uuid));
+                        outputStream.write(d(str4, (String) map.get(str4), uuid));
                     }
                     byte[] bytes = ("\r\n--" + uuid + "--\r\n").getBytes();
                     StringBuilder sb = new StringBuilder();

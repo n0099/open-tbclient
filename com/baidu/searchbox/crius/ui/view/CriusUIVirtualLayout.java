@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class CriusUIVirtualLayout extends CriusUI<VirtualCriusLayout> {
+public class CriusUIVirtualLayout extends CriusUI {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -37,6 +37,17 @@ public class CriusUIVirtualLayout extends CriusUI<VirtualCriusLayout> {
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.crius.ui.CriusUI
+    public VirtualCriusLayout createView(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            return new VirtualCriusLayout(context, this.renderObject);
+        }
+        return (VirtualCriusLayout) invokeL.objValue;
+    }
+
     @Override // com.baidu.searchbox.crius.ui.CriusUI, com.baidu.searchbox.crius.ui.RenderImplInterface
     public void insertChild(CriusData criusData, int i) {
         Interceptable interceptable = $ic;
@@ -47,13 +58,5 @@ public class CriusUIVirtualLayout extends CriusUI<VirtualCriusLayout> {
             }
             ((VirtualCriusLayout) this.mView).addView(view2, i, criusData);
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.searchbox.crius.ui.CriusUI
-    public VirtualCriusLayout createView(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) ? new VirtualCriusLayout(context, this.renderObject) : (VirtualCriusLayout) invokeL.objValue;
     }
 }

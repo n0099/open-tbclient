@@ -1,7 +1,5 @@
 package com.kwai.adclient.kscommerciallogger;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +21,7 @@ public final class a {
 
     /* renamed from: com.kwai.adclient.kscommerciallogger.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static final class C0620a {
+    public final class C0616a {
         public static /* synthetic */ Interceptable $ic;
         public static a arx;
         public transient /* synthetic */ FieldHolder $fh;
@@ -65,10 +63,10 @@ public final class a {
     public static a BE() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0620a.BE() : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0616a.BE() : (a) invokeV.objValue;
     }
 
-    private void a(@NonNull com.kwai.adclient.kscommerciallogger.kwai.a aVar, @NonNull com.kwai.adclient.kscommerciallogger.kwai.b bVar, @Nullable JSONObject jSONObject, boolean z, boolean z2) {
+    private void a(com.kwai.adclient.kscommerciallogger.kwai.a aVar, com.kwai.adclient.kscommerciallogger.kwai.b bVar, JSONObject jSONObject, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{aVar, bVar, jSONObject, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             this.ars = aVar;
@@ -79,7 +77,7 @@ public final class a {
         }
     }
 
-    private void b(@NonNull c cVar) {
+    private void b(c cVar) {
         com.kwai.adclient.kscommerciallogger.kwai.a aVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, cVar) == null) || (aVar = this.ars) == null) {
@@ -111,7 +109,7 @@ public final class a {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.arw : invokeV.booleanValue;
     }
 
-    public final void a(@NonNull com.kwai.adclient.kscommerciallogger.kwai.a aVar, @NonNull com.kwai.adclient.kscommerciallogger.kwai.b bVar, @Nullable JSONObject jSONObject, boolean z) {
+    public final void a(com.kwai.adclient.kscommerciallogger.kwai.a aVar, com.kwai.adclient.kscommerciallogger.kwai.b bVar, JSONObject jSONObject, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{aVar, bVar, jSONObject, Boolean.valueOf(z)}) == null) {
             a(aVar, bVar, null, z, true);

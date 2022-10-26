@@ -11,12 +11,12 @@ import io.reactivex.exceptions.Exceptions;
 import io.reactivex.internal.functions.ObjectHelper;
 import java.util.concurrent.Callable;
 /* loaded from: classes8.dex */
-public final class MaybeErrorCallable<T> extends Maybe<T> {
+public final class MaybeErrorCallable extends Maybe {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Callable<? extends Throwable> errorSupplier;
+    public final Callable errorSupplier;
 
-    public MaybeErrorCallable(Callable<? extends Throwable> callable) {
+    public MaybeErrorCallable(Callable callable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -35,7 +35,7 @@ public final class MaybeErrorCallable<T> extends Maybe<T> {
     }
 
     @Override // io.reactivex.Maybe
-    public void subscribeActual(MaybeObserver<? super T> maybeObserver) {
+    public void subscribeActual(MaybeObserver maybeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, maybeObserver) == null) {
             maybeObserver.onSubscribe(Disposables.disposed());

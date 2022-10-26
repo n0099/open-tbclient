@@ -1,8 +1,6 @@
 package com.google.android.material.shape;
 
 import android.graphics.RectF;
-import androidx.annotation.FloatRange;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,7 +14,7 @@ public final class RelativeCornerSize implements CornerSize {
     public transient /* synthetic */ FieldHolder $fh;
     public final float percent;
 
-    public RelativeCornerSize(@FloatRange(from = 0.0d, to = 1.0d) float f) {
+    public RelativeCornerSize(float f) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -41,28 +39,39 @@ public final class RelativeCornerSize implements CornerSize {
             if (this == obj) {
                 return true;
             }
-            return (obj instanceof RelativeCornerSize) && this.percent == ((RelativeCornerSize) obj).percent;
+            if ((obj instanceof RelativeCornerSize) && this.percent == ((RelativeCornerSize) obj).percent) {
+                return true;
+            }
+            return false;
         }
         return invokeL.booleanValue;
     }
 
     @Override // com.google.android.material.shape.CornerSize
-    public float getCornerSize(@NonNull RectF rectF) {
+    public float getCornerSize(RectF rectF) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rectF)) == null) ? this.percent * rectF.height() : invokeL.floatValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rectF)) == null) {
+            return this.percent * rectF.height();
+        }
+        return invokeL.floatValue;
     }
 
-    @FloatRange(from = 0.0d, to = 1.0d)
     public float getRelativePercent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.percent : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.percent;
+        }
+        return invokeV.floatValue;
     }
 
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Arrays.hashCode(new Object[]{Float.valueOf(this.percent)}) : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return Arrays.hashCode(new Object[]{Float.valueOf(this.percent)});
+        }
+        return invokeV.intValue;
     }
 }

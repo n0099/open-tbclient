@@ -13,7 +13,7 @@ public interface IIMConfig {
 
     int getHeartBeatType();
 
-    Map<String, Object> getOtherParameters(Context context, ChatMsg chatMsg);
+    Map getOtherParameters(Context context, ChatMsg chatMsg);
 
     String getPaidCondition(String str, String str2, long j);
 

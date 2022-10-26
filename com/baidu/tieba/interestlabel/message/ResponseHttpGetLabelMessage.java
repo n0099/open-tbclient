@@ -3,7 +3,7 @@ package com.baidu.tieba.interestlabel.message;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.of7;
+import com.baidu.tieba.zf7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -37,8 +37,9 @@ public class ResponseHttpGetLabelMessage extends TbHttpResponsedMessage {
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         GetTagListResIdl getTagListResIdl;
+        RequestGetLabelMessage requestGetLabelMessage;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (getTagListResIdl = (GetTagListResIdl) new Wire(new Class[0]).parseFrom(bArr, GetTagListResIdl.class)) == null) {
+        if ((interceptable != null && interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) != null) || (getTagListResIdl = (GetTagListResIdl) new Wire(new Class[0]).parseFrom(bArr, GetTagListResIdl.class)) == null) {
             return;
         }
         setError(getTagListResIdl.error.errorno.intValue());
@@ -46,10 +47,17 @@ public class ResponseHttpGetLabelMessage extends TbHttpResponsedMessage {
         if (getError() != 0) {
             return;
         }
-        RequestGetLabelMessage requestGetLabelMessage = getOrginalMessage().getExtra() instanceof RequestGetLabelMessage ? (RequestGetLabelMessage) getOrginalMessage().getExtra() : null;
-        of7 labelDataSet = requestGetLabelMessage != null ? requestGetLabelMessage.getLabelDataSet() : null;
-        if (labelDataSet != null) {
-            labelDataSet.c(getTagListResIdl.data);
+        zf7 zf7Var = null;
+        if (getOrginalMessage().getExtra() instanceof RequestGetLabelMessage) {
+            requestGetLabelMessage = (RequestGetLabelMessage) getOrginalMessage().getExtra();
+        } else {
+            requestGetLabelMessage = null;
+        }
+        if (requestGetLabelMessage != null) {
+            zf7Var = requestGetLabelMessage.getLabelDataSet();
+        }
+        if (zf7Var != null) {
+            zf7Var.c(getTagListResIdl.data);
         }
     }
 }

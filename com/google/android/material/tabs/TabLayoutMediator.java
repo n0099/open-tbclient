@@ -1,7 +1,5 @@
 package com.google.android.material.tabs;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 import com.baidu.android.imsdk.internal.Constants;
@@ -15,22 +13,21 @@ import java.lang.ref.WeakReference;
 public final class TabLayoutMediator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public RecyclerView.Adapter<?> adapter;
+    public RecyclerView.Adapter adapter;
     public boolean attached;
     public final boolean autoRefresh;
-    @Nullable
     public TabLayoutOnPageChangeCallback onPageChangeCallback;
-    @Nullable
     public TabLayout.OnTabSelectedListener onTabSelectedListener;
-    @Nullable
     public RecyclerView.AdapterDataObserver pagerAdapterObserver;
     public final boolean smoothScroll;
     public final TabConfigurationStrategy tabConfigurationStrategy;
-    @NonNull
     public final TabLayout tabLayout;
-    @NonNull
     public final ViewPager2 viewPager;
+
+    /* loaded from: classes7.dex */
+    public interface TabConfigurationStrategy {
+        void onConfigureTab(TabLayout.Tab tab, int i);
+    }
 
     /* loaded from: classes7.dex */
     public class PagerAdapterObserver extends RecyclerView.AdapterDataObserver {
@@ -81,14 +78,6 @@ public final class TabLayoutMediator {
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.AdapterDataObserver
-        public void onItemRangeMoved(int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIII(1048580, this, i, i2, i3) == null) {
-                this.this$0.populateTabsFromPagerAdapter();
-            }
-        }
-
-        @Override // androidx.recyclerview.widget.RecyclerView.AdapterDataObserver
         public void onItemRangeRemoved(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
@@ -97,27 +86,29 @@ public final class TabLayoutMediator {
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.AdapterDataObserver
-        public void onItemRangeChanged(int i, int i2, @Nullable Object obj) {
+        public void onItemRangeChanged(int i, int i2, Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, obj) == null) {
+                this.this$0.populateTabsFromPagerAdapter();
+            }
+        }
+
+        @Override // androidx.recyclerview.widget.RecyclerView.AdapterDataObserver
+        public void onItemRangeMoved(int i, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIII(1048580, this, i, i2, i3) == null) {
                 this.this$0.populateTabsFromPagerAdapter();
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public interface TabConfigurationStrategy {
-        void onConfigureTab(@NonNull TabLayout.Tab tab, int i);
-    }
-
-    /* loaded from: classes7.dex */
-    public static class TabLayoutOnPageChangeCallback extends ViewPager2.OnPageChangeCallback {
+    public class TabLayoutOnPageChangeCallback extends ViewPager2.OnPageChangeCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int previousScrollState;
         public int scrollState;
-        @NonNull
-        public final WeakReference<TabLayout> tabLayoutRef;
+        public final WeakReference tabLayoutRef;
 
         public TabLayoutOnPageChangeCallback(TabLayout tabLayout) {
             Interceptable interceptable = $ic;
@@ -134,8 +125,24 @@ public final class TabLayoutMediator {
                     return;
                 }
             }
-            this.tabLayoutRef = new WeakReference<>(tabLayout);
+            this.tabLayoutRef = new WeakReference(tabLayout);
             reset();
+        }
+
+        @Override // androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
+        public void onPageSelected(int i) {
+            TabLayout tabLayout;
+            boolean z;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && (tabLayout = (TabLayout) this.tabLayoutRef.get()) != null && tabLayout.getSelectedTabPosition() != i && i < tabLayout.getTabCount()) {
+                int i2 = this.scrollState;
+                if (i2 != 0 && (i2 != 2 || this.previousScrollState != 0)) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                tabLayout.selectTab(tabLayout.getTabAt(i), z);
+            }
         }
 
         @Override // androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
@@ -150,23 +157,17 @@ public final class TabLayoutMediator {
         @Override // androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
         public void onPageScrolled(int i, float f, int i2) {
             TabLayout tabLayout;
+            boolean z;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) || (tabLayout = this.tabLayoutRef.get()) == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) && (tabLayout = (TabLayout) this.tabLayoutRef.get()) != null) {
+                boolean z2 = false;
+                if (this.scrollState == 2 && this.previousScrollState != 1) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                tabLayout.setScrollPosition(i, f, z, (this.scrollState == 2 && this.previousScrollState == 0) ? true : true);
             }
-            boolean z = false;
-            tabLayout.setScrollPosition(i, f, this.scrollState != 2 || this.previousScrollState == 1, (this.scrollState == 2 && this.previousScrollState == 0) ? true : true);
-        }
-
-        @Override // androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
-        public void onPageSelected(int i) {
-            TabLayout tabLayout;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || (tabLayout = this.tabLayoutRef.get()) == null || tabLayout.getSelectedTabPosition() == i || i >= tabLayout.getTabCount()) {
-                return;
-            }
-            int i2 = this.scrollState;
-            tabLayout.selectTab(tabLayout.getTabAt(i), i2 == 0 || (i2 == 2 && this.previousScrollState == 0));
         }
 
         public void reset() {
@@ -179,11 +180,25 @@ public final class TabLayoutMediator {
     }
 
     /* loaded from: classes7.dex */
-    public static class ViewPagerOnTabSelectedListener implements TabLayout.OnTabSelectedListener {
+    public class ViewPagerOnTabSelectedListener implements TabLayout.OnTabSelectedListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final boolean smoothScroll;
         public final ViewPager2 viewPager;
+
+        @Override // com.google.android.material.tabs.TabLayout.BaseOnTabSelectedListener
+        public void onTabReselected(TabLayout.Tab tab) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, tab) == null) {
+            }
+        }
+
+        @Override // com.google.android.material.tabs.TabLayout.BaseOnTabSelectedListener
+        public void onTabUnselected(TabLayout.Tab tab) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tab) == null) {
+            }
+        }
 
         public ViewPagerOnTabSelectedListener(ViewPager2 viewPager2, boolean z) {
             Interceptable interceptable = $ic;
@@ -205,30 +220,16 @@ public final class TabLayoutMediator {
         }
 
         @Override // com.google.android.material.tabs.TabLayout.BaseOnTabSelectedListener
-        public void onTabReselected(TabLayout.Tab tab) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, tab) == null) {
-            }
-        }
-
-        @Override // com.google.android.material.tabs.TabLayout.BaseOnTabSelectedListener
-        public void onTabSelected(@NonNull TabLayout.Tab tab) {
+        public void onTabSelected(TabLayout.Tab tab) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tab) == null) {
                 this.viewPager.setCurrentItem(tab.getPosition(), this.smoothScroll);
             }
         }
-
-        @Override // com.google.android.material.tabs.TabLayout.BaseOnTabSelectedListener
-        public void onTabUnselected(TabLayout.Tab tab) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tab) == null) {
-            }
-        }
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public TabLayoutMediator(@NonNull TabLayout tabLayout, @NonNull ViewPager2 viewPager2, @NonNull TabConfigurationStrategy tabConfigurationStrategy) {
+    public TabLayoutMediator(TabLayout tabLayout, ViewPager2 viewPager2, TabConfigurationStrategy tabConfigurationStrategy) {
         this(tabLayout, viewPager2, true, tabConfigurationStrategy);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -248,11 +249,54 @@ public final class TabLayoutMediator {
         }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public TabLayoutMediator(TabLayout tabLayout, ViewPager2 viewPager2, boolean z, TabConfigurationStrategy tabConfigurationStrategy) {
+        this(tabLayout, viewPager2, z, true, tabConfigurationStrategy);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tabLayout, viewPager2, Boolean.valueOf(z), tabConfigurationStrategy};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((TabLayout) objArr2[0], (ViewPager2) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue(), (TabConfigurationStrategy) objArr2[4]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public TabLayoutMediator(TabLayout tabLayout, ViewPager2 viewPager2, boolean z, boolean z2, TabConfigurationStrategy tabConfigurationStrategy) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tabLayout, viewPager2, Boolean.valueOf(z), Boolean.valueOf(z2), tabConfigurationStrategy};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.tabLayout = tabLayout;
+        this.viewPager = viewPager2;
+        this.autoRefresh = z;
+        this.smoothScroll = z2;
+        this.tabConfigurationStrategy = tabConfigurationStrategy;
+    }
+
     public void attach() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (!this.attached) {
-                RecyclerView.Adapter<?> adapter = this.viewPager.getAdapter();
+                RecyclerView.Adapter adapter = this.viewPager.getAdapter();
                 this.adapter = adapter;
                 if (adapter != null) {
                     this.attached = true;
@@ -278,7 +322,7 @@ public final class TabLayoutMediator {
     }
 
     public void detach() {
-        RecyclerView.Adapter<?> adapter;
+        RecyclerView.Adapter adapter;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (this.autoRefresh && (adapter = this.adapter) != null) {
@@ -298,7 +342,7 @@ public final class TabLayoutMediator {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.tabLayout.removeAllTabs();
-            RecyclerView.Adapter<?> adapter = this.adapter;
+            RecyclerView.Adapter adapter = this.adapter;
             if (adapter != null) {
                 int itemCount = adapter.getItemCount();
                 for (int i = 0; i < itemCount; i++) {
@@ -315,48 +359,5 @@ public final class TabLayoutMediator {
                 }
             }
         }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public TabLayoutMediator(@NonNull TabLayout tabLayout, @NonNull ViewPager2 viewPager2, boolean z, @NonNull TabConfigurationStrategy tabConfigurationStrategy) {
-        this(tabLayout, viewPager2, z, true, tabConfigurationStrategy);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tabLayout, viewPager2, Boolean.valueOf(z), tabConfigurationStrategy};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((TabLayout) objArr2[0], (ViewPager2) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue(), (TabConfigurationStrategy) objArr2[4]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public TabLayoutMediator(@NonNull TabLayout tabLayout, @NonNull ViewPager2 viewPager2, boolean z, boolean z2, @NonNull TabConfigurationStrategy tabConfigurationStrategy) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tabLayout, viewPager2, Boolean.valueOf(z), Boolean.valueOf(z2), tabConfigurationStrategy};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.tabLayout = tabLayout;
-        this.viewPager = viewPager2;
-        this.autoRefresh = z;
-        this.smoothScroll = z2;
-        this.tabConfigurationStrategy = tabConfigurationStrategy;
     }
 }

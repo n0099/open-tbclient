@@ -12,12 +12,12 @@ import com.fun.ad.sdk.CustomInflater;
 import com.fun.ad.sdk.ExpressInflater;
 import com.fun.ad.sdk.FunAdInteractionListener;
 /* loaded from: classes7.dex */
-public abstract class FunNativeAd2Bridger<A, B extends View> {
+public abstract class FunNativeAd2Bridger {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ReporterPidLoader<A> a;
+    public final ReporterPidLoader a;
 
-    public FunNativeAd2Bridger(ReporterPidLoader<A> reporterPidLoader) {
+    public FunNativeAd2Bridger(ReporterPidLoader reporterPidLoader) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -35,21 +35,21 @@ public abstract class FunNativeAd2Bridger<A, B extends View> {
         this.a = reporterPidLoader;
     }
 
-    public abstract B createExpressView(A a);
+    public abstract View createExpressView(Object obj);
 
-    public ReporterPidLoader<A> getLoader() {
+    public ReporterPidLoader getLoader() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (ReporterPidLoader) invokeV.objValue;
     }
 
-    public final PidLoaderSession<A> getSession(A a) {
+    public final PidLoaderSession getSession(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, a)) == null) ? this.a.getSession(a) : (PidLoaderSession) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) ? this.a.getSession(obj) : (PidLoaderSession) invokeL.objValue;
     }
 
-    public abstract void showCustom(Activity activity, CustomInflater customInflater, String str, A a, BaseNativeAd2<A, B> baseNativeAd2, FunAdInteractionListener funAdInteractionListener);
+    public abstract void showCustom(Activity activity, CustomInflater customInflater, String str, Object obj, BaseNativeAd2 baseNativeAd2, FunAdInteractionListener funAdInteractionListener);
 
-    public abstract void showExpress(Activity activity, ExpressInflater expressInflater, String str, A a, BaseNativeAd2<A, B> baseNativeAd2, FunAdInteractionListener funAdInteractionListener);
+    public abstract void showExpress(Activity activity, ExpressInflater expressInflater, String str, Object obj, BaseNativeAd2 baseNativeAd2, FunAdInteractionListener funAdInteractionListener);
 }

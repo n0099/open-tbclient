@@ -10,8 +10,8 @@ import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.switchs.FixNpsAnrSwitch;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.gh;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.hh;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,6 +23,23 @@ public class NightPluginTask extends LaunchTask {
     public transient /* synthetic */ FieldHolder $fh;
     public final CustomMessageListener mNightInstallListener;
     public BdUniqueId tag;
+
+    @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
+    public String getName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "Ignore_NightPluginTask" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
+    public int getProcess() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 1;
+        }
+        return invokeV.intValue;
+    }
 
     public NightPluginTask() {
         Interceptable interceptable = $ic;
@@ -66,7 +83,7 @@ public class NightPluginTask extends LaunchTask {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            public void onMessage(CustomResponsedMessage customResponsedMessage) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) {
                     int loadInt = TbadkSettings.getInst().loadInt("skin_", 0);
@@ -88,8 +105,8 @@ public class NightPluginTask extends LaunchTask {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.mNightInstallListener.setTag(this.tag);
             MessageManager.getInstance().registerListener(this.mNightInstallListener);
-            if (FixNpsAnrSwitch.getIsOn() && ej.o() > 1) {
-                gh.a().postDelayed(new Runnable(this) { // from class: com.baidu.searchbox.task.async.privacy.NightPluginTask.2
+            if (FixNpsAnrSwitch.getIsOn() && fj.o() > 1) {
+                hh.a().postDelayed(new Runnable(this) { // from class: com.baidu.searchbox.task.async.privacy.NightPluginTask.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ NightPluginTask this$0;
@@ -124,22 +141,5 @@ public class NightPluginTask extends LaunchTask {
                 MessageManager.getInstance().runTask(2001281, String.class);
             }
         }
-    }
-
-    @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
-    public String getName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "Ignore_NightPluginTask" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
-    public int getProcess() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 1;
-        }
-        return invokeV.intValue;
     }
 }

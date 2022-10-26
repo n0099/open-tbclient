@@ -2,7 +2,7 @@ package com.baidu.adp.framework.message;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hg;
+import com.baidu.tieba.ig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,13 +12,22 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
-public abstract class HttpResponsedMessage extends ResponsedMessage<byte[]> {
+public abstract class HttpResponsedMessage extends ResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String contentLength;
     public String contentType;
-    public Map<String, List<String>> mHeader;
+    public Map mHeader;
     public int mStatusCode;
+
+    @Override // com.baidu.adp.framework.message.ResponsedMessage
+    public abstract /* synthetic */ void decodeInBackGround(int i, Object obj) throws Exception;
+
+    public void logStatInBackground(int i, ig igVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048583, this, i, igVar) == null) {
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HttpResponsedMessage(int i) {
@@ -44,46 +53,41 @@ public abstract class HttpResponsedMessage extends ResponsedMessage<byte[]> {
         this.contentLength = "";
     }
 
-    @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public abstract /* synthetic */ void decodeInBackGround(int i, T t) throws Exception;
-
     public String getContentLength() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.contentLength : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.contentLength;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getContentType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.contentType : (String) invokeV.objValue;
-    }
-
-    public synchronized List<String> getHeader(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            synchronized (this) {
-                if (this.mHeader == null || !this.mHeader.containsKey(str)) {
-                    return null;
-                }
-                return Collections.unmodifiableList(this.mHeader.get(str));
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.contentType;
         }
-        return (List) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
     public int getStatusCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mStatusCode : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mStatusCode;
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public boolean hasError() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? !isSuccess() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return !isSuccess();
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isSuccess() {
@@ -91,15 +95,26 @@ public abstract class HttpResponsedMessage extends ResponsedMessage<byte[]> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             int i = this.mStatusCode;
-            return i == 200 || i / 100 == 3;
+            if (i != 200 && i / 100 != 3) {
+                return false;
+            }
+            return true;
         }
         return invokeV.booleanValue;
     }
 
-    public void logStatInBackground(int i, hg hgVar) {
+    public synchronized List getHeader(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048583, this, i, hgVar) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            synchronized (this) {
+                if (this.mHeader != null && this.mHeader.containsKey(str)) {
+                    return Collections.unmodifiableList((List) this.mHeader.get(str));
+                }
+                return null;
+            }
         }
+        return (List) invokeL.objValue;
     }
 
     public void setContentLength(String str) {
@@ -116,7 +131,7 @@ public abstract class HttpResponsedMessage extends ResponsedMessage<byte[]> {
         }
     }
 
-    public synchronized void setHeader(Map<String, List<String>> map) {
+    public synchronized void setHeader(Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, map) == null) {
             synchronized (this) {
@@ -129,11 +144,10 @@ public abstract class HttpResponsedMessage extends ResponsedMessage<byte[]> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048587, this, i, str) == null) {
             this.mStatusCode = i;
-            if (isSuccess()) {
-                return;
+            if (!isSuccess()) {
+                setError(-1);
+                setErrorString(str);
             }
-            setError(-1);
-            setErrorString(str);
         }
     }
 }

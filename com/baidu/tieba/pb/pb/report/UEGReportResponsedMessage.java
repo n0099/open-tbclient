@@ -37,7 +37,10 @@ public class UEGReportResponsedMessage extends TbHttpResponsedMessage {
     public String getUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.url : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.url;
+        }
+        return (String) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -46,15 +49,14 @@ public class UEGReportResponsedMessage extends TbHttpResponsedMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             String parseToString = parseToString(bArr);
-            if (TextUtils.isEmpty(parseToString)) {
-                return;
-            }
-            JSONObject jSONObject = new JSONObject(parseToString);
-            setError(jSONObject.optInt("errno", -1));
-            setErrorString(jSONObject.optString("errmsg"));
-            JSONObject optJSONObject = jSONObject.optJSONObject("data");
-            if (optJSONObject != null) {
-                this.url = optJSONObject.optString("url");
+            if (!TextUtils.isEmpty(parseToString)) {
+                JSONObject jSONObject = new JSONObject(parseToString);
+                setError(jSONObject.optInt("errno", -1));
+                setErrorString(jSONObject.optString("errmsg"));
+                JSONObject optJSONObject = jSONObject.optJSONObject("data");
+                if (optJSONObject != null) {
+                    this.url = optJSONObject.optString("url");
+                }
             }
         }
     }

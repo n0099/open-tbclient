@@ -1,86 +1,24 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.AdSlot;
-import com.bytedance.sdk.openadsdk.TTAdNative;
-import com.bytedance.sdk.openadsdk.TTDrawFeedAd;
-import com.bytedance.sdk.openadsdk.TTNativeAd;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.channel.model.csj.CSJDrawVideoNativeView;
 import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.fun.ad.sdk.internal.api.utils.NumberUtils;
-import java.util.ArrayList;
-import java.util.List;
+import com.fun.ad.sdk.internal.api.utils.ReflectionUtils;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class jm9 extends cm9 {
+public class jm9 extends BaseAdRipper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public class a implements TTAdNative.DrawFeedAdListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ jm9 a;
-
-        public a(jm9 jm9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jm9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = jm9Var;
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.DrawFeedAdListener
-        public void onDrawFeedAdLoad(List<TTDrawFeedAd> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-                LogPrinter.d();
-                if (list == null || list.isEmpty()) {
-                    LogPrinter.e("onFeedAdLoad error: adList is null or empty", new Object[0]);
-                    this.a.onError(0, "NoFill");
-                    return;
-                }
-                ArrayList arrayList = new ArrayList();
-                for (TTDrawFeedAd tTDrawFeedAd : list) {
-                    arrayList.add(new pm9(tTDrawFeedAd));
-                }
-                this.a.onAdLoaded((List) arrayList);
-            }
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.DrawFeedAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
-        public void onError(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-                LogPrinter.e("CSJDrawNative onError code: " + i + ", message: " + str, new Object[0]);
-                this.a.onError(i, str);
-            }
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public jm9(Ssp.Pid pid) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.DRAW), pid);
+        super(pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -90,8 +28,7 @@ public class jm9 extends cm9 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
+                super((Ssp.Pid) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -99,33 +36,111 @@ public class jm9 extends cm9 {
         }
     }
 
-    @Override // com.baidu.tieba.cm9
-    public void h(FunAdSlot funAdSlot) {
+    /* JADX WARN: Removed duplicated region for block: B:42:0x00be A[Catch: Exception -> 0x0123, TryCatch #0 {Exception -> 0x0123, blocks: (B:5:0x0005, B:7:0x0017, B:10:0x0020, B:11:0x0023, B:14:0x0032, B:17:0x003f, B:20:0x0045, B:22:0x004d, B:24:0x0055, B:26:0x006a, B:28:0x007a, B:34:0x008b, B:36:0x0093, B:42:0x00be, B:44:0x00c6, B:45:0x00ce, B:37:0x00a5, B:39:0x00ad), top: B:54:0x0005 }] */
+    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public RippedAd getRippedAdInternal(Object obj) {
+        InterceptResult invokeL;
+        String str;
+        String str2;
+        String str3;
+        String str4;
+        String str5;
+        String optString;
+        String str6;
+        JSONObject optJSONObject;
+        JSONObject optJSONObject2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, funAdSlot) == null) {
-            this.e.loadDrawFeedAd(new AdSlot.Builder().setCodeId(this.mPid.pid).setAdCount(NumberUtils.adjustInt(funAdSlot.getAdCount(), 1, 3)).build(), new a(this));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            try {
+                Object obj2 = ((cn9) obj).a;
+                String[] strArr = {"com.bytedance.sdk.openadsdk.core.r.w", "com.bytedance.sdk.openadsdk.core.s.y"};
+                Object obj3 = null;
+                for (int i = 0; i < 2; i++) {
+                    obj3 = ReflectionUtils.findField(strArr[i], obj2);
+                    if (obj3 != null) {
+                        break;
+                    }
+                }
+                String[] strArr2 = {"bY", "ce", "ca"};
+                JSONObject jSONObject = null;
+                for (int i2 = 0; i2 < 3 && (jSONObject = (JSONObject) ReflectionUtils.invoke(obj3, strArr2[i2], null, new Object[0])) == null; i2++) {
+                }
+                if (jSONObject == null) {
+                    return null;
+                }
+                JSONObject optJSONObject3 = jSONObject.optJSONObject("icon");
+                if (optJSONObject3 != null) {
+                    str = optJSONObject3.optString("url");
+                } else {
+                    str = null;
+                }
+                String combineStrWithComma = RippedAd.combineStrWithComma(jSONObject.optJSONArray("image"), hm9.a);
+                JSONObject optJSONObject4 = jSONObject.optJSONObject("video");
+                if (optJSONObject4 != null) {
+                    str3 = optJSONObject4.optString("video_url");
+                    str2 = optJSONObject4.optString("cover_url");
+                } else {
+                    str2 = null;
+                    str3 = null;
+                }
+                int optInt = jSONObject.optInt("interaction_type", -1);
+                if (optInt != 3) {
+                    if (optInt == 4 && (optJSONObject2 = jSONObject.optJSONObject("app")) != null) {
+                        String optString2 = optJSONObject2.optString("app_name");
+                        String optString3 = optJSONObject2.optString("package_name");
+                        str6 = optJSONObject2.optString("download_url");
+                        str5 = optString3;
+                        str4 = optString2;
+                        optString = null;
+                        if (str4 == null && (optJSONObject = jSONObject.optJSONObject("app_manage")) != null) {
+                            str4 = optJSONObject.optString("app_name");
+                            str5 = optJSONObject.optString("package_name");
+                        }
+                        RippedAd.Builder builder = new RippedAd.Builder();
+                        builder.setCorporation(jSONObject.optString("source")).setTitle(jSONObject.optString("title")).setDescription(jSONObject.optString("description")).setAppName(str4).setAppPkg(str5).setAppUrl(str6).setIconUrl(str).setImageUrl(combineStrWithComma).setVideoImageUrl(str2).setVideoUrl(str3).setClickUrl(jSONObject.optString("target_url")).setDeepLinkUrl(optString).setConvUrl(null);
+                        return builder.build();
+                    }
+                    str6 = null;
+                    optString = null;
+                    str4 = null;
+                    str5 = null;
+                    if (str4 == null) {
+                        str4 = optJSONObject.optString("app_name");
+                        str5 = optJSONObject.optString("package_name");
+                    }
+                    RippedAd.Builder builder2 = new RippedAd.Builder();
+                    builder2.setCorporation(jSONObject.optString("source")).setTitle(jSONObject.optString("title")).setDescription(jSONObject.optString("description")).setAppName(str4).setAppPkg(str5).setAppUrl(str6).setIconUrl(str).setImageUrl(combineStrWithComma).setVideoImageUrl(str2).setVideoUrl(str3).setClickUrl(jSONObject.optString("target_url")).setDeepLinkUrl(optString).setConvUrl(null);
+                    return builder2.build();
+                }
+                JSONObject optJSONObject5 = jSONObject.optJSONObject("deep_link");
+                if (optJSONObject5 != null) {
+                    str4 = null;
+                    str5 = null;
+                    optString = optJSONObject5.optString("deeplink_url");
+                    str6 = null;
+                    if (str4 == null) {
+                    }
+                    RippedAd.Builder builder22 = new RippedAd.Builder();
+                    builder22.setCorporation(jSONObject.optString("source")).setTitle(jSONObject.optString("title")).setDescription(jSONObject.optString("description")).setAppName(str4).setAppPkg(str5).setAppUrl(str6).setIconUrl(str).setImageUrl(combineStrWithComma).setVideoImageUrl(str2).setVideoUrl(str3).setClickUrl(jSONObject.optString("target_url")).setDeepLinkUrl(optString).setConvUrl(null);
+                    return builder22.build();
+                }
+                str6 = null;
+                optString = null;
+                str4 = null;
+                str5 = null;
+                if (str4 == null) {
+                }
+                RippedAd.Builder builder222 = new RippedAd.Builder();
+                builder222.setCorporation(jSONObject.optString("source")).setTitle(jSONObject.optString("title")).setDescription(jSONObject.optString("description")).setAppName(str4).setAppPkg(str5).setAppUrl(str6).setIconUrl(str).setImageUrl(combineStrWithComma).setVideoImageUrl(str2).setVideoUrl(str3).setClickUrl(jSONObject.optString("target_url")).setDeepLinkUrl(optString).setConvUrl(null);
+                return builder222.build();
+            } catch (Exception e) {
+                LogPrinter.e(e);
+                return null;
+            }
         }
-    }
-
-    @Override // com.baidu.tieba.cm9
-    public boolean l(Activity activity, ViewGroup viewGroup, String str, pm9 pm9Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, viewGroup, str, pm9Var)) == null) {
-            onShowStart(pm9Var);
-            CSJDrawVideoNativeView cSJDrawVideoNativeView = (CSJDrawVideoNativeView) LayoutInflater.from(activity).inflate(R.layout.fun_csj_ad_draw_video_native, viewGroup, false);
-            viewGroup.removeAllViews();
-            viewGroup.addView(cSJDrawVideoNativeView);
-            cSJDrawVideoNativeView.a((TTNativeAd) pm9Var.a);
-            f(activity, pm9Var, viewGroup, cSJDrawVideoNativeView, new mm9(this, pm9Var));
-            return true;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.cm9, com.fun.ad.sdk.internal.api.BasePidLoader
-    public /* bridge */ /* synthetic */ boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
-        l(activity, viewGroup, str, (pm9) obj);
-        return true;
+        return (RippedAd) invokeL.objValue;
     }
 }

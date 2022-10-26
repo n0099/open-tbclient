@@ -1,14 +1,17 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class yy5 {
+public abstract class yy5 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public zy5 a;
 
     public yy5() {
         Interceptable interceptable = $ic;
@@ -24,14 +27,19 @@ public class yy5 {
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    public zy5 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        try {
-            jSONObject.optInt("video_count");
-        } catch (Exception unused) {
+        return (zy5) invokeV.objValue;
+    }
+
+    public void f(zy5 zy5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zy5Var) == null) {
+            this.a = zy5Var;
         }
     }
 }

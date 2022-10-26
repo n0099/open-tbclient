@@ -7,12 +7,12 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes8.dex */
 public final class q {
-    public static final Map<Class<?>, Class<?>> anz;
+    public static final Map anz;
 
     /* loaded from: classes8.dex */
-    public static class a<T> {
-        public final Class<? extends T> anA;
-        public final T obj;
+    public final class a {
+        public final Class anA;
+        public final Object obj;
     }
 
     static {
@@ -26,73 +26,73 @@ public final class q {
         anz.put(Float.class, Float.TYPE);
         anz.put(Long.class, Long.TYPE);
         anz.put(Double.class, Double.TYPE);
-        Map<Class<?>, Class<?>> map = anz;
-        Class<?> cls = Boolean.TYPE;
+        Map map = anz;
+        Class cls = Boolean.TYPE;
         map.put(cls, cls);
-        Map<Class<?>, Class<?>> map2 = anz;
-        Class<?> cls2 = Byte.TYPE;
+        Map map2 = anz;
+        Class cls2 = Byte.TYPE;
         map2.put(cls2, cls2);
-        Map<Class<?>, Class<?>> map3 = anz;
-        Class<?> cls3 = Character.TYPE;
+        Map map3 = anz;
+        Class cls3 = Character.TYPE;
         map3.put(cls3, cls3);
-        Map<Class<?>, Class<?>> map4 = anz;
-        Class<?> cls4 = Short.TYPE;
+        Map map4 = anz;
+        Class cls4 = Short.TYPE;
         map4.put(cls4, cls4);
-        Map<Class<?>, Class<?>> map5 = anz;
-        Class<?> cls5 = Integer.TYPE;
+        Map map5 = anz;
+        Class cls5 = Integer.TYPE;
         map5.put(cls5, cls5);
-        Map<Class<?>, Class<?>> map6 = anz;
-        Class<?> cls6 = Float.TYPE;
+        Map map6 = anz;
+        Class cls6 = Float.TYPE;
         map6.put(cls6, cls6);
-        Map<Class<?>, Class<?>> map7 = anz;
-        Class<?> cls7 = Long.TYPE;
+        Map map7 = anz;
+        Class cls7 = Long.TYPE;
         map7.put(cls7, cls7);
-        Map<Class<?>, Class<?>> map8 = anz;
-        Class<?> cls8 = Double.TYPE;
+        Map map8 = anz;
+        Class cls8 = Double.TYPE;
         map8.put(cls8, cls8);
     }
 
-    public static <T> T N(String str, String str2) {
+    public static Object N(String str, String str2) {
         try {
-            return (T) O(str, str2);
+            return O(str, str2);
         } catch (Throwable th) {
             m(th);
             return null;
         }
     }
 
-    public static <T> T O(String str, String str2) {
-        return (T) d(Class.forName(str), str2);
+    public static Object O(String str, String str2) {
+        return d((Class) Class.forName(str), str2);
     }
 
-    public static <T> T a(Class<?> cls, Object... objArr) {
+    public static Object a(Class cls, Object... objArr) {
         try {
-            return (T) b(cls, objArr);
+            return b(cls, objArr);
         } catch (Throwable th) {
             m(th);
             return null;
         }
     }
 
-    public static <T> T a(Object obj, String str, Object... objArr) {
+    public static Object a(Object obj, String str, Object... objArr) {
         try {
-            return (T) b(obj, str, objArr);
+            return b(obj, str, objArr);
         } catch (Throwable th) {
             m(th);
             return null;
         }
     }
 
-    public static <T> T a(String str, String str2, Object... objArr) {
+    public static Object a(String str, String str2, Object... objArr) {
         try {
-            return (T) c(Class.forName(str), str2, objArr);
+            return c(Class.forName(str), str2, objArr);
         } catch (Throwable th) {
             m(th);
             return null;
         }
     }
 
-    public static Method a(Method[] methodArr, String str, Class<?>[] clsArr) {
+    public static Method a(Method[] methodArr, String str, Class[] clsArr) {
         am.dQ(str);
         for (Method method : methodArr) {
             if (method.getName().equals(str) && b(method.getParameterTypes(), clsArr)) {
@@ -110,11 +110,11 @@ public final class q {
         }
     }
 
-    public static Class<?>[] a(Object... objArr) {
+    public static Class[] a(Object... objArr) {
         if (objArr == null || objArr.length <= 0) {
             return null;
         }
-        Class<?>[] clsArr = new Class[objArr.length];
+        Class[] clsArr = new Class[objArr.length];
         for (int i = 0; i < objArr.length; i++) {
             Object obj = objArr[i];
             clsArr[i] = (obj == null || !(obj instanceof a)) ? obj == null ? null : obj.getClass() : ((a) obj).anA;
@@ -122,26 +122,26 @@ public final class q {
         return clsArr;
     }
 
-    public static <T> T b(Class<?> cls, String str, Object... objArr) {
+    public static Object b(Class cls, String str, Object... objArr) {
         try {
-            return (T) c(cls, str, objArr);
+            return c(cls, str, objArr);
         } catch (Throwable th) {
             m(th);
             return null;
         }
     }
 
-    public static <T> T b(Class<?> cls, Object... objArr) {
-        return (T) cls.getConstructor(a(objArr)).newInstance(b(objArr));
+    public static Object b(Class cls, Object... objArr) {
+        return cls.getConstructor(a(objArr)).newInstance(b(objArr));
     }
 
-    public static <T> T b(Object obj, String str, Object... objArr) {
-        return (T) c(obj.getClass(), str, a(objArr)).invoke(obj, b(objArr));
+    public static Object b(Object obj, String str, Object... objArr) {
+        return c((Class) obj.getClass(), str, a(objArr)).invoke(obj, b(objArr));
     }
 
-    public static <T> T b(String str, Object... objArr) {
+    public static Object b(String str, Object... objArr) {
         try {
-            return (T) c(str, objArr);
+            return c(str, objArr);
         } catch (Throwable th) {
             m(th);
             return null;
@@ -167,8 +167,12 @@ public final class q {
         field.set(obj, obj2);
     }
 
-    public static boolean b(Class<?>[] clsArr, Class<?>[] clsArr2) {
-        if (clsArr == null) {
+    /* JADX DEBUG: Multi-variable search result rejected for r3v2, resolved type: java.lang.Class */
+    /* JADX DEBUG: Multi-variable search result rejected for r4v1, resolved type: java.lang.Object[] */
+    /* JADX DEBUG: Multi-variable search result rejected for r4v2, resolved type: java.lang.Object[] */
+    /* JADX WARN: Multi-variable type inference failed */
+    public static boolean b(Class[] clsArr, Class[] clsArr2) {
+        if (clsArr == 0) {
             return clsArr2 == null || clsArr2.length == 0;
         } else if (clsArr2 == null) {
             return clsArr.length == 0;
@@ -176,7 +180,7 @@ public final class q {
             return false;
         } else {
             for (int i = 0; i < clsArr.length; i++) {
-                if (!clsArr[i].isAssignableFrom(clsArr2[i]) && (!anz.containsKey(clsArr[i]) || !anz.get(clsArr[i]).equals(anz.get(clsArr2[i])))) {
+                if (!clsArr[i].isAssignableFrom(clsArr2[i]) && (!anz.containsKey(clsArr[i]) || !((Class) anz.get(clsArr[i])).equals(anz.get(clsArr2[i])))) {
                     return false;
                 }
             }
@@ -200,33 +204,33 @@ public final class q {
         return objArr2;
     }
 
-    public static <T> T c(Class<?> cls, String str) {
+    public static Object c(Class cls, String str) {
         try {
-            return (T) d(cls, str);
+            return d(cls, str);
         } catch (Throwable th) {
             m(th);
             return null;
         }
     }
 
-    public static <T> T c(Class<?> cls, String str, Object... objArr) {
-        return (T) c(cls, str, a(objArr)).invoke(null, b(objArr));
+    public static Object c(Class cls, String str, Object... objArr) {
+        return c(cls, str, a(objArr)).invoke(null, b(objArr));
     }
 
-    public static <T> T c(Object obj, String str) {
+    public static Object c(Object obj, String str) {
         try {
-            return (T) d(obj, str);
+            return d(obj, str);
         } catch (Throwable th) {
             m(th);
             return null;
         }
     }
 
-    public static <T> T c(String str, Object... objArr) {
-        return (T) b(Class.forName(str), b(objArr));
+    public static Object c(String str, Object... objArr) {
+        return b(Class.forName(str), b(objArr));
     }
 
-    public static Method c(Class<?> cls, String str, Class<?>... clsArr) {
+    public static Method c(Class cls, String str, Class... clsArr) {
         while (true) {
             Method a2 = a(cls.getDeclaredMethods(), str, clsArr);
             if (a2 != null) {
@@ -240,13 +244,13 @@ public final class q {
         }
     }
 
-    public static <T> T d(Class<?> cls, String str) {
+    public static Object d(Class cls, String str) {
         Field declaredField = cls.getDeclaredField(str);
         declaredField.setAccessible(true);
-        return (T) declaredField.get(null);
+        return declaredField.get(null);
     }
 
-    public static <T> T d(Object obj, String str) {
+    public static Object d(Object obj, String str) {
         Class<?> cls = obj.getClass();
         Field field = null;
         while (field == null) {
@@ -263,19 +267,19 @@ public final class q {
             }
         }
         field.setAccessible(true);
-        return (T) field.get(obj);
+        return field.get(obj);
     }
 
-    public static <T> T g(Class<?> cls) {
+    public static Object g(Class cls) {
         try {
-            return (T) h(cls);
+            return h(cls);
         } catch (Throwable th) {
             m(th);
             return null;
         }
     }
 
-    public static <T> T h(Class<?> cls) {
+    public static Object h(Class cls) {
         Constructor<?>[] declaredConstructors = cls.getDeclaredConstructors();
         if (declaredConstructors == null || declaredConstructors.length == 0) {
             throw new IllegalArgumentException("Can't get even one available constructor for " + cls);
@@ -284,16 +288,16 @@ public final class q {
         constructor.setAccessible(true);
         Class<?>[] parameterTypes = constructor.getParameterTypes();
         if (parameterTypes == null || parameterTypes.length == 0) {
-            return (T) constructor.newInstance(new Object[0]);
+            return constructor.newInstance(new Object[0]);
         }
         Object[] objArr = new Object[parameterTypes.length];
         for (int i = 0; i < parameterTypes.length; i++) {
             objArr[i] = i(parameterTypes[i]);
         }
-        return (T) constructor.newInstance(objArr);
+        return constructor.newInstance(objArr);
     }
 
-    public static Object i(Class<?> cls) {
+    public static Object i(Class cls) {
         if (Integer.TYPE.equals(cls) || Integer.class.equals(cls) || Byte.TYPE.equals(cls) || Byte.class.equals(cls) || Short.TYPE.equals(cls) || Short.class.equals(cls) || Long.TYPE.equals(cls) || Long.class.equals(cls) || Double.TYPE.equals(cls) || Double.class.equals(cls) || Float.TYPE.equals(cls) || Float.class.equals(cls)) {
             return 0;
         }

@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.sh5;
+import com.baidu.tieba.yh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,7 +48,7 @@ public class SetPendantRequest extends NetMessage {
             builder.props_id = Long.valueOf(this.pendantId);
             builder.type = Integer.valueOf(this.type);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                sh5.a(builder, true);
+                yh5.a(builder, true);
             }
             SetPendantReqIdl.Builder builder2 = new SetPendantReqIdl.Builder();
             builder2.data = builder.build(false);
@@ -60,19 +60,28 @@ public class SetPendantRequest extends NetMessage {
     public int getFreeUseLevel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.freeUseLevel : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.freeUseLevel;
+        }
+        return invokeV.intValue;
     }
 
     public long getPendantId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.pendantId : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.pendantId;
+        }
+        return invokeV.longValue;
     }
 
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.type : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.type;
+        }
+        return invokeV.intValue;
     }
 
     public void setFreeUseLevel(int i) {

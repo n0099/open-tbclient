@@ -32,68 +32,73 @@ public class QuickWebViewHttpResMsg extends TbHttpResponsedMessage {
         }
     }
 
+    public String getResult() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.result;
+        }
+        return (String) invokeV.objValue;
+    }
+
     public static String quote(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (str == null || str.length() == 0) {
-                return "\"\"";
-            }
-            int length = str.length();
-            StringBuilder sb = new StringBuilder(length + 4);
-            for (int i = 0; i < length; i++) {
-                char charAt = str.charAt(i);
-                if (charAt == '\f') {
-                    sb.append("\\f");
-                } else if (charAt != '\r') {
-                    if (charAt != '\"') {
-                        if (charAt != '\'') {
-                            if (charAt != '/') {
-                                if (charAt != '\\') {
-                                    switch (charAt) {
-                                        case '\b':
-                                            sb.append("\\b");
-                                            continue;
-                                        case '\t':
-                                            sb.append("\\t");
-                                            continue;
-                                        case '\n':
-                                            sb.append("\\n");
-                                            continue;
-                                        default:
-                                            if (charAt >= ' ') {
-                                                sb.append(charAt);
-                                                break;
-                                            } else {
-                                                String str2 = "000" + Integer.toHexString(charAt);
-                                                sb.append("\\u" + str2.substring(str2.length() - 4));
-                                                continue;
+            if (str != null && str.length() != 0) {
+                int length = str.length();
+                StringBuilder sb = new StringBuilder(length + 4);
+                for (int i = 0; i < length; i++) {
+                    char charAt = str.charAt(i);
+                    if (charAt != '\f') {
+                        if (charAt != '\r') {
+                            if (charAt != '\"') {
+                                if (charAt != '\'') {
+                                    if (charAt != '/') {
+                                        if (charAt != '\\') {
+                                            switch (charAt) {
+                                                case '\b':
+                                                    sb.append("\\b");
+                                                    continue;
+                                                case '\t':
+                                                    sb.append("\\t");
+                                                    continue;
+                                                case '\n':
+                                                    sb.append("\\n");
+                                                    continue;
+                                                default:
+                                                    if (charAt < ' ') {
+                                                        String str2 = "000" + Integer.toHexString(charAt);
+                                                        sb.append("\\u" + str2.substring(str2.length() - 4));
+                                                        continue;
+                                                    } else {
+                                                        sb.append(charAt);
+                                                        break;
+                                                    }
                                             }
+                                        }
+                                    } else {
+                                        sb.append('\\');
+                                        sb.append(charAt);
                                     }
+                                } else {
+                                    sb.append("\\'");
                                 }
-                            } else {
-                                sb.append('\\');
-                                sb.append(charAt);
                             }
+                            sb.append('\\');
+                            sb.append(charAt);
                         } else {
-                            sb.append("\\'");
+                            sb.append("\\r");
                         }
+                    } else {
+                        sb.append("\\f");
                     }
-                    sb.append('\\');
-                    sb.append(charAt);
-                } else {
-                    sb.append("\\r");
                 }
+                return sb.toString();
             }
-            return sb.toString();
+            return "\"\"";
         }
         return (String) invokeL.objValue;
-    }
-
-    public String getResult() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.result : (String) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

@@ -9,12 +9,6 @@ import com.ss.android.socialbase.appdownloader.f.e;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class c implements com.ss.android.download.api.b.a {
-
-    /* loaded from: classes8.dex */
-    public static class a {
-        public static c a = new c();
-    }
-
     public static c a() {
         return a.a;
     }
@@ -137,5 +131,10 @@ public class c implements com.ss.android.download.api.b.a {
         l.a(jSONObject, "msg", str);
         l.a(jSONObject, "stack", a(new Throwable()));
         j.h().a("service_ttdownloader", 3, jSONObject);
+    }
+
+    /* loaded from: classes8.dex */
+    public class a {
+        public static c a = new c();
     }
 }

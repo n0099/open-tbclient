@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ch3;
+import com.baidu.tieba.dh3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -38,7 +38,7 @@ public class LocationItemDecoration extends RecyclerView.ItemDecoration {
                 return;
             }
         }
-        c = ch3.g(15.0f);
+        c = dh3.g(15.0f);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -60,6 +60,26 @@ public class LocationItemDecoration extends RecyclerView.ItemDecoration {
                 return;
             }
         }
+    }
+
+    public LocationItemDecoration(Context context, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.b = true;
+        this.a = new ColorDrawable(context.getResources().getColor(R.color.obfuscated_res_0x7f0603d4));
+        this.b = z;
     }
 
     public final void drawVertical(Canvas canvas, RecyclerView recyclerView) {
@@ -96,25 +116,5 @@ public class LocationItemDecoration extends RecyclerView.ItemDecoration {
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, canvas, recyclerView, state) == null) {
             drawVertical(canvas, recyclerView);
         }
-    }
-
-    public LocationItemDecoration(Context context, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.b = true;
-        this.a = new ColorDrawable(context.getResources().getColor(R.color.obfuscated_res_0x7f0603d4));
-        this.b = z;
     }
 }

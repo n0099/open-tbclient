@@ -30,12 +30,12 @@ public class p {
     public transient /* synthetic */ FieldHolder $fh;
     public ThreadPoolExecutor a;
     public ThreadPoolExecutor b;
-    public BlockingQueue<Runnable> c;
-    public BlockingQueue<Runnable> d;
+    public BlockingQueue c;
+    public BlockingQueue d;
     public Context e;
 
     /* loaded from: classes2.dex */
-    public static class a implements ThreadFactory {
+    public class a implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final AtomicInteger a;
@@ -124,6 +124,29 @@ public class p {
         }
     }
 
+    public static p a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            if (g == null) {
+                try {
+                    synchronized (p.class) {
+                        if (g == null) {
+                            g = new p();
+                        }
+                    }
+                } catch (Throwable unused) {
+                    int i2 = com.baidu.sofire.a.b.a;
+                }
+            }
+            if (g != null && g.e == null && context != null) {
+                g.e = context;
+            }
+            return g;
+        }
+        return (p) invokeL.objValue;
+    }
+
     public int a(Runnable runnable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -143,7 +166,7 @@ public class p {
                         hashMap.put("1", Integer.valueOf(this.a.getCorePoolSize()));
                         hashMap.put("2", Integer.valueOf(this.a.getMaximumPoolSize()));
                         hashMap.put("3", Base64.encodeToString(com.baidu.sofire.a.b.a(e).getBytes(), 0).replace("\n", "").replace("\t", "").replace("\r", ""));
-                        com.baidu.sofire.k.a.a(this.e.getApplicationContext(), "1003147", (Map<String, Object>) hashMap, true);
+                        com.baidu.sofire.k.a.a(this.e.getApplicationContext(), "1003147", (Map) hashMap, true);
                         i = System.currentTimeMillis();
                     }
                 } catch (Throwable unused) {
@@ -176,28 +199,5 @@ public class p {
             }
         }
         return invokeL.intValue;
-    }
-
-    public static p a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (g == null) {
-                try {
-                    synchronized (p.class) {
-                        if (g == null) {
-                            g = new p();
-                        }
-                    }
-                } catch (Throwable unused) {
-                    int i2 = com.baidu.sofire.a.b.a;
-                }
-            }
-            if (g != null && g.e == null && context != null) {
-                g.e = context;
-            }
-            return g;
-        }
-        return (p) invokeL.objValue;
     }
 }

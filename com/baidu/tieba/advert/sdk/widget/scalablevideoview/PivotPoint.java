@@ -71,12 +71,18 @@ public final class PivotPoint {
     public static PivotPoint valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (PivotPoint) Enum.valueOf(PivotPoint.class, str) : (PivotPoint) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (PivotPoint) Enum.valueOf(PivotPoint.class, str);
+        }
+        return (PivotPoint) invokeL.objValue;
     }
 
     public static PivotPoint[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PivotPoint[]) $VALUES.clone() : (PivotPoint[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (PivotPoint[]) $VALUES.clone();
+        }
+        return (PivotPoint[]) invokeV.objValue;
     }
 }

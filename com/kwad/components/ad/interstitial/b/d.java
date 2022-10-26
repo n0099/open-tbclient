@@ -1,6 +1,5 @@
 package com.kwad.components.ad.interstitial.b;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
@@ -15,8 +14,6 @@ import android.view.ViewGroup;
 import android.view.ViewOutlineProvider;
 import android.view.ViewParent;
 import android.widget.ImageView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
@@ -69,7 +66,6 @@ public final class d extends b {
     public int bH;
     public x.b bM;
     public com.kwad.sdk.core.h.b bX;
-    @NonNull
     public KsAdVideoPlayConfig cN;
     public KSFrameLayout dN;
     public aa dP;
@@ -87,7 +83,6 @@ public final class d extends b {
     public a.b gV;
     public j gW;
     public c.a gX;
-    @Nullable
     public com.kwad.components.ad.f.kwai.kwai.b gY;
     public boolean gZ;
     public c gh;
@@ -96,9 +91,7 @@ public final class d extends b {
     public s.a hb;
     public AdInfo mAdInfo;
     public AdTemplate mAdTemplate;
-    @Nullable
     public com.kwad.components.core.c.a.c mApkDownloadHelper;
-    @NonNull
     public Context mContext;
     public Handler mHandler;
     public com.kwad.sdk.core.webview.b mJsBridgeContext;
@@ -502,7 +495,7 @@ public final class d extends b {
             float a = a(cB, av);
             com.kwad.sdk.core.e.b.d("InterstitialWebViewPresenter", "replaceNativeView cardRatio: " + a);
             this.gh.gj.setRatio(a);
-            ViewGroup viewGroup = (ViewGroup) this.gS.findViewById(R.id.obfuscated_res_0x7f0910da);
+            ViewGroup viewGroup = (ViewGroup) this.gS.findViewById(R.id.obfuscated_res_0x7f0910cb);
             viewGroup.setVisibility(0);
             viewGroup.post(new Runnable(this, cB, av, viewGroup) { // from class: com.kwad.components.ad.interstitial.b.d.22
                 public static /* synthetic */ Interceptable $ic;
@@ -554,7 +547,6 @@ public final class d extends b {
         }
     }
 
-    @NonNull
     private ab cK() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -662,7 +654,7 @@ public final class d extends b {
             com.kwad.components.ad.f.kwai.kwai.b j = com.kwad.components.ad.f.kwai.kwai.b.j(this.mAdTemplate);
             this.gY = j;
             if (j != null) {
-                j.a(new b.InterfaceC0525b(this) { // from class: com.kwad.components.ad.interstitial.b.d.2
+                j.a(new b.InterfaceC0521b(this) { // from class: com.kwad.components.ad.interstitial.b.d.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ d hc;
@@ -685,7 +677,7 @@ public final class d extends b {
                         this.hc = this;
                     }
 
-                    @Override // com.kwad.components.ad.f.kwai.kwai.b.InterfaceC0525b
+                    @Override // com.kwad.components.ad.f.kwai.kwai.b.InterfaceC0521b
                     public final void C(int i) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeI(1048576, this, i) == null) {
@@ -708,7 +700,7 @@ public final class d extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65565, this)) == null) {
             com.kwad.components.ad.f.kwai.kwai.a aVar = new com.kwad.components.ad.f.kwai.kwai.a();
-            this.gh.gs.add(new c.InterfaceC0534c(this, aVar) { // from class: com.kwad.components.ad.interstitial.b.d.3
+            this.gh.gs.add(new c.InterfaceC0530c(this, aVar) { // from class: com.kwad.components.ad.interstitial.b.d.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ d hc;
@@ -733,7 +725,7 @@ public final class d extends b {
                     this.hd = aVar;
                 }
 
-                @Override // com.kwad.components.ad.interstitial.b.c.InterfaceC0534c
+                @Override // com.kwad.components.ad.interstitial.b.c.InterfaceC0530c
                 public final void cH() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
@@ -787,7 +779,6 @@ public final class d extends b {
         return (n) invokeV.objValue;
     }
 
-    @NonNull
     private com.kwad.components.core.webview.b.kwai.i cR() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -815,7 +806,7 @@ public final class d extends b {
             }
 
             @Override // com.kwad.components.core.webview.b.kwai.e, com.kwad.sdk.core.webview.kwai.a
-            public final void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
+            public final void a(String str, com.kwad.sdk.core.webview.kwai.c cVar) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, str, cVar) == null) {
                     super.a(str, cVar);
@@ -827,7 +818,6 @@ public final class d extends b {
         } : (com.kwad.components.core.webview.b.kwai.i) invokeV.objValue;
     }
 
-    @NonNull
     private r cS() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -949,7 +939,6 @@ public final class d extends b {
         return (a.b) invokeV.objValue;
     }
 
-    @NonNull
     private WebCardVideoPositionHandler cU() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1082,7 +1071,6 @@ public final class d extends b {
         return (ah) invokeV.objValue;
     }
 
-    @NonNull
     private q cW() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1190,7 +1178,7 @@ public final class d extends b {
                 }
 
                 @Override // com.kwad.components.core.webview.b.kwai.j, com.kwad.components.core.webview.b.kwai.e, com.kwad.sdk.core.webview.kwai.a
-                public final void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
+                public final void a(String str, com.kwad.sdk.core.webview.kwai.c cVar) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, str, cVar) == null) {
                         super.a(str, cVar);
@@ -1235,7 +1223,6 @@ public final class d extends b {
         }
     }
 
-    @NonNull
     private com.kwad.components.core.webview.jshandler.f cZ() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1293,7 +1280,6 @@ public final class d extends b {
         this.mJsInterface = null;
     }
 
-    @NonNull
     private com.kwad.components.core.webview.jshandler.i da() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1457,13 +1443,12 @@ public final class d extends b {
             public final void a(com.kwad.components.core.webview.a.b bVar) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, bVar) == null) {
-                    AdWebViewActivityProxy.launch(this.hc.mContext, new AdWebViewActivityProxy.a.C0577a().ao(bVar.title).ap(bVar.url).N(this.hc.mAdTemplate).nx());
+                    AdWebViewActivityProxy.launch(this.hc.mContext, new AdWebViewActivityProxy.a.C0573a().ao(bVar.title).ap(bVar.url).N(this.hc.mAdTemplate).nx());
                 }
             }
         } : (w.a) invokeV.objValue;
     }
 
-    @NonNull
     private KsAdWebView.d getWebListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1587,7 +1572,6 @@ public final class d extends b {
         }
     }
 
-    @SuppressLint({"SetJavaScriptEnabled", "AddJavascriptInterface", "JavascriptInterface"})
     private void v(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65602, this, str) == null) {
@@ -1690,15 +1674,15 @@ public final class d extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onCreate();
-            KsAdWebView ksAdWebView = (KsAdWebView) getRootView().findViewById(R.id.obfuscated_res_0x7f09123e);
+            KsAdWebView ksAdWebView = (KsAdWebView) getRootView().findViewById(R.id.obfuscated_res_0x7f091232);
             this.gT = ksAdWebView;
             ksAdWebView.setBackgroundColor(0);
             this.gT.setVisibility(4);
             this.aM = new com.kwad.components.core.widget.kwai.b(this.gT, 100);
-            this.gS = (KSFrameLayout) getRootView().findViewById(R.id.obfuscated_res_0x7f091088);
-            this.dN = (KSFrameLayout) getRootView().findViewById(R.id.obfuscated_res_0x7f091215);
-            this.f6do = (ImageView) getRootView().findViewById(R.id.obfuscated_res_0x7f091225);
-            this.gU = (ImageView) getRootView().findViewById(R.id.obfuscated_res_0x7f0910e2);
+            this.gS = (KSFrameLayout) getRootView().findViewById(R.id.obfuscated_res_0x7f09107c);
+            this.dN = (KSFrameLayout) getRootView().findViewById(R.id.obfuscated_res_0x7f091209);
+            this.f6do = (ImageView) getRootView().findViewById(R.id.obfuscated_res_0x7f091219);
+            this.gU = (ImageView) getRootView().findViewById(R.id.obfuscated_res_0x7f0910d6);
             Context context = getContext();
             this.mContext = context;
             if (context != null) {

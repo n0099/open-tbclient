@@ -1,6 +1,5 @@
 package com.sdk.l;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
 import android.webkit.WebSettings;
@@ -67,54 +66,6 @@ public class a {
         return (String) invokeV.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:16:0x0030 A[Catch: all -> 0x005c, TryCatch #1 {all -> 0x005c, blocks: (B:7:0x0012, B:10:0x0018, B:14:0x0023, B:16:0x0030, B:21:0x003d, B:25:0x0053, B:22:0x0041, B:24:0x004c, B:26:0x0056, B:13:0x001f), top: B:40:0x0012 }] */
-    @SuppressLint({"DefaultLocale", "NewApi"})
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static String a(Context context) {
-        InterceptResult invokeL;
-        String defaultUserAgent;
-        int length;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            String str = SDKManager.userAgent;
-            if (com.sdk.n.a.a(str).booleanValue()) {
-                if (context != null) {
-                    try {
-                        if (Build.VERSION.SDK_INT >= 17) {
-                            try {
-                                defaultUserAgent = WebSettings.getDefaultUserAgent(context);
-                            } catch (Exception unused) {
-                            }
-                            StringBuilder sb = new StringBuilder();
-                            length = defaultUserAgent.length();
-                            for (i = 0; i < length; i++) {
-                                char charAt = defaultUserAgent.charAt(i);
-                                if (charAt > 31 && charAt < 127) {
-                                    sb.append(charAt);
-                                }
-                                sb.append(String.format("\\u%04x", Integer.valueOf(charAt)));
-                            }
-                            str = sb.toString();
-                        }
-                        defaultUserAgent = System.getProperty("http.agent");
-                        StringBuilder sb2 = new StringBuilder();
-                        length = defaultUserAgent.length();
-                        while (i < length) {
-                        }
-                        str = sb2.toString();
-                    } catch (Throwable unused2) {
-                    }
-                }
-                return com.sdk.n.a.a(str).booleanValue() ? "Mozilla/5.0 (Linux; U; Android %s) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 %sSafari/533.1" : str;
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
     public static String a(HttpURLConnection httpURLConnection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -175,5 +126,55 @@ public class a {
             return false;
         }
         return invokeL.booleanValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:16:0x0030 A[Catch: all -> 0x005c, TryCatch #1 {all -> 0x005c, blocks: (B:7:0x0012, B:10:0x0018, B:14:0x0023, B:16:0x0030, B:21:0x003d, B:25:0x0053, B:22:0x0041, B:24:0x004c, B:26:0x0056, B:13:0x001f), top: B:40:0x0012 }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static String a(Context context) {
+        InterceptResult invokeL;
+        String defaultUserAgent;
+        int length;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            String str = SDKManager.userAgent;
+            if (com.sdk.n.a.a(str).booleanValue()) {
+                if (context != null) {
+                    try {
+                        if (Build.VERSION.SDK_INT >= 17) {
+                            try {
+                                defaultUserAgent = WebSettings.getDefaultUserAgent(context);
+                            } catch (Exception unused) {
+                            }
+                            StringBuilder sb = new StringBuilder();
+                            length = defaultUserAgent.length();
+                            for (i = 0; i < length; i++) {
+                                char charAt = defaultUserAgent.charAt(i);
+                                if (charAt > 31 && charAt < 127) {
+                                    sb.append(charAt);
+                                }
+                                sb.append(String.format("\\u%04x", Integer.valueOf(charAt)));
+                            }
+                            str = sb.toString();
+                        }
+                        defaultUserAgent = System.getProperty("http.agent");
+                        StringBuilder sb2 = new StringBuilder();
+                        length = defaultUserAgent.length();
+                        while (i < length) {
+                        }
+                        str = sb2.toString();
+                    } catch (Throwable unused2) {
+                    }
+                }
+                if (com.sdk.n.a.a(str).booleanValue()) {
+                    return "Mozilla/5.0 (Linux; U; Android %s) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 %sSafari/533.1";
+                }
+                return str;
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
     }
 }

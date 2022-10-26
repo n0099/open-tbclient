@@ -59,9 +59,21 @@ public final class FormatInformation {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i, i2)) == null) {
             FormatInformation doDecodeFormatInformation = doDecodeFormatInformation(i, i2);
-            return doDecodeFormatInformation != null ? doDecodeFormatInformation : doDecodeFormatInformation(i ^ 21522, i2 ^ 21522);
+            if (doDecodeFormatInformation != null) {
+                return doDecodeFormatInformation;
+            }
+            return doDecodeFormatInformation(i ^ 21522, i2 ^ 21522);
         }
         return (FormatInformation) invokeII.objValue;
+    }
+
+    public static int numBitsDiffering(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i, i2)) == null) {
+            return Integer.bitCount(i ^ i2);
+        }
+        return invokeII.intValue;
     }
 
     public static FormatInformation doDecodeFormatInformation(int i, int i2) {
@@ -96,21 +108,18 @@ public final class FormatInformation {
         return (FormatInformation) invokeII.objValue;
     }
 
-    public static int numBitsDiffering(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i, i2)) == null) ? Integer.bitCount(i ^ i2) : invokeII.intValue;
-    }
-
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (obj instanceof FormatInformation) {
-                FormatInformation formatInformation = (FormatInformation) obj;
-                return this.errorCorrectionLevel == formatInformation.errorCorrectionLevel && this.dataMask == formatInformation.dataMask;
+            if (!(obj instanceof FormatInformation)) {
+                return false;
             }
-            return false;
+            FormatInformation formatInformation = (FormatInformation) obj;
+            if (this.errorCorrectionLevel != formatInformation.errorCorrectionLevel || this.dataMask != formatInformation.dataMask) {
+                return false;
+            }
+            return true;
         }
         return invokeL.booleanValue;
     }
@@ -118,18 +127,27 @@ public final class FormatInformation {
     public byte getDataMask() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.dataMask : invokeV.byteValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.dataMask;
+        }
+        return invokeV.byteValue;
     }
 
     public ErrorCorrectionLevel getErrorCorrectionLevel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.errorCorrectionLevel : (ErrorCorrectionLevel) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.errorCorrectionLevel;
+        }
+        return (ErrorCorrectionLevel) invokeV.objValue;
     }
 
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.errorCorrectionLevel.ordinal() << 3) | this.dataMask : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return (this.errorCorrectionLevel.ordinal() << 3) | this.dataMask;
+        }
+        return invokeV.intValue;
     }
 }

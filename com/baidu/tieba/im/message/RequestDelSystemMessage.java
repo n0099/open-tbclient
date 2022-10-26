@@ -34,6 +34,24 @@ public class RequestDelSystemMessage extends TbSocketMessage {
         }
     }
 
+    public long getGroupId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.groupId;
+        }
+        return invokeV.longValue;
+    }
+
+    public String getMsgIds() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.msgIds;
+        }
+        return (String) invokeV.objValue;
+    }
+
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
     public Object encode() {
         InterceptResult invokeV;
@@ -47,18 +65,6 @@ public class RequestDelSystemMessage extends TbSocketMessage {
             return builder2.build(false);
         }
         return invokeV.objValue;
-    }
-
-    public long getGroupId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.groupId : invokeV.longValue;
-    }
-
-    public String getMsgIds() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.msgIds : (String) invokeV.objValue;
     }
 
     public void setGroupId(long j) {

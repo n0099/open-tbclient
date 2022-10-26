@@ -10,9 +10,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public abstract class e4 implements Comparable<e4> {
+public abstract class e4 implements Comparable {
     public static /* synthetic */ Interceptable $ic;
-    public static final b7<String> c;
+    public static final b7 c;
     public transient /* synthetic */ FieldHolder $fh;
     public final long a;
     public final int b;
@@ -30,7 +30,25 @@ public abstract class e4 implements Comparable<e4> {
                 return;
             }
         }
-        c = new b7<>();
+        c = new b7();
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b * 7489;
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return b(this.a);
+        }
+        return (String) invokeV.objValue;
     }
 
     public e4(long j) {
@@ -59,7 +77,7 @@ public abstract class e4 implements Comparable<e4> {
         if (r0 >= r7.b) goto L17;
      */
     /* JADX WARN: Code restructure failed: missing block: B:25:?, code lost:
-        return r7.get(r0);
+        return (java.lang.String) r7.get(r0);
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -79,19 +97,21 @@ public abstract class e4 implements Comparable<e4> {
     public static final long c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65539, null, str)) != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            int i = 0;
+            while (true) {
+                b7 b7Var = c;
+                if (i < b7Var.b) {
+                    if (((String) b7Var.get(i)).compareTo(str) == 0) {
+                        return 1 << i;
+                    }
+                    i++;
+                } else {
+                    return 0L;
+                }
+            }
+        } else {
             return invokeL.longValue;
-        }
-        int i = 0;
-        while (true) {
-            b7<String> b7Var = c;
-            if (i >= b7Var.b) {
-                return 0L;
-            }
-            if (b7Var.get(i).compareTo(str) == 0) {
-                return 1 << i;
-            }
-            i++;
         }
     }
 
@@ -112,7 +132,13 @@ public abstract class e4 implements Comparable<e4> {
     public boolean a(e4 e4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e4Var)) == null) ? e4Var.hashCode() == hashCode() : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e4Var)) == null) {
+            if (e4Var.hashCode() == hashCode()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     public boolean equals(Object obj) {
@@ -125,27 +151,15 @@ public abstract class e4 implements Comparable<e4> {
             if (obj == this) {
                 return true;
             }
-            if (obj instanceof e4) {
-                e4 e4Var = (e4) obj;
-                if (this.a != e4Var.a) {
-                    return false;
-                }
-                return a(e4Var);
+            if (!(obj instanceof e4)) {
+                return false;
             }
-            return false;
+            e4 e4Var = (e4) obj;
+            if (this.a != e4Var.a) {
+                return false;
+            }
+            return a(e4Var);
         }
         return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b * 7489 : invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? b(this.a) : (String) invokeV.objValue;
     }
 }

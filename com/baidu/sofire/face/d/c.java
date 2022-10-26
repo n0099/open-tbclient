@@ -56,15 +56,15 @@ public class c {
                 try {
                     c cVar = this.b;
                     MediaRecorder mediaRecorder = cVar.a;
-                    if (mediaRecorder == null) {
+                    if (mediaRecorder != null) {
+                        mediaRecorder.start();
+                    } else {
                         cVar.c = false;
                         this.b.a();
                         com.baidu.sofire.face.d.a aVar = this.a;
                         if (aVar != null) {
                             aVar.a(-5);
                         }
-                    } else {
-                        mediaRecorder.start();
                     }
                 } catch (Throwable th) {
                     this.b.c = false;
@@ -98,35 +98,6 @@ public class c {
         this.d = context;
     }
 
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            try {
-                MediaRecorder mediaRecorder = this.a;
-                if (mediaRecorder != null) {
-                    try {
-                        mediaRecorder.release();
-                    } catch (Throwable unused) {
-                    }
-                    this.a = null;
-                }
-                Camera camera = this.e;
-                if (camera != null) {
-                    camera.lock();
-                    this.e = null;
-                }
-                this.c = false;
-                File file = this.b;
-                return file != null ? file.getAbsolutePath() : "";
-            } catch (Throwable unused2) {
-                this.c = false;
-                return "";
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
     public static synchronized c a(Context context) {
         InterceptResult invokeL;
         c cVar;
@@ -149,6 +120,7 @@ public class c {
 
     public synchronized int a(Camera camera, String str, int i, com.baidu.sofire.face.d.a aVar) {
         InterceptResult invokeLLIL;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(1048576, this, camera, str, i, aVar)) == null) {
             synchronized (this) {
@@ -168,19 +140,24 @@ public class c {
                     long freeSpace = file.getFreeSpace();
                     long j = freeSpace / 1048576;
                     if (freeSpace >= 100) {
-                        if (this.c) {
-                            return 2;
-                        }
-                        this.c = true;
-                        if (!a(camera, str, i)) {
-                            this.c = false;
-                            a();
-                            return -2;
-                        }
-                        new a(this, aVar).start();
-                        return 1;
+                        z = true;
+                    } else {
+                        z = false;
                     }
-                    return -4;
+                    if (!z) {
+                        return -4;
+                    }
+                    if (this.c) {
+                        return 2;
+                    }
+                    this.c = true;
+                    if (!a(camera, str, i)) {
+                        this.c = false;
+                        a();
+                        return -2;
+                    }
+                    new a(this, aVar).start();
+                    return 1;
                 } catch (Exception e) {
                     this.c = false;
                     e.printStackTrace();
@@ -190,6 +167,66 @@ public class c {
             }
         }
         return invokeLLIL.intValue;
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            try {
+                this.c = false;
+                MediaRecorder mediaRecorder = this.a;
+                if (mediaRecorder != null) {
+                    try {
+                        mediaRecorder.release();
+                    } catch (Throwable unused) {
+                    }
+                    this.a = null;
+                }
+                Camera camera = this.e;
+                if (camera != null) {
+                    camera.lock();
+                    this.e = null;
+                }
+                File file = this.b;
+                if (file != null) {
+                    file.delete();
+                    this.b = null;
+                }
+            } catch (Throwable unused2) {
+            }
+        }
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            try {
+                MediaRecorder mediaRecorder = this.a;
+                if (mediaRecorder != null) {
+                    try {
+                        mediaRecorder.release();
+                    } catch (Throwable unused) {
+                    }
+                    this.a = null;
+                }
+                Camera camera = this.e;
+                if (camera != null) {
+                    camera.lock();
+                    this.e = null;
+                }
+                this.c = false;
+                File file = this.b;
+                if (file != null) {
+                    return file.getAbsolutePath();
+                }
+                return "";
+            } catch (Throwable unused2) {
+                this.c = false;
+                return "";
+            }
+        }
+        return (String) invokeV.objValue;
     }
 
     public boolean a(Camera camera, String str, int i) {
@@ -224,33 +261,5 @@ public class c {
             }
         }
         return invokeLLI.booleanValue;
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            try {
-                this.c = false;
-                MediaRecorder mediaRecorder = this.a;
-                if (mediaRecorder != null) {
-                    try {
-                        mediaRecorder.release();
-                    } catch (Throwable unused) {
-                    }
-                    this.a = null;
-                }
-                Camera camera = this.e;
-                if (camera != null) {
-                    camera.lock();
-                    this.e = null;
-                }
-                File file = this.b;
-                if (file != null) {
-                    file.delete();
-                    this.b = null;
-                }
-            } catch (Throwable unused2) {
-            }
-        }
     }
 }

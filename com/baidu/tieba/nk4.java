@@ -1,18 +1,42 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
-@Service
 /* loaded from: classes5.dex */
-public class nk4 implements go1 {
+public abstract class nk4 implements mk4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.mk4
+    public void onBufferingUpdate(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.mk4
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.mk4
+    public void onSeekEnd() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.mk4
+    public void onVideoSizeChanged(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+        }
+    }
 
     public nk4() {
         Interceptable interceptable = $ic;
@@ -26,40 +50,5 @@ public class nk4 implements go1 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    @Override // com.baidu.tieba.go1
-    public wj2 a(ZeusPluginFactory.Invoker invoker, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, invoker, str)) == null) ? new pk4() : (wj2) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.go1
-    public wl2 b(ZeusPluginFactory.Invoker invoker, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, invoker, str)) == null) ? new sk4(invoker, str) : (wl2) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.go1
-    public wl2 c(ZeusPluginFactory.Invoker invoker, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, invoker, str)) == null) ? new rk4(invoker, str) : (wl2) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.go1
-    public vj2 d(ZeusPluginFactory.Invoker invoker, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, invoker, str)) == null) ? new ok4() : (vj2) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.go1
-    public th2 e(ZeusPluginFactory.Invoker invoker, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, invoker, str)) == null) ? new cl4(invoker, str) : (th2) invokeLL.objValue;
     }
 }

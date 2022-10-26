@@ -15,6 +15,24 @@ public class ChunkedOutputStream extends OutputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public ChunkedOutputStream(SessionOutputBuffer sessionOutputBuffer) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {sessionOutputBuffer};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        throw new RuntimeException("Stub!");
+    }
+
     public ChunkedOutputStream(SessionOutputBuffer sessionOutputBuffer, int i) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -63,9 +81,24 @@ public class ChunkedOutputStream extends OutputStream {
         }
     }
 
+    public void writeClosingChunk() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
     public void flushCacheWithAppend(byte[] bArr, int i, int i2) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048580, this, bArr, i, i2) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    @Override // java.io.OutputStream
+    public void write(byte[] bArr, int i, int i2) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048583, this, bArr, i, i2) == null) {
             throw new RuntimeException("Stub!");
         }
     }
@@ -78,43 +111,10 @@ public class ChunkedOutputStream extends OutputStream {
         }
     }
 
-    public void writeClosingChunk() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
-    public ChunkedOutputStream(SessionOutputBuffer sessionOutputBuffer) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {sessionOutputBuffer};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        throw new RuntimeException("Stub!");
-    }
-
     @Override // java.io.OutputStream
     public void write(byte[] bArr) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bArr) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
-    @Override // java.io.OutputStream
-    public void write(byte[] bArr, int i, int i2) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048583, this, bArr, i, i2) == null) {
             throw new RuntimeException("Stub!");
         }
     }

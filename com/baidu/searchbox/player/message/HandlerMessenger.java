@@ -4,8 +4,6 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.player.event.VideoEvent;
 import com.baidu.searchbox.player.utils.MainThreadUtil;
@@ -20,9 +18,15 @@ public class HandlerMessenger extends AbsMessenger {
     public static final int KEY_MESSAGE_EVENT = 153;
     public static final String TAG = "HandlerMessenger";
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
     public PrivateHandler mHandler;
     public final HandlerThread mHandlerThread;
+
+    @Override // com.baidu.searchbox.player.message.IMessenger
+    public String getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TAG : (String) invokeV.objValue;
+    }
 
     /* loaded from: classes2.dex */
     public class PrivateHandler extends Handler {
@@ -52,47 +56,47 @@ public class HandlerMessenger extends AbsMessenger {
         }
 
         @Override // android.os.Handler
-        public void handleMessage(@NonNull Message message) {
+        public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 super.handleMessage(message);
                 Object obj = message.obj;
-                if (obj instanceof VideoEvent) {
-                    MainThreadUtil.runOnUiThread(new Runnable(this, (VideoEvent) obj) { // from class: com.baidu.searchbox.player.message.HandlerMessenger.PrivateHandler.1
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ PrivateHandler this$1;
-                        public final /* synthetic */ VideoEvent val$event;
+                if (!(obj instanceof VideoEvent)) {
+                    return;
+                }
+                MainThreadUtil.runOnUiThread(new Runnable(this, (VideoEvent) obj) { // from class: com.baidu.searchbox.player.message.HandlerMessenger.PrivateHandler.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ PrivateHandler this$1;
+                    public final /* synthetic */ VideoEvent val$event;
 
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this, r7};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i = newInitContext.flag;
-                                if ((i & 1) != 0) {
-                                    int i2 = i & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.this$1 = this;
-                            this.val$event = r7;
-                        }
-
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            Interceptable interceptable2 = $ic;
-                            if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$1.this$0.isNeedIntercept(this.val$event)) {
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, r7};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
                             }
+                        }
+                        this.this$1 = this;
+                        this.val$event = r7;
+                    }
+
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        Interceptable interceptable2 = $ic;
+                        if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && !this.this$1.this$0.isNeedIntercept(this.val$event)) {
                             this.this$1.this$0.dispatchEvent(this.val$event);
                         }
-                    });
-                }
+                    }
+                });
             }
         }
     }
@@ -116,21 +120,13 @@ public class HandlerMessenger extends AbsMessenger {
         this.mHandler = new PrivateHandler(this, this.mHandlerThread.getLooper());
     }
 
-    @Override // com.baidu.searchbox.player.message.IMessenger
-    public String getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TAG : (String) invokeV.objValue;
-    }
-
     @Override // com.baidu.searchbox.player.message.AbsMessenger
-    public void publishEventToQueue(@NonNull VideoEvent videoEvent) {
+    public void publishEventToQueue(VideoEvent videoEvent) {
         PrivateHandler privateHandler;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, videoEvent) == null) || (privateHandler = this.mHandler) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, videoEvent) == null) && (privateHandler = this.mHandler) != null) {
+            privateHandler.obtainMessage(153, videoEvent).sendToTarget();
         }
-        privateHandler.obtainMessage(153, videoEvent).sendToTarget();
     }
 
     @Override // com.baidu.searchbox.player.message.AbsMessenger, com.baidu.searchbox.player.message.IMessenger

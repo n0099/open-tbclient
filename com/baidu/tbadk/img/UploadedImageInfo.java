@@ -1,14 +1,12 @@
 package com.baidu.tbadk.img;
 
-import android.annotation.SuppressLint;
 import android.text.TextUtils;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.EmotionDetailActivityConfig;
-import com.baidu.tieba.lj;
-import com.baidu.tieba.v95;
+import com.baidu.tieba.mj;
+import com.baidu.tieba.z95;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +27,6 @@ public class UploadedImageInfo implements Serializable {
     public boolean isBJH;
     public boolean isGif;
     public String pic_id;
-    @Nullable
     public String sharpText;
     public int width;
 
@@ -54,19 +51,37 @@ public class UploadedImageInfo implements Serializable {
     public int getHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.height : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.height;
+        }
+        return invokeV.intValue;
     }
 
     public String getPic_id() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.pic_id : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.pic_id;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.width : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.width;
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return toPostString();
+        }
+        return (String) invokeV.objValue;
     }
 
     public void parserJson(String str) {
@@ -94,7 +109,7 @@ public class UploadedImageInfo implements Serializable {
         }
     }
 
-    public void setSharpText(@Nullable String str) {
+    public void setSharpText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
             this.sharpText = str;
@@ -108,22 +123,9 @@ public class UploadedImageInfo implements Serializable {
         }
     }
 
-    @SuppressLint({"DefaultLocale"})
-    public String toPostString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.pic_id != null ? !TextUtils.isEmpty(this.sharpText) ? String.format(POST_EMOTION_FORMAT, this.pic_id, Integer.valueOf(this.width), Integer.valueOf(this.height), lj.c(String.format(MD5_EMOTION_FORMAT, this.pic_id, Integer.valueOf(this.width), Integer.valueOf(this.height), MD5_KEY)).toLowerCase(), v95.b.b(this.sharpText)) : this.isBJH ? String.format(POST_BJH_FORMAT, this.pic_id, Integer.valueOf(this.width), Integer.valueOf(this.height), Boolean.valueOf(this.isGif)) : String.format(POST_FORMAT, this.pic_id, Integer.valueOf(this.width), Integer.valueOf(this.height)) : "" : (String) invokeV.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? toPostString() : (String) invokeV.objValue;
-    }
-
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         try {
@@ -133,5 +135,23 @@ public class UploadedImageInfo implements Serializable {
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
+    }
+
+    public String toPostString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            if (this.pic_id != null) {
+                if (!TextUtils.isEmpty(this.sharpText)) {
+                    return String.format(POST_EMOTION_FORMAT, this.pic_id, Integer.valueOf(this.width), Integer.valueOf(this.height), mj.c(String.format(MD5_EMOTION_FORMAT, this.pic_id, Integer.valueOf(this.width), Integer.valueOf(this.height), MD5_KEY)).toLowerCase(), z95.b.b(this.sharpText));
+                }
+                if (this.isBJH) {
+                    return String.format(POST_BJH_FORMAT, this.pic_id, Integer.valueOf(this.width), Integer.valueOf(this.height), Boolean.valueOf(this.isGif));
+                }
+                return String.format(POST_FORMAT, this.pic_id, Integer.valueOf(this.width), Integer.valueOf(this.height));
+            }
+            return "";
+        }
+        return (String) invokeV.objValue;
     }
 }

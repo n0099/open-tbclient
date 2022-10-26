@@ -1,79 +1,36 @@
 package com.baidu.mobstat;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.InetSocketAddress;
+import java.nio.ByteBuffer;
 /* loaded from: classes2.dex */
-public class ch extends Exception {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+public interface ch {
+    String a(ce ceVar) throws cn;
 
-    public ch(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = i;
-    }
+    void a(ce ceVar, int i, String str);
 
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
-    }
+    void a(ce ceVar, int i, String str, boolean z);
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ch(int i, String str) {
-        super(str);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = i;
-    }
+    void a(ce ceVar, cw cwVar);
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ch(int i, Throwable th) {
-        super(th);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), th};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super((Throwable) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.a = i;
-    }
+    void a(ce ceVar, cy cyVar) throws cn;
+
+    void a(ce ceVar, cy cyVar, df dfVar) throws cn;
+
+    void a(ce ceVar, dd ddVar);
+
+    void a(ce ceVar, Exception exc);
+
+    void a(ce ceVar, String str);
+
+    void a(ce ceVar, ByteBuffer byteBuffer);
+
+    void b(ce ceVar);
+
+    void b(ce ceVar, int i, String str, boolean z);
+
+    void b(ce ceVar, cw cwVar);
+
+    InetSocketAddress c(ce ceVar);
+
+    void c(ce ceVar, cw cwVar);
 }

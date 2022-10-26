@@ -19,7 +19,6 @@ public class Config {
     public static final int APP_VERSION_NOT_INI_VALUE = -1;
     public static final long BPLUS_DELAY_TIME = 5000;
     public static final String CAR_UUID = "uu";
-    public static final String CELL_LOCATION = "cl";
     public static final String CHANNEL = "c";
     public static final String CHANNEL_META_NAME = "BaiduMobAd_CHANNEL";
     public static final int COMMON_DATA_LENGTH_LIMIT_LARGE = 1024;
@@ -27,6 +26,7 @@ public class Config {
     public static final int CRASH_TYPE_JAVA = 0;
     public static final int CRASH_TYPE_NATIE = 1;
     public static final String CUID = "i";
+    public static final String CUID3 = "ii3";
     public static final String CUID_SEC = "ii";
     public static final String CUSTOM_USER_ID = "uid";
     public static final String DEF_MAC_ID = "02:00:00:00:00:00";
@@ -37,6 +37,7 @@ public class Config {
     public static final String DEVICE_HEIGHT = "h";
     public static final String DEVICE_ID = "d";
     public static final String DEVICE_ID_SEC = "dd";
+    public static final String DEVICE_IMEI = "im";
     public static final String DEVICE_LOCAL_IP = "in_ip";
     public static final String DEVICE_MAC_ID = "mc";
     public static final String DEVICE_MEM_SIZE = "mem";
@@ -48,6 +49,7 @@ public class Config {
     public static final String EVENT_AAC = "c";
     public static final String EVENT_ATTR = "attribute";
     public static final String EVENT_AUTOTRACE = "at";
+    public static final String EVENT_CONTENT = "content";
     public static final String EVENT_DURATION = "d";
     public static final String EVENT_EXT = "ext";
     public static final String EVENT_FEED_IDENTIFIER_SIGN = "sign";
@@ -64,14 +66,17 @@ public class Config {
     public static final String EVENT_LABEL = "l";
     public static final int EVENT_LIDU = 3600000;
     public static final String EVENT_NATIVE_VIEW_HIERARCHY = "h2";
+    public static final String EVENT_NEXT_PAGENAME = "np";
     public static final String EVENT_PAGE = "p";
     public static final String EVENT_PAGE_MAPPING = "pd";
     public static final String EVENT_PART = "ev";
     public static final String EVENT_PATH_MAPPING = "ed";
+    public static final String EVENT_PY = "eventPy";
     public static final String EVENT_SESSION_START_TIME = "ss";
     public static final String EVENT_TIME = "t";
     public static final String EVENT_TIME_SEQUENCE = "s";
     public static final String EVENT_VIEW_RES_NAME = "rn";
+    public static final String EVENT_VIEW_SCREENSHOT_MD5 = "v5";
     public static final String EVENT_VIEW_TYPE = "v";
     public static final String EXCEPTION_CONTENT = "c";
     public static final String EXCEPTION_CRASH_CHANNEL = "ty";
@@ -82,6 +87,7 @@ public class Config {
     public static final String EXCEPTION_MEMORY_LOW = "low";
     public static final String EXCEPTION_MEMORY_TOTAL = "total";
     public static final String EXCEPTION_PART = "ex";
+    public static final String EXCEPTION_SDK_VERSION = "sv";
     public static final String EXCEPTION_TIME = "t";
     public static final String EXCEPTION_TYPE = "y";
     public static final String EXCEPTION_VERSION = "v";
@@ -89,6 +95,7 @@ public class Config {
     public static final String EXT = "ext";
     public static final int EXT_ITEM_LIMIT_BYTES = 1024;
     public static final String FEED_LIST_END_TIME = "e";
+    public static final String FEED_LIST_ITEM_CONTENT = "content";
     public static final String FEED_LIST_ITEM_CUSTOM_ID = "id";
     public static final String FEED_LIST_ITEM_DURATION = "d";
     public static final String FEED_LIST_ITEM_IDENTIFIER_DATA_SIGN = "sign";
@@ -97,6 +104,7 @@ public class Config {
     public static final String FEED_LIST_ITEM_PAGE = "p";
     public static final String FEED_LIST_ITEM_PART = "sv";
     public static final String FEED_LIST_ITEM_PATH = "path";
+    public static final String FEED_LIST_ITEM_SCREENSHOT_MD5 = "v5";
     public static final String FEED_LIST_ITEM_SHOW_COUNT = "c";
     public static final String FEED_LIST_ITEM_SHOW_TIME = "t";
     public static final String FEED_LIST_ITEM_SHOW_TIME_OFFSET = "ps";
@@ -107,14 +115,17 @@ public class Config {
     public static final String FEED_LIST_PART = "ti";
     public static final String FEED_LIST_START_TIME = "s";
     public static final String FEED_LIST_USER_SET = "user";
+    public static final String FROM = "from";
+    public static final int FULLTRACE_MAX_CACHE_JSON_CAPACITY = 184320;
     public static final long FULL_TRACE_LOG_LIMIT = 10485760;
+    public static final String GAID = "gaid";
     public static final String GET_CELL_LOCATION = "BaiduMobAd_CELL_LOCATION";
     public static final String GET_GPS_LOCATION = "BaiduMobAd_GPS_LOCATION";
     public static final String GET_WIFI_LOCATION = "BaiduMobAd_WIFI_LOCATION";
-    public static final String GPS_LOCATION = "gl";
     public static final String HEADER_EXT = "ext";
     public static final String HEADER_FULL_TRACE = "at";
     public static final String HEADER_PART = "he";
+    public static final String IID = "iid";
     public static final String INPUT_DEF_PKG = "pkg";
     public static final String INPUT_DEF_PKG_SYS = "sys";
     public static final String INPUT_DEF_VERSION = "version";
@@ -141,44 +152,60 @@ public class Config {
     public static final int MAX_FEED_COMMON_DATA_LENGTH = 256;
     public static final int MAX_HEAT_COUNT_PER_EVENT = 10;
     public static final long MAX_LOG_DATA_EXSIT_TIME = 604800000;
+    public static final int MAX_SESSION_CACHE = 102400;
     public static final boolean MERGE_EVENT = true;
     public static final String MODEL = "m";
     public static final String NULL_DEVICE_ID = "000000000000000";
+    public static final String OAID = "od";
     public static final String ONLY_WIFI_META_NAME = "BaiduMobAd_ONLY_WIFI";
     public static final String OPERATOR = "op";
     public static final String OS = "o";
     public static final String OS_SYSVERSION = "sv";
     public static final String OS_VERSION = "s";
+    public static final String OTHER_ID = "other_id";
+    public static final String OUT_OAID = "out_od";
     public static final String PACKAGE_NAME = "pn";
     public static final String PAGE_EXT = "ext";
     public static final String PAGE_H5_PAGE = "h5";
+    public static final String PAGE_PY = "pagePy";
     public static final String PLATFORM_TYPE = "pt";
+    public static final String PLT = "plt";
     public static String PREFIX_SEND_DATA = null;
-    public static final String PREFIX_SEND_DATA_FULL = "__track_send_data_";
+    public static String PREFIX_SEND_DATA_FULL = null;
     public static final String PRINCIPAL_PART = "pr";
     public static final String PROCESS_CLASS = "scl";
     public static final String PROCESS_LABEL = "pl";
+    public static final int PROPERTY_MAX_LENGTH = 100;
     public static final String PUSH = "push";
     public static final int PUSH_ID_LIMIT_BYTES = 1024;
+    public static final String PY = "py";
+    public static final String PYD = "pyd";
     public static final long RAVEN_LOG_LIMIT = 52428800;
     public static final String RES_PREFIX;
     public static final String ROM = "rom";
     public static final boolean SDK_ENABLE_DEVICE = false;
     public static final boolean SDK_ENABLE_FEED = true;
     public static final boolean SDK_ENABLE_INPUT = false;
+    public static final boolean SDK_ENABLE_LIST = false;
     public static final boolean SDK_ENABLE_MAC = true;
+    public static final boolean SDK_FOR_BES = false;
+    public static final boolean SDK_FOR_BLACK = false;
     public static final boolean SDK_FOR_CAR = false;
+    public static final boolean SDK_FOR_CLEAN = false;
     public static final boolean SDK_FOR_DUEROS = false;
+    public static final boolean SDK_FOR_DXM = false;
     public static final boolean SDK_FOR_HUAWEI = false;
+    public static final boolean SDK_FOR_IMEI = true;
     public static final boolean SDK_FOR_MAP = false;
     public static final boolean SDK_FOR_MB_DEV = false;
     public static final boolean SDK_FOR_RAVEN = false;
-    public static final boolean SDK_FOR_SDK = false;
-    public static final boolean SDK_INTERNAL = false;
+    public static final boolean SDK_HOOK_FILTER = true;
+    public static final boolean SDK_INTERNAL = true;
     public static final boolean SDK_LOG_FILTER = false;
+    public static final boolean SDK_MERGE_SESSION = false;
     public static final boolean SDK_RELEASE = true;
     public static final String SDK_TAG = "tg";
-    public static final int SDK_TAG_VALUE = 1;
+    public static final int SDK_TAG_VALUE = 2;
     public static final boolean SDK_TRACE_ALL = true;
     public static final boolean SDK_WITH_AUTOTRACE = true;
     public static final int SDK_WITH_BPLUS = 2;
@@ -186,7 +213,9 @@ public class Config {
     public static final String SEND_STRATEGY_META_NAME = "BaiduMobAd_SEND_STRATEGY";
     public static final String SEQUENCE_INDEX = "sq";
     public static final String SESSION_COUNTED = "c";
+    public static final String SESSION_JSON_PY = "sessionJson";
     public static final int SESSION_PERIOD = 30000;
+    public static final String SESSION_PY = "sessionPy";
     public static final String SESSION_STARTTIME = "ss";
     public static final String SESSTION_ACTIVITY_AUTOTRACE = "at";
     public static final String SESSTION_ACTIVITY_DURATION = "d";
@@ -205,16 +234,18 @@ public class Config {
     public static final String SESSTION_TRACK_END_TIME = "e2";
     public static final String SESSTION_TRACK_START_TIME = "s2";
     public static final String SESSTION_TRIGGER_CATEGORY = "pc";
+    public static final String SID = "sids";
     public static final String SIGN = "sign";
+    public static final String SSAID = "ssaid";
     public static final String STAMP = "t";
     public static final String START_TYPE = "startType";
     public static final String STAT_CACHE_FILE_NAME;
     public static final String STAT_FULL_CACHE_FILE_NAME;
     public static final String STAT_SDK_CHANNEL = "sc";
-    public static final int STAT_SDK_CHANNEL_VALUE = 14;
+    public static final int STAT_SDK_CHANNEL_VALUE = 26;
     public static final String STAT_SDK_TYPE = "st";
     public static final String STAT_SDK_VERSION = "v";
-    public static final String STAT_SDK_VERSION_NUM = "3.9.5.1";
+    public static final String STAT_SDK_VERSION_NUM = "4.0.9.7";
     public static final String TARGET_SDK_VERSION = "tv";
     public static final String TEST_DEVICE_ID = "td";
     public static final String TIME_INTERVAL_META_NAME = "BaiduMobAd_TIME_INTERVAL";
@@ -231,11 +262,17 @@ public class Config {
     public static final String TRACE_VISIT_RECENT_DAY = "day";
     public static final String TRACE_VISIT_SESSION_LAST_INTERVAL = "session_last_interval";
     public static final String TRACE_VISIT_SESSION_TODAY_COUNT = "session_today_cnt";
+    public static final String UID_CHANGE = "uid_change";
+    public static final String UID_PY = "uidPy";
+    public static final String USER_PROPERTY = "user_property";
+    public static final String USER_PY = "userPy";
     public static final String WIFI_LOCATION = "wl2";
+    public static final String ZID = "zid";
+    public static final String replace = "_";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public static class AppLaunchType {
+    public class AppLaunchType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int AppCall = 1;
         public static final int DirectCall = 0;
@@ -258,7 +295,7 @@ public class Config {
     }
 
     /* loaded from: classes2.dex */
-    public static class CrashChannel {
+    public class CrashChannel {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int SYS_TRACK = 0;
         public static final int USER_UPLOAD_ERROR = 12;
@@ -283,7 +320,7 @@ public class Config {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class EventViewType {
+    public final class EventViewType {
         public static /* synthetic */ Interceptable $ic;
         public static final EventViewType BUTTON;
         public static final EventViewType EDIT;
@@ -334,31 +371,43 @@ public class Config {
         public static EventViewType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (EventViewType) Enum.valueOf(EventViewType.class, str) : (EventViewType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (EventViewType) Enum.valueOf(EventViewType.class, str);
+            }
+            return (EventViewType) invokeL.objValue;
         }
 
         public static EventViewType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EventViewType[]) b.clone() : (EventViewType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (EventViewType[]) b.clone();
+            }
+            return (EventViewType[]) invokeV.objValue;
         }
 
         public int getValue() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a;
+            }
+            return invokeV.intValue;
         }
 
         @Override // java.lang.Enum
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? String.valueOf(this.a) : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return String.valueOf(this.a);
+            }
+            return (String) invokeV.objValue;
         }
     }
 
     /* loaded from: classes2.dex */
-    public static class SessionInvokeCategory {
+    public class SessionInvokeCategory {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ActivityInvoke = 1;
         public static final int ApiInvoke = 0;
@@ -382,7 +431,7 @@ public class Config {
     }
 
     /* loaded from: classes2.dex */
-    public static class StartType {
+    public class StartType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int NORMAL_START = 0;
         public static final int QUICK_START = 1;
@@ -404,7 +453,7 @@ public class Config {
     }
 
     /* loaded from: classes2.dex */
-    public static class TraceType {
+    public class TraceType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int AUTO_TRACE = 1;
         public static final int CODE_TRACE = 0;
@@ -429,6 +478,7 @@ public class Config {
 
     static {
         InterceptResult invokeClinit;
+        String str;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
         if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(351802000, "Lcom/baidu/mobstat/Config;")) != null) {
             Interceptable interceptable = invokeClinit.interceptor;
@@ -440,10 +490,17 @@ public class Config {
                 return;
             }
         }
-        LOG_SEND_URL = Build.VERSION.SDK_INT < 9 ? LOG_SEND_URL_NOSSL : LOG_SEND_URL_SSL;
+        if (Build.VERSION.SDK_INT < 9) {
+            str = LOG_SEND_URL_NOSSL;
+        } else {
+            str = LOG_SEND_URL_SSL;
+        }
+        LOG_SEND_URL = str;
+        PREFIX_SEND_DATA_FULL = "";
         PREFIX_SEND_DATA = "";
         RES_PREFIX = "__local_";
         PREFIX_SEND_DATA = "__send_data_";
+        PREFIX_SEND_DATA_FULL = "__track_send_data_";
         LAST_SESSION_FILE_NAME = RES_PREFIX + "last_session.json";
         EXCEPT_FILE_NAME = RES_PREFIX + "except_cache.json";
         LAST_AP_INFO_FILE_NAME = RES_PREFIX + "ap_info_cache.json";

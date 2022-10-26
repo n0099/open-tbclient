@@ -35,12 +35,6 @@ public class PullTidHttpRespMessage extends HttpResponsedMessage {
         }
     }
 
-    public String getTid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.tid : (String) invokeV.objValue;
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
@@ -51,5 +45,14 @@ public class PullTidHttpRespMessage extends HttpResponsedMessage {
             } catch (Throwable unused) {
             }
         }
+    }
+
+    public String getTid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.tid;
+        }
+        return (String) invokeV.objValue;
     }
 }

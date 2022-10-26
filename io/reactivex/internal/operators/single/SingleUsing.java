@@ -21,32 +21,32 @@ import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class SingleUsing<T, U> extends Single<T> {
+public final class SingleUsing extends Single {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Consumer<? super U> disposer;
+    public final Consumer disposer;
     public final boolean eager;
-    public final Callable<U> resourceSupplier;
-    public final Function<? super U, ? extends SingleSource<? extends T>> singleFunction;
+    public final Callable resourceSupplier;
+    public final Function singleFunction;
 
     /* loaded from: classes8.dex */
-    public static final class UsingSingleObserver<T, U> extends AtomicReference<Object> implements SingleObserver<T>, Disposable {
+    public final class UsingSingleObserver extends AtomicReference implements SingleObserver, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -5331524057054083935L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SingleObserver<? super T> actual;
+        public final SingleObserver actual;
         public Disposable d;
-        public final Consumer<? super U> disposer;
+        public final Consumer disposer;
         public final boolean eager;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public UsingSingleObserver(SingleObserver<? super T> singleObserver, U u, boolean z, Consumer<? super U> consumer) {
-            super(u);
+        public UsingSingleObserver(SingleObserver singleObserver, Object obj, boolean z, Consumer consumer) {
+            super(obj);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {singleObserver, u, Boolean.valueOf(z), consumer};
+                Object[] objArr = {singleObserver, obj, Boolean.valueOf(z), consumer};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -75,14 +75,13 @@ public final class SingleUsing<T, U> extends Single<T> {
         public void disposeAfter() {
             Object andSet;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (andSet = getAndSet(this)) == this) {
-                return;
-            }
-            try {
-                this.disposer.accept(andSet);
-            } catch (Throwable th) {
-                Exceptions.throwIfFatal(th);
-                RxJavaPlugins.onError(th);
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (andSet = getAndSet(this)) != this) {
+                try {
+                    this.disposer.accept(andSet);
+                } catch (Throwable th) {
+                    Exceptions.throwIfFatal(th);
+                    RxJavaPlugins.onError(th);
+                }
             }
         }
 
@@ -90,7 +89,10 @@ public final class SingleUsing<T, U> extends Single<T> {
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d.isDisposed() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.d.isDisposed();
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.SingleObserver
@@ -100,21 +102,47 @@ public final class SingleUsing<T, U> extends Single<T> {
                 this.d = DisposableHelper.DISPOSED;
                 if (this.eager) {
                     Object andSet = getAndSet(this);
-                    if (andSet == this) {
+                    if (andSet != this) {
+                        try {
+                            this.disposer.accept(andSet);
+                        } catch (Throwable th2) {
+                            Exceptions.throwIfFatal(th2);
+                            th = new CompositeException(th, th2);
+                        }
+                    } else {
                         return;
-                    }
-                    try {
-                        this.disposer.accept(andSet);
-                    } catch (Throwable th2) {
-                        Exceptions.throwIfFatal(th2);
-                        th = new CompositeException(th, th2);
                     }
                 }
                 this.actual.onError(th);
-                if (this.eager) {
-                    return;
+                if (!this.eager) {
+                    disposeAfter();
                 }
-                disposeAfter();
+            }
+        }
+
+        @Override // io.reactivex.SingleObserver
+        public void onSuccess(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
+                this.d = DisposableHelper.DISPOSED;
+                if (this.eager) {
+                    Object andSet = getAndSet(this);
+                    if (andSet != this) {
+                        try {
+                            this.disposer.accept(andSet);
+                        } catch (Throwable th) {
+                            Exceptions.throwIfFatal(th);
+                            this.actual.onError(th);
+                            return;
+                        }
+                    } else {
+                        return;
+                    }
+                }
+                this.actual.onSuccess(obj);
+                if (!this.eager) {
+                    disposeAfter();
+                }
             }
         }
 
@@ -126,35 +154,9 @@ public final class SingleUsing<T, U> extends Single<T> {
                 this.actual.onSubscribe(this);
             }
         }
-
-        @Override // io.reactivex.SingleObserver
-        public void onSuccess(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
-                this.d = DisposableHelper.DISPOSED;
-                if (this.eager) {
-                    Object andSet = getAndSet(this);
-                    if (andSet == this) {
-                        return;
-                    }
-                    try {
-                        this.disposer.accept(andSet);
-                    } catch (Throwable th) {
-                        Exceptions.throwIfFatal(th);
-                        this.actual.onError(th);
-                        return;
-                    }
-                }
-                this.actual.onSuccess(t);
-                if (this.eager) {
-                    return;
-                }
-                disposeAfter();
-            }
-        }
     }
 
-    public SingleUsing(Callable<U> callable, Function<? super U, ? extends SingleSource<? extends T>> function, Consumer<? super U> consumer, boolean z) {
+    public SingleUsing(Callable callable, Function function, Consumer consumer, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -176,11 +178,11 @@ public final class SingleUsing<T, U> extends Single<T> {
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver<? super T> singleObserver) {
+    public void subscribeActual(SingleObserver singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, singleObserver) == null) {
             try {
-                U call = this.resourceSupplier.call();
+                Object call = this.resourceSupplier.call();
                 try {
                     ((SingleSource) ObjectHelper.requireNonNull(this.singleFunction.apply(call), "The singleFunction returned a null SingleSource")).subscribe(new UsingSingleObserver(singleObserver, call, this.eager, this.disposer));
                 } catch (Throwable th) {
@@ -195,14 +197,13 @@ public final class SingleUsing<T, U> extends Single<T> {
                         }
                     }
                     EmptyDisposable.error(th, singleObserver);
-                    if (this.eager) {
-                        return;
-                    }
-                    try {
-                        this.disposer.accept(call);
-                    } catch (Throwable th3) {
-                        Exceptions.throwIfFatal(th3);
-                        RxJavaPlugins.onError(th3);
+                    if (!this.eager) {
+                        try {
+                            this.disposer.accept(call);
+                        } catch (Throwable th3) {
+                            Exceptions.throwIfFatal(th3);
+                            RxJavaPlugins.onError(th3);
+                        }
                     }
                 }
             } catch (Throwable th4) {

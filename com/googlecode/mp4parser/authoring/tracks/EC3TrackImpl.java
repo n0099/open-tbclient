@@ -8,8 +8,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.coremedia.iso.boxes.AbstractMediaHeaderBox;
-import com.coremedia.iso.boxes.CompositionTimeToSample;
-import com.coremedia.iso.boxes.SampleDependencyTypeBox;
 import com.coremedia.iso.boxes.SampleDescriptionBox;
 import com.coremedia.iso.boxes.SoundMediaHeaderBox;
 import com.coremedia.iso.boxes.SubSampleInformationBox;
@@ -34,17 +32,64 @@ public class EC3TrackImpl extends AbstractTrack {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long MAX_FRAMES_PER_MMAP = 20;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<BitStreamInfo> bitStreamInfos;
+    public List bitStreamInfos;
     public int bitrate;
     public final DataSource dataSource;
     public long[] decodingTimes;
     public int frameSize;
     public SampleDescriptionBox sampleDescriptionBox;
-    public List<Sample> samples;
+    public List samples;
     public TrackMetaData trackMetaData;
 
+    @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
+    public List getCompositionTimeEntries() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // com.googlecode.mp4parser.authoring.Track
+    public String getHandler() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "soun" : (String) invokeV.objValue;
+    }
+
+    @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
+    public List getSampleDependencies() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return null;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
+    public SubSampleInformationBox getSubsampleInformationBox() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return null;
+        }
+        return (SubSampleInformationBox) invokeV.objValue;
+    }
+
+    @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
+    public long[] getSyncSamples() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return null;
+        }
+        return (long[]) invokeV.objValue;
+    }
+
     /* loaded from: classes7.dex */
-    public static class BitStreamInfo extends EC3SpecificBox.Entry {
+    public class BitStreamInfo extends EC3SpecificBox.Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int bitrate;
@@ -114,7 +159,7 @@ public class EC3TrackImpl extends AbstractTrack {
             }
         }
         if (this.bitStreamInfos.size() != 0) {
-            int i3 = this.bitStreamInfos.get(0).samplerate;
+            int i3 = ((BitStreamInfo) this.bitStreamInfos.get(0)).samplerate;
             this.sampleDescriptionBox = new SampleDescriptionBox();
             AudioSampleEntry audioSampleEntry = new AudioSampleEntry(AudioSampleEntry.TYPE9);
             audioSampleEntry.setChannelCount(2);
@@ -159,7 +204,7 @@ public class EC3TrackImpl extends AbstractTrack {
             this.trackMetaData.setTimescale(j);
             this.trackMetaData.setVolume(1.0f);
             dataSource.position(0L);
-            List<Sample> readSamples = readSamples();
+            List readSamples = readSamples();
             this.samples = readSamples;
             long[] jArr = new long[readSamples.size()];
             this.decodingTimes = jArr;
@@ -169,7 +214,7 @@ public class EC3TrackImpl extends AbstractTrack {
         throw new IOException();
     }
 
-    private List<Sample> readSamples() throws IOException {
+    private List readSamples() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
@@ -219,7 +264,10 @@ public class EC3TrackImpl extends AbstractTrack {
                     public long getSize() {
                         InterceptResult invokeV2;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeV2 = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.this$0.frameSize : invokeV2.longValue;
+                        if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                            return this.this$0.frameSize;
+                        }
+                        return invokeV2.longValue;
                     }
 
                     @Override // com.googlecode.mp4parser.authoring.Sample
@@ -236,9 +284,19 @@ public class EC3TrackImpl extends AbstractTrack {
         return (List) invokeV.objValue;
     }
 
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return "EC3TrackImpl{bitrate=" + this.bitrate + ", bitStreamInfos=" + this.bitStreamInfos + '}';
+        }
+        return (String) invokeV.objValue;
+    }
+
     private BitStreamInfo readVariables() throws IOException {
         InterceptResult invokeV;
         int readBits;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             long position = this.dataSource.position();
@@ -255,15 +313,31 @@ public class EC3TrackImpl extends AbstractTrack {
             bitStreamInfo.frameSize = (bitReaderBuffer.readBits(11) + 1) * 2;
             int readBits2 = bitReaderBuffer.readBits(2);
             bitStreamInfo.fscod = readBits2;
-            int i = -1;
+            int i2 = -1;
             if (readBits2 == 3) {
-                i = bitReaderBuffer.readBits(2);
+                i2 = bitReaderBuffer.readBits(2);
                 readBits = 3;
             } else {
                 readBits = bitReaderBuffer.readBits(2);
             }
-            int i2 = readBits != 0 ? readBits != 1 ? readBits != 2 ? readBits != 3 ? 0 : 6 : 3 : 2 : 1;
-            bitStreamInfo.frameSize *= 6 / i2;
+            if (readBits != 0) {
+                if (readBits != 1) {
+                    if (readBits != 2) {
+                        if (readBits != 3) {
+                            i = 0;
+                        } else {
+                            i = 6;
+                        }
+                    } else {
+                        i = 3;
+                    }
+                } else {
+                    i = 2;
+                }
+            } else {
+                i = 1;
+            }
+            bitStreamInfo.frameSize *= 6 / i;
             bitStreamInfo.acmod = bitReaderBuffer.readBits(3);
             bitStreamInfo.lfeon = bitReaderBuffer.readBits(1);
             bitStreamInfo.bsid = bitReaderBuffer.readBits(5);
@@ -370,7 +444,7 @@ public class EC3TrackImpl extends AbstractTrack {
                             if (readBits == 0) {
                                 bitReaderBuffer.readBits(5);
                             } else {
-                                for (int i5 = 0; i5 < i2; i5++) {
+                                for (int i5 = 0; i5 < i; i5++) {
                                     if (1 == bitReaderBuffer.readBits(1)) {
                                         bitReaderBuffer.readBits(5);
                                     }
@@ -384,22 +458,34 @@ public class EC3TrackImpl extends AbstractTrack {
                 bitStreamInfo.bsmod = bitReaderBuffer.readBits(3);
             }
             int i6 = bitStreamInfo.fscod;
-            if (i6 == 0) {
-                bitStreamInfo.samplerate = 48000;
-            } else if (i6 == 1) {
-                bitStreamInfo.samplerate = 44100;
-            } else if (i6 == 2) {
-                bitStreamInfo.samplerate = 32000;
-            } else if (i6 == 3) {
-                if (i == 0) {
-                    bitStreamInfo.samplerate = 24000;
-                } else if (i == 1) {
-                    bitStreamInfo.samplerate = 22050;
-                } else if (i == 2) {
-                    bitStreamInfo.samplerate = 16000;
-                } else if (i == 3) {
-                    bitStreamInfo.samplerate = 0;
+            if (i6 != 0) {
+                if (i6 != 1) {
+                    if (i6 != 2) {
+                        if (i6 == 3) {
+                            if (i2 != 0) {
+                                if (i2 != 1) {
+                                    if (i2 != 2) {
+                                        if (i2 == 3) {
+                                            bitStreamInfo.samplerate = 0;
+                                        }
+                                    } else {
+                                        bitStreamInfo.samplerate = 16000;
+                                    }
+                                } else {
+                                    bitStreamInfo.samplerate = 22050;
+                                }
+                            } else {
+                                bitStreamInfo.samplerate = 24000;
+                            }
+                        }
+                    } else {
+                        bitStreamInfo.samplerate = 32000;
+                    }
+                } else {
+                    bitStreamInfo.samplerate = 44100;
                 }
+            } else {
+                bitStreamInfo.samplerate = 48000;
             }
             int i7 = bitStreamInfo.samplerate;
             if (i7 == 0) {
@@ -413,95 +499,54 @@ public class EC3TrackImpl extends AbstractTrack {
         return (BitStreamInfo) invokeV.objValue;
     }
 
-    @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
-    public List<CompositionTimeToSample.Entry> getCompositionTimeEntries() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (List) invokeV.objValue;
-    }
-
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.googlecode.mp4parser.authoring.Track
-    public String getHandler() {
+    public AbstractMediaHeaderBox getMediaHeaderBox() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "soun" : (String) invokeV.objValue;
-    }
-
-    @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
-    public List<SampleDependencyTypeBox.Entry> getSampleDependencies() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return new SoundMediaHeaderBox();
         }
-        return (List) invokeV.objValue;
+        return (AbstractMediaHeaderBox) invokeV.objValue;
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
     public SampleDescriptionBox getSampleDescriptionBox() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.sampleDescriptionBox : (SampleDescriptionBox) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.sampleDescriptionBox;
+        }
+        return (SampleDescriptionBox) invokeV.objValue;
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
     public long[] getSampleDurations() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.decodingTimes : (long[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.decodingTimes;
+        }
+        return (long[]) invokeV.objValue;
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
-    public List<Sample> getSamples() {
+    public List getSamples() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.samples : (List) invokeV.objValue;
-    }
-
-    @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
-    public SubSampleInformationBox getSubsampleInformationBox() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.samples;
         }
-        return (SubSampleInformationBox) invokeV.objValue;
-    }
-
-    @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
-    public long[] getSyncSamples() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return null;
-        }
-        return (long[]) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
     public TrackMetaData getTrackMetaData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.trackMetaData : (TrackMetaData) invokeV.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return "EC3TrackImpl{bitrate=" + this.bitrate + ", bitStreamInfos=" + this.bitStreamInfos + '}';
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.trackMetaData;
         }
-        return (String) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.googlecode.mp4parser.authoring.Track
-    public AbstractMediaHeaderBox getMediaHeaderBox() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new SoundMediaHeaderBox() : (AbstractMediaHeaderBox) invokeV.objValue;
+        return (TrackMetaData) invokeV.objValue;
     }
 }

@@ -26,8 +26,25 @@ public class IMQueryFansGroupQrCodeRequest extends FansGroupBaseHttpRequest {
     public String mGroupId;
     public String mKey;
 
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getContentType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "application/x-www-form-urlencoded" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public boolean shouldAbort() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     /* loaded from: classes.dex */
-    public static class QrCode {
+    public class QrCode {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long mExpireTime;
@@ -57,13 +74,19 @@ public class IMQueryFansGroupQrCodeRequest extends FansGroupBaseHttpRequest {
         public long getExpireTime() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mExpireTime : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.mExpireTime;
+            }
+            return invokeV.longValue;
         }
 
         public String getQrCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mQrCode : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.mQrCode;
+            }
+            return (String) invokeV.objValue;
         }
     }
 
@@ -85,13 +108,6 @@ public class IMQueryFansGroupQrCodeRequest extends FansGroupBaseHttpRequest {
         this.mContext = context;
         this.mKey = str2;
         this.mGroupId = str;
-    }
-
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public String getContentType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "application/x-www-form-urlencoded" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.android.imsdk.group.request.FansGroupBaseHttpRequest, com.baidu.android.imsdk.group.request.GroupBaseHttpRequest, com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -121,7 +137,7 @@ public class IMQueryFansGroupQrCodeRequest extends FansGroupBaseHttpRequest {
     public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048579, this, i, bArr, th) == null) {
-            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
+            Pair transErrorCode = transErrorCode(i, bArr, th);
             LogUtils.d(TAG, "onFailure result = " + new String(bArr));
             IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
             if (removeListener instanceof BIMValueCallBack) {
@@ -161,15 +177,5 @@ public class IMQueryFansGroupQrCodeRequest extends FansGroupBaseHttpRequest {
                 ((BIMValueCallBack) removeListener).onResult(i2, str, qrCode);
             }
         }
-    }
-
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public boolean shouldAbort() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

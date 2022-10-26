@@ -37,7 +37,47 @@ public abstract class RealTimeMsg extends NormalMsg implements Parcelable, NoPro
     public int getDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mDuration : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mDuration;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean isSucess() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mSucess;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public RealTimeMsg(Parcel parcel) {
+        super(parcel);
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Parcel) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        if (parcel.readInt() != 0) {
+            z = true;
+        } else {
+            z = false;
+        }
+        this.mSucess = z;
+        this.mDuration = parcel.readInt();
     }
 
     public String getRealTimeMsgJsonString(boolean z, int i) {
@@ -56,30 +96,24 @@ public abstract class RealTimeMsg extends NormalMsg implements Parcelable, NoPro
         return (String) invokeCommon.objValue;
     }
 
-    public boolean isSucess() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mSucess : invokeV.booleanValue;
-    }
-
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
     public boolean parseJsonString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             String jsonContent = getJsonContent();
-            if (TextUtils.isEmpty(jsonContent)) {
-                return false;
+            if (!TextUtils.isEmpty(jsonContent)) {
+                try {
+                    JSONObject jSONObject = new JSONObject(jsonContent);
+                    this.mSucess = jSONObject.optBoolean("sucess");
+                    this.mDuration = jSONObject.optInt("duration");
+                    return false;
+                } catch (JSONException e) {
+                    LogUtils.e(LogUtils.TAG, "parseJsonString", e);
+                    return false;
+                }
             }
-            try {
-                JSONObject jSONObject = new JSONObject(jsonContent);
-                this.mSucess = jSONObject.optBoolean("sucess");
-                this.mDuration = jSONObject.optInt("duration");
-                return false;
-            } catch (JSONException e) {
-                LogUtils.e(LogUtils.TAG, "parseJsonString", e);
-                return false;
-            }
+            return false;
         }
         return invokeV.booleanValue;
     }
@@ -99,27 +133,5 @@ public abstract class RealTimeMsg extends NormalMsg implements Parcelable, NoPro
             parcel.writeInt(this.mSucess ? 1 : 0);
             parcel.writeInt(this.mDuration);
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RealTimeMsg(Parcel parcel) {
-        super(parcel);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Parcel) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mSucess = parcel.readInt() != 0;
-        this.mDuration = parcel.readInt();
     }
 }

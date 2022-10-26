@@ -66,7 +66,32 @@ public class CloudControlManager {
         return (CloudControlManager) invokeV.objValue;
     }
 
-    public void fetchCloudControl(String str, ArrayList<CloudControlRequestInfo> arrayList) {
+    public HashMap getProcessors() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mProcessors.getProcessors();
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    public SharedPrefsWrapper getSharedPrefsWrapper() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mSharedPrefsWrapper;
+        }
+        return (SharedPrefsWrapper) invokeV.objValue;
+    }
+
+    public void onBackgroundToForeground() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            getInstance().requestCloudControl("1");
+        }
+    }
+
+    public void fetchCloudControl(String str, ArrayList arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, arrayList) == null) {
             if (!TextUtils.equals(str, "0") && !TextUtils.equals(str, "1")) {
@@ -122,7 +147,10 @@ public class CloudControlManager {
             try {
                 CloudControlData parseConnectResponse = new CloudControlResponseParse(str).parseConnectResponse(jSONObject, jSONObject2);
                 new DataRouter().routeServiceData(parseConnectResponse);
-                return parseConnectResponse != null;
+                if (parseConnectResponse == null) {
+                    return false;
+                }
+                return true;
             } catch (JSONException e) {
                 if (AppConfig.isDebug()) {
                     Log.d(TAG, "connect response parse is error" + e.toString());
@@ -131,85 +159,6 @@ public class CloudControlManager {
             }
         }
         return invokeLLL.booleanValue;
-    }
-
-    public ArrayList<CloudControlRequestInfo> getPostData(String str) {
-        InterceptResult invokeL;
-        JSONObject jSONObject;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            ArrayList<CloudControlRequestInfo> arrayList = new ArrayList<>();
-            HashMap<String, ICloudControlProcessor> processors = this.mProcessors.getProcessors();
-            try {
-                jSONObject = new JSONObject(this.mSharedPrefsWrapper.getString(CloudControlConstant.SP_KEY_DEGRADE_LIST, ""));
-            } catch (JSONException e) {
-                if (AppConfig.isDebug()) {
-                    Log.d(TAG, "drage is not json  " + e.toString());
-                }
-                jSONObject = null;
-            }
-            if (jSONObject == null || jSONObject.length() != 0) {
-                for (Map.Entry<String, ICloudControlProcessor> entry : processors.entrySet()) {
-                    String key = entry.getKey();
-                    CloudControlRequestInfo postData = entry.getValue().getPostData(str, isDegradeTime(), jSONObject != null ? jSONObject.optJSONObject(key) : null);
-                    if (AppConfig.isDebug()) {
-                        if (postData != null) {
-                            try {
-                                if (!this.mProcessors.containKey(key)) {
-                                    throw new Exception(key + " service is not register");
-                                }
-                            } catch (Exception e2) {
-                                e2.printStackTrace();
-                            }
-                        } else {
-                            throw new Exception(key + " service get post data is error ");
-                        }
-                    }
-                    arrayList.add(postData);
-                }
-                return arrayList;
-            }
-            return arrayList;
-        }
-        return (ArrayList) invokeL.objValue;
-    }
-
-    public ICloudControlProcessor getProcessor(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? this.mProcessors.getProcessor(str) : (ICloudControlProcessor) invokeL.objValue;
-    }
-
-    public HashMap<String, ICloudControlProcessor> getProcessors() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mProcessors.getProcessors() : (HashMap) invokeV.objValue;
-    }
-
-    public SharedPrefsWrapper getSharedPrefsWrapper() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mSharedPrefsWrapper : (SharedPrefsWrapper) invokeV.objValue;
-    }
-
-    public boolean isDegradeTime() {
-        InterceptResult invokeV;
-        long parseLong;
-        long parseLong2;
-        long currentTimeMillis;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            try {
-                String string = this.mSharedPrefsWrapper.getString("st", "0");
-                String string2 = this.mSharedPrefsWrapper.getString("et", "0");
-                parseLong = Long.parseLong(string);
-                parseLong2 = Long.parseLong(string2);
-                currentTimeMillis = System.currentTimeMillis() / 1000;
-            } catch (Exception unused) {
-            }
-            return parseLong <= currentTimeMillis && currentTimeMillis <= parseLong2;
-        }
-        return invokeV.booleanValue;
     }
 
     public boolean isInDegradeList(JSONObject jSONObject, String str, String str2) {
@@ -230,23 +179,68 @@ public class CloudControlManager {
             if (optJSONObject.length() == 0) {
                 return true;
             }
-            return optJSONObject.has(str2) && (optJSONObject2 = optJSONObject.optJSONObject(str2)) != null && optJSONObject2.length() == 0;
+            if (!optJSONObject.has(str2) || (optJSONObject2 = optJSONObject.optJSONObject(str2)) == null || optJSONObject2.length() != 0) {
+                return false;
+            }
+            return true;
         }
         return invokeLLL.booleanValue;
     }
 
-    public void onBackgroundToForeground() {
+    public ArrayList getPostData(String str) {
+        InterceptResult invokeL;
+        JSONObject jSONObject;
+        JSONObject jSONObject2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            getInstance().requestCloudControl("1");
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            ArrayList arrayList = new ArrayList();
+            HashMap processors = this.mProcessors.getProcessors();
+            try {
+                jSONObject = new JSONObject(this.mSharedPrefsWrapper.getString(CloudControlConstant.SP_KEY_DEGRADE_LIST, ""));
+            } catch (JSONException e) {
+                if (AppConfig.isDebug()) {
+                    Log.d(TAG, "drage is not json  " + e.toString());
+                }
+                jSONObject = null;
+            }
+            if (jSONObject != null && jSONObject.length() == 0) {
+                return arrayList;
+            }
+            for (Map.Entry entry : processors.entrySet()) {
+                String str2 = (String) entry.getKey();
+                if (jSONObject != null) {
+                    jSONObject2 = jSONObject.optJSONObject(str2);
+                } else {
+                    jSONObject2 = null;
+                }
+                CloudControlRequestInfo postData = ((ICloudControlProcessor) entry.getValue()).getPostData(str, isDegradeTime(), jSONObject2);
+                if (AppConfig.isDebug()) {
+                    if (postData != null) {
+                        try {
+                            if (!this.mProcessors.containKey(str2)) {
+                                throw new Exception(str2 + " service is not register");
+                            }
+                        } catch (Exception e2) {
+                            e2.printStackTrace();
+                        }
+                    } else {
+                        throw new Exception(str2 + " service get post data is error ");
+                    }
+                }
+                arrayList.add(postData);
+            }
+            return arrayList;
         }
+        return (ArrayList) invokeL.objValue;
     }
 
-    public void registProcessor(String str, ICloudControlProcessor iCloudControlProcessor) {
+    public ICloudControlProcessor getProcessor(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, str, iCloudControlProcessor) == null) {
-            this.mProcessors.addProcessor(str, iCloudControlProcessor);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return this.mProcessors.getProcessor(str);
         }
+        return (ICloudControlProcessor) invokeL.objValue;
     }
 
     public void requestCloudControl(String str) {
@@ -288,6 +282,29 @@ public class CloudControlManager {
         }
     }
 
+    public boolean isDegradeTime() {
+        InterceptResult invokeV;
+        long parseLong;
+        long parseLong2;
+        long currentTimeMillis;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            try {
+                String string = this.mSharedPrefsWrapper.getString("st", "0");
+                String string2 = this.mSharedPrefsWrapper.getString("et", "0");
+                parseLong = Long.parseLong(string);
+                parseLong2 = Long.parseLong(string2);
+                currentTimeMillis = System.currentTimeMillis() / 1000;
+            } catch (Exception unused) {
+            }
+            if (parseLong > currentTimeMillis || currentTimeMillis > parseLong2) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
     public boolean isInDegradeList(String str, String str2, String str3) {
         InterceptResult invokeLLL;
         JSONObject jSONObject;
@@ -295,35 +312,48 @@ public class CloudControlManager {
         JSONObject optJSONObject2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, str, str2, str3)) == null) {
-            if (isDegradeTime()) {
-                try {
-                    jSONObject = new JSONObject(this.mSharedPrefsWrapper.getString(CloudControlConstant.SP_KEY_DEGRADE_LIST, ""));
-                } catch (JSONException e) {
-                    if (AppConfig.isDebug()) {
-                        Log.d(TAG, "drage is not json  " + e.toString());
-                    }
-                    jSONObject = null;
+            if (!isDegradeTime()) {
+                return false;
+            }
+            JSONObject jSONObject2 = null;
+            try {
+                jSONObject = new JSONObject(this.mSharedPrefsWrapper.getString(CloudControlConstant.SP_KEY_DEGRADE_LIST, ""));
+            } catch (JSONException e) {
+                if (AppConfig.isDebug()) {
+                    Log.d(TAG, "drage is not json  " + e.toString());
                 }
-                if (jSONObject == null || jSONObject.length() != 0) {
-                    JSONObject optJSONObject3 = jSONObject != null ? jSONObject.optJSONObject(str) : null;
-                    if (optJSONObject3 != null) {
-                        if (optJSONObject3.length() == 0) {
-                            return true;
-                        }
-                        if (!optJSONObject3.has(str2) || (optJSONObject = optJSONObject3.optJSONObject(str2)) == null) {
-                            return false;
-                        }
-                        if (optJSONObject.length() == 0) {
-                            return true;
-                        }
-                        return optJSONObject.has(str3) && (optJSONObject2 = optJSONObject.optJSONObject(str3)) != null && optJSONObject2.length() == 0;
-                    }
-                    return false;
-                }
+                jSONObject = null;
+            }
+            if (jSONObject != null && jSONObject.length() == 0) {
                 return true;
             }
-            return false;
+            if (jSONObject != null) {
+                jSONObject2 = jSONObject.optJSONObject(str);
+            }
+            if (jSONObject2 == null) {
+                return false;
+            }
+            if (jSONObject2.length() == 0) {
+                return true;
+            }
+            if (!jSONObject2.has(str2) || (optJSONObject = jSONObject2.optJSONObject(str2)) == null) {
+                return false;
+            }
+            if (optJSONObject.length() == 0) {
+                return true;
+            }
+            if (!optJSONObject.has(str3) || (optJSONObject2 = optJSONObject.optJSONObject(str3)) == null || optJSONObject2.length() != 0) {
+                return false;
+            }
+            return true;
         }
         return invokeLLL.booleanValue;
+    }
+
+    public void registProcessor(String str, ICloudControlProcessor iCloudControlProcessor) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, str, iCloudControlProcessor) == null) {
+            this.mProcessors.addProcessor(str, iCloudControlProcessor);
+        }
     }
 }

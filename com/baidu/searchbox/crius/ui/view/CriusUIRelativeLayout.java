@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class CriusUIRelativeLayout extends CriusUI<RelativeLayout> {
+public class CriusUIRelativeLayout extends CriusUI {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -41,7 +41,37 @@ public class CriusUIRelativeLayout extends CriusUI<RelativeLayout> {
     private boolean hasRadius() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? this.renderObject.convertedBorderRadius() > 0.0f || this.renderObject.convertedBorderRadiusLT() > 0.0f || this.renderObject.convertedBorderRadiusRT() > 0.0f || this.renderObject.convertedBorderRadiusRB() > 0.0f || this.renderObject.convertedBorderRadiusLB() > 0.0f : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+            if (this.renderObject.convertedBorderRadius() <= 0.0f && this.renderObject.convertedBorderRadiusLT() <= 0.0f && this.renderObject.convertedBorderRadiusRT() <= 0.0f && this.renderObject.convertedBorderRadiusRB() <= 0.0f && this.renderObject.convertedBorderRadiusLB() <= 0.0f) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.crius.ui.CriusUI, com.baidu.searchbox.crius.ui.RenderImplInterface
+    public void removeChild(CriusData criusData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, criusData) == null) && criusData.hasUI()) {
+            ((RelativeLayout) this.mView).removeView(criusData.getUI().getView());
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.crius.ui.CriusUI
+    public RoundCornerRelativeLayout createView(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            RoundCornerRelativeLayout roundCornerRelativeLayout = new RoundCornerRelativeLayout(context);
+            if (hasRadius()) {
+                roundCornerRelativeLayout.setCornerRadius(this.renderObject.convertedBorderRadius());
+                roundCornerRelativeLayout.setCornerRadius(this.renderObject.convertedBorderRadiusLT(), this.renderObject.convertedBorderRadiusRT(), this.renderObject.convertedBorderRadiusRB(), this.renderObject.convertedBorderRadiusLB());
+            }
+            return roundCornerRelativeLayout;
+        }
+        return (RoundCornerRelativeLayout) invokeL.objValue;
     }
 
     @Override // com.baidu.searchbox.crius.ui.CriusUI, com.baidu.searchbox.crius.ui.RenderImplInterface
@@ -54,30 +84,5 @@ public class CriusUIRelativeLayout extends CriusUI<RelativeLayout> {
             }
             ((RelativeLayout) this.mView).addView(view2, i);
         }
-    }
-
-    @Override // com.baidu.searchbox.crius.ui.CriusUI, com.baidu.searchbox.crius.ui.RenderImplInterface
-    public void removeChild(CriusData criusData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, criusData) == null) && criusData.hasUI()) {
-            ((RelativeLayout) this.mView).removeView(criusData.getUI().getView());
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX DEBUG: Return type fixed from 'com.baidu.searchbox.crius.ui.view.RoundCornerRelativeLayout' to match base method */
-    @Override // com.baidu.searchbox.crius.ui.CriusUI
-    public RelativeLayout createView(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            RoundCornerRelativeLayout roundCornerRelativeLayout = new RoundCornerRelativeLayout(context);
-            if (hasRadius()) {
-                roundCornerRelativeLayout.setCornerRadius(this.renderObject.convertedBorderRadius());
-                roundCornerRelativeLayout.setCornerRadius(this.renderObject.convertedBorderRadiusLT(), this.renderObject.convertedBorderRadiusRT(), this.renderObject.convertedBorderRadiusRB(), this.renderObject.convertedBorderRadiusLB());
-            }
-            return roundCornerRelativeLayout;
-        }
-        return (RoundCornerRelativeLayout) invokeL.objValue;
     }
 }

@@ -2,7 +2,6 @@ package androidx.core.view;
 
 import android.view.View;
 import android.view.ViewTreeObserver;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -37,8 +36,7 @@ public final class OneShotPreDrawListener implements ViewTreeObserver.OnPreDrawL
         this.mRunnable = runnable;
     }
 
-    @NonNull
-    public static OneShotPreDrawListener add(@NonNull View view2, @NonNull Runnable runnable) {
+    public static OneShotPreDrawListener add(View view2, Runnable runnable) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, view2, runnable)) == null) {
@@ -68,6 +66,18 @@ public final class OneShotPreDrawListener implements ViewTreeObserver.OnPreDrawL
         return invokeV.booleanValue;
     }
 
+    public void removeListener() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (this.mViewTreeObserver.isAlive()) {
+                this.mViewTreeObserver.removeOnPreDrawListener(this);
+            } else {
+                this.mView.getViewTreeObserver().removeOnPreDrawListener(this);
+            }
+            this.mView.removeOnAttachStateChangeListener(this);
+        }
+    }
+
     @Override // android.view.View.OnAttachStateChangeListener
     public void onViewAttachedToWindow(View view2) {
         Interceptable interceptable = $ic;
@@ -81,18 +91,6 @@ public final class OneShotPreDrawListener implements ViewTreeObserver.OnPreDrawL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
             removeListener();
-        }
-    }
-
-    public void removeListener() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.mViewTreeObserver.isAlive()) {
-                this.mViewTreeObserver.removeOnPreDrawListener(this);
-            } else {
-                this.mView.getViewTreeObserver().removeOnPreDrawListener(this);
-            }
-            this.mView.removeOnAttachStateChangeListener(this);
         }
     }
 }

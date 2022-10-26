@@ -12,20 +12,6 @@ public class ProcessLifecycleOwnerInitializer_nps extends NPSProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public ProcessLifecycleOwnerInitializer_nps() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     public String getPackageName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -40,5 +26,19 @@ public class ProcessLifecycleOwnerInitializer_nps extends NPSProvider {
             return false;
         }
         return invokeV.booleanValue;
+    }
+
+    public ProcessLifecycleOwnerInitializer_nps() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 }

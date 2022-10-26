@@ -7,8 +7,6 @@ import android.graphics.drawable.RippleDrawable;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.widget.ImageView;
-import androidx.annotation.NonNull;
-import androidx.annotation.RestrictTo;
 import androidx.appcompat.R;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.view.InputDeviceCompat;
@@ -20,7 +18,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class AppCompatImageHelper {
     public static /* synthetic */ Interceptable $ic;
@@ -28,10 +25,9 @@ public class AppCompatImageHelper {
     public TintInfo mImageTint;
     public TintInfo mInternalImageTint;
     public TintInfo mTmpInfo;
-    @NonNull
     public final ImageView mView;
 
-    public AppCompatImageHelper(@NonNull ImageView imageView) {
+    public AppCompatImageHelper(ImageView imageView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -47,130 +43,6 @@ public class AppCompatImageHelper {
             }
         }
         this.mView = imageView;
-    }
-
-    private boolean applyFrameworkTintUsingColorFilter(@NonNull Drawable drawable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, drawable)) == null) {
-            if (this.mTmpInfo == null) {
-                this.mTmpInfo = new TintInfo();
-            }
-            TintInfo tintInfo = this.mTmpInfo;
-            tintInfo.clear();
-            ColorStateList imageTintList = ImageViewCompat.getImageTintList(this.mView);
-            if (imageTintList != null) {
-                tintInfo.mHasTintList = true;
-                tintInfo.mTintList = imageTintList;
-            }
-            PorterDuff.Mode imageTintMode = ImageViewCompat.getImageTintMode(this.mView);
-            if (imageTintMode != null) {
-                tintInfo.mHasTintMode = true;
-                tintInfo.mTintMode = imageTintMode;
-            }
-            if (tintInfo.mHasTintList || tintInfo.mHasTintMode) {
-                AppCompatDrawableManager.tintDrawable(drawable, tintInfo, this.mView.getDrawableState());
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    private boolean shouldApplyFrameworkTintUsingColorFilter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            int i = Build.VERSION.SDK_INT;
-            return i > 21 ? this.mInternalImageTint != null : i == 21;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void applySupportImageTint() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Drawable drawable = this.mView.getDrawable();
-            if (drawable != null) {
-                DrawableUtils.fixDrawable(drawable);
-            }
-            if (drawable != null) {
-                if (shouldApplyFrameworkTintUsingColorFilter() && applyFrameworkTintUsingColorFilter(drawable)) {
-                    return;
-                }
-                TintInfo tintInfo = this.mImageTint;
-                if (tintInfo != null) {
-                    AppCompatDrawableManager.tintDrawable(drawable, tintInfo, this.mView.getDrawableState());
-                    return;
-                }
-                TintInfo tintInfo2 = this.mInternalImageTint;
-                if (tintInfo2 != null) {
-                    AppCompatDrawableManager.tintDrawable(drawable, tintInfo2, this.mView.getDrawableState());
-                }
-            }
-        }
-    }
-
-    public ColorStateList getSupportImageTintList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            TintInfo tintInfo = this.mImageTint;
-            if (tintInfo != null) {
-                return tintInfo.mTintList;
-            }
-            return null;
-        }
-        return (ColorStateList) invokeV.objValue;
-    }
-
-    public PorterDuff.Mode getSupportImageTintMode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            TintInfo tintInfo = this.mImageTint;
-            if (tintInfo != null) {
-                return tintInfo.mTintMode;
-            }
-            return null;
-        }
-        return (PorterDuff.Mode) invokeV.objValue;
-    }
-
-    public boolean hasOverlappingRendering() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return Build.VERSION.SDK_INT < 21 || !(this.mView.getBackground() instanceof RippleDrawable);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void loadFromAttributes(AttributeSet attributeSet, int i) {
-        int resourceId;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, attributeSet, i) == null) {
-            TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(this.mView.getContext(), attributeSet, R.styleable.AppCompatImageView, i, 0);
-            ImageView imageView = this.mView;
-            ViewCompat.saveAttributeDataForStyleable(imageView, imageView.getContext(), R.styleable.AppCompatImageView, attributeSet, obtainStyledAttributes.getWrappedTypeArray(), i, 0);
-            try {
-                Drawable drawable = this.mView.getDrawable();
-                if (drawable == null && (resourceId = obtainStyledAttributes.getResourceId(1, -1)) != -1 && (drawable = AppCompatResources.getDrawable(this.mView.getContext(), resourceId)) != null) {
-                    this.mView.setImageDrawable(drawable);
-                }
-                if (drawable != null) {
-                    DrawableUtils.fixDrawable(drawable);
-                }
-                if (obtainStyledAttributes.hasValue(2)) {
-                    ImageViewCompat.setImageTintList(this.mView, obtainStyledAttributes.getColorStateList(2));
-                }
-                if (obtainStyledAttributes.hasValue(3)) {
-                    ImageViewCompat.setImageTintMode(this.mView, DrawableUtils.parseTintMode(obtainStyledAttributes.getInt(3, -1), null));
-                }
-            } finally {
-                obtainStyledAttributes.recycle();
-            }
-        }
     }
 
     public void setImageResource(int i) {
@@ -229,6 +101,143 @@ public class AppCompatImageHelper {
             tintInfo.mTintMode = mode;
             tintInfo.mHasTintMode = true;
             applySupportImageTint();
+        }
+    }
+
+    private boolean applyFrameworkTintUsingColorFilter(Drawable drawable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, drawable)) == null) {
+            if (this.mTmpInfo == null) {
+                this.mTmpInfo = new TintInfo();
+            }
+            TintInfo tintInfo = this.mTmpInfo;
+            tintInfo.clear();
+            ColorStateList imageTintList = ImageViewCompat.getImageTintList(this.mView);
+            if (imageTintList != null) {
+                tintInfo.mHasTintList = true;
+                tintInfo.mTintList = imageTintList;
+            }
+            PorterDuff.Mode imageTintMode = ImageViewCompat.getImageTintMode(this.mView);
+            if (imageTintMode != null) {
+                tintInfo.mHasTintMode = true;
+                tintInfo.mTintMode = imageTintMode;
+            }
+            if (!tintInfo.mHasTintList && !tintInfo.mHasTintMode) {
+                return false;
+            }
+            AppCompatDrawableManager.tintDrawable(drawable, tintInfo, this.mView.getDrawableState());
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    private boolean shouldApplyFrameworkTintUsingColorFilter() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+            int i = Build.VERSION.SDK_INT;
+            if (i > 21) {
+                if (this.mInternalImageTint != null) {
+                    return true;
+                }
+                return false;
+            } else if (i == 21) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public ColorStateList getSupportImageTintList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            TintInfo tintInfo = this.mImageTint;
+            if (tintInfo != null) {
+                return tintInfo.mTintList;
+            }
+            return null;
+        }
+        return (ColorStateList) invokeV.objValue;
+    }
+
+    public PorterDuff.Mode getSupportImageTintMode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            TintInfo tintInfo = this.mImageTint;
+            if (tintInfo != null) {
+                return tintInfo.mTintMode;
+            }
+            return null;
+        }
+        return (PorterDuff.Mode) invokeV.objValue;
+    }
+
+    public boolean hasOverlappingRendering() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            Drawable background = this.mView.getBackground();
+            if (Build.VERSION.SDK_INT >= 21 && (background instanceof RippleDrawable)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void applySupportImageTint() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            Drawable drawable = this.mView.getDrawable();
+            if (drawable != null) {
+                DrawableUtils.fixDrawable(drawable);
+            }
+            if (drawable != null) {
+                if (shouldApplyFrameworkTintUsingColorFilter() && applyFrameworkTintUsingColorFilter(drawable)) {
+                    return;
+                }
+                TintInfo tintInfo = this.mImageTint;
+                if (tintInfo != null) {
+                    AppCompatDrawableManager.tintDrawable(drawable, tintInfo, this.mView.getDrawableState());
+                    return;
+                }
+                TintInfo tintInfo2 = this.mInternalImageTint;
+                if (tintInfo2 != null) {
+                    AppCompatDrawableManager.tintDrawable(drawable, tintInfo2, this.mView.getDrawableState());
+                }
+            }
+        }
+    }
+
+    public void loadFromAttributes(AttributeSet attributeSet, int i) {
+        int resourceId;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048580, this, attributeSet, i) == null) {
+            TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(this.mView.getContext(), attributeSet, R.styleable.AppCompatImageView, i, 0);
+            ImageView imageView = this.mView;
+            ViewCompat.saveAttributeDataForStyleable(imageView, imageView.getContext(), R.styleable.AppCompatImageView, attributeSet, obtainStyledAttributes.getWrappedTypeArray(), i, 0);
+            try {
+                Drawable drawable = this.mView.getDrawable();
+                if (drawable == null && (resourceId = obtainStyledAttributes.getResourceId(1, -1)) != -1 && (drawable = AppCompatResources.getDrawable(this.mView.getContext(), resourceId)) != null) {
+                    this.mView.setImageDrawable(drawable);
+                }
+                if (drawable != null) {
+                    DrawableUtils.fixDrawable(drawable);
+                }
+                if (obtainStyledAttributes.hasValue(2)) {
+                    ImageViewCompat.setImageTintList(this.mView, obtainStyledAttributes.getColorStateList(2));
+                }
+                if (obtainStyledAttributes.hasValue(3)) {
+                    ImageViewCompat.setImageTintMode(this.mView, DrawableUtils.parseTintMode(obtainStyledAttributes.getInt(3, -1), null));
+                }
+            } finally {
+                obtainStyledAttributes.recycle();
+            }
         }
     }
 }

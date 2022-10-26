@@ -27,6 +27,9 @@ public final class TimeUtil {
     public static int currentTimeInSecond() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? (int) (System.currentTimeMillis() / 1000) : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return (int) (System.currentTimeMillis() / 1000);
+        }
+        return invokeV.intValue;
     }
 }

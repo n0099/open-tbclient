@@ -1,12 +1,9 @@
 package com.bumptech.glide.request;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
-import androidx.annotation.DrawableRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.util.Pools;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
@@ -18,6 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.tun2tornadolite.booster.data.TornadoLiteRuntime;
+import com.bumptech.glide.GlideBuilder;
 import com.bumptech.glide.GlideContext;
 import com.bumptech.glide.Priority;
 import com.bumptech.glide.load.DataSource;
@@ -30,51 +28,49 @@ import com.bumptech.glide.request.target.Target;
 import com.bumptech.glide.request.transition.TransitionFactory;
 import com.bumptech.glide.util.LogTime;
 import com.bumptech.glide.util.Util;
-import com.bumptech.glide.util.pool.FactoryPools;
 import com.bumptech.glide.util.pool.StateVerifier;
 import java.util.List;
+import java.util.concurrent.Executor;
 /* loaded from: classes7.dex */
-public final class SingleRequest<R> implements Request, SizeReadyCallback, ResourceCallback, FactoryPools.Poolable {
+public final class SingleRequest implements Request, SizeReadyCallback, ResourceCallback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String GLIDE_TAG = "Glide";
     public static final boolean IS_VERBOSE_LOGGABLE;
-    public static final Pools.Pool<SingleRequest<?>> POOL;
     public static final String TAG = "Request";
     public transient /* synthetic */ FieldHolder $fh;
-    public TransitionFactory<? super R> animationFactory;
-    public Context context;
-    public Engine engine;
+    public final TransitionFactory animationFactory;
+    public final Executor callbackExecutor;
+    public final Context context;
+    public volatile Engine engine;
     public Drawable errorDrawable;
     public Drawable fallbackDrawable;
-    public GlideContext glideContext;
+    public final GlideContext glideContext;
     public int height;
     public boolean isCallingCallbacks;
     public Engine.LoadStatus loadStatus;
-    @Nullable
-    public Object model;
-    public int overrideHeight;
-    public int overrideWidth;
+    public final Object model;
+    public final int overrideHeight;
+    public final int overrideWidth;
     public Drawable placeholderDrawable;
-    public Priority priority;
-    public RequestCoordinator requestCoordinator;
-    @Nullable
-    public List<RequestListener<R>> requestListeners;
-    public RequestOptions requestOptions;
-    public Resource<R> resource;
+    public final Priority priority;
+    public final RequestCoordinator requestCoordinator;
+    public final List requestListeners;
+    public final Object requestLock;
+    public final BaseRequestOptions requestOptions;
+    public RuntimeException requestOrigin;
+    public Resource resource;
     public long startTime;
     public final StateVerifier stateVerifier;
     public Status status;
-    @Nullable
     public final String tag;
-    public Target<R> target;
-    @Nullable
-    public RequestListener<R> targetListener;
-    public Class<R> transcodeClass;
+    public final Target target;
+    public final RequestListener targetListener;
+    public final Class transcodeClass;
     public int width;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public static final class Status {
+    public final class Status {
         public static final /* synthetic */ Status[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Status CLEARED;
@@ -130,13 +126,19 @@ public final class SingleRequest<R> implements Request, SizeReadyCallback, Resou
         public static Status valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Status) Enum.valueOf(Status.class, str) : (Status) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (Status) Enum.valueOf(Status.class, str);
+            }
+            return (Status) invokeL.objValue;
         }
 
         public static Status[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Status[]) $VALUES.clone() : (Status[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (Status[]) $VALUES.clone();
+            }
+            return (Status[]) invokeV.objValue;
         }
     }
 
@@ -153,58 +155,15 @@ public final class SingleRequest<R> implements Request, SizeReadyCallback, Resou
                 return;
             }
         }
-        POOL = FactoryPools.simple(150, new FactoryPools.Factory<SingleRequest<?>>() { // from class: com.bumptech.glide.request.SingleRequest.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
-            @Override // com.bumptech.glide.util.pool.FactoryPools.Factory
-            public SingleRequest<?> create() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? new SingleRequest<>() : (SingleRequest) invokeV.objValue;
-            }
-        });
         IS_VERBOSE_LOGGABLE = Log.isLoggable(TAG, 2);
-    }
-
-    public SingleRequest() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.tag = IS_VERBOSE_LOGGABLE ? String.valueOf(super.hashCode()) : null;
-        this.stateVerifier = StateVerifier.newInstance();
     }
 
     private void assertNotCallingCallbacks() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && this.isCallingCallbacks) {
-            throw new IllegalStateException("You can't start or clear loads in RequestListener or Target callbacks. If you're trying to start a fallback request when a load fails, use RequestBuilder#error(RequestBuilder). Otherwise consider posting your into() or clear() calls to the main thread using a Handler instead.");
+        if ((interceptable != null && interceptable.invokeV(65538, this) != null) || !this.isCallingCallbacks) {
+            return;
         }
+        throw new IllegalStateException("You can't start or clear loads in RequestListener or Target callbacks. If you're trying to start a fallback request when a load fails, use RequestBuilder#error(RequestBuilder). Otherwise consider posting your into() or clear() calls to the main thread using a Handler instead.");
     }
 
     private boolean canNotifyCleared() {
@@ -212,7 +171,10 @@ public final class SingleRequest<R> implements Request, SizeReadyCallback, Resou
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             RequestCoordinator requestCoordinator = this.requestCoordinator;
-            return requestCoordinator == null || requestCoordinator.canNotifyCleared(this);
+            if (requestCoordinator != null && !requestCoordinator.canNotifyCleared(this)) {
+                return false;
+            }
+            return true;
         }
         return invokeV.booleanValue;
     }
@@ -222,7 +184,10 @@ public final class SingleRequest<R> implements Request, SizeReadyCallback, Resou
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             RequestCoordinator requestCoordinator = this.requestCoordinator;
-            return requestCoordinator == null || requestCoordinator.canNotifyStatusChanged(this);
+            if (requestCoordinator != null && !requestCoordinator.canNotifyStatusChanged(this)) {
+                return false;
+            }
+            return true;
         }
         return invokeV.booleanValue;
     }
@@ -232,7 +197,10 @@ public final class SingleRequest<R> implements Request, SizeReadyCallback, Resou
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
             RequestCoordinator requestCoordinator = this.requestCoordinator;
-            return requestCoordinator == null || requestCoordinator.canSetImage(this);
+            if (requestCoordinator != null && !requestCoordinator.canSetImage(this)) {
+                return false;
+            }
+            return true;
         }
         return invokeV.booleanValue;
     }
@@ -248,6 +216,192 @@ public final class SingleRequest<R> implements Request, SizeReadyCallback, Resou
                 loadStatus.cancel();
                 this.loadStatus = null;
             }
+        }
+    }
+
+    private boolean isFirstReadyResource() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
+            RequestCoordinator requestCoordinator = this.requestCoordinator;
+            if (requestCoordinator != null && requestCoordinator.getRoot().isAnyResourceSet()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    private void notifyLoadFailed() {
+        RequestCoordinator requestCoordinator;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65550, this) == null) && (requestCoordinator = this.requestCoordinator) != null) {
+            requestCoordinator.onRequestFailed(this);
+        }
+    }
+
+    private void notifyLoadSuccess() {
+        RequestCoordinator requestCoordinator;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65551, this) == null) && (requestCoordinator = this.requestCoordinator) != null) {
+            requestCoordinator.onRequestSuccess(this);
+        }
+    }
+
+    private void setErrorPlaceholder() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(65555, this) != null) || !canNotifyStatusChanged()) {
+            return;
+        }
+        Drawable drawable = null;
+        if (this.model == null) {
+            drawable = getFallbackDrawable();
+        }
+        if (drawable == null) {
+            drawable = getErrorDrawable();
+        }
+        if (drawable == null) {
+            drawable = getPlaceholderDrawable();
+        }
+        this.target.onLoadFailed(drawable);
+    }
+
+    @Override // com.bumptech.glide.request.ResourceCallback
+    public Object getLock() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            this.stateVerifier.throwIfRecycled();
+            return this.requestLock;
+        }
+        return invokeV.objValue;
+    }
+
+    @Override // com.bumptech.glide.request.Request
+    public boolean isAnyResourceSet() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            synchronized (this.requestLock) {
+                if (this.status == Status.COMPLETE) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.bumptech.glide.request.Request
+    public boolean isCleared() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            synchronized (this.requestLock) {
+                if (this.status == Status.CLEARED) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.bumptech.glide.request.Request
+    public boolean isComplete() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            synchronized (this.requestLock) {
+                if (this.status == Status.COMPLETE) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.bumptech.glide.request.Request
+    public boolean isRunning() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            synchronized (this.requestLock) {
+                if (this.status != Status.RUNNING && this.status != Status.WAITING_FOR_SIZE) {
+                    z = false;
+                }
+                z = true;
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.bumptech.glide.request.Request
+    public void pause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            synchronized (this.requestLock) {
+                if (isRunning()) {
+                    clear();
+                }
+            }
+        }
+    }
+
+    public SingleRequest(Context context, GlideContext glideContext, Object obj, Object obj2, Class cls, BaseRequestOptions baseRequestOptions, int i, int i2, Priority priority, Target target, RequestListener requestListener, List list, RequestCoordinator requestCoordinator, Engine engine, TransitionFactory transitionFactory, Executor executor) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, glideContext, obj, obj2, cls, baseRequestOptions, Integer.valueOf(i), Integer.valueOf(i2), priority, target, requestListener, list, requestCoordinator, engine, transitionFactory, executor};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        if (IS_VERBOSE_LOGGABLE) {
+            str = String.valueOf(super.hashCode());
+        } else {
+            str = null;
+        }
+        this.tag = str;
+        this.stateVerifier = StateVerifier.newInstance();
+        this.requestLock = obj;
+        this.context = context;
+        this.glideContext = glideContext;
+        this.model = obj2;
+        this.transcodeClass = cls;
+        this.requestOptions = baseRequestOptions;
+        this.overrideWidth = i;
+        this.overrideHeight = i2;
+        this.priority = priority;
+        this.target = target;
+        this.targetListener = requestListener;
+        this.requestListeners = list;
+        this.requestCoordinator = requestCoordinator;
+        this.engine = engine;
+        this.animationFactory = transitionFactory;
+        this.callbackExecutor = executor;
+        this.status = Status.PENDING;
+        if (this.requestOrigin == null && glideContext.getExperiments().isEnabled(GlideBuilder.LogRequestOrigins.class)) {
+            this.requestOrigin = new RuntimeException("Glide request origin trace");
         }
     }
 
@@ -299,370 +453,78 @@ public final class SingleRequest<R> implements Request, SizeReadyCallback, Resou
         return (Drawable) invokeV.objValue;
     }
 
-    private void init(Context context, GlideContext glideContext, Object obj, Class<R> cls, RequestOptions requestOptions, int i, int i2, Priority priority, Target<R> target, RequestListener<R> requestListener, @Nullable List<RequestListener<R>> list, RequestCoordinator requestCoordinator, Engine engine, TransitionFactory<? super R> transitionFactory) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65546, this, new Object[]{context, glideContext, obj, cls, requestOptions, Integer.valueOf(i), Integer.valueOf(i2), priority, target, requestListener, list, requestCoordinator, engine, transitionFactory}) == null) {
-            this.context = context;
-            this.glideContext = glideContext;
-            this.model = obj;
-            this.transcodeClass = cls;
-            this.requestOptions = requestOptions;
-            this.overrideWidth = i;
-            this.overrideHeight = i2;
-            this.priority = priority;
-            this.target = target;
-            this.targetListener = requestListener;
-            this.requestListeners = list;
-            this.requestCoordinator = requestCoordinator;
-            this.engine = engine;
-            this.animationFactory = transitionFactory;
-            this.status = Status.PENDING;
-        }
-    }
-
-    private boolean isFirstReadyResource() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
-            RequestCoordinator requestCoordinator = this.requestCoordinator;
-            return requestCoordinator == null || !requestCoordinator.isAnyResourceSet();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean listenerCountEquals(SingleRequest<?> singleRequest, SingleRequest<?> singleRequest2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, singleRequest, singleRequest2)) == null) {
-            List<RequestListener<?>> list = singleRequest.requestListeners;
-            int size = list == null ? 0 : list.size();
-            List<RequestListener<?>> list2 = singleRequest2.requestListeners;
-            return size == (list2 == null ? 0 : list2.size());
-        }
-        return invokeLL.booleanValue;
-    }
-
-    private Drawable loadDrawable(@DrawableRes int i) {
+    private Drawable loadDrawable(int i) {
         InterceptResult invokeI;
+        Resources.Theme theme;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65549, this, i)) == null) {
-            return DrawableDecoderCompat.getDrawable(this.glideContext, i, this.requestOptions.getTheme() != null ? this.requestOptions.getTheme() : this.context.getTheme());
+        if (interceptable == null || (invokeI = interceptable.invokeI(65547, this, i)) == null) {
+            if (this.requestOptions.getTheme() != null) {
+                theme = this.requestOptions.getTheme();
+            } else {
+                theme = this.context.getTheme();
+            }
+            return DrawableDecoderCompat.getDrawable(this.glideContext, i, theme);
         }
         return (Drawable) invokeI.objValue;
     }
 
     private void logV(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65550, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65548, this, str) == null) {
             Log.v(TAG, str + " this: " + this.tag);
+        }
+    }
+
+    @Override // com.bumptech.glide.request.ResourceCallback
+    public void onLoadFailed(GlideException glideException) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, glideException) == null) {
+            onLoadFailed(glideException, 5);
         }
     }
 
     public static int maybeApplySizeMultiplier(int i, float f) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{Integer.valueOf(i), Float.valueOf(f)})) == null) ? i == Integer.MIN_VALUE ? i : Math.round(f * i) : invokeCommon.intValue;
-    }
-
-    private void notifyLoadFailed() {
-        RequestCoordinator requestCoordinator;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65552, this) == null) || (requestCoordinator = this.requestCoordinator) == null) {
-            return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{Integer.valueOf(i), Float.valueOf(f)})) == null) {
+            if (i != Integer.MIN_VALUE) {
+                return Math.round(f * i);
+            }
+            return i;
         }
-        requestCoordinator.onRequestFailed(this);
+        return invokeCommon.intValue;
     }
 
-    private void notifyLoadSuccess() {
-        RequestCoordinator requestCoordinator;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65553, this) == null) || (requestCoordinator = this.requestCoordinator) == null) {
-            return;
-        }
-        requestCoordinator.onRequestSuccess(this);
-    }
-
-    public static <R> SingleRequest<R> obtain(Context context, GlideContext glideContext, Object obj, Class<R> cls, RequestOptions requestOptions, int i, int i2, Priority priority, Target<R> target, RequestListener<R> requestListener, @Nullable List<RequestListener<R>> list, RequestCoordinator requestCoordinator, Engine engine, TransitionFactory<? super R> transitionFactory) {
+    public static SingleRequest obtain(Context context, GlideContext glideContext, Object obj, Object obj2, Class cls, BaseRequestOptions baseRequestOptions, int i, int i2, Priority priority, Target target, RequestListener requestListener, List list, RequestCoordinator requestCoordinator, Engine engine, TransitionFactory transitionFactory, Executor executor) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65554, null, new Object[]{context, glideContext, obj, cls, requestOptions, Integer.valueOf(i), Integer.valueOf(i2), priority, target, requestListener, list, requestCoordinator, engine, transitionFactory})) == null) {
-            SingleRequest<?> acquire = POOL.acquire();
-            if (acquire == null) {
-                acquire = new SingleRequest();
-            }
-            acquire.init(context, glideContext, obj, cls, requestOptions, i, i2, priority, target, requestListener, list, requestCoordinator, engine, transitionFactory);
-            return acquire;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65552, null, new Object[]{context, glideContext, obj, obj2, cls, baseRequestOptions, Integer.valueOf(i), Integer.valueOf(i2), priority, target, requestListener, list, requestCoordinator, engine, transitionFactory, executor})) == null) {
+            return new SingleRequest(context, glideContext, obj, obj2, cls, baseRequestOptions, i, i2, priority, target, requestListener, list, requestCoordinator, engine, transitionFactory, executor);
         }
         return (SingleRequest) invokeCommon.objValue;
-    }
-
-    private void releaseResource(Resource<?> resource) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65557, this, resource) == null) {
-            this.engine.release(resource);
-            this.resource = null;
-        }
-    }
-
-    private void setErrorPlaceholder() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65558, this) == null) && canNotifyStatusChanged()) {
-            Drawable fallbackDrawable = this.model == null ? getFallbackDrawable() : null;
-            if (fallbackDrawable == null) {
-                fallbackDrawable = getErrorDrawable();
-            }
-            if (fallbackDrawable == null) {
-                fallbackDrawable = getPlaceholderDrawable();
-            }
-            this.target.onLoadFailed(fallbackDrawable);
-        }
-    }
-
-    @Override // com.bumptech.glide.request.Request
-    public void begin() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            assertNotCallingCallbacks();
-            this.stateVerifier.throwIfRecycled();
-            this.startTime = LogTime.getLogTime();
-            if (this.model == null) {
-                if (Util.isValidDimensions(this.overrideWidth, this.overrideHeight)) {
-                    this.width = this.overrideWidth;
-                    this.height = this.overrideHeight;
-                }
-                onLoadFailed(new GlideException("Received null model"), getFallbackDrawable() == null ? 5 : 3);
-                return;
-            }
-            Status status = this.status;
-            if (status != Status.RUNNING) {
-                if (status == Status.COMPLETE) {
-                    onResourceReady(this.resource, DataSource.MEMORY_CACHE);
-                    return;
-                }
-                this.status = Status.WAITING_FOR_SIZE;
-                if (Util.isValidDimensions(this.overrideWidth, this.overrideHeight)) {
-                    onSizeReady(this.overrideWidth, this.overrideHeight);
-                } else {
-                    this.target.getSize(this);
-                }
-                Status status2 = this.status;
-                if ((status2 == Status.RUNNING || status2 == Status.WAITING_FOR_SIZE) && canNotifyStatusChanged()) {
-                    this.target.onLoadStarted(getPlaceholderDrawable());
-                }
-                if (IS_VERBOSE_LOGGABLE) {
-                    logV("finished run method in " + LogTime.getElapsedMillis(this.startTime));
-                    return;
-                }
-                return;
-            }
-            throw new IllegalArgumentException("Cannot restart a running request");
-        }
-    }
-
-    @Override // com.bumptech.glide.request.Request
-    public void clear() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            Util.assertMainThread();
-            assertNotCallingCallbacks();
-            this.stateVerifier.throwIfRecycled();
-            if (this.status == Status.CLEARED) {
-                return;
-            }
-            cancel();
-            Resource<R> resource = this.resource;
-            if (resource != null) {
-                releaseResource(resource);
-            }
-            if (canNotifyCleared()) {
-                this.target.onLoadCleared(getPlaceholderDrawable());
-            }
-            this.status = Status.CLEARED;
-        }
-    }
-
-    @Override // com.bumptech.glide.util.pool.FactoryPools.Poolable
-    @NonNull
-    public StateVerifier getVerifier() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.stateVerifier : (StateVerifier) invokeV.objValue;
-    }
-
-    @Override // com.bumptech.glide.request.Request
-    public boolean isCleared() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.status == Status.CLEARED : invokeV.booleanValue;
-    }
-
-    @Override // com.bumptech.glide.request.Request
-    public boolean isComplete() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.status == Status.COMPLETE : invokeV.booleanValue;
-    }
-
-    @Override // com.bumptech.glide.request.Request
-    public boolean isEquivalentTo(Request request) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, request)) == null) {
-            if (request instanceof SingleRequest) {
-                SingleRequest singleRequest = (SingleRequest) request;
-                return this.overrideWidth == singleRequest.overrideWidth && this.overrideHeight == singleRequest.overrideHeight && Util.bothModelsNullEquivalentOrEquals(this.model, singleRequest.model) && this.transcodeClass.equals(singleRequest.transcodeClass) && this.requestOptions.equals(singleRequest.requestOptions) && this.priority == singleRequest.priority && listenerCountEquals(this, singleRequest);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.bumptech.glide.request.Request
-    public boolean isFailed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.status == Status.FAILED : invokeV.booleanValue;
-    }
-
-    @Override // com.bumptech.glide.request.Request
-    public boolean isResourceSet() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? isComplete() : invokeV.booleanValue;
-    }
-
-    @Override // com.bumptech.glide.request.Request
-    public boolean isRunning() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            Status status = this.status;
-            return status == Status.RUNNING || status == Status.WAITING_FOR_SIZE;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.bumptech.glide.request.ResourceCallback
-    public void onLoadFailed(GlideException glideException) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, glideException) == null) {
-            onLoadFailed(glideException, 5);
-        }
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: com.bumptech.glide.request.SingleRequest<R> */
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.bumptech.glide.request.ResourceCallback
-    public void onResourceReady(Resource<?> resource, DataSource dataSource) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, resource, dataSource) == null) {
-            this.stateVerifier.throwIfRecycled();
-            this.loadStatus = null;
-            if (resource == null) {
-                onLoadFailed(new GlideException("Expected to receive a Resource<R> with an object of " + this.transcodeClass + " inside, but instead got null."));
-                return;
-            }
-            Object obj = resource.get();
-            if (obj != null && this.transcodeClass.isAssignableFrom(obj.getClass())) {
-                if (!canSetResource()) {
-                    releaseResource(resource);
-                    this.status = Status.COMPLETE;
-                    return;
-                }
-                onResourceReady(resource, obj, dataSource);
-                return;
-            }
-            releaseResource(resource);
-            StringBuilder sb = new StringBuilder();
-            sb.append("Expected to receive an object of ");
-            sb.append(this.transcodeClass);
-            sb.append(" but instead got ");
-            sb.append(obj != null ? obj.getClass() : "");
-            sb.append("{");
-            sb.append(obj);
-            sb.append("} inside Resource{");
-            sb.append(resource);
-            sb.append("}.");
-            sb.append(obj == null ? " To indicate failure return a null Resource object, rather than a Resource object containing null data." : "");
-            onLoadFailed(new GlideException(sb.toString()));
-        }
-    }
-
-    @Override // com.bumptech.glide.request.target.SizeReadyCallback
-    public void onSizeReady(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048587, this, i, i2) == null) {
-            this.stateVerifier.throwIfRecycled();
-            if (IS_VERBOSE_LOGGABLE) {
-                logV("Got onSizeReady in " + LogTime.getElapsedMillis(this.startTime));
-            }
-            if (this.status != Status.WAITING_FOR_SIZE) {
-                return;
-            }
-            this.status = Status.RUNNING;
-            float sizeMultiplier = this.requestOptions.getSizeMultiplier();
-            this.width = maybeApplySizeMultiplier(i, sizeMultiplier);
-            this.height = maybeApplySizeMultiplier(i2, sizeMultiplier);
-            if (IS_VERBOSE_LOGGABLE) {
-                logV("finished setup for calling load in " + LogTime.getElapsedMillis(this.startTime));
-            }
-            this.loadStatus = this.engine.load(this.glideContext, this.model, this.requestOptions.getSignature(), this.width, this.height, this.requestOptions.getResourceClass(), this.transcodeClass, this.priority, this.requestOptions.getDiskCacheStrategy(), this.requestOptions.getTransformations(), this.requestOptions.isTransformationRequired(), this.requestOptions.isScaleOnlyOrNoTransform(), this.requestOptions.getOptions(), this.requestOptions.isMemoryCacheable(), this.requestOptions.getUseUnlimitedSourceGeneratorsPool(), this.requestOptions.getUseAnimationPool(), this.requestOptions.getOnlyRetrieveFromCache(), this);
-            if (this.status != Status.RUNNING) {
-                this.loadStatus = null;
-            }
-            if (IS_VERBOSE_LOGGABLE) {
-                logV("finished onSizeReady in " + LogTime.getElapsedMillis(this.startTime));
-            }
-        }
-    }
-
-    @Override // com.bumptech.glide.request.Request
-    public void recycle() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            assertNotCallingCallbacks();
-            this.context = null;
-            this.glideContext = null;
-            this.model = null;
-            this.transcodeClass = null;
-            this.requestOptions = null;
-            this.overrideWidth = -1;
-            this.overrideHeight = -1;
-            this.target = null;
-            this.requestListeners = null;
-            this.targetListener = null;
-            this.requestCoordinator = null;
-            this.animationFactory = null;
-            this.loadStatus = null;
-            this.errorDrawable = null;
-            this.placeholderDrawable = null;
-            this.fallbackDrawable = null;
-            this.width = -1;
-            this.height = -1;
-            POOL.release(this);
-        }
     }
 
     private void onLoadFailed(GlideException glideException, int i) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65555, this, glideException, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(65553, this, glideException, i) == null) {
             this.stateVerifier.throwIfRecycled();
-            int logLevel = this.glideContext.getLogLevel();
-            if (logLevel <= i) {
-                Log.w("Glide", "Load failed for " + this.model + " with size [" + this.width + "x" + this.height + PreferencesUtil.RIGHT_MOUNT, glideException);
-                if (logLevel <= 4) {
-                    glideException.logRootCauses("Glide");
+            synchronized (this.requestLock) {
+                glideException.setOrigin(this.requestOrigin);
+                int logLevel = this.glideContext.getLogLevel();
+                if (logLevel <= i) {
+                    Log.w("Glide", "Load failed for " + this.model + " with size [" + this.width + "x" + this.height + PreferencesUtil.RIGHT_MOUNT, glideException);
+                    if (logLevel <= 4) {
+                        glideException.logRootCauses("Glide");
+                    }
                 }
-            }
-            this.loadStatus = null;
-            this.status = Status.FAILED;
-            boolean z2 = true;
-            this.isCallingCallbacks = true;
-            try {
+                this.loadStatus = null;
+                this.status = Status.FAILED;
+                boolean z2 = true;
+                this.isCallingCallbacks = true;
                 if (this.requestListeners != null) {
                     z = false;
-                    for (RequestListener<R> requestListener : this.requestListeners) {
+                    for (RequestListener requestListener : this.requestListeners) {
                         z |= requestListener.onLoadFailed(glideException, this.model, this.target, isFirstReadyResource());
                     }
                 } else {
@@ -676,6 +538,39 @@ public final class SingleRequest<R> implements Request, SizeReadyCallback, Resou
                 }
                 this.isCallingCallbacks = false;
                 notifyLoadFailed();
+            }
+        }
+    }
+
+    private void onResourceReady(Resource resource, Object obj, DataSource dataSource, boolean z) {
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65554, this, new Object[]{resource, obj, dataSource, Boolean.valueOf(z)}) == null) {
+            boolean isFirstReadyResource = isFirstReadyResource();
+            this.status = Status.COMPLETE;
+            this.resource = resource;
+            if (this.glideContext.getLogLevel() <= 3) {
+                Log.d("Glide", "Finished loading " + obj.getClass().getSimpleName() + " from " + dataSource + " for " + this.model + " with size [" + this.width + "x" + this.height + "] in " + LogTime.getElapsedMillis(this.startTime) + " ms");
+            }
+            boolean z3 = true;
+            this.isCallingCallbacks = true;
+            try {
+                if (this.requestListeners != null) {
+                    z2 = false;
+                    for (RequestListener requestListener : this.requestListeners) {
+                        z2 |= requestListener.onResourceReady(obj, this.model, this.target, dataSource, isFirstReadyResource);
+                    }
+                } else {
+                    z2 = false;
+                }
+                if (this.targetListener == null || !this.targetListener.onResourceReady(obj, this.model, this.target, dataSource, isFirstReadyResource)) {
+                    z3 = false;
+                }
+                if (!(z3 | z2)) {
+                    this.target.onResourceReady(obj, this.animationFactory.build(dataSource, isFirstReadyResource));
+                }
+                this.isCallingCallbacks = false;
+                notifyLoadSuccess();
             } catch (Throwable th) {
                 this.isCallingCallbacks = false;
                 throw th;
@@ -683,38 +578,282 @@ public final class SingleRequest<R> implements Request, SizeReadyCallback, Resou
         }
     }
 
-    private void onResourceReady(Resource<R> resource, R r, DataSource dataSource) {
-        boolean z;
+    @Override // com.bumptech.glide.request.Request
+    public void begin() {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65556, this, resource, r, dataSource) == null) {
-            boolean isFirstReadyResource = isFirstReadyResource();
-            this.status = Status.COMPLETE;
-            this.resource = resource;
-            if (this.glideContext.getLogLevel() <= 3) {
-                Log.d("Glide", "Finished loading " + r.getClass().getSimpleName() + " from " + dataSource + " for " + this.model + " with size [" + this.width + "x" + this.height + "] in " + LogTime.getElapsedMillis(this.startTime) + " ms");
-            }
-            boolean z2 = true;
-            this.isCallingCallbacks = true;
-            try {
-                if (this.requestListeners != null) {
-                    z = false;
-                    for (RequestListener<R> requestListener : this.requestListeners) {
-                        z |= requestListener.onResourceReady(r, this.model, this.target, dataSource, isFirstReadyResource);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this.requestLock) {
+                assertNotCallingCallbacks();
+                this.stateVerifier.throwIfRecycled();
+                this.startTime = LogTime.getLogTime();
+                if (this.model == null) {
+                    if (Util.isValidDimensions(this.overrideWidth, this.overrideHeight)) {
+                        this.width = this.overrideWidth;
+                        this.height = this.overrideHeight;
+                    }
+                    if (getFallbackDrawable() == null) {
+                        i = 5;
+                    } else {
+                        i = 3;
+                    }
+                    onLoadFailed(new GlideException("Received null model"), i);
+                } else if (this.status != Status.RUNNING) {
+                    if (this.status == Status.COMPLETE) {
+                        onResourceReady(this.resource, DataSource.MEMORY_CACHE, false);
+                        return;
+                    }
+                    this.status = Status.WAITING_FOR_SIZE;
+                    if (Util.isValidDimensions(this.overrideWidth, this.overrideHeight)) {
+                        onSizeReady(this.overrideWidth, this.overrideHeight);
+                    } else {
+                        this.target.getSize(this);
+                    }
+                    if ((this.status == Status.RUNNING || this.status == Status.WAITING_FOR_SIZE) && canNotifyStatusChanged()) {
+                        this.target.onLoadStarted(getPlaceholderDrawable());
+                    }
+                    if (IS_VERBOSE_LOGGABLE) {
+                        logV("finished run method in " + LogTime.getElapsedMillis(this.startTime));
                     }
                 } else {
-                    z = false;
+                    throw new IllegalArgumentException("Cannot restart a running request");
                 }
-                if (this.targetListener == null || !this.targetListener.onResourceReady(r, this.model, this.target, dataSource, isFirstReadyResource)) {
-                    z2 = false;
+            }
+        }
+    }
+
+    @Override // com.bumptech.glide.request.Request
+    public void clear() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this.requestLock) {
+                assertNotCallingCallbacks();
+                this.stateVerifier.throwIfRecycled();
+                if (this.status == Status.CLEARED) {
+                    return;
                 }
-                if (!(z2 | z)) {
-                    this.target.onResourceReady(r, this.animationFactory.build(dataSource, isFirstReadyResource));
+                cancel();
+                Resource resource = null;
+                if (this.resource != null) {
+                    Resource resource2 = this.resource;
+                    this.resource = null;
+                    resource = resource2;
                 }
-                this.isCallingCallbacks = false;
-                notifyLoadSuccess();
-            } catch (Throwable th) {
-                this.isCallingCallbacks = false;
+                if (canNotifyCleared()) {
+                    this.target.onLoadCleared(getPlaceholderDrawable());
+                }
+                this.status = Status.CLEARED;
+                if (resource != null) {
+                    this.engine.release(resource);
+                }
+            }
+        }
+    }
+
+    @Override // com.bumptech.glide.request.Request
+    public boolean isEquivalentTo(Request request) {
+        InterceptResult invokeL;
+        int i;
+        int i2;
+        Object obj;
+        Class cls;
+        BaseRequestOptions baseRequestOptions;
+        Priority priority;
+        int i3;
+        int i4;
+        int i5;
+        Object obj2;
+        Class cls2;
+        BaseRequestOptions baseRequestOptions2;
+        Priority priority2;
+        int i6;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, request)) == null) {
+            if (!(request instanceof SingleRequest)) {
+                return false;
+            }
+            synchronized (this.requestLock) {
+                i = this.overrideWidth;
+                i2 = this.overrideHeight;
+                obj = this.model;
+                cls = this.transcodeClass;
+                baseRequestOptions = this.requestOptions;
+                priority = this.priority;
+                if (this.requestListeners != null) {
+                    i3 = this.requestListeners.size();
+                } else {
+                    i3 = 0;
+                }
+            }
+            SingleRequest singleRequest = (SingleRequest) request;
+            synchronized (singleRequest.requestLock) {
+                i4 = singleRequest.overrideWidth;
+                i5 = singleRequest.overrideHeight;
+                obj2 = singleRequest.model;
+                cls2 = singleRequest.transcodeClass;
+                baseRequestOptions2 = singleRequest.requestOptions;
+                priority2 = singleRequest.priority;
+                if (singleRequest.requestListeners != null) {
+                    i6 = singleRequest.requestListeners.size();
+                } else {
+                    i6 = 0;
+                }
+            }
+            if (i == i4 && i2 == i5 && Util.bothModelsNullEquivalentOrEquals(obj, obj2) && cls.equals(cls2) && baseRequestOptions.equals(baseRequestOptions2) && priority == priority2 && i3 == i6) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:21:0x0053, code lost:
+        if (r6 == null) goto L27;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x0055, code lost:
+        r5.engine.release(r6);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x005a, code lost:
+        return;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:37:0x00b1, code lost:
+        if (r6 == null) goto L42;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:38:0x00b3, code lost:
+        r5.engine.release(r6);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:39:0x00b8, code lost:
+        return;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:56:?, code lost:
+        return;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:57:?, code lost:
+        return;
+     */
+    @Override // com.bumptech.glide.request.ResourceCallback
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void onResourceReady(Resource resource, DataSource dataSource, boolean z) {
+        Object obj;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(1048585, this, resource, dataSource, z) == null) {
+            this.stateVerifier.throwIfRecycled();
+            Resource resource2 = null;
+            try {
+                synchronized (this.requestLock) {
+                    try {
+                        this.loadStatus = null;
+                        if (resource == null) {
+                            onLoadFailed(new GlideException("Expected to receive a Resource<R> with an object of " + this.transcodeClass + " inside, but instead got null."));
+                            return;
+                        }
+                        Object obj2 = resource.get();
+                        try {
+                            if (obj2 != null && this.transcodeClass.isAssignableFrom(obj2.getClass())) {
+                                if (!canSetResource()) {
+                                    this.resource = null;
+                                    this.status = Status.COMPLETE;
+                                } else {
+                                    onResourceReady(resource, obj2, dataSource, z);
+                                    return;
+                                }
+                            }
+                            this.resource = null;
+                            StringBuilder sb = new StringBuilder();
+                            sb.append("Expected to receive an object of ");
+                            sb.append(this.transcodeClass);
+                            sb.append(" but instead got ");
+                            if (obj2 != null) {
+                                obj = obj2.getClass();
+                            } else {
+                                obj = "";
+                            }
+                            sb.append(obj);
+                            sb.append("{");
+                            sb.append(obj2);
+                            sb.append("} inside Resource{");
+                            sb.append(resource);
+                            sb.append("}.");
+                            if (obj2 != null) {
+                                str = "";
+                            } else {
+                                str = " To indicate failure return a null Resource object, rather than a Resource object containing null data.";
+                            }
+                            sb.append(str);
+                            onLoadFailed(new GlideException(sb.toString()));
+                        } catch (Throwable th) {
+                            resource2 = resource;
+                            th = th;
+                        }
+                    } catch (Throwable th2) {
+                        th = th2;
+                    }
+                }
                 throw th;
+            } catch (Throwable th3) {
+                if (resource2 != null) {
+                    this.engine.release(resource2);
+                }
+                throw th3;
+            }
+        }
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:34:0x0107 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r21v0 */
+    /* JADX WARN: Type inference failed for: r21v2 */
+    /* JADX WARN: Type inference failed for: r21v3 */
+    /* JADX WARN: Type inference failed for: r21v4 */
+    @Override // com.bumptech.glide.request.target.SizeReadyCallback
+    public void onSizeReady(int i, int i2) {
+        ?? r21;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            r21 = 1048586;
+            if (interceptable.invokeII(1048586, this, i, i2) != null) {
+                return;
+            }
+        }
+        this.stateVerifier.throwIfRecycled();
+        Object obj = this.requestLock;
+        synchronized (obj) {
+            try {
+                try {
+                    if (IS_VERBOSE_LOGGABLE) {
+                        logV("Got onSizeReady in " + LogTime.getElapsedMillis(this.startTime));
+                    }
+                    if (this.status == Status.WAITING_FOR_SIZE) {
+                        this.status = Status.RUNNING;
+                        float sizeMultiplier = this.requestOptions.getSizeMultiplier();
+                        this.width = maybeApplySizeMultiplier(i, sizeMultiplier);
+                        this.height = maybeApplySizeMultiplier(i2, sizeMultiplier);
+                        if (IS_VERBOSE_LOGGABLE) {
+                            logV("finished setup for calling load in " + LogTime.getElapsedMillis(this.startTime));
+                        }
+                        r21 = obj;
+                        try {
+                            this.loadStatus = this.engine.load(this.glideContext, this.model, this.requestOptions.getSignature(), this.width, this.height, this.requestOptions.getResourceClass(), this.transcodeClass, this.priority, this.requestOptions.getDiskCacheStrategy(), this.requestOptions.getTransformations(), this.requestOptions.isTransformationRequired(), this.requestOptions.isScaleOnlyOrNoTransform(), this.requestOptions.getOptions(), this.requestOptions.isMemoryCacheable(), this.requestOptions.getUseUnlimitedSourceGeneratorsPool(), this.requestOptions.getUseAnimationPool(), this.requestOptions.getOnlyRetrieveFromCache(), this, this.callbackExecutor);
+                            if (this.status != Status.RUNNING) {
+                                this.loadStatus = null;
+                            }
+                            if (IS_VERBOSE_LOGGABLE) {
+                                logV("finished onSizeReady in " + LogTime.getElapsedMillis(this.startTime));
+                            }
+                        } catch (Throwable th) {
+                            th = th;
+                            throw th;
+                        }
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                    r21 = obj;
+                }
+            } catch (Throwable th3) {
+                th = th3;
             }
         }
     }

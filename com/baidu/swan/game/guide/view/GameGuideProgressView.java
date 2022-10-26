@@ -24,8 +24,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ch3;
-import com.baidu.tieba.vj1;
+import com.baidu.tieba.dh3;
+import com.baidu.tieba.wj1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -71,8 +71,29 @@ public final class GameGuideProgressView extends View {
         void d();
     }
 
+    private final Path getClipPath() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) ? (Path) this.r.getValue() : (Path) invokeV.objValue;
+    }
+
+    public final float h(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048581, this, f)) == null) {
+            if (f < 0.0f) {
+                return 0.0f;
+            }
+            if (f > 1.0f) {
+                return 1.0f;
+            }
+            return f;
+        }
+        return invokeF.floatValue;
+    }
+
     /* loaded from: classes3.dex */
-    public static final class b implements ValueAnimator.AnimatorUpdateListener {
+    public final class b implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ GameGuideProgressView a;
@@ -120,13 +141,12 @@ public final class GameGuideProgressView extends View {
     }
 
     /* loaded from: classes3.dex */
-    public static final class c extends AnimatorListenerAdapter {
+    public final class c extends AnimatorListenerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
         public final /* synthetic */ GameGuideProgressView b;
 
-        /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public c(GameGuideProgressView gameGuideProgressView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -160,10 +180,9 @@ public final class GameGuideProgressView extends View {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
                 super.onAnimationEnd(animator);
-                if (this.a || (progressListener = this.b.getProgressListener()) == null) {
-                    return;
+                if (!this.a && (progressListener = this.b.getProgressListener()) != null) {
+                    progressListener.c();
                 }
-                progressListener.c();
             }
         }
 
@@ -196,22 +215,164 @@ public final class GameGuideProgressView extends View {
             }
         }
         Intrinsics.checkNotNullParameter(context, "context");
-        this.a = ch3.h(1.0f);
+        this.a = dh3.h(1.0f);
         int parseColor = Color.parseColor("#FFCD5D");
         this.b = parseColor;
         this.c = parseColor;
-        this.d = ch3.h(20.0f);
-        float h = ch3.h(6.0f);
+        this.d = dh3.h(20.0f);
+        float h = dh3.h(6.0f);
         this.g = h;
         this.j = h / 2.0f;
         this.r = LazyKt__LazyJVMKt.lazy(GameGuideProgressView$clipPath$2.INSTANCE);
         g();
     }
 
-    private final Path getClipPath() {
-        InterceptResult invokeV;
+    public final void i(float f) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) ? (Path) this.r.getValue() : (Path) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeF(1048582, this, f) == null) {
+            float h = h(f);
+            this.k = h;
+            if (h == 1.0f) {
+                if (wj1.a) {
+                    Log.d("GameTimeProgressView", "当前进度为1，不处理");
+                }
+                invalidate();
+                return;
+            }
+            long j = 30000;
+            long j2 = ((float) 30000) * (1.0f - h);
+            if (j2 != 0) {
+                j = j2;
+            }
+            ValueAnimator ofFloat = ValueAnimator.ofFloat(this.k, 1.0f);
+            this.p = ofFloat;
+            if (ofFloat != null) {
+                ofFloat.setDuration(j);
+            }
+            ValueAnimator valueAnimator = this.p;
+            if (valueAnimator != null) {
+                valueAnimator.setInterpolator(new LinearInterpolator());
+            }
+            ValueAnimator valueAnimator2 = this.p;
+            if (valueAnimator2 != null) {
+                valueAnimator2.addUpdateListener(new b(this));
+            }
+            ValueAnimator valueAnimator3 = this.p;
+            if (valueAnimator3 != null) {
+                valueAnimator3.addListener(new c(this));
+            }
+            a aVar = this.q;
+            if (aVar != null) {
+                aVar.a(this.k);
+            }
+            ValueAnimator valueAnimator4 = this.p;
+            if (valueAnimator4 != null) {
+                valueAnimator4.start();
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public GameGuideProgressView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(context, "context");
+        Intrinsics.checkNotNullParameter(attributeSet, "attributeSet");
+        this.a = dh3.h(1.0f);
+        int parseColor = Color.parseColor("#FFCD5D");
+        this.b = parseColor;
+        this.c = parseColor;
+        this.d = dh3.h(20.0f);
+        float h = dh3.h(6.0f);
+        this.g = h;
+        this.j = h / 2.0f;
+        this.r = LazyKt__LazyJVMKt.lazy(GameGuideProgressView$clipPath$2.INSTANCE);
+        g();
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public GameGuideProgressView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(context, "context");
+        Intrinsics.checkNotNullParameter(attributeSet, "attributeSet");
+        this.a = dh3.h(1.0f);
+        int parseColor = Color.parseColor("#FFCD5D");
+        this.b = parseColor;
+        this.c = parseColor;
+        this.d = dh3.h(20.0f);
+        float h = dh3.h(6.0f);
+        this.g = h;
+        this.j = h / 2.0f;
+        this.r = LazyKt__LazyJVMKt.lazy(GameGuideProgressView$clipPath$2.INSTANCE);
+        g();
+    }
+
+    @Override // android.view.View
+    public void onDraw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, canvas) == null) {
+            super.onDraw(canvas);
+            if (canvas == null) {
+                return;
+            }
+            f(canvas);
+            e(canvas);
+            d(canvas);
+        }
+    }
+
+    public final void setProgressColor(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            Paint paint = this.e;
+            if (paint == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("strokePaint");
+            }
+            paint.setColor(i);
+            Paint paint2 = this.f;
+            if (paint2 == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("progressPaint");
+            }
+            paint2.setColor(i);
+        }
+    }
+
+    public final void setProgressListener(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, aVar) == null) {
+            this.q = aVar;
+        }
     }
 
     public final void d(Canvas canvas) {
@@ -219,66 +380,65 @@ public final class GameGuideProgressView extends View {
         Rect rect;
         int i;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) || (bitmap = this.n) == null || (rect = this.o) == null || bitmap == null) {
-            return;
-        }
-        float f = this.k;
-        int i2 = this.h;
-        float f2 = this.d;
-        if (i2 * f <= f2) {
-            if (rect != null) {
-                rect.left = (int) (f2 - (f * i2));
+        if ((interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) && (bitmap = this.n) != null && (rect = this.o) != null && bitmap != null) {
+            float f = this.k;
+            int i2 = this.h;
+            float f2 = this.d;
+            if (i2 * f <= f2) {
+                if (rect != null) {
+                    rect.left = (int) (f2 - (f * i2));
+                }
+                i = 0;
+            } else {
+                if (rect != null) {
+                    rect.left = 0;
+                }
+                i = (int) ((this.k * this.h) - this.d);
             }
-            i = 0;
-        } else {
-            if (rect != null) {
-                rect.left = 0;
+            Rect rect2 = new Rect(i, 0, (int) (this.k * this.h), this.i);
+            Rect rect3 = this.o;
+            Paint paint = this.l;
+            if (paint == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("imgPaint");
             }
-            i = (int) ((this.k * this.h) - this.d);
-        }
-        Rect rect2 = new Rect(i, 0, (int) (this.k * this.h), this.i);
-        Rect rect3 = this.o;
-        Paint paint = this.l;
-        if (paint == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("imgPaint");
-        }
-        canvas.drawBitmap(bitmap, rect3, rect2, paint);
-        if (i == 0) {
-            getClipPath().reset();
-            int i3 = this.i;
-            float f3 = this.g;
-            float f4 = 2;
-            float f5 = this.a;
-            RectF rectF = new RectF(0.0f, ((i3 / 2.0f) - (f3 / f4)) - (f5 / f4), this.h, (i3 / 2.0f) + (f3 / f4) + (f5 / f4));
-            float f6 = this.j;
-            getClipPath().addRoundRect(rectF, new float[]{f6, f6, f6, f6, f6, f6, f6, f6}, Path.Direction.CW);
-            if (Build.VERSION.SDK_INT <= 27) {
-                Paint paint2 = this.m;
-                if (paint2 == null) {
+            canvas.drawBitmap(bitmap, rect3, rect2, paint);
+            if (i == 0) {
+                getClipPath().reset();
+                int i3 = this.i;
+                float f3 = this.g;
+                float f4 = 2;
+                float f5 = this.a;
+                RectF rectF = new RectF(0.0f, ((i3 / 2.0f) - (f3 / f4)) - (f5 / f4), this.h, (i3 / 2.0f) + (f3 / f4) + (f5 / f4));
+                float f6 = this.j;
+                getClipPath().addRoundRect(rectF, new float[]{f6, f6, f6, f6, f6, f6, f6, f6}, Path.Direction.CW);
+                if (Build.VERSION.SDK_INT <= 27) {
+                    Paint paint2 = this.m;
+                    if (paint2 == null) {
+                        Intrinsics.throwUninitializedPropertyAccessException("clipPaint");
+                    }
+                    paint2.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
+                    Path clipPath = getClipPath();
+                    Paint paint3 = this.m;
+                    if (paint3 == null) {
+                        Intrinsics.throwUninitializedPropertyAccessException("clipPaint");
+                    }
+                    canvas.drawPath(clipPath, paint3);
+                    return;
+                }
+                Paint paint4 = this.m;
+                if (paint4 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("clipPaint");
                 }
-                paint2.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
-                Path clipPath = getClipPath();
-                Paint paint3 = this.m;
-                if (paint3 == null) {
+                paint4.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
+                Path path = new Path();
+                path.addRect(-1.0f, -1.0f, this.h, this.i, Path.Direction.CW);
+                path.op(getClipPath(), Path.Op.DIFFERENCE);
+                Paint paint5 = this.m;
+                if (paint5 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("clipPaint");
                 }
-                canvas.drawPath(clipPath, paint3);
-                return;
+                canvas.drawPath(path, paint5);
             }
-            Paint paint4 = this.m;
-            if (paint4 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("clipPaint");
-            }
-            paint4.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
-            Path path = new Path();
-            path.addRect(-1.0f, -1.0f, this.h, this.i, Path.Direction.CW);
-            path.op(getClipPath(), Path.Op.DIFFERENCE);
-            Paint paint5 = this.m;
-            if (paint5 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("clipPaint");
-            }
-            canvas.drawPath(path, paint5);
         }
     }
 
@@ -373,11 +533,14 @@ public final class GameGuideProgressView extends View {
             Context appContext = AppRuntime.getAppContext();
             Intrinsics.checkNotNullExpressionValue(appContext, "AppRuntime.getAppContext()");
             Drawable drawable = appContext.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080163);
+            Bitmap bitmap = null;
             if (!(drawable instanceof BitmapDrawable)) {
                 drawable = null;
             }
             BitmapDrawable bitmapDrawable = (BitmapDrawable) drawable;
-            Bitmap bitmap = bitmapDrawable != null ? bitmapDrawable.getBitmap() : null;
+            if (bitmapDrawable != null) {
+                bitmap = bitmapDrawable.getBitmap();
+            }
             this.n = bitmap;
             if (bitmap != null) {
                 this.o = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
@@ -388,64 +551,10 @@ public final class GameGuideProgressView extends View {
     public final a getProgressListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.q : (a) invokeV.objValue;
-    }
-
-    public final float h(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048581, this, f)) == null) {
-            if (f < 0.0f) {
-                return 0.0f;
-            }
-            if (f > 1.0f) {
-                return 1.0f;
-            }
-            return f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.q;
         }
-        return invokeF.floatValue;
-    }
-
-    public final void i(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048582, this, f) == null) {
-            float h = h(f);
-            this.k = h;
-            if (h == 1.0f) {
-                if (vj1.a) {
-                    Log.d("GameTimeProgressView", "当前进度为1，不处理");
-                }
-                invalidate();
-                return;
-            }
-            long j = ((float) 30000) * (1.0f - h);
-            long j2 = j != 0 ? j : 30000L;
-            ValueAnimator ofFloat = ValueAnimator.ofFloat(this.k, 1.0f);
-            this.p = ofFloat;
-            if (ofFloat != null) {
-                ofFloat.setDuration(j2);
-            }
-            ValueAnimator valueAnimator = this.p;
-            if (valueAnimator != null) {
-                valueAnimator.setInterpolator(new LinearInterpolator());
-            }
-            ValueAnimator valueAnimator2 = this.p;
-            if (valueAnimator2 != null) {
-                valueAnimator2.addUpdateListener(new b(this));
-            }
-            ValueAnimator valueAnimator3 = this.p;
-            if (valueAnimator3 != null) {
-                valueAnimator3.addListener(new c(this));
-            }
-            a aVar = this.q;
-            if (aVar != null) {
-                aVar.a(this.k);
-            }
-            ValueAnimator valueAnimator4 = this.p;
-            if (valueAnimator4 != null) {
-                valueAnimator4.start();
-            }
-        }
+        return (a) invokeV.objValue;
     }
 
     public final void j() {
@@ -463,20 +572,6 @@ public final class GameGuideProgressView extends View {
     }
 
     @Override // android.view.View
-    public void onDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, canvas) == null) {
-            super.onDraw(canvas);
-            if (canvas == null) {
-                return;
-            }
-            f(canvas);
-            e(canvas);
-            d(canvas);
-        }
-    }
-
-    @Override // android.view.View
     public void onSizeChanged(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048585, this, i, i2, i3, i4) == null) {
@@ -484,101 +579,12 @@ public final class GameGuideProgressView extends View {
             this.h = i;
             this.i = i2;
             if (i <= this.d) {
-                if (!vj1.a) {
+                if (!wj1.a) {
                     this.d = i;
                     return;
                 }
                 throw new RuntimeException("进度条宽度异常");
             }
         }
-    }
-
-    public final void setProgressColor(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            Paint paint = this.e;
-            if (paint == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("strokePaint");
-            }
-            paint.setColor(i);
-            Paint paint2 = this.f;
-            if (paint2 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("progressPaint");
-            }
-            paint2.setColor(i);
-        }
-    }
-
-    public final void setProgressListener(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, aVar) == null) {
-            this.q = aVar;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GameGuideProgressView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        Intrinsics.checkNotNullParameter(context, "context");
-        Intrinsics.checkNotNullParameter(attributeSet, "attributeSet");
-        this.a = ch3.h(1.0f);
-        int parseColor = Color.parseColor("#FFCD5D");
-        this.b = parseColor;
-        this.c = parseColor;
-        this.d = ch3.h(20.0f);
-        float h = ch3.h(6.0f);
-        this.g = h;
-        this.j = h / 2.0f;
-        this.r = LazyKt__LazyJVMKt.lazy(GameGuideProgressView$clipPath$2.INSTANCE);
-        g();
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GameGuideProgressView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        Intrinsics.checkNotNullParameter(context, "context");
-        Intrinsics.checkNotNullParameter(attributeSet, "attributeSet");
-        this.a = ch3.h(1.0f);
-        int parseColor = Color.parseColor("#FFCD5D");
-        this.b = parseColor;
-        this.c = parseColor;
-        this.d = ch3.h(20.0f);
-        float h = ch3.h(6.0f);
-        this.g = h;
-        this.j = h / 2.0f;
-        this.r = LazyKt__LazyJVMKt.lazy(GameGuideProgressView$clipPath$2.INSTANCE);
-        g();
     }
 }

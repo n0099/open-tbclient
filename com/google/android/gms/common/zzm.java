@@ -69,6 +69,7 @@ public final class zzm {
     /* JADX WARN: Type inference failed for: r6v0, types: [com.google.android.gms.dynamic.IObjectWrapper, android.os.IBinder] */
     public static zzw zzb(String str, boolean z, boolean z2, boolean z3) {
         InterceptResult invokeCommon;
+        String str2;
         zzw zzd2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
@@ -86,7 +87,11 @@ public final class zzm {
                             if (zza2 == null) {
                                 zza2 = "error checking package certificate";
                             }
-                            zzd2 = zze2.zzc() == 4 ? zzw.zzd(zza2, new PackageManager.NameNotFoundException()) : zzw.zzc(zza2);
+                            if (zze2.zzc() == 4) {
+                                zzd2 = zzw.zzd(zza2, new PackageManager.NameNotFoundException());
+                            } else {
+                                zzd2 = zzw.zzc(zza2);
+                            }
                         }
                     } catch (RemoteException e) {
                         Log.e("GoogleCertificates", "Failed to get Google certificates from remote", e);
@@ -95,7 +100,12 @@ public final class zzm {
                 } catch (DynamiteModule.LoadingException e2) {
                     Log.e("GoogleCertificates", "Failed to get Google certificates from remote", e2);
                     String valueOf = String.valueOf(e2.getMessage());
-                    zzd2 = zzw.zzd(valueOf.length() != 0 ? "module init: ".concat(valueOf) : new String("module init: "), e2);
+                    if (valueOf.length() != 0) {
+                        str2 = "module init: ".concat(valueOf);
+                    } else {
+                        str2 = new String("module init: ");
+                    }
+                    zzd2 = zzw.zzd(str2, e2);
                 }
                 return zzd2;
             } finally {
@@ -106,7 +116,18 @@ public final class zzm {
     }
 
     public static /* synthetic */ String zzc(boolean z, String str, zzi zziVar) throws Exception {
-        String str2 = true != (!z && zzf(str, zziVar, true, false).zza) ? "not allowed" : "debug cert rejected";
+        boolean z2;
+        String str2;
+        if (!z && zzf(str, zziVar, true, false).zza) {
+            z2 = true;
+        } else {
+            z2 = false;
+        }
+        if (true != z2) {
+            str2 = "not allowed";
+        } else {
+            str2 = "debug cert rejected";
+        }
         MessageDigest zza2 = AndroidUtilsLight.zza("SHA-1");
         Preconditions.checkNotNull(zza2);
         return String.format("%s: pkg=%s, sha1=%s, atk=%s, ver=%s", str2, str, Hex.bytesToStringLowercase(zza2.digest(zziVar.zzf())), Boolean.valueOf(z), "12451000.false");
@@ -116,11 +137,14 @@ public final class zzm {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
             synchronized (zzm.class) {
-                if (zzg != null) {
-                    Log.w("GoogleCertificates", "GoogleCertificates has been initialized already");
-                } else if (context != null) {
-                    zzg = context.getApplicationContext();
+                if (zzg == null) {
+                    if (context != null) {
+                        zzg = context.getApplicationContext();
+                        return;
+                    }
+                    return;
                 }
+                Log.w("GoogleCertificates", "GoogleCertificates has been initialized already");
             }
         }
     }
@@ -146,15 +170,32 @@ public final class zzm {
         return invokeV.booleanValue;
     }
 
+    public static void zzg() throws DynamiteModule.LoadingException {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(65543, null) != null) || zze != null) {
+            return;
+        }
+        Preconditions.checkNotNull(zzg);
+        synchronized (zzf) {
+            if (zze == null) {
+                zze = zzae.zzb(DynamiteModule.load(zzg, DynamiteModule.PREFER_HIGHEST_OR_LOCAL_VERSION_NO_FORCE_STAGING, "com.google.android.gms.googlecertificates").instantiate("com.google.android.gms.common.GoogleCertificatesImpl"));
+            }
+        }
+    }
+
     public static zzw zzf(final String str, final zzi zziVar, final boolean z, boolean z2) {
         InterceptResult invokeCommon;
+        String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{str, zziVar, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             try {
                 zzg();
                 Preconditions.checkNotNull(zzg);
                 try {
-                    return zze.zzf(new zzs(str, zziVar, z, z2), ObjectWrapper.wrap(zzg.getPackageManager())) ? zzw.zzb() : new zzv(new Callable() { // from class: com.google.android.gms.common.zzd
+                    if (zze.zzf(new zzs(str, zziVar, z, z2), ObjectWrapper.wrap(zzg.getPackageManager()))) {
+                        return zzw.zzb();
+                    }
+                    return new zzv(new Callable() { // from class: com.google.android.gms.common.zzd
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -172,21 +213,14 @@ public final class zzm {
             } catch (DynamiteModule.LoadingException e2) {
                 Log.e("GoogleCertificates", "Failed to get Google certificates from remote", e2);
                 String valueOf = String.valueOf(e2.getMessage());
-                return zzw.zzd(valueOf.length() != 0 ? "module init: ".concat(valueOf) : new String("module init: "), e2);
+                if (valueOf.length() != 0) {
+                    str2 = "module init: ".concat(valueOf);
+                } else {
+                    str2 = new String("module init: ");
+                }
+                return zzw.zzd(str2, e2);
             }
         }
         return (zzw) invokeCommon.objValue;
-    }
-
-    public static void zzg() throws DynamiteModule.LoadingException {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65543, null) == null) && zze == null) {
-            Preconditions.checkNotNull(zzg);
-            synchronized (zzf) {
-                if (zze == null) {
-                    zze = zzae.zzb(DynamiteModule.load(zzg, DynamiteModule.PREFER_HIGHEST_OR_LOCAL_VERSION_NO_FORCE_STAGING, "com.google.android.gms.googlecertificates").instantiate("com.google.android.gms.common.GoogleCertificatesImpl"));
-                }
-            }
-        }
     }
 }

@@ -1,6 +1,5 @@
 package com.baidu.searchbox.pms.download;
 
-import android.annotation.SuppressLint;
 import android.os.AsyncTask;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -26,10 +25,10 @@ public class DownloadCallbackWrap implements InnerCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public DownloadCallback mCallback;
-    public List<PackageInfo> mList;
+    public List mList;
     public DownloadOptions mOptions;
 
-    public DownloadCallbackWrap(List<PackageInfo> list, DownloadCallback downloadCallback, DownloadOptions downloadOptions) {
+    public DownloadCallbackWrap(List list, DownloadCallback downloadCallback, DownloadOptions downloadOptions) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -52,52 +51,14 @@ public class DownloadCallbackWrap implements InnerCallback {
         this.mList = list;
     }
 
-    private boolean isAllFinish() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.pms.download.InnerCallback
+    public void onProgress(PackageInfo packageInfo, long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            for (PackageInfo packageInfo : this.mList) {
-                int i = packageInfo.type;
-                if (i != 5 && i != 6 && i != 10) {
-                    return false;
-                }
-            }
-            return true;
+        if ((interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{packageInfo, Long.valueOf(j), Long.valueOf(j2)}) == null) && packageInfo != null) {
+            packageInfo.currentSize = j;
+            packageInfo.totalSize = j2;
+            this.mCallback.onDownloadProgress(packageInfo, j, j2);
         }
-        return invokeV.booleanValue;
-    }
-
-    public void checkAllFinish() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && isAllFinish()) {
-            ArrayList arrayList = new ArrayList();
-            ArrayList arrayList2 = new ArrayList();
-            ArrayList arrayList3 = new ArrayList();
-            for (PackageInfo packageInfo : this.mList) {
-                int i = packageInfo.type;
-                if (i == 5) {
-                    arrayList3.add(packageInfo);
-                } else if (i == 6) {
-                    arrayList2.add(packageInfo);
-                } else if (i == 10) {
-                    arrayList.add(packageInfo);
-                }
-            }
-            this.mCallback.onBulkDownloaded(arrayList, arrayList2, arrayList3);
-            StatisticUtils.sendBulkDownload(arrayList, arrayList2, arrayList3, 0);
-        }
-    }
-
-    public void notifyError(PackageInfo packageInfo, ErrorInfo errorInfo) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, packageInfo, errorInfo) == null) || packageInfo == null) {
-            return;
-        }
-        DebugUtils.log("[回调错误]", packageInfo.packageName, errorInfo);
-        packageInfo.type = 6;
-        this.mCallback.onDownloadError(packageInfo, errorInfo);
-        StatisticUtils.sendDownload(packageInfo, errorInfo);
-        checkAllFinish();
     }
 
     public void notifySuccess(PackageInfo packageInfo) {
@@ -113,75 +74,50 @@ public class DownloadCallbackWrap implements InnerCallback {
     @Override // com.baidu.searchbox.pms.download.InnerCallback
     public void onCancel(PackageInfo packageInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, packageInfo) == null) || packageInfo == null) {
-            return;
-        }
-        this.mCallback.onDownloadCancel(packageInfo);
-        StatisticUtils.sendDownload(packageInfo, (int) ErrorConstant.Code.DOWNLOAD_CANCELED);
-        checkAllFinish();
-    }
-
-    @Override // com.baidu.searchbox.pms.download.InnerCallback
-    public void onError(PackageInfo packageInfo, int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048580, this, packageInfo, i, str) == null) {
-            notifyError(packageInfo, new ErrorInfo(i, str));
+        if ((interceptable == null || interceptable.invokeL(1048579, this, packageInfo) == null) && packageInfo != null) {
+            this.mCallback.onDownloadCancel(packageInfo);
+            StatisticUtils.sendDownload(packageInfo, (int) ErrorConstant.Code.DOWNLOAD_CANCELED);
+            checkAllFinish();
         }
     }
 
     @Override // com.baidu.searchbox.pms.download.InnerCallback
     public void onPause(PackageInfo packageInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, packageInfo) == null) || packageInfo == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, packageInfo) == null) && packageInfo != null) {
+            this.mCallback.onDownloadPause(packageInfo);
         }
-        this.mCallback.onDownloadPause(packageInfo);
-    }
-
-    @Override // com.baidu.searchbox.pms.download.InnerCallback
-    public void onProgress(PackageInfo packageInfo, long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{packageInfo, Long.valueOf(j), Long.valueOf(j2)}) == null) || packageInfo == null) {
-            return;
-        }
-        packageInfo.currentSize = j;
-        packageInfo.totalSize = j2;
-        this.mCallback.onDownloadProgress(packageInfo, j, j2);
     }
 
     @Override // com.baidu.searchbox.pms.download.InnerCallback
     public void onResume(PackageInfo packageInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, packageInfo) == null) || packageInfo == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, packageInfo) == null) && packageInfo != null) {
+            this.mCallback.onDownloadResume(packageInfo, packageInfo.currentSize, packageInfo.totalSize);
         }
-        this.mCallback.onDownloadResume(packageInfo, packageInfo.currentSize, packageInfo.totalSize);
     }
 
     @Override // com.baidu.searchbox.pms.download.InnerCallback
     public void onRetry(PackageInfo packageInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, packageInfo) == null) || packageInfo == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, packageInfo) == null) && packageInfo != null) {
+            packageInfo.retryCount++;
         }
-        packageInfo.retryCount++;
     }
 
     @Override // com.baidu.searchbox.pms.download.InnerCallback
     public void onStart(PackageInfo packageInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, packageInfo) == null) || packageInfo == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048585, this, packageInfo) == null) && packageInfo != null) {
+            this.mCallback.onDownloadStart(packageInfo);
         }
-        this.mCallback.onDownloadStart(packageInfo);
     }
 
     @Override // com.baidu.searchbox.pms.download.InnerCallback
-    @SuppressLint({"StaticFieldLeak"})
     public void onSuccess(PackageInfo packageInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, packageInfo) == null) {
-            new AsyncTask<PackageInfo, Void, ErrorInfo>(this, packageInfo) { // from class: com.baidu.searchbox.pms.download.DownloadCallbackWrap.1
+            new AsyncTask(this, packageInfo) { // from class: com.baidu.searchbox.pms.download.DownloadCallbackWrap.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ DownloadCallbackWrap this$0;
@@ -220,10 +156,10 @@ public class DownloadCallbackWrap implements InnerCallback {
                             return new ErrorInfo(2202, this.val$info.md5);
                         }
                         this.val$info.type = 10;
-                        if ((this.this$0.mOptions == null || this.this$0.mOptions.saveToDb) && PackageControl.getInstance().addOrUpdate(this.val$info) <= 0) {
-                            return new ErrorInfo(ErrorConstant.Code.DOWNLOAD_ERROR_WRITE, this.val$info.md5);
+                        if ((this.this$0.mOptions != null && !this.this$0.mOptions.saveToDb) || PackageControl.getInstance().addOrUpdate(this.val$info) > 0) {
+                            return null;
                         }
-                        return null;
+                        return new ErrorInfo(ErrorConstant.Code.DOWNLOAD_ERROR_WRITE, this.val$info.md5);
                     }
                     return (ErrorInfo) invokeL.objValue;
                 }
@@ -242,6 +178,65 @@ public class DownloadCallbackWrap implements InnerCallback {
                     }
                 }
             }.executeOnExecutor(ExecutorUtilsExt.getElasticExecutor("DownloadCallbackWrap", 3), new PackageInfo[0]);
+        }
+    }
+
+    private boolean isAllFinish() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+            for (PackageInfo packageInfo : this.mList) {
+                int i = packageInfo.type;
+                if (i != 5 && i != 6 && i != 10) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void checkAllFinish() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && isAllFinish()) {
+            ArrayList arrayList = new ArrayList();
+            ArrayList arrayList2 = new ArrayList();
+            ArrayList arrayList3 = new ArrayList();
+            for (PackageInfo packageInfo : this.mList) {
+                int i = packageInfo.type;
+                if (i != 5) {
+                    if (i != 6) {
+                        if (i == 10) {
+                            arrayList.add(packageInfo);
+                        }
+                    } else {
+                        arrayList2.add(packageInfo);
+                    }
+                } else {
+                    arrayList3.add(packageInfo);
+                }
+            }
+            this.mCallback.onBulkDownloaded(arrayList, arrayList2, arrayList3);
+            StatisticUtils.sendBulkDownload(arrayList, arrayList2, arrayList3, 0);
+        }
+    }
+
+    public void notifyError(PackageInfo packageInfo, ErrorInfo errorInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, packageInfo, errorInfo) == null) && packageInfo != null) {
+            DebugUtils.log("[回调错误]", packageInfo.packageName, errorInfo);
+            packageInfo.type = 6;
+            this.mCallback.onDownloadError(packageInfo, errorInfo);
+            StatisticUtils.sendDownload(packageInfo, errorInfo);
+            checkAllFinish();
+        }
+    }
+
+    @Override // com.baidu.searchbox.pms.download.InnerCallback
+    public void onError(PackageInfo packageInfo, int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048580, this, packageInfo, i, str) == null) {
+            notifyError(packageInfo, new ErrorInfo(i, str));
         }
     }
 }

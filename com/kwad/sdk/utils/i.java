@@ -1,9 +1,8 @@
 package com.kwad.sdk.utils;
 
 import android.content.Context;
-import androidx.annotation.Nullable;
 /* loaded from: classes8.dex */
-public abstract class i<T> {
+public abstract class i {
     public boolean Dv;
     public boolean anc = false;
 
@@ -15,8 +14,7 @@ public abstract class i<T> {
         this.Dv = z;
     }
 
-    @Nullable
-    public final T bZ(Context context) {
+    public final Object bZ(Context context) {
         if (this.Dv && !this.anc) {
             try {
                 return ca(context);
@@ -28,6 +26,5 @@ public abstract class i<T> {
         return null;
     }
 
-    @Nullable
-    public abstract T ca(Context context);
+    public abstract Object ca(Context context);
 }

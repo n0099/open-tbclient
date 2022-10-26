@@ -15,7 +15,7 @@ public class Movie {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Matrix matrix;
-    public List<Track> tracks;
+    public List tracks;
 
     public Movie() {
         Interceptable interceptable = $ic;
@@ -34,10 +34,68 @@ public class Movie {
         this.tracks = new LinkedList();
     }
 
+    public Matrix getMatrix() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.matrix;
+        }
+        return (Matrix) invokeV.objValue;
+    }
+
+    public List getTracks() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.tracks;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public Movie(List list) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.matrix = Matrix.ROTATE_0;
+        this.tracks = new LinkedList();
+        this.tracks = list;
+    }
+
+    public Track getTrackByTrackId(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
+            for (Track track : this.tracks) {
+                if (track.getTrackMetaData().getTrackId() == j) {
+                    return track;
+                }
+            }
+            return null;
+        }
+        return (Track) invokeJ.objValue;
+    }
+
     public static long gcd(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? j2 == 0 ? j : gcd(j2, j % j2) : invokeCommon.longValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            if (j2 == 0) {
+                return j;
+            }
+            return gcd(j2, j % j2);
+        }
+        return invokeCommon.longValue;
     }
 
     public void addTrack(Track track) {
@@ -50,10 +108,18 @@ public class Movie {
         }
     }
 
-    public Matrix getMatrix() {
-        InterceptResult invokeV;
+    public void setMatrix(Matrix matrix) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.matrix : (Matrix) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(1048582, this, matrix) == null) {
+            this.matrix = matrix;
+        }
+    }
+
+    public void setTracks(List list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
+            this.tracks = list;
+        }
     }
 
     public long getNextTrackId() {
@@ -75,47 +141,13 @@ public class Movie {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            long timescale = getTracks().iterator().next().getTrackMetaData().getTimescale();
+            long timescale = ((Track) getTracks().iterator().next()).getTrackMetaData().getTimescale();
             for (Track track : getTracks()) {
                 timescale = gcd(track.getTrackMetaData().getTimescale(), timescale);
             }
             return timescale;
         }
         return invokeV.longValue;
-    }
-
-    public Track getTrackByTrackId(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
-            for (Track track : this.tracks) {
-                if (track.getTrackMetaData().getTrackId() == j) {
-                    return track;
-                }
-            }
-            return null;
-        }
-        return (Track) invokeJ.objValue;
-    }
-
-    public List<Track> getTracks() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.tracks : (List) invokeV.objValue;
-    }
-
-    public void setMatrix(Matrix matrix) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, matrix) == null) {
-            this.matrix = matrix;
-        }
-    }
-
-    public void setTracks(List<Track> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
-            this.tracks = list;
-        }
     }
 
     public String toString() {
@@ -129,25 +161,5 @@ public class Movie {
             return String.valueOf(str) + '}';
         }
         return (String) invokeV.objValue;
-    }
-
-    public Movie(List<Track> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.matrix = Matrix.ROTATE_0;
-        this.tracks = new LinkedList();
-        this.tracks = list;
     }
 }

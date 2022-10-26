@@ -35,12 +35,36 @@ public class DialogLoginHelper {
         }
     }
 
+    public static String getOneKeyLoginActivityLocate() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (UbsABTestHelper.isFirstLoginTestA()) {
+                return LoginDialogData.FIRST_START_1;
+            }
+            if (UbsABTestHelper.isFirstLoginTestB()) {
+                return LoginDialogData.FIRST_START_2;
+            }
+            return "";
+        }
+        return (String) invokeV.objValue;
+    }
+
     public static void addLoginDialogInvokeLog(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
             StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_LOGIN_DIALOG_INVOKE);
             statisticItem.param("obj_locate", str);
             statisticItem.param("obj_type", str2);
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public static void addMinePageLoginDialogSuccessLog(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && !StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("obj_locate", str2);
             TiebaStatic.log(statisticItem);
         }
     }
@@ -56,16 +80,6 @@ public class DialogLoginHelper {
         }
     }
 
-    public static void addMinePageLoginDialogSuccessLog(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) || StringUtils.isNull(str) || StringUtils.isNull(str2)) {
-            return;
-        }
-        StatisticItem statisticItem = new StatisticItem(str);
-        statisticItem.param("obj_locate", str2);
-        TiebaStatic.log(statisticItem);
-    }
-
     public static boolean checkUpIsLogin(LoginDialogData loginDialogData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -79,17 +93,10 @@ public class DialogLoginHelper {
         return invokeL.booleanValue;
     }
 
-    public static String getOneKeyLoginActivityLocate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? UbsABTestHelper.isFirstLoginTestA() ? LoginDialogData.FIRST_START_1 : UbsABTestHelper.isFirstLoginTestB() ? LoginDialogData.FIRST_START_2 : "" : (String) invokeV.objValue;
-    }
-
     public static void skipToLoginDialogActivity(LoginDialogData loginDialogData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65542, null, loginDialogData) == null) || loginDialogData == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(65542, null, loginDialogData) == null) && loginDialogData != null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2921530, loginDialogData));
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2921530, loginDialogData));
     }
 }

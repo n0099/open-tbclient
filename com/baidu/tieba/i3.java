@@ -73,9 +73,7 @@ public class i3 implements GLSurfaceView.EGLConfigChooser {
                 EGLConfig eGLConfig5 = eGLConfigArr2[i2];
                 int b = b(egl10, eGLDisplay, eGLConfig5, 12325, 0);
                 int b2 = b(egl10, eGLDisplay, eGLConfig5, 12326, 0);
-                if (b < this.e || b2 < this.f) {
-                    i = length;
-                } else {
+                if (b >= this.e && b2 >= this.f) {
                     int b3 = b(egl10, eGLDisplay, eGLConfig5, MonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, 0);
                     int b4 = b(egl10, eGLDisplay, eGLConfig5, MonitorType.MONITOR_TYPE_INIT_WEBKIT, 0);
                     int b5 = b(egl10, eGLDisplay, eGLConfig5, 12322, 0);
@@ -117,12 +115,20 @@ public class i3 implements GLSurfaceView.EGLConfigChooser {
                     eGLConfig4 = eGLConfig5;
                     eGLConfig3 = eGLConfig;
                     eGLConfig2 = eGLConfig6;
+                } else {
+                    i = length;
                 }
                 i2++;
                 eGLConfigArr2 = eGLConfigArr;
                 length = i;
             }
-            return eGLConfig4 != null ? eGLConfig4 : eGLConfig3 != null ? eGLConfig3 : eGLConfig2;
+            if (eGLConfig4 != null) {
+                return eGLConfig4;
+            }
+            if (eGLConfig3 != null) {
+                return eGLConfig3;
+            }
+            return eGLConfig2;
         }
         return (EGLConfig) invokeLLL.objValue;
     }
@@ -130,7 +136,13 @@ public class i3 implements GLSurfaceView.EGLConfigChooser {
     public final int b(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{egl10, eGLDisplay, eGLConfig, Integer.valueOf(i), Integer.valueOf(i2)})) == null) ? egl10.eglGetConfigAttrib(eGLDisplay, eGLConfig, i, this.i) ? this.i[0] : i2 : invokeCommon.intValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{egl10, eGLDisplay, eGLConfig, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            if (egl10.eglGetConfigAttrib(eGLDisplay, eGLConfig, i, this.i)) {
+                return this.i[0];
+            }
+            return i2;
+        }
+        return invokeCommon.intValue;
     }
 
     @Override // android.opengl.GLSurfaceView.EGLConfigChooser

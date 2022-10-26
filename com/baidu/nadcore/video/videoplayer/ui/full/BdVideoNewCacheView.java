@@ -1,9 +1,8 @@
 package com.baidu.nadcore.video.videoplayer.ui.full;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.dz0;
+import com.baidu.tieba.ez0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -14,7 +13,7 @@ public class BdVideoNewCacheView extends BdVideoCacheView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BdVideoNewCacheView(@NonNull Context context) {
+    public BdVideoNewCacheView(Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -37,7 +36,7 @@ public class BdVideoNewCacheView extends BdVideoCacheView {
     public void onWindowVisibilityChanged(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            dz0.b("BdVideoNewCacheView", "onWindowVisibilityChanged(" + i + SmallTailInfo.EMOTION_SUFFIX);
+            ez0.b("BdVideoNewCacheView", "onWindowVisibilityChanged(" + i + SmallTailInfo.EMOTION_SUFFIX);
             if (i != 0) {
                 setVisibility(4);
             } else if (this.b.b()) {

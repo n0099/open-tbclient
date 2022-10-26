@@ -61,70 +61,42 @@ public class Hex implements BinaryEncoder, BinaryDecoder {
         this.charset = DEFAULT_CHARSET;
     }
 
-    public static byte[] decodeHex(String str) throws DecoderException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? decodeHex(str.toCharArray()) : (byte[]) invokeL.objValue;
-    }
-
-    public static char[] encodeHex(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, bArr)) == null) ? encodeHex(bArr, true) : (char[]) invokeL.objValue;
-    }
-
-    public static String encodeHexString(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65550, null, bArr)) == null) ? new String(encodeHex(bArr)) : (String) invokeL.objValue;
-    }
-
-    public static int toDigit(char c, int i) throws DecoderException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65552, null, new Object[]{Character.valueOf(c), Integer.valueOf(i)})) == null) {
-            int digit = Character.digit(c, 16);
-            if (digit != -1) {
-                return digit;
-            }
-            throw new DecoderException("Illegal hexadecimal character " + c + " at index " + i);
-        }
-        return invokeCommon.intValue;
-    }
-
-    @Override // org.apache.commons.base.BinaryDecoder
-    public byte[] decode(byte[] bArr) throws DecoderException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr)) == null) ? decodeHex(new String(bArr, getCharset()).toCharArray()) : (byte[]) invokeL.objValue;
-    }
-
-    @Override // org.apache.commons.base.BinaryEncoder
-    public byte[] encode(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bArr)) == null) ? encodeHexString(bArr).getBytes(getCharset()) : (byte[]) invokeL.objValue;
-    }
-
     public Charset getCharset() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.charset : (Charset) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.charset;
+        }
+        return (Charset) invokeV.objValue;
     }
 
     public String getCharsetName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.charset.name() : (String) invokeV.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return super.toString() + "[charsetName=" + this.charset + PreferencesUtil.RIGHT_MOUNT;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.charset.name();
         }
         return (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public Hex(String str) {
+        this(Charset.forName(str));
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                this((Charset) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
     }
 
     public static byte[] decodeHex(char[] cArr) throws DecoderException {
@@ -149,28 +121,26 @@ public class Hex implements BinaryEncoder, BinaryDecoder {
         return (byte[]) invokeL.objValue;
     }
 
-    public static char[] encodeHex(ByteBuffer byteBuffer) {
+    @Override // org.apache.commons.base.Encoder
+    public Object encode(Object obj) throws EncoderException {
         InterceptResult invokeL;
+        byte[] bArr;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, byteBuffer)) == null) ? encodeHex(byteBuffer, true) : (char[]) invokeL.objValue;
-    }
-
-    public static String encodeHexString(byte[] bArr, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(65551, null, bArr, z)) == null) ? new String(encodeHex(bArr, z)) : (String) invokeLZ.objValue;
-    }
-
-    public byte[] decode(ByteBuffer byteBuffer) throws DecoderException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, byteBuffer)) == null) ? decodeHex(new String(byteBuffer.array(), getCharset()).toCharArray()) : (byte[]) invokeL.objValue;
-    }
-
-    public byte[] encode(ByteBuffer byteBuffer) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, byteBuffer)) == null) ? encodeHexString(byteBuffer).getBytes(getCharset()) : (byte[]) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            if (obj instanceof String) {
+                bArr = ((String) obj).getBytes(getCharset());
+            } else if (obj instanceof ByteBuffer) {
+                bArr = ((ByteBuffer) obj).array();
+            } else {
+                try {
+                    bArr = (byte[]) obj;
+                } catch (ClassCastException e) {
+                    throw new EncoderException(e.getMessage(), e);
+                }
+            }
+            return encodeHex(bArr);
+        }
+        return invokeL.objValue;
     }
 
     public Hex(Charset charset) {
@@ -191,19 +161,175 @@ public class Hex implements BinaryEncoder, BinaryDecoder {
         this.charset = charset;
     }
 
-    public static char[] encodeHex(byte[] bArr, boolean z) {
-        InterceptResult invokeLZ;
+    public static byte[] decodeHex(String str) throws DecoderException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65546, null, bArr, z)) == null) {
-            return encodeHex(bArr, z ? DIGITS_LOWER : DIGITS_UPPER);
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            return decodeHex(str.toCharArray());
         }
-        return (char[]) invokeLZ.objValue;
+        return (byte[]) invokeL.objValue;
+    }
+
+    public static char[] encodeHex(ByteBuffer byteBuffer) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, byteBuffer)) == null) {
+            return encodeHex(byteBuffer, true);
+        }
+        return (char[]) invokeL.objValue;
     }
 
     public static String encodeHexString(ByteBuffer byteBuffer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65548, null, byteBuffer)) == null) ? new String(encodeHex(byteBuffer)) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, byteBuffer)) == null) {
+            return new String(encodeHex(byteBuffer));
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public byte[] decode(ByteBuffer byteBuffer) throws DecoderException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, byteBuffer)) == null) {
+            return decodeHex(new String(byteBuffer.array(), getCharset()).toCharArray());
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public byte[] encode(ByteBuffer byteBuffer) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, byteBuffer)) == null) {
+            return encodeHexString(byteBuffer).getBytes(getCharset());
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public static char[] encodeHex(ByteBuffer byteBuffer, boolean z) {
+        InterceptResult invokeLZ;
+        char[] cArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65543, null, byteBuffer, z)) == null) {
+            if (z) {
+                cArr = DIGITS_LOWER;
+            } else {
+                cArr = DIGITS_UPPER;
+            }
+            return encodeHex(byteBuffer, cArr);
+        }
+        return (char[]) invokeLZ.objValue;
+    }
+
+    public static String encodeHexString(ByteBuffer byteBuffer, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65549, null, byteBuffer, z)) == null) {
+            return new String(encodeHex(byteBuffer, z));
+        }
+        return (String) invokeLZ.objValue;
+    }
+
+    public static char[] encodeHex(ByteBuffer byteBuffer, char[] cArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, byteBuffer, cArr)) == null) {
+            return encodeHex(byteBuffer.array(), cArr);
+        }
+        return (char[]) invokeLL.objValue;
+    }
+
+    public static String encodeHexString(byte[] bArr, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65551, null, bArr, z)) == null) {
+            return new String(encodeHex(bArr, z));
+        }
+        return (String) invokeLZ.objValue;
+    }
+
+    public static char[] encodeHex(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, bArr)) == null) {
+            return encodeHex(bArr, true);
+        }
+        return (char[]) invokeL.objValue;
+    }
+
+    public static String encodeHexString(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, bArr)) == null) {
+            return new String(encodeHex(bArr));
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // org.apache.commons.base.BinaryDecoder
+    public byte[] decode(byte[] bArr) throws DecoderException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr)) == null) {
+            return decodeHex(new String(bArr, getCharset()).toCharArray());
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    @Override // org.apache.commons.base.BinaryEncoder
+    public byte[] encode(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bArr)) == null) {
+            return encodeHexString(bArr).getBytes(getCharset());
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public static char[] encodeHex(byte[] bArr, boolean z) {
+        InterceptResult invokeLZ;
+        char[] cArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65546, null, bArr, z)) == null) {
+            if (z) {
+                cArr = DIGITS_LOWER;
+            } else {
+                cArr = DIGITS_UPPER;
+            }
+            return encodeHex(bArr, cArr);
+        }
+        return (char[]) invokeLZ.objValue;
+    }
+
+    public static char[] encodeHex(byte[] bArr, char[] cArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, bArr, cArr)) == null) {
+            int length = bArr.length;
+            char[] cArr2 = new char[length << 1];
+            int i = 0;
+            for (int i2 = 0; i2 < length; i2++) {
+                int i3 = i + 1;
+                cArr2[i] = cArr[(bArr[i2] & 240) >>> 4];
+                i = i3 + 1;
+                cArr2[i3] = cArr[bArr[i2] & 15];
+            }
+            return cArr2;
+        }
+        return (char[]) invokeLL.objValue;
+    }
+
+    public static int toDigit(char c, int i) throws DecoderException {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65552, null, new Object[]{Character.valueOf(c), Integer.valueOf(i)})) == null) {
+            int digit = Character.digit(c, 16);
+            if (digit != -1) {
+                return digit;
+            }
+            throw new DecoderException("Illegal hexadecimal character " + c + " at index " + i);
+        }
+        return invokeCommon.intValue;
     }
 
     @Override // org.apache.commons.base.Decoder
@@ -229,84 +355,12 @@ public class Hex implements BinaryEncoder, BinaryDecoder {
         return invokeL.objValue;
     }
 
-    @Override // org.apache.commons.base.Encoder
-    public Object encode(Object obj) throws EncoderException {
-        InterceptResult invokeL;
-        byte[] bArr;
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            if (obj instanceof String) {
-                bArr = ((String) obj).getBytes(getCharset());
-            } else if (obj instanceof ByteBuffer) {
-                bArr = ((ByteBuffer) obj).array();
-            } else {
-                try {
-                    bArr = (byte[]) obj;
-                } catch (ClassCastException e) {
-                    throw new EncoderException(e.getMessage(), e);
-                }
-            }
-            return encodeHex(bArr);
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return super.toString() + "[charsetName=" + this.charset + PreferencesUtil.RIGHT_MOUNT;
         }
-        return invokeL.objValue;
-    }
-
-    public static char[] encodeHex(ByteBuffer byteBuffer, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65543, null, byteBuffer, z)) == null) {
-            return encodeHex(byteBuffer, z ? DIGITS_LOWER : DIGITS_UPPER);
-        }
-        return (char[]) invokeLZ.objValue;
-    }
-
-    public static String encodeHexString(ByteBuffer byteBuffer, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(65549, null, byteBuffer, z)) == null) ? new String(encodeHex(byteBuffer, z)) : (String) invokeLZ.objValue;
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public Hex(String str) {
-        this(Charset.forName(str));
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                this((Charset) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public static char[] encodeHex(byte[] bArr, char[] cArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, bArr, cArr)) == null) {
-            int length = bArr.length;
-            char[] cArr2 = new char[length << 1];
-            int i = 0;
-            for (int i2 = 0; i2 < length; i2++) {
-                int i3 = i + 1;
-                cArr2[i] = cArr[(bArr[i2] & 240) >>> 4];
-                i = i3 + 1;
-                cArr2[i3] = cArr[bArr[i2] & 15];
-            }
-            return cArr2;
-        }
-        return (char[]) invokeLL.objValue;
-    }
-
-    public static char[] encodeHex(ByteBuffer byteBuffer, char[] cArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, byteBuffer, cArr)) == null) ? encodeHex(byteBuffer.array(), cArr) : (char[]) invokeLL.objValue;
+        return (String) invokeV.objValue;
     }
 }

@@ -34,13 +34,21 @@ public class SecurityHelper {
 
     public static boolean checkResponseAppLegal(Context context, WbAppInfo wbAppInfo, Intent intent) {
         InterceptResult invokeLLL;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, context, wbAppInfo, intent)) == null) {
-            if ((wbAppInfo == null || wbAppInfo.getSupportVersion() > 10352) && wbAppInfo != null) {
-                String stringExtra = intent != null ? intent.getStringExtra(WBConstants.Base.APP_PKG) : null;
-                return (stringExtra == null || intent.getStringExtra(WBConstants.TRAN) == null || !ApiUtils.validateWeiboSign(context, stringExtra)) ? false : true;
+            if ((wbAppInfo != null && wbAppInfo.getSupportVersion() <= 10352) || wbAppInfo == null) {
+                return true;
             }
-            return true;
+            if (intent != null) {
+                str = intent.getStringExtra(WBConstants.Base.APP_PKG);
+            } else {
+                str = null;
+            }
+            if (str != null && intent.getStringExtra(WBConstants.TRAN) != null && ApiUtils.validateWeiboSign(context, str)) {
+                return true;
+            }
+            return false;
         }
         return invokeLLL.booleanValue;
     }

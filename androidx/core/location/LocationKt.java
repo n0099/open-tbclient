@@ -14,12 +14,18 @@ public final class LocationKt {
     public static final double component1(Location location) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, location)) == null) ? location.getLatitude() : invokeL.doubleValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, location)) == null) {
+            return location.getLatitude();
+        }
+        return invokeL.doubleValue;
     }
 
     public static final double component2(Location location) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, location)) == null) ? location.getLongitude() : invokeL.doubleValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, location)) == null) {
+            return location.getLongitude();
+        }
+        return invokeL.doubleValue;
     }
 }

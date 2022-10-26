@@ -20,8 +20,15 @@ public class ThreadCounterImpl11 implements ThreadCounter {
     public int change_count;
     public Hashtable counters;
 
+    @Override // org.aspectj.runtime.internal.cflowstack.ThreadCounter
+    public void removeThreadCounter() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
+
     /* loaded from: classes8.dex */
-    public static class Counter {
+    public class Counter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int value;
@@ -58,6 +65,36 @@ public class ThreadCounterImpl11 implements ThreadCounter {
         }
         this.counters = new Hashtable();
         this.change_count = 0;
+    }
+
+    @Override // org.aspectj.runtime.internal.cflowstack.ThreadCounter
+    public void dec() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            Counter threadCounter = getThreadCounter();
+            threadCounter.value--;
+        }
+    }
+
+    @Override // org.aspectj.runtime.internal.cflowstack.ThreadCounter
+    public void inc() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            getThreadCounter().value++;
+        }
+    }
+
+    @Override // org.aspectj.runtime.internal.cflowstack.ThreadCounter
+    public boolean isNotZero() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (getThreadCounter().value != 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     private synchronized Counter getThreadCounter() {
@@ -97,36 +134,5 @@ public class ThreadCounterImpl11 implements ThreadCounter {
             return counter;
         }
         return (Counter) invokeV.objValue;
-    }
-
-    @Override // org.aspectj.runtime.internal.cflowstack.ThreadCounter
-    public void dec() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Counter threadCounter = getThreadCounter();
-            threadCounter.value--;
-        }
-    }
-
-    @Override // org.aspectj.runtime.internal.cflowstack.ThreadCounter
-    public void inc() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            getThreadCounter().value++;
-        }
-    }
-
-    @Override // org.aspectj.runtime.internal.cflowstack.ThreadCounter
-    public boolean isNotZero() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? getThreadCounter().value != 0 : invokeV.booleanValue;
-    }
-
-    @Override // org.aspectj.runtime.internal.cflowstack.ThreadCounter
-    public void removeThreadCounter() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
     }
 }

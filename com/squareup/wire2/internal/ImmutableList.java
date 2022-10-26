@@ -14,12 +14,12 @@ import java.util.Collections;
 import java.util.List;
 import java.util.RandomAccess;
 /* loaded from: classes8.dex */
-public final class ImmutableList<T> extends AbstractList<T> implements RandomAccess, Serializable {
+public final class ImmutableList extends AbstractList implements RandomAccess, Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList<T> list;
+    public final ArrayList list;
 
-    public ImmutableList(List<T> list) {
+    public ImmutableList(List list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -34,33 +34,45 @@ public final class ImmutableList<T> extends AbstractList<T> implements RandomAcc
                 return;
             }
         }
-        this.list = new ArrayList<>(list);
+        this.list = new ArrayList(list);
     }
 
     private Object writeReplace() throws ObjectStreamException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? Collections.unmodifiableList(this.list) : invokeV.objValue;
-    }
-
-    @Override // java.util.AbstractList, java.util.List
-    public T get(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? this.list.get(i) : (T) invokeI.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+            return Collections.unmodifiableList(this.list);
+        }
+        return invokeV.objValue;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
     public int size() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.list.size() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.list.size();
+        }
+        return invokeV.intValue;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
     public Object[] toArray() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.list.toArray() : (Object[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.list.toArray();
+        }
+        return (Object[]) invokeV.objValue;
+    }
+
+    @Override // java.util.AbstractList, java.util.List
+    public Object get(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return this.list.get(i);
+        }
+        return invokeI.objValue;
     }
 }

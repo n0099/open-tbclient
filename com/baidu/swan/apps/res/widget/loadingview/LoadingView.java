@@ -11,26 +11,34 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.res.ui.SmoothProgressBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.mx2;
-import com.baidu.tieba.sm2;
-import com.baidu.tieba.u23;
-import com.baidu.tieba.vx2;
-import com.baidu.tieba.z83;
+import com.baidu.tieba.a93;
+import com.baidu.tieba.nx2;
+import com.baidu.tieba.tm2;
+import com.baidu.tieba.v23;
+import com.baidu.tieba.wx2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class LoadingView extends FrameLayout implements u23<LoadingView> {
+public class LoadingView extends FrameLayout implements v23 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
     public SmoothProgressBar b;
     public TextView c;
 
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.v23
+    public LoadingView getLoadingView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this : (LoadingView) invokeV.objValue;
+    }
+
     /* loaded from: classes3.dex */
-    public class a implements z83 {
+    public class a implements a93 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LoadingView a;
@@ -75,80 +83,6 @@ public class LoadingView extends FrameLayout implements u23<LoadingView> {
         a();
     }
 
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View d = mx2.e() ? vx2.a().d(R.layout.obfuscated_res_0x7f0d00b9) : null;
-            if (d != null) {
-                addView(d, 0, new LinearLayout.LayoutParams(-2, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07068b)));
-            } else {
-                LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d00b9, (ViewGroup) this, true);
-            }
-            this.a = findViewById(R.id.obfuscated_res_0x7f091c75);
-            this.b = (SmoothProgressBar) findViewById(R.id.obfuscated_res_0x7f091416);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091515);
-            setPageResources();
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.u23
-    public LoadingView getLoadingView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this : (LoadingView) invokeV.objValue;
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void onAttachedToWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.onAttachedToWindow();
-            sm2.M().f(this, new a(this));
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void onDetachedFromWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.onDetachedFromWindow();
-            sm2.M().g(this);
-        }
-    }
-
-    public void setMsg(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.c.setText(i);
-        }
-    }
-
-    public void setPageResources() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            View view2 = this.a;
-            if (view2 != null) {
-                view2.setBackground(view2.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080187));
-            }
-            SmoothProgressBar smoothProgressBar = this.b;
-            if (smoothProgressBar != null) {
-                smoothProgressBar.setIndeterminateDrawable(smoothProgressBar.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08018b));
-            }
-            TextView textView = this.c;
-            if (textView != null) {
-                textView.setTextColor(textView.getResources().getColor(R.color.obfuscated_res_0x7f0603d2));
-            }
-        }
-    }
-
-    public void setMsg(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.c.setText(str);
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LoadingView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -191,5 +125,76 @@ public class LoadingView extends FrameLayout implements u23<LoadingView> {
             }
         }
         a();
+    }
+
+    public void a() {
+        View view2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (nx2.e()) {
+                view2 = wx2.a().d(R.layout.obfuscated_res_0x7f0d00b9);
+            } else {
+                view2 = null;
+            }
+            if (view2 != null) {
+                addView(view2, 0, new LinearLayout.LayoutParams(-2, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07068b)));
+            } else {
+                LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d00b9, (ViewGroup) this, true);
+            }
+            this.a = findViewById(R.id.obfuscated_res_0x7f091c71);
+            this.b = (SmoothProgressBar) findViewById(R.id.obfuscated_res_0x7f091408);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091507);
+            setPageResources();
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void onAttachedToWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.onAttachedToWindow();
+            tm2.M().f(this, new a(this));
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void onDetachedFromWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.onDetachedFromWindow();
+            tm2.M().g(this);
+        }
+    }
+
+    public void setMsg(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.c.setText(i);
+        }
+    }
+
+    public void setMsg(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.c.setText(str);
+        }
+    }
+
+    public void setPageResources() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            View view2 = this.a;
+            if (view2 != null) {
+                view2.setBackground(view2.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080187));
+            }
+            SmoothProgressBar smoothProgressBar = this.b;
+            if (smoothProgressBar != null) {
+                smoothProgressBar.setIndeterminateDrawable(smoothProgressBar.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08018b));
+            }
+            TextView textView = this.c;
+            if (textView != null) {
+                textView.setTextColor(textView.getResources().getColor(R.color.obfuscated_res_0x7f0603d2));
+            }
+        }
     }
 }

@@ -1,31 +1,33 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedList;
 /* loaded from: classes4.dex */
 public class ls8 {
     public static /* synthetic */ Interceptable $ic;
-    public static ls8 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-    public boolean b;
+    public ss8 a;
+    public jv4 b;
+    public rs8 c;
+    public qs8 d;
+    public ns8 e;
+    public os8 f;
+    public ts8 g;
+    public ps8 h;
+    public ms8 i;
+    public boolean j;
 
-    /* loaded from: classes4.dex */
-    public interface a {
-        void a(Application application);
-    }
-
-    public ls8() {
+    public ls8(MainTabActivity mainTabActivity, eq8 eq8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity, eq8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,52 +37,57 @@ public class ls8 {
                 return;
             }
         }
-        this.b = false;
-        this.a = c();
+        this.j = false;
+        this.a = new ss8(mainTabActivity.getPageContext(), eq8Var, mainTabActivity, false);
+        this.b = new jv4(mainTabActivity.getPageContext());
+        this.c = new rs8(mainTabActivity, eq8Var);
+        this.d = new qs8(mainTabActivity, eq8Var);
+        this.f = new os8(mainTabActivity, eq8Var);
+        this.g = new ts8(mainTabActivity, eq8Var);
+        this.h = new ps8(mainTabActivity, eq8Var);
+        this.i = new ms8(mainTabActivity, eq8Var);
+        this.e = new ns8(mainTabActivity, eq8Var);
     }
 
-    public static ls8 b() {
-        InterceptResult invokeV;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (ls8.class) {
-                    if (c == null) {
-                        c = new ls8();
-                    }
-                }
-            }
-            return c;
-        }
-        return (ls8) invokeV.objValue;
-    }
-
-    public final boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ox4.k().l("pref_key_jpush_sdk_enable", 0) == 1 : invokeV.booleanValue;
-    }
-
-    public final a c() {
-        InterceptResult invokeV;
-        CustomResponsedMessage runTask;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!a() || (runTask = MessageManager.getInstance().runTask(2156672, a.class)) == null) {
-                return null;
-            }
-            return (a) runTask.getData();
-        }
-        return (a) invokeV.objValue;
-    }
-
-    public void d(Application application) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, application) == null) || this.b || (aVar = this.a) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !this.j) {
             return;
         }
-        aVar.a(application);
-        this.b = true;
+        LinkedList linkedList = new LinkedList();
+        linkedList.add(this.i);
+        linkedList.add(this.c);
+        linkedList.add(this.d);
+        linkedList.add(this.e);
+        gv4.g(linkedList);
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || !this.j) {
+            return;
+        }
+        tf7.m = false;
+        LinkedList linkedList = new LinkedList();
+        linkedList.add(this.i);
+        linkedList.add(this.a);
+        gv4.g(linkedList);
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            LinkedList linkedList = new LinkedList();
+            linkedList.add(this.a);
+            linkedList.add(this.c);
+            linkedList.add(this.d);
+            linkedList.add(this.i);
+            linkedList.add(this.b);
+            linkedList.add(this.h);
+            linkedList.add(this.f);
+            linkedList.add(this.g);
+            gv4.g(linkedList);
+            this.j = true;
+        }
     }
 }

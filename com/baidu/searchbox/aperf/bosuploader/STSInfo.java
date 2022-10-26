@@ -46,7 +46,10 @@ public class STSInfo {
     public String getOrigin() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mOrigin : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mOrigin;
+        }
+        return (String) invokeV.objValue;
     }
 
     public void setOrigin(String str) {

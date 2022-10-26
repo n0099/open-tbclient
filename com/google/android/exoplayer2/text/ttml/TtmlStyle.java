@@ -70,12 +70,6 @@ public final class TtmlStyle {
         this.fontSizeUnit = -1;
     }
 
-    public TtmlStyle chain(TtmlStyle ttmlStyle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ttmlStyle)) == null) ? inherit(ttmlStyle, true) : (TtmlStyle) invokeL.objValue;
-    }
-
     public int getBackgroundColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -103,35 +97,57 @@ public final class TtmlStyle {
     public String getFontFamily() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.fontFamily : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.fontFamily;
+        }
+        return (String) invokeV.objValue;
     }
 
     public float getFontSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.fontSize : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.fontSize;
+        }
+        return invokeV.floatValue;
     }
 
     public int getFontSizeUnit() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.fontSizeUnit : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.fontSizeUnit;
+        }
+        return invokeV.intValue;
     }
 
     public String getId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.id : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.id;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getStyle() {
         InterceptResult invokeV;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             if (this.bold == -1 && this.italic == -1) {
                 return -1;
             }
-            return (this.bold == 1 ? 1 : 0) | (this.italic == 1 ? 2 : 0);
+            int i2 = 0;
+            if (this.bold == 1) {
+                i = 1;
+            } else {
+                i = 0;
+            }
+            if (this.italic == 1) {
+                i2 = 2;
+            }
+            return i | i2;
         }
         return invokeV.intValue;
     }
@@ -139,155 +155,52 @@ public final class TtmlStyle {
     public Layout.Alignment getTextAlign() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.textAlign : (Layout.Alignment) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.textAlign;
+        }
+        return (Layout.Alignment) invokeV.objValue;
     }
 
     public boolean hasBackgroundColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.hasBackgroundColor : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.hasBackgroundColor;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean hasFontColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.hasFontColor : invokeV.booleanValue;
-    }
-
-    public TtmlStyle inherit(TtmlStyle ttmlStyle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, ttmlStyle)) == null) ? inherit(ttmlStyle, false) : (TtmlStyle) invokeL.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.hasFontColor;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isLinethrough() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.linethrough == 1 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            if (this.linethrough == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isUnderline() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.underline == 1 : invokeV.booleanValue;
-    }
-
-    public TtmlStyle setBackgroundColor(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i)) == null) {
-            this.backgroundColor = i;
-            this.hasBackgroundColor = true;
-            return this;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            if (this.underline == 1) {
+                return true;
+            }
+            return false;
         }
-        return (TtmlStyle) invokeI.objValue;
-    }
-
-    public TtmlStyle setBold(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048591, this, z)) == null) {
-            Assertions.checkState(this.inheritableStyle == null);
-            this.bold = z ? 1 : 0;
-            return this;
-        }
-        return (TtmlStyle) invokeZ.objValue;
-    }
-
-    public TtmlStyle setFontColor(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
-            Assertions.checkState(this.inheritableStyle == null);
-            this.fontColor = i;
-            this.hasFontColor = true;
-            return this;
-        }
-        return (TtmlStyle) invokeI.objValue;
-    }
-
-    public TtmlStyle setFontFamily(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) {
-            Assertions.checkState(this.inheritableStyle == null);
-            this.fontFamily = str;
-            return this;
-        }
-        return (TtmlStyle) invokeL.objValue;
-    }
-
-    public TtmlStyle setFontSize(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048594, this, f)) == null) {
-            this.fontSize = f;
-            return this;
-        }
-        return (TtmlStyle) invokeF.objValue;
-    }
-
-    public TtmlStyle setFontSizeUnit(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i)) == null) {
-            this.fontSizeUnit = i;
-            return this;
-        }
-        return (TtmlStyle) invokeI.objValue;
-    }
-
-    public TtmlStyle setId(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, str)) == null) {
-            this.id = str;
-            return this;
-        }
-        return (TtmlStyle) invokeL.objValue;
-    }
-
-    public TtmlStyle setItalic(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048597, this, z)) == null) {
-            Assertions.checkState(this.inheritableStyle == null);
-            this.italic = z ? 1 : 0;
-            return this;
-        }
-        return (TtmlStyle) invokeZ.objValue;
-    }
-
-    public TtmlStyle setLinethrough(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048598, this, z)) == null) {
-            Assertions.checkState(this.inheritableStyle == null);
-            this.linethrough = z ? 1 : 0;
-            return this;
-        }
-        return (TtmlStyle) invokeZ.objValue;
-    }
-
-    public TtmlStyle setTextAlign(Layout.Alignment alignment) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, alignment)) == null) {
-            this.textAlign = alignment;
-            return this;
-        }
-        return (TtmlStyle) invokeL.objValue;
-    }
-
-    public TtmlStyle setUnderline(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048600, this, z)) == null) {
-            Assertions.checkState(this.inheritableStyle == null);
-            this.underline = z ? 1 : 0;
-            return this;
-        }
-        return (TtmlStyle) invokeZ.objValue;
+        return invokeV.booleanValue;
     }
 
     private TtmlStyle inherit(TtmlStyle ttmlStyle, boolean z) {
@@ -327,5 +240,177 @@ public final class TtmlStyle {
             return this;
         }
         return (TtmlStyle) invokeLZ.objValue;
+    }
+
+    public TtmlStyle chain(TtmlStyle ttmlStyle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ttmlStyle)) == null) {
+            return inherit(ttmlStyle, true);
+        }
+        return (TtmlStyle) invokeL.objValue;
+    }
+
+    public TtmlStyle inherit(TtmlStyle ttmlStyle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, ttmlStyle)) == null) {
+            return inherit(ttmlStyle, false);
+        }
+        return (TtmlStyle) invokeL.objValue;
+    }
+
+    public TtmlStyle setBackgroundColor(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i)) == null) {
+            this.backgroundColor = i;
+            this.hasBackgroundColor = true;
+            return this;
+        }
+        return (TtmlStyle) invokeI.objValue;
+    }
+
+    public TtmlStyle setBold(boolean z) {
+        InterceptResult invokeZ;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048591, this, z)) == null) {
+            if (this.inheritableStyle == null) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            Assertions.checkState(z2);
+            this.bold = z ? 1 : 0;
+            return this;
+        }
+        return (TtmlStyle) invokeZ.objValue;
+    }
+
+    public TtmlStyle setFontColor(int i) {
+        InterceptResult invokeI;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
+            if (this.inheritableStyle == null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Assertions.checkState(z);
+            this.fontColor = i;
+            this.hasFontColor = true;
+            return this;
+        }
+        return (TtmlStyle) invokeI.objValue;
+    }
+
+    public TtmlStyle setFontFamily(String str) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) {
+            if (this.inheritableStyle == null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Assertions.checkState(z);
+            this.fontFamily = str;
+            return this;
+        }
+        return (TtmlStyle) invokeL.objValue;
+    }
+
+    public TtmlStyle setFontSize(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048594, this, f)) == null) {
+            this.fontSize = f;
+            return this;
+        }
+        return (TtmlStyle) invokeF.objValue;
+    }
+
+    public TtmlStyle setFontSizeUnit(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i)) == null) {
+            this.fontSizeUnit = i;
+            return this;
+        }
+        return (TtmlStyle) invokeI.objValue;
+    }
+
+    public TtmlStyle setId(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, str)) == null) {
+            this.id = str;
+            return this;
+        }
+        return (TtmlStyle) invokeL.objValue;
+    }
+
+    public TtmlStyle setItalic(boolean z) {
+        InterceptResult invokeZ;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048597, this, z)) == null) {
+            if (this.inheritableStyle == null) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            Assertions.checkState(z2);
+            this.italic = z ? 1 : 0;
+            return this;
+        }
+        return (TtmlStyle) invokeZ.objValue;
+    }
+
+    public TtmlStyle setLinethrough(boolean z) {
+        InterceptResult invokeZ;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048598, this, z)) == null) {
+            if (this.inheritableStyle == null) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            Assertions.checkState(z2);
+            this.linethrough = z ? 1 : 0;
+            return this;
+        }
+        return (TtmlStyle) invokeZ.objValue;
+    }
+
+    public TtmlStyle setTextAlign(Layout.Alignment alignment) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, alignment)) == null) {
+            this.textAlign = alignment;
+            return this;
+        }
+        return (TtmlStyle) invokeL.objValue;
+    }
+
+    public TtmlStyle setUnderline(boolean z) {
+        InterceptResult invokeZ;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048600, this, z)) == null) {
+            if (this.inheritableStyle == null) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            Assertions.checkState(z2);
+            this.underline = z ? 1 : 0;
+            return this;
+        }
+        return (TtmlStyle) invokeZ.objValue;
     }
 }

@@ -7,7 +7,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.BinaryBitmap;
-import com.google.zxing.DecodeHintType;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.Reader;
 import com.google.zxing.ReaderException;
@@ -43,22 +42,32 @@ public final class GenericMultipleBarcodeReader implements MultipleBarcodeReader
         this.delegate = reader;
     }
 
-    private void doDecodeMultiple(BinaryBitmap binaryBitmap, Map<DecodeHintType, ?> map, List<Result> list, int i, int i2, int i3) {
+    @Override // com.google.zxing.multi.MultipleBarcodeReader
+    public Result[] decodeMultiple(BinaryBitmap binaryBitmap) throws NotFoundException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, binaryBitmap)) == null) {
+            return decodeMultiple(binaryBitmap, null);
+        }
+        return (Result[]) invokeL.objValue;
+    }
+
+    private void doDecodeMultiple(BinaryBitmap binaryBitmap, Map map, List list, int i, int i2, int i3) {
         boolean z;
         float f;
         float f2;
         int i4;
         int i5;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{binaryBitmap, map, list, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) || i3 > 4) {
+        if ((interceptable != null && interceptable.invokeCommon(65537, this, new Object[]{binaryBitmap, map, list, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) != null) || i3 > 4) {
             return;
         }
         try {
             Result decode = this.delegate.decode(binaryBitmap, map);
-            Iterator<Result> it = list.iterator();
+            Iterator it = list.iterator();
             while (true) {
                 if (it.hasNext()) {
-                    if (it.next().getText().equals(decode.getText())) {
+                    if (((Result) it.next()).getText().equals(decode.getText())) {
                         z = true;
                         break;
                     }
@@ -71,56 +80,55 @@ public final class GenericMultipleBarcodeReader implements MultipleBarcodeReader
                 list.add(translateResultPoints(decode, i, i2));
             }
             ResultPoint[] resultPoints = decode.getResultPoints();
-            if (resultPoints == null || resultPoints.length == 0) {
-                return;
-            }
-            int width = binaryBitmap.getWidth();
-            int height = binaryBitmap.getHeight();
-            float f3 = width;
-            float f4 = height;
-            float f5 = 0.0f;
-            float f6 = 0.0f;
-            for (ResultPoint resultPoint : resultPoints) {
-                if (resultPoint != null) {
-                    float x = resultPoint.getX();
-                    float y = resultPoint.getY();
-                    if (x < f3) {
-                        f3 = x;
-                    }
-                    if (y < f4) {
-                        f4 = y;
-                    }
-                    if (x > f5) {
-                        f5 = x;
-                    }
-                    if (y > f6) {
-                        f6 = y;
+            if (resultPoints != null && resultPoints.length != 0) {
+                int width = binaryBitmap.getWidth();
+                int height = binaryBitmap.getHeight();
+                float f3 = width;
+                float f4 = height;
+                float f5 = 0.0f;
+                float f6 = 0.0f;
+                for (ResultPoint resultPoint : resultPoints) {
+                    if (resultPoint != null) {
+                        float x = resultPoint.getX();
+                        float y = resultPoint.getY();
+                        if (x < f3) {
+                            f3 = x;
+                        }
+                        if (y < f4) {
+                            f4 = y;
+                        }
+                        if (x > f5) {
+                            f5 = x;
+                        }
+                        if (y > f6) {
+                            f6 = y;
+                        }
                     }
                 }
-            }
-            if (f3 > 100.0f) {
-                f = f5;
-                f2 = f4;
-                i4 = height;
-                i5 = width;
-                doDecodeMultiple(binaryBitmap.crop(0, 0, (int) f3, height), map, list, i, i2, i3 + 1);
-            } else {
-                f = f5;
-                f2 = f4;
-                i4 = height;
-                i5 = width;
-            }
-            if (f2 > 100.0f) {
-                doDecodeMultiple(binaryBitmap.crop(0, 0, i5, (int) f2), map, list, i, i2, i3 + 1);
-            }
-            float f7 = f;
-            if (f7 < i5 - 100) {
-                int i6 = (int) f7;
-                doDecodeMultiple(binaryBitmap.crop(i6, 0, i5 - i6, i4), map, list, i + i6, i2, i3 + 1);
-            }
-            if (f6 < i4 - 100) {
-                int i7 = (int) f6;
-                doDecodeMultiple(binaryBitmap.crop(0, i7, i5, i4 - i7), map, list, i, i2 + i7, i3 + 1);
+                if (f3 > 100.0f) {
+                    f = f5;
+                    f2 = f4;
+                    i4 = height;
+                    i5 = width;
+                    doDecodeMultiple(binaryBitmap.crop(0, 0, (int) f3, height), map, list, i, i2, i3 + 1);
+                } else {
+                    f = f5;
+                    f2 = f4;
+                    i4 = height;
+                    i5 = width;
+                }
+                if (f2 > 100.0f) {
+                    doDecodeMultiple(binaryBitmap.crop(0, 0, i5, (int) f2), map, list, i, i2, i3 + 1);
+                }
+                float f7 = f;
+                if (f7 < i5 - 100) {
+                    int i6 = (int) f7;
+                    doDecodeMultiple(binaryBitmap.crop(i6, 0, i5 - i6, i4), map, list, i + i6, i2, i3 + 1);
+                }
+                if (f6 < i4 - 100) {
+                    int i7 = (int) f6;
+                    doDecodeMultiple(binaryBitmap.crop(0, i7, i5, i4 - i7), map, list, i, i2 + i7, i3 + 1);
+                }
             }
         } catch (ReaderException unused) {
         }
@@ -149,14 +157,7 @@ public final class GenericMultipleBarcodeReader implements MultipleBarcodeReader
     }
 
     @Override // com.google.zxing.multi.MultipleBarcodeReader
-    public Result[] decodeMultiple(BinaryBitmap binaryBitmap) throws NotFoundException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, binaryBitmap)) == null) ? decodeMultiple(binaryBitmap, null) : (Result[]) invokeL.objValue;
-    }
-
-    @Override // com.google.zxing.multi.MultipleBarcodeReader
-    public Result[] decodeMultiple(BinaryBitmap binaryBitmap, Map<DecodeHintType, ?> map) throws NotFoundException {
+    public Result[] decodeMultiple(BinaryBitmap binaryBitmap, Map map) throws NotFoundException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, binaryBitmap, map)) == null) {

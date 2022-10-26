@@ -1,7 +1,6 @@
 package com.yy.mobile.framework.revenuesdk;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +28,7 @@ public class RevenueConfig {
     public int usedChannel;
 
     /* loaded from: classes8.dex */
-    public static final class RevenueConfigBuilder {
+    public final class RevenueConfigBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int appId;
@@ -73,7 +72,10 @@ public class RevenueConfig {
         public static RevenueConfigBuilder aRevenueConfig() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new RevenueConfigBuilder() : (RevenueConfigBuilder) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+                return new RevenueConfigBuilder();
+            }
+            return (RevenueConfigBuilder) invokeV.objValue;
         }
 
         public RevenueConfig build() {
@@ -118,7 +120,7 @@ public class RevenueConfig {
             return (RevenueConfigBuilder) invokeL.objValue;
         }
 
-        public RevenueConfigBuilder setAuthType(@NonNull int i) {
+        public RevenueConfigBuilder setAuthType(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
@@ -128,7 +130,7 @@ public class RevenueConfig {
             return (RevenueConfigBuilder) invokeI.objValue;
         }
 
-        public RevenueConfigBuilder setClientVersion(@NonNull String str) {
+        public RevenueConfigBuilder setClientVersion(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
@@ -138,7 +140,7 @@ public class RevenueConfig {
             return (RevenueConfigBuilder) invokeL.objValue;
         }
 
-        public RevenueConfigBuilder setContext(@NonNull Context context) {
+        public RevenueConfigBuilder setContext(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
@@ -158,7 +160,7 @@ public class RevenueConfig {
             return (RevenueConfigBuilder) invokeI.objValue;
         }
 
-        public RevenueConfigBuilder setDataSender(@NonNull IRevenueDataSender iRevenueDataSender) {
+        public RevenueConfigBuilder setDataSender(IRevenueDataSender iRevenueDataSender) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, iRevenueDataSender)) == null) {
@@ -178,7 +180,7 @@ public class RevenueConfig {
             return (RevenueConfigBuilder) invokeL.objValue;
         }
 
-        public RevenueConfigBuilder setPakageName(@NonNull String str) {
+        public RevenueConfigBuilder setPakageName(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
@@ -188,7 +190,7 @@ public class RevenueConfig {
             return (RevenueConfigBuilder) invokeL.objValue;
         }
 
-        public RevenueConfigBuilder setProtoType(@NonNull ProtocolType protocolType) {
+        public RevenueConfigBuilder setProtoType(ProtocolType protocolType) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, protocolType)) == null) {
@@ -236,79 +238,118 @@ public class RevenueConfig {
     public int getAppId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.appId : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.appId;
+        }
+        return invokeV.intValue;
     }
 
     public String getAppName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.appName : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.appName;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getAuthType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.authType : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.authType;
+        }
+        return invokeV.intValue;
     }
 
     public String getClientVerion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.clientVer : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.clientVer;
+        }
+        return (String) invokeV.objValue;
     }
 
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mContext : (Context) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mContext;
+        }
+        return (Context) invokeV.objValue;
     }
 
     public int getCurrencyType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.currencyType : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.currencyType;
+        }
+        return invokeV.intValue;
     }
 
     public IRevenueDataSender getDataSender() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.dataSender : (IRevenueDataSender) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.dataSender;
+        }
+        return (IRevenueDataSender) invokeV.objValue;
     }
 
     public String getDeviceId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.deviceId : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.deviceId;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getPakageName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.pakageName : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.pakageName;
+        }
+        return (String) invokeV.objValue;
     }
 
     public ProtocolType getProtoType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.protoType : (ProtocolType) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.protoType;
+        }
+        return (ProtocolType) invokeV.objValue;
     }
 
     public long getUid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.uid : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.uid;
+        }
+        return invokeV.longValue;
     }
 
     public int getUsedChannel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.usedChannel : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.usedChannel;
+        }
+        return invokeV.intValue;
     }
 
     public Context getmContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mContext : (Context) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.mContext;
+        }
+        return (Context) invokeV.objValue;
     }
 
     public void setAppId(int i) {

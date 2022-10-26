@@ -91,7 +91,7 @@ public class SearchBoxView extends RelativeLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091de4) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091de0) {
                 TiebaStatic.eventStat(this.a.a, this.a.b, "click", 1, new Object[0]);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2015003, new IntentConfig(this.a.a)));
             }
@@ -129,43 +129,13 @@ public class SearchBoxView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             this.a = (Activity) context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d092b, this);
-            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091de4);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091de3);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d092c, this);
+            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091de0);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091ddf);
             this.c.setOnClickListener(this.g);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091df4);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091df0);
             this.e = textView;
             textView.setOnClickListener(this.f);
-        }
-    }
-
-    public void setClickStatKey(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    @Override // android.view.View
-    public void setOnClickListener(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) || onClickListener == null) {
-            return;
-        }
-        this.c.setOnClickListener(onClickListener);
-    }
-
-    public void setText(CharSequence charSequence) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, charSequence) == null) {
-            this.d.setHint(charSequence);
-        }
-    }
-
-    public void setText(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.d.setHint(i);
         }
     }
 
@@ -223,5 +193,34 @@ public class SearchBoxView extends RelativeLayout {
         this.f = new a(this);
         this.g = new b(this);
         c(context);
+    }
+
+    public void setClickStatKey(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    @Override // android.view.View
+    public void setOnClickListener(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) && onClickListener != null) {
+            this.c.setOnClickListener(onClickListener);
+        }
+    }
+
+    public void setText(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.d.setHint(i);
+        }
+    }
+
+    public void setText(CharSequence charSequence) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, charSequence) == null) {
+            this.d.setHint(charSequence);
+        }
     }
 }

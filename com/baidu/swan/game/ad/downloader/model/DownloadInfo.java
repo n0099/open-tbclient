@@ -1,11 +1,10 @@
 package com.baidu.swan.game.ad.downloader.model;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.game.ad.downloader.exception.DownloadException;
-import com.baidu.tieba.or3;
+import com.baidu.tieba.pr3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +16,7 @@ public class DownloadInfo implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long mCreateAt;
-    public transient or3 mDownloadListener;
+    public transient pr3 mDownloadListener;
     public DownloadException mException;
     public String mId;
     public String mPackageName;
@@ -28,7 +27,7 @@ public class DownloadInfo implements Serializable {
     public String mUri;
 
     /* loaded from: classes3.dex */
-    public static final class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -137,6 +136,105 @@ public class DownloadInfo implements Serializable {
         }
     }
 
+    public long getCreateAt() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mCreateAt;
+        }
+        return invokeV.longValue;
+    }
+
+    public pr3 getDownloadListener() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mDownloadListener;
+        }
+        return (pr3) invokeV.objValue;
+    }
+
+    public DownloadException getException() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mException;
+        }
+        return (DownloadException) invokeV.objValue;
+    }
+
+    public String getId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mId;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getPackageName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mPackageName;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getPath() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mPath;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long getProgress() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mProgress;
+        }
+        return invokeV.longValue;
+    }
+
+    public long getSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mSize;
+        }
+        return invokeV.longValue;
+    }
+
+    public int getStatus() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mStatus;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getUri() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.mUri;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.mId.hashCode();
+        }
+        return invokeV.intValue;
+    }
+
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -144,84 +242,12 @@ public class DownloadInfo implements Serializable {
             if (this == obj) {
                 return true;
             }
-            if (obj == null || DownloadInfo.class != obj.getClass()) {
-                return false;
+            if (obj != null && DownloadInfo.class == obj.getClass()) {
+                return this.mId.equals(((DownloadInfo) obj).mId);
             }
-            return this.mId.equals(((DownloadInfo) obj).mId);
+            return false;
         }
         return invokeL.booleanValue;
-    }
-
-    public long getCreateAt() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mCreateAt : invokeV.longValue;
-    }
-
-    public or3 getDownloadListener() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mDownloadListener : (or3) invokeV.objValue;
-    }
-
-    public DownloadException getException() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mException : (DownloadException) invokeV.objValue;
-    }
-
-    public String getId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mId : (String) invokeV.objValue;
-    }
-
-    public String getPackageName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mPackageName : (String) invokeV.objValue;
-    }
-
-    public String getPath() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mPath : (String) invokeV.objValue;
-    }
-
-    public long getProgress() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mProgress : invokeV.longValue;
-    }
-
-    public long getSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mSize : invokeV.longValue;
-    }
-
-    public int getStatus() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mStatus : invokeV.intValue;
-    }
-
-    public String getUri() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mUri : (String) invokeV.objValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mId.hashCode() : invokeV.intValue;
-    }
-
-    public boolean isPause() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mStatus == DownloadState.DOWNLOAD_PAUSED.value() || this.mStatus == DownloadState.DOWNLOAD_FAILED.value() || this.mStatus == DownloadState.DELETED.value() : invokeV.booleanValue;
     }
 
     public void setCreateAt(long j) {
@@ -231,10 +257,10 @@ public class DownloadInfo implements Serializable {
         }
     }
 
-    public void setDownloadListener(or3 or3Var) {
+    public void setDownloadListener(pr3 pr3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, or3Var) == null) {
-            this.mDownloadListener = or3Var;
+        if (interceptable == null || interceptable.invokeL(1048590, this, pr3Var) == null) {
+            this.mDownloadListener = pr3Var;
         }
     }
 
@@ -297,7 +323,18 @@ public class DownloadInfo implements Serializable {
         }
     }
 
-    @NonNull
+    public boolean isPause() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            if (this.mStatus != DownloadState.DOWNLOAD_PAUSED.value() && this.mStatus != DownloadState.DOWNLOAD_FAILED.value() && this.mStatus != DownloadState.DELETED.value()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -1,6 +1,5 @@
 package org.webrtc;
 
-import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -15,7 +14,6 @@ import android.net.NetworkRequest;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.p2p.WifiP2pGroup;
 import android.os.Build;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.mcast.McastConfig;
@@ -32,20 +30,18 @@ import java.net.SocketException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class NetworkMonitorAutoDetect extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long INVALID_NET_ID = -1;
     public static final String TAG = "NetworkMonitorAutoDetect";
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
     public final ConnectivityManager.NetworkCallback allNetworkCallback;
     public ConnectionType connectionType;
     public ConnectivityManagerDelegate connectivityManagerDelegate;
     public final Context context;
     public final IntentFilter intentFilter;
     public boolean isRegistered;
-    @Nullable
     public final ConnectivityManager.NetworkCallback mobileNetworkCallback;
     public final Observer observer;
     public WifiDirectManagerDelegate wifiDirectManagerDelegate;
@@ -53,15 +49,24 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
     public String wifiSSID;
 
     /* renamed from: org.webrtc.NetworkMonitorAutoDetect$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    /* loaded from: classes8.dex */
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
+    /* loaded from: classes8.dex */
+    public interface Observer {
+        void onConnectionTypeChanged(ConnectionType connectionType);
+
+        void onNetworkConnect(NetworkInformation networkInformation);
+
+        void onNetworkDisconnect(long j);
+    }
+
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
-    public static final class ConnectionType {
+    /* loaded from: classes8.dex */
+    public final class ConnectionType {
         public static final /* synthetic */ ConnectionType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final ConnectionType CONNECTION_2G;
@@ -125,18 +130,275 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         public static ConnectionType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (ConnectionType) Enum.valueOf(ConnectionType.class, str) : (ConnectionType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (ConnectionType) Enum.valueOf(ConnectionType.class, str);
+            }
+            return (ConnectionType) invokeL.objValue;
         }
 
         public static ConnectionType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ConnectionType[]) $VALUES.clone() : (ConnectionType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (ConnectionType[]) $VALUES.clone();
+            }
+            return (ConnectionType[]) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes9.dex */
-    public static class IPAddress {
+    /* loaded from: classes8.dex */
+    public class ConnectivityManagerDelegate {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final ConnectivityManager connectivityManager;
+
+        public ConnectivityManagerDelegate() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.connectivityManager = null;
+        }
+
+        public Network[] getAllNetworks() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                ConnectivityManager connectivityManager = this.connectivityManager;
+                if (connectivityManager == null) {
+                    return new Network[0];
+                }
+                return connectivityManager.getAllNetworks();
+            }
+            return (Network[]) invokeV.objValue;
+        }
+
+        public NetworkState getNetworkState() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                ConnectivityManager connectivityManager = this.connectivityManager;
+                if (connectivityManager == null) {
+                    return new NetworkState(false, -1, -1, -1, -1);
+                }
+                return getNetworkState(connectivityManager.getActiveNetworkInfo());
+            }
+            return (NetworkState) invokeV.objValue;
+        }
+
+        public boolean supportNetworkCallback() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+                if (Build.VERSION.SDK_INT >= 21 && this.connectivityManager != null) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public ConnectivityManagerDelegate(Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
+        }
+
+        private NetworkState getNetworkState(NetworkInfo networkInfo) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, networkInfo)) == null) {
+                if (networkInfo != null && networkInfo.isConnected()) {
+                    return new NetworkState(true, networkInfo.getType(), networkInfo.getSubtype(), -1, -1);
+                }
+                return new NetworkState(false, -1, -1, -1, -1);
+            }
+            return (NetworkState) invokeL.objValue;
+        }
+
+        public IPAddress[] getIPAddresses(LinkProperties linkProperties) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, linkProperties)) == null) {
+                IPAddress[] iPAddressArr = new IPAddress[linkProperties.getLinkAddresses().size()];
+                int i = 0;
+                for (LinkAddress linkAddress : linkProperties.getLinkAddresses()) {
+                    iPAddressArr[i] = new IPAddress(linkAddress.getAddress().getAddress());
+                    i++;
+                }
+                return iPAddressArr;
+            }
+            return (IPAddress[]) invokeL.objValue;
+        }
+
+        /* JADX INFO: Access modifiers changed from: private */
+        public NetworkInformation networkToInfo(Network network) {
+            InterceptResult invokeL;
+            ConnectivityManager connectivityManager;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, network)) == null) {
+                if (network == null || (connectivityManager = this.connectivityManager) == null) {
+                    return null;
+                }
+                LinkProperties linkProperties = connectivityManager.getLinkProperties(network);
+                if (linkProperties == null) {
+                    Logging.w(NetworkMonitorAutoDetect.TAG, "Detected unknown network: " + network.toString());
+                    return null;
+                } else if (linkProperties.getInterfaceName() == null) {
+                    Logging.w(NetworkMonitorAutoDetect.TAG, "Null interface name for network " + network.toString());
+                    return null;
+                } else {
+                    NetworkState networkState = getNetworkState(network);
+                    ConnectionType connectionType = NetworkMonitorAutoDetect.getConnectionType(networkState);
+                    if (connectionType == ConnectionType.CONNECTION_NONE) {
+                        Logging.d(NetworkMonitorAutoDetect.TAG, "Network " + network.toString() + " is disconnected");
+                        return null;
+                    }
+                    if (connectionType == ConnectionType.CONNECTION_UNKNOWN || connectionType == ConnectionType.CONNECTION_UNKNOWN_CELLULAR) {
+                        Logging.d(NetworkMonitorAutoDetect.TAG, "Network " + network.toString() + " connection type is " + connectionType + " because it has type " + networkState.getNetworkType() + " and subtype " + networkState.getNetworkSubType());
+                    }
+                    return new NetworkInformation(linkProperties.getInterfaceName(), connectionType, NetworkMonitorAutoDetect.getUnderlyingConnectionTypeForVpn(networkState), NetworkMonitorAutoDetect.networkToNetId(network), getIPAddresses(linkProperties));
+                }
+            }
+            return (NetworkInformation) invokeL.objValue;
+        }
+
+        public NetworkState getNetworkState(Network network) {
+            InterceptResult invokeL;
+            ConnectivityManager connectivityManager;
+            NetworkInfo activeNetworkInfo;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, network)) == null) {
+                if (network != null && (connectivityManager = this.connectivityManager) != null) {
+                    NetworkInfo networkInfo = connectivityManager.getNetworkInfo(network);
+                    if (networkInfo == null) {
+                        Logging.w(NetworkMonitorAutoDetect.TAG, "Couldn't retrieve information from network " + network.toString());
+                        return new NetworkState(false, -1, -1, -1, -1);
+                    } else if (networkInfo.getType() != 17) {
+                        NetworkCapabilities networkCapabilities = this.connectivityManager.getNetworkCapabilities(network);
+                        if (networkCapabilities != null && networkCapabilities.hasTransport(4)) {
+                            return new NetworkState(networkInfo.isConnected(), 17, -1, networkInfo.getType(), networkInfo.getSubtype());
+                        }
+                        return getNetworkState(networkInfo);
+                    } else if (networkInfo.getType() == 17) {
+                        if (Build.VERSION.SDK_INT >= 23 && network.equals(this.connectivityManager.getActiveNetwork()) && (activeNetworkInfo = this.connectivityManager.getActiveNetworkInfo()) != null && activeNetworkInfo.getType() != 17) {
+                            return new NetworkState(networkInfo.isConnected(), 17, -1, activeNetworkInfo.getType(), activeNetworkInfo.getSubtype());
+                        }
+                        return new NetworkState(networkInfo.isConnected(), 17, -1, -1, -1);
+                    } else {
+                        return getNetworkState(networkInfo);
+                    }
+                }
+                return new NetworkState(false, -1, -1, -1, -1);
+            }
+            return (NetworkState) invokeL.objValue;
+        }
+
+        public List getActiveNetworkList() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (!supportNetworkCallback()) {
+                    return null;
+                }
+                ArrayList arrayList = new ArrayList();
+                for (Network network : getAllNetworks()) {
+                    NetworkInformation networkToInfo = networkToInfo(network);
+                    if (networkToInfo != null) {
+                        arrayList.add(networkToInfo);
+                    }
+                }
+                return arrayList;
+            }
+            return (List) invokeV.objValue;
+        }
+
+        public long getDefaultNetId() {
+            InterceptResult invokeV;
+            NetworkInfo activeNetworkInfo;
+            Network[] allNetworks;
+            NetworkInfo networkInfo;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                if (!supportNetworkCallback() || (activeNetworkInfo = this.connectivityManager.getActiveNetworkInfo()) == null) {
+                    return -1L;
+                }
+                long j = -1;
+                for (Network network : getAllNetworks()) {
+                    if (hasInternetCapability(network) && (networkInfo = this.connectivityManager.getNetworkInfo(network)) != null && networkInfo.getType() == activeNetworkInfo.getType()) {
+                        if (j == -1) {
+                            j = NetworkMonitorAutoDetect.networkToNetId(network);
+                        } else {
+                            throw new RuntimeException("Multiple connected networks of same type are not supported.");
+                        }
+                    }
+                }
+                return j;
+            }
+            return invokeV.longValue;
+        }
+
+        public boolean hasInternetCapability(Network network) {
+            InterceptResult invokeL;
+            NetworkCapabilities networkCapabilities;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, network)) == null) {
+                ConnectivityManager connectivityManager = this.connectivityManager;
+                if (connectivityManager == null || (networkCapabilities = connectivityManager.getNetworkCapabilities(network)) == null || !networkCapabilities.hasCapability(12)) {
+                    return false;
+                }
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+
+        public void registerNetworkCallback(ConnectivityManager.NetworkCallback networkCallback) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048583, this, networkCallback) == null) {
+                this.connectivityManager.registerNetworkCallback(new NetworkRequest.Builder().addCapability(12).build(), networkCallback);
+            }
+        }
+
+        public void releaseCallback(ConnectivityManager.NetworkCallback networkCallback) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, networkCallback) == null) && supportNetworkCallback()) {
+                Logging.d(NetworkMonitorAutoDetect.TAG, "Unregister network callback");
+                this.connectivityManager.unregisterNetworkCallback(networkCallback);
+            }
+        }
+
+        public void requestMobileNetwork(ConnectivityManager.NetworkCallback networkCallback) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048585, this, networkCallback) == null) {
+                NetworkRequest.Builder builder = new NetworkRequest.Builder();
+                builder.addCapability(12).addTransportType(0);
+                this.connectivityManager.requestNetwork(builder.build(), networkCallback);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class IPAddress {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final byte[] address;
@@ -159,16 +421,18 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
             this.address = bArr;
         }
 
-        @CalledByNative("IPAddress")
         private byte[] getAddress() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? this.address : (byte[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+                return this.address;
+            }
+            return (byte[]) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes9.dex */
-    public static class NetworkInformation {
+    /* loaded from: classes8.dex */
+    public class NetworkInformation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long handle;
@@ -199,44 +463,54 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
             this.ipAddresses = iPAddressArr;
         }
 
-        @CalledByNative("NetworkInformation")
         private ConnectionType getConnectionType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? this.type : (ConnectionType) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+                return this.type;
+            }
+            return (ConnectionType) invokeV.objValue;
         }
 
-        @CalledByNative("NetworkInformation")
         private long getHandle() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? this.handle : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+                return this.handle;
+            }
+            return invokeV.longValue;
         }
 
-        @CalledByNative("NetworkInformation")
         private IPAddress[] getIpAddresses() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? this.ipAddresses : (IPAddress[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+                return this.ipAddresses;
+            }
+            return (IPAddress[]) invokeV.objValue;
         }
 
-        @CalledByNative("NetworkInformation")
         private String getName() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? this.name : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
+                return this.name;
+            }
+            return (String) invokeV.objValue;
         }
 
-        @CalledByNative("NetworkInformation")
         private ConnectionType getUnderlyingConnectionTypeForVpn() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) ? this.underlyingTypeForVpn : (ConnectionType) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
+                return this.underlyingTypeForVpn;
+            }
+            return (ConnectionType) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes9.dex */
-    public static class NetworkState {
+    /* loaded from: classes8.dex */
+    public class NetworkState {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final boolean connected;
@@ -270,61 +544,79 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         public int getNetworkSubType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.subtype : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.subtype;
+            }
+            return invokeV.intValue;
         }
 
         public int getNetworkType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.type : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.type;
+            }
+            return invokeV.intValue;
         }
 
         public int getUnderlyingNetworkSubtypeForVpn() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.underlyingNetworkSubtypeForVpn : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.underlyingNetworkSubtypeForVpn;
+            }
+            return invokeV.intValue;
         }
 
         public int getUnderlyingNetworkTypeForVpn() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.underlyingNetworkTypeForVpn : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.underlyingNetworkTypeForVpn;
+            }
+            return invokeV.intValue;
         }
 
         public boolean isConnected() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.connected : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.connected;
+            }
+            return invokeV.booleanValue;
         }
     }
 
-    /* loaded from: classes9.dex */
-    public interface Observer {
-        void onConnectionTypeChanged(ConnectionType connectionType);
-
-        void onNetworkConnect(NetworkInformation networkInformation);
-
-        void onNetworkDisconnect(long j);
-    }
-
-    @SuppressLint({"NewApi"})
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class SimpleNetworkCallback extends ConnectivityManager.NetworkCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NetworkMonitorAutoDetect this$0;
 
-        public /* synthetic */ SimpleNetworkCallback(NetworkMonitorAutoDetect networkMonitorAutoDetect, AnonymousClass1 anonymousClass1) {
-            this(networkMonitorAutoDetect);
+        public SimpleNetworkCallback(NetworkMonitorAutoDetect networkMonitorAutoDetect) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {networkMonitorAutoDetect};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = networkMonitorAutoDetect;
         }
 
         private void onNetworkChanged(Network network) {
             NetworkInformation networkToInfo;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(65538, this, network) == null) || (networkToInfo = this.this$0.connectivityManagerDelegate.networkToInfo(network)) == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(65538, this, network) == null) && (networkToInfo = this.this$0.connectivityManagerDelegate.networkToInfo(network)) != null) {
+                this.this$0.observer.onNetworkConnect(networkToInfo);
             }
-            this.this$0.observer.onNetworkConnect(networkToInfo);
         }
 
         @Override // android.net.ConnectivityManager.NetworkCallback
@@ -334,6 +626,10 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
                 Logging.d(NetworkMonitorAutoDetect.TAG, "Network becomes available: " + network.toString());
                 onNetworkChanged(network);
             }
+        }
+
+        public /* synthetic */ SimpleNetworkCallback(NetworkMonitorAutoDetect networkMonitorAutoDetect, AnonymousClass1 anonymousClass1) {
+            this(networkMonitorAutoDetect);
         }
 
         @Override // android.net.ConnectivityManager.NetworkCallback
@@ -370,34 +666,15 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
                 this.this$0.observer.onNetworkDisconnect(NetworkMonitorAutoDetect.networkToNetId(network));
             }
         }
-
-        public SimpleNetworkCallback(NetworkMonitorAutoDetect networkMonitorAutoDetect) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {networkMonitorAutoDetect};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = networkMonitorAutoDetect;
-        }
     }
 
-    /* loaded from: classes9.dex */
-    public static class WifiDirectManagerDelegate extends BroadcastReceiver {
+    /* loaded from: classes8.dex */
+    public class WifiDirectManagerDelegate extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public static final int WIFI_P2P_NETWORK_HANDLE = 0;
         public transient /* synthetic */ FieldHolder $fh;
         public final Context context;
         public final Observer observer;
-        @Nullable
         public NetworkInformation wifiP2pNetworkInfo;
 
         public WifiDirectManagerDelegate(Observer observer, Context context) {
@@ -423,22 +700,21 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
             context.registerReceiver(this, intentFilter);
         }
 
-        private void onWifiP2pGroupChange(@Nullable WifiP2pGroup wifiP2pGroup) {
+        private void onWifiP2pGroupChange(WifiP2pGroup wifiP2pGroup) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(65537, this, wifiP2pGroup) == null) || wifiP2pGroup == null || wifiP2pGroup.getInterface() == null) {
-                return;
-            }
-            try {
-                ArrayList list = Collections.list(NetworkInterface.getByName(wifiP2pGroup.getInterface()).getInetAddresses());
-                IPAddress[] iPAddressArr = new IPAddress[list.size()];
-                for (int i = 0; i < list.size(); i++) {
-                    iPAddressArr[i] = new IPAddress(((InetAddress) list.get(i)).getAddress());
+            if ((interceptable == null || interceptable.invokeL(65537, this, wifiP2pGroup) == null) && wifiP2pGroup != null && wifiP2pGroup.getInterface() != null) {
+                try {
+                    ArrayList list = Collections.list(NetworkInterface.getByName(wifiP2pGroup.getInterface()).getInetAddresses());
+                    IPAddress[] iPAddressArr = new IPAddress[list.size()];
+                    for (int i = 0; i < list.size(); i++) {
+                        iPAddressArr[i] = new IPAddress(((InetAddress) list.get(i)).getAddress());
+                    }
+                    NetworkInformation networkInformation = new NetworkInformation(wifiP2pGroup.getInterface(), ConnectionType.CONNECTION_WIFI, ConnectionType.CONNECTION_NONE, 0L, iPAddressArr);
+                    this.wifiP2pNetworkInfo = networkInformation;
+                    this.observer.onNetworkConnect(networkInformation);
+                } catch (SocketException e) {
+                    Logging.e(NetworkMonitorAutoDetect.TAG, "Unable to get WifiP2p network interface", e);
                 }
-                NetworkInformation networkInformation = new NetworkInformation(wifiP2pGroup.getInterface(), ConnectionType.CONNECTION_WIFI, ConnectionType.CONNECTION_NONE, 0L, iPAddressArr);
-                this.wifiP2pNetworkInfo = networkInformation;
-                this.observer.onNetworkConnect(networkInformation);
-            } catch (SocketException e) {
-                Logging.e(NetworkMonitorAutoDetect.TAG, "Unable to get WifiP2p network interface", e);
             }
         }
 
@@ -450,18 +726,27 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
             }
         }
 
-        public List<NetworkInformation> getActiveNetworkList() {
+        public List getActiveNetworkList() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 NetworkInformation networkInformation = this.wifiP2pNetworkInfo;
-                return networkInformation != null ? Collections.singletonList(networkInformation) : Collections.emptyList();
+                if (networkInformation != null) {
+                    return Collections.singletonList(networkInformation);
+                }
+                return Collections.emptyList();
             }
             return (List) invokeV.objValue;
         }
 
+        public void release() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                this.context.unregisterReceiver(this);
+            }
+        }
+
         @Override // android.content.BroadcastReceiver
-        @SuppressLint({"InlinedApi"})
         public void onReceive(Context context, Intent intent) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, intent) == null) {
@@ -472,16 +757,64 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
                 }
             }
         }
+    }
 
-        public void release() {
+    /* loaded from: classes8.dex */
+    public class WifiManagerDelegate {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final Context context;
+
+        public WifiManagerDelegate() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.context.unregisterReceiver(this);
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
+            this.context = null;
+        }
+
+        public WifiManagerDelegate(Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.context = context;
+        }
+
+        public String getWifiSSID() {
+            InterceptResult invokeV;
+            WifiInfo wifiInfo;
+            String ssid;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                Intent registerReceiver = this.context.registerReceiver(null, new IntentFilter(McastConfig.ACTION_NETWORK_STATE_CHANGED));
+                if (registerReceiver != null && (wifiInfo = (WifiInfo) registerReceiver.getParcelableExtra("wifiInfo")) != null && (ssid = wifiInfo.getSSID()) != null) {
+                    return ssid;
+                }
+                return "";
+            }
+            return (String) invokeV.objValue;
         }
     }
 
-    @SuppressLint({"NewApi"})
     public NetworkMonitorAutoDetect(Observer observer, Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -527,70 +860,13 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         this.allNetworkCallback = null;
     }
 
-    private void connectionTypeChanged(NetworkState networkState) {
+    public static ConnectionType getConnectionType(NetworkState networkState) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, this, networkState) == null) {
-            ConnectionType connectionType = getConnectionType(networkState);
-            String wifiSSID = getWifiSSID(networkState);
-            if (connectionType == this.connectionType && wifiSSID.equals(this.wifiSSID)) {
-                return;
-            }
-            this.connectionType = connectionType;
-            this.wifiSSID = wifiSSID;
-            Logging.d(TAG, "Network connectivity changed, type is: " + this.connectionType);
-            this.observer.onConnectionTypeChanged(connectionType);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, networkState)) == null) {
+            return getConnectionType(networkState.isConnected(), networkState.getNetworkType(), networkState.getNetworkSubType());
         }
-    }
-
-    public static ConnectionType getConnectionType(boolean z, int i, int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            if (z) {
-                if (i == 0) {
-                    switch (i2) {
-                        case 1:
-                        case 2:
-                        case 4:
-                        case 7:
-                        case 11:
-                            return ConnectionType.CONNECTION_2G;
-                        case 3:
-                        case 5:
-                        case 6:
-                        case 8:
-                        case 9:
-                        case 10:
-                        case 12:
-                        case 14:
-                        case 15:
-                            return ConnectionType.CONNECTION_3G;
-                        case 13:
-                            return ConnectionType.CONNECTION_4G;
-                        default:
-                            return ConnectionType.CONNECTION_UNKNOWN_CELLULAR;
-                    }
-                } else if (i != 1) {
-                    if (i != 6) {
-                        if (i != 7) {
-                            if (i != 9) {
-                                if (i != 17) {
-                                    return ConnectionType.CONNECTION_UNKNOWN;
-                                }
-                                return ConnectionType.CONNECTION_VPN;
-                            }
-                            return ConnectionType.CONNECTION_ETHERNET;
-                        }
-                        return ConnectionType.CONNECTION_BLUETOOTH;
-                    }
-                    return ConnectionType.CONNECTION_4G;
-                } else {
-                    return ConnectionType.CONNECTION_WIFI;
-                }
-            }
-            return ConnectionType.CONNECTION_NONE;
-        }
-        return (ConnectionType) invokeCommon.objValue;
+        return (ConnectionType) invokeL.objValue;
     }
 
     public static ConnectionType getUnderlyingConnectionTypeForVpn(NetworkState networkState) {
@@ -608,23 +884,112 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
     private String getWifiSSID(NetworkState networkState) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, this, networkState)) == null) ? getConnectionType(networkState) != ConnectionType.CONNECTION_WIFI ? "" : this.wifiManagerDelegate.getWifiSSID() : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, this, networkState)) == null) {
+            if (getConnectionType(networkState) != ConnectionType.CONNECTION_WIFI) {
+                return "";
+            }
+            return this.wifiManagerDelegate.getWifiSSID();
+        }
+        return (String) invokeL.objValue;
     }
 
-    @SuppressLint({"NewApi"})
     public static long networkToNetId(Network network) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, network)) == null) ? Build.VERSION.SDK_INT >= 23 ? network.getNetworkHandle() : Integer.parseInt(network.toString()) : invokeL.longValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, network)) == null) {
+            if (Build.VERSION.SDK_INT >= 23) {
+                return network.getNetworkHandle();
+            }
+            return Integer.parseInt(network.toString());
+        }
+        return invokeL.longValue;
+    }
+
+    public void setConnectivityManagerDelegateForTests(ConnectivityManagerDelegate connectivityManagerDelegate) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, connectivityManagerDelegate) == null) {
+            this.connectivityManagerDelegate = connectivityManagerDelegate;
+        }
+    }
+
+    public void setWifiManagerDelegateForTests(WifiManagerDelegate wifiManagerDelegate) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, wifiManagerDelegate) == null) {
+            this.wifiManagerDelegate = wifiManagerDelegate;
+        }
+    }
+
+    private void connectionTypeChanged(NetworkState networkState) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, this, networkState) == null) {
+            ConnectionType connectionType = getConnectionType(networkState);
+            String wifiSSID = getWifiSSID(networkState);
+            if (connectionType != this.connectionType || !wifiSSID.equals(this.wifiSSID)) {
+                this.connectionType = connectionType;
+                this.wifiSSID = wifiSSID;
+                Logging.d(TAG, "Network connectivity changed, type is: " + this.connectionType);
+                this.observer.onConnectionTypeChanged(connectionType);
+            }
+        }
+    }
+
+    public static ConnectionType getConnectionType(boolean z, int i, int i2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            if (!z) {
+                return ConnectionType.CONNECTION_NONE;
+            }
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 6) {
+                        if (i != 7) {
+                            if (i != 9) {
+                                if (i != 17) {
+                                    return ConnectionType.CONNECTION_UNKNOWN;
+                                }
+                                return ConnectionType.CONNECTION_VPN;
+                            }
+                            return ConnectionType.CONNECTION_ETHERNET;
+                        }
+                        return ConnectionType.CONNECTION_BLUETOOTH;
+                    }
+                    return ConnectionType.CONNECTION_4G;
+                }
+                return ConnectionType.CONNECTION_WIFI;
+            }
+            switch (i2) {
+                case 1:
+                case 2:
+                case 4:
+                case 7:
+                case 11:
+                    return ConnectionType.CONNECTION_2G;
+                case 3:
+                case 5:
+                case 6:
+                case 8:
+                case 9:
+                case 10:
+                case 12:
+                case 14:
+                case 15:
+                    return ConnectionType.CONNECTION_3G;
+                case 13:
+                    return ConnectionType.CONNECTION_4G;
+                default:
+                    return ConnectionType.CONNECTION_UNKNOWN_CELLULAR;
+            }
+        }
+        return (ConnectionType) invokeCommon.objValue;
     }
 
     private void registerReceiver() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65547, this) == null) || this.isRegistered) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(65547, this) == null) && !this.isRegistered) {
+            this.isRegistered = true;
+            this.context.registerReceiver(this, this.intentFilter);
         }
-        this.isRegistered = true;
-        this.context.registerReceiver(this, this.intentFilter);
     }
 
     private void unregisterReceiver() {
@@ -657,12 +1022,11 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         }
     }
 
-    @Nullable
-    public List<NetworkInformation> getActiveNetworkList() {
+    public List getActiveNetworkList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            List<NetworkInformation> activeNetworkList = this.connectivityManagerDelegate.getActiveNetworkList();
+            List activeNetworkList = this.connectivityManagerDelegate.getActiveNetworkList();
             if (activeNetworkList == null) {
                 return null;
             }
@@ -679,19 +1043,37 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
     public NetworkState getCurrentNetworkState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.connectivityManagerDelegate.getNetworkState() : (NetworkState) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.connectivityManagerDelegate.getNetworkState();
+        }
+        return (NetworkState) invokeV.objValue;
     }
 
     public long getDefaultNetId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.connectivityManagerDelegate.getDefaultNetId() : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.connectivityManagerDelegate.getDefaultNetId();
+        }
+        return invokeV.longValue;
     }
 
     public boolean isReceiverRegisteredForTesting() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.isRegistered : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.isRegistered;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean supportNetworkCallback() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.connectivityManagerDelegate.supportNetworkCallback();
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // android.content.BroadcastReceiver
@@ -703,336 +1085,5 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
                 connectionTypeChanged(currentNetworkState);
             }
         }
-    }
-
-    public void setConnectivityManagerDelegateForTests(ConnectivityManagerDelegate connectivityManagerDelegate) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, connectivityManagerDelegate) == null) {
-            this.connectivityManagerDelegate = connectivityManagerDelegate;
-        }
-    }
-
-    public void setWifiManagerDelegateForTests(WifiManagerDelegate wifiManagerDelegate) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, wifiManagerDelegate) == null) {
-            this.wifiManagerDelegate = wifiManagerDelegate;
-        }
-    }
-
-    public boolean supportNetworkCallback() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.connectivityManagerDelegate.supportNetworkCallback() : invokeV.booleanValue;
-    }
-
-    /* loaded from: classes9.dex */
-    public static class ConnectivityManagerDelegate {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        @Nullable
-        public final ConnectivityManager connectivityManager;
-
-        public ConnectivityManagerDelegate(Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-        }
-
-        /* JADX INFO: Access modifiers changed from: private */
-        @Nullable
-        @SuppressLint({"NewApi"})
-        public NetworkInformation networkToInfo(@Nullable Network network) {
-            InterceptResult invokeL;
-            ConnectivityManager connectivityManager;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, network)) == null) {
-                if (network == null || (connectivityManager = this.connectivityManager) == null) {
-                    return null;
-                }
-                LinkProperties linkProperties = connectivityManager.getLinkProperties(network);
-                if (linkProperties == null) {
-                    Logging.w(NetworkMonitorAutoDetect.TAG, "Detected unknown network: " + network.toString());
-                    return null;
-                } else if (linkProperties.getInterfaceName() == null) {
-                    Logging.w(NetworkMonitorAutoDetect.TAG, "Null interface name for network " + network.toString());
-                    return null;
-                } else {
-                    NetworkState networkState = getNetworkState(network);
-                    ConnectionType connectionType = NetworkMonitorAutoDetect.getConnectionType(networkState);
-                    if (connectionType == ConnectionType.CONNECTION_NONE) {
-                        Logging.d(NetworkMonitorAutoDetect.TAG, "Network " + network.toString() + " is disconnected");
-                        return null;
-                    }
-                    if (connectionType == ConnectionType.CONNECTION_UNKNOWN || connectionType == ConnectionType.CONNECTION_UNKNOWN_CELLULAR) {
-                        Logging.d(NetworkMonitorAutoDetect.TAG, "Network " + network.toString() + " connection type is " + connectionType + " because it has type " + networkState.getNetworkType() + " and subtype " + networkState.getNetworkSubType());
-                    }
-                    return new NetworkInformation(linkProperties.getInterfaceName(), connectionType, NetworkMonitorAutoDetect.getUnderlyingConnectionTypeForVpn(networkState), NetworkMonitorAutoDetect.networkToNetId(network), getIPAddresses(linkProperties));
-                }
-            }
-            return (NetworkInformation) invokeL.objValue;
-        }
-
-        @Nullable
-        public List<NetworkInformation> getActiveNetworkList() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (supportNetworkCallback()) {
-                    ArrayList arrayList = new ArrayList();
-                    for (Network network : getAllNetworks()) {
-                        NetworkInformation networkToInfo = networkToInfo(network);
-                        if (networkToInfo != null) {
-                            arrayList.add(networkToInfo);
-                        }
-                    }
-                    return arrayList;
-                }
-                return null;
-            }
-            return (List) invokeV.objValue;
-        }
-
-        @SuppressLint({"NewApi"})
-        public Network[] getAllNetworks() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                ConnectivityManager connectivityManager = this.connectivityManager;
-                return connectivityManager == null ? new Network[0] : connectivityManager.getAllNetworks();
-            }
-            return (Network[]) invokeV.objValue;
-        }
-
-        @SuppressLint({"NewApi"})
-        public long getDefaultNetId() {
-            InterceptResult invokeV;
-            NetworkInfo activeNetworkInfo;
-            Network[] allNetworks;
-            NetworkInfo networkInfo;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                if (supportNetworkCallback() && (activeNetworkInfo = this.connectivityManager.getActiveNetworkInfo()) != null) {
-                    long j = -1;
-                    for (Network network : getAllNetworks()) {
-                        if (hasInternetCapability(network) && (networkInfo = this.connectivityManager.getNetworkInfo(network)) != null && networkInfo.getType() == activeNetworkInfo.getType()) {
-                            if (j == -1) {
-                                j = NetworkMonitorAutoDetect.networkToNetId(network);
-                            } else {
-                                throw new RuntimeException("Multiple connected networks of same type are not supported.");
-                            }
-                        }
-                    }
-                    return j;
-                }
-                return -1L;
-            }
-            return invokeV.longValue;
-        }
-
-        @SuppressLint({"NewApi"})
-        public IPAddress[] getIPAddresses(LinkProperties linkProperties) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, linkProperties)) == null) {
-                IPAddress[] iPAddressArr = new IPAddress[linkProperties.getLinkAddresses().size()];
-                int i = 0;
-                for (LinkAddress linkAddress : linkProperties.getLinkAddresses()) {
-                    iPAddressArr[i] = new IPAddress(linkAddress.getAddress().getAddress());
-                    i++;
-                }
-                return iPAddressArr;
-            }
-            return (IPAddress[]) invokeL.objValue;
-        }
-
-        public NetworkState getNetworkState() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                ConnectivityManager connectivityManager = this.connectivityManager;
-                if (connectivityManager == null) {
-                    return new NetworkState(false, -1, -1, -1, -1);
-                }
-                return getNetworkState(connectivityManager.getActiveNetworkInfo());
-            }
-            return (NetworkState) invokeV.objValue;
-        }
-
-        @SuppressLint({"NewApi"})
-        public boolean hasInternetCapability(Network network) {
-            InterceptResult invokeL;
-            NetworkCapabilities networkCapabilities;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, network)) == null) {
-                ConnectivityManager connectivityManager = this.connectivityManager;
-                return (connectivityManager == null || (networkCapabilities = connectivityManager.getNetworkCapabilities(network)) == null || !networkCapabilities.hasCapability(12)) ? false : true;
-            }
-            return invokeL.booleanValue;
-        }
-
-        @SuppressLint({"NewApi"})
-        public void registerNetworkCallback(ConnectivityManager.NetworkCallback networkCallback) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, networkCallback) == null) {
-                this.connectivityManager.registerNetworkCallback(new NetworkRequest.Builder().addCapability(12).build(), networkCallback);
-            }
-        }
-
-        @SuppressLint({"NewApi"})
-        public void releaseCallback(ConnectivityManager.NetworkCallback networkCallback) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, networkCallback) == null) && supportNetworkCallback()) {
-                Logging.d(NetworkMonitorAutoDetect.TAG, "Unregister network callback");
-                this.connectivityManager.unregisterNetworkCallback(networkCallback);
-            }
-        }
-
-        @SuppressLint({"NewApi"})
-        public void requestMobileNetwork(ConnectivityManager.NetworkCallback networkCallback) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048585, this, networkCallback) == null) {
-                NetworkRequest.Builder builder = new NetworkRequest.Builder();
-                builder.addCapability(12).addTransportType(0);
-                this.connectivityManager.requestNetwork(builder.build(), networkCallback);
-            }
-        }
-
-        public boolean supportNetworkCallback() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? Build.VERSION.SDK_INT >= 21 && this.connectivityManager != null : invokeV.booleanValue;
-        }
-
-        public ConnectivityManagerDelegate() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.connectivityManager = null;
-        }
-
-        @SuppressLint({"NewApi"})
-        public NetworkState getNetworkState(@Nullable Network network) {
-            InterceptResult invokeL;
-            ConnectivityManager connectivityManager;
-            NetworkInfo activeNetworkInfo;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, network)) == null) {
-                if (network != null && (connectivityManager = this.connectivityManager) != null) {
-                    NetworkInfo networkInfo = connectivityManager.getNetworkInfo(network);
-                    if (networkInfo == null) {
-                        Logging.w(NetworkMonitorAutoDetect.TAG, "Couldn't retrieve information from network " + network.toString());
-                        return new NetworkState(false, -1, -1, -1, -1);
-                    } else if (networkInfo.getType() != 17) {
-                        NetworkCapabilities networkCapabilities = this.connectivityManager.getNetworkCapabilities(network);
-                        if (networkCapabilities != null && networkCapabilities.hasTransport(4)) {
-                            return new NetworkState(networkInfo.isConnected(), 17, -1, networkInfo.getType(), networkInfo.getSubtype());
-                        }
-                        return getNetworkState(networkInfo);
-                    } else if (networkInfo.getType() == 17) {
-                        if (Build.VERSION.SDK_INT >= 23 && network.equals(this.connectivityManager.getActiveNetwork()) && (activeNetworkInfo = this.connectivityManager.getActiveNetworkInfo()) != null && activeNetworkInfo.getType() != 17) {
-                            return new NetworkState(networkInfo.isConnected(), 17, -1, activeNetworkInfo.getType(), activeNetworkInfo.getSubtype());
-                        }
-                        return new NetworkState(networkInfo.isConnected(), 17, -1, -1, -1);
-                    } else {
-                        return getNetworkState(networkInfo);
-                    }
-                }
-                return new NetworkState(false, -1, -1, -1, -1);
-            }
-            return (NetworkState) invokeL.objValue;
-        }
-
-        private NetworkState getNetworkState(@Nullable NetworkInfo networkInfo) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, networkInfo)) == null) {
-                if (networkInfo != null && networkInfo.isConnected()) {
-                    return new NetworkState(true, networkInfo.getType(), networkInfo.getSubtype(), -1, -1);
-                }
-                return new NetworkState(false, -1, -1, -1, -1);
-            }
-            return (NetworkState) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public static class WifiManagerDelegate {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        @Nullable
-        public final Context context;
-
-        public WifiManagerDelegate(Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.context = context;
-        }
-
-        public String getWifiSSID() {
-            InterceptResult invokeV;
-            WifiInfo wifiInfo;
-            String ssid;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                Intent registerReceiver = this.context.registerReceiver(null, new IntentFilter(McastConfig.ACTION_NETWORK_STATE_CHANGED));
-                return (registerReceiver == null || (wifiInfo = (WifiInfo) registerReceiver.getParcelableExtra("wifiInfo")) == null || (ssid = wifiInfo.getSSID()) == null) ? "" : ssid;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public WifiManagerDelegate() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.context = null;
-        }
-    }
-
-    public static ConnectionType getConnectionType(NetworkState networkState) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, networkState)) == null) ? getConnectionType(networkState.isConnected(), networkState.getNetworkType(), networkState.getNetworkSubType()) : (ConnectionType) invokeL.objValue;
     }
 }

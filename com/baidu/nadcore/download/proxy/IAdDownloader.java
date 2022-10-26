@@ -1,8 +1,7 @@
 package com.baidu.nadcore.download.proxy;
 
-import androidx.annotation.NonNull;
-import com.baidu.tieba.hl0;
-import com.baidu.tieba.lk0;
+import com.baidu.tieba.il0;
+import com.baidu.tieba.mk0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,10 +11,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public interface IAdDownloader {
+    int a(mk0 mk0Var, il0 il0Var);
+
+    void b(mk0 mk0Var);
+
+    void c(mk0 mk0Var);
+
+    void d(mk0 mk0Var, il0 il0Var);
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class STATE {
+    public final class STATE {
         public static final /* synthetic */ STATE[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final STATE DOWNLOADED;
@@ -69,21 +75,19 @@ public interface IAdDownloader {
         public static STATE valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (STATE) Enum.valueOf(STATE.class, str) : (STATE) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (STATE) Enum.valueOf(STATE.class, str);
+            }
+            return (STATE) invokeL.objValue;
         }
 
         public static STATE[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (STATE[]) $VALUES.clone() : (STATE[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (STATE[]) $VALUES.clone();
+            }
+            return (STATE[]) invokeV.objValue;
         }
     }
-
-    int a(@NonNull lk0 lk0Var, @NonNull hl0 hl0Var);
-
-    void b(@NonNull lk0 lk0Var);
-
-    void c(@NonNull lk0 lk0Var);
-
-    void d(@NonNull lk0 lk0Var, @NonNull hl0 hl0Var);
 }

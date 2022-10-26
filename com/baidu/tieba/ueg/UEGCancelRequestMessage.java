@@ -4,8 +4,8 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.dh;
-import com.baidu.tieba.sh5;
+import com.baidu.tieba.eh;
+import com.baidu.tieba.yh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -44,9 +44,9 @@ public class UEGCancelRequestMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.user_id = Long.valueOf(dh.g(this.uId, 0L));
+            builder.user_id = Long.valueOf(eh.g(this.uId, 0L));
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                sh5.a(builder, true);
+                yh5.a(builder, true);
             }
             QueryBlockAndAppealInfoReqIdl.Builder builder2 = new QueryBlockAndAppealInfoReqIdl.Builder();
             builder2.data = builder.build(false);
@@ -58,7 +58,10 @@ public class UEGCancelRequestMessage extends NetMessage {
     public String getUser_id() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.uId : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.uId;
+        }
+        return (String) invokeV.objValue;
     }
 
     public void setUser_id(String str) {

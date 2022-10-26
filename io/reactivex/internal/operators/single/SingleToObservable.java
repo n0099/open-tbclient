@@ -10,25 +10,24 @@ import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.SingleObserver;
 import io.reactivex.SingleSource;
-import io.reactivex.annotations.Experimental;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.observers.DeferredScalarDisposable;
 /* loaded from: classes8.dex */
-public final class SingleToObservable<T> extends Observable<T> {
+public final class SingleToObservable extends Observable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SingleSource<? extends T> source;
+    public final SingleSource source;
 
     /* loaded from: classes8.dex */
-    public static final class SingleToObservableObserver<T> extends DeferredScalarDisposable<T> implements SingleObserver<T> {
+    public final class SingleToObservableObserver extends DeferredScalarDisposable implements SingleObserver {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3786543492451018833L;
         public transient /* synthetic */ FieldHolder $fh;
         public Disposable d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public SingleToObservableObserver(Observer<? super T> observer) {
+        public SingleToObservableObserver(Observer observer) {
             super(observer);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -74,15 +73,15 @@ public final class SingleToObservable<T> extends Observable<T> {
         }
 
         @Override // io.reactivex.SingleObserver
-        public void onSuccess(T t) {
+        public void onSuccess(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
-                complete(t);
+            if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
+                complete(obj);
             }
         }
     }
 
-    public SingleToObservable(SingleSource<? extends T> singleSource) {
+    public SingleToObservable(SingleSource singleSource) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -100,15 +99,17 @@ public final class SingleToObservable<T> extends Observable<T> {
         this.source = singleSource;
     }
 
-    @Experimental
-    public static <T> SingleObserver<T> create(Observer<? super T> observer) {
+    public static SingleObserver create(Observer observer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, observer)) == null) ? new SingleToObservableObserver(observer) : (SingleObserver) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, observer)) == null) {
+            return new SingleToObservableObserver(observer);
+        }
+        return (SingleObserver) invokeL.objValue;
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer<? super T> observer) {
+    public void subscribeActual(Observer observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             this.source.subscribe(create(observer));

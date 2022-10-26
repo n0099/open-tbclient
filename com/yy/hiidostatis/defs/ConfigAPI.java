@@ -41,62 +41,6 @@ public class ConfigAPI implements IConfigAPI {
         this.mGeneralConfigTool = GeneralProxy.getGeneralConfigInstance(context, HdStatisConfig.getConfig(str));
     }
 
-    private JSONObject getConfig(String str, Map<String, String> map, Context context, boolean z, boolean z2) throws Exception {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{str, map, context, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            String cache = z ? this.mGeneralConfigTool.getCache(str, map, context, z2) : this.mGeneralConfigTool.get(str, map, context, z2);
-            if (cache == null || cache.length() == 0) {
-                return null;
-            }
-            return new JSONObject(cache);
-        }
-        return (JSONObject) invokeCommon.objValue;
-    }
-
-    @Override // com.yy.hiidostatis.defs.interf.IConfigAPI
-    public JSONObject getAppListConfig(Context context, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, context, z)) == null) {
-            try {
-                HashMap hashMap = new HashMap();
-                hashMap.put("sys", "2");
-                String imei = CommonFiller.getIMEI(context);
-                if (imei == null || imei.isEmpty()) {
-                    imei = DeviceProxy.getHdid(context);
-                }
-                hashMap.put("mid", imei);
-                return getConfig("api/getAppConfig", hashMap, context, z, true);
-            } catch (Throwable th) {
-                L.debug("ConfigAPI", "getAppListConfig error! %s", th);
-                return null;
-            }
-        }
-        return (JSONObject) invokeLZ.objValue;
-    }
-
-    public JSONObject getDeviceConfig(Context context, String str, String str2, long j, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, str, str2, Long.valueOf(j), Boolean.valueOf(z)})) == null) {
-            try {
-                HashMap hashMap = new HashMap();
-                hashMap.put("appkey", str);
-                hashMap.put("sys", "2");
-                if (str2 != null) {
-                    hashMap.put("deviceid", str2);
-                }
-                hashMap.put("uid", j + "");
-                return getConfig("api/getDeviceConfig", hashMap, context, z, true);
-            } catch (Throwable th) {
-                L.debug("ConfigAPI", "getDeviceConfig error! %s", th);
-                return null;
-            }
-        }
-        return (JSONObject) invokeCommon.objValue;
-    }
-
     @Override // com.yy.hiidostatis.defs.interf.IConfigAPI
     public String getOnlineConfigs(Context context, String str) {
         InterceptResult invokeLL;
@@ -131,6 +75,46 @@ public class ConfigAPI implements IConfigAPI {
         return (JSONObject) invokeLZ.objValue;
     }
 
+    private JSONObject getConfig(String str, Map map, Context context, boolean z, boolean z2) throws Exception {
+        InterceptResult invokeCommon;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{str, map, context, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            if (z) {
+                str2 = this.mGeneralConfigTool.getCache(str, map, context, z2);
+            } else {
+                str2 = this.mGeneralConfigTool.get(str, map, context, z2);
+            }
+            if (str2 != null && str2.length() != 0) {
+                return new JSONObject(str2);
+            }
+            return null;
+        }
+        return (JSONObject) invokeCommon.objValue;
+    }
+
+    @Override // com.yy.hiidostatis.defs.interf.IConfigAPI
+    public JSONObject getAppListConfig(Context context, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, context, z)) == null) {
+            try {
+                HashMap hashMap = new HashMap();
+                hashMap.put("sys", "2");
+                String imei = CommonFiller.getIMEI(context);
+                if (imei == null || imei.isEmpty()) {
+                    imei = DeviceProxy.getHdid(context);
+                }
+                hashMap.put("mid", imei);
+                return getConfig("api/getAppConfig", hashMap, context, z, true);
+            } catch (Throwable th) {
+                L.debug("ConfigAPI", "getAppListConfig error! %s", th);
+                return null;
+            }
+        }
+        return (JSONObject) invokeLZ.objValue;
+    }
+
     @Override // com.yy.hiidostatis.defs.interf.IConfigAPI
     public JSONObject getSdkVer(Context context, boolean z) {
         InterceptResult invokeLZ;
@@ -148,5 +132,26 @@ public class ConfigAPI implements IConfigAPI {
             }
         }
         return (JSONObject) invokeLZ.objValue;
+    }
+
+    public JSONObject getDeviceConfig(Context context, String str, String str2, long j, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, str, str2, Long.valueOf(j), Boolean.valueOf(z)})) == null) {
+            try {
+                HashMap hashMap = new HashMap();
+                hashMap.put("appkey", str);
+                hashMap.put("sys", "2");
+                if (str2 != null) {
+                    hashMap.put("deviceid", str2);
+                }
+                hashMap.put("uid", j + "");
+                return getConfig("api/getDeviceConfig", hashMap, context, z, true);
+            } catch (Throwable th) {
+                L.debug("ConfigAPI", "getDeviceConfig error! %s", th);
+                return null;
+            }
+        }
+        return (JSONObject) invokeCommon.objValue;
     }
 }

@@ -59,7 +59,7 @@ public final class n extends j implements e {
     }
 
     @Override // com.baidu.ar.statistic.j
-    public Map<String, Object> i(List<a> list) {
+    public Map i(List list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, list)) == null) {

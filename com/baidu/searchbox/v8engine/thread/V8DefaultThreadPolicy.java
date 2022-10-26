@@ -76,7 +76,7 @@ public class V8DefaultThreadPolicy implements V8ThreadDelegatePolicy {
     public void doDelegateRunnable(Runnable runnable) {
         Handler handler;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) || (handler = this.mHandler) == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, runnable) != null) || (handler = this.mHandler) == null) {
             return;
         }
         handler.post(runnable);
@@ -86,10 +86,31 @@ public class V8DefaultThreadPolicy implements V8ThreadDelegatePolicy {
     public void doDelegateRunnableDirectly(Runnable runnable) {
         Handler handler;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable) == null) || (handler = this.mHandler) == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable) != null) || (handler = this.mHandler) == null) {
             return;
         }
         handler.post(runnable);
+    }
+
+    @Override // com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy
+    public void startV8Engine(V8Engine v8Engine) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, v8Engine) == null) && this.jsThread == null) {
+            Thread thread = new Thread(new V8EngineRunnable(this));
+            this.jsThread = thread;
+            thread.setName(v8Engine.threadName());
+            this.jsThread.start();
+        }
+    }
+
+    @Override // com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy
+    public void doDelegateRunnable(Runnable runnable, long j) {
+        Handler handler;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable, j) != null) || (handler = this.mHandler) == null) {
+            return;
+        }
+        handler.postDelayed(runnable, j);
     }
 
     @Override // com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy
@@ -113,26 +134,5 @@ public class V8DefaultThreadPolicy implements V8ThreadDelegatePolicy {
             this.mHandler.removeCallbacksAndMessages(null);
             this.mHandler.getLooper().quitSafely();
         }
-    }
-
-    @Override // com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy
-    public void startV8Engine(V8Engine v8Engine) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, v8Engine) == null) && this.jsThread == null) {
-            Thread thread = new Thread(new V8EngineRunnable(this));
-            this.jsThread = thread;
-            thread.setName(v8Engine.threadName());
-            this.jsThread.start();
-        }
-    }
-
-    @Override // com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy
-    public void doDelegateRunnable(Runnable runnable, long j) {
-        Handler handler;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable, j) == null) || (handler = this.mHandler) == null) {
-            return;
-        }
-        handler.postDelayed(runnable, j);
     }
 }

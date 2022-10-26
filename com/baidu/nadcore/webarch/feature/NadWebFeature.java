@@ -16,9 +16,15 @@ public class NadWebFeature {
     public transient /* synthetic */ FieldHolder $fh;
     public STATUS a;
 
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "NadWebFeature" : (String) invokeV.objValue;
+    }
+
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class STATUS {
+    public final class STATUS {
         public static final /* synthetic */ STATUS[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final STATUS DISABLE;
@@ -66,13 +72,19 @@ public class NadWebFeature {
         public static STATUS valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (STATUS) Enum.valueOf(STATUS.class, str) : (STATUS) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (STATUS) Enum.valueOf(STATUS.class, str);
+            }
+            return (STATUS) invokeL.objValue;
         }
 
         public static STATUS[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (STATUS[]) $VALUES.clone() : (STATUS[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (STATUS[]) $VALUES.clone();
+            }
+            return (STATUS[]) invokeV.objValue;
         }
     }
 
@@ -101,15 +113,15 @@ public class NadWebFeature {
         }
     }
 
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "NadWebFeature" : (String) invokeV.objValue;
-    }
-
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a == STATUS.ENABLE : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.a == STATUS.ENABLE) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

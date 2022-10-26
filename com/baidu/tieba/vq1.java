@@ -2,7 +2,6 @@ package com.baidu.tieba;
 
 import android.os.Bundle;
 import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,6 +11,44 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class vq1 extends ProviderDelegation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes6.dex */
+    public class a implements gi3 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Bundle a;
+
+        public a(vq1 vq1Var, Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vq1Var, bundle};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = bundle;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.gi3
+        /* renamed from: a */
+        public Bundle create() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                uq1.a(tm2.c(), this.a.getString("bduss"));
+                return null;
+            }
+            return (Bundle) invokeV.objValue;
+        }
+    }
 
     public vq1() {
         Interceptable interceptable = $ic;
@@ -32,13 +69,7 @@ public class vq1 extends ProviderDelegation {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-            boolean z = bundle == null ? false : bundle.getBoolean("status");
-            for (zj1 zj1Var : SwanAppAllianceLoginHelper.d.e()) {
-                if (zj1Var != null) {
-                    zj1Var.a(z);
-                }
-            }
-            return null;
+            return (Bundle) di3.b(new a(this, bundle));
         }
         return (Bundle) invokeL.objValue;
     }

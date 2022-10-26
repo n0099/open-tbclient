@@ -31,12 +31,12 @@ public class ShapePath implements ContentModel {
         return this.hidden;
     }
 
+    public String toString() {
+        return "ShapePath{name=" + this.name + ", index=" + this.index + '}';
+    }
+
     @Override // com.airbnb.lottie.model.content.ContentModel
     public Content toContent(LottieDrawable lottieDrawable, BaseLayer baseLayer) {
         return new ShapeContent(lottieDrawable, baseLayer, this);
-    }
-
-    public String toString() {
-        return "ShapePath{name=" + this.name + ", index=" + this.index + '}';
     }
 }

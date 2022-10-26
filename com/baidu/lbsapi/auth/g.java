@@ -33,7 +33,7 @@ public class g {
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public String b;
-    public HashMap<String, String> c;
+    public HashMap c;
     public String d;
 
     public g(Context context) {
@@ -401,21 +401,21 @@ public class g {
         }
     }
 
-    public static String b(HashMap<String, String> hashMap) throws UnsupportedEncodingException {
+    public static String b(HashMap hashMap) throws UnsupportedEncodingException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, hashMap)) == null) {
             StringBuilder sb = new StringBuilder();
             boolean z = true;
-            for (Map.Entry<String, String> entry : hashMap.entrySet()) {
+            for (Map.Entry entry : hashMap.entrySet()) {
                 if (z) {
                     z = false;
                 } else {
                     sb.append("&");
                 }
-                sb.append(URLEncoder.encode(entry.getKey(), "UTF-8"));
+                sb.append(URLEncoder.encode((String) entry.getKey(), "UTF-8"));
                 sb.append("=");
-                sb.append(URLEncoder.encode(entry.getValue(), "UTF-8"));
+                sb.append(URLEncoder.encode((String) entry.getValue(), "UTF-8"));
             }
             return sb.toString();
         }
@@ -466,11 +466,11 @@ public class g {
         return (HttpsURLConnection) invokeV.objValue;
     }
 
-    private HashMap<String, String> c(HashMap<String, String> hashMap) {
+    private HashMap c(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, hashMap)) == null) {
-            HashMap<String, String> hashMap2 = new HashMap<>();
+            HashMap hashMap2 = new HashMap();
             for (String str : hashMap.keySet()) {
                 String str2 = str.toString();
                 hashMap2.put(str2, hashMap.get(str2));
@@ -480,13 +480,13 @@ public class g {
         return (HashMap) invokeL.objValue;
     }
 
-    public String a(HashMap<String, String> hashMap) {
+    public String a(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hashMap)) == null) {
-            HashMap<String, String> c = c(hashMap);
+            HashMap c = c(hashMap);
             this.c = c;
-            this.b = c.get("url");
+            this.b = (String) c.get("url");
             HttpsURLConnection b = b();
             if (b == null) {
                 a.c("syncConnect failed,httpsURLConnection is null");

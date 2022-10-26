@@ -33,7 +33,7 @@ public class bl extends bv.a implements cv.a {
     public XMPushService f943a;
 
     /* loaded from: classes8.dex */
-    public static class a implements cv.b {
+    public class a implements cv.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -67,7 +67,7 @@ public class bl extends bv.a implements cv.a {
                 int port = url.getPort() == -1 ? 80 : url.getPort();
                 try {
                     long currentTimeMillis = System.currentTimeMillis();
-                    String a = com.xiaomi.push.bj.a(com.xiaomi.push.v.m688a(), url);
+                    String a = com.xiaomi.push.bj.a(com.xiaomi.push.v.m687a(), url);
                     long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
                     fj.a(url.getHost() + ":" + port, (int) currentTimeMillis2, null);
                     return a;
@@ -81,7 +81,7 @@ public class bl extends bv.a implements cv.a {
     }
 
     /* loaded from: classes8.dex */
-    public static class b extends cv {
+    public class b extends cv {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -107,13 +107,13 @@ public class bl extends bv.a implements cv.a {
         }
 
         @Override // com.xiaomi.push.cv
-        public String a(ArrayList<String> arrayList, String str, String str2, boolean z) {
+        public String a(ArrayList arrayList, String str, String str2, boolean z) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{arrayList, str, str2, Boolean.valueOf(z)})) == null) {
                 try {
-                    if (fh.m329a().m334a()) {
-                        str2 = bv.m649a();
+                    if (fh.m328a().m333a()) {
+                        str2 = bv.m648a();
                     }
                     return super.a(arrayList, str, str2, z);
                 } catch (IOException e) {
@@ -174,30 +174,30 @@ public class bl extends bv.a implements cv.a {
         com.xiaomi.push.cr b2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) && bVar.b() && bVar.a() && System.currentTimeMillis() - this.a > 3600000) {
-            com.xiaomi.channel.commonutils.logger.b.m90a("fetch bucket :" + bVar.a());
+            com.xiaomi.channel.commonutils.logger.b.m89a("fetch bucket :" + bVar.a());
             this.a = System.currentTimeMillis();
             cv a2 = cv.a();
-            a2.m255a();
-            a2.m258b();
-            fw m590a = this.f943a.m590a();
-            if (m590a == null || (b2 = a2.b(m590a.m354a().c())) == null) {
+            a2.m254a();
+            a2.m257b();
+            fw m589a = this.f943a.m589a();
+            if (m589a == null || (b2 = a2.b(m589a.m353a().c())) == null) {
                 return;
             }
-            ArrayList<String> m243a = b2.m243a();
+            ArrayList m242a = b2.m242a();
             boolean z = true;
-            Iterator<String> it = m243a.iterator();
+            Iterator it = m242a.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
-                } else if (it.next().equals(m590a.m355a())) {
+                } else if (((String) it.next()).equals(m589a.m354a())) {
                     z = false;
                     break;
                 }
             }
-            if (!z || m243a.isEmpty()) {
+            if (!z || m242a.isEmpty()) {
                 return;
             }
-            com.xiaomi.channel.commonutils.logger.b.m90a("bucket changed, force reconnect");
+            com.xiaomi.channel.commonutils.logger.b.m89a("bucket changed, force reconnect");
             this.f943a.a(0, (Exception) null);
             this.f943a.a(false);
         }

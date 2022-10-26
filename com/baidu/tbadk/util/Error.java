@@ -33,27 +33,19 @@ public class Error extends OrmObject implements Serializable {
     public int getCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mCode : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mCode;
+        }
+        return invokeV.intValue;
     }
 
     public String getMessage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mMessage : (String) invokeV.objValue;
-    }
-
-    public void setCode(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.mCode = i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mMessage;
         }
-    }
-
-    public void setMessage(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.mMessage = str;
-        }
+        return (String) invokeV.objValue;
     }
 
     public Error(int i) {
@@ -91,5 +83,19 @@ public class Error extends OrmObject implements Serializable {
         }
         this.mCode = i;
         this.mMessage = str;
+    }
+
+    public void setCode(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.mCode = i;
+        }
+    }
+
+    public void setMessage(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.mMessage = str;
+        }
     }
 }

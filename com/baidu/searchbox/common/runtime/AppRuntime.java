@@ -30,12 +30,18 @@ public class AppRuntime {
     public static Context getAppContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? sApplication : (Context) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return sApplication;
+        }
+        return (Context) invokeV.objValue;
     }
 
     public static Application getApplication() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? sApplication : (Application) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return sApplication;
+        }
+        return (Application) invokeV.objValue;
     }
 }

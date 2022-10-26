@@ -3,7 +3,6 @@ package com.kwad.components.ad.splashscreen.b;
 import android.view.View;
 import android.view.ViewStub;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.download.center.clearcache.DiskManagerSharedPrefsUtils;
@@ -128,7 +127,7 @@ public final class i extends h implements com.kwad.components.ad.splashscreen.g,
                         }
 
                         @Override // com.kwad.components.ad.splashscreen.h.a
-                        public final void b(@NonNull com.kwad.sdk.core.report.f fVar) {
+                        public final void b(com.kwad.sdk.core.report.f fVar) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, fVar) == null) {
                                 fVar.cs(this.yW);
@@ -160,10 +159,10 @@ public final class i extends h implements com.kwad.components.ad.splashscreen.g,
     public final void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.yO = ((ViewStub) findViewById(R.id.obfuscated_res_0x7f0911d8)).inflate();
-            this.yQ = (TextView) findViewById(R.id.obfuscated_res_0x7f0911d9);
-            this.yR = (TextView) findViewById(R.id.obfuscated_res_0x7f0911d7);
-            this.yP = (KsRotateView) findViewById(R.id.obfuscated_res_0x7f0911da);
+            this.yO = ((ViewStub) findViewById(R.id.obfuscated_res_0x7f0911cc)).inflate();
+            this.yQ = (TextView) findViewById(R.id.obfuscated_res_0x7f0911cd);
+            this.yR = (TextView) findViewById(R.id.obfuscated_res_0x7f0911cb);
+            this.yP = (KsRotateView) findViewById(R.id.obfuscated_res_0x7f0911ce);
         }
     }
 
@@ -282,7 +281,7 @@ public final class i extends h implements com.kwad.components.ad.splashscreen.g,
     public final void kl() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && com.kwad.components.ad.splashscreen.d.c.b(this.yF)) {
-            com.kwad.components.ad.splashscreen.d.c.a(findViewById(R.id.obfuscated_res_0x7f0911d7), -1, 60, -1, -1);
+            com.kwad.components.ad.splashscreen.d.c.a(findViewById(R.id.obfuscated_res_0x7f0911cb), -1, 60, -1, -1);
         }
     }
 

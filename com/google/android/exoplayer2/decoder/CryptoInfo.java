@@ -1,6 +1,5 @@
 package com.google.android.exoplayer2.decoder;
 
-import android.annotation.TargetApi;
 import android.media.MediaCodec;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,31 +25,17 @@ public final class CryptoInfo {
 
     /* renamed from: com.google.android.exoplayer2.decoder.CryptoInfo$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    @TargetApi(24)
     /* loaded from: classes7.dex */
-    public static final class PatternHolderV24 {
+    public final class PatternHolderV24 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final MediaCodec.CryptoInfo frameworkCryptoInfo;
         public final MediaCodec.CryptoInfo.Pattern pattern;
-
-        public /* synthetic */ PatternHolderV24(MediaCodec.CryptoInfo cryptoInfo, AnonymousClass1 anonymousClass1) {
-            this(cryptoInfo);
-        }
-
-        /* JADX INFO: Access modifiers changed from: private */
-        public void set(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(65539, this, i, i2) == null) {
-                this.pattern.set(i, i2);
-                this.frameworkCryptoInfo.setPattern(this.pattern);
-            }
-        }
 
         public PatternHolderV24(MediaCodec.CryptoInfo cryptoInfo) {
             Interceptable interceptable = $ic;
@@ -70,9 +55,23 @@ public final class CryptoInfo {
             this.frameworkCryptoInfo = cryptoInfo;
             this.pattern = new MediaCodec.CryptoInfo.Pattern(0, 0);
         }
+
+        public /* synthetic */ PatternHolderV24(MediaCodec.CryptoInfo cryptoInfo, AnonymousClass1 anonymousClass1) {
+            this(cryptoInfo);
+        }
+
+        /* JADX INFO: Access modifiers changed from: private */
+        public void set(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(65539, this, i, i2) == null) {
+                this.pattern.set(i, i2);
+                this.frameworkCryptoInfo.setPattern(this.pattern);
+            }
+        }
     }
 
     public CryptoInfo() {
+        MediaCodec.CryptoInfo cryptoInfo;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -85,19 +84,15 @@ public final class CryptoInfo {
                 return;
             }
         }
-        MediaCodec.CryptoInfo newFrameworkCryptoInfoV16 = Util.SDK_INT >= 16 ? newFrameworkCryptoInfoV16() : null;
-        this.frameworkCryptoInfo = newFrameworkCryptoInfoV16;
-        this.patternHolder = Util.SDK_INT >= 24 ? new PatternHolderV24(newFrameworkCryptoInfoV16, null) : null;
+        if (Util.SDK_INT >= 16) {
+            cryptoInfo = newFrameworkCryptoInfoV16();
+        } else {
+            cryptoInfo = null;
+        }
+        this.frameworkCryptoInfo = cryptoInfo;
+        this.patternHolder = Util.SDK_INT >= 24 ? new PatternHolderV24(cryptoInfo, null) : null;
     }
 
-    @TargetApi(16)
-    private MediaCodec.CryptoInfo newFrameworkCryptoInfoV16() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? new MediaCodec.CryptoInfo() : (MediaCodec.CryptoInfo) invokeV.objValue;
-    }
-
-    @TargetApi(16)
     private void updateFrameworkCryptoInfoV16() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
@@ -108,17 +103,29 @@ public final class CryptoInfo {
             cryptoInfo.key = this.key;
             cryptoInfo.iv = this.iv;
             cryptoInfo.mode = this.mode;
-            if (Util.SDK_INT >= 24) {
-                this.patternHolder.set(this.encryptedBlocks, this.clearBlocks);
+            if (Util.SDK_INT < 24) {
+                return;
             }
+            this.patternHolder.set(this.encryptedBlocks, this.clearBlocks);
         }
     }
 
-    @TargetApi(16)
+    private MediaCodec.CryptoInfo newFrameworkCryptoInfoV16() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+            return new MediaCodec.CryptoInfo();
+        }
+        return (MediaCodec.CryptoInfo) invokeV.objValue;
+    }
+
     public MediaCodec.CryptoInfo getFrameworkCryptoInfoV16() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.frameworkCryptoInfo : (MediaCodec.CryptoInfo) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.frameworkCryptoInfo;
+        }
+        return (MediaCodec.CryptoInfo) invokeV.objValue;
     }
 
     public void set(int i, int[] iArr, int[] iArr2, byte[] bArr, byte[] bArr2, int i2, int i3, int i4) {

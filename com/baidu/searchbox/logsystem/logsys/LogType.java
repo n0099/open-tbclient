@@ -20,6 +20,12 @@ public final class LogType {
     public transient /* synthetic */ FieldHolder $fh;
     public String mTypeName;
 
+    public static void init() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+        }
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -79,27 +85,30 @@ public final class LogType {
         return (LogType) invokeL.objValue;
     }
 
-    public static void init() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-        }
-    }
-
     public static LogType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? (LogType) Enum.valueOf(LogType.class, str) : (LogType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            return (LogType) Enum.valueOf(LogType.class, str);
+        }
+        return (LogType) invokeL.objValue;
     }
 
     public static LogType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? (LogType[]) $VALUES.clone() : (LogType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return (LogType[]) $VALUES.clone();
+        }
+        return (LogType[]) invokeV.objValue;
     }
 
     public String getTypeName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mTypeName : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mTypeName;
+        }
+        return (String) invokeV.objValue;
     }
 }

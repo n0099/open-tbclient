@@ -1,7 +1,10 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,15 +12,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes4.dex */
-public class jv1 implements hv1 {
+public class jv1 implements iv1 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean b;
-    public static volatile jv1 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<hv1> a;
+    public Map a;
 
     static {
         InterceptResult invokeClinit;
@@ -32,7 +34,7 @@ public class jv1 implements hv1 {
                 return;
             }
         }
-        b = vj1.a;
+        b = wj1.a;
     }
 
     public jv1() {
@@ -48,64 +50,52 @@ public class jv1 implements hv1 {
                 return;
             }
         }
-        ArrayList arrayList = new ArrayList();
-        this.a = arrayList;
-        arrayList.add(new iv1());
+        this.a = new ConcurrentHashMap();
     }
 
-    public static jv1 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (c == null) {
-                synchronized (jv1.class) {
-                    if (c == null) {
-                        c = new jv1();
-                    }
-                }
-            }
-            return c;
-        }
-        return (jv1) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.hv1
+    @Override // com.baidu.tieba.iv1
     public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            if (b) {
-                Log.d("Api-Marker", "markStart: " + str);
-            }
-            for (int i = 0; i < this.a.size(); i++) {
-                this.a.get(i).a(str);
-            }
+        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || this.a.containsKey(str)) {
+            return;
         }
+        if (b) {
+            Log.d("Api-FirstRecorder", "markStart: " + str);
+        }
+        uw2 uw2Var = new uw2();
+        this.a.put(str, uw2Var);
+        uw2Var.i(System.currentTimeMillis());
+        uw2Var.f(str);
     }
 
-    @Override // com.baidu.tieba.hv1
+    @Override // com.baidu.tieba.iv1
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            if (b) {
-                Log.d("Api-Marker", "markEnd: " + str);
-            }
-            for (int i = 0; i < this.a.size(); i++) {
-                this.a.get(i).b(str);
-            }
-        }
-    }
-
-    public synchronized void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                if (b) {
-                    Log.d("Api-Marker", "release: ");
-                }
-                if (c == null) {
+            uw2 uw2Var = (uw2) this.a.get(str);
+            if (uw2Var == null) {
+                if (!b) {
                     return;
                 }
-                c = null;
+                throw new RuntimeException(str + " markEnd before markStart");
+            } else if (uw2Var.d() > 0) {
+            } else {
+                uw2Var.h(System.currentTimeMillis());
+                if (b) {
+                    Log.d("Api-FirstRecorder", str + " first called cost " + uw2Var.c());
+                }
+                if (TextUtils.equals(str, "request")) {
+                    if (b) {
+                        Log.d("Api-FirstRecorder", "record first request api called " + uw2Var.toString());
+                    }
+                    HybridUbcFlow p = rw2.p("startup");
+                    UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("first_request_api_call_start");
+                    ubcFlowEvent.h(uw2Var.e());
+                    p.F(ubcFlowEvent);
+                    UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("first_request_api_call_end");
+                    ubcFlowEvent2.h(uw2Var.d());
+                    p.F(ubcFlowEvent2);
+                }
             }
         }
     }

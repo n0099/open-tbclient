@@ -1,7 +1,6 @@
 package com.ss.android.download.api.c;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -18,11 +17,17 @@ public class b {
         }
     }
 
-    public static boolean a(com.ss.android.socialbase.downloader.g.a aVar, String str) {
-        if (aVar == null || aVar.a("apk_update_handler_enable", 1) != 1) {
-            return false;
+    public static String a(String... strArr) {
+        for (String str : strArr) {
+            if (!TextUtils.isEmpty(str)) {
+                return str;
+            }
         }
-        return "application/ttpatch".equals(str);
+        return "";
+    }
+
+    public static JSONObject a(JSONObject jSONObject) {
+        return a(jSONObject, new JSONObject());
     }
 
     public static JSONObject a(JSONObject jSONObject, JSONObject jSONObject2) {
@@ -40,12 +45,6 @@ public class b {
         return jSONObject2;
     }
 
-    @NonNull
-    public static JSONObject a(JSONObject jSONObject) {
-        return a(jSONObject, new JSONObject());
-    }
-
-    @NonNull
     public static JSONObject a(JSONObject... jSONObjectArr) {
         JSONObject jSONObject = new JSONObject();
         if (jSONObjectArr != null && jSONObjectArr.length != 0) {
@@ -58,12 +57,10 @@ public class b {
         return jSONObject;
     }
 
-    public static String a(String... strArr) {
-        for (String str : strArr) {
-            if (!TextUtils.isEmpty(str)) {
-                return str;
-            }
+    public static boolean a(com.ss.android.socialbase.downloader.g.a aVar, String str) {
+        if (aVar != null && aVar.a("apk_update_handler_enable", 1) == 1) {
+            return "application/ttpatch".equals(str);
         }
-        return "";
+        return false;
     }
 }

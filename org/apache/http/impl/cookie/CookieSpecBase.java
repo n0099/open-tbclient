@@ -61,7 +61,7 @@ public abstract class CookieSpecBase extends AbstractCookieSpec {
         return invokeLL.booleanValue;
     }
 
-    public List<Cookie> parse(HeaderElement[] headerElementArr, CookieOrigin cookieOrigin) throws MalformedCookieException {
+    public List parse(HeaderElement[] headerElementArr, CookieOrigin cookieOrigin) throws MalformedCookieException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, headerElementArr, cookieOrigin)) == null) {

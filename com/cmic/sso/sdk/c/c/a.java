@@ -74,19 +74,83 @@ public class a {
         return (a) invokeV.objValue;
     }
 
-    public void a(boolean z, com.cmic.sso.sdk.a aVar, d dVar) {
+    private void a(c cVar, d dVar, com.cmic.sso.sdk.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), aVar, dVar}) == null) {
-            com.cmic.sso.sdk.c.b.b bVar = new com.cmic.sso.sdk.c.b.b();
-            bVar.b("1.0");
-            bVar.c("Android");
-            bVar.d(k.b("AID", ""));
-            bVar.e(z ? "1" : "0");
-            bVar.f(AuthnHelper.SDK_VERSION);
-            bVar.g(aVar.b("appid"));
-            bVar.h(bVar.u("iYm0HAnkxQtpvN44"));
-            com.cmic.sso.sdk.a.a b = aVar.b();
-            a(new c("https://" + b.c() + "/client/uniConfig", bVar, "POST", aVar.b("traceId")), dVar, aVar);
+        if (interceptable == null || interceptable.invokeLLL(65539, this, cVar, dVar, aVar) == null) {
+            com.cmic.sso.sdk.c.a.d dVar2 = new com.cmic.sso.sdk.c.a.d();
+            com.cmic.sso.sdk.c.a.c cVar2 = new com.cmic.sso.sdk.c.a.c();
+            com.cmic.sso.sdk.c.a.a aVar2 = new com.cmic.sso.sdk.c.a.a();
+            dVar2.a(cVar2);
+            cVar2.a(aVar2);
+            cVar.a(SystemClock.elapsedRealtime());
+            dVar2.a(cVar, new com.cmic.sso.sdk.c.d.c(this, cVar, aVar, dVar) { // from class: com.cmic.sso.sdk.c.c.a.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ c a;
+                public final /* synthetic */ com.cmic.sso.sdk.a b;
+                public final /* synthetic */ d c;
+                public final /* synthetic */ a d;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, cVar, aVar, dVar};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.d = this;
+                    this.a = cVar;
+                    this.b = aVar;
+                    this.c = dVar;
+                }
+
+                private void a() {
+                    Interceptable interceptable2 = $ic;
+                    if ((interceptable2 == null || interceptable2.invokeV(65537, this) == null) && !this.a.a().contains("uniConfig")) {
+                        q.c(this.b, String.valueOf(SystemClock.elapsedRealtime() - this.a.i()));
+                    }
+                }
+
+                @Override // com.cmic.sso.sdk.c.d.c
+                public void a(com.cmic.sso.sdk.c.d.a aVar3) {
+                    Interceptable interceptable2 = $ic;
+                    if ((interceptable2 == null || interceptable2.invokeL(1048576, this, aVar3) == null) && this.a.g()) {
+                        a();
+                        q.b(this.b, String.valueOf(aVar3.a()));
+                        this.c.a(String.valueOf(aVar3.a()), aVar3.b(), com.cmic.sso.sdk.auth.c.a(String.valueOf(aVar3.a()), aVar3.b()));
+                    }
+                }
+
+                @Override // com.cmic.sso.sdk.c.d.c
+                public void a(com.cmic.sso.sdk.c.d.b bVar) {
+                    String string;
+                    Interceptable interceptable2 = $ic;
+                    if ((interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) && this.a.g()) {
+                        try {
+                            a();
+                            JSONObject jSONObject = new JSONObject(bVar.c());
+                            if (jSONObject.has("resultcode")) {
+                                string = jSONObject.getString("resultcode");
+                            } else {
+                                string = jSONObject.getString("resultCode");
+                            }
+                            q.b(this.b, string);
+                            this.c.a(string, jSONObject.optString("desc"), jSONObject);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            a(com.cmic.sso.sdk.c.d.a.a(102223));
+                        }
+                    }
+                }
+            }, aVar);
         }
     }
 
@@ -183,84 +247,25 @@ public class a {
         }
     }
 
-    private void a(c cVar, d dVar, com.cmic.sso.sdk.a aVar) {
+    public void a(boolean z, com.cmic.sso.sdk.a aVar, d dVar) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, this, cVar, dVar, aVar) == null) {
-            com.cmic.sso.sdk.c.a.d dVar2 = new com.cmic.sso.sdk.c.a.d();
-            com.cmic.sso.sdk.c.a.c cVar2 = new com.cmic.sso.sdk.c.a.c();
-            com.cmic.sso.sdk.c.a.a aVar2 = new com.cmic.sso.sdk.c.a.a();
-            dVar2.a(cVar2);
-            cVar2.a(aVar2);
-            cVar.a(SystemClock.elapsedRealtime());
-            dVar2.a(cVar, new com.cmic.sso.sdk.c.d.c(this, cVar, aVar, dVar) { // from class: com.cmic.sso.sdk.c.c.a.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ c a;
-                public final /* synthetic */ com.cmic.sso.sdk.a b;
-                public final /* synthetic */ d c;
-                public final /* synthetic */ a d;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, cVar, aVar, dVar};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.d = this;
-                    this.a = cVar;
-                    this.b = aVar;
-                    this.c = dVar;
-                }
-
-                @Override // com.cmic.sso.sdk.c.d.c
-                public void a(com.cmic.sso.sdk.c.d.b bVar) {
-                    String string;
-                    Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) && this.a.g()) {
-                        try {
-                            a();
-                            JSONObject jSONObject = new JSONObject(bVar.c());
-                            if (jSONObject.has("resultcode")) {
-                                string = jSONObject.getString("resultcode");
-                            } else {
-                                string = jSONObject.getString("resultCode");
-                            }
-                            q.b(this.b, string);
-                            this.c.a(string, jSONObject.optString("desc"), jSONObject);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                            a(com.cmic.sso.sdk.c.d.a.a(102223));
-                        }
-                    }
-                }
-
-                @Override // com.cmic.sso.sdk.c.d.c
-                public void a(com.cmic.sso.sdk.c.d.a aVar3) {
-                    Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeL(1048576, this, aVar3) == null) && this.a.g()) {
-                        a();
-                        q.b(this.b, String.valueOf(aVar3.a()));
-                        this.c.a(String.valueOf(aVar3.a()), aVar3.b(), com.cmic.sso.sdk.auth.c.a(String.valueOf(aVar3.a()), aVar3.b()));
-                    }
-                }
-
-                private void a() {
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(65537, this) == null) || this.a.a().contains("uniConfig")) {
-                        return;
-                    }
-                    q.c(this.b, String.valueOf(SystemClock.elapsedRealtime() - this.a.i()));
-                }
-            }, aVar);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), aVar, dVar}) == null) {
+            com.cmic.sso.sdk.c.b.b bVar = new com.cmic.sso.sdk.c.b.b();
+            bVar.b("1.0");
+            bVar.c("Android");
+            bVar.d(k.b("AID", ""));
+            if (z) {
+                str = "1";
+            } else {
+                str = "0";
+            }
+            bVar.e(str);
+            bVar.f(AuthnHelper.SDK_VERSION);
+            bVar.g(aVar.b("appid"));
+            bVar.h(bVar.u("iYm0HAnkxQtpvN44"));
+            com.cmic.sso.sdk.a.a b = aVar.b();
+            a(new c("https://" + b.c() + "/client/uniConfig", bVar, "POST", aVar.b("traceId")), dVar, aVar);
         }
     }
 }

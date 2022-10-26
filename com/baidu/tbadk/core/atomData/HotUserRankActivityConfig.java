@@ -39,34 +39,30 @@ public class HotUserRankActivityConfig extends IntentConfig {
 
     public void setCategory(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || getIntent() == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && getIntent() != null) {
+            getIntent().putExtra("key_category", str);
         }
-        getIntent().putExtra("key_category", str);
     }
 
     public void setForumId(Long l) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l) == null) || getIntent() == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l) == null) && getIntent() != null) {
+            getIntent().putExtra(KEY_FORUM_ID, l);
         }
-        getIntent().putExtra(KEY_FORUM_ID, l);
     }
 
     public void setIsGod(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || getIntent() == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && getIntent() != null) {
+            getIntent().putExtra(KEY_IS_GOD, z);
         }
-        getIntent().putExtra(KEY_IS_GOD, z);
     }
 
     public void setUri(Uri uri) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, uri) == null) || (intent = getIntent()) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, uri) == null) && (intent = getIntent()) != null) {
+            intent.putExtra(IntentConfig.KEY_URI, uri);
         }
-        intent.putExtra(IntentConfig.KEY_URI, uri);
     }
 }

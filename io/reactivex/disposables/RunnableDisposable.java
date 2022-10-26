@@ -8,9 +8,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import io.reactivex.annotations.NonNull;
 /* loaded from: classes8.dex */
-public final class RunnableDisposable extends ReferenceDisposable<Runnable> {
+public final class RunnableDisposable extends ReferenceDisposable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -8219729196779211169L;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,6 +34,15 @@ public final class RunnableDisposable extends ReferenceDisposable<Runnable> {
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // io.reactivex.disposables.ReferenceDisposable
+    public void onDisposed(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable) == null) {
+            runnable.run();
+        }
+    }
+
     @Override // java.util.concurrent.atomic.AtomicReference
     public String toString() {
         InterceptResult invokeV;
@@ -43,14 +51,5 @@ public final class RunnableDisposable extends ReferenceDisposable<Runnable> {
             return "RunnableDisposable(disposed=" + isDisposed() + StringUtil.ARRAY_ELEMENT_SEPARATOR + get() + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // io.reactivex.disposables.ReferenceDisposable
-    public void onDisposed(@NonNull Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable) == null) {
-            runnable.run();
-        }
     }
 }

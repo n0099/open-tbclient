@@ -1,6 +1,5 @@
 package com.baidu.live.feed.search.model.data;
 
-import com.baidu.searchbox.launch.ExternalTransferSpeedStats;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -32,7 +31,7 @@ public class RequestSearchData {
         }
         this.refreshIndex = "1";
         this.refreshType = "0";
-        this.resource = ExternalTransferSpeedStats.FEED_PAGE;
+        this.resource = "feed";
         this.channelId = "0";
         this.sessionId = "";
         this.uploadIds = "";

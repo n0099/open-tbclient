@@ -1,7 +1,6 @@
 package com.google.android.material.textfield;
 
 import android.graphics.drawable.Drawable;
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -12,7 +11,7 @@ public class NoEndIconDelegate extends EndIconDelegate {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NoEndIconDelegate(@NonNull TextInputLayout textInputLayout) {
+    public NoEndIconDelegate(TextInputLayout textInputLayout) {
         super(textInputLayout);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

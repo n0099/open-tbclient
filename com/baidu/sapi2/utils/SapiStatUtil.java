@@ -23,6 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.cache.disk.DefaultDiskStorage;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -56,15 +57,29 @@ public class SapiStatUtil {
         }
     }
 
-    public static void buildStatExtraMap(Map<String, String> map, List<PassNameValuePair> list) {
+    public static void buildStatExtraMap(Map map, List list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, map, list) == null) || list == null || list.isEmpty()) {
-            return;
-        }
-        for (PassNameValuePair passNameValuePair : list) {
-            if (passNameValuePair.name.equals("extrajson") && SapiUtils.statExtraValid(passNameValuePair.getValue())) {
-                map.put("extrajson", passNameValuePair.getValue());
+        if ((interceptable == null || interceptable.invokeLL(65537, null, map, list) == null) && list != null && !list.isEmpty()) {
+            Iterator it = list.iterator();
+            while (it.hasNext()) {
+                PassNameValuePair passNameValuePair = (PassNameValuePair) it.next();
+                if (passNameValuePair.name.equals("extrajson") && SapiUtils.statExtraValid(passNameValuePair.getValue())) {
+                    map.put("extrajson", passNameValuePair.getValue());
+                }
             }
+        }
+    }
+
+    public static void statShareV1Login(SapiAccount sapiAccount, List list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65548, null, sapiAccount, list) == null) && ShareCallPacking.LOGIN_TYPE_SHARE_V1_CHOICE.equals(SapiContext.getInstance().getAccountActionType())) {
+            SapiContext.getInstance().setPreLoginType(Enums.LastLoginType.CHOICE_SHARE.getName());
+            HashMap hashMap = new HashMap();
+            buildStatExtraMap(hashMap, list);
+            hashMap.put(ShareCallPacking.StatModel.KEY_ACCOUNT_TPL, sapiAccount.getShareAccountTpl());
+            hashMap.put(ShareCallPacking.StatModel.KEY_ACCOUNT_APP, sapiAccount.app);
+            hashMap.put("uid", sapiAccount.uid);
+            StatService.onEvent("share_v1_account_suc", hashMap);
         }
     }
 
@@ -82,12 +97,16 @@ public class SapiStatUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
             LinkedHashMap linkedHashMap = new LinkedHashMap(1);
-            if (i == 3) {
+            if (i != 3) {
+                if (i != 4) {
+                    if (i == 5) {
+                        linkedHashMap.put("eventType", "cloud_share_account_login_fail");
+                    }
+                } else {
+                    linkedHashMap.put("eventType", "cloud_share_account_login_success");
+                }
+            } else {
                 linkedHashMap.put("eventType", "cloud_share_account_invoke");
-            } else if (i == 4) {
-                linkedHashMap.put("eventType", "cloud_share_account_login_success");
-            } else if (i == 5) {
-                linkedHashMap.put("eventType", "cloud_share_account_login_fail");
             }
             StatService.onEventAutoStatistic(linkedHashMap);
         }
@@ -105,12 +124,18 @@ public class SapiStatUtil {
     }
 
     public static void statOneKeyCheckAbility(int i, int i2, boolean z, String str) {
+        String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), str}) == null) {
             HashMap hashMap = new HashMap();
             hashMap.put("code", i + "");
             hashMap.put("subCode", i2 + "");
-            hashMap.put("enable", z ? "1" : "0");
+            if (z) {
+                str2 = "1";
+            } else {
+                str2 = "0";
+            }
+            hashMap.put("enable", str2);
             hashMap.put("operator", str);
             StatService.onEvent(OneKeyLoginStat.CheckAbility.VALUE_PAGE, hashMap);
         }
@@ -149,86 +174,7 @@ public class SapiStatUtil {
         }
     }
 
-    public static void statOneKeyPreGetPhone(int i, int i2, String str, String str2, String str3, String str4) {
-        String str5;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, str2, str3, str4}) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("code", i + "");
-            hashMap.put("subCode", i2 + "");
-            hashMap.put("phoneNum", str);
-            hashMap.put("operator", str2);
-            if (str4.contains("G")) {
-                str5 = "data";
-            } else {
-                str5 = "WIFI".equals(str4) ? "wifi" : "unknown";
-            }
-            hashMap.put("scene", str3);
-            hashMap.put("netType", str5);
-            StatService.onEvent(OneKeyLoginStat.PreGetPhoneStat.VALUE_PAGE, hashMap);
-        }
-    }
-
-    public static void statSetCloudShareAccount(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65546, null, i, i2) == null) {
-            LinkedHashMap linkedHashMap = new LinkedHashMap(1);
-            if (i2 == 0) {
-                if (i == 2) {
-                    linkedHashMap.put("eventType", "cloud_share_account_insert_start");
-                } else if (i == 3) {
-                    linkedHashMap.put("eventType", "cloud_share_account_delete_start");
-                } else if (i == 4) {
-                    linkedHashMap.put("eventType", "cloud_share_account_reset_start");
-                }
-            } else if (i2 == 1) {
-                if (i == 2) {
-                    linkedHashMap.put("eventType", "cloud_share_account_insert_success");
-                } else if (i == 3) {
-                    linkedHashMap.put("eventType", "cloud_share_account_delete_success");
-                } else if (i == 4) {
-                    linkedHashMap.put("eventType", "cloud_share_account_reset_success");
-                }
-            } else if (i2 == 2) {
-                if (i == 2) {
-                    linkedHashMap.put("eventType", "cloud_share_account_insert_fail");
-                } else if (i == 3) {
-                    linkedHashMap.put("eventType", "cloud_share_account_delete_fail");
-                } else if (i == 4) {
-                    linkedHashMap.put("eventType", "cloud_share_account_reset_fail");
-                }
-            }
-            StatService.onEventAutoStatistic(linkedHashMap);
-        }
-    }
-
-    public static void statShareClickOther(String str, List<PassNameValuePair> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65547, null, str, list) == null) {
-            HashMap hashMap = new HashMap();
-            buildStatExtraMap(hashMap, list);
-            if (str.equals(DefaultDiskStorage.DEFAULT_DISK_STORAGE_VERSION_PREFIX)) {
-                StatService.onEvent("share_v2_click_other", hashMap);
-            } else if (str.equals("v1")) {
-                StatService.onEvent("share_v1_click_other", hashMap);
-            }
-        }
-    }
-
-    public static void statShareV1Login(SapiAccount sapiAccount, List<PassNameValuePair> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65548, null, sapiAccount, list) == null) && ShareCallPacking.LOGIN_TYPE_SHARE_V1_CHOICE.equals(SapiContext.getInstance().getAccountActionType())) {
-            SapiContext.getInstance().setPreLoginType(Enums.LastLoginType.CHOICE_SHARE.getName());
-            HashMap hashMap = new HashMap();
-            buildStatExtraMap(hashMap, list);
-            hashMap.put(ShareCallPacking.StatModel.KEY_ACCOUNT_TPL, sapiAccount.getShareAccountTpl());
-            hashMap.put(ShareCallPacking.StatModel.KEY_ACCOUNT_APP, sapiAccount.app);
-            hashMap.put("uid", sapiAccount.uid);
-            StatService.onEvent("share_v1_account_suc", hashMap);
-        }
-    }
-
-    public static void statShareV2Click(ShareCallPacking.StatModel statModel, List<PassNameValuePair> list, String str) {
+    public static void statShareV2Click(ShareCallPacking.StatModel statModel, List list, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65549, null, statModel, list, str) == null) {
             HashMap hashMap = new HashMap();
@@ -241,7 +187,99 @@ public class SapiStatUtil {
         }
     }
 
-    public static void statShareV2Fail(ShareCallPacking.StatModel statModel, String str, String str2, String str3, List<PassNameValuePair> list, String str4) {
+    public static void statOneKeyPreGetPhone(int i, int i2, String str, String str2, String str3, String str4) {
+        String str5;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, str2, str3, str4}) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("code", i + "");
+            hashMap.put("subCode", i2 + "");
+            hashMap.put("phoneNum", str);
+            hashMap.put("operator", str2);
+            if (str4.contains("G")) {
+                str5 = "data";
+            } else if ("WIFI".equals(str4)) {
+                str5 = "wifi";
+            } else {
+                str5 = "unknown";
+            }
+            hashMap.put("scene", str3);
+            hashMap.put("netType", str5);
+            StatService.onEvent(OneKeyLoginStat.PreGetPhoneStat.VALUE_PAGE, hashMap);
+        }
+    }
+
+    public static void statSetCloudShareAccount(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(65546, null, i, i2) == null) {
+            LinkedHashMap linkedHashMap = new LinkedHashMap(1);
+            if (i2 == 0) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i == 4) {
+                            linkedHashMap.put("eventType", "cloud_share_account_reset_start");
+                        }
+                    } else {
+                        linkedHashMap.put("eventType", "cloud_share_account_delete_start");
+                    }
+                } else {
+                    linkedHashMap.put("eventType", "cloud_share_account_insert_start");
+                }
+            } else if (i2 == 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i == 4) {
+                            linkedHashMap.put("eventType", "cloud_share_account_reset_success");
+                        }
+                    } else {
+                        linkedHashMap.put("eventType", "cloud_share_account_delete_success");
+                    }
+                } else {
+                    linkedHashMap.put("eventType", "cloud_share_account_insert_success");
+                }
+            } else if (i2 == 2) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i == 4) {
+                            linkedHashMap.put("eventType", "cloud_share_account_reset_fail");
+                        }
+                    } else {
+                        linkedHashMap.put("eventType", "cloud_share_account_delete_fail");
+                    }
+                } else {
+                    linkedHashMap.put("eventType", "cloud_share_account_insert_fail");
+                }
+            }
+            StatService.onEventAutoStatistic(linkedHashMap);
+        }
+    }
+
+    public static void statShareClickOther(String str, List list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65547, null, str, list) == null) {
+            HashMap hashMap = new HashMap();
+            buildStatExtraMap(hashMap, list);
+            if (str.equals(DefaultDiskStorage.DEFAULT_DISK_STORAGE_VERSION_PREFIX)) {
+                StatService.onEvent("share_v2_click_other", hashMap);
+            } else if (str.equals("v1")) {
+                StatService.onEvent("share_v1_click_other", hashMap);
+            }
+        }
+    }
+
+    public static void statSmsCodeClip(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65554, null, context, str) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("cuid", SapiUtils.getClientId(context));
+            hashMap.put(Config.DEVICE_PART, "android");
+            hashMap.put(HttpConstants.OS_VERSION, Build.VERSION.RELEASE);
+            hashMap.put("success", str);
+            StatService.onEvent("get_sms_check_code_from_clip", hashMap);
+        }
+    }
+
+    public static void statShareV2Fail(ShareCallPacking.StatModel statModel, String str, String str2, String str3, List list, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65550, null, new Object[]{statModel, str, str2, str3, list, str4}) == null) {
             HashMap hashMap = new HashMap();
@@ -258,12 +296,14 @@ public class SapiStatUtil {
         }
     }
 
-    public static void statShareV2Open(List<ShareStorage.StorageModel> list, String str, List<PassNameValuePair> list2) {
+    public static void statShareV2Open(List list, String str, List list2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65551, null, list, str, list2) == null) {
             ArrayList arrayList = new ArrayList();
             ArrayList arrayList2 = new ArrayList();
-            for (ShareStorage.StorageModel storageModel : list) {
+            Iterator it = list.iterator();
+            while (it.hasNext()) {
+                ShareStorage.StorageModel storageModel = (ShareStorage.StorageModel) it.next();
                 if (!TextUtils.isEmpty(storageModel.tpl)) {
                     arrayList.add(storageModel.tpl);
                 }
@@ -284,7 +324,8 @@ public class SapiStatUtil {
         }
     }
 
-    public static void statShareV2OpenMax(Context context, int i, int i2, int i3, int i4, ShareStorage shareStorage, List<ShareStorage.StorageModel> list) {
+    public static void statShareV2OpenMax(Context context, int i, int i2, int i3, int i4, ShareStorage shareStorage, List list) {
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65552, null, new Object[]{context, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), shareStorage, list}) == null) {
             HashMap hashMap = new HashMap();
@@ -296,12 +337,17 @@ public class SapiStatUtil {
             hashMap.put("app_count", i4 + "");
             hashMap.put("share_count", list.size() + "");
             hashMap.put(HttpConstants.OS_VERSION, Build.VERSION.RELEASE);
-            hashMap.put("chmod", shareStorage.readSpFromChmodFile ? "1" : "0");
+            if (shareStorage.readSpFromChmodFile) {
+                str = "1";
+            } else {
+                str = "0";
+            }
+            hashMap.put("chmod", str);
             StatService.onEvent("share_read", hashMap);
         }
     }
 
-    public static void statShareV2Success(ShareCallPacking.StatModel statModel, String str, List<PassNameValuePair> list, String str2) {
+    public static void statShareV2Success(ShareCallPacking.StatModel statModel, String str, List list, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65553, null, statModel, str, list, str2) == null) {
             HashMap hashMap = new HashMap();
@@ -313,18 +359,6 @@ public class SapiStatUtil {
             hashMap.put("uid", str);
             hashMap.put(ShareCallPacking.StatModel.KEY_CALL_TYPE, str2);
             StatService.onEventAutoStat(ShareStatKey.SHARE_V2_LOGIN_SUCCESS, hashMap);
-        }
-    }
-
-    public static void statSmsCodeClip(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65554, null, context, str) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("cuid", SapiUtils.getClientId(context));
-            hashMap.put(Config.DEVICE_PART, "android");
-            hashMap.put(HttpConstants.OS_VERSION, Build.VERSION.RELEASE);
-            hashMap.put("success", str);
-            StatService.onEvent("get_sms_check_code_from_clip", hashMap);
         }
     }
 

@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bj8;
-import com.baidu.tieba.dx4;
+import com.baidu.tieba.jx4;
+import com.baidu.tieba.lj8;
 import com.baidu.tieba.r9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -30,17 +30,24 @@ import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes5.dex */
-public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
+public class GetForumListModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public static final String h;
     public transient /* synthetic */ FieldHolder $fh;
-    public bj8 a;
+    public lj8 a;
     public b b;
     public HttpMessage c;
     public boolean d;
     public final BdUniqueId e;
-    public ResponsedMessage<?> f;
+    public ResponsedMessage f;
     public final HttpMessageListener g;
+
+    /* loaded from: classes5.dex */
+    public interface b {
+        void a(lj8 lj8Var);
+
+        void d(String str);
+    }
 
     /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
@@ -89,7 +96,7 @@ public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
                         } else {
                             String errorString = httpResponsedMessage.getErrorString();
                             if (StringUtils.isNull(errorString)) {
-                                errorString = TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0c59);
+                                errorString = TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0c68);
                             }
                             this.a.b.d(errorString);
                         }
@@ -100,13 +107,6 @@ public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
                 this.a.c = null;
             }
         }
-    }
-
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(bj8 bj8Var);
-
-        void d(String str);
     }
 
     static {
@@ -123,6 +123,28 @@ public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
             }
         }
         h = TbConfig.SERVER_ADDRESS + "c/f/forum/getforumlist";
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.c != null) {
+                return false;
+            }
+            this.c = new HttpMessage(CmdConfigHttp.SIGNALL_GET_FOURMS);
+            AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
+            String str = null;
+            if (currentAccountObj != null) {
+                str = currentAccountObj.getID();
+            }
+            this.c.addParam("user_id", str);
+            this.c.setTag(this.e);
+            MessageManager.getInstance().sendMessage(this.c);
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -149,7 +171,7 @@ public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
         this.g = new a(this, CmdConfigHttp.SIGNALL_GET_FOURMS);
         this.d = signAllForumActivity.getIntent().getBooleanExtra(IntentConfig.MEMBER_BUY_SHOW, false);
         MessageManager messageManager = MessageManager.getInstance();
-        this.a = new bj8();
+        this.a = new lj8();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.SIGNALL_GET_FOURMS, h);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setResponsedClass(GetForumResponsed.class);
@@ -174,7 +196,7 @@ public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
                         sb.append(value.toString());
                         sb.append("&");
                     }
-                    dx4.a("sign_all", httpMessage.getClientLogID(), 0, "sign_getforumlist_error", 110001, sb.toString(), new Object[0]);
+                    jx4.a("sign_all", httpMessage.getClientLogID(), 0, "sign_getforumlist_error", 110001, sb.toString(), new Object[0]);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -182,17 +204,20 @@ public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
         }
     }
 
-    public boolean G() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : invokeV.booleanValue;
-    }
-
     public void H(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
             this.b = bVar;
         }
+    }
+
+    public boolean G() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -210,27 +235,12 @@ public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
         return invokeV.booleanValue;
     }
 
-    public ResponsedMessage<?> getResponsedMessage() {
+    public ResponsedMessage getResponsedMessage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f : (ResponsedMessage) invokeV.objValue;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean loadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.c != null) {
-                return false;
-            }
-            this.c = new HttpMessage(CmdConfigHttp.SIGNALL_GET_FOURMS);
-            AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-            this.c.addParam("user_id", currentAccountObj != null ? currentAccountObj.getID() : null);
-            this.c.setTag(this.e);
-            MessageManager.getInstance().sendMessage(this.c);
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.f;
         }
-        return invokeV.booleanValue;
+        return (ResponsedMessage) invokeV.objValue;
     }
 }

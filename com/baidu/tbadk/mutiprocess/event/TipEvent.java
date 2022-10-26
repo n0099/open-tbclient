@@ -40,9 +40,8 @@ public class TipEvent extends SerializableEvent {
 
     private void parsePageIdFromIntent(Intent intent) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, this, intent) == null) || intent == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(65537, this, intent) == null) && intent != null) {
+            this.pageId = intent.getIntExtra(IntentConfig.PRE_PAGE_ID, 0);
         }
-        this.pageId = intent.getIntExtra(IntentConfig.PRE_PAGE_ID, 0);
     }
 }

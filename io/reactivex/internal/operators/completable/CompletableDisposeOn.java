@@ -21,7 +21,7 @@ public final class CompletableDisposeOn extends Completable {
     public final CompletableSource source;
 
     /* loaded from: classes8.dex */
-    public static final class CompletableObserverImplementation implements CompletableObserver, Disposable, Runnable {
+    public final class CompletableObserverImplementation implements CompletableObserver, Disposable, Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Disposable d;
@@ -61,16 +61,28 @@ public final class CompletableDisposeOn extends Completable {
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.disposed : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.disposed;
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.CompletableObserver, io.reactivex.MaybeObserver
         public void onComplete() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.disposed) {
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.disposed) {
                 return;
             }
             this.s.onComplete();
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+                this.d.dispose();
+                this.d = DisposableHelper.DISPOSED;
+            }
         }
 
         @Override // io.reactivex.CompletableObserver
@@ -91,15 +103,6 @@ public final class CompletableDisposeOn extends Completable {
             if ((interceptable == null || interceptable.invokeL(1048580, this, disposable) == null) && DisposableHelper.validate(this.d, disposable)) {
                 this.d = disposable;
                 this.s.onSubscribe(this);
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                this.d.dispose();
-                this.d = DisposableHelper.DISPOSED;
             }
         }
     }

@@ -1,54 +1,48 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class mf8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, Set<Cdo>> a;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public int c;
+    public long d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947970858, "Lcom/baidu/tieba/mf8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947970858, "Lcom/baidu/tieba/mf8;");
-                return;
+    public mf8() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        a = new HashMap();
     }
 
-    public static Set<Cdo> a(String str) {
+    public static mf8 a(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? a.get(str) : (Set) invokeL.objValue;
-    }
-
-    public static void b(String str, Set<Cdo> set) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, set) == null) {
-            a.put(str, set);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            mf8 mf8Var = new mf8();
+            mf8Var.a = jSONObject.optInt("agree_num", -1);
+            mf8Var.b = jSONObject.optInt("share_num", -1);
+            mf8Var.c = jSONObject.optInt("reply_num", -1);
+            mf8Var.d = jSONObject.optLong("time", System.currentTimeMillis());
+            return mf8Var;
         }
-    }
-
-    public static void c(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, str) == null) || a.get(str) == null) {
-            return;
-        }
-        a.get(str).clear();
-        a.remove(str);
+        return (mf8) invokeL.objValue;
     }
 }

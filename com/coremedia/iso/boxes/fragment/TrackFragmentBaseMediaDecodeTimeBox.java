@@ -60,6 +60,32 @@ public class TrackFragmentBaseMediaDecodeTimeBox extends AbstractFullBox {
         }
     }
 
+    public long getBaseMediaDecodeTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
+            return this.baseMediaDecodeTime;
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public long getContentSize() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (getVersion() == 0) {
+                i = 8;
+            } else {
+                i = 12;
+            }
+            return i;
+        }
+        return invokeV.longValue;
+    }
+
     public static /* synthetic */ void ajc$preClinit() {
         Factory factory = new Factory("TrackFragmentBaseMediaDecodeTimeBox.java", TrackFragmentBaseMediaDecodeTimeBox.class);
         ajc$tjp_0 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getBaseMediaDecodeTime", "com.coremedia.iso.boxes.fragment.TrackFragmentBaseMediaDecodeTimeBox", "", "", "", "long"), 65);
@@ -80,16 +106,6 @@ public class TrackFragmentBaseMediaDecodeTimeBox extends AbstractFullBox {
         }
     }
 
-    public long getBaseMediaDecodeTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
-            return this.baseMediaDecodeTime;
-        }
-        return invokeV.longValue;
-    }
-
     @Override // com.googlecode.mp4parser.AbstractBox
     public void getContent(ByteBuffer byteBuffer) {
         Interceptable interceptable = $ic;
@@ -101,16 +117,6 @@ public class TrackFragmentBaseMediaDecodeTimeBox extends AbstractFullBox {
                 IsoTypeWriter.writeUInt32(byteBuffer, this.baseMediaDecodeTime);
             }
         }
-    }
-
-    @Override // com.googlecode.mp4parser.AbstractBox
-    public long getContentSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return getVersion() == 0 ? 8 : 12;
-        }
-        return invokeV.longValue;
     }
 
     public void setBaseMediaDecodeTime(long j) {

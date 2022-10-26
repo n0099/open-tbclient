@@ -13,11 +13,11 @@ public final class k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public d wI;
-    public ArrayList<com.baidu.ar.statistic.a> wJ;
+    public ArrayList wJ;
     public int wK;
     public int wL;
     public boolean wM;
-    public List<String> wN;
+    public List wN;
     public a wO;
 
     /* loaded from: classes.dex */
@@ -44,7 +44,7 @@ public final class k {
         i = i <= 0 ? 20 : i;
         this.wK = i;
         this.wL = i2 < i ? i : i2;
-        this.wJ = new ArrayList<>(this.wK);
+        this.wJ = new ArrayList(this.wK);
         this.wM = false;
         this.wN = null;
         this.wO = null;
@@ -73,7 +73,7 @@ public final class k {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            List<String> list = this.wN;
+            List list = this.wN;
             return list != null && list.contains(str);
         }
         return invokeL.booleanValue;
@@ -99,8 +99,8 @@ public final class k {
         return invokeV.intValue;
     }
 
-    public void j(List<String> list) {
-        ArrayList<com.baidu.ar.statistic.a> arrayList;
+    public void j(List list) {
+        ArrayList arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
             this.wN = list;
@@ -108,7 +108,7 @@ public final class k {
             if (this.wJ.isEmpty()) {
                 return;
             }
-            List<String> list2 = this.wN;
+            List list2 = this.wN;
             if (list2 == null || list2.isEmpty()) {
                 this.wJ.clear();
                 return;
@@ -119,7 +119,7 @@ public final class k {
                 if (size < 0) {
                     break;
                 }
-                if (!this.wN.contains(arrayList.get(size).gf())) {
+                if (!this.wN.contains(((com.baidu.ar.statistic.a) arrayList.get(size)).gf())) {
                     this.wN.remove(size);
                 }
                 size--;

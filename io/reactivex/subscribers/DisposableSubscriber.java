@@ -13,10 +13,10 @@ import io.reactivex.internal.util.EndConsumerHelper;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public abstract class DisposableSubscriber<T> implements FlowableSubscriber<T>, Disposable {
+public abstract class DisposableSubscriber implements FlowableSubscriber, Disposable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicReference<Subscription> s;
+    public final AtomicReference s;
 
     public DisposableSubscriber() {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public abstract class DisposableSubscriber<T> implements FlowableSubscriber<T>, 
                 return;
             }
         }
-        this.s = new AtomicReference<>();
+        this.s = new AtomicReference();
     }
 
     public final void cancel() {
@@ -53,13 +53,19 @@ public abstract class DisposableSubscriber<T> implements FlowableSubscriber<T>, 
     public final boolean isDisposed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.s.get() == SubscriptionHelper.CANCELLED : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.s.get() == SubscriptionHelper.CANCELLED) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public void onStart() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.s.get().request(Long.MAX_VALUE);
+            ((Subscription) this.s.get()).request(Long.MAX_VALUE);
         }
     }
 
@@ -74,7 +80,7 @@ public abstract class DisposableSubscriber<T> implements FlowableSubscriber<T>, 
     public final void request(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            this.s.get().request(j);
+            ((Subscription) this.s.get()).request(j);
         }
     }
 }

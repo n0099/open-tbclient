@@ -4,8 +4,6 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -24,7 +22,7 @@ public class TbVideoViewContainer extends FrameLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public TbVideoViewContainer(@NonNull Context context) {
+    public TbVideoViewContainer(Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -44,35 +42,8 @@ public class TbVideoViewContainer extends FrameLayout {
         }
     }
 
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            TbVideoView tbVideoView = this.a;
-            if (tbVideoView != null) {
-                tbVideoView.z();
-            }
-            if (getParent() instanceof ViewGroup) {
-                ((ViewGroup) getParent()).removeView(this);
-            }
-        }
-    }
-
-    public final void b(@NonNull Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.a = new TbVideoView(context);
-            addView(this.a, new FrameLayout.LayoutParams(-1, -1));
-        }
-    }
-
-    public TbVideoView getControl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (TbVideoView) invokeV.objValue;
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public TbVideoViewContainer(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+    public TbVideoViewContainer(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -93,7 +64,7 @@ public class TbVideoViewContainer extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TbVideoViewContainer(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+    public TbVideoViewContainer(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -112,5 +83,35 @@ public class TbVideoViewContainer extends FrameLayout {
             }
         }
         b(context);
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            TbVideoView tbVideoView = this.a;
+            if (tbVideoView != null) {
+                tbVideoView.z();
+            }
+            if (getParent() instanceof ViewGroup) {
+                ((ViewGroup) getParent()).removeView(this);
+            }
+        }
+    }
+
+    public TbVideoView getControl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (TbVideoView) invokeV.objValue;
+    }
+
+    public final void b(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            this.a = new TbVideoView(context);
+            addView(this.a, new FrameLayout.LayoutParams(-1, -1));
+        }
     }
 }

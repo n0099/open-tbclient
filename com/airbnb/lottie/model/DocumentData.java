@@ -1,18 +1,12 @@
 package com.airbnb.lottie.model;
-
-import androidx.annotation.ColorInt;
-import androidx.annotation.RestrictTo;
-@RestrictTo({RestrictTo.Scope.LIBRARY})
 /* loaded from: classes.dex */
 public class DocumentData {
     public final float baselineShift;
-    @ColorInt
     public final int color;
     public final String fontName;
     public final Justification justification;
     public final float lineHeight;
     public final float size;
-    @ColorInt
     public final int strokeColor;
     public final boolean strokeOverFill;
     public final float strokeWidth;
@@ -26,7 +20,7 @@ public class DocumentData {
         CENTER
     }
 
-    public DocumentData(String str, String str2, float f, Justification justification, int i, float f2, float f3, @ColorInt int i2, @ColorInt int i3, float f4, boolean z) {
+    public DocumentData(String str, String str2, float f, Justification justification, int i, float f2, float f3, int i2, int i3, float f4, boolean z) {
         this.text = str;
         this.fontName = str2;
         this.size = f;

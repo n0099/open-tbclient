@@ -28,10 +28,27 @@ public class IMQueryMemberPauidRequest extends FansGroupBaseHttpRequest {
     public static final String TAG = "IMQueryMemberPauidRequest";
     public transient /* synthetic */ FieldHolder $fh;
     public String mKey;
-    public List<Long> mUids;
+    public List mUids;
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getContentType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "application/x-www-form-urlencoded" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public boolean shouldAbort() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
     /* loaded from: classes.dex */
-    public static class UserId {
+    public class UserId {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long mBduid;
@@ -64,23 +81,32 @@ public class IMQueryMemberPauidRequest extends FansGroupBaseHttpRequest {
         public long getBduid() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mBduid : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.mBduid;
+            }
+            return invokeV.longValue;
         }
 
         public long getPauid() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mPauid : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.mPauid;
+            }
+            return invokeV.longValue;
         }
 
         public long getUk() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mUk : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.mUk;
+            }
+            return invokeV.longValue;
         }
     }
 
-    public IMQueryMemberPauidRequest(Context context, List<Long> list, String str) {
+    public IMQueryMemberPauidRequest(Context context, List list, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -100,11 +126,16 @@ public class IMQueryMemberPauidRequest extends FansGroupBaseHttpRequest {
         this.mKey = str;
     }
 
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public String getContentType() {
-        InterceptResult invokeV;
+    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
+    public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "application/x-www-form-urlencoded" : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, bArr, th) == null) {
+            Pair transErrorCode = transErrorCode(i, bArr, th);
+            IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
+            if (removeListener instanceof BIMValueCallBack) {
+                ((BIMValueCallBack) removeListener).onResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, null);
+            }
+        }
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -115,7 +146,7 @@ public class IMQueryMemberPauidRequest extends FansGroupBaseHttpRequest {
             StringBuilder sb = new StringBuilder();
             sb.append("method=get_user_ids");
             JSONArray jSONArray = new JSONArray();
-            List<Long> list = this.mUids;
+            List list = this.mUids;
             if (list != null && list.size() > 0) {
                 for (Long l : this.mUids) {
                     jSONArray.put(Utility.transBDUID(String.valueOf(l.longValue())));
@@ -127,18 +158,6 @@ public class IMQueryMemberPauidRequest extends FansGroupBaseHttpRequest {
             return sb.toString().getBytes();
         }
         return (byte[]) invokeV.objValue;
-    }
-
-    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i, byte[] bArr, Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, bArr, th) == null) {
-            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
-            IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
-            if (removeListener instanceof BIMValueCallBack) {
-                ((BIMValueCallBack) removeListener).onResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, null);
-            }
-        }
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
@@ -172,15 +191,5 @@ public class IMQueryMemberPauidRequest extends FansGroupBaseHttpRequest {
                 ((BIMValueCallBack) removeListener).onResult(i2, str, arrayList);
             }
         }
-    }
-
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public boolean shouldAbort() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

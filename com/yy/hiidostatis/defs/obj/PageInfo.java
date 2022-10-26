@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class PageInfo extends Info<PageElemInfo> {
+public class PageInfo extends Info {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -1552338297862195142L;
     public transient /* synthetic */ FieldHolder $fh;

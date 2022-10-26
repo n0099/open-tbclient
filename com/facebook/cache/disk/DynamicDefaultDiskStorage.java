@@ -16,7 +16,6 @@ import com.facebook.common.file.FileTree;
 import com.facebook.common.file.FileUtils;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.Supplier;
-import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.common.logging.FLog;
 import java.io.File;
 import java.io.IOException;
@@ -25,18 +24,16 @@ import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
 public class DynamicDefaultDiskStorage implements DiskStorage {
     public static /* synthetic */ Interceptable $ic;
-    public static final Class<?> TAG;
+    public static final Class TAG;
     public transient /* synthetic */ FieldHolder $fh;
     public final String mBaseDirectoryName;
-    public final Supplier<File> mBaseDirectoryPathSupplier;
+    public final Supplier mBaseDirectoryPathSupplier;
     public final CacheErrorLogger mCacheErrorLogger;
-    @VisibleForTesting
     public volatile State mCurrentState;
     public final int mVersion;
 
-    @VisibleForTesting
     /* loaded from: classes7.dex */
-    public static class State {
+    public class State {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         @Nullable
@@ -44,7 +41,6 @@ public class DynamicDefaultDiskStorage implements DiskStorage {
         @Nullable
         public final File rootDirectory;
 
-        @VisibleForTesting
         public State(@Nullable File file, @Nullable DiskStorage diskStorage) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -81,32 +77,10 @@ public class DynamicDefaultDiskStorage implements DiskStorage {
         TAG = DynamicDefaultDiskStorage.class;
     }
 
-    public DynamicDefaultDiskStorage(int i, Supplier<File> supplier, String str, CacheErrorLogger cacheErrorLogger) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), supplier, str, cacheErrorLogger};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mVersion = i;
-        this.mCacheErrorLogger = cacheErrorLogger;
-        this.mBaseDirectoryPathSupplier = supplier;
-        this.mBaseDirectoryName = str;
-        this.mCurrentState = new State(null, null);
-    }
-
     private void createStorage() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            File file = new File(this.mBaseDirectoryPathSupplier.get(), this.mBaseDirectoryName);
+            File file = new File((File) this.mBaseDirectoryPathSupplier.get(), this.mBaseDirectoryName);
             createRootDirectoryIfNecessary(file);
             this.mCurrentState = new State(file, new DefaultDiskStorage(file, this.mVersion, this.mCacheErrorLogger));
         }
@@ -118,7 +92,10 @@ public class DynamicDefaultDiskStorage implements DiskStorage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             State state = this.mCurrentState;
-            return state.delegate == null || (file = state.rootDirectory) == null || !file.exists();
+            if (state.delegate != null && (file = state.rootDirectory) != null && file.exists()) {
+                return false;
+            }
+            return true;
         }
         return invokeV.booleanValue;
     }
@@ -131,37 +108,13 @@ public class DynamicDefaultDiskStorage implements DiskStorage {
         }
     }
 
-    @Override // com.facebook.cache.disk.DiskStorage
-    public boolean contains(String str, Object obj) throws IOException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj)) == null) ? get().contains(str, obj) : invokeLL.booleanValue;
-    }
-
-    @VisibleForTesting
-    public void createRootDirectoryIfNecessary(File file) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, file) == null) {
-            try {
-                FileUtils.mkdirs(file);
-                FLog.d(TAG, "Created cache directory %s", file.getAbsolutePath());
-            } catch (FileUtils.CreateDirectoryException e) {
-                this.mCacheErrorLogger.logError(CacheErrorLogger.CacheErrorCategory.WRITE_CREATE_DIR, TAG, "createRootDirectoryIfNecessary", e);
-                throw e;
-            }
-        }
-    }
-
-    @VisibleForTesting
     public void deleteOldStorageIfNecessary() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.mCurrentState.delegate == null || this.mCurrentState.rootDirectory == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.mCurrentState.delegate != null && this.mCurrentState.rootDirectory != null) {
+            FileTree.deleteRecursively(this.mCurrentState.rootDirectory);
         }
-        FileTree.deleteRecursively(this.mCurrentState.rootDirectory);
     }
 
-    @VisibleForTesting
     public synchronized DiskStorage get() throws IOException {
         InterceptResult invokeV;
         DiskStorage diskStorage;
@@ -183,21 +136,20 @@ public class DynamicDefaultDiskStorage implements DiskStorage {
     public DiskStorage.DiskDumpInfo getDumpInfo() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? get().getDumpInfo() : (DiskStorage.DiskDumpInfo) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return get().getDumpInfo();
+        }
+        return (DiskStorage.DiskDumpInfo) invokeV.objValue;
     }
 
     @Override // com.facebook.cache.disk.DiskStorage
-    public Collection<DiskStorage.Entry> getEntries() throws IOException {
+    public Collection getEntries() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? get().getEntries() : (Collection) invokeV.objValue;
-    }
-
-    @Override // com.facebook.cache.disk.DiskStorage
-    public BinaryResource getResource(String str, Object obj) throws IOException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, obj)) == null) ? get().getResource(str, obj) : (BinaryResource) invokeLL.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return get().getEntries();
+        }
+        return (Collection) invokeV.objValue;
     }
 
     @Override // com.facebook.cache.disk.DiskStorage
@@ -212,13 +164,6 @@ public class DynamicDefaultDiskStorage implements DiskStorage {
             }
         }
         return (String) invokeV.objValue;
-    }
-
-    @Override // com.facebook.cache.disk.DiskStorage
-    public DiskStorage.Inserter insert(String str, Object obj) throws IOException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, str, obj)) == null) ? get().insert(str, obj) : (DiskStorage.Inserter) invokeLL.objValue;
     }
 
     @Override // com.facebook.cache.disk.DiskStorage
@@ -261,24 +206,98 @@ public class DynamicDefaultDiskStorage implements DiskStorage {
         }
     }
 
-    @Override // com.facebook.cache.disk.DiskStorage
-    public long remove(DiskStorage.Entry entry) throws IOException {
-        InterceptResult invokeL;
+    public DynamicDefaultDiskStorage(int i, Supplier supplier, String str, CacheErrorLogger cacheErrorLogger) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, entry)) == null) ? get().remove(entry) : invokeL.longValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), supplier, str, cacheErrorLogger};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mVersion = i;
+        this.mCacheErrorLogger = cacheErrorLogger;
+        this.mBaseDirectoryPathSupplier = supplier;
+        this.mBaseDirectoryName = str;
+        this.mCurrentState = new State(null, null);
+    }
+
+    @Override // com.facebook.cache.disk.DiskStorage
+    public boolean contains(String str, Object obj) throws IOException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj)) == null) {
+            return get().contains(str, obj);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.facebook.cache.disk.DiskStorage
+    public BinaryResource getResource(String str, Object obj) throws IOException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, obj)) == null) {
+            return get().getResource(str, obj);
+        }
+        return (BinaryResource) invokeLL.objValue;
+    }
+
+    @Override // com.facebook.cache.disk.DiskStorage
+    public DiskStorage.Inserter insert(String str, Object obj) throws IOException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, str, obj)) == null) {
+            return get().insert(str, obj);
+        }
+        return (DiskStorage.Inserter) invokeLL.objValue;
     }
 
     @Override // com.facebook.cache.disk.DiskStorage
     public boolean touch(String str, Object obj) throws IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, str, obj)) == null) ? get().touch(str, obj) : invokeLL.booleanValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, str, obj)) == null) {
+            return get().touch(str, obj);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public void createRootDirectoryIfNecessary(File file) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, file) == null) {
+            try {
+                FileUtils.mkdirs(file);
+                FLog.d(TAG, "Created cache directory %s", file.getAbsolutePath());
+            } catch (FileUtils.CreateDirectoryException e) {
+                this.mCacheErrorLogger.logError(CacheErrorLogger.CacheErrorCategory.WRITE_CREATE_DIR, TAG, "createRootDirectoryIfNecessary", e);
+                throw e;
+            }
+        }
+    }
+
+    @Override // com.facebook.cache.disk.DiskStorage
+    public long remove(DiskStorage.Entry entry) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, entry)) == null) {
+            return get().remove(entry);
+        }
+        return invokeL.longValue;
     }
 
     @Override // com.facebook.cache.disk.DiskStorage
     public long remove(String str) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) ? get().remove(str) : invokeL.longValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
+            return get().remove(str);
+        }
+        return invokeL.longValue;
     }
 }

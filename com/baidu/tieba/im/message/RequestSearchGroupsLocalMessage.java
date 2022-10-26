@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import protobuf.SearchGroup.DataReq;
 import protobuf.SearchGroup.SearchGroupReqIdl;
 /* loaded from: classes4.dex */
-public class RequestSearchGroupsLocalMessage extends CustomMessage<Object> {
+public class RequestSearchGroupsLocalMessage extends CustomMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long groupId;
@@ -53,7 +53,10 @@ public class RequestSearchGroupsLocalMessage extends CustomMessage<Object> {
     public long getGroupId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.groupId : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.groupId;
+        }
+        return invokeV.longValue;
     }
 
     public void setGroupId(long j) {

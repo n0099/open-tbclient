@@ -6,7 +6,7 @@ import java.util.Map;
 /* loaded from: classes8.dex */
 public class c implements a {
     public final String a = c.class.getSimpleName();
-    public final HashMap<String, Object> b = new HashMap<>();
+    public final HashMap b = new HashMap();
 
     @Override // com.meizu.cloud.pushsdk.c.a.a
     public Map a() {
@@ -32,7 +32,7 @@ public class c implements a {
         com.meizu.cloud.pushsdk.c.f.c.c(str3, "The keys value is empty, returning without adding key: " + str, new Object[0]);
     }
 
-    public void a(Map<String, Object> map) {
+    public void a(Map map) {
         if (map == null) {
             com.meizu.cloud.pushsdk.c.f.c.c(this.a, "Map passed in is null, returning without adding map.", new Object[0]);
         } else {

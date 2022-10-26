@@ -1,7 +1,6 @@
 package com.baidu.searchbox.live.shell.list.basic;
 
 import androidx.collection.SimpleArrayMap;
-import com.baidu.live.arch.api.IService;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +13,7 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0010\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u0016\u0012\f\u0012\n\u0012\u0006\b\u0001\u0012\u00020\u00030\u0002\u0012\u0004\u0012\u00020\u00030\u0001H\n¢\u0006\u0002\b\u0004"}, d2 = {"<anonymous>", "Landroidx/collection/SimpleArrayMap;", "Ljava/lang/Class;", "Lcom/baidu/live/arch/api/IService;", "invoke"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
-public final class AbstractMixFakeShell$serviceLocator$2 extends Lambda implements Function0<SimpleArrayMap<Class<? extends IService>, IService>> {
+public final class AbstractMixFakeShell$serviceLocator$2 extends Lambda implements Function0 {
     public static /* synthetic */ Interceptable $ic;
     public static final AbstractMixFakeShell$serviceLocator$2 INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,11 +53,13 @@ public final class AbstractMixFakeShell$serviceLocator$2 extends Lambda implemen
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
     @Override // kotlin.jvm.functions.Function0
-    public final SimpleArrayMap<Class<? extends IService>, IService> invoke() {
+    public final SimpleArrayMap invoke() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new SimpleArrayMap<>() : (SimpleArrayMap) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new SimpleArrayMap();
+        }
+        return (SimpleArrayMap) invokeV.objValue;
     }
 }

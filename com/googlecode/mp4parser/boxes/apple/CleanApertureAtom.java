@@ -28,6 +28,16 @@ public class CleanApertureAtom extends AbstractFullBox {
     public double height;
     public double width;
 
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public long getContentSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 12L;
+        }
+        return invokeV.longValue;
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -62,6 +72,26 @@ public class CleanApertureAtom extends AbstractFullBox {
         }
     }
 
+    public double getHeight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
+            return this.height;
+        }
+        return invokeV.doubleValue;
+    }
+
+    public double getWidth() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
+            return this.width;
+        }
+        return invokeV.doubleValue;
+    }
+
     public static /* synthetic */ void ajc$preClinit() {
         Factory factory = new Factory("CleanApertureAtom.java", CleanApertureAtom.class);
         ajc$tjp_0 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getWidth", "com.googlecode.mp4parser.boxes.apple.CleanApertureAtom", "", "", "", "double"), 45);
@@ -88,36 +118,6 @@ public class CleanApertureAtom extends AbstractFullBox {
             IsoTypeWriter.writeFixedPoint1616(byteBuffer, this.width);
             IsoTypeWriter.writeFixedPoint1616(byteBuffer, this.height);
         }
-    }
-
-    @Override // com.googlecode.mp4parser.AbstractBox
-    public long getContentSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 12L;
-        }
-        return invokeV.longValue;
-    }
-
-    public double getHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
-            return this.height;
-        }
-        return invokeV.doubleValue;
-    }
-
-    public double getWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
-            return this.width;
-        }
-        return invokeV.doubleValue;
     }
 
     public void setHeight(double d) {

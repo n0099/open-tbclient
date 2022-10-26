@@ -1,6 +1,5 @@
 package com.bumptech.glide.gifdecoder;
 
-import androidx.annotation.ColorInt;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,13 +14,11 @@ public class GifHeader {
     public static final int NETSCAPE_LOOP_COUNT_DOES_NOT_EXIST = -1;
     public static final int NETSCAPE_LOOP_COUNT_FOREVER = 0;
     public transient /* synthetic */ FieldHolder $fh;
-    @ColorInt
     public int bgColor;
     public int bgIndex;
     public GifFrame currentFrame;
     public int frameCount;
-    public final List<GifFrame> frames;
-    @ColorInt
+    public final List frames;
     public int[] gct;
     public boolean gctFlag;
     public int gctSize;
@@ -54,24 +51,36 @@ public class GifHeader {
     public int getHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.height : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.height;
+        }
+        return invokeV.intValue;
     }
 
     public int getNumFrames() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.frameCount : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.frameCount;
+        }
+        return invokeV.intValue;
     }
 
     public int getStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.status : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.status;
+        }
+        return invokeV.intValue;
     }
 
     public int getWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.width : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.width;
+        }
+        return invokeV.intValue;
     }
 }

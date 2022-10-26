@@ -1,29 +1,38 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.mainTab.FragmentTabIndicator;
-import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
-import com.baidu.tieba.frs.gamerecommend.FrsGameRecommendFragment;
+import android.widget.AbsListView;
+import android.widget.BaseAdapter;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class pn6 extends l95 {
+public abstract class pn6 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrsGameRecommendFragment c;
+    public tn6 a;
+    public boolean b;
 
-    public pn6(String str, String str2) {
+    public abstract int b();
+
+    public abstract Object c(int i);
+
+    public abstract int d();
+
+    public abstract long e(int i);
+
+    public abstract View g(int i, View view2, ViewGroup viewGroup);
+
+    public abstract void j(int i);
+
+    public pn6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,44 +42,171 @@ public class pn6 extends l95 {
                 return;
             }
         }
-        this.c = FrsGameRecommendFragment.u1(str, str2);
-        b().a = this.c;
+        this.b = true;
     }
 
-    @Override // com.baidu.tieba.l95
-    public m95 a() {
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getViewTypeCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            m95 m95Var = new m95();
-            m95Var.e = 11;
-            m95Var.b = R.string.obfuscated_res_0x7f0f070b;
-            m95Var.i = m95.k;
-            return m95Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            if (h()) {
+                return 2;
+            }
+            return 1;
         }
-        return (m95) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.l95
-    public TbFragmentTabIndicator c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02ee, (ViewGroup) null);
-            this.b = fragmentTabIndicator;
-            fragmentTabIndicator.setTextSize(2.0f);
-            return this.b;
-        }
-        return (TbFragmentTabIndicator) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.l95
-    public boolean d() {
+    public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            tn6 tn6Var = this.a;
+            if (tn6Var != null && tn6Var.b() && b() - 1 > this.a.getArrowIndex()) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
+    }
+
+    public final View a(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
+            tn6 tn6Var = this.a;
+            if (tn6Var == null) {
+                return view2;
+            }
+            if (view2 == null || view2 != tn6Var.getArrowView()) {
+                view2 = this.a.getArrowView();
+                if (view2.getLayoutParams() == null) {
+                    view2.setLayoutParams(new AbsListView.LayoutParams(-1, d()));
+                }
+            }
+            this.a.a(view2);
+            return view2;
+        }
+        return (View) invokeL.objValue;
+    }
+
+    public int f(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            tn6 tn6Var = this.a;
+            if (tn6Var != null && tn6Var.b()) {
+                int arrowIndex = this.a.getArrowIndex();
+                if (i < arrowIndex) {
+                    return i;
+                }
+                if (i == arrowIndex) {
+                    return -1;
+                }
+                return i - 1;
+            }
+            return i;
+        }
+        return invokeI.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+            if (h()) {
+                int f = f(i);
+                if (f >= 0) {
+                    return c(f);
+                }
+                return c(i);
+            }
+            return c(i);
+        }
+        return invokeI.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
+            if (h()) {
+                int f = f(i);
+                if (f >= 0) {
+                    return e(f);
+                }
+                return e(i);
+            }
+            return e(i);
+        }
+        return invokeI.longValue;
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getItemViewType(int i) {
+        InterceptResult invokeI;
+        int arrowIndex;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
+            if (!h() || (arrowIndex = this.a.getArrowIndex()) <= 0 || i != arrowIndex) {
+                return 0;
+            }
+            return 1;
+        }
+        return invokeI.intValue;
+    }
+
+    public void i(tn6 tn6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, tn6Var) == null) {
+            this.a = tn6Var;
+        }
+    }
+
+    public void k(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
+            this.b = z;
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        int b;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (h()) {
+                if (this.b) {
+                    b = this.a.getArrowIndex();
+                } else {
+                    tn6 tn6Var = this.a;
+                    if (tn6Var != null && tn6Var.b()) {
+                        b = b();
+                    } else {
+                        return b();
+                    }
+                }
+                return b + 1;
+            }
+            return b();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048587, this, i, view2, viewGroup)) == null) {
+            if (getItemViewType(i) == 0) {
+                return g(f(i), view2, viewGroup);
+            }
+            return a(view2);
+        }
+        return (View) invokeILL.objValue;
     }
 }

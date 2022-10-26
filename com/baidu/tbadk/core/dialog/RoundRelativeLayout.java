@@ -68,65 +68,6 @@ public class RoundRelativeLayout extends RelativeLayout {
         }
     }
 
-    @Override // android.view.ViewGroup, android.view.View
-    public void dispatchDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            int saveCount = canvas.getSaveCount();
-            canvas.save();
-            super.dispatchDraw(canvas);
-            Shape shape = this.b;
-            if (shape != null) {
-                shape.draw(canvas, this.c);
-            }
-            if (saveCount < 1 || saveCount > canvas.getSaveCount()) {
-                return;
-            }
-            canvas.restoreToCount(saveCount);
-        }
-    }
-
-    @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            super.onLayout(z, i, i2, i3, i4);
-            if (z) {
-                if (this.b == null) {
-                    float[] fArr = new float[8];
-                    Arrays.fill(fArr, 0.0f);
-                    RectF rectF = new RectF(getPaddingLeft(), getPaddingTop() > 0 ? getPaddingTop() : 1.0f, getPaddingRight() <= 0 ? 1.0f : getPaddingRight(), getPaddingBottom());
-                    float[] fArr2 = new float[8];
-                    Arrays.fill(fArr, 0.0f);
-                    Arrays.fill(fArr2, 0, this.d, this.a);
-                    this.b = new RoundRectShape(fArr, rectF, fArr2);
-                }
-                this.b.resize(getWidth(), getHeight());
-            }
-        }
-    }
-
-    public void setPaintColor(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.c.setColor(i);
-        }
-    }
-
-    public void setRadius(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048579, this, f) == null) {
-            this.a = f;
-        }
-    }
-
-    public void setRoundCount(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.d = i;
-        }
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public RoundRelativeLayout(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
@@ -177,5 +118,74 @@ public class RoundRelativeLayout extends RelativeLayout {
         this.c.setColor(-7829368);
         this.c.setStyle(Paint.Style.FILL);
         this.c.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void dispatchDraw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
+            int saveCount = canvas.getSaveCount();
+            canvas.save();
+            super.dispatchDraw(canvas);
+            Shape shape = this.b;
+            if (shape != null) {
+                shape.draw(canvas, this.c);
+            }
+            if (saveCount >= 1 && saveCount <= canvas.getSaveCount()) {
+                canvas.restoreToCount(saveCount);
+            }
+        }
+    }
+
+    public void setPaintColor(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.c.setColor(i);
+        }
+    }
+
+    public void setRadius(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048579, this, f) == null) {
+            this.a = f;
+        }
+    }
+
+    public void setRoundCount(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        float paddingRight;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            super.onLayout(z, i, i2, i3, i4);
+            if (z) {
+                if (this.b == null) {
+                    float[] fArr = new float[8];
+                    Arrays.fill(fArr, 0.0f);
+                    float paddingLeft = getPaddingLeft();
+                    float f = 1.0f;
+                    if (getPaddingRight() <= 0) {
+                        paddingRight = 1.0f;
+                    } else {
+                        paddingRight = getPaddingRight();
+                    }
+                    if (getPaddingTop() > 0) {
+                        f = getPaddingTop();
+                    }
+                    RectF rectF = new RectF(paddingLeft, f, paddingRight, getPaddingBottom());
+                    float[] fArr2 = new float[8];
+                    Arrays.fill(fArr, 0.0f);
+                    Arrays.fill(fArr2, 0, this.d, this.a);
+                    this.b = new RoundRectShape(fArr, rectF, fArr2);
+                }
+                this.b.resize(getWidth(), getHeight());
+            }
+        }
     }
 }

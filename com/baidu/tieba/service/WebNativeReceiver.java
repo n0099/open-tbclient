@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import com.baidu.android.imsdk.db.DBTableDefine;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
 import com.baidu.tbadk.core.atomData.PbChosenActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkCode;
@@ -66,7 +67,7 @@ public class WebNativeReceiver extends BroadcastReceiver {
                 intent2.putExtra(DBTableDefine.GroupMessageColumns.COLUMN_GROUPID, intent.getStringExtra(DBTableDefine.GroupMessageColumns.COLUMN_GROUPID));
             } else if (stringExtra.equals(TiebaStatic.DQPay.TYPE_VALUE)) {
                 intent2.putExtra(DealIntentService.KEY_CLASS, 15);
-                intent2.putExtra("pay_type", intent.getStringExtra("pay_type"));
+                intent2.putExtra(MemberPayActivityConfig.PAY_TYPE, intent.getStringExtra(MemberPayActivityConfig.PAY_TYPE));
                 intent2.putExtra("props_id", intent.getStringExtra("props_id"));
                 intent2.putExtra("quan_num", intent.getStringExtra("quan_num"));
                 intent2.putExtra("is_left", intent.getStringExtra("is_left"));
@@ -76,11 +77,11 @@ public class WebNativeReceiver extends BroadcastReceiver {
                 intent2.putExtra("barid", intent.getStringExtra("barid"));
                 intent2.putExtra("barname", intent.getStringExtra("barname"));
                 intent2.putExtra("portrait", intent.getStringExtra("portrait"));
-            } else if (!stringExtra.equals("recommendpb")) {
-                return;
-            } else {
+            } else if (stringExtra.equals("recommendpb")) {
                 intent2.putExtra(DealIntentService.KEY_CLASS, 28);
                 intent2.putExtra(PbChosenActivityConfig.KEY_TID, intent.getStringExtra(PbChosenActivityConfig.KEY_TID));
+            } else {
+                return;
             }
             context.startService(intent2);
         }

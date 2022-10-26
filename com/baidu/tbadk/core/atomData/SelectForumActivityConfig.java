@@ -7,7 +7,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
-import com.baidu.tbadk.core.data.TransmitForumData;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -88,113 +87,99 @@ public class SelectForumActivityConfig extends IntentConfig {
 
     public void setBaijiahaoData(BaijiahaoData baijiahaoData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baijiahaoData) == null) || getIntent() == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baijiahaoData) == null) && getIntent() != null) {
+            getIntent().putExtra(EXTRA_KEY_BAIJIAHAO_DATA, baijiahaoData);
         }
-        getIntent().putExtra(EXTRA_KEY_BAIJIAHAO_DATA, baijiahaoData);
     }
 
-    public void setForumList(ArrayList<TransmitForumData> arrayList) {
+    public void setForumList(ArrayList arrayList) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) || getIntent() == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) && getIntent() != null) {
+            getIntent().putParcelableArrayListExtra("KEY_INTPUT_FORUM_LIST", arrayList);
         }
-        getIntent().putParcelableArrayListExtra("KEY_INTPUT_FORUM_LIST", arrayList);
     }
 
     public void setFrom(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || getIntent() == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeI(1048579, this, i) == null) && getIntent() != null) {
+            getIntent().putExtra(EXTRA_KEY_FROM, i);
         }
-        getIntent().putExtra(EXTRA_KEY_FROM, i);
     }
 
     public void setIsShare(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048580, this, z) == null) || getIntent() == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeZ(1048580, this, z) == null) && getIntent() != null) {
+            getIntent().putExtra("from_share", z);
         }
-        getIntent().putExtra("from_share", z);
     }
 
     public void setLiveId(long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048581, this, j) == null) || getIntent() == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeJ(1048581, this, j) == null) && getIntent() != null) {
+            getIntent().putExtra("extra_key_live_id", j);
         }
-        getIntent().putExtra("extra_key_live_id", j);
     }
 
     public void setMoreForumImg(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || getIntent() == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && getIntent() != null) {
+            getIntent().putExtra("more_forum_img", str);
         }
-        getIntent().putExtra("more_forum_img", str);
     }
 
     public void setMoreForumTitle(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || getIntent() == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, str) == null) && getIntent() != null) {
+            getIntent().putExtra("more_forum_title", str);
         }
-        getIntent().putExtra("more_forum_title", str);
     }
 
     public void setMoreForumUrl(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) || getIntent() == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) && getIntent() != null) {
+            getIntent().putExtra("more_forum_url", str);
         }
-        getIntent().putExtra("more_forum_url", str);
     }
 
     public void setOriginalThread(OriginalThreadInfo.ShareInfo shareInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, shareInfo) == null) || getIntent() == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048585, this, shareInfo) == null) && getIntent() != null) {
+            getIntent().putExtra(EXTRA_KEY_ORIGINAL_THREAD, shareInfo);
         }
-        getIntent().putExtra(EXTRA_KEY_ORIGINAL_THREAD, shareInfo);
     }
 
     public void setPrivateThread(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048586, this, i) == null) || getIntent() == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeI(1048586, this, i) == null) && getIntent() != null) {
+            getIntent().putExtra(EXTRA_KEY_PRIVATE_THREAD, i);
         }
-        getIntent().putExtra(EXTRA_KEY_PRIVATE_THREAD, i);
     }
 
     public void setTopicId(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, str) == null) || getIntent() == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048587, this, str) == null) && getIntent() != null) {
+            getIntent().putExtra("topic_id", str);
         }
-        getIntent().putExtra("topic_id", str);
     }
 
     public void setTransmitOriginThreadComment(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048588, this, str) == null) || getIntent() == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048588, this, str) == null) && getIntent() != null) {
+            getIntent().putExtra(EXTRA_KEY_TRANSMIT_ORIGIN_THREAD_CONTENT, str);
         }
-        getIntent().putExtra(EXTRA_KEY_TRANSMIT_ORIGIN_THREAD_CONTENT, str);
     }
 
     public void setTransmitThreadAuthorNameShow(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, str) == null) || getIntent() == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048589, this, str) == null) && getIntent() != null) {
+            getIntent().putExtra(EXTRA_KEY_TRANSMIT_THREAD_AUTHOR_NAME_SHOW, str);
         }
-        getIntent().putExtra(EXTRA_KEY_TRANSMIT_THREAD_AUTHOR_NAME_SHOW, str);
     }
 
     public void setYyAnchorBdUid(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048590, this, str) == null) || getIntent() == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048590, this, str) == null) && getIntent() != null) {
+            getIntent().putExtra("extra_key_yy_anchor_bduid", str);
         }
-        getIntent().putExtra("extra_key_yy_anchor_bduid", str);
     }
 }

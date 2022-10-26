@@ -241,6 +241,14 @@ public class KeyAttributes extends Key {
         this.mCustomConstraints = new HashMap<>();
     }
 
+    @Override // androidx.constraintlayout.motion.widget.Key
+    public void load(Context context, AttributeSet attributeSet) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, context, attributeSet) == null) {
+            Loader.read(this, context.obtainStyledAttributes(attributeSet, R.styleable.KeyAttribute));
+        }
+    }
+
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     /* JADX WARN: Code restructure failed: missing block: B:19:0x0058, code lost:
         if (r1.equals(androidx.constraintlayout.motion.widget.Key.TRANSITION_PATH_ROTATE) != false) goto L14;
@@ -527,21 +535,16 @@ public class KeyAttributes extends Key {
     public int getCurveFit() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mCurveFit : invokeV.intValue;
-    }
-
-    @Override // androidx.constraintlayout.motion.widget.Key
-    public void load(Context context, AttributeSet attributeSet) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, context, attributeSet) == null) {
-            Loader.read(this, context.obtainStyledAttributes(attributeSet, R.styleable.KeyAttribute));
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mCurveFit;
         }
+        return invokeV.intValue;
     }
 
     @Override // androidx.constraintlayout.motion.widget.Key
     public void setInterpolation(HashMap<String, Integer> hashMap) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, hashMap) == null) || this.mCurveFit == -1) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, hashMap) != null) || this.mCurveFit == -1) {
             return;
         }
         if (!Float.isNaN(this.mAlpha)) {

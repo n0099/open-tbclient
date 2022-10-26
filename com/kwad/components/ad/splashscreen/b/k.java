@@ -5,7 +5,6 @@ import android.text.TextUtils;
 import android.view.ViewStub;
 import android.widget.ImageView;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -124,7 +123,7 @@ public final class k extends e {
             } else if (com.kwad.sdk.core.response.a.a.am(this.mAdInfo)) {
                 this.ze.setText(com.kwad.components.ad.splashscreen.e.a(this.yF.mAdTemplate, this.mAdInfo, this.zi.mI()));
                 if (com.kwad.components.ad.splashscreen.d.c.b(this.yF)) {
-                    com.kwad.components.ad.splashscreen.d.c.a(findViewById(R.id.obfuscated_res_0x7f0911ff), -1, 60, -1, -1);
+                    com.kwad.components.ad.splashscreen.d.c.a(findViewById(R.id.obfuscated_res_0x7f0911f3), -1, 60, -1, -1);
                     return;
                 }
                 return;
@@ -230,12 +229,12 @@ public final class k extends e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onCreate();
-            ((ViewStub) findViewById(R.id.obfuscated_res_0x7f0911ed)).inflate();
-            this.eQ = (TextView) findViewById(R.id.obfuscated_res_0x7f091200);
-            this.ze = (TextView) findViewById(R.id.obfuscated_res_0x7f0911ff);
-            this.zf = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911fe);
-            this.mRootContainer = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0911fb);
-            KsSplashSlidePathView ksSplashSlidePathView = (KsSplashSlidePathView) ((ViewStub) findViewById(R.id.obfuscated_res_0x7f0911fd)).inflate();
+            ((ViewStub) findViewById(R.id.obfuscated_res_0x7f0911e1)).inflate();
+            this.eQ = (TextView) findViewById(R.id.obfuscated_res_0x7f0911f4);
+            this.ze = (TextView) findViewById(R.id.obfuscated_res_0x7f0911f3);
+            this.zf = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911f2);
+            this.mRootContainer = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0911ef);
+            KsSplashSlidePathView ksSplashSlidePathView = (KsSplashSlidePathView) ((ViewStub) findViewById(R.id.obfuscated_res_0x7f0911f1)).inflate();
             this.zh = ksSplashSlidePathView;
             ksSplashSlidePathView.setOnSlideTouchListener(new KsSplashSlidePathView.a(this) { // from class: com.kwad.components.ad.splashscreen.b.k.1
                 public static /* synthetic */ Interceptable $ic;
@@ -296,7 +295,7 @@ public final class k extends e {
                             }
 
                             @Override // com.kwad.components.ad.splashscreen.h.a
-                            public final void b(@NonNull com.kwad.sdk.core.report.f fVar) {
+                            public final void b(com.kwad.sdk.core.report.f fVar) {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeL(1048576, this, fVar) == null) {
                                     fVar.aQ(this.zm.zk.zd.style);

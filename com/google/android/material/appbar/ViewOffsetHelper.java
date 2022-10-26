@@ -56,37 +56,55 @@ public class ViewOffsetHelper {
     public int getLayoutLeft() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.layoutLeft : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.layoutLeft;
+        }
+        return invokeV.intValue;
     }
 
     public int getLayoutTop() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.layoutTop : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.layoutTop;
+        }
+        return invokeV.intValue;
     }
 
     public int getLeftAndRightOffset() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.offsetLeft : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.offsetLeft;
+        }
+        return invokeV.intValue;
     }
 
     public int getTopAndBottomOffset() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.offsetTop : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.offsetTop;
+        }
+        return invokeV.intValue;
     }
 
     public boolean isHorizontalOffsetEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.horizontalOffsetEnabled : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.horizontalOffsetEnabled;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isVerticalOffsetEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.verticalOffsetEnabled : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.verticalOffsetEnabled;
+        }
+        return invokeV.booleanValue;
     }
 
     public void onViewLayout() {
@@ -108,12 +126,12 @@ public class ViewOffsetHelper {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
-            if (!this.horizontalOffsetEnabled || this.offsetLeft == i) {
-                return false;
+            if (this.horizontalOffsetEnabled && this.offsetLeft != i) {
+                this.offsetLeft = i;
+                applyOffsets();
+                return true;
             }
-            this.offsetLeft = i;
-            applyOffsets();
-            return true;
+            return false;
         }
         return invokeI.booleanValue;
     }
@@ -122,12 +140,12 @@ public class ViewOffsetHelper {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
-            if (!this.verticalOffsetEnabled || this.offsetTop == i) {
-                return false;
+            if (this.verticalOffsetEnabled && this.offsetTop != i) {
+                this.offsetTop = i;
+                applyOffsets();
+                return true;
             }
-            this.offsetTop = i;
-            applyOffsets();
-            return true;
+            return false;
         }
         return invokeI.booleanValue;
     }

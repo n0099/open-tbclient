@@ -11,13 +11,20 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class SubscriberCompletableObserver<T> implements CompletableObserver, Subscription {
+public final class SubscriberCompletableObserver implements CompletableObserver, Subscription {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Disposable d;
-    public final Subscriber<? super T> subscriber;
+    public final Subscriber subscriber;
 
-    public SubscriberCompletableObserver(Subscriber<? super T> subscriber) {
+    @Override // org.reactivestreams.Subscription
+    public void request(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+        }
+    }
+
+    public SubscriberCompletableObserver(Subscriber subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -33,22 +40,6 @@ public final class SubscriberCompletableObserver<T> implements CompletableObserv
             }
         }
         this.subscriber = subscriber;
-    }
-
-    @Override // org.reactivestreams.Subscription
-    public void cancel() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.d.dispose();
-        }
-    }
-
-    @Override // io.reactivex.CompletableObserver, io.reactivex.MaybeObserver
-    public void onComplete() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.subscriber.onComplete();
-        }
     }
 
     @Override // io.reactivex.CompletableObserver
@@ -69,9 +60,18 @@ public final class SubscriberCompletableObserver<T> implements CompletableObserv
     }
 
     @Override // org.reactivestreams.Subscription
-    public void request(long j) {
+    public void cancel() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.d.dispose();
+        }
+    }
+
+    @Override // io.reactivex.CompletableObserver, io.reactivex.MaybeObserver
+    public void onComplete() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.subscriber.onComplete();
         }
     }
 }

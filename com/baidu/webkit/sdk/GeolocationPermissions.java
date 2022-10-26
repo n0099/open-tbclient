@@ -9,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Set;
 /* loaded from: classes6.dex */
 public class GeolocationPermissions {
     public static /* synthetic */ Interceptable $ic;
@@ -78,14 +77,14 @@ public class GeolocationPermissions {
         }
     }
 
-    public void getAllowed(String str, ValueCallback<Boolean> valueCallback) {
+    public void getAllowed(String str, ValueCallback valueCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, valueCallback) == null) {
             WebViewFactory.getProvider().getGeolocationPermissions().getAllowed(str, valueCallback);
         }
     }
 
-    public void getOrigins(ValueCallback<Set<String>> valueCallback) {
+    public void getOrigins(ValueCallback valueCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, valueCallback) == null) {
             WebViewFactory.getProvider().getGeolocationPermissions().getOrigins(valueCallback);

@@ -31,6 +31,13 @@ public class NoOpCacheErrorLogger implements CacheErrorLogger {
         }
     }
 
+    @Override // com.facebook.cache.common.CacheErrorLogger
+    public void logError(CacheErrorLogger.CacheErrorCategory cacheErrorCategory, Class cls, String str, @Nullable Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, cacheErrorCategory, cls, str, th) == null) {
+        }
+    }
+
     public NoOpCacheErrorLogger() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -59,12 +66,5 @@ public class NoOpCacheErrorLogger implements CacheErrorLogger {
             return noOpCacheErrorLogger;
         }
         return (NoOpCacheErrorLogger) invokeV.objValue;
-    }
-
-    @Override // com.facebook.cache.common.CacheErrorLogger
-    public void logError(CacheErrorLogger.CacheErrorCategory cacheErrorCategory, Class<?> cls, String str, @Nullable Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, cacheErrorCategory, cls, str, th) == null) {
-        }
     }
 }

@@ -1,6 +1,5 @@
 package com.baidu.pass.biometrics.base.utils;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -54,7 +53,6 @@ public final class NetworkUtils {
         }
     }
 
-    @TargetApi(3)
     public static String getNetworkClass(Context context) {
         InterceptResult invokeL;
         NetworkInfo activeNetworkInfo;
@@ -108,6 +106,12 @@ public final class NetworkUtils {
         ConnectivityManager connectivityManager;
         NetworkInfo activeNetworkInfo;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? (context == null || (connectivityManager = (ConnectivityManager) context.getSystemService("connectivity")) == null || (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) == null || !activeNetworkInfo.isAvailable()) ? false : true : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            if (context == null || (connectivityManager = (ConnectivityManager) context.getSystemService("connectivity")) == null || (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) == null || !activeNetworkInfo.isAvailable()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

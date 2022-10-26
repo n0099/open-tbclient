@@ -1,9 +1,9 @@
 package com.opensource.svgaplayer.proto;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dt9;
-import com.baidu.tieba.et9;
-import com.baidu.tieba.it9;
+import com.baidu.tieba.au9;
+import com.baidu.tieba.vt9;
+import com.baidu.tieba.wt9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,9 +18,9 @@ import com.squareup.wire2.WireField;
 import java.io.IOException;
 import okio.ByteString;
 /* loaded from: classes8.dex */
-public final class MovieParams extends Message<MovieParams, Builder> {
+public final class MovieParams extends Message {
     public static /* synthetic */ Interceptable $ic;
-    public static final ProtoAdapter<MovieParams> ADAPTER;
+    public static final ProtoAdapter ADAPTER;
     public static final Integer DEFAULT_FPS;
     public static final Integer DEFAULT_FRAMES;
     public static final Float DEFAULT_VIEWBOXHEIGHT;
@@ -37,7 +37,7 @@ public final class MovieParams extends Message<MovieParams, Builder> {
     public final Float viewBoxWidth;
 
     /* loaded from: classes8.dex */
-    public static final class Builder extends Message.a<MovieParams, Builder> {
+    public final class Builder extends Message.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Integer fps;
@@ -57,6 +57,17 @@ public final class MovieParams extends Message<MovieParams, Builder> {
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.squareup.wire2.Message.a
+        public MovieParams build() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new MovieParams(this.viewBoxWidth, this.viewBoxHeight, this.fps, this.frames, super.buildUnknownFields());
+            }
+            return (MovieParams) invokeV.objValue;
         }
 
         public Builder fps(Integer num) {
@@ -98,19 +109,10 @@ public final class MovieParams extends Message<MovieParams, Builder> {
             }
             return (Builder) invokeL.objValue;
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
-        @Override // com.squareup.wire2.Message.a
-        public MovieParams build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new MovieParams(this.viewBoxWidth, this.viewBoxHeight, this.fps, this.frames, super.buildUnknownFields()) : (MovieParams) invokeV.objValue;
-        }
     }
 
     /* loaded from: classes8.dex */
-    public static final class ProtoAdapter_MovieParams extends ProtoAdapter<MovieParams> {
+    public final class ProtoAdapter_MovieParams extends ProtoAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -134,77 +136,42 @@ public final class MovieParams extends Message<MovieParams, Builder> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.squareup.wire2.ProtoAdapter
-        public MovieParams decode(dt9 dt9Var) throws IOException {
+        public MovieParams decode(vt9 vt9Var) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, dt9Var)) != null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, vt9Var)) == null) {
+                Builder builder = new Builder();
+                long c = vt9Var.c();
+                while (true) {
+                    int f = vt9Var.f();
+                    if (f != -1) {
+                        if (f != 1) {
+                            if (f != 2) {
+                                if (f != 3) {
+                                    if (f != 4) {
+                                        FieldEncoding g = vt9Var.g();
+                                        builder.addUnknownField(f, g, g.rawProtoAdapter().decode(vt9Var));
+                                    } else {
+                                        builder.frames((Integer) ProtoAdapter.INT32.decode(vt9Var));
+                                    }
+                                } else {
+                                    builder.fps((Integer) ProtoAdapter.INT32.decode(vt9Var));
+                                }
+                            } else {
+                                builder.viewBoxHeight((Float) ProtoAdapter.FLOAT.decode(vt9Var));
+                            }
+                        } else {
+                            builder.viewBoxWidth((Float) ProtoAdapter.FLOAT.decode(vt9Var));
+                        }
+                    } else {
+                        vt9Var.d(c);
+                        return builder.build();
+                    }
+                }
+            } else {
                 return (MovieParams) invokeL.objValue;
             }
-            Builder builder = new Builder();
-            long c = dt9Var.c();
-            while (true) {
-                int f = dt9Var.f();
-                if (f == -1) {
-                    dt9Var.d(c);
-                    return builder.build();
-                } else if (f == 1) {
-                    builder.viewBoxWidth(ProtoAdapter.FLOAT.decode(dt9Var));
-                } else if (f == 2) {
-                    builder.viewBoxHeight(ProtoAdapter.FLOAT.decode(dt9Var));
-                } else if (f == 3) {
-                    builder.fps(ProtoAdapter.INT32.decode(dt9Var));
-                } else if (f != 4) {
-                    FieldEncoding g = dt9Var.g();
-                    builder.addUnknownField(f, g, g.rawProtoAdapter().decode(dt9Var));
-                } else {
-                    builder.frames(ProtoAdapter.INT32.decode(dt9Var));
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.squareup.wire2.ProtoAdapter
-        public void encode(et9 et9Var, MovieParams movieParams) throws IOException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, et9Var, movieParams) == null) {
-                Float f = movieParams.viewBoxWidth;
-                if (f != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(et9Var, 1, f);
-                }
-                Float f2 = movieParams.viewBoxHeight;
-                if (f2 != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(et9Var, 2, f2);
-                }
-                Integer num = movieParams.fps;
-                if (num != null) {
-                    ProtoAdapter.INT32.encodeWithTag(et9Var, 3, num);
-                }
-                Integer num2 = movieParams.frames;
-                if (num2 != null) {
-                    ProtoAdapter.INT32.encodeWithTag(et9Var, 4, num2);
-                }
-                et9Var.k(movieParams.unknownFields());
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.squareup.wire2.ProtoAdapter
-        public int encodedSize(MovieParams movieParams) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, movieParams)) == null) {
-                Float f = movieParams.viewBoxWidth;
-                int encodedSizeWithTag = f != null ? ProtoAdapter.FLOAT.encodedSizeWithTag(1, f) : 0;
-                Float f2 = movieParams.viewBoxHeight;
-                int encodedSizeWithTag2 = encodedSizeWithTag + (f2 != null ? ProtoAdapter.FLOAT.encodedSizeWithTag(2, f2) : 0);
-                Integer num = movieParams.fps;
-                int encodedSizeWithTag3 = encodedSizeWithTag2 + (num != null ? ProtoAdapter.INT32.encodedSizeWithTag(3, num) : 0);
-                Integer num2 = movieParams.frames;
-                return encodedSizeWithTag3 + (num2 != null ? ProtoAdapter.INT32.encodedSizeWithTag(4, num2) : 0) + movieParams.unknownFields().size();
-            }
-            return invokeL.intValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -213,11 +180,75 @@ public final class MovieParams extends Message<MovieParams, Builder> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, movieParams)) == null) {
-                Message.a<MovieParams, Builder> newBuilder2 = movieParams.newBuilder2();
-                newBuilder2.clearUnknownFields();
-                return newBuilder2.build();
+                Builder newBuilder = movieParams.newBuilder();
+                newBuilder.clearUnknownFields();
+                return newBuilder.build();
             }
             return (MovieParams) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.squareup.wire2.ProtoAdapter
+        public void encode(wt9 wt9Var, MovieParams movieParams) throws IOException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, wt9Var, movieParams) == null) {
+                Float f = movieParams.viewBoxWidth;
+                if (f != null) {
+                    ProtoAdapter.FLOAT.encodeWithTag(wt9Var, 1, f);
+                }
+                Float f2 = movieParams.viewBoxHeight;
+                if (f2 != null) {
+                    ProtoAdapter.FLOAT.encodeWithTag(wt9Var, 2, f2);
+                }
+                Integer num = movieParams.fps;
+                if (num != null) {
+                    ProtoAdapter.INT32.encodeWithTag(wt9Var, 3, num);
+                }
+                Integer num2 = movieParams.frames;
+                if (num2 != null) {
+                    ProtoAdapter.INT32.encodeWithTag(wt9Var, 4, num2);
+                }
+                wt9Var.k(movieParams.unknownFields());
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.squareup.wire2.ProtoAdapter
+        public int encodedSize(MovieParams movieParams) {
+            InterceptResult invokeL;
+            int i;
+            int i2;
+            int i3;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, movieParams)) == null) {
+                Float f = movieParams.viewBoxWidth;
+                int i4 = 0;
+                if (f != null) {
+                    i = ProtoAdapter.FLOAT.encodedSizeWithTag(1, f);
+                } else {
+                    i = 0;
+                }
+                Float f2 = movieParams.viewBoxHeight;
+                if (f2 != null) {
+                    i2 = ProtoAdapter.FLOAT.encodedSizeWithTag(2, f2);
+                } else {
+                    i2 = 0;
+                }
+                int i5 = i + i2;
+                Integer num = movieParams.fps;
+                if (num != null) {
+                    i3 = ProtoAdapter.INT32.encodedSizeWithTag(3, num);
+                } else {
+                    i3 = 0;
+                }
+                int i6 = i5 + i3;
+                Integer num2 = movieParams.frames;
+                if (num2 != null) {
+                    i4 = ProtoAdapter.INT32.encodedSizeWithTag(4, num2);
+                }
+                return i6 + i4 + movieParams.unknownFields().size();
+            }
+            return invokeL.intValue;
         }
     }
 
@@ -263,6 +294,31 @@ public final class MovieParams extends Message<MovieParams, Builder> {
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public MovieParams(Float f, Float f2, Integer num, Integer num2, ByteString byteString) {
+        super(ADAPTER, byteString);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {f, f2, num, num2, byteString};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((ProtoAdapter) objArr2[0], (ByteString) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.viewBoxWidth = f;
+        this.viewBoxHeight = f2;
+        this.fps = num;
+        this.frames = num2;
+    }
+
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -270,9 +326,12 @@ public final class MovieParams extends Message<MovieParams, Builder> {
             if (obj == this) {
                 return true;
             }
-            if (obj instanceof MovieParams) {
-                MovieParams movieParams = (MovieParams) obj;
-                return unknownFields().equals(movieParams.unknownFields()) && it9.f(this.viewBoxWidth, movieParams.viewBoxWidth) && it9.f(this.viewBoxHeight, movieParams.viewBoxHeight) && it9.f(this.fps, movieParams.fps) && it9.f(this.frames, movieParams.frames);
+            if (!(obj instanceof MovieParams)) {
+                return false;
+            }
+            MovieParams movieParams = (MovieParams) obj;
+            if (unknownFields().equals(movieParams.unknownFields()) && au9.f(this.viewBoxWidth, movieParams.viewBoxWidth) && au9.f(this.viewBoxHeight, movieParams.viewBoxHeight) && au9.f(this.fps, movieParams.fps) && au9.f(this.frames, movieParams.frames)) {
+                return true;
             }
             return false;
         }
@@ -281,23 +340,45 @@ public final class MovieParams extends Message<MovieParams, Builder> {
 
     public int hashCode() {
         InterceptResult invokeV;
+        int i;
+        int i2;
+        int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int i = this.hashCode;
-            if (i == 0) {
+            int i4 = this.hashCode;
+            if (i4 == 0) {
                 int hashCode = unknownFields().hashCode() * 37;
                 Float f = this.viewBoxWidth;
-                int hashCode2 = (hashCode + (f != null ? f.hashCode() : 0)) * 37;
+                int i5 = 0;
+                if (f != null) {
+                    i = f.hashCode();
+                } else {
+                    i = 0;
+                }
+                int i6 = (hashCode + i) * 37;
                 Float f2 = this.viewBoxHeight;
-                int hashCode3 = (hashCode2 + (f2 != null ? f2.hashCode() : 0)) * 37;
+                if (f2 != null) {
+                    i2 = f2.hashCode();
+                } else {
+                    i2 = 0;
+                }
+                int i7 = (i6 + i2) * 37;
                 Integer num = this.fps;
-                int hashCode4 = (hashCode3 + (num != null ? num.hashCode() : 0)) * 37;
+                if (num != null) {
+                    i3 = num.hashCode();
+                } else {
+                    i3 = 0;
+                }
+                int i8 = (i7 + i3) * 37;
                 Integer num2 = this.frames;
-                int hashCode5 = hashCode4 + (num2 != null ? num2.hashCode() : 0);
-                this.hashCode = hashCode5;
-                return hashCode5;
+                if (num2 != null) {
+                    i5 = num2.hashCode();
+                }
+                int i9 = i8 + i5;
+                this.hashCode = i9;
+                return i9;
             }
-            return i;
+            return i4;
         }
         return invokeV.intValue;
     }
@@ -331,36 +412,9 @@ public final class MovieParams extends Message<MovieParams, Builder> {
         return (String) invokeV.objValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MovieParams(Float f, Float f2, Integer num, Integer num2, ByteString byteString) {
-        super(ADAPTER, byteString);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {f, f2, num, num2, byteString};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((ProtoAdapter) objArr2[0], (ByteString) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.viewBoxWidth = f;
-        this.viewBoxHeight = f2;
-        this.fps = num;
-        this.frames = num2;
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX DEBUG: Return type fixed from 'com.opensource.svgaplayer.proto.MovieParams$Builder' to match base method */
     @Override // com.squareup.wire2.Message
-    /* renamed from: newBuilder */
-    public Message.a<MovieParams, Builder> newBuilder2() {
+    public Builder newBuilder() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

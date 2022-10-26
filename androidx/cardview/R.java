@@ -13,7 +13,7 @@ public final class R {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
-    public static final class attr {
+    public final class attr {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int cardBackgroundColor = 0x7f04011f;
         public static final int cardCornerRadius = 0x7f040120;
@@ -45,7 +45,7 @@ public final class R {
     }
 
     /* loaded from: classes.dex */
-    public static final class color {
+    public final class color {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int cardview_dark_background = 0x7f06044c;
         public static final int cardview_light_background = 0x7f06044d;
@@ -69,7 +69,7 @@ public final class R {
     }
 
     /* loaded from: classes.dex */
-    public static final class dimen {
+    public final class dimen {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int cardview_compat_inset_shadow = 0x7f0701b3;
         public static final int cardview_default_elevation = 0x7f0701b4;
@@ -92,7 +92,7 @@ public final class R {
     }
 
     /* loaded from: classes.dex */
-    public static final class style {
+    public final class style {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int Base_CardView = 0x7f100016;
         public static final int CardView = 0x7f1000fc;
@@ -116,7 +116,7 @@ public final class R {
     }
 
     /* loaded from: classes.dex */
-    public static final class styleable {
+    public final class styleable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int[] CardView;
         public static final int CardView_android_minHeight = 0x00000001;

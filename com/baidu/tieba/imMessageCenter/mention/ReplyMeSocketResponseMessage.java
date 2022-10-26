@@ -1,7 +1,6 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
-import com.baidu.tieba.de7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.ReplyMe.ReplyMeResIdl;
 /* loaded from: classes4.dex */
-public class ReplyMeSocketResponseMessage extends MvcSocketResponsedMessage<de7, ReplyMeResIdl> {
+public class ReplyMeSocketResponseMessage extends MvcSocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -34,9 +33,12 @@ public class ReplyMeSocketResponseMessage extends MvcSocketResponsedMessage<de7,
     }
 
     @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage
-    public Class<ReplyMeResIdl> getProtobufResponseIdlClass() {
+    public Class getProtobufResponseIdlClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ReplyMeResIdl.class : (Class) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return ReplyMeResIdl.class;
+        }
+        return (Class) invokeV.objValue;
     }
 }

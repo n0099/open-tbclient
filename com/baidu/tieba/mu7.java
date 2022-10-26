@@ -1,95 +1,22 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.sapi2.SapiAccount;
+import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class mu7 {
+public class mu7 implements m05 {
     public static /* synthetic */ Interceptable $ic;
+    public static mu7 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public ov7 a;
-
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final mu7 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-591942500, "Lcom/baidu/tieba/mu7$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-591942500, "Lcom/baidu/tieba/mu7$b;");
-                    return;
-                }
-            }
-            a = new mu7(null);
-        }
-    }
-
-    public /* synthetic */ mu7(a aVar) {
-        this();
-    }
-
-    public static mu7 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (mu7) invokeV.objValue;
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = null;
-            ox4.k().y("key_pb_guide_enter_forum", "");
-        }
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (e()) {
-                return this.a.b;
-            }
-            return -1;
-        }
-        return invokeV.intValue;
-    }
-
-    public void d(ov7 ov7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ov7Var) == null) {
-            this.a = ov7Var;
-            ox4.k().y("key_pb_guide_enter_forum", ov7Var.toString());
-        }
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ov7 ov7Var = this.a;
-            return ov7Var != null && ov7Var.a;
-        }
-        return invokeV.booleanValue;
-    }
 
     public mu7() {
         Interceptable interceptable = $ic;
@@ -101,9 +28,71 @@ public class mu7 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = ov7.a(ox4.k().q("key_pb_guide_enter_forum", ""));
+    }
+
+    public static synchronized mu7 d() {
+        InterceptResult invokeV;
+        mu7 mu7Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (mu7.class) {
+                if (a == null) {
+                    a = new mu7();
+                }
+                mu7Var = a;
+            }
+            return mu7Var;
+        }
+        return (mu7) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.m05
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            try {
+                SapiAccountManager.getInstance().logout();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.m05
+    public void b(AccountData accountData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, accountData) == null) {
+            List<SapiAccount> loginAccounts = SapiAccountManager.getInstance().getLoginAccounts();
+            if (!TextUtils.isEmpty(accountData.getID()) && loginAccounts != null && loginAccounts.size() > 0) {
+                for (SapiAccount sapiAccount : loginAccounts) {
+                    if (accountData.getID().equals(sapiAccount.uid)) {
+                        SapiAccountManager.getInstance().validate(sapiAccount);
+                        return;
+                    }
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.m05
+    public void c(AccountData accountData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
+            if (accountData.getID().equals(TbadkCoreApplication.getCurrentAccount())) {
+                SapiAccountManager.getInstance().logout();
+                return;
+            }
+            List<SapiAccount> loginAccounts = SapiAccountManager.getInstance().getLoginAccounts();
+            if (loginAccounts != null && loginAccounts.size() > 0) {
+                for (SapiAccount sapiAccount : loginAccounts) {
+                    if (accountData.getID().equals(sapiAccount.uid)) {
+                        SapiAccountManager.getInstance().removeLoginAccount(sapiAccount);
+                        return;
+                    }
+                }
+            }
+        }
     }
 }

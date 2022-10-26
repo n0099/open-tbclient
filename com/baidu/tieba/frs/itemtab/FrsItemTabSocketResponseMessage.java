@@ -1,9 +1,8 @@
 package com.baidu.tieba.frs.itemtab;
 
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
-import com.baidu.tieba.vo6;
+import com.baidu.tieba.cp6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +12,7 @@ import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.ItemPage.ItemPageResIdl;
 /* loaded from: classes4.dex */
-public class FrsItemTabSocketResponseMessage extends MvcSocketResponsedMessage<vo6, ItemPageResIdl> {
+public class FrsItemTabSocketResponseMessage extends MvcSocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,16 +34,25 @@ public class FrsItemTabSocketResponseMessage extends MvcSocketResponsedMessage<v
         }
     }
 
+    @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage
+    public Class getProtobufResponseIdlClass() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return ItemPageResIdl.class;
+        }
+        return (Class) invokeV.objValue;
+    }
+
     @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage, com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Error error;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
-            vo6 vo6Var = new vo6();
+            cp6 cp6Var = new cp6();
             ItemPageResIdl itemPageResIdl = (ItemPageResIdl) new Wire(new Class[0]).parseFrom(bArr, ItemPageResIdl.class);
-            vo6Var.a(itemPageResIdl.data);
+            cp6Var.a(itemPageResIdl.data);
             if (itemPageResIdl != null && (error = itemPageResIdl.error) != null) {
                 Integer num = error.errorno;
                 if (num != null) {
@@ -52,17 +60,9 @@ public class FrsItemTabSocketResponseMessage extends MvcSocketResponsedMessage<v
                 }
                 setErrorString(itemPageResIdl.error.usermsg);
             }
-            setData(vo6Var);
+            setData(cp6Var);
             return itemPageResIdl;
         }
         return invokeIL.objValue;
-    }
-
-    /* JADX DEBUG: Return type fixed from 'java.lang.Class' to match base method */
-    @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage
-    public Class<ItemPageResIdl> getProtobufResponseIdlClass() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ItemPageResIdl.class : (Class) invokeV.objValue;
     }
 }

@@ -18,6 +18,8 @@ public abstract class KeyValueCommandListener extends AbstractCommandListener<Js
     public static final String VERSION_POSTFIX = "_version";
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract String getKey(String str, String str2);
+
     public KeyValueCommandListener() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -37,36 +39,39 @@ public abstract class KeyValueCommandListener extends AbstractCommandListener<Js
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048576, this, context, str, str2, commandPostData) == null) {
             String localVersion = getLocalVersion(context, str, str2);
-            if (commandPostData == null || commandPostData.getVersion() == null) {
-                return;
+            if (commandPostData != null && commandPostData.getVersion() != null) {
+                commandPostData.getVersion().put(str2, localVersion);
             }
-            commandPostData.getVersion().put(str2, localVersion);
         }
     }
 
     @Override // com.baidu.searchbox.net.update.v2.AbstractCommandListener
     public boolean executeCommand(Context context, String str, String str2, ActionData<JsonElement> actionData) {
         InterceptResult invokeLLLL;
+        String jsonElement;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, actionData)) == null) {
             String key = getKey(str, str2);
             if (key == null) {
-                if (AppConfig.isDebug()) {
-                    throw new IllegalArgumentException("getKey should be implemented correctly to return preference key");
+                if (!AppConfig.isDebug()) {
+                    return false;
                 }
+                throw new IllegalArgumentException("getKey should be implemented correctly to return preference key");
+            }
+            if (((JsonElement) actionData.data).isJsonPrimitive()) {
+                jsonElement = ((JsonElement) actionData.data).getAsString();
+            } else {
+                jsonElement = ((JsonElement) actionData.data).toString();
+            }
+            if (!handleData(context, str, str2, key, jsonElement)) {
                 return false;
             }
-            if (handleData(context, str, str2, key, actionData.data.isJsonPrimitive() ? actionData.data.getAsString() : actionData.data.toString())) {
-                DefaultSharedPrefsWrapper defaultSharedPrefsWrapper = DefaultSharedPrefsWrapper.getInstance();
-                defaultSharedPrefsWrapper.putString(key + "_version", actionData.version);
-                return true;
-            }
-            return false;
+            DefaultSharedPrefsWrapper defaultSharedPrefsWrapper = DefaultSharedPrefsWrapper.getInstance();
+            defaultSharedPrefsWrapper.putString(key + "_version", actionData.version);
+            return true;
         }
         return invokeLLLL.booleanValue;
     }
-
-    public abstract String getKey(String str, String str2);
 
     @Override // com.baidu.searchbox.net.update.v2.AbstractCommandListener
     public String getLocalVersion(Context context, String str, String str2) {

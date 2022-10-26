@@ -128,7 +128,10 @@ public class GlobalHistogramBinarizer extends Binarizer {
     public Binarizer createBinarizer(LuminanceSource luminanceSource) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, luminanceSource)) == null) ? new GlobalHistogramBinarizer(luminanceSource) : (Binarizer) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, luminanceSource)) == null) {
+            return new GlobalHistogramBinarizer(luminanceSource);
+        }
+        return (Binarizer) invokeL.objValue;
     }
 
     @Override // com.google.zxing.Binarizer

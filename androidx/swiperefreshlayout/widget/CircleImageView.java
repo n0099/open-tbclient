@@ -133,7 +133,13 @@ public class CircleImageView extends ImageView {
     private boolean elevationSupported() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? Build.VERSION.SDK_INT >= 21 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+            if (Build.VERSION.SDK_INT >= 21) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // android.view.View
@@ -165,10 +171,9 @@ public class CircleImageView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
             super.onMeasure(i, i2);
-            if (elevationSupported()) {
-                return;
+            if (!elevationSupported()) {
+                setMeasuredDimension(getMeasuredWidth() + (this.mShadowRadius * 2), getMeasuredHeight() + (this.mShadowRadius * 2));
             }
-            setMeasuredDimension(getMeasuredWidth() + (this.mShadowRadius * 2), getMeasuredHeight() + (this.mShadowRadius * 2));
         }
     }
 

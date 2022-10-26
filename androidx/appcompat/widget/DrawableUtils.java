@@ -1,6 +1,5 @@
 package androidx.appcompat.widget;
 
-import android.annotation.SuppressLint;
 import android.graphics.Insets;
 import android.graphics.PorterDuff;
 import android.graphics.Rect;
@@ -12,8 +11,6 @@ import android.graphics.drawable.LayerDrawable;
 import android.graphics.drawable.ScaleDrawable;
 import android.os.Build;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.RestrictTo;
 import androidx.appcompat.graphics.drawable.DrawableWrapper;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.graphics.drawable.WrappedDrawable;
@@ -26,8 +23,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
-@SuppressLint({"RestrictedAPI"})
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class DrawableUtils {
     public static /* synthetic */ Interceptable $ic = null;
@@ -77,46 +72,46 @@ public class DrawableUtils {
         }
     }
 
-    public static boolean canSafelyMutateDrawable(@NonNull Drawable drawable) {
+    public static boolean canSafelyMutateDrawable(Drawable drawable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, drawable)) == null) {
-            if (Build.VERSION.SDK_INT >= 15 || !(drawable instanceof InsetDrawable)) {
-                if (Build.VERSION.SDK_INT >= 15 || !(drawable instanceof GradientDrawable)) {
-                    if (Build.VERSION.SDK_INT >= 17 || !(drawable instanceof LayerDrawable)) {
-                        if (drawable instanceof DrawableContainer) {
-                            Drawable.ConstantState constantState = drawable.getConstantState();
-                            if (constantState instanceof DrawableContainer.DrawableContainerState) {
-                                for (Drawable drawable2 : ((DrawableContainer.DrawableContainerState) constantState).getChildren()) {
-                                    if (!canSafelyMutateDrawable(drawable2)) {
-                                        return false;
-                                    }
-                                }
-                                return true;
-                            }
-                            return true;
-                        } else if (drawable instanceof WrappedDrawable) {
-                            return canSafelyMutateDrawable(((WrappedDrawable) drawable).getWrappedDrawable());
-                        } else {
-                            if (drawable instanceof DrawableWrapper) {
-                                return canSafelyMutateDrawable(((DrawableWrapper) drawable).getWrappedDrawable());
-                            }
-                            if (drawable instanceof ScaleDrawable) {
-                                return canSafelyMutateDrawable(((ScaleDrawable) drawable).getDrawable());
-                            }
-                            return true;
-                        }
-                    }
-                    return false;
-                }
+            if (Build.VERSION.SDK_INT < 15 && (drawable instanceof InsetDrawable)) {
                 return false;
             }
-            return false;
+            if (Build.VERSION.SDK_INT < 15 && (drawable instanceof GradientDrawable)) {
+                return false;
+            }
+            if (Build.VERSION.SDK_INT < 17 && (drawable instanceof LayerDrawable)) {
+                return false;
+            }
+            if (drawable instanceof DrawableContainer) {
+                Drawable.ConstantState constantState = drawable.getConstantState();
+                if (constantState instanceof DrawableContainer.DrawableContainerState) {
+                    for (Drawable drawable2 : ((DrawableContainer.DrawableContainerState) constantState).getChildren()) {
+                        if (!canSafelyMutateDrawable(drawable2)) {
+                            return false;
+                        }
+                    }
+                    return true;
+                }
+                return true;
+            } else if (drawable instanceof WrappedDrawable) {
+                return canSafelyMutateDrawable(((WrappedDrawable) drawable).getWrappedDrawable());
+            } else {
+                if (drawable instanceof DrawableWrapper) {
+                    return canSafelyMutateDrawable(((DrawableWrapper) drawable).getWrappedDrawable());
+                }
+                if (drawable instanceof ScaleDrawable) {
+                    return canSafelyMutateDrawable(((ScaleDrawable) drawable).getDrawable());
+                }
+                return true;
+            }
         }
         return invokeL.booleanValue;
     }
 
-    public static void fixDrawable(@NonNull Drawable drawable) {
+    public static void fixDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65539, null, drawable) == null) && Build.VERSION.SDK_INT == 21 && "android.graphics.drawable.VectorDrawable".equals(drawable.getClass().getName())) {
             fixVectorDrawableTinting(drawable);
@@ -185,14 +180,20 @@ public class DrawableUtils {
                                     }
                                     break;
                             }
-                            if (c == 0) {
+                            if (c != 0) {
+                                if (c != 1) {
+                                    if (c != 2) {
+                                        if (c == 3) {
+                                            rect2.bottom = field.getInt(invoke);
+                                        }
+                                    } else {
+                                        rect2.right = field.getInt(invoke);
+                                    }
+                                } else {
+                                    rect2.top = field.getInt(invoke);
+                                }
+                            } else {
                                 rect2.left = field.getInt(invoke);
-                            } else if (c == 1) {
-                                rect2.top = field.getInt(invoke);
-                            } else if (c == 2) {
-                                rect2.right = field.getInt(invoke);
-                            } else if (c == 3) {
-                                rect2.bottom = field.getInt(invoke);
                             }
                         }
                         return rect2;

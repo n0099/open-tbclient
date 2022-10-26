@@ -4,9 +4,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.VisibleForTesting;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
@@ -20,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class SwipeDismissBehavior<V extends View> extends CoordinatorLayout.Behavior<V> {
+public class SwipeDismissBehavior extends CoordinatorLayout.Behavior {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float DEFAULT_ALPHA_END_DISTANCE = 0.5f;
     public static final float DEFAULT_ALPHA_START_DISTANCE = 0.0f;
@@ -48,6 +45,21 @@ public class SwipeDismissBehavior<V extends View> extends CoordinatorLayout.Beha
         void onDismiss(View view2);
 
         void onDragStateChanged(int i);
+    }
+
+    public static float fraction(float f, float f2, float f3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) ? (f3 - f) / (f2 - f) : invokeCommon.floatValue;
+    }
+
+    public boolean canSwipeDismissView(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
     /* loaded from: classes7.dex */
@@ -88,8 +100,7 @@ public class SwipeDismissBehavior<V extends View> extends CoordinatorLayout.Beha
                 ViewDragHelper viewDragHelper = this.this$0.viewDragHelper;
                 if (viewDragHelper != null && viewDragHelper.continueSettling(true)) {
                     ViewCompat.postOnAnimation(this.f1070view, this);
-                } else if (!this.dismiss || (onDismissListener = this.this$0.listener) == null) {
-                } else {
+                } else if (this.dismiss && (onDismissListener = this.this$0.listener) != null) {
                     onDismissListener.onDismiss(this.f1070view);
                 }
             }
@@ -141,53 +152,85 @@ public class SwipeDismissBehavior<V extends View> extends CoordinatorLayout.Beha
                 this.activePointerId = -1;
             }
 
-            private boolean shouldDismiss(@NonNull View view2, float f) {
+            @Override // androidx.customview.widget.ViewDragHelper.Callback
+            public int getViewHorizontalDragRange(View view2) {
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) {
+                    return view2.getWidth();
+                }
+                return invokeL.intValue;
+            }
+
+            @Override // androidx.customview.widget.ViewDragHelper.Callback
+            public void onViewDragStateChanged(int i3) {
+                OnDismissListener onDismissListener;
+                Interceptable interceptable2 = $ic;
+                if ((interceptable2 == null || interceptable2.invokeI(1048580, this, i3) == null) && (onDismissListener = this.this$0.listener) != null) {
+                    onDismissListener.onDragStateChanged(i3);
+                }
+            }
+
+            private boolean shouldDismiss(View view2, float f) {
                 InterceptResult invokeLF;
+                boolean z;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeLF = interceptable2.invokeLF(65537, this, view2, f)) == null) {
                     int i3 = (f > 0.0f ? 1 : (f == 0.0f ? 0 : -1));
-                    if (i3 == 0) {
-                        return Math.abs(view2.getLeft() - this.originalCapturedViewLeft) >= Math.round(((float) view2.getWidth()) * this.this$0.dragDismissThreshold);
-                    }
-                    boolean z = ViewCompat.getLayoutDirection(view2) == 1;
-                    int i4 = this.this$0.swipeDirection;
-                    if (i4 == 2) {
-                        return true;
-                    }
-                    if (i4 == 0) {
-                        if (z) {
-                            if (f >= 0.0f) {
+                    if (i3 != 0) {
+                        if (ViewCompat.getLayoutDirection(view2) == 1) {
+                            z = true;
+                        } else {
+                            z = false;
+                        }
+                        int i4 = this.this$0.swipeDirection;
+                        if (i4 == 2) {
+                            return true;
+                        }
+                        if (i4 == 0) {
+                            if (z) {
+                                if (f >= 0.0f) {
+                                    return false;
+                                }
+                            } else if (i3 <= 0) {
                                 return false;
                             }
-                        } else if (i3 <= 0) {
+                            return true;
+                        } else if (i4 != 1) {
                             return false;
-                        }
-                        return true;
-                    } else if (i4 == 1) {
-                        if (z) {
-                            if (i3 <= 0) {
+                        } else {
+                            if (z) {
+                                if (i3 <= 0) {
+                                    return false;
+                                }
+                            } else if (f >= 0.0f) {
                                 return false;
                             }
-                        } else if (f >= 0.0f) {
-                            return false;
+                            return true;
                         }
-                        return true;
-                    } else {
+                    }
+                    if (Math.abs(view2.getLeft() - this.originalCapturedViewLeft) < Math.round(view2.getWidth() * this.this$0.dragDismissThreshold)) {
                         return false;
                     }
+                    return true;
                 }
                 return invokeLF.booleanValue;
             }
 
             @Override // androidx.customview.widget.ViewDragHelper.Callback
-            public int clampViewPositionHorizontal(@NonNull View view2, int i3, int i4) {
+            public int clampViewPositionHorizontal(View view2, int i3, int i4) {
                 InterceptResult invokeLII;
+                boolean z;
                 int width;
                 int width2;
                 int width3;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeLII = interceptable2.invokeLII(1048576, this, view2, i3, i4)) == null) {
-                    boolean z = ViewCompat.getLayoutDirection(view2) == 1;
+                    if (ViewCompat.getLayoutDirection(view2) == 1) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
                     int i5 = this.this$0.swipeDirection;
                     if (i5 == 0) {
                         if (z) {
@@ -198,16 +241,18 @@ public class SwipeDismissBehavior<V extends View> extends CoordinatorLayout.Beha
                             width3 = view2.getWidth();
                             width2 = width3 + width;
                         }
-                    } else if (i5 != 1) {
-                        width = this.originalCapturedViewLeft - view2.getWidth();
-                        width2 = view2.getWidth() + this.originalCapturedViewLeft;
-                    } else if (z) {
-                        width = this.originalCapturedViewLeft;
-                        width3 = view2.getWidth();
-                        width2 = width3 + width;
+                    } else if (i5 == 1) {
+                        if (z) {
+                            width = this.originalCapturedViewLeft;
+                            width3 = view2.getWidth();
+                            width2 = width3 + width;
+                        } else {
+                            width = this.originalCapturedViewLeft - view2.getWidth();
+                            width2 = this.originalCapturedViewLeft;
+                        }
                     } else {
                         width = this.originalCapturedViewLeft - view2.getWidth();
-                        width2 = this.originalCapturedViewLeft;
+                        width2 = view2.getWidth() + this.originalCapturedViewLeft;
                     }
                     return SwipeDismissBehavior.clamp(width, i3, width2);
                 }
@@ -215,21 +260,17 @@ public class SwipeDismissBehavior<V extends View> extends CoordinatorLayout.Beha
             }
 
             @Override // androidx.customview.widget.ViewDragHelper.Callback
-            public int clampViewPositionVertical(@NonNull View view2, int i3, int i4) {
+            public int clampViewPositionVertical(View view2, int i3, int i4) {
                 InterceptResult invokeLII;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeLII = interceptable2.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i3, i4)) == null) ? view2.getTop() : invokeLII.intValue;
+                if (interceptable2 == null || (invokeLII = interceptable2.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i3, i4)) == null) {
+                    return view2.getTop();
+                }
+                return invokeLII.intValue;
             }
 
             @Override // androidx.customview.widget.ViewDragHelper.Callback
-            public int getViewHorizontalDragRange(@NonNull View view2) {
-                InterceptResult invokeL;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) ? view2.getWidth() : invokeL.intValue;
-            }
-
-            @Override // androidx.customview.widget.ViewDragHelper.Callback
-            public void onViewCaptured(@NonNull View view2, int i3) {
+            public void onViewCaptured(View view2, int i3) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLI(1048579, this, view2, i3) == null) {
                     this.activePointerId = i3;
@@ -242,17 +283,21 @@ public class SwipeDismissBehavior<V extends View> extends CoordinatorLayout.Beha
             }
 
             @Override // androidx.customview.widget.ViewDragHelper.Callback
-            public void onViewDragStateChanged(int i3) {
-                OnDismissListener onDismissListener;
+            public boolean tryCaptureView(View view2, int i3) {
+                InterceptResult invokeLI;
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeI(1048580, this, i3) == null) || (onDismissListener = this.this$0.listener) == null) {
-                    return;
+                if (interceptable2 == null || (invokeLI = interceptable2.invokeLI(1048583, this, view2, i3)) == null) {
+                    int i4 = this.activePointerId;
+                    if ((i4 == -1 || i4 == i3) && this.this$0.canSwipeDismissView(view2)) {
+                        return true;
+                    }
+                    return false;
                 }
-                onDismissListener.onDragStateChanged(i3);
+                return invokeLI.booleanValue;
             }
 
             @Override // androidx.customview.widget.ViewDragHelper.Callback
-            public void onViewPositionChanged(@NonNull View view2, int i3, int i4, int i5, int i6) {
+            public void onViewPositionChanged(View view2, int i3, int i4, int i5, int i6) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeCommon(1048581, this, new Object[]{view2, Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
                     float width = this.originalCapturedViewLeft + (view2.getWidth() * this.this$0.alphaStartSwipeDistance);
@@ -269,7 +314,7 @@ public class SwipeDismissBehavior<V extends View> extends CoordinatorLayout.Beha
             }
 
             @Override // androidx.customview.widget.ViewDragHelper.Callback
-            public void onViewReleased(@NonNull View view2, float f, float f2) {
+            public void onViewReleased(View view2, float f, float f2) {
                 int i3;
                 boolean z;
                 OnDismissListener onDismissListener;
@@ -280,7 +325,11 @@ public class SwipeDismissBehavior<V extends View> extends CoordinatorLayout.Beha
                     if (shouldDismiss(view2, f)) {
                         int left = view2.getLeft();
                         int i4 = this.originalCapturedViewLeft;
-                        i3 = left < i4 ? i4 - width : i4 + width;
+                        if (left < i4) {
+                            i3 = i4 - width;
+                        } else {
+                            i3 = i4 + width;
+                        }
                         z = true;
                     } else {
                         i3 = this.originalCapturedViewLeft;
@@ -288,22 +337,10 @@ public class SwipeDismissBehavior<V extends View> extends CoordinatorLayout.Beha
                     }
                     if (this.this$0.viewDragHelper.settleCapturedViewAt(i3, view2.getTop())) {
                         ViewCompat.postOnAnimation(view2, new SettleRunnable(this.this$0, view2, z));
-                    } else if (!z || (onDismissListener = this.this$0.listener) == null) {
-                    } else {
+                    } else if (z && (onDismissListener = this.this$0.listener) != null) {
                         onDismissListener.onDismiss(view2);
                     }
                 }
-            }
-
-            @Override // androidx.customview.widget.ViewDragHelper.Callback
-            public boolean tryCaptureView(View view2, int i3) {
-                InterceptResult invokeLI;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeLI = interceptable2.invokeLI(1048583, this, view2, i3)) == null) {
-                    int i4 = this.activePointerId;
-                    return (i4 == -1 || i4 == i3) && this.this$0.canSwipeDismissView(view2);
-                }
-                return invokeLI.booleanValue;
             }
         };
     }
@@ -311,7 +348,73 @@ public class SwipeDismissBehavior<V extends View> extends CoordinatorLayout.Beha
     public static float clamp(float f, float f2, float f3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) ? Math.min(Math.max(f, f2), f3) : invokeCommon.floatValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+            return Math.min(Math.max(f, f2), f3);
+        }
+        return invokeCommon.floatValue;
+    }
+
+    @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
+    public boolean onInterceptTouchEvent(CoordinatorLayout coordinatorLayout, View view2, MotionEvent motionEvent) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, coordinatorLayout, view2, motionEvent)) == null) {
+            boolean z = this.interceptingEvents;
+            int actionMasked = motionEvent.getActionMasked();
+            if (actionMasked != 0) {
+                if (actionMasked == 1 || actionMasked == 3) {
+                    this.interceptingEvents = false;
+                }
+            } else {
+                z = coordinatorLayout.isPointInChildBounds(view2, (int) motionEvent.getX(), (int) motionEvent.getY());
+                this.interceptingEvents = z;
+            }
+            if (!z) {
+                return false;
+            }
+            ensureViewDragHelper(coordinatorLayout);
+            return this.viewDragHelper.shouldInterceptTouchEvent(motionEvent);
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public static int clamp(int i, int i2, int i3) {
+        InterceptResult invokeIII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(65538, null, i, i2, i3)) == null) {
+            return Math.min(Math.max(i, i2), i3);
+        }
+        return invokeIII.intValue;
+    }
+
+    @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
+    public boolean onLayoutChild(CoordinatorLayout coordinatorLayout, View view2, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, coordinatorLayout, view2, i)) == null) {
+            boolean onLayoutChild = super.onLayoutChild(coordinatorLayout, view2, i);
+            if (ViewCompat.getImportantForAccessibility(view2) == 0) {
+                ViewCompat.setImportantForAccessibility(view2, 1);
+                updateAccessibilityActions(view2);
+            }
+            return onLayoutChild;
+        }
+        return invokeLLI.booleanValue;
+    }
+
+    @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
+    public boolean onTouchEvent(CoordinatorLayout coordinatorLayout, View view2, MotionEvent motionEvent) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, coordinatorLayout, view2, motionEvent)) == null) {
+            ViewDragHelper viewDragHelper = this.viewDragHelper;
+            if (viewDragHelper != null) {
+                viewDragHelper.processTouchEvent(motionEvent);
+                return true;
+            }
+            return false;
+        }
+        return invokeLLL.booleanValue;
     }
 
     private void ensureViewDragHelper(ViewGroup viewGroup) {
@@ -325,12 +428,6 @@ public class SwipeDismissBehavior<V extends View> extends CoordinatorLayout.Beha
             }
             this.viewDragHelper = create;
         }
-    }
-
-    public static float fraction(float f, float f2, float f3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) ? (f3 - f) / (f2 - f) : invokeCommon.floatValue;
     }
 
     private void updateAccessibilityActions(View view2) {
@@ -362,117 +459,40 @@ public class SwipeDismissBehavior<V extends View> extends CoordinatorLayout.Beha
                     }
 
                     @Override // androidx.core.view.accessibility.AccessibilityViewCommand
-                    public boolean perform(@NonNull View view3, @Nullable AccessibilityViewCommand.CommandArguments commandArguments) {
+                    public boolean perform(View view3, AccessibilityViewCommand.CommandArguments commandArguments) {
                         InterceptResult invokeLL;
+                        boolean z;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view3, commandArguments)) == null) {
-                            boolean z = false;
-                            if (this.this$0.canSwipeDismissView(view3)) {
-                                boolean z2 = ViewCompat.getLayoutDirection(view3) == 1;
-                                if ((this.this$0.swipeDirection == 0 && z2) || (this.this$0.swipeDirection == 1 && !z2)) {
-                                    z = true;
-                                }
-                                int width = view3.getWidth();
-                                if (z) {
-                                    width = -width;
-                                }
-                                ViewCompat.offsetLeftAndRight(view3, width);
-                                view3.setAlpha(0.0f);
-                                OnDismissListener onDismissListener = this.this$0.listener;
-                                if (onDismissListener != null) {
-                                    onDismissListener.onDismiss(view3);
-                                }
-                                return true;
+                            boolean z2 = false;
+                            if (!this.this$0.canSwipeDismissView(view3)) {
+                                return false;
                             }
-                            return false;
+                            if (ViewCompat.getLayoutDirection(view3) == 1) {
+                                z = true;
+                            } else {
+                                z = false;
+                            }
+                            if ((this.this$0.swipeDirection == 0 && z) || (this.this$0.swipeDirection == 1 && !z)) {
+                                z2 = true;
+                            }
+                            int width = view3.getWidth();
+                            if (z2) {
+                                width = -width;
+                            }
+                            ViewCompat.offsetLeftAndRight(view3, width);
+                            view3.setAlpha(0.0f);
+                            OnDismissListener onDismissListener = this.this$0.listener;
+                            if (onDismissListener != null) {
+                                onDismissListener.onDismiss(view3);
+                            }
+                            return true;
                         }
                         return invokeLL.booleanValue;
                     }
                 });
             }
         }
-    }
-
-    public boolean canSwipeDismissView(@NonNull View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int getDragState() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ViewDragHelper viewDragHelper = this.viewDragHelper;
-            if (viewDragHelper != null) {
-                return viewDragHelper.getViewDragState();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Nullable
-    @VisibleForTesting
-    public OnDismissListener getListener() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.listener : (OnDismissListener) invokeV.objValue;
-    }
-
-    @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-    public boolean onInterceptTouchEvent(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v, @NonNull MotionEvent motionEvent) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, coordinatorLayout, v, motionEvent)) == null) {
-            boolean z = this.interceptingEvents;
-            int actionMasked = motionEvent.getActionMasked();
-            if (actionMasked == 0) {
-                z = coordinatorLayout.isPointInChildBounds(v, (int) motionEvent.getX(), (int) motionEvent.getY());
-                this.interceptingEvents = z;
-            } else if (actionMasked == 1 || actionMasked == 3) {
-                this.interceptingEvents = false;
-            }
-            if (z) {
-                ensureViewDragHelper(coordinatorLayout);
-                return this.viewDragHelper.shouldInterceptTouchEvent(motionEvent);
-            }
-            return false;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-    public boolean onLayoutChild(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, coordinatorLayout, v, i)) == null) {
-            boolean onLayoutChild = super.onLayoutChild(coordinatorLayout, v, i);
-            if (ViewCompat.getImportantForAccessibility(v) == 0) {
-                ViewCompat.setImportantForAccessibility(v, 1);
-                updateAccessibilityActions(v);
-            }
-            return onLayoutChild;
-        }
-        return invokeLLI.booleanValue;
-    }
-
-    @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-    public boolean onTouchEvent(CoordinatorLayout coordinatorLayout, V v, MotionEvent motionEvent) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, coordinatorLayout, v, motionEvent)) == null) {
-            ViewDragHelper viewDragHelper = this.viewDragHelper;
-            if (viewDragHelper != null) {
-                viewDragHelper.processTouchEvent(motionEvent);
-                return true;
-            }
-            return false;
-        }
-        return invokeLLL.booleanValue;
     }
 
     public void setDragDismissDistance(float f) {
@@ -489,7 +509,7 @@ public class SwipeDismissBehavior<V extends View> extends CoordinatorLayout.Beha
         }
     }
 
-    public void setListener(@Nullable OnDismissListener onDismissListener) {
+    public void setListener(OnDismissListener onDismissListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onDismissListener) == null) {
             this.listener = onDismissListener;
@@ -518,9 +538,25 @@ public class SwipeDismissBehavior<V extends View> extends CoordinatorLayout.Beha
         }
     }
 
-    public static int clamp(int i, int i2, int i3) {
-        InterceptResult invokeIII;
+    public int getDragState() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIII = interceptable.invokeIII(65538, null, i, i2, i3)) == null) ? Math.min(Math.max(i, i2), i3) : invokeIII.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            ViewDragHelper viewDragHelper = this.viewDragHelper;
+            if (viewDragHelper != null) {
+                return viewDragHelper.getViewDragState();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public OnDismissListener getListener() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.listener;
+        }
+        return (OnDismissListener) invokeV.objValue;
     }
 }

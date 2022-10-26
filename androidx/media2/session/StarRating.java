@@ -1,6 +1,5 @@
 package androidx.media2.session;
 
-import androidx.annotation.IntRange;
 import androidx.core.util.ObjectsCompat;
 import androidx.media2.common.Rating;
 import com.baidu.android.imsdk.internal.Constants;
@@ -31,64 +30,47 @@ public final class StarRating implements Rating {
         }
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (obj instanceof StarRating) {
-                StarRating starRating = (StarRating) obj;
-                return this.mMaxStars == starRating.mMaxStars && this.mStarRating == starRating.mStarRating;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
     public int getMaxStars() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mMaxStars : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mMaxStars;
+        }
+        return invokeV.intValue;
     }
 
     public float getStarRating() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mStarRating : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mStarRating;
+        }
+        return invokeV.floatValue;
     }
 
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? ObjectsCompat.hash(Integer.valueOf(this.mMaxStars), Float.valueOf(this.mStarRating)) : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return ObjectsCompat.hash(Integer.valueOf(this.mMaxStars), Float.valueOf(this.mStarRating));
+        }
+        return invokeV.intValue;
     }
 
     @Override // androidx.media2.common.Rating
     public boolean isRated() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mStarRating >= 0.0f : invokeV.booleanValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("StarRating: maxStars=");
-            sb.append(this.mMaxStars);
-            if (isRated()) {
-                str = ", starRating=" + this.mStarRating;
-            } else {
-                str = ", unrated";
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.mStarRating >= 0.0f) {
+                return true;
             }
-            sb.append(str);
-            return sb.toString();
+            return false;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public StarRating(@IntRange(from = 1) int i) {
+    public StarRating(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -111,7 +93,7 @@ public final class StarRating implements Rating {
         throw new IllegalArgumentException("maxStars should be a positive integer");
     }
 
-    public StarRating(@IntRange(from = 1) int i, float f) {
+    public StarRating(int i, float f) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -126,14 +108,49 @@ public final class StarRating implements Rating {
                 return;
             }
         }
-        if (i <= 0) {
-            throw new IllegalArgumentException("maxStars should be a positive integer");
+        if (i > 0) {
+            if (f >= 0.0f && f <= i) {
+                this.mMaxStars = i;
+                this.mStarRating = f;
+                return;
+            }
+            throw new IllegalArgumentException("starRating is out of range [0, maxStars]");
         }
-        if (f >= 0.0f && f <= i) {
-            this.mMaxStars = i;
-            this.mStarRating = f;
-            return;
+        throw new IllegalArgumentException("maxStars should be a positive integer");
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (!(obj instanceof StarRating)) {
+                return false;
+            }
+            StarRating starRating = (StarRating) obj;
+            if (this.mMaxStars != starRating.mMaxStars || this.mStarRating != starRating.mStarRating) {
+                return false;
+            }
+            return true;
         }
-        throw new IllegalArgumentException("starRating is out of range [0, maxStars]");
+        return invokeL.booleanValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("StarRating: maxStars=");
+            sb.append(this.mMaxStars);
+            if (isRated()) {
+                str = ", starRating=" + this.mStarRating;
+            } else {
+                str = ", unrated";
+            }
+            sb.append(str);
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

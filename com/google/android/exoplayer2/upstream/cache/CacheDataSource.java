@@ -1,7 +1,6 @@
 package com.google.android.exoplayer2.upstream.cache;
 
 import android.net.Uri;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,7 +35,6 @@ public final class CacheDataSource implements DataSource {
     public DataSource currentDataSource;
     public boolean currentRequestIgnoresCache;
     public boolean currentRequestUnbounded;
-    @Nullable
     public final EventListener eventListener;
     public int flags;
     public final boolean ignoreCacheForUnsetLengthRequests;
@@ -80,10 +78,134 @@ public final class CacheDataSource implements DataSource {
         }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public CacheDataSource(Cache cache, DataSource dataSource, int i) {
+        this(cache, dataSource, i, 2097152L);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r8;
+            Object[] objArr = {cache, dataSource, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Cache) objArr2[0], (DataSource) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Long) objArr2[3]).longValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.upstream.DataSource
+    public int read(byte[] bArr, int i, int i2) throws IOException {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, bArr, i, i2)) == null) {
+            if (i2 == 0) {
+                return 0;
+            }
+            if (this.bytesRemaining == 0) {
+                return -1;
+            }
+            try {
+                int read = this.currentDataSource.read(bArr, i, i2);
+                if (read >= 0) {
+                    if (this.currentDataSource == this.cacheReadDataSource) {
+                        this.totalCachedBytesRead += read;
+                    }
+                    long j = read;
+                    this.readPosition += j;
+                    if (this.bytesRemaining != -1) {
+                        this.bytesRemaining -= j;
+                    }
+                } else {
+                    if (this.currentRequestUnbounded) {
+                        setContentLength(this.readPosition);
+                        this.bytesRemaining = 0L;
+                    }
+                    closeCurrentSource();
+                    if ((this.bytesRemaining > 0 || this.bytesRemaining == -1) && openNextSource(false)) {
+                        return read(bArr, i, i2);
+                    }
+                }
+                return read;
+            } catch (IOException e) {
+                handleBeforeThrow(e);
+                throw e;
+            }
+        }
+        return invokeLII.intValue;
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public CacheDataSource(Cache cache, DataSource dataSource, int i, long j) {
+        this(cache, dataSource, new FileDataSource(), new CacheDataSink(cache, j), i, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r4;
+            Object[] objArr = {cache, dataSource, Integer.valueOf(i), Long.valueOf(j)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Cache) objArr2[0], (DataSource) objArr2[1], (DataSource) objArr2[2], (DataSink) objArr2[3], ((Integer) objArr2[4]).intValue(), (EventListener) objArr2[5]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public CacheDataSource(Cache cache, DataSource dataSource, DataSource dataSource2, DataSink dataSink, int i, EventListener eventListener) {
+        boolean z;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cache, dataSource, dataSource2, dataSink, Integer.valueOf(i), eventListener};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.cache = cache;
+        this.cacheReadDataSource = dataSource2;
+        if ((i & 1) != 0) {
+            z = true;
+        } else {
+            z = false;
+        }
+        this.blockOnCache = z;
+        if ((i & 2) != 0) {
+            z2 = true;
+        } else {
+            z2 = false;
+        }
+        this.ignoreCacheOnError = z2;
+        this.ignoreCacheForUnsetLengthRequests = (i & 4) != 0;
+        this.upstreamDataSource = dataSource;
+        if (dataSink != null) {
+            this.cacheWriteDataSource = new TeeDataSource(dataSource, dataSink);
+        } else {
+            this.cacheWriteDataSource = null;
+        }
+        this.eventListener = eventListener;
+    }
+
     private void closeCurrentSource() throws IOException {
         DataSource dataSource;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || (dataSource = this.currentDataSource) == null) {
+        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) != null) || (dataSource = this.currentDataSource) == null) {
             return;
         }
         try {
@@ -108,14 +230,49 @@ public final class CacheDataSource implements DataSource {
         }
     }
 
+    private void setContentLength(long j) throws IOException {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeJ(65544, this, j) == null) && this.currentDataSource == this.cacheWriteDataSource) {
+            this.cache.setContentLength(this.key, j);
+        }
+    }
+
     private void notifyBytesRead() {
         EventListener eventListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65542, this) == null) || (eventListener = this.eventListener) == null || this.totalCachedBytesRead <= 0) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(65542, this) == null) && (eventListener = this.eventListener) != null && this.totalCachedBytesRead > 0) {
+            eventListener.onCachedBytesRead(this.cache.getCacheSpace(), this.totalCachedBytesRead);
+            this.totalCachedBytesRead = 0L;
         }
-        eventListener.onCachedBytesRead(this.cache.getCacheSpace(), this.totalCachedBytesRead);
-        this.totalCachedBytesRead = 0L;
+    }
+
+    @Override // com.google.android.exoplayer2.upstream.DataSource
+    public void close() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.uri = null;
+            notifyBytesRead();
+            try {
+                closeCurrentSource();
+            } catch (IOException e) {
+                handleBeforeThrow(e);
+                throw e;
+            }
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.upstream.DataSource
+    public Uri getUri() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            DataSource dataSource = this.currentDataSource;
+            if (dataSource == this.upstreamDataSource) {
+                return dataSource.getUri();
+            }
+            return this.uri;
+        }
+        return (Uri) invokeV.objValue;
     }
 
     private boolean openNextSource(boolean z) throws IOException {
@@ -123,6 +280,7 @@ public final class CacheDataSource implements DataSource {
         CacheSpan startReadWrite;
         long j;
         DataSpec dataSpec;
+        boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(65543, this, z)) == null) {
             IOException iOException = null;
@@ -171,8 +329,13 @@ public final class CacheDataSource implements DataSource {
                     this.cache.releaseHoleSpan(startReadWrite);
                 }
             }
-            boolean z2 = true;
-            this.currentRequestUnbounded = dataSpec.length == -1;
+            boolean z3 = true;
+            if (dataSpec.length == -1) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            this.currentRequestUnbounded = z2;
             long j6 = 0;
             try {
                 j6 = this.currentDataSource.open(dataSpec);
@@ -185,55 +348,24 @@ public final class CacheDataSource implements DataSource {
                     }
                 }
                 iOException = e;
-                if (iOException != null) {
+                if (iOException == null) {
+                    z3 = false;
+                } else {
                     throw iOException;
                 }
-                z2 = false;
             }
             if (this.currentRequestUnbounded && j6 != -1) {
                 this.bytesRemaining = j6;
                 setContentLength(dataSpec.position + j6);
             }
-            return z2;
+            return z3;
         }
         return invokeZ.booleanValue;
     }
 
-    private void setContentLength(long j) throws IOException {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(65544, this, j) == null) && this.currentDataSource == this.cacheWriteDataSource) {
-            this.cache.setContentLength(this.key, j);
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.upstream.DataSource
-    public void close() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.uri = null;
-            notifyBytesRead();
-            try {
-                closeCurrentSource();
-            } catch (IOException e) {
-                handleBeforeThrow(e);
-                throw e;
-            }
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.upstream.DataSource
-    public Uri getUri() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            DataSource dataSource = this.currentDataSource;
-            return dataSource == this.upstreamDataSource ? dataSource.getUri() : this.uri;
-        }
-        return (Uri) invokeV.objValue;
-    }
-
     @Override // com.google.android.exoplayer2.upstream.DataSource
     public long open(DataSpec dataSpec) throws IOException {
+        boolean z;
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataSpec)) == null) {
@@ -242,7 +374,11 @@ public final class CacheDataSource implements DataSource {
                 this.flags = dataSpec.flags;
                 this.key = CacheUtil.getKey(dataSpec);
                 this.readPosition = dataSpec.position;
-                boolean z = (this.ignoreCacheOnError && this.seenCacheError) || (dataSpec.length == -1 && this.ignoreCacheForUnsetLengthRequests);
+                if ((this.ignoreCacheOnError && this.seenCacheError) || (dataSpec.length == -1 && this.ignoreCacheForUnsetLengthRequests)) {
+                    z = true;
+                } else {
+                    z = false;
+                }
                 this.currentRequestIgnoresCache = z;
                 if (dataSpec.length == -1 && !z) {
                     long contentLength = this.cache.getContentLength(this.key);
@@ -266,117 +402,5 @@ public final class CacheDataSource implements DataSource {
             }
         }
         return invokeL.longValue;
-    }
-
-    @Override // com.google.android.exoplayer2.upstream.DataSource
-    public int read(byte[] bArr, int i, int i2) throws IOException {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, bArr, i, i2)) == null) {
-            if (i2 == 0) {
-                return 0;
-            }
-            if (this.bytesRemaining == 0) {
-                return -1;
-            }
-            try {
-                int read = this.currentDataSource.read(bArr, i, i2);
-                if (read >= 0) {
-                    if (this.currentDataSource == this.cacheReadDataSource) {
-                        this.totalCachedBytesRead += read;
-                    }
-                    long j = read;
-                    this.readPosition += j;
-                    if (this.bytesRemaining != -1) {
-                        this.bytesRemaining -= j;
-                    }
-                } else {
-                    if (this.currentRequestUnbounded) {
-                        setContentLength(this.readPosition);
-                        this.bytesRemaining = 0L;
-                    }
-                    closeCurrentSource();
-                    if ((this.bytesRemaining > 0 || this.bytesRemaining == -1) && openNextSource(false)) {
-                        return read(bArr, i, i2);
-                    }
-                }
-                return read;
-            } catch (IOException e) {
-                handleBeforeThrow(e);
-                throw e;
-            }
-        }
-        return invokeLII.intValue;
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public CacheDataSource(Cache cache, DataSource dataSource, int i) {
-        this(cache, dataSource, i, 2097152L);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r8;
-            Object[] objArr = {cache, dataSource, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Cache) objArr2[0], (DataSource) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Long) objArr2[3]).longValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public CacheDataSource(Cache cache, DataSource dataSource, int i, long j) {
-        this(cache, dataSource, new FileDataSource(), new CacheDataSink(cache, j), i, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r4;
-            Object[] objArr = {cache, dataSource, Integer.valueOf(i), Long.valueOf(j)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Cache) objArr2[0], (DataSource) objArr2[1], (DataSource) objArr2[2], (DataSink) objArr2[3], ((Integer) objArr2[4]).intValue(), (EventListener) objArr2[5]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public CacheDataSource(Cache cache, DataSource dataSource, DataSource dataSource2, DataSink dataSink, int i, @Nullable EventListener eventListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {cache, dataSource, dataSource2, dataSink, Integer.valueOf(i), eventListener};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        this.cache = cache;
-        this.cacheReadDataSource = dataSource2;
-        this.blockOnCache = (i & 1) != 0;
-        this.ignoreCacheOnError = (i & 2) != 0;
-        this.ignoreCacheForUnsetLengthRequests = (i & 4) != 0;
-        this.upstreamDataSource = dataSource;
-        if (dataSink != null) {
-            this.cacheWriteDataSource = new TeeDataSource(dataSource, dataSink);
-        } else {
-            this.cacheWriteDataSource = null;
-        }
-        this.eventListener = eventListener;
     }
 }

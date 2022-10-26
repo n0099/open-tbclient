@@ -29,6 +29,18 @@ public class DressItemData extends OrmObject implements Serializable {
     public String propsStateImg;
     public String title;
 
+    public String getDynamicUrlSmall() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "" : (String) invokeV.objValue;
+    }
+
+    public void setDynamicUrlSmall(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
+        }
+    }
+
     public DressItemData() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -49,97 +61,178 @@ public class DressItemData extends OrmObject implements Serializable {
     public int getActivityFinish() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.activityFinish : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.activityFinish;
+        }
+        return invokeV.intValue;
     }
 
     public String getActivityUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.activityUrl : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.activityUrl;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getDailyPrevilegeStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.dailyPrevilegeStatus : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.dailyPrevilegeStatus;
+        }
+        return invokeV.intValue;
     }
 
     public String getDescription() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.description : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.description;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getDynamicUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.dynamicUrl : (String) invokeV.objValue;
-    }
-
-    public String getDynamicUrlSmall() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.dynamicUrl;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getExampleImgUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.exampleImgUrl : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.exampleImgUrl;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getFreeUserLevel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.freeUserLevel : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.freeUserLevel;
+        }
+        return invokeV.intValue;
     }
 
     public boolean getInUse() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.inUse == 1 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (this.inUse == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean getIsActivity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? !StringUtils.isNull(this.activityUrl) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return !StringUtils.isNull(this.activityUrl);
+        }
+        return invokeV.booleanValue;
     }
 
     public String getPermissionImgUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.permissionImgUrl : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.permissionImgUrl;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getPropsId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.propsId : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.propsId;
+        }
+        return invokeV.intValue;
     }
 
     public String getPropsStateImg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.propsStateImg : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.propsStateImg;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.title : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.title;
+        }
+        return (String) invokeV.objValue;
     }
 
     public boolean isDefault() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.propsId == 0 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            if (this.propsId == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isPropIdEven() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.propsId % 2 == 0 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            if (this.propsId % 2 == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public DressItemData(ThemeBgProp themeBgProp) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {themeBgProp};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.dailyPrevilegeStatus = 0;
+        if (themeBgProp == null) {
+            return;
+        }
+        this.title = themeBgProp.title;
+        this.description = themeBgProp.description;
+        this.exampleImgUrl = themeBgProp.example_url;
+        this.propsId = themeBgProp.props_id.intValue();
+        this.inUse = themeBgProp.in_use.intValue();
+        this.freeUserLevel = themeBgProp.free_user_level.intValue();
+        this.permissionImgUrl = themeBgProp.permission;
+        this.propsStateImg = themeBgProp.props_state_img;
+        this.activityUrl = themeBgProp.activity_url;
+        this.activityFinish = themeBgProp.is_finished.intValue();
+        this.dynamicUrl = themeBgProp.dynamic_url;
+        this.dynamicUrlSmall = themeBgProp.dynamic_url_small;
     }
 
     public void setActivityFinish(int i) {
@@ -174,12 +267,6 @@ public class DressItemData extends OrmObject implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
             this.dynamicUrl = str;
-        }
-    }
-
-    public void setDynamicUrlSmall(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
         }
     }
 
@@ -230,38 +317,5 @@ public class DressItemData extends OrmObject implements Serializable {
         if (interceptable == null || interceptable.invokeL(1048604, this, str) == null) {
             this.title = str;
         }
-    }
-
-    public DressItemData(ThemeBgProp themeBgProp) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {themeBgProp};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.dailyPrevilegeStatus = 0;
-        if (themeBgProp == null) {
-            return;
-        }
-        this.title = themeBgProp.title;
-        this.description = themeBgProp.description;
-        this.exampleImgUrl = themeBgProp.example_url;
-        this.propsId = themeBgProp.props_id.intValue();
-        this.inUse = themeBgProp.in_use.intValue();
-        this.freeUserLevel = themeBgProp.free_user_level.intValue();
-        this.permissionImgUrl = themeBgProp.permission;
-        this.propsStateImg = themeBgProp.props_state_img;
-        this.activityUrl = themeBgProp.activity_url;
-        this.activityFinish = themeBgProp.is_finished.intValue();
-        this.dynamicUrl = themeBgProp.dynamic_url;
-        this.dynamicUrlSmall = themeBgProp.dynamic_url_small;
     }
 }

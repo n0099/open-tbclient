@@ -11,6 +11,12 @@ public abstract class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract String a();
+
+    public abstract String a(String str);
+
+    public abstract JSONObject b();
+
     public g() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -25,15 +31,12 @@ public abstract class g {
         }
     }
 
-    public abstract String a();
-
-    public abstract String a(String str);
-
-    public abstract JSONObject b();
-
     public String u(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? com.cmic.sso.sdk.e.d.a(a(str)).toLowerCase() : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return com.cmic.sso.sdk.e.d.a(a(str)).toLowerCase();
+        }
+        return (String) invokeL.objValue;
     }
 }

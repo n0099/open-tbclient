@@ -60,12 +60,18 @@ public final class WebRequestType {
     public static WebRequestType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (WebRequestType) Enum.valueOf(WebRequestType.class, str) : (WebRequestType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (WebRequestType) Enum.valueOf(WebRequestType.class, str);
+        }
+        return (WebRequestType) invokeL.objValue;
     }
 
     public static WebRequestType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (WebRequestType[]) $VALUES.clone() : (WebRequestType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (WebRequestType[]) $VALUES.clone();
+        }
+        return (WebRequestType[]) invokeV.objValue;
     }
 }

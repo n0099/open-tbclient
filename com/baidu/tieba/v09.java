@@ -1,86 +1,43 @@
 package com.baidu.tieba;
 
 import android.graphics.Bitmap;
+import android.os.Handler;
+import android.os.HandlerThread;
 import android.text.TextUtils;
-import android.util.LruCache;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.utils.FileUtils;
 /* loaded from: classes6.dex */
 public class v09 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LruCache<String, Bitmap> a;
+    public String a;
+    public Handler b;
+    public final HandlerThread c;
 
-    /* loaded from: classes6.dex */
-    public class a extends LruCache<String, Bitmap> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(v09 v09Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v09Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.util.LruCache
-        /* renamed from: a */
-        public void entryRemoved(boolean z, String str, Bitmap bitmap, Bitmap bitmap2) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, bitmap, bitmap2}) == null) || bitmap == null || bitmap.isRecycled()) {
-                return;
-            }
-            bitmap.recycle();
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.util.LruCache
-        /* renamed from: b */
-        public int sizeOf(String str, Bitmap bitmap) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bitmap)) == null) ? (bitmap.getRowBytes() * bitmap.getHeight()) / 1024 : invokeLL.intValue;
-        }
-    }
-
-    public v09(int i) {
+    public v09(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (i > 0) {
-            this.a = new a(this, i);
-            return;
-        }
-        throw new IllegalArgumentException("maxSize <= 0");
+        this.a = str;
+        HandlerThread handlerThread = new HandlerThread("VideoFrameDiskCacheSaveTask");
+        this.c = handlerThread;
+        handlerThread.start();
     }
 
     public Bitmap a(String str) {
@@ -90,16 +47,42 @@ public class v09 {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return this.a.get(str);
+            String c = u09.c(this.a, str);
+            if (!FileUtils.isExists(c)) {
+                return null;
+            }
+            Bitmap f = jh9.f(c);
+            if (f != null) {
+                c19.f().g().b(str, f);
+            }
+            return f;
         }
         return (Bitmap) invokeL.objValue;
     }
 
-    public void b(String str, Bitmap bitmap) {
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bitmap) == null) || TextUtils.isEmpty(str) || bitmap == null || bitmap.isRecycled()) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        this.a.put(str, bitmap);
+        return (String) invokeV.objValue;
+    }
+
+    public void c(String str, Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bitmap) == null) {
+            if (this.b == null) {
+                this.b = new Handler(this.c.getLooper());
+            }
+            this.b.post(new d19(this.a, str, bitmap));
+        }
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.a = str;
+        }
     }
 }

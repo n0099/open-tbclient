@@ -19,11 +19,11 @@ import java.lang.ref.WeakReference;
 public final class d extends b.a implements e.b, i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final RemoteCallbackList<com.kwai.filedownloader.b.a> awx;
+    public final RemoteCallbackList awx;
     public final g awy;
-    public final WeakReference<FileDownloadServiceProxy> awz;
+    public final WeakReference awz;
 
-    public d(WeakReference<FileDownloadServiceProxy> weakReference, g gVar) {
+    public d(WeakReference weakReference, g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -38,7 +38,7 @@ public final class d extends b.a implements e.b, i {
                 return;
             }
         }
-        this.awx = new RemoteCallbackList<>();
+        this.awx = new RemoteCallbackList();
         this.awz = weakReference;
         this.awy = gVar;
         com.kwai.filedownloader.message.e.Eg().a(this);
@@ -47,14 +47,14 @@ public final class d extends b.a implements e.b, i {
     private synchronized int v(MessageSnapshot messageSnapshot) {
         InterceptResult invokeL;
         int beginBroadcast;
-        RemoteCallbackList<com.kwai.filedownloader.b.a> remoteCallbackList;
+        RemoteCallbackList remoteCallbackList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, messageSnapshot)) == null) {
             synchronized (this) {
                 beginBroadcast = this.awx.beginBroadcast();
                 for (int i = 0; i < beginBroadcast; i++) {
                     try {
-                        this.awx.getBroadcastItem(i).q(messageSnapshot);
+                        ((com.kwai.filedownloader.b.a) this.awx.getBroadcastItem(i)).q(messageSnapshot);
                     } catch (RemoteException e) {
                         com.kwai.filedownloader.e.d.a(this, e, "callback error", new Object[0]);
                         remoteCallbackList = this.awx;
@@ -196,21 +196,21 @@ public final class d extends b.a implements e.b, i {
 
     @Override // com.kwai.filedownloader.b.b
     public final void startForeground(int i, Notification notification) {
-        WeakReference<FileDownloadServiceProxy> weakReference;
+        WeakReference weakReference;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeIL(1048593, this, i, notification) == null) || (weakReference = this.awz) == null || weakReference.get() == null) {
             return;
         }
-        this.awz.get().context.startForeground(i, notification);
+        ((FileDownloadServiceProxy) this.awz.get()).context.startForeground(i, notification);
     }
 
     @Override // com.kwai.filedownloader.b.b
     public final void stopForeground(boolean z) {
-        WeakReference<FileDownloadServiceProxy> weakReference;
+        WeakReference weakReference;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeZ(1048594, this, z) == null) || (weakReference = this.awz) == null || weakReference.get() == null) {
             return;
         }
-        this.awz.get().context.stopForeground(z);
+        ((FileDownloadServiceProxy) this.awz.get()).context.stopForeground(z);
     }
 }

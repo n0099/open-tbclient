@@ -49,11 +49,10 @@ public class ScaleVideoView extends VideoView {
             if (interceptable == null || interceptable.invokeLII(1048576, this, mediaPlayer, i, i2) == null) {
                 this.a.b = mediaPlayer.getVideoWidth();
                 this.a.c = mediaPlayer.getVideoHeight();
-                if (this.a.b == 0 || this.a.c == 0) {
-                    return;
+                if (this.a.b != 0 && this.a.c != 0) {
+                    this.a.getHolder().setFixedSize(this.a.b, this.a.c);
+                    this.a.requestLayout();
                 }
-                this.a.getHolder().setFixedSize(this.a.b, this.a.c);
-                this.a.requestLayout();
             }
         }
     }
@@ -78,75 +77,6 @@ public class ScaleVideoView extends VideoView {
         }
         this.d = new a(this);
         f();
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b = 0;
-            this.c = 0;
-        }
-    }
-
-    @Override // android.widget.VideoView, android.view.SurfaceView, android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
-            int defaultSize = VideoView.getDefaultSize(this.b, i);
-            int defaultSize2 = VideoView.getDefaultSize(this.c, i2);
-            if (this.b > 0 && this.c > 0) {
-                int mode = View.MeasureSpec.getMode(i);
-                int size = View.MeasureSpec.getSize(i);
-                int mode2 = View.MeasureSpec.getMode(i2);
-                int size2 = View.MeasureSpec.getSize(i2);
-                if (mode == 1073741824 && mode2 == 1073741824) {
-                    int i3 = this.b;
-                    int i4 = i3 * size2;
-                    int i5 = this.c;
-                    if (i4 < size * i5) {
-                        defaultSize2 = (i5 * size) / i3;
-                        defaultSize = size;
-                    } else {
-                        defaultSize = i3 * size2 > size * i5 ? (i3 * size2) / i5 : size;
-                        defaultSize2 = size2;
-                    }
-                } else {
-                    if (mode == 1073741824) {
-                        defaultSize2 = (this.c * size) / this.b;
-                    } else if (mode2 == 1073741824) {
-                        defaultSize = (this.b * size2) / this.c;
-                        defaultSize2 = size2;
-                    } else {
-                        int i6 = this.b;
-                        int i7 = this.c;
-                        if (mode2 != Integer.MIN_VALUE || i7 <= size2) {
-                            defaultSize2 = i7;
-                        } else {
-                            i6 = (i6 * size2) / i7;
-                            defaultSize2 = size2;
-                        }
-                        if (mode != Integer.MIN_VALUE || i6 <= size) {
-                            defaultSize = i6;
-                        } else {
-                            defaultSize2 = (this.c * size) / this.b;
-                        }
-                    }
-                    defaultSize = size;
-                }
-            }
-            setMeasuredDimension(defaultSize, defaultSize2);
-        }
-    }
-
-    public void setMediaPlayer(MediaPlayer mediaPlayer) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mediaPlayer) == null) || mediaPlayer == null) {
-            return;
-        }
-        this.a = mediaPlayer;
-        this.b = mediaPlayer.getVideoWidth();
-        this.c = mediaPlayer.getVideoHeight();
-        this.a.setOnVideoSizeChangedListener(this.d);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -193,5 +123,77 @@ public class ScaleVideoView extends VideoView {
         }
         this.d = new a(this);
         f();
+    }
+
+    public void setMediaPlayer(MediaPlayer mediaPlayer) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mediaPlayer) == null) && mediaPlayer != null) {
+            this.a = mediaPlayer;
+            this.b = mediaPlayer.getVideoWidth();
+            this.c = mediaPlayer.getVideoHeight();
+            this.a.setOnVideoSizeChangedListener(this.d);
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b = 0;
+            this.c = 0;
+        }
+    }
+
+    @Override // android.widget.VideoView, android.view.SurfaceView, android.view.View
+    public void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            int defaultSize = VideoView.getDefaultSize(this.b, i);
+            int defaultSize2 = VideoView.getDefaultSize(this.c, i2);
+            if (this.b > 0 && this.c > 0) {
+                int mode = View.MeasureSpec.getMode(i);
+                int size = View.MeasureSpec.getSize(i);
+                int mode2 = View.MeasureSpec.getMode(i2);
+                int size2 = View.MeasureSpec.getSize(i2);
+                if (mode == 1073741824 && mode2 == 1073741824) {
+                    int i3 = this.b;
+                    int i4 = i3 * size2;
+                    int i5 = this.c;
+                    if (i4 < size * i5) {
+                        defaultSize2 = (i5 * size) / i3;
+                        defaultSize = size;
+                    } else {
+                        if (i3 * size2 > size * i5) {
+                            defaultSize = (i3 * size2) / i5;
+                        } else {
+                            defaultSize = size;
+                        }
+                        defaultSize2 = size2;
+                    }
+                } else {
+                    if (mode == 1073741824) {
+                        defaultSize2 = (this.c * size) / this.b;
+                    } else if (mode2 == 1073741824) {
+                        defaultSize = (this.b * size2) / this.c;
+                        defaultSize2 = size2;
+                    } else {
+                        int i6 = this.b;
+                        int i7 = this.c;
+                        if (mode2 == Integer.MIN_VALUE && i7 > size2) {
+                            i6 = (i6 * size2) / i7;
+                            defaultSize2 = size2;
+                        } else {
+                            defaultSize2 = i7;
+                        }
+                        if (mode == Integer.MIN_VALUE && i6 > size) {
+                            defaultSize2 = (this.c * size) / this.b;
+                        } else {
+                            defaultSize = i6;
+                        }
+                    }
+                    defaultSize = size;
+                }
+            }
+            setMeasuredDimension(defaultSize, defaultSize2);
+        }
     }
 }

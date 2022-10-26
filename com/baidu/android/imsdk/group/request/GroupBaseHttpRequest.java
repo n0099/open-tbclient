@@ -16,6 +16,13 @@ public abstract class GroupBaseHttpRequest extends BaseHttpRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getMethod() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "POST" : (String) invokeV.objValue;
+    }
+
     public GroupBaseHttpRequest() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -31,19 +38,6 @@ public abstract class GroupBaseHttpRequest extends BaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
-    public Map<String, String> getHeaders() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            HashMap hashMap = new HashMap();
-            String bduss = IMConfigInternal.getInstance().getIMConfig(this.mContext).getBduss(this.mContext);
-            hashMap.put("Cookie", "BDUSS=" + bduss);
-            return hashMap;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public String getHost() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -54,6 +48,19 @@ public abstract class GroupBaseHttpRequest extends BaseHttpRequest {
             return getHostUrl() + "rest/2.0/im/groupchat";
         }
         return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
+    public Map getHeaders() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            HashMap hashMap = new HashMap();
+            String bduss = IMConfigInternal.getInstance().getIMConfig(this.mContext).getBduss(this.mContext);
+            hashMap.put("Cookie", "BDUSS=" + bduss);
+            return hashMap;
+        }
+        return (Map) invokeV.objValue;
     }
 
     public String getHostUrl() {
@@ -76,12 +83,5 @@ public abstract class GroupBaseHttpRequest extends BaseHttpRequest {
             return "https://pim.baidu.com/";
         }
         return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
-    public String getMethod() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "POST" : (String) invokeV.objValue;
     }
 }

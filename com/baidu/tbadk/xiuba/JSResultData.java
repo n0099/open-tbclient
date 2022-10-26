@@ -30,7 +30,7 @@ public class JSResultData extends OrmObject implements Serializable {
     public int status;
 
     /* loaded from: classes3.dex */
-    public static final class Result extends OrmObject implements Serializable {
+    public final class Result extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 678301888552831958L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -56,25 +56,37 @@ public class JSResultData extends OrmObject implements Serializable {
         public String getApkVersion() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.apkVersion : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.apkVersion;
+            }
+            return (String) invokeV.objValue;
         }
 
         public int getDownload() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.download : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.download;
+            }
+            return invokeV.intValue;
         }
 
         public int getInstall() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.install : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.install;
+            }
+            return invokeV.intValue;
         }
 
         public int getIsInstall() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.isInstall : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.isInstall;
+            }
+            return invokeV.intValue;
         }
 
         public void setApkVersion(String str) {
@@ -123,25 +135,37 @@ public class JSResultData extends OrmObject implements Serializable {
     public String getErrorCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.errorCode : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.errorCode;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getErrorMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.errorMsg : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.errorMsg;
+        }
+        return (String) invokeV.objValue;
     }
 
     public Result getResult() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.result : (Result) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.result;
+        }
+        return (Result) invokeV.objValue;
     }
 
     public int getStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.status : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.status;
+        }
+        return invokeV.intValue;
     }
 
     public void setErrorCode(String str) {

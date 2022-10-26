@@ -14,6 +14,26 @@ public final class DashWrappingSegmentIndex implements DashSegmentIndex {
     public transient /* synthetic */ FieldHolder $fh;
     public final ChunkIndex chunkIndex;
 
+    @Override // com.google.android.exoplayer2.source.dash.DashSegmentIndex
+    public int getFirstSegmentNum() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.google.android.exoplayer2.source.dash.DashSegmentIndex
+    public boolean isExplicit() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
     public DashWrappingSegmentIndex(ChunkIndex chunkIndex) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -33,34 +53,13 @@ public final class DashWrappingSegmentIndex implements DashSegmentIndex {
     }
 
     @Override // com.google.android.exoplayer2.source.dash.DashSegmentIndex
-    public long getDurationUs(int i, long j) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) ? this.chunkIndex.durationsUs[i] : invokeCommon.longValue;
-    }
-
-    @Override // com.google.android.exoplayer2.source.dash.DashSegmentIndex
-    public int getFirstSegmentNum() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.google.android.exoplayer2.source.dash.DashSegmentIndex
     public int getSegmentCount(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) ? this.chunkIndex.length : invokeJ.intValue;
-    }
-
-    @Override // com.google.android.exoplayer2.source.dash.DashSegmentIndex
-    public int getSegmentNum(long j, long j2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? this.chunkIndex.getChunkIndex(j) : invokeCommon.intValue;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
+            return this.chunkIndex.length;
+        }
+        return invokeJ.intValue;
     }
 
     @Override // com.google.android.exoplayer2.source.dash.DashSegmentIndex
@@ -78,16 +77,29 @@ public final class DashWrappingSegmentIndex implements DashSegmentIndex {
     public long getTimeUs(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? this.chunkIndex.timesUs[i] : invokeI.longValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            return this.chunkIndex.timesUs[i];
+        }
+        return invokeI.longValue;
     }
 
     @Override // com.google.android.exoplayer2.source.dash.DashSegmentIndex
-    public boolean isExplicit() {
-        InterceptResult invokeV;
+    public long getDurationUs(int i, long j) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return true;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
+            return this.chunkIndex.durationsUs[i];
         }
-        return invokeV.booleanValue;
+        return invokeCommon.longValue;
+    }
+
+    @Override // com.google.android.exoplayer2.source.dash.DashSegmentIndex
+    public int getSegmentNum(long j, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            return this.chunkIndex.getChunkIndex(j);
+        }
+        return invokeCommon.intValue;
     }
 }

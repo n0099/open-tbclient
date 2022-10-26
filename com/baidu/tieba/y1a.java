@@ -1,129 +1,131 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicReference;
+import java.util.Arrays;
+import rx.exceptions.CompositeException;
+import rx.exceptions.OnCompletedFailedException;
+import rx.exceptions.OnErrorFailedException;
+import rx.exceptions.OnErrorNotImplementedException;
+import rx.exceptions.UnsubscribeFailedException;
 /* loaded from: classes6.dex */
-public final class y1a implements mx9 {
+public class y1a extends dy9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final sx9 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicReference<sx9> a;
+    public final dy9 e;
+    public boolean f;
 
-    /* loaded from: classes6.dex */
-    public static class a implements sx9 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.sx9
-        public void call() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948278688, "Lcom/baidu/tieba/y1a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948278688, "Lcom/baidu/tieba/y1a;");
-                return;
-            }
-        }
-        b = new a();
-    }
-
-    public y1a() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new AtomicReference<>();
-    }
-
-    public static y1a a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new y1a() : (y1a) invokeV.objValue;
-    }
-
-    public static y1a b(sx9 sx9Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, sx9Var)) == null) ? new y1a(sx9Var) : (y1a) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.mx9
-    public boolean isUnsubscribed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.get() == b : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.mx9
-    public void unsubscribe() {
-        sx9 andSet;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            sx9 sx9Var = this.a.get();
-            sx9 sx9Var2 = b;
-            if (sx9Var == sx9Var2 || (andSet = this.a.getAndSet(sx9Var2)) == null || andSet == b) {
-                return;
-            }
-            andSet.call();
-        }
-    }
-
-    public y1a(sx9 sx9Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public y1a(dy9 dy9Var) {
+        super(dy9Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {sx9Var};
-            interceptable.invokeUnInit(65538, newInitContext);
+            Object[] objArr = {dy9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((dy9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new AtomicReference<>(sx9Var);
+        this.e = dy9Var;
+    }
+
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+    public void g(Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
+            h2a.c().b().a(th);
+            try {
+                this.e.onError(th);
+                try {
+                    unsubscribe();
+                } catch (Throwable th2) {
+                    e2a.j(th2);
+                    throw new OnErrorFailedException(th2);
+                }
+            } catch (OnErrorNotImplementedException e) {
+                try {
+                    unsubscribe();
+                    throw e;
+                } catch (Throwable th3) {
+                    e2a.j(th3);
+                    throw new OnErrorNotImplementedException("Observer.onError not implemented and error while unsubscribing.", new CompositeException(Arrays.asList(th, th3)));
+                }
+            } catch (Throwable th4) {
+                e2a.j(th4);
+                try {
+                    unsubscribe();
+                    throw new OnErrorFailedException("Error occurred when trying to propagate error to Observer.onError", new CompositeException(Arrays.asList(th, th4)));
+                } catch (Throwable th5) {
+                    e2a.j(th5);
+                    throw new OnErrorFailedException("Error occurred when trying to propagate error to Observer.onError and during unsubscription.", new CompositeException(Arrays.asList(th, th4, th5)));
+                }
+            }
+        }
+    }
+
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 3, expect 1 */
+    @Override // com.baidu.tieba.yx9
+    public void onCompleted() {
+        UnsubscribeFailedException unsubscribeFailedException;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !this.f) {
+            this.f = true;
+            try {
+                this.e.onCompleted();
+                try {
+                    unsubscribe();
+                } finally {
+                }
+            } catch (Throwable th) {
+                try {
+                    jy9.e(th);
+                    e2a.j(th);
+                    throw new OnCompletedFailedException(th.getMessage(), th);
+                } catch (Throwable th2) {
+                    try {
+                        unsubscribe();
+                        throw th2;
+                    } finally {
+                    }
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.yx9
+    public void onError(Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
+            jy9.e(th);
+            if (!this.f) {
+                this.f = true;
+                g(th);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.yx9
+    public void onNext(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
+            try {
+                if (!this.f) {
+                    this.e.onNext(obj);
+                }
+            } catch (Throwable th) {
+                jy9.f(th, this);
+            }
+        }
     }
 }

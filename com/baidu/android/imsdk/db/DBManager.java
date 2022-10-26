@@ -23,6 +23,21 @@ public class DBManager extends DBBase {
     public static volatile DBManager mInstance;
     public transient /* synthetic */ FieldHolder $fh;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-799319594, "Lcom/baidu/android/imsdk/db/DBManager;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-799319594, "Lcom/baidu/android/imsdk/db/DBManager;");
+        }
+    }
+
     /* loaded from: classes.dex */
     public class CmdQueueMsgParse implements CursorParse {
         public static /* synthetic */ Interceptable $ic;
@@ -49,43 +64,36 @@ public class DBManager extends DBBase {
             this.msg = null;
         }
 
-        @Override // com.baidu.android.imsdk.db.CursorParse
-        public void parseCursor(Cursor cursor) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cursor) == null) && cursor != null && cursor.moveToFirst()) {
-                this.msg = new CmdQueueMsg();
-                String string = cursor.getString(cursor.getColumnIndex("uuid"));
-                String string2 = cursor.getString(cursor.getColumnIndex(TableDefine.PaCmdQueueColumns.COLUMN_PARAM));
-                String string3 = !cursor.isNull(cursor.getColumnIndex("extra")) ? cursor.getString(cursor.getColumnIndex("extra")) : "";
-                int i = cursor.getInt(cursor.getColumnIndex(TableDefine.PaCmdQueueColumns.COLUMN_METHOD_ID));
-                this.msg.setUuid(string);
-                this.msg.setBody(string2);
-                this.msg.setMethodId(i);
-                this.msg.setExtra(string3);
-            }
-        }
-
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.android.imsdk.db.CursorParse
         public CmdQueueMsg getResult() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.msg : (CmdQueueMsg) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.msg;
+            }
+            return (CmdQueueMsg) invokeV.objValue;
         }
-    }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-799319594, "Lcom/baidu/android/imsdk/db/DBManager;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-799319594, "Lcom/baidu/android/imsdk/db/DBManager;");
+        @Override // com.baidu.android.imsdk.db.CursorParse
+        public void parseCursor(Cursor cursor) {
+            String str;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cursor) == null) && cursor != null && cursor.moveToFirst()) {
+                this.msg = new CmdQueueMsg();
+                String string = cursor.getString(cursor.getColumnIndex("uuid"));
+                String string2 = cursor.getString(cursor.getColumnIndex(TableDefine.PaCmdQueueColumns.COLUMN_PARAM));
+                if (!cursor.isNull(cursor.getColumnIndex("extra"))) {
+                    str = cursor.getString(cursor.getColumnIndex("extra"));
+                } else {
+                    str = "";
+                }
+                int i = cursor.getInt(cursor.getColumnIndex(TableDefine.PaCmdQueueColumns.COLUMN_METHOD_ID));
+                this.msg.setUuid(string);
+                this.msg.setBody(string2);
+                this.msg.setMethodId(i);
+                this.msg.setExtra(str);
+            }
         }
     }
 
@@ -127,15 +135,15 @@ public class DBManager extends DBBase {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, iArr)) == null) {
-            if (iArr == null || iArr.length == 0) {
-                return null;
+            if (iArr != null && iArr.length != 0) {
+                int length = iArr.length;
+                String[] strArr = new String[length];
+                for (int i = 0; i < length; i++) {
+                    strArr[i] = String.valueOf(iArr[i]);
+                }
+                return strArr;
             }
-            int length = iArr.length;
-            String[] strArr = new String[length];
-            for (int i = 0; i < length; i++) {
-                strArr[i] = String.valueOf(iArr[i]);
-            }
-            return strArr;
+            return null;
         }
         return (String[]) invokeL.objValue;
     }
@@ -186,6 +194,21 @@ public class DBManager extends DBBase {
             return result;
         }
         return (CmdQueueMsg) invokeI.objValue;
+    }
+
+    public CmdQueueMsg getCmdQueueMsg(String str, int i) {
+        InterceptResult invokeLI;
+        CmdQueueMsg result;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, str, i)) == null) {
+            synchronized (DBBase.mSyncLock) {
+                CmdQueueMsgParse cmdQueueMsgParse = new CmdQueueMsgParse(this);
+                query(TableDefine.DB_TABLE_PA_CMD_QUEUE, null, "uuid= ? AND type=?", new String[]{str, String.valueOf(i)}, null, null, null, cmdQueueMsgParse);
+                result = cmdQueueMsgParse.getResult();
+            }
+            return result;
+        }
+        return (CmdQueueMsg) invokeLI.objValue;
     }
 
     public boolean saveCmdMsg(String str, int i, String str2, String str3, int i2, int i3) {
@@ -255,21 +278,6 @@ public class DBManager extends DBBase {
             return z;
         }
         return invokeLI.booleanValue;
-    }
-
-    public CmdQueueMsg getCmdQueueMsg(String str, int i) {
-        InterceptResult invokeLI;
-        CmdQueueMsg result;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, str, i)) == null) {
-            synchronized (DBBase.mSyncLock) {
-                CmdQueueMsgParse cmdQueueMsgParse = new CmdQueueMsgParse(this);
-                query(TableDefine.DB_TABLE_PA_CMD_QUEUE, null, "uuid= ? AND type=?", new String[]{str, String.valueOf(i)}, null, null, null, cmdQueueMsgParse);
-                result = cmdQueueMsgParse.getResult();
-            }
-            return result;
-        }
-        return (CmdQueueMsg) invokeLI.objValue;
     }
 
     public boolean updateCmdMsgSendStatus(String str, String str2, String str3, int i) {

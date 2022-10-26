@@ -59,12 +59,18 @@ public final class Permission {
     public static Permission valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Permission) Enum.valueOf(Permission.class, str) : (Permission) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (Permission) Enum.valueOf(Permission.class, str);
+        }
+        return (Permission) invokeL.objValue;
     }
 
     public static Permission[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Permission[]) $VALUES.clone() : (Permission[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (Permission[]) $VALUES.clone();
+        }
+        return (Permission[]) invokeV.objValue;
     }
 }

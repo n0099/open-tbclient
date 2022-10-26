@@ -5,15 +5,12 @@ import android.graphics.Bitmap;
 import android.graphics.Outline;
 import android.graphics.Rect;
 import android.view.Gravity;
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@RequiresApi(21)
 /* loaded from: classes.dex */
 public class RoundedBitmapDrawable21 extends RoundedBitmapDrawable {
     public static /* synthetic */ Interceptable $ic;
@@ -41,11 +38,21 @@ public class RoundedBitmapDrawable21 extends RoundedBitmapDrawable {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void getOutline(@NonNull Outline outline) {
+    public void getOutline(Outline outline) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, outline) == null) {
             updateDstRect();
             outline.setRoundRect(this.mDstRect, getCornerRadius());
+        }
+    }
+
+    @Override // androidx.core.graphics.drawable.RoundedBitmapDrawable
+    public void setMipMap(boolean z) {
+        Bitmap bitmap;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048579, this, z) == null) && (bitmap = this.mBitmap) != null) {
+            bitmap.setHasMipMap(z);
+            invalidateSelf();
         }
     }
 
@@ -63,19 +70,11 @@ public class RoundedBitmapDrawable21 extends RoundedBitmapDrawable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             Bitmap bitmap = this.mBitmap;
-            return bitmap != null && bitmap.hasMipMap();
+            if (bitmap != null && bitmap.hasMipMap()) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
-    }
-
-    @Override // androidx.core.graphics.drawable.RoundedBitmapDrawable
-    public void setMipMap(boolean z) {
-        Bitmap bitmap;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (bitmap = this.mBitmap) == null) {
-            return;
-        }
-        bitmap.setHasMipMap(z);
-        invalidateSelf();
     }
 }

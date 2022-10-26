@@ -15,41 +15,6 @@ public class DuDelayProcess {
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1524241445, "Lcom/baidu/audioprocesswrapper/DuDelayProcess;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1524241445, "Lcom/baidu/audioprocesswrapper/DuDelayProcess;");
-                return;
-            }
-        }
-        System.loadLibrary("DuDelayProcess");
-    }
-
-    public DuDelayProcess(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = 0L;
-        this.a = nativeInitDelay(i, i2);
-    }
-
     private native int nativeAvailableBytes(long j);
 
     private native boolean nativeDelayPutBytes(long j, byte[] bArr, int i);
@@ -72,10 +37,29 @@ public class DuDelayProcess {
 
     private native void nativeSetDelayTime(long j, int i);
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1524241445, "Lcom/baidu/audioprocesswrapper/DuDelayProcess;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1524241445, "Lcom/baidu/audioprocesswrapper/DuDelayProcess;");
+                return;
+            }
+        }
+        System.loadLibrary("DuDelayProcess");
+    }
+
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? nativeAvailableBytes(this.a) : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return nativeAvailableBytes(this.a);
+        }
+        return invokeV.intValue;
     }
 
     public void b() {
@@ -96,29 +80,54 @@ public class DuDelayProcess {
         }
     }
 
+    public DuDelayProcess(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = 0L;
+        this.a = nativeInitDelay(i, i2);
+    }
+
     public boolean d(byte[] bArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, bArr, i)) == null) ? nativeDelayPutBytes(this.a, bArr, i) : invokeLI.booleanValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, bArr, i)) == null) {
+            return nativeDelayPutBytes(this.a, bArr, i);
+        }
+        return invokeLI.booleanValue;
     }
 
     public int e(byte[] bArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, bArr, i)) == null) ? nativeDelayReceiveBytes(this.a, bArr, i) : invokeLI.intValue;
-    }
-
-    public void f(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048581, this, f) == null) {
-            nativeSetDelayDecrease(this.a, f);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, bArr, i)) == null) {
+            return nativeDelayReceiveBytes(this.a, bArr, i);
         }
+        return invokeLI.intValue;
     }
 
     public void g(int i, int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048582, this, i, iArr) == null) {
             nativeSetDelayInterval(this.a, i, iArr);
+        }
+    }
+
+    public void f(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048581, this, f) == null) {
+            nativeSetDelayDecrease(this.a, f);
         }
     }
 

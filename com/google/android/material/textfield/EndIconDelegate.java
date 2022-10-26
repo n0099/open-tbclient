@@ -1,7 +1,6 @@
 package com.google.android.material.textfield;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,26 +15,6 @@ public abstract class EndIconDelegate {
     public Context context;
     public CheckableImageButton endIconView;
     public TextInputLayout textInputLayout;
-
-    public EndIconDelegate(@NonNull TextInputLayout textInputLayout) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {textInputLayout};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.textInputLayout = textInputLayout;
-        this.context = textInputLayout.getContext();
-        this.endIconView = textInputLayout.getEndIconView();
-    }
 
     public abstract void initialize();
 
@@ -61,5 +40,25 @@ public abstract class EndIconDelegate {
             return false;
         }
         return invokeV.booleanValue;
+    }
+
+    public EndIconDelegate(TextInputLayout textInputLayout) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {textInputLayout};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.textInputLayout = textInputLayout;
+        this.context = textInputLayout.getContext();
+        this.endIconView = textInputLayout.getEndIconView();
     }
 }

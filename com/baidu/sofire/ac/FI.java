@@ -13,9 +13,9 @@ public interface FI {
 
     boolean chh(Context context, String str);
 
-    void cm(String str, String str2, String str3, Callback callback, Class<?>[] clsArr, Object... objArr);
+    void cm(String str, String str2, String str3, Callback callback, Class[] clsArr, Object... objArr);
 
-    Pair<Integer, Object> cmsi(int i, String str, Class<?>[] clsArr, Object... objArr);
+    Pair cmsi(int i, String str, Class[] clsArr, Object... objArr);
 
     boolean cp(Context context);
 
@@ -23,7 +23,7 @@ public interface FI {
 
     SharedPreferences getCustomMutiProcessSharedPreferences(Context context, String str);
 
-    Pair<Boolean, DeviceInfoCallback> getDeviceInfoCallback();
+    Pair getDeviceInfoCallback();
 
     SharedPreferences getPlatformPrivateSharedPreferences(Context context);
 
@@ -31,7 +31,7 @@ public interface FI {
 
     String gm(String str, String str2);
 
-    Map<Integer, String> gpd();
+    Map gpd();
 
     String gs(String str);
 
@@ -53,9 +53,9 @@ public interface FI {
 
     void sp(String str, boolean z);
 
-    void sse(Context context, String str, Map<String, Object> map, boolean z);
+    void sse(Context context, String str, Map map, boolean z);
 
-    void sser(Context context, String str, Map<String, Object> map);
+    void sser(Context context, String str, Map map);
 
     void u(String str);
 

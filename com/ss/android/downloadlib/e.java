@@ -1,7 +1,6 @@
 package com.ss.android.downloadlib;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import com.ss.android.download.api.config.h;
 import com.ss.android.download.api.config.i;
 import com.ss.android.download.api.config.k;
@@ -17,7 +16,7 @@ import com.ss.android.socialbase.downloader.model.DownloadInfo;
 /* loaded from: classes8.dex */
 public class e implements com.ss.android.download.api.a {
     @Override // com.ss.android.download.api.a
-    public com.ss.android.download.api.a a(@NonNull final com.ss.android.download.api.config.b bVar) {
+    public com.ss.android.download.api.a a(final com.ss.android.download.api.config.b bVar) {
         j.a(bVar);
         com.ss.android.socialbase.downloader.a.a.a().a(new a.c() { // from class: com.ss.android.downloadlib.e.1
         });
@@ -25,31 +24,31 @@ public class e implements com.ss.android.download.api.a {
     }
 
     @Override // com.ss.android.download.api.a
-    public com.ss.android.download.api.a a(@NonNull com.ss.android.download.api.config.f fVar) {
+    public com.ss.android.download.api.a a(com.ss.android.download.api.config.f fVar) {
         j.a(fVar);
         return this;
     }
 
     @Override // com.ss.android.download.api.a
-    public com.ss.android.download.api.a a(@NonNull com.ss.android.download.api.config.g gVar) {
+    public com.ss.android.download.api.a a(com.ss.android.download.api.config.g gVar) {
         j.a(gVar);
         return this;
     }
 
     @Override // com.ss.android.download.api.a
-    public com.ss.android.download.api.a a(@NonNull h hVar) {
+    public com.ss.android.download.api.a a(h hVar) {
         j.a(hVar);
         return this;
     }
 
     @Override // com.ss.android.download.api.a
-    public com.ss.android.download.api.a a(@NonNull i iVar) {
+    public com.ss.android.download.api.a a(i iVar) {
         j.a(iVar);
         return this;
     }
 
     @Override // com.ss.android.download.api.a
-    public com.ss.android.download.api.a a(@NonNull k kVar) {
+    public com.ss.android.download.api.a a(k kVar) {
         j.a(kVar);
         return this;
     }
@@ -61,7 +60,7 @@ public class e implements com.ss.android.download.api.a {
     }
 
     @Override // com.ss.android.download.api.a
-    public com.ss.android.download.api.a a(@NonNull com.ss.android.download.api.model.a aVar) {
+    public com.ss.android.download.api.a a(com.ss.android.download.api.model.a aVar) {
         j.a(aVar);
         return this;
     }
@@ -70,40 +69,6 @@ public class e implements com.ss.android.download.api.a {
     public com.ss.android.download.api.a a(DownloaderBuilder downloaderBuilder) {
         if (downloaderBuilder.getNotificationClickCallback() == null) {
             downloaderBuilder.notificationClickCallback(new af() { // from class: com.ss.android.downloadlib.e.2
-                private boolean d(DownloadInfo downloadInfo) {
-                    String a;
-                    t r = j.r();
-                    if (r != null) {
-                        com.ss.android.downloadad.api.a.b a2 = com.ss.android.downloadlib.addownload.b.f.a().a(downloadInfo);
-                        if (a2 != null && a2.c()) {
-                            a = com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId()).a("ad_notification_jump_url", (String) null);
-                        } else {
-                            a = com.ss.android.downloadlib.addownload.h.a(downloadInfo);
-                        }
-                        if (TextUtils.isEmpty(a)) {
-                            return false;
-                        }
-                        return r.a(j.getContext(), a);
-                    }
-                    return false;
-                }
-
-                @Override // com.ss.android.socialbase.downloader.depend.af
-                public boolean a(DownloadInfo downloadInfo) {
-                    com.ss.android.socialbase.downloader.g.a a = com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId());
-                    if (a.b("notification_opt_2") == 1) {
-                        if (downloadInfo.getStatus() == -2) {
-                            DownloadHandlerService.a(j.getContext(), downloadInfo, com.ss.android.socialbase.appdownloader.d.j().b(), Downloader.getInstance(j.getContext()).getDownloadNotificationEventListener(downloadInfo.getId()));
-                        }
-                        return true;
-                    }
-                    boolean d = d(downloadInfo);
-                    if (a.a("disable_delete_dialog", 0) == 1) {
-                        return true;
-                    }
-                    return d;
-                }
-
                 @Override // com.ss.android.socialbase.downloader.depend.af
                 public boolean b(DownloadInfo downloadInfo) {
                     return false;
@@ -122,6 +87,40 @@ public class e implements com.ss.android.download.api.a {
                     }
                     com.ss.android.socialbase.downloader.notification.b.a().f(downloadInfo.getId());
                     return true;
+                }
+
+                private boolean d(DownloadInfo downloadInfo) {
+                    String a;
+                    t r = j.r();
+                    if (r != null) {
+                        com.ss.android.downloadad.api.a.b a2 = com.ss.android.downloadlib.addownload.b.f.a().a(downloadInfo);
+                        if (a2 != null && a2.c()) {
+                            a = com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId()).a("ad_notification_jump_url", (String) null);
+                        } else {
+                            a = com.ss.android.downloadlib.addownload.h.a(downloadInfo);
+                        }
+                        if (!TextUtils.isEmpty(a)) {
+                            return r.a(j.getContext(), a);
+                        }
+                        return false;
+                    }
+                    return false;
+                }
+
+                @Override // com.ss.android.socialbase.downloader.depend.af
+                public boolean a(DownloadInfo downloadInfo) {
+                    com.ss.android.socialbase.downloader.g.a a = com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId());
+                    if (a.b("notification_opt_2") == 1) {
+                        if (downloadInfo.getStatus() == -2) {
+                            DownloadHandlerService.a(j.getContext(), downloadInfo, com.ss.android.socialbase.appdownloader.d.j().b(), Downloader.getInstance(j.getContext()).getDownloadNotificationEventListener(downloadInfo.getId()));
+                        }
+                        return true;
+                    }
+                    boolean d = d(downloadInfo);
+                    if (a.a("disable_delete_dialog", 0) == 1) {
+                        return true;
+                    }
+                    return d;
                 }
             });
         }

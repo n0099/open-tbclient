@@ -6,34 +6,31 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.qo6;
-import com.baidu.tieba.ro6;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.xo6;
+import com.baidu.tieba.yo6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import tbclient.FrsPage.LiveFuseForumData;
 /* loaded from: classes4.dex */
-public class HeaderComponentMultiView extends FrameLayout implements ro6 {
+public class HeaderComponentMultiView extends FrameLayout implements yo6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
     public RecyclerView b;
-    public List<LiveFuseForumData> c;
+    public List c;
     public HeaderComponentMultiAdapter d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HeaderComponentMultiView(@NonNull Context context) {
+    public HeaderComponentMultiView(Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -54,47 +51,8 @@ public class HeaderComponentMultiView extends FrameLayout implements ro6 {
         c();
     }
 
-    @Override // com.baidu.tieba.ro6
-    public void a() {
-        HeaderComponentMultiAdapter headerComponentMultiAdapter;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (headerComponentMultiAdapter = this.d) == null) {
-            return;
-        }
-        headerComponentMultiAdapter.e();
-    }
-
-    @Override // com.baidu.tieba.ro6
-    public void b(List<LiveFuseForumData> list, qo6 qo6Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, qo6Var) == null) || ListUtils.isEmpty(list)) {
-            return;
-        }
-        this.d.g(qo6Var);
-        this.c.clear();
-        this.c.addAll(list);
-        this.d.notifyDataSetChanged();
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            int k = ej.k(getContext());
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0318, (ViewGroup) null);
-            this.a = inflate;
-            addView(inflate);
-            RecyclerView recyclerView = (RecyclerView) this.a.findViewById(R.id.obfuscated_res_0x7f0906ab);
-            this.b = recyclerView;
-            recyclerView.getLayoutParams().width = k;
-            this.b.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
-            HeaderComponentMultiAdapter headerComponentMultiAdapter = new HeaderComponentMultiAdapter(getContext(), this.c);
-            this.d = headerComponentMultiAdapter;
-            this.b.setAdapter(headerComponentMultiAdapter);
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HeaderComponentMultiView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+    public HeaderComponentMultiView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -117,7 +75,7 @@ public class HeaderComponentMultiView extends FrameLayout implements ro6 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HeaderComponentMultiView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+    public HeaderComponentMultiView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -137,5 +95,43 @@ public class HeaderComponentMultiView extends FrameLayout implements ro6 {
         }
         this.c = new ArrayList();
         c();
+    }
+
+    @Override // com.baidu.tieba.yo6
+    public void a() {
+        HeaderComponentMultiAdapter headerComponentMultiAdapter;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (headerComponentMultiAdapter = this.d) != null) {
+            headerComponentMultiAdapter.e();
+        }
+    }
+
+    @Override // com.baidu.tieba.yo6
+    public void b(List list, xo6 xo6Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, xo6Var) != null) || ListUtils.isEmpty(list)) {
+            return;
+        }
+        this.d.g(xo6Var);
+        this.c.clear();
+        this.c.addAll(list);
+        this.d.notifyDataSetChanged();
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            int k = fj.k(getContext());
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0317, (ViewGroup) null);
+            this.a = inflate;
+            addView(inflate);
+            RecyclerView recyclerView = (RecyclerView) this.a.findViewById(R.id.obfuscated_res_0x7f0906b4);
+            this.b = recyclerView;
+            recyclerView.getLayoutParams().width = k;
+            this.b.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
+            HeaderComponentMultiAdapter headerComponentMultiAdapter = new HeaderComponentMultiAdapter(getContext(), this.c);
+            this.d = headerComponentMultiAdapter;
+            this.b.setAdapter(headerComponentMultiAdapter);
+        }
     }
 }

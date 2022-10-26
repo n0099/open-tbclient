@@ -1,11 +1,9 @@
 package com.kwad.sdk.collector;
 
-import androidx.annotation.Keep;
 import com.kwad.sdk.collector.model.jni.AnalyseTaskNative;
 import com.kwad.sdk.collector.model.jni.AppRunningInfoNative;
 import com.kwad.sdk.collector.model.jni.RulesTargetNative;
 import com.kwad.sdk.collector.model.jni.UploadEntryNative;
-@Keep
 /* loaded from: classes7.dex */
 public class AppStatusNative {
     public static native String[] analyseTaskGetPathSuffixSet(AnalyseTaskNative analyseTaskNative);

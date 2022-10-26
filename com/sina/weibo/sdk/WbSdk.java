@@ -55,9 +55,10 @@ public class WbSdk {
 
     public static void checkInit() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && !init) {
-            throw new RuntimeException("weibo sdk was not initall! please use: WbSdk.install() in your app Application or your main Activity. when you want to use weibo sdk function, make sure call WbSdk.install() before this function");
+        if ((interceptable != null && interceptable.invokeV(65538, null) != null) || init) {
+            return;
         }
+        throw new RuntimeException("weibo sdk was not initall! please use: WbSdk.install() in your app Application or your main Activity. when you want to use weibo sdk function, make sure call WbSdk.install() before this function");
     }
 
     public static AuthInfo getAuthInfo() {
@@ -72,17 +73,16 @@ public class WbSdk {
 
     public static void install(Context context, AuthInfo authInfo2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, authInfo2) == null) || init) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, authInfo2) == null) && !init) {
+            if (authInfo2 != null && !TextUtils.isEmpty(authInfo2.getAppKey()) && !TextUtils.isEmpty(authInfo2.getRedirectUrl())) {
+                authInfo = authInfo2;
+                CommonParamInterception.setAppKey(authInfo2.getAppKey());
+                WeiboSsoManager.getInstance().init(context, authInfo2.getAppKey());
+                init = true;
+                return;
+            }
+            throw new RuntimeException("please set right app info (appKey,redirect");
         }
-        if (authInfo2 != null && !TextUtils.isEmpty(authInfo2.getAppKey()) && !TextUtils.isEmpty(authInfo2.getRedirectUrl())) {
-            authInfo = authInfo2;
-            CommonParamInterception.setAppKey(authInfo2.getAppKey());
-            WeiboSsoManager.getInstance().init(context, authInfo2.getAppKey());
-            init = true;
-            return;
-        }
-        throw new RuntimeException("please set right app info (appKey,redirect");
     }
 
     public static boolean isWbInstall(Context context) {
@@ -92,7 +92,10 @@ public class WbSdk {
             Intent intent = new Intent("com.sina.weibo.action.sdkidentity");
             intent.addCategory("android.intent.category.DEFAULT");
             List<ResolveInfo> queryIntentServices = context.getPackageManager().queryIntentServices(intent, 0);
-            return (queryIntentServices == null || queryIntentServices.isEmpty()) ? false : true;
+            if (queryIntentServices == null || queryIntentServices.isEmpty()) {
+                return false;
+            }
+            return true;
         }
         return invokeL.booleanValue;
     }
@@ -101,6 +104,12 @@ public class WbSdk {
         InterceptResult invokeL;
         WbAppInfo wbAppInfo;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) ? isWbInstall(context) && (wbAppInfo = WeiboAppManager.getInstance(context).getWbAppInfo()) != null && wbAppInfo.getSupportVersion() >= 10772 : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
+            if (!isWbInstall(context) || (wbAppInfo = WeiboAppManager.getInstance(context).getWbAppInfo()) == null || wbAppInfo.getSupportVersion() < 10772) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

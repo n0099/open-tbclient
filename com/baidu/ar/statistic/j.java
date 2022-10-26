@@ -21,11 +21,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -86,7 +86,7 @@ public class j implements e {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void a(Context context, List<a> list) {
+    public void a(Context context, List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, list) == null) {
             if (context == null) {
@@ -95,9 +95,11 @@ public class j implements e {
             JSONArray jSONArray = new JSONArray();
             JSONObject jSONObject = null;
             try {
-                Map<String, Object> i = i(list);
-                Set<String> keySet = i != null ? i.keySet() : null;
-                for (a aVar : list) {
+                Map i = i(list);
+                Collection keySet = i != null ? i.keySet() : null;
+                Iterator it = list.iterator();
+                while (it.hasNext()) {
+                    a aVar = (a) it.next();
                     if (jSONObject == null) {
                         JSONObject jSONObject2 = new JSONObject();
                         try {
@@ -117,8 +119,8 @@ public class j implements e {
                 }
                 if (jSONObject != null) {
                     if (i != null) {
-                        for (Map.Entry<String, Object> entry : i.entrySet()) {
-                            jSONObject.put(entry.getKey(), entry.getValue());
+                        for (Map.Entry entry : i.entrySet()) {
+                            jSONObject.put((String) entry.getKey(), entry.getValue());
                         }
                     }
                     a(jSONObject, context);
@@ -236,30 +238,30 @@ public class j implements e {
         }
     }
 
-    public Map<String, Object> i(List<a> list) {
+    public Map i(List list) {
         InterceptResult invokeL;
         Object aC;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, list)) == null) {
             HashMap hashMap = new HashMap();
             HashMap hashMap2 = new HashMap();
-            a aVar = list.get(0);
+            a aVar = (a) list.get(0);
             ArrayList<String> arrayList = new ArrayList();
-            Iterator<String> keys = aVar.keys();
+            Iterator keys = aVar.keys();
             while (keys.hasNext()) {
-                String next = keys.next();
-                if (!"event_id".equals(next) && (aC = aVar.aC(next)) != null) {
-                    hashMap.put(next, aC);
-                    hashMap2.put(next, aC);
-                    arrayList.add(next);
+                String str = (String) keys.next();
+                if (!"event_id".equals(str) && (aC = aVar.aC(str)) != null) {
+                    hashMap.put(str, aC);
+                    hashMap2.put(str, aC);
+                    arrayList.add(str);
                 }
             }
             int size = list.size();
             for (int i = 1; i < size; i++) {
-                a aVar2 = list.get(i);
-                for (String str : arrayList) {
-                    if (hashMap2.containsKey(str) && !hashMap.get(str).equals(aVar2.aC(str))) {
-                        hashMap2.remove(str);
+                a aVar2 = (a) list.get(i);
+                for (String str2 : arrayList) {
+                    if (hashMap2.containsKey(str2) && !hashMap.get(str2).equals(aVar2.aC(str2))) {
+                        hashMap2.remove(str2);
                     }
                 }
             }

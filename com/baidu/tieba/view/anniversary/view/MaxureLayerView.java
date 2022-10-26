@@ -11,7 +11,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fv4;
+import com.baidu.tieba.lv4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -80,6 +80,55 @@ public class MaxureLayerView extends View {
                 return;
             }
         }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public MaxureLayerView(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public MaxureLayerView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.j = R.string.J_X06;
+        this.k = UtilHelper.getDimenPixelSize(R.dimen.tbds16);
+        this.l = new Path();
+        this.m = new RectF();
+        this.n = new Path();
+        this.o = new RectF();
+        a(attributeSet);
     }
 
     public void a(AttributeSet attributeSet) {
@@ -173,12 +222,6 @@ public class MaxureLayerView extends View {
         return (MaxureLayerView) invokeI.objValue;
     }
 
-    public int getProgress() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f : invokeV.intValue;
-    }
-
     public MaxureLayerView h(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
@@ -188,34 +231,6 @@ public class MaxureLayerView extends View {
             return this;
         }
         return (MaxureLayerView) invokeF.objValue;
-    }
-
-    @Override // android.view.View
-    public void onDraw(Canvas canvas) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, canvas) == null) || (i = this.f) > 100 || i < 0) {
-            return;
-        }
-        this.l.reset();
-        this.m.right = getWidth();
-        this.m.bottom = getHeight();
-        this.l.addRoundRect(this.m, fv4.y(this.j), Path.Direction.CW);
-        canvas.clipPath(this.l);
-        float f = 1.0f - ((100 - i) / 100.0f);
-        canvas.drawRect(0.0f, f * getHeight(), getWidth(), (getHeight() * f) + r, this.e);
-        canvas.drawRect(0.0f, (f * getHeight()) + r, getWidth(), getHeight(), this.d);
-        if (this.i) {
-            this.n.reset();
-            this.o.left = ((getWidth() - this.b.measureText(this.f + "%")) / 2.0f) - q;
-            this.o.right = ((getWidth() + this.b.measureText(this.f + "%")) / 2.0f) + q;
-            this.o.top = ((getHeight() - (this.b.descent() + this.b.ascent())) / 2.0f) + p;
-            this.o.bottom = ((getHeight() + (this.b.descent() + this.b.ascent())) / 2.0f) - p;
-            this.n.addRoundRect(this.o, b(this.k), Path.Direction.CW);
-            canvas.clipPath(this.n);
-            canvas.drawRect(((getWidth() - this.b.measureText(this.f + "%")) / 2.0f) - q, ((getHeight() - (this.b.descent() + this.b.ascent())) / 2.0f) + p, ((getWidth() + this.b.measureText(this.f + "%")) / 2.0f) + q, ((getHeight() + (this.b.descent() + this.b.ascent())) / 2.0f) - p, this.d);
-            canvas.drawText(this.f + "%", (getWidth() - this.b.measureText(this.f + "%")) / 2.0f, (getHeight() - (this.b.descent() + this.b.ascent())) / 2.0f, this.b);
-        }
     }
 
     public void setProgress(int i) {
@@ -234,52 +249,39 @@ public class MaxureLayerView extends View {
         }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MaxureLayerView(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
+    public int getProgress() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.f;
         }
+        return invokeV.intValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MaxureLayerView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    @Override // android.view.View
+    public void onDraw(Canvas canvas) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeL(1048585, this, canvas) == null) && (i = this.f) <= 100 && i >= 0) {
+            this.l.reset();
+            this.m.right = getWidth();
+            this.m.bottom = getHeight();
+            this.l.addRoundRect(this.m, lv4.z(this.j), Path.Direction.CW);
+            canvas.clipPath(this.l);
+            float f = 1.0f - ((100 - i) / 100.0f);
+            canvas.drawRect(0.0f, f * getHeight(), getWidth(), (getHeight() * f) + r, this.e);
+            canvas.drawRect(0.0f, (f * getHeight()) + r, getWidth(), getHeight(), this.d);
+            if (this.i) {
+                this.n.reset();
+                this.o.left = ((getWidth() - this.b.measureText(this.f + "%")) / 2.0f) - q;
+                this.o.right = ((getWidth() + this.b.measureText(this.f + "%")) / 2.0f) + q;
+                this.o.top = ((getHeight() - (this.b.descent() + this.b.ascent())) / 2.0f) + p;
+                this.o.bottom = ((getHeight() + (this.b.descent() + this.b.ascent())) / 2.0f) - p;
+                this.n.addRoundRect(this.o, b(this.k), Path.Direction.CW);
+                canvas.clipPath(this.n);
+                canvas.drawRect(((getWidth() - this.b.measureText(this.f + "%")) / 2.0f) - q, ((getHeight() - (this.b.descent() + this.b.ascent())) / 2.0f) + p, ((getWidth() + this.b.measureText(this.f + "%")) / 2.0f) + q, ((getHeight() + (this.b.descent() + this.b.ascent())) / 2.0f) - p, this.d);
+                canvas.drawText(this.f + "%", (getWidth() - this.b.measureText(this.f + "%")) / 2.0f, (getHeight() - (this.b.descent() + this.b.ascent())) / 2.0f, this.b);
             }
         }
-        this.j = R.string.J_X06;
-        this.k = UtilHelper.getDimenPixelSize(R.dimen.tbds16);
-        this.l = new Path();
-        this.m = new RectF();
-        this.n = new Path();
-        this.o = new RectF();
-        a(attributeSet);
     }
 }

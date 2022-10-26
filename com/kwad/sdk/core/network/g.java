@@ -1,6 +1,5 @@
 package com.kwad.sdk.core.network;
 
-import androidx.annotation.Nullable;
 import com.kwad.sdk.internal.api.SceneImpl;
 import java.util.Map;
 import org.json.JSONObject;
@@ -8,11 +7,10 @@ import org.json.JSONObject;
 public interface g {
     JSONObject getBody();
 
-    Map<String, String> getBodyMap();
+    Map getBodyMap();
 
-    Map<String, String> getHeader();
+    Map getHeader();
 
-    @Nullable
     SceneImpl getScene();
 
     String getUrl();

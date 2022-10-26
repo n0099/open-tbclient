@@ -14,6 +14,7 @@ import com.yy.hiidostatis.message.SessionReportWrapper;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -22,18 +23,28 @@ import java.util.concurrent.ConcurrentHashMap;
 public class SessionReportWrapperImpl implements SessionReportWrapper, SessionReport.AfterFlush, SessionReport.Processor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<Long, OnTimer> cache;
-    public Map<String, Set<String>> exclude;
+    public Map cache;
+    public Map exclude;
     public SharedThreadTimer globeTimer;
     public SessionReport sessionReport;
-    public Set<String> sessions;
+    public Set sessions;
+
+    @Override // com.yy.hiidostatis.message.SessionReport.AfterFlush
+    public SessionReport.StatisContentAble reset(String str, SessionReport.StatisContentAble statisContentAble) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, statisContentAble)) == null) {
+            return null;
+        }
+        return (SessionReport.StatisContentAble) invokeLL.objValue;
+    }
 
     /* loaded from: classes8.dex */
     public class OnTimer extends SharedTimerTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Map<String, List<String>> eventIds;
-        public Set<String> globe;
+        public Map eventIds;
+        public Set globe;
         public final /* synthetic */ SessionReportWrapperImpl this$0;
 
         public OnTimer(SessionReportWrapperImpl sessionReportWrapperImpl) {
@@ -60,9 +71,9 @@ public class SessionReportWrapperImpl implements SessionReportWrapper, SessionRe
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
                 synchronized (this) {
-                    List<String> list = this.eventIds.get(str);
+                    List list = (List) this.eventIds.get(str);
                     if (list == null) {
-                        list = new ArrayList<>();
+                        list = new ArrayList();
                         this.eventIds.put(str, list);
                     }
                     list.add(str2);
@@ -86,18 +97,18 @@ public class SessionReportWrapperImpl implements SessionReportWrapper, SessionRe
                 synchronized (this) {
                     ArrayList<String> arrayList = new ArrayList();
                     for (String str : this.globe) {
-                        if (!this.this$0.sessionClosed(str)) {
-                            this.this$0.sessionReport.flushSessionAll(str, (Set) this.this$0.exclude.get(str));
-                        } else {
+                        if (this.this$0.sessionClosed(str)) {
                             arrayList.add(str);
+                        } else {
+                            this.this$0.sessionReport.flushSessionAll(str, (Set) this.this$0.exclude.get(str));
                         }
                     }
-                    for (Map.Entry<String, List<String>> entry : this.eventIds.entrySet()) {
-                        if (this.this$0.sessionClosed(entry.getKey())) {
+                    for (Map.Entry entry : this.eventIds.entrySet()) {
+                        if (this.this$0.sessionClosed((String) entry.getKey())) {
                             arrayList.add(entry.getKey());
                         } else {
-                            for (String str2 : entry.getValue()) {
-                                this.this$0.sessionReport.flushSession(entry.getKey(), str2);
+                            for (String str2 : (List) entry.getValue()) {
+                                this.this$0.sessionReport.flushSession((String) entry.getKey(), str2);
                             }
                         }
                     }
@@ -131,6 +142,26 @@ public class SessionReportWrapperImpl implements SessionReportWrapper, SessionRe
         this.sessionReport = sessionReport;
     }
 
+    @Override // com.yy.hiidostatis.message.SessionReportWrapper
+    public boolean flushSession(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+            return this.sessionReport.flushSession(str, str2);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.yy.hiidostatis.message.SessionReportWrapper
+    public boolean flushSessionAll(String str, Set set) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, set)) == null) {
+            return this.sessionReport.flushSessionAll(str, set);
+        }
+        return invokeLL.booleanValue;
+    }
+
     private synchronized void removeSession(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str) == null) {
@@ -155,7 +186,26 @@ public class SessionReportWrapperImpl implements SessionReportWrapper, SessionRe
     }
 
     @Override // com.yy.hiidostatis.message.SessionReportWrapper
-    public synchronized void beginSession(String str, String str2, long j, Map<String, Long> map) {
+    public void closeSession(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.sessionReport.closeSession(str);
+            this.exclude.remove(str);
+            removeSession(str);
+        }
+    }
+
+    public boolean flushSessionAll(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return flushSessionAll(str, null);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.yy.hiidostatis.message.SessionReportWrapper
+    public synchronized void beginSession(String str, String str2, long j, Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Long.valueOf(j), map}) == null) {
             synchronized (this) {
@@ -163,7 +213,7 @@ public class SessionReportWrapperImpl implements SessionReportWrapper, SessionRe
                 this.sessions.add(str);
                 int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
                 if (i > 0) {
-                    OnTimer onTimer = this.cache.get(Long.valueOf(j));
+                    OnTimer onTimer = (OnTimer) this.cache.get(Long.valueOf(j));
                     if (onTimer == null) {
                         OnTimer onTimer2 = new OnTimer(this);
                         onTimer2.addGlobe(str);
@@ -179,14 +229,14 @@ public class SessionReportWrapperImpl implements SessionReportWrapper, SessionRe
                 if (map != null) {
                     HashMap hashMap = new HashMap();
                     HashSet hashSet = new HashSet();
-                    for (Map.Entry<String, Long> entry : map.entrySet()) {
-                        OnTimer onTimer3 = this.cache.get(entry.getValue());
+                    for (Map.Entry entry : map.entrySet()) {
+                        OnTimer onTimer3 = (OnTimer) this.cache.get(entry.getValue());
                         if (onTimer3 == null) {
                             onTimer3 = new OnTimer(this);
                             this.cache.put(entry.getValue(), onTimer3);
                             hashMap.put(entry.getValue(), onTimer3);
                         }
-                        onTimer3.addEventId(str, entry.getKey());
+                        onTimer3.addEventId(str, (String) entry.getKey());
                         hashSet.add(entry.getKey());
                     }
                     if (i > 0) {
@@ -201,29 +251,6 @@ public class SessionReportWrapperImpl implements SessionReportWrapper, SessionRe
                 }
             }
         }
-    }
-
-    @Override // com.yy.hiidostatis.message.SessionReportWrapper
-    public void closeSession(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.sessionReport.closeSession(str);
-            this.exclude.remove(str);
-            removeSession(str);
-        }
-    }
-
-    @Override // com.yy.hiidostatis.message.SessionReportWrapper
-    public boolean flushSession(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) ? this.sessionReport.flushSession(str, str2) : invokeLL.booleanValue;
-    }
-
-    public boolean flushSessionAll(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? flushSessionAll(str, null) : invokeL.booleanValue;
     }
 
     @Override // com.yy.hiidostatis.message.SessionReport.Processor
@@ -248,39 +275,7 @@ public class SessionReportWrapperImpl implements SessionReportWrapper, SessionRe
     }
 
     @Override // com.yy.hiidostatis.message.SessionReportWrapper
-    public boolean pushToSession(String str, String str2, List<EventValue> list, Map<String, String> map, Map<String, String> map2) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048583, this, str, str2, list, map, map2)) == null) {
-            for (EventValue eventValue : list) {
-                eventValue.dimens = map;
-                eventValue.extra = map2;
-                this.sessionReport.pushToSession(str, str2, eventValue);
-            }
-            return true;
-        }
-        return invokeLLLLL.booleanValue;
-    }
-
-    @Override // com.yy.hiidostatis.message.SessionReport.AfterFlush
-    public SessionReport.StatisContentAble reset(String str, SessionReport.StatisContentAble statisContentAble) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, statisContentAble)) == null) {
-            return null;
-        }
-        return (SessionReport.StatisContentAble) invokeLL.objValue;
-    }
-
-    @Override // com.yy.hiidostatis.message.SessionReportWrapper
-    public boolean flushSessionAll(String str, Set<String> set) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, set)) == null) ? this.sessionReport.flushSessionAll(str, set) : invokeLL.booleanValue;
-    }
-
-    @Override // com.yy.hiidostatis.message.SessionReportWrapper
-    public boolean pushToSession(String str, String str2, CalAction calAction, String str3, Number number, Map<String, String> map, Map<String, String> map2) {
+    public boolean pushToSession(String str, String str2, CalAction calAction, String str3, Number number, Map map, Map map2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, str2, calAction, str3, number, map, map2})) == null) {
@@ -290,5 +285,22 @@ public class SessionReportWrapperImpl implements SessionReportWrapper, SessionRe
             return this.sessionReport.pushToSession(str, str2, eventValue);
         }
         return invokeCommon.booleanValue;
+    }
+
+    @Override // com.yy.hiidostatis.message.SessionReportWrapper
+    public boolean pushToSession(String str, String str2, List list, Map map, Map map2) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048583, this, str, str2, list, map, map2)) == null) {
+            Iterator it = list.iterator();
+            while (it.hasNext()) {
+                EventValue eventValue = (EventValue) it.next();
+                eventValue.dimens = map;
+                eventValue.extra = map2;
+                this.sessionReport.pushToSession(str, str2, eventValue);
+            }
+            return true;
+        }
+        return invokeLLLLL.booleanValue;
     }
 }

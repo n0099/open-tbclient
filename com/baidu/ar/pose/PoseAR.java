@@ -48,7 +48,7 @@ public class PoseAR extends c {
         this.nP = 180;
     }
 
-    private void b(Bundle bundle, HashMap<String, Object> hashMap) {
+    private void b(Bundle bundle, HashMap hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, this, bundle, hashMap) == null) {
             bundle.putString(MDL_START_POSE_FUN_EVENT_TYPE_KEY, (String) hashMap.get(MDL_START_POSE_FUN_EVENT_TYPE_KEY));
@@ -175,7 +175,7 @@ public class PoseAR extends c {
     }
 
     @Override // com.baidu.ar.c
-    public void setup(HashMap<String, Object> hashMap) {
+    public void setup(HashMap hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap) == null) {
             super.setup(hashMap);

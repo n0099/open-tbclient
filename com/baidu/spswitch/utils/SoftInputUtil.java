@@ -25,7 +25,7 @@ public class SoftInputUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
     public static final String TAG = "SoftInputUtil";
-    public static WeakReference<ViewGroup> sContentViewRef;
+    public static WeakReference sContentViewRef;
     public static int sLastSaveSoftInputHeight;
     public static int sMaxPanelHeight;
     public static int sMaxSoftInputHeight;
@@ -39,7 +39,7 @@ public class SoftInputUtil {
     }
 
     /* loaded from: classes2.dex */
-    public static class SoftInputStatusListener implements ViewTreeObserver.OnGlobalLayoutListener {
+    public class SoftInputStatusListener implements ViewTreeObserver.OnGlobalLayoutListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Activity mActivity;
@@ -134,13 +134,19 @@ public class SoftInputUtil {
                 View view2 = (View) this.mContentView.getParent();
                 int height = view2.getHeight() - view2.getPaddingTop();
                 if (SPSwitchConflictUtil.isHandleByPlaceholder(this.mContentView.getContext())) {
-                    z = height > i;
+                    if (height > i) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
                 } else {
                     int i2 = this.maxOverlayLayoutHeight;
                     if (i2 == 0) {
                         z = this.mLastSoftInputShowing;
+                    } else if (i < i2 - SoftInputUtil.getMinSoftInputHeight(getContext())) {
+                        z = true;
                     } else {
-                        z = i < i2 - SoftInputUtil.getMinSoftInputHeight(getContext());
+                        z = false;
                     }
                     this.maxOverlayLayoutHeight = Math.max(this.maxOverlayLayoutHeight, height);
                 }
@@ -164,7 +170,10 @@ public class SoftInputUtil {
         private Context getContext() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? this.mContentView.getContext() : (Context) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+                return this.mContentView.getContext();
+            }
+            return (Context) invokeV.objValue;
         }
 
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
@@ -174,22 +183,24 @@ public class SoftInputUtil {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 View childAt = this.mContentView.getChildAt(0);
                 Rect rect = new Rect();
-                if (childAt == null) {
+                if (childAt != null) {
+                    if (!SPSwitchConflictUtil.isHandleByPlaceholder(this.mContentView.getContext()) && (!ViewUtil.isSystemUILayoutFullScreen(this.mActivity) || !ViewUtil.isFitsSystemWindows(this.mActivity))) {
+                        i = childAt.getHeight();
+                        if (SoftInputUtil.DEBUG) {
+                            Log.d(SoftInputUtil.TAG, "#onGlobalLayout#, displayHeight calc by userRootView.getHeight()");
+                        }
+                    } else {
+                        childAt.getWindowVisibleDisplayFrame(rect);
+                        i = rect.bottom - rect.top;
+                        if (SoftInputUtil.DEBUG) {
+                            Log.d(SoftInputUtil.TAG, "#onGlobalLayout#, displayHeight calc by getWindowVisibleDisplayFrame");
+                        }
+                    }
+                } else {
                     if (SoftInputUtil.DEBUG) {
                         Log.d(SoftInputUtil.TAG, "SoftInputUtil, user root view not ready so ignore layout changed");
                     }
                     i = -1;
-                } else if (!SPSwitchConflictUtil.isHandleByPlaceholder(this.mContentView.getContext()) && (!ViewUtil.isSystemUILayoutFullScreen(this.mActivity) || !ViewUtil.isFitsSystemWindows(this.mActivity))) {
-                    i = childAt.getHeight();
-                    if (SoftInputUtil.DEBUG) {
-                        Log.d(SoftInputUtil.TAG, "#onGlobalLayout#, displayHeight calc by userRootView.getHeight()");
-                    }
-                } else {
-                    childAt.getWindowVisibleDisplayFrame(rect);
-                    i = rect.bottom - rect.top;
-                    if (SoftInputUtil.DEBUG) {
-                        Log.d(SoftInputUtil.TAG, "#onGlobalLayout#, displayHeight calc by getWindowVisibleDisplayFrame");
-                    }
                 }
                 if (i == -1) {
                     return;
@@ -238,19 +249,17 @@ public class SoftInputUtil {
         }
     }
 
-    public static ViewTreeObserver.OnGlobalLayoutListener attach(Activity activity, ViewGroup viewGroup, IPanelHeightTarget iPanelHeightTarget, OnSoftInputShowingListener onSoftInputShowingListener) {
-        InterceptResult invokeLLLL;
+    public static ViewGroup getContentView() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, viewGroup, iPanelHeightTarget, onSoftInputShowingListener)) == null) {
-            if (viewGroup == null) {
-                viewGroup = (ViewGroup) activity.findViewById(16908290);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            WeakReference weakReference = sContentViewRef;
+            if (weakReference == null) {
+                return null;
             }
-            SoftInputStatusListener softInputStatusListener = new SoftInputStatusListener(activity, viewGroup, iPanelHeightTarget, onSoftInputShowingListener);
-            viewGroup.getViewTreeObserver().addOnGlobalLayoutListener(softInputStatusListener);
-            sContentViewRef = new WeakReference<>(viewGroup);
-            return softInputStatusListener;
+            return (ViewGroup) weakReference.get();
         }
-        return (ViewTreeObserver.OnGlobalLayoutListener) invokeLLLL.objValue;
+        return (ViewGroup) invokeV.objValue;
     }
 
     public static void detach(Activity activity, ViewTreeObserver.OnGlobalLayoutListener onGlobalLayoutListener) {
@@ -260,17 +269,56 @@ public class SoftInputUtil {
         }
     }
 
-    public static ViewGroup getContentView() {
-        InterceptResult invokeV;
+    public static void showSoftInputDelay(View view2, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            WeakReference<ViewGroup> weakReference = sContentViewRef;
-            if (weakReference == null) {
-                return null;
-            }
-            return weakReference.get();
+        if (interceptable == null || interceptable.invokeLJ(65553, null, view2, j) == null) {
+            view2.postDelayed(new Runnable(view2) { // from class: com.baidu.spswitch.utils.SoftInputUtil.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ View val$focusView;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {view2};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.val$focusView = view2;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        SoftInputUtil.showSoftInput(this.val$focusView);
+                    }
+                }
+            }, j);
         }
-        return (ViewGroup) invokeV.objValue;
+    }
+
+    public static ViewTreeObserver.OnGlobalLayoutListener attach(Activity activity, ViewGroup viewGroup, IPanelHeightTarget iPanelHeightTarget, OnSoftInputShowingListener onSoftInputShowingListener) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, viewGroup, iPanelHeightTarget, onSoftInputShowingListener)) == null) {
+            if (viewGroup == null) {
+                viewGroup = (ViewGroup) activity.findViewById(16908290);
+            }
+            SoftInputStatusListener softInputStatusListener = new SoftInputStatusListener(activity, viewGroup, iPanelHeightTarget, onSoftInputShowingListener);
+            viewGroup.getViewTreeObserver().addOnGlobalLayoutListener(softInputStatusListener);
+            sContentViewRef = new WeakReference(viewGroup);
+            return softInputStatusListener;
+        }
+        return (ViewTreeObserver.OnGlobalLayoutListener) invokeLLLL.objValue;
     }
 
     public static int getMaxPanelHeight(Resources resources) {
@@ -336,7 +384,10 @@ public class SoftInputUtil {
     public static int getValidPanelHeight(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) ? Math.min(getMaxPanelHeight(context.getResources()), Math.max(getMinPanelHeight(context.getResources()), getSoftInputHeight(context))) : invokeL.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
+            return Math.min(getMaxPanelHeight(context.getResources()), Math.max(getMinPanelHeight(context.getResources()), getSoftInputHeight(context)));
+        }
+        return invokeL.intValue;
     }
 
     public static void hideSoftInput(View view2) {
@@ -346,26 +397,10 @@ public class SoftInputUtil {
         }
     }
 
-    public static boolean saveSoftInputHeight(Context context, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65550, null, context, i)) == null) {
-            if (sLastSaveSoftInputHeight != i && i >= 0) {
-                sLastSaveSoftInputHeight = i;
-                if (DEBUG) {
-                    Log.d(TAG, "save softInput height: " + i);
-                }
-                return SoftInputSharedPreferences.save(context, i);
-            }
-            return false;
-        }
-        return invokeLI.booleanValue;
-    }
-
     public static void setContentView(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65551, null, viewGroup) == null) {
-            sContentViewRef = new WeakReference<>(viewGroup);
+            sContentViewRef = new WeakReference(viewGroup);
         }
     }
 
@@ -377,40 +412,19 @@ public class SoftInputUtil {
         }
     }
 
-    public static void showSoftInputDelay(View view2, long j) {
+    public static boolean saveSoftInputHeight(Context context, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65553, null, view2, j) == null) {
-            view2.postDelayed(new Runnable(view2) { // from class: com.baidu.spswitch.utils.SoftInputUtil.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ View val$focusView;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {view2};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.val$focusView = view2;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        SoftInputUtil.showSoftInput(this.val$focusView);
-                    }
-                }
-            }, j);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65550, null, context, i)) == null) {
+            if (sLastSaveSoftInputHeight == i || i < 0) {
+                return false;
+            }
+            sLastSaveSoftInputHeight = i;
+            if (DEBUG) {
+                Log.d(TAG, "save softInput height: " + i);
+            }
+            return SoftInputSharedPreferences.save(context, i);
         }
+        return invokeLI.booleanValue;
     }
 }

@@ -13,9 +13,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public interface DeepLinkCallback {
+    void onFailed(int i, String str, DeepLinkResponse deepLinkResponse);
+
+    void onSuccess(String str, DeepLinkResponse deepLinkResponse);
 
     /* loaded from: classes3.dex */
-    public static class DeepLinkResponse {
+    public class DeepLinkResponse {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int mAppResultCode;
@@ -47,37 +50,58 @@ public interface DeepLinkCallback {
         public int getAppResultCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mAppResultCode : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.mAppResultCode;
+            }
+            return invokeV.intValue;
         }
 
         public int getInnerResultCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mInnerResultCode : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.mInnerResultCode;
+            }
+            return invokeV.intValue;
         }
 
         public int getMarketResultCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mMarketResultCode : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.mMarketResultCode;
+            }
+            return invokeV.intValue;
         }
 
         public String getOpenSource() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mOpenSource : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.mOpenSource;
+            }
+            return (String) invokeV.objValue;
         }
 
         public int getWebResultCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mWebResultCode : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.mWebResultCode;
+            }
+            return invokeV.intValue;
         }
 
         public boolean isOpenSuccess() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mInnerResultCode == 1 || this.mAppResultCode == 1 || this.mMarketResultCode == 1 || this.mWebResultCode == 1 : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                if (this.mInnerResultCode == 1 || this.mAppResultCode == 1 || this.mMarketResultCode == 1 || this.mWebResultCode == 1) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
         }
 
         /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -118,18 +142,24 @@ public interface DeepLinkCallback {
                         c = 65535;
                         break;
                 }
-                if (c == 0) {
-                    this.mInnerResultCode = i;
-                } else if (c == 1) {
-                    this.mAppResultCode = i;
-                } else if (c == 2) {
-                    this.mMarketResultCode = i;
-                } else if (c != 3) {
-                    if (TbadkApplication.getInst().isDebugMode()) {
-                        throw new IllegalArgumentException("invalid source code");
+                if (c != 0) {
+                    if (c != 1) {
+                        if (c != 2) {
+                            if (c != 3) {
+                                if (TbadkApplication.getInst().isDebugMode()) {
+                                    throw new IllegalArgumentException("invalid source code");
+                                }
+                            } else {
+                                this.mWebResultCode = i;
+                            }
+                        } else {
+                            this.mMarketResultCode = i;
+                        }
+                    } else {
+                        this.mAppResultCode = i;
                     }
                 } else {
-                    this.mWebResultCode = i;
+                    this.mInnerResultCode = i;
                 }
                 SchemeActionHelper.printLog(str + " open onFailed-->errorCode=" + i + ":" + toString());
             }
@@ -174,18 +204,24 @@ public interface DeepLinkCallback {
                         c = 65535;
                         break;
                 }
-                if (c == 0) {
-                    this.mInnerResultCode = 1;
-                } else if (c == 1) {
-                    this.mAppResultCode = 1;
-                } else if (c == 2) {
-                    this.mMarketResultCode = 1;
-                } else if (c != 3) {
-                    if (TbadkApplication.getInst().isDebugMode()) {
-                        throw new IllegalArgumentException("invalid source code");
+                if (c != 0) {
+                    if (c != 1) {
+                        if (c != 2) {
+                            if (c != 3) {
+                                if (TbadkApplication.getInst().isDebugMode()) {
+                                    throw new IllegalArgumentException("invalid source code");
+                                }
+                            } else {
+                                this.mWebResultCode = 1;
+                            }
+                        } else {
+                            this.mMarketResultCode = 1;
+                        }
+                    } else {
+                        this.mAppResultCode = 1;
                     }
                 } else {
-                    this.mWebResultCode = 1;
+                    this.mInnerResultCode = 1;
                 }
                 SchemeActionHelper.printLog(str + " open onSucceed-->:" + toString());
             }
@@ -200,8 +236,4 @@ public interface DeepLinkCallback {
             return (String) invokeV.objValue;
         }
     }
-
-    void onFailed(int i, String str, DeepLinkResponse deepLinkResponse);
-
-    void onSuccess(String str, DeepLinkResponse deepLinkResponse);
 }

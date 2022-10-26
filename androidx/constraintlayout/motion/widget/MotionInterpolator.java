@@ -10,6 +10,11 @@ public abstract class MotionInterpolator implements Interpolator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // android.animation.TimeInterpolator
+    public abstract float getInterpolation(float f);
+
+    public abstract float getVelocity();
+
     public MotionInterpolator() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -23,9 +28,4 @@ public abstract class MotionInterpolator implements Interpolator {
             }
         }
     }
-
-    @Override // android.animation.TimeInterpolator
-    public abstract float getInterpolation(float f);
-
-    public abstract float getVelocity();
 }

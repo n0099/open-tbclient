@@ -36,15 +36,6 @@ public class RotateFrameLayout extends FrameLayout {
         }
     }
 
-    @Override // android.view.View
-    public void onDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            canvas.setDrawFilter(this.a);
-            super.onDraw(canvas);
-        }
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public RotateFrameLayout(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
@@ -86,5 +77,14 @@ public class RotateFrameLayout extends FrameLayout {
             }
         }
         this.a = new PaintFlagsDrawFilter(0, 3);
+    }
+
+    @Override // android.view.View
+    public void onDraw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
+            canvas.setDrawFilter(this.a);
+            super.onDraw(canvas);
+        }
     }
 }

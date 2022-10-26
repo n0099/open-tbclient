@@ -24,15 +24,6 @@ public final class HandlerKt {
         return (Runnable) invokeCommon.objValue;
     }
 
-    public static /* synthetic */ Runnable postAtTime$default(Handler handler, long j, Object obj, Function0 function0, int i, Object obj2) {
-        if ((i & 2) != 0) {
-            obj = null;
-        }
-        HandlerKt$postAtTime$runnable$1 handlerKt$postAtTime$runnable$1 = new HandlerKt$postAtTime$runnable$1(function0);
-        handler.postAtTime(handlerKt$postAtTime$runnable$1, obj, j);
-        return handlerKt$postAtTime$runnable$1;
-    }
-
     public static final Runnable postDelayed(Handler handler, long j, Object obj, Function0<Unit> function0) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -46,6 +37,15 @@ public final class HandlerKt {
             return handlerKt$postDelayed$runnable$1;
         }
         return (Runnable) invokeCommon.objValue;
+    }
+
+    public static /* synthetic */ Runnable postAtTime$default(Handler handler, long j, Object obj, Function0 function0, int i, Object obj2) {
+        if ((i & 2) != 0) {
+            obj = null;
+        }
+        HandlerKt$postAtTime$runnable$1 handlerKt$postAtTime$runnable$1 = new HandlerKt$postAtTime$runnable$1(function0);
+        handler.postAtTime(handlerKt$postAtTime$runnable$1, obj, j);
+        return handlerKt$postAtTime$runnable$1;
     }
 
     public static /* synthetic */ Runnable postDelayed$default(Handler handler, long j, Object obj, Function0 function0, int i, Object obj2) {

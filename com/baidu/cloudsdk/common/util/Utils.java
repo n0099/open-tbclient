@@ -67,6 +67,26 @@ public final class Utils {
         return (JSONObject) invokeL.objValue;
     }
 
+    public static boolean isNetWorkAvaliable(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
+            NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
+            if (activeNetworkInfo == null) {
+                return false;
+            }
+            int type = activeNetworkInfo.getType();
+            if (type == 1) {
+                return activeNetworkInfo.isConnected();
+            }
+            if (type != 0) {
+                return false;
+            }
+            return activeNetworkInfo.isConnected();
+        }
+        return invokeL.booleanValue;
+    }
+
     public static JSONObject getFragmentParams(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -91,6 +111,44 @@ public final class Utils {
             }
         }
         return (JSONObject) invokeL.objValue;
+    }
+
+    public static boolean isEmpty(Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, bundle)) == null) {
+            if (bundle != null && !bundle.isEmpty()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean isUrl(Uri uri) {
+        InterceptResult invokeL;
+        String scheme;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, uri)) == null) {
+            if (uri != null && (scheme = uri.getScheme()) != null) {
+                if (scheme.equalsIgnoreCase("http") || scheme.equalsIgnoreCase("https")) {
+                    return true;
+                }
+                return false;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static String md5(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
+            Validator.notNull(str, "str");
+            return md5(str.getBytes());
+        }
+        return (String) invokeL.objValue;
     }
 
     public static String getQueryString(Bundle bundle) {
@@ -150,58 +208,12 @@ public final class Utils {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, intent)) == null) {
             Validator.notNull(context, "context");
             Validator.notNull(intent, IntentData.KEY);
-            return context.getPackageManager().resolveActivity(intent, 0) != null;
+            if (context.getPackageManager().resolveActivity(intent, 0) == null) {
+                return false;
+            }
+            return true;
         }
         return invokeLL.booleanValue;
-    }
-
-    public static <T> boolean isEmpty(Collection<T> collection) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, collection)) == null) ? collection == null || collection.size() == 0 : invokeL.booleanValue;
-    }
-
-    public static boolean isNetWorkAvaliable(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
-            NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
-            if (activeNetworkInfo == null) {
-                return false;
-            }
-            int type = activeNetworkInfo.getType();
-            if (type == 1) {
-                return activeNetworkInfo.isConnected();
-            }
-            if (type == 0) {
-                return activeNetworkInfo.isConnected();
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean isUrl(Uri uri) {
-        InterceptResult invokeL;
-        String scheme;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, uri)) == null) {
-            if (uri == null || (scheme = uri.getScheme()) == null) {
-                return false;
-            }
-            return scheme.equalsIgnoreCase("http") || scheme.equalsIgnoreCase("https");
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static String md5(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
-            Validator.notNull(str, "str");
-            return md5(str.getBytes());
-        }
-        return (String) invokeL.objValue;
     }
 
     public static void setBrightness(Dialog dialog, int i) {
@@ -213,16 +225,40 @@ public final class Utils {
         }
     }
 
-    public static <T> boolean isEmpty(T[] tArr) {
+    public static boolean isEmpty(Collection collection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, tArr)) == null) ? tArr == null || tArr.length == 0 : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, collection)) == null) {
+            if (collection != null && collection.size() != 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
     public static boolean isEmpty(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, bArr)) == null) ? bArr == null || bArr.length == 0 : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, bArr)) == null) {
+            if (bArr != null && bArr.length != 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean isEmpty(Object[] objArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, objArr)) == null) {
+            if (objArr != null && objArr.length != 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
     public static String md5(byte[] bArr) {
@@ -247,11 +283,5 @@ public final class Utils {
             return sb.toString();
         }
         return (String) invokeL.objValue;
-    }
-
-    public static boolean isEmpty(Bundle bundle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, bundle)) == null) ? bundle == null || bundle.isEmpty() : invokeL.booleanValue;
     }
 }

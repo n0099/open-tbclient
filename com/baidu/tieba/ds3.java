@@ -1,34 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-@Autowired
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class ds3 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ds3 {
+    void a(String str, JSONObject jSONObject, ResponseCallback responseCallback);
 
-    @Inject(force = false)
-    public static es3 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? e04.a() : (es3) invokeV.objValue;
-    }
+    void b(String str, JSONObject jSONObject, ResponseCallback responseCallback);
 
-    @Inject
-    public static fs3 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? xm2.a() : (fs3) invokeV.objValue;
-    }
+    void c(String str, ResponseCallback responseCallback);
 
-    @Inject
-    public static gs3 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new ym2() : (gs3) invokeV.objValue;
-    }
+    void d(String str);
+
+    void e(String str);
+
+    void f(String str, ResponseCallback responseCallback);
 }

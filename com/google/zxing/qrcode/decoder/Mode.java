@@ -119,28 +119,45 @@ public final class Mode {
     public static Mode valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (Mode) Enum.valueOf(Mode.class, str) : (Mode) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return (Mode) Enum.valueOf(Mode.class, str);
+        }
+        return (Mode) invokeL.objValue;
+    }
+
+    public int getCharacterCountBits(Version version) {
+        InterceptResult invokeL;
+        char c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, version)) == null) {
+            int versionNumber = version.getVersionNumber();
+            if (versionNumber <= 9) {
+                c = 0;
+            } else if (versionNumber <= 26) {
+                c = 1;
+            } else {
+                c = 2;
+            }
+            return this.characterCountBitsForVersions[c];
+        }
+        return invokeL.intValue;
     }
 
     public static Mode[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (Mode[]) $VALUES.clone() : (Mode[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return (Mode[]) $VALUES.clone();
+        }
+        return (Mode[]) invokeV.objValue;
     }
 
     public int getBits() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.bits : invokeV.intValue;
-    }
-
-    public int getCharacterCountBits(Version version) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, version)) == null) {
-            int versionNumber = version.getVersionNumber();
-            return this.characterCountBitsForVersions[versionNumber <= 9 ? (char) 0 : versionNumber <= 26 ? (char) 1 : (char) 2];
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.bits;
         }
-        return invokeL.intValue;
+        return invokeV.intValue;
     }
 }

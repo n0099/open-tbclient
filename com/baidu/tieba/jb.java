@@ -1,17 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.Message;
-import com.baidu.adp.framework.task.MessageTask;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public abstract class jb<T extends Message<?>, M extends MessageTask> extends lb<T> {
+public abstract class jb extends mb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract void a(int i, BdUniqueId bdUniqueId);
+
+    public abstract void b(BdUniqueId bdUniqueId);
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public jb(int i) {
@@ -31,13 +32,5 @@ public abstract class jb<T extends Message<?>, M extends MessageTask> extends lb
                 return;
             }
         }
-    }
-
-    public abstract T process(T t, M m);
-
-    public T rule(T t, M m) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t, m)) == null) ? t != null ? (getCmd() == 0 || getCmd() == t.getCmd()) ? process(t, m) : t : t : (T) invokeLL.objValue;
     }
 }

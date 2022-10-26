@@ -12,7 +12,7 @@ import java.util.List;
 /* loaded from: classes7.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
-    public static final List<String> Qe;
+    public static final List Qe;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

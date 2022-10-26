@@ -1,12 +1,9 @@
 package com.kwad.components.ad.interstitial.widget;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -18,7 +15,7 @@ public class SlideTipsView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SlideTipsView(@NonNull Context context) {
+    public SlideTipsView(Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -39,7 +36,7 @@ public class SlideTipsView extends FrameLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SlideTipsView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+    public SlideTipsView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -60,8 +57,7 @@ public class SlideTipsView extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    @SuppressLint({"CustomViewStyleable"})
-    public SlideTipsView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+    public SlideTipsView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -82,6 +78,6 @@ public class SlideTipsView extends FrameLayout {
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ksad_SlideTipsView, i, 0);
         boolean z = obtainStyledAttributes.getBoolean(0, true);
         obtainStyledAttributes.recycle();
-        FrameLayout.inflate(context, z ? com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0435 : com.baidu.tieba.R.layout.obfuscated_res_0x7f0d043a, this);
+        FrameLayout.inflate(context, z ? com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0432 : com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0437, this);
     }
 }

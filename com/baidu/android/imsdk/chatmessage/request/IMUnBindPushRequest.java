@@ -30,6 +30,30 @@ public class IMUnBindPushRequest extends BaseHttpRequest {
     public String mDeviceId;
     public Long mUk;
 
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getContentType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "application/x-www-form-urlencoded" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getMethod() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "POST" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public boolean shouldAbort() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     public IMUnBindPushRequest(Context context, long j, String str, String str2, Long l) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -52,15 +76,8 @@ public class IMUnBindPushRequest extends BaseHttpRequest {
         this.mUk = l;
     }
 
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public String getContentType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "application/x-www-form-urlencoded" : (String) invokeV.objValue;
-    }
-
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
-    public Map<String, String> getHeaders() {
+    public Map getHeaders() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -82,13 +99,6 @@ public class IMUnBindPushRequest extends BaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
-    public String getMethod() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "POST" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public byte[] getRequestParameter() throws NoSuchAlgorithmException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -103,7 +113,7 @@ public class IMUnBindPushRequest extends BaseHttpRequest {
     public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048581, this, i, bArr, th) == null) {
-            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
+            Pair transErrorCode = transErrorCode(i, bArr, th);
             LogUtils.d("IMUnBindPushRequest", "  errorCode: " + transErrorCode.first);
         }
     }
@@ -121,7 +131,11 @@ public class IMUnBindPushRequest extends BaseHttpRequest {
                 JSONObject jSONObject = new JSONObject(str2);
                 j = jSONObject.optLong(BaseJsonData.TAG_REQUESTID);
                 i2 = jSONObject.optInt("error_code", 0);
-                str = i2 != 0 ? jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG) : Constants.ERROR_MSG_SUCCESS;
+                if (i2 != 0) {
+                    str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
+                } else {
+                    str = Constants.ERROR_MSG_SUCCESS;
+                }
                 if (i2 == 0) {
                     BindStateManager.clearUnBindInfo(this.mContext);
                 }
@@ -133,15 +147,5 @@ public class IMUnBindPushRequest extends BaseHttpRequest {
             }
             LogUtils.d("IMUnBindPushRequest", "requestid : " + j + " , resultCode: " + i2 + " , resultMsg : " + str);
         }
-    }
-
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public boolean shouldAbort() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

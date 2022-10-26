@@ -11,13 +11,13 @@ import io.reactivex.exceptions.Exceptions;
 import io.reactivex.internal.disposables.EmptyDisposable;
 import io.reactivex.internal.functions.ObjectHelper;
 /* loaded from: classes8.dex */
-public final class MaybeLift<T, R> extends AbstractMaybeWithUpstream<T, R> {
+public final class MaybeLift extends AbstractMaybeWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MaybeOperator<? extends R, ? super T> operator;
+    public final MaybeOperator operator;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MaybeLift(MaybeSource<T> maybeSource, MaybeOperator<? extends R, ? super T> maybeOperator) {
+    public MaybeLift(MaybeSource maybeSource, MaybeOperator maybeOperator) {
         super(maybeSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -38,7 +38,7 @@ public final class MaybeLift<T, R> extends AbstractMaybeWithUpstream<T, R> {
     }
 
     @Override // io.reactivex.Maybe
-    public void subscribeActual(MaybeObserver<? super R> maybeObserver) {
+    public void subscribeActual(MaybeObserver maybeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, maybeObserver) == null) {
             try {

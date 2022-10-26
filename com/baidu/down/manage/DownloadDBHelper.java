@@ -128,15 +128,17 @@ public final class DownloadDBHelper extends SQLiteOpenHelper {
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase, i, i2) == null) || i2 <= i) {
+        if ((interceptable != null && interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase, i, i2) != null) || i2 <= i) {
             return;
         }
         int i3 = i + 1;
-        if (i3 == 2) {
+        if (i3 != 2) {
+            if (i3 != 3) {
+                return;
+            }
+        } else {
             addColumn(sQLiteDatabase, DownloadConstants.DownloadColumns.COLUMN_DOWN_DIR, "TEXT");
             addColumn(sQLiteDatabase, DownloadConstants.DownloadColumns.COLUMN_FROM_PARAM, "TEXT");
-        } else if (i3 != 3) {
-            return;
         }
         addColumn(sQLiteDatabase, DownloadConstants.DownloadColumns.COLUMN_REAL_URI, "TEXT");
     }

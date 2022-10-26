@@ -1,6 +1,5 @@
 package com.sdk.base.module.permission;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
@@ -28,7 +27,6 @@ public class PermissionActivity extends Activity {
     }
 
     @Override // android.app.Activity
-    @SuppressLint({"NewApi"})
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {

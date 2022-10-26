@@ -1,284 +1,426 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.media.MediaCodec;
-import android.media.MediaCrypto;
-import android.media.MediaFormat;
-import android.view.Surface;
-import com.baidu.adp.lib.util.BdLog;
+import android.graphics.Matrix;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.record.EncoderParams;
+import com.baidu.tieba.video.editvideo.scale.PivotPoint;
+import com.baidu.tieba.video.editvideo.scale.ScalableType;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.nio.ByteBuffer;
 /* loaded from: classes4.dex */
-public class iw8 extends lw8 {
+public class iw8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long d;
+    public jw8 a;
+    public jw8 b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public iw8(String str) {
-        super(str);
+    /* loaded from: classes4.dex */
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public static final /* synthetic */ int[] b;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-704582302, "Lcom/baidu/tieba/iw8$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-704582302, "Lcom/baidu/tieba/iw8$a;");
+                    return;
+                }
+            }
+            int[] iArr = new int[PivotPoint.values().length];
+            b = iArr;
+            try {
+                iArr[PivotPoint.LEFT_TOP.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                b[PivotPoint.LEFT_CENTER.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                b[PivotPoint.LEFT_BOTTOM.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                b[PivotPoint.CENTER_TOP.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                b[PivotPoint.CENTER.ordinal()] = 5;
+            } catch (NoSuchFieldError unused5) {
+            }
+            try {
+                b[PivotPoint.CENTER_BOTTOM.ordinal()] = 6;
+            } catch (NoSuchFieldError unused6) {
+            }
+            try {
+                b[PivotPoint.RIGHT_TOP.ordinal()] = 7;
+            } catch (NoSuchFieldError unused7) {
+            }
+            try {
+                b[PivotPoint.RIGHT_CENTER.ordinal()] = 8;
+            } catch (NoSuchFieldError unused8) {
+            }
+            try {
+                b[PivotPoint.RIGHT_BOTTOM.ordinal()] = 9;
+            } catch (NoSuchFieldError unused9) {
+            }
+            int[] iArr2 = new int[ScalableType.values().length];
+            a = iArr2;
+            try {
+                iArr2[ScalableType.NONE.ordinal()] = 1;
+            } catch (NoSuchFieldError unused10) {
+            }
+            try {
+                a[ScalableType.FIT_XY.ordinal()] = 2;
+            } catch (NoSuchFieldError unused11) {
+            }
+            try {
+                a[ScalableType.FIT_CENTER.ordinal()] = 3;
+            } catch (NoSuchFieldError unused12) {
+            }
+            try {
+                a[ScalableType.FIT_START.ordinal()] = 4;
+            } catch (NoSuchFieldError unused13) {
+            }
+            try {
+                a[ScalableType.FIT_END.ordinal()] = 5;
+            } catch (NoSuchFieldError unused14) {
+            }
+            try {
+                a[ScalableType.LEFT_TOP.ordinal()] = 6;
+            } catch (NoSuchFieldError unused15) {
+            }
+            try {
+                a[ScalableType.LEFT_CENTER.ordinal()] = 7;
+            } catch (NoSuchFieldError unused16) {
+            }
+            try {
+                a[ScalableType.LEFT_BOTTOM.ordinal()] = 8;
+            } catch (NoSuchFieldError unused17) {
+            }
+            try {
+                a[ScalableType.CENTER_TOP.ordinal()] = 9;
+            } catch (NoSuchFieldError unused18) {
+            }
+            try {
+                a[ScalableType.CENTER.ordinal()] = 10;
+            } catch (NoSuchFieldError unused19) {
+            }
+            try {
+                a[ScalableType.CENTER_BOTTOM.ordinal()] = 11;
+            } catch (NoSuchFieldError unused20) {
+            }
+            try {
+                a[ScalableType.RIGHT_TOP.ordinal()] = 12;
+            } catch (NoSuchFieldError unused21) {
+            }
+            try {
+                a[ScalableType.RIGHT_CENTER.ordinal()] = 13;
+            } catch (NoSuchFieldError unused22) {
+            }
+            try {
+                a[ScalableType.RIGHT_BOTTOM.ordinal()] = 14;
+            } catch (NoSuchFieldError unused23) {
+            }
+            try {
+                a[ScalableType.LEFT_TOP_CROP.ordinal()] = 15;
+            } catch (NoSuchFieldError unused24) {
+            }
+            try {
+                a[ScalableType.LEFT_CENTER_CROP.ordinal()] = 16;
+            } catch (NoSuchFieldError unused25) {
+            }
+            try {
+                a[ScalableType.LEFT_BOTTOM_CROP.ordinal()] = 17;
+            } catch (NoSuchFieldError unused26) {
+            }
+            try {
+                a[ScalableType.CENTER_TOP_CROP.ordinal()] = 18;
+            } catch (NoSuchFieldError unused27) {
+            }
+            try {
+                a[ScalableType.CENTER_CROP.ordinal()] = 19;
+            } catch (NoSuchFieldError unused28) {
+            }
+            try {
+                a[ScalableType.CENTER_BOTTOM_CROP.ordinal()] = 20;
+            } catch (NoSuchFieldError unused29) {
+            }
+            try {
+                a[ScalableType.RIGHT_TOP_CROP.ordinal()] = 21;
+            } catch (NoSuchFieldError unused30) {
+            }
+            try {
+                a[ScalableType.RIGHT_CENTER_CROP.ordinal()] = 22;
+            } catch (NoSuchFieldError unused31) {
+            }
+            try {
+                a[ScalableType.RIGHT_BOTTOM_CROP.ordinal()] = 23;
+            } catch (NoSuchFieldError unused32) {
+            }
+            try {
+                a[ScalableType.START_INSIDE.ordinal()] = 24;
+            } catch (NoSuchFieldError unused33) {
+            }
+            try {
+                a[ScalableType.CENTER_INSIDE.ordinal()] = 25;
+            } catch (NoSuchFieldError unused34) {
+            }
+            try {
+                a[ScalableType.END_INSIDE.ordinal()] = 26;
+            } catch (NoSuchFieldError unused35) {
+            }
+        }
+    }
+
+    public iw8(jw8 jw8Var, jw8 jw8Var2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {jw8Var, jw8Var2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = 88200L;
+        this.a = jw8Var;
+        this.b = jw8Var2;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:107:0x0170 A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:35:0x00db A[Catch: all -> 0x01a7, Exception -> 0x01aa, TryCatch #8 {Exception -> 0x01aa, all -> 0x01a7, blocks: (B:13:0x002e, B:17:0x005b, B:19:0x0061, B:21:0x006d, B:24:0x0072, B:29:0x0082, B:33:0x00d5, B:35:0x00db, B:37:0x00e1, B:38:0x00ed, B:40:0x00f1, B:42:0x0123, B:43:0x0158, B:44:0x015d, B:49:0x0174, B:52:0x017c, B:30:0x00a0, B:54:0x019b), top: B:101:0x002e }] */
-    /* JADX WARN: Removed duplicated region for block: B:88:0x01dc A[Catch: Exception -> 0x01d8, TRY_LEAVE, TryCatch #5 {Exception -> 0x01d8, blocks: (B:84:0x01d4, B:88:0x01dc), top: B:97:0x01d4 }] */
-    /* JADX WARN: Removed duplicated region for block: B:97:0x01d4 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    @Override // com.baidu.tieba.lw8
-    @TargetApi(16)
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void b(String str) {
-        Throwable th;
-        FileOutputStream fileOutputStream;
-        ByteBuffer[] byteBufferArr;
-        long j;
-        int dequeueOutputBuffer;
-        int dequeueInputBuffer;
-        boolean z;
-        int i;
+    public final Matrix a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeL(1048576, this, str) != null) {
-            return;
-        }
-        iw8 iw8Var = this;
-        FileInputStream fileInputStream = null;
-        try {
-            try {
-                if (iw8Var.b == 0) {
-                    iw8Var.b = 48000;
-                }
-                if (iw8Var.c == 0) {
-                    iw8Var.c = 1;
-                }
-                iw8Var.d = (iw8Var.b * 16) / 8;
-                FileInputStream fileInputStream2 = new FileInputStream(iw8Var.a);
-                try {
-                    fileOutputStream = new FileOutputStream(str);
-                    try {
-                        MediaCodec f = f();
-                        f.start();
-                        ByteBuffer[] inputBuffers = f.getInputBuffers();
-                        ByteBuffer[] outputBuffers = f.getOutputBuffers();
-                        MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
-                        byte[] bArr = new byte[4096];
-                        ByteBuffer[] byteBufferArr2 = outputBuffers;
-                        long j2 = 0;
-                        long j3 = 0;
-                        boolean z2 = false;
-                        int i2 = 0;
-                        boolean z3 = false;
-                        boolean z4 = false;
-                        int i3 = 0;
-                        while (!z3) {
-                            if (z4 || (dequeueInputBuffer = f.dequeueInputBuffer(10000L)) < 0) {
-                                byteBufferArr = inputBuffers;
-                            } else {
-                                ByteBuffer byteBuffer = inputBuffers[dequeueInputBuffer];
-                                byteBuffer.clear();
-                                int remaining = byteBuffer.remaining();
-                                if (remaining != bArr.length) {
-                                    bArr = new byte[remaining];
-                                }
-                                byte[] bArr2 = bArr;
-                                if (z2 || (i2 = fileInputStream2.read(bArr2)) != -1) {
-                                    z = z2;
-                                    i = i2;
-                                } else {
-                                    i = i2;
-                                    z = true;
-                                }
-                                if (z) {
-                                    f.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
-                                    byteBufferArr = inputBuffers;
-                                    i2 = i;
-                                    bArr = bArr2;
-                                    z2 = z;
-                                    j = 10000;
-                                    z4 = true;
-                                    dequeueOutputBuffer = f.dequeueOutputBuffer(bufferInfo, j);
-                                    if (dequeueOutputBuffer < 0) {
-                                        if ((bufferInfo.flags & 2) != 0) {
-                                            BdLog.i("audio encoder: codec config buffer");
-                                            f.releaseOutputBuffer(dequeueOutputBuffer, false);
-                                        } else {
-                                            if (bufferInfo.size != 0) {
-                                                ByteBuffer byteBuffer2 = byteBufferArr2[dequeueOutputBuffer];
-                                                byteBuffer2.position(bufferInfo.offset);
-                                                byteBuffer2.limit(bufferInfo.offset + bufferInfo.size);
-                                                BdLog.i(String.format(" writing audio sample : size=%s , presentationTimeUs=%s", Integer.valueOf(bufferInfo.size), Long.valueOf(bufferInfo.presentationTimeUs)));
-                                                if (j2 < bufferInfo.presentationTimeUs) {
-                                                    long j4 = bufferInfo.presentationTimeUs;
-                                                    int i4 = bufferInfo.size;
-                                                    int i5 = i4 + 7;
-                                                    byteBuffer2.position(bufferInfo.offset);
-                                                    byteBuffer2.limit(bufferInfo.offset + i4);
-                                                    byte[] bArr3 = new byte[i5];
-                                                    iw8Var.e(bArr3, i5);
-                                                    byteBuffer2.get(bArr3, 7, i4);
-                                                    fileOutputStream.write(bArr3, 0, i5);
-                                                    BdLog.i(i5 + " bytes written.");
-                                                    j2 = j4;
-                                                } else {
-                                                    BdLog.i("error sample! its presentationTimeUs should not lower than before.");
-                                                }
-                                            }
-                                            f.releaseOutputBuffer(dequeueOutputBuffer, false);
-                                            if ((bufferInfo.flags & 4) != 0) {
-                                                iw8Var = this;
-                                                inputBuffers = byteBufferArr;
-                                                z3 = true;
-                                            }
-                                        }
-                                    } else if (dequeueOutputBuffer == -3) {
-                                        byteBufferArr2 = f.getOutputBuffers();
-                                    } else if (dequeueOutputBuffer == -2) {
-                                        BdLog.i("format change : " + f.getOutputFormat());
-                                    }
-                                    iw8Var = this;
-                                    inputBuffers = byteBufferArr;
-                                } else {
-                                    int i6 = i;
-                                    byteBuffer.put(bArr2, 0, i6);
-                                    int i7 = i3 + i6;
-                                    byteBufferArr = inputBuffers;
-                                    f.queueInputBuffer(dequeueInputBuffer, 0, i6, j3, 0);
-                                    i3 = i7;
-                                    i2 = i6;
-                                    j3 = (long) (((i7 / 2.0d) * 1000000.0d) / iw8Var.d);
-                                    bArr = bArr2;
-                                    z2 = z;
-                                }
-                            }
-                            j = 10000;
-                            dequeueOutputBuffer = f.dequeueOutputBuffer(bufferInfo, j);
-                            if (dequeueOutputBuffer < 0) {
-                            }
-                            iw8Var = this;
-                            inputBuffers = byteBufferArr;
-                        }
-                        BdLog.i("acc encode done");
-                        fileInputStream2.close();
-                        fileOutputStream.close();
-                    } catch (Exception e) {
-                        e = e;
-                        fileInputStream = fileInputStream2;
-                        try {
-                            e.printStackTrace();
-                            if (fileInputStream != null) {
-                                fileInputStream.close();
-                            }
-                            if (fileOutputStream != null) {
-                                fileOutputStream.close();
-                            }
-                        } catch (Throwable th2) {
-                            th = th2;
-                            if (fileInputStream != null) {
-                                try {
-                                    fileInputStream.close();
-                                } catch (Exception e2) {
-                                    e2.printStackTrace();
-                                    throw th;
-                                }
-                            }
-                            if (fileOutputStream != null) {
-                                fileOutputStream.close();
-                            }
-                            throw th;
-                        }
-                    } catch (Throwable th3) {
-                        th = th3;
-                        fileInputStream = fileInputStream2;
-                        if (fileInputStream != null) {
-                        }
-                        if (fileOutputStream != null) {
-                        }
-                        throw th;
-                    }
-                } catch (Exception e3) {
-                    e = e3;
-                    fileOutputStream = null;
-                } catch (Throwable th4) {
-                    th = th4;
-                    fileOutputStream = null;
-                }
-            } catch (Exception e4) {
-                e4.printStackTrace();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.b.a() <= this.a.b() && this.b.a() <= this.a.a()) {
+                return l(PivotPoint.CENTER);
             }
-        } catch (Exception e5) {
-            e = e5;
-            fileOutputStream = null;
-        } catch (Throwable th5) {
-            th = th5;
-            fileOutputStream = null;
+            return c();
         }
+        return (Matrix) invokeV.objValue;
     }
 
-    public final void e(byte[] bArr, int i) {
+    public final Matrix b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i) == null) {
-            int[] iArr = {96000, 88200, 64000, 48000, 44100, 32000, 24000, 22050, 16000, 12000, 11025, 8000, 7350};
-            int i2 = 0;
-            while (true) {
-                if (i2 >= 13) {
-                    i2 = 4;
-                    break;
-                } else if (iArr[i2] == this.b) {
-                    break;
-                } else {
-                    i2++;
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.b.a() <= this.a.b() && this.b.a() <= this.a.a()) {
+                return l(PivotPoint.RIGHT_BOTTOM);
             }
-            bArr[0] = -1;
-            bArr[1] = -7;
-            bArr[2] = (byte) (64 + (i2 << 2) + 0);
-            bArr[3] = (byte) (128 + (i >> 11));
-            bArr[4] = (byte) ((i & 2047) >> 3);
-            bArr[5] = (byte) (((i & 7) << 5) + 31);
-            bArr[6] = -4;
+            return d();
         }
+        return (Matrix) invokeV.objValue;
     }
 
-    @TargetApi(16)
-    public final MediaCodec f() throws IOException {
+    public final Matrix k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return j(this.b.b() / this.a.b(), this.b.a() / this.a.a(), PivotPoint.LEFT_TOP);
+        }
+        return (Matrix) invokeV.objValue;
+    }
+
+    public final Matrix n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            if (this.b.a() <= this.a.b() && this.b.a() <= this.a.a()) {
+                return l(PivotPoint.LEFT_TOP);
+            }
+            return e();
+        }
+        return (Matrix) invokeV.objValue;
+    }
+
+    public final Matrix c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            MediaCodec createEncoderByType = MediaCodec.createEncoderByType("audio/mp4a-latm");
-            MediaFormat mediaFormat = new MediaFormat();
-            mediaFormat.setString("mime", "audio/mp4a-latm");
-            mediaFormat.setInteger("bitrate", EncoderParams.AUDIO_BIT_RATE);
-            mediaFormat.setInteger("channel-count", this.c);
-            mediaFormat.setInteger("sample-rate", this.b);
-            mediaFormat.setInteger("aac-profile", 2);
-            createEncoderByType.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 1);
-            return createEncoderByType;
+            return h(PivotPoint.CENTER);
         }
-        return (MediaCodec) invokeV.objValue;
+        return (Matrix) invokeV.objValue;
+    }
+
+    public final Matrix d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return h(PivotPoint.RIGHT_BOTTOM);
+        }
+        return (Matrix) invokeV.objValue;
+    }
+
+    public final Matrix e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return h(PivotPoint.LEFT_TOP);
+        }
+        return (Matrix) invokeV.objValue;
+    }
+
+    public final Matrix f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return j(1.0f, 1.0f, PivotPoint.LEFT_TOP);
+        }
+        return (Matrix) invokeV.objValue;
+    }
+
+    public final Matrix g(PivotPoint pivotPoint) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, pivotPoint)) == null) {
+            float b = this.a.b() / this.b.b();
+            float a2 = this.a.a() / this.b.a();
+            float max = Math.max(b, a2);
+            return j(max / b, max / a2, pivotPoint);
+        }
+        return (Matrix) invokeL.objValue;
+    }
+
+    public final Matrix h(PivotPoint pivotPoint) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, pivotPoint)) == null) {
+            float b = this.a.b() / this.b.b();
+            float a2 = this.a.a() / this.b.a();
+            float min = Math.min(b, a2);
+            return j(min / b, min / a2, pivotPoint);
+        }
+        return (Matrix) invokeL.objValue;
+    }
+
+    public final Matrix l(PivotPoint pivotPoint) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, pivotPoint)) == null) {
+            return j(this.b.b() / this.a.b(), this.b.a() / this.a.a(), pivotPoint);
+        }
+        return (Matrix) invokeL.objValue;
+    }
+
+    public final Matrix i(float f, float f2, float f3, float f4) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
+            Matrix matrix = new Matrix();
+            matrix.setScale(f, f2, f3, f4);
+            return matrix;
+        }
+        return (Matrix) invokeCommon.objValue;
+    }
+
+    public final Matrix j(float f, float f2, PivotPoint pivotPoint) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), pivotPoint})) == null) {
+            switch (a.b[pivotPoint.ordinal()]) {
+                case 1:
+                    return i(f, f2, 0.0f, 0.0f);
+                case 2:
+                    return i(f, f2, 0.0f, this.a.a() / 2.0f);
+                case 3:
+                    return i(f, f2, 0.0f, this.a.a());
+                case 4:
+                    return i(f, f2, this.a.b() / 2.0f, 0.0f);
+                case 5:
+                    return i(f, f2, this.a.b() / 2.0f, this.a.a() / 2.0f);
+                case 6:
+                    return i(f, f2, this.a.b() / 2.0f, this.a.a());
+                case 7:
+                    return i(f, f2, this.a.b(), 0.0f);
+                case 8:
+                    return i(f, f2, this.a.b(), this.a.a() / 2.0f);
+                case 9:
+                    return i(f, f2, this.a.b(), this.a.a());
+                default:
+                    return null;
+            }
+        }
+        return (Matrix) invokeCommon.objValue;
+    }
+
+    public Matrix m(ScalableType scalableType) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, scalableType)) == null) {
+            switch (a.a[scalableType.ordinal()]) {
+                case 1:
+                    return k();
+                case 2:
+                    return f();
+                case 3:
+                    return c();
+                case 4:
+                    return e();
+                case 5:
+                    return d();
+                case 6:
+                    return l(PivotPoint.LEFT_TOP);
+                case 7:
+                    return l(PivotPoint.LEFT_CENTER);
+                case 8:
+                    return l(PivotPoint.LEFT_BOTTOM);
+                case 9:
+                    return l(PivotPoint.CENTER_TOP);
+                case 10:
+                    return l(PivotPoint.CENTER);
+                case 11:
+                    return l(PivotPoint.CENTER_BOTTOM);
+                case 12:
+                    return l(PivotPoint.RIGHT_TOP);
+                case 13:
+                    return l(PivotPoint.RIGHT_CENTER);
+                case 14:
+                    return l(PivotPoint.RIGHT_BOTTOM);
+                case 15:
+                    return g(PivotPoint.LEFT_TOP);
+                case 16:
+                    return g(PivotPoint.LEFT_CENTER);
+                case 17:
+                    return g(PivotPoint.LEFT_BOTTOM);
+                case 18:
+                    return g(PivotPoint.CENTER_TOP);
+                case 19:
+                    return g(PivotPoint.CENTER);
+                case 20:
+                    return g(PivotPoint.CENTER_BOTTOM);
+                case 21:
+                    return g(PivotPoint.RIGHT_TOP);
+                case 22:
+                    return g(PivotPoint.RIGHT_CENTER);
+                case 23:
+                    return g(PivotPoint.RIGHT_BOTTOM);
+                case 24:
+                    return n();
+                case 25:
+                    return a();
+                case 26:
+                    return b();
+                default:
+                    return null;
+            }
+        }
+        return (Matrix) invokeL.objValue;
     }
 }

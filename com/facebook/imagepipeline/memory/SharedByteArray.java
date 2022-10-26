@@ -8,7 +8,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.Throwables;
-import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.common.memory.MemoryTrimType;
 import com.facebook.common.memory.MemoryTrimmable;
 import com.facebook.common.memory.MemoryTrimmableRegistry;
@@ -16,23 +15,18 @@ import com.facebook.common.references.CloseableReference;
 import com.facebook.common.references.OOMSoftReference;
 import com.facebook.common.references.ResourceReleaser;
 import java.util.concurrent.Semaphore;
-import javax.annotation.concurrent.ThreadSafe;
-@ThreadSafe
 /* loaded from: classes7.dex */
 public class SharedByteArray implements MemoryTrimmable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @VisibleForTesting
-    public final OOMSoftReference<byte[]> mByteArraySoftRef;
-    @VisibleForTesting
+    public final OOMSoftReference mByteArraySoftRef;
     public final int mMaxByteArraySize;
-    @VisibleForTesting
     public final int mMinByteArraySize;
-    public final ResourceReleaser<byte[]> mResourceReleaser;
-    @VisibleForTesting
+    public final ResourceReleaser mResourceReleaser;
     public final Semaphore mSemaphore;
 
     public SharedByteArray(MemoryTrimmableRegistry memoryTrimmableRegistry, PoolParams poolParams) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -48,13 +42,18 @@ public class SharedByteArray implements MemoryTrimmable {
             }
         }
         Preconditions.checkNotNull(memoryTrimmableRegistry);
-        Preconditions.checkArgument(poolParams.minBucketSize > 0);
+        if (poolParams.minBucketSize > 0) {
+            z = true;
+        } else {
+            z = false;
+        }
+        Preconditions.checkArgument(z);
         Preconditions.checkArgument(poolParams.maxBucketSize >= poolParams.minBucketSize);
         this.mMaxByteArraySize = poolParams.maxBucketSize;
         this.mMinByteArraySize = poolParams.minBucketSize;
-        this.mByteArraySoftRef = new OOMSoftReference<>();
+        this.mByteArraySoftRef = new OOMSoftReference();
         this.mSemaphore = new Semaphore(1);
-        this.mResourceReleaser = new ResourceReleaser<byte[]>(this) { // from class: com.facebook.imagepipeline.memory.SharedByteArray.1
+        this.mResourceReleaser = new ResourceReleaser(this) { // from class: com.facebook.imagepipeline.memory.SharedByteArray.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ SharedByteArray this$0;
@@ -109,18 +108,53 @@ public class SharedByteArray implements MemoryTrimmable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i)) == null) {
             int bucketedSize = getBucketedSize(i);
-            byte[] bArr = this.mByteArraySoftRef.get();
-            return (bArr == null || bArr.length < bucketedSize) ? allocateByteArray(bucketedSize) : bArr;
+            byte[] bArr = (byte[]) this.mByteArraySoftRef.get();
+            if (bArr == null || bArr.length < bucketedSize) {
+                return allocateByteArray(bucketedSize);
+            }
+            return bArr;
         }
         return (byte[]) invokeI.objValue;
     }
 
-    public CloseableReference<byte[]> get(int i) {
+    public int getBucketedSize(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return Integer.highestOneBit(Math.max(i, this.mMinByteArraySize) - 1) * 2;
+        }
+        return invokeI.intValue;
+    }
+
+    @Override // com.facebook.common.memory.MemoryTrimmable
+    public void trim(MemoryTrimType memoryTrimType) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, memoryTrimType) != null) || !this.mSemaphore.tryAcquire()) {
+            return;
+        }
+        try {
+            this.mByteArraySoftRef.clear();
+        } finally {
+            this.mSemaphore.release();
+        }
+    }
+
+    public CloseableReference get(int i) {
+        InterceptResult invokeI;
+        boolean z;
+        Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            Preconditions.checkArgument(i > 0, "Size must be greater than zero");
-            Preconditions.checkArgument(i <= this.mMaxByteArraySize, "Requested size is too big");
+            boolean z2 = true;
+            if (i > 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Preconditions.checkArgument(z, "Size must be greater than zero");
+            if (i > this.mMaxByteArraySize) {
+                z2 = false;
+            }
+            Preconditions.checkArgument(z2, "Requested size is too big");
             this.mSemaphore.acquireUninterruptibly();
             try {
                 return CloseableReference.of(getByteArray(i), this.mResourceReleaser);
@@ -130,24 +164,5 @@ public class SharedByteArray implements MemoryTrimmable {
             }
         }
         return (CloseableReference) invokeI.objValue;
-    }
-
-    @VisibleForTesting
-    public int getBucketedSize(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? Integer.highestOneBit(Math.max(i, this.mMinByteArraySize) - 1) * 2 : invokeI.intValue;
-    }
-
-    @Override // com.facebook.common.memory.MemoryTrimmable
-    public void trim(MemoryTrimType memoryTrimType) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, memoryTrimType) == null) && this.mSemaphore.tryAcquire()) {
-            try {
-                this.mByteArraySoftRef.clear();
-            } finally {
-                this.mSemaphore.release();
-            }
-        }
     }
 }

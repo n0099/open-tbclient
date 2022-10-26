@@ -14,7 +14,12 @@ public class SoLoaderProxy {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static class DefaultLoader implements Loader {
+    public interface Loader {
+        void loadLibrary(String str);
+    }
+
+    /* loaded from: classes7.dex */
+    public class DefaultLoader implements Loader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -39,11 +44,6 @@ public class SoLoaderProxy {
                 System.loadLibrary(str);
             }
         }
-    }
-
-    /* loaded from: classes7.dex */
-    public interface Loader {
-        void loadLibrary(String str);
     }
 
     static {

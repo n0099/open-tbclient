@@ -44,6 +44,60 @@ public final class ScreenMonitor {
         $VALUES = new ScreenMonitor[]{screenMonitor};
     }
 
+    private void clickCount() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            long j = this.lastClickTime;
+            if (j == 0 || currentTimeMillis - j > 200) {
+                this.click++;
+            }
+            this.lastClickTime = currentTimeMillis;
+        }
+    }
+
+    private void slideCount() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+            this.slide++;
+        }
+    }
+
+    public static ScreenMonitor[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return (ScreenMonitor[]) $VALUES.clone();
+        }
+        return (ScreenMonitor[]) invokeV.objValue;
+    }
+
+    public int getClick() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.click;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getSlide() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.slide;
+        }
+        return invokeV.intValue;
+    }
+
+    public void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.slide = 0;
+            this.click = 0;
+        }
+    }
+
     public ScreenMonitor(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -71,47 +125,13 @@ public final class ScreenMonitor {
         this.lastClickTime = 0L;
     }
 
-    private void clickCount() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            long j = this.lastClickTime;
-            if (j == 0 || currentTimeMillis - j > 200) {
-                this.click++;
-            }
-            this.lastClickTime = currentTimeMillis;
-        }
-    }
-
-    private void slideCount() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.slide++;
-        }
-    }
-
     public static ScreenMonitor valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? (ScreenMonitor) Enum.valueOf(ScreenMonitor.class, str) : (ScreenMonitor) invokeL.objValue;
-    }
-
-    public static ScreenMonitor[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? (ScreenMonitor[]) $VALUES.clone() : (ScreenMonitor[]) invokeV.objValue;
-    }
-
-    public int getClick() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.click : invokeV.intValue;
-    }
-
-    public int getSlide() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.slide : invokeV.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            return (ScreenMonitor) Enum.valueOf(ScreenMonitor.class, str);
+        }
+        return (ScreenMonitor) invokeL.objValue;
     }
 
     public void onTouchEvent(MotionEvent motionEvent) {
@@ -141,14 +161,6 @@ public final class ScreenMonitor {
                     }
                 }
             }
-        }
-    }
-
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.slide = 0;
-            this.click = 0;
         }
     }
 }

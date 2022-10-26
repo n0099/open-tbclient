@@ -1,15 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public class ld8 implements kn5<kd8> {
+public class ld8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ArrayList a;
+    public String b;
+    public String c;
+    public ArrayList d;
+    public boolean e;
+    public boolean f;
 
     public ld8() {
         Interceptable interceptable = $ic;
@@ -23,14 +28,5 @@ public class ld8 implements kn5<kd8> {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kn5
-    /* renamed from: b */
-    public kd8 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new kd8() : (kd8) invokeV.objValue;
     }
 }

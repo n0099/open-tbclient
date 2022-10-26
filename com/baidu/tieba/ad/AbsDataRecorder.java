@@ -16,7 +16,7 @@ public class AbsDataRecorder {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
-    public static final class Scene {
+    public final class Scene {
         public static final /* synthetic */ Scene[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Scene FRS_HOT;
@@ -68,13 +68,19 @@ public class AbsDataRecorder {
         public static Scene valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Scene) Enum.valueOf(Scene.class, str) : (Scene) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (Scene) Enum.valueOf(Scene.class, str);
+            }
+            return (Scene) invokeL.objValue;
         }
 
         public static Scene[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Scene[]) $VALUES.clone() : (Scene[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (Scene[]) $VALUES.clone();
+            }
+            return (Scene[]) invokeV.objValue;
         }
     }
 
@@ -111,6 +117,9 @@ public class AbsDataRecorder {
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
     }
 }

@@ -47,7 +47,31 @@ public final class JavaVersion {
     public static int determineMajorJavaVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? getMajorJavaVersion(System.getProperty("java.version")) : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return getMajorJavaVersion(System.getProperty("java.version"));
+        }
+        return invokeV.intValue;
+    }
+
+    public static int getMajorJavaVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return majorJavaVersion;
+        }
+        return invokeV.intValue;
+    }
+
+    public static boolean isJava9OrLater() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (majorJavaVersion >= 9) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public static int extractBeginningInt(String str) {
@@ -87,12 +111,6 @@ public final class JavaVersion {
         return invokeL.intValue;
     }
 
-    public static boolean isJava9OrLater() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? majorJavaVersion >= 9 : invokeV.booleanValue;
-    }
-
     public static int parseDotted(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -100,17 +118,14 @@ public final class JavaVersion {
             try {
                 String[] split = str.split("[._]");
                 int parseInt = Integer.parseInt(split[0]);
-                return (parseInt != 1 || split.length <= 1) ? parseInt : Integer.parseInt(split[1]);
+                if (parseInt == 1 && split.length > 1) {
+                    return Integer.parseInt(split[1]);
+                }
+                return parseInt;
             } catch (NumberFormatException unused) {
                 return -1;
             }
         }
         return invokeL.intValue;
-    }
-
-    public static int getMajorJavaVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? majorJavaVersion : invokeV.intValue;
     }
 }

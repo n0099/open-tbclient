@@ -6,19 +6,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Observable;
-import io.reactivex.annotations.Nullable;
 /* loaded from: classes8.dex */
-public abstract class GroupedObservable<K, T> extends Observable<T> {
+public abstract class GroupedObservable extends Observable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final K key;
+    public final Object key;
 
-    public GroupedObservable(@Nullable K k) {
+    public GroupedObservable(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {k};
+            Object[] objArr = {obj};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,13 +27,15 @@ public abstract class GroupedObservable<K, T> extends Observable<T> {
                 return;
             }
         }
-        this.key = k;
+        this.key = obj;
     }
 
-    @Nullable
-    public K getKey() {
+    public Object getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.key : (K) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.key;
+        }
+        return invokeV.objValue;
     }
 }

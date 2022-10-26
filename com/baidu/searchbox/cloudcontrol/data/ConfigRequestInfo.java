@@ -5,6 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -33,23 +34,24 @@ public class ConfigRequestInfo extends CloudControlRequestInfo {
         }
     }
 
-    public void setConfigModuleList(List<ConfigModule> list) {
+    public void setConfigModuleList(List list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, list) == null) || list == null) {
-            return;
-        }
-        JSONObject jSONObject = new JSONObject();
-        for (ConfigModule configModule : list) {
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                for (ConfigAction configAction : configModule.getConfigActions()) {
-                    jSONObject2.put(configAction.getAction(), configAction.getVersion());
+        if ((interceptable == null || interceptable.invokeL(1048576, this, list) == null) && list != null) {
+            JSONObject jSONObject = new JSONObject();
+            Iterator it = list.iterator();
+            while (it.hasNext()) {
+                ConfigModule configModule = (ConfigModule) it.next();
+                JSONObject jSONObject2 = new JSONObject();
+                try {
+                    for (ConfigAction configAction : configModule.getConfigActions()) {
+                        jSONObject2.put(configAction.getAction(), configAction.getVersion());
+                    }
+                    jSONObject.put(configModule.getModule(), jSONObject2);
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
-                jSONObject.put(configModule.getModule(), jSONObject2);
-            } catch (JSONException e) {
-                e.printStackTrace();
             }
+            setPostData(jSONObject);
         }
-        setPostData(jSONObject);
     }
 }

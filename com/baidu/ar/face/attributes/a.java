@@ -24,7 +24,7 @@ import java.util.List;
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<Integer, float[]> nY;
+    public HashMap nY;
     public boolean nZ;
     public l oa;
 
@@ -43,7 +43,7 @@ public class a {
                 return;
             }
         }
-        this.nY = new HashMap<>();
+        this.nY = new HashMap();
         this.nZ = false;
         this.oa = lVar;
     }
@@ -114,17 +114,17 @@ public class a {
             if (faceFrame == null) {
                 str = "faceFrame == null.";
             } else {
-                List<FAUFaceBox> faceBoxes = faceFrame.getFaceBoxes();
+                List faceBoxes = faceFrame.getFaceBoxes();
                 int[] faceIDList = faceFrame.getFaceIDList();
                 if (faceBoxes != null && faceBoxes.size() != 0 && faceIDList != null && faceIDList.length != 0) {
                     faceResultData.setFaceIds(faceIDList);
                     int i3 = faceIDList[0];
-                    float[] fArr = this.nY.get(Integer.valueOf(i3));
+                    float[] fArr = (float[]) this.nY.get(Integer.valueOf(i3));
                     if (fArr != null) {
                         faceResultData.setGenders(fArr);
                         return;
                     }
-                    float[] a = a(mVar.eB(), faceBoxes.get(0), i, i2);
+                    float[] a = a(mVar.eB(), (FAUFaceBox) faceBoxes.get(0), i, i2);
                     if (a == null || !this.nZ) {
                         return;
                     }

@@ -1,6 +1,5 @@
 package com.sdk.base.framework.utils.app;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
@@ -33,7 +32,7 @@ import java.util.Stack;
 public class AppUtils extends a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "com.sdk.base.framework.utils.app.AppUtils";
-    public static Stack<Activity> activityStack;
+    public static Stack activityStack;
     public static boolean isDebug;
     public static int targetSdkVersion;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,7 +51,7 @@ public class AppUtils extends a {
             }
         }
         isDebug = g.b;
-        activityStack = new Stack<>();
+        activityStack = new Stack();
         targetSdkVersion = -1;
     }
 
@@ -93,7 +92,6 @@ public class AppUtils extends a {
         return (String) invokeLL.objValue;
     }
 
-    @SuppressLint({"NewApi"})
     public static int getAndroidSDKVersion(Context context) {
         int i;
         InterceptResult invokeL;
@@ -115,16 +113,6 @@ public class AppUtils extends a {
             return i;
         }
         return invokeL.intValue;
-    }
-
-    public static String getApiKey(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
-            String str2 = (String) getMetaData(context, str);
-            return com.sdk.n.a.a(str2).booleanValue() ? com.sdk.u.a.c : str2;
-        }
-        return (String) invokeLL.objValue;
     }
 
     public static Drawable getAppIcon(Context context) {
@@ -230,7 +218,7 @@ public class AppUtils extends a {
         return (String) invokeV.objValue;
     }
 
-    public static <T> T getMetaData(Context context, String str) {
+    public static Object getMetaData(Context context, String str) {
         InterceptResult invokeLL;
         Bundle bundle;
         Interceptable interceptable = $ic;
@@ -243,13 +231,13 @@ public class AppUtils extends a {
                 if (applicationInfo == null || (bundle = applicationInfo.metaData) == null) {
                     return null;
                 }
-                return (T) bundle.get(str);
+                return bundle.get(str);
             } catch (Exception e) {
                 com.sdk.n.a.b(TAG, e.getMessage(), Boolean.valueOf(isDebug));
                 return null;
             }
         }
-        return (T) invokeLL.objValue;
+        return invokeLL.objValue;
     }
 
     public static String getPackageName() {
@@ -286,7 +274,6 @@ public class AppUtils extends a {
         return (String) invokeL.objValue;
     }
 
-    @SuppressLint({"NewApi"})
     public static int getTargetSdkVersion(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -361,13 +348,13 @@ public class AppUtils extends a {
     public Activity currentActivity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? activityStack.lastElement() : (Activity) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (Activity) activityStack.lastElement() : (Activity) invokeV.objValue;
     }
 
     public void finishActivity() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            finishActivity(activityStack.lastElement());
+            finishActivity((Activity) activityStack.lastElement());
         }
     }
 
@@ -380,14 +367,14 @@ public class AppUtils extends a {
         activity.finish();
     }
 
-    public void finishActivity(Class<?> cls) {
+    public void finishActivity(Class cls) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, cls) == null) {
-            Iterator<Activity> it = activityStack.iterator();
+            Iterator it = activityStack.iterator();
             while (it.hasNext()) {
-                Activity next = it.next();
-                if (next.getClass().equals(cls)) {
-                    finishActivity(next);
+                Activity activity = (Activity) it.next();
+                if (activity.getClass().equals(cls)) {
+                    finishActivity(activity);
                 }
             }
         }
@@ -398,10 +385,23 @@ public class AppUtils extends a {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             for (int i = 0; i < activityStack.size(); i++) {
                 if (activityStack.get(i) != null) {
-                    activityStack.get(i).finish();
+                    ((Activity) activityStack.get(i)).finish();
                 }
             }
             activityStack.clear();
         }
+    }
+
+    public static String getApiKey(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
+            String str2 = (String) getMetaData(context, str);
+            if (com.sdk.n.a.a(str2).booleanValue()) {
+                return com.sdk.u.a.c;
+            }
+            return str2;
+        }
+        return (String) invokeLL.objValue;
     }
 }

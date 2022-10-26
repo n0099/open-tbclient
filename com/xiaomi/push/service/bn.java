@@ -1,6 +1,5 @@
 package com.xiaomi.push.service;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.Uri;
 import android.provider.Settings;
@@ -54,7 +53,6 @@ public class bn {
         return (bn) invokeL.objValue;
     }
 
-    @SuppressLint({"NewApi"})
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -72,16 +70,15 @@ public class bn {
         return invokeV.intValue;
     }
 
-    @SuppressLint({"NewApi"})
     /* renamed from: a  reason: collision with other method in class */
-    public Uri m645a() {
+    public Uri m644a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Settings.Global.getUriFor("device_provisioned") : (Uri) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m646a() {
+    public boolean m645a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? com.xiaomi.push.ae.f93a.contains("xmsf") || com.xiaomi.push.ae.f93a.contains(RomUtils.MANUFACTURER_XIAOMI) || com.xiaomi.push.ae.f93a.contains("miui") : invokeV.booleanValue;

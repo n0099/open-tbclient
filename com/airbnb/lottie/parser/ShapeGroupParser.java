@@ -18,21 +18,25 @@ public class ShapeGroupParser {
         boolean z = false;
         while (jsonReader.hasNext()) {
             int selectName = jsonReader.selectName(NAMES);
-            if (selectName == 0) {
-                str = jsonReader.nextString();
-            } else if (selectName == 1) {
-                z = jsonReader.nextBoolean();
-            } else if (selectName != 2) {
-                jsonReader.skipValue();
-            } else {
-                jsonReader.beginArray();
-                while (jsonReader.hasNext()) {
-                    ContentModel parse = ContentModelParser.parse(jsonReader, lottieComposition);
-                    if (parse != null) {
-                        arrayList.add(parse);
+            if (selectName != 0) {
+                if (selectName != 1) {
+                    if (selectName != 2) {
+                        jsonReader.skipValue();
+                    } else {
+                        jsonReader.beginArray();
+                        while (jsonReader.hasNext()) {
+                            ContentModel parse = ContentModelParser.parse(jsonReader, lottieComposition);
+                            if (parse != null) {
+                                arrayList.add(parse);
+                            }
+                        }
+                        jsonReader.endArray();
                     }
+                } else {
+                    z = jsonReader.nextBoolean();
                 }
-                jsonReader.endArray();
+            } else {
+                str = jsonReader.nextString();
             }
         }
         return new ShapeGroup(str, arrayList, z);

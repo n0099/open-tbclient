@@ -43,11 +43,18 @@ public final class PsExtractor implements Extractor {
     public boolean foundVideoTrack;
     public ExtractorOutput output;
     public final ParsableByteArray psPacketBuffer;
-    public final SparseArray<PesReader> psPayloadReaders;
+    public final SparseArray psPayloadReaders;
     public final TimestampAdjuster timestampAdjuster;
 
+    @Override // com.google.android.exoplayer2.extractor.Extractor
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
     /* loaded from: classes7.dex */
-    public static final class PesReader {
+    public final class PesReader {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int PES_SCRATCH_SIZE = 64;
         public transient /* synthetic */ FieldHolder $fh;
@@ -196,122 +203,6 @@ public final class PsExtractor implements Extractor {
         }
     }
 
-    @Override // com.google.android.exoplayer2.extractor.Extractor
-    public void init(ExtractorOutput extractorOutput) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, extractorOutput) == null) {
-            this.output = extractorOutput;
-            extractorOutput.seekMap(new SeekMap.Unseekable(C.TIME_UNSET));
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.extractor.Extractor
-    public int read(ExtractorInput extractorInput, PositionHolder positionHolder) throws IOException, InterruptedException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, extractorInput, positionHolder)) == null) {
-            if (extractorInput.peekFully(this.psPacketBuffer.data, 0, 4, true)) {
-                this.psPacketBuffer.setPosition(0);
-                int readInt = this.psPacketBuffer.readInt();
-                if (readInt == 441) {
-                    return -1;
-                }
-                if (readInt == 442) {
-                    extractorInput.peekFully(this.psPacketBuffer.data, 0, 10);
-                    this.psPacketBuffer.setPosition(9);
-                    extractorInput.skipFully((this.psPacketBuffer.readUnsignedByte() & 7) + 14);
-                    return 0;
-                } else if (readInt == 443) {
-                    extractorInput.peekFully(this.psPacketBuffer.data, 0, 2);
-                    this.psPacketBuffer.setPosition(0);
-                    extractorInput.skipFully(this.psPacketBuffer.readUnsignedShort() + 6);
-                    return 0;
-                } else if (((readInt & (-256)) >> 8) != 1) {
-                    extractorInput.skipFully(1);
-                    return 0;
-                } else {
-                    int i = readInt & 255;
-                    PesReader pesReader = this.psPayloadReaders.get(i);
-                    if (!this.foundAllTracks) {
-                        if (pesReader == null) {
-                            ElementaryStreamReader elementaryStreamReader = null;
-                            if (!this.foundAudioTrack && i == 189) {
-                                elementaryStreamReader = new Ac3Reader();
-                                this.foundAudioTrack = true;
-                            } else if (!this.foundAudioTrack && (i & 224) == 192) {
-                                elementaryStreamReader = new MpegAudioReader();
-                                this.foundAudioTrack = true;
-                            } else if (!this.foundVideoTrack && (i & 240) == 224) {
-                                elementaryStreamReader = new H262Reader();
-                                this.foundVideoTrack = true;
-                            }
-                            if (elementaryStreamReader != null) {
-                                elementaryStreamReader.createTracks(this.output, new TsPayloadReader.TrackIdGenerator(i, 256));
-                                pesReader = new PesReader(elementaryStreamReader, this.timestampAdjuster);
-                                this.psPayloadReaders.put(i, pesReader);
-                            }
-                        }
-                        if ((this.foundAudioTrack && this.foundVideoTrack) || extractorInput.getPosition() > 1048576) {
-                            this.foundAllTracks = true;
-                            this.output.endTracks();
-                        }
-                    }
-                    extractorInput.peekFully(this.psPacketBuffer.data, 0, 2);
-                    this.psPacketBuffer.setPosition(0);
-                    int readUnsignedShort = this.psPacketBuffer.readUnsignedShort() + 6;
-                    if (pesReader == null) {
-                        extractorInput.skipFully(readUnsignedShort);
-                    } else {
-                        this.psPacketBuffer.reset(readUnsignedShort);
-                        extractorInput.readFully(this.psPacketBuffer.data, 0, readUnsignedShort);
-                        this.psPacketBuffer.setPosition(6);
-                        pesReader.consume(this.psPacketBuffer);
-                        ParsableByteArray parsableByteArray = this.psPacketBuffer;
-                        parsableByteArray.setLimit(parsableByteArray.capacity());
-                    }
-                    return 0;
-                }
-            }
-            return -1;
-        }
-        return invokeLL.intValue;
-    }
-
-    @Override // com.google.android.exoplayer2.extractor.Extractor
-    public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.extractor.Extractor
-    public void seek(long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            this.timestampAdjuster.reset();
-            for (int i = 0; i < this.psPayloadReaders.size(); i++) {
-                this.psPayloadReaders.valueAt(i).seek();
-            }
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.extractor.Extractor
-    public boolean sniff(ExtractorInput extractorInput) throws IOException, InterruptedException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, extractorInput)) == null) {
-            byte[] bArr = new byte[14];
-            extractorInput.peekFully(bArr, 0, 14);
-            if (442 == (((bArr[0] & 255) << 24) | ((bArr[1] & 255) << 16) | ((bArr[2] & 255) << 8) | (bArr[3] & 255)) && (bArr[4] & 196) == 68 && (bArr[6] & 4) == 4 && (bArr[8] & 4) == 4 && (bArr[9] & 1) == 1 && (bArr[12] & 3) == 3) {
-                extractorInput.advancePeekPosition(bArr[13] & 7);
-                extractorInput.peekFully(bArr, 0, 3);
-                return 1 == ((((bArr[0] & 255) << 16) | ((bArr[1] & 255) << 8)) | (bArr[2] & 255));
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
     public PsExtractor(TimestampAdjuster timestampAdjuster) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -329,6 +220,118 @@ public final class PsExtractor implements Extractor {
         }
         this.timestampAdjuster = timestampAdjuster;
         this.psPacketBuffer = new ParsableByteArray(4096);
-        this.psPayloadReaders = new SparseArray<>();
+        this.psPayloadReaders = new SparseArray();
+    }
+
+    @Override // com.google.android.exoplayer2.extractor.Extractor
+    public void init(ExtractorOutput extractorOutput) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, extractorOutput) == null) {
+            this.output = extractorOutput;
+            extractorOutput.seekMap(new SeekMap.Unseekable(C.TIME_UNSET));
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.extractor.Extractor
+    public int read(ExtractorInput extractorInput, PositionHolder positionHolder) throws IOException, InterruptedException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, extractorInput, positionHolder)) == null) {
+            if (!extractorInput.peekFully(this.psPacketBuffer.data, 0, 4, true)) {
+                return -1;
+            }
+            this.psPacketBuffer.setPosition(0);
+            int readInt = this.psPacketBuffer.readInt();
+            if (readInt == 441) {
+                return -1;
+            }
+            if (readInt == 442) {
+                extractorInput.peekFully(this.psPacketBuffer.data, 0, 10);
+                this.psPacketBuffer.setPosition(9);
+                extractorInput.skipFully((this.psPacketBuffer.readUnsignedByte() & 7) + 14);
+                return 0;
+            } else if (readInt == 443) {
+                extractorInput.peekFully(this.psPacketBuffer.data, 0, 2);
+                this.psPacketBuffer.setPosition(0);
+                extractorInput.skipFully(this.psPacketBuffer.readUnsignedShort() + 6);
+                return 0;
+            } else if (((readInt & (-256)) >> 8) != 1) {
+                extractorInput.skipFully(1);
+                return 0;
+            } else {
+                int i = readInt & 255;
+                PesReader pesReader = (PesReader) this.psPayloadReaders.get(i);
+                if (!this.foundAllTracks) {
+                    if (pesReader == null) {
+                        ElementaryStreamReader elementaryStreamReader = null;
+                        if (!this.foundAudioTrack && i == 189) {
+                            elementaryStreamReader = new Ac3Reader();
+                            this.foundAudioTrack = true;
+                        } else if (!this.foundAudioTrack && (i & 224) == 192) {
+                            elementaryStreamReader = new MpegAudioReader();
+                            this.foundAudioTrack = true;
+                        } else if (!this.foundVideoTrack && (i & 240) == 224) {
+                            elementaryStreamReader = new H262Reader();
+                            this.foundVideoTrack = true;
+                        }
+                        if (elementaryStreamReader != null) {
+                            elementaryStreamReader.createTracks(this.output, new TsPayloadReader.TrackIdGenerator(i, 256));
+                            pesReader = new PesReader(elementaryStreamReader, this.timestampAdjuster);
+                            this.psPayloadReaders.put(i, pesReader);
+                        }
+                    }
+                    if ((this.foundAudioTrack && this.foundVideoTrack) || extractorInput.getPosition() > 1048576) {
+                        this.foundAllTracks = true;
+                        this.output.endTracks();
+                    }
+                }
+                extractorInput.peekFully(this.psPacketBuffer.data, 0, 2);
+                this.psPacketBuffer.setPosition(0);
+                int readUnsignedShort = this.psPacketBuffer.readUnsignedShort() + 6;
+                if (pesReader == null) {
+                    extractorInput.skipFully(readUnsignedShort);
+                } else {
+                    this.psPacketBuffer.reset(readUnsignedShort);
+                    extractorInput.readFully(this.psPacketBuffer.data, 0, readUnsignedShort);
+                    this.psPacketBuffer.setPosition(6);
+                    pesReader.consume(this.psPacketBuffer);
+                    ParsableByteArray parsableByteArray = this.psPacketBuffer;
+                    parsableByteArray.setLimit(parsableByteArray.capacity());
+                }
+                return 0;
+            }
+        }
+        return invokeLL.intValue;
+    }
+
+    @Override // com.google.android.exoplayer2.extractor.Extractor
+    public void seek(long j, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            this.timestampAdjuster.reset();
+            for (int i = 0; i < this.psPayloadReaders.size(); i++) {
+                ((PesReader) this.psPayloadReaders.valueAt(i)).seek();
+            }
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.extractor.Extractor
+    public boolean sniff(ExtractorInput extractorInput) throws IOException, InterruptedException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, extractorInput)) == null) {
+            byte[] bArr = new byte[14];
+            extractorInput.peekFully(bArr, 0, 14);
+            if (442 != (((bArr[0] & 255) << 24) | ((bArr[1] & 255) << 16) | ((bArr[2] & 255) << 8) | (bArr[3] & 255)) || (bArr[4] & 196) != 68 || (bArr[6] & 4) != 4 || (bArr[8] & 4) != 4 || (bArr[9] & 1) != 1 || (bArr[12] & 3) != 3) {
+                return false;
+            }
+            extractorInput.advancePeekPosition(bArr[13] & 7);
+            extractorInput.peekFully(bArr, 0, 3);
+            if (1 != (((bArr[0] & 255) << 16) | ((bArr[1] & 255) << 8) | (bArr[2] & 255))) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

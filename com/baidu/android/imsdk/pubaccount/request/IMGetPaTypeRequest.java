@@ -25,6 +25,13 @@ public class IMGetPaTypeRequest extends PaBaseHttpRequest {
     public String mKey;
     public long mPaId;
 
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getContentType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "application/x-www-form-urlencoded" : (String) invokeV.objValue;
+    }
+
     public IMGetPaTypeRequest(Context context, String str, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -45,13 +52,6 @@ public class IMGetPaTypeRequest extends PaBaseHttpRequest {
         this.mKey = str;
     }
 
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public String getContentType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "application/x-www-form-urlencoded" : (String) invokeV.objValue;
-    }
-
     @Override // com.baidu.android.imsdk.pubaccount.request.PaBaseHttpRequest, com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public String getHost() {
         InterceptResult invokeV;
@@ -64,6 +64,19 @@ public class IMGetPaTypeRequest extends PaBaseHttpRequest {
             return hostUrl + "rest/2.0/im/zhidahao";
         }
         return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public boolean shouldAbort() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (AccountManager.isCuidLogin(this.mContext)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -81,7 +94,7 @@ public class IMGetPaTypeRequest extends PaBaseHttpRequest {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048579, this, i, bArr, th) == null) {
             LogUtils.d(RetrieveReportRequest.APP_NAME, "IMGetPaTypeRequest " + this.mPaId + GlideException.IndentedAppendable.INDENT + i + " " + bArr);
-            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
+            Pair transErrorCode = transErrorCode(i, bArr, th);
             PaManagerImpl.getInstance(this.mContext).onGetPaTypeResult(this.mKey, ((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, this.mPaId, -1);
         }
     }
@@ -122,12 +135,5 @@ public class IMGetPaTypeRequest extends PaBaseHttpRequest {
             }
             PaManagerImpl.getInstance(this.mContext).onGetPaTypeResult(this.mKey, i2, str, this.mPaId, i3);
         }
-    }
-
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public boolean shouldAbort() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? AccountManager.isCuidLogin(this.mContext) : invokeV.booleanValue;
     }
 }

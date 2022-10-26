@@ -7,8 +7,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -70,7 +68,7 @@ public class ActionBarAppLandscape extends LinearLayout implements c {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ActionBarAppLandscape(Context context, @Nullable AttributeSet attributeSet) {
+    public ActionBarAppLandscape(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -91,7 +89,7 @@ public class ActionBarAppLandscape extends LinearLayout implements c {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ActionBarAppLandscape(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public ActionBarAppLandscape(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -115,7 +113,7 @@ public class ActionBarAppLandscape extends LinearLayout implements c {
     private void b(View view2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65541, this, view2, z) == null) {
-            com.kwad.components.core.c.a.a.a(new a.C0570a(view2.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(view2 == this.wI).ae(view2 == this.wJ ? 1 : 2).a(new a.b(this, z) { // from class: com.kwad.components.ad.reward.widget.actionbar.ActionBarAppLandscape.2
+            com.kwad.components.core.c.a.a.a(new a.C0566a(view2.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(view2 == this.wI).ae(view2 == this.wJ ? 1 : 2).a(new a.b(this, z) { // from class: com.kwad.components.ad.reward.widget.actionbar.ActionBarAppLandscape.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ boolean rl;
@@ -243,17 +241,17 @@ public class ActionBarAppLandscape extends LinearLayout implements c {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0476, this);
-            this.cw = (ImageView) findViewById(R.id.obfuscated_res_0x7f091062);
-            this.cx = (TextView) findViewById(R.id.obfuscated_res_0x7f091066);
-            this.dh = (TextView) findViewById(R.id.obfuscated_res_0x7f09105e);
-            this.wH = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f091065);
-            this.cz = (TextView) findViewById(R.id.obfuscated_res_0x7f091061);
-            TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f091060);
+            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0473, this);
+            this.cw = (ImageView) findViewById(R.id.obfuscated_res_0x7f091056);
+            this.cx = (TextView) findViewById(R.id.obfuscated_res_0x7f09105a);
+            this.dh = (TextView) findViewById(R.id.obfuscated_res_0x7f091052);
+            this.wH = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f091059);
+            this.cz = (TextView) findViewById(R.id.obfuscated_res_0x7f091055);
+            TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f091054);
             this.wI = textProgressBar;
             textProgressBar.setTextDimen(com.kwad.sdk.b.kwai.a.a(getContext(), 16.0f));
             this.wI.setTextColor(-1);
-            this.wJ = findViewById(R.id.obfuscated_res_0x7f091099);
+            this.wJ = findViewById(R.id.obfuscated_res_0x7f09108d);
         }
     }
 
@@ -283,7 +281,7 @@ public class ActionBarAppLandscape extends LinearLayout implements c {
         }
     }
 
-    public final void a(@NonNull AdTemplate adTemplate, @Nullable com.kwad.components.core.c.a.c cVar, a aVar) {
+    public final void a(AdTemplate adTemplate, com.kwad.components.core.c.a.c cVar, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, adTemplate, cVar, aVar) == null) {
             this.mAdTemplate = adTemplate;

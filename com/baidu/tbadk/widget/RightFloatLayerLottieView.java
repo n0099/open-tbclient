@@ -9,7 +9,6 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.airbnb.lottie.LottieComposition;
 import com.airbnb.lottie.LottieCompositionFactory;
@@ -20,7 +19,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.o05;
+import com.baidu.tieba.t05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -111,7 +110,77 @@ public class RightFloatLayerLottieView extends RightFloatLayerView {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements LottieListener<LottieComposition> {
+    public class e extends AnimatorListenerAdapter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ RightFloatLayerLottieView a;
+
+        /* loaded from: classes3.dex */
+        public class a extends AnimatorListenerAdapter {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ e a;
+
+            public a(e eVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {eVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = eVar;
+            }
+
+            @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+            public void onAnimationEnd(Animator animator) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null && interceptable.invokeL(1048576, this, animator) != null) {
+                    return;
+                }
+                this.a.a.A = false;
+            }
+        }
+
+        public e(RightFloatLayerLottieView rightFloatLayerLottieView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rightFloatLayerLottieView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = rightFloatLayerLottieView;
+        }
+
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+                this.a.w.setVisibility(8);
+                this.a.y.setVisibility(0);
+                RightFloatLayerLottieView rightFloatLayerLottieView = this.a;
+                rightFloatLayerLottieView.E(rightFloatLayerLottieView.y, new a(this), 300L);
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class b implements LottieListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TBLottieAnimationView a;
@@ -147,16 +216,17 @@ public class RightFloatLayerLottieView extends RightFloatLayerView {
                 this.a.enableMergePathsForKitKatAndAbove(true);
                 this.a.setComposition(lottieComposition);
                 RightFloatLayerLottieView rightFloatLayerLottieView = this.b;
-                if (rightFloatLayerLottieView.r) {
-                    rightFloatLayerLottieView.d();
-                    this.a.playAnimation();
+                if (!rightFloatLayerLottieView.r) {
+                    return;
                 }
+                rightFloatLayerLottieView.d();
+                this.a.playAnimation();
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class c implements LottieListener<Throwable> {
+    public class c implements LottieListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ RightFloatLayerLottieView a;
@@ -222,75 +292,6 @@ public class RightFloatLayerLottieView extends RightFloatLayerView {
                 this.a.y.setVisibility(0);
                 RightFloatLayerLottieView rightFloatLayerLottieView = this.a;
                 rightFloatLayerLottieView.E(rightFloatLayerLottieView.y, null, 300L);
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class e extends AnimatorListenerAdapter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ RightFloatLayerLottieView a;
-
-        /* loaded from: classes3.dex */
-        public class a extends AnimatorListenerAdapter {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ e a;
-
-            public a(e eVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {eVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = eVar;
-            }
-
-            @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-            public void onAnimationEnd(Animator animator) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                    this.a.a.A = false;
-                }
-            }
-        }
-
-        public e(RightFloatLayerLottieView rightFloatLayerLottieView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rightFloatLayerLottieView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = rightFloatLayerLottieView;
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                this.a.w.setVisibility(8);
-                this.a.y.setVisibility(0);
-                RightFloatLayerLottieView rightFloatLayerLottieView = this.a;
-                rightFloatLayerLottieView.E(rightFloatLayerLottieView.y, new a(this), 300L);
             }
         }
     }
@@ -457,191 +458,6 @@ public class RightFloatLayerLottieView extends RightFloatLayerView {
         this.B = new a(this);
     }
 
-    @NonNull
-    public static RightFloatLayerView F(o05 o05Var, @NonNull Context context) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, o05Var, context)) == null) {
-            if (o05Var == null) {
-                return new RightFloatLayerView(context);
-            }
-            if (o05Var.c()) {
-                return new RightFloatLayerLottieView(context);
-            }
-            return new RightFloatLayerView(context);
-        }
-        return (RightFloatLayerView) invokeLL.objValue;
-    }
-
-    public final void D(View view2, AnimatorListenerAdapter animatorListenerAdapter, long j) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, animatorListenerAdapter, Long.valueOf(j)}) == null) || getVisibility() == 8 || view2.getVisibility() == 8) {
-            return;
-        }
-        ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, view2.getTranslationX());
-        ValueAnimator ofFloat2 = ValueAnimator.ofFloat(1.0f, 0.0f);
-        ofFloat.setDuration(j);
-        ofFloat.addUpdateListener(new f(this, view2));
-        ofFloat2.setDuration(j);
-        ofFloat2.addUpdateListener(new g(this, view2));
-        AnimatorSet animatorSet = new AnimatorSet();
-        if (animatorListenerAdapter != null) {
-            animatorSet.addListener(animatorListenerAdapter);
-        }
-        animatorSet.play(ofFloat).with(ofFloat2);
-        animatorSet.start();
-    }
-
-    public final void E(View view2, AnimatorListenerAdapter animatorListenerAdapter, long j) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, animatorListenerAdapter, Long.valueOf(j)}) == null) || getVisibility() == 8 || view2.getVisibility() == 8) {
-            return;
-        }
-        ValueAnimator ofFloat = ValueAnimator.ofFloat(view2.getTranslationX(), 0.0f);
-        ValueAnimator ofFloat2 = ValueAnimator.ofFloat(0.0f, 1.0f);
-        ofFloat.setDuration(j);
-        ofFloat.addUpdateListener(new h(this, view2));
-        ofFloat2.setDuration(j);
-        ofFloat2.addUpdateListener(new i(this, view2));
-        AnimatorSet animatorSet = new AnimatorSet();
-        if (animatorListenerAdapter != null) {
-            animatorSet.addListener(animatorListenerAdapter);
-        }
-        animatorSet.play(ofFloat).with(ofFloat2);
-        animatorSet.start();
-    }
-
-    public final void G(String str, TBLottieAnimationView tBLottieAnimationView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, tBLottieAnimationView) == null) {
-            LottieCompositionFactory.fromUrl(getContext(), str).addFailureListener(new c(this)).addListener(new b(this, tBLottieAnimationView));
-        }
-    }
-
-    public void H(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            postDelayed(this.B, i2);
-        }
-    }
-
-    @Override // com.baidu.tbadk.widget.RightFloatLayerView
-    public void j(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
-            super.j(context);
-            this.w = findViewById(R.id.obfuscated_res_0x7f0909fa);
-            this.y = findViewById(R.id.obfuscated_res_0x7f0909ee);
-            this.u = (ImageView) findViewById(R.id.obfuscated_res_0x7f0909f4);
-            this.v = (TextView) findViewById(R.id.obfuscated_res_0x7f09126d);
-            this.z = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0909f5);
-            this.x = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0909f6);
-            SkinManager.setImageResource(this.u, R.drawable.obfuscated_res_0x7f080600);
-            this.x.setVisibility(0);
-        }
-    }
-
-    @Override // com.baidu.tbadk.widget.RightFloatLayerView
-    public void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            TBLottieAnimationView tBLottieAnimationView = this.z;
-            if (tBLottieAnimationView != null) {
-                tBLottieAnimationView.invalidate();
-            }
-            TBLottieAnimationView tBLottieAnimationView2 = this.x;
-            if (tBLottieAnimationView2 != null) {
-                tBLottieAnimationView2.invalidate();
-            }
-            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.a, R.drawable.obfuscated_res_0x7f080600, SvgManager.SvgResourceStateType.NORMAL);
-            SkinManager.setViewTextColor(this.b, R.color.CAM_X0112, 1);
-            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.u, R.drawable.obfuscated_res_0x7f080600, SvgManager.SvgResourceStateType.NORMAL);
-            SkinManager.setViewTextColor(this.v, R.color.CAM_X0112, 1);
-        }
-    }
-
-    @Override // com.baidu.tbadk.widget.RightFloatLayerView
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.q = true;
-            removeCallbacks(this.B);
-            if (this.y.getVisibility() == 0) {
-                return;
-            }
-            this.A = true;
-            D(this.w, new e(this), 400L);
-        }
-    }
-
-    @Override // com.baidu.tbadk.widget.RightFloatLayerView
-    public void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.q = false;
-            if (this.A || this.y.getVisibility() == 8) {
-                return;
-            }
-            D(this.w, new d(this), 400L);
-        }
-    }
-
-    @Override // com.baidu.tbadk.widget.RightFloatLayerView
-    public void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            removeCallbacks(this.B);
-        }
-    }
-
-    @Override // com.baidu.tbadk.widget.RightFloatLayerView
-    public void setData(o05 o05Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, o05Var) == null) || o05Var == null || this.s || o05Var.a()) {
-            return;
-        }
-        if (l(o05Var)) {
-            this.v.setVisibility(0);
-        } else {
-            this.b.setVisibility(4);
-            this.v.setVisibility(4);
-        }
-        this.w.setVisibility(0);
-        this.y.setVisibility(8);
-        G(o05Var.d, this.x);
-        G(o05Var.c, this.z);
-        w(o05Var);
-        this.s = true;
-    }
-
-    @Override // com.baidu.tbadk.widget.RightFloatLayerView
-    public void setFeedBackListener(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, onClickListener) == null) {
-            super.setFeedBackListener(onClickListener);
-            ImageView imageView = this.u;
-            if (imageView != null) {
-                imageView.setOnClickListener(onClickListener);
-            }
-        }
-    }
-
-    @Override // com.baidu.tbadk.widget.RightFloatLayerView
-    public void setLogoListener(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, onClickListener) == null) {
-            super.setLogoListener(onClickListener);
-            TBLottieAnimationView tBLottieAnimationView = this.x;
-            if (tBLottieAnimationView != null) {
-                tBLottieAnimationView.setOnClickListener(onClickListener);
-            }
-            TBLottieAnimationView tBLottieAnimationView2 = this.z;
-            if (tBLottieAnimationView2 != null) {
-                tBLottieAnimationView2.setOnClickListener(onClickListener);
-            }
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RightFloatLayerLottieView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -686,5 +502,185 @@ public class RightFloatLayerLottieView extends RightFloatLayerView {
         }
         this.A = false;
         this.B = new a(this);
+    }
+
+    public static RightFloatLayerView F(t05 t05Var, Context context) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, t05Var, context)) == null) {
+            if (t05Var == null) {
+                return new RightFloatLayerView(context);
+            }
+            if (t05Var.c()) {
+                return new RightFloatLayerLottieView(context);
+            }
+            return new RightFloatLayerView(context);
+        }
+        return (RightFloatLayerView) invokeLL.objValue;
+    }
+
+    public final void G(String str, TBLottieAnimationView tBLottieAnimationView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, tBLottieAnimationView) == null) {
+            LottieCompositionFactory.fromUrl(getContext(), str).addFailureListener(new c(this)).addListener(new b(this, tBLottieAnimationView));
+        }
+    }
+
+    public void H(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
+            postDelayed(this.B, i2);
+        }
+    }
+
+    @Override // com.baidu.tbadk.widget.RightFloatLayerView
+    public void setFeedBackListener(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, onClickListener) == null) {
+            super.setFeedBackListener(onClickListener);
+            ImageView imageView = this.u;
+            if (imageView != null) {
+                imageView.setOnClickListener(onClickListener);
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.widget.RightFloatLayerView
+    public void setLogoListener(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, onClickListener) == null) {
+            super.setLogoListener(onClickListener);
+            TBLottieAnimationView tBLottieAnimationView = this.x;
+            if (tBLottieAnimationView != null) {
+                tBLottieAnimationView.setOnClickListener(onClickListener);
+            }
+            TBLottieAnimationView tBLottieAnimationView2 = this.z;
+            if (tBLottieAnimationView2 != null) {
+                tBLottieAnimationView2.setOnClickListener(onClickListener);
+            }
+        }
+    }
+
+    public final void D(View view2, AnimatorListenerAdapter animatorListenerAdapter, long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, animatorListenerAdapter, Long.valueOf(j)}) == null) && getVisibility() != 8 && view2.getVisibility() != 8) {
+            ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, view2.getTranslationX());
+            ValueAnimator ofFloat2 = ValueAnimator.ofFloat(1.0f, 0.0f);
+            ofFloat.setDuration(j);
+            ofFloat.addUpdateListener(new f(this, view2));
+            ofFloat2.setDuration(j);
+            ofFloat2.addUpdateListener(new g(this, view2));
+            AnimatorSet animatorSet = new AnimatorSet();
+            if (animatorListenerAdapter != null) {
+                animatorSet.addListener(animatorListenerAdapter);
+            }
+            animatorSet.play(ofFloat).with(ofFloat2);
+            animatorSet.start();
+        }
+    }
+
+    public final void E(View view2, AnimatorListenerAdapter animatorListenerAdapter, long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, animatorListenerAdapter, Long.valueOf(j)}) == null) && getVisibility() != 8 && view2.getVisibility() != 8) {
+            ValueAnimator ofFloat = ValueAnimator.ofFloat(view2.getTranslationX(), 0.0f);
+            ValueAnimator ofFloat2 = ValueAnimator.ofFloat(0.0f, 1.0f);
+            ofFloat.setDuration(j);
+            ofFloat.addUpdateListener(new h(this, view2));
+            ofFloat2.setDuration(j);
+            ofFloat2.addUpdateListener(new i(this, view2));
+            AnimatorSet animatorSet = new AnimatorSet();
+            if (animatorListenerAdapter != null) {
+                animatorSet.addListener(animatorListenerAdapter);
+            }
+            animatorSet.play(ofFloat).with(ofFloat2);
+            animatorSet.start();
+        }
+    }
+
+    @Override // com.baidu.tbadk.widget.RightFloatLayerView
+    public void j(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
+            super.j(context);
+            this.w = findViewById(R.id.obfuscated_res_0x7f090a04);
+            this.y = findViewById(R.id.obfuscated_res_0x7f0909f8);
+            this.u = (ImageView) findViewById(R.id.obfuscated_res_0x7f0909fe);
+            this.v = (TextView) findViewById(R.id.obfuscated_res_0x7f091261);
+            this.z = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0909ff);
+            this.x = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f090a00);
+            SkinManager.setImageResource(this.u, R.drawable.obfuscated_res_0x7f080601);
+            this.x.setVisibility(0);
+        }
+    }
+
+    @Override // com.baidu.tbadk.widget.RightFloatLayerView
+    public void setData(t05 t05Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048585, this, t05Var) == null) && t05Var != null && !this.s && !t05Var.a()) {
+            if (l(t05Var)) {
+                this.v.setVisibility(0);
+            } else {
+                this.b.setVisibility(4);
+                this.v.setVisibility(4);
+            }
+            this.w.setVisibility(0);
+            this.y.setVisibility(8);
+            G(t05Var.d, this.x);
+            G(t05Var.c, this.z);
+            w(t05Var);
+            this.s = true;
+        }
+    }
+
+    @Override // com.baidu.tbadk.widget.RightFloatLayerView
+    public void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            TBLottieAnimationView tBLottieAnimationView = this.z;
+            if (tBLottieAnimationView != null) {
+                tBLottieAnimationView.invalidate();
+            }
+            TBLottieAnimationView tBLottieAnimationView2 = this.x;
+            if (tBLottieAnimationView2 != null) {
+                tBLottieAnimationView2.invalidate();
+            }
+            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.a, R.drawable.obfuscated_res_0x7f080601, SvgManager.SvgResourceStateType.NORMAL);
+            SkinManager.setViewTextColor(this.b, R.color.CAM_X0112, 1);
+            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.u, R.drawable.obfuscated_res_0x7f080601, SvgManager.SvgResourceStateType.NORMAL);
+            SkinManager.setViewTextColor(this.v, R.color.CAM_X0112, 1);
+        }
+    }
+
+    @Override // com.baidu.tbadk.widget.RightFloatLayerView
+    public void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.q = true;
+            removeCallbacks(this.B);
+            if (this.y.getVisibility() == 0) {
+                return;
+            }
+            this.A = true;
+            D(this.w, new e(this), 400L);
+        }
+    }
+
+    @Override // com.baidu.tbadk.widget.RightFloatLayerView
+    public void q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.q = false;
+            if (!this.A && this.y.getVisibility() != 8) {
+                D(this.w, new d(this), 400L);
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.widget.RightFloatLayerView
+    public void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            removeCallbacks(this.B);
+        }
     }
 }

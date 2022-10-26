@@ -10,9 +10,9 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.o79;
+import com.baidu.tieba.g89;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.sm8;
+import com.baidu.tieba.zm8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,27 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class WorkVideoGuideModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public o79 a;
+    public g89 a;
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
     /* loaded from: classes6.dex */
     public class a extends HttpMessageListener {
@@ -56,19 +76,19 @@ public class WorkVideoGuideModel extends BdBaseModel {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && (httpResponsedMessage instanceof ResponseHttpWorkVIdeoGuideMessage)) {
-                this.a.a.J0(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                this.a.a.F0(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public WorkVideoGuideModel(TbPageContext<?> tbPageContext, o79 o79Var) {
+    public WorkVideoGuideModel(TbPageContext tbPageContext, g89 g89Var) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, o79Var};
+            Object[] objArr = {tbPageContext, g89Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -79,16 +99,8 @@ public class WorkVideoGuideModel extends BdBaseModel {
                 return;
             }
         }
-        this.a = o79Var;
+        this.a = g89Var;
         A();
-    }
-
-    public final void A() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            registerListener(new a(this, CmdConfigHttp.CMD_WORK_VIDEO_GUIDE_UPDATE));
-            sm8.e(CmdConfigHttp.CMD_WORK_VIDEO_GUIDE_UPDATE, TbConfig.URL_WORK_VIDEO_GUIDE, ResponseHttpWorkVIdeoGuideMessage.class, true, true, true, true);
-        }
     }
 
     public void B(boolean z) {
@@ -101,23 +113,11 @@ public class WorkVideoGuideModel extends BdBaseModel {
         }
     }
 
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        InterceptResult invokeV;
+    public final void A() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return false;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            registerListener(new a(this, CmdConfigHttp.CMD_WORK_VIDEO_GUIDE_UPDATE));
+            zm8.e(CmdConfigHttp.CMD_WORK_VIDEO_GUIDE_UPDATE, TbConfig.URL_WORK_VIDEO_GUIDE, ResponseHttpWorkVIdeoGuideMessage.class, true, true, true, true);
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean loadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

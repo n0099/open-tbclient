@@ -1,6 +1,5 @@
 package com.baidu.android.imrtc.send;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imrtc.BIMRtcInfo;
 import com.baidu.android.imrtc.utils.LogUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -18,7 +17,7 @@ public class BIMFetchStateRtcInfo extends BIMRtcInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BIMFetchStateRtcInfo";
     public transient /* synthetic */ FieldHolder $fh;
-    public List<UserState> mUkStates;
+    public List mUkStates;
     public String roomStateMsg;
 
     /* loaded from: classes.dex */
@@ -82,14 +81,16 @@ public class BIMFetchStateRtcInfo extends BIMRtcInfo {
         }
     }
 
-    public List<UserState> getInviteUsers() {
+    public List getInviteUsers() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mUkStates : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mUkStates;
+        }
+        return (List) invokeV.objValue;
     }
 
     @Override // com.baidu.android.imrtc.BIMRtcInfo
-    @NonNull
     public BIMRtcInfo toRtcInfo(int i, String str, String str2) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;

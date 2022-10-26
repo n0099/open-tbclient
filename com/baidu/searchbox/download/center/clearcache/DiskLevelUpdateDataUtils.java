@@ -27,7 +27,7 @@ public final class DiskLevelUpdateDataUtils {
     public static final String DISK_MONITOR_VERSION = "disk_monitor_version";
     public static final DiskLevelUpdateDataUtils INSTANCE;
     public static final String defaultDatas;
-    public static final LinkedHashMap<Integer, String> diskLevelDatas;
+    public static final LinkedHashMap diskLevelDatas;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -62,6 +62,15 @@ public final class DiskLevelUpdateDataUtils {
         }
     }
 
+    public final String getDefaultDatas() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return defaultDatas;
+        }
+        return (String) invokeV.objValue;
+    }
+
     private final String getCurrentDiskLevel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -70,7 +79,7 @@ public final class DiskLevelUpdateDataUtils {
             for (Integer key : diskLevelDatas.keySet()) {
                 Intrinsics.checkNotNullExpressionValue(key, "key");
                 if (diskAllSizeByG <= key.intValue()) {
-                    return diskLevelDatas.get(key);
+                    return (String) diskLevelDatas.get(key);
                 }
             }
             return "gt256";
@@ -78,13 +87,26 @@ public final class DiskLevelUpdateDataUtils {
         return (String) invokeV.objValue;
     }
 
-    public final String getDefaultDatas() {
-        InterceptResult invokeV;
+    public final synchronized void saveDefaultDate() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? defaultDatas : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                if (DiskManagerSharedPrefsUtils.INSTANCE.getInt(DiskManagerSharedPrefsUtils.SP_KEY_DEFAULT_DATA_VERSION, 0) != 3 && Intrinsics.areEqual(PreferenceUtils.getString("disk_monitor_version", "0"), "0")) {
+                    try {
+                        saveData(new JSONObject(defaultDatas));
+                        DiskManagerSharedPrefsUtils.INSTANCE.putInt(DiskManagerSharedPrefsUtils.SP_KEY_DEFAULT_DATA_VERSION, 3);
+                    } catch (JSONException e) {
+                        if (AppConfig.isDebug()) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            }
+        }
     }
 
     public final void saveData(JSONObject data) {
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, data) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
@@ -105,25 +127,12 @@ public final class DiskLevelUpdateDataUtils {
             }
             DiskManagerSharedPrefsUtils diskManagerSharedPrefsUtils = DiskManagerSharedPrefsUtils.INSTANCE;
             JSONObject optJSONObject3 = data.optJSONObject("quota");
-            diskManagerSharedPrefsUtils.putString(DiskManagerSharedPrefsUtils.SP_KEY_QUOTA_DATA, optJSONObject3 != null ? optJSONObject3.toString() : null);
-        }
-    }
-
-    public final synchronized void saveDefaultDate() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                if (DiskManagerSharedPrefsUtils.INSTANCE.getInt(DiskManagerSharedPrefsUtils.SP_KEY_DEFAULT_DATA_VERSION, 0) != 3 && Intrinsics.areEqual(PreferenceUtils.getString("disk_monitor_version", "0"), "0")) {
-                    try {
-                        saveData(new JSONObject(defaultDatas));
-                        DiskManagerSharedPrefsUtils.INSTANCE.putInt(DiskManagerSharedPrefsUtils.SP_KEY_DEFAULT_DATA_VERSION, 3);
-                    } catch (JSONException e) {
-                        if (AppConfig.isDebug()) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
+            if (optJSONObject3 != null) {
+                str = optJSONObject3.toString();
+            } else {
+                str = null;
             }
+            diskManagerSharedPrefsUtils.putString(DiskManagerSharedPrefsUtils.SP_KEY_QUOTA_DATA, str);
         }
     }
 }

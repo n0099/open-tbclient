@@ -1,7 +1,6 @@
 package com.google.android.material.floatingactionbutton;
 
 import android.animation.Animator;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,7 +10,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class AnimatorTracker {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
     public Animator currentAnimator;
 
     public AnimatorTracker() {
@@ -31,10 +29,9 @@ public class AnimatorTracker {
     public void cancelCurrent() {
         Animator animator;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (animator = this.currentAnimator) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (animator = this.currentAnimator) != null) {
+            animator.cancel();
         }
-        animator.cancel();
     }
 
     public void clear() {

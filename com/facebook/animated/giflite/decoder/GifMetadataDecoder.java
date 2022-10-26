@@ -31,7 +31,7 @@ public class GifMetadataDecoder {
     public final byte[] block;
     public int mCurrentOffset;
     public boolean mDecoded;
-    public final List<int[]> mFrameControls;
+    public final List mFrameControls;
     public final InputStream mInputStream;
     public int mLoopCount;
     @Nullable
@@ -52,6 +52,16 @@ public class GifMetadataDecoder {
             }
         }
         NETSCAPE = new char[]{'N', 'E', 'T', 'S', 'C', 'A', 'P', 'E', '2', IStringUtil.EXTENSION_SEPARATOR, '0'};
+    }
+
+    private void initFixedOutputStream() throws IOException {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65542, this) == null) && !this.shouldFixStream && this.mOutputStream != null) {
+            this.shouldFixStream = true;
+            this.mInputStream.reset();
+            copyFromIsToOs(this.mInputStream, this.mOutputStream, this.mCurrentOffset - 2);
+            this.mInputStream.skip(2L);
+        }
     }
 
     public GifMetadataDecoder(InputStream inputStream, @Nullable OutputStream outputStream) {
@@ -85,6 +95,67 @@ public class GifMetadataDecoder {
         }
     }
 
+    private void ignoreColorTable(int i) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65541, this, i) == null) {
+            skipAndWriteBytes(i * 3);
+        }
+    }
+
+    private void skipAndWriteBytes(int i) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65552, this, i) == null) {
+            if (this.shouldFixStream) {
+                copyFromIsToOs(this.mInputStream, this.mOutputStream, i);
+            } else {
+                this.mInputStream.skip(i);
+            }
+            this.mCurrentOffset += i;
+        }
+    }
+
+    private void writeNextByte(int i) throws IOException {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(65556, this, i) == null) && this.shouldFixStream) {
+            this.mOutputStream.write(i);
+        }
+    }
+
+    private void writeTwoByteInt(int i) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65557, this, i) == null) {
+            writeNextByte(i);
+            writeNextByte(i >> 8);
+        }
+    }
+
+    public int getFrameDisposal(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            if (this.mDecoded) {
+                return ((int[]) this.mFrameControls.get(i))[0];
+            }
+            throw new IllegalStateException("getFrameDisposal called before decode");
+        }
+        return invokeI.intValue;
+    }
+
+    public int getFrameDurationMs(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            if (this.mDecoded) {
+                if (i >= getFrameCount()) {
+                    return 1;
+                }
+                return ((int[]) this.mFrameControls.get(i))[1];
+            }
+            throw new IllegalStateException("getFrameDurationMs called before decode");
+        }
+        return invokeI.intValue;
+    }
+
     private void copyFromIsToOs(InputStream inputStream, OutputStream outputStream, int i) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65539, this, inputStream, outputStream, i) == null) {
@@ -105,24 +176,6 @@ public class GifMetadataDecoder {
             return gifMetadataDecoder;
         }
         return (GifMetadataDecoder) invokeLL.objValue;
-    }
-
-    private void ignoreColorTable(int i) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65541, this, i) == null) {
-            skipAndWriteBytes(i * 3);
-        }
-    }
-
-    private void initFixedOutputStream() throws IOException {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65542, this) == null) || this.shouldFixStream || this.mOutputStream == null) {
-            return;
-        }
-        this.shouldFixStream = true;
-        this.mInputStream.reset();
-        copyFromIsToOs(this.mInputStream, this.mOutputStream, this.mCurrentOffset - 2);
-        this.mInputStream.skip(2L);
     }
 
     private boolean isNetscape() {
@@ -172,6 +225,107 @@ public class GifMetadataDecoder {
         return invokeV.intValue;
     }
 
+    private void readNetscapeExtension() throws IOException {
+        int readBlock;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65549, this) == null) {
+            do {
+                readBlock = readBlock();
+                byte[] bArr = this.block;
+                if (bArr[0] == 1) {
+                    this.mLoopCount = (bArr[1] & 255) | ((bArr[2] & 255) << 8);
+                    continue;
+                }
+            } while (readBlock > 0);
+        }
+    }
+
+    private int readNextByte() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65550, this)) == null) {
+            int read = this.mInputStream.read();
+            this.mCurrentOffset++;
+            if (read != -1) {
+                return read;
+            }
+            throw new EOFException("Unexpected end of gif file");
+        }
+        return invokeV.intValue;
+    }
+
+    private int readTwoByteInt() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65551, this)) == null) {
+            return readNextByte() | (readNextByte() << 8);
+        }
+        return invokeV.intValue;
+    }
+
+    private void skipExtension() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65553, this) == null) {
+            do {
+            } while (readBlock() > 0);
+        }
+    }
+
+    private void skipImage() throws IOException {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65554, this) == null) {
+            skipAndWriteBytes(8);
+            int readAndWriteNextByte = readAndWriteNextByte();
+            if ((readAndWriteNextByte & 128) != 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
+                ignoreColorTable(2 << (readAndWriteNextByte & 7));
+            }
+            skipAndWriteBytes(1);
+            skipExtension();
+        }
+    }
+
+    public void decode() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (!this.mDecoded) {
+                this.mDecoded = true;
+                readGifInfo();
+                return;
+            }
+            throw new IllegalStateException("decode called multiple times");
+        }
+    }
+
+    public int getFrameCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.mDecoded) {
+                return this.mFrameControls.size();
+            }
+            throw new IllegalStateException("getFrameCount called before decode");
+        }
+        return invokeV.intValue;
+    }
+
+    public int getLoopCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.mDecoded) {
+                return this.mLoopCount;
+            }
+            throw new IllegalStateException("getLoopCount called before decode");
+        }
+        return invokeV.intValue;
+    }
+
     private void readGifInfo() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
@@ -180,32 +334,70 @@ public class GifMetadataDecoder {
             boolean z = false;
             while (!z) {
                 int readAndWriteNextByte = readAndWriteNextByte();
-                if (readAndWriteNextByte == 33) {
+                if (readAndWriteNextByte != 33) {
+                    if (readAndWriteNextByte != 44) {
+                        if (readAndWriteNextByte == 59) {
+                            z = true;
+                        } else {
+                            throw new IOException("Unknown block header [" + Integer.toHexString(readAndWriteNextByte) + PreferencesUtil.RIGHT_MOUNT);
+                        }
+                    } else {
+                        addFrame(iArr);
+                        skipImage();
+                    }
+                } else {
                     int readAndWriteNextByte2 = readAndWriteNextByte();
-                    if (readAndWriteNextByte2 == 1) {
+                    if (readAndWriteNextByte2 != 1) {
+                        if (readAndWriteNextByte2 != 249) {
+                            if (readAndWriteNextByte2 != 255) {
+                                skipExtension();
+                            } else {
+                                readBlock();
+                                if (isNetscape()) {
+                                    readNetscapeExtension();
+                                } else {
+                                    skipExtension();
+                                }
+                            }
+                        } else {
+                            readGraphicsControlExtension(iArr);
+                        }
+                    } else {
                         addFrame(iArr);
                         skipExtension();
-                    } else if (readAndWriteNextByte2 == 249) {
-                        readGraphicsControlExtension(iArr);
-                    } else if (readAndWriteNextByte2 != 255) {
-                        skipExtension();
-                    } else {
-                        readBlock();
-                        if (isNetscape()) {
-                            readNetscapeExtension();
-                        } else {
-                            skipExtension();
-                        }
                     }
-                } else if (readAndWriteNextByte == 44) {
-                    addFrame(iArr);
-                    skipImage();
-                } else if (readAndWriteNextByte != 59) {
-                    throw new IOException("Unknown block header [" + Integer.toHexString(readAndWriteNextByte) + PreferencesUtil.RIGHT_MOUNT);
-                } else {
-                    z = true;
                 }
             }
+        }
+    }
+
+    private void validateAndIgnoreHeader() throws IOException {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65555, this) == null) {
+            boolean z2 = false;
+            readIntoBlock(0, 6);
+            byte[] bArr = this.block;
+            if ('G' == ((char) bArr[0]) && 'I' == ((char) bArr[1]) && 'F' == ((char) bArr[2]) && '8' == ((char) bArr[3]) && (('7' == ((char) bArr[4]) || '9' == ((char) bArr[4])) && 'a' == ((char) this.block[5]))) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
+                skipAndWriteBytes(4);
+                int readAndWriteNextByte = readAndWriteNextByte();
+                if ((readAndWriteNextByte & 128) != 0) {
+                    z2 = true;
+                }
+                int i = 2 << (readAndWriteNextByte & 7);
+                skipAndWriteBytes(2);
+                if (z2) {
+                    ignoreColorTable(i);
+                    return;
+                }
+                return;
+            }
+            throw new IOException("Illegal header for gif");
         }
     }
 
@@ -239,172 +431,5 @@ public class GifMetadataDecoder {
             throw new EOFException("Unexpected end of gif file");
         }
         return invokeII.intValue;
-    }
-
-    private void readNetscapeExtension() throws IOException {
-        int readBlock;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65549, this) == null) {
-            do {
-                readBlock = readBlock();
-                byte[] bArr = this.block;
-                if (bArr[0] == 1) {
-                    this.mLoopCount = (bArr[1] & 255) | ((bArr[2] & 255) << 8);
-                    continue;
-                }
-            } while (readBlock > 0);
-        }
-    }
-
-    private int readNextByte() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65550, this)) == null) {
-            int read = this.mInputStream.read();
-            this.mCurrentOffset++;
-            if (read != -1) {
-                return read;
-            }
-            throw new EOFException("Unexpected end of gif file");
-        }
-        return invokeV.intValue;
-    }
-
-    private int readTwoByteInt() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65551, this)) == null) ? readNextByte() | (readNextByte() << 8) : invokeV.intValue;
-    }
-
-    private void skipAndWriteBytes(int i) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65552, this, i) == null) {
-            if (this.shouldFixStream) {
-                copyFromIsToOs(this.mInputStream, this.mOutputStream, i);
-            } else {
-                this.mInputStream.skip(i);
-            }
-            this.mCurrentOffset += i;
-        }
-    }
-
-    private void skipExtension() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65553, this) == null) {
-            do {
-            } while (readBlock() > 0);
-        }
-    }
-
-    private void skipImage() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65554, this) == null) {
-            skipAndWriteBytes(8);
-            int readAndWriteNextByte = readAndWriteNextByte();
-            if ((readAndWriteNextByte & 128) != 0) {
-                ignoreColorTable(2 << (readAndWriteNextByte & 7));
-            }
-            skipAndWriteBytes(1);
-            skipExtension();
-        }
-    }
-
-    private void validateAndIgnoreHeader() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65555, this) == null) {
-            readIntoBlock(0, 6);
-            byte[] bArr = this.block;
-            if ('G' == ((char) bArr[0]) && 'I' == ((char) bArr[1]) && 'F' == ((char) bArr[2]) && '8' == ((char) bArr[3]) && ('7' == ((char) bArr[4]) || '9' == ((char) bArr[4])) && 'a' == ((char) this.block[5])) {
-                skipAndWriteBytes(4);
-                int readAndWriteNextByte = readAndWriteNextByte();
-                boolean z = (readAndWriteNextByte & 128) != 0;
-                int i = 2 << (readAndWriteNextByte & 7);
-                skipAndWriteBytes(2);
-                if (z) {
-                    ignoreColorTable(i);
-                    return;
-                }
-                return;
-            }
-            throw new IOException("Illegal header for gif");
-        }
-    }
-
-    private void writeNextByte(int i) throws IOException {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(65556, this, i) == null) && this.shouldFixStream) {
-            this.mOutputStream.write(i);
-        }
-    }
-
-    private void writeTwoByteInt(int i) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65557, this, i) == null) {
-            writeNextByte(i);
-            writeNextByte(i >> 8);
-        }
-    }
-
-    public void decode() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (!this.mDecoded) {
-                this.mDecoded = true;
-                readGifInfo();
-                return;
-            }
-            throw new IllegalStateException("decode called multiple times");
-        }
-    }
-
-    public int getFrameCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.mDecoded) {
-                return this.mFrameControls.size();
-            }
-            throw new IllegalStateException("getFrameCount called before decode");
-        }
-        return invokeV.intValue;
-    }
-
-    public int getFrameDisposal(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            if (this.mDecoded) {
-                return this.mFrameControls.get(i)[0];
-            }
-            throw new IllegalStateException("getFrameDisposal called before decode");
-        }
-        return invokeI.intValue;
-    }
-
-    public int getFrameDurationMs(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            if (this.mDecoded) {
-                if (i >= getFrameCount()) {
-                    return 1;
-                }
-                return this.mFrameControls.get(i)[1];
-            }
-            throw new IllegalStateException("getFrameDurationMs called before decode");
-        }
-        return invokeI.intValue;
-    }
-
-    public int getLoopCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.mDecoded) {
-                return this.mLoopCount;
-            }
-            throw new IllegalStateException("getLoopCount called before decode");
-        }
-        return invokeV.intValue;
     }
 }

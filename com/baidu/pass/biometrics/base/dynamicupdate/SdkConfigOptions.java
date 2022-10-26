@@ -11,6 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 import org.json.JSONArray;
@@ -24,70 +25,8 @@ public class SdkConfigOptions {
     public transient /* synthetic */ FieldHolder $fh;
     public LivenessConfigOption livenessConfigOption;
 
-    public SdkConfigOptions() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.livenessConfigOption = new LivenessConfigOption();
-    }
-
-    public static SdkConfigOptions fromLocalJson(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            SdkConfigOptions sdkConfigOptions = new SdkConfigOptions();
-            sdkConfigOptions.livenessConfigOption = LivenessConfigOption.fromJson(jSONObject.optJSONObject(a));
-            return sdkConfigOptions;
-        }
-        return (SdkConfigOptions) invokeL.objValue;
-    }
-
-    public static SdkConfigOptions fromOnLineJSON(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            SdkConfigOptions sdkConfigOptions = new SdkConfigOptions();
-            sdkConfigOptions.livenessConfigOption = LivenessConfigOption.fromJson(jSONObject);
-            return sdkConfigOptions;
-        }
-        return (SdkConfigOptions) invokeL.objValue;
-    }
-
-    public JSONObject toJSON() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(a, this.livenessConfigOption == null ? "" : this.livenessConfigOption.toJSON());
-                return jSONObject;
-            } catch (JSONException unused) {
-                return null;
-            }
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "SdkConfigOptions{livenessConfigOption=" + this.livenessConfigOption + '}';
-        }
-        return (String) invokeV.objValue;
-    }
-
     /* loaded from: classes2.dex */
-    public static class LivenessConfigOption {
+    public class LivenessConfigOption {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String A = "recog_upload_portrait_count";
         public static final String B = "white_bg_illum_thr";
@@ -128,7 +67,7 @@ public class SdkConfigOptions {
         public static final String z = "recog_time_interval";
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
-        public List<Integer> action;
+        public List action;
         public String b;
         public String c;
         public String d;
@@ -137,7 +76,7 @@ public class SdkConfigOptions {
         public String g;
         public String h;
         public String i;
-        public List<Integer> illumList;
+        public List illumList;
         public String j;
         public String k;
         public boolean mCloseFace;
@@ -177,16 +116,27 @@ public class SdkConfigOptions {
             this.action = new ArrayList();
         }
 
-        public static void a(JSONArray jSONArray, List<Integer> list) {
+        public static void a(JSONArray jSONArray, List list) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(65537, null, jSONArray, list) == null) || jSONArray == null) {
-                return;
-            }
-            int length = jSONArray.length();
-            for (int i = 0; i < length; i++) {
-                if (!TextUtils.isEmpty(jSONArray.optString(i))) {
-                    list.add(Integer.valueOf(jSONArray.optInt(i)));
+            if ((interceptable == null || interceptable.invokeLL(65537, null, jSONArray, list) == null) && jSONArray != null) {
+                int length = jSONArray.length();
+                for (int i = 0; i < length; i++) {
+                    if (!TextUtils.isEmpty(jSONArray.optString(i))) {
+                        list.add(Integer.valueOf(jSONArray.optInt(i)));
+                    }
                 }
+            }
+        }
+
+        public static void a(JSONObject jSONObject, String str, List list) throws JSONException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(65538, null, jSONObject, str, list) == null) {
+                JSONArray jSONArray = new JSONArray();
+                Iterator it = list.iterator();
+                while (it.hasNext()) {
+                    jSONArray.put(((Integer) it.next()).intValue());
+                }
+                jSONObject.put(str, jSONArray);
             }
         }
 
@@ -224,15 +174,38 @@ public class SdkConfigOptions {
             return (LivenessConfigOption) invokeL.objValue;
         }
 
-        public List<Integer> getABtestIllumList() {
+        public List getABtestIllumList() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                List<Integer> asList = Arrays.asList(6, 8, 10);
-                List<Integer> list = this.illumList;
-                return (list == null || list.isEmpty()) ? asList : this.illumList;
+                List asList = Arrays.asList(6, 8, 10);
+                List list = this.illumList;
+                if (list != null && !list.isEmpty()) {
+                    return this.illumList;
+                }
+                return asList;
             }
             return (List) invokeV.objValue;
+        }
+
+        public boolean isOriginImg() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+                if (TextUtils.isEmpty(getOriginImg())) {
+                    return true;
+                }
+                try {
+                    if (getOriginImgRandomControl() < Integer.parseInt(getOriginImg())) {
+                        return true;
+                    }
+                    return false;
+                } catch (Exception unused) {
+                    Log.e(SdkConfigOptions.TAG, "origin_img config is not integer");
+                    return false;
+                }
+            }
+            return invokeV.booleanValue;
         }
 
         public int getCropFaceRatio() {
@@ -358,13 +331,19 @@ public class SdkConfigOptions {
         public String getOriginImg() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.g : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                return this.g;
+            }
+            return (String) invokeV.objValue;
         }
 
         public int getOriginImgRandomControl() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? new Random().nextInt(10000) : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                return new Random().nextInt(10000);
+            }
+            return invokeV.intValue;
         }
 
         public int getPitch() {
@@ -412,10 +391,10 @@ public class SdkConfigOptions {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
                 try {
-                    if (TextUtils.isEmpty(this.recogActionType)) {
-                        return 1;
+                    if (!TextUtils.isEmpty(this.recogActionType)) {
+                        return Integer.valueOf(this.recogActionType).intValue();
                     }
-                    return Integer.valueOf(this.recogActionType).intValue();
+                    return 1;
                 } catch (NumberFormatException e) {
                     e.printStackTrace();
                     return 1;
@@ -424,31 +403,15 @@ public class SdkConfigOptions {
             return invokeV.intValue;
         }
 
-        public int getRecogUploadPortraitCount(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
-                try {
-                    if (!TextUtils.isEmpty(this.recogUploadPortraitCount)) {
-                        return Math.min(i, Math.max(1, Integer.valueOf(this.recogUploadPortraitCount).intValue()));
-                    }
-                } catch (NumberFormatException e) {
-                    e.printStackTrace();
-                }
-                return 1;
-            }
-            return invokeI.intValue;
-        }
-
         public int getRecogtimeInterval() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
                 try {
-                    if (TextUtils.isEmpty(this.recogTimeInterval)) {
-                        return 6;
+                    if (!TextUtils.isEmpty(this.recogTimeInterval)) {
+                        return Integer.valueOf(this.recogTimeInterval).intValue();
                     }
-                    return Integer.valueOf(this.recogTimeInterval).intValue();
+                    return 6;
                 } catch (NumberFormatException e) {
                     e.printStackTrace();
                     return 6;
@@ -520,24 +483,26 @@ public class SdkConfigOptions {
         public boolean isCloseFace() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.mCloseFace : invokeV.booleanValue;
-        }
-
-        public boolean isOriginImg() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-                if (TextUtils.isEmpty(getOriginImg())) {
-                    return true;
-                }
-                try {
-                    return getOriginImgRandomControl() < Integer.parseInt(getOriginImg());
-                } catch (Exception unused) {
-                    Log.e(SdkConfigOptions.TAG, "origin_img config is not integer");
-                    return false;
-                }
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+                return this.mCloseFace;
             }
             return invokeV.booleanValue;
+        }
+
+        public int getRecogUploadPortraitCount(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
+                try {
+                    if (!TextUtils.isEmpty(this.recogUploadPortraitCount)) {
+                        return Math.min(i, Math.max(1, Integer.valueOf(this.recogUploadPortraitCount).intValue()));
+                    }
+                } catch (NumberFormatException e) {
+                    e.printStackTrace();
+                }
+                return 1;
+            }
+            return invokeI.intValue;
         }
 
         public JSONObject toJSON() {
@@ -583,16 +548,73 @@ public class SdkConfigOptions {
             }
             return (String) invokeV.objValue;
         }
+    }
 
-        public static void a(JSONObject jSONObject, String str, List<Integer> list) throws JSONException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(65538, null, jSONObject, str, list) == null) {
-                JSONArray jSONArray = new JSONArray();
-                for (Integer num : list) {
-                    jSONArray.put(num.intValue());
-                }
-                jSONObject.put(str, jSONArray);
+    public SdkConfigOptions() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.livenessConfigOption = new LivenessConfigOption();
+    }
+
+    public JSONObject toJSON() {
+        InterceptResult invokeV;
+        Object json;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                if (this.livenessConfigOption == null) {
+                    json = "";
+                } else {
+                    json = this.livenessConfigOption.toJSON();
+                }
+                jSONObject.put(a, json);
+                return jSONObject;
+            } catch (JSONException unused) {
+                return null;
+            }
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return "SdkConfigOptions{livenessConfigOption=" + this.livenessConfigOption + '}';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static SdkConfigOptions fromLocalJson(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            SdkConfigOptions sdkConfigOptions = new SdkConfigOptions();
+            sdkConfigOptions.livenessConfigOption = LivenessConfigOption.fromJson(jSONObject.optJSONObject(a));
+            return sdkConfigOptions;
+        }
+        return (SdkConfigOptions) invokeL.objValue;
+    }
+
+    public static SdkConfigOptions fromOnLineJSON(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            SdkConfigOptions sdkConfigOptions = new SdkConfigOptions();
+            sdkConfigOptions.livenessConfigOption = LivenessConfigOption.fromJson(jSONObject);
+            return sdkConfigOptions;
+        }
+        return (SdkConfigOptions) invokeL.objValue;
     }
 }

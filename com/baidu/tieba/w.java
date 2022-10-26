@@ -28,6 +28,20 @@ public class w implements s {
         }
     }
 
+    public Class c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            try {
+                return Class.forName("dalvik.system.DexPathList$Element");
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        return (Class) invokeV.objValue;
+    }
+
     @Override // com.baidu.tieba.s
     public boolean a(Context context, File file) {
         InterceptResult invokeLL;
@@ -55,31 +69,19 @@ public class w implements s {
             if (c != null) {
                 Object[] objArr = (Object[]) t.g(g, "nativeLibraryPathElements");
                 Object d = d(c, file);
-                if (objArr == null || d == null) {
-                    return;
+                if (objArr != null && d != null) {
+                    t.e(g, "nativeLibraryPathElements", t.c(c, objArr, d));
                 }
-                t.e(g, "nativeLibraryPathElements", t.c(c, objArr, d));
             }
         }
-    }
-
-    public Class c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            try {
-                return Class.forName("dalvik.system.DexPathList$Element");
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return (Class) invokeV.objValue;
     }
 
     public Object d(Class cls, File file) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, cls, file)) == null) ? t.b(cls, new Class[]{File.class, Boolean.TYPE, File.class, DexFile.class}, new Object[]{file, Boolean.TRUE, null, null}) : invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, cls, file)) == null) {
+            return t.b(cls, new Class[]{File.class, Boolean.TYPE, File.class, DexFile.class}, new Object[]{file, Boolean.TRUE, null, null});
+        }
+        return invokeLL.objValue;
     }
 }

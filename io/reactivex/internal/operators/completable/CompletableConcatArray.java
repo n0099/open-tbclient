@@ -18,7 +18,7 @@ public final class CompletableConcatArray extends Completable {
     public final CompletableSource[] sources;
 
     /* loaded from: classes8.dex */
-    public static final class ConcatInnerObserver extends AtomicInteger implements CompletableObserver {
+    public final class ConcatInnerObserver extends AtomicInteger implements CompletableObserver {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7965400327305809232L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -49,19 +49,20 @@ public final class CompletableConcatArray extends Completable {
 
         public void next() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.sd.isDisposed() && getAndIncrement() == 0) {
-                CompletableSource[] completableSourceArr = this.sources;
-                while (!this.sd.isDisposed()) {
-                    int i = this.index;
-                    this.index = i + 1;
-                    if (i == completableSourceArr.length) {
-                        this.actual.onComplete();
-                        return;
-                    }
-                    completableSourceArr[i].subscribe(this);
-                    if (decrementAndGet() == 0) {
-                        return;
-                    }
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.sd.isDisposed() || getAndIncrement() != 0) {
+                return;
+            }
+            CompletableSource[] completableSourceArr = this.sources;
+            while (!this.sd.isDisposed()) {
+                int i = this.index;
+                this.index = i + 1;
+                if (i == completableSourceArr.length) {
+                    this.actual.onComplete();
+                    return;
+                }
+                completableSourceArr[i].subscribe(this);
+                if (decrementAndGet() == 0) {
+                    return;
                 }
             }
         }

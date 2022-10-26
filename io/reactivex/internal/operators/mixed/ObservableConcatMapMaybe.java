@@ -11,7 +11,6 @@ import io.reactivex.MaybeObserver;
 import io.reactivex.MaybeSource;
 import io.reactivex.Observable;
 import io.reactivex.Observer;
-import io.reactivex.annotations.Experimental;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.exceptions.Exceptions;
 import io.reactivex.functions.Function;
@@ -24,18 +23,17 @@ import io.reactivex.internal.util.ErrorMode;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-@Experimental
 /* loaded from: classes8.dex */
-public final class ObservableConcatMapMaybe<T, R> extends Observable<R> {
+public final class ObservableConcatMapMaybe extends Observable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ErrorMode errorMode;
-    public final Function<? super T, ? extends MaybeSource<? extends R>> mapper;
+    public final Function mapper;
     public final int prefetch;
-    public final Observable<T> source;
+    public final Observable source;
 
     /* loaded from: classes8.dex */
-    public static final class ConcatMapMaybeMainObserver<T, R> extends AtomicInteger implements Observer<T>, Disposable {
+    public final class ConcatMapMaybeMainObserver extends AtomicInteger implements Observer, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int STATE_ACTIVE = 1;
         public static final int STATE_INACTIVE = 0;
@@ -44,24 +42,24 @@ public final class ObservableConcatMapMaybe<T, R> extends Observable<R> {
         public transient /* synthetic */ FieldHolder $fh;
         public volatile boolean cancelled;
         public volatile boolean done;
-        public final Observer<? super R> downstream;
+        public final Observer downstream;
         public final ErrorMode errorMode;
         public final AtomicThrowable errors;
-        public final ConcatMapMaybeObserver<R> inner;
-        public R item;
-        public final Function<? super T, ? extends MaybeSource<? extends R>> mapper;
-        public final SimplePlainQueue<T> queue;
+        public final ConcatMapMaybeObserver inner;
+        public Object item;
+        public final Function mapper;
+        public final SimplePlainQueue queue;
         public volatile int state;
         public Disposable upstream;
 
         /* loaded from: classes8.dex */
-        public static final class ConcatMapMaybeObserver<R> extends AtomicReference<Disposable> implements MaybeObserver<R> {
+        public final class ConcatMapMaybeObserver extends AtomicReference implements MaybeObserver {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -3051469169682093892L;
             public transient /* synthetic */ FieldHolder $fh;
-            public final ConcatMapMaybeMainObserver<?, R> parent;
+            public final ConcatMapMaybeMainObserver parent;
 
-            public ConcatMapMaybeObserver(ConcatMapMaybeMainObserver<?, R> concatMapMaybeMainObserver) {
+            public ConcatMapMaybeObserver(ConcatMapMaybeMainObserver concatMapMaybeMainObserver) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -77,21 +75,6 @@ public final class ObservableConcatMapMaybe<T, R> extends Observable<R> {
                     }
                 }
                 this.parent = concatMapMaybeMainObserver;
-            }
-
-            public void dispose() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    DisposableHelper.dispose(this);
-                }
-            }
-
-            @Override // io.reactivex.MaybeObserver
-            public void onComplete() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    this.parent.innerComplete();
-                }
             }
 
             @Override // io.reactivex.MaybeObserver
@@ -111,15 +94,30 @@ public final class ObservableConcatMapMaybe<T, R> extends Observable<R> {
             }
 
             @Override // io.reactivex.MaybeObserver
-            public void onSuccess(R r) {
+            public void onSuccess(Object obj) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048580, this, r) == null) {
-                    this.parent.innerSuccess(r);
+                if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+                    this.parent.innerSuccess(obj);
+                }
+            }
+
+            public void dispose() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    DisposableHelper.dispose(this);
+                }
+            }
+
+            @Override // io.reactivex.MaybeObserver
+            public void onComplete() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                    this.parent.innerComplete();
                 }
             }
         }
 
-        public ConcatMapMaybeMainObserver(Observer<? super R> observer, Function<? super T, ? extends MaybeSource<? extends R>> function, int i, ErrorMode errorMode) {
+        public ConcatMapMaybeMainObserver(Observer observer, Function function, int i, ErrorMode errorMode) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -138,7 +136,7 @@ public final class ObservableConcatMapMaybe<T, R> extends Observable<R> {
             this.mapper = function;
             this.errorMode = errorMode;
             this.errors = new AtomicThrowable();
-            this.inner = new ConcatMapMaybeObserver<>(this);
+            this.inner = new ConcatMapMaybeObserver(this);
             this.queue = new SpscLinkedArrayQueue(i);
         }
 
@@ -156,72 +154,95 @@ public final class ObservableConcatMapMaybe<T, R> extends Observable<R> {
             }
         }
 
-        /* JADX DEBUG: Type inference failed for r6v7. Raw type applied. Possible types: R, ? super R */
-        public void drain() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && getAndIncrement() == 0) {
-                Observer<? super R> observer = this.downstream;
-                ErrorMode errorMode = this.errorMode;
-                SimplePlainQueue<T> simplePlainQueue = this.queue;
-                AtomicThrowable atomicThrowable = this.errors;
-                int i = 1;
-                while (true) {
-                    if (this.cancelled) {
-                        simplePlainQueue.clear();
-                        this.item = null;
-                    }
-                    int i2 = this.state;
-                    if (atomicThrowable.get() == null || (errorMode != ErrorMode.IMMEDIATE && (errorMode != ErrorMode.BOUNDARY || i2 != 0))) {
-                        if (i2 == 0) {
-                            boolean z = this.done;
-                            T poll = simplePlainQueue.poll();
-                            boolean z2 = poll == null;
-                            if (z && z2) {
-                                Throwable terminate = atomicThrowable.terminate();
-                                if (terminate == null) {
-                                    observer.onComplete();
-                                    return;
-                                } else {
-                                    observer.onError(terminate);
-                                    return;
-                                }
-                            } else if (!z2) {
-                                try {
-                                    MaybeSource maybeSource = (MaybeSource) ObjectHelper.requireNonNull(this.mapper.apply(poll), "The mapper returned a null MaybeSource");
-                                    this.state = 1;
-                                    maybeSource.subscribe(this.inner);
-                                } catch (Throwable th) {
-                                    Exceptions.throwIfFatal(th);
-                                    this.upstream.dispose();
-                                    simplePlainQueue.clear();
-                                    atomicThrowable.addThrowable(th);
-                                    observer.onError(atomicThrowable.terminate());
-                                    return;
-                                }
-                            }
-                        } else if (i2 == 2) {
-                            this.item = null;
-                            observer.onNext((R) this.item);
-                            this.state = 0;
-                        }
-                        i = addAndGet(-i);
-                        if (i == 0) {
-                            return;
-                        }
-                    }
-                }
-                simplePlainQueue.clear();
-                this.item = null;
-                observer.onError(atomicThrowable.terminate());
-            }
-        }
-
         public void innerComplete() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 this.state = 0;
                 drain();
             }
+        }
+
+        @Override // io.reactivex.disposables.Disposable
+        public boolean isDisposed() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return this.cancelled;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // io.reactivex.Observer
+        public void onComplete() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+                this.done = true;
+                drain();
+            }
+        }
+
+        public void drain() {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || getAndIncrement() != 0) {
+                return;
+            }
+            Observer observer = this.downstream;
+            ErrorMode errorMode = this.errorMode;
+            SimplePlainQueue simplePlainQueue = this.queue;
+            AtomicThrowable atomicThrowable = this.errors;
+            int i = 1;
+            while (true) {
+                if (this.cancelled) {
+                    simplePlainQueue.clear();
+                    this.item = null;
+                }
+                int i2 = this.state;
+                if (atomicThrowable.get() == null || (errorMode != ErrorMode.IMMEDIATE && (errorMode != ErrorMode.BOUNDARY || i2 != 0))) {
+                    boolean z = false;
+                    if (i2 == 0) {
+                        boolean z2 = this.done;
+                        Object poll = simplePlainQueue.poll();
+                        if (poll == null) {
+                            z = true;
+                        }
+                        if (z2 && z) {
+                            Throwable terminate = atomicThrowable.terminate();
+                            if (terminate == null) {
+                                observer.onComplete();
+                                return;
+                            } else {
+                                observer.onError(terminate);
+                                return;
+                            }
+                        } else if (!z) {
+                            try {
+                                MaybeSource maybeSource = (MaybeSource) ObjectHelper.requireNonNull(this.mapper.apply(poll), "The mapper returned a null MaybeSource");
+                                this.state = 1;
+                                maybeSource.subscribe(this.inner);
+                            } catch (Throwable th) {
+                                Exceptions.throwIfFatal(th);
+                                this.upstream.dispose();
+                                simplePlainQueue.clear();
+                                atomicThrowable.addThrowable(th);
+                                observer.onError(atomicThrowable.terminate());
+                                return;
+                            }
+                        }
+                    } else if (i2 == 2) {
+                        Object obj = this.item;
+                        this.item = null;
+                        observer.onNext(obj);
+                        this.state = 0;
+                    }
+                    i = addAndGet(-i);
+                    if (i == 0) {
+                        return;
+                    }
+                }
+            }
+            simplePlainQueue.clear();
+            this.item = null;
+            observer.onError(atomicThrowable.terminate());
         }
 
         public void innerError(Throwable th) {
@@ -239,27 +260,11 @@ public final class ObservableConcatMapMaybe<T, R> extends Observable<R> {
             }
         }
 
-        public void innerSuccess(R r) {
+        public void innerSuccess(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, r) == null) {
-                this.item = r;
+            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+                this.item = obj;
                 this.state = 2;
-                drain();
-            }
-        }
-
-        @Override // io.reactivex.disposables.Disposable
-        public boolean isDisposed() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.cancelled : invokeV.booleanValue;
-        }
-
-        @Override // io.reactivex.Observer
-        public void onComplete() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-                this.done = true;
                 drain();
             }
         }
@@ -281,10 +286,10 @@ public final class ObservableConcatMapMaybe<T, R> extends Observable<R> {
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, t) == null) {
-                this.queue.offer(t);
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj) == null) {
+                this.queue.offer(obj);
                 drain();
             }
         }
@@ -299,7 +304,7 @@ public final class ObservableConcatMapMaybe<T, R> extends Observable<R> {
         }
     }
 
-    public ObservableConcatMapMaybe(Observable<T> observable, Function<? super T, ? extends MaybeSource<? extends R>> function, ErrorMode errorMode, int i) {
+    public ObservableConcatMapMaybe(Observable observable, Function function, ErrorMode errorMode, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -321,11 +326,10 @@ public final class ObservableConcatMapMaybe<T, R> extends Observable<R> {
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer<? super R> observer) {
+    public void subscribeActual(Observer observer) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, observer) == null) || ScalarXMapZHelper.tryAsMaybe(this.source, this.mapper, observer)) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, observer) == null) && !ScalarXMapZHelper.tryAsMaybe(this.source, this.mapper, observer)) {
+            this.source.subscribe(new ConcatMapMaybeMainObserver(observer, this.mapper, this.prefetch, this.errorMode));
         }
-        this.source.subscribe(new ConcatMapMaybeMainObserver(observer, this.mapper, this.prefetch, this.errorMode));
     }
 }

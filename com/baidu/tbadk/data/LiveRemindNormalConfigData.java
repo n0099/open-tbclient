@@ -33,18 +33,24 @@ public class LiveRemindNormalConfigData implements Serializable {
     public String getNormalIconScheme() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.normalIconScheme : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.normalIconScheme;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getNormalIconUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.normalIconUrl : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.normalIconUrl;
+        }
+        return (String) invokeV.objValue;
     }
 
     public void parserProtobuf(NormalConfig normalConfig) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, normalConfig) == null) || normalConfig == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, normalConfig) != null) || normalConfig == null) {
             return;
         }
         this.normalIconUrl = normalConfig.icon_url;

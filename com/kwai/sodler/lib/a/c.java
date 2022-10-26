@@ -1,6 +1,5 @@
 package com.kwai.sodler.lib.a;
 
-import androidx.annotation.NonNull;
 import java.io.File;
 /* loaded from: classes8.dex */
 public interface c {
@@ -18,5 +17,5 @@ public interface c {
 
     void eO(String str);
 
-    String eP(@NonNull String str);
+    String eP(String str);
 }

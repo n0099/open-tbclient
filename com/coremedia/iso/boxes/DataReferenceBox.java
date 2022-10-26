@@ -40,6 +40,43 @@ public class DataReferenceBox extends AbstractContainerBox implements FullBox {
         }
     }
 
+    @Override // com.coremedia.iso.boxes.FullBox
+    public int getFlags() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.flags;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
+    public long getSize() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            long containerSize = getContainerSize() + 8;
+            if (!this.largeBox && 8 + containerSize < 4294967296L) {
+                i = 8;
+            } else {
+                i = 16;
+            }
+            return containerSize + i;
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // com.coremedia.iso.boxes.FullBox
+    public int getVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.version;
+        }
+        return invokeV.intValue;
+    }
+
     @Override // com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
     public void getBox(WritableByteChannel writableByteChannel) throws IOException {
         Interceptable interceptable = $ic;
@@ -52,31 +89,6 @@ public class DataReferenceBox extends AbstractContainerBox implements FullBox {
             writableByteChannel.write((ByteBuffer) allocate.rewind());
             writeContainer(writableByteChannel);
         }
-    }
-
-    @Override // com.coremedia.iso.boxes.FullBox
-    public int getFlags() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.flags : invokeV.intValue;
-    }
-
-    @Override // com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
-    public long getSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            long containerSize = getContainerSize() + 8;
-            return containerSize + ((this.largeBox || 8 + containerSize >= 4294967296L) ? 16 : 8);
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // com.coremedia.iso.boxes.FullBox
-    public int getVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.version : invokeV.intValue;
     }
 
     @Override // com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box

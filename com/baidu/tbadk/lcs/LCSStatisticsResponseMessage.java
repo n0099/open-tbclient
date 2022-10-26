@@ -34,9 +34,8 @@ public class LCSStatisticsResponseMessage extends JsonHttpResponsedMessage {
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) || jSONObject == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) && jSONObject != null) {
+            jSONObject.toString();
         }
-        jSONObject.toString();
     }
 }

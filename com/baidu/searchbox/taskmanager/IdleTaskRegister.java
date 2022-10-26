@@ -13,7 +13,7 @@ import java.util.Map;
 public class IdleTaskRegister {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, IdleLaunchTask> mTaskMap;
+    public final Map mTaskMap;
 
     public IdleTaskRegister() {
         Interceptable interceptable = $ic;
@@ -76,19 +76,18 @@ public class IdleTaskRegister {
     public void scheduleIdleTask(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            for (Map.Entry<String, IdleLaunchTask> entry : this.mTaskMap.entrySet()) {
-                entry.getKey();
-                IdleLaunchTask value = entry.getValue();
+            for (Map.Entry entry : this.mTaskMap.entrySet()) {
+                String str = (String) entry.getKey();
+                IdleLaunchTask idleLaunchTask = (IdleLaunchTask) entry.getValue();
                 if (z) {
-                    SmartLaunchScheduler.getInstance().register(value);
-                } else if (!value.isExecuted()) {
-                    value.run();
+                    SmartLaunchScheduler.getInstance().register(idleLaunchTask);
+                } else if (!idleLaunchTask.isExecuted()) {
+                    idleLaunchTask.run();
                 }
             }
-            if (z) {
-                return;
+            if (!z) {
+                this.mTaskMap.clear();
             }
-            this.mTaskMap.clear();
         }
     }
 }

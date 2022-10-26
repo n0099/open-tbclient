@@ -51,12 +51,18 @@ public class g0 implements D2 {
     }
 
     public void a(String str, Info info) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, info) == null) {
-            if ((!TextUtils.isEmpty(str) && (str.startsWith("http") || str.startsWith("https"))) || str.startsWith(ImageSource.FILE_SCHEME)) {
-                this.c.loadUrl(str);
+            if (!TextUtils.isEmpty(str) && (str.startsWith("http") || str.startsWith("https"))) {
+                z = true;
             } else {
+                z = false;
+            }
+            if (!z && !str.startsWith(ImageSource.FILE_SCHEME)) {
                 this.c.loadDataWithBaseURL("http://abcd/", str, SapiWebView.DATA_MIME_TYPE, "UTF-8", null);
+            } else {
+                this.c.loadUrl(str);
             }
             G2 g2 = this.a;
             if (g2 != null) {

@@ -1,25 +1,24 @@
 package com.baidu.tieba.frs.smartsort;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.Cdo;
-import com.baidu.tieba.aq6;
-import com.baidu.tieba.dv6;
-import com.baidu.tieba.em8;
+import com.baidu.tieba.am8;
+import com.baidu.tieba.eo;
 import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.iq6;
-import com.baidu.tieba.mm8;
-import com.baidu.tieba.oh6;
-import com.baidu.tieba.qh6;
+import com.baidu.tieba.gm8;
+import com.baidu.tieba.hq6;
+import com.baidu.tieba.kv6;
+import com.baidu.tieba.lm8;
+import com.baidu.tieba.pq6;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.sl8;
-import com.baidu.tieba.tl8;
+import com.baidu.tieba.tm8;
+import com.baidu.tieba.vh6;
+import com.baidu.tieba.xh6;
 import com.baidu.tieba.zl8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -34,23 +33,43 @@ import tbclient.AdMixFloor;
 public class FrsSmartLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList<Cdo> a;
+    public final ArrayList<eo> a;
     public final FrsFragment b;
     public int c;
     public int d;
     public int e;
-    public iq6 f;
-    public aq6.b g;
-    public dv6 h;
+    public pq6 f;
+    public hq6.b g;
+    public kv6 h;
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FrsSmartLoadMoreModel(FrsFragment frsFragment, iq6 iq6Var) {
+    public FrsSmartLoadMoreModel(FrsFragment frsFragment, pq6 pq6Var) {
         super(frsFragment.getPageContext());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {frsFragment, iq6Var};
+            Object[] objArr = {frsFragment, pq6Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -66,30 +85,29 @@ public class FrsSmartLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
         this.d = -1;
         this.b = frsFragment;
         setUniqueId(frsFragment.getUniqueId());
-        this.f = iq6Var;
+        this.f = pq6Var;
     }
 
     public void A() {
         int count;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (count = ListUtils.getCount(this.a) + 30) <= 300) {
-            return;
-        }
-        int i = count - 300;
-        if (this.a.size() > i + 20) {
-            for (int i2 = 0; i2 < i; i2++) {
-                ArrayList<Cdo> arrayList = new ArrayList<>();
-                arrayList.add(this.a.remove(20));
-                ArrayList<Cdo> arrayList2 = null;
-                FrsFragment frsFragment = this.b;
-                if (frsFragment != null && frsFragment.O0() != null) {
-                    arrayList2 = this.b.O0().switchThreadDataToThreadCardInfo(arrayList);
-                }
-                if (arrayList2 != null) {
-                    for (int i3 = 0; i3 < arrayList2.size(); i3++) {
-                        aq6.b bVar = this.g;
-                        if (bVar != null) {
-                            bVar.removeItem(i3 + 20);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (count = ListUtils.getCount(this.a) + 30) > 300) {
+            int i = count - 300;
+            if (this.a.size() > i + 20) {
+                for (int i2 = 0; i2 < i; i2++) {
+                    ArrayList<eo> arrayList = new ArrayList<>();
+                    arrayList.add(this.a.remove(20));
+                    ArrayList<eo> arrayList2 = null;
+                    FrsFragment frsFragment = this.b;
+                    if (frsFragment != null && frsFragment.O0() != null) {
+                        arrayList2 = this.b.O0().switchThreadDataToThreadCardInfo(arrayList);
+                    }
+                    if (arrayList2 != null) {
+                        for (int i3 = 0; i3 < arrayList2.size(); i3++) {
+                            hq6.b bVar = this.g;
+                            if (bVar != null) {
+                                bVar.removeItem(i3 + 20);
+                            }
                         }
                     }
                 }
@@ -97,33 +115,33 @@ public class FrsSmartLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
         }
     }
 
-    public ArrayList<Cdo> B(boolean z, boolean z2, ArrayList<Cdo> arrayList, boolean z3, boolean z4, int i, List<AdMixFloor> list) {
+    public ArrayList<eo> B(boolean z, boolean z2, ArrayList<eo> arrayList, boolean z3, boolean z4, int i, List<AdMixFloor> list) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), arrayList, Boolean.valueOf(z3), Boolean.valueOf(z4), Integer.valueOf(i), list})) == null) {
             if (!z3 && this.a.size() == 0) {
-                zl8 zl8Var = FrsFragment.l2;
-                if (zl8Var != null) {
-                    this.a.addAll(zl8Var.getThreadList());
+                gm8 gm8Var = FrsFragment.l2;
+                if (gm8Var != null) {
+                    this.a.addAll(gm8Var.getThreadList());
                 }
                 FrsFragment.l2 = null;
             }
             if (ListUtils.isEmpty(arrayList)) {
-                iq6 iq6Var = this.f;
-                if (iq6Var != null) {
-                    iq6Var.a(this.e, z2, 0, z, null, z3);
+                pq6 pq6Var = this.f;
+                if (pq6Var != null) {
+                    pq6Var.a(this.e, z2, 0, z, null, z3);
                 }
                 return this.a;
             }
             synchronized (this.a) {
-                ArrayList<Cdo> arrayList2 = new ArrayList<>();
-                ArrayList<Cdo> arrayList3 = new ArrayList<>();
-                Iterator<Cdo> it = arrayList.iterator();
+                ArrayList<eo> arrayList2 = new ArrayList<>();
+                ArrayList<eo> arrayList3 = new ArrayList<>();
+                Iterator<eo> it = arrayList.iterator();
                 int i2 = 0;
                 while (it.hasNext()) {
-                    Cdo next = it.next();
-                    if (!z4 || !(next instanceof qh6)) {
-                        if (!(next instanceof oh6)) {
+                    eo next = it.next();
+                    if (!z4 || !(next instanceof xh6)) {
+                        if (!(next instanceof vh6)) {
                             if (G(next)) {
                                 arrayList3.add(next);
                             } else {
@@ -146,27 +164,29 @@ public class FrsSmartLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
                     R(arrayList2);
                 }
                 if (i != -1) {
-                    if (i == 1) {
-                        this.b.O0().addRecommendAppToThreadList(this.b, true, arrayList2, this.a, this.b.J0().v0());
-                    } else if (i != 2) {
-                        if (i != 3) {
-                            if (dv6.d()) {
-                                if (this.h != null) {
-                                    this.h.b(arrayList2, z2, this.b.U());
+                    if (i != 1) {
+                        if (i != 2) {
+                            if (i != 3) {
+                                if (kv6.d()) {
+                                    if (this.h != null) {
+                                        this.h.b(arrayList2, z2, this.b.U());
+                                    }
+                                } else {
+                                    this.b.O0().addRecommendAppToThreadList(this.b, true, arrayList2, this.a, this.b.J0().v0());
                                 }
-                            } else {
-                                this.b.O0().addRecommendAppToThreadList(this.b, true, arrayList2, this.a, this.b.J0().v0());
+                            } else if (!ListUtils.isEmpty(list)) {
+                                int intValue = list.get(0).ad_type.intValue();
+                                if (intValue == 1) {
+                                    this.b.O0().addRecommendAppToThreadList(this.b, true, arrayList2, this.a, this.b.J0().v0());
+                                } else if (intValue == 2 && this.h != null) {
+                                    this.h.g(arrayList2, list, z2, this.b.U());
+                                }
                             }
-                        } else if (!ListUtils.isEmpty(list)) {
-                            int intValue = list.get(0).ad_type.intValue();
-                            if (intValue == 1) {
-                                this.b.O0().addRecommendAppToThreadList(this.b, true, arrayList2, this.a, this.b.J0().v0());
-                            } else if (intValue == 2 && this.h != null) {
-                                this.h.g(arrayList2, list, z2, this.b.U());
-                            }
+                        } else if (this.h != null) {
+                            this.h.b(arrayList2, z2, this.b.U());
                         }
-                    } else if (this.h != null) {
-                        this.h.b(arrayList2, z2, this.b.U());
+                    } else {
+                        this.b.O0().addRecommendAppToThreadList(this.b, true, arrayList2, this.a, this.b.J0().v0());
                     }
                 }
                 if (z2) {
@@ -187,112 +207,22 @@ public class FrsSmartLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
         return (ArrayList) invokeCommon.objValue;
     }
 
-    public ArrayList<Cdo> C() {
+    public ArrayList<eo> C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (ArrayList) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (ArrayList) invokeV.objValue;
     }
 
     public int D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : invokeV.intValue;
-    }
-
-    public final void E(List<Cdo> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, list) == null) || ListUtils.isEmpty(list)) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
         }
-        this.a.addAll(0, list);
-    }
-
-    public final boolean F(String str, ArrayList<Cdo> arrayList) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, arrayList)) == null) {
-            if (TextUtils.isEmpty(str) || arrayList == null) {
-                return true;
-            }
-            Iterator<Cdo> it = arrayList.iterator();
-            while (it.hasNext()) {
-                Cdo next = it.next();
-                if ((next instanceof ThreadData) && str.equalsIgnoreCase(((ThreadData) next).getTid())) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public final boolean G(Cdo cdo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, cdo)) == null) {
-            if (cdo == null) {
-                return false;
-            }
-            if (cdo instanceof mm8) {
-                return true;
-            }
-            return ((cdo instanceof ThreadData) && ((ThreadData) cdo).getIs_top() == 2) || cdo.getType() == em8.c;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void H() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || ListUtils.isEmpty(this.a)) {
-            return;
-        }
-        ArrayList arrayList = new ArrayList();
-        Iterator<Cdo> it = this.a.iterator();
-        while (it.hasNext()) {
-            Cdo next = it.next();
-            if (G(next)) {
-                arrayList.add(next);
-            } else if (next instanceof oh6) {
-                arrayList.add(next);
-            }
-        }
-        if (ListUtils.isEmpty(arrayList)) {
-            return;
-        }
-        this.a.removeAll(arrayList);
-    }
-
-    public final void I(ArrayList<Cdo> arrayList, int i) {
-        int count;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, arrayList, i) == null) || arrayList == null || (count = ListUtils.getCount(arrayList)) <= i) {
-            return;
-        }
-        int max = Math.max(count - i, 30);
-        int i2 = ((count - 20) - max) - 1;
-        ListUtils.removeSubList(arrayList, i2, max + i2);
-    }
-
-    public void J(Cdo cdo) {
-        ArrayList<Cdo> arrayList;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, cdo) == null) || cdo == null || (arrayList = this.a) == null) {
-            return;
-        }
-        arrayList.remove(cdo);
-    }
-
-    public void K(@NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            Iterator<Cdo> it = this.a.iterator();
-            while (it.hasNext()) {
-                Cdo next = it.next();
-                if ((next instanceof ThreadData) && TextUtils.equals(str, ((ThreadData) next).getTid())) {
-                    it.remove();
-                }
-            }
-        }
+        return invokeV.intValue;
     }
 
     public void L() {
@@ -304,120 +234,57 @@ public class FrsSmartLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
         }
     }
 
-    public final void M(List<Cdo> list, List<Cdo> list2) {
+    public int getPn() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048588, this, list, list2) == null) || ListUtils.isEmpty(list) || ListUtils.isEmpty(list2)) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return this.c;
         }
-        list2.add(new oh6());
+        return invokeV.intValue;
     }
 
-    public void N(ArrayList<Cdo> arrayList) {
+    public final void E(List<eo> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, list) != null) || ListUtils.isEmpty(list)) {
+            return;
+        }
+        this.a.addAll(0, list);
+    }
+
+    public void J(eo eoVar) {
+        ArrayList<eo> arrayList;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048585, this, eoVar) == null) && eoVar != null && (arrayList = this.a) != null) {
+            arrayList.remove(eoVar);
+        }
+    }
+
+    public void N(ArrayList<eo> arrayList) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048589, this, arrayList) == null) && this.a.size() == 0) {
             this.a.addAll(arrayList);
         }
     }
 
-    public void O(dv6 dv6Var) {
+    public void O(kv6 kv6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, dv6Var) == null) {
-            this.h = dv6Var;
+        if (interceptable == null || interceptable.invokeL(1048590, this, kv6Var) == null) {
+            this.h = kv6Var;
         }
     }
 
-    public void P(aq6.b bVar) {
+    public void P(hq6.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, bVar) == null) {
             this.g = bVar;
         }
     }
 
-    public void Q(ArrayList<Cdo> arrayList) {
+    public void Q(ArrayList<eo> arrayList) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048592, this, arrayList) == null) || ListUtils.isEmpty(arrayList) || ListUtils.isEmpty(this.a)) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048592, this, arrayList) == null) && !ListUtils.isEmpty(arrayList) && !ListUtils.isEmpty(this.a)) {
+            this.a.addAll(0, arrayList);
         }
-        this.a.addAll(0, arrayList);
-    }
-
-    public void R(ArrayList<Cdo> arrayList) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048593, this, arrayList) == null) || ListUtils.isEmpty(arrayList)) {
-            return;
-        }
-        ArrayList arrayList2 = new ArrayList();
-        if (!ListUtils.isEmpty(arrayList)) {
-            Iterator<Cdo> it = arrayList.iterator();
-            while (it.hasNext()) {
-                Cdo next = it.next();
-                if (next != null) {
-                    if (next.getType() == ThreadData.TYPE_STAR_INTERVIEW) {
-                        it.remove();
-                        arrayList2.add(next);
-                    } else if ((next instanceof ThreadData) && ((ThreadData) next).getIsLive() == 1) {
-                        it.remove();
-                        arrayList2.add(next);
-                    } else if ((next instanceof sl8) || (next instanceof tl8)) {
-                        arrayList2.add(next);
-                    }
-                }
-            }
-        }
-        if (ListUtils.isEmpty(arrayList2)) {
-            return;
-        }
-        if (!ListUtils.isEmpty(this.a)) {
-            Iterator<Cdo> it2 = this.a.iterator();
-            while (it2.hasNext()) {
-                Cdo next2 = it2.next();
-                if (next2 != null) {
-                    if (next2.getType() == ThreadData.TYPE_STAR_INTERVIEW) {
-                        it2.remove();
-                    } else if ((next2 instanceof ThreadData) && ((ThreadData) next2).getIsLive() == 1) {
-                        it2.remove();
-                    } else if ((next2 instanceof sl8) || (next2 instanceof tl8)) {
-                        it2.remove();
-                    }
-                }
-            }
-        }
-        if (!ListUtils.isEmpty(arrayList2)) {
-            Iterator it3 = arrayList2.iterator();
-            while (it3.hasNext()) {
-                Cdo cdo = (Cdo) it3.next();
-                if (cdo != null && ((cdo instanceof sl8) || (cdo instanceof tl8))) {
-                    it3.remove();
-                }
-            }
-        }
-        arrayList.addAll(0, arrayList2);
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public int getPn() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.c : invokeV.intValue;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean loadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 
     public void setHasMore(int i) {
@@ -429,10 +296,9 @@ public class FrsSmartLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
 
     public void setPn(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048598, this, i) == null) || i <= this.c) {
-            return;
+        if ((interceptable == null || interceptable.invokeI(1048598, this, i) == null) && i > this.c) {
+            this.c = i;
         }
-        this.c = i;
     }
 
     public void setSortType(int i) {
@@ -442,13 +308,153 @@ public class FrsSmartLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
         }
     }
 
+    public final boolean F(String str, ArrayList<eo> arrayList) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, arrayList)) == null) {
+            if (TextUtils.isEmpty(str) || arrayList == null) {
+                return true;
+            }
+            Iterator<eo> it = arrayList.iterator();
+            while (it.hasNext()) {
+                eo next = it.next();
+                if ((next instanceof ThreadData) && str.equalsIgnoreCase(((ThreadData) next).getTid())) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public final boolean G(eo eoVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, eoVar)) == null) {
+            if (eoVar == null) {
+                return false;
+            }
+            if (eoVar instanceof tm8) {
+                return true;
+            }
+            if ((!(eoVar instanceof ThreadData) || ((ThreadData) eoVar).getIs_top() != 2) && eoVar.getType() != lm8.c) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void K(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            Iterator<eo> it = this.a.iterator();
+            while (it.hasNext()) {
+                eo next = it.next();
+                if ((next instanceof ThreadData) && TextUtils.equals(str, ((ThreadData) next).getTid())) {
+                    it.remove();
+                }
+            }
+        }
+    }
+
+    public void H() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || ListUtils.isEmpty(this.a)) {
+            return;
+        }
+        ArrayList arrayList = new ArrayList();
+        Iterator<eo> it = this.a.iterator();
+        while (it.hasNext()) {
+            eo next = it.next();
+            if (G(next)) {
+                arrayList.add(next);
+            } else if (next instanceof vh6) {
+                arrayList.add(next);
+            }
+        }
+        if (!ListUtils.isEmpty(arrayList)) {
+            this.a.removeAll(arrayList);
+        }
+    }
+
+    public final void I(ArrayList<eo> arrayList, int i) {
+        int count;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, arrayList, i) != null) || arrayList == null || (count = ListUtils.getCount(arrayList)) <= i) {
+            return;
+        }
+        int max = Math.max(count - i, 30);
+        int i2 = ((count - 20) - max) - 1;
+        ListUtils.removeSubList(arrayList, i2, max + i2);
+    }
+
+    public final void M(List<eo> list, List<eo> list2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048588, this, list, list2) == null) && !ListUtils.isEmpty(list) && !ListUtils.isEmpty(list2)) {
+            list2.add(new vh6());
+        }
+    }
+
+    public void R(ArrayList<eo> arrayList) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048593, this, arrayList) != null) || ListUtils.isEmpty(arrayList)) {
+            return;
+        }
+        ArrayList arrayList2 = new ArrayList();
+        if (!ListUtils.isEmpty(arrayList)) {
+            Iterator<eo> it = arrayList.iterator();
+            while (it.hasNext()) {
+                eo next = it.next();
+                if (next != null) {
+                    if (next.getType() == ThreadData.TYPE_STAR_INTERVIEW) {
+                        it.remove();
+                        arrayList2.add(next);
+                    } else if ((next instanceof ThreadData) && ((ThreadData) next).getIsLive() == 1) {
+                        it.remove();
+                        arrayList2.add(next);
+                    } else if ((next instanceof zl8) || (next instanceof am8)) {
+                        arrayList2.add(next);
+                    }
+                }
+            }
+        }
+        if (ListUtils.isEmpty(arrayList2)) {
+            return;
+        }
+        if (!ListUtils.isEmpty(this.a)) {
+            Iterator<eo> it2 = this.a.iterator();
+            while (it2.hasNext()) {
+                eo next2 = it2.next();
+                if (next2 != null) {
+                    if (next2.getType() == ThreadData.TYPE_STAR_INTERVIEW) {
+                        it2.remove();
+                    } else if ((next2 instanceof ThreadData) && ((ThreadData) next2).getIsLive() == 1) {
+                        it2.remove();
+                    } else if ((next2 instanceof zl8) || (next2 instanceof am8)) {
+                        it2.remove();
+                    }
+                }
+            }
+        }
+        if (!ListUtils.isEmpty(arrayList2)) {
+            Iterator it3 = arrayList2.iterator();
+            while (it3.hasNext()) {
+                eo eoVar = (eo) it3.next();
+                if (eoVar != null && ((eoVar instanceof zl8) || (eoVar instanceof am8))) {
+                    it3.remove();
+                }
+            }
+        }
+        arrayList.addAll(0, arrayList2);
+    }
+
     public final void z(ThreadData threadData) {
         FrsFragment frsFragment;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048600, this, threadData) == null) || threadData == null || (frsFragment = this.b) == null || frsFragment.O0() == null || this.b.O0().getForum() == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048600, this, threadData) == null) && threadData != null && (frsFragment = this.b) != null && frsFragment.O0() != null && this.b.O0().getForum() != null) {
+            threadData.setFirstClassName(this.b.O0().getForum().getFirst_class());
+            threadData.setSecondClassName(this.b.O0().getForum().getSecond_class());
         }
-        threadData.setFirstClassName(this.b.O0().getForum().getFirst_class());
-        threadData.setSecondClassName(this.b.O0().getForum().getSecond_class());
     }
 }

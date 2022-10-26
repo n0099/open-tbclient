@@ -14,6 +14,13 @@ public final class i extends s {
     public String b;
     public String c;
 
+    @Override // com.vivo.push.b.s, com.vivo.push.o
+    public final String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "OnBindCommand" : (String) invokeV.objValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(int i) {
         super(i);
@@ -45,25 +52,6 @@ public final class i extends s {
         }
     }
 
-    public final String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public final String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    @Override // com.vivo.push.b.s, com.vivo.push.o
-    public final String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "OnBindCommand" : (String) invokeV.objValue;
-    }
-
     @Override // com.vivo.push.b.s, com.vivo.push.o
     public final void d(com.vivo.push.a aVar) {
         Interceptable interceptable = $ic;
@@ -73,5 +61,23 @@ public final class i extends s {
             this.b = aVar.a("client_id");
             this.c = aVar.a("client_token");
         }
+    }
+
+    public final String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
     }
 }

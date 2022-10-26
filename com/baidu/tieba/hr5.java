@@ -1,70 +1,150 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.pm.PackageManager;
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.common.util.CommonParam;
-import com.baidu.tieba.advert.sdk.data.AdInfo;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.heytap.mcssdk.mode.CommandMessage;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class hr5 {
+public class hr5 extends gf1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public JSONObject a;
 
-    public static String a(Context context, AdInfo adInfo) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, adInfo)) == null) {
-            if (adInfo != null) {
-                try {
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("placeId", adInfo.placeId);
-                    jSONObject.put(CommandMessage.SDK_VERSION, "1.1.4");
-                    jSONObject.put("adType", adInfo.adShowType.getValue());
-                    if (TextUtils.isEmpty(adInfo.redirectUrl)) {
-                        jSONObject.put("landingPage", adInfo.downLoadUrl);
-                    } else {
-                        jSONObject.put("landingPage", adInfo.redirectUrl);
-                    }
-                    jSONObject.put("showStamp", String.valueOf(System.currentTimeMillis()));
-                    jSONObject.put("packageName", adInfo.packageName);
-                    jSONObject.put("finalPrice", adInfo.finalPrice);
-                    jSONObject.put("chargingMode", adInfo.chargingMode);
-                    jSONObject.put("token", adInfo.token);
-                    jSONObject.put("adpUserId", adInfo.adpUserId);
-                    jSONObject.put("bdId", CommonParam.getCUID(context));
-                    jSONObject.put("unitId", adInfo.unitId);
-                    jSONObject.put("planId", adInfo.planId);
-                    jSONObject.put("ideaId", adInfo.ideaId);
-                    jSONObject.put("ideaType", adInfo.sourceType);
-                    jSONObject.put("s", "0");
-                    return jSONObject.toString();
-                } catch (Exception e) {
-                    BdLog.e(e.getMessage());
-                    return "";
+    /* loaded from: classes4.dex */
+    public class a implements md1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ hr5 c;
+
+        @Override // com.baidu.tieba.md1
+        public String a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "1099a" : (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.md1
+        public int b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return 120;
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // com.baidu.tieba.md1
+        public int c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.drawable.obfuscated_res_0x7f080fa2 : invokeV.intValue;
+        }
+
+        @Override // com.baidu.tieba.md1
+        public String e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "1481698145541" : (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.md1
+        public String from() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "1099a" : (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.md1
+        public int g() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? R.drawable.obfuscated_res_0x7f080248 : invokeV.intValue;
+        }
+
+        @Override // com.baidu.tieba.md1
+        public int h() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? R.drawable.obfuscated_res_0x7f080249 : invokeV.intValue;
+        }
+
+        public a(hr5 hr5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hr5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return "";
+            this.c = hr5Var;
         }
-        return (String) invokeLL.objValue;
+
+        @Override // com.baidu.tieba.md1
+        public JSONObject d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                if (this.c.a == null) {
+                    this.c.a = new JSONObject();
+                    try {
+                        this.c.a.put("query_response_thread", 1);
+                        this.c.a.put("query_unite_pid", "1640058553813");
+                        this.c.a.put("nad_splash_query_download_opt", rm0.b().a().a("nad_splash_query_download_opt", 0));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+                return this.c.a;
+            }
+            return (JSONObject) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.md1
+        public int f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return xg5.l();
+            }
+            return invokeV.intValue;
+        }
     }
 
-    public static String b(Context context) {
-        InterceptResult invokeL;
+    public hr5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            try {
-                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-            } catch (PackageManager.NameNotFoundException e) {
-                BdLog.e(e);
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        return (String) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.gf1
+    /* renamed from: c */
+    public md1 createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this);
+        }
+        return (md1) invokeV.objValue;
     }
 }

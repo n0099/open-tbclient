@@ -11,6 +11,12 @@ public abstract class MAService extends Service {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public Service getService() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (Service) invokeV.objValue;
+    }
+
     public MAService() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -23,11 +29,5 @@ public abstract class MAService extends Service {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    public Service getService() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (Service) invokeV.objValue;
     }
 }

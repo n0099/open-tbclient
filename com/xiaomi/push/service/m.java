@@ -13,7 +13,7 @@ import java.util.Map;
 /* loaded from: classes8.dex */
 public class m {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, Long> a;
+    public static final Map a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,8 +37,8 @@ public class m {
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
             long elapsedRealtime = SystemClock.elapsedRealtime();
             ArrayList<String> arrayList = new ArrayList(a.size());
-            for (Map.Entry<String, Long> entry : a.entrySet()) {
-                if (elapsedRealtime - entry.getValue().longValue() > 60000) {
+            for (Map.Entry entry : a.entrySet()) {
+                if (elapsedRealtime - ((Long) entry.getValue()).longValue() > 60000) {
                     arrayList.add(entry.getKey());
                 }
             }
@@ -57,11 +57,11 @@ public class m {
                 String a2 = com.xiaomi.push.bp.a(bArr);
                 if (!TextUtils.isEmpty(a2)) {
                     synchronized (a) {
-                        Map<String, Long> map = a;
+                        Map map = a;
                         if (map.get(a2 + str) != null) {
                             z = true;
                         } else {
-                            Map<String, Long> map2 = a;
+                            Map map2 = a;
                             map2.put(a2 + str, Long.valueOf(SystemClock.elapsedRealtime()));
                         }
                         a();

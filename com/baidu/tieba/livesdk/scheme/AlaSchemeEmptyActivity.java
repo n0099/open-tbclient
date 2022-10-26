@@ -32,34 +32,31 @@ public class AlaSchemeEmptyActivity extends BaseActivity {
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        String uri;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            super.onCreate(bundle);
-            if (getIntent() == null || getIntent().getData() == null) {
-                return;
-            }
-            Uri data = getIntent().getData();
-            String host = data.getHost();
-            String path = data.getPath();
-            if (!"video".equals(host) || path == null || !path.startsWith("/live") || (uri = data.toString()) == null) {
-                return;
-            }
-            String replace = uri.replace(BdUniDispatchSchemeController.SCHEME + "://", UrlSchemaHelper.SCHEMA_LIVE_SDK);
-            if (StringUtils.isNull(replace)) {
-                return;
-            }
-            UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{replace});
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onStop();
             finish();
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        String uri;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            super.onCreate(bundle);
+            if (getIntent() != null && getIntent().getData() != null) {
+                Uri data = getIntent().getData();
+                String host = data.getHost();
+                String path = data.getPath();
+                if ("video".equals(host) && path != null && path.startsWith("/live") && (uri = data.toString()) != null) {
+                    String replace = uri.replace(BdUniDispatchSchemeController.SCHEME + "://", UrlSchemaHelper.SCHEMA_LIVE_SDK);
+                    if (!StringUtils.isNull(replace)) {
+                        UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{replace});
+                    }
+                }
+            }
         }
     }
 }

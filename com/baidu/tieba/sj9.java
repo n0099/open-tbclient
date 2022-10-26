@@ -1,25 +1,20 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Message;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.yunjiasu.tornadosdk.Pinger;
-/* compiled from: lambda */
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final /* synthetic */ class sj9 implements Handler.Callback {
-    public static /* synthetic */ Interceptable $ic;
-    public static final /* synthetic */ sj9 a = new sj9();
-    public transient /* synthetic */ FieldHolder $fh;
+public interface sj9 {
+    public static final ServiceReference a = new ServiceReference("voyager", StatConstants.VALUE_TYPE_UPLOAD);
 
-    private /* synthetic */ sj9() {
-    }
+    void a(String str, String str2, int i, rj9 rj9Var);
 
-    @Override // android.os.Handler.Callback
-    public final boolean handleMessage(Message message) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) ? Pinger.m72pingHandler$lambda0(message) : invokeL.booleanValue;
-    }
+    void b(List list, String str, long j, JSONObject jSONObject);
+
+    void c(String str, String str2, JSONObject jSONObject);
+
+    void d(String str, String str2, rj9 rj9Var);
+
+    void e(List list, String str, long j, rj9 rj9Var);
 }

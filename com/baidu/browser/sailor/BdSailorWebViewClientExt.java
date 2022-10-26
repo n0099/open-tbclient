@@ -25,7 +25,7 @@ public class BdSailorWebViewClientExt implements INoProGuard {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class ENativeViewType {
+    public final class ENativeViewType {
         public static final /* synthetic */ ENativeViewType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final ENativeViewType ERROR_PAGE_VEIEW;
@@ -84,7 +84,7 @@ public class BdSailorWebViewClientExt implements INoProGuard {
     }
 
     /* loaded from: classes.dex */
-    public static class FirstScreenInfo implements INoProGuard {
+    public class FirstScreenInfo implements INoProGuard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int diffDomcompleteAndFspTime;
@@ -310,7 +310,7 @@ public class BdSailorWebViewClientExt implements INoProGuard {
         return (String) invokeLILL.objValue;
     }
 
-    public Class<? extends View> onGetNativeViewClass(BdSailorWebView bdSailorWebView, ENativeViewType eNativeViewType) {
+    public Class onGetNativeViewClass(BdSailorWebView bdSailorWebView, ENativeViewType eNativeViewType) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048597, this, bdSailorWebView, eNativeViewType)) == null) {

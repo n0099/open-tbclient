@@ -24,8 +24,18 @@ public class MediaTransition implements Parcelable, Cloneable {
     public long start;
     public List<ShaderParams> tParams;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     /* loaded from: classes2.dex */
-    public static class a implements Parcelable.Creator<MediaTransition> {
+    public final class a implements Parcelable.Creator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -49,7 +59,10 @@ public class MediaTransition implements Parcelable, Cloneable {
         public MediaTransition createFromParcel(Parcel parcel) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new MediaTransition(parcel) : (MediaTransition) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+                return new MediaTransition(parcel);
+            }
+            return (MediaTransition) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -58,7 +71,10 @@ public class MediaTransition implements Parcelable, Cloneable {
         public MediaTransition[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new MediaTransition[i] : (MediaTransition[]) invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                return new MediaTransition[i];
+            }
+            return (MediaTransition[]) invokeI.objValue;
         }
     }
 
@@ -92,6 +108,29 @@ public class MediaTransition implements Parcelable, Cloneable {
         }
     }
 
+    public MediaTransition(Parcel parcel) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.name = parcel.readString();
+        this.duration = parcel.readLong();
+        this.shaderConfigKey = parcel.readString();
+        this.tParams = parcel.createTypedArrayList(ShaderParams.CREATOR);
+        this.start = parcel.readLong();
+        this.end = parcel.readLong();
+    }
+
     public Object clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -115,16 +154,6 @@ public class MediaTransition implements Parcelable, Cloneable {
     }
 
     @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i) == null) {
@@ -135,28 +164,5 @@ public class MediaTransition implements Parcelable, Cloneable {
             parcel.writeLong(this.start);
             parcel.writeLong(this.end);
         }
-    }
-
-    public MediaTransition(Parcel parcel) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.name = parcel.readString();
-        this.duration = parcel.readLong();
-        this.shaderConfigKey = parcel.readString();
-        this.tParams = parcel.createTypedArrayList(ShaderParams.CREATOR);
-        this.start = parcel.readLong();
-        this.end = parcel.readLong();
     }
 }

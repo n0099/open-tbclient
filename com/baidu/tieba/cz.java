@@ -2,67 +2,28 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.view.View;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.view.VoteView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class cz extends nx {
+public class cz extends hx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext h;
-    public int i;
-    public VoteView j;
-
-    /* loaded from: classes3.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yq4 a;
-        public final /* synthetic */ cz b;
-
-        public a(cz czVar, yq4 yq4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {czVar, yq4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = czVar;
-            this.a = yq4Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                ThreadCardUtils.jumpToPB(this.a, (Context) this.b.h.getPageActivity(), this.b.i, false);
-            }
-        }
-    }
+    public b26 f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cz(Context context) {
-        super(context);
+    public cz(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -73,59 +34,34 @@ public class cz extends nx {
                 return;
             }
         }
-        this.j = new VoteView(context);
-        s(UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
-    }
-
-    @Override // com.baidu.tieba.gx
-    public View h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.j : (View) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.xx
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            this.j.C(i);
-        }
-    }
-
-    public final boolean v(yq4 yq4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, yq4Var)) == null) ? (yq4Var == null || yq4Var.getThreadData() == null || yq4Var.getThreadData().getPollData() == null || yq4Var.getThreadData().getPollData().getOptions() == null || yq4Var.getThreadData().getPollData().getOptions().size() <= 0 || yq4Var.getThreadData().isVideoThreadType()) ? false : true : invokeL.booleanValue;
+        this.f = new b26(tbPageContext, bdUniqueId);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wx
-    /* renamed from: w */
-    public void a(yq4 yq4Var) {
+    @Override // com.baidu.tieba.xx
+    /* renamed from: s */
+    public void a(ar4 ar4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, yq4Var) == null) {
-            if (v(yq4Var)) {
-                this.j.setVisibility(0);
-                this.j.setData(yq4Var.getThreadData().getPollData(), yq4Var.getThreadData().getTid(), yq4Var.getThreadData().getFid());
-                this.j.setOnItemClickListener(new a(this, yq4Var));
-                return;
-            }
-            this.j.setVisibility(8);
+        if ((interceptable == null || interceptable.invokeL(1048579, this, ar4Var) == null) && (ar4Var instanceof g36)) {
+            this.f.a((g36) ar4Var);
         }
     }
 
-    public void x(int i) {
+    @Override // com.baidu.tieba.hx
+    public View k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.i = i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.f.f();
         }
+        return (View) invokeV.objValue;
     }
 
-    public void y(TbPageContext tbPageContext) {
+    @Override // com.baidu.tieba.yx
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, tbPageContext) == null) {
-            this.h = tbPageContext;
-            this.j.setPageContext(tbPageContext);
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            this.f.onChangeSkinType(tbPageContext, i);
         }
     }
 }

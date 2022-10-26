@@ -1,48 +1,112 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.net.Uri;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.webkit.sdk.WebChromeClient;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class mo8 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947979507, "Lcom/baidu/tieba/mo8;")) == null) {
-            return;
+    public static String a(String str) {
+        InterceptResult invokeL;
+        String[] split;
+        String[] split2;
+        String[] split3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (ej.isEmpty(str) || (split = str.split("\\?")) == null || split.length == 0 || (split2 = split[0].split("\\/\\/")) == null || split2.length < 2 || (split3 = split2[1].split("\\/")) == null || split2.length < 2) {
+                return null;
+            }
+            return split3[split3.length - 1];
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947979507, "Lcom/baidu/tieba/mo8;");
-        }
+        return (String) invokeL.objValue;
     }
 
-    public static void a() {
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Uri parse;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            a = false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (ej.isEmpty(str) || (parse = Uri.parse(str)) == null) {
+                return null;
+            }
+            return parse.getQueryParameter(WebChromeClient.KEY_ARG_CALLBACK);
         }
+        return (String) invokeL.objValue;
     }
 
-    public static void b() {
+    public static String c(String str) {
+        InterceptResult invokeL;
+        Uri parse;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            a = true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (ej.isEmpty(str) || (parse = Uri.parse(str)) == null) {
+                return null;
+            }
+            return parse.getQueryParameter("upgrade");
         }
+        return (String) invokeL.objValue;
     }
 
-    public static boolean c() {
-        InterceptResult invokeV;
+    public static String e(String str) {
+        InterceptResult invokeL;
+        Uri parse;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a : invokeV.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (ej.isEmpty(str) || (parse = Uri.parse(str)) == null) {
+                return null;
+            }
+            return parse.getQueryParameter("notificationName");
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String d(String str) {
+        InterceptResult invokeL;
+        String[] split;
+        String[] split2;
+        String str2;
+        String[] split3;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            try {
+                if (!ej.isEmpty(str) && (split = str.split("\\?")) != null && split.length != 0 && (split2 = split[0].split("\\/\\/")) != null && split2.length >= 2 && (split3 = (str2 = split2[1]).split("\\/")) != null && split2.length >= 2 && (str3 = split3[split3.length - 1]) != null && str3.length() != 0) {
+                    return str2.substring(0, (str2.length() - str3.length()) - 1);
+                }
+                return null;
+            } catch (Exception e) {
+                BdLog.e(e);
+                return null;
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static JSONObject f(String str) throws JSONException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (ej.isEmpty(str)) {
+                return new JSONObject();
+            }
+            Uri parse = Uri.parse(str);
+            if (parse == null) {
+                return new JSONObject();
+            }
+            String queryParameter = parse.getQueryParameter("params");
+            if (ej.isEmpty(queryParameter)) {
+                return new JSONObject();
+            }
+            return new JSONObject(queryParameter);
+        }
+        return (JSONObject) invokeL.objValue;
     }
 }

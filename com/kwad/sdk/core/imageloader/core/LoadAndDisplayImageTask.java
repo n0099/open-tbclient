@@ -66,16 +66,16 @@ public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runn
     public final String uri;
 
     /* loaded from: classes7.dex */
-    public static class FireCancelEventRunnable implements Runnable {
-        public WeakReference<LoadAndDisplayImageTask> weakReference;
+    public class FireCancelEventRunnable implements Runnable {
+        public WeakReference weakReference;
 
         public FireCancelEventRunnable(LoadAndDisplayImageTask loadAndDisplayImageTask) {
-            this.weakReference = new WeakReference<>(loadAndDisplayImageTask);
+            this.weakReference = new WeakReference(loadAndDisplayImageTask);
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            LoadAndDisplayImageTask loadAndDisplayImageTask = this.weakReference.get();
+            LoadAndDisplayImageTask loadAndDisplayImageTask = (LoadAndDisplayImageTask) this.weakReference.get();
             if (loadAndDisplayImageTask != null) {
                 loadAndDisplayImageTask.listener.onLoadingCancelled(loadAndDisplayImageTask.uri, loadAndDisplayImageTask.imageAware.getWrappedView());
             }
@@ -83,20 +83,20 @@ public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runn
     }
 
     /* loaded from: classes7.dex */
-    public static class FireFailEventRunnable implements Runnable {
+    public class FireFailEventRunnable implements Runnable {
         public final Throwable failCause;
         public final FailReason.FailType failType;
-        public WeakReference<LoadAndDisplayImageTask> weakReference;
+        public WeakReference weakReference;
 
         public FireFailEventRunnable(LoadAndDisplayImageTask loadAndDisplayImageTask, FailReason.FailType failType, Throwable th) {
-            this.weakReference = new WeakReference<>(loadAndDisplayImageTask);
+            this.weakReference = new WeakReference(loadAndDisplayImageTask);
             this.failCause = th;
             this.failType = failType;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            LoadAndDisplayImageTask loadAndDisplayImageTask = this.weakReference.get();
+            LoadAndDisplayImageTask loadAndDisplayImageTask = (LoadAndDisplayImageTask) this.weakReference.get();
             if (loadAndDisplayImageTask != null) {
                 if (loadAndDisplayImageTask.options.shouldShowImageOnFail()) {
                     loadAndDisplayImageTask.imageAware.setImageDrawable(loadAndDisplayImageTask.options.getImageOnFail(loadAndDisplayImageTask.configuration.resources));

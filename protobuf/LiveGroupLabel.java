@@ -25,7 +25,13 @@ public final class LiveGroupLabel extends Message {
     public final Integer type;
 
     /* loaded from: classes9.dex */
-    public static final class Builder extends Message.Builder<LiveGroupLabel> {
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes9.dex */
+    public final class Builder extends Message.Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Integer labelId;
@@ -77,14 +83,11 @@ public final class LiveGroupLabel extends Message {
         public LiveGroupLabel build(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) ? new LiveGroupLabel(this, z, null) : (LiveGroupLabel) invokeZ.objValue;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+                return new LiveGroupLabel(this, z, null);
+            }
+            return (LiveGroupLabel) invokeZ.objValue;
         }
-    }
-
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
     }
 
     static {
@@ -102,10 +105,6 @@ public final class LiveGroupLabel extends Message {
         }
         DEFAULT_LABELID = 0;
         DEFAULT_TYPE = 0;
-    }
-
-    public /* synthetic */ LiveGroupLabel(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -151,5 +150,9 @@ public final class LiveGroupLabel extends Message {
         this.labelId = builder.labelId;
         this.labelName = builder.labelName;
         this.type = builder.type;
+    }
+
+    public /* synthetic */ LiveGroupLabel(Builder builder, boolean z, a aVar) {
+        this(builder, z);
     }
 }

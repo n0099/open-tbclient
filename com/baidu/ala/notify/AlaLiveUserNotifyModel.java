@@ -1,13 +1,12 @@
 package com.baidu.ala.notify;
 
 import android.content.DialogInterface;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.ala.AlaCmdConfigHttp;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +19,6 @@ import java.util.ArrayList;
 public class AlaLiveUserNotifyModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AlaLiveNotifyCallBack mCallBack;
     public BdUniqueId mCurTag;
     public HttpMessageListener mGetUserNotifyListener;
     public boolean mIsNeedShowDialog;
@@ -78,16 +76,10 @@ public class AlaLiveUserNotifyModel {
                 Interceptable interceptable2 = $ic;
                 if ((interceptable2 == null || interceptable2.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof AlaLiveGetUserNotifyResponsedMessage) && httpResponsedMessage.getOrginalMessage().getTag() == this.this$0.mCurTag) {
                     AlaLiveGetUserNotifyResponsedMessage alaLiveGetUserNotifyResponsedMessage = (AlaLiveGetUserNotifyResponsedMessage) httpResponsedMessage;
-                    int count = ListUtils.getCount(alaLiveGetUserNotifyResponsedMessage.getDataList());
-                    if (count > 0) {
-                        if (this.this$0.mIsNeedShowDialog) {
-                            this.this$0.showNextNotifyDialog(0, alaLiveGetUserNotifyResponsedMessage.getDataList());
-                            return;
-                        }
-                        for (int i3 = 0; i3 < count; i3++) {
-                            this.this$0.addNotifyToImList(alaLiveGetUserNotifyResponsedMessage.getDataList().get(i3));
-                        }
+                    if (ListUtils.getCount(alaLiveGetUserNotifyResponsedMessage.getDataList()) <= 0 || !this.this$0.mIsNeedShowDialog) {
+                        return;
                     }
+                    this.this$0.showNextNotifyDialog(0, alaLiveGetUserNotifyResponsedMessage.getDataList());
                 }
             }
         };
@@ -99,42 +91,9 @@ public class AlaLiveUserNotifyModel {
         MessageManager.getInstance().registerListener(this.mGetUserNotifyListener);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void addNotifyToImList(AlaLiveUserNotifyData alaLiveUserNotifyData) {
-        AlaLiveNotifyCallBack alaLiveNotifyCallBack;
+    private void showNotifyDialog(int i, AlaLiveUserNotifyData alaLiveUserNotifyData, ArrayList arrayList) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65541, this, alaLiveUserNotifyData) == null) || (alaLiveNotifyCallBack = this.mCallBack) == null) {
-            return;
-        }
-        alaLiveNotifyCallBack.onCallBack(alaLiveUserNotifyData);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void showNextNotifyDialog(int i, ArrayList<AlaLiveUserNotifyData> arrayList) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(65542, this, i, arrayList) == null) || i >= ListUtils.getCount(arrayList)) {
-            return;
-        }
-        int i2 = i;
-        while (true) {
-            if (i2 >= ListUtils.getCount(arrayList)) {
-                break;
-            } else if (arrayList.get(i2).isSuperGuardian()) {
-                i = i2;
-                break;
-            } else {
-                i2++;
-            }
-        }
-        AlaLiveUserNotifyData alaLiveUserNotifyData = arrayList.get(i);
-        if (alaLiveUserNotifyData.isSuperGuardian()) {
-            showNotifyDialog(i, alaLiveUserNotifyData, arrayList);
-        }
-    }
-
-    private void showNotifyDialog(int i, AlaLiveUserNotifyData alaLiveUserNotifyData, ArrayList<AlaLiveUserNotifyData> arrayList) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeILL(65543, this, i, alaLiveUserNotifyData, arrayList) == null) || this.mTbPageContext == null) {
+        if ((interceptable != null && interceptable.invokeILL(65541, this, i, alaLiveUserNotifyData, arrayList) != null) || this.mTbPageContext == null) {
             return;
         }
         AlaLiveUserNotifyDialog alaLiveUserNotifyDialog = new AlaLiveUserNotifyDialog(this.mTbPageContext.getPageActivity());
@@ -168,12 +127,35 @@ public class AlaLiveUserNotifyModel {
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) {
-                    this.this$0.showNextNotifyDialog(this.val$index + 1, this.val$dataList);
+                if (interceptable2 != null && interceptable2.invokeL(1048576, this, dialogInterface) != null) {
+                    return;
                 }
+                this.this$0.showNextNotifyDialog(this.val$index + 1, this.val$dataList);
             }
         });
         alaLiveUserNotifyDialog.show(alaLiveUserNotifyData);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void showNextNotifyDialog(int i, ArrayList arrayList) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, this, i, arrayList) == null) && i < ListUtils.getCount(arrayList)) {
+            int i2 = i;
+            while (true) {
+                if (i2 >= ListUtils.getCount(arrayList)) {
+                    break;
+                } else if (((AlaLiveUserNotifyData) arrayList.get(i2)).isSuperGuardian()) {
+                    i = i2;
+                    break;
+                } else {
+                    i2++;
+                }
+            }
+            AlaLiveUserNotifyData alaLiveUserNotifyData = (AlaLiveUserNotifyData) arrayList.get(i);
+            if (alaLiveUserNotifyData.isSuperGuardian()) {
+                showNotifyDialog(i, alaLiveUserNotifyData, arrayList);
+            }
+        }
     }
 
     public void onDestroy() {
@@ -181,23 +163,6 @@ public class AlaLiveUserNotifyModel {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.mTbPageContext = null;
             MessageManager.getInstance().unRegisterListener(this.mGetUserNotifyListener);
-        }
-    }
-
-    public void sendGetUserNotifyRequest() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GET_USER_NOTIFY);
-            httpMessage.addParam("num", 10);
-            httpMessage.setTag(this.mCurTag);
-            MessageManager.getInstance().sendMessage(httpMessage);
-        }
-    }
-
-    public void setNotifyCallBack(AlaLiveNotifyCallBack alaLiveNotifyCallBack) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, alaLiveNotifyCallBack) == null) {
-            this.mCallBack = alaLiveNotifyCallBack;
         }
     }
 }

@@ -17,7 +17,7 @@ public final class WXAppLaunchData {
     public String message;
 
     /* loaded from: classes8.dex */
-    public static class Builder {
+    public class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

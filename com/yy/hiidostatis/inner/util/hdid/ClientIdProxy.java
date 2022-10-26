@@ -59,79 +59,78 @@ public class ClientIdProxy {
 
     public static void init(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, context) == null) || isInit) {
-            return;
-        }
-        synchronized (ClientIdProxy.class) {
-            if (!isInit) {
-                ClientIdHelper.init(new IClientIdConfig(context) { // from class: com.yy.hiidostatis.inner.util.hdid.ClientIdProxy.1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ Context val$c;
+        if ((interceptable == null || interceptable.invokeL(65539, null, context) == null) && !isInit) {
+            synchronized (ClientIdProxy.class) {
+                if (!isInit) {
+                    ClientIdHelper.init(new IClientIdConfig(context) { // from class: com.yy.hiidostatis.inner.util.hdid.ClientIdProxy.1
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+                        public final /* synthetic */ Context val$c;
 
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {context};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
+                        @Override // com.yy.hiidostatis.inner.util.hdid.IClientIdConfig
+                        public boolean logEnable() {
+                            InterceptResult invokeV;
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                                return false;
                             }
+                            return invokeV.booleanValue;
                         }
-                        this.val$c = context;
-                    }
 
-                    @Override // com.yy.hiidostatis.inner.util.hdid.IClientIdConfig
-                    public Application getAppContext() {
-                        InterceptResult invokeV;
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                            Context context2 = this.val$c;
-                            if (!(context2 instanceof Application)) {
-                                context2 = context2.getApplicationContext();
+                        @Override // com.yy.hiidostatis.inner.util.hdid.IClientIdConfig
+                        public boolean sdReadGranted() {
+                            InterceptResult invokeV;
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                                return false;
                             }
-                            return (Application) context2;
+                            return invokeV.booleanValue;
                         }
-                        return (Application) invokeV.objValue;
-                    }
 
-                    @Override // com.yy.hiidostatis.inner.util.hdid.IClientIdConfig
-                    public boolean logEnable() {
-                        InterceptResult invokeV;
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                            return false;
+                        @Override // com.yy.hiidostatis.inner.util.hdid.IClientIdConfig
+                        public boolean sdWriteGranted() {
+                            InterceptResult invokeV;
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048579, this)) == null) {
+                                return false;
+                            }
+                            return invokeV.booleanValue;
                         }
-                        return invokeV.booleanValue;
-                    }
 
-                    @Override // com.yy.hiidostatis.inner.util.hdid.IClientIdConfig
-                    public boolean sdReadGranted() {
-                        InterceptResult invokeV;
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                            return false;
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {context};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.val$c = context;
                         }
-                        return invokeV.booleanValue;
-                    }
 
-                    @Override // com.yy.hiidostatis.inner.util.hdid.IClientIdConfig
-                    public boolean sdWriteGranted() {
-                        InterceptResult invokeV;
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048579, this)) == null) {
-                            return false;
+                        @Override // com.yy.hiidostatis.inner.util.hdid.IClientIdConfig
+                        public Application getAppContext() {
+                            InterceptResult invokeV;
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                                Context context2 = this.val$c;
+                                if (!(context2 instanceof Application)) {
+                                    context2 = context2.getApplicationContext();
+                                }
+                                return (Application) context2;
+                            }
+                            return (Application) invokeV.objValue;
                         }
-                        return invokeV.booleanValue;
-                    }
-                });
-                isInit = true;
+                    });
+                    isInit = true;
+                }
             }
         }
     }

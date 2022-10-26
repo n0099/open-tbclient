@@ -25,15 +25,17 @@ public final class Preconditions {
 
     public static void checkArgument(boolean z, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZL(65537, null, z, str) == null) && !z) {
-            throw new IllegalArgumentException(str);
+        if ((interceptable != null && interceptable.invokeZL(65537, null, z, str) != null) || z) {
+            return;
         }
+        throw new IllegalArgumentException(str);
     }
 
     public static void checkNotNull(Object obj, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, obj, str) == null) && obj == null) {
-            throw new NullPointerException(String.valueOf(str) + " == null");
+        if ((interceptable != null && interceptable.invokeLL(65538, null, obj, str) != null) || obj != null) {
+            return;
         }
+        throw new NullPointerException(String.valueOf(str) + " == null");
     }
 }

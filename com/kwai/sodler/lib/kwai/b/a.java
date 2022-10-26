@@ -9,8 +9,6 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -31,23 +29,23 @@ import java.util.WeakHashMap;
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CLAZZ_NAME = "com.kwai.sodler.lib.kwai.b.a";
-    public static final ThreadLocal<C0637a> sAutoUnWrapModelTL;
-    public static final List<String> sAutoUnWrapStackList;
-    public static Map<Context, Context> sResContextCache;
+    public static final ThreadLocal sAutoUnWrapModelTL;
+    public static final List sAutoUnWrapStackList;
+    public static Map sResContextCache;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.kwai.sodler.lib.kwai.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C0637a {
+    public final class C0633a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public WeakReference<Context> axK;
+        public WeakReference axK;
         public int axL;
         public StackTraceElement[] axM;
         public int axN;
         public long axO;
 
-        public C0637a() {
+        public C0633a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -60,19 +58,19 @@ public class a {
                     return;
                 }
             }
-            this.axK = new WeakReference<>(null);
+            this.axK = new WeakReference(null);
             this.axL = 0;
             this.axM = null;
             this.axN = 0;
         }
 
-        public /* synthetic */ C0637a(byte b) {
+        public /* synthetic */ C0633a(byte b) {
             this();
         }
 
-        public static /* synthetic */ int c(C0637a c0637a) {
-            int i = c0637a.axL;
-            c0637a.axL = i + 1;
+        public static /* synthetic */ int c(C0633a c0633a) {
+            int i = c0633a.axL;
+            c0633a.axL = i + 1;
             return i;
         }
 
@@ -80,7 +78,7 @@ public class a {
         public void clear() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65544, this) == null) {
-                this.axK = new WeakReference<>(null);
+                this.axK = new WeakReference(null);
                 this.axL = 0;
                 this.axM = null;
                 this.axN = 0;
@@ -88,9 +86,9 @@ public class a {
             }
         }
 
-        public static /* synthetic */ int g(C0637a c0637a) {
-            int i = c0637a.axN;
-            c0637a.axN = i + 1;
+        public static /* synthetic */ int g(C0633a c0633a) {
+            int i = c0633a.axN;
+            c0633a.axN = i + 1;
             return i;
         }
     }
@@ -108,7 +106,7 @@ public class a {
                 return;
             }
         }
-        sAutoUnWrapModelTL = new ThreadLocal<>();
+        sAutoUnWrapModelTL = new ThreadLocal();
         sAutoUnWrapStackList = new ArrayList();
         sResContextCache = new WeakHashMap();
     }
@@ -221,7 +219,7 @@ public class a {
                 }
 
                 @Override // com.kwad.sdk.core.kwai.a, android.app.Application.ActivityLifecycleCallbacks
-                public final void onActivityDestroyed(@NonNull Activity activity) {
+                public final void onActivityDestroyed(Activity activity) {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 == null || interceptable2.invokeL(1048576, this, activity) == null) && activity == this.gC) {
                         this.axJ.unregisterActivityLifecycleCallbacks(this);
@@ -232,20 +230,20 @@ public class a {
         }
     }
 
-    public static boolean a(Context context, C0637a c0637a) {
+    public static boolean a(Context context, C0633a c0633a) {
         InterceptResult invokeLL;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, c0637a)) == null) {
-            Context context2 = sResContextCache.get(context);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, c0633a)) == null) {
+            Context context2 = (Context) sResContextCache.get(context);
             String name = context2 != null ? context2.getClass().getName() : "";
             StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
-            if (!Arrays.equals(stackTrace, c0637a.axM)) {
-                if (c0637a.axM != null) {
-                    c0637a.clear();
+            if (!Arrays.equals(stackTrace, c0633a.axM)) {
+                if (c0633a.axM != null) {
+                    c0633a.clear();
                     return false;
                 }
-                c0637a.axM = stackTrace;
+                c0633a.axM = stackTrace;
                 int i = 0;
                 int i2 = 0;
                 while (i < stackTrace.length) {
@@ -265,9 +263,9 @@ public class a {
                 }
                 return false;
             }
-            C0637a.g(c0637a);
-            c0637a.axM = stackTrace;
-            if (c0637a.axN < 5) {
+            C0633a.g(c0633a);
+            c0633a.axM = stackTrace;
+            if (c0633a.axN < 5) {
                 return false;
             }
             str = "needAutoUnWrap true 连续相同堆栈";
@@ -277,8 +275,7 @@ public class a {
         return invokeLL.booleanValue;
     }
 
-    @Nullable
-    public static Context ae(@Nullable Context context, String str) {
+    public static Context ae(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, str)) == null) {
@@ -288,7 +285,7 @@ public class a {
                     return null;
                 }
                 if (!(context instanceof b) && !returnUnWrappedContext(context)) {
-                    Context context2 = sResContextCache.get(context);
+                    Context context2 = (Context) sResContextCache.get(context);
                     if (context instanceof ContextThemeWrapper) {
                         if (context2 == null) {
                             context2 = new c((ContextThemeWrapper) context, str);
@@ -332,7 +329,6 @@ public class a {
         return (ClassLoader) invokeLL.objValue;
     }
 
-    @Nullable
     public static Application dH(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -365,7 +361,7 @@ public class a {
         return (com.kwai.sodler.lib.kwai.a) invokeL.objValue;
     }
 
-    public static List<String> getAutoUnWrapStackList() {
+    public static List getAutoUnWrapStackList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
@@ -388,17 +384,17 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, context)) == null) {
-            C0637a c0637a = sAutoUnWrapModelTL.get();
-            if (c0637a == null) {
-                sAutoUnWrapModelTL.set(new C0637a((byte) 0));
-            } else if (c0637a.axK.get() != context || Math.abs(System.currentTimeMillis() - c0637a.axO) >= 150) {
-                c0637a.clear();
-                c0637a.axK = new WeakReference(context);
-                c0637a.axO = System.currentTimeMillis();
+            C0633a c0633a = (C0633a) sAutoUnWrapModelTL.get();
+            if (c0633a == null) {
+                sAutoUnWrapModelTL.set(new C0633a((byte) 0));
+            } else if (c0633a.axK.get() != context || Math.abs(System.currentTimeMillis() - c0633a.axO) >= 150) {
+                c0633a.clear();
+                c0633a.axK = new WeakReference(context);
+                c0633a.axO = System.currentTimeMillis();
             } else {
-                C0637a.c(c0637a);
-                if (c0637a.axL >= (context instanceof Application ? 15 : 5) && a(context, c0637a)) {
-                    c0637a.clear();
+                C0633a.c(c0633a);
+                if (c0633a.axL >= (context instanceof Application ? 15 : 5) && a(context, c0633a)) {
+                    c0633a.clear();
                     return true;
                 }
             }

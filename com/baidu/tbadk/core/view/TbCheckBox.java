@@ -24,6 +24,18 @@ public class TbCheckBox extends ImageView {
     public b d;
 
     /* loaded from: classes3.dex */
+    public interface b {
+        void a(TbCheckBox tbCheckBox, boolean z, Object obj);
+    }
+
+    /* loaded from: classes3.dex */
+    public interface c {
+        boolean isChecked();
+
+        void setChecked(boolean z);
+    }
+
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -57,18 +69,6 @@ public class TbCheckBox extends ImageView {
         }
     }
 
-    /* loaded from: classes3.dex */
-    public interface b {
-        void a(TbCheckBox tbCheckBox, boolean z, Object obj);
-    }
-
-    /* loaded from: classes3.dex */
-    public interface c {
-        boolean isChecked();
-
-        void setChecked(boolean z);
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TbCheckBox(Context context) {
         super(context);
@@ -92,60 +92,28 @@ public class TbCheckBox extends ImageView {
         c();
     }
 
-    public void b() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public TbCheckBox(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (e()) {
-                if (this.c) {
-                    setImageDrawable(WebPManager.getPureDrawable(this.a, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL_PRESS));
-                } else {
-                    SkinManager.setImageResource(this, this.a);
-                }
-                setContentDescription(getResources().getString(R.string.obfuscated_res_0x7f0f03b3));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            if (this.c) {
-                setImageDrawable(WebPManager.getPureDrawable(this.b, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL_PRESS));
-            } else {
-                SkinManager.setImageResource(this, this.b);
-            }
-            setContentDescription(getResources().getString(R.string.obfuscated_res_0x7f0f03b4));
         }
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            setOnClickListener(new a(this));
-            b();
-        }
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? e() : invokeV.booleanValue;
-    }
-
-    public final boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Object tag = getTag();
-            if (tag == null || !(tag instanceof c)) {
-                return false;
-            }
-            return ((c) tag).isChecked();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void setBackgroundDrawableId(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
-            this.a = i;
-            this.b = i2;
-        }
+        this.a = R.drawable.icon_set_list_ok_s;
+        this.b = R.drawable.icon_set_list_ok_n;
+        c();
     }
 
     public void setBackgroundDrawableIdIsWebP(boolean z) {
@@ -185,27 +153,62 @@ public class TbCheckBox extends ImageView {
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TbCheckBox(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (e()) {
+                if (this.c) {
+                    setImageDrawable(WebPManager.getPureDrawable(this.a, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL_PRESS));
+                } else {
+                    SkinManager.setImageResource(this, this.a);
+                }
+                setContentDescription(getResources().getString(R.string.obfuscated_res_0x7f0f03b3));
                 return;
             }
+            if (this.c) {
+                setImageDrawable(WebPManager.getPureDrawable(this.b, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL_PRESS));
+            } else {
+                SkinManager.setImageResource(this, this.b);
+            }
+            setContentDescription(getResources().getString(R.string.obfuscated_res_0x7f0f03b4));
         }
-        this.a = R.drawable.icon_set_list_ok_s;
-        this.b = R.drawable.icon_set_list_ok_n;
-        c();
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            setOnClickListener(new a(this));
+            b();
+        }
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return e();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            Object tag = getTag();
+            if (tag != null && (tag instanceof c)) {
+                return ((c) tag).isChecked();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void setBackgroundDrawableId(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+            this.a = i;
+            this.b = i2;
+        }
     }
 }

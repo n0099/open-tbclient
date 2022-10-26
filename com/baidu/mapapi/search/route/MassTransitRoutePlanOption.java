@@ -23,7 +23,7 @@ public class MassTransitRoutePlanOption {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class TacticsIncity {
+    public final class TacticsIncity {
         public static /* synthetic */ Interceptable $ic;
         public static final TacticsIncity ETRANS_LEAST_TIME;
         public static final TacticsIncity ETRANS_LEAST_TRANSFER;
@@ -101,7 +101,7 @@ public class MassTransitRoutePlanOption {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class TacticsIntercity {
+    public final class TacticsIntercity {
         public static /* synthetic */ Interceptable $ic;
         public static final TacticsIntercity ETRANS_LEAST_PRICE;
         public static final TacticsIntercity ETRANS_LEAST_TIME;
@@ -173,7 +173,7 @@ public class MassTransitRoutePlanOption {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class TransTypeIntercity {
+    public final class TransTypeIntercity {
         public static /* synthetic */ Interceptable $ic;
         public static final TransTypeIntercity ETRANS_COACH_FIRST;
         public static final TransTypeIntercity ETRANS_PLANE_FIRST;

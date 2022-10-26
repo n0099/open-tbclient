@@ -6,7 +6,7 @@ import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes7.dex */
 public class p {
     public static volatile p YV;
-    public final Map<String, String> XD = new ConcurrentHashMap();
+    public final Map XD = new ConcurrentHashMap();
 
     public static p tE() {
         if (YV == null) {
@@ -27,6 +27,6 @@ public class p {
     }
 
     public final String bW(String str) {
-        return this.XD.get(str);
+        return (String) this.XD.get(str);
     }
 }

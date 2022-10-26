@@ -1,6 +1,5 @@
 package org.apache.commons.codec.digest4util;
 
-import android.annotation.SuppressLint;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.arplay.core.message.ARPMessageType;
@@ -51,6 +50,23 @@ public class UnixCrypt {
         SPTRANS = new int[][]{new int[]{8520192, 131072, -2139095040, -2138963456, 8388608, -2147352064, -2147352576, -2139095040, -2147352064, 8520192, 8519680, -2147483136, -2139094528, 8388608, 0, -2147352576, 131072, Integer.MIN_VALUE, 8389120, 131584, -2138963456, 8519680, -2147483136, 8389120, Integer.MIN_VALUE, 512, 131584, -2138963968, 512, -2139094528, -2138963968, 0, 0, -2138963456, 8389120, -2147352576, 8520192, 131072, -2147483136, 8389120, -2138963968, 512, 131584, -2139095040, -2147352064, Integer.MIN_VALUE, -2139095040, 8519680, -2138963456, 131584, 8519680, -2139094528, 8388608, -2147483136, -2147352576, 0, 131072, 8388608, -2139094528, 8520192, Integer.MIN_VALUE, -2138963968, 512, -2147352064}, new int[]{268705796, 0, 270336, 268697600, 268435460, 8196, 268443648, 270336, 8192, 268697604, 4, 268443648, 262148, 268705792, 268697600, 4, 262144, 268443652, 268697604, 8192, 270340, LaunchTaskConstants.OTHER_PROCESS, 0, 262148, 268443652, 270340, 268705792, 268435460, LaunchTaskConstants.OTHER_PROCESS, 262144, 8196, 268705796, 262148, 268705792, 268443648, 270340, 268705796, 262148, 268435460, 0, LaunchTaskConstants.OTHER_PROCESS, 8196, 262144, 268697604, 8192, LaunchTaskConstants.OTHER_PROCESS, 270340, 268443652, 268705792, 8192, 0, 268435460, 4, 268705796, 270336, 268697600, 268697604, 262144, 8196, 268443648, 268443652, 4, 268697600, 270336}, new int[]{1090519040, 16842816, 64, 1090519104, 1073807360, 16777216, 1090519104, 65600, 16777280, 65536, 16842752, 1073741824, 1090584640, 1073741888, 1073741824, 1090584576, 0, 1073807360, 16842816, 64, 1073741888, 1090584640, 65536, 1090519040, 1090584576, 16777280, 1073807424, 16842752, 65600, 0, 16777216, 1073807424, 16842816, 64, 1073741824, 65536, 1073741888, 1073807360, 16842752, 1090519104, 0, 16842816, 65600, 1090584576, 1073807360, 16777216, 1090584640, 1073741824, 1073807424, 1090519040, 16777216, 1090584640, 65536, 16777280, 1090519104, 65600, 16777280, 0, 1090584576, 1073741888, 1090519040, 1073807424, 64, 16842752}, new int[]{1049602, 67109888, 2, 68158466, 0, 68157440, 67109890, Constants.METHOD_SEND_USER_MSG, 68158464, 67108866, CodedInputStream.DEFAULT_SIZE_LIMIT, 1026, 67108866, 1049602, 1048576, CodedInputStream.DEFAULT_SIZE_LIMIT, 68157442, 1049600, 1024, 2, 1049600, 67109890, 68157440, 1024, 1026, 0, Constants.METHOD_SEND_USER_MSG, 68158464, 67109888, 68157442, 68158466, 1048576, 68157442, 1026, 1048576, 67108866, 1049600, 67109888, 2, 68157440, 67109890, 0, 1024, Constants.METHOD_SEND_USER_MSG, 0, 68157442, 68158464, 1024, CodedInputStream.DEFAULT_SIZE_LIMIT, 68158466, 1049602, 1048576, 68158466, 2, 67109888, 1049602, Constants.METHOD_SEND_USER_MSG, 1049600, 68157440, 67109890, 1026, CodedInputStream.DEFAULT_SIZE_LIMIT, 67108866, 68158464}, new int[]{33554432, 16384, 256, 33571080, 33570824, 33554688, 16648, 33570816, 16384, 8, 33554440, 16640, 33554696, 33570824, 33571072, 0, 16640, 33554432, 16392, 264, 33554688, 16648, 0, 33554440, 8, 33554696, 33571080, 16392, 33570816, 256, 264, 33571072, 33571072, 33554696, 16392, 33570816, 16384, 8, 33554440, 33554688, 33554432, 16640, 33571080, 0, 16648, 33554432, 256, 16392, 33554696, 256, 0, 33571080, 33570824, 33571072, 264, 16384, 16640, 33570824, 33554688, 264, 8, 16648, 33570816, 33554440}, new int[]{536870928, 524304, 0, 537397248, 524304, 2048, 536872976, 524288, 2064, 537397264, 526336, NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH, 536872960, 536870928, 537395200, 526352, 524288, 536872976, 537395216, 0, 2048, 16, 537397248, 537395216, 537397264, 537395200, NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH, 2064, 16, 526336, 526352, 536872960, 2064, NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH, 536872960, 526352, 537397248, 524304, 0, 536872960, NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH, 2048, 537395216, 524288, 524304, 537397264, 526336, 16, 537397264, 526336, 524288, 536872976, 536870928, 537395200, 526352, 0, 2048, 536870928, 536872976, 537397248, 537395200, 2064, 16, 537395216}, new int[]{4096, 128, 4194432, 4194305, 4198529, 4097, 4224, 0, 4194304, 4194433, 129, 4198400, 1, 4198528, 4198400, 129, 4194433, 4096, 4097, 4198529, 0, 4194432, 4194305, 4224, 4198401, 4225, 4198528, 1, 4225, 4198401, 128, 4194304, 4225, 4198400, 4198401, 129, 4096, 128, 4194304, 4198401, 4194433, 4225, 4224, 0, 128, 4194305, 1, 4194432, 0, 4194433, 4194432, 4224, 129, 4096, 4198529, 4194304, 4198528, 1, 4097, 4198529, 4194305, 4198528, 4198400, 4097}, new int[]{136314912, 136347648, 32800, 0, 134250496, 2097184, 136314880, 136347680, 32, 134217728, 2129920, 32800, 2129952, 134250528, 134217760, 136314880, 32768, 2129952, 2097184, 134250496, 136347680, 134217760, 0, 2129920, 134217728, 2097152, 134250528, 136314912, 2097152, 32768, 136347648, 32, 2097152, 32768, 134217760, 136347680, 32800, 134217728, 0, 2129920, 136314912, 134250528, 134250496, 2097184, 136347648, 32, 2097184, 134250496, 136347680, 2097152, 136314880, 134217760, 2129920, 32800, 134250528, 136314880, 32, 136347648, 2129952, 0, 134217728, 136314912, 32768, 2129952}};
     }
 
+    public static int byteToUnsigned(byte b) {
+        InterceptResult invokeB;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeB = interceptable.invokeB(65539, null, b)) == null) ? b < 0 ? b + 256 : b : invokeB.intValue;
+    }
+
+    public static int hPermOp(int i, int i2, int i3) {
+        InterceptResult invokeIII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(65547, null, i, i2, i3)) == null) {
+            int i4 = 16 - i2;
+            int i5 = i3 & ((i << i4) ^ i);
+            return (i ^ i5) ^ (i5 >>> i4);
+        }
+        return invokeIII.intValue;
+    }
+
     public UnixCrypt() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -94,16 +110,89 @@ public class UnixCrypt {
         return (int[]) invokeLII.objValue;
     }
 
-    public static int byteToUnsigned(byte b) {
-        InterceptResult invokeB;
+    public static String crypt(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeB = interceptable.invokeB(65539, null, b)) == null) ? b < 0 ? b + 256 : b : invokeB.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            return crypt(str.getBytes(Charsets.UTF_8));
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String crypt(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
+            return crypt(str.getBytes(Charsets.UTF_8), str2);
+        }
+        return (String) invokeLL.objValue;
     }
 
     public static String crypt(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bArr)) == null) ? crypt(bArr, (String) null) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bArr)) == null) {
+            return crypt(bArr, (String) null);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:44:0x00ac */
+    public static String crypt(byte[] bArr, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, bArr, str)) == null) {
+            if (str == null) {
+                Random random = new Random();
+                int length = SALT_CHARS.length;
+                str = "" + SALT_CHARS[random.nextInt(length)] + SALT_CHARS[random.nextInt(length)];
+            } else if (!str.matches("^[./0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz]{2,}$")) {
+                throw new IllegalArgumentException("Invalid salt value: " + str);
+            }
+            StringBuilder sb = new StringBuilder("             ");
+            char charAt = str.charAt(0);
+            char charAt2 = str.charAt(1);
+            sb.setCharAt(0, charAt);
+            sb.setCharAt(1, charAt2);
+            int[] iArr = CON_SALT;
+            int i = iArr[charAt];
+            int i2 = iArr[charAt2] << 4;
+            byte[] bArr2 = new byte[8];
+            for (int i3 = 0; i3 < 8; i3++) {
+                bArr2[i3] = 0;
+            }
+            for (int i4 = 0; i4 < 8 && i4 < bArr.length; i4++) {
+                bArr2[i4] = (byte) (bArr[i4] << 1);
+            }
+            int[] body = body(desSetKey(bArr2), i, i2);
+            byte[] bArr3 = new byte[9];
+            intToFourBytes(body[0], bArr3, 0);
+            intToFourBytes(body[1], bArr3, 4);
+            bArr3[8] = 0;
+            int i5 = 0;
+            int i6 = 128;
+            for (int i7 = 2; i7 < 13; i7++) {
+                int i8 = 0;
+                int i9 = 0;
+                i6 = i6;
+                while (i8 < 6) {
+                    i9 <<= 1;
+                    if ((bArr3[i5] & i6) != 0) {
+                        i9 |= 1;
+                    }
+                    int i10 = i6 >>> 1;
+                    if (i10 == 0) {
+                        i5++;
+                        i10 = 128;
+                    }
+                    sb.setCharAt(i7, (char) COV2CHAR[i9]);
+                    i8++;
+                    i6 = i10;
+                }
+            }
+            return sb.toString();
+        }
+        return (String) invokeLL.objValue;
     }
 
     public static int dEncrypt(int i, int i2, int i3, int i4, int i5, int[] iArr) {
@@ -179,17 +268,6 @@ public class UnixCrypt {
         return invokeLI.intValue;
     }
 
-    public static int hPermOp(int i, int i2, int i3) {
-        InterceptResult invokeIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(65547, null, i, i2, i3)) == null) {
-            int i4 = 16 - i2;
-            int i5 = i3 & ((i << i4) ^ i);
-            return (i ^ i5) ^ (i5 >>> i4);
-        }
-        return invokeIII.intValue;
-    }
-
     public static void intToFourBytes(int i, byte[] bArr, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65548, null, new Object[]{Integer.valueOf(i), bArr, Integer.valueOf(i2)}) == null) {
@@ -209,76 +287,5 @@ public class UnixCrypt {
             iArr[0] = i ^ (i5 << i3);
             iArr[1] = i2 ^ i5;
         }
-    }
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:44:0x00ac */
-    @SuppressLint({"BDThrowableCheck"})
-    public static String crypt(byte[] bArr, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, bArr, str)) == null) {
-            if (str == null) {
-                Random random = new Random();
-                int length = SALT_CHARS.length;
-                str = "" + SALT_CHARS[random.nextInt(length)] + SALT_CHARS[random.nextInt(length)];
-            } else if (!str.matches("^[./0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz]{2,}$")) {
-                throw new IllegalArgumentException("Invalid salt value: " + str);
-            }
-            StringBuilder sb = new StringBuilder("             ");
-            char charAt = str.charAt(0);
-            char charAt2 = str.charAt(1);
-            sb.setCharAt(0, charAt);
-            sb.setCharAt(1, charAt2);
-            int[] iArr = CON_SALT;
-            int i = iArr[charAt];
-            int i2 = iArr[charAt2] << 4;
-            byte[] bArr2 = new byte[8];
-            for (int i3 = 0; i3 < 8; i3++) {
-                bArr2[i3] = 0;
-            }
-            for (int i4 = 0; i4 < 8 && i4 < bArr.length; i4++) {
-                bArr2[i4] = (byte) (bArr[i4] << 1);
-            }
-            int[] body = body(desSetKey(bArr2), i, i2);
-            byte[] bArr3 = new byte[9];
-            intToFourBytes(body[0], bArr3, 0);
-            intToFourBytes(body[1], bArr3, 4);
-            bArr3[8] = 0;
-            int i5 = 0;
-            int i6 = 128;
-            for (int i7 = 2; i7 < 13; i7++) {
-                int i8 = 0;
-                int i9 = 0;
-                i6 = i6;
-                while (i8 < 6) {
-                    i9 <<= 1;
-                    if ((bArr3[i5] & i6) != 0) {
-                        i9 |= 1;
-                    }
-                    int i10 = i6 >>> 1;
-                    if (i10 == 0) {
-                        i5++;
-                        i10 = 128;
-                    }
-                    sb.setCharAt(i7, (char) COV2CHAR[i9]);
-                    i8++;
-                    i6 = i10;
-                }
-            }
-            return sb.toString();
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String crypt(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? crypt(str.getBytes(Charsets.UTF_8)) : (String) invokeL.objValue;
-    }
-
-    public static String crypt(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) ? crypt(str.getBytes(Charsets.UTF_8), str2) : (String) invokeLL.objValue;
     }
 }

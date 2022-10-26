@@ -1,124 +1,144 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.openadsdk.AdSlot;
+import com.bytedance.sdk.openadsdk.TTAdNative;
+import com.bytedance.sdk.openadsdk.TTAdSdk;
+import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.FunAdSlot;
 import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.internal.api.PidLoader;
-import com.fun.ad.sdk.internal.api.PidLoaderCreator;
 import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class rn9 implements PidLoaderCreator {
+public class rn9 extends an9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public rn9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public rn9(Ssp.Pid pid) {
+        super(FunAdType.obtainType(pid, FunAdType.AdType.INTERSTITIAL), pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    @Override // com.fun.ad.sdk.internal.api.PidLoaderCreator
-    public PidLoader create(Ssp.Pid pid) {
-        InterceptResult invokeL;
-        char c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) {
-            String str = pid.type;
-            str.hashCode();
-            switch (str.hashCode()) {
-                case -1303381232:
-                    if (str.equals(FunAdType.GDT_NATIVE_EXPRESS2)) {
-                        c = 0;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -942661506:
-                    if (str.equals(FunAdType.GDT_SPLASH)) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -596233886:
-                    if (str.equals(FunAdType.GDT_NATIVE_EXPRESS)) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 114133351:
-                    if (str.equals(FunAdType.GDT_UNIFIED_BANNER)) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 125016359:
-                    if (str.equals(FunAdType.GDT_UNIFIED_INTERSTITIAL)) {
-                        c = 4;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 425812868:
-                    if (str.equals(FunAdType.GDT_NATIVE_UNIFIED)) {
-                        c = 5;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 543046357:
-                    if (str.equals(FunAdType.GDT_REWARD_VIDEO)) {
-                        c = 6;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1990506825:
-                    if (str.equals(FunAdType.GDT_FULLSCREEN_VIDEO)) {
-                        c = 7;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
+    /* loaded from: classes5.dex */
+    public class a implements TTAdNative.NativeExpressAdListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ FunAdSlot a;
+        public final /* synthetic */ rn9 b;
+
+        public a(rn9 rn9Var, FunAdSlot funAdSlot) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rn9Var, funAdSlot};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            switch (c) {
-                case 0:
-                    return new wn9(pid);
-                case 1:
-                    return new fo9(pid);
-                case 2:
-                    return new zn9(pid);
-                case 3:
-                    return new go9(pid);
-                case 4:
-                    return new ho9(pid);
-                case 5:
-                    return new bo9(pid);
-                case 6:
-                    return new eo9(pid);
-                case 7:
-                    return new vn9(pid);
-                default:
-                    return null;
+            this.b = rn9Var;
+            this.a = funAdSlot;
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.NativeExpressAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
+        public void onError(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                LogPrinter.e("onError code: " + i + ", message: " + str, new Object[0]);
+                this.b.onError(i, str);
             }
         }
-        return (PidLoader) invokeL.objValue;
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.NativeExpressAdListener
+        public void onNativeExpressAdLoad(List list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+                LogPrinter.d();
+                if (list != null && !list.isEmpty()) {
+                    TTNativeExpressAd tTNativeExpressAd = (TTNativeExpressAd) list.get(0);
+                    rn9 rn9Var = this.b;
+                    nn9 nn9Var = new nn9(tTNativeExpressAd);
+                    this.a.getSid();
+                    rn9Var.getClass();
+                    tTNativeExpressAd.setExpressInteractionListener((TTNativeExpressAd.AdInteractionListener) new un9(rn9Var, nn9Var));
+                    tTNativeExpressAd.render();
+                    return;
+                }
+                LogPrinter.e("onNativeExpressAdLoad error: adList is null or empty", new Object[0]);
+                this.b.onError(0, "NoFill");
+            }
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void destroyInternal(Object obj) {
+        nn9 nn9Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && (nn9Var = (nn9) obj) != null) {
+            ((TTNativeExpressAd) nn9Var.a).destroy();
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void loadInternal(Context context, FunAdSlot funAdSlot) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, funAdSlot) == null) {
+            if (this.e == null) {
+                this.e = TTAdSdk.getAdManager().createAdNative(context.getApplicationContext());
+            }
+            int expressWidth = funAdSlot.getExpressWidth();
+            int expressHeight = funAdSlot.getExpressHeight();
+            if (expressWidth == 0 && expressHeight == 0 && FunAdSdk.isLogEnabled()) {
+                throw new RuntimeException("Invalid expressWidth and expressHeight.");
+            }
+            AdSlot build = new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true).setAdCount(1).setExpressViewAcceptedSize(expressWidth, expressHeight).build();
+            onLoadStart(funAdSlot);
+            this.e.loadInteractionExpressAd(build, new a(this, funAdSlot));
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, activity, viewGroup, str, obj)) == null) {
+            nn9 nn9Var = (nn9) obj;
+            onShowStart(nn9Var);
+            ((TTNativeExpressAd) nn9Var.a).setDownloadListener(new sm9(null));
+            ((TTNativeExpressAd) nn9Var.a).showInteractionExpressAd(activity);
+            return true;
+        }
+        return invokeLLLL.booleanValue;
     }
 }

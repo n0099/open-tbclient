@@ -70,6 +70,58 @@ public class SampleSizeBox extends AbstractFullBox {
         this.sampleSizes = new long[0];
     }
 
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public long getContentSize() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.sampleSize == 0) {
+                i = this.sampleSizes.length * 4;
+            } else {
+                i = 0;
+            }
+            return i + 12;
+        }
+        return invokeV.longValue;
+    }
+
+    public long getSampleCount() {
+        InterceptResult invokeV;
+        int length;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_3, this, this));
+            if (this.sampleSize > 0) {
+                length = this.sampleCount;
+            } else {
+                length = this.sampleSizes.length;
+            }
+            return length;
+        }
+        return invokeV.longValue;
+    }
+
+    public long getSampleSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
+            return this.sampleSize;
+        }
+        return invokeV.longValue;
+    }
+
+    public long[] getSampleSizes() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_4, this, this));
+            return this.sampleSizes;
+        }
+        return (long[]) invokeV.objValue;
+    }
+
     public static /* synthetic */ void ajc$preClinit() {
         Factory factory = new Factory("SampleSizeBox.java", SampleSizeBox.class);
         ajc$tjp_0 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getSampleSize", "com.coremedia.iso.boxes.SampleSizeBox", "", "", "", "long"), 50);
@@ -115,61 +167,18 @@ public class SampleSizeBox extends AbstractFullBox {
         }
     }
 
-    @Override // com.googlecode.mp4parser.AbstractBox
-    public long getContentSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return (this.sampleSize == 0 ? this.sampleSizes.length * 4 : 0) + 12;
-        }
-        return invokeV.longValue;
-    }
-
-    public long getSampleCount() {
-        InterceptResult invokeV;
-        int length;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_3, this, this));
-            if (this.sampleSize > 0) {
-                length = this.sampleCount;
-            } else {
-                length = this.sampleSizes.length;
-            }
-            return length;
-        }
-        return invokeV.longValue;
-    }
-
-    public long getSampleSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
-            return this.sampleSize;
-        }
-        return invokeV.longValue;
-    }
-
     public long getSampleSizeAtIndex(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this, Conversions.intObject(i)));
             long j = this.sampleSize;
-            return j > 0 ? j : this.sampleSizes[i];
+            if (j > 0) {
+                return j;
+            }
+            return this.sampleSizes[i];
         }
         return invokeI.longValue;
-    }
-
-    public long[] getSampleSizes() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_4, this, this));
-            return this.sampleSizes;
-        }
-        return (long[]) invokeV.objValue;
     }
 
     public void setSampleSize(long j) {

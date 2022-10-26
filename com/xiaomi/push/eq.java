@@ -1,6 +1,5 @@
 package com.xiaomi.push;
 
-import android.annotation.SuppressLint;
 import android.app.Notification;
 import android.content.Context;
 import android.content.res.Resources;
@@ -16,7 +15,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-@SuppressLint({"NewApi"})
 /* loaded from: classes8.dex */
 public class eq extends Notification.Builder {
     public static /* synthetic */ Interceptable $ic;
@@ -101,7 +99,7 @@ public class eq extends Notification.Builder {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public eq m313a(String str) {
+    public eq m312a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
@@ -117,14 +115,14 @@ public class eq extends Notification.Builder {
         return (eq) invokeL.objValue;
     }
 
-    public eq a(Map<String, String> map) {
+    public eq a(Map map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, map)) == null) ? this : (eq) invokeL.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m314a() {
+    public void m313a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
         }
@@ -135,7 +133,7 @@ public class eq extends Notification.Builder {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            m314a();
+            m313a();
             return super.build();
         }
         return (Notification) invokeV.objValue;

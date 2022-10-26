@@ -94,12 +94,28 @@ public class w2 implements f2, MediaPlayer.OnCompletionListener {
         return invokeV.booleanValue;
     }
 
+    public void pause() {
+        MediaPlayer mediaPlayer;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || (mediaPlayer = this.b) == null) {
+            return;
+        }
+        try {
+            if (mediaPlayer.isPlaying()) {
+                this.b.pause();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        this.d = false;
+    }
+
     /* JADX WARN: Type inference failed for: r1v0, types: [android.media.MediaPlayer, com.baidu.tieba.f2$a] */
     @Override // com.baidu.tieba.i7
     public void dispose() {
         MediaPlayer mediaPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (mediaPlayer = this.b) == null) {
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (mediaPlayer = this.b) == null) {
             return;
         }
         try {
@@ -118,7 +134,7 @@ public class w2 implements f2, MediaPlayer.OnCompletionListener {
     public void f() {
         MediaPlayer mediaPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (mediaPlayer = this.b) == null) {
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || (mediaPlayer = this.b) == null) {
             return;
         }
         try {
@@ -144,25 +160,8 @@ public class w2 implements f2, MediaPlayer.OnCompletionListener {
     @Override // android.media.MediaPlayer.OnCompletionListener
     public void onCompletion(MediaPlayer mediaPlayer) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, mediaPlayer) == null) || this.e == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, mediaPlayer) == null) && this.e != null) {
+            f1.a.postRunnable(new a(this));
         }
-        f1.a.postRunnable(new a(this));
-    }
-
-    public void pause() {
-        MediaPlayer mediaPlayer;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (mediaPlayer = this.b) == null) {
-            return;
-        }
-        try {
-            if (mediaPlayer.isPlaying()) {
-                this.b.pause();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        this.d = false;
     }
 }

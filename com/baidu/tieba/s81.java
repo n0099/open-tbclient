@@ -1,94 +1,106 @@
 package com.baidu.tieba;
 
-import android.content.res.Resources;
-import android.util.Log;
+import android.os.Build;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.interfa.IResourcesFetcher;
-import com.baidu.nps.interfa.IResourcesFetcher_ResourcesFetcherManager_Provider;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.nps.interfa.IPrivateReflectAbility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 /* loaded from: classes5.dex */
 public class s81 {
     public static /* synthetic */ Interceptable $ic;
-    public static s81 b;
     public transient /* synthetic */ FieldHolder $fh;
-    @Inject
-    public se1<IResourcesFetcher> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948105181, "Lcom/baidu/tieba/s81;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public class a implements IPrivateReflectAbility {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948105181, "Lcom/baidu/tieba/s81;");
-                return;
-            }
-        }
-        b = new s81();
-    }
-
-    public s81() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        e();
-    }
 
-    public static s81 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (s81) invokeV.objValue;
-    }
-
-    public Resources a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (q91.a()) {
-                Log.i("NPS-ResourcesFetcher", "resourcesFetcherHolder class=" + this.a.getClass());
+        @Override // com.baidu.nps.interfa.IPrivateReflectAbility
+        public Class forName(String str) throws ClassNotFoundException {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                return x91.a(str);
             }
-            return this.a.get().getBaseContextResources();
+            return (Class) invokeL.objValue;
         }
-        return (Resources) invokeV.objValue;
+
+        @Override // com.baidu.nps.interfa.IPrivateReflectAbility
+        public Field getField(Class cls, String str) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls, str)) == null) {
+                return x91.b(cls, str);
+            }
+            return (Field) invokeLL.objValue;
+        }
+
+        @Override // com.baidu.nps.interfa.IPrivateReflectAbility
+        public Method getMethod(Class cls, String str, Class... clsArr) {
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, cls, str, clsArr)) == null) {
+                return x91.c(cls, str, clsArr);
+            }
+            return (Method) invokeLLL.objValue;
+        }
     }
 
-    public Resources b() {
+    public static Class a(String str) throws ClassNotFoundException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            return c().forName(str);
+        }
+        return (Class) invokeL.objValue;
+    }
+
+    public static Method b(Class cls, String str, Class... clsArr) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, cls, str, clsArr)) == null) {
+            return c().getMethod(cls, str, clsArr);
+        }
+        return (Method) invokeLLL.objValue;
+    }
+
+    public static IPrivateReflectAbility c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.get().getGlobalResources() : (Resources) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new a();
+        }
+        return (IPrivateReflectAbility) invokeV.objValue;
     }
 
-    public Resources[] d() {
+    public static boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.get().getWrapperResources() : (Resources[]) invokeV.objValue;
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            qe1 b2 = qe1.b();
-            this.a = b2;
-            b2.a(new IResourcesFetcher_ResourcesFetcherManager_Provider());
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if ((c() instanceof a) && Build.VERSION.SDK_INT >= 28) {
+                return false;
+            }
+            return true;
         }
+        return invokeV.booleanValue;
     }
 }

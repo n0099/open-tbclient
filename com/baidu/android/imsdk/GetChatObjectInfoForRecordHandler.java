@@ -38,6 +38,19 @@ public abstract class GetChatObjectInfoForRecordHandler {
         }
     }
 
+    public abstract void getChatObjectInfo(long j, CallBack callBack);
+
+    public boolean getChatObjectInfoSync(Context context, long j, CallBack callBack) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, Long.valueOf(j), callBack})) == null) {
+            return false;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public abstract void updateChatRecord(ChatObject chatObject, int i, int i2, Object obj);
+
     public GetChatObjectInfoForRecordHandler(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -56,30 +69,6 @@ public abstract class GetChatObjectInfoForRecordHandler {
         this.mContext = context;
     }
 
-    public void deleteUUid() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            DBManager.getInstance(this.mContext).deleteCmdMsg(this.mUuid);
-        }
-    }
-
-    public abstract void getChatObjectInfo(long j, CallBack callBack);
-
-    public boolean getChatObjectInfoSync(Context context, long j, CallBack callBack) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, Long.valueOf(j), callBack})) == null) {
-            return false;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public String getUuid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mUuid : (String) invokeV.objValue;
-    }
-
     public void setUuid(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
@@ -87,18 +76,7 @@ public abstract class GetChatObjectInfoForRecordHandler {
         }
     }
 
-    public abstract void updateChatRecord(ChatObject chatObject, int i, int i2, Object obj);
-
-    public void updateChatRecord(ChatObject chatObject, String str, int i, String str2, int i2, String str3, String str4, int i3, int i4, long j, int i5, long j2, String str5, String str6, String str7) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{chatObject, str, Integer.valueOf(i), str2, Integer.valueOf(i2), str3, str4, Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j), Integer.valueOf(i5), Long.valueOf(j2), str5, str6, str7}) == null) {
-            Object[] objArr = {this.mContext, chatObject, str, Integer.valueOf(i), str2, Integer.valueOf(i2), str3, str4, Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j), Integer.valueOf(i5), Long.valueOf(j2), str5, str6, str7};
-            Class<?> cls = Integer.TYPE;
-            updateChatRecord("com.baidu.android.imsdk.chatmessage.ChatMsgManager", "createChatSession", new Class[]{Context.class, ChatObject.class, String.class, cls, String.class, cls, String.class, String.class, cls, cls, Long.TYPE, Integer.TYPE, Long.TYPE, String.class, String.class, String.class}, objArr);
-        }
-    }
-
-    private void updateChatRecord(String str, String str2, Class<?>[] clsArr, Object[] objArr) {
+    private void updateChatRecord(String str, String str2, Class[] clsArr, Object[] objArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65538, this, str, str2, clsArr, objArr) == null) {
             Class<?> cls = null;
@@ -117,6 +95,31 @@ public abstract class GetChatObjectInfoForRecordHandler {
                 LogUtils.e(LogUtils.TAG, "Exception ", e);
                 new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
             }
+        }
+    }
+
+    public void deleteUUid() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            DBManager.getInstance(this.mContext).deleteCmdMsg(this.mUuid);
+        }
+    }
+
+    public String getUuid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mUuid;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void updateChatRecord(ChatObject chatObject, String str, int i, String str2, int i2, String str3, String str4, int i3, int i4, long j, int i5, long j2, String str5, String str6, String str7) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{chatObject, str, Integer.valueOf(i), str2, Integer.valueOf(i2), str3, str4, Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j), Integer.valueOf(i5), Long.valueOf(j2), str5, str6, str7}) == null) {
+            Object[] objArr = {this.mContext, chatObject, str, Integer.valueOf(i), str2, Integer.valueOf(i2), str3, str4, Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j), Integer.valueOf(i5), Long.valueOf(j2), str5, str6, str7};
+            Class cls = Integer.TYPE;
+            updateChatRecord("com.baidu.android.imsdk.chatmessage.ChatMsgManager", "createChatSession", new Class[]{Context.class, ChatObject.class, String.class, cls, String.class, cls, String.class, String.class, cls, cls, Long.TYPE, Integer.TYPE, Long.TYPE, String.class, String.class, String.class}, objArr);
         }
     }
 }

@@ -37,10 +37,9 @@ public class ThreadPublishHttpResMeesage extends TbHttpResponsedMessage {
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         ThreadPublishResIdl threadPublishResIdl;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (threadPublishResIdl = (ThreadPublishResIdl) new Wire(new Class[0]).parseFrom(bArr, ThreadPublishResIdl.class)) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) && (threadPublishResIdl = (ThreadPublishResIdl) new Wire(new Class[0]).parseFrom(bArr, ThreadPublishResIdl.class)) != null) {
+            setError(threadPublishResIdl.error.errorno.intValue());
+            setErrorString(threadPublishResIdl.error.usermsg);
         }
-        setError(threadPublishResIdl.error.errorno.intValue());
-        setErrorString(threadPublishResIdl.error.usermsg);
     }
 }

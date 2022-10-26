@@ -6,6 +6,9 @@ public class b implements com.ss.android.socialbase.downloader.downloader.g {
         if (lVar.ordinal() <= com.ss.android.socialbase.downloader.network.l.MODERATE.ordinal()) {
             return 1;
         }
-        return lVar == com.ss.android.socialbase.downloader.network.l.GOOD ? i - 1 : i;
+        if (lVar == com.ss.android.socialbase.downloader.network.l.GOOD) {
+            return i - 1;
+        }
+        return i;
     }
 }

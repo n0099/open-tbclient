@@ -102,6 +102,9 @@ public class ImageFormatCheckerUtils {
     public static boolean startsWithPattern(byte[] bArr, byte[] bArr2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, bArr2)) == null) ? hasPatternAt(bArr, bArr2, 0) : invokeLL.booleanValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, bArr2)) == null) {
+            return hasPatternAt(bArr, bArr2, 0);
+        }
+        return invokeLL.booleanValue;
     }
 }

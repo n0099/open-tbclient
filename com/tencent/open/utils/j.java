@@ -31,94 +31,16 @@ public final class j {
 
     /* renamed from: com.tencent.open.utils.j$1  reason: invalid class name */
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-2036590800, "Lcom/tencent/open/utils/j;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-2036590800, "Lcom/tencent/open/utils/j;");
-                return;
-            }
-        }
-        b = new Object();
-        a = c();
-    }
-
-    public j() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static Handler a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (c == null) {
-                synchronized (j.class) {
-                    HandlerThread handlerThread = new HandlerThread("SDK_SUB");
-                    d = handlerThread;
-                    handlerThread.start();
-                    c = new Handler(d.getLooper());
-                }
-            }
-            return c;
-        }
-        return (Handler) invokeV.objValue;
-    }
-
-    public static Executor b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? new a(null) : (Executor) invokeV.objValue;
-    }
-
-    public static Executor c() {
-        InterceptResult invokeV;
-        Executor threadPoolExecutor;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 11) {
-                threadPoolExecutor = new ThreadPoolExecutor(1, 1, 0L, TimeUnit.SECONDS, new LinkedBlockingQueue());
-            } else {
-                try {
-                    Field declaredField = AsyncTask.class.getDeclaredField("sExecutor");
-                    declaredField.setAccessible(true);
-                    threadPoolExecutor = (Executor) declaredField.get(null);
-                } catch (Exception unused) {
-                    threadPoolExecutor = new ThreadPoolExecutor(1, 1, 0L, TimeUnit.SECONDS, new LinkedBlockingQueue());
-                }
-            }
-            if (threadPoolExecutor instanceof ThreadPoolExecutor) {
-                ((ThreadPoolExecutor) threadPoolExecutor).setCorePoolSize(3);
-            }
-            return threadPoolExecutor;
-        }
-        return (Executor) invokeV.objValue;
     }
 
     /* loaded from: classes8.dex */
-    public static class a implements Executor {
+    public class a implements Executor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Queue<Runnable> a;
+        public final Queue a;
         public Runnable b;
 
         public a() {
@@ -141,13 +63,17 @@ public final class j {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 synchronized (this) {
-                    Runnable poll = this.a.poll();
-                    this.b = poll;
-                    if (poll != null) {
-                        j.a.execute(poll);
+                    Runnable runnable = (Runnable) this.a.poll();
+                    this.b = runnable;
+                    if (runnable != null) {
+                        j.a.execute(runnable);
                     }
                 }
             }
+        }
+
+        public /* synthetic */ a(AnonymousClass1 anonymousClass1) {
+            this();
         }
 
         @Override // java.util.concurrent.Executor
@@ -198,10 +124,63 @@ public final class j {
                 }
             }
         }
+    }
 
-        public /* synthetic */ a(AnonymousClass1 anonymousClass1) {
-            this();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-2036590800, "Lcom/tencent/open/utils/j;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-2036590800, "Lcom/tencent/open/utils/j;");
+                return;
+            }
         }
+        b = new Object();
+        a = c();
+    }
+
+    public j() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static Executor b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return new a(null);
+        }
+        return (Executor) invokeV.objValue;
+    }
+
+    public static Handler a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (c == null) {
+                synchronized (j.class) {
+                    HandlerThread handlerThread = new HandlerThread("SDK_SUB");
+                    d = handlerThread;
+                    handlerThread.start();
+                    c = new Handler(d.getLooper());
+                }
+            }
+            return c;
+        }
+        return (Handler) invokeV.objValue;
     }
 
     public static void a(Runnable runnable) {
@@ -209,5 +188,29 @@ public final class j {
         if (interceptable == null || interceptable.invokeL(65539, null, runnable) == null) {
             a().post(runnable);
         }
+    }
+
+    public static Executor c() {
+        InterceptResult invokeV;
+        Executor threadPoolExecutor;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (Build.VERSION.SDK_INT >= 11) {
+                threadPoolExecutor = new ThreadPoolExecutor(1, 1, 0L, TimeUnit.SECONDS, new LinkedBlockingQueue());
+            } else {
+                try {
+                    Field declaredField = AsyncTask.class.getDeclaredField("sExecutor");
+                    declaredField.setAccessible(true);
+                    threadPoolExecutor = (Executor) declaredField.get(null);
+                } catch (Exception unused) {
+                    threadPoolExecutor = new ThreadPoolExecutor(1, 1, 0L, TimeUnit.SECONDS, new LinkedBlockingQueue());
+                }
+            }
+            if (threadPoolExecutor instanceof ThreadPoolExecutor) {
+                ((ThreadPoolExecutor) threadPoolExecutor).setCorePoolSize(3);
+            }
+            return threadPoolExecutor;
+        }
+        return (Executor) invokeV.objValue;
     }
 }

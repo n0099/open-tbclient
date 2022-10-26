@@ -5,10 +5,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.common.internal.DoNotStrip;
 import com.facebook.soloader.SoLoader;
 import java.io.IOException;
-@DoNotStrip
 /* loaded from: classes7.dex */
 public class NativeCodeInitializer {
     public static /* synthetic */ Interceptable $ic;
@@ -28,7 +26,6 @@ public class NativeCodeInitializer {
         }
     }
 
-    @DoNotStrip
     public static void init(Context context) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {

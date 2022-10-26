@@ -68,7 +68,7 @@ public abstract class WebViewFactoryProvider {
     public static final Boolean SETTING_URL_SAFE_CHECK_VALUE;
     public static final int STATIC_SETTING_SIZE = 16;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, Object> mStaticWebSettings;
+    public HashMap mStaticWebSettings;
 
     /* loaded from: classes6.dex */
     public interface SettingsStatics {
@@ -419,7 +419,7 @@ public abstract class WebViewFactoryProvider {
     public interface Statics {
         int AdBlockInit(String str, boolean z);
 
-        void addToWebCache(String str, boolean z, boolean z2, Map<String, String> map, boolean z3);
+        void addToWebCache(String str, boolean z, boolean z2, Map map, boolean z3);
 
         void addVirtualMemoryListener(WebView.IVirtualMemoryListener iVirtualMemoryListener);
 
@@ -439,7 +439,7 @@ public abstract class WebViewFactoryProvider {
 
         void freeMemoryForTests();
 
-        HashMap<String, Long> getCurrentSystemInfraInfo();
+        HashMap getCurrentSystemInfraInfo();
 
         String getDefaultUserAgent(Context context);
 
@@ -461,9 +461,9 @@ public abstract class WebViewFactoryProvider {
 
         void preconnectUrl(String str, int i);
 
-        void prefetch(String str, Map<String, String> map, WebView.MainResourcePrefetchListener mainResourcePrefetchListener);
+        void prefetch(String str, Map map, WebView.MainResourcePrefetchListener mainResourcePrefetchListener);
 
-        void prefetchResource(String str, String[] strArr, Map<String, String> map);
+        void prefetchResource(String str, String[] strArr, Map map);
 
         void removeFromWebCache(String str);
 
@@ -680,7 +680,7 @@ public abstract class WebViewFactoryProvider {
 
     public Object getStaticWebSeting(String str) {
         InterceptResult invokeL;
-        HashMap<String, Object> hashMap;
+        HashMap hashMap;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
             if (TextUtils.isEmpty(str) || (hashMap = this.mStaticWebSettings) == null || !hashMap.containsKey(str)) {
@@ -819,7 +819,7 @@ public abstract class WebViewFactoryProvider {
     }
 
     public void setStaticWebSeting(String str, Object obj) {
-        HashMap<String, Object> hashMap;
+        HashMap hashMap;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048612, this, str, obj) == null) || TextUtils.isEmpty(str) || (hashMap = this.mStaticWebSettings) == null || !hashMap.containsKey(str)) {
             return;

@@ -49,7 +49,13 @@ public final class FormatException extends ReaderException {
     public static FormatException getFormatInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? ReaderException.isStackTrace ? new FormatException() : INSTANCE : (FormatException) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (ReaderException.isStackTrace) {
+                return new FormatException();
+            }
+            return INSTANCE;
+        }
+        return (FormatException) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -75,6 +81,12 @@ public final class FormatException extends ReaderException {
     public static FormatException getFormatInstance(Throwable th) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, th)) == null) ? ReaderException.isStackTrace ? new FormatException(th) : INSTANCE : (FormatException) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, th)) == null) {
+            if (ReaderException.isStackTrace) {
+                return new FormatException(th);
+            }
+            return INSTANCE;
+        }
+        return (FormatException) invokeL.objValue;
     }
 }

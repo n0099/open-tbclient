@@ -25,12 +25,38 @@ public abstract class IMSubscriptionBaseRequest extends BaseHttpRequest {
     public static final String TAG = "IMSubscriptionBaseRequest";
     public transient /* synthetic */ FieldHolder $fh;
     public String mKey;
-    public List<String> mMiNiAppTopicList;
+    public List mMiNiAppTopicList;
     public long mPaid;
     public String mSource;
-    public List<Long> mTopicList;
+    public List mTopicList;
 
-    public IMSubscriptionBaseRequest(Context context, long j, List<Long> list, List<String> list2, String str, String str2) {
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getContentType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "application/json" : (String) invokeV.objValue;
+    }
+
+    public abstract String getHostUrlParam();
+
+    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getMethod() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "POST" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public boolean shouldAbort() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public IMSubscriptionBaseRequest(Context context, long j, List list, List list2, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -79,15 +105,8 @@ public abstract class IMSubscriptionBaseRequest extends BaseHttpRequest {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public String getContentType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "application/json" : (String) invokeV.objValue;
-    }
-
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
-    public Map<String, String> getHeaders() {
+    public Map getHeaders() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -112,18 +131,10 @@ public abstract class IMSubscriptionBaseRequest extends BaseHttpRequest {
         return (String) invokeV.objValue;
     }
 
-    public abstract String getHostUrlParam();
-
-    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
-    public String getMethod() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "POST" : (String) invokeV.objValue;
-    }
-
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public byte[] getRequestParameter() {
         InterceptResult invokeV;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             try {
@@ -155,7 +166,12 @@ public abstract class IMSubscriptionBaseRequest extends BaseHttpRequest {
                 jSONObject.put("pa_uid", this.mPaid);
                 jSONObject.put("source", this.mSource);
                 jSONObject.put("sign", getMd5(String.valueOf(appid) + uk + currentTimeMillis));
-                jSONObject.put("account_type", AccountManager.isCuidLogin(this.mContext) ? 1 : 0);
+                if (AccountManager.isCuidLogin(this.mContext)) {
+                    i = 1;
+                } else {
+                    i = 0;
+                }
+                jSONObject.put("account_type", i);
                 LogUtils.d(TAG, "IMSubscriptionBaseRequest msg :" + jSONObject.toString());
                 return jSONObject.toString().getBytes();
             } catch (Exception e) {
@@ -164,15 +180,5 @@ public abstract class IMSubscriptionBaseRequest extends BaseHttpRequest {
             }
         }
         return (byte[]) invokeV.objValue;
-    }
-
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public boolean shouldAbort() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

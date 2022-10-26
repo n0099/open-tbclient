@@ -45,40 +45,13 @@ public class MuteButtonElement extends AbsElement implements View.OnClickListene
         this.acceptVolumeChange = true;
     }
 
-    private final void setMuteIcon(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65537, this, z) == null) {
-            if (z) {
-                ImageView imageView = this.muteButton;
-                if (imageView == null) {
-                    Intrinsics.throwUninitializedPropertyAccessException("muteButton");
-                }
-                imageView.setImageResource(R.drawable.obfuscated_res_0x7f080211);
-                return;
-            }
-            ImageView imageView2 = this.muteButton;
-            if (imageView2 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("muteButton");
-            }
-            imageView2.setImageResource(R.drawable.obfuscated_res_0x7f080210);
-        }
-    }
-
-    public static /* synthetic */ void setMuteIcon$default(MuteButtonElement muteButtonElement, boolean z, int i, Object obj) {
-        if (obj == null) {
-            if ((i & 1) != 0) {
-                z = false;
-            }
-            muteButtonElement.setMuteIcon(z);
-            return;
-        }
-        throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: setMuteIcon");
-    }
-
     public final boolean getAcceptVolumeChange() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.acceptVolumeChange : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.acceptVolumeChange;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.searchbox.player.element.IElement
@@ -108,26 +81,32 @@ public class MuteButtonElement extends AbsElement implements View.OnClickListene
         return (ImageView) invokeV.objValue;
     }
 
-    @Override // com.baidu.searchbox.player.element.AbsElement
-    public void initElement() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            ImageView imageView = new ImageView(getContext());
-            this.muteButton = imageView;
-            if (imageView == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("muteButton");
-            }
-            int dp2px = BdPlayerUtils.dp2px(imageView, 16.0f);
-            imageView.setLayoutParams(new ViewGroup.LayoutParams(dp2px, dp2px));
-            imageView.setOnClickListener(this);
-            sycVideoMute();
-        }
-    }
-
     public boolean isMute() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? BDVideoPlayer.isGlobalMute() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return BDVideoPlayer.isGlobalMute();
+        }
+        return invokeV.booleanValue;
+    }
+
+    private final void setMuteIcon(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65537, this, z) == null) {
+            if (z) {
+                ImageView imageView = this.muteButton;
+                if (imageView == null) {
+                    Intrinsics.throwUninitializedPropertyAccessException("muteButton");
+                }
+                imageView.setImageResource(R.drawable.obfuscated_res_0x7f080211);
+                return;
+            }
+            ImageView imageView2 = this.muteButton;
+            if (imageView2 == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("muteButton");
+            }
+            imageView2.setImageResource(R.drawable.obfuscated_res_0x7f080210);
+        }
     }
 
     @Override // android.view.View.OnClickListener
@@ -145,50 +124,17 @@ public class MuteButtonElement extends AbsElement implements View.OnClickListene
         }
     }
 
-    @Override // com.baidu.searchbox.player.element.AbsElement, com.baidu.searchbox.player.element.IElement
-    public void onEventNotify(VideoEvent event) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, event) == null) {
-            Intrinsics.checkNotNullParameter(event, "event");
-            String action = event.getAction();
-            int hashCode = action.hashCode();
-            if (hashCode != 723345051) {
-                if (hashCode == 1822725860 && action.equals(SystemEvent.ACTION_VOLUME_CHANGED)) {
-                    BDVideoPlayer videoPlayer = getVideoPlayer();
-                    Intrinsics.checkNotNullExpressionValue(videoPlayer, "videoPlayer");
-                    if (videoPlayer.isStop()) {
-                        return;
-                    }
-                    BDVideoPlayer videoPlayer2 = getVideoPlayer();
-                    Intrinsics.checkNotNullExpressionValue(videoPlayer2, "videoPlayer");
-                    if (videoPlayer2.isComplete() || !this.acceptVolumeChange) {
-                        return;
-                    }
-                    int intExtra = event.getIntExtra(5);
-                    if (intExtra > 0) {
-                        setMuteIcon(false);
-                    } else {
-                        setMuteIcon(true);
-                    }
-                    boolean isMute = isMute();
-                    if ((!isMute || intExtra <= 0) && (isMute || intExtra != 0)) {
-                        return;
-                    }
-                    switchVolumeMode();
-                    setMuteVisibility();
-                }
-            } else if (action.equals(ControlEvent.ACTION_START)) {
-                this.isPanelShowing = false;
-                setMuteVisibility();
-            }
-        }
-    }
-
     @Override // com.baidu.searchbox.player.element.AbsElement
     public void onParentVisibleChanged(int i) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.isPanelShowing = i == 0;
+            if (i == 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.isPanelShowing = z;
             setMuteVisibility();
         }
     }
@@ -205,6 +151,109 @@ public class MuteButtonElement extends AbsElement implements View.OnClickListene
         if (interceptable == null || interceptable.invokeL(1048585, this, imageView) == null) {
             Intrinsics.checkNotNullParameter(imageView, "<set-?>");
             this.muteButton = imageView;
+        }
+    }
+
+    public static /* synthetic */ void setMuteIcon$default(MuteButtonElement muteButtonElement, boolean z, int i, Object obj) {
+        if (obj == null) {
+            if ((i & 1) != 0) {
+                z = false;
+            }
+            muteButtonElement.setMuteIcon(z);
+            return;
+        }
+        throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: setMuteIcon");
+    }
+
+    @Override // com.baidu.searchbox.player.element.AbsElement
+    public void initElement() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            ImageView imageView = new ImageView(getContext());
+            this.muteButton = imageView;
+            if (imageView == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("muteButton");
+            }
+            int dp2px = BdPlayerUtils.dp2px(imageView, 16.0f);
+            imageView.setLayoutParams(new ViewGroup.LayoutParams(dp2px, dp2px));
+            imageView.setOnClickListener(this);
+            sycVideoMute();
+        }
+    }
+
+    public boolean shouldShowMute() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            BDVideoPlayer videoPlayer = getVideoPlayer();
+            Intrinsics.checkNotNullExpressionValue(videoPlayer, "videoPlayer");
+            if (!videoPlayer.isComplete()) {
+                BDVideoPlayer videoPlayer2 = getVideoPlayer();
+                Intrinsics.checkNotNullExpressionValue(videoPlayer2, "videoPlayer");
+                if (!videoPlayer2.isError()) {
+                    BDVideoPlayer videoPlayer3 = getVideoPlayer();
+                    Intrinsics.checkNotNullExpressionValue(videoPlayer3, "videoPlayer");
+                    if (!videoPlayer3.isStop()) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void sycVideoMute() {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            int volume = BdPlayerUtils.getVolume(getContext());
+            BDVideoPlayer videoPlayer = getVideoPlayer();
+            Intrinsics.checkNotNullExpressionValue(videoPlayer, "videoPlayer");
+            if (!videoPlayer.isPlayerMute() && volume > 0) {
+                z = false;
+            } else {
+                z = true;
+            }
+            getVideoPlayer().setMuteMode(z);
+            setMuteIcon(z);
+            setMuteVisibility();
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.element.AbsElement, com.baidu.searchbox.player.element.IElement
+    public void onEventNotify(VideoEvent event) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, event) == null) {
+            Intrinsics.checkNotNullParameter(event, "event");
+            String action = event.getAction();
+            int hashCode = action.hashCode();
+            if (hashCode != 723345051) {
+                if (hashCode == 1822725860 && action.equals(SystemEvent.ACTION_VOLUME_CHANGED)) {
+                    BDVideoPlayer videoPlayer = getVideoPlayer();
+                    Intrinsics.checkNotNullExpressionValue(videoPlayer, "videoPlayer");
+                    if (!videoPlayer.isStop()) {
+                        BDVideoPlayer videoPlayer2 = getVideoPlayer();
+                        Intrinsics.checkNotNullExpressionValue(videoPlayer2, "videoPlayer");
+                        if (!videoPlayer2.isComplete() && this.acceptVolumeChange) {
+                            int intExtra = event.getIntExtra(5);
+                            if (intExtra > 0) {
+                                setMuteIcon(false);
+                            } else {
+                                setMuteIcon(true);
+                            }
+                            boolean isMute = isMute();
+                            if ((isMute && intExtra > 0) || (!isMute && intExtra == 0)) {
+                                switchVolumeMode();
+                                setMuteVisibility();
+                            }
+                        }
+                    }
+                }
+            } else if (action.equals(ControlEvent.ACTION_START)) {
+                this.isPanelShowing = false;
+                setMuteVisibility();
+            }
         }
     }
 
@@ -241,28 +290,6 @@ public class MuteButtonElement extends AbsElement implements View.OnClickListene
         }
     }
 
-    public boolean shouldShowMute() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            BDVideoPlayer videoPlayer = getVideoPlayer();
-            Intrinsics.checkNotNullExpressionValue(videoPlayer, "videoPlayer");
-            if (!videoPlayer.isComplete()) {
-                BDVideoPlayer videoPlayer2 = getVideoPlayer();
-                Intrinsics.checkNotNullExpressionValue(videoPlayer2, "videoPlayer");
-                if (!videoPlayer2.isError()) {
-                    BDVideoPlayer videoPlayer3 = getVideoPlayer();
-                    Intrinsics.checkNotNullExpressionValue(videoPlayer3, "videoPlayer");
-                    if (!videoPlayer3.isStop()) {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
     public void switchVolumeMode() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
@@ -274,19 +301,6 @@ public class MuteButtonElement extends AbsElement implements View.OnClickListene
             setMuteIcon(z);
             getVideoPlayer().setGlobalMuteMode(z);
             VideoSessionManager.getInstance().sendEventToAll(LayerEvent.obtainEvent(LayerEvent.ACTION_MUTE_SYNC_TO_ALL_PLAYER));
-        }
-    }
-
-    public void sycVideoMute() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            int volume = BdPlayerUtils.getVolume(getContext());
-            BDVideoPlayer videoPlayer = getVideoPlayer();
-            Intrinsics.checkNotNullExpressionValue(videoPlayer, "videoPlayer");
-            boolean z = videoPlayer.isPlayerMute() || volume <= 0;
-            getVideoPlayer().setMuteMode(z);
-            setMuteIcon(z);
-            setMuteVisibility();
         }
     }
 }

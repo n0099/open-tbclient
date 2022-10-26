@@ -2,8 +2,6 @@ package com.google.android.gms.common;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,26 +10,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebChromeClient;
-import com.google.android.gms.common.annotation.KeepForSdk;
 import com.google.android.gms.common.internal.Objects;
 import com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelWriter;
-import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-@KeepForSdk
-@SafeParcelable.Class(creator = "FeatureCreator")
 /* loaded from: classes7.dex */
 public class Feature extends AbstractSafeParcelable {
     public static /* synthetic */ Interceptable $ic;
-    @NonNull
-    public static final Parcelable.Creator<Feature> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
-    @SafeParcelable.Field(getter = "getName", id = 1)
     public final String zza;
-    @SafeParcelable.Field(getter = "getOldVersion", id = 2)
     @Deprecated
     public final int zzb;
-    @SafeParcelable.Field(defaultValue = "-1", getter = WebChromeClient.MSG_METHOD_GETVERSION, id = 3)
     public final long zzc;
 
     static {
@@ -50,8 +39,7 @@ public class Feature extends AbstractSafeParcelable {
         CREATOR = new zzc();
     }
 
-    @SafeParcelable.Constructor
-    public Feature(@NonNull @SafeParcelable.Param(id = 1) String str, @SafeParcelable.Param(id = 2) int i, @SafeParcelable.Param(id = 3) long j) {
+    public Feature(String str, int i, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -71,8 +59,7 @@ public class Feature extends AbstractSafeParcelable {
         this.zzc = j;
     }
 
-    @KeepForSdk
-    public Feature(@NonNull String str, long j) {
+    public Feature(String str, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -92,7 +79,23 @@ public class Feature extends AbstractSafeParcelable {
         this.zzb = -1;
     }
 
-    public final boolean equals(@Nullable Object obj) {
+    public String getName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.zza : (String) invokeV.objValue;
+    }
+
+    public long getVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            long j = this.zzc;
+            return j == -1 ? this.zzb : j;
+        }
+        return invokeV.longValue;
+    }
+
+    public final boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
@@ -107,32 +110,15 @@ public class Feature extends AbstractSafeParcelable {
         return invokeL.booleanValue;
     }
 
-    @NonNull
-    @KeepForSdk
-    public String getName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.zza : (String) invokeV.objValue;
-    }
-
-    @KeepForSdk
-    public long getVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            long j = this.zzc;
-            return j == -1 ? this.zzb : j;
-        }
-        return invokeV.longValue;
-    }
-
     public final int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Objects.hashCode(getName(), Long.valueOf(getVersion())) : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return Objects.hashCode(getName(), Long.valueOf(getVersion()));
+        }
+        return invokeV.intValue;
     }
 
-    @NonNull
     public final String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -146,7 +132,7 @@ public class Feature extends AbstractSafeParcelable {
     }
 
     @Override // android.os.Parcelable
-    public final void writeToParcel(@NonNull Parcel parcel, int i) {
+    public final void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, parcel, i) == null) {
             int beginObjectHeader = SafeParcelWriter.beginObjectHeader(parcel);

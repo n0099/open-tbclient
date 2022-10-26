@@ -14,7 +14,7 @@ import com.google.android.exoplayer2.util.Util;
 /* loaded from: classes7.dex */
 public final class CommentFrame extends Id3Frame {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator<CommentFrame> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public static final String ID = "COMM";
     public transient /* synthetic */ FieldHolder $fh;
     public final String description;
@@ -34,7 +34,7 @@ public final class CommentFrame extends Id3Frame {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<CommentFrame>() { // from class: com.google.android.exoplayer2.metadata.id3.CommentFrame.1
+        CREATOR = new Parcelable.Creator() { // from class: com.google.android.exoplayer2.metadata.id3.CommentFrame.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -53,23 +53,50 @@ public final class CommentFrame extends Id3Frame {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public CommentFrame createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new CommentFrame(parcel) : (CommentFrame) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new CommentFrame(parcel);
+                }
+                return (CommentFrame) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public CommentFrame[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new CommentFrame[i] : (CommentFrame[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new CommentFrame[i];
+                }
+                return (CommentFrame[]) invokeI.objValue;
             }
         };
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public CommentFrame(Parcel parcel) {
+        super(ID);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.language = parcel.readString();
+        this.description = parcel.readString();
+        this.text = parcel.readString();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -106,21 +133,40 @@ public final class CommentFrame extends Id3Frame {
                 return false;
             }
             CommentFrame commentFrame = (CommentFrame) obj;
-            return Util.areEqual(this.description, commentFrame.description) && Util.areEqual(this.language, commentFrame.language) && Util.areEqual(this.text, commentFrame.text);
+            if (Util.areEqual(this.description, commentFrame.description) && Util.areEqual(this.language, commentFrame.language) && Util.areEqual(this.text, commentFrame.text)) {
+                return true;
+            }
+            return false;
         }
         return invokeL.booleanValue;
     }
 
     public int hashCode() {
         InterceptResult invokeV;
+        int i;
+        int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             String str = this.language;
-            int hashCode = (527 + (str != null ? str.hashCode() : 0)) * 31;
+            int i3 = 0;
+            if (str != null) {
+                i = str.hashCode();
+            } else {
+                i = 0;
+            }
+            int i4 = (527 + i) * 31;
             String str2 = this.description;
-            int hashCode2 = (hashCode + (str2 != null ? str2.hashCode() : 0)) * 31;
+            if (str2 != null) {
+                i2 = str2.hashCode();
+            } else {
+                i2 = 0;
+            }
+            int i5 = (i4 + i2) * 31;
             String str3 = this.text;
-            return hashCode2 + (str3 != null ? str3.hashCode() : 0);
+            if (str3 != null) {
+                i3 = str3.hashCode();
+            }
+            return i5 + i3;
         }
         return invokeV.intValue;
     }
@@ -133,28 +179,5 @@ public final class CommentFrame extends Id3Frame {
             parcel.writeString(this.language);
             parcel.writeString(this.text);
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CommentFrame(Parcel parcel) {
-        super(ID);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.language = parcel.readString();
-        this.description = parcel.readString();
-        this.text = parcel.readString();
     }
 }

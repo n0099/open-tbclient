@@ -37,7 +37,7 @@ public class BindTestPhoneController {
     public static void bind(String str, Context context) {
         int indexOf;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, str, context) == null) || (indexOf = str.indexOf(":")) < 0) {
+        if ((interceptable != null && interceptable.invokeLL(65537, null, str, context) != null) || (indexOf = str.indexOf(":")) < 0) {
             return;
         }
         StringBuilder sb = new StringBuilder();
@@ -115,84 +115,83 @@ public class BindTestPhoneController {
     public static void get(String str) {
         InputStream inputStream;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeL(65538, null, str) != null) {
-            return;
-        }
-        HttpsURLConnection httpsURLConnection = null;
-        InputStream inputStream2 = null;
-        try {
-            HttpsURLConnection httpsURLConnection2 = (HttpsURLConnection) new URL(str).openConnection();
+        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+            HttpsURLConnection httpsURLConnection = null;
+            InputStream inputStream2 = null;
             try {
-                httpsURLConnection2.setConnectTimeout(30000);
-                httpsURLConnection2.setReadTimeout(60000);
-                httpsURLConnection2.setUseCaches(false);
-                httpsURLConnection2.setRequestMethod("GET");
-                httpsURLConnection2.setInstanceFollowRedirects(true);
-                httpsURLConnection2.setRequestProperty("User-Agent", "Hiido");
-                httpsURLConnection2.connect();
-                if (httpsURLConnection2.getResponseCode() == 200) {
-                    L.verbose("HttpUtil", "get url=[%s] is ok", str);
-                    inputStream2 = httpsURLConnection2.getInputStream();
-                    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                    byte[] bArr = new byte[1024];
-                    while (true) {
-                        int read = inputStream2.read(bArr);
-                        if (read == -1) {
-                            break;
-                        }
-                        byteArrayOutputStream.write(bArr, 0, read);
-                    }
-                    L.verbose("HttpUtil", "the result is %s", new String(byteArrayOutputStream.toByteArray(), "UTF-8"));
-                    byteArrayOutputStream.close();
-                } else {
-                    L.warn("HttpUtil", "http get [%s] error! status:%d", str, Integer.valueOf(httpsURLConnection2.getResponseCode()));
-                }
-                if (httpsURLConnection2 != null) {
-                    try {
-                        httpsURLConnection2.disconnect();
-                    } catch (Throwable th) {
-                        L.debug("BindTestPhoneController", th.getMessage(), new Object[0]);
-                        return;
-                    }
-                }
-                if (inputStream2 != null) {
-                    inputStream2.close();
-                }
-            } catch (Throwable th2) {
-                th = th2;
-                inputStream = null;
-                httpsURLConnection = httpsURLConnection2;
+                HttpsURLConnection httpsURLConnection2 = (HttpsURLConnection) new URL(str).openConnection();
                 try {
-                    L.error("BindTestPhoneController", th.getMessage(), new Object[0]);
-                    if (httpsURLConnection != null) {
+                    httpsURLConnection2.setConnectTimeout(30000);
+                    httpsURLConnection2.setReadTimeout(60000);
+                    httpsURLConnection2.setUseCaches(false);
+                    httpsURLConnection2.setRequestMethod("GET");
+                    httpsURLConnection2.setInstanceFollowRedirects(true);
+                    httpsURLConnection2.setRequestProperty("User-Agent", "Hiido");
+                    httpsURLConnection2.connect();
+                    if (httpsURLConnection2.getResponseCode() == 200) {
+                        L.verbose("HttpUtil", "get url=[%s] is ok", str);
+                        inputStream2 = httpsURLConnection2.getInputStream();
+                        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                        byte[] bArr = new byte[1024];
+                        while (true) {
+                            int read = inputStream2.read(bArr);
+                            if (read == -1) {
+                                break;
+                            }
+                            byteArrayOutputStream.write(bArr, 0, read);
+                        }
+                        L.verbose("HttpUtil", "the result is %s", new String(byteArrayOutputStream.toByteArray(), "UTF-8"));
+                        byteArrayOutputStream.close();
+                    } else {
+                        L.warn("HttpUtil", "http get [%s] error! status:%d", str, Integer.valueOf(httpsURLConnection2.getResponseCode()));
+                    }
+                    if (httpsURLConnection2 != null) {
                         try {
-                            httpsURLConnection.disconnect();
-                        } catch (Throwable th3) {
-                            L.debug("BindTestPhoneController", th3.getMessage(), new Object[0]);
+                            httpsURLConnection2.disconnect();
+                        } catch (Throwable th) {
+                            L.debug("BindTestPhoneController", th.getMessage(), new Object[0]);
                             return;
                         }
                     }
-                    if (inputStream != null) {
-                        inputStream.close();
+                    if (inputStream2 != null) {
+                        inputStream2.close();
                     }
-                } catch (Throwable th4) {
-                    if (httpsURLConnection != null) {
-                        try {
-                            httpsURLConnection.disconnect();
-                        } catch (Throwable th5) {
-                            L.debug("BindTestPhoneController", th5.getMessage(), new Object[0]);
-                            throw th4;
+                } catch (Throwable th2) {
+                    th = th2;
+                    inputStream = null;
+                    httpsURLConnection = httpsURLConnection2;
+                    try {
+                        L.error("BindTestPhoneController", th.getMessage(), new Object[0]);
+                        if (httpsURLConnection != null) {
+                            try {
+                                httpsURLConnection.disconnect();
+                            } catch (Throwable th3) {
+                                L.debug("BindTestPhoneController", th3.getMessage(), new Object[0]);
+                                return;
+                            }
                         }
+                        if (inputStream != null) {
+                            inputStream.close();
+                        }
+                    } catch (Throwable th4) {
+                        if (httpsURLConnection != null) {
+                            try {
+                                httpsURLConnection.disconnect();
+                            } catch (Throwable th5) {
+                                L.debug("BindTestPhoneController", th5.getMessage(), new Object[0]);
+                                throw th4;
+                            }
+                        }
+                        if (inputStream != null) {
+                            inputStream.close();
+                        }
+                        throw th4;
                     }
-                    if (inputStream != null) {
-                        inputStream.close();
-                    }
-                    throw th4;
                 }
+            } catch (Throwable th6) {
+                th = th6;
+                inputStream = null;
             }
-        } catch (Throwable th6) {
-            th = th6;
-            inputStream = null;
         }
     }
 }

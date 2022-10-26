@@ -11,7 +11,7 @@ import android.util.AttributeSet;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sdk.container.widget.AbsCountDownView;
-import com.baidu.tieba.t21;
+import com.baidu.tieba.u21;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,7 +39,7 @@ public class CircleTextProgressbar extends AbsCountDownView {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class ProgressType {
+    public final class ProgressType {
         public static final /* synthetic */ ProgressType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final ProgressType COUNT;
@@ -87,18 +87,24 @@ public class CircleTextProgressbar extends AbsCountDownView {
         public static ProgressType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (ProgressType) Enum.valueOf(ProgressType.class, str) : (ProgressType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (ProgressType) Enum.valueOf(ProgressType.class, str);
+            }
+            return (ProgressType) invokeL.objValue;
         }
 
         public static ProgressType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ProgressType[]) $VALUES.clone() : (ProgressType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (ProgressType[]) $VALUES.clone();
+            }
+            return (ProgressType[]) invokeV.objValue;
         }
     }
 
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class a {
+    public /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -150,6 +156,79 @@ public class CircleTextProgressbar extends AbsCountDownView {
         }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public CircleTextProgressbar(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public void e(Context context, AttributeSet attributeSet) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, context, attributeSet) == null) {
+            this.j.setAntiAlias(true);
+            ColorStateList valueOf = ColorStateList.valueOf(0);
+            this.f = valueOf;
+            this.g = valueOf.getColorForState(getDrawableState(), 0);
+            setWidth(u21.c.a(context, 40.0f));
+            setHeight(u21.c.a(context, 40.0f));
+            setOutLineColor(-7697782);
+            setProgressColor(-12956454);
+            setProgressLineWidth(u21.c.a(context, 2.0f));
+            setTextSize(1, 10.0f);
+            setTextColor(-1);
+            setText("跳过");
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public CircleTextProgressbar(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.d = -16777216;
+        this.e = 2;
+        this.f = ColorStateList.valueOf(0);
+        this.h = -16776961;
+        this.i = 8;
+        this.j = new Paint();
+        this.k = new RectF();
+        this.l = 100;
+        this.m = 100;
+        this.n = ProgressType.COUNT_BACK;
+        this.o = 3000L;
+        this.p = new Rect();
+        e(context, attributeSet);
+    }
+
     @Override // com.baidu.sdk.container.widget.AbsCountDownView
     public void b() {
         Interceptable interceptable = $ic;
@@ -167,15 +246,79 @@ public class CircleTextProgressbar extends AbsCountDownView {
         }
     }
 
+    @Override // android.widget.TextView, android.view.View
+    public void drawableStateChanged() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.drawableStateChanged();
+            g();
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            int i = a.a[this.n.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    this.m = 0;
+                    return;
+                } else {
+                    this.m = this.l;
+                    return;
+                }
+            }
+            this.m = 0;
+        }
+    }
+
+    public final void g() {
+        int colorForState;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.g != (colorForState = this.f.getColorForState(getDrawableState(), 0))) {
+            this.g = colorForState;
+            invalidate();
+        }
+    }
+
+    public int getProgress() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.m;
+        }
+        return invokeV.intValue;
+    }
+
+    public ProgressType getProgressType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.n;
+        }
+        return (ProgressType) invokeV.objValue;
+    }
+
+    public long getTimeMillis() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.o;
+        }
+        return invokeV.longValue;
+    }
+
     @Override // com.baidu.sdk.container.widget.AbsCountDownView
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             int i = a.a[this.n.ordinal()];
-            if (i == 1) {
+            if (i != 1) {
+                if (i == 2) {
+                    this.m--;
+                }
+            } else {
                 this.m++;
-            } else if (i == 2) {
-                this.m--;
             }
             int i2 = this.m;
             if (i2 >= 0 && i2 <= this.l) {
@@ -195,75 +338,6 @@ public class CircleTextProgressbar extends AbsCountDownView {
         }
     }
 
-    @Override // android.widget.TextView, android.view.View
-    public void drawableStateChanged() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.drawableStateChanged();
-            g();
-        }
-    }
-
-    public void e(Context context, AttributeSet attributeSet) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, context, attributeSet) == null) {
-            this.j.setAntiAlias(true);
-            ColorStateList valueOf = ColorStateList.valueOf(0);
-            this.f = valueOf;
-            this.g = valueOf.getColorForState(getDrawableState(), 0);
-            setWidth(t21.c.a(context, 40.0f));
-            setHeight(t21.c.a(context, 40.0f));
-            setOutLineColor(-7697782);
-            setProgressColor(-12956454);
-            setProgressLineWidth(t21.c.a(context, 2.0f));
-            setTextSize(1, 10.0f);
-            setTextColor(-1);
-            setText("跳过");
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            int i = a.a[this.n.ordinal()];
-            if (i == 1) {
-                this.m = 0;
-            } else if (i != 2) {
-                this.m = 0;
-            } else {
-                this.m = this.l;
-            }
-        }
-    }
-
-    public final void g() {
-        int colorForState;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.g == (colorForState = this.f.getColorForState(getDrawableState(), 0))) {
-            return;
-        }
-        this.g = colorForState;
-        invalidate();
-    }
-
-    public int getProgress() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.m : invokeV.intValue;
-    }
-
-    public ProgressType getProgressType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.n : (ProgressType) invokeV.objValue;
-    }
-
-    public long getTimeMillis() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.o : invokeV.longValue;
-    }
-
     public final int h(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -278,41 +352,6 @@ public class CircleTextProgressbar extends AbsCountDownView {
             return i;
         }
         return invokeI.intValue;
-    }
-
-    @Override // android.widget.TextView, android.view.View
-    public void onDraw(Canvas canvas) {
-        Rect rect;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, canvas) == null) {
-            getDrawingRect(this.p);
-            float width = (this.p.height() > this.p.width() ? this.p.width() : this.p.height()) / 2;
-            this.j.setStyle(Paint.Style.FILL);
-            this.j.setColor(this.d);
-            this.j.setAlpha(127);
-            canvas.drawCircle(this.p.centerX(), this.p.centerY(), width - this.e, this.j);
-            this.j.setStyle(Paint.Style.STROKE);
-            this.j.setColor(this.d);
-            this.j.setStrokeWidth(this.i);
-            this.j.setStrokeCap(Paint.Cap.ROUND);
-            this.j.setAlpha(204);
-            canvas.drawCircle(this.p.centerX(), this.p.centerY(), width - (this.i / 2), this.j);
-            TextPaint paint = getPaint();
-            paint.setColor(getCurrentTextColor());
-            paint.setAntiAlias(true);
-            paint.setTextAlign(Paint.Align.CENTER);
-            canvas.drawText(getText().toString(), this.p.centerX(), this.p.centerY() - ((paint.descent() + paint.ascent()) / 2.0f), paint);
-            this.j.setColor(this.h);
-            this.j.setStyle(Paint.Style.STROKE);
-            this.j.setStrokeWidth(this.i);
-            this.j.setStrokeCap(Paint.Cap.ROUND);
-            this.j.setAlpha(204);
-            RectF rectF = this.k;
-            int i = this.p.left;
-            int i2 = this.i;
-            rectF.set(i + (i2 / 2), rect.top + (i2 / 2), rect.right - (i2 / 2), rect.bottom - (i2 / 2));
-            canvas.drawArc(this.k, 270.0f, (this.m * 360) / this.l, false, this.j);
-        }
     }
 
     public void setInCircleColor(int i) {
@@ -389,58 +428,44 @@ public class CircleTextProgressbar extends AbsCountDownView {
         }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public CircleTextProgressbar(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
+    @Override // android.widget.TextView, android.view.View
+    public void onDraw(Canvas canvas) {
+        int height;
+        Rect rect;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeL(1048587, this, canvas) == null) {
+            getDrawingRect(this.p);
+            if (this.p.height() > this.p.width()) {
+                height = this.p.width();
+            } else {
+                height = this.p.height();
             }
+            float f = height / 2;
+            this.j.setStyle(Paint.Style.FILL);
+            this.j.setColor(this.d);
+            this.j.setAlpha(127);
+            canvas.drawCircle(this.p.centerX(), this.p.centerY(), f - this.e, this.j);
+            this.j.setStyle(Paint.Style.STROKE);
+            this.j.setColor(this.d);
+            this.j.setStrokeWidth(this.i);
+            this.j.setStrokeCap(Paint.Cap.ROUND);
+            this.j.setAlpha(204);
+            canvas.drawCircle(this.p.centerX(), this.p.centerY(), f - (this.i / 2), this.j);
+            TextPaint paint = getPaint();
+            paint.setColor(getCurrentTextColor());
+            paint.setAntiAlias(true);
+            paint.setTextAlign(Paint.Align.CENTER);
+            canvas.drawText(getText().toString(), this.p.centerX(), this.p.centerY() - ((paint.descent() + paint.ascent()) / 2.0f), paint);
+            this.j.setColor(this.h);
+            this.j.setStyle(Paint.Style.STROKE);
+            this.j.setStrokeWidth(this.i);
+            this.j.setStrokeCap(Paint.Cap.ROUND);
+            this.j.setAlpha(204);
+            RectF rectF = this.k;
+            int i = this.p.left;
+            int i2 = this.i;
+            rectF.set(i + (i2 / 2), rect.top + (i2 / 2), rect.right - (i2 / 2), rect.bottom - (i2 / 2));
+            canvas.drawArc(this.k, 270.0f, (this.m * 360) / this.l, false, this.j);
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CircleTextProgressbar(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.d = -16777216;
-        this.e = 2;
-        this.f = ColorStateList.valueOf(0);
-        this.h = -16776961;
-        this.i = 8;
-        this.j = new Paint();
-        this.k = new RectF();
-        this.l = 100;
-        this.m = 100;
-        this.n = ProgressType.COUNT_BACK;
-        this.o = 3000L;
-        this.p = new Rect();
-        e(context, attributeSet);
     }
 }

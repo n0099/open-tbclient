@@ -74,158 +74,165 @@ public final class ShareUtils {
         File file;
         byte[] bArr;
         int read;
+        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLLI = interceptable.invokeLLI(65537, null, context, uri, i)) != null) {
-            return (String) invokeLLI.objValue;
-        }
-        InputStream inputStream = null;
-        try {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, context, uri, i)) == null) {
+            InputStream inputStream = null;
             try {
-                String packageName = WeiboAppManager.queryWbInfoInternal(context).getPackageName();
-                ?? isEmpty = TextUtils.isEmpty(packageName);
-                if (isEmpty != 0) {
-                    packageName = "com.sina.weibo";
-                }
                 try {
-                    str = "/Android/data/" + packageName + "/files/.composerTem/";
-                    new File(Environment.getExternalStorageDirectory().getAbsolutePath() + str).mkdirs();
-                    calendar = Calendar.getInstance();
-                } catch (Throwable th) {
-                    th = th;
-                }
-                try {
-                    if (uri.getScheme().equals("file")) {
-                        str2 = calendar.getTimeInMillis() + uri.getLastPathSegment();
-                        cursor = null;
-                    } else {
-                        cursor = context.getContentResolver().query(uri, new String[]{"_display_name"}, null, null, null);
-                        if (cursor != null) {
-                            try {
-                                if (cursor.moveToFirst()) {
-                                    str2 = cursor.getString(cursor.getColumnIndex("_display_name"));
-                                }
-                            } catch (Exception e) {
-                                e = e;
-                                Log.v("weibo sdk rename", e.toString());
-                                if (cursor != null) {
-                                    cursor.close();
-                                }
-                                str2 = null;
-                                if (TextUtils.isEmpty(str2)) {
-                                }
-                                uri = new BufferedInputStream(new FileInputStream(context.getContentResolver().openFileDescriptor(uri, "r").getFileDescriptor()));
-                                file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + str + str2);
-                                if (file.exists()) {
-                                }
-                                fileOutputStream = new FileOutputStream(file);
+                    String packageName = WeiboAppManager.queryWbInfoInternal(context).getPackageName();
+                    ?? isEmpty = TextUtils.isEmpty(packageName);
+                    if (isEmpty != 0) {
+                        packageName = "com.sina.weibo";
+                    }
+                    try {
+                        str = "/Android/data/" + packageName + "/files/.composerTem/";
+                        new File(Environment.getExternalStorageDirectory().getAbsolutePath() + str).mkdirs();
+                        calendar = Calendar.getInstance();
+                    } catch (Throwable th) {
+                        th = th;
+                    }
+                    try {
+                        if (uri.getScheme().equals("file")) {
+                            str2 = calendar.getTimeInMillis() + uri.getLastPathSegment();
+                            cursor = null;
+                        } else {
+                            cursor = context.getContentResolver().query(uri, new String[]{"_display_name"}, null, null, null);
+                            if (cursor != null) {
                                 try {
-                                    bArr = new byte[1444];
-                                    while (true) {
-                                        read = uri.read(bArr);
-                                        if (read != -1) {
-                                        }
-                                        fileOutputStream.write(bArr, 0, read);
+                                    if (cursor.moveToFirst()) {
+                                        str2 = cursor.getString(cursor.getColumnIndex("_display_name"));
                                     }
-                                    String path = file.getPath();
+                                } catch (Exception e) {
+                                    e = e;
+                                    Log.v("weibo sdk rename", e.toString());
+                                    if (cursor != null) {
+                                        cursor.close();
+                                    }
+                                    str2 = null;
+                                    if (TextUtils.isEmpty(str2)) {
+                                    }
+                                    uri = new BufferedInputStream(new FileInputStream(context.getContentResolver().openFileDescriptor(uri, "r").getFileDescriptor()));
+                                    file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + str + str2);
+                                    if (file.exists()) {
+                                    }
+                                    fileOutputStream = new FileOutputStream(file);
                                     try {
-                                        uri.close();
-                                        fileOutputStream.close();
-                                    } catch (Exception unused) {
-                                    }
-                                    return path;
-                                } catch (Exception e2) {
-                                    e = e2;
-                                    LogUtil.e("weibo sdk copy", e.toString());
-                                    if (uri != 0) {
+                                        bArr = new byte[1444];
+                                        while (true) {
+                                            read = uri.read(bArr);
+                                            if (read != -1) {
+                                            }
+                                            fileOutputStream.write(bArr, 0, read);
+                                        }
+                                        String path = file.getPath();
                                         try {
                                             uri.close();
-                                        } catch (Exception unused2) {
-                                            return null;
+                                            fileOutputStream.close();
+                                        } catch (Exception unused) {
                                         }
+                                        return path;
+                                    } catch (Exception e2) {
+                                        e = e2;
+                                        LogUtil.e("weibo sdk copy", e.toString());
+                                        if (uri != 0) {
+                                            try {
+                                                uri.close();
+                                            } catch (Exception unused2) {
+                                                return null;
+                                            }
+                                        }
+                                        if (fileOutputStream != null) {
+                                            fileOutputStream.close();
+                                        }
+                                        return null;
                                     }
-                                    if (fileOutputStream != null) {
-                                        fileOutputStream.close();
-                                    }
-                                    return null;
                                 }
                             }
+                            str2 = null;
                         }
-                        str2 = null;
+                        if (cursor != null) {
+                            cursor.close();
+                        }
+                    } catch (Exception e3) {
+                        e = e3;
+                        cursor = null;
+                    } catch (Throwable th2) {
+                        th = th2;
+                        isEmpty = 0;
+                        if (isEmpty != 0) {
+                            isEmpty.close();
+                        }
+                        throw th;
                     }
-                    if (cursor != null) {
-                        cursor.close();
+                    if (TextUtils.isEmpty(str2)) {
+                        StringBuilder sb = new StringBuilder();
+                        sb.append(Calendar.getInstance().getTimeInMillis());
+                        if (i == 0) {
+                            str3 = "_sdk_temp.mp4";
+                        } else {
+                            str3 = "_sdk_temp.jpg";
+                        }
+                        sb.append(str3);
+                        str2 = sb.toString();
                     }
-                } catch (Exception e3) {
-                    e = e3;
-                    cursor = null;
-                } catch (Throwable th2) {
-                    th = th2;
-                    isEmpty = 0;
-                    if (isEmpty != 0) {
-                        isEmpty.close();
+                    uri = new BufferedInputStream(new FileInputStream(context.getContentResolver().openFileDescriptor(uri, "r").getFileDescriptor()));
+                } catch (Throwable th3) {
+                    th = th3;
+                }
+            } catch (Exception e4) {
+                e = e4;
+                uri = 0;
+                fileOutputStream = null;
+            } catch (Throwable th4) {
+                th = th4;
+                outputStream = null;
+                if (inputStream != null) {
+                    try {
+                        inputStream.close();
+                    } catch (Exception unused3) {
+                        throw th;
                     }
-                    throw th;
                 }
-                if (TextUtils.isEmpty(str2)) {
-                    StringBuilder sb = new StringBuilder();
-                    sb.append(Calendar.getInstance().getTimeInMillis());
-                    sb.append(i == 0 ? "_sdk_temp.mp4" : "_sdk_temp.jpg");
-                    str2 = sb.toString();
+                if (outputStream != null) {
+                    outputStream.close();
                 }
-                uri = new BufferedInputStream(new FileInputStream(context.getContentResolver().openFileDescriptor(uri, "r").getFileDescriptor()));
-            } catch (Throwable th3) {
-                th = th3;
+                throw th;
             }
-        } catch (Exception e4) {
-            e = e4;
-            uri = 0;
-            fileOutputStream = null;
-        } catch (Throwable th4) {
-            th = th4;
-            outputStream = null;
-            if (inputStream != null) {
-                try {
-                    inputStream.close();
-                } catch (Exception unused3) {
-                    throw th;
+            try {
+                file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + str + str2);
+                if (file.exists()) {
+                    file.delete();
                 }
-            }
-            if (outputStream != null) {
-                outputStream.close();
-            }
-            throw th;
-        }
-        try {
-            file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + str + str2);
-            if (file.exists()) {
-                file.delete();
-            }
-            fileOutputStream = new FileOutputStream(file);
-            bArr = new byte[1444];
-            while (true) {
-                read = uri.read(bArr);
-                if (read != -1) {
-                    break;
+                fileOutputStream = new FileOutputStream(file);
+                bArr = new byte[1444];
+                while (true) {
+                    read = uri.read(bArr);
+                    if (read != -1) {
+                        break;
+                    }
+                    fileOutputStream.write(bArr, 0, read);
                 }
-                fileOutputStream.write(bArr, 0, read);
+                String path2 = file.getPath();
+                uri.close();
+                fileOutputStream.close();
+                return path2;
+            } catch (Exception e5) {
+                e = e5;
+                fileOutputStream = null;
+            } catch (Throwable th5) {
+                th = th5;
+                i = 0;
+                inputStream = uri;
+                outputStream = i;
+                if (inputStream != null) {
+                }
+                if (outputStream != null) {
+                }
+                throw th;
             }
-            String path2 = file.getPath();
-            uri.close();
-            fileOutputStream.close();
-            return path2;
-        } catch (Exception e5) {
-            e = e5;
-            fileOutputStream = null;
-        } catch (Throwable th5) {
-            th = th5;
-            i = 0;
-            inputStream = uri;
-            outputStream = i;
-            if (inputStream != null) {
-            }
-            if (outputStream != null) {
-            }
-            throw th;
+        } else {
+            return (String) invokeLLI.objValue;
         }
     }
 }

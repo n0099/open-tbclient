@@ -1,6 +1,5 @@
 package com.kwad.components.core.offline.init.kwai;
 
-import androidx.annotation.WorkerThread;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -157,7 +156,6 @@ public final class g implements IOfflineHostApi {
                     }
 
                     @Override // com.kwad.components.offline.api.core.api.IDownloader
-                    @WorkerThread
                     public final boolean downloadSync(File file, String str) {
                         InterceptResult invokeLL;
                         Interceptable interceptable2 = $ic;

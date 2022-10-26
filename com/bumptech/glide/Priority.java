@@ -61,12 +61,18 @@ public final class Priority {
     public static Priority valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Priority) Enum.valueOf(Priority.class, str) : (Priority) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (Priority) Enum.valueOf(Priority.class, str);
+        }
+        return (Priority) invokeL.objValue;
     }
 
     public static Priority[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Priority[]) $VALUES.clone() : (Priority[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (Priority[]) $VALUES.clone();
+        }
+        return (Priority[]) invokeV.objValue;
     }
 }

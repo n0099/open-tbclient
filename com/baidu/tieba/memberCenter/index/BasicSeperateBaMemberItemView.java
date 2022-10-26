@@ -46,19 +46,6 @@ public class BasicSeperateBaMemberItemView extends LinearLayout {
         a();
     }
 
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03e0, this);
-            this.b = inflate;
-            this.c = inflate.findViewById(R.id.obfuscated_res_0x7f091473);
-            this.d = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0920ce);
-            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092442);
-            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09243a);
-            this.g = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091aa0);
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BasicSeperateBaMemberItemView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -103,5 +90,18 @@ public class BasicSeperateBaMemberItemView extends LinearLayout {
         }
         this.a = context;
         a();
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03dd, this);
+            this.b = inflate;
+            this.c = inflate.findViewById(R.id.obfuscated_res_0x7f091465);
+            this.d = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0920cd);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09242c);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092424);
+            this.g = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091a9c);
+        }
     }
 }

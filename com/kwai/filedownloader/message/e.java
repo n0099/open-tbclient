@@ -16,7 +16,7 @@ public final class e {
     public volatile b avU;
 
     /* loaded from: classes8.dex */
-    public static final class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final e avV;
         public transient /* synthetic */ FieldHolder $fh;

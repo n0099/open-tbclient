@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.util.AttributeSet;
-import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,11 +11,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.executors.UiThreadImmediateExecutorService;
-import com.facebook.common.references.CloseableReference;
 import com.facebook.datasource.DataSource;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber;
-import com.facebook.imagepipeline.image.CloseableImage;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 /* loaded from: classes3.dex */
 public class AdImageVIew extends AppCompatImageView {
@@ -28,6 +25,13 @@ public class AdImageVIew extends AppCompatImageView {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdImageVIew a;
+
+        @Override // com.facebook.datasource.BaseDataSubscriber
+        public void onFailureImpl(DataSource dataSource) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dataSource) == null) {
+            }
+        }
 
         public a(AdImageVIew adImageVIew) {
             Interceptable interceptable = $ic;
@@ -47,20 +51,12 @@ public class AdImageVIew extends AppCompatImageView {
             this.a = adImageVIew;
         }
 
-        @Override // com.facebook.datasource.BaseDataSubscriber
-        public void onFailureImpl(DataSource<CloseableReference<CloseableImage>> dataSource) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dataSource) == null) {
-            }
-        }
-
         @Override // com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber
-        public void onNewResultImpl(@Nullable Bitmap bitmap) {
+        public void onNewResultImpl(Bitmap bitmap) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) || bitmap == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) && bitmap != null) {
+                this.a.setImageBitmap(bitmap);
             }
-            this.a.setImageBitmap(bitmap);
         }
     }
 

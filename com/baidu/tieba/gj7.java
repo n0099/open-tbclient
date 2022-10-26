@@ -1,34 +1,81 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.NoDataView;
+import com.baidu.tbadk.core.view.NoDataViewFactory;
+import com.baidu.tieba.dj7;
+import com.baidu.tieba.location.selectpoi.SearchLocationActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.SearchSug.DataRes;
 /* loaded from: classes4.dex */
-public class gj7 {
+public class gj7 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdTypeRecyclerView a;
-    public final List<qn> b;
-    public ij7 c;
-    public lj7 d;
-    public jj7 e;
-    public kj7 f;
-    public mj7 g;
+    public dj7 a;
+    public SearchLocationActivity b;
+    public boolean c;
+    public NoDataView d;
 
-    public gj7(Context context, BdTypeRecyclerView bdTypeRecyclerView) {
+    /* loaded from: classes4.dex */
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
+
+    /* loaded from: classes4.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TextView a;
+        public View b;
+
+        public b(gj7 gj7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gj7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ b(gj7 gj7Var, a aVar) {
+            this(gj7Var);
+        }
+    }
+
+    public gj7(SearchLocationActivity searchLocationActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdTypeRecyclerView};
+            Object[] objArr = {searchLocationActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,68 +85,105 @@ public class gj7 {
                 return;
             }
         }
-        this.b = new ArrayList();
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.f = null;
-        this.g = null;
-        a(context, bdTypeRecyclerView);
+        this.c = false;
+        this.b = searchLocationActivity;
     }
 
-    public final void a(Context context, BdTypeRecyclerView bdTypeRecyclerView) {
+    public b b(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, bdTypeRecyclerView) == null) {
-            this.c = new ij7(context, nj7.c);
-            this.d = new lj7(context, qj7.l);
-            this.e = new jj7(context, oj7.g);
-            this.f = new kj7(context, pj7.g);
-            this.g = new mj7(context, rj7.e);
-            this.b.add(this.c);
-            this.b.add(this.d);
-            this.b.add(this.e);
-            this.b.add(this.f);
-            this.b.add(this.g);
-            this.a = bdTypeRecyclerView;
-            bdTypeRecyclerView.a(this.b);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
+            b bVar = new b(this, null);
+            bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091427);
+            bVar.b = view2.findViewById(R.id.obfuscated_res_0x7f091428);
+            return bVar;
+        }
+        return (b) invokeL.objValue;
+    }
+
+    public void d(dj7 dj7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, dj7Var) == null) {
+            this.a = dj7Var;
         }
     }
 
-    public void b() {
+    public View a(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ij7 ij7Var = this.c;
-            if (ij7Var != null) {
-                ij7Var.notifyDataSetChanged();
-            }
-            lj7 lj7Var = this.d;
-            if (lj7Var != null) {
-                lj7Var.notifyDataSetChanged();
-            }
-            jj7 jj7Var = this.e;
-            if (jj7Var != null) {
-                jj7Var.notifyDataSetChanged();
-            }
-            kj7 kj7Var = this.f;
-            if (kj7Var != null) {
-                kj7Var.notifyDataSetChanged();
-            }
-            mj7 mj7Var = this.g;
-            if (mj7Var != null) {
-                mj7Var.notifyDataSetChanged();
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            NoDataView a2 = NoDataViewFactory.a(this.b.getPageContext().getPageActivity(), viewGroup, NoDataViewFactory.d.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f13eb), null);
+            this.d = a2;
+            a2.f(this.b.getPageContext(), skinType);
+            this.d.setVisibility(0);
+            return this.d;
         }
+        return (View) invokeL.objValue;
     }
 
-    public void c(DataRes dataRes, String str) {
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, dataRes, str) == null) || this.a == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
         }
-        List<Cdo> a = sj7.a(dataRes, str);
-        if (ListUtils.isEmpty(a)) {
-            return;
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            dj7 dj7Var = this.a;
+            if (dj7Var != null && dj7Var.a() != null && !this.a.a().isEmpty()) {
+                this.c = true;
+                return this.a.a().size();
+            }
+            this.c = false;
+            return 1;
         }
-        this.a.setData(a);
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            dj7 dj7Var = this.a;
+            if (dj7Var != null && dj7Var.a() != null && !this.a.a().isEmpty()) {
+                return this.a.a().get(i);
+            }
+            return null;
+        }
+        return invokeI.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
+            if (!this.c) {
+                return a(viewGroup);
+            }
+            b bVar = null;
+            if (view2 != null && (view2.getTag() instanceof b)) {
+                bVar = (b) view2.getTag();
+            }
+            if (bVar == null) {
+                view2 = LayoutInflater.from(this.b.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0567, viewGroup, false);
+                bVar = b(view2);
+                view2.setTag(bVar);
+            }
+            bVar.a.setText(((dj7.a) this.a.a().get(i)).a());
+            SkinManager.setBackgroundColor(bVar.b, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(bVar.a, R.color.CAM_X0105, 1);
+            SkinManager.setBackgroundResource(view2, R.drawable.home_recommend_item_bg);
+            return view2;
+        }
+        return (View) invokeILL.objValue;
     }
 }

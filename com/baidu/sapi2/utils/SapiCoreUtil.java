@@ -1,6 +1,5 @@
 package com.baidu.sapi2.utils;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
@@ -94,67 +93,70 @@ public class SapiCoreUtil {
     /* JADX WARN: Code restructure failed: missing block: B:61:?, code lost:
         return true;
      */
-    @TargetApi(4)
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static boolean chmodFile(Context context, File file) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(65538, null, context, file)) != null) {
-            return invokeLL.booleanValue;
-        }
-        Process process = null;
-        String str = null;
-        process = null;
-        try {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, file)) == null) {
+            Process process = null;
+            String str = null;
+            process = null;
+            int i = -1;
             try {
-                Runtime runtime = Runtime.getRuntime();
-                String packageName = context.getPackageName();
-                Process process2 = null;
-                while (!packageName.equals(file.getName())) {
-                    try {
-                        if (file.isDirectory()) {
-                            process2 = runtime.exec("chmod 701 " + file);
-                        } else {
-                            process2 = runtime.exec("chmod 664 " + file);
+                try {
+                    Runtime runtime = Runtime.getRuntime();
+                    String packageName = context.getPackageName();
+                    Process process2 = null;
+                    while (!packageName.equals(file.getName())) {
+                        try {
+                            if (file.isDirectory()) {
+                                process2 = runtime.exec("chmod 701 " + file);
+                            } else {
+                                process2 = runtime.exec("chmod 664 " + file);
+                            }
+                            file = file.getParentFile();
+                        } catch (Exception e) {
+                            e = e;
+                            process = process2;
+                            Log.e(e);
+                        } catch (Throwable th) {
+                            th = th;
+                            process = process2;
+                            if (process != null) {
+                                process.destroy();
+                            }
+                            throw th;
                         }
-                        file = file.getParentFile();
-                    } catch (Exception e) {
-                        e = e;
-                        process = process2;
-                        Log.e(e);
-                    } catch (Throwable th) {
-                        th = th;
-                        process = process2;
-                        if (process != null) {
-                            process.destroy();
+                    }
+                    String parseExecutePer = parseExecutePer(getExecResult(context.getApplicationInfo().dataDir));
+                    if (TextUtils.isEmpty(parseExecutePer)) {
+                        parseExecutePer = "701";
+                        str = "chmod 701 " + file;
+                    } else if (parseExecutePer.substring(2, 3).equals("0")) {
+                        str = "chmod " + parseExecutePer.substring(0, 2) + "1 " + file;
+                    }
+                    Log.e(TAG, "chmodFile", "command", str, "originPer", parseExecutePer);
+                    if (str != null) {
+                        process = runtime.exec(str);
+                        if (TextUtils.isEmpty(SapiContext.getInstance().getPackageDirExecutePer())) {
+                            SapiContext.getInstance().setPackageDirExecutePer(parseExecutePer);
                         }
-                        throw th;
+                    } else {
+                        process = process2;
                     }
-                }
-                String parseExecutePer = parseExecutePer(getExecResult(context.getApplicationInfo().dataDir));
-                if (TextUtils.isEmpty(parseExecutePer)) {
-                    parseExecutePer = "701";
-                    str = "chmod 701 " + file;
-                } else if (parseExecutePer.substring(2, 3).equals("0")) {
-                    str = "chmod " + parseExecutePer.substring(0, 2) + "1 " + file;
-                }
-                Log.e(TAG, "chmodFile", "command", str, "originPer", parseExecutePer);
-                if (str != null) {
-                    process = runtime.exec(str);
-                    if (TextUtils.isEmpty(SapiContext.getInstance().getPackageDirExecutePer())) {
-                        SapiContext.getInstance().setPackageDirExecutePer(parseExecutePer);
+                    if (process != null) {
+                        i = process.waitFor();
                     }
-                } else {
-                    process = process2;
+                } catch (Exception e2) {
+                    e = e2;
                 }
-                r3 = process != null ? process.waitFor() : -1;
-            } catch (Exception e2) {
-                e = e2;
+            } catch (Throwable th2) {
+                th = th2;
             }
-        } catch (Throwable th2) {
-            th = th2;
+        } else {
+            return invokeLL.booleanValue;
         }
     }
 
@@ -202,7 +204,7 @@ public class SapiCoreUtil {
                         if (interceptable2 == null || interceptable2.invokeLL(1048576, this, webView2, str4) == null) {
                             super.onPageFinished(webView2, str4);
                             if (Build.VERSION.SDK_INT >= 19) {
-                                this.val$webView.evaluateJavascript(this.val$callJs, new ValueCallback<String>(this) { // from class: com.baidu.sapi2.utils.SapiCoreUtil.1.1
+                                this.val$webView.evaluateJavascript(this.val$callJs, new ValueCallback(this) { // from class: com.baidu.sapi2.utils.SapiCoreUtil.1.1
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
                                     public final /* synthetic */ AnonymousClass1 this$0;
@@ -332,6 +334,42 @@ public class SapiCoreUtil {
         return (String) invokeL.objValue;
     }
 
+    public static String parseExecutePer(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            if (TextUtils.isEmpty(str) || str.length() < 10) {
+                return null;
+            }
+            HashMap hashMap = new HashMap();
+            hashMap.put("r", 4);
+            hashMap.put("w", 2);
+            int i = 1;
+            hashMap.put("x", 1);
+            hashMap.put("-", 0);
+            String str2 = "";
+            int i2 = 0;
+            while (i < 10) {
+                int i3 = i + 1;
+                Integer num = (Integer) hashMap.get(str.substring(i, i3));
+                if (num == null) {
+                    return null;
+                }
+                i2 += num.intValue();
+                if (i % 3 == 0) {
+                    str2 = str2 + i2;
+                    i2 = 0;
+                }
+                i = i3;
+            }
+            if (str2.length() != 3) {
+                return null;
+            }
+            return str2;
+        }
+        return (String) invokeL.objValue;
+    }
+
     public static String getMatcher(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -374,7 +412,15 @@ public class SapiCoreUtil {
                         continue;
                     } else {
                         String name = newPullParser.getName();
-                        if (!name.equalsIgnoreCase("data")) {
+                        if (name.equalsIgnoreCase("data")) {
+                            if (sapiAccountResponse2 == null) {
+                                sapiAccountResponse = new SapiAccountResponse();
+                                sapiAccountResponse2 = sapiAccountResponse;
+                                continue;
+                            } else {
+                                continue;
+                            }
+                        } else {
                             if (sapiAccountResponse2 == null && name.equalsIgnoreCase("error_code")) {
                                 sapiAccountResponse = new SapiAccountResponse();
                                 try {
@@ -496,12 +542,6 @@ public class SapiCoreUtil {
                             }
                             sapiAccountResponse2 = sapiAccountResponse;
                             continue;
-                        } else if (sapiAccountResponse2 == null) {
-                            sapiAccountResponse = new SapiAccountResponse();
-                            sapiAccountResponse2 = sapiAccountResponse;
-                            continue;
-                        } else {
-                            continue;
                         }
                     }
                     eventType = newPullParser.next();
@@ -515,41 +555,5 @@ public class SapiCoreUtil {
             return sapiAccountResponse2;
         }
         return (SapiAccountResponse) invokeLL.objValue;
-    }
-
-    public static String parseExecutePer(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            if (TextUtils.isEmpty(str) || str.length() < 10) {
-                return null;
-            }
-            HashMap hashMap = new HashMap();
-            hashMap.put("r", 4);
-            hashMap.put("w", 2);
-            int i = 1;
-            hashMap.put("x", 1);
-            hashMap.put("-", 0);
-            String str2 = "";
-            int i2 = 0;
-            while (i < 10) {
-                int i3 = i + 1;
-                Integer num = (Integer) hashMap.get(str.substring(i, i3));
-                if (num == null) {
-                    return null;
-                }
-                i2 += num.intValue();
-                if (i % 3 == 0) {
-                    str2 = str2 + i2;
-                    i2 = 0;
-                }
-                i = i3;
-            }
-            if (str2.length() != 3) {
-                return null;
-            }
-            return str2;
-        }
-        return (String) invokeL.objValue;
     }
 }

@@ -7,7 +7,6 @@ import android.content.ServiceConnection;
 import android.content.pm.ServiceInfo;
 import android.os.IBinder;
 import android.os.RemoteException;
-import androidx.annotation.Keep;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -23,15 +22,14 @@ import com.bytedance.pangle.servermanager.b;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
-@Keep
 /* loaded from: classes7.dex */
 public class ServiceManagerNative {
     public static /* synthetic */ Interceptable $ic;
     public static volatile ServiceManagerNative sInstance;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<ServiceConnection, HashSet<ServiceInfo>> conn2Service;
-    public HashMap<IBinder, HashMap<ServiceConnection, HashSet<ComponentName>>> process2ConnAndService;
-    public final HashMap<ServiceConnection, f> serviceConn2ServiceConn;
+    public HashMap conn2Service;
+    public HashMap process2ConnAndService;
+    public final HashMap serviceConn2ServiceConn;
 
     public ServiceManagerNative() {
         Interceptable interceptable = $ic;
@@ -46,9 +44,9 @@ public class ServiceManagerNative {
                 return;
             }
         }
-        this.serviceConn2ServiceConn = new HashMap<>();
-        this.process2ConnAndService = new HashMap<>();
-        this.conn2Service = new HashMap<>();
+        this.serviceConn2ServiceConn = new HashMap();
+        this.process2ConnAndService = new HashMap();
+        this.conn2Service = new HashMap();
     }
 
     public static ServiceManagerNative getInstance() {
@@ -102,40 +100,43 @@ public class ServiceManagerNative {
                     }
 
                     @Override // com.bytedance.pangle.f
+                    public final int a() {
+                        InterceptResult invokeV;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                            return this.a.hashCode();
+                        }
+                        return invokeV.intValue;
+                    }
+
+                    @Override // com.bytedance.pangle.f
                     public final void a(ComponentName componentName, IBinder iBinder) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName, iBinder) == null) {
                             this.a.onServiceConnected(componentName, iBinder);
                         }
                     }
-
-                    @Override // com.bytedance.pangle.f
-                    public final int a() {
-                        InterceptResult invokeV;
-                        Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.a.hashCode() : invokeV.intValue;
-                    }
                 });
             }
             if (this.conn2Service.get(serviceConnection) == null) {
-                this.conn2Service.put(serviceConnection, new HashSet<>());
+                this.conn2Service.put(serviceConnection, new HashSet());
             }
-            this.conn2Service.get(serviceConnection).add(queryServiceFromPlugin);
+            ((HashSet) this.conn2Service.get(serviceConnection)).add(queryServiceFromPlugin);
             d a = b.a(queryServiceFromPlugin.processName);
             IBinder asBinder = a.asBinder();
-            HashMap<ServiceConnection, HashSet<ComponentName>> hashMap = this.process2ConnAndService.get(asBinder);
+            HashMap hashMap = (HashMap) this.process2ConnAndService.get(asBinder);
             if (hashMap == null) {
-                hashMap = new HashMap<>();
+                hashMap = new HashMap();
                 this.process2ConnAndService.put(asBinder, hashMap);
             }
-            HashSet<ComponentName> hashSet = hashMap.get(serviceConnection);
+            HashSet hashSet = (HashSet) hashMap.get(serviceConnection);
             if (hashSet == null) {
-                hashSet = new HashSet<>();
+                hashSet = new HashSet();
                 hashMap.put(serviceConnection, hashSet);
             }
             hashSet.add(intent.getComponent());
             try {
-                return a.a(intent, this.serviceConn2ServiceConn.get(serviceConnection), i, str);
+                return a.a(intent, (f) this.serviceConn2ServiceConn.get(serviceConnection), i, str);
             } catch (RemoteException e) {
                 e.printStackTrace();
                 ZeusLogger.e(ZeusLogger.TAG_SERVICE, "bindService failed!", e);
@@ -154,7 +155,7 @@ public class ServiceManagerNative {
             if (component == null) {
                 return null;
             }
-            return PluginManager.getInstance().getPlugin(str).pluginServices.get(component.getClassName());
+            return (ServiceInfo) PluginManager.getInstance().getPlugin(str).pluginServices.get(component.getClassName());
         }
         return (ServiceInfo) invokeLL.objValue;
     }
@@ -196,17 +197,16 @@ public class ServiceManagerNative {
     }
 
     public void unbindServiceNative(ServiceConnection serviceConnection) {
-        HashSet<ServiceInfo> hashSet;
+        HashSet hashSet;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, serviceConnection) == null) || (hashSet = this.conn2Service.get(serviceConnection)) == null) {
-            return;
-        }
-        Iterator<ServiceInfo> it = hashSet.iterator();
-        while (it.hasNext()) {
-            try {
-                b.a(it.next().processName).a(this.serviceConn2ServiceConn.get(serviceConnection));
-            } catch (RemoteException e) {
-                e.printStackTrace();
+        if ((interceptable == null || interceptable.invokeL(1048580, this, serviceConnection) == null) && (hashSet = (HashSet) this.conn2Service.get(serviceConnection)) != null) {
+            Iterator it = hashSet.iterator();
+            while (it.hasNext()) {
+                try {
+                    b.a(((ServiceInfo) it.next()).processName).a((f) this.serviceConn2ServiceConn.get(serviceConnection));
+                } catch (RemoteException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }

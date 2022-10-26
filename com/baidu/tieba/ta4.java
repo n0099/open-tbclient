@@ -11,14 +11,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import okhttp3.Request;
 import okhttp3.RequestBody;
-import org.apache.http.client.methods.HttpTrace;
+import org.apache.http.client.methods.HttpOptions;
 /* loaded from: classes5.dex */
-public class ta4 extends HttpCommonRequest<a> {
+public class ta4 extends HttpCommonRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public static class a extends HttpCommonRequestBuilder<a> {
+    public class a extends HttpCommonRequestBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -40,15 +40,6 @@ public class ta4 extends HttpCommonRequest<a> {
                     return;
                 }
             }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.request.HttpRequestBuilder
-        /* renamed from: a */
-        public ta4 build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ta4(this) : (ta4) invokeV.objValue;
         }
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -92,6 +83,18 @@ public class ta4 extends HttpCommonRequest<a> {
                 }
             }
         }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.request.HttpRequestBuilder
+        /* renamed from: a */
+        public ta4 build() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new ta4(this);
+            }
+            return (ta4) invokeV.objValue;
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -120,7 +123,10 @@ public class ta4 extends HttpCommonRequest<a> {
     public a newBuilder() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this) : (a) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this);
+        }
+        return (a) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -129,13 +135,19 @@ public class ta4 extends HttpCommonRequest<a> {
     public a newBuilder(AbstractHttpManager abstractHttpManager) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, abstractHttpManager)) == null) ? new a(this, abstractHttpManager) : (a) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, abstractHttpManager)) == null) {
+            return new a(this, abstractHttpManager);
+        }
+        return (a) invokeL.objValue;
     }
 
     @Override // com.baidu.searchbox.http.request.HttpRequest
     public Request buildOkRequest(RequestBody requestBody) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, requestBody)) == null) ? this.okRequestBuilder.method(HttpTrace.METHOD_NAME, requestBody).build() : (Request) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, requestBody)) == null) {
+            return this.okRequestBuilder.method(HttpOptions.METHOD_NAME, requestBody).build();
+        }
+        return (Request) invokeL.objValue;
     }
 }

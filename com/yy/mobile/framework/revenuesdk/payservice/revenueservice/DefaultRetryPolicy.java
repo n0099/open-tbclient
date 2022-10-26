@@ -30,6 +30,8 @@ public abstract class DefaultRetryPolicy implements RetryPolicy {
     public volatile int mStatus;
     public int mTimeoutMs;
 
+    public abstract void onRetry();
+
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public DefaultRetryPolicy() {
         this(new Handler(Looper.getMainLooper()), 2500, 1, 3000, 0);
@@ -49,10 +51,39 @@ public abstract class DefaultRetryPolicy implements RetryPolicy {
         }
     }
 
+    public DefaultRetryPolicy(Handler handler, int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {handler, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mStatus = 0;
+        this.mHander = handler;
+        this.mTimeoutMs = i;
+        this.mMaxNumRetries = i2;
+        this.mIntervalMs = i3;
+        this.mRetryType = i4;
+    }
+
     private boolean hasAttemptRemaining() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? this.mCurrentRetryCount < this.mMaxNumRetries : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+            if (this.mCurrentRetryCount < this.mMaxNumRetries) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public void call() {
@@ -114,10 +145,11 @@ public abstract class DefaultRetryPolicy implements RetryPolicy {
     public int getCurrentRetryCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mCurrentRetryCount : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mCurrentRetryCount;
+        }
+        return invokeV.intValue;
     }
-
-    public abstract void onRetry();
 
     @Override // com.yy.mobile.framework.revenuesdk.baseapi.RetryPolicy
     public void retry() {
@@ -239,28 +271,5 @@ public abstract class DefaultRetryPolicy implements RetryPolicy {
             retryCountExhaust();
             RLog.info(TAG, "retryCountExhaust");
         }
-    }
-
-    public DefaultRetryPolicy(Handler handler, int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {handler, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mStatus = 0;
-        this.mHander = handler;
-        this.mTimeoutMs = i;
-        this.mMaxNumRetries = i2;
-        this.mIntervalMs = i3;
-        this.mRetryType = i4;
     }
 }

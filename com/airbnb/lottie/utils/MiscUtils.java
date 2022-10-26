@@ -2,7 +2,6 @@ package com.airbnb.lottie.utils;
 
 import android.graphics.Path;
 import android.graphics.PointF;
-import androidx.annotation.FloatRange;
 import com.airbnb.lottie.animation.content.KeyPathElementContent;
 import com.airbnb.lottie.model.CubicCurveData;
 import com.airbnb.lottie.model.KeyPath;
@@ -12,25 +11,59 @@ import java.util.List;
 public class MiscUtils {
     public static PointF pathFromDataCurrentPoint = new PointF();
 
+    public static boolean contains(float f, float f2, float f3) {
+        return f >= f2 && f <= f3;
+    }
+
+    public static double lerp(double d, double d2, double d3) {
+        return d + (d3 * (d2 - d));
+    }
+
+    public static float lerp(float f, float f2, float f3) {
+        return f + (f3 * (f2 - f));
+    }
+
+    public static int lerp(int i, int i2, float f) {
+        return (int) (i + (f * (i2 - i)));
+    }
+
     public static PointF addPoints(PointF pointF, PointF pointF2) {
         return new PointF(pointF.x + pointF2.x, pointF.y + pointF2.y);
+    }
+
+    public static int floorDiv(int i, int i2) {
+        boolean z;
+        int i3 = i / i2;
+        if ((i ^ i2) >= 0) {
+            z = true;
+        } else {
+            z = false;
+        }
+        int i4 = i % i2;
+        if (!z && i4 != 0) {
+            return i3 - 1;
+        }
+        return i3;
+    }
+
+    public static int floorMod(float f, float f2) {
+        return floorMod((int) f, (int) f2);
+    }
+
+    public static double clamp(double d, double d2, double d3) {
+        return Math.max(d2, Math.min(d3, d));
+    }
+
+    public static float clamp(float f, float f2, float f3) {
+        return Math.max(f2, Math.min(f3, f));
     }
 
     public static int clamp(int i, int i2, int i3) {
         return Math.max(i2, Math.min(i3, i));
     }
 
-    public static boolean contains(float f, float f2, float f3) {
-        return f >= f2 && f <= f3;
-    }
-
-    public static int floorDiv(int i, int i2) {
-        int i3 = i / i2;
-        return (((i ^ i2) >= 0) || i % i2 == 0) ? i3 : i3 - 1;
-    }
-
-    public static int floorMod(float f, float f2) {
-        return floorMod((int) f, (int) f2);
+    public static int floorMod(int i, int i2) {
+        return i - (i2 * floorDiv(i, i2));
     }
 
     public static void getPathFromData(ShapeData shapeData, Path path) {
@@ -39,7 +72,7 @@ public class MiscUtils {
         path.moveTo(initialPoint.x, initialPoint.y);
         pathFromDataCurrentPoint.set(initialPoint.x, initialPoint.y);
         for (int i = 0; i < shapeData.getCurves().size(); i++) {
-            CubicCurveData cubicCurveData = shapeData.getCurves().get(i);
+            CubicCurveData cubicCurveData = (CubicCurveData) shapeData.getCurves().get(i);
             PointF controlPoint1 = cubicCurveData.getControlPoint1();
             PointF controlPoint2 = cubicCurveData.getControlPoint2();
             PointF vertex = cubicCurveData.getVertex();
@@ -55,33 +88,9 @@ public class MiscUtils {
         }
     }
 
-    public static double lerp(double d, double d2, @FloatRange(from = 0.0d, to = 1.0d) double d3) {
-        return d + (d3 * (d2 - d));
-    }
-
-    public static float lerp(float f, float f2, @FloatRange(from = 0.0d, to = 1.0d) float f3) {
-        return f + (f3 * (f2 - f));
-    }
-
-    public static int lerp(int i, int i2, @FloatRange(from = 0.0d, to = 1.0d) float f) {
-        return (int) (i + (f * (i2 - i)));
-    }
-
-    public static void resolveKeyPath(KeyPath keyPath, int i, List<KeyPath> list, KeyPath keyPath2, KeyPathElementContent keyPathElementContent) {
+    public static void resolveKeyPath(KeyPath keyPath, int i, List list, KeyPath keyPath2, KeyPathElementContent keyPathElementContent) {
         if (keyPath.fullyResolvesTo(keyPathElementContent.getName(), i)) {
             list.add(keyPath2.addKey(keyPathElementContent.getName()).resolve(keyPathElementContent));
         }
-    }
-
-    public static float clamp(float f, float f2, float f3) {
-        return Math.max(f2, Math.min(f3, f));
-    }
-
-    public static int floorMod(int i, int i2) {
-        return i - (i2 * floorDiv(i, i2));
-    }
-
-    public static double clamp(double d, double d2, double d3) {
-        return Math.max(d2, Math.min(d3, d));
     }
 }

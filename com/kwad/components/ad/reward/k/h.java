@@ -13,7 +13,6 @@ import android.view.animation.Interpolator;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-import androidx.annotation.Nullable;
 import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.animation.PathInterpolatorCompat;
@@ -38,35 +37,23 @@ import com.kwad.sdk.utils.ag;
 public final class h extends d implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
     public KsLogoView bq;
-    @Nullable
     public TextView eQ;
-    @Nullable
     public KSCornerImageView it;
-    @Nullable
     public TextView iu;
-    @Nullable
     public KsPriceView nI;
     public com.kwad.components.ad.reward.k nM;
-    @Nullable
     public ViewGroup pV;
     public ViewGroup uL;
-    @Nullable
     public TextView uM;
-    @Nullable
     public KsStyledTextButton uN;
-    @Nullable
     public TextView uO;
-    @Nullable
     public TextView uP;
-    @Nullable
     public View uQ;
-    @Nullable
     public ImageView uR;
 
     /* loaded from: classes7.dex */
-    public static class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String hL;
@@ -76,7 +63,6 @@ public final class h extends d implements View.OnClickListener {
         public String rating;
         public String title;
         public String vb;
-        @Nullable
         public String vc;
         public String vd;
         public String ve;
@@ -213,7 +199,6 @@ public final class h extends d implements View.OnClickListener {
         initView();
     }
 
-    @Nullable
     public static Animator a(View view2, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
@@ -232,7 +217,6 @@ public final class h extends d implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    @Nullable
     public Animator a(View view2, View view3, View view4) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
@@ -363,17 +347,17 @@ public final class h extends d implements View.OnClickListener {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            this.pV = (ViewGroup) this.uL.findViewById(R.id.obfuscated_res_0x7f091185);
-            this.it = (KSCornerImageView) this.uL.findViewById(R.id.obfuscated_res_0x7f091180);
-            this.eQ = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f091187);
-            this.iu = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f09116f);
-            this.nI = (KsPriceView) this.uL.findViewById(R.id.obfuscated_res_0x7f091182);
-            this.uM = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f091184);
-            this.uN = (KsStyledTextButton) this.uL.findViewById(R.id.obfuscated_res_0x7f09116a);
-            this.uR = (ImageView) this.uL.findViewById(R.id.obfuscated_res_0x7f091181);
-            this.uQ = this.uL.findViewById(R.id.obfuscated_res_0x7f09116d);
-            this.uO = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f09116c);
-            this.uP = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f09116e);
+            this.pV = (ViewGroup) this.uL.findViewById(R.id.obfuscated_res_0x7f091179);
+            this.it = (KSCornerImageView) this.uL.findViewById(R.id.obfuscated_res_0x7f091174);
+            this.eQ = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f09117b);
+            this.iu = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f091163);
+            this.nI = (KsPriceView) this.uL.findViewById(R.id.obfuscated_res_0x7f091176);
+            this.uM = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f091178);
+            this.uN = (KsStyledTextButton) this.uL.findViewById(R.id.obfuscated_res_0x7f09115e);
+            this.uR = (ImageView) this.uL.findViewById(R.id.obfuscated_res_0x7f091175);
+            this.uQ = this.uL.findViewById(R.id.obfuscated_res_0x7f091161);
+            this.uO = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f091160);
+            this.uP = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f091162);
             ViewGroup viewGroup = this.pV;
             if (viewGroup != null) {
                 viewGroup.setOnClickListener(this);

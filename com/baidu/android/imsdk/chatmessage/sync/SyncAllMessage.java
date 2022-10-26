@@ -69,6 +69,28 @@ public class SyncAllMessage extends SyncStrategy {
         return invokeV.longValue;
     }
 
+    public void clearCache() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            reset();
+            Context context = this.mContext;
+            Utility.writeLongData(context, IMConstants.FETCHED_MAX_NOTIFY_MSGID + AccountManager.getAppid(this.mContext) + AccountManager.getUid(this.mContext), -1L);
+        }
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.sync.SyncStrategy
+    public boolean commitDeviceMaxNotifyMsgid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            Context context = this.mContext;
+            Utility.writeLongData(context, IMConstants.FETCHED_MAX_NOTIFY_MSGID + AccountManager.getAppid(this.mContext) + AccountManager.getUid(this.mContext), this.mMaxMsgid);
+            this.mCount.set(0);
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
     public static SyncAllMessage getInstance(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -94,26 +116,12 @@ public class SyncAllMessage extends SyncStrategy {
         }
     }
 
-    public void clearCache() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            reset();
-            Context context = this.mContext;
-            Utility.writeLongData(context, IMConstants.FETCHED_MAX_NOTIFY_MSGID + AccountManager.getAppid(this.mContext) + AccountManager.getUid(this.mContext), -1L);
-        }
-    }
-
     @Override // com.baidu.android.imsdk.chatmessage.sync.SyncStrategy
-    public boolean commitDeviceMaxNotifyMsgid() {
-        InterceptResult invokeV;
+    public void onComplete(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Context context = this.mContext;
-            Utility.writeLongData(context, IMConstants.FETCHED_MAX_NOTIFY_MSGID + AccountManager.getAppid(this.mContext) + AccountManager.getUid(this.mContext), this.mMaxMsgid);
-            this.mCount.set(0);
-            return true;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            super.onComplete(i);
         }
-        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.sync.SyncStrategy
@@ -134,22 +142,23 @@ public class SyncAllMessage extends SyncStrategy {
     public long getStartMsgid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Math.max(0L, getDeviceMaxNotifyMsgid()) : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return Math.max(0L, getDeviceMaxNotifyMsgid());
+        }
+        return invokeV.longValue;
     }
 
     public int getState() {
         InterceptResult invokeV;
         int i;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (this.mState == 1 && ((i = this.mTriggerReason) == 0 || i == 1)) ? 0 : 1 : invokeV.intValue;
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.sync.SyncStrategy
-    public void onComplete(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            super.onComplete(i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.mState != 1 || ((i = this.mTriggerReason) != 0 && i != 1)) {
+                return 1;
+            }
+            return 0;
         }
+        return invokeV.intValue;
     }
 
     public void reset() {
@@ -159,15 +168,6 @@ public class SyncAllMessage extends SyncStrategy {
             this.mJumpToRecent = -1;
             this.mPassPortSwitch = true;
         }
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.sync.SyncStrategy
-    public void updateData(Context context, long j) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(1048583, this, context, j) == null) || j <= 0) {
-            return;
-        }
-        setDeviceMaxNotifyMsgid(j);
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.sync.SyncStrategy
@@ -184,5 +184,14 @@ public class SyncAllMessage extends SyncStrategy {
             return true;
         }
         return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.sync.SyncStrategy
+    public void updateData(Context context, long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLJ(1048583, this, context, j) != null) || j <= 0) {
+            return;
+        }
+        setDeviceMaxNotifyMsgid(j);
     }
 }

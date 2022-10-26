@@ -1,238 +1,127 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
+import android.view.View;
+import android.view.ViewGroup;
+import android.webkit.JsPromptResult;
+import android.webkit.JsResult;
+import android.webkit.WebChromeClient;
+import android.webkit.WebStorage;
+import android.webkit.WebView;
+import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.browser.core.async.BdRunnable;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.ad.browser.newstyle.AdWebViewActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidubce.AbstractBceClient;
-import java.io.IOException;
-import java.util.Map;
-import okhttp3.MediaType;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class sp5 {
+public class sp5 extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
-    public static final String b;
-    public static final String c;
     public transient /* synthetic */ FieldHolder $fh;
-    public b a;
+    public AdWebViewActivity a;
+    public fo8 b;
 
-    /* loaded from: classes5.dex */
-    public class a extends BdRunnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Map c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ sp5 e;
-
-        /* renamed from: com.baidu.tieba.sp5$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class C0415a extends BdRunnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ JSONObject c;
-            public final /* synthetic */ a d;
-
-            public C0415a(a aVar, JSONObject jSONObject) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, jSONObject};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.d = aVar;
-                this.c = jSONObject;
-            }
-
-            @Override // com.baidu.browser.core.async.BdRunnable
-            public void b() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.d.e.a.a(this.c);
-                }
-            }
-        }
-
-        public a(sp5 sp5Var, Map map, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sp5Var, map, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = sp5Var;
-            this.c = map;
-            this.d = str;
-        }
-
-        @Override // com.baidu.browser.core.async.BdRunnable
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                MediaType parse = MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE);
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    this.e.d(this.c);
-                    this.e.f(this.c, jSONObject);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                OkHttpClient okHttpClient = new OkHttpClient();
-                RequestBody create = RequestBody.create(parse, String.valueOf(jSONObject));
-                Response response = null;
-                try {
-                    response = okHttpClient.newCall(new Request.Builder().url(this.d).post(create).build()).execute();
-                } catch (IOException e2) {
-                    e2.printStackTrace();
-                }
-                try {
-                    pw.f().h(new C0415a(this, new JSONObject(response.body().string())));
-                } catch (IOException e3) {
-                    e3.printStackTrace();
-                } catch (JSONException e4) {
-                    e4.printStackTrace();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(JSONObject jSONObject);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948159121, "Lcom/baidu/tieba/sp5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948159121, "Lcom/baidu/tieba/sp5;");
-                return;
-            }
-        }
-        b = aq4.e() ? "http://" : "https://";
-        c = b + "afdconf.baidu.com/afd/download";
-    }
-
-    public sp5(@NonNull b bVar) {
+    public sp5(AdWebViewActivity adWebViewActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bVar};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {adWebViewActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = bVar;
+        this.a = adWebViewActivity;
     }
 
-    public static String e() {
+    public void a(fo8 fo8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, fo8Var) == null) {
+            this.b = fo8Var;
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public View getVideoLoadingProgressView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (BdNetTypeUtil.isWifiNet()) {
-                return UtilHelper.getWifiMac(TbadkCoreApplication.getInst().getApp());
-            }
-            return UtilHelper.getGprsIpAddress();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            FrameLayout frameLayout = new FrameLayout(this.a.getPageContext().getPageActivity());
+            frameLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+            return frameLayout;
         }
-        return (String) invokeV.objValue;
+        return (View) invokeV.objValue;
     }
 
-    public final Map<String, String> d(Map<String, String> map) {
-        InterceptResult invokeL;
+    @Override // android.webkit.WebChromeClient
+    public void onExceededDatabaseQuota(String str, String str2, long j, long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, map)) == null) {
-            map.put("_client_version", TbConfig.getVersion());
-            map.put("uid", TbadkCoreApplication.getCurrentAccount());
-            map.put("cuid", TbadkCoreApplication.getInst().getCuidGalaxy2());
-            map.put("ua", si5.b());
-            String e = pj0.c().e(false);
-            if (!TextUtils.isEmpty(e)) {
-                map.put("model", e);
-            }
-            String h = pj0.c().h(false);
-            if (!TextUtils.isEmpty(h)) {
-                map.put("_os_version", h);
-            }
-            String b2 = pj0.c().b(false);
-            if (!TextUtils.isEmpty(b2)) {
-                map.put("imei", b2);
-            }
-            String a2 = pj0.c().a(false);
-            if (!TextUtils.isEmpty(a2)) {
-                map.put(HttpRequest.ANDROID_ID, a2);
-            }
-            map.put(HttpRequest.CLIENT_TYPE, "2");
-            map.put("nt", String.valueOf(BdNetTypeUtil.netType()));
-            map.put("ip", e());
-            map.put("ssl", "1");
-            return map;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), quotaUpdater}) == null) {
+            super.onExceededDatabaseQuota(str, str2, j, j2, j3, quotaUpdater);
+            quotaUpdater.updateQuota(j2 * 2);
         }
-        return (Map) invokeL.objValue;
     }
 
-    public final JSONObject f(Map<String, String> map, JSONObject jSONObject) throws JSONException {
-        InterceptResult invokeLL;
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map, jSONObject)) == null) {
-            if (ah7.f(map)) {
-                return jSONObject;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, webView, str, str2, jsResult)) == null) {
+            AdWebViewActivity adWebViewActivity = this.a;
+            if (adWebViewActivity != null && jh.f(adWebViewActivity.getPageContext())) {
+                return super.onJsAlert(webView, str, str2, jsResult);
             }
-            for (Map.Entry<String, String> entry : map.entrySet()) {
-                jSONObject.putOpt(entry.getKey(), entry.getValue());
-            }
-            return jSONObject;
+            return true;
         }
-        return (JSONObject) invokeLL.objValue;
+        return invokeLLLL.booleanValue;
     }
 
-    public void g(Map<String, String> map, String str) {
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsBeforeUnload(WebView webView, String str, String str2, JsResult jsResult) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, map, str) == null) {
-            pw.f().g(new a(this, map, str));
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, webView, str, str2, jsResult)) == null) {
+            AdWebViewActivity adWebViewActivity = this.a;
+            if (adWebViewActivity != null && jh.f(adWebViewActivity.getPageContext())) {
+                return super.onJsBeforeUnload(webView, str, str2, jsResult);
+            }
+            return true;
         }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, webView, str, str2, jsResult)) == null) {
+            AdWebViewActivity adWebViewActivity = this.a;
+            if (adWebViewActivity != null && jh.f(adWebViewActivity.getPageContext())) {
+                return super.onJsConfirm(webView, str, str2, jsResult);
+            }
+            return true;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLLLLL;
+        AdWebViewActivity adWebViewActivity;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048582, this, webView, str, str2, str3, jsPromptResult)) == null) {
+            fo8 fo8Var = this.b;
+            if ((fo8Var != null && fo8Var.onJsPrompt(str2, jsPromptResult)) || (adWebViewActivity = this.a) == null || !jh.f(adWebViewActivity.getPageContext())) {
+                return true;
+            }
+            return super.onJsPrompt(webView, str, str2, str3, jsPromptResult);
+        }
+        return invokeLLLLL.booleanValue;
     }
 }

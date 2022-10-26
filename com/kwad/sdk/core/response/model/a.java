@@ -1,7 +1,4 @@
 package com.kwad.sdk.core.response.model;
-
-import com.ksad.json.annotation.KsJson;
-@KsJson
 /* loaded from: classes7.dex */
 public class a extends com.kwad.sdk.core.response.kwai.a {
     public int add;

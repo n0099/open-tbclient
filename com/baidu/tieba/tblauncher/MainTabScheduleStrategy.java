@@ -59,12 +59,18 @@ public final class MainTabScheduleStrategy {
     public static MainTabScheduleStrategy valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (MainTabScheduleStrategy) Enum.valueOf(MainTabScheduleStrategy.class, str) : (MainTabScheduleStrategy) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (MainTabScheduleStrategy) Enum.valueOf(MainTabScheduleStrategy.class, str);
+        }
+        return (MainTabScheduleStrategy) invokeL.objValue;
     }
 
     public static MainTabScheduleStrategy[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (MainTabScheduleStrategy[]) $VALUES.clone() : (MainTabScheduleStrategy[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (MainTabScheduleStrategy[]) $VALUES.clone();
+        }
+        return (MainTabScheduleStrategy[]) invokeV.objValue;
     }
 }

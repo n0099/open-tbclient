@@ -8,8 +8,8 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.x84;
 import com.baidu.tieba.y84;
+import com.baidu.tieba.z84;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,22 +17,43 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class LocationDetailAdapter extends RecyclerView.Adapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public RecyclerView b;
-    public List<y84> c;
-    public x84 d;
+    public List c;
+    public y84 d;
     public boolean e;
     public String f;
 
-    public LocationDetailAdapter(Context context, RecyclerView recyclerView, x84 x84Var, boolean z) {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public LocationDetailAdapter(Context context, RecyclerView recyclerView, y84 y84Var) {
+        this(context, recyclerView, y84Var, true);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, recyclerView, x84Var, Boolean.valueOf(z)};
+            Object[] objArr = {context, recyclerView, y84Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (RecyclerView) objArr2[1], (y84) objArr2[2], ((Boolean) objArr2[3]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public LocationDetailAdapter(Context context, RecyclerView recyclerView, y84 y84Var, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, recyclerView, y84Var, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -44,14 +65,17 @@ public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         }
         this.b = recyclerView;
         this.a = context;
-        this.d = x84Var;
+        this.d = y84Var;
         this.e = z;
     }
 
     public final boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !TextUtils.isEmpty(this.f) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return !TextUtils.isEmpty(this.f);
+        }
+        return invokeV.booleanValue;
     }
 
     public final boolean e() {
@@ -59,7 +83,10 @@ public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             RecyclerView recyclerView = this.b;
-            return recyclerView != null && recyclerView.computeVerticalScrollOffset() > 0;
+            if (recyclerView != null && recyclerView.computeVerticalScrollOffset() > 0) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
@@ -67,20 +94,10 @@ public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.Vie
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            for (y84 y84Var : this.c) {
-                y84Var.b = false;
+            for (z84 z84Var : this.c) {
+                z84Var.b = false;
             }
         }
-    }
-
-    public void g(List<y84> list, String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, list, str) == null) || list == null) {
-            return;
-        }
-        this.c = list;
-        this.f = str;
-        notifyDataSetChanged();
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -88,7 +105,7 @@ public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List<y84> list = this.c;
+            List list = this.c;
             if (list == null) {
                 return 0;
             }
@@ -97,11 +114,33 @@ public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         return invokeV.intValue;
     }
 
+    public void g(List list, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048579, this, list, str) == null) && list != null) {
+            this.c = list;
+            this.f = str;
+            notifyDataSetChanged();
+        }
+    }
+
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemViewType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? (!this.e || i < getItemCount() + (-1)) ? 100 : 101 : invokeI.intValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            if (!this.e || i < getItemCount() - 1) {
+                return 100;
+            }
+            return 101;
+        }
+        return invokeI.intValue;
+    }
+
+    public void setData(List list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
+            g(list, null);
+        }
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -109,7 +148,7 @@ public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048582, this, viewHolder, i) == null) {
             if (viewHolder.getItemViewType() != 101) {
-                ((LocationDetailViewHolder) viewHolder).update(this.c.get(i), this.f, d());
+                ((LocationDetailViewHolder) viewHolder).update((z84) this.c.get(i), this.f, d());
             } else {
                 ((LocationFooterViewHolder) viewHolder).b(e());
             }
@@ -127,33 +166,5 @@ public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             return new LocationFooterViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0085, viewGroup, false));
         }
         return (RecyclerView.ViewHolder) invokeLI.objValue;
-    }
-
-    public void setData(List<y84> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
-            g(list, null);
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public LocationDetailAdapter(Context context, RecyclerView recyclerView, x84 x84Var) {
-        this(context, recyclerView, x84Var, true);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, recyclerView, x84Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (RecyclerView) objArr2[1], (x84) objArr2[2], ((Boolean) objArr2[3]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
     }
 }

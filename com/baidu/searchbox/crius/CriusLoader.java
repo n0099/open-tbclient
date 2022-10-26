@@ -63,69 +63,85 @@ public class CriusLoader {
     public static int criusStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? criusStatus : invokeV.intValue;
-    }
-
-    public static void init(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, context) == null) && criusStatus == 0) {
-            CriusConstants.DEBUG = CriusRuntime.DEBUG;
-            criusStatus = 2;
-            if (!TextUtils.isEmpty("gnustl_shared")) {
-                try {
-                    SoLoader.load(context, "gnustl_shared");
-                    if (!SoLoader.isSoLoadedSucc("gnustl_shared")) {
-                        criusStatus = 6;
-                        return;
-                    }
-                } catch (Throwable unused) {
-                    if (!CriusRuntime.DEBUG) {
-                        criusStatus = 3;
-                        return;
-                    }
-                    throw new IllegalArgumentException("crius lib gnustl_shared load failed!");
-                }
-            }
-            try {
-                SoLoader.load(context, "criusbase");
-                if (!SoLoader.isSoLoadedSucc("criusbase")) {
-                    criusStatus = 7;
-                    return;
-                }
-                try {
-                    SoLoader.load(context, "crius");
-                    if (!SoLoader.isSoLoadedSucc("crius")) {
-                        criusStatus = 8;
-                    } else {
-                        criusStatus = 1;
-                    }
-                } catch (Throwable unused2) {
-                    if (!CriusRuntime.DEBUG) {
-                        criusStatus = 5;
-                        return;
-                    }
-                    throw new IllegalArgumentException("crius lib crius load failed!");
-                }
-            } catch (Throwable unused3) {
-                if (!CriusRuntime.DEBUG) {
-                    criusStatus = 4;
-                    return;
-                }
-                throw new IllegalArgumentException("crius lib criusbase load failed!");
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return criusStatus;
         }
+        return invokeV.intValue;
     }
 
     public static boolean isCriusNone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? criusStatus == 0 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (criusStatus == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public static boolean isCriusOk() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? criusStatus == 1 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (criusStatus == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void init(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65539, null, context) != null) || criusStatus != 0) {
+            return;
+        }
+        CriusConstants.DEBUG = CriusRuntime.DEBUG;
+        criusStatus = 2;
+        if (!TextUtils.isEmpty("gnustl_shared")) {
+            try {
+                SoLoader.load(context, "gnustl_shared");
+                if (!SoLoader.isSoLoadedSucc("gnustl_shared")) {
+                    criusStatus = 6;
+                    return;
+                }
+            } catch (Throwable unused) {
+                if (!CriusRuntime.DEBUG) {
+                    criusStatus = 3;
+                    return;
+                }
+                throw new IllegalArgumentException("crius lib gnustl_shared load failed!");
+            }
+        }
+        try {
+            SoLoader.load(context, "criusbase");
+            if (!SoLoader.isSoLoadedSucc("criusbase")) {
+                criusStatus = 7;
+                return;
+            }
+            try {
+                SoLoader.load(context, "crius");
+                if (!SoLoader.isSoLoadedSucc("crius")) {
+                    criusStatus = 8;
+                } else {
+                    criusStatus = 1;
+                }
+            } catch (Throwable unused2) {
+                if (!CriusRuntime.DEBUG) {
+                    criusStatus = 5;
+                    return;
+                }
+                throw new IllegalArgumentException("crius lib crius load failed!");
+            }
+        } catch (Throwable unused3) {
+            if (!CriusRuntime.DEBUG) {
+                criusStatus = 4;
+                return;
+            }
+            throw new IllegalArgumentException("crius lib criusbase load failed!");
+        }
     }
 
     public static void registerComponentFactory(IComponentFactory iComponentFactory) {

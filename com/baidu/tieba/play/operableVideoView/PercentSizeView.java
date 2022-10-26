@@ -3,7 +3,6 @@ package com.baidu.tieba.play.operableVideoView;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -38,45 +37,8 @@ public class PercentSizeView extends View {
         this.b = 1.0f;
     }
 
-    @Override // android.view.View
-    public void onMeasure(int i, int i2) {
-        int measuredWidth;
-        int measuredHeight;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
-            super.onMeasure(i, i2);
-            if (View.MeasureSpec.getMode(i) == 1073741824) {
-                measuredWidth = View.MeasureSpec.getSize(i);
-            } else {
-                measuredWidth = (int) (getMeasuredWidth() * this.b);
-            }
-            if (View.MeasureSpec.getMode(i2) == 1073741824) {
-                measuredHeight = View.MeasureSpec.getSize(i2);
-            } else {
-                measuredHeight = (int) (getMeasuredHeight() * this.a);
-            }
-            setMeasuredDimension(measuredWidth, measuredHeight);
-        }
-    }
-
-    public void setHeightPercent(float f) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) || f <= 0.0f) {
-            return;
-        }
-        this.a = f;
-    }
-
-    public void setWidthPercent(float f) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f) == null) || f <= 0.0f) {
-            return;
-        }
-        this.b = f;
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PercentSizeView(Context context, @Nullable AttributeSet attributeSet) {
+    public PercentSizeView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -98,8 +60,29 @@ public class PercentSizeView extends View {
         this.b = 1.0f;
     }
 
+    @Override // android.view.View
+    public void onMeasure(int i, int i2) {
+        int measuredWidth;
+        int measuredHeight;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
+            super.onMeasure(i, i2);
+            if (View.MeasureSpec.getMode(i) == 1073741824) {
+                measuredWidth = View.MeasureSpec.getSize(i);
+            } else {
+                measuredWidth = (int) (getMeasuredWidth() * this.b);
+            }
+            if (View.MeasureSpec.getMode(i2) == 1073741824) {
+                measuredHeight = View.MeasureSpec.getSize(i2);
+            } else {
+                measuredHeight = (int) (getMeasuredHeight() * this.a);
+            }
+            setMeasuredDimension(measuredWidth, measuredHeight);
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PercentSizeView(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public PercentSizeView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -119,5 +102,19 @@ public class PercentSizeView extends View {
         }
         this.a = 1.0f;
         this.b = 1.0f;
+    }
+
+    public void setHeightPercent(float f) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) && f > 0.0f) {
+            this.a = f;
+        }
+    }
+
+    public void setWidthPercent(float f) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f) == null) && f > 0.0f) {
+            this.b = f;
+        }
     }
 }

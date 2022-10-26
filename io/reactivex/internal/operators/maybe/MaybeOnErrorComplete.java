@@ -14,20 +14,20 @@ import io.reactivex.exceptions.Exceptions;
 import io.reactivex.functions.Predicate;
 import io.reactivex.internal.disposables.DisposableHelper;
 /* loaded from: classes8.dex */
-public final class MaybeOnErrorComplete<T> extends AbstractMaybeWithUpstream<T, T> {
+public final class MaybeOnErrorComplete extends AbstractMaybeWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Predicate<? super Throwable> predicate;
+    public final Predicate predicate;
 
     /* loaded from: classes8.dex */
-    public static final class OnErrorCompleteMaybeObserver<T> implements MaybeObserver<T>, Disposable {
+    public final class OnErrorCompleteMaybeObserver implements MaybeObserver, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final MaybeObserver<? super T> actual;
+        public final MaybeObserver actual;
         public Disposable d;
-        public final Predicate<? super Throwable> predicate;
+        public final Predicate predicate;
 
-        public OnErrorCompleteMaybeObserver(MaybeObserver<? super T> maybeObserver, Predicate<? super Throwable> predicate) {
+        public OnErrorCompleteMaybeObserver(MaybeObserver maybeObserver, Predicate predicate) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -58,7 +58,10 @@ public final class MaybeOnErrorComplete<T> extends AbstractMaybeWithUpstream<T, 
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d.isDisposed() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.d.isDisposed();
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.MaybeObserver
@@ -96,16 +99,16 @@ public final class MaybeOnErrorComplete<T> extends AbstractMaybeWithUpstream<T, 
         }
 
         @Override // io.reactivex.MaybeObserver
-        public void onSuccess(T t) {
+        public void onSuccess(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
-                this.actual.onSuccess(t);
+            if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
+                this.actual.onSuccess(obj);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MaybeOnErrorComplete(MaybeSource<T> maybeSource, Predicate<? super Throwable> predicate) {
+    public MaybeOnErrorComplete(MaybeSource maybeSource, Predicate predicate) {
         super(maybeSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -126,7 +129,7 @@ public final class MaybeOnErrorComplete<T> extends AbstractMaybeWithUpstream<T, 
     }
 
     @Override // io.reactivex.Maybe
-    public void subscribeActual(MaybeObserver<? super T> maybeObserver) {
+    public void subscribeActual(MaybeObserver maybeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, maybeObserver) == null) {
             this.source.subscribe(new OnErrorCompleteMaybeObserver(maybeObserver, this.predicate));

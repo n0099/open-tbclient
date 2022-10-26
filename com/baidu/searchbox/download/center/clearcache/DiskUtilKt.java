@@ -1,6 +1,5 @@
 package com.baidu.searchbox.download.center.clearcache;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
@@ -21,12 +20,12 @@ import com.baidu.ubc.UBCManager;
 import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import kotlin.Metadata;
 import kotlin.TuplesKt;
-import kotlin.Unit;
 import kotlin.collections.MapsKt__MapsKt;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
@@ -36,7 +35,7 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public final class DiskUtilKt {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Map<String, String> DIR_BUSINESS_MAP;
+    public static final Map DIR_BUSINESS_MAP;
     public static final String UBC_CLEAN_CACHE_MONITOR = "2304";
     public static final int UBC_EXCEPTION_FILE_MAX = 10;
     public transient /* synthetic */ FieldHolder $fh;
@@ -57,52 +56,54 @@ public final class DiskUtilKt {
         DIR_BUSINESS_MAP = MapsKt__MapsKt.mapOf(TuplesKt.to("/files/gameCenter/", "小游戏"), TuplesKt.to("/files/swanAdDownload/", "小游戏"), TuplesKt.to("/cache/app_mario/", "小游戏"), TuplesKt.to("/files/aigames_folder/", "小游戏"), TuplesKt.to("/files/swangame/", "小游戏"), TuplesKt.to("/files/swan_prefs/", "小游戏"), TuplesKt.to("/files/live_sdk/", "直播"), TuplesKt.to("/files/enter_effect/", "直播"), TuplesKt.to("/files/tblive_mobilebaidu/", "直播"), TuplesKt.to("/files/nps_live_files/", "直播"), TuplesKt.to("/files/pms/", "PMS"), TuplesKt.to("/files/splash_source_new/", "开屏广告"), TuplesKt.to("/files/splash_cache/", "开屏广告"), TuplesKt.to("/files/aiapps_folder/", "小程序"), TuplesKt.to("/files/aiapps_zip/", "小程序"), TuplesKt.to("/files/rtc/", "小程序"), TuplesKt.to("/files/downloads/", "下载"), TuplesKt.to("/files/talos/", "Talos"), TuplesKt.to("/cache/v8_codecache_v76/", "Talos"), TuplesKt.to("/files/v8_codecache_v76/", "Talos"), TuplesKt.to("/files/reactnative/", "Talos"), TuplesKt.to("/files/talos_libs/", "Talos"), TuplesKt.to("/files/sticker/", "AR"), TuplesKt.to("/files/arlibs/", "AR"), TuplesKt.to("/cache/ar/", "AR"), TuplesKt.to("/files/feature/", "AR"), TuplesKt.to("/app_nps_download/", "插件"), TuplesKt.to("/app_nps/", "插件"), TuplesKt.to("/files/com.baidu.searchbox.godeye/", "图搜"), TuplesKt.to("/files/y/", "图搜"), TuplesKt.to("/cache/baidu/flyflow/", "播放内核"), TuplesKt.to("/cache/webview_baidu_media/", "播放内核"), TuplesKt.to("/files/cybermedia/", "播放内核"), TuplesKt.to("/files/cyberplayer/", "播放内核"), TuplesKt.to("/cache/webview_baidu_com.baidu.searchbox/", "浏览内核-主进程"), TuplesKt.to("/files/zeus/", "浏览内核-主进程"), TuplesKt.to("/app_webview_baidu_com.baidu.searchbox/", "浏览内核-主进程"), TuplesKt.to("/files/zeusupdate/", "浏览内核-主进程"), TuplesKt.to("/files/zeus_config/", "浏览内核-主进程"), TuplesKt.to("/app_webview_baidu/", "浏览内核-主进程"), TuplesKt.to("/cache/org.chromium.android_webview/", "浏览内核-主进程"), TuplesKt.to("/cache/hws_webview/", "浏览内核-主进程"), TuplesKt.to("/app_mario/", "浏览内核-主进程"), TuplesKt.to("/cache/webview_baidu_com.baidu.searchbox:swan", "浏览内核-小程序"), TuplesKt.to("/app_webview_baidu_com.baidu.searchbox:swan", "浏览内核-小程序"));
     }
 
-    public static final long calculateFileListSize(List<? extends File> fileList, List<? extends File> list, Function1<? super File, Unit> function1) {
+    public static final long calculateFileListSize(List fileList, List list, Function1 function1) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLLL = interceptable.invokeLLL(65537, null, fileList, list, function1)) != null) {
-            return invokeLLL.longValue;
-        }
-        Intrinsics.checkNotNullParameter(fileList, "fileList");
-        LinkedList linkedList = new LinkedList();
-        linkedList.addAll(fileList);
-        ArrayList arrayList = new ArrayList();
-        if (list != null) {
-            for (File file : list) {
-                arrayList.add(file.getAbsolutePath());
-            }
-        }
-        long j = 0;
-        while (true) {
-            File file2 = (File) linkedList.poll();
-            if (file2 == null) {
-                return j;
-            }
-            if (file2.exists()) {
-                if (arrayList.contains(file2.getAbsolutePath())) {
-                    if (AppConfig.isDebug()) {
-                        Log.d("ExcludeList", file2.getAbsolutePath());
-                    }
-                } else {
-                    File[] listFiles = file2.listFiles();
-                    if (listFiles != null) {
-                        for (File file3 : listFiles) {
-                            if (file3 != null && file3.exists()) {
-                                linkedList.offer(file3);
-                            }
-                        }
-                    } else {
-                        if (function1 != null) {
-                            function1.invoke(file2);
-                        }
-                        j += file2.length();
-                    }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, fileList, list, function1)) == null) {
+            Intrinsics.checkNotNullParameter(fileList, "fileList");
+            LinkedList linkedList = new LinkedList();
+            linkedList.addAll(fileList);
+            ArrayList arrayList = new ArrayList();
+            if (list != null) {
+                Iterator it = list.iterator();
+                while (it.hasNext()) {
+                    arrayList.add(((File) it.next()).getAbsolutePath());
                 }
             }
+            long j = 0;
+            while (true) {
+                File file = (File) linkedList.poll();
+                if (file != null) {
+                    if (file.exists()) {
+                        if (arrayList.contains(file.getAbsolutePath())) {
+                            if (AppConfig.isDebug()) {
+                                Log.d("ExcludeList", file.getAbsolutePath());
+                            }
+                        } else {
+                            File[] listFiles = file.listFiles();
+                            if (listFiles != null) {
+                                for (File file2 : listFiles) {
+                                    if (file2 != null && file2.exists()) {
+                                        linkedList.offer(file2);
+                                    }
+                                }
+                            } else {
+                                if (function1 != null) {
+                                    function1.invoke(file);
+                                }
+                                j += file.length();
+                            }
+                        }
+                    }
+                } else {
+                    return j;
+                }
+            }
+        } else {
+            return invokeLLL.longValue;
         }
     }
 
-    @SuppressLint({"DefaultLocale"})
     public static final void cleanCacheMonitorUBC(final String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
@@ -187,7 +188,7 @@ public final class DiskUtilKt {
         }
     }
 
-    public static final List<File> getAppFileList() {
+    public static final List getAppFileList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
@@ -213,13 +214,7 @@ public final class DiskUtilKt {
         return (List) invokeV.objValue;
     }
 
-    public static final Map<String, String> getDIR_BUSINESS_MAP() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? DIR_BUSINESS_MAP : (Map) invokeV.objValue;
-    }
-
-    public static final List<File> getUserAssetFileList() {
+    public static final List getUserAssetFileList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
@@ -238,5 +233,14 @@ public final class DiskUtilKt {
             return arrayList;
         }
         return (List) invokeV.objValue;
+    }
+
+    public static final Map getDIR_BUSINESS_MAP() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return DIR_BUSINESS_MAP;
+        }
+        return (Map) invokeV.objValue;
     }
 }

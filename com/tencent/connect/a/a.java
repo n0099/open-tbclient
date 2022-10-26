@@ -16,8 +16,8 @@ import java.lang.reflect.Method;
 /* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
-    public static Class<?> a;
-    public static Class<?> b;
+    public static Class a;
+    public static Class b;
     public static Method c;
     public static Method d;
     public static Method e;
@@ -40,10 +40,26 @@ public class a {
         }
     }
 
+    public static void a(Context context, QQToken qQToken, String str, String... strArr) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLLL(65537, null, context, qQToken, str, strArr) != null) || !g) {
+            return;
+        }
+        b(context, qQToken);
+        try {
+            d.invoke(b, context, str, strArr);
+        } catch (Exception e2) {
+            SLog.e("OpenConfig", "trackCustomEvent exception: " + e2.toString());
+        }
+    }
+
     public static boolean a(Context context, QQToken qQToken) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, qQToken)) == null) ? g.a(context, qQToken.getAppId()).b("Common_ta_enable") : invokeLL.booleanValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, qQToken)) == null) {
+            return g.a(context, qQToken.getAppId()).b("Common_ta_enable");
+        }
+        return invokeLL.booleanValue;
     }
 
     public static void b(Context context, QQToken qQToken) {
@@ -93,27 +109,16 @@ public class a {
             if (!TextUtils.isEmpty(qQToken.getOpenId())) {
                 d.a().a(qQToken.getOpenId(), qQToken.getAppId(), "2", "1", "11", "0", "0", "0");
             }
-            if (g) {
-                b(context, qQToken);
-                if (qQToken.getOpenId() != null) {
-                    try {
-                        c.invoke(b, context, qQToken.getOpenId());
-                    } catch (Exception e2) {
-                        SLog.e("OpenConfig", "reportQQ exception: " + e2.toString());
-                    }
-                }
+            if (!g) {
+                return;
             }
-        }
-    }
-
-    public static void a(Context context, QQToken qQToken, String str, String... strArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(65537, null, context, qQToken, str, strArr) == null) && g) {
             b(context, qQToken);
-            try {
-                d.invoke(b, context, str, strArr);
-            } catch (Exception e2) {
-                SLog.e("OpenConfig", "trackCustomEvent exception: " + e2.toString());
+            if (qQToken.getOpenId() != null) {
+                try {
+                    c.invoke(b, context, qQToken.getOpenId());
+                } catch (Exception e2) {
+                    SLog.e("OpenConfig", "reportQQ exception: " + e2.toString());
+                }
             }
         }
     }

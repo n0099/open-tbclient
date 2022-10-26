@@ -1,120 +1,85 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkItem;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.tieba.im2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.File;
 /* loaded from: classes4.dex */
 public class f12 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean h;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public JSONArray g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947711202, "Lcom/baidu/tieba/f12;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947711202, "Lcom/baidu/tieba/f12;");
-                return;
-            }
-        }
-        h = vj1.a;
-    }
-
-    public f12() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static f12 e(JSONObject jSONObject) {
+    public static im2.g a(jo2 jo2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            f12 f12Var = new f12();
-            try {
-                f12Var.a = jSONObject.getString("appKey");
-                f12Var.b = jSONObject.getString(DeepLinkItem.DEEPLINK_APPURL_KEY) + "?swanJsVersion=" + qc3.h(0) + "&appVersion=" + fh3.D();
-                f12Var.c = jSONObject.getString("wsUrl");
-                f12Var.d = jSONObject.optString("notInHistory", "1");
-                f12Var.e = jSONObject.optString(PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD);
-                f12Var.f = jSONObject.optString("slavePreload");
-                f12Var.g = jSONObject.optJSONArray("hosts");
-                return f12Var;
-            } catch (JSONException unused) {
-                if (h) {
-                    Log.e("WirelessDebugModel", "DebuggerLaunchAction params is invalid");
-                    return null;
-                }
-                return null;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jo2Var)) == null) {
+            File e = e();
+            im2.M(b(), e, jo2Var);
+            im2.g gVar = new im2.g();
+            File file = new File(e, "app.json");
+            SwanAppConfigData b = y33.b(e.getAbsolutePath());
+            gVar.a = e.getPath() + File.separator;
+            gVar.b = b;
+            m02.k("WirelessDebugBundleHelper", "configFile path: " + file.getPath() + " exist: " + file.exists() + " info.mAppBundlePath path: " + gVar.a);
+            return gVar;
         }
-        return (f12) invokeL.objValue;
+        return (im2.g) invokeL.objValue;
     }
 
-    public String a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? b(i, this.b) : (String) invokeI.objValue;
-    }
-
-    public final String b(int i, String str) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str)) == null) {
-            if (this.g != null && !TextUtils.isEmpty(str) && i >= 0 && i < this.g.length()) {
-                Uri parse = Uri.parse(str);
-                String optString = this.g.optString(i);
-                if (!TextUtils.isEmpty(optString) && parse.getHost() != null) {
-                    return str.replace(parse.getHost(), optString);
-                }
-            }
-            return str;
-        }
-        return (String) invokeIL.objValue;
-    }
-
-    public String c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? b(i, this.c) : (String) invokeI.objValue;
-    }
-
-    public boolean d() {
+    public static File b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.b) || TextUtils.isEmpty(this.c) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new File(c(), "wireless_debug.aiapps");
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public static File c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            File file = new File(AppRuntime.getAppContext().getFilesDir(), "aiapps_wireless_debug_zip");
+            if (!file.exists()) {
+                file.mkdirs();
+            }
+            return file;
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public static File e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            File file = new File(AppRuntime.getAppContext().getFilesDir(), "aiapps_wireless_debug");
+            if (!file.exists()) {
+                file.mkdirs();
+            }
+            return file;
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public static String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return AppRuntime.getAppContext().getFilesDir() + File.separator + "aiapps_wireless_debug_zip";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return AppRuntime.getAppContext().getFilesDir() + File.separator + "aiapps_wireless_debug";
+        }
+        return (String) invokeV.objValue;
     }
 }

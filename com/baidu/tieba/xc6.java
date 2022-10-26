@@ -1,175 +1,123 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.lib.util.BdLog;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
+import android.text.style.ImageSpan;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tieba.faceshop.EmotionGroupData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.lang.ref.WeakReference;
 /* loaded from: classes6.dex */
-public class xc6 implements c55 {
+public class xc6 extends ImageSpan {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public WeakReference a;
+    public int b;
 
-    public xc6() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xc6(Drawable drawable, int i) {
+        super(drawable, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {drawable, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Drawable) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.c55
-    public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xc6(Drawable drawable, int i, int i2) {
+        super(drawable, i);
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) || i == 3) {
-            return;
-        }
-        try {
-            File file = new File(downloadData.getPath());
-            if (file.exists()) {
-                file.delete();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {drawable, Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Drawable) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        }
+        this.b = i2;
+    }
+
+    public final Drawable a() {
+        InterceptResult invokeV;
+        Drawable drawable;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            WeakReference weakReference = this.a;
+            if (weakReference != null) {
+                drawable = (Drawable) weakReference.get();
+            } else {
+                drawable = null;
+            }
+            if (drawable == null) {
+                Drawable drawable2 = getDrawable();
+                this.a = new WeakReference(drawable2);
+                return drawable2;
+            }
+            return drawable;
+        }
+        return (Drawable) invokeV.objValue;
+    }
+
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
+            Drawable a = a();
+            canvas.save();
+            Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
+            int i6 = fontMetricsInt.descent;
+            canvas.translate(f, ((i4 + i6) - ((i6 - fontMetricsInt.ascent) / 2)) - ((a.getBounds().bottom - a.getBounds().top) / 2));
+            a.draw(canvas);
+            canvas.restore();
         }
     }
 
-    @Override // com.baidu.tieba.c55
-    public void onFileDownloadSucceed(DownloadData downloadData) {
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) {
-            MessageManager.getInstance().runTask(2004603, (Class) null);
-            try {
-                File file = new File(downloadData.getPath());
-                if (file.exists()) {
-                    file.delete();
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
+            Rect bounds = getDrawable().getBounds();
+            if (fontMetricsInt != null) {
+                Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
+                int i3 = fontMetricsInt2.descent;
+                int i4 = fontMetricsInt2.ascent;
+                int i5 = i4 + ((i3 - i4) / 2);
+                int i6 = (bounds.bottom - bounds.top) / 2;
+                int i7 = i5 - i6;
+                fontMetricsInt.ascent = i7;
+                fontMetricsInt.top = i7;
+                int i8 = i5 + i6;
+                fontMetricsInt.bottom = i8;
+                fontMetricsInt.descent = i8;
             }
+            return bounds.right + this.b;
         }
-    }
-
-    @Override // com.baidu.tieba.c55
-    public boolean onFileDownloaded(DownloadData downloadData) {
-        InterceptResult invokeL;
-        FileInputStream fileInputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadData)) == null) {
-            if (downloadData == null) {
-                return false;
-            }
-            FileInputStream fileInputStream2 = null;
-            try {
-                try {
-                    fileInputStream = new FileInputStream(downloadData.getPath());
-                } catch (Exception e) {
-                    e = e;
-                }
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                int g = rc6.c().g(downloadData.getId(), fileInputStream);
-                EmotionGroupData n = zc6.o().n(downloadData.getId());
-                if (n == null) {
-                    if (g == 0) {
-                        try {
-                            fileInputStream.close();
-                        } catch (IOException e2) {
-                            BdLog.detailException(e2);
-                        }
-                        return false;
-                    }
-                    n = new EmotionGroupData();
-                    n.setBytesLength((int) downloadData.getSize());
-                    n.setBytesReceived((int) downloadData.getLength());
-                    n.setDownloadUrl(downloadData.getUrl());
-                    n.setGroupId(downloadData.getId());
-                    n.setEmotionsCount(g);
-                    n.setHeight(downloadData.getHeight());
-                    n.setWidth(downloadData.getWidth());
-                    n.setDownloadTime(System.currentTimeMillis());
-                    n.setGroupDesc(downloadData.getDescription());
-                    n.setGroupName(downloadData.getName());
-                    n.setStatus(1);
-                    zc6.o().g(n);
-                }
-                zc6.o().h(downloadData.getStatusMsg(), n);
-                downloadData.setStatusMsg(null);
-                try {
-                    fileInputStream.close();
-                } catch (IOException e3) {
-                    BdLog.detailException(e3);
-                }
-                return true;
-            } catch (Exception e4) {
-                e = e4;
-                fileInputStream2 = fileInputStream;
-                BdLog.detailException(e);
-                if (fileInputStream2 != null) {
-                    try {
-                        fileInputStream2.close();
-                    } catch (IOException e5) {
-                        BdLog.detailException(e5);
-                    }
-                }
-                return false;
-            } catch (Throwable th2) {
-                th = th2;
-                fileInputStream2 = fileInputStream;
-                if (fileInputStream2 != null) {
-                    try {
-                        fileInputStream2.close();
-                    } catch (IOException e6) {
-                        BdLog.detailException(e6);
-                    }
-                }
-                throw th;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.c55
-    public void onFileUpdateProgress(DownloadData downloadData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) || downloadData == null) {
-            return;
-        }
-        yc6.f().i(downloadData);
-    }
-
-    @Override // com.baidu.tieba.c55
-    public boolean onPreDownload(DownloadData downloadData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, downloadData)) == null) {
-            if (downloadData == null) {
-                return false;
-            }
-            EmotionGroupData n = zc6.o().n(downloadData.getId());
-            if (n == null || !sc6.d(downloadData.getId())) {
-                return true;
-            }
-            zc6.o().h(downloadData.getStatusMsg(), n);
-            downloadData.setStatusMsg(null);
-            return false;
-        }
-        return invokeL.booleanValue;
+        return invokeCommon.intValue;
     }
 }

@@ -1,25 +1,15 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.content.Context;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.IOException;
 /* loaded from: classes4.dex */
-public class f92 extends g92 {
+public class f92 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public static final String c;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,68 +25,50 @@ public class f92 extends g92 {
                 return;
             }
         }
-        b = vj1.a;
-        c = "swan_preset" + File.separator + "preset_list.json";
+        a = wj1.a;
     }
 
-    public f92() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.g92
-    public boolean e(h92 h92Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, h92Var)) == null) {
-            if (h92Var == null) {
-                return false;
-            }
-            Context appContext = AppRuntime.getAppContext();
-            String str = "swan_preset" + File.separator + h92Var.g + File.separator + h92Var.q;
-            try {
-                File j = j(h92Var.h, h92Var.g, h92Var.i);
-                if (j == null) {
-                    if (b) {
-                        Log.e("AssetPresetController", "获取解压路径失败");
-                    }
-                    return false;
-                }
-                return n(new BufferedInputStream(appContext.getAssets().open(str)), j);
-            } catch (IOException e) {
-                if (b) {
-                    e.printStackTrace();
-                }
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.g92
-    public String f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            Application c2 = sm2.c();
-            return wf3.b(c2, "swan_preset" + File.separator + str + File.separator + "app_info.json");
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.g92
-    public String i() {
+    public static d92 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? wf3.b(sm2.c(), c) : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            d92 b = b(c());
+            if (a) {
+                Log.d("PrelinkStrategyFactory", "prelink strategy - " + b.getClass().getSimpleName());
+            }
+            return b;
+        }
+        return (d92) invokeV.objValue;
+    }
+
+    public static int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            tm2.g0().getSwitch("swan_prelink_policy_when_prefetch", 0);
+            if (a) {
+                Log.d("PrelinkStrategyFactory", "swan_prelink_policy_when_prefetch = 0");
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public static d92 b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (i == 0) {
+                return new b92();
+            }
+            if (i > 0) {
+                return new e92(i);
+            }
+            if (i == -1) {
+                return new c92();
+            }
+            return new b92();
+        }
+        return (d92) invokeI.objValue;
     }
 }

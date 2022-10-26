@@ -35,10 +35,9 @@ public class n implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             PBDrawVideo pBDrawVideo = this.a;
-            if (pBDrawVideo.i == null || pBDrawVideo.j == null || (view2 = pBDrawVideo.k) == null) {
-                return;
+            if (pBDrawVideo.i != null && pBDrawVideo.j != null && (view2 = pBDrawVideo.k) != null) {
+                view2.setVisibility(0);
             }
-            view2.setVisibility(0);
         }
     }
 }

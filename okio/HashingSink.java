@@ -49,58 +49,6 @@ public final class HashingSink extends ForwardingSink {
         }
     }
 
-    public static HashingSink hmacSha1(Sink sink, ByteString byteString) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, sink, byteString)) == null) ? new HashingSink(sink, byteString, "HmacSHA1") : (HashingSink) invokeLL.objValue;
-    }
-
-    public static HashingSink hmacSha256(Sink sink, ByteString byteString) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, sink, byteString)) == null) ? new HashingSink(sink, byteString, "HmacSHA256") : (HashingSink) invokeLL.objValue;
-    }
-
-    public static HashingSink hmacSha512(Sink sink, ByteString byteString) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, sink, byteString)) == null) ? new HashingSink(sink, byteString, "HmacSHA512") : (HashingSink) invokeLL.objValue;
-    }
-
-    public static HashingSink md5(Sink sink) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, sink)) == null) ? new HashingSink(sink, "MD5") : (HashingSink) invokeL.objValue;
-    }
-
-    public static HashingSink sha1(Sink sink) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, sink)) == null) ? new HashingSink(sink, "SHA-1") : (HashingSink) invokeL.objValue;
-    }
-
-    public static HashingSink sha256(Sink sink) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, sink)) == null) ? new HashingSink(sink, "SHA-256") : (HashingSink) invokeL.objValue;
-    }
-
-    public static HashingSink sha512(Sink sink) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, sink)) == null) ? new HashingSink(sink, "SHA-512") : (HashingSink) invokeL.objValue;
-    }
-
-    public ByteString hash() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            MessageDigest messageDigest = this.messageDigest;
-            return ByteString.of(messageDigest != null ? messageDigest.digest() : this.mac.doFinal());
-        }
-        return (ByteString) invokeV.objValue;
-    }
-
     @Override // okio.ForwardingSink, okio.Sink
     public void write(Buffer buffer, long j) throws IOException {
         Interceptable interceptable = $ic;
@@ -151,5 +99,84 @@ public final class HashingSink extends ForwardingSink {
         } catch (NoSuchAlgorithmException unused) {
             throw new AssertionError();
         }
+    }
+
+    public static HashingSink hmacSha1(Sink sink, ByteString byteString) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, sink, byteString)) == null) {
+            return new HashingSink(sink, byteString, "HmacSHA1");
+        }
+        return (HashingSink) invokeLL.objValue;
+    }
+
+    public static HashingSink hmacSha256(Sink sink, ByteString byteString) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, sink, byteString)) == null) {
+            return new HashingSink(sink, byteString, "HmacSHA256");
+        }
+        return (HashingSink) invokeLL.objValue;
+    }
+
+    public static HashingSink hmacSha512(Sink sink, ByteString byteString) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, sink, byteString)) == null) {
+            return new HashingSink(sink, byteString, "HmacSHA512");
+        }
+        return (HashingSink) invokeLL.objValue;
+    }
+
+    public static HashingSink md5(Sink sink) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, sink)) == null) {
+            return new HashingSink(sink, "MD5");
+        }
+        return (HashingSink) invokeL.objValue;
+    }
+
+    public static HashingSink sha1(Sink sink) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, sink)) == null) {
+            return new HashingSink(sink, "SHA-1");
+        }
+        return (HashingSink) invokeL.objValue;
+    }
+
+    public static HashingSink sha256(Sink sink) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, sink)) == null) {
+            return new HashingSink(sink, "SHA-256");
+        }
+        return (HashingSink) invokeL.objValue;
+    }
+
+    public static HashingSink sha512(Sink sink) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, sink)) == null) {
+            return new HashingSink(sink, "SHA-512");
+        }
+        return (HashingSink) invokeL.objValue;
+    }
+
+    public ByteString hash() {
+        InterceptResult invokeV;
+        byte[] doFinal;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            MessageDigest messageDigest = this.messageDigest;
+            if (messageDigest != null) {
+                doFinal = messageDigest.digest();
+            } else {
+                doFinal = this.mac.doFinal();
+            }
+            return ByteString.of(doFinal);
+        }
+        return (ByteString) invokeV.objValue;
     }
 }

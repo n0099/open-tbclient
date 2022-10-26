@@ -9,172 +9,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.Request;
-import okhttp3.Response;
+import java.util.ArrayList;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class mx3 {
+public class mx3 implements lx3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
+    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
-    public s14 a;
-    public String b;
+    public HashMap a;
+    public HashMap b;
     public String c;
-    public kx3 d;
-
-    /* loaded from: classes5.dex */
-    public class a implements Callback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mx3 a;
-
-        public a(mx3 mx3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mx3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = mx3Var;
-        }
-
-        @Override // okhttp3.Callback
-        public void onFailure(Call call, IOException iOException) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) {
-                if (mx3.e) {
-                    Log.e("AudioDownloader", this.a.b + " load failed");
-                    iOException.printStackTrace();
-                }
-                if (this.a.d != null) {
-                    this.a.d.fail(-1, this.a.b);
-                }
-            }
-        }
-
-        @Override // okhttp3.Callback
-        public void onResponse(Call call, Response response) {
-            FileOutputStream fileOutputStream;
-            File file;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
-                byte[] bArr = new byte[2048];
-                InputStream inputStream = null;
-                try {
-                    InputStream byteStream = response.body().byteStream();
-                    try {
-                        try {
-                            String d = hx3.d(this.a.b);
-                            String str = this.a.c + d.substring(0, d.lastIndexOf("/"));
-                            File file2 = new File(str);
-                            if (!file2.exists() || !file2.isDirectory()) {
-                                file2.mkdirs();
-                            }
-                            String substring = d.substring(d.lastIndexOf("/") + 1);
-                            file = new File(str, substring + ".bddownload");
-                            try {
-                                fileOutputStream = new FileOutputStream(file);
-                                while (true) {
-                                    try {
-                                        int read = byteStream.read(bArr);
-                                        if (read == -1) {
-                                            break;
-                                        }
-                                        fileOutputStream.write(bArr, 0, read);
-                                    } catch (Exception e) {
-                                        e = e;
-                                        inputStream = byteStream;
-                                        try {
-                                            if (mx3.e) {
-                                                Log.e("AudioDownloader", this.a.b + " load failed", e);
-                                            }
-                                            if (file != null) {
-                                                file.delete();
-                                            }
-                                            if (this.a.d != null) {
-                                                this.a.d.fail(-1, this.a.b);
-                                            }
-                                            pj4.d(inputStream);
-                                            pj4.d(fileOutputStream);
-                                            pj4.d(response);
-                                        } catch (Throwable th) {
-                                            th = th;
-                                            pj4.d(inputStream);
-                                            pj4.d(fileOutputStream);
-                                            pj4.d(response);
-                                            throw th;
-                                        }
-                                    } catch (Throwable th2) {
-                                        th = th2;
-                                        inputStream = byteStream;
-                                        pj4.d(inputStream);
-                                        pj4.d(fileOutputStream);
-                                        pj4.d(response);
-                                        throw th;
-                                    }
-                                }
-                                fileOutputStream.flush();
-                                File file3 = new File(str, substring);
-                                if (file3.exists() && !file3.isDirectory()) {
-                                    file3.delete();
-                                }
-                                String absolutePath = file3.getAbsolutePath();
-                                if (file.renameTo(file3)) {
-                                    if (mx3.e) {
-                                        Log.e("AudioDownloader", this.a.b + " load rename success path = " + absolutePath);
-                                    }
-                                    if (this.a.d != null) {
-                                        this.a.d.a(this.a.b, absolutePath);
-                                    }
-                                } else {
-                                    if (mx3.e) {
-                                        Log.e("AudioDownloader", this.a.b + " load rename error path = " + absolutePath);
-                                    }
-                                    file.delete();
-                                    if (this.a.d != null) {
-                                        this.a.d.fail(-1, absolutePath);
-                                    }
-                                }
-                                pj4.d(byteStream);
-                            } catch (Exception e2) {
-                                e = e2;
-                                fileOutputStream = null;
-                            }
-                        } catch (Exception e3) {
-                            e = e3;
-                            file = null;
-                            fileOutputStream = null;
-                        }
-                    } catch (Throwable th3) {
-                        th = th3;
-                        fileOutputStream = null;
-                    }
-                } catch (Exception e4) {
-                    e = e4;
-                    file = null;
-                    fileOutputStream = null;
-                } catch (Throwable th4) {
-                    th = th4;
-                    fileOutputStream = null;
-                }
-                pj4.d(fileOutputStream);
-                pj4.d(response);
-            }
-        }
-    }
+    public t14 d;
+    public final Object e;
 
     static {
         InterceptResult invokeClinit;
@@ -189,15 +35,15 @@ public class mx3 {
                 return;
             }
         }
-        e = vj1.a;
+        f = wj1.a;
     }
 
-    public mx3(s14 s14Var, String str, String str2, kx3 kx3Var) {
+    public mx3(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {s14Var, str, str2, kx3Var};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -207,18 +53,100 @@ public class mx3 {
                 return;
             }
         }
-        this.b = "";
-        this.c = "";
-        this.a = s14Var;
+        this.a = new HashMap();
+        this.b = new HashMap();
+        this.e = new Object();
         this.c = str;
-        this.b = str2;
-        this.d = kx3Var;
     }
 
-    public void e() {
+    public void c(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.call(new Request.Builder().url(this.b).build(), new a(this));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            if (f) {
+                Log.d("AudioDownloadManager", "AudioDownloader SwanGamePreloadManager url:" + str);
+            }
+            if (this.d == null) {
+                this.d = t14.b();
+            }
+            nx3 nx3Var = new nx3(this.d, this.c, str, this);
+            this.a.put(str, nx3Var);
+            nx3Var.e();
+        }
+    }
+
+    @Override // com.baidu.tieba.lx3
+    public void a(String str, String str2) {
+        ArrayList arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+            synchronized (this.e) {
+                if (d(str) && (arrayList = (ArrayList) this.b.get(str)) != null) {
+                    int size = arrayList.size();
+                    for (int i = 0; i < size; i++) {
+                        ((lx3) arrayList.get(i)).a(str, str2);
+                        if (f) {
+                            Log.e("AudioDownloadManager", i + " load success url = " + str + " path = " + str2);
+                        }
+                    }
+                    this.a.remove(str);
+                }
+            }
+        }
+    }
+
+    public void e(String str, lx3 lx3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, lx3Var) == null) {
+            synchronized (this.e) {
+                if (!d(str)) {
+                    if (f) {
+                        Log.e("AudioDownloadManager", "start load url = " + str);
+                    }
+                    c(str);
+                } else if (f) {
+                    Log.e("AudioDownloadManager", "re load url = " + str);
+                }
+                b(str, lx3Var);
+            }
+        }
+    }
+
+    public final void b(String str, lx3 lx3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, lx3Var) == null) {
+            if (this.b.containsKey(str)) {
+                ((ArrayList) this.b.get(str)).add(lx3Var);
+                return;
+            }
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(lx3Var);
+            this.b.put(str, arrayList);
+        }
+    }
+
+    public final boolean d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return this.a.containsKey(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.lx3
+    public void fail(int i, String str) {
+        ArrayList arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i, str) == null) {
+            synchronized (this.e) {
+                if (d(str) && (arrayList = (ArrayList) this.b.get(str)) != null) {
+                    int size = arrayList.size();
+                    for (int i2 = 0; i2 < size; i2++) {
+                        ((lx3) arrayList.get(i2)).fail(i, str);
+                    }
+                    this.a.remove(str);
+                }
+            }
         }
     }
 }

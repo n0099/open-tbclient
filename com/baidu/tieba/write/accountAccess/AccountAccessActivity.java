@@ -9,9 +9,9 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.AccountAccessActivityConfig;
 import com.baidu.tbadk.coreExtra.data.AccessState;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.a29;
+import com.baidu.tieba.f29;
+import com.baidu.tieba.g29;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
-import com.baidu.tieba.z19;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
+public class AccountAccessActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public static final String f;
     public static final String g;
@@ -29,8 +29,8 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
     public static final String j;
     public static final String k;
     public transient /* synthetic */ FieldHolder $fh;
-    public a29 a;
-    public z19 b;
+    public g29 a;
+    public f29 b;
     public NewWriteModel c;
     public AccessState d;
     public WriteData e;
@@ -86,6 +86,15 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
         }
     }
 
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.onDestroy();
+            this.a.k();
+        }
+    }
+
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onActivityResult(int i2, int i3, Intent intent) {
         Interceptable interceptable = $ic;
@@ -104,10 +113,11 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            this.a = new a29(this);
+            this.a = new g29(this);
             Intent intent = getIntent();
             if (intent == null) {
                 return;
@@ -120,36 +130,33 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
                 this.c = newWriteModel;
                 newWriteModel.setWriteData(this.e);
                 if (this.e.getWriteImagesInfo() != null) {
-                    this.c.Z(this.e.getWriteImagesInfo().size() > 0);
+                    NewWriteModel newWriteModel2 = this.c;
+                    if (this.e.getWriteImagesInfo().size() > 0) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    newWriteModel2.Z(z);
                 }
-                z19 z19Var = new z19(this.a, this.c);
-                this.b = z19Var;
-                this.a.l(z19Var);
-                this.b.h(z1());
+                f29 f29Var = new f29(this.a, this.c);
+                this.b = f29Var;
+                this.a.l(f29Var);
+                this.b.h(y1());
                 return;
             }
             finish();
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.onDestroy();
-            this.a.k();
-        }
-    }
-
-    public String z1() {
+    public String y1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             AccessState accessState = this.d;
-            if (accessState == null || accessState.getUserInfo() == null) {
-                return null;
+            if (accessState != null && accessState.getUserInfo() != null) {
+                return String.format("%s?token=%s&type=%s&strMobile=%s&strEmail=%s", f, this.d.getToken(), this.d.getType(), this.d.getUserInfo().strMobile, this.d.getUserInfo().strEmail);
             }
-            return String.format("%s?token=%s&type=%s&strMobile=%s&strEmail=%s", f, this.d.getToken(), this.d.getType(), this.d.getUserInfo().strMobile, this.d.getUserInfo().strEmail);
+            return null;
         }
         return (String) invokeV.objValue;
     }

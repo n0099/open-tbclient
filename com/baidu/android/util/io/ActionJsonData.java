@@ -30,14 +30,14 @@ public class ActionJsonData {
     public static final String TAG_TEXT = "text";
     public static final String TAG_VERSION = "version";
     public transient /* synthetic */ FieldHolder $fh;
-    public List<JSONObject> mDataset;
+    public List mDataset;
     public Link mLink;
     public int mSignInStatus;
     public int mStatus;
     public int mVersion;
 
     /* loaded from: classes.dex */
-    public static final class Link {
+    public final class Link {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Notification mNotification;
@@ -59,7 +59,7 @@ public class ActionJsonData {
     }
 
     /* loaded from: classes.dex */
-    public static final class Notification {
+    public final class Notification {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String mCommand;
@@ -81,7 +81,7 @@ public class ActionJsonData {
     }
 
     /* loaded from: classes.dex */
-    public static final class SignIn {
+    public final class SignIn {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String mCommand;
@@ -116,6 +116,103 @@ public class ActionJsonData {
         }
         this.mStatus = -1;
         this.mVersion = 0;
+    }
+
+    public List getDataset() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mDataset;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public Link getLink() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mLink;
+        }
+        return (Link) invokeV.objValue;
+    }
+
+    public int getSignInStatus() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mSignInStatus;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getStatus() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mStatus;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mVersion;
+        }
+        return invokeV.intValue;
+    }
+
+    public static ActionJsonData fromJson(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                try {
+                    return fromJson(new JSONObject(str));
+                } catch (JSONException e) {
+                    Log.i(TAG, e.toString());
+                    return null;
+                }
+            }
+            return null;
+        }
+        return (ActionJsonData) invokeL.objValue;
+    }
+
+    public void setDataset(List list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
+            this.mDataset = list;
+        }
+    }
+
+    public void setLink(Link link) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, link) == null) {
+            this.mLink = link;
+        }
+    }
+
+    public void setSignIn(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.mSignInStatus = i;
+        }
+    }
+
+    public void setStatus(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.mStatus = i;
+        }
+    }
+
+    public void setVersion(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.mVersion = i;
+        }
     }
 
     public static ActionJsonData fromJson(JSONObject jSONObject) {
@@ -165,88 +262,6 @@ public class ActionJsonData {
             }
             actionJsonData.setDataset(arrayList);
             return actionJsonData;
-        }
-        return (ActionJsonData) invokeL.objValue;
-    }
-
-    public List<JSONObject> getDataset() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mDataset : (List) invokeV.objValue;
-    }
-
-    public Link getLink() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mLink : (Link) invokeV.objValue;
-    }
-
-    public int getSignInStatus() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mSignInStatus : invokeV.intValue;
-    }
-
-    public int getStatus() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mStatus : invokeV.intValue;
-    }
-
-    public int getVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mVersion : invokeV.intValue;
-    }
-
-    public void setDataset(List<JSONObject> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            this.mDataset = list;
-        }
-    }
-
-    public void setLink(Link link) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, link) == null) {
-            this.mLink = link;
-        }
-    }
-
-    public void setSignIn(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.mSignInStatus = i;
-        }
-    }
-
-    public void setStatus(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.mStatus = i;
-        }
-    }
-
-    public void setVersion(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.mVersion = i;
-        }
-    }
-
-    public static ActionJsonData fromJson(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            try {
-                return fromJson(new JSONObject(str));
-            } catch (JSONException e) {
-                Log.i(TAG, e.toString());
-                return null;
-            }
         }
         return (ActionJsonData) invokeL.objValue;
     }

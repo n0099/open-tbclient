@@ -8,7 +8,7 @@ public enum ViewScaleType {
 
     /* renamed from: com.kwad.sdk.core.imageloader.core.assist.ViewScaleType$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$android$widget$ImageView$ScaleType;
 
         static {

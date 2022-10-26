@@ -16,7 +16,7 @@ import org.webrtc.Logging;
 /* loaded from: classes2.dex */
 public class PlayTimeStatistician {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Map<PlayStep, Long> STEPS_MAP;
+    public static final Map STEPS_MAP;
     public static final String TAG = "TimeStatistician";
     public transient /* synthetic */ FieldHolder $fh;
     public long mEndTime;
@@ -24,7 +24,7 @@ public class PlayTimeStatistician {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class PlayStep {
+    public final class PlayStep {
         public static final /* synthetic */ PlayStep[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final PlayStep PLAY_ADD_STREAM;
@@ -87,19 +87,28 @@ public class PlayTimeStatistician {
         public static PlayStep valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (PlayStep) Enum.valueOf(PlayStep.class, str) : (PlayStep) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+                return (PlayStep) Enum.valueOf(PlayStep.class, str);
+            }
+            return (PlayStep) invokeL.objValue;
         }
 
         public static PlayStep[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (PlayStep[]) $VALUES.clone() : (PlayStep[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+                return (PlayStep[]) $VALUES.clone();
+            }
+            return (PlayStep[]) invokeV.objValue;
         }
 
         public int getValue() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.value : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.value;
+            }
+            return invokeV.intValue;
         }
     }
 
@@ -116,7 +125,7 @@ public class PlayTimeStatistician {
                 return;
             }
         }
-        TreeMap treeMap = new TreeMap(new Comparator<PlayStep>() { // from class: com.baidu.rtc.player.PlayTimeStatistician.1
+        TreeMap treeMap = new TreeMap(new Comparator() { // from class: com.baidu.rtc.player.PlayTimeStatistician.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -143,7 +152,10 @@ public class PlayTimeStatistician {
                     if (playStep.value == playStep2.value) {
                         return 0;
                     }
-                    return playStep.value > playStep2.value ? 1 : -1;
+                    if (playStep.value > playStep2.value) {
+                        return 1;
+                    }
+                    return -1;
                 }
                 return invokeLL.intValue;
             }
@@ -176,38 +188,53 @@ public class PlayTimeStatistician {
     public long getEndTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mEndTime : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mEndTime;
+        }
+        return invokeV.longValue;
     }
 
     public long getStartTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mStartTime : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mStartTime;
+        }
+        return invokeV.longValue;
+    }
+
+    public Map getTimeStepsMap() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return STEPS_MAP;
+        }
+        return (Map) invokeV.objValue;
     }
 
     public long getStepTargetTime(PlayStep playStep, PlayStep playStep2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, playStep, playStep2)) == null) ? STEPS_MAP.get(playStep).longValue() - STEPS_MAP.get(playStep2).longValue() : invokeLL.longValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, playStep, playStep2)) == null) {
+            return ((Long) STEPS_MAP.get(playStep)).longValue() - ((Long) STEPS_MAP.get(playStep2)).longValue();
+        }
+        return invokeLL.longValue;
     }
 
     public long getStepTime(PlayStep playStep) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, playStep)) == null) ? STEPS_MAP.get(playStep).longValue() : invokeL.longValue;
-    }
-
-    public Map<PlayStep, Long> getTimeStepsMap() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? STEPS_MAP : (Map) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, playStep)) == null) {
+            return ((Long) STEPS_MAP.get(playStep)).longValue();
+        }
+        return invokeL.longValue;
     }
 
     public void setStartTime() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.mStartTime = System.currentTimeMillis();
-            for (Map.Entry<PlayStep, Long> entry : STEPS_MAP.entrySet()) {
+            for (Map.Entry entry : STEPS_MAP.entrySet()) {
                 entry.setValue(new Long(-1L));
             }
         }

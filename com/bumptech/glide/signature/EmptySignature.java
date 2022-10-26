@@ -1,6 +1,5 @@
 package com.bumptech.glide.signature;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,6 +15,19 @@ public final class EmptySignature implements Key {
     public static /* synthetic */ Interceptable $ic;
     public static final EmptySignature EMPTY_KEY;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "EmptySignature" : (String) invokeV.objValue;
+    }
+
+    @Override // com.bumptech.glide.load.Key
+    public void updateDiskCacheKey(MessageDigest messageDigest) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, messageDigest) == null) {
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -47,23 +59,12 @@ public final class EmptySignature implements Key {
         }
     }
 
-    @NonNull
     public static EmptySignature obtain() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? EMPTY_KEY : (EmptySignature) invokeV.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "EmptySignature" : (String) invokeV.objValue;
-    }
-
-    @Override // com.bumptech.glide.load.Key
-    public void updateDiskCacheKey(@NonNull MessageDigest messageDigest) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, messageDigest) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return EMPTY_KEY;
         }
+        return (EmptySignature) invokeV.objValue;
     }
 }

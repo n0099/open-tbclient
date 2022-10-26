@@ -23,15 +23,16 @@ public class z5 implements b6 {
     public boolean f;
 
     public z5(boolean z, int i, u3 u3Var) {
+        int i2;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i), u3Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -42,7 +43,12 @@ public class z5 implements b6 {
         ByteBuffer e = BufferUtils.e(u3Var.b * i);
         e.limit(0);
         a(e, true, u3Var);
-        f(z ? 35044 : 35048);
+        if (z) {
+            i2 = 35044;
+        } else {
+            i2 = 35048;
+        }
+        f(i2);
     }
 
     public void a(Buffer buffer, boolean z, u3 u3Var) {
@@ -76,14 +82,20 @@ public class z5 implements b6 {
     public u3 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (u3) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (u3) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.b6
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (this.b.limit() * 4) / this.a.b : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return (this.b.limit() * 4) / this.a.b;
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.b6, com.baidu.tieba.i7
@@ -100,18 +112,14 @@ public class z5 implements b6 {
         }
     }
 
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048580, this, i) == null) && this.f) {
-            throw new GdxRuntimeException("Cannot change usage while VBO is bound");
-        }
-    }
-
     @Override // com.baidu.tieba.b6
     public FloatBuffer getBuffer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : (FloatBuffer) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.b;
+        }
+        return (FloatBuffer) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.b6
@@ -120,5 +128,13 @@ public class z5 implements b6 {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.e = f1.f.n();
         }
+    }
+
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048580, this, i) != null) || !this.f) {
+            return;
+        }
+        throw new GdxRuntimeException("Cannot change usage while VBO is bound");
     }
 }

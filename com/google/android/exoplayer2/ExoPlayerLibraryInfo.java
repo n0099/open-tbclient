@@ -18,7 +18,7 @@ public final class ExoPlayerLibraryInfo {
     public static final String VERSION = "2.6.0";
     public static final int VERSION_INT = 2006000;
     public static final String VERSION_SLASHY = "ExoPlayerLib/2.6.0";
-    public static final HashSet<String> registeredModules;
+    public static final HashSet registeredModules;
     public static String registeredModulesString;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,7 +35,7 @@ public final class ExoPlayerLibraryInfo {
                 return;
             }
         }
-        registeredModules = new HashSet<>();
+        registeredModules = new HashSet();
         registeredModulesString = "goog.exo.core";
     }
 
@@ -53,17 +53,6 @@ public final class ExoPlayerLibraryInfo {
         }
     }
 
-    public static synchronized void registerModule(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            synchronized (ExoPlayerLibraryInfo.class) {
-                if (registeredModules.add(str)) {
-                    registeredModulesString += StringUtil.ARRAY_ELEMENT_SEPARATOR + str;
-                }
-            }
-        }
-    }
-
     public static synchronized String registeredModules() {
         InterceptResult invokeV;
         String str;
@@ -75,5 +64,16 @@ public final class ExoPlayerLibraryInfo {
             return str;
         }
         return (String) invokeV.objValue;
+    }
+
+    public static synchronized void registerModule(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+            synchronized (ExoPlayerLibraryInfo.class) {
+                if (registeredModules.add(str)) {
+                    registeredModulesString += StringUtil.ARRAY_ELEMENT_SEPARATOR + str;
+                }
+            }
+        }
     }
 }

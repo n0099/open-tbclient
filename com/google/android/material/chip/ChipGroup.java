@@ -9,12 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.CompoundButton;
-import androidx.annotation.BoolRes;
-import androidx.annotation.DimenRes;
-import androidx.annotation.Dimension;
-import androidx.annotation.IdRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
@@ -37,16 +31,11 @@ public class ChipGroup extends FlowLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEF_STYLE_RES = 2131755873;
     public transient /* synthetic */ FieldHolder $fh;
-    @IdRes
     public int checkedId;
     public final CheckedStateTracker checkedStateTracker;
-    @Dimension
     public int chipSpacingHorizontal;
-    @Dimension
     public int chipSpacingVertical;
-    @Nullable
     public OnCheckedChangeListener onCheckedChangeListener;
-    @NonNull
     public PassThroughHierarchyChangeListener passThroughListener;
     public boolean protectFromCheckedChange;
     public boolean selectionRequired;
@@ -54,9 +43,29 @@ public class ChipGroup extends FlowLayout {
 
     /* renamed from: com.google.android.material.chip.ChipGroup$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes7.dex */
+    public interface OnCheckedChangeListener {
+        void onCheckedChanged(ChipGroup chipGroup, int i);
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-180384705, "Lcom/google/android/material/chip/ChipGroup;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-180384705, "Lcom/google/android/material/chip/ChipGroup;");
+        }
     }
 
     /* loaded from: classes7.dex */
@@ -83,38 +92,62 @@ public class ChipGroup extends FlowLayout {
             this.this$0 = chipGroup;
         }
 
-        @Override // android.widget.CompoundButton.OnCheckedChangeListener
-        public void onCheckedChanged(@NonNull CompoundButton compoundButton, boolean z) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLZ(1048576, this, compoundButton, z) == null) || this.this$0.protectFromCheckedChange) {
-                return;
-            }
-            if (this.this$0.getCheckedChipIds().isEmpty() && this.this$0.selectionRequired) {
-                this.this$0.setCheckedStateForView(compoundButton.getId(), true);
-                this.this$0.setCheckedId(compoundButton.getId(), false);
-                return;
-            }
-            int id = compoundButton.getId();
-            if (z) {
-                if (this.this$0.checkedId != -1 && this.this$0.checkedId != id && this.this$0.singleSelection) {
-                    ChipGroup chipGroup = this.this$0;
-                    chipGroup.setCheckedStateForView(chipGroup.checkedId, false);
-                }
-                this.this$0.setCheckedId(id);
-            } else if (this.this$0.checkedId == id) {
-                this.this$0.setCheckedId(-1);
-            }
-        }
-
         public /* synthetic */ CheckedStateTracker(ChipGroup chipGroup, AnonymousClass1 anonymousClass1) {
             this(chipGroup);
+        }
+
+        @Override // android.widget.CompoundButton.OnCheckedChangeListener
+        public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeLZ(1048576, this, compoundButton, z) != null) || this.this$0.protectFromCheckedChange) {
+                return;
+            }
+            if (!this.this$0.getCheckedChipIds().isEmpty() || !this.this$0.selectionRequired) {
+                int id = compoundButton.getId();
+                if (z) {
+                    if (this.this$0.checkedId != -1 && this.this$0.checkedId != id && this.this$0.singleSelection) {
+                        ChipGroup chipGroup = this.this$0;
+                        chipGroup.setCheckedStateForView(chipGroup.checkedId, false);
+                    }
+                    this.this$0.setCheckedId(id);
+                    return;
+                } else if (this.this$0.checkedId != id) {
+                    return;
+                } else {
+                    this.this$0.setCheckedId(-1);
+                    return;
+                }
+            }
+            this.this$0.setCheckedStateForView(compoundButton.getId(), true);
+            this.this$0.setCheckedId(compoundButton.getId(), false);
         }
     }
 
     /* loaded from: classes7.dex */
-    public static class LayoutParams extends ViewGroup.MarginLayoutParams {
+    public class LayoutParams extends ViewGroup.MarginLayoutParams {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public LayoutParams(int i, int i2) {
+            super(i, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public LayoutParams(Context context, AttributeSet attributeSet) {
@@ -158,27 +191,6 @@ public class ChipGroup extends FlowLayout {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public LayoutParams(int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public LayoutParams(ViewGroup.MarginLayoutParams marginLayoutParams) {
             super(marginLayoutParams);
             Interceptable interceptable = $ic;
@@ -197,11 +209,6 @@ public class ChipGroup extends FlowLayout {
                 }
             }
         }
-    }
-
-    /* loaded from: classes7.dex */
-    public interface OnCheckedChangeListener {
-        void onCheckedChanged(ChipGroup chipGroup, @IdRes int i);
     }
 
     /* loaded from: classes7.dex */
@@ -229,6 +236,24 @@ public class ChipGroup extends FlowLayout {
             this.this$0 = chipGroup;
         }
 
+        public /* synthetic */ PassThroughHierarchyChangeListener(ChipGroup chipGroup, AnonymousClass1 anonymousClass1) {
+            this(chipGroup);
+        }
+
+        @Override // android.view.ViewGroup.OnHierarchyChangeListener
+        public void onChildViewRemoved(View view2, View view3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, view3) == null) {
+                if (view2 == this.this$0 && (view3 instanceof Chip)) {
+                    ((Chip) view3).setOnCheckedChangeListenerInternal(null);
+                }
+                ViewGroup.OnHierarchyChangeListener onHierarchyChangeListener = this.onHierarchyChangeListener;
+                if (onHierarchyChangeListener != null) {
+                    onHierarchyChangeListener.onChildViewRemoved(view2, view3);
+                }
+            }
+        }
+
         @Override // android.view.ViewGroup.OnHierarchyChangeListener
         public void onChildViewAdded(View view2, View view3) {
             int hashCode;
@@ -250,39 +275,6 @@ public class ChipGroup extends FlowLayout {
                     onHierarchyChangeListener.onChildViewAdded(view2, view3);
                 }
             }
-        }
-
-        @Override // android.view.ViewGroup.OnHierarchyChangeListener
-        public void onChildViewRemoved(View view2, View view3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, view3) == null) {
-                if (view2 == this.this$0 && (view3 instanceof Chip)) {
-                    ((Chip) view3).setOnCheckedChangeListenerInternal(null);
-                }
-                ViewGroup.OnHierarchyChangeListener onHierarchyChangeListener = this.onHierarchyChangeListener;
-                if (onHierarchyChangeListener != null) {
-                    onHierarchyChangeListener.onChildViewRemoved(view2, view3);
-                }
-            }
-        }
-
-        public /* synthetic */ PassThroughHierarchyChangeListener(ChipGroup chipGroup, AnonymousClass1 anonymousClass1) {
-            this(chipGroup);
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-180384705, "Lcom/google/android/material/chip/ChipGroup;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-180384705, "Lcom/google/android/material/chip/ChipGroup;");
         }
     }
 
@@ -307,19 +299,108 @@ public class ChipGroup extends FlowLayout {
         }
     }
 
-    private int getChipCount() {
-        InterceptResult invokeV;
+    public int getIndexOfChip(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, view2)) == null) {
+            if (!(view2 instanceof Chip)) {
+                return -1;
+            }
             int i = 0;
             for (int i2 = 0; i2 < getChildCount(); i2++) {
                 if (getChildAt(i2) instanceof Chip) {
+                    if (((Chip) getChildAt(i2)) == view2) {
+                        return i;
+                    }
                     i++;
                 }
             }
-            return i;
+            return -1;
         }
-        return invokeV.intValue;
+        return invokeL.intValue;
+    }
+
+    @Override // android.view.View
+    public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo accessibilityNodeInfo) {
+        int i;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, accessibilityNodeInfo) == null) {
+            super.onInitializeAccessibilityNodeInfo(accessibilityNodeInfo);
+            AccessibilityNodeInfoCompat wrap = AccessibilityNodeInfoCompat.wrap(accessibilityNodeInfo);
+            if (isSingleLine()) {
+                i = getChipCount();
+            } else {
+                i = -1;
+            }
+            int rowCount = getRowCount();
+            if (isSingleSelection()) {
+                i2 = 1;
+            } else {
+                i2 = 2;
+            }
+            wrap.setCollectionInfo(AccessibilityNodeInfoCompat.CollectionInfoCompat.obtain(rowCount, i, false, i2));
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public ChipGroup(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f04013e);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ChipGroup(Context context, AttributeSet attributeSet, int i) {
+        super(MaterialThemeOverlay.wrap(context, attributeSet, i, DEF_STYLE_RES), attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.checkedStateTracker = new CheckedStateTracker(this, null);
+        this.passThroughListener = new PassThroughHierarchyChangeListener(this, null);
+        this.checkedId = -1;
+        this.protectFromCheckedChange = false;
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(getContext(), attributeSet, com.google.android.material.R.styleable.ChipGroup, i, DEF_STYLE_RES, new int[0]);
+        int dimensionPixelOffset = obtainStyledAttributes.getDimensionPixelOffset(1, 0);
+        setChipSpacingHorizontal(obtainStyledAttributes.getDimensionPixelOffset(2, dimensionPixelOffset));
+        setChipSpacingVertical(obtainStyledAttributes.getDimensionPixelOffset(3, dimensionPixelOffset));
+        setSingleLine(obtainStyledAttributes.getBoolean(5, false));
+        setSingleSelection(obtainStyledAttributes.getBoolean(6, false));
+        setSelectionRequired(obtainStyledAttributes.getBoolean(4, false));
+        int resourceId = obtainStyledAttributes.getResourceId(0, -1);
+        if (resourceId != -1) {
+            this.checkedId = resourceId;
+        }
+        obtainStyledAttributes.recycle();
+        super.setOnHierarchyChangeListener(this.passThroughListener);
+        ViewCompat.setImportantForAccessibility(this, 1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -330,41 +411,10 @@ public class ChipGroup extends FlowLayout {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void setCheckedStateForView(@IdRes int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65551, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            View findViewById = findViewById(i);
-            if (findViewById instanceof Chip) {
-                this.protectFromCheckedChange = true;
-                ((Chip) findViewById).setChecked(z);
-                this.protectFromCheckedChange = false;
-            }
-        }
-    }
-
-    @Override // android.view.ViewGroup
-    public void addView(View view2, int i, ViewGroup.LayoutParams layoutParams) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048576, this, view2, i, layoutParams) == null) {
-            if (view2 instanceof Chip) {
-                Chip chip = (Chip) view2;
-                if (chip.isChecked()) {
-                    int i2 = this.checkedId;
-                    if (i2 != -1 && this.singleSelection) {
-                        setCheckedStateForView(i2, false);
-                    }
-                    setCheckedId(chip.getId());
-                }
-            }
-            super.addView(view2, i, layoutParams);
-        }
-    }
-
-    public void check(@IdRes int i) {
+    public void check(int i) {
         int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || i == (i2 = this.checkedId)) {
+        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) || i == (i2 = this.checkedId)) {
             return;
         }
         if (i2 != -1 && this.singleSelection) {
@@ -380,150 +430,26 @@ public class ChipGroup extends FlowLayout {
     public boolean checkLayoutParams(ViewGroup.LayoutParams layoutParams) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, layoutParams)) == null) ? super.checkLayoutParams(layoutParams) && (layoutParams instanceof LayoutParams) : invokeL.booleanValue;
-    }
-
-    public void clearCheck() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.protectFromCheckedChange = true;
-            for (int i = 0; i < getChildCount(); i++) {
-                View childAt = getChildAt(i);
-                if (childAt instanceof Chip) {
-                    ((Chip) childAt).setChecked(false);
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, layoutParams)) == null) {
+            if (super.checkLayoutParams(layoutParams) && (layoutParams instanceof LayoutParams)) {
+                return true;
             }
-            this.protectFromCheckedChange = false;
-            setCheckedId(-1);
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
     @Override // android.view.ViewGroup
-    @NonNull
-    public ViewGroup.LayoutParams generateDefaultLayoutParams() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? new LayoutParams(-2, -2) : (ViewGroup.LayoutParams) invokeV.objValue;
-    }
-
-    @Override // android.view.ViewGroup
-    @NonNull
     public ViewGroup.LayoutParams generateLayoutParams(AttributeSet attributeSet) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, attributeSet)) == null) ? new LayoutParams(getContext(), attributeSet) : (ViewGroup.LayoutParams) invokeL.objValue;
-    }
-
-    @IdRes
-    public int getCheckedChipId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.singleSelection) {
-                return this.checkedId;
-            }
-            return -1;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, attributeSet)) == null) {
+            return new LayoutParams(getContext(), attributeSet);
         }
-        return invokeV.intValue;
+        return (ViewGroup.LayoutParams) invokeL.objValue;
     }
 
-    @NonNull
-    public List<Integer> getCheckedChipIds() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < getChildCount(); i++) {
-                View childAt = getChildAt(i);
-                if ((childAt instanceof Chip) && ((Chip) childAt).isChecked()) {
-                    arrayList.add(Integer.valueOf(childAt.getId()));
-                    if (this.singleSelection) {
-                        return arrayList;
-                    }
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    @Dimension
-    public int getChipSpacingHorizontal() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.chipSpacingHorizontal : invokeV.intValue;
-    }
-
-    @Dimension
-    public int getChipSpacingVertical() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.chipSpacingVertical : invokeV.intValue;
-    }
-
-    public int getIndexOfChip(@Nullable View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, view2)) == null) {
-            if (view2 instanceof Chip) {
-                int i = 0;
-                for (int i2 = 0; i2 < getChildCount(); i2++) {
-                    if (getChildAt(i2) instanceof Chip) {
-                        if (((Chip) getChildAt(i2)) == view2) {
-                            return i;
-                        }
-                        i++;
-                    }
-                }
-                return -1;
-            }
-            return -1;
-        }
-        return invokeL.intValue;
-    }
-
-    public boolean isSelectionRequired() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.selectionRequired : invokeV.booleanValue;
-    }
-
-    @Override // com.google.android.material.internal.FlowLayout
-    public boolean isSingleLine() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? super.isSingleLine() : invokeV.booleanValue;
-    }
-
-    public boolean isSingleSelection() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.singleSelection : invokeV.booleanValue;
-    }
-
-    @Override // android.view.View
-    public void onFinishInflate() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            super.onFinishInflate();
-            int i = this.checkedId;
-            if (i != -1) {
-                setCheckedStateForView(i, true);
-                setCheckedId(this.checkedId);
-            }
-        }
-    }
-
-    @Override // android.view.View
-    public void onInitializeAccessibilityNodeInfo(@NonNull AccessibilityNodeInfo accessibilityNodeInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, accessibilityNodeInfo) == null) {
-            super.onInitializeAccessibilityNodeInfo(accessibilityNodeInfo);
-            AccessibilityNodeInfoCompat.wrap(accessibilityNodeInfo).setCollectionInfo(AccessibilityNodeInfoCompat.CollectionInfoCompat.obtain(getRowCount(), isSingleLine() ? getChipCount() : -1, false, isSingleSelection() ? 1 : 2));
-        }
-    }
-
-    public void setChipSpacing(@Dimension int i) {
+    public void setChipSpacing(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
             setChipSpacingHorizontal(i);
@@ -531,41 +457,39 @@ public class ChipGroup extends FlowLayout {
         }
     }
 
-    public void setChipSpacingHorizontal(@Dimension int i) {
+    public void setChipSpacingHorizontal(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048594, this, i) == null) || this.chipSpacingHorizontal == i) {
-            return;
+        if ((interceptable == null || interceptable.invokeI(1048594, this, i) == null) && this.chipSpacingHorizontal != i) {
+            this.chipSpacingHorizontal = i;
+            setItemSpacing(i);
+            requestLayout();
         }
-        this.chipSpacingHorizontal = i;
-        setItemSpacing(i);
-        requestLayout();
     }
 
-    public void setChipSpacingHorizontalResource(@DimenRes int i) {
+    public void setChipSpacingHorizontalResource(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
             setChipSpacingHorizontal(getResources().getDimensionPixelOffset(i));
         }
     }
 
-    public void setChipSpacingResource(@DimenRes int i) {
+    public void setChipSpacingResource(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
             setChipSpacing(getResources().getDimensionPixelOffset(i));
         }
     }
 
-    public void setChipSpacingVertical(@Dimension int i) {
+    public void setChipSpacingVertical(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048597, this, i) == null) || this.chipSpacingVertical == i) {
-            return;
+        if ((interceptable == null || interceptable.invokeI(1048597, this, i) == null) && this.chipSpacingVertical != i) {
+            this.chipSpacingVertical = i;
+            setLineSpacing(i);
+            requestLayout();
         }
-        this.chipSpacingVertical = i;
-        setLineSpacing(i);
-        requestLayout();
     }
 
-    public void setChipSpacingVerticalResource(@DimenRes int i) {
+    public void setChipSpacingVerticalResource(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
             setChipSpacingVertical(getResources().getDimensionPixelOffset(i));
@@ -581,7 +505,7 @@ public class ChipGroup extends FlowLayout {
     }
 
     @Deprecated
-    public void setDividerDrawableVertical(@Nullable Drawable drawable) {
+    public void setDividerDrawableVertical(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, drawable) == null) {
             throw new UnsupportedOperationException("Changing divider drawables have no effect. ChipGroup do not use divider drawables as spacing.");
@@ -634,40 +558,127 @@ public class ChipGroup extends FlowLayout {
         }
     }
 
+    public void setSingleLine(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048607, this, i) == null) {
+            setSingleLine(getResources().getBoolean(i));
+        }
+    }
+
+    public void setSingleSelection(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048609, this, i) == null) {
+            setSingleSelection(getResources().getBoolean(i));
+        }
+    }
+
+    private int getChipCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
+            int i = 0;
+            for (int i2 = 0; i2 < getChildCount(); i2++) {
+                if (getChildAt(i2) instanceof Chip) {
+                    i++;
+                }
+            }
+            return i;
+        }
+        return invokeV.intValue;
+    }
+
+    public void clearCheck() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.protectFromCheckedChange = true;
+            for (int i = 0; i < getChildCount(); i++) {
+                View childAt = getChildAt(i);
+                if (childAt instanceof Chip) {
+                    ((Chip) childAt).setChecked(false);
+                }
+            }
+            this.protectFromCheckedChange = false;
+            setCheckedId(-1);
+        }
+    }
+
+    @Override // android.view.ViewGroup
+    public ViewGroup.LayoutParams generateDefaultLayoutParams() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return new LayoutParams(-2, -2);
+        }
+        return (ViewGroup.LayoutParams) invokeV.objValue;
+    }
+
+    public int getCheckedChipId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (this.singleSelection) {
+                return this.checkedId;
+            }
+            return -1;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getChipSpacingHorizontal() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.chipSpacingHorizontal;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getChipSpacingVertical() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.chipSpacingVertical;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean isSelectionRequired() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.selectionRequired;
+        }
+        return invokeV.booleanValue;
+    }
+
     @Override // com.google.android.material.internal.FlowLayout
-    public void setSingleLine(boolean z) {
+    public boolean isSingleLine() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048608, this, z) == null) {
-            super.setSingleLine(z);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return super.isSingleLine();
         }
+        return invokeV.booleanValue;
     }
 
-    public void setSingleSelection(boolean z) {
+    public boolean isSingleSelection() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048610, this, z) == null) || this.singleSelection == z) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.singleSelection;
         }
-        this.singleSelection = z;
-        clearCheck();
+        return invokeV.booleanValue;
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ChipGroup(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f04013e);
+    @Override // android.view.View
+    public void onFinishInflate() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            super.onFinishInflate();
+            int i = this.checkedId;
+            if (i != -1) {
+                setCheckedStateForView(i, true);
+                setCheckedId(this.checkedId);
             }
         }
     }
@@ -684,64 +695,79 @@ public class ChipGroup extends FlowLayout {
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
+    public void setCheckedStateForView(int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65551, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            View findViewById = findViewById(i);
+            if (findViewById instanceof Chip) {
+                this.protectFromCheckedChange = true;
+                ((Chip) findViewById).setChecked(z);
+                this.protectFromCheckedChange = false;
+            }
+        }
+    }
+
     @Override // android.view.ViewGroup
-    @NonNull
+    public void addView(View view2, int i, ViewGroup.LayoutParams layoutParams) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048576, this, view2, i, layoutParams) == null) {
+            if (view2 instanceof Chip) {
+                Chip chip = (Chip) view2;
+                if (chip.isChecked()) {
+                    int i2 = this.checkedId;
+                    if (i2 != -1 && this.singleSelection) {
+                        setCheckedStateForView(i2, false);
+                    }
+                    setCheckedId(chip.getId());
+                }
+            }
+            super.addView(view2, i, layoutParams);
+        }
+    }
+
+    @Override // android.view.ViewGroup
     public ViewGroup.LayoutParams generateLayoutParams(ViewGroup.LayoutParams layoutParams) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, layoutParams)) == null) ? new LayoutParams(layoutParams) : (ViewGroup.LayoutParams) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, layoutParams)) == null) {
+            return new LayoutParams(layoutParams);
+        }
+        return (ViewGroup.LayoutParams) invokeL.objValue;
     }
 
-    public void setSingleLine(@BoolRes int i) {
+    @Override // com.google.android.material.internal.FlowLayout
+    public void setSingleLine(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048607, this, i) == null) {
-            setSingleLine(getResources().getBoolean(i));
+        if (interceptable == null || interceptable.invokeZ(1048608, this, z) == null) {
+            super.setSingleLine(z);
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ChipGroup(Context context, AttributeSet attributeSet, int i) {
-        super(MaterialThemeOverlay.wrap(context, attributeSet, i, DEF_STYLE_RES), attributeSet, i);
+    public void setSingleSelection(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeZ(1048610, this, z) == null) && this.singleSelection != z) {
+            this.singleSelection = z;
+            clearCheck();
+        }
+    }
+
+    public List getCheckedChipIds() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (int i = 0; i < getChildCount(); i++) {
+                View childAt = getChildAt(i);
+                if ((childAt instanceof Chip) && ((Chip) childAt).isChecked()) {
+                    arrayList.add(Integer.valueOf(childAt.getId()));
+                    if (this.singleSelection) {
+                        return arrayList;
+                    }
+                }
             }
+            return arrayList;
         }
-        this.checkedStateTracker = new CheckedStateTracker(this, null);
-        this.passThroughListener = new PassThroughHierarchyChangeListener(this, null);
-        this.checkedId = -1;
-        this.protectFromCheckedChange = false;
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(getContext(), attributeSet, com.google.android.material.R.styleable.ChipGroup, i, DEF_STYLE_RES, new int[0]);
-        int dimensionPixelOffset = obtainStyledAttributes.getDimensionPixelOffset(1, 0);
-        setChipSpacingHorizontal(obtainStyledAttributes.getDimensionPixelOffset(2, dimensionPixelOffset));
-        setChipSpacingVertical(obtainStyledAttributes.getDimensionPixelOffset(3, dimensionPixelOffset));
-        setSingleLine(obtainStyledAttributes.getBoolean(5, false));
-        setSingleSelection(obtainStyledAttributes.getBoolean(6, false));
-        setSelectionRequired(obtainStyledAttributes.getBoolean(4, false));
-        int resourceId = obtainStyledAttributes.getResourceId(0, -1);
-        if (resourceId != -1) {
-            this.checkedId = resourceId;
-        }
-        obtainStyledAttributes.recycle();
-        super.setOnHierarchyChangeListener(this.passThroughListener);
-        ViewCompat.setImportantForAccessibility(this, 1);
-    }
-
-    public void setSingleSelection(@BoolRes int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048609, this, i) == null) {
-            setSingleSelection(getResources().getBoolean(i));
-        }
+        return (List) invokeV.objValue;
     }
 }

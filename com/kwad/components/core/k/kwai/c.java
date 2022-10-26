@@ -5,23 +5,17 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.media.AudioManager;
 import android.os.Build;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.WorkerThread;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.ksad.json.annotation.KsJson;
-import com.kwad.sdk.f.kwai.e;
 import com.kwad.sdk.f.kwai.f;
 import com.kwad.sdk.service.ServiceProvider;
 import com.kwad.sdk.utils.AbiUtil;
 import com.kwad.sdk.utils.ar;
 import com.kwad.sdk.utils.az;
-import com.kwad.sdk.utils.bi;
 import com.kwad.sdk.utils.m;
 import com.kwad.sdk.utils.r;
 import com.yy.hiidostatis.inner.BaseStatisContent;
@@ -41,7 +35,7 @@ public final class c implements com.kwad.sdk.core.b {
     public Long Ib;
     public String Ic;
     public String Id;
-    public List<bi.a> Ie;
+    public List Ie;
     public long If;
     public String Ig;
     public String Ih;
@@ -51,16 +45,15 @@ public final class c implements com.kwad.sdk.core.b {
     public String Il;
     public boolean Im;
     public int In;
-    public List<a> Io;
+    public List Io;
     public f Ip;
     public com.kwad.sdk.f.kwai.d Iq;
     public com.kwad.sdk.f.kwai.b Ir;
-    public List<e> Is;
+    public List Is;
     public float screenBrightness;
 
-    @KsJson
     /* loaded from: classes7.dex */
-    public static class a extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b {
+    public class a extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int It;
@@ -115,7 +108,7 @@ public final class c implements com.kwad.sdk.core.b {
             return invokeI.intValue;
         }
 
-        public static List<a> as(Context context) {
+        public static List as(Context context) {
             InterceptResult invokeL;
             AudioManager audioManager;
             Interceptable interceptable = $ic;
@@ -166,7 +159,7 @@ public final class c implements com.kwad.sdk.core.b {
         this.In = -1;
     }
 
-    private void ar(@NonNull Context context) {
+    private void ar(Context context) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(65537, this, context) == null) || com.kwad.sdk.core.config.d.i(512L)) {
             return;
@@ -198,7 +191,6 @@ public final class c implements com.kwad.sdk.core.b {
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? ((com.kwad.sdk.service.kwai.d) ServiceProvider.get(com.kwad.sdk.service.kwai.d.class)).getContext() : (Context) invokeV.objValue;
     }
 
-    @WorkerThread
     public static c oq() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -236,7 +228,7 @@ public final class c implements com.kwad.sdk.core.b {
     }
 
     @Override // com.kwad.sdk.core.b
-    public final void parseJson(@Nullable JSONObject jSONObject) {
+    public final void parseJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
         }
@@ -281,7 +273,7 @@ public final class c implements com.kwad.sdk.core.b {
             if (bVar != null) {
                 r.a(jSONObject, "baseStationInfo", bVar);
             }
-            List<e> list = this.Is;
+            List list = this.Is;
             if (list != null) {
                 r.putValue(jSONObject, "sensorEventInfoList", list);
             }

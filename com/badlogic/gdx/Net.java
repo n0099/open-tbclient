@@ -12,7 +12,7 @@ public interface Net {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class Protocol {
+    public final class Protocol {
         public static final /* synthetic */ Protocol[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Protocol TCP;
@@ -34,6 +34,15 @@ public interface Net {
             Protocol protocol = new Protocol("TCP", 0);
             TCP = protocol;
             $VALUES = new Protocol[]{protocol};
+        }
+
+        public static Protocol[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (Protocol[]) $VALUES.clone();
+            }
+            return (Protocol[]) invokeV.objValue;
         }
 
         public Protocol(String str, int i) {
@@ -58,13 +67,10 @@ public interface Net {
         public static Protocol valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Protocol) Enum.valueOf(Protocol.class, str) : (Protocol) invokeL.objValue;
-        }
-
-        public static Protocol[] values() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Protocol[]) $VALUES.clone() : (Protocol[]) invokeV.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (Protocol) Enum.valueOf(Protocol.class, str);
+            }
+            return (Protocol) invokeL.objValue;
         }
     }
 }

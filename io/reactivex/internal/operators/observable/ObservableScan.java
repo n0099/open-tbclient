@@ -15,22 +15,22 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 /* loaded from: classes8.dex */
-public final class ObservableScan<T> extends AbstractObservableWithUpstream<T, T> {
+public final class ObservableScan extends AbstractObservableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BiFunction<T, T, T> accumulator;
+    public final BiFunction accumulator;
 
     /* loaded from: classes8.dex */
-    public static final class ScanObserver<T> implements Observer<T>, Disposable {
+    public final class ScanObserver implements Observer, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final BiFunction<T, T, T> accumulator;
-        public final Observer<? super T> actual;
+        public final BiFunction accumulator;
+        public final Observer actual;
         public boolean done;
         public Disposable s;
-        public T value;
+        public Object value;
 
-        public ScanObserver(Observer<? super T> observer, BiFunction<T, T, T> biFunction) {
+        public ScanObserver(Observer observer, BiFunction biFunction) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -61,13 +61,16 @@ public final class ObservableScan<T> extends AbstractObservableWithUpstream<T, T
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.s.isDisposed() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.s.isDisposed();
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.Observer
         public void onComplete() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.done) {
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.done) {
                 return;
             }
             this.done = true;
@@ -87,31 +90,6 @@ public final class ObservableScan<T> extends AbstractObservableWithUpstream<T, T
             }
         }
 
-        /* JADX WARN: Type inference failed for: r5v3, types: [T, java.lang.Object] */
-        @Override // io.reactivex.Observer
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048580, this, t) == null) || this.done) {
-                return;
-            }
-            Observer<? super T> observer = this.actual;
-            T t2 = this.value;
-            if (t2 == null) {
-                this.value = t;
-                observer.onNext(t);
-                return;
-            }
-            try {
-                ?? r5 = (T) ObjectHelper.requireNonNull(this.accumulator.apply(t2, t), "The value returned by the accumulator is null");
-                this.value = r5;
-                observer.onNext(r5);
-            } catch (Throwable th) {
-                Exceptions.throwIfFatal(th);
-                this.s.dispose();
-                onError(th);
-            }
-        }
-
         @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
@@ -120,10 +98,34 @@ public final class ObservableScan<T> extends AbstractObservableWithUpstream<T, T
                 this.actual.onSubscribe(this);
             }
         }
+
+        @Override // io.reactivex.Observer
+        public void onNext(Object obj) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048580, this, obj) != null) || this.done) {
+                return;
+            }
+            Observer observer = this.actual;
+            Object obj2 = this.value;
+            if (obj2 == null) {
+                this.value = obj;
+                observer.onNext(obj);
+                return;
+            }
+            try {
+                Object requireNonNull = ObjectHelper.requireNonNull(this.accumulator.apply(obj2, obj), "The value returned by the accumulator is null");
+                this.value = requireNonNull;
+                observer.onNext(requireNonNull);
+            } catch (Throwable th) {
+                Exceptions.throwIfFatal(th);
+                this.s.dispose();
+                onError(th);
+            }
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableScan(ObservableSource<T> observableSource, BiFunction<T, T, T> biFunction) {
+    public ObservableScan(ObservableSource observableSource, BiFunction biFunction) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -144,7 +146,7 @@ public final class ObservableScan<T> extends AbstractObservableWithUpstream<T, T
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer<? super T> observer) {
+    public void subscribeActual(Observer observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             this.source.subscribe(new ScanObserver(observer, this.accumulator));

@@ -5,12 +5,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.gson.annotations.SerializedName;
 /* loaded from: classes5.dex */
 public class PersonMoreItemData extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @SerializedName("mId")
     public int mId;
+    @SerializedName("mName")
     public String mName;
+    @SerializedName("mUrl")
     public String mUrl;
 
     public PersonMoreItemData() {

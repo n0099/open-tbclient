@@ -48,7 +48,13 @@ public final class EmailDoCoMoResultParser extends AbstractDoCoMoResultParser {
     public static boolean isBasicallyValidEmailAddress(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? str != null && ATEXT_ALPHANUMERIC.matcher(str).matches() && str.indexOf(64) >= 0 : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (str != null && ATEXT_ALPHANUMERIC.matcher(str).matches() && str.indexOf(64) >= 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -59,15 +65,15 @@ public final class EmailDoCoMoResultParser extends AbstractDoCoMoResultParser {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, result)) == null) {
             String massagedText = ResultParser.getMassagedText(result);
-            if (massagedText.startsWith("MATMSG:") && (matchDoCoMoPrefixedField = AbstractDoCoMoResultParser.matchDoCoMoPrefixedField("TO:", massagedText, true)) != null) {
-                for (String str : matchDoCoMoPrefixedField) {
-                    if (!isBasicallyValidEmailAddress(str)) {
-                        return null;
-                    }
-                }
-                return new EmailAddressParsedResult(matchDoCoMoPrefixedField, null, null, AbstractDoCoMoResultParser.matchSingleDoCoMoPrefixedField("SUB:", massagedText, false), AbstractDoCoMoResultParser.matchSingleDoCoMoPrefixedField("BODY:", massagedText, false));
+            if (!massagedText.startsWith("MATMSG:") || (matchDoCoMoPrefixedField = AbstractDoCoMoResultParser.matchDoCoMoPrefixedField("TO:", massagedText, true)) == null) {
+                return null;
             }
-            return null;
+            for (String str : matchDoCoMoPrefixedField) {
+                if (!isBasicallyValidEmailAddress(str)) {
+                    return null;
+                }
+            }
+            return new EmailAddressParsedResult(matchDoCoMoPrefixedField, null, null, AbstractDoCoMoResultParser.matchSingleDoCoMoPrefixedField("SUB:", massagedText, false), AbstractDoCoMoResultParser.matchSingleDoCoMoPrefixedField("BODY:", massagedText, false));
         }
         return (EmailAddressParsedResult) invokeL.objValue;
     }

@@ -1,52 +1,47 @@
 package com.airbnb.lottie;
 
-import androidx.annotation.Nullable;
 import java.util.Arrays;
 /* loaded from: classes.dex */
-public final class LottieResult<V> {
-    @Nullable
+public final class LottieResult {
     public final Throwable exception;
-    @Nullable
-    public final V value;
+    public final Object value;
 
-    public LottieResult(V v) {
-        this.value = v;
+    public LottieResult(Object obj) {
+        this.value = obj;
         this.exception = null;
+    }
+
+    public LottieResult(Throwable th) {
+        this.exception = th;
+        this.value = null;
     }
 
     public boolean equals(Object obj) {
         if (this == obj) {
             return true;
         }
-        if (obj instanceof LottieResult) {
-            LottieResult lottieResult = (LottieResult) obj;
-            if (getValue() == null || !getValue().equals(lottieResult.getValue())) {
-                if (getException() == null || lottieResult.getException() == null) {
-                    return false;
-                }
-                return getException().toString().equals(getException().toString());
-            }
+        if (!(obj instanceof LottieResult)) {
+            return false;
+        }
+        LottieResult lottieResult = (LottieResult) obj;
+        if (getValue() != null && getValue().equals(lottieResult.getValue())) {
             return true;
         }
-        return false;
+        if (getException() == null || lottieResult.getException() == null) {
+            return false;
+        }
+        return getException().toString().equals(getException().toString());
     }
 
-    @Nullable
     public Throwable getException() {
         return this.exception;
     }
 
-    @Nullable
-    public V getValue() {
+    public Object getValue() {
         return this.value;
     }
 
     public int hashCode() {
         return Arrays.hashCode(new Object[]{getValue(), getException()});
-    }
-
-    public LottieResult(Throwable th) {
-        this.exception = th;
-        this.value = null;
     }
 }

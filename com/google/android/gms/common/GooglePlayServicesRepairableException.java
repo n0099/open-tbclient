@@ -1,7 +1,6 @@
 package com.google.android.gms.common;
 
 import android.content.Intent;
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,8 +12,14 @@ public class GooglePlayServicesRepairableException extends UserRecoverableExcept
     public transient /* synthetic */ FieldHolder $fh;
     public final int zza;
 
+    public int getConnectionStatusCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.zza : invokeV.intValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GooglePlayServicesRepairableException(int i, @NonNull String str, @NonNull Intent intent) {
+    public GooglePlayServicesRepairableException(int i, String str, Intent intent) {
         super(str, intent);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -33,11 +38,5 @@ public class GooglePlayServicesRepairableException extends UserRecoverableExcept
             }
         }
         this.zza = i;
-    }
-
-    public int getConnectionStatusCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.zza : invokeV.intValue;
     }
 }

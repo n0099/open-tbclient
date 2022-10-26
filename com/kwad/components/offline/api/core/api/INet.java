@@ -15,9 +15,9 @@ public interface INet {
 
     int getActiveNetworkType(Context context);
 
-    String getCurrHost(@HostType String str, String str2);
+    String getCurrHost(String str, String str2);
 
-    void handleSwitchHost(String str, @HostType String str2, int i, Throwable th);
+    void handleSwitchHost(String str, String str2, int i, Throwable th);
 
     boolean isMobileConnected(Context context);
 

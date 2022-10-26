@@ -1,6 +1,5 @@
 package com.baidu.down.loopj.android.request.handler;
 
-import android.annotation.SuppressLint;
 import android.os.Build;
 import android.text.TextUtils;
 import android.webkit.URLUtil;
@@ -22,7 +21,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidubce.http.Headers;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -44,17 +42,40 @@ public class UrlConnectionRequestHandler implements ICommonRequestHandler {
     public transient /* synthetic */ FieldHolder $fh;
     public InputStream inputStream;
     public ProxyURLConnection mAsyncUrlConnection;
-    public Map<String, String> mBackUpRequestHeader;
+    public Map mBackUpRequestHeader;
     public String mBackUpURL;
     public boolean mConvertDomainNameToIp;
     public UrlDNSInfo mDomainNameAndIpInfo;
-    public Map<String, String> mRequestHeader;
+    public Map mRequestHeader;
     public boolean mTlsCertSkip;
     public String mURL;
     public HttpURLConnection mURLConnectionRequest;
     public UrlConnectionRetryHandler mURLConnectionRetryHandler;
 
-    public UrlConnectionRequestHandler(ProxyURLConnection proxyURLConnection, String str, Map<String, String> map) {
+    private boolean isConvertUrlDomainNameToIp() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.down.loopj.android.request.handler.ICommonRequestHandler
+    public void cancelRequest() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.down.loopj.android.request.handler.ICommonRequestHandler
+    public void closeConnection() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    public UrlConnectionRequestHandler(ProxyURLConnection proxyURLConnection, String str, Map map) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -77,73 +98,161 @@ public class UrlConnectionRequestHandler implements ICommonRequestHandler {
         this.mURLConnectionRetryHandler = proxyURLConnection.getRetryHandler();
     }
 
-    @SuppressLint({"LongLogTag"})
     private String convertUrlDomainNameToIp(String str) throws URLDNSException {
         InterceptResult invokeL;
         String str2;
         Exception e;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65537, this, str)) != null) {
-            return (String) invokeL.objValue;
-        }
-        if (!isConvertUrlDomainNameToIp()) {
-            this.mConvertDomainNameToIp = false;
-            return str;
-        }
-        try {
-            long currentTimeMillis = System.currentTimeMillis();
-            String host = new URI(str).getHost();
-            InetAddress[] allByName = InetAddress.getAllByName(host);
-            if (allByName != null && allByName.length != 0 && !TextUtils.isEmpty(host)) {
-                if (!host.equalsIgnoreCase(allByName[0].getHostAddress())) {
-                    str2 = str.replace(host, allByName[0].getHostAddress());
-                    try {
-                        new URL(str2);
-                        try {
-                            Utils.removeMapKeyIgnoreCase(this.mRequestHeader, "Host");
-                            this.mRequestHeader.put("Host", host);
-                            UrlDNSInfo urlDNSInfo = new UrlDNSInfo();
-                            this.mDomainNameAndIpInfo = urlDNSInfo;
-                            urlDNSInfo.host = host;
-                            urlDNSInfo.ip = allByName[0].getHostAddress();
-                            this.mDomainNameAndIpInfo.dnsTime = System.currentTimeMillis() - currentTimeMillis;
-                            this.mConvertDomainNameToIp = true;
-                            return str2;
-                        } catch (Exception e2) {
-                            e = e2;
-                            e.printStackTrace();
-                            this.mConvertDomainNameToIp = false;
-                            return str2;
-                        }
-                    } catch (MalformedURLException e3) {
-                        e3.printStackTrace();
-                        this.mConvertDomainNameToIp = false;
-                        return str;
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) {
+            if (!isConvertUrlDomainNameToIp()) {
                 this.mConvertDomainNameToIp = false;
                 return str;
             }
-            throw new URLDNSException("Dns failed");
-        } catch (Exception e4) {
-            str2 = str;
-            e = e4;
+            try {
+                long currentTimeMillis = System.currentTimeMillis();
+                String host = new URI(str).getHost();
+                InetAddress[] allByName = InetAddress.getAllByName(host);
+                if (allByName != null && allByName.length != 0 && !TextUtils.isEmpty(host)) {
+                    if (!host.equalsIgnoreCase(allByName[0].getHostAddress())) {
+                        str2 = str.replace(host, allByName[0].getHostAddress());
+                        try {
+                            new URL(str2);
+                            try {
+                                Utils.removeMapKeyIgnoreCase(this.mRequestHeader, "Host");
+                                this.mRequestHeader.put("Host", host);
+                                UrlDNSInfo urlDNSInfo = new UrlDNSInfo();
+                                this.mDomainNameAndIpInfo = urlDNSInfo;
+                                urlDNSInfo.host = host;
+                                urlDNSInfo.ip = allByName[0].getHostAddress();
+                                this.mDomainNameAndIpInfo.dnsTime = System.currentTimeMillis() - currentTimeMillis;
+                                this.mConvertDomainNameToIp = true;
+                                return str2;
+                            } catch (Exception e2) {
+                                e = e2;
+                                e.printStackTrace();
+                                this.mConvertDomainNameToIp = false;
+                                return str2;
+                            }
+                        } catch (MalformedURLException e3) {
+                            e3.printStackTrace();
+                            this.mConvertDomainNameToIp = false;
+                            return str;
+                        }
+                    }
+                    this.mConvertDomainNameToIp = false;
+                    return str;
+                }
+                throw new URLDNSException("Dns failed");
+            } catch (Exception e4) {
+                str2 = str;
+                e = e4;
+            }
+        } else {
+            return (String) invokeL.objValue;
         }
     }
 
-    private boolean isConvertUrlDomainNameToIp() {
-        InterceptResult invokeV;
+    @Override // com.baidu.down.loopj.android.request.handler.ICommonRequestHandler
+    public void onHandleFollowRedirect(HashSet hashSet) throws RedirectException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            return false;
+        if (interceptable == null || interceptable.invokeL(1048591, this, hashSet) == null) {
+            String headerField = this.mURLConnectionRequest.getHeaderField("Location");
+            if (!TextUtils.isEmpty(headerField)) {
+                Utils.removeMapKeyIgnoreCase(this.mRequestHeader, "Host");
+                if (!hashSet.contains(headerField)) {
+                    try {
+                        try {
+                            URI uri = new URI(headerField);
+                            URI uri2 = new URI(this.mURL);
+                            if (TextUtils.isEmpty(uri.getHost())) {
+                                headerField = this.mURL.replace(uri2.getPath(), headerField).replace(uri2.getQuery(), "");
+                            }
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        cloneRequest(headerField);
+                        hashSet.add(headerField);
+                        throw new HandlerRetryException("Redirect");
+                    } catch (IllegalArgumentException unused) {
+                        throw new RedirectException("Invalid uri: " + this.mURLConnectionRequest.getURL());
+                    }
+                }
+                throw new RedirectException("### Redirect circle : " + hashSet);
+            }
+            throw new RedirectException("### Redirect null Location : " + this.mURLConnectionRequest.getURL());
         }
-        return invokeV.booleanValue;
     }
 
     private boolean isGzip(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, this, str)) == null) ? str != null && str.contains("gzip") : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, str)) == null) {
+            if (str != null && str.contains("gzip")) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.down.loopj.android.request.handler.ICommonRequestHandler
+    public boolean cloneRequest(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            this.mURL = str;
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.down.loopj.android.request.handler.ICommonRequestHandler
+    public boolean onContainsRequestHeader(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+            return this.mRequestHeader.containsKey(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.down.loopj.android.request.handler.ICommonRequestHandler
+    public String onGetRequestHeader(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
+            return (String) this.mRequestHeader.get(str);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.down.loopj.android.request.handler.ICommonRequestHandler
+    public String onGetResponseHeader(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
+            if (!isHttpRequestNull()) {
+                return this.mURLConnectionRequest.getHeaderField(str);
+            }
+            return "";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.down.loopj.android.request.handler.ICommonRequestHandler
+    public void onRemoveRequestHeader(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+            this.mRequestHeader.remove(str);
+        }
+    }
+
+    @Override // com.baidu.down.loopj.android.request.handler.ICommonRequestHandler
+    public void setTlsCertSkip(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
+            this.mTlsCertSkip = z;
+        }
     }
 
     private void requestConnect(String str) throws IOException {
@@ -168,27 +277,24 @@ public class UrlConnectionRequestHandler implements ICommonRequestHandler {
     }
 
     @Override // com.baidu.down.loopj.android.request.handler.ICommonRequestHandler
-    public void cancelRequest() {
+    public void replaceRequest(RetryRequestInfo retryRequestInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if ((interceptable != null && interceptable.invokeL(1048595, this, retryRequestInfo) != null) || this.mBackUpRequestHeader == null) {
+            return;
         }
-    }
-
-    @Override // com.baidu.down.loopj.android.request.handler.ICommonRequestHandler
-    public boolean cloneRequest(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            this.mURL = str;
-            return true;
+        this.mRequestHeader = new HashMap();
+        for (String str : this.mBackUpRequestHeader.keySet()) {
+            this.mRequestHeader.put(str, this.mBackUpRequestHeader.get(str));
         }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.down.loopj.android.request.handler.ICommonRequestHandler
-    public void closeConnection() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        this.mURL = retryRequestInfo.url;
+        if (!retryRequestInfo.header.isEmpty()) {
+            for (String str2 : retryRequestInfo.header.keySet()) {
+                if (TextUtils.isEmpty((CharSequence) retryRequestInfo.header.get(str2))) {
+                    this.mRequestHeader.remove(str2);
+                } else {
+                    this.mRequestHeader.put(str2, retryRequestInfo.header.get(str2));
+                }
+            }
         }
     }
 
@@ -209,7 +315,10 @@ public class UrlConnectionRequestHandler implements ICommonRequestHandler {
     public long getContentLength() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mURLConnectionRequest.getContentLength() : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mURLConnectionRequest.getContentLength();
+        }
+        return invokeV.longValue;
     }
 
     @Override // com.baidu.down.loopj.android.request.handler.ICommonRequestHandler
@@ -217,12 +326,61 @@ public class UrlConnectionRequestHandler implements ICommonRequestHandler {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (isHttpRequestNull()) {
-                return 0;
+            if (!isHttpRequestNull()) {
+                return this.mURLConnectionRequest.getResponseCode();
             }
-            return this.mURLConnectionRequest.getResponseCode();
+            return 0;
         }
         return invokeV.intValue;
+    }
+
+    @Override // com.baidu.down.loopj.android.request.handler.ICommonRequestHandler
+    public String getUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mURL;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.down.loopj.android.request.handler.ICommonRequestHandler
+    public boolean isHttpRequestNull() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            if (this.mURLConnectionRequest == null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.down.loopj.android.request.handler.ICommonRequestHandler
+    public void restoreRequest() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+            Map map = this.mBackUpRequestHeader;
+            if (map != null) {
+                this.mRequestHeader = map;
+                this.mBackUpRequestHeader = null;
+                this.mURL = this.mBackUpURL;
+                this.mBackUpURL = null;
+            }
+            if (this.mAsyncUrlConnection.usingDNSProxy()) {
+                this.mAsyncUrlConnection.setUsingDNSProxy(false);
+            }
+        }
+    }
+
+    @Override // com.baidu.down.loopj.android.request.handler.ICommonRequestHandler
+    public void saveRequest() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+            this.mBackUpRequestHeader = this.mRequestHeader;
+            this.mBackUpURL = this.mURL;
+        }
     }
 
     @Override // com.baidu.down.loopj.android.request.handler.ICommonRequestHandler
@@ -266,27 +424,6 @@ public class UrlConnectionRequestHandler implements ICommonRequestHandler {
     }
 
     @Override // com.baidu.down.loopj.android.request.handler.ICommonRequestHandler
-    public String getUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mURL : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.down.loopj.android.request.handler.ICommonRequestHandler
-    public boolean isHttpRequestNull() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mURLConnectionRequest == null : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.down.loopj.android.request.handler.ICommonRequestHandler
-    public boolean onContainsRequestHeader(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) ? this.mRequestHeader.containsKey(str) : invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.down.loopj.android.request.handler.ICommonRequestHandler
     public void onExeHttpConnect(BinaryHttpResponseHandler binaryHttpResponseHandler, ThreadSpeedStat threadSpeedStat, boolean z) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048587, this, binaryHttpResponseHandler, threadSpeedStat, z) == null) {
@@ -301,22 +438,19 @@ public class UrlConnectionRequestHandler implements ICommonRequestHandler {
                 this.mAsyncUrlConnection.setUsingDNSProxy(false);
                 requestConnect(convertUrlDomainNameToIp);
             }
-            if (!this.mConvertDomainNameToIp) {
+            if (this.mConvertDomainNameToIp) {
+                binaryHttpResponseHandler.saveDomainNameAndIpInfo(this.mDomainNameAndIpInfo);
                 if (threadSpeedStat != null) {
+                    UrlDNSInfo urlDNSInfo = this.mDomainNameAndIpInfo;
+                    threadSpeedStat.ip = urlDNSInfo.ip;
+                    threadSpeedStat.dt = urlDNSInfo.dnsTime;
                     threadSpeedStat.url = this.mURLConnectionRequest.getURL().toString();
-                    threadSpeedStat.ip = "";
-                    threadSpeedStat.dt = 0L;
                     onSetRequestHeader(ThreadSpeedStat.CLIENT_REQUEST_ID_HEADER_NAME, threadSpeedStat.cqid);
-                    return;
                 }
-                return;
-            }
-            binaryHttpResponseHandler.saveDomainNameAndIpInfo(this.mDomainNameAndIpInfo);
-            if (threadSpeedStat != null) {
-                UrlDNSInfo urlDNSInfo = this.mDomainNameAndIpInfo;
-                threadSpeedStat.ip = urlDNSInfo.ip;
-                threadSpeedStat.dt = urlDNSInfo.dnsTime;
+            } else if (threadSpeedStat != null) {
                 threadSpeedStat.url = this.mURLConnectionRequest.getURL().toString();
+                threadSpeedStat.ip = "";
+                threadSpeedStat.dt = 0L;
                 onSetRequestHeader(ThreadSpeedStat.CLIENT_REQUEST_ID_HEADER_NAME, threadSpeedStat.cqid);
             }
         }
@@ -329,17 +463,19 @@ public class UrlConnectionRequestHandler implements ICommonRequestHandler {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048588, this, z)) == null) {
             StringBuilder sb = new StringBuilder();
-            if (isHttpRequestNull()) {
-                sb.append("Uri: null\n");
-            } else if (z) {
-                sb.append("Uri:" + this.mURLConnectionRequest.getURL().toString() + "\n");
+            if (!isHttpRequestNull()) {
+                if (!z) {
+                    sb.append("Url:" + this.mURLConnectionRequest.getURL().toString() + " " + this.mURLConnectionRequest.getResponseCode() + "\n");
+                } else {
+                    sb.append("Uri:" + this.mURLConnectionRequest.getURL().toString() + "\n");
+                }
             } else {
-                sb.append("Url:" + this.mURLConnectionRequest.getURL().toString() + " " + this.mURLConnectionRequest.getResponseCode() + "\n");
+                sb.append("Uri: null\n");
             }
-            Map<String, String> map = this.mRequestHeader;
+            Map map = this.mRequestHeader;
             if (map != null) {
                 for (String str : map.keySet()) {
-                    sb.append(str + ":" + this.mRequestHeader.get(str) + "\n");
+                    sb.append(str + ":" + ((String) this.mRequestHeader.get(str)) + "\n");
                 }
             }
             if (!isHttpRequestNull()) {
@@ -360,59 +496,6 @@ public class UrlConnectionRequestHandler implements ICommonRequestHandler {
     }
 
     @Override // com.baidu.down.loopj.android.request.handler.ICommonRequestHandler
-    public String onGetRequestHeader(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) ? this.mRequestHeader.get(str) : (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.down.loopj.android.request.handler.ICommonRequestHandler
-    public String onGetResponseHeader(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) ? !isHttpRequestNull() ? this.mURLConnectionRequest.getHeaderField(str) : "" : (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.down.loopj.android.request.handler.ICommonRequestHandler
-    public void onHandleFollowRedirect(HashSet<String> hashSet) throws RedirectException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, hashSet) == null) {
-            String headerField = this.mURLConnectionRequest.getHeaderField(Headers.LOCATION);
-            if (!TextUtils.isEmpty(headerField)) {
-                Utils.removeMapKeyIgnoreCase(this.mRequestHeader, "Host");
-                if (!hashSet.contains(headerField)) {
-                    try {
-                        try {
-                            URI uri = new URI(headerField);
-                            URI uri2 = new URI(this.mURL);
-                            if (TextUtils.isEmpty(uri.getHost())) {
-                                headerField = this.mURL.replace(uri2.getPath(), headerField).replace(uri2.getQuery(), "");
-                            }
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                        cloneRequest(headerField);
-                        hashSet.add(headerField);
-                        throw new HandlerRetryException("Redirect");
-                    } catch (IllegalArgumentException unused) {
-                        throw new RedirectException("Invalid uri: " + this.mURLConnectionRequest.getURL());
-                    }
-                }
-                throw new RedirectException("### Redirect circle : " + hashSet);
-            }
-            throw new RedirectException("### Redirect null Location : " + this.mURLConnectionRequest.getURL());
-        }
-    }
-
-    @Override // com.baidu.down.loopj.android.request.handler.ICommonRequestHandler
-    public void onRemoveRequestHeader(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-            this.mRequestHeader.remove(str);
-        }
-    }
-
-    @Override // com.baidu.down.loopj.android.request.handler.ICommonRequestHandler
     public boolean onRetryRequest(IOException iOException, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
@@ -430,63 +513,6 @@ public class UrlConnectionRequestHandler implements ICommonRequestHandler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048594, this, str, str2) == null) {
             this.mRequestHeader.put(str, str2);
-        }
-    }
-
-    @Override // com.baidu.down.loopj.android.request.handler.ICommonRequestHandler
-    public void replaceRequest(RetryRequestInfo retryRequestInfo) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048595, this, retryRequestInfo) == null) || this.mBackUpRequestHeader == null) {
-            return;
-        }
-        this.mRequestHeader = new HashMap();
-        for (String str : this.mBackUpRequestHeader.keySet()) {
-            this.mRequestHeader.put(str, this.mBackUpRequestHeader.get(str));
-        }
-        this.mURL = retryRequestInfo.url;
-        if (retryRequestInfo.header.isEmpty()) {
-            return;
-        }
-        for (String str2 : retryRequestInfo.header.keySet()) {
-            if (TextUtils.isEmpty(retryRequestInfo.header.get(str2))) {
-                this.mRequestHeader.remove(str2);
-            } else {
-                this.mRequestHeader.put(str2, retryRequestInfo.header.get(str2));
-            }
-        }
-    }
-
-    @Override // com.baidu.down.loopj.android.request.handler.ICommonRequestHandler
-    public void restoreRequest() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            Map<String, String> map = this.mBackUpRequestHeader;
-            if (map != null) {
-                this.mRequestHeader = map;
-                this.mBackUpRequestHeader = null;
-                this.mURL = this.mBackUpURL;
-                this.mBackUpURL = null;
-            }
-            if (this.mAsyncUrlConnection.usingDNSProxy()) {
-                this.mAsyncUrlConnection.setUsingDNSProxy(false);
-            }
-        }
-    }
-
-    @Override // com.baidu.down.loopj.android.request.handler.ICommonRequestHandler
-    public void saveRequest() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            this.mBackUpRequestHeader = this.mRequestHeader;
-            this.mBackUpURL = this.mURL;
-        }
-    }
-
-    @Override // com.baidu.down.loopj.android.request.handler.ICommonRequestHandler
-    public void setTlsCertSkip(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
-            this.mTlsCertSkip = z;
         }
     }
 }

@@ -21,20 +21,27 @@ import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableWithLatestFrom<T, U, R> extends AbstractFlowableWithUpstream<T, R> {
+public final class FlowableWithLatestFrom extends AbstractFlowableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BiFunction<? super T, ? super U, ? extends R> combiner;
-    public final Publisher<? extends U> other;
+    public final BiFunction combiner;
+    public final Publisher other;
 
     /* loaded from: classes8.dex */
-    public final class FlowableWithLatestSubscriber implements FlowableSubscriber<U> {
+    public final class FlowableWithLatestSubscriber implements FlowableSubscriber {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FlowableWithLatestFrom this$0;
-        public final WithLatestFromSubscriber<T, U, R> wlf;
+        public final WithLatestFromSubscriber wlf;
 
-        public FlowableWithLatestSubscriber(FlowableWithLatestFrom flowableWithLatestFrom, WithLatestFromSubscriber<T, U, R> withLatestFromSubscriber) {
+        @Override // org.reactivestreams.Subscriber
+        public void onComplete() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            }
+        }
+
+        public FlowableWithLatestSubscriber(FlowableWithLatestFrom flowableWithLatestFrom, WithLatestFromSubscriber withLatestFromSubscriber) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -54,13 +61,6 @@ public final class FlowableWithLatestFrom<T, U, R> extends AbstractFlowableWithU
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onComplete() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            }
-        }
-
-        @Override // org.reactivestreams.Subscriber
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
@@ -69,10 +69,10 @@ public final class FlowableWithLatestFrom<T, U, R> extends AbstractFlowableWithU
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(U u) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, u) == null) {
-                this.wlf.lazySet(u);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+                this.wlf.lazySet(obj);
             }
         }
 
@@ -86,17 +86,17 @@ public final class FlowableWithLatestFrom<T, U, R> extends AbstractFlowableWithU
     }
 
     /* loaded from: classes8.dex */
-    public static final class WithLatestFromSubscriber<T, U, R> extends AtomicReference<U> implements ConditionalSubscriber<T>, Subscription {
+    public final class WithLatestFromSubscriber extends AtomicReference implements ConditionalSubscriber, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -312246233408980075L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber<? super R> actual;
-        public final BiFunction<? super T, ? super U, ? extends R> combiner;
-        public final AtomicReference<Subscription> other;
+        public final Subscriber actual;
+        public final BiFunction combiner;
+        public final AtomicReference other;
         public final AtomicLong requested;
-        public final AtomicReference<Subscription> s;
+        public final AtomicReference s;
 
-        public WithLatestFromSubscriber(Subscriber<? super R> subscriber, BiFunction<? super T, ? super U, ? extends R> biFunction) {
+        public WithLatestFromSubscriber(Subscriber subscriber, BiFunction biFunction) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -111,9 +111,9 @@ public final class FlowableWithLatestFrom<T, U, R> extends AbstractFlowableWithU
                     return;
                 }
             }
-            this.s = new AtomicReference<>();
+            this.s = new AtomicReference();
             this.requested = new AtomicLong();
-            this.other = new AtomicReference<>();
+            this.other = new AtomicReference();
             this.actual = subscriber;
             this.combiner = biFunction;
         }
@@ -146,12 +146,11 @@ public final class FlowableWithLatestFrom<T, U, R> extends AbstractFlowableWithU
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, t) == null) || tryOnNext(t)) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048579, this, obj) == null) && !tryOnNext(obj)) {
+                ((Subscription) this.s.get()).request(1L);
             }
-            this.s.get().request(1L);
         }
 
         @Override // io.reactivex.FlowableSubscriber, org.reactivestreams.Subscriber
@@ -181,18 +180,21 @@ public final class FlowableWithLatestFrom<T, U, R> extends AbstractFlowableWithU
         public boolean setOther(Subscription subscription) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, subscription)) == null) ? SubscriptionHelper.setOnce(this.other, subscription) : invokeL.booleanValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, subscription)) == null) {
+                return SubscriptionHelper.setOnce(this.other, subscription);
+            }
+            return invokeL.booleanValue;
         }
 
         @Override // io.reactivex.internal.fuseable.ConditionalSubscriber
-        public boolean tryOnNext(T t) {
+        public boolean tryOnNext(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, t)) == null) {
-                U u = get();
-                if (u != null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj)) == null) {
+                Object obj2 = get();
+                if (obj2 != null) {
                     try {
-                        this.actual.onNext(ObjectHelper.requireNonNull(this.combiner.apply(t, u), "The combiner returned a null value"));
+                        this.actual.onNext(ObjectHelper.requireNonNull(this.combiner.apply(obj, obj2), "The combiner returned a null value"));
                         return true;
                     } catch (Throwable th) {
                         Exceptions.throwIfFatal(th);
@@ -207,7 +209,7 @@ public final class FlowableWithLatestFrom<T, U, R> extends AbstractFlowableWithU
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableWithLatestFrom(Flowable<T> flowable, BiFunction<? super T, ? super U, ? extends R> biFunction, Publisher<? extends U> publisher) {
+    public FlowableWithLatestFrom(Flowable flowable, BiFunction biFunction, Publisher publisher) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -229,7 +231,7 @@ public final class FlowableWithLatestFrom<T, U, R> extends AbstractFlowableWithU
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber<? super R> subscriber) {
+    public void subscribeActual(Subscriber subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             SerializedSubscriber serializedSubscriber = new SerializedSubscriber(subscriber);

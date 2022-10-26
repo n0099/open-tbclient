@@ -73,18 +73,27 @@ public final class ResourceType {
     public static ResourceType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (ResourceType) Enum.valueOf(ResourceType.class, str) : (ResourceType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (ResourceType) Enum.valueOf(ResourceType.class, str);
+        }
+        return (ResourceType) invokeL.objValue;
     }
 
     public static ResourceType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ResourceType[]) $VALUES.clone() : (ResourceType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (ResourceType[]) $VALUES.clone();
+        }
+        return (ResourceType[]) invokeV.objValue;
     }
 
     public String getValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.value : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.value;
+        }
+        return (String) invokeV.objValue;
     }
 }

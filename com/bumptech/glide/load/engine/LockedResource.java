@@ -1,6 +1,5 @@
 package com.bumptech.glide.load.engine;
 
-import androidx.annotation.NonNull;
 import androidx.core.util.Pools;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -15,14 +14,14 @@ import com.bumptech.glide.util.Preconditions;
 import com.bumptech.glide.util.pool.FactoryPools;
 import com.bumptech.glide.util.pool.StateVerifier;
 /* loaded from: classes7.dex */
-public final class LockedResource<Z> implements Resource<Z>, FactoryPools.Poolable {
+public final class LockedResource implements Resource, FactoryPools.Poolable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Pools.Pool<LockedResource<?>> POOL;
+    public static final Pools.Pool POOL;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isLocked;
     public boolean isRecycled;
     public final StateVerifier stateVerifier;
-    public Resource<Z> toWrap;
+    public Resource toWrap;
 
     static {
         InterceptResult invokeClinit;
@@ -37,7 +36,7 @@ public final class LockedResource<Z> implements Resource<Z>, FactoryPools.Poolab
                 return;
             }
         }
-        POOL = FactoryPools.threadSafe(20, new FactoryPools.Factory<LockedResource<?>>() { // from class: com.bumptech.glide.load.engine.LockedResource.1
+        POOL = FactoryPools.threadSafe(20, new FactoryPools.Factory() { // from class: com.bumptech.glide.load.engine.LockedResource.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -56,12 +55,14 @@ public final class LockedResource<Z> implements Resource<Z>, FactoryPools.Poolab
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.bumptech.glide.util.pool.FactoryPools.Factory
-            public LockedResource<?> create() {
+            public LockedResource create() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? new LockedResource<>() : (LockedResource) invokeV.objValue;
+                if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                    return new LockedResource();
+                }
+                return (LockedResource) invokeV.objValue;
             }
         });
     }
@@ -82,27 +83,6 @@ public final class LockedResource<Z> implements Resource<Z>, FactoryPools.Poolab
         this.stateVerifier = StateVerifier.newInstance();
     }
 
-    private void init(Resource<Z> resource) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, this, resource) == null) {
-            this.isRecycled = false;
-            this.isLocked = true;
-            this.toWrap = resource;
-        }
-    }
-
-    @NonNull
-    public static <Z> LockedResource<Z> obtain(Resource<Z> resource) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, resource)) == null) {
-            LockedResource<Z> lockedResource = (LockedResource) Preconditions.checkNotNull(POOL.acquire());
-            lockedResource.init(resource);
-            return lockedResource;
-        }
-        return (LockedResource) invokeL.objValue;
-    }
-
     private void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
@@ -112,34 +92,43 @@ public final class LockedResource<Z> implements Resource<Z>, FactoryPools.Poolab
     }
 
     @Override // com.bumptech.glide.load.engine.Resource
-    @NonNull
-    public Z get() {
+    public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.toWrap.get() : (Z) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.toWrap.get();
+        }
+        return invokeV.objValue;
     }
 
     @Override // com.bumptech.glide.load.engine.Resource
-    @NonNull
-    public Class<Z> getResourceClass() {
+    public Class getResourceClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.toWrap.getResourceClass() : (Class) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.toWrap.getResourceClass();
+        }
+        return (Class) invokeV.objValue;
     }
 
     @Override // com.bumptech.glide.load.engine.Resource
     public int getSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.toWrap.getSize() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.toWrap.getSize();
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.bumptech.glide.util.pool.FactoryPools.Poolable
-    @NonNull
     public StateVerifier getVerifier() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.stateVerifier : (StateVerifier) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.stateVerifier;
+        }
+        return (StateVerifier) invokeV.objValue;
     }
 
     @Override // com.bumptech.glide.load.engine.Resource
@@ -172,5 +161,25 @@ public final class LockedResource<Z> implements Resource<Z>, FactoryPools.Poolab
                 }
             }
         }
+    }
+
+    private void init(Resource resource) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, this, resource) == null) {
+            this.isRecycled = false;
+            this.isLocked = true;
+            this.toWrap = resource;
+        }
+    }
+
+    public static LockedResource obtain(Resource resource) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, resource)) == null) {
+            LockedResource lockedResource = (LockedResource) Preconditions.checkNotNull((LockedResource) POOL.acquire());
+            lockedResource.init(resource);
+            return lockedResource;
+        }
+        return (LockedResource) invokeL.objValue;
     }
 }

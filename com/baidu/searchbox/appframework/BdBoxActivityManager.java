@@ -8,7 +8,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
 import java.util.LinkedList;
 /* loaded from: classes2.dex */
 public class BdBoxActivityManager {
@@ -33,10 +32,9 @@ public class BdBoxActivityManager {
     public static void finishAllActivity() {
         BdBoxActivityLifecycle bdBoxActivityLifecycle;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, null) == null) || (bdBoxActivityLifecycle = sMainGlobalActivityLifecycle) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && (bdBoxActivityLifecycle = sMainGlobalActivityLifecycle) != null) {
+            bdBoxActivityLifecycle.finishAllActivity();
         }
-        bdBoxActivityLifecycle.finishAllActivity();
     }
 
     public static int getActivityCount() {
@@ -52,7 +50,7 @@ public class BdBoxActivityManager {
         return invokeV.intValue;
     }
 
-    public static LinkedList<WeakReference<Activity>> getActivityStack() {
+    public static LinkedList getActivityStack() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
@@ -104,19 +102,6 @@ public class BdBoxActivityManager {
         return (Activity) invokeV.objValue;
     }
 
-    public static Activity getSpecifiedActivity(Class cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, cls)) == null) {
-            BdBoxActivityLifecycle bdBoxActivityLifecycle = sMainGlobalActivityLifecycle;
-            if (bdBoxActivityLifecycle != null) {
-                return bdBoxActivityLifecycle.getSpecifiedActivity(cls);
-            }
-            return null;
-        }
-        return (Activity) invokeL.objValue;
-    }
-
     public static Activity getTopActivity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -130,42 +115,59 @@ public class BdBoxActivityManager {
         return (Activity) invokeV.objValue;
     }
 
-    public static boolean isActivityInStack(Class cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, cls)) == null) {
-            BdBoxActivityLifecycle bdBoxActivityLifecycle = sMainGlobalActivityLifecycle;
-            return bdBoxActivityLifecycle != null && bdBoxActivityLifecycle.isActivityInStack(cls);
-        }
-        return invokeL.booleanValue;
-    }
-
     public static boolean isForeground() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
             BdBoxActivityLifecycle bdBoxActivityLifecycle = sMainGlobalActivityLifecycle;
-            return bdBoxActivityLifecycle != null && bdBoxActivityLifecycle.isForeground();
+            if (bdBoxActivityLifecycle != null && bdBoxActivityLifecycle.isForeground()) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
+    }
+
+    public static Activity getSpecifiedActivity(Class cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, cls)) == null) {
+            BdBoxActivityLifecycle bdBoxActivityLifecycle = sMainGlobalActivityLifecycle;
+            if (bdBoxActivityLifecycle != null) {
+                return bdBoxActivityLifecycle.getSpecifiedActivity(cls);
+            }
+            return null;
+        }
+        return (Activity) invokeL.objValue;
+    }
+
+    public static boolean isActivityInStack(Class cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, cls)) == null) {
+            BdBoxActivityLifecycle bdBoxActivityLifecycle = sMainGlobalActivityLifecycle;
+            if (bdBoxActivityLifecycle != null && bdBoxActivityLifecycle.isActivityInStack(cls)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     public static void registerGlobalLifeCycle(BdBoxActivityLifecycle.IActivityLifecycle iActivityLifecycle) {
         BdBoxActivityLifecycle bdBoxActivityLifecycle;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65547, null, iActivityLifecycle) == null) || iActivityLifecycle == null || (bdBoxActivityLifecycle = sMainGlobalActivityLifecycle) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(65547, null, iActivityLifecycle) == null) && iActivityLifecycle != null && (bdBoxActivityLifecycle = sMainGlobalActivityLifecycle) != null) {
+            bdBoxActivityLifecycle.registerGlobalLifeCycle(iActivityLifecycle);
         }
-        bdBoxActivityLifecycle.registerGlobalLifeCycle(iActivityLifecycle);
     }
 
     public static void registerLifeCycle(BdBoxActivityLifecycle.IActivityLifecycle iActivityLifecycle) {
         BdBoxActivityLifecycle bdBoxActivityLifecycle;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65548, null, iActivityLifecycle) == null) || iActivityLifecycle == null || (bdBoxActivityLifecycle = sMainGlobalActivityLifecycle) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(65548, null, iActivityLifecycle) == null) && iActivityLifecycle != null && (bdBoxActivityLifecycle = sMainGlobalActivityLifecycle) != null) {
+            bdBoxActivityLifecycle.registerLifeCycle(iActivityLifecycle);
         }
-        bdBoxActivityLifecycle.registerLifeCycle(iActivityLifecycle);
     }
 
     public static void setMainGlobalActivityLifecycle(BdBoxActivityLifecycle bdBoxActivityLifecycle) {
@@ -184,9 +186,8 @@ public class BdBoxActivityManager {
     public static void unregisterLifeCycle(BdBoxActivityLifecycle.IActivityLifecycle iActivityLifecycle) {
         BdBoxActivityLifecycle bdBoxActivityLifecycle;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65550, null, iActivityLifecycle) == null) || iActivityLifecycle == null || (bdBoxActivityLifecycle = sMainGlobalActivityLifecycle) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(65550, null, iActivityLifecycle) == null) && iActivityLifecycle != null && (bdBoxActivityLifecycle = sMainGlobalActivityLifecycle) != null) {
+            bdBoxActivityLifecycle.unregisterLifeCycle(iActivityLifecycle);
         }
-        bdBoxActivityLifecycle.unregisterLifeCycle(iActivityLifecycle);
     }
 }

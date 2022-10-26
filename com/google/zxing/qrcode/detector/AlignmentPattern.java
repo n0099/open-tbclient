@@ -43,7 +43,10 @@ public final class AlignmentPattern extends ResultPoint {
                 return false;
             }
             float abs = Math.abs(f - this.estimatedModuleSize);
-            return abs <= 1.0f || abs <= this.estimatedModuleSize;
+            if (abs > 1.0f && abs > this.estimatedModuleSize) {
+                return false;
+            }
+            return true;
         }
         return invokeCommon.booleanValue;
     }
@@ -51,6 +54,9 @@ public final class AlignmentPattern extends ResultPoint {
     public AlignmentPattern combineEstimate(float f, float f2, float f3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) ? new AlignmentPattern((getX() + f2) / 2.0f, (getY() + f) / 2.0f, (this.estimatedModuleSize + f3) / 2.0f) : (AlignmentPattern) invokeCommon.objValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+            return new AlignmentPattern((getX() + f2) / 2.0f, (getY() + f) / 2.0f, (this.estimatedModuleSize + f3) / 2.0f);
+        }
+        return (AlignmentPattern) invokeCommon.objValue;
     }
 }

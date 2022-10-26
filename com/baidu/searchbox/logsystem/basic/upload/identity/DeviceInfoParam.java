@@ -35,6 +35,61 @@ public class DeviceInfoParam {
         init();
     }
 
+    private void initEnDeviceInfo() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+            this.mEnDeviceInfo = new String(Base64Encoder.B64Encode(this.mDeviceInfo.getBytes()));
+        }
+    }
+
+    public String getDeviceInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mDeviceInfo;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getEnDeviceInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (TextUtils.isEmpty(this.mEnDeviceInfo)) {
+                initEnDeviceInfo();
+            }
+            return this.mEnDeviceInfo;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getManufacturer() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mManufacturer;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getModel() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mModel;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getOSVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mOSVersion;
+        }
+        return (String) invokeV.objValue;
+    }
+
     private void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
@@ -74,48 +129,5 @@ public class DeviceInfoParam {
             return str + "_" + str2 + "_" + i + "_" + str3;
         }
         return (String) invokeV.objValue;
-    }
-
-    private void initEnDeviceInfo() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.mEnDeviceInfo = new String(Base64Encoder.B64Encode(this.mDeviceInfo.getBytes()));
-        }
-    }
-
-    public String getDeviceInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mDeviceInfo : (String) invokeV.objValue;
-    }
-
-    public String getEnDeviceInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (TextUtils.isEmpty(this.mEnDeviceInfo)) {
-                initEnDeviceInfo();
-            }
-            return this.mEnDeviceInfo;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String getManufacturer() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mManufacturer : (String) invokeV.objValue;
-    }
-
-    public String getModel() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mModel : (String) invokeV.objValue;
-    }
-
-    public String getOSVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mOSVersion : (String) invokeV.objValue;
     }
 }

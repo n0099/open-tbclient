@@ -17,6 +17,18 @@ public abstract class MATabActivity extends TabActivity {
     public static final String TAG = "MATabActivity";
     public transient /* synthetic */ FieldHolder $fh;
 
+    public Activity getActivity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (Activity) invokeV.objValue;
+    }
+
+    public void remapStartActivityIntent(Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, intent) == null) {
+        }
+    }
+
     public MATabActivity() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -31,22 +43,22 @@ public abstract class MATabActivity extends TabActivity {
         }
     }
 
-    public Activity getActivity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (Activity) invokeV.objValue;
-    }
-
     public Context getCurrentMAActivity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? getCurrentActivity() : (Context) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return getCurrentActivity();
+        }
+        return (Context) invokeV.objValue;
     }
 
     public final Context getMAParent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? super.getParent() : (Context) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return super.getParent();
+        }
+        return (Context) invokeV.objValue;
     }
 
     public MABottomToolBar onGetBottomBar() {
@@ -57,12 +69,6 @@ public abstract class MATabActivity extends TabActivity {
             return null;
         }
         return (MABottomToolBar) invokeV.objValue;
-    }
-
-    public void remapStartActivityIntent(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, intent) == null) {
-        }
     }
 
     public void setMABottomToolBarVisibility(int i) {

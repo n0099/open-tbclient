@@ -35,8 +35,15 @@ public class e implements Closeable {
         }
     }
 
-    public void a(byte[] bArr, int i, int i2) throws IOException {
-        this.a.write(bArr, i, i2);
+    public void a() throws IOException {
+        BufferedOutputStream bufferedOutputStream = this.a;
+        if (bufferedOutputStream != null) {
+            bufferedOutputStream.flush();
+        }
+        FileDescriptor fileDescriptor = this.b;
+        if (fileDescriptor != null) {
+            fileDescriptor.sync();
+        }
     }
 
     public void b() throws IOException {
@@ -58,22 +65,15 @@ public class e implements Closeable {
         f.a(this.c, this.a);
     }
 
-    public void a() throws IOException {
-        BufferedOutputStream bufferedOutputStream = this.a;
-        if (bufferedOutputStream != null) {
-            bufferedOutputStream.flush();
-        }
-        FileDescriptor fileDescriptor = this.b;
-        if (fileDescriptor != null) {
-            fileDescriptor.sync();
-        }
+    public void a(long j) throws IOException {
+        this.c.seek(j);
     }
 
     public void b(long j) throws IOException {
         this.c.setLength(j);
     }
 
-    public void a(long j) throws IOException {
-        this.c.seek(j);
+    public void a(byte[] bArr, int i, int i2) throws IOException {
+        this.a.write(bArr, i, i2);
     }
 }

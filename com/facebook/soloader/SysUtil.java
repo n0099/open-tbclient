@@ -1,7 +1,5 @@
 package com.facebook.soloader;
 
-import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Build;
@@ -34,10 +32,8 @@ public final class SysUtil {
     public static final String TAG = "SysUtil";
     public transient /* synthetic */ FieldHolder $fh;
 
-    @DoNotOptimize
-    @TargetApi(21)
     /* loaded from: classes7.dex */
-    public static final class LollipopSysdeps {
+    public final class LollipopSysdeps {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -55,7 +51,15 @@ public final class SysUtil {
             }
         }
 
-        @DoNotOptimize
+        public static boolean is64Bit() throws ErrnoException {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return Os.readlink("/proc/self/exe").contains(WebKitFactory.OS_64);
+            }
+            return invokeV.booleanValue;
+        }
+
         public static void fallocateIfSupported(FileDescriptor fileDescriptor, long j) throws IOException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(65537, null, fileDescriptor, j) == null) {
@@ -70,7 +74,6 @@ public final class SysUtil {
             }
         }
 
-        @DoNotOptimize
         public static String[] getSupportedAbis() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -99,19 +102,10 @@ public final class SysUtil {
             }
             return (String[]) invokeV.objValue;
         }
-
-        @DoNotOptimize
-        public static boolean is64Bit() throws ErrnoException {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? Os.readlink("/proc/self/exe").contains(WebKitFactory.OS_64) : invokeV.booleanValue;
-        }
     }
 
-    @DoNotOptimize
-    @TargetApi(23)
     /* loaded from: classes7.dex */
-    public static final class MarshmallowSysdeps {
+    public final class MarshmallowSysdeps {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -129,7 +123,15 @@ public final class SysUtil {
             }
         }
 
-        @DoNotOptimize
+        public static boolean is64Bit() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+                return Process.is64Bit();
+            }
+            return invokeV.booleanValue;
+        }
+
         public static String[] getSupportedAbis() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -152,13 +154,6 @@ public final class SysUtil {
                 return (String[]) arrayList.toArray(new String[arrayList.size()]);
             }
             return (String[]) invokeV.objValue;
-        }
-
-        @DoNotOptimize
-        public static boolean is64Bit() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Process.is64Bit() : invokeV.booleanValue;
         }
     }
 
@@ -196,10 +191,26 @@ public final class SysUtil {
 
     public static void deleteOrThrow(File file) throws IOException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, file) == null) || file.delete()) {
+        if ((interceptable != null && interceptable.invokeL(65538, null, file) != null) || file.delete()) {
             return;
         }
         throw new IOException("could not delete file " + file);
+    }
+
+    public static int getAppVersionCode(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+            PackageManager packageManager = context.getPackageManager();
+            if (packageManager != null) {
+                try {
+                    return packageManager.getPackageInfo(context.getPackageName(), 0).versionCode;
+                } catch (PackageManager.NameNotFoundException | RuntimeException unused) {
+                }
+            }
+            return 0;
+        }
+        return invokeL.intValue;
     }
 
     public static void dumbDeleteRecursive(File file) throws IOException {
@@ -214,19 +225,17 @@ public final class SysUtil {
                     dumbDeleteRecursive(file2);
                 }
             }
-            if (file.delete() || !file.exists()) {
-                return;
+            if (!file.delete() && file.exists()) {
+                throw new IOException("could not delete: " + file);
             }
-            throw new IOException("could not delete: " + file);
         }
     }
 
     public static void fallocateIfSupported(FileDescriptor fileDescriptor, long j) throws IOException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, fileDescriptor, j) == null) || Build.VERSION.SDK_INT < 21) {
-            return;
+        if ((interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, fileDescriptor, j) == null) && Build.VERSION.SDK_INT >= 21) {
+            LollipopSysdeps.fallocateIfSupported(fileDescriptor, j);
         }
-        LollipopSysdeps.fallocateIfSupported(fileDescriptor, j);
     }
 
     public static int findAbiScore(String[] strArr, String str) {
@@ -278,22 +287,6 @@ public final class SysUtil {
         }
     }
 
-    public static int getAppVersionCode(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
-            PackageManager packageManager = context.getPackageManager();
-            if (packageManager != null) {
-                try {
-                    return packageManager.getPackageInfo(context.getPackageName(), 0).versionCode;
-                } catch (PackageManager.NameNotFoundException | RuntimeException unused) {
-                }
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
     public static String[] getSupportedAbis() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -307,7 +300,6 @@ public final class SysUtil {
         return (String[]) invokeV.objValue;
     }
 
-    @SuppressLint({"CatchGeneralException"})
     public static boolean is64Bit() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -316,15 +308,15 @@ public final class SysUtil {
             if (i >= 23) {
                 return MarshmallowSysdeps.is64Bit();
             }
-            if (i >= 21) {
-                try {
-                    return LollipopSysdeps.is64Bit();
-                } catch (Exception e) {
-                    Log.e(TAG, String.format("Could not read /proc/self/exe. Err msg: %s", e.getMessage()));
-                    return false;
-                }
+            if (i < 21) {
+                return false;
             }
-            return false;
+            try {
+                return LollipopSysdeps.is64Bit();
+            } catch (Exception e) {
+                Log.e(TAG, String.format("Could not read /proc/self/exe. Err msg: %s", e.getMessage()));
+                return false;
+            }
         }
         return invokeV.booleanValue;
     }
@@ -350,9 +342,8 @@ public final class SysUtil {
 
     public static void mkdirOrThrow(File file) throws IOException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65547, null, file) == null) || file.mkdirs() || file.isDirectory()) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(65547, null, file) == null) && !file.mkdirs() && !file.isDirectory()) {
+            throw new IOException("cannot mkdir: " + file);
         }
-        throw new IOException("cannot mkdir: " + file);
     }
 }

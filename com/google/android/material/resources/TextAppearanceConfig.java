@@ -25,16 +25,19 @@ public class TextAppearanceConfig {
         }
     }
 
+    public static boolean shouldLoadFontSynchronously() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return shouldLoadFontSynchronously;
+        }
+        return invokeV.booleanValue;
+    }
+
     public static void setShouldLoadFontSynchronously(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
             shouldLoadFontSynchronously = z;
         }
-    }
-
-    public static boolean shouldLoadFontSynchronously() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? shouldLoadFontSynchronously : invokeV.booleanValue;
     }
 }

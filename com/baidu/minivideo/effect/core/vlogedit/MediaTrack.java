@@ -29,8 +29,18 @@ public class MediaTrack implements Parcelable, Cloneable {
     public String trackType;
     public String transitionMode;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     /* loaded from: classes2.dex */
-    public static class a implements Parcelable.Creator<MediaTrack> {
+    public final class a implements Parcelable.Creator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -54,7 +64,10 @@ public class MediaTrack implements Parcelable, Cloneable {
         public MediaTrack createFromParcel(Parcel parcel) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new MediaTrack(parcel) : (MediaTrack) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+                return new MediaTrack(parcel);
+            }
+            return (MediaTrack) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -63,7 +76,10 @@ public class MediaTrack implements Parcelable, Cloneable {
         public MediaTrack[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new MediaTrack[i] : (MediaTrack[]) invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                return new MediaTrack[i];
+            }
+            return (MediaTrack[]) invokeI.objValue;
         }
     }
 
@@ -98,6 +114,35 @@ public class MediaTrack implements Parcelable, Cloneable {
         }
         this.transitionMode = IMConstants.SERVICE_TYPE_ORDER;
         this.glClearColor = new float[]{0.0f, 0.0f, 0.0f, 0.0f};
+    }
+
+    public MediaTrack(Parcel parcel) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.transitionMode = IMConstants.SERVICE_TYPE_ORDER;
+        this.glClearColor = new float[]{0.0f, 0.0f, 0.0f, 0.0f};
+        this.mediaSegments = parcel.createTypedArrayList(MediaSegment.CREATOR);
+        this.mediaTransitions = parcel.createTypedArrayList(MediaTransition.CREATOR);
+        this.trackType = parcel.readString();
+        this.superpositionHeader = (MediaSegment) parcel.readParcelable(MediaSegment.class.getClassLoader());
+        this.superpositionFooter = (MediaSegment) parcel.readParcelable(MediaSegment.class.getClassLoader());
+        this.headerTransitionName = parcel.readString();
+        this.footerTransitionName = parcel.readString();
+        this.transitionMode = parcel.readString();
+        this.mediaAEffectKeyData = parcel.createTypedArrayList(MediaAEffectKeyData.CREATOR);
+        this.glClearColor = parcel.createFloatArray();
     }
 
     public Object clone() {
@@ -154,16 +199,6 @@ public class MediaTrack implements Parcelable, Cloneable {
     }
 
     @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i) == null) {
@@ -178,34 +213,5 @@ public class MediaTrack implements Parcelable, Cloneable {
             parcel.writeTypedList(this.mediaAEffectKeyData);
             parcel.writeFloatArray(this.glClearColor);
         }
-    }
-
-    public MediaTrack(Parcel parcel) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.transitionMode = IMConstants.SERVICE_TYPE_ORDER;
-        this.glClearColor = new float[]{0.0f, 0.0f, 0.0f, 0.0f};
-        this.mediaSegments = parcel.createTypedArrayList(MediaSegment.CREATOR);
-        this.mediaTransitions = parcel.createTypedArrayList(MediaTransition.CREATOR);
-        this.trackType = parcel.readString();
-        this.superpositionHeader = (MediaSegment) parcel.readParcelable(MediaSegment.class.getClassLoader());
-        this.superpositionFooter = (MediaSegment) parcel.readParcelable(MediaSegment.class.getClassLoader());
-        this.headerTransitionName = parcel.readString();
-        this.footerTransitionName = parcel.readString();
-        this.transitionMode = parcel.readString();
-        this.mediaAEffectKeyData = parcel.createTypedArrayList(MediaAEffectKeyData.CREATOR);
-        this.glClearColor = parcel.createFloatArray();
     }
 }

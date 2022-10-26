@@ -4,7 +4,6 @@ import android.content.Context;
 import android.net.Uri;
 import android.view.Surface;
 import android.view.SurfaceHolder;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,7 +36,7 @@ public final class c implements IMediaPlayer {
         }
     }
 
-    public final c b(@NonNull com.kwad.sdk.core.video.kwai.c cVar) {
+    public final c b(com.kwad.sdk.core.video.kwai.c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) {
@@ -180,7 +179,7 @@ public final class c implements IMediaPlayer {
     }
 
     @Override // com.kwad.components.offline.api.core.video.IMediaPlayer
-    public final void setDataSource(Context context, Uri uri, Map<String, String> map) {
+    public final void setDataSource(Context context, Uri uri, Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048595, this, context, uri, map) == null) {
             this.Fh.setDataSource(context, uri, map);
@@ -188,7 +187,7 @@ public final class c implements IMediaPlayer {
     }
 
     @Override // com.kwad.components.offline.api.core.video.IMediaPlayer
-    public final void setDataSource(@NonNull PlayVideoInfo playVideoInfo) {
+    public final void setDataSource(PlayVideoInfo playVideoInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, playVideoInfo) == null) {
             this.Fh.a(d.a(playVideoInfo));

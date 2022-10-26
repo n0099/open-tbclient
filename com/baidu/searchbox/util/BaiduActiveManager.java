@@ -1,6 +1,5 @@
 package com.baidu.searchbox.util;
 
-import android.annotation.SuppressLint;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -31,8 +30,8 @@ import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.searchbox.http.HttpManager;
 import com.baidu.searchbox.http.request.PostFormRequest;
-import com.baidu.tieba.r10;
-import com.baidu.tieba.s20;
+import com.baidu.tieba.s10;
+import com.baidu.tieba.t20;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -74,7 +73,6 @@ import org.json.JSONObject;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.xml.sax.SAXException;
-@SuppressLint({"StaticFieldLeak"})
 /* loaded from: classes2.dex */
 public final class BaiduActiveManager {
     public static /* synthetic */ Interceptable $ic = null;
@@ -108,7 +106,7 @@ public final class BaiduActiveManager {
     public SharedPreferences mSettings;
 
     /* loaded from: classes2.dex */
-    public static final class ActiveTimeParser {
+    public final class ActiveTimeParser {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String TAG = "ActiveTimeParser";
         public static ActiveTimeParser mParser;
@@ -184,7 +182,11 @@ public final class BaiduActiveManager {
                 try {
                     Document parse = this.mDocumentBuilder.parse(inputStream);
                     Node namedItem = parse.getElementsByTagName("appcommand").item(0).getAttributes().getNamedItem("time");
-                    str = namedItem != null ? namedItem.getNodeValue() : "0";
+                    if (namedItem == null) {
+                        str = "0";
+                    } else {
+                        str = namedItem.getNodeValue();
+                    }
                     try {
                         Node item = parse.getElementsByTagName("timestamp").item(0);
                         if (item != null) {
@@ -230,6 +232,100 @@ public final class BaiduActiveManager {
         mStartRequest = false;
     }
 
+    public static String getActiveUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
+            return String.format("%s/searchbox?action=active", HostConfig.getSearchboxHostForHttps());
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static synchronized BaiduActiveManager getInstance() {
+        InterceptResult invokeV;
+        BaiduActiveManager baiduActiveManager;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
+            synchronized (BaiduActiveManager.class) {
+                if (sActiveManager == null) {
+                    sActiveManager = new BaiduActiveManager(AppRuntime.getAppContext());
+                }
+                baiduActiveManager = sActiveManager;
+            }
+            return baiduActiveManager;
+        }
+        return (BaiduActiveManager) invokeV.objValue;
+    }
+
+    private String getRandId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65555, this)) == null) {
+            return new SharedPrefsWrapper(WARM_TIPS_SP_NAME).getString(RAND_ID, "");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    private boolean isNeedUploadCloneCuid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65557, this)) == null) {
+            if (TextUtils.isEmpty(this.mClnCuid)) {
+                return false;
+            }
+            if (TextUtils.equals(this.mClnCuid, this.mSettings.getString(CLONE_CUID, ""))) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public long getActiveSuccTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            SharedPreferences sharedPreferences = this.mSettings;
+            if (sharedPreferences == null) {
+                return 0L;
+            }
+            return sharedPreferences.getLong(KEY_ACTIVE_TIME, 0L);
+        }
+        return invokeV.longValue;
+    }
+
+    public String getActiveTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            SharedPreferences sharedPreferences = this.mSettings;
+            String str = "0";
+            if (sharedPreferences != null) {
+                str = sharedPreferences.getString("time", "0");
+            }
+            try {
+                return URLEncoder.encode(str, IMAudioTransRequest.CHARSET);
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+                return str;
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean isActiveSucc() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            SharedPreferences sharedPreferences = this.mSettings;
+            if (sharedPreferences == null) {
+                return false;
+            }
+            return sharedPreferences.getBoolean("active", false);
+        }
+        return invokeV.booleanValue;
+    }
+
     public BaiduActiveManager(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -255,18 +351,6 @@ public final class BaiduActiveManager {
         init(context);
     }
 
-    private String encode(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, this, str, str2)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                str = str2;
-            }
-            return new String(Base64Encoder.B64Encode(str.getBytes()));
-        }
-        return (String) invokeLL.objValue;
-    }
-
     private String encrypt(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -283,20 +367,65 @@ public final class BaiduActiveManager {
         return (String) invokeL.objValue;
     }
 
+    private void init(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65556, this, context) == null) {
+            this.mContext = context;
+            this.mSettings = context.getSharedPreferences("identity", 0);
+            this.mIdentityContextImpl = BaiduIdentityRuntime.getBaiduIdentityContext();
+        }
+    }
+
+    public void setInvokeSource(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.mInvokeSource = str;
+        }
+    }
+
+    public void setLauncherSource(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, str3) == null) {
+            this.mLauncherSource = str;
+            this.mLauncherExt = str2;
+            this.mOriginalLauncherExt = str3;
+        }
+    }
+
+    private String encode(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, this, str, str2)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                str = str2;
+            }
+            return new String(Base64Encoder.B64Encode(str.getBytes()));
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public void setConfirmSource(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) {
+            this.mConfirmSource = str;
+            this.mConfirmExt = str2;
+        }
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Removed duplicated region for block: B:31:0x00ea  */
     /* JADX WARN: Removed duplicated region for block: B:39:0x015f  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public Map<String, String> getActivePostData() {
+    public Map getActivePostData() {
         InterceptResult invokeV;
         String str;
         String str2;
-        String str3;
         JSONObject jSONObject;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
+            String str3 = "";
             String fnplusJsonString = getFnplusJsonString();
             if (DEBUG) {
                 Log.d(TAG, "jsonValue= " + fnplusJsonString);
@@ -323,13 +452,13 @@ public final class BaiduActiveManager {
                     e = e3;
                     e.printStackTrace();
                     String encode = encode(getRandId(), "none");
-                    String encode2 = encode(s20.e(AppRuntime.getAppContext()).d(), "none");
+                    String encode2 = encode(t20.f(AppRuntime.getAppContext()).e(), "none");
                     String encode3 = encode(this.mInvokeSource, "none");
                     String encode4 = encode(this.mLauncherSource, "none");
                     String encode5 = encode(this.mLauncherExt, "none");
                     String encode6 = encode(this.mConfirmSource, "none");
                     String encode7 = encode(this.mConfirmExt, "none");
-                    if (TextUtils.isEmpty(this.mClnCuid)) {
+                    if (!TextUtils.isEmpty(this.mClnCuid)) {
                     }
                     String encode8 = encode(String.valueOf(Build.TIME), "none");
                     String encode9 = encode(String.valueOf(System.currentTimeMillis() - SystemClock.elapsedRealtime()), "none");
@@ -357,13 +486,13 @@ public final class BaiduActiveManager {
                     e = e4;
                     e.printStackTrace();
                     String encode10 = encode(getRandId(), "none");
-                    String encode22 = encode(s20.e(AppRuntime.getAppContext()).d(), "none");
+                    String encode22 = encode(t20.f(AppRuntime.getAppContext()).e(), "none");
                     String encode32 = encode(this.mInvokeSource, "none");
                     String encode42 = encode(this.mLauncherSource, "none");
                     String encode52 = encode(this.mLauncherExt, "none");
                     String encode62 = encode(this.mConfirmSource, "none");
                     String encode72 = encode(this.mConfirmExt, "none");
-                    if (TextUtils.isEmpty(this.mClnCuid)) {
+                    if (!TextUtils.isEmpty(this.mClnCuid)) {
                     }
                     String encode82 = encode(String.valueOf(Build.TIME), "none");
                     String encode92 = encode(String.valueOf(System.currentTimeMillis() - SystemClock.elapsedRealtime()), "none");
@@ -398,13 +527,15 @@ public final class BaiduActiveManager {
                 str2 = str;
             }
             String encode102 = encode(getRandId(), "none");
-            String encode222 = encode(s20.e(AppRuntime.getAppContext()).d(), "none");
+            String encode222 = encode(t20.f(AppRuntime.getAppContext()).e(), "none");
             String encode322 = encode(this.mInvokeSource, "none");
             String encode422 = encode(this.mLauncherSource, "none");
             String encode522 = encode(this.mLauncherExt, "none");
             String encode622 = encode(this.mConfirmSource, "none");
             String encode722 = encode(this.mConfirmExt, "none");
-            str3 = TextUtils.isEmpty(this.mClnCuid) ? "" : this.mClnCuid;
+            if (!TextUtils.isEmpty(this.mClnCuid)) {
+                str3 = this.mClnCuid;
+            }
             String encode822 = encode(String.valueOf(Build.TIME), "none");
             String encode922 = encode(String.valueOf(System.currentTimeMillis() - SystemClock.elapsedRealtime()), "none");
             jSONObject = new JSONObject();
@@ -436,12 +567,6 @@ public final class BaiduActiveManager {
         return (Map) invokeV.objValue;
     }
 
-    public static String getActiveUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? String.format("%s/searchbox?action=active", HostConfig.getSearchboxHostForHttps()) : (String) invokeV.objValue;
-    }
-
     private String getFnplusJsonString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -471,22 +596,6 @@ public final class BaiduActiveManager {
             }
         }
         return (String) invokeV.objValue;
-    }
-
-    public static synchronized BaiduActiveManager getInstance() {
-        InterceptResult invokeV;
-        BaiduActiveManager baiduActiveManager;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
-            synchronized (BaiduActiveManager.class) {
-                if (sActiveManager == null) {
-                    sActiveManager = new BaiduActiveManager(AppRuntime.getAppContext());
-                }
-                baiduActiveManager = sActiveManager;
-            }
-            return baiduActiveManager;
-        }
-        return (BaiduActiveManager) invokeV.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:28:0x007d A[ORIG_RETURN, RETURN] */
@@ -532,10 +641,16 @@ public final class BaiduActiveManager {
                         public boolean accept(File file) {
                             InterceptResult invokeL;
                             Interceptable interceptable2 = $ic;
-                            return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, file)) == null) ? (file == null || TextUtils.isEmpty(file.getName())) ? false : true : invokeL.booleanValue;
+                            if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, file)) == null) {
+                                if (file != null && !TextUtils.isEmpty(file.getName())) {
+                                    return true;
+                                }
+                                return false;
+                            }
+                            return invokeL.booleanValue;
                         }
                     });
-                    Arrays.sort(listFiles, new Comparator<File>(this) { // from class: com.baidu.searchbox.util.BaiduActiveManager.3
+                    Arrays.sort(listFiles, new Comparator(this) { // from class: com.baidu.searchbox.util.BaiduActiveManager.3
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ BaiduActiveManager this$0;
@@ -563,7 +678,10 @@ public final class BaiduActiveManager {
                         public int compare(File file, File file2) {
                             InterceptResult invokeLL;
                             Interceptable interceptable2 = $ic;
-                            return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, file, file2)) == null) ? (int) (file.lastModified() - file2.lastModified()) : invokeLL.intValue;
+                            if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, file, file2)) == null) {
+                                return (int) (file.lastModified() - file2.lastModified());
+                            }
+                            return invokeLL.intValue;
                         }
                     });
                     byteArrayOutputStream = new ByteArrayOutputStream(1024);
@@ -613,9 +731,54 @@ public final class BaiduActiveManager {
             }
             Closeables.closeSafely(dataOutputStream);
             Closeables.closeSafely(byteArrayOutputStream);
-            return !TextUtils.isEmpty(str) ? "" : str;
+            if (!TextUtils.isEmpty(str)) {
+                return "";
+            }
+            return str;
         }
         return (String) invokeV.objValue;
+    }
+
+    private AbstractHttpEntity getPostData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65554, this)) == null) {
+            String fnplusJsonString = getFnplusJsonString();
+            if (DEBUG) {
+                Log.d(TAG, "jsonValue= " + fnplusJsonString);
+            }
+            String encrypt = encrypt(BaiduIdentityManager.getInstance().getTn());
+            String encrypt2 = encrypt(fnplusJsonString);
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("fn", encrypt);
+                jSONObject.put("fnplus", encrypt2);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            if (DEBUG) {
+                Log.d(TAG, "active body info: " + jSONObject.toString());
+            }
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new BasicNameValuePair("data", jSONObject.toString()));
+            UrlEncodedFormEntity urlEncodedFormEntity = null;
+            try {
+                UrlEncodedFormEntity urlEncodedFormEntity2 = new UrlEncodedFormEntity(arrayList, IMAudioTransRequest.CHARSET);
+                try {
+                    urlEncodedFormEntity2.setContentType("application/x-www-form-urlencoded");
+                    return urlEncodedFormEntity2;
+                } catch (UnsupportedEncodingException e2) {
+                    e = e2;
+                    urlEncodedFormEntity = urlEncodedFormEntity2;
+                    e.printStackTrace();
+                    return urlEncodedFormEntity;
+                }
+            } catch (UnsupportedEncodingException e3) {
+                e = e3;
+            }
+        } else {
+            return (AbstractHttpEntity) invokeV.objValue;
+        }
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:12:0x0045, code lost:
@@ -711,45 +874,46 @@ public final class BaiduActiveManager {
                 cursor = null;
                 int i = 0;
                 while (true) {
-                    if (i >= 2) {
+                    if (i < 2) {
+                        try {
+                            int i2 = i;
+                            Cursor query = contentResolver.query(uriArr[i], strArr, null, null, "date_modified DESC LIMIT 10");
+                            if (query != null) {
+                                try {
+                                    if (query.moveToFirst()) {
+                                        break;
+                                    }
+                                } catch (Exception e) {
+                                    e = e;
+                                    byteArrayOutputStream = null;
+                                    dataOutputStream = null;
+                                } catch (Throwable th) {
+                                    th = th;
+                                    byteArrayOutputStream = null;
+                                    dataOutputStream = null;
+                                }
+                            }
+                            Closeables.closeSafely(query);
+                            i = i2 + 1;
+                            cursor = query;
+                        } catch (Exception e2) {
+                            e = e2;
+                            byteArrayOutputStream = null;
+                            dataOutputStream = null;
+                        } catch (Throwable th2) {
+                            th = th2;
+                            byteArrayOutputStream = null;
+                            dataOutputStream = null;
+                            cursor2 = cursor;
+                            Closeables.closeSafely(cursor2);
+                            Closeables.closeSafely(dataOutputStream);
+                            Closeables.closeSafely(byteArrayOutputStream);
+                            throw th;
+                        }
+                    } else {
                         str = null;
                         byteArrayOutputStream = null;
                         break;
-                    }
-                    try {
-                        int i2 = i;
-                        Cursor query = contentResolver.query(uriArr[i], strArr, null, null, "date_modified DESC LIMIT 10");
-                        if (query != null) {
-                            try {
-                                if (query.moveToFirst()) {
-                                    break;
-                                }
-                            } catch (Exception e) {
-                                e = e;
-                                byteArrayOutputStream = null;
-                                dataOutputStream = null;
-                            } catch (Throwable th) {
-                                th = th;
-                                byteArrayOutputStream = null;
-                                dataOutputStream = null;
-                            }
-                        }
-                        Closeables.closeSafely(query);
-                        i = i2 + 1;
-                        cursor = query;
-                    } catch (Exception e2) {
-                        e = e2;
-                        byteArrayOutputStream = null;
-                        dataOutputStream = null;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        byteArrayOutputStream = null;
-                        dataOutputStream = null;
-                        cursor2 = cursor;
-                        Closeables.closeSafely(cursor2);
-                        Closeables.closeSafely(dataOutputStream);
-                        Closeables.closeSafely(byteArrayOutputStream);
-                        throw th;
                     }
                 }
                 Closeables.closeSafely(cursor);
@@ -766,91 +930,37 @@ public final class BaiduActiveManager {
                 byteArrayOutputStream = null;
                 dataOutputStream = null;
             }
-            return !TextUtils.isEmpty(str2) ? "" : str2;
+            if (!TextUtils.isEmpty(str2)) {
+                return "";
+            }
+            return str2;
         }
         return (String) invokeV.objValue;
     }
 
-    private AbstractHttpEntity getPostData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(65554, this)) != null) {
-            return (AbstractHttpEntity) invokeV.objValue;
-        }
-        String fnplusJsonString = getFnplusJsonString();
-        if (DEBUG) {
-            Log.d(TAG, "jsonValue= " + fnplusJsonString);
-        }
-        String encrypt = encrypt(BaiduIdentityManager.getInstance().getTn());
-        String encrypt2 = encrypt(fnplusJsonString);
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("fn", encrypt);
-            jSONObject.put("fnplus", encrypt2);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        if (DEBUG) {
-            Log.d(TAG, "active body info: " + jSONObject.toString());
-        }
-        ArrayList arrayList = new ArrayList();
-        arrayList.add(new BasicNameValuePair("data", jSONObject.toString()));
-        UrlEncodedFormEntity urlEncodedFormEntity = null;
-        try {
-            UrlEncodedFormEntity urlEncodedFormEntity2 = new UrlEncodedFormEntity(arrayList, IMAudioTransRequest.CHARSET);
-            try {
-                urlEncodedFormEntity2.setContentType("application/x-www-form-urlencoded");
-                return urlEncodedFormEntity2;
-            } catch (UnsupportedEncodingException e2) {
-                e = e2;
-                urlEncodedFormEntity = urlEncodedFormEntity2;
-                e.printStackTrace();
-                return urlEncodedFormEntity;
-            }
-        } catch (UnsupportedEncodingException e3) {
-            e = e3;
-        }
-    }
-
-    private String getRandId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65555, this)) == null) ? new SharedPrefsWrapper(WARM_TIPS_SP_NAME).getString(RAND_ID, "") : (String) invokeV.objValue;
-    }
-
-    private void init(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65556, this, context) == null) {
-            this.mContext = context;
-            this.mSettings = context.getSharedPreferences("identity", 0);
-            this.mIdentityContextImpl = BaiduIdentityRuntime.getBaiduIdentityContext();
-        }
-    }
-
-    private boolean isNeedUploadCloneCuid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65557, this)) == null) {
-            if (TextUtils.isEmpty(this.mClnCuid)) {
-                return false;
-            }
-            return !TextUtils.equals(this.mClnCuid, this.mSettings.getString(CLONE_CUID, ""));
-        }
-        return invokeV.booleanValue;
-    }
-
     /* JADX INFO: Access modifiers changed from: private */
     public void sendActiveUBCEvent(int i, String str) {
+        String str2;
+        String str3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(65558, this, i, str) == null) {
             JSONObject jSONObject = new JSONObject();
-            String str2 = i == 200 ? BaiduActiveStatistic.UBC_VALUE_REQUEST_SUCCESS : BaiduActiveStatistic.UBC_VALUE_REQUEST_FAILED;
+            if (i == 200) {
+                str2 = BaiduActiveStatistic.UBC_VALUE_REQUEST_SUCCESS;
+            } else {
+                str2 = BaiduActiveStatistic.UBC_VALUE_REQUEST_FAILED;
+            }
             try {
                 jSONObject.put("data", str);
                 jSONObject.put(BaiduActiveStatistic.UBC_EXT_KEY_ACTIVE_TIME_INFO, getActiveTimeInfo());
                 jSONObject.put(BaiduActiveStatistic.UBC_EXT_KEY_RESPONSE_CODE, i);
                 jSONObject.put(BaiduActiveStatistic.UBC_EXT_KEY_PRI_ABI, DeviceUtil.CPUInfo.getPreferredABI());
-                jSONObject.put(BaiduActiveStatistic.UBC_EXT_KEY_ORIGINAL_DATA, TextUtils.isEmpty(this.mOriginalLauncherExt) ? "" : this.mOriginalLauncherExt);
+                if (TextUtils.isEmpty(this.mOriginalLauncherExt)) {
+                    str3 = "";
+                } else {
+                    str3 = this.mOriginalLauncherExt;
+                }
+                jSONObject.put(BaiduActiveStatistic.UBC_EXT_KEY_ORIGINAL_DATA, str3);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -928,130 +1038,104 @@ public final class BaiduActiveManager {
                     public void run() {
                         SharedPreferences.Editor edit;
                         String appendParam;
-                        Map<String, String> activePostData;
+                        Map activePostData;
                         String str;
                         ResponseBody body;
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
-                            return;
-                        }
-                        Process.setThreadPriority(10);
-                        String str2 = null;
-                        InputStream inputStream = null;
-                        String str3 = null;
-                        str2 = null;
-                        str2 = null;
-                        BaiduActiveStatistic.onUBCEvent(BaiduActiveStatistic.UBC_VALUE_REQUEST_START, this.this$0.mLauncherSource, null);
-                        int i = -1;
-                        try {
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            Process.setThreadPriority(10);
+                            String str2 = null;
+                            InputStream inputStream = null;
+                            String str3 = null;
+                            str2 = null;
+                            str2 = null;
+                            BaiduActiveStatistic.onUBCEvent(BaiduActiveStatistic.UBC_VALUE_REQUEST_START, this.this$0.mLauncherSource, null);
+                            int i = -1;
                             try {
-                                edit = this.this$0.mSettings.edit();
-                                edit.putLong(BaiduActiveManager.KEY_ACTIVE_REQUEST_TIME, System.currentTimeMillis());
-                                edit.commit();
-                                String str4 = (BaiduActiveManager.getActiveUrl() + "&uuid=" + BaiduIdentityUtils.getSoftwareUUID(this.val$context)) + "&udata=" + BaiduIdentityUtils.getAppType(this.val$context, this.val$context.getPackageName());
-                                String preferredABI = DeviceUtil.CPUInfo.getPreferredABI();
-                                if (TextUtils.isEmpty(preferredABI)) {
-                                    preferredABI = "none";
-                                }
-                                appendParam = BaiduIdentityManager.getInstance().appendParam(str4 + "&pre_abi=" + new String(Base64Encoder.B64Encode(preferredABI.getBytes())), 1);
-                                if (BaiduActiveManager.DEBUG) {
-                                    Log.d(BaiduActiveManager.TAG, "usePrivacyPolicy: " + r10.b().h());
-                                    Log.d(BaiduActiveManager.TAG, "active url: QALog-" + appendParam);
-                                }
-                                activePostData = this.this$0.getActivePostData();
-                                str = activePostData != null ? activePostData.get("data") : null;
-                            } catch (Throwable th) {
-                                th = th;
-                            }
-                        } catch (IOException unused) {
-                        } catch (IllegalArgumentException unused2) {
-                        } catch (ClientProtocolException unused3) {
-                        }
-                        try {
-                            Response executeSync = ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(appendParam)).params(activePostData).cookieManager(this.this$0.mIdentityContextImpl.obtainCookieManager(true, false))).enableStat(true)).requestFrom(10)).requestSubFrom(DebugConstants.HTTP_ERRCODE_VERSION_HIGH)).build().executeSync();
-                            if (executeSync != null && (i = executeSync.code()) == 200 && (body = executeSync.body()) != null) {
                                 try {
-                                    inputStream = body.byteStream();
-                                    String[] parse = ActiveTimeParser.getInstance().parse(inputStream);
-                                    if (parse != null && !TextUtils.equals(parse[0], "0")) {
-                                        edit.putBoolean("active", true);
-                                        edit.putString("time", parse[0]);
-                                        edit.putLong("time_stamp", Long.parseLong(parse[1]));
-                                        edit.putLong(BaiduActiveManager.KEY_ACTIVE_TIME, System.currentTimeMillis());
-                                        if (!TextUtils.isEmpty(this.this$0.mClnCuid)) {
-                                            edit.putString(BaiduActiveManager.CLONE_CUID, this.this$0.mClnCuid);
-                                        }
-                                        edit.commit();
+                                    edit = this.this$0.mSettings.edit();
+                                    edit.putLong(BaiduActiveManager.KEY_ACTIVE_REQUEST_TIME, System.currentTimeMillis());
+                                    edit.commit();
+                                    String str4 = (BaiduActiveManager.getActiveUrl() + "&uuid=" + BaiduIdentityUtils.getSoftwareUUID(this.val$context)) + "&udata=" + BaiduIdentityUtils.getAppType(this.val$context, this.val$context.getPackageName());
+                                    String preferredABI = DeviceUtil.CPUInfo.getPreferredABI();
+                                    if (TextUtils.isEmpty(preferredABI)) {
+                                        preferredABI = "none";
                                     }
-                                    Closeables.closeSafely(inputStream);
-                                } catch (Throwable th2) {
-                                    Closeables.closeSafely(inputStream);
-                                    throw th2;
+                                    appendParam = BaiduIdentityManager.getInstance().appendParam(str4 + "&pre_abi=" + new String(Base64Encoder.B64Encode(preferredABI.getBytes())), 1);
+                                    if (BaiduActiveManager.DEBUG) {
+                                        Log.d(BaiduActiveManager.TAG, "usePrivacyPolicy: " + s10.b().h());
+                                        Log.d(BaiduActiveManager.TAG, "active url: QALog-" + appendParam);
+                                    }
+                                    activePostData = this.this$0.getActivePostData();
+                                    if (activePostData != null) {
+                                        str = (String) activePostData.get("data");
+                                    } else {
+                                        str = null;
+                                    }
+                                } catch (Throwable th) {
+                                    th = th;
                                 }
+                            } catch (IOException unused) {
+                            } catch (IllegalArgumentException unused2) {
+                            } catch (ClientProtocolException unused3) {
                             }
-                            if (BaiduActiveManager.DEBUG) {
-                                Log.d(BaiduActiveManager.TAG, "active request finished");
+                            try {
+                                Response executeSync = ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(appendParam)).params(activePostData)).cookieManager(this.this$0.mIdentityContextImpl.obtainCookieManager(true, false))).enableStat(true)).requestFrom(10)).requestSubFrom(DebugConstants.HTTP_ERRCODE_VERSION_HIGH)).build().executeSync();
+                                if (executeSync != null && (i = executeSync.code()) == 200 && (body = executeSync.body()) != null) {
+                                    try {
+                                        inputStream = body.byteStream();
+                                        String[] parse = ActiveTimeParser.getInstance().parse(inputStream);
+                                        if (parse != null && !TextUtils.equals(parse[0], "0")) {
+                                            edit.putBoolean("active", true);
+                                            edit.putString("time", parse[0]);
+                                            edit.putLong("time_stamp", Long.parseLong(parse[1]));
+                                            edit.putLong(BaiduActiveManager.KEY_ACTIVE_TIME, System.currentTimeMillis());
+                                            if (!TextUtils.isEmpty(this.this$0.mClnCuid)) {
+                                                edit.putString(BaiduActiveManager.CLONE_CUID, this.this$0.mClnCuid);
+                                            }
+                                            edit.commit();
+                                        }
+                                        Closeables.closeSafely(inputStream);
+                                    } catch (Throwable th2) {
+                                        Closeables.closeSafely(inputStream);
+                                        throw th2;
+                                    }
+                                }
+                                if (BaiduActiveManager.DEBUG) {
+                                    Log.d(BaiduActiveManager.TAG, "active request finished");
+                                }
+                                boolean unused4 = BaiduActiveManager.mStartRequest = false;
+                                this.this$0.sendActiveUBCEvent(i, str);
+                            } catch (IOException unused5) {
+                                str2 = str;
+                                if (BaiduActiveManager.DEBUG) {
+                                    Log.d(BaiduActiveManager.TAG, "active failed, maybe net error.");
+                                }
+                            } catch (IllegalArgumentException unused6) {
+                                str2 = str;
+                                if (BaiduActiveManager.DEBUG) {
+                                    Log.d(BaiduActiveManager.TAG, "active failed, url is invalid.");
+                                }
+                            } catch (ClientProtocolException unused7) {
+                                str2 = str;
+                                if (BaiduActiveManager.DEBUG) {
+                                    Log.d(BaiduActiveManager.TAG, "active failed, maybe net error.");
+                                }
+                            } catch (Throwable th3) {
+                                th = th3;
+                                str3 = str;
+                                if (BaiduActiveManager.DEBUG) {
+                                    Log.d(BaiduActiveManager.TAG, "active request finished");
+                                }
+                                boolean unused8 = BaiduActiveManager.mStartRequest = false;
+                                this.this$0.sendActiveUBCEvent(-1, str3);
+                                throw th;
                             }
-                            boolean unused4 = BaiduActiveManager.mStartRequest = false;
-                            this.this$0.sendActiveUBCEvent(i, str);
-                        } catch (IOException unused5) {
-                            str2 = str;
-                            if (BaiduActiveManager.DEBUG) {
-                                Log.d(BaiduActiveManager.TAG, "active failed, maybe net error.");
-                            }
-                        } catch (IllegalArgumentException unused6) {
-                            str2 = str;
-                            if (BaiduActiveManager.DEBUG) {
-                                Log.d(BaiduActiveManager.TAG, "active failed, url is invalid.");
-                            }
-                        } catch (ClientProtocolException unused7) {
-                            str2 = str;
-                            if (BaiduActiveManager.DEBUG) {
-                                Log.d(BaiduActiveManager.TAG, "active failed, maybe net error.");
-                            }
-                        } catch (Throwable th3) {
-                            th = th3;
-                            str3 = str;
-                            if (BaiduActiveManager.DEBUG) {
-                                Log.d(BaiduActiveManager.TAG, "active request finished");
-                            }
-                            boolean unused8 = BaiduActiveManager.mStartRequest = false;
-                            this.this$0.sendActiveUBCEvent(-1, str3);
-                            throw th;
                         }
                     }
                 }, "ActiveRequest", 2);
             }
         }
-    }
-
-    public long getActiveSuccTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            SharedPreferences sharedPreferences = this.mSettings;
-            if (sharedPreferences != null) {
-                return sharedPreferences.getLong(KEY_ACTIVE_TIME, 0L);
-            }
-            return 0L;
-        }
-        return invokeV.longValue;
-    }
-
-    public String getActiveTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            SharedPreferences sharedPreferences = this.mSettings;
-            String string = sharedPreferences != null ? sharedPreferences.getString("time", "0") : "0";
-            try {
-                return URLEncoder.encode(string, IMAudioTransRequest.CHARSET);
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-                return string;
-            }
-        }
-        return (String) invokeV.objValue;
     }
 
     public ActiveTimeInfo getActiveTimeInfo() {
@@ -1108,45 +1192,11 @@ public final class BaiduActiveManager {
                     Log.e(TAG, "getIpInfo fail!" + e.toString());
                 }
             }
-            return TextUtils.isEmpty(str) ? "" : str;
+            if (TextUtils.isEmpty(str)) {
+                return "";
+            }
+            return str;
         }
         return (String) invokeV.objValue;
-    }
-
-    public boolean isActiveSucc() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            SharedPreferences sharedPreferences = this.mSettings;
-            if (sharedPreferences != null) {
-                return sharedPreferences.getBoolean("active", false);
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void setConfirmSource(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) {
-            this.mConfirmSource = str;
-            this.mConfirmExt = str2;
-        }
-    }
-
-    public void setInvokeSource(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.mInvokeSource = str;
-        }
-    }
-
-    public void setLauncherSource(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, str3) == null) {
-            this.mLauncherSource = str;
-            this.mLauncherExt = str2;
-            this.mOriginalLauncherExt = str3;
-        }
     }
 }

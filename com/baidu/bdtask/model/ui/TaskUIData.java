@@ -51,30 +51,6 @@ public final class TaskUIData implements ITaskModelData {
     public final TaskUIProgress progress;
     public final String txtColor;
 
-    /* loaded from: classes.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-    }
-
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -108,35 +84,6 @@ public final class TaskUIData implements ITaskModelData {
                 return;
             }
         }
-    }
-
-    public TaskUIData(String str, String str2, int i, String str3, String str4, String str5, TaskUIProgress taskUIProgress, TaskUIBtn taskUIBtn, TaskUIBtn taskUIBtn2, int i2, String str6, String str7) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r3;
-            Object[] objArr = {str, str2, Integer.valueOf(i), str3, str4, str5, taskUIProgress, taskUIBtn, taskUIBtn2, Integer.valueOf(i2), str6, str7};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.backColor = str;
-        this.message = str2;
-        this.duration = i;
-        this.foreColor = str3;
-        this.bgUrl = str4;
-        this.txtColor = str5;
-        this.progress = taskUIProgress;
-        this.backBtn = taskUIBtn;
-        this.cancelBtn = taskUIBtn2;
-        this.modalType = i2;
-        this.closeBg = str6;
-        this.extra = str7;
     }
 
     public final String component1() {
@@ -238,78 +185,6 @@ public final class TaskUIData implements ITaskModelData {
         return invokeL.booleanValue;
     }
 
-    public final TaskUIBtn getBackBtn() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.backBtn : (TaskUIBtn) invokeV.objValue;
-    }
-
-    public final String getBackColor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.backColor : (String) invokeV.objValue;
-    }
-
-    public final String getBgUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.bgUrl : (String) invokeV.objValue;
-    }
-
-    public final TaskUIBtn getCancelBtn() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.cancelBtn : (TaskUIBtn) invokeV.objValue;
-    }
-
-    public final String getCloseBg() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.closeBg : (String) invokeV.objValue;
-    }
-
-    public final int getDuration() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.duration : invokeV.intValue;
-    }
-
-    public final String getExtra() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.extra : (String) invokeV.objValue;
-    }
-
-    public final String getForeColor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.foreColor : (String) invokeV.objValue;
-    }
-
-    public final String getMessage() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.message : (String) invokeV.objValue;
-    }
-
-    public final int getModalType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.modalType : invokeV.intValue;
-    }
-
-    public final TaskUIProgress getProgress() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.progress : (TaskUIProgress) invokeV.objValue;
-    }
-
-    public final String getTxtColor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.txtColor : (String) invokeV.objValue;
-    }
-
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -348,6 +223,261 @@ public final class TaskUIData implements ITaskModelData {
         return invokeV.booleanValue;
     }
 
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
+            return "TaskUIData(backColor=" + this.backColor + ", message=" + this.message + ", duration=" + this.duration + ", foreColor=" + this.foreColor + ", bgUrl=" + this.bgUrl + ", txtColor=" + this.txtColor + ", progress=" + this.progress + ", backBtn=" + this.backBtn + ", cancelBtn=" + this.cancelBtn + ", modalType=" + this.modalType + ", closeBg=" + this.closeBg + ", extra=" + this.extra + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+    }
+
+    public TaskUIData(String str, String str2, int i, String str3, String str4, String str5, TaskUIProgress taskUIProgress, TaskUIBtn taskUIBtn, TaskUIBtn taskUIBtn2, int i2, String str6, String str7) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r3;
+            Object[] objArr = {str, str2, Integer.valueOf(i), str3, str4, str5, taskUIProgress, taskUIBtn, taskUIBtn2, Integer.valueOf(i2), str6, str7};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.backColor = str;
+        this.message = str2;
+        this.duration = i;
+        this.foreColor = str3;
+        this.bgUrl = str4;
+        this.txtColor = str5;
+        this.progress = taskUIProgress;
+        this.backBtn = taskUIBtn;
+        this.cancelBtn = taskUIBtn2;
+        this.modalType = i2;
+        this.closeBg = str6;
+        this.extra = str7;
+    }
+
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public /* synthetic */ TaskUIData(String str, String str2, int i, String str3, String str4, String str5, TaskUIProgress taskUIProgress, TaskUIBtn taskUIBtn, TaskUIBtn taskUIBtn2, int i2, String str6, String str7, int i3, DefaultConstructorMarker defaultConstructorMarker) {
+        this(r1, r3, r4, r5, r6, r7, r8, r9, r10, r11, r12, (i3 & 2048) == 0 ? str7 : "");
+        String str8;
+        String str9;
+        int i4;
+        String str10;
+        String str11;
+        String str12;
+        TaskUIProgress taskUIProgress2;
+        TaskUIBtn taskUIBtn3;
+        TaskUIBtn taskUIBtn4;
+        int i5;
+        String str13;
+        if ((i3 & 1) != 0) {
+            str8 = "";
+        } else {
+            str8 = str;
+        }
+        if ((i3 & 2) != 0) {
+            str9 = "";
+        } else {
+            str9 = str2;
+        }
+        if ((i3 & 4) != 0) {
+            i4 = 0;
+        } else {
+            i4 = i;
+        }
+        if ((i3 & 8) != 0) {
+            str10 = "";
+        } else {
+            str10 = str3;
+        }
+        if ((i3 & 16) != 0) {
+            str11 = "";
+        } else {
+            str11 = str4;
+        }
+        if ((i3 & 32) != 0) {
+            str12 = "";
+        } else {
+            str12 = str5;
+        }
+        if ((i3 & 64) != 0) {
+            taskUIProgress2 = new TaskUIProgress(null, null, 3, null);
+        } else {
+            taskUIProgress2 = taskUIProgress;
+        }
+        if ((i3 & 128) != 0) {
+            taskUIBtn3 = new TaskUIBtn(null, null, null, null, null, 31, null);
+        } else {
+            taskUIBtn3 = taskUIBtn;
+        }
+        if ((i3 & 256) != 0) {
+            taskUIBtn4 = new TaskUIBtn(null, null, null, null, null, 31, null);
+        } else {
+            taskUIBtn4 = taskUIBtn2;
+        }
+        if ((i3 & 512) != 0) {
+            i5 = -1;
+        } else {
+            i5 = i2;
+        }
+        if ((i3 & 1024) != 0) {
+            str13 = "";
+        } else {
+            str13 = str6;
+        }
+    }
+
+    public final TaskUIBtn getBackBtn() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.backBtn;
+        }
+        return (TaskUIBtn) invokeV.objValue;
+    }
+
+    public final String getBackColor() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.backColor;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String getBgUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return this.bgUrl;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final TaskUIBtn getCancelBtn() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return this.cancelBtn;
+        }
+        return (TaskUIBtn) invokeV.objValue;
+    }
+
+    public final String getCloseBg() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return this.closeBg;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final int getDuration() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return this.duration;
+        }
+        return invokeV.intValue;
+    }
+
+    public final String getExtra() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return this.extra;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String getForeColor() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            return this.foreColor;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String getMessage() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            return this.message;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final int getModalType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            return this.modalType;
+        }
+        return invokeV.intValue;
+    }
+
+    public final TaskUIProgress getProgress() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            return this.progress;
+        }
+        return (TaskUIProgress) invokeV.objValue;
+    }
+
+    public final String getTxtColor() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            return this.txtColor;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.bdtask.model.ITaskModelData
+    public TaskUIData deepCopy() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return new TaskUIData(this.backColor, this.message, this.duration, this.foreColor, this.bgUrl, this.txtColor, this.progress.deepCopy(), this.backBtn.deepCopy(), this.cancelBtn.deepCopy(), this.modalType, this.closeBg, this.extra);
+        }
+        return (TaskUIData) invokeV.objValue;
+    }
+
     @Override // com.baidu.bdtask.model.ITaskModelData
     public JSONObject toJson() {
         InterceptResult invokeV;
@@ -369,26 +499,5 @@ public final class TaskUIData implements ITaskModelData {
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
-            return "TaskUIData(backColor=" + this.backColor + ", message=" + this.message + ", duration=" + this.duration + ", foreColor=" + this.foreColor + ", bgUrl=" + this.bgUrl + ", txtColor=" + this.txtColor + ", progress=" + this.progress + ", backBtn=" + this.backBtn + ", cancelBtn=" + this.cancelBtn + ", modalType=" + this.modalType + ", closeBg=" + this.closeBg + ", extra=" + this.extra + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public /* synthetic */ TaskUIData(String str, String str2, int i, String str3, String str4, String str5, TaskUIProgress taskUIProgress, TaskUIBtn taskUIBtn, TaskUIBtn taskUIBtn2, int i2, String str6, String str7, int i3, DefaultConstructorMarker defaultConstructorMarker) {
-        this((i3 & 1) != 0 ? "" : str, (i3 & 2) != 0 ? "" : str2, (i3 & 4) != 0 ? 0 : i, (i3 & 8) != 0 ? "" : str3, (i3 & 16) != 0 ? "" : str4, (i3 & 32) != 0 ? "" : str5, (i3 & 64) != 0 ? new TaskUIProgress(null, null, 3, null) : taskUIProgress, (i3 & 128) != 0 ? new TaskUIBtn(null, null, null, null, null, 31, null) : taskUIBtn, (i3 & 256) != 0 ? new TaskUIBtn(null, null, null, null, null, 31, null) : taskUIBtn2, (i3 & 512) != 0 ? -1 : i2, (i3 & 1024) != 0 ? "" : str6, (i3 & 2048) == 0 ? str7 : "");
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.bdtask.model.ITaskModelData
-    public TaskUIData deepCopy() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? new TaskUIData(this.backColor, this.message, this.duration, this.foreColor, this.bgUrl, this.txtColor, this.progress.deepCopy(), this.backBtn.deepCopy(), this.cancelBtn.deepCopy(), this.modalType, this.closeBg, this.extra) : (TaskUIData) invokeV.objValue;
     }
 }

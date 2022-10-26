@@ -29,6 +29,33 @@ public class PraiseModel extends BdBaseModel {
     public final HttpMessageListener b;
 
     /* loaded from: classes5.dex */
+    public interface b {
+        void a(int i, String str);
+
+        void i(String str);
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -61,28 +88,18 @@ public class PraiseModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001600) {
                 int statusCode = httpResponsedMessage.getStatusCode();
-                if (statusCode != 200 || !(httpResponsedMessage instanceof PraiseResponseMessage)) {
-                    if (this.a.a != null) {
-                        this.a.a.a(statusCode, null);
-                        return;
+                if (statusCode == 200 && (httpResponsedMessage instanceof PraiseResponseMessage)) {
+                    PraiseResponseMessage praiseResponseMessage = (PraiseResponseMessage) httpResponsedMessage;
+                    if (praiseResponseMessage.getError() == 0) {
+                        this.a.a.i(praiseResponseMessage.getErrMsg());
+                    } else if (this.a.a != null) {
+                        this.a.a.a(praiseResponseMessage.getError(), praiseResponseMessage.getErrMsg());
                     }
-                    return;
-                }
-                PraiseResponseMessage praiseResponseMessage = (PraiseResponseMessage) httpResponsedMessage;
-                if (praiseResponseMessage.getError() == 0) {
-                    this.a.a.i(praiseResponseMessage.getErrMsg());
                 } else if (this.a.a != null) {
-                    this.a.a.a(praiseResponseMessage.getError(), praiseResponseMessage.getErrMsg());
+                    this.a.a.a(statusCode, null);
                 }
             }
         }
-    }
-
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(int i, String str);
-
-        void i(String str);
     }
 
     static {
@@ -127,26 +144,6 @@ public class PraiseModel extends BdBaseModel {
         this.a = null;
         this.b = new a(this, CmdConfigHttp.COMMON_PRAISE_Y_OR_N);
         this.a = bVar;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean loadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 
     public void registerListener() {

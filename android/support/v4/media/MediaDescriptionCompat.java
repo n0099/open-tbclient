@@ -1,6 +1,5 @@
 package android.support.v4.media;
 
-import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.media.MediaDescription;
 import android.net.Uri;
@@ -10,8 +9,6 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.v4.media.session.MediaSessionCompat;
 import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
@@ -22,7 +19,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@SuppressLint({"BanParcelableUsage"})
 /* loaded from: classes.dex */
 public final class MediaDescriptionCompat implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
@@ -33,10 +29,8 @@ public final class MediaDescriptionCompat implements Parcelable {
     public static final long BT_FOLDER_TYPE_PLAYLISTS = 5;
     public static final long BT_FOLDER_TYPE_TITLES = 1;
     public static final long BT_FOLDER_TYPE_YEARS = 6;
-    public static final Parcelable.Creator<MediaDescriptionCompat> CREATOR;
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
+    public static final Parcelable.Creator CREATOR;
     public static final String DESCRIPTION_KEY_MEDIA_URI = "android.support.v4.media.description.MEDIA_URI";
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public static final String DESCRIPTION_KEY_NULL_BUNDLE_FLAG = "android.support.v4.media.description.NULL_BUNDLE_FLAG";
     public static final String EXTRA_BT_FOLDER_TYPE = "android.media.extra.BT_FOLDER_TYPE";
     public static final String EXTRA_DOWNLOAD_STATUS = "android.media.extra.DOWNLOAD_STATUS";
@@ -55,8 +49,18 @@ public final class MediaDescriptionCompat implements Parcelable {
     public final CharSequence mSubtitle;
     public final CharSequence mTitle;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     /* loaded from: classes.dex */
-    public static final class Builder {
+    public final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public CharSequence mDescription;
@@ -85,10 +89,13 @@ public final class MediaDescriptionCompat implements Parcelable {
         public MediaDescriptionCompat build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new MediaDescriptionCompat(this.mMediaId, this.mTitle, this.mSubtitle, this.mDescription, this.mIcon, this.mIconUri, this.mExtras, this.mMediaUri) : (MediaDescriptionCompat) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new MediaDescriptionCompat(this.mMediaId, this.mTitle, this.mSubtitle, this.mDescription, this.mIcon, this.mIconUri, this.mExtras, this.mMediaUri);
+            }
+            return (MediaDescriptionCompat) invokeV.objValue;
         }
 
-        public Builder setDescription(@Nullable CharSequence charSequence) {
+        public Builder setDescription(CharSequence charSequence) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence)) == null) {
@@ -98,7 +105,7 @@ public final class MediaDescriptionCompat implements Parcelable {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setExtras(@Nullable Bundle bundle) {
+        public Builder setExtras(Bundle bundle) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle)) == null) {
@@ -108,7 +115,7 @@ public final class MediaDescriptionCompat implements Parcelable {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setIconBitmap(@Nullable Bitmap bitmap) {
+        public Builder setIconBitmap(Bitmap bitmap) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bitmap)) == null) {
@@ -118,7 +125,7 @@ public final class MediaDescriptionCompat implements Parcelable {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setIconUri(@Nullable Uri uri) {
+        public Builder setIconUri(Uri uri) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, uri)) == null) {
@@ -128,7 +135,7 @@ public final class MediaDescriptionCompat implements Parcelable {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setMediaId(@Nullable String str) {
+        public Builder setMediaId(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
@@ -138,7 +145,7 @@ public final class MediaDescriptionCompat implements Parcelable {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setMediaUri(@Nullable Uri uri) {
+        public Builder setMediaUri(Uri uri) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, uri)) == null) {
@@ -148,7 +155,7 @@ public final class MediaDescriptionCompat implements Parcelable {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setSubtitle(@Nullable CharSequence charSequence) {
+        public Builder setSubtitle(CharSequence charSequence) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, charSequence)) == null) {
@@ -158,7 +165,7 @@ public final class MediaDescriptionCompat implements Parcelable {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setTitle(@Nullable CharSequence charSequence) {
+        public Builder setTitle(CharSequence charSequence) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, charSequence)) == null) {
@@ -182,7 +189,7 @@ public final class MediaDescriptionCompat implements Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<MediaDescriptionCompat>() { // from class: android.support.v4.media.MediaDescriptionCompat.1
+        CREATOR = new Parcelable.Creator() { // from class: android.support.v4.media.MediaDescriptionCompat.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -201,7 +208,6 @@ public final class MediaDescriptionCompat implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public MediaDescriptionCompat createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -216,14 +222,114 @@ public final class MediaDescriptionCompat implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public MediaDescriptionCompat[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new MediaDescriptionCompat[i] : (MediaDescriptionCompat[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new MediaDescriptionCompat[i];
+                }
+                return (MediaDescriptionCompat[]) invokeI.objValue;
             }
         };
+    }
+
+    public CharSequence getDescription() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mDescription;
+        }
+        return (CharSequence) invokeV.objValue;
+    }
+
+    public Bundle getExtras() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mExtras;
+        }
+        return (Bundle) invokeV.objValue;
+    }
+
+    public Bitmap getIconBitmap() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mIcon;
+        }
+        return (Bitmap) invokeV.objValue;
+    }
+
+    public Uri getIconUri() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mIconUri;
+        }
+        return (Uri) invokeV.objValue;
+    }
+
+    public String getMediaId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mMediaId;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public Uri getMediaUri() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mMediaUri;
+        }
+        return (Uri) invokeV.objValue;
+    }
+
+    public CharSequence getSubtitle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mSubtitle;
+        }
+        return (CharSequence) invokeV.objValue;
+    }
+
+    public CharSequence getTitle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mTitle;
+        }
+        return (CharSequence) invokeV.objValue;
+    }
+
+    public MediaDescriptionCompat(Parcel parcel) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mMediaId = parcel.readString();
+        this.mTitle = (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(parcel);
+        this.mSubtitle = (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(parcel);
+        this.mDescription = (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(parcel);
+        ClassLoader classLoader = MediaDescriptionCompat.class.getClassLoader();
+        this.mIcon = (Bitmap) parcel.readParcelable(classLoader);
+        this.mIconUri = (Uri) parcel.readParcelable(classLoader);
+        this.mExtras = parcel.readBundle(classLoader);
+        this.mMediaUri = (Uri) parcel.readParcelable(classLoader);
     }
 
     public MediaDescriptionCompat(String str, CharSequence charSequence, CharSequence charSequence2, CharSequence charSequence3, Bitmap bitmap, Uri uri, Bundle bundle, Uri uri2) {
@@ -258,6 +364,7 @@ public final class MediaDescriptionCompat implements Parcelable {
     */
     public static MediaDescriptionCompat fromMediaDescription(Object obj) {
         InterceptResult invokeL;
+        Uri uri;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, obj)) == null) {
             Bundle bundle = null;
@@ -276,7 +383,11 @@ public final class MediaDescriptionCompat implements Parcelable {
             if (extras != null) {
                 extras = MediaSessionCompat.unparcelWithClassLoader(extras);
             }
-            Uri uri = extras != null ? (Uri) extras.getParcelable(DESCRIPTION_KEY_MEDIA_URI) : null;
+            if (extras != null) {
+                uri = (Uri) extras.getParcelable(DESCRIPTION_KEY_MEDIA_URI);
+            } else {
+                uri = null;
+            }
             if (uri != null) {
                 if (!extras.containsKey(DESCRIPTION_KEY_NULL_BUNDLE_FLAG) || extras.size() != 2) {
                     extras.remove(DESCRIPTION_KEY_MEDIA_URI);
@@ -301,44 +412,6 @@ public final class MediaDescriptionCompat implements Parcelable {
             return build2;
         }
         return (MediaDescriptionCompat) invokeL.objValue;
-    }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Nullable
-    public CharSequence getDescription() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mDescription : (CharSequence) invokeV.objValue;
-    }
-
-    @Nullable
-    public Bundle getExtras() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mExtras : (Bundle) invokeV.objValue;
-    }
-
-    @Nullable
-    public Bitmap getIconBitmap() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mIcon : (Bitmap) invokeV.objValue;
-    }
-
-    @Nullable
-    public Uri getIconUri() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mIconUri : (Uri) invokeV.objValue;
     }
 
     public Object getMediaDescription() {
@@ -374,34 +447,6 @@ public final class MediaDescriptionCompat implements Parcelable {
         return invokeV.objValue;
     }
 
-    @Nullable
-    public String getMediaId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mMediaId : (String) invokeV.objValue;
-    }
-
-    @Nullable
-    public Uri getMediaUri() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mMediaUri : (Uri) invokeV.objValue;
-    }
-
-    @Nullable
-    public CharSequence getSubtitle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mSubtitle : (CharSequence) invokeV.objValue;
-    }
-
-    @Nullable
-    public CharSequence getTitle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mTitle : (CharSequence) invokeV.objValue;
-    }
-
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -428,31 +473,5 @@ public final class MediaDescriptionCompat implements Parcelable {
             }
             ((MediaDescription) getMediaDescription()).writeToParcel(parcel, i);
         }
-    }
-
-    public MediaDescriptionCompat(Parcel parcel) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mMediaId = parcel.readString();
-        this.mTitle = (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(parcel);
-        this.mSubtitle = (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(parcel);
-        this.mDescription = (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(parcel);
-        ClassLoader classLoader = MediaDescriptionCompat.class.getClassLoader();
-        this.mIcon = (Bitmap) parcel.readParcelable(classLoader);
-        this.mIconUri = (Uri) parcel.readParcelable(classLoader);
-        this.mExtras = parcel.readBundle(classLoader);
-        this.mMediaUri = (Uri) parcel.readParcelable(classLoader);
     }
 }

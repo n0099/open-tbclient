@@ -15,7 +15,6 @@ import kotlin.coroutines.ContinuationKt;
 import kotlin.coroutines.intrinsics.IntrinsicsKt__IntrinsicsJvmKt;
 import kotlin.coroutines.intrinsics.IntrinsicsKt__IntrinsicsKt;
 import kotlin.coroutines.jvm.internal.DebugProbesKt;
-import kotlin.jvm.JvmField;
 import kotlin.jvm.functions.Function2;
 import kotlinx.coroutines.CancellableContinuation;
 import kotlinx.coroutines.CancellableContinuationImpl;
@@ -37,19 +36,90 @@ import kotlinx.coroutines.selects.SelectKt;
 import org.aspectj.lang.JoinPoint;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000<\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000e\n\u0002\b\u0016\b\u0000\u0018\u00002\u00020\u00012\u00020\u0002:\u0006$%&'()B\u000f\u0012\u0006\u0010!\u001a\u00020\u0005¢\u0006\u0004\b\"\u0010#J\u0017\u0010\u0006\u001a\u00020\u00052\u0006\u0010\u0004\u001a\u00020\u0003H\u0016¢\u0006\u0004\b\u0006\u0010\u0007J\u001d\u0010\t\u001a\u00020\b2\b\u0010\u0004\u001a\u0004\u0018\u00010\u0003H\u0096@ø\u0001\u0000¢\u0006\u0004\b\t\u0010\nJ\u001d\u0010\u000b\u001a\u00020\b2\b\u0010\u0004\u001a\u0004\u0018\u00010\u0003H\u0082@ø\u0001\u0000¢\u0006\u0004\b\u000b\u0010\nJT\u0010\u0012\u001a\u00020\b\"\u0004\b\u0000\u0010\f2\f\u0010\u000e\u001a\b\u0012\u0004\u0012\u00028\u00000\r2\b\u0010\u0004\u001a\u0004\u0018\u00010\u00032\"\u0010\u0011\u001a\u001e\b\u0001\u0012\u0004\u0012\u00020\u0001\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00000\u0010\u0012\u0006\u0012\u0004\u0018\u00010\u00030\u000fH\u0016ø\u0001\u0000¢\u0006\u0004\b\u0012\u0010\u0013J\u000f\u0010\u0015\u001a\u00020\u0014H\u0016¢\u0006\u0004\b\u0015\u0010\u0016J\u0019\u0010\u0017\u001a\u00020\u00052\b\u0010\u0004\u001a\u0004\u0018\u00010\u0003H\u0016¢\u0006\u0004\b\u0017\u0010\u0007J\u0019\u0010\u0018\u001a\u00020\b2\b\u0010\u0004\u001a\u0004\u0018\u00010\u0003H\u0016¢\u0006\u0004\b\u0018\u0010\u0019R\u0016\u0010\u001a\u001a\u00020\u00058V@\u0016X\u0096\u0004¢\u0006\u0006\u001a\u0004\b\u001a\u0010\u001bR\u0016\u0010\u001d\u001a\u00020\u00058@@\u0000X\u0080\u0004¢\u0006\u0006\u001a\u0004\b\u001c\u0010\u001bR$\u0010 \u001a\u0010\u0012\u0006\u0012\u0004\u0018\u00010\u0003\u0012\u0004\u0012\u00020\u00010\u00028V@\u0016X\u0096\u0004¢\u0006\u0006\u001a\u0004\b\u001e\u0010\u001f\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006*"}, d2 = {"Lkotlinx/coroutines/sync/MutexImpl;", "Lkotlinx/coroutines/sync/Mutex;", "Lkotlinx/coroutines/selects/SelectClause2;", "", "owner", "", "holdsLock", "(Ljava/lang/Object;)Z", "", "lock", "(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "lockSuspend", "R", "Lkotlinx/coroutines/selects/SelectInstance;", InvoiceBuildActivity.EXTRA_PARAMS_TYPE, "Lkotlin/Function2;", "Lkotlin/coroutines/Continuation;", BreakpointSQLiteHelper.BLOCK_TABLE_NAME, "registerSelectClause2", "(Lkotlinx/coroutines/selects/SelectInstance;Ljava/lang/Object;Lkotlin/jvm/functions/Function2;)V", "", "toString", "()Ljava/lang/String;", "tryLock", JoinPoint.SYNCHRONIZATION_UNLOCK, "(Ljava/lang/Object;)V", "isLocked", "()Z", "isLockedEmptyQueueState$kotlinx_coroutines_core", "isLockedEmptyQueueState", "getOnLock", "()Lkotlinx/coroutines/selects/SelectClause2;", "onLock", "locked", "<init>", "(Z)V", "LockCont", "LockSelect", "LockWaiter", "LockedQueue", "TryLockDesc", "UnlockOp", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes8.dex */
-public final class MutexImpl implements Mutex, SelectClause2<Object, Mutex> {
+public final class MutexImpl implements Mutex, SelectClause2 {
     public static final AtomicReferenceFieldUpdater _state$FU = AtomicReferenceFieldUpdater.newUpdater(MutexImpl.class, Object.class, "_state");
     public volatile Object _state;
 
+    @Override // kotlinx.coroutines.sync.Mutex
+    public SelectClause2 getOnLock() {
+        return this;
+    }
+
+    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000$\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\b\b\u0002\u0018\u00002\u00020\u0001:\u0001\u0012B\u0019\u0012\u0006\u0010\f\u001a\u00020\u000b\u0012\b\u0010\u000e\u001a\u0004\u0018\u00010\u0004¢\u0006\u0004\b\u0010\u0010\u0011J%\u0010\u0007\u001a\u00020\u00062\n\u0010\u0003\u001a\u0006\u0012\u0002\b\u00030\u00022\b\u0010\u0005\u001a\u0004\u0018\u00010\u0004H\u0016¢\u0006\u0004\b\u0007\u0010\bJ\u001d\u0010\t\u001a\u0004\u0018\u00010\u00042\n\u0010\u0003\u001a\u0006\u0012\u0002\b\u00030\u0002H\u0016¢\u0006\u0004\b\t\u0010\nR\u0016\u0010\f\u001a\u00020\u000b8\u0006@\u0007X\u0087\u0004¢\u0006\u0006\n\u0004\b\f\u0010\rR\u0018\u0010\u000e\u001a\u0004\u0018\u00010\u00048\u0006@\u0007X\u0087\u0004¢\u0006\u0006\n\u0004\b\u000e\u0010\u000f¨\u0006\u0013"}, d2 = {"Lkotlinx/coroutines/sync/MutexImpl$TryLockDesc;", "Lkotlinx/coroutines/internal/AtomicDesc;", "Lkotlinx/coroutines/internal/AtomicOp;", "op", "", SmsLoginView.f.l, "", TaskProcessData.keyComplete, "(Lkotlinx/coroutines/internal/AtomicOp;Ljava/lang/Object;)V", "prepare", "(Lkotlinx/coroutines/internal/AtomicOp;)Ljava/lang/Object;", "Lkotlinx/coroutines/sync/MutexImpl;", "mutex", "Lkotlinx/coroutines/sync/MutexImpl;", "owner", "Ljava/lang/Object;", "<init>", "(Lkotlinx/coroutines/sync/MutexImpl;Ljava/lang/Object;)V", "PrepareOp", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    /* loaded from: classes8.dex */
+    public final class TryLockDesc extends AtomicDesc {
+        public final MutexImpl mutex;
+        public final Object owner;
+
+        @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0018\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0007\b\u0082\u0004\u0018\u00002\u00020\u0001B\u0013\u0012\n\u0010\u0007\u001a\u0006\u0012\u0002\b\u00030\u0006¢\u0006\u0004\b\u000b\u0010\fJ\u001b\u0010\u0004\u001a\u0004\u0018\u00010\u00022\b\u0010\u0003\u001a\u0004\u0018\u00010\u0002H\u0016¢\u0006\u0004\b\u0004\u0010\u0005R \u0010\u0007\u001a\u0006\u0012\u0002\b\u00030\u00068\u0016@\u0016X\u0096\u0004¢\u0006\f\n\u0004\b\u0007\u0010\b\u001a\u0004\b\t\u0010\n¨\u0006\r"}, d2 = {"Lkotlinx/coroutines/sync/MutexImpl$TryLockDesc$PrepareOp;", "Lkotlinx/coroutines/internal/OpDescriptor;", "", "affected", "perform", "(Ljava/lang/Object;)Ljava/lang/Object;", "Lkotlinx/coroutines/internal/AtomicOp;", "atomicOp", "Lkotlinx/coroutines/internal/AtomicOp;", "getAtomicOp", "()Lkotlinx/coroutines/internal/AtomicOp;", "<init>", "(Lkotlinx/coroutines/sync/MutexImpl$TryLockDesc;Lkotlinx/coroutines/internal/AtomicOp;)V", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+        /* loaded from: classes8.dex */
+        public final class PrepareOp extends OpDescriptor {
+            public final AtomicOp atomicOp;
+
+            public PrepareOp(AtomicOp atomicOp) {
+                this.atomicOp = atomicOp;
+            }
+
+            @Override // kotlinx.coroutines.internal.OpDescriptor
+            public AtomicOp getAtomicOp() {
+                return this.atomicOp;
+            }
+
+            @Override // kotlinx.coroutines.internal.OpDescriptor
+            public Object perform(Object obj) {
+                Object atomicOp;
+                if (!getAtomicOp().isDecided()) {
+                    atomicOp = getAtomicOp();
+                } else {
+                    atomicOp = MutexKt.EMPTY_UNLOCKED;
+                }
+                if (obj != null) {
+                    MutexImpl._state$FU.compareAndSet((MutexImpl) obj, this, atomicOp);
+                    return null;
+                }
+                throw new TypeCastException("null cannot be cast to non-null type kotlinx.coroutines.sync.MutexImpl");
+            }
+        }
+
+        public TryLockDesc(MutexImpl mutexImpl, Object obj) {
+            this.mutex = mutexImpl;
+            this.owner = obj;
+        }
+
+        @Override // kotlinx.coroutines.internal.AtomicDesc
+        public void complete(AtomicOp atomicOp, Object obj) {
+            Empty empty;
+            if (obj == null) {
+                Object obj2 = this.owner;
+                empty = obj2 == null ? MutexKt.EMPTY_LOCKED : new Empty(obj2);
+            } else {
+                empty = MutexKt.EMPTY_UNLOCKED;
+            }
+            MutexImpl._state$FU.compareAndSet(this.mutex, atomicOp, empty);
+        }
+
+        @Override // kotlinx.coroutines.internal.AtomicDesc
+        public Object prepare(AtomicOp atomicOp) {
+            Empty empty;
+            Symbol symbol;
+            PrepareOp prepareOp = new PrepareOp(atomicOp);
+            MutexImpl mutexImpl = this.mutex;
+            AtomicReferenceFieldUpdater atomicReferenceFieldUpdater = MutexImpl._state$FU;
+            empty = MutexKt.EMPTY_UNLOCKED;
+            if (atomicReferenceFieldUpdater.compareAndSet(mutexImpl, empty, prepareOp)) {
+                return prepareOp.perform(this.mutex);
+            }
+            symbol = MutexKt.LOCK_FAIL;
+            return symbol;
+        }
+    }
+
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000$\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0006\b\u0002\u0018\u00002\u00020\u0001B\u001f\u0012\b\u0010\u000f\u001a\u0004\u0018\u00010\u0002\u0012\f\u0010\r\u001a\b\u0012\u0004\u0012\u00020\u00040\f¢\u0006\u0004\b\u0010\u0010\u0011J\u0017\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0005\u0010\u0006J\u000f\u0010\b\u001a\u00020\u0007H\u0016¢\u0006\u0004\b\b\u0010\tJ\u0011\u0010\n\u001a\u0004\u0018\u00010\u0002H\u0016¢\u0006\u0004\b\n\u0010\u000bR\u001c\u0010\r\u001a\b\u0012\u0004\u0012\u00020\u00040\f8\u0006@\u0007X\u0087\u0004¢\u0006\u0006\n\u0004\b\r\u0010\u000e¨\u0006\u0012"}, d2 = {"Lkotlinx/coroutines/sync/MutexImpl$LockCont;", "kotlinx/coroutines/sync/MutexImpl$LockWaiter", "", "token", "", "completeResumeLockWaiter", "(Ljava/lang/Object;)V", "", "toString", "()Ljava/lang/String;", "tryResumeLockWaiter", "()Ljava/lang/Object;", "Lkotlinx/coroutines/CancellableContinuation;", "cont", "Lkotlinx/coroutines/CancellableContinuation;", "owner", "<init>", "(Ljava/lang/Object;Lkotlinx/coroutines/CancellableContinuation;)V", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes8.dex */
-    public static final class LockCont extends LockWaiter {
-        @JvmField
-        public final CancellableContinuation<Unit> cont;
+    public final class LockCont extends LockWaiter {
+        public final CancellableContinuation cont;
 
-        /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: kotlinx.coroutines.CancellableContinuation<? super kotlin.Unit> */
-        /* JADX WARN: Multi-variable type inference failed */
-        public LockCont(Object obj, CancellableContinuation<? super Unit> cancellableContinuation) {
+        public LockCont(Object obj, CancellableContinuation cancellableContinuation) {
             super(obj);
             this.cont = cancellableContinuation;
         }
@@ -72,18 +142,12 @@ public final class MutexImpl implements Mutex, SelectClause2<Object, Mutex> {
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u00006\n\u0002\u0018\u0002\n\u0000\n\u0000\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0006\b\u0002\u0018\u0000*\u0004\b\u0000\u0010\u00012\u00020\u0002BN\u0012\b\u0010\u0017\u001a\u0004\u0018\u00010\u0003\u0012\u0006\u0010\u0012\u001a\u00020\u000e\u0012\f\u0010\u0015\u001a\b\u0012\u0004\u0012\u00028\u00000\u0014\u0012\"\u0010\u0010\u001a\u001e\b\u0001\u0012\u0004\u0012\u00020\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00000\u000f\u0012\u0006\u0012\u0004\u0018\u00010\u00030\rø\u0001\u0000¢\u0006\u0004\b\u0018\u0010\u0019J\u0017\u0010\u0006\u001a\u00020\u00052\u0006\u0010\u0004\u001a\u00020\u0003H\u0016¢\u0006\u0004\b\u0006\u0010\u0007J\u000f\u0010\t\u001a\u00020\bH\u0016¢\u0006\u0004\b\t\u0010\nJ\u0011\u0010\u000b\u001a\u0004\u0018\u00010\u0003H\u0016¢\u0006\u0004\b\u000b\u0010\fR5\u0010\u0010\u001a\u001e\b\u0001\u0012\u0004\u0012\u00020\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00000\u000f\u0012\u0006\u0012\u0004\u0018\u00010\u00030\r8\u0006@\u0007X\u0087\u0004ø\u0001\u0000¢\u0006\u0006\n\u0004\b\u0010\u0010\u0011R\u0016\u0010\u0012\u001a\u00020\u000e8\u0006@\u0007X\u0087\u0004¢\u0006\u0006\n\u0004\b\u0012\u0010\u0013R\u001c\u0010\u0015\u001a\b\u0012\u0004\u0012\u00028\u00000\u00148\u0006@\u0007X\u0087\u0004¢\u0006\u0006\n\u0004\b\u0015\u0010\u0016\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u001a"}, d2 = {"Lkotlinx/coroutines/sync/MutexImpl$LockSelect;", "R", "kotlinx/coroutines/sync/MutexImpl$LockWaiter", "", "token", "", "completeResumeLockWaiter", "(Ljava/lang/Object;)V", "", "toString", "()Ljava/lang/String;", "tryResumeLockWaiter", "()Ljava/lang/Object;", "Lkotlin/Function2;", "Lkotlinx/coroutines/sync/Mutex;", "Lkotlin/coroutines/Continuation;", BreakpointSQLiteHelper.BLOCK_TABLE_NAME, "Lkotlin/jvm/functions/Function2;", "mutex", "Lkotlinx/coroutines/sync/Mutex;", "Lkotlinx/coroutines/selects/SelectInstance;", InvoiceBuildActivity.EXTRA_PARAMS_TYPE, "Lkotlinx/coroutines/selects/SelectInstance;", "owner", "<init>", "(Ljava/lang/Object;Lkotlinx/coroutines/sync/Mutex;Lkotlinx/coroutines/selects/SelectInstance;Lkotlin/jvm/functions/Function2;)V", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes8.dex */
-    public static final class LockSelect<R> extends LockWaiter {
-        @JvmField
-        public final Function2<Mutex, Continuation<? super R>, Object> block;
-        @JvmField
+    public final class LockSelect extends LockWaiter {
+        public final Function2 block;
         public final Mutex mutex;
-        @JvmField
-        public final SelectInstance<R> select;
+        public final SelectInstance select;
 
-        /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: kotlinx.coroutines.selects.SelectInstance<? super R> */
-        /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: kotlin.jvm.functions.Function2<? super kotlinx.coroutines.sync.Mutex, ? super kotlin.coroutines.Continuation<? super R>, ? extends java.lang.Object> */
-        /* JADX WARN: Multi-variable type inference failed */
-        public LockSelect(Object obj, Mutex mutex, SelectInstance<? super R> selectInstance, Function2<? super Mutex, ? super Continuation<? super R>, ? extends Object> function2) {
+        public LockSelect(Object obj, Mutex mutex, SelectInstance selectInstance, Function2 function2) {
             super(obj);
             this.mutex = mutex;
             this.select = selectInstance;
@@ -93,9 +157,15 @@ public final class MutexImpl implements Mutex, SelectClause2<Object, Mutex> {
         @Override // kotlinx.coroutines.sync.MutexImpl.LockWaiter
         public void completeResumeLockWaiter(Object obj) {
             Symbol symbol;
+            boolean z;
             if (DebugKt.getASSERTIONS_ENABLED()) {
                 symbol = MutexKt.SELECT_SUCCESS;
-                if (!(obj == symbol)) {
+                if (obj == symbol) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (!z) {
                     throw new AssertionError();
                 }
             }
@@ -110,38 +180,36 @@ public final class MutexImpl implements Mutex, SelectClause2<Object, Mutex> {
         @Override // kotlinx.coroutines.sync.MutexImpl.LockWaiter
         public Object tryResumeLockWaiter() {
             Symbol symbol;
-            if (this.select.trySelect()) {
-                symbol = MutexKt.SELECT_SUCCESS;
-                return symbol;
+            if (!this.select.trySelect()) {
+                return null;
             }
-            return null;
+            symbol = MutexKt.SELECT_SUCCESS;
+            return symbol;
         }
     }
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001a\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u0002\n\u0002\b\n\b\"\u0018\u00002\u00020\u00012\u00020\u0002B\u0011\u0012\b\u0010\f\u001a\u0004\u0018\u00010\u0003¢\u0006\u0004\b\u000e\u0010\u0007J\u0017\u0010\u0006\u001a\u00020\u00052\u0006\u0010\u0004\u001a\u00020\u0003H&¢\u0006\u0004\b\u0006\u0010\u0007J\r\u0010\b\u001a\u00020\u0005¢\u0006\u0004\b\b\u0010\tJ\u0011\u0010\n\u001a\u0004\u0018\u00010\u0003H&¢\u0006\u0004\b\n\u0010\u000bR\u0018\u0010\f\u001a\u0004\u0018\u00010\u00038\u0006@\u0007X\u0087\u0004¢\u0006\u0006\n\u0004\b\f\u0010\r¨\u0006\u000f"}, d2 = {"Lkotlinx/coroutines/sync/MutexImpl$LockWaiter;", "Lkotlinx/coroutines/DisposableHandle;", "Lkotlinx/coroutines/internal/LockFreeLinkedListNode;", "", "token", "", "completeResumeLockWaiter", "(Ljava/lang/Object;)V", "dispose", "()V", "tryResumeLockWaiter", "()Ljava/lang/Object;", "owner", "Ljava/lang/Object;", "<init>", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes8.dex */
-    public static abstract class LockWaiter extends LockFreeLinkedListNode implements DisposableHandle {
-        @JvmField
+    public abstract class LockWaiter extends LockFreeLinkedListNode implements DisposableHandle {
         public final Object owner;
+
+        public abstract void completeResumeLockWaiter(Object obj);
+
+        public abstract Object tryResumeLockWaiter();
 
         public LockWaiter(Object obj) {
             this.owner = obj;
         }
 
-        public abstract void completeResumeLockWaiter(Object obj);
-
         @Override // kotlinx.coroutines.DisposableHandle
         public final void dispose() {
             remove();
         }
-
-        public abstract Object tryResumeLockWaiter();
     }
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0018\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010\u0000\n\u0002\b\u0005\b\u0002\u0018\u00002\u00020\u0001B\u000f\u0012\u0006\u0010\u0006\u001a\u00020\u0005¢\u0006\u0004\b\b\u0010\tJ\u000f\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0003\u0010\u0004R\u0016\u0010\u0006\u001a\u00020\u00058\u0006@\u0006X\u0087\u000e¢\u0006\u0006\n\u0004\b\u0006\u0010\u0007¨\u0006\n"}, d2 = {"Lkotlinx/coroutines/sync/MutexImpl$LockedQueue;", "Lkotlinx/coroutines/internal/LockFreeLinkedListHead;", "", "toString", "()Ljava/lang/String;", "", "owner", "Ljava/lang/Object;", "<init>", "(Ljava/lang/Object;)V", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes8.dex */
-    public static final class LockedQueue extends LockFreeLinkedListHead {
-        @JvmField
+    public final class LockedQueue extends LockFreeLinkedListHead {
         public Object owner;
 
         public LockedQueue(Object obj) {
@@ -154,99 +222,37 @@ public final class MutexImpl implements Mutex, SelectClause2<Object, Mutex> {
         }
     }
 
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000$\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\b\b\u0002\u0018\u00002\u00020\u0001:\u0001\u0012B\u0019\u0012\u0006\u0010\f\u001a\u00020\u000b\u0012\b\u0010\u000e\u001a\u0004\u0018\u00010\u0004¢\u0006\u0004\b\u0010\u0010\u0011J%\u0010\u0007\u001a\u00020\u00062\n\u0010\u0003\u001a\u0006\u0012\u0002\b\u00030\u00022\b\u0010\u0005\u001a\u0004\u0018\u00010\u0004H\u0016¢\u0006\u0004\b\u0007\u0010\bJ\u001d\u0010\t\u001a\u0004\u0018\u00010\u00042\n\u0010\u0003\u001a\u0006\u0012\u0002\b\u00030\u0002H\u0016¢\u0006\u0004\b\t\u0010\nR\u0016\u0010\f\u001a\u00020\u000b8\u0006@\u0007X\u0087\u0004¢\u0006\u0006\n\u0004\b\f\u0010\rR\u0018\u0010\u000e\u001a\u0004\u0018\u00010\u00048\u0006@\u0007X\u0087\u0004¢\u0006\u0006\n\u0004\b\u000e\u0010\u000f¨\u0006\u0013"}, d2 = {"Lkotlinx/coroutines/sync/MutexImpl$TryLockDesc;", "Lkotlinx/coroutines/internal/AtomicDesc;", "Lkotlinx/coroutines/internal/AtomicOp;", "op", "", SmsLoginView.f.l, "", TaskProcessData.keyComplete, "(Lkotlinx/coroutines/internal/AtomicOp;Ljava/lang/Object;)V", "prepare", "(Lkotlinx/coroutines/internal/AtomicOp;)Ljava/lang/Object;", "Lkotlinx/coroutines/sync/MutexImpl;", "mutex", "Lkotlinx/coroutines/sync/MutexImpl;", "owner", "Ljava/lang/Object;", "<init>", "(Lkotlinx/coroutines/sync/MutexImpl;Ljava/lang/Object;)V", "PrepareOp", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-    /* loaded from: classes8.dex */
-    public static final class TryLockDesc extends AtomicDesc {
-        @JvmField
-        public final MutexImpl mutex;
-        @JvmField
-        public final Object owner;
-
-        @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0018\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0007\b\u0082\u0004\u0018\u00002\u00020\u0001B\u0013\u0012\n\u0010\u0007\u001a\u0006\u0012\u0002\b\u00030\u0006¢\u0006\u0004\b\u000b\u0010\fJ\u001b\u0010\u0004\u001a\u0004\u0018\u00010\u00022\b\u0010\u0003\u001a\u0004\u0018\u00010\u0002H\u0016¢\u0006\u0004\b\u0004\u0010\u0005R \u0010\u0007\u001a\u0006\u0012\u0002\b\u00030\u00068\u0016@\u0016X\u0096\u0004¢\u0006\f\n\u0004\b\u0007\u0010\b\u001a\u0004\b\t\u0010\n¨\u0006\r"}, d2 = {"Lkotlinx/coroutines/sync/MutexImpl$TryLockDesc$PrepareOp;", "Lkotlinx/coroutines/internal/OpDescriptor;", "", "affected", "perform", "(Ljava/lang/Object;)Ljava/lang/Object;", "Lkotlinx/coroutines/internal/AtomicOp;", "atomicOp", "Lkotlinx/coroutines/internal/AtomicOp;", "getAtomicOp", "()Lkotlinx/coroutines/internal/AtomicOp;", "<init>", "(Lkotlinx/coroutines/sync/MutexImpl$TryLockDesc;Lkotlinx/coroutines/internal/AtomicOp;)V", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-        /* loaded from: classes8.dex */
-        public final class PrepareOp extends OpDescriptor {
-            public final AtomicOp<?> atomicOp;
-
-            public PrepareOp(AtomicOp<?> atomicOp) {
-                this.atomicOp = atomicOp;
-            }
-
-            @Override // kotlinx.coroutines.internal.OpDescriptor
-            public AtomicOp<?> getAtomicOp() {
-                return this.atomicOp;
-            }
-
-            @Override // kotlinx.coroutines.internal.OpDescriptor
-            public Object perform(Object obj) {
-                Object atomicOp = getAtomicOp().isDecided() ? MutexKt.EMPTY_UNLOCKED : getAtomicOp();
-                if (obj != null) {
-                    MutexImpl._state$FU.compareAndSet((MutexImpl) obj, this, atomicOp);
-                    return null;
-                }
-                throw new TypeCastException("null cannot be cast to non-null type kotlinx.coroutines.sync.MutexImpl");
-            }
-        }
-
-        public TryLockDesc(MutexImpl mutexImpl, Object obj) {
-            this.mutex = mutexImpl;
-            this.owner = obj;
-        }
-
-        @Override // kotlinx.coroutines.internal.AtomicDesc
-        public void complete(AtomicOp<?> atomicOp, Object obj) {
-            Empty empty;
-            if (obj != null) {
-                empty = MutexKt.EMPTY_UNLOCKED;
-            } else {
-                Object obj2 = this.owner;
-                empty = obj2 == null ? MutexKt.EMPTY_LOCKED : new Empty(obj2);
-            }
-            MutexImpl._state$FU.compareAndSet(this.mutex, atomicOp, empty);
-        }
-
-        @Override // kotlinx.coroutines.internal.AtomicDesc
-        public Object prepare(AtomicOp<?> atomicOp) {
-            Empty empty;
-            Symbol symbol;
-            PrepareOp prepareOp = new PrepareOp(atomicOp);
-            MutexImpl mutexImpl = this.mutex;
-            AtomicReferenceFieldUpdater atomicReferenceFieldUpdater = MutexImpl._state$FU;
-            empty = MutexKt.EMPTY_UNLOCKED;
-            if (!atomicReferenceFieldUpdater.compareAndSet(mutexImpl, empty, prepareOp)) {
-                symbol = MutexKt.LOCK_FAIL;
-                return symbol;
-            }
-            return prepareOp.perform(this.mutex);
-        }
-    }
-
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000 \n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\b\u0002\u0018\u00002\u00020\u0001B\u000f\u0012\u0006\u0010\u000b\u001a\u00020\n¢\u0006\u0004\b\r\u0010\u000eJ\u001b\u0010\u0004\u001a\u0004\u0018\u00010\u00022\b\u0010\u0003\u001a\u0004\u0018\u00010\u0002H\u0016¢\u0006\u0004\b\u0004\u0010\u0005R\u001c\u0010\t\u001a\b\u0012\u0002\b\u0003\u0018\u00010\u00068V@\u0016X\u0096\u0004¢\u0006\u0006\u001a\u0004\b\u0007\u0010\bR\u0016\u0010\u000b\u001a\u00020\n8\u0006@\u0007X\u0087\u0004¢\u0006\u0006\n\u0004\b\u000b\u0010\f¨\u0006\u000f"}, d2 = {"Lkotlinx/coroutines/sync/MutexImpl$UnlockOp;", "Lkotlinx/coroutines/internal/OpDescriptor;", "", "affected", "perform", "(Ljava/lang/Object;)Ljava/lang/Object;", "Lkotlinx/coroutines/internal/AtomicOp;", "getAtomicOp", "()Lkotlinx/coroutines/internal/AtomicOp;", "atomicOp", "Lkotlinx/coroutines/sync/MutexImpl$LockedQueue;", "queue", "Lkotlinx/coroutines/sync/MutexImpl$LockedQueue;", "<init>", "(Lkotlinx/coroutines/sync/MutexImpl$LockedQueue;)V", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes8.dex */
-    public static final class UnlockOp extends OpDescriptor {
-        @JvmField
+    public final class UnlockOp extends OpDescriptor {
         public final LockedQueue queue;
+
+        @Override // kotlinx.coroutines.internal.OpDescriptor
+        public AtomicOp getAtomicOp() {
+            return null;
+        }
 
         public UnlockOp(LockedQueue lockedQueue) {
             this.queue = lockedQueue;
         }
 
         @Override // kotlinx.coroutines.internal.OpDescriptor
-        public AtomicOp<?> getAtomicOp() {
-            return null;
-        }
-
-        @Override // kotlinx.coroutines.internal.OpDescriptor
         public Object perform(Object obj) {
+            Object obj2;
             Symbol symbol;
-            Object obj2 = this.queue.isEmpty() ? MutexKt.EMPTY_UNLOCKED : this.queue;
+            if (!this.queue.isEmpty()) {
+                obj2 = this.queue;
+            } else {
+                obj2 = MutexKt.EMPTY_UNLOCKED;
+            }
             if (obj != null) {
                 MutexImpl mutexImpl = (MutexImpl) obj;
                 MutexImpl._state$FU.compareAndSet(mutexImpl, this, obj2);
-                if (mutexImpl._state == this.queue) {
-                    symbol = MutexKt.UNLOCK_FAIL;
-                    return symbol;
+                if (mutexImpl._state != this.queue) {
+                    return null;
                 }
-                return null;
+                symbol = MutexKt.UNLOCK_FAIL;
+                return symbol;
             }
             throw new TypeCastException("null cannot be cast to non-null type kotlinx.coroutines.sync.MutexImpl");
         }
@@ -254,11 +260,6 @@ public final class MutexImpl implements Mutex, SelectClause2<Object, Mutex> {
 
     public MutexImpl(boolean z) {
         this._state = z ? MutexKt.EMPTY_LOCKED : MutexKt.EMPTY_UNLOCKED;
-    }
-
-    @Override // kotlinx.coroutines.sync.Mutex
-    public SelectClause2<Object, Mutex> getOnLock() {
-        return this;
     }
 
     @Override // kotlinx.coroutines.sync.Mutex
@@ -282,58 +283,89 @@ public final class MutexImpl implements Mutex, SelectClause2<Object, Mutex> {
             if (obj instanceof Empty) {
                 Object obj2 = ((Empty) obj).locked;
                 symbol = MutexKt.UNLOCKED;
-                return obj2 != symbol;
+                if (obj2 != symbol) {
+                    return true;
+                }
+                return false;
             } else if (obj instanceof LockedQueue) {
                 return true;
             } else {
-                if (!(obj instanceof OpDescriptor)) {
+                if (obj instanceof OpDescriptor) {
+                    ((OpDescriptor) obj).perform(this);
+                } else {
                     throw new IllegalStateException(("Illegal state " + obj).toString());
                 }
-                ((OpDescriptor) obj).perform(this);
             }
         }
     }
 
     public final boolean isLockedEmptyQueueState$kotlinx_coroutines_core() {
         Object obj = this._state;
-        return (obj instanceof LockedQueue) && ((LockedQueue) obj).isEmpty();
+        if ((obj instanceof LockedQueue) && ((LockedQueue) obj).isEmpty()) {
+            return true;
+        }
+        return false;
     }
 
     @Override // kotlinx.coroutines.sync.Mutex
-    public Object lock(Object obj, Continuation<? super Unit> continuation) {
-        Object lockSuspend;
-        return (!tryLock(obj) && (lockSuspend = lockSuspend(obj, continuation)) == IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED()) ? lockSuspend : Unit.INSTANCE;
+    public Object lock(Object obj, Continuation continuation) {
+        if (tryLock(obj)) {
+            return Unit.INSTANCE;
+        }
+        Object lockSuspend = lockSuspend(obj, continuation);
+        if (lockSuspend == IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED()) {
+            return lockSuspend;
+        }
+        return Unit.INSTANCE;
     }
 
-    public final /* synthetic */ Object lockSuspend(final Object obj, Continuation<? super Unit> continuation) {
+    public final /* synthetic */ Object lockSuspend(final Object obj, Continuation continuation) {
         Symbol symbol;
+        Empty empty;
+        boolean z;
         final CancellableContinuationImpl orCreateCancellableContinuation = CancellableContinuationKt.getOrCreateCancellableContinuation(IntrinsicsKt__IntrinsicsJvmKt.intercepted(continuation));
         final LockCont lockCont = new LockCont(obj, orCreateCancellableContinuation);
         while (true) {
             final Object obj2 = this._state;
             if (obj2 instanceof Empty) {
-                Empty empty = (Empty) obj2;
-                Object obj3 = empty.locked;
+                Empty empty2 = (Empty) obj2;
+                Object obj3 = empty2.locked;
                 symbol = MutexKt.UNLOCKED;
                 if (obj3 != symbol) {
-                    _state$FU.compareAndSet(this, obj2, new LockedQueue(empty.locked));
+                    _state$FU.compareAndSet(this, obj2, new LockedQueue(empty2.locked));
                 } else {
-                    if (_state$FU.compareAndSet(this, obj2, obj == null ? MutexKt.EMPTY_LOCKED : new Empty(obj))) {
+                    if (obj == null) {
+                        empty = MutexKt.EMPTY_LOCKED;
+                    } else {
+                        empty = new Empty(obj);
+                    }
+                    if (_state$FU.compareAndSet(this, obj2, empty)) {
                         Unit unit = Unit.INSTANCE;
                         Result.Companion companion = Result.Companion;
-                        orCreateCancellableContinuation.resumeWith(Result.m699constructorimpl(unit));
+                        orCreateCancellableContinuation.resumeWith(Result.m698constructorimpl(unit));
                         break;
                     }
                 }
             } else if (obj2 instanceof LockedQueue) {
                 LockedQueue lockedQueue = (LockedQueue) obj2;
-                boolean z = false;
+                boolean z2 = false;
                 if (lockedQueue.owner != obj) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (z) {
                     LockFreeLinkedListNode.CondAddOp condAddOp = new LockFreeLinkedListNode.CondAddOp(lockCont) { // from class: kotlinx.coroutines.sync.MutexImpl$lockSuspend$$inlined$suspendAtomicCancellableCoroutineReusable$lambda$1
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // kotlinx.coroutines.internal.AtomicOp
                         public Object prepare(LockFreeLinkedListNode lockFreeLinkedListNode) {
+                            boolean z3;
                             if (this._state == obj2) {
+                                z3 = true;
+                            } else {
+                                z3 = false;
+                            }
+                            if (z3) {
                                 return null;
                             }
                             return LockFreeLinkedListKt.getCONDITION_FALSE();
@@ -341,24 +373,26 @@ public final class MutexImpl implements Mutex, SelectClause2<Object, Mutex> {
                     };
                     while (true) {
                         int tryCondAddNext = lockedQueue.getPrevNode().tryCondAddNext(lockCont, lockedQueue, condAddOp);
-                        if (tryCondAddNext == 1) {
-                            z = true;
-                            break;
-                        } else if (tryCondAddNext == 2) {
+                        if (tryCondAddNext != 1) {
+                            if (tryCondAddNext == 2) {
+                                break;
+                            }
+                        } else {
+                            z2 = true;
                             break;
                         }
                     }
-                    if (z) {
+                    if (z2) {
                         CancellableContinuationKt.removeOnCancellation(orCreateCancellableContinuation, lockCont);
                         break;
                     }
                 } else {
                     throw new IllegalStateException(("Already locked by " + obj).toString());
                 }
-            } else if (!(obj2 instanceof OpDescriptor)) {
-                throw new IllegalStateException(("Illegal state " + obj2).toString());
-            } else {
+            } else if (obj2 instanceof OpDescriptor) {
                 ((OpDescriptor) obj2).perform(this);
+            } else {
+                throw new IllegalStateException(("Illegal state " + obj2).toString());
             }
         }
         Object result = orCreateCancellableContinuation.getResult();
@@ -369,41 +403,53 @@ public final class MutexImpl implements Mutex, SelectClause2<Object, Mutex> {
     }
 
     @Override // kotlinx.coroutines.selects.SelectClause2
-    public <R> void registerSelectClause2(SelectInstance<? super R> selectInstance, Object obj, Function2<? super Mutex, ? super Continuation<? super R>, ? extends Object> function2) {
+    public void registerSelectClause2(SelectInstance selectInstance, Object obj, Function2 function2) {
         Symbol symbol;
-        Symbol symbol2;
+        Object obj2;
+        boolean z;
         while (!selectInstance.isSelected()) {
-            final Object obj2 = this._state;
-            if (obj2 instanceof Empty) {
-                Empty empty = (Empty) obj2;
-                Object obj3 = empty.locked;
+            final Object obj3 = this._state;
+            if (obj3 instanceof Empty) {
+                Empty empty = (Empty) obj3;
+                Object obj4 = empty.locked;
                 symbol = MutexKt.UNLOCKED;
-                if (obj3 != symbol) {
-                    _state$FU.compareAndSet(this, obj2, new LockedQueue(empty.locked));
+                if (obj4 != symbol) {
+                    _state$FU.compareAndSet(this, obj3, new LockedQueue(empty.locked));
                 } else {
                     Object performAtomicTrySelect = selectInstance.performAtomicTrySelect(new TryLockDesc(this, obj));
                     if (performAtomicTrySelect == null) {
                         UndispatchedKt.startCoroutineUnintercepted(function2, this, selectInstance.getCompletion());
                         return;
-                    } else if (performAtomicTrySelect == SelectKt.getALREADY_SELECTED()) {
-                        return;
-                    } else {
-                        symbol2 = MutexKt.LOCK_FAIL;
-                        if (performAtomicTrySelect != symbol2 && performAtomicTrySelect != AtomicKt.RETRY_ATOMIC) {
+                    } else if (performAtomicTrySelect != SelectKt.getALREADY_SELECTED()) {
+                        obj2 = MutexKt.LOCK_FAIL;
+                        if (performAtomicTrySelect != obj2 && performAtomicTrySelect != AtomicKt.RETRY_ATOMIC) {
                             throw new IllegalStateException(("performAtomicTrySelect(TryLockDesc) returned " + performAtomicTrySelect).toString());
                         }
+                    } else {
+                        return;
                     }
                 }
-            } else if (obj2 instanceof LockedQueue) {
-                LockedQueue lockedQueue = (LockedQueue) obj2;
-                boolean z = false;
+            } else if (obj3 instanceof LockedQueue) {
+                LockedQueue lockedQueue = (LockedQueue) obj3;
+                boolean z2 = false;
                 if (lockedQueue.owner != obj) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (z) {
                     final LockSelect lockSelect = new LockSelect(obj, this, selectInstance, function2);
                     LockFreeLinkedListNode.CondAddOp condAddOp = new LockFreeLinkedListNode.CondAddOp(lockSelect) { // from class: kotlinx.coroutines.sync.MutexImpl$registerSelectClause2$$inlined$addLastIf$1
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // kotlinx.coroutines.internal.AtomicOp
                         public Object prepare(LockFreeLinkedListNode lockFreeLinkedListNode) {
-                            if (this._state == obj2) {
+                            boolean z3;
+                            if (this._state == obj3) {
+                                z3 = true;
+                            } else {
+                                z3 = false;
+                            }
+                            if (z3) {
                                 return null;
                             }
                             return LockFreeLinkedListKt.getCONDITION_FALSE();
@@ -411,24 +457,26 @@ public final class MutexImpl implements Mutex, SelectClause2<Object, Mutex> {
                     };
                     while (true) {
                         int tryCondAddNext = lockedQueue.getPrevNode().tryCondAddNext(lockSelect, lockedQueue, condAddOp);
-                        if (tryCondAddNext == 1) {
-                            z = true;
-                            break;
-                        } else if (tryCondAddNext == 2) {
+                        if (tryCondAddNext != 1) {
+                            if (tryCondAddNext == 2) {
+                                break;
+                            }
+                        } else {
+                            z2 = true;
                             break;
                         }
                     }
-                    if (z) {
+                    if (z2) {
                         selectInstance.disposeOnSelect(lockSelect);
                         return;
                     }
                 } else {
                     throw new IllegalStateException(("Already locked by " + obj).toString());
                 }
-            } else if (!(obj2 instanceof OpDescriptor)) {
-                throw new IllegalStateException(("Illegal state " + obj2).toString());
+            } else if (obj3 instanceof OpDescriptor) {
+                ((OpDescriptor) obj3).perform(this);
             } else {
-                ((OpDescriptor) obj2).perform(this);
+                throw new IllegalStateException(("Illegal state " + obj3).toString());
             }
         }
     }
@@ -438,13 +486,12 @@ public final class MutexImpl implements Mutex, SelectClause2<Object, Mutex> {
             Object obj = this._state;
             if (obj instanceof Empty) {
                 return "Mutex[" + ((Empty) obj).locked + ']';
-            } else if (!(obj instanceof OpDescriptor)) {
-                if (!(obj instanceof LockedQueue)) {
-                    throw new IllegalStateException(("Illegal state " + obj).toString());
-                }
+            } else if (obj instanceof OpDescriptor) {
+                ((OpDescriptor) obj).perform(this);
+            } else if (obj instanceof LockedQueue) {
                 return "Mutex[" + ((LockedQueue) obj).owner + ']';
             } else {
-                ((OpDescriptor) obj).perform(this);
+                throw new IllegalStateException(("Illegal state " + obj).toString());
             }
         }
     }
@@ -452,26 +499,36 @@ public final class MutexImpl implements Mutex, SelectClause2<Object, Mutex> {
     @Override // kotlinx.coroutines.sync.Mutex
     public boolean tryLock(Object obj) {
         Symbol symbol;
+        Empty empty;
         while (true) {
             Object obj2 = this._state;
+            boolean z = true;
             if (obj2 instanceof Empty) {
                 Object obj3 = ((Empty) obj2).locked;
                 symbol = MutexKt.UNLOCKED;
                 if (obj3 != symbol) {
                     return false;
                 }
-                if (_state$FU.compareAndSet(this, obj2, obj == null ? MutexKt.EMPTY_LOCKED : new Empty(obj))) {
+                if (obj == null) {
+                    empty = MutexKt.EMPTY_LOCKED;
+                } else {
+                    empty = new Empty(obj);
+                }
+                if (_state$FU.compareAndSet(this, obj2, empty)) {
                     return true;
                 }
             } else if (obj2 instanceof LockedQueue) {
-                if (((LockedQueue) obj2).owner != obj) {
+                if (((LockedQueue) obj2).owner == obj) {
+                    z = false;
+                }
+                if (z) {
                     return false;
                 }
                 throw new IllegalStateException(("Already locked by " + obj).toString());
-            } else if (!(obj2 instanceof OpDescriptor)) {
-                throw new IllegalStateException(("Illegal state " + obj2).toString());
-            } else {
+            } else if (obj2 instanceof OpDescriptor) {
                 ((OpDescriptor) obj2).perform(this);
+            } else {
+                throw new IllegalStateException(("Illegal state " + obj2).toString());
             }
         }
     }
@@ -482,16 +539,23 @@ public final class MutexImpl implements Mutex, SelectClause2<Object, Mutex> {
         Symbol symbol;
         while (true) {
             Object obj2 = this._state;
+            boolean z = true;
             if (obj2 instanceof Empty) {
                 if (obj == null) {
                     Object obj3 = ((Empty) obj2).locked;
                     symbol = MutexKt.UNLOCKED;
-                    if (!(obj3 != symbol)) {
+                    if (obj3 == symbol) {
+                        z = false;
+                    }
+                    if (!z) {
                         throw new IllegalStateException("Mutex is not locked".toString());
                     }
                 } else {
                     Empty empty2 = (Empty) obj2;
-                    if (!(empty2.locked == obj)) {
+                    if (empty2.locked != obj) {
+                        z = false;
+                    }
+                    if (!z) {
                         throw new IllegalStateException(("Mutex is locked by " + empty2.locked + " but expected " + obj).toString());
                     }
                 }
@@ -505,7 +569,10 @@ public final class MutexImpl implements Mutex, SelectClause2<Object, Mutex> {
             } else if (obj2 instanceof LockedQueue) {
                 if (obj != null) {
                     LockedQueue lockedQueue = (LockedQueue) obj2;
-                    if (!(lockedQueue.owner == obj)) {
+                    if (lockedQueue.owner != obj) {
+                        z = false;
+                    }
+                    if (!z) {
                         throw new IllegalStateException(("Mutex is locked by " + lockedQueue.owner + " but expected " + obj).toString());
                     }
                 }

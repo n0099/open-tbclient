@@ -1,14 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
+import com.baidu.tbadk.data.HotEventData;
+import com.baidu.tbadk.mutiprocess.hotevent.HotEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class cb5 implements ha5<MissionEvent> {
+public class cb5 implements la5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,27 +27,15 @@ public class cb5 implements ha5<MissionEvent> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ha5
+    @Override // com.baidu.tieba.la5
     /* renamed from: a */
-    public boolean onEvent(MissionEvent missionEvent) {
+    public boolean onEvent(HotEvent hotEvent) {
         InterceptResult invokeL;
+        HotEventData hotEventData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, missionEvent)) == null) {
-            if (TbadkCoreApplication.getInst().isMainProcess(true)) {
-                int i = missionEvent.pageId;
-                int i2 = missionEvent.pageType;
-                long j = missionEvent.tid;
-                String str = missionEvent.actionType;
-                if ("onResume".equals(str)) {
-                    rl4.w().K(i, j);
-                    rl4.w().P(i2, j);
-                } else if (MissionEvent.MESSAGE_PAUSE.equals(str)) {
-                    rl4.w().E();
-                } else if (MissionEvent.MESSAGE_TOUCH.equals(str)) {
-                    rl4.w().F();
-                } else if (MissionEvent.MESSAGE_ACTIVITY.equals(str)) {
-                    rl4.w().K(i, j);
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hotEvent)) == null) {
+            if (hotEvent != null && (hotEventData = hotEvent.hotEventData) != null) {
+                m35.h(hotEventData);
                 return true;
             }
             return false;

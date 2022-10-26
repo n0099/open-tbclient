@@ -28,10 +28,10 @@ public class CookieHandler {
 
     public static void receiveHeaders(CookieJar cookieJar, Request request, Headers headers) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65537, null, cookieJar, request, headers) == null) || cookieJar == CookieJar.NO_COOKIES) {
+        if ((interceptable != null && interceptable.invokeLLL(65537, null, cookieJar, request, headers) != null) || cookieJar == CookieJar.NO_COOKIES) {
             return;
         }
-        List<Cookie> parseAll = Cookie.parseAll(request.url(), headers);
+        List parseAll = Cookie.parseAll(request.url(), headers);
         if (parseAll.isEmpty()) {
             return;
         }

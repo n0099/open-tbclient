@@ -62,19 +62,28 @@ public class GeneralStatisTool {
     public AbstractConfig getConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mConfig : (AbstractConfig) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mConfig;
+        }
+        return (AbstractConfig) invokeV.objValue;
     }
 
     public ITaskManager getTaskManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mTaskManager : (ITaskManager) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mTaskManager;
+        }
+        return (ITaskManager) invokeV.objValue;
     }
 
     public boolean reportCustom(Context context, String str, BaseStatisContent baseStatisContent, boolean z, boolean z2, boolean z3, Long l) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, str, baseStatisContent, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), l})) == null) ? this.mTaskManager.send(context, str, fillComm(context, str, baseStatisContent, z, z2, z3).getContent(), l) : invokeCommon.booleanValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, str, baseStatisContent, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), l})) == null) {
+            return this.mTaskManager.send(context, str, fillComm(context, str, baseStatisContent, z, z2, z3).getContent(), l);
+        }
+        return invokeCommon.booleanValue;
     }
 
     public void reportCustomTemporary(Context context, String str, BaseStatisContent baseStatisContent, boolean z, boolean z2, boolean z3) {

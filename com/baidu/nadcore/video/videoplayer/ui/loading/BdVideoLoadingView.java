@@ -4,9 +4,9 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.d41;
-import com.baidu.tieba.f41;
+import com.baidu.tieba.e41;
 import com.baidu.tieba.g41;
+import com.baidu.tieba.h41;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class BdVideoLoadingView extends ImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public d41 a;
+    public e41 a;
     public a b;
 
     /* loaded from: classes2.dex */
@@ -47,61 +47,6 @@ public class BdVideoLoadingView extends ImageView {
         a(context);
     }
 
-    public final void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            setLoadingRenderer(new g41(context));
-        }
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.isRunning() : invokeV.booleanValue;
-    }
-
-    public void c() {
-        d41 d41Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (d41Var = this.a) == null) {
-            return;
-        }
-        d41Var.start();
-        a aVar = this.b;
-        if (aVar != null) {
-            aVar.a();
-        }
-    }
-
-    public void d() {
-        d41 d41Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (d41Var = this.a) == null) {
-            return;
-        }
-        d41Var.stop();
-        a aVar = this.b;
-        if (aVar != null) {
-            aVar.b();
-        }
-    }
-
-    public void setLoadingAnimListener(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.b = aVar;
-        }
-    }
-
-    public void setLoadingRenderer(f41 f41Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, f41Var) == null) {
-            d41 d41Var = new d41(f41Var);
-            this.a = d41Var;
-            setImageDrawable(d41Var);
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BdVideoLoadingView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -122,5 +67,61 @@ public class BdVideoLoadingView extends ImageView {
             }
         }
         a(context);
+    }
+
+    public final void a(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            setLoadingRenderer(new h41(context));
+        }
+    }
+
+    public void setLoadingAnimListener(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
+            this.b = aVar;
+        }
+    }
+
+    public void setLoadingRenderer(g41 g41Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, g41Var) == null) {
+            e41 e41Var = new e41(g41Var);
+            this.a = e41Var;
+            setImageDrawable(e41Var);
+        }
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a.isRunning();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void c() {
+        e41 e41Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (e41Var = this.a) != null) {
+            e41Var.start();
+            a aVar = this.b;
+            if (aVar != null) {
+                aVar.a();
+            }
+        }
+    }
+
+    public void d() {
+        e41 e41Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (e41Var = this.a) != null) {
+            e41Var.stop();
+            a aVar = this.b;
+            if (aVar != null) {
+                aVar.b();
+            }
+        }
     }
 }

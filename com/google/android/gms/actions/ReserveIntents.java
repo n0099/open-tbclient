@@ -1,6 +1,5 @@
 package com.google.android.gms.actions;
 
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -8,7 +7,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class ReserveIntents {
     public static /* synthetic */ Interceptable $ic = null;
-    @NonNull
     public static final String ACTION_RESERVE_TAXI_RESERVATION = "com.google.android.gms.actions.RESERVE_TAXI_RESERVATION";
     public transient /* synthetic */ FieldHolder $fh;
 

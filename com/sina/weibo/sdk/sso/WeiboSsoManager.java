@@ -4,9 +4,9 @@ import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.jt9;
-import com.baidu.tieba.kt9;
-import com.baidu.tieba.lt9;
+import com.baidu.tieba.bu9;
+import com.baidu.tieba.cu9;
+import com.baidu.tieba.du9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +24,7 @@ public final class WeiboSsoManager {
     public String aid;
 
     /* loaded from: classes8.dex */
-    public static class Instance {
+    public class Instance {
         public static /* synthetic */ Interceptable $ic;
         public static final WeiboSsoManager instance;
         public transient /* synthetic */ FieldHolder $fh;
@@ -60,6 +60,20 @@ public final class WeiboSsoManager {
         }
     }
 
+    public WeiboSsoManager() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     public static synchronized WeiboSsoManager getInstance() {
         InterceptResult invokeV;
         WeiboSsoManager weiboSsoManager;
@@ -77,7 +91,7 @@ public final class WeiboSsoManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             try {
-                WeiboSsoSdk.i().m(new kt9(this) { // from class: com.sina.weibo.sdk.sso.WeiboSsoManager.1
+                WeiboSsoSdk.i().m(new cu9(this) { // from class: com.sina.weibo.sdk.sso.WeiboSsoManager.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ WeiboSsoManager this$0;
@@ -100,7 +114,7 @@ public final class WeiboSsoManager {
                         this.this$0 = this;
                     }
 
-                    @Override // com.baidu.tieba.kt9
+                    @Override // com.baidu.tieba.cu9
                     public void handler(WeiboSsoSdk.d dVar) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, dVar) == null) {
@@ -119,6 +133,15 @@ public final class WeiboSsoManager {
         }
     }
 
+    public String getMfp(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            return bu9.n(context);
+        }
+        return (String) invokeL.objValue;
+    }
+
     public String getAid(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -132,37 +155,17 @@ public final class WeiboSsoManager {
         return (String) invokeLL.objValue;
     }
 
-    public String getMfp(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) ? jt9.n(context) : (String) invokeL.objValue;
-    }
-
     public void init(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str) == null) {
             LogUtil.d(TAG, "init config");
-            lt9 lt9Var = new lt9();
-            lt9Var.j(context);
-            lt9Var.i(str);
-            lt9Var.k("1478195010");
-            lt9Var.l("1000_0001");
-            WeiboSsoSdk.j(lt9Var);
+            du9 du9Var = new du9();
+            du9Var.j(context);
+            du9Var.i(str);
+            du9Var.k("1478195010");
+            du9Var.l("1000_0001");
+            WeiboSsoSdk.j(du9Var);
             initAid();
-        }
-    }
-
-    public WeiboSsoManager() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
         }
     }
 }

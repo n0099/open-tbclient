@@ -82,11 +82,39 @@ public class NormalizeGuestAccountActivity extends BaseActivity {
         };
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, this) == null) {
+            SapiWebView sapiWebView = this.sapiWebView;
+            if (sapiWebView != null && sapiWebView.canGoBack()) {
+                this.sapiWebView.goBack();
+            } else {
+                onClose();
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
+            if (CoreViewRouter.getInstance().getNormalizeGuestAccountCallback() != null) {
+                CoreViewRouter.getInstance().getNormalizeGuestAccountCallback().onFailure(this.t);
+            }
+            finish();
+            CoreViewRouter.getInstance().release();
+        }
+    }
+
     @Override // com.baidu.sapi2.activity.TitleActivity
     public SapiWebDTO getWebDTO() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? CoreViewRouter.getInstance().getNormalizeGuestAccountDTO() : (SapiWebDTO) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return CoreViewRouter.getInstance().getNormalizeGuestAccountDTO();
+        }
+        return (SapiWebDTO) invokeV.objValue;
     }
 
     @Override // com.baidu.sapi2.activity.TitleActivity
@@ -118,13 +146,40 @@ public class NormalizeGuestAccountActivity extends BaseActivity {
         }
     }
 
+    @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
+    public void onLeftBtnClick() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.onLeftBtnClick();
+            if (!this.executeSubClassMethod) {
+                return;
+            }
+            a();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
+            if (CoreViewRouter.getInstance().getNormalizeGuestAccountCallback() != null) {
+                CoreViewRouter.getInstance().getNormalizeGuestAccountCallback().onSuccess(this.t);
+            }
+            NormalizeGuestAccountDTO normalizeGuestAccountDTO = CoreViewRouter.getInstance().getNormalizeGuestAccountDTO();
+            if (normalizeGuestAccountDTO != null && normalizeGuestAccountDTO.finishActivityAfterSuc) {
+                finish();
+                CoreViewRouter.getInstance().release();
+            }
+        }
+    }
+
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
             try {
-                setContentView(R.layout.obfuscated_res_0x7f0d0508);
+                setContentView(R.layout.obfuscated_res_0x7f0d0505);
                 this.u = getIntent().getStringExtra("EXTRA_BDUSS");
                 SapiAccount accountFromBduss = SapiContext.getInstance().getAccountFromBduss(this.u);
                 if (!TextUtils.isEmpty(this.u) && accountFromBduss != null) {
@@ -141,17 +196,6 @@ public class NormalizeGuestAccountActivity extends BaseActivity {
                 this.t.setResultCode(-202);
                 this.t.setResultMsg("网络连接失败，请检查网络设置");
                 b();
-            }
-        }
-    }
-
-    @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
-    public void onLeftBtnClick() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            super.onLeftBtnClick();
-            if (this.executeSubClassMethod) {
-                a();
             }
         }
     }
@@ -287,47 +331,6 @@ public class NormalizeGuestAccountActivity extends BaseActivity {
             }, str);
             setNewLoginTitleAndSetStyleChangeCallBack();
             this.sapiWebView.loadNormalizeGuestAccount(arrayList, this.u, this.v);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            SapiWebView sapiWebView = this.sapiWebView;
-            if (sapiWebView != null && sapiWebView.canGoBack()) {
-                this.sapiWebView.goBack();
-            } else {
-                onClose();
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            if (CoreViewRouter.getInstance().getNormalizeGuestAccountCallback() != null) {
-                CoreViewRouter.getInstance().getNormalizeGuestAccountCallback().onFailure(this.t);
-            }
-            finish();
-            CoreViewRouter.getInstance().release();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            if (CoreViewRouter.getInstance().getNormalizeGuestAccountCallback() != null) {
-                CoreViewRouter.getInstance().getNormalizeGuestAccountCallback().onSuccess(this.t);
-            }
-            NormalizeGuestAccountDTO normalizeGuestAccountDTO = CoreViewRouter.getInstance().getNormalizeGuestAccountDTO();
-            if (normalizeGuestAccountDTO == null || !normalizeGuestAccountDTO.finishActivityAfterSuc) {
-                return;
-            }
-            finish();
-            CoreViewRouter.getInstance().release();
         }
     }
 }

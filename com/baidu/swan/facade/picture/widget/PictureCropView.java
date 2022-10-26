@@ -18,7 +18,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.facade.picture.widget.BdImageViewTouchBase;
 import com.baidu.swan.facade.picture.widget.ZoomImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.vj1;
+import com.baidu.tieba.wj1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -65,23 +65,39 @@ public class PictureCropView extends PictureView {
 
         @Override // com.baidu.swan.facade.picture.widget.ZoomImageView.a
         public void a(Drawable drawable) {
+            boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, drawable) == null) {
-                this.b.n = drawable != null;
+                PictureCropView pictureCropView = this.b;
                 if (drawable != null) {
-                    this.b.q(this.a, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+                    z = true;
+                } else {
+                    z = false;
                 }
+                pictureCropView.n = z;
+                if (drawable == null) {
+                    return;
+                }
+                this.b.q(this.a, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
             }
         }
 
         @Override // com.baidu.swan.facade.picture.widget.ZoomImageView.a
         public void b(Bitmap bitmap) {
+            boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) {
-                this.b.n = bitmap != null;
+                PictureCropView pictureCropView = this.b;
                 if (bitmap != null) {
-                    this.b.q(this.a, bitmap.getWidth(), bitmap.getHeight());
+                    z = true;
+                } else {
+                    z = false;
                 }
+                pictureCropView.n = z;
+                if (bitmap == null) {
+                    return;
+                }
+                this.b.q(this.a, bitmap.getWidth(), bitmap.getHeight());
             }
         }
     }
@@ -115,9 +131,10 @@ public class PictureCropView extends PictureView {
         @Override // com.baidu.swan.facade.picture.widget.BdImageViewTouchBase.f
         public void a(Drawable drawable) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, drawable) == null) {
-                this.b.o(this.a, drawable);
+            if (interceptable != null && interceptable.invokeL(1048576, this, drawable) != null) {
+                return;
             }
+            this.b.o(this.a, drawable);
         }
     }
 
@@ -127,6 +144,16 @@ public class PictureCropView extends PictureView {
         public transient /* synthetic */ FieldHolder $fh;
         public RectF a;
         public final /* synthetic */ PictureCropView b;
+
+        @Override // com.baidu.swan.facade.picture.widget.ZoomImageView.b
+        public boolean c(ZoomImageView zoomImageView, MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{zoomImageView, motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
+                return true;
+            }
+            return invokeCommon.booleanValue;
+        }
 
         public c(PictureCropView pictureCropView) {
             Interceptable interceptable = $ic;
@@ -173,16 +200,6 @@ public class PictureCropView extends PictureView {
             }
             return invokeCommon.booleanValue;
         }
-
-        @Override // com.baidu.swan.facade.picture.widget.ZoomImageView.b
-        public boolean c(ZoomImageView zoomImageView, MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{zoomImageView, motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
-                return true;
-            }
-            return invokeCommon.booleanValue;
-        }
     }
 
     static {
@@ -198,7 +215,7 @@ public class PictureCropView extends PictureView {
                 return;
             }
         }
-        o = vj1.a;
+        o = wj1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -232,7 +249,7 @@ public class PictureCropView extends PictureView {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) {
             this.m.setColor(this.l);
             this.m.setStyle(Paint.Style.FILL);
-            this.j = context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08115f);
+            this.j = context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081170);
             ZoomImageView zoomImageView = (ZoomImageView) getImageView();
             zoomImageView.setDoubleTapEnabled(true);
             zoomImageView.setCalcBaseMatrix(false);
@@ -242,12 +259,136 @@ public class PictureCropView extends PictureView {
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public PictureCropView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.j = null;
+        this.k = new Rect();
+        this.l = Color.argb(128, 0, 0, 0);
+        this.m = new Paint();
+        this.n = false;
+        g(context);
+    }
+
+    public final void o(ZoomImageView zoomImageView, Drawable drawable) {
+        float f;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, zoomImageView, drawable) == null) && zoomImageView != null && drawable != null) {
+            Matrix imageViewMatrix = zoomImageView.getImageViewMatrix();
+            RectF rectF = new RectF();
+            rectF.set(0.0f, 0.0f, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+            imageViewMatrix.mapRect(rectF);
+            float width = rectF.width();
+            float width2 = zoomImageView.getWidth();
+            if (width > width2) {
+                f = ((width2 - width) / 2.0f) - rectF.left;
+            } else {
+                f = 0.0f;
+            }
+            zoomImageView.v(f, 0.0f);
+        }
+    }
+
+    public void s(Canvas canvas, Rect rect) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, canvas, rect) == null) {
+            int width = canvas.getWidth();
+            int height = canvas.getHeight();
+            Paint paint = this.m;
+            float f = width;
+            canvas.drawRect(0.0f, 0.0f, f, rect.top, paint);
+            float f2 = height;
+            canvas.drawRect(0.0f, rect.top, rect.left, f2, paint);
+            canvas.drawRect(rect.left, rect.bottom, f, f2, paint);
+            canvas.drawRect(rect.right, rect.top, f, rect.bottom, paint);
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public PictureCropView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.j = null;
+        this.k = new Rect();
+        this.l = Color.argb(128, 0, 0, 0);
+        this.m = new Paint();
+        this.n = false;
+        g(context);
+    }
+
+    public final void q(ZoomImageView zoomImageView, int i, int i2) {
+        float f;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLII(1048581, this, zoomImageView, i, i2) == null) && zoomImageView != null && i > 0 && i2 > 0) {
+            int width = (zoomImageView.getWidth() - zoomImageView.getPaddingLeft()) - zoomImageView.getPaddingRight();
+            int height = (zoomImageView.getHeight() - zoomImageView.getPaddingTop()) - zoomImageView.getPaddingBottom();
+            if (!this.k.isEmpty()) {
+                width = this.k.width();
+                height = this.k.height();
+            }
+            if (i * height > width * i2) {
+                f = height / i2;
+            } else {
+                f = width / i;
+            }
+            if (o) {
+                Log.d("PictureCropView", "PictureCropView#configureZoomRange() scale = " + f);
+            }
+            if (f > 0.0f) {
+                zoomImageView.setZoomRange(f, 3.0f + f);
+            }
+        }
+    }
+
     @Override // android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
             super.dispatchDraw(canvas);
             r(canvas);
+        }
+    }
+
+    public void r(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, canvas) != null) || !this.n) {
+            return;
+        }
+        s(canvas, this.k);
+        if (this.j != null && !this.k.isEmpty()) {
+            this.j.setBounds(this.k);
+            this.j.draw(canvas);
         }
     }
 
@@ -267,56 +408,31 @@ public class PictureCropView extends PictureView {
                 }
                 Matrix imageViewMatrix = zoomImageView.getImageViewMatrix();
                 Matrix matrix = new Matrix();
-                if (imageViewMatrix.invert(matrix)) {
-                    RectF rectF2 = new RectF(rectF);
-                    matrix.mapRect(rectF2);
-                    Rect rect = new Rect();
-                    rectF2.round(rect);
-                    rect.right = Math.min(rect.right, imageViewBitmap.getWidth());
-                    rect.bottom = Math.min(rect.bottom, imageViewBitmap.getHeight());
-                    return Bitmap.createBitmap(imageViewBitmap, rect.left, rect.top, rect.width(), rect.height());
-                }
-                return null;
-            } catch (Exception e) {
-                if (o) {
-                    e.printStackTrace();
+                if (!imageViewMatrix.invert(matrix)) {
                     return null;
                 }
+                RectF rectF2 = new RectF(rectF);
+                matrix.mapRect(rectF2);
+                Rect rect = new Rect();
+                rectF2.round(rect);
+                rect.right = Math.min(rect.right, imageViewBitmap.getWidth());
+                rect.bottom = Math.min(rect.bottom, imageViewBitmap.getHeight());
+                return Bitmap.createBitmap(imageViewBitmap, rect.left, rect.top, rect.width(), rect.height());
+            } catch (Exception e) {
+                if (!o) {
+                    return null;
+                }
+                e.printStackTrace();
                 return null;
             } catch (OutOfMemoryError e2) {
-                if (o) {
-                    e2.printStackTrace();
+                if (!o) {
                     return null;
                 }
+                e2.printStackTrace();
                 return null;
             }
         }
         return (Bitmap) invokeV.objValue;
-    }
-
-    public final void o(ZoomImageView zoomImageView, Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, zoomImageView, drawable) == null) || zoomImageView == null || drawable == null) {
-            return;
-        }
-        Matrix imageViewMatrix = zoomImageView.getImageViewMatrix();
-        RectF rectF = new RectF();
-        rectF.set(0.0f, 0.0f, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-        imageViewMatrix.mapRect(rectF);
-        float width = rectF.width();
-        float width2 = zoomImageView.getWidth();
-        zoomImageView.v(width > width2 ? ((width2 - width) / 2.0f) - rectF.left : 0.0f, 0.0f);
-    }
-
-    @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            super.onLayout(z, i, i2, i3, i4);
-            if (z) {
-                p();
-            }
-        }
     }
 
     public final void p() {
@@ -358,50 +474,14 @@ public class PictureCropView extends PictureView {
         }
     }
 
-    public final void q(ZoomImageView zoomImageView, int i, int i2) {
+    @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(1048581, this, zoomImageView, i, i2) == null) || zoomImageView == null || i <= 0 || i2 <= 0) {
-            return;
-        }
-        int width = (zoomImageView.getWidth() - zoomImageView.getPaddingLeft()) - zoomImageView.getPaddingRight();
-        int height = (zoomImageView.getHeight() - zoomImageView.getPaddingTop()) - zoomImageView.getPaddingBottom();
-        if (!this.k.isEmpty()) {
-            width = this.k.width();
-            height = this.k.height();
-        }
-        float f = i * height > width * i2 ? height / i2 : width / i;
-        if (o) {
-            Log.d("PictureCropView", "PictureCropView#configureZoomRange() scale = " + f);
-        }
-        if (f > 0.0f) {
-            zoomImageView.setZoomRange(f, 3.0f + f);
-        }
-    }
-
-    public void r(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, canvas) == null) && this.n) {
-            s(canvas, this.k);
-            if (this.j == null || this.k.isEmpty()) {
-                return;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            super.onLayout(z, i, i2, i3, i4);
+            if (z) {
+                p();
             }
-            this.j.setBounds(this.k);
-            this.j.draw(canvas);
-        }
-    }
-
-    public void s(Canvas canvas, Rect rect) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, canvas, rect) == null) {
-            int width = canvas.getWidth();
-            int height = canvas.getHeight();
-            Paint paint = this.m;
-            float f = width;
-            canvas.drawRect(0.0f, 0.0f, f, rect.top, paint);
-            float f2 = height;
-            canvas.drawRect(0.0f, rect.top, rect.left, f2, paint);
-            canvas.drawRect(rect.left, rect.bottom, f, f2, paint);
-            canvas.drawRect(rect.right, rect.top, f, rect.bottom, paint);
         }
     }
 
@@ -449,59 +529,5 @@ public class PictureCropView extends PictureView {
             return true;
         }
         return invokeLL.booleanValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PictureCropView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.j = null;
-        this.k = new Rect();
-        this.l = Color.argb(128, 0, 0, 0);
-        this.m = new Paint();
-        this.n = false;
-        g(context);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PictureCropView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        this.j = null;
-        this.k = new Rect();
-        this.l = Color.argb(128, 0, 0, 0);
-        this.m = new Paint();
-        this.n = false;
-        g(context);
     }
 }

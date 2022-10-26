@@ -22,7 +22,7 @@ import kotlin.reflect.KProperty;
 @Metadata(d1 = {"\u0000 \n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0012\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u001d\u0018\u0000 $2\u00020\u0001:\u0001$B\u0015\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005¢\u0006\u0002\u0010\u0006RI\u0010\u000b\u001a\u00110\u0005¢\u0006\f\b\b\u0012\b\b\t\u0012\u0004\b\b(\n2\u0015\u0010\u0007\u001a\u00110\u0005¢\u0006\f\b\b\u0012\b\b\t\u0012\u0004\b\b(\n8F@FX\u0086\u008e\u0002¢\u0006\u0012\n\u0004\b\u0010\u0010\u0011\u001a\u0004\b\f\u0010\r\"\u0004\b\u000e\u0010\u000fR\u0014\u0010\u0012\u001a\u00020\u00058VX\u0096\u0004¢\u0006\u0006\u001a\u0004\b\u0013\u0010\rRI\u0010\u0014\u001a\u00110\u0005¢\u0006\f\b\b\u0012\b\b\t\u0012\u0004\b\b(\n2\u0015\u0010\u0007\u001a\u00110\u0005¢\u0006\f\b\b\u0012\b\b\t\u0012\u0004\b\b(\n8V@VX\u0096\u008e\u0002¢\u0006\u0012\n\u0004\b\u0017\u0010\u0011\u001a\u0004\b\u0015\u0010\r\"\u0004\b\u0016\u0010\u000fRI\u0010\u0018\u001a\u00110\u0005¢\u0006\f\b\b\u0012\b\b\t\u0012\u0004\b\b(\n2\u0015\u0010\u0007\u001a\u00110\u0005¢\u0006\f\b\b\u0012\b\b\t\u0012\u0004\b\b(\n8V@VX\u0096\u008e\u0002¢\u0006\u0012\n\u0004\b\u001b\u0010\u0011\u001a\u0004\b\u0019\u0010\r\"\u0004\b\u001a\u0010\u000fRI\u0010\u001c\u001a\u00110\u0005¢\u0006\f\b\b\u0012\b\b\t\u0012\u0004\b\b(\n2\u0015\u0010\u0007\u001a\u00110\u0005¢\u0006\f\b\b\u0012\b\b\t\u0012\u0004\b\b(\n8F@FX\u0086\u008e\u0002¢\u0006\u0012\n\u0004\b\u001f\u0010\u0011\u001a\u0004\b\u001d\u0010\r\"\u0004\b\u001e\u0010\u000fRI\u0010 \u001a\u00110\u0005¢\u0006\f\b\b\u0012\b\b\t\u0012\u0004\b\b(\n2\u0015\u0010\u0007\u001a\u00110\u0005¢\u0006\f\b\b\u0012\b\b\t\u0012\u0004\b\b(\n8V@VX\u0096\u008e\u0002¢\u0006\u0012\n\u0004\b#\u0010\u0011\u001a\u0004\b!\u0010\r\"\u0004\b\"\u0010\u000f¨\u0006%"}, d2 = {"Lcom/baidu/tun2tornadolite/booster/tun/ip/DirectIPv4Header;", "Lcom/baidu/tun2tornadolite/booster/tun/ip/DirectIPHeader;", "buffer", "", "packetLength", "", "([BI)V", "<set-?>", "Lkotlin/ParameterName;", "name", "value", "checksum", "getChecksum", "()I", "setChecksum", "(I)V", "checksum$delegate", "Lcom/baidu/tun2tornadolite/booster/tun/ip/DirectHeader$Field;", "dataLength", "getDataLength", "headerLength", "getHeaderLength", "setHeaderLength", "headerLength$delegate", ProbeTB.PROTOCOL, "getProtocol", "setProtocol", "protocol$delegate", "totalLength", "getTotalLength", "setTotalLength", "totalLength$delegate", "version", WebChromeClient.MSG_METHOD_GETVERSION, "setVersion", "version$delegate", "Companion", "tun2tornadolite_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
 /* loaded from: classes6.dex */
 public final class DirectIPv4Header extends DirectIPHeader {
-    public static final /* synthetic */ KProperty<Object>[] $$delegatedProperties;
+    public static final /* synthetic */ KProperty[] $$delegatedProperties;
     public static /* synthetic */ Interceptable $ic = null;
     public static final Companion Companion;
     public static final int OFFSET_CHECKSUM = 10;
@@ -43,9 +43,13 @@ public final class DirectIPv4Header extends DirectIPHeader {
 
     @Metadata(d1 = {"\u0000$\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\b\u0086\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0006\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\b\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\n\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000R\u0011\u0010\u000b\u001a\u00020\f¢\u0006\b\n\u0000\u001a\u0004\b\r\u0010\u000eR\u0011\u0010\u000f\u001a\u00020\u0010¢\u0006\b\n\u0000\u001a\u0004\b\u0011\u0010\u0012¨\u0006\u0013"}, d2 = {"Lcom/baidu/tun2tornadolite/booster/tun/ip/DirectIPv4Header$Companion;", "", "()V", "OFFSET_CHECKSUM", "", "OFFSET_DESTINATION_ADDRESS", "OFFSET_PROTOCOL", "OFFSET_SOURCE_ADDRESS", "OFFSET_TOTAL_LENGTH", "OFFSET_VERSION_IHL", "VPN_MTU", "buffer", "Ljava/nio/ByteBuffer;", "getBuffer", "()Ljava/nio/ByteBuffer;", "header", "Lcom/baidu/tun2tornadolite/booster/tun/ip/DirectIPv4Header;", "getHeader", "()Lcom/baidu/tun2tornadolite/booster/tun/ip/DirectIPv4Header;", "tun2tornadolite_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
     /* loaded from: classes6.dex */
-    public static final class Companion {
+    public final class Companion {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
 
         public Companion() {
             Interceptable interceptable = $ic;
@@ -61,20 +65,22 @@ public final class DirectIPv4Header extends DirectIPHeader {
             }
         }
 
-        public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
         public final ByteBuffer getBuffer() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? DirectIPv4Header.buffer : (ByteBuffer) invokeV.objValue;
+            if (interceptable != null && (invokeV = interceptable.invokeV(1048576, this)) != null) {
+                return (ByteBuffer) invokeV.objValue;
+            }
+            return DirectIPv4Header.buffer;
         }
 
         public final DirectIPv4Header getHeader() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? DirectIPv4Header.header : (DirectIPv4Header) invokeV.objValue;
+            if (interceptable != null && (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) != null) {
+                return (DirectIPv4Header) invokeV.objValue;
+            }
+            return DirectIPv4Header.header;
         }
     }
 
@@ -131,41 +137,59 @@ public final class DirectIPv4Header extends DirectIPHeader {
     public final int getChecksum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ((Number) this.checksum$delegate.getValue(this, $$delegatedProperties[3])).intValue() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return ((Number) this.checksum$delegate.getValue(this, $$delegatedProperties[3])).intValue();
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.tun2tornadolite.booster.tun.ip.DirectIPHeader
     public int getDataLength() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? getPacketLength() - getHeaderLength() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return getPacketLength() - getHeaderLength();
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.tun2tornadolite.booster.tun.ip.DirectIPHeader
     public int getHeaderLength() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ((Number) this.headerLength$delegate.getValue(this, $$delegatedProperties[1])).intValue() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return ((Number) this.headerLength$delegate.getValue(this, $$delegatedProperties[1])).intValue();
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.tun2tornadolite.booster.tun.ip.DirectIPHeader
     public int getProtocol() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? ((Number) this.protocol$delegate.getValue(this, $$delegatedProperties[2])).intValue() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return ((Number) this.protocol$delegate.getValue(this, $$delegatedProperties[2])).intValue();
+        }
+        return invokeV.intValue;
     }
 
     public final int getTotalLength() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? ((Number) this.totalLength$delegate.getValue(this, $$delegatedProperties[4])).intValue() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return ((Number) this.totalLength$delegate.getValue(this, $$delegatedProperties[4])).intValue();
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.tun2tornadolite.booster.tun.ip.DirectIPHeader
     public int getVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? ((Number) this.version$delegate.getValue(this, $$delegatedProperties[0])).intValue() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return ((Number) this.version$delegate.getValue(this, $$delegatedProperties[0])).intValue();
+        }
+        return invokeV.intValue;
     }
 
     public final void setChecksum(int i) {

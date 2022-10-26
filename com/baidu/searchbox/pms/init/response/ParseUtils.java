@@ -35,7 +35,7 @@ public class ParseUtils {
         }
     }
 
-    public static List<PackageInfo> parseAPSItems(JSONObject jSONObject) {
+    public static List parseAPSItems(JSONObject jSONObject) {
         InterceptResult invokeL;
         PackageInfo parsePkgItem;
         Interceptable interceptable = $ic;
@@ -67,7 +67,7 @@ public class ParseUtils {
         return (List) invokeL.objValue;
     }
 
-    public static List<PackageInfo> parseDPMItems(JSONObject jSONObject) {
+    public static List parseDPMItems(JSONObject jSONObject) {
         InterceptResult invokeL;
         JSONObject optJSONObject;
         PackageInfo parsePkgItem;
@@ -121,20 +121,7 @@ public class ParseUtils {
         return (List) invokeL.objValue;
     }
 
-    @Deprecated
-    public static List<PackageInfo> parseItems(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject)) == null) ? parseItems("aps", jSONObject) : (List) invokeL.objValue;
-    }
-
-    public static PackageInfo parsePkgItem(String str, String str2, JSONObject jSONObject) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, str, str2, jSONObject)) == null) ? parsePkgItem(true, str, str2, jSONObject) : (PackageInfo) invokeLLL.objValue;
-    }
-
-    public static List<PackageInfo> parseItems(String str, JSONObject jSONObject) {
+    public static List parseItems(String str, JSONObject jSONObject) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, jSONObject)) == null) {
@@ -147,6 +134,25 @@ public class ParseUtils {
             return null;
         }
         return (List) invokeLL.objValue;
+    }
+
+    @Deprecated
+    public static List parseItems(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject)) == null) {
+            return parseItems("aps", jSONObject);
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public static PackageInfo parsePkgItem(String str, String str2, JSONObject jSONObject) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, str, str2, jSONObject)) == null) {
+            return parsePkgItem(true, str, str2, jSONObject);
+        }
+        return (PackageInfo) invokeLLL.objValue;
     }
 
     public static PackageInfo parsePkgItem(boolean z, String str, String str2, JSONObject jSONObject) {

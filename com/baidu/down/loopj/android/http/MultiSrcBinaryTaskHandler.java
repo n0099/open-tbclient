@@ -7,6 +7,7 @@ import com.baidu.down.loopj.android.request.handler.ICommonRequestHandler;
 import com.baidu.down.request.task.BinaryReqTask;
 import com.baidu.down.request.task.MultiSrcBinaryReqTask;
 import com.baidu.down.request.taskmanager.ByteArrayInfo;
+import com.baidu.down.request.taskmanager.HttpDNSCacheInfo;
 import com.baidu.down.request.taskmanager.HttpDNSInfo;
 import com.baidu.down.request.taskmanager.OnFetchDataRequestListener;
 import com.baidu.down.request.taskmanager.TaskFacade;
@@ -66,6 +67,53 @@ public class MultiSrcBinaryTaskHandler extends BinaryReqTask.BinaryTaskHandler {
         }
     }
 
+    public boolean isDownInfoNeedRequest() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return ((MultiSrcBinaryReqTask) this.mtask).isDownInfoNeedRequest();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isNeedMultiSrc() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.isNeedMultiSrc;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isNeedStat() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (((MultiSrcBinaryReqTask) this.mtask).mPauseNum < 3 && getTestSpeedStage() == 2) {
+                ((MultiSrcBinaryReqTask) this.mtask).mPauseNum++;
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isNeedTestSpeed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.isNeedTestSpeed;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void multiSrcToNormal() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            ((MultiSrcBinaryReqTask) this.mtask).multiSrcToNormal();
+        }
+    }
+
     public void handlerCDNRedirectUrl(ICommonRequestHandler iCommonRequestHandler, AsyncHttpRequest asyncHttpRequest) {
         String noMeasuredUrl;
         Interceptable interceptable = $ic;
@@ -94,35 +142,11 @@ public class MultiSrcBinaryTaskHandler extends BinaryReqTask.BinaryTaskHandler {
         }
     }
 
-    public boolean isDownInfoNeedRequest() {
-        InterceptResult invokeV;
+    public void setHttpDNSInfoStatus(String str, int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? ((MultiSrcBinaryReqTask) this.mtask).isDownInfoNeedRequest() : invokeV.booleanValue;
-    }
-
-    public boolean isNeedMultiSrc() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.isNeedMultiSrc : invokeV.booleanValue;
-    }
-
-    public boolean isNeedStat() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (((MultiSrcBinaryReqTask) this.mtask).mPauseNum >= 3 || getTestSpeedStage() != 2) {
-                return false;
-            }
-            ((MultiSrcBinaryReqTask) this.mtask).mPauseNum++;
-            return true;
+        if (interceptable == null || interceptable.invokeLI(1048588, this, str, i) == null) {
+            ((MultiSrcBinaryReqTask) this.mtask).setHttpDNSInfoStatus(str, i);
         }
-        return invokeV.booleanValue;
-    }
-
-    public boolean isNeedTestSpeed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.isNeedTestSpeed : invokeV.booleanValue;
     }
 
     public boolean isReTryDownloadInfo() {
@@ -132,7 +156,10 @@ public class MultiSrcBinaryTaskHandler extends BinaryReqTask.BinaryTaskHandler {
             if (TaskFacade.getInstance(null).getBinaryTaskMng().getPatternConfig().patternType != 1) {
                 return false;
             }
-            return isReTryHttpDNSInfo() || isDownInfoNeedRequest();
+            if (!isReTryHttpDNSInfo() && !isDownInfoNeedRequest()) {
+                return false;
+            }
+            return true;
         }
         return invokeV.booleanValue;
     }
@@ -142,16 +169,13 @@ public class MultiSrcBinaryTaskHandler extends BinaryReqTask.BinaryTaskHandler {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             String wifiOr2gOr3G = Utils.getWifiOr2gOr3G(this.mtask.mContext);
-            return this.isNeedMultiSrc && this.mTestSpeedStage == 2 && !TextUtils.isEmpty(wifiOr2gOr3G) && !this.mMultiSrcStatData.network.equals(wifiOr2gOr3G) && TaskFacade.getInstance(null).getBinaryTaskMng().getHttpDNSCacheInfo() == null;
+            HttpDNSCacheInfo httpDNSCacheInfo = TaskFacade.getInstance(null).getBinaryTaskMng().getHttpDNSCacheInfo();
+            if (this.isNeedMultiSrc && this.mTestSpeedStage == 2 && !TextUtils.isEmpty(wifiOr2gOr3G) && !this.mMultiSrcStatData.network.equals(wifiOr2gOr3G) && httpDNSCacheInfo == null) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
-    }
-
-    public void multiSrcToNormal() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            ((MultiSrcBinaryReqTask) this.mtask).multiSrcToNormal();
-        }
     }
 
     @Override // com.baidu.down.loopj.android.http.BinaryHttpResponseHandler
@@ -243,13 +267,6 @@ public class MultiSrcBinaryTaskHandler extends BinaryReqTask.BinaryTaskHandler {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048587, this, onFetchDataRequestListener) == null) && TaskFacade.getInstance(null).getBinaryTaskMng().getPatternConfig().patternType == 1) {
             ((MultiSrcBinaryReqTask) this.mtask).retryServerInfo(onFetchDataRequestListener);
-        }
-    }
-
-    public void setHttpDNSInfoStatus(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048588, this, str, i) == null) {
-            ((MultiSrcBinaryReqTask) this.mtask).setHttpDNSInfoStatus(str, i);
         }
     }
 

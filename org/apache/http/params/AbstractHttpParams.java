@@ -70,26 +70,6 @@ public abstract class AbstractHttpParams implements HttpParams {
     }
 
     @Override // org.apache.http.params.HttpParams
-    public boolean isParameterFalse(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // org.apache.http.params.HttpParams
-    public boolean isParameterTrue(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // org.apache.http.params.HttpParams
     public HttpParams setBooleanParameter(String str, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
@@ -127,5 +107,25 @@ public abstract class AbstractHttpParams implements HttpParams {
             throw new RuntimeException("Stub!");
         }
         return (HttpParams) invokeLJ.objValue;
+    }
+
+    @Override // org.apache.http.params.HttpParams
+    public boolean isParameterFalse(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // org.apache.http.params.HttpParams
+    public boolean isParameterTrue(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeL.booleanValue;
     }
 }

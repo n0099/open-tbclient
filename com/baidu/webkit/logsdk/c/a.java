@@ -14,7 +14,7 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public Vector<String> b;
+    public Vector b;
 
     public a(String str) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public final class a {
             }
         }
         this.a = str;
-        this.b = new Vector<>();
+        this.b = new Vector();
     }
 
     public final int a(String str) {

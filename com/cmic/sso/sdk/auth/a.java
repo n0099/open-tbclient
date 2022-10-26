@@ -1,6 +1,5 @@
 package com.cmic.sso.sdk.auth;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
@@ -14,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.cmic.sso.sdk.b;
-import com.cmic.sso.sdk.c.c.d;
+import com.cmic.sso.sdk.e.d;
 import com.cmic.sso.sdk.e.h;
 import com.cmic.sso.sdk.e.k;
 import com.cmic.sso.sdk.e.l;
@@ -25,7 +24,6 @@ import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
-    @SuppressLint({"StaticFieldLeak"})
     public static a c;
     public transient /* synthetic */ FieldHolder $fh;
     public final com.cmic.sso.sdk.c.c.a a;
@@ -65,57 +63,6 @@ public class a {
         this.a = com.cmic.sso.sdk.c.c.a.a();
     }
 
-    private void b(com.cmic.sso.sdk.a aVar, b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, this, aVar, bVar) == null) {
-            com.cmic.sso.sdk.e.c.b("AuthnBusiness", "getScripAndToken start");
-            a(aVar);
-            if (!aVar.b("isCacheScrip", false)) {
-                b(aVar);
-            }
-            if (aVar.c("logintype") == 1) {
-                aVar.a("userCapaid", BasicPushStatus.SUCCESS_CODE);
-            } else if (aVar.c("logintype") == 0) {
-                aVar.a("userCapaid", "50");
-            }
-            this.a.a(aVar, new d(this, aVar, bVar) { // from class: com.cmic.sso.sdk.auth.a.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ com.cmic.sso.sdk.a a;
-                public final /* synthetic */ b b;
-                public final /* synthetic */ a c;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, aVar, bVar};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.c = this;
-                    this.a = aVar;
-                    this.b = bVar;
-                }
-
-                @Override // com.cmic.sso.sdk.c.c.d
-                public void a(String str, String str2, JSONObject jSONObject) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLLL(1048576, this, str, str2, jSONObject) == null) {
-                        this.c.a(this.a, this.b, str, str2, jSONObject);
-                    }
-                }
-            });
-        }
-    }
-
     public static a a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -132,52 +79,11 @@ public class a {
         return (a) invokeL.objValue;
     }
 
-    public void a(com.cmic.sso.sdk.a aVar, b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, aVar, bVar) == null) {
-            com.cmic.sso.sdk.e.c.b("AuthnBusiness", "LoginCheck method start");
-            int c2 = aVar.c("logintype");
-            if (aVar.b("isCacheScrip", false)) {
-                String b = aVar.b("securityphone", "");
-                if (c2 == 3) {
-                    bVar.a("103000", "true", aVar, c.a(b));
-                    return;
-                } else {
-                    b(aVar, bVar);
-                    return;
-                }
-            }
-            b(aVar, bVar);
-        }
-    }
-
-    private void b(com.cmic.sso.sdk.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, this, aVar) == null) {
-            byte[] bArr = new byte[0];
-            if (aVar.b("use2048PublicKey", false)) {
-                com.cmic.sso.sdk.e.c.a("AuthnBusiness", "使用2048公钥对应的对称秘钥生成方式");
-                bArr = com.cmic.sso.sdk.e.a.a();
-            } else {
-                com.cmic.sso.sdk.e.c.a("AuthnBusiness", "使用1024公钥对应的对称秘钥生成方式");
-                try {
-                    bArr = UUID.randomUUID().toString().substring(0, 16).getBytes(IMAudioTransRequest.CHARSET);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            byte[] a = com.cmic.sso.sdk.e.a.a();
-            aVar.a(b.a.a, bArr);
-            aVar.a(b.a.b, a);
-            aVar.a("authType", "3");
-        }
-    }
-
     private void a(com.cmic.sso.sdk.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, aVar) == null) {
             String packageName = this.b.getPackageName();
-            String a = com.cmic.sso.sdk.e.d.a(l.a(this.b, packageName));
+            String a = d.a(l.a(this.b, packageName));
             aVar.a("apppackage", packageName);
             aVar.a("appsign", a);
         }
@@ -288,6 +194,99 @@ public class a {
             } else {
                 bVar.a(str, str2, aVar, jSONObject);
             }
+        }
+    }
+
+    private void b(com.cmic.sso.sdk.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, this, aVar) == null) {
+            byte[] bArr = new byte[0];
+            if (aVar.b("use2048PublicKey", false)) {
+                com.cmic.sso.sdk.e.c.a("AuthnBusiness", "使用2048公钥对应的对称秘钥生成方式");
+                bArr = com.cmic.sso.sdk.e.a.a();
+            } else {
+                com.cmic.sso.sdk.e.c.a("AuthnBusiness", "使用1024公钥对应的对称秘钥生成方式");
+                try {
+                    bArr = UUID.randomUUID().toString().substring(0, 16).getBytes(IMAudioTransRequest.CHARSET);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            byte[] a = com.cmic.sso.sdk.e.a.a();
+            aVar.a(b.a.a, bArr);
+            aVar.a(b.a.b, a);
+            aVar.a("authType", "3");
+        }
+    }
+
+    private void b(com.cmic.sso.sdk.a aVar, b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65543, this, aVar, bVar) == null) {
+            com.cmic.sso.sdk.e.c.b("AuthnBusiness", "getScripAndToken start");
+            a(aVar);
+            if (!aVar.b("isCacheScrip", false)) {
+                b(aVar);
+            }
+            if (aVar.c("logintype") == 1) {
+                aVar.a("userCapaid", BasicPushStatus.SUCCESS_CODE);
+            } else if (aVar.c("logintype") == 0) {
+                aVar.a("userCapaid", "50");
+            }
+            this.a.a(aVar, new com.cmic.sso.sdk.c.c.d(this, aVar, bVar) { // from class: com.cmic.sso.sdk.auth.a.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ com.cmic.sso.sdk.a a;
+                public final /* synthetic */ b b;
+                public final /* synthetic */ a c;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, aVar, bVar};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.c = this;
+                    this.a = aVar;
+                    this.b = bVar;
+                }
+
+                @Override // com.cmic.sso.sdk.c.c.d
+                public void a(String str, String str2, JSONObject jSONObject) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null && interceptable2.invokeLLL(1048576, this, str, str2, jSONObject) != null) {
+                        return;
+                    }
+                    this.c.a(this.a, this.b, str, str2, jSONObject);
+                }
+            });
+        }
+    }
+
+    public void a(com.cmic.sso.sdk.a aVar, b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, aVar, bVar) == null) {
+            com.cmic.sso.sdk.e.c.b("AuthnBusiness", "LoginCheck method start");
+            int c2 = aVar.c("logintype");
+            if (aVar.b("isCacheScrip", false)) {
+                String b = aVar.b("securityphone", "");
+                if (c2 == 3) {
+                    bVar.a("103000", "true", aVar, c.a(b));
+                    return;
+                } else {
+                    b(aVar, bVar);
+                    return;
+                }
+            }
+            b(aVar, bVar);
         }
     }
 }

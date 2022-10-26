@@ -3,8 +3,6 @@ package androidx.core.widget;
 import android.os.Build;
 import android.view.View;
 import android.widget.ListPopupWindow;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,15 +27,7 @@ public final class ListPopupWindowCompat {
         }
     }
 
-    @Deprecated
-    public static View.OnTouchListener createDragToOpenListener(Object obj, View view2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, obj, view2)) == null) ? createDragToOpenListener((ListPopupWindow) obj, view2) : (View.OnTouchListener) invokeLL.objValue;
-    }
-
-    @Nullable
-    public static View.OnTouchListener createDragToOpenListener(@NonNull ListPopupWindow listPopupWindow, @NonNull View view2) {
+    public static View.OnTouchListener createDragToOpenListener(ListPopupWindow listPopupWindow, View view2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, listPopupWindow, view2)) == null) {
@@ -45,6 +35,16 @@ public final class ListPopupWindowCompat {
                 return listPopupWindow.createDragToOpenListener(view2);
             }
             return null;
+        }
+        return (View.OnTouchListener) invokeLL.objValue;
+    }
+
+    @Deprecated
+    public static View.OnTouchListener createDragToOpenListener(Object obj, View view2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, obj, view2)) == null) {
+            return createDragToOpenListener((ListPopupWindow) obj, view2);
         }
         return (View.OnTouchListener) invokeLL.objValue;
     }

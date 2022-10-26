@@ -12,6 +12,16 @@ public abstract class NotifyMsg extends ChatMsg {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
+    public String getRecommendDescription() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
     public NotifyMsg() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -26,24 +36,6 @@ public abstract class NotifyMsg extends ChatMsg {
             }
         }
         setCategory(2);
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
-    public String getRecommendDescription() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i) == null) {
-            super.writeToParcel(parcel, i);
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -63,6 +55,14 @@ public abstract class NotifyMsg extends ChatMsg {
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
+        }
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i) == null) {
+            super.writeToParcel(parcel, i);
         }
     }
 }

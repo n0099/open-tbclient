@@ -1,16 +1,13 @@
 package com.google.android.gms.common.util.concurrent;
 
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.gms.common.annotation.KeepForSdk;
 import com.google.android.gms.common.internal.Preconditions;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
-@KeepForSdk
 /* loaded from: classes7.dex */
 public class NamedThreadFactory implements ThreadFactory {
     public static /* synthetic */ Interceptable $ic;
@@ -18,8 +15,7 @@ public class NamedThreadFactory implements ThreadFactory {
     public final String zza;
     public final ThreadFactory zzb;
 
-    @KeepForSdk
-    public NamedThreadFactory(@NonNull String str) {
+    public NamedThreadFactory(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -40,8 +36,7 @@ public class NamedThreadFactory implements ThreadFactory {
     }
 
     @Override // java.util.concurrent.ThreadFactory
-    @NonNull
-    public final Thread newThread(@NonNull Runnable runnable) {
+    public final Thread newThread(Runnable runnable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {

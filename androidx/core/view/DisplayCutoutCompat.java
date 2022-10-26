@@ -3,7 +3,6 @@ package androidx.core.view;
 import android.graphics.Rect;
 import android.os.Build;
 import android.view.DisplayCutout;
-import androidx.annotation.RequiresApi;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,9 +16,13 @@ public final class DisplayCutoutCompat {
     public transient /* synthetic */ FieldHolder $fh;
     public final Object mDisplayCutout;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public DisplayCutoutCompat(Rect rect, List<Rect> list) {
-        this(Build.VERSION.SDK_INT >= 28 ? new DisplayCutout(rect, list) : null);
+        this(r0);
+        DisplayCutout displayCutout;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -35,6 +38,29 @@ public final class DisplayCutoutCompat {
                 return;
             }
         }
+        if (Build.VERSION.SDK_INT >= 28) {
+            displayCutout = new DisplayCutout(rect, list);
+        } else {
+            displayCutout = null;
+        }
+    }
+
+    public DisplayCutoutCompat(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {obj};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mDisplayCutout = obj;
     }
 
     public static DisplayCutoutCompat wrap(Object obj) {
@@ -62,7 +88,10 @@ public final class DisplayCutoutCompat {
             DisplayCutoutCompat displayCutoutCompat = (DisplayCutoutCompat) obj;
             Object obj2 = this.mDisplayCutout;
             if (obj2 == null) {
-                return displayCutoutCompat.mDisplayCutout == null;
+                if (displayCutoutCompat.mDisplayCutout == null) {
+                    return true;
+                }
+                return false;
             }
             return obj2.equals(displayCutoutCompat.mDisplayCutout);
         }
@@ -151,28 +180,12 @@ public final class DisplayCutoutCompat {
         return (String) invokeV.objValue;
     }
 
-    @RequiresApi(api = 28)
     public DisplayCutout unwrap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (DisplayCutout) this.mDisplayCutout : (DisplayCutout) invokeV.objValue;
-    }
-
-    public DisplayCutoutCompat(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {obj};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return (DisplayCutout) this.mDisplayCutout;
         }
-        this.mDisplayCutout = obj;
+        return (DisplayCutout) invokeV.objValue;
     }
 }

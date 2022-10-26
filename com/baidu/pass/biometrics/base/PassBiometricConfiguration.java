@@ -21,7 +21,7 @@ public class PassBiometricConfiguration {
     public final String appId;
     public final String appSignKey;
     public Application b;
-    public Map<String, String> faceResPaths;
+    public Map faceResPaths;
     public final String licenseFileName;
     public final String licenseID;
     public String passDomain;
@@ -33,13 +33,13 @@ public class PassBiometricConfiguration {
 
     /* renamed from: com.baidu.pass.biometrics.base.PassBiometricConfiguration$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes2.dex */
-    public static class Builder {
+    public class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -55,7 +55,7 @@ public class PassBiometricConfiguration {
         public boolean k;
         public Application l;
         public boolean m;
-        public Map<String, String> n;
+        public Map n;
 
         public Builder(Application application) {
             Interceptable interceptable = $ic;
@@ -78,21 +78,6 @@ public class PassBiometricConfiguration {
             this.l = application;
         }
 
-        public PassBiometricConfiguration build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (!TextUtils.isEmpty(this.a) && !TextUtils.isEmpty(this.b) && !TextUtils.isEmpty(this.c)) {
-                    if (this.f == null) {
-                        this.f = PassBioEnv.PASSPORT_DOMAIN;
-                    }
-                    return new PassBiometricConfiguration(this, null);
-                }
-                throw new IllegalArgumentException("tpl, appId, appsignkey, passProductId can not be null, please use setProductLineInfo(String tpl, String appId, String appSignKey, String passProductId)to initialize them.");
-            }
-            return (PassBiometricConfiguration) invokeV.objValue;
-        }
-
         public Builder debug(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
@@ -113,7 +98,7 @@ public class PassBiometricConfiguration {
             return (Builder) invokeZ.objValue;
         }
 
-        public Builder setFaceResPaths(Map<String, String> map) {
+        public Builder setFaceResPaths(Map map) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, map)) == null) {
@@ -121,6 +106,41 @@ public class PassBiometricConfiguration {
                 return this;
             }
             return (Builder) invokeL.objValue;
+        }
+
+        public Builder setRuntimeEnvironment(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+                this.f = str;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
+        }
+
+        public Builder showPmnRationaleDialog(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
+                this.j = z;
+                return this;
+            }
+            return (Builder) invokeZ.objValue;
+        }
+
+        public PassBiometricConfiguration build() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (!TextUtils.isEmpty(this.a) && !TextUtils.isEmpty(this.b) && !TextUtils.isEmpty(this.c)) {
+                    if (this.f == null) {
+                        this.f = PassBioEnv.PASSPORT_DOMAIN;
+                    }
+                    return new PassBiometricConfiguration(this, null);
+                }
+                throw new IllegalArgumentException("tpl, appId, appsignkey, passProductId can not be null, please use setProductLineInfo(String tpl, String appId, String appSignKey, String passProductId)to initialize them.");
+            }
+            return (PassBiometricConfiguration) invokeV.objValue;
         }
 
         public Builder setProductLicenseInfo(String str, String str2) {
@@ -146,26 +166,6 @@ public class PassBiometricConfiguration {
             return (Builder) invokeLLL.objValue;
         }
 
-        public Builder setRuntimeEnvironment(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-                this.f = str;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
-        }
-
-        public Builder showPmnRationaleDialog(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
-                this.j = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
-        }
-
         public Builder sofireSdkConfig(String str, String str2, int i) {
             InterceptResult invokeLLI;
             Interceptable interceptable = $ic;
@@ -176,36 +176,6 @@ public class PassBiometricConfiguration {
                 return this;
             }
             return (Builder) invokeLLI.objValue;
-        }
-    }
-
-    public /* synthetic */ PassBiometricConfiguration(Builder builder, AnonymousClass1 anonymousClass1) {
-        this(builder);
-    }
-
-    public void debug(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            Log.enable(z);
-        }
-    }
-
-    public Application getApplication() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (Application) invokeV.objValue;
-    }
-
-    public boolean isAgreeDangerousProtocol() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.booleanValue;
-    }
-
-    public void setAgreeDangerousProtocol(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.a = z;
         }
     }
 
@@ -239,5 +209,41 @@ public class PassBiometricConfiguration {
         this.showPmnRationaleDialog = builder.j;
         this.b = builder.l;
         this.faceResPaths = builder.n;
+    }
+
+    public /* synthetic */ PassBiometricConfiguration(Builder builder, AnonymousClass1 anonymousClass1) {
+        this(builder);
+    }
+
+    public void debug(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            Log.enable(z);
+        }
+    }
+
+    public void setAgreeDangerousProtocol(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.a = z;
+        }
+    }
+
+    public Application getApplication() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (Application) invokeV.objValue;
+    }
+
+    public boolean isAgreeDangerousProtocol() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return invokeV.booleanValue;
     }
 }

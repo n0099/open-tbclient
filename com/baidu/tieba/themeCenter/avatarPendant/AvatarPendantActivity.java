@@ -20,14 +20,14 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.data.UserPendantData;
 import com.baidu.tbadk.util.BdListViewHelper;
-import com.baidu.tieba.os8;
-import com.baidu.tieba.ps8;
-import com.baidu.tieba.qs8;
-import com.baidu.tieba.ss8;
-import com.baidu.tieba.st8;
+import com.baidu.tieba.at8;
+import com.baidu.tieba.ct8;
+import com.baidu.tieba.cu8;
 import com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantModel;
 import com.baidu.tieba.themeCenter.avatarPendant.SetAvatarPendantModel;
 import com.baidu.tieba.themeCenter.background.DressItemData;
+import com.baidu.tieba.ys8;
+import com.baidu.tieba.zs8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,10 +35,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class AvatarPendantActivity extends BaseActivity implements ss8.a, SetAvatarPendantModel.b, View.OnClickListener {
+public class AvatarPendantActivity extends BaseActivity implements ct8.a, SetAvatarPendantModel.b, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ss8 a;
+    public ct8 a;
     public AvatarPendantModel b;
     public SetAvatarPendantModel c;
     public String d;
@@ -71,16 +71,16 @@ public class AvatarPendantActivity extends BaseActivity implements ss8.a, SetAva
         }
 
         @Override // com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantModel.b
-        public void a(int i, String str, st8 st8Var, List<qs8> list) {
+        public void a(int i, String str, cu8 cu8Var, List list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, st8Var, list}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, cu8Var, list}) == null) {
                 AvatarPendantActivity avatarPendantActivity = this.a;
                 avatarPendantActivity.hideLoadingView(avatarPendantActivity.a.m());
-                if (i == 0) {
-                    this.a.a.t(st8Var, list);
-                } else {
+                if (i != 0) {
                     this.a.showToast(str);
                     this.a.a.s();
+                } else {
+                    this.a.a.t(cu8Var, list);
                 }
                 this.a.e = !ListUtils.isEmpty(list);
             }
@@ -112,7 +112,7 @@ public class AvatarPendantActivity extends BaseActivity implements ss8.a, SetAva
         }
 
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
-        public void g(boolean z) {
+        public void d(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 BdListViewHelper.c(this.a.a.n(), BdListViewHelper.HeadType.DEFAULT, z);
@@ -138,7 +138,7 @@ public class AvatarPendantActivity extends BaseActivity implements ss8.a, SetAva
         this.g = new b(this);
     }
 
-    public final boolean B1() {
+    public final boolean A1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -146,13 +146,33 @@ public class AvatarPendantActivity extends BaseActivity implements ss8.a, SetAva
                 return true;
             }
             TiebaStatic.log("c11615");
-            TbadkCoreApplication.getInst().login(getPageContext(), new CustomMessage<>(2002001, new LoginActivityConfig(getPageContext().getPageActivity(), true, 11041)));
+            TbadkCoreApplication.getInst().login(getPageContext(), new CustomMessage(2002001, new LoginActivityConfig(getPageContext().getPageActivity(), true, 11041)));
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    public final String C1(DressItemData dressItemData) {
+    @Override // com.baidu.tbadk.BaseActivity
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.a.o();
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
+            super.onCreate(bundle);
+            C1();
+            initData();
+            showLoadingView(this.a.m());
+            this.b.loadData();
+        }
+    }
+
+    public final String B1(DressItemData dressItemData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dressItemData)) == null) {
@@ -160,20 +180,20 @@ public class AvatarPendantActivity extends BaseActivity implements ss8.a, SetAva
             if (dressItemData == null) {
                 return "";
             }
-            List<qs8> E = this.b.E();
+            List E = this.b.E();
             if (E != null && E.size() > 0) {
                 int size = E.size();
                 for (int i = 0; i < size; i++) {
-                    if (E.get(i) != null && !ListUtils.isEmpty(E.get(i).b())) {
-                        List<DressItemData> b2 = E.get(i).b();
+                    if (E.get(i) != null && !ListUtils.isEmpty(((at8) E.get(i)).b())) {
+                        List b2 = ((at8) E.get(i)).b();
                         int size2 = b2.size();
                         int i2 = 0;
                         while (true) {
                             if (i2 >= size2) {
                                 break;
                             }
-                            if (b2.get(i2) != null && dressItemData.getPropsId() == b2.get(i2).getPropsId()) {
-                                str = E.get(i).a();
+                            if (b2.get(i2) != null && dressItemData.getPropsId() == ((DressItemData) b2.get(i2)).getPropsId()) {
+                                str = ((at8) E.get(i)).a();
                                 break;
                             }
                             i2++;
@@ -186,38 +206,13 @@ public class AvatarPendantActivity extends BaseActivity implements ss8.a, SetAva
         return (String) invokeL.objValue;
     }
 
-    public final void D1() {
+    public final void C1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ss8 ss8Var = new ss8(this);
-            this.a = ss8Var;
-            ss8Var.j(this.g);
+            ct8 ct8Var = new ct8(this);
+            this.a = ct8Var;
+            ct8Var.j(this.g);
             this.a.r(this);
-        }
-    }
-
-    public void E1(int i, String str, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) {
-            int i3 = i2 == 101 ? 9 : 0;
-            if (StringUtils.isNull(str)) {
-                return;
-            }
-            if (i == ps8.a) {
-                os8.d(getPageContext(), 7, str, i3, MemberPayStatistic.REFER_PAGE_AVANTAR_PENDANT, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_RENEWWALFEE_BUTTON);
-            } else if (i == ps8.b) {
-                os8.c(getPageContext(), 7, str, i3);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ss8.a
-    public void S0(DressItemData dressItemData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, dressItemData) == null) && B1() && dressItemData != null && dressItemData.getPropsId() >= 0 && this.e) {
-            this.d = C1(dressItemData);
-            TiebaStatic.log(new StatisticItem("c11614").param("obj_type", this.d));
-            this.c.E(dressItemData.getPropsId(), 1, dressItemData.getFreeUserLevel());
         }
     }
 
@@ -233,89 +228,6 @@ public class AvatarPendantActivity extends BaseActivity implements ss8.a, SetAva
         }
     }
 
-    @Override // com.baidu.tieba.themeCenter.avatarPendant.SetAvatarPendantModel.b
-    public void l1(boolean z, long j, int i, String str, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j), Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) {
-            if (!z) {
-                E1(i2, str, i);
-                return;
-            }
-            List<qs8> E = this.b.E();
-            if (E == null || E.size() <= 0) {
-                return;
-            }
-            if (i == 0) {
-                TiebaStatic.log("c11681");
-            } else {
-                TiebaStatic.log("c11682");
-            }
-            int size = E.size();
-            String str2 = "";
-            for (int i3 = 0; i3 < size; i3++) {
-                if (E.get(i3) != null && !ListUtils.isEmpty(E.get(i3).b())) {
-                    List<DressItemData> b2 = E.get(i3).b();
-                    int size2 = b2.size();
-                    for (int i4 = 0; i4 < size2; i4++) {
-                        if (b2.get(i4) != null && j == b2.get(i4).getPropsId()) {
-                            b2.get(i4).setInUse(true);
-                            str2 = b2.get(i4).getExampleImgUrl();
-                        } else {
-                            b2.get(i4).setInUse(false);
-                        }
-                    }
-                }
-            }
-            UserPendantData userPendantData = new UserPendantData();
-            userPendantData.setPropsId(j);
-            userPendantData.setImgUrl(str2);
-            this.a.p(this.b.E());
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016485, userPendantData));
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048583, this, i, i2, intent) == null) {
-            super.onActivityResult(i, i2, intent);
-            if (i2 == -1 && i == 11041) {
-                this.b.loadData();
-            }
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.a.o();
-        }
-    }
-
-    @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, view2) == null) && view2 == this.a.l().getButton() && B1()) {
-            TiebaStatic.log("c11613");
-            MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(getActivity(), TbadkCoreApplication.getCurrentMemberType(), "", 22);
-            memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_AVANTAR_PENDANT, MemberPayStatistic.CLICK_ZONE_OPENDE_RENEWALFEE_BUTTON);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
-            super.onCreate(bundle);
-            D1();
-            initData();
-            showLoadingView(this.a.m());
-            this.b.loadData();
-        }
-    }
-
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
@@ -328,12 +240,102 @@ public class AvatarPendantActivity extends BaseActivity implements ss8.a, SetAva
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        ss8 ss8Var;
+        ct8 ct8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || this.b == null || (ss8Var = this.a) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && this.b != null && (ct8Var = this.a) != null) {
+            showLoadingView(ct8Var.m());
+            this.b.loadData();
         }
-        showLoadingView(ss8Var.m());
-        this.b.loadData();
+    }
+
+    public void D1(int i, String str, int i2) {
+        int i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) {
+            if (i2 == 101) {
+                i3 = 9;
+            } else {
+                i3 = 0;
+            }
+            if (!StringUtils.isNull(str)) {
+                if (i == zs8.a) {
+                    ys8.d(getPageContext(), 7, str, i3, MemberPayStatistic.REFER_PAGE_AVANTAR_PENDANT, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_RENEWWALFEE_BUTTON);
+                } else if (i == zs8.b) {
+                    ys8.c(getPageContext(), 7, str, i3);
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.ct8.a
+    public void R0(DressItemData dressItemData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, dressItemData) == null) && A1() && dressItemData != null && dressItemData.getPropsId() >= 0 && this.e) {
+            this.d = B1(dressItemData);
+            TiebaStatic.log(new StatisticItem("c11614").param("obj_type", this.d));
+            this.c.E(dressItemData.getPropsId(), 1, dressItemData.getFreeUserLevel());
+        }
+    }
+
+    @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048585, this, view2) == null) && view2 == this.a.l().getButton() && A1()) {
+            TiebaStatic.log("c11613");
+            MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(getActivity(), TbadkCoreApplication.getCurrentMemberType(), "", 22);
+            memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_AVANTAR_PENDANT, MemberPayStatistic.CLICK_ZONE_OPENDE_RENEWALFEE_BUTTON);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
+        }
+    }
+
+    @Override // com.baidu.tieba.themeCenter.avatarPendant.SetAvatarPendantModel.b
+    public void k1(boolean z, long j, int i, String str, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j), Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) {
+            if (!z) {
+                D1(i2, str, i);
+                return;
+            }
+            List E = this.b.E();
+            if (E != null && E.size() > 0) {
+                if (i == 0) {
+                    TiebaStatic.log("c11681");
+                } else {
+                    TiebaStatic.log("c11682");
+                }
+                int size = E.size();
+                String str2 = "";
+                for (int i3 = 0; i3 < size; i3++) {
+                    if (E.get(i3) != null && !ListUtils.isEmpty(((at8) E.get(i3)).b())) {
+                        List b2 = ((at8) E.get(i3)).b();
+                        int size2 = b2.size();
+                        for (int i4 = 0; i4 < size2; i4++) {
+                            if (b2.get(i4) != null && j == ((DressItemData) b2.get(i4)).getPropsId()) {
+                                ((DressItemData) b2.get(i4)).setInUse(true);
+                                str2 = ((DressItemData) b2.get(i4)).getExampleImgUrl();
+                            } else {
+                                ((DressItemData) b2.get(i4)).setInUse(false);
+                            }
+                        }
+                    }
+                }
+                UserPendantData userPendantData = new UserPendantData();
+                userPendantData.setPropsId(j);
+                userPendantData.setImgUrl(str2);
+                this.a.p(this.b.E());
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016485, userPendantData));
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    public void onActivityResult(int i, int i2, Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(1048583, this, i, i2, intent) == null) {
+            super.onActivityResult(i, i2, intent);
+            if (i2 == -1 && i == 11041) {
+                this.b.loadData();
+            }
+        }
     }
 }

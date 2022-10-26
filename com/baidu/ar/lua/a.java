@@ -34,7 +34,7 @@ public class a implements c {
     }
 
     @Override // com.baidu.ar.lua.c
-    public void a(int i, int i2, HashMap<String, Object> hashMap) {
+    public void a(int i, int i2, HashMap hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, hashMap) == null) {
             if (i == 103) {
@@ -62,7 +62,7 @@ public class a implements c {
     }
 
     @Override // com.baidu.ar.lua.c
-    public List<Integer> n() {
+    public List n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Arrays.asList(103, 104) : (List) invokeV.objValue;

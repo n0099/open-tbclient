@@ -1,6 +1,5 @@
 package androidx.core.graphics;
 
-import android.annotation.SuppressLint;
 import android.graphics.Matrix;
 import android.graphics.Point;
 import android.graphics.PointF;
@@ -18,7 +17,6 @@ public final class RectKt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @SuppressLint({"CheckResult"})
     public static final Rect and(Rect rect, Rect rect2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -30,45 +28,25 @@ public final class RectKt {
         return (Rect) invokeLL.objValue;
     }
 
-    public static final int component1(Rect rect) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, rect)) == null) ? rect.left : invokeL.intValue;
-    }
-
-    public static final int component2(Rect rect) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, rect)) == null) ? rect.top : invokeL.intValue;
-    }
-
-    public static final int component3(Rect rect) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, rect)) == null) ? rect.right : invokeL.intValue;
-    }
-
-    public static final int component4(Rect rect) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, rect)) == null) ? rect.bottom : invokeL.intValue;
-    }
-
     public static final boolean contains(Rect rect, Point point) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, rect, point)) == null) ? rect.contains(point.x, point.y) : invokeLL.booleanValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, rect, point)) == null) {
+            return rect.contains(point.x, point.y);
+        }
+        return invokeLL.booleanValue;
     }
 
-    public static final Region minus(Rect rect, Rect rect2) {
-        InterceptResult invokeLL;
+    public static final Rect minus(Rect rect, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65552, null, rect, rect2)) == null) {
-            Region region = new Region(rect);
-            region.op(rect2, Region.Op.DIFFERENCE);
-            return region;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65548, null, rect, i)) == null) {
+            Rect rect2 = new Rect(rect);
+            int i2 = -i;
+            rect2.offset(i2, i2);
+            return rect2;
         }
-        return (Region) invokeLL.objValue;
+        return (Rect) invokeLI.objValue;
     }
 
     public static final Rect or(Rect rect, Rect rect2) {
@@ -82,52 +60,15 @@ public final class RectKt {
         return (Rect) invokeLL.objValue;
     }
 
-    public static final Rect plus(Rect rect, Rect rect2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65558, null, rect, rect2)) == null) {
-            Rect rect3 = new Rect(rect);
-            rect3.union(rect2);
-            return rect3;
-        }
-        return (Rect) invokeLL.objValue;
-    }
-
-    public static final Rect times(Rect rect, int i) {
+    public static final Rect plus(Rect rect, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65562, null, rect, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65556, null, rect, i)) == null) {
             Rect rect2 = new Rect(rect);
-            rect2.top *= i;
-            rect2.left *= i;
-            rect2.right *= i;
-            rect2.bottom *= i;
+            rect2.offset(i, i);
             return rect2;
         }
         return (Rect) invokeLI.objValue;
-    }
-
-    public static final Rect toRect(RectF rectF) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65565, null, rectF)) == null) {
-            Rect rect = new Rect();
-            rectF.roundOut(rect);
-            return rect;
-        }
-        return (Rect) invokeL.objValue;
-    }
-
-    public static final RectF toRectF(Rect rect) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65566, null, rect)) == null) ? new RectF(rect) : (RectF) invokeL.objValue;
-    }
-
-    public static final Region toRegion(Rect rect) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65567, null, rect)) == null) ? new Region(rect) : (Region) invokeL.objValue;
     }
 
     public static final RectF transform(RectF rectF, Matrix matrix) {
@@ -151,48 +92,6 @@ public final class RectKt {
         return (Region) invokeLL.objValue;
     }
 
-    public static final float component1(RectF rectF) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, rectF)) == null) ? rectF.left : invokeL.floatValue;
-    }
-
-    public static final float component2(RectF rectF) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, rectF)) == null) ? rectF.top : invokeL.floatValue;
-    }
-
-    public static final float component3(RectF rectF) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, rectF)) == null) ? rectF.right : invokeL.floatValue;
-    }
-
-    public static final float component4(RectF rectF) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, rectF)) == null) ? rectF.bottom : invokeL.floatValue;
-    }
-
-    public static final boolean contains(RectF rectF, PointF pointF) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, rectF, pointF)) == null) ? rectF.contains(pointF.x, pointF.y) : invokeLL.booleanValue;
-    }
-
-    public static final Region toRegion(RectF rectF) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65568, null, rectF)) == null) {
-            Rect rect = new Rect();
-            rectF.roundOut(rect);
-            return new Region(rect);
-        }
-        return (Region) invokeL.objValue;
-    }
-
-    @SuppressLint({"CheckResult"})
     public static final RectF and(RectF rectF, RectF rectF2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -204,16 +103,24 @@ public final class RectKt {
         return (RectF) invokeLL.objValue;
     }
 
-    public static final Rect minus(Rect rect, int i) {
-        InterceptResult invokeLI;
+    public static final boolean contains(RectF rectF, PointF pointF) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65548, null, rect, i)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, rectF, pointF)) == null) {
+            return rectF.contains(pointF.x, pointF.y);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static final Rect minus(Rect rect, Point point) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, rect, point)) == null) {
             Rect rect2 = new Rect(rect);
-            int i2 = -i;
-            rect2.offset(i2, i2);
+            rect2.offset(-point.x, -point.y);
             return rect2;
         }
-        return (Rect) invokeLI.objValue;
+        return (Rect) invokeLL.objValue;
     }
 
     public static final RectF or(RectF rectF, RectF rectF2) {
@@ -227,15 +134,15 @@ public final class RectKt {
         return (RectF) invokeLL.objValue;
     }
 
-    public static final RectF plus(RectF rectF, RectF rectF2) {
+    public static final Rect plus(Rect rect, Point point) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65561, null, rectF, rectF2)) == null) {
-            RectF rectF3 = new RectF(rectF);
-            rectF3.union(rectF2);
-            return rectF3;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65557, null, rect, point)) == null) {
+            Rect rect2 = new Rect(rect);
+            rect2.offset(point.x, point.y);
+            return rect2;
         }
-        return (RectF) invokeLL.objValue;
+        return (Rect) invokeLL.objValue;
     }
 
     public static final Region xor(RectF rectF, RectF rectF2) {
@@ -253,6 +160,118 @@ public final class RectKt {
         return (Region) invokeLL.objValue;
     }
 
+    public static final float component1(RectF rectF) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, rectF)) == null) {
+            return rectF.left;
+        }
+        return invokeL.floatValue;
+    }
+
+    public static final float component2(RectF rectF) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, rectF)) == null) {
+            return rectF.top;
+        }
+        return invokeL.floatValue;
+    }
+
+    public static final float component3(RectF rectF) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, rectF)) == null) {
+            return rectF.right;
+        }
+        return invokeL.floatValue;
+    }
+
+    public static final float component4(RectF rectF) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, rectF)) == null) {
+            return rectF.bottom;
+        }
+        return invokeL.floatValue;
+    }
+
+    public static final Rect toRect(RectF rectF) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65565, null, rectF)) == null) {
+            Rect rect = new Rect();
+            rectF.roundOut(rect);
+            return rect;
+        }
+        return (Rect) invokeL.objValue;
+    }
+
+    public static final RectF toRectF(Rect rect) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, rect)) == null) {
+            return new RectF(rect);
+        }
+        return (RectF) invokeL.objValue;
+    }
+
+    public static final Region toRegion(Rect rect) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65567, null, rect)) == null) {
+            return new Region(rect);
+        }
+        return (Region) invokeL.objValue;
+    }
+
+    public static final int component1(Rect rect) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, rect)) == null) {
+            return rect.left;
+        }
+        return invokeL.intValue;
+    }
+
+    public static final int component2(Rect rect) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, rect)) == null) {
+            return rect.top;
+        }
+        return invokeL.intValue;
+    }
+
+    public static final int component3(Rect rect) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, rect)) == null) {
+            return rect.right;
+        }
+        return invokeL.intValue;
+    }
+
+    public static final int component4(Rect rect) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, rect)) == null) {
+            return rect.bottom;
+        }
+        return invokeL.intValue;
+    }
+
+    public static final Region toRegion(RectF rectF) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65568, null, rectF)) == null) {
+            Rect rect = new Rect();
+            rectF.roundOut(rect);
+            return new Region(rect);
+        }
+        return (Region) invokeL.objValue;
+    }
+
     public static final RectF minus(RectF rectF, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
@@ -265,51 +284,15 @@ public final class RectKt {
         return (RectF) invokeLF.objValue;
     }
 
-    public static final Rect plus(Rect rect, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65556, null, rect, i)) == null) {
-            Rect rect2 = new Rect(rect);
-            rect2.offset(i, i);
-            return rect2;
-        }
-        return (Rect) invokeLI.objValue;
-    }
-
-    public static final RectF times(RectF rectF, float f) {
-        InterceptResult invokeLF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65563, null, rectF, f)) == null) {
-            RectF rectF2 = new RectF(rectF);
-            rectF2.top *= f;
-            rectF2.left *= f;
-            rectF2.right *= f;
-            rectF2.bottom *= f;
-            return rectF2;
-        }
-        return (RectF) invokeLF.objValue;
-    }
-
-    public static final Rect minus(Rect rect, Point point) {
+    public static final Rect plus(Rect rect, Rect rect2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, rect, point)) == null) {
-            Rect rect2 = new Rect(rect);
-            rect2.offset(-point.x, -point.y);
-            return rect2;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65558, null, rect, rect2)) == null) {
+            Rect rect3 = new Rect(rect);
+            rect3.union(rect2);
+            return rect3;
         }
         return (Rect) invokeLL.objValue;
-    }
-
-    public static final RectF plus(RectF rectF, float f) {
-        InterceptResult invokeLF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65559, null, rectF, f)) == null) {
-            RectF rectF2 = new RectF(rectF);
-            rectF2.offset(f, f);
-            return rectF2;
-        }
-        return (RectF) invokeLF.objValue;
     }
 
     public static final RectF minus(RectF rectF, PointF pointF) {
@@ -323,15 +306,37 @@ public final class RectKt {
         return (RectF) invokeLL.objValue;
     }
 
-    public static final Rect plus(Rect rect, Point point) {
+    public static final RectF plus(RectF rectF, float f) {
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65559, null, rectF, f)) == null) {
+            RectF rectF2 = new RectF(rectF);
+            rectF2.offset(f, f);
+            return rectF2;
+        }
+        return (RectF) invokeLF.objValue;
+    }
+
+    public static final Region minus(Rect rect, Rect rect2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65557, null, rect, point)) == null) {
-            Rect rect2 = new Rect(rect);
-            rect2.offset(point.x, point.y);
-            return rect2;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65552, null, rect, rect2)) == null) {
+            Region region = new Region(rect);
+            region.op(rect2, Region.Op.DIFFERENCE);
+            return region;
         }
-        return (Rect) invokeLL.objValue;
+        return (Region) invokeLL.objValue;
+    }
+
+    public static final RectF plus(RectF rectF, PointF pointF) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65560, null, rectF, pointF)) == null) {
+            RectF rectF2 = new RectF(rectF);
+            rectF2.offset(pointF.x, pointF.y);
+            return rectF2;
+        }
+        return (RectF) invokeLL.objValue;
     }
 
     public static final Region minus(RectF rectF, RectF rectF2) {
@@ -349,15 +354,43 @@ public final class RectKt {
         return (Region) invokeLL.objValue;
     }
 
-    public static final RectF plus(RectF rectF, PointF pointF) {
+    public static final RectF plus(RectF rectF, RectF rectF2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65560, null, rectF, pointF)) == null) {
-            RectF rectF2 = new RectF(rectF);
-            rectF2.offset(pointF.x, pointF.y);
-            return rectF2;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65561, null, rectF, rectF2)) == null) {
+            RectF rectF3 = new RectF(rectF);
+            rectF3.union(rectF2);
+            return rectF3;
         }
         return (RectF) invokeLL.objValue;
+    }
+
+    public static final Rect times(Rect rect, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65562, null, rect, i)) == null) {
+            Rect rect2 = new Rect(rect);
+            rect2.top *= i;
+            rect2.left *= i;
+            rect2.right *= i;
+            rect2.bottom *= i;
+            return rect2;
+        }
+        return (Rect) invokeLI.objValue;
+    }
+
+    public static final RectF times(RectF rectF, float f) {
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65563, null, rectF, f)) == null) {
+            RectF rectF2 = new RectF(rectF);
+            rectF2.top *= f;
+            rectF2.left *= f;
+            rectF2.right *= f;
+            rectF2.bottom *= f;
+            return rectF2;
+        }
+        return (RectF) invokeLF.objValue;
     }
 
     public static final RectF times(RectF rectF, int i) {

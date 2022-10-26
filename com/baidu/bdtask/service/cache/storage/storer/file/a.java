@@ -24,10 +24,26 @@ public final class a {
     public transient /* synthetic */ FieldHolder $fh;
     public final File a;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1328499172, "Lcom/baidu/bdtask/service/cache/storage/storer/file/a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1328499172, "Lcom/baidu/bdtask/service/cache/storage/storer/file/a;");
+                return;
+            }
+        }
+        b = new C0078a(null);
+    }
+
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0010\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\b\u0086\u0003\u0018\u00002\u00020\u0001B\t\b\u0002¢\u0006\u0004\b\u0005\u0010\u0006J\r\u0010\u0003\u001a\u00020\u0002¢\u0006\u0004\b\u0003\u0010\u0004¨\u0006\u0007"}, d2 = {"Lcom/baidu/bdtask/service/cache/storage/storer/file/FileStorageStorer$Companion;", "Lcom/baidu/bdtask/service/cache/storage/storer/file/history/b;", "Lcom/baidu/bdtask/service/cache/storage/storer/file/FileStorageStorer;", "with", "()Lcom/baidu/bdtask/service/cache/storage/storer/file/FileStorageStorer;", "<init>", "()V", "lib-bdtask-business-build_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* renamed from: com.baidu.bdtask.service.cache.storage.storer.file.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0078a implements b {
+    public final class C0078a implements b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -42,6 +58,17 @@ public final class a {
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
+            }
+        }
+
+        public /* synthetic */ C0078a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public void b(File file) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file) == null) {
+                b.a.a(this, file);
             }
         }
 
@@ -77,33 +104,6 @@ public final class a {
             }
             return (a) invokeV.objValue;
         }
-
-        public void b(File file) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file) == null) {
-                b.a.a(this, file);
-            }
-        }
-
-        public /* synthetic */ C0078a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1328499172, "Lcom/baidu/bdtask/service/cache/storage/storer/file/a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1328499172, "Lcom/baidu/bdtask/service/cache/storage/storer/file/a;");
-                return;
-            }
-        }
-        b = new C0078a(null);
     }
 
     public a(File file) {
@@ -141,17 +141,29 @@ public final class a {
     public final boolean b(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file)) == null) ? !file.exists() || file.length() == 0 : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file)) == null) {
+            if (file.exists() && file.length() != 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
     public byte[] c() {
         InterceptResult invokeV;
+        byte[] readBytes;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             File file = this.a;
             if (file != null) {
                 try {
-                    return b(file) ? new byte[0] : FilesKt__FileReadWriteKt.readBytes(this.a);
+                    if (b(file)) {
+                        readBytes = new byte[0];
+                    } else {
+                        readBytes = FilesKt__FileReadWriteKt.readBytes(this.a);
+                    }
+                    return readBytes;
                 } catch (Throwable th) {
                     DebugTrace.a.c(new FileStorageStorer$retrieve$1(th));
                     return new byte[0];

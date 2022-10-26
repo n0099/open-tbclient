@@ -33,7 +33,7 @@ public final class zzc extends PathClassLoader {
     }
 
     @Override // java.lang.ClassLoader
-    public final Class<?> loadClass(String str, boolean z) throws ClassNotFoundException {
+    public final Class loadClass(String str, boolean z) throws ClassNotFoundException {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, str, z)) == null) {

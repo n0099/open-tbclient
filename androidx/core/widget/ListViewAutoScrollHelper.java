@@ -2,7 +2,6 @@ package androidx.core.widget;
 
 import android.view.View;
 import android.widget.ListView;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,8 +14,18 @@ public class ListViewAutoScrollHelper extends AutoScrollHelper {
     public transient /* synthetic */ FieldHolder $fh;
     public final ListView mTarget;
 
+    @Override // androidx.core.widget.AutoScrollHelper
+    public boolean canTargetScrollHorizontally(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return false;
+        }
+        return invokeI.booleanValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ListViewAutoScrollHelper(@NonNull ListView listView) {
+    public ListViewAutoScrollHelper(ListView listView) {
         super(listView);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -34,16 +43,6 @@ public class ListViewAutoScrollHelper extends AutoScrollHelper {
             }
         }
         this.mTarget = listView;
-    }
-
-    @Override // androidx.core.widget.AutoScrollHelper
-    public boolean canTargetScrollHorizontally(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return false;
-        }
-        return invokeI.booleanValue;
     }
 
     @Override // androidx.core.widget.AutoScrollHelper

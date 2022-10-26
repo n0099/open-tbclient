@@ -17,10 +17,6 @@ public final class EmptyMap implements Map, Serializable, KMappedMarker {
     public static final EmptyMap INSTANCE = new EmptyMap();
     public static final long serialVersionUID = 8246714829545688274L;
 
-    private final Object readResolve() {
-        return INSTANCE;
-    }
-
     @Override // java.util.Map
     public void clear() {
         throw new UnsupportedOperationException("Operation is not supported for read-only collection");
@@ -31,32 +27,9 @@ public final class EmptyMap implements Map, Serializable, KMappedMarker {
         return false;
     }
 
-    @Override // java.util.Map
-    public final /* bridge */ boolean containsValue(Object obj) {
-        if (obj instanceof Void) {
-            return containsValue((Void) obj);
-        }
-        return false;
-    }
-
     public boolean containsValue(Void value) {
         Intrinsics.checkNotNullParameter(value, "value");
         return false;
-    }
-
-    @Override // java.util.Map
-    public final /* bridge */ Set<Map.Entry> entrySet() {
-        return getEntries();
-    }
-
-    @Override // java.util.Map
-    public boolean equals(Object obj) {
-        return (obj instanceof Map) && ((Map) obj).isEmpty();
-    }
-
-    @Override // java.util.Map
-    public final /* bridge */ Object get(Object obj) {
-        return get(obj);
     }
 
     @Override // java.util.Map
@@ -64,20 +37,8 @@ public final class EmptyMap implements Map, Serializable, KMappedMarker {
         return null;
     }
 
-    public Set<Map.Entry> getEntries() {
-        return EmptySet.INSTANCE;
-    }
-
-    public Set<Object> getKeys() {
-        return EmptySet.INSTANCE;
-    }
-
     public int getSize() {
         return 0;
-    }
-
-    public Collection getValues() {
-        return EmptyList.INSTANCE;
     }
 
     @Override // java.util.Map
@@ -88,11 +49,6 @@ public final class EmptyMap implements Map, Serializable, KMappedMarker {
     @Override // java.util.Map
     public boolean isEmpty() {
         return true;
-    }
-
-    @Override // java.util.Map
-    public final /* bridge */ Set<Object> keySet() {
-        return getKeys();
     }
 
     @Override // java.util.Map
@@ -114,17 +70,64 @@ public final class EmptyMap implements Map, Serializable, KMappedMarker {
         throw new UnsupportedOperationException("Operation is not supported for read-only collection");
     }
 
+    public String toString() {
+        return StringUtil.EMPTY_ARRAY;
+    }
+
+    private final Object readResolve() {
+        return INSTANCE;
+    }
+
+    @Override // java.util.Map
+    public final /* bridge */ Set<Map.Entry> entrySet() {
+        return getEntries();
+    }
+
+    public Set<Map.Entry> getEntries() {
+        return EmptySet.INSTANCE;
+    }
+
+    public Set<Object> getKeys() {
+        return EmptySet.INSTANCE;
+    }
+
+    public Collection getValues() {
+        return EmptyList.INSTANCE;
+    }
+
+    @Override // java.util.Map
+    public final /* bridge */ Set<Object> keySet() {
+        return getKeys();
+    }
+
     @Override // java.util.Map
     public final /* bridge */ int size() {
         return getSize();
     }
 
-    public String toString() {
-        return StringUtil.EMPTY_ARRAY;
-    }
-
     @Override // java.util.Map
     public final /* bridge */ Collection values() {
         return getValues();
+    }
+
+    @Override // java.util.Map
+    public final /* bridge */ boolean containsValue(Object obj) {
+        if (obj instanceof Void) {
+            return containsValue((Void) obj);
+        }
+        return false;
+    }
+
+    @Override // java.util.Map
+    public boolean equals(Object obj) {
+        if ((obj instanceof Map) && ((Map) obj).isEmpty()) {
+            return true;
+        }
+        return false;
+    }
+
+    @Override // java.util.Map
+    public final /* bridge */ Object get(Object obj) {
+        return get(obj);
     }
 }

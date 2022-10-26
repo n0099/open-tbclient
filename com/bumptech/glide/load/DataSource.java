@@ -63,12 +63,18 @@ public final class DataSource {
     public static DataSource valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (DataSource) Enum.valueOf(DataSource.class, str) : (DataSource) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (DataSource) Enum.valueOf(DataSource.class, str);
+        }
+        return (DataSource) invokeL.objValue;
     }
 
     public static DataSource[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (DataSource[]) $VALUES.clone() : (DataSource[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (DataSource[]) $VALUES.clone();
+        }
+        return (DataSource[]) invokeV.objValue;
     }
 }

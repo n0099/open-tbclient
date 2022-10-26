@@ -1,9 +1,9 @@
 package tv.athena.revenue.payui.view;
 
-import com.baidu.tieba.d6a;
-import com.baidu.tieba.m4a;
-import com.baidu.tieba.n5a;
-import com.baidu.tieba.p4a;
+import com.baidu.tieba.e5a;
+import com.baidu.tieba.f6a;
+import com.baidu.tieba.h5a;
+import com.baidu.tieba.v6a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,17 +11,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
 import java.util.List;
 import java.util.Map;
 import tv.athena.revenue.api.pay.params.AppCustomExpand;
 import tv.athena.revenue.payui.model.PayFlowType;
 /* loaded from: classes9.dex */
-public interface IYYPayWayView extends n5a, d6a {
+public interface IYYPayWayView extends f6a, v6a {
+
+    /* loaded from: classes9.dex */
+    public interface a {
+        void a(h5a h5aVar, e5a e5aVar, AppCustomExpand appCustomExpand);
+
+        void onRefreshViewFail(int i, String str);
+
+        void toHelpCenterPage();
+    }
+
+    void setCallback(a aVar);
+
+    void setViewState(PayViewState payViewState);
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes9.dex */
-    public static final class PayViewState {
+    public final class PayViewState {
         public static final /* synthetic */ PayViewState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final PayViewState SELECTING_VIEW_STATE;
@@ -69,34 +81,31 @@ public interface IYYPayWayView extends n5a, d6a {
         public static PayViewState valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (PayViewState) Enum.valueOf(PayViewState.class, str) : (PayViewState) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (PayViewState) Enum.valueOf(PayViewState.class, str);
+            }
+            return (PayViewState) invokeL.objValue;
         }
 
         public static PayViewState[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PayViewState[]) $VALUES.clone() : (PayViewState[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (PayViewState[]) $VALUES.clone();
+            }
+            return (PayViewState[]) invokeV.objValue;
         }
     }
 
     /* loaded from: classes9.dex */
-    public interface a {
-        void a(p4a p4aVar, m4a m4aVar, AppCustomExpand appCustomExpand);
-
-        void onRefreshViewFail(int i, String str);
-
-        void toHelpCenterPage();
-    }
-
-    /* loaded from: classes9.dex */
-    public static class b {
+    public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<PayWayInfo> a;
+        public List a;
         public String b;
-        public m4a c;
+        public e5a c;
         public AppCustomExpand d;
-        public Map<String, String> e;
+        public Map e;
         public boolean f;
         public AbsViewEventHandler g;
         public PayFlowType h;
@@ -129,8 +138,4 @@ public interface IYYPayWayView extends n5a, d6a {
             return (String) invokeV.objValue;
         }
     }
-
-    void setCallback(a aVar);
-
-    void setViewState(PayViewState payViewState);
 }

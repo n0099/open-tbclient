@@ -34,6 +34,15 @@ public class YYInnerSSOLoginActivity extends BaseSSOLoginActivity {
         }
     }
 
+    @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
+    public void setupViews() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.setupViews();
+            setTitleText("YY登录");
+        }
+    }
+
     @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.social.SocialLoginBase, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
@@ -53,15 +62,6 @@ public class YYInnerSSOLoginActivity extends BaseSSOLoginActivity {
                 return;
             }
             a(ParamsUtil.getUrlYYLogin(this.n, SapiAccountManager.getInstance().getConfignation()), "YY账号登录中");
-        }
-    }
-
-    @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
-    public void setupViews() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.setupViews();
-            setTitleText("YY登录");
         }
     }
 }

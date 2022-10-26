@@ -41,24 +41,29 @@ public class ViewModelStore {
         }
     }
 
-    public final ViewModel get(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.mMap.get(str) : (ViewModel) invokeL.objValue;
-    }
-
     public Set<String> keys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new HashSet(this.mMap.keySet()) : (Set) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return new HashSet(this.mMap.keySet());
+        }
+        return (Set) invokeV.objValue;
+    }
+
+    public final ViewModel get(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return this.mMap.get(str);
+        }
+        return (ViewModel) invokeL.objValue;
     }
 
     public final void put(String str, ViewModel viewModel) {
         ViewModel put;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, str, viewModel) == null) || (put = this.mMap.put(str, viewModel)) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(1048579, this, str, viewModel) == null) && (put = this.mMap.put(str, viewModel)) != null) {
+            put.onCleared();
         }
-        put.onCleared();
     }
 }

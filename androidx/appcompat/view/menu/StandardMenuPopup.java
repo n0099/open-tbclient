@@ -68,6 +68,40 @@ public final class StandardMenuPopup extends MenuPopup implements PopupWindow.On
         }
     }
 
+    @Override // androidx.appcompat.view.menu.MenuPopup
+    public void addMenu(MenuBuilder menuBuilder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, menuBuilder) == null) {
+        }
+    }
+
+    @Override // androidx.appcompat.view.menu.MenuPresenter
+    public boolean flagActionItems() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // androidx.appcompat.view.menu.MenuPresenter
+    public void onRestoreInstanceState(Parcelable parcelable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, parcelable) == null) {
+        }
+    }
+
+    @Override // androidx.appcompat.view.menu.MenuPresenter
+    public Parcelable onSaveInstanceState() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return null;
+        }
+        return (Parcelable) invokeV.objValue;
+    }
+
     public StandardMenuPopup(Context context, MenuBuilder menuBuilder, View view2, int i, int i2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -124,6 +158,13 @@ public final class StandardMenuPopup extends MenuPopup implements PopupWindow.On
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ StandardMenuPopup this$0;
 
+            @Override // android.view.View.OnAttachStateChangeListener
+            public void onViewAttachedToWindow(View view3) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view3) == null) {
+                }
+            }
+
             {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 != null) {
@@ -140,13 +181,6 @@ public final class StandardMenuPopup extends MenuPopup implements PopupWindow.On
                     }
                 }
                 this.this$0 = this;
-            }
-
-            @Override // android.view.View.OnAttachStateChangeListener
-            public void onViewAttachedToWindow(View view3) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view3) == null) {
-                }
             }
 
             @Override // android.view.View.OnAttachStateChangeListener
@@ -182,6 +216,7 @@ public final class StandardMenuPopup extends MenuPopup implements PopupWindow.On
     private boolean tryShow() {
         InterceptResult invokeV;
         View view2;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
             if (isShowing()) {
@@ -195,7 +230,11 @@ public final class StandardMenuPopup extends MenuPopup implements PopupWindow.On
             this.mPopup.setOnItemClickListener(this);
             this.mPopup.setModal(true);
             View view3 = this.mShownAnchorView;
-            boolean z = this.mTreeObserver == null;
+            if (this.mTreeObserver == null) {
+                z = true;
+            } else {
+                z = false;
+            }
             ViewTreeObserver viewTreeObserver = view3.getViewTreeObserver();
             this.mTreeObserver = viewTreeObserver;
             if (z) {
@@ -230,13 +269,6 @@ public final class StandardMenuPopup extends MenuPopup implements PopupWindow.On
         return invokeV.booleanValue;
     }
 
-    @Override // androidx.appcompat.view.menu.MenuPopup
-    public void addMenu(MenuBuilder menuBuilder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, menuBuilder) == null) {
-        }
-    }
-
     @Override // androidx.appcompat.view.menu.ShowableListMenu
     public void dismiss() {
         Interceptable interceptable = $ic;
@@ -245,39 +277,48 @@ public final class StandardMenuPopup extends MenuPopup implements PopupWindow.On
         }
     }
 
-    @Override // androidx.appcompat.view.menu.MenuPresenter
-    public boolean flagActionItems() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
     @Override // androidx.appcompat.view.menu.ShowableListMenu
     public ListView getListView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mPopup.getListView() : (ListView) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mPopup.getListView();
+        }
+        return (ListView) invokeV.objValue;
     }
 
     @Override // androidx.appcompat.view.menu.ShowableListMenu
     public boolean isShowing() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? !this.mWasDismissed && this.mPopup.isShowing() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (!this.mWasDismissed && this.mPopup.isShowing()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // androidx.appcompat.view.menu.ShowableListMenu
+    public void show() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048595, this) != null) || tryShow()) {
+            return;
+        }
+        throw new IllegalStateException("StandardMenuPopup cannot be used without an anchor");
     }
 
     @Override // androidx.appcompat.view.menu.MenuPresenter
     public void onCloseMenu(MenuBuilder menuBuilder, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048581, this, menuBuilder, z) == null) && menuBuilder == this.mMenu) {
-            dismiss();
-            MenuPresenter.Callback callback = this.mPresenterCallback;
-            if (callback != null) {
-                callback.onCloseMenu(menuBuilder, z);
-            }
+        if ((interceptable != null && interceptable.invokeLZ(1048581, this, menuBuilder, z) != null) || menuBuilder != this.mMenu) {
+            return;
+        }
+        dismiss();
+        MenuPresenter.Callback callback = this.mPresenterCallback;
+        if (callback != null) {
+            callback.onCloseMenu(menuBuilder, z);
         }
     }
 
@@ -315,23 +356,6 @@ public final class StandardMenuPopup extends MenuPopup implements PopupWindow.On
             return false;
         }
         return invokeLIL.booleanValue;
-    }
-
-    @Override // androidx.appcompat.view.menu.MenuPresenter
-    public void onRestoreInstanceState(Parcelable parcelable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, parcelable) == null) {
-        }
-    }
-
-    @Override // androidx.appcompat.view.menu.MenuPresenter
-    public Parcelable onSaveInstanceState() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return null;
-        }
-        return (Parcelable) invokeV.objValue;
     }
 
     @Override // androidx.appcompat.view.menu.MenuPresenter
@@ -426,14 +450,6 @@ public final class StandardMenuPopup extends MenuPopup implements PopupWindow.On
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
             this.mPopup.setVerticalOffset(i);
-        }
-    }
-
-    @Override // androidx.appcompat.view.menu.ShowableListMenu
-    public void show() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048595, this) == null) && !tryShow()) {
-            throw new IllegalStateException("StandardMenuPopup cannot be used without an anchor");
         }
     }
 

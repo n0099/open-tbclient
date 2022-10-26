@@ -39,6 +39,15 @@ public class Utility {
         }
     }
 
+    public static String generateGUID() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return UUID.randomUUID().toString().replace("-", "");
+        }
+        return (String) invokeV.objValue;
+    }
+
     public static Bundle decodeUrl(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -63,19 +72,18 @@ public class Utility {
         return (Bundle) invokeL.objValue;
     }
 
-    public static String generateGUID() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? UUID.randomUUID().toString().replace("-", "") : (String) invokeV.objValue;
-    }
-
     public static String generateUAAid(Context context) {
         InterceptResult invokeL;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             StringBuilder sb = new StringBuilder();
             String packageName = context.getPackageName();
-            String str = (TextUtils.isEmpty(packageName) || !packageName.contains("com.sina.weibo")) ? "weibosdk" : "weibo";
+            if (!TextUtils.isEmpty(packageName) && packageName.contains("com.sina.weibo")) {
+                str = "weibo";
+            } else {
+                str = "weibosdk";
+            }
             sb.append(Build.MANUFACTURER);
             sb.append("-");
             sb.append(Build.MODEL);
@@ -99,7 +107,13 @@ public class Utility {
     public static String getAid(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) ? context == null ? "" : WeiboSsoManager.getInstance().getAid(context, str) : (String) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
+            if (context == null) {
+                return "";
+            }
+            return WeiboSsoManager.getInstance().getAid(context, str);
+        }
+        return (String) invokeLL.objValue;
     }
 
     public static String getSign(Context context, String str) {
@@ -130,6 +144,18 @@ public class Utility {
                 return null;
             }
             return packageInfo.versionName;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String safeString(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
+            }
+            return str;
         }
         return (String) invokeL.objValue;
     }
@@ -166,11 +192,5 @@ public class Utility {
             }
         }
         return (Bundle) invokeL.objValue;
-    }
-
-    public static String safeString(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) ? TextUtils.isEmpty(str) ? "" : str : (String) invokeL.objValue;
     }
 }

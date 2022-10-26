@@ -50,7 +50,10 @@ public class RequestCheckUserMaskMessage extends TbSocketMessage {
     public long getUserId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.userId : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.userId;
+        }
+        return invokeV.longValue;
     }
 
     public void setUserId(long j) {

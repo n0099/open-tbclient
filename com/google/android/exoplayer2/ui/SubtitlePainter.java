@@ -107,14 +107,13 @@ public final class SubtitlePainter {
     public static boolean areCharSequencesEqual(CharSequence charSequence, CharSequence charSequence2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, charSequence, charSequence2)) == null) ? charSequence == charSequence2 || (charSequence != null && charSequence.equals(charSequence2)) : invokeLL.booleanValue;
-    }
-
-    private void drawBitmapLayout(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, this, canvas) == null) {
-            canvas.drawBitmap(this.cueBitmap, (Rect) null, this.bitmapRect, (Paint) null);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, charSequence, charSequence2)) == null) {
+            if (charSequence != charSequence2 && (charSequence == null || !charSequence.equals(charSequence2))) {
+                return false;
+            }
+            return true;
         }
+        return invokeLL.booleanValue;
     }
 
     private void drawLayout(Canvas canvas, boolean z) {
@@ -128,10 +127,18 @@ public final class SubtitlePainter {
         }
     }
 
+    private void drawBitmapLayout(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, this, canvas) == null) {
+            canvas.drawBitmap(this.cueBitmap, (Rect) null, this.bitmapRect, (Paint) null);
+        }
+    }
+
     private void drawTextLayout(Canvas canvas) {
         StaticLayout staticLayout;
+        int i;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, canvas) == null) || (staticLayout = this.textLayout) == null) {
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, canvas) != null) || (staticLayout = this.textLayout) == null) {
             return;
         }
         int save = canvas.save();
@@ -144,42 +151,52 @@ public final class SubtitlePainter {
             this.paint.setColor(this.backgroundColor);
             float lineTop = staticLayout.getLineTop(0);
             int lineCount = staticLayout.getLineCount();
-            int i = 0;
-            while (i < lineCount) {
-                this.lineBounds.left = staticLayout.getLineLeft(i) - this.textPaddingX;
-                this.lineBounds.right = staticLayout.getLineRight(i) + this.textPaddingX;
+            int i2 = 0;
+            while (i2 < lineCount) {
+                this.lineBounds.left = staticLayout.getLineLeft(i2) - this.textPaddingX;
+                this.lineBounds.right = staticLayout.getLineRight(i2) + this.textPaddingX;
                 RectF rectF = this.lineBounds;
                 rectF.top = lineTop;
-                rectF.bottom = staticLayout.getLineBottom(i);
+                rectF.bottom = staticLayout.getLineBottom(i2);
                 RectF rectF2 = this.lineBounds;
                 float f = rectF2.bottom;
                 float f2 = this.cornerRadius;
                 canvas.drawRoundRect(rectF2, f2, f2, this.paint);
-                i++;
+                i2++;
                 lineTop = f;
             }
         }
-        int i2 = this.edgeType;
-        if (i2 == 1) {
+        int i3 = this.edgeType;
+        boolean z = true;
+        if (i3 == 1) {
             this.textPaint.setStrokeJoin(Paint.Join.ROUND);
             this.textPaint.setStrokeWidth(this.outlineWidth);
             this.textPaint.setColor(this.edgeColor);
             this.textPaint.setStyle(Paint.Style.FILL_AND_STROKE);
             staticLayout.draw(canvas);
-        } else if (i2 == 2) {
+        } else if (i3 == 2) {
             TextPaint textPaint = this.textPaint;
             float f3 = this.shadowRadius;
             float f4 = this.shadowOffset;
             textPaint.setShadowLayer(f3, f4, f4, this.edgeColor);
-        } else if (i2 == 3 || i2 == 4) {
-            boolean z = this.edgeType == 3;
-            int i3 = z ? -1 : this.edgeColor;
-            int i4 = z ? this.edgeColor : -1;
+        } else if (i3 == 3 || i3 == 4) {
+            if (this.edgeType != 3) {
+                z = false;
+            }
+            int i4 = -1;
+            if (z) {
+                i = -1;
+            } else {
+                i = this.edgeColor;
+            }
+            if (z) {
+                i4 = this.edgeColor;
+            }
             float f5 = this.shadowRadius / 2.0f;
             this.textPaint.setColor(this.foregroundColor);
             this.textPaint.setStyle(Paint.Style.FILL);
             float f6 = -f5;
-            this.textPaint.setShadowLayer(this.shadowRadius, f6, f6, i3);
+            this.textPaint.setShadowLayer(this.shadowRadius, f6, f6, i);
             staticLayout.draw(canvas);
             this.textPaint.setShadowLayer(this.shadowRadius, f5, f5, i4);
         }
@@ -196,6 +213,7 @@ public final class SubtitlePainter {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private void setupBitmapLayout() {
+        int round;
         float f;
         int i;
         float f2;
@@ -209,37 +227,43 @@ public final class SubtitlePainter {
             float f4 = i3 + (this.cuePosition * f3);
             float f5 = i4 - i5;
             float f6 = i5 + (this.cueLine * f5);
-            int round = Math.round(f3 * this.cueSize);
+            int round2 = Math.round(f3 * this.cueSize);
             float f7 = this.cueBitmapHeight;
-            int round2 = f7 != Float.MIN_VALUE ? Math.round(f5 * f7) : Math.round(round * (this.cueBitmap.getHeight() / this.cueBitmap.getWidth()));
+            if (f7 != Float.MIN_VALUE) {
+                round = Math.round(f5 * f7);
+            } else {
+                round = Math.round(round2 * (this.cueBitmap.getHeight() / this.cueBitmap.getWidth()));
+            }
             int i6 = this.cueLineAnchor;
-            if (i6 != 2) {
+            if (i6 == 2) {
+                f = round2;
+            } else {
                 if (i6 == 1) {
-                    f = round / 2;
+                    f = round2 / 2;
                 }
                 int round3 = Math.round(f4);
                 i = this.cuePositionAnchor;
-                if (i == 2) {
+                if (i != 2) {
+                    f2 = round;
+                } else {
                     if (i == 1) {
-                        f2 = round2 / 2;
+                        f2 = round / 2;
                     }
                     int round4 = Math.round(f6);
-                    this.bitmapRect = new Rect(round3, round4, round + round3, round2 + round4);
+                    this.bitmapRect = new Rect(round3, round4, round2 + round3, round + round4);
                 }
-                f2 = round2;
                 f6 -= f2;
                 int round42 = Math.round(f6);
-                this.bitmapRect = new Rect(round3, round42, round + round3, round2 + round42);
+                this.bitmapRect = new Rect(round3, round42, round2 + round3, round + round42);
             }
-            f = round;
             f4 -= f;
             int round32 = Math.round(f4);
             i = this.cuePositionAnchor;
-            if (i == 2) {
+            if (i != 2) {
             }
             f6 -= f2;
             int round422 = Math.round(f6);
-            this.bitmapRect = new Rect(round32, round422, round + round32, round2 + round422);
+            this.bitmapRect = new Rect(round32, round422, round2 + round32, round + round422);
         }
     }
 
@@ -370,15 +394,24 @@ public final class SubtitlePainter {
     }
 
     public void draw(Cue cue, boolean z, boolean z2, CaptionStyleCompat captionStyleCompat, float f, float f2, Canvas canvas, int i, int i2, int i3, int i4) {
+        boolean z3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{cue, Boolean.valueOf(z), Boolean.valueOf(z2), captionStyleCompat, Float.valueOf(f), Float.valueOf(f2), canvas, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            boolean z3 = cue.bitmap == null;
+            if (cue.bitmap == null) {
+                z3 = true;
+            } else {
+                z3 = false;
+            }
             int i5 = -16777216;
             if (z3) {
                 if (TextUtils.isEmpty(cue.text)) {
                     return;
                 }
-                i5 = (cue.windowColorSet && z) ? cue.windowColor : captionStyleCompat.windowColor;
+                if (cue.windowColorSet && z) {
+                    i5 = cue.windowColor;
+                } else {
+                    i5 = captionStyleCompat.windowColor;
+                }
             }
             if (areCharSequencesEqual(this.cueText, cue.text) && Util.areEqual(this.cueTextAlignment, cue.textAlignment) && this.cueBitmap == cue.bitmap && this.cueLine == cue.line && this.cueLineType == cue.lineType && Util.areEqual(Integer.valueOf(this.cueLineAnchor), Integer.valueOf(cue.lineAnchor)) && this.cuePosition == cue.position && Util.areEqual(Integer.valueOf(this.cuePositionAnchor), Integer.valueOf(cue.positionAnchor)) && this.cueSize == cue.size && this.cueBitmapHeight == cue.bitmapHeight && this.applyEmbeddedStyles == z && this.applyEmbeddedFontSizes == z2 && this.foregroundColor == captionStyleCompat.foregroundColor && this.backgroundColor == captionStyleCompat.backgroundColor && this.windowColor == i5 && this.edgeType == captionStyleCompat.edgeType && this.edgeColor == captionStyleCompat.edgeColor && Util.areEqual(this.textPaint.getTypeface(), captionStyleCompat.typeface) && this.textSizePx == f && this.bottomPaddingFraction == f2 && this.parentLeft == i && this.parentTop == i2 && this.parentRight == i3 && this.parentBottom == i4) {
                 drawLayout(canvas, z3);

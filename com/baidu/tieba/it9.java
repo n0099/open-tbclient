@@ -1,161 +1,198 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.graphics.Path;
+import androidx.exifinterface.media.ExifInterface;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.squareup.wire2.ProtoAdapter;
-import com.squareup.wire2.internal.ImmutableList;
-import com.squareup.wire2.internal.MutableOnWriteList;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Set;
+import java.util.StringTokenizer;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
+import kotlin.text.StringsKt__StringsKt;
 /* loaded from: classes4.dex */
 public final class it9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public Path b;
 
-    public static void a(List<?> list) {
+    public it9(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, list) == null) {
-            if (list != null) {
-                int size = list.size();
-                for (int i = 0; i < size; i++) {
-                    if (list.get(i) == null) {
-                        throw new NullPointerException("Element at index " + i + " is null");
-                    }
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            throw new NullPointerException("list == null");
         }
+        this.a = StringsKt__StringsKt.contains$default((CharSequence) str, (CharSequence) ",", false, 2, (Object) null) ? StringsKt__StringsJVMKt.replace$default(str, ",", " ", false, 4, (Object) null) : str;
     }
 
-    public static void b(Map<?, ?> map) {
+    public final void a(Path path) {
+        boolean z;
+        Set set;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, map) == null) {
-            if (map != null) {
-                for (Map.Entry<?, ?> entry : map.entrySet()) {
-                    if (entry.getKey() != null) {
-                        if (entry.getValue() == null) {
-                            throw new NullPointerException("Value for key " + entry.getKey() + " is null");
+        if (interceptable == null || interceptable.invokeL(1048576, this, path) == null) {
+            Path path2 = this.b;
+            if (path2 != null) {
+                path.set(path2);
+                return;
+            }
+            Path path3 = new Path();
+            StringTokenizer stringTokenizer = new StringTokenizer(this.a, "MLHVCSQRAZmlhvcsqraz", true);
+            String str = "";
+            while (stringTokenizer.hasMoreTokens()) {
+                String segment = stringTokenizer.nextToken();
+                Intrinsics.checkExpressionValueIsNotNull(segment, "segment");
+                if (segment.length() == 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (!z) {
+                    set = jt9.a;
+                    if (set.contains(segment)) {
+                        if (Intrinsics.areEqual(segment, "Z") || Intrinsics.areEqual(segment, "z")) {
+                            b(path3, segment, new StringTokenizer("", ""));
                         }
+                        str = segment;
                     } else {
-                        throw new NullPointerException("map.containsKey(null)");
+                        b(path3, str, new StringTokenizer(segment, " "));
                     }
                 }
-                return;
             }
-            throw new NullPointerException("map == null");
+            this.b = path3;
+            path.set(path3);
         }
     }
 
-    public static <T> List<T> c(String str, List<T> list) {
-        InterceptResult invokeLL;
+    /* JADX WARN: Removed duplicated region for block: B:39:0x0097  */
+    /* JADX WARN: Removed duplicated region for block: B:40:0x009b  */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x00ae  */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x00b8  */
+    /* JADX WARN: Removed duplicated region for block: B:51:0x00d1  */
+    /* JADX WARN: Removed duplicated region for block: B:52:0x00d5  */
+    /* JADX WARN: Removed duplicated region for block: B:57:0x00e8  */
+    /* JADX WARN: Removed duplicated region for block: B:58:0x00f0  */
+    /* JADX WARN: Removed duplicated region for block: B:63:0x0103  */
+    /* JADX WARN: Removed duplicated region for block: B:64:0x010b  */
+    /* JADX WARN: Removed duplicated region for block: B:69:0x011e  */
+    /* JADX WARN: Removed duplicated region for block: B:70:0x0122  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void b(Path path, String str, StringTokenizer stringTokenizer) {
+        ot9 ot9Var;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, list)) == null) {
-            if (list != null) {
-                if (list != Collections.emptyList() && !(list instanceof ImmutableList)) {
-                    return new ArrayList(list);
-                }
-                return new MutableOnWriteList(list);
-            }
-            throw new NullPointerException(str + " == null");
-        }
-        return (List) invokeLL.objValue;
-    }
-
-    public static <K, V> Map<K, V> d(String str, Map<K, V> map) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, map)) == null) {
-            if (map != null) {
-                return new LinkedHashMap(map);
-            }
-            throw new NullPointerException(str + " == null");
-        }
-        return (Map) invokeLL.objValue;
-    }
-
-    public static int e(Object obj, Object obj2, Object obj3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, obj2, obj3)) == null) {
-            return (obj != null ? 1 : 0) + (obj2 != null ? 1 : 0) + (obj3 == null ? 0 : 1);
-        }
-        return invokeLLL.intValue;
-    }
-
-    public static boolean f(Object obj, Object obj2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, obj, obj2)) == null) ? obj == obj2 || (obj != null && obj.equals(obj2)) : invokeLL.booleanValue;
-    }
-
-    public static <T> List<T> g(String str, List<T> list) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, list)) == null) {
-            if (list != null) {
-                if (list instanceof MutableOnWriteList) {
-                    list = ((MutableOnWriteList) list).mutableList;
-                }
-                if (list == Collections.emptyList() || (list instanceof ImmutableList)) {
-                    return list;
-                }
-                ImmutableList immutableList = new ImmutableList(list);
-                if (immutableList.contains(null)) {
-                    throw new IllegalArgumentException(str + ".contains(null)");
-                }
-                return immutableList;
-            }
-            throw new NullPointerException(str + " == null");
-        }
-        return (List) invokeLL.objValue;
-    }
-
-    public static <K, V> Map<K, V> h(String str, Map<K, V> map) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, map)) == null) {
-            if (map != null) {
-                if (map.isEmpty()) {
-                    return Collections.emptyMap();
-                }
-                LinkedHashMap linkedHashMap = new LinkedHashMap(map);
-                if (!linkedHashMap.containsKey(null)) {
-                    if (!linkedHashMap.containsValue(null)) {
-                        return Collections.unmodifiableMap(linkedHashMap);
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, path, str, stringTokenizer) == null) {
+            float f = 0.0f;
+            float f2 = 0.0f;
+            float f3 = 0.0f;
+            float f4 = 0.0f;
+            float f5 = 0.0f;
+            float f6 = 0.0f;
+            int i = 0;
+            while (stringTokenizer.hasMoreTokens()) {
+                try {
+                    String s = stringTokenizer.nextToken();
+                    Intrinsics.checkExpressionValueIsNotNull(s, "s");
+                    if (s.length() == 0) {
+                        z = true;
+                    } else {
+                        z = false;
                     }
-                    throw new IllegalArgumentException(str + ".containsValue(null)");
+                    if (!z) {
+                        if (i == 0) {
+                            f = Float.parseFloat(s);
+                        }
+                        if (i == 1) {
+                            f2 = Float.parseFloat(s);
+                        }
+                        if (i == 2) {
+                            f3 = Float.parseFloat(s);
+                        }
+                        if (i == 3) {
+                            f4 = Float.parseFloat(s);
+                        }
+                        if (i == 4) {
+                            f5 = Float.parseFloat(s);
+                        }
+                        if (i == 5) {
+                            f6 = Float.parseFloat(s);
+                        }
+                        i++;
+                    }
+                } catch (Exception unused) {
                 }
-                throw new IllegalArgumentException(str + ".containsKey(null)");
             }
-            throw new NullPointerException(str + " == null");
-        }
-        return (Map) invokeLL.objValue;
-    }
-
-    public static <T> List<T> i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? new MutableOnWriteList(Collections.emptyList()) : (List) invokeV.objValue;
-    }
-
-    public static <K, V> Map<K, V> j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? new LinkedHashMap() : (Map) invokeV.objValue;
-    }
-
-    public static <T> void k(List<T> list, ProtoAdapter<T> protoAdapter) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65546, null, list, protoAdapter) == null) {
-            int size = list.size();
-            for (int i = 0; i < size; i++) {
-                list.set(i, protoAdapter.redact(list.get(i)));
+            float f7 = f;
+            float f8 = f2;
+            float f9 = f3;
+            float f10 = f4;
+            ot9 ot9Var2 = new ot9(0.0f, 0.0f, 0.0f);
+            if (Intrinsics.areEqual(str, "M")) {
+                path.moveTo(f7, f8);
+                ot9Var2 = new ot9(f7, f8, 0.0f);
+            } else if (Intrinsics.areEqual(str, "m")) {
+                path.rMoveTo(f7, f8);
+                ot9Var = new ot9(ot9Var2.a() + f7, ot9Var2.b() + f8, 0.0f);
+                if (!Intrinsics.areEqual(str, "L")) {
+                    path.lineTo(f7, f8);
+                } else if (Intrinsics.areEqual(str, "l")) {
+                    path.rLineTo(f7, f8);
+                }
+                if (!Intrinsics.areEqual(str, "C")) {
+                    path.cubicTo(f7, f8, f9, f10, f5, f6);
+                } else if (Intrinsics.areEqual(str, "c")) {
+                    path.rCubicTo(f7, f8, f9, f10, f5, f6);
+                }
+                if (!Intrinsics.areEqual(str, "Q")) {
+                    path.quadTo(f7, f8, f9, f10);
+                } else if (Intrinsics.areEqual(str, "q")) {
+                    path.rQuadTo(f7, f8, f9, f10);
+                }
+                if (!Intrinsics.areEqual(str, "H")) {
+                    path.lineTo(f7, ot9Var.b());
+                } else if (Intrinsics.areEqual(str, "h")) {
+                    path.rLineTo(f7, 0.0f);
+                }
+                if (!Intrinsics.areEqual(str, ExifInterface.GPS_MEASUREMENT_INTERRUPTED)) {
+                    path.lineTo(ot9Var.a(), f7);
+                } else if (Intrinsics.areEqual(str, "v")) {
+                    path.rLineTo(0.0f, f7);
+                }
+                if (!Intrinsics.areEqual(str, "Z")) {
+                    path.close();
+                    return;
+                } else if (Intrinsics.areEqual(str, "z")) {
+                    path.close();
+                    return;
+                } else {
+                    return;
+                }
+            }
+            ot9Var = ot9Var2;
+            if (!Intrinsics.areEqual(str, "L")) {
+            }
+            if (!Intrinsics.areEqual(str, "C")) {
+            }
+            if (!Intrinsics.areEqual(str, "Q")) {
+            }
+            if (!Intrinsics.areEqual(str, "H")) {
+            }
+            if (!Intrinsics.areEqual(str, ExifInterface.GPS_MEASUREMENT_INTERRUPTED)) {
+            }
+            if (!Intrinsics.areEqual(str, "Z")) {
             }
         }
     }

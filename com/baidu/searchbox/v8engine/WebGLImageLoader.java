@@ -5,14 +5,13 @@ import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.util.Base64;
 import android.webkit.ValueCallback;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.v8engine.bean.ImageBitmapBean;
 import com.baidu.searchbox.v8engine.filesystem.V8FileSystemDelegatePolicy;
 import com.baidu.searchbox.v8engine.util.BitmapReferenceMap;
 import com.baidu.searchbox.v8engine.util.DeviceInfo;
 import com.baidu.smallgame.sdk.Log;
-import com.baidu.tieba.gh1;
+import com.baidu.tieba.hh1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +24,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-@NotProguard
 /* loaded from: classes2.dex */
 public class WebGLImageLoader {
     public static /* synthetic */ Interceptable $ic = null;
@@ -40,7 +38,7 @@ public class WebGLImageLoader {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public static class NetValueCallback implements ValueCallback<String> {
+    public class NetValueCallback implements ValueCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final WebGLImage mImage;
@@ -100,9 +98,10 @@ public class WebGLImageLoader {
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            WebGLImageLoader.loadImageFromConvertedSource(this.this$0.mImage, this.this$0.mImageId, this.this$0.mSrc, this.val$path);
+                        if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
+                            return;
                         }
+                        WebGLImageLoader.loadImageFromConvertedSource(this.this$0.mImage, this.this$0.mImageId, this.this$0.mSrc, this.val$path);
                     }
                 });
             }
@@ -139,6 +138,61 @@ public class WebGLImageLoader {
         }
     }
 
+    public static void initializeIfNeeded() {
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65543, null) == null) && sExecutorService == null) {
+            int numberOfCPUCores = DeviceInfo.getNumberOfCPUCores();
+            if (numberOfCPUCores < 2) {
+                i = 1;
+            } else {
+                i = numberOfCPUCores / 2;
+            }
+            sExecutorService = Executors.newFixedThreadPool(i);
+        }
+    }
+
+    public static void loadCacheImage(WebGLImage webGLImage, Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65547, null, webGLImage, bitmap) == null) {
+            runInIOThread(new Runnable(webGLImage, webGLImage.getImageId(), bitmap) { // from class: com.baidu.searchbox.v8engine.WebGLImageLoader.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ Bitmap val$bitmap;
+                public final /* synthetic */ WebGLImage val$image;
+                public final /* synthetic */ int val$imageId;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {webGLImage, Integer.valueOf(r7), bitmap};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.val$image = webGLImage;
+                    this.val$imageId = r7;
+                    this.val$bitmap = bitmap;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        WebGLImageLoader.loadBitmapData(this.val$image, this.val$imageId, this.val$bitmap);
+                    }
+                }
+            });
+        }
+    }
+
     public static ImageBitmapBean getBitmapBean(WebGLImage webGLImage) {
         InterceptResult invokeL;
         ImageBitmapBean imageBitmapBean;
@@ -148,9 +202,7 @@ public class WebGLImageLoader {
             String src = webGLImage.src();
             String oldSrc = webGLImage.oldSrc();
             synchronized (BitmapReferenceMap.class) {
-                if (src.equals(oldSrc)) {
-                    imageBitmapBean = null;
-                } else {
+                if (!src.equals(oldSrc)) {
                     ImageBitmapBean imageBitmapBean2 = sReferenceMap.get(oldSrc);
                     if (imageBitmapBean2 != null) {
                         imageBitmapBean2.decreaseRefCount();
@@ -162,6 +214,8 @@ public class WebGLImageLoader {
                     if (imageBitmapBean != null) {
                         imageBitmapBean.increaseRefCount();
                     }
+                } else {
+                    imageBitmapBean = null;
                 }
             }
             return imageBitmapBean;
@@ -169,7 +223,24 @@ public class WebGLImageLoader {
         return (ImageBitmapBean) invokeL.objValue;
     }
 
-    @NonNull
+    public static void loadImage(WebGLImage webGLImage) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65549, null, webGLImage) == null) {
+            ImageBitmapBean bitmapBean = getBitmapBean(webGLImage);
+            if (bitmapBean != null && bitmapBean.getBitmap() != null) {
+                loadCacheImage(webGLImage, bitmapBean.getBitmap());
+            } else if (webGLImage.src().startsWith("http")) {
+                loadNetImage(webGLImage);
+            } else if (webGLImage.src().startsWith(BDFILE)) {
+                loadBdfileImage(webGLImage);
+            } else if (webGLImage.src().startsWith(DATA_URL)) {
+                loadDataImage(webGLImage);
+            } else {
+                loadLocalImage(webGLImage);
+            }
+        }
+    }
+
     public static String getRealBdFilePath(V8Engine v8Engine, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -182,14 +253,6 @@ public class WebGLImageLoader {
             return bdFileRealPath + substring;
         }
         return (String) invokeLL.objValue;
-    }
-
-    public static void initializeIfNeeded() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65543, null) == null) && sExecutorService == null) {
-            int numberOfCPUCores = DeviceInfo.getNumberOfCPUCores();
-            sExecutorService = Executors.newFixedThreadPool(numberOfCPUCores < 2 ? 1 : numberOfCPUCores / 2);
-        }
     }
 
     public static void loadAssetImage(WebGLImage webGLImage) {
@@ -283,6 +346,23 @@ public class WebGLImageLoader {
         }
     }
 
+    public static void loadNetImage(WebGLImage webGLImage) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65552, null, webGLImage) == null) {
+            V8Engine v8Engine = V8Engine.getInstance();
+            if (v8Engine == null) {
+                Log.e(TAG, "loadNetImage->v8Engine is null");
+                return;
+            }
+            V8FileSystemDelegatePolicy fileSystemDelegatePolicy = v8Engine.getFileSystemDelegatePolicy();
+            if (fileSystemDelegatePolicy == null) {
+                Log.e(TAG, "fileSystemDelegatePolicy is null", new Throwable());
+            } else {
+                fileSystemDelegatePolicy.loadFileFromUrl(webGLImage.src(), new NetValueCallback(webGLImage));
+            }
+        }
+    }
+
     public static void loadBdfileImage(WebGLImage webGLImage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, null, webGLImage) == null) {
@@ -322,64 +402,13 @@ public class WebGLImageLoader {
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            WebGLImageLoader.loadImageFromConvertedSource(this.val$image, this.val$imageId, this.val$src, WebGLImageLoader.getRealBdFilePath(this.val$v8Engine, this.val$src));
+                        if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
+                            return;
                         }
+                        WebGLImageLoader.loadImageFromConvertedSource(this.val$image, this.val$imageId, this.val$src, WebGLImageLoader.getRealBdFilePath(this.val$v8Engine, this.val$src));
                     }
                 });
             }
-        }
-    }
-
-    public static void loadBitmapData(WebGLImage webGLImage, int i, Bitmap bitmap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65546, null, webGLImage, i, bitmap) == null) {
-            if (bitmap != null && webGLImage.setBitmapData(bitmap)) {
-                webGLImage.onLoadSuccess(i);
-                return;
-            }
-            webGLImage.onLoadFailed(i, "load bitmap failed, src is " + webGLImage.src());
-        }
-    }
-
-    public static void loadCacheImage(WebGLImage webGLImage, Bitmap bitmap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65547, null, webGLImage, bitmap) == null) {
-            runInIOThread(new Runnable(webGLImage, webGLImage.getImageId(), bitmap) { // from class: com.baidu.searchbox.v8engine.WebGLImageLoader.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ Bitmap val$bitmap;
-                public final /* synthetic */ WebGLImage val$image;
-                public final /* synthetic */ int val$imageId;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {webGLImage, Integer.valueOf(r7), bitmap};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.val$image = webGLImage;
-                    this.val$imageId = r7;
-                    this.val$bitmap = bitmap;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        WebGLImageLoader.loadBitmapData(this.val$image, this.val$imageId, this.val$bitmap);
-                    }
-                }
-            });
         }
     }
 
@@ -422,84 +451,6 @@ public class WebGLImageLoader {
                     }
                 }
             });
-        }
-    }
-
-    public static void loadImage(WebGLImage webGLImage) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65549, null, webGLImage) == null) {
-            ImageBitmapBean bitmapBean = getBitmapBean(webGLImage);
-            if (bitmapBean != null && bitmapBean.getBitmap() != null) {
-                loadCacheImage(webGLImage, bitmapBean.getBitmap());
-            } else if (webGLImage.src().startsWith("http")) {
-                loadNetImage(webGLImage);
-            } else if (webGLImage.src().startsWith(BDFILE)) {
-                loadBdfileImage(webGLImage);
-            } else if (webGLImage.src().startsWith(DATA_URL)) {
-                loadDataImage(webGLImage);
-            } else {
-                loadLocalImage(webGLImage);
-            }
-        }
-    }
-
-    public static void loadImageFromConvertedSource(WebGLImage webGLImage, int i, String str, Object obj) {
-        Bitmap decodeStream;
-        Bitmap decodeStream2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(65550, null, webGLImage, i, str, obj) == null) {
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            if (Build.VERSION.SDK_INT >= 19) {
-                options.inPremultiplied = false;
-            }
-            ImageBitmapBean imageBitmapBean = null;
-            if (obj instanceof String) {
-                String str2 = (String) obj;
-                if (gh1.b(str2)) {
-                    decodeStream = BitmapFactory.decodeFile(str2, options);
-                    if (decodeStream == null) {
-                        decodeStream = BitmapFactory.decodeFile(str2);
-                    }
-                }
-                decodeStream = null;
-            } else if (obj instanceof byte[]) {
-                byte[] bArr = (byte[]) obj;
-                decodeStream = BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
-                if (decodeStream == null) {
-                    decodeStream2 = BitmapFactory.decodeByteArray(bArr, 0, bArr.length);
-                    decodeStream = decodeStream2;
-                }
-            } else {
-                if (obj instanceof InputStream) {
-                    InputStream inputStream = (InputStream) obj;
-                    decodeStream = BitmapFactory.decodeStream(inputStream, null, options);
-                    if (decodeStream == null) {
-                        decodeStream2 = BitmapFactory.decodeStream(inputStream);
-                        decodeStream = decodeStream2;
-                    }
-                }
-                decodeStream = null;
-            }
-            synchronized (BitmapReferenceMap.class) {
-                if (decodeStream != null) {
-                    try {
-                        imageBitmapBean = sReferenceMap.get(str);
-                        if (imageBitmapBean != null && imageBitmapBean.getBitmap() != null) {
-                            decodeStream.recycle();
-                            decodeStream = imageBitmapBean.getBitmap();
-                        } else {
-                            imageBitmapBean = new ImageBitmapBean(str, decodeStream);
-                            sReferenceMap.put(str, imageBitmapBean);
-                        }
-                    } catch (Throwable th) {
-                        throw th;
-                    }
-                }
-                if (imageBitmapBean != null) {
-                    imageBitmapBean.increaseRefCount();
-                }
-            }
-            loadBitmapData(webGLImage, i, decodeStream);
         }
     }
 
@@ -546,23 +497,6 @@ public class WebGLImageLoader {
         }
     }
 
-    public static void loadNetImage(WebGLImage webGLImage) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65552, null, webGLImage) == null) {
-            V8Engine v8Engine = V8Engine.getInstance();
-            if (v8Engine == null) {
-                Log.e(TAG, "loadNetImage->v8Engine is null");
-                return;
-            }
-            V8FileSystemDelegatePolicy fileSystemDelegatePolicy = v8Engine.getFileSystemDelegatePolicy();
-            if (fileSystemDelegatePolicy == null) {
-                Log.e(TAG, "fileSystemDelegatePolicy is null", new Throwable());
-            } else {
-                fileSystemDelegatePolicy.loadFileFromUrl(webGLImage.src(), new NetValueCallback(webGLImage));
-            }
-        }
-    }
-
     public static void recycleBitmap(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65553, null, str) == null) {
@@ -580,6 +514,77 @@ public class WebGLImageLoader {
         if (interceptable == null || interceptable.invokeL(65554, null, runnable) == null) {
             initializeIfNeeded();
             sExecutorService.submit(runnable);
+        }
+    }
+
+    public static void loadBitmapData(WebGLImage webGLImage, int i, Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(65546, null, webGLImage, i, bitmap) == null) {
+            if (bitmap != null && webGLImage.setBitmapData(bitmap)) {
+                webGLImage.onLoadSuccess(i);
+                return;
+            }
+            webGLImage.onLoadFailed(i, "load bitmap failed, src is " + webGLImage.src());
+        }
+    }
+
+    public static void loadImageFromConvertedSource(WebGLImage webGLImage, int i, String str, Object obj) {
+        Bitmap decodeStream;
+        Bitmap decodeStream2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLILL(65550, null, webGLImage, i, str, obj) == null) {
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            if (Build.VERSION.SDK_INT >= 19) {
+                options.inPremultiplied = false;
+            }
+            ImageBitmapBean imageBitmapBean = null;
+            if (obj instanceof String) {
+                String str2 = (String) obj;
+                if (hh1.b(str2)) {
+                    decodeStream = BitmapFactory.decodeFile(str2, options);
+                    if (decodeStream == null) {
+                        decodeStream = BitmapFactory.decodeFile(str2);
+                    }
+                }
+                decodeStream = null;
+            } else if (obj instanceof byte[]) {
+                byte[] bArr = (byte[]) obj;
+                decodeStream = BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
+                if (decodeStream == null) {
+                    decodeStream2 = BitmapFactory.decodeByteArray(bArr, 0, bArr.length);
+                    decodeStream = decodeStream2;
+                }
+            } else {
+                if (obj instanceof InputStream) {
+                    InputStream inputStream = (InputStream) obj;
+                    decodeStream = BitmapFactory.decodeStream(inputStream, null, options);
+                    if (decodeStream == null) {
+                        decodeStream2 = BitmapFactory.decodeStream(inputStream);
+                        decodeStream = decodeStream2;
+                    }
+                }
+                decodeStream = null;
+            }
+            synchronized (BitmapReferenceMap.class) {
+                if (decodeStream != null) {
+                    try {
+                        imageBitmapBean = sReferenceMap.get(str);
+                        if (imageBitmapBean != null && imageBitmapBean.getBitmap() != null) {
+                            decodeStream.recycle();
+                            decodeStream = imageBitmapBean.getBitmap();
+                        } else {
+                            imageBitmapBean = new ImageBitmapBean(str, decodeStream);
+                            sReferenceMap.put(str, imageBitmapBean);
+                        }
+                    } catch (Throwable th) {
+                        throw th;
+                    }
+                }
+                if (imageBitmapBean != null) {
+                    imageBitmapBean.increaseRefCount();
+                }
+            }
+            loadBitmapData(webGLImage, i, decodeStream);
         }
     }
 }

@@ -11,10 +11,6 @@ import android.view.View;
 import android.view.ViewDebug;
 import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
-import androidx.annotation.StyleRes;
 import androidx.appcompat.view.menu.ActionMenuItemView;
 import androidx.appcompat.view.menu.MenuBuilder;
 import androidx.appcompat.view.menu.MenuItemImpl;
@@ -48,7 +44,6 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
     public ActionMenuPresenter mPresenter;
     public boolean mReserveOverflow;
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public interface ActionMenuChildView {
         boolean needsDividerAfter();
@@ -57,9 +52,51 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
     }
 
     /* loaded from: classes.dex */
+    public interface OnMenuItemClickListener {
+        boolean onMenuItemClick(MenuItem menuItem);
+    }
+
+    @Override // android.view.View
+    public boolean dispatchPopulateAccessibilityEvent(AccessibilityEvent accessibilityEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accessibilityEvent)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // androidx.appcompat.view.menu.MenuView
+    public int getWindowAnimations() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    /* loaded from: classes.dex */
     public static class ActionMenuPresenterCallback implements MenuPresenter.Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // androidx.appcompat.view.menu.MenuPresenter.Callback
+        public void onCloseMenu(MenuBuilder menuBuilder, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLZ(1048576, this, menuBuilder, z) == null) {
+            }
+        }
+
+        @Override // androidx.appcompat.view.menu.MenuPresenter.Callback
+        public boolean onOpenSubMenu(MenuBuilder menuBuilder) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, menuBuilder)) == null) {
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
 
         public ActionMenuPresenterCallback() {
             Interceptable interceptable = $ic;
@@ -73,23 +110,6 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-        }
-
-        @Override // androidx.appcompat.view.menu.MenuPresenter.Callback
-        public void onCloseMenu(@NonNull MenuBuilder menuBuilder, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLZ(1048576, this, menuBuilder, z) == null) {
-            }
-        }
-
-        @Override // androidx.appcompat.view.menu.MenuPresenter.Callback
-        public boolean onOpenSubMenu(@NonNull MenuBuilder menuBuilder) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, menuBuilder)) == null) {
-                return false;
-            }
-            return invokeL.booleanValue;
         }
     }
 
@@ -108,6 +128,50 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
         public boolean isOverflowButton;
         @ViewDebug.ExportedProperty
         public boolean preventEdgeOffset;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public LayoutParams(int i, int i2) {
+            super(i, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.isOverflowButton = false;
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public LayoutParams(int i, int i2, boolean z) {
+            super(i, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.isOverflowButton = z;
+        }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public LayoutParams(Context context, AttributeSet attributeSet) {
@@ -170,50 +234,6 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
             }
             this.isOverflowButton = layoutParams.isOverflowButton;
         }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public LayoutParams(int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.isOverflowButton = false;
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public LayoutParams(int i, int i2, boolean z) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.isOverflowButton = z;
-        }
     }
 
     /* loaded from: classes.dex */
@@ -241,34 +261,31 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
         }
 
         @Override // androidx.appcompat.view.menu.MenuBuilder.Callback
-        public boolean onMenuItemSelected(@NonNull MenuBuilder menuBuilder, @NonNull MenuItem menuItem) {
+        public void onMenuModeChange(MenuBuilder menuBuilder) {
+            MenuBuilder.Callback callback;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, menuBuilder) == null) && (callback = this.this$0.mMenuBuilderCallback) != null) {
+                callback.onMenuModeChange(menuBuilder);
+            }
+        }
+
+        @Override // androidx.appcompat.view.menu.MenuBuilder.Callback
+        public boolean onMenuItemSelected(MenuBuilder menuBuilder, MenuItem menuItem) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, menuBuilder, menuItem)) == null) {
                 OnMenuItemClickListener onMenuItemClickListener = this.this$0.mOnMenuItemClickListener;
-                return onMenuItemClickListener != null && onMenuItemClickListener.onMenuItemClick(menuItem);
+                if (onMenuItemClickListener != null && onMenuItemClickListener.onMenuItemClick(menuItem)) {
+                    return true;
+                }
+                return false;
             }
             return invokeLL.booleanValue;
         }
-
-        @Override // androidx.appcompat.view.menu.MenuBuilder.Callback
-        public void onMenuModeChange(@NonNull MenuBuilder menuBuilder) {
-            MenuBuilder.Callback callback;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, menuBuilder) == null) || (callback = this.this$0.mMenuBuilderCallback) == null) {
-                return;
-            }
-            callback.onMenuModeChange(menuBuilder);
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public interface OnMenuItemClickListener {
-        boolean onMenuItemClick(MenuItem menuItem);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ActionMenuView(@NonNull Context context) {
+    public ActionMenuView(Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -288,30 +305,146 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.appcompat.widget.LinearLayoutCompat, android.view.ViewGroup
+    public LayoutParams generateLayoutParams(ViewGroup.LayoutParams layoutParams) {
+        InterceptResult invokeL;
+        LayoutParams layoutParams2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, layoutParams)) == null) {
+            if (layoutParams != null) {
+                if (layoutParams instanceof LayoutParams) {
+                    layoutParams2 = new LayoutParams((LayoutParams) layoutParams);
+                } else {
+                    layoutParams2 = new LayoutParams(layoutParams);
+                }
+                if (layoutParams2.gravity <= 0) {
+                    layoutParams2.gravity = 16;
+                }
+                return layoutParams2;
+            }
+            return generateDefaultLayoutParams();
+        }
+        return (LayoutParams) invokeL.objValue;
+    }
+
+    public boolean hasSupportDividerBeforeChildAt(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) {
+            boolean z = false;
+            if (i == 0) {
+                return false;
+            }
+            View childAt = getChildAt(i - 1);
+            View childAt2 = getChildAt(i);
+            if (i < getChildCount() && (childAt instanceof ActionMenuChildView)) {
+                z = false | ((ActionMenuChildView) childAt).needsDividerAfter();
+            }
+            if (i > 0 && (childAt2 instanceof ActionMenuChildView)) {
+                return z | ((ActionMenuChildView) childAt2).needsDividerBefore();
+            }
+            return z;
+        }
+        return invokeI.booleanValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ActionMenuView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        setBaselineAligned(false);
+        float f = context.getResources().getDisplayMetrics().density;
+        this.mMinCellSize = (int) (56.0f * f);
+        this.mGeneratedItemPadding = (int) (f * 4.0f);
+        this.mPopupContext = context;
+        this.mPopupTheme = 0;
+    }
+
+    @Override // androidx.appcompat.widget.LinearLayoutCompat, android.view.View
+    public void onMeasure(int i, int i2) {
+        boolean z;
+        MenuBuilder menuBuilder;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048603, this, i, i2) == null) {
+            boolean z2 = this.mFormatItems;
+            if (View.MeasureSpec.getMode(i) == 1073741824) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.mFormatItems = z;
+            if (z2 != z) {
+                this.mFormatItemsWidth = 0;
+            }
+            int size = View.MeasureSpec.getSize(i);
+            if (this.mFormatItems && (menuBuilder = this.mMenu) != null && size != this.mFormatItemsWidth) {
+                this.mFormatItemsWidth = size;
+                menuBuilder.onItemsChanged(true);
+            }
+            int childCount = getChildCount();
+            if (this.mFormatItems && childCount > 0) {
+                onMeasureExactFormat(i, i2);
+                return;
+            }
+            for (int i3 = 0; i3 < childCount; i3++) {
+                LayoutParams layoutParams = (LayoutParams) getChildAt(i3).getLayoutParams();
+                ((ViewGroup.MarginLayoutParams) layoutParams).rightMargin = 0;
+                ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin = 0;
+            }
+            super.onMeasure(i, i2);
+        }
+    }
+
     public static int measureChildForCells(View view2, int i, int i2, int i3, int i4) {
         InterceptResult invokeCommon;
+        ActionMenuItemView actionMenuItemView;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
             LayoutParams layoutParams = (LayoutParams) view2.getLayoutParams();
             int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(View.MeasureSpec.getSize(i3) - i4, View.MeasureSpec.getMode(i3));
-            ActionMenuItemView actionMenuItemView = view2 instanceof ActionMenuItemView ? (ActionMenuItemView) view2 : null;
-            boolean z = true;
-            boolean z2 = actionMenuItemView != null && actionMenuItemView.hasText();
-            int i5 = 2;
-            if (i2 <= 0 || (z2 && i2 < 2)) {
-                i5 = 0;
+            if (view2 instanceof ActionMenuItemView) {
+                actionMenuItemView = (ActionMenuItemView) view2;
             } else {
+                actionMenuItemView = null;
+            }
+            boolean z2 = true;
+            if (actionMenuItemView != null && actionMenuItemView.hasText()) {
+                z = true;
+            } else {
+                z = false;
+            }
+            int i5 = 2;
+            if (i2 > 0 && (!z || i2 >= 2)) {
                 view2.measure(View.MeasureSpec.makeMeasureSpec(i2 * i, Integer.MIN_VALUE), makeMeasureSpec);
                 int measuredWidth = view2.getMeasuredWidth();
                 int i6 = measuredWidth / i;
                 if (measuredWidth % i != 0) {
                     i6++;
                 }
-                if (!z2 || i6 >= 2) {
+                if (!z || i6 >= 2) {
                     i5 = i6;
                 }
+            } else {
+                i5 = 0;
             }
-            layoutParams.expandable = (layoutParams.isOverflowButton || !z2) ? false : false;
+            layoutParams.expandable = (layoutParams.isOverflowButton || !z) ? false : false;
             layoutParams.cellsUsed = i5;
             view2.measure(View.MeasureSpec.makeMeasureSpec(i * i5, 1073741824), makeMeasureSpec);
             return i5;
@@ -321,16 +454,22 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
 
     /* JADX WARN: Type inference failed for: r14v12 */
     /* JADX WARN: Type inference failed for: r14v8 */
-    /* JADX WARN: Type inference failed for: r14v9, types: [int, boolean] */
+    /* JADX WARN: Type inference failed for: r14v9, types: [boolean, int] */
     private void onMeasureExactFormat(int i, int i2) {
+        boolean z;
         int i3;
         int i4;
-        boolean z;
-        int i5;
         boolean z2;
+        int i5;
         boolean z3;
+        boolean z4;
         int i6;
+        int i7;
+        boolean z5;
+        int i8;
         ?? r14;
+        boolean z6;
+        int i9;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(65539, this, i, i2) == null) {
             int mode = View.MeasureSpec.getMode(i2);
@@ -339,36 +478,36 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
             int paddingLeft = getPaddingLeft() + getPaddingRight();
             int paddingTop = getPaddingTop() + getPaddingBottom();
             int childMeasureSpec = ViewGroup.getChildMeasureSpec(i2, paddingTop, -2);
-            int i7 = size - paddingLeft;
-            int i8 = this.mMinCellSize;
-            int i9 = i7 / i8;
-            int i10 = i7 % i8;
-            if (i9 == 0) {
-                setMeasuredDimension(i7, 0);
+            int i10 = size - paddingLeft;
+            int i11 = this.mMinCellSize;
+            int i12 = i10 / i11;
+            int i13 = i10 % i11;
+            if (i12 == 0) {
+                setMeasuredDimension(i10, 0);
                 return;
             }
-            int i11 = i8 + (i10 / i9);
+            int i14 = i11 + (i13 / i12);
             int childCount = getChildCount();
-            int i12 = 0;
-            int i13 = 0;
-            boolean z4 = false;
-            int i14 = 0;
             int i15 = 0;
             int i16 = 0;
+            boolean z7 = false;
+            int i17 = 0;
+            int i18 = 0;
+            int i19 = 0;
             long j = 0;
-            while (i13 < childCount) {
-                View childAt = getChildAt(i13);
-                int i17 = size2;
+            while (i16 < childCount) {
+                View childAt = getChildAt(i16);
+                int i20 = size2;
                 if (childAt.getVisibility() != 8) {
-                    boolean z5 = childAt instanceof ActionMenuItemView;
-                    int i18 = i14 + 1;
-                    if (z5) {
-                        int i19 = this.mGeneratedItemPadding;
-                        i6 = i18;
+                    boolean z8 = childAt instanceof ActionMenuItemView;
+                    int i21 = i17 + 1;
+                    if (z8) {
+                        int i22 = this.mGeneratedItemPadding;
+                        i8 = i21;
                         r14 = 0;
-                        childAt.setPadding(i19, 0, i19, 0);
+                        childAt.setPadding(i22, 0, i22, 0);
                     } else {
-                        i6 = i18;
+                        i8 = i21;
                         r14 = 0;
                     }
                     LayoutParams layoutParams = (LayoutParams) childAt.getLayoutParams();
@@ -378,150 +517,177 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
                     layoutParams.expandable = r14;
                     ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin = r14;
                     ((ViewGroup.MarginLayoutParams) layoutParams).rightMargin = r14;
-                    layoutParams.preventEdgeOffset = z5 && ((ActionMenuItemView) childAt).hasText();
-                    int measureChildForCells = measureChildForCells(childAt, i11, layoutParams.isOverflowButton ? 1 : i9, childMeasureSpec, paddingTop);
-                    i15 = Math.max(i15, measureChildForCells);
+                    if (z8 && ((ActionMenuItemView) childAt).hasText()) {
+                        z6 = true;
+                    } else {
+                        z6 = false;
+                    }
+                    layoutParams.preventEdgeOffset = z6;
+                    if (layoutParams.isOverflowButton) {
+                        i9 = 1;
+                    } else {
+                        i9 = i12;
+                    }
+                    int measureChildForCells = measureChildForCells(childAt, i14, i9, childMeasureSpec, paddingTop);
+                    i18 = Math.max(i18, measureChildForCells);
                     if (layoutParams.expandable) {
-                        i16++;
+                        i19++;
                     }
                     if (layoutParams.isOverflowButton) {
-                        z4 = true;
+                        z7 = true;
                     }
-                    i9 -= measureChildForCells;
-                    i12 = Math.max(i12, childAt.getMeasuredHeight());
+                    i12 -= measureChildForCells;
+                    i15 = Math.max(i15, childAt.getMeasuredHeight());
                     if (measureChildForCells == 1) {
-                        j |= 1 << i13;
-                        i12 = i12;
+                        j |= 1 << i16;
+                        i15 = i15;
                     }
-                    i14 = i6;
+                    i17 = i8;
                 }
-                i13++;
-                size2 = i17;
+                i16++;
+                size2 = i20;
             }
-            int i20 = size2;
-            boolean z6 = z4 && i14 == 2;
-            boolean z7 = false;
-            while (i16 > 0 && i9 > 0) {
-                int i21 = 0;
-                int i22 = 0;
-                int i23 = Integer.MAX_VALUE;
+            int i23 = size2;
+            if (z7 && i17 == 2) {
+                z = true;
+            } else {
+                z = false;
+            }
+            boolean z9 = false;
+            while (i19 > 0 && i12 > 0) {
+                int i24 = 0;
+                int i25 = 0;
+                int i26 = Integer.MAX_VALUE;
                 long j2 = 0;
-                while (i22 < childCount) {
-                    boolean z8 = z7;
-                    LayoutParams layoutParams2 = (LayoutParams) getChildAt(i22).getLayoutParams();
-                    int i24 = i12;
+                while (i25 < childCount) {
+                    boolean z10 = z9;
+                    LayoutParams layoutParams2 = (LayoutParams) getChildAt(i25).getLayoutParams();
+                    int i27 = i15;
                     if (layoutParams2.expandable) {
-                        int i25 = layoutParams2.cellsUsed;
-                        if (i25 < i23) {
-                            j2 = 1 << i22;
-                            i23 = i25;
-                            i21 = 1;
-                        } else if (i25 == i23) {
-                            i21++;
-                            j2 |= 1 << i22;
+                        int i28 = layoutParams2.cellsUsed;
+                        if (i28 < i26) {
+                            j2 = 1 << i25;
+                            i26 = i28;
+                            i24 = 1;
+                        } else if (i28 == i26) {
+                            i24++;
+                            j2 |= 1 << i25;
                         }
                     }
-                    i22++;
-                    i12 = i24;
-                    z7 = z8;
+                    i25++;
+                    i15 = i27;
+                    z9 = z10;
                 }
-                z = z7;
-                i5 = i12;
+                z2 = z9;
+                i5 = i15;
                 j |= j2;
-                if (i21 > i9) {
+                if (i24 > i12) {
                     i3 = mode;
-                    i4 = i7;
+                    i4 = i10;
                     break;
                 }
-                int i26 = i23 + 1;
-                int i27 = 0;
-                while (i27 < childCount) {
-                    View childAt2 = getChildAt(i27);
+                int i29 = i26 + 1;
+                int i30 = 0;
+                while (i30 < childCount) {
+                    View childAt2 = getChildAt(i30);
                     LayoutParams layoutParams3 = (LayoutParams) childAt2.getLayoutParams();
-                    int i28 = i7;
-                    int i29 = mode;
-                    long j3 = 1 << i27;
+                    int i31 = i10;
+                    int i32 = mode;
+                    long j3 = 1 << i30;
                     if ((j2 & j3) == 0) {
-                        if (layoutParams3.cellsUsed == i26) {
+                        if (layoutParams3.cellsUsed == i29) {
                             j |= j3;
                         }
-                        z3 = z6;
+                        z5 = z;
                     } else {
-                        if (z6 && layoutParams3.preventEdgeOffset && i9 == 1) {
-                            int i30 = this.mGeneratedItemPadding;
-                            z3 = z6;
-                            childAt2.setPadding(i30 + i11, 0, i30, 0);
+                        if (z && layoutParams3.preventEdgeOffset && i12 == 1) {
+                            int i33 = this.mGeneratedItemPadding;
+                            z5 = z;
+                            childAt2.setPadding(i33 + i14, 0, i33, 0);
                         } else {
-                            z3 = z6;
+                            z5 = z;
                         }
                         layoutParams3.cellsUsed++;
                         layoutParams3.expanded = true;
-                        i9--;
+                        i12--;
                     }
-                    i27++;
-                    mode = i29;
-                    i7 = i28;
-                    z6 = z3;
+                    i30++;
+                    mode = i32;
+                    i10 = i31;
+                    z = z5;
                 }
-                i12 = i5;
-                z7 = true;
+                i15 = i5;
+                z9 = true;
             }
             i3 = mode;
-            i4 = i7;
-            z = z7;
-            i5 = i12;
-            boolean z9 = !z4 && i14 == 1;
-            if (i9 <= 0 || j == 0 || (i9 >= i14 - 1 && !z9 && i15 <= 1)) {
-                z2 = z;
+            i4 = i10;
+            z2 = z9;
+            i5 = i15;
+            if (!z7 && i17 == 1) {
+                z3 = true;
             } else {
+                z3 = false;
+            }
+            if (i12 > 0 && j != 0 && (i12 < i17 - 1 || z3 || i18 > 1)) {
                 float bitCount = Long.bitCount(j);
-                if (!z9) {
+                if (!z3) {
                     if ((j & 1) != 0 && !((LayoutParams) getChildAt(0).getLayoutParams()).preventEdgeOffset) {
                         bitCount -= 0.5f;
                     }
-                    int i31 = childCount - 1;
-                    if ((j & (1 << i31)) != 0 && !((LayoutParams) getChildAt(i31).getLayoutParams()).preventEdgeOffset) {
+                    int i34 = childCount - 1;
+                    if ((j & (1 << i34)) != 0 && !((LayoutParams) getChildAt(i34).getLayoutParams()).preventEdgeOffset) {
                         bitCount -= 0.5f;
                     }
                 }
-                int i32 = bitCount > 0.0f ? (int) ((i9 * i11) / bitCount) : 0;
-                z2 = z;
-                for (int i33 = 0; i33 < childCount; i33++) {
-                    if ((j & (1 << i33)) != 0) {
-                        View childAt3 = getChildAt(i33);
+                if (bitCount > 0.0f) {
+                    i7 = (int) ((i12 * i14) / bitCount);
+                } else {
+                    i7 = 0;
+                }
+                z4 = z2;
+                for (int i35 = 0; i35 < childCount; i35++) {
+                    if ((j & (1 << i35)) != 0) {
+                        View childAt3 = getChildAt(i35);
                         LayoutParams layoutParams4 = (LayoutParams) childAt3.getLayoutParams();
                         if (childAt3 instanceof ActionMenuItemView) {
-                            layoutParams4.extraPixels = i32;
+                            layoutParams4.extraPixels = i7;
                             layoutParams4.expanded = true;
-                            if (i33 == 0 && !layoutParams4.preventEdgeOffset) {
-                                ((ViewGroup.MarginLayoutParams) layoutParams4).leftMargin = (-i32) / 2;
+                            if (i35 == 0 && !layoutParams4.preventEdgeOffset) {
+                                ((ViewGroup.MarginLayoutParams) layoutParams4).leftMargin = (-i7) / 2;
                             }
                         } else if (layoutParams4.isOverflowButton) {
-                            layoutParams4.extraPixels = i32;
+                            layoutParams4.extraPixels = i7;
                             layoutParams4.expanded = true;
-                            ((ViewGroup.MarginLayoutParams) layoutParams4).rightMargin = (-i32) / 2;
+                            ((ViewGroup.MarginLayoutParams) layoutParams4).rightMargin = (-i7) / 2;
                         } else {
-                            if (i33 != 0) {
-                                ((ViewGroup.MarginLayoutParams) layoutParams4).leftMargin = i32 / 2;
+                            if (i35 != 0) {
+                                ((ViewGroup.MarginLayoutParams) layoutParams4).leftMargin = i7 / 2;
                             }
-                            if (i33 != childCount - 1) {
-                                ((ViewGroup.MarginLayoutParams) layoutParams4).rightMargin = i32 / 2;
+                            if (i35 != childCount - 1) {
+                                ((ViewGroup.MarginLayoutParams) layoutParams4).rightMargin = i7 / 2;
                             }
                         }
-                        z2 = true;
+                        z4 = true;
                     }
                 }
+            } else {
+                z4 = z2;
             }
-            if (z2) {
-                for (int i34 = 0; i34 < childCount; i34++) {
-                    View childAt4 = getChildAt(i34);
+            if (z4) {
+                for (int i36 = 0; i36 < childCount; i36++) {
+                    View childAt4 = getChildAt(i36);
                     LayoutParams layoutParams5 = (LayoutParams) childAt4.getLayoutParams();
                     if (layoutParams5.expanded) {
-                        childAt4.measure(View.MeasureSpec.makeMeasureSpec((layoutParams5.cellsUsed * i11) + layoutParams5.extraPixels, 1073741824), childMeasureSpec);
+                        childAt4.measure(View.MeasureSpec.makeMeasureSpec((layoutParams5.cellsUsed * i14) + layoutParams5.extraPixels, 1073741824), childMeasureSpec);
                     }
                 }
             }
-            setMeasuredDimension(i4, i3 != 1073741824 ? i5 : i20);
+            if (i3 != 1073741824) {
+                i6 = i5;
+            } else {
+                i6 = i23;
+            }
+            setMeasuredDimension(i4, i6);
         }
     }
 
@@ -529,29 +695,103 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
     public boolean checkLayoutParams(ViewGroup.LayoutParams layoutParams) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, layoutParams)) == null) ? layoutParams instanceof LayoutParams : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, layoutParams)) == null) {
+            return layoutParams instanceof LayoutParams;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // androidx.appcompat.view.menu.MenuView
+    public void initialize(MenuBuilder menuBuilder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, menuBuilder) == null) {
+            this.mMenu = menuBuilder;
+        }
+    }
+
+    @Override // androidx.appcompat.view.menu.MenuBuilder.ItemInvoker
+    public boolean invokeItem(MenuItemImpl menuItemImpl) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, menuItemImpl)) == null) {
+            return this.mMenu.performItemAction(menuItemImpl, 0);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.view.View
+    public void onConfigurationChanged(Configuration configuration) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048600, this, configuration) == null) {
+            super.onConfigurationChanged(configuration);
+            ActionMenuPresenter actionMenuPresenter = this.mPresenter;
+            if (actionMenuPresenter != null) {
+                actionMenuPresenter.updateMenuView(false);
+                if (this.mPresenter.isOverflowMenuShowing()) {
+                    this.mPresenter.hideOverflowMenu();
+                    this.mPresenter.showOverflowMenu();
+                }
+            }
+        }
+    }
+
+    public void setExpandedActionViewsExclusive(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048605, this, z) == null) {
+            this.mPresenter.setExpandedActionViewsExclusive(z);
+        }
+    }
+
+    public void setOnMenuItemClickListener(OnMenuItemClickListener onMenuItemClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048607, this, onMenuItemClickListener) == null) {
+            this.mOnMenuItemClickListener = onMenuItemClickListener;
+        }
+    }
+
+    public void setOverflowIcon(Drawable drawable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048608, this, drawable) == null) {
+            getMenu();
+            this.mPresenter.setOverflowIcon(drawable);
+        }
+    }
+
+    public void setOverflowReserved(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048609, this, z) == null) {
+            this.mReserveOverflow = z;
+        }
+    }
+
+    public void setPopupTheme(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048610, this, i) == null) && this.mPopupTheme != i) {
+            this.mPopupTheme = i;
+            if (i == 0) {
+                this.mPopupContext = getContext();
+            } else {
+                this.mPopupContext = new ContextThemeWrapper(getContext(), i);
+            }
+        }
+    }
+
+    public void setPresenter(ActionMenuPresenter actionMenuPresenter) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048611, this, actionMenuPresenter) == null) {
+            this.mPresenter = actionMenuPresenter;
+            actionMenuPresenter.setMenuView(this);
+        }
     }
 
     public void dismissPopupMenus() {
         ActionMenuPresenter actionMenuPresenter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (actionMenuPresenter = this.mPresenter) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (actionMenuPresenter = this.mPresenter) != null) {
+            actionMenuPresenter.dismissPopupMenus();
         }
-        actionMenuPresenter.dismissPopupMenus();
     }
 
-    @Override // android.view.View
-    public boolean dispatchPopulateAccessibilityEvent(AccessibilityEvent accessibilityEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accessibilityEvent)) == null) {
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public LayoutParams generateOverflowButtonLayoutParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -561,6 +801,128 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
             return generateDefaultLayoutParams;
         }
         return (LayoutParams) invokeV.objValue;
+    }
+
+    public Drawable getOverflowIcon() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            getMenu();
+            return this.mPresenter.getOverflowIcon();
+        }
+        return (Drawable) invokeV.objValue;
+    }
+
+    public int getPopupTheme() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.mPopupTheme;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean hideOverflowMenu() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            ActionMenuPresenter actionMenuPresenter = this.mPresenter;
+            if (actionMenuPresenter != null && actionMenuPresenter.hideOverflowMenu()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isOverflowMenuShowPending() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            ActionMenuPresenter actionMenuPresenter = this.mPresenter;
+            if (actionMenuPresenter != null && actionMenuPresenter.isOverflowMenuShowPending()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isOverflowMenuShowing() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            ActionMenuPresenter actionMenuPresenter = this.mPresenter;
+            if (actionMenuPresenter != null && actionMenuPresenter.isOverflowMenuShowing()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isOverflowReserved() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            return this.mReserveOverflow;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void onDetachedFromWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
+            super.onDetachedFromWindow();
+            dismissPopupMenus();
+        }
+    }
+
+    public MenuBuilder peekMenu() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+            return this.mMenu;
+        }
+        return (MenuBuilder) invokeV.objValue;
+    }
+
+    public boolean showOverflowMenu() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
+            ActionMenuPresenter actionMenuPresenter = this.mPresenter;
+            if (actionMenuPresenter != null && actionMenuPresenter.showOverflowMenu()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.appcompat.widget.LinearLayoutCompat, android.view.ViewGroup
+    public LayoutParams generateDefaultLayoutParams() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            LayoutParams layoutParams = new LayoutParams(-2, -2);
+            layoutParams.gravity = 16;
+            return layoutParams;
+        }
+        return (LayoutParams) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.appcompat.widget.LinearLayoutCompat, android.view.ViewGroup
+    public LayoutParams generateLayoutParams(AttributeSet attributeSet) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, attributeSet)) == null) {
+            return new LayoutParams(getContext(), attributeSet);
+        }
+        return (LayoutParams) invokeL.objValue;
     }
 
     public Menu getMenu() {
@@ -589,137 +951,11 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
         return (Menu) invokeV.objValue;
     }
 
-    @Nullable
-    public Drawable getOverflowIcon() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            getMenu();
-            return this.mPresenter.getOverflowIcon();
-        }
-        return (Drawable) invokeV.objValue;
-    }
-
-    public int getPopupTheme() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.mPopupTheme : invokeV.intValue;
-    }
-
-    @Override // androidx.appcompat.view.menu.MenuView
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public int getWindowAnimations() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public boolean hasSupportDividerBeforeChildAt(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) {
-            boolean z = false;
-            if (i == 0) {
-                return false;
-            }
-            View childAt = getChildAt(i - 1);
-            View childAt2 = getChildAt(i);
-            if (i < getChildCount() && (childAt instanceof ActionMenuChildView)) {
-                z = false | ((ActionMenuChildView) childAt).needsDividerAfter();
-            }
-            return (i <= 0 || !(childAt2 instanceof ActionMenuChildView)) ? z : z | ((ActionMenuChildView) childAt2).needsDividerBefore();
-        }
-        return invokeI.booleanValue;
-    }
-
-    public boolean hideOverflowMenu() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            ActionMenuPresenter actionMenuPresenter = this.mPresenter;
-            return actionMenuPresenter != null && actionMenuPresenter.hideOverflowMenu();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // androidx.appcompat.view.menu.MenuView
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public void initialize(MenuBuilder menuBuilder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, menuBuilder) == null) {
-            this.mMenu = menuBuilder;
-        }
-    }
-
-    @Override // androidx.appcompat.view.menu.MenuBuilder.ItemInvoker
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public boolean invokeItem(MenuItemImpl menuItemImpl) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, menuItemImpl)) == null) ? this.mMenu.performItemAction(menuItemImpl, 0) : invokeL.booleanValue;
-    }
-
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public boolean isOverflowMenuShowPending() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            ActionMenuPresenter actionMenuPresenter = this.mPresenter;
-            return actionMenuPresenter != null && actionMenuPresenter.isOverflowMenuShowPending();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean isOverflowMenuShowing() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            ActionMenuPresenter actionMenuPresenter = this.mPresenter;
-            return actionMenuPresenter != null && actionMenuPresenter.isOverflowMenuShowing();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public boolean isOverflowReserved() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.mReserveOverflow : invokeV.booleanValue;
-    }
-
-    @Override // android.view.View
-    public void onConfigurationChanged(Configuration configuration) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, configuration) == null) {
-            super.onConfigurationChanged(configuration);
-            ActionMenuPresenter actionMenuPresenter = this.mPresenter;
-            if (actionMenuPresenter != null) {
-                actionMenuPresenter.updateMenuView(false);
-                if (this.mPresenter.isOverflowMenuShowing()) {
-                    this.mPresenter.hideOverflowMenu();
-                    this.mPresenter.showOverflowMenu();
-                }
-            }
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void onDetachedFromWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-            super.onDetachedFromWindow();
-            dismissPopupMenus();
-        }
-    }
-
     @Override // androidx.appcompat.widget.LinearLayoutCompat, android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        int width;
         int i5;
+        int width;
+        int i6;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048602, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             if (!this.mFormatItems) {
@@ -727,261 +963,94 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
                 return;
             }
             int childCount = getChildCount();
-            int i6 = (i4 - i2) / 2;
+            int i7 = (i4 - i2) / 2;
             int dividerWidth = getDividerWidth();
-            int i7 = i3 - i;
-            int paddingRight = (i7 - getPaddingRight()) - getPaddingLeft();
+            int i8 = i3 - i;
+            int paddingRight = (i8 - getPaddingRight()) - getPaddingLeft();
             boolean isLayoutRtl = ViewUtils.isLayoutRtl(this);
-            int i8 = 0;
             int i9 = 0;
-            for (int i10 = 0; i10 < childCount; i10++) {
-                View childAt = getChildAt(i10);
+            int i10 = 0;
+            for (int i11 = 0; i11 < childCount; i11++) {
+                View childAt = getChildAt(i11);
                 if (childAt.getVisibility() != 8) {
                     LayoutParams layoutParams = (LayoutParams) childAt.getLayoutParams();
                     if (layoutParams.isOverflowButton) {
                         int measuredWidth = childAt.getMeasuredWidth();
-                        if (hasSupportDividerBeforeChildAt(i10)) {
+                        if (hasSupportDividerBeforeChildAt(i11)) {
                             measuredWidth += dividerWidth;
                         }
                         int measuredHeight = childAt.getMeasuredHeight();
                         if (isLayoutRtl) {
-                            i5 = getPaddingLeft() + ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin;
-                            width = i5 + measuredWidth;
+                            i6 = getPaddingLeft() + ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin;
+                            width = i6 + measuredWidth;
                         } else {
                             width = (getWidth() - getPaddingRight()) - ((ViewGroup.MarginLayoutParams) layoutParams).rightMargin;
-                            i5 = width - measuredWidth;
+                            i6 = width - measuredWidth;
                         }
-                        int i11 = i6 - (measuredHeight / 2);
-                        childAt.layout(i5, i11, width, measuredHeight + i11);
+                        int i12 = i7 - (measuredHeight / 2);
+                        childAt.layout(i6, i12, width, measuredHeight + i12);
                         paddingRight -= measuredWidth;
-                        i8 = 1;
+                        i9 = 1;
                     } else {
                         paddingRight -= (childAt.getMeasuredWidth() + ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin) + ((ViewGroup.MarginLayoutParams) layoutParams).rightMargin;
-                        hasSupportDividerBeforeChildAt(i10);
-                        i9++;
+                        hasSupportDividerBeforeChildAt(i11);
+                        i10++;
                     }
                 }
             }
-            if (childCount == 1 && i8 == 0) {
+            if (childCount == 1 && i9 == 0) {
                 View childAt2 = getChildAt(0);
                 int measuredWidth2 = childAt2.getMeasuredWidth();
                 int measuredHeight2 = childAt2.getMeasuredHeight();
-                int i12 = (i7 / 2) - (measuredWidth2 / 2);
-                int i13 = i6 - (measuredHeight2 / 2);
-                childAt2.layout(i12, i13, measuredWidth2 + i12, measuredHeight2 + i13);
+                int i13 = (i8 / 2) - (measuredWidth2 / 2);
+                int i14 = i7 - (measuredHeight2 / 2);
+                childAt2.layout(i13, i14, measuredWidth2 + i13, measuredHeight2 + i14);
                 return;
             }
-            int i14 = i9 - (i8 ^ 1);
-            int max = Math.max(0, i14 > 0 ? paddingRight / i14 : 0);
+            int i15 = i10 - (i9 ^ 1);
+            if (i15 > 0) {
+                i5 = paddingRight / i15;
+            } else {
+                i5 = 0;
+            }
+            int max = Math.max(0, i5);
             if (isLayoutRtl) {
                 int width2 = getWidth() - getPaddingRight();
-                for (int i15 = 0; i15 < childCount; i15++) {
-                    View childAt3 = getChildAt(i15);
+                for (int i16 = 0; i16 < childCount; i16++) {
+                    View childAt3 = getChildAt(i16);
                     LayoutParams layoutParams2 = (LayoutParams) childAt3.getLayoutParams();
                     if (childAt3.getVisibility() != 8 && !layoutParams2.isOverflowButton) {
-                        int i16 = width2 - ((ViewGroup.MarginLayoutParams) layoutParams2).rightMargin;
+                        int i17 = width2 - ((ViewGroup.MarginLayoutParams) layoutParams2).rightMargin;
                         int measuredWidth3 = childAt3.getMeasuredWidth();
                         int measuredHeight3 = childAt3.getMeasuredHeight();
-                        int i17 = i6 - (measuredHeight3 / 2);
-                        childAt3.layout(i16 - measuredWidth3, i17, i16, measuredHeight3 + i17);
-                        width2 = i16 - ((measuredWidth3 + ((ViewGroup.MarginLayoutParams) layoutParams2).leftMargin) + max);
+                        int i18 = i7 - (measuredHeight3 / 2);
+                        childAt3.layout(i17 - measuredWidth3, i18, i17, measuredHeight3 + i18);
+                        width2 = i17 - ((measuredWidth3 + ((ViewGroup.MarginLayoutParams) layoutParams2).leftMargin) + max);
                     }
                 }
                 return;
             }
             int paddingLeft = getPaddingLeft();
-            for (int i18 = 0; i18 < childCount; i18++) {
-                View childAt4 = getChildAt(i18);
+            for (int i19 = 0; i19 < childCount; i19++) {
+                View childAt4 = getChildAt(i19);
                 LayoutParams layoutParams3 = (LayoutParams) childAt4.getLayoutParams();
                 if (childAt4.getVisibility() != 8 && !layoutParams3.isOverflowButton) {
-                    int i19 = paddingLeft + ((ViewGroup.MarginLayoutParams) layoutParams3).leftMargin;
+                    int i20 = paddingLeft + ((ViewGroup.MarginLayoutParams) layoutParams3).leftMargin;
                     int measuredWidth4 = childAt4.getMeasuredWidth();
                     int measuredHeight4 = childAt4.getMeasuredHeight();
-                    int i20 = i6 - (measuredHeight4 / 2);
-                    childAt4.layout(i19, i20, i19 + measuredWidth4, measuredHeight4 + i20);
-                    paddingLeft = i19 + measuredWidth4 + ((ViewGroup.MarginLayoutParams) layoutParams3).rightMargin + max;
+                    int i21 = i7 - (measuredHeight4 / 2);
+                    childAt4.layout(i20, i21, i20 + measuredWidth4, measuredHeight4 + i21);
+                    paddingLeft = i20 + measuredWidth4 + ((ViewGroup.MarginLayoutParams) layoutParams3).rightMargin + max;
                 }
             }
         }
     }
 
-    @Override // androidx.appcompat.widget.LinearLayoutCompat, android.view.View
-    public void onMeasure(int i, int i2) {
-        MenuBuilder menuBuilder;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048603, this, i, i2) == null) {
-            boolean z = this.mFormatItems;
-            boolean z2 = View.MeasureSpec.getMode(i) == 1073741824;
-            this.mFormatItems = z2;
-            if (z != z2) {
-                this.mFormatItemsWidth = 0;
-            }
-            int size = View.MeasureSpec.getSize(i);
-            if (this.mFormatItems && (menuBuilder = this.mMenu) != null && size != this.mFormatItemsWidth) {
-                this.mFormatItemsWidth = size;
-                menuBuilder.onItemsChanged(true);
-            }
-            int childCount = getChildCount();
-            if (this.mFormatItems && childCount > 0) {
-                onMeasureExactFormat(i, i2);
-                return;
-            }
-            for (int i3 = 0; i3 < childCount; i3++) {
-                LayoutParams layoutParams = (LayoutParams) getChildAt(i3).getLayoutParams();
-                ((ViewGroup.MarginLayoutParams) layoutParams).rightMargin = 0;
-                ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin = 0;
-            }
-            super.onMeasure(i, i2);
-        }
-    }
-
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public MenuBuilder peekMenu() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.mMenu : (MenuBuilder) invokeV.objValue;
-    }
-
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public void setExpandedActionViewsExclusive(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048605, this, z) == null) {
-            this.mPresenter.setExpandedActionViewsExclusive(z);
-        }
-    }
-
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void setMenuCallbacks(MenuPresenter.Callback callback, MenuBuilder.Callback callback2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048606, this, callback, callback2) == null) {
             this.mActionMenuPresenterCallback = callback;
             this.mMenuBuilderCallback = callback2;
         }
-    }
-
-    public void setOnMenuItemClickListener(OnMenuItemClickListener onMenuItemClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048607, this, onMenuItemClickListener) == null) {
-            this.mOnMenuItemClickListener = onMenuItemClickListener;
-        }
-    }
-
-    public void setOverflowIcon(@Nullable Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048608, this, drawable) == null) {
-            getMenu();
-            this.mPresenter.setOverflowIcon(drawable);
-        }
-    }
-
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public void setOverflowReserved(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048609, this, z) == null) {
-            this.mReserveOverflow = z;
-        }
-    }
-
-    public void setPopupTheme(@StyleRes int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048610, this, i) == null) || this.mPopupTheme == i) {
-            return;
-        }
-        this.mPopupTheme = i;
-        if (i == 0) {
-            this.mPopupContext = getContext();
-        } else {
-            this.mPopupContext = new ContextThemeWrapper(getContext(), i);
-        }
-    }
-
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public void setPresenter(ActionMenuPresenter actionMenuPresenter) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048611, this, actionMenuPresenter) == null) {
-            this.mPresenter = actionMenuPresenter;
-            actionMenuPresenter.setMenuView(this);
-        }
-    }
-
-    public boolean showOverflowMenu() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
-            ActionMenuPresenter actionMenuPresenter = this.mPresenter;
-            return actionMenuPresenter != null && actionMenuPresenter.showOverflowMenu();
-        }
-        return invokeV.booleanValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ActionMenuView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        setBaselineAligned(false);
-        float f = context.getResources().getDisplayMetrics().density;
-        this.mMinCellSize = (int) (56.0f * f);
-        this.mGeneratedItemPadding = (int) (f * 4.0f);
-        this.mPopupContext = context;
-        this.mPopupTheme = 0;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.appcompat.widget.LinearLayoutCompat, android.view.ViewGroup
-    public LayoutParams generateDefaultLayoutParams() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            LayoutParams layoutParams = new LayoutParams(-2, -2);
-            layoutParams.gravity = 16;
-            return layoutParams;
-        }
-        return (LayoutParams) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.appcompat.widget.LinearLayoutCompat, android.view.ViewGroup
-    public LayoutParams generateLayoutParams(AttributeSet attributeSet) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, attributeSet)) == null) ? new LayoutParams(getContext(), attributeSet) : (LayoutParams) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.appcompat.widget.LinearLayoutCompat, android.view.ViewGroup
-    public LayoutParams generateLayoutParams(ViewGroup.LayoutParams layoutParams) {
-        InterceptResult invokeL;
-        LayoutParams layoutParams2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, layoutParams)) == null) {
-            if (layoutParams != null) {
-                if (layoutParams instanceof LayoutParams) {
-                    layoutParams2 = new LayoutParams((LayoutParams) layoutParams);
-                } else {
-                    layoutParams2 = new LayoutParams(layoutParams);
-                }
-                if (layoutParams2.gravity <= 0) {
-                    layoutParams2.gravity = 16;
-                }
-                return layoutParams2;
-            }
-            return generateDefaultLayoutParams();
-        }
-        return (LayoutParams) invokeL.objValue;
     }
 }

@@ -18,11 +18,18 @@ import java.util.List;
 public class SingleThreadEmotionHorizontalAdater extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<EmotionPackageData> a;
+    public List a;
     public TbPageContext b;
 
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? i : invokeI.longValue;
+    }
+
     /* loaded from: classes5.dex */
-    public static class EmotionGridViewHolder extends TypeAdapter.ViewHolder {
+    public class EmotionGridViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public SingleThreadEmotionHorizontalView a;
@@ -51,14 +58,13 @@ public class SingleThreadEmotionHorizontalAdater extends BaseAdapter {
         public void a(EmotionPackageData emotionPackageData) {
             SingleThreadEmotionHorizontalView singleThreadEmotionHorizontalView;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, emotionPackageData) == null) || (singleThreadEmotionHorizontalView = this.a) == null || emotionPackageData == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, emotionPackageData) == null) && (singleThreadEmotionHorizontalView = this.a) != null && emotionPackageData != null) {
+                singleThreadEmotionHorizontalView.setData(emotionPackageData);
             }
-            singleThreadEmotionHorizontalView.setData(emotionPackageData);
         }
     }
 
-    public SingleThreadEmotionHorizontalAdater(List<EmotionPackageData> list, TbPageContext tbPageContext) {
+    public SingleThreadEmotionHorizontalAdater(List list, TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -81,21 +87,20 @@ public class SingleThreadEmotionHorizontalAdater extends BaseAdapter {
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.size() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a.size();
+        }
+        return invokeV.intValue;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.a.get(i) : invokeI.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? i : invokeI.longValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return this.a.get(i);
+        }
+        return invokeI.objValue;
     }
 
     @Override // android.widget.Adapter
@@ -115,7 +120,7 @@ public class SingleThreadEmotionHorizontalAdater extends BaseAdapter {
             if (emotionGridViewHolder == null) {
                 emotionGridViewHolder = (EmotionGridViewHolder) view2.getTag();
             }
-            emotionGridViewHolder.a(this.a.get(i));
+            emotionGridViewHolder.a((EmotionPackageData) this.a.get(i));
             return view2;
         }
         return (View) invokeILL.objValue;

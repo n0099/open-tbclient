@@ -1,6 +1,5 @@
 package com.qq.e.ads.banner2;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.text.TextUtils;
@@ -18,7 +17,6 @@ import com.qq.e.comm.compliance.DownloadConfirmListener;
 import com.qq.e.comm.constants.LoadAdParams;
 import com.qq.e.comm.util.GDTLogger;
 import java.util.Map;
-@SuppressLint({"ViewConstructor"})
 /* loaded from: classes8.dex */
 public class UnifiedBannerView extends FrameLayout implements ApkDownloadComplianceInterface {
     public static /* synthetic */ Interceptable $ic;
@@ -183,7 +181,7 @@ public class UnifiedBannerView extends FrameLayout implements ApkDownloadComplia
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.getExt() : (Map) invokeV.objValue;
     }
 
-    public Map<String, Object> getExtraInfo() {
+    public Map getExtraInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a.getExtraInfo() : (Map) invokeV.objValue;

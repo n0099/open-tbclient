@@ -1,8 +1,6 @@
 package com.kwad.sdk.collector;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.kwad.sdk.utils.ah;
 import com.kwad.sdk.utils.aj;
 import java.util.ArrayList;
@@ -10,9 +8,8 @@ import java.util.List;
 import org.json.JSONArray;
 /* loaded from: classes7.dex */
 public final class f {
-    @Nullable
     public static JSONArray aL(Context context) {
-        List<g> aN = aN(context);
+        List aN = aN(context);
         aN.add(aM(context));
         return g.l(aN);
     }
@@ -23,8 +20,7 @@ public final class f {
         return new g(com.kuaishou.weapon.p0.h.k, cF ? g.PERMISSION_GRANTED : g.PERMISSION_DENIED);
     }
 
-    @NonNull
-    public static List<g> aN(Context context) {
+    public static List aN(Context context) {
         String[] cE;
         ArrayList arrayList = new ArrayList();
         if (context != null && (cE = ah.cE(context)) != null) {

@@ -85,6 +85,7 @@ public class PayEventStatistics implements IPayEventStatistics {
     }
 
     private void initHiidoConstantContent(RevenueConfig revenueConfig) {
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, revenueConfig) == null) {
             if (revenueConfig == null) {
@@ -100,7 +101,12 @@ public class PayEventStatistics implements IPayEventStatistics {
             HiidoConstantContent.mPackage = revenueConfig.getAppName();
             HiidoConstantContent.mSdkVer = BuildConfig.VERSION_NAME;
             HiidoConstantContent.mOpenId = MD5Utils.getMD5String(String.valueOf(revenueConfig.getUid()));
-            HiidoConstantContent.mUserType = revenueConfig.getAuthType() == 4 ? "1" : "2";
+            if (revenueConfig.getAuthType() == 4) {
+                str = "1";
+            } else {
+                str = "2";
+            }
+            HiidoConstantContent.mUserType = str;
         }
     }
 
@@ -131,19 +137,6 @@ public class PayEventStatistics implements IPayEventStatistics {
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.baseapi.reporter.IPayEventStatistics
-    public void reportUvEvent(String str, String str2, String str3, String str4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048579, this, str, str2, str3, str4) == null) {
-            IPayUVEventContent iPayUVEventContent = this.mPayUVEventContentImpl;
-            if (iPayUVEventContent == null) {
-                RLog.error("PayEventStatistics", "reportProductEvent mProductEventReporter null", new Object[0]);
-            } else {
-                iPayUVEventContent.report(str, str2, str3, str4);
-            }
-        }
-    }
-
-    @Override // com.yy.mobile.framework.revenuesdk.baseapi.reporter.IPayEventStatistics
     public void reportUiEvent(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
@@ -152,6 +145,19 @@ public class PayEventStatistics implements IPayEventStatistics {
                 RLog.error("PayEventStatistics", "reportUiEvent mUiEventReporter null", new Object[0]);
             } else {
                 iPayUIEventContent.reportUIEvent(str, str2);
+            }
+        }
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.baseapi.reporter.IPayEventStatistics
+    public void reportUvEvent(String str, String str2, String str3, String str4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048579, this, str, str2, str3, str4) == null) {
+            IPayUVEventContent iPayUVEventContent = this.mPayUVEventContentImpl;
+            if (iPayUVEventContent == null) {
+                RLog.error("PayEventStatistics", "reportProductEvent mProductEventReporter null", new Object[0]);
+            } else {
+                iPayUVEventContent.report(str, str2, str3, str4);
             }
         }
     }

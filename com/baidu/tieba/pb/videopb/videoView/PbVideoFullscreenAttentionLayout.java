@@ -4,17 +4,16 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
-import androidx.annotation.Nullable;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dj;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.kz7;
-import com.baidu.tieba.my4;
+import com.baidu.tieba.fj;
 import com.baidu.tieba.pb.pb.main.AbsPbActivity;
+import com.baidu.tieba.sy4;
+import com.baidu.tieba.vz7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,7 +25,7 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public HeadImageView a;
     public PbVideoFullscreenLikeBtn b;
-    public kz7 c;
+    public vz7 c;
     public BdUniqueId d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -50,102 +49,8 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
         c(context);
     }
 
-    public int a(ThreadData threadData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, threadData)) == null) {
-            if (threadData == null) {
-                return 0;
-            }
-            if (threadData.isMutiForumThread()) {
-                return !dj.isEmpty(threadData.getForum_name()) ? 2 : 0;
-            }
-            return 1;
-        }
-        return invokeL.intValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            kz7 kz7Var = this.c;
-            return (kz7Var == null || kz7Var.j() == null || !this.c.j().getIsLike()) ? false : true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void c(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d06ea, this);
-            this.a = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f0902dc);
-            this.b = (PbVideoFullscreenLikeBtn) findViewById(R.id.obfuscated_res_0x7f0906c4);
-            this.a.setIsRound(true);
-            this.a.setBorderWidth(ej.f(context, R.dimen.tbds3));
-            this.a.setBorderColor(context.getResources().getColor(R.color.CAM_X0402));
-            this.a.setAutoChangeStyle(false);
-            this.b.setConfig(new my4());
-        }
-    }
-
-    public void d(ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, threadData) == null) || threadData == null || threadData.getAuthor() == null) {
-            return;
-        }
-        String str = threadData.tid;
-        int a = a(threadData);
-        if (this.c == null) {
-            if (!(getContext() instanceof AbsPbActivity)) {
-                return;
-            }
-            kz7 kz7Var = new kz7(((AbsPbActivity) getContext()).getPageContext(), this.b, -1);
-            this.c = kz7Var;
-            kz7Var.m("11");
-            this.c.l(this.d);
-        }
-        this.c.n(threadData.getAuthor());
-        this.c.x(str);
-        this.c.v(threadData);
-        kz7 kz7Var2 = this.c;
-        kz7Var2.p = true;
-        kz7Var2.w(a);
-    }
-
-    public void setData(ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, threadData) == null) || threadData == null || threadData.getAuthor() == null) {
-            return;
-        }
-        String avater = threadData.getAuthor().getAvater();
-        if (avater.startsWith("http")) {
-            this.a.K(avater, 10, false);
-        } else {
-            this.a.K(avater, 25, false);
-        }
-        this.a.setBjhAuthIconRes(0);
-        this.a.setIsBigV(threadData.getAuthor().isBigV());
-        this.a.setShowV(threadData.getAuthor().isBigV());
-        d(threadData);
-    }
-
-    public void setOnClickEvent(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, onClickListener) == null) {
-            this.b.setOnclickEvent(onClickListener);
-        }
-    }
-
-    public void setUniqueId(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bdUniqueId) == null) {
-            this.d = bdUniqueId;
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PbVideoFullscreenAttentionLayout(Context context, @Nullable AttributeSet attributeSet) {
+    public PbVideoFullscreenAttentionLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -167,7 +72,7 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PbVideoFullscreenAttentionLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public PbVideoFullscreenAttentionLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -186,5 +91,104 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
             }
         }
         c(context);
+    }
+
+    public int a(ThreadData threadData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, threadData)) == null) {
+            if (threadData == null) {
+                return 0;
+            }
+            if (threadData.isMutiForumThread()) {
+                if (ej.isEmpty(threadData.getForum_name())) {
+                    return 0;
+                }
+                return 2;
+            }
+            return 1;
+        }
+        return invokeL.intValue;
+    }
+
+    public void setOnClickEvent(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, onClickListener) == null) {
+            this.b.setOnclickEvent(onClickListener);
+        }
+    }
+
+    public void setUniqueId(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, bdUniqueId) == null) {
+            this.d = bdUniqueId;
+        }
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            vz7 vz7Var = this.c;
+            if (vz7Var != null && vz7Var.j() != null && this.c.j().getIsLike()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void c(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
+            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d06ea, this);
+            this.a = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f0902dc);
+            this.b = (PbVideoFullscreenLikeBtn) findViewById(R.id.obfuscated_res_0x7f0906cd);
+            this.a.setIsRound(true);
+            this.a.setBorderWidth(fj.f(context, R.dimen.tbds3));
+            this.a.setBorderColor(context.getResources().getColor(R.color.CAM_X0402));
+            this.a.setAutoChangeStyle(false);
+            this.b.setConfig(new sy4());
+        }
+    }
+
+    public void setData(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, threadData) == null) && threadData != null && threadData.getAuthor() != null) {
+            String avater = threadData.getAuthor().getAvater();
+            if (avater.startsWith("http")) {
+                this.a.L(avater, 10, false);
+            } else {
+                this.a.L(avater, 25, false);
+            }
+            this.a.setBjhAuthIconRes(0);
+            this.a.setIsBigV(threadData.getAuthor().isBigV());
+            this.a.setShowV(threadData.getAuthor().isBigV());
+            d(threadData);
+        }
+    }
+
+    public void d(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, threadData) == null) && threadData != null && threadData.getAuthor() != null) {
+            String str = threadData.tid;
+            int a = a(threadData);
+            if (this.c == null) {
+                if (getContext() instanceof AbsPbActivity) {
+                    vz7 vz7Var = new vz7(((AbsPbActivity) getContext()).getPageContext(), this.b, -1);
+                    this.c = vz7Var;
+                    vz7Var.m("11");
+                    this.c.l(this.d);
+                } else {
+                    return;
+                }
+            }
+            this.c.n(threadData.getAuthor());
+            this.c.x(str);
+            this.c.v(threadData);
+            vz7 vz7Var2 = this.c;
+            vz7Var2.p = true;
+            vz7Var2.w(a);
+        }
     }
 }

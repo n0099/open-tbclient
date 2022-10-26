@@ -19,20 +19,30 @@ public class ShapeTrimPathParser {
         boolean z = false;
         while (jsonReader.hasNext()) {
             int selectName = jsonReader.selectName(NAMES);
-            if (selectName == 0) {
-                animatableFloatValue = AnimatableValueParser.parseFloat(jsonReader, lottieComposition, false);
-            } else if (selectName == 1) {
-                animatableFloatValue2 = AnimatableValueParser.parseFloat(jsonReader, lottieComposition, false);
-            } else if (selectName == 2) {
-                animatableFloatValue3 = AnimatableValueParser.parseFloat(jsonReader, lottieComposition, false);
-            } else if (selectName == 3) {
-                str = jsonReader.nextString();
-            } else if (selectName == 4) {
-                type = ShapeTrimPath.Type.forId(jsonReader.nextInt());
-            } else if (selectName != 5) {
-                jsonReader.skipValue();
+            if (selectName != 0) {
+                if (selectName != 1) {
+                    if (selectName != 2) {
+                        if (selectName != 3) {
+                            if (selectName != 4) {
+                                if (selectName != 5) {
+                                    jsonReader.skipValue();
+                                } else {
+                                    z = jsonReader.nextBoolean();
+                                }
+                            } else {
+                                type = ShapeTrimPath.Type.forId(jsonReader.nextInt());
+                            }
+                        } else {
+                            str = jsonReader.nextString();
+                        }
+                    } else {
+                        animatableFloatValue3 = AnimatableValueParser.parseFloat(jsonReader, lottieComposition, false);
+                    }
+                } else {
+                    animatableFloatValue2 = AnimatableValueParser.parseFloat(jsonReader, lottieComposition, false);
+                }
             } else {
-                z = jsonReader.nextBoolean();
+                animatableFloatValue = AnimatableValueParser.parseFloat(jsonReader, lottieComposition, false);
             }
         }
         return new ShapeTrimPath(str, type, animatableFloatValue, animatableFloatValue2, animatableFloatValue3, z);

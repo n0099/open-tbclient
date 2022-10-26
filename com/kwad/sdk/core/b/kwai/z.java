@@ -3,9 +3,8 @@ package com.kwad.sdk.core.b.kwai;
 import com.kwad.sdk.core.response.model.AdInfo;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class z implements com.kwad.sdk.core.d<AdInfo.AdStyleConfInfo> {
-    /* renamed from: a  reason: avoid collision after fix types in other method */
-    public static void a2(AdInfo.AdStyleConfInfo adStyleConfInfo, JSONObject jSONObject) {
+public final class z implements com.kwad.sdk.core.d {
+    public static void a(AdInfo.AdStyleConfInfo adStyleConfInfo, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
@@ -16,8 +15,7 @@ public final class z implements com.kwad.sdk.core.d<AdInfo.AdStyleConfInfo> {
         adStyleConfInfo.rewardReflowSwitch = jSONObject.optBoolean("rewardReflowSwitch", new Boolean("true").booleanValue());
     }
 
-    /* renamed from: b  reason: avoid collision after fix types in other method */
-    public static JSONObject b2(AdInfo.AdStyleConfInfo adStyleConfInfo, JSONObject jSONObject) {
+    public static JSONObject b(AdInfo.AdStyleConfInfo adStyleConfInfo, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
@@ -35,15 +33,13 @@ public final class z implements com.kwad.sdk.core.d<AdInfo.AdStyleConfInfo> {
         return jSONObject;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ void a(AdInfo.AdStyleConfInfo adStyleConfInfo, JSONObject jSONObject) {
-        a2(adStyleConfInfo, jSONObject);
+    public final /* bridge */ /* synthetic */ void a(com.kwad.sdk.core.b bVar, JSONObject jSONObject) {
+        a((AdInfo.AdStyleConfInfo) bVar, jSONObject);
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ JSONObject b(AdInfo.AdStyleConfInfo adStyleConfInfo, JSONObject jSONObject) {
-        return b2(adStyleConfInfo, jSONObject);
+    public final /* bridge */ /* synthetic */ JSONObject b(com.kwad.sdk.core.b bVar, JSONObject jSONObject) {
+        return b((AdInfo.AdStyleConfInfo) bVar, jSONObject);
     }
 }

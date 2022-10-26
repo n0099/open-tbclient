@@ -8,10 +8,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Observer;
-import io.reactivex.annotations.Nullable;
 import io.reactivex.plugins.RxJavaPlugins;
 /* loaded from: classes8.dex */
-public class DeferredScalarDisposable<T> extends BasicIntQueueDisposable<T> {
+public class DeferredScalarDisposable extends BasicIntQueueDisposable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DISPOSED = 4;
     public static final int FUSED_CONSUMED = 32;
@@ -20,10 +19,10 @@ public class DeferredScalarDisposable<T> extends BasicIntQueueDisposable<T> {
     public static final int TERMINATED = 2;
     public static final long serialVersionUID = -5502432239815349361L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Observer<? super T> actual;
-    public T value;
+    public final Observer actual;
+    public Object value;
 
-    public DeferredScalarDisposable(Observer<? super T> observer) {
+    public DeferredScalarDisposable(Observer observer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -41,46 +40,6 @@ public class DeferredScalarDisposable<T> extends BasicIntQueueDisposable<T> {
         this.actual = observer;
     }
 
-    @Override // io.reactivex.internal.fuseable.SimpleQueue
-    public final void clear() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            lazySet(32);
-            this.value = null;
-        }
-    }
-
-    public final void complete(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-            int i = get();
-            if ((i & 54) != 0) {
-                return;
-            }
-            Observer<? super T> observer = this.actual;
-            if (i == 8) {
-                this.value = t;
-                lazySet(16);
-                observer.onNext(null);
-            } else {
-                lazySet(2);
-                observer.onNext(t);
-            }
-            if (get() != 4) {
-                observer.onComplete();
-            }
-        }
-    }
-
-    @Override // io.reactivex.disposables.Disposable
-    public void dispose() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            set(4);
-            this.value = null;
-        }
-    }
-
     public final void error(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, th) == null) {
@@ -91,37 +50,6 @@ public class DeferredScalarDisposable<T> extends BasicIntQueueDisposable<T> {
             lazySet(2);
             this.actual.onError(th);
         }
-    }
-
-    @Override // io.reactivex.disposables.Disposable
-    public final boolean isDisposed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? get() == 4 : invokeV.booleanValue;
-    }
-
-    @Override // io.reactivex.internal.fuseable.SimpleQueue
-    public final boolean isEmpty() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? get() != 16 : invokeV.booleanValue;
-    }
-
-    @Override // io.reactivex.internal.fuseable.SimpleQueue
-    @Nullable
-    public final T poll() throws Exception {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (get() == 16) {
-                T t = this.value;
-                this.value = null;
-                lazySet(32);
-                return t;
-            }
-            return null;
-        }
-        return (T) invokeV.objValue;
     }
 
     @Override // io.reactivex.internal.fuseable.QueueFuseable
@@ -138,17 +66,106 @@ public class DeferredScalarDisposable<T> extends BasicIntQueueDisposable<T> {
         return invokeI.intValue;
     }
 
-    public final boolean tryDispose() {
-        InterceptResult invokeV;
+    @Override // io.reactivex.internal.fuseable.SimpleQueue
+    public final void clear() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? getAndSet(4) != 4 : invokeV.booleanValue;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            lazySet(32);
+            this.value = null;
+        }
     }
 
     public final void complete() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (get() & 54) == 0) {
-            lazySet(2);
-            this.actual.onComplete();
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (get() & 54) != 0) {
+            return;
+        }
+        lazySet(2);
+        this.actual.onComplete();
+    }
+
+    @Override // io.reactivex.disposables.Disposable
+    public void dispose() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            set(4);
+            this.value = null;
+        }
+    }
+
+    @Override // io.reactivex.disposables.Disposable
+    public final boolean isDisposed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (get() == 4) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // io.reactivex.internal.fuseable.SimpleQueue
+    public final boolean isEmpty() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (get() != 16) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // io.reactivex.internal.fuseable.SimpleQueue
+    public final Object poll() throws Exception {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (get() != 16) {
+                return null;
+            }
+            Object obj = this.value;
+            this.value = null;
+            lazySet(32);
+            return obj;
+        }
+        return invokeV.objValue;
+    }
+
+    public final boolean tryDispose() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            if (getAndSet(4) != 4) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void complete(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+            int i = get();
+            if ((i & 54) != 0) {
+                return;
+            }
+            Observer observer = this.actual;
+            if (i == 8) {
+                this.value = obj;
+                lazySet(16);
+                observer.onNext(null);
+            } else {
+                lazySet(2);
+                observer.onNext(obj);
+            }
+            if (get() != 4) {
+                observer.onComplete();
+            }
         }
     }
 }

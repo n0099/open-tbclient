@@ -9,14 +9,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Completable;
 import io.reactivex.CompletableObserver;
 import io.reactivex.CompletableSource;
-import io.reactivex.annotations.Experimental;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.exceptions.Exceptions;
 import io.reactivex.functions.Action;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicInteger;
-@Experimental
 /* loaded from: classes8.dex */
 public final class CompletableDoFinally extends Completable {
     public static /* synthetic */ Interceptable $ic;
@@ -25,7 +23,7 @@ public final class CompletableDoFinally extends Completable {
     public final CompletableSource source;
 
     /* loaded from: classes8.dex */
-    public static final class DoFinallyObserver extends AtomicInteger implements CompletableObserver, Disposable {
+    public final class DoFinallyObserver extends AtomicInteger implements CompletableObserver, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4109457741734051389L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -65,7 +63,10 @@ public final class CompletableDoFinally extends Completable {
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d.isDisposed() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.d.isDisposed();
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.CompletableObserver, io.reactivex.MaybeObserver
@@ -74,6 +75,18 @@ public final class CompletableDoFinally extends Completable {
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 this.actual.onComplete();
                 runFinally();
+            }
+        }
+
+        public void runFinally() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && compareAndSet(0, 1)) {
+                try {
+                    this.onFinally.run();
+                } catch (Throwable th) {
+                    Exceptions.throwIfFatal(th);
+                    RxJavaPlugins.onError(th);
+                }
             }
         }
 
@@ -92,18 +105,6 @@ public final class CompletableDoFinally extends Completable {
             if ((interceptable == null || interceptable.invokeL(1048580, this, disposable) == null) && DisposableHelper.validate(this.d, disposable)) {
                 this.d = disposable;
                 this.actual.onSubscribe(this);
-            }
-        }
-
-        public void runFinally() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && compareAndSet(0, 1)) {
-                try {
-                    this.onFinally.run();
-                } catch (Throwable th) {
-                    Exceptions.throwIfFatal(th);
-                    RxJavaPlugins.onError(th);
-                }
             }
         }
     }

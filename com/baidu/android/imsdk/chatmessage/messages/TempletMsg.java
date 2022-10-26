@@ -23,7 +23,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class TempletMsg extends NormalMsg {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator<TempletMsg> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public static final int IMAGE = 2;
     public static final int LINK = 1;
     public static final int NO_FOOT = 0;
@@ -36,21 +36,41 @@ public class TempletMsg extends NormalMsg {
     public Image mImage;
     public String mImageDetail;
     public String mKeywords;
-    public ArrayList<Link> mLinks;
+    public ArrayList mLinks;
     public int mMode;
     public String mRemarkColor;
     public String mRemarkName;
     public String mTitle;
     public Video mVideo;
 
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     /* loaded from: classes.dex */
-    public static class Commodity implements Parcelable, NoProGuard {
+    public class Commodity implements Parcelable, NoProGuard {
         public static /* synthetic */ Interceptable $ic;
-        public static final Parcelable.Creator<Commodity> CREATOR;
+        public static final Parcelable.Creator CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
         public String mColor;
         public String mName;
         public String mValue;
+
+        @Override // android.os.Parcelable
+        public int describeContents() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return 0;
+            }
+            return invokeV.intValue;
+        }
 
         static {
             InterceptResult invokeClinit;
@@ -65,7 +85,7 @@ public class TempletMsg extends NormalMsg {
                     return;
                 }
             }
-            CREATOR = new Parcelable.Creator<Commodity>() { // from class: com.baidu.android.imsdk.chatmessage.messages.TempletMsg.Commodity.1
+            CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.TempletMsg.Commodity.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -84,21 +104,25 @@ public class TempletMsg extends NormalMsg {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
                 public Commodity createFromParcel(Parcel parcel) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new Commodity(parcel) : (Commodity) invokeL.objValue;
+                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                        return new Commodity(parcel);
+                    }
+                    return (Commodity) invokeL.objValue;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
                 public Commodity[] newArray(int i) {
                     InterceptResult invokeI;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new Commodity[i] : (Commodity[]) invokeI.objValue;
+                    if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                        return new Commodity[i];
+                    }
+                    return (Commodity[]) invokeI.objValue;
                 }
             };
         }
@@ -117,32 +141,51 @@ public class TempletMsg extends NormalMsg {
             }
         }
 
-        @Override // android.os.Parcelable
-        public int describeContents() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return 0;
-            }
-            return invokeV.intValue;
-        }
-
         public String getColor() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mColor : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.mColor;
+            }
+            return (String) invokeV.objValue;
         }
 
         public String getName() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mName : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.mName;
+            }
+            return (String) invokeV.objValue;
         }
 
         public String getValue() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mValue : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.mValue;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public Commodity(Parcel parcel) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {parcel};
+                interceptable.invokeUnInit(65538, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65538, newInitContext);
+                    return;
+                }
+            }
+            this.mName = parcel.readString();
+            this.mValue = parcel.readString();
+            this.mColor = parcel.readString();
         }
 
         public void setColor(String str) {
@@ -175,37 +218,27 @@ public class TempletMsg extends NormalMsg {
                 parcel.writeString(this.mColor);
             }
         }
-
-        public Commodity(Parcel parcel) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {parcel};
-                interceptable.invokeUnInit(65538, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65538, newInitContext);
-                    return;
-                }
-            }
-            this.mName = parcel.readString();
-            this.mValue = parcel.readString();
-            this.mColor = parcel.readString();
-        }
     }
 
     /* loaded from: classes.dex */
-    public static class Image implements Parcelable {
+    public class Image implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
-        public static final Parcelable.Creator<Image> CREATOR;
+        public static final Parcelable.Creator CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
         public String description;
         public String image;
         public String title;
         public String url;
+
+        @Override // android.os.Parcelable
+        public int describeContents() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return 0;
+            }
+            return invokeV.intValue;
+        }
 
         static {
             InterceptResult invokeClinit;
@@ -220,7 +253,7 @@ public class TempletMsg extends NormalMsg {
                     return;
                 }
             }
-            CREATOR = new Parcelable.Creator<Image>() { // from class: com.baidu.android.imsdk.chatmessage.messages.TempletMsg.Image.1
+            CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.TempletMsg.Image.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -239,21 +272,25 @@ public class TempletMsg extends NormalMsg {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
                 public Image createFromParcel(Parcel parcel) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new Image(parcel) : (Image) invokeL.objValue;
+                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                        return new Image(parcel);
+                    }
+                    return (Image) invokeL.objValue;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
                 public Image[] newArray(int i) {
                     InterceptResult invokeI;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new Image[i] : (Image[]) invokeI.objValue;
+                    if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                        return new Image[i];
+                    }
+                    return (Image[]) invokeI.objValue;
                 }
             };
         }
@@ -272,49 +309,40 @@ public class TempletMsg extends NormalMsg {
             }
         }
 
-        @Override // android.os.Parcelable
-        public int describeContents() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return 0;
-            }
-            return invokeV.intValue;
-        }
-
         public String getDescription() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.description : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.description;
+            }
+            return (String) invokeV.objValue;
         }
 
         public String getImage() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.image : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.image;
+            }
+            return (String) invokeV.objValue;
         }
 
         public String getTitle() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.title : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.title;
+            }
+            return (String) invokeV.objValue;
         }
 
         public String getUrl() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.url : (String) invokeV.objValue;
-        }
-
-        @Override // android.os.Parcelable
-        public void writeToParcel(Parcel parcel, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048581, this, parcel, i) == null) {
-                parcel.writeString(this.image);
-                parcel.writeString(this.url);
-                parcel.writeString(this.title);
-                parcel.writeString(this.description);
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.url;
             }
+            return (String) invokeV.objValue;
         }
 
         public Image(Parcel parcel) {
@@ -337,16 +365,37 @@ public class TempletMsg extends NormalMsg {
             this.title = parcel.readString();
             this.description = parcel.readString();
         }
+
+        @Override // android.os.Parcelable
+        public void writeToParcel(Parcel parcel, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048581, this, parcel, i) == null) {
+                parcel.writeString(this.image);
+                parcel.writeString(this.url);
+                parcel.writeString(this.title);
+                parcel.writeString(this.description);
+            }
+        }
     }
 
     /* loaded from: classes.dex */
-    public static class Link implements Parcelable {
+    public class Link implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
-        public static final Parcelable.Creator<Link> CREATOR;
+        public static final Parcelable.Creator CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
         public String content;
         public String title;
         public String url;
+
+        @Override // android.os.Parcelable
+        public int describeContents() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return 0;
+            }
+            return invokeV.intValue;
+        }
 
         static {
             InterceptResult invokeClinit;
@@ -361,7 +410,7 @@ public class TempletMsg extends NormalMsg {
                     return;
                 }
             }
-            CREATOR = new Parcelable.Creator<Link>() { // from class: com.baidu.android.imsdk.chatmessage.messages.TempletMsg.Link.1
+            CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.TempletMsg.Link.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -380,21 +429,25 @@ public class TempletMsg extends NormalMsg {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
                 public Link createFromParcel(Parcel parcel) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new Link(parcel) : (Link) invokeL.objValue;
+                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                        return new Link(parcel);
+                    }
+                    return (Link) invokeL.objValue;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
                 public Link[] newArray(int i) {
                     InterceptResult invokeI;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new Link[i] : (Link[]) invokeI.objValue;
+                    if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                        return new Link[i];
+                    }
+                    return (Link[]) invokeI.objValue;
                 }
             };
         }
@@ -413,42 +466,31 @@ public class TempletMsg extends NormalMsg {
             }
         }
 
-        @Override // android.os.Parcelable
-        public int describeContents() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return 0;
-            }
-            return invokeV.intValue;
-        }
-
         public String getContent() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.content : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.content;
+            }
+            return (String) invokeV.objValue;
         }
 
         public String getTitle() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.title : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.title;
+            }
+            return (String) invokeV.objValue;
         }
 
         public String getUrl() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.url : (String) invokeV.objValue;
-        }
-
-        @Override // android.os.Parcelable
-        public void writeToParcel(Parcel parcel, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048580, this, parcel, i) == null) {
-                parcel.writeString(this.content);
-                parcel.writeString(this.title);
-                parcel.writeString(this.url);
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.url;
             }
+            return (String) invokeV.objValue;
         }
 
         public Link(Parcel parcel) {
@@ -470,18 +512,38 @@ public class TempletMsg extends NormalMsg {
             this.title = parcel.readString();
             this.url = parcel.readString();
         }
+
+        @Override // android.os.Parcelable
+        public void writeToParcel(Parcel parcel, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048580, this, parcel, i) == null) {
+                parcel.writeString(this.content);
+                parcel.writeString(this.title);
+                parcel.writeString(this.url);
+            }
+        }
     }
 
     /* loaded from: classes.dex */
-    public static class Video implements Parcelable {
+    public class Video implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
-        public static final Parcelable.Creator<Video> CREATOR;
+        public static final Parcelable.Creator CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
         public String cover;
         public String description;
         public String duration;
         public String title;
         public String url;
+
+        @Override // android.os.Parcelable
+        public int describeContents() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return 0;
+            }
+            return invokeV.intValue;
+        }
 
         static {
             InterceptResult invokeClinit;
@@ -496,7 +558,7 @@ public class TempletMsg extends NormalMsg {
                     return;
                 }
             }
-            CREATOR = new Parcelable.Creator<Video>() { // from class: com.baidu.android.imsdk.chatmessage.messages.TempletMsg.Video.1
+            CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.TempletMsg.Video.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -515,21 +577,25 @@ public class TempletMsg extends NormalMsg {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
                 public Video createFromParcel(Parcel parcel) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new Video(parcel) : (Video) invokeL.objValue;
+                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                        return new Video(parcel);
+                    }
+                    return (Video) invokeL.objValue;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
                 public Video[] newArray(int i) {
                     InterceptResult invokeI;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new Video[i] : (Video[]) invokeI.objValue;
+                    if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                        return new Video[i];
+                    }
+                    return (Video[]) invokeI.objValue;
                 }
             };
         }
@@ -548,56 +614,49 @@ public class TempletMsg extends NormalMsg {
             }
         }
 
-        @Override // android.os.Parcelable
-        public int describeContents() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return 0;
-            }
-            return invokeV.intValue;
-        }
-
         public String getCover() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.cover : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.cover;
+            }
+            return (String) invokeV.objValue;
         }
 
         public String getDescription() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.description : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.description;
+            }
+            return (String) invokeV.objValue;
         }
 
         public String getDuration() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.duration : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.duration;
+            }
+            return (String) invokeV.objValue;
         }
 
         public String getTitle() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.title : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.title;
+            }
+            return (String) invokeV.objValue;
         }
 
         public String getUrl() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.url : (String) invokeV.objValue;
-        }
-
-        @Override // android.os.Parcelable
-        public void writeToParcel(Parcel parcel, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048582, this, parcel, i) == null) {
-                parcel.writeString(this.cover);
-                parcel.writeString(this.url);
-                parcel.writeString(this.title);
-                parcel.writeString(this.description);
-                parcel.writeString(this.duration);
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return this.url;
             }
+            return (String) invokeV.objValue;
         }
 
         public Video(Parcel parcel) {
@@ -621,6 +680,18 @@ public class TempletMsg extends NormalMsg {
             this.description = parcel.readString();
             this.duration = parcel.readString();
         }
+
+        @Override // android.os.Parcelable
+        public void writeToParcel(Parcel parcel, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048582, this, parcel, i) == null) {
+                parcel.writeString(this.cover);
+                parcel.writeString(this.url);
+                parcel.writeString(this.title);
+                parcel.writeString(this.description);
+                parcel.writeString(this.duration);
+            }
+        }
     }
 
     static {
@@ -636,7 +707,7 @@ public class TempletMsg extends NormalMsg {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<TempletMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.TempletMsg.1
+        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.TempletMsg.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -655,21 +726,25 @@ public class TempletMsg extends NormalMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public TempletMsg createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new TempletMsg(parcel) : (TempletMsg) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new TempletMsg(parcel);
+                }
+                return (TempletMsg) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public TempletMsg[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new TempletMsg[i] : (TempletMsg[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new TempletMsg[i];
+                }
+                return (TempletMsg[]) invokeI.objValue;
             }
         };
     }
@@ -688,103 +763,176 @@ public class TempletMsg extends NormalMsg {
             }
         }
         this.mMode = 0;
-        this.mLinks = new ArrayList<>();
+        this.mLinks = new ArrayList();
         setMsgType(12);
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
     }
 
     public Commodity[] getCommodity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mCommodity : (Commodity[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mCommodity;
+        }
+        return (Commodity[]) invokeV.objValue;
     }
 
     public String getDetail() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mDetailurl : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mDetailurl;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getFirstColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mFirstColor : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mFirstColor;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getFirstName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mFirstName : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mFirstName;
+        }
+        return (String) invokeV.objValue;
     }
 
     public Image getImage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mImage : (Image) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mImage;
+        }
+        return (Image) invokeV.objValue;
     }
 
     public String getImageDetail() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mImageDetail : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mImageDetail;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getKeywords() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mKeywords : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mKeywords;
+        }
+        return (String) invokeV.objValue;
     }
 
-    public ArrayList<Link> getLinks() {
+    public ArrayList getLinks() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mLinks : (ArrayList) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mLinks;
+        }
+        return (ArrayList) invokeV.objValue;
     }
 
     public int getMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mMode : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mMode;
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
     public String getRecommendDescription() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? !TextUtils.isEmpty(this.mTitle) ? this.mTitle : "" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            if (!TextUtils.isEmpty(this.mTitle)) {
+                return this.mTitle;
+            }
+            return "";
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getRemarkColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mRemarkColor : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.mRemarkColor;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getRemarkName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mRemarkName : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.mRemarkName;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mTitle : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.mTitle;
+        }
+        return (String) invokeV.objValue;
     }
 
     public Video getVideo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mVideo : (Video) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.mVideo;
+        }
+        return (Video) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public TempletMsg(Parcel parcel) {
+        super(parcel);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Parcel) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.mMode = 0;
+        this.mLinks = new ArrayList();
+        this.mTitle = parcel.readString();
+        this.mDetailurl = parcel.readString();
+        this.mFirstName = parcel.readString();
+        this.mFirstColor = parcel.readString();
+        this.mRemarkName = parcel.readString();
+        this.mRemarkColor = parcel.readString();
+        int readInt = parcel.readInt();
+        if (readInt > 0) {
+            Commodity[] commodityArr = new Commodity[readInt];
+            this.mCommodity = commodityArr;
+            parcel.readTypedArray(commodityArr, Commodity.CREATOR);
+        }
+        this.mMode = parcel.readInt();
+        this.mLinks = parcel.createTypedArrayList(Link.CREATOR);
+        this.mImage = (Image) parcel.readParcelable(Image.class.getClassLoader());
+        this.mVideo = (Video) parcel.readParcelable(Video.class.getClassLoader());
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
@@ -848,7 +996,26 @@ public class TempletMsg extends NormalMsg {
                     } else if (string.equals("link")) {
                         c = 0;
                     }
-                    if (c == 0) {
+                    if (c != 0) {
+                        if (c != 1) {
+                            this.mMode = 3;
+                            Video video = new Video();
+                            this.mVideo = video;
+                            video.cover = jSONArray.getJSONObject(0).getString(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY);
+                            this.mVideo.url = jSONArray.getJSONObject(0).getString("url");
+                            this.mVideo.title = jSONArray.getJSONObject(0).getString("title");
+                            this.mVideo.description = jSONArray.getJSONObject(0).getString("description");
+                            this.mVideo.duration = jSONArray.getJSONObject(0).getString("duration");
+                        } else {
+                            this.mMode = 2;
+                            Image image = new Image();
+                            this.mImage = image;
+                            image.image = jSONArray.getJSONObject(0).getString("image");
+                            this.mImage.url = jSONArray.getJSONObject(0).getString("url");
+                            this.mImage.title = jSONArray.getJSONObject(0).getString("title");
+                            this.mImage.description = jSONArray.getJSONObject(0).getString("description");
+                        }
+                    } else {
                         this.mMode = 1;
                         this.mLinks.clear();
                         if (length > 3) {
@@ -862,23 +1029,6 @@ public class TempletMsg extends NormalMsg {
                             this.mLinks.add(link);
                         }
                         return true;
-                    } else if (c != 1) {
-                        this.mMode = 3;
-                        Video video = new Video();
-                        this.mVideo = video;
-                        video.cover = jSONArray.getJSONObject(0).getString(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY);
-                        this.mVideo.url = jSONArray.getJSONObject(0).getString("url");
-                        this.mVideo.title = jSONArray.getJSONObject(0).getString("title");
-                        this.mVideo.description = jSONArray.getJSONObject(0).getString("description");
-                        this.mVideo.duration = jSONArray.getJSONObject(0).getString("duration");
-                    } else {
-                        this.mMode = 2;
-                        Image image = new Image();
-                        this.mImage = image;
-                        image.image = jSONArray.getJSONObject(0).getString("image");
-                        this.mImage.url = jSONArray.getJSONObject(0).getString("url");
-                        this.mImage.title = jSONArray.getJSONObject(0).getString("title");
-                        this.mImage.description = jSONArray.getJSONObject(0).getString("description");
                     }
                 }
                 return true;
@@ -931,6 +1081,7 @@ public class TempletMsg extends NormalMsg {
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
+        int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048593, this, parcel, i) == null) {
             super.writeToParcel(parcel, i);
@@ -941,9 +1092,13 @@ public class TempletMsg extends NormalMsg {
             parcel.writeString(this.mRemarkName);
             parcel.writeString(this.mRemarkColor);
             Commodity[] commodityArr = this.mCommodity;
-            int length = commodityArr != null ? commodityArr.length : 0;
-            parcel.writeInt(length);
-            if (length > 0) {
+            if (commodityArr != null) {
+                i2 = commodityArr.length;
+            } else {
+                i2 = 0;
+            }
+            parcel.writeInt(i2);
+            if (i2 > 0) {
                 parcel.writeTypedArray(this.mCommodity, i);
             }
             parcel.writeInt(this.mMode);
@@ -951,43 +1106,5 @@ public class TempletMsg extends NormalMsg {
             parcel.writeParcelable(this.mImage, i);
             parcel.writeParcelable(this.mVideo, i);
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TempletMsg(Parcel parcel) {
-        super(parcel);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Parcel) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.mMode = 0;
-        this.mLinks = new ArrayList<>();
-        this.mTitle = parcel.readString();
-        this.mDetailurl = parcel.readString();
-        this.mFirstName = parcel.readString();
-        this.mFirstColor = parcel.readString();
-        this.mRemarkName = parcel.readString();
-        this.mRemarkColor = parcel.readString();
-        int readInt = parcel.readInt();
-        if (readInt > 0) {
-            Commodity[] commodityArr = new Commodity[readInt];
-            this.mCommodity = commodityArr;
-            parcel.readTypedArray(commodityArr, Commodity.CREATOR);
-        }
-        this.mMode = parcel.readInt();
-        this.mLinks = parcel.createTypedArrayList(Link.CREATOR);
-        this.mImage = (Image) parcel.readParcelable(Image.class.getClassLoader());
-        this.mVideo = (Video) parcel.readParcelable(Video.class.getClassLoader());
     }
 }

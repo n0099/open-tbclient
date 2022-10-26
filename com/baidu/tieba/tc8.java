@@ -1,106 +1,135 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Matrix;
-import android.graphics.Paint;
-import android.graphics.Point;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffColorFilter;
-import android.os.Build;
-import android.util.TypedValue;
-import android.view.Display;
-import android.view.WindowManager;
-import androidx.core.view.InputDeviceCompat;
+import android.app.Activity;
+import androidx.lifecycle.Lifecycle;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.live.arch.utils.LiveActivityHelper;
+import com.baidu.tieba.push.PushExtData;
+import com.baidu.tieba.push.PushRemindInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes5.dex */
 public class tc8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Set a;
 
-    public static Bitmap a(Bitmap bitmap, int i) {
-        InterceptResult invokeLI;
-        float height;
-        float width;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, bitmap, i)) == null) {
-            if (bitmap == null) {
-                return null;
+    /* loaded from: classes5.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ tc8 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(tc8 tc8Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tc8Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            Matrix matrix = new Matrix();
-            matrix.setRotate(i, bitmap.getWidth() / 2.0f, bitmap.getHeight() / 2.0f);
-            if (i == 90) {
-                height = bitmap.getHeight();
-                width = 0.0f;
+            this.a = tc8Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+            cu4 cu4Var;
+            Activity activity;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof cu4) || (cu4Var = (cu4) customResponsedMessage.getData()) == null || (activity = cu4Var.b) == null || cu4Var.c == null || !LiveActivityHelper.MIX_ACTIVITY_NAME.equals(activity.getClass().getName())) {
+                return;
+            }
+            if (!Lifecycle.Event.ON_START.equals(cu4Var.c)) {
+                if (Lifecycle.Event.ON_DESTROY.equals(cu4Var.c)) {
+                    this.a.a.remove(cu4Var.b);
+                }
+            } else if (this.a.a.contains(cu4Var.b)) {
             } else {
-                height = bitmap.getHeight();
-                width = bitmap.getWidth();
+                this.a.a.add(cu4Var.b);
             }
-            float[] fArr = new float[9];
-            matrix.getValues(fArr);
-            matrix.postTranslate(height - fArr[2], width - fArr[5]);
-            Bitmap createBitmap = Bitmap.createBitmap(bitmap.getHeight(), bitmap.getWidth(), Bitmap.Config.ARGB_8888);
-            new Canvas(createBitmap).drawBitmap(bitmap, matrix, new Paint());
-            return createBitmap;
         }
-        return (Bitmap) invokeLI.objValue;
     }
 
-    public static int b(Context context, float f) {
-        InterceptResult invokeLF;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLF = interceptable.invokeLF(65537, null, context, f)) == null) ? (int) TypedValue.applyDimension(1, f, context.getResources().getDisplayMetrics()) : invokeLF.intValue;
-    }
+    /* loaded from: classes5.dex */
+    public final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final tc8 a;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public static final int c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            Point d = d(context);
-            return d.x > d.y ? 1 : 0;
-        }
-        return invokeL.intValue;
-    }
-
-    public static Point d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            Display defaultDisplay = ((WindowManager) context.getSystemService("window")).getDefaultDisplay();
-            Point point = new Point();
-            if (Build.VERSION.SDK_INT >= 13) {
-                defaultDisplay.getSize(point);
-            } else {
-                point.set(defaultDisplay.getWidth(), defaultDisplay.getHeight());
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-408132030, "Lcom/baidu/tieba/tc8$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-408132030, "Lcom/baidu/tieba/tc8$b;");
+                    return;
+                }
             }
-            return point;
+            a = new tc8();
         }
-        return (Point) invokeL.objValue;
     }
 
-    public static Bitmap e(Bitmap bitmap, int i) {
-        InterceptResult invokeLI;
+    public tc8() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, bitmap, i)) == null) {
-            if (bitmap == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            Bitmap createBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), bitmap.getConfig());
-            Canvas canvas = new Canvas(createBitmap);
-            Paint paint = new Paint();
-            paint.setColorFilter(new PorterDuffColorFilter(i, PorterDuff.Mode.SRC_IN));
-            canvas.drawBitmap(bitmap, 0.0f, 0.0f, paint);
-            return createBitmap;
         }
-        return (Bitmap) invokeLI.objValue;
+        this.a = new HashSet();
     }
 
-    public static int f(Context context, float f) {
-        InterceptResult invokeLF;
+    public static tc8 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLF = interceptable.invokeLF(65541, null, context, f)) == null) ? (int) TypedValue.applyDimension(2, f, context.getResources().getDisplayMetrics()) : invokeLF.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
+        }
+        return (tc8) invokeV.objValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            MessageManager.getInstance().registerListener(new a(this, 2921698));
+        }
+    }
+
+    public void d(PushExtData pushExtData, PushRemindInfo pushRemindInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pushExtData, pushRemindInfo) == null) && !this.a.isEmpty()) {
+            new sc8((Activity) this.a.toArray()[0], pushExtData, pushRemindInfo).s();
+        }
     }
 }

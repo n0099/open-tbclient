@@ -46,17 +46,17 @@ public class ej implements eg {
     private void b(Context context, ec ecVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, this, context, ecVar) == null) {
-            String m305a = ecVar.m305a();
+            String m304a = ecVar.m304a();
             String b = ecVar.b();
             String d = ecVar.d();
             int a = ecVar.a();
-            if (context == null || TextUtils.isEmpty(m305a) || TextUtils.isEmpty(b) || TextUtils.isEmpty(d)) {
+            if (context == null || TextUtils.isEmpty(m304a) || TextUtils.isEmpty(b) || TextUtils.isEmpty(d)) {
                 if (TextUtils.isEmpty(d)) {
                     dz.a(context, "service", 1008, "argument error");
                 } else {
                     dz.a(context, d, 1008, "argument error");
                 }
-            } else if (!com.xiaomi.push.service.l.a(context, m305a, b)) {
+            } else if (!com.xiaomi.push.service.l.a(context, m304a, b)) {
                 dz.a(context, d, 1003, "B is not ready");
             } else {
                 dz.a(context, d, 1002, "B is ready");
@@ -64,9 +64,9 @@ public class ej implements eg {
                 try {
                     Intent intent = new Intent();
                     intent.setAction(b);
-                    intent.setPackage(m305a);
+                    intent.setPackage(m304a);
                     intent.putExtra("awake_info", dy.a(d));
-                    if (a == 1 && !ed.m306a(context)) {
+                    if (a == 1 && !ed.m305a(context)) {
                         dz.a(context, d, 1008, "A not in foreground");
                     } else if (context.startService(intent) == null) {
                         dz.a(context, d, 1008, "A is fail to help B's service");

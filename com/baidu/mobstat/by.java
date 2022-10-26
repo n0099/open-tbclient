@@ -1,141 +1,72 @@
 package com.baidu.mobstat;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
+import android.os.IBinder;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.cd;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.InetSocketAddress;
 /* loaded from: classes2.dex */
-public interface by {
+public class by {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final a a;
-        public static final a b;
-        public static final a c;
-        public static final a d;
-        public static final a e;
-        public static final /* synthetic */ a[] f;
-        public transient /* synthetic */ FieldHolder $fh;
+    public static void a(Context context, cb cbVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65536, null, context, cbVar) == null) {
+            Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
+            intent.setPackage("com.huawei.hwid");
+            context.bindService(intent, new ServiceConnection(cbVar) { // from class: com.baidu.mobstat.by.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ cb a;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(628103838, "Lcom/baidu/mobstat/by$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
+                @Override // android.content.ServiceConnection
+                public void onServiceDisconnected(ComponentName componentName) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
+                    }
                 }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(628103838, "Lcom/baidu/mobstat/by$a;");
-                    return;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {cbVar};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.a = cbVar;
                 }
-            }
-            a = new a("NOT_YET_CONNECTED", 0);
-            b = new a("CONNECTING", 1);
-            c = new a("OPEN", 2);
-            d = new a("CLOSING", 3);
-            a aVar = new a("CLOSED", 4);
-            e = aVar;
-            f = new a[]{a, b, c, d, aVar};
-        }
 
-        public a(String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    String str2 = (String) objArr2[0];
-                    ((Integer) objArr2[1]).intValue();
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
+                @Override // android.content.ServiceConnection
+                public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLL(1048576, this, componentName, iBinder) == null) {
+                        try {
+                            cd a = cd.a.a(iBinder);
+                            if (!TextUtils.isEmpty(a.a()) && this.a != null) {
+                                this.a.a(a.a());
+                            }
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
                 }
-            }
-        }
-
-        public static a valueOf(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (a) Enum.valueOf(a.class, str) : (a) invokeL.objValue;
-        }
-
-        public static a[] values() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f.clone() : (a[]) invokeV.objValue;
+            }, 1);
         }
     }
-
-    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final b a;
-        public static final /* synthetic */ b[] b;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(628103869, "Lcom/baidu/mobstat/by$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(628103869, "Lcom/baidu/mobstat/by$b;");
-                    return;
-                }
-            }
-            b bVar = new b("CLIENT", 0);
-            a = bVar;
-            b = new b[]{bVar};
-        }
-
-        public b(String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    String str2 = (String) objArr2[0];
-                    ((Integer) objArr2[1]).intValue();
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-
-        public static b valueOf(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (b) Enum.valueOf(b.class, str) : (b) invokeL.objValue;
-        }
-
-        public static b[] values() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (b[]) b.clone() : (b[]) invokeV.objValue;
-        }
-    }
-
-    InetSocketAddress a();
-
-    void a(cq cqVar);
 }

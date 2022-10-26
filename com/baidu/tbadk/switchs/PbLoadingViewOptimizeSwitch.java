@@ -1,6 +1,6 @@
 package com.baidu.tbadk.switchs;
 
-import com.baidu.tieba.ox4;
+import com.baidu.tieba.ux4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,6 +11,13 @@ public class PbLoadingViewOptimizeSwitch extends BaseNormalSwitch {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ANDROID_PB_LOADING_VIEW_OPTIMIZE = "android_pb_Loading_view_optimize";
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.rf
+    public String getName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ANDROID_PB_LOADING_VIEW_OPTIMIZE : (String) invokeV.objValue;
+    }
 
     public PbLoadingViewOptimizeSwitch() {
         Interceptable interceptable = $ic;
@@ -29,13 +36,12 @@ public class PbLoadingViewOptimizeSwitch extends BaseNormalSwitch {
     public static boolean isSwitchOn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? ox4.k().l("key_android_pb_loading_view_optimize", 0) == 1 : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.qf
-    public String getName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ANDROID_PB_LOADING_VIEW_OPTIMIZE : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (ux4.k().l("key_android_pb_loading_view_optimize", 0) != 1) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 }

@@ -22,6 +22,26 @@ public class PersonChangeActivityConfig extends IntentConfig {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public PersonChangeActivityConfig(Context context) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonChangeActivityConfig(Context context, int i, PersonChangeData personChangeData, Boolean bool) {
         super(context);
         Interceptable interceptable = $ic;
@@ -53,7 +73,7 @@ public class PersonChangeActivityConfig extends IntentConfig {
             if (Build.VERSION.SDK_INT >= 9) {
                 return true;
             }
-            UtilHelper.showToast(getContext(), getContext().getString(R.string.obfuscated_res_0x7f0f0a08));
+            UtilHelper.showToast(getContext(), getContext().getString(R.string.obfuscated_res_0x7f0f0a15));
             return false;
         }
         return invokeV.booleanValue;
@@ -63,26 +83,6 @@ public class PersonChangeActivityConfig extends IntentConfig {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
             getIntent().putExtra(IS_COMPLETE_LOCAL_INFO, z);
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PersonChangeActivityConfig(Context context) {
-        super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
         }
     }
 }

@@ -6,7 +6,6 @@ import android.graphics.drawable.Animatable;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -42,6 +41,13 @@ public final class DrawableToBitmapConverter {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
+            @Override // com.bumptech.glide.load.engine.bitmap_recycle.BitmapPoolAdapter, com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
+            public void put(Bitmap bitmap) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, bitmap) == null) {
+                }
+            }
+
             {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 != null) {
@@ -53,13 +59,6 @@ public final class DrawableToBitmapConverter {
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
-                }
-            }
-
-            @Override // com.bumptech.glide.load.engine.bitmap_recycle.BitmapPoolAdapter, com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
-            public void put(Bitmap bitmap) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, bitmap) == null) {
                 }
             }
         };
@@ -79,8 +78,7 @@ public final class DrawableToBitmapConverter {
         }
     }
 
-    @Nullable
-    public static Resource<Bitmap> convert(BitmapPool bitmapPool, Drawable drawable, int i, int i2) {
+    public static Resource convert(BitmapPool bitmapPool, Drawable drawable, int i, int i2) {
         InterceptResult invokeLLII;
         Bitmap bitmap;
         Interceptable interceptable = $ic;
@@ -89,11 +87,11 @@ public final class DrawableToBitmapConverter {
             boolean z = false;
             if (current instanceof BitmapDrawable) {
                 bitmap = ((BitmapDrawable) current).getBitmap();
-            } else if (current instanceof Animatable) {
-                bitmap = null;
-            } else {
+            } else if (!(current instanceof Animatable)) {
                 bitmap = drawToBitmap(bitmapPool, current, i, i2);
                 z = true;
+            } else {
+                bitmap = null;
             }
             if (!z) {
                 bitmapPool = NO_RECYCLE_BITMAP_POOL;
@@ -103,7 +101,6 @@ public final class DrawableToBitmapConverter {
         return (Resource) invokeLLII.objValue;
     }
 
-    @Nullable
     public static Bitmap drawToBitmap(BitmapPool bitmapPool, Drawable drawable, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;

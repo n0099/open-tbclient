@@ -22,11 +22,11 @@ public class GetMediaResourceResponse extends AbstractBceResponse {
     public VodError error;
     public String mediaId;
     public MediaMeta meta;
-    public List<PlayableUrl> playableUrlList;
+    public List playableUrlList;
     public String publishTime;
     public String source;
     public String status;
-    public List<String> thumbnailList;
+    public List thumbnailList;
     public String transcodingPresetGroupName;
 
     public GetMediaResourceResponse() {
@@ -44,6 +44,105 @@ public class GetMediaResourceResponse extends AbstractBceResponse {
         }
         this.playableUrlList = new ArrayList();
         this.thumbnailList = new ArrayList();
+    }
+
+    public Attributes getAttributes() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.attributes;
+        }
+        return (Attributes) invokeV.objValue;
+    }
+
+    public String getCreateTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.createTime;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public VodError getError() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.error;
+        }
+        return (VodError) invokeV.objValue;
+    }
+
+    public String getMediaId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mediaId;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public MediaMeta getMeta() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.meta;
+        }
+        return (MediaMeta) invokeV.objValue;
+    }
+
+    public List getPlayableUrlList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.playableUrlList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public String getPublishTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.publishTime;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getSource() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.source;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getStatus() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.status;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public List getThumbnailList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.thumbnailList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public String getTranscodingPresetGroupName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.transcodingPresetGroupName;
+        }
+        return (String) invokeV.objValue;
     }
 
     public static void formatJsonToObject(JSONObject jSONObject, GetMediaResourceResponse getMediaResourceResponse) {
@@ -69,84 +168,17 @@ public class GetMediaResourceResponse extends AbstractBceResponse {
                     getMediaResourceResponse.setPlayableUrlList(arrayList);
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("thumbnailList");
-                if (optJSONArray2 == null || optJSONArray2.length() <= 0) {
-                    return;
+                if (optJSONArray2 != null && optJSONArray2.length() > 0) {
+                    ArrayList arrayList2 = new ArrayList();
+                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                        arrayList2.add(optJSONArray2.getString(i2));
+                    }
+                    getMediaResourceResponse.setThumbnailList(arrayList2);
                 }
-                ArrayList arrayList2 = new ArrayList();
-                for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                    arrayList2.add(optJSONArray2.getString(i2));
-                }
-                getMediaResourceResponse.setThumbnailList(arrayList2);
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-    }
-
-    public Attributes getAttributes() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.attributes : (Attributes) invokeV.objValue;
-    }
-
-    public String getCreateTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.createTime : (String) invokeV.objValue;
-    }
-
-    public VodError getError() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.error : (VodError) invokeV.objValue;
-    }
-
-    public String getMediaId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mediaId : (String) invokeV.objValue;
-    }
-
-    public MediaMeta getMeta() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.meta : (MediaMeta) invokeV.objValue;
-    }
-
-    public List<PlayableUrl> getPlayableUrlList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.playableUrlList : (List) invokeV.objValue;
-    }
-
-    public String getPublishTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.publishTime : (String) invokeV.objValue;
-    }
-
-    public String getSource() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.source : (String) invokeV.objValue;
-    }
-
-    public String getStatus() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.status : (String) invokeV.objValue;
-    }
-
-    public List<String> getThumbnailList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.thumbnailList : (List) invokeV.objValue;
-    }
-
-    public String getTranscodingPresetGroupName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.transcodingPresetGroupName : (String) invokeV.objValue;
     }
 
     public void setAttributes(Attributes attributes) {
@@ -184,7 +216,7 @@ public class GetMediaResourceResponse extends AbstractBceResponse {
         }
     }
 
-    public void setPlayableUrlList(List<PlayableUrl> list) {
+    public void setPlayableUrlList(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, list) == null) {
             this.playableUrlList = list;
@@ -212,7 +244,7 @@ public class GetMediaResourceResponse extends AbstractBceResponse {
         }
     }
 
-    public void setThumbnailList(List<String> list) {
+    public void setThumbnailList(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, list) == null) {
             this.thumbnailList = list;

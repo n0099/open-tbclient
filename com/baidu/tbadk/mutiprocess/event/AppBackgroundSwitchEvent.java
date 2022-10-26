@@ -33,6 +33,9 @@ public class AppBackgroundSwitchEvent extends SerializableEvent {
     public boolean isBackground() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.isBackground : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.isBackground;
+        }
+        return invokeV.booleanValue;
     }
 }

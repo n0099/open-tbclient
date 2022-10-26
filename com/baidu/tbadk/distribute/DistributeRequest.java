@@ -3,7 +3,7 @@ package com.baidu.tbadk.distribute;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.sh5;
+import com.baidu.tieba.yh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,10 +18,10 @@ import tbclient.LogTogether.LogTogetherReqIdl;
 public class DistributeRequest extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<AdReq> adReqList;
+    public List adReqList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DistributeRequest(List<AdReq> list) {
+    public DistributeRequest(List list) {
         super(CmdConfigHttp.DISTRIBUTE_ACTRUAL_CMD, 303101);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -40,31 +40,6 @@ public class DistributeRequest extends NetMessage {
             }
         }
         this.adReqList = list;
-    }
-
-    @Override // com.baidu.adp.framework.message.NetMessage
-    public Object encode(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-            List<AdReq> list = this.adReqList;
-            if (list == null || list.size() <= 0) {
-                return null;
-            }
-            DataReq.Builder builder = new DataReq.Builder();
-            LogTogetherReqIdl.Builder builder2 = new LogTogetherReqIdl.Builder();
-            builder.Ad = this.adReqList;
-            sh5.a(builder, false);
-            builder2.data = builder.build(false);
-            return builder2.build(false);
-        }
-        return invokeZ.objValue;
-    }
-
-    public List<AdReq> getAdReqList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.adReqList : (List) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -89,5 +64,33 @@ public class DistributeRequest extends NetMessage {
         ArrayList arrayList = new ArrayList();
         this.adReqList = arrayList;
         arrayList.add(adReq);
+    }
+
+    @Override // com.baidu.adp.framework.message.NetMessage
+    public Object encode(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+            List list = this.adReqList;
+            if (list != null && list.size() > 0) {
+                DataReq.Builder builder = new DataReq.Builder();
+                LogTogetherReqIdl.Builder builder2 = new LogTogetherReqIdl.Builder();
+                builder.Ad = this.adReqList;
+                yh5.a(builder, false);
+                builder2.data = builder.build(false);
+                return builder2.build(false);
+            }
+            return null;
+        }
+        return invokeZ.objValue;
+    }
+
+    public List getAdReqList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.adReqList;
+        }
+        return (List) invokeV.objValue;
     }
 }

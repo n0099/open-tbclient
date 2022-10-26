@@ -15,12 +15,12 @@ import java.util.Queue;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class BlockingSubscriber<T> extends AtomicReference<Subscription> implements FlowableSubscriber<T>, Subscription {
+public final class BlockingSubscriber extends AtomicReference implements FlowableSubscriber, Subscription {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Object TERMINATED;
     public static final long serialVersionUID = -4875965440900746268L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Queue<Object> queue;
+    public final Queue queue;
 
     static {
         InterceptResult invokeClinit;
@@ -38,7 +38,35 @@ public final class BlockingSubscriber<T> extends AtomicReference<Subscription> i
         TERMINATED = new Object();
     }
 
-    public BlockingSubscriber(Queue<Object> queue) {
+    @Override // org.reactivestreams.Subscription
+    public void cancel() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && SubscriptionHelper.cancel(this)) {
+            this.queue.offer(TERMINATED);
+        }
+    }
+
+    public boolean isCancelled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (get() == SubscriptionHelper.CANCELLED) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // org.reactivestreams.Subscriber
+    public void onComplete() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.queue.offer(NotificationLite.complete());
+        }
+    }
+
+    public BlockingSubscriber(Queue queue) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -56,28 +84,6 @@ public final class BlockingSubscriber<T> extends AtomicReference<Subscription> i
         this.queue = queue;
     }
 
-    @Override // org.reactivestreams.Subscription
-    public void cancel() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && SubscriptionHelper.cancel(this)) {
-            this.queue.offer(TERMINATED);
-        }
-    }
-
-    public boolean isCancelled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? get() == SubscriptionHelper.CANCELLED : invokeV.booleanValue;
-    }
-
-    @Override // org.reactivestreams.Subscriber
-    public void onComplete() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.queue.offer(NotificationLite.complete());
-        }
-    }
-
     @Override // org.reactivestreams.Subscriber
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
@@ -87,10 +93,10 @@ public final class BlockingSubscriber<T> extends AtomicReference<Subscription> i
     }
 
     @Override // org.reactivestreams.Subscriber
-    public void onNext(T t) {
+    public void onNext(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
-            this.queue.offer(NotificationLite.next(t));
+        if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+            this.queue.offer(NotificationLite.next(obj));
         }
     }
 
@@ -106,7 +112,7 @@ public final class BlockingSubscriber<T> extends AtomicReference<Subscription> i
     public void request(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            get().request(j);
+            ((Subscription) get()).request(j);
         }
     }
 }

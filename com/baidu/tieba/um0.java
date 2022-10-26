@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -8,12 +8,22 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public interface um0 {
-    public static final um0 a = new a();
+    public static final ServiceReference a = new ServiceReference("nad.core", "exp_config");
+    public static final um0 b = new a();
+
+    String[] a();
 
     /* loaded from: classes6.dex */
-    public static class a implements um0 {
+    public final class a implements um0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.um0
+        public String[] a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new String[0] : (String[]) invokeV.objValue;
+        }
 
         public a() {
             Interceptable interceptable = $ic;
@@ -28,23 +38,5 @@ public interface um0 {
                 }
             }
         }
-
-        @Override // com.baidu.tieba.um0
-        public int a(String str, int i) {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) ? i : invokeLI.intValue;
-        }
-
-        @Override // com.baidu.tieba.um0
-        public double b(String str, double d) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Double.valueOf(d)})) == null) ? d : invokeCommon.doubleValue;
-        }
     }
-
-    int a(String str, int i);
-
-    double b(String str, double d);
 }

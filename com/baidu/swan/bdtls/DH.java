@@ -1,6 +1,5 @@
 package com.baidu.swan.bdtls;
 
-import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,11 +8,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Keep
 /* loaded from: classes3.dex */
 public class DH {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public static native int getGroupId();
+
+    public static native int getPublicKey(int i, int i2);
+
+    public static native int getSecret();
+
+    public static native byte[] getSecretKey(int i, int i2, int i3);
 
     static {
         InterceptResult invokeClinit;
@@ -48,36 +54,36 @@ public class DH {
     public static int getDHGroupId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? getGroupId() : invokeV.intValue;
-    }
-
-    public static int getDHPublicKey(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i, i2)) == null) ? getPublicKey(i, i2) : invokeII.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return getGroupId();
+        }
+        return invokeV.intValue;
     }
 
     public static int getDHSecret() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? getSecret() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return getSecret();
+        }
+        return invokeV.intValue;
+    }
+
+    public static int getDHPublicKey(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i, i2)) == null) {
+            return getPublicKey(i, i2);
+        }
+        return invokeII.intValue;
     }
 
     public static byte[] getDHSecretKey(int i, int i2, int i3) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIII = interceptable.invokeIII(65541, null, i, i2, i3)) == null) ? getSecretKey(i, i2, i3) : (byte[]) invokeIII.objValue;
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(65541, null, i, i2, i3)) == null) {
+            return getSecretKey(i, i2, i3);
+        }
+        return (byte[]) invokeIII.objValue;
     }
-
-    @Keep
-    public static native int getGroupId();
-
-    @Keep
-    public static native int getPublicKey(int i, int i2);
-
-    @Keep
-    public static native int getSecret();
-
-    @Keep
-    public static native byte[] getSecretKey(int i, int i2, int i3);
 }

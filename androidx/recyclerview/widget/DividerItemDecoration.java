@@ -7,8 +7,6 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -44,6 +42,15 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
             }
         }
         ATTRS = new int[]{16843284};
+    }
+
+    public Drawable getDrawable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mDivider;
+        }
+        return (Drawable) invokeV.objValue;
     }
 
     public DividerItemDecoration(Context context, int i) {
@@ -124,13 +131,6 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
         }
     }
 
-    @Nullable
-    public Drawable getDrawable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mDivider : (Drawable) invokeV.objValue;
-    }
-
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
     public void getItemOffsets(Rect rect, View view2, RecyclerView recyclerView, RecyclerView.State state) {
         Interceptable interceptable = $ic;
@@ -149,17 +149,16 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
     public void onDraw(Canvas canvas, RecyclerView recyclerView, RecyclerView.State state) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, canvas, recyclerView, state) == null) || recyclerView.getLayoutManager() == null || this.mDivider == null) {
-            return;
-        }
-        if (this.mOrientation == 1) {
-            drawVertical(canvas, recyclerView);
-        } else {
-            drawHorizontal(canvas, recyclerView);
+        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, canvas, recyclerView, state) == null) && recyclerView.getLayoutManager() != null && this.mDivider != null) {
+            if (this.mOrientation == 1) {
+                drawVertical(canvas, recyclerView);
+            } else {
+                drawHorizontal(canvas, recyclerView);
+            }
         }
     }
 
-    public void setDrawable(@NonNull Drawable drawable) {
+    public void setDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, drawable) == null) {
             if (drawable != null) {

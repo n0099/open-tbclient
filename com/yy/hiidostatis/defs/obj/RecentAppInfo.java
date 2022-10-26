@@ -32,6 +32,42 @@ public class RecentAppInfo {
         }
     }
 
+    public long getLastModified() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.lastModified;
+        }
+        return invokeV.longValue;
+    }
+
+    public String getName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.name;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getPkg() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.pkg;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.type;
+        }
+        return invokeV.intValue;
+    }
+
     public static RecentAppInfo fromJson(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -41,45 +77,21 @@ public class RecentAppInfo {
                 String string2 = jSONObject.getString("pkg");
                 Long valueOf = Long.valueOf(jSONObject.getLong("ts"));
                 int i = jSONObject.getInt("type");
-                if (string2 == null || string2.isEmpty() || valueOf == null) {
-                    return null;
+                if (string2 != null && !string2.isEmpty() && valueOf != null) {
+                    RecentAppInfo recentAppInfo = new RecentAppInfo();
+                    recentAppInfo.setLastModified(valueOf.longValue());
+                    recentAppInfo.setPkg(string2);
+                    recentAppInfo.setName(string);
+                    recentAppInfo.setType(i);
+                    return recentAppInfo;
                 }
-                RecentAppInfo recentAppInfo = new RecentAppInfo();
-                recentAppInfo.setLastModified(valueOf.longValue());
-                recentAppInfo.setPkg(string2);
-                recentAppInfo.setName(string);
-                recentAppInfo.setType(i);
-                return recentAppInfo;
+                return null;
             } catch (Throwable th) {
                 L.debug("RecentAppInfo", th.getMessage(), new Object[0]);
                 return null;
             }
         }
         return (RecentAppInfo) invokeL.objValue;
-    }
-
-    public long getLastModified() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.lastModified : invokeV.longValue;
-    }
-
-    public String getName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.name : (String) invokeV.objValue;
-    }
-
-    public String getPkg() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.pkg : (String) invokeV.objValue;
-    }
-
-    public int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.type : invokeV.intValue;
     }
 
     public void setLastModified(long j) {

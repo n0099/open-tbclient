@@ -14,23 +14,23 @@ import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes8.dex */
-public final class SingleEquals<T> extends Single<Boolean> {
+public final class SingleEquals extends Single {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SingleSource<? extends T> first;
-    public final SingleSource<? extends T> second;
+    public final SingleSource first;
+    public final SingleSource second;
 
     /* loaded from: classes8.dex */
-    public static class InnerObserver<T> implements SingleObserver<T> {
+    public class InnerObserver implements SingleObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final AtomicInteger count;
         public final int index;
-        public final SingleObserver<? super Boolean> s;
+        public final SingleObserver s;
         public final CompositeDisposable set;
         public final Object[] values;
 
-        public InnerObserver(int i, CompositeDisposable compositeDisposable, Object[] objArr, SingleObserver<? super Boolean> singleObserver, AtomicInteger atomicInteger) {
+        public InnerObserver(int i, CompositeDisposable compositeDisposable, Object[] objArr, SingleObserver singleObserver, AtomicInteger atomicInteger) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -78,12 +78,12 @@ public final class SingleEquals<T> extends Single<Boolean> {
         }
 
         @Override // io.reactivex.SingleObserver
-        public void onSuccess(T t) {
+        public void onSuccess(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-                this.values[this.index] = t;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+                this.values[this.index] = obj;
                 if (this.count.incrementAndGet() == 2) {
-                    SingleObserver<? super Boolean> singleObserver = this.s;
+                    SingleObserver singleObserver = this.s;
                     Object[] objArr = this.values;
                     singleObserver.onSuccess(Boolean.valueOf(ObjectHelper.equals(objArr[0], objArr[1])));
                 }
@@ -91,7 +91,7 @@ public final class SingleEquals<T> extends Single<Boolean> {
         }
     }
 
-    public SingleEquals(SingleSource<? extends T> singleSource, SingleSource<? extends T> singleSource2) {
+    public SingleEquals(SingleSource singleSource, SingleSource singleSource2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -111,7 +111,7 @@ public final class SingleEquals<T> extends Single<Boolean> {
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver<? super Boolean> singleObserver) {
+    public void subscribeActual(SingleObserver singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, singleObserver) == null) {
             AtomicInteger atomicInteger = new AtomicInteger();

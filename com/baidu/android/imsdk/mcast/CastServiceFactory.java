@@ -28,6 +28,9 @@ public class CastServiceFactory {
     public static UnLoginCastService createCastService(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? new UnLoginCastService(context) : (UnLoginCastService) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            return new UnLoginCastService(context);
+        }
+        return (UnLoginCastService) invokeL.objValue;
     }
 }

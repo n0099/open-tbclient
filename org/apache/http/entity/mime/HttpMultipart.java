@@ -29,12 +29,12 @@ public class HttpMultipart {
     public final String boundary;
     public final Charset charset;
     public final HttpMultipartMode mode;
-    public final List<FormBodyPart> parts;
+    public final List parts;
     public final String subType;
 
     /* renamed from: org.apache.http.entity.mime.HttpMultipart$1  reason: invalid class name */
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$org$apache$http$entity$mime$HttpMultipartMode;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -83,6 +83,48 @@ public class HttpMultipart {
         TWO_DASHES = encode(MIME.DEFAULT_CHARSET, "--");
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public HttpMultipart(String str, String str2) {
+        this(str, null, str2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((String) objArr2[0], (Charset) objArr2[1], (String) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public HttpMultipart(String str, Charset charset, String str2) {
+        this(str, charset, str2, HttpMultipartMode.STRICT);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, charset, str2};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((String) objArr2[0], (Charset) objArr2[1], (String) objArr2[2], (HttpMultipartMode) objArr2[3]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+    }
+
     public HttpMultipart(String str, Charset charset, String str2, HttpMultipartMode httpMultipartMode) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -98,18 +140,18 @@ public class HttpMultipart {
                 return;
             }
         }
-        if (str == null) {
-            throw new IllegalArgumentException("Multipart subtype may not be null");
+        if (str != null) {
+            if (str2 != null) {
+                this.subType = str;
+                this.charset = charset == null ? MIME.DEFAULT_CHARSET : charset;
+                this.boundary = str2;
+                this.parts = new ArrayList();
+                this.mode = httpMultipartMode;
+                return;
+            }
+            throw new IllegalArgumentException("Multipart boundary may not be null");
         }
-        if (str2 != null) {
-            this.subType = str;
-            this.charset = charset == null ? MIME.DEFAULT_CHARSET : charset;
-            this.boundary = str2;
-            this.parts = new ArrayList();
-            this.mode = httpMultipartMode;
-            return;
-        }
-        throw new IllegalArgumentException("Multipart boundary may not be null");
+        throw new IllegalArgumentException("Multipart subtype may not be null");
     }
 
     private void doWriteTo(HttpMultipartMode httpMultipartMode, OutputStream outputStream, boolean z) throws IOException {
@@ -122,15 +164,17 @@ public class HttpMultipart {
                 writeBytes(CR_LF, outputStream);
                 Header header = formBodyPart.getHeader();
                 int i = AnonymousClass1.$SwitchMap$org$apache$http$entity$mime$HttpMultipartMode[httpMultipartMode.ordinal()];
-                if (i == 1) {
-                    Iterator<MinimalField> it = header.iterator();
-                    while (it.hasNext()) {
-                        writeField(it.next(), outputStream);
+                if (i != 1) {
+                    if (i == 2) {
+                        writeField(formBodyPart.getHeader().getField("Content-Disposition"), this.charset, outputStream);
+                        if (formBodyPart.getBody().getFilename() != null) {
+                            writeField(formBodyPart.getHeader().getField("Content-Type"), this.charset, outputStream);
+                        }
                     }
-                } else if (i == 2) {
-                    writeField(formBodyPart.getHeader().getField("Content-Disposition"), this.charset, outputStream);
-                    if (formBodyPart.getBody().getFilename() != null) {
-                        writeField(formBodyPart.getHeader().getField("Content-Type"), this.charset, outputStream);
+                } else {
+                    Iterator it = header.iterator();
+                    while (it.hasNext()) {
+                        writeField((MinimalField) it.next(), outputStream);
                     }
                 }
                 writeBytes(CR_LF, outputStream);
@@ -158,10 +202,10 @@ public class HttpMultipart {
         return (ByteArrayBuffer) invokeLL.objValue;
     }
 
-    public static void writeBytes(ByteArrayBuffer byteArrayBuffer, OutputStream outputStream) throws IOException {
+    public static void writeBytes(String str, OutputStream outputStream) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, null, byteArrayBuffer, outputStream) == null) {
-            outputStream.write(byteArrayBuffer.buffer(), 0, byteArrayBuffer.length());
+        if (interceptable == null || interceptable.invokeLL(65542, null, str, outputStream) == null) {
+            writeBytes(encode(MIME.DEFAULT_CHARSET, str), outputStream);
         }
     }
 
@@ -175,42 +219,88 @@ public class HttpMultipart {
         }
     }
 
+    public static void writeBytes(String str, Charset charset, OutputStream outputStream) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65543, null, str, charset, outputStream) == null) {
+            writeBytes(encode(charset, str), outputStream);
+        }
+    }
+
+    public static void writeField(MinimalField minimalField, Charset charset, OutputStream outputStream) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65546, null, minimalField, charset, outputStream) == null) {
+            writeBytes(minimalField.getName(), charset, outputStream);
+            writeBytes(FIELD_SEP, outputStream);
+            writeBytes(minimalField.getBody(), charset, outputStream);
+            writeBytes(CR_LF, outputStream);
+        }
+    }
+
+    public static void writeBytes(ByteArrayBuffer byteArrayBuffer, OutputStream outputStream) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65544, null, byteArrayBuffer, outputStream) == null) {
+            outputStream.write(byteArrayBuffer.buffer(), 0, byteArrayBuffer.length());
+        }
+    }
+
     public void addBodyPart(FormBodyPart formBodyPart) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, formBodyPart) == null) || formBodyPart == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, formBodyPart) != null) || formBodyPart == null) {
             return;
         }
         this.parts.add(formBodyPart);
     }
 
-    public List<FormBodyPart> getBodyParts() {
+    public void writeTo(OutputStream outputStream) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, outputStream) == null) {
+            doWriteTo(this.mode, outputStream, true);
+        }
+    }
+
+    public List getBodyParts() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.parts : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.parts;
+        }
+        return (List) invokeV.objValue;
     }
 
     public String getBoundary() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.boundary : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.boundary;
+        }
+        return (String) invokeV.objValue;
     }
 
     public Charset getCharset() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.charset : (Charset) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.charset;
+        }
+        return (Charset) invokeV.objValue;
     }
 
     public HttpMultipartMode getMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mode : (HttpMultipartMode) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mode;
+        }
+        return (HttpMultipartMode) invokeV.objValue;
     }
 
     public String getSubType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.subType : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.subType;
+        }
+        return (String) invokeV.objValue;
     }
 
     public long getTotalLength() {
@@ -234,78 +324,5 @@ public class HttpMultipart {
             }
         }
         return invokeV.longValue;
-    }
-
-    public void writeTo(OutputStream outputStream) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, outputStream) == null) {
-            doWriteTo(this.mode, outputStream, true);
-        }
-    }
-
-    public static void writeBytes(String str, Charset charset, OutputStream outputStream) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65543, null, str, charset, outputStream) == null) {
-            writeBytes(encode(charset, str), outputStream);
-        }
-    }
-
-    public static void writeBytes(String str, OutputStream outputStream) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, str, outputStream) == null) {
-            writeBytes(encode(MIME.DEFAULT_CHARSET, str), outputStream);
-        }
-    }
-
-    public static void writeField(MinimalField minimalField, Charset charset, OutputStream outputStream) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65546, null, minimalField, charset, outputStream) == null) {
-            writeBytes(minimalField.getName(), charset, outputStream);
-            writeBytes(FIELD_SEP, outputStream);
-            writeBytes(minimalField.getBody(), charset, outputStream);
-            writeBytes(CR_LF, outputStream);
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public HttpMultipart(String str, Charset charset, String str2) {
-        this(str, charset, str2, HttpMultipartMode.STRICT);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, charset, str2};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((String) objArr2[0], (Charset) objArr2[1], (String) objArr2[2], (HttpMultipartMode) objArr2[3]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public HttpMultipart(String str, String str2) {
-        this(str, null, str2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((String) objArr2[0], (Charset) objArr2[1], (String) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
     }
 }

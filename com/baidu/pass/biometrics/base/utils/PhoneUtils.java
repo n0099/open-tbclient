@@ -29,6 +29,9 @@ public final class PhoneUtils {
     public static String getCUID2(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? DeviceId.getCUID(context) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            return DeviceId.getCUID(context);
+        }
+        return (String) invokeL.objValue;
     }
 }

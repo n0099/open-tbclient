@@ -38,20 +38,20 @@ public class r2 implements Runnable {
         CircleProgressbar circleProgressbar;
         int i;
         int i2;
+        int i3;
+        int i4;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a.removeCallbacks(this);
             int ordinal = this.a.i.ordinal();
-            if (ordinal == 0) {
-                circleProgressbar = this.a;
-                i = circleProgressbar.h + 1;
-            } else {
+            if (ordinal != 0) {
                 if (ordinal == 1) {
                     circleProgressbar = this.a;
                     i = circleProgressbar.h - 1;
                 }
                 CircleProgressbar circleProgressbar2 = this.a;
                 i2 = circleProgressbar2.h;
+                i3 = 100;
                 if (i2 < 0 && i2 <= 100) {
                     y yVar = circleProgressbar2.l;
                     if (yVar != null) {
@@ -63,17 +63,29 @@ public class r2 implements Runnable {
                     return;
                 }
                 CircleProgressbar circleProgressbar4 = this.a;
-                int i3 = circleProgressbar4.h;
-                circleProgressbar4.h = i3 <= 100 ? i3 < 0 ? 0 : i3 : 100;
+                i4 = circleProgressbar4.h;
+                if (i4 <= 100) {
+                    if (i4 < 0) {
+                        i3 = 0;
+                    } else {
+                        i3 = i4;
+                    }
+                }
+                circleProgressbar4.h = i3;
             }
+            circleProgressbar = this.a;
+            i = circleProgressbar.h + 1;
             circleProgressbar.h = i;
             CircleProgressbar circleProgressbar22 = this.a;
             i2 = circleProgressbar22.h;
+            i3 = 100;
             if (i2 < 0) {
             }
             CircleProgressbar circleProgressbar42 = this.a;
-            int i32 = circleProgressbar42.h;
-            circleProgressbar42.h = i32 <= 100 ? i32 < 0 ? 0 : i32 : 100;
+            i4 = circleProgressbar42.h;
+            if (i4 <= 100) {
+            }
+            circleProgressbar42.h = i3;
         }
     }
 }

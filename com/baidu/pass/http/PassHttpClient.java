@@ -31,6 +31,7 @@ public class PassHttpClient implements com.baidu.pass.a {
 
     static {
         InterceptResult invokeClinit;
+        int i;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
         if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1338862688, "Lcom/baidu/pass/http/PassHttpClient;")) != null) {
             Interceptable interceptable = invokeClinit.interceptor;
@@ -44,12 +45,17 @@ public class PassHttpClient implements com.baidu.pass.a {
         }
         int availableProcessors = Runtime.getRuntime().availableProcessors();
         a = availableProcessors;
-        b = availableProcessors > 16 ? availableProcessors / 2 : 8;
+        if (availableProcessors > 16) {
+            i = availableProcessors / 2;
+        } else {
+            i = 8;
+        }
+        b = i;
         c = new AtomicInteger();
         d = new c();
         f = new PassHttpClient();
-        int i = b;
-        e = new ThreadPoolExecutor(i, i, 60L, TimeUnit.SECONDS, new PriorityBlockingQueue(), d);
+        int i2 = b;
+        e = new ThreadPoolExecutor(i2, i2, 60L, TimeUnit.SECONDS, new PriorityBlockingQueue(), d);
         if (Build.VERSION.SDK_INT >= 9) {
             e.allowCoreThreadTimeOut(true);
         }
@@ -69,23 +75,37 @@ public class PassHttpClient implements com.baidu.pass.a {
         }
     }
 
+    public static PassHttpClient getInstance() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return f;
+        }
+        return (PassHttpClient) invokeV.objValue;
+    }
+
+    private PassHttpClientRequest a(Method method, Context context, PassHttpParamDTO passHttpParamDTO, HttpResponseHandler httpResponseHandler) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, this, method, context, passHttpParamDTO, httpResponseHandler)) == null) {
+            PassHttpClientRequest passHttpClientRequest = new PassHttpClientRequest(method, context, passHttpParamDTO, c.incrementAndGet(), httpResponseHandler);
+            e.execute(passHttpClientRequest);
+            return passHttpClientRequest;
+        }
+        return (PassHttpClientRequest) invokeLLLL.objValue;
+    }
+
     private void a(Context context, PassHttpParamDTO passHttpParamDTO) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, this, context, passHttpParamDTO) == null) {
             if (context != null) {
-                if (passHttpParamDTO == null || TextUtils.isEmpty(passHttpParamDTO.url)) {
-                    throw new IllegalArgumentException("paramDTO can't be null or paramDTO.url can't be empty");
+                if (passHttpParamDTO != null && !TextUtils.isEmpty(passHttpParamDTO.url)) {
+                    return;
                 }
-                return;
+                throw new IllegalArgumentException("paramDTO can't be null or paramDTO.url can't be empty");
             }
             throw new IllegalArgumentException("Invalid context argument");
         }
-    }
-
-    public static PassHttpClient getInstance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f : (PassHttpClient) invokeV.objValue;
     }
 
     public PassHttpClientRequest get(Context context, PassHttpParamDTO passHttpParamDTO, HttpResponseHandler httpResponseHandler) {
@@ -123,16 +143,5 @@ public class PassHttpClient implements com.baidu.pass.a {
             }
         }
         return (PassHttpClientRequest) invokeLLL.objValue;
-    }
-
-    private PassHttpClientRequest a(Method method, Context context, PassHttpParamDTO passHttpParamDTO, HttpResponseHandler httpResponseHandler) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, this, method, context, passHttpParamDTO, httpResponseHandler)) == null) {
-            PassHttpClientRequest passHttpClientRequest = new PassHttpClientRequest(method, context, passHttpParamDTO, c.incrementAndGet(), httpResponseHandler);
-            e.execute(passHttpClientRequest);
-            return passHttpClientRequest;
-        }
-        return (PassHttpClientRequest) invokeLLLL.objValue;
     }
 }

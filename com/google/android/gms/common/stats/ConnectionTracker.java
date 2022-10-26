@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.pm.PackageManager;
 import android.util.Log;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -16,17 +15,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.gms.common.annotation.KeepForSdk;
 import com.google.android.gms.common.internal.Preconditions;
 import com.google.android.gms.common.internal.zzs;
 import com.google.android.gms.common.util.PlatformVersion;
-import com.google.android.gms.common.util.VisibleForTesting;
 import com.google.android.gms.common.wrappers.Wrappers;
 import java.util.NoSuchElementException;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
-@KeepForSdk
 /* loaded from: classes7.dex */
 public class ConnectionTracker {
     public static /* synthetic */ Interceptable $ic;
@@ -34,9 +30,7 @@ public class ConnectionTracker {
     @Nullable
     public static volatile ConnectionTracker zzc;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    @VisibleForTesting
-    public ConcurrentHashMap<ServiceConnection, ServiceConnection> zza;
+    public ConcurrentHashMap zza;
 
     static {
         InterceptResult invokeClinit;
@@ -67,11 +61,9 @@ public class ConnectionTracker {
                 return;
             }
         }
-        this.zza = new ConcurrentHashMap<>();
+        this.zza = new ConcurrentHashMap();
     }
 
-    @NonNull
-    @KeepForSdk
     public static ConnectionTracker getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -100,6 +92,16 @@ public class ConnectionTracker {
         }
     }
 
+    public void unbindServiceSafe(Context context, ServiceConnection serviceConnection) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, serviceConnection) == null) {
+            try {
+                unbindService(context, serviceConnection);
+            } catch (IllegalArgumentException unused) {
+            }
+        }
+    }
+
     private final boolean zzc(Context context, String str, Intent intent, ServiceConnection serviceConnection, int i, boolean z, @Nullable Executor executor) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -117,16 +119,16 @@ public class ConnectionTracker {
                 }
             }
             if (zzd(serviceConnection)) {
-                ServiceConnection putIfAbsent = this.zza.putIfAbsent(serviceConnection, serviceConnection);
-                if (putIfAbsent != null && serviceConnection != putIfAbsent) {
+                ServiceConnection serviceConnection2 = (ServiceConnection) this.zza.putIfAbsent(serviceConnection, serviceConnection);
+                if (serviceConnection2 != null && serviceConnection != serviceConnection2) {
                     Log.w("ConnectionTracker", String.format("Duplicate binding with the same ServiceConnection: %s, %s, %s.", serviceConnection, str, intent.getAction()));
                 }
                 try {
                     boolean zze = zze(context, intent, serviceConnection, i, executor);
-                    if (zze) {
-                        return zze;
+                    if (!zze) {
+                        return false;
                     }
-                    return false;
+                    return zze;
                 } finally {
                     this.zza.remove(serviceConnection, serviceConnection);
                 }
@@ -139,29 +141,42 @@ public class ConnectionTracker {
     public static boolean zzd(ServiceConnection serviceConnection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, serviceConnection)) == null) ? !(serviceConnection instanceof zzs) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, serviceConnection)) == null) {
+            if (!(serviceConnection instanceof zzs)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     public static final boolean zze(Context context, Intent intent, ServiceConnection serviceConnection, int i, @Nullable Executor executor) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{context, intent, serviceConnection, Integer.valueOf(i), executor})) == null) ? (!PlatformVersion.isAtLeastQ() || executor == null) ? context.bindService(intent, serviceConnection, i) : context.bindService(intent, i, executor, serviceConnection) : invokeCommon.booleanValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{context, intent, serviceConnection, Integer.valueOf(i), executor})) == null) {
+            if (PlatformVersion.isAtLeastQ() && executor != null) {
+                return context.bindService(intent, i, executor, serviceConnection);
+            }
+            return context.bindService(intent, serviceConnection, i);
+        }
+        return invokeCommon.booleanValue;
     }
 
-    @KeepForSdk
-    public boolean bindService(@NonNull Context context, @NonNull Intent intent, @NonNull ServiceConnection serviceConnection, int i) {
+    public boolean bindService(Context context, Intent intent, ServiceConnection serviceConnection, int i) {
         InterceptResult invokeLLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(1048576, this, context, intent, serviceConnection, i)) == null) ? zzc(context, context.getClass().getName(), intent, serviceConnection, i, true, null) : invokeLLLI.booleanValue;
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(1048576, this, context, intent, serviceConnection, i)) == null) {
+            return zzc(context, context.getClass().getName(), intent, serviceConnection, i, true, null);
+        }
+        return invokeLLLI.booleanValue;
     }
 
-    @KeepForSdk
-    public void unbindService(@NonNull Context context, @NonNull ServiceConnection serviceConnection) {
+    public void unbindService(Context context, ServiceConnection serviceConnection) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, serviceConnection) == null) {
             if (zzd(serviceConnection) && this.zza.containsKey(serviceConnection)) {
                 try {
-                    zzb(context, this.zza.get(serviceConnection));
+                    zzb(context, (ServiceConnection) this.zza.get(serviceConnection));
                     return;
                 } finally {
                     this.zza.remove(serviceConnection);
@@ -171,20 +186,12 @@ public class ConnectionTracker {
         }
     }
 
-    @KeepForSdk
-    public void unbindServiceSafe(@NonNull Context context, @NonNull ServiceConnection serviceConnection) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, serviceConnection) == null) {
-            try {
-                unbindService(context, serviceConnection);
-            } catch (IllegalArgumentException unused) {
-            }
-        }
-    }
-
-    public final boolean zza(@NonNull Context context, @NonNull String str, @NonNull Intent intent, @NonNull ServiceConnection serviceConnection, int i, @Nullable Executor executor) {
+    public final boolean zza(Context context, String str, Intent intent, ServiceConnection serviceConnection, int i, @Nullable Executor executor) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{context, str, intent, serviceConnection, Integer.valueOf(i), executor})) == null) ? zzc(context, str, intent, serviceConnection, i, true, executor) : invokeCommon.booleanValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{context, str, intent, serviceConnection, Integer.valueOf(i), executor})) == null) {
+            return zzc(context, str, intent, serviceConnection, i, true, executor);
+        }
+        return invokeCommon.booleanValue;
     }
 }

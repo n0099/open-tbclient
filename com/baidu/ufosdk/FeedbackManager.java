@@ -27,6 +27,13 @@ public class FeedbackManager implements IFeedbackManager {
     public IConfigurations b;
     public IFeedbackMethodCallback c;
 
+    @Override // com.baidu.ufosdk.IFeedbackManager
+    public String getSDKVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? "4.1.9.1" : (String) invokeV.objValue;
+    }
+
     /* loaded from: classes6.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
@@ -100,6 +107,85 @@ public class FeedbackManager implements IFeedbackManager {
         return (FeedbackManager) invokeL.objValue;
     }
 
+    @Override // com.baidu.ufosdk.IFeedbackManager
+    public Intent getFeedbackIntentWithCategory(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            return b.a(this.a, i, "", "", "");
+        }
+        return (Intent) invokeI.objValue;
+    }
+
+    @Override // com.baidu.ufosdk.IFeedbackManager
+    public void initFeedbackPlugin(IConfigurations iConfigurations) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, iConfigurations) == null) {
+            a(iConfigurations, true);
+        }
+    }
+
+    @Override // com.baidu.ufosdk.IFeedbackManager
+    public void initFeedbackSDK(IConfigurations iConfigurations) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, iConfigurations) == null) {
+            a(iConfigurations, false);
+        }
+    }
+
+    @Override // com.baidu.ufosdk.IFeedbackManager
+    public void setBaiduCuid(String str) {
+        IConfigurations iConfigurations;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048589, this, str) == null) && (iConfigurations = this.b) != null) {
+            iConfigurations.setBaiduCuid(str);
+        }
+    }
+
+    @Override // com.baidu.ufosdk.IFeedbackManager
+    public void setExtraData(String str) {
+        IConfigurations iConfigurations;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048590, this, str) == null) && (iConfigurations = this.b) != null) {
+            iConfigurations.setExtraData(str);
+        }
+    }
+
+    @Override // com.baidu.ufosdk.IFeedbackManager
+    public void setFeedbackCallback(IFeedbackMethodCallback iFeedbackMethodCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, iFeedbackMethodCallback) == null) {
+            this.c = iFeedbackMethodCallback;
+        }
+    }
+
+    @Override // com.baidu.ufosdk.IFeedbackManager
+    public void setFeedbackChannel(String str) {
+        IConfigurations iConfigurations;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048592, this, str) == null) && (iConfigurations = this.b) != null) {
+            iConfigurations.setFeedbackChannel(str);
+        }
+    }
+
+    @Override // com.baidu.ufosdk.IFeedbackManager
+    public void setLocation(String str) {
+        IConfigurations iConfigurations;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048593, this, str) == null) && (iConfigurations = this.b) != null) {
+            iConfigurations.setLocation(str);
+        }
+    }
+
+    @Override // com.baidu.ufosdk.IFeedbackManager
+    public void setThemeMode(int i) {
+        IConfigurations iConfigurations;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048594, this, i) == null) && (iConfigurations = this.b) != null) {
+            iConfigurations.setThemeMode(i);
+        }
+    }
+
     public final void a(IConfigurations iConfigurations, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048576, this, iConfigurations, z) == null) {
@@ -153,21 +239,64 @@ public class FeedbackManager implements IFeedbackManager {
     public IConfigurations getAppConfigurations() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (IConfigurations) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (IConfigurations) invokeV.objValue;
     }
 
     @Override // com.baidu.ufosdk.IFeedbackManager
     public IFeedbackMethodCallback getFeedbackCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (IFeedbackMethodCallback) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return (IFeedbackMethodCallback) invokeV.objValue;
+    }
+
+    @Override // com.baidu.ufosdk.IFeedbackManager
+    public String getHostPackageName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            IConfigurations iConfigurations = this.b;
+            if (iConfigurations != null) {
+                return iConfigurations.getAppPkgName();
+            }
+            return "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.ufosdk.IFeedbackManager
+    public long getLastSendMessageTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return b.i(this.a).getLong("Ufolastsendtime", -1L);
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // com.baidu.ufosdk.IFeedbackManager
+    public Intent getFeedbackIntentWithCategory(int i, String str) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048580, this, i, str)) == null) {
+            return b.a(this.a, i, str, "", "");
+        }
+        return (Intent) invokeIL.objValue;
     }
 
     @Override // com.baidu.ufosdk.IFeedbackManager
     public Intent getFeedbackIntentWithCategory(int i, String str, String str2, String str3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), str, str2, str3})) == null) ? b.a(this.a, i, str, str2, str3) : (Intent) invokeCommon.objValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), str, str2, str3})) == null) {
+            return b.a(this.a, i, str, str2, str3);
+        }
+        return (Intent) invokeCommon.objValue;
     }
 
     @Override // com.baidu.ufosdk.IFeedbackManager
@@ -209,47 +338,6 @@ public class FeedbackManager implements IFeedbackManager {
     }
 
     @Override // com.baidu.ufosdk.IFeedbackManager
-    public String getHostPackageName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            IConfigurations iConfigurations = this.b;
-            return iConfigurations != null ? iConfigurations.getAppPkgName() : "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.ufosdk.IFeedbackManager
-    public long getLastSendMessageTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? b.i(this.a).getLong("Ufolastsendtime", -1L) : invokeV.longValue;
-    }
-
-    @Override // com.baidu.ufosdk.IFeedbackManager
-    public String getSDKVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? "4.1.9.1" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.ufosdk.IFeedbackManager
-    public void initFeedbackPlugin(IConfigurations iConfigurations) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, iConfigurations) == null) {
-            a(iConfigurations, true);
-        }
-    }
-
-    @Override // com.baidu.ufosdk.IFeedbackManager
-    public void initFeedbackSDK(IConfigurations iConfigurations) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, iConfigurations) == null) {
-            a(iConfigurations, false);
-        }
-    }
-
-    @Override // com.baidu.ufosdk.IFeedbackManager
     public void setAccount(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048588, this, str, str2) == null) {
@@ -265,77 +353,5 @@ public class FeedbackManager implements IFeedbackManager {
             } catch (Exception unused) {
             }
         }
-    }
-
-    @Override // com.baidu.ufosdk.IFeedbackManager
-    public void setBaiduCuid(String str) {
-        IConfigurations iConfigurations;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, str) == null) || (iConfigurations = this.b) == null) {
-            return;
-        }
-        iConfigurations.setBaiduCuid(str);
-    }
-
-    @Override // com.baidu.ufosdk.IFeedbackManager
-    public void setExtraData(String str) {
-        IConfigurations iConfigurations;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048590, this, str) == null) || (iConfigurations = this.b) == null) {
-            return;
-        }
-        iConfigurations.setExtraData(str);
-    }
-
-    @Override // com.baidu.ufosdk.IFeedbackManager
-    public void setFeedbackCallback(IFeedbackMethodCallback iFeedbackMethodCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, iFeedbackMethodCallback) == null) {
-            this.c = iFeedbackMethodCallback;
-        }
-    }
-
-    @Override // com.baidu.ufosdk.IFeedbackManager
-    public void setFeedbackChannel(String str) {
-        IConfigurations iConfigurations;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048592, this, str) == null) || (iConfigurations = this.b) == null) {
-            return;
-        }
-        iConfigurations.setFeedbackChannel(str);
-    }
-
-    @Override // com.baidu.ufosdk.IFeedbackManager
-    public void setLocation(String str) {
-        IConfigurations iConfigurations;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048593, this, str) == null) || (iConfigurations = this.b) == null) {
-            return;
-        }
-        iConfigurations.setLocation(str);
-    }
-
-    @Override // com.baidu.ufosdk.IFeedbackManager
-    public void setThemeMode(int i) {
-        IConfigurations iConfigurations;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048594, this, i) == null) || (iConfigurations = this.b) == null) {
-            return;
-        }
-        iConfigurations.setThemeMode(i);
-    }
-
-    @Override // com.baidu.ufosdk.IFeedbackManager
-    public Intent getFeedbackIntentWithCategory(int i, String str) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048580, this, i, str)) == null) ? b.a(this.a, i, str, "", "") : (Intent) invokeIL.objValue;
-    }
-
-    @Override // com.baidu.ufosdk.IFeedbackManager
-    public Intent getFeedbackIntentWithCategory(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? b.a(this.a, i, "", "", "") : (Intent) invokeI.objValue;
     }
 }

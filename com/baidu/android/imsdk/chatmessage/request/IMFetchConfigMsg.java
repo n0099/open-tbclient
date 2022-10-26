@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.util.Log;
 import androidx.core.app.NotificationCompat;
 import com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl;
-import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.MessageParser;
 import com.baidu.android.imsdk.request.Message;
@@ -33,6 +32,21 @@ public class IMFetchConfigMsg extends Message {
     public Context mContext;
     public long mCursor;
     public long mLimit;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1435479093, "Lcom/baidu/android/imsdk/chatmessage/request/IMFetchConfigMsg;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1435479093, "Lcom/baidu/android/imsdk/chatmessage/request/IMFetchConfigMsg;");
+        }
+    }
 
     /* loaded from: classes.dex */
     public class FetchConfigTask extends TaskManager.Task {
@@ -66,27 +80,37 @@ public class IMFetchConfigMsg extends Message {
             this.mStrMsg = str;
         }
 
-        /* JADX WARN: Type inference failed for: r7v0, types: [T, java.lang.Long] */
         @Override // com.baidu.android.imsdk.task.TaskManager.Task, java.lang.Runnable
         public void run() {
+            long j;
+            boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 Type type = new Type();
                 type.t = 0L;
                 if (this.mErrorCode == 0) {
                     try {
-                        long j = this.mObj.has(Constants.EXTRA_CONFIG_CURSOR) ? this.mObj.getLong(Constants.EXTRA_CONFIG_CURSOR) : 0L;
-                        if (!(this.mObj.has("has_more") ? this.mObj.getBoolean("has_more") : false) || IMFetchConfigMsg.cur_count > 50) {
+                        if (this.mObj.has(Constants.EXTRA_CONFIG_CURSOR)) {
+                            j = this.mObj.getLong(Constants.EXTRA_CONFIG_CURSOR);
+                        } else {
+                            j = 0;
+                        }
+                        if (this.mObj.has("has_more")) {
+                            z = this.mObj.getBoolean("has_more");
+                        } else {
+                            z = false;
+                        }
+                        if (z && IMFetchConfigMsg.cur_count <= 50) {
+                            IMFetchConfigMsg.access$008();
+                            ChatMsgManagerImpl.getInstance(this.mContext).fetchConfigMsg(this.mContext, j, this.this$0.mLimit);
+                        } else {
                             int unused = IMFetchConfigMsg.cur_count = 1;
                             if (j > Utility.readLongData(this.mContext, Constants.KEY_CONFIG_MAXCURSOR, 0L)) {
                                 Utility.writeLongData(this.mContext, Constants.KEY_CONFIG_MAXCURSOR, j);
                             }
-                        } else {
-                            IMFetchConfigMsg.access$008();
-                            ChatMsgManagerImpl.getInstance(this.mContext).fetchConfigMsg(this.mContext, j, this.this$0.mLimit);
                         }
                         if (this.mObj.has(NotificationCompat.CarExtender.KEY_MESSAGES)) {
-                            ArrayList<ChatMsg> parserMessage = MessageParser.parserMessage(this.mContext, this.mObj.getJSONArray(NotificationCompat.CarExtender.KEY_MESSAGES), type, true, false);
+                            ArrayList parserMessage = MessageParser.parserMessage(this.mContext, this.mObj.getJSONArray(NotificationCompat.CarExtender.KEY_MESSAGES), type, true, false);
                             ChatMsgManagerImpl.getInstance(this.mContext).configMsgsFilter(parserMessage);
                             ChatMsgManagerImpl.getInstance(this.mContext).deliverConfigMessage(parserMessage);
                         }
@@ -96,21 +120,6 @@ public class IMFetchConfigMsg extends Message {
                     }
                 }
             }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1435479093, "Lcom/baidu/android/imsdk/chatmessage/request/IMFetchConfigMsg;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-1435479093, "Lcom/baidu/android/imsdk/chatmessage/request/IMFetchConfigMsg;");
         }
     }
 

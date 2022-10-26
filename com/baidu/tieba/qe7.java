@@ -1,422 +1,497 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import androidx.core.app.NotificationManagerCompat;
-import androidx.fragment.app.FragmentActivity;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.imMessageCenter.mention.ChatAggregationFragment;
-import com.baidu.tieba.setting.model.MsgRemindModel;
+import com.baidu.tbadk.core.data.BaijiahaoData;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.OriginalThreadInfo;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.widget.richText.TbRichText;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.imMessageCenter.mention.FeedData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import tbclient.AgreeList;
+import tbclient.Post;
+import tbclient.User;
 /* loaded from: classes5.dex */
-public class qe7 {
+public class qe7 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId A;
+    public static final BdUniqueId B;
+    public static final BdUniqueId C;
+    public static final BdUniqueId D;
+    public static final BdUniqueId E;
+    public static final BdUniqueId F;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ChatAggregationFragment a;
+    public BdUniqueId a;
+    public MetaData b;
+    public String c;
+    public long d;
+    public String e;
+    public String f;
+    public OriginalThreadInfo g;
+    public String h;
+    public MetaData i;
+    public int j;
+    public String k;
+    public String l;
+    public long m;
+    public long n;
+    public boolean o;
+    public String p;
+    public MetaData q;
+    public boolean r;
+    public boolean s;
+    public boolean t;
+    public BaijiahaoData u;
+    public String v;
+    public int w;
+    public String x;
+    public List y;
+    public TbRichText z;
 
-    /* loaded from: classes5.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qe7 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(qe7 qe7Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qe7Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = qe7Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            int[] iArr;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof int[]) && (iArr = (int[]) customResponsedMessage.getData()) != null && iArr.length == 2) {
-                int i = iArr[0];
-                int i2 = iArr[1];
-                TbPageContext<BaseFragmentActivity> pageContext = this.a.a.getPageContext();
-                if (pageContext == null || pageContext.getUniqueId() == null || pageContext.getUniqueId().getId() != i) {
-                    return;
-                }
-                this.a.d(i2);
-            }
+    public void L(TbRichText tbRichText) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, tbRichText) == null) {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements mp4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ TbPageContext b;
-        public final /* synthetic */ boolean c;
-        public final /* synthetic */ Activity d;
-
-        public b(qe7 qe7Var, boolean z, TbPageContext tbPageContext, boolean z2, Activity activity) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948089030, "Lcom/baidu/tieba/qe7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qe7Var, Boolean.valueOf(z), tbPageContext, Boolean.valueOf(z2), activity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = z;
-            this.b = tbPageContext;
-            this.c = z2;
-            this.d = activity;
-        }
-
-        @Override // com.baidu.tieba.mp4
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!this.a) {
-                    new MsgRemindModel(this.b).E(1, true, null);
-                }
-                if (this.c) {
-                    j35.l(this.d);
-                } else {
-                    f35.e(this.b);
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948089030, "Lcom/baidu/tieba/qe7;");
+                return;
             }
         }
-
-        @Override // com.baidu.tieba.mp4
-        public void onCancelClick() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
+        A = BdUniqueId.gen();
+        B = BdUniqueId.gen();
+        C = BdUniqueId.gen();
+        D = BdUniqueId.gen();
+        E = BdUniqueId.gen();
+        F = BdUniqueId.gen();
+        BdUniqueId.gen();
     }
 
-    /* loaded from: classes5.dex */
-    public class c implements mp4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ TbPageContext b;
-        public final /* synthetic */ boolean c;
-        public final /* synthetic */ Activity d;
-
-        public c(qe7 qe7Var, boolean z, TbPageContext tbPageContext, boolean z2, Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qe7Var, Boolean.valueOf(z), tbPageContext, Boolean.valueOf(z2), activity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = z;
-            this.b = tbPageContext;
-            this.c = z2;
-            this.d = activity;
-        }
-
-        @Override // com.baidu.tieba.mp4
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!this.a) {
-                    new MsgRemindModel(this.b).E(2, true, null);
-                }
-                if (this.c) {
-                    j35.l(this.d);
-                } else {
-                    f35.e(this.b);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.mp4
-        public void onCancelClick() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class d implements mp4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ TbPageContext b;
-        public final /* synthetic */ boolean c;
-        public final /* synthetic */ Activity d;
-
-        public d(qe7 qe7Var, boolean z, TbPageContext tbPageContext, boolean z2, Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qe7Var, Boolean.valueOf(z), tbPageContext, Boolean.valueOf(z2), activity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = z;
-            this.b = tbPageContext;
-            this.c = z2;
-            this.d = activity;
-        }
-
-        @Override // com.baidu.tieba.mp4
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!this.a) {
-                    new MsgRemindModel(this.b).E(20, true, null);
-                }
-                if (this.c) {
-                    j35.l(this.d);
-                } else {
-                    f35.e(this.b);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.mp4
-        public void onCancelClick() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class e implements mp4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ TbPageContext b;
-        public final /* synthetic */ boolean c;
-        public final /* synthetic */ Activity d;
-
-        public e(qe7 qe7Var, boolean z, TbPageContext tbPageContext, boolean z2, Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qe7Var, Boolean.valueOf(z), tbPageContext, Boolean.valueOf(z2), activity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = z;
-            this.b = tbPageContext;
-            this.c = z2;
-            this.d = activity;
-        }
-
-        @Override // com.baidu.tieba.mp4
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!this.a) {
-                    new MsgRemindModel(this.b).E(3, true, null);
-                }
-                if (this.c) {
-                    j35.l(this.d);
-                } else {
-                    f35.e(this.b);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.mp4
-        public void onCancelClick() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class f implements mp4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ TbPageContext b;
-        public final /* synthetic */ boolean c;
-        public final /* synthetic */ Activity d;
-
-        public f(qe7 qe7Var, boolean z, TbPageContext tbPageContext, boolean z2, Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qe7Var, Boolean.valueOf(z), tbPageContext, Boolean.valueOf(z2), activity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = z;
-            this.b = tbPageContext;
-            this.c = z2;
-            this.d = activity;
-        }
-
-        @Override // com.baidu.tieba.mp4
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!this.a) {
-                    new MsgRemindModel(this.b).E(10, true, null);
-                }
-                if (this.c) {
-                    j35.l(this.d);
-                } else {
-                    f35.e(this.b);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.mp4
-        public void onCancelClick() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
-    }
-
-    public qe7(ChatAggregationFragment chatAggregationFragment) {
+    public qe7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {chatAggregationFragment};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = chatAggregationFragment;
+        this.b = new MetaData();
+        this.q = new MetaData();
+        this.t = false;
+        this.z = null;
     }
 
-    public void c() {
+    public MetaData A() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        this.a.registerListener(new a(this, 2921700));
+        return (MetaData) invokeV.objValue;
     }
 
-    public final void d(int i) {
-        ChatAggregationFragment chatAggregationFragment;
+    public String B() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || (chatAggregationFragment = this.a) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.v;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public MetaData C() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.i;
+        }
+        return (MetaData) invokeV.objValue;
+    }
+
+    public String D() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.k;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean E() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.r;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean F() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.j == 71) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean G() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.o;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.h;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.m;
+        }
+        return invokeV.longValue;
+    }
+
+    public BaijiahaoData getBaijiahaoData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.u;
+        }
+        return (BaijiahaoData) invokeV.objValue;
+    }
+
+    public int getCardType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.w;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getSubTitle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getThreadType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.j;
+        }
+        return invokeV.intValue;
+    }
+
+    public long getTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return this.d;
+        }
+        return invokeV.longValue;
+    }
+
+    public String getTitle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.eo
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return this.a;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return this.s;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isBjh() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return this.t;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public TbRichText j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            return this.z;
+        }
+        return (TbRichText) invokeV.objValue;
+    }
+
+    public long l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            return this.n;
+        }
+        return invokeV.longValue;
+    }
+
+    public List n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            return this.y;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public OriginalThreadInfo r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            return this.g;
+        }
+        return (OriginalThreadInfo) invokeV.objValue;
+    }
+
+    public String s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+            return this.l;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+            return this.p;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public MetaData z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+            return this.q;
+        }
+        return (MetaData) invokeV.objValue;
+    }
+
+    public void H(FeedData feedData) {
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048583, this, feedData) != null) || feedData == null) {
             return;
         }
-        FragmentActivity fragmentActivity = chatAggregationFragment.getFragmentActivity();
-        TbPageContext<BaseFragmentActivity> pageContext = this.a.getPageContext();
-        if (fragmentActivity == null || pageContext == null) {
+        this.b = feedData.getReplyer();
+        this.d = feedData.getTime();
+        this.l = feedData.getPost_id();
+        this.s = feedData.getHasAgree();
+        if (!feedData.isHideForumName()) {
+            this.h = feedData.getFname();
+        }
+        this.k = feedData.getThread_id();
+        this.m = feedData.getFromForumId();
+        this.j = feedData.getThread_Type();
+        this.e = feedData.getContent();
+        this.o = feedData.getIsFloor();
+        this.c = feedData.getPostFrom();
+        this.p = feedData.getQuote_pid();
+        this.r = feedData.isNew();
+        this.i = feedData.getThreadAuthor();
+        this.t = feedData.isBjh();
+        this.u = feedData.getBaijiahaoData();
+        OriginalThreadInfo originalThreadInfo = new OriginalThreadInfo();
+        this.g = originalThreadInfo;
+        originalThreadInfo.f = this.k;
+        originalThreadInfo.e = this.m;
+        originalThreadInfo.k = this.j;
+        originalThreadInfo.c = feedData.getThreadImgUrl();
+        OriginalThreadInfo originalThreadInfo2 = this.g;
+        originalThreadInfo2.o = this.t;
+        originalThreadInfo2.p = this.u;
+        this.y = feedData.getNewReplayInfo();
+        this.w = feedData.getType();
+        this.q = feedData.getQuote_user();
+        if (feedData.getType() == 1) {
+            this.g.n = feedData.getQuote_pid();
+            if (feedData.getQuote_user() != null) {
+                if (StringHelper.equals(feedData.getQuote_user().getUserId(), TbadkCoreApplication.getCurrentAccount())) {
+                    str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ad1);
+                } else {
+                    str = feedData.getQuote_user().getName_show();
+                }
+            } else {
+                str = "";
+            }
+            this.g.g = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1014, new Object[]{str, feedData.getQuote_content()});
+            if (TextUtils.isGraphic(this.g.g)) {
+                OriginalThreadInfo originalThreadInfo3 = this.g;
+                originalThreadInfo3.g = originalThreadInfo3.g.replace("\n", " ");
+            }
+            if (feedData.getIsFloor()) {
+                this.a = D;
+            } else {
+                this.a = E;
+            }
+        } else {
+            this.g.n = "0";
+            if (feedData.isShareThread() && feedData.getOriginalThreadInfo() != null) {
+                this.g.g = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1182, new Object[]{feedData.getOriginalThreadInfo().b});
+            } else {
+                this.g.g = feedData.getTitle();
+            }
+            this.a = F;
+        }
+        this.g.t();
+    }
+
+    public void I(AgreeList agreeList) {
+        User user;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, agreeList) != null) || agreeList == null) {
             return;
         }
-        boolean areNotificationsEnabled = NotificationManagerCompat.from(fragmentActivity).areNotificationsEnabled();
-        if (i == 3) {
-            boolean y = k25.d().y();
-            if (areNotificationsEnabled && y) {
-                return;
+        this.n = agreeList.id.longValue();
+        MetaData metaData = new MetaData();
+        this.b = metaData;
+        metaData.parserProtobuf(agreeList.agreeer);
+        this.d = agreeList.time.intValue() * 1000;
+        Post post = agreeList.post_info;
+        if (post != null) {
+            this.l = String.valueOf(post.id);
+            if (!ListUtils.isEmpty(agreeList.post_info.content) && ListUtils.getItem(agreeList.post_info.content, 0) != null && (user = agreeList.post_info.author) != null) {
+                String str = user.name_show;
+                if (ej.isEmpty(str)) {
+                    str = agreeList.post_info.author.name;
+                }
+                this.f = str + "：" + agreeList.post_info.content.get(0).text;
             }
-            b bVar = new b(this, y, pageContext, areNotificationsEnabled, fragmentActivity);
-            if (f35.j(TbadkCoreApplication.getInst(), 6)) {
-                j35.k(pageContext, 3, bVar);
-            }
+            this.p = agreeList.post_info.quote_id;
         }
-        if (i == 6) {
-            boolean t = k25.d().t();
-            if (areNotificationsEnabled && t) {
+        ThreadData threadData = new ThreadData();
+        threadData.parserProtobuf(agreeList.thread_info);
+        this.g = OriginalThreadInfo.n(threadData);
+        this.i = threadData.getAuthor();
+        this.h = threadData.getForum_name();
+        this.k = threadData.getId();
+        this.m = threadData.getFid();
+        this.j = threadData.threadType;
+        this.t = threadData.isUgcThreadType();
+        this.u = threadData.getBaijiahaoData();
+        this.v = "c12927";
+        if (threadData.isQuestionsAndAnswersThread()) {
+            if (agreeList.type.intValue() == 3) {
+                this.a = A;
+                this.e = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f00e8);
                 return;
             }
-            c cVar = new c(this, t, pageContext, areNotificationsEnabled, fragmentActivity);
-            if (f35.j(TbadkCoreApplication.getInst(), 3)) {
-                j35.k(pageContext, 6, cVar);
+            this.a = B;
+            this.e = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f00e4);
+        } else if (agreeList.type.intValue() == 3) {
+            this.a = A;
+            this.e = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f00e9);
+            if (this.t) {
+                this.e = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f00e5);
             }
+        } else if (agreeList.type.intValue() == 4) {
+            this.a = C;
+            this.e = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f00e6);
+            String str2 = agreeList.virtual_image_url;
+            this.x = str2;
+            OriginalThreadInfo originalThreadInfo = this.g;
+            originalThreadInfo.c = str2;
+            originalThreadInfo.b = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0b7f);
+            OriginalThreadInfo originalThreadInfo2 = this.g;
+            originalThreadInfo2.a = 5;
+            originalThreadInfo2.k = 70;
+        } else {
+            this.a = B;
+            this.e = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f00e7);
         }
-        if (i == 7) {
-            boolean B = k25.d().B();
-            if (areNotificationsEnabled && B) {
-                return;
-            }
-            d dVar = new d(this, B, pageContext, areNotificationsEnabled, fragmentActivity);
-            if (f35.j(TbadkCoreApplication.getInst(), 4)) {
-                j35.k(pageContext, 7, dVar);
-            }
+    }
+
+    public void J(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.r = z;
         }
-        if (i == 8) {
-            boolean w = k25.d().w();
-            if (areNotificationsEnabled && w) {
-                return;
-            }
-            e eVar = new e(this, w, pageContext, areNotificationsEnabled, fragmentActivity);
-            if (f35.j(TbadkCoreApplication.getInst(), 5)) {
-                j35.k(pageContext, 8, eVar);
-            }
-        }
-        if (i == 2) {
-            boolean q = k25.d().q();
-            if (areNotificationsEnabled && q) {
-                return;
-            }
-            f fVar = new f(this, q, pageContext, areNotificationsEnabled, fragmentActivity);
-            if (j35.g(TbadkCoreApplication.getInst(), 0)) {
-                j35.k(pageContext, 2, fVar);
-            }
+    }
+
+    public void K(TbRichText tbRichText) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, tbRichText) == null) {
+            this.z = tbRichText;
         }
     }
 }

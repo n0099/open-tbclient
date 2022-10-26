@@ -1,86 +1,80 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Path;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffXfermode;
-import android.graphics.Rect;
-import android.graphics.RectF;
-import android.graphics.drawable.Drawable;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class jl extends ol {
+public class jl {
     public static /* synthetic */ Interceptable $ic;
+    public static jl a;
     public transient /* synthetic */ FieldHolder $fh;
-    public Path v;
-    public boolean w;
-    public Rect x;
-    public final Paint y;
-    public final Paint z;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448308395, "Lcom/baidu/tieba/jl;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448308395, "Lcom/baidu/tieba/jl;");
+                return;
+            }
+        }
+        a = new jl();
+    }
 
     public jl() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-        }
-        this.y = new Paint();
-        this.z = new Paint();
-        this.y.setColor(-16777216);
-        this.y.setStyle(Paint.Style.FILL);
-        this.y.setAntiAlias(true);
-        this.z.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
-    }
-
-    @Override // com.baidu.tieba.el
-    public void e(Canvas canvas, Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, canvas, drawable) == null) {
-            canvas.save();
-            t(drawable.getBounds());
-            try {
-                canvas.clipPath(this.v);
-            } catch (Exception unused) {
-            }
-            drawable.draw(canvas);
-            canvas.restore();
         }
     }
 
-    public final void t(Rect rect) {
+    public static jl b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rect) == null) || rect == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a;
         }
-        boolean z = true;
-        boolean z2 = this.v == null || this.w != this.l.b;
-        Rect rect2 = this.x;
-        if (rect2 != null && rect2.contains(rect)) {
-            z = z2;
-        }
-        this.w = this.l.b;
-        if (z) {
-            this.x = rect;
-            Path path = new Path();
-            this.v = path;
-            if (this.w) {
-                this.v.addCircle((rect.right + rect.left) / 2.0f, (rect.top + rect.bottom) / 2.0f, Math.min(rect.width(), rect.height()) / 2.0f, Path.Direction.CCW);
-            } else {
-                path.addRoundRect(new RectF(rect), this.l.a, Path.Direction.CW);
+        return (jl) invokeV.objValue;
+    }
+
+    public fl a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            switch (i) {
+                case 0:
+                    return new hl();
+                case 1:
+                    return new pl();
+                case 2:
+                    return new ll();
+                case 3:
+                    return new rl();
+                case 4:
+                    return new ql();
+                case 5:
+                    return new kl();
+                case 6:
+                    return new nl();
+                default:
+                    return new hl();
             }
-            this.v.close();
         }
+        return (fl) invokeI.objValue;
     }
 }

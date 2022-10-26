@@ -11,7 +11,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.FileDescriptor;
 import java.util.Map;
-@Keep
 /* loaded from: classes2.dex */
 public abstract class PlayerProvider {
     public static /* synthetic */ Interceptable $ic;
@@ -83,13 +82,13 @@ public abstract class PlayerProvider {
 
     public abstract void setDataSource(Context context, Uri uri);
 
-    public abstract void setDataSource(Context context, Uri uri, Map<String, String> map);
+    public abstract void setDataSource(Context context, Uri uri, Map map);
 
     public abstract void setDataSource(FileDescriptor fileDescriptor);
 
     public abstract void setDataSource(String str);
 
-    public abstract void setDataSource(String str, Map<String, String> map);
+    public abstract void setDataSource(String str, Map map);
 
     public abstract void setDisplay(SurfaceHolder surfaceHolder);
 

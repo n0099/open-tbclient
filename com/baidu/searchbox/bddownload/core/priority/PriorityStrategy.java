@@ -16,7 +16,7 @@ public class PriorityStrategy {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class Priority {
+    public final class Priority {
         public static final /* synthetic */ Priority[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Priority BACKGROUND;
@@ -68,13 +68,19 @@ public class PriorityStrategy {
         public static Priority valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Priority) Enum.valueOf(Priority.class, str) : (Priority) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (Priority) Enum.valueOf(Priority.class, str);
+            }
+            return (Priority) invokeL.objValue;
         }
 
         public static Priority[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Priority[]) $VALUES.clone() : (Priority[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (Priority[]) $VALUES.clone();
+            }
+            return (Priority[]) invokeV.objValue;
         }
     }
 
@@ -104,7 +110,16 @@ public class PriorityStrategy {
             }
             if (downloadTask.getPriority() == downloadTask2.getPriority()) {
                 long lastSeconds = downloadTask.getLastSeconds() - downloadTask2.getLastSeconds();
-                return (downloadTask.getLastSeconds() <= 0 || downloadTask2.getLastSeconds() <= 0) ? lastSeconds > 0 ? 1 : -1 : lastSeconds > 0 ? -1 : 1;
+                if (downloadTask.getLastSeconds() > 0 && downloadTask2.getLastSeconds() > 0) {
+                    if (lastSeconds > 0) {
+                        return -1;
+                    }
+                    return 1;
+                } else if (lastSeconds <= 0) {
+                    return -1;
+                } else {
+                    return 1;
+                }
             }
             return downloadTask.getPriority() - downloadTask2.getPriority();
         }

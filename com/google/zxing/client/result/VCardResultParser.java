@@ -18,6 +18,7 @@ import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -108,48 +109,103 @@ public final class VCardResultParser extends ResultParser {
         return (String) invokeLL.objValue;
     }
 
-    public static void formatNames(Iterable<List<String>> iterable) {
+    public static void formatNames(Iterable iterable) {
         int indexOf;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, iterable) == null) || iterable == null) {
-            return;
-        }
-        for (List<String> list : iterable) {
-            String str = list.get(0);
-            String[] strArr = new String[5];
-            int i = 0;
-            int i2 = 0;
-            while (i < 4 && (indexOf = str.indexOf(59, i2)) >= 0) {
-                strArr[i] = str.substring(i2, indexOf);
-                i++;
-                i2 = indexOf + 1;
+        if ((interceptable == null || interceptable.invokeL(65539, null, iterable) == null) && iterable != null) {
+            Iterator it = iterable.iterator();
+            while (it.hasNext()) {
+                List list = (List) it.next();
+                String str = (String) list.get(0);
+                String[] strArr = new String[5];
+                int i = 0;
+                int i2 = 0;
+                while (i < 4 && (indexOf = str.indexOf(59, i2)) >= 0) {
+                    strArr[i] = str.substring(i2, indexOf);
+                    i++;
+                    i2 = indexOf + 1;
+                }
+                strArr[i] = str.substring(i2);
+                StringBuilder sb = new StringBuilder(100);
+                maybeAppendComponent(strArr, 3, sb);
+                maybeAppendComponent(strArr, 1, sb);
+                maybeAppendComponent(strArr, 2, sb);
+                maybeAppendComponent(strArr, 0, sb);
+                maybeAppendComponent(strArr, 4, sb);
+                list.set(0, sb.toString().trim());
             }
-            strArr[i] = str.substring(i2);
-            StringBuilder sb = new StringBuilder(100);
-            maybeAppendComponent(strArr, 3, sb);
-            maybeAppendComponent(strArr, 1, sb);
-            maybeAppendComponent(strArr, 2, sb);
-            maybeAppendComponent(strArr, 0, sb);
-            maybeAppendComponent(strArr, 4, sb);
-            list.set(0, sb.toString().trim());
         }
+    }
+
+    public static String[] toTypes(Collection collection) {
+        InterceptResult invokeL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, collection)) == null) {
+            if (collection == null || collection.isEmpty()) {
+                return null;
+            }
+            ArrayList arrayList = new ArrayList(collection.size());
+            Iterator it = collection.iterator();
+            while (it.hasNext()) {
+                List list = (List) it.next();
+                int i = 1;
+                while (true) {
+                    if (i < list.size()) {
+                        str = (String) list.get(i);
+                        int indexOf = str.indexOf(61);
+                        if (indexOf >= 0) {
+                            if ("TYPE".equalsIgnoreCase(str.substring(0, indexOf))) {
+                                str = str.substring(indexOf + 1);
+                                break;
+                            }
+                            i++;
+                        }
+                    } else {
+                        str = null;
+                        break;
+                    }
+                }
+                arrayList.add(str);
+            }
+            return (String[]) arrayList.toArray(new String[collection.size()]);
+        }
+        return (String[]) invokeL.objValue;
     }
 
     public static boolean isLikeVCardDate(CharSequence charSequence) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, charSequence)) == null) ? charSequence == null || VCARD_LIKE_DATE.matcher(charSequence).matches() : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, charSequence)) == null) {
+            if (charSequence != null && !VCARD_LIKE_DATE.matcher(charSequence).matches()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
-    public static List<String> matchSingleVCardPrefixedField(CharSequence charSequence, String str, boolean z, boolean z2) {
+    public static String toPrimaryValue(List list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, list)) == null) {
+            if (list != null && !list.isEmpty()) {
+                return (String) list.get(0);
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static List matchSingleVCardPrefixedField(CharSequence charSequence, String str, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{charSequence, str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            List<List<String>> matchVCardPrefixedField = matchVCardPrefixedField(charSequence, str, z, z2);
-            if (matchVCardPrefixedField == null || matchVCardPrefixedField.isEmpty()) {
-                return null;
+            List matchVCardPrefixedField = matchVCardPrefixedField(charSequence, str, z, z2);
+            if (matchVCardPrefixedField != null && !matchVCardPrefixedField.isEmpty()) {
+                return (List) matchVCardPrefixedField.get(0);
             }
-            return matchVCardPrefixedField.get(0);
+            return null;
         }
         return (List) invokeCommon.objValue;
     }
@@ -160,7 +216,7 @@ public final class VCardResultParser extends ResultParser {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static List<List<String>> matchVCardPrefixedField(CharSequence charSequence, String str, boolean z, boolean z2) {
+    public static List matchVCardPrefixedField(CharSequence charSequence, String str, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         ArrayList arrayList;
         boolean z3;
@@ -275,95 +331,49 @@ public final class VCardResultParser extends ResultParser {
 
     public static void maybeAppendComponent(String[] strArr, int i, StringBuilder sb) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(65543, null, strArr, i, sb) == null) || strArr[i] == null || strArr[i].isEmpty()) {
-            return;
+        if ((interceptable == null || interceptable.invokeLIL(65543, null, strArr, i, sb) == null) && strArr[i] != null && !strArr[i].isEmpty()) {
+            if (sb.length() > 0) {
+                sb.append(WebvttCueParser.CHAR_SPACE);
+            }
+            sb.append(strArr[i]);
         }
-        if (sb.length() > 0) {
-            sb.append(WebvttCueParser.CHAR_SPACE);
-        }
-        sb.append(strArr[i]);
     }
 
     public static void maybeAppendFragment(ByteArrayOutputStream byteArrayOutputStream, String str, StringBuilder sb) {
         String str2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65544, null, byteArrayOutputStream, str, sb) == null) || byteArrayOutputStream.size() <= 0) {
-            return;
-        }
-        byte[] byteArray = byteArrayOutputStream.toByteArray();
-        if (str == null) {
-            str2 = new String(byteArray, Charset.forName("UTF-8"));
-        } else {
-            try {
-                str2 = new String(byteArray, str);
-            } catch (UnsupportedEncodingException unused) {
+        if ((interceptable == null || interceptable.invokeLLL(65544, null, byteArrayOutputStream, str, sb) == null) && byteArrayOutputStream.size() > 0) {
+            byte[] byteArray = byteArrayOutputStream.toByteArray();
+            if (str == null) {
                 str2 = new String(byteArray, Charset.forName("UTF-8"));
+            } else {
+                try {
+                    str2 = new String(byteArray, str);
+                } catch (UnsupportedEncodingException unused) {
+                    str2 = new String(byteArray, Charset.forName("UTF-8"));
+                }
             }
+            byteArrayOutputStream.reset();
+            sb.append(str2);
         }
-        byteArrayOutputStream.reset();
-        sb.append(str2);
     }
 
-    public static String toPrimaryValue(List<String> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, list)) == null) {
-            if (list == null || list.isEmpty()) {
-                return null;
-            }
-            return list.get(0);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String[] toPrimaryValues(Collection<List<String>> collection) {
+    public static String[] toPrimaryValues(Collection collection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, collection)) == null) {
-            if (collection == null || collection.isEmpty()) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList(collection.size());
-            for (List<String> list : collection) {
-                String str = list.get(0);
-                if (str != null && !str.isEmpty()) {
-                    arrayList.add(str);
-                }
-            }
-            return (String[]) arrayList.toArray(new String[collection.size()]);
-        }
-        return (String[]) invokeL.objValue;
-    }
-
-    public static String[] toTypes(Collection<List<String>> collection) {
-        InterceptResult invokeL;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, collection)) == null) {
-            if (collection == null || collection.isEmpty()) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList(collection.size());
-            for (List<String> list : collection) {
-                int i = 1;
-                while (true) {
-                    if (i >= list.size()) {
-                        str = null;
-                        break;
-                    }
-                    str = list.get(i);
-                    int indexOf = str.indexOf(61);
-                    if (indexOf >= 0) {
-                        if ("TYPE".equalsIgnoreCase(str.substring(0, indexOf))) {
-                            str = str.substring(indexOf + 1);
-                            break;
-                        }
-                        i++;
+            if (collection != null && !collection.isEmpty()) {
+                ArrayList arrayList = new ArrayList(collection.size());
+                Iterator it = collection.iterator();
+                while (it.hasNext()) {
+                    String str = (String) ((List) it.next()).get(0);
+                    if (str != null && !str.isEmpty()) {
+                        arrayList.add(str);
                     }
                 }
-                arrayList.add(str);
+                return (String[]) arrayList.toArray(new String[collection.size()]);
             }
-            return (String[]) arrayList.toArray(new String[collection.size()]);
+            return null;
         }
         return (String[]) invokeL.objValue;
     }
@@ -372,33 +382,54 @@ public final class VCardResultParser extends ResultParser {
     @Override // com.google.zxing.client.result.ResultParser
     public AddressBookParsedResult parse(Result result) {
         InterceptResult invokeL;
+        String[] split;
+        List list;
+        String[] split2;
+        String[] strArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, result)) == null) {
             String massagedText = ResultParser.getMassagedText(result);
             Matcher matcher = BEGIN_VCARD.matcher(massagedText);
-            if (matcher.find() && matcher.start() == 0) {
-                List<List<String>> matchVCardPrefixedField = matchVCardPrefixedField("FN", massagedText, true, false);
-                if (matchVCardPrefixedField == null) {
-                    matchVCardPrefixedField = matchVCardPrefixedField("N", massagedText, true, false);
-                    formatNames(matchVCardPrefixedField);
-                }
-                List<String> matchSingleVCardPrefixedField = matchSingleVCardPrefixedField("NICKNAME", massagedText, true, false);
-                String[] split = matchSingleVCardPrefixedField == null ? null : COMMA.split(matchSingleVCardPrefixedField.get(0));
-                List<List<String>> matchVCardPrefixedField2 = matchVCardPrefixedField("TEL", massagedText, true, false);
-                List<List<String>> matchVCardPrefixedField3 = matchVCardPrefixedField("EMAIL", massagedText, true, false);
-                List<String> matchSingleVCardPrefixedField2 = matchSingleVCardPrefixedField(WebvttDecoder.COMMENT_START, massagedText, false, false);
-                List<List<String>> matchVCardPrefixedField4 = matchVCardPrefixedField("ADR", massagedText, true, true);
-                List<String> matchSingleVCardPrefixedField3 = matchSingleVCardPrefixedField("ORG", massagedText, true, true);
-                List<String> matchSingleVCardPrefixedField4 = matchSingleVCardPrefixedField("BDAY", massagedText, true, false);
-                List<String> list = (matchSingleVCardPrefixedField4 == null || isLikeVCardDate(matchSingleVCardPrefixedField4.get(0))) ? matchSingleVCardPrefixedField4 : null;
-                List<String> matchSingleVCardPrefixedField5 = matchSingleVCardPrefixedField("TITLE", massagedText, true, false);
-                List<List<String>> matchVCardPrefixedField5 = matchVCardPrefixedField("URL", massagedText, true, false);
-                List<String> matchSingleVCardPrefixedField6 = matchSingleVCardPrefixedField("IMPP", massagedText, true, false);
-                List<String> matchSingleVCardPrefixedField7 = matchSingleVCardPrefixedField(BdSailorConfig.SAILOR_BASE_GEO, massagedText, true, false);
-                String[] split2 = matchSingleVCardPrefixedField7 == null ? null : SEMICOLON_OR_COMMA.split(matchSingleVCardPrefixedField7.get(0));
-                return new AddressBookParsedResult(toPrimaryValues(matchVCardPrefixedField), split, null, toPrimaryValues(matchVCardPrefixedField2), toTypes(matchVCardPrefixedField2), toPrimaryValues(matchVCardPrefixedField3), toTypes(matchVCardPrefixedField3), toPrimaryValue(matchSingleVCardPrefixedField6), toPrimaryValue(matchSingleVCardPrefixedField2), toPrimaryValues(matchVCardPrefixedField4), toTypes(matchVCardPrefixedField4), toPrimaryValue(matchSingleVCardPrefixedField3), toPrimaryValue(list), toPrimaryValue(matchSingleVCardPrefixedField5), toPrimaryValues(matchVCardPrefixedField5), (split2 == null || split2.length == 2) ? split2 : null);
+            if (!matcher.find() || matcher.start() != 0) {
+                return null;
             }
-            return null;
+            List matchVCardPrefixedField = matchVCardPrefixedField("FN", massagedText, true, false);
+            if (matchVCardPrefixedField == null) {
+                matchVCardPrefixedField = matchVCardPrefixedField("N", massagedText, true, false);
+                formatNames(matchVCardPrefixedField);
+            }
+            List matchSingleVCardPrefixedField = matchSingleVCardPrefixedField("NICKNAME", massagedText, true, false);
+            if (matchSingleVCardPrefixedField == null) {
+                split = null;
+            } else {
+                split = COMMA.split((CharSequence) matchSingleVCardPrefixedField.get(0));
+            }
+            List matchVCardPrefixedField2 = matchVCardPrefixedField("TEL", massagedText, true, false);
+            List matchVCardPrefixedField3 = matchVCardPrefixedField("EMAIL", massagedText, true, false);
+            List matchSingleVCardPrefixedField2 = matchSingleVCardPrefixedField(WebvttDecoder.COMMENT_START, massagedText, false, false);
+            List matchVCardPrefixedField4 = matchVCardPrefixedField("ADR", massagedText, true, true);
+            List matchSingleVCardPrefixedField3 = matchSingleVCardPrefixedField("ORG", massagedText, true, true);
+            List matchSingleVCardPrefixedField4 = matchSingleVCardPrefixedField("BDAY", massagedText, true, false);
+            if (matchSingleVCardPrefixedField4 != null && !isLikeVCardDate((CharSequence) matchSingleVCardPrefixedField4.get(0))) {
+                list = null;
+            } else {
+                list = matchSingleVCardPrefixedField4;
+            }
+            List matchSingleVCardPrefixedField5 = matchSingleVCardPrefixedField("TITLE", massagedText, true, false);
+            List matchVCardPrefixedField5 = matchVCardPrefixedField("URL", massagedText, true, false);
+            List matchSingleVCardPrefixedField6 = matchSingleVCardPrefixedField("IMPP", massagedText, true, false);
+            List matchSingleVCardPrefixedField7 = matchSingleVCardPrefixedField(BdSailorConfig.SAILOR_BASE_GEO, massagedText, true, false);
+            if (matchSingleVCardPrefixedField7 == null) {
+                split2 = null;
+            } else {
+                split2 = SEMICOLON_OR_COMMA.split((CharSequence) matchSingleVCardPrefixedField7.get(0));
+            }
+            if (split2 != null && split2.length != 2) {
+                strArr = null;
+            } else {
+                strArr = split2;
+            }
+            return new AddressBookParsedResult(toPrimaryValues(matchVCardPrefixedField), split, null, toPrimaryValues(matchVCardPrefixedField2), toTypes(matchVCardPrefixedField2), toPrimaryValues(matchVCardPrefixedField3), toTypes(matchVCardPrefixedField3), toPrimaryValue(matchSingleVCardPrefixedField6), toPrimaryValue(matchSingleVCardPrefixedField2), toPrimaryValues(matchVCardPrefixedField4), toTypes(matchVCardPrefixedField4), toPrimaryValue(matchSingleVCardPrefixedField3), toPrimaryValue(list), toPrimaryValue(matchSingleVCardPrefixedField5), toPrimaryValues(matchVCardPrefixedField5), strArr);
         }
         return (AddressBookParsedResult) invokeL.objValue;
     }

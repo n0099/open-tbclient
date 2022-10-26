@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.pe5;
+import com.baidu.tieba.ve5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -13,8 +13,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public abstract class BaseTemplatePageActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public pe5 a;
+    public ve5 a;
     public ViewGroup b;
+
+    public abstract ve5 y1();
+
+    public abstract int z1();
 
     public BaseTemplatePageActivity() {
         Interceptable interceptable = $ic;
@@ -30,40 +34,14 @@ public abstract class BaseTemplatePageActivity extends BaseActivity {
         }
     }
 
-    public abstract int A1();
-
-    @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            super.onChangeSkinType(i);
-            pe5 pe5Var = this.a;
-            if (pe5Var != null) {
-                pe5Var.h(i);
-            }
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
-            super.onCreate(bundle);
-            ViewGroup viewGroup = (ViewGroup) getLayoutInflater().inflate(A1(), (ViewGroup) null);
-            this.b = viewGroup;
-            setContentView(viewGroup);
-            this.a = z1();
-        }
-    }
-
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onDestroy();
-            pe5 pe5Var = this.a;
-            if (pe5Var != null) {
-                pe5Var.i();
+            ve5 ve5Var = this.a;
+            if (ve5Var != null) {
+                ve5Var.i();
             }
         }
     }
@@ -71,11 +49,11 @@ public abstract class BaseTemplatePageActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onPause();
-            pe5 pe5Var = this.a;
-            if (pe5Var != null) {
-                pe5Var.j();
+            ve5 ve5Var = this.a;
+            if (ve5Var != null) {
+                ve5Var.j();
             }
         }
     }
@@ -83,14 +61,36 @@ public abstract class BaseTemplatePageActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onResume();
-            pe5 pe5Var = this.a;
-            if (pe5Var != null) {
-                pe5Var.k();
+            ve5 ve5Var = this.a;
+            if (ve5Var != null) {
+                ve5Var.k();
             }
         }
     }
 
-    public abstract pe5 z1();
+    @Override // com.baidu.tbadk.BaseActivity
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            super.onChangeSkinType(i);
+            ve5 ve5Var = this.a;
+            if (ve5Var != null) {
+                ve5Var.h(i);
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            super.onCreate(bundle);
+            ViewGroup viewGroup = (ViewGroup) getLayoutInflater().inflate(z1(), (ViewGroup) null);
+            this.b = viewGroup;
+            setContentView(viewGroup);
+            this.a = y1();
+        }
+    }
 }

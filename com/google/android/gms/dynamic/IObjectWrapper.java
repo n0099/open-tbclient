@@ -2,7 +2,6 @@ package com.google.android.gms.dynamic;
 
 import android.os.IBinder;
 import android.os.IInterface;
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public interface IObjectWrapper extends IInterface {
 
     /* loaded from: classes7.dex */
-    public static abstract class Stub extends com.google.android.gms.internal.common.zzb implements IObjectWrapper {
+    public abstract class Stub extends com.google.android.gms.internal.common.zzb implements IObjectWrapper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -34,8 +33,7 @@ public interface IObjectWrapper extends IInterface {
             }
         }
 
-        @NonNull
-        public static IObjectWrapper asInterface(@NonNull IBinder iBinder) {
+        public static IObjectWrapper asInterface(IBinder iBinder) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, iBinder)) == null) {
@@ -43,7 +41,10 @@ public interface IObjectWrapper extends IInterface {
                     return null;
                 }
                 IInterface queryLocalInterface = iBinder.queryLocalInterface("com.google.android.gms.dynamic.IObjectWrapper");
-                return queryLocalInterface instanceof IObjectWrapper ? (IObjectWrapper) queryLocalInterface : new zzb(iBinder);
+                if (queryLocalInterface instanceof IObjectWrapper) {
+                    return (IObjectWrapper) queryLocalInterface;
+                }
+                return new zzb(iBinder);
             }
             return (IObjectWrapper) invokeL.objValue;
         }

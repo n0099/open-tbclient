@@ -1,9 +1,6 @@
 package androidx.loader.app;
 
 import android.os.Bundle;
-import androidx.annotation.MainThread;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.ViewModelStoreOwner;
 import androidx.loader.content.Loader;
@@ -20,17 +17,35 @@ public abstract class LoaderManager {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
-    public interface LoaderCallbacks<D> {
-        @NonNull
-        @MainThread
-        Loader<D> onCreateLoader(int i, @Nullable Bundle bundle);
+    public interface LoaderCallbacks {
+        Loader onCreateLoader(int i, Bundle bundle);
 
-        @MainThread
-        void onLoadFinished(@NonNull Loader<D> loader, D d);
+        void onLoadFinished(Loader loader, Object obj);
 
-        @MainThread
-        void onLoaderReset(@NonNull Loader<D> loader);
+        void onLoaderReset(Loader loader);
     }
+
+    public abstract void destroyLoader(int i);
+
+    @Deprecated
+    public abstract void dump(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr);
+
+    public abstract <D> Loader<D> getLoader(int i);
+
+    public boolean hasRunningLoaders() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public abstract <D> Loader<D> initLoader(int i, Bundle bundle, LoaderCallbacks<D> loaderCallbacks);
+
+    public abstract void markForRedelivery();
+
+    public abstract <D> Loader<D> restartLoader(int i, Bundle bundle, LoaderCallbacks<D> loaderCallbacks);
 
     public LoaderManager() {
         Interceptable interceptable = $ic;
@@ -53,38 +68,12 @@ public abstract class LoaderManager {
         }
     }
 
-    @NonNull
-    public static <T extends LifecycleOwner & ViewModelStoreOwner> LoaderManager getInstance(@NonNull T t) {
+    public static <T extends LifecycleOwner & ViewModelStoreOwner> LoaderManager getInstance(T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, t)) == null) ? new LoaderManagerImpl(t, t.getViewModelStore()) : (LoaderManager) invokeL.objValue;
-    }
-
-    @MainThread
-    public abstract void destroyLoader(int i);
-
-    @Deprecated
-    public abstract void dump(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr);
-
-    @Nullable
-    public abstract <D> Loader<D> getLoader(int i);
-
-    public boolean hasRunningLoaders() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, t)) == null) {
+            return new LoaderManagerImpl(t, t.getViewModelStore());
         }
-        return invokeV.booleanValue;
+        return (LoaderManager) invokeL.objValue;
     }
-
-    @NonNull
-    @MainThread
-    public abstract <D> Loader<D> initLoader(int i, @Nullable Bundle bundle, @NonNull LoaderCallbacks<D> loaderCallbacks);
-
-    public abstract void markForRedelivery();
-
-    @NonNull
-    @MainThread
-    public abstract <D> Loader<D> restartLoader(int i, @Nullable Bundle bundle, @NonNull LoaderCallbacks<D> loaderCallbacks);
 }

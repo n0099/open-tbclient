@@ -13,6 +13,13 @@ public class DredgeDisasterExecutorCell extends BaseDredgeExecutorCell {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.searchbox.elasticthread.executor.BaseExecutorCell
+    public String getTag() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "ElasticDredgeDisasterCell" : (String) invokeV.objValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DredgeDisasterExecutorCell(int i) {
         super(i);
@@ -32,12 +39,5 @@ public class DredgeDisasterExecutorCell extends BaseDredgeExecutorCell {
             }
         }
         this.mExecutor = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 100L, TimeUnit.MILLISECONDS, new SynchronousQueue());
-    }
-
-    @Override // com.baidu.searchbox.elasticthread.executor.BaseExecutorCell
-    public String getTag() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "ElasticDredgeDisasterCell" : (String) invokeV.objValue;
     }
 }

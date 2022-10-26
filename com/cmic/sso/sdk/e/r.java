@@ -1,6 +1,5 @@
 package com.cmic.sso.sdk.e;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.Network;
@@ -69,30 +68,6 @@ public class r {
         }
     }
 
-    public void b() {
-        ConnectivityManager connectivityManager;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (connectivityManager = this.b) == null) {
-            return;
-        }
-        try {
-            if (Build.VERSION.SDK_INT < 21 || this.d == null) {
-                return;
-            }
-            connectivityManager.unregisterNetworkCallback(this.d);
-            this.d = null;
-            this.c = null;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Build.VERSION.SDK_INT >= 21 && this.c != null : invokeV.booleanValue;
-    }
-
     public static r a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -109,7 +84,6 @@ public class r {
         return (r) invokeL.objValue;
     }
 
-    @TargetApi(21)
     public synchronized void a(a aVar) {
         NetworkInfo networkInfo;
         Interceptable interceptable = $ic;
@@ -168,15 +142,15 @@ public class r {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, network2) == null) {
                             try {
-                                if (this.b.b.getNetworkCapabilities(network2).hasTransport(0)) {
-                                    this.b.c = network2;
-                                    this.a.a(network2);
-                                    this.b.e = false;
-                                } else {
+                                if (!this.b.b.getNetworkCapabilities(network2).hasTransport(0)) {
                                     c.a("WifiNetworkUtils", "切换失败，未开启数据网络");
                                     this.b.c = null;
                                     this.a.a(null);
                                     this.b.b.unregisterNetworkCallback(this.b.d);
+                                } else {
+                                    this.b.c = network2;
+                                    this.a.a(network2);
+                                    this.b.e = false;
                                 }
                             } catch (Exception e2) {
                                 e2.printStackTrace();
@@ -189,9 +163,10 @@ public class r {
                     @Override // android.net.ConnectivityManager.NetworkCallback
                     public void onLost(Network network2) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, network2) == null) {
-                            this.b.e = true;
+                        if (interceptable2 != null && interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, network2) != null) {
+                            return;
                         }
+                        this.b.e = true;
                     }
                 };
                 this.d = networkCallback2;
@@ -202,6 +177,36 @@ public class r {
                     aVar.a(null);
                 }
             }
+        }
+    }
+
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (Build.VERSION.SDK_INT < 21 || this.c == null) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void b() {
+        ConnectivityManager connectivityManager;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || (connectivityManager = this.b) == null) {
+            return;
+        }
+        try {
+            if (Build.VERSION.SDK_INT < 21 || this.d == null) {
+                return;
+            }
+            connectivityManager.unregisterNetworkCallback(this.d);
+            this.d = null;
+            this.c = null;
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

@@ -13,7 +13,7 @@ import io.reactivex.functions.BiFunction;
 import java.util.List;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes8.dex */
-public final class ListAddBiConsumer implements BiFunction<List, Object, List> {
+public final class ListAddBiConsumer implements BiFunction {
     public static final /* synthetic */ ListAddBiConsumer[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
     public static final ListAddBiConsumer INSTANCE;
@@ -37,6 +37,24 @@ public final class ListAddBiConsumer implements BiFunction<List, Object, List> {
         $VALUES = new ListAddBiConsumer[]{listAddBiConsumer};
     }
 
+    public static BiFunction instance() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return INSTANCE;
+        }
+        return (BiFunction) invokeV.objValue;
+    }
+
+    public static ListAddBiConsumer[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return (ListAddBiConsumer[]) $VALUES.clone();
+        }
+        return (ListAddBiConsumer[]) invokeV.objValue;
+    }
+
     public ListAddBiConsumer(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -56,22 +74,13 @@ public final class ListAddBiConsumer implements BiFunction<List, Object, List> {
         }
     }
 
-    public static <T> BiFunction<List<T>, T, List<T>> instance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? INSTANCE : (BiFunction) invokeV.objValue;
-    }
-
     public static ListAddBiConsumer valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (ListAddBiConsumer) Enum.valueOf(ListAddBiConsumer.class, str) : (ListAddBiConsumer) invokeL.objValue;
-    }
-
-    public static ListAddBiConsumer[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (ListAddBiConsumer[]) $VALUES.clone() : (ListAddBiConsumer[]) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return (ListAddBiConsumer) Enum.valueOf(ListAddBiConsumer.class, str);
+        }
+        return (ListAddBiConsumer) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

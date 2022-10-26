@@ -11,14 +11,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.coremedia.iso.boxes.Box;
 import com.coremedia.iso.boxes.CompositionTimeToSample;
-import com.coremedia.iso.boxes.SampleDependencyTypeBox;
 import com.coremedia.iso.boxes.SampleDescriptionBox;
 import com.coremedia.iso.boxes.SubSampleInformationBox;
 import com.coremedia.iso.boxes.sampleentry.AudioSampleEntry;
 import com.coremedia.iso.boxes.sampleentry.SampleEntry;
 import com.coremedia.iso.boxes.sampleentry.VisualSampleEntry;
 import com.googlecode.mp4parser.authoring.AbstractTrack;
-import com.googlecode.mp4parser.authoring.Sample;
 import com.googlecode.mp4parser.authoring.Track;
 import com.googlecode.mp4parser.authoring.TrackMetaData;
 import com.googlecode.mp4parser.boxes.mp4.AbstractDescriptorBox;
@@ -58,6 +56,70 @@ public class AppendTrack extends AbstractTrack {
             }
         }
         LOG = Logger.getLogger(AppendTrack.class);
+    }
+
+    @Override // com.googlecode.mp4parser.authoring.Track
+    public String getHandler() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.tracks[0].getHandler();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.googlecode.mp4parser.authoring.Track
+    public Box getMediaHeaderBox() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.tracks[0].getMediaHeaderBox();
+        }
+        return (Box) invokeV.objValue;
+    }
+
+    @Override // com.googlecode.mp4parser.authoring.Track
+    public SampleDescriptionBox getSampleDescriptionBox() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.stsd;
+        }
+        return (SampleDescriptionBox) invokeV.objValue;
+    }
+
+    @Override // com.googlecode.mp4parser.authoring.Track
+    public List getSamples() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (Track track : this.tracks) {
+                arrayList.addAll(track.getSamples());
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
+    public SubSampleInformationBox getSubsampleInformationBox() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.tracks[0].getSubsampleInformationBox();
+        }
+        return (SubSampleInformationBox) invokeV.objValue;
+    }
+
+    @Override // com.googlecode.mp4parser.authoring.Track
+    public TrackMetaData getTrackMetaData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.tracks[0].getTrackMetaData();
+        }
+        return (TrackMetaData) invokeV.objValue;
     }
 
     public AppendTrack(Track... trackArr) throws IOException {
@@ -119,19 +181,19 @@ public class AppendTrack extends AbstractTrack {
                                                     if (Arrays.equals(audioSampleEntry.getSoundVersion2Data(), audioSampleEntry2.getSoundVersion2Data())) {
                                                         audioSampleEntry3.setSoundVersion2Data(audioSampleEntry.getSoundVersion2Data());
                                                         if (audioSampleEntry.getBoxes().size() == audioSampleEntry2.getBoxes().size()) {
-                                                            Iterator<Box> it = audioSampleEntry2.getBoxes().iterator();
+                                                            Iterator it = audioSampleEntry2.getBoxes().iterator();
                                                             for (Box box : audioSampleEntry.getBoxes()) {
-                                                                Box next = it.next();
+                                                                Box box2 = (Box) it.next();
                                                                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                                                                 ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream();
                                                                 try {
                                                                     box.getBox(Channels.newChannel(byteArrayOutputStream));
-                                                                    next.getBox(Channels.newChannel(byteArrayOutputStream2));
+                                                                    box2.getBox(Channels.newChannel(byteArrayOutputStream2));
                                                                     if (Arrays.equals(byteArrayOutputStream.toByteArray(), byteArrayOutputStream2.toByteArray())) {
                                                                         audioSampleEntry3.addBox(box);
-                                                                    } else if (ESDescriptorBox.TYPE.equals(box.getType()) && ESDescriptorBox.TYPE.equals(next.getType())) {
+                                                                    } else if (ESDescriptorBox.TYPE.equals(box.getType()) && ESDescriptorBox.TYPE.equals(box2.getType())) {
                                                                         ESDescriptorBox eSDescriptorBox = (ESDescriptorBox) box;
-                                                                        eSDescriptorBox.setDescriptor(mergeDescriptors(eSDescriptorBox.getEsDescriptor(), ((ESDescriptorBox) next).getEsDescriptor()));
+                                                                        eSDescriptorBox.setDescriptor(mergeDescriptors(eSDescriptorBox.getEsDescriptor(), ((ESDescriptorBox) box2).getEsDescriptor()));
                                                                         audioSampleEntry3.addBox(box);
                                                                     }
                                                                 } catch (IOException e) {
@@ -169,44 +231,44 @@ public class AppendTrack extends AbstractTrack {
                 }
                 eSDescriptor.getURLLength();
                 eSDescriptor2.getURLLength();
-                if (eSDescriptor.getDependsOnEsId() == eSDescriptor2.getDependsOnEsId() && eSDescriptor.getEsId() == eSDescriptor2.getEsId() && eSDescriptor.getoCREsId() == eSDescriptor2.getoCREsId() && eSDescriptor.getoCRstreamFlag() == eSDescriptor2.getoCRstreamFlag() && eSDescriptor.getRemoteODFlag() == eSDescriptor2.getRemoteODFlag() && eSDescriptor.getStreamDependenceFlag() == eSDescriptor2.getStreamDependenceFlag()) {
-                    eSDescriptor.getStreamPriority();
-                    eSDescriptor2.getStreamPriority();
-                    if (eSDescriptor.getURLString() != null) {
-                        eSDescriptor.getURLString().equals(eSDescriptor2.getURLString());
-                    } else {
-                        eSDescriptor2.getURLString();
-                    }
-                    if (eSDescriptor.getDecoderConfigDescriptor() == null ? eSDescriptor2.getDecoderConfigDescriptor() != null : !eSDescriptor.getDecoderConfigDescriptor().equals(eSDescriptor2.getDecoderConfigDescriptor())) {
-                        DecoderConfigDescriptor decoderConfigDescriptor = eSDescriptor.getDecoderConfigDescriptor();
-                        DecoderConfigDescriptor decoderConfigDescriptor2 = eSDescriptor2.getDecoderConfigDescriptor();
-                        if (decoderConfigDescriptor.getAudioSpecificInfo() != null && decoderConfigDescriptor2.getAudioSpecificInfo() != null && !decoderConfigDescriptor.getAudioSpecificInfo().equals(decoderConfigDescriptor2.getAudioSpecificInfo())) {
-                            return null;
-                        }
-                        if (decoderConfigDescriptor.getAvgBitRate() != decoderConfigDescriptor2.getAvgBitRate()) {
-                            decoderConfigDescriptor.setAvgBitRate((decoderConfigDescriptor.getAvgBitRate() + decoderConfigDescriptor2.getAvgBitRate()) / 2);
-                        }
-                        decoderConfigDescriptor.getBufferSizeDB();
-                        decoderConfigDescriptor2.getBufferSizeDB();
-                        if (decoderConfigDescriptor.getDecoderSpecificInfo() == null ? decoderConfigDescriptor2.getDecoderSpecificInfo() != null : !decoderConfigDescriptor.getDecoderSpecificInfo().equals(decoderConfigDescriptor2.getDecoderSpecificInfo())) {
-                            return null;
-                        }
-                        if (decoderConfigDescriptor.getMaxBitRate() != decoderConfigDescriptor2.getMaxBitRate()) {
-                            decoderConfigDescriptor.setMaxBitRate(Math.max(decoderConfigDescriptor.getMaxBitRate(), decoderConfigDescriptor2.getMaxBitRate()));
-                        }
-                        if (!decoderConfigDescriptor.getProfileLevelIndicationDescriptors().equals(decoderConfigDescriptor2.getProfileLevelIndicationDescriptors()) || decoderConfigDescriptor.getObjectTypeIndication() != decoderConfigDescriptor2.getObjectTypeIndication() || decoderConfigDescriptor.getStreamType() != decoderConfigDescriptor2.getStreamType() || decoderConfigDescriptor.getUpStream() != decoderConfigDescriptor2.getUpStream()) {
-                            return null;
-                        }
-                    }
-                    if (eSDescriptor.getOtherDescriptors() == null ? eSDescriptor2.getOtherDescriptors() == null : eSDescriptor.getOtherDescriptors().equals(eSDescriptor2.getOtherDescriptors())) {
-                        if (eSDescriptor.getSlConfigDescriptor() == null ? eSDescriptor2.getSlConfigDescriptor() == null : eSDescriptor.getSlConfigDescriptor().equals(eSDescriptor2.getSlConfigDescriptor())) {
-                            return eSDescriptor;
-                        }
-                        return null;
-                    }
+                if (eSDescriptor.getDependsOnEsId() != eSDescriptor2.getDependsOnEsId() || eSDescriptor.getEsId() != eSDescriptor2.getEsId() || eSDescriptor.getoCREsId() != eSDescriptor2.getoCREsId() || eSDescriptor.getoCRstreamFlag() != eSDescriptor2.getoCRstreamFlag() || eSDescriptor.getRemoteODFlag() != eSDescriptor2.getRemoteODFlag() || eSDescriptor.getStreamDependenceFlag() != eSDescriptor2.getStreamDependenceFlag()) {
                     return null;
                 }
-                return null;
+                eSDescriptor.getStreamPriority();
+                eSDescriptor2.getStreamPriority();
+                if (eSDescriptor.getURLString() != null) {
+                    eSDescriptor.getURLString().equals(eSDescriptor2.getURLString());
+                } else {
+                    eSDescriptor2.getURLString();
+                }
+                if (eSDescriptor.getDecoderConfigDescriptor() == null ? eSDescriptor2.getDecoderConfigDescriptor() != null : !eSDescriptor.getDecoderConfigDescriptor().equals(eSDescriptor2.getDecoderConfigDescriptor())) {
+                    DecoderConfigDescriptor decoderConfigDescriptor = eSDescriptor.getDecoderConfigDescriptor();
+                    DecoderConfigDescriptor decoderConfigDescriptor2 = eSDescriptor2.getDecoderConfigDescriptor();
+                    if (decoderConfigDescriptor.getAudioSpecificInfo() != null && decoderConfigDescriptor2.getAudioSpecificInfo() != null && !decoderConfigDescriptor.getAudioSpecificInfo().equals(decoderConfigDescriptor2.getAudioSpecificInfo())) {
+                        return null;
+                    }
+                    if (decoderConfigDescriptor.getAvgBitRate() != decoderConfigDescriptor2.getAvgBitRate()) {
+                        decoderConfigDescriptor.setAvgBitRate((decoderConfigDescriptor.getAvgBitRate() + decoderConfigDescriptor2.getAvgBitRate()) / 2);
+                    }
+                    decoderConfigDescriptor.getBufferSizeDB();
+                    decoderConfigDescriptor2.getBufferSizeDB();
+                    if (decoderConfigDescriptor.getDecoderSpecificInfo() == null ? decoderConfigDescriptor2.getDecoderSpecificInfo() != null : !decoderConfigDescriptor.getDecoderSpecificInfo().equals(decoderConfigDescriptor2.getDecoderSpecificInfo())) {
+                        return null;
+                    }
+                    if (decoderConfigDescriptor.getMaxBitRate() != decoderConfigDescriptor2.getMaxBitRate()) {
+                        decoderConfigDescriptor.setMaxBitRate(Math.max(decoderConfigDescriptor.getMaxBitRate(), decoderConfigDescriptor2.getMaxBitRate()));
+                    }
+                    if (!decoderConfigDescriptor.getProfileLevelIndicationDescriptors().equals(decoderConfigDescriptor2.getProfileLevelIndicationDescriptors()) || decoderConfigDescriptor.getObjectTypeIndication() != decoderConfigDescriptor2.getObjectTypeIndication() || decoderConfigDescriptor.getStreamType() != decoderConfigDescriptor2.getStreamType() || decoderConfigDescriptor.getUpStream() != decoderConfigDescriptor2.getUpStream()) {
+                        return null;
+                    }
+                }
+                if (eSDescriptor.getOtherDescriptors() == null ? eSDescriptor2.getOtherDescriptors() != null : !eSDescriptor.getOtherDescriptors().equals(eSDescriptor2.getOtherDescriptors())) {
+                    return null;
+                }
+                if (eSDescriptor.getSlConfigDescriptor() == null ? eSDescriptor2.getSlConfigDescriptor() != null : !eSDescriptor.getSlConfigDescriptor().equals(eSDescriptor2.getSlConfigDescriptor())) {
+                    return null;
+                }
+                return eSDescriptor;
             }
             LOG.logError("I can only merge ESDescriptors");
             return null;
@@ -218,16 +280,16 @@ public class AppendTrack extends AbstractTrack {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, sampleEntry, sampleEntry2)) == null) {
-            if (sampleEntry.getType().equals(sampleEntry2.getType())) {
-                if ((sampleEntry instanceof VisualSampleEntry) && (sampleEntry2 instanceof VisualSampleEntry)) {
-                    return mergeVisualSampleEntry((VisualSampleEntry) sampleEntry, (VisualSampleEntry) sampleEntry2);
-                }
-                if ((sampleEntry instanceof AudioSampleEntry) && (sampleEntry2 instanceof AudioSampleEntry)) {
-                    return mergeAudioSampleEntries((AudioSampleEntry) sampleEntry, (AudioSampleEntry) sampleEntry2);
-                }
+            if (!sampleEntry.getType().equals(sampleEntry2.getType())) {
                 return null;
             }
-            return null;
+            if ((sampleEntry instanceof VisualSampleEntry) && (sampleEntry2 instanceof VisualSampleEntry)) {
+                return mergeVisualSampleEntry((VisualSampleEntry) sampleEntry, (VisualSampleEntry) sampleEntry2);
+            }
+            if (!(sampleEntry instanceof AudioSampleEntry) || !(sampleEntry2 instanceof AudioSampleEntry)) {
+                return null;
+            }
+            return mergeAudioSampleEntries((AudioSampleEntry) sampleEntry, (AudioSampleEntry) sampleEntry2);
         }
         return (SampleEntry) invokeLL.objValue;
     }
@@ -243,10 +305,11 @@ public class AppendTrack extends AbstractTrack {
                 sampleDescriptionBox2.getBox(Channels.newChannel(byteArrayOutputStream2));
                 if (!Arrays.equals(byteArrayOutputStream2.toByteArray(), byteArrayOutputStream.toByteArray())) {
                     SampleEntry mergeSampleEntry = mergeSampleEntry((SampleEntry) sampleDescriptionBox.getBoxes(SampleEntry.class).get(0), (SampleEntry) sampleDescriptionBox2.getBoxes(SampleEntry.class).get(0));
-                    if (mergeSampleEntry == null) {
+                    if (mergeSampleEntry != null) {
+                        sampleDescriptionBox.setBoxes(Collections.singletonList(mergeSampleEntry));
+                    } else {
                         throw new IOException("Cannot merge " + sampleDescriptionBox.getBoxes(SampleEntry.class).get(0) + " and " + sampleDescriptionBox2.getBoxes(SampleEntry.class).get(0));
                     }
-                    sampleDescriptionBox.setBoxes(Collections.singletonList(mergeSampleEntry));
                 }
                 return sampleDescriptionBox;
             } catch (IOException e) {
@@ -278,19 +341,19 @@ public class AppendTrack extends AbstractTrack {
                                     if (visualSampleEntry.getHorizresolution() == visualSampleEntry2.getHorizresolution()) {
                                         visualSampleEntry3.setHorizresolution(visualSampleEntry.getHorizresolution());
                                         if (visualSampleEntry.getBoxes().size() == visualSampleEntry2.getBoxes().size()) {
-                                            Iterator<Box> it = visualSampleEntry2.getBoxes().iterator();
+                                            Iterator it = visualSampleEntry2.getBoxes().iterator();
                                             for (Box box : visualSampleEntry.getBoxes()) {
-                                                Box next = it.next();
+                                                Box box2 = (Box) it.next();
                                                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                                                 ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream();
                                                 try {
                                                     box.getBox(Channels.newChannel(byteArrayOutputStream));
-                                                    next.getBox(Channels.newChannel(byteArrayOutputStream2));
+                                                    box2.getBox(Channels.newChannel(byteArrayOutputStream2));
                                                     if (Arrays.equals(byteArrayOutputStream.toByteArray(), byteArrayOutputStream2.toByteArray())) {
                                                         visualSampleEntry3.addBox(box);
-                                                    } else if ((box instanceof AbstractDescriptorBox) && (next instanceof AbstractDescriptorBox)) {
+                                                    } else if ((box instanceof AbstractDescriptorBox) && (box2 instanceof AbstractDescriptorBox)) {
                                                         AbstractDescriptorBox abstractDescriptorBox = (AbstractDescriptorBox) box;
-                                                        abstractDescriptorBox.setDescriptor(mergeDescriptors(abstractDescriptorBox.getDescriptor(), ((AbstractDescriptorBox) next).getDescriptor()));
+                                                        abstractDescriptorBox.setDescriptor(mergeDescriptors(abstractDescriptorBox.getDescriptor(), ((AbstractDescriptorBox) box2).getDescriptor()));
                                                         visualSampleEntry3.addBox(box);
                                                     }
                                                 } catch (IOException e) {
@@ -326,69 +389,79 @@ public class AppendTrack extends AbstractTrack {
     }
 
     @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
-    public List<CompositionTimeToSample.Entry> getCompositionTimeEntries() {
+    public List getCompositionTimeEntries() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.tracks[0].getCompositionTimeEntries() == null || this.tracks[0].getCompositionTimeEntries().isEmpty()) {
-                return null;
-            }
-            LinkedList<int[]> linkedList = new LinkedList();
-            for (Track track : this.tracks) {
-                linkedList.add(CompositionTimeToSample.blowupCompositionTimes(track.getCompositionTimeEntries()));
-            }
-            LinkedList linkedList2 = new LinkedList();
-            for (int[] iArr : linkedList) {
-                for (int i : iArr) {
-                    if (!linkedList2.isEmpty() && ((CompositionTimeToSample.Entry) linkedList2.getLast()).getOffset() == i) {
-                        CompositionTimeToSample.Entry entry = (CompositionTimeToSample.Entry) linkedList2.getLast();
-                        entry.setCount(entry.getCount() + 1);
-                    } else {
-                        linkedList2.add(new CompositionTimeToSample.Entry(1, i));
+            if (this.tracks[0].getCompositionTimeEntries() != null && !this.tracks[0].getCompositionTimeEntries().isEmpty()) {
+                LinkedList<int[]> linkedList = new LinkedList();
+                for (Track track : this.tracks) {
+                    linkedList.add(CompositionTimeToSample.blowupCompositionTimes(track.getCompositionTimeEntries()));
+                }
+                LinkedList linkedList2 = new LinkedList();
+                for (int[] iArr : linkedList) {
+                    for (int i : iArr) {
+                        if (!linkedList2.isEmpty() && ((CompositionTimeToSample.Entry) linkedList2.getLast()).getOffset() == i) {
+                            CompositionTimeToSample.Entry entry = (CompositionTimeToSample.Entry) linkedList2.getLast();
+                            entry.setCount(entry.getCount() + 1);
+                        } else {
+                            linkedList2.add(new CompositionTimeToSample.Entry(1, i));
+                        }
                     }
                 }
+                return linkedList2;
             }
-            return linkedList2;
+            return null;
         }
         return (List) invokeV.objValue;
-    }
-
-    @Override // com.googlecode.mp4parser.authoring.Track
-    public String getHandler() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.tracks[0].getHandler() : (String) invokeV.objValue;
-    }
-
-    @Override // com.googlecode.mp4parser.authoring.Track
-    public Box getMediaHeaderBox() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.tracks[0].getMediaHeaderBox() : (Box) invokeV.objValue;
     }
 
     @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
-    public List<SampleDependencyTypeBox.Entry> getSampleDependencies() {
+    public long[] getSyncSamples() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (this.tracks[0].getSyncSamples() != null && this.tracks[0].getSyncSamples().length > 0) {
+                int i = 0;
+                for (Track track : this.tracks) {
+                    i += track.getSyncSamples().length;
+                }
+                long[] jArr = new long[i];
+                long j = 0;
+                int i2 = 0;
+                for (Track track2 : this.tracks) {
+                    long[] syncSamples = track2.getSyncSamples();
+                    int length = syncSamples.length;
+                    int i3 = 0;
+                    while (i3 < length) {
+                        jArr[i2] = syncSamples[i3] + j;
+                        i3++;
+                        i2++;
+                    }
+                    j += track2.getSamples().size();
+                }
+                return jArr;
+            }
+            return null;
+        }
+        return (long[]) invokeV.objValue;
+    }
+
+    @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
+    public List getSampleDependencies() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.tracks[0].getSampleDependencies() == null || this.tracks[0].getSampleDependencies().isEmpty()) {
-                return null;
+            if (this.tracks[0].getSampleDependencies() != null && !this.tracks[0].getSampleDependencies().isEmpty()) {
+                LinkedList linkedList = new LinkedList();
+                for (Track track : this.tracks) {
+                    linkedList.addAll(track.getSampleDependencies());
+                }
+                return linkedList;
             }
-            LinkedList linkedList = new LinkedList();
-            for (Track track : this.tracks) {
-                linkedList.addAll(track.getSampleDependencies());
-            }
-            return linkedList;
+            return null;
         }
         return (List) invokeV.objValue;
-    }
-
-    @Override // com.googlecode.mp4parser.authoring.Track
-    public SampleDescriptionBox getSampleDescriptionBox() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.stsd : (SampleDescriptionBox) invokeV.objValue;
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
@@ -418,64 +491,5 @@ public class AppendTrack extends AbstractTrack {
             return jArr;
         }
         return (long[]) invokeV.objValue;
-    }
-
-    @Override // com.googlecode.mp4parser.authoring.Track
-    public List<Sample> getSamples() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (Track track : this.tracks) {
-                arrayList.addAll(track.getSamples());
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
-    public SubSampleInformationBox getSubsampleInformationBox() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.tracks[0].getSubsampleInformationBox() : (SubSampleInformationBox) invokeV.objValue;
-    }
-
-    @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
-    public long[] getSyncSamples() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (this.tracks[0].getSyncSamples() == null || this.tracks[0].getSyncSamples().length <= 0) {
-                return null;
-            }
-            int i = 0;
-            for (Track track : this.tracks) {
-                i += track.getSyncSamples().length;
-            }
-            long[] jArr = new long[i];
-            long j = 0;
-            int i2 = 0;
-            for (Track track2 : this.tracks) {
-                long[] syncSamples = track2.getSyncSamples();
-                int length = syncSamples.length;
-                int i3 = 0;
-                while (i3 < length) {
-                    jArr[i2] = syncSamples[i3] + j;
-                    i3++;
-                    i2++;
-                }
-                j += track2.getSamples().size();
-            }
-            return jArr;
-        }
-        return (long[]) invokeV.objValue;
-    }
-
-    @Override // com.googlecode.mp4parser.authoring.Track
-    public TrackMetaData getTrackMetaData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.tracks[0].getTrackMetaData() : (TrackMetaData) invokeV.objValue;
     }
 }

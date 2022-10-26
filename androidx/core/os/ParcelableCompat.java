@@ -42,21 +42,30 @@ public final class ParcelableCompat {
         public T createFromParcel(Parcel parcel) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? this.mCallbacks.createFromParcel(parcel, null) : (T) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+                return (T) this.mCallbacks.createFromParcel(parcel, null);
+            }
+            return (T) invokeL.objValue;
         }
 
         @Override // android.os.Parcelable.Creator
         public T[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? this.mCallbacks.newArray(i) : (T[]) ((Object[]) invokeI.objValue);
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                return (T[]) this.mCallbacks.newArray(i);
+            }
+            return (T[]) ((Object[]) invokeI.objValue);
         }
 
         @Override // android.os.Parcelable.ClassLoaderCreator
         public T createFromParcel(Parcel parcel, ClassLoader classLoader) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, classLoader)) == null) ? this.mCallbacks.createFromParcel(parcel, classLoader) : (T) invokeLL.objValue;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, classLoader)) == null) {
+                return (T) this.mCallbacks.createFromParcel(parcel, classLoader);
+            }
+            return (T) invokeLL.objValue;
         }
     }
 
@@ -78,6 +87,9 @@ public final class ParcelableCompat {
     public static <T> Parcelable.Creator<T> newCreator(ParcelableCompatCreatorCallbacks<T> parcelableCompatCreatorCallbacks) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, parcelableCompatCreatorCallbacks)) == null) ? new ParcelableCompatCreatorHoneycombMR2(parcelableCompatCreatorCallbacks) : (Parcelable.Creator) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, parcelableCompatCreatorCallbacks)) == null) {
+            return new ParcelableCompatCreatorHoneycombMR2(parcelableCompatCreatorCallbacks);
+        }
+        return (Parcelable.Creator) invokeL.objValue;
     }
 }

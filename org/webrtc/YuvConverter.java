@@ -28,13 +28,13 @@ public class YuvConverter {
 
     /* renamed from: org.webrtc.YuvConverter$1  reason: invalid class name */
     /* loaded from: classes9.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes9.dex */
-    public static class ShaderCallbacks implements GlGenericDrawer.ShaderCallbacks {
+    public class ShaderCallbacks implements GlGenericDrawer.ShaderCallbacks {
         public static /* synthetic */ Interceptable $ic;
         public static final float[] uCoeffs;
         public static final float[] vCoeffs;
@@ -77,27 +77,6 @@ public class YuvConverter {
             }
         }
 
-        @Override // org.webrtc.GlGenericDrawer.ShaderCallbacks
-        public void onNewShader(GlShader glShader) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, glShader) == null) {
-                this.xUnitLoc = glShader.getUniformLocation("xUnit");
-                this.coeffsLoc = glShader.getUniformLocation("coeffs");
-            }
-        }
-
-        @Override // org.webrtc.GlGenericDrawer.ShaderCallbacks
-        public void onPrepareShader(GlShader glShader, float[] fArr, int i, int i2, int i3, int i4) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{glShader, fArr, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-                GLES20.glUniform4fv(this.coeffsLoc, 1, this.coeffs, 0);
-                int i5 = this.xUnitLoc;
-                float f = this.stepSize;
-                float f2 = i;
-                GLES20.glUniform2f(i5, (fArr[0] * f) / f2, (f * fArr[1]) / f2);
-            }
-        }
-
         public void setPlaneU() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -124,6 +103,27 @@ public class YuvConverter {
 
         public /* synthetic */ ShaderCallbacks(AnonymousClass1 anonymousClass1) {
             this();
+        }
+
+        @Override // org.webrtc.GlGenericDrawer.ShaderCallbacks
+        public void onNewShader(GlShader glShader) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, glShader) == null) {
+                this.xUnitLoc = glShader.getUniformLocation("xUnit");
+                this.coeffsLoc = glShader.getUniformLocation("coeffs");
+            }
+        }
+
+        @Override // org.webrtc.GlGenericDrawer.ShaderCallbacks
+        public void onPrepareShader(GlShader glShader, float[] fArr, int i, int i2, int i3, int i4) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{glShader, fArr, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+                GLES20.glUniform4fv(this.coeffsLoc, 1, this.coeffs, 0);
+                int i5 = this.xUnitLoc;
+                float f = this.stepSize;
+                float f2 = i;
+                GLES20.glUniform2f(i5, (fArr[0] * f) / f2, (f * fArr[1]) / f2);
+            }
         }
     }
 
@@ -188,7 +188,7 @@ public class YuvConverter {
             ByteBuffer slice2 = nativeAllocateByteBuffer.slice();
             nativeAllocateByteBuffer.position(i8);
             nativeAllocateByteBuffer.limit(i8 + i9);
-            return JavaI420Buffer.wrap(width, height, slice, i, slice2, i, nativeAllocateByteBuffer.slice(), i, new Runnable() { // from class: com.baidu.tieba.tw9
+            return JavaI420Buffer.wrap(width, height, slice, i, slice2, i, nativeAllocateByteBuffer.slice(), i, new Runnable() { // from class: com.baidu.tieba.lx9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

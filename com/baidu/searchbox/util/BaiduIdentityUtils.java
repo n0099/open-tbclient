@@ -41,7 +41,10 @@ public class BaiduIdentityUtils {
                 if ((applicationInfo.flags & 128) == 128) {
                     return 2;
                 }
-                return (applicationInfo.flags & 1) == 1 ? 1 : 0;
+                if ((applicationInfo.flags & 1) != 1) {
+                    return 0;
+                }
+                return 1;
             } catch (PackageManager.NameNotFoundException e) {
                 e.printStackTrace();
                 return 0;

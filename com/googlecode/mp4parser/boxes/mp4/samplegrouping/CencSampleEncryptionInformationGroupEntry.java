@@ -55,22 +55,6 @@ public class CencSampleEncryptionInformationGroupEntry extends GroupEntry {
         this.kid = new byte[16];
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj == null || CencSampleEncryptionInformationGroupEntry.class != obj.getClass()) {
-                return false;
-            }
-            CencSampleEncryptionInformationGroupEntry cencSampleEncryptionInformationGroupEntry = (CencSampleEncryptionInformationGroupEntry) obj;
-            return this.isEncrypted == cencSampleEncryptionInformationGroupEntry.isEncrypted && this.ivSize == cencSampleEncryptionInformationGroupEntry.ivSize && Arrays.equals(this.kid, cencSampleEncryptionInformationGroupEntry.kid);
-        }
-        return invokeL.booleanValue;
-    }
-
     @Override // com.googlecode.mp4parser.boxes.mp4.samplegrouping.GroupEntry
     public ByteBuffer get() {
         InterceptResult invokeV;
@@ -89,30 +73,64 @@ public class CencSampleEncryptionInformationGroupEntry extends GroupEntry {
     public int getEncrypted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.isEncrypted : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.isEncrypted;
+        }
+        return invokeV.intValue;
     }
 
     public byte getIvSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.ivSize : invokeV.byteValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.ivSize;
+        }
+        return invokeV.byteValue;
     }
 
     public byte[] getKid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.kid : (byte[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.kid;
+        }
+        return (byte[]) invokeV.objValue;
     }
 
     public int hashCode() {
         InterceptResult invokeV;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int i = ((this.isEncrypted * 31) + this.ivSize) * 31;
+            int i2 = ((this.isEncrypted * 31) + this.ivSize) * 31;
             byte[] bArr = this.kid;
-            return i + (bArr != null ? Arrays.hashCode(bArr) : 0);
+            if (bArr != null) {
+                i = Arrays.hashCode(bArr);
+            } else {
+                i = 0;
+            }
+            return i2 + i;
         }
         return invokeV.intValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj == null || CencSampleEncryptionInformationGroupEntry.class != obj.getClass()) {
+                return false;
+            }
+            CencSampleEncryptionInformationGroupEntry cencSampleEncryptionInformationGroupEntry = (CencSampleEncryptionInformationGroupEntry) obj;
+            if (this.isEncrypted == cencSampleEncryptionInformationGroupEntry.isEncrypted && this.ivSize == cencSampleEncryptionInformationGroupEntry.ivSize && Arrays.equals(this.kid, cencSampleEncryptionInformationGroupEntry.kid)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     @Override // com.googlecode.mp4parser.boxes.mp4.samplegrouping.GroupEntry

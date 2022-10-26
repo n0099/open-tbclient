@@ -1,8 +1,8 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.webkit.WebView;
-import androidx.annotation.NonNull;
+import android.app.Activity;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,8 +12,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public interface h51 {
     public static final h51 a = new a();
 
+    void a(Activity activity);
+
     /* loaded from: classes4.dex */
-    public static class a implements h51 {
+    public final class a implements h51 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -32,12 +34,46 @@ public interface h51 {
         }
 
         @Override // com.baidu.tieba.h51
-        public WebView a(Context context) {
-            InterceptResult invokeL;
+        public void a(Activity activity) {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? new WebView(context) : (WebView) invokeL.objValue;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, activity) == null) && activity != null) {
+                activity.finish();
+            }
         }
     }
 
-    WebView a(@NonNull Context context);
+    /* loaded from: classes4.dex */
+    public final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static h51 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-794372345, "Lcom/baidu/tieba/h51$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-794372345, "Lcom/baidu/tieba/h51$b;");
+                    return;
+                }
+            }
+            a = d51.c();
+        }
+
+        public static h51 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+                if (a == null) {
+                    a = h51.a;
+                }
+                return a;
+            }
+            return (h51) invokeV.objValue;
+        }
+    }
 }

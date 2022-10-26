@@ -119,7 +119,7 @@ public class b extends ExtractorProvider {
     }
 
     @Override // com.baidu.cyberplayer.sdk.extractor.ExtractorProvider
-    public void setDataSource(Context context, Uri uri, Map<String, String> map) {
+    public void setDataSource(Context context, Uri uri, Map map) {
         MediaExtractor mediaExtractor;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLL(1048579, this, context, uri, map) == null) || (mediaExtractor = this.a) == null) {

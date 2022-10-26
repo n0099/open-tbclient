@@ -57,6 +57,7 @@ public final class b1 implements Runnable {
         String str2;
         String str3;
         long currentTimeMillis;
+        boolean z;
         String str4;
         String str5;
         Interceptable interceptable = $ic;
@@ -70,7 +71,11 @@ public final class b1 implements Runnable {
             try {
                 PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
                 ApplicationInfo applicationInfo = packageInfo.applicationInfo;
-                str = applicationInfo.publicSourceDir != null ? applicationInfo.publicSourceDir : applicationInfo.sourceDir;
+                if (applicationInfo.publicSourceDir != null) {
+                    str = applicationInfo.publicSourceDir;
+                } else {
+                    str = applicationInfo.sourceDir;
+                }
                 try {
                     str2 = String.valueOf(packageInfo.firstInstallTime);
                 } catch (Exception e2) {
@@ -98,8 +103,10 @@ public final class b1 implements Runnable {
                     }
                     if (currentTimeMillis < 86400000) {
                     }
+                    if (z) {
+                    }
                     str4 = null;
-                    if (TextUtils.isEmpty(str4)) {
+                    if (!TextUtils.isEmpty(str4)) {
                     }
                     Context context3 = this.a;
                     long currentTimeMillis2 = System.currentTimeMillis();
@@ -138,6 +145,11 @@ public final class b1 implements Runnable {
                 edit2.apply();
             }
             if (currentTimeMillis < 86400000) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
                 ArrayList arrayList = new ArrayList();
                 try {
                     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("pm list package -3").getInputStream()));
@@ -163,14 +175,14 @@ public final class b1 implements Runnable {
                     edit4.putInt("alh", hashCode);
                     edit4.apply();
                     str4 = arrayList.toString();
-                    if (TextUtils.isEmpty(str4)) {
-                        str5 = null;
-                    } else {
+                    if (!TextUtils.isEmpty(str4)) {
                         try {
                             str5 = M.a(str4);
                         } catch (Exception unused2) {
                             str5 = str4;
                         }
+                    } else {
+                        str5 = null;
                     }
                     Context context32 = this.a;
                     long currentTimeMillis22 = System.currentTimeMillis();
@@ -183,7 +195,7 @@ public final class b1 implements Runnable {
                 }
             }
             str4 = null;
-            if (TextUtils.isEmpty(str4)) {
+            if (!TextUtils.isEmpty(str4)) {
             }
             Context context322 = this.a;
             long currentTimeMillis222 = System.currentTimeMillis();

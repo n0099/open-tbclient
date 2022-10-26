@@ -35,7 +35,7 @@ public class EmotionPackageData extends OrmObject {
     public String name;
     public int num;
     public String owner;
-    public ArrayList<SingleEmotionData> pics;
+    public ArrayList pics;
     public long share;
     public int status;
     public long timestamp;
@@ -45,7 +45,7 @@ public class EmotionPackageData extends OrmObject {
     public String vote_num;
 
     /* loaded from: classes4.dex */
-    public static class SingleEmotionData extends OrmObject {
+    public class SingleEmotionData extends OrmObject {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int height;

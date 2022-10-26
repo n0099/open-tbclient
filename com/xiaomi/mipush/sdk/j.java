@@ -61,11 +61,11 @@ public final class j implements Runnable {
             i++;
         }
         if (TextUtils.isEmpty(str)) {
-            com.xiaomi.channel.commonutils.logger.b.m90a("ASSEMBLE_PUSH : receive incorrect token");
+            com.xiaomi.channel.commonutils.logger.b.m89a("ASSEMBLE_PUSH : receive incorrect token");
             return;
         }
-        com.xiaomi.channel.commonutils.logger.b.m90a("ASSEMBLE_PUSH : receive correct token");
+        com.xiaomi.channel.commonutils.logger.b.m89a("ASSEMBLE_PUSH : receive correct token");
         i.d(this.a, this.f83a, str);
-        i.m152a(this.a);
+        i.m151a(this.a);
     }
 }

@@ -27,25 +27,15 @@ public class TiebaMainApplication extends TiebaBaseApplication {
         }
     }
 
-    @Override // com.baidu.tieba.TiebaBaseApplication, com.baidu.tbadk.TbadkApplication, com.baidu.tbadk.core.TbadkCoreApplication, com.baidu.adp.base.BdBaseApplication, android.content.ContextWrapper
-    public void attachBaseContext(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            super.attachBaseContext(context);
-            TbadkApplication.sApp = this;
-            sd5.b().t(currentTimeMillis);
-        }
-    }
-
     @Override // com.baidu.tieba.TiebaBaseApplication, com.baidu.tbadk.core.TbadkCoreApplication
     public void doAfterSuperOnCreate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.doAfterSuperOnCreate();
-            if (PermissionUtil.isAgreePrivacyPolicy()) {
-                sd5.b().F(System.currentTimeMillis());
+            if (!PermissionUtil.isAgreePrivacyPolicy()) {
+                return;
             }
+            yd5.b().F(System.currentTimeMillis());
         }
     }
 
@@ -55,6 +45,17 @@ public class TiebaMainApplication extends TiebaBaseApplication {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             setPageStayOpen(true);
             super.onCreate();
+        }
+    }
+
+    @Override // com.baidu.tieba.TiebaBaseApplication, com.baidu.tbadk.TbadkApplication, com.baidu.tbadk.core.TbadkCoreApplication, com.baidu.adp.base.BdBaseApplication, android.content.ContextWrapper
+    public void attachBaseContext(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            super.attachBaseContext(context);
+            TbadkApplication.sApp = this;
+            yd5.b().t(currentTimeMillis);
         }
     }
 }

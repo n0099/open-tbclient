@@ -3,8 +3,6 @@ package androidx.cardview.widget;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.view.View;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,11 +10,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@RequiresApi(21)
 /* loaded from: classes.dex */
 public class CardViewApi21Impl implements CardViewImpl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // androidx.cardview.widget.CardViewImpl
+    public void initStatic() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        }
+    }
 
     public CardViewApi21Impl() {
         Interceptable interceptable = $ic;
@@ -35,68 +39,70 @@ public class CardViewApi21Impl implements CardViewImpl {
     private RoundRectDrawable getCardBackground(CardViewDelegate cardViewDelegate) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, this, cardViewDelegate)) == null) ? (RoundRectDrawable) cardViewDelegate.getCardBackground() : (RoundRectDrawable) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, cardViewDelegate)) == null) {
+            return (RoundRectDrawable) cardViewDelegate.getCardBackground();
+        }
+        return (RoundRectDrawable) invokeL.objValue;
     }
 
     @Override // androidx.cardview.widget.CardViewImpl
     public ColorStateList getBackgroundColor(CardViewDelegate cardViewDelegate) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cardViewDelegate)) == null) ? getCardBackground(cardViewDelegate).getColor() : (ColorStateList) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cardViewDelegate)) == null) {
+            return getCardBackground(cardViewDelegate).getColor();
+        }
+        return (ColorStateList) invokeL.objValue;
     }
 
     @Override // androidx.cardview.widget.CardViewImpl
     public float getElevation(CardViewDelegate cardViewDelegate) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cardViewDelegate)) == null) ? cardViewDelegate.getCardView().getElevation() : invokeL.floatValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cardViewDelegate)) == null) {
+            return cardViewDelegate.getCardView().getElevation();
+        }
+        return invokeL.floatValue;
     }
 
     @Override // androidx.cardview.widget.CardViewImpl
     public float getMaxElevation(CardViewDelegate cardViewDelegate) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cardViewDelegate)) == null) ? getCardBackground(cardViewDelegate).getPadding() : invokeL.floatValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cardViewDelegate)) == null) {
+            return getCardBackground(cardViewDelegate).getPadding();
+        }
+        return invokeL.floatValue;
     }
 
     @Override // androidx.cardview.widget.CardViewImpl
     public float getMinHeight(CardViewDelegate cardViewDelegate) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cardViewDelegate)) == null) ? getRadius(cardViewDelegate) * 2.0f : invokeL.floatValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cardViewDelegate)) == null) {
+            return getRadius(cardViewDelegate) * 2.0f;
+        }
+        return invokeL.floatValue;
     }
 
     @Override // androidx.cardview.widget.CardViewImpl
     public float getMinWidth(CardViewDelegate cardViewDelegate) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cardViewDelegate)) == null) ? getRadius(cardViewDelegate) * 2.0f : invokeL.floatValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cardViewDelegate)) == null) {
+            return getRadius(cardViewDelegate) * 2.0f;
+        }
+        return invokeL.floatValue;
     }
 
     @Override // androidx.cardview.widget.CardViewImpl
     public float getRadius(CardViewDelegate cardViewDelegate) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cardViewDelegate)) == null) ? getCardBackground(cardViewDelegate).getRadius() : invokeL.floatValue;
-    }
-
-    @Override // androidx.cardview.widget.CardViewImpl
-    public void initStatic() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cardViewDelegate)) == null) {
+            return getCardBackground(cardViewDelegate).getRadius();
         }
-    }
-
-    @Override // androidx.cardview.widget.CardViewImpl
-    public void initialize(CardViewDelegate cardViewDelegate, Context context, ColorStateList colorStateList, float f, float f2, float f3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{cardViewDelegate, context, colorStateList, Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            cardViewDelegate.setCardBackground(new RoundRectDrawable(colorStateList, f));
-            View cardView = cardViewDelegate.getCardView();
-            cardView.setClipToOutline(true);
-            cardView.setElevation(f2);
-            setMaxElevation(cardViewDelegate, f3);
-        }
+        return invokeL.floatValue;
     }
 
     @Override // androidx.cardview.widget.CardViewImpl
@@ -116,7 +122,19 @@ public class CardViewApi21Impl implements CardViewImpl {
     }
 
     @Override // androidx.cardview.widget.CardViewImpl
-    public void setBackgroundColor(CardViewDelegate cardViewDelegate, @Nullable ColorStateList colorStateList) {
+    public void initialize(CardViewDelegate cardViewDelegate, Context context, ColorStateList colorStateList, float f, float f2, float f3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{cardViewDelegate, context, colorStateList, Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+            cardViewDelegate.setCardBackground(new RoundRectDrawable(colorStateList, f));
+            View cardView = cardViewDelegate.getCardView();
+            cardView.setClipToOutline(true);
+            cardView.setElevation(f2);
+            setMaxElevation(cardViewDelegate, f3);
+        }
+    }
+
+    @Override // androidx.cardview.widget.CardViewImpl
+    public void setBackgroundColor(CardViewDelegate cardViewDelegate, ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, cardViewDelegate, colorStateList) == null) {
             getCardBackground(cardViewDelegate).setColor(colorStateList);

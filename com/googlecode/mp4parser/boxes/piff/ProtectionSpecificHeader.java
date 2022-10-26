@@ -16,8 +16,14 @@ import java.util.UUID;
 /* loaded from: classes7.dex */
 public abstract class ProtectionSpecificHeader {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<UUID, Class<? extends ProtectionSpecificHeader>> uuidRegistry;
+    public static Map uuidRegistry;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract ByteBuffer getData();
+
+    public abstract UUID getSystemId();
+
+    public abstract void parse(ByteBuffer byteBuffer);
 
     static {
         InterceptResult invokeClinit;
@@ -51,26 +57,26 @@ public abstract class ProtectionSpecificHeader {
 
     public static ProtectionSpecificHeader createFor(UUID uuid, ByteBuffer byteBuffer) {
         InterceptResult invokeLL;
-        ProtectionSpecificHeader newInstance;
+        ProtectionSpecificHeader protectionSpecificHeader;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, uuid, byteBuffer)) == null) {
-            Class<? extends ProtectionSpecificHeader> cls = uuidRegistry.get(uuid);
+            Class cls = (Class) uuidRegistry.get(uuid);
             if (cls != null) {
                 try {
-                    newInstance = cls.newInstance();
+                    protectionSpecificHeader = (ProtectionSpecificHeader) cls.newInstance();
                 } catch (IllegalAccessException e) {
                     throw new RuntimeException(e);
                 } catch (InstantiationException e2) {
                     throw new RuntimeException(e2);
                 }
             } else {
-                newInstance = null;
+                protectionSpecificHeader = null;
             }
-            if (newInstance == null) {
-                newInstance = new GenericHeader();
+            if (protectionSpecificHeader == null) {
+                protectionSpecificHeader = new GenericHeader();
             }
-            newInstance.parse(byteBuffer);
-            return newInstance;
+            protectionSpecificHeader.parse(byteBuffer);
+            return protectionSpecificHeader;
         }
         return (ProtectionSpecificHeader) invokeLL.objValue;
     }
@@ -83,12 +89,6 @@ public abstract class ProtectionSpecificHeader {
         }
         return invokeL.booleanValue;
     }
-
-    public abstract ByteBuffer getData();
-
-    public abstract UUID getSystemId();
-
-    public abstract void parse(ByteBuffer byteBuffer);
 
     public String toString() {
         InterceptResult invokeV;

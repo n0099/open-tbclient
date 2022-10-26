@@ -50,55 +50,60 @@ public final class p extends Handler {
         StringBuilder sb;
         String str2;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeL(1048576, this, message) != null) {
-            return;
-        }
-        if (message.what != 11) {
-            Log.e("VMS_IDLG_SDK_Client", "message type valid");
-            return;
-        }
-        int i = message.getData().getInt("type");
-        String string = message.getData().getString("appid");
-        o oVar = q.j;
-        oVar.getClass();
-        if (i != 0) {
-            if (i == 1) {
-                sb = new StringBuilder();
-                str2 = "content://com.vivo.vms.IdProvider/IdentifierId/VAID_";
-            } else if (i == 2) {
-                sb = new StringBuilder();
-                str2 = "content://com.vivo.vms.IdProvider/IdentifierId/AAID_";
-            } else if (i != 4) {
-                parse = null;
+        if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+            if (message.what == 11) {
+                int i = message.getData().getInt("type");
+                String string = message.getData().getString("appid");
+                o oVar = q.j;
+                oVar.getClass();
+                String str3 = null;
+                if (i != 0) {
+                    if (i != 1) {
+                        if (i != 2) {
+                            if (i != 4) {
+                                parse = null;
+                                query = oVar.a.getContentResolver().query(parse, null, null, null, null);
+                                if (query == null) {
+                                    if (query.moveToNext()) {
+                                        str3 = query.getString(query.getColumnIndex("value"));
+                                    }
+                                    query.close();
+                                } else {
+                                    Log.d("VMS_IDLG_SDK_DB", "return cursor is null,return");
+                                }
+                                q.g = str3;
+                                Context context = q.a;
+                                synchronized (q.d) {
+                                    q.d.notify();
+                                }
+                                return;
+                            }
+                            str = "content://com.vivo.vms.IdProvider/IdentifierId/OAIDSTATUS";
+                        } else {
+                            sb = new StringBuilder();
+                            str2 = "content://com.vivo.vms.IdProvider/IdentifierId/AAID_";
+                        }
+                    } else {
+                        sb = new StringBuilder();
+                        str2 = "content://com.vivo.vms.IdProvider/IdentifierId/VAID_";
+                    }
+                    sb.append(str2);
+                    sb.append(string);
+                    str = sb.toString();
+                } else {
+                    str = "content://com.vivo.vms.IdProvider/IdentifierId/OAID";
+                }
+                parse = Uri.parse(str);
                 query = oVar.a.getContentResolver().query(parse, null, null, null, null);
                 if (query == null) {
-                    r2 = query.moveToNext() ? query.getString(query.getColumnIndex("value")) : null;
-                    query.close();
-                } else {
-                    Log.d("VMS_IDLG_SDK_DB", "return cursor is null,return");
                 }
-                q.g = r2;
-                Context context = q.a;
+                q.g = str3;
+                Context context2 = q.a;
                 synchronized (q.d) {
-                    q.d.notify();
                 }
-                return;
             } else {
-                str = "content://com.vivo.vms.IdProvider/IdentifierId/OAIDSTATUS";
+                Log.e("VMS_IDLG_SDK_Client", "message type valid");
             }
-            sb.append(str2);
-            sb.append(string);
-            str = sb.toString();
-        } else {
-            str = "content://com.vivo.vms.IdProvider/IdentifierId/OAID";
-        }
-        parse = Uri.parse(str);
-        query = oVar.a.getContentResolver().query(parse, null, null, null, null);
-        if (query == null) {
-        }
-        q.g = r2;
-        Context context2 = q.a;
-        synchronized (q.d) {
         }
     }
 }

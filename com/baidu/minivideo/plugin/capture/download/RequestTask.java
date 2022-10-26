@@ -48,6 +48,78 @@ public class RequestTask implements Serializable {
         this.status = 0;
     }
 
+    public String getDownloadPerSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.downloadPerSize;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.id;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getImage() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.image;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.name;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getProgress() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.progress;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getSavePath() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.savePath;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getStatus() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.status;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.url;
+        }
+        return (String) invokeV.objValue;
+    }
+
     public static RequestTask createDetailTask(String str, String str2, String str3, String str4) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -71,66 +143,6 @@ public class RequestTask implements Serializable {
             return requestTask;
         }
         return (RequestTask) invokeL.objValue;
-    }
-
-    public static RequestTask createTaskWithUrlAndCover(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            RequestTask requestTask = new RequestTask();
-            requestTask.url = str2;
-            requestTask.image = str;
-            return requestTask;
-        }
-        return (RequestTask) invokeLL.objValue;
-    }
-
-    public String getDownloadPerSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.downloadPerSize : (String) invokeV.objValue;
-    }
-
-    public String getId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.id : (String) invokeV.objValue;
-    }
-
-    public String getImage() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.image : (String) invokeV.objValue;
-    }
-
-    public String getName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.name : (String) invokeV.objValue;
-    }
-
-    public int getProgress() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.progress : invokeV.intValue;
-    }
-
-    public String getSavePath() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.savePath : (String) invokeV.objValue;
-    }
-
-    public int getStatus() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.status : invokeV.intValue;
-    }
-
-    public String getUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.url : (String) invokeV.objValue;
     }
 
     public void setDownloadPerSize(String str) {
@@ -187,5 +199,17 @@ public class RequestTask implements Serializable {
         if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
             this.url = str;
         }
+    }
+
+    public static RequestTask createTaskWithUrlAndCover(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
+            RequestTask requestTask = new RequestTask();
+            requestTask.url = str2;
+            requestTask.image = str;
+            return requestTask;
+        }
+        return (RequestTask) invokeLL.objValue;
     }
 }

@@ -8,7 +8,7 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hv4;
+import com.baidu.tieba.nv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -46,30 +46,30 @@ public class FrsForumToolDialogView extends LinearLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d030a, this);
-            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09100e);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092382);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09042c);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090448);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0309, this);
+            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091002);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09236d);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090435);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090451);
             this.a.setText(R.string.obfuscated_res_0x7f0f0375);
-            this.d.setText(R.string.obfuscated_res_0x7f0f09b8);
+            this.d.setText(R.string.obfuscated_res_0x7f0f09c5);
             this.c.setPlaceHolder(3);
             this.c.setDrawCorner(true);
             this.c.setAutoChangeStyle(true);
             this.c.setConrers(3);
             this.c.setRadiusById(R.string.J_X06);
-            hv4 d = hv4.d(this.b);
+            nv4 d = nv4.d(this.b);
             d.v(R.color.CAM_X0107);
             d.w(R.dimen.M_T_X001);
             d.z(R.dimen.T_X06);
-            hv4 d2 = hv4.d(this.a);
+            nv4 d2 = nv4.d(this.a);
             d2.v(R.color.CAM_X0105);
             d2.n(R.string.J_X07);
             d2.l(R.dimen.L_X02);
             d2.z(R.dimen.T_X08);
             d2.k(R.color.CAM_X0902);
             d2.f(R.color.CAM_X0201);
-            hv4 d3 = hv4.d(this.d);
+            nv4 d3 = nv4.d(this.d);
             d3.v(R.color.CAM_X0302);
             d3.n(R.string.J_X07);
             d3.z(R.dimen.T_X08);
@@ -77,7 +77,7 @@ public class FrsForumToolDialogView extends LinearLayout {
             d3.e(R.string.A_X07);
             d3.k(R.color.CAM_X0302);
             d3.f(R.color.CAM_X0201);
-            hv4 d4 = hv4.d(this);
+            nv4 d4 = nv4.d(this);
             d4.n(R.string.J_X06);
             d4.m(0);
             d4.f(R.color.CAM_X0201);
@@ -86,18 +86,16 @@ public class FrsForumToolDialogView extends LinearLayout {
 
     public void setCancleButtonListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) || onClickListener == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) && onClickListener != null) {
+            this.a.setOnClickListener(onClickListener);
         }
-        this.a.setOnClickListener(onClickListener);
     }
 
     public void setConfirmButtonListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) || onClickListener == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) && onClickListener != null) {
+            this.d.setOnClickListener(onClickListener);
         }
-        this.d.setOnClickListener(onClickListener);
     }
 
     public void setContent(String str) {
@@ -111,9 +109,9 @@ public class FrsForumToolDialogView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) {
             if (i != 1 && i != 2) {
-                this.c.K(str, 10, false);
+                this.c.L(str, 10, false);
             } else {
-                this.c.K(str, 24, false);
+                this.c.L(str, 24, false);
             }
         }
     }

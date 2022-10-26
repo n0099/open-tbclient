@@ -5,8 +5,8 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.GridView;
-import com.baidu.tieba.l2a;
-import com.baidu.tieba.x4a;
+import com.baidu.tieba.d3a;
+import com.baidu.tieba.p5a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +16,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import kotlin.Metadata;
-import kotlin.jvm.JvmOverloads;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000&\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0006\u0018\u0000 \u00112\u00020\u0001:\u0001\u0011B'\b\u0007\u0012\u0006\u0010\u000b\u001a\u00020\n\u0012\n\b\u0002\u0010\r\u001a\u0004\u0018\u00010\f\u0012\b\b\u0002\u0010\u000e\u001a\u00020\u0002¢\u0006\u0004\b\u000f\u0010\u0010J\u001f\u0010\u0006\u001a\u00020\u00052\u0006\u0010\u0003\u001a\u00020\u00022\u0006\u0010\u0004\u001a\u00020\u0002H\u0014¢\u0006\u0004\b\u0006\u0010\u0007R\u0016\u0010\b\u001a\u00020\u00028\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\b\u0010\t¨\u0006\u0012"}, d2 = {"Ltv/athena/revenue/payui/widget/MaxHeightGridView;", "Landroid/widget/GridView;", "", "widthMeasureSpec", "heightMeasureSpec", "", "onMeasure", "(II)V", "maxHeight", "I", "Landroid/content/Context;", "context", "Landroid/util/AttributeSet;", "attrs", "defStyleAttr", "<init>", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "Companion", "payui-base_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes9.dex */
@@ -41,7 +40,6 @@ public final class MaxHeightGridView extends GridView {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    @JvmOverloads
     public MaxHeightGridView(Context context) {
         this(context, null, 0, 6, null);
         Interceptable interceptable = $ic;
@@ -63,7 +61,6 @@ public final class MaxHeightGridView extends GridView {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    @JvmOverloads
     public MaxHeightGridView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0, 4, null);
         Interceptable interceptable = $ic;
@@ -82,6 +79,35 @@ public final class MaxHeightGridView extends GridView {
                 return;
             }
         }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public MaxHeightGridView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.a = -1;
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, d3a.PayUi_NoScrollGridView);
+        int integer = obtainStyledAttributes.getInteger(0, 536870911);
+        this.a = integer;
+        if (integer != 536870911) {
+            this.a = p5a.a(integer);
+        }
+        obtainStyledAttributes.recycle();
     }
 
     public /* synthetic */ MaxHeightGridView(Context context, AttributeSet attributeSet, int i, int i2, DefaultConstructorMarker defaultConstructorMarker) {
@@ -109,35 +135,5 @@ public final class MaxHeightGridView extends GridView {
                 super.onMeasure(i, i2);
             }
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    @JvmOverloads
-    public MaxHeightGridView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        this.a = -1;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, l2a.PayUi_NoScrollGridView);
-        int integer = obtainStyledAttributes.getInteger(0, 536870911);
-        this.a = integer;
-        if (integer != 536870911) {
-            this.a = x4a.a(integer);
-        }
-        obtainStyledAttributes.recycle();
     }
 }

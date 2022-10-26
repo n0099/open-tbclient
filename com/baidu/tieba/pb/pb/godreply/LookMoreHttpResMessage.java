@@ -20,7 +20,7 @@ import tbclient.Post;
 public class LookMoreHttpResMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<PostData> list;
+    public List list;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LookMoreHttpResMessage() {
@@ -41,12 +41,6 @@ public class LookMoreHttpResMessage extends HttpResponsedMessage {
         this.list = new ArrayList();
     }
 
-    public List<PostData> getData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.list : (List) invokeV.objValue;
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
@@ -60,15 +54,23 @@ public class LookMoreHttpResMessage extends HttpResponsedMessage {
                 setError(error.errorno.intValue());
                 setErrorString(getPostListResIdl.error.usermsg);
             }
-            if (getError() != 0 || getPostListResIdl == null || (dataRes = getPostListResIdl.data) == null || (list = dataRes.post_list) == null || list.size() <= 0) {
-                return;
-            }
-            for (Post post : list) {
-                PostData postData = new PostData();
-                postData.v0(post);
-                postData.N = 102;
-                this.list.add(postData);
+            if (getError() == 0 && getPostListResIdl != null && (dataRes = getPostListResIdl.data) != null && (list = dataRes.post_list) != null && list.size() > 0) {
+                for (Post post : list) {
+                    PostData postData = new PostData();
+                    postData.w0(post);
+                    postData.N = 102;
+                    this.list.add(postData);
+                }
             }
         }
+    }
+
+    public List getData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.list;
+        }
+        return (List) invokeV.objValue;
     }
 }

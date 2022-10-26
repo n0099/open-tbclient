@@ -33,13 +33,13 @@ public final class MultiFinderPatternFinder extends FinderPatternFinder {
 
     /* renamed from: com.google.zxing.multi.qrcode.detector.MultiFinderPatternFinder$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes7.dex */
-    public static final class ModuleSizeComparator implements Serializable, Comparator<FinderPattern> {
+    public final class ModuleSizeComparator implements Serializable, Comparator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -71,7 +71,10 @@ public final class MultiFinderPatternFinder extends FinderPatternFinder {
                 if (estimatedModuleSize < 0.0d) {
                     return -1;
                 }
-                return estimatedModuleSize > 0.0d ? 1 : 0;
+                if (estimatedModuleSize > 0.0d) {
+                    return 1;
+                }
+                return 0;
             }
             return invokeLL.intValue;
         }
@@ -113,27 +116,48 @@ public final class MultiFinderPatternFinder extends FinderPatternFinder {
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public MultiFinderPatternFinder(BitMatrix bitMatrix, ResultPointCallback resultPointCallback) {
+        super(bitMatrix, resultPointCallback);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bitMatrix, resultPointCallback};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((BitMatrix) objArr2[0], (ResultPointCallback) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+    }
+
     private FinderPattern[][] selectMutipleBestPatterns() throws NotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            List<FinderPattern> possibleCenters = getPossibleCenters();
+            List possibleCenters = getPossibleCenters();
             int size = possibleCenters.size();
             int i = 3;
             if (size >= 3) {
                 char c = 0;
                 if (size == 3) {
-                    return new FinderPattern[][]{new FinderPattern[]{possibleCenters.get(0), possibleCenters.get(1), possibleCenters.get(2)}};
+                    return new FinderPattern[][]{new FinderPattern[]{(FinderPattern) possibleCenters.get(0), (FinderPattern) possibleCenters.get(1), (FinderPattern) possibleCenters.get(2)}};
                 }
                 Collections.sort(possibleCenters, new ModuleSizeComparator(null));
                 ArrayList arrayList = new ArrayList();
                 int i2 = 0;
                 while (i2 < size - 2) {
-                    FinderPattern finderPattern = possibleCenters.get(i2);
+                    FinderPattern finderPattern = (FinderPattern) possibleCenters.get(i2);
                     if (finderPattern != null) {
                         int i3 = i2 + 1;
                         while (i3 < size - 1) {
-                            FinderPattern finderPattern2 = possibleCenters.get(i3);
+                            FinderPattern finderPattern2 = (FinderPattern) possibleCenters.get(i3);
                             if (finderPattern2 != null) {
                                 float estimatedModuleSize = (finderPattern.getEstimatedModuleSize() - finderPattern2.getEstimatedModuleSize()) / Math.min(finderPattern.getEstimatedModuleSize(), finderPattern2.getEstimatedModuleSize());
                                 float f = 0.05f;
@@ -141,7 +165,7 @@ public final class MultiFinderPatternFinder extends FinderPatternFinder {
                                 if (Math.abs(finderPattern.getEstimatedModuleSize() - finderPattern2.getEstimatedModuleSize()) <= 0.5f || estimatedModuleSize < 0.05f) {
                                     int i4 = i3 + 1;
                                     while (i4 < size) {
-                                        FinderPattern finderPattern3 = possibleCenters.get(i4);
+                                        FinderPattern finderPattern3 = (FinderPattern) possibleCenters.get(i4);
                                         if (finderPattern3 != null) {
                                             float estimatedModuleSize2 = (finderPattern2.getEstimatedModuleSize() - finderPattern3.getEstimatedModuleSize()) / Math.min(finderPattern2.getEstimatedModuleSize(), finderPattern3.getEstimatedModuleSize());
                                             if (Math.abs(finderPattern2.getEstimatedModuleSize() - finderPattern3.getEstimatedModuleSize()) <= f2 || estimatedModuleSize2 < f) {
@@ -190,12 +214,22 @@ public final class MultiFinderPatternFinder extends FinderPatternFinder {
         return (FinderPattern[][]) invokeV.objValue;
     }
 
-    public FinderPatternInfo[] findMulti(Map<DecodeHintType, ?> map) throws NotFoundException {
+    public FinderPatternInfo[] findMulti(Map map) throws NotFoundException {
         InterceptResult invokeL;
+        boolean z;
+        boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, map)) == null) {
-            boolean z = map != null && map.containsKey(DecodeHintType.TRY_HARDER);
-            boolean z2 = map != null && map.containsKey(DecodeHintType.PURE_BARCODE);
+            if (map != null && map.containsKey(DecodeHintType.TRY_HARDER)) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (map != null && map.containsKey(DecodeHintType.PURE_BARCODE)) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
             BitMatrix image = getImage();
             int height = image.getHeight();
             int width = image.getWidth();
@@ -214,26 +248,28 @@ public final class MultiFinderPatternFinder extends FinderPatternFinder {
                             i3++;
                         }
                         iArr[i3] = iArr[i3] + 1;
-                    } else if ((i3 & 1) != 0) {
-                        iArr[i3] = iArr[i3] + 1;
-                    } else if (i3 == 4) {
-                        if (FinderPatternFinder.foundPatternCross(iArr) && handlePossibleCenter(iArr, i2, i4, z2)) {
-                            iArr[0] = 0;
-                            iArr[1] = 0;
-                            iArr[2] = 0;
-                            iArr[3] = 0;
-                            iArr[4] = 0;
-                            i3 = 0;
+                    } else if ((i3 & 1) == 0) {
+                        if (i3 == 4) {
+                            if (FinderPatternFinder.foundPatternCross(iArr) && handlePossibleCenter(iArr, i2, i4, z2)) {
+                                iArr[0] = 0;
+                                iArr[1] = 0;
+                                iArr[2] = 0;
+                                iArr[3] = 0;
+                                iArr[4] = 0;
+                                i3 = 0;
+                            } else {
+                                iArr[0] = iArr[2];
+                                iArr[1] = iArr[3];
+                                iArr[2] = iArr[4];
+                                iArr[3] = 1;
+                                iArr[4] = 0;
+                                i3 = 3;
+                            }
                         } else {
-                            iArr[0] = iArr[2];
-                            iArr[1] = iArr[3];
-                            iArr[2] = iArr[4];
-                            iArr[3] = 1;
-                            iArr[4] = 0;
-                            i3 = 3;
+                            i3++;
+                            iArr[i3] = iArr[i3] + 1;
                         }
                     } else {
-                        i3++;
                         iArr[i3] = iArr[i3] + 1;
                     }
                 }
@@ -253,26 +289,5 @@ public final class MultiFinderPatternFinder extends FinderPatternFinder {
             return (FinderPatternInfo[]) arrayList.toArray(new FinderPatternInfo[arrayList.size()]);
         }
         return (FinderPatternInfo[]) invokeL.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MultiFinderPatternFinder(BitMatrix bitMatrix, ResultPointCallback resultPointCallback) {
-        super(bitMatrix, resultPointCallback);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bitMatrix, resultPointCallback};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((BitMatrix) objArr2[0], (ResultPointCallback) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
     }
 }

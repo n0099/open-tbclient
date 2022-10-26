@@ -1,7 +1,17 @@
 package com.baidu.tieba;
-
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public interface dx3 {
-    void p(String str, JSONObject jSONObject);
+    void destroy();
+
+    int getDuration();
+
+    void pause();
+
+    void play();
+
+    void seek(float f);
+
+    void stop();
+
+    int v();
 }

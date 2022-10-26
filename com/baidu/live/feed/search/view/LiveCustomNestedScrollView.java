@@ -54,6 +54,15 @@ public final class LiveCustomNestedScrollView extends NestedScrollView {
         }
     }
 
+    public final a getCallback() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (a) invokeV.objValue;
+    }
+
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
@@ -69,12 +78,6 @@ public final class LiveCustomNestedScrollView extends NestedScrollView {
             return super.dispatchTouchEvent(motionEvent);
         }
         return invokeL.booleanValue;
-    }
-
-    public final a getCallback() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (a) invokeV.objValue;
     }
 
     public final void setCallback(a aVar) {

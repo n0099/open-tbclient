@@ -16,6 +16,8 @@ public abstract class AuthSchemeBase implements AuthScheme {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract void parseChallenge(CharArrayBuffer charArrayBuffer, int i, int i2) throws MalformedChallengeException;
+
     public AuthSchemeBase() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -40,8 +42,6 @@ public abstract class AuthSchemeBase implements AuthScheme {
         }
         return invokeV.booleanValue;
     }
-
-    public abstract void parseChallenge(CharArrayBuffer charArrayBuffer, int i, int i2) throws MalformedChallengeException;
 
     @Override // org.apache.http.auth.AuthScheme
     public void processChallenge(Header header) throws MalformedChallengeException {

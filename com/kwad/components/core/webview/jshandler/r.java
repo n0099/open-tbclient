@@ -4,9 +4,6 @@ import android.os.Handler;
 import android.os.Looper;
 import android.view.ViewGroup;
 import android.webkit.WebView;
-import androidx.annotation.MainThread;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -21,14 +18,12 @@ public final class r implements com.kwad.sdk.core.webview.kwai.a {
     public transient /* synthetic */ FieldHolder $fh;
     public final WebView Fv;
     public Handler Ll;
-    @Nullable
     public com.kwad.sdk.core.webview.kwai.c Lu;
     public boolean Mi;
-    @Nullable
     public b bK;
 
     /* loaded from: classes7.dex */
-    public static final class a implements com.kwad.sdk.core.b {
+    public final class a implements com.kwad.sdk.core.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int bottomMargin;
@@ -51,7 +46,7 @@ public final class r implements com.kwad.sdk.core.webview.kwai.a {
         }
 
         @Override // com.kwad.sdk.core.b
-        public final void parseJson(@Nullable JSONObject jSONObject) {
+        public final void parseJson(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
                 return;
@@ -80,12 +75,11 @@ public final class r implements com.kwad.sdk.core.webview.kwai.a {
 
     /* loaded from: classes7.dex */
     public interface b {
-        @MainThread
-        void a(@NonNull a aVar);
+        void a(a aVar);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public r(com.kwad.sdk.core.webview.b bVar, @Nullable b bVar2) {
+    public r(com.kwad.sdk.core.webview.b bVar, b bVar2) {
         this(bVar, bVar2, true);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -105,7 +99,7 @@ public final class r implements com.kwad.sdk.core.webview.kwai.a {
         }
     }
 
-    public r(com.kwad.sdk.core.webview.b bVar, @Nullable b bVar2, boolean z) {
+    public r(com.kwad.sdk.core.webview.b bVar, b bVar2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -128,7 +122,7 @@ public final class r implements com.kwad.sdk.core.webview.kwai.a {
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
-    public final void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
+    public final void a(String str, com.kwad.sdk.core.webview.kwai.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, cVar) == null) {
             this.Lu = cVar;
@@ -221,7 +215,6 @@ public final class r implements com.kwad.sdk.core.webview.kwai.a {
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
-    @NonNull
     public final String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

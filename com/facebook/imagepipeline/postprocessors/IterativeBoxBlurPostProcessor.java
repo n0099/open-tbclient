@@ -43,6 +43,33 @@ public class IterativeBoxBlurPostProcessor extends BasePostprocessor {
         }
     }
 
+    public IterativeBoxBlurPostProcessor(int i, int i2) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        if (i > 0) {
+            z = true;
+        } else {
+            z = false;
+        }
+        Preconditions.checkArgument(z);
+        Preconditions.checkArgument(i2 > 0);
+        this.mIterations = i;
+        this.mBlurRadius = i2;
+    }
+
     @Override // com.facebook.imagepipeline.request.BasePostprocessor, com.facebook.imagepipeline.request.Postprocessor
     @Nullable
     public CacheKey getPostprocessorCacheKey() {
@@ -63,26 +90,5 @@ public class IterativeBoxBlurPostProcessor extends BasePostprocessor {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) {
             NativeBlurFilter.iterativeBoxBlur(bitmap, this.mIterations, this.mBlurRadius);
         }
-    }
-
-    public IterativeBoxBlurPostProcessor(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        Preconditions.checkArgument(i > 0);
-        Preconditions.checkArgument(i2 > 0);
-        this.mIterations = i;
-        this.mBlurRadius = i2;
     }
 }

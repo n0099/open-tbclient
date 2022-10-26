@@ -63,7 +63,7 @@ public class LoaderTimeStat {
         return jSONObject.toString();
     }
 
-    public Map<String, String> toMap() {
+    public Map toMap() {
         HashMap hashMap = new HashMap();
         hashMap.put(TITAN_READ_HEAD_CONTENT, String.valueOf(this.readHeadContent));
         hashMap.put(TITAN_CREATE_LAODER_HEAD, String.valueOf(this.createLoaderHead));

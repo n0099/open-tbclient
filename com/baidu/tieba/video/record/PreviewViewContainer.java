@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.uw8;
+import com.baidu.tieba.ex8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PreviewViewContainer extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public uw8 a;
+    public ex8 a;
     public View b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -44,16 +44,45 @@ public class PreviewViewContainer extends FrameLayout {
         this.b = null;
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public PreviewViewContainer(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = null;
+    }
+
     private void setFaceFailIdentifyLayoutVisiable(boolean z) {
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65538, this, z) == null) {
             if (this.b == null) {
-                this.b = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0170, (ViewGroup) null);
+                this.b = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d016f, (ViewGroup) null);
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
                 layoutParams.gravity = 17;
                 addView(this.b, layoutParams);
             }
-            this.b.setVisibility(z ? 0 : 8);
+            View view2 = this.b;
+            if (z) {
+                i = 0;
+            } else {
+                i = 8;
+            }
+            view2.setVisibility(i);
         }
     }
 
@@ -76,42 +105,19 @@ public class PreviewViewContainer extends FrameLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
-            uw8 uw8Var = this.a;
-            if (uw8Var != null) {
-                uw8Var.b(motionEvent);
+            ex8 ex8Var = this.a;
+            if (ex8Var != null) {
+                ex8Var.b(motionEvent);
             }
             return super.onInterceptTouchEvent(motionEvent);
         }
         return invokeL.booleanValue;
     }
 
-    public void setZoomHelper(uw8 uw8Var) {
+    public void setZoomHelper(ex8 ex8Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, uw8Var) == null) || uw8Var == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, ex8Var) == null) && ex8Var != null) {
+            this.a = ex8Var;
         }
-        this.a = uw8Var;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PreviewViewContainer(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.b = null;
     }
 }

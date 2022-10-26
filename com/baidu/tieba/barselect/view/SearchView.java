@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -52,50 +52,6 @@ public class SearchView extends LinearLayout {
         }
     }
 
-    public void a(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) && this.h == null) {
-            this.h = onClickListener;
-            this.e.setOnClickListener(onClickListener);
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b = findViewById(R.id.obfuscated_res_0x7f091e19);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091e18);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091e17);
-            this.e = findViewById(R.id.obfuscated_res_0x7f091de8);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091de1);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091e14);
-        }
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a = getContext();
-            setOrientation(1);
-            setMinimumHeight(ej.f(getContext(), R.dimen.tbds90));
-            setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d090c, (ViewGroup) this, true);
-            b();
-        }
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            SkinManager.setBackgroundShapeDrawable(this.e, ej.f(getContext(), R.dimen.tbds100), R.color.CAM_X0204, R.color.CAM_X0204, i);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
-            SkinManager.setViewTextColor(this.c, R.color.CAM_X0105, 1, i);
-            SkinManager.setViewTextColor(this.d, R.color.CAM_X0105, 1, i);
-            SkinManager.setViewTextColor(this.g, R.color.CAM_X0109, 1, i);
-            SkinManager.setBackgroundColor(this, R.color.CAM_X0201, i);
-        }
-    }
-
     public void setRank(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
@@ -124,5 +80,49 @@ public class SearchView extends LinearLayout {
             }
         }
         c();
+    }
+
+    public void a(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) && this.h == null) {
+            this.h = onClickListener;
+            this.e.setOnClickListener(onClickListener);
+        }
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b = findViewById(R.id.obfuscated_res_0x7f091e15);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091e14);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091e13);
+            this.e = findViewById(R.id.obfuscated_res_0x7f091de4);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091ddd);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091e10);
+        }
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a = getContext();
+            setOrientation(1);
+            setMinimumHeight(fj.f(getContext(), R.dimen.tbds90));
+            setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d090d, (ViewGroup) this, true);
+            b();
+        }
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            SkinManager.setBackgroundShapeDrawable(this.e, fj.f(getContext(), R.dimen.tbds100), R.color.CAM_X0204, R.color.CAM_X0204, i);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
+            SkinManager.setViewTextColor(this.c, R.color.CAM_X0105, 1, i);
+            SkinManager.setViewTextColor(this.d, R.color.CAM_X0105, 1, i);
+            SkinManager.setViewTextColor(this.g, R.color.CAM_X0109, 1, i);
+            SkinManager.setBackgroundColor(this, R.color.CAM_X0201, i);
+        }
     }
 }

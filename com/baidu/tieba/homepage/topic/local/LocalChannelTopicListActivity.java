@@ -6,10 +6,10 @@ import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
+import com.baidu.tieba.a57;
+import com.baidu.tieba.d57;
 import com.baidu.tieba.homepage.topic.local.LocalChannelTopicListModel;
-import com.baidu.tieba.ie5;
-import com.baidu.tieba.s47;
-import com.baidu.tieba.v47;
+import com.baidu.tieba.oe5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,14 @@ public class LocalChannelTopicListActivity extends SuspendedActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LocalChannelTopicListModel k;
-    public s47 l;
+    public a57 l;
+
+    @Override // com.baidu.tbadk.suspended.SuspendedActivity
+    public void Y0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
 
     /* loaded from: classes4.dex */
     public class a implements LocalChannelTopicListModel.b {
@@ -47,21 +54,19 @@ public class LocalChannelTopicListActivity extends SuspendedActivity {
         }
 
         @Override // com.baidu.tieba.homepage.topic.local.LocalChannelTopicListModel.b
-        public void a(v47 v47Var) {
+        public void a(d57 d57Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, v47Var) == null) || this.a.l == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, d57Var) == null) && this.a.l != null) {
+                this.a.l.q(d57Var);
             }
-            this.a.l.q(v47Var);
         }
 
         @Override // com.baidu.tieba.homepage.topic.local.LocalChannelTopicListModel.b
         public void onFail(String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || this.a.l == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && this.a.l != null) {
+                this.a.l.m(str);
             }
-            this.a.l.m(str);
         }
     }
 
@@ -92,10 +97,9 @@ public class LocalChannelTopicListActivity extends SuspendedActivity {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.k == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.k != null) {
+                this.a.k.loadData();
             }
-            this.a.k.loadData();
         }
     }
 
@@ -113,22 +117,15 @@ public class LocalChannelTopicListActivity extends SuspendedActivity {
         }
     }
 
-    @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public ie5 N0(LinearLayout linearLayout, NavigationBar navigationBar) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tbadk.suspended.SuspendedActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, linearLayout, navigationBar)) == null) {
-            s47 s47Var = new s47(getPageContext(), linearLayout, navigationBar, new b(this));
-            this.l = s47Var;
-            return s47Var;
-        }
-        return (ie5) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public void Z0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.onDestroy();
+            a57 a57Var = this.l;
+            if (a57Var != null) {
+                a57Var.onDestroy();
+            }
         }
     }
 
@@ -137,11 +134,23 @@ public class LocalChannelTopicListActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            s47 s47Var = this.l;
-            if (s47Var != null) {
-                s47Var.n(i);
+            a57 a57Var = this.l;
+            if (a57Var != null) {
+                a57Var.n(i);
             }
         }
+    }
+
+    @Override // com.baidu.tbadk.suspended.SuspendedActivity
+    public oe5 M0(LinearLayout linearLayout, NavigationBar navigationBar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, linearLayout, navigationBar)) == null) {
+            a57 a57Var = new a57(getPageContext(), linearLayout, navigationBar, new b(this));
+            this.l = a57Var;
+            return a57Var;
+        }
+        return (oe5) invokeLL.objValue;
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
@@ -154,18 +163,6 @@ public class LocalChannelTopicListActivity extends SuspendedActivity {
             this.k = localChannelTopicListModel;
             localChannelTopicListModel.A(new a(this));
             this.k.loadData();
-        }
-    }
-
-    @Override // com.baidu.tbadk.suspended.SuspendedActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.onDestroy();
-            s47 s47Var = this.l;
-            if (s47Var != null) {
-                s47Var.onDestroy();
-            }
         }
     }
 }

@@ -11,20 +11,6 @@ public abstract class TransitionListenerAdapter implements Transition.Transition
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public TransitionListenerAdapter() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     @Override // androidx.transition.Transition.TransitionListener
     public void onTransitionCancel(Transition transition) {
         Interceptable interceptable = $ic;
@@ -57,6 +43,20 @@ public abstract class TransitionListenerAdapter implements Transition.Transition
     public void onTransitionStart(Transition transition) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, transition) == null) {
+        }
+    }
+
+    public TransitionListenerAdapter() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 }

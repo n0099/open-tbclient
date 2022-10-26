@@ -13,6 +13,16 @@ public class HeliosDumpService extends Service {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // android.app.Service
+    public IBinder onBind(Intent intent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
+            return null;
+        }
+        return (IBinder) invokeL.objValue;
+    }
+
     public HeliosDumpService() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -25,15 +35,5 @@ public class HeliosDumpService extends Service {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    @Override // android.app.Service
-    public IBinder onBind(Intent intent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
-            return null;
-        }
-        return (IBinder) invokeL.objValue;
     }
 }

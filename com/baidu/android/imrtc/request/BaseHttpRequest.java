@@ -4,6 +4,7 @@ import android.content.Context;
 import com.baidu.android.imrtc.BIMRtcManager;
 import com.baidu.android.imrtc.request.HttpExecutor;
 import com.baidu.android.imrtc.upload.BIMRtcTrack;
+import com.baidu.android.imrtc.utils.BIMRtcEvent;
 import com.baidu.android.imrtc.utils.RtcUtility;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.Utility;
@@ -21,6 +22,26 @@ public abstract class BaseHttpRequest implements HttpExecutor.HttpRequest, HttpE
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
     public String mRtcRoomId;
+
+    @Override // com.baidu.android.imrtc.request.HttpExecutor.HttpRequest
+    public abstract Map getHeaders();
+
+    @Override // com.baidu.android.imrtc.request.HttpExecutor.HttpRequest
+    public abstract String getHost();
+
+    @Override // com.baidu.android.imrtc.request.HttpExecutor.HttpRequest
+    public String getMediaType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "application/json" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.android.imrtc.request.HttpExecutor.HttpRequest
+    public String getMethod() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "POST" : (String) invokeV.objValue;
+    }
 
     public BaseHttpRequest() {
         Interceptable interceptable = $ic;
@@ -59,34 +80,20 @@ public abstract class BaseHttpRequest implements HttpExecutor.HttpRequest, HttpE
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.android.imrtc.request.HttpExecutor.HttpRequest
-    public abstract Map<String, String> getHeaders();
-
-    @Override // com.baidu.android.imrtc.request.HttpExecutor.HttpRequest
-    public abstract String getHost();
-
-    @Override // com.baidu.android.imrtc.request.HttpExecutor.HttpRequest
-    public String getMediaType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "application/json" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.android.imrtc.request.HttpExecutor.HttpRequest
-    public String getMethod() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "POST" : (String) invokeV.objValue;
-    }
-
     public void report(int i, int i2) {
+        String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) || BIMRtcManager.mBIMRtcEvent == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) && BIMRtcManager.mBIMRtcEvent != null) {
+            BIMRtcManager.mBIMRtcEvent.sdkAction = i;
+            BIMRtcEvent bIMRtcEvent = BIMRtcManager.mBIMRtcEvent;
+            if (i2 == 0) {
+                str = this.mRtcRoomId;
+            } else {
+                str = "-2";
+            }
+            bIMRtcEvent.sdkRoomId = str;
+            BIMRtcManager.mBIMRtcEvent.sdkSeqId = i2;
         }
-        BIMRtcManager.mBIMRtcEvent.sdkAction = i;
-        BIMRtcManager.mBIMRtcEvent.sdkRoomId = i2 == 0 ? this.mRtcRoomId : "-2";
-        BIMRtcManager.mBIMRtcEvent.sdkSeqId = i2;
     }
 
     public void trackRequest(int i, String str) {

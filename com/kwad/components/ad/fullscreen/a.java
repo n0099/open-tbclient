@@ -1,7 +1,6 @@
 package com.kwad.components.ad.fullscreen;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -46,7 +45,7 @@ public class a extends com.kwad.sdk.components.d implements com.kwad.components.
     }
 
     @Override // com.kwad.components.ad.a.d
-    public final void loadFullScreenVideoAd(KsScene ksScene, @NonNull KsLoadManager.FullScreenVideoAdListener fullScreenVideoAdListener) {
+    public final void loadFullScreenVideoAd(KsScene ksScene, KsLoadManager.FullScreenVideoAdListener fullScreenVideoAdListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, ksScene, fullScreenVideoAdListener) == null) {
             c.loadFullScreenVideoAd(ksScene, fullScreenVideoAdListener);

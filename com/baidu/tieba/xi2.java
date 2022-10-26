@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,9 +13,16 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class xi2 extends fh2<wj2> {
+public class xi2 extends gh2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.gh2
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "getRemoteAudioLevels" : (String) invokeV.objValue;
+    }
 
     public xi2() {
         Interceptable interceptable = $ic;
@@ -32,16 +38,8 @@ public class xi2 extends fh2<wj2> {
         }
     }
 
-    @Override // com.baidu.tieba.fh2
-    @NonNull
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "getRemoteUserList" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.fh2
-    public void c(@NonNull ZeusPlugin.Command command) {
+    @Override // com.baidu.tieba.gh2
+    public void c(ZeusPlugin.Command command) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, command) == null) {
             command.obj = new JSONObject();
@@ -49,31 +47,36 @@ public class xi2 extends fh2<wj2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.fh2
+    @Override // com.baidu.tieba.gh2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull wj2 wj2Var) {
+    public void a(ZeusPlugin.Command command, xj2 xj2Var) {
+        JSONObject a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, command, wj2Var) == null) {
-            ArrayList<ak2> h = wj2Var.h();
+        if (interceptable == null || interceptable.invokeLL(1048579, this, command, xj2Var) == null) {
+            ArrayList v = xj2Var.v();
             JSONObject jSONObject = new JSONObject();
             JSONArray jSONArray = new JSONArray();
-            if (h != null) {
-                Iterator<ak2> it = h.iterator();
+            if (v != null) {
+                Iterator it = v.iterator();
                 while (it.hasNext()) {
-                    ak2 next = it.next();
-                    JSONObject a = next == null ? null : next.a();
+                    zj2 zj2Var = (zj2) it.next();
+                    if (zj2Var == null) {
+                        a = null;
+                    } else {
+                        a = zj2Var.a();
+                    }
                     if (a != null) {
                         jSONArray.put(a);
                     }
                 }
             }
             try {
-                jSONObject.put("userList", jSONArray);
+                jSONObject.put("audioLevels", jSONArray);
             } catch (JSONException unused) {
             }
             command.obj = jSONObject;
             String str = command.what;
-            d(wj2Var, str, "" + command.obj, true);
+            d(xj2Var, str, "" + command.obj, true);
         }
     }
 }

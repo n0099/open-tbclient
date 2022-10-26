@@ -70,6 +70,15 @@ public final class FpsHandlerThread {
         return (Handler) invokeV.objValue;
     }
 
+    public final Handler getDefaultMainHandler() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return defaultMainHandler;
+        }
+        return (Handler) invokeV.objValue;
+    }
+
     public final HandlerThread getDefaultHandlerThread() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -88,11 +97,5 @@ public final class FpsHandlerThread {
             return handlerThread3;
         }
         return (HandlerThread) invokeV.objValue;
-    }
-
-    public final Handler getDefaultMainHandler() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? defaultMainHandler : (Handler) invokeV.objValue;
     }
 }

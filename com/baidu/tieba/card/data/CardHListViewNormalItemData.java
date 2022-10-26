@@ -2,7 +2,7 @@ package com.baidu.tieba.card.data;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.Cdo;
+import com.baidu.tieba.eo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import tbclient.GuessLikeThreadInfo;
 /* loaded from: classes3.dex */
-public class CardHListViewNormalItemData implements Cdo, Serializable {
+public class CardHListViewNormalItemData implements eo, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final BdUniqueId TYPE;
     public static final long serialVersionUID = 9123181123453164969L;
@@ -56,16 +56,19 @@ public class CardHListViewNormalItemData implements Cdo, Serializable {
         }
     }
 
-    @Override // com.baidu.tieba.Cdo
+    @Override // com.baidu.tieba.eo
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TYPE : (BdUniqueId) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return TYPE;
+        }
+        return (BdUniqueId) invokeV.objValue;
     }
 
     public void parseProtobuf(GuessLikeThreadInfo guessLikeThreadInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, guessLikeThreadInfo) == null) || guessLikeThreadInfo == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, guessLikeThreadInfo) != null) || guessLikeThreadInfo == null) {
             return;
         }
         this.title = guessLikeThreadInfo.title;

@@ -2,14 +2,12 @@ package com.baidu.cyberplayer.sdk.dlna;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.cyberplayer.sdk.Keep;
 import com.baidu.cyberplayer.sdk.dlna.CtrlPointProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Keep
 /* loaded from: classes2.dex */
 public class PnPController {
     public static /* synthetic */ Interceptable $ic;

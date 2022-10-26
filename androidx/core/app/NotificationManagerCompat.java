@@ -22,9 +22,6 @@ import android.os.Message;
 import android.os.RemoteException;
 import android.support.v4.app.INotificationSideChannel;
 import android.util.Log;
-import androidx.annotation.GuardedBy;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
@@ -66,92 +63,18 @@ public final class NotificationManagerCompat {
     public static final int SIDE_CHANNEL_RETRY_BASE_INTERVAL_MS = 1000;
     public static final int SIDE_CHANNEL_RETRY_MAX_COUNT = 6;
     public static final String TAG = "NotifManCompat";
-    @GuardedBy("sEnabledNotificationListenersLock")
     public static Set<String> sEnabledNotificationListenerPackages;
-    @GuardedBy("sEnabledNotificationListenersLock")
     public static String sEnabledNotificationListeners;
     public static final Object sEnabledNotificationListenersLock;
     public static final Object sLock;
-    @GuardedBy("sLock")
     public static SideChannelManager sSideChannelManager;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context mContext;
     public final NotificationManager mNotificationManager;
 
     /* loaded from: classes.dex */
-    public static class NotifyTask implements Task {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final int id;
-        public final Notification notif;
-        public final String packageName;
-        public final String tag;
-
-        public NotifyTask(String str, int i, String str2, Notification notification) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i), str2, notification};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.packageName = str;
-            this.id = i;
-            this.tag = str2;
-            this.notif = notification;
-        }
-
-        @Override // androidx.core.app.NotificationManagerCompat.Task
-        public void send(INotificationSideChannel iNotificationSideChannel) throws RemoteException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, iNotificationSideChannel) == null) {
-                iNotificationSideChannel.notify(this.packageName, this.id, this.tag, this.notif);
-            }
-        }
-
-        @NonNull
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return "NotifyTask[packageName:" + this.packageName + ", id:" + this.id + ", tag:" + this.tag + PreferencesUtil.RIGHT_MOUNT;
-            }
-            return (String) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public static class ServiceConnectedEvent {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final ComponentName componentName;
-        public final IBinder iBinder;
-
-        public ServiceConnectedEvent(ComponentName componentName, IBinder iBinder) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {componentName, iBinder};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.componentName = componentName;
-            this.iBinder = iBinder;
-        }
+    public interface Task {
+        void send(INotificationSideChannel iNotificationSideChannel) throws RemoteException;
     }
 
     /* loaded from: classes.dex */
@@ -269,30 +192,34 @@ public final class NotificationManagerCompat {
         private void handleRetryListenerQueue(ComponentName componentName) {
             ListenerRecord listenerRecord;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, componentName) == null) || (listenerRecord = this.mRecordMap.get(componentName)) == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, componentName) == null) && (listenerRecord = this.mRecordMap.get(componentName)) != null) {
+                processListenerQueue(listenerRecord);
             }
-            processListenerQueue(listenerRecord);
-        }
-
-        private void handleServiceConnected(ComponentName componentName, IBinder iBinder) {
-            ListenerRecord listenerRecord;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(65541, this, componentName, iBinder) == null) || (listenerRecord = this.mRecordMap.get(componentName)) == null) {
-                return;
-            }
-            listenerRecord.service = INotificationSideChannel.Stub.asInterface(iBinder);
-            listenerRecord.retryCount = 0;
-            processListenerQueue(listenerRecord);
         }
 
         private void handleServiceDisconnected(ComponentName componentName) {
             ListenerRecord listenerRecord;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(65542, this, componentName) == null) || (listenerRecord = this.mRecordMap.get(componentName)) == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(65542, this, componentName) == null) && (listenerRecord = this.mRecordMap.get(componentName)) != null) {
+                ensureServiceUnbound(listenerRecord);
             }
-            ensureServiceUnbound(listenerRecord);
+        }
+
+        public void queueTask(Task task) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, task) == null) {
+                this.mHandler.obtainMessage(0, task).sendToTarget();
+            }
+        }
+
+        private void handleServiceConnected(ComponentName componentName, IBinder iBinder) {
+            ListenerRecord listenerRecord;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(65541, this, componentName, iBinder) == null) && (listenerRecord = this.mRecordMap.get(componentName)) != null) {
+                listenerRecord.service = INotificationSideChannel.Stub.asInterface(iBinder);
+                listenerRecord.retryCount = 0;
+                processListenerQueue(listenerRecord);
+            }
         }
 
         private void processListenerQueue(ListenerRecord listenerRecord) {
@@ -324,10 +251,10 @@ public final class NotificationManagerCompat {
                             Log.w(NotificationManagerCompat.TAG, "RemoteException communicating with " + listenerRecord.componentName, e);
                         }
                     }
-                    if (listenerRecord.taskQueue.isEmpty()) {
+                    if (!listenerRecord.taskQueue.isEmpty()) {
+                        scheduleListenerRetry(listenerRecord);
                         return;
                     }
-                    scheduleListenerRetry(listenerRecord);
                     return;
                 }
                 scheduleListenerRetry(listenerRecord);
@@ -336,7 +263,7 @@ public final class NotificationManagerCompat {
 
         private void scheduleListenerRetry(ListenerRecord listenerRecord) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(65544, this, listenerRecord) == null) || this.mHandler.hasMessages(3, listenerRecord.componentName)) {
+            if ((interceptable != null && interceptable.invokeL(65544, this, listenerRecord) != null) || this.mHandler.hasMessages(3, listenerRecord.componentName)) {
                 return;
             }
             int i = listenerRecord.retryCount + 1;
@@ -402,35 +329,26 @@ public final class NotificationManagerCompat {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
                 int i = message.what;
-                if (i == 0) {
-                    handleQueueTask((Task) message.obj);
-                    return true;
-                } else if (i == 1) {
+                if (i != 0) {
+                    if (i != 1) {
+                        if (i != 2) {
+                            if (i != 3) {
+                                return false;
+                            }
+                            handleRetryListenerQueue((ComponentName) message.obj);
+                            return true;
+                        }
+                        handleServiceDisconnected((ComponentName) message.obj);
+                        return true;
+                    }
                     ServiceConnectedEvent serviceConnectedEvent = (ServiceConnectedEvent) message.obj;
                     handleServiceConnected(serviceConnectedEvent.componentName, serviceConnectedEvent.iBinder);
                     return true;
-                } else if (i == 2) {
-                    handleServiceDisconnected((ComponentName) message.obj);
-                    return true;
-                } else if (i != 3) {
-                    return false;
-                } else {
-                    handleRetryListenerQueue((ComponentName) message.obj);
-                    return true;
                 }
+                handleQueueTask((Task) message.obj);
+                return true;
             }
             return invokeL.booleanValue;
-        }
-
-        @Override // android.content.ServiceConnection
-        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName, iBinder) == null) {
-                if (Log.isLoggable(NotificationManagerCompat.TAG, 3)) {
-                    Log.d(NotificationManagerCompat.TAG, "Connected to service " + componentName);
-                }
-                this.mHandler.obtainMessage(1, new ServiceConnectedEvent(componentName, iBinder)).sendToTarget();
-            }
         }
 
         @Override // android.content.ServiceConnection
@@ -444,17 +362,164 @@ public final class NotificationManagerCompat {
             }
         }
 
-        public void queueTask(Task task) {
+        @Override // android.content.ServiceConnection
+        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, task) == null) {
-                this.mHandler.obtainMessage(0, task).sendToTarget();
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName, iBinder) == null) {
+                if (Log.isLoggable(NotificationManagerCompat.TAG, 3)) {
+                    Log.d(NotificationManagerCompat.TAG, "Connected to service " + componentName);
+                }
+                this.mHandler.obtainMessage(1, new ServiceConnectedEvent(componentName, iBinder)).sendToTarget();
             }
         }
     }
 
     /* loaded from: classes.dex */
-    public interface Task {
-        void send(INotificationSideChannel iNotificationSideChannel) throws RemoteException;
+    public static class CancelTask implements Task {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final boolean all;
+        public final int id;
+        public final String packageName;
+        public final String tag;
+
+        public CancelTask(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.packageName = str;
+            this.id = 0;
+            this.tag = null;
+            this.all = true;
+        }
+
+        public CancelTask(String str, int i, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i), str2};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.packageName = str;
+            this.id = i;
+            this.tag = str2;
+            this.all = false;
+        }
+
+        @Override // androidx.core.app.NotificationManagerCompat.Task
+        public void send(INotificationSideChannel iNotificationSideChannel) throws RemoteException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, iNotificationSideChannel) == null) {
+                if (this.all) {
+                    iNotificationSideChannel.cancelAll(this.packageName);
+                } else {
+                    iNotificationSideChannel.cancel(this.packageName, this.id, this.tag);
+                }
+            }
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return "CancelTask[packageName:" + this.packageName + ", id:" + this.id + ", tag:" + this.tag + ", all:" + this.all + PreferencesUtil.RIGHT_MOUNT;
+            }
+            return (String) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public static class NotifyTask implements Task {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final int id;
+        public final Notification notif;
+        public final String packageName;
+        public final String tag;
+
+        public NotifyTask(String str, int i, String str2, Notification notification) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i), str2, notification};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.packageName = str;
+            this.id = i;
+            this.tag = str2;
+            this.notif = notification;
+        }
+
+        @Override // androidx.core.app.NotificationManagerCompat.Task
+        public void send(INotificationSideChannel iNotificationSideChannel) throws RemoteException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, iNotificationSideChannel) == null) {
+                iNotificationSideChannel.notify(this.packageName, this.id, this.tag, this.notif);
+            }
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return "NotifyTask[packageName:" + this.packageName + ", id:" + this.id + ", tag:" + this.tag + PreferencesUtil.RIGHT_MOUNT;
+            }
+            return (String) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public static class ServiceConnectedEvent {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final ComponentName componentName;
+        public final IBinder iBinder;
+
+        public ServiceConnectedEvent(ComponentName componentName, IBinder iBinder) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {componentName, iBinder};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.componentName = componentName;
+            this.iBinder = iBinder;
+        }
     }
 
     static {
@@ -494,15 +559,122 @@ public final class NotificationManagerCompat {
         this.mNotificationManager = (NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION);
     }
 
-    @NonNull
-    public static NotificationManagerCompat from(@NonNull Context context) {
+    public NotificationChannelGroup getNotificationChannelGroup(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? new NotificationManagerCompat(context) : (NotificationManagerCompat) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 28) {
+                return this.mNotificationManager.getNotificationChannelGroup(str);
+            }
+            if (i >= 26) {
+                for (NotificationChannelGroup notificationChannelGroup : getNotificationChannelGroups()) {
+                    if (notificationChannelGroup.getId().equals(str)) {
+                        return notificationChannelGroup;
+                    }
+                }
+            }
+            return null;
+        }
+        return (NotificationChannelGroup) invokeL.objValue;
     }
 
-    @NonNull
-    public static Set<String> getEnabledListenerPackages(@NonNull Context context) {
+    public static NotificationManagerCompat from(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            return new NotificationManagerCompat(context);
+        }
+        return (NotificationManagerCompat) invokeL.objValue;
+    }
+
+    private void pushSideChannelQueue(Task task) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, task) == null) {
+            synchronized (sLock) {
+                if (sSideChannelManager == null) {
+                    sSideChannelManager = new SideChannelManager(this.mContext.getApplicationContext());
+                }
+                sSideChannelManager.queueTask(task);
+            }
+        }
+    }
+
+    public static boolean useSideChannelForNotification(Notification notification) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, notification)) == null) {
+            Bundle extras = NotificationCompat.getExtras(notification);
+            if (extras != null && extras.getBoolean(EXTRA_USE_SIDE_CHANNEL)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void cancel(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            cancel(null, i);
+        }
+    }
+
+    public void createNotificationChannel(NotificationChannel notificationChannel) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, notificationChannel) == null) && Build.VERSION.SDK_INT >= 26) {
+            this.mNotificationManager.createNotificationChannel(notificationChannel);
+        }
+    }
+
+    public void createNotificationChannelGroup(NotificationChannelGroup notificationChannelGroup) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, notificationChannelGroup) == null) && Build.VERSION.SDK_INT >= 26) {
+            this.mNotificationManager.createNotificationChannelGroup(notificationChannelGroup);
+        }
+    }
+
+    public void createNotificationChannelGroups(List<NotificationChannelGroup> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, list) == null) && Build.VERSION.SDK_INT >= 26) {
+            this.mNotificationManager.createNotificationChannelGroups(list);
+        }
+    }
+
+    public void createNotificationChannels(List<NotificationChannel> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, list) == null) && Build.VERSION.SDK_INT >= 26) {
+            this.mNotificationManager.createNotificationChannels(list);
+        }
+    }
+
+    public void deleteNotificationChannel(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) && Build.VERSION.SDK_INT >= 26) {
+            this.mNotificationManager.deleteNotificationChannel(str);
+        }
+    }
+
+    public void deleteNotificationChannelGroup(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048585, this, str) == null) && Build.VERSION.SDK_INT >= 26) {
+            this.mNotificationManager.deleteNotificationChannelGroup(str);
+        }
+    }
+
+    public NotificationChannel getNotificationChannel(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
+            if (Build.VERSION.SDK_INT >= 26) {
+                return this.mNotificationManager.getNotificationChannel(str);
+            }
+            return null;
+        }
+        return (NotificationChannel) invokeL.objValue;
+    }
+
+    public static Set<String> getEnabledListenerPackages(Context context) {
         InterceptResult invokeL;
         Set<String> set;
         Interceptable interceptable = $ic;
@@ -530,28 +702,6 @@ public final class NotificationManagerCompat {
         return (Set) invokeL.objValue;
     }
 
-    private void pushSideChannelQueue(Task task) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, task) == null) {
-            synchronized (sLock) {
-                if (sSideChannelManager == null) {
-                    sSideChannelManager = new SideChannelManager(this.mContext.getApplicationContext());
-                }
-                sSideChannelManager.queueTask(task);
-            }
-        }
-    }
-
-    public static boolean useSideChannelForNotification(Notification notification) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, notification)) == null) {
-            Bundle extras = NotificationCompat.getExtras(notification);
-            return extras != null && extras.getBoolean(EXTRA_USE_SIDE_CHANNEL);
-        }
-        return invokeL.booleanValue;
-    }
-
     public boolean areNotificationsEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -560,27 +710,40 @@ public final class NotificationManagerCompat {
             if (i >= 24) {
                 return this.mNotificationManager.areNotificationsEnabled();
             }
-            if (i >= 19) {
-                AppOpsManager appOpsManager = (AppOpsManager) this.mContext.getSystemService("appops");
-                ApplicationInfo applicationInfo = this.mContext.getApplicationInfo();
-                String packageName = this.mContext.getApplicationContext().getPackageName();
-                int i2 = applicationInfo.uid;
-                try {
-                    Class<?> cls = Class.forName(AppOpsManager.class.getName());
-                    return ((Integer) cls.getMethod(CHECK_OP_NO_THROW, Integer.TYPE, Integer.TYPE, String.class).invoke(appOpsManager, Integer.valueOf(((Integer) cls.getDeclaredField(OP_POST_NOTIFICATION).get(Integer.class)).intValue()), Integer.valueOf(i2), packageName)).intValue() == 0;
-                } catch (ClassNotFoundException | IllegalAccessException | NoSuchFieldException | NoSuchMethodException | RuntimeException | InvocationTargetException unused) {
+            if (i < 19) {
+                return true;
+            }
+            AppOpsManager appOpsManager = (AppOpsManager) this.mContext.getSystemService("appops");
+            ApplicationInfo applicationInfo = this.mContext.getApplicationInfo();
+            String packageName = this.mContext.getApplicationContext().getPackageName();
+            int i2 = applicationInfo.uid;
+            try {
+                Class<?> cls = Class.forName(AppOpsManager.class.getName());
+                if (((Integer) cls.getMethod(CHECK_OP_NO_THROW, Integer.TYPE, Integer.TYPE, String.class).invoke(appOpsManager, Integer.valueOf(((Integer) cls.getDeclaredField(OP_POST_NOTIFICATION).get(Integer.class)).intValue()), Integer.valueOf(i2), packageName)).intValue() == 0) {
                     return true;
                 }
+                return false;
+            } catch (ClassNotFoundException | IllegalAccessException | NoSuchFieldException | NoSuchMethodException | RuntimeException | InvocationTargetException unused) {
+                return true;
             }
-            return true;
         }
         return invokeV.booleanValue;
     }
 
-    public void cancel(int i) {
+    public void cancel(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            cancel(null, i);
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
+            this.mNotificationManager.cancel(str, i);
+            if (Build.VERSION.SDK_INT <= 19) {
+                pushSideChannelQueue(new CancelTask(this.mContext.getPackageName(), i, str));
+            }
+        }
+    }
+
+    public void notify(int i, Notification notification) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048591, this, i, notification) == null) {
+            notify(null, i, notification);
         }
     }
 
@@ -592,54 +755,6 @@ public final class NotificationManagerCompat {
                 pushSideChannelQueue(new CancelTask(this.mContext.getPackageName()));
             }
         }
-    }
-
-    public void createNotificationChannel(@NonNull NotificationChannel notificationChannel) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, notificationChannel) == null) || Build.VERSION.SDK_INT < 26) {
-            return;
-        }
-        this.mNotificationManager.createNotificationChannel(notificationChannel);
-    }
-
-    public void createNotificationChannelGroup(@NonNull NotificationChannelGroup notificationChannelGroup) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, notificationChannelGroup) == null) || Build.VERSION.SDK_INT < 26) {
-            return;
-        }
-        this.mNotificationManager.createNotificationChannelGroup(notificationChannelGroup);
-    }
-
-    public void createNotificationChannelGroups(@NonNull List<NotificationChannelGroup> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, list) == null) || Build.VERSION.SDK_INT < 26) {
-            return;
-        }
-        this.mNotificationManager.createNotificationChannelGroups(list);
-    }
-
-    public void createNotificationChannels(@NonNull List<NotificationChannel> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, list) == null) || Build.VERSION.SDK_INT < 26) {
-            return;
-        }
-        this.mNotificationManager.createNotificationChannels(list);
-    }
-
-    public void deleteNotificationChannel(@NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) || Build.VERSION.SDK_INT < 26) {
-            return;
-        }
-        this.mNotificationManager.deleteNotificationChannel(str);
-    }
-
-    public void deleteNotificationChannelGroup(@NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, str) == null) || Build.VERSION.SDK_INT < 26) {
-            return;
-        }
-        this.mNotificationManager.deleteNotificationChannelGroup(str);
     }
 
     public int getImportance() {
@@ -654,41 +769,6 @@ public final class NotificationManagerCompat {
         return invokeV.intValue;
     }
 
-    @Nullable
-    public NotificationChannel getNotificationChannel(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            if (Build.VERSION.SDK_INT >= 26) {
-                return this.mNotificationManager.getNotificationChannel(str);
-            }
-            return null;
-        }
-        return (NotificationChannel) invokeL.objValue;
-    }
-
-    @Nullable
-    public NotificationChannelGroup getNotificationChannelGroup(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-            int i = Build.VERSION.SDK_INT;
-            if (i >= 28) {
-                return this.mNotificationManager.getNotificationChannelGroup(str);
-            }
-            if (i >= 26) {
-                for (NotificationChannelGroup notificationChannelGroup : getNotificationChannelGroups()) {
-                    if (notificationChannelGroup.getId().equals(str)) {
-                        return notificationChannelGroup;
-                    }
-                }
-            }
-            return null;
-        }
-        return (NotificationChannelGroup) invokeL.objValue;
-    }
-
-    @NonNull
     public List<NotificationChannelGroup> getNotificationChannelGroups() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -701,7 +781,6 @@ public final class NotificationManagerCompat {
         return (List) invokeV.objValue;
     }
 
-    @NonNull
     public List<NotificationChannel> getNotificationChannels() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -714,24 +793,7 @@ public final class NotificationManagerCompat {
         return (List) invokeV.objValue;
     }
 
-    public void notify(int i, @NonNull Notification notification) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048591, this, i, notification) == null) {
-            notify(null, i, notification);
-        }
-    }
-
-    public void cancel(@Nullable String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
-            this.mNotificationManager.cancel(str, i);
-            if (Build.VERSION.SDK_INT <= 19) {
-                pushSideChannelQueue(new CancelTask(this.mContext.getPackageName(), i, str));
-            }
-        }
-    }
-
-    public void notify(@Nullable String str, int i, @NonNull Notification notification) {
+    public void notify(String str, int i, Notification notification) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048592, this, str, i, notification) == null) {
             if (useSideChannelForNotification(notification)) {
@@ -740,80 +802,6 @@ public final class NotificationManagerCompat {
                 return;
             }
             this.mNotificationManager.notify(str, i, notification);
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public static class CancelTask implements Task {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final boolean all;
-        public final int id;
-        public final String packageName;
-        public final String tag;
-
-        public CancelTask(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.packageName = str;
-            this.id = 0;
-            this.tag = null;
-            this.all = true;
-        }
-
-        @Override // androidx.core.app.NotificationManagerCompat.Task
-        public void send(INotificationSideChannel iNotificationSideChannel) throws RemoteException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, iNotificationSideChannel) == null) {
-                if (this.all) {
-                    iNotificationSideChannel.cancelAll(this.packageName);
-                } else {
-                    iNotificationSideChannel.cancel(this.packageName, this.id, this.tag);
-                }
-            }
-        }
-
-        @NonNull
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return "CancelTask[packageName:" + this.packageName + ", id:" + this.id + ", tag:" + this.tag + ", all:" + this.all + PreferencesUtil.RIGHT_MOUNT;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public CancelTask(String str, int i, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i), str2};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.packageName = str;
-            this.id = i;
-            this.tag = str2;
-            this.all = false;
         }
     }
 }

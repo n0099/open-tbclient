@@ -11,6 +11,12 @@ import android.util.Log;
 public class SqlDownloadCacheService extends Service {
     public static final String a = SqlDownloadCacheService.class.getSimpleName();
 
+    @Override // android.app.Service
+    public void onCreate() {
+        super.onCreate();
+        c.a(getApplicationContext());
+    }
+
     public static void a(Context context, ServiceConnection serviceConnection) {
         if (context != null) {
             try {
@@ -31,19 +37,15 @@ public class SqlDownloadCacheService extends Service {
         j x = c.x();
         if (x instanceof com.ss.android.socialbase.downloader.impls.d) {
             tVar = ((com.ss.android.socialbase.downloader.impls.d) x).f();
+        } else if (x instanceof t) {
+            tVar = (t) x;
         } else {
-            tVar = x instanceof t ? (t) x : null;
+            tVar = null;
         }
         if (tVar instanceof IBinder) {
             return (IBinder) tVar;
         }
         return new Binder();
-    }
-
-    @Override // android.app.Service
-    public void onCreate() {
-        super.onCreate();
-        c.a(getApplicationContext());
     }
 
     @Override // android.app.Service

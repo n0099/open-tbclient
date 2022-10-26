@@ -19,18 +19,18 @@ import java.util.concurrent.atomic.AtomicInteger;
 public final class CompletableConcatIterable extends Completable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Iterable<? extends CompletableSource> sources;
+    public final Iterable sources;
 
     /* loaded from: classes8.dex */
-    public static final class ConcatInnerObserver extends AtomicInteger implements CompletableObserver {
+    public final class ConcatInnerObserver extends AtomicInteger implements CompletableObserver {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7965400327305809232L;
         public transient /* synthetic */ FieldHolder $fh;
         public final CompletableObserver actual;
         public final SequentialDisposable sd;
-        public final Iterator<? extends CompletableSource> sources;
+        public final Iterator sources;
 
-        public ConcatInnerObserver(CompletableObserver completableObserver, Iterator<? extends CompletableSource> it) {
+        public ConcatInnerObserver(CompletableObserver completableObserver, Iterator it) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -52,29 +52,30 @@ public final class CompletableConcatIterable extends Completable {
 
         public void next() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.sd.isDisposed() && getAndIncrement() == 0) {
-                Iterator<? extends CompletableSource> it = this.sources;
-                while (!this.sd.isDisposed()) {
-                    try {
-                        if (!it.hasNext()) {
-                            this.actual.onComplete();
-                            return;
-                        }
-                        try {
-                            ((CompletableSource) ObjectHelper.requireNonNull(it.next(), "The CompletableSource returned is null")).subscribe(this);
-                            if (decrementAndGet() == 0) {
-                                return;
-                            }
-                        } catch (Throwable th) {
-                            Exceptions.throwIfFatal(th);
-                            this.actual.onError(th);
-                            return;
-                        }
-                    } catch (Throwable th2) {
-                        Exceptions.throwIfFatal(th2);
-                        this.actual.onError(th2);
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.sd.isDisposed() || getAndIncrement() != 0) {
+                return;
+            }
+            Iterator it = this.sources;
+            while (!this.sd.isDisposed()) {
+                try {
+                    if (!it.hasNext()) {
+                        this.actual.onComplete();
                         return;
                     }
+                    try {
+                        ((CompletableSource) ObjectHelper.requireNonNull(it.next(), "The CompletableSource returned is null")).subscribe(this);
+                        if (decrementAndGet() == 0) {
+                            return;
+                        }
+                    } catch (Throwable th) {
+                        Exceptions.throwIfFatal(th);
+                        this.actual.onError(th);
+                        return;
+                    }
+                } catch (Throwable th2) {
+                    Exceptions.throwIfFatal(th2);
+                    this.actual.onError(th2);
+                    return;
                 }
             }
         }
@@ -104,7 +105,7 @@ public final class CompletableConcatIterable extends Completable {
         }
     }
 
-    public CompletableConcatIterable(Iterable<? extends CompletableSource> iterable) {
+    public CompletableConcatIterable(Iterable iterable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

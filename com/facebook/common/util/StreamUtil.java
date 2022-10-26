@@ -32,29 +32,10 @@ public class StreamUtil {
     public static byte[] getBytesFromStream(InputStream inputStream) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, inputStream)) == null) ? getBytesFromStream(inputStream, inputStream.available()) : (byte[]) invokeL.objValue;
-    }
-
-    public static long skip(InputStream inputStream, long j) throws IOException {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65539, null, inputStream, j)) == null) {
-            Preconditions.checkNotNull(inputStream);
-            Preconditions.checkArgument(j >= 0);
-            long j2 = j;
-            while (j2 > 0) {
-                long skip = inputStream.skip(j2);
-                if (skip <= 0) {
-                    if (inputStream.read() == -1) {
-                        return j - j2;
-                    }
-                    skip = 1;
-                }
-                j2 -= skip;
-            }
-            return j;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, inputStream)) == null) {
+            return getBytesFromStream(inputStream, inputStream.available());
         }
-        return invokeLJ.longValue;
+        return (byte[]) invokeL.objValue;
     }
 
     public static byte[] getBytesFromStream(InputStream inputStream, int i) throws IOException {
@@ -92,7 +73,10 @@ public class StreamUtil {
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
                         int i2 = ((ByteArrayOutputStream) this).count;
                         byte[] bArr = ((ByteArrayOutputStream) this).buf;
-                        return i2 == bArr.length ? bArr : super.toByteArray();
+                        if (i2 == bArr.length) {
+                            return bArr;
+                        }
+                        return super.toByteArray();
                     }
                     return (byte[]) invokeV.objValue;
                 }
@@ -101,5 +85,34 @@ public class StreamUtil {
             return byteArrayOutputStream.toByteArray();
         }
         return (byte[]) invokeLI.objValue;
+    }
+
+    public static long skip(InputStream inputStream, long j) throws IOException {
+        InterceptResult invokeLJ;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65539, null, inputStream, j)) == null) {
+            Preconditions.checkNotNull(inputStream);
+            if (j >= 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Preconditions.checkArgument(z);
+            long j2 = j;
+            while (j2 > 0) {
+                long skip = inputStream.skip(j2);
+                if (skip <= 0) {
+                    if (inputStream.read() != -1) {
+                        skip = 1;
+                    } else {
+                        return j - j2;
+                    }
+                }
+                j2 -= skip;
+            }
+            return j;
+        }
+        return invokeLJ.longValue;
     }
 }

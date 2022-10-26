@@ -5,7 +5,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.base.annotations.CalledByNative;
 /* loaded from: classes6.dex */
 public class JNIUtils {
     public static /* synthetic */ Interceptable $ic;
@@ -25,10 +24,12 @@ public class JNIUtils {
         }
     }
 
-    @CalledByNative
     public static Object getClassLoader() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? JNIUtils.class.getClassLoader() : invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return JNIUtils.class.getClassLoader();
+        }
+        return invokeV.objValue;
     }
 }

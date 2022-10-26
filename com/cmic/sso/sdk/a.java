@@ -14,7 +14,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConcurrentHashMap<String, Object> a;
+    public ConcurrentHashMap a;
 
     public a(int i) {
         Interceptable interceptable = $ic;
@@ -31,27 +31,149 @@ public class a {
                 return;
             }
         }
-        this.a = new ConcurrentHashMap<>(i);
+        this.a = new ConcurrentHashMap(i);
     }
 
-    public void a(String str, byte[] bArr) {
+    public com.cmic.sso.sdk.d.a a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048583, this, str, bArr) == null) || str == null || bArr == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            com.cmic.sso.sdk.d.a aVar = (com.cmic.sso.sdk.d.a) this.a.get("logBean");
+            if (aVar != null) {
+                return aVar;
+            }
+            return new com.cmic.sso.sdk.d.a();
         }
-        this.a.put(str, bArr);
+        return (com.cmic.sso.sdk.d.a) invokeV.objValue;
+    }
+
+    public com.cmic.sso.sdk.a.a b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            com.cmic.sso.sdk.a.a aVar = (com.cmic.sso.sdk.a.a) this.a.get("current_config");
+            if (aVar != null) {
+                return aVar;
+            }
+            c.a("UmcConfigBean为空", "请核查");
+            return new a.C0503a().a();
+        }
+        return (com.cmic.sso.sdk.a.a) invokeV.objValue;
+    }
+
+    public void a(com.cmic.sso.sdk.a.a aVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) && aVar != null) {
+            this.a.put("current_config", aVar);
+        }
     }
 
     public String b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) ? b(str, "") : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
+            return b(str, "");
+        }
+        return (String) invokeL.objValue;
     }
 
     public int c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) ? b(str, 0) : invokeL.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
+            return b(str, 0);
+        }
+        return invokeL.intValue;
+    }
+
+    public void a(com.cmic.sso.sdk.d.a aVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) && aVar != null) {
+            this.a.put("logBean", aVar);
+        }
+    }
+
+    public void a(String str, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(1048579, this, str, i) == null) && str != null) {
+            this.a.put(str, Integer.valueOf(i));
+        }
+    }
+
+    public int b(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, str, i)) == null) {
+            if (str != null && this.a.containsKey(str)) {
+                return ((Integer) this.a.get(str)).intValue();
+            }
+            return i;
+        }
+        return invokeLI.intValue;
+    }
+
+    public void a(String str, long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLJ(1048580, this, str, j) == null) && str != null) {
+            this.a.put(str, Long.valueOf(j));
+        }
+    }
+
+    public long b(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048586, this, str, j)) == null) {
+            if (str != null && this.a.containsKey(str)) {
+                return ((Long) this.a.get(str)).longValue();
+            }
+            return j;
+        }
+        return invokeLJ.longValue;
+    }
+
+    public void a(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) && str != null && str2 != null) {
+            this.a.put(str, str2);
+        }
+    }
+
+    public String b(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, str, str2)) == null) {
+            if (str != null && this.a.containsKey(str)) {
+                return (String) this.a.get(str);
+            }
+            return str2;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public void a(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(1048582, this, str, z) == null) && str != null) {
+            this.a.put(str, Boolean.valueOf(z));
+        }
+    }
+
+    public boolean b(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048590, this, str, z)) == null) {
+            if (str != null && this.a.containsKey(str)) {
+                return ((Boolean) this.a.get(str)).booleanValue();
+            }
+            return z;
+        }
+        return invokeLZ.booleanValue;
+    }
+
+    public void a(String str, byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048583, this, str, bArr) == null) && str != null && bArr != null) {
+            this.a.put(str, bArr);
+        }
     }
 
     public byte[] a(String str) {
@@ -64,101 +186,5 @@ public class a {
             return null;
         }
         return (byte[]) invokeL.objValue;
-    }
-
-    public String b(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, str, str2)) == null) ? (str == null || !this.a.containsKey(str)) ? str2 : (String) this.a.get(str) : (String) invokeLL.objValue;
-    }
-
-    public void a(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) || str == null || str2 == null) {
-            return;
-        }
-        this.a.put(str, str2);
-    }
-
-    public void a(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048582, this, str, z) == null) || str == null) {
-            return;
-        }
-        this.a.put(str, Boolean.valueOf(z));
-    }
-
-    public boolean b(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048590, this, str, z)) == null) ? (str == null || !this.a.containsKey(str)) ? z : ((Boolean) this.a.get(str)).booleanValue() : invokeLZ.booleanValue;
-    }
-
-    public void a(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048579, this, str, i) == null) || str == null) {
-            return;
-        }
-        this.a.put(str, Integer.valueOf(i));
-    }
-
-    public void a(String str, long j) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(1048580, this, str, j) == null) || str == null) {
-            return;
-        }
-        this.a.put(str, Long.valueOf(j));
-    }
-
-    public int b(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, str, i)) == null) ? (str == null || !this.a.containsKey(str)) ? i : ((Integer) this.a.get(str)).intValue() : invokeLI.intValue;
-    }
-
-    public void a(com.cmic.sso.sdk.d.a aVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) || aVar == null) {
-            return;
-        }
-        this.a.put("logBean", aVar);
-    }
-
-    public com.cmic.sso.sdk.d.a a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            com.cmic.sso.sdk.d.a aVar = (com.cmic.sso.sdk.d.a) this.a.get("logBean");
-            return aVar != null ? aVar : new com.cmic.sso.sdk.d.a();
-        }
-        return (com.cmic.sso.sdk.d.a) invokeV.objValue;
-    }
-
-    public long b(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048586, this, str, j)) == null) ? (str == null || !this.a.containsKey(str)) ? j : ((Long) this.a.get(str)).longValue() : invokeLJ.longValue;
-    }
-
-    public void a(com.cmic.sso.sdk.a.a aVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || aVar == null) {
-            return;
-        }
-        this.a.put("current_config", aVar);
-    }
-
-    public com.cmic.sso.sdk.a.a b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            com.cmic.sso.sdk.a.a aVar = (com.cmic.sso.sdk.a.a) this.a.get("current_config");
-            if (aVar != null) {
-                return aVar;
-            }
-            c.a("UmcConfigBean为空", "请核查");
-            return new a.C0507a().a();
-        }
-        return (com.cmic.sso.sdk.a.a) invokeV.objValue;
     }
 }

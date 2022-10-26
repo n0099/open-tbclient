@@ -38,22 +38,24 @@ public final class AesCipherDataSink implements DataSink {
         }
     }
 
-    @Override // com.google.android.exoplayer2.upstream.DataSink
-    public void close() throws IOException {
+    public AesCipherDataSink(byte[] bArr, DataSink dataSink, byte[] bArr2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.cipher = null;
-            this.wrappedDataSink.close();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bArr, dataSink, bArr2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-    }
-
-    @Override // com.google.android.exoplayer2.upstream.DataSink
-    public void open(DataSpec dataSpec) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataSpec) == null) {
-            this.wrappedDataSink.open(dataSpec);
-            this.cipher = new AesFlushingCipher(1, this.secretKey, CryptoUtil.getFNV64Hash(dataSpec.key), dataSpec.absoluteStreamPosition);
-        }
+        this.wrappedDataSink = dataSink;
+        this.secretKey = bArr;
+        this.scratch = bArr2;
     }
 
     @Override // com.google.android.exoplayer2.upstream.DataSink
@@ -75,23 +77,21 @@ public final class AesCipherDataSink implements DataSink {
         }
     }
 
-    public AesCipherDataSink(byte[] bArr, DataSink dataSink, byte[] bArr2) {
+    @Override // com.google.android.exoplayer2.upstream.DataSink
+    public void close() throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bArr, dataSink, bArr2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.cipher = null;
+            this.wrappedDataSink.close();
         }
-        this.wrappedDataSink = dataSink;
-        this.secretKey = bArr;
-        this.scratch = bArr2;
+    }
+
+    @Override // com.google.android.exoplayer2.upstream.DataSink
+    public void open(DataSpec dataSpec) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataSpec) == null) {
+            this.wrappedDataSink.open(dataSpec);
+            this.cipher = new AesFlushingCipher(1, this.secretKey, CryptoUtil.getFNV64Hash(dataSpec.key), dataSpec.absoluteStreamPosition);
+        }
     }
 }

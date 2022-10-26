@@ -85,16 +85,6 @@ public class BasicTokenIterator implements TokenIterator {
         return invokeI.intValue;
     }
 
-    @Override // org.apache.http.TokenIterator, java.util.Iterator
-    public boolean hasNext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeV.booleanValue;
-    }
-
     public boolean isHttpSeparator(char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -129,6 +119,16 @@ public class BasicTokenIterator implements TokenIterator {
             throw new RuntimeException("Stub!");
         }
         return invokeCommon.booleanValue;
+    }
+
+    @Override // org.apache.http.TokenIterator, java.util.Iterator
+    public boolean hasNext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // java.util.Iterator

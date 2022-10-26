@@ -1,7 +1,5 @@
 package com.baidu.searchbox.player.ubc;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.ubc.Flow;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -24,7 +22,6 @@ public interface IUbcFlow {
 
     void endSlot(String str);
 
-    @Nullable
     Flow getFlow();
 
     String getFlowType();
@@ -33,5 +30,5 @@ public interface IUbcFlow {
 
     void startSlot(String str, JSONObject jSONObject);
 
-    void uploadFlow(@NonNull BDVideoPlayerUbcContent bDVideoPlayerUbcContent, @Nullable JSONObject jSONObject, @Nullable JSONObject jSONObject2);
+    void uploadFlow(BDVideoPlayerUbcContent bDVideoPlayerUbcContent, JSONObject jSONObject, JSONObject jSONObject2);
 }

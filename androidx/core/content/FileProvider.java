@@ -13,9 +13,6 @@ import android.os.Environment;
 import android.os.ParcelFileDescriptor;
 import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
-import androidx.annotation.GuardedBy;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
@@ -48,7 +45,6 @@ public class FileProvider extends ContentProvider {
     public static final String TAG_EXTERNAL_MEDIA = "external-media-path";
     public static final String TAG_FILES_PATH = "files-path";
     public static final String TAG_ROOT_PATH = "root-path";
-    @GuardedBy("sCache")
     public static HashMap<String, PathStrategy> sCache;
     public transient /* synthetic */ FieldHolder $fh;
     public PathStrategy mStrategy;
@@ -58,6 +54,16 @@ public class FileProvider extends ContentProvider {
         File getFileForUri(Uri uri);
 
         Uri getUriForFile(File file);
+    }
+
+    @Override // android.content.ContentProvider
+    public boolean onCreate() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     /* loaded from: classes.dex */
@@ -207,6 +213,53 @@ public class FileProvider extends ContentProvider {
         return (File) invokeLL.objValue;
     }
 
+    public static Object[] copyOf(Object[] objArr, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, objArr, i)) == null) {
+            Object[] objArr2 = new Object[i];
+            System.arraycopy(objArr, 0, objArr2, 0, i);
+            return objArr2;
+        }
+        return (Object[]) invokeLI.objValue;
+    }
+
+    @Override // android.content.ContentProvider
+    public void attachInfo(Context context, ProviderInfo providerInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, providerInfo) == null) {
+            super.attachInfo(context, providerInfo);
+            if (!providerInfo.exported) {
+                if (providerInfo.grantUriPermissions) {
+                    this.mStrategy = getPathStrategy(context, providerInfo.authority);
+                    return;
+                }
+                throw new SecurityException("Provider must grant uri permissions");
+            }
+            throw new SecurityException("Provider must not be exported");
+        }
+    }
+
+    @Override // android.content.ContentProvider
+    public Uri insert(Uri uri, ContentValues contentValues) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, uri, contentValues)) == null) {
+            throw new UnsupportedOperationException("No external inserts");
+        }
+        return (Uri) invokeLL.objValue;
+    }
+
+    @Override // android.content.ContentProvider
+    public ParcelFileDescriptor openFile(Uri uri, String str) throws FileNotFoundException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, uri, str)) == null) {
+            return ParcelFileDescriptor.open(this.mStrategy.getFileForUri(uri), modeToMode(str));
+        }
+        return (ParcelFileDescriptor) invokeLL.objValue;
+    }
+
     public static String[] copyOf(String[] strArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
@@ -241,10 +294,23 @@ public class FileProvider extends ContentProvider {
         return (PathStrategy) invokeLL.objValue;
     }
 
-    public static Uri getUriForFile(@NonNull Context context, @NonNull String str, @NonNull File file) {
+    public static Uri getUriForFile(Context context, String str, File file) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, context, str, file)) == null) ? getPathStrategy(context, str).getUriForFile(file) : (Uri) invokeLLL.objValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, context, str, file)) == null) {
+            return getPathStrategy(context, str).getUriForFile(file);
+        }
+        return (Uri) invokeLLL.objValue;
+    }
+
+    @Override // android.content.ContentProvider
+    public int delete(Uri uri, String str, String[] strArr) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri, str, strArr)) == null) {
+            return this.mStrategy.getFileForUri(uri).delete() ? 1 : 0;
+        }
+        return invokeLLL.intValue;
     }
 
     public static int modeToMode(String str) {
@@ -254,19 +320,19 @@ public class FileProvider extends ContentProvider {
             if ("r".equals(str)) {
                 return LaunchTaskConstants.OTHER_PROCESS;
             }
-            if ("w".equals(str) || "wt".equals(str)) {
-                return 738197504;
+            if (!"w".equals(str) && !"wt".equals(str)) {
+                if ("wa".equals(str)) {
+                    return 704643072;
+                }
+                if ("rw".equals(str)) {
+                    return 939524096;
+                }
+                if ("rwt".equals(str)) {
+                    return 1006632960;
+                }
+                throw new IllegalArgumentException("Invalid mode: " + str);
             }
-            if ("wa".equals(str)) {
-                return 704643072;
-            }
-            if ("rw".equals(str)) {
-                return 939524096;
-            }
-            if ("rwt".equals(str)) {
-                return 1006632960;
-            }
-            throw new IllegalArgumentException("Invalid mode: " + str);
+            return 738197504;
         }
         return invokeL.intValue;
     }
@@ -274,85 +340,64 @@ public class FileProvider extends ContentProvider {
     public static PathStrategy parsePathStrategy(Context context, String str) throws IOException, XmlPullParserException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(65544, null, context, str)) != null) {
-            return (PathStrategy) invokeLL.objValue;
-        }
-        SimplePathStrategy simplePathStrategy = new SimplePathStrategy(str);
-        ProviderInfo resolveContentProvider = context.getPackageManager().resolveContentProvider(str, 128);
-        if (resolveContentProvider != null) {
-            XmlResourceParser loadXmlMetaData = resolveContentProvider.loadXmlMetaData(context.getPackageManager(), "android.support.FILE_PROVIDER_PATHS");
-            if (loadXmlMetaData == null) {
-                throw new IllegalArgumentException("Missing android.support.FILE_PROVIDER_PATHS meta-data");
-            }
-            while (true) {
-                int next = loadXmlMetaData.next();
-                if (next == 1) {
-                    return simplePathStrategy;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, context, str)) == null) {
+            SimplePathStrategy simplePathStrategy = new SimplePathStrategy(str);
+            ProviderInfo resolveContentProvider = context.getPackageManager().resolveContentProvider(str, 128);
+            if (resolveContentProvider != null) {
+                XmlResourceParser loadXmlMetaData = resolveContentProvider.loadXmlMetaData(context.getPackageManager(), "android.support.FILE_PROVIDER_PATHS");
+                if (loadXmlMetaData == null) {
+                    throw new IllegalArgumentException("Missing android.support.FILE_PROVIDER_PATHS meta-data");
                 }
-                if (next == 2) {
-                    String name = loadXmlMetaData.getName();
-                    File file = null;
-                    String attributeValue = loadXmlMetaData.getAttributeValue(null, "name");
-                    String attributeValue2 = loadXmlMetaData.getAttributeValue(null, "path");
-                    if ("root-path".equals(name)) {
-                        file = DEVICE_ROOT;
-                    } else if ("files-path".equals(name)) {
-                        file = context.getFilesDir();
-                    } else if ("cache-path".equals(name)) {
-                        file = context.getCacheDir();
-                    } else if ("external-path".equals(name)) {
-                        file = Environment.getExternalStorageDirectory();
-                    } else if ("external-files-path".equals(name)) {
-                        File[] externalFilesDirs = ContextCompat.getExternalFilesDirs(context, null);
-                        if (externalFilesDirs.length > 0) {
-                            file = externalFilesDirs[0];
+                while (true) {
+                    int next = loadXmlMetaData.next();
+                    if (next != 1) {
+                        if (next == 2) {
+                            String name = loadXmlMetaData.getName();
+                            File file = null;
+                            String attributeValue = loadXmlMetaData.getAttributeValue(null, "name");
+                            String attributeValue2 = loadXmlMetaData.getAttributeValue(null, "path");
+                            if ("root-path".equals(name)) {
+                                file = DEVICE_ROOT;
+                            } else if ("files-path".equals(name)) {
+                                file = context.getFilesDir();
+                            } else if ("cache-path".equals(name)) {
+                                file = context.getCacheDir();
+                            } else if ("external-path".equals(name)) {
+                                file = Environment.getExternalStorageDirectory();
+                            } else if ("external-files-path".equals(name)) {
+                                File[] externalFilesDirs = ContextCompat.getExternalFilesDirs(context, null);
+                                if (externalFilesDirs.length > 0) {
+                                    file = externalFilesDirs[0];
+                                }
+                            } else if ("external-cache-path".equals(name)) {
+                                File[] externalCacheDirs = ContextCompat.getExternalCacheDirs(context);
+                                if (externalCacheDirs.length > 0) {
+                                    file = externalCacheDirs[0];
+                                }
+                            } else if (Build.VERSION.SDK_INT >= 21 && TAG_EXTERNAL_MEDIA.equals(name)) {
+                                File[] externalMediaDirs = context.getExternalMediaDirs();
+                                if (externalMediaDirs.length > 0) {
+                                    file = externalMediaDirs[0];
+                                }
+                            }
+                            if (file != null) {
+                                simplePathStrategy.addRoot(attributeValue, buildPath(file, attributeValue2));
+                            }
                         }
-                    } else if ("external-cache-path".equals(name)) {
-                        File[] externalCacheDirs = ContextCompat.getExternalCacheDirs(context);
-                        if (externalCacheDirs.length > 0) {
-                            file = externalCacheDirs[0];
-                        }
-                    } else if (Build.VERSION.SDK_INT >= 21 && TAG_EXTERNAL_MEDIA.equals(name)) {
-                        File[] externalMediaDirs = context.getExternalMediaDirs();
-                        if (externalMediaDirs.length > 0) {
-                            file = externalMediaDirs[0];
-                        }
-                    }
-                    if (file != null) {
-                        simplePathStrategy.addRoot(attributeValue, buildPath(file, attributeValue2));
+                    } else {
+                        return simplePathStrategy;
                     }
                 }
+            } else {
+                throw new IllegalArgumentException("Couldn't find meta-data for provider with authority " + str);
             }
         } else {
-            throw new IllegalArgumentException("Couldn't find meta-data for provider with authority " + str);
+            return (PathStrategy) invokeLL.objValue;
         }
     }
 
     @Override // android.content.ContentProvider
-    public void attachInfo(@NonNull Context context, @NonNull ProviderInfo providerInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, providerInfo) == null) {
-            super.attachInfo(context, providerInfo);
-            if (!providerInfo.exported) {
-                if (providerInfo.grantUriPermissions) {
-                    this.mStrategy = getPathStrategy(context, providerInfo.authority);
-                    return;
-                }
-                throw new SecurityException("Provider must grant uri permissions");
-            }
-            throw new SecurityException("Provider must not be exported");
-        }
-    }
-
-    @Override // android.content.ContentProvider
-    public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri, str, strArr)) == null) ? this.mStrategy.getFileForUri(uri).delete() ? 1 : 0 : invokeLLL.intValue;
-    }
-
-    @Override // android.content.ContentProvider
-    public String getType(@NonNull Uri uri) {
+    public String getType(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uri)) == null) {
@@ -360,7 +405,10 @@ public class FileProvider extends ContentProvider {
             int lastIndexOf = fileForUri.getName().lastIndexOf(46);
             if (lastIndexOf >= 0) {
                 String mimeTypeFromExtension = MimeTypeMap.getSingleton().getMimeTypeFromExtension(fileForUri.getName().substring(lastIndexOf + 1));
-                return mimeTypeFromExtension != null ? mimeTypeFromExtension : "application/octet-stream";
+                if (mimeTypeFromExtension != null) {
+                    return mimeTypeFromExtension;
+                }
+                return "application/octet-stream";
             }
             return "application/octet-stream";
         }
@@ -368,34 +416,7 @@ public class FileProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
-    public Uri insert(@NonNull Uri uri, ContentValues contentValues) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, uri, contentValues)) == null) {
-            throw new UnsupportedOperationException("No external inserts");
-        }
-        return (Uri) invokeLL.objValue;
-    }
-
-    @Override // android.content.ContentProvider
-    public boolean onCreate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // android.content.ContentProvider
-    public ParcelFileDescriptor openFile(@NonNull Uri uri, @NonNull String str) throws FileNotFoundException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, uri, str)) == null) ? ParcelFileDescriptor.open(this.mStrategy.getFileForUri(uri), modeToMode(str)) : (ParcelFileDescriptor) invokeLL.objValue;
-    }
-
-    @Override // android.content.ContentProvider
-    public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
+    public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
         InterceptResult invokeLLLLL;
         int i;
         Interceptable interceptable = $ic;
@@ -429,23 +450,12 @@ public class FileProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
-    public int update(@NonNull Uri uri, ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
+    public int update(Uri uri, ContentValues contentValues, String str, String[] strArr) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, uri, contentValues, str, strArr)) == null) {
             throw new UnsupportedOperationException("No external updates");
         }
         return invokeLLLL.intValue;
-    }
-
-    public static Object[] copyOf(Object[] objArr, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, objArr, i)) == null) {
-            Object[] objArr2 = new Object[i];
-            System.arraycopy(objArr, 0, objArr2, 0, i);
-            return objArr2;
-        }
-        return (Object[]) invokeLI.objValue;
     }
 }

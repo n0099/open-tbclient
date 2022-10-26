@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class CompoundTrimPathContent {
-    public List<TrimPathContent> contents = new ArrayList();
+    public List contents = new ArrayList();
 
     public void addTrimPath(TrimPathContent trimPathContent) {
         this.contents.add(trimPathContent);
@@ -14,7 +14,7 @@ public class CompoundTrimPathContent {
 
     public void apply(Path path) {
         for (int size = this.contents.size() - 1; size >= 0; size--) {
-            Utils.applyTrimPathIfNeeded(path, this.contents.get(size));
+            Utils.applyTrimPathIfNeeded(path, (TrimPathContent) this.contents.get(size));
         }
     }
 }

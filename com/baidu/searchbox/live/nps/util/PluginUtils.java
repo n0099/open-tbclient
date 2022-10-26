@@ -32,6 +32,7 @@ public class PluginUtils {
     public static boolean isLivenpsMatchMultiNps() {
         InterceptResult invokeV;
         BundleInfo bundleByType;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             BundleInfoGroup bundleGroup = NPSPackageManager.getInstance().getBundleGroup("com.baidu.searchbox.livenps");
@@ -42,9 +43,16 @@ public class PluginUtils {
             boolean isMultiBundle = bundleByType.isMultiBundle();
             boolean isSubBundle = bundleByType.isSubBundle();
             Log.e("nps-multi-plugin", "PluginUtils-isLivenpsMatchMultiNps--isMultiBundle = " + isMultiBundle + ", isSubBundle = " + isSubBundle);
-            boolean z = bundleByType.getSubBundle() != null && bundleByType.getSubBundle().size() > 0;
+            if (bundleByType.getSubBundle() != null && bundleByType.getSubBundle().size() > 0) {
+                z = true;
+            } else {
+                z = false;
+            }
             Log.e("nps-multi-plugin", "PluginUtils-isLivenpsMatchMultiNps--isMainBundle = " + isMainBundle + ", hasSubBundle = " + z);
-            return isMainBundle && z;
+            if (!isMainBundle || !z) {
+                return false;
+            }
+            return true;
         }
         return invokeV.booleanValue;
     }

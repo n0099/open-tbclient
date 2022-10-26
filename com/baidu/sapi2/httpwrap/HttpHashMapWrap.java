@@ -34,9 +34,8 @@ public class HttpHashMapWrap extends HttpHashMap implements NoProguard {
     public void doSign(String str) {
         Map map;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (map = getMap()) == null || map.containsKey(FunAdSdk.PLATFORM_SIG)) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (map = getMap()) != null && !map.containsKey(FunAdSdk.PLATFORM_SIG)) {
+            put(FunAdSdk.PLATFORM_SIG, SapiUtils.calculateSig(getMap(), str));
         }
-        put(FunAdSdk.PLATFORM_SIG, SapiUtils.calculateSig(getMap(), str));
     }
 }

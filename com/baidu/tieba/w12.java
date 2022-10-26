@@ -1,144 +1,108 @@
 package com.baidu.tieba;
 
 import android.os.Bundle;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.cookie.CookieManager;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class w12 extends n83 {
+public class w12 extends ProviderDelegation {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public CookieManager a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948217649, "Lcom/baidu/tieba/w12;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a implements gi3 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Bundle a;
+        public final /* synthetic */ w12 b;
+
+        public a(w12 w12Var, Bundle bundle) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {w12Var, bundle};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948217649, "Lcom/baidu/tieba/w12;");
-                return;
-            }
+            this.b = w12Var;
+            this.a = bundle;
         }
-        b = vj1.a;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.gi3
+        /* renamed from: a */
+        public Bundle create() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.b.d(this.a);
+            }
+            return (Bundle) invokeV.objValue;
+        }
     }
 
     public w12() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = null;
-        this.a = new x12();
     }
 
-    public final Bundle a(String str, String str2, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, str, str2, i)) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putInt("type", i);
-            bundle.putString("param1", str);
-            bundle.putString("param2", str2);
-            return bundle;
-        }
-        return (Bundle) invokeLLI.objValue;
-    }
-
-    @Override // com.baidu.tieba.n83, com.baidu.searchbox.http.cookie.CookieManager
-    public String getCookie(String str) {
+    public final Bundle d(Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                return this.a.getCookie(str);
-            }
-            a03 c = yz2.c(v12.class, a(str, "", 4));
-            if (c.a()) {
-                String string = c.a.getString(TiebaStatic.LogFields.RESULT);
-                if (b) {
-                    Log.d("DelegationCookieManager", "getCookie cookie : " + string);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+            int i = bundle.getInt("type");
+            y12 y12Var = new y12();
+            String string = bundle.getString("param1");
+            Bundle bundle2 = new Bundle();
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            return bundle2;
+                        }
+                        bundle2.putString(TiebaStatic.LogFields.RESULT, y12Var.getCookie(string));
+                        return bundle2;
+                    }
+                    y12Var.storeCookie(string, bundle.getStringArrayList("param2"));
+                    return bundle2;
                 }
-                return string;
+                bundle2.putBoolean(TiebaStatic.LogFields.RESULT, y12Var.shouldSendCookie(string, bundle.getString("param2")));
+                return bundle2;
             }
-            return "";
+            bundle2.putBoolean(TiebaStatic.LogFields.RESULT, y12Var.shouldAcceptCookie(string, bundle.getString("param2")));
+            return bundle2;
         }
-        return (String) invokeL.objValue;
+        return (Bundle) invokeL.objValue;
     }
 
-    @Override // com.baidu.searchbox.http.cookie.CookieManager
-    public boolean shouldAcceptCookie(String str, String str2) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+    public Bundle execCall(Bundle bundle) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                return this.a.shouldAcceptCookie(str, str2);
-            }
-            a03 c = yz2.c(v12.class, a(str, str2, 1));
-            if (c.a()) {
-                return c.a.getBoolean(TiebaStatic.LogFields.RESULT);
-            }
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) {
+            return (Bundle) di3.b(new a(this, bundle));
         }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.http.cookie.CookieManager
-    public boolean shouldSendCookie(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                return this.a.shouldSendCookie(str, str2);
-            }
-            a03 c = yz2.c(v12.class, a(str, str2, 2));
-            if (c.a()) {
-                return c.a.getBoolean(TiebaStatic.LogFields.RESULT);
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.http.cookie.CookieManager
-    public void storeCookie(String str, List<String> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, list) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                this.a.storeCookie(str, list);
-                return;
-            }
-            Bundle bundle = new Bundle();
-            bundle.putInt("type", 3);
-            bundle.putString("param1", str);
-            bundle.putStringArrayList("param2", (ArrayList) list);
-            yz2.c(v12.class, bundle);
-            if (b) {
-                Log.d("DelegationCookieManager", "set cookies for " + str);
-            }
-        }
+        return (Bundle) invokeL.objValue;
     }
 }

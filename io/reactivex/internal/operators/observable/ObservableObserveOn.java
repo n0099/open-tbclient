@@ -10,7 +10,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.ObservableSource;
 import io.reactivex.Observer;
 import io.reactivex.Scheduler;
-import io.reactivex.annotations.Nullable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.exceptions.Exceptions;
 import io.reactivex.internal.disposables.DisposableHelper;
@@ -21,7 +20,7 @@ import io.reactivex.internal.queue.SpscLinkedArrayQueue;
 import io.reactivex.internal.schedulers.TrampolineScheduler;
 import io.reactivex.plugins.RxJavaPlugins;
 /* loaded from: classes8.dex */
-public final class ObservableObserveOn<T> extends AbstractObservableWithUpstream<T, T> {
+public final class ObservableObserveOn extends AbstractObservableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int bufferSize;
@@ -29,23 +28,23 @@ public final class ObservableObserveOn<T> extends AbstractObservableWithUpstream
     public final Scheduler scheduler;
 
     /* loaded from: classes8.dex */
-    public static final class ObserveOnObserver<T> extends BasicIntQueueDisposable<T> implements Observer<T>, Runnable {
+    public final class ObserveOnObserver extends BasicIntQueueDisposable implements Observer, Runnable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 6576896619930983584L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer<? super T> actual;
+        public final Observer actual;
         public final int bufferSize;
         public volatile boolean cancelled;
         public final boolean delayError;
         public volatile boolean done;
         public Throwable error;
         public boolean outputFused;
-        public SimpleQueue<T> queue;
+        public SimpleQueue queue;
         public Disposable s;
         public int sourceMode;
         public final Scheduler.Worker worker;
 
-        public ObserveOnObserver(Observer<? super T> observer, Scheduler.Worker worker, boolean z, int i) {
+        public ObserveOnObserver(Observer observer, Scheduler.Worker worker, boolean z, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -66,7 +65,7 @@ public final class ObservableObserveOn<T> extends AbstractObservableWithUpstream
             this.bufferSize = i;
         }
 
-        public boolean checkTerminated(boolean z, boolean z2, Observer<? super T> observer) {
+        public boolean checkTerminated(boolean z, boolean z2, Observer observer) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), observer})) == null) {
@@ -116,14 +115,72 @@ public final class ObservableObserveOn<T> extends AbstractObservableWithUpstream
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.cancelled) {
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && !this.cancelled) {
+                this.cancelled = true;
+                this.s.dispose();
+                this.worker.dispose();
+                if (getAndIncrement() == 0) {
+                    this.queue.clear();
+                }
+            }
+        }
+
+        @Override // io.reactivex.disposables.Disposable
+        public boolean isDisposed() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return this.cancelled;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // io.reactivex.internal.fuseable.SimpleQueue
+        public boolean isEmpty() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return this.queue.isEmpty();
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // io.reactivex.Observer
+        public void onComplete() {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || this.done) {
                 return;
             }
-            this.cancelled = true;
-            this.s.dispose();
-            this.worker.dispose();
-            if (getAndIncrement() == 0) {
-                this.queue.clear();
+            this.done = true;
+            schedule();
+        }
+
+        @Override // io.reactivex.internal.fuseable.SimpleQueue
+        public Object poll() throws Exception {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+                return this.queue.poll();
+            }
+            return invokeV.objValue;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+                if (this.outputFused) {
+                    drainFused();
+                } else {
+                    drainNormal();
+                }
+            }
+        }
+
+        public void schedule() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && getAndIncrement() == 0) {
+                this.worker.schedule(this);
             }
         }
 
@@ -159,27 +216,32 @@ public final class ObservableObserveOn<T> extends AbstractObservableWithUpstream
         }
 
         public void drainNormal() {
+            boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                SimpleQueue<T> simpleQueue = this.queue;
-                Observer<? super T> observer = this.actual;
+                SimpleQueue simpleQueue = this.queue;
+                Observer observer = this.actual;
                 int i = 1;
                 while (!checkTerminated(this.done, simpleQueue.isEmpty(), observer)) {
                     while (true) {
-                        boolean z = this.done;
+                        boolean z2 = this.done;
                         try {
-                            Object obj = (T) simpleQueue.poll();
-                            boolean z2 = obj == null;
-                            if (checkTerminated(z, z2, observer)) {
+                            Object poll = simpleQueue.poll();
+                            if (poll == null) {
+                                z = true;
+                            } else {
+                                z = false;
+                            }
+                            if (checkTerminated(z2, z, observer)) {
                                 return;
                             }
-                            if (z2) {
+                            if (z) {
                                 i = addAndGet(-i);
                                 if (i == 0) {
                                     return;
                                 }
                             } else {
-                                observer.onNext(obj);
+                                observer.onNext(poll);
                             }
                         } catch (Throwable th) {
                             Exceptions.throwIfFatal(th);
@@ -192,30 +254,6 @@ public final class ObservableObserveOn<T> extends AbstractObservableWithUpstream
                     }
                 }
             }
-        }
-
-        @Override // io.reactivex.disposables.Disposable
-        public boolean isDisposed() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.cancelled : invokeV.booleanValue;
-        }
-
-        @Override // io.reactivex.internal.fuseable.SimpleQueue
-        public boolean isEmpty() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.queue.isEmpty() : invokeV.booleanValue;
-        }
-
-        @Override // io.reactivex.Observer
-        public void onComplete() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.done) {
-                return;
-            }
-            this.done = true;
-            schedule();
         }
 
         @Override // io.reactivex.Observer
@@ -233,15 +271,29 @@ public final class ObservableObserveOn<T> extends AbstractObservableWithUpstream
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048585, this, t) == null) || this.done) {
+            if ((interceptable != null && interceptable.invokeL(1048585, this, obj) != null) || this.done) {
                 return;
             }
             if (this.sourceMode != 2) {
-                this.queue.offer(t);
+                this.queue.offer(obj);
             }
             schedule();
+        }
+
+        @Override // io.reactivex.internal.fuseable.QueueFuseable
+        public int requestFusion(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
+                if ((i & 2) != 0) {
+                    this.outputFused = true;
+                    return 2;
+                }
+                return 0;
+            }
+            return invokeI.intValue;
         }
 
         @Override // io.reactivex.Observer
@@ -270,51 +322,10 @@ public final class ObservableObserveOn<T> extends AbstractObservableWithUpstream
                 this.actual.onSubscribe(this);
             }
         }
-
-        @Override // io.reactivex.internal.fuseable.SimpleQueue
-        @Nullable
-        public T poll() throws Exception {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.queue.poll() : (T) invokeV.objValue;
-        }
-
-        @Override // io.reactivex.internal.fuseable.QueueFuseable
-        public int requestFusion(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
-                if ((i & 2) != 0) {
-                    this.outputFused = true;
-                    return 2;
-                }
-                return 0;
-            }
-            return invokeI.intValue;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-                if (this.outputFused) {
-                    drainFused();
-                } else {
-                    drainNormal();
-                }
-            }
-        }
-
-        public void schedule() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && getAndIncrement() == 0) {
-                this.worker.schedule(this);
-            }
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableObserveOn(ObservableSource<T> observableSource, Scheduler scheduler, boolean z, int i) {
+    public ObservableObserveOn(ObservableSource observableSource, Scheduler scheduler, boolean z, int i) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -337,7 +348,7 @@ public final class ObservableObserveOn<T> extends AbstractObservableWithUpstream
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer<? super T> observer) {
+    public void subscribeActual(Observer observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             Scheduler scheduler = this.scheduler;

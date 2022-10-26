@@ -15,6 +15,11 @@ import kotlin.sequences.SequencesKt___SequencesKt;
 public final class MatcherMatchResult$groups$1 extends AbstractCollection<MatchGroup> implements MatchNamedGroupCollection {
     public final /* synthetic */ MatcherMatchResult this$0;
 
+    @Override // kotlin.collections.AbstractCollection, java.util.Collection
+    public boolean isEmpty() {
+        return false;
+    }
+
     /* JADX DEBUG: Incorrect args count in method signature: ()V */
     public MatcherMatchResult$groups$1(MatcherMatchResult matcherMatchResult) {
         this.this$0 = matcherMatchResult;
@@ -22,7 +27,13 @@ public final class MatcherMatchResult$groups$1 extends AbstractCollection<MatchG
 
     @Override // kotlin.collections.AbstractCollection, java.util.Collection
     public final /* bridge */ boolean contains(Object obj) {
-        if (obj != null ? obj instanceof MatchGroup : true) {
+        boolean z;
+        if (obj != null) {
+            z = obj instanceof MatchGroup;
+        } else {
+            z = true;
+        }
+        if (z) {
             return contains((MatchGroup) obj);
         }
         return false;
@@ -35,30 +46,13 @@ public final class MatcherMatchResult$groups$1 extends AbstractCollection<MatchG
         java.util.regex.MatchResult matchResult2;
         matchResult = this.this$0.getMatchResult();
         range = RegexKt.range(matchResult, i);
-        if (range.getStart().intValue() >= 0) {
-            matchResult2 = this.this$0.getMatchResult();
-            String group = matchResult2.group(i);
-            Intrinsics.checkNotNullExpressionValue(group, "matchResult.group(index)");
-            return new MatchGroup(group, range);
+        if (range.getStart().intValue() < 0) {
+            return null;
         }
-        return null;
-    }
-
-    @Override // kotlin.collections.AbstractCollection
-    public int getSize() {
-        java.util.regex.MatchResult matchResult;
-        matchResult = this.this$0.getMatchResult();
-        return matchResult.groupCount() + 1;
-    }
-
-    @Override // kotlin.collections.AbstractCollection, java.util.Collection
-    public boolean isEmpty() {
-        return false;
-    }
-
-    @Override // kotlin.collections.AbstractCollection, java.util.Collection, java.lang.Iterable
-    public Iterator<MatchGroup> iterator() {
-        return SequencesKt___SequencesKt.map(CollectionsKt___CollectionsKt.asSequence(CollectionsKt__CollectionsKt.getIndices(this)), new MatcherMatchResult$groups$1$iterator$1(this)).iterator();
+        matchResult2 = this.this$0.getMatchResult();
+        String group = matchResult2.group(i);
+        Intrinsics.checkNotNullExpressionValue(group, "matchResult.group(index)");
+        return new MatchGroup(group, range);
     }
 
     public /* bridge */ boolean contains(MatchGroup matchGroup) {
@@ -72,5 +66,17 @@ public final class MatcherMatchResult$groups$1 extends AbstractCollection<MatchG
         PlatformImplementations platformImplementations = PlatformImplementationsKt.IMPLEMENTATIONS;
         matchResult = this.this$0.getMatchResult();
         return platformImplementations.getMatchResultNamedGroup(matchResult, name);
+    }
+
+    @Override // kotlin.collections.AbstractCollection
+    public int getSize() {
+        java.util.regex.MatchResult matchResult;
+        matchResult = this.this$0.getMatchResult();
+        return matchResult.groupCount() + 1;
+    }
+
+    @Override // kotlin.collections.AbstractCollection, java.util.Collection, java.lang.Iterable
+    public Iterator<MatchGroup> iterator() {
+        return SequencesKt___SequencesKt.map(CollectionsKt___CollectionsKt.asSequence(CollectionsKt__CollectionsKt.getIndices(this)), new MatcherMatchResult$groups$1$iterator$1(this)).iterator();
     }
 }

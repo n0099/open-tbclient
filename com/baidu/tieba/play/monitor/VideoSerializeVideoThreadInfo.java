@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.data.OriginalForumInfo;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.dh;
+import com.baidu.tieba.eh;
 import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
 import com.baidu.tieba.tbadkCore.data.WorksInfoData;
@@ -57,7 +57,7 @@ public class VideoSerializeVideoThreadInfo implements Serializable {
     public String weight;
 
     /* loaded from: classes5.dex */
-    public static class VideoAggregationAuthorData implements Serializable {
+    public class VideoAggregationAuthorData implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 937744153926100702L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -71,7 +71,7 @@ public class VideoSerializeVideoThreadInfo implements Serializable {
         public String userNickname;
 
         /* loaded from: classes5.dex */
-        public static class BaijiahaoAuthorData implements Serializable {
+        public class BaijiahaoAuthorData implements Serializable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = 7277512143348542714L;
             public transient /* synthetic */ FieldHolder $fh;
@@ -113,7 +113,7 @@ public class VideoSerializeVideoThreadInfo implements Serializable {
     }
 
     /* loaded from: classes5.dex */
-    public static class VideoAggregationVideoData implements Serializable {
+    public class VideoAggregationVideoData implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 7265311334325180130L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -148,7 +148,7 @@ public class VideoSerializeVideoThreadInfo implements Serializable {
     }
 
     /* loaded from: classes5.dex */
-    public static class VideoCardViewInfo implements Serializable {
+    public class VideoCardViewInfo implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 5722373220077065607L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -188,88 +188,126 @@ public class VideoSerializeVideoThreadInfo implements Serializable {
         this.waitConfirm = false;
     }
 
-    public void copyFromFlutterDataMap(Map<String, Object> map) {
+    public VideoAggregationAuthorData getAuthor() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, map) == null) || map == null || map.isEmpty()) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.author;
         }
-        if (map.get(NotificationCompat.CarExtender.KEY_AUTHOR) instanceof Map) {
-            Map map2 = (Map) map.get(NotificationCompat.CarExtender.KEY_AUTHOR);
-            VideoAggregationAuthorData videoAggregationAuthorData = new VideoAggregationAuthorData();
-            this.author = videoAggregationAuthorData;
-            videoAggregationAuthorData.userId = (String) map2.get("id");
-            this.author.userName = (String) map2.get("name");
-            this.author.userNickname = (String) map2.get("name_show");
-            this.author.portrait = (String) map2.get("portrait");
-            this.author.hasFocus = "1".equals(map2.get("has_concerned"));
-            if (map2.get("god_data") instanceof Map) {
-                int e = dh.e((String) ((Map) map2.get("god_data")).get("type"), 0);
-                this.author.isBigV = e == 2 || e == 1;
-                this.author.isGod = e == 2;
+        return (VideoAggregationAuthorData) invokeV.objValue;
+    }
+
+    public BaijiahaoData getBaijiahaoData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mBaijiahaoData;
+        }
+        return (BaijiahaoData) invokeV.objValue;
+    }
+
+    public VideoAggregationVideoData getThreadVideoInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.video;
+        }
+        return (VideoAggregationVideoData) invokeV.objValue;
+    }
+
+    public void copyFromFlutterDataMap(Map map) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, map) == null) && map != null && !map.isEmpty()) {
+            if (map.get(NotificationCompat.CarExtender.KEY_AUTHOR) instanceof Map) {
+                Map map2 = (Map) map.get(NotificationCompat.CarExtender.KEY_AUTHOR);
+                VideoAggregationAuthorData videoAggregationAuthorData = new VideoAggregationAuthorData();
+                this.author = videoAggregationAuthorData;
+                videoAggregationAuthorData.userId = (String) map2.get("id");
+                this.author.userName = (String) map2.get("name");
+                this.author.userNickname = (String) map2.get("name_show");
+                this.author.portrait = (String) map2.get("portrait");
+                this.author.hasFocus = "1".equals(map2.get("has_concerned"));
+                if (map2.get("god_data") instanceof Map) {
+                    int e = eh.e((String) ((Map) map2.get("god_data")).get("type"), 0);
+                    VideoAggregationAuthorData videoAggregationAuthorData2 = this.author;
+                    boolean z2 = true;
+                    if (e != 2 && e != 1) {
+                        z = false;
+                    } else {
+                        z = true;
+                    }
+                    videoAggregationAuthorData2.isBigV = z;
+                    VideoAggregationAuthorData videoAggregationAuthorData3 = this.author;
+                    if (e != 2) {
+                        z2 = false;
+                    }
+                    videoAggregationAuthorData3.isGod = z2;
+                }
+                if (map2.get("baijiahao_info") instanceof Map) {
+                    Map map3 = (Map) map2.get("baijiahao_info");
+                    this.author.baijiahaoData = new VideoAggregationAuthorData.BaijiahaoAuthorData();
+                    this.author.baijiahaoData.name = (String) map3.get("name");
+                    this.author.baijiahaoData.avatar = (String) map3.get("avatar");
+                    this.author.baijiahaoData.auth_id = Integer.valueOf(eh.e((String) map3.get("auth_id"), 0));
+                    this.author.baijiahaoData.auth_desc = (String) map3.get("auth_desc");
+                    this.author.baijiahaoData.brief = (String) map3.get(DBTableDefine.GroupInfoColumns.COLUMN_BRIEF);
+                }
             }
-            if (map2.get("baijiahao_info") instanceof Map) {
-                Map map3 = (Map) map2.get("baijiahao_info");
-                this.author.baijiahaoData = new VideoAggregationAuthorData.BaijiahaoAuthorData();
-                this.author.baijiahaoData.name = (String) map3.get("name");
-                this.author.baijiahaoData.avatar = (String) map3.get("avatar");
-                this.author.baijiahaoData.auth_id = Integer.valueOf(dh.e((String) map3.get("auth_id"), 0));
-                this.author.baijiahaoData.auth_desc = (String) map3.get("auth_desc");
-                this.author.baijiahaoData.brief = (String) map3.get(DBTableDefine.GroupInfoColumns.COLUMN_BRIEF);
+            if (map.get(Constants.PAGE_BAIJIAHAO_NAME) instanceof Map) {
+                Map map4 = (Map) map.get(Constants.PAGE_BAIJIAHAO_NAME);
+                BaijiahaoData baijiahaoData = new BaijiahaoData();
+                baijiahaoData.oriUgcNid = (String) map4.get("ori_ugc_nid");
+                baijiahaoData.oriUgcTid = (String) map4.get("ori_ugc_tid");
+                baijiahaoData.oriUgcType = eh.e((String) map4.get(TiebaStatic.Params.UGC_TYPE), 0);
+                baijiahaoData.oriUgcVid = (String) map4.get("ori_ugc_vid");
+                baijiahaoData.forwardUrl = (String) map4.get("forward_url");
+                this.mBaijiahaoData = baijiahaoData;
             }
-        }
-        if (map.get(Constants.PAGE_BAIJIAHAO_NAME) instanceof Map) {
-            Map map4 = (Map) map.get(Constants.PAGE_BAIJIAHAO_NAME);
-            BaijiahaoData baijiahaoData = new BaijiahaoData();
-            baijiahaoData.oriUgcNid = (String) map4.get("ori_ugc_nid");
-            baijiahaoData.oriUgcTid = (String) map4.get("ori_ugc_tid");
-            baijiahaoData.oriUgcType = dh.e((String) map4.get(TiebaStatic.Params.UGC_TYPE), 0);
-            baijiahaoData.oriUgcVid = (String) map4.get("ori_ugc_vid");
-            baijiahaoData.forwardUrl = (String) map4.get("forward_url");
-            this.mBaijiahaoData = baijiahaoData;
-        }
-        VideoAggregationVideoData videoAggregationVideoData = new VideoAggregationVideoData();
-        if (map.get(WriteActivityConfig.VIDEO_INFO) instanceof Map) {
-            Map map5 = (Map) map.get(WriteActivityConfig.VIDEO_INFO);
-            videoAggregationVideoData.thumbnailWidth = String.valueOf(map5.get("thumbnail_width"));
-            videoAggregationVideoData.thumbnailHeight = String.valueOf(map5.get("thumbnail_height"));
-            videoAggregationVideoData.videoMd5 = (String) map5.get(VideoFinishResult.KEY_VIDEO_MD5);
-            videoAggregationVideoData.videoUrl = (String) map5.get("video_url");
-            videoAggregationVideoData.videoDuration = dh.e((String) map5.get(AdWebVideoActivityConfig.KEY_VIDEO_DURATION), 0);
-            videoAggregationVideoData.videoWidth = String.valueOf(map5.get("video_width"));
-            videoAggregationVideoData.videoHeight = String.valueOf(map5.get("video_height"));
-            videoAggregationVideoData.videoSize = dh.e((String) map5.get("video_length"), 0);
-            videoAggregationVideoData.thumbnailUrl = (String) map5.get("thumbnail_url");
-            this.playCount = dh.e((String) map5.get("play_count"), 0);
-        }
-        this.video = videoAggregationVideoData;
-        this.forumId = String.valueOf(map.get("fid"));
-        this.threadId = (String) map.get("tid");
-        this.firstPostId = (String) map.get("first_post_id");
-        this.createTime = (String) map.get("create_time");
-        this.postNum = dh.g((String) map.get("reply_num"), 0L);
-        this.shareNum = dh.g((String) map.get("share_num"), 0L);
-        this.title = (String) map.get("title");
-        if (map.get("agree") instanceof Map) {
-            Map map6 = (Map) map.get("agree");
-            this.agreeNum = dh.g((String) map6.get("agree_num"), 0L);
-            this.disAgreeNum = dh.g((String) map6.get("disagree_num"), 0L);
-            this.agreeType = dh.e((String) map6.get("agree_type"), 0);
-            this.hasAgree = "1".equals(map6.get("has_agree"));
-            AgreeData agreeData = new AgreeData();
-            this.mAgreeData = agreeData;
-            agreeData.threadId = this.threadId;
-            agreeData.agreeNum = this.agreeNum;
-            agreeData.diffAgreeNum = dh.g((String) map6.get("diff_agree_num"), 0L);
-            AgreeData agreeData2 = this.mAgreeData;
-            agreeData2.disAgreeNum = this.disAgreeNum;
-            agreeData2.agreeType = this.agreeType;
-            agreeData2.hasAgree = this.hasAgree;
+            VideoAggregationVideoData videoAggregationVideoData = new VideoAggregationVideoData();
+            if (map.get(WriteActivityConfig.VIDEO_INFO) instanceof Map) {
+                Map map5 = (Map) map.get(WriteActivityConfig.VIDEO_INFO);
+                videoAggregationVideoData.thumbnailWidth = String.valueOf(map5.get("thumbnail_width"));
+                videoAggregationVideoData.thumbnailHeight = String.valueOf(map5.get("thumbnail_height"));
+                videoAggregationVideoData.videoMd5 = (String) map5.get(VideoFinishResult.KEY_VIDEO_MD5);
+                videoAggregationVideoData.videoUrl = (String) map5.get("video_url");
+                videoAggregationVideoData.videoDuration = eh.e((String) map5.get(AdWebVideoActivityConfig.KEY_VIDEO_DURATION), 0);
+                videoAggregationVideoData.videoWidth = String.valueOf(map5.get("video_width"));
+                videoAggregationVideoData.videoHeight = String.valueOf(map5.get("video_height"));
+                videoAggregationVideoData.videoSize = eh.e((String) map5.get("video_length"), 0);
+                videoAggregationVideoData.thumbnailUrl = (String) map5.get("thumbnail_url");
+                this.playCount = eh.e((String) map5.get("play_count"), 0);
+            }
+            this.video = videoAggregationVideoData;
+            this.forumId = String.valueOf(map.get("fid"));
+            this.threadId = (String) map.get("tid");
+            this.firstPostId = (String) map.get("first_post_id");
+            this.createTime = (String) map.get("create_time");
+            this.postNum = eh.g((String) map.get("reply_num"), 0L);
+            this.shareNum = eh.g((String) map.get("share_num"), 0L);
+            this.title = (String) map.get("title");
+            if (map.get("agree") instanceof Map) {
+                Map map6 = (Map) map.get("agree");
+                this.agreeNum = eh.g((String) map6.get("agree_num"), 0L);
+                this.disAgreeNum = eh.g((String) map6.get("disagree_num"), 0L);
+                this.agreeType = eh.e((String) map6.get("agree_type"), 0);
+                this.hasAgree = "1".equals(map6.get("has_agree"));
+                AgreeData agreeData = new AgreeData();
+                this.mAgreeData = agreeData;
+                agreeData.threadId = this.threadId;
+                agreeData.agreeNum = this.agreeNum;
+                agreeData.diffAgreeNum = eh.g((String) map6.get("diff_agree_num"), 0L);
+                AgreeData agreeData2 = this.mAgreeData;
+                agreeData2.disAgreeNum = this.disAgreeNum;
+                agreeData2.agreeType = this.agreeType;
+                agreeData2.hasAgree = this.hasAgree;
+            }
         }
     }
 
     public void copyFromThreadInfo(ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadData) == null) || threadData == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadData) != null) || threadData == null) {
             return;
         }
         VideoAggregationAuthorData videoAggregationAuthorData = new VideoAggregationAuthorData();
@@ -331,7 +369,11 @@ public class VideoSerializeVideoThreadInfo implements Serializable {
         this.disAgreeNum = threadData.getDisAgreeNum();
         this.agreeType = threadData.getAgreeType();
         this.shareNum = threadData.getShareNum();
-        this.hasAgree = threadData.getHasAgree() == 1;
+        boolean z = true;
+        if (threadData.getHasAgree() != 1) {
+            z = false;
+        }
+        this.hasAgree = z;
         this.source = threadData.getRecomSource();
         this.title = threadData.getTitle();
         if (threadData.getAgreeData() != null) {
@@ -349,23 +391,43 @@ public class VideoSerializeVideoThreadInfo implements Serializable {
 
     public void copyFromTransmitThreadData(ThreadData threadData) {
         Agree agree;
+        boolean z;
+        boolean z2;
+        boolean z3;
+        boolean z4;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadData) == null) || threadData == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadData) != null) || threadData == null) {
             return;
         }
         OriginalThreadInfo originalThreadInfo = threadData.originalThreadData;
         VideoAggregationAuthorData videoAggregationAuthorData = new VideoAggregationAuthorData();
         User user = originalThreadInfo.y;
+        boolean z5 = false;
         if (user != null) {
             videoAggregationAuthorData.userId = String.valueOf(user.id);
             User user2 = originalThreadInfo.y;
             videoAggregationAuthorData.userName = user2.name;
             videoAggregationAuthorData.userNickname = user2.name_show;
-            videoAggregationAuthorData.isBigV = user2.tb_vip != null;
-            videoAggregationAuthorData.isGod = originalThreadInfo.y.god_data != null;
+            if (user2.tb_vip == null) {
+                z2 = false;
+            } else {
+                z2 = true;
+            }
+            videoAggregationAuthorData.isBigV = z2;
+            if (originalThreadInfo.y.god_data == null) {
+                z3 = false;
+            } else {
+                z3 = true;
+            }
+            videoAggregationAuthorData.isGod = z3;
             User user3 = originalThreadInfo.y;
             videoAggregationAuthorData.portrait = user3.portrait;
-            videoAggregationAuthorData.hasFocus = user3.has_concerned.intValue() != 0;
+            if (user3.has_concerned.intValue() != 0) {
+                z4 = true;
+            } else {
+                z4 = false;
+            }
+            videoAggregationAuthorData.hasFocus = z4;
             if (originalThreadInfo.y.baijiahao_info != null) {
                 VideoAggregationAuthorData.BaijiahaoAuthorData baijiahaoAuthorData = new VideoAggregationAuthorData.BaijiahaoAuthorData();
                 videoAggregationAuthorData.baijiahaoData = baijiahaoAuthorData;
@@ -421,36 +483,26 @@ public class VideoSerializeVideoThreadInfo implements Serializable {
             this.disAgreeNum = originalThreadInfo.z.disagree_num.longValue();
             this.agreeType = originalThreadInfo.z.agree_type.intValue();
             this.shareNum = originalThreadInfo.B.intValue();
-            this.hasAgree = originalThreadInfo.z.has_agree.intValue() == 1;
+            if (originalThreadInfo.z.has_agree.intValue() == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.hasAgree = z;
         }
-        if (originalThreadInfo == null || originalThreadInfo.z == null) {
-            return;
+        if (originalThreadInfo != null && originalThreadInfo.z != null) {
+            AgreeData agreeData = new AgreeData();
+            this.mAgreeData = agreeData;
+            agreeData.threadId = this.threadId;
+            agreeData.agreeNum = originalThreadInfo.z.agree_num.longValue();
+            this.mAgreeData.diffAgreeNum = originalThreadInfo.z.diff_agree_num.longValue();
+            this.mAgreeData.disAgreeNum = originalThreadInfo.z.disagree_num.longValue();
+            this.mAgreeData.agreeType = originalThreadInfo.z.agree_type.intValue();
+            AgreeData agreeData2 = this.mAgreeData;
+            if (originalThreadInfo.z.has_agree.intValue() == 1) {
+                z5 = true;
+            }
+            agreeData2.hasAgree = z5;
         }
-        AgreeData agreeData = new AgreeData();
-        this.mAgreeData = agreeData;
-        agreeData.threadId = this.threadId;
-        agreeData.agreeNum = originalThreadInfo.z.agree_num.longValue();
-        this.mAgreeData.diffAgreeNum = originalThreadInfo.z.diff_agree_num.longValue();
-        this.mAgreeData.disAgreeNum = originalThreadInfo.z.disagree_num.longValue();
-        this.mAgreeData.agreeType = originalThreadInfo.z.agree_type.intValue();
-        this.mAgreeData.hasAgree = originalThreadInfo.z.has_agree.intValue() == 1;
-    }
-
-    public VideoAggregationAuthorData getAuthor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.author : (VideoAggregationAuthorData) invokeV.objValue;
-    }
-
-    public BaijiahaoData getBaijiahaoData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mBaijiahaoData : (BaijiahaoData) invokeV.objValue;
-    }
-
-    public VideoAggregationVideoData getThreadVideoInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.video : (VideoAggregationVideoData) invokeV.objValue;
     }
 }

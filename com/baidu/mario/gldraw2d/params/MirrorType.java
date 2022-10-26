@@ -59,12 +59,18 @@ public final class MirrorType {
     public static MirrorType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (MirrorType) Enum.valueOf(MirrorType.class, str) : (MirrorType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (MirrorType) Enum.valueOf(MirrorType.class, str);
+        }
+        return (MirrorType) invokeL.objValue;
     }
 
     public static MirrorType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (MirrorType[]) $VALUES.clone() : (MirrorType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (MirrorType[]) $VALUES.clone();
+        }
+        return (MirrorType[]) invokeV.objValue;
     }
 }

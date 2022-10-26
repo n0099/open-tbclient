@@ -5,7 +5,6 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import androidx.annotation.RestrictTo;
 import androidx.appcompat.view.menu.MenuBuilder;
 import androidx.appcompat.widget.TintTypedArray;
 import com.baidu.android.imsdk.internal.Constants;
@@ -16,7 +15,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public final class ExpandedMenuView extends ListView implements MenuBuilder.ItemInvoker, MenuView, AdapterView.OnItemClickListener {
     public static /* synthetic */ Interceptable $ic;
@@ -41,6 +39,25 @@ public final class ExpandedMenuView extends ListView implements MenuBuilder.Item
         TINT_ATTRS = new int[]{16842964, 16843049};
     }
 
+    @Override // androidx.appcompat.view.menu.MenuView
+    public int getWindowAnimations() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mAnimations;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.ListView, android.widget.AbsListView, android.widget.AdapterView, android.view.ViewGroup, android.view.View
+    public void onDetachedFromWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.onDetachedFromWindow();
+            setChildrenDrawingCacheEnabled(false);
+        }
+    }
+
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ExpandedMenuView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 16842868);
@@ -59,45 +76,6 @@ public final class ExpandedMenuView extends ListView implements MenuBuilder.Item
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-        }
-    }
-
-    @Override // androidx.appcompat.view.menu.MenuView
-    public int getWindowAnimations() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mAnimations : invokeV.intValue;
-    }
-
-    @Override // androidx.appcompat.view.menu.MenuView
-    public void initialize(MenuBuilder menuBuilder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, menuBuilder) == null) {
-            this.mMenu = menuBuilder;
-        }
-    }
-
-    @Override // androidx.appcompat.view.menu.MenuBuilder.ItemInvoker
-    public boolean invokeItem(MenuItemImpl menuItemImpl) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, menuItemImpl)) == null) ? this.mMenu.performItemAction(menuItemImpl, 0) : invokeL.booleanValue;
-    }
-
-    @Override // android.widget.ListView, android.widget.AbsListView, android.widget.AdapterView, android.view.ViewGroup, android.view.View
-    public void onDetachedFromWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.onDetachedFromWindow();
-            setChildrenDrawingCacheEnabled(false);
-        }
-    }
-
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView adapterView, View view2, int i, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            invokeItem((MenuItemImpl) getAdapter().getItem(i));
         }
     }
 
@@ -129,5 +107,31 @@ public final class ExpandedMenuView extends ListView implements MenuBuilder.Item
             setDivider(obtainStyledAttributes.getDrawable(1));
         }
         obtainStyledAttributes.recycle();
+    }
+
+    @Override // androidx.appcompat.view.menu.MenuView
+    public void initialize(MenuBuilder menuBuilder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, menuBuilder) == null) {
+            this.mMenu = menuBuilder;
+        }
+    }
+
+    @Override // androidx.appcompat.view.menu.MenuBuilder.ItemInvoker
+    public boolean invokeItem(MenuItemImpl menuItemImpl) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, menuItemImpl)) == null) {
+            return this.mMenu.performItemAction(menuItemImpl, 0);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView adapterView, View view2, int i, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            invokeItem((MenuItemImpl) getAdapter().getItem(i));
+        }
     }
 }

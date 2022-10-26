@@ -11,9 +11,9 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.di5;
-import com.baidu.tieba.fb7;
-import com.baidu.tieba.hi5;
+import com.baidu.tieba.f87;
+import com.baidu.tieba.fa7;
+import com.baidu.tieba.ii5;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.data.GroupMsgData;
 import com.baidu.tieba.im.data.MsgPageData;
@@ -30,10 +30,10 @@ import com.baidu.tieba.im.message.SaveDraftMessage;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.message.chat.OfficialChatMessage;
 import com.baidu.tieba.im.model.MsglistModel;
-import com.baidu.tieba.j97;
-import com.baidu.tieba.ma7;
-import com.baidu.tieba.x77;
-import com.baidu.tieba.x97;
+import com.baidu.tieba.mi5;
+import com.baidu.tieba.nb7;
+import com.baidu.tieba.r97;
+import com.baidu.tieba.ua7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -50,10 +50,10 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
     public boolean hasFake;
     public CustomMessageListener mCustomMessageListener;
     public int mUserType;
-    public j97 officialBarMenuDatas;
+    public r97 officialBarMenuDatas;
 
     /* loaded from: classes4.dex */
-    public static class MsgContent extends OrmObject {
+    public class MsgContent extends OrmObject {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String eventId;
@@ -121,9 +121,9 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            public void onMessage(CustomResponsedMessage customResponsedMessage) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
+                if ((interceptable2 != null && interceptable2.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
                     return;
                 }
                 if (customResponsedMessage.getCmd() == 2012123) {
@@ -135,10 +135,9 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
                 } else if (customResponsedMessage.getCmd() == 2001151) {
                     String str = (String) customResponsedMessage.getData();
                     UserData userData = this.this$0.mUser;
-                    if (userData == null || !userData.getUserId().equals(str)) {
-                        return;
+                    if (userData != null && userData.getUserId().equals(str)) {
+                        this.this$0.refreshAfterClearHistory();
                     }
-                    this.this$0.refreshAfterClearHistory();
                 }
             }
         };
@@ -146,9 +145,37 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
         this.customGroupType = 4;
     }
 
+    @Override // com.baidu.tieba.im.model.MsglistModel
+    public boolean saveDraftContent(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
+            SaveDraftMessage.a aVar = new SaveDraftMessage.a();
+            UserData userData = this.mUser;
+            if (userData == null) {
+                return false;
+            }
+            aVar.b = String.valueOf(String.valueOf(userData.getUserId()));
+            aVar.a = str;
+            super.sendMessage(new OfficialBarSaveDraftMessage(aVar));
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void sendGetMenuNetMessage(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048590, this, str, j) == null) {
+            RequestOfficialBarMenuMessage requestOfficialBarMenuMessage = new RequestOfficialBarMenuMessage();
+            requestOfficialBarMenuMessage.setForum_id(str);
+            requestOfficialBarMenuMessage.setTimestamp(j);
+            sendMessage(requestOfficialBarMenuMessage);
+        }
+    }
+
     private ChatMessage createFakeMessage() {
         InterceptResult invokeV;
-        String format;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             if (this.mUser == null) {
@@ -156,51 +183,82 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
             }
             int i = this.mUserType;
             if (i == 1) {
-                format = String.format(this.mActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0ceb), this.mUser.getUserName());
+                str = String.format(this.mActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0cfc), this.mUser.getUserName());
+            } else if (i == 4) {
+                str = String.format(this.mActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0cfb), this.mUser.getUserName());
             } else {
-                format = i == 4 ? String.format(this.mActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0cea), this.mUser.getUserName()) : "";
+                str = "";
             }
             HashMap hashMap = new HashMap();
             hashMap.put(TbEnum.SystemMessage.KEY_EVENT_ID, TbEnum.SystemMessage.EVENT_ID_FAKE);
-            hashMap.put(TbEnum.SystemMessage.KEY_USER_MSG, format);
+            hashMap.put(TbEnum.SystemMessage.KEY_USER_MSG, str);
             return createMessage((short) 11, OrmObject.jsonStrWithObject((MsgContent) OrmObject.objectWithMap(hashMap, MsgContent.class)));
         }
         return (ChatMessage) invokeV.objValue;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void processHistoryFake(CustomResponsedMessage<?> customResponsedMessage) {
+    @Override // com.baidu.tieba.im.model.MsglistModel
+    public boolean loadPrepage() {
+        InterceptResult invokeV;
+        long j;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage instanceof LoadHistoryResponsedMessage)) {
-            LoadHistoryResponsedMessage loadHistoryResponsedMessage = (LoadHistoryResponsedMessage) customResponsedMessage;
-            if (loadHistoryResponsedMessage.getData() == null) {
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (this.mUser == null) {
+                return false;
             }
-            List<ChatMessage> list = loadHistoryResponsedMessage.getData().b;
-            if (list == null) {
-                list = new LinkedList();
+            LoadHistoryMessage.a aVar = new LoadHistoryMessage.a();
+            aVar.c = 10;
+            MsgPageData msgPageData = this.mDatas;
+            long j2 = 0;
+            if (msgPageData != null && msgPageData.getChatMessages() != null && this.mDatas.size() > 0 && this.mDatas.getChatMessages().get(0) != null) {
+                j2 = ((ChatMessage) this.mDatas.getChatMessages().get(0)).getMsgId();
+                j = ((ChatMessage) this.mDatas.getChatMessages().get(0)).getRecordId();
+            } else {
+                j = 0;
             }
-            if (list.size() > 0) {
-                for (ChatMessage chatMessage : list) {
-                    if (chatMessage != null) {
-                        StatisticItem statisticItem = new StatisticItem("official_message_open");
-                        statisticItem.param("msg_id", chatMessage.getMsgId() / 100);
-                        if (chatMessage.getUserInfo() != null) {
-                            statisticItem.param("official_id", chatMessage.getUserInfo().getUserId());
-                            statisticItem.param("official_type", chatMessage.getUserInfo().getUserType());
-                        }
-                        statisticItem.param("operate_time", System.currentTimeMillis() / 1000);
-                        statisticItem.param("task_id", chatMessage.getStatTaskId());
-                        TiebaStatic.log(statisticItem);
-                    }
-                }
-            }
-            processHistory(loadHistoryResponsedMessage);
+            aVar.a = String.valueOf(j2);
+            aVar.b = String.valueOf(j);
+            aVar.d = this.mUser.getUserIdLong() + "";
+            super.sendMessage(new LoadOfficialHistoryMessage(aVar));
+            return true;
         }
+        return invokeV.booleanValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void processServerMsg(CustomResponsedMessage<?> customResponsedMessage) {
+    public void processHistoryFake(CustomResponsedMessage customResponsedMessage) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage instanceof LoadHistoryResponsedMessage)) {
+            return;
+        }
+        LoadHistoryResponsedMessage loadHistoryResponsedMessage = (LoadHistoryResponsedMessage) customResponsedMessage;
+        if (loadHistoryResponsedMessage.getData() == null) {
+            return;
+        }
+        List<ChatMessage> list = ((LoadHistoryResponsedMessage.a) loadHistoryResponsedMessage.getData()).b;
+        if (list == null) {
+            list = new LinkedList();
+        }
+        if (list.size() > 0) {
+            for (ChatMessage chatMessage : list) {
+                if (chatMessage != null) {
+                    StatisticItem statisticItem = new StatisticItem("official_message_open");
+                    statisticItem.param("msg_id", chatMessage.getMsgId() / 100);
+                    if (chatMessage.getUserInfo() != null) {
+                        statisticItem.param("official_id", chatMessage.getUserInfo().getUserId());
+                        statisticItem.param("official_type", chatMessage.getUserInfo().getUserType());
+                    }
+                    statisticItem.param("operate_time", System.currentTimeMillis() / 1000);
+                    statisticItem.param("task_id", chatMessage.getStatTaskId());
+                    TiebaStatic.log(statisticItem);
+                }
+            }
+        }
+        processHistory(loadHistoryResponsedMessage);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void processServerMsg(CustomResponsedMessage customResponsedMessage) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65541, this, customResponsedMessage) == null) && (customResponsedMessage instanceof GroupMsgData)) {
             GroupMsgData groupMsgData = (GroupMsgData) customResponsedMessage;
@@ -248,45 +306,185 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
+    public MsglistModel.CacheInfo getCacheInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.mUser == null) {
+                return null;
+            }
+            MsglistModel.CacheInfo cacheInfo = new MsglistModel.CacheInfo();
+            cacheInfo.id = this.mUser.getUserId();
+            cacheInfo.customGroupType = 4;
+            return cacheInfo;
+        }
+        return (MsglistModel.CacheInfo) invokeV.objValue;
+    }
+
+    public String getForumId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            UserData user = getUser();
+            if (user != null) {
+                return user.getUserId();
+            }
+            return "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.im.model.MsglistModel
+    public long getMaxMid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return ua7.o().p(String.valueOf(nb7.k), -9);
+        }
+        return invokeV.longValue;
+    }
+
+    public r97 getOfficialBarMenuDatas() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.officialBarMenuDatas;
+        }
+        return (r97) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.im.model.MsglistModel
+    public boolean loadDraft() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (this.mUser == null) {
+                return false;
+            }
+            LoadDraftMessage.a aVar = new LoadDraftMessage.a();
+            aVar.a = this.mUser.getUserId();
+            super.sendMessage(new LoadOfficialBarDraftMessage(aVar));
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.im.model.CommonPersonalMsglistModel, com.baidu.tieba.im.model.MsglistModel
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            super.onDestroy();
+            unRegisterListener();
+        }
+    }
+
+    @Override // com.baidu.tieba.im.model.MsglistModel
     public void deleteMsg(ChatMessage chatMessage) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, chatMessage) == null) || this.mUser == null || chatMessage == null) {
-            return;
-        }
-        hi5.c(new di5<Boolean>(this, chatMessage) { // from class: com.baidu.tieba.im.model.OfficialBarMsglistModel.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ OfficialBarMsglistModel this$0;
-            public final /* synthetic */ ChatMessage val$msg;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, chatMessage) == null) && this.mUser != null && chatMessage != null) {
+            mi5.c(new ii5(this, chatMessage) { // from class: com.baidu.tieba.im.model.OfficialBarMsglistModel.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ OfficialBarMsglistModel this$0;
+                public final /* synthetic */ ChatMessage val$msg;
 
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this, chatMessage};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, chatMessage};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
                     }
+                    this.this$0 = this;
+                    this.val$msg = chatMessage;
                 }
-                this.this$0 = this;
-                this.val$msg = chatMessage;
-            }
 
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
-            @Override // com.baidu.tieba.di5
-            public Boolean doInBackground() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Boolean.valueOf(x97.w().c(String.valueOf(this.this$0.mUser.getUserId()), String.valueOf(this.val$msg.getMsgId()))) : (Boolean) invokeV.objValue;
-            }
-        }, null);
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.baidu.tieba.ii5
+                public Boolean doInBackground() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                        return Boolean.valueOf(fa7.w().c(String.valueOf(this.this$0.mUser.getUserId()), String.valueOf(this.val$msg.getMsgId())));
+                    }
+                    return (Boolean) invokeV.objValue;
+                }
+            }, null);
+        }
+    }
+
+    @Override // com.baidu.tieba.im.model.MsglistModel
+    public void markDeleteMsg(ChatMessage chatMessage) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048585, this, chatMessage) == null) && this.mUser != null && chatMessage != null) {
+            mi5.c(new ii5(this, chatMessage) { // from class: com.baidu.tieba.im.model.OfficialBarMsglistModel.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ OfficialBarMsglistModel this$0;
+                public final /* synthetic */ ChatMessage val$msg;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, chatMessage};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$msg = chatMessage;
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.baidu.tieba.ii5
+                public Boolean doInBackground() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                        return Boolean.valueOf(fa7.w().o(String.valueOf(this.this$0.mUser.getUserId()), String.valueOf(this.val$msg.getMsgId())));
+                    }
+                    return (Boolean) invokeV.objValue;
+                }
+            }, null);
+        }
+    }
+
+    public void sendGetMenuLocalMessage(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+            RequestOfficialBarMenuLocalMessage requestOfficialBarMenuLocalMessage = new RequestOfficialBarMenuLocalMessage();
+            requestOfficialBarMenuLocalMessage.setForum_id(str);
+            sendMessage(requestOfficialBarMenuLocalMessage);
+        }
+    }
+
+    public void setOfficialBarMenuDatas(r97 r97Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, r97Var) == null) {
+            this.officialBarMenuDatas = r97Var;
+        }
+    }
+
+    public void setUserType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            this.mUserType = i;
+        }
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
@@ -313,65 +511,10 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
-    public MsglistModel.CacheInfo getCacheInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.mUser == null) {
-                return null;
-            }
-            MsglistModel.CacheInfo cacheInfo = new MsglistModel.CacheInfo();
-            cacheInfo.id = this.mUser.getUserId();
-            cacheInfo.customGroupType = 4;
-            return cacheInfo;
-        }
-        return (MsglistModel.CacheInfo) invokeV.objValue;
-    }
-
-    public String getForumId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            UserData user = getUser();
-            return user != null ? user.getUserId() : "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.im.model.MsglistModel
-    public long getMaxMid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? ma7.o().p(String.valueOf(fb7.k), -9) : invokeV.longValue;
-    }
-
-    public j97 getOfficialBarMenuDatas() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.officialBarMenuDatas : (j97) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.im.model.MsglistModel
-    public boolean loadDraft() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.mUser == null) {
-                return false;
-            }
-            LoadDraftMessage.a aVar = new LoadDraftMessage.a();
-            aVar.a = this.mUser.getUserId();
-            super.sendMessage(new LoadOfficialBarDraftMessage(aVar));
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.im.model.MsglistModel
-    public boolean loadFirst(x77 x77Var) {
+    public boolean loadFirst(f87 f87Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, x77Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, f87Var)) == null) {
             if (this.mUser == null) {
                 return false;
             }
@@ -386,103 +529,6 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.im.model.MsglistModel
-    public boolean loadPrepage() {
-        InterceptResult invokeV;
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (this.mUser == null) {
-                return false;
-            }
-            LoadHistoryMessage.a aVar = new LoadHistoryMessage.a();
-            aVar.c = 10;
-            MsgPageData msgPageData = this.mDatas;
-            long j2 = 0;
-            if (msgPageData == null || msgPageData.getChatMessages() == null || this.mDatas.size() <= 0 || this.mDatas.getChatMessages().get(0) == null) {
-                j = 0;
-            } else {
-                j2 = this.mDatas.getChatMessages().get(0).getMsgId();
-                j = this.mDatas.getChatMessages().get(0).getRecordId();
-            }
-            aVar.a = String.valueOf(j2);
-            aVar.b = String.valueOf(j);
-            aVar.d = this.mUser.getUserIdLong() + "";
-            super.sendMessage(new LoadOfficialHistoryMessage(aVar));
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.im.model.MsglistModel
-    public void markDeleteMsg(ChatMessage chatMessage) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, chatMessage) == null) || this.mUser == null || chatMessage == null) {
-            return;
-        }
-        hi5.c(new di5<Boolean>(this, chatMessage) { // from class: com.baidu.tieba.im.model.OfficialBarMsglistModel.2
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ OfficialBarMsglistModel this$0;
-            public final /* synthetic */ ChatMessage val$msg;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this, chatMessage};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-                this.val$msg = chatMessage;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
-            @Override // com.baidu.tieba.di5
-            public Boolean doInBackground() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Boolean.valueOf(x97.w().o(String.valueOf(this.this$0.mUser.getUserId()), String.valueOf(this.val$msg.getMsgId()))) : (Boolean) invokeV.objValue;
-            }
-        }, null);
-    }
-
-    @Override // com.baidu.tieba.im.model.CommonPersonalMsglistModel, com.baidu.tieba.im.model.MsglistModel
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            super.onDestroy();
-            unRegisterListener();
-        }
-    }
-
-    @Override // com.baidu.tieba.im.model.MsglistModel
-    public boolean saveDraftContent(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            SaveDraftMessage.a aVar = new SaveDraftMessage.a();
-            UserData userData = this.mUser;
-            if (userData == null) {
-                return false;
-            }
-            aVar.b = String.valueOf(String.valueOf(userData.getUserId()));
-            aVar.a = str;
-            super.sendMessage(new OfficialBarSaveDraftMessage(aVar));
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
     public void sendClickMenuMessage(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048588, this, str, str2, str3) == null) {
@@ -491,39 +537,6 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
             requestSendOfficialBarMenuMessage.setUser_id(str2);
             requestSendOfficialBarMenuMessage.setForum_id(str3);
             sendMessage(requestSendOfficialBarMenuMessage);
-        }
-    }
-
-    public void sendGetMenuLocalMessage(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            RequestOfficialBarMenuLocalMessage requestOfficialBarMenuLocalMessage = new RequestOfficialBarMenuLocalMessage();
-            requestOfficialBarMenuLocalMessage.setForum_id(str);
-            sendMessage(requestOfficialBarMenuLocalMessage);
-        }
-    }
-
-    public void sendGetMenuNetMessage(String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048590, this, str, j) == null) {
-            RequestOfficialBarMenuMessage requestOfficialBarMenuMessage = new RequestOfficialBarMenuMessage();
-            requestOfficialBarMenuMessage.setForum_id(str);
-            requestOfficialBarMenuMessage.setTimestamp(j);
-            sendMessage(requestOfficialBarMenuMessage);
-        }
-    }
-
-    public void setOfficialBarMenuDatas(j97 j97Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, j97Var) == null) {
-            this.officialBarMenuDatas = j97Var;
-        }
-    }
-
-    public void setUserType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.mUserType = i;
         }
     }
 }

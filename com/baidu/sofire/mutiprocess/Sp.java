@@ -36,6 +36,25 @@ public class Sp {
         }
     }
 
+    public static Set mainProcessGetSubProcessPids() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            Context context = b.a;
+            try {
+                Map map = b.b;
+                if (map == null) {
+                    return null;
+                }
+                return map.keySet();
+            } catch (Throwable unused) {
+                int i = com.baidu.sofire.a.b.a;
+                return null;
+            }
+        }
+        return (Set) invokeV.objValue;
+    }
+
     public static int isMainProcess(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -56,11 +75,11 @@ public class Sp {
                 if (TextUtils.isEmpty(str)) {
                     a = b.a(-201);
                 } else {
-                    Map<Integer, com.baidu.sofire.d.a> map = b.b;
+                    Map map = b.b;
                     if (map == null) {
                         a = b.a(-200);
                     } else {
-                        com.baidu.sofire.d.a aVar = map.get(Integer.valueOf(i));
+                        com.baidu.sofire.d.a aVar = (com.baidu.sofire.d.a) map.get(Integer.valueOf(i));
                         if (aVar == null) {
                             a = b.a(-202);
                         } else {
@@ -80,25 +99,6 @@ public class Sp {
         return (Bundle) invokeIL.objValue;
     }
 
-    public static Set<Integer> mainProcessGetSubProcessPids() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            Context context = b.a;
-            try {
-                Map<Integer, com.baidu.sofire.d.a> map = b.b;
-                if (map == null) {
-                    return null;
-                }
-                return map.keySet();
-            } catch (Throwable unused) {
-                int i = com.baidu.sofire.a.b.a;
-                return null;
-            }
-        }
-        return (Set) invokeV.objValue;
-    }
-
     public static Bundle mainProcessRequestCallPlugin(int i, Bundle bundle) {
         InterceptResult invokeIL;
         Bundle b;
@@ -109,11 +109,11 @@ public class Sp {
                 if (bundle == null) {
                     b = b.a(-201);
                 } else {
-                    Map<Integer, com.baidu.sofire.d.a> map = b.b;
+                    Map map = b.b;
                     if (map == null) {
                         b = b.a(-200);
                     } else {
-                        com.baidu.sofire.d.a aVar = map.get(Integer.valueOf(i));
+                        com.baidu.sofire.d.a aVar = (com.baidu.sofire.d.a) map.get(Integer.valueOf(i));
                         if (aVar == null) {
                             b = b.a(-202);
                         } else {
@@ -138,7 +138,7 @@ public class Sp {
         return (Bundle) invokeIL.objValue;
     }
 
-    public static Map<Integer, Integer> mainProcessStartAllPlugin(String str) {
+    public static Map mainProcessStartAllPlugin(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
@@ -163,11 +163,14 @@ public class Sp {
     public static int mainProcessStartOrStopPlugin(int i, String str, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)})) == null) ? b.a(i, str, z) : invokeCommon.intValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)})) == null) {
+            return b.a(i, str, z);
+        }
+        return invokeCommon.intValue;
     }
 
     public static void registerNeedNotifySubProcess(String str, boolean z) {
-        List<String> list;
+        List list;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65543, null, str, z) == null) {
             Context context = b.a;

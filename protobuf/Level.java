@@ -52,7 +52,13 @@ public final class Level extends Message {
     public final String usedStatus;
 
     /* loaded from: classes9.dex */
-    public static final class Builder extends Message.Builder<Level> {
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes9.dex */
+    public final class Builder extends Message.Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Integer endTime;
@@ -122,14 +128,11 @@ public final class Level extends Message {
         public Level build(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) ? new Level(this, z, null) : (Level) invokeZ.objValue;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+                return new Level(this, z, null);
+            }
+            return (Level) invokeZ.objValue;
         }
-    }
-
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
     }
 
     static {
@@ -149,10 +152,6 @@ public final class Level extends Message {
         DEFAULT_ENDTIME = 0;
         DEFAULT_LEFTNUM = 0;
         DEFAULT_UPDATETIME = 0;
-    }
-
-    public /* synthetic */ Level(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -261,5 +260,9 @@ public final class Level extends Message {
         this.expiredNotify = builder.expiredNotify;
         this.maxFreeScore = builder.maxFreeScore;
         this.picUrl = builder.picUrl;
+    }
+
+    public /* synthetic */ Level(Builder builder, boolean z, a aVar) {
+        this(builder, z);
     }
 }

@@ -24,8 +24,8 @@ public class BdStatSwitchData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, ArrayList<String>> mChildTypes;
-    public final HashMap<String, BdUploadStatMsgData> tmpSwitchConfDataHashMap;
+    public HashMap mChildTypes;
+    public final HashMap tmpSwitchConfDataHashMap;
     public final BdStatisticsUploadConfig uploadConfig;
     public final BdStatisticsWriteConfig writeConfig;
 
@@ -44,8 +44,8 @@ public class BdStatSwitchData implements Serializable {
         }
         this.writeConfig = new BdStatisticsWriteConfig();
         this.uploadConfig = new BdStatisticsUploadConfig();
-        this.tmpSwitchConfDataHashMap = new HashMap<>();
-        this.mChildTypes = new HashMap<>();
+        this.tmpSwitchConfDataHashMap = new HashMap();
+        this.mChildTypes = new HashMap();
         BdStatisticsWriteConfig.BdStatisticsWriteConfigItem bdStatisticsWriteConfigItem = new BdStatisticsWriteConfig.BdStatisticsWriteConfigItem();
         bdStatisticsWriteConfigItem.type = "dbg";
         bdStatisticsWriteConfigItem.isWrite = true;
@@ -87,46 +87,93 @@ public class BdStatSwitchData implements Serializable {
     }
 
     private void parserCommonData(JSONArray jSONArray, BdStatisticsWriteConfig.BdStatisticsWriteConfigItem bdStatisticsWriteConfigItem, BdStatisticsUploadConfig.BdStatisticsUploadConfigItem bdStatisticsUploadConfigItem) {
+        boolean z;
+        boolean z2;
+        boolean z3;
+        boolean z4;
+        boolean z5;
+        boolean z6;
+        boolean z7;
+        boolean z8;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65537, this, jSONArray, bdStatisticsWriteConfigItem, bdStatisticsUploadConfigItem) == null) || jSONArray == null) {
+        if ((interceptable != null && interceptable.invokeLLL(65537, this, jSONArray, bdStatisticsWriteConfigItem, bdStatisticsUploadConfigItem) != null) || jSONArray == null) {
             return;
         }
         JSONObject optJSONObject = jSONArray.optJSONObject(0);
-        ArrayList<String> arrayList = new ArrayList<>();
+        ArrayList arrayList = new ArrayList();
         JSONObject optJSONObject2 = optJSONObject.optJSONObject("common");
         if (bdStatisticsWriteConfigItem != null) {
-            bdStatisticsWriteConfigItem.isWrite = optJSONObject2.optInt(MemberPayActivityConfig.IS_WRITE, 0) != 0;
-            bdStatisticsWriteConfigItem.particleNum = optJSONObject2.optInt("particleNum");
-            bdStatisticsWriteConfigItem.isExac = optJSONObject2.optInt("is_exact", 0) != 0;
-        }
-        bdStatisticsUploadConfigItem.isUpload = optJSONObject2.optInt("is_upload", 0) != 0;
-        bdStatisticsUploadConfigItem.isWifi = optJSONObject2.optInt("is_only_wifi", 0) != 0;
-        JSONArray optJSONArray = optJSONObject.optJSONArray(CriusAttrConstants.CHILDREN);
-        if (optJSONArray == null || optJSONArray.length() <= 0) {
-            return;
-        }
-        for (int i = 0; i < optJSONArray.length(); i++) {
-            JSONObject optJSONObject3 = optJSONArray.optJSONObject(i);
-            if (bdStatisticsWriteConfigItem != null) {
-                BdStatisticsWriteConfig.BdStatisticsWriteChildItem bdStatisticsWriteChildItem = new BdStatisticsWriteConfig.BdStatisticsWriteChildItem();
-                bdStatisticsWriteChildItem.subType = optJSONObject3.optString("type");
-                bdStatisticsWriteChildItem.isWrite = optJSONObject3.optInt(MemberPayActivityConfig.IS_WRITE, 0) != 0;
-                bdStatisticsWriteConfigItem.childItem.put(bdStatisticsWriteChildItem.subType, bdStatisticsWriteChildItem);
-                BdStatisticsUploadConfig.BdStatistisUploadChilidItem bdStatistisUploadChilidItem = new BdStatisticsUploadConfig.BdStatistisUploadChilidItem();
-                bdStatistisUploadChilidItem.subType = optJSONObject3.optString("type");
-                bdStatistisUploadChilidItem.isUpload = optJSONObject3.optInt("is_upload", 0) != 0;
-                bdStatistisUploadChilidItem.isWifi = optJSONObject3.optInt("is_only_wifi", 0) != 0;
-                bdStatistisUploadChilidItem.percent = optJSONObject3.optInt("percent");
-                bdStatisticsUploadConfigItem.childItem.put(bdStatistisUploadChilidItem.subType, bdStatistisUploadChilidItem);
-                arrayList.add(bdStatistisUploadChilidItem.subType);
-                this.mChildTypes.put(bdStatisticsWriteConfigItem.type, arrayList);
+            if (optJSONObject2.optInt(MemberPayActivityConfig.IS_WRITE, 0) != 0) {
+                z7 = true;
             } else {
-                BdStatisticsUploadConfig.BdStatistisUploadChilidItem bdStatistisUploadChilidItem2 = new BdStatisticsUploadConfig.BdStatistisUploadChilidItem();
-                bdStatistisUploadChilidItem2.subType = optJSONObject3.optString("type");
-                bdStatistisUploadChilidItem2.isUpload = optJSONObject3.optInt("is_upload", 0) != 0;
-                bdStatistisUploadChilidItem2.maxAlertCount = optJSONObject3.optInt("alert_count");
-                bdStatistisUploadChilidItem2.uploadCycle = optJSONObject3.optInt("upload_cycle");
-                bdStatisticsUploadConfigItem.childItem.put(bdStatistisUploadChilidItem2.subType, bdStatistisUploadChilidItem2);
+                z7 = false;
+            }
+            bdStatisticsWriteConfigItem.isWrite = z7;
+            bdStatisticsWriteConfigItem.particleNum = optJSONObject2.optInt("particleNum");
+            if (optJSONObject2.optInt("is_exact", 0) != 0) {
+                z8 = true;
+            } else {
+                z8 = false;
+            }
+            bdStatisticsWriteConfigItem.isExac = z8;
+        }
+        if (optJSONObject2.optInt("is_upload", 0) != 0) {
+            z = true;
+        } else {
+            z = false;
+        }
+        bdStatisticsUploadConfigItem.isUpload = z;
+        if (optJSONObject2.optInt("is_only_wifi", 0) != 0) {
+            z2 = true;
+        } else {
+            z2 = false;
+        }
+        bdStatisticsUploadConfigItem.isWifi = z2;
+        JSONArray optJSONArray = optJSONObject.optJSONArray(CriusAttrConstants.CHILDREN);
+        if (optJSONArray != null && optJSONArray.length() > 0) {
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                JSONObject optJSONObject3 = optJSONArray.optJSONObject(i);
+                if (bdStatisticsWriteConfigItem != null) {
+                    BdStatisticsWriteConfig.BdStatisticsWriteChildItem bdStatisticsWriteChildItem = new BdStatisticsWriteConfig.BdStatisticsWriteChildItem();
+                    bdStatisticsWriteChildItem.subType = optJSONObject3.optString("type");
+                    if (optJSONObject3.optInt(MemberPayActivityConfig.IS_WRITE, 0) != 0) {
+                        z4 = true;
+                    } else {
+                        z4 = false;
+                    }
+                    bdStatisticsWriteChildItem.isWrite = z4;
+                    bdStatisticsWriteConfigItem.childItem.put(bdStatisticsWriteChildItem.subType, bdStatisticsWriteChildItem);
+                    BdStatisticsUploadConfig.BdStatistisUploadChilidItem bdStatistisUploadChilidItem = new BdStatisticsUploadConfig.BdStatistisUploadChilidItem();
+                    bdStatistisUploadChilidItem.subType = optJSONObject3.optString("type");
+                    if (optJSONObject3.optInt("is_upload", 0) != 0) {
+                        z5 = true;
+                    } else {
+                        z5 = false;
+                    }
+                    bdStatistisUploadChilidItem.isUpload = z5;
+                    if (optJSONObject3.optInt("is_only_wifi", 0) != 0) {
+                        z6 = true;
+                    } else {
+                        z6 = false;
+                    }
+                    bdStatistisUploadChilidItem.isWifi = z6;
+                    bdStatistisUploadChilidItem.percent = optJSONObject3.optInt("percent");
+                    bdStatisticsUploadConfigItem.childItem.put(bdStatistisUploadChilidItem.subType, bdStatistisUploadChilidItem);
+                    arrayList.add(bdStatistisUploadChilidItem.subType);
+                    this.mChildTypes.put(bdStatisticsWriteConfigItem.type, arrayList);
+                } else {
+                    BdStatisticsUploadConfig.BdStatistisUploadChilidItem bdStatistisUploadChilidItem2 = new BdStatisticsUploadConfig.BdStatistisUploadChilidItem();
+                    bdStatistisUploadChilidItem2.subType = optJSONObject3.optString("type");
+                    if (optJSONObject3.optInt("is_upload", 0) != 0) {
+                        z3 = true;
+                    } else {
+                        z3 = false;
+                    }
+                    bdStatistisUploadChilidItem2.isUpload = z3;
+                    bdStatistisUploadChilidItem2.maxAlertCount = optJSONObject3.optInt("alert_count");
+                    bdStatistisUploadChilidItem2.uploadCycle = optJSONObject3.optInt("upload_cycle");
+                    bdStatisticsUploadConfigItem.childItem.put(bdStatistisUploadChilidItem2.subType, bdStatistisUploadChilidItem2);
+                }
             }
         }
     }
@@ -134,40 +181,74 @@ public class BdStatSwitchData implements Serializable {
     public int geUploadCycle(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) ? this.uploadConfig.geUploadCycle(str, i) : invokeLI.intValue;
-    }
-
-    public ArrayList<String> getChiledTypes(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.mChildTypes.get(str) : (ArrayList) invokeL.objValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
+            return this.uploadConfig.geUploadCycle(str, i);
+        }
+        return invokeLI.intValue;
     }
 
     public int getMaxAlertCount(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i)) == null) ? this.uploadConfig.getMaxAlertCount(str, i) : invokeLI.intValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i)) == null) {
+            return this.uploadConfig.getMaxAlertCount(str, i);
+        }
+        return invokeLI.intValue;
+    }
+
+    public void putTmpSwitchConfData(String str, BdUploadStatMsgData bdUploadStatMsgData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, str, bdUploadStatMsgData) == null) {
+            this.tmpSwitchConfDataHashMap.put(str, bdUploadStatMsgData);
+        }
+    }
+
+    public ArrayList getChiledTypes(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return (ArrayList) this.mChildTypes.get(str);
+        }
+        return (ArrayList) invokeL.objValue;
     }
 
     public BdUploadStatMsgData getTmpSwitchConfData(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? this.tmpSwitchConfDataHashMap.get(str) : (BdUploadStatMsgData) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return (BdUploadStatMsgData) this.tmpSwitchConfDataHashMap.get(str);
+        }
+        return (BdUploadStatMsgData) invokeL.objValue;
     }
 
     public boolean isExactWriteFile(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? this.writeConfig.isExactWriteFile(str) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            return this.writeConfig.isExactWriteFile(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void rmTmpSwitchConfData(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            this.tmpSwitchConfDataHashMap.remove(str);
+        }
     }
 
     public boolean isUpload(String str, String str2) {
         InterceptResult invokeLL;
+        String str3;
         BdUploadStatMsgData bdUploadStatMsgData;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
-            String str3 = TextUtils.isEmpty(str2) ? str : str2;
-            if (!TextUtils.isEmpty(str3) && (bdUploadStatMsgData = this.tmpSwitchConfDataHashMap.get(str3)) != null) {
+            if (TextUtils.isEmpty(str2)) {
+                str3 = str;
+            } else {
+                str3 = str2;
+            }
+            if (!TextUtils.isEmpty(str3) && (bdUploadStatMsgData = (BdUploadStatMsgData) this.tmpSwitchConfDataHashMap.get(str3)) != null) {
                 if (System.currentTimeMillis() < bdUploadStatMsgData.deadLineTime) {
                     return true;
                 }
@@ -180,11 +261,16 @@ public class BdStatSwitchData implements Serializable {
 
     public boolean isWrite(String str, String str2) {
         InterceptResult invokeLL;
+        String str3;
         BdUploadStatMsgData bdUploadStatMsgData;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, str2)) == null) {
-            String str3 = TextUtils.isEmpty(str2) ? str : str2;
-            if (!TextUtils.isEmpty(str3) && (bdUploadStatMsgData = this.tmpSwitchConfDataHashMap.get(str3)) != null) {
+            if (TextUtils.isEmpty(str2)) {
+                str3 = str;
+            } else {
+                str3 = str2;
+            }
+            if (!TextUtils.isEmpty(str3) && (bdUploadStatMsgData = (BdUploadStatMsgData) this.tmpSwitchConfDataHashMap.get(str3)) != null) {
                 if (System.currentTimeMillis() < bdUploadStatMsgData.deadLineTime) {
                     return true;
                 }
@@ -197,11 +283,16 @@ public class BdStatSwitchData implements Serializable {
 
     public boolean onlyWifiUpload(String str, String str2) {
         InterceptResult invokeLL;
+        String str3;
         BdUploadStatMsgData bdUploadStatMsgData;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, str2)) == null) {
-            String str3 = TextUtils.isEmpty(str2) ? str : str2;
-            if (!TextUtils.isEmpty(str3) && (bdUploadStatMsgData = this.tmpSwitchConfDataHashMap.get(str3)) != null) {
+            if (TextUtils.isEmpty(str2)) {
+                str3 = str;
+            } else {
+                str3 = str2;
+            }
+            if (!TextUtils.isEmpty(str3) && (bdUploadStatMsgData = (BdUploadStatMsgData) this.tmpSwitchConfDataHashMap.get(str3)) != null) {
                 if (System.currentTimeMillis() < bdUploadStatMsgData.deadLineTime) {
                     return bdUploadStatMsgData.isWifi;
                 }
@@ -212,9 +303,25 @@ public class BdStatSwitchData implements Serializable {
         return invokeLL.booleanValue;
     }
 
+    public boolean smallFlowUpload(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, str2)) == null) {
+            BdUploadStatMsgData bdUploadStatMsgData = (BdUploadStatMsgData) this.tmpSwitchConfDataHashMap.get(str2);
+            if (bdUploadStatMsgData != null) {
+                if (System.currentTimeMillis() < bdUploadStatMsgData.deadLineTime) {
+                    return true;
+                }
+                this.tmpSwitchConfDataHashMap.remove(str2);
+            }
+            return this.uploadConfig.smallFlowUpload(str, str2);
+        }
+        return invokeLL.booleanValue;
+    }
+
     public void parserJson(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) || str == null) {
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) != null) || str == null) {
             return;
         }
         try {
@@ -256,35 +363,5 @@ public class BdStatSwitchData implements Serializable {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-    }
-
-    public void putTmpSwitchConfData(String str, BdUploadStatMsgData bdUploadStatMsgData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, str, bdUploadStatMsgData) == null) {
-            this.tmpSwitchConfDataHashMap.put(str, bdUploadStatMsgData);
-        }
-    }
-
-    public void rmTmpSwitchConfData(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.tmpSwitchConfDataHashMap.remove(str);
-        }
-    }
-
-    public boolean smallFlowUpload(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, str2)) == null) {
-            BdUploadStatMsgData bdUploadStatMsgData = this.tmpSwitchConfDataHashMap.get(str2);
-            if (bdUploadStatMsgData != null) {
-                if (System.currentTimeMillis() < bdUploadStatMsgData.deadLineTime) {
-                    return true;
-                }
-                this.tmpSwitchConfDataHashMap.remove(str2);
-            }
-            return this.uploadConfig.smallFlowUpload(str, str2);
-        }
-        return invokeLL.booleanValue;
     }
 }

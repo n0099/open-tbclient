@@ -30,24 +30,36 @@ public class ViewUtils implements NoProguard {
     public static int dp2px(Context context, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLF = interceptable.invokeLF(65537, null, context, f)) == null) ? (int) ((f * context.getResources().getDisplayMetrics().density) + 0.5f) : invokeLF.intValue;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65537, null, context, f)) == null) {
+            return (int) ((f * context.getResources().getDisplayMetrics().density) + 0.5f);
+        }
+        return invokeLF.intValue;
     }
 
     public static int px2dp(Context context, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLF = interceptable.invokeLF(65538, null, context, f)) == null) ? (int) ((f / context.getResources().getDisplayMetrics().density) + 0.5f) : invokeLF.intValue;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65538, null, context, f)) == null) {
+            return (int) ((f / context.getResources().getDisplayMetrics().density) + 0.5f);
+        }
+        return invokeLF.intValue;
     }
 
     public static int px2sp(Context context, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLF = interceptable.invokeLF(65539, null, context, f)) == null) ? (int) ((f / context.getResources().getDisplayMetrics().scaledDensity) + 0.5f) : invokeLF.intValue;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65539, null, context, f)) == null) {
+            return (int) ((f / context.getResources().getDisplayMetrics().scaledDensity) + 0.5f);
+        }
+        return invokeLF.intValue;
     }
 
     public static int sp2px(Context context, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLF = interceptable.invokeLF(InputDeviceCompat.SOURCE_TRACKBALL, null, context, f)) == null) ? (int) ((f * context.getResources().getDisplayMetrics().scaledDensity) + 0.5f) : invokeLF.intValue;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(InputDeviceCompat.SOURCE_TRACKBALL, null, context, f)) == null) {
+            return (int) ((f * context.getResources().getDisplayMetrics().scaledDensity) + 0.5f);
+        }
+        return invokeLF.intValue;
     }
 }

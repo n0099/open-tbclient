@@ -14,7 +14,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class NetWorkState {
     public static /* synthetic */ Interceptable $ic;
     public static AtomicInteger mErrorNums;
-    public static ArrayList<StatisticsData> mStatisticsDatas;
+    public static ArrayList mStatisticsDatas;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
@@ -55,7 +55,7 @@ public class NetWorkState {
                 return;
             }
         }
-        mStatisticsDatas = new ArrayList<>();
+        mStatisticsDatas = new ArrayList();
         mErrorNums = new AtomicInteger(0);
     }
 
@@ -73,10 +73,28 @@ public class NetWorkState {
         }
     }
 
+    public static synchronized StatisticsData delStatisticsData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            synchronized (NetWorkState.class) {
+                int size = mStatisticsDatas.size();
+                if (size > 0) {
+                    return (StatisticsData) mStatisticsDatas.remove(size - 1);
+                }
+                return null;
+            }
+        }
+        return (StatisticsData) invokeV.objValue;
+    }
+
     public static int addErrorNumsAndGet(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? mErrorNums.addAndGet(i) : invokeI.intValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            return mErrorNums.addAndGet(i);
+        }
+        return invokeI.intValue;
     }
 
     public static synchronized void addStatisticsData(StatisticsData statisticsData) {
@@ -94,24 +112,12 @@ public class NetWorkState {
         }
     }
 
-    public static synchronized StatisticsData delStatisticsData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            synchronized (NetWorkState.class) {
-                int size = mStatisticsDatas.size();
-                if (size > 0) {
-                    return mStatisticsDatas.remove(size - 1);
-                }
-                return null;
-            }
-        }
-        return (StatisticsData) invokeV.objValue;
-    }
-
     public static int getErrorNumsAndSet(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) ? mErrorNums.getAndSet(i) : invokeI.intValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
+            return mErrorNums.getAndSet(i);
+        }
+        return invokeI.intValue;
     }
 }

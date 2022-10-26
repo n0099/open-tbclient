@@ -16,13 +16,13 @@ public final class LogoutParams {
 
     /* renamed from: com.baidu.searchbox.account.params.LogoutParams$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes2.dex */
-    public static class Builder {
+    public class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public UserAccountActionItem mLogoutSrc;
@@ -64,23 +64,6 @@ public final class LogoutParams {
         }
     }
 
-    public /* synthetic */ LogoutParams(Builder builder, AnonymousClass1 anonymousClass1) {
-        this(builder);
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            UserAccountActionItem userAccountActionItem = this.mLogoutSrc;
-            if (userAccountActionItem != null) {
-                return userAccountActionItem.toString();
-            }
-            return super.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
     public LogoutParams(Builder builder) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -97,5 +80,22 @@ public final class LogoutParams {
             }
         }
         this.mLogoutSrc = builder.mLogoutSrc;
+    }
+
+    public /* synthetic */ LogoutParams(Builder builder, AnonymousClass1 anonymousClass1) {
+        this(builder);
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            UserAccountActionItem userAccountActionItem = this.mLogoutSrc;
+            if (userAccountActionItem != null) {
+                return userAccountActionItem.toString();
+            }
+            return super.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

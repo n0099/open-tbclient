@@ -17,7 +17,7 @@ public class HomeElasticABTest extends AbsGroupUbsABTest {
     public static final BdUniqueId ABTEST_GROUP_KEY;
     public static final String SID_HOME_ELASTIC_EXPERIMENTAL_GROUP = "12_22_home_elastic_a";
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList<String> mABTestList;
+    public final ArrayList mABTestList;
     public UsbAbTestSwitch mCurrentUsbAbTest;
 
     static {
@@ -49,30 +49,39 @@ public class HomeElasticABTest extends AbsGroupUbsABTest {
                 return;
             }
         }
-        ArrayList<String> arrayList = new ArrayList<>();
+        ArrayList arrayList = new ArrayList();
         this.mABTestList = arrayList;
         arrayList.add(SID_HOME_ELASTIC_EXPERIMENTAL_GROUP);
     }
 
     @Override // com.baidu.tbadk.abtest.group.AbsGroupUbsABTest
-    public ArrayList<String> getABTestKeys() {
+    public ArrayList getABTestKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mABTestList : (ArrayList) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mABTestList;
+        }
+        return (ArrayList) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.abtest.group.AbsGroupUbsABTest
     public UsbAbTestSwitch getCurrentUsbAbTest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mCurrentUsbAbTest : (UsbAbTestSwitch) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mCurrentUsbAbTest;
+        }
+        return (UsbAbTestSwitch) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.abtest.group.AbsGroupUbsABTest
     public BdUniqueId getGroupKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ABTEST_GROUP_KEY : (BdUniqueId) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return ABTEST_GROUP_KEY;
+        }
+        return (BdUniqueId) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.abtest.group.AbsGroupUbsABTest

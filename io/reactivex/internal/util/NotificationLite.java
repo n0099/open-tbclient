@@ -24,8 +24,27 @@ public final class NotificationLite {
     public static final NotificationLite COMPLETE;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static Object getValue(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65548, null, obj)) == null) ? obj : invokeL.objValue;
+    }
+
+    public static Object next(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65553, null, obj)) == null) ? obj : invokeL.objValue;
+    }
+
+    @Override // java.lang.Enum
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "NotificationLite.Complete" : (String) invokeV.objValue;
+    }
+
     /* loaded from: classes8.dex */
-    public static final class DisposableNotification implements Serializable {
+    public final class DisposableNotification implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7482590109178395495L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -60,7 +79,7 @@ public final class NotificationLite {
     }
 
     /* loaded from: classes8.dex */
-    public static final class ErrorNotification implements Serializable {
+    public final class ErrorNotification implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -8759979445933046293L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -99,7 +118,10 @@ public final class NotificationLite {
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e.hashCode() : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.e.hashCode();
+            }
+            return invokeV.intValue;
         }
 
         public String toString() {
@@ -113,7 +135,7 @@ public final class NotificationLite {
     }
 
     /* loaded from: classes8.dex */
-    public static final class SubscriptionNotification implements Serializable {
+    public final class SubscriptionNotification implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -1322257508628817540L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -165,6 +187,24 @@ public final class NotificationLite {
         $VALUES = new NotificationLite[]{notificationLite};
     }
 
+    public static Object complete() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return COMPLETE;
+        }
+        return invokeV.objValue;
+    }
+
+    public static NotificationLite[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) {
+            return (NotificationLite[]) $VALUES.clone();
+        }
+        return (NotificationLite[]) invokeV.objValue;
+    }
+
     public NotificationLite(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -184,7 +224,25 @@ public final class NotificationLite {
         }
     }
 
-    public static <T> boolean accept(Object obj, Subscriber<? super T> subscriber) {
+    public static boolean accept(Object obj, Observer observer) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, obj, observer)) == null) {
+            if (obj == COMPLETE) {
+                observer.onComplete();
+                return true;
+            } else if (obj instanceof ErrorNotification) {
+                observer.onError(((ErrorNotification) obj).e);
+                return true;
+            } else {
+                observer.onNext(obj);
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean accept(Object obj, Subscriber subscriber) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, obj, subscriber)) == null) {
@@ -202,7 +260,28 @@ public final class NotificationLite {
         return invokeLL.booleanValue;
     }
 
-    public static <T> boolean acceptFull(Object obj, Subscriber<? super T> subscriber) {
+    public static boolean acceptFull(Object obj, Observer observer) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, observer)) == null) {
+            if (obj == COMPLETE) {
+                observer.onComplete();
+                return true;
+            } else if (obj instanceof ErrorNotification) {
+                observer.onError(((ErrorNotification) obj).e);
+                return true;
+            } else if (obj instanceof DisposableNotification) {
+                observer.onSubscribe(((DisposableNotification) obj).d);
+                return false;
+            } else {
+                observer.onNext(obj);
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean acceptFull(Object obj, Subscriber subscriber) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, obj, subscriber)) == null) {
@@ -223,141 +302,105 @@ public final class NotificationLite {
         return invokeLL.booleanValue;
     }
 
-    public static Object complete() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? COMPLETE : invokeV.objValue;
-    }
-
     public static Object disposable(Disposable disposable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, disposable)) == null) ? new DisposableNotification(disposable) : invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, disposable)) == null) {
+            return new DisposableNotification(disposable);
+        }
+        return invokeL.objValue;
     }
 
     public static Object error(Throwable th) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, th)) == null) ? new ErrorNotification(th) : invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, th)) == null) {
+            return new ErrorNotification(th);
+        }
+        return invokeL.objValue;
     }
 
     public static Disposable getDisposable(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, obj)) == null) ? ((DisposableNotification) obj).d : (Disposable) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, obj)) == null) {
+            return ((DisposableNotification) obj).d;
+        }
+        return (Disposable) invokeL.objValue;
     }
 
     public static Throwable getError(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, obj)) == null) ? ((ErrorNotification) obj).e : (Throwable) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, obj)) == null) {
+            return ((ErrorNotification) obj).e;
+        }
+        return (Throwable) invokeL.objValue;
     }
 
     public static Subscription getSubscription(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, obj)) == null) ? ((SubscriptionNotification) obj).s : (Subscription) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: java.lang.Object */
-    /* JADX WARN: Multi-variable type inference failed */
-    public static <T> T getValue(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65548, null, obj)) == null) ? obj : (T) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, obj)) == null) {
+            return ((SubscriptionNotification) obj).s;
+        }
+        return (Subscription) invokeL.objValue;
     }
 
     public static boolean isComplete(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65549, null, obj)) == null) ? obj == COMPLETE : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, obj)) == null) {
+            if (obj == COMPLETE) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     public static boolean isDisposable(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65550, null, obj)) == null) ? obj instanceof DisposableNotification : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, obj)) == null) {
+            return obj instanceof DisposableNotification;
+        }
+        return invokeL.booleanValue;
     }
 
     public static boolean isError(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65551, null, obj)) == null) ? obj instanceof ErrorNotification : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, obj)) == null) {
+            return obj instanceof ErrorNotification;
+        }
+        return invokeL.booleanValue;
     }
 
     public static boolean isSubscription(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, obj)) == null) ? obj instanceof SubscriptionNotification : invokeL.booleanValue;
-    }
-
-    public static <T> Object next(T t) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65553, null, t)) == null) ? t : invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, obj)) == null) {
+            return obj instanceof SubscriptionNotification;
+        }
+        return invokeL.booleanValue;
     }
 
     public static Object subscription(Subscription subscription) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65554, null, subscription)) == null) ? new SubscriptionNotification(subscription) : invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, subscription)) == null) {
+            return new SubscriptionNotification(subscription);
+        }
+        return invokeL.objValue;
     }
 
     public static NotificationLite valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65555, null, str)) == null) ? (NotificationLite) Enum.valueOf(NotificationLite.class, str) : (NotificationLite) invokeL.objValue;
-    }
-
-    public static NotificationLite[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) ? (NotificationLite[]) $VALUES.clone() : (NotificationLite[]) invokeV.objValue;
-    }
-
-    @Override // java.lang.Enum
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "NotificationLite.Complete" : (String) invokeV.objValue;
-    }
-
-    public static <T> boolean accept(Object obj, Observer<? super T> observer) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, obj, observer)) == null) {
-            if (obj == COMPLETE) {
-                observer.onComplete();
-                return true;
-            } else if (obj instanceof ErrorNotification) {
-                observer.onError(((ErrorNotification) obj).e);
-                return true;
-            } else {
-                observer.onNext(obj);
-                return false;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, str)) == null) {
+            return (NotificationLite) Enum.valueOf(NotificationLite.class, str);
         }
-        return invokeLL.booleanValue;
-    }
-
-    public static <T> boolean acceptFull(Object obj, Observer<? super T> observer) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, observer)) == null) {
-            if (obj == COMPLETE) {
-                observer.onComplete();
-                return true;
-            } else if (obj instanceof ErrorNotification) {
-                observer.onError(((ErrorNotification) obj).e);
-                return true;
-            } else if (obj instanceof DisposableNotification) {
-                observer.onSubscribe(((DisposableNotification) obj).d);
-                return false;
-            } else {
-                observer.onNext(obj);
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
+        return (NotificationLite) invokeL.objValue;
     }
 }

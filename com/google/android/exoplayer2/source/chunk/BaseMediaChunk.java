@@ -40,13 +40,10 @@ public abstract class BaseMediaChunk extends MediaChunk {
     public final int getFirstSampleIndex(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? this.firstSampleIndices[i] : invokeI.intValue;
-    }
-
-    public final BaseMediaChunkOutput getOutput() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.output : (BaseMediaChunkOutput) invokeV.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return this.firstSampleIndices[i];
+        }
+        return invokeI.intValue;
     }
 
     public void init(BaseMediaChunkOutput baseMediaChunkOutput) {
@@ -55,5 +52,14 @@ public abstract class BaseMediaChunk extends MediaChunk {
             this.output = baseMediaChunkOutput;
             this.firstSampleIndices = baseMediaChunkOutput.getWriteIndices();
         }
+    }
+
+    public final BaseMediaChunkOutput getOutput() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.output;
+        }
+        return (BaseMediaChunkOutput) invokeV.objValue;
     }
 }

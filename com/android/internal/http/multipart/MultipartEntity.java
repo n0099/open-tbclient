@@ -19,6 +19,25 @@ public class MultipartEntity extends AbstractHttpEntity {
     public transient /* synthetic */ FieldHolder $fh;
     public Part[] parts;
 
+    public MultipartEntity(Part[] partArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {partArr};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.parts = null;
+        throw new RuntimeException("Stub!");
+    }
+
     public MultipartEntity(Part[] partArr, HttpParams httpParams) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -103,24 +122,5 @@ public class MultipartEntity extends AbstractHttpEntity {
         if (interceptable == null || interceptable.invokeL(1048582, this, outputStream) == null) {
             throw new RuntimeException("Stub!");
         }
-    }
-
-    public MultipartEntity(Part[] partArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {partArr};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.parts = null;
-        throw new RuntimeException("Stub!");
     }
 }

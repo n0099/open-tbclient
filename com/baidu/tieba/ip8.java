@@ -1,28 +1,29 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class ip8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public boolean b;
-    public String c;
 
-    public ip8() {
+    public static VoiceManager a(Context context) {
+        InterceptResult invokeL;
+        TbPageContext tbPageContext;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            if (context instanceof VoiceManager.j) {
+                return ((VoiceManager.j) context).t0();
             }
+            if ((w9.a(context) instanceof r9) && (tbPageContext = (TbPageContext) w9.a(context)) != null && (tbPageContext.getOrignalPage() instanceof VoiceManager.j)) {
+                return ((VoiceManager.j) tbPageContext.getOrignalPage()).t0();
+            }
+            return null;
         }
+        return (VoiceManager) invokeL.objValue;
     }
 }

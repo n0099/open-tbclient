@@ -15,6 +15,13 @@ public interface CookieJar {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
+        @Override // com.baidu.searchbox.network.support.cookie.CookieJar
+        public void saveFromResponse(UrlWrapper urlWrapper, List list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, urlWrapper, list) == null) {
+            }
+        }
+
         {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -30,21 +37,17 @@ public interface CookieJar {
         }
 
         @Override // com.baidu.searchbox.network.support.cookie.CookieJar
-        public List<Cookie> loadForRequest(UrlWrapper urlWrapper) {
+        public List loadForRequest(UrlWrapper urlWrapper) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, urlWrapper)) == null) ? Collections.emptyList() : (List) invokeL.objValue;
-        }
-
-        @Override // com.baidu.searchbox.network.support.cookie.CookieJar
-        public void saveFromResponse(UrlWrapper urlWrapper, List<Cookie> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, urlWrapper, list) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, urlWrapper)) == null) {
+                return Collections.emptyList();
             }
+            return (List) invokeL.objValue;
         }
     };
 
-    List<Cookie> loadForRequest(UrlWrapper urlWrapper);
+    List loadForRequest(UrlWrapper urlWrapper);
 
-    void saveFromResponse(UrlWrapper urlWrapper, List<Cookie> list);
+    void saveFromResponse(UrlWrapper urlWrapper, List list);
 }

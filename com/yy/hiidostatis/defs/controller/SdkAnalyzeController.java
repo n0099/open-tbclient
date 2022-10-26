@@ -48,29 +48,41 @@ public class SdkAnalyzeController {
 
     private String getSdkList(Context context, JSONArray jSONArray) {
         InterceptResult invokeLL;
-        JSONObject jSONObject;
         String string;
-        String string2;
-        String string3;
+        String str;
+        String str2;
+        String str3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, context, jSONArray)) == null) {
             StringBuffer stringBuffer = new StringBuffer();
             for (int i = 0; i < jSONArray.length(); i++) {
                 try {
-                    jSONObject = jSONArray.getJSONObject(i);
+                    JSONObject jSONObject = jSONArray.getJSONObject(i);
                     string = jSONObject.getString("sdkName");
-                    string2 = jSONObject.has("sdkFileName") ? jSONObject.getString("sdkFileName") : null;
-                    string3 = jSONObject.has("sdkClassName") ? jSONObject.getString("sdkClassName") : null;
+                    str = null;
+                    if (jSONObject.has("sdkFileName")) {
+                        str2 = jSONObject.getString("sdkFileName");
+                    } else {
+                        str2 = null;
+                    }
+                    if (jSONObject.has("sdkClassName")) {
+                        str3 = jSONObject.getString("sdkClassName");
+                    } else {
+                        str3 = null;
+                    }
+                    if (jSONObject.has("sdkConfigKey")) {
+                        str = jSONObject.getString("sdkConfigKey");
+                    }
                 } catch (JSONException e) {
                     e = e;
                 }
-                if (Util.empty(ArdUtil.getMetaDataParam(context, jSONObject.has("sdkConfigKey") ? jSONObject.getString("sdkConfigKey") : null)) && !Util.isExistClass(string3)) {
+                if (Util.empty(ArdUtil.getMetaDataParam(context, str)) && !Util.isExistClass(str3)) {
                     try {
                     } catch (JSONException e2) {
                         e = e2;
                         L.debug("SdkAnalyzeController", "getSdkList exception: %s", e);
                     }
-                    if (!isExistFile(context, string2)) {
+                    if (!isExistFile(context, str2)) {
                     }
                 }
                 stringBuffer.append(string);
@@ -153,43 +165,42 @@ public class SdkAnalyzeController {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         String formatDate = Util.formatDate("yyyyMMdd", System.currentTimeMillis());
-                        if (!DefaultPreference.getPreference().getPrefString(this.val$context, SdkAnalyzeController.PREF_KEY_SDK_ANALYZE_REPORT_DATE, "").equals(formatDate)) {
-                            JSONObject sdkListConfig = this.this$0.mConfigAPI.getSdkListConfig(this.val$context, true);
-                            if (sdkListConfig != null) {
-                                try {
-                                } catch (JSONException e) {
-                                    L.debug("SdkAnalyzeController", "get json.enable exception: %s", e);
-                                }
-                                if (sdkListConfig.has("enable")) {
-                                    if ("1".equals(sdkListConfig.get("enable") + "")) {
-                                        z = true;
-                                        L.debug("SdkAnalyzeController", "sdkAnalyze enable is %b", Boolean.valueOf(z));
-                                        if (z) {
-                                            JSONArray jSONArray = null;
-                                            try {
-                                                jSONArray = sdkListConfig.getJSONArray("sdkListConfig");
-                                            } catch (JSONException e2) {
-                                                L.debug("SdkAnalyzeController", "get json.sdkListConfig exception: %s", e2);
-                                            }
-                                            if (jSONArray != null && jSONArray.length() != 0) {
-                                                this.this$0.reportSdkList(this.val$context, this.val$uid, jSONArray);
-                                            } else {
-                                                L.debug("SdkAnalyzeController", "get sdkListJsonArray is null!", new Object[0]);
-                                            }
-                                        }
-                                        DefaultPreference.getPreference().setPrefString(this.val$context, SdkAnalyzeController.PREF_KEY_SDK_ANALYZE_REPORT_DATE, formatDate);
-                                        return;
-                                    }
-                                }
-                            }
-                            z = false;
-                            L.debug("SdkAnalyzeController", "sdkAnalyze enable is %b", Boolean.valueOf(z));
-                            if (z) {
-                            }
-                            DefaultPreference.getPreference().setPrefString(this.val$context, SdkAnalyzeController.PREF_KEY_SDK_ANALYZE_REPORT_DATE, formatDate);
+                        if (DefaultPreference.getPreference().getPrefString(this.val$context, SdkAnalyzeController.PREF_KEY_SDK_ANALYZE_REPORT_DATE, "").equals(formatDate)) {
+                            L.debug("SdkAnalyzeController", "sdk Analyze is reported today[%s]，so not report again!", formatDate);
                             return;
                         }
-                        L.debug("SdkAnalyzeController", "sdk Analyze is reported today[%s]，so not report again!", formatDate);
+                        JSONObject sdkListConfig = this.this$0.mConfigAPI.getSdkListConfig(this.val$context, true);
+                        if (sdkListConfig != null) {
+                            try {
+                            } catch (JSONException e) {
+                                L.debug("SdkAnalyzeController", "get json.enable exception: %s", e);
+                            }
+                            if (sdkListConfig.has("enable")) {
+                                if ("1".equals(sdkListConfig.get("enable") + "")) {
+                                    z = true;
+                                    L.debug("SdkAnalyzeController", "sdkAnalyze enable is %b", Boolean.valueOf(z));
+                                    if (z) {
+                                        JSONArray jSONArray = null;
+                                        try {
+                                            jSONArray = sdkListConfig.getJSONArray("sdkListConfig");
+                                        } catch (JSONException e2) {
+                                            L.debug("SdkAnalyzeController", "get json.sdkListConfig exception: %s", e2);
+                                        }
+                                        if (jSONArray == null || jSONArray.length() == 0) {
+                                            L.debug("SdkAnalyzeController", "get sdkListJsonArray is null!", new Object[0]);
+                                        } else {
+                                            this.this$0.reportSdkList(this.val$context, this.val$uid, jSONArray);
+                                        }
+                                    }
+                                    DefaultPreference.getPreference().setPrefString(this.val$context, SdkAnalyzeController.PREF_KEY_SDK_ANALYZE_REPORT_DATE, formatDate);
+                                }
+                            }
+                        }
+                        z = false;
+                        L.debug("SdkAnalyzeController", "sdkAnalyze enable is %b", Boolean.valueOf(z));
+                        if (z) {
+                        }
+                        DefaultPreference.getPreference().setPrefString(this.val$context, SdkAnalyzeController.PREF_KEY_SDK_ANALYZE_REPORT_DATE, formatDate);
                     }
                 }
             }, 16000L);

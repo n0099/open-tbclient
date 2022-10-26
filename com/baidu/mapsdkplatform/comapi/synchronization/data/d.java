@@ -32,7 +32,7 @@ public class d {
     public boolean k;
 
     /* loaded from: classes2.dex */
-    public static class a {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public static final d a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -55,7 +55,7 @@ public class d {
     }
 
     /* loaded from: classes2.dex */
-    public static class b implements Runnable {
+    public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -105,7 +105,7 @@ public class d {
     }
 
     /* loaded from: classes2.dex */
-    public static class c extends Handler {
+    public class c extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

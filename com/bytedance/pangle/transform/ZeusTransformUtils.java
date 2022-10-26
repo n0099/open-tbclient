@@ -18,7 +18,6 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -47,20 +46,18 @@ import com.bytedance.pangle.wrapper.PluginApplicationWrapper;
 import com.bytedance.pangle.wrapper.PluginFragmentActivityWrapper;
 import com.sina.weibo.sdk.constant.WBConstants;
 import java.lang.ref.WeakReference;
-import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.HashSet;
 import org.xmlpull.v1.XmlPullParser;
-@Keep
 /* loaded from: classes7.dex */
 public class ZeusTransformUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PluginContextUtils";
-    public static HashMap<String, WeakReference<Context>> contextCache;
+    public static HashMap contextCache;
     public static Class fragmentClazz;
     public static boolean hasEnsure;
-    public static HashMap<String, Constructor<View>> sConstructorMap;
+    public static HashMap sConstructorMap;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -76,7 +73,7 @@ public class ZeusTransformUtils {
                 return;
             }
         }
-        contextCache = new HashMap<>();
+        contextCache = new HashMap();
         hasEnsure = false;
         sConstructorMap = null;
     }
@@ -123,6 +120,63 @@ public class ZeusTransformUtils {
         return (Activity) invokeLL.objValue;
     }
 
+    public static Context getContext(Object obj, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, obj, str)) == null) {
+            try {
+                Context context = (Context) MethodUtils.invokeMethod(obj, "getContext", new Object[0]);
+                if (instanceOfFragmentActivity(context)) {
+                    return wrapperContext(context, str);
+                }
+                if (context instanceof Activity) {
+                    return wrapperContext(context, str);
+                }
+                if (context instanceof Application) {
+                    return wrapperContext(context, str);
+                }
+                if (context instanceof PluginContext) {
+                    return context;
+                }
+                return wrapperContext(context, str);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return (Context) invokeLL.objValue;
+    }
+
+    public static boolean instanceOf(Object obj, Class cls) {
+        InterceptResult invokeLL;
+        Object readField;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65556, null, obj, cls)) == null) {
+            if (obj instanceof PluginContext) {
+                return cls.isInstance(((PluginContext) obj).mOriginContext);
+            }
+            if (obj instanceof PluginActivityWrapper) {
+                return cls.isInstance(((PluginActivityWrapper) obj).mOriginActivity);
+            }
+            if (obj instanceof PluginFragmentActivityWrapper) {
+                try {
+                    try {
+                        readField = ((PluginFragmentActivityWrapper) obj).getOriginActivity();
+                    } catch (Throwable th) {
+                        throw new RuntimeException(th);
+                    }
+                } catch (Throwable unused) {
+                    readField = FieldUtils.readField(obj, "mOriginActivity");
+                }
+                return cls.isInstance(readField);
+            } else if (obj instanceof PluginApplicationWrapper) {
+                return cls.isInstance(((PluginApplicationWrapper) obj).mOriginApplication);
+            } else {
+                return cls.isInstance(obj);
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
     public static boolean bindService(Object obj, Intent intent, ServiceConnection serviceConnection, int i, String str) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -139,27 +193,46 @@ public class ZeusTransformUtils {
         return invokeCommon.booleanValue;
     }
 
-    public static void clearConstructorCache() {
+    public static void startActivityForResult(Object obj, Intent intent, int i, Bundle bundle, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) || Build.VERSION.SDK_INT > 23) {
-            return;
-        }
-        try {
-            if (sConstructorMap == null) {
-                sConstructorMap = (HashMap) FieldUtils.readStaticField(LayoutInflater.class, "sConstructorMap");
-            }
-            for (String str : new HashSet(sConstructorMap.keySet())) {
-                if (!str.startsWith("android.view.") && !str.startsWith("android.widget.") && !str.startsWith("android.webkit.") && str.contains(".")) {
-                    sConstructorMap.remove(str);
+        if (interceptable == null || interceptable.invokeCommon(65570, null, new Object[]{obj, intent, Integer.valueOf(i), bundle, str}) == null) {
+            try {
+                ComponentManager.startActivityForResult(obj, intent, i, bundle, str);
+            } catch (Throwable th) {
+                if (obj instanceof Activity) {
+                    ComponentManager.startActivityForResult((Activity) obj, intent, i, bundle, str);
+                    return;
+                }
+                try {
+                    MethodUtils.invokeMethod(obj, "startActivityForResult", new Object[]{intent, Integer.valueOf(i), bundle}, new Class[]{Intent.class, Integer.TYPE, Bundle.class});
+                } catch (Throwable th2) {
+                    th2.addSuppressed(th);
+                    throw new RuntimeException(th2);
                 }
             }
-        } catch (Throwable unused) {
+        }
+    }
+
+    public static void clearConstructorCache() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) && Build.VERSION.SDK_INT <= 23) {
+            try {
+                if (sConstructorMap == null) {
+                    sConstructorMap = (HashMap) FieldUtils.readStaticField(LayoutInflater.class, "sConstructorMap");
+                }
+                for (String str : new HashSet(sConstructorMap.keySet())) {
+                    if (!str.startsWith("android.view.") && !str.startsWith("android.widget.") && !str.startsWith("android.webkit.") && str.contains(".")) {
+                        sConstructorMap.remove(str);
+                    }
+                }
+            } catch (Throwable unused) {
+            }
         }
     }
 
     public static void ensureFragmentActivity() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65541, null) == null) || hasEnsure) {
+        if ((interceptable != null && interceptable.invokeV(65541, null) != null) || hasEnsure) {
             return;
         }
         try {
@@ -179,7 +252,24 @@ public class ZeusTransformUtils {
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, cls)) == null) {
             ensureFragmentActivity();
             Class cls2 = fragmentClazz;
-            return cls2 != null && cls == cls2;
+            if (cls2 == null || cls != cls2) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean instanceOfFragmentActivity(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, obj)) == null) {
+            ensureFragmentActivity();
+            Class cls = fragmentClazz;
+            if (cls == null) {
+                return false;
+            }
+            return cls.isInstance(obj);
         }
         return invokeL.booleanValue;
     }
@@ -187,13 +277,19 @@ public class ZeusTransformUtils {
     public static Class forName(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, str2)) == null) ? Zeus.getPlugin(str2).mClassLoader.loadClass(str) : (Class) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, str2)) == null) {
+            return Zeus.getPlugin(str2).mClassLoader.loadClass(str);
+        }
+        return (Class) invokeLL.objValue;
     }
 
     public static Activity getActivity(Object obj, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, obj, str)) == null) ? _getActivity(obj, str) : (Activity) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, obj, str)) == null) {
+            return _getActivity(obj, str);
+        }
+        return (Activity) invokeLL.objValue;
     }
 
     public static String getAssetPaths(AssetManager assetManager) {
@@ -230,29 +326,6 @@ public class ZeusTransformUtils {
             return sb.toString();
         }
         return (String) invokeL.objValue;
-    }
-
-    public static Context getContext(Object obj, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, obj, str)) == null) {
-            try {
-                Context context = (Context) MethodUtils.invokeMethod(obj, "getContext", new Object[0]);
-                if (instanceOfFragmentActivity(context)) {
-                    return wrapperContext(context, str);
-                }
-                if (context instanceof Activity) {
-                    return wrapperContext(context, str);
-                }
-                if (context instanceof Application) {
-                    return wrapperContext(context, str);
-                }
-                return context instanceof PluginContext ? context : wrapperContext(context, str);
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
-        }
-        return (Context) invokeLL.objValue;
     }
 
     public static Context getContextIfNeedWrap(Context context, Context context2, String str) {
@@ -314,14 +387,14 @@ public class ZeusTransformUtils {
                         th2.printStackTrace();
                     }
                     return null;
-                } else if (!(context2 instanceof ContextWrapper)) {
-                    return context;
-                } else {
+                } else if (context2 instanceof ContextWrapper) {
                     try {
                         context2 = (Context) FieldUtils.readField(context2, "mBase");
                     } catch (Throwable unused2) {
                         context2 = ((ContextWrapper) context2).getBaseContext();
                     }
+                } else {
+                    return context;
                 }
             }
             return null;
@@ -347,6 +420,39 @@ public class ZeusTransformUtils {
             }
         }
         return invokeLLLLL.intValue;
+    }
+
+    public static View inflate(LayoutInflater layoutInflater, int i, ViewGroup viewGroup, boolean z, String str) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65553, null, new Object[]{layoutInflater, Integer.valueOf(i), viewGroup, Boolean.valueOf(z), str})) == null) {
+            Context context = layoutInflater.getContext();
+            if (!(context instanceof PluginContext) && !(context instanceof PluginActivityWrapper) && !(context instanceof PluginFragmentActivityWrapper) && !(context instanceof PluginApplicationWrapper)) {
+                layoutInflater = (LayoutInflater) wrapperContext(context, str).getSystemService("layout_inflater");
+            }
+            clearConstructorCache();
+            View inflate = layoutInflater.inflate(i, viewGroup, z);
+            clearConstructorCache();
+            return inflate;
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    public static Intent registerReceiver(Object obj, PluginBroadcastReceiver pluginBroadcastReceiver, IntentFilter intentFilter, int i, String str) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65560, null, new Object[]{obj, pluginBroadcastReceiver, intentFilter, Integer.valueOf(i), str})) == null) {
+            if (obj instanceof Context) {
+                ZeusLogger.d(ZeusLogger.TAG_RECEIVER, "ZeusTransformUtils-registerReceiver-execute[3 params]");
+                return ComponentManager.registerReceiver((Context) obj, pluginBroadcastReceiver, intentFilter, i, str);
+            }
+            try {
+                return (Intent) MethodUtils.invokeMethod(obj, "registerReceiver", pluginBroadcastReceiver, intentFilter, Integer.valueOf(i));
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return (Intent) invokeCommon.objValue;
     }
 
     public static Resources getResources(Object obj, String str) {
@@ -381,326 +487,12 @@ public class ZeusTransformUtils {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, obj, str)) == null) {
-            HashMap<String, WeakReference<Context>> hashMap = contextCache;
-            WeakReference<Context> weakReference = hashMap.get(str + System.identityHashCode(obj));
+            HashMap hashMap = contextCache;
+            WeakReference weakReference = (WeakReference) hashMap.get(str + System.identityHashCode(obj));
             if (weakReference != null) {
-                return weakReference.get();
+                return (Context) weakReference.get();
             }
             return null;
-        }
-        return (Context) invokeLL.objValue;
-    }
-
-    public static View inflate(LayoutInflater layoutInflater, int i, ViewGroup viewGroup, boolean z, String str) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65553, null, new Object[]{layoutInflater, Integer.valueOf(i), viewGroup, Boolean.valueOf(z), str})) == null) {
-            Context context = layoutInflater.getContext();
-            if (!(context instanceof PluginContext) && !(context instanceof PluginActivityWrapper) && !(context instanceof PluginFragmentActivityWrapper) && !(context instanceof PluginApplicationWrapper)) {
-                layoutInflater = (LayoutInflater) wrapperContext(context, str).getSystemService("layout_inflater");
-            }
-            clearConstructorCache();
-            View inflate = layoutInflater.inflate(i, viewGroup, z);
-            clearConstructorCache();
-            return inflate;
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    public static boolean instanceOf(Object obj, Class cls) {
-        InterceptResult invokeLL;
-        Object readField;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65556, null, obj, cls)) == null) {
-            if (obj instanceof PluginContext) {
-                return cls.isInstance(((PluginContext) obj).mOriginContext);
-            }
-            if (obj instanceof PluginActivityWrapper) {
-                return cls.isInstance(((PluginActivityWrapper) obj).mOriginActivity);
-            }
-            if (obj instanceof PluginFragmentActivityWrapper) {
-                try {
-                    try {
-                        readField = ((PluginFragmentActivityWrapper) obj).getOriginActivity();
-                    } catch (Throwable th) {
-                        throw new RuntimeException(th);
-                    }
-                } catch (Throwable unused) {
-                    readField = FieldUtils.readField(obj, "mOriginActivity");
-                }
-                return cls.isInstance(readField);
-            } else if (obj instanceof PluginApplicationWrapper) {
-                return cls.isInstance(((PluginApplicationWrapper) obj).mOriginApplication);
-            } else {
-                return cls.isInstance(obj);
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean instanceOfFragmentActivity(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, obj)) == null) {
-            ensureFragmentActivity();
-            Class cls = fragmentClazz;
-            if (cls == null) {
-                return false;
-            }
-            return cls.isInstance(obj);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static int mapRes(int i, String str, String str2) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(65558, null, i, str, str2)) == null) {
-            if (i < 2130706432) {
-                return i;
-            }
-            int identifier = Zeus.getAppApplication().getResources().getIdentifier(str2, str, Zeus.getAppApplication().getPackageName());
-            if (identifier == 0) {
-                identifier = Zeus.getAppApplication().getResources().getIdentifier(str2.replace("_", "."), str, Zeus.getAppApplication().getPackageName());
-            }
-            if (identifier == 0) {
-                ZeusLogger.d(ZeusLogger.TAG_RESOURCES, "Cant find res, resName = " + str2 + ", pluginResId = " + i);
-            }
-            return identifier;
-        }
-        return invokeILL.intValue;
-    }
-
-    public static Object preCheckCast(Object obj, Class cls, String str) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65559, null, obj, cls, str)) == null) {
-            if (obj == null) {
-                return null;
-            }
-            if (obj instanceof Context) {
-                boolean z = !cls.isInstance(obj);
-                if (equalsFragmentActivity(cls)) {
-                    return wrapperContext2FragmentActivity(obj, str);
-                }
-                if (cls == Activity.class) {
-                    return wrapperContext2Activity(obj, str);
-                }
-                if (cls == Application.class) {
-                    return wrapperContext2Application(obj, str);
-                }
-                if ((obj instanceof PluginContext) && z) {
-                    return ((PluginContext) obj).mOriginContext;
-                }
-                if ((obj instanceof PluginFragmentActivityWrapper) && z) {
-                    try {
-                        try {
-                            return ((PluginFragmentActivityWrapper) obj).getOriginActivity();
-                        } catch (Throwable th) {
-                            throw new RuntimeException(th);
-                        }
-                    } catch (Throwable unused) {
-                        return FieldUtils.readField(obj, "mOriginActivity");
-                    }
-                } else if ((obj instanceof PluginActivityWrapper) && z) {
-                    return ((PluginActivityWrapper) obj).mOriginActivity;
-                } else {
-                    return ((obj instanceof PluginApplicationWrapper) && z) ? ((PluginApplicationWrapper) obj).mOriginApplication : obj;
-                }
-            }
-            return obj;
-        }
-        return invokeLLL.objValue;
-    }
-
-    public static Intent registerReceiver(Object obj, PluginBroadcastReceiver pluginBroadcastReceiver, IntentFilter intentFilter, String str) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65561, null, obj, pluginBroadcastReceiver, intentFilter, str)) == null) {
-            if (obj instanceof Context) {
-                ZeusLogger.d(ZeusLogger.TAG_RECEIVER, "ZeusTransformUtils-registerReceiver-execute");
-                return ComponentManager.registerReceiver((Context) obj, pluginBroadcastReceiver, intentFilter, str);
-            }
-            try {
-                return (Intent) MethodUtils.invokeMethod(obj, "registerReceiver", pluginBroadcastReceiver, intentFilter);
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
-        }
-        return (Intent) invokeLLLL.objValue;
-    }
-
-    public static void registerZeusActivityStub(String str, String[] strArr, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65564, null, str, strArr, str2) == null) {
-            ComponentManager.registerActivity(str2, str, strArr);
-        }
-    }
-
-    public static void requestPermissions(Object obj, String[] strArr, int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(65565, null, obj, strArr, i, str) == null) {
-            if (obj instanceof IPluginActivity) {
-                ((IPluginActivity) obj)._requestPermissions(strArr, i);
-                return;
-            }
-            try {
-                MethodUtils.invokeMethod(obj, "requestPermissions", strArr, Integer.valueOf(i));
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
-        }
-    }
-
-    public static void setResult(Object obj, int i, Intent intent, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(65566, null, obj, i, intent, str) == null) {
-            if (obj instanceof Activity) {
-                try {
-                    Object readField = FieldUtils.readField(obj, "mProxyActivity");
-                    if (readField == null) {
-                        readField = FieldUtils.readField(obj, "mOriginActivity");
-                    }
-                    if (readField != null) {
-                        MethodUtils.invokeMethod(readField, "setResult", Integer.valueOf(i), intent);
-                        return;
-                    }
-                } catch (Exception unused) {
-                }
-            }
-            try {
-                MethodUtils.invokeMethod(obj, "setResult", Integer.valueOf(i), intent);
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
-        }
-    }
-
-    public static void startActivity(Object obj, Intent intent, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65569, null, obj, intent, str) == null) {
-            startActivity(obj, intent, null, str);
-        }
-    }
-
-    public static void startActivityForResult(Object obj, Intent intent, int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(65571, null, obj, intent, i, str) == null) {
-            startActivityForResult(obj, intent, i, null, str);
-        }
-    }
-
-    public static ComponentName startService(Object obj, Intent intent, String str) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65572, null, obj, intent, str)) == null) {
-            if (obj instanceof Context) {
-                return ServiceManagerNative.getInstance().startServiceNative((Context) obj, intent, str);
-            }
-            try {
-                return (ComponentName) MethodUtils.invokeMethod(obj, "startService", intent);
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
-        }
-        return (ComponentName) invokeLLL.objValue;
-    }
-
-    public static boolean stopService(Object obj, Intent intent, String str) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65573, null, obj, intent, str)) == null) {
-            if (obj instanceof Context) {
-                return ServiceManagerNative.getInstance().stopServiceNative((Context) obj, intent, str);
-            }
-            try {
-                return ((Boolean) MethodUtils.invokeMethod(obj, "stopService", intent)).booleanValue();
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public static void unbindService(Object obj, ServiceConnection serviceConnection, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65574, null, obj, serviceConnection, str) == null) {
-            if (obj instanceof Context) {
-                ServiceManagerNative.getInstance().unbindServiceNative(serviceConnection);
-                return;
-            }
-            try {
-                MethodUtils.invokeMethod(obj, "unbindService", serviceConnection);
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
-        }
-    }
-
-    public static void unregisterReceiver(Object obj, PluginBroadcastReceiver pluginBroadcastReceiver, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65575, null, obj, pluginBroadcastReceiver, str) == null) {
-            if (obj instanceof Context) {
-                ComponentManager.unregisterReceiver((Context) obj, pluginBroadcastReceiver);
-                return;
-            }
-            try {
-                MethodUtils.invokeMethod(obj, "unregisterReceiver", pluginBroadcastReceiver);
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
-        }
-    }
-
-    public static Context wrapperContext(Object obj, String str) {
-        InterceptResult invokeLL;
-        Context pluginContext;
-        Application application;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65576, null, obj, str)) == null) {
-            if (Zeus.getAppApplication() == null && (application = (Application) ((Context) obj).getApplicationContext()) != null) {
-                Zeus.setAppContext(application);
-            }
-            if (obj == null) {
-                return null;
-            }
-            Context wrapperFromCache = getWrapperFromCache(obj, str);
-            if (wrapperFromCache != null) {
-                return wrapperFromCache;
-            }
-            Context context = (Context) obj;
-            Context contextIfNeedWrap = getContextIfNeedWrap(context, context, str);
-            if (contextIfNeedWrap == null) {
-                return context;
-            }
-            if (instanceOfFragmentActivity(contextIfNeedWrap)) {
-                if (Looper.myLooper() == null) {
-                    Looper.prepare();
-                }
-                try {
-                    try {
-                        pluginContext = new PluginFragmentActivityWrapper((Activity) contextIfNeedWrap, new PluginContext(contextIfNeedWrap, PluginManager.getInstance().getPlugin(str), false));
-                    } catch (Throwable unused) {
-                        pluginContext = (Context) MethodUtils.invokeConstructor(PluginFragmentActivityWrapper.class, new Object[]{contextIfNeedWrap, new PluginContext(contextIfNeedWrap, PluginManager.getInstance().getPlugin(str), false)}, new Class[]{fragmentClazz, PluginContext.class});
-                    }
-                } catch (Throwable unused2) {
-                    return contextIfNeedWrap;
-                }
-            } else if (contextIfNeedWrap instanceof Activity) {
-                if (Looper.myLooper() == null) {
-                    Looper.prepare();
-                }
-                pluginContext = new PluginActivityWrapper((Activity) contextIfNeedWrap, new PluginContext(contextIfNeedWrap, PluginManager.getInstance().getPlugin(str), false));
-            } else if (contextIfNeedWrap instanceof Application) {
-                pluginContext = new PluginApplicationWrapper((Application) contextIfNeedWrap, new PluginContext(contextIfNeedWrap, PluginManager.getInstance().getPlugin(str), true));
-            } else {
-                pluginContext = new PluginContext(contextIfNeedWrap, PluginManager.getInstance().getPlugin(str), false);
-            }
-            if (pluginContext != null) {
-                HashMap<String, WeakReference<Context>> hashMap = contextCache;
-                hashMap.put(str + System.identityHashCode(contextIfNeedWrap), new WeakReference<>(pluginContext));
-            }
-            return pluginContext;
         }
         return (Context) invokeLL.objValue;
     }
@@ -765,19 +557,51 @@ public class ZeusTransformUtils {
         return invokeLL.objValue;
     }
 
-    public static Object wrapperContextForParams(Object obj, Class cls, String str) {
-        InterceptResult invokeLLL;
+    public static View inflate(Context context, int i, ViewGroup viewGroup, String str) {
+        InterceptResult invokeLILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65580, null, obj, cls, str)) == null) {
-            if (!(obj instanceof PluginService) && !(obj instanceof PluginIntentService) && (obj instanceof Context)) {
-                Context wrapperContext = wrapperContext(obj, str);
-                if (cls.isInstance(wrapperContext(obj, str))) {
-                    return wrapperContext;
-                }
+        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(65551, null, context, i, viewGroup, str)) == null) {
+            if (!(context instanceof PluginContext) && !(context instanceof PluginActivityWrapper) && !(context instanceof PluginFragmentActivityWrapper) && !(context instanceof PluginApplicationWrapper)) {
+                context = wrapperContext(context, str);
             }
-            return obj;
+            clearConstructorCache();
+            View inflate = ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(i, viewGroup);
+            clearConstructorCache();
+            return inflate;
         }
-        return invokeLLL.objValue;
+        return (View) invokeLILL.objValue;
+    }
+
+    public static Intent registerReceiver(Object obj, PluginBroadcastReceiver pluginBroadcastReceiver, IntentFilter intentFilter, String str) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65561, null, obj, pluginBroadcastReceiver, intentFilter, str)) == null) {
+            if (obj instanceof Context) {
+                ZeusLogger.d(ZeusLogger.TAG_RECEIVER, "ZeusTransformUtils-registerReceiver-execute");
+                return ComponentManager.registerReceiver((Context) obj, pluginBroadcastReceiver, intentFilter, str);
+            }
+            try {
+                return (Intent) MethodUtils.invokeMethod(obj, "registerReceiver", pluginBroadcastReceiver, intentFilter);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return (Intent) invokeLLLL.objValue;
+    }
+
+    public static void requestPermissions(Object obj, String[] strArr, int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLIL(65565, null, obj, strArr, i, str) == null) {
+            if (obj instanceof IPluginActivity) {
+                ((IPluginActivity) obj)._requestPermissions(strArr, i);
+                return;
+            }
+            try {
+                MethodUtils.invokeMethod(obj, "requestPermissions", strArr, Integer.valueOf(i));
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 
     public static void startActivity(Object obj, Intent intent, Bundle bundle, String str) {
@@ -800,24 +624,138 @@ public class ZeusTransformUtils {
         }
     }
 
-    public static void startActivityForResult(Object obj, Intent intent, int i, Bundle bundle, String str) {
+    public static View inflate(LayoutInflater layoutInflater, int i, ViewGroup viewGroup, String str) {
+        InterceptResult invokeLILL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65570, null, new Object[]{obj, intent, Integer.valueOf(i), bundle, str}) == null) {
-            try {
-                ComponentManager.startActivityForResult(obj, intent, i, bundle, str);
-            } catch (Throwable th) {
-                if (obj instanceof Activity) {
-                    ComponentManager.startActivityForResult((Activity) obj, intent, i, bundle, str);
-                    return;
-                }
+        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(65552, null, layoutInflater, i, viewGroup, str)) == null) {
+            if (viewGroup != null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            return inflate(layoutInflater, i, viewGroup, z, str);
+        }
+        return (View) invokeLILL.objValue;
+    }
+
+    public static void startActivityForResult(Object obj, Intent intent, int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLIL(65571, null, obj, intent, i, str) == null) {
+            startActivityForResult(obj, intent, i, null, str);
+        }
+    }
+
+    public static View inflate(LayoutInflater layoutInflater, XmlPullParser xmlPullParser, ViewGroup viewGroup, String str) {
+        InterceptResult invokeLLLL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65554, null, layoutInflater, xmlPullParser, viewGroup, str)) == null) {
+            if (viewGroup != null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            return inflate(layoutInflater, xmlPullParser, viewGroup, z, str);
+        }
+        return (View) invokeLLLL.objValue;
+    }
+
+    public static View inflate(LayoutInflater layoutInflater, XmlPullParser xmlPullParser, ViewGroup viewGroup, boolean z, String str) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65555, null, new Object[]{layoutInflater, xmlPullParser, viewGroup, Boolean.valueOf(z), str})) == null) {
+            Context context = layoutInflater.getContext();
+            if (!(context instanceof PluginContext) && !(context instanceof PluginActivityWrapper) && !(context instanceof PluginFragmentActivityWrapper) && !(context instanceof PluginApplicationWrapper)) {
+                layoutInflater = (LayoutInflater) wrapperContext(context, str).getSystemService("layout_inflater");
+            }
+            clearConstructorCache();
+            View inflate = layoutInflater.inflate(xmlPullParser, viewGroup, z);
+            clearConstructorCache();
+            return inflate;
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    public static int mapRes(int i, String str, String str2) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(65558, null, i, str, str2)) == null) {
+            if (i < 2130706432) {
+                return i;
+            }
+            int identifier = Zeus.getAppApplication().getResources().getIdentifier(str2, str, Zeus.getAppApplication().getPackageName());
+            if (identifier == 0) {
+                identifier = Zeus.getAppApplication().getResources().getIdentifier(str2.replace("_", "."), str, Zeus.getAppApplication().getPackageName());
+            }
+            if (identifier == 0) {
+                ZeusLogger.d(ZeusLogger.TAG_RESOURCES, "Cant find res, resName = " + str2 + ", pluginResId = " + i);
+            }
+            return identifier;
+        }
+        return invokeILL.intValue;
+    }
+
+    public static Object preCheckCast(Object obj, Class cls, String str) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65559, null, obj, cls, str)) == null) {
+            if (obj == null) {
+                return null;
+            }
+            if (!(obj instanceof Context)) {
+                return obj;
+            }
+            boolean z = !cls.isInstance(obj);
+            if (equalsFragmentActivity(cls)) {
+                return wrapperContext2FragmentActivity(obj, str);
+            }
+            if (cls == Activity.class) {
+                return wrapperContext2Activity(obj, str);
+            }
+            if (cls == Application.class) {
+                return wrapperContext2Application(obj, str);
+            }
+            if ((obj instanceof PluginContext) && z) {
+                return ((PluginContext) obj).mOriginContext;
+            }
+            if ((obj instanceof PluginFragmentActivityWrapper) && z) {
                 try {
-                    MethodUtils.invokeMethod(obj, "startActivityForResult", new Object[]{intent, Integer.valueOf(i), bundle}, new Class[]{Intent.class, Integer.TYPE, Bundle.class});
-                } catch (Throwable th2) {
-                    th2.addSuppressed(th);
-                    throw new RuntimeException(th2);
+                    try {
+                        return ((PluginFragmentActivityWrapper) obj).getOriginActivity();
+                    } catch (Throwable th) {
+                        throw new RuntimeException(th);
+                    }
+                } catch (Throwable unused) {
+                    return FieldUtils.readField(obj, "mOriginActivity");
                 }
+            } else if ((obj instanceof PluginActivityWrapper) && z) {
+                return ((PluginActivityWrapper) obj).mOriginActivity;
+            } else {
+                if ((obj instanceof PluginApplicationWrapper) && z) {
+                    return ((PluginApplicationWrapper) obj).mOriginApplication;
+                }
+                return obj;
             }
         }
+        return invokeLLL.objValue;
+    }
+
+    public static Intent registerReceiver(Object obj, PluginBroadcastReceiver pluginBroadcastReceiver, IntentFilter intentFilter, String str, Handler handler, int i, String str2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65562, null, new Object[]{obj, pluginBroadcastReceiver, intentFilter, str, handler, Integer.valueOf(i), str2})) == null) {
+            if (obj instanceof Context) {
+                ZeusLogger.d(ZeusLogger.TAG_RECEIVER, "ZeusTransformUtils-registerReceiver-execute[5 params]");
+                return ComponentManager.registerReceiver((Context) obj, pluginBroadcastReceiver, intentFilter, str, handler, i, str2);
+            }
+            try {
+                return (Intent) MethodUtils.invokeMethod(obj, "registerReceiver", pluginBroadcastReceiver, intentFilter, str, handler, Integer.valueOf(i));
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return (Intent) invokeCommon.objValue;
     }
 
     public static Intent registerReceiver(Object obj, PluginBroadcastReceiver pluginBroadcastReceiver, IntentFilter intentFilter, String str, Handler handler, String str2) {
@@ -835,6 +773,89 @@ public class ZeusTransformUtils {
             }
         }
         return (Intent) invokeCommon.objValue;
+    }
+
+    public static void registerZeusActivityStub(String str, String[] strArr, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65564, null, str, strArr, str2) == null) {
+            ComponentManager.registerActivity(str2, str, strArr);
+        }
+    }
+
+    public static void startActivity(Object obj, Intent intent, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65569, null, obj, intent, str) == null) {
+            startActivity(obj, intent, null, str);
+        }
+    }
+
+    public static void unbindService(Object obj, ServiceConnection serviceConnection, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65574, null, obj, serviceConnection, str) == null) {
+            if (obj instanceof Context) {
+                ServiceManagerNative.getInstance().unbindServiceNative(serviceConnection);
+                return;
+            }
+            try {
+                MethodUtils.invokeMethod(obj, "unbindService", serviceConnection);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    public static void unregisterReceiver(Object obj, PluginBroadcastReceiver pluginBroadcastReceiver, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65575, null, obj, pluginBroadcastReceiver, str) == null) {
+            if (obj instanceof Context) {
+                ComponentManager.unregisterReceiver((Context) obj, pluginBroadcastReceiver);
+                return;
+            }
+            try {
+                MethodUtils.invokeMethod(obj, "unregisterReceiver", pluginBroadcastReceiver);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    public static Object wrapperContextForParams(Object obj, Class cls, String str) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65580, null, obj, cls, str)) == null) {
+            if (!(obj instanceof PluginService) && !(obj instanceof PluginIntentService) && (obj instanceof Context)) {
+                Context wrapperContext = wrapperContext(obj, str);
+                if (cls.isInstance(wrapperContext(obj, str))) {
+                    return wrapperContext;
+                }
+            }
+            return obj;
+        }
+        return invokeLLL.objValue;
+    }
+
+    public static void setResult(Object obj, int i, Intent intent, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLILL(65566, null, obj, i, intent, str) == null) {
+            if (obj instanceof Activity) {
+                try {
+                    Object readField = FieldUtils.readField(obj, "mProxyActivity");
+                    if (readField == null) {
+                        readField = FieldUtils.readField(obj, "mOriginActivity");
+                    }
+                    if (readField != null) {
+                        MethodUtils.invokeMethod(readField, "setResult", Integer.valueOf(i), intent);
+                        return;
+                    }
+                } catch (Exception unused) {
+                }
+            }
+            try {
+                MethodUtils.invokeMethod(obj, "setResult", Integer.valueOf(i), intent);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 
     public static void setResult(Object obj, int i, String str) {
@@ -859,86 +880,88 @@ public class ZeusTransformUtils {
         }
     }
 
-    public static View inflate(LayoutInflater layoutInflater, int i, ViewGroup viewGroup, String str) {
-        InterceptResult invokeLILL;
+    public static ComponentName startService(Object obj, Intent intent, String str) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(65552, null, layoutInflater, i, viewGroup, str)) == null) {
-            return inflate(layoutInflater, i, viewGroup, viewGroup != null, str);
-        }
-        return (View) invokeLILL.objValue;
-    }
-
-    public static View inflate(LayoutInflater layoutInflater, XmlPullParser xmlPullParser, ViewGroup viewGroup, String str) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65554, null, layoutInflater, xmlPullParser, viewGroup, str)) == null) {
-            return inflate(layoutInflater, xmlPullParser, viewGroup, viewGroup != null, str);
-        }
-        return (View) invokeLLLL.objValue;
-    }
-
-    public static View inflate(LayoutInflater layoutInflater, XmlPullParser xmlPullParser, ViewGroup viewGroup, boolean z, String str) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65555, null, new Object[]{layoutInflater, xmlPullParser, viewGroup, Boolean.valueOf(z), str})) == null) {
-            Context context = layoutInflater.getContext();
-            if (!(context instanceof PluginContext) && !(context instanceof PluginActivityWrapper) && !(context instanceof PluginFragmentActivityWrapper) && !(context instanceof PluginApplicationWrapper)) {
-                layoutInflater = (LayoutInflater) wrapperContext(context, str).getSystemService("layout_inflater");
-            }
-            clearConstructorCache();
-            View inflate = layoutInflater.inflate(xmlPullParser, viewGroup, z);
-            clearConstructorCache();
-            return inflate;
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    public static Intent registerReceiver(Object obj, PluginBroadcastReceiver pluginBroadcastReceiver, IntentFilter intentFilter, int i, String str) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65560, null, new Object[]{obj, pluginBroadcastReceiver, intentFilter, Integer.valueOf(i), str})) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65572, null, obj, intent, str)) == null) {
             if (obj instanceof Context) {
-                ZeusLogger.d(ZeusLogger.TAG_RECEIVER, "ZeusTransformUtils-registerReceiver-execute[3 params]");
-                return ComponentManager.registerReceiver((Context) obj, pluginBroadcastReceiver, intentFilter, i, str);
+                return ServiceManagerNative.getInstance().startServiceNative((Context) obj, intent, str);
             }
             try {
-                return (Intent) MethodUtils.invokeMethod(obj, "registerReceiver", pluginBroadcastReceiver, intentFilter, Integer.valueOf(i));
+                return (ComponentName) MethodUtils.invokeMethod(obj, "startService", intent);
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
         }
-        return (Intent) invokeCommon.objValue;
+        return (ComponentName) invokeLLL.objValue;
     }
 
-    public static Intent registerReceiver(Object obj, PluginBroadcastReceiver pluginBroadcastReceiver, IntentFilter intentFilter, String str, Handler handler, int i, String str2) {
-        InterceptResult invokeCommon;
+    public static boolean stopService(Object obj, Intent intent, String str) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65562, null, new Object[]{obj, pluginBroadcastReceiver, intentFilter, str, handler, Integer.valueOf(i), str2})) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65573, null, obj, intent, str)) == null) {
             if (obj instanceof Context) {
-                ZeusLogger.d(ZeusLogger.TAG_RECEIVER, "ZeusTransformUtils-registerReceiver-execute[5 params]");
-                return ComponentManager.registerReceiver((Context) obj, pluginBroadcastReceiver, intentFilter, str, handler, i, str2);
+                return ServiceManagerNative.getInstance().stopServiceNative((Context) obj, intent, str);
             }
             try {
-                return (Intent) MethodUtils.invokeMethod(obj, "registerReceiver", pluginBroadcastReceiver, intentFilter, str, handler, Integer.valueOf(i));
+                return ((Boolean) MethodUtils.invokeMethod(obj, "stopService", intent)).booleanValue();
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
         }
-        return (Intent) invokeCommon.objValue;
+        return invokeLLL.booleanValue;
     }
 
-    public static View inflate(Context context, int i, ViewGroup viewGroup, String str) {
-        InterceptResult invokeLILL;
+    public static Context wrapperContext(Object obj, String str) {
+        InterceptResult invokeLL;
+        Context pluginContext;
+        Application application;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(65551, null, context, i, viewGroup, str)) == null) {
-            if (!(context instanceof PluginContext) && !(context instanceof PluginActivityWrapper) && !(context instanceof PluginFragmentActivityWrapper) && !(context instanceof PluginApplicationWrapper)) {
-                context = wrapperContext(context, str);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65576, null, obj, str)) == null) {
+            if (Zeus.getAppApplication() == null && (application = (Application) ((Context) obj).getApplicationContext()) != null) {
+                Zeus.setAppContext(application);
             }
-            clearConstructorCache();
-            View inflate = ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(i, viewGroup);
-            clearConstructorCache();
-            return inflate;
+            if (obj == null) {
+                return null;
+            }
+            Context wrapperFromCache = getWrapperFromCache(obj, str);
+            if (wrapperFromCache != null) {
+                return wrapperFromCache;
+            }
+            Context context = (Context) obj;
+            Context contextIfNeedWrap = getContextIfNeedWrap(context, context, str);
+            if (contextIfNeedWrap == null) {
+                return context;
+            }
+            if (instanceOfFragmentActivity(contextIfNeedWrap)) {
+                if (Looper.myLooper() == null) {
+                    Looper.prepare();
+                }
+                try {
+                    try {
+                        pluginContext = new PluginFragmentActivityWrapper((Activity) contextIfNeedWrap, new PluginContext(contextIfNeedWrap, PluginManager.getInstance().getPlugin(str), false));
+                    } catch (Throwable unused) {
+                        pluginContext = (Context) MethodUtils.invokeConstructor(PluginFragmentActivityWrapper.class, new Object[]{contextIfNeedWrap, new PluginContext(contextIfNeedWrap, PluginManager.getInstance().getPlugin(str), false)}, new Class[]{fragmentClazz, PluginContext.class});
+                    }
+                } catch (Throwable unused2) {
+                    return contextIfNeedWrap;
+                }
+            } else if (contextIfNeedWrap instanceof Activity) {
+                if (Looper.myLooper() == null) {
+                    Looper.prepare();
+                }
+                pluginContext = new PluginActivityWrapper((Activity) contextIfNeedWrap, new PluginContext(contextIfNeedWrap, PluginManager.getInstance().getPlugin(str), false));
+            } else if (contextIfNeedWrap instanceof Application) {
+                pluginContext = new PluginApplicationWrapper((Application) contextIfNeedWrap, new PluginContext(contextIfNeedWrap, PluginManager.getInstance().getPlugin(str), true));
+            } else {
+                pluginContext = new PluginContext(contextIfNeedWrap, PluginManager.getInstance().getPlugin(str), false);
+            }
+            if (pluginContext != null) {
+                HashMap hashMap = contextCache;
+                hashMap.put(str + System.identityHashCode(contextIfNeedWrap), new WeakReference(pluginContext));
+            }
+            return pluginContext;
         }
-        return (View) invokeLILL.objValue;
+        return (Context) invokeLL.objValue;
     }
 }

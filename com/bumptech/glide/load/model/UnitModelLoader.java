@@ -1,6 +1,5 @@
 package com.bumptech.glide.load.model;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,16 +15,33 @@ import com.bumptech.glide.load.data.DataFetcher;
 import com.bumptech.glide.load.model.ModelLoader;
 import com.bumptech.glide.signature.ObjectKey;
 /* loaded from: classes7.dex */
-public class UnitModelLoader<Model> implements ModelLoader<Model, Model> {
+public class UnitModelLoader implements ModelLoader {
     public static /* synthetic */ Interceptable $ic;
-    public static final UnitModelLoader<?> INSTANCE;
+    public static final UnitModelLoader INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.bumptech.glide.load.model.ModelLoader
+    public boolean handles(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
     /* loaded from: classes7.dex */
-    public static class Factory<Model> implements ModelLoaderFactory<Model, Model> {
+    public class Factory implements ModelLoaderFactory {
         public static /* synthetic */ Interceptable $ic;
-        public static final Factory<?> FACTORY;
+        public static final Factory FACTORY;
         public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.bumptech.glide.load.model.ModelLoaderFactory
+        public void teardown() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
+        }
 
         static {
             InterceptResult invokeClinit;
@@ -40,7 +56,7 @@ public class UnitModelLoader<Model> implements ModelLoader<Model, Model> {
                     return;
                 }
             }
-            FACTORY = new Factory<>();
+            FACTORY = new Factory();
         }
 
         @Deprecated
@@ -58,51 +74,31 @@ public class UnitModelLoader<Model> implements ModelLoader<Model, Model> {
             }
         }
 
-        public static <T> Factory<T> getInstance() {
+        public static Factory getInstance() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? (Factory<T>) FACTORY : (Factory) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+                return FACTORY;
+            }
+            return (Factory) invokeV.objValue;
         }
 
         @Override // com.bumptech.glide.load.model.ModelLoaderFactory
-        @NonNull
-        public ModelLoader<Model, Model> build(MultiModelLoaderFactory multiModelLoaderFactory) {
+        public ModelLoader build(MultiModelLoaderFactory multiModelLoaderFactory) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, multiModelLoaderFactory)) == null) ? UnitModelLoader.getInstance() : (ModelLoader) invokeL.objValue;
-        }
-
-        @Override // com.bumptech.glide.load.model.ModelLoaderFactory
-        public void teardown() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, multiModelLoaderFactory)) == null) {
+                return UnitModelLoader.getInstance();
             }
+            return (ModelLoader) invokeL.objValue;
         }
     }
 
     /* loaded from: classes7.dex */
-    public static class UnitFetcher<Model> implements DataFetcher<Model> {
+    public class UnitFetcher implements DataFetcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Model resource;
-
-        public UnitFetcher(Model model) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {model};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.resource = model;
-        }
+        public final Object resource;
 
         @Override // com.bumptech.glide.load.data.DataFetcher
         public void cancel() {
@@ -118,28 +114,49 @@ public class UnitModelLoader<Model> implements ModelLoader<Model, Model> {
             }
         }
 
-        @Override // com.bumptech.glide.load.data.DataFetcher
-        @NonNull
-        public Class<Model> getDataClass() {
-            InterceptResult invokeV;
+        public UnitFetcher(Object obj) {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (Class<Model>) this.resource.getClass() : (Class) invokeV.objValue;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {obj};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.resource = obj;
         }
 
         @Override // com.bumptech.glide.load.data.DataFetcher
-        @NonNull
+        public Class getDataClass() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.resource.getClass();
+            }
+            return (Class) invokeV.objValue;
+        }
+
+        @Override // com.bumptech.glide.load.data.DataFetcher
         public DataSource getDataSource() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? DataSource.LOCAL : (DataSource) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return DataSource.LOCAL;
+            }
+            return (DataSource) invokeV.objValue;
         }
 
-        /* JADX DEBUG: Type inference failed for r5v1. Raw type applied. Possible types: Model, ? super Model */
         @Override // com.bumptech.glide.load.data.DataFetcher
-        public void loadData(@NonNull Priority priority, @NonNull DataFetcher.DataCallback<? super Model> dataCallback) {
+        public void loadData(Priority priority, DataFetcher.DataCallback dataCallback) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048580, this, priority, dataCallback) == null) {
-                dataCallback.onDataReady((Model) this.resource);
+                dataCallback.onDataReady(this.resource);
             }
         }
     }
@@ -157,7 +174,7 @@ public class UnitModelLoader<Model> implements ModelLoader<Model, Model> {
                 return;
             }
         }
-        INSTANCE = new UnitModelLoader<>();
+        INSTANCE = new UnitModelLoader();
     }
 
     @Deprecated
@@ -175,26 +192,22 @@ public class UnitModelLoader<Model> implements ModelLoader<Model, Model> {
         }
     }
 
-    public static <T> UnitModelLoader<T> getInstance() {
+    public static UnitModelLoader getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? (UnitModelLoader<T>) INSTANCE : (UnitModelLoader) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return INSTANCE;
+        }
+        return (UnitModelLoader) invokeV.objValue;
     }
 
     @Override // com.bumptech.glide.load.model.ModelLoader
-    public ModelLoader.LoadData<Model> buildLoadData(@NonNull Model model, int i, int i2, @NonNull Options options) {
+    public ModelLoader.LoadData buildLoadData(Object obj, int i, int i2, Options options) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{model, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) ? new ModelLoader.LoadData<>(new ObjectKey(model), new UnitFetcher(model)) : (ModelLoader.LoadData) invokeCommon.objValue;
-    }
-
-    @Override // com.bumptech.glide.load.model.ModelLoader
-    public boolean handles(@NonNull Model model) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, model)) == null) {
-            return true;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{obj, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) {
+            return new ModelLoader.LoadData(new ObjectKey(obj), new UnitFetcher(obj));
         }
-        return invokeL.booleanValue;
+        return (ModelLoader.LoadData) invokeCommon.objValue;
     }
 }

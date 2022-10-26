@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
@@ -22,13 +21,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class LeftAdapter extends RecyclerView.Adapter<ViewHolder> {
+public class LeftAdapter extends RecyclerView.Adapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public b b;
-    public List<String> c;
+    public List c;
     public int d;
+
+    /* loaded from: classes5.dex */
+    public interface b {
+        void a(View view2, int i, String str);
+    }
 
     /* loaded from: classes5.dex */
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -38,7 +42,7 @@ public class LeftAdapter extends RecyclerView.Adapter<ViewHolder> {
         public View b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ViewHolder(@NonNull LeftAdapter leftAdapter, View view2) {
+        public ViewHolder(LeftAdapter leftAdapter, View view2) {
             super(view2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -55,8 +59,8 @@ public class LeftAdapter extends RecyclerView.Adapter<ViewHolder> {
                     return;
                 }
             }
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09237b);
-            this.b = view2.findViewById(R.id.obfuscated_res_0x7f0923bc);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092366);
+            this.b = view2.findViewById(R.id.obfuscated_res_0x7f0923a7);
         }
     }
 
@@ -105,11 +109,6 @@ public class LeftAdapter extends RecyclerView.Adapter<ViewHolder> {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(View view2, int i, String str);
-    }
-
     public LeftAdapter(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -133,19 +132,43 @@ public class LeftAdapter extends RecyclerView.Adapter<ViewHolder> {
     public String e(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? (String) ListUtils.getItem(this.c, i) : (String) invokeI.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return (String) ListUtils.getItem(this.c, i);
+        }
+        return (String) invokeI.objValue;
     }
 
     public int f(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? ListUtils.getPosition(this.c, str) : invokeL.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return ListUtils.getPosition(this.c, str);
+        }
+        return invokeL.intValue;
+    }
+
+    public void k(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) {
+            this.b = bVar;
+        }
+    }
+
+    public void l(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.d = i;
+            notifyDataSetChanged();
+        }
     }
 
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? e(this.d) : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return e(this.d);
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -153,7 +176,7 @@ public class LeftAdapter extends RecyclerView.Adapter<ViewHolder> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<String> list = this.c;
+            List list = this.c;
             if (list == null) {
                 return 0;
             }
@@ -165,10 +188,10 @@ public class LeftAdapter extends RecyclerView.Adapter<ViewHolder> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: h */
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(ViewHolder viewHolder, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, viewHolder, i) == null) {
-            String str = this.c.get(i);
+            String str = (String) this.c.get(i);
             viewHolder.itemView.setTag(Integer.valueOf(i));
             viewHolder.a.setText(str);
             if (this.d == i) {
@@ -193,34 +216,21 @@ public class LeftAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    @NonNull
     /* renamed from: i */
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, viewGroup, i)) == null) ? new ViewHolder(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d051a, viewGroup, false)) : (ViewHolder) invokeLI.objValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, viewGroup, i)) == null) {
+            return new ViewHolder(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0517, viewGroup, false));
+        }
+        return (ViewHolder) invokeLI.objValue;
     }
 
-    public void j(int i, List<String> list) {
+    public void j(int i, List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048582, this, i, list) == null) {
             this.d = i;
             this.c = list;
-            notifyDataSetChanged();
-        }
-    }
-
-    public void k(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) {
-            this.b = bVar;
-        }
-    }
-
-    public void l(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.d = i;
             notifyDataSetChanged();
         }
     }

@@ -20,7 +20,7 @@ public class ARPFilter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ARPFilter";
     public transient /* synthetic */ FieldHolder $fh;
-    public SoftReference<Context> softContext;
+    public SoftReference softContext;
 
     static {
         InterceptResult invokeClinit;
@@ -109,16 +109,16 @@ public class ARPFilter {
     }
 
     public void adjustFilterWithStringParam(String str, String str2, String str3, long j) {
-        SoftReference<Context> softReference;
+        SoftReference softReference;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, str2, str3, Long.valueOf(j)}) == null) {
-            if (!str3.contains(AssetUriLoader.ASSET_PATH_SEGMENT) || (softReference = this.softContext) == null || softReference.get() == null || this.softContext.get().getAssets() == null) {
+            if (!str3.contains(AssetUriLoader.ASSET_PATH_SEGMENT) || (softReference = this.softContext) == null || softReference.get() == null || ((Context) this.softContext.get()).getAssets() == null) {
                 nativeAdjustFilterWithStringParam(str, str2, str3);
                 return;
             }
             Bitmap bitmap = null;
             try {
-                bitmap = BitmapFactory.decodeStream(this.softContext.get().getAssets().open(str3.substring(str3.lastIndexOf(AssetUriLoader.ASSET_PATH_SEGMENT) + 13 + 1)));
+                bitmap = BitmapFactory.decodeStream(((Context) this.softContext.get()).getAssets().open(str3.substring(str3.lastIndexOf(AssetUriLoader.ASSET_PATH_SEGMENT) + 13 + 1)));
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -141,7 +141,7 @@ public class ARPFilter {
     }
 
     public void destroy() {
-        SoftReference<Context> softReference;
+        SoftReference softReference;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (softReference = this.softContext) == null) {
             return;
@@ -171,7 +171,7 @@ public class ARPFilter {
         }
     }
 
-    public void setContext(SoftReference<Context> softReference) {
+    public void setContext(SoftReference softReference) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048586, this, softReference) == null) || softReference == null) {
             return;

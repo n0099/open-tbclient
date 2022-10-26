@@ -1,8 +1,6 @@
 package androidx.media2.session;
 
 import android.util.Log;
-import androidx.annotation.GuardedBy;
-import androidx.annotation.Nullable;
 import androidx.collection.ArrayMap;
 import androidx.core.view.InputDeviceCompat;
 import androidx.media2.session.MediaSession;
@@ -22,9 +20,7 @@ public class ConnectedControllersManager<T> {
     public static final boolean DEBUG;
     public static final String TAG = "MS2ControllerMgr";
     public transient /* synthetic */ FieldHolder $fh;
-    @GuardedBy("mLock")
     public final ArrayMap<T, MediaSession.ControllerInfo> mControllerInfoMap;
-    @GuardedBy("mLock")
     public final ArrayMap<MediaSession.ControllerInfo, ConnectedControllersManager<T>.ConnectedControllerRecord> mControllerRecords;
     public final Object mLock;
     public final MediaSession.MediaSessionImpl mSessionImpl;
@@ -79,6 +75,19 @@ public class ConnectedControllersManager<T> {
         DEBUG = Log.isLoggable(TAG, 3);
     }
 
+    public final List<MediaSession.ControllerInfo> getConnectedControllers() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            synchronized (this.mLock) {
+                arrayList.addAll(this.mControllerInfoMap.values());
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
     public ConnectedControllersManager(MediaSession.MediaSessionImpl mediaSessionImpl) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -113,23 +122,11 @@ public class ConnectedControllersManager<T> {
                         this.mControllerRecords.get(controller).allowedCommands = sessionCommandGroup;
                     }
                 }
-            } else if (DEBUG) {
+            } else if (!DEBUG) {
+            } else {
                 throw new IllegalArgumentException("controllerKey and controllerInfo shouldn't be null");
             }
         }
-    }
-
-    public final List<MediaSession.ControllerInfo> getConnectedControllers() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            synchronized (this.mLock) {
-                arrayList.addAll(this.mControllerInfoMap.values());
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
     }
 
     public MediaSession.ControllerInfo getController(T t) {
@@ -145,8 +142,7 @@ public class ConnectedControllersManager<T> {
         return (MediaSession.ControllerInfo) invokeL.objValue;
     }
 
-    @Nullable
-    public final SequencedFutureManager getSequencedFutureManager(@Nullable MediaSession.ControllerInfo controllerInfo) {
+    public final SequencedFutureManager getSequencedFutureManager(MediaSession.ControllerInfo controllerInfo) {
         InterceptResult invokeL;
         ConnectedControllersManager<T>.ConnectedControllerRecord connectedControllerRecord;
         Interceptable interceptable = $ic;
@@ -162,26 +158,17 @@ public class ConnectedControllersManager<T> {
         return (SequencedFutureManager) invokeL.objValue;
     }
 
-    public boolean isAllowedCommand(MediaSession.ControllerInfo controllerInfo, SessionCommand sessionCommand) {
-        InterceptResult invokeLL;
-        ConnectedControllersManager<T>.ConnectedControllerRecord connectedControllerRecord;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, controllerInfo, sessionCommand)) == null) {
-            synchronized (this.mLock) {
-                connectedControllerRecord = this.mControllerRecords.get(controllerInfo);
-            }
-            return connectedControllerRecord != null && connectedControllerRecord.allowedCommands.hasCommand(sessionCommand);
-        }
-        return invokeLL.booleanValue;
-    }
-
     public final boolean isConnected(MediaSession.ControllerInfo controllerInfo) {
         InterceptResult invokeL;
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, controllerInfo)) == null) {
             synchronized (this.mLock) {
-                z = this.mControllerRecords.get(controllerInfo) != null;
+                if (this.mControllerRecords.get(controllerInfo) != null) {
+                    z = true;
+                } else {
+                    z = false;
+                }
             }
             return z;
         }
@@ -190,15 +177,47 @@ public class ConnectedControllersManager<T> {
 
     public void removeController(T t) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, t) == null) || t == null) {
+        if ((interceptable != null && interceptable.invokeL(1048585, this, t) != null) || t == null) {
             return;
         }
         removeController(getController(t));
     }
 
+    public SequencedFutureManager getSequencedFutureManager(T t) {
+        InterceptResult invokeL;
+        ConnectedControllersManager<T>.ConnectedControllerRecord connectedControllerRecord;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, t)) == null) {
+            synchronized (this.mLock) {
+                connectedControllerRecord = this.mControllerRecords.get(getController(t));
+            }
+            if (connectedControllerRecord != null) {
+                return connectedControllerRecord.sequencedFutureManager;
+            }
+            return null;
+        }
+        return (SequencedFutureManager) invokeL.objValue;
+    }
+
+    public boolean isAllowedCommand(MediaSession.ControllerInfo controllerInfo, int i) {
+        InterceptResult invokeLI;
+        ConnectedControllersManager<T>.ConnectedControllerRecord connectedControllerRecord;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, controllerInfo, i)) == null) {
+            synchronized (this.mLock) {
+                connectedControllerRecord = this.mControllerRecords.get(controllerInfo);
+            }
+            if (connectedControllerRecord != null && connectedControllerRecord.allowedCommands.hasCommand(i)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLI.booleanValue;
+    }
+
     public void updateAllowedCommands(MediaSession.ControllerInfo controllerInfo, SessionCommandGroup sessionCommandGroup) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048586, this, controllerInfo, sessionCommandGroup) == null) || controllerInfo == null) {
+        if ((interceptable != null && interceptable.invokeLL(1048586, this, controllerInfo, sessionCommandGroup) != null) || controllerInfo == null) {
             return;
         }
         synchronized (this.mLock) {
@@ -209,9 +228,25 @@ public class ConnectedControllersManager<T> {
         }
     }
 
+    public boolean isAllowedCommand(MediaSession.ControllerInfo controllerInfo, SessionCommand sessionCommand) {
+        InterceptResult invokeLL;
+        ConnectedControllersManager<T>.ConnectedControllerRecord connectedControllerRecord;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, controllerInfo, sessionCommand)) == null) {
+            synchronized (this.mLock) {
+                connectedControllerRecord = this.mControllerRecords.get(controllerInfo);
+            }
+            if (connectedControllerRecord != null && connectedControllerRecord.allowedCommands.hasCommand(sessionCommand)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
     public void removeController(MediaSession.ControllerInfo controllerInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, controllerInfo) == null) || controllerInfo == null) {
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, controllerInfo) != null) || controllerInfo == null) {
             return;
         }
         synchronized (this.mLock) {
@@ -252,41 +287,12 @@ public class ConnectedControllersManager<T> {
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.mSessionImpl.isClosed()) {
+                    if ((interceptable2 != null && interceptable2.invokeV(1048576, this) != null) || this.this$0.mSessionImpl.isClosed()) {
                         return;
                     }
                     this.this$0.mSessionImpl.getCallback().onDisconnected(this.this$0.mSessionImpl.getInstance(), this.val$controllerInfo);
                 }
             });
         }
-    }
-
-    public SequencedFutureManager getSequencedFutureManager(@Nullable T t) {
-        InterceptResult invokeL;
-        ConnectedControllersManager<T>.ConnectedControllerRecord connectedControllerRecord;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, t)) == null) {
-            synchronized (this.mLock) {
-                connectedControllerRecord = this.mControllerRecords.get(getController(t));
-            }
-            if (connectedControllerRecord != null) {
-                return connectedControllerRecord.sequencedFutureManager;
-            }
-            return null;
-        }
-        return (SequencedFutureManager) invokeL.objValue;
-    }
-
-    public boolean isAllowedCommand(MediaSession.ControllerInfo controllerInfo, int i) {
-        InterceptResult invokeLI;
-        ConnectedControllersManager<T>.ConnectedControllerRecord connectedControllerRecord;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, controllerInfo, i)) == null) {
-            synchronized (this.mLock) {
-                connectedControllerRecord = this.mControllerRecords.get(controllerInfo);
-            }
-            return connectedControllerRecord != null && connectedControllerRecord.allowedCommands.hasCommand(i);
-        }
-        return invokeLI.booleanValue;
     }
 }

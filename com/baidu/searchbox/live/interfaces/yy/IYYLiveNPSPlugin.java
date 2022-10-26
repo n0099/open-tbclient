@@ -1,7 +1,6 @@
 package com.baidu.searchbox.live.interfaces.yy;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.live.interfaces.callback.ILiveDiskClearCacheCallback;
@@ -23,24 +22,52 @@ public interface IYYLiveNPSPlugin {
     public static final String YY_ENV_MINILIB_INIT = "minilib_init";
     public static final String YY_ENV_MINILIB_PRE_INIT = "minilib_pre_init";
 
+    void cancelLoad();
+
+    void cancelStartYYLiveActivity();
+
+    @Deprecated
+    void clearLiveResourceSize(Context context);
+
+    void dispatchHostEvent(Context context, String str, Map map);
+
+    void dispatchYYLiveRouter(Context context, String str);
+
+    void dispatchYYRawLiveRouter(Context context, String str);
+
+    @Deprecated
+    void getLiveResourceSize(Context context, ILiveFileSizeCallback iLiveFileSizeCallback);
+
+    ILiveYYMixEntry getLiveYYMixEntry();
+
+    boolean isAvailable();
+
+    boolean isEnvReady(String str);
+
+    boolean isLoaded();
+
+    void loadPlugin(Context context, LiveLoadStatusCallback liveLoadStatusCallback);
+
+    void onDiskClearCacheChange(long j, int i, int i2, ILiveDiskClearCacheCallback iLiveDiskClearCacheCallback);
+
+    void prepareYYEnv(String str, YYEnvResultCallback yYEnvResultCallback);
+
+    void startPayment(Context context, IPaymentStateCallback iPaymentStateCallback, IPaymentLogDelegate iPaymentLogDelegate, String str, Long l, Boolean bool, Map map, Map map2);
+
+    void startYYActivity(Context context);
+
+    void startYYCustomerServiceActivity(Context context, String str);
+
+    void startYYFeedbackActivity(Context context, String str);
+
+    void startYYLiveActivity(Context context, String str);
+
+    void updateStatInfo(YYStatInfo yYStatInfo);
+
     /* loaded from: classes2.dex */
-    public static class Empty implements IYYLiveNPSPlugin {
+    public class Empty implements IYYLiveNPSPlugin {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        public Empty() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
 
         @Override // com.baidu.searchbox.live.interfaces.yy.IYYLiveNPSPlugin
         public void cancelLoad() {
@@ -64,7 +91,7 @@ public interface IYYLiveNPSPlugin {
         }
 
         @Override // com.baidu.searchbox.live.interfaces.yy.IYYLiveNPSPlugin
-        public void dispatchHostEvent(Context context, String str, Map<String, Object> map) {
+        public void dispatchHostEvent(Context context, String str, Map map) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048579, this, context, str, map) == null) {
             }
@@ -132,7 +159,7 @@ public interface IYYLiveNPSPlugin {
         }
 
         @Override // com.baidu.searchbox.live.interfaces.yy.IYYLiveNPSPlugin
-        public void loadPlugin(@NonNull Context context, LiveLoadStatusCallback liveLoadStatusCallback) {
+        public void loadPlugin(Context context, LiveLoadStatusCallback liveLoadStatusCallback) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048587, this, context, liveLoadStatusCallback) == null) {
             }
@@ -153,14 +180,14 @@ public interface IYYLiveNPSPlugin {
         }
 
         @Override // com.baidu.searchbox.live.interfaces.yy.IYYLiveNPSPlugin
-        public void startPayment(Context context, IPaymentStateCallback iPaymentStateCallback, IPaymentLogDelegate iPaymentLogDelegate, String str, Long l, Boolean bool, Map<String, String> map, Map<String, Object> map2) {
+        public void startPayment(Context context, IPaymentStateCallback iPaymentStateCallback, IPaymentLogDelegate iPaymentLogDelegate, String str, Long l, Boolean bool, Map map, Map map2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{context, iPaymentStateCallback, iPaymentLogDelegate, str, l, bool, map, map2}) == null) {
             }
         }
 
         @Override // com.baidu.searchbox.live.interfaces.yy.IYYLiveNPSPlugin
-        public void startYYActivity(@NonNull Context context) {
+        public void startYYActivity(Context context) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048591, this, context) == null) {
             }
@@ -193,47 +220,19 @@ public interface IYYLiveNPSPlugin {
             if (interceptable == null || interceptable.invokeL(1048595, this, yYStatInfo) == null) {
             }
         }
+
+        public Empty() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
-
-    void cancelLoad();
-
-    void cancelStartYYLiveActivity();
-
-    @Deprecated
-    void clearLiveResourceSize(Context context);
-
-    void dispatchHostEvent(Context context, String str, Map<String, Object> map);
-
-    void dispatchYYLiveRouter(Context context, String str);
-
-    void dispatchYYRawLiveRouter(Context context, String str);
-
-    @Deprecated
-    void getLiveResourceSize(Context context, ILiveFileSizeCallback iLiveFileSizeCallback);
-
-    ILiveYYMixEntry getLiveYYMixEntry();
-
-    boolean isAvailable();
-
-    boolean isEnvReady(String str);
-
-    boolean isLoaded();
-
-    void loadPlugin(@NonNull Context context, LiveLoadStatusCallback liveLoadStatusCallback);
-
-    void onDiskClearCacheChange(long j, int i, int i2, ILiveDiskClearCacheCallback iLiveDiskClearCacheCallback);
-
-    void prepareYYEnv(String str, YYEnvResultCallback yYEnvResultCallback);
-
-    void startPayment(Context context, IPaymentStateCallback iPaymentStateCallback, IPaymentLogDelegate iPaymentLogDelegate, String str, Long l, Boolean bool, Map<String, String> map, Map<String, Object> map2);
-
-    void startYYActivity(@NonNull Context context);
-
-    void startYYCustomerServiceActivity(Context context, String str);
-
-    void startYYFeedbackActivity(Context context, String str);
-
-    void startYYLiveActivity(Context context, String str);
-
-    void updateStatInfo(YYStatInfo yYStatInfo);
 }

@@ -1,55 +1,68 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public final class iu9 {
+public class iu9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final byte[] a;
-    public static final int[] b;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public String b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947866140, "Lcom/baidu/tieba/iu9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947866140, "Lcom/baidu/tieba/iu9;");
+    public iu9(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new byte[1024];
-        b = new int[1024];
+        this.a = i;
+        if (i != 0) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        this.b = "未知错误";
+                        return;
+                    } else {
+                        this.b = "App配置错误，请在AndroidManifest.xml加上BridgeActivity声明";
+                        return;
+                    }
+                }
+                this.b = "授权APP版本太低，请先升级";
+                return;
+            }
+            this.b = "未能找到可用的授权APP";
+            return;
+        }
+        this.b = "成功";
     }
 
-    public static void a(byte[] bArr, int i, int i2) {
+    public iu9(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65537, null, bArr, i, i2) == null) {
-            int i3 = 0;
-            while (i3 < i2) {
-                int min = Math.min(i3 + 1024, i2) - i3;
-                System.arraycopy(a, 0, bArr, i + i3, min);
-                i3 += min;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-    }
-
-    public static void b(int[] iArr, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65538, null, iArr, i, i2) == null) {
-            int i3 = 0;
-            while (i3 < i2) {
-                int min = Math.min(i3 + 1024, i2) - i3;
-                System.arraycopy(b, 0, iArr, i + i3, min);
-                i3 += min;
-            }
-        }
+        this.a = i;
+        this.b = str;
     }
 }

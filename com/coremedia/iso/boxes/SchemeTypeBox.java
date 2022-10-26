@@ -110,12 +110,42 @@ public class SchemeTypeBox extends AbstractFullBox {
         }
     }
 
+    public void setSchemeType(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_3, this, this, str));
+            this.schemeType = str;
+        }
+    }
+
+    public void setSchemeUri(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_5, this, this, str));
+            this.schemeUri = str;
+        }
+    }
+
+    public void setSchemeVersion(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_4, this, this, Conversions.intObject(i)));
+            this.schemeVersion = i;
+        }
+    }
+
     @Override // com.googlecode.mp4parser.AbstractBox
     public long getContentSize() {
         InterceptResult invokeV;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return ((getFlags() & 1) == 1 ? Utf8.utf8StringLengthInBytes(this.schemeUri) + 1 : 0) + 12;
+            if ((getFlags() & 1) == 1) {
+                i = Utf8.utf8StringLengthInBytes(this.schemeUri) + 1;
+            } else {
+                i = 0;
+            }
+            return i + 12;
         }
         return invokeV.longValue;
     }
@@ -148,30 +178,6 @@ public class SchemeTypeBox extends AbstractFullBox {
             return this.schemeVersion;
         }
         return invokeV.longValue;
-    }
-
-    public void setSchemeType(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_3, this, this, str));
-            this.schemeType = str;
-        }
-    }
-
-    public void setSchemeUri(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_5, this, this, str));
-            this.schemeUri = str;
-        }
-    }
-
-    public void setSchemeVersion(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_4, this, this, Conversions.intObject(i)));
-            this.schemeVersion = i;
-        }
     }
 
     public String toString() {

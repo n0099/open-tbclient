@@ -431,21 +431,30 @@ public final class FirstFrameSpeedStats extends AbstractSpeedStats {
     public int getDrawCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mDispatchDrawCount : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mDispatchDrawCount;
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
     public long getStatsEndTimeStamp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mFirstDispatchDrawEndStamp : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mFirstDispatchDrawEndStamp;
+        }
+        return invokeV.longValue;
     }
 
     @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
     public long getStatsStartTimeStamp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mFirstMeasureStartStamp : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mFirstMeasureStartStamp;
+        }
+        return invokeV.longValue;
     }
 
     /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor

@@ -20,10 +20,9 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
-import com.baidu.tieba.fx;
+import com.baidu.tieba.nk9;
+import com.baidu.tieba.ok9;
 import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
-import com.baidu.tieba.vj9;
-import com.baidu.tieba.wj9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -73,14 +72,52 @@ public class SVGParser {
     public boolean h;
     public StringBuilder i;
 
+    public static float t(float f2, float f3, float f4) {
+        InterceptResult invokeCommon;
+        float f5;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65576, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
+            if (f4 < 0.0f) {
+                f4 += 6.0f;
+            }
+            if (f4 >= 6.0f) {
+                f4 -= 6.0f;
+            }
+            if (f4 < 1.0f) {
+                f5 = (f3 - f2) * f4;
+            } else if (f4 < 3.0f) {
+                return f3;
+            } else {
+                if (f4 >= 4.0f) {
+                    return f2;
+                }
+                f5 = (f3 - f2) * (4.0f - f4);
+            }
+            return f5 + f2;
+        }
+        return invokeCommon.floatValue;
+    }
+
+    public final void l(String str, Object... objArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048630, this, str, objArr) == null) {
+        }
+    }
+
+    public final void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048634, this) == null) {
+        }
+    }
+
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public static final class SVGAttr {
+    public final class SVGAttr {
         public static final /* synthetic */ SVGAttr[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final SVGAttr CLASS;
         public static final SVGAttr UNSUPPORTED;
-        public static final Map<String, SVGAttr> cache;
+        public static final Map cache;
         public static final SVGAttr clip;
         public static final SVGAttr clipPathUnits;
         public static final SVGAttr clip_path;
@@ -200,7 +237,7 @@ public class SVGParser {
             direction = new SVGAttr("direction", 8);
             dx = new SVGAttr("dx", 9);
             dy = new SVGAttr("dy", 10);
-            fx = new SVGAttr(fx.c, 11);
+            fx = new SVGAttr("fx", 11);
             fy = new SVGAttr("fy", 12);
             d = new SVGAttr("d", 13);
             display = new SVGAttr(CriusAttrConstants.DISPLAY, 14);
@@ -316,8 +353,11 @@ public class SVGParser {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-                SVGAttr sVGAttr = cache.get(str);
-                return sVGAttr != null ? sVGAttr : UNSUPPORTED;
+                SVGAttr sVGAttr = (SVGAttr) cache.get(str);
+                if (sVGAttr != null) {
+                    return sVGAttr;
+                }
+                return UNSUPPORTED;
             }
             return (SVGAttr) invokeL.objValue;
         }
@@ -325,25 +365,31 @@ public class SVGParser {
         public static SVGAttr valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (SVGAttr) Enum.valueOf(SVGAttr.class, str) : (SVGAttr) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+                return (SVGAttr) Enum.valueOf(SVGAttr.class, str);
+            }
+            return (SVGAttr) invokeL.objValue;
         }
 
         public static SVGAttr[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (SVGAttr[]) $VALUES.clone() : (SVGAttr[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+                return (SVGAttr[]) $VALUES.clone();
+            }
+            return (SVGAttr[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public static final class SVGElem {
+    public final class SVGElem {
         public static final /* synthetic */ SVGElem[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final SVGElem SWITCH;
         public static final SVGElem UNSUPPORTED;
         public static final SVGElem a;
-        public static final Map<String, SVGElem> cache;
+        public static final Map cache;
         public static final SVGElem circle;
         public static final SVGElem clipPath;
         public static final SVGElem defs;
@@ -458,8 +504,11 @@ public class SVGParser {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-                SVGElem sVGElem = cache.get(str);
-                return sVGElem != null ? sVGElem : UNSUPPORTED;
+                SVGElem sVGElem = (SVGElem) cache.get(str);
+                if (sVGElem != null) {
+                    return sVGElem;
+                }
+                return UNSUPPORTED;
             }
             return (SVGElem) invokeL.objValue;
         }
@@ -467,18 +516,24 @@ public class SVGParser {
         public static SVGElem valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (SVGElem) Enum.valueOf(SVGElem.class, str) : (SVGElem) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+                return (SVGElem) Enum.valueOf(SVGElem.class, str);
+            }
+            return (SVGElem) invokeL.objValue;
         }
 
         public static SVGElem[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (SVGElem[]) $VALUES.clone() : (SVGElem[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+                return (SVGElem[]) $VALUES.clone();
+            }
+            return (SVGElem[]) invokeV.objValue;
         }
     }
 
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
+    public /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public static final /* synthetic */ int[] b;
@@ -985,9 +1040,9 @@ public class SVGParser {
     }
 
     /* loaded from: classes7.dex */
-    public static class b {
+    public class b {
         public static /* synthetic */ Interceptable $ic;
-        public static final Map<String, PreserveAspectRatio.Alignment> a;
+        public static final Map a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -1020,14 +1075,17 @@ public class SVGParser {
         public static PreserveAspectRatio.Alignment a(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? a.get(str) : (PreserveAspectRatio.Alignment) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+                return (PreserveAspectRatio.Alignment) a.get(str);
+            }
+            return (PreserveAspectRatio.Alignment) invokeL.objValue;
         }
     }
 
     /* loaded from: classes7.dex */
-    public static class c {
+    public class c {
         public static /* synthetic */ Interceptable $ic;
-        public static final Map<String, Integer> a;
+        public static final Map a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -1199,14 +1257,17 @@ public class SVGParser {
         public static Integer a(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? a.get(str) : (Integer) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+                return (Integer) a.get(str);
+            }
+            return (Integer) invokeL.objValue;
         }
     }
 
     /* loaded from: classes7.dex */
-    public static class d {
+    public class d {
         public static /* synthetic */ Interceptable $ic;
-        public static final Map<String, SVG.o> a;
+        public static final Map a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -1238,14 +1299,17 @@ public class SVGParser {
         public static SVG.o a(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? a.get(str) : (SVG.o) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+                return (SVG.o) a.get(str);
+            }
+            return (SVG.o) invokeL.objValue;
         }
     }
 
     /* loaded from: classes7.dex */
-    public static class e {
+    public class e {
         public static /* synthetic */ Interceptable $ic;
-        public static final Map<String, Integer> a;
+        public static final Map a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -1281,7 +1345,10 @@ public class SVGParser {
         public static Integer a(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? a.get(str) : (Integer) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+                return (Integer) a.get(str);
+            }
+            return (Integer) invokeL.objValue;
         }
     }
 
@@ -1309,28 +1376,8 @@ public class SVGParser {
             this.a = sVGParser;
         }
 
-        @Override // org.xml.sax.helpers.DefaultHandler, org.xml.sax.ContentHandler
-        public void characters(char[] cArr, int i, int i2) throws SAXException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, cArr, i, i2) == null) {
-                this.a.c1(new String(cArr, i, i2));
-            }
-        }
-
-        @Override // org.xml.sax.helpers.DefaultHandler, org.xml.sax.ContentHandler
-        public void endDocument() throws SAXException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.o();
-            }
-        }
-
-        @Override // org.xml.sax.helpers.DefaultHandler, org.xml.sax.ContentHandler
-        public void endElement(String str, String str2, String str3) throws SAXException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3) == null) {
-                this.a.p(str, str2, str3);
-            }
+        public /* synthetic */ f(SVGParser sVGParser, a aVar) {
+            this(sVGParser);
         }
 
         @Override // org.xml.sax.helpers.DefaultHandler, org.xml.sax.ContentHandler
@@ -1338,6 +1385,32 @@ public class SVGParser {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
                 this.a.r(str, this.a.x0(new g(str2)));
+            }
+        }
+
+        @Override // org.xml.sax.helpers.DefaultHandler, org.xml.sax.ContentHandler
+        public void characters(char[] cArr, int i, int i2) throws SAXException {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeLII(1048576, this, cArr, i, i2) != null) {
+                return;
+            }
+            this.a.c1(new String(cArr, i, i2));
+        }
+
+        @Override // org.xml.sax.helpers.DefaultHandler, org.xml.sax.ContentHandler
+        public void endElement(String str, String str2, String str3) throws SAXException {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3) != null) {
+                return;
+            }
+            this.a.p(str, str2, str3);
+        }
+
+        @Override // org.xml.sax.helpers.DefaultHandler, org.xml.sax.ContentHandler
+        public void endDocument() throws SAXException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.a.o();
             }
         }
 
@@ -1352,24 +1425,33 @@ public class SVGParser {
         @Override // org.xml.sax.helpers.DefaultHandler, org.xml.sax.ContentHandler
         public void startElement(String str, String str2, String str3, Attributes attributes) throws SAXException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLLL(1048581, this, str, str2, str3, attributes) == null) {
-                this.a.X0(str, str2, str3, attributes);
+            if (interceptable != null && interceptable.invokeLLLL(1048581, this, str, str2, str3, attributes) != null) {
+                return;
             }
-        }
-
-        public /* synthetic */ f(SVGParser sVGParser, a aVar) {
-            this(sVGParser);
+            this.a.X0(str, str2, str3, attributes);
         }
     }
 
     /* loaded from: classes7.dex */
-    public static class g {
+    public class g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
         public int b;
         public int c;
-        public wj9 d;
+        public ok9 d;
+
+        public boolean j(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) ? i == 10 || i == 13 : invokeI.booleanValue;
+        }
+
+        public boolean k(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) ? i == 32 || i == 10 || i == 13 || i == 9 : invokeI.booleanValue;
+        }
 
         public g(String str) {
             Interceptable interceptable = $ic;
@@ -1388,10 +1470,49 @@ public class SVGParser {
             }
             this.b = 0;
             this.c = 0;
-            this.d = new wj9();
+            this.d = new ok9();
             String trim = str.trim();
             this.a = trim;
             this.c = trim.length();
+        }
+
+        public boolean f(char c) {
+            InterceptResult invokeCommon;
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Character.valueOf(c)})) == null) {
+                int i = this.b;
+                if (i < this.c && this.a.charAt(i) == c) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (z) {
+                    this.b++;
+                }
+                return z;
+            }
+            return invokeCommon.booleanValue;
+        }
+
+        public boolean g(String str) {
+            InterceptResult invokeL;
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+                int length = str.length();
+                int i = this.b;
+                if (i <= this.c - length && this.a.substring(i, i + length).equals(str)) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (z) {
+                    this.b += length;
+                }
+                return z;
+            }
+            return invokeL.booleanValue;
         }
 
         public void A() {
@@ -1401,10 +1522,11 @@ public class SVGParser {
             }
             while (true) {
                 int i = this.b;
-                if (i >= this.c || !k(this.a.charAt(i))) {
+                if (i < this.c && k(this.a.charAt(i))) {
+                    this.b++;
+                } else {
                     return;
                 }
-                this.b++;
             }
         }
 
@@ -1419,12 +1541,122 @@ public class SVGParser {
                 }
                 int i3 = i + 1;
                 this.b = i3;
-                if (i3 < i2) {
-                    return this.a.charAt(i3);
+                if (i3 >= i2) {
+                    return -1;
                 }
-                return -1;
+                return this.a.charAt(i3);
             }
             return invokeV.intValue;
+        }
+
+        public boolean h() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                if (this.b == this.c) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public boolean i() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+                int i = this.b;
+                if (i == this.c) {
+                    return false;
+                }
+                char charAt = this.a.charAt(i);
+                if ((charAt < 'a' || charAt > 'z') && (charAt < 'A' || charAt > 'Z')) {
+                    return false;
+                }
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public Integer l() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+                int i = this.b;
+                if (i == this.c) {
+                    return null;
+                }
+                String str = this.a;
+                this.b = i + 1;
+                return Integer.valueOf(str.charAt(i));
+            }
+            return (Integer) invokeV.objValue;
+        }
+
+        public float n() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+                float b = this.d.b(this.a, this.b, this.c);
+                if (!Float.isNaN(b)) {
+                    this.b = this.d.a();
+                }
+                return b;
+            }
+            return invokeV.floatValue;
+        }
+
+        public String r() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+                return t(WebvttCueParser.CHAR_SPACE, false);
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public float x() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+                z();
+                float b = this.d.b(this.a, this.b, this.c);
+                if (!Float.isNaN(b)) {
+                    this.b = this.d.a();
+                }
+                return b;
+            }
+            return invokeV.floatValue;
+        }
+
+        public String y() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+                if (h()) {
+                    return null;
+                }
+                int i = this.b;
+                this.b = this.c;
+                return this.a.substring(i);
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public boolean z() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+                A();
+                int i = this.b;
+                if (i == this.c || this.a.charAt(i) != ',') {
+                    return false;
+                }
+                this.b++;
+                A();
+                return true;
+            }
+            return invokeV.booleanValue;
         }
 
         public String b() {
@@ -1440,6 +1672,45 @@ public class SVGParser {
                 return substring;
             }
             return (String) invokeV.objValue;
+        }
+
+        public Boolean m() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+                int i = this.b;
+                if (i == this.c) {
+                    return null;
+                }
+                char charAt = this.a.charAt(i);
+                if (charAt != '0' && charAt != '1') {
+                    return null;
+                }
+                boolean z = true;
+                this.b++;
+                if (charAt != '1') {
+                    z = false;
+                }
+                return Boolean.valueOf(z);
+            }
+            return (Boolean) invokeV.objValue;
+        }
+
+        public SVG.o p() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+                float n = n();
+                if (Float.isNaN(n)) {
+                    return null;
+                }
+                SVG.Unit v = v();
+                if (v == null) {
+                    return new SVG.o(n, SVG.Unit.px);
+                }
+                return new SVG.o(n, v);
+            }
+            return (SVG.o) invokeV.objValue;
         }
 
         public Boolean c(Object obj) {
@@ -1481,111 +1752,22 @@ public class SVGParser {
             return invokeL.floatValue;
         }
 
-        public boolean f(char c) {
+        public String s(char c) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Character.valueOf(c)})) == null) {
-                int i = this.b;
-                boolean z = i < this.c && this.a.charAt(i) == c;
-                if (z) {
-                    this.b++;
-                }
-                return z;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048595, this, new Object[]{Character.valueOf(c)})) == null) {
+                return t(c, false);
             }
-            return invokeCommon.booleanValue;
+            return (String) invokeCommon.objValue;
         }
 
-        public boolean g(String str) {
-            InterceptResult invokeL;
+        public String u(char c) {
+            InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-                int length = str.length();
-                int i = this.b;
-                boolean z = i <= this.c - length && this.a.substring(i, i + length).equals(str);
-                if (z) {
-                    this.b += length;
-                }
-                return z;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048597, this, new Object[]{Character.valueOf(c)})) == null) {
+                return t(c, true);
             }
-            return invokeL.booleanValue;
-        }
-
-        public boolean h() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.b == this.c : invokeV.booleanValue;
-        }
-
-        public boolean i() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-                int i = this.b;
-                if (i == this.c) {
-                    return false;
-                }
-                char charAt = this.a.charAt(i);
-                return (charAt >= 'a' && charAt <= 'z') || (charAt >= 'A' && charAt <= 'Z');
-            }
-            return invokeV.booleanValue;
-        }
-
-        public boolean j(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) ? i == 10 || i == 13 : invokeI.booleanValue;
-        }
-
-        public boolean k(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) ? i == 32 || i == 10 || i == 13 || i == 9 : invokeI.booleanValue;
-        }
-
-        public Integer l() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-                int i = this.b;
-                if (i == this.c) {
-                    return null;
-                }
-                String str = this.a;
-                this.b = i + 1;
-                return Integer.valueOf(str.charAt(i));
-            }
-            return (Integer) invokeV.objValue;
-        }
-
-        public Boolean m() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-                int i = this.b;
-                if (i == this.c) {
-                    return null;
-                }
-                char charAt = this.a.charAt(i);
-                if (charAt == '0' || charAt == '1') {
-                    this.b++;
-                    return Boolean.valueOf(charAt == '1');
-                }
-                return null;
-            }
-            return (Boolean) invokeV.objValue;
-        }
-
-        public float n() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-                float b = this.d.b(this.a, this.b, this.c);
-                if (!Float.isNaN(b)) {
-                    this.b = this.d.a();
-                }
-                return b;
-            }
-            return invokeV.floatValue;
+            return (String) invokeCommon.objValue;
         }
 
         public String o() {
@@ -1617,23 +1799,6 @@ public class SVGParser {
             return (String) invokeV.objValue;
         }
 
-        public SVG.o p() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-                float n = n();
-                if (Float.isNaN(n)) {
-                    return null;
-                }
-                SVG.Unit v = v();
-                if (v == null) {
-                    return new SVG.o(n, SVG.Unit.px);
-                }
-                return new SVG.o(n, v);
-            }
-            return (SVG.o) invokeV.objValue;
-        }
-
         public String q() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1643,61 +1808,22 @@ public class SVGParser {
                 }
                 int i = this.b;
                 char charAt = this.a.charAt(i);
-                if (charAt == '\'' || charAt == '\"') {
-                    int a = a();
-                    while (a != -1 && a != charAt) {
-                        a = a();
-                    }
-                    if (a == -1) {
-                        this.b = i;
-                        return null;
-                    }
-                    int i2 = this.b + 1;
-                    this.b = i2;
-                    return this.a.substring(i + 1, i2 - 1);
-                }
-                return null;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public String r() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? t(WebvttCueParser.CHAR_SPACE, false) : (String) invokeV.objValue;
-        }
-
-        public String s(char c) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048595, this, new Object[]{Character.valueOf(c)})) == null) ? t(c, false) : (String) invokeCommon.objValue;
-        }
-
-        public String t(char c, boolean z) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048596, this, new Object[]{Character.valueOf(c), Boolean.valueOf(z)})) == null) {
-                if (h()) {
+                if (charAt != '\'' && charAt != '\"') {
                     return null;
                 }
-                char charAt = this.a.charAt(this.b);
-                if ((z || !k(charAt)) && charAt != c) {
-                    int i = this.b;
-                    int a = a();
-                    while (a != -1 && a != c && (z || !k(a))) {
-                        a = a();
-                    }
-                    return this.a.substring(i, this.b);
+                int a = a();
+                while (a != -1 && a != charAt) {
+                    a = a();
                 }
-                return null;
+                if (a == -1) {
+                    this.b = i;
+                    return null;
+                }
+                int i2 = this.b + 1;
+                this.b = i2;
+                return this.a.substring(i + 1, i2 - 1);
             }
-            return (String) invokeCommon.objValue;
-        }
-
-        public String u(char c) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048597, this, new Object[]{Character.valueOf(c)})) == null) ? t(c, true) : (String) invokeCommon.objValue;
+            return (String) invokeV.objValue;
         }
 
         public SVG.Unit v() {
@@ -1751,48 +1877,25 @@ public class SVGParser {
             return (String) invokeV.objValue;
         }
 
-        public float x() {
-            InterceptResult invokeV;
+        public String t(char c, boolean z) {
+            InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-                z();
-                float b = this.d.b(this.a, this.b, this.c);
-                if (!Float.isNaN(b)) {
-                    this.b = this.d.a();
-                }
-                return b;
-            }
-            return invokeV.floatValue;
-        }
-
-        public String y() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048596, this, new Object[]{Character.valueOf(c), Boolean.valueOf(z)})) == null) {
                 if (h()) {
                     return null;
                 }
-                int i = this.b;
-                this.b = this.c;
-                return this.a.substring(i);
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public boolean z() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-                A();
-                int i = this.b;
-                if (i != this.c && this.a.charAt(i) == ',') {
-                    this.b++;
-                    A();
-                    return true;
+                char charAt = this.a.charAt(this.b);
+                if ((!z && k(charAt)) || charAt == c) {
+                    return null;
                 }
-                return false;
+                int i = this.b;
+                int a = a();
+                while (a != -1 && a != c && (z || !k(a))) {
+                    a = a();
+                }
+                return this.a.substring(i, this.b);
             }
-            return invokeV.booleanValue;
+            return (String) invokeCommon.objValue;
         }
     }
 
@@ -1801,24 +1904,6 @@ public class SVGParser {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public XmlPullParser a;
-
-        public h(SVGParser sVGParser, XmlPullParser xmlPullParser) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sVGParser, xmlPullParser};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = xmlPullParser;
-        }
 
         @Override // org.xml.sax.Attributes
         public int getIndex(String str) {
@@ -1838,34 +1923,6 @@ public class SVGParser {
                 return -1;
             }
             return invokeLL.intValue;
-        }
-
-        @Override // org.xml.sax.Attributes
-        public int getLength() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.getAttributeCount() : invokeV.intValue;
-        }
-
-        @Override // org.xml.sax.Attributes
-        public String getLocalName(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? this.a.getAttributeName(i) : (String) invokeI.objValue;
-        }
-
-        @Override // org.xml.sax.Attributes
-        public String getQName(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-                String attributeName = this.a.getAttributeName(i);
-                if (this.a.getAttributePrefix(i) != null) {
-                    return this.a.getAttributePrefix(i) + ':' + attributeName;
-                }
-                return attributeName;
-            }
-            return (String) invokeI.objValue;
         }
 
         @Override // org.xml.sax.Attributes
@@ -1899,20 +1956,6 @@ public class SVGParser {
         }
 
         @Override // org.xml.sax.Attributes
-        public String getURI(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) ? this.a.getAttributeNamespace(i) : (String) invokeI.objValue;
-        }
-
-        @Override // org.xml.sax.Attributes
-        public String getValue(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) ? this.a.getAttributeValue(i) : (String) invokeI.objValue;
-        }
-
-        @Override // org.xml.sax.Attributes
         public String getValue(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -1930,6 +1973,78 @@ public class SVGParser {
                 return null;
             }
             return (String) invokeLL.objValue;
+        }
+
+        public h(SVGParser sVGParser, XmlPullParser xmlPullParser) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sVGParser, xmlPullParser};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = xmlPullParser;
+        }
+
+        @Override // org.xml.sax.Attributes
+        public int getLength() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.a.getAttributeCount();
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // org.xml.sax.Attributes
+        public String getLocalName(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+                return this.a.getAttributeName(i);
+            }
+            return (String) invokeI.objValue;
+        }
+
+        @Override // org.xml.sax.Attributes
+        public String getURI(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+                return this.a.getAttributeNamespace(i);
+            }
+            return (String) invokeI.objValue;
+        }
+
+        @Override // org.xml.sax.Attributes
+        public String getValue(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
+                return this.a.getAttributeValue(i);
+            }
+            return (String) invokeI.objValue;
+        }
+
+        @Override // org.xml.sax.Attributes
+        public String getQName(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+                String attributeName = this.a.getAttributeName(i);
+                if (this.a.getAttributePrefix(i) != null) {
+                    return this.a.getAttributePrefix(i) + ':' + attributeName;
+                }
+                return attributeName;
+            }
+            return (String) invokeI.objValue;
         }
     }
 
@@ -1956,7 +2071,7 @@ public class SVGParser {
         this.i = null;
     }
 
-    public static Set<String> A0(String str) {
+    public static Set A0(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
@@ -1969,6 +2084,113 @@ public class SVGParser {
             return hashSet;
         }
         return (Set) invokeL.objValue;
+    }
+
+    public static SVG.Style.FillRule e0(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, str)) == null) {
+            if ("nonzero".equals(str)) {
+                return SVG.Style.FillRule.NonZero;
+            }
+            if ("evenodd".equals(str)) {
+                return SVG.Style.FillRule.EvenOdd;
+            }
+            return null;
+        }
+        return (SVG.Style.FillRule) invokeL.objValue;
+    }
+
+    public static float f0(String str) throws SVGParseException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65560, null, str)) == null) {
+            int length = str.length();
+            if (length != 0) {
+                return g0(str, 0, length);
+            }
+            throw new SVGParseException("Invalid float value (empty string)");
+        }
+        return invokeL.floatValue;
+    }
+
+    public static int j(float f2) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(65565, null, f2)) == null) {
+            if (f2 < 0.0f) {
+                return 0;
+            }
+            if (f2 > 255.0f) {
+                return 255;
+            }
+            return Math.round(f2);
+        }
+        return invokeF.intValue;
+    }
+
+    public static SVG.o j0(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, str)) == null) {
+            try {
+                SVG.o a2 = d.a(str);
+                if (a2 == null) {
+                    return o0(str);
+                }
+                return a2;
+            } catch (SVGParseException unused) {
+                return null;
+            }
+        }
+        return (SVG.o) invokeL.objValue;
+    }
+
+    public static Integer l0(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65568, null, str)) == null) {
+            return e.a(str);
+        }
+        return (Integer) invokeL.objValue;
+    }
+
+    public static SVG.o q0(g gVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65572, null, gVar)) == null) {
+            if (gVar.g("auto")) {
+                return new SVG.o(0.0f);
+            }
+            return gVar.p();
+        }
+        return (SVG.o) invokeL.objValue;
+    }
+
+    public static Float r0(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65573, null, str)) == null) {
+            try {
+                float f0 = f0(str);
+                if (f0 < 0.0f) {
+                    f0 = 0.0f;
+                } else if (f0 > 1.0f) {
+                    f0 = 1.0f;
+                }
+                return Float.valueOf(f0);
+            } catch (SVGParseException unused) {
+                return null;
+            }
+        }
+        return (Float) invokeL.objValue;
+    }
+
+    public final void Z(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048614, this, str) == null) {
+            this.a.a(new CSSParser(CSSParser.MediaType.screen, CSSParser.Source.Document).d(str));
+        }
     }
 
     public static SVG.o[] B0(String str) {
@@ -1999,126 +2221,6 @@ public class SVGParser {
             return (SVG.o[]) arrayList.toArray(new SVG.o[arrayList.size()]);
         }
         return (SVG.o[]) invokeL.objValue;
-    }
-
-    public static SVG.Style.LineCap C0(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if ("butt".equals(str)) {
-                return SVG.Style.LineCap.Butt;
-            }
-            if ("round".equals(str)) {
-                return SVG.Style.LineCap.Round;
-            }
-            if ("square".equals(str)) {
-                return SVG.Style.LineCap.Square;
-            }
-            return null;
-        }
-        return (SVG.Style.LineCap) invokeL.objValue;
-    }
-
-    public static SVG.Style.LineJoin D0(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if ("miter".equals(str)) {
-                return SVG.Style.LineJoin.Miter;
-            }
-            if ("round".equals(str)) {
-                return SVG.Style.LineJoin.Round;
-            }
-            if ("bevel".equals(str)) {
-                return SVG.Style.LineJoin.Bevel;
-            }
-            return null;
-        }
-        return (SVG.Style.LineJoin) invokeL.objValue;
-    }
-
-    public static void E0(SVG.j0 j0Var, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLL(65541, null, j0Var, str) != null) {
-            return;
-        }
-        g gVar = new g(str.replaceAll("/\\*.*?\\*/", ""));
-        while (true) {
-            String s = gVar.s(':');
-            gVar.A();
-            if (!gVar.f(':')) {
-                return;
-            }
-            gVar.A();
-            String u = gVar.u(WebvttCueParser.CHAR_SEMI_COLON);
-            if (u == null) {
-                return;
-            }
-            gVar.A();
-            if (gVar.h() || gVar.f(WebvttCueParser.CHAR_SEMI_COLON)) {
-                if (j0Var.f == null) {
-                    j0Var.f = new SVG.Style();
-                }
-                S0(j0Var.f, s, u);
-                gVar.A();
-            }
-        }
-    }
-
-    public static Set<String> F0(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            g gVar = new g(str);
-            HashSet hashSet = new HashSet();
-            while (!gVar.h()) {
-                String r = gVar.r();
-                int indexOf = r.indexOf(45);
-                if (indexOf != -1) {
-                    r = r.substring(0, indexOf);
-                }
-                hashSet.add(new Locale(r, "", "").getLanguage());
-                gVar.A();
-            }
-            return hashSet;
-        }
-        return (Set) invokeL.objValue;
-    }
-
-    public static SVG.Style.TextAnchor G0(String str) {
-        InterceptResult invokeL;
-        char c2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            int hashCode = str.hashCode();
-            if (hashCode == -1074341483) {
-                if (str.equals(NativeConstants.MIDDLE)) {
-                    c2 = 1;
-                }
-                c2 = 65535;
-            } else if (hashCode != 100571) {
-                if (hashCode == 109757538 && str.equals("start")) {
-                    c2 = 0;
-                }
-                c2 = 65535;
-            } else {
-                if (str.equals("end")) {
-                    c2 = 2;
-                }
-                c2 = 65535;
-            }
-            if (c2 != 0) {
-                if (c2 != 1) {
-                    if (c2 != 2) {
-                        return null;
-                    }
-                    return SVG.Style.TextAnchor.End;
-                }
-                return SVG.Style.TextAnchor.Middle;
-            }
-            return SVG.Style.TextAnchor.Start;
-        }
-        return (SVG.Style.TextAnchor) invokeL.objValue;
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -2187,6 +2289,306 @@ public class SVGParser {
         return (SVG.Style.TextDecoration) invokeL.objValue;
     }
 
+    public static SVG.b N0(String str) throws SVGParseException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
+            g gVar = new g(str);
+            gVar.A();
+            float n = gVar.n();
+            gVar.z();
+            float n2 = gVar.n();
+            gVar.z();
+            float n3 = gVar.n();
+            gVar.z();
+            float n4 = gVar.n();
+            if (!Float.isNaN(n) && !Float.isNaN(n2) && !Float.isNaN(n3) && !Float.isNaN(n4)) {
+                if (n3 >= 0.0f) {
+                    if (n4 >= 0.0f) {
+                        return new SVG.b(n, n2, n3, n4);
+                    }
+                    throw new SVGParseException("Invalid viewBox. height cannot be negative");
+                }
+                throw new SVGParseException("Invalid viewBox. width cannot be negative");
+            }
+            throw new SVGParseException("Invalid viewBox definition - should have four numbers");
+        }
+        return (SVG.b) invokeL.objValue;
+    }
+
+    public static SVG.c a0(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, str)) == null) {
+            if ("auto".equals(str) || !str.startsWith("rect(")) {
+                return null;
+            }
+            g gVar = new g(str.substring(5));
+            gVar.A();
+            SVG.o q0 = q0(gVar);
+            gVar.z();
+            SVG.o q02 = q0(gVar);
+            gVar.z();
+            SVG.o q03 = q0(gVar);
+            gVar.z();
+            SVG.o q04 = q0(gVar);
+            gVar.A();
+            if (!gVar.f(')') && !gVar.h()) {
+                return null;
+            }
+            return new SVG.c(q0, q02, q03, q04);
+        }
+        return (SVG.c) invokeL.objValue;
+    }
+
+    public static List p0(String str) throws SVGParseException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65571, null, str)) == null) {
+            if (str.length() != 0) {
+                ArrayList arrayList = new ArrayList(1);
+                g gVar = new g(str);
+                gVar.A();
+                while (!gVar.h()) {
+                    float n = gVar.n();
+                    if (!Float.isNaN(n)) {
+                        SVG.Unit v = gVar.v();
+                        if (v == null) {
+                            v = SVG.Unit.px;
+                        }
+                        arrayList.add(new SVG.o(n, v));
+                        gVar.z();
+                    } else {
+                        throw new SVGParseException("Invalid length list value: " + gVar.b());
+                    }
+                }
+                return arrayList;
+            }
+            throw new SVGParseException("Invalid length list (empty string)");
+        }
+        return (List) invokeL.objValue;
+    }
+
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    public static Boolean s0(String str) {
+        InterceptResult invokeL;
+        char c2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65575, null, str)) == null) {
+            switch (str.hashCode()) {
+                case -1217487446:
+                    if (str.equals("hidden")) {
+                        c2 = 2;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case -907680051:
+                    if (str.equals("scroll")) {
+                        c2 = 3;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case 3005871:
+                    if (str.equals("auto")) {
+                        c2 = 1;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case 466743410:
+                    if (str.equals("visible")) {
+                        c2 = 0;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                default:
+                    c2 = 65535;
+                    break;
+            }
+            if (c2 != 0 && c2 != 1) {
+                if (c2 != 2 && c2 != 3) {
+                    return null;
+                }
+                return Boolean.FALSE;
+            }
+            return Boolean.TRUE;
+        }
+        return (Boolean) invokeL.objValue;
+    }
+
+    public static PreserveAspectRatio v0(String str) throws SVGParseException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65579, null, str)) == null) {
+            g gVar = new g(str);
+            gVar.A();
+            String r = gVar.r();
+            if ("defer".equals(r)) {
+                gVar.A();
+                r = gVar.r();
+            }
+            PreserveAspectRatio.Alignment a2 = b.a(r);
+            PreserveAspectRatio.Scale scale = null;
+            gVar.A();
+            if (!gVar.h()) {
+                String r2 = gVar.r();
+                char c2 = 65535;
+                int hashCode = r2.hashCode();
+                if (hashCode != 3347527) {
+                    if (hashCode == 109526418 && r2.equals("slice")) {
+                        c2 = 1;
+                    }
+                } else if (r2.equals("meet")) {
+                    c2 = 0;
+                }
+                if (c2 != 0) {
+                    if (c2 == 1) {
+                        scale = PreserveAspectRatio.Scale.slice;
+                    } else {
+                        throw new SVGParseException("Invalid preserveAspectRatio definition: " + str);
+                    }
+                } else {
+                    scale = PreserveAspectRatio.Scale.meet;
+                }
+            }
+            return new PreserveAspectRatio(a2, scale);
+        }
+        return (PreserveAspectRatio) invokeL.objValue;
+    }
+
+    public final void Z0(Attributes attributes) throws SVGParseException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048615, this, attributes) == null) {
+            l("<style>", new Object[0]);
+            if (this.b != null) {
+                String str = "all";
+                boolean z = true;
+                for (int i = 0; i < attributes.getLength(); i++) {
+                    String trim = attributes.getValue(i).trim();
+                    int i2 = a.b[SVGAttr.fromString(attributes.getLocalName(i)).ordinal()];
+                    if (i2 != 88) {
+                        if (i2 == 89) {
+                            str = trim;
+                        }
+                    } else {
+                        z = trim.equals("text/css");
+                    }
+                }
+                if (z && CSSParser.b(str, CSSParser.MediaType.screen)) {
+                    this.h = true;
+                    return;
+                }
+                this.c = true;
+                this.d = 1;
+                return;
+            }
+            throw new SVGParseException("Invalid document. Root element must be <svg>");
+        }
+    }
+
+    public final void h1(Attributes attributes) throws SVGParseException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048624, this, attributes) == null) {
+            l("<tspan>", new Object[0]);
+            SVG.h0 h0Var = this.b;
+            if (h0Var != null) {
+                if (h0Var instanceof SVG.w0) {
+                    SVG.t0 t0Var = new SVG.t0();
+                    t0Var.a = this.a;
+                    t0Var.b = this.b;
+                    D(t0Var, attributes);
+                    S(t0Var, attributes);
+                    C(t0Var, attributes);
+                    V(t0Var, attributes);
+                    this.b.i(t0Var);
+                    this.b = t0Var;
+                    SVG.h0 h0Var2 = t0Var.b;
+                    if (h0Var2 instanceof SVG.z0) {
+                        t0Var.o((SVG.z0) h0Var2);
+                        return;
+                    } else {
+                        t0Var.o(((SVG.v0) h0Var2).c());
+                        return;
+                    }
+                }
+                throw new SVGParseException("Invalid document. <tspan> elements are only valid inside <text> or other <tspan> elements.");
+            }
+            throw new SVGParseException("Invalid document. Root element must be <svg>");
+        }
+    }
+
+    public final Float n0(String str) throws SVGParseException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048633, this, str)) == null) {
+            if (str.length() != 0) {
+                int length = str.length();
+                boolean z = true;
+                if (str.charAt(str.length() - 1) == '%') {
+                    length--;
+                } else {
+                    z = false;
+                }
+                try {
+                    float g0 = g0(str, 0, length);
+                    float f2 = 100.0f;
+                    if (z) {
+                        g0 /= 100.0f;
+                    }
+                    if (g0 < 0.0f) {
+                        f2 = 0.0f;
+                    } else if (g0 <= 100.0f) {
+                        f2 = g0;
+                    }
+                    return Float.valueOf(f2);
+                } catch (NumberFormatException e2) {
+                    throw new SVGParseException("Invalid offset value in <stop>: " + str, e2);
+                }
+            }
+            throw new SVGParseException("Invalid offset value in <stop> (empty string)");
+        }
+        return (Float) invokeL.objValue;
+    }
+
+    public static SVG.Style.LineCap C0(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if ("butt".equals(str)) {
+                return SVG.Style.LineCap.Butt;
+            }
+            if ("round".equals(str)) {
+                return SVG.Style.LineCap.Round;
+            }
+            if ("square".equals(str)) {
+                return SVG.Style.LineCap.Square;
+            }
+            return null;
+        }
+        return (SVG.Style.LineCap) invokeL.objValue;
+    }
+
+    public static SVG.Style.LineJoin D0(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if ("miter".equals(str)) {
+                return SVG.Style.LineJoin.Miter;
+            }
+            if ("round".equals(str)) {
+                return SVG.Style.LineJoin.Round;
+            }
+            if ("bevel".equals(str)) {
+                return SVG.Style.LineJoin.Bevel;
+            }
+            return null;
+        }
+        return (SVG.Style.LineJoin) invokeL.objValue;
+    }
+
     public static SVG.Style.TextDirection I0(String str) {
         InterceptResult invokeL;
         char c2;
@@ -2243,36 +2645,1123 @@ public class SVGParser {
         return (SVG.Style.VectorEffect) invokeL.objValue;
     }
 
-    public static SVG.b N0(String str) throws SVGParseException {
+    public static SVG.f c0(String str) throws SVGParseException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
-            g gVar = new g(str);
-            gVar.A();
-            float n = gVar.n();
-            gVar.z();
-            float n2 = gVar.n();
-            gVar.z();
-            float n3 = gVar.n();
-            gVar.z();
-            float n4 = gVar.n();
-            if (Float.isNaN(n) || Float.isNaN(n2) || Float.isNaN(n3) || Float.isNaN(n4)) {
-                throw new SVGParseException("Invalid viewBox definition - should have four numbers");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, str)) == null) {
+            Integer a2 = c.a(str);
+            if (a2 != null) {
+                return new SVG.f(a2.intValue());
             }
-            if (n3 >= 0.0f) {
-                if (n4 >= 0.0f) {
-                    return new SVG.b(n, n2, n3, n4);
-                }
-                throw new SVGParseException("Invalid viewBox. height cannot be negative");
-            }
-            throw new SVGParseException("Invalid viewBox. width cannot be negative");
+            throw new SVGParseException("Invalid colour keyword: " + str);
         }
-        return (SVG.b) invokeL.objValue;
+        return (SVG.f) invokeL.objValue;
+    }
+
+    public static List i0(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, str)) == null) {
+            g gVar = new g(str);
+            ArrayList arrayList = null;
+            do {
+                String q = gVar.q();
+                if (q == null) {
+                    q = gVar.u(',');
+                }
+                if (q == null) {
+                    break;
+                }
+                if (arrayList == null) {
+                    arrayList = new ArrayList();
+                }
+                arrayList.add(q);
+                gVar.z();
+            } while (!gVar.h());
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public static Set z0(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65582, null, str)) == null) {
+            g gVar = new g(str);
+            HashSet hashSet = new HashSet();
+            while (!gVar.h()) {
+                String r = gVar.r();
+                if (r.startsWith("http://www.w3.org/TR/SVG11/feature#")) {
+                    hashSet.add(r.substring(35));
+                } else {
+                    hashSet.add("UNSUPPORTED");
+                }
+                gVar.A();
+            }
+            return hashSet;
+        }
+        return (Set) invokeL.objValue;
+    }
+
+    public final void O0(Attributes attributes) throws SVGParseException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, attributes) == null) {
+            l("<path>", new Object[0]);
+            if (this.b != null) {
+                SVG.u uVar = new SVG.u();
+                uVar.a = this.a;
+                uVar.b = this.b;
+                D(uVar, attributes);
+                S(uVar, attributes);
+                W(uVar, attributes);
+                C(uVar, attributes);
+                L(uVar, attributes);
+                this.b.i(uVar);
+                return;
+            }
+            throw new SVGParseException("Invalid document. Root element must be <svg>");
+        }
+    }
+
+    public final void T0(Attributes attributes) throws SVGParseException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048603, this, attributes) == null) {
+            l("<radialGradient>", new Object[0]);
+            if (this.b != null) {
+                SVG.o0 o0Var = new SVG.o0();
+                o0Var.a = this.a;
+                o0Var.b = this.b;
+                D(o0Var, attributes);
+                S(o0Var, attributes);
+                F(o0Var, attributes);
+                O(o0Var, attributes);
+                this.b.i(o0Var);
+                this.b = o0Var;
+                return;
+            }
+            throw new SVGParseException("Invalid document. Root element must be <svg>");
+        }
+    }
+
+    public final void U0(Attributes attributes) throws SVGParseException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048605, this, attributes) == null) {
+            l("<rect>", new Object[0]);
+            if (this.b != null) {
+                SVG.a0 a0Var = new SVG.a0();
+                a0Var.a = this.a;
+                a0Var.b = this.b;
+                D(a0Var, attributes);
+                S(a0Var, attributes);
+                W(a0Var, attributes);
+                C(a0Var, attributes);
+                P(a0Var, attributes);
+                this.b.i(a0Var);
+                return;
+            }
+            throw new SVGParseException("Invalid document. Root element must be <svg>");
+        }
+    }
+
+    public final void V0(Attributes attributes) throws SVGParseException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048607, this, attributes) == null) {
+            l("<solidColor>", new Object[0]);
+            if (this.b != null) {
+                SVG.b0 b0Var = new SVG.b0();
+                b0Var.a = this.a;
+                b0Var.b = this.b;
+                D(b0Var, attributes);
+                S(b0Var, attributes);
+                this.b.i(b0Var);
+                this.b = b0Var;
+                return;
+            }
+            throw new SVGParseException("Invalid document. Root element must be <svg>");
+        }
+    }
+
+    public final void a1(Attributes attributes) throws SVGParseException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048616, this, attributes) == null) {
+            l("<svg>", new Object[0]);
+            SVG.d0 d0Var = new SVG.d0();
+            d0Var.a = this.a;
+            d0Var.b = this.b;
+            D(d0Var, attributes);
+            S(d0Var, attributes);
+            C(d0Var, attributes);
+            Y(d0Var, attributes);
+            Q(d0Var, attributes);
+            SVG.h0 h0Var = this.b;
+            if (h0Var == null) {
+                this.a.r(d0Var);
+            } else {
+                h0Var.i(d0Var);
+            }
+            this.b = d0Var;
+        }
+    }
+
+    public final void b1(Attributes attributes) throws SVGParseException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048617, this, attributes) == null) {
+            l("<symbol>", new Object[0]);
+            if (this.b != null) {
+                SVG.p0 r0Var = new SVG.r0();
+                r0Var.a = this.a;
+                r0Var.b = this.b;
+                D(r0Var, attributes);
+                S(r0Var, attributes);
+                C(r0Var, attributes);
+                Y(r0Var, attributes);
+                this.b.i(r0Var);
+                this.b = r0Var;
+                return;
+            }
+            throw new SVGParseException("Invalid document. Root element must be <svg>");
+        }
+    }
+
+    public final void i(Attributes attributes) throws SVGParseException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048625, this, attributes) == null) {
+            l("<circle>", new Object[0]);
+            if (this.b != null) {
+                SVG.d dVar = new SVG.d();
+                dVar.a = this.a;
+                dVar.b = this.b;
+                D(dVar, attributes);
+                S(dVar, attributes);
+                W(dVar, attributes);
+                C(dVar, attributes);
+                A(dVar, attributes);
+                this.b.i(dVar);
+                return;
+            }
+            throw new SVGParseException("Invalid document. Root element must be <svg>");
+        }
+    }
+
+    public final void j1(Attributes attributes) throws SVGParseException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048627, this, attributes) == null) {
+            l("<view>", new Object[0]);
+            if (this.b != null) {
+                SVG.p0 c1Var = new SVG.c1();
+                c1Var.a = this.a;
+                c1Var.b = this.b;
+                D(c1Var, attributes);
+                C(c1Var, attributes);
+                Y(c1Var, attributes);
+                this.b.i(c1Var);
+                this.b = c1Var;
+                return;
+            }
+            throw new SVGParseException("Invalid document. Root element must be <svg>");
+        }
+    }
+
+    public final void k1(Attributes attributes) throws SVGParseException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048629, this, attributes) == null) {
+            l("<switch>", new Object[0]);
+            if (this.b != null) {
+                SVG.q0 q0Var = new SVG.q0();
+                q0Var.a = this.a;
+                q0Var.b = this.b;
+                D(q0Var, attributes);
+                S(q0Var, attributes);
+                W(q0Var, attributes);
+                C(q0Var, attributes);
+                this.b.i(q0Var);
+                this.b = q0Var;
+                return;
+            }
+            throw new SVGParseException("Invalid document. Root element must be <svg>");
+        }
+    }
+
+    public final void m(Attributes attributes) throws SVGParseException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048631, this, attributes) == null) {
+            l("<defs>", new Object[0]);
+            if (this.b != null) {
+                SVG.h hVar = new SVG.h();
+                hVar.a = this.a;
+                hVar.b = this.b;
+                D(hVar, attributes);
+                S(hVar, attributes);
+                W(hVar, attributes);
+                this.b.i(hVar);
+                this.b = hVar;
+                return;
+            }
+            throw new SVGParseException("Invalid document. Root element must be <svg>");
+        }
+    }
+
+    public final void n(Attributes attributes) throws SVGParseException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048632, this, attributes) == null) {
+            l("<ellipse>", new Object[0]);
+            if (this.b != null) {
+                SVG.i iVar = new SVG.i();
+                iVar.a = this.a;
+                iVar.b = this.b;
+                D(iVar, attributes);
+                S(iVar, attributes);
+                W(iVar, attributes);
+                C(iVar, attributes);
+                E(iVar, attributes);
+                this.b.i(iVar);
+                return;
+            }
+            throw new SVGParseException("Invalid document. Root element must be <svg>");
+        }
+    }
+
+    public final void q(Attributes attributes) throws SVGParseException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048636, this, attributes) == null) {
+            l("<g>", new Object[0]);
+            if (this.b != null) {
+                SVG.l lVar = new SVG.l();
+                lVar.a = this.a;
+                lVar.b = this.b;
+                D(lVar, attributes);
+                S(lVar, attributes);
+                W(lVar, attributes);
+                C(lVar, attributes);
+                this.b.i(lVar);
+                this.b = lVar;
+                return;
+            }
+            throw new SVGParseException("Invalid document. Root element must be <svg>");
+        }
+    }
+
+    public final void v(Attributes attributes) throws SVGParseException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048639, this, attributes) == null) {
+            l("<line>", new Object[0]);
+            if (this.b != null) {
+                SVG.p pVar = new SVG.p();
+                pVar.a = this.a;
+                pVar.b = this.b;
+                D(pVar, attributes);
+                S(pVar, attributes);
+                W(pVar, attributes);
+                C(pVar, attributes);
+                H(pVar, attributes);
+                this.b.i(pVar);
+                return;
+            }
+            throw new SVGParseException("Invalid document. Root element must be <svg>");
+        }
+    }
+
+    public final void w(Attributes attributes) throws SVGParseException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048640, this, attributes) == null) {
+            l("<linearGradient>", new Object[0]);
+            if (this.b != null) {
+                SVG.k0 k0Var = new SVG.k0();
+                k0Var.a = this.a;
+                k0Var.b = this.b;
+                D(k0Var, attributes);
+                S(k0Var, attributes);
+                F(k0Var, attributes);
+                I(k0Var, attributes);
+                this.b.i(k0Var);
+                this.b = k0Var;
+                return;
+            }
+            throw new SVGParseException("Invalid document. Root element must be <svg>");
+        }
+    }
+
+    public final Map x0(g gVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048642, this, gVar)) == null) {
+            HashMap hashMap = new HashMap();
+            gVar.A();
+            String s = gVar.s('=');
+            while (s != null) {
+                gVar.f('=');
+                hashMap.put(s, gVar.q());
+                gVar.A();
+                s = gVar.s('=');
+            }
+            return hashMap;
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    public final void y(Attributes attributes) throws SVGParseException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048643, this, attributes) == null) {
+            l("<mask>", new Object[0]);
+            if (this.b != null) {
+                SVG.r rVar = new SVG.r();
+                rVar.a = this.a;
+                rVar.b = this.b;
+                D(rVar, attributes);
+                S(rVar, attributes);
+                C(rVar, attributes);
+                K(rVar, attributes);
+                this.b.i(rVar);
+                this.b = rVar;
+                return;
+            }
+            throw new SVGParseException("Invalid document. Root element must be <svg>");
+        }
+    }
+
+    public static void E0(SVG.j0 j0Var, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, j0Var, str) == null) {
+            g gVar = new g(str.replaceAll("/\\*.*?\\*/", ""));
+            while (true) {
+                String s = gVar.s(':');
+                gVar.A();
+                if (gVar.f(':')) {
+                    gVar.A();
+                    String u = gVar.u(WebvttCueParser.CHAR_SEMI_COLON);
+                    if (u == null) {
+                        return;
+                    }
+                    gVar.A();
+                    if (gVar.h() || gVar.f(WebvttCueParser.CHAR_SEMI_COLON)) {
+                        if (j0Var.f == null) {
+                            j0Var.f = new SVG.Style();
+                        }
+                        S0(j0Var.f, s, u);
+                        gVar.A();
+                    }
+                } else {
+                    return;
+                }
+            }
+        }
+    }
+
+    public static String m0(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65569, null, str, str2)) == null) {
+            if (str.equals("none") || !str.startsWith("url(")) {
+                return null;
+            }
+            if (str.endsWith(SmallTailInfo.EMOTION_SUFFIX)) {
+                return str.substring(4, str.length() - 1).trim();
+            }
+            return str.substring(4).trim();
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public final void A(SVG.d dVar, Attributes attributes) throws SVGParseException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, dVar, attributes) == null) {
+            for (int i = 0; i < attributes.getLength(); i++) {
+                String trim = attributes.getValue(i).trim();
+                switch (a.b[SVGAttr.fromString(attributes.getLocalName(i)).ordinal()]) {
+                    case 12:
+                        dVar.o = o0(trim);
+                        break;
+                    case 13:
+                        dVar.p = o0(trim);
+                        break;
+                    case 14:
+                        SVG.o o0 = o0(trim);
+                        dVar.q = o0;
+                        if (o0.g()) {
+                            throw new SVGParseException("Invalid <circle> element. r cannot be negative");
+                        }
+                        break;
+                }
+            }
+        }
+    }
+
+    public final void B(SVG.e eVar, Attributes attributes) throws SVGParseException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar, attributes) == null) {
+            for (int i = 0; i < attributes.getLength(); i++) {
+                String trim = attributes.getValue(i).trim();
+                if (a.b[SVGAttr.fromString(attributes.getLocalName(i)).ordinal()] == 38) {
+                    if ("objectBoundingBox".equals(trim)) {
+                        eVar.o = Boolean.FALSE;
+                    } else if ("userSpaceOnUse".equals(trim)) {
+                        eVar.o = Boolean.TRUE;
+                    } else {
+                        throw new SVGParseException("Invalid value for attribute clipPathUnits");
+                    }
+                }
+            }
+        }
+    }
+
+    public final void H(SVG.p pVar, Attributes attributes) throws SVGParseException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, pVar, attributes) == null) {
+            for (int i = 0; i < attributes.getLength(); i++) {
+                String trim = attributes.getValue(i).trim();
+                switch (a.b[SVGAttr.fromString(attributes.getLocalName(i)).ordinal()]) {
+                    case 15:
+                        pVar.o = o0(trim);
+                        break;
+                    case 16:
+                        pVar.p = o0(trim);
+                        break;
+                    case 17:
+                        pVar.q = o0(trim);
+                        break;
+                    case 18:
+                        pVar.r = o0(trim);
+                        break;
+                }
+            }
+        }
+    }
+
+    public final void I(SVG.k0 k0Var, Attributes attributes) throws SVGParseException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, k0Var, attributes) == null) {
+            for (int i = 0; i < attributes.getLength(); i++) {
+                String trim = attributes.getValue(i).trim();
+                switch (a.b[SVGAttr.fromString(attributes.getLocalName(i)).ordinal()]) {
+                    case 15:
+                        k0Var.m = o0(trim);
+                        break;
+                    case 16:
+                        k0Var.n = o0(trim);
+                        break;
+                    case 17:
+                        k0Var.o = o0(trim);
+                        break;
+                    case 18:
+                        k0Var.p = o0(trim);
+                        break;
+                }
+            }
+        }
+    }
+
+    public final void L(SVG.u uVar, Attributes attributes) throws SVGParseException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048589, this, uVar, attributes) == null) {
+            for (int i = 0; i < attributes.getLength(); i++) {
+                String trim = attributes.getValue(i).trim();
+                int i2 = a.b[SVGAttr.fromString(attributes.getLocalName(i)).ordinal()];
+                if (i2 != 8) {
+                    if (i2 != 9) {
+                        continue;
+                    } else {
+                        Float valueOf = Float.valueOf(f0(trim));
+                        uVar.p = valueOf;
+                        if (valueOf.floatValue() < 0.0f) {
+                            throw new SVGParseException("Invalid <path> element. pathLength cannot be negative");
+                        }
+                    }
+                } else {
+                    uVar.o = u0(trim);
+                }
+            }
+        }
+    }
+
+    public final void T(SVG.s0 s0Var, Attributes attributes) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048602, this, s0Var, attributes) == null) {
+            for (int i = 0; i < attributes.getLength(); i++) {
+                String trim = attributes.getValue(i).trim();
+                if (a.b[SVGAttr.fromString(attributes.getLocalName(i)).ordinal()] == 6 && ("".equals(attributes.getURI(i)) || "http://www.w3.org/1999/xlink".equals(attributes.getURI(i)))) {
+                    s0Var.n = trim;
+                }
+            }
+        }
+    }
+
+    public final void U(SVG.x0 x0Var, Attributes attributes) throws SVGParseException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048604, this, x0Var, attributes) == null) {
+            for (int i = 0; i < attributes.getLength(); i++) {
+                String trim = attributes.getValue(i).trim();
+                int i2 = a.b[SVGAttr.fromString(attributes.getLocalName(i)).ordinal()];
+                if (i2 != 6) {
+                    if (i2 == 39) {
+                        x0Var.o = o0(trim);
+                    }
+                } else if ("".equals(attributes.getURI(i)) || "http://www.w3.org/1999/xlink".equals(attributes.getURI(i))) {
+                    x0Var.n = trim;
+                }
+            }
+        }
+    }
+
+    public final void V(SVG.y0 y0Var, Attributes attributes) throws SVGParseException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048606, this, y0Var, attributes) == null) {
+            for (int i = 0; i < attributes.getLength(); i++) {
+                String trim = attributes.getValue(i).trim();
+                int i2 = a.b[SVGAttr.fromString(attributes.getLocalName(i)).ordinal()];
+                if (i2 != 1) {
+                    if (i2 != 2) {
+                        if (i2 != 19) {
+                            if (i2 == 20) {
+                                y0Var.q = p0(trim);
+                            }
+                        } else {
+                            y0Var.p = p0(trim);
+                        }
+                    } else {
+                        y0Var.o = p0(trim);
+                    }
+                } else {
+                    y0Var.n = p0(trim);
+                }
+            }
+        }
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, INVOKE, INVOKE] complete} */
+    public SVG z(InputStream inputStream, boolean z) throws SVGParseException {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048644, this, inputStream, z)) == null) {
+            if (!inputStream.markSupported()) {
+                inputStream = new BufferedInputStream(inputStream);
+            }
+            try {
+                inputStream.mark(3);
+                int read = inputStream.read() + (inputStream.read() << 8);
+                inputStream.reset();
+                if (read == 35615) {
+                    inputStream = new BufferedInputStream(new GZIPInputStream(inputStream));
+                }
+            } catch (IOException unused) {
+            }
+            try {
+                inputStream.mark(4096);
+                L0(inputStream, z);
+                return this.a;
+            } finally {
+                try {
+                    inputStream.close();
+                } catch (IOException unused2) {
+                    Log.e("SVGParser", "Exception thrown closing input stream");
+                }
+            }
+        }
+        return (SVG) invokeLZ.objValue;
+    }
+
+    public static Set F0(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            g gVar = new g(str);
+            HashSet hashSet = new HashSet();
+            while (!gVar.h()) {
+                String r = gVar.r();
+                int indexOf = r.indexOf(45);
+                if (indexOf != -1) {
+                    r = r.substring(0, indexOf);
+                }
+                hashSet.add(new Locale(r, "", "").getLanguage());
+                gVar.A();
+            }
+            return hashSet;
+        }
+        return (Set) invokeL.objValue;
+    }
+
+    public static SVG.Style.TextAnchor G0(String str) {
+        InterceptResult invokeL;
+        char c2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            int hashCode = str.hashCode();
+            if (hashCode != -1074341483) {
+                if (hashCode != 100571) {
+                    if (hashCode == 109757538 && str.equals("start")) {
+                        c2 = 0;
+                    }
+                    c2 = 65535;
+                } else {
+                    if (str.equals("end")) {
+                        c2 = 2;
+                    }
+                    c2 = 65535;
+                }
+            } else {
+                if (str.equals(NativeConstants.MIDDLE)) {
+                    c2 = 1;
+                }
+                c2 = 65535;
+            }
+            if (c2 != 0) {
+                if (c2 != 1) {
+                    if (c2 != 2) {
+                        return null;
+                    }
+                    return SVG.Style.TextAnchor.End;
+                }
+                return SVG.Style.TextAnchor.Middle;
+            }
+            return SVG.Style.TextAnchor.Start;
+        }
+        return (SVG.Style.TextAnchor) invokeL.objValue;
+    }
+
+    public static SVG.m0 d0(String str) {
+        InterceptResult invokeL;
+        char c2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, str)) == null) {
+            int hashCode = str.hashCode();
+            if (hashCode != 3387192) {
+                if (hashCode == 1442907498 && str.equals("currentColor")) {
+                    c2 = 1;
+                }
+                c2 = 65535;
+            } else {
+                if (str.equals("none")) {
+                    c2 = 0;
+                }
+                c2 = 65535;
+            }
+            if (c2 != 0) {
+                if (c2 != 1) {
+                    try {
+                        return b0(str);
+                    } catch (SVGParseException unused) {
+                        return null;
+                    }
+                }
+                return SVG.g.a();
+            }
+            return SVG.f.c;
+        }
+        return (SVG.m0) invokeL.objValue;
+    }
+
+    public static SVG.Style.FontStyle k0(String str) {
+        InterceptResult invokeL;
+        char c2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65567, null, str)) == null) {
+            int hashCode = str.hashCode();
+            if (hashCode != -1657669071) {
+                if (hashCode != -1178781136) {
+                    if (hashCode == -1039745817 && str.equals("normal")) {
+                        c2 = 1;
+                    }
+                    c2 = 65535;
+                } else {
+                    if (str.equals("italic")) {
+                        c2 = 0;
+                    }
+                    c2 = 65535;
+                }
+            } else {
+                if (str.equals("oblique")) {
+                    c2 = 2;
+                }
+                c2 = 65535;
+            }
+            if (c2 != 0) {
+                if (c2 != 1) {
+                    if (c2 != 2) {
+                        return null;
+                    }
+                    return SVG.Style.FontStyle.Oblique;
+                }
+                return SVG.Style.FontStyle.Normal;
+            }
+            return SVG.Style.FontStyle.Italic;
+        }
+        return (SVG.Style.FontStyle) invokeL.objValue;
+    }
+
+    public static SVG.m0 t0(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65577, null, str)) == null) {
+            if (str.startsWith("url(")) {
+                int indexOf = str.indexOf(SmallTailInfo.EMOTION_SUFFIX);
+                SVG.m0 m0Var = null;
+                if (indexOf != -1) {
+                    String trim = str.substring(4, indexOf).trim();
+                    String trim2 = str.substring(indexOf + 1).trim();
+                    if (trim2.length() > 0) {
+                        m0Var = d0(trim2);
+                    }
+                    return new SVG.t(trim, m0Var);
+                }
+                return new SVG.t(str.substring(4).trim(), null);
+            }
+            return d0(str);
+        }
+        return (SVG.m0) invokeL.objValue;
+    }
+
+    public static SVG.Style.RenderQuality y0(String str) {
+        InterceptResult invokeL;
+        char c2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65581, null, str)) == null) {
+            int hashCode = str.hashCode();
+            if (hashCode != -933002398) {
+                if (hashCode != 3005871) {
+                    if (hashCode == 362741610 && str.equals("optimizeSpeed")) {
+                        c2 = 2;
+                    }
+                    c2 = 65535;
+                } else {
+                    if (str.equals("auto")) {
+                        c2 = 0;
+                    }
+                    c2 = 65535;
+                }
+            } else {
+                if (str.equals("optimizeQuality")) {
+                    c2 = 1;
+                }
+                c2 = 65535;
+            }
+            if (c2 != 0) {
+                if (c2 != 1) {
+                    if (c2 != 2) {
+                        return null;
+                    }
+                    return SVG.Style.RenderQuality.optimizeSpeed;
+                }
+                return SVG.Style.RenderQuality.optimizeQuality;
+            }
+            return SVG.Style.RenderQuality.auto;
+        }
+        return (SVG.Style.RenderQuality) invokeL.objValue;
+    }
+
+    public final void K0(InputStream inputStream) throws SVGParseException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, inputStream) == null) {
+            Log.d("SVGParser", "Falling back to SAX parser");
+            try {
+                SAXParserFactory newInstance = SAXParserFactory.newInstance();
+                newInstance.setFeature("http://xml.org/sax/features/external-general-entities", false);
+                newInstance.setFeature("http://xml.org/sax/features/external-parameter-entities", false);
+                XMLReader xMLReader = newInstance.newSAXParser().getXMLReader();
+                f fVar = new f(this, null);
+                xMLReader.setContentHandler(fVar);
+                xMLReader.setProperty("http://xml.org/sax/properties/lexical-handler", fVar);
+                xMLReader.parse(new InputSource(inputStream));
+            } catch (IOException e2) {
+                throw new SVGParseException("Stream error", e2);
+            } catch (ParserConfigurationException e3) {
+                throw new SVGParseException("XML parser problem", e3);
+            } catch (SAXException e4) {
+                throw new SVGParseException("SVG parse error", e4);
+            }
+        }
+    }
+
+    public final void P0(Attributes attributes) throws SVGParseException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, attributes) == null) {
+            l("<pattern>", new Object[0]);
+            if (this.b != null) {
+                SVG.x xVar = new SVG.x();
+                xVar.a = this.a;
+                xVar.b = this.b;
+                D(xVar, attributes);
+                S(xVar, attributes);
+                C(xVar, attributes);
+                Y(xVar, attributes);
+                M(xVar, attributes);
+                this.b.i(xVar);
+                this.b = xVar;
+                return;
+            }
+            throw new SVGParseException("Invalid document. Root element must be <svg>");
+        }
+    }
+
+    public final void Q0(Attributes attributes) throws SVGParseException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048598, this, attributes) == null) {
+            l("<polygon>", new Object[0]);
+            if (this.b != null) {
+                SVG.y zVar = new SVG.z();
+                zVar.a = this.a;
+                zVar.b = this.b;
+                D(zVar, attributes);
+                S(zVar, attributes);
+                W(zVar, attributes);
+                C(zVar, attributes);
+                N(zVar, attributes, "polygon");
+                this.b.i(zVar);
+                return;
+            }
+            throw new SVGParseException("Invalid document. Root element must be <svg>");
+        }
+    }
+
+    public final void R0(Attributes attributes) throws SVGParseException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048600, this, attributes) == null) {
+            l("<polyline>", new Object[0]);
+            if (this.b != null) {
+                SVG.y yVar = new SVG.y();
+                yVar.a = this.a;
+                yVar.b = this.b;
+                D(yVar, attributes);
+                S(yVar, attributes);
+                W(yVar, attributes);
+                C(yVar, attributes);
+                N(yVar, attributes, "polyline");
+                this.b.i(yVar);
+                return;
+            }
+            throw new SVGParseException("Invalid document. Root element must be <svg>");
+        }
+    }
+
+    public final void Y0(Attributes attributes) throws SVGParseException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048613, this, attributes) == null) {
+            l("<stop>", new Object[0]);
+            SVG.h0 h0Var = this.b;
+            if (h0Var != null) {
+                if (h0Var instanceof SVG.j) {
+                    SVG.c0 c0Var = new SVG.c0();
+                    c0Var.a = this.a;
+                    c0Var.b = this.b;
+                    D(c0Var, attributes);
+                    S(c0Var, attributes);
+                    R(c0Var, attributes);
+                    this.b.i(c0Var);
+                    this.b = c0Var;
+                    return;
+                }
+                throw new SVGParseException("Invalid document. <stop> elements are only valid inside <linearGradient> or <radialGradient> elements.");
+            }
+            throw new SVGParseException("Invalid document. Root element must be <svg>");
+        }
+    }
+
+    public final void c1(String str) throws SVGParseException {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048618, this, str) != null) || this.c) {
+            return;
+        }
+        if (this.e) {
+            if (this.g == null) {
+                this.g = new StringBuilder(str.length());
+            }
+            this.g.append(str);
+        } else if (this.h) {
+            if (this.i == null) {
+                this.i = new StringBuilder(str.length());
+            }
+            this.i.append(str);
+        } else if (this.b instanceof SVG.w0) {
+            h(str);
+        }
+    }
+
+    public final void d1(Attributes attributes) throws SVGParseException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048619, this, attributes) == null) {
+            l("<text>", new Object[0]);
+            if (this.b != null) {
+                SVG.u0 u0Var = new SVG.u0();
+                u0Var.a = this.a;
+                u0Var.b = this.b;
+                D(u0Var, attributes);
+                S(u0Var, attributes);
+                W(u0Var, attributes);
+                C(u0Var, attributes);
+                V(u0Var, attributes);
+                this.b.i(u0Var);
+                this.b = u0Var;
+                return;
+            }
+            throw new SVGParseException("Invalid document. Root element must be <svg>");
+        }
+    }
+
+    public final void f1(Attributes attributes) throws SVGParseException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048621, this, attributes) == null) {
+            l("<textPath>", new Object[0]);
+            if (this.b != null) {
+                SVG.x0 x0Var = new SVG.x0();
+                x0Var.a = this.a;
+                x0Var.b = this.b;
+                D(x0Var, attributes);
+                S(x0Var, attributes);
+                C(x0Var, attributes);
+                U(x0Var, attributes);
+                this.b.i(x0Var);
+                this.b = x0Var;
+                SVG.h0 h0Var = x0Var.b;
+                if (h0Var instanceof SVG.z0) {
+                    x0Var.o((SVG.z0) h0Var);
+                    return;
+                } else {
+                    x0Var.o(((SVG.v0) h0Var).c());
+                    return;
+                }
+            }
+            throw new SVGParseException("Invalid document. Root element must be <svg>");
+        }
+    }
+
+    public final void g1(Attributes attributes) throws SVGParseException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048622, this, attributes) == null) {
+            l("<tref>", new Object[0]);
+            SVG.h0 h0Var = this.b;
+            if (h0Var != null) {
+                if (h0Var instanceof SVG.w0) {
+                    SVG.s0 s0Var = new SVG.s0();
+                    s0Var.a = this.a;
+                    s0Var.b = this.b;
+                    D(s0Var, attributes);
+                    S(s0Var, attributes);
+                    C(s0Var, attributes);
+                    T(s0Var, attributes);
+                    this.b.i(s0Var);
+                    SVG.h0 h0Var2 = s0Var.b;
+                    if (h0Var2 instanceof SVG.z0) {
+                        s0Var.o((SVG.z0) h0Var2);
+                        return;
+                    } else {
+                        s0Var.o(((SVG.v0) h0Var2).c());
+                        return;
+                    }
+                }
+                throw new SVGParseException("Invalid document. <tref> elements are only valid inside <text> or <tspan> elements.");
+            }
+            throw new SVGParseException("Invalid document. Root element must be <svg>");
+        }
+    }
+
+    public final void h(String str) throws SVGParseException {
+        SVG.l0 l0Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048623, this, str) == null) {
+            SVG.f0 f0Var = (SVG.f0) this.b;
+            int size = f0Var.i.size();
+            if (size == 0) {
+                l0Var = null;
+            } else {
+                l0Var = (SVG.l0) f0Var.i.get(size - 1);
+            }
+            if (l0Var instanceof SVG.a1) {
+                StringBuilder sb = new StringBuilder();
+                SVG.a1 a1Var = (SVG.a1) l0Var;
+                sb.append(a1Var.c);
+                sb.append(str);
+                a1Var.c = sb.toString();
+                return;
+            }
+            this.b.i(new SVG.a1(str));
+        }
+    }
+
+    public final void i1(Attributes attributes) throws SVGParseException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048626, this, attributes) == null) {
+            l("<use>", new Object[0]);
+            if (this.b != null) {
+                SVG.b1 b1Var = new SVG.b1();
+                b1Var.a = this.a;
+                b1Var.b = this.b;
+                D(b1Var, attributes);
+                S(b1Var, attributes);
+                W(b1Var, attributes);
+                C(b1Var, attributes);
+                X(b1Var, attributes);
+                this.b.i(b1Var);
+                this.b = b1Var;
+                return;
+            }
+            throw new SVGParseException("Invalid document. Root element must be <svg>");
+        }
+    }
+
+    public final void k(Attributes attributes) throws SVGParseException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048628, this, attributes) == null) {
+            l("<clipPath>", new Object[0]);
+            if (this.b != null) {
+                SVG.e eVar = new SVG.e();
+                eVar.a = this.a;
+                eVar.b = this.b;
+                D(eVar, attributes);
+                S(eVar, attributes);
+                W(eVar, attributes);
+                C(eVar, attributes);
+                B(eVar, attributes);
+                this.b.i(eVar);
+                this.b = eVar;
+                return;
+            }
+            throw new SVGParseException("Invalid document. Root element must be <svg>");
+        }
+    }
+
+    public final void u(Attributes attributes) throws SVGParseException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048638, this, attributes) == null) {
+            l("<image>", new Object[0]);
+            if (this.b != null) {
+                SVG.n nVar = new SVG.n();
+                nVar.a = this.a;
+                nVar.b = this.b;
+                D(nVar, attributes);
+                S(nVar, attributes);
+                W(nVar, attributes);
+                C(nVar, attributes);
+                G(nVar, attributes);
+                this.b.i(nVar);
+                this.b = nVar;
+                return;
+            }
+            throw new SVGParseException("Invalid document. Root element must be <svg>");
+        }
+    }
+
+    public final void x(Attributes attributes) throws SVGParseException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048641, this, attributes) == null) {
+            l("<marker>", new Object[0]);
+            if (this.b != null) {
+                SVG.q qVar = new SVG.q();
+                qVar.a = this.a;
+                qVar.b = this.b;
+                D(qVar, attributes);
+                S(qVar, attributes);
+                C(qVar, attributes);
+                Y(qVar, attributes);
+                J(qVar, attributes);
+                this.b.i(qVar);
+                this.b = qVar;
+                return;
+            }
+            throw new SVGParseException("Invalid document. Root element must be <svg>");
+        }
     }
 
     public static void S0(SVG.Style style, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65548, null, style, str, str2) == null) || str2.length() == 0 || str2.equals("inherit")) {
+        if ((interceptable != null && interceptable.invokeLLL(65548, null, style, str, str2) != null) || str2.length() == 0 || str2.equals("inherit")) {
             return;
         }
         try {
@@ -2370,7 +3859,7 @@ public class SVGParser {
                     h0(style, str2);
                     return;
                 case 61:
-                    List<String> i0 = i0(str2);
+                    List i0 = i0(str2);
                     style.o = i0;
                     if (i0 != null) {
                         style.a |= PlaybackStateCompat.ACTION_PLAY_FROM_URI;
@@ -2565,60 +4054,37 @@ public class SVGParser {
         }
     }
 
-    public static SVG.c a0(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, str)) == null) {
-            if (!"auto".equals(str) && str.startsWith("rect(")) {
-                g gVar = new g(str.substring(5));
-                gVar.A();
-                SVG.o q0 = q0(gVar);
-                gVar.z();
-                SVG.o q02 = q0(gVar);
-                gVar.z();
-                SVG.o q03 = q0(gVar);
-                gVar.z();
-                SVG.o q04 = q0(gVar);
-                gVar.A();
-                if (gVar.f(')') || gVar.h()) {
-                    return new SVG.c(q0, q02, q03, q04);
-                }
-                return null;
-            }
-            return null;
-        }
-        return (SVG.c) invokeL.objValue;
-    }
-
     public static SVG.f b0(String str) throws SVGParseException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) {
+            int i = 5;
             if (str.charAt(0) == '#') {
-                vj9 b2 = vj9.b(str, 1, str.length());
+                nk9 b2 = nk9.b(str, 1, str.length());
                 if (b2 != null) {
                     int a2 = b2.a();
-                    if (a2 == 4) {
-                        int d2 = b2.d();
-                        int i = d2 & 3840;
-                        int i2 = d2 & 240;
-                        int i3 = d2 & 15;
-                        return new SVG.f(i3 | (i << 8) | (-16777216) | (i << 12) | (i2 << 8) | (i2 << 4) | (i3 << 4));
-                    } else if (a2 == 5) {
-                        int d3 = b2.d();
-                        int i4 = 61440 & d3;
-                        int i5 = d3 & 3840;
-                        int i6 = d3 & 240;
-                        int i7 = d3 & 15;
-                        return new SVG.f((i7 << 24) | (i7 << 28) | (i4 << 8) | (i4 << 4) | (i5 << 4) | i5 | i6 | (i6 >> 4));
-                    } else if (a2 != 7) {
-                        if (a2 == 9) {
-                            return new SVG.f((b2.d() >>> 8) | (b2.d() << 24));
+                    if (a2 != 4) {
+                        if (a2 != 5) {
+                            if (a2 != 7) {
+                                if (a2 == 9) {
+                                    return new SVG.f((b2.d() >>> 8) | (b2.d() << 24));
+                                }
+                                throw new SVGParseException("Bad hex colour value: " + str);
+                            }
+                            return new SVG.f(b2.d() | (-16777216));
                         }
-                        throw new SVGParseException("Bad hex colour value: " + str);
-                    } else {
-                        return new SVG.f(b2.d() | (-16777216));
+                        int d2 = b2.d();
+                        int i2 = 61440 & d2;
+                        int i3 = d2 & 3840;
+                        int i4 = d2 & 240;
+                        int i5 = d2 & 15;
+                        return new SVG.f((i5 << 24) | (i5 << 28) | (i2 << 8) | (i2 << 4) | (i3 << 4) | i3 | i4 | (i4 >> 4));
                     }
+                    int d3 = b2.d();
+                    int i6 = d3 & 3840;
+                    int i7 = d3 & 240;
+                    int i8 = d3 & 15;
+                    return new SVG.f(i8 | (i6 << 8) | (-16777216) | (i6 << 12) | (i7 << 8) | (i7 << 4) | (i8 << 4));
                 }
                 throw new SVGParseException("Bad hex colour value: " + str);
             }
@@ -2629,7 +4095,10 @@ public class SVGParser {
                 if (!startsWith2 && !lowerCase.startsWith("hsl(")) {
                     return c0(lowerCase);
                 }
-                g gVar = new g(str.substring(startsWith2 ? 5 : 4));
+                if (!startsWith2) {
+                    i = 4;
+                }
+                g gVar = new g(str.substring(i));
                 gVar.A();
                 float n = gVar.n();
                 float d4 = gVar.d(n);
@@ -2654,7 +4123,10 @@ public class SVGParser {
                 }
                 throw new SVGParseException("Bad hsl() colour value: " + str);
             }
-            g gVar2 = new g(str.substring(startsWith ? 5 : 4));
+            if (!startsWith) {
+                i = 4;
+            }
+            g gVar2 = new g(str.substring(i));
             gVar2.A();
             float n2 = gVar2.n();
             if (!Float.isNaN(n2) && gVar2.f('%')) {
@@ -2685,253 +4157,750 @@ public class SVGParser {
         return (SVG.f) invokeL.objValue;
     }
 
-    public static SVG.f c0(String str) throws SVGParseException {
+    /* JADX WARN: Code restructure failed: missing block: B:106:0x02aa, code lost:
+        return r9;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static SVG.v u0(String str) {
         InterceptResult invokeL;
+        float d2;
+        float d3;
+        float f2;
+        float f3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, str)) == null) {
-            Integer a2 = c.a(str);
-            if (a2 != null) {
-                return new SVG.f(a2.intValue());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65578, null, str)) == null) {
+            g gVar = new g(str);
+            SVG.v vVar = new SVG.v();
+            if (gVar.h()) {
+                return vVar;
             }
-            throw new SVGParseException("Invalid colour keyword: " + str);
+            int intValue = gVar.l().intValue();
+            int i = 109;
+            if (intValue != 77 && intValue != 109) {
+                return vVar;
+            }
+            int i2 = intValue;
+            float f4 = 0.0f;
+            float f5 = 0.0f;
+            float f6 = 0.0f;
+            float f7 = 0.0f;
+            float f8 = 0.0f;
+            float f9 = 0.0f;
+            while (true) {
+                gVar.A();
+                int i3 = 108;
+                switch (i2) {
+                    case 65:
+                    case 97:
+                        float n = gVar.n();
+                        float d4 = gVar.d(n);
+                        float d5 = gVar.d(d4);
+                        Boolean c2 = gVar.c(Float.valueOf(d5));
+                        Boolean c3 = gVar.c(c2);
+                        float e2 = gVar.e(c3);
+                        float d6 = gVar.d(e2);
+                        if (!Float.isNaN(d6) && n >= 0.0f && d4 >= 0.0f) {
+                            if (i2 == 97) {
+                                e2 += f4;
+                                d6 += f6;
+                            }
+                            vVar.e(n, d4, d5, c2.booleanValue(), c3.booleanValue(), e2, d6);
+                            f4 = e2;
+                            f5 = f4;
+                            f6 = d6;
+                            f7 = f6;
+                            break;
+                        }
+                        break;
+                    case 67:
+                    case 99:
+                        float n2 = gVar.n();
+                        float d7 = gVar.d(n2);
+                        float d8 = gVar.d(d7);
+                        float d9 = gVar.d(d8);
+                        d2 = gVar.d(d9);
+                        d3 = gVar.d(d2);
+                        if (Float.isNaN(d3)) {
+                            Log.e("SVGParser", "Bad path coords for " + ((char) i2) + " path segment");
+                            return vVar;
+                        }
+                        if (i2 == 99) {
+                            d2 += f4;
+                            d3 += f6;
+                            n2 += f4;
+                            d7 += f6;
+                            d8 += f4;
+                            d9 += f6;
+                        }
+                        f2 = d8;
+                        f3 = d9;
+                        vVar.d(n2, d7, f2, f3, d2, d3);
+                        f5 = f2;
+                        f4 = d2;
+                        f7 = f3;
+                        f6 = d3;
+                        break;
+                    case 72:
+                    case 104:
+                        float n3 = gVar.n();
+                        if (Float.isNaN(n3)) {
+                            Log.e("SVGParser", "Bad path coords for " + ((char) i2) + " path segment");
+                            return vVar;
+                        }
+                        if (i2 == 104) {
+                            n3 += f4;
+                        }
+                        f4 = n3;
+                        vVar.b(f4, f6);
+                        f5 = f4;
+                        break;
+                    case 76:
+                    case 108:
+                        float n4 = gVar.n();
+                        float d10 = gVar.d(n4);
+                        if (Float.isNaN(d10)) {
+                            Log.e("SVGParser", "Bad path coords for " + ((char) i2) + " path segment");
+                            return vVar;
+                        }
+                        if (i2 == 108) {
+                            n4 += f4;
+                            d10 += f6;
+                        }
+                        f4 = n4;
+                        f6 = d10;
+                        vVar.b(f4, f6);
+                        f5 = f4;
+                        f7 = f6;
+                        break;
+                    case 77:
+                    case 109:
+                        float n5 = gVar.n();
+                        float d11 = gVar.d(n5);
+                        if (Float.isNaN(d11)) {
+                            Log.e("SVGParser", "Bad path coords for " + ((char) i2) + " path segment");
+                            return vVar;
+                        }
+                        if (i2 == i && !vVar.i()) {
+                            n5 += f4;
+                            d11 += f6;
+                        }
+                        f4 = n5;
+                        f6 = d11;
+                        vVar.a(f4, f6);
+                        if (i2 != i) {
+                            i3 = 76;
+                        }
+                        f5 = f4;
+                        f8 = f5;
+                        f7 = f6;
+                        f9 = f7;
+                        i2 = i3;
+                        break;
+                    case 81:
+                    case 113:
+                        f5 = gVar.n();
+                        f7 = gVar.d(f5);
+                        float d12 = gVar.d(f7);
+                        float d13 = gVar.d(d12);
+                        if (Float.isNaN(d13)) {
+                            Log.e("SVGParser", "Bad path coords for " + ((char) i2) + " path segment");
+                            return vVar;
+                        }
+                        if (i2 == 113) {
+                            d12 += f4;
+                            d13 += f6;
+                            f5 += f4;
+                            f7 += f6;
+                        }
+                        f4 = d12;
+                        f6 = d13;
+                        vVar.c(f5, f7, f4, f6);
+                        break;
+                    case 83:
+                    case 115:
+                        float f10 = (f4 * 2.0f) - f5;
+                        float f11 = (2.0f * f6) - f7;
+                        float n6 = gVar.n();
+                        float d14 = gVar.d(n6);
+                        d2 = gVar.d(d14);
+                        d3 = gVar.d(d2);
+                        if (Float.isNaN(d3)) {
+                            Log.e("SVGParser", "Bad path coords for " + ((char) i2) + " path segment");
+                            return vVar;
+                        }
+                        if (i2 == 115) {
+                            d2 += f4;
+                            d3 += f6;
+                            n6 += f4;
+                            d14 += f6;
+                        }
+                        f2 = n6;
+                        f3 = d14;
+                        vVar.d(f10, f11, f2, f3, d2, d3);
+                        f5 = f2;
+                        f4 = d2;
+                        f7 = f3;
+                        f6 = d3;
+                        break;
+                    case 84:
+                    case 116:
+                        f5 = (f4 * 2.0f) - f5;
+                        f7 = (2.0f * f6) - f7;
+                        float n7 = gVar.n();
+                        float d15 = gVar.d(n7);
+                        if (Float.isNaN(d15)) {
+                            Log.e("SVGParser", "Bad path coords for " + ((char) i2) + " path segment");
+                            return vVar;
+                        }
+                        if (i2 == 116) {
+                            n7 += f4;
+                            d15 += f6;
+                        }
+                        f4 = n7;
+                        f6 = d15;
+                        vVar.c(f5, f7, f4, f6);
+                        break;
+                    case 86:
+                    case 118:
+                        float n8 = gVar.n();
+                        if (Float.isNaN(n8)) {
+                            Log.e("SVGParser", "Bad path coords for " + ((char) i2) + " path segment");
+                            return vVar;
+                        }
+                        if (i2 == 118) {
+                            n8 += f6;
+                        }
+                        f6 = n8;
+                        vVar.b(f4, f6);
+                        f7 = f6;
+                        break;
+                    case 90:
+                    case 122:
+                        vVar.close();
+                        f4 = f8;
+                        f5 = f4;
+                        f6 = f9;
+                        f7 = f6;
+                        break;
+                    default:
+                        return vVar;
+                }
+                gVar.z();
+                if (gVar.h()) {
+                    return vVar;
+                }
+                if (gVar.i()) {
+                    i2 = gVar.l().intValue();
+                }
+                i = 109;
+            }
+        } else {
+            return (SVG.v) invokeL.objValue;
         }
-        return (SVG.f) invokeL.objValue;
     }
 
-    public static SVG.m0 d0(String str) {
+    public final Matrix J0(String str) throws SVGParseException {
         InterceptResult invokeL;
-        char c2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, str)) == null) {
-            int hashCode = str.hashCode();
-            if (hashCode != 3387192) {
-                if (hashCode == 1442907498 && str.equals("currentColor")) {
-                    c2 = 1;
-                }
-                c2 = 65535;
-            } else {
-                if (str.equals("none")) {
-                    c2 = 0;
-                }
-                c2 = 65535;
-            }
-            if (c2 != 0) {
-                if (c2 != 1) {
-                    try {
-                        return b0(str);
-                    } catch (SVGParseException unused) {
-                        return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+            Matrix matrix = new Matrix();
+            g gVar = new g(str);
+            gVar.A();
+            while (!gVar.h()) {
+                String o = gVar.o();
+                if (o != null) {
+                    char c2 = 65535;
+                    switch (o.hashCode()) {
+                        case -1081239615:
+                            if (o.equals("matrix")) {
+                                c2 = 0;
+                                break;
+                            }
+                            break;
+                        case -925180581:
+                            if (o.equals("rotate")) {
+                                c2 = 3;
+                                break;
+                            }
+                            break;
+                        case 109250890:
+                            if (o.equals("scale")) {
+                                c2 = 2;
+                                break;
+                            }
+                            break;
+                        case 109493390:
+                            if (o.equals("skewX")) {
+                                c2 = 4;
+                                break;
+                            }
+                            break;
+                        case 109493391:
+                            if (o.equals("skewY")) {
+                                c2 = 5;
+                                break;
+                            }
+                            break;
+                        case 1052832078:
+                            if (o.equals("translate")) {
+                                c2 = 1;
+                                break;
+                            }
+                            break;
                     }
+                    if (c2 != 0) {
+                        if (c2 != 1) {
+                            if (c2 != 2) {
+                                if (c2 != 3) {
+                                    if (c2 != 4) {
+                                        if (c2 == 5) {
+                                            gVar.A();
+                                            float n = gVar.n();
+                                            gVar.A();
+                                            if (!Float.isNaN(n) && gVar.f(')')) {
+                                                matrix.preSkew(0.0f, (float) Math.tan(Math.toRadians(n)));
+                                            } else {
+                                                throw new SVGParseException("Invalid transform list: " + str);
+                                            }
+                                        } else {
+                                            throw new SVGParseException("Invalid transform list fn: " + o + SmallTailInfo.EMOTION_SUFFIX);
+                                        }
+                                    } else {
+                                        gVar.A();
+                                        float n2 = gVar.n();
+                                        gVar.A();
+                                        if (!Float.isNaN(n2) && gVar.f(')')) {
+                                            matrix.preSkew((float) Math.tan(Math.toRadians(n2)), 0.0f);
+                                        } else {
+                                            throw new SVGParseException("Invalid transform list: " + str);
+                                        }
+                                    }
+                                } else {
+                                    gVar.A();
+                                    float n3 = gVar.n();
+                                    float x = gVar.x();
+                                    float x2 = gVar.x();
+                                    gVar.A();
+                                    if (!Float.isNaN(n3) && gVar.f(')')) {
+                                        if (Float.isNaN(x)) {
+                                            matrix.preRotate(n3);
+                                        } else if (!Float.isNaN(x2)) {
+                                            matrix.preRotate(n3, x, x2);
+                                        } else {
+                                            throw new SVGParseException("Invalid transform list: " + str);
+                                        }
+                                    } else {
+                                        throw new SVGParseException("Invalid transform list: " + str);
+                                    }
+                                }
+                            } else {
+                                gVar.A();
+                                float n4 = gVar.n();
+                                float x3 = gVar.x();
+                                gVar.A();
+                                if (!Float.isNaN(n4) && gVar.f(')')) {
+                                    if (Float.isNaN(x3)) {
+                                        matrix.preScale(n4, n4);
+                                    } else {
+                                        matrix.preScale(n4, x3);
+                                    }
+                                } else {
+                                    throw new SVGParseException("Invalid transform list: " + str);
+                                }
+                            }
+                        } else {
+                            gVar.A();
+                            float n5 = gVar.n();
+                            float x4 = gVar.x();
+                            gVar.A();
+                            if (!Float.isNaN(n5) && gVar.f(')')) {
+                                if (Float.isNaN(x4)) {
+                                    matrix.preTranslate(n5, 0.0f);
+                                } else {
+                                    matrix.preTranslate(n5, x4);
+                                }
+                            } else {
+                                throw new SVGParseException("Invalid transform list: " + str);
+                            }
+                        }
+                    } else {
+                        gVar.A();
+                        float n6 = gVar.n();
+                        gVar.z();
+                        float n7 = gVar.n();
+                        gVar.z();
+                        float n8 = gVar.n();
+                        gVar.z();
+                        float n9 = gVar.n();
+                        gVar.z();
+                        float n10 = gVar.n();
+                        gVar.z();
+                        float n11 = gVar.n();
+                        gVar.A();
+                        if (!Float.isNaN(n11) && gVar.f(')')) {
+                            Matrix matrix2 = new Matrix();
+                            matrix2.setValues(new float[]{n6, n8, n10, n7, n9, n11, 0.0f, 0.0f, 1.0f});
+                            matrix.preConcat(matrix2);
+                        } else {
+                            throw new SVGParseException("Invalid transform list: " + str);
+                        }
+                    }
+                    if (!gVar.h()) {
+                        gVar.z();
+                    } else {
+                        return matrix;
+                    }
+                } else {
+                    throw new SVGParseException("Bad transform function encountered in transform list: " + str);
                 }
-                return SVG.g.a();
             }
-            return SVG.f.c;
+            return matrix;
         }
-        return (SVG.m0) invokeL.objValue;
+        return (Matrix) invokeL.objValue;
     }
 
-    public static SVG.Style.FillRule e0(String str) {
-        InterceptResult invokeL;
+    public static void w0(SVG.n0 n0Var, String str) throws SVGParseException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, str)) == null) {
-            if ("nonzero".equals(str)) {
-                return SVG.Style.FillRule.NonZero;
-            }
-            if ("evenodd".equals(str)) {
-                return SVG.Style.FillRule.EvenOdd;
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeLL(65580, null, n0Var, str) == null) {
+            n0Var.n = v0(str);
         }
-        return (SVG.Style.FillRule) invokeL.objValue;
     }
 
-    public static float f0(String str) throws SVGParseException {
-        InterceptResult invokeL;
+    public final void W(SVG.m mVar, Attributes attributes) throws SVGParseException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65560, null, str)) == null) {
-            int length = str.length();
-            if (length != 0) {
-                return g0(str, 0, length);
+        if (interceptable == null || interceptable.invokeLL(1048608, this, mVar, attributes) == null) {
+            for (int i = 0; i < attributes.getLength(); i++) {
+                if (SVGAttr.fromString(attributes.getLocalName(i)) == SVGAttr.transform) {
+                    mVar.l(J0(attributes.getValue(i)));
+                }
             }
-            throw new SVGParseException("Invalid float value (empty string)");
         }
-        return invokeL.floatValue;
     }
 
     public static float g0(String str, int i, int i2) throws SVGParseException {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65562, null, str, i, i2)) == null) {
-            float b2 = new wj9().b(str, i, i2);
-            if (Float.isNaN(b2)) {
-                throw new SVGParseException("Invalid float value: " + str);
+            float b2 = new ok9().b(str, i, i2);
+            if (!Float.isNaN(b2)) {
+                return b2;
             }
-            return b2;
+            throw new SVGParseException("Invalid float value: " + str);
         }
         return invokeLII.floatValue;
     }
 
     public static void h0(SVG.Style style, String str) {
         String s;
+        int intValue;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65563, null, style, str) == null) {
-            if ("|caption|icon|menu|message-box|small-caption|status-bar|".contains('|' + str + '|')) {
-                g gVar = new g(str);
-                Integer num = null;
-                SVG.Style.FontStyle fontStyle = null;
-                String str2 = null;
-                while (true) {
-                    s = gVar.s(WebvttCueParser.CHAR_SLASH);
-                    gVar.A();
-                    if (s != null) {
-                        if (num != null && fontStyle != null) {
+            if (!"|caption|icon|menu|message-box|small-caption|status-bar|".contains('|' + str + '|')) {
+                return;
+            }
+            g gVar = new g(str);
+            Integer num = null;
+            SVG.Style.FontStyle fontStyle = null;
+            String str2 = null;
+            while (true) {
+                s = gVar.s(WebvttCueParser.CHAR_SLASH);
+                gVar.A();
+                if (s == null) {
+                    return;
+                }
+                if (num != null && fontStyle != null) {
+                    break;
+                } else if (!s.equals("normal") && (num != null || (num = e.a(s)) == null)) {
+                    if (fontStyle != null || (fontStyle = k0(s)) == null) {
+                        if (str2 != null || !s.equals("small-caps")) {
                             break;
-                        } else if (!s.equals("normal") && (num != null || (num = e.a(s)) == null)) {
-                            if (fontStyle != null || (fontStyle = k0(s)) == null) {
-                                if (str2 != null || !s.equals("small-caps")) {
-                                    break;
-                                }
-                                str2 = s;
-                            }
                         }
-                    } else {
+                        str2 = s;
+                    }
+                }
+            }
+            SVG.o j0 = j0(s);
+            if (gVar.f(WebvttCueParser.CHAR_SLASH)) {
+                gVar.A();
+                String r = gVar.r();
+                if (r != null) {
+                    try {
+                        o0(r);
+                    } catch (SVGParseException unused) {
                         return;
                     }
                 }
-                SVG.o j0 = j0(s);
-                if (gVar.f(WebvttCueParser.CHAR_SLASH)) {
-                    gVar.A();
-                    String r = gVar.r();
-                    if (r != null) {
-                        try {
-                            o0(r);
-                        } catch (SVGParseException unused) {
-                            return;
-                        }
-                    }
-                    gVar.A();
-                }
-                style.o = i0(gVar.y());
-                style.p = j0;
-                style.q = Integer.valueOf(num == null ? 400 : num.intValue());
-                if (fontStyle == null) {
-                    fontStyle = SVG.Style.FontStyle.Normal;
-                }
-                style.r = fontStyle;
-                style.a |= 122880;
+                gVar.A();
             }
-        }
-    }
-
-    public static List<String> i0(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, str)) == null) {
-            g gVar = new g(str);
-            ArrayList arrayList = null;
-            do {
-                String q = gVar.q();
-                if (q == null) {
-                    q = gVar.u(',');
-                }
-                if (q == null) {
-                    break;
-                }
-                if (arrayList == null) {
-                    arrayList = new ArrayList();
-                }
-                arrayList.add(q);
-                gVar.z();
-            } while (!gVar.h());
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public static int j(float f2) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65565, null, f2)) == null) {
-            if (f2 < 0.0f) {
-                return 0;
-            }
-            if (f2 > 255.0f) {
-                return 255;
-            }
-            return Math.round(f2);
-        }
-        return invokeF.intValue;
-    }
-
-    public static SVG.o j0(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, str)) == null) {
-            try {
-                SVG.o a2 = d.a(str);
-                return a2 == null ? o0(str) : a2;
-            } catch (SVGParseException unused) {
-                return null;
-            }
-        }
-        return (SVG.o) invokeL.objValue;
-    }
-
-    public static SVG.Style.FontStyle k0(String str) {
-        InterceptResult invokeL;
-        char c2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65567, null, str)) == null) {
-            int hashCode = str.hashCode();
-            if (hashCode == -1657669071) {
-                if (str.equals("oblique")) {
-                    c2 = 2;
-                }
-                c2 = 65535;
-            } else if (hashCode != -1178781136) {
-                if (hashCode == -1039745817 && str.equals("normal")) {
-                    c2 = 1;
-                }
-                c2 = 65535;
+            style.o = i0(gVar.y());
+            style.p = j0;
+            if (num == null) {
+                intValue = 400;
             } else {
-                if (str.equals("italic")) {
-                    c2 = 0;
-                }
-                c2 = 65535;
+                intValue = num.intValue();
             }
-            if (c2 != 0) {
-                if (c2 != 1) {
-                    if (c2 != 2) {
-                        return null;
+            style.q = Integer.valueOf(intValue);
+            if (fontStyle == null) {
+                fontStyle = SVG.Style.FontStyle.Normal;
+            }
+            style.r = fontStyle;
+            style.a |= 122880;
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:43:0x0091, code lost:
+        continue;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void F(SVG.j jVar, Attributes attributes) throws SVGParseException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, jVar, attributes) == null) {
+            for (int i = 0; i < attributes.getLength(); i++) {
+                String trim = attributes.getValue(i).trim();
+                int i2 = a.b[SVGAttr.fromString(attributes.getLocalName(i)).ordinal()];
+                if (i2 != 6) {
+                    switch (i2) {
+                        case 32:
+                            if ("objectBoundingBox".equals(trim)) {
+                                jVar.i = Boolean.FALSE;
+                                continue;
+                            } else if ("userSpaceOnUse".equals(trim)) {
+                                jVar.i = Boolean.TRUE;
+                                break;
+                            } else {
+                                throw new SVGParseException("Invalid value for attribute gradientUnits");
+                            }
+                        case 33:
+                            jVar.j = J0(trim);
+                            continue;
+                        case 34:
+                            try {
+                                jVar.k = SVG.GradientSpread.valueOf(trim);
+                                continue;
+                            } catch (IllegalArgumentException unused) {
+                                throw new SVGParseException("Invalid spreadMethod attribute. \"" + trim + "\" is not a valid value.");
+                            }
                     }
-                    return SVG.Style.FontStyle.Oblique;
+                } else if ("".equals(attributes.getURI(i)) || "http://www.w3.org/1999/xlink".equals(attributes.getURI(i))) {
+                    jVar.l = trim;
                 }
-                return SVG.Style.FontStyle.Normal;
             }
-            return SVG.Style.FontStyle.Italic;
         }
-        return (SVG.Style.FontStyle) invokeL.objValue;
     }
 
-    public static Integer l0(String str) {
-        InterceptResult invokeL;
+    public final void G(SVG.n nVar, Attributes attributes) throws SVGParseException {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65568, null, str)) == null) ? e.a(str) : (Integer) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, nVar, attributes) == null) {
+            for (int i = 0; i < attributes.getLength(); i++) {
+                String trim = attributes.getValue(i).trim();
+                int i2 = a.b[SVGAttr.fromString(attributes.getLocalName(i)).ordinal()];
+                if (i2 != 1) {
+                    if (i2 != 2) {
+                        if (i2 != 3) {
+                            if (i2 != 4) {
+                                if (i2 != 6) {
+                                    if (i2 == 7) {
+                                        w0(nVar, trim);
+                                    }
+                                } else if ("".equals(attributes.getURI(i)) || "http://www.w3.org/1999/xlink".equals(attributes.getURI(i))) {
+                                    nVar.o = trim;
+                                }
+                            } else {
+                                SVG.o o0 = o0(trim);
+                                nVar.s = o0;
+                                if (o0.g()) {
+                                    throw new SVGParseException("Invalid <use> element. height cannot be negative");
+                                }
+                            }
+                        } else {
+                            SVG.o o02 = o0(trim);
+                            nVar.r = o02;
+                            if (o02.g()) {
+                                throw new SVGParseException("Invalid <use> element. width cannot be negative");
+                            }
+                        }
+                    } else {
+                        nVar.q = o0(trim);
+                    }
+                } else {
+                    nVar.p = o0(trim);
+                }
+            }
+        }
     }
 
-    public static String m0(String str, String str2) {
-        InterceptResult invokeLL;
+    public final void J(SVG.q qVar, Attributes attributes) throws SVGParseException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65569, null, str, str2)) == null) {
-            if (!str.equals("none") && str.startsWith("url(")) {
-                if (str.endsWith(SmallTailInfo.EMOTION_SUFFIX)) {
-                    return str.substring(4, str.length() - 1).trim();
+        if (interceptable == null || interceptable.invokeLL(1048585, this, qVar, attributes) == null) {
+            for (int i = 0; i < attributes.getLength(); i++) {
+                String trim = attributes.getValue(i).trim();
+                switch (a.b[SVGAttr.fromString(attributes.getLocalName(i)).ordinal()]) {
+                    case 26:
+                        qVar.q = o0(trim);
+                        break;
+                    case 27:
+                        qVar.r = o0(trim);
+                        break;
+                    case 28:
+                        SVG.o o0 = o0(trim);
+                        qVar.s = o0;
+                        if (o0.g()) {
+                            throw new SVGParseException("Invalid <marker> element. markerWidth cannot be negative");
+                        }
+                        break;
+                    case 29:
+                        SVG.o o02 = o0(trim);
+                        qVar.t = o02;
+                        if (o02.g()) {
+                            throw new SVGParseException("Invalid <marker> element. markerHeight cannot be negative");
+                        }
+                        break;
+                    case 30:
+                        if ("strokeWidth".equals(trim)) {
+                            qVar.p = false;
+                            break;
+                        } else if ("userSpaceOnUse".equals(trim)) {
+                            qVar.p = true;
+                            break;
+                        } else {
+                            throw new SVGParseException("Invalid value for attribute markerUnits");
+                        }
+                    case 31:
+                        if ("auto".equals(trim)) {
+                            qVar.u = Float.valueOf(Float.NaN);
+                            break;
+                        } else {
+                            qVar.u = Float.valueOf(f0(trim));
+                            break;
+                        }
                 }
-                return str.substring(4).trim();
             }
-            return null;
         }
-        return (String) invokeLL.objValue;
+    }
+
+    public final void K(SVG.r rVar, Attributes attributes) throws SVGParseException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048587, this, rVar, attributes) == null) {
+            for (int i = 0; i < attributes.getLength(); i++) {
+                String trim = attributes.getValue(i).trim();
+                int i2 = a.b[SVGAttr.fromString(attributes.getLocalName(i)).ordinal()];
+                if (i2 != 1) {
+                    if (i2 != 2) {
+                        if (i2 != 3) {
+                            if (i2 != 4) {
+                                if (i2 != 43) {
+                                    if (i2 != 44) {
+                                        continue;
+                                    } else if ("objectBoundingBox".equals(trim)) {
+                                        rVar.o = Boolean.FALSE;
+                                    } else if ("userSpaceOnUse".equals(trim)) {
+                                        rVar.o = Boolean.TRUE;
+                                    } else {
+                                        throw new SVGParseException("Invalid value for attribute maskContentUnits");
+                                    }
+                                } else if ("objectBoundingBox".equals(trim)) {
+                                    rVar.n = Boolean.FALSE;
+                                } else if ("userSpaceOnUse".equals(trim)) {
+                                    rVar.n = Boolean.TRUE;
+                                } else {
+                                    throw new SVGParseException("Invalid value for attribute maskUnits");
+                                }
+                            } else {
+                                SVG.o o0 = o0(trim);
+                                rVar.s = o0;
+                                if (o0.g()) {
+                                    throw new SVGParseException("Invalid <mask> element. height cannot be negative");
+                                }
+                            }
+                        } else {
+                            SVG.o o02 = o0(trim);
+                            rVar.r = o02;
+                            if (o02.g()) {
+                                throw new SVGParseException("Invalid <mask> element. width cannot be negative");
+                            }
+                        }
+                    } else {
+                        rVar.q = o0(trim);
+                    }
+                } else {
+                    rVar.p = o0(trim);
+                }
+            }
+        }
+    }
+
+    public final void P(SVG.a0 a0Var, Attributes attributes) throws SVGParseException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048595, this, a0Var, attributes) == null) {
+            for (int i = 0; i < attributes.getLength(); i++) {
+                String trim = attributes.getValue(i).trim();
+                int i2 = a.b[SVGAttr.fromString(attributes.getLocalName(i)).ordinal()];
+                if (i2 != 1) {
+                    if (i2 != 2) {
+                        if (i2 != 3) {
+                            if (i2 != 4) {
+                                if (i2 != 10) {
+                                    if (i2 != 11) {
+                                        continue;
+                                    } else {
+                                        SVG.o o0 = o0(trim);
+                                        a0Var.t = o0;
+                                        if (o0.g()) {
+                                            throw new SVGParseException("Invalid <rect> element. ry cannot be negative");
+                                        }
+                                    }
+                                } else {
+                                    SVG.o o02 = o0(trim);
+                                    a0Var.s = o02;
+                                    if (o02.g()) {
+                                        throw new SVGParseException("Invalid <rect> element. rx cannot be negative");
+                                    }
+                                }
+                            } else {
+                                SVG.o o03 = o0(trim);
+                                a0Var.r = o03;
+                                if (o03.g()) {
+                                    throw new SVGParseException("Invalid <rect> element. height cannot be negative");
+                                }
+                            }
+                        } else {
+                            SVG.o o04 = o0(trim);
+                            a0Var.q = o04;
+                            if (o04.g()) {
+                                throw new SVGParseException("Invalid <rect> element. width cannot be negative");
+                            }
+                        }
+                    } else {
+                        a0Var.p = o0(trim);
+                    }
+                } else {
+                    a0Var.o = o0(trim);
+                }
+            }
+        }
+    }
+
+    public final void r(String str, Map map) {
+        String str2;
+        String b2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048637, this, str, map) == null) && str.equals("xml-stylesheet") && SVG.g() != null) {
+            if (((String) map.get("type")) != null && !"text/css".equals(map.get("type"))) {
+                return;
+            }
+            if ((((String) map.get("alternate")) != null && !"no".equals(map.get("alternate"))) || (str2 = (String) map.get(NativeConstants.HREF)) == null || (b2 = SVG.g().b(str2)) == null) {
+                return;
+            }
+            String str3 = (String) map.get("media");
+            if (str3 != null && !"all".equals(str3.trim())) {
+                b2 = "@media " + str3 + " { " + b2 + "}";
+            }
+            Z(b2);
+        }
     }
 
     public static SVG.o o0(String str) throws SVGParseException {
@@ -2964,567 +4933,146 @@ public class SVGParser {
         return (SVG.o) invokeL.objValue;
     }
 
-    public static List<SVG.o> p0(String str) throws SVGParseException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65571, null, str)) == null) {
-            if (str.length() != 0) {
-                ArrayList arrayList = new ArrayList(1);
-                g gVar = new g(str);
-                gVar.A();
-                while (!gVar.h()) {
-                    float n = gVar.n();
-                    if (!Float.isNaN(n)) {
-                        SVG.Unit v = gVar.v();
-                        if (v == null) {
-                            v = SVG.Unit.px;
-                        }
-                        arrayList.add(new SVG.o(n, v));
-                        gVar.z();
-                    } else {
-                        throw new SVGParseException("Invalid length list value: " + gVar.b());
-                    }
-                }
-                return arrayList;
-            }
-            throw new SVGParseException("Invalid length list (empty string)");
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public static SVG.o q0(g gVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65572, null, gVar)) == null) {
-            if (gVar.g("auto")) {
-                return new SVG.o(0.0f);
-            }
-            return gVar.p();
-        }
-        return (SVG.o) invokeL.objValue;
-    }
-
-    public static Float r0(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65573, null, str)) == null) {
-            try {
-                float f0 = f0(str);
-                if (f0 < 0.0f) {
-                    f0 = 0.0f;
-                } else if (f0 > 1.0f) {
-                    f0 = 1.0f;
-                }
-                return Float.valueOf(f0);
-            } catch (SVGParseException unused) {
-                return null;
-            }
-        }
-        return (Float) invokeL.objValue;
-    }
-
     public static int s(float f2, float f3, float f4) {
         InterceptResult invokeCommon;
+        float f5;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65574, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
+            float f6 = 0.0f;
             int i = (f2 > 0.0f ? 1 : (f2 == 0.0f ? 0 : -1));
-            float f5 = f2 % 360.0f;
+            float f7 = f2 % 360.0f;
             if (i < 0) {
-                f5 += 360.0f;
+                f7 += 360.0f;
             }
-            float f6 = f5 / 60.0f;
-            float f7 = f3 / 100.0f;
-            float f8 = f4 / 100.0f;
-            if (f7 < 0.0f) {
-                f7 = 0.0f;
-            } else if (f7 > 1.0f) {
-                f7 = 1.0f;
+            float f8 = f7 / 60.0f;
+            float f9 = f3 / 100.0f;
+            float f10 = f4 / 100.0f;
+            if (f9 < 0.0f) {
+                f9 = 0.0f;
+            } else if (f9 > 1.0f) {
+                f9 = 1.0f;
             }
-            float f9 = f8 >= 0.0f ? f8 > 1.0f ? 1.0f : f8 : 0.0f;
-            float f10 = f9 <= 0.5f ? (f7 + 1.0f) * f9 : (f9 + f7) - (f7 * f9);
-            float f11 = (f9 * 2.0f) - f10;
-            return j(t(f11, f10, f6 - 2.0f) * 256.0f) | (j(t(f11, f10, f6 + 2.0f) * 256.0f) << 16) | (j(t(f11, f10, f6) * 256.0f) << 8);
+            if (f10 >= 0.0f) {
+                if (f10 > 1.0f) {
+                    f6 = 1.0f;
+                } else {
+                    f6 = f10;
+                }
+            }
+            if (f6 <= 0.5f) {
+                f5 = (f9 + 1.0f) * f6;
+            } else {
+                f5 = (f6 + f9) - (f9 * f6);
+            }
+            float f11 = (f6 * 2.0f) - f5;
+            return j(t(f11, f5, f8 - 2.0f) * 256.0f) | (j(t(f11, f5, f8 + 2.0f) * 256.0f) << 16) | (j(t(f11, f5, f8) * 256.0f) << 8);
         }
         return invokeCommon.intValue;
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public static Boolean s0(String str) {
-        InterceptResult invokeL;
-        char c2;
+    public final void N(SVG.y yVar, Attributes attributes, String str) throws SVGParseException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65575, null, str)) == null) {
-            switch (str.hashCode()) {
-                case -1217487446:
-                    if (str.equals("hidden")) {
-                        c2 = 2;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case -907680051:
-                    if (str.equals("scroll")) {
-                        c2 = 3;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 3005871:
-                    if (str.equals("auto")) {
-                        c2 = 1;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 466743410:
-                    if (str.equals("visible")) {
-                        c2 = 0;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                default:
-                    c2 = 65535;
-                    break;
-            }
-            if (c2 == 0 || c2 == 1) {
-                return Boolean.TRUE;
-            }
-            if (c2 == 2 || c2 == 3) {
-                return Boolean.FALSE;
-            }
-            return null;
-        }
-        return (Boolean) invokeL.objValue;
-    }
-
-    public static float t(float f2, float f3, float f4) {
-        InterceptResult invokeCommon;
-        float f5;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65576, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
-            if (f4 < 0.0f) {
-                f4 += 6.0f;
-            }
-            if (f4 >= 6.0f) {
-                f4 -= 6.0f;
-            }
-            if (f4 < 1.0f) {
-                f5 = (f3 - f2) * f4;
-            } else if (f4 < 3.0f) {
-                return f3;
-            } else {
-                if (f4 >= 4.0f) {
-                    return f2;
-                }
-                f5 = (f3 - f2) * (4.0f - f4);
-            }
-            return f5 + f2;
-        }
-        return invokeCommon.floatValue;
-    }
-
-    public static SVG.m0 t0(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65577, null, str)) == null) {
-            if (str.startsWith("url(")) {
-                int indexOf = str.indexOf(SmallTailInfo.EMOTION_SUFFIX);
-                if (indexOf != -1) {
-                    String trim = str.substring(4, indexOf).trim();
-                    String trim2 = str.substring(indexOf + 1).trim();
-                    return new SVG.t(trim, trim2.length() > 0 ? d0(trim2) : null);
-                }
-                return new SVG.t(str.substring(4).trim(), null);
-            }
-            return d0(str);
-        }
-        return (SVG.m0) invokeL.objValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:106:0x02aa, code lost:
-        return r9;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static SVG.v u0(String str) {
-        InterceptResult invokeL;
-        float d2;
-        float d3;
-        float f2;
-        float f3;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65578, null, str)) != null) {
-            return (SVG.v) invokeL.objValue;
-        }
-        g gVar = new g(str);
-        SVG.v vVar = new SVG.v();
-        if (gVar.h()) {
-            return vVar;
-        }
-        int intValue = gVar.l().intValue();
-        int i = 109;
-        if (intValue != 77 && intValue != 109) {
-            return vVar;
-        }
-        int i2 = intValue;
-        float f4 = 0.0f;
-        float f5 = 0.0f;
-        float f6 = 0.0f;
-        float f7 = 0.0f;
-        float f8 = 0.0f;
-        float f9 = 0.0f;
-        while (true) {
-            gVar.A();
-            switch (i2) {
-                case 65:
-                case 97:
-                    float n = gVar.n();
-                    float d4 = gVar.d(n);
-                    float d5 = gVar.d(d4);
-                    Boolean c2 = gVar.c(Float.valueOf(d5));
-                    Boolean c3 = gVar.c(c2);
-                    float e2 = gVar.e(c3);
-                    float d6 = gVar.d(e2);
-                    if (!Float.isNaN(d6) && n >= 0.0f && d4 >= 0.0f) {
-                        if (i2 == 97) {
-                            e2 += f4;
-                            d6 += f6;
-                        }
-                        vVar.e(n, d4, d5, c2.booleanValue(), c3.booleanValue(), e2, d6);
-                        f4 = e2;
-                        f5 = f4;
-                        f6 = d6;
-                        f7 = f6;
-                        break;
-                    }
-                    break;
-                case 67:
-                case 99:
-                    float n2 = gVar.n();
-                    float d7 = gVar.d(n2);
-                    float d8 = gVar.d(d7);
-                    float d9 = gVar.d(d8);
-                    d2 = gVar.d(d9);
-                    d3 = gVar.d(d2);
-                    if (Float.isNaN(d3)) {
-                        Log.e("SVGParser", "Bad path coords for " + ((char) i2) + " path segment");
-                        return vVar;
-                    }
-                    if (i2 == 99) {
-                        d2 += f4;
-                        d3 += f6;
-                        n2 += f4;
-                        d7 += f6;
-                        d8 += f4;
-                        d9 += f6;
-                    }
-                    f2 = d8;
-                    f3 = d9;
-                    vVar.d(n2, d7, f2, f3, d2, d3);
-                    f5 = f2;
-                    f4 = d2;
-                    f7 = f3;
-                    f6 = d3;
-                    break;
-                case 72:
-                case 104:
-                    float n3 = gVar.n();
-                    if (Float.isNaN(n3)) {
-                        Log.e("SVGParser", "Bad path coords for " + ((char) i2) + " path segment");
-                        return vVar;
-                    }
-                    if (i2 == 104) {
-                        n3 += f4;
-                    }
-                    f4 = n3;
-                    vVar.b(f4, f6);
-                    f5 = f4;
-                    break;
-                case 76:
-                case 108:
-                    float n4 = gVar.n();
-                    float d10 = gVar.d(n4);
-                    if (Float.isNaN(d10)) {
-                        Log.e("SVGParser", "Bad path coords for " + ((char) i2) + " path segment");
-                        return vVar;
-                    }
-                    if (i2 == 108) {
-                        n4 += f4;
-                        d10 += f6;
-                    }
-                    f4 = n4;
-                    f6 = d10;
-                    vVar.b(f4, f6);
-                    f5 = f4;
-                    f7 = f6;
-                    break;
-                case 77:
-                case 109:
-                    float n5 = gVar.n();
-                    float d11 = gVar.d(n5);
-                    if (Float.isNaN(d11)) {
-                        Log.e("SVGParser", "Bad path coords for " + ((char) i2) + " path segment");
-                        return vVar;
-                    }
-                    if (i2 == i && !vVar.i()) {
-                        n5 += f4;
-                        d11 += f6;
-                    }
-                    f4 = n5;
-                    f6 = d11;
-                    vVar.a(f4, f6);
-                    f5 = f4;
-                    f8 = f5;
-                    f7 = f6;
-                    f9 = f7;
-                    i2 = i2 != i ? 76 : 108;
-                    break;
-                case 81:
-                case 113:
-                    f5 = gVar.n();
-                    f7 = gVar.d(f5);
-                    float d12 = gVar.d(f7);
-                    float d13 = gVar.d(d12);
-                    if (Float.isNaN(d13)) {
-                        Log.e("SVGParser", "Bad path coords for " + ((char) i2) + " path segment");
-                        return vVar;
-                    }
-                    if (i2 == 113) {
-                        d12 += f4;
-                        d13 += f6;
-                        f5 += f4;
-                        f7 += f6;
-                    }
-                    f4 = d12;
-                    f6 = d13;
-                    vVar.c(f5, f7, f4, f6);
-                    break;
-                case 83:
-                case 115:
-                    float f10 = (f4 * 2.0f) - f5;
-                    float f11 = (2.0f * f6) - f7;
-                    float n6 = gVar.n();
-                    float d14 = gVar.d(n6);
-                    d2 = gVar.d(d14);
-                    d3 = gVar.d(d2);
-                    if (Float.isNaN(d3)) {
-                        Log.e("SVGParser", "Bad path coords for " + ((char) i2) + " path segment");
-                        return vVar;
-                    }
-                    if (i2 == 115) {
-                        d2 += f4;
-                        d3 += f6;
-                        n6 += f4;
-                        d14 += f6;
-                    }
-                    f2 = n6;
-                    f3 = d14;
-                    vVar.d(f10, f11, f2, f3, d2, d3);
-                    f5 = f2;
-                    f4 = d2;
-                    f7 = f3;
-                    f6 = d3;
-                    break;
-                case 84:
-                case 116:
-                    f5 = (f4 * 2.0f) - f5;
-                    f7 = (2.0f * f6) - f7;
-                    float n7 = gVar.n();
-                    float d15 = gVar.d(n7);
-                    if (Float.isNaN(d15)) {
-                        Log.e("SVGParser", "Bad path coords for " + ((char) i2) + " path segment");
-                        return vVar;
-                    }
-                    if (i2 == 116) {
-                        n7 += f4;
-                        d15 += f6;
-                    }
-                    f4 = n7;
-                    f6 = d15;
-                    vVar.c(f5, f7, f4, f6);
-                    break;
-                case 86:
-                case 118:
-                    float n8 = gVar.n();
-                    if (Float.isNaN(n8)) {
-                        Log.e("SVGParser", "Bad path coords for " + ((char) i2) + " path segment");
-                        return vVar;
-                    }
-                    if (i2 == 118) {
-                        n8 += f6;
-                    }
-                    f6 = n8;
-                    vVar.b(f4, f6);
-                    f7 = f6;
-                    break;
-                case 90:
-                case 122:
-                    vVar.close();
-                    f4 = f8;
-                    f5 = f4;
-                    f6 = f9;
-                    f7 = f6;
-                    break;
-                default:
-                    return vVar;
-            }
-            gVar.z();
-            if (gVar.h()) {
-                return vVar;
-            }
-            if (gVar.i()) {
-                i2 = gVar.l().intValue();
-            }
-            i = 109;
-        }
-    }
-
-    public static PreserveAspectRatio v0(String str) throws SVGParseException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65579, null, str)) == null) {
-            g gVar = new g(str);
-            gVar.A();
-            String r = gVar.r();
-            if ("defer".equals(r)) {
-                gVar.A();
-                r = gVar.r();
-            }
-            PreserveAspectRatio.Alignment a2 = b.a(r);
-            PreserveAspectRatio.Scale scale = null;
-            gVar.A();
-            if (!gVar.h()) {
-                String r2 = gVar.r();
-                char c2 = 65535;
-                int hashCode = r2.hashCode();
-                if (hashCode != 3347527) {
-                    if (hashCode == 109526418 && r2.equals("slice")) {
-                        c2 = 1;
-                    }
-                } else if (r2.equals("meet")) {
-                    c2 = 0;
-                }
-                if (c2 == 0) {
-                    scale = PreserveAspectRatio.Scale.meet;
-                } else if (c2 == 1) {
-                    scale = PreserveAspectRatio.Scale.slice;
-                } else {
-                    throw new SVGParseException("Invalid preserveAspectRatio definition: " + str);
-                }
-            }
-            return new PreserveAspectRatio(a2, scale);
-        }
-        return (PreserveAspectRatio) invokeL.objValue;
-    }
-
-    public static void w0(SVG.n0 n0Var, String str) throws SVGParseException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65580, null, n0Var, str) == null) {
-            n0Var.n = v0(str);
-        }
-    }
-
-    public static SVG.Style.RenderQuality y0(String str) {
-        InterceptResult invokeL;
-        char c2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65581, null, str)) == null) {
-            int hashCode = str.hashCode();
-            if (hashCode == -933002398) {
-                if (str.equals("optimizeQuality")) {
-                    c2 = 1;
-                }
-                c2 = 65535;
-            } else if (hashCode != 3005871) {
-                if (hashCode == 362741610 && str.equals("optimizeSpeed")) {
-                    c2 = 2;
-                }
-                c2 = 65535;
-            } else {
-                if (str.equals("auto")) {
-                    c2 = 0;
-                }
-                c2 = 65535;
-            }
-            if (c2 != 0) {
-                if (c2 != 1) {
-                    if (c2 != 2) {
-                        return null;
-                    }
-                    return SVG.Style.RenderQuality.optimizeSpeed;
-                }
-                return SVG.Style.RenderQuality.optimizeQuality;
-            }
-            return SVG.Style.RenderQuality.auto;
-        }
-        return (SVG.Style.RenderQuality) invokeL.objValue;
-    }
-
-    public static Set<String> z0(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65582, null, str)) == null) {
-            g gVar = new g(str);
-            HashSet hashSet = new HashSet();
-            while (!gVar.h()) {
-                String r = gVar.r();
-                if (r.startsWith("http://www.w3.org/TR/SVG11/feature#")) {
-                    hashSet.add(r.substring(35));
-                } else {
-                    hashSet.add("UNSUPPORTED");
-                }
-                gVar.A();
-            }
-            return hashSet;
-        }
-        return (Set) invokeL.objValue;
-    }
-
-    public final void A(SVG.d dVar, Attributes attributes) throws SVGParseException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, dVar, attributes) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048592, this, yVar, attributes, str) == null) {
             for (int i = 0; i < attributes.getLength(); i++) {
-                String trim = attributes.getValue(i).trim();
-                switch (a.b[SVGAttr.fromString(attributes.getLocalName(i)).ordinal()]) {
-                    case 12:
-                        dVar.o = o0(trim);
-                        break;
-                    case 13:
-                        dVar.p = o0(trim);
-                        break;
-                    case 14:
-                        SVG.o o0 = o0(trim);
-                        dVar.q = o0;
-                        if (o0.g()) {
-                            throw new SVGParseException("Invalid <circle> element. r cannot be negative");
+                if (SVGAttr.fromString(attributes.getLocalName(i)) == SVGAttr.points) {
+                    g gVar = new g(attributes.getValue(i));
+                    ArrayList<Float> arrayList = new ArrayList();
+                    gVar.A();
+                    while (!gVar.h()) {
+                        float n = gVar.n();
+                        if (!Float.isNaN(n)) {
+                            gVar.z();
+                            float n2 = gVar.n();
+                            if (!Float.isNaN(n2)) {
+                                gVar.z();
+                                arrayList.add(Float.valueOf(n));
+                                arrayList.add(Float.valueOf(n2));
+                            } else {
+                                throw new SVGParseException("Invalid <" + str + "> points attribute. There should be an even number of coordinates.");
+                            }
+                        } else {
+                            throw new SVGParseException("Invalid <" + str + "> points attribute. Non-coordinate content found in list.");
                         }
-                        break;
+                    }
+                    yVar.o = new float[arrayList.size()];
+                    int i2 = 0;
+                    for (Float f2 : arrayList) {
+                        yVar.o[i2] = f2.floatValue();
+                        i2++;
+                    }
                 }
             }
         }
     }
 
-    public final void B(SVG.e eVar, Attributes attributes) throws SVGParseException {
+    public final void p(String str, String str2, String str3) throws SVGParseException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar, attributes) == null) {
-            for (int i = 0; i < attributes.getLength(); i++) {
-                String trim = attributes.getValue(i).trim();
-                if (a.b[SVGAttr.fromString(attributes.getLocalName(i)).ordinal()] == 38) {
-                    if ("objectBoundingBox".equals(trim)) {
-                        eVar.o = Boolean.FALSE;
-                    } else if ("userSpaceOnUse".equals(trim)) {
-                        eVar.o = Boolean.TRUE;
-                    } else {
-                        throw new SVGParseException("Invalid value for attribute clipPathUnits");
-                    }
+        if (interceptable == null || interceptable.invokeLLL(1048635, this, str, str2, str3) == null) {
+            if (this.c) {
+                int i = this.d - 1;
+                this.d = i;
+                if (i == 0) {
+                    this.c = false;
+                    return;
                 }
             }
+            if (!"http://www.w3.org/2000/svg".equals(str) && !"".equals(str)) {
+                return;
+            }
+            if (str2.length() <= 0) {
+                str2 = str3;
+            }
+            int i2 = a.a[SVGElem.fromString(str2).ordinal()];
+            if (i2 != 1 && i2 != 2 && i2 != 4 && i2 != 5 && i2 != 13 && i2 != 14) {
+                switch (i2) {
+                    case 16:
+                    case 17:
+                    case 18:
+                    case 19:
+                    case 20:
+                    case 21:
+                    case 24:
+                    case 25:
+                    case 26:
+                    case 27:
+                    case 28:
+                    case 29:
+                    case 31:
+                        break;
+                    case 22:
+                    case 23:
+                        this.e = false;
+                        StringBuilder sb = this.g;
+                        if (sb != null) {
+                            SVGElem sVGElem = this.f;
+                            if (sVGElem == SVGElem.title) {
+                                this.a.s(sb.toString());
+                            } else if (sVGElem == SVGElem.desc) {
+                                this.a.q(sb.toString());
+                            }
+                            this.g.setLength(0);
+                            return;
+                        }
+                        return;
+                    case 30:
+                        StringBuilder sb2 = this.i;
+                        if (sb2 != null) {
+                            this.h = false;
+                            Z(sb2.toString());
+                            this.i.setLength(0);
+                            return;
+                        }
+                        return;
+                    default:
+                        return;
+                }
+            }
+            this.b = ((SVG.l0) this.b).b;
         }
     }
 
     public final void C(SVG.e0 e0Var, Attributes attributes) throws SVGParseException {
+        HashSet hashSet;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, e0Var, attributes) == null) {
             for (int i = 0; i < attributes.getLength(); i++) {
@@ -3543,8 +5091,13 @@ public class SVGParser {
                         e0Var.j(A0(trim));
                         break;
                     case 25:
-                        List<String> i0 = i0(trim);
-                        e0Var.b(i0 != null ? new HashSet(i0) : new HashSet(0));
+                        List i0 = i0(trim);
+                        if (i0 != null) {
+                            hashSet = new HashSet(i0);
+                        } else {
+                            hashSet = new HashSet(0);
+                        }
+                        e0Var.b(hashSet);
                         break;
                 }
             }
@@ -3608,407 +5161,138 @@ public class SVGParser {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:43:0x0091, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:33:0x005f, code lost:
         continue;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final void F(SVG.j jVar, Attributes attributes) throws SVGParseException {
+    public final void O(SVG.o0 o0Var, Attributes attributes) throws SVGParseException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, jVar, attributes) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048593, this, o0Var, attributes) == null) {
             for (int i = 0; i < attributes.getLength(); i++) {
                 String trim = attributes.getValue(i).trim();
                 int i2 = a.b[SVGAttr.fromString(attributes.getLocalName(i)).ordinal()];
-                if (i2 != 6) {
-                    switch (i2) {
-                        case 32:
-                            if ("objectBoundingBox".equals(trim)) {
-                                jVar.i = Boolean.FALSE;
+                if (i2 != 35) {
+                    if (i2 != 36) {
+                        switch (i2) {
+                            case 12:
+                                o0Var.m = o0(trim);
                                 continue;
-                            } else if ("userSpaceOnUse".equals(trim)) {
-                                jVar.i = Boolean.TRUE;
-                                break;
-                            } else {
-                                throw new SVGParseException("Invalid value for attribute gradientUnits");
-                            }
-                        case 33:
-                            jVar.j = J0(trim);
-                            continue;
-                        case 34:
-                            try {
-                                jVar.k = SVG.GradientSpread.valueOf(trim);
+                            case 13:
+                                o0Var.n = o0(trim);
                                 continue;
-                            } catch (IllegalArgumentException unused) {
-                                throw new SVGParseException("Invalid spreadMethod attribute. \"" + trim + "\" is not a valid value.");
-                            }
-                    }
-                } else if ("".equals(attributes.getURI(i)) || "http://www.w3.org/1999/xlink".equals(attributes.getURI(i))) {
-                    jVar.l = trim;
-                }
-            }
-        }
-    }
-
-    public final void G(SVG.n nVar, Attributes attributes) throws SVGParseException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, nVar, attributes) == null) {
-            for (int i = 0; i < attributes.getLength(); i++) {
-                String trim = attributes.getValue(i).trim();
-                int i2 = a.b[SVGAttr.fromString(attributes.getLocalName(i)).ordinal()];
-                if (i2 == 1) {
-                    nVar.p = o0(trim);
-                } else if (i2 == 2) {
-                    nVar.q = o0(trim);
-                } else if (i2 == 3) {
-                    SVG.o o0 = o0(trim);
-                    nVar.r = o0;
-                    if (o0.g()) {
-                        throw new SVGParseException("Invalid <use> element. width cannot be negative");
-                    }
-                } else if (i2 == 4) {
-                    SVG.o o02 = o0(trim);
-                    nVar.s = o02;
-                    if (o02.g()) {
-                        throw new SVGParseException("Invalid <use> element. height cannot be negative");
-                    }
-                } else if (i2 != 6) {
-                    if (i2 == 7) {
-                        w0(nVar, trim);
-                    }
-                } else if ("".equals(attributes.getURI(i)) || "http://www.w3.org/1999/xlink".equals(attributes.getURI(i))) {
-                    nVar.o = trim;
-                }
-            }
-        }
-    }
-
-    public final void H(SVG.p pVar, Attributes attributes) throws SVGParseException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, pVar, attributes) == null) {
-            for (int i = 0; i < attributes.getLength(); i++) {
-                String trim = attributes.getValue(i).trim();
-                switch (a.b[SVGAttr.fromString(attributes.getLocalName(i)).ordinal()]) {
-                    case 15:
-                        pVar.o = o0(trim);
-                        break;
-                    case 16:
-                        pVar.p = o0(trim);
-                        break;
-                    case 17:
-                        pVar.q = o0(trim);
-                        break;
-                    case 18:
-                        pVar.r = o0(trim);
-                        break;
-                }
-            }
-        }
-    }
-
-    public final void I(SVG.k0 k0Var, Attributes attributes) throws SVGParseException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, k0Var, attributes) == null) {
-            for (int i = 0; i < attributes.getLength(); i++) {
-                String trim = attributes.getValue(i).trim();
-                switch (a.b[SVGAttr.fromString(attributes.getLocalName(i)).ordinal()]) {
-                    case 15:
-                        k0Var.m = o0(trim);
-                        break;
-                    case 16:
-                        k0Var.n = o0(trim);
-                        break;
-                    case 17:
-                        k0Var.o = o0(trim);
-                        break;
-                    case 18:
-                        k0Var.p = o0(trim);
-                        break;
-                }
-            }
-        }
-    }
-
-    public final void J(SVG.q qVar, Attributes attributes) throws SVGParseException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, qVar, attributes) == null) {
-            for (int i = 0; i < attributes.getLength(); i++) {
-                String trim = attributes.getValue(i).trim();
-                switch (a.b[SVGAttr.fromString(attributes.getLocalName(i)).ordinal()]) {
-                    case 26:
-                        qVar.q = o0(trim);
-                        break;
-                    case 27:
-                        qVar.r = o0(trim);
-                        break;
-                    case 28:
-                        SVG.o o0 = o0(trim);
-                        qVar.s = o0;
-                        if (o0.g()) {
-                            throw new SVGParseException("Invalid <marker> element. markerWidth cannot be negative");
-                        }
-                        break;
-                    case 29:
-                        SVG.o o02 = o0(trim);
-                        qVar.t = o02;
-                        if (o02.g()) {
-                            throw new SVGParseException("Invalid <marker> element. markerHeight cannot be negative");
-                        }
-                        break;
-                    case 30:
-                        if ("strokeWidth".equals(trim)) {
-                            qVar.p = false;
-                            break;
-                        } else if ("userSpaceOnUse".equals(trim)) {
-                            qVar.p = true;
-                            break;
-                        } else {
-                            throw new SVGParseException("Invalid value for attribute markerUnits");
-                        }
-                    case 31:
-                        if ("auto".equals(trim)) {
-                            qVar.u = Float.valueOf(Float.NaN);
-                            break;
-                        } else {
-                            qVar.u = Float.valueOf(f0(trim));
-                            break;
-                        }
-                }
-            }
-        }
-    }
-
-    public final Matrix J0(String str) throws SVGParseException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            Matrix matrix = new Matrix();
-            g gVar = new g(str);
-            gVar.A();
-            while (!gVar.h()) {
-                String o = gVar.o();
-                if (o != null) {
-                    char c2 = 65535;
-                    switch (o.hashCode()) {
-                        case -1081239615:
-                            if (o.equals("matrix")) {
-                                c2 = 0;
-                                break;
-                            }
-                            break;
-                        case -925180581:
-                            if (o.equals("rotate")) {
-                                c2 = 3;
-                                break;
-                            }
-                            break;
-                        case 109250890:
-                            if (o.equals("scale")) {
-                                c2 = 2;
-                                break;
-                            }
-                            break;
-                        case 109493390:
-                            if (o.equals("skewX")) {
-                                c2 = 4;
-                                break;
-                            }
-                            break;
-                        case 109493391:
-                            if (o.equals("skewY")) {
-                                c2 = 5;
-                                break;
-                            }
-                            break;
-                        case 1052832078:
-                            if (o.equals("translate")) {
-                                c2 = 1;
-                                break;
-                            }
-                            break;
-                    }
-                    if (c2 == 0) {
-                        gVar.A();
-                        float n = gVar.n();
-                        gVar.z();
-                        float n2 = gVar.n();
-                        gVar.z();
-                        float n3 = gVar.n();
-                        gVar.z();
-                        float n4 = gVar.n();
-                        gVar.z();
-                        float n5 = gVar.n();
-                        gVar.z();
-                        float n6 = gVar.n();
-                        gVar.A();
-                        if (!Float.isNaN(n6) && gVar.f(')')) {
-                            Matrix matrix2 = new Matrix();
-                            matrix2.setValues(new float[]{n, n3, n5, n2, n4, n6, 0.0f, 0.0f, 1.0f});
-                            matrix.preConcat(matrix2);
-                        } else {
-                            throw new SVGParseException("Invalid transform list: " + str);
-                        }
-                    } else if (c2 == 1) {
-                        gVar.A();
-                        float n7 = gVar.n();
-                        float x = gVar.x();
-                        gVar.A();
-                        if (!Float.isNaN(n7) && gVar.f(')')) {
-                            if (Float.isNaN(x)) {
-                                matrix.preTranslate(n7, 0.0f);
-                            } else {
-                                matrix.preTranslate(n7, x);
-                            }
-                        } else {
-                            throw new SVGParseException("Invalid transform list: " + str);
-                        }
-                    } else if (c2 == 2) {
-                        gVar.A();
-                        float n8 = gVar.n();
-                        float x2 = gVar.x();
-                        gVar.A();
-                        if (!Float.isNaN(n8) && gVar.f(')')) {
-                            if (Float.isNaN(x2)) {
-                                matrix.preScale(n8, n8);
-                            } else {
-                                matrix.preScale(n8, x2);
-                            }
-                        } else {
-                            throw new SVGParseException("Invalid transform list: " + str);
-                        }
-                    } else if (c2 == 3) {
-                        gVar.A();
-                        float n9 = gVar.n();
-                        float x3 = gVar.x();
-                        float x4 = gVar.x();
-                        gVar.A();
-                        if (!Float.isNaN(n9) && gVar.f(')')) {
-                            if (Float.isNaN(x3)) {
-                                matrix.preRotate(n9);
-                            } else if (!Float.isNaN(x4)) {
-                                matrix.preRotate(n9, x3, x4);
-                            } else {
-                                throw new SVGParseException("Invalid transform list: " + str);
-                            }
-                        } else {
-                            throw new SVGParseException("Invalid transform list: " + str);
-                        }
-                    } else if (c2 == 4) {
-                        gVar.A();
-                        float n10 = gVar.n();
-                        gVar.A();
-                        if (!Float.isNaN(n10) && gVar.f(')')) {
-                            matrix.preSkew((float) Math.tan(Math.toRadians(n10)), 0.0f);
-                        } else {
-                            throw new SVGParseException("Invalid transform list: " + str);
-                        }
-                    } else if (c2 == 5) {
-                        gVar.A();
-                        float n11 = gVar.n();
-                        gVar.A();
-                        if (!Float.isNaN(n11) && gVar.f(')')) {
-                            matrix.preSkew(0.0f, (float) Math.tan(Math.toRadians(n11)));
-                        } else {
-                            throw new SVGParseException("Invalid transform list: " + str);
+                            case 14:
+                                SVG.o o0 = o0(trim);
+                                o0Var.o = o0;
+                                if (o0.g()) {
+                                    throw new SVGParseException("Invalid <radialGradient> element. r cannot be negative");
+                                }
+                                continue;
                         }
                     } else {
-                        throw new SVGParseException("Invalid transform list fn: " + o + SmallTailInfo.EMOTION_SUFFIX);
+                        o0Var.q = o0(trim);
                     }
-                    if (gVar.h()) {
-                        return matrix;
-                    }
-                    gVar.z();
                 } else {
-                    throw new SVGParseException("Bad transform function encountered in transform list: " + str);
+                    o0Var.p = o0(trim);
                 }
             }
-            return matrix;
         }
-        return (Matrix) invokeL.objValue;
     }
 
-    public final void K(SVG.r rVar, Attributes attributes) throws SVGParseException {
+    public final void Q(SVG.d0 d0Var, Attributes attributes) throws SVGParseException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, rVar, attributes) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048597, this, d0Var, attributes) == null) {
             for (int i = 0; i < attributes.getLength(); i++) {
                 String trim = attributes.getValue(i).trim();
                 int i2 = a.b[SVGAttr.fromString(attributes.getLocalName(i)).ordinal()];
-                if (i2 == 1) {
-                    rVar.p = o0(trim);
-                } else if (i2 == 2) {
-                    rVar.q = o0(trim);
-                } else if (i2 == 3) {
-                    SVG.o o0 = o0(trim);
-                    rVar.r = o0;
-                    if (o0.g()) {
-                        throw new SVGParseException("Invalid <mask> element. width cannot be negative");
-                    }
-                } else if (i2 == 4) {
-                    SVG.o o02 = o0(trim);
-                    rVar.s = o02;
-                    if (o02.g()) {
-                        throw new SVGParseException("Invalid <mask> element. height cannot be negative");
-                    }
-                } else if (i2 != 43) {
-                    if (i2 != 44) {
-                        continue;
-                    } else if ("objectBoundingBox".equals(trim)) {
-                        rVar.o = Boolean.FALSE;
-                    } else if ("userSpaceOnUse".equals(trim)) {
-                        rVar.o = Boolean.TRUE;
+                if (i2 != 1) {
+                    if (i2 != 2) {
+                        if (i2 != 3) {
+                            if (i2 != 4) {
+                                if (i2 == 5) {
+                                    d0Var.t = trim;
+                                }
+                            } else {
+                                SVG.o o0 = o0(trim);
+                                d0Var.s = o0;
+                                if (o0.g()) {
+                                    throw new SVGParseException("Invalid <svg> element. height cannot be negative");
+                                }
+                            }
+                        } else {
+                            SVG.o o02 = o0(trim);
+                            d0Var.r = o02;
+                            if (o02.g()) {
+                                throw new SVGParseException("Invalid <svg> element. width cannot be negative");
+                            }
+                        }
                     } else {
-                        throw new SVGParseException("Invalid value for attribute maskContentUnits");
+                        d0Var.q = o0(trim);
                     }
-                } else if ("objectBoundingBox".equals(trim)) {
-                    rVar.n = Boolean.FALSE;
-                } else if ("userSpaceOnUse".equals(trim)) {
-                    rVar.n = Boolean.TRUE;
                 } else {
-                    throw new SVGParseException("Invalid value for attribute maskUnits");
+                    d0Var.p = o0(trim);
                 }
             }
         }
     }
 
-    public final void K0(InputStream inputStream) throws SVGParseException {
+    public final void S(SVG.j0 j0Var, Attributes attributes) throws SVGParseException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, inputStream) == null) {
-            Log.d("SVGParser", "Falling back to SAX parser");
-            try {
-                SAXParserFactory newInstance = SAXParserFactory.newInstance();
-                newInstance.setFeature("http://xml.org/sax/features/external-general-entities", false);
-                newInstance.setFeature("http://xml.org/sax/features/external-parameter-entities", false);
-                XMLReader xMLReader = newInstance.newSAXParser().getXMLReader();
-                f fVar = new f(this, null);
-                xMLReader.setContentHandler(fVar);
-                xMLReader.setProperty("http://xml.org/sax/properties/lexical-handler", fVar);
-                xMLReader.parse(new InputSource(inputStream));
-            } catch (IOException e2) {
-                throw new SVGParseException("Stream error", e2);
-            } catch (ParserConfigurationException e3) {
-                throw new SVGParseException("XML parser problem", e3);
-            } catch (SAXException e4) {
-                throw new SVGParseException("SVG parse error", e4);
+        if (interceptable == null || interceptable.invokeLL(1048601, this, j0Var, attributes) == null) {
+            for (int i = 0; i < attributes.getLength(); i++) {
+                String trim = attributes.getValue(i).trim();
+                if (trim.length() != 0) {
+                    int i2 = a.b[SVGAttr.fromString(attributes.getLocalName(i)).ordinal()];
+                    if (i2 != 45) {
+                        if (i2 != 46) {
+                            if (j0Var.e == null) {
+                                j0Var.e = new SVG.Style();
+                            }
+                            S0(j0Var.e, attributes.getLocalName(i), attributes.getValue(i).trim());
+                        } else {
+                            j0Var.g = CSSParser.f(trim);
+                        }
+                    } else {
+                        E0(j0Var, trim);
+                    }
+                }
             }
         }
     }
 
-    public final void L(SVG.u uVar, Attributes attributes) throws SVGParseException {
+    public final void X(SVG.b1 b1Var, Attributes attributes) throws SVGParseException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048589, this, uVar, attributes) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048610, this, b1Var, attributes) == null) {
             for (int i = 0; i < attributes.getLength(); i++) {
                 String trim = attributes.getValue(i).trim();
                 int i2 = a.b[SVGAttr.fromString(attributes.getLocalName(i)).ordinal()];
-                if (i2 == 8) {
-                    uVar.o = u0(trim);
-                } else if (i2 != 9) {
-                    continue;
-                } else {
-                    Float valueOf = Float.valueOf(f0(trim));
-                    uVar.p = valueOf;
-                    if (valueOf.floatValue() < 0.0f) {
-                        throw new SVGParseException("Invalid <path> element. pathLength cannot be negative");
+                if (i2 != 1) {
+                    if (i2 != 2) {
+                        if (i2 != 3) {
+                            if (i2 != 4) {
+                                if (i2 == 6 && ("".equals(attributes.getURI(i)) || "http://www.w3.org/1999/xlink".equals(attributes.getURI(i)))) {
+                                    b1Var.o = trim;
+                                }
+                            } else {
+                                SVG.o o0 = o0(trim);
+                                b1Var.s = o0;
+                                if (o0.g()) {
+                                    throw new SVGParseException("Invalid <use> element. height cannot be negative");
+                                }
+                            }
+                        } else {
+                            SVG.o o02 = o0(trim);
+                            b1Var.r = o02;
+                            if (o02.g()) {
+                                throw new SVGParseException("Invalid <use> element. width cannot be negative");
+                            }
+                        }
+                    } else {
+                        b1Var.q = o0(trim);
                     }
+                } else {
+                    b1Var.p = o0(trim);
                 }
             }
         }
@@ -4025,41 +5309,51 @@ public class SVGParser {
                     newPullParser.setFeature("http://xmlpull.org/v1/doc/features.html#process-namespaces", true);
                     newPullParser.setInput(inputStream, null);
                     for (int eventType = newPullParser.getEventType(); eventType != 1; eventType = newPullParser.nextToken()) {
-                        if (eventType == 0) {
+                        if (eventType != 0) {
+                            if (eventType != 8) {
+                                if (eventType != 10) {
+                                    if (eventType != 2) {
+                                        if (eventType != 3) {
+                                            if (eventType != 4) {
+                                                if (eventType == 5) {
+                                                    c1(newPullParser.getText());
+                                                }
+                                            } else {
+                                                int[] iArr = new int[2];
+                                                e1(newPullParser.getTextCharacters(iArr), iArr[0], iArr[1]);
+                                            }
+                                        } else {
+                                            String name = newPullParser.getName();
+                                            if (newPullParser.getPrefix() != null) {
+                                                name = newPullParser.getPrefix() + ':' + name;
+                                            }
+                                            p(newPullParser.getNamespace(), newPullParser.getName(), name);
+                                        }
+                                    } else {
+                                        String name2 = newPullParser.getName();
+                                        if (newPullParser.getPrefix() != null) {
+                                            name2 = newPullParser.getPrefix() + ':' + name2;
+                                        }
+                                        X0(newPullParser.getNamespace(), newPullParser.getName(), name2, hVar);
+                                    }
+                                } else if (z && this.a.l() == null && newPullParser.getText().contains("<!ENTITY ")) {
+                                    try {
+                                        Log.d("SVGParser", "Switching to SAX parser to process entities");
+                                        inputStream.reset();
+                                        K0(inputStream);
+                                        return;
+                                    } catch (IOException unused) {
+                                        Log.w("SVGParser", "Detected internal entity definitions, but could not parse them.");
+                                        return;
+                                    }
+                                }
+                            } else {
+                                Log.d("SVGParser", "PROC INSTR: " + newPullParser.getText());
+                                g gVar = new g(newPullParser.getText());
+                                r(gVar.r(), x0(gVar));
+                            }
+                        } else {
                             W0();
-                        } else if (eventType == 8) {
-                            Log.d("SVGParser", "PROC INSTR: " + newPullParser.getText());
-                            g gVar = new g(newPullParser.getText());
-                            r(gVar.r(), x0(gVar));
-                        } else if (eventType != 10) {
-                            if (eventType == 2) {
-                                String name = newPullParser.getName();
-                                if (newPullParser.getPrefix() != null) {
-                                    name = newPullParser.getPrefix() + ':' + name;
-                                }
-                                X0(newPullParser.getNamespace(), newPullParser.getName(), name, hVar);
-                            } else if (eventType == 3) {
-                                String name2 = newPullParser.getName();
-                                if (newPullParser.getPrefix() != null) {
-                                    name2 = newPullParser.getPrefix() + ':' + name2;
-                                }
-                                p(newPullParser.getNamespace(), newPullParser.getName(), name2);
-                            } else if (eventType == 4) {
-                                int[] iArr = new int[2];
-                                e1(newPullParser.getTextCharacters(iArr), iArr[0], iArr[1]);
-                            } else if (eventType == 5) {
-                                c1(newPullParser.getText());
-                            }
-                        } else if (z && this.a.l() == null && newPullParser.getText().contains("<!ENTITY ")) {
-                            try {
-                                Log.d("SVGParser", "Switching to SAX parser to process entities");
-                                inputStream.reset();
-                                K0(inputStream);
-                                return;
-                            } catch (IOException unused) {
-                                Log.w("SVGParser", "Detected internal entity definitions, but could not parse them.");
-                                return;
-                            }
                         }
                     }
                     o();
@@ -4084,255 +5378,60 @@ public class SVGParser {
             for (int i = 0; i < attributes.getLength(); i++) {
                 String trim = attributes.getValue(i).trim();
                 int i2 = a.b[SVGAttr.fromString(attributes.getLocalName(i)).ordinal()];
-                if (i2 == 1) {
-                    xVar.s = o0(trim);
-                } else if (i2 == 2) {
-                    xVar.t = o0(trim);
-                } else if (i2 == 3) {
-                    SVG.o o0 = o0(trim);
-                    xVar.u = o0;
-                    if (o0.g()) {
-                        throw new SVGParseException("Invalid <pattern> element. width cannot be negative");
-                    }
-                } else if (i2 == 4) {
-                    SVG.o o02 = o0(trim);
-                    xVar.v = o02;
-                    if (o02.g()) {
-                        throw new SVGParseException("Invalid <pattern> element. height cannot be negative");
-                    }
-                } else if (i2 != 6) {
-                    switch (i2) {
-                        case 40:
-                            if ("objectBoundingBox".equals(trim)) {
-                                xVar.p = Boolean.FALSE;
-                                continue;
-                            } else if ("userSpaceOnUse".equals(trim)) {
-                                xVar.p = Boolean.TRUE;
-                                break;
+                if (i2 != 1) {
+                    if (i2 != 2) {
+                        if (i2 != 3) {
+                            if (i2 != 4) {
+                                if (i2 != 6) {
+                                    switch (i2) {
+                                        case 40:
+                                            if ("objectBoundingBox".equals(trim)) {
+                                                xVar.p = Boolean.FALSE;
+                                                continue;
+                                            } else if ("userSpaceOnUse".equals(trim)) {
+                                                xVar.p = Boolean.TRUE;
+                                                break;
+                                            } else {
+                                                throw new SVGParseException("Invalid value for attribute patternUnits");
+                                            }
+                                        case 41:
+                                            if ("objectBoundingBox".equals(trim)) {
+                                                xVar.q = Boolean.FALSE;
+                                                continue;
+                                            } else if ("userSpaceOnUse".equals(trim)) {
+                                                xVar.q = Boolean.TRUE;
+                                                break;
+                                            } else {
+                                                throw new SVGParseException("Invalid value for attribute patternContentUnits");
+                                            }
+                                        case 42:
+                                            xVar.r = J0(trim);
+                                            continue;
+                                    }
+                                } else if ("".equals(attributes.getURI(i)) || "http://www.w3.org/1999/xlink".equals(attributes.getURI(i))) {
+                                    xVar.w = trim;
+                                }
                             } else {
-                                throw new SVGParseException("Invalid value for attribute patternUnits");
-                            }
-                        case 41:
-                            if ("objectBoundingBox".equals(trim)) {
-                                xVar.q = Boolean.FALSE;
-                                continue;
-                            } else if ("userSpaceOnUse".equals(trim)) {
-                                xVar.q = Boolean.TRUE;
-                                break;
-                            } else {
-                                throw new SVGParseException("Invalid value for attribute patternContentUnits");
-                            }
-                        case 42:
-                            xVar.r = J0(trim);
-                            continue;
-                    }
-                } else if ("".equals(attributes.getURI(i)) || "http://www.w3.org/1999/xlink".equals(attributes.getURI(i))) {
-                    xVar.w = trim;
-                }
-            }
-        }
-    }
-
-    public final void N(SVG.y yVar, Attributes attributes, String str) throws SVGParseException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048592, this, yVar, attributes, str) == null) {
-            for (int i = 0; i < attributes.getLength(); i++) {
-                if (SVGAttr.fromString(attributes.getLocalName(i)) == SVGAttr.points) {
-                    g gVar = new g(attributes.getValue(i));
-                    ArrayList<Float> arrayList = new ArrayList();
-                    gVar.A();
-                    while (!gVar.h()) {
-                        float n = gVar.n();
-                        if (!Float.isNaN(n)) {
-                            gVar.z();
-                            float n2 = gVar.n();
-                            if (!Float.isNaN(n2)) {
-                                gVar.z();
-                                arrayList.add(Float.valueOf(n));
-                                arrayList.add(Float.valueOf(n2));
-                            } else {
-                                throw new SVGParseException("Invalid <" + str + "> points attribute. There should be an even number of coordinates.");
+                                SVG.o o0 = o0(trim);
+                                xVar.v = o0;
+                                if (o0.g()) {
+                                    throw new SVGParseException("Invalid <pattern> element. height cannot be negative");
+                                }
                             }
                         } else {
-                            throw new SVGParseException("Invalid <" + str + "> points attribute. Non-coordinate content found in list.");
-                        }
-                    }
-                    yVar.o = new float[arrayList.size()];
-                    int i2 = 0;
-                    for (Float f2 : arrayList) {
-                        yVar.o[i2] = f2.floatValue();
-                        i2++;
-                    }
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:33:0x005f, code lost:
-        continue;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final void O(SVG.o0 o0Var, Attributes attributes) throws SVGParseException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048593, this, o0Var, attributes) == null) {
-            for (int i = 0; i < attributes.getLength(); i++) {
-                String trim = attributes.getValue(i).trim();
-                int i2 = a.b[SVGAttr.fromString(attributes.getLocalName(i)).ordinal()];
-                if (i2 == 35) {
-                    o0Var.p = o0(trim);
-                } else if (i2 != 36) {
-                    switch (i2) {
-                        case 12:
-                            o0Var.m = o0(trim);
-                            continue;
-                        case 13:
-                            o0Var.n = o0(trim);
-                            continue;
-                        case 14:
-                            SVG.o o0 = o0(trim);
-                            o0Var.o = o0;
-                            if (o0.g()) {
-                                throw new SVGParseException("Invalid <radialGradient> element. r cannot be negative");
+                            SVG.o o02 = o0(trim);
+                            xVar.u = o02;
+                            if (o02.g()) {
+                                throw new SVGParseException("Invalid <pattern> element. width cannot be negative");
                             }
-                            continue;
+                        }
+                    } else {
+                        xVar.t = o0(trim);
                     }
                 } else {
-                    o0Var.q = o0(trim);
+                    xVar.s = o0(trim);
                 }
             }
-        }
-    }
-
-    public final void O0(Attributes attributes) throws SVGParseException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, attributes) == null) {
-            l("<path>", new Object[0]);
-            if (this.b != null) {
-                SVG.u uVar = new SVG.u();
-                uVar.a = this.a;
-                uVar.b = this.b;
-                D(uVar, attributes);
-                S(uVar, attributes);
-                W(uVar, attributes);
-                C(uVar, attributes);
-                L(uVar, attributes);
-                this.b.i(uVar);
-                return;
-            }
-            throw new SVGParseException("Invalid document. Root element must be <svg>");
-        }
-    }
-
-    public final void P(SVG.a0 a0Var, Attributes attributes) throws SVGParseException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048595, this, a0Var, attributes) == null) {
-            for (int i = 0; i < attributes.getLength(); i++) {
-                String trim = attributes.getValue(i).trim();
-                int i2 = a.b[SVGAttr.fromString(attributes.getLocalName(i)).ordinal()];
-                if (i2 == 1) {
-                    a0Var.o = o0(trim);
-                } else if (i2 == 2) {
-                    a0Var.p = o0(trim);
-                } else if (i2 == 3) {
-                    SVG.o o0 = o0(trim);
-                    a0Var.q = o0;
-                    if (o0.g()) {
-                        throw new SVGParseException("Invalid <rect> element. width cannot be negative");
-                    }
-                } else if (i2 == 4) {
-                    SVG.o o02 = o0(trim);
-                    a0Var.r = o02;
-                    if (o02.g()) {
-                        throw new SVGParseException("Invalid <rect> element. height cannot be negative");
-                    }
-                } else if (i2 == 10) {
-                    SVG.o o03 = o0(trim);
-                    a0Var.s = o03;
-                    if (o03.g()) {
-                        throw new SVGParseException("Invalid <rect> element. rx cannot be negative");
-                    }
-                } else if (i2 != 11) {
-                    continue;
-                } else {
-                    SVG.o o04 = o0(trim);
-                    a0Var.t = o04;
-                    if (o04.g()) {
-                        throw new SVGParseException("Invalid <rect> element. ry cannot be negative");
-                    }
-                }
-            }
-        }
-    }
-
-    public final void P0(Attributes attributes) throws SVGParseException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, attributes) == null) {
-            l("<pattern>", new Object[0]);
-            if (this.b != null) {
-                SVG.x xVar = new SVG.x();
-                xVar.a = this.a;
-                xVar.b = this.b;
-                D(xVar, attributes);
-                S(xVar, attributes);
-                C(xVar, attributes);
-                Y(xVar, attributes);
-                M(xVar, attributes);
-                this.b.i(xVar);
-                this.b = xVar;
-                return;
-            }
-            throw new SVGParseException("Invalid document. Root element must be <svg>");
-        }
-    }
-
-    public final void Q(SVG.d0 d0Var, Attributes attributes) throws SVGParseException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048597, this, d0Var, attributes) == null) {
-            for (int i = 0; i < attributes.getLength(); i++) {
-                String trim = attributes.getValue(i).trim();
-                int i2 = a.b[SVGAttr.fromString(attributes.getLocalName(i)).ordinal()];
-                if (i2 == 1) {
-                    d0Var.p = o0(trim);
-                } else if (i2 == 2) {
-                    d0Var.q = o0(trim);
-                } else if (i2 == 3) {
-                    SVG.o o0 = o0(trim);
-                    d0Var.r = o0;
-                    if (o0.g()) {
-                        throw new SVGParseException("Invalid <svg> element. width cannot be negative");
-                    }
-                } else if (i2 == 4) {
-                    SVG.o o02 = o0(trim);
-                    d0Var.s = o02;
-                    if (o02.g()) {
-                        throw new SVGParseException("Invalid <svg> element. height cannot be negative");
-                    }
-                } else if (i2 == 5) {
-                    d0Var.t = trim;
-                }
-            }
-        }
-    }
-
-    public final void Q0(Attributes attributes) throws SVGParseException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, attributes) == null) {
-            l("<polygon>", new Object[0]);
-            if (this.b != null) {
-                SVG.y zVar = new SVG.z();
-                zVar.a = this.a;
-                zVar.b = this.b;
-                D(zVar, attributes);
-                S(zVar, attributes);
-                W(zVar, attributes);
-                C(zVar, attributes);
-                N(zVar, attributes, "polygon");
-                this.b.i(zVar);
-                return;
-            }
-            throw new SVGParseException("Invalid document. Root element must be <svg>");
         }
     }
 
@@ -4348,160 +5447,18 @@ public class SVGParser {
         }
     }
 
-    public final void R0(Attributes attributes) throws SVGParseException {
+    public final void Y(SVG.p0 p0Var, Attributes attributes) throws SVGParseException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, attributes) == null) {
-            l("<polyline>", new Object[0]);
-            if (this.b != null) {
-                SVG.y yVar = new SVG.y();
-                yVar.a = this.a;
-                yVar.b = this.b;
-                D(yVar, attributes);
-                S(yVar, attributes);
-                W(yVar, attributes);
-                C(yVar, attributes);
-                N(yVar, attributes, "polyline");
-                this.b.i(yVar);
-                return;
-            }
-            throw new SVGParseException("Invalid document. Root element must be <svg>");
-        }
-    }
-
-    public final void S(SVG.j0 j0Var, Attributes attributes) throws SVGParseException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048601, this, j0Var, attributes) == null) {
-            for (int i = 0; i < attributes.getLength(); i++) {
-                String trim = attributes.getValue(i).trim();
-                if (trim.length() != 0) {
-                    int i2 = a.b[SVGAttr.fromString(attributes.getLocalName(i)).ordinal()];
-                    if (i2 == 45) {
-                        E0(j0Var, trim);
-                    } else if (i2 != 46) {
-                        if (j0Var.e == null) {
-                            j0Var.e = new SVG.Style();
-                        }
-                        S0(j0Var.e, attributes.getLocalName(i), attributes.getValue(i).trim());
-                    } else {
-                        j0Var.g = CSSParser.f(trim);
-                    }
-                }
-            }
-        }
-    }
-
-    public final void T(SVG.s0 s0Var, Attributes attributes) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048602, this, s0Var, attributes) == null) {
-            for (int i = 0; i < attributes.getLength(); i++) {
-                String trim = attributes.getValue(i).trim();
-                if (a.b[SVGAttr.fromString(attributes.getLocalName(i)).ordinal()] == 6 && ("".equals(attributes.getURI(i)) || "http://www.w3.org/1999/xlink".equals(attributes.getURI(i)))) {
-                    s0Var.n = trim;
-                }
-            }
-        }
-    }
-
-    public final void T0(Attributes attributes) throws SVGParseException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, attributes) == null) {
-            l("<radialGradient>", new Object[0]);
-            if (this.b != null) {
-                SVG.o0 o0Var = new SVG.o0();
-                o0Var.a = this.a;
-                o0Var.b = this.b;
-                D(o0Var, attributes);
-                S(o0Var, attributes);
-                F(o0Var, attributes);
-                O(o0Var, attributes);
-                this.b.i(o0Var);
-                this.b = o0Var;
-                return;
-            }
-            throw new SVGParseException("Invalid document. Root element must be <svg>");
-        }
-    }
-
-    public final void U(SVG.x0 x0Var, Attributes attributes) throws SVGParseException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048604, this, x0Var, attributes) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048612, this, p0Var, attributes) == null) {
             for (int i = 0; i < attributes.getLength(); i++) {
                 String trim = attributes.getValue(i).trim();
                 int i2 = a.b[SVGAttr.fromString(attributes.getLocalName(i)).ordinal()];
-                if (i2 != 6) {
-                    if (i2 == 39) {
-                        x0Var.o = o0(trim);
+                if (i2 != 7) {
+                    if (i2 == 87) {
+                        p0Var.o = N0(trim);
                     }
-                } else if ("".equals(attributes.getURI(i)) || "http://www.w3.org/1999/xlink".equals(attributes.getURI(i))) {
-                    x0Var.n = trim;
-                }
-            }
-        }
-    }
-
-    public final void U0(Attributes attributes) throws SVGParseException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048605, this, attributes) == null) {
-            l("<rect>", new Object[0]);
-            if (this.b != null) {
-                SVG.a0 a0Var = new SVG.a0();
-                a0Var.a = this.a;
-                a0Var.b = this.b;
-                D(a0Var, attributes);
-                S(a0Var, attributes);
-                W(a0Var, attributes);
-                C(a0Var, attributes);
-                P(a0Var, attributes);
-                this.b.i(a0Var);
-                return;
-            }
-            throw new SVGParseException("Invalid document. Root element must be <svg>");
-        }
-    }
-
-    public final void V(SVG.y0 y0Var, Attributes attributes) throws SVGParseException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048606, this, y0Var, attributes) == null) {
-            for (int i = 0; i < attributes.getLength(); i++) {
-                String trim = attributes.getValue(i).trim();
-                int i2 = a.b[SVGAttr.fromString(attributes.getLocalName(i)).ordinal()];
-                if (i2 == 1) {
-                    y0Var.n = p0(trim);
-                } else if (i2 == 2) {
-                    y0Var.o = p0(trim);
-                } else if (i2 == 19) {
-                    y0Var.p = p0(trim);
-                } else if (i2 == 20) {
-                    y0Var.q = p0(trim);
-                }
-            }
-        }
-    }
-
-    public final void V0(Attributes attributes) throws SVGParseException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048607, this, attributes) == null) {
-            l("<solidColor>", new Object[0]);
-            if (this.b != null) {
-                SVG.b0 b0Var = new SVG.b0();
-                b0Var.a = this.a;
-                b0Var.b = this.b;
-                D(b0Var, attributes);
-                S(b0Var, attributes);
-                this.b.i(b0Var);
-                this.b = b0Var;
-                return;
-            }
-            throw new SVGParseException("Invalid document. Root element must be <svg>");
-        }
-    }
-
-    public final void W(SVG.m mVar, Attributes attributes) throws SVGParseException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048608, this, mVar, attributes) == null) {
-            for (int i = 0; i < attributes.getLength(); i++) {
-                if (SVGAttr.fromString(attributes.getLocalName(i)) == SVGAttr.transform) {
-                    mVar.l(J0(attributes.getValue(i)));
+                } else {
+                    w0(p0Var, trim);
                 }
             }
         }
@@ -4514,43 +5471,13 @@ public class SVGParser {
         }
     }
 
-    public final void X(SVG.b1 b1Var, Attributes attributes) throws SVGParseException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048610, this, b1Var, attributes) == null) {
-            for (int i = 0; i < attributes.getLength(); i++) {
-                String trim = attributes.getValue(i).trim();
-                int i2 = a.b[SVGAttr.fromString(attributes.getLocalName(i)).ordinal()];
-                if (i2 == 1) {
-                    b1Var.p = o0(trim);
-                } else if (i2 == 2) {
-                    b1Var.q = o0(trim);
-                } else if (i2 == 3) {
-                    SVG.o o0 = o0(trim);
-                    b1Var.r = o0;
-                    if (o0.g()) {
-                        throw new SVGParseException("Invalid <use> element. width cannot be negative");
-                    }
-                } else if (i2 != 4) {
-                    if (i2 == 6 && ("".equals(attributes.getURI(i)) || "http://www.w3.org/1999/xlink".equals(attributes.getURI(i)))) {
-                        b1Var.o = trim;
-                    }
-                } else {
-                    SVG.o o02 = o0(trim);
-                    b1Var.s = o02;
-                    if (o02.g()) {
-                        throw new SVGParseException("Invalid <use> element. height cannot be negative");
-                    }
-                }
-            }
-        }
-    }
-
     public final void X0(String str, String str2, String str3, Attributes attributes) throws SVGParseException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048611, this, str, str2, str3, attributes) == null) {
             if (this.c) {
                 this.d++;
-            } else if ("http://www.w3.org/2000/svg".equals(str) || "".equals(str)) {
+            } else if (!"http://www.w3.org/2000/svg".equals(str) && !"".equals(str)) {
+            } else {
                 if (str2.length() <= 0) {
                     str2 = str3;
                 }
@@ -4655,165 +5582,9 @@ public class SVGParser {
         }
     }
 
-    public final void Y(SVG.p0 p0Var, Attributes attributes) throws SVGParseException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048612, this, p0Var, attributes) == null) {
-            for (int i = 0; i < attributes.getLength(); i++) {
-                String trim = attributes.getValue(i).trim();
-                int i2 = a.b[SVGAttr.fromString(attributes.getLocalName(i)).ordinal()];
-                if (i2 == 7) {
-                    w0(p0Var, trim);
-                } else if (i2 == 87) {
-                    p0Var.o = N0(trim);
-                }
-            }
-        }
-    }
-
-    public final void Y0(Attributes attributes) throws SVGParseException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048613, this, attributes) == null) {
-            l("<stop>", new Object[0]);
-            SVG.h0 h0Var = this.b;
-            if (h0Var != null) {
-                if (h0Var instanceof SVG.j) {
-                    SVG.c0 c0Var = new SVG.c0();
-                    c0Var.a = this.a;
-                    c0Var.b = this.b;
-                    D(c0Var, attributes);
-                    S(c0Var, attributes);
-                    R(c0Var, attributes);
-                    this.b.i(c0Var);
-                    this.b = c0Var;
-                    return;
-                }
-                throw new SVGParseException("Invalid document. <stop> elements are only valid inside <linearGradient> or <radialGradient> elements.");
-            }
-            throw new SVGParseException("Invalid document. Root element must be <svg>");
-        }
-    }
-
-    public final void Z(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048614, this, str) == null) {
-            this.a.a(new CSSParser(CSSParser.MediaType.screen, CSSParser.Source.Document).d(str));
-        }
-    }
-
-    public final void Z0(Attributes attributes) throws SVGParseException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048615, this, attributes) == null) {
-            l("<style>", new Object[0]);
-            if (this.b != null) {
-                String str = "all";
-                boolean z = true;
-                for (int i = 0; i < attributes.getLength(); i++) {
-                    String trim = attributes.getValue(i).trim();
-                    int i2 = a.b[SVGAttr.fromString(attributes.getLocalName(i)).ordinal()];
-                    if (i2 == 88) {
-                        z = trim.equals("text/css");
-                    } else if (i2 == 89) {
-                        str = trim;
-                    }
-                }
-                if (z && CSSParser.b(str, CSSParser.MediaType.screen)) {
-                    this.h = true;
-                    return;
-                }
-                this.c = true;
-                this.d = 1;
-                return;
-            }
-            throw new SVGParseException("Invalid document. Root element must be <svg>");
-        }
-    }
-
-    public final void a1(Attributes attributes) throws SVGParseException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048616, this, attributes) == null) {
-            l("<svg>", new Object[0]);
-            SVG.d0 d0Var = new SVG.d0();
-            d0Var.a = this.a;
-            d0Var.b = this.b;
-            D(d0Var, attributes);
-            S(d0Var, attributes);
-            C(d0Var, attributes);
-            Y(d0Var, attributes);
-            Q(d0Var, attributes);
-            SVG.h0 h0Var = this.b;
-            if (h0Var == null) {
-                this.a.r(d0Var);
-            } else {
-                h0Var.i(d0Var);
-            }
-            this.b = d0Var;
-        }
-    }
-
-    public final void b1(Attributes attributes) throws SVGParseException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048617, this, attributes) == null) {
-            l("<symbol>", new Object[0]);
-            if (this.b != null) {
-                SVG.p0 r0Var = new SVG.r0();
-                r0Var.a = this.a;
-                r0Var.b = this.b;
-                D(r0Var, attributes);
-                S(r0Var, attributes);
-                C(r0Var, attributes);
-                Y(r0Var, attributes);
-                this.b.i(r0Var);
-                this.b = r0Var;
-                return;
-            }
-            throw new SVGParseException("Invalid document. Root element must be <svg>");
-        }
-    }
-
-    public final void c1(String str) throws SVGParseException {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048618, this, str) == null) || this.c) {
-            return;
-        }
-        if (this.e) {
-            if (this.g == null) {
-                this.g = new StringBuilder(str.length());
-            }
-            this.g.append(str);
-        } else if (this.h) {
-            if (this.i == null) {
-                this.i = new StringBuilder(str.length());
-            }
-            this.i.append(str);
-        } else if (this.b instanceof SVG.w0) {
-            h(str);
-        }
-    }
-
-    public final void d1(Attributes attributes) throws SVGParseException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048619, this, attributes) == null) {
-            l("<text>", new Object[0]);
-            if (this.b != null) {
-                SVG.u0 u0Var = new SVG.u0();
-                u0Var.a = this.a;
-                u0Var.b = this.b;
-                D(u0Var, attributes);
-                S(u0Var, attributes);
-                W(u0Var, attributes);
-                C(u0Var, attributes);
-                V(u0Var, attributes);
-                this.b.i(u0Var);
-                this.b = u0Var;
-                return;
-            }
-            throw new SVGParseException("Invalid document. Root element must be <svg>");
-        }
-    }
-
     public final void e1(char[] cArr, int i, int i2) throws SVGParseException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(1048620, this, cArr, i, i2) == null) || this.c) {
+        if ((interceptable != null && interceptable.invokeLII(1048620, this, cArr, i, i2) != null) || this.c) {
             return;
         }
         if (this.e) {
@@ -4829,551 +5600,5 @@ public class SVGParser {
         } else if (this.b instanceof SVG.w0) {
             h(new String(cArr, i, i2));
         }
-    }
-
-    public final void f1(Attributes attributes) throws SVGParseException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048621, this, attributes) == null) {
-            l("<textPath>", new Object[0]);
-            if (this.b != null) {
-                SVG.x0 x0Var = new SVG.x0();
-                x0Var.a = this.a;
-                x0Var.b = this.b;
-                D(x0Var, attributes);
-                S(x0Var, attributes);
-                C(x0Var, attributes);
-                U(x0Var, attributes);
-                this.b.i(x0Var);
-                this.b = x0Var;
-                SVG.h0 h0Var = x0Var.b;
-                if (h0Var instanceof SVG.z0) {
-                    x0Var.o((SVG.z0) h0Var);
-                    return;
-                } else {
-                    x0Var.o(((SVG.v0) h0Var).c());
-                    return;
-                }
-            }
-            throw new SVGParseException("Invalid document. Root element must be <svg>");
-        }
-    }
-
-    public final void g1(Attributes attributes) throws SVGParseException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048622, this, attributes) == null) {
-            l("<tref>", new Object[0]);
-            SVG.h0 h0Var = this.b;
-            if (h0Var != null) {
-                if (h0Var instanceof SVG.w0) {
-                    SVG.s0 s0Var = new SVG.s0();
-                    s0Var.a = this.a;
-                    s0Var.b = this.b;
-                    D(s0Var, attributes);
-                    S(s0Var, attributes);
-                    C(s0Var, attributes);
-                    T(s0Var, attributes);
-                    this.b.i(s0Var);
-                    SVG.h0 h0Var2 = s0Var.b;
-                    if (h0Var2 instanceof SVG.z0) {
-                        s0Var.o((SVG.z0) h0Var2);
-                        return;
-                    } else {
-                        s0Var.o(((SVG.v0) h0Var2).c());
-                        return;
-                    }
-                }
-                throw new SVGParseException("Invalid document. <tref> elements are only valid inside <text> or <tspan> elements.");
-            }
-            throw new SVGParseException("Invalid document. Root element must be <svg>");
-        }
-    }
-
-    public final void h(String str) throws SVGParseException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048623, this, str) == null) {
-            SVG.f0 f0Var = (SVG.f0) this.b;
-            int size = f0Var.i.size();
-            SVG.l0 l0Var = size == 0 ? null : f0Var.i.get(size - 1);
-            if (l0Var instanceof SVG.a1) {
-                StringBuilder sb = new StringBuilder();
-                SVG.a1 a1Var = (SVG.a1) l0Var;
-                sb.append(a1Var.c);
-                sb.append(str);
-                a1Var.c = sb.toString();
-                return;
-            }
-            this.b.i(new SVG.a1(str));
-        }
-    }
-
-    public final void h1(Attributes attributes) throws SVGParseException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048624, this, attributes) == null) {
-            l("<tspan>", new Object[0]);
-            SVG.h0 h0Var = this.b;
-            if (h0Var != null) {
-                if (h0Var instanceof SVG.w0) {
-                    SVG.t0 t0Var = new SVG.t0();
-                    t0Var.a = this.a;
-                    t0Var.b = this.b;
-                    D(t0Var, attributes);
-                    S(t0Var, attributes);
-                    C(t0Var, attributes);
-                    V(t0Var, attributes);
-                    this.b.i(t0Var);
-                    this.b = t0Var;
-                    SVG.h0 h0Var2 = t0Var.b;
-                    if (h0Var2 instanceof SVG.z0) {
-                        t0Var.o((SVG.z0) h0Var2);
-                        return;
-                    } else {
-                        t0Var.o(((SVG.v0) h0Var2).c());
-                        return;
-                    }
-                }
-                throw new SVGParseException("Invalid document. <tspan> elements are only valid inside <text> or other <tspan> elements.");
-            }
-            throw new SVGParseException("Invalid document. Root element must be <svg>");
-        }
-    }
-
-    public final void i(Attributes attributes) throws SVGParseException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048625, this, attributes) == null) {
-            l("<circle>", new Object[0]);
-            if (this.b != null) {
-                SVG.d dVar = new SVG.d();
-                dVar.a = this.a;
-                dVar.b = this.b;
-                D(dVar, attributes);
-                S(dVar, attributes);
-                W(dVar, attributes);
-                C(dVar, attributes);
-                A(dVar, attributes);
-                this.b.i(dVar);
-                return;
-            }
-            throw new SVGParseException("Invalid document. Root element must be <svg>");
-        }
-    }
-
-    public final void i1(Attributes attributes) throws SVGParseException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048626, this, attributes) == null) {
-            l("<use>", new Object[0]);
-            if (this.b != null) {
-                SVG.b1 b1Var = new SVG.b1();
-                b1Var.a = this.a;
-                b1Var.b = this.b;
-                D(b1Var, attributes);
-                S(b1Var, attributes);
-                W(b1Var, attributes);
-                C(b1Var, attributes);
-                X(b1Var, attributes);
-                this.b.i(b1Var);
-                this.b = b1Var;
-                return;
-            }
-            throw new SVGParseException("Invalid document. Root element must be <svg>");
-        }
-    }
-
-    public final void j1(Attributes attributes) throws SVGParseException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048627, this, attributes) == null) {
-            l("<view>", new Object[0]);
-            if (this.b != null) {
-                SVG.p0 c1Var = new SVG.c1();
-                c1Var.a = this.a;
-                c1Var.b = this.b;
-                D(c1Var, attributes);
-                C(c1Var, attributes);
-                Y(c1Var, attributes);
-                this.b.i(c1Var);
-                this.b = c1Var;
-                return;
-            }
-            throw new SVGParseException("Invalid document. Root element must be <svg>");
-        }
-    }
-
-    public final void k(Attributes attributes) throws SVGParseException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048628, this, attributes) == null) {
-            l("<clipPath>", new Object[0]);
-            if (this.b != null) {
-                SVG.e eVar = new SVG.e();
-                eVar.a = this.a;
-                eVar.b = this.b;
-                D(eVar, attributes);
-                S(eVar, attributes);
-                W(eVar, attributes);
-                C(eVar, attributes);
-                B(eVar, attributes);
-                this.b.i(eVar);
-                this.b = eVar;
-                return;
-            }
-            throw new SVGParseException("Invalid document. Root element must be <svg>");
-        }
-    }
-
-    public final void k1(Attributes attributes) throws SVGParseException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048629, this, attributes) == null) {
-            l("<switch>", new Object[0]);
-            if (this.b != null) {
-                SVG.q0 q0Var = new SVG.q0();
-                q0Var.a = this.a;
-                q0Var.b = this.b;
-                D(q0Var, attributes);
-                S(q0Var, attributes);
-                W(q0Var, attributes);
-                C(q0Var, attributes);
-                this.b.i(q0Var);
-                this.b = q0Var;
-                return;
-            }
-            throw new SVGParseException("Invalid document. Root element must be <svg>");
-        }
-    }
-
-    public final void l(String str, Object... objArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048630, this, str, objArr) == null) {
-        }
-    }
-
-    public final void m(Attributes attributes) throws SVGParseException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048631, this, attributes) == null) {
-            l("<defs>", new Object[0]);
-            if (this.b != null) {
-                SVG.h hVar = new SVG.h();
-                hVar.a = this.a;
-                hVar.b = this.b;
-                D(hVar, attributes);
-                S(hVar, attributes);
-                W(hVar, attributes);
-                this.b.i(hVar);
-                this.b = hVar;
-                return;
-            }
-            throw new SVGParseException("Invalid document. Root element must be <svg>");
-        }
-    }
-
-    public final void n(Attributes attributes) throws SVGParseException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048632, this, attributes) == null) {
-            l("<ellipse>", new Object[0]);
-            if (this.b != null) {
-                SVG.i iVar = new SVG.i();
-                iVar.a = this.a;
-                iVar.b = this.b;
-                D(iVar, attributes);
-                S(iVar, attributes);
-                W(iVar, attributes);
-                C(iVar, attributes);
-                E(iVar, attributes);
-                this.b.i(iVar);
-                return;
-            }
-            throw new SVGParseException("Invalid document. Root element must be <svg>");
-        }
-    }
-
-    public final Float n0(String str) throws SVGParseException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048633, this, str)) == null) {
-            if (str.length() != 0) {
-                int length = str.length();
-                boolean z = true;
-                if (str.charAt(str.length() - 1) == '%') {
-                    length--;
-                } else {
-                    z = false;
-                }
-                try {
-                    float g0 = g0(str, 0, length);
-                    float f2 = 100.0f;
-                    if (z) {
-                        g0 /= 100.0f;
-                    }
-                    if (g0 < 0.0f) {
-                        f2 = 0.0f;
-                    } else if (g0 <= 100.0f) {
-                        f2 = g0;
-                    }
-                    return Float.valueOf(f2);
-                } catch (NumberFormatException e2) {
-                    throw new SVGParseException("Invalid offset value in <stop>: " + str, e2);
-                }
-            }
-            throw new SVGParseException("Invalid offset value in <stop> (empty string)");
-        }
-        return (Float) invokeL.objValue;
-    }
-
-    public final void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048634, this) == null) {
-        }
-    }
-
-    public final void p(String str, String str2, String str3) throws SVGParseException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048635, this, str, str2, str3) == null) {
-            if (this.c) {
-                int i = this.d - 1;
-                this.d = i;
-                if (i == 0) {
-                    this.c = false;
-                    return;
-                }
-            }
-            if ("http://www.w3.org/2000/svg".equals(str) || "".equals(str)) {
-                if (str2.length() <= 0) {
-                    str2 = str3;
-                }
-                int i2 = a.a[SVGElem.fromString(str2).ordinal()];
-                if (i2 != 1 && i2 != 2 && i2 != 4 && i2 != 5 && i2 != 13 && i2 != 14) {
-                    switch (i2) {
-                        case 16:
-                        case 17:
-                        case 18:
-                        case 19:
-                        case 20:
-                        case 21:
-                        case 24:
-                        case 25:
-                        case 26:
-                        case 27:
-                        case 28:
-                        case 29:
-                        case 31:
-                            break;
-                        case 22:
-                        case 23:
-                            this.e = false;
-                            StringBuilder sb = this.g;
-                            if (sb != null) {
-                                SVGElem sVGElem = this.f;
-                                if (sVGElem == SVGElem.title) {
-                                    this.a.s(sb.toString());
-                                } else if (sVGElem == SVGElem.desc) {
-                                    this.a.q(sb.toString());
-                                }
-                                this.g.setLength(0);
-                                return;
-                            }
-                            return;
-                        case 30:
-                            StringBuilder sb2 = this.i;
-                            if (sb2 != null) {
-                                this.h = false;
-                                Z(sb2.toString());
-                                this.i.setLength(0);
-                                return;
-                            }
-                            return;
-                        default:
-                            return;
-                    }
-                }
-                this.b = ((SVG.l0) this.b).b;
-            }
-        }
-    }
-
-    public final void q(Attributes attributes) throws SVGParseException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048636, this, attributes) == null) {
-            l("<g>", new Object[0]);
-            if (this.b != null) {
-                SVG.l lVar = new SVG.l();
-                lVar.a = this.a;
-                lVar.b = this.b;
-                D(lVar, attributes);
-                S(lVar, attributes);
-                W(lVar, attributes);
-                C(lVar, attributes);
-                this.b.i(lVar);
-                this.b = lVar;
-                return;
-            }
-            throw new SVGParseException("Invalid document. Root element must be <svg>");
-        }
-    }
-
-    public final void r(String str, Map<String, String> map) {
-        String str2;
-        String b2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048637, this, str, map) == null) && str.equals("xml-stylesheet") && SVG.g() != null) {
-            if (map.get("type") == null || "text/css".equals(map.get("type"))) {
-                if ((map.get("alternate") != null && !"no".equals(map.get("alternate"))) || (str2 = map.get(NativeConstants.HREF)) == null || (b2 = SVG.g().b(str2)) == null) {
-                    return;
-                }
-                String str3 = map.get("media");
-                if (str3 != null && !"all".equals(str3.trim())) {
-                    b2 = "@media " + str3 + " { " + b2 + "}";
-                }
-                Z(b2);
-            }
-        }
-    }
-
-    public final void u(Attributes attributes) throws SVGParseException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048638, this, attributes) == null) {
-            l("<image>", new Object[0]);
-            if (this.b != null) {
-                SVG.n nVar = new SVG.n();
-                nVar.a = this.a;
-                nVar.b = this.b;
-                D(nVar, attributes);
-                S(nVar, attributes);
-                W(nVar, attributes);
-                C(nVar, attributes);
-                G(nVar, attributes);
-                this.b.i(nVar);
-                this.b = nVar;
-                return;
-            }
-            throw new SVGParseException("Invalid document. Root element must be <svg>");
-        }
-    }
-
-    public final void v(Attributes attributes) throws SVGParseException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048639, this, attributes) == null) {
-            l("<line>", new Object[0]);
-            if (this.b != null) {
-                SVG.p pVar = new SVG.p();
-                pVar.a = this.a;
-                pVar.b = this.b;
-                D(pVar, attributes);
-                S(pVar, attributes);
-                W(pVar, attributes);
-                C(pVar, attributes);
-                H(pVar, attributes);
-                this.b.i(pVar);
-                return;
-            }
-            throw new SVGParseException("Invalid document. Root element must be <svg>");
-        }
-    }
-
-    public final void w(Attributes attributes) throws SVGParseException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048640, this, attributes) == null) {
-            l("<linearGradient>", new Object[0]);
-            if (this.b != null) {
-                SVG.k0 k0Var = new SVG.k0();
-                k0Var.a = this.a;
-                k0Var.b = this.b;
-                D(k0Var, attributes);
-                S(k0Var, attributes);
-                F(k0Var, attributes);
-                I(k0Var, attributes);
-                this.b.i(k0Var);
-                this.b = k0Var;
-                return;
-            }
-            throw new SVGParseException("Invalid document. Root element must be <svg>");
-        }
-    }
-
-    public final void x(Attributes attributes) throws SVGParseException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048641, this, attributes) == null) {
-            l("<marker>", new Object[0]);
-            if (this.b != null) {
-                SVG.q qVar = new SVG.q();
-                qVar.a = this.a;
-                qVar.b = this.b;
-                D(qVar, attributes);
-                S(qVar, attributes);
-                C(qVar, attributes);
-                Y(qVar, attributes);
-                J(qVar, attributes);
-                this.b.i(qVar);
-                this.b = qVar;
-                return;
-            }
-            throw new SVGParseException("Invalid document. Root element must be <svg>");
-        }
-    }
-
-    public final Map<String, String> x0(g gVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048642, this, gVar)) == null) {
-            HashMap hashMap = new HashMap();
-            gVar.A();
-            String s = gVar.s('=');
-            while (s != null) {
-                gVar.f('=');
-                hashMap.put(s, gVar.q());
-                gVar.A();
-                s = gVar.s('=');
-            }
-            return hashMap;
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    public final void y(Attributes attributes) throws SVGParseException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048643, this, attributes) == null) {
-            l("<mask>", new Object[0]);
-            if (this.b != null) {
-                SVG.r rVar = new SVG.r();
-                rVar.a = this.a;
-                rVar.b = this.b;
-                D(rVar, attributes);
-                S(rVar, attributes);
-                C(rVar, attributes);
-                K(rVar, attributes);
-                this.b.i(rVar);
-                this.b = rVar;
-                return;
-            }
-            throw new SVGParseException("Invalid document. Root element must be <svg>");
-        }
-    }
-
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, INVOKE, INVOKE] complete} */
-    public SVG z(InputStream inputStream, boolean z) throws SVGParseException {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048644, this, inputStream, z)) == null) {
-            if (!inputStream.markSupported()) {
-                inputStream = new BufferedInputStream(inputStream);
-            }
-            try {
-                inputStream.mark(3);
-                int read = inputStream.read() + (inputStream.read() << 8);
-                inputStream.reset();
-                if (read == 35615) {
-                    inputStream = new BufferedInputStream(new GZIPInputStream(inputStream));
-                }
-            } catch (IOException unused) {
-            }
-            try {
-                inputStream.mark(4096);
-                L0(inputStream, z);
-                return this.a;
-            } finally {
-                try {
-                    inputStream.close();
-                } catch (IOException unused2) {
-                    Log.e("SVGParser", "Exception thrown closing input stream");
-                }
-            }
-        }
-        return (SVG) invokeLZ.objValue;
     }
 }

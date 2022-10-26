@@ -1,6 +1,5 @@
 package com.baidu.webkit.sdk;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -26,15 +25,15 @@ public class TracingConfig {
     public static final int RECORD_CONTINUOUSLY = 1;
     public static final int RECORD_UNTIL_FULL = 0;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<String> mCustomIncludedCategories;
+    public final List mCustomIncludedCategories;
     public int mPredefinedCategories;
     public int mTracingMode;
 
     /* loaded from: classes6.dex */
-    public static class Builder {
+    public class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final List<String> mCustomIncludedCategories;
+        public final List mCustomIncludedCategories;
         public int mPredefinedCategories;
         public int mTracingMode;
 
@@ -56,7 +55,7 @@ public class TracingConfig {
             this.mTracingMode = 1;
         }
 
-        public Builder addCategories(Collection<String> collection) {
+        public Builder addCategories(Collection collection) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, collection)) == null) {
@@ -117,7 +116,7 @@ public class TracingConfig {
     public @interface TracingMode {
     }
 
-    public TracingConfig(int i, @NonNull List<String> list, int i2) {
+    public TracingConfig(int i, List list, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -139,8 +138,7 @@ public class TracingConfig {
         this.mTracingMode = i2;
     }
 
-    @NonNull
-    public List<String> getCustomIncludedCategories() {
+    public List getCustomIncludedCategories() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mCustomIncludedCategories : (List) invokeV.objValue;

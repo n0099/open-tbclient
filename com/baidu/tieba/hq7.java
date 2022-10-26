@@ -1,79 +1,124 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.baseEditMark.MarkData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class hq7 implements Cdo {
+public class hq7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public List<l45> b;
-    public boolean c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947832443, "Lcom/baidu/tieba/hq7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947832443, "Lcom/baidu/tieba/hq7;");
+    public static void a(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65536, null, str) == null) && !StringUtils.isNull(str)) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public static void b(String str, Object obj) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65537, null, str, obj) == null) && (obj instanceof MarkData)) {
+            MarkData markData = (MarkData) obj;
+            if (StringUtils.isNull(str)) {
                 return;
             }
-        }
-        d = BdUniqueId.gen();
-    }
-
-    public hq7() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("tid", markData.getId());
+            statisticItem.param("fname", markData.getForumName());
+            char c = 65535;
+            switch (str.hashCode()) {
+                case -1413831834:
+                    if (str.equals("c14062")) {
+                        c = 0;
+                        break;
+                    }
+                    break;
+                case -1413831833:
+                    if (str.equals("c14063")) {
+                        c = 1;
+                        break;
+                    }
+                    break;
+                case -1413831832:
+                    if (str.equals("c14064")) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case -1413831831:
+                    if (str.equals("c14065")) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+                case -1413831828:
+                    if (str.equals("c14068")) {
+                        c = 5;
+                        break;
+                    }
+                    break;
+                case -1413831827:
+                    if (str.equals("c14069")) {
+                        c = 4;
+                        break;
+                    }
+                    break;
             }
+            if (c != 0) {
+                if (c != 1) {
+                    if (c != 2 && c != 3) {
+                        if (c == 4) {
+                            d(markData, statisticItem);
+                            statisticItem.param("obj_source", "1");
+                        }
+                    } else {
+                        statisticItem.param("obj_id", markData.getUesrId());
+                    }
+                } else {
+                    d(markData, statisticItem);
+                    statisticItem.param("obj_id", markData.getUesrId());
+                }
+            } else {
+                d(markData, statisticItem);
+            }
+            TiebaStatic.log(statisticItem);
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    public static void c(String str, boolean z, MarkData markData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeCommon(65538, null, new Object[]{str, Boolean.valueOf(z), markData}) != null) || markData == null || StringUtils.isNull(str)) {
             return;
         }
-        this.a = jSONObject.optInt("need_profile", 0) == 1;
-        JSONArray optJSONArray = jSONObject.optJSONArray("nearby_person_list");
-        if (optJSONArray != null && optJSONArray.length() > 0) {
-            this.b = new ArrayList();
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                l45 l45Var = new l45();
-                l45Var.a(optJSONArray.optJSONObject(i));
-                this.b.add(l45Var);
-            }
+        StatisticItem statisticItem = new StatisticItem(str);
+        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+        statisticItem.param("tid", markData.getId());
+        statisticItem.param("fname", markData.getForumName());
+        if (z) {
+            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, "1");
+        } else {
+            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, "2");
         }
-        this.c = jSONObject.optInt("has_more", 0) == 1;
+        TiebaStatic.log(statisticItem);
     }
 
-    @Override // com.baidu.tieba.Cdo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public static void d(MarkData markData, StatisticItem statisticItem) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? d : (BdUniqueId) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeLL(65539, null, markData, statisticItem) == null) {
+            if (markData.is_deleted()) {
+                statisticItem.param("obj_param1", "3");
+            } else if (markData.isRedTipShow() && !StringUtils.isNull(markData.getmState()) && markData.getNewCounts() > 0) {
+                statisticItem.param("obj_param1", "1");
+            } else {
+                statisticItem.param("obj_param1", "2");
+            }
+        }
     }
 }

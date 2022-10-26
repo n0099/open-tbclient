@@ -1,6 +1,5 @@
 package com.baidu.android.util.android;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
@@ -51,7 +50,6 @@ public class PkgUtils {
         }
     }
 
-    @SuppressLint({"PackageManagerGetSignatures"})
     public static PackageInfo getPackageInfo(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -69,27 +67,6 @@ public class PkgUtils {
         return (PackageInfo) invokeLL.objValue;
     }
 
-    public static String getPackageSourcePath(Context context) {
-        InterceptResult invokeL;
-        ApplicationInfo applicationInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            try {
-                applicationInfo = context.getPackageManager().getApplicationInfo(context.getPackageName(), 128);
-            } catch (PackageManager.NameNotFoundException e) {
-                if (DEBUG) {
-                    e.printStackTrace();
-                }
-                applicationInfo = null;
-            }
-            if (applicationInfo != null) {
-                return applicationInfo.sourceDir;
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
     public static String getPackageVersion(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -103,19 +80,42 @@ public class PkgUtils {
         return (String) invokeLL.objValue;
     }
 
-    @SuppressLint({"PackageManagerGetSignatures"})
+    public static String getPackageSourcePath(Context context) {
+        InterceptResult invokeL;
+        ApplicationInfo applicationInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            try {
+                applicationInfo = context.getPackageManager().getApplicationInfo(context.getPackageName(), 128);
+            } catch (PackageManager.NameNotFoundException e) {
+                if (DEBUG) {
+                    e.printStackTrace();
+                }
+                applicationInfo = null;
+            }
+            if (applicationInfo == null) {
+                return null;
+            }
+            return applicationInfo.sourceDir;
+        }
+        return (String) invokeL.objValue;
+    }
+
     public static String getSign(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, str)) == null) {
             try {
                 PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 64);
-                return (packageInfo == null || packageInfo.signatures.length <= 0) ? "" : packageInfo.signatures[0].toCharsString();
-            } catch (Exception e) {
-                if (DEBUG) {
-                    Log.e(TAG, "get sign error!!!", e);
+                if (packageInfo == null || packageInfo.signatures.length <= 0) {
                     return "";
                 }
+                return packageInfo.signatures[0].toCharsString();
+            } catch (Exception e) {
+                if (!DEBUG) {
+                    return "";
+                }
+                Log.e(TAG, "get sign error!!!", e);
                 return "";
             }
         }
@@ -135,7 +135,10 @@ public class PkgUtils {
                 }
                 str2 = "";
             }
-            return TextUtils.isEmpty(str2) ? str2 : getSign(context, str2);
+            if (TextUtils.isEmpty(str2)) {
+                return str2;
+            }
+            return getSign(context, str2);
         }
         return (String) invokeLL.objValue;
     }

@@ -49,6 +49,40 @@ public class IMSettings {
         }
     }
 
+    public static Context getsContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return sContext;
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    public static boolean isDebugMode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            int i = mDebugMode;
+            if (i != -1) {
+                if (i != 1) {
+                    return false;
+                }
+                return true;
+            }
+            Context context = sContext;
+            if (context == null) {
+                return false;
+            }
+            int readIntData = Utility.readIntData(context, Constants.SETTING_DEBUG_MODE, 0);
+            mDebugMode = readIntData;
+            if (readIntData != 1) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
     public static boolean enableDebugMode(Context context, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
@@ -63,31 +97,6 @@ public class IMSettings {
             return true;
         }
         return invokeLZ.booleanValue;
-    }
-
-    public static Context getsContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? sContext : (Context) invokeV.objValue;
-    }
-
-    public static boolean isDebugMode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            int i = mDebugMode;
-            if (i != -1) {
-                return i == 1;
-            }
-            Context context = sContext;
-            if (context == null) {
-                return false;
-            }
-            int readIntData = Utility.readIntData(context, Constants.SETTING_DEBUG_MODE, 0);
-            mDebugMode = readIntData;
-            return readIntData == 1;
-        }
-        return invokeV.booleanValue;
     }
 
     public static void setContext(Context context) {

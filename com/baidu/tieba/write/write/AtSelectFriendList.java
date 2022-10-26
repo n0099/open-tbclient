@@ -35,6 +35,11 @@ public class AtSelectFriendList extends HorizontalCustomScrollView {
     public final View.OnClickListener j;
 
     /* loaded from: classes6.dex */
+    public interface b {
+        void a(View view2, Object obj);
+    }
+
+    /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -73,11 +78,6 @@ public class AtSelectFriendList extends HorizontalCustomScrollView {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(View view2, Object obj);
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AtSelectFriendList(Context context) {
         super(context);
@@ -107,12 +107,12 @@ public class AtSelectFriendList extends HorizontalCustomScrollView {
 
     public void e(MetaData metaData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, metaData) == null) || getItemLength() >= this.g) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, metaData) != null) || getItemLength() >= this.g) {
             return;
         }
         HeadImageView f = f();
         f.setIsRound(false);
-        f.K(metaData.getAvater(), 12, false);
+        f.L(metaData.getAvater(), 12, false);
         if (h()) {
             f.setTag(metaData);
             f.setOnClickListener(this.j);
@@ -122,6 +122,59 @@ public class AtSelectFriendList extends HorizontalCustomScrollView {
         }
         if (getItemLength() >= this.g) {
             l();
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public AtSelectFriendList(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.d = -1;
+        this.e = -1;
+        this.f = -1;
+        this.g = 4;
+        this.j = new a(this);
+        this.b = context;
+        i();
+    }
+
+    public void k(MetaData metaData) {
+        View findViewWithTag;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, metaData) == null) && (findViewWithTag = this.c.findViewWithTag(metaData)) != null) {
+            this.c.removeView(findViewWithTag);
+            if (!h()) {
+                j();
+            }
+        }
+    }
+
+    public void setItemOPerationHandler(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, bVar) == null) {
+            this.i = bVar;
+        }
+    }
+
+    public void setMaxCount(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.g = i;
         }
     }
 
@@ -159,13 +212,13 @@ public class AtSelectFriendList extends HorizontalCustomScrollView {
         }
     }
 
-    public ArrayList<AtSelectData> getDataList() {
+    public ArrayList getDataList() {
         InterceptResult invokeV;
         Object tag;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             int childCount = this.c.getChildCount();
-            ArrayList<AtSelectData> arrayList = new ArrayList<>();
+            ArrayList arrayList = new ArrayList();
             for (int i = 0; i < childCount; i++) {
                 View childAt = this.c.getChildAt(i);
                 if (childAt != this.h && (tag = childAt.getTag()) != null && (tag instanceof MetaData)) {
@@ -195,9 +248,32 @@ public class AtSelectFriendList extends HorizontalCustomScrollView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             int childCount = this.c.getChildCount();
-            return childCount > 0 && this.c.getChildAt(childCount - 1) == this.h;
+            if (childCount > 0 && this.c.getChildAt(childCount - 1) == this.h) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            if (this.h == null) {
+                HeadImageView f = f();
+                this.h = f;
+                f.setDrawBorder(false);
+            }
+            this.h.setImageBitmap(SkinManager.getBitmap(R.drawable.icon_add_pop));
+            this.c.addView(this.h);
+        }
+    }
+
+    public final void l() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && h()) {
+            this.c.removeView(this.h);
+        }
     }
 
     public final void i() {
@@ -218,80 +294,5 @@ public class AtSelectFriendList extends HorizontalCustomScrollView {
             setSmoothScrollingEnabled(true);
             setFocusable(false);
         }
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            if (this.h == null) {
-                HeadImageView f = f();
-                this.h = f;
-                f.setDrawBorder(false);
-            }
-            this.h.setImageBitmap(SkinManager.getBitmap(R.drawable.icon_add_pop));
-            this.c.addView(this.h);
-        }
-    }
-
-    public void k(MetaData metaData) {
-        View findViewWithTag;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, metaData) == null) || (findViewWithTag = this.c.findViewWithTag(metaData)) == null) {
-            return;
-        }
-        this.c.removeView(findViewWithTag);
-        if (h()) {
-            return;
-        }
-        j();
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && h()) {
-            this.c.removeView(this.h);
-        }
-    }
-
-    public void setItemOPerationHandler(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, bVar) == null) {
-            this.i = bVar;
-        }
-    }
-
-    public void setMaxCount(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.g = i;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AtSelectFriendList(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.d = -1;
-        this.e = -1;
-        this.f = -1;
-        this.g = 4;
-        this.j = new a(this);
-        this.b = context;
-        i();
     }
 }

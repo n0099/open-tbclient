@@ -2,7 +2,6 @@ package com.bytedance.pangle.log;
 
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
@@ -16,7 +15,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.pangle.GlobalParam;
 import org.json.JSONException;
 import org.json.JSONObject;
-@Keep
 /* loaded from: classes7.dex */
 public class ZeusLogger {
     public static /* synthetic */ Interceptable $ic = null;
@@ -68,6 +66,24 @@ public class ZeusLogger {
         }
     }
 
+    public static boolean isDebug() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            return sDebug;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isEnableTrace() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            return sEnableTrace;
+        }
+        return invokeV.booleanValue;
+    }
+
     public static void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
@@ -75,60 +91,11 @@ public class ZeusLogger {
         }
     }
 
-    public static void e(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
-            e(str, str2, null, null);
-        }
-    }
-
-    public static String getTraceInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            try {
-                StackTraceElement[] stackTrace = new Throwable().getStackTrace();
-                StackTraceElement stackTraceElement = null;
-                int i = 1;
-                while (true) {
-                    if (i >= stackTrace.length) {
-                        break;
-                    } else if (!TextUtils.equals(stackTrace[i].getClassName(), ZeusLogger.class.getName())) {
-                        stackTraceElement = stackTrace[i];
-                        break;
-                    } else {
-                        i++;
-                    }
-                }
-                if (stackTraceElement != null) {
-                    return "\t\t[" + stackTraceElement.toString() + PreferencesUtil.RIGHT_MOUNT;
-                }
-                return "\t\t[No Trace Info]";
-            } catch (Exception e) {
-                e.printStackTrace();
-                return "\t\t[No Trace Info]";
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
     public static void i(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
             i(null, str);
         }
-    }
-
-    public static boolean isDebug() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? sDebug : invokeV.booleanValue;
-    }
-
-    public static boolean isEnableTrace() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? sEnableTrace : invokeV.booleanValue;
     }
 
     public static String prefixTraceInfo(String str) {
@@ -178,53 +145,17 @@ public class ZeusLogger {
         }
     }
 
+    public static void e(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
+            e(str, str2, null, null);
+        }
+    }
+
     public static void e(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65541, null, str, str2, str3) == null) {
             e(str, str2, str3, null);
-        }
-    }
-
-    public static void i(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65546, null, str, str2) == null) {
-            String prefixTraceInfo = prefixTraceInfo(str2);
-            if (sDebug) {
-                Log.i(str, prefixTraceInfo);
-            } else if (GlobalParam.getInstance().getLogger() != null) {
-                GlobalParam.getInstance().getLogger().i(str, prefixTraceInfo);
-            }
-        }
-    }
-
-    public static void v(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65553, null, str, str2) == null) {
-            String prefixTraceInfo = prefixTraceInfo(str2);
-            if (sDebug) {
-                Log.v(str, prefixTraceInfo);
-            } else if (GlobalParam.getInstance().getLogger() != null) {
-                GlobalParam.getInstance().getLogger().v(str, prefixTraceInfo);
-            }
-        }
-    }
-
-    public static void w(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65555, null, str, str2) == null) {
-            String prefixTraceInfo = prefixTraceInfo(str2);
-            if (sDebug) {
-                Log.w(str, prefixTraceInfo);
-            } else if (GlobalParam.getInstance().getLogger() != null) {
-                GlobalParam.getInstance().getLogger().w(str, prefixTraceInfo);
-            }
-        }
-    }
-
-    public static void e(String str, String str2, Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65543, null, str, str2, th) == null) {
-            e(str, str2, null, th);
         }
     }
 
@@ -264,6 +195,79 @@ public class ZeusLogger {
             jSONObject2.putOpt("message", c.a(prefixTraceInfo));
             jSONObject2.putOpt("throwable", c.a(th));
             c.a(com.bytedance.pangle.b.b.i, jSONObject, null, jSONObject2);
+        }
+    }
+
+    public static void e(String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65543, null, str, str2, th) == null) {
+            e(str, str2, null, th);
+        }
+    }
+
+    public static String getTraceInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            try {
+                StackTraceElement[] stackTrace = new Throwable().getStackTrace();
+                StackTraceElement stackTraceElement = null;
+                int i = 1;
+                while (true) {
+                    if (i >= stackTrace.length) {
+                        break;
+                    } else if (!TextUtils.equals(stackTrace[i].getClassName(), ZeusLogger.class.getName())) {
+                        stackTraceElement = stackTrace[i];
+                        break;
+                    } else {
+                        i++;
+                    }
+                }
+                if (stackTraceElement == null) {
+                    return "\t\t[No Trace Info]";
+                }
+                return "\t\t[" + stackTraceElement.toString() + PreferencesUtil.RIGHT_MOUNT;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return "\t\t[No Trace Info]";
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void i(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65546, null, str, str2) == null) {
+            String prefixTraceInfo = prefixTraceInfo(str2);
+            if (sDebug) {
+                Log.i(str, prefixTraceInfo);
+            } else if (GlobalParam.getInstance().getLogger() != null) {
+                GlobalParam.getInstance().getLogger().i(str, prefixTraceInfo);
+            }
+        }
+    }
+
+    public static void v(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65553, null, str, str2) == null) {
+            String prefixTraceInfo = prefixTraceInfo(str2);
+            if (sDebug) {
+                Log.v(str, prefixTraceInfo);
+            } else if (GlobalParam.getInstance().getLogger() != null) {
+                GlobalParam.getInstance().getLogger().v(str, prefixTraceInfo);
+            }
+        }
+    }
+
+    public static void w(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65555, null, str, str2) == null) {
+            String prefixTraceInfo = prefixTraceInfo(str2);
+            if (sDebug) {
+                Log.w(str, prefixTraceInfo);
+            } else if (GlobalParam.getInstance().getLogger() != null) {
+                GlobalParam.getInstance().getLogger().w(str, prefixTraceInfo);
+            }
         }
     }
 

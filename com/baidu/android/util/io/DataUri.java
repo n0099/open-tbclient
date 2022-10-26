@@ -55,28 +55,28 @@ public class DataUri {
             String substring = str.substring(5, indexOf);
             String substring2 = str.substring(indexOf + 1);
             String[] split = substring.split(ParamableElem.DIVIDE_PARAM);
-            if (split.length == 2 && "base64".equalsIgnoreCase(split[1])) {
-                try {
-                    str2 = URLDecoder.decode(split[0], "UTF-8");
-                } catch (UnsupportedEncodingException e) {
-                    e.printStackTrace();
-                    str2 = null;
-                }
-                if (str2 == null) {
-                    str2 = split[0];
-                }
-                try {
-                    bArr = Base64.decodeBase64(substring2);
-                } catch (IllegalArgumentException e2) {
-                    e2.printStackTrace();
-                    bArr = null;
-                }
-                if (bArr != null) {
-                    return new DataUri(str2, bArr);
-                }
+            if (split.length != 2 || !"base64".equalsIgnoreCase(split[1])) {
                 return null;
             }
-            return null;
+            try {
+                str2 = URLDecoder.decode(split[0], "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+                str2 = null;
+            }
+            if (str2 == null) {
+                str2 = split[0];
+            }
+            try {
+                bArr = Base64.decodeBase64(substring2);
+            } catch (IllegalArgumentException e2) {
+                e2.printStackTrace();
+                bArr = null;
+            }
+            if (bArr == null) {
+                return null;
+            }
+            return new DataUri(str2, bArr);
         }
         return (DataUri) invokeL.objValue;
     }
@@ -84,12 +84,18 @@ public class DataUri {
     public byte[] getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mData : (byte[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mData;
+        }
+        return (byte[]) invokeV.objValue;
     }
 
     public String getMimeType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mMimeType : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mMimeType;
+        }
+        return (String) invokeV.objValue;
     }
 }

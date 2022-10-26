@@ -1,6 +1,5 @@
 package com.sdk.a;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.Network;
@@ -15,7 +14,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
-@SuppressLint({"NewApi"})
 /* loaded from: classes8.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic = null;
@@ -101,15 +99,22 @@ public class b {
 
     public HttpURLConnection a() {
         InterceptResult invokeV;
+        boolean z;
         HttpURLConnection httpURLConnection;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             do {
                 if (System.currentTimeMillis() - currentTimeMillis > 2000) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (!z) {
+                    httpURLConnection = this.f;
+                } else {
                     return null;
                 }
-                httpURLConnection = this.f;
             } while (httpURLConnection == null);
             return httpURLConnection;
         }

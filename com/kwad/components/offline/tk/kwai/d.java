@@ -1,7 +1,6 @@
 package com.kwad.components.offline.tk.kwai;
 
 import android.view.View;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,7 +17,7 @@ public final class d implements h {
     public transient /* synthetic */ FieldHolder $fh;
     public final IOfflineCompoTachikomaView Qq;
 
-    public d(@NonNull IOfflineCompoTachikomaView iOfflineCompoTachikomaView) {
+    public d(IOfflineCompoTachikomaView iOfflineCompoTachikomaView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

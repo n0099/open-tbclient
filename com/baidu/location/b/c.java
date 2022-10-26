@@ -1,6 +1,5 @@
 package com.baidu.location.b;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiInfo;
@@ -45,7 +44,7 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
-    public static Class<?> i;
+    public static Class i;
     public static char[] r;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
@@ -165,7 +164,7 @@ public class c {
                         e2.printStackTrace();
                     }
                 }
-                Map<String, Object> map = this.k;
+                Map map = this.k;
                 if (map != null) {
                     map.clear();
                 }
@@ -178,13 +177,13 @@ public class c {
     public class C0100c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<ScanResult> a;
+        public List a;
         public String b;
         public final /* synthetic */ c c;
         public long d;
         public String e;
 
-        public C0100c(c cVar, List<ScanResult> list) {
+        public C0100c(c cVar, List list) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -230,7 +229,7 @@ public class c {
                 if (r0 >= r1) goto Lc
                 return
             Lc:
-                java.util.List<android.net.wifi.ScanResult> r0 = r7.a
+                java.util.List r0 = r7.a
                 int r0 = r0.size()
                 int r0 = r0 - r1
                 r2 = 1
@@ -241,29 +240,29 @@ public class c {
                 r3 = 0
             L1a:
                 if (r2 >= r0) goto L5e
-                java.util.List<android.net.wifi.ScanResult> r4 = r7.a
+                java.util.List r4 = r7.a
                 java.lang.Object r4 = r4.get(r2)
                 if (r4 == 0) goto L5b
-                java.util.List<android.net.wifi.ScanResult> r4 = r7.a
+                java.util.List r4 = r7.a
                 int r5 = r2 + 1
                 java.lang.Object r4 = r4.get(r5)
                 if (r4 == 0) goto L5b
-                java.util.List<android.net.wifi.ScanResult> r4 = r7.a
+                java.util.List r4 = r7.a
                 java.lang.Object r4 = r4.get(r2)
                 android.net.wifi.ScanResult r4 = (android.net.wifi.ScanResult) r4
                 int r4 = r4.level
-                java.util.List<android.net.wifi.ScanResult> r6 = r7.a
+                java.util.List r6 = r7.a
                 java.lang.Object r6 = r6.get(r5)
                 android.net.wifi.ScanResult r6 = (android.net.wifi.ScanResult) r6
                 int r6 = r6.level
                 if (r4 >= r6) goto L5b
-                java.util.List<android.net.wifi.ScanResult> r3 = r7.a
+                java.util.List r3 = r7.a
                 java.lang.Object r3 = r3.get(r5)
                 android.net.wifi.ScanResult r3 = (android.net.wifi.ScanResult) r3
-                java.util.List<android.net.wifi.ScanResult> r4 = r7.a
+                java.util.List r4 = r7.a
                 java.lang.Object r6 = r4.get(r2)
                 r4.set(r5, r6)
-                java.util.List<android.net.wifi.ScanResult> r4 = r7.a
+                java.util.List r4 = r7.a
                 r4.set(r2, r3)
                 r3 = 1
             L5b:
@@ -289,7 +288,7 @@ public class c {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                List<ScanResult> list = this.a;
+                List list = this.a;
                 if (list == null) {
                     return 0;
                 }
@@ -352,7 +351,7 @@ public class c {
                             str2 = "";
                             break;
                         }
-                        if (this.a.get(i2).level != 0) {
+                        if (((ScanResult) this.a.get(i2)).level != 0) {
                             i6++;
                             if (z2) {
                                 stringBuffer.append("&wf=");
@@ -360,12 +359,12 @@ public class c {
                             } else {
                                 stringBuffer.append("|");
                             }
-                            String replace = this.a.get(i2).BSSID.replace(":", "");
+                            String replace = ((ScanResult) this.a.get(i2)).BSSID.replace(":", "");
                             stringBuffer.append(replace);
                             if (str4 != null && replace.equals(str4)) {
                                 i8 = i6;
                             }
-                            int i9 = this.a.get(i2).level;
+                            int i9 = ((ScanResult) this.a.get(i2)).level;
                             if (i9 < 0) {
                                 i9 = -i9;
                             }
@@ -381,7 +380,7 @@ public class c {
                                     str2 = "";
                                 }
                                 try {
-                                    j2 = (j - this.a.get(i2).timestamp) / 1000000;
+                                    j2 = (j - ((ScanResult) this.a.get(i2)).timestamp) / 1000000;
                                 } catch (Throwable unused3) {
                                     j2 = 0;
                                     arrayList.add(Long.valueOf(j2));
@@ -632,7 +631,6 @@ public class c {
      */
     /* JADX WARN: Removed duplicated region for block: B:39:0x011b A[ADDED_TO_REGION] */
     /* JADX WARN: Removed duplicated region for block: B:42:0x0121 A[Catch: Exception -> 0x015f, TRY_LEAVE, TryCatch #0 {Exception -> 0x015f, blocks: (B:40:0x011d, B:42:0x0121), top: B:52:0x011d }] */
-    @SuppressLint({"NewApi"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -774,7 +772,7 @@ public class c {
                     return;
                 }
             }
-            Class<?> cls = i;
+            Class cls = i;
             if (cls != null && cls.isInstance(cellLocation)) {
                 try {
                     int systemId = ((CdmaCellLocation) cellLocation).getSystemId();
@@ -876,7 +874,6 @@ public class c {
         }
     }
 
-    @SuppressLint({"NewApi"})
     private com.baidu.location.c.a d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

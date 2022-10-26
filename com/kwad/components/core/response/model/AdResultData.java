@@ -1,8 +1,6 @@
 package com.kwad.components.core.response.model;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,6 +20,7 @@ import com.kwad.sdk.utils.ax;
 import com.kwad.sdk.utils.r;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
@@ -33,10 +32,9 @@ public class AdResultData extends BaseResultData implements b {
     public static final String TAG = "AdResultData";
     public static final long serialVersionUID = -818939163644825380L;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<AdTemplate> mAdTemplateList;
-    @Nullable
+    public List mAdTemplateList;
     public String mOriginalJson;
-    public Map<Long, SceneImpl> mRequestAdSceneMap;
+    public Map mRequestAdSceneMap;
     public PageInfo pageInfo;
     public String pcursor;
 
@@ -82,7 +80,7 @@ public class AdResultData extends BaseResultData implements b {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AdResultData(BaseResultData baseResultData, KsScene ksScene, List<AdTemplate> list) {
+    public AdResultData(BaseResultData baseResultData, KsScene ksScene, List list) {
         this(ksScene);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -105,7 +103,7 @@ public class AdResultData extends BaseResultData implements b {
         }
     }
 
-    public AdResultData(List<KsScene> list) {
+    public AdResultData(List list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -139,9 +137,8 @@ public class AdResultData extends BaseResultData implements b {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @NonNull
     /* renamed from: clone */
-    public AdResultData m84clone() {
+    public AdResultData m83clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -161,14 +158,14 @@ public class AdResultData extends BaseResultData implements b {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
-            Map<Long, SceneImpl> map = this.mRequestAdSceneMap;
-            SceneImpl sceneImpl = map != null ? map.get(Long.valueOf(j)) : null;
+            Map map = this.mRequestAdSceneMap;
+            SceneImpl sceneImpl = map != null ? (SceneImpl) map.get(Long.valueOf(j)) : null;
             return sceneImpl == null ? new SceneImpl(j) : sceneImpl;
         }
         return (SceneImpl) invokeJ.objValue;
     }
 
-    public List<AdTemplate> getAdTemplateList() {
+    public List getAdTemplateList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mAdTemplateList : (List) invokeV.objValue;
@@ -184,11 +181,11 @@ public class AdResultData extends BaseResultData implements b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            List<AdTemplate> adTemplateList = getAdTemplateList();
+            List adTemplateList = getAdTemplateList();
             if (adTemplateList == null || adTemplateList.size() == 0) {
                 return null;
             }
-            return adTemplateList.get(0);
+            return (AdTemplate) adTemplateList.get(0);
         }
         return (AdTemplate) invokeV.objValue;
     }
@@ -197,32 +194,31 @@ public class AdResultData extends BaseResultData implements b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            List<AdTemplate> proceedTemplateList = getProceedTemplateList();
+            List proceedTemplateList = getProceedTemplateList();
             if (proceedTemplateList.size() == 0) {
                 return 0L;
             }
-            return proceedTemplateList.get(0).posId;
+            return ((AdTemplate) proceedTemplateList.get(0)).posId;
         }
         return invokeV.longValue;
     }
 
-    @NonNull
-    public List<AdTemplate> getProceedTemplateList() {
+    public List getProceedTemplateList() {
         InterceptResult invokeV;
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            List<AdTemplate> adTemplateList = getAdTemplateList();
+            List adTemplateList = getAdTemplateList();
             if (adTemplateList == null) {
                 return arrayList;
             }
             int size = adTemplateList.size();
             int i2 = 0;
             while (i2 < size) {
-                AdTemplate adTemplate = adTemplateList.get(i2);
+                AdTemplate adTemplate = (AdTemplate) adTemplateList.get(i2);
                 if (com.kwad.sdk.core.response.a.b.bx(adTemplate) && (i = i2 + 1) < size) {
-                    AdTemplate adTemplate2 = adTemplateList.get(i);
+                    AdTemplate adTemplate2 = (AdTemplate) adTemplateList.get(i);
                     adTemplate.mPlayAgain = adTemplate2;
                     adTemplate2.isPlayAgainData = true;
                     i2 = i;
@@ -257,15 +253,15 @@ public class AdResultData extends BaseResultData implements b {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            List<AdTemplate> adTemplateList = getAdTemplateList();
+            List adTemplateList = getAdTemplateList();
             if (adTemplateList.isEmpty()) {
                 str = "adTemplateList is empty";
             } else {
                 com.kwad.sdk.core.e.b.d(TAG, "adTemplateList size = " + adTemplateList.size());
-                List<AdInfo> list = adTemplateList.get(0).adInfoList;
+                List list = ((AdTemplate) adTemplateList.get(0)).adInfoList;
                 if (list.isEmpty()) {
                     str = "adInfoList is empty";
-                } else if (list.get(0) != null) {
+                } else if (((AdInfo) list.get(0)) != null) {
                     return false;
                 } else {
                     str = "adInfo is null";
@@ -281,8 +277,8 @@ public class AdResultData extends BaseResultData implements b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            List<AdTemplate> proceedTemplateList = getProceedTemplateList();
-            return proceedTemplateList.size() != 0 && com.kwad.sdk.core.response.a.d.cf(proceedTemplateList.get(0)) > 0;
+            List proceedTemplateList = getProceedTemplateList();
+            return proceedTemplateList.size() != 0 && com.kwad.sdk.core.response.a.d.cf((AdTemplate) proceedTemplateList.get(0)) > 0;
         }
         return invokeV.booleanValue;
     }
@@ -351,20 +347,22 @@ public class AdResultData extends BaseResultData implements b {
         }
     }
 
-    public void setAdTemplateList(List<AdTemplate> list) {
+    public void setAdTemplateList(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, list) == null) {
             this.mAdTemplateList = list;
         }
     }
 
-    public void setRequestAdSceneList(List<KsScene> list) {
+    public void setRequestAdSceneList(List list) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048590, this, list) == null) || list == null) {
             return;
         }
         this.mRequestAdSceneMap = new HashMap(list.size());
-        for (KsScene ksScene : list) {
+        Iterator it = list.iterator();
+        while (it.hasNext()) {
+            KsScene ksScene = (KsScene) it.next();
             if (ksScene != null) {
                 this.mRequestAdSceneMap.put(Long.valueOf(ksScene.getPosId()), (SceneImpl) ksScene);
             }

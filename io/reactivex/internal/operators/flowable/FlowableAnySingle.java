@@ -18,22 +18,22 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableAnySingle<T> extends Single<Boolean> implements FuseToFlowable<Boolean> {
+public final class FlowableAnySingle extends Single implements FuseToFlowable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Predicate<? super T> predicate;
-    public final Flowable<T> source;
+    public final Predicate predicate;
+    public final Flowable source;
 
     /* loaded from: classes8.dex */
-    public static final class AnySubscriber<T> implements FlowableSubscriber<T>, Disposable {
+    public final class AnySubscriber implements FlowableSubscriber, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SingleObserver<? super Boolean> actual;
+        public final SingleObserver actual;
         public boolean done;
-        public final Predicate<? super T> predicate;
+        public final Predicate predicate;
         public Subscription s;
 
-        public AnySubscriber(SingleObserver<? super Boolean> singleObserver, Predicate<? super T> predicate) {
+        public AnySubscriber(SingleObserver singleObserver, Predicate predicate) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -65,18 +65,23 @@ public final class FlowableAnySingle<T> extends Single<Boolean> implements FuseT
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.s == SubscriptionHelper.CANCELLED : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (this.s == SubscriptionHelper.CANCELLED) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // org.reactivestreams.Subscriber
         public void onComplete() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.done) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && !this.done) {
+                this.done = true;
+                this.s = SubscriptionHelper.CANCELLED;
+                this.actual.onSuccess(Boolean.FALSE);
             }
-            this.done = true;
-            this.s = SubscriptionHelper.CANCELLED;
-            this.actual.onSuccess(Boolean.FALSE);
         }
 
         @Override // org.reactivestreams.Subscriber
@@ -93,14 +98,24 @@ public final class FlowableAnySingle<T> extends Single<Boolean> implements FuseT
             }
         }
 
-        @Override // org.reactivestreams.Subscriber
-        public void onNext(T t) {
+        @Override // io.reactivex.FlowableSubscriber, org.reactivestreams.Subscriber
+        public void onSubscribe(Subscription subscription) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048580, this, t) == null) || this.done) {
+            if ((interceptable == null || interceptable.invokeL(1048581, this, subscription) == null) && SubscriptionHelper.validate(this.s, subscription)) {
+                this.s = subscription;
+                this.actual.onSubscribe(this);
+                subscription.request(Long.MAX_VALUE);
+            }
+        }
+
+        @Override // org.reactivestreams.Subscriber
+        public void onNext(Object obj) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048580, this, obj) != null) || this.done) {
                 return;
             }
             try {
-                if (this.predicate.test(t)) {
+                if (this.predicate.test(obj)) {
                     this.done = true;
                     this.s.cancel();
                     this.s = SubscriptionHelper.CANCELLED;
@@ -113,19 +128,9 @@ public final class FlowableAnySingle<T> extends Single<Boolean> implements FuseT
                 onError(th);
             }
         }
-
-        @Override // io.reactivex.FlowableSubscriber, org.reactivestreams.Subscriber
-        public void onSubscribe(Subscription subscription) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048581, this, subscription) == null) && SubscriptionHelper.validate(this.s, subscription)) {
-                this.s = subscription;
-                this.actual.onSubscribe(this);
-                subscription.request(Long.MAX_VALUE);
-            }
-        }
     }
 
-    public FlowableAnySingle(Flowable<T> flowable, Predicate<? super T> predicate) {
+    public FlowableAnySingle(Flowable flowable, Predicate predicate) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -145,14 +150,17 @@ public final class FlowableAnySingle<T> extends Single<Boolean> implements FuseT
     }
 
     @Override // io.reactivex.internal.fuseable.FuseToFlowable
-    public Flowable<Boolean> fuseToFlowable() {
+    public Flowable fuseToFlowable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? RxJavaPlugins.onAssembly(new FlowableAny(this.source, this.predicate)) : (Flowable) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return RxJavaPlugins.onAssembly(new FlowableAny(this.source, this.predicate));
+        }
+        return (Flowable) invokeV.objValue;
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver<? super Boolean> singleObserver) {
+    public void subscribeActual(SingleObserver singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, singleObserver) == null) {
             this.source.subscribe((FlowableSubscriber) new AnySubscriber(singleObserver, this.predicate));

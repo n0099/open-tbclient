@@ -7,10 +7,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
-import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -46,6 +42,16 @@ public final class RemoteInput {
     public final CharSequence mLabel;
     public final String mResultKey;
 
+    @Retention(RetentionPolicy.SOURCE)
+    /* loaded from: classes.dex */
+    public @interface EditChoicesBeforeSending {
+    }
+
+    @Retention(RetentionPolicy.SOURCE)
+    /* loaded from: classes.dex */
+    public @interface Source {
+    }
+
     /* loaded from: classes.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
@@ -58,7 +64,7 @@ public final class RemoteInput {
         public CharSequence mLabel;
         public final String mResultKey;
 
-        public Builder(@NonNull String str) {
+        public Builder(String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -84,8 +90,7 @@ public final class RemoteInput {
             throw new IllegalArgumentException("Result key can't be null");
         }
 
-        @NonNull
-        public Builder addExtras(@NonNull Bundle bundle) {
+        public Builder addExtras(Bundle bundle) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
@@ -97,22 +102,65 @@ public final class RemoteInput {
             return (Builder) invokeL.objValue;
         }
 
-        @NonNull
+        public Builder setAllowFreeFormInput(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
+                this.mAllowFreeFormTextInput = z;
+                return this;
+            }
+            return (Builder) invokeZ.objValue;
+        }
+
+        public Builder setChoices(CharSequence[] charSequenceArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, charSequenceArr)) == null) {
+                this.mChoices = charSequenceArr;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
+        }
+
+        public Builder setEditChoicesBeforeSending(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+                this.mEditChoicesBeforeSending = i;
+                return this;
+            }
+            return (Builder) invokeI.objValue;
+        }
+
+        public Builder setLabel(CharSequence charSequence) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, charSequence)) == null) {
+                this.mLabel = charSequence;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
+        }
+
         public RemoteInput build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new RemoteInput(this.mResultKey, this.mLabel, this.mChoices, this.mAllowFreeFormTextInput, this.mEditChoicesBeforeSending, this.mExtras, this.mAllowedDataTypes) : (RemoteInput) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return new RemoteInput(this.mResultKey, this.mLabel, this.mChoices, this.mAllowFreeFormTextInput, this.mEditChoicesBeforeSending, this.mExtras, this.mAllowedDataTypes);
+            }
+            return (RemoteInput) invokeV.objValue;
         }
 
-        @NonNull
         public Bundle getExtras() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mExtras : (Bundle) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.mExtras;
+            }
+            return (Bundle) invokeV.objValue;
         }
 
-        @NonNull
-        public Builder setAllowDataType(@NonNull String str, boolean z) {
+        public Builder setAllowDataType(String str, boolean z) {
             InterceptResult invokeLZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, str, z)) == null) {
@@ -125,62 +173,6 @@ public final class RemoteInput {
             }
             return (Builder) invokeLZ.objValue;
         }
-
-        @NonNull
-        public Builder setAllowFreeFormInput(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
-                this.mAllowFreeFormTextInput = z;
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
-        }
-
-        @NonNull
-        public Builder setChoices(@Nullable CharSequence[] charSequenceArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, charSequenceArr)) == null) {
-                this.mChoices = charSequenceArr;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
-        }
-
-        @NonNull
-        public Builder setEditChoicesBeforeSending(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-                this.mEditChoicesBeforeSending = i;
-                return this;
-            }
-            return (Builder) invokeI.objValue;
-        }
-
-        @NonNull
-        public Builder setLabel(@Nullable CharSequence charSequence) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, charSequence)) == null) {
-                this.mLabel = charSequence;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
-        }
-    }
-
-    @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    /* loaded from: classes.dex */
-    public @interface EditChoicesBeforeSending {
-    }
-
-    @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    /* loaded from: classes.dex */
-    public @interface Source {
     }
 
     public RemoteInput(String str, CharSequence charSequence, CharSequence[] charSequenceArr, boolean z, int i, Bundle bundle, Set<String> set) {
@@ -282,7 +274,19 @@ public final class RemoteInput {
         }
     }
 
-    @RequiresApi(20)
+    public static android.app.RemoteInput fromCompat(RemoteInput remoteInput) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, remoteInput)) == null) {
+            RemoteInput.Builder addExtras = new RemoteInput.Builder(remoteInput.getResultKey()).setLabel(remoteInput.getLabel()).setChoices(remoteInput.getChoices()).setAllowFreeFormInput(remoteInput.getAllowFreeFormInput()).addExtras(remoteInput.getExtras());
+            if (Build.VERSION.SDK_INT >= 29) {
+                addExtras.setEditChoicesBeforeSending(remoteInput.getEditChoicesBeforeSending());
+            }
+            return addExtras.build();
+        }
+        return (android.app.RemoteInput) invokeL.objValue;
+    }
+
     public static android.app.RemoteInput[] fromCompat(RemoteInput[] remoteInputArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -299,7 +303,15 @@ public final class RemoteInput {
         return (android.app.RemoteInput[]) invokeL.objValue;
     }
 
-    @RequiresApi(16)
+    public static String getExtraResultsKeyForData(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            return EXTRA_DATA_TYPE_RESULTS_DATA + str;
+        }
+        return (String) invokeL.objValue;
+    }
+
     public static Intent getClipDataIntentFromIntent(Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -309,12 +321,46 @@ public final class RemoteInput {
                 return null;
             }
             ClipDescription description = clipData.getDescription();
-            if (description.hasMimeType("text/vnd.android.intent") && description.getLabel().toString().contentEquals(RESULTS_CLIP_LABEL)) {
-                return clipData.getItemAt(0).getIntent();
+            if (!description.hasMimeType("text/vnd.android.intent") || !description.getLabel().toString().contentEquals(RESULTS_CLIP_LABEL)) {
+                return null;
             }
-            return null;
+            return clipData.getItemAt(0).getIntent();
         }
         return (Intent) invokeL.objValue;
+    }
+
+    public static Bundle getResultsFromIntent(Intent intent) {
+        InterceptResult invokeL;
+        Intent clipDataIntentFromIntent;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, intent)) == null) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 20) {
+                return android.app.RemoteInput.getResultsFromIntent(intent);
+            }
+            if (i < 16 || (clipDataIntentFromIntent = getClipDataIntentFromIntent(intent)) == null) {
+                return null;
+            }
+            return (Bundle) clipDataIntentFromIntent.getExtras().getParcelable(EXTRA_RESULTS_DATA);
+        }
+        return (Bundle) invokeL.objValue;
+    }
+
+    public static int getResultsSource(Intent intent) {
+        InterceptResult invokeL;
+        Intent clipDataIntentFromIntent;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, intent)) == null) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 28) {
+                return android.app.RemoteInput.getResultsSource(intent);
+            }
+            if (i < 16 || (clipDataIntentFromIntent = getClipDataIntentFromIntent(intent)) == null) {
+                return 0;
+            }
+            return clipDataIntentFromIntent.getExtras().getInt(EXTRA_RESULTS_SOURCE, 0);
+        }
+        return invokeL.intValue;
     }
 
     public static Map<String, Uri> getDataResultsFromIntent(Intent intent, String str) {
@@ -347,50 +393,7 @@ public final class RemoteInput {
         return (Map) invokeLL.objValue;
     }
 
-    public static String getExtraResultsKeyForData(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            return EXTRA_DATA_TYPE_RESULTS_DATA + str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static Bundle getResultsFromIntent(Intent intent) {
-        InterceptResult invokeL;
-        Intent clipDataIntentFromIntent;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, intent)) == null) {
-            int i = Build.VERSION.SDK_INT;
-            if (i >= 20) {
-                return android.app.RemoteInput.getResultsFromIntent(intent);
-            }
-            if (i < 16 || (clipDataIntentFromIntent = getClipDataIntentFromIntent(intent)) == null) {
-                return null;
-            }
-            return (Bundle) clipDataIntentFromIntent.getExtras().getParcelable(EXTRA_RESULTS_DATA);
-        }
-        return (Bundle) invokeL.objValue;
-    }
-
-    public static int getResultsSource(@NonNull Intent intent) {
-        InterceptResult invokeL;
-        Intent clipDataIntentFromIntent;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, intent)) == null) {
-            int i = Build.VERSION.SDK_INT;
-            if (i >= 28) {
-                return android.app.RemoteInput.getResultsSource(intent);
-            }
-            if (i < 16 || (clipDataIntentFromIntent = getClipDataIntentFromIntent(intent)) == null) {
-                return 0;
-            }
-            return clipDataIntentFromIntent.getExtras().getInt(EXTRA_RESULTS_SOURCE, 0);
-        }
-        return invokeL.intValue;
-    }
-
-    public static void setResultsSource(@NonNull Intent intent, int i) {
+    public static void setResultsSource(Intent intent, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65546, null, intent, i) == null) {
             int i2 = Build.VERSION.SDK_INT;
@@ -410,62 +413,75 @@ public final class RemoteInput {
     public boolean getAllowFreeFormInput() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mAllowFreeFormTextInput : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mAllowFreeFormTextInput;
+        }
+        return invokeV.booleanValue;
     }
 
     public Set<String> getAllowedDataTypes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mAllowedDataTypes : (Set) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mAllowedDataTypes;
+        }
+        return (Set) invokeV.objValue;
     }
 
     public CharSequence[] getChoices() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mChoices : (CharSequence[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mChoices;
+        }
+        return (CharSequence[]) invokeV.objValue;
     }
 
     public int getEditChoicesBeforeSending() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mEditChoicesBeforeSending : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mEditChoicesBeforeSending;
+        }
+        return invokeV.intValue;
     }
 
     public Bundle getExtras() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mExtras : (Bundle) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mExtras;
+        }
+        return (Bundle) invokeV.objValue;
     }
 
     public CharSequence getLabel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mLabel : (CharSequence) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mLabel;
+        }
+        return (CharSequence) invokeV.objValue;
     }
 
     public String getResultKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mResultKey : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mResultKey;
+        }
+        return (String) invokeV.objValue;
     }
 
     public boolean isDataOnly() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? (getAllowFreeFormInput() || (getChoices() != null && getChoices().length != 0) || getAllowedDataTypes() == null || getAllowedDataTypes().isEmpty()) ? false : true : invokeV.booleanValue;
-    }
-
-    @RequiresApi(20)
-    public static android.app.RemoteInput fromCompat(RemoteInput remoteInput) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, remoteInput)) == null) {
-            RemoteInput.Builder addExtras = new RemoteInput.Builder(remoteInput.getResultKey()).setLabel(remoteInput.getLabel()).setChoices(remoteInput.getChoices()).setAllowFreeFormInput(remoteInput.getAllowFreeFormInput()).addExtras(remoteInput.getExtras());
-            if (Build.VERSION.SDK_INT >= 29) {
-                addExtras.setEditChoicesBeforeSending(remoteInput.getEditChoicesBeforeSending());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (!getAllowFreeFormInput() && ((getChoices() == null || getChoices().length == 0) && getAllowedDataTypes() != null && !getAllowedDataTypes().isEmpty())) {
+                return true;
             }
-            return addExtras.build();
+            return false;
         }
-        return (android.app.RemoteInput) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 }

@@ -25,7 +25,7 @@ public class v {
     }
 
     /* loaded from: classes2.dex */
-    public static class a {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public static v a;
         public transient /* synthetic */ FieldHolder $fh;

@@ -15,28 +15,28 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.NoSuchElementException;
 /* loaded from: classes8.dex */
-public final class ObservableSingleSingle<T> extends Single<T> {
+public final class ObservableSingleSingle extends Single {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final T defaultValue;
-    public final ObservableSource<? extends T> source;
+    public final Object defaultValue;
+    public final ObservableSource source;
 
     /* loaded from: classes8.dex */
-    public static final class SingleElementObserver<T> implements Observer<T>, Disposable {
+    public final class SingleElementObserver implements Observer, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SingleObserver<? super T> actual;
-        public final T defaultValue;
+        public final SingleObserver actual;
+        public final Object defaultValue;
         public boolean done;
         public Disposable s;
-        public T value;
+        public Object value;
 
-        public SingleElementObserver(SingleObserver<? super T> singleObserver, T t) {
+        public SingleElementObserver(SingleObserver singleObserver, Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {singleObserver, t};
+                Object[] objArr = {singleObserver, obj};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -47,7 +47,7 @@ public final class ObservableSingleSingle<T> extends Single<T> {
                 }
             }
             this.actual = singleObserver;
-            this.defaultValue = t;
+            this.defaultValue = obj;
         }
 
         @Override // io.reactivex.disposables.Disposable
@@ -62,23 +62,26 @@ public final class ObservableSingleSingle<T> extends Single<T> {
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.s.isDisposed() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.s.isDisposed();
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.Observer
         public void onComplete() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.done) {
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.done) {
                 return;
             }
             this.done = true;
-            T t = this.value;
+            Object obj = this.value;
             this.value = null;
-            if (t == null) {
-                t = this.defaultValue;
+            if (obj == null) {
+                obj = this.defaultValue;
             }
-            if (t != null) {
-                this.actual.onSuccess(t);
+            if (obj != null) {
+                this.actual.onSuccess(obj);
             } else {
                 this.actual.onError(new NoSuchElementException());
             }
@@ -98,9 +101,9 @@ public final class ObservableSingleSingle<T> extends Single<T> {
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048580, this, t) == null) || this.done) {
+            if ((interceptable != null && interceptable.invokeL(1048580, this, obj) != null) || this.done) {
                 return;
             }
             if (this.value != null) {
@@ -109,7 +112,7 @@ public final class ObservableSingleSingle<T> extends Single<T> {
                 this.actual.onError(new IllegalArgumentException("Sequence contains more than one element!"));
                 return;
             }
-            this.value = t;
+            this.value = obj;
         }
 
         @Override // io.reactivex.Observer
@@ -122,12 +125,12 @@ public final class ObservableSingleSingle<T> extends Single<T> {
         }
     }
 
-    public ObservableSingleSingle(ObservableSource<? extends T> observableSource, T t) {
+    public ObservableSingleSingle(ObservableSource observableSource, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {observableSource, t};
+            Object[] objArr = {observableSource, obj};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -138,11 +141,11 @@ public final class ObservableSingleSingle<T> extends Single<T> {
             }
         }
         this.source = observableSource;
-        this.defaultValue = t;
+        this.defaultValue = obj;
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver<? super T> singleObserver) {
+    public void subscribeActual(SingleObserver singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, singleObserver) == null) {
             this.source.subscribe(new SingleElementObserver(singleObserver, this.defaultValue));

@@ -15,5 +15,5 @@ public interface IWebSocketListener {
 
     void onMessage(ByteBuffer byteBuffer);
 
-    void onOpen(Map<String, String> map);
+    void onOpen(Map map);
 }

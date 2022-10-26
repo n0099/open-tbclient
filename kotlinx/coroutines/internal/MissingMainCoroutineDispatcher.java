@@ -4,7 +4,6 @@ import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteHel
 import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.yy.gslbsdk.db.DelayTB;
 import kotlin.Metadata;
-import kotlin.Unit;
 import kotlin.coroutines.Continuation;
 import kotlin.coroutines.CoroutineContext;
 import kotlin.jvm.internal.DefaultConstructorMarker;
@@ -17,6 +16,42 @@ import kotlinx.coroutines.MainCoroutineDispatcher;
 public final class MissingMainCoroutineDispatcher extends MainCoroutineDispatcher implements Delay {
     public final Throwable cause;
     public final String errorHint;
+
+    @Override // kotlinx.coroutines.MainCoroutineDispatcher
+    public MainCoroutineDispatcher getImmediate() {
+        return this;
+    }
+
+    public MissingMainCoroutineDispatcher(Throwable th, String str) {
+        this.cause = th;
+        this.errorHint = str;
+    }
+
+    @Override // kotlinx.coroutines.Delay
+    public Object delay(long j, Continuation continuation) {
+        missing();
+        throw null;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // kotlinx.coroutines.CoroutineDispatcher
+    public Void dispatch(CoroutineContext coroutineContext, Runnable runnable) {
+        missing();
+        throw null;
+    }
+
+    @Override // kotlinx.coroutines.Delay
+    public DisposableHandle invokeOnTimeout(long j, Runnable runnable) {
+        missing();
+        throw null;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // kotlinx.coroutines.Delay
+    public Void scheduleResumeAfterDelay(long j, CancellableContinuation cancellableContinuation) {
+        missing();
+        throw null;
+    }
 
     public /* synthetic */ MissingMainCoroutineDispatcher(Throwable th, String str, int i, DefaultConstructorMarker defaultConstructorMarker) {
         this(th, (i & 2) != 0 ? null : str);
@@ -45,32 +80,10 @@ public final class MissingMainCoroutineDispatcher extends MainCoroutineDispatche
         throw null;
     }
 
-    @Override // kotlinx.coroutines.Delay
-    public Object delay(long j, Continuation<? super Unit> continuation) {
-        missing();
-        throw null;
-    }
-
-    @Override // kotlinx.coroutines.MainCoroutineDispatcher
-    public MainCoroutineDispatcher getImmediate() {
-        return this;
-    }
-
-    @Override // kotlinx.coroutines.Delay
-    public DisposableHandle invokeOnTimeout(long j, Runnable runnable) {
-        missing();
-        throw null;
-    }
-
     @Override // kotlinx.coroutines.CoroutineDispatcher
     public boolean isDispatchNeeded(CoroutineContext coroutineContext) {
         missing();
         throw null;
-    }
-
-    @Override // kotlinx.coroutines.Delay
-    public /* bridge */ /* synthetic */ void scheduleResumeAfterDelay(long j, CancellableContinuation cancellableContinuation) {
-        scheduleResumeAfterDelay(j, (CancellableContinuation<? super Unit>) cancellableContinuation);
     }
 
     @Override // kotlinx.coroutines.CoroutineDispatcher
@@ -86,23 +99,5 @@ public final class MissingMainCoroutineDispatcher extends MainCoroutineDispatche
         sb.append(str);
         sb.append(']');
         return sb.toString();
-    }
-
-    public MissingMainCoroutineDispatcher(Throwable th, String str) {
-        this.cause = th;
-        this.errorHint = str;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // kotlinx.coroutines.CoroutineDispatcher
-    public Void dispatch(CoroutineContext coroutineContext, Runnable runnable) {
-        missing();
-        throw null;
-    }
-
-    @Override // kotlinx.coroutines.Delay
-    public Void scheduleResumeAfterDelay(long j, CancellableContinuation<? super Unit> cancellableContinuation) {
-        missing();
-        throw null;
     }
 }

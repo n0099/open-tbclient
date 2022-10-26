@@ -16,6 +16,8 @@ public abstract class AbstractBceRequest {
     public boolean canceled;
     public BceCredentials credentials;
 
+    public abstract AbstractBceRequest withRequestCredentials(BceCredentials bceCredentials);
+
     public AbstractBceRequest() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -46,13 +48,19 @@ public abstract class AbstractBceRequest {
     public boolean getCanceled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.canceled : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.canceled;
+        }
+        return invokeV.booleanValue;
     }
 
     public BceCredentials getRequestCredentials() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.credentials : (BceCredentials) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.credentials;
+        }
+        return (BceCredentials) invokeV.objValue;
     }
 
     public boolean isCanceled() {
@@ -81,6 +89,4 @@ public abstract class AbstractBceRequest {
             this.credentials = bceCredentials;
         }
     }
-
-    public abstract AbstractBceRequest withRequestCredentials(BceCredentials bceCredentials);
 }

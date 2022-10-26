@@ -53,7 +53,7 @@ public class LoadAnimStrategy {
     public int pullEndFrame;
 
     /* loaded from: classes2.dex */
-    public static class Holder {
+    public class Holder {
         public static /* synthetic */ Interceptable $ic;
         public static final LoadAnimStrategy INSTANCE;
         public transient /* synthetic */ FieldHolder $fh;

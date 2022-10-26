@@ -1,30 +1,23 @@
 package com.bun.miitmdid;
 
 import android.content.Context;
-import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bun.lib.MsaIdInterface;
-@Keep
 /* loaded from: classes7.dex */
 public class d0 extends m {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Keep
     public Context n;
-    @Keep
     public String o;
-    @Keep
     public a0 p;
 
-    @Keep
     /* loaded from: classes7.dex */
     public class a implements b0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        @Keep
         public final /* synthetic */ d0 a;
 
         public a(d0 d0Var) {
@@ -46,7 +39,6 @@ public class d0 extends m {
         }
 
         @Override // com.bun.miitmdid.b0
-        @Keep
         public native void a(MsaIdInterface msaIdInterface);
     }
 
@@ -85,10 +77,8 @@ public class d0 extends m {
     }
 
     @Override // com.bun.miitmdid.interfaces.IIdProvider
-    @Keep
     public native void doStart();
 
     @Override // com.bun.miitmdid.interfaces.IIdProvider
-    @Keep
     public native void shutDown();
 }

@@ -77,6 +77,7 @@ public final class Backend$getSClientConfig$2 extends SuspendLambda implements F
         String str4;
         String str5;
         String str6;
+        String string;
         Gson gson;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
@@ -129,7 +130,11 @@ public final class Backend$getSClientConfig$2 extends SuspendLambda implements F
                     Request build = addHeader4.addHeader("X-Client-Version", sb.toString()).addHeader("X-System-Version", Build.VERSION.RELEASE).addHeader("X-Auth-Timestamp", String.valueOf(System.currentTimeMillis())).build();
                     Intrinsics.checkNotNullExpressionValue(build, "Builder()\n              …                 .build()");
                     ResponseBody body = okHttpClient.newCall(build).execute().body();
-                    String string = body == null ? null : body.string();
+                    if (body == null) {
+                        string = null;
+                    } else {
+                        string = body.string();
+                    }
                     gson = Backend.gson;
                     return gson.fromJson(string, (Class<Object>) SClientConfig.class);
                 } catch (Exception e) {

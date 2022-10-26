@@ -12,7 +12,7 @@ import java.util.Map;
 public class LRULimitedMemoryCache extends LimitedMemoryCache {
     public static final int INITIAL_CAPACITY = 10;
     public static final float LOAD_FACTOR = 1.1f;
-    public final Map<String, DecodedResult> lruCache;
+    public final Map lruCache;
 
     public LRULimitedMemoryCache(int i) {
         super(i);
@@ -26,7 +26,7 @@ public class LRULimitedMemoryCache extends LimitedMemoryCache {
     }
 
     @Override // com.kwad.sdk.core.imageloader.cache.memory.BaseMemoryCache
-    public Reference<DecodedResult> createReference(DecodedResult decodedResult) {
+    public Reference createReference(DecodedResult decodedResult) {
         return new WeakReference(decodedResult);
     }
 
@@ -60,9 +60,9 @@ public class LRULimitedMemoryCache extends LimitedMemoryCache {
     public DecodedResult removeNext() {
         DecodedResult decodedResult;
         synchronized (this.lruCache) {
-            Iterator<Map.Entry<String, DecodedResult>> it = this.lruCache.entrySet().iterator();
+            Iterator it = this.lruCache.entrySet().iterator();
             if (it.hasNext()) {
-                decodedResult = it.next().getValue();
+                decodedResult = (DecodedResult) ((Map.Entry) it.next()).getValue();
                 it.remove();
             } else {
                 decodedResult = null;

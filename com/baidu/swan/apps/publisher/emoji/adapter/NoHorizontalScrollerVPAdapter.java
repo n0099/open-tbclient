@@ -14,9 +14,16 @@ import java.util.List;
 public class NoHorizontalScrollerVPAdapter extends PagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<View> a;
+    public List a;
 
-    public NoHorizontalScrollerVPAdapter(List<View> list) {
+    @Override // androidx.viewpager.widget.PagerAdapter
+    public boolean isViewFromObject(View view2, Object obj) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, view2, obj)) == null) ? view2 == obj : invokeLL.booleanValue;
+    }
+
+    public NoHorizontalScrollerVPAdapter(List list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -38,7 +45,7 @@ public class NoHorizontalScrollerVPAdapter extends PagerAdapter {
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048576, this, viewGroup, i, obj) == null) {
-            viewGroup.removeView(this.a.get(i));
+            viewGroup.removeView((View) this.a.get(i));
             super.destroyItem(viewGroup, i, obj);
         }
     }
@@ -47,7 +54,10 @@ public class NoHorizontalScrollerVPAdapter extends PagerAdapter {
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.size() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a.size();
+        }
+        return invokeV.intValue;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -55,16 +65,9 @@ public class NoHorizontalScrollerVPAdapter extends PagerAdapter {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) {
-            viewGroup.addView(this.a.get(i));
+            viewGroup.addView((View) this.a.get(i));
             return this.a.get(i);
         }
         return invokeLI.objValue;
-    }
-
-    @Override // androidx.viewpager.widget.PagerAdapter
-    public boolean isViewFromObject(View view2, Object obj) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, view2, obj)) == null) ? view2 == obj : invokeLL.booleanValue;
     }
 }

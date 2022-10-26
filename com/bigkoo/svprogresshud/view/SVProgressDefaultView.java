@@ -64,29 +64,6 @@ public class SVProgressDefaultView extends LinearLayout {
         }
     }
 
-    private void init() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            RotateAnimation rotateAnimation = new RotateAnimation(0.0f, 359.0f, 1, 0.5f, 1, 0.5f);
-            this.mRotateAnimation = rotateAnimation;
-            rotateAnimation.setDuration(1000L);
-            this.mRotateAnimation.setInterpolator(new LinearInterpolator());
-            this.mRotateAnimation.setRepeatCount(-1);
-            this.mRotateAnimation.setRepeatMode(1);
-        }
-    }
-
-    private void initViews() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.view_svprogressdefault, (ViewGroup) this, true);
-            this.ivBigLoading = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fee);
-            this.ivSmallLoading = (ImageView) findViewById(R.id.ivSmallLoading);
-            this.circleProgressBar = (SVCircleProgressBar) findViewById(R.id.circleProgressBar);
-            this.tvMsg = (TextView) findViewById(R.id.obfuscated_res_0x7f092355);
-        }
-    }
-
     public void dismiss() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -97,13 +74,21 @@ public class SVProgressDefaultView extends LinearLayout {
     public SVCircleProgressBar getCircleProgressBar() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.circleProgressBar : (SVCircleProgressBar) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.circleProgressBar;
+        }
+        return (SVCircleProgressBar) invokeV.objValue;
     }
 
-    public void setText(String str) {
+    private void init() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.tvMsg.setText(str);
+        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
+            RotateAnimation rotateAnimation = new RotateAnimation(0.0f, 359.0f, 1, 0.5f, 1, 0.5f);
+            this.mRotateAnimation = rotateAnimation;
+            rotateAnimation.setDuration(1000L);
+            this.mRotateAnimation.setInterpolator(new LinearInterpolator());
+            this.mRotateAnimation.setRepeatCount(-1);
+            this.mRotateAnimation.setRepeatMode(1);
         }
     }
 
@@ -120,16 +105,21 @@ public class SVProgressDefaultView extends LinearLayout {
         }
     }
 
-    public void showBaseStatus(int i, String str) {
+    private void initViews() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) {
-            clearAnimations();
-            this.ivSmallLoading.setImageResource(i);
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+            LayoutInflater.from(getContext()).inflate(R.layout.view_svprogressdefault, (ViewGroup) this, true);
+            this.ivBigLoading = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fe2);
+            this.ivSmallLoading = (ImageView) findViewById(R.id.ivSmallLoading);
+            this.circleProgressBar = (SVCircleProgressBar) findViewById(R.id.circleProgressBar);
+            this.tvMsg = (TextView) findViewById(R.id.obfuscated_res_0x7f092340);
+        }
+    }
+
+    public void setText(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             this.tvMsg.setText(str);
-            this.ivBigLoading.setVisibility(8);
-            this.circleProgressBar.setVisibility(8);
-            this.ivSmallLoading.setVisibility(0);
-            this.tvMsg.setVisibility(0);
         }
     }
 
@@ -182,6 +172,19 @@ public class SVProgressDefaultView extends LinearLayout {
             }
             showBaseStatus(this.resBigLoading, str);
             this.ivSmallLoading.startAnimation(this.mRotateAnimation);
+        }
+    }
+
+    public void showBaseStatus(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) {
+            clearAnimations();
+            this.ivSmallLoading.setImageResource(i);
+            this.tvMsg.setText(str);
+            this.ivBigLoading.setVisibility(8);
+            this.circleProgressBar.setVisibility(8);
+            this.ivSmallLoading.setVisibility(0);
+            this.tvMsg.setVisibility(0);
         }
     }
 }

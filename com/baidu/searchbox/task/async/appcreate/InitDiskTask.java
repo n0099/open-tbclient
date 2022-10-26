@@ -6,7 +6,7 @@ import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.TiebaDatabase;
-import com.baidu.tieba.kc;
+import com.baidu.tieba.lc;
 import com.baidu.tieba.x9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,6 +18,23 @@ import java.util.Date;
 public class InitDiskTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
+    public String getName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "Ignore_InitDisk" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
+    public int getProcess() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return -1;
+        }
+        return invokeV.intValue;
+    }
 
     public InitDiskTask() {
         Interceptable interceptable = $ic;
@@ -68,24 +85,7 @@ public class InitDiskTask extends LaunchTask {
                     }
                 }
             });
-            kc.f().g(TbConfig.getTempDirName());
+            lc.f().g(TbConfig.getTempDirName());
         }
-    }
-
-    @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
-    public String getName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "Ignore_InitDisk" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
-    public int getProcess() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return -1;
-        }
-        return invokeV.intValue;
     }
 }

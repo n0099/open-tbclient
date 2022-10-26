@@ -5,9 +5,8 @@ import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.Cdo;
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
-import com.baidu.tieba.wz5;
+import com.baidu.tieba.d06;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +20,7 @@ import org.json.JSONObject;
 public class AlaGetEnterEffectResponsedMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<Cdo> mEffectList;
+    public List mEffectList;
     public int mEnterEffectCount;
     public String mNickName;
     public String mPortrait;
@@ -72,24 +71,23 @@ public class AlaGetEnterEffectResponsedMessage extends JsonHttpResponsedMessage 
                 this.mNickName = this.mUserName;
             }
             JSONArray optJSONArray = optJSONObject.optJSONArray("effect_info");
-            if (optJSONArray == null || optJSONArray.length() <= 0) {
-                return;
-            }
-            this.mEffectList.clear();
-            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
-                if (optJSONObject2 != null) {
-                    wz5 wz5Var = new wz5();
-                    wz5Var.a(optJSONObject2);
-                    this.mEffectList.add(wz5Var);
-                    JSONArray optJSONArray2 = optJSONObject2.optJSONArray("effect_list");
-                    if (optJSONArray2 != null && optJSONArray2.length() > 0) {
-                        for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
-                            JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i3);
-                            if (optJSONObject3 != null) {
-                                AlaEnterEffectData alaEnterEffectData = new AlaEnterEffectData();
-                                alaEnterEffectData.parserJson(optJSONObject3);
-                                this.mEffectList.add(alaEnterEffectData);
+            if (optJSONArray != null && optJSONArray.length() > 0) {
+                this.mEffectList.clear();
+                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                    JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
+                    if (optJSONObject2 != null) {
+                        d06 d06Var = new d06();
+                        d06Var.a(optJSONObject2);
+                        this.mEffectList.add(d06Var);
+                        JSONArray optJSONArray2 = optJSONObject2.optJSONArray("effect_list");
+                        if (optJSONArray2 != null && optJSONArray2.length() > 0) {
+                            for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
+                                JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i3);
+                                if (optJSONObject3 != null) {
+                                    AlaEnterEffectData alaEnterEffectData = new AlaEnterEffectData();
+                                    alaEnterEffectData.parserJson(optJSONObject3);
+                                    this.mEffectList.add(alaEnterEffectData);
+                                }
                             }
                         }
                     }
@@ -98,22 +96,31 @@ public class AlaGetEnterEffectResponsedMessage extends JsonHttpResponsedMessage 
         }
     }
 
-    public List<Cdo> getEffectList() {
+    public List getEffectList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mEffectList : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mEffectList;
+        }
+        return (List) invokeV.objValue;
     }
 
     public int getEnterEffectCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mEnterEffectCount : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mEnterEffectCount;
+        }
+        return invokeV.intValue;
     }
 
     public String getPortrait() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mPortrait : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mPortrait;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getUserName() {

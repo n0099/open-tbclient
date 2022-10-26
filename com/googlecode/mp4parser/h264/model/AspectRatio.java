@@ -31,6 +31,24 @@ public class AspectRatio {
         Extended_SAR = new AspectRatio(255);
     }
 
+    public int getValue() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.value;
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return "AspectRatio{value=" + this.value + '}';
+        }
+        return (String) invokeV.objValue;
+    }
+
     public AspectRatio(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -54,23 +72,11 @@ public class AspectRatio {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
             AspectRatio aspectRatio = Extended_SAR;
-            return i == aspectRatio.value ? aspectRatio : new AspectRatio(i);
+            if (i == aspectRatio.value) {
+                return aspectRatio;
+            }
+            return new AspectRatio(i);
         }
         return (AspectRatio) invokeI.objValue;
-    }
-
-    public int getValue() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.value : invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "AspectRatio{value=" + this.value + '}';
-        }
-        return (String) invokeV.objValue;
     }
 }

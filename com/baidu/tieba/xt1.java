@@ -1,34 +1,42 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.text.TextUtils;
 import android.util.Pair;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class xt1 extends rt1 {
+public class xt1 extends st1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String f;
-    public ei3<Integer> g;
+
+    @Override // com.baidu.tieba.pr1
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "DeviceInfoApi" : (String) invokeV.objValue;
+    }
 
     /* loaded from: classes6.dex */
-    public class a implements ei3<Integer> {
+    public class a implements fi3 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xt1 a;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ xt1 c;
 
-        public a(xt1 xt1Var) {
+        public a(xt1 xt1Var, Context context, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {xt1Var};
+                Object[] objArr = {xt1Var, context, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -38,78 +46,86 @@ public class xt1 extends rt1 {
                     return;
                 }
             }
-            this.a = xt1Var;
+            this.c = xt1Var;
+            this.a = context;
+            this.b = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ei3
+        @Override // com.baidu.tieba.fi3
         /* renamed from: b */
-        public void a(Integer num) {
+        public void a(p83 p83Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, num) == null) {
-                if (num.intValue() == 1 || num.intValue() == 0) {
-                    this.a.z();
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, p83Var) == null) {
+                if (k83.h(p83Var)) {
+                    this.c.d(this.b, new mv1(0, this.c.z(this.a)));
+                    return;
                 }
+                int b = p83Var.b();
+                k83.f(b);
+                this.c.d(this.b, new mv1(b, k83.f(b)));
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xt1(@NonNull mr1 mr1Var) {
-        super(mr1Var);
+    public xt1(nr1 nr1Var) {
+        super(nr1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mr1Var};
+            Object[] objArr = {nr1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((mr1) newInitContext.callArgs[0]);
+                super((nr1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.g = new a(this);
     }
 
-    @Override // com.baidu.tieba.or1
-    public String j() {
-        InterceptResult invokeV;
+    public final JSONObject z(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "ExitFullScreenApi" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("oaid", ro3.b.b(context));
+                jSONObject.put("androidId", ro3.b.a(context));
+            } catch (JSONException e) {
+                p("#getDeviceInfo json put data fail", e, false);
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
     }
 
-    public lv1 y(String str) {
+    public mv1 y(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#exitFullScreen", false);
-            Pair<lv1, JSONObject> s = s(str);
-            lv1 lv1Var = (lv1) s.first;
-            if (lv1Var.isSuccess()) {
-                String optString = ((JSONObject) s.second).optString("cb");
-                this.f = optString;
-                if (TextUtils.isEmpty(optString)) {
-                    return new lv1(201);
-                }
-                cu1.e().v(this.g);
-                cu1.e().m();
-                return lv1.f();
+            q("#getDeviceInfo", false);
+            m33 b0 = m33.b0();
+            if (b0 == null) {
+                return new mv1(1001, "swan app is null");
             }
-            return lv1Var;
+            Pair s = s(str);
+            mv1 mv1Var = (mv1) s.first;
+            if (!mv1Var.isSuccess()) {
+                return mv1Var;
+            }
+            String optString = ((JSONObject) s.second).optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                return new mv1(202, "cb is empty");
+            }
+            Context context = getContext();
+            b0.e0().g(context, "scope_get_device_info", new a(this, context, optString));
+            return mv1.f();
         }
-        return (lv1) invokeL.objValue;
-    }
-
-    public final void z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            cu1.e().w();
-            cu1.e().p();
-            d(this.f, new lv1(0));
-        }
+        return (mv1) invokeL.objValue;
     }
 }

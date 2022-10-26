@@ -21,14 +21,14 @@ public class VideoOption2 {
 
     /* renamed from: com.qq.e.ads.nativ.express2.VideoOption2$1  reason: invalid class name */
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public static final class AutoPlayPolicy {
+    public final class AutoPlayPolicy {
         public static /* synthetic */ Interceptable $ic;
         public static final AutoPlayPolicy ALWAYS;
         public static final AutoPlayPolicy NEVER;
@@ -98,7 +98,7 @@ public class VideoOption2 {
     }
 
     /* loaded from: classes8.dex */
-    public static class Builder {
+    public class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public AutoPlayPolicy a;

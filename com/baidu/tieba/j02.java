@@ -1,8 +1,10 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.os.Build;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.tieba.q23;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,92 +13,87 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class j02 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public static /* synthetic */ class a {
+    public final class a implements DialogInterface.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ m33 a;
 
-    /* loaded from: classes4.dex */
-    public static class b extends yb3 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* loaded from: classes4.dex */
-        public static final class a {
-            public static /* synthetic */ Interceptable $ic;
-            public static final b a;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            static {
-                InterceptResult invokeClinit;
-                ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-                if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(189067522, "Lcom/baidu/tieba/j02$b$a;")) != null) {
-                    Interceptable interceptable = invokeClinit.interceptor;
-                    if (interceptable != null) {
-                        $ic = interceptable;
-                    }
-                    if ((invokeClinit.flags & 1) != 0) {
-                        classClinitInterceptable.invokePostClinit(189067522, "Lcom/baidu/tieba/j02$b$a;");
-                        return;
-                    }
-                }
-                a = new b(null);
-            }
-        }
-
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-
-        public static b d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.a : (b) invokeV.objValue;
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b() {
-            super("searchbox_sconsole_sp");
+        public a(m33 m33Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {m33Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((String) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+            this.a = m33Var;
+        }
+
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
+                SwanAppActivity w = this.a.w();
+                if (w != null && Build.VERSION.SDK_INT >= 21) {
+                    w.finishAndRemoveTask();
+                }
+                System.exit(0);
+            }
         }
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public static boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            return "consoleSwitch" + str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return a;
         }
-        return (String) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static boolean b(String str) {
-        InterceptResult invokeL;
+    public static void b(boolean z) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? !TextUtils.isEmpty(str) && b.d().getBoolean(a(str), false) : invokeL.booleanValue;
+        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
+            a = z;
+        }
     }
 
-    public static void c(boolean z) {
-        l33 M;
+    public static void d(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(65538, null, z) == null) || (M = l33.M()) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
+            c(context, !a());
         }
-        b.d().putBoolean(a(M.O()), z);
+    }
+
+    public static void c(Context context, boolean z) {
+        m33 M;
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(65538, null, context, z) == null) && (M = m33.M()) != null) {
+            k02.c(z);
+            if (z) {
+                i = R.string.obfuscated_res_0x7f0f01a3;
+            } else {
+                i = R.string.obfuscated_res_0x7f0f0117;
+            }
+            q23.a aVar = new q23.a(context);
+            aVar.V(context.getString(R.string.obfuscated_res_0x7f0f0153));
+            aVar.x(context.getString(i));
+            aVar.n(new ui3());
+            aVar.m(false);
+            aVar.O(R.string.obfuscated_res_0x7f0f011a, new a(M));
+            aVar.X();
+        }
     }
 }

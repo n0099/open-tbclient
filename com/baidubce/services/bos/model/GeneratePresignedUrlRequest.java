@@ -22,8 +22,8 @@ public class GeneratePresignedUrlRequest extends AbstractBceRequest {
     public int expirationInSeconds;
     public String key;
     public HttpMethodName method;
-    public Map<String, String> requestHeaders;
-    public Map<String, String> requestParameters;
+    public Map requestHeaders;
+    public Map requestParameters;
     public ResponseHeaderOverrides responseHeaders;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -47,6 +47,29 @@ public class GeneratePresignedUrlRequest extends AbstractBceRequest {
         }
     }
 
+    public GeneratePresignedUrlRequest(String str, String str2, HttpMethodName httpMethodName) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, httpMethodName};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.expirationInSeconds = -1;
+        this.requestParameters = new HashMap();
+        this.requestHeaders = new HashMap();
+        this.bucketName = str;
+        this.key = str2;
+        this.method = httpMethodName;
+    }
+
     public void addRequestHeaders(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
@@ -64,55 +87,82 @@ public class GeneratePresignedUrlRequest extends AbstractBceRequest {
     public String getBucketName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.bucketName : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.bucketName;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getContentMd5() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.contentMd5 : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.contentMd5;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getContentType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.contentType : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.contentType;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getExpiration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.expirationInSeconds : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.expirationInSeconds;
+        }
+        return invokeV.intValue;
     }
 
     public String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.key : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.key;
+        }
+        return (String) invokeV.objValue;
     }
 
     public HttpMethodName getMethod() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.method : (HttpMethodName) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.method;
+        }
+        return (HttpMethodName) invokeV.objValue;
     }
 
-    public Map<String, String> getRequestHeaders() {
+    public Map getRequestHeaders() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.requestHeaders : (Map) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.requestHeaders;
+        }
+        return (Map) invokeV.objValue;
     }
 
-    public Map<String, String> getRequestParameters() {
+    public Map getRequestParameters() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.requestParameters : (Map) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.requestParameters;
+        }
+        return (Map) invokeV.objValue;
     }
 
     public ResponseHeaderOverrides getResponseHeaders() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.responseHeaders : (ResponseHeaderOverrides) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.responseHeaders;
+        }
+        return (ResponseHeaderOverrides) invokeV.objValue;
     }
 
     public void setBucketName(String str) {
@@ -232,29 +282,6 @@ public class GeneratePresignedUrlRequest extends AbstractBceRequest {
             return this;
         }
         return (GeneratePresignedUrlRequest) invokeL.objValue;
-    }
-
-    public GeneratePresignedUrlRequest(String str, String str2, HttpMethodName httpMethodName) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, httpMethodName};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.expirationInSeconds = -1;
-        this.requestParameters = new HashMap();
-        this.requestHeaders = new HashMap();
-        this.bucketName = str;
-        this.key = str2;
-        this.method = httpMethodName;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

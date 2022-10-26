@@ -58,12 +58,18 @@ public final class FocusListener$FocusEvent$Type {
     public static FocusListener$FocusEvent$Type valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (FocusListener$FocusEvent$Type) Enum.valueOf(FocusListener$FocusEvent$Type.class, str) : (FocusListener$FocusEvent$Type) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (FocusListener$FocusEvent$Type) Enum.valueOf(FocusListener$FocusEvent$Type.class, str);
+        }
+        return (FocusListener$FocusEvent$Type) invokeL.objValue;
     }
 
     public static FocusListener$FocusEvent$Type[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (FocusListener$FocusEvent$Type[]) $VALUES.clone() : (FocusListener$FocusEvent$Type[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (FocusListener$FocusEvent$Type[]) $VALUES.clone();
+        }
+        return (FocusListener$FocusEvent$Type[]) invokeV.objValue;
     }
 }

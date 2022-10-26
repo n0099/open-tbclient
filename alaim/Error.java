@@ -27,7 +27,13 @@ public final class Error extends Message {
     public final String usermsg;
 
     /* loaded from: classes.dex */
-    public static final class Builder extends Message.Builder<Error> {
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes.dex */
+    public final class Builder extends Message.Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Integer errorno;
@@ -77,19 +83,15 @@ public final class Error extends Message {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.squareup.wire.Message.Builder
         public Error build(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) ? new Error(this, z, null) : (Error) invokeZ.objValue;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+                return new Error(this, z, null);
+            }
+            return (Error) invokeZ.objValue;
         }
-    }
-
-    /* loaded from: classes.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
     }
 
     static {
@@ -108,10 +110,6 @@ public final class Error extends Message {
         DEFAULT_ERRORNO = 0;
         DEFAULT_LOGID = 0L;
         DEFAULT_TIME = 0;
-    }
-
-    public /* synthetic */ Error(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -164,5 +162,9 @@ public final class Error extends Message {
         this.usermsg = builder.usermsg;
         this.logid = builder.logid;
         this.time = builder.time;
+    }
+
+    public /* synthetic */ Error(Builder builder, boolean z, a aVar) {
+        this(builder, z);
     }
 }

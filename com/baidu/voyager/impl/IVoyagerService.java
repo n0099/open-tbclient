@@ -15,67 +15,16 @@ import com.baidu.voyager.impl.IVoyagerCallback;
 import java.util.List;
 /* loaded from: classes6.dex */
 public interface IVoyagerService extends IInterface {
+    void uploadFileList(List list, String str, long j, int i, int i2, String str2) throws RemoteException;
+
+    void uploadFileListWithCallback(List list, String str, long j, int i, IVoyagerCallback iVoyagerCallback) throws RemoteException;
+
+    void uploadZipFile(String str, String str2, int i, int i2, String str3) throws RemoteException;
+
+    void uploadZipFileWithCallback(String str, String str2, int i, IVoyagerCallback iVoyagerCallback) throws RemoteException;
 
     /* loaded from: classes6.dex */
-    public static class Default implements IVoyagerService {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public Default() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // android.os.IInterface
-        public IBinder asBinder() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return null;
-            }
-            return (IBinder) invokeV.objValue;
-        }
-
-        @Override // com.baidu.voyager.impl.IVoyagerService
-        public void uploadFileList(List<String> list, String str, long j, int i, int i2, String str2) throws RemoteException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{list, str, Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), str2}) == null) {
-            }
-        }
-
-        @Override // com.baidu.voyager.impl.IVoyagerService
-        public void uploadFileListWithCallback(List<String> list, String str, long j, int i, IVoyagerCallback iVoyagerCallback) throws RemoteException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{list, str, Long.valueOf(j), Integer.valueOf(i), iVoyagerCallback}) == null) {
-            }
-        }
-
-        @Override // com.baidu.voyager.impl.IVoyagerService
-        public void uploadZipFile(String str, String str2, int i, int i2, String str3) throws RemoteException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), str3}) == null) {
-            }
-        }
-
-        @Override // com.baidu.voyager.impl.IVoyagerService
-        public void uploadZipFileWithCallback(String str, String str2, int i, IVoyagerCallback iVoyagerCallback) throws RemoteException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLIL(1048580, this, str, str2, i, iVoyagerCallback) == null) {
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static abstract class Stub extends Binder implements IVoyagerService {
+    public abstract class Stub extends Binder implements IVoyagerService {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DESCRIPTOR = "com.baidu.voyager.impl.IVoyagerService";
         public static final int TRANSACTION_uploadFileList = 2;
@@ -84,12 +33,25 @@ public interface IVoyagerService extends IInterface {
         public static final int TRANSACTION_uploadZipFileWithCallback = 3;
         public transient /* synthetic */ FieldHolder $fh;
 
+        @Override // android.os.IInterface
+        public IBinder asBinder() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (IBinder) invokeV.objValue;
+        }
+
         /* loaded from: classes6.dex */
-        public static class Proxy implements IVoyagerService {
+        public class Proxy implements IVoyagerService {
             public static /* synthetic */ Interceptable $ic;
             public static IVoyagerService sDefaultImpl;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder mRemote;
+
+            public String getInterfaceDescriptor() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Stub.DESCRIPTOR : (String) invokeV.objValue;
+            }
 
             public Proxy(IBinder iBinder) {
                 Interceptable interceptable = $ic;
@@ -113,85 +75,86 @@ public interface IVoyagerService extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mRemote : (IBinder) invokeV.objValue;
-            }
-
-            public String getInterfaceDescriptor() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Stub.DESCRIPTOR : (String) invokeV.objValue;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                    return this.mRemote;
+                }
+                return (IBinder) invokeV.objValue;
             }
 
             @Override // com.baidu.voyager.impl.IVoyagerService
-            public void uploadFileList(List<String> list, String str, long j, int i, int i2, String str2) throws RemoteException {
+            public void uploadFileList(List list, String str, long j, int i, int i2, String str2) throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable != null && interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{list, str, Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), str2}) != null) {
-                    return;
-                }
-                Parcel obtain = Parcel.obtain();
-                Parcel obtain2 = Parcel.obtain();
-                try {
-                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                    obtain.writeStringList(list);
-                    obtain.writeString(str);
-                    obtain.writeLong(j);
-                    obtain.writeInt(i);
-                    obtain.writeInt(i2);
-                    obtain.writeString(str2);
+                if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{list, str, Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), str2}) == null) {
+                    Parcel obtain = Parcel.obtain();
+                    Parcel obtain2 = Parcel.obtain();
                     try {
-                        if (!this.mRemote.transact(2, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
-                            Stub.getDefaultImpl().uploadFileList(list, str, j, i, i2, str2);
+                        obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                        obtain.writeStringList(list);
+                        obtain.writeString(str);
+                        obtain.writeLong(j);
+                        obtain.writeInt(i);
+                        obtain.writeInt(i2);
+                        obtain.writeString(str2);
+                        try {
+                            if (!this.mRemote.transact(2, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                                Stub.getDefaultImpl().uploadFileList(list, str, j, i, i2, str2);
+                                obtain2.recycle();
+                                obtain.recycle();
+                                return;
+                            }
+                            obtain2.readException();
                             obtain2.recycle();
                             obtain.recycle();
-                            return;
+                        } catch (Throwable th) {
+                            th = th;
+                            obtain2.recycle();
+                            obtain.recycle();
+                            throw th;
                         }
-                        obtain2.readException();
-                        obtain2.recycle();
-                        obtain.recycle();
-                    } catch (Throwable th) {
-                        th = th;
-                        obtain2.recycle();
-                        obtain.recycle();
-                        throw th;
+                    } catch (Throwable th2) {
+                        th = th2;
                     }
-                } catch (Throwable th2) {
-                    th = th2;
                 }
             }
 
             @Override // com.baidu.voyager.impl.IVoyagerService
-            public void uploadFileListWithCallback(List<String> list, String str, long j, int i, IVoyagerCallback iVoyagerCallback) throws RemoteException {
+            public void uploadFileListWithCallback(List list, String str, long j, int i, IVoyagerCallback iVoyagerCallback) throws RemoteException {
+                IBinder iBinder;
                 Interceptable interceptable = $ic;
-                if (interceptable != null && interceptable.invokeCommon(1048579, this, new Object[]{list, str, Long.valueOf(j), Integer.valueOf(i), iVoyagerCallback}) != null) {
-                    return;
-                }
-                Parcel obtain = Parcel.obtain();
-                Parcel obtain2 = Parcel.obtain();
-                try {
-                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                    obtain.writeStringList(list);
-                    obtain.writeString(str);
-                    obtain.writeLong(j);
-                    obtain.writeInt(i);
-                    obtain.writeStrongBinder(iVoyagerCallback != null ? iVoyagerCallback.asBinder() : null);
+                if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{list, str, Long.valueOf(j), Integer.valueOf(i), iVoyagerCallback}) == null) {
+                    Parcel obtain = Parcel.obtain();
+                    Parcel obtain2 = Parcel.obtain();
                     try {
-                        if (!this.mRemote.transact(1, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
-                            Stub.getDefaultImpl().uploadFileListWithCallback(list, str, j, i, iVoyagerCallback);
+                        obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                        obtain.writeStringList(list);
+                        obtain.writeString(str);
+                        obtain.writeLong(j);
+                        obtain.writeInt(i);
+                        if (iVoyagerCallback != null) {
+                            iBinder = iVoyagerCallback.asBinder();
+                        } else {
+                            iBinder = null;
+                        }
+                        obtain.writeStrongBinder(iBinder);
+                        try {
+                            if (!this.mRemote.transact(1, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                                Stub.getDefaultImpl().uploadFileListWithCallback(list, str, j, i, iVoyagerCallback);
+                                obtain2.recycle();
+                                obtain.recycle();
+                                return;
+                            }
+                            obtain2.readException();
                             obtain2.recycle();
                             obtain.recycle();
-                            return;
+                        } catch (Throwable th) {
+                            th = th;
+                            obtain2.recycle();
+                            obtain.recycle();
+                            throw th;
                         }
-                        obtain2.readException();
-                        obtain2.recycle();
-                        obtain.recycle();
-                    } catch (Throwable th) {
-                        th = th;
-                        obtain2.recycle();
-                        obtain.recycle();
-                        throw th;
+                    } catch (Throwable th2) {
+                        th = th2;
                     }
-                } catch (Throwable th2) {
-                    th = th2;
                 }
             }
 
@@ -222,6 +185,7 @@ public interface IVoyagerService extends IInterface {
 
             @Override // com.baidu.voyager.impl.IVoyagerService
             public void uploadZipFileWithCallback(String str, String str2, int i, IVoyagerCallback iVoyagerCallback) throws RemoteException {
+                IBinder iBinder;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLLIL(1048581, this, str, str2, i, iVoyagerCallback) == null) {
                     Parcel obtain = Parcel.obtain();
@@ -231,7 +195,12 @@ public interface IVoyagerService extends IInterface {
                         obtain.writeString(str);
                         obtain.writeString(str2);
                         obtain.writeInt(i);
-                        obtain.writeStrongBinder(iVoyagerCallback != null ? iVoyagerCallback.asBinder() : null);
+                        if (iVoyagerCallback != null) {
+                            iBinder = iVoyagerCallback.asBinder();
+                        } else {
+                            iBinder = null;
+                        }
+                        obtain.writeStrongBinder(iBinder);
                         if (!this.mRemote.transact(3, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                             Stub.getDefaultImpl().uploadZipFileWithCallback(str, str2, i, iVoyagerCallback);
                         } else {
@@ -261,6 +230,15 @@ public interface IVoyagerService extends IInterface {
             attachInterface(this, DESCRIPTOR);
         }
 
+        public static IVoyagerService getDefaultImpl() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+                return Proxy.sDefaultImpl;
+            }
+            return (IVoyagerService) invokeV.objValue;
+        }
+
         public static IVoyagerService asInterface(IBinder iBinder) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -277,30 +255,17 @@ public interface IVoyagerService extends IInterface {
             return (IVoyagerService) invokeL.objValue;
         }
 
-        public static IVoyagerService getDefaultImpl() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Proxy.sDefaultImpl : (IVoyagerService) invokeV.objValue;
-        }
-
         public static boolean setDefaultImpl(IVoyagerService iVoyagerService) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, iVoyagerService)) == null) {
-                if (Proxy.sDefaultImpl != null || iVoyagerService == null) {
-                    return false;
+                if (Proxy.sDefaultImpl == null && iVoyagerService != null) {
+                    Proxy.sDefaultImpl = iVoyagerService;
+                    return true;
                 }
-                Proxy.sDefaultImpl = iVoyagerService;
-                return true;
+                return false;
             }
             return invokeL.booleanValue;
-        }
-
-        @Override // android.os.IInterface
-        public IBinder asBinder() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (IBinder) invokeV.objValue;
         }
 
         @Override // android.os.Binder
@@ -308,43 +273,95 @@ public interface IVoyagerService extends IInterface {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), parcel, parcel2, Integer.valueOf(i2)})) == null) {
-                if (i == 1) {
-                    parcel.enforceInterface(DESCRIPTOR);
-                    uploadFileListWithCallback(parcel.createStringArrayList(), parcel.readString(), parcel.readLong(), parcel.readInt(), IVoyagerCallback.Stub.asInterface(parcel.readStrongBinder()));
-                    parcel2.writeNoException();
-                    return true;
-                } else if (i == 2) {
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i != 3) {
+                            if (i != 4) {
+                                if (i != 1598968902) {
+                                    return super.onTransact(i, parcel, parcel2, i2);
+                                }
+                                parcel2.writeString(DESCRIPTOR);
+                                return true;
+                            }
+                            parcel.enforceInterface(DESCRIPTOR);
+                            uploadZipFile(parcel.readString(), parcel.readString(), parcel.readInt(), parcel.readInt(), parcel.readString());
+                            parcel2.writeNoException();
+                            return true;
+                        }
+                        parcel.enforceInterface(DESCRIPTOR);
+                        uploadZipFileWithCallback(parcel.readString(), parcel.readString(), parcel.readInt(), IVoyagerCallback.Stub.asInterface(parcel.readStrongBinder()));
+                        parcel2.writeNoException();
+                        return true;
+                    }
                     parcel.enforceInterface(DESCRIPTOR);
                     uploadFileList(parcel.createStringArrayList(), parcel.readString(), parcel.readLong(), parcel.readInt(), parcel.readInt(), parcel.readString());
                     parcel2.writeNoException();
                     return true;
-                } else if (i == 3) {
-                    parcel.enforceInterface(DESCRIPTOR);
-                    uploadZipFileWithCallback(parcel.readString(), parcel.readString(), parcel.readInt(), IVoyagerCallback.Stub.asInterface(parcel.readStrongBinder()));
-                    parcel2.writeNoException();
-                    return true;
-                } else if (i != 4) {
-                    if (i != 1598968902) {
-                        return super.onTransact(i, parcel, parcel2, i2);
-                    }
-                    parcel2.writeString(DESCRIPTOR);
-                    return true;
-                } else {
-                    parcel.enforceInterface(DESCRIPTOR);
-                    uploadZipFile(parcel.readString(), parcel.readString(), parcel.readInt(), parcel.readInt(), parcel.readString());
-                    parcel2.writeNoException();
-                    return true;
                 }
+                parcel.enforceInterface(DESCRIPTOR);
+                uploadFileListWithCallback(parcel.createStringArrayList(), parcel.readString(), parcel.readLong(), parcel.readInt(), IVoyagerCallback.Stub.asInterface(parcel.readStrongBinder()));
+                parcel2.writeNoException();
+                return true;
             }
             return invokeCommon.booleanValue;
         }
     }
 
-    void uploadFileList(List<String> list, String str, long j, int i, int i2, String str2) throws RemoteException;
+    /* loaded from: classes6.dex */
+    public class Default implements IVoyagerService {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    void uploadFileListWithCallback(List<String> list, String str, long j, int i, IVoyagerCallback iVoyagerCallback) throws RemoteException;
+        @Override // android.os.IInterface
+        public IBinder asBinder() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return null;
+            }
+            return (IBinder) invokeV.objValue;
+        }
 
-    void uploadZipFile(String str, String str2, int i, int i2, String str3) throws RemoteException;
+        @Override // com.baidu.voyager.impl.IVoyagerService
+        public void uploadFileList(List list, String str, long j, int i, int i2, String str2) throws RemoteException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{list, str, Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), str2}) == null) {
+            }
+        }
 
-    void uploadZipFileWithCallback(String str, String str2, int i, IVoyagerCallback iVoyagerCallback) throws RemoteException;
+        @Override // com.baidu.voyager.impl.IVoyagerService
+        public void uploadFileListWithCallback(List list, String str, long j, int i, IVoyagerCallback iVoyagerCallback) throws RemoteException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{list, str, Long.valueOf(j), Integer.valueOf(i), iVoyagerCallback}) == null) {
+            }
+        }
+
+        @Override // com.baidu.voyager.impl.IVoyagerService
+        public void uploadZipFile(String str, String str2, int i, int i2, String str3) throws RemoteException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), str3}) == null) {
+            }
+        }
+
+        @Override // com.baidu.voyager.impl.IVoyagerService
+        public void uploadZipFileWithCallback(String str, String str2, int i, IVoyagerCallback iVoyagerCallback) throws RemoteException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLIL(1048580, this, str, str2, i, iVoyagerCallback) == null) {
+            }
+        }
+
+        public Default() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
 }

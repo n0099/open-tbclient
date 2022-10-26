@@ -28,9 +28,38 @@ public class CheckUtils {
 
     public static void checkArgument(boolean z, Object obj) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZL(65537, null, z, obj) == null) && !z) {
-            throw new IllegalArgumentException(String.valueOf(obj));
+        if ((interceptable != null && interceptable.invokeZL(65537, null, z, obj) != null) || z) {
+            return;
         }
+        throw new IllegalArgumentException(String.valueOf(obj));
+    }
+
+    public static void isNotNull(Object obj, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65541, null, obj, str) != null) || obj != null) {
+            return;
+        }
+        throw new NullPointerException(String.valueOf(str));
+    }
+
+    public static void checkArgument(boolean z, String str, Object... objArr) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65538, null, new Object[]{Boolean.valueOf(z), str, objArr}) != null) || z) {
+            return;
+        }
+        throw new IllegalArgumentException(format(str, objArr));
+    }
+
+    public static Object isNotNull(Object obj, String str, Object... objArr) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, str, objArr)) == null) {
+            if (obj != null) {
+                return obj;
+            }
+            throw new NullPointerException(format(str, objArr));
+        }
+        return invokeLLL.objValue;
     }
 
     public static String format(String str, Object... objArr) {
@@ -61,31 +90,5 @@ public class CheckUtils {
             return sb.toString();
         }
         return (String) invokeLL.objValue;
-    }
-
-    public static <T> void isNotNull(T t, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65541, null, t, str) == null) && t == null) {
-            throw new NullPointerException(String.valueOf(str));
-        }
-    }
-
-    public static void checkArgument(boolean z, String str, Object... objArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Boolean.valueOf(z), str, objArr}) == null) && !z) {
-            throw new IllegalArgumentException(format(str, objArr));
-        }
-    }
-
-    public static <T> T isNotNull(T t, String str, Object... objArr) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, t, str, objArr)) == null) {
-            if (t != null) {
-                return t;
-            }
-            throw new NullPointerException(format(str, objArr));
-        }
-        return (T) invokeLLL.objValue;
     }
 }

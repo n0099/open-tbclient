@@ -124,7 +124,7 @@ public class bp {
                 if (this.f946a[1] != 0) {
                     sb.append("   S[1]!=0");
                 }
-                com.xiaomi.channel.commonutils.logger.b.m90a(sb.toString());
+                com.xiaomi.channel.commonutils.logger.b.m89a(sb.toString());
             }
         }
     }
@@ -149,15 +149,15 @@ public class bp {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, str2)) == null) {
-            byte[] m203a = com.xiaomi.push.bm.m203a(str);
+            byte[] m202a = com.xiaomi.push.bm.m202a(str);
             byte[] bytes = str2.getBytes();
-            byte[] bArr = new byte[m203a.length + 1 + bytes.length];
-            for (int i = 0; i < m203a.length; i++) {
-                bArr[i] = m203a[i];
+            byte[] bArr = new byte[m202a.length + 1 + bytes.length];
+            for (int i = 0; i < m202a.length; i++) {
+                bArr[i] = m202a[i];
             }
-            bArr[m203a.length] = 95;
+            bArr[m202a.length] = 95;
             for (int i2 = 0; i2 < bytes.length; i2++) {
-                bArr[m203a.length + 1 + i2] = bytes[i2];
+                bArr[m202a.length + 1 + i2] = bytes[i2];
             }
             return bArr;
         }
@@ -167,7 +167,7 @@ public class bp {
     public static byte[] a(byte[] bArr, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, bArr, str)) == null) ? a(bArr, com.xiaomi.push.bm.m203a(str)) : (byte[]) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, bArr, str)) == null) ? a(bArr, com.xiaomi.push.bm.m202a(str)) : (byte[]) invokeLL.objValue;
     }
 
     public static byte[] a(byte[] bArr, byte[] bArr2) {
@@ -179,7 +179,7 @@ public class bp {
             bpVar.a(bArr);
             bpVar.a();
             for (int i = 0; i < bArr2.length; i++) {
-                bArr3[i] = (byte) (bArr2[i] ^ bpVar.m647a());
+                bArr3[i] = (byte) (bArr2[i] ^ bpVar.m646a());
             }
             return bArr3;
         }
@@ -206,7 +206,7 @@ public class bp {
             bpVar.a(bArr);
             bpVar.a();
             for (int i4 = 0; i4 < i2; i4++) {
-                bArr3[i3 + i4] = (byte) (bArr2[i + i4] ^ bpVar.m647a());
+                bArr3[i3 + i4] = (byte) (bArr2[i + i4] ^ bpVar.m646a());
             }
             return bArr3;
         }
@@ -214,7 +214,7 @@ public class bp {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte m647a() {
+    public byte m646a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

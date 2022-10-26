@@ -42,10 +42,9 @@ public class NASLib extends Activity {
     private void load_uri() {
         Uri data;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || (data = getIntent().getData()) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && (data = getIntent().getData()) != null) {
+            parseRequest(data.toString(), true, getApplicationContext());
         }
-        parseRequest(data.toString(), true, getApplicationContext());
     }
 
     public static void onAppStart(Context context) {
@@ -59,58 +58,6 @@ public class NASLib extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
             Logger.onClientExit(context);
-        }
-    }
-
-    private String parseRequest(String str, boolean z, Context context) {
-        InterceptResult invokeCommon;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{str, Boolean.valueOf(z), context})) != null) {
-            return (String) invokeCommon.objValue;
-        }
-        String str3 = null;
-        try {
-            if (str.contains(Info.kUrlSecStart)) {
-                String trim = Encryption.desEncrypt(URLDecoder.decode(str.substring(str.indexOf(Info.kUrlSecStart) + 7), IMAudioTransRequest.CHARSET)).trim();
-                if (trim.contains(Info.kUrlLogStart)) {
-                    String[] split = trim.split(Info.kUrlLogStart);
-                    trim = split[0];
-                    str2 = split[1];
-                } else {
-                    str2 = null;
-                }
-                Logger.onCallUp();
-                if (str2 != null) {
-                    Logger.recordServerAction(context, "%s", str2);
-                }
-                if (trim != null) {
-                    try {
-                        if (callback != null) {
-                            callback.callback(str, trim);
-                        } else if (z) {
-                            startActivity(new Intent("android.intent.action.VIEW", Uri.parse(trim)));
-                        }
-                        return trim;
-                    } catch (Exception e) {
-                        e = e;
-                        str3 = trim;
-                        e.printStackTrace();
-                        return str3;
-                    }
-                }
-                return null;
-            }
-            return null;
-        } catch (Exception e2) {
-            e = e2;
-        }
-    }
-
-    public static void recordCustomAction(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, context, str) == null) {
-            Logger.recordCustomAction(context, str);
         }
     }
 
@@ -138,6 +85,59 @@ public class NASLib extends Activity {
             load_uri();
             onAppStart(getApplicationContext());
             finish();
+        }
+    }
+
+    private String parseRequest(String str, boolean z, Context context) {
+        InterceptResult invokeCommon;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{str, Boolean.valueOf(z), context})) == null) {
+            String str3 = null;
+            try {
+                if (!str.contains(Info.kUrlSecStart)) {
+                    return null;
+                }
+                String trim = Encryption.desEncrypt(URLDecoder.decode(str.substring(str.indexOf(Info.kUrlSecStart) + 7), IMAudioTransRequest.CHARSET)).trim();
+                if (trim.contains(Info.kUrlLogStart)) {
+                    String[] split = trim.split(Info.kUrlLogStart);
+                    trim = split[0];
+                    str2 = split[1];
+                } else {
+                    str2 = null;
+                }
+                Logger.onCallUp();
+                if (str2 != null) {
+                    Logger.recordServerAction(context, "%s", str2);
+                }
+                if (trim == null) {
+                    return null;
+                }
+                try {
+                    if (callback != null) {
+                        callback.callback(str, trim);
+                    } else if (z) {
+                        startActivity(new Intent("android.intent.action.VIEW", Uri.parse(trim)));
+                    }
+                    return trim;
+                } catch (Exception e) {
+                    e = e;
+                    str3 = trim;
+                    e.printStackTrace();
+                    return str3;
+                }
+            } catch (Exception e2) {
+                e = e2;
+            }
+        } else {
+            return (String) invokeCommon.objValue;
+        }
+    }
+
+    public static void recordCustomAction(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, context, str) == null) {
+            Logger.recordCustomAction(context, str);
         }
     }
 

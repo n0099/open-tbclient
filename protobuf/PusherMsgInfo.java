@@ -15,6 +15,8 @@ public final class PusherMsgInfo extends Message {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_CONTENT = "";
     public static final String DEFAULT_ET = "";
+    public static final String DEFAULT_FOLLOW_ID = "";
+    public static final String DEFAULT_FOLLOW_TYPE = "";
     public static final Long DEFAULT_GROUPID;
     public static final Integer DEFAULT_GROUPTYPE;
     public static final Long DEFAULT_MSGID;
@@ -26,6 +28,10 @@ public final class PusherMsgInfo extends Message {
     public final String content;
     @ProtoField(tag = 6, type = Message.Datatype.STRING)
     public final String et;
+    @ProtoField(tag = 9, type = Message.Datatype.STRING)
+    public final String follow_id;
+    @ProtoField(tag = 10, type = Message.Datatype.STRING)
+    public final String follow_type;
     @ProtoField(tag = 1, type = Message.Datatype.INT64)
     public final Long groupId;
     @ProtoField(tag = 7, type = Message.Datatype.INT32)
@@ -40,11 +46,19 @@ public final class PusherMsgInfo extends Message {
     public final Integer type;
 
     /* loaded from: classes9.dex */
-    public static final class Builder extends Message.Builder<PusherMsgInfo> {
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes9.dex */
+    public final class Builder extends Message.Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String content;
         public String et;
+        public String follow_id;
+        public String follow_type;
         public Long groupId;
         public Integer groupType;
         public Long msgId;
@@ -95,6 +109,8 @@ public final class PusherMsgInfo extends Message {
             this.et = pusherMsgInfo.et;
             this.groupType = pusherMsgInfo.groupType;
             this.task_id = pusherMsgInfo.task_id;
+            this.follow_id = pusherMsgInfo.follow_id;
+            this.follow_type = pusherMsgInfo.follow_type;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -102,14 +118,11 @@ public final class PusherMsgInfo extends Message {
         public PusherMsgInfo build(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) ? new PusherMsgInfo(this, z, null) : (PusherMsgInfo) invokeZ.objValue;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+                return new PusherMsgInfo(this, z, null);
+            }
+            return (PusherMsgInfo) invokeZ.objValue;
         }
-    }
-
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
     }
 
     static {
@@ -130,10 +143,6 @@ public final class PusherMsgInfo extends Message {
         DEFAULT_PUSHTIME = 0L;
         DEFAULT_TYPE = 0;
         DEFAULT_GROUPTYPE = 0;
-    }
-
-    public /* synthetic */ PusherMsgInfo(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -200,9 +209,21 @@ public final class PusherMsgInfo extends Message {
             String str3 = builder.task_id;
             if (str3 == null) {
                 this.task_id = "";
-                return;
             } else {
                 this.task_id = str3;
+            }
+            String str4 = builder.follow_id;
+            if (str4 == null) {
+                this.follow_id = "";
+            } else {
+                this.follow_id = str4;
+            }
+            String str5 = builder.follow_type;
+            if (str5 == null) {
+                this.follow_type = "";
+                return;
+            } else {
+                this.follow_type = str5;
                 return;
             }
         }
@@ -214,5 +235,11 @@ public final class PusherMsgInfo extends Message {
         this.et = builder.et;
         this.groupType = builder.groupType;
         this.task_id = builder.task_id;
+        this.follow_id = builder.follow_id;
+        this.follow_type = builder.follow_type;
+    }
+
+    public /* synthetic */ PusherMsgInfo(Builder builder, boolean z, a aVar) {
+        this(builder, z);
     }
 }

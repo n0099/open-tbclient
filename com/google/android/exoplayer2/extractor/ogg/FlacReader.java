@@ -42,6 +42,23 @@ public final class FlacReader extends StreamReader {
         public long[] seekPointOffsets;
         public final /* synthetic */ FlacReader this$0;
 
+        @Override // com.google.android.exoplayer2.extractor.ogg.OggSeeker
+        public SeekMap createSeekMap() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (SeekMap) invokeV.objValue;
+        }
+
+        @Override // com.google.android.exoplayer2.extractor.SeekMap
+        public boolean isSeekable() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+
         public FlacOggSeeker(FlacReader flacReader) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -62,37 +79,6 @@ public final class FlacReader extends StreamReader {
             this.pendingSeekGranule = -1L;
         }
 
-        @Override // com.google.android.exoplayer2.extractor.ogg.OggSeeker
-        public SeekMap createSeekMap() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (SeekMap) invokeV.objValue;
-        }
-
-        @Override // com.google.android.exoplayer2.extractor.SeekMap
-        public long getDurationUs() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.this$0.streamInfo.durationUs() : invokeV.longValue;
-        }
-
-        @Override // com.google.android.exoplayer2.extractor.SeekMap
-        public long getPosition(long j) {
-            InterceptResult invokeJ;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) ? this.firstFrameOffset + this.seekPointOffsets[Util.binarySearchFloor(this.seekPointGranules, this.this$0.convertTimeToGranule(j), true, true)] : invokeJ.longValue;
-        }
-
-        @Override // com.google.android.exoplayer2.extractor.SeekMap
-        public boolean isSeekable() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-
         public void parseSeekTable(ParsableByteArray parsableByteArray) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, parsableByteArray) == null) {
@@ -108,18 +94,38 @@ public final class FlacReader extends StreamReader {
             }
         }
 
+        @Override // com.google.android.exoplayer2.extractor.SeekMap
+        public long getDurationUs() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.this$0.streamInfo.durationUs();
+            }
+            return invokeV.longValue;
+        }
+
+        @Override // com.google.android.exoplayer2.extractor.SeekMap
+        public long getPosition(long j) {
+            InterceptResult invokeJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
+                return this.firstFrameOffset + this.seekPointOffsets[Util.binarySearchFloor(this.seekPointGranules, this.this$0.convertTimeToGranule(j), true, true)];
+            }
+            return invokeJ.longValue;
+        }
+
         @Override // com.google.android.exoplayer2.extractor.ogg.OggSeeker
         public long read(ExtractorInput extractorInput) throws IOException, InterruptedException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, extractorInput)) == null) {
                 long j = this.pendingSeekGranule;
-                if (j >= 0) {
-                    long j2 = -(j + 2);
-                    this.pendingSeekGranule = -1L;
-                    return j2;
+                if (j < 0) {
+                    return -1L;
                 }
-                return -1L;
+                long j2 = -(j + 2);
+                this.pendingSeekGranule = -1L;
+                return j2;
             }
             return invokeL.longValue;
         }
@@ -158,10 +164,60 @@ public final class FlacReader extends StreamReader {
         }
     }
 
+    public static boolean isAudioPacket(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
+            if (bArr[0] != -1) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean verifyBitstreamType(ParsableByteArray parsableByteArray) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, parsableByteArray)) == null) {
+            if (parsableByteArray.bytesLeft() >= 5 && parsableByteArray.readUnsignedByte() == 127 && parsableByteArray.readUnsignedInt() == 1179402563) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.google.android.exoplayer2.extractor.ogg.StreamReader
+    public long preparePayload(ParsableByteArray parsableByteArray) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parsableByteArray)) == null) {
+            if (!isAudioPacket(parsableByteArray.data)) {
+                return -1L;
+            }
+            return getFlacFrameBlockSize(parsableByteArray);
+        }
+        return invokeL.longValue;
+    }
+
+    @Override // com.google.android.exoplayer2.extractor.ogg.StreamReader
+    public void reset(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            super.reset(z);
+            if (z) {
+                this.streamInfo = null;
+                this.flacOggSeeker = null;
+            }
+        }
+    }
+
     private int getFlacFrameBlockSize(ParsableByteArray parsableByteArray) {
         InterceptResult invokeL;
         int i;
         int i2;
+        int readUnsignedShort;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, parsableByteArray)) == null) {
             int i3 = (parsableByteArray.data[2] & 255) >> 4;
@@ -179,9 +235,13 @@ public final class FlacReader extends StreamReader {
                 case 7:
                     parsableByteArray.skipBytes(4);
                     parsableByteArray.readUtf8EncodedLong();
-                    int readUnsignedByte = i3 == 6 ? parsableByteArray.readUnsignedByte() : parsableByteArray.readUnsignedShort();
+                    if (i3 == 6) {
+                        readUnsignedShort = parsableByteArray.readUnsignedByte();
+                    } else {
+                        readUnsignedShort = parsableByteArray.readUnsignedShort();
+                    }
                     parsableByteArray.setPosition(0);
-                    return readUnsignedByte + 1;
+                    return readUnsignedShort + 1;
                 case 8:
                 case 9:
                 case 10:
@@ -199,31 +259,6 @@ public final class FlacReader extends StreamReader {
             return i << i2;
         }
         return invokeL.intValue;
-    }
-
-    public static boolean isAudioPacket(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) ? bArr[0] == -1 : invokeL.booleanValue;
-    }
-
-    public static boolean verifyBitstreamType(ParsableByteArray parsableByteArray) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, parsableByteArray)) == null) ? parsableByteArray.bytesLeft() >= 5 && parsableByteArray.readUnsignedByte() == 127 && parsableByteArray.readUnsignedInt() == 1179402563 : invokeL.booleanValue;
-    }
-
-    @Override // com.google.android.exoplayer2.extractor.ogg.StreamReader
-    public long preparePayload(ParsableByteArray parsableByteArray) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parsableByteArray)) == null) {
-            if (isAudioPacket(parsableByteArray.data)) {
-                return getFlacFrameBlockSize(parsableByteArray);
-            }
-            return -1L;
-        }
-        return invokeL.longValue;
     }
 
     @Override // com.google.android.exoplayer2.extractor.ogg.StreamReader
@@ -258,17 +293,5 @@ public final class FlacReader extends StreamReader {
             }
         }
         return invokeCommon.booleanValue;
-    }
-
-    @Override // com.google.android.exoplayer2.extractor.ogg.StreamReader
-    public void reset(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            super.reset(z);
-            if (z) {
-                this.streamInfo = null;
-                this.flacOggSeeker = null;
-            }
-        }
     }
 }

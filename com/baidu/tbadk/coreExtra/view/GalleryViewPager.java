@@ -40,22 +40,43 @@ public class GalleryViewPager extends BaseViewPager {
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public GalleryViewPager(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
     public final float[] e(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
             int action = motionEvent.getAction() & CompatibleUtile.getActionMask();
-            if (action == 0) {
-                this.i = new PointF(motionEvent.getX(), motionEvent.getY());
-                return null;
-            } else if (action == 1 || action == 2) {
-                PointF pointF = new PointF(motionEvent.getX(), motionEvent.getY());
-                float f = pointF.x;
-                PointF pointF2 = this.i;
-                return new float[]{f - pointF2.x, pointF.y - pointF2.y};
-            } else {
+            if (action != 0) {
+                if (action == 1 || action == 2) {
+                    PointF pointF = new PointF(motionEvent.getX(), motionEvent.getY());
+                    float f = pointF.x;
+                    PointF pointF2 = this.i;
+                    return new float[]{f - pointF2.x, pointF.y - pointF2.y};
+                }
                 return null;
             }
+            this.i = new PointF(motionEvent.getX(), motionEvent.getY());
+            return null;
         }
         return (float[]) invokeL.objValue;
     }
@@ -63,7 +84,10 @@ public class GalleryViewPager extends BaseViewPager {
     public DragImageView getCurrentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.j : (DragImageView) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.j;
+        }
+        return (DragImageView) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.widget.TbViewPager, androidx.viewpager.widget.ViewPager, android.view.ViewGroup
@@ -88,10 +112,10 @@ public class GalleryViewPager extends BaseViewPager {
             if (e != null && this.j.d0() && e[0] > 0.0f) {
                 return super.onInterceptTouchEvent(motionEvent);
             }
-            if (e == null && (this.j.d0() || this.j.e0())) {
-                return super.onInterceptTouchEvent(motionEvent);
+            if (e != null || (!this.j.d0() && !this.j.e0())) {
+                return false;
             }
-            return false;
+            return super.onInterceptTouchEvent(motionEvent);
         }
         return invokeL.booleanValue;
     }
@@ -121,10 +145,10 @@ public class GalleryViewPager extends BaseViewPager {
             if (e != null && this.j.d0() && e[0] > 0.0f) {
                 return super.onTouchEvent(motionEvent);
             }
-            if (e == null && (this.j.d0() || this.j.e0())) {
-                return super.onTouchEvent(motionEvent);
+            if (e != null || (!this.j.d0() && !this.j.e0())) {
+                return false;
             }
-            return false;
+            return super.onTouchEvent(motionEvent);
         }
         return invokeL.booleanValue;
     }
@@ -133,27 +157,6 @@ public class GalleryViewPager extends BaseViewPager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, dragImageView) == null) {
             this.j = dragImageView;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GalleryViewPager(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
         }
     }
 }

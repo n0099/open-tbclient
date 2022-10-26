@@ -27,7 +27,7 @@ public class h3 {
         }
     }
 
-    public static Object a(Class<?> cls, Object obj, String str) {
+    public static Object a(Class cls, Object obj, String str) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, cls, obj, str)) == null) {
@@ -38,7 +38,7 @@ public class h3 {
         return invokeLLL.objValue;
     }
 
-    public static Object a(Class<?> cls, Object obj, String str, Object... objArr) {
+    public static Object a(Class cls, Object obj, String str, Object... objArr) {
         InterceptResult invokeLLLL;
         Class<?>[] clsArr;
         Interceptable interceptable = $ic;

@@ -42,6 +42,16 @@ public class Camera1Capturer extends CameraCapturer {
         super.changeCaptureFormat(i, i2, i3);
     }
 
+    @Override // org.webrtc.CameraCapturer, org.webrtc.VideoCapturer
+    public /* bridge */ /* synthetic */ void initialize(@Nullable SurfaceTextureHelper surfaceTextureHelper, Context context, CapturerObserver capturerObserver) {
+        super.initialize(surfaceTextureHelper, context, capturerObserver);
+    }
+
+    @Override // org.webrtc.CameraCapturer, org.webrtc.VideoCapturer
+    public /* bridge */ /* synthetic */ void startCapture(int i, int i2, int i3) {
+        super.startCapture(i, i2, i3);
+    }
+
     @Override // org.webrtc.CameraCapturer
     public void createCameraSession(CameraSession.CreateSessionCallback createSessionCallback, CameraSession.Events events, Context context, SurfaceTextureHelper surfaceTextureHelper, String str, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
@@ -56,11 +66,6 @@ public class Camera1Capturer extends CameraCapturer {
     }
 
     @Override // org.webrtc.CameraCapturer, org.webrtc.VideoCapturer
-    public /* bridge */ /* synthetic */ void initialize(@Nullable SurfaceTextureHelper surfaceTextureHelper, Context context, CapturerObserver capturerObserver) {
-        super.initialize(surfaceTextureHelper, context, capturerObserver);
-    }
-
-    @Override // org.webrtc.CameraCapturer, org.webrtc.VideoCapturer
     public /* bridge */ /* synthetic */ boolean isScreencast() {
         return super.isScreencast();
     }
@@ -68,11 +73,6 @@ public class Camera1Capturer extends CameraCapturer {
     @Override // org.webrtc.CameraCapturer
     public /* bridge */ /* synthetic */ void printStackTrace() {
         super.printStackTrace();
-    }
-
-    @Override // org.webrtc.CameraCapturer, org.webrtc.VideoCapturer
-    public /* bridge */ /* synthetic */ void startCapture(int i, int i2, int i3) {
-        super.startCapture(i, i2, i3);
     }
 
     @Override // org.webrtc.CameraCapturer, org.webrtc.VideoCapturer

@@ -31,9 +31,9 @@ import java.util.Map;
 /* loaded from: classes7.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<String, Integer> a;
+    public static Map a;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedHashMap<String, Integer> b;
+    public LinkedHashMap b;
 
     static {
         InterceptResult invokeClinit;
@@ -50,11 +50,10 @@ public final class a {
         }
         a = new HashMap();
         List<String> a2 = i.a();
-        if (a2 == null || a2.size() <= 0) {
-            return;
-        }
-        for (String str : a2) {
-            a.put(str, 0);
+        if (a2 != null && a2.size() > 0) {
+            for (String str : a2) {
+                a.put(str, 0);
+            }
         }
     }
 
@@ -71,141 +70,15 @@ public final class a {
                 return;
             }
         }
-        LinkedHashMap<String, Integer> linkedHashMap = new LinkedHashMap<>();
+        LinkedHashMap linkedHashMap = new LinkedHashMap();
         this.b = linkedHashMap;
         linkedHashMap.put(Zeus.getAppApplication().getApplicationInfo().sourceDir, 0);
-    }
-
-    public static AssetManager b(AssetManager assetManager, String str, boolean z) {
-        InterceptResult invokeLLZ;
-        int intValue;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, assetManager, str, z)) == null) {
-            String str2 = V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD;
-            String str3 = z ? "addAssetPathAsSharedLibrary" : V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD;
-            int i = Build.VERSION.SDK_INT;
-            if ((i >= 30 || (i == 29 && Build.VERSION.PREVIEW_SDK_INT > 0)) && !z && str.startsWith("/product/overlay/")) {
-                str3 = "addOverlayPath";
-            }
-            Method accessibleMethod = MethodUtils.getAccessibleMethod(AssetManager.class, str3, String.class);
-            if (accessibleMethod == null && z) {
-                accessibleMethod = MethodUtils.getAccessibleMethod(AssetManager.class, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, String.class);
-                ZeusLogger.e(ZeusLogger.TAG_LOAD, "AssetManagerProcessor AssetManager.addAssetPath() invoke addAssetPathAsSharedLibrary failed. use addAssetPath.");
-            } else {
-                str2 = str3;
-            }
-            if (accessibleMethod != null) {
-                int i2 = 3;
-                while (true) {
-                    int i3 = i2 - 1;
-                    if (i2 < 0) {
-                        break;
-                    }
-                    try {
-                        intValue = ((Integer) accessibleMethod.invoke(assetManager, str)).intValue();
-                    } catch (Exception e) {
-                        ZeusLogger.e(ZeusLogger.TAG_LOAD, "AssetManagerProcessor invoke AssetManager.addAssetPath() failed. asSharedLibrary = " + z + ", methodName = " + str2, e);
-                    }
-                    if (intValue != 0) {
-                        ZeusLogger.i(ZeusLogger.TAG_LOAD, "AssetManagerProcessor invoke AssetManager.addAssetPath() success, cookie = " + intValue + ", path = " + str);
-                        break;
-                    }
-                    ZeusLogger.e(ZeusLogger.TAG_LOAD, "AssetManagerProcessor invoke AssetManager.addAssetPath() failed, cookie = ".concat(String.valueOf(intValue)));
-                    i2 = i3;
-                }
-            } else {
-                ZeusLogger.e(ZeusLogger.TAG_LOAD, "AssetManagerProcessor reflect AssetManager.addAssetPath() failed. addAssetPathMethod == null. asSharedLibrary = " + z + " methodName:" + str2);
-            }
-            return assetManager;
-        }
-        return (AssetManager) invokeLLZ.objValue;
-    }
-
-    public static AssetManager c(AssetManager assetManager, String str, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, assetManager, str, z)) == null) {
-            int i = 3;
-            Throwable th = null;
-            int i2 = 3;
-            while (true) {
-                int i3 = i2 - 1;
-                if (i2 < 0) {
-                    break;
-                }
-                try {
-                    synchronized (assetManager) {
-                        int i4 = 0;
-                        for (int i5 = 0; i5 < i; i5++) {
-                            if (h.b()) {
-                                i4 = ((Integer) MethodUtils.invokeMethod(assetManager, "addAssetPathNative", new Object[]{str}, new Class[]{String.class})).intValue();
-                            } else if (Build.VERSION.SDK_INT >= 24 && Build.VERSION.SDK_INT <= 25) {
-                                i4 = ((Integer) MethodUtils.invokeMethod(assetManager, "addAssetPathNative", new Object[]{str, Boolean.valueOf(z)}, new Class[]{String.class, Boolean.TYPE})).intValue();
-                            }
-                            if (i4 != 0) {
-                                break;
-                            }
-                        }
-                        if (i4 != 0) {
-                            Object readField = FieldUtils.readField(assetManager, "mStringBlocks");
-                            int length = readField != null ? Array.getLength(readField) : 0;
-                            int intValue = ((Integer) MethodUtils.invokeMethod(assetManager, "getStringBlockCount", new Object[0])).intValue();
-                            Object newInstance = Array.newInstance(readField.getClass().getComponentType(), intValue);
-                            for (int i6 = 0; i6 < intValue; i6++) {
-                                if (i6 < length) {
-                                    Array.set(newInstance, i6, Array.get(readField, i6));
-                                } else {
-                                    Array.set(newInstance, i6, MethodUtils.invokeConstructor(readField.getClass().getComponentType(), new Object[]{Long.valueOf(((Long) MethodUtils.invokeMethod(assetManager, "getNativeStringBlock", new Object[]{Integer.valueOf(i6)}, new Class[]{Integer.TYPE})).longValue()), Boolean.TRUE}, new Class[]{Long.TYPE, Boolean.TYPE}));
-                                }
-                            }
-                            FieldUtils.writeField(assetManager, "mStringBlocks", newInstance);
-                            ZeusLogger.d(ZeusLogger.TAG_LOAD, "AssetManagerProcessor appendAssetPathSafely success, sourceDir = ".concat(String.valueOf(str)));
-                        }
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                    i2 = i3;
-                    i = 3;
-                }
-            }
-            if (th != null) {
-                ZeusLogger.e(ZeusLogger.TAG_LOAD, "AssetManagerProcessor appendAssetPathSafely failed, sourceDir = ".concat(String.valueOf(str)), th);
-            }
-            return assetManager;
-        }
-        return (AssetManager) invokeLLZ.objValue;
-    }
-
-    public final AssetManager a(AssetManager assetManager, String str, boolean z) {
-        InterceptResult invokeLLZ;
-        AssetManager a2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, assetManager, str, z)) == null) {
-            if (h.a()) {
-                int i = Build.VERSION.SDK_INT;
-                if (i >= 21 && i <= 25) {
-                    a2 = c(assetManager, str, z);
-                    if (!i.a(a2, str)) {
-                        a2 = b(assetManager, str, z);
-                    }
-                } else {
-                    a2 = b(assetManager, str, z);
-                }
-            } else {
-                a2 = a(assetManager, str);
-            }
-            synchronized (this.b) {
-                this.b.put(str, 0);
-            }
-            ZeusLogger.i(ZeusLogger.TAG_LOAD, "AssetManagerProcessor updateAssetManager, newAssetManager=" + a2 + ", assets=" + i.b(a2));
-            return a2;
-        }
-        return (AssetManager) invokeLLZ.objValue;
     }
 
     private AssetManager a(AssetManager assetManager, String str) {
         InterceptResult invokeLL;
         AssetManager assetManager2;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, assetManager, str)) == null) {
             List<String> a2 = i.a(assetManager);
@@ -225,10 +98,10 @@ public final class a {
                 }
                 ZeusLogger.i(ZeusLogger.TAG_LOAD, "AssetManagerProcessor newAssetManager = ".concat(String.valueOf(assetManager2)));
                 synchronized (this.b) {
-                    for (Map.Entry<String, Integer> entry : this.b.entrySet()) {
+                    for (Map.Entry entry : this.b.entrySet()) {
                         if (!a.containsKey(entry.getKey())) {
-                            sb.append(entry.getKey());
-                            b(assetManager2, entry.getKey(), false);
+                            sb.append((String) entry.getKey());
+                            b(assetManager2, (String) entry.getKey(), false);
                         }
                     }
                 }
@@ -244,7 +117,12 @@ public final class a {
                         b(assetManager2, str3, false);
                     }
                 }
-                if ((Build.VERSION.SDK_INT >= 21 && Build.VERSION.SDK_INT < 23) && !sb.toString().toLowerCase().contains(AlbumActivityConfig.FROM_WEB_VIEW)) {
+                if (Build.VERSION.SDK_INT >= 21 && Build.VERSION.SDK_INT < 23) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (z && !sb.toString().toLowerCase().contains(AlbumActivityConfig.FROM_WEB_VIEW)) {
                     try {
                         Resources resources = Zeus.getAppApplication().getResources();
                         String str4 = Zeus.getAppApplication().createPackageContext(resources.getString(resources.getIdentifier("android:string/config_webViewPackageName", EMABTest.TYPE_STRING, "android")), 0).getApplicationInfo().sourceDir;
@@ -269,5 +147,162 @@ public final class a {
             return assetManager;
         }
         return (AssetManager) invokeLL.objValue;
+    }
+
+    public static AssetManager b(AssetManager assetManager, String str, boolean z) {
+        InterceptResult invokeLLZ;
+        String str2;
+        boolean z2;
+        int intValue;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, assetManager, str, z)) == null) {
+            String str3 = V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD;
+            if (z) {
+                str2 = "addAssetPathAsSharedLibrary";
+            } else {
+                str2 = V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD;
+            }
+            int i = Build.VERSION.SDK_INT;
+            if (i < 30 && (i != 29 || Build.VERSION.PREVIEW_SDK_INT <= 0)) {
+                z2 = false;
+            } else {
+                z2 = true;
+            }
+            if (z2 && !z && str.startsWith("/product/overlay/")) {
+                str2 = "addOverlayPath";
+            }
+            Method accessibleMethod = MethodUtils.getAccessibleMethod(AssetManager.class, str2, String.class);
+            if (accessibleMethod == null && z) {
+                accessibleMethod = MethodUtils.getAccessibleMethod(AssetManager.class, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, String.class);
+                ZeusLogger.e(ZeusLogger.TAG_LOAD, "AssetManagerProcessor AssetManager.addAssetPath() invoke addAssetPathAsSharedLibrary failed. use addAssetPath.");
+            } else {
+                str3 = str2;
+            }
+            if (accessibleMethod != null) {
+                int i2 = 3;
+                while (true) {
+                    int i3 = i2 - 1;
+                    if (i2 < 0) {
+                        break;
+                    }
+                    try {
+                        intValue = ((Integer) accessibleMethod.invoke(assetManager, str)).intValue();
+                    } catch (Exception e) {
+                        ZeusLogger.e(ZeusLogger.TAG_LOAD, "AssetManagerProcessor invoke AssetManager.addAssetPath() failed. asSharedLibrary = " + z + ", methodName = " + str3, e);
+                    }
+                    if (intValue != 0) {
+                        ZeusLogger.i(ZeusLogger.TAG_LOAD, "AssetManagerProcessor invoke AssetManager.addAssetPath() success, cookie = " + intValue + ", path = " + str);
+                        break;
+                    }
+                    ZeusLogger.e(ZeusLogger.TAG_LOAD, "AssetManagerProcessor invoke AssetManager.addAssetPath() failed, cookie = ".concat(String.valueOf(intValue)));
+                    i2 = i3;
+                }
+            } else {
+                ZeusLogger.e(ZeusLogger.TAG_LOAD, "AssetManagerProcessor reflect AssetManager.addAssetPath() failed. addAssetPathMethod == null. asSharedLibrary = " + z + " methodName:" + str3);
+            }
+            return assetManager;
+        }
+        return (AssetManager) invokeLLZ.objValue;
+    }
+
+    public static AssetManager c(AssetManager assetManager, String str, boolean z) {
+        InterceptResult invokeLLZ;
+        int i;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, assetManager, str, z)) == null) {
+            int i2 = 3;
+            Throwable th = null;
+            int i3 = 3;
+            while (true) {
+                int i4 = i3 - 1;
+                if (i3 < 0) {
+                    break;
+                }
+                try {
+                    synchronized (assetManager) {
+                        int i5 = 0;
+                        for (int i6 = 0; i6 < i2; i6++) {
+                            if (h.b()) {
+                                i5 = ((Integer) MethodUtils.invokeMethod(assetManager, "addAssetPathNative", new Object[]{str}, new Class[]{String.class})).intValue();
+                            } else {
+                                if (Build.VERSION.SDK_INT >= 24 && Build.VERSION.SDK_INT <= 25) {
+                                    z2 = true;
+                                } else {
+                                    z2 = false;
+                                }
+                                if (z2) {
+                                    i5 = ((Integer) MethodUtils.invokeMethod(assetManager, "addAssetPathNative", new Object[]{str, Boolean.valueOf(z)}, new Class[]{String.class, Boolean.TYPE})).intValue();
+                                }
+                            }
+                            if (i5 != 0) {
+                                break;
+                            }
+                        }
+                        if (i5 != 0) {
+                            Object readField = FieldUtils.readField(assetManager, "mStringBlocks");
+                            if (readField != null) {
+                                i = Array.getLength(readField);
+                            } else {
+                                i = 0;
+                            }
+                            int intValue = ((Integer) MethodUtils.invokeMethod(assetManager, "getStringBlockCount", new Object[0])).intValue();
+                            Object newInstance = Array.newInstance(readField.getClass().getComponentType(), intValue);
+                            for (int i7 = 0; i7 < intValue; i7++) {
+                                if (i7 < i) {
+                                    Array.set(newInstance, i7, Array.get(readField, i7));
+                                } else {
+                                    Array.set(newInstance, i7, MethodUtils.invokeConstructor(readField.getClass().getComponentType(), new Object[]{Long.valueOf(((Long) MethodUtils.invokeMethod(assetManager, "getNativeStringBlock", new Object[]{Integer.valueOf(i7)}, new Class[]{Integer.TYPE})).longValue()), Boolean.TRUE}, new Class[]{Long.TYPE, Boolean.TYPE}));
+                                }
+                            }
+                            FieldUtils.writeField(assetManager, "mStringBlocks", newInstance);
+                            ZeusLogger.d(ZeusLogger.TAG_LOAD, "AssetManagerProcessor appendAssetPathSafely success, sourceDir = ".concat(String.valueOf(str)));
+                        }
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                    i3 = i4;
+                    i2 = 3;
+                }
+            }
+            if (th != null) {
+                ZeusLogger.e(ZeusLogger.TAG_LOAD, "AssetManagerProcessor appendAssetPathSafely failed, sourceDir = ".concat(String.valueOf(str)), th);
+            }
+            return assetManager;
+        }
+        return (AssetManager) invokeLLZ.objValue;
+    }
+
+    public final AssetManager a(AssetManager assetManager, String str, boolean z) {
+        InterceptResult invokeLLZ;
+        AssetManager a2;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, assetManager, str, z)) == null) {
+            if (h.a()) {
+                int i = Build.VERSION.SDK_INT;
+                if (i >= 21 && i <= 25) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                if (z2) {
+                    a2 = c(assetManager, str, z);
+                    if (!i.a(a2, str)) {
+                        a2 = b(assetManager, str, z);
+                    }
+                } else {
+                    a2 = b(assetManager, str, z);
+                }
+            } else {
+                a2 = a(assetManager, str);
+            }
+            synchronized (this.b) {
+                this.b.put(str, 0);
+            }
+            ZeusLogger.i(ZeusLogger.TAG_LOAD, "AssetManagerProcessor updateAssetManager, newAssetManager=" + a2 + ", assets=" + i.b(a2));
+            return a2;
+        }
+        return (AssetManager) invokeLLZ.objValue;
     }
 }

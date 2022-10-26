@@ -7,9 +7,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public abstract class AlaBannerViewHolder<T> extends RecyclerView.ViewHolder {
+public abstract class AlaBannerViewHolder extends RecyclerView.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract void a(int i, Object obj);
+
+    public abstract void b(View view2);
+
+    public abstract void c(int i);
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaBannerViewHolder(View view2) {
@@ -31,10 +37,4 @@ public abstract class AlaBannerViewHolder<T> extends RecyclerView.ViewHolder {
         }
         b(view2);
     }
-
-    public abstract void a(int i, T t);
-
-    public abstract void b(View view2);
-
-    public abstract void c(int i);
 }

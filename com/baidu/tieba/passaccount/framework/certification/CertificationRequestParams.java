@@ -1,20 +1,18 @@
 package com.baidu.tieba.passaccount.framework.certification;
 
-import androidx.annotation.Keep;
 import com.baidu.sapi2.dto.FaceBaseDTO;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-@Keep
 /* loaded from: classes5.dex */
 public class CertificationRequestParams {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ICertificationCallback callback;
     public final boolean needCbKey;
-    public final Map<String, Object> params;
+    public final Map params;
     public final int realNameLevel;
     public final String scene;
 
@@ -39,7 +37,7 @@ public class CertificationRequestParams {
         }
     }
 
-    public CertificationRequestParams(String str, boolean z, int i, Map<String, Object> map, ICertificationCallback iCertificationCallback) {
+    public CertificationRequestParams(String str, boolean z, int i, Map map, ICertificationCallback iCertificationCallback) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

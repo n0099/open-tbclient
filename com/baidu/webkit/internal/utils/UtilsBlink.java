@@ -1,6 +1,5 @@
 package com.baidu.webkit.internal.utils;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -47,7 +46,6 @@ public class UtilsBlink implements INoProGuard {
         return invokeL.booleanValue;
     }
 
-    @SuppressLint({"SdCardPath"})
     public static String getDataPath(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -74,7 +72,6 @@ public class UtilsBlink implements INoProGuard {
         return (String) invokeL.objValue;
     }
 
-    @SuppressLint({"SdCardPath"})
     public static String getFilesPath(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

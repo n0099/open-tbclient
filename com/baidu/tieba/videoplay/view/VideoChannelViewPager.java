@@ -4,14 +4,12 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.qm5;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.xm5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,11 +26,11 @@ public class VideoChannelViewPager extends ViewPager {
     public int c;
     public boolean d;
     public boolean e;
-    public qm5.b f;
-    public List<String> g;
+    public xm5.b f;
+    public List g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VideoChannelViewPager(@NonNull Context context) {
+    public VideoChannelViewPager(Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -54,113 +52,8 @@ public class VideoChannelViewPager extends ViewPager {
         b(context);
     }
 
-    public void a(MotionEvent motionEvent) {
-        float f;
-        float f2;
-        qm5.b bVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, motionEvent) == null) && this.e && this.d) {
-            int action = motionEvent.getAction();
-            if (action == 0) {
-                this.g.clear();
-                this.a = motionEvent.getX();
-                this.b = motionEvent.getY();
-            } else if (action != 1) {
-                if (action != 2) {
-                    return;
-                }
-                this.g.add(motionEvent.getX() + "&" + motionEvent.getY());
-            } else if (getCurrentItem() != 1) {
-            } else {
-                float x = motionEvent.getX();
-                float f3 = this.a;
-                if (x >= f3 || f3 - motionEvent.getX() <= this.c) {
-                    return;
-                }
-                int size = this.g.size() / 2;
-                if (this.g.size() > size && this.g.get(size) != null) {
-                    String[] split = this.g.get(size).split("&");
-                    if (split.length > 1) {
-                        f2 = Math.abs(this.a - Float.parseFloat(split[0]));
-                        f = Math.abs(this.b - Float.parseFloat(split[1]));
-                        if (f2 != 0.0f || f / f2 > Math.tan(Math.toRadians(30.0d)) || (bVar = this.f) == null) {
-                            return;
-                        }
-                        bVar.onViewDragToRight();
-                        return;
-                    }
-                }
-                f = 0.0f;
-                f2 = 0.0f;
-                if (f2 != 0.0f) {
-                }
-            }
-        }
-    }
-
-    public final void b(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.c = ViewConfiguration.get(context).getScaledPagingTouchSlop();
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
-            if (motionEvent.getAction() == 0) {
-                this.d = ((float) getHeight()) - motionEvent.getY() > ((float) (TbadkCoreApplication.getInst().getMainTabBottomBarHeight() + ej.f(getContext(), R.dimen.tbds50)));
-            }
-            a(motionEvent);
-            return super.dispatchTouchEvent(motionEvent);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // androidx.viewpager.widget.ViewPager, android.view.ViewGroup
-    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
-            if (this.e && this.d) {
-                return super.onInterceptTouchEvent(motionEvent);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // androidx.viewpager.widget.ViewPager, android.view.View
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
-            if (this.e && this.d) {
-                return super.onTouchEvent(motionEvent);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void setListener(qm5.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            this.f = bVar;
-        }
-    }
-
-    public void setScrollEnabled(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.e = z;
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VideoChannelViewPager(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+    public VideoChannelViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -181,5 +74,122 @@ public class VideoChannelViewPager extends ViewPager {
         this.d = true;
         this.g = new ArrayList();
         b(context);
+    }
+
+    public void a(MotionEvent motionEvent) {
+        float f;
+        float f2;
+        xm5.b bVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, motionEvent) != null) || !this.e || !this.d) {
+            return;
+        }
+        int action = motionEvent.getAction();
+        if (action != 0) {
+            if (action != 1) {
+                if (action == 2) {
+                    this.g.add(motionEvent.getX() + "&" + motionEvent.getY());
+                    return;
+                }
+                return;
+            } else if (getCurrentItem() == 1) {
+                float x = motionEvent.getX();
+                float f3 = this.a;
+                if (x < f3 && f3 - motionEvent.getX() > this.c) {
+                    int size = this.g.size() / 2;
+                    if (this.g.size() > size && this.g.get(size) != null) {
+                        String[] split = ((String) this.g.get(size)).split("&");
+                        if (split.length > 1) {
+                            f2 = Math.abs(this.a - Float.parseFloat(split[0]));
+                            f = Math.abs(this.b - Float.parseFloat(split[1]));
+                            if (f2 == 0.0f && f / f2 <= Math.tan(Math.toRadians(30.0d)) && (bVar = this.f) != null) {
+                                bVar.onViewDragToRight();
+                                return;
+                            }
+                            return;
+                        }
+                    }
+                    f = 0.0f;
+                    f2 = 0.0f;
+                    if (f2 == 0.0f) {
+                        return;
+                    }
+                    return;
+                }
+                return;
+            } else {
+                return;
+            }
+        }
+        this.g.clear();
+        this.a = motionEvent.getX();
+        this.b = motionEvent.getY();
+    }
+
+    public final void b(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            this.c = ViewConfiguration.get(context).getScaledPagingTouchSlop();
+        }
+    }
+
+    @Override // androidx.viewpager.widget.ViewPager, android.view.ViewGroup
+    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
+            if (!this.e || !this.d) {
+                return false;
+            }
+            return super.onInterceptTouchEvent(motionEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // androidx.viewpager.widget.ViewPager, android.view.View
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
+            if (!this.e || !this.d) {
+                return false;
+            }
+            return super.onTouchEvent(motionEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void setListener(xm5.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
+            this.f = bVar;
+        }
+    }
+
+    public void setScrollEnabled(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.e = z;
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
+            if (motionEvent.getAction() == 0) {
+                if (getHeight() - motionEvent.getY() > TbadkCoreApplication.getInst().getMainTabBottomBarHeight() + fj.f(getContext(), R.dimen.tbds50)) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                this.d = z;
+            }
+            a(motionEvent);
+            return super.dispatchTouchEvent(motionEvent);
+        }
+        return invokeL.booleanValue;
     }
 }

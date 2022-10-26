@@ -12,7 +12,7 @@ import com.baidu.tbadk.mainTab.videoRedIcon.VideoRedIconHttpResponse;
 import com.baidu.tbadk.mainTab.videoRedIcon.VideoRedIconSocketResponse;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.sm8;
+import com.baidu.tieba.zm8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -65,9 +65,17 @@ public class VideoPlayActivityStatic {
         }
     }
 
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            zm8.d(CmdConfigHttp.CMD_VIDEO_TAB_RED_ICON, 309708, "c/f/video/redIcon", VideoRedIconHttpResponse.class, VideoRedIconSocketResponse.class);
+            zm8.e(CmdConfigHttp.CMD_POST_VIDEO_MARK_RED_ICON, "c/c/video/markRedIcon", TbHttpResponsedMessage.class, true, false, true, true);
+        }
+    }
+
     public static void a(RedIcon redIcon) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, redIcon) == null) || redIcon == null) {
+        if ((interceptable != null && interceptable.invokeL(65538, null, redIcon) != null) || redIcon == null) {
             return;
         }
         try {
@@ -85,14 +93,6 @@ public class VideoPlayActivityStatic {
             MessageManager.getInstance().sendMessage(httpMessage);
         } catch (Exception e) {
             e.printStackTrace();
-        }
-    }
-
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            sm8.d(CmdConfigHttp.CMD_VIDEO_TAB_RED_ICON, 309708, "c/f/video/redIcon", VideoRedIconHttpResponse.class, VideoRedIconSocketResponse.class);
-            sm8.e(CmdConfigHttp.CMD_POST_VIDEO_MARK_RED_ICON, "c/c/video/markRedIcon", TbHttpResponsedMessage.class, true, false, true, true);
         }
     }
 }

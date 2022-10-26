@@ -49,6 +49,24 @@ public class RefinedSoundex implements StringEncoder {
         throw new RuntimeException("Stub!");
     }
 
+    public RefinedSoundex(char[] cArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cArr};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        throw new RuntimeException("Stub!");
+    }
+
     public int difference(String str, String str2) throws EncoderException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -75,24 +93,6 @@ public class RefinedSoundex implements StringEncoder {
             throw new RuntimeException("Stub!");
         }
         return (String) invokeL.objValue;
-    }
-
-    public RefinedSoundex(char[] cArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {cArr};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        throw new RuntimeException("Stub!");
     }
 
     @Override // org.apache.commons.codec.StringEncoder

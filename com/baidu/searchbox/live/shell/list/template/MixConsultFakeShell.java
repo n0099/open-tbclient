@@ -16,6 +16,13 @@ public final class MixConsultFakeShell extends MixBasicFakeShell {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.searchbox.live.shell.list.basic.MixBasicFakeShell
+    public String getLiveTemplateId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "3" : (String) invokeV.objValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MixConsultFakeShell(Context context, MiniUniqueId miniUniqueId, IMixActivityInterface iMixActivityInterface) {
         super(context, miniUniqueId, iMixActivityInterface);
@@ -35,12 +42,5 @@ public final class MixConsultFakeShell extends MixBasicFakeShell {
                 return;
             }
         }
-    }
-
-    @Override // com.baidu.searchbox.live.shell.list.basic.MixBasicFakeShell
-    public String getLiveTemplateId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "3" : (String) invokeV.objValue;
     }
 }

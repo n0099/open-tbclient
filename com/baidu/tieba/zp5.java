@@ -1,421 +1,243 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteException;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.browser.core.async.BdRunnable;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidubce.AbstractBceClient;
+import java.io.IOException;
+import java.util.Map;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class zp5 {
     public static /* synthetic */ Interceptable $ic;
-    public static zp5 a;
+    public static final String b;
+    public static final String c;
     public transient /* synthetic */ FieldHolder $fh;
+    public b a;
 
-    public zp5() {
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(JSONObject jSONObject);
+    }
+
+    /* loaded from: classes6.dex */
+    public class a extends BdRunnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Map c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ zp5 e;
+
+        /* renamed from: com.baidu.tieba.zp5$a$a  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public class C0476a extends BdRunnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ JSONObject c;
+            public final /* synthetic */ a d;
+
+            public C0476a(a aVar, JSONObject jSONObject) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, jSONObject};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.d = aVar;
+                this.c = jSONObject;
+            }
+
+            @Override // com.baidu.browser.core.async.BdRunnable
+            public void b() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.d.e.a.a(this.c);
+                }
+            }
+        }
+
+        public a(zp5 zp5Var, Map map, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zp5Var, map, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = zp5Var;
+            this.c = map;
+            this.d = str;
+        }
+
+        @Override // com.baidu.browser.core.async.BdRunnable
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                MediaType parse = MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE);
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    this.e.d(this.c);
+                    this.e.f(this.c, jSONObject);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                OkHttpClient okHttpClient = new OkHttpClient();
+                RequestBody create = RequestBody.create(parse, String.valueOf(jSONObject));
+                Response response = null;
+                try {
+                    response = okHttpClient.newCall(new Request.Builder().url(this.d).post(create).build()).execute();
+                } catch (IOException e2) {
+                    e2.printStackTrace();
+                }
+                try {
+                    qw.f().h(new C0476a(this, new JSONObject(response.body().string())));
+                } catch (IOException e3) {
+                    e3.printStackTrace();
+                } catch (JSONException e4) {
+                    e4.printStackTrace();
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        String str;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948367658, "Lcom/baidu/tieba/zp5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948367658, "Lcom/baidu/tieba/zp5;");
+                return;
+            }
+        }
+        if (bq4.e()) {
+            str = "http://";
+        } else {
+            str = "https://";
+        }
+        b = str;
+        c = b + "afdconf.baidu.com/afd/download";
+    }
+
+    public zp5(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bVar};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = bVar;
     }
 
-    public static synchronized zp5 f() {
-        InterceptResult invokeV;
-        zp5 zp5Var;
+    public void g(Map map, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (zp5.class) {
-                if (a == null) {
-                    a = new zp5();
-                }
-                zp5Var = a;
-            }
-            return zp5Var;
-        }
-        return (zp5) invokeV.objValue;
-    }
-
-    public final int a(h97 h97Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, h97Var)) != null) {
-            return invokeL.intValue;
-        }
-        SQLiteDatabase c = s97.c();
-        int i = 0;
-        if (c == null) {
-            return 0;
-        }
-        try {
-            if (o(c, h97Var.b())) {
-                ContentValues contentValues = new ContentValues();
-                long correctUserIdAfterOverflowCut = UtilHelper.getCorrectUserIdAfterOverflowCut(h97Var.b());
-                contentValues.put("uid", Long.valueOf(correctUserIdAfterOverflowCut));
-                int update = t97.d().update("tb_new_friends", contentValues, "uid=?", new String[]{String.valueOf(h97Var.b())});
-                try {
-                    h97Var.h(correctUserIdAfterOverflowCut);
-                    return update;
-                } catch (Exception e) {
-                    e = e;
-                    i = update;
-                    e.printStackTrace();
-                    return i;
-                }
-            }
-            return 0;
-        } catch (Exception e2) {
-            e = e2;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, map, str) == null) {
+            qw.f().g(new a(this, map, str));
         }
     }
 
-    public boolean b(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) ? c(s97.c(), j) : invokeJ.booleanValue;
-    }
-
-    public final boolean c(SQLiteDatabase sQLiteDatabase, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase, j)) == null) {
-            try {
-                return t97.d().delete("tb_new_friends", "uid = ?", new String[]{String.valueOf(j)});
-            } catch (Exception e) {
-                e.printStackTrace();
-                return false;
-            }
-        }
-        return invokeLJ.booleanValue;
-    }
-
-    public final long d(SQLiteDatabase sQLiteDatabase) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, sQLiteDatabase)) == null) {
-            if (sQLiteDatabase == null) {
-                sQLiteDatabase = s97.c();
-            }
-            if (sQLiteDatabase != null) {
-                Cursor cursor = null;
-                try {
-                    try {
-                        try {
-                            cursor = t97.d().e("select * from tb_new_friends", new String[0]);
-                            if (cursor != null && cursor.moveToNext()) {
-                                return cursor.getLong(cursor.getColumnIndex("uid"));
-                            }
-                        } catch (SQLiteException e) {
-                            e.printStackTrace();
-                        }
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
-                    }
-                    return 0L;
-                } finally {
-                    fj.a(cursor);
-                }
-            }
-            return 0L;
-        }
-        return invokeL.longValue;
-    }
-
-    public synchronized h97 e(long j) {
-        InterceptResult invokeJ;
-        h97 h97Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
-            synchronized (this) {
-                h97Var = new h97();
-                Cursor cursor = null;
-                try {
-                    cursor = t97.d().e("select * from tb_new_friends where uid=?", new String[]{String.valueOf(j)});
-                    if (cursor != null && cursor.moveToNext()) {
-                        h97Var.i(cursor.getInt(cursor.getColumnIndex("isread")));
-                        h97Var.l(cursor.getInt(cursor.getColumnIndex("ustatus")));
-                        h97Var.g(cursor.getString(cursor.getColumnIndex("ucontent")));
-                        h97Var.j(cursor.getString(cursor.getColumnIndex("uname")));
-                        h97Var.k(cursor.getString(cursor.getColumnIndex("uportrait")));
-                    }
-                } catch (SQLiteException e) {
-                    e.printStackTrace();
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                }
-                fj.a(cursor);
-            }
-            return h97Var;
-        }
-        return (h97) invokeJ.objValue;
-    }
-
-    public List<h97> g() {
+    public static String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            Cursor cursor = null;
-            try {
-                try {
-                    cursor = t97.d().e("select * from tb_new_friends WHERE isread=? ORDER BY _id DESC", new String[]{String.valueOf(0)});
-                    if (cursor != null) {
-                        while (cursor.moveToNext()) {
-                            h97 h97Var = new h97();
-                            h97Var.h(cursor.getLong(cursor.getColumnIndex("uid")));
-                            h97Var.g(cursor.getString(cursor.getColumnIndex("ucontent")));
-                            h97Var.i(cursor.getInt(cursor.getColumnIndex("isread")));
-                            h97Var.j(cursor.getString(cursor.getColumnIndex("uname")));
-                            h97Var.k(cursor.getString(cursor.getColumnIndex("uportrait")));
-                            h97Var.l(cursor.getInt(cursor.getColumnIndex("ustatus")));
-                            arrayList.add(h97Var);
-                        }
-                        p();
-                    }
-                } catch (SQLiteException e) {
-                    e.printStackTrace();
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                }
-                return arrayList;
-            } finally {
-                fj.a(cursor);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (BdNetTypeUtil.isWifiNet()) {
+                return UtilHelper.getWifiMac(TbadkCoreApplication.getInst().getApp());
             }
+            return UtilHelper.getGprsIpAddress();
         }
-        return (List) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            Cursor cursor = null;
-            try {
-                try {
-                    cursor = t97.d().e("select count(*) from tb_new_friends WHERE  ( isread=? and ustatus=? ) or (isread=? and ustatus=? )", new String[]{String.valueOf(0), String.valueOf(1), String.valueOf(0), String.valueOf(4)});
-                    if (cursor != null && cursor.moveToNext()) {
-                        return cursor.getInt(0);
-                    }
-                } catch (SQLiteException e) {
-                    e.printStackTrace();
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                }
-                return 0;
-            } finally {
-                fj.a(cursor);
-            }
-        }
-        return invokeV.intValue;
-    }
-
-    public final int i(SQLiteDatabase sQLiteDatabase) {
+    public final Map d(Map map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, sQLiteDatabase)) == null) {
-            if (sQLiteDatabase == null) {
-                sQLiteDatabase = s97.c();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, map)) == null) {
+            map.put("_client_version", TbConfig.getVersion());
+            map.put("uid", TbadkCoreApplication.getCurrentAccount());
+            map.put("cuid", TbadkCoreApplication.getInst().getCuidGalaxy2());
+            map.put("ua", yi5.b());
+            String e = qj0.c().e(false);
+            if (!TextUtils.isEmpty(e)) {
+                map.put("model", e);
             }
-            Cursor cursor = null;
-            try {
-                if (sQLiteDatabase == null) {
-                    return 0;
-                }
-                try {
-                    cursor = t97.d().e("select * from tb_new_friends", new String[0]);
-                    if (cursor != null && cursor.moveToFirst()) {
-                        return cursor.getCount();
-                    }
-                } catch (SQLiteException e) {
-                    e.printStackTrace();
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                }
-                return 0;
-            } finally {
-                fj.a(cursor);
+            String h = qj0.c().h(false);
+            if (!TextUtils.isEmpty(h)) {
+                map.put("_os_version", h);
             }
+            String b2 = qj0.c().b(false);
+            if (!TextUtils.isEmpty(b2)) {
+                map.put("imei", b2);
+            }
+            String a2 = qj0.c().a(false);
+            if (!TextUtils.isEmpty(a2)) {
+                map.put(HttpRequest.ANDROID_ID, a2);
+            }
+            map.put(HttpRequest.CLIENT_TYPE, "2");
+            map.put("nt", String.valueOf(BdNetTypeUtil.netType()));
+            map.put("ip", e());
+            map.put("ssl", "1");
+            return map;
         }
-        return invokeL.intValue;
+        return (Map) invokeL.objValue;
     }
 
-    public List<h97> j() {
-        InterceptResult invokeV;
+    public final JSONObject f(Map map, JSONObject jSONObject) throws JSONException {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            SQLiteDatabase c = s97.c();
-            ArrayList arrayList = new ArrayList();
-            if (c != null) {
-                Cursor cursor = null;
-                try {
-                    try {
-                        try {
-                            cursor = t97.d().e("select * from tb_new_friends ORDER BY _id DESC", null);
-                            if (cursor != null) {
-                                while (cursor.moveToNext()) {
-                                    h97 h97Var = new h97();
-                                    h97Var.h(cursor.getLong(cursor.getColumnIndex("uid")));
-                                    if (h97Var.b() < 0) {
-                                        a(h97Var);
-                                    }
-                                    h97Var.g(cursor.getString(cursor.getColumnIndex("ucontent")));
-                                    h97Var.i(cursor.getInt(cursor.getColumnIndex("isread")));
-                                    h97Var.j(cursor.getString(cursor.getColumnIndex("uname")));
-                                    h97Var.k(cursor.getString(cursor.getColumnIndex("uportrait")));
-                                    h97Var.l(cursor.getInt(cursor.getColumnIndex("ustatus")));
-                                    arrayList.add(h97Var);
-                                }
-                            }
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    } catch (SQLiteException e2) {
-                        e2.printStackTrace();
-                    }
-                } finally {
-                    fj.a(cursor);
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map, jSONObject)) == null) {
+            if (lh7.f(map)) {
+                return jSONObject;
             }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final void k(SQLiteDatabase sQLiteDatabase, h97 h97Var) throws Exception {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048585, this, sQLiteDatabase, h97Var) == null) || h97Var == null || h97Var.b() == 0 || TextUtils.isEmpty(h97Var.d())) {
-            return;
-        }
-        if (sQLiteDatabase == null) {
-            sQLiteDatabase = s97.c();
-        }
-        if (sQLiteDatabase != null) {
-            c(sQLiteDatabase, h97Var.b());
-            if (i(sQLiteDatabase) >= 200) {
-                b(d(sQLiteDatabase));
+            for (Map.Entry entry : map.entrySet()) {
+                jSONObject.putOpt((String) entry.getKey(), entry.getValue());
             }
-            if (sQLiteDatabase != null) {
-                ContentValues contentValues = new ContentValues();
-                contentValues.put("uid", Long.valueOf(h97Var.b()));
-                contentValues.put("uname", h97Var.d());
-                contentValues.put("uportrait", h97Var.e());
-                contentValues.put("ucontent", h97Var.a());
-                contentValues.put("ustatus", Integer.valueOf(h97Var.f()));
-                contentValues.put("isread", Integer.valueOf(h97Var.c()));
-                t97.d().insert("tb_new_friends", null, contentValues);
-            }
+            return jSONObject;
         }
-    }
-
-    public void l(h97 h97Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, h97Var) == null) {
-            try {
-                k(s97.c(), h97Var);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public void m(List<h97> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, list) == null) {
-            try {
-                for (h97 h97Var : list) {
-                    k(s97.c(), h97Var);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public boolean n(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048588, this, j)) == null) ? o(s97.c(), j) : invokeJ.booleanValue;
-    }
-
-    public final boolean o(SQLiteDatabase sQLiteDatabase, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048589, this, sQLiteDatabase, j)) == null) {
-            if (sQLiteDatabase == null) {
-                sQLiteDatabase = s97.c();
-            }
-            boolean z = false;
-            if (sQLiteDatabase != null) {
-                Cursor cursor = null;
-                try {
-                    try {
-                        cursor = t97.d().e("select * from tb_new_friends WHERE uid=?", new String[]{String.valueOf(j)});
-                        if (cursor != null) {
-                            if (cursor.moveToFirst()) {
-                                z = true;
-                            }
-                        }
-                    } catch (SQLiteException e) {
-                        e.printStackTrace();
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
-                    }
-                } finally {
-                    fj.a(cursor);
-                }
-            }
-            return z;
-        }
-        return invokeLJ.booleanValue;
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("isread", (Integer) 1);
-            t97.d().update("tb_new_friends", contentValues, null, null);
-        }
-    }
-
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:14:0x0056 -> B:22:0x005b). Please submit an issue!!! */
-    public int q(h97 h97Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, h97Var)) == null) {
-            SQLiteDatabase c = s97.c();
-            int i = 0;
-            if (c != null) {
-                try {
-                    if (o(c, h97Var.b())) {
-                        ContentValues contentValues = new ContentValues();
-                        contentValues.put("ustatus", Integer.valueOf(h97Var.f()));
-                        contentValues.put("isread", Integer.valueOf(h97Var.c()));
-                        i = t97.d().update("tb_new_friends", contentValues, "uid=?", new String[]{String.valueOf(h97Var.b())});
-                    } else {
-                        k(c, h97Var);
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            return i;
-        }
-        return invokeL.intValue;
+        return (JSONObject) invokeLL.objValue;
     }
 }

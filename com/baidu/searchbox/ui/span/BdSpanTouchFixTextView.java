@@ -4,7 +4,6 @@ import android.content.Context;
 import android.text.Spannable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.ui.UnifyTextView;
@@ -44,6 +43,53 @@ public class BdSpanTouchFixTextView extends UnifyTextView implements ISpanTouchF
         }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public BdSpanTouchFixTextView(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public BdSpanTouchFixTextView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.mRealPressStatus = false;
+        this.mNeedForceEventToParent = false;
+        this.mSyncSpanPressStatus = false;
+        this.mSuperNeedLongClickEvent = false;
+        setHighlightColor(0);
+    }
+
     public void onSetPressed(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -68,45 +114,13 @@ public class BdSpanTouchFixTextView extends UnifyTextView implements ISpanTouchF
                 return super.onTouchEvent(motionEvent);
             }
             this.mTouchSpanHit = false;
-            return this.mNeedForceEventToParent ? this.mTouchSpanHit : super.onTouchEvent(motionEvent);
+            boolean onTouchEvent = super.onTouchEvent(motionEvent);
+            if (this.mNeedForceEventToParent) {
+                return this.mTouchSpanHit;
+            }
+            return onTouchEvent;
         }
         return invokeL.booleanValue;
-    }
-
-    @Override // android.view.View
-    public boolean performClick() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.mTouchSpanHit || this.mNeedForceEventToParent) {
-                return false;
-            }
-            return super.performClick();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // android.widget.TextView, android.view.View
-    public boolean performLongClick() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if ((this.mTouchSpanHit || this.mNeedForceEventToParent) && !this.mSuperNeedLongClickEvent) {
-                return false;
-            }
-            return super.performLongClick();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void setBdMovementMethod() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            setMovementMethod(BdLinkTouchMovementMethod.getInstance());
-            if (this.mNeedForceEventToParent) {
-                setNeedForceEventToParent(true);
-            }
-        }
     }
 
     public void setNeedForceEventToParent(boolean z) {
@@ -147,57 +161,45 @@ public class BdSpanTouchFixTextView extends UnifyTextView implements ISpanTouchF
     @Override // com.baidu.searchbox.ui.span.ISpanTouchFix
     public void setTouchSpanHit(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048586, this, z) == null) || this.mTouchSpanHit == z) {
-            return;
-        }
-        this.mTouchSpanHit = z;
-        setPressed(this.mRealPressStatus);
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public BdSpanTouchFixTextView(Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if ((interceptable == null || interceptable.invokeZ(1048586, this, z) == null) && this.mTouchSpanHit != z) {
+            this.mTouchSpanHit = z;
+            setPressed(this.mRealPressStatus);
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BdSpanTouchFixTextView(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    @Override // android.view.View
+    public boolean performClick() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (!this.mTouchSpanHit && !this.mNeedForceEventToParent) {
+                return super.performClick();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.widget.TextView, android.view.View
+    public boolean performLongClick() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if ((!this.mTouchSpanHit && !this.mNeedForceEventToParent) || this.mSuperNeedLongClickEvent) {
+                return super.performLongClick();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void setBdMovementMethod() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            setMovementMethod(BdLinkTouchMovementMethod.getInstance());
+            if (this.mNeedForceEventToParent) {
+                setNeedForceEventToParent(true);
             }
         }
-        this.mRealPressStatus = false;
-        this.mNeedForceEventToParent = false;
-        this.mSyncSpanPressStatus = false;
-        this.mSuperNeedLongClickEvent = false;
-        setHighlightColor(0);
     }
 }

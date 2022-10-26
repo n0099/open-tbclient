@@ -1,6 +1,5 @@
 package com.yy.mobile.framework.revenuesdk.baseapi;
 
-import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +9,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.http.HttpVersion;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-@Keep
 /* loaded from: classes8.dex */
 public final class ProtocolType {
     public static final /* synthetic */ ProtocolType[] $VALUES;
@@ -62,12 +60,18 @@ public final class ProtocolType {
     public static ProtocolType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (ProtocolType) Enum.valueOf(ProtocolType.class, str) : (ProtocolType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (ProtocolType) Enum.valueOf(ProtocolType.class, str);
+        }
+        return (ProtocolType) invokeL.objValue;
     }
 
     public static ProtocolType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ProtocolType[]) $VALUES.clone() : (ProtocolType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (ProtocolType[]) $VALUES.clone();
+        }
+        return (ProtocolType[]) invokeV.objValue;
     }
 }

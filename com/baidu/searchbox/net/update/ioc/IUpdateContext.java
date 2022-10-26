@@ -6,5 +6,5 @@ import org.json.JSONObject;
 public interface IUpdateContext {
     void doStatistics(int i, JSONObject jSONObject);
 
-    List<String> getCustomUpdateBlackList();
+    List getCustomUpdateBlackList();
 }

@@ -22,6 +22,8 @@ public abstract class BDVideoKernelGesturePlugin extends AbsPlugin {
     public transient /* synthetic */ FieldHolder $fh;
     public BdVideoMultipleGesturesDetector kernelGestureDetector;
 
+    public abstract void initGestureDetector();
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BDVideoKernelGesturePlugin(Context context) {
         super(context);
@@ -64,26 +66,58 @@ public abstract class BDVideoKernelGesturePlugin extends AbsPlugin {
         return (BdVideoMultipleGesturesDetector) invokeL.objValue;
     }
 
+    public void recoverVideoViewMatrixChanges(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            if (!z) {
+                BdVideoMultipleGesturesDetector bdVideoMultipleGesturesDetector = this.kernelGestureDetector;
+                if (bdVideoMultipleGesturesDetector != null) {
+                    bdVideoMultipleGesturesDetector.switchNormal();
+                    return;
+                }
+                return;
+            }
+            BdVideoMultipleGesturesDetector bdVideoMultipleGesturesDetector2 = this.kernelGestureDetector;
+            if (bdVideoMultipleGesturesDetector2 != null) {
+                bdVideoMultipleGesturesDetector2.switchNormalWithAnimation();
+            }
+        }
+    }
+
+    public final void setKernelGestureDetector(BdVideoMultipleGesturesDetector bdVideoMultipleGesturesDetector) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdVideoMultipleGesturesDetector) == null) {
+            this.kernelGestureDetector = bdVideoMultipleGesturesDetector;
+        }
+    }
+
     public BdVideoMultipleGesturesDetector getGestureDetector() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.kernelGestureDetector : (BdVideoMultipleGesturesDetector) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.kernelGestureDetector;
+        }
+        return (BdVideoMultipleGesturesDetector) invokeV.objValue;
     }
 
     public final BdVideoMultipleGesturesDetector getKernelGestureDetector() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.kernelGestureDetector : (BdVideoMultipleGesturesDetector) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.kernelGestureDetector;
+        }
+        return (BdVideoMultipleGesturesDetector) invokeV.objValue;
     }
 
     @Override // com.baidu.searchbox.player.interfaces.INeuron
     public int[] getSubscribeEvent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new int[]{3, 4} : (int[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return new int[]{3, 4};
+        }
+        return (int[]) invokeV.objValue;
     }
-
-    public abstract void initGestureDetector();
 
     @Override // com.baidu.searchbox.player.plugin.AbsPlugin, com.baidu.searchbox.player.interfaces.INeuron
     public void onLayerEventNotify(VideoEvent event) {
@@ -110,6 +144,8 @@ public abstract class BDVideoKernelGesturePlugin extends AbsPlugin {
             Intrinsics.checkNotNullParameter(event, "event");
             String action = event.getAction();
             int hashCode = action.hashCode();
+            Context context2 = null;
+            boolean z = true;
             if (hashCode != -1043170264) {
                 if (hashCode != -525235558) {
                     if (hashCode != -461848373 || !action.equals(PlayerEvent.ACTION_ON_ERROR)) {
@@ -119,37 +155,17 @@ public abstract class BDVideoKernelGesturePlugin extends AbsPlugin {
                     return;
                 }
                 recoverVideoViewMatrixChanges$default(this, false, 1, null);
-            } else if (!action.equals(PlayerEvent.ACTION_PLAYER_ATTACH) || (context = getContext()) == null) {
-            } else {
-                if ((this.kernelGestureDetector == null ? context : null) != null) {
+            } else if (action.equals(PlayerEvent.ACTION_PLAYER_ATTACH) && (context = getContext()) != null) {
+                if (this.kernelGestureDetector != null) {
+                    z = false;
+                }
+                if (z) {
+                    context2 = context;
+                }
+                if (context2 != null) {
                     initGestureDetector();
                 }
             }
-        }
-    }
-
-    public void recoverVideoViewMatrixChanges(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            if (!z) {
-                BdVideoMultipleGesturesDetector bdVideoMultipleGesturesDetector = this.kernelGestureDetector;
-                if (bdVideoMultipleGesturesDetector != null) {
-                    bdVideoMultipleGesturesDetector.switchNormal();
-                    return;
-                }
-                return;
-            }
-            BdVideoMultipleGesturesDetector bdVideoMultipleGesturesDetector2 = this.kernelGestureDetector;
-            if (bdVideoMultipleGesturesDetector2 != null) {
-                bdVideoMultipleGesturesDetector2.switchNormalWithAnimation();
-            }
-        }
-    }
-
-    public final void setKernelGestureDetector(BdVideoMultipleGesturesDetector bdVideoMultipleGesturesDetector) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdVideoMultipleGesturesDetector) == null) {
-            this.kernelGestureDetector = bdVideoMultipleGesturesDetector;
         }
     }
 }

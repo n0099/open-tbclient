@@ -1,6 +1,5 @@
 package com.kwad.components.core.page.kwai;
 
-import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import android.view.ViewGroup;
 import android.webkit.WebView;
@@ -79,7 +78,6 @@ public final class f extends c {
         }
     }
 
-    @SuppressLint({"SetJavaScriptEnabled", "AddJavascriptInterface", "JavascriptInterface"})
     private void aF() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
@@ -139,7 +137,7 @@ public final class f extends c {
             public final void a(com.kwad.components.core.webview.a.b bVar) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, bVar) == null) {
-                    AdWebViewActivityProxy.launch(this.Gn.Fv.getContext(), new AdWebViewActivityProxy.a.C0577a().ao(bVar.title).ap(bVar.url).N(this.Gn.mAdTemplate).nx());
+                    AdWebViewActivityProxy.launch(this.Gn.Fv.getContext(), new AdWebViewActivityProxy.a.C0573a().ao(bVar.title).ap(bVar.url).N(this.Gn.mAdTemplate).nx());
                 }
             }
         } : (w.a) invokeV.objValue;
@@ -226,8 +224,8 @@ public final class f extends c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onCreate();
-            this.Fv = (WebView) findViewById(R.id.obfuscated_res_0x7f0910ef);
-            this.Gl = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09123c);
+            this.Fv = (WebView) findViewById(R.id.obfuscated_res_0x7f0910e3);
+            this.Gl = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091230);
             this.Fv.setBackgroundColor(0);
         }
     }

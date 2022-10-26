@@ -1,6 +1,5 @@
 package com.baidu.searchbox.launch;
 
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,6 +12,16 @@ public interface IDyeConfig {
     public static final IDyeConfig EMPTY = new IDyeConfig() { // from class: com.baidu.searchbox.launch.IDyeConfig.1
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.searchbox.launch.IDyeConfig
+        public String getDyeConfig() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return null;
+            }
+            return (String) invokeV.objValue;
+        }
 
         {
             Interceptable interceptable = $ic;
@@ -27,21 +36,13 @@ public interface IDyeConfig {
                 }
             }
         }
-
-        @Override // com.baidu.searchbox.launch.IDyeConfig
-        public String getDyeConfig() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return null;
-            }
-            return (String) invokeV.objValue;
-        }
     };
     public static final String LOG_TAG = "IDyeConfig";
 
+    String getDyeConfig();
+
     /* loaded from: classes2.dex */
-    public static final class Impl {
+    public final class Impl {
         public static /* synthetic */ Interceptable $ic;
         public static IDyeConfig sHomeSearch;
         public transient /* synthetic */ FieldHolder $fh;
@@ -76,7 +77,6 @@ public interface IDyeConfig {
             }
         }
 
-        @NonNull
         public static IDyeConfig get() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -89,6 +89,4 @@ public interface IDyeConfig {
             return (IDyeConfig) invokeV.objValue;
         }
     }
-
-    String getDyeConfig();
 }

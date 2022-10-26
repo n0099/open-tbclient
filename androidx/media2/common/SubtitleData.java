@@ -1,7 +1,5 @@
 package androidx.media2.common;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.util.ObjectsCompat;
 import androidx.versionedparcelable.VersionedParcelable;
 import com.baidu.android.imsdk.internal.Constants;
@@ -34,48 +32,34 @@ public final class SubtitleData implements VersionedParcelable {
         }
     }
 
-    public boolean equals(@Nullable Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj == null || SubtitleData.class != obj.getClass()) {
-                return false;
-            }
-            SubtitleData subtitleData = (SubtitleData) obj;
-            return this.mStartTimeUs == subtitleData.mStartTimeUs && this.mDurationUs == subtitleData.mDurationUs && Arrays.equals(this.mData, subtitleData.mData);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @NonNull
     public byte[] getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (byte[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mData;
+        }
+        return (byte[]) invokeV.objValue;
     }
 
     public long getDurationUs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mDurationUs : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mDurationUs;
+        }
+        return invokeV.longValue;
     }
 
     public long getStartTimeUs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mStartTimeUs : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mStartTimeUs;
+        }
+        return invokeV.longValue;
     }
 
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? ObjectsCompat.hash(Long.valueOf(this.mStartTimeUs), Long.valueOf(this.mDurationUs), Integer.valueOf(Arrays.hashCode(this.mData))) : invokeV.intValue;
-    }
-
-    public SubtitleData(long j, long j2, @NonNull byte[] bArr) {
+    public SubtitleData(long j, long j2, byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -93,5 +77,33 @@ public final class SubtitleData implements VersionedParcelable {
         this.mStartTimeUs = j;
         this.mDurationUs = j2;
         this.mData = bArr;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj == null || SubtitleData.class != obj.getClass()) {
+                return false;
+            }
+            SubtitleData subtitleData = (SubtitleData) obj;
+            if (this.mStartTimeUs == subtitleData.mStartTimeUs && this.mDurationUs == subtitleData.mDurationUs && Arrays.equals(this.mData, subtitleData.mData)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return ObjectsCompat.hash(Long.valueOf(this.mStartTimeUs), Long.valueOf(this.mDurationUs), Integer.valueOf(Arrays.hashCode(this.mData)));
+        }
+        return invokeV.intValue;
     }
 }

@@ -17,10 +17,30 @@ public class ForumSuggestModel extends BdBaseModel implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 6239604692561216871L;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<Forum> forum_list;
+    public ArrayList forum_list;
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
     /* loaded from: classes5.dex */
-    public static class Forum extends OrmObject implements Serializable {
+    public class Forum extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 9180642468980325020L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -69,32 +89,6 @@ public class ForumSuggestModel extends BdBaseModel implements Serializable {
         }
     }
 
-    public static ForumSuggestModel parserJson(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (ForumSuggestModel) OrmObject.objectWithJsonStr(str, ForumSuggestModel.class) : (ForumSuggestModel) invokeL.objValue;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean loadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumSuggestModel(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
@@ -113,5 +107,14 @@ public class ForumSuggestModel extends BdBaseModel implements Serializable {
                 return;
             }
         }
+    }
+
+    public static ForumSuggestModel parserJson(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (ForumSuggestModel) OrmObject.objectWithJsonStr(str, ForumSuggestModel.class);
+        }
+        return (ForumSuggestModel) invokeL.objValue;
     }
 }

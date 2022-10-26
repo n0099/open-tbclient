@@ -15,7 +15,7 @@ public interface TTAdNative {
 
     /* loaded from: classes7.dex */
     public interface DrawFeedAdListener extends CommonListener {
-        void onDrawFeedAdLoad(List<TTDrawFeedAd> list);
+        void onDrawFeedAdLoad(List list);
 
         @Override // com.bytedance.sdk.openadsdk.common.CommonListener
         void onError(int i, String str);
@@ -26,7 +26,7 @@ public interface TTAdNative {
         @Override // com.bytedance.sdk.openadsdk.common.CommonListener
         void onError(int i, String str);
 
-        void onFeedAdLoad(List<TTFeedAd> list);
+        void onFeedAdLoad(List list);
     }
 
     /* loaded from: classes7.dex */
@@ -55,7 +55,7 @@ public interface TTAdNative {
         @Override // com.bytedance.sdk.openadsdk.common.CommonListener
         void onError(int i, String str);
 
-        void onNativeAdLoad(List<TTNativeAd> list);
+        void onNativeAdLoad(List list);
     }
 
     /* loaded from: classes7.dex */
@@ -63,7 +63,7 @@ public interface TTAdNative {
         @Override // com.bytedance.sdk.openadsdk.common.CommonListener
         void onError(int i, String str);
 
-        void onNativeExpressAdLoad(List<TTNativeExpressAd> list);
+        void onNativeExpressAdLoad(List list);
     }
 
     /* loaded from: classes7.dex */

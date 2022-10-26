@@ -5,11 +5,10 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.annotation.NonNull;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.widget.ad.VipAdFreeGuideLayout;
-import com.baidu.tieba.in8;
-import com.baidu.tieba.wu6;
+import com.baidu.tieba.dv6;
+import com.baidu.tieba.pn8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -22,6 +21,43 @@ public abstract class FunAbsAdView extends NativeAdContainer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String c;
+
+    public abstract void b();
+
+    public abstract ViewGroup c(FunNativeAd2 funNativeAd2);
+
+    public abstract void d(int i);
+
+    public abstract void e(BdUniqueId bdUniqueId);
+
+    public abstract void f(pn8 pn8Var, Activity activity);
+
+    public abstract void g(Context context);
+
+    public abstract List getClickViews();
+
+    public abstract List getCreativeViews();
+
+    public abstract View getFeedBackView();
+
+    public abstract int getLayoutId();
+
+    public abstract dv6.g getLogItem();
+
+    public abstract String getPageType();
+
+    public abstract VipAdFreeGuideLayout getVipAdFreeGuideLayout();
+
+    public abstract void h();
+
+    public abstract void setCurpage(String str);
+
+    public abstract void setFeedBackListener(View.OnClickListener onClickListener);
+
+    public abstract void setFunAdMaskViewVisible(boolean z);
+
+    @Deprecated
+    public abstract void setFunAdViewVisible(boolean z);
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public FunAbsAdView(Context context) {
@@ -43,43 +79,6 @@ public abstract class FunAbsAdView extends NativeAdContainer {
             }
         }
     }
-
-    public abstract void b();
-
-    public abstract ViewGroup c(FunNativeAd2 funNativeAd2);
-
-    public abstract void d(int i);
-
-    public abstract void e(BdUniqueId bdUniqueId);
-
-    public abstract void f(@NonNull in8 in8Var, @NonNull Activity activity);
-
-    public abstract void g(Context context);
-
-    public abstract List<View> getClickViews();
-
-    public abstract List<View> getCreativeViews();
-
-    public abstract View getFeedBackView();
-
-    public abstract int getLayoutId();
-
-    public abstract wu6.g getLogItem();
-
-    public abstract String getPageType();
-
-    public abstract VipAdFreeGuideLayout getVipAdFreeGuideLayout();
-
-    public abstract void h();
-
-    public abstract void setCurpage(String str);
-
-    public abstract void setFeedBackListener(View.OnClickListener onClickListener);
-
-    public abstract void setFunAdMaskViewVisible(boolean z);
-
-    @Deprecated
-    public abstract void setFunAdViewVisible(boolean z);
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public FunAbsAdView(Context context, AttributeSet attributeSet) {

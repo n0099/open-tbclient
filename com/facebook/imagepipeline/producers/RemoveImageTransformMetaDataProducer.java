@@ -4,34 +4,29 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.common.memory.PooledByteBuffer;
 import com.facebook.common.references.CloseableReference;
 import com.facebook.imagepipeline.image.EncodedImage;
 /* loaded from: classes7.dex */
-public class RemoveImageTransformMetaDataProducer implements Producer<CloseableReference<PooledByteBuffer>> {
+public class RemoveImageTransformMetaDataProducer implements Producer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Producer<EncodedImage> mInputProducer;
+    public final Producer mInputProducer;
 
     /* renamed from: com.facebook.imagepipeline.producers.RemoveImageTransformMetaDataProducer$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes7.dex */
-    public class RemoveImageTransformMetaDataConsumer extends DelegatingConsumer<EncodedImage, CloseableReference<PooledByteBuffer>> {
+    public class RemoveImageTransformMetaDataConsumer extends DelegatingConsumer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ RemoveImageTransformMetaDataProducer this$0;
 
-        public /* synthetic */ RemoveImageTransformMetaDataConsumer(RemoveImageTransformMetaDataProducer removeImageTransformMetaDataProducer, Consumer consumer, AnonymousClass1 anonymousClass1) {
-            this(removeImageTransformMetaDataProducer, consumer);
-        }
-
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public RemoveImageTransformMetaDataConsumer(RemoveImageTransformMetaDataProducer removeImageTransformMetaDataProducer, Consumer<CloseableReference<PooledByteBuffer>> consumer) {
+        public RemoveImageTransformMetaDataConsumer(RemoveImageTransformMetaDataProducer removeImageTransformMetaDataProducer, Consumer consumer) {
             super(consumer);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -51,22 +46,29 @@ public class RemoveImageTransformMetaDataProducer implements Producer<CloseableR
             this.this$0 = removeImageTransformMetaDataProducer;
         }
 
+        public /* synthetic */ RemoveImageTransformMetaDataConsumer(RemoveImageTransformMetaDataProducer removeImageTransformMetaDataProducer, Consumer consumer, AnonymousClass1 anonymousClass1) {
+            this(removeImageTransformMetaDataProducer, consumer);
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.facebook.imagepipeline.producers.BaseConsumer
         public void onNewResultImpl(EncodedImage encodedImage, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, encodedImage, i) == null) {
+                CloseableReference closeableReference = null;
                 try {
-                    r0 = EncodedImage.isValid(encodedImage) ? encodedImage.getByteBufferRef() : null;
-                    getConsumer().onNewResult(r0, i);
+                    if (EncodedImage.isValid(encodedImage)) {
+                        closeableReference = encodedImage.getByteBufferRef();
+                    }
+                    getConsumer().onNewResult(closeableReference, i);
                 } finally {
-                    CloseableReference.closeSafely(r0);
+                    CloseableReference.closeSafely(closeableReference);
                 }
             }
         }
     }
 
-    public RemoveImageTransformMetaDataProducer(Producer<EncodedImage> producer) {
+    public RemoveImageTransformMetaDataProducer(Producer producer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -85,7 +87,7 @@ public class RemoveImageTransformMetaDataProducer implements Producer<CloseableR
     }
 
     @Override // com.facebook.imagepipeline.producers.Producer
-    public void produceResults(Consumer<CloseableReference<PooledByteBuffer>> consumer, ProducerContext producerContext) {
+    public void produceResults(Consumer consumer, ProducerContext producerContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, consumer, producerContext) == null) {
             this.mInputProducer.produceResults(new RemoveImageTransformMetaDataConsumer(this, consumer, null), producerContext);

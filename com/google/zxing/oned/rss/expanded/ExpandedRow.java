@@ -12,11 +12,11 @@ import java.util.List;
 public final class ExpandedRow {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<ExpandedPair> pairs;
+    public final List pairs;
     public final int rowNumber;
     public final boolean wasReversed;
 
-    public ExpandedRow(List<ExpandedPair> list, int i, boolean z) {
+    public ExpandedRow(List list, int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -40,43 +40,61 @@ public final class ExpandedRow {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (obj instanceof ExpandedRow) {
-                ExpandedRow expandedRow = (ExpandedRow) obj;
-                return this.pairs.equals(expandedRow.getPairs()) && this.wasReversed == expandedRow.wasReversed;
+            if (!(obj instanceof ExpandedRow)) {
+                return false;
             }
-            return false;
+            ExpandedRow expandedRow = (ExpandedRow) obj;
+            if (!this.pairs.equals(expandedRow.getPairs()) || this.wasReversed != expandedRow.wasReversed) {
+                return false;
+            }
+            return true;
         }
         return invokeL.booleanValue;
     }
 
-    public List<ExpandedPair> getPairs() {
+    public boolean isEquivalent(List list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, list)) == null) {
+            return this.pairs.equals(list);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public List getPairs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.pairs : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.pairs;
+        }
+        return (List) invokeV.objValue;
     }
 
     public int getRowNumber() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.rowNumber : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.rowNumber;
+        }
+        return invokeV.intValue;
     }
 
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.pairs.hashCode() ^ Boolean.valueOf(this.wasReversed).hashCode() : invokeV.intValue;
-    }
-
-    public boolean isEquivalent(List<ExpandedPair> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, list)) == null) ? this.pairs.equals(list) : invokeL.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.pairs.hashCode() ^ Boolean.valueOf(this.wasReversed).hashCode();
+        }
+        return invokeV.intValue;
     }
 
     public boolean isReversed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.wasReversed : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.wasReversed;
+        }
+        return invokeV.booleanValue;
     }
 
     public String toString() {

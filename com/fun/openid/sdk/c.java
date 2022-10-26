@@ -32,6 +32,29 @@ public class c {
     public ServiceConnection e = new a(this);
 
     /* loaded from: classes7.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final c a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-2005111121, "Lcom/fun/openid/sdk/c$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-2005111121, "Lcom/fun/openid/sdk/c$b;");
+                    return;
+                }
+            }
+            a = new c();
+        }
+    }
+
+    /* loaded from: classes7.dex */
     public class a implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -56,54 +79,35 @@ public class c {
         }
 
         @Override // android.content.ServiceConnection
-        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            com.fun.openid.sdk.a c0512a;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
-                c cVar = this.a;
-                int i = a.AbstractBinderC0511a.a;
-                if (iBinder == null) {
-                    c0512a = null;
-                } else {
-                    IInterface queryLocalInterface = iBinder.queryLocalInterface(IOpenID.Stub.DESCRIPTOR);
-                    c0512a = (queryLocalInterface == null || !(queryLocalInterface instanceof com.fun.openid.sdk.a)) ? new a.AbstractBinderC0511a.C0512a(iBinder) : (com.fun.openid.sdk.a) queryLocalInterface;
-                }
-                cVar.a = c0512a;
-                synchronized (this.a.d) {
-                    this.a.d.notify();
-                }
-            }
-        }
-
-        @Override // android.content.ServiceConnection
         public void onServiceDisconnected(ComponentName componentName) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
                 this.a.a = null;
             }
         }
-    }
 
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final c a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-2005111121, "Lcom/fun/openid/sdk/c$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
+        @Override // android.content.ServiceConnection
+        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+            com.fun.openid.sdk.a c0508a;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
+                c cVar = this.a;
+                int i = a.AbstractBinderC0507a.a;
+                if (iBinder == null) {
+                    c0508a = null;
+                } else {
+                    IInterface queryLocalInterface = iBinder.queryLocalInterface(IOpenID.Stub.DESCRIPTOR);
+                    if (queryLocalInterface != null && (queryLocalInterface instanceof com.fun.openid.sdk.a)) {
+                        c0508a = (com.fun.openid.sdk.a) queryLocalInterface;
+                    } else {
+                        c0508a = new a.AbstractBinderC0507a.C0508a(iBinder);
+                    }
                 }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-2005111121, "Lcom/fun/openid/sdk/c$b;");
-                    return;
+                cVar.a = c0508a;
+                synchronized (this.a.d) {
+                    this.a.d.notify();
                 }
             }
-            a = new c();
         }
     }
 
@@ -144,8 +148,8 @@ public class c {
             com.fun.openid.sdk.a aVar = this.a;
             String str3 = this.b;
             String str4 = this.c;
-            a.AbstractBinderC0511a.C0512a c0512a = (a.AbstractBinderC0511a.C0512a) aVar;
-            c0512a.getClass();
+            a.AbstractBinderC0507a.C0508a c0508a = (a.AbstractBinderC0507a.C0508a) aVar;
+            c0508a.getClass();
             Parcel obtain = Parcel.obtain();
             Parcel obtain2 = Parcel.obtain();
             try {
@@ -153,12 +157,15 @@ public class c {
                 obtain.writeString(str3);
                 obtain.writeString(str4);
                 obtain.writeString(str);
-                c0512a.a.transact(1, obtain, obtain2, 0);
+                c0508a.a.transact(1, obtain, obtain2, 0);
                 obtain2.readException();
                 String readString = obtain2.readString();
                 obtain2.recycle();
                 obtain.recycle();
-                return TextUtils.isEmpty(readString) ? "" : readString;
+                if (TextUtils.isEmpty(readString)) {
+                    return "";
+                }
+                return readString;
             } catch (Throwable th) {
                 obtain2.recycle();
                 obtain.recycle();

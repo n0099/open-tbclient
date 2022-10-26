@@ -4,7 +4,6 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.Choreographer;
-import androidx.annotation.VisibleForTesting;
 import kotlin.Deprecated;
 import kotlin.DeprecationLevel;
 import kotlin.Metadata;
@@ -16,9 +15,6 @@ import kotlin.coroutines.EmptyCoroutineContext;
 import kotlin.coroutines.intrinsics.IntrinsicsKt__IntrinsicsJvmKt;
 import kotlin.coroutines.intrinsics.IntrinsicsKt__IntrinsicsKt;
 import kotlin.coroutines.jvm.internal.DebugProbesKt;
-import kotlin.jvm.JvmField;
-import kotlin.jvm.JvmName;
-import kotlin.jvm.JvmOverloads;
 import kotlin.jvm.internal.Intrinsics;
 import kotlinx.coroutines.CancellableContinuation;
 import kotlinx.coroutines.CancellableContinuationImpl;
@@ -27,50 +23,77 @@ import kotlinx.coroutines.Dispatchers;
 /* loaded from: classes8.dex */
 public final class HandlerDispatcherKt {
     public static final long MAX_DELAY = 4611686018427387903L;
-    @JvmField
     public static final HandlerDispatcher Main;
     public static volatile Choreographer choreographer;
-
-    static {
-        Object m699constructorimpl;
-        try {
-            Result.Companion companion = Result.Companion;
-            m699constructorimpl = Result.m699constructorimpl(new HandlerContext(asHandler(Looper.getMainLooper(), true), "Main"));
-        } catch (Throwable th) {
-            Result.Companion companion2 = Result.Companion;
-            m699constructorimpl = Result.m699constructorimpl(ResultKt.createFailure(th));
-        }
-        if (Result.m705isFailureimpl(m699constructorimpl)) {
-            m699constructorimpl = null;
-        }
-        Main = (HandlerDispatcher) m699constructorimpl;
-    }
 
     @Deprecated(level = DeprecationLevel.HIDDEN, message = "Use Dispatchers.Main instead")
     public static /* synthetic */ void Main$annotations() {
     }
 
-    @VisibleForTesting
-    public static final Handler asHandler(Looper looper, boolean z) {
-        int i;
-        if (!z || (i = Build.VERSION.SDK_INT) < 16) {
-            return new Handler(looper);
-        }
-        if (i >= 28) {
-            Object invoke = Handler.class.getDeclaredMethod("createAsync", Looper.class).invoke(null, looper);
-            if (invoke != null) {
-                return (Handler) invoke;
-            }
-            throw new TypeCastException("null cannot be cast to non-null type android.os.Handler");
-        }
-        try {
-            return (Handler) Handler.class.getDeclaredConstructor(Looper.class, Handler.Callback.class, Boolean.TYPE).newInstance(looper, null, Boolean.TRUE);
-        } catch (NoSuchMethodException unused) {
-            return new Handler(looper);
-        }
+    public static final HandlerDispatcher from(Handler handler) {
+        return from$default(handler, null, 1, null);
     }
 
-    public static final Object awaitFrame(Continuation<? super Long> continuation) {
+    static {
+        Object m698constructorimpl;
+        try {
+            Result.Companion companion = Result.Companion;
+            m698constructorimpl = Result.m698constructorimpl(new HandlerContext(asHandler(Looper.getMainLooper(), true), "Main"));
+        } catch (Throwable th) {
+            Result.Companion companion2 = Result.Companion;
+            m698constructorimpl = Result.m698constructorimpl(ResultKt.createFailure(th));
+        }
+        if (Result.m704isFailureimpl(m698constructorimpl)) {
+            m698constructorimpl = null;
+        }
+        Main = (HandlerDispatcher) m698constructorimpl;
+    }
+
+    public static final HandlerDispatcher from(Handler handler, String str) {
+        return new HandlerContext(handler, str);
+    }
+
+    public static final void postFrameCallback(Choreographer choreographer2, final CancellableContinuation cancellableContinuation) {
+        choreographer2.postFrameCallback(new Choreographer.FrameCallback() { // from class: kotlinx.coroutines.android.HandlerDispatcherKt$postFrameCallback$1
+            @Override // android.view.Choreographer.FrameCallback
+            public final void doFrame(long j) {
+                CancellableContinuation.this.resumeUndispatched(Dispatchers.getMain(), Long.valueOf(j));
+            }
+        });
+    }
+
+    public static final void updateChoreographerAndPostFrameCallback(CancellableContinuation cancellableContinuation) {
+        Choreographer choreographer2 = choreographer;
+        if (choreographer2 == null) {
+            choreographer2 = Choreographer.getInstance();
+            if (choreographer2 == null) {
+                Intrinsics.throwNpe();
+            }
+            choreographer = choreographer2;
+        }
+        postFrameCallback(choreographer2, cancellableContinuation);
+    }
+
+    public static final Handler asHandler(Looper looper, boolean z) {
+        int i;
+        if (z && (i = Build.VERSION.SDK_INT) >= 16) {
+            if (i >= 28) {
+                Object invoke = Handler.class.getDeclaredMethod("createAsync", Looper.class).invoke(null, looper);
+                if (invoke != null) {
+                    return (Handler) invoke;
+                }
+                throw new TypeCastException("null cannot be cast to non-null type android.os.Handler");
+            }
+            try {
+                return (Handler) Handler.class.getDeclaredConstructor(Looper.class, Handler.Callback.class, Boolean.TYPE).newInstance(looper, null, Boolean.TRUE);
+            } catch (NoSuchMethodException unused) {
+                return new Handler(looper);
+            }
+        }
+        return new Handler(looper);
+    }
+
+    public static final Object awaitFrame(Continuation continuation) {
         Choreographer choreographer2 = choreographer;
         if (choreographer2 != null) {
             CancellableContinuationImpl cancellableContinuationImpl = new CancellableContinuationImpl(IntrinsicsKt__IntrinsicsJvmKt.intercepted(continuation), 1);
@@ -95,43 +118,10 @@ public final class HandlerDispatcherKt {
         return result2;
     }
 
-    @JvmOverloads
-    @JvmName(name = "from")
-    public static final HandlerDispatcher from(Handler handler) {
-        return from$default(handler, null, 1, null);
-    }
-
-    @JvmOverloads
-    @JvmName(name = "from")
-    public static final HandlerDispatcher from(Handler handler, String str) {
-        return new HandlerContext(handler, str);
-    }
-
     public static /* synthetic */ HandlerDispatcher from$default(Handler handler, String str, int i, Object obj) {
         if ((i & 1) != 0) {
             str = null;
         }
         return from(handler, str);
-    }
-
-    public static final void postFrameCallback(Choreographer choreographer2, final CancellableContinuation<? super Long> cancellableContinuation) {
-        choreographer2.postFrameCallback(new Choreographer.FrameCallback() { // from class: kotlinx.coroutines.android.HandlerDispatcherKt$postFrameCallback$1
-            @Override // android.view.Choreographer.FrameCallback
-            public final void doFrame(long j) {
-                CancellableContinuation.this.resumeUndispatched(Dispatchers.getMain(), Long.valueOf(j));
-            }
-        });
-    }
-
-    public static final void updateChoreographerAndPostFrameCallback(CancellableContinuation<? super Long> cancellableContinuation) {
-        Choreographer choreographer2 = choreographer;
-        if (choreographer2 == null) {
-            choreographer2 = Choreographer.getInstance();
-            if (choreographer2 == null) {
-                Intrinsics.throwNpe();
-            }
-            choreographer = choreographer2;
-        }
-        postFrameCallback(choreographer2, cancellableContinuation);
     }
 }

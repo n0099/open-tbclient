@@ -55,9 +55,27 @@ public class VoiceData {
             this.voice_status = 1;
         }
 
+        public String getId() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.voiceId;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public void init() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                this.voice_status = 1;
+                this.elapse = 0;
+                this.isLocal = false;
+            }
+        }
+
         public void copy(VoiceModel voiceModel) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, voiceModel) == null) || voiceModel == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, voiceModel) != null) || voiceModel == null) {
                 return;
             }
             this.from = voiceModel.from;
@@ -70,24 +88,9 @@ public class VoiceData {
             this.voice_status = voiceModel.voice_status;
         }
 
-        public String getId() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.voiceId : (String) invokeV.objValue;
-        }
-
-        public void init() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.voice_status = 1;
-                this.elapse = 0;
-                this.isLocal = false;
-            }
-        }
-
         public void parseJson(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) || jSONObject == null) {
+            if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null) {
                 return;
             }
             init();
@@ -97,7 +100,7 @@ public class VoiceData {
 
         public void parserProtobuf(Voice voice) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048580, this, voice) == null) || voice == null) {
+            if ((interceptable != null && interceptable.invokeL(1048580, this, voice) != null) || voice == null) {
                 return;
             }
             init();

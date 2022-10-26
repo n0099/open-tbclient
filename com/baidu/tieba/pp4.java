@@ -2,6 +2,6 @@ package com.baidu.tieba;
 
 import android.view.View;
 /* loaded from: classes5.dex */
-public interface pp4<T> {
-    void c(View view2, T t, int i, long j);
+public interface pp4 {
+    boolean a(View view2);
 }

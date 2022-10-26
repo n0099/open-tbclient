@@ -5,8 +5,6 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.RemoteException;
 import android.util.Log;
-import androidx.annotation.BinderThread;
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,13 +16,11 @@ import com.google.android.gms.common.internal.BaseGmsClient;
 public final class zzf extends zza {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
     public final IBinder zze;
     public final /* synthetic */ BaseGmsClient zzf;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    @BinderThread
-    public zzf(BaseGmsClient baseGmsClient, @Nullable int i, @Nullable IBinder iBinder, Bundle bundle) {
+    public zzf(BaseGmsClient baseGmsClient, int i, IBinder iBinder, Bundle bundle) {
         super(baseGmsClient, i, bundle);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -79,7 +75,7 @@ public final class zzf extends zza {
                     return false;
                 }
                 IInterface createServiceInterface = this.zzf.createServiceInterface(this.zze);
-                if (createServiceInterface == null || !(BaseGmsClient.zzn(this.zzf, 2, 4, createServiceInterface) || BaseGmsClient.zzn(this.zzf, 3, 4, createServiceInterface))) {
+                if (createServiceInterface == null || (!BaseGmsClient.zzn(this.zzf, 2, 4, createServiceInterface) && !BaseGmsClient.zzn(this.zzf, 3, 4, createServiceInterface))) {
                     return false;
                 }
                 this.zzf.zzB = null;

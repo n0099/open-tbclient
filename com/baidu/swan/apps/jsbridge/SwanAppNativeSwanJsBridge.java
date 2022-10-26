@@ -1,20 +1,18 @@
 package com.baidu.swan.apps.jsbridge;
 
-import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import android.webkit.JavascriptInterface;
-import androidx.annotation.Keep;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import com.baidu.swan.apps.core.container.NgWebView;
-import com.baidu.tieba.j22;
-import com.baidu.tieba.kz2;
-import com.baidu.tieba.l02;
-import com.baidu.tieba.mu2;
-import com.baidu.tieba.pf3;
-import com.baidu.tieba.vj1;
-import com.baidu.tieba.vn2;
-import com.baidu.tieba.yf3;
+import com.baidu.tieba.k22;
+import com.baidu.tieba.lz2;
+import com.baidu.tieba.m02;
+import com.baidu.tieba.nu2;
+import com.baidu.tieba.qf3;
+import com.baidu.tieba.wj1;
+import com.baidu.tieba.wn2;
+import com.baidu.tieba.zf3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +21,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-@Keep
 /* loaded from: classes2.dex */
 public class SwanAppNativeSwanJsBridge {
     public static /* synthetic */ Interceptable $ic = null;
@@ -31,7 +28,7 @@ public class SwanAppNativeSwanJsBridge {
     public static final String JAVASCRIPT_INTERFACE_NAME = "_naSwan";
     public static final String TAG = "SwanAppNativeSwanJsBridge";
     public transient /* synthetic */ FieldHolder $fh;
-    public j22 mJSContainer;
+    public k22 mJSContainer;
 
     static {
         InterceptResult invokeClinit;
@@ -46,15 +43,50 @@ public class SwanAppNativeSwanJsBridge {
                 return;
             }
         }
-        DEBUG = vj1.a;
+        DEBUG = wj1.a;
     }
 
-    public SwanAppNativeSwanJsBridge(j22 j22Var) {
+    public String getClassify() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (isSwanWeb()) {
+                return "swan/web";
+            }
+            return SchemeCollecter.CLASSIFY_SWAN_WEBVIEW;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @JavascriptInterface
+    public String getEnvVariables() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return wn2.a(this.mJSContainer);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean isSwanWeb() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            k22 k22Var = this.mJSContainer;
+            if (k22Var == null || !(k22Var instanceof NgWebView) || !((NgWebView) k22Var).isSwanWebMode()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public SwanAppNativeSwanJsBridge(k22 k22Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {j22Var};
+            Object[] objArr = {k22Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -64,45 +96,34 @@ public class SwanAppNativeSwanJsBridge {
                 return;
             }
         }
-        this.mJSContainer = j22Var;
+        this.mJSContainer = k22Var;
     }
 
     @JavascriptInterface
-    @SuppressLint({"BDThrowableCheck"})
     public String getAPIs(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
             if (DEBUG) {
-                return kz2.p() ? yf3.d(i, getClassify()) : "";
+                if (lz2.p()) {
+                    return zf3.d(i, getClassify());
+                }
+                return "";
             }
-            String d = yf3.d(i, getClassify());
+            String d = zf3.d(i, getClassify());
             if (TextUtils.isEmpty(d)) {
                 if (!DEBUG) {
-                    pf3.c(yf3.b(String.format("index: %d, desc: %s, isV8: %b", Integer.valueOf(i), d, Boolean.TRUE)));
+                    qf3.c(zf3.b(String.format("index: %d, desc: %s, isV8: %b", Integer.valueOf(i), d, Boolean.TRUE)));
                 } else {
-                    yf3.i();
+                    zf3.i();
                     throw new RuntimeException(String.format("getAPIs cannot find index: %d, desc: %s", Integer.valueOf(i), d));
                 }
             } else {
-                pf3.d();
+                qf3.d();
             }
             return d;
         }
         return (String) invokeI.objValue;
-    }
-
-    public String getClassify() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? isSwanWeb() ? "swan/web" : SchemeCollecter.CLASSIFY_SWAN_WEBVIEW : (String) invokeV.objValue;
-    }
-
-    @JavascriptInterface
-    public String getEnvVariables() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? vn2.a(this.mJSContainer) : (String) invokeV.objValue;
     }
 
     @JavascriptInterface
@@ -110,20 +131,10 @@ public class SwanAppNativeSwanJsBridge {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            JSONObject b = mu2.b();
-            l02.k(TAG, "getNACanIUseMap - " + b.toString());
+            JSONObject b = nu2.b();
+            m02.k(TAG, "getNACanIUseMap - " + b.toString());
             return b.toString();
         }
         return (String) invokeV.objValue;
-    }
-
-    public boolean isSwanWeb() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            j22 j22Var = this.mJSContainer;
-            return j22Var != null && (j22Var instanceof NgWebView) && ((NgWebView) j22Var).isSwanWebMode();
-        }
-        return invokeV.booleanValue;
     }
 }

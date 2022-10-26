@@ -1,51 +1,51 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class u31 implements v31 {
+public class u31 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public u31() {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948159958, "Lcom/baidu/tieba/u31;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948159958, "Lcom/baidu/tieba/u31;");
+        }
+    }
+
+    public static boolean a(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
+            if (context == null) {
+                return false;
             }
+            String str = "permission_request_code=" + String.valueOf(i);
+            boolean z = f01.a().b("nad_permission_sp").getBoolean(str, true);
+            b(context, str);
+            return z;
         }
+        return invokeLI.booleanValue;
     }
 
-    public static u31 a() {
-        InterceptResult invokeV;
+    public static void b(Context context, String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new u31() : (u31) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.v31
-    @SuppressLint({"UnsafeDynamicallyLoadedCode"})
-    public void load(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            System.load(str);
+        if ((interceptable != null && interceptable.invokeLL(65538, null, context, str) != null) || context == null) {
+            return;
         }
-    }
-
-    @Override // com.baidu.tieba.v31
-    public void loadLibrary(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            System.loadLibrary(str);
-        }
+        f01.a().b("nad_permission_sp").e(str, false);
     }
 }

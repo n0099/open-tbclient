@@ -60,37 +60,36 @@ public class GridPageView extends FrameLayout {
 
         public final void a() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || getAdapter() == null) {
-                return;
-            }
-            ArrayList<Integer> arrayList = new ArrayList();
-            int i = 0;
-            int i2 = 0;
-            int i3 = 0;
-            while (i2 < getChildCount()) {
-                int i4 = 0;
-                for (int i5 = i2; i5 < this.b + i2; i5++) {
-                    View childAt = getChildAt(i5);
-                    if (childAt != null && childAt.getHeight() > i4) {
-                        i4 = childAt.getHeight();
-                    }
-                }
-                if (i4 > 0) {
-                    for (int i6 = i2; i6 < this.b + i2; i6++) {
-                        View childAt2 = getChildAt(i6);
-                        if (childAt2 != null && childAt2.getHeight() != i4) {
-                            childAt2.setMinimumHeight(i4);
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && getAdapter() != null) {
+                ArrayList<Integer> arrayList = new ArrayList();
+                int i = 0;
+                int i2 = 0;
+                int i3 = 0;
+                while (i2 < getChildCount()) {
+                    int i4 = 0;
+                    for (int i5 = i2; i5 < this.b + i2; i5++) {
+                        View childAt = getChildAt(i5);
+                        if (childAt != null && childAt.getHeight() > i4) {
+                            i4 = childAt.getHeight();
                         }
                     }
-                    arrayList.add(Integer.valueOf(i4));
+                    if (i4 > 0) {
+                        for (int i6 = i2; i6 < this.b + i2; i6++) {
+                            View childAt2 = getChildAt(i6);
+                            if (childAt2 != null && childAt2.getHeight() != i4) {
+                                childAt2.setMinimumHeight(i4);
+                            }
+                        }
+                        arrayList.add(Integer.valueOf(i4));
+                    }
+                    i3++;
+                    i2 += this.b;
                 }
-                i3++;
-                i2 += this.b;
+                for (Integer num : arrayList) {
+                    i += num.intValue();
+                }
+                getLayoutParams().height = i + ((i3 - 1) * getVerticalSpacing());
             }
-            for (Integer num : arrayList) {
-                i += num.intValue();
-            }
-            getLayoutParams().height = i + ((i3 - 1) * getVerticalSpacing());
         }
 
         @Override // android.widget.AbsListView, android.widget.AdapterView, android.view.ViewGroup, android.view.View
@@ -151,14 +150,13 @@ public class GridPageView extends FrameLayout {
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
+        public void onItemClick(AdapterView adapterView, View view2, int i, long j) {
             GridPageView gridPageView;
             SlideableGridView.a aVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) || (aVar = (gridPageView = this.a).b) == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) && (aVar = (gridPageView = this.a).b) != null) {
+                aVar.e(gridPageView.c, i, view2);
             }
-            aVar.e(gridPageView.c, i, view2);
         }
     }
 
@@ -168,6 +166,26 @@ public class GridPageView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
         public Context a;
         public final /* synthetic */ GridPageView b;
+
+        @Override // android.widget.Adapter
+        public Object getItem(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                return null;
+            }
+            return invokeI.objValue;
+        }
+
+        @Override // android.widget.Adapter
+        public long getItemId(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                return 0L;
+            }
+            return invokeI.longValue;
+        }
 
         public b(GridPageView gridPageView, Context context) {
             Interceptable interceptable = $ic;
@@ -204,26 +222,6 @@ public class GridPageView extends FrameLayout {
         }
 
         @Override // android.widget.Adapter
-        public Object getItem(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-                return null;
-            }
-            return invokeI.objValue;
-        }
-
-        @Override // android.widget.Adapter
-        public long getItemId(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-                return 0L;
-            }
-            return invokeI.longValue;
-        }
-
-        @Override // android.widget.Adapter
         public View getView(int i, View view2, ViewGroup viewGroup) {
             InterceptResult invokeILL;
             Interceptable interceptable = $ic;
@@ -237,10 +235,9 @@ public class GridPageView extends FrameLayout {
         @Override // android.widget.BaseAdapter, android.widget.Adapter
         public void unregisterDataSetObserver(DataSetObserver dataSetObserver) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048580, this, dataSetObserver) == null) || dataSetObserver == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048580, this, dataSetObserver) == null) && dataSetObserver != null) {
+                super.unregisterDataSetObserver(dataSetObserver);
             }
-            super.unregisterDataSetObserver(dataSetObserver);
         }
     }
 
@@ -264,46 +261,6 @@ public class GridPageView extends FrameLayout {
         }
         this.a = null;
         b(context);
-    }
-
-    public void a(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
-            this.a.setNumColumns(i);
-            this.c = i2;
-            ((b) this.a.getAdapter()).notifyDataSetChanged();
-        }
-    }
-
-    public final void b(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            AutoGridView autoGridView = new AutoGridView(this, context);
-            this.a = autoGridView;
-            autoGridView.setNumColumns(5);
-            this.a.setFocusableInTouchMode(false);
-            this.a.setStretchMode(2);
-            this.a.setVerticalSpacing((int) getResources().getDimension(R.dimen.common_grid_row_margin));
-            this.a.setSelector(new ColorDrawable(0));
-            this.a.setAdapter((ListAdapter) new b(this, context));
-            this.a.setOnItemClickListener(new a(this));
-            addView(this.a);
-        }
-    }
-
-    @Override // android.widget.FrameLayout, android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
-            super.onMeasure(i, View.MeasureSpec.makeMeasureSpec(536870911, Integer.MIN_VALUE));
-        }
-    }
-
-    public void setGridItemAdapter(SlideableGridView.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.b = aVar;
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -350,5 +307,45 @@ public class GridPageView extends FrameLayout {
         }
         this.a = null;
         b(context);
+    }
+
+    public void a(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
+            this.a.setNumColumns(i);
+            this.c = i2;
+            ((b) this.a.getAdapter()).notifyDataSetChanged();
+        }
+    }
+
+    @Override // android.widget.FrameLayout, android.view.View
+    public void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            super.onMeasure(i, View.MeasureSpec.makeMeasureSpec(536870911, Integer.MIN_VALUE));
+        }
+    }
+
+    public final void b(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            AutoGridView autoGridView = new AutoGridView(this, context);
+            this.a = autoGridView;
+            autoGridView.setNumColumns(5);
+            this.a.setFocusableInTouchMode(false);
+            this.a.setStretchMode(2);
+            this.a.setVerticalSpacing((int) getResources().getDimension(R.dimen.common_grid_row_margin));
+            this.a.setSelector(new ColorDrawable(0));
+            this.a.setAdapter((ListAdapter) new b(this, context));
+            this.a.setOnItemClickListener(new a(this));
+            addView(this.a);
+        }
+    }
+
+    public void setGridItemAdapter(SlideableGridView.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+            this.b = aVar;
+        }
     }
 }

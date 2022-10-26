@@ -1,7 +1,6 @@
 package com.baidu.nadcore.stats.request;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.ApsConstants;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
@@ -11,15 +10,15 @@ import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.searchbox.launch.LaunchStatsUtils;
 import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tieba.b21;
 import com.baidu.tieba.c21;
 import com.baidu.tieba.d21;
 import com.baidu.tieba.e21;
-import com.baidu.tieba.fj0;
-import com.baidu.tieba.g21;
-import com.baidu.tieba.m01;
+import com.baidu.tieba.f21;
+import com.baidu.tieba.gj0;
+import com.baidu.tieba.h21;
 import com.baidu.tieba.n01;
-import com.baidu.tieba.xz0;
+import com.baidu.tieba.o01;
+import com.baidu.tieba.yz0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,14 +30,14 @@ import java.net.URLEncoder;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class ClogBuilder extends m01 {
+public class ClogBuilder extends n01 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final JSONObject c;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class Area {
+    public final class Area {
         public static final /* synthetic */ Area[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Area AD_BTN_DETAIL;
@@ -157,19 +156,25 @@ public class ClogBuilder extends m01 {
         public static Area valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Area) Enum.valueOf(Area.class, str) : (Area) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (Area) Enum.valueOf(Area.class, str);
+            }
+            return (Area) invokeL.objValue;
         }
 
         public static Area[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Area[]) $VALUES.clone() : (Area[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (Area[]) $VALUES.clone();
+            }
+            return (Area[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class LogType {
+    public final class LogType {
         public static final /* synthetic */ LogType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final LogType AD_CALL;
@@ -354,19 +359,25 @@ public class ClogBuilder extends m01 {
         public static LogType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (LogType) Enum.valueOf(LogType.class, str) : (LogType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (LogType) Enum.valueOf(LogType.class, str);
+            }
+            return (LogType) invokeL.objValue;
         }
 
         public static LogType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (LogType[]) $VALUES.clone() : (LogType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (LogType[]) $VALUES.clone();
+            }
+            return (LogType[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class Page {
+    public final class Page {
         public static final /* synthetic */ Page[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Page AD_CALL;
@@ -459,13 +470,19 @@ public class ClogBuilder extends m01 {
         public static Page valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Page) Enum.valueOf(Page.class, str) : (Page) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (Page) Enum.valueOf(Page.class, str);
+            }
+            return (Page) invokeL.objValue;
         }
 
         public static Page[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Page[]) $VALUES.clone() : (Page[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (Page[]) $VALUES.clone();
+            }
+            return (Page[]) invokeV.objValue;
         }
     }
 
@@ -482,7 +499,7 @@ public class ClogBuilder extends m01 {
                 return;
             }
         }
-        this.c = xz0.c(null);
+        this.c = yz0.c(null);
         d("origin_time", String.valueOf(System.currentTimeMillis()));
     }
 
@@ -496,68 +513,6 @@ public class ClogBuilder extends m01 {
         return (ClogBuilder) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.k01, com.baidu.tieba.n01
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            g();
-            fj0 fj0Var = (fj0) ServiceManager.getService(fj0.a);
-            if (fj0Var != null) {
-                A(fj0Var.a(this.c.optString("extra_param")));
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.k01, com.baidu.tieba.n01
-    public <T extends n01> T b(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            d(str, str2);
-            return this;
-        }
-        return (T) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.k01
-    public <T extends n01> T d(String str, Object obj) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, obj)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return this;
-            }
-            xz0.f(this.c, str, obj);
-            return this;
-        }
-        return (T) invokeLL.objValue;
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && c21.a) {
-            d21 d21Var = (d21) b21.a().a(d21.class);
-            if (d21Var != null) {
-                d21Var.a(h());
-            }
-            e21 e21Var = (e21) b21.a().a(e21.class);
-            if (e21Var != null) {
-                e21Var.a(h());
-            }
-            g21 g21Var = (g21) b21.a().a(g21.class);
-            if (g21Var != null) {
-                g21Var.a(h());
-            }
-        }
-    }
-
-    @NonNull
-    public JSONObject h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.c : (JSONObject) invokeV.objValue;
-    }
-
     public ClogBuilder i(Area area) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -566,19 +521,6 @@ public class ClogBuilder extends m01 {
             return this;
         }
         return (ClogBuilder) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.m01, com.baidu.tieba.n01
-    public boolean isValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (TextUtils.isEmpty(this.c.optString("da_type"))) {
-                return false;
-            }
-            return super.isValid();
-        }
-        return invokeV.booleanValue;
     }
 
     public ClogBuilder j(String str) {
@@ -671,7 +613,7 @@ public class ClogBuilder extends m01 {
         return (ClogBuilder) invokeL.objValue;
     }
 
-    public ClogBuilder s(@NonNull String str) {
+    public ClogBuilder s(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) {
@@ -681,7 +623,7 @@ public class ClogBuilder extends m01 {
         return (ClogBuilder) invokeL.objValue;
     }
 
-    public ClogBuilder t(@NonNull String str) {
+    public ClogBuilder t(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
@@ -689,35 +631,6 @@ public class ClogBuilder extends m01 {
             return this;
         }
         return (ClogBuilder) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.m01, com.baidu.tieba.k01, com.baidu.tieba.n01
-    @NonNull
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            super.toString();
-            if (this.a.toString().contains(LaunchStatsUtils.AD)) {
-                return this.a.toString();
-            }
-            try {
-                JSONArray jSONArray = new JSONArray();
-                jSONArray.put(this.c);
-                String encode = URLEncoder.encode(jSONArray.toString(), IMAudioTransRequest.CHARSET);
-                if (this.a.length() > 0) {
-                    this.a.append('&');
-                }
-                StringBuilder sb = this.a;
-                sb.append(LaunchStatsUtils.AD);
-                sb.append('=');
-                sb.append(encode);
-                return sb.toString();
-            } catch (Exception unused) {
-                return this.a.toString();
-            }
-        }
-        return (String) invokeV.objValue;
     }
 
     public ClogBuilder u(Page page) {
@@ -778,5 +691,111 @@ public class ClogBuilder extends m01 {
             return this;
         }
         return (ClogBuilder) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.l01, com.baidu.tieba.o01
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            g();
+            gj0 gj0Var = (gj0) ServiceManager.getService(gj0.a);
+            if (gj0Var != null) {
+                A(gj0Var.a(this.c.optString("extra_param")));
+            }
+        }
+    }
+
+    public JSONObject h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.c;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.n01, com.baidu.tieba.o01
+    public boolean isValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (!TextUtils.isEmpty(this.c.optString("da_type"))) {
+                return super.isValid();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.l01, com.baidu.tieba.o01
+    public o01 b(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+            d(str, str2);
+            return this;
+        }
+        return (o01) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.l01
+    public o01 d(String str, Object obj) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, obj)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return this;
+            }
+            yz0.f(this.c, str, obj);
+            return this;
+        }
+        return (o01) invokeLL.objValue;
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || !d21.a) {
+            return;
+        }
+        e21 e21Var = (e21) c21.a().a(e21.class);
+        if (e21Var != null) {
+            e21Var.a(h());
+        }
+        f21 f21Var = (f21) c21.a().a(f21.class);
+        if (f21Var != null) {
+            f21Var.a(h());
+        }
+        h21 h21Var = (h21) c21.a().a(h21.class);
+        if (h21Var != null) {
+            h21Var.a(h());
+        }
+    }
+
+    @Override // com.baidu.tieba.n01, com.baidu.tieba.l01, com.baidu.tieba.o01
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            super.toString();
+            if (this.a.toString().contains(LaunchStatsUtils.AD)) {
+                return this.a.toString();
+            }
+            try {
+                JSONArray jSONArray = new JSONArray();
+                jSONArray.put(this.c);
+                String encode = URLEncoder.encode(jSONArray.toString(), IMAudioTransRequest.CHARSET);
+                if (this.a.length() > 0) {
+                    this.a.append('&');
+                }
+                StringBuilder sb = this.a;
+                sb.append(LaunchStatsUtils.AD);
+                sb.append('=');
+                sb.append(encode);
+                return sb.toString();
+            } catch (Exception unused) {
+                return this.a.toString();
+            }
+        }
+        return (String) invokeV.objValue;
     }
 }

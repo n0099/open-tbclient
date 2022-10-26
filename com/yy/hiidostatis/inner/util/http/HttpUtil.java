@@ -33,8 +33,14 @@ public class HttpUtil {
     public static final Pattern ipv4Pattern;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static String getContentType(File file) throws Exception {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, file)) == null) ? "application/octet-stream" : (String) invokeL.objValue;
+    }
+
     /* loaded from: classes8.dex */
-    public static class HttpResp {
+    public class HttpResp {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean isSucceed;
@@ -94,28 +100,28 @@ public class HttpUtil {
         }
     }
 
-    public static String get(String str, Map<String, String> map) throws IOException {
+    public static String get(String str, Map map) throws IOException {
         InterceptResult invokeLL;
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, map)) == null) {
-            if (map == null || map.size() <= 0) {
-                str2 = null;
-            } else {
+            if (map != null && map.size() > 0) {
                 StringBuffer stringBuffer = new StringBuffer();
                 int i = 0;
-                for (Map.Entry<String, String> entry : map.entrySet()) {
+                for (Map.Entry entry : map.entrySet()) {
                     int i2 = i + 1;
                     if (i > 0) {
                         stringBuffer.append("&");
                     }
-                    stringBuffer.append(entry.getKey());
+                    stringBuffer.append((String) entry.getKey());
                     stringBuffer.append("=");
-                    stringBuffer.append(entry.getValue());
+                    stringBuffer.append((String) entry.getValue());
                     i = i2;
                 }
                 str2 = stringBuffer.toString();
                 stringBuffer.setLength(0);
+            } else {
+                str2 = null;
             }
             return getByUrlConn(str, str2).result;
         }
@@ -147,6 +153,28 @@ public class HttpUtil {
         return (String) invokeL.objValue;
     }
 
+    public static HttpURLConnection urlToUrlConnection(String str) throws IOException {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
+            URL url = new URL(str);
+            if (Build.VERSION.SDK_INT > 27 && ((i = AppInfo.INSTANCE.targetSdkVersion) > 27 || i == 0)) {
+                if (!url.getProtocol().equalsIgnoreCase("https")) {
+                    url = new URL("https" + str.substring(url.getProtocol().length()));
+                }
+                HttpsURLConnection httpsURLConnection = (HttpsURLConnection) url.openConnection();
+                if (isIpAddress(url.getHost())) {
+                    httpsURLConnection.setSSLSocketFactory(SSLSocketClient.getSSLSocketFactory());
+                    httpsURLConnection.setHostnameVerifier(SSLSocketClient.getHostnameVerifier());
+                }
+                return httpsURLConnection;
+            }
+            return (HttpURLConnection) url.openConnection();
+        }
+        return (HttpURLConnection) invokeL.objValue;
+    }
+
     /* JADX WARN: Removed duplicated region for block: B:41:0x00f7 A[Catch: all -> 0x00f3, TRY_LEAVE, TryCatch #1 {all -> 0x00f3, blocks: (B:37:0x00ef, B:41:0x00f7), top: B:61:0x00ef }] */
     /* JADX WARN: Removed duplicated region for block: B:61:0x00ef A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
@@ -155,6 +183,7 @@ public class HttpUtil {
     public static HttpResp getByUrlConn(String str, String str2) throws IOException {
         InterceptResult invokeLL;
         InputStream inputStream;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
             HttpResp httpResp = new HttpResp();
@@ -206,7 +235,12 @@ public class HttpUtil {
                 urlToUrlConnection.setInstanceFollowRedirects(true);
                 urlToUrlConnection.setRequestProperty("User-Agent", "Hiido");
                 urlToUrlConnection.connect();
-                httpResp.isSucceed = urlToUrlConnection.getResponseCode() == 200;
+                if (urlToUrlConnection.getResponseCode() == 200) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                httpResp.isSucceed = z;
                 httpResp.statusCode = urlToUrlConnection.getResponseCode();
                 httpResp.reason = urlToUrlConnection.getResponseMessage();
                 if (urlToUrlConnection.getResponseCode() == 200) {
@@ -254,28 +288,11 @@ public class HttpUtil {
         return (HttpResp) invokeLL.objValue;
     }
 
-    public static String getContentType(File file) throws Exception {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, file)) == null) ? "application/octet-stream" : (String) invokeL.objValue;
-    }
-
-    public static boolean isIpAddress(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? ipv4Pattern.matcher(str).matches() : invokeL.booleanValue;
-    }
-
-    public static String post(String str, String str2) throws IOException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, str2)) == null) ? postByUrlConn(str, str2).result : (String) invokeLL.objValue;
-    }
-
     public static HttpResp postByUrlConn(String str, String str2) throws IOException {
         InterceptResult invokeLL;
         InputStream inputStream;
         DataOutputStream dataOutputStream;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, str2)) == null) {
             HttpResp httpResp = new HttpResp();
@@ -298,7 +315,12 @@ public class HttpUtil {
                         dataOutputStream.write(str2.getBytes("UTF-8"));
                         dataOutputStream.flush();
                         dataOutputStream.close();
-                        httpResp.isSucceed = urlToUrlConnection.getResponseCode() == 200;
+                        if (urlToUrlConnection.getResponseCode() == 200) {
+                            z = true;
+                        } else {
+                            z = false;
+                        }
+                        httpResp.isSucceed = z;
                         httpResp.statusCode = urlToUrlConnection.getResponseCode();
                         httpResp.reason = urlToUrlConnection.getResponseMessage();
                         httpResp.remoteIp = getAddressInfo(urlToUrlConnection);
@@ -390,12 +412,30 @@ public class HttpUtil {
         return (HttpResp) invokeLL.objValue;
     }
 
+    public static boolean isIpAddress(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            return ipv4Pattern.matcher(str).matches();
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static String post(String str, String str2) throws IOException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, str2)) == null) {
+            return postByUrlConn(str, str2).result;
+        }
+        return (String) invokeLL.objValue;
+    }
+
     /* JADX WARN: Removed duplicated region for block: B:70:0x01c8  */
     /* JADX WARN: Removed duplicated region for block: B:72:0x01cd  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static HttpResp postFileByUrlConn(String str, Map<String, String> map, Map<String, String> map2) throws Exception {
+    public static HttpResp postFileByUrlConn(String str, Map map, Map map2) throws Exception {
         InterceptResult invokeLLL;
         HttpURLConnection httpURLConnection;
         DataOutputStream dataOutputStream;
@@ -424,18 +464,18 @@ public class HttpUtil {
                 if (map != null) {
                     try {
                         StringBuffer stringBuffer = new StringBuffer();
-                        for (Map.Entry<String, String> entry : map.entrySet()) {
-                            String key = entry.getKey();
-                            String value = entry.getValue();
-                            if (value != null) {
+                        for (Map.Entry entry : map.entrySet()) {
+                            String str2 = (String) entry.getKey();
+                            String str3 = (String) entry.getValue();
+                            if (str3 != null) {
                                 stringBuffer.append("\r\n");
                                 stringBuffer.append("--");
                                 stringBuffer.append(format);
                                 stringBuffer.append("\r\n");
                                 stringBuffer.append("Content-Disposition: form-data; name=\"");
-                                stringBuffer.append(key);
+                                stringBuffer.append(str2);
                                 stringBuffer.append("\"\r\n\r\n");
-                                stringBuffer.append(value);
+                                stringBuffer.append(str3);
                             }
                         }
                         dataOutputStream.write(stringBuffer.toString().getBytes());
@@ -454,18 +494,18 @@ public class HttpUtil {
                 }
                 if (map2 != null) {
                     StringBuffer stringBuffer2 = new StringBuffer();
-                    for (Map.Entry<String, String> entry2 : map2.entrySet()) {
-                        String key2 = entry2.getKey();
-                        String value2 = entry2.getValue();
-                        if (value2 != null) {
-                            File file = new File(value2);
+                    for (Map.Entry entry2 : map2.entrySet()) {
+                        String str4 = (String) entry2.getKey();
+                        String str5 = (String) entry2.getValue();
+                        if (str5 != null) {
+                            File file = new File(str5);
                             stringBuffer2.setLength(0);
                             stringBuffer2.append("\r\n");
                             stringBuffer2.append("--");
                             stringBuffer2.append(format);
                             stringBuffer2.append("\r\n");
                             stringBuffer2.append("Content-Disposition: form-data; name=\"");
-                            stringBuffer2.append(key2);
+                            stringBuffer2.append(str4);
                             stringBuffer2.append("\"; filename=\"");
                             stringBuffer2.append(file.getName());
                             stringBuffer2.append("\"\r\n");
@@ -541,27 +581,5 @@ public class HttpUtil {
             }
         }
         return (HttpResp) invokeLLL.objValue;
-    }
-
-    public static HttpURLConnection urlToUrlConnection(String str) throws IOException {
-        InterceptResult invokeL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
-            URL url = new URL(str);
-            if (Build.VERSION.SDK_INT > 27 && ((i = AppInfo.INSTANCE.targetSdkVersion) > 27 || i == 0)) {
-                if (!url.getProtocol().equalsIgnoreCase("https")) {
-                    url = new URL("https" + str.substring(url.getProtocol().length()));
-                }
-                HttpsURLConnection httpsURLConnection = (HttpsURLConnection) url.openConnection();
-                if (isIpAddress(url.getHost())) {
-                    httpsURLConnection.setSSLSocketFactory(SSLSocketClient.getSSLSocketFactory());
-                    httpsURLConnection.setHostnameVerifier(SSLSocketClient.getHostnameVerifier());
-                }
-                return httpsURLConnection;
-            }
-            return (HttpURLConnection) url.openConnection();
-        }
-        return (HttpURLConnection) invokeL.objValue;
     }
 }

@@ -23,6 +23,12 @@ public class SPSwitchConflictUtil {
         void onClickSwitch(View view2, boolean z);
     }
 
+    public static boolean isHandleByPlaceholder(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, null, z)) == null) ? z : invokeZ.booleanValue;
+    }
+
     public SPSwitchConflictUtil() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -134,37 +140,19 @@ public class SPSwitchConflictUtil {
         }
     }
 
-    public static boolean isHandleByPlaceholder(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (context instanceof Activity) {
-                return isHandleByPlaceholder(ViewUtil.isFullScreen((Activity) context));
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean isHandleByPlaceholder(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, null, z)) == null) ? z : invokeZ.booleanValue;
-    }
-
     public static boolean showPanel(View view2, View view3) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, view2, view3)) == null) {
-            if (EmotionUtils.getInstance().isEmotionLoaded(EmotionType.EMOTION_CLASSIC_TYPE)) {
-                view2.setVisibility(0);
-                if (view3 != null) {
-                    SoftInputUtil.hideSoftInput(view3);
-                    return true;
-                }
+            if (!EmotionUtils.getInstance().isEmotionLoaded(EmotionType.EMOTION_CLASSIC_TYPE)) {
+                return false;
+            }
+            view2.setVisibility(0);
+            if (view3 != null) {
+                SoftInputUtil.hideSoftInput(view3);
                 return true;
             }
-            return false;
+            return true;
         }
         return invokeLL.booleanValue;
     }
@@ -181,15 +169,38 @@ public class SPSwitchConflictUtil {
 
     public static boolean switchPanelAndSoftInput(View view2, View view3) {
         InterceptResult invokeLL;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, view2, view3)) == null) {
-            boolean z = view2.getVisibility() != 0;
-            if (z) {
-                return showPanel(view2, view3) ? z : !z;
+            if (view2.getVisibility() != 0) {
+                z = true;
+            } else {
+                z = false;
             }
-            showSoftInput(view2, view3);
-            return z;
+            if (!z) {
+                showSoftInput(view2, view3);
+                return z;
+            } else if (showPanel(view2, view3)) {
+                return z;
+            } else {
+                if (!z) {
+                    return true;
+                }
+                return false;
+            }
         }
         return invokeLL.booleanValue;
+    }
+
+    public static boolean isHandleByPlaceholder(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            if (context instanceof Activity) {
+                return isHandleByPlaceholder(ViewUtil.isFullScreen((Activity) context));
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

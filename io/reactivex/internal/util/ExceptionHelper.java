@@ -20,10 +20,17 @@ public final class ExceptionHelper {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public static final class Termination extends Throwable {
+    public final class Termination extends Throwable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4649703670690200604L;
         public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // java.lang.Throwable
+        public Throwable fillInStackTrace() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (Throwable) invokeV.objValue;
+        }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public Termination() {
@@ -41,13 +48,6 @@ public final class ExceptionHelper {
                     return;
                 }
             }
-        }
-
-        @Override // java.lang.Throwable
-        public Throwable fillInStackTrace() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (Throwable) invokeV.objValue;
         }
     }
 
@@ -83,23 +83,29 @@ public final class ExceptionHelper {
         throw new IllegalStateException("No instances!");
     }
 
-    public static <T> boolean addThrowable(AtomicReference<Throwable> atomicReference, Throwable th) {
+    public static boolean addThrowable(AtomicReference atomicReference, Throwable th) {
         Throwable th2;
+        Throwable compositeException;
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, atomicReference, th)) == null) {
             do {
-                th2 = atomicReference.get();
+                th2 = (Throwable) atomicReference.get();
                 if (th2 == TERMINATED) {
                     return false;
                 }
-            } while (!atomicReference.compareAndSet(th2, th2 == null ? th : new CompositeException(th2, th)));
+                if (th2 == null) {
+                    compositeException = th;
+                } else {
+                    compositeException = new CompositeException(th2, th);
+                }
+            } while (!atomicReference.compareAndSet(th2, compositeException));
             return true;
         }
         return invokeLL.booleanValue;
     }
 
-    public static List<Throwable> flatten(Throwable th) {
+    public static List flatten(Throwable th) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, th)) == null) {
@@ -109,7 +115,7 @@ public final class ExceptionHelper {
             while (!arrayDeque.isEmpty()) {
                 Throwable th2 = (Throwable) arrayDeque.removeFirst();
                 if (th2 instanceof CompositeException) {
-                    List<Throwable> exceptions = ((CompositeException) th2).getExceptions();
+                    List exceptions = ((CompositeException) th2).getExceptions();
                     for (int size = exceptions.size() - 1; size >= 0; size--) {
                         arrayDeque.offerFirst(exceptions.get(size));
                     }
@@ -122,18 +128,21 @@ public final class ExceptionHelper {
         return (List) invokeL.objValue;
     }
 
-    public static <T> Throwable terminate(AtomicReference<Throwable> atomicReference) {
+    public static Throwable terminate(AtomicReference atomicReference) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, atomicReference)) == null) {
-            Throwable th = atomicReference.get();
+            Throwable th = (Throwable) atomicReference.get();
             Throwable th2 = TERMINATED;
-            return th != th2 ? atomicReference.getAndSet(th2) : th;
+            if (th != th2) {
+                return (Throwable) atomicReference.getAndSet(th2);
+            }
+            return th;
         }
         return (Throwable) invokeL.objValue;
     }
 
-    public static <E extends Throwable> Exception throwIfThrowable(Throwable th) throws Throwable {
+    public static Exception throwIfThrowable(Throwable th) throws Throwable {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, th)) == null) {

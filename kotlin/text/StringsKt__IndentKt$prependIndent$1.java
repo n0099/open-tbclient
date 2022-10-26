@@ -21,7 +21,10 @@ public final class StringsKt__IndentKt$prependIndent$1 extends Lambda implements
     public final String invoke(String it) {
         Intrinsics.checkNotNullParameter(it, "it");
         if (StringsKt__StringsJVMKt.isBlank(it)) {
-            return it.length() < this.$indent.length() ? this.$indent : it;
+            if (it.length() < this.$indent.length()) {
+                return this.$indent;
+            }
+            return it;
         }
         return this.$indent + it;
     }

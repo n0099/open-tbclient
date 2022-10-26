@@ -6,7 +6,6 @@ import android.content.ServiceConnection;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -22,13 +21,36 @@ public final class zzo implements ServiceConnection, zzs {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ zzr zza;
-    public final Map<ServiceConnection, ServiceConnection> zzb;
+    public final Map zzb;
     public int zzc;
     public boolean zzd;
-    @Nullable
     public IBinder zze;
     public final zzn zzf;
     public ComponentName zzg;
+
+    public final int zza() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.zzc : invokeV.intValue;
+    }
+
+    public final ComponentName zzb() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.zzg : (ComponentName) invokeV.objValue;
+    }
+
+    public final IBinder zzc() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.zze : (IBinder) invokeV.objValue;
+    }
+
+    public final boolean zzj() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.zzd : invokeV.booleanValue;
+    }
 
     public zzo(zzr zzrVar, zzn zznVar) {
         Interceptable interceptable = $ic;
@@ -91,25 +113,6 @@ public final class zzo implements ServiceConnection, zzs {
         }
     }
 
-    public final int zza() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.zzc : invokeV.intValue;
-    }
-
-    public final ComponentName zzb() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.zzg : (ComponentName) invokeV.objValue;
-    }
-
-    @Nullable
-    public final IBinder zzc() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.zze : (IBinder) invokeV.objValue;
-    }
-
     public final void zzd(ServiceConnection serviceConnection, ServiceConnection serviceConnection2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048581, this, serviceConnection, serviceConnection2, str) == null) {
@@ -117,7 +120,7 @@ public final class zzo implements ServiceConnection, zzs {
         }
     }
 
-    public final void zze(String str, @Nullable Executor executor) {
+    public final void zze(String str, Executor executor) {
         ConnectionTracker connectionTracker;
         Context context;
         Context context2;
@@ -182,18 +185,18 @@ public final class zzo implements ServiceConnection, zzs {
     public final boolean zzh(ServiceConnection serviceConnection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, serviceConnection)) == null) ? this.zzb.containsKey(serviceConnection) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, serviceConnection)) == null) {
+            return this.zzb.containsKey(serviceConnection);
+        }
+        return invokeL.booleanValue;
     }
 
     public final boolean zzi() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.zzb.isEmpty() : invokeV.booleanValue;
-    }
-
-    public final boolean zzj() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.zzd : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.zzb.isEmpty();
+        }
+        return invokeV.booleanValue;
     }
 }

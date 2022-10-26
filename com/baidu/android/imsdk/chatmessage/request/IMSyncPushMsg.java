@@ -45,6 +45,13 @@ public class IMSyncPushMsg extends Message {
         }
     }
 
+    @Override // com.baidu.android.imsdk.request.Message
+    public void onMsgSending(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
+        }
+    }
+
     public IMSyncPushMsg(Context context, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -131,13 +138,6 @@ public class IMSyncPushMsg extends Message {
             }
             setNeedReSend(false);
             super.handleMessageResult(context, jSONObject, i, str);
-        }
-    }
-
-    @Override // com.baidu.android.imsdk.request.Message
-    public void onMsgSending(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
         }
     }
 }

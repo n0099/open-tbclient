@@ -26,6 +26,16 @@ public class PixelAspectRationAtom extends AbstractBox {
     public int hSpacing;
     public int vSpacing;
 
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public long getContentSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 8L;
+        }
+        return invokeV.longValue;
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -60,6 +70,26 @@ public class PixelAspectRationAtom extends AbstractBox {
         }
     }
 
+    public int gethSpacing() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
+            return this.hSpacing;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getvSpacing() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
+            return this.vSpacing;
+        }
+        return invokeV.intValue;
+    }
+
     public static /* synthetic */ void ajc$preClinit() {
         Factory factory = new Factory("PixelAspectRationAtom.java", PixelAspectRationAtom.class);
         ajc$tjp_0 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "gethSpacing", "com.googlecode.mp4parser.boxes.apple.PixelAspectRationAtom", "", "", "", "int"), 35);
@@ -84,36 +114,6 @@ public class PixelAspectRationAtom extends AbstractBox {
             byteBuffer.putInt(this.hSpacing);
             byteBuffer.putInt(this.vSpacing);
         }
-    }
-
-    @Override // com.googlecode.mp4parser.AbstractBox
-    public long getContentSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 8L;
-        }
-        return invokeV.longValue;
-    }
-
-    public int gethSpacing() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
-            return this.hSpacing;
-        }
-        return invokeV.intValue;
-    }
-
-    public int getvSpacing() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
-            return this.vSpacing;
-        }
-        return invokeV.intValue;
     }
 
     public void sethSpacing(int i) {

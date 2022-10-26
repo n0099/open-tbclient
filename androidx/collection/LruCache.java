@@ -1,7 +1,5 @@
 package androidx.collection;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,6 +22,30 @@ public class LruCache<K, V> {
     public int missCount;
     public int putCount;
     public int size;
+
+    public V create(K k) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k)) == null) {
+            return null;
+        }
+        return (V) invokeL.objValue;
+    }
+
+    public void entryRemoved(boolean z, K k, V v, V v2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), k, v, v2}) == null) {
+        }
+    }
+
+    public int sizeOf(K k, V v) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, k, v)) == null) {
+            return 1;
+        }
+        return invokeLL.intValue;
+    }
 
     public LruCache(int i) {
         Interceptable interceptable = $ic;
@@ -61,16 +83,6 @@ public class LruCache<K, V> {
         return invokeLL.intValue;
     }
 
-    @Nullable
-    public V create(@NonNull K k) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k)) == null) {
-            return null;
-        }
-        return (V) invokeL.objValue;
-    }
-
     public final synchronized int createCount() {
         InterceptResult invokeV;
         int i;
@@ -82,12 +94,6 @@ public class LruCache<K, V> {
             return i;
         }
         return invokeV.intValue;
-    }
-
-    public void entryRemoved(boolean z, @NonNull K k, @NonNull V v, @Nullable V v2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), k, v, v2}) == null) {
-        }
     }
 
     public final void evictAll() {
@@ -108,46 +114,6 @@ public class LruCache<K, V> {
             return i;
         }
         return invokeV.intValue;
-    }
-
-    @Nullable
-    public final V get(@NonNull K k) {
-        InterceptResult invokeL;
-        V put;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, k)) == null) {
-            if (k != null) {
-                synchronized (this) {
-                    V v = this.map.get(k);
-                    if (v != null) {
-                        this.hitCount++;
-                        return v;
-                    }
-                    this.missCount++;
-                    V create = create(k);
-                    if (create == null) {
-                        return null;
-                    }
-                    synchronized (this) {
-                        this.createCount++;
-                        put = this.map.put(k, create);
-                        if (put != null) {
-                            this.map.put(k, put);
-                        } else {
-                            this.size += safeSizeOf(k, create);
-                        }
-                    }
-                    if (put != null) {
-                        entryRemoved(false, k, create, put);
-                        return put;
-                    }
-                    trimToSize(this.maxSize);
-                    return create;
-                }
-            }
-            throw new NullPointerException("key == null");
-        }
-        return (V) invokeL.objValue;
     }
 
     public final synchronized int hitCount() {
@@ -189,8 +155,117 @@ public class LruCache<K, V> {
         return invokeV.intValue;
     }
 
-    @Nullable
-    public final V put(@NonNull K k, @NonNull V v) {
+    public final synchronized int putCount() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            synchronized (this) {
+                i = this.putCount;
+            }
+            return i;
+        }
+        return invokeV.intValue;
+    }
+
+    public final synchronized int size() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            synchronized (this) {
+                i = this.size;
+            }
+            return i;
+        }
+        return invokeV.intValue;
+    }
+
+    public final synchronized Map<K, V> snapshot() {
+        InterceptResult invokeV;
+        LinkedHashMap linkedHashMap;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            synchronized (this) {
+                linkedHashMap = new LinkedHashMap(this.map);
+            }
+            return linkedHashMap;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public final V get(K k) {
+        InterceptResult invokeL;
+        V put;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, k)) == null) {
+            if (k != null) {
+                synchronized (this) {
+                    V v = this.map.get(k);
+                    if (v != null) {
+                        this.hitCount++;
+                        return v;
+                    }
+                    this.missCount++;
+                    V create = create(k);
+                    if (create == null) {
+                        return null;
+                    }
+                    synchronized (this) {
+                        this.createCount++;
+                        put = this.map.put(k, create);
+                        if (put != null) {
+                            this.map.put(k, put);
+                        } else {
+                            this.size += safeSizeOf(k, create);
+                        }
+                    }
+                    if (put != null) {
+                        entryRemoved(false, k, create, put);
+                        return put;
+                    }
+                    trimToSize(this.maxSize);
+                    return create;
+                }
+            }
+            throw new NullPointerException("key == null");
+        }
+        return (V) invokeL.objValue;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x0074, code lost:
+        throw new java.lang.IllegalStateException(getClass().getName() + ".sizeOf() is reporting inconsistent results!");
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void trimToSize(int i) {
+        K key;
+        V value;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            while (true) {
+                synchronized (this) {
+                    if (this.size >= 0 && (!this.map.isEmpty() || this.size == 0)) {
+                        if (this.size <= i || this.map.isEmpty()) {
+                            break;
+                        }
+                        Map.Entry<K, V> next = this.map.entrySet().iterator().next();
+                        key = next.getKey();
+                        value = next.getValue();
+                        this.map.remove(key);
+                        this.size -= safeSizeOf(key, value);
+                        this.evictionCount++;
+                    } else {
+                        break;
+                    }
+                }
+                entryRemoved(true, key, value, null);
+            }
+        }
+    }
+
+    public final V put(K k, V v) {
         InterceptResult invokeLL;
         V put;
         Interceptable interceptable = $ic;
@@ -215,21 +290,7 @@ public class LruCache<K, V> {
         return (V) invokeLL.objValue;
     }
 
-    public final synchronized int putCount() {
-        InterceptResult invokeV;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            synchronized (this) {
-                i = this.putCount;
-            }
-            return i;
-        }
-        return invokeV.intValue;
-    }
-
-    @Nullable
-    public final V remove(@NonNull K k) {
+    public final V remove(K k) {
         InterceptResult invokeL;
         V remove;
         Interceptable interceptable = $ic;
@@ -265,84 +326,23 @@ public class LruCache<K, V> {
         }
     }
 
-    public final synchronized int size() {
-        InterceptResult invokeV;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            synchronized (this) {
-                i = this.size;
-            }
-            return i;
-        }
-        return invokeV.intValue;
-    }
-
-    public int sizeOf(@NonNull K k, @NonNull V v) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, k, v)) == null) {
-            return 1;
-        }
-        return invokeLL.intValue;
-    }
-
-    public final synchronized Map<K, V> snapshot() {
-        InterceptResult invokeV;
-        LinkedHashMap linkedHashMap;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            synchronized (this) {
-                linkedHashMap = new LinkedHashMap(this.map);
-            }
-            return linkedHashMap;
-        }
-        return (Map) invokeV.objValue;
-    }
-
     public final synchronized String toString() {
         InterceptResult invokeV;
+        int i;
         String format;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             synchronized (this) {
-                int i = this.hitCount + this.missCount;
-                format = String.format(Locale.US, "LruCache[maxSize=%d,hits=%d,misses=%d,hitRate=%d%%]", Integer.valueOf(this.maxSize), Integer.valueOf(this.hitCount), Integer.valueOf(this.missCount), Integer.valueOf(i != 0 ? (this.hitCount * 100) / i : 0));
+                int i2 = this.hitCount + this.missCount;
+                if (i2 != 0) {
+                    i = (this.hitCount * 100) / i2;
+                } else {
+                    i = 0;
+                }
+                format = String.format(Locale.US, "LruCache[maxSize=%d,hits=%d,misses=%d,hitRate=%d%%]", Integer.valueOf(this.maxSize), Integer.valueOf(this.hitCount), Integer.valueOf(this.missCount), Integer.valueOf(i));
             }
             return format;
         }
         return (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x0074, code lost:
-        throw new java.lang.IllegalStateException(getClass().getName() + ".sizeOf() is reporting inconsistent results!");
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void trimToSize(int i) {
-        K key;
-        V value;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
-            while (true) {
-                synchronized (this) {
-                    if (this.size >= 0 && (!this.map.isEmpty() || this.size == 0)) {
-                        if (this.size <= i || this.map.isEmpty()) {
-                            break;
-                        }
-                        Map.Entry<K, V> next = this.map.entrySet().iterator().next();
-                        key = next.getKey();
-                        value = next.getValue();
-                        this.map.remove(key);
-                        this.size -= safeSizeOf(key, value);
-                        this.evictionCount++;
-                    } else {
-                        break;
-                    }
-                }
-                entryRemoved(true, key, value, null);
-            }
-        }
     }
 }

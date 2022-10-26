@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -72,7 +71,7 @@ public final class b extends e implements a.b {
     }
 
     @Override // com.kwad.components.core.i.e
-    public final View a(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup) {
+    public final View a(LayoutInflater layoutInflater, ViewGroup viewGroup) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, layoutInflater, viewGroup)) == null) {

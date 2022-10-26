@@ -12,10 +12,10 @@ import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.ak9;
+import com.baidu.tieba.qk9;
+import com.baidu.tieba.rk9;
 import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
-import com.baidu.tieba.yj9;
-import com.baidu.tieba.zj9;
+import com.baidu.tieba.sk9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,78 +39,106 @@ import java.util.Set;
 /* loaded from: classes7.dex */
 public class SVG {
     public static /* synthetic */ Interceptable $ic = null;
-    public static ak9 e = null;
+    public static sk9 e = null;
     public static boolean f = true;
     public transient /* synthetic */ FieldHolder $fh;
     public d0 a;
     public float b;
     public CSSParser.n c;
-    public Map<String, j0> d;
+    public Map d;
 
-    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public static final class GradientSpread {
-        public static final /* synthetic */ GradientSpread[] $VALUES;
-        public static /* synthetic */ Interceptable $ic;
-        public static final GradientSpread pad;
-        public static final GradientSpread reflect;
-        public static final GradientSpread repeat;
-        public transient /* synthetic */ FieldHolder $fh;
+    public interface e0 {
+        String a();
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1325891391, "Lcom/caverock/androidsvg/SVG$GradientSpread;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-1325891391, "Lcom/caverock/androidsvg/SVG$GradientSpread;");
-                    return;
-                }
-            }
-            pad = new GradientSpread("pad", 0);
-            reflect = new GradientSpread("reflect", 1);
-            GradientSpread gradientSpread = new GradientSpread("repeat", 2);
-            repeat = gradientSpread;
-            $VALUES = new GradientSpread[]{pad, reflect, gradientSpread};
+        void b(Set set);
+
+        void d(Set set);
+
+        Set e();
+
+        Set f();
+
+        void g(Set set);
+
+        Set h();
+
+        void j(Set set);
+
+        void k(String str);
+
+        Set m();
+    }
+
+    /* loaded from: classes7.dex */
+    public interface h0 {
+        List getChildren();
+
+        void i(l0 l0Var) throws SVGParseException;
+    }
+
+    /* loaded from: classes7.dex */
+    public interface m {
+        void l(Matrix matrix);
+    }
+
+    /* loaded from: classes7.dex */
+    public interface s {
+    }
+
+    /* loaded from: classes7.dex */
+    public interface v0 {
+        z0 c();
+    }
+
+    /* loaded from: classes7.dex */
+    public interface w {
+        void a(float f, float f2);
+
+        void b(float f, float f2);
+
+        void c(float f, float f2, float f3, float f4);
+
+        void close();
+
+        void d(float f, float f2, float f3, float f4, float f5, float f6);
+
+        void e(float f, float f2, float f3, boolean z, boolean z2, float f4, float f5);
+    }
+
+    /* loaded from: classes7.dex */
+    public interface z0 {
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1831194158, "Lcom/caverock/androidsvg/SVG;")) == null) {
+            return;
         }
-
-        public GradientSpread(String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    String str2 = (String) objArr2[0];
-                    ((Integer) objArr2[1]).intValue();
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-
-        public static GradientSpread valueOf(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (GradientSpread) Enum.valueOf(GradientSpread.class, str) : (GradientSpread) invokeL.objValue;
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1831194158, "Lcom/caverock/androidsvg/SVG;");
         }
+    }
 
-        public static GradientSpread[] values() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (GradientSpread[]) $VALUES.clone() : (GradientSpread[]) invokeV.objValue;
+    public void q(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+        }
+    }
+
+    public void s(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
         }
     }
 
     /* loaded from: classes7.dex */
-    public static class Style implements Cloneable {
+    public class Style implements Cloneable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Boolean A;
@@ -140,7 +168,7 @@ public class SVG {
         public o l;
         public Float m;
         public f n;
-        public List<String> o;
+        public List o;
         public o p;
         public Integer q;
         public FontStyle r;
@@ -155,7 +183,7 @@ public class SVG {
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
         /* loaded from: classes7.dex */
-        public static final class FillRule {
+        public final class FillRule {
             public static final /* synthetic */ FillRule[] $VALUES;
             public static /* synthetic */ Interceptable $ic;
             public static final FillRule EvenOdd;
@@ -203,19 +231,25 @@ public class SVG {
             public static FillRule valueOf(String str) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (FillRule) Enum.valueOf(FillRule.class, str) : (FillRule) invokeL.objValue;
+                if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                    return (FillRule) Enum.valueOf(FillRule.class, str);
+                }
+                return (FillRule) invokeL.objValue;
             }
 
             public static FillRule[] values() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (FillRule[]) $VALUES.clone() : (FillRule[]) invokeV.objValue;
+                if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                    return (FillRule[]) $VALUES.clone();
+                }
+                return (FillRule[]) invokeV.objValue;
             }
         }
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
         /* loaded from: classes7.dex */
-        public static final class FontStyle {
+        public final class FontStyle {
             public static final /* synthetic */ FontStyle[] $VALUES;
             public static /* synthetic */ Interceptable $ic;
             public static final FontStyle Italic;
@@ -265,19 +299,25 @@ public class SVG {
             public static FontStyle valueOf(String str) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (FontStyle) Enum.valueOf(FontStyle.class, str) : (FontStyle) invokeL.objValue;
+                if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                    return (FontStyle) Enum.valueOf(FontStyle.class, str);
+                }
+                return (FontStyle) invokeL.objValue;
             }
 
             public static FontStyle[] values() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (FontStyle[]) $VALUES.clone() : (FontStyle[]) invokeV.objValue;
+                if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                    return (FontStyle[]) $VALUES.clone();
+                }
+                return (FontStyle[]) invokeV.objValue;
             }
         }
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
         /* loaded from: classes7.dex */
-        public static final class LineCap {
+        public final class LineCap {
             public static final /* synthetic */ LineCap[] $VALUES;
             public static /* synthetic */ Interceptable $ic;
             public static final LineCap Butt;
@@ -327,19 +367,25 @@ public class SVG {
             public static LineCap valueOf(String str) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (LineCap) Enum.valueOf(LineCap.class, str) : (LineCap) invokeL.objValue;
+                if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                    return (LineCap) Enum.valueOf(LineCap.class, str);
+                }
+                return (LineCap) invokeL.objValue;
             }
 
             public static LineCap[] values() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (LineCap[]) $VALUES.clone() : (LineCap[]) invokeV.objValue;
+                if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                    return (LineCap[]) $VALUES.clone();
+                }
+                return (LineCap[]) invokeV.objValue;
             }
         }
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
         /* loaded from: classes7.dex */
-        public static final class LineJoin {
+        public final class LineJoin {
             public static final /* synthetic */ LineJoin[] $VALUES;
             public static /* synthetic */ Interceptable $ic;
             public static final LineJoin Bevel;
@@ -389,19 +435,25 @@ public class SVG {
             public static LineJoin valueOf(String str) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (LineJoin) Enum.valueOf(LineJoin.class, str) : (LineJoin) invokeL.objValue;
+                if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                    return (LineJoin) Enum.valueOf(LineJoin.class, str);
+                }
+                return (LineJoin) invokeL.objValue;
             }
 
             public static LineJoin[] values() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (LineJoin[]) $VALUES.clone() : (LineJoin[]) invokeV.objValue;
+                if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                    return (LineJoin[]) $VALUES.clone();
+                }
+                return (LineJoin[]) invokeV.objValue;
             }
         }
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
         /* loaded from: classes7.dex */
-        public static final class RenderQuality {
+        public final class RenderQuality {
             public static final /* synthetic */ RenderQuality[] $VALUES;
             public static /* synthetic */ Interceptable $ic;
             public static final RenderQuality auto;
@@ -451,19 +503,25 @@ public class SVG {
             public static RenderQuality valueOf(String str) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (RenderQuality) Enum.valueOf(RenderQuality.class, str) : (RenderQuality) invokeL.objValue;
+                if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                    return (RenderQuality) Enum.valueOf(RenderQuality.class, str);
+                }
+                return (RenderQuality) invokeL.objValue;
             }
 
             public static RenderQuality[] values() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (RenderQuality[]) $VALUES.clone() : (RenderQuality[]) invokeV.objValue;
+                if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                    return (RenderQuality[]) $VALUES.clone();
+                }
+                return (RenderQuality[]) invokeV.objValue;
             }
         }
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
         /* loaded from: classes7.dex */
-        public static final class TextAnchor {
+        public final class TextAnchor {
             public static final /* synthetic */ TextAnchor[] $VALUES;
             public static /* synthetic */ Interceptable $ic;
             public static final TextAnchor End;
@@ -513,19 +571,25 @@ public class SVG {
             public static TextAnchor valueOf(String str) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (TextAnchor) Enum.valueOf(TextAnchor.class, str) : (TextAnchor) invokeL.objValue;
+                if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                    return (TextAnchor) Enum.valueOf(TextAnchor.class, str);
+                }
+                return (TextAnchor) invokeL.objValue;
             }
 
             public static TextAnchor[] values() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (TextAnchor[]) $VALUES.clone() : (TextAnchor[]) invokeV.objValue;
+                if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                    return (TextAnchor[]) $VALUES.clone();
+                }
+                return (TextAnchor[]) invokeV.objValue;
             }
         }
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
         /* loaded from: classes7.dex */
-        public static final class TextDecoration {
+        public final class TextDecoration {
             public static final /* synthetic */ TextDecoration[] $VALUES;
             public static /* synthetic */ Interceptable $ic;
             public static final TextDecoration Blink;
@@ -579,19 +643,25 @@ public class SVG {
             public static TextDecoration valueOf(String str) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (TextDecoration) Enum.valueOf(TextDecoration.class, str) : (TextDecoration) invokeL.objValue;
+                if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                    return (TextDecoration) Enum.valueOf(TextDecoration.class, str);
+                }
+                return (TextDecoration) invokeL.objValue;
             }
 
             public static TextDecoration[] values() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (TextDecoration[]) $VALUES.clone() : (TextDecoration[]) invokeV.objValue;
+                if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                    return (TextDecoration[]) $VALUES.clone();
+                }
+                return (TextDecoration[]) invokeV.objValue;
             }
         }
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
         /* loaded from: classes7.dex */
-        public static final class TextDirection {
+        public final class TextDirection {
             public static final /* synthetic */ TextDirection[] $VALUES;
             public static /* synthetic */ Interceptable $ic;
             public static final TextDirection LTR;
@@ -639,19 +709,25 @@ public class SVG {
             public static TextDirection valueOf(String str) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (TextDirection) Enum.valueOf(TextDirection.class, str) : (TextDirection) invokeL.objValue;
+                if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                    return (TextDirection) Enum.valueOf(TextDirection.class, str);
+                }
+                return (TextDirection) invokeL.objValue;
             }
 
             public static TextDirection[] values() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (TextDirection[]) $VALUES.clone() : (TextDirection[]) invokeV.objValue;
+                if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                    return (TextDirection[]) $VALUES.clone();
+                }
+                return (TextDirection[]) invokeV.objValue;
             }
         }
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
         /* loaded from: classes7.dex */
-        public static final class VectorEffect {
+        public final class VectorEffect {
             public static final /* synthetic */ VectorEffect[] $VALUES;
             public static /* synthetic */ Interceptable $ic;
             public static final VectorEffect NonScalingStroke;
@@ -699,13 +775,19 @@ public class SVG {
             public static VectorEffect valueOf(String str) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (VectorEffect) Enum.valueOf(VectorEffect.class, str) : (VectorEffect) invokeL.objValue;
+                if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                    return (VectorEffect) Enum.valueOf(VectorEffect.class, str);
+                }
+                return (VectorEffect) invokeL.objValue;
             }
 
             public static VectorEffect[] values() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (VectorEffect[]) $VALUES.clone() : (VectorEffect[]) invokeV.objValue;
+                if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                    return (VectorEffect[]) $VALUES.clone();
+                }
+                return (VectorEffect[]) invokeV.objValue;
             }
         }
 
@@ -723,6 +805,20 @@ public class SVG {
                 }
             }
             this.a = 0L;
+        }
+
+        public Object clone() throws CloneNotSupportedException {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                Style style = (Style) super.clone();
+                o[] oVarArr = this.k;
+                if (oVarArr != null) {
+                    style.k = (o[]) oVarArr.clone();
+                }
+                return style;
+            }
+            return invokeV.objValue;
         }
 
         public static Style a() {
@@ -798,25 +894,79 @@ public class SVG {
                 this.L = VectorEffect.None;
             }
         }
+    }
 
-        public Object clone() throws CloneNotSupportedException {
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    /* loaded from: classes7.dex */
+    public final class GradientSpread {
+        public static final /* synthetic */ GradientSpread[] $VALUES;
+        public static /* synthetic */ Interceptable $ic;
+        public static final GradientSpread pad;
+        public static final GradientSpread reflect;
+        public static final GradientSpread repeat;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1325891391, "Lcom/caverock/androidsvg/SVG$GradientSpread;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-1325891391, "Lcom/caverock/androidsvg/SVG$GradientSpread;");
+                    return;
+                }
+            }
+            pad = new GradientSpread("pad", 0);
+            reflect = new GradientSpread("reflect", 1);
+            GradientSpread gradientSpread = new GradientSpread("repeat", 2);
+            repeat = gradientSpread;
+            $VALUES = new GradientSpread[]{pad, reflect, gradientSpread};
+        }
+
+        public GradientSpread(String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str2 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public static GradientSpread valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (GradientSpread) Enum.valueOf(GradientSpread.class, str);
+            }
+            return (GradientSpread) invokeL.objValue;
+        }
+
+        public static GradientSpread[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                Style style = (Style) super.clone();
-                o[] oVarArr = this.k;
-                if (oVarArr != null) {
-                    style.k = (o[]) oVarArr.clone();
-                }
-                return style;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (GradientSpread[]) $VALUES.clone();
             }
-            return invokeV.objValue;
+            return (GradientSpread[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public static final class Unit {
+    public final class Unit {
         public static final /* synthetic */ Unit[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Unit cm;
@@ -878,18 +1028,24 @@ public class SVG {
         public static Unit valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Unit) Enum.valueOf(Unit.class, str) : (Unit) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (Unit) Enum.valueOf(Unit.class, str);
+            }
+            return (Unit) invokeL.objValue;
         }
 
         public static Unit[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Unit[]) $VALUES.clone() : (Unit[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (Unit[]) $VALUES.clone();
+            }
+            return (Unit[]) invokeV.objValue;
         }
     }
 
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
+    public /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -949,7 +1105,7 @@ public class SVG {
     }
 
     /* loaded from: classes7.dex */
-    public static class a0 extends k {
+    public class a0 extends k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public o o;
@@ -958,6 +1114,13 @@ public class SVG {
         public o r;
         public o s;
         public o t;
+
+        @Override // com.caverock.androidsvg.SVG.l0
+        public String n() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "rect" : (String) invokeV.objValue;
+        }
 
         public a0() {
             Interceptable interceptable = $ic;
@@ -972,17 +1135,10 @@ public class SVG {
                 }
             }
         }
-
-        @Override // com.caverock.androidsvg.SVG.l0
-        public String n() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "rect" : (String) invokeV.objValue;
-        }
     }
 
     /* loaded from: classes7.dex */
-    public static class a1 extends l0 implements v0 {
+    public class a1 extends l0 implements v0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String c;
@@ -1010,7 +1166,10 @@ public class SVG {
         public z0 c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : (z0) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.d;
+            }
+            return (z0) invokeV.objValue;
         }
 
         public String toString() {
@@ -1024,9 +1183,131 @@ public class SVG {
     }
 
     /* loaded from: classes7.dex */
-    public static class b0 extends j0 implements h0 {
+    public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public float a;
+        public float b;
+        public float c;
+        public float d;
+
+        public b(float f, float f2, float f3, float f4) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = f;
+            this.b = f2;
+            this.c = f3;
+            this.d = f4;
+        }
+
+        public b(b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bVar};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.a = bVar.a;
+            this.b = bVar.b;
+            this.c = bVar.c;
+            this.d = bVar.d;
+        }
+
+        public static b a(float f, float f2, float f3, float f4) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
+                return new b(f, f2, f3 - f, f4 - f2);
+            }
+            return (b) invokeCommon.objValue;
+        }
+
+        public float b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a + this.c;
+            }
+            return invokeV.floatValue;
+        }
+
+        public float c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.b + this.d;
+            }
+            return invokeV.floatValue;
+        }
+
+        public void d(b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+                float f = bVar.a;
+                if (f < this.a) {
+                    this.a = f;
+                }
+                float f2 = bVar.b;
+                if (f2 < this.b) {
+                    this.b = f2;
+                }
+                if (bVar.b() > b()) {
+                    this.c = bVar.b() - this.a;
+                }
+                if (bVar.c() > c()) {
+                    this.d = bVar.c() - this.b;
+                }
+            }
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return PreferencesUtil.LEFT_MOUNT + this.a + " " + this.b + " " + this.c + " " + this.d + PreferencesUtil.RIGHT_MOUNT;
+            }
+            return (String) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b0 extends j0 implements h0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.caverock.androidsvg.SVG.h0
+        public void i(l0 l0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l0Var) == null) {
+            }
+        }
+
+        @Override // com.caverock.androidsvg.SVG.l0
+        public String n() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "solidColor" : (String) invokeV.objValue;
+        }
 
         public b0() {
             Interceptable interceptable = $ic;
@@ -1043,29 +1324,18 @@ public class SVG {
         }
 
         @Override // com.caverock.androidsvg.SVG.h0
-        public List<l0> getChildren() {
+        public List getChildren() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Collections.emptyList() : (List) invokeV.objValue;
-        }
-
-        @Override // com.caverock.androidsvg.SVG.h0
-        public void i(l0 l0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l0Var) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return Collections.emptyList();
             }
-        }
-
-        @Override // com.caverock.androidsvg.SVG.l0
-        public String n() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "solidColor" : (String) invokeV.objValue;
+            return (List) invokeV.objValue;
         }
     }
 
     /* loaded from: classes7.dex */
-    public static class b1 extends l {
+    public class b1 extends l {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String o;
@@ -1073,6 +1343,13 @@ public class SVG {
         public o q;
         public o r;
         public o s;
+
+        @Override // com.caverock.androidsvg.SVG.l, com.caverock.androidsvg.SVG.l0
+        public String n() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TbConfig.ST_TYPE_USE : (String) invokeV.objValue;
+        }
 
         public b1() {
             Interceptable interceptable = $ic;
@@ -1087,17 +1364,10 @@ public class SVG {
                 }
             }
         }
-
-        @Override // com.caverock.androidsvg.SVG.l, com.caverock.androidsvg.SVG.l0
-        public String n() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TbConfig.ST_TYPE_USE : (String) invokeV.objValue;
-        }
     }
 
     /* loaded from: classes7.dex */
-    public static class c {
+    public class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public o a;
@@ -1128,10 +1398,24 @@ public class SVG {
     }
 
     /* loaded from: classes7.dex */
-    public static class c0 extends j0 implements h0 {
+    public class c0 extends j0 implements h0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Float h;
+
+        @Override // com.caverock.androidsvg.SVG.h0
+        public void i(l0 l0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l0Var) == null) {
+            }
+        }
+
+        @Override // com.caverock.androidsvg.SVG.l0
+        public String n() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? IntentConfig.STOP : (String) invokeV.objValue;
+        }
 
         public c0() {
             Interceptable interceptable = $ic;
@@ -1148,31 +1432,27 @@ public class SVG {
         }
 
         @Override // com.caverock.androidsvg.SVG.h0
-        public List<l0> getChildren() {
+        public List getChildren() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Collections.emptyList() : (List) invokeV.objValue;
-        }
-
-        @Override // com.caverock.androidsvg.SVG.h0
-        public void i(l0 l0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l0Var) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return Collections.emptyList();
             }
+            return (List) invokeV.objValue;
         }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c1 extends p0 implements s {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         @Override // com.caverock.androidsvg.SVG.l0
         public String n() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? IntentConfig.STOP : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? NativeConstants.TYPE_VIEW : (String) invokeV.objValue;
         }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class c1 extends p0 implements s {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
 
         public c1() {
             Interceptable interceptable = $ic;
@@ -1187,22 +1467,22 @@ public class SVG {
                 }
             }
         }
-
-        @Override // com.caverock.androidsvg.SVG.l0
-        public String n() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? NativeConstants.TYPE_VIEW : (String) invokeV.objValue;
-        }
     }
 
     /* loaded from: classes7.dex */
-    public static class d extends k {
+    public class d extends k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public o o;
         public o p;
         public o q;
+
+        @Override // com.caverock.androidsvg.SVG.l0
+        public String n() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Config.TRACE_CIRCLE : (String) invokeV.objValue;
+        }
 
         public d() {
             Interceptable interceptable = $ic;
@@ -1217,17 +1497,10 @@ public class SVG {
                 }
             }
         }
-
-        @Override // com.caverock.androidsvg.SVG.l0
-        public String n() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Config.TRACE_CIRCLE : (String) invokeV.objValue;
-        }
     }
 
     /* loaded from: classes7.dex */
-    public static class d0 extends p0 {
+    public class d0 extends p0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public o p;
@@ -1235,6 +1508,13 @@ public class SVG {
         public o r;
         public o s;
         public String t;
+
+        @Override // com.caverock.androidsvg.SVG.l0
+        public String n() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "svg" : (String) invokeV.objValue;
+        }
 
         public d0() {
             Interceptable interceptable = $ic;
@@ -1249,20 +1529,20 @@ public class SVG {
                 }
             }
         }
-
-        @Override // com.caverock.androidsvg.SVG.l0
-        public String n() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "svg" : (String) invokeV.objValue;
-        }
     }
 
     /* loaded from: classes7.dex */
-    public static class e extends l implements s {
+    public class e extends l implements s {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Boolean o;
+
+        @Override // com.caverock.androidsvg.SVG.l, com.caverock.androidsvg.SVG.l0
+        public String n() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "clipPath" : (String) invokeV.objValue;
+        }
 
         public e() {
             Interceptable interceptable = $ic;
@@ -1277,40 +1557,10 @@ public class SVG {
                 }
             }
         }
-
-        @Override // com.caverock.androidsvg.SVG.l, com.caverock.androidsvg.SVG.l0
-        public String n() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "clipPath" : (String) invokeV.objValue;
-        }
     }
 
     /* loaded from: classes7.dex */
-    public interface e0 {
-        String a();
-
-        void b(Set<String> set);
-
-        void d(Set<String> set);
-
-        Set<String> e();
-
-        Set<String> f();
-
-        void g(Set<String> set);
-
-        Set<String> h();
-
-        void j(Set<String> set);
-
-        void k(String str);
-
-        Set<String> m();
-    }
-
-    /* loaded from: classes7.dex */
-    public static class f extends m0 {
+    public class f extends m0 {
         public static /* synthetic */ Interceptable $ic;
         public static final f b;
         public static final f c;
@@ -1334,6 +1584,15 @@ public class SVG {
             c = new f(0);
         }
 
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return String.format("#%08x", Integer.valueOf(this.a));
+            }
+            return (String) invokeV.objValue;
+        }
+
         public f(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -1351,23 +1610,34 @@ public class SVG {
             }
             this.a = i;
         }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? String.format("#%08x", Integer.valueOf(this.a)) : (String) invokeV.objValue;
-        }
     }
 
     /* loaded from: classes7.dex */
-    public static abstract class f0 extends i0 implements h0, e0 {
+    public abstract class f0 extends i0 implements h0, e0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<l0> i;
-        public Set<String> j;
+        public List i;
+        public Set j;
         public String k;
-        public Set<String> l;
-        public Set<String> m;
+        public Set l;
+        public Set m;
+
+        @Override // com.caverock.androidsvg.SVG.e0
+        public void d(Set set) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, set) == null) {
+            }
+        }
+
+        @Override // com.caverock.androidsvg.SVG.e0
+        public Set f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return null;
+            }
+            return (Set) invokeV.objValue;
+        }
 
         public f0() {
             Interceptable interceptable = $ic;
@@ -1393,11 +1663,54 @@ public class SVG {
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.k : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.k;
+            }
+            return (String) invokeV.objValue;
         }
 
         @Override // com.caverock.androidsvg.SVG.e0
-        public void b(Set<String> set) {
+        public Set e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.l;
+            }
+            return (Set) invokeV.objValue;
+        }
+
+        @Override // com.caverock.androidsvg.SVG.h0
+        public List getChildren() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return this.i;
+            }
+            return (List) invokeV.objValue;
+        }
+
+        @Override // com.caverock.androidsvg.SVG.e0
+        public Set h() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                return this.j;
+            }
+            return (Set) invokeV.objValue;
+        }
+
+        @Override // com.caverock.androidsvg.SVG.e0
+        public Set m() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+                return this.m;
+            }
+            return (Set) invokeV.objValue;
+        }
+
+        @Override // com.caverock.androidsvg.SVG.e0
+        public void b(Set set) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, set) == null) {
                 this.m = set;
@@ -1405,49 +1718,11 @@ public class SVG {
         }
 
         @Override // com.caverock.androidsvg.SVG.e0
-        public void d(Set<String> set) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, set) == null) {
-            }
-        }
-
-        @Override // com.caverock.androidsvg.SVG.e0
-        public Set<String> e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.l : (Set) invokeV.objValue;
-        }
-
-        @Override // com.caverock.androidsvg.SVG.e0
-        public Set<String> f() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return null;
-            }
-            return (Set) invokeV.objValue;
-        }
-
-        @Override // com.caverock.androidsvg.SVG.e0
-        public void g(Set<String> set) {
+        public void g(Set set) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, set) == null) {
                 this.j = set;
             }
-        }
-
-        @Override // com.caverock.androidsvg.SVG.h0
-        public List<l0> getChildren() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.i : (List) invokeV.objValue;
-        }
-
-        @Override // com.caverock.androidsvg.SVG.e0
-        public Set<String> h() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.j : (Set) invokeV.objValue;
         }
 
         @Override // com.caverock.androidsvg.SVG.h0
@@ -1459,7 +1734,7 @@ public class SVG {
         }
 
         @Override // com.caverock.androidsvg.SVG.e0
-        public void j(Set<String> set) {
+        public void j(Set set) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048585, this, set) == null) {
                 this.l = set;
@@ -1473,17 +1748,10 @@ public class SVG {
                 this.k = str;
             }
         }
-
-        @Override // com.caverock.androidsvg.SVG.e0
-        public Set<String> m() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.m : (Set) invokeV.objValue;
-        }
     }
 
     /* loaded from: classes7.dex */
-    public static class g extends m0 {
+    public class g extends m0 {
         public static /* synthetic */ Interceptable $ic;
         public static g a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1521,19 +1789,22 @@ public class SVG {
         public static g a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : (g) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+                return a;
+            }
+            return (g) invokeV.objValue;
         }
     }
 
     /* loaded from: classes7.dex */
-    public static abstract class g0 extends i0 implements e0 {
+    public abstract class g0 extends i0 implements e0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Set<String> i;
+        public Set i;
         public String j;
-        public Set<String> k;
-        public Set<String> l;
-        public Set<String> m;
+        public Set k;
+        public Set l;
+        public Set m;
 
         public g0() {
             Interceptable interceptable = $ic;
@@ -1559,11 +1830,54 @@ public class SVG {
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.j : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.j;
+            }
+            return (String) invokeV.objValue;
         }
 
         @Override // com.caverock.androidsvg.SVG.e0
-        public void b(Set<String> set) {
+        public Set e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.l;
+            }
+            return (Set) invokeV.objValue;
+        }
+
+        @Override // com.caverock.androidsvg.SVG.e0
+        public Set f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.k;
+            }
+            return (Set) invokeV.objValue;
+        }
+
+        @Override // com.caverock.androidsvg.SVG.e0
+        public Set h() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return this.i;
+            }
+            return (Set) invokeV.objValue;
+        }
+
+        @Override // com.caverock.androidsvg.SVG.e0
+        public Set m() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+                return this.m;
+            }
+            return (Set) invokeV.objValue;
+        }
+
+        @Override // com.caverock.androidsvg.SVG.e0
+        public void b(Set set) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, set) == null) {
                 this.m = set;
@@ -1571,7 +1885,7 @@ public class SVG {
         }
 
         @Override // com.caverock.androidsvg.SVG.e0
-        public void d(Set<String> set) {
+        public void d(Set set) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, set) == null) {
                 this.k = set;
@@ -1579,21 +1893,7 @@ public class SVG {
         }
 
         @Override // com.caverock.androidsvg.SVG.e0
-        public Set<String> e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.l : (Set) invokeV.objValue;
-        }
-
-        @Override // com.caverock.androidsvg.SVG.e0
-        public Set<String> f() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.k : (Set) invokeV.objValue;
-        }
-
-        @Override // com.caverock.androidsvg.SVG.e0
-        public void g(Set<String> set) {
+        public void g(Set set) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, set) == null) {
                 this.i = set;
@@ -1601,14 +1901,7 @@ public class SVG {
         }
 
         @Override // com.caverock.androidsvg.SVG.e0
-        public Set<String> h() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.i : (Set) invokeV.objValue;
-        }
-
-        @Override // com.caverock.androidsvg.SVG.e0
-        public void j(Set<String> set) {
+        public void j(Set set) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048583, this, set) == null) {
                 this.l = set;
@@ -1622,19 +1915,19 @@ public class SVG {
                 this.j = str;
             }
         }
-
-        @Override // com.caverock.androidsvg.SVG.e0
-        public Set<String> m() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.m : (Set) invokeV.objValue;
-        }
     }
 
     /* loaded from: classes7.dex */
-    public static class h extends l implements s {
+    public class h extends l implements s {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.caverock.androidsvg.SVG.l, com.caverock.androidsvg.SVG.l0
+        public String n() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "defs" : (String) invokeV.objValue;
+        }
 
         public h() {
             Interceptable interceptable = $ic;
@@ -1649,30 +1942,23 @@ public class SVG {
                 }
             }
         }
-
-        @Override // com.caverock.androidsvg.SVG.l, com.caverock.androidsvg.SVG.l0
-        public String n() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "defs" : (String) invokeV.objValue;
-        }
     }
 
     /* loaded from: classes7.dex */
-    public interface h0 {
-        List<l0> getChildren();
-
-        void i(l0 l0Var) throws SVGParseException;
-    }
-
-    /* loaded from: classes7.dex */
-    public static class i extends k {
+    public class i extends k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public o o;
         public o p;
         public o q;
         public o r;
+
+        @Override // com.caverock.androidsvg.SVG.l0
+        public String n() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "ellipse" : (String) invokeV.objValue;
+        }
 
         public i() {
             Interceptable interceptable = $ic;
@@ -1687,17 +1973,10 @@ public class SVG {
                 }
             }
         }
-
-        @Override // com.caverock.androidsvg.SVG.l0
-        public String n() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "ellipse" : (String) invokeV.objValue;
-        }
     }
 
     /* loaded from: classes7.dex */
-    public static abstract class i0 extends j0 {
+    public abstract class i0 extends j0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public b h;
@@ -1720,10 +1999,10 @@ public class SVG {
     }
 
     /* loaded from: classes7.dex */
-    public static abstract class j extends j0 implements h0 {
+    public abstract class j extends j0 implements h0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<l0> h;
+        public List h;
         public Boolean i;
         public Matrix j;
         public GradientSpread k;
@@ -1746,10 +2025,13 @@ public class SVG {
         }
 
         @Override // com.caverock.androidsvg.SVG.h0
-        public List<l0> getChildren() {
+        public List getChildren() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.h : (List) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.h;
+            }
+            return (List) invokeV.objValue;
         }
 
         @Override // com.caverock.androidsvg.SVG.h0
@@ -1766,14 +2048,14 @@ public class SVG {
     }
 
     /* loaded from: classes7.dex */
-    public static abstract class j0 extends l0 {
+    public abstract class j0 extends l0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String c;
         public Boolean d;
         public Style e;
         public Style f;
-        public List<String> g;
+        public List g;
 
         public j0() {
             Interceptable interceptable = $ic;
@@ -1798,12 +2080,15 @@ public class SVG {
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? n() : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return n();
+            }
+            return (String) invokeV.objValue;
         }
     }
 
     /* loaded from: classes7.dex */
-    public static abstract class k extends g0 implements m {
+    public abstract class k extends g0 implements m {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Matrix n;
@@ -1832,13 +2117,20 @@ public class SVG {
     }
 
     /* loaded from: classes7.dex */
-    public static class k0 extends j {
+    public class k0 extends j {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public o m;
         public o n;
         public o o;
         public o p;
+
+        @Override // com.caverock.androidsvg.SVG.l0
+        public String n() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "linearGradient" : (String) invokeV.objValue;
+        }
 
         public k0() {
             Interceptable interceptable = $ic;
@@ -1853,20 +2145,20 @@ public class SVG {
                 }
             }
         }
+    }
+
+    /* loaded from: classes7.dex */
+    public class l extends f0 implements m {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public Matrix n;
 
         @Override // com.caverock.androidsvg.SVG.l0
         public String n() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "linearGradient" : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "group" : (String) invokeV.objValue;
         }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class l extends f0 implements m {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Matrix n;
 
         public l() {
             Interceptable interceptable = $ic;
@@ -1889,21 +2181,20 @@ public class SVG {
                 this.n = matrix;
             }
         }
-
-        @Override // com.caverock.androidsvg.SVG.l0
-        public String n() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "group" : (String) invokeV.objValue;
-        }
     }
 
     /* loaded from: classes7.dex */
-    public static class l0 {
+    public class l0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public SVG a;
         public h0 b;
+
+        public String n() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "" : (String) invokeV.objValue;
+        }
 
         public l0() {
             Interceptable interceptable = $ic;
@@ -1918,21 +2209,10 @@ public class SVG {
                 }
             }
         }
-
-        public String n() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "" : (String) invokeV.objValue;
-        }
     }
 
     /* loaded from: classes7.dex */
-    public interface m {
-        void l(Matrix matrix);
-    }
-
-    /* loaded from: classes7.dex */
-    public static abstract class m0 implements Cloneable {
+    public abstract class m0 implements Cloneable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -1952,7 +2232,7 @@ public class SVG {
     }
 
     /* loaded from: classes7.dex */
-    public static class n extends n0 implements m {
+    public class n extends n0 implements m {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String o;
@@ -1961,6 +2241,13 @@ public class SVG {
         public o r;
         public o s;
         public Matrix t;
+
+        @Override // com.caverock.androidsvg.SVG.l0
+        public String n() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "image" : (String) invokeV.objValue;
+        }
 
         public n() {
             Interceptable interceptable = $ic;
@@ -1983,17 +2270,10 @@ public class SVG {
                 this.t = matrix;
             }
         }
-
-        @Override // com.caverock.androidsvg.SVG.l0
-        public String n() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "image" : (String) invokeV.objValue;
-        }
     }
 
     /* loaded from: classes7.dex */
-    public static abstract class n0 extends f0 {
+    public abstract class n0 extends f0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public PreserveAspectRatio n;
@@ -2016,7 +2296,204 @@ public class SVG {
     }
 
     /* loaded from: classes7.dex */
-    public static class o0 extends j {
+    public class o implements Cloneable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public float a;
+        public Unit b;
+
+        public o(float f) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Float.valueOf(f)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = f;
+            this.b = Unit.px;
+        }
+
+        public o(float f, Unit unit) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Float.valueOf(f), unit};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.a = f;
+            this.b = unit;
+        }
+
+        public float a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a;
+            }
+            return invokeV.floatValue;
+        }
+
+        public boolean g() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                if (this.a < 0.0f) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public boolean h() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                if (this.a == 0.0f) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                return String.valueOf(this.a) + this.b;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public float b(float f) {
+            InterceptResult invokeF;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f)) == null) {
+                int i = a.a[this.b.ordinal()];
+                if (i != 1) {
+                    switch (i) {
+                        case 4:
+                            return this.a * f;
+                        case 5:
+                            return (this.a * f) / 2.54f;
+                        case 6:
+                            return (this.a * f) / 25.4f;
+                        case 7:
+                            return (this.a * f) / 72.0f;
+                        case 8:
+                            return (this.a * f) / 6.0f;
+                        default:
+                            return this.a;
+                    }
+                }
+                return this.a;
+            }
+            return invokeF.floatValue;
+        }
+
+        public float c(rk9 rk9Var) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rk9Var)) == null) {
+                if (this.b == Unit.percent) {
+                    b a0 = rk9Var.a0();
+                    if (a0 == null) {
+                        return this.a;
+                    }
+                    float f = a0.c;
+                    float f2 = a0.d;
+                    if (f == f2) {
+                        return (this.a * f) / 100.0f;
+                    }
+                    return (this.a * ((float) (Math.sqrt((f * f) + (f2 * f2)) / 1.414213562373095d))) / 100.0f;
+                }
+                return e(rk9Var);
+            }
+            return invokeL.floatValue;
+        }
+
+        public float d(rk9 rk9Var, float f) {
+            InterceptResult invokeLF;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLF = interceptable.invokeLF(1048579, this, rk9Var, f)) == null) {
+                if (this.b == Unit.percent) {
+                    return (this.a * f) / 100.0f;
+                }
+                return e(rk9Var);
+            }
+            return invokeLF.floatValue;
+        }
+
+        public float e(rk9 rk9Var) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, rk9Var)) == null) {
+                switch (a.a[this.b.ordinal()]) {
+                    case 1:
+                        return this.a;
+                    case 2:
+                        return this.a * rk9Var.Y();
+                    case 3:
+                        return this.a * rk9Var.Z();
+                    case 4:
+                        return this.a * rk9Var.b0();
+                    case 5:
+                        return (this.a * rk9Var.b0()) / 2.54f;
+                    case 6:
+                        return (this.a * rk9Var.b0()) / 25.4f;
+                    case 7:
+                        return (this.a * rk9Var.b0()) / 72.0f;
+                    case 8:
+                        return (this.a * rk9Var.b0()) / 6.0f;
+                    case 9:
+                        b a0 = rk9Var.a0();
+                        if (a0 == null) {
+                            return this.a;
+                        }
+                        return (this.a * a0.c) / 100.0f;
+                    default:
+                        return this.a;
+                }
+            }
+            return invokeL.floatValue;
+        }
+
+        public float f(rk9 rk9Var) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, rk9Var)) == null) {
+                if (this.b == Unit.percent) {
+                    b a0 = rk9Var.a0();
+                    if (a0 == null) {
+                        return this.a;
+                    }
+                    return (this.a * a0.d) / 100.0f;
+                }
+                return e(rk9Var);
+            }
+            return invokeL.floatValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class o0 extends j {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public o m;
@@ -2024,6 +2501,13 @@ public class SVG {
         public o o;
         public o p;
         public o q;
+
+        @Override // com.caverock.androidsvg.SVG.l0
+        public String n() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "radialGradient" : (String) invokeV.objValue;
+        }
 
         public o0() {
             Interceptable interceptable = $ic;
@@ -2038,23 +2522,23 @@ public class SVG {
                 }
             }
         }
-
-        @Override // com.caverock.androidsvg.SVG.l0
-        public String n() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "radialGradient" : (String) invokeV.objValue;
-        }
     }
 
     /* loaded from: classes7.dex */
-    public static class p extends k {
+    public class p extends k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public o o;
         public o p;
         public o q;
         public o r;
+
+        @Override // com.caverock.androidsvg.SVG.l0
+        public String n() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "line" : (String) invokeV.objValue;
+        }
 
         public p() {
             Interceptable interceptable = $ic;
@@ -2069,17 +2553,10 @@ public class SVG {
                 }
             }
         }
-
-        @Override // com.caverock.androidsvg.SVG.l0
-        public String n() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "line" : (String) invokeV.objValue;
-        }
     }
 
     /* loaded from: classes7.dex */
-    public static abstract class p0 extends n0 {
+    public abstract class p0 extends n0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public b o;
@@ -2100,7 +2577,7 @@ public class SVG {
     }
 
     /* loaded from: classes7.dex */
-    public static class q extends p0 implements s {
+    public class q extends p0 implements s {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean p;
@@ -2109,6 +2586,13 @@ public class SVG {
         public o s;
         public o t;
         public Float u;
+
+        @Override // com.caverock.androidsvg.SVG.l0
+        public String n() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "marker" : (String) invokeV.objValue;
+        }
 
         public q() {
             Interceptable interceptable = $ic;
@@ -2123,19 +2607,19 @@ public class SVG {
                 }
             }
         }
-
-        @Override // com.caverock.androidsvg.SVG.l0
-        public String n() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "marker" : (String) invokeV.objValue;
-        }
     }
 
     /* loaded from: classes7.dex */
-    public static class q0 extends l {
+    public class q0 extends l {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.caverock.androidsvg.SVG.l, com.caverock.androidsvg.SVG.l0
+        public String n() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? SetImageWatermarkTypeReqMsg.SWITCH : (String) invokeV.objValue;
+        }
 
         public q0() {
             Interceptable interceptable = $ic;
@@ -2150,17 +2634,10 @@ public class SVG {
                 }
             }
         }
-
-        @Override // com.caverock.androidsvg.SVG.l, com.caverock.androidsvg.SVG.l0
-        public String n() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? SetImageWatermarkTypeReqMsg.SWITCH : (String) invokeV.objValue;
-        }
     }
 
     /* loaded from: classes7.dex */
-    public static class r extends f0 implements s {
+    public class r extends f0 implements s {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Boolean n;
@@ -2169,6 +2646,13 @@ public class SVG {
         public o q;
         public o r;
         public o s;
+
+        @Override // com.caverock.androidsvg.SVG.l0
+        public String n() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "mask" : (String) invokeV.objValue;
+        }
 
         public r() {
             Interceptable interceptable = $ic;
@@ -2183,19 +2667,19 @@ public class SVG {
                 }
             }
         }
+    }
+
+    /* loaded from: classes7.dex */
+    public class r0 extends p0 implements s {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
         @Override // com.caverock.androidsvg.SVG.l0
         public String n() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "mask" : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "symbol" : (String) invokeV.objValue;
         }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class r0 extends p0 implements s {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
 
         public r0() {
             Interceptable interceptable = $ic;
@@ -2210,25 +2694,21 @@ public class SVG {
                 }
             }
         }
+    }
+
+    /* loaded from: classes7.dex */
+    public class s0 extends w0 implements v0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String n;
+        public z0 o;
 
         @Override // com.caverock.androidsvg.SVG.l0
         public String n() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "symbol" : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TrackReferenceBox.TYPE : (String) invokeV.objValue;
         }
-    }
-
-    /* loaded from: classes7.dex */
-    public interface s {
-    }
-
-    /* loaded from: classes7.dex */
-    public static class s0 extends w0 implements v0 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String n;
-        public z0 o;
 
         public s0() {
             Interceptable interceptable = $ic;
@@ -2248,14 +2728,10 @@ public class SVG {
         public z0 c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.o : (z0) invokeV.objValue;
-        }
-
-        @Override // com.caverock.androidsvg.SVG.l0
-        public String n() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TrackReferenceBox.TYPE : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.o;
+            }
+            return (z0) invokeV.objValue;
         }
 
         public void o(z0 z0Var) {
@@ -2267,7 +2743,7 @@ public class SVG {
     }
 
     /* loaded from: classes7.dex */
-    public static class t extends m0 {
+    public class t extends m0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -2303,10 +2779,17 @@ public class SVG {
     }
 
     /* loaded from: classes7.dex */
-    public static class t0 extends y0 implements v0 {
+    public class t0 extends y0 implements v0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public z0 r;
+
+        @Override // com.caverock.androidsvg.SVG.l0
+        public String n() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "tspan" : (String) invokeV.objValue;
+        }
 
         public t0() {
             Interceptable interceptable = $ic;
@@ -2326,14 +2809,10 @@ public class SVG {
         public z0 c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.r : (z0) invokeV.objValue;
-        }
-
-        @Override // com.caverock.androidsvg.SVG.l0
-        public String n() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "tspan" : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.r;
+            }
+            return (z0) invokeV.objValue;
         }
 
         public void o(z0 z0Var) {
@@ -2345,11 +2824,18 @@ public class SVG {
     }
 
     /* loaded from: classes7.dex */
-    public static class u extends k {
+    public class u extends k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public v o;
         public Float p;
+
+        @Override // com.caverock.androidsvg.SVG.l0
+        public String n() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "path" : (String) invokeV.objValue;
+        }
 
         public u() {
             Interceptable interceptable = $ic;
@@ -2364,20 +2850,20 @@ public class SVG {
                 }
             }
         }
+    }
+
+    /* loaded from: classes7.dex */
+    public class u0 extends y0 implements z0, m {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public Matrix r;
 
         @Override // com.caverock.androidsvg.SVG.l0
         public String n() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "path" : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "text" : (String) invokeV.objValue;
         }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class u0 extends y0 implements z0, m {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Matrix r;
 
         public u0() {
             Interceptable interceptable = $ic;
@@ -2400,17 +2886,10 @@ public class SVG {
                 this.r = matrix;
             }
         }
-
-        @Override // com.caverock.androidsvg.SVG.l0
-        public String n() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "text" : (String) invokeV.objValue;
-        }
     }
 
     /* loaded from: classes7.dex */
-    public static class v implements w {
+    public class v implements w {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public byte[] a;
@@ -2499,6 +2978,18 @@ public class SVG {
             }
         }
 
+        public boolean i() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+                if (this.b == 0) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
         @Override // com.caverock.androidsvg.SVG.w
         public void d(float f, float f2, float f3, float f4, float f5, float f6) {
             Interceptable interceptable = $ic;
@@ -2529,26 +3020,32 @@ public class SVG {
 
         @Override // com.caverock.androidsvg.SVG.w
         public void e(float f, float f2, float f3, boolean z, boolean z2, float f4, float f5) {
+            int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Boolean.valueOf(z), Boolean.valueOf(z2), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
-                f((byte) ((z ? 2 : 0) | 4 | (z2 ? 1 : 0)));
+                if (z) {
+                    i = 2;
+                } else {
+                    i = 0;
+                }
+                f((byte) (i | 4 | (z2 ? 1 : 0)));
                 g(5);
                 float[] fArr = this.c;
-                int i = this.d;
-                int i2 = i + 1;
-                this.d = i2;
-                fArr[i] = f;
+                int i2 = this.d;
                 int i3 = i2 + 1;
                 this.d = i3;
-                fArr[i2] = f2;
+                fArr[i2] = f;
                 int i4 = i3 + 1;
                 this.d = i4;
-                fArr[i3] = f3;
+                fArr[i3] = f2;
                 int i5 = i4 + 1;
                 this.d = i5;
-                fArr[i4] = f4;
-                this.d = i5 + 1;
-                fArr[i5] = f5;
+                fArr[i4] = f3;
+                int i6 = i5 + 1;
+                this.d = i6;
+                fArr[i5] = f4;
+                this.d = i6 + 1;
+                fArr[i6] = f5;
             }
         }
 
@@ -2583,94 +3080,84 @@ public class SVG {
 
         public void h(w wVar) {
             int i;
+            boolean z;
+            boolean z2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, wVar) == null) {
                 int i2 = 0;
                 for (int i3 = 0; i3 < this.b; i3++) {
                     byte b = this.a[i3];
-                    if (b == 0) {
-                        float[] fArr = this.c;
-                        int i4 = i2 + 1;
-                        i = i4 + 1;
-                        wVar.a(fArr[i2], fArr[i4]);
-                    } else if (b != 1) {
-                        if (b == 2) {
-                            float[] fArr2 = this.c;
-                            int i5 = i2 + 1;
-                            float f = fArr2[i2];
-                            int i6 = i5 + 1;
-                            float f2 = fArr2[i5];
-                            int i7 = i6 + 1;
-                            float f3 = fArr2[i6];
-                            int i8 = i7 + 1;
-                            float f4 = fArr2[i7];
-                            int i9 = i8 + 1;
-                            float f5 = fArr2[i8];
-                            i2 = i9 + 1;
-                            wVar.d(f, f2, f3, f4, f5, fArr2[i9]);
-                        } else if (b == 3) {
-                            float[] fArr3 = this.c;
-                            int i10 = i2 + 1;
-                            int i11 = i10 + 1;
-                            int i12 = i11 + 1;
-                            wVar.c(fArr3[i2], fArr3[i10], fArr3[i11], fArr3[i12]);
-                            i2 = i12 + 1;
-                        } else if (b != 8) {
-                            boolean z = (b & 2) != 0;
-                            boolean z2 = (b & 1) != 0;
-                            float[] fArr4 = this.c;
-                            int i13 = i2 + 1;
-                            float f6 = fArr4[i2];
-                            int i14 = i13 + 1;
-                            float f7 = fArr4[i13];
-                            int i15 = i14 + 1;
-                            float f8 = fArr4[i14];
-                            int i16 = i15 + 1;
-                            wVar.e(f6, f7, f8, z, z2, fArr4[i15], fArr4[i16]);
-                            i2 = i16 + 1;
+                    if (b != 0) {
+                        if (b != 1) {
+                            if (b != 2) {
+                                if (b != 3) {
+                                    if (b != 8) {
+                                        if ((b & 2) != 0) {
+                                            z = true;
+                                        } else {
+                                            z = false;
+                                        }
+                                        if ((b & 1) != 0) {
+                                            z2 = true;
+                                        } else {
+                                            z2 = false;
+                                        }
+                                        float[] fArr = this.c;
+                                        int i4 = i2 + 1;
+                                        float f = fArr[i2];
+                                        int i5 = i4 + 1;
+                                        float f2 = fArr[i4];
+                                        int i6 = i5 + 1;
+                                        float f3 = fArr[i5];
+                                        int i7 = i6 + 1;
+                                        wVar.e(f, f2, f3, z, z2, fArr[i6], fArr[i7]);
+                                        i2 = i7 + 1;
+                                    } else {
+                                        wVar.close();
+                                    }
+                                } else {
+                                    float[] fArr2 = this.c;
+                                    int i8 = i2 + 1;
+                                    int i9 = i8 + 1;
+                                    int i10 = i9 + 1;
+                                    wVar.c(fArr2[i2], fArr2[i8], fArr2[i9], fArr2[i10]);
+                                    i2 = i10 + 1;
+                                }
+                            } else {
+                                float[] fArr3 = this.c;
+                                int i11 = i2 + 1;
+                                float f4 = fArr3[i2];
+                                int i12 = i11 + 1;
+                                float f5 = fArr3[i11];
+                                int i13 = i12 + 1;
+                                float f6 = fArr3[i12];
+                                int i14 = i13 + 1;
+                                float f7 = fArr3[i13];
+                                int i15 = i14 + 1;
+                                float f8 = fArr3[i14];
+                                i2 = i15 + 1;
+                                wVar.d(f4, f5, f6, f7, f8, fArr3[i15]);
+                            }
                         } else {
-                            wVar.close();
+                            float[] fArr4 = this.c;
+                            int i16 = i2 + 1;
+                            i = i16 + 1;
+                            wVar.b(fArr4[i2], fArr4[i16]);
                         }
                     } else {
                         float[] fArr5 = this.c;
                         int i17 = i2 + 1;
                         i = i17 + 1;
-                        wVar.b(fArr5[i2], fArr5[i17]);
+                        wVar.a(fArr5[i2], fArr5[i17]);
                     }
                     i2 = i;
                 }
             }
         }
-
-        public boolean i() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.b == 0 : invokeV.booleanValue;
-        }
     }
 
     /* loaded from: classes7.dex */
-    public interface v0 {
-        z0 c();
-    }
-
-    /* loaded from: classes7.dex */
-    public interface w {
-        void a(float f, float f2);
-
-        void b(float f, float f2);
-
-        void c(float f, float f2, float f3, float f4);
-
-        void close();
-
-        void d(float f, float f2, float f3, float f4, float f5, float f6);
-
-        void e(float f, float f2, float f3, boolean z, boolean z2, float f4, float f5);
-    }
-
-    /* loaded from: classes7.dex */
-    public static abstract class w0 extends f0 {
+    public abstract class w0 extends f0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -2702,7 +3189,7 @@ public class SVG {
     }
 
     /* loaded from: classes7.dex */
-    public static class x extends p0 implements s {
+    public class x extends p0 implements s {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Boolean p;
@@ -2713,6 +3200,13 @@ public class SVG {
         public o u;
         public o v;
         public String w;
+
+        @Override // com.caverock.androidsvg.SVG.l0
+        public String n() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "pattern" : (String) invokeV.objValue;
+        }
 
         public x() {
             Interceptable interceptable = $ic;
@@ -2727,22 +3221,22 @@ public class SVG {
                 }
             }
         }
-
-        @Override // com.caverock.androidsvg.SVG.l0
-        public String n() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "pattern" : (String) invokeV.objValue;
-        }
     }
 
     /* loaded from: classes7.dex */
-    public static class x0 extends w0 implements v0 {
+    public class x0 extends w0 implements v0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String n;
         public o o;
         public z0 p;
+
+        @Override // com.caverock.androidsvg.SVG.l0
+        public String n() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "textPath" : (String) invokeV.objValue;
+        }
 
         public x0() {
             Interceptable interceptable = $ic;
@@ -2762,14 +3256,10 @@ public class SVG {
         public z0 c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.p : (z0) invokeV.objValue;
-        }
-
-        @Override // com.caverock.androidsvg.SVG.l0
-        public String n() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "textPath" : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.p;
+            }
+            return (z0) invokeV.objValue;
         }
 
         public void o(z0 z0Var) {
@@ -2781,10 +3271,17 @@ public class SVG {
     }
 
     /* loaded from: classes7.dex */
-    public static class y extends k {
+    public class y extends k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public float[] o;
+
+        @Override // com.caverock.androidsvg.SVG.l0
+        public String n() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "polyline" : (String) invokeV.objValue;
+        }
 
         public y() {
             Interceptable interceptable = $ic;
@@ -2799,23 +3296,16 @@ public class SVG {
                 }
             }
         }
-
-        @Override // com.caverock.androidsvg.SVG.l0
-        public String n() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "polyline" : (String) invokeV.objValue;
-        }
     }
 
     /* loaded from: classes7.dex */
-    public static abstract class y0 extends w0 {
+    public abstract class y0 extends w0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<o> n;
-        public List<o> o;
-        public List<o> p;
-        public List<o> q;
+        public List n;
+        public List o;
+        public List p;
+        public List q;
 
         public y0() {
             Interceptable interceptable = $ic;
@@ -2833,9 +3323,16 @@ public class SVG {
     }
 
     /* loaded from: classes7.dex */
-    public static class z extends y {
+    public class z extends y {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.caverock.androidsvg.SVG.y, com.caverock.androidsvg.SVG.l0
+        public String n() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "polygon" : (String) invokeV.objValue;
+        }
 
         public z() {
             Interceptable interceptable = $ic;
@@ -2849,32 +3346,6 @@ public class SVG {
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-        }
-
-        @Override // com.caverock.androidsvg.SVG.y, com.caverock.androidsvg.SVG.l0
-        public String n() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "polygon" : (String) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public interface z0 {
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1831194158, "Lcom/caverock/androidsvg/SVG;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1831194158, "Lcom/caverock/androidsvg/SVG;");
         }
     }
 
@@ -2897,22 +3368,88 @@ public class SVG {
         this.d = new HashMap();
     }
 
-    public static ak9 g() {
+    public static sk9 g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? e : (ak9) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return e;
+        }
+        return (sk9) invokeV.objValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.c.e(CSSParser.Source.RenderOptions);
+        }
+    }
+
+    public List d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c.c();
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public d0 l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.a;
+        }
+        return (d0) invokeV.objValue;
+    }
+
+    public boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return !this.c.d();
+        }
+        return invokeV.booleanValue;
     }
 
     public static SVG h(InputStream inputStream) throws SVGParseException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, inputStream)) == null) ? new SVGParser().z(inputStream, f) : (SVG) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, inputStream)) == null) {
+            return new SVGParser().z(inputStream, f);
+        }
+        return (SVG) invokeL.objValue;
+    }
+
+    public static SVG k(String str) throws SVGParseException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            return new SVGParser().z(new ByteArrayInputStream(str.getBytes()), f);
+        }
+        return (SVG) invokeL.objValue;
+    }
+
+    public void a(CSSParser.n nVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, nVar) == null) {
+            this.c.b(nVar);
+        }
+    }
+
+    public void r(d0 d0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, d0Var) == null) {
+            this.a = d0Var;
+        }
     }
 
     public static SVG i(Context context, int i2) throws SVGParseException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i2)) == null) ? j(context.getResources(), i2) : (SVG) invokeLI.objValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i2)) == null) {
+            return j(context.getResources(), i2);
+        }
+        return (SVG) invokeLI.objValue;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
@@ -2934,26 +3471,6 @@ public class SVG {
         return (SVG) invokeLI.objValue;
     }
 
-    public static SVG k(String str) throws SVGParseException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? new SVGParser().z(new ByteArrayInputStream(str.getBytes()), f) : (SVG) invokeL.objValue;
-    }
-
-    public void a(CSSParser.n nVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, nVar) == null) {
-            this.c.b(nVar);
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c.e(CSSParser.Source.RenderOptions);
-        }
-    }
-
     public final String c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -2968,10 +3485,24 @@ public class SVG {
         return (String) invokeL.objValue;
     }
 
-    public List<CSSParser.l> d() {
-        InterceptResult invokeV;
+    public j0 f(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c.c() : (List) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            if (str != null && str.length() != 0) {
+                if (str.equals(this.a.c)) {
+                    return this.a;
+                }
+                if (this.d.containsKey(str)) {
+                    return (j0) this.d.get(str);
+                }
+                j0 e2 = e(this.a, str);
+                this.d.put(str, e2);
+                return e2;
+            }
+            return null;
+        }
+        return (j0) invokeL.objValue;
     }
 
     public final j0 e(h0 h0Var, String str) {
@@ -2999,63 +3530,40 @@ public class SVG {
         return (j0) invokeLL.objValue;
     }
 
-    public j0 f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            if (str == null || str.length() == 0) {
-                return null;
-            }
-            if (str.equals(this.a.c)) {
-                return this.a;
-            }
-            if (this.d.containsKey(str)) {
-                return this.d.get(str);
-            }
-            j0 e2 = e(this.a, str);
-            this.d.put(str, e2);
-            return e2;
-        }
-        return (j0) invokeL.objValue;
-    }
-
-    public d0 l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a : (d0) invokeV.objValue;
-    }
-
-    public boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? !this.c.d() : invokeV.booleanValue;
-    }
-
-    public Picture n(int i2, int i3, yj9 yj9Var) {
+    public Picture n(int i2, int i3, qk9 qk9Var) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3, yj9Var)) == null) {
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3, qk9Var)) == null) {
             Picture picture = new Picture();
             Canvas beginRecording = picture.beginRecording(i2, i3);
-            if (yj9Var == null || yj9Var.f == null) {
-                yj9Var = yj9Var == null ? new yj9() : new yj9(yj9Var);
-                yj9Var.h(0.0f, 0.0f, i2, i3);
+            if (qk9Var == null || qk9Var.f == null) {
+                if (qk9Var == null) {
+                    qk9Var = new qk9();
+                } else {
+                    qk9Var = new qk9(qk9Var);
+                }
+                qk9Var.h(0.0f, 0.0f, i2, i3);
             }
-            new zj9(beginRecording, this.b).O0(this, yj9Var);
+            new rk9(beginRecording, this.b).O0(this, qk9Var);
             picture.endRecording();
             return picture;
         }
         return (Picture) invokeIIL.objValue;
     }
 
-    public Picture o(yj9 yj9Var) {
+    public Picture o(qk9 qk9Var) {
         InterceptResult invokeL;
+        b bVar;
         o oVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, yj9Var)) == null) {
-            b bVar = (yj9Var == null || !yj9Var.f()) ? this.a.o : yj9Var.d;
-            if (yj9Var != null && yj9Var.g()) {
-                return n((int) Math.ceil(yj9Var.f.b()), (int) Math.ceil(yj9Var.f.c()), yj9Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, qk9Var)) == null) {
+            if (qk9Var != null && qk9Var.f()) {
+                bVar = qk9Var.d;
+            } else {
+                bVar = this.a.o;
+            }
+            if (qk9Var != null && qk9Var.g()) {
+                return n((int) Math.ceil(qk9Var.f.b()), (int) Math.ceil(qk9Var.f.c()), qk9Var);
             }
             d0 d0Var = this.a;
             o oVar2 = d0Var.r;
@@ -3063,20 +3571,20 @@ public class SVG {
                 Unit unit = oVar2.b;
                 Unit unit2 = Unit.percent;
                 if (unit != unit2 && (oVar = d0Var.s) != null && oVar.b != unit2) {
-                    return n((int) Math.ceil(oVar2.b(this.b)), (int) Math.ceil(this.a.s.b(this.b)), yj9Var);
+                    return n((int) Math.ceil(oVar2.b(this.b)), (int) Math.ceil(this.a.s.b(this.b)), qk9Var);
                 }
             }
             o oVar3 = this.a.r;
             if (oVar3 != null && bVar != null) {
                 float b2 = oVar3.b(this.b);
-                return n((int) Math.ceil(b2), (int) Math.ceil((bVar.d * b2) / bVar.c), yj9Var);
+                return n((int) Math.ceil(b2), (int) Math.ceil((bVar.d * b2) / bVar.c), qk9Var);
             }
             o oVar4 = this.a.s;
             if (oVar4 != null && bVar != null) {
                 float b3 = oVar4.b(this.b);
-                return n((int) Math.ceil((bVar.c * b3) / bVar.d), (int) Math.ceil(b3), yj9Var);
+                return n((int) Math.ceil((bVar.c * b3) / bVar.d), (int) Math.ceil(b3), qk9Var);
             }
-            return n(512, 512, yj9Var);
+            return n(512, 512, qk9Var);
         }
         return (Picture) invokeL.objValue;
     }
@@ -3095,305 +3603,5 @@ public class SVG {
             return f(c2.substring(1));
         }
         return (l0) invokeL.objValue;
-    }
-
-    public void q(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-        }
-    }
-
-    public void r(d0 d0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, d0Var) == null) {
-            this.a = d0Var;
-        }
-    }
-
-    public void s(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class o implements Cloneable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public float a;
-        public Unit b;
-
-        public o(float f, Unit unit) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Float.valueOf(f), unit};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.a = f;
-            this.b = unit;
-        }
-
-        public float a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.floatValue;
-        }
-
-        public float b(float f) {
-            InterceptResult invokeF;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f)) == null) {
-                int i = a.a[this.b.ordinal()];
-                if (i != 1) {
-                    switch (i) {
-                        case 4:
-                            return this.a * f;
-                        case 5:
-                            return (this.a * f) / 2.54f;
-                        case 6:
-                            return (this.a * f) / 25.4f;
-                        case 7:
-                            return (this.a * f) / 72.0f;
-                        case 8:
-                            return (this.a * f) / 6.0f;
-                        default:
-                            return this.a;
-                    }
-                }
-                return this.a;
-            }
-            return invokeF.floatValue;
-        }
-
-        public float c(zj9 zj9Var) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, zj9Var)) == null) {
-                if (this.b == Unit.percent) {
-                    b a0 = zj9Var.a0();
-                    if (a0 == null) {
-                        return this.a;
-                    }
-                    float f = a0.c;
-                    float f2 = a0.d;
-                    if (f == f2) {
-                        return (this.a * f) / 100.0f;
-                    }
-                    return (this.a * ((float) (Math.sqrt((f * f) + (f2 * f2)) / 1.414213562373095d))) / 100.0f;
-                }
-                return e(zj9Var);
-            }
-            return invokeL.floatValue;
-        }
-
-        public float d(zj9 zj9Var, float f) {
-            InterceptResult invokeLF;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLF = interceptable.invokeLF(1048579, this, zj9Var, f)) == null) {
-                if (this.b == Unit.percent) {
-                    return (this.a * f) / 100.0f;
-                }
-                return e(zj9Var);
-            }
-            return invokeLF.floatValue;
-        }
-
-        public float e(zj9 zj9Var) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, zj9Var)) == null) {
-                switch (a.a[this.b.ordinal()]) {
-                    case 1:
-                        return this.a;
-                    case 2:
-                        return this.a * zj9Var.Y();
-                    case 3:
-                        return this.a * zj9Var.Z();
-                    case 4:
-                        return this.a * zj9Var.b0();
-                    case 5:
-                        return (this.a * zj9Var.b0()) / 2.54f;
-                    case 6:
-                        return (this.a * zj9Var.b0()) / 25.4f;
-                    case 7:
-                        return (this.a * zj9Var.b0()) / 72.0f;
-                    case 8:
-                        return (this.a * zj9Var.b0()) / 6.0f;
-                    case 9:
-                        b a0 = zj9Var.a0();
-                        if (a0 == null) {
-                            return this.a;
-                        }
-                        return (this.a * a0.c) / 100.0f;
-                    default:
-                        return this.a;
-                }
-            }
-            return invokeL.floatValue;
-        }
-
-        public float f(zj9 zj9Var) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, zj9Var)) == null) {
-                if (this.b == Unit.percent) {
-                    b a0 = zj9Var.a0();
-                    if (a0 == null) {
-                        return this.a;
-                    }
-                    return (this.a * a0.d) / 100.0f;
-                }
-                return e(zj9Var);
-            }
-            return invokeL.floatValue;
-        }
-
-        public boolean g() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a < 0.0f : invokeV.booleanValue;
-        }
-
-        public boolean h() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a == 0.0f : invokeV.booleanValue;
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-                return String.valueOf(this.a) + this.b;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public o(float f) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Float.valueOf(f)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = f;
-            this.b = Unit.px;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public float a;
-        public float b;
-        public float c;
-        public float d;
-
-        public b(float f, float f2, float f3, float f4) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = f;
-            this.b = f2;
-            this.c = f3;
-            this.d = f4;
-        }
-
-        public static b a(float f, float f2, float f3, float f4) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) ? new b(f, f2, f3 - f, f4 - f2) : (b) invokeCommon.objValue;
-        }
-
-        public float b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a + this.c : invokeV.floatValue;
-        }
-
-        public float c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b + this.d : invokeV.floatValue;
-        }
-
-        public void d(b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-                float f = bVar.a;
-                if (f < this.a) {
-                    this.a = f;
-                }
-                float f2 = bVar.b;
-                if (f2 < this.b) {
-                    this.b = f2;
-                }
-                if (bVar.b() > b()) {
-                    this.c = bVar.b() - this.a;
-                }
-                if (bVar.c() > c()) {
-                    this.d = bVar.c() - this.b;
-                }
-            }
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return PreferencesUtil.LEFT_MOUNT + this.a + " " + this.b + " " + this.c + " " + this.d + PreferencesUtil.RIGHT_MOUNT;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public b(b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bVar};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.a = bVar.a;
-            this.b = bVar.b;
-            this.c = bVar.c;
-            this.d = bVar.d;
-        }
     }
 }

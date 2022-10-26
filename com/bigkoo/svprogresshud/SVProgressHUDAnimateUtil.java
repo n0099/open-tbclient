@@ -11,20 +11,6 @@ public class SVProgressHUDAnimateUtil {
     public static final int INVALID = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public SVProgressHUDAnimateUtil() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     public static int getAnimationResource(int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -40,5 +26,19 @@ public class SVProgressHUDAnimateUtil {
             }
         }
         return invokeCommon.intValue;
+    }
+
+    public SVProgressHUDAnimateUtil() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 }

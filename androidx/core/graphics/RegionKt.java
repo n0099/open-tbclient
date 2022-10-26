@@ -32,28 +32,24 @@ public final class RegionKt {
     public static final boolean contains(Region region, Point point) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, region, point)) == null) ? region.contains(point.x, point.y) : invokeLL.booleanValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, region, point)) == null) {
+            return region.contains(point.x, point.y);
+        }
+        return invokeLL.booleanValue;
     }
 
     public static final void forEach(Region region, Function1<? super Rect, Unit> function1) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLL(65539, null, region, function1) != null) {
-            return;
-        }
-        RegionIterator regionIterator = new RegionIterator(region);
-        while (true) {
-            Rect rect = new Rect();
-            if (!regionIterator.next(rect)) {
-                return;
+        if (interceptable == null || interceptable.invokeLL(65539, null, region, function1) == null) {
+            RegionIterator regionIterator = new RegionIterator(region);
+            while (true) {
+                Rect rect = new Rect();
+                if (!regionIterator.next(rect)) {
+                    return;
+                }
+                function1.invoke(rect);
             }
-            function1.invoke(rect);
         }
-    }
-
-    public static final Iterator<Rect> iterator(Region region) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, region)) == null) ? new RegionKt$iterator$1(region) : (Iterator) invokeL.objValue;
     }
 
     public static final Region minus(Region region, Rect rect) {
@@ -65,17 +61,6 @@ public final class RegionKt {
             return region2;
         }
         return (Region) invokeLL.objValue;
-    }
-
-    public static final Region not(Region region) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, region)) == null) {
-            Region region2 = new Region(region.getBounds());
-            region2.op(region, Region.Op.DIFFERENCE);
-            return region2;
-        }
-        return (Region) invokeL.objValue;
     }
 
     public static final Region or(Region region, Rect rect) {
@@ -98,17 +83,6 @@ public final class RegionKt {
             return region2;
         }
         return (Region) invokeLL.objValue;
-    }
-
-    public static final Region unaryMinus(Region region) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, region)) == null) {
-            Region region2 = new Region(region.getBounds());
-            region2.op(region, Region.Op.DIFFERENCE);
-            return region2;
-        }
-        return (Region) invokeL.objValue;
     }
 
     public static final Region xor(Region region, Rect rect) {
@@ -175,5 +149,36 @@ public final class RegionKt {
             return region3;
         }
         return (Region) invokeLL.objValue;
+    }
+
+    public static final Iterator<Rect> iterator(Region region) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, region)) == null) {
+            return new RegionKt$iterator$1(region);
+        }
+        return (Iterator) invokeL.objValue;
+    }
+
+    public static final Region not(Region region) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, region)) == null) {
+            Region region2 = new Region(region.getBounds());
+            region2.op(region, Region.Op.DIFFERENCE);
+            return region2;
+        }
+        return (Region) invokeL.objValue;
+    }
+
+    public static final Region unaryMinus(Region region) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, region)) == null) {
+            Region region2 = new Region(region.getBounds());
+            region2.op(region, Region.Op.DIFFERENCE);
+            return region2;
+        }
+        return (Region) invokeL.objValue;
     }
 }

@@ -1,8 +1,8 @@
 package com.baidu.poly.util;
 
 import android.text.TextUtils;
-import com.baidu.tieba.rb1;
-import com.baidu.tieba.ta1;
+import com.baidu.tieba.sb1;
+import com.baidu.tieba.ua1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,6 +17,14 @@ import java.util.Map;
 public class HttpSigner {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public static native String nativeGetAppId(int i);
+
+    public static native String nativeGetCommissionSk();
+
+    public static native String nativeGetStatisticsKey(int i);
+
+    public static native String nativeSignNop(String str, int i);
 
     static {
         InterceptResult invokeClinit;
@@ -48,19 +56,19 @@ public class HttpSigner {
         }
     }
 
-    public static String a(ta1 ta1Var, String str, int i) {
+    public static String a(ua1 ua1Var, String str, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, ta1Var, str, i)) == null) {
-            if (ta1Var == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, ua1Var, str, i)) == null) {
+            if (ua1Var == null) {
                 return "";
             }
-            Map<String, String> b = ta1Var.b();
+            Map b = ua1Var.b();
             ArrayList<String> arrayList = new ArrayList(b.keySet());
             Collections.sort(arrayList);
             StringBuilder sb = new StringBuilder();
             for (String str2 : arrayList) {
-                String str3 = b.get(str2);
+                String str3 = (String) b.get(str2);
                 if (!TextUtils.isEmpty(str3)) {
                     sb.append(str2);
                     sb.append("=");
@@ -71,17 +79,17 @@ public class HttpSigner {
             sb.append(str);
             sb.append("=");
             sb.append(nativeGetStatisticsKey(i));
-            return rb1.c(sb.toString());
+            return sb1.c(sb.toString());
         }
         return (String) invokeLLI.objValue;
     }
 
-    public static void b(ta1 ta1Var) {
+    public static void b(ua1 ua1Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, ta1Var) == null) || ta1Var == null) {
+        if ((interceptable != null && interceptable.invokeL(65539, null, ua1Var) != null) || ua1Var == null) {
             return;
         }
-        Map<String, String> b = ta1Var.b();
+        Map b = ua1Var.b();
         if (b.containsKey("timestamp")) {
             b.remove("timestamp");
         }
@@ -92,7 +100,7 @@ public class HttpSigner {
         Collections.sort(arrayList);
         StringBuilder sb = new StringBuilder();
         for (String str : arrayList) {
-            String str2 = b.get(str);
+            String str2 = (String) b.get(str);
             if (!TextUtils.isEmpty(str2)) {
                 sb.append(str);
                 sb.append("=");
@@ -100,18 +108,10 @@ public class HttpSigner {
                 sb.append("&");
             }
         }
-        ta1Var.d("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
+        ua1Var.d("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
         sb.append(nativeGetCommissionSk());
         sb.append("&");
-        sb.append(ta1Var.a("timestamp"));
-        ta1Var.d("sign", rb1.c(sb.toString()));
+        sb.append((String) ua1Var.a("timestamp"));
+        ua1Var.d("sign", sb1.c(sb.toString()));
     }
-
-    public static native String nativeGetAppId(int i);
-
-    public static native String nativeGetCommissionSk();
-
-    public static native String nativeGetStatisticsKey(int i);
-
-    public static native String nativeSignNop(String str, int i);
 }

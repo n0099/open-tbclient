@@ -29,30 +29,30 @@ public interface c {
 
     void resumePush(JSONObject jSONObject);
 
-    void setAliases(List<String> list, JSONObject jSONObject);
+    void setAliases(List list, JSONObject jSONObject);
 
     @Deprecated
     void setNotificationType(int i, JSONObject jSONObject);
 
-    void setPushTime(List<Integer> list, int i, int i2, int i3, int i4, JSONObject jSONObject);
+    void setPushTime(List list, int i, int i2, int i3, int i4, JSONObject jSONObject);
 
-    void setTags(List<String> list, JSONObject jSONObject);
+    void setTags(List list, JSONObject jSONObject);
 
     @Deprecated
     void setUserAccount(String str, JSONObject jSONObject);
 
     @Deprecated
-    void setUserAccounts(List<String> list, JSONObject jSONObject);
+    void setUserAccounts(List list, JSONObject jSONObject);
 
     void unRegister(JSONObject jSONObject);
 
     void unsetAlias(String str, JSONObject jSONObject);
 
     @Deprecated
-    void unsetAliases(List<String> list, JSONObject jSONObject);
+    void unsetAliases(List list, JSONObject jSONObject);
 
-    void unsetTags(List<String> list, JSONObject jSONObject);
+    void unsetTags(List list, JSONObject jSONObject);
 
     @Deprecated
-    void unsetUserAccounts(List<String> list, JSONObject jSONObject);
+    void unsetUserAccounts(List list, JSONObject jSONObject);
 }

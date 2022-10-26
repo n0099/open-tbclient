@@ -6,11 +6,10 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.RemoteException;
 import android.text.TextUtils;
-import androidx.annotation.WorkerThread;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.IAsyncProcessCallback;
 import com.baidu.swan.apps.IProcessBridge;
-import com.baidu.tieba.yz2;
+import com.baidu.tieba.zz2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,6 +20,13 @@ public class SwanProcessCallStub extends IProcessBridge.Stub {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Handler mHandler;
+
+    @Override // com.baidu.swan.apps.IProcessBridge
+    public void callMainProcessAsync(String str, int i, IAsyncProcessCallback iAsyncProcessCallback) throws RemoteException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i, iAsyncProcessCallback) == null) {
+        }
+    }
 
     public SwanProcessCallStub(Handler handler) {
         Interceptable interceptable = $ic;
@@ -41,14 +47,15 @@ public class SwanProcessCallStub extends IProcessBridge.Stub {
     }
 
     @Override // com.baidu.swan.apps.IProcessBridge
-    public void callMainProcessAsync(String str, int i, IAsyncProcessCallback iAsyncProcessCallback) throws RemoteException {
+    public void send(Message message) throws RemoteException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i, iAsyncProcessCallback) == null) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, message) == null) && message != null && this.mHandler != null) {
+            message.sendingUid = Binder.getCallingUid();
+            this.mHandler.sendMessage(message);
         }
     }
 
     @Override // com.baidu.swan.apps.IProcessBridge
-    @WorkerThread
     public Bundle callMainProcessSync(String str, Bundle bundle) throws RemoteException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -56,19 +63,8 @@ public class SwanProcessCallStub extends IProcessBridge.Stub {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return yz2.e(str, bundle);
+            return zz2.e(str, bundle);
         }
         return (Bundle) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.swan.apps.IProcessBridge
-    @WorkerThread
-    public void send(Message message) throws RemoteException {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, message) == null) || message == null || this.mHandler == null) {
-            return;
-        }
-        message.sendingUid = Binder.getCallingUid();
-        this.mHandler.sendMessage(message);
     }
 }

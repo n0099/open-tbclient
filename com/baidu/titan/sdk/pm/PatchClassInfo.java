@@ -15,8 +15,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class PatchClassInfo {
-    public HashSet<String> instantClassNames;
-    public HashSet<String> lazyClassNames;
+    public HashSet instantClassNames;
+    public HashSet lazyClassNames;
 
     public static PatchClassInfo createFromJson(String str) {
         try {
@@ -24,8 +24,8 @@ public class PatchClassInfo {
             JSONObject jSONObject = new JSONObject(str);
             JSONArray jSONArray = jSONObject.getJSONArray(TitanConstant.KEY_LAZY_INIT_CLASS);
             JSONArray jSONArray2 = jSONObject.getJSONArray(TitanConstant.KEY_INSTANT_INIT_CLASS);
-            patchClassInfo.lazyClassNames = new HashSet<>();
-            patchClassInfo.instantClassNames = new HashSet<>();
+            patchClassInfo.lazyClassNames = new HashSet();
+            patchClassInfo.instantClassNames = new HashSet();
             for (int i = 0; i < jSONArray.length(); i++) {
                 patchClassInfo.lazyClassNames.add(jSONArray.getString(i));
             }

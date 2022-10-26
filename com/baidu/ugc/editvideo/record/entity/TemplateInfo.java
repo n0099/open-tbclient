@@ -7,9 +7,9 @@ import com.baidu.minivideo.effect.core.vlogedit.MediaTextureData;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrackConfig;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTransition;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
-import com.baidu.tieba.ce9;
-import com.baidu.tieba.kh9;
-import com.baidu.tieba.vg9;
+import com.baidu.tieba.ci9;
+import com.baidu.tieba.nh9;
+import com.baidu.tieba.ue9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -44,6 +44,21 @@ public class TemplateInfo implements Serializable {
     public String version;
     public String zipPath;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(20241275, "Lcom/baidu/ugc/editvideo/record/entity/TemplateInfo;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(20241275, "Lcom/baidu/ugc/editvideo/record/entity/TemplateInfo;");
+        }
+    }
+
     /* loaded from: classes6.dex */
     public static class TemplateFiler implements Serializable {
         public static /* synthetic */ Interceptable $ic;
@@ -72,21 +87,6 @@ public class TemplateInfo implements Serializable {
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(20241275, "Lcom/baidu/ugc/editvideo/record/entity/TemplateInfo;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(20241275, "Lcom/baidu/ugc/editvideo/record/entity/TemplateInfo;");
-        }
-    }
-
     public TemplateInfo() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -107,118 +107,28 @@ public class TemplateInfo implements Serializable {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (kh9.a(str)) {
+            if (ci9.a(str)) {
                 return null;
             }
             String str2 = str + File.separator + TEMPLATE_FILE_NAME;
-            if (FileUtils.isExists(str2)) {
-                try {
-                    TemplateInfo readConfig = readConfig(str2);
-                    if (readConfig != null) {
-                        packageShaderConfigMap(readConfig.trackConfig, readConfig.resourcePath);
-                        packageTransitionList(readConfig.trackConfig, readConfig.resourcePath);
-                        packageEffectConfigMap(readConfig.trackConfig, readConfig.resourcePath);
-                        packageBgRes(readConfig.trackConfig, readConfig.resourcePath);
-                    }
-                    return readConfig;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return null;
-                }
+            if (!FileUtils.isExists(str2)) {
+                return null;
             }
-            return null;
+            try {
+                TemplateInfo readConfig = readConfig(str2);
+                if (readConfig != null) {
+                    packageShaderConfigMap(readConfig.trackConfig, readConfig.resourcePath);
+                    packageTransitionList(readConfig.trackConfig, readConfig.resourcePath);
+                    packageEffectConfigMap(readConfig.trackConfig, readConfig.resourcePath);
+                    packageBgRes(readConfig.trackConfig, readConfig.resourcePath);
+                }
+                return readConfig;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            }
         }
         return (TemplateInfo) invokeL.objValue;
-    }
-
-    public static void packageBgRes(MediaTrackConfig mediaTrackConfig, String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65539, null, mediaTrackConfig, str) == null) || TextUtils.isEmpty(str) || mediaTrackConfig == null || TextUtils.isEmpty(mediaTrackConfig.bgRes)) {
-            return;
-        }
-        mediaTrackConfig.bgRes = str + File.separator + mediaTrackConfig.bgRes;
-    }
-
-    public static void packageEffectConfigMap(MediaTrackConfig mediaTrackConfig, String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, mediaTrackConfig, str) == null) || TextUtils.isEmpty(str) || mediaTrackConfig == null || vg9.f(mediaTrackConfig.effectResourceMap)) {
-            return;
-        }
-        if (mediaTrackConfig.effectConfigMap == null) {
-            mediaTrackConfig.effectConfigMap = new LinkedHashMap();
-        }
-        ce9 ce9Var = new ce9();
-        for (Map.Entry<String, String> entry : mediaTrackConfig.effectResourceMap.entrySet()) {
-            mediaTrackConfig.effectConfigMap.put(entry.getKey(), (MediaAEffect) ce9Var.b(FileUtils.readText(new File(str + File.separator + entry.getValue())), MediaAEffect.class));
-        }
-        mediaTrackConfig.effectResourceMap = null;
-    }
-
-    public static void packageShaderConfigMap(MediaTrackConfig mediaTrackConfig, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, mediaTrackConfig, str) == null) {
-            HashMap hashMap = new HashMap();
-            if (TextUtils.isEmpty(str) || mediaTrackConfig == null) {
-                return;
-            }
-            ce9 ce9Var = new ce9();
-            Map<String, String> map = mediaTrackConfig.shaderResourceMap;
-            if (map != null) {
-                for (Map.Entry<String, String> entry : map.entrySet()) {
-                    String str2 = str + File.separator + entry.getValue();
-                    ShaderConfig shaderConfig = (ShaderConfig) ce9Var.b(FileUtils.readText(new File(str2)), ShaderConfig.class);
-                    shaderConfig.resourcePath = new File(str2).getParent();
-                    hashMap.put(entry.getKey(), shaderConfig);
-                    List<MediaTextureData> list = shaderConfig.textures;
-                    if (list != null) {
-                        for (MediaTextureData mediaTextureData : list) {
-                            if (!TextUtils.isEmpty(mediaTextureData.path)) {
-                                if (mediaTextureData.path.contains(File.separator)) {
-                                    mediaTextureData.path = str + File.separator + mediaTextureData.path;
-                                } else {
-                                    mediaTextureData.path = shaderConfig.resourcePath + File.separator + mediaTextureData.path;
-                                }
-                            }
-                        }
-                    }
-                }
-                mediaTrackConfig.shaderConfigMapDebug = hashMap;
-                return;
-            }
-            Map<String, ShaderConfig> map2 = mediaTrackConfig.shaderConfigMapDebug;
-            if (map2 != null) {
-                for (Map.Entry<String, ShaderConfig> entry2 : map2.entrySet()) {
-                    ShaderConfig value = entry2.getValue();
-                    if (value != null) {
-                        List<MediaTextureData> list2 = value.textures;
-                        if (!vg9.e(list2)) {
-                            for (MediaTextureData mediaTextureData2 : list2) {
-                                if (!TextUtils.isEmpty(mediaTextureData2.path) && mediaTextureData2.path.contains(File.separator)) {
-                                    mediaTextureData2.path = str + mediaTextureData2.path;
-                                }
-                            }
-                        }
-                    }
-                }
-                return;
-            }
-            mediaTrackConfig.shaderConfigMapDebug = hashMap;
-        }
-    }
-
-    public static void packageTransitionList(MediaTrackConfig mediaTrackConfig, String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65542, null, mediaTrackConfig, str) == null) || TextUtils.isEmpty(str) || mediaTrackConfig == null || vg9.e(mediaTrackConfig.transitionResourceList)) {
-            return;
-        }
-        ArrayList arrayList = new ArrayList();
-        ce9 ce9Var = new ce9();
-        int b = vg9.b(mediaTrackConfig.transitionResourceList);
-        for (int i = 0; i < b; i++) {
-            arrayList.add((MediaTransition) ce9Var.b(FileUtils.readText(new File(str + File.separator + ((String) vg9.c(mediaTrackConfig.transitionResourceList, i)))), MediaTransition.class));
-        }
-        mediaTrackConfig.transitionConfigs = arrayList;
-        mediaTrackConfig.transitionResourceList = null;
     }
 
     public static TemplateInfo readConfig(String str) {
@@ -230,13 +140,99 @@ public class TemplateInfo implements Serializable {
             if (str == null || "".equals(str) || (readText = FileUtils.readText((file = new File(str)))) == null || "".equals(readText)) {
                 return null;
             }
-            TemplateInfo templateInfo = (TemplateInfo) new ce9().b(readText, TemplateInfo.class);
+            TemplateInfo templateInfo = (TemplateInfo) new ue9().b(readText, TemplateInfo.class);
             if (templateInfo != null) {
                 templateInfo.resourcePath = file.getParent();
             }
             return templateInfo;
         }
         return (TemplateInfo) invokeL.objValue;
+    }
+
+    public static void packageBgRes(MediaTrackConfig mediaTrackConfig, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65539, null, mediaTrackConfig, str) == null) && !TextUtils.isEmpty(str) && mediaTrackConfig != null && !TextUtils.isEmpty(mediaTrackConfig.bgRes)) {
+            mediaTrackConfig.bgRes = str + File.separator + mediaTrackConfig.bgRes;
+        }
+    }
+
+    public static void packageEffectConfigMap(MediaTrackConfig mediaTrackConfig, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, mediaTrackConfig, str) == null) && !TextUtils.isEmpty(str) && mediaTrackConfig != null && !nh9.f(mediaTrackConfig.effectResourceMap)) {
+            if (mediaTrackConfig.effectConfigMap == null) {
+                mediaTrackConfig.effectConfigMap = new LinkedHashMap();
+            }
+            ue9 ue9Var = new ue9();
+            for (Map.Entry<String, String> entry : mediaTrackConfig.effectResourceMap.entrySet()) {
+                mediaTrackConfig.effectConfigMap.put(entry.getKey(), (MediaAEffect) ue9Var.b(FileUtils.readText(new File(str + File.separator + entry.getValue())), MediaAEffect.class));
+            }
+            mediaTrackConfig.effectResourceMap = null;
+        }
+    }
+
+    public static void packageTransitionList(MediaTrackConfig mediaTrackConfig, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65542, null, mediaTrackConfig, str) == null) && !TextUtils.isEmpty(str) && mediaTrackConfig != null && !nh9.e(mediaTrackConfig.transitionResourceList)) {
+            ArrayList arrayList = new ArrayList();
+            ue9 ue9Var = new ue9();
+            int b = nh9.b(mediaTrackConfig.transitionResourceList);
+            for (int i = 0; i < b; i++) {
+                arrayList.add((MediaTransition) ue9Var.b(FileUtils.readText(new File(str + File.separator + ((String) nh9.c(mediaTrackConfig.transitionResourceList, i)))), MediaTransition.class));
+            }
+            mediaTrackConfig.transitionConfigs = arrayList;
+            mediaTrackConfig.transitionResourceList = null;
+        }
+    }
+
+    public static void packageShaderConfigMap(MediaTrackConfig mediaTrackConfig, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, mediaTrackConfig, str) == null) {
+            HashMap hashMap = new HashMap();
+            if (!TextUtils.isEmpty(str) && mediaTrackConfig != null) {
+                ue9 ue9Var = new ue9();
+                Map<String, String> map = mediaTrackConfig.shaderResourceMap;
+                if (map != null) {
+                    for (Map.Entry<String, String> entry : map.entrySet()) {
+                        String str2 = str + File.separator + entry.getValue();
+                        ShaderConfig shaderConfig = (ShaderConfig) ue9Var.b(FileUtils.readText(new File(str2)), ShaderConfig.class);
+                        shaderConfig.resourcePath = new File(str2).getParent();
+                        hashMap.put(entry.getKey(), shaderConfig);
+                        List<MediaTextureData> list = shaderConfig.textures;
+                        if (list != null) {
+                            for (MediaTextureData mediaTextureData : list) {
+                                if (!TextUtils.isEmpty(mediaTextureData.path)) {
+                                    if (mediaTextureData.path.contains(File.separator)) {
+                                        mediaTextureData.path = str + File.separator + mediaTextureData.path;
+                                    } else {
+                                        mediaTextureData.path = shaderConfig.resourcePath + File.separator + mediaTextureData.path;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    mediaTrackConfig.shaderConfigMapDebug = hashMap;
+                    return;
+                }
+                Map<String, ShaderConfig> map2 = mediaTrackConfig.shaderConfigMapDebug;
+                if (map2 != null) {
+                    for (Map.Entry<String, ShaderConfig> entry2 : map2.entrySet()) {
+                        ShaderConfig value = entry2.getValue();
+                        if (value != null) {
+                            List<MediaTextureData> list2 = value.textures;
+                            if (!nh9.e(list2)) {
+                                for (MediaTextureData mediaTextureData2 : list2) {
+                                    if (!TextUtils.isEmpty(mediaTextureData2.path) && mediaTextureData2.path.contains(File.separator)) {
+                                        mediaTextureData2.path = str + mediaTextureData2.path;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    return;
+                }
+                mediaTrackConfig.shaderConfigMapDebug = hashMap;
+            }
+        }
     }
 
     public static String toJSON(TemplateInfo templateInfo) {
@@ -247,7 +243,7 @@ public class TemplateInfo implements Serializable {
                 return null;
             }
             try {
-                return new ce9().a(templateInfo);
+                return new ue9().a(templateInfo);
             } catch (Exception e) {
                 e.printStackTrace();
                 return null;

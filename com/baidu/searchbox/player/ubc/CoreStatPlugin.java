@@ -1,8 +1,6 @@
 package com.baidu.searchbox.player.ubc;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
@@ -39,6 +37,13 @@ public class CoreStatPlugin extends AbsPlugin {
     public BDVideoPlayerUbcContent mUBCContent;
     public final UBCManager mUBCService;
 
+    @Override // com.baidu.searchbox.player.interfaces.INeuron
+    public int[] getSubscribeEvent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new int[]{6} : (int[]) invokeV.objValue;
+    }
+
     public CoreStatPlugin() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -57,19 +62,37 @@ public class CoreStatPlugin extends AbsPlugin {
         this.mLoadingFlow = new PlayerLoadingFlow();
     }
 
-    private void dispatchMonitorEvent(Flow flow, BDVideoPlayerUbcContent bDVideoPlayerUbcContent) {
+    private void onBufferEnd() {
+        String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, this, flow, bDVideoPlayerUbcContent) == null) || flow == null || bDVideoPlayerUbcContent == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && System.currentTimeMillis() - this.mStartLoadingTime >= 300) {
+            try {
+                JSONObject jSONObject = new JSONObject();
+                if (this.mIsShowFirstFrame) {
+                    str = "hasPlay";
+                } else {
+                    str = "prepare";
+                }
+                jSONObject.put("type", str);
+                this.mLoadingFlow.uploadFlow(this.mUBCContent, null, jSONObject);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
-        VideoEvent obtainEvent = StatisticsEvent.obtainEvent(StatisticsEvent.ACTION_ADD_PLAY_SPEED_RECORD);
-        obtainEvent.putExtra(5, Long.valueOf(flow.getStartTime()));
-        obtainEvent.putExtra(6, bDVideoPlayerUbcContent.getFrom());
-        obtainEvent.putExtra(7, bDVideoPlayerUbcContent.getPage());
-        sendEvent(obtainEvent);
     }
 
-    private long getMsgChannelCost(@Nullable String str) {
+    private void dispatchMonitorEvent(Flow flow, BDVideoPlayerUbcContent bDVideoPlayerUbcContent) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65537, this, flow, bDVideoPlayerUbcContent) == null) && flow != null && bDVideoPlayerUbcContent != null) {
+            VideoEvent obtainEvent = StatisticsEvent.obtainEvent(StatisticsEvent.ACTION_ADD_PLAY_SPEED_RECORD);
+            obtainEvent.putExtra(5, Long.valueOf(flow.getStartTime()));
+            obtainEvent.putExtra(6, bDVideoPlayerUbcContent.getFrom());
+            obtainEvent.putExtra(7, bDVideoPlayerUbcContent.getPage());
+            sendEvent(obtainEvent);
+        }
+    }
+
+    private long getMsgChannelCost(String str) {
         InterceptResult invokeL;
         long parseLong;
         long j;
@@ -93,10 +116,10 @@ public class CoreStatPlugin extends AbsPlugin {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            if (parseLong > 0) {
-                return j;
+            if (parseLong <= 0) {
+                return 0L;
             }
-            return 0L;
+            return j;
         }
         return invokeL.longValue;
     }
@@ -104,21 +127,13 @@ public class CoreStatPlugin extends AbsPlugin {
     private String getPlayerKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? getBindPlayer() != null ? getBindPlayer().getVideoUniqueKey() : "" : (String) invokeV.objValue;
-    }
-
-    private void onBufferEnd() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || System.currentTimeMillis() - this.mStartLoadingTime < 300) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+            if (getBindPlayer() != null) {
+                return getBindPlayer().getVideoUniqueKey();
+            }
+            return "";
         }
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("type", this.mIsShowFirstFrame ? "hasPlay" : "prepare");
-            this.mLoadingFlow.uploadFlow(this.mUBCContent, null, jSONObject);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+        return (String) invokeV.objValue;
     }
 
     private void onBufferStart() {
@@ -129,27 +144,35 @@ public class CoreStatPlugin extends AbsPlugin {
         }
     }
 
-    private void onCarlton(@NonNull BDVideoPlayerUbcContent bDVideoPlayerUbcContent, String str) {
+    public BDVideoPlayerUbcContent getUploadUBCContent() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65542, this, bDVideoPlayerUbcContent, str) == null) || TextUtils.isEmpty(str)) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mUBCContent;
         }
-        BdVideoLog.d("【Statistics】 onCarlton upload begin");
-        try {
-            JSONObject extStatisticsLogClone = bDVideoPlayerUbcContent.getExtStatisticsLogClone();
-            JSONObject jSONObject = new JSONObject(str);
-            Iterator<String> keys = jSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                extStatisticsLogClone.putOpt(next, jSONObject.optString(next));
+        return (BDVideoPlayerUbcContent) invokeV.objValue;
+    }
+
+    private void onCarlton(BDVideoPlayerUbcContent bDVideoPlayerUbcContent, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65542, this, bDVideoPlayerUbcContent, str) == null) && !TextUtils.isEmpty(str)) {
+            BdVideoLog.d("【Statistics】 onCarlton upload begin");
+            try {
+                JSONObject extStatisticsLogClone = bDVideoPlayerUbcContent.getExtStatisticsLogClone();
+                JSONObject jSONObject = new JSONObject(str);
+                Iterator<String> keys = jSONObject.keys();
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    extStatisticsLogClone.putOpt(next, jSONObject.optString(next));
+                }
+                this.mUBCService.onEvent(VideoPlayerUbcConstants.UBC_VIDEO_CARLTON, BDVideoPlayerUbcHelper.getUbcContent(extStatisticsLogClone, bDVideoPlayerUbcContent, jSONObject));
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            this.mUBCService.onEvent(VideoPlayerUbcConstants.UBC_VIDEO_CARLTON, BDVideoPlayerUbcHelper.getUbcContent(extStatisticsLogClone, bDVideoPlayerUbcContent, jSONObject));
-        } catch (JSONException e) {
-            e.printStackTrace();
         }
     }
 
-    private void onError(@NonNull BDVideoPlayerUbcContent bDVideoPlayerUbcContent, int i, String str) {
+    private void onError(BDVideoPlayerUbcContent bDVideoPlayerUbcContent, int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(65543, this, bDVideoPlayerUbcContent, i, str) == null) {
             BdVideoLog.d("【Statistics】 onError upload begin");
@@ -165,21 +188,7 @@ public class CoreStatPlugin extends AbsPlugin {
         }
     }
 
-    @Override // com.baidu.searchbox.player.interfaces.INeuron
-    @Nullable
-    public int[] getSubscribeEvent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new int[]{6} : (int[]) invokeV.objValue;
-    }
-
-    public BDVideoPlayerUbcContent getUploadUBCContent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mUBCContent : (BDVideoPlayerUbcContent) invokeV.objValue;
-    }
-
-    public void onFirstFrameDisPlay(@NonNull BDVideoPlayerUbcContent bDVideoPlayerUbcContent) {
+    public void onFirstFrameDisPlay(BDVideoPlayerUbcContent bDVideoPlayerUbcContent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bDVideoPlayerUbcContent) == null) {
             BdVideoLog.d("【Statistics】 onFirstFrameDisPlay upload begin");
@@ -195,7 +204,7 @@ public class CoreStatPlugin extends AbsPlugin {
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     @Override // com.baidu.searchbox.player.plugin.AbsPlugin, com.baidu.searchbox.player.interfaces.INeuron
-    public void onVideoEventNotify(@NonNull VideoEvent videoEvent) {
+    public void onVideoEventNotify(VideoEvent videoEvent) {
         char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, videoEvent) == null) {
@@ -317,26 +326,24 @@ public class CoreStatPlugin extends AbsPlugin {
         }
     }
 
-    public void setKernelExternalInfo(@Nullable Flow flow) {
+    public void setKernelExternalInfo(Flow flow) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, flow) == null) || flow == null || getBindPlayer() == null) {
-            return;
-        }
-        HashMap<String, Slot> slotMaps = flow.getSlotMaps();
-        long startTime = flow.getStartTime();
-        if (slotMaps == null || slotMaps.size() <= 0) {
-            return;
-        }
-        HashMap hashMap = new HashMap();
-        for (Map.Entry<String, Slot> entry : slotMaps.entrySet()) {
-            String key = entry.getKey();
-            Slot value = entry.getValue();
-            if (!TextUtils.isEmpty(key) && value != null) {
-                hashMap.put(key, String.valueOf(value.getEnd() - value.getStart()));
+        if ((interceptable == null || interceptable.invokeL(1048580, this, flow) == null) && flow != null && getBindPlayer() != null) {
+            HashMap slotMaps = flow.getSlotMaps();
+            long startTime = flow.getStartTime();
+            if (slotMaps != null && slotMaps.size() > 0) {
+                HashMap hashMap = new HashMap();
+                for (Map.Entry entry : slotMaps.entrySet()) {
+                    String str = (String) entry.getKey();
+                    Slot slot = (Slot) entry.getValue();
+                    if (!TextUtils.isEmpty(str) && slot != null) {
+                        hashMap.put(str, String.valueOf(slot.getEnd() - slot.getStart()));
+                    }
+                }
+                hashMap.put("type", String.valueOf((int) DpStatConstants.SESSION_TYPE_FIRST_SCREEN));
+                hashMap.put("click_time", String.valueOf(startTime));
+                getBindPlayer().setExternalInfo(CyberPlayerManager.STR_STATISTICS_INFO, hashMap);
             }
         }
-        hashMap.put("type", String.valueOf((int) DpStatConstants.SESSION_TYPE_FIRST_SCREEN));
-        hashMap.put("click_time", String.valueOf(startTime));
-        getBindPlayer().setExternalInfo(CyberPlayerManager.STR_STATISTICS_INFO, hashMap);
     }
 }

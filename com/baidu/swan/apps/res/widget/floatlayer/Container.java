@@ -3,8 +3,6 @@ package com.baidu.swan.apps.res.widget.floatlayer;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -15,7 +13,7 @@ public class Container extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public Container(@NonNull Context context) {
+    public Container(Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -35,7 +33,7 @@ public class Container extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public Container(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+    public Container(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -56,7 +54,7 @@ public class Container extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public Container(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+    public Container(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

@@ -35,21 +35,27 @@ public class DynamicBitrateAdjuster extends BaseBitrateAdjuster {
     private double getBitrateAdjustmentScale() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? Math.pow(4.0d, this.bitrateAdjustmentScaleExp / 20.0d) : invokeV.doubleValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+            return Math.pow(4.0d, this.bitrateAdjustmentScaleExp / 20.0d);
+        }
+        return invokeV.doubleValue;
     }
 
     @Override // org.webrtc.BaseBitrateAdjuster, org.webrtc.BitrateAdjuster
     public int getAdjustedBitrateBps() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (int) (this.targetBitrateBps * getBitrateAdjustmentScale()) : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return (int) (this.targetBitrateBps * getBitrateAdjustmentScale());
+        }
+        return invokeV.intValue;
     }
 
     @Override // org.webrtc.BaseBitrateAdjuster, org.webrtc.BitrateAdjuster
     public void reportEncodedFrame(int i) {
         int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || (i2 = this.targetFps) == 0) {
+        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) || (i2 = this.targetFps) == 0) {
             return;
         }
         int i3 = this.targetBitrateBps;

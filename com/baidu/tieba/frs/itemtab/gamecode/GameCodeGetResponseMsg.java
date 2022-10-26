@@ -38,23 +38,27 @@ public class GameCodeGetResponseMsg extends JsonHttpResponsedMessage {
         }
     }
 
+    public String getCodeValue() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.codeValue;
+        }
+        return (String) invokeV.objValue;
+    }
+
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
             int statusCode = getStatusCode();
             int error = getError();
-            if (statusCode == 200 && error == 0 && jSONObject != null) {
-                this.errCode = jSONObject.optInt("error_code");
-                this.errMsg = jSONObject.optString(PARAM_ERROR_MSG);
-                this.codeValue = jSONObject.optString(PARAM_CODE_VALUE);
+            if (statusCode != 200 || error != 0 || jSONObject == null) {
+                return;
             }
+            this.errCode = jSONObject.optInt("error_code");
+            this.errMsg = jSONObject.optString(PARAM_ERROR_MSG);
+            this.codeValue = jSONObject.optString(PARAM_CODE_VALUE);
         }
-    }
-
-    public String getCodeValue() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.codeValue : (String) invokeV.objValue;
     }
 }

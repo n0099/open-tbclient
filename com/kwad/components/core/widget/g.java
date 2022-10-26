@@ -3,12 +3,10 @@ package com.kwad.components.core.widget;
 import android.graphics.Outline;
 import android.view.View;
 import android.view.ViewOutlineProvider;
-import androidx.annotation.RequiresApi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@RequiresApi(api = 21)
 /* loaded from: classes7.dex */
 public final class g extends ViewOutlineProvider {
     public static /* synthetic */ Interceptable $ic;
@@ -33,7 +31,6 @@ public final class g extends ViewOutlineProvider {
         this.PF = f;
     }
 
-    @RequiresApi(api = 21)
     public static void b(View view2, float f) {
         boolean z;
         Interceptable interceptable = $ic;

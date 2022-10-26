@@ -34,7 +34,7 @@ public class o0 implements AdapterView.OnItemClickListener {
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
+    public void onItemClick(AdapterView adapterView, View view2, int i, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
             FeedbackEditActivity feedbackEditActivity = this.b;

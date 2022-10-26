@@ -15,7 +15,7 @@ public class u0 extends o0 {
     public b i;
 
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
+    public /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -24,7 +24,7 @@ public class u0 extends o0 {
     public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public x7<Class<?>, e8> a;
+        public x7 a;
         public int b;
         public int c;
 
@@ -43,7 +43,7 @@ public class u0 extends o0 {
                     return;
                 }
             }
-            this.a = new x7<>();
+            this.a = new x7();
             this.b = i;
             this.c = i2;
         }
@@ -52,34 +52,34 @@ public class u0 extends o0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
                 if (obj != null) {
-                    e8 c = this.a.c(obj.getClass());
-                    if (c == null) {
+                    e8 e8Var = (e8) this.a.c(obj.getClass());
+                    if (e8Var == null) {
                         return;
                     }
-                    c.c(obj);
+                    e8Var.c(obj);
                     return;
                 }
                 throw new IllegalArgumentException("object cannot be null.");
             }
         }
 
-        public <T> T b(Class<T> cls) {
+        public Object b(Class cls) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls)) == null) {
-                e8 c = this.a.c(cls);
-                if (c == null) {
-                    c = new e8(cls, this.b, this.c);
-                    this.a.i(cls, c);
+                e8 e8Var = (e8) this.a.c(cls);
+                if (e8Var == null) {
+                    e8Var = new e8(cls, this.b, this.c);
+                    this.a.i(cls, e8Var);
                 }
-                return c.e();
+                return e8Var.e();
             }
-            return (T) invokeL.objValue;
+            return invokeL.objValue;
         }
     }
 
     /* loaded from: classes6.dex */
-    public class c extends a8<d> {
+    public class c extends a8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ u0 d;
@@ -112,7 +112,10 @@ public class u0 extends o0 {
         public d d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new d(this.d, null) : (d) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return new d(this.d, null);
+            }
+            return (d) invokeV.objValue;
         }
     }
 
@@ -141,7 +144,7 @@ public class u0 extends o0 {
         }
 
         @Override // com.baidu.tieba.p0
-        public m0 i(Class<? extends m0> cls) {
+        public m0 i(Class cls) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
@@ -154,6 +157,10 @@ public class u0 extends o0 {
             return (m0) invokeL.objValue;
         }
 
+        public /* synthetic */ d(u0 u0Var, a aVar) {
+            this(u0Var);
+        }
+
         @Override // com.baidu.tieba.a8.a
         public void reset() {
             Interceptable interceptable = $ic;
@@ -164,10 +171,6 @@ public class u0 extends o0 {
                 this.c = false;
                 this.d = false;
             }
-        }
-
-        public /* synthetic */ d(u0 u0Var, a aVar) {
-            this(u0Var);
         }
     }
 
@@ -190,31 +193,6 @@ public class u0 extends o0 {
         }
     }
 
-    @Override // com.baidu.tieba.o0
-    public <T extends m0> T h(Class<T> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) ? (T) this.i.b(cls) : (T) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.o0
-    public p0 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.h.e() : (p0) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.o0
-    public void n(p0 p0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, p0Var) == null) {
-            super.n(p0Var);
-            if (p0Var instanceof d) {
-                this.h.c((d) p0Var);
-            }
-        }
-    }
-
     public u0(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -232,5 +210,36 @@ public class u0 extends o0 {
         }
         this.h = new c(this, i, i2);
         this.i = new b(this, i3, i4);
+    }
+
+    @Override // com.baidu.tieba.o0
+    public m0 h(Class cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
+            return (m0) this.i.b(cls);
+        }
+        return (m0) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.o0
+    public void n(p0 p0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, p0Var) == null) {
+            super.n(p0Var);
+            if (p0Var instanceof d) {
+                this.h.c((d) p0Var);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.o0
+    public p0 i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return (p0) this.h.e();
+        }
+        return (p0) invokeV.objValue;
     }
 }

@@ -16,7 +16,7 @@ public final class SwanAppConfTokenTable {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class Table {
+    public final class Table {
         public static final /* synthetic */ Table[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Table action;
@@ -68,13 +68,19 @@ public final class SwanAppConfTokenTable {
         public static Table valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Table) Enum.valueOf(Table.class, str) : (Table) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (Table) Enum.valueOf(Table.class, str);
+            }
+            return (Table) invokeL.objValue;
         }
 
         public static Table[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Table[]) $VALUES.clone() : (Table[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (Table[]) $VALUES.clone();
+            }
+            return (Table[]) invokeV.objValue;
         }
     }
 

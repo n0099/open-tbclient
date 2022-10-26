@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,12 +29,17 @@ public class MaxSignItemView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout a;
     public LineView b;
-    public ArrayList<c> c;
+    public ArrayList c;
     public b d;
     public int e;
     public int f;
     public int g;
     public int h;
+
+    /* loaded from: classes3.dex */
+    public interface b {
+        void a(ActiveCenterData.ActiveCenterStatusData activeCenterStatusData);
+    }
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -65,27 +70,21 @@ public class MaxSignItemView extends FrameLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.j) {
-                return;
-            }
-            Iterator it = this.b.c.iterator();
-            while (it.hasNext()) {
-                ((c) it.next()).d(false);
-            }
-            this.a.d(true);
-            if (this.b.d != null) {
-                this.b.d.a(this.a.k);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && !this.a.j) {
+                Iterator it = this.b.c.iterator();
+                while (it.hasNext()) {
+                    ((c) it.next()).d(false);
+                }
+                this.a.d(true);
+                if (this.b.d != null) {
+                    this.b.d.a(this.a.k);
+                }
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public interface b {
-        void a(ActiveCenterData.ActiveCenterStatusData activeCenterStatusData);
-    }
-
-    /* loaded from: classes3.dex */
-    public static class c {
+    public class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -115,17 +114,17 @@ public class MaxSignItemView extends FrameLayout {
                     return;
                 }
             }
-            this.a = R.drawable.obfuscated_res_0x7f080654;
-            this.b = R.drawable.obfuscated_res_0x7f080655;
-            this.c = R.drawable.obfuscated_res_0x7f080653;
-            this.d = R.drawable.obfuscated_res_0x7f080656;
-            this.e = R.drawable.obfuscated_res_0x7f080653;
+            this.a = R.drawable.obfuscated_res_0x7f080655;
+            this.b = R.drawable.obfuscated_res_0x7f080656;
+            this.c = R.drawable.obfuscated_res_0x7f080654;
+            this.d = R.drawable.obfuscated_res_0x7f080657;
+            this.e = R.drawable.obfuscated_res_0x7f080654;
             this.j = false;
             this.k = activeCenterStatusData;
             this.f = view2;
-            this.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fae);
-            this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f090fdb);
-            CircleView circleView = (CircleView) this.f.findViewById(R.id.obfuscated_res_0x7f091e3c);
+            this.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fa2);
+            this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f090fcf);
+            CircleView circleView = (CircleView) this.f.findViewById(R.id.obfuscated_res_0x7f091e38);
             this.i = circleView;
             circleView.setVisibility(4);
             int i3 = activeCenterStatusData.is_today_mission;
@@ -183,105 +182,10 @@ public class MaxSignItemView extends FrameLayout {
                 return;
             }
         }
-        this.c = new ArrayList<>();
-        this.g = ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds190);
-        this.h = ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds115);
+        this.c = new ArrayList();
+        this.g = fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds190);
+        this.h = fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds115);
         d();
-    }
-
-    public final c c(ActiveCenterData.ActiveCenterStatusData activeCenterStatusData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, activeCenterStatusData)) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0577, (ViewGroup) null);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
-            layoutParams.weight = 1.0f;
-            this.a.addView(inflate, layoutParams);
-            c cVar = new c(inflate, activeCenterStatusData);
-            cVar.g.setOnClickListener(new a(this, cVar));
-            return cVar;
-        }
-        return (c) invokeL.objValue;
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0576, (ViewGroup) this, true);
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091ed4);
-            this.b = (LineView) findViewById(R.id.obfuscated_res_0x7f09131a);
-            this.e = ej.f(getContext(), R.dimen.tbds3);
-            this.f = ej.f(getContext(), R.dimen.tbds0);
-        }
-    }
-
-    public void setData(ActiveCenterData activeCenterData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activeCenterData) == null) || activeCenterData == null) {
-            return;
-        }
-        ArrayList<ActiveCenterData.ActiveCenterStatusData> arrayList = activeCenterData.mission_status_list;
-        int size = arrayList.size();
-        if (arrayList == null || size == 0) {
-            return;
-        }
-        ViewGroup.LayoutParams layoutParams = getLayoutParams();
-        if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-            if (size <= 3) {
-                int i = marginLayoutParams.leftMargin;
-                int i2 = this.f;
-                if (i != i2 || marginLayoutParams.rightMargin != i2) {
-                    int i3 = this.f;
-                    marginLayoutParams.leftMargin = i3;
-                    marginLayoutParams.rightMargin = i3;
-                    setLayoutParams(marginLayoutParams);
-                }
-            } else {
-                int i4 = marginLayoutParams.leftMargin;
-                int i5 = this.e;
-                if (i4 != i5 || marginLayoutParams.rightMargin != i5) {
-                    int i6 = this.e;
-                    marginLayoutParams.leftMargin = i6;
-                    marginLayoutParams.rightMargin = i6;
-                    setLayoutParams(layoutParams);
-                }
-            }
-        }
-        if (this.b.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-            ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.b.getLayoutParams();
-            if (size <= 3) {
-                int i7 = marginLayoutParams2.leftMargin;
-                int i8 = this.g;
-                if (i7 != i8 || marginLayoutParams2.rightMargin != i8) {
-                    int i9 = this.g;
-                    marginLayoutParams2.leftMargin = i9;
-                    marginLayoutParams2.rightMargin = i9;
-                    this.b.setLayoutParams(marginLayoutParams2);
-                }
-            } else {
-                int i10 = marginLayoutParams2.leftMargin;
-                int i11 = this.h;
-                if (i10 != i11 || marginLayoutParams2.rightMargin != i11) {
-                    int i12 = this.h;
-                    marginLayoutParams2.leftMargin = i12;
-                    marginLayoutParams2.rightMargin = i12;
-                    this.b.setLayoutParams(marginLayoutParams2);
-                }
-            }
-        }
-        this.a.removeAllViews();
-        this.c.clear();
-        for (int i13 = 0; i13 < size; i13++) {
-            this.c.add(c(arrayList.get(i13)));
-        }
-    }
-
-    public void setItemClickListener(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            this.d = bVar;
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -303,9 +207,9 @@ public class MaxSignItemView extends FrameLayout {
                 return;
             }
         }
-        this.c = new ArrayList<>();
-        this.g = ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds190);
-        this.h = ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds115);
+        this.c = new ArrayList();
+        this.g = fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds190);
+        this.h = fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds115);
         d();
     }
 
@@ -328,9 +232,103 @@ public class MaxSignItemView extends FrameLayout {
                 return;
             }
         }
-        this.c = new ArrayList<>();
-        this.g = ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds190);
-        this.h = ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds115);
+        this.c = new ArrayList();
+        this.g = fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds190);
+        this.h = fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds115);
         d();
+    }
+
+    public void setItemClickListener(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
+            this.d = bVar;
+        }
+    }
+
+    public final c c(ActiveCenterData.ActiveCenterStatusData activeCenterStatusData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, activeCenterStatusData)) == null) {
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0577, (ViewGroup) null);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
+            layoutParams.weight = 1.0f;
+            this.a.addView(inflate, layoutParams);
+            c cVar = new c(inflate, activeCenterStatusData);
+            cVar.g.setOnClickListener(new a(this, cVar));
+            return cVar;
+        }
+        return (c) invokeL.objValue;
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0576, (ViewGroup) this, true);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091ed3);
+            this.b = (LineView) findViewById(R.id.obfuscated_res_0x7f09130b);
+            this.e = fj.f(getContext(), R.dimen.tbds3);
+            this.f = fj.f(getContext(), R.dimen.tbds0);
+        }
+    }
+
+    public void setData(ActiveCenterData activeCenterData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activeCenterData) != null) || activeCenterData == null) {
+            return;
+        }
+        ArrayList arrayList = activeCenterData.mission_status_list;
+        int size = arrayList.size();
+        if (arrayList != null && size != 0) {
+            ViewGroup.LayoutParams layoutParams = getLayoutParams();
+            if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
+                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
+                if (size <= 3) {
+                    int i = marginLayoutParams.leftMargin;
+                    int i2 = this.f;
+                    if (i != i2 || marginLayoutParams.rightMargin != i2) {
+                        int i3 = this.f;
+                        marginLayoutParams.leftMargin = i3;
+                        marginLayoutParams.rightMargin = i3;
+                        setLayoutParams(marginLayoutParams);
+                    }
+                } else {
+                    int i4 = marginLayoutParams.leftMargin;
+                    int i5 = this.e;
+                    if (i4 != i5 || marginLayoutParams.rightMargin != i5) {
+                        int i6 = this.e;
+                        marginLayoutParams.leftMargin = i6;
+                        marginLayoutParams.rightMargin = i6;
+                        setLayoutParams(layoutParams);
+                    }
+                }
+            }
+            if (this.b.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+                ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.b.getLayoutParams();
+                if (size <= 3) {
+                    int i7 = marginLayoutParams2.leftMargin;
+                    int i8 = this.g;
+                    if (i7 != i8 || marginLayoutParams2.rightMargin != i8) {
+                        int i9 = this.g;
+                        marginLayoutParams2.leftMargin = i9;
+                        marginLayoutParams2.rightMargin = i9;
+                        this.b.setLayoutParams(marginLayoutParams2);
+                    }
+                } else {
+                    int i10 = marginLayoutParams2.leftMargin;
+                    int i11 = this.h;
+                    if (i10 != i11 || marginLayoutParams2.rightMargin != i11) {
+                        int i12 = this.h;
+                        marginLayoutParams2.leftMargin = i12;
+                        marginLayoutParams2.rightMargin = i12;
+                        this.b.setLayoutParams(marginLayoutParams2);
+                    }
+                }
+            }
+            this.a.removeAllViews();
+            this.c.clear();
+            for (int i13 = 0; i13 < size; i13++) {
+                this.c.add(c((ActiveCenterData.ActiveCenterStatusData) arrayList.get(i13)));
+            }
+        }
     }
 }

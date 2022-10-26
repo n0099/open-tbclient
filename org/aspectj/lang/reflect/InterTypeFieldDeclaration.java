@@ -7,5 +7,5 @@ public interface InterTypeFieldDeclaration extends InterTypeDeclaration {
 
     String getName();
 
-    AjType<?> getType();
+    AjType getType();
 }

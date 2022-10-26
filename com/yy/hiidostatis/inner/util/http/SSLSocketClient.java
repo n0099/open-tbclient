@@ -66,37 +66,40 @@ public class SSLSocketClient {
     public static HostnameVerifier getHostnameVerifier() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new HostnameVerifier() { // from class: com.yy.hiidostatis.inner.util.http.SSLSocketClient.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return new HostnameVerifier() { // from class: com.yy.hiidostatis.inner.util.http.SSLSocketClient.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
 
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                        }
                     }
                 }
-            }
 
-            @Override // javax.net.ssl.HostnameVerifier
-            public boolean verify(String str, SSLSession sSLSession) {
-                InterceptResult invokeLL;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, str, sSLSession)) == null) {
-                    if (SSLSocketClient.verifyAsIpAddress(str)) {
-                        return SSLSocketClient.verifyIp(sSLSession);
+                @Override // javax.net.ssl.HostnameVerifier
+                public boolean verify(String str, SSLSession sSLSession) {
+                    InterceptResult invokeLL;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, str, sSLSession)) == null) {
+                        if (SSLSocketClient.verifyAsIpAddress(str)) {
+                            return SSLSocketClient.verifyIp(sSLSession);
+                        }
+                        return HttpsURLConnection.getDefaultHostnameVerifier().verify(str, sSLSession);
                     }
-                    return HttpsURLConnection.getDefaultHostnameVerifier().verify(str, sSLSession);
+                    return invokeLL.booleanValue;
                 }
-                return invokeLL.booleanValue;
-            }
-        } : (HostnameVerifier) invokeV.objValue;
+            };
+        }
+        return (HostnameVerifier) invokeV.objValue;
     }
 
     public static SSLSocketFactory getSSLSocketFactory() {
@@ -114,7 +117,16 @@ public class SSLSocketClient {
         return (SSLSocketFactory) invokeV.objValue;
     }
 
-    public static List<String> getSubjectAltNames(X509Certificate x509Certificate, int i) {
+    public static boolean verifyAsIpAddress(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            return VERIFY_AS_IP_ADDRESS.matcher(str).matches();
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static List getSubjectAltNames(X509Certificate x509Certificate, int i) {
         InterceptResult invokeLI;
         Integer num;
         String str;
@@ -139,12 +151,6 @@ public class SSLSocketClient {
         return (List) invokeLI.objValue;
     }
 
-    public static boolean verifyAsIpAddress(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? VERIFY_AS_IP_ADDRESS.matcher(str).matches() : invokeL.booleanValue;
-    }
-
     public static boolean verifyHostname(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -164,11 +170,14 @@ public class SSLSocketClient {
                     return false;
                 }
                 String substring = lowerCase.substring(1);
-                if (str.endsWith(substring)) {
-                    int length = str.length() - substring.length();
-                    return length <= 0 || str.lastIndexOf(46, length - 1) == -1;
+                if (!str.endsWith(substring)) {
+                    return false;
                 }
-                return false;
+                int length = str.length() - substring.length();
+                if (length > 0 && str.lastIndexOf(46, length - 1) != -1) {
+                    return false;
+                }
+                return true;
             }
             return false;
         }

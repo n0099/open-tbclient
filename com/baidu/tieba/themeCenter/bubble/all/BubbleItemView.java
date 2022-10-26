@@ -13,8 +13,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.et8;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.ot8;
 import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -34,7 +34,7 @@ public class BubbleItemView extends LinearLayout {
     public ImageView h;
     public TbImageView i;
     public DressItemData j;
-    public et8 k;
+    public ot8 k;
     public boolean l;
     public View.OnClickListener m;
 
@@ -65,10 +65,9 @@ public class BubbleItemView extends LinearLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || view2 == null || this.a.j == null || this.a.k == null || view2 != this.a.d) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2 != null && this.a.j != null && this.a.k != null && view2 == this.a.d) {
+                this.a.k.b(this.a.j, this.a.l);
             }
-            this.a.k.b(this.a.j, this.a.l);
         }
     }
 
@@ -93,98 +92,6 @@ public class BubbleItemView extends LinearLayout {
         this.m = new a(this);
         this.a = context;
         f();
-    }
-
-    public void d(DressItemData dressItemData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, dressItemData) == null) || dressItemData == null) {
-            return;
-        }
-        this.j = dressItemData;
-        boolean inUse = dressItemData.getInUse();
-        boolean z = !TextUtils.isEmpty(dressItemData.getDynamicUrl());
-        if (dressItemData.isDefault()) {
-            this.d.setDefaultResource(R.drawable.obfuscated_res_0x7f0806d1);
-            this.d.K("", 10, false);
-            this.e.setText(R.string.obfuscated_res_0x7f0f0498);
-            this.e.setGravity(17);
-            this.e.setTextSize(0, ej.f(this.a, R.dimen.obfuscated_res_0x7f0701f9));
-            this.e.setTextColor(getResources().getColor(R.color.CAM_X0108));
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
-            layoutParams.gravity = 17;
-            this.e.setLayoutParams(layoutParams);
-            this.e.setVisibility(0);
-            this.c.removeView(this.e);
-            this.c.addView(this.e);
-        } else {
-            this.c.removeView(this.e);
-            if (z) {
-                this.i.setVisibility(0);
-                SkinManager.setImageResource(this.i, R.drawable.obfuscated_res_0x7f080853);
-            } else {
-                this.i.setVisibility(8);
-            }
-            this.d.setVisibility(0);
-            this.d.setDefaultResource(R.drawable.obfuscated_res_0x7f080be3);
-            this.d.K(dressItemData.getExampleImgUrl(), 10, false);
-        }
-        if (inUse) {
-            this.h.setVisibility(0);
-            SkinManager.setImageResource(this.h, R.drawable.icon_choose_photo);
-        } else {
-            this.h.setVisibility(8);
-        }
-        if (!(dressItemData.getFreeUserLevel() == 1)) {
-            this.i.setVisibility(8);
-        } else if (!z) {
-            SkinManager.setImageResource(this.i, R.drawable.obfuscated_res_0x7f080852);
-            this.i.setVisibility(0);
-        }
-        this.g.K(dressItemData.getPropsStateImg(), 10, false);
-        setVisibility(0);
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            setVisibility(4);
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0168, this);
-            this.b = inflate;
-            this.c = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091472);
-            this.d = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090385);
-            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0918d1);
-            this.f = tbImageView;
-            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f081241);
-            this.f.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081241);
-            TbImageView tbImageView2 = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091f7d);
-            this.g = tbImageView2;
-            tbImageView2.setDefaultResource(R.drawable.obfuscated_res_0x7f081241);
-            this.g.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081241);
-            this.h = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090620);
-            this.e = new TextView(this.a);
-            this.d.setOnClickListener(this.m);
-            this.i = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090e2c);
-        }
-    }
-
-    public void setController(et8 et8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, et8Var) == null) {
-            this.k = et8Var;
-        }
-    }
-
-    public void setFromBubbleGroup(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.l = z;
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -233,5 +140,103 @@ public class BubbleItemView extends LinearLayout {
         this.m = new a(this);
         this.a = context;
         f();
+    }
+
+    public void setController(ot8 ot8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, ot8Var) == null) {
+            this.k = ot8Var;
+        }
+    }
+
+    public void setFromBubbleGroup(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.l = z;
+        }
+    }
+
+    public void d(DressItemData dressItemData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, dressItemData) != null) || dressItemData == null) {
+            return;
+        }
+        this.j = dressItemData;
+        boolean inUse = dressItemData.getInUse();
+        boolean z = true;
+        boolean z2 = !TextUtils.isEmpty(dressItemData.getDynamicUrl());
+        if (dressItemData.isDefault()) {
+            this.d.setDefaultResource(R.drawable.obfuscated_res_0x7f0806d2);
+            this.d.L("", 10, false);
+            this.e.setText(R.string.obfuscated_res_0x7f0f04a0);
+            this.e.setGravity(17);
+            this.e.setTextSize(0, fj.f(this.a, R.dimen.obfuscated_res_0x7f0701f9));
+            this.e.setTextColor(getResources().getColor(R.color.CAM_X0108));
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
+            layoutParams.gravity = 17;
+            this.e.setLayoutParams(layoutParams);
+            this.e.setVisibility(0);
+            this.c.removeView(this.e);
+            this.c.addView(this.e);
+        } else {
+            this.c.removeView(this.e);
+            if (z2) {
+                this.i.setVisibility(0);
+                SkinManager.setImageResource(this.i, R.drawable.obfuscated_res_0x7f080851);
+            } else {
+                this.i.setVisibility(8);
+            }
+            this.d.setVisibility(0);
+            this.d.setDefaultResource(R.drawable.obfuscated_res_0x7f080bf3);
+            this.d.L(dressItemData.getExampleImgUrl(), 10, false);
+        }
+        if (inUse) {
+            this.h.setVisibility(0);
+            SkinManager.setImageResource(this.h, R.drawable.icon_choose_photo);
+        } else {
+            this.h.setVisibility(8);
+        }
+        if (dressItemData.getFreeUserLevel() != 1) {
+            z = false;
+        }
+        if (z) {
+            if (!z2) {
+                SkinManager.setImageResource(this.i, R.drawable.obfuscated_res_0x7f080850);
+                this.i.setVisibility(0);
+            }
+        } else {
+            this.i.setVisibility(8);
+        }
+        this.g.L(dressItemData.getPropsStateImg(), 10, false);
+        setVisibility(0);
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            setVisibility(4);
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0167, this);
+            this.b = inflate;
+            this.c = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091464);
+            this.d = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090384);
+            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0918c4);
+            this.f = tbImageView;
+            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f081252);
+            this.f.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081252);
+            TbImageView tbImageView2 = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091f7c);
+            this.g = tbImageView2;
+            tbImageView2.setDefaultResource(R.drawable.obfuscated_res_0x7f081252);
+            this.g.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081252);
+            this.h = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090629);
+            this.e = new TextView(this.a);
+            this.d.setOnClickListener(this.m);
+            this.i = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090e20);
+        }
     }
 }

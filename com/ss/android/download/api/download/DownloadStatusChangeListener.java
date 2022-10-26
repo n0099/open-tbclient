@@ -1,7 +1,5 @@
 package com.ss.android.download.api.download;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.ss.android.download.api.model.DownloadShortInfo;
 /* loaded from: classes8.dex */
 public interface DownloadStatusChangeListener {
@@ -13,7 +11,7 @@ public interface DownloadStatusChangeListener {
 
     void onDownloadPaused(DownloadShortInfo downloadShortInfo, int i);
 
-    void onDownloadStart(@NonNull DownloadModel downloadModel, @Nullable DownloadController downloadController);
+    void onDownloadStart(DownloadModel downloadModel, DownloadController downloadController);
 
     void onIdle();
 

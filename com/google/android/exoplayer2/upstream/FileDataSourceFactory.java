@@ -10,7 +10,7 @@ import com.google.android.exoplayer2.upstream.DataSource;
 public final class FileDataSourceFactory implements DataSource.Factory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TransferListener<? super FileDataSource> listener;
+    public final TransferListener listener;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public FileDataSourceFactory() {
@@ -34,10 +34,13 @@ public final class FileDataSourceFactory implements DataSource.Factory {
     public DataSource createDataSource() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new FileDataSource(this.listener) : (DataSource) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new FileDataSource(this.listener);
+        }
+        return (DataSource) invokeV.objValue;
     }
 
-    public FileDataSourceFactory(TransferListener<? super FileDataSource> transferListener) {
+    public FileDataSourceFactory(TransferListener transferListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

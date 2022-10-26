@@ -36,6 +36,16 @@ public class AmrSpecificBox extends AbstractBox {
     public int modeSet;
     public String vendor;
 
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public long getContentSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 9L;
+        }
+        return invokeV.longValue;
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -68,54 +78,6 @@ public class AmrSpecificBox extends AbstractBox {
                 return;
             }
         }
-    }
-
-    public static /* synthetic */ void ajc$preClinit() {
-        Factory factory = new Factory("AmrSpecificBox.java", AmrSpecificBox.class);
-        ajc$tjp_0 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getVendor", "com.coremedia.iso.boxes.sampleentry.AmrSpecificBox", "", "", "", "java.lang.String"), 46);
-        ajc$tjp_1 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getDecoderVersion", "com.coremedia.iso.boxes.sampleentry.AmrSpecificBox", "", "", "", "int"), 50);
-        ajc$tjp_2 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getModeSet", "com.coremedia.iso.boxes.sampleentry.AmrSpecificBox", "", "", "", "int"), 54);
-        ajc$tjp_3 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getModeChangePeriod", "com.coremedia.iso.boxes.sampleentry.AmrSpecificBox", "", "", "", "int"), 58);
-        ajc$tjp_4 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getFramesPerSample", "com.coremedia.iso.boxes.sampleentry.AmrSpecificBox", "", "", "", "int"), 62);
-        ajc$tjp_5 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getContent", "com.coremedia.iso.boxes.sampleentry.AmrSpecificBox", "java.nio.ByteBuffer", "byteBuffer", "", "void"), 84);
-        ajc$tjp_6 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "toString", "com.coremedia.iso.boxes.sampleentry.AmrSpecificBox", "", "", "", "java.lang.String"), 92);
-    }
-
-    @Override // com.googlecode.mp4parser.AbstractBox
-    public void _parseDetails(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, byteBuffer) == null) {
-            byte[] bArr = new byte[4];
-            byteBuffer.get(bArr);
-            this.vendor = IsoFile.bytesToFourCC(bArr);
-            this.decoderVersion = IsoTypeReader.readUInt8(byteBuffer);
-            this.modeSet = IsoTypeReader.readUInt16(byteBuffer);
-            this.modeChangePeriod = IsoTypeReader.readUInt8(byteBuffer);
-            this.framesPerSample = IsoTypeReader.readUInt8(byteBuffer);
-        }
-    }
-
-    @Override // com.googlecode.mp4parser.AbstractBox
-    public void getContent(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, byteBuffer) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_5, this, this, byteBuffer));
-            byteBuffer.put(IsoFile.fourCCtoBytes(this.vendor));
-            IsoTypeWriter.writeUInt8(byteBuffer, this.decoderVersion);
-            IsoTypeWriter.writeUInt16(byteBuffer, this.modeSet);
-            IsoTypeWriter.writeUInt8(byteBuffer, this.modeChangePeriod);
-            IsoTypeWriter.writeUInt8(byteBuffer, this.framesPerSample);
-        }
-    }
-
-    @Override // com.googlecode.mp4parser.AbstractBox
-    public long getContentSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 9L;
-        }
-        return invokeV.longValue;
     }
 
     public int getDecoderVersion() {
@@ -166,6 +128,44 @@ public class AmrSpecificBox extends AbstractBox {
             return this.vendor;
         }
         return (String) invokeV.objValue;
+    }
+
+    public static /* synthetic */ void ajc$preClinit() {
+        Factory factory = new Factory("AmrSpecificBox.java", AmrSpecificBox.class);
+        ajc$tjp_0 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getVendor", "com.coremedia.iso.boxes.sampleentry.AmrSpecificBox", "", "", "", "java.lang.String"), 46);
+        ajc$tjp_1 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getDecoderVersion", "com.coremedia.iso.boxes.sampleentry.AmrSpecificBox", "", "", "", "int"), 50);
+        ajc$tjp_2 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getModeSet", "com.coremedia.iso.boxes.sampleentry.AmrSpecificBox", "", "", "", "int"), 54);
+        ajc$tjp_3 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getModeChangePeriod", "com.coremedia.iso.boxes.sampleentry.AmrSpecificBox", "", "", "", "int"), 58);
+        ajc$tjp_4 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getFramesPerSample", "com.coremedia.iso.boxes.sampleentry.AmrSpecificBox", "", "", "", "int"), 62);
+        ajc$tjp_5 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getContent", "com.coremedia.iso.boxes.sampleentry.AmrSpecificBox", "java.nio.ByteBuffer", "byteBuffer", "", "void"), 84);
+        ajc$tjp_6 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "toString", "com.coremedia.iso.boxes.sampleentry.AmrSpecificBox", "", "", "", "java.lang.String"), 92);
+    }
+
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public void _parseDetails(ByteBuffer byteBuffer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, byteBuffer) == null) {
+            byte[] bArr = new byte[4];
+            byteBuffer.get(bArr);
+            this.vendor = IsoFile.bytesToFourCC(bArr);
+            this.decoderVersion = IsoTypeReader.readUInt8(byteBuffer);
+            this.modeSet = IsoTypeReader.readUInt16(byteBuffer);
+            this.modeChangePeriod = IsoTypeReader.readUInt8(byteBuffer);
+            this.framesPerSample = IsoTypeReader.readUInt8(byteBuffer);
+        }
+    }
+
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public void getContent(ByteBuffer byteBuffer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, byteBuffer) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_5, this, this, byteBuffer));
+            byteBuffer.put(IsoFile.fourCCtoBytes(this.vendor));
+            IsoTypeWriter.writeUInt8(byteBuffer, this.decoderVersion);
+            IsoTypeWriter.writeUInt16(byteBuffer, this.modeSet);
+            IsoTypeWriter.writeUInt8(byteBuffer, this.modeChangePeriod);
+            IsoTypeWriter.writeUInt8(byteBuffer, this.framesPerSample);
+        }
     }
 
     public String toString() {

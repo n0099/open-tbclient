@@ -15,22 +15,6 @@ public abstract class KeyPositionBase extends Key {
     public transient /* synthetic */ FieldHolder $fh;
     public int mCurveFit;
 
-    public KeyPositionBase() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.mCurveFit = Key.UNSET;
-    }
-
     public abstract void calcPosition(int i, int i2, float f, float f2, float f3, float f4);
 
     @Override // androidx.constraintlayout.motion.widget.Key
@@ -47,4 +31,20 @@ public abstract class KeyPositionBase extends Key {
     public abstract boolean intersects(int i, int i2, RectF rectF, RectF rectF2, float f, float f2);
 
     public abstract void positionAttributes(View view2, RectF rectF, RectF rectF2, float f, float f2, String[] strArr, float[] fArr);
+
+    public KeyPositionBase() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mCurveFit = Key.UNSET;
+    }
 }

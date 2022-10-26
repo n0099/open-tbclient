@@ -10,13 +10,14 @@ import com.airbnb.lottie.LottieAnimationView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.uc0;
+import com.baidu.tieba.vc0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.drawee.drawable.ScalingUtils;
+import com.facebook.drawee.generic.GenericDraweeHierarchy;
 import com.facebook.drawee.view.SimpleDraweeView;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
@@ -55,28 +56,28 @@ public final class LiveSearchResultViewHolder extends RecyclerView.ViewHolder {
             }
         }
         this.j = str;
-        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f0913ab);
+        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f09139c);
         Intrinsics.checkExpressionValueIsNotNull(findViewById, "mView.findViewById(R.id.…_search_result_item_name)");
         this.a = (TextView) findViewById;
-        View findViewById2 = view2.findViewById(R.id.obfuscated_res_0x7f0913ac);
+        View findViewById2 = view2.findViewById(R.id.obfuscated_res_0x7f09139d);
         Intrinsics.checkExpressionValueIsNotNull(findViewById2, "mView.findViewById(R.id.…rch_result_item_name_mid)");
         this.h = (TextView) findViewById2;
-        View findViewById3 = view2.findViewById(R.id.obfuscated_res_0x7f0913a9);
+        View findViewById3 = view2.findViewById(R.id.obfuscated_res_0x7f09139a);
         Intrinsics.checkExpressionValueIsNotNull(findViewById3, "mView.findViewById(R.id.…earch_result_item_avatar)");
         this.e = (SimpleDraweeView) findViewById3;
-        View findViewById4 = view2.findViewById(R.id.obfuscated_res_0x7f0913a6);
+        View findViewById4 = view2.findViewById(R.id.obfuscated_res_0x7f091397);
         Intrinsics.checkExpressionValueIsNotNull(findViewById4, "mView.findViewById(R.id.…search_result__item_info)");
         this.b = (TextView) findViewById4;
-        View findViewById5 = view2.findViewById(R.id.obfuscated_res_0x7f0913aa);
+        View findViewById5 = view2.findViewById(R.id.obfuscated_res_0x7f09139b);
         Intrinsics.checkExpressionValueIsNotNull(findViewById5, "mView.findViewById(R.id.…earch_result_item_follow)");
         this.c = (TextView) findViewById5;
-        View findViewById6 = view2.findViewById(R.id.obfuscated_res_0x7f090f94);
+        View findViewById6 = view2.findViewById(R.id.obfuscated_res_0x7f090f88);
         Intrinsics.checkExpressionValueIsNotNull(findViewById6, "mView.findViewById(R.id.item_contain)");
         this.d = findViewById6;
-        View findViewById7 = view2.findViewById(R.id.obfuscated_res_0x7f09138e);
+        View findViewById7 = view2.findViewById(R.id.obfuscated_res_0x7f09137f);
         Intrinsics.checkExpressionValueIsNotNull(findViewById7, "mView.findViewById(R.id.…t_item_status_tag_lottie)");
         this.f = (LottieAnimationView) findViewById7;
-        View findViewById8 = view2.findViewById(R.id.obfuscated_res_0x7f09138d);
+        View findViewById8 = view2.findViewById(R.id.obfuscated_res_0x7f09137e);
         Intrinsics.checkExpressionValueIsNotNull(findViewById8, "mView.findViewById(R.id.…ank_list_item_living_tag)");
         this.g = (TextView) findViewById8;
         this.i = context;
@@ -92,24 +93,24 @@ public final class LiveSearchResultViewHolder extends RecyclerView.ViewHolder {
                 this.a.setTypeface(Typeface.DEFAULT_BOLD);
                 this.a.setTextSize(1, 16.0f);
             }
-            this.e.getHierarchy().setPlaceholderImage(uc0.f().l(this.j), ScalingUtils.ScaleType.FIT_XY);
+            ((GenericDraweeHierarchy) this.e.getHierarchy()).setPlaceholderImage(vc0.f().l(this.j), ScalingUtils.ScaleType.FIT_XY);
             TextView textView = this.a;
-            uc0 f = uc0.f();
+            vc0 f = vc0.f();
             View itemView = this.itemView;
             Intrinsics.checkExpressionValueIsNotNull(itemView, "itemView");
             textView.setTextColor(f.a(itemView.getContext(), this.j, "color_1F1F1F"));
             TextView textView2 = this.g;
-            uc0 f2 = uc0.f();
+            vc0 f2 = vc0.f();
             View itemView2 = this.itemView;
             Intrinsics.checkExpressionValueIsNotNull(itemView2, "itemView");
             textView2.setTextColor(f2.a(itemView2.getContext(), this.j, "color_white3"));
-            uc0 f3 = uc0.f();
+            vc0 f3 = vc0.f();
             Intrinsics.checkExpressionValueIsNotNull(f3, "UIModeUtils.getInstance()");
             String r = f3.r();
             if (Intrinsics.areEqual(r, "day")) {
-                this.g.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d3d);
+                this.g.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d4e);
             } else if (Intrinsics.areEqual(r, "night")) {
-                this.g.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d3e);
+                this.g.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d4f);
             }
         }
     }
@@ -117,54 +118,81 @@ public final class LiveSearchResultViewHolder extends RecyclerView.ViewHolder {
     public final SimpleDraweeView b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : (SimpleDraweeView) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.e;
+        }
+        return (SimpleDraweeView) invokeV.objValue;
     }
 
     public final TextView c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (TextView) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (TextView) invokeV.objValue;
     }
 
     public final TextView d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : (TextView) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return (TextView) invokeV.objValue;
     }
 
     public final TextView e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.g : (TextView) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.g;
+        }
+        return (TextView) invokeV.objValue;
     }
 
     public final LottieAnimationView f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f : (LottieAnimationView) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.f;
+        }
+        return (LottieAnimationView) invokeV.objValue;
     }
 
     public final TextView g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a : (TextView) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.a;
+        }
+        return (TextView) invokeV.objValue;
     }
 
     public final Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.i : (Context) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.i;
+        }
+        return (Context) invokeV.objValue;
     }
 
     public final TextView h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.h : (TextView) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.h;
+        }
+        return (TextView) invokeV.objValue;
     }
 
     public final View i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.d : (View) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.d;
+        }
+        return (View) invokeV.objValue;
     }
 }

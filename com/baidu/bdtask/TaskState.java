@@ -30,30 +30,6 @@ public final class TaskState implements ITaskModelData {
     public final TaskInfo taskInfo;
     public final TaskStatus taskStatus;
 
-    /* loaded from: classes.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-    }
-
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -68,25 +44,6 @@ public final class TaskState implements ITaskModelData {
             }
         }
         INS = new a(null);
-    }
-
-    public TaskState(TaskInfo taskInfo, TaskStatus taskStatus) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {taskInfo, taskStatus};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.taskInfo = taskInfo;
-        this.taskStatus = taskStatus;
     }
 
     public static /* synthetic */ TaskState copy$default(TaskState taskState, TaskInfo taskInfo, TaskStatus taskStatus, int i, Object obj) {
@@ -133,18 +90,6 @@ public final class TaskState implements ITaskModelData {
         return invokeL.booleanValue;
     }
 
-    public final TaskInfo getTaskInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.taskInfo : (TaskInfo) invokeV.objValue;
-    }
-
-    public final TaskStatus getTaskStatus() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.taskStatus : (TaskStatus) invokeV.objValue;
-    }
-
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -157,11 +102,95 @@ public final class TaskState implements ITaskModelData {
         return invokeV.intValue;
     }
 
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return "TaskState(taskInfo=" + this.taskInfo + ", taskStatus=" + this.taskStatus + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes.dex */
+    public final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+    }
+
+    public TaskState(TaskInfo taskInfo, TaskStatus taskStatus) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {taskInfo, taskStatus};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.taskInfo = taskInfo;
+        this.taskStatus = taskStatus;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.bdtask.model.ITaskModelData
+    public TaskState deepCopy() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return new TaskState(this.taskInfo.deepCopy(), this.taskStatus.deepCopy());
+        }
+        return (TaskState) invokeV.objValue;
+    }
+
+    public final TaskInfo getTaskInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.taskInfo;
+        }
+        return (TaskInfo) invokeV.objValue;
+    }
+
+    public final TaskStatus getTaskStatus() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.taskStatus;
+        }
+        return (TaskStatus) invokeV.objValue;
+    }
+
     @Override // com.baidu.bdtask.model.ITaskModelData
     public boolean isEmpty() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? ITaskModelData.a.a(this) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return ITaskModelData.a.a(this);
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.bdtask.model.ITaskModelData
@@ -175,22 +204,5 @@ public final class TaskState implements ITaskModelData {
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return "TaskState(taskInfo=" + this.taskInfo + ", taskStatus=" + this.taskStatus + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.bdtask.model.ITaskModelData
-    public TaskState deepCopy() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new TaskState(this.taskInfo.deepCopy(), this.taskStatus.deepCopy()) : (TaskState) invokeV.objValue;
     }
 }

@@ -1,6 +1,7 @@
 package com.ss.android.socialbase.downloader.impls;
 
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.List;
 import okhttp3.Call;
 import okhttp3.OkHttpClient;
@@ -9,12 +10,14 @@ import okhttp3.Response;
 /* loaded from: classes8.dex */
 public class f implements com.ss.android.socialbase.downloader.network.h {
     @Override // com.ss.android.socialbase.downloader.network.h
-    public com.ss.android.socialbase.downloader.network.g a(String str, List<com.ss.android.socialbase.downloader.model.c> list) throws IOException {
+    public com.ss.android.socialbase.downloader.network.g a(String str, List list) throws IOException {
         OkHttpClient s = com.ss.android.socialbase.downloader.downloader.c.s();
         if (s != null) {
             Request.Builder head = new Request.Builder().url(str).head();
             if (list != null && list.size() > 0) {
-                for (com.ss.android.socialbase.downloader.model.c cVar : list) {
+                Iterator it = list.iterator();
+                while (it.hasNext()) {
+                    com.ss.android.socialbase.downloader.model.c cVar = (com.ss.android.socialbase.downloader.model.c) it.next();
                     head.addHeader(cVar.a(), com.ss.android.socialbase.downloader.i.f.g(cVar.b()));
                 }
             }
@@ -38,10 +41,9 @@ public class f implements com.ss.android.socialbase.downloader.network.h {
                     @Override // com.ss.android.socialbase.downloader.network.g
                     public void c() {
                         Call call = newCall;
-                        if (call == null || call.isCanceled()) {
-                            return;
+                        if (call != null && !call.isCanceled()) {
+                            newCall.cancel();
                         }
-                        newCall.cancel();
                     }
                 };
             }

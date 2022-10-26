@@ -75,7 +75,10 @@ public final class PesReader implements TsPayloadReader {
             }
             int i2 = this.bytesRead + min;
             this.bytesRead = i2;
-            return i2 == i;
+            if (i2 == i) {
+                return true;
+            }
+            return false;
         }
         return invokeLLI.booleanValue;
     }
@@ -149,47 +152,57 @@ public final class PesReader implements TsPayloadReader {
         if (interceptable == null || interceptable.invokeLZ(1048576, this, parsableByteArray, z) == null) {
             if (z) {
                 int i = this.state;
-                if (i == 2) {
-                    Log.w(TAG, "Unexpected start indicator reading extended header");
-                } else if (i == 3) {
-                    if (this.payloadSize != -1) {
-                        Log.w(TAG, "Unexpected start indicator: expected " + this.payloadSize + " more bytes");
+                if (i != 2) {
+                    if (i == 3) {
+                        if (this.payloadSize != -1) {
+                            Log.w(TAG, "Unexpected start indicator: expected " + this.payloadSize + " more bytes");
+                        }
+                        this.reader.packetFinished();
                     }
-                    this.reader.packetFinished();
+                } else {
+                    Log.w(TAG, "Unexpected start indicator reading extended header");
                 }
                 setState(1);
             }
             while (parsableByteArray.bytesLeft() > 0) {
                 int i2 = this.state;
                 if (i2 != 0) {
+                    int i3 = 0;
                     if (i2 != 1) {
-                        if (i2 == 2) {
+                        if (i2 != 2) {
+                            if (i2 == 3) {
+                                int bytesLeft = parsableByteArray.bytesLeft();
+                                int i4 = this.payloadSize;
+                                if (i4 != -1) {
+                                    i3 = bytesLeft - i4;
+                                }
+                                if (i3 > 0) {
+                                    bytesLeft -= i3;
+                                    parsableByteArray.setLimit(parsableByteArray.getPosition() + bytesLeft);
+                                }
+                                this.reader.consume(parsableByteArray);
+                                int i5 = this.payloadSize;
+                                if (i5 != -1) {
+                                    int i6 = i5 - bytesLeft;
+                                    this.payloadSize = i6;
+                                    if (i6 == 0) {
+                                        this.reader.packetFinished();
+                                        setState(1);
+                                    }
+                                }
+                            }
+                        } else {
                             if (continueRead(parsableByteArray, this.pesScratch.data, Math.min(10, this.extendedHeaderLength)) && continueRead(parsableByteArray, null, this.extendedHeaderLength)) {
                                 parseHeaderExtension();
                                 this.reader.packetStarted(this.timeUs, this.dataAlignmentIndicator);
                                 setState(3);
                             }
-                        } else if (i2 == 3) {
-                            int bytesLeft = parsableByteArray.bytesLeft();
-                            int i3 = this.payloadSize;
-                            int i4 = i3 != -1 ? bytesLeft - i3 : 0;
-                            if (i4 > 0) {
-                                bytesLeft -= i4;
-                                parsableByteArray.setLimit(parsableByteArray.getPosition() + bytesLeft);
-                            }
-                            this.reader.consume(parsableByteArray);
-                            int i5 = this.payloadSize;
-                            if (i5 != -1) {
-                                int i6 = i5 - bytesLeft;
-                                this.payloadSize = i6;
-                                if (i6 == 0) {
-                                    this.reader.packetFinished();
-                                    setState(1);
-                                }
-                            }
                         }
                     } else if (continueRead(parsableByteArray, this.pesScratch.data, 9)) {
-                        setState(parseHeader() ? 2 : 0);
+                        if (parseHeader()) {
+                            i3 = 2;
+                        }
+                        setState(i3);
                     }
                 } else {
                     parsableByteArray.skipBytes(parsableByteArray.bytesLeft());

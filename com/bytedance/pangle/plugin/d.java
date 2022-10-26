@@ -31,6 +31,18 @@ public final class d implements Runnable {
         }
     }
 
+    @Override // java.lang.Runnable
+    public final void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            a(new File(com.bytedance.pangle.c.c.a()));
+            String c = com.bytedance.pangle.c.c.c();
+            if (!TextUtils.isEmpty(c)) {
+                a(new File(c));
+            }
+        }
+    }
+
     private void a(File file) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, file) == null) {
@@ -78,19 +90,6 @@ public final class d implements Runnable {
                     return invokeL.booleanValue;
                 }
             });
-        }
-    }
-
-    @Override // java.lang.Runnable
-    public final void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            a(new File(com.bytedance.pangle.c.c.a()));
-            String c = com.bytedance.pangle.c.c.c();
-            if (TextUtils.isEmpty(c)) {
-                return;
-            }
-            a(new File(c));
         }
     }
 }

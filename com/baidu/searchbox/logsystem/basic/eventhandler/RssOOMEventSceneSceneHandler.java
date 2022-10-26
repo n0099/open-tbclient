@@ -1,10 +1,7 @@
 package com.baidu.searchbox.logsystem.basic.eventhandler;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.searchbox.logsystem.logsys.eventscene.EventObject;
-import com.baidu.searchbox.logsystem.logsys.eventscene.snapshot.ProcessSnapshotType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,10 +28,12 @@ public class RssOOMEventSceneSceneHandler extends OOMEventSceneSceneHandler {
     }
 
     @Override // com.baidu.searchbox.logsystem.basic.eventhandler.OOMEventSceneSceneHandler, com.baidu.searchbox.logsystem.logsys.eventscene.handler.ProcessEventSceneHandler, com.baidu.searchbox.logsystem.logsys.eventscene.handler.BaseEventSceneHandler, com.baidu.searchbox.logsystem.logsys.eventscene.handler.EventSceneHandler
-    @Nullable
-    public Set<ProcessSnapshotType> requireGeneralSnapshots(@NonNull Context context, @NonNull EventObject eventObject) {
+    public Set requireGeneralSnapshots(Context context, EventObject eventObject) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, eventObject)) == null) ? super.requireGeneralSnapshots(context, eventObject) : (Set) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, eventObject)) == null) {
+            return super.requireGeneralSnapshots(context, eventObject);
+        }
+        return (Set) invokeLL.objValue;
     }
 }

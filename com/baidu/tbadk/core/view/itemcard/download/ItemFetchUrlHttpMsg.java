@@ -7,8 +7,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ItemData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.gj;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.hj;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,28 +25,34 @@ public class ItemFetchUrlHttpMsg extends HttpMessage {
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ItemFetchUrlHttpMsg(DownloadData downloadData, ItemData itemData, String str, BdUniqueId bdUniqueId) {
         super(CmdConfigHttp.CMD_ITEM_FETCH_URL);
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {downloadData, itemData, str, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        addParam("screen_width", ej.k(TbadkCoreApplication.getInst().getContext()));
-        addParam("screen_length", ej.i(TbadkCoreApplication.getInst().getContext()));
-        addParam("os_ver", gj.k());
+        addParam("screen_width", fj.k(TbadkCoreApplication.getInst().getContext()));
+        addParam("screen_length", fj.i(TbadkCoreApplication.getInst().getContext()));
+        addParam("os_ver", hj.k());
         addParam("package", itemData.pkgName);
         addParam("query", str);
         if (downloadData != null && (downloadData.getExtra() instanceof ItemDownloadExtraData)) {
-            addParam("req_type", ((ItemDownloadExtraData) downloadData.getExtra()).shouzhuScene == 4001 ? 5 : 6);
+            if (((ItemDownloadExtraData) downloadData.getExtra()).shouzhuScene == 4001) {
+                i = 5;
+            } else {
+                i = 6;
+            }
+            addParam("req_type", i);
         }
         this.downloadData = downloadData;
         this.pkgName = itemData.pkgName;
@@ -56,18 +62,27 @@ public class ItemFetchUrlHttpMsg extends HttpMessage {
     public BdUniqueId getButtonTag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.tag : (BdUniqueId) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.tag;
+        }
+        return (BdUniqueId) invokeV.objValue;
     }
 
     public DownloadData getDownloadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.downloadData : (DownloadData) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.downloadData;
+        }
+        return (DownloadData) invokeV.objValue;
     }
 
     public String getPkgName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.pkgName : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.pkgName;
+        }
+        return (String) invokeV.objValue;
     }
 }

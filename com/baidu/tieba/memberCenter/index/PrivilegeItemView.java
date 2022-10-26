@@ -46,23 +46,6 @@ public class PrivilegeItemView extends RelativeLayout {
         a();
     }
 
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03de, this);
-            this.b = inflate;
-            this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091a96);
-            this.d = (PrivilegeTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091a9b);
-            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091a95);
-        }
-    }
-
-    public PrivilegeTextView getPrivilegeName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (PrivilegeTextView) invokeV.objValue;
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PrivilegeItemView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -107,5 +90,25 @@ public class PrivilegeItemView extends RelativeLayout {
         }
         this.a = context;
         a();
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03db, this);
+            this.b = inflate;
+            this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091a92);
+            this.d = (PrivilegeTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091a97);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091a91);
+        }
+    }
+
+    public PrivilegeTextView getPrivilegeName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return (PrivilegeTextView) invokeV.objValue;
     }
 }

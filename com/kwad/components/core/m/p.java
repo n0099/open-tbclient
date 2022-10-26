@@ -4,7 +4,6 @@ import android.os.Build;
 import android.webkit.CookieManager;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-import androidx.annotation.MainThread;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -13,7 +12,6 @@ public final class p {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @MainThread
     public static WebSettings b(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

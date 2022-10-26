@@ -12,10 +12,39 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public interface BRTCPlayer extends IMediaRecord, ISnapShot {
+    PlayerState getPlayerState();
+
+    boolean hasAudio();
+
+    boolean hasVideo();
+
+    long initPlayer(BRTCPlayerParameters bRTCPlayerParameters, BRTCPlayerEvents bRTCPlayerEvents);
+
+    void pausePlay();
+
+    void releasePlayer();
+
+    void resumePlay();
+
+    void setEventObserver(BRTCPlayerEvents bRTCPlayerEvents);
+
+    void setRemoteSdp(String str);
+
+    void setScalingType(RTCVideoView.ScalingType scalingType);
+
+    void setStreamUri(String str);
+
+    void setSurfaceView(RTCVideoView rTCVideoView);
+
+    void setVolume(double d);
+
+    void startPlay();
+
+    void stopPlay();
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class PlayerState {
+    public final class PlayerState {
         public static final /* synthetic */ PlayerState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final PlayerState STATE_ERROR;
@@ -78,43 +107,19 @@ public interface BRTCPlayer extends IMediaRecord, ISnapShot {
         public static PlayerState valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (PlayerState) Enum.valueOf(PlayerState.class, str) : (PlayerState) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (PlayerState) Enum.valueOf(PlayerState.class, str);
+            }
+            return (PlayerState) invokeL.objValue;
         }
 
         public static PlayerState[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PlayerState[]) $VALUES.clone() : (PlayerState[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (PlayerState[]) $VALUES.clone();
+            }
+            return (PlayerState[]) invokeV.objValue;
         }
     }
-
-    PlayerState getPlayerState();
-
-    boolean hasAudio();
-
-    boolean hasVideo();
-
-    long initPlayer(BRTCPlayerParameters bRTCPlayerParameters, BRTCPlayerEvents bRTCPlayerEvents);
-
-    void pausePlay();
-
-    void releasePlayer();
-
-    void resumePlay();
-
-    void setEventObserver(BRTCPlayerEvents bRTCPlayerEvents);
-
-    void setRemoteSdp(String str);
-
-    void setScalingType(RTCVideoView.ScalingType scalingType);
-
-    void setStreamUri(String str);
-
-    void setSurfaceView(RTCVideoView rTCVideoView);
-
-    void setVolume(double d);
-
-    void startPlay();
-
-    void stopPlay();
 }

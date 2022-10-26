@@ -19,7 +19,7 @@ import java.util.Map;
 public final class MultiFormatReader implements Reader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<DecodeHintType, ?> hints;
+    public Map hints;
     public Reader[] readers;
 
     public MultiFormatReader() {
@@ -32,6 +32,17 @@ public final class MultiFormatReader implements Reader {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.google.zxing.Reader
+    public void reset() {
+        Reader[] readerArr;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (readerArr = this.readers) != null) {
+            for (Reader reader : readerArr) {
+                reader.reset();
             }
         }
     }
@@ -78,30 +89,39 @@ public final class MultiFormatReader implements Reader {
     }
 
     @Override // com.google.zxing.Reader
-    public void reset() {
-        Reader[] readerArr;
+    public Result decode(BinaryBitmap binaryBitmap, Map map) throws NotFoundException {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (readerArr = this.readers) == null) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, binaryBitmap, map)) == null) {
+            setHints(map);
+            return decodeInternal(binaryBitmap);
         }
-        for (Reader reader : readerArr) {
-            reader.reset();
-        }
+        return (Result) invokeLL.objValue;
     }
 
-    public void setHints(Map<DecodeHintType, ?> map) {
+    public void setHints(Map map) {
+        boolean z;
+        Collection collection;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, map) == null) {
             this.hints = map;
-            boolean z = true;
-            boolean z2 = map != null && map.containsKey(DecodeHintType.TRY_HARDER);
-            Collection collection = map == null ? null : (Collection) map.get(DecodeHintType.POSSIBLE_FORMATS);
+            boolean z2 = true;
+            if (map != null && map.containsKey(DecodeHintType.TRY_HARDER)) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (map == null) {
+                collection = null;
+            } else {
+                collection = (Collection) map.get(DecodeHintType.POSSIBLE_FORMATS);
+            }
             ArrayList arrayList = new ArrayList();
             if (collection != null) {
                 if (!collection.contains(BarcodeFormat.UPC_A) && !collection.contains(BarcodeFormat.UPC_E) && !collection.contains(BarcodeFormat.EAN_13) && !collection.contains(BarcodeFormat.EAN_8) && !collection.contains(BarcodeFormat.CODABAR) && !collection.contains(BarcodeFormat.CODE_39) && !collection.contains(BarcodeFormat.CODE_93) && !collection.contains(BarcodeFormat.CODE_128) && !collection.contains(BarcodeFormat.ITF) && !collection.contains(BarcodeFormat.RSS_14) && !collection.contains(BarcodeFormat.RSS_EXPANDED)) {
-                    z = false;
+                    z2 = false;
                 }
-                if (z && !z2) {
+                if (z2 && !z) {
                     arrayList.add(new MultiFormatOneDReader(map));
                 }
                 if (collection.contains(BarcodeFormat.QR_CODE)) {
@@ -119,12 +139,12 @@ public final class MultiFormatReader implements Reader {
                 if (collection.contains(BarcodeFormat.MAXICODE)) {
                     arrayList.add(new MaxiCodeReader());
                 }
-                if (z && z2) {
+                if (z2 && z) {
                     arrayList.add(new MultiFormatOneDReader(map));
                 }
             }
             if (arrayList.isEmpty()) {
-                if (!z2) {
+                if (!z) {
                     arrayList.add(new MultiFormatOneDReader(map));
                 }
                 arrayList.add(new QRCodeReader());
@@ -132,22 +152,11 @@ public final class MultiFormatReader implements Reader {
                 arrayList.add(new AztecReader());
                 arrayList.add(new PDF417Reader());
                 arrayList.add(new MaxiCodeReader());
-                if (z2) {
+                if (z) {
                     arrayList.add(new MultiFormatOneDReader(map));
                 }
             }
             this.readers = (Reader[]) arrayList.toArray(new Reader[arrayList.size()]);
         }
-    }
-
-    @Override // com.google.zxing.Reader
-    public Result decode(BinaryBitmap binaryBitmap, Map<DecodeHintType, ?> map) throws NotFoundException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, binaryBitmap, map)) == null) {
-            setHints(map);
-            return decodeInternal(binaryBitmap);
-        }
-        return (Result) invokeLL.objValue;
     }
 }

@@ -30,16 +30,23 @@ public class IdleConnectionHandler {
         throw new RuntimeException("Stub!");
     }
 
-    public void add(HttpConnection httpConnection, long j, TimeUnit timeUnit) {
+    public void closeExpiredConnections() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{httpConnection, Long.valueOf(j), timeUnit}) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             throw new RuntimeException("Stub!");
         }
     }
 
-    public void closeExpiredConnections() {
+    public void removeAll() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    public void add(HttpConnection httpConnection, long j, TimeUnit timeUnit) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{httpConnection, Long.valueOf(j), timeUnit}) == null) {
             throw new RuntimeException("Stub!");
         }
     }
@@ -58,12 +65,5 @@ public class IdleConnectionHandler {
             throw new RuntimeException("Stub!");
         }
         return invokeL.booleanValue;
-    }
-
-    public void removeAll() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            throw new RuntimeException("Stub!");
-        }
     }
 }

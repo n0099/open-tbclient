@@ -14,10 +14,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.il5;
-import com.baidu.tieba.n06;
-import com.baidu.tieba.nj;
+import com.baidu.tieba.b16;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.oj;
+import com.baidu.tieba.pl5;
 import com.baidu.tieba.u06;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -32,7 +32,7 @@ public class AnnounceLayout extends CardBasicLayout {
     public TextView f;
 
     /* loaded from: classes3.dex */
-    public class a extends il5 {
+    public class a extends pl5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AnnounceLayout h;
@@ -81,6 +81,29 @@ public class AnnounceLayout extends CardBasicLayout {
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public AnnounceLayout(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.d = fj.r((Activity) getContext()).widthPixels - (fj.f(getContext(), R.dimen.tbds90) * 2);
+        b();
+    }
+
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -107,12 +130,12 @@ public class AnnounceLayout extends CardBasicLayout {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, spannableStringBuilder) == null) {
             if (spannableStringBuilder != null && !TextUtils.isEmpty(spannableStringBuilder.toString())) {
                 int i = 2;
-                if (!nj.b(this.d, this.f.getPaint(), spannableStringBuilder.toString(), 2)) {
+                if (!oj.b(this.d, this.f.getPaint(), spannableStringBuilder.toString(), 2)) {
                     this.f.setText(spannableStringBuilder, TextView.BufferType.SPANNABLE);
                     return;
                 }
                 SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder(StringHelper.STRING_MORE);
-                SpannableStringBuilder spannableStringBuilder3 = new SpannableStringBuilder(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04d8));
+                SpannableStringBuilder spannableStringBuilder3 = new SpannableStringBuilder(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04e0));
                 spannableStringBuilder3.setSpan(new a(this, 2, null), 0, spannableStringBuilder3.length(), 17);
                 spannableStringBuilder2.append((CharSequence) spannableStringBuilder3);
                 StaticLayout staticLayout = new StaticLayout(spannableStringBuilder.toString(), this.f.getPaint(), (int) this.d, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
@@ -136,51 +159,28 @@ public class AnnounceLayout extends CardBasicLayout {
                 this.f.setText(spannableStringBuilder);
                 return;
             }
-            this.f.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f057e));
+            this.f.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0586));
         }
     }
 
     @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
-    public void setData(int i, n06 n06Var) {
+    public void setData(int i, u06 u06Var) {
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, n06Var) == null) {
-            super.setData(i, n06Var);
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, u06Var) == null) {
+            super.setData(i, u06Var);
             if (this.b != null && this.c != null && (i2 = this.a) >= 0) {
-                if (i2 == u06.b) {
-                    this.d = ej.r((Activity) getContext()).widthPixels - (ej.f(getContext(), R.dimen.tbds120) * 2);
+                if (i2 == b16.b) {
+                    this.d = fj.r((Activity) getContext()).widthPixels - (fj.f(getContext(), R.dimen.tbds120) * 2);
                 }
                 int i3 = this.a;
-                if (i3 == u06.c || i3 == u06.d) {
-                    this.d = ej.r((Activity) getContext()).widthPixels - (ej.f(getContext(), R.dimen.tbds96) * 2);
+                if (i3 == b16.c || i3 == b16.d) {
+                    this.d = fj.r((Activity) getContext()).widthPixels - (fj.f(getContext(), R.dimen.tbds96) * 2);
                 }
                 c(new SpannableStringBuilder(this.c.b()));
                 return;
             }
             setVisibility(8);
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AnnounceLayout(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.d = ej.r((Activity) getContext()).widthPixels - (ej.f(getContext(), R.dimen.tbds90) * 2);
-        b();
     }
 }

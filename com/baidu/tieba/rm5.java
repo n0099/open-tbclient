@@ -1,20 +1,45 @@
 package com.baidu.tieba;
 
+import android.view.GestureDetector;
+import android.view.MotionEvent;
+import com.baidu.tbadk.widget.timepicker.wheel.view.WheelView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class rm5 {
+public final class rm5 extends GestureDetector.SimpleOnGestureListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final WheelView a;
 
-    public static boolean a() {
-        InterceptResult invokeV;
+    public rm5(WheelView wheelView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            long m = ox4.k().m("key_youngster_use_time_dialog_show_time", 0L);
-            return m > System.currentTimeMillis() || System.currentTimeMillis() - m <= 600000;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {wheelView};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return invokeV.booleanValue;
+        this.a = wheelView;
+    }
+
+    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
+    public final boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            this.a.q(f2);
+            return true;
+        }
+        return invokeCommon.booleanValue;
     }
 }

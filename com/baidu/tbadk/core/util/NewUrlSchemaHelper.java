@@ -11,7 +11,7 @@ public class NewUrlSchemaHelper {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public static class Jump {
+    public class Jump {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String JUMP_TO_TBWEBVIEW = "com.baidu.tieba://tbwebview";
         public static final String JUMP_TO_USER_CENTER = "com.baidu.tieba://usercenter";

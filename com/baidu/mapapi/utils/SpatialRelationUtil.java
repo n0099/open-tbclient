@@ -43,7 +43,7 @@ public class SpatialRelationUtil {
         return (LatLng) invokeLLL.objValue;
     }
 
-    public static LatLng getNearestPointFromLine(List<LatLng> list, LatLng latLng) {
+    public static LatLng getNearestPointFromLine(List list, LatLng latLng) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, list, latLng)) == null) {
@@ -52,9 +52,9 @@ public class SpatialRelationUtil {
                 int i = 0;
                 while (i < list.size() - 1) {
                     int i2 = i + 1;
-                    LatLng a = a(list.get(i), list.get(i2), latLng);
-                    if ((a.latitude - list.get(i).latitude) * (a.latitude - list.get(i2).latitude) > 0.0d || (a.longitude - list.get(i).longitude) * (a.longitude - list.get(i2).longitude) > 0.0d) {
-                        a = DistanceUtil.getDistance(latLng, list.get(i)) < DistanceUtil.getDistance(latLng, list.get(i2)) ? list.get(i) : list.get(i2);
+                    LatLng a = a((LatLng) list.get(i), (LatLng) list.get(i2), latLng);
+                    if ((a.latitude - ((LatLng) list.get(i)).latitude) * (a.latitude - ((LatLng) list.get(i2)).latitude) > 0.0d || (a.longitude - ((LatLng) list.get(i)).longitude) * (a.longitude - ((LatLng) list.get(i2)).longitude) > 0.0d) {
+                        a = (LatLng) (DistanceUtil.getDistance(latLng, (LatLng) list.get(i)) < DistanceUtil.getDistance(latLng, (LatLng) list.get(i2)) ? list.get(i) : list.get(i2));
                     }
                     if (latLng2 == null || DistanceUtil.getDistance(latLng, a) < DistanceUtil.getDistance(latLng, latLng2)) {
                         latLng2 = a;
@@ -73,7 +73,7 @@ public class SpatialRelationUtil {
         return (interceptable == null || (invokeLIL = interceptable.invokeLIL(65539, null, latLng, i, latLng2)) == null) ? (latLng == null || i == 0 || latLng2 == null || DistanceUtil.getDistance(latLng, latLng2) > ((double) i)) ? false : true : invokeLIL.booleanValue;
     }
 
-    public static boolean isPolygonContainsPoint(List<LatLng> list, LatLng latLng) {
+    public static boolean isPolygonContainsPoint(List list, LatLng latLng) {
         InterceptResult invokeLL;
         int i;
         Interceptable interceptable = $ic;
@@ -82,7 +82,7 @@ public class SpatialRelationUtil {
                 return false;
             }
             for (int i2 = 0; i2 < list.size(); i2++) {
-                if (latLng.longitude == list.get(i2).longitude && latLng.latitude == list.get(i2).latitude) {
+                if (latLng.longitude == ((LatLng) list.get(i2)).longitude && latLng.latitude == ((LatLng) list.get(i2)).latitude) {
                     return true;
                 }
             }
@@ -90,9 +90,9 @@ public class SpatialRelationUtil {
             int i3 = 0;
             int i4 = 0;
             while (i3 < size) {
-                LatLng latLng2 = list.get(i3);
+                LatLng latLng2 = (LatLng) list.get(i3);
                 i3++;
-                LatLng latLng3 = list.get(i3 % size);
+                LatLng latLng3 = (LatLng) list.get(i3 % size);
                 double d = latLng2.latitude;
                 double d2 = latLng3.latitude;
                 if (d != d2 && latLng.latitude >= Math.min(d, d2) && latLng.latitude <= Math.max(latLng2.latitude, latLng3.latitude)) {

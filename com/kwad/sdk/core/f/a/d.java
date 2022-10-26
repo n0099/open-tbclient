@@ -8,7 +8,7 @@ import com.heytap.openid.IOpenID;
 public interface d extends IInterface {
 
     /* loaded from: classes7.dex */
-    public static final class a implements d {
+    public final class a implements d {
         public IBinder Zy;
 
         public a(IBinder iBinder) {

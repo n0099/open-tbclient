@@ -46,14 +46,6 @@ public class GiftTabActivityConfig extends IntentConfig {
         }
     }
 
-    public void setReferPageAndClickZone(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            getIntent().putExtra(MemberPayStatistic.REFER_PAGE, str);
-            getIntent().putExtra(MemberPayStatistic.CLICK_ZONE, str2);
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GiftTabActivityConfig(Context context, long j, String str, String str2, String str3) {
         super(context);
@@ -128,5 +120,13 @@ public class GiftTabActivityConfig extends IntentConfig {
         getIntent().putExtra("from", str3);
         getIntent().putExtra(GIFT_THREAD_ID, j2);
         getIntent().putExtra(GIFT_POST_ID, j3);
+    }
+
+    public void setReferPageAndClickZone(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+            getIntent().putExtra(MemberPayStatistic.REFER_PAGE, str);
+            getIntent().putExtra(MemberPayStatistic.CLICK_ZONE, str2);
+        }
     }
 }

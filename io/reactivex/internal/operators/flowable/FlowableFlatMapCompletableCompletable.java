@@ -25,16 +25,16 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableFlatMapCompletableCompletable<T> extends Completable implements FuseToFlowable<T> {
+public final class FlowableFlatMapCompletableCompletable extends Completable implements FuseToFlowable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean delayErrors;
-    public final Function<? super T, ? extends CompletableSource> mapper;
+    public final Function mapper;
     public final int maxConcurrency;
-    public final Flowable<T> source;
+    public final Flowable source;
 
     /* loaded from: classes8.dex */
-    public static final class FlatMapCompletableMainSubscriber<T> extends AtomicInteger implements FlowableSubscriber<T>, Disposable {
+    public final class FlatMapCompletableMainSubscriber extends AtomicInteger implements FlowableSubscriber, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 8443155186132538303L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -42,13 +42,13 @@ public final class FlowableFlatMapCompletableCompletable<T> extends Completable 
         public final boolean delayErrors;
         public volatile boolean disposed;
         public final AtomicThrowable errors;
-        public final Function<? super T, ? extends CompletableSource> mapper;
+        public final Function mapper;
         public final int maxConcurrency;
         public Subscription s;
         public final CompositeDisposable set;
 
         /* loaded from: classes8.dex */
-        public final class InnerObserver extends AtomicReference<Disposable> implements CompletableObserver, Disposable {
+        public final class InnerObserver extends AtomicReference implements CompletableObserver, Disposable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = 8606673141535671828L;
             public transient /* synthetic */ FieldHolder $fh;
@@ -72,29 +72,6 @@ public final class FlowableFlatMapCompletableCompletable<T> extends Completable 
                 this.this$0 = flatMapCompletableMainSubscriber;
             }
 
-            @Override // io.reactivex.disposables.Disposable
-            public void dispose() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    DisposableHelper.dispose(this);
-                }
-            }
-
-            @Override // io.reactivex.disposables.Disposable
-            public boolean isDisposed() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? DisposableHelper.isDisposed(get()) : invokeV.booleanValue;
-            }
-
-            @Override // io.reactivex.CompletableObserver, io.reactivex.MaybeObserver
-            public void onComplete() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                    this.this$0.innerComplete(this);
-                }
-            }
-
             @Override // io.reactivex.CompletableObserver
             public void onError(Throwable th) {
                 Interceptable interceptable = $ic;
@@ -110,9 +87,35 @@ public final class FlowableFlatMapCompletableCompletable<T> extends Completable 
                     DisposableHelper.setOnce(this, disposable);
                 }
             }
+
+            @Override // io.reactivex.disposables.Disposable
+            public void dispose() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    DisposableHelper.dispose(this);
+                }
+            }
+
+            @Override // io.reactivex.disposables.Disposable
+            public boolean isDisposed() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                    return DisposableHelper.isDisposed((Disposable) get());
+                }
+                return invokeV.booleanValue;
+            }
+
+            @Override // io.reactivex.CompletableObserver, io.reactivex.MaybeObserver
+            public void onComplete() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                    this.this$0.innerComplete(this);
+                }
+            }
         }
 
-        public FlatMapCompletableMainSubscriber(CompletableObserver completableObserver, Function<? super T, ? extends CompletableSource> function, boolean z, int i) {
+        public FlatMapCompletableMainSubscriber(CompletableObserver completableObserver, Function function, boolean z, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -146,7 +149,17 @@ public final class FlowableFlatMapCompletableCompletable<T> extends Completable 
             }
         }
 
-        public void innerComplete(FlatMapCompletableMainSubscriber<T>.InnerObserver innerObserver) {
+        @Override // io.reactivex.disposables.Disposable
+        public boolean isDisposed() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.set.isDisposed();
+            }
+            return invokeV.booleanValue;
+        }
+
+        public void innerComplete(InnerObserver innerObserver) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, innerObserver) == null) {
                 this.set.delete(innerObserver);
@@ -154,19 +167,12 @@ public final class FlowableFlatMapCompletableCompletable<T> extends Completable 
             }
         }
 
-        public void innerError(FlatMapCompletableMainSubscriber<T>.InnerObserver innerObserver, Throwable th) {
+        public void innerError(InnerObserver innerObserver, Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, innerObserver, th) == null) {
                 this.set.delete(innerObserver);
                 onError(th);
             }
-        }
-
-        @Override // io.reactivex.disposables.Disposable
-        public boolean isDisposed() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.set.isDisposed() : invokeV.booleanValue;
         }
 
         @Override // org.reactivestreams.Subscriber
@@ -214,17 +220,16 @@ public final class FlowableFlatMapCompletableCompletable<T> extends Completable 
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
+            if (interceptable == null || interceptable.invokeL(1048582, this, obj) == null) {
                 try {
-                    CompletableSource completableSource = (CompletableSource) ObjectHelper.requireNonNull(this.mapper.apply(t), "The mapper returned a null CompletableSource");
+                    CompletableSource completableSource = (CompletableSource) ObjectHelper.requireNonNull(this.mapper.apply(obj), "The mapper returned a null CompletableSource");
                     getAndIncrement();
                     InnerObserver innerObserver = new InnerObserver(this);
-                    if (this.disposed || !this.set.add(innerObserver)) {
-                        return;
+                    if (!this.disposed && this.set.add(innerObserver)) {
+                        completableSource.subscribe(innerObserver);
                     }
-                    completableSource.subscribe(innerObserver);
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
                     this.s.cancel();
@@ -249,7 +254,7 @@ public final class FlowableFlatMapCompletableCompletable<T> extends Completable 
         }
     }
 
-    public FlowableFlatMapCompletableCompletable(Flowable<T> flowable, Function<? super T, ? extends CompletableSource> function, boolean z, int i) {
+    public FlowableFlatMapCompletableCompletable(Flowable flowable, Function function, boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -271,10 +276,13 @@ public final class FlowableFlatMapCompletableCompletable<T> extends Completable 
     }
 
     @Override // io.reactivex.internal.fuseable.FuseToFlowable
-    public Flowable<T> fuseToFlowable() {
+    public Flowable fuseToFlowable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? RxJavaPlugins.onAssembly(new FlowableFlatMapCompletable(this.source, this.mapper, this.delayErrors, this.maxConcurrency)) : (Flowable) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return RxJavaPlugins.onAssembly(new FlowableFlatMapCompletable(this.source, this.mapper, this.delayErrors, this.maxConcurrency));
+        }
+        return (Flowable) invokeV.objValue;
     }
 
     @Override // io.reactivex.Completable

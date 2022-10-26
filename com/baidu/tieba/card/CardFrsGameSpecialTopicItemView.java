@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -93,33 +92,9 @@ public class CardFrsGameSpecialTopicItemView extends LinearLayout {
         b(context);
     }
 
-    public final void b(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0190, (ViewGroup) this, true);
-            this.a = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090523);
-            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090522);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090524);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090521);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090525);
-            this.f = findViewById(R.id.obfuscated_res_0x7f09080d);
-            this.g = findViewById(R.id.obfuscated_res_0x7f09080e);
-            int dimensionPixelSize = context.getResources().getDimensionPixelSize(R.dimen.tbds170) * 2;
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.a.getLayoutParams();
-            layoutParams.width = (dimensionPixelSize * 21) / 9;
-            layoutParams.height = dimensionPixelSize;
-            this.a.setLayoutParams(layoutParams);
-            setOrientation(1);
-            setFocusable(true);
-            setClickable(true);
-            setDescendantFocusability(262144);
-            setOnClickListener(new a(this));
-        }
-    }
-
     public void c(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || i == this.i) {
+        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) || i == this.i) {
             return;
         }
         this.i = i;
@@ -130,39 +105,8 @@ public class CardFrsGameSpecialTopicItemView extends LinearLayout {
         SkinManager.setViewTextColor(this.e, R.color.CAM_X0101, 1);
     }
 
-    public TextView getSpecialTopicDscView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (TextView) invokeV.objValue;
-    }
-
-    public TextView getSpecialTopicNameView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : (TextView) invokeV.objValue;
-    }
-
-    public TbImageView getSpecialTopicPicView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (TbImageView) invokeV.objValue;
-    }
-
-    public TextView getSpecialTopicUpdateTimeView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.e : (TextView) invokeV.objValue;
-    }
-
-    public void setForumId(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.h = str;
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CardFrsGameSpecialTopicItemView(Context context, @Nullable AttributeSet attributeSet) {
+    public CardFrsGameSpecialTopicItemView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -185,7 +129,7 @@ public class CardFrsGameSpecialTopicItemView extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CardFrsGameSpecialTopicItemView(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public CardFrsGameSpecialTopicItemView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -205,5 +149,72 @@ public class CardFrsGameSpecialTopicItemView extends LinearLayout {
         }
         this.i = 3;
         b(context);
+    }
+
+    public void setForumId(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.h = str;
+        }
+    }
+
+    public final void b(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d018f, (ViewGroup) this, true);
+            this.a = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09052c);
+            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09052b);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09052d);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09052a);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09052e);
+            this.f = findViewById(R.id.obfuscated_res_0x7f090816);
+            this.g = findViewById(R.id.obfuscated_res_0x7f090817);
+            int dimensionPixelSize = context.getResources().getDimensionPixelSize(R.dimen.tbds170) * 2;
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.a.getLayoutParams();
+            layoutParams.width = (dimensionPixelSize * 21) / 9;
+            layoutParams.height = dimensionPixelSize;
+            this.a.setLayoutParams(layoutParams);
+            setOrientation(1);
+            setFocusable(true);
+            setClickable(true);
+            setDescendantFocusability(262144);
+            setOnClickListener(new a(this));
+        }
+    }
+
+    public TextView getSpecialTopicDscView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return (TextView) invokeV.objValue;
+    }
+
+    public TextView getSpecialTopicNameView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return (TextView) invokeV.objValue;
+    }
+
+    public TbImageView getSpecialTopicPicView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return (TbImageView) invokeV.objValue;
+    }
+
+    public TextView getSpecialTopicUpdateTimeView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.e;
+        }
+        return (TextView) invokeV.objValue;
     }
 }

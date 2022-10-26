@@ -10,8 +10,6 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -20,10 +18,10 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hv4;
-import com.baidu.tieba.qo6;
-import com.baidu.tieba.ro6;
+import com.baidu.tieba.nv4;
 import com.baidu.tieba.view.TbImageAutoSwitch;
+import com.baidu.tieba.xo6;
+import com.baidu.tieba.yo6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,7 +33,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.FrsPage.LiveFuseForumData;
 /* loaded from: classes4.dex */
-public class HeaderComponentSingleView extends FrameLayout implements ro6 {
+public class HeaderComponentSingleView extends FrameLayout implements yo6 {
     public static /* synthetic */ Interceptable $ic;
     public static final int m;
     public static final int n;
@@ -49,8 +47,8 @@ public class HeaderComponentSingleView extends FrameLayout implements ro6 {
     public ViewGroup f;
     public HeadImageView g;
     public TbImageAutoSwitch h;
-    public List<String> i;
-    public qo6 j;
+    public List i;
+    public xo6 j;
     public LiveFuseForumData k;
     public TbImageAutoSwitch.b l;
 
@@ -60,15 +58,22 @@ public class HeaderComponentSingleView extends FrameLayout implements ro6 {
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HeaderComponentSingleView a;
 
+        @Override // com.baidu.tieba.view.TbImageAutoSwitch.b
+        public void b(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            }
+        }
+
         /* renamed from: com.baidu.tieba.frs.headercomponent.HeaderComponentSingleView$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class View$OnClickListenerC0259a implements View.OnClickListener {
+        public class View$OnClickListenerC0243a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
             public final /* synthetic */ a b;
 
-            public View$OnClickListenerC0259a(a aVar, int i) {
+            public View$OnClickListenerC0243a(a aVar, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -90,10 +95,9 @@ public class HeaderComponentSingleView extends FrameLayout implements ro6 {
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.b.a.j == null) {
-                    return;
+                if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.b.a.j != null) {
+                    this.b.a.j.b(1, this.b.a.k, this.a);
                 }
-                this.b.a.j.b(1, this.b.a.k, this.a);
             }
         }
 
@@ -120,15 +124,8 @@ public class HeaderComponentSingleView extends FrameLayout implements ro6 {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) && (view2 instanceof HeadImageView)) {
                 HeadImageView headImageView = (HeadImageView) view2;
-                headImageView.K((String) this.a.i.get(i), 12, false);
-                headImageView.setOnClickListener(new View$OnClickListenerC0259a(this, i));
-            }
-        }
-
-        @Override // com.baidu.tieba.view.TbImageAutoSwitch.b
-        public void b(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+                headImageView.L((String) this.a.i.get(i), 12, false);
+                headImageView.setOnClickListener(new View$OnClickListenerC0243a(this, i));
             }
         }
 
@@ -154,7 +151,10 @@ public class HeaderComponentSingleView extends FrameLayout implements ro6 {
         public int getCount() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.i.size() : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.a.i.size();
+            }
+            return invokeV.intValue;
         }
     }
 
@@ -185,10 +185,9 @@ public class HeaderComponentSingleView extends FrameLayout implements ro6 {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.j == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.j != null) {
+                this.a.j.c(1, this.a.k);
             }
-            this.a.j.c(1, this.a.k);
         }
     }
 
@@ -210,8 +209,27 @@ public class HeaderComponentSingleView extends FrameLayout implements ro6 {
         o = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds2);
     }
 
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || this.k == null) {
+            return;
+        }
+        int skinType = TbadkCoreApplication.getInst().getSkinType();
+        if (skinType == 0) {
+            this.e.L(this.k.bjimg_light_big, 10, false);
+        } else {
+            this.e.L(this.k.bjimg_dark_big, 10, false);
+        }
+        this.c.k0(this.k.icon_url, 38);
+        if (skinType == 1) {
+            this.c.setAlpha(0.7f);
+        } else {
+            this.c.setAlpha(1.0f);
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HeaderComponentSingleView(@NonNull Context context) {
+    public HeaderComponentSingleView(Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -233,147 +251,8 @@ public class HeaderComponentSingleView extends FrameLayout implements ro6 {
         h();
     }
 
-    @Override // com.baidu.tieba.ro6
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            int childCount = this.d.getChildCount();
-            for (int i = 0; i < childCount; i++) {
-                hv4 d = hv4.d((TextView) this.d.getChildAt(i));
-                d.v(R.color.CAM_X0105);
-                d.A(R.string.F_X02);
-            }
-            hv4.d(this.b).v(R.color.CAM_X0108);
-            i();
-            if (!ListUtils.isEmpty(this.h.getChildViews())) {
-                for (View view2 : this.h.getChildViews()) {
-                    if (view2 instanceof HeadImageView) {
-                        ((HeadImageView) view2).setBorderColor(SkinManager.getColor(R.color.CAM_X0402));
-                    }
-                }
-            }
-            this.g.setBorderColor(SkinManager.getColor(R.color.CAM_X0402));
-            hv4 d2 = hv4.d(this.f);
-            d2.n(R.string.J_X06);
-            d2.f(R.color.CAM_X0201);
-        }
-    }
-
-    @Override // com.baidu.tieba.ro6
-    public void b(List<LiveFuseForumData> list, qo6 qo6Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, qo6Var) == null) || ListUtils.isEmpty(list)) {
-            return;
-        }
-        LiveFuseForumData liveFuseForumData = list.get(0);
-        this.k = liveFuseForumData;
-        this.j = qo6Var;
-        List<String> list2 = liveFuseForumData.title;
-        if (!ListUtils.isEmpty(list2)) {
-            int size = list2.size();
-            for (int i = 0; i < list2.size(); i++) {
-                TextView textView = new TextView(getContext());
-                textView.setIncludeFontPadding(false);
-                textView.setLines(1);
-                textView.setEllipsize(TextUtils.TruncateAt.END);
-                textView.setText(list2.get(i));
-                hv4 d = hv4.d(textView);
-                d.v(R.color.CAM_X0105);
-                d.A(R.string.F_X02);
-                d.z(R.dimen.T_X06);
-                this.d.addView(textView);
-            }
-            if (size > 1) {
-                this.d.startFlipping();
-            } else {
-                this.d.stopFlipping();
-            }
-        }
-        this.b.setText(this.k.online_users);
-        this.i.clear();
-        if (!ListUtils.isEmpty(this.k.head_img)) {
-            this.i.addAll(this.k.head_img);
-            if (this.i.size() == 1) {
-                this.g.setVisibility(0);
-                this.h.setVisibility(8);
-                this.g.K(this.i.get(0), 12, false);
-            } else {
-                this.h.setVisibility(0);
-                this.g.setVisibility(8);
-                this.h.p();
-            }
-        } else {
-            this.h.setVisibility(8);
-            this.g.setVisibility(8);
-        }
-        a();
-        setOnClickListener(new b(this));
-        qo6 qo6Var2 = this.j;
-        if (qo6Var2 != null) {
-            qo6Var2.a(1, this.k);
-        }
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0319, this);
-            this.a = inflate;
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0906a4);
-            this.e = tbImageView;
-            tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
-            this.e.setDrawCorner(true);
-            this.e.setRadiusById(R.string.J_X06);
-            this.e.setPlaceHolder(2);
-            this.e.setConrers(15);
-            this.f = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f0906ae);
-            this.d = (ViewFlipper) this.a.findViewById(R.id.obfuscated_res_0x7f0906a6);
-            this.b = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0906a5);
-            GifView gifView = (GifView) this.a.findViewById(R.id.obfuscated_res_0x7f0906a9);
-            this.c = gifView;
-            gifView.setScaleType(ImageView.ScaleType.FIT_XY);
-            this.c.setShowStaticDrawable(false);
-            this.c.setDrawerType(1);
-            HeadImageView headImageView = (HeadImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0906ac);
-            this.g = headImageView;
-            headImageView.setPlaceHolder(1);
-            this.g.setIsRound(true);
-            this.g.setBorderWidth(getResources().getDimensionPixelSize(R.dimen.L_X02));
-            this.g.setBorderColor(R.color.CAM_X0402);
-            this.g.setDrawBorder(true);
-            this.g.setScaleType(ImageView.ScaleType.FIT_XY);
-            TbImageAutoSwitch tbImageAutoSwitch = (TbImageAutoSwitch) this.a.findViewById(R.id.obfuscated_res_0x7f0906a8);
-            this.h = tbImageAutoSwitch;
-            int i = m;
-            tbImageAutoSwitch.l(4, i, i, n);
-            this.h.setAnimationDuration(500);
-            this.h.setCarouselDelayPeriod(2000);
-            this.h.setCarouselPeriod(2000);
-            this.h.setAdapter(this.l);
-        }
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.k == null) {
-            return;
-        }
-        int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == 0) {
-            this.e.K(this.k.bjimg_light_big, 10, false);
-        } else {
-            this.e.K(this.k.bjimg_dark_big, 10, false);
-        }
-        this.c.j0(this.k.icon_url, 38);
-        if (skinType == 1) {
-            this.c.setAlpha(0.7f);
-        } else {
-            this.c.setAlpha(1.0f);
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HeaderComponentSingleView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+    public HeaderComponentSingleView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -397,7 +276,7 @@ public class HeaderComponentSingleView extends FrameLayout implements ro6 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HeaderComponentSingleView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+    public HeaderComponentSingleView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -418,5 +297,125 @@ public class HeaderComponentSingleView extends FrameLayout implements ro6 {
         this.i = new ArrayList();
         this.l = new a(this);
         h();
+    }
+
+    @Override // com.baidu.tieba.yo6
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            int childCount = this.d.getChildCount();
+            for (int i = 0; i < childCount; i++) {
+                nv4 d = nv4.d((TextView) this.d.getChildAt(i));
+                d.v(R.color.CAM_X0105);
+                d.A(R.string.F_X02);
+            }
+            nv4.d(this.b).v(R.color.CAM_X0108);
+            i();
+            if (!ListUtils.isEmpty(this.h.getChildViews())) {
+                for (View view2 : this.h.getChildViews()) {
+                    if (view2 instanceof HeadImageView) {
+                        ((HeadImageView) view2).setBorderColor(SkinManager.getColor(R.color.CAM_X0402));
+                    }
+                }
+            }
+            this.g.setBorderColor(SkinManager.getColor(R.color.CAM_X0402));
+            nv4 d2 = nv4.d(this.f);
+            d2.n(R.string.J_X06);
+            d2.f(R.color.CAM_X0201);
+        }
+    }
+
+    @Override // com.baidu.tieba.yo6
+    public void b(List list, xo6 xo6Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, xo6Var) != null) || ListUtils.isEmpty(list)) {
+            return;
+        }
+        LiveFuseForumData liveFuseForumData = (LiveFuseForumData) list.get(0);
+        this.k = liveFuseForumData;
+        this.j = xo6Var;
+        List<String> list2 = liveFuseForumData.title;
+        if (!ListUtils.isEmpty(list2)) {
+            int size = list2.size();
+            for (int i = 0; i < list2.size(); i++) {
+                TextView textView = new TextView(getContext());
+                textView.setIncludeFontPadding(false);
+                textView.setLines(1);
+                textView.setEllipsize(TextUtils.TruncateAt.END);
+                textView.setText(list2.get(i));
+                nv4 d = nv4.d(textView);
+                d.v(R.color.CAM_X0105);
+                d.A(R.string.F_X02);
+                d.z(R.dimen.T_X06);
+                this.d.addView(textView);
+            }
+            if (size > 1) {
+                this.d.startFlipping();
+            } else {
+                this.d.stopFlipping();
+            }
+        }
+        this.b.setText(this.k.online_users);
+        this.i.clear();
+        if (!ListUtils.isEmpty(this.k.head_img)) {
+            this.i.addAll(this.k.head_img);
+            if (this.i.size() == 1) {
+                this.g.setVisibility(0);
+                this.h.setVisibility(8);
+                this.g.L((String) this.i.get(0), 12, false);
+            } else {
+                this.h.setVisibility(0);
+                this.g.setVisibility(8);
+                this.h.p();
+            }
+        } else {
+            this.h.setVisibility(8);
+            this.g.setVisibility(8);
+        }
+        a();
+        setOnClickListener(new b(this));
+        xo6 xo6Var2 = this.j;
+        if (xo6Var2 != null) {
+            xo6Var2.a(1, this.k);
+        }
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0318, this);
+            this.a = inflate;
+            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0906ad);
+            this.e = tbImageView;
+            tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
+            this.e.setDrawCorner(true);
+            this.e.setRadiusById(R.string.J_X06);
+            this.e.setPlaceHolder(2);
+            this.e.setConrers(15);
+            this.f = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f0906b7);
+            this.d = (ViewFlipper) this.a.findViewById(R.id.obfuscated_res_0x7f0906af);
+            this.b = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0906ae);
+            GifView gifView = (GifView) this.a.findViewById(R.id.obfuscated_res_0x7f0906b2);
+            this.c = gifView;
+            gifView.setScaleType(ImageView.ScaleType.FIT_XY);
+            this.c.setShowStaticDrawable(false);
+            this.c.setDrawerType(1);
+            HeadImageView headImageView = (HeadImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0906b5);
+            this.g = headImageView;
+            headImageView.setPlaceHolder(1);
+            this.g.setIsRound(true);
+            this.g.setBorderWidth(getResources().getDimensionPixelSize(R.dimen.L_X02));
+            this.g.setBorderColor(R.color.CAM_X0402);
+            this.g.setDrawBorder(true);
+            this.g.setScaleType(ImageView.ScaleType.FIT_XY);
+            TbImageAutoSwitch tbImageAutoSwitch = (TbImageAutoSwitch) this.a.findViewById(R.id.obfuscated_res_0x7f0906b1);
+            this.h = tbImageAutoSwitch;
+            int i = m;
+            tbImageAutoSwitch.l(4, i, i, n);
+            this.h.setAnimationDuration(500);
+            this.h.setCarouselDelayPeriod(2000);
+            this.h.setCarouselPeriod(2000);
+            this.h.setAdapter(this.l);
+        }
     }
 }

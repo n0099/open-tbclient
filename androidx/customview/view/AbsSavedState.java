@@ -1,10 +1,7 @@
 package androidx.customview.view;
 
-import android.annotation.SuppressLint;
 import android.os.Parcel;
 import android.os.Parcelable;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -14,7 +11,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@SuppressLint({"BanParcelableUsage"})
 /* loaded from: classes.dex */
 public abstract class AbsSavedState implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
@@ -22,6 +18,16 @@ public abstract class AbsSavedState implements Parcelable {
     public static final AbsSavedState EMPTY_STATE;
     public transient /* synthetic */ FieldHolder $fh;
     public final Parcelable mSuperState;
+
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -75,10 +81,24 @@ public abstract class AbsSavedState implements Parcelable {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
+            public AbsSavedState createFromParcel(Parcel parcel) {
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return createFromParcel(parcel, (ClassLoader) null);
+                }
+                return (AbsSavedState) invokeL.objValue;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // android.os.Parcelable.Creator
             public AbsSavedState[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(1048580, this, i)) == null) ? new AbsSavedState[i] : (AbsSavedState[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(1048580, this, i)) == null) {
+                    return new AbsSavedState[i];
+                }
+                return (AbsSavedState[]) invokeI.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -95,40 +115,7 @@ public abstract class AbsSavedState implements Parcelable {
                 }
                 return (AbsSavedState) invokeLL.objValue;
             }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // android.os.Parcelable.Creator
-            public AbsSavedState createFromParcel(Parcel parcel) {
-                InterceptResult invokeL;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? createFromParcel(parcel, (ClassLoader) null) : (AbsSavedState) invokeL.objValue;
-            }
         };
-    }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Nullable
-    public final Parcelable getSuperState() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mSuperState : (Parcelable) invokeV.objValue;
-    }
-
-    @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i) == null) {
-            parcel.writeParcelable(this.mSuperState, i);
-        }
     }
 
     public AbsSavedState() {
@@ -147,7 +134,56 @@ public abstract class AbsSavedState implements Parcelable {
         this.mSuperState = null;
     }
 
-    public AbsSavedState(@NonNull Parcelable parcelable) {
+    public final Parcelable getSuperState() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mSuperState;
+        }
+        return (Parcelable) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public AbsSavedState(Parcel parcel) {
+        this(parcel, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Parcel) objArr2[0], (ClassLoader) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public AbsSavedState(Parcel parcel, ClassLoader classLoader) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel, classLoader};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        Parcelable readParcelable = parcel.readParcelable(classLoader);
+        this.mSuperState = readParcelable == null ? EMPTY_STATE : readParcelable;
+    }
+
+    public AbsSavedState(Parcelable parcelable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -169,43 +205,11 @@ public abstract class AbsSavedState implements Parcelable {
         throw new IllegalArgumentException("superState must not be null");
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AbsSavedState(@NonNull Parcel parcel) {
-        this(parcel, null);
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Parcel) objArr2[0], (ClassLoader) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i) == null) {
+            parcel.writeParcelable(this.mSuperState, i);
         }
-    }
-
-    public AbsSavedState(@NonNull Parcel parcel, @Nullable ClassLoader classLoader) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel, classLoader};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        Parcelable readParcelable = parcel.readParcelable(classLoader);
-        this.mSuperState = readParcelable == null ? EMPTY_STATE : readParcelable;
     }
 }

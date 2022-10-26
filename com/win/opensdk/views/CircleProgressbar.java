@@ -209,19 +209,6 @@ public class CircleProgressbar extends TextView {
         }
     }
 
-    @Override // android.widget.TextView, android.view.View
-    public void drawableStateChanged() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            super.drawableStateChanged();
-            int colorForState = this.b.getColorForState(getDrawableState(), 0);
-            if (this.c != colorForState) {
-                this.c = colorForState;
-                invalidate();
-            }
-        }
-    }
-
     public int getProgress() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -354,6 +341,19 @@ public class CircleProgressbar extends TextView {
         if (interceptable == null || interceptable.invokeJ(1048595, this, j) == null) {
             this.j = j;
             invalidate();
+        }
+    }
+
+    @Override // android.widget.TextView, android.view.View
+    public void drawableStateChanged() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            super.drawableStateChanged();
+            int colorForState = this.b.getColorForState(getDrawableState(), 0);
+            if (this.c != colorForState) {
+                this.c = colorForState;
+                invalidate();
+            }
         }
     }
 }

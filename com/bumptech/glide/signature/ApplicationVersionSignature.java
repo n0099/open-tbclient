@@ -4,9 +4,6 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -22,7 +19,7 @@ import java.util.concurrent.ConcurrentMap;
 /* loaded from: classes7.dex */
 public final class ApplicationVersionSignature {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final ConcurrentMap<String, Key> PACKAGE_NAME_TO_KEY;
+    public static final ConcurrentMap PACKAGE_NAME_TO_KEY;
     public static final String TAG = "AppVersionSignature";
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -56,8 +53,14 @@ public final class ApplicationVersionSignature {
         }
     }
 
-    @Nullable
-    public static PackageInfo getPackageInfo(@NonNull Context context) {
+    public static void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
+            PACKAGE_NAME_TO_KEY.clear();
+        }
+    }
+
+    public static PackageInfo getPackageInfo(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
@@ -71,8 +74,26 @@ public final class ApplicationVersionSignature {
         return (PackageInfo) invokeL.objValue;
     }
 
-    @NonNull
-    public static String getVersionCode(@Nullable PackageInfo packageInfo) {
+    public static Key obtain(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            String packageName = context.getPackageName();
+            Key key = (Key) PACKAGE_NAME_TO_KEY.get(packageName);
+            if (key == null) {
+                Key obtainVersionSignature = obtainVersionSignature(context);
+                Key key2 = (Key) PACKAGE_NAME_TO_KEY.putIfAbsent(packageName, obtainVersionSignature);
+                if (key2 != null) {
+                    return key2;
+                }
+                return obtainVersionSignature;
+            }
+            return key;
+        }
+        return (Key) invokeL.objValue;
+    }
+
+    public static String getVersionCode(PackageInfo packageInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, packageInfo)) == null) {
@@ -84,35 +105,12 @@ public final class ApplicationVersionSignature {
         return (String) invokeL.objValue;
     }
 
-    @NonNull
-    public static Key obtain(@NonNull Context context) {
+    public static Key obtainVersionSignature(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            String packageName = context.getPackageName();
-            Key key = PACKAGE_NAME_TO_KEY.get(packageName);
-            if (key == null) {
-                Key obtainVersionSignature = obtainVersionSignature(context);
-                Key putIfAbsent = PACKAGE_NAME_TO_KEY.putIfAbsent(packageName, obtainVersionSignature);
-                return putIfAbsent == null ? obtainVersionSignature : putIfAbsent;
-            }
-            return key;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            return new ObjectKey(getVersionCode(getPackageInfo(context)));
         }
         return (Key) invokeL.objValue;
-    }
-
-    @NonNull
-    public static Key obtainVersionSignature(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? new ObjectKey(getVersionCode(getPackageInfo(context))) : (Key) invokeL.objValue;
-    }
-
-    @VisibleForTesting
-    public static void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            PACKAGE_NAME_TO_KEY.clear();
-        }
     }
 }

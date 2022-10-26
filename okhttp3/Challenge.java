@@ -38,10 +38,70 @@ public final class Challenge {
         }
     }
 
+    public Challenge(String str, String str2, Charset charset) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, charset};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        if (str != null) {
+            if (str2 != null) {
+                if (charset != null) {
+                    this.scheme = str;
+                    this.realm = str2;
+                    this.charset = charset;
+                    return;
+                }
+                throw new NullPointerException("charset == null");
+            }
+            throw new NullPointerException("realm == null");
+        }
+        throw new NullPointerException("scheme == null");
+    }
+
     public Charset charset() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.charset : (Charset) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.charset;
+        }
+        return (Charset) invokeV.objValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return ((((899 + this.realm.hashCode()) * 31) + this.scheme.hashCode()) * 31) + this.charset.hashCode();
+        }
+        return invokeV.intValue;
+    }
+
+    public String realm() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.realm;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String scheme() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.scheme;
+        }
+        return (String) invokeV.objValue;
     }
 
     public boolean equals(@Nullable Object obj) {
@@ -59,24 +119,6 @@ public final class Challenge {
         return invokeL.booleanValue;
     }
 
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ((((899 + this.realm.hashCode()) * 31) + this.scheme.hashCode()) * 31) + this.charset.hashCode() : invokeV.intValue;
-    }
-
-    public String realm() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.realm : (String) invokeV.objValue;
-    }
-
-    public String scheme() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.scheme : (String) invokeV.objValue;
-    }
-
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -89,36 +131,9 @@ public final class Challenge {
     public Challenge withCharset(Charset charset) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, charset)) == null) ? new Challenge(this.scheme, this.realm, charset) : (Challenge) invokeL.objValue;
-    }
-
-    public Challenge(String str, String str2, Charset charset) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, charset};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, charset)) == null) {
+            return new Challenge(this.scheme, this.realm, charset);
         }
-        if (str == null) {
-            throw new NullPointerException("scheme == null");
-        }
-        if (str2 == null) {
-            throw new NullPointerException("realm == null");
-        }
-        if (charset != null) {
-            this.scheme = str;
-            this.realm = str2;
-            this.charset = charset;
-            return;
-        }
-        throw new NullPointerException("charset == null");
+        return (Challenge) invokeL.objValue;
     }
 }

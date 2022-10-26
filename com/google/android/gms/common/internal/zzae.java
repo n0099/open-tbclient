@@ -18,7 +18,10 @@ public abstract class zzae extends com.google.android.gms.internal.common.zzb im
                 return null;
             }
             IInterface queryLocalInterface = iBinder.queryLocalInterface("com.google.android.gms.common.internal.IGoogleCertificatesApi");
-            return queryLocalInterface instanceof zzaf ? (zzaf) queryLocalInterface : new zzad(iBinder);
+            if (queryLocalInterface instanceof zzaf) {
+                return (zzaf) queryLocalInterface;
+            }
+            return new zzad(iBinder);
         }
         return (zzaf) invokeL.objValue;
     }

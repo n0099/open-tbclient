@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.common.Feature;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelReader;
 /* loaded from: classes7.dex */
-public final class zzk implements Parcelable.Creator<zzj> {
+public final class zzk implements Parcelable.Creator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,9 +28,8 @@ public final class zzk implements Parcelable.Creator<zzj> {
         }
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // android.os.Parcelable.Creator
-    public final /* bridge */ /* synthetic */ zzj createFromParcel(Parcel parcel) {
+    public final /* bridge */ /* synthetic */ Object createFromParcel(Parcel parcel) {
         int validateObjectHeader = SafeParcelReader.validateObjectHeader(parcel);
         Bundle bundle = null;
         Feature[] featureArr = null;
@@ -39,25 +38,30 @@ public final class zzk implements Parcelable.Creator<zzj> {
         while (parcel.dataPosition() < validateObjectHeader) {
             int readHeader = SafeParcelReader.readHeader(parcel);
             int fieldId = SafeParcelReader.getFieldId(readHeader);
-            if (fieldId == 1) {
-                bundle = SafeParcelReader.createBundle(parcel, readHeader);
-            } else if (fieldId == 2) {
-                featureArr = (Feature[]) SafeParcelReader.createTypedArray(parcel, readHeader, Feature.CREATOR);
-            } else if (fieldId == 3) {
-                i = SafeParcelReader.readInt(parcel, readHeader);
-            } else if (fieldId != 4) {
-                SafeParcelReader.skipUnknownField(parcel, readHeader);
+            if (fieldId != 1) {
+                if (fieldId != 2) {
+                    if (fieldId != 3) {
+                        if (fieldId != 4) {
+                            SafeParcelReader.skipUnknownField(parcel, readHeader);
+                        } else {
+                            connectionTelemetryConfiguration = (ConnectionTelemetryConfiguration) SafeParcelReader.createParcelable(parcel, readHeader, ConnectionTelemetryConfiguration.CREATOR);
+                        }
+                    } else {
+                        i = SafeParcelReader.readInt(parcel, readHeader);
+                    }
+                } else {
+                    featureArr = (Feature[]) SafeParcelReader.createTypedArray(parcel, readHeader, Feature.CREATOR);
+                }
             } else {
-                connectionTelemetryConfiguration = (ConnectionTelemetryConfiguration) SafeParcelReader.createParcelable(parcel, readHeader, ConnectionTelemetryConfiguration.CREATOR);
+                bundle = SafeParcelReader.createBundle(parcel, readHeader);
             }
         }
         SafeParcelReader.ensureAtEnd(parcel, validateObjectHeader);
         return new zzj(bundle, featureArr, i, connectionTelemetryConfiguration);
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object[]' to match base method */
     @Override // android.os.Parcelable.Creator
-    public final /* synthetic */ zzj[] newArray(int i) {
+    public final /* synthetic */ Object[] newArray(int i) {
         return new zzj[i];
     }
 }

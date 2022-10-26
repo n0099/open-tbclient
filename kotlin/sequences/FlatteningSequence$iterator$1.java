@@ -14,12 +14,21 @@ public final class FlatteningSequence$iterator$1 implements Iterator<E>, KMapped
     public final Iterator<T> iterator;
     public final /* synthetic */ FlatteningSequence this$0;
 
+    @Override // java.util.Iterator
+    public void remove() {
+        throw new UnsupportedOperationException("Operation is not supported for read-only collection");
+    }
+
     /* JADX DEBUG: Incorrect args count in method signature: ()V */
     public FlatteningSequence$iterator$1(FlatteningSequence flatteningSequence) {
         Sequence sequence;
         this.this$0 = flatteningSequence;
         sequence = flatteningSequence.sequence;
         this.iterator = sequence.iterator();
+    }
+
+    public final void setItemIterator(Iterator<? extends E> it) {
+        this.itemIterator = it;
     }
 
     private final boolean ensureItemIterator() {
@@ -72,14 +81,5 @@ public final class FlatteningSequence$iterator$1 implements Iterator<E>, KMapped
             return it.next();
         }
         throw new NoSuchElementException();
-    }
-
-    @Override // java.util.Iterator
-    public void remove() {
-        throw new UnsupportedOperationException("Operation is not supported for read-only collection");
-    }
-
-    public final void setItemIterator(Iterator<? extends E> it) {
-        this.itemIterator = it;
     }
 }

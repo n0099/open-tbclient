@@ -1,16 +1,11 @@
 package com.baidu.searchbox.player.helper;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.text.TextUtils;
-import androidx.annotation.IntRange;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.player.BDPlayerConfig;
-import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -44,7 +39,7 @@ public class NetUtils {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class NetStatus {
+    public final class NetStatus {
         public static final /* synthetic */ NetStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final NetStatus NET_DOWN;
@@ -94,13 +89,19 @@ public class NetUtils {
         public static NetStatus valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (NetStatus) Enum.valueOf(NetStatus.class, str) : (NetStatus) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (NetStatus) Enum.valueOf(NetStatus.class, str);
+            }
+            return (NetStatus) invokeL.objValue;
         }
 
         public static NetStatus[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (NetStatus[]) $VALUES.clone() : (NetStatus[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (NetStatus[]) $VALUES.clone();
+            }
+            return (NetStatus[]) invokeV.objValue;
         }
     }
 
@@ -136,7 +137,78 @@ public class NetUtils {
         }
     }
 
-    @PublicMethod
+    public static NetStatus getNetStatus() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            NetworkInfo networkInfo = getNetworkInfo();
+            if (networkInfo != null) {
+                if (1 == networkInfo.getType()) {
+                    return NetStatus.NET_WIFI;
+                }
+                return NetStatus.NET_MOBILE;
+            }
+            return NetStatus.NET_DOWN;
+        }
+        return (NetStatus) invokeV.objValue;
+    }
+
+    public static NetworkInfo getNetworkInfo() {
+        InterceptResult invokeV;
+        ConnectivityManager connectivityManager;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            Context appContext = BDPlayerConfig.getAppContext();
+            if (appContext == null || (connectivityManager = (ConnectivityManager) appContext.getSystemService("connectivity")) == null) {
+                return null;
+            }
+            try {
+                return connectivityManager.getActiveNetworkInfo();
+            } catch (SecurityException unused) {
+                return null;
+            }
+        }
+        return (NetworkInfo) invokeV.objValue;
+    }
+
+    public static boolean isNet3G() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            NetworkInfo networkInfo = getNetworkInfo();
+            if (networkInfo == null) {
+                return false;
+            }
+            return !"wifi".equals(networkInfo.getTypeName().toLowerCase(Locale.getDefault()));
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isNetDown() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            if (getNetworkInfo() == null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isNetWifi() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            NetworkInfo networkInfo = getNetworkInfo();
+            if (networkInfo == null) {
+                return false;
+            }
+            return "wifi".equals(networkInfo.getTypeName().toLowerCase(Locale.getDefault()));
+        }
+        return invokeV.booleanValue;
+    }
+
     public static String appendCDNStatParams(String str, int i, String str2) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
@@ -144,55 +216,55 @@ public class NetUtils {
             if (TextUtils.isEmpty(str)) {
                 return str;
             }
-            if (str.contains("vd1.bdstatic.com") || str.contains("vd2.bdstatic.com") || str.contains("vd3.bdstatic.com") || str.contains("vd4.bdstatic.com") || VideoAsyncHostHelper.isVideoUrlNeedAsyncRequest(str)) {
-                StringBuilder sb = new StringBuilder(str);
-                if (str.contains("pdx=")) {
-                    int indexOf = sb.indexOf("pdx=");
-                    if (indexOf >= 0) {
-                        int i2 = indexOf + 4;
-                        sb.replace(i2, getNumEndIndex(sb.toString(), i2), "0");
-                    }
-                    int indexOf2 = sb.indexOf("nt=");
-                    if (indexOf2 >= 0) {
-                        int i3 = indexOf2 + 3;
-                        sb.replace(i3, getNumEndIndex(sb.toString(), i3), String.valueOf(getNetTypeParams()));
-                    }
-                    int indexOf3 = sb.indexOf("dt=");
-                    if (indexOf3 >= 0) {
-                        int i4 = indexOf3 + 3;
-                        sb.replace(i4, getNumEndIndex(sb.toString(), i4), String.valueOf(i));
-                    }
-                    int indexOf4 = sb.indexOf("ds_stc=");
-                    if (indexOf4 >= 0) {
-                        int i5 = indexOf4 + 7;
-                        sb.replace(i5, findParamEndIndex(sb.toString(), i5), String.valueOf(str2));
-                    }
-                } else {
-                    if (!str.contains("?")) {
-                        sb.append("?");
-                    } else {
-                        sb.append("&");
-                    }
-                    sb.append("pdx=");
-                    sb.append("0");
-                    sb.append("&");
-                    sb.append("nt=");
-                    sb.append(getNetTypeParams());
-                    sb.append("&");
-                    sb.append("dt=");
-                    sb.append(i);
-                    sb.append("&");
-                    sb.append("ds_stc=");
-                    sb.append(str2);
-                }
-                return sb.toString();
+            if (!str.contains("vd1.bdstatic.com") && !str.contains("vd2.bdstatic.com") && !str.contains("vd3.bdstatic.com") && !str.contains("vd4.bdstatic.com") && !VideoAsyncHostHelper.isVideoUrlNeedAsyncRequest(str)) {
+                return str;
             }
-            return str;
+            StringBuilder sb = new StringBuilder(str);
+            if (str.contains("pdx=")) {
+                int indexOf = sb.indexOf("pdx=");
+                if (indexOf >= 0) {
+                    int i2 = indexOf + 4;
+                    sb.replace(i2, getNumEndIndex(sb.toString(), i2), "0");
+                }
+                int indexOf2 = sb.indexOf("nt=");
+                if (indexOf2 >= 0) {
+                    int i3 = indexOf2 + 3;
+                    sb.replace(i3, getNumEndIndex(sb.toString(), i3), String.valueOf(getNetTypeParams()));
+                }
+                int indexOf3 = sb.indexOf("dt=");
+                if (indexOf3 >= 0) {
+                    int i4 = indexOf3 + 3;
+                    sb.replace(i4, getNumEndIndex(sb.toString(), i4), String.valueOf(i));
+                }
+                int indexOf4 = sb.indexOf("ds_stc=");
+                if (indexOf4 >= 0) {
+                    int i5 = indexOf4 + 7;
+                    sb.replace(i5, findParamEndIndex(sb.toString(), i5), String.valueOf(str2));
+                }
+            } else {
+                if (!str.contains("?")) {
+                    sb.append("?");
+                } else {
+                    sb.append("&");
+                }
+                sb.append("pdx=");
+                sb.append("0");
+                sb.append("&");
+                sb.append("nt=");
+                sb.append(getNetTypeParams());
+                sb.append("&");
+                sb.append("dt=");
+                sb.append(i);
+                sb.append("&");
+                sb.append("ds_stc=");
+                sb.append(str2);
+            }
+            return sb.toString();
         }
         return (String) invokeLIL.objValue;
     }
 
-    public static int findParamEndIndex(@NonNull String str, @IntRange(from = 0) int i) {
+    public static int findParamEndIndex(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, str, i)) == null) {
@@ -206,7 +278,20 @@ public class NetUtils {
         return invokeLI.intValue;
     }
 
-    @PublicMethod
+    public static int getNumEndIndex(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, str, i)) == null) {
+            int i2 = i;
+            while (i < str.length() && str.charAt(i) >= '0' && str.charAt(i) <= '9') {
+                i2++;
+                i++;
+            }
+            return i2;
+        }
+        return invokeLI.intValue;
+    }
+
     public static String getMobileNetworkType(int i, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -237,27 +322,13 @@ public class NetUtils {
                 case 20:
                     return "5g";
                 default:
-                    return (TextUtils.isEmpty(str) || !str.equalsIgnoreCase("LTE_CA")) ? "unknown" : "4g";
+                    if (!TextUtils.isEmpty(str) && str.equalsIgnoreCase("LTE_CA")) {
+                        return "4g";
+                    }
+                    return "unknown";
             }
         }
         return (String) invokeIL.objValue;
-    }
-
-    @PublicMethod
-    public static NetStatus getNetStatus() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            NetworkInfo networkInfo = getNetworkInfo();
-            if (networkInfo != null) {
-                if (1 == networkInfo.getType()) {
-                    return NetStatus.NET_WIFI;
-                }
-                return NetStatus.NET_MOBILE;
-            }
-            return NetStatus.NET_DOWN;
-        }
-        return (NetStatus) invokeV.objValue;
     }
 
     public static int getNetTypeParams() {
@@ -267,137 +338,83 @@ public class NetUtils {
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
             String networkClass = getNetworkClass();
             int hashCode = networkClass.hashCode();
-            if (hashCode == 1653) {
+            if (hashCode != 1653) {
+                if (hashCode != 1684) {
+                    if (hashCode != 1715) {
+                        if (hashCode != 1746) {
+                            if (hashCode == 3649301 && networkClass.equals("wifi")) {
+                                c = 0;
+                            }
+                            c = 65535;
+                        } else {
+                            if (networkClass.equals("5g")) {
+                                c = 4;
+                            }
+                            c = 65535;
+                        }
+                    } else {
+                        if (networkClass.equals("4g")) {
+                            c = 1;
+                        }
+                        c = 65535;
+                    }
+                } else {
+                    if (networkClass.equals("3g")) {
+                        c = 2;
+                    }
+                    c = 65535;
+                }
+            } else {
                 if (networkClass.equals("2g")) {
                     c = 3;
                 }
                 c = 65535;
-            } else if (hashCode == 1684) {
-                if (networkClass.equals("3g")) {
-                    c = 2;
-                }
-                c = 65535;
-            } else if (hashCode == 1715) {
-                if (networkClass.equals("4g")) {
-                    c = 1;
-                }
-                c = 65535;
-            } else if (hashCode != 1746) {
-                if (hashCode == 3649301 && networkClass.equals("wifi")) {
-                    c = 0;
-                }
-                c = 65535;
-            } else {
-                if (networkClass.equals("5g")) {
-                    c = 4;
-                }
-                c = 65535;
             }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c != 2) {
-                        if (c != 3) {
-                            return c != 4 ? 4 : 5;
-                        }
-                        return 3;
-                    }
-                    return 2;
-                }
+            if (c == 0) {
+                return 0;
+            }
+            if (c == 1) {
                 return 1;
             }
-            return 0;
+            if (c == 2) {
+                return 2;
+            }
+            if (c == 3) {
+                return 3;
+            }
+            if (c != 4) {
+                return 4;
+            }
+            return 5;
         }
         return invokeV.intValue;
     }
 
-    @PublicMethod
     public static String getNetworkClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
             NetworkInfo networkInfo = getNetworkInfo();
-            return (networkInfo == null || !networkInfo.isConnected()) ? "no" : networkInfo.getType() == 1 ? "wifi" : networkInfo.getType() == 0 ? getMobileNetworkType(networkInfo.getSubtype(), networkInfo.getSubtypeName()) : "unknown";
+            if (networkInfo != null && networkInfo.isConnected()) {
+                if (networkInfo.getType() == 1) {
+                    return "wifi";
+                }
+                if (networkInfo.getType() == 0) {
+                    return getMobileNetworkType(networkInfo.getSubtype(), networkInfo.getSubtypeName());
+                }
+                return "unknown";
+            }
+            return "no";
         }
         return (String) invokeV.objValue;
-    }
-
-    @Nullable
-    @PublicMethod
-    @SuppressLint({"MissingPermission"})
-    public static NetworkInfo getNetworkInfo() {
-        InterceptResult invokeV;
-        ConnectivityManager connectivityManager;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            Context appContext = BDPlayerConfig.getAppContext();
-            if (appContext == null || (connectivityManager = (ConnectivityManager) appContext.getSystemService("connectivity")) == null) {
-                return null;
-            }
-            try {
-                return connectivityManager.getActiveNetworkInfo();
-            } catch (SecurityException unused) {
-                return null;
-            }
-        }
-        return (NetworkInfo) invokeV.objValue;
-    }
-
-    public static int getNumEndIndex(@NonNull String str, @IntRange(from = 0) int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, str, i)) == null) {
-            int i2 = i;
-            while (i < str.length() && str.charAt(i) >= '0' && str.charAt(i) <= '9') {
-                i2++;
-                i++;
-            }
-            return i2;
-        }
-        return invokeLI.intValue;
-    }
-
-    @PublicMethod
-    public static boolean isNet3G() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            NetworkInfo networkInfo = getNetworkInfo();
-            if (networkInfo == null) {
-                return false;
-            }
-            return !"wifi".equals(networkInfo.getTypeName().toLowerCase(Locale.getDefault()));
-        }
-        return invokeV.booleanValue;
-    }
-
-    @PublicMethod
-    public static boolean isNetDown() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? getNetworkInfo() == null : invokeV.booleanValue;
-    }
-
-    @PublicMethod
-    public static boolean isNetWifi() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            NetworkInfo networkInfo = getNetworkInfo();
-            if (networkInfo == null) {
-                return false;
-            }
-            return "wifi".equals(networkInfo.getTypeName().toLowerCase(Locale.getDefault()));
-        }
-        return invokeV.booleanValue;
     }
 
     public static void setNetStatus(NetStatus netStatus) {
         NetStatus netStatus2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65549, null, netStatus) == null) || (netStatus2 = mStatus) == netStatus) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(65549, null, netStatus) == null) && (netStatus2 = mStatus) != netStatus) {
+            mOldStatus = netStatus2;
+            mStatus = netStatus;
         }
-        mOldStatus = netStatus2;
-        mStatus = netStatus;
     }
 }

@@ -40,31 +40,6 @@ public class GuideScrollView extends ScrollView {
         }
     }
 
-    public a getScrollChangedListener() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (a) invokeV.objValue;
-    }
-
-    @Override // android.view.View
-    public void onScrollChanged(int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3, i4) == null) {
-            super.onScrollChanged(i, i2, i3, i4);
-            a aVar = this.a;
-            if (aVar != null) {
-                aVar.onScrollChanged(i, i2, i3, i4);
-            }
-        }
-    }
-
-    public void setScrollChangedListener(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.a = aVar;
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GuideScrollView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -104,6 +79,34 @@ public class GuideScrollView extends ScrollView {
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
+        }
+    }
+
+    public a getScrollChangedListener() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (a) invokeV.objValue;
+    }
+
+    @Override // android.view.View
+    public void onScrollChanged(int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3, i4) == null) {
+            super.onScrollChanged(i, i2, i3, i4);
+            a aVar = this.a;
+            if (aVar != null) {
+                aVar.onScrollChanged(i, i2, i3, i4);
+            }
+        }
+    }
+
+    public void setScrollChangedListener(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            this.a = aVar;
         }
     }
 }

@@ -14,7 +14,7 @@ import java.lang.ref.WeakReference;
 public class a extends d implements ITrack2D {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<ITrack2D> mj;
+    public WeakReference mj;
     public ITrack2DStateChangedListener xR;
 
     public a() {
@@ -36,7 +36,7 @@ public class a extends d implements ITrack2D {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) && (cVar instanceof ITrack2D)) {
             ITrack2D iTrack2D = (ITrack2D) cVar;
-            this.mj = new WeakReference<>(iTrack2D);
+            this.mj = new WeakReference(iTrack2D);
             ITrack2DStateChangedListener iTrack2DStateChangedListener = this.xR;
             if (iTrack2DStateChangedListener != null) {
                 iTrack2D.setStateChangedListener(iTrack2DStateChangedListener);
@@ -49,30 +49,30 @@ public class a extends d implements ITrack2D {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            WeakReference<ITrack2D> weakReference = this.mj;
+            WeakReference weakReference = this.mj;
             if (weakReference == null || weakReference.get() == null) {
                 return null;
             }
-            return this.mj.get().getTargetBitmap();
+            return ((ITrack2D) this.mj.get()).getTargetBitmap();
         }
         return (Bitmap) invokeV.objValue;
     }
 
     @Override // com.baidu.ar.track2d.ITrack2D
     public void haltTrack() {
-        WeakReference<ITrack2D> weakReference;
+        WeakReference weakReference;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (weakReference = this.mj) == null || weakReference.get() == null) {
             return;
         }
-        this.mj.get().haltTrack();
+        ((ITrack2D) this.mj.get()).haltTrack();
     }
 
     @Override // com.baidu.ar.d
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            WeakReference<ITrack2D> weakReference = this.mj;
+            WeakReference weakReference = this.mj;
             if (weakReference != null) {
                 weakReference.clear();
                 this.mj = null;
@@ -83,24 +83,24 @@ public class a extends d implements ITrack2D {
 
     @Override // com.baidu.ar.track2d.ITrack2D
     public void resumeTrack() {
-        WeakReference<ITrack2D> weakReference;
+        WeakReference weakReference;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (weakReference = this.mj) == null || weakReference.get() == null) {
             return;
         }
-        this.mj.get().resumeTrack();
+        ((ITrack2D) this.mj.get()).resumeTrack();
     }
 
     @Override // com.baidu.ar.track2d.ITrack2D
     public void setStateChangedListener(ITrack2DStateChangedListener iTrack2DStateChangedListener) {
-        WeakReference<ITrack2D> weakReference;
+        WeakReference weakReference;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, iTrack2DStateChangedListener) == null) {
             this.xR = iTrack2DStateChangedListener;
             if (iTrack2DStateChangedListener == null || (weakReference = this.mj) == null || weakReference.get() == null) {
                 return;
             }
-            this.mj.get().setStateChangedListener(this.xR);
+            ((ITrack2D) this.mj.get()).setStateChangedListener(this.xR);
         }
     }
 }

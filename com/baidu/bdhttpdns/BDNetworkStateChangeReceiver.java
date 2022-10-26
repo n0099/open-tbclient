@@ -6,8 +6,8 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.mp;
 import com.baidu.tieba.np;
+import com.baidu.tieba.op;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,8 +34,23 @@ public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
     public boolean isFirstNotify;
     public ExecutorService mService;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(2008299385, "Lcom/baidu/bdhttpdns/BDNetworkStateChangeReceiver;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(2008299385, "Lcom/baidu/bdhttpdns/BDNetworkStateChangeReceiver;");
+        }
+    }
+
     /* loaded from: classes.dex */
-    public class a implements Callable<Object> {
+    public class a implements Callable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -91,12 +106,12 @@ public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
                         datagramSocket2 = datagramSocket;
                         if (datagramSocket2 != null) {
                         }
-                        np.a("isIPv4Reachable(%s), isIPv6Reachable(%s)", Boolean.valueOf(BDNetworkStateChangeReceiver.isIPv4Reachable), Boolean.valueOf(BDNetworkStateChangeReceiver.isIPv6Reachable));
+                        op.a("isIPv4Reachable(%s), isIPv6Reachable(%s)", Boolean.valueOf(BDNetworkStateChangeReceiver.isIPv4Reachable), Boolean.valueOf(BDNetworkStateChangeReceiver.isIPv6Reachable));
                         return null;
                     }
                     if (datagramSocket2 != null) {
                     }
-                    np.a("isIPv4Reachable(%s), isIPv6Reachable(%s)", Boolean.valueOf(BDNetworkStateChangeReceiver.isIPv4Reachable), Boolean.valueOf(BDNetworkStateChangeReceiver.isIPv6Reachable));
+                    op.a("isIPv4Reachable(%s), isIPv6Reachable(%s)", Boolean.valueOf(BDNetworkStateChangeReceiver.isIPv4Reachable), Boolean.valueOf(BDNetworkStateChangeReceiver.isIPv6Reachable));
                     return null;
                 }
                 if (datagramSocket != null) {
@@ -119,25 +134,10 @@ public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
                         e2.printStackTrace();
                     }
                 }
-                np.a("isIPv4Reachable(%s), isIPv6Reachable(%s)", Boolean.valueOf(BDNetworkStateChangeReceiver.isIPv4Reachable), Boolean.valueOf(BDNetworkStateChangeReceiver.isIPv6Reachable));
+                op.a("isIPv4Reachable(%s), isIPv6Reachable(%s)", Boolean.valueOf(BDNetworkStateChangeReceiver.isIPv4Reachable), Boolean.valueOf(BDNetworkStateChangeReceiver.isIPv6Reachable));
                 return null;
             }
             return invokeV.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(2008299385, "Lcom/baidu/bdhttpdns/BDNetworkStateChangeReceiver;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(2008299385, "Lcom/baidu/bdhttpdns/BDNetworkStateChangeReceiver;");
         }
     }
 
@@ -164,51 +164,89 @@ public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
     public static boolean isIPv4Reachable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? isIPv4Reachable : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return isIPv4Reachable;
+        }
+        return invokeV.booleanValue;
     }
 
     public static boolean isIPv6Reachable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? isIPv6Reachable : invokeV.booleanValue;
-    }
-
-    private void processCacheOnNetworkChange(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, this, context) == null) {
-            np.a("Network change, clearCache(%b) httpDnsPrefetch(%b)", Boolean.valueOf(this.clearCache), Boolean.valueOf(this.httpDnsPrefetch));
-            HttpDnsClient z = HttpDnsClient.z();
-            z.x();
-            BDHttpDns h = BDHttpDns.h(context);
-            refreshIpReachable();
-            ArrayList<String> b = h.e().b();
-            if (this.clearCache) {
-                h.e().a();
-                h.d().a();
-            }
-            if (!this.httpDnsPrefetch || b == null || b.isEmpty()) {
-                return;
-            }
-            z.O(b, new mp(context));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return isIPv6Reachable;
         }
+        return invokeV.booleanValue;
     }
 
     public boolean isClearCache() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.clearCache : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.clearCache;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isHttpDnsPrefetch() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.httpDnsPrefetch : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.httpDnsPrefetch;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isIPv6Only() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? !isIPv4Reachable && isIPv6Reachable : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (!isIPv4Reachable && isIPv6Reachable) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void refreshIpReachable() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.mService.submit(new a(this));
+        }
+    }
+
+    public void setClearCache(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.clearCache = z;
+        }
+    }
+
+    public void setHttpDnsPrefetch(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.httpDnsPrefetch = z;
+        }
+    }
+
+    private void processCacheOnNetworkChange(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, this, context) == null) {
+            op.a("Network change, clearCache(%b) httpDnsPrefetch(%b)", Boolean.valueOf(this.clearCache), Boolean.valueOf(this.httpDnsPrefetch));
+            HttpDnsClient z = HttpDnsClient.z();
+            z.x();
+            BDHttpDns h = BDHttpDns.h(context);
+            refreshIpReachable();
+            ArrayList b = h.e().b();
+            if (this.clearCache) {
+                h.e().a();
+                h.d().a();
+            }
+            if (this.httpDnsPrefetch && b != null && !b.isEmpty()) {
+                z.O(b, new np(context));
+            }
+        }
     }
 
     @Override // android.content.BroadcastReceiver
@@ -235,12 +273,14 @@ public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
             NetworkInfo networkInfo2 = connectivityManager.getNetworkInfo(0);
             if (networkInfo != null && networkInfo.getState() == NetworkInfo.State.CONNECTED) {
                 str = networkInfo.getExtraInfo().toString();
+            } else if (networkInfo2 == null || networkInfo2.getState() != NetworkInfo.State.CONNECTED) {
+                str = "";
             } else {
-                str = (networkInfo2 == null || networkInfo2.getState() != NetworkInfo.State.CONNECTED) ? "" : networkInfo2.getExtraInfo().toString();
+                str = networkInfo2.getExtraInfo().toString();
             }
             try {
                 if (!this.beforeNetInfo.equals(str) && str != "") {
-                    np.a("Current net type: %s.", str);
+                    op.a("Current net type: %s.", str);
                     processCacheOnNetworkChange(context);
                 }
             } catch (RuntimeException e2) {
@@ -257,27 +297,6 @@ public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
                 this.beforeNetInfo = str;
             }
             this.beforeNetInfo = str;
-        }
-    }
-
-    public void refreshIpReachable() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.mService.submit(new a(this));
-        }
-    }
-
-    public void setClearCache(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.clearCache = z;
-        }
-    }
-
-    public void setHttpDnsPrefetch(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.httpDnsPrefetch = z;
         }
     }
 }

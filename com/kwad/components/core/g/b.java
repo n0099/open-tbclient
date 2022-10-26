@@ -1,19 +1,17 @@
 package com.kwad.components.core.g;
 
 import android.view.View;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.components.core.g.a;
 import com.kwad.sdk.mvp.Presenter;
 /* loaded from: classes7.dex */
-public abstract class b<T extends a> extends com.kwad.components.core.i.a {
+public abstract class b extends com.kwad.components.core.i.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public T mCallerContext;
+    public a mCallerContext;
     public Presenter mPresenter;
     public View mRootView;
 
@@ -32,50 +30,50 @@ public abstract class b<T extends a> extends com.kwad.components.core.i.a {
     }
 
     private void notifyOnCreate() {
-        T t;
+        a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || (t = this.mCallerContext) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || (aVar = this.mCallerContext) == null) {
             return;
         }
-        for (com.kwad.components.core.g.kwai.a aVar : t.EF) {
-            aVar.iK();
+        for (com.kwad.components.core.g.kwai.a aVar2 : aVar.EF) {
+            aVar2.iK();
         }
     }
 
     private void notifyOnDestroy() {
-        T t;
+        a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || (t = this.mCallerContext) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || (aVar = this.mCallerContext) == null) {
             return;
         }
-        for (com.kwad.components.core.g.kwai.a aVar : t.EF) {
-            aVar.iN();
+        for (com.kwad.components.core.g.kwai.a aVar2 : aVar.EF) {
+            aVar2.iN();
         }
     }
 
     private void notifyOnPause() {
-        T t;
+        a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || (t = this.mCallerContext) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || (aVar = this.mCallerContext) == null) {
             return;
         }
-        for (com.kwad.components.core.g.kwai.a aVar : t.EF) {
-            aVar.iM();
+        for (com.kwad.components.core.g.kwai.a aVar2 : aVar.EF) {
+            aVar2.iM();
         }
     }
 
     private void notifyOnResume() {
-        T t;
+        a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || (t = this.mCallerContext) == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || (aVar = this.mCallerContext) == null) {
             return;
         }
-        for (com.kwad.components.core.g.kwai.a aVar : t.EF) {
-            aVar.iL();
+        for (com.kwad.components.core.g.kwai.a aVar2 : aVar.EF) {
+            aVar2.iL();
         }
     }
 
-    public void onActivityCreated(@NonNull View view2) {
+    public void onActivityCreated(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
             this.mRootView = view2;
@@ -90,7 +88,7 @@ public abstract class b<T extends a> extends com.kwad.components.core.i.a {
         }
     }
 
-    public abstract T onCreateCallerContext();
+    public abstract a onCreateCallerContext();
 
     public abstract Presenter onCreatePresenter();
 
@@ -99,9 +97,9 @@ public abstract class b<T extends a> extends com.kwad.components.core.i.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             notifyOnDestroy();
-            T t = this.mCallerContext;
-            if (t != null) {
-                t.release();
+            a aVar = this.mCallerContext;
+            if (aVar != null) {
+                aVar.release();
             }
             Presenter presenter = this.mPresenter;
             if (presenter != null) {

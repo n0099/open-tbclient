@@ -25,7 +25,22 @@ public class UIListenerManager {
     public static /* synthetic */ Interceptable $ic;
     public static UIListenerManager a;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, ApiTask> b;
+    public Map b;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-871137455, "Lcom/tencent/connect/common/UIListenerManager;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-871137455, "Lcom/tencent/connect/common/UIListenerManager;");
+        }
+    }
 
     /* loaded from: classes8.dex */
     public class ApiTask {
@@ -56,21 +71,6 @@ public class UIListenerManager {
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-871137455, "Lcom/tencent/connect/common/UIListenerManager;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-871137455, "Lcom/tencent/connect/common/UIListenerManager;");
-        }
-    }
-
     public UIListenerManager() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -84,7 +84,7 @@ public class UIListenerManager {
                 return;
             }
         }
-        Map<String, ApiTask> synchronizedMap = Collections.synchronizedMap(new HashMap());
+        Map synchronizedMap = Collections.synchronizedMap(new HashMap());
         this.b = synchronizedMap;
         if (synchronizedMap == null) {
             this.b = Collections.synchronizedMap(new HashMap());
@@ -129,7 +129,7 @@ public class UIListenerManager {
                 return null;
             }
             synchronized (this.b) {
-                apiTask = this.b.get(str);
+                apiTask = (ApiTask) this.b.get(str);
                 this.b.remove(str);
             }
             if (apiTask == null) {
@@ -155,6 +155,7 @@ public class UIListenerManager {
     }
 
     public void handleDataToListener(Intent intent, IUiListener iUiListener) {
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, intent, iUiListener) == null) {
             SLog.i("openSDK_LOG.UIListenerManager", "handleDataToListener");
@@ -192,7 +193,12 @@ public class UIListenerManager {
                     iUiListener.onError(new UiError(-6, "unknown error", stringExtra4 + ""));
                 } else if (TaskProcessData.keyComplete.equals(stringExtra3)) {
                     try {
-                        iUiListener.onComplete(new JSONObject(stringExtra4 == null ? "{\"ret\": 0}" : stringExtra4));
+                        if (stringExtra4 == null) {
+                            str = "{\"ret\": 0}";
+                        } else {
+                            str = stringExtra4;
+                        }
+                        iUiListener.onComplete(new JSONObject(str));
                     } catch (JSONException e2) {
                         e2.printStackTrace();
                         iUiListener.onError(new UiError(-4, "json error", stringExtra4 + ""));
@@ -204,6 +210,7 @@ public class UIListenerManager {
 
     public boolean onActivityResult(int i, int i2, Intent intent, IUiListener iUiListener) {
         InterceptResult invokeCommon;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), intent, iUiListener})) == null) {
             SLog.i("openSDK_LOG.UIListenerManager", "onActivityResult req=" + i + " res=" + i2);
@@ -216,12 +223,11 @@ public class UIListenerManager {
                     return false;
                 }
             }
-            if (i2 != -1) {
-                listnerWithRequestCode.onCancel();
-            } else if (intent == null) {
-                listnerWithRequestCode.onError(new UiError(-6, "onActivityResult intent data is null.", "onActivityResult intent data is null."));
-                return true;
-            } else {
+            if (i2 == -1) {
+                if (intent == null) {
+                    listnerWithRequestCode.onError(new UiError(-6, "onActivityResult intent data is null.", "onActivityResult intent data is null."));
+                    return true;
+                }
                 String stringExtra = intent.getStringExtra(Constants.KEY_ACTION);
                 if ("action_login".equals(stringExtra)) {
                     int intExtra = intent.getIntExtra(Constants.KEY_ERROR_CODE, 0);
@@ -267,13 +273,20 @@ public class UIListenerManager {
                         listnerWithRequestCode.onError(new UiError(-6, "unknown error", stringExtra5 + ""));
                     } else if (TaskProcessData.keyComplete.equals(stringExtra4)) {
                         try {
-                            listnerWithRequestCode.onComplete(new JSONObject(stringExtra5 == null ? "{\"ret\": 0}" : stringExtra5));
+                            if (stringExtra5 == null) {
+                                str = "{\"ret\": 0}";
+                            } else {
+                                str = stringExtra5;
+                            }
+                            listnerWithRequestCode.onComplete(new JSONObject(str));
                         } catch (JSONException e2) {
                             e2.printStackTrace();
                             listnerWithRequestCode.onError(new UiError(-4, "json error", stringExtra5 + ""));
                         }
                     }
                 }
+            } else {
+                listnerWithRequestCode.onCancel();
             }
             return true;
         }
@@ -282,7 +295,7 @@ public class UIListenerManager {
 
     public Object setListenerWithRequestcode(int i, IUiListener iUiListener) {
         InterceptResult invokeIL;
-        ApiTask put;
+        ApiTask apiTask;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048580, this, i, iUiListener)) == null) {
             String a2 = i.a(i);
@@ -291,19 +304,19 @@ public class UIListenerManager {
                 return null;
             }
             synchronized (this.b) {
-                put = this.b.put(a2, new ApiTask(this, i, iUiListener));
+                apiTask = (ApiTask) this.b.put(a2, new ApiTask(this, i, iUiListener));
             }
-            if (put == null) {
+            if (apiTask == null) {
                 return null;
             }
-            return put.mListener;
+            return apiTask.mListener;
         }
         return invokeIL.objValue;
     }
 
     public Object setListnerWithAction(String str, IUiListener iUiListener) {
         InterceptResult invokeLL;
-        ApiTask put;
+        ApiTask apiTask;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, iUiListener)) == null) {
             int a2 = i.a(str);
@@ -312,12 +325,12 @@ public class UIListenerManager {
                 return null;
             }
             synchronized (this.b) {
-                put = this.b.put(str, new ApiTask(this, a2, iUiListener));
+                apiTask = (ApiTask) this.b.put(str, new ApiTask(this, a2, iUiListener));
             }
-            if (put == null) {
+            if (apiTask == null) {
                 return null;
             }
-            return put.mListener;
+            return apiTask.mListener;
         }
         return invokeLL.objValue;
     }

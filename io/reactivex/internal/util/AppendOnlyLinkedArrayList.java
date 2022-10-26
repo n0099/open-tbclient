@@ -11,7 +11,7 @@ import io.reactivex.functions.BiPredicate;
 import io.reactivex.functions.Predicate;
 import org.reactivestreams.Subscriber;
 /* loaded from: classes8.dex */
-public class AppendOnlyLinkedArrayList<T> {
+public class AppendOnlyLinkedArrayList {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int capacity;
@@ -20,9 +20,9 @@ public class AppendOnlyLinkedArrayList<T> {
     public Object[] tail;
 
     /* loaded from: classes8.dex */
-    public interface NonThrowingPredicate<T> extends Predicate<T> {
+    public interface NonThrowingPredicate extends Predicate {
         @Override // io.reactivex.functions.Predicate
-        boolean test(T t);
+        boolean test(Object obj);
     }
 
     public AppendOnlyLinkedArrayList(int i) {
@@ -52,33 +52,34 @@ public class AppendOnlyLinkedArrayList<T> {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public <U> boolean accept(Subscriber<? super U> subscriber) {
+    public boolean accept(Observer observer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, subscriber)) != null) {
-            return invokeL.booleanValue;
-        }
-        Object[] objArr = this.head;
-        int i = this.capacity;
-        while (true) {
-            if (objArr == null) {
-                return false;
-            }
-            for (int i2 = 0; i2 < i; i2++) {
-                Object[] objArr2 = objArr[i2];
-                if (objArr2 == null) {
-                    break;
-                } else if (NotificationLite.acceptFull(objArr2, subscriber)) {
-                    return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, observer)) == null) {
+            Object[] objArr = this.head;
+            int i = this.capacity;
+            while (true) {
+                if (objArr == null) {
+                    return false;
                 }
+                for (int i2 = 0; i2 < i; i2++) {
+                    Object[] objArr2 = objArr[i2];
+                    if (objArr2 == null) {
+                        break;
+                    } else if (NotificationLite.acceptFull(objArr2, observer)) {
+                        return true;
+                    }
+                }
+                objArr = objArr[i];
             }
-            objArr = objArr[i];
+        } else {
+            return invokeL.booleanValue;
         }
     }
 
-    public void add(T t) {
+    public void add(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
             int i = this.capacity;
             int i2 = this.offset;
             if (i2 == i) {
@@ -87,29 +88,29 @@ public class AppendOnlyLinkedArrayList<T> {
                 this.tail = objArr;
                 i2 = 0;
             }
-            this.tail[i2] = t;
+            this.tail[i2] = obj;
             this.offset = i2 + 1;
         }
     }
 
-    public void forEachWhile(NonThrowingPredicate<? super T> nonThrowingPredicate) {
-        int i;
+    public void forEachWhile(NonThrowingPredicate nonThrowingPredicate) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, nonThrowingPredicate) == null) {
-            int i2 = this.capacity;
-            for (Object[] objArr = this.head; objArr != null; objArr = objArr[i2]) {
-                while (i < i2) {
-                    Object obj = objArr[i];
-                    i = (obj == null || nonThrowingPredicate.test(obj)) ? 0 : i + 1;
+            int i = this.capacity;
+            for (Object[] objArr = this.head; objArr != null; objArr = (Object[]) objArr[i]) {
+                for (int i2 = 0; i2 < i; i2++) {
+                    Object obj = objArr[i2];
+                    if (obj != null && !nonThrowingPredicate.test(obj)) {
+                    }
                 }
             }
         }
     }
 
-    public void setFirst(T t) {
+    public void setFirst(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
-            this.head[0] = t;
+        if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
+            this.head[0] = obj;
         }
     }
 
@@ -119,45 +120,45 @@ public class AppendOnlyLinkedArrayList<T> {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public <U> boolean accept(Observer<? super U> observer) {
+    public boolean accept(Subscriber subscriber) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, observer)) != null) {
-            return invokeL.booleanValue;
-        }
-        Object[] objArr = this.head;
-        int i = this.capacity;
-        while (true) {
-            if (objArr == null) {
-                return false;
-            }
-            for (int i2 = 0; i2 < i; i2++) {
-                Object[] objArr2 = objArr[i2];
-                if (objArr2 == null) {
-                    break;
-                } else if (NotificationLite.acceptFull(objArr2, observer)) {
-                    return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, subscriber)) == null) {
+            Object[] objArr = this.head;
+            int i = this.capacity;
+            while (true) {
+                if (objArr == null) {
+                    return false;
                 }
+                for (int i2 = 0; i2 < i; i2++) {
+                    Object[] objArr2 = objArr[i2];
+                    if (objArr2 == null) {
+                        break;
+                    } else if (NotificationLite.acceptFull(objArr2, subscriber)) {
+                        return true;
+                    }
+                }
+                objArr = objArr[i];
             }
-            objArr = objArr[i];
+        } else {
+            return invokeL.booleanValue;
         }
     }
 
-    public <S> void forEachWhile(S s, BiPredicate<? super S, ? super T> biPredicate) throws Exception {
+    public void forEachWhile(Object obj, BiPredicate biPredicate) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLL(1048580, this, s, biPredicate) != null) {
-            return;
-        }
-        Object[] objArr = this.head;
-        int i = this.capacity;
-        while (true) {
-            for (int i2 = 0; i2 < i; i2++) {
-                Object obj = objArr[i2];
-                if (obj == null || biPredicate.test(s, obj)) {
-                    return;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, obj, biPredicate) == null) {
+            Object[] objArr = this.head;
+            int i = this.capacity;
+            while (true) {
+                for (int i2 = 0; i2 < i; i2++) {
+                    Object obj2 = objArr[i2];
+                    if (obj2 == null || biPredicate.test(obj, obj2)) {
+                        return;
+                    }
                 }
+                objArr = (Object[]) objArr[i];
             }
-            objArr = objArr[i];
         }
     }
 }

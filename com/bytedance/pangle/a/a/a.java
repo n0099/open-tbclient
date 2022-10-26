@@ -16,10 +16,10 @@ import java.util.Map;
 /* loaded from: classes7.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<String, Field> a;
-    public static Map<String, Method> b;
-    public static Map<String, Constructor> c;
-    public static Map<String, Class> d;
+    public static Map a;
+    public static Map b;
+    public static Map c;
+    public static Map d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -47,66 +47,14 @@ public final class a {
         }
     }
 
-    public static Method a(Class<?> cls, String str, Class<?>... clsArr) {
-        InterceptResult invokeLLL;
-        Method method;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, cls, str, clsArr)) == null) {
-            String b2 = b(cls, str, clsArr);
-            synchronized (b) {
-                method = b.get(b2);
-            }
-            if (method != null) {
-                if (!method.isAccessible()) {
-                    method.setAccessible(true);
-                }
-                return method;
-            }
-            try {
-                Method a2 = b.a(cls, str, clsArr);
-                if (a2 != null) {
-                    synchronized (b) {
-                        b.put(b2, a2);
-                    }
-                }
-                return a2;
-            } catch (Throwable th) {
-                ZeusLogger.w(ZeusLogger.TAG, "HackHelper" + String.format("getMethod %s#%s failed !!!", cls.getName(), str), th);
-                return null;
-            }
-        }
-        return (Method) invokeLLL.objValue;
-    }
-
-    public static String b(Class<?> cls, String str, Class<?>... clsArr) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, cls, str, clsArr)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(cls.getName());
-            sb.append("#");
-            sb.append(str);
-            if (clsArr != null && clsArr.length > 0) {
-                for (Class<?> cls2 : clsArr) {
-                    sb.append(cls2.getName());
-                    sb.append("#");
-                }
-            } else {
-                sb.append(Void.class.getName());
-            }
-            return sb.toString();
-        }
-        return (String) invokeLLL.objValue;
-    }
-
-    public static Constructor a(Class<?> cls, Class<?>... clsArr) {
+    public static Constructor a(Class cls, Class... clsArr) {
         InterceptResult invokeLL;
         Constructor constructor;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cls, clsArr)) == null) {
             String b2 = b(cls, "clinit", clsArr);
             synchronized (c) {
-                constructor = c.get(b2);
+                constructor = (Constructor) c.get(b2);
             }
             if (constructor != null) {
                 if (!constructor.isAccessible()) {
@@ -130,14 +78,14 @@ public final class a {
         return (Constructor) invokeLL.objValue;
     }
 
-    public static Field a(Class<?> cls, String str) {
+    public static Field a(Class cls, String str) {
         InterceptResult invokeLL;
         Field field;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, cls, str)) == null) {
             String str2 = cls.getName() + "#" + str;
             synchronized (a) {
-                field = a.get(str2);
+                field = (Field) a.get(str2);
             }
             if (field != null) {
                 if (!field.isAccessible()) {
@@ -159,5 +107,57 @@ public final class a {
             }
         }
         return (Field) invokeLL.objValue;
+    }
+
+    public static Method a(Class cls, String str, Class... clsArr) {
+        InterceptResult invokeLLL;
+        Method method;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, cls, str, clsArr)) == null) {
+            String b2 = b(cls, str, clsArr);
+            synchronized (b) {
+                method = (Method) b.get(b2);
+            }
+            if (method != null) {
+                if (!method.isAccessible()) {
+                    method.setAccessible(true);
+                }
+                return method;
+            }
+            try {
+                Method a2 = b.a(cls, str, clsArr);
+                if (a2 != null) {
+                    synchronized (b) {
+                        b.put(b2, a2);
+                    }
+                }
+                return a2;
+            } catch (Throwable th) {
+                ZeusLogger.w(ZeusLogger.TAG, "HackHelper" + String.format("getMethod %s#%s failed !!!", cls.getName(), str), th);
+                return null;
+            }
+        }
+        return (Method) invokeLLL.objValue;
+    }
+
+    public static String b(Class cls, String str, Class... clsArr) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, cls, str, clsArr)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(cls.getName());
+            sb.append("#");
+            sb.append(str);
+            if (clsArr != null && clsArr.length > 0) {
+                for (Class cls2 : clsArr) {
+                    sb.append(cls2.getName());
+                    sb.append("#");
+                }
+            } else {
+                sb.append(Void.class.getName());
+            }
+            return sb.toString();
+        }
+        return (String) invokeLLL.objValue;
     }
 }

@@ -42,17 +42,48 @@ public class AES {
         }
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public AES(String str, String str2) {
+        this(str, str2, "UTF-8");
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            int length = 16 - (str.getBytes().length % 16);
-            for (int i = 0; i < length; i++) {
-                str = str + WebvttCueParser.CHAR_SPACE;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((String) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return str;
         }
-        return (String) invokeL.objValue;
+    }
+
+    public AES(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.a = "UTF-8";
+        this.b = "AES/CBC/NoPadding";
+        this.c = "AES";
+        this.c = str;
+        this.b = str2;
+        this.a = str3;
     }
 
     public byte[] decrypt(byte[] bArr, String str, String str2) throws Exception {
@@ -96,47 +127,16 @@ public class AES {
         return (byte[]) invokeLLL.objValue;
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AES(String str, String str2) {
-        this(str, str2, "UTF-8");
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((String) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            int length = 16 - (str.getBytes().length % 16);
+            for (int i = 0; i < length; i++) {
+                str = str + WebvttCueParser.CHAR_SPACE;
             }
+            return str;
         }
-    }
-
-    public AES(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.a = "UTF-8";
-        this.b = "AES/CBC/NoPadding";
-        this.c = "AES";
-        this.c = str;
-        this.b = str2;
-        this.a = str3;
+        return (String) invokeL.objValue;
     }
 }

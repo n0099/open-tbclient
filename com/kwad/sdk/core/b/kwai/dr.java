@@ -5,9 +5,8 @@ import com.baidu.searchbox.util.BaiduActiveStatistic;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class dr implements com.kwad.sdk.core.d<com.kwad.sdk.core.network.k> {
-    /* renamed from: a  reason: avoid collision after fix types in other method */
-    public static void a2(com.kwad.sdk.core.network.k kVar, JSONObject jSONObject) {
+public final class dr implements com.kwad.sdk.core.d {
+    public static void a(com.kwad.sdk.core.network.k kVar, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
@@ -46,8 +45,7 @@ public final class dr implements com.kwad.sdk.core.d<com.kwad.sdk.core.network.k
         kVar.YS = jSONObject.optInt("other_ping_time");
     }
 
-    /* renamed from: b  reason: avoid collision after fix types in other method */
-    public static JSONObject b2(com.kwad.sdk.core.network.k kVar, JSONObject jSONObject) {
+    public static JSONObject b(com.kwad.sdk.core.network.k kVar, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
@@ -162,15 +160,13 @@ public final class dr implements com.kwad.sdk.core.d<com.kwad.sdk.core.network.k
         return jSONObject;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ void a(com.kwad.sdk.core.network.k kVar, JSONObject jSONObject) {
-        a2(kVar, jSONObject);
+    public final /* bridge */ /* synthetic */ void a(com.kwad.sdk.core.b bVar, JSONObject jSONObject) {
+        a((com.kwad.sdk.core.network.k) bVar, jSONObject);
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ JSONObject b(com.kwad.sdk.core.network.k kVar, JSONObject jSONObject) {
-        return b2(kVar, jSONObject);
+    public final /* bridge */ /* synthetic */ JSONObject b(com.kwad.sdk.core.b bVar, JSONObject jSONObject) {
+        return b((com.kwad.sdk.core.network.k) bVar, jSONObject);
     }
 }

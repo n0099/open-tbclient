@@ -121,6 +121,18 @@ public class WrappingUtils {
         return (DrawableParent) invokeL.objValue;
     }
 
+    public static void resetRoundingParams(Rounded rounded) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65546, null, rounded) == null) {
+            rounded.setCircle(false);
+            rounded.setRadius(0.0f);
+            rounded.setBorder(0, 0.0f);
+            rounded.setPadding(0.0f);
+            rounded.setScaleDownInsideBorders(false);
+            rounded.setPaintFilterBitmap(false);
+        }
+    }
+
     /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, INVOKE, IF] complete} */
     public static Drawable maybeApplyLeafRounding(@Nullable Drawable drawable, @Nullable RoundingParams roundingParams, Resources resources) {
         InterceptResult invokeLLL;
@@ -159,7 +171,35 @@ public class WrappingUtils {
     public static Drawable maybeWrapWithMatrix(@Nullable Drawable drawable, @Nullable Matrix matrix) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, drawable, matrix)) == null) ? (drawable == null || matrix == null) ? drawable : new MatrixDrawable(drawable, matrix) : (Drawable) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, drawable, matrix)) == null) {
+            if (drawable != null && matrix != null) {
+                return new MatrixDrawable(drawable, matrix);
+            }
+            return drawable;
+        }
+        return (Drawable) invokeLL.objValue;
+    }
+
+    @Nullable
+    public static Drawable maybeWrapWithScaleType(@Nullable Drawable drawable, @Nullable ScalingUtils.ScaleType scaleType) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, drawable, scaleType)) == null) {
+            return maybeWrapWithScaleType(drawable, scaleType, null);
+        }
+        return (Drawable) invokeLL.objValue;
+    }
+
+    public static ScaleTypeDrawable wrapChildWithScaleType(DrawableParent drawableParent, ScalingUtils.ScaleType scaleType) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, drawableParent, scaleType)) == null) {
+            Drawable maybeWrapWithScaleType = maybeWrapWithScaleType(drawableParent.setDrawable(sEmptyDrawable), scaleType);
+            drawableParent.setDrawable(maybeWrapWithScaleType);
+            Preconditions.checkNotNull(maybeWrapWithScaleType, "Parent has no child drawable!");
+            return (ScaleTypeDrawable) maybeWrapWithScaleType;
+        }
+        return (ScaleTypeDrawable) invokeLL.objValue;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, INVOKE, IF] complete} */
@@ -190,43 +230,6 @@ public class WrappingUtils {
         return (Drawable) invokeLL.objValue;
     }
 
-    @Nullable
-    public static Drawable maybeWrapWithScaleType(@Nullable Drawable drawable, @Nullable ScalingUtils.ScaleType scaleType) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, drawable, scaleType)) == null) ? maybeWrapWithScaleType(drawable, scaleType, null) : (Drawable) invokeLL.objValue;
-    }
-
-    public static void resetRoundingParams(Rounded rounded) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, null, rounded) == null) {
-            rounded.setCircle(false);
-            rounded.setRadius(0.0f);
-            rounded.setBorder(0, 0.0f);
-            rounded.setPadding(0.0f);
-            rounded.setScaleDownInsideBorders(false);
-            rounded.setPaintFilterBitmap(false);
-        }
-    }
-
-    public static void updateLeafRounding(DrawableParent drawableParent, @Nullable RoundingParams roundingParams, Resources resources) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65547, null, drawableParent, roundingParams, resources) == null) {
-            DrawableParent findDrawableParentForLeaf = findDrawableParentForLeaf(drawableParent);
-            Drawable drawable = findDrawableParentForLeaf.getDrawable();
-            if (roundingParams != null && roundingParams.getRoundingMethod() == RoundingParams.RoundingMethod.BITMAP_ONLY) {
-                if (drawable instanceof Rounded) {
-                    applyRoundingParams((Rounded) drawable, roundingParams);
-                } else if (drawable != null) {
-                    findDrawableParentForLeaf.setDrawable(sEmptyDrawable);
-                    findDrawableParentForLeaf.setDrawable(applyLeafRounding(drawable, roundingParams, resources));
-                }
-            } else if (drawable instanceof Rounded) {
-                resetRoundingParams((Rounded) drawable);
-            }
-        }
-    }
-
     public static void updateOverlayColorRounding(DrawableParent drawableParent, @Nullable RoundingParams roundingParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65548, null, drawableParent, roundingParams) == null) {
@@ -244,18 +247,6 @@ public class WrappingUtils {
                 sEmptyDrawable.setCallback(null);
             }
         }
-    }
-
-    public static ScaleTypeDrawable wrapChildWithScaleType(DrawableParent drawableParent, ScalingUtils.ScaleType scaleType) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, drawableParent, scaleType)) == null) {
-            Drawable maybeWrapWithScaleType = maybeWrapWithScaleType(drawableParent.setDrawable(sEmptyDrawable), scaleType);
-            drawableParent.setDrawable(maybeWrapWithScaleType);
-            Preconditions.checkNotNull(maybeWrapWithScaleType, "Parent has no child drawable!");
-            return (ScaleTypeDrawable) maybeWrapWithScaleType;
-        }
-        return (ScaleTypeDrawable) invokeLL.objValue;
     }
 
     @Nullable
@@ -282,5 +273,23 @@ public class WrappingUtils {
             return drawable;
         }
         return (Drawable) invokeLLL.objValue;
+    }
+
+    public static void updateLeafRounding(DrawableParent drawableParent, @Nullable RoundingParams roundingParams, Resources resources) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65547, null, drawableParent, roundingParams, resources) == null) {
+            DrawableParent findDrawableParentForLeaf = findDrawableParentForLeaf(drawableParent);
+            Drawable drawable = findDrawableParentForLeaf.getDrawable();
+            if (roundingParams != null && roundingParams.getRoundingMethod() == RoundingParams.RoundingMethod.BITMAP_ONLY) {
+                if (drawable instanceof Rounded) {
+                    applyRoundingParams((Rounded) drawable, roundingParams);
+                } else if (drawable != null) {
+                    findDrawableParentForLeaf.setDrawable(sEmptyDrawable);
+                    findDrawableParentForLeaf.setDrawable(applyLeafRounding(drawable, roundingParams, resources));
+                }
+            } else if (drawable instanceof Rounded) {
+                resetRoundingParams((Rounded) drawable);
+            }
+        }
     }
 }

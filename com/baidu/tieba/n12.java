@@ -1,8 +1,8 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.util.Log;
-import com.baidu.searchbox.unitedscheme.SchemeCollecter;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,26 +10,68 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class n12 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean h;
-    public static String i;
-    public static String j;
-    public static String k;
-    public static String l;
+    public static int d;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    @SuppressLint({"BDOfflineUrl"})
-    public String b;
-    public boolean c;
-    public boolean d;
-    public int e;
-    public int f;
-    public boolean g;
+    public Context a;
+    public b b;
+    public c c;
+
+    /* loaded from: classes5.dex */
+    public interface b {
+        void onConnected();
+    }
+
+    /* loaded from: classes5.dex */
+    public interface c {
+        void start();
+
+        void stop();
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ n12 a;
+
+        public a(n12 n12Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {n12Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = n12Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (!p02.e() && n12.e() == 0) {
+                    if (!p02.f()) {
+                        m02.c("V8Inspector", "Unknown inspect mode");
+                        return;
+                    }
+                    this.a.c = new q12(h12.e(), this.a.b);
+                } else {
+                    this.a.c = new r12(String.format("v8in%s_devtools_remote", this.a.a.getPackageName()), this.a.b);
+                }
+                this.a.c.start();
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -44,65 +86,75 @@ public class n12 {
                 return;
             }
         }
-        h = vj1.a;
-        i = "V8Master";
-        j = "page";
-        k = "runtime/index.js";
-        l = "ws://localhost:4000";
+        int i = 0;
+        if (ac3.a().getBoolean("Inspector", false)) {
+            i = 2;
+        }
+        d = i;
     }
 
-    public n12() {
+    public static int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return d;
+        }
+        return invokeV.intValue;
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ExecutorUtilsExt.postOnSerial(new a(this), "V8Inspector");
+        }
+    }
+
+    public void i() {
+        c cVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (cVar = this.c) != null) {
+            cVar.stop();
+            this.c = null;
+        }
+    }
+
+    public n12(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = String.valueOf(System.currentTimeMillis());
-        this.b = "http://chrome-devtools-frontend.appspot.com/serve_rev/@74dd8d5ea19a92d0e6092e59a0c8bd3a40877b71/inspector.html?ws=localhost:4000";
-        this.c = false;
-        this.d = true;
-        this.e = 0;
-        this.f = 0;
-        this.g = true;
+        this.a = context;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public static void g(int i) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONArray jSONArray = new JSONArray();
-            JSONObject jSONObject = new JSONObject();
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject.putOpt("title", i);
-                jSONObject.putOpt("type", j);
-                jSONObject.putOpt("url", k);
-                jSONObject.putOpt("webSocketDebuggerUrl", l);
-                jSONObject.putOpt("id", this.a);
-                jSONObject.putOpt("devtoolsFrontendUrl", this.b);
-                jSONObject.putOpt("swanJsVersion", qc3.h(0));
-                jSONObject.putOpt("appVersion", fh3.D());
-                jSONObject2.putOpt("attached", Boolean.valueOf(this.c));
-                jSONObject2.putOpt(SchemeCollecter.CLASSIFY_EMPTY, Boolean.valueOf(this.d));
-                jSONObject2.putOpt("screenX", Integer.valueOf(this.e));
-                jSONObject2.putOpt("screenY", Integer.valueOf(this.f));
-                jSONObject2.putOpt("visible", Boolean.valueOf(this.g));
-                jSONObject.putOpt("description", jSONObject2.toString());
-                jSONArray.put(jSONObject);
-            } catch (JSONException e) {
-                if (h) {
-                    Log.e("V8Module", "Build V8 module fail", e);
-                }
+        if (interceptable == null || interceptable.invokeI(65543, null, i) == null) {
+            ub3 a2 = ac3.a();
+            if (i == 2) {
+                z = true;
+            } else {
+                z = false;
             }
-            return jSONArray.toString();
+            a2.putBoolean("Inspector", z);
+            d = i;
         }
-        return (String) invokeV.objValue;
+    }
+
+    public void f(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
+            this.b = bVar;
+        }
     }
 }

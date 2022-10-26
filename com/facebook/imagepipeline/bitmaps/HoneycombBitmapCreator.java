@@ -1,6 +1,5 @@
 package com.facebook.imagepipeline.bitmaps;
 
-import android.annotation.TargetApi;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Build;
@@ -61,42 +60,42 @@ public class HoneycombBitmapCreator implements BitmapCreator {
     }
 
     @Override // com.facebook.common.webp.BitmapCreator
-    @TargetApi(12)
     public Bitmap createNakedBitmap(int i, int i2, Bitmap.Config config) {
         InterceptResult invokeIIL;
         EncodedImage encodedImage;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeIIL = interceptable.invokeIIL(1048576, this, i, i2, config)) != null) {
-            return (Bitmap) invokeIIL.objValue;
-        }
-        CloseableReference<PooledByteBuffer> generate = this.mJpegGenerator.generate((short) i, (short) i2);
-        CloseableReference<byte[]> closeableReference = null;
-        try {
-            encodedImage = new EncodedImage(generate);
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i, i2, config)) == null) {
+            CloseableReference generate = this.mJpegGenerator.generate((short) i, (short) i2);
+            CloseableReference closeableReference = null;
             try {
-                encodedImage.setImageFormat(DefaultImageFormats.JPEG);
-                BitmapFactory.Options bitmapFactoryOptions = getBitmapFactoryOptions(encodedImage.getSampleSize(), config);
-                int size = generate.get().size();
-                closeableReference = this.mFlexByteArrayPool.get(size + 2);
-                byte[] bArr = closeableReference.get();
-                generate.get().read(0, bArr, 0, size);
-                Bitmap decodeByteArray = BitmapFactory.decodeByteArray(bArr, 0, size, bitmapFactoryOptions);
-                decodeByteArray.setHasAlpha(true);
-                decodeByteArray.eraseColor(0);
-                CloseableReference.closeSafely((CloseableReference<?>) closeableReference);
-                EncodedImage.closeSafely(encodedImage);
-                CloseableReference.closeSafely(generate);
-                return decodeByteArray;
-            } catch (Throwable th) {
-                th = th;
-                CloseableReference.closeSafely((CloseableReference<?>) closeableReference);
-                EncodedImage.closeSafely(encodedImage);
-                CloseableReference.closeSafely(generate);
-                throw th;
+                encodedImage = new EncodedImage(generate);
+                try {
+                    encodedImage.setImageFormat(DefaultImageFormats.JPEG);
+                    BitmapFactory.Options bitmapFactoryOptions = getBitmapFactoryOptions(encodedImage.getSampleSize(), config);
+                    int size = ((PooledByteBuffer) generate.get()).size();
+                    closeableReference = this.mFlexByteArrayPool.get(size + 2);
+                    byte[] bArr = (byte[]) closeableReference.get();
+                    ((PooledByteBuffer) generate.get()).read(0, bArr, 0, size);
+                    Bitmap decodeByteArray = BitmapFactory.decodeByteArray(bArr, 0, size, bitmapFactoryOptions);
+                    decodeByteArray.setHasAlpha(true);
+                    decodeByteArray.eraseColor(0);
+                    CloseableReference.closeSafely(closeableReference);
+                    EncodedImage.closeSafely(encodedImage);
+                    CloseableReference.closeSafely(generate);
+                    return decodeByteArray;
+                } catch (Throwable th) {
+                    th = th;
+                    CloseableReference.closeSafely(closeableReference);
+                    EncodedImage.closeSafely(encodedImage);
+                    CloseableReference.closeSafely(generate);
+                    throw th;
+                }
+            } catch (Throwable th2) {
+                th = th2;
+                encodedImage = null;
             }
-        } catch (Throwable th2) {
-            th = th2;
-            encodedImage = null;
+        } else {
+            return (Bitmap) invokeIIL.objValue;
         }
     }
 }

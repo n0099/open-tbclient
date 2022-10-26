@@ -2,8 +2,8 @@ package com.baidu.searchbox.task.sync.appcreate;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
-import com.baidu.tieba.q77;
-import com.baidu.tieba.sd5;
+import com.baidu.tieba.y77;
+import com.baidu.tieba.yd5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,6 +13,23 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class InitIMTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
+    public String getName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "Ignore_InitIM" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
+    public int getProcess() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return -1;
+        }
+        return invokeV.intValue;
+    }
 
     public InitIMTask() {
         Interceptable interceptable = $ic;
@@ -32,8 +49,8 @@ public class InitIMTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            q77.a();
-            sd5.b().p(System.currentTimeMillis() - currentTimeMillis);
+            y77.a();
+            yd5.b().p(System.currentTimeMillis() - currentTimeMillis);
         }
     }
 
@@ -43,22 +60,5 @@ public class InitIMTask extends LaunchTask {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             initIM();
         }
-    }
-
-    @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
-    public String getName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "Ignore_InitIM" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
-    public int getProcess() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return -1;
-        }
-        return invokeV.intValue;
     }
 }

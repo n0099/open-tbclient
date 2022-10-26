@@ -13,7 +13,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public abstract class a implements k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CopyOnWriteArrayList<e> mu;
+    public CopyOnWriteArrayList mu;
     public e mv;
     public e mw;
     public l mx;
@@ -31,7 +31,7 @@ public abstract class a implements k {
                 return;
             }
         }
-        this.mu = new CopyOnWriteArrayList<>();
+        this.mu = new CopyOnWriteArrayList();
     }
 
     @Override // com.baidu.ar.d.k
@@ -121,7 +121,7 @@ public abstract class a implements k {
     }
 
     public void b(e eVar) {
-        CopyOnWriteArrayList<e> copyOnWriteArrayList;
+        CopyOnWriteArrayList copyOnWriteArrayList;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar) == null) || (copyOnWriteArrayList = this.mu) == null) {
             return;
@@ -134,7 +134,7 @@ public abstract class a implements k {
     }
 
     public void c(e eVar) {
-        CopyOnWriteArrayList<e> copyOnWriteArrayList;
+        CopyOnWriteArrayList copyOnWriteArrayList;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eVar) == null) || (copyOnWriteArrayList = this.mu) == null) {
             return;
@@ -153,7 +153,7 @@ public abstract class a implements k {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            CopyOnWriteArrayList<e> copyOnWriteArrayList = this.mu;
+            CopyOnWriteArrayList copyOnWriteArrayList = this.mu;
             return copyOnWriteArrayList != null && copyOnWriteArrayList.size() > 0;
         }
         return invokeV.booleanValue;
@@ -161,7 +161,7 @@ public abstract class a implements k {
 
     @Override // com.baidu.ar.d.k
     public void release() {
-        CopyOnWriteArrayList<e> copyOnWriteArrayList;
+        CopyOnWriteArrayList copyOnWriteArrayList;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (copyOnWriteArrayList = this.mu) == null) {
             return;

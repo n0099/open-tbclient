@@ -54,7 +54,13 @@ public final class DefaultCalAction {
             public CalValue cal(Number number, CalValue calValue) {
                 InterceptResult invokeLL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, number, calValue)) == null) ? (DefaultCalAction.isInt(number) && DefaultCalAction.isInt(calValue.value)) ? calValue.updateValue(Long.valueOf(DefaultCalAction.safeToInt(number) + DefaultCalAction.safeToInt(calValue.value))) : calValue.updateValue(Double.valueOf(DefaultCalAction.safeToFloat(number) + DefaultCalAction.safeToFloat(calValue.value))) : (CalValue) invokeLL.objValue;
+                if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, number, calValue)) == null) {
+                    if (DefaultCalAction.isInt(number) && DefaultCalAction.isInt(calValue.value)) {
+                        return calValue.updateValue(Long.valueOf(DefaultCalAction.safeToInt(number) + DefaultCalAction.safeToInt(calValue.value)));
+                    }
+                    return calValue.updateValue(Double.valueOf(DefaultCalAction.safeToFloat(number) + DefaultCalAction.safeToFloat(calValue.value)));
+                }
+                return (CalValue) invokeLL.objValue;
             }
         };
         AVERAGE = new CalAction() { // from class: com.yy.hiidostatis.message.module.sessionreport.DefaultCalAction.2
@@ -79,7 +85,10 @@ public final class DefaultCalAction {
             public CalValue cal(Number number, CalValue calValue) {
                 InterceptResult invokeLL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, number, calValue)) == null) ? calValue.updateValue(Double.valueOf((DefaultCalAction.safeToFloat(number) + DefaultCalAction.safeToFloat(calValue.value)) / (calValue.times.get() + 1))) : (CalValue) invokeLL.objValue;
+                if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, number, calValue)) == null) {
+                    return calValue.updateValue(Double.valueOf((DefaultCalAction.safeToFloat(number) + DefaultCalAction.safeToFloat(calValue.value)) / (calValue.times.get() + 1)));
+                }
+                return (CalValue) invokeLL.objValue;
             }
         };
         MAX = new CalAction() { // from class: com.yy.hiidostatis.message.module.sessionreport.DefaultCalAction.3
@@ -108,7 +117,10 @@ public final class DefaultCalAction {
                     if (calValue.value == null) {
                         return calValue.updateValue(number);
                     }
-                    return (DefaultCalAction.isInt(number) && DefaultCalAction.isInt(calValue.value)) ? calValue.updateValue(Long.valueOf(Math.max(DefaultCalAction.safeToInt(number), DefaultCalAction.safeToInt(calValue.value)))) : calValue.updateValue(Double.valueOf(Math.max(DefaultCalAction.safeToFloat(number), DefaultCalAction.safeToFloat(calValue.value))));
+                    if (DefaultCalAction.isInt(number) && DefaultCalAction.isInt(calValue.value)) {
+                        return calValue.updateValue(Long.valueOf(Math.max(DefaultCalAction.safeToInt(number), DefaultCalAction.safeToInt(calValue.value))));
+                    }
+                    return calValue.updateValue(Double.valueOf(Math.max(DefaultCalAction.safeToFloat(number), DefaultCalAction.safeToFloat(calValue.value))));
                 }
                 return (CalValue) invokeLL.objValue;
             }
@@ -139,7 +151,10 @@ public final class DefaultCalAction {
                     if (calValue.value == null) {
                         return calValue.updateValue(number);
                     }
-                    return (DefaultCalAction.isInt(number) && DefaultCalAction.isInt(calValue.value)) ? calValue.updateValue(Long.valueOf(Math.min(DefaultCalAction.safeToInt(number), DefaultCalAction.safeToInt(calValue.value)))) : calValue.updateValue(Double.valueOf(Math.min(DefaultCalAction.safeToFloat(number), DefaultCalAction.safeToFloat(calValue.value))));
+                    if (DefaultCalAction.isInt(number) && DefaultCalAction.isInt(calValue.value)) {
+                        return calValue.updateValue(Long.valueOf(Math.min(DefaultCalAction.safeToInt(number), DefaultCalAction.safeToInt(calValue.value))));
+                    }
+                    return calValue.updateValue(Double.valueOf(Math.min(DefaultCalAction.safeToFloat(number), DefaultCalAction.safeToFloat(calValue.value))));
                 }
                 return (CalValue) invokeLL.objValue;
             }
@@ -166,7 +181,10 @@ public final class DefaultCalAction {
             public CalValue cal(Number number, CalValue calValue) {
                 InterceptResult invokeLL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, number, calValue)) == null) ? calValue.updateTempStorage(number) : (CalValue) invokeLL.objValue;
+                if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, number, calValue)) == null) {
+                    return calValue.updateTempStorage(number);
+                }
+                return (CalValue) invokeLL.objValue;
             }
         };
         SUM_DEVIATION = new CalAction() { // from class: com.yy.hiidostatis.message.module.sessionreport.DefaultCalAction.6
@@ -191,7 +209,13 @@ public final class DefaultCalAction {
             public CalValue cal(Number number, CalValue calValue) {
                 InterceptResult invokeLL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, number, calValue)) == null) ? (DefaultCalAction.isInt(number) && DefaultCalAction.isInt((Number) calValue.tempStorage)) ? calValue.updateValue(Long.valueOf((DefaultCalAction.safeToInt(calValue.value) + DefaultCalAction.safeToInt(number)) - DefaultCalAction.safeToInt((Number) calValue.tempStorage))) : calValue.updateValue(Double.valueOf((DefaultCalAction.safeToInt(calValue.value) + DefaultCalAction.safeToFloat(number)) - DefaultCalAction.safeToFloat((Number) calValue.tempStorage))) : (CalValue) invokeLL.objValue;
+                if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, number, calValue)) == null) {
+                    if (DefaultCalAction.isInt(number) && DefaultCalAction.isInt((Number) calValue.tempStorage)) {
+                        return calValue.updateValue(Long.valueOf((DefaultCalAction.safeToInt(calValue.value) + DefaultCalAction.safeToInt(number)) - DefaultCalAction.safeToInt((Number) calValue.tempStorage)));
+                    }
+                    return calValue.updateValue(Double.valueOf((DefaultCalAction.safeToInt(calValue.value) + DefaultCalAction.safeToFloat(number)) - DefaultCalAction.safeToFloat((Number) calValue.tempStorage)));
+                }
+                return (CalValue) invokeLL.objValue;
             }
         };
         SUM_DEVIATION_AND_UPDATE_TEMP = new CalAction() { // from class: com.yy.hiidostatis.message.module.sessionreport.DefaultCalAction.7
@@ -216,7 +240,13 @@ public final class DefaultCalAction {
             public CalValue cal(Number number, CalValue calValue) {
                 InterceptResult invokeLL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, number, calValue)) == null) ? (DefaultCalAction.isInt(number) && DefaultCalAction.isInt((Number) calValue.tempStorage)) ? calValue.updateValue(Long.valueOf((DefaultCalAction.safeToInt(calValue.value) + DefaultCalAction.safeToInt(number)) - DefaultCalAction.safeToInt((Number) calValue.tempStorage))).updateTempStorage(number) : calValue.updateValue(Double.valueOf((DefaultCalAction.safeToInt(calValue.value) + DefaultCalAction.safeToFloat(number)) - DefaultCalAction.safeToFloat((Number) calValue.tempStorage))).updateTempStorage(number) : (CalValue) invokeLL.objValue;
+                if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, number, calValue)) == null) {
+                    if (DefaultCalAction.isInt(number) && DefaultCalAction.isInt((Number) calValue.tempStorage)) {
+                        return calValue.updateValue(Long.valueOf((DefaultCalAction.safeToInt(calValue.value) + DefaultCalAction.safeToInt(number)) - DefaultCalAction.safeToInt((Number) calValue.tempStorage))).updateTempStorage(number);
+                    }
+                    return calValue.updateValue(Double.valueOf((DefaultCalAction.safeToInt(calValue.value) + DefaultCalAction.safeToFloat(number)) - DefaultCalAction.safeToFloat((Number) calValue.tempStorage))).updateTempStorage(number);
+                }
+                return (CalValue) invokeLL.objValue;
             }
         };
     }
@@ -238,7 +268,13 @@ public final class DefaultCalAction {
     public static boolean isInt(Number number) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, number)) == null) ? number == null || (number instanceof Long) || (number instanceof Integer) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, number)) == null) {
+            if (number != null && !(number instanceof Long) && !(number instanceof Integer)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
     public static double safeToFloat(Number number) {

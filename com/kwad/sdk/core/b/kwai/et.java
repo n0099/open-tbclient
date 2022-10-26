@@ -4,9 +4,8 @@ import com.baidu.webkit.sdk.LoadErrorCode;
 import com.kwad.sdk.commercial.model.SDKInitMsg;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class et implements com.kwad.sdk.core.d<SDKInitMsg> {
-    /* renamed from: a  reason: avoid collision after fix types in other method */
-    public static void a2(SDKInitMsg sDKInitMsg, JSONObject jSONObject) {
+public final class et implements com.kwad.sdk.core.d {
+    public static void a(SDKInitMsg sDKInitMsg, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
@@ -23,8 +22,7 @@ public final class et implements com.kwad.sdk.core.d<SDKInitMsg> {
         sDKInitMsg.ratioCount = jSONObject.optDouble("ratio_count");
     }
 
-    /* renamed from: b  reason: avoid collision after fix types in other method */
-    public static JSONObject b2(SDKInitMsg sDKInitMsg, JSONObject jSONObject) {
+    public static JSONObject b(SDKInitMsg sDKInitMsg, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
@@ -60,15 +58,13 @@ public final class et implements com.kwad.sdk.core.d<SDKInitMsg> {
         return jSONObject;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ void a(SDKInitMsg sDKInitMsg, JSONObject jSONObject) {
-        a2(sDKInitMsg, jSONObject);
+    public final /* bridge */ /* synthetic */ void a(com.kwad.sdk.core.b bVar, JSONObject jSONObject) {
+        a((SDKInitMsg) bVar, jSONObject);
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ JSONObject b(SDKInitMsg sDKInitMsg, JSONObject jSONObject) {
-        return b2(sDKInitMsg, jSONObject);
+    public final /* bridge */ /* synthetic */ JSONObject b(com.kwad.sdk.core.b bVar, JSONObject jSONObject) {
+        return b((SDKInitMsg) bVar, jSONObject);
     }
 }

@@ -62,18 +62,27 @@ public final class RedirectType {
     public static RedirectType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (RedirectType) Enum.valueOf(RedirectType.class, str) : (RedirectType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (RedirectType) Enum.valueOf(RedirectType.class, str);
+        }
+        return (RedirectType) invokeL.objValue;
     }
 
     public static RedirectType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (RedirectType[]) $VALUES.clone() : (RedirectType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (RedirectType[]) $VALUES.clone();
+        }
+        return (RedirectType[]) invokeV.objValue;
     }
 
     public int getValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.value : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.value;
+        }
+        return invokeV.intValue;
     }
 }

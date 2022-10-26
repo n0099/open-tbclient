@@ -52,142 +52,25 @@ public class c {
         SLog.i("openSDK_LOG.QQAuth", "new QQAuth() --end");
     }
 
-    public static void a(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, context, str) == null) {
-            SharedPreferences.Editor edit = context.getSharedPreferences("BuglySdkInfos", 0).edit();
-            edit.putString("bcb3903995", str);
-            edit.apply();
-        }
-    }
-
-    public int b(Activity activity, String str, IUiListener iUiListener) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048586, this, activity, str, iUiListener)) == null) {
-            SLog.i("openSDK_LOG.QQAuth", "reAuth()");
-            return this.a.a(activity, str, iUiListener, true, null, false);
-        }
-        return invokeLLL.intValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("isSessionValid(), result = ");
-            sb.append(this.b.isSessionValid() ? "true" : "false");
-            SLog.i("openSDK_LOG.QQAuth", sb.toString());
-            return this.b.isSessionValid();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public QQToken b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.b : (QQToken) invokeV.objValue;
-    }
-
-    public void b(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048588, this, context, str) == null) {
-            SLog.i("openSDK_LOG.QQAuth", "setOpenId() --start");
-            this.b.setOpenId(str);
-            com.tencent.connect.a.a.d(context, this.b);
-            SLog.i("openSDK_LOG.QQAuth", "setOpenId() --end");
-        }
-    }
-
-    public static c a(String str, Context context) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, context)) == null) {
-            f.a(context.getApplicationContext());
-            SLog.i("openSDK_LOG.QQAuth", "QQAuth -- createInstance() --start");
-            c cVar = new c(str, context);
-            SLog.i("openSDK_LOG.QQAuth", "QQAuth -- createInstance()  --end");
-            return cVar;
-        }
-        return (c) invokeLL.objValue;
-    }
-
-    public int a(Activity activity, String str, IUiListener iUiListener) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str, iUiListener)) == null) {
-            SLog.i("openSDK_LOG.QQAuth", "login()");
-            return a(activity, str, iUiListener, "");
-        }
-        return invokeLLL.intValue;
-    }
-
-    public int a(Activity activity, String str, IUiListener iUiListener, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{activity, str, iUiListener, Boolean.valueOf(z)})) == null) {
-            SLog.i("openSDK_LOG.QQAuth", "login()");
-            return a(activity, null, str, iUiListener, "", z);
-        }
-        return invokeCommon.intValue;
-    }
-
-    public int a(Activity activity, IUiListener iUiListener, Map<String, Object> map) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, activity, iUiListener, map)) == null) {
-            SLog.i("openSDK_LOG.QQAuth", "login--params");
-            return a(activity, (Fragment) null, l.a(map, Constants.KEY_SCOPE, "all"), iUiListener, "", l.a(map, Constants.KEY_QRCODE, false), map);
-        }
-        return invokeLLL.intValue;
-    }
-
-    public int a(Activity activity, String str, IUiListener iUiListener, String str2) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, activity, str, iUiListener, str2)) == null) {
-            SLog.i("openSDK_LOG.QQAuth", "-->login activity: " + activity);
-            return a(activity, (Fragment) null, str, iUiListener, str2);
-        }
-        return invokeLLLL.intValue;
-    }
-
-    public int a(Fragment fragment, String str, IUiListener iUiListener, String str2) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, fragment, str, iUiListener, str2)) == null) {
-            FragmentActivity activity = fragment.getActivity();
-            SLog.i("openSDK_LOG.QQAuth", "-->login activity: " + activity);
-            return a(activity, fragment, str, iUiListener, str2);
-        }
-        return invokeLLLL.intValue;
-    }
-
-    public int a(Fragment fragment, String str, IUiListener iUiListener, String str2, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{fragment, str, iUiListener, str2, Boolean.valueOf(z)})) == null) {
-            FragmentActivity activity = fragment.getActivity();
-            SLog.i("openSDK_LOG.QQAuth", "-->login activity: " + activity);
-            return a(activity, fragment, str, iUiListener, str2, z);
-        }
-        return invokeCommon.intValue;
-    }
-
     private int a(Activity activity, Fragment fragment, String str, IUiListener iUiListener, String str2) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65537, this, activity, fragment, str, iUiListener, str2)) == null) ? a(activity, fragment, str, iUiListener, str2, false) : invokeLLLLL.intValue;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65537, this, activity, fragment, str, iUiListener, str2)) == null) {
+            return a(activity, fragment, str, iUiListener, str2, false);
+        }
+        return invokeLLLLL.intValue;
     }
 
     private int a(Activity activity, Fragment fragment, String str, IUiListener iUiListener, String str2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{activity, fragment, str, iUiListener, str2, Boolean.valueOf(z)})) == null) ? a(activity, fragment, str, iUiListener, str2, z, (Map<String, Object>) null) : invokeCommon.intValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{activity, fragment, str, iUiListener, str2, Boolean.valueOf(z)})) == null) {
+            return a(activity, fragment, str, iUiListener, str2, z, (Map) null);
+        }
+        return invokeCommon.intValue;
     }
 
-    private int a(Activity activity, Fragment fragment, String str, IUiListener iUiListener, String str2, boolean z, Map<String, Object> map) {
+    private int a(Activity activity, Fragment fragment, String str, IUiListener iUiListener, String str2, boolean z, Map map) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{activity, fragment, str, iUiListener, str2, Boolean.valueOf(z), map})) == null) {
@@ -206,6 +89,88 @@ public class c {
             SLog.d("openSDK_LOG.QQAuth", "-->login channelId is null ");
             BaseApi.isOEM = false;
             return this.a.doLogin(activity, str, iUiListener, false, fragment, z, map);
+        }
+        return invokeCommon.intValue;
+    }
+
+    public static c a(String str, Context context) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, context)) == null) {
+            f.a(context.getApplicationContext());
+            SLog.i("openSDK_LOG.QQAuth", "QQAuth -- createInstance() --start");
+            c cVar = new c(str, context);
+            SLog.i("openSDK_LOG.QQAuth", "QQAuth -- createInstance()  --end");
+            return cVar;
+        }
+        return (c) invokeLL.objValue;
+    }
+
+    public void b(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048588, this, context, str) == null) {
+            SLog.i("openSDK_LOG.QQAuth", "setOpenId() --start");
+            this.b.setOpenId(str);
+            com.tencent.connect.a.a.d(context, this.b);
+            SLog.i("openSDK_LOG.QQAuth", "setOpenId() --end");
+        }
+    }
+
+    public static void a(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, context, str) == null) {
+            SharedPreferences.Editor edit = context.getSharedPreferences("BuglySdkInfos", 0).edit();
+            edit.putString("bcb3903995", str);
+            edit.apply();
+        }
+    }
+
+    public int a(Activity activity, IUiListener iUiListener, Map map) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, activity, iUiListener, map)) == null) {
+            SLog.i("openSDK_LOG.QQAuth", "login--params");
+            return a(activity, (Fragment) null, l.a(map, Constants.KEY_SCOPE, "all"), iUiListener, "", l.a(map, Constants.KEY_QRCODE, false), map);
+        }
+        return invokeLLL.intValue;
+    }
+
+    public int b(Activity activity, String str, IUiListener iUiListener) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048586, this, activity, str, iUiListener)) == null) {
+            SLog.i("openSDK_LOG.QQAuth", "reAuth()");
+            return this.a.a(activity, str, iUiListener, true, null, false);
+        }
+        return invokeLLL.intValue;
+    }
+
+    public int a(Activity activity, String str, IUiListener iUiListener) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str, iUiListener)) == null) {
+            SLog.i("openSDK_LOG.QQAuth", "login()");
+            return a(activity, str, iUiListener, "");
+        }
+        return invokeLLL.intValue;
+    }
+
+    public int a(Activity activity, String str, IUiListener iUiListener, String str2) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, activity, str, iUiListener, str2)) == null) {
+            SLog.i("openSDK_LOG.QQAuth", "-->login activity: " + activity);
+            return a(activity, (Fragment) null, str, iUiListener, str2);
+        }
+        return invokeLLLL.intValue;
+    }
+
+    public int a(Activity activity, String str, IUiListener iUiListener, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{activity, str, iUiListener, Boolean.valueOf(z)})) == null) {
+            SLog.i("openSDK_LOG.QQAuth", "login()");
+            return a(activity, null, str, iUiListener, "", z);
         }
         return invokeCommon.intValue;
     }
@@ -234,11 +199,42 @@ public class c {
         return invokeCommon.intValue;
     }
 
+    public int a(Fragment fragment, String str, IUiListener iUiListener, String str2) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, fragment, str, iUiListener, str2)) == null) {
+            FragmentActivity activity = fragment.getActivity();
+            SLog.i("openSDK_LOG.QQAuth", "-->login activity: " + activity);
+            return a(activity, fragment, str, iUiListener, str2);
+        }
+        return invokeLLLL.intValue;
+    }
+
+    public int a(Fragment fragment, String str, IUiListener iUiListener, String str2, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{fragment, str, iUiListener, str2, Boolean.valueOf(z)})) == null) {
+            FragmentActivity activity = fragment.getActivity();
+            SLog.i("openSDK_LOG.QQAuth", "-->login activity: " + activity);
+            return a(activity, fragment, str, iUiListener, str2, z);
+        }
+        return invokeCommon.intValue;
+    }
+
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.a.a((IUiListener) null);
         }
+    }
+
+    public QQToken b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.b;
+        }
+        return (QQToken) invokeV.objValue;
     }
 
     public void a(IUiListener iUiListener) {
@@ -254,5 +250,24 @@ public class c {
             SLog.i("openSDK_LOG.QQAuth", "setAccessToken(), validTimeInSecond = " + str2 + "");
             this.b.setAccessToken(str, str2);
         }
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("isSessionValid(), result = ");
+            if (this.b.isSessionValid()) {
+                str = "true";
+            } else {
+                str = "false";
+            }
+            sb.append(str);
+            SLog.i("openSDK_LOG.QQAuth", sb.toString());
+            return this.b.isSessionValid();
+        }
+        return invokeV.booleanValue;
     }
 }

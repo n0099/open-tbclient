@@ -35,7 +35,7 @@ public class FileTypeBox extends AbstractBox {
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_4 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_5 = null;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<String> compatibleBrands;
+    public List compatibleBrands;
     public String majorBrand;
     public long minorVersion;
 
@@ -55,6 +55,46 @@ public class FileTypeBox extends AbstractBox {
         ajc$preClinit();
     }
 
+    public List getCompatibleBrands() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_4, this, this));
+            return this.compatibleBrands;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public long getContentSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return (this.compatibleBrands.size() * 4) + 8;
+        }
+        return invokeV.longValue;
+    }
+
+    public String getMajorBrand() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
+            return this.majorBrand;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long getMinorVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_3, this, this));
+            return this.minorVersion;
+        }
+        return invokeV.longValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FileTypeBox() {
         super(TYPE);
@@ -72,6 +112,30 @@ public class FileTypeBox extends AbstractBox {
             }
         }
         this.compatibleBrands = Collections.emptyList();
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public FileTypeBox(String str, long j, List list) {
+        super(TYPE);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Long.valueOf(j), list};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.compatibleBrands = Collections.emptyList();
+        this.majorBrand = str;
+        this.minorVersion = j;
+        this.compatibleBrands = list;
     }
 
     public static /* synthetic */ void ajc$preClinit() {
@@ -98,16 +162,6 @@ public class FileTypeBox extends AbstractBox {
         }
     }
 
-    public List<String> getCompatibleBrands() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_4, this, this));
-            return this.compatibleBrands;
-        }
-        return (List) invokeV.objValue;
-    }
-
     @Override // com.googlecode.mp4parser.AbstractBox
     public void getContent(ByteBuffer byteBuffer) {
         Interceptable interceptable = $ic;
@@ -120,34 +174,7 @@ public class FileTypeBox extends AbstractBox {
         }
     }
 
-    @Override // com.googlecode.mp4parser.AbstractBox
-    public long getContentSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.compatibleBrands.size() * 4) + 8 : invokeV.longValue;
-    }
-
-    public String getMajorBrand() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
-            return this.majorBrand;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public long getMinorVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_3, this, this));
-            return this.minorVersion;
-        }
-        return invokeV.longValue;
-    }
-
-    public void setCompatibleBrands(List<String> list) {
+    public void setCompatibleBrands(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_5, this, this, list));
@@ -192,29 +219,5 @@ public class FileTypeBox extends AbstractBox {
             return sb.toString();
         }
         return (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FileTypeBox(String str, long j, List<String> list) {
-        super(TYPE);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Long.valueOf(j), list};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.compatibleBrands = Collections.emptyList();
-        this.majorBrand = str;
-        this.minorVersion = j;
-        this.compatibleBrands = list;
     }
 }

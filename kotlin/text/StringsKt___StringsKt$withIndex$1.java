@@ -16,9 +16,8 @@ public final class StringsKt___StringsKt$withIndex$1 extends Lambda implements F
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX DEBUG: Return type fixed from 'java.util.Iterator<java.lang.Character>' to match base method */
     @Override // kotlin.jvm.functions.Function0
-    public final Iterator<? extends Character> invoke() {
+    public final Iterator<Character> invoke() {
         return StringsKt__StringsKt.iterator(this.$this_withIndex);
     }
 }

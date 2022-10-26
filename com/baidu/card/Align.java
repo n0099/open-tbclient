@@ -67,12 +67,18 @@ public final class Align {
     public static Align valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Align) Enum.valueOf(Align.class, str) : (Align) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (Align) Enum.valueOf(Align.class, str);
+        }
+        return (Align) invokeL.objValue;
     }
 
     public static Align[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Align[]) $VALUES.clone() : (Align[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (Align[]) $VALUES.clone();
+        }
+        return (Align[]) invokeV.objValue;
     }
 }

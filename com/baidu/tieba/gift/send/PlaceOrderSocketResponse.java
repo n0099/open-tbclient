@@ -1,9 +1,8 @@
 package com.baidu.tieba.gift.send;
 
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
-import com.baidu.tieba.yv6;
+import com.baidu.tieba.fw6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +15,7 @@ import tbclient.PlaceOrder.PlaceOrderResIdl;
 public class PlaceOrderSocketResponse extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public yv6 orderInfo;
+    public fw6 orderInfo;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PlaceOrderSocketResponse() {
@@ -36,8 +35,16 @@ public class PlaceOrderSocketResponse extends TbSocketReponsedMessage {
         }
     }
 
+    public fw6 getOrderInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.orderInfo;
+        }
+        return (fw6) invokeV.objValue;
+    }
+
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -52,18 +59,12 @@ public class PlaceOrderSocketResponse extends TbSocketReponsedMessage {
                 setErrorString(placeOrderResIdl.error.usermsg);
             }
             if (placeOrderResIdl.data != null) {
-                yv6 yv6Var = new yv6();
-                this.orderInfo = yv6Var;
-                yv6Var.c(placeOrderResIdl.data);
+                fw6 fw6Var = new fw6();
+                this.orderInfo = fw6Var;
+                fw6Var.c(placeOrderResIdl.data);
             }
             return placeOrderResIdl;
         }
         return invokeIL.objValue;
-    }
-
-    public yv6 getOrderInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.orderInfo : (yv6) invokeV.objValue;
     }
 }

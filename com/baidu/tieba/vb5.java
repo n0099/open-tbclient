@@ -1,11 +1,7 @@
 package com.baidu.tieba;
-
-import com.baidu.adp.BdUniqueId;
 /* loaded from: classes6.dex */
-public interface vb5 {
-    boolean R0();
+public interface vb5 extends tb5 {
+    String k();
 
-    BdUniqueId getUniqueId();
-
-    boolean r0(wb5 wb5Var);
+    boolean q(String str);
 }

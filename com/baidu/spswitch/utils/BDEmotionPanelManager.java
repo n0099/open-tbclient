@@ -91,22 +91,58 @@ public class BDEmotionPanelManager {
         }
     }
 
+    public static BDEmotionPanelManager getInstance() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (sInstance == null) {
+                synchronized (BDEmotionPanelManager.class) {
+                    if (sInstance == null) {
+                        sInstance = new BDEmotionPanelManager();
+                    }
+                }
+            }
+            return sInstance;
+        }
+        return (BDEmotionPanelManager) invokeV.objValue;
+    }
+
+    public void dismiss() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            GlobalOnItemClickListenerManager.getInstance().dismiss();
+            sInstance = null;
+        }
+    }
+
+    public boolean isNightMode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.isNightMode;
+        }
+        return invokeV.booleanValue;
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public void doLoadInnerEmotionPanel(Activity activity, ViewGroup viewGroup, View view2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{activity, viewGroup, view2, Boolean.valueOf(z)}) == null) {
             if (!(viewGroup instanceof SPSwitchPanelLinearLayout)) {
-                if (DEBUG) {
-                    throw new IllegalArgumentException("panelLayout must be SPSwitchLinearLayout");
+                if (!DEBUG) {
+                    return;
                 }
+                throw new IllegalArgumentException("panelLayout must be SPSwitchLinearLayout");
             } else if (!(view2 instanceof EditText)) {
-                if (DEBUG) {
-                    throw new IllegalArgumentException("focus view must be EditText");
+                if (!DEBUG) {
+                    return;
                 }
+                throw new IllegalArgumentException("focus view must be EditText");
             } else if (!(activity instanceof FragmentActivity)) {
-                if (DEBUG) {
-                    throw new IllegalArgumentException("host activity must be fragment activity");
+                if (!DEBUG) {
+                    return;
                 }
+                throw new IllegalArgumentException("host activity must be fragment activity");
             } else {
                 this.isNightMode = z;
                 handleEmotionTypeLayoutNightMode(viewGroup);
@@ -149,22 +185,6 @@ public class BDEmotionPanelManager {
         return (FragmentManager) invokeL.objValue;
     }
 
-    public static BDEmotionPanelManager getInstance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (sInstance == null) {
-                synchronized (BDEmotionPanelManager.class) {
-                    if (sInstance == null) {
-                        sInstance = new BDEmotionPanelManager();
-                    }
-                }
-            }
-            return sInstance;
-        }
-        return (BDEmotionPanelManager) invokeV.objValue;
-    }
-
     private void handleEmotionTypeLayoutNightMode(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, this, viewGroup) == null) {
@@ -180,20 +200,6 @@ public class BDEmotionPanelManager {
             findViewById2.setVisibility(8);
             findViewById.setVisibility(8);
         }
-    }
-
-    public void dismiss() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            GlobalOnItemClickListenerManager.getInstance().dismiss();
-            sInstance = null;
-        }
-    }
-
-    public boolean isNightMode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.isNightMode : invokeV.booleanValue;
     }
 
     public void loadInnerEmotionPanel(Activity activity, ViewGroup viewGroup, View view2, boolean z) {

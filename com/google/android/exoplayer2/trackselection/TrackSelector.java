@@ -19,6 +19,10 @@ public abstract class TrackSelector {
         void onTrackSelectionsInvalidated();
     }
 
+    public abstract void onSelectionActivated(Object obj);
+
+    public abstract TrackSelectorResult selectTracks(RendererCapabilities[] rendererCapabilitiesArr, TrackGroupArray trackGroupArray) throws ExoPlaybackException;
+
     public TrackSelector() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -33,23 +37,18 @@ public abstract class TrackSelector {
         }
     }
 
+    public final void invalidate() {
+        InvalidationListener invalidationListener;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (invalidationListener = this.listener) != null) {
+            invalidationListener.onTrackSelectionsInvalidated();
+        }
+    }
+
     public final void init(InvalidationListener invalidationListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, invalidationListener) == null) {
             this.listener = invalidationListener;
         }
     }
-
-    public final void invalidate() {
-        InvalidationListener invalidationListener;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (invalidationListener = this.listener) == null) {
-            return;
-        }
-        invalidationListener.onTrackSelectionsInvalidated();
-    }
-
-    public abstract void onSelectionActivated(Object obj);
-
-    public abstract TrackSelectorResult selectTracks(RendererCapabilities[] rendererCapabilitiesArr, TrackGroupArray trackGroupArray) throws ExoPlaybackException;
 }

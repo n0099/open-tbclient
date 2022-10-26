@@ -94,7 +94,7 @@ public class d {
         hashMap.put("pushsdk_version", str4);
         hashMap.put("push_info", str5);
         hashMap.put("push_info_type", String.valueOf(i));
-        a(context, false, "notification_service_message", (Map<String, String>) hashMap);
+        a(context, false, "notification_service_message", (Map) hashMap);
     }
 
     public static void a(Context context, boolean z, String str, String str2, String str3, String str4, String str5, String str6) {
@@ -117,16 +117,15 @@ public class d {
         a(context, z, str5, hashMap);
     }
 
-    /* JADX WARN: Type inference failed for: r7v1, types: [com.meizu.cloud.pushsdk.c.c.b$a] */
-    public static void a(Context context, boolean z, String str, Map<String, String> map) {
+    public static void a(Context context, boolean z, String str, Map map) {
         DebugLogger.e("UxIPUtils", "onLogEvent eventName [" + str + "] properties = " + map);
         if ("notification_service_message".equals(str)) {
             return;
         }
-        com.meizu.cloud.pushsdk.c.a.a(context, (f) null).a(((b.a) com.meizu.cloud.pushsdk.c.c.b.d().a(str).a(a(context)).a(Long.valueOf(map.get("ts")).longValue())).h(String.valueOf(System.currentTimeMillis() / 1000)).c(map.get(AppIconSetting.DEFAULT_LARGE_ICON)).e(map.get("pn")).d(map.get("pv")).b(map.get(Config.FEED_LIST_PART)).f(TextUtils.isEmpty(map.get("si")) ? "" : map.get("si")).g(String.valueOf(b.j(context, map.get("pn")))).b(), z);
+        com.meizu.cloud.pushsdk.c.a.a(context, (f) null).a(((b.a) com.meizu.cloud.pushsdk.c.c.b.d().a(str).a(a(context)).a(Long.valueOf((String) map.get("ts")).longValue())).h(String.valueOf(System.currentTimeMillis() / 1000)).c((String) map.get(AppIconSetting.DEFAULT_LARGE_ICON)).e((String) map.get("pn")).d((String) map.get("pv")).b((String) map.get(Config.FEED_LIST_PART)).f(TextUtils.isEmpty((CharSequence) map.get("si")) ? "" : (String) map.get("si")).g(String.valueOf(b.j(context, (String) map.get("pn")))).b(), z);
     }
 
-    public static boolean a(Context context, Map<String, String> map) {
+    public static boolean a(Context context, Map map) {
         String str;
         String str2;
         List<ResolveInfo> queryIntentServices = context.getPackageManager().queryIntentServices(new Intent(PushConstants.MZ_PUSH_TRACKER_SERVICE_ACTION), 0);
@@ -161,7 +160,7 @@ public class d {
             return false;
         }
         try {
-            String jSONObject = e.a((Map) map).toString();
+            String jSONObject = e.a(map).toString();
             Intent intent = new Intent();
             intent.setPackage(str3);
             intent.setAction(PushConstants.MZ_PUSH_TRACKER_SERVICE_ACTION);

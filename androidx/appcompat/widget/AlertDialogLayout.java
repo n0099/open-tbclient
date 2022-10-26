@@ -5,8 +5,6 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
 import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.core.view.GravityCompat;
 import androidx.core.view.InputDeviceCompat;
@@ -18,14 +16,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class AlertDialogLayout extends LinearLayoutCompat {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AlertDialogLayout(@Nullable Context context) {
+    public AlertDialogLayout(Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -39,6 +36,27 @@ public class AlertDialogLayout extends LinearLayoutCompat {
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public AlertDialogLayout(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
@@ -95,6 +113,7 @@ public class AlertDialogLayout extends LinearLayoutCompat {
         int i4;
         int i5;
         int i6;
+        int makeMeasureSpec;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(65541, this, i, i2)) == null) {
             int childCount = getChildCount();
@@ -105,11 +124,11 @@ public class AlertDialogLayout extends LinearLayoutCompat {
                 View childAt = getChildAt(i7);
                 if (childAt.getVisibility() != 8) {
                     int id = childAt.getId();
-                    if (id == R.id.obfuscated_res_0x7f09228a) {
+                    if (id == R.id.obfuscated_res_0x7f092274) {
                         view2 = childAt;
-                    } else if (id == R.id.obfuscated_res_0x7f090481) {
+                    } else if (id == R.id.obfuscated_res_0x7f09048a) {
                         view3 = childAt;
-                    } else if ((id != R.id.obfuscated_res_0x7f0906e6 && id != R.id.obfuscated_res_0x7f09074f) || view4 != null) {
+                    } else if ((id != R.id.obfuscated_res_0x7f0906ef && id != R.id.obfuscated_res_0x7f090758) || view4 != null) {
                         return false;
                     } else {
                         view4 = childAt;
@@ -138,7 +157,12 @@ public class AlertDialogLayout extends LinearLayoutCompat {
                 i5 = 0;
             }
             if (view4 != null) {
-                view4.measure(i, mode == 0 ? 0 : View.MeasureSpec.makeMeasureSpec(Math.max(0, size - paddingTop), mode));
+                if (mode == 0) {
+                    makeMeasureSpec = 0;
+                } else {
+                    makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(Math.max(0, size - paddingTop), mode);
+                }
+                view4.measure(i, makeMeasureSpec);
                 i6 = view4.getMeasuredHeight();
                 paddingTop += i6;
                 i3 = View.combineMeasuredStates(i3, view4.getMeasuredState());
@@ -186,6 +210,7 @@ public class AlertDialogLayout extends LinearLayoutCompat {
     */
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         int paddingTop;
+        int intrinsicHeight;
         int i5;
         int i6;
         int i7;
@@ -200,15 +225,21 @@ public class AlertDialogLayout extends LinearLayoutCompat {
             int gravity = getGravity();
             int i9 = gravity & 112;
             int i10 = gravity & GravityCompat.RELATIVE_HORIZONTAL_GRAVITY_MASK;
-            if (i9 == 16) {
-                paddingTop = getPaddingTop() + (((i4 - i2) - measuredHeight) / 2);
-            } else if (i9 != 80) {
-                paddingTop = getPaddingTop();
+            if (i9 != 16) {
+                if (i9 != 80) {
+                    paddingTop = getPaddingTop();
+                } else {
+                    paddingTop = ((getPaddingTop() + i4) - i2) - measuredHeight;
+                }
             } else {
-                paddingTop = ((getPaddingTop() + i4) - i2) - measuredHeight;
+                paddingTop = getPaddingTop() + (((i4 - i2) - measuredHeight) / 2);
             }
             Drawable dividerDrawable = getDividerDrawable();
-            int intrinsicHeight = dividerDrawable == null ? 0 : dividerDrawable.getIntrinsicHeight();
+            if (dividerDrawable == null) {
+                intrinsicHeight = 0;
+            } else {
+                intrinsicHeight = dividerDrawable.getIntrinsicHeight();
+            }
             for (int i11 = 0; i11 < childCount; i11++) {
                 View childAt = getChildAt(i11);
                 if (childAt != null && childAt.getVisibility() != 8) {
@@ -220,19 +251,21 @@ public class AlertDialogLayout extends LinearLayoutCompat {
                         i12 = i10;
                     }
                     int absoluteGravity = GravityCompat.getAbsoluteGravity(i12, ViewCompat.getLayoutDirection(this)) & 7;
-                    if (absoluteGravity == 1) {
-                        i5 = ((paddingRight2 - measuredWidth) / 2) + paddingLeft + ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin;
-                        i6 = ((ViewGroup.MarginLayoutParams) layoutParams).rightMargin;
-                    } else if (absoluteGravity != 5) {
-                        i7 = ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin + paddingLeft;
-                        if (hasDividerBeforeChildAt(i11)) {
-                            paddingTop += intrinsicHeight;
+                    if (absoluteGravity != 1) {
+                        if (absoluteGravity != 5) {
+                            i7 = ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin + paddingLeft;
+                            if (hasDividerBeforeChildAt(i11)) {
+                                paddingTop += intrinsicHeight;
+                            }
+                            int i13 = paddingTop + ((ViewGroup.MarginLayoutParams) layoutParams).topMargin;
+                            setChildFrame(childAt, i7, i13, measuredWidth, measuredHeight2);
+                            paddingTop = i13 + measuredHeight2 + ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin;
+                        } else {
+                            i5 = paddingRight - measuredWidth;
+                            i6 = ((ViewGroup.MarginLayoutParams) layoutParams).rightMargin;
                         }
-                        int i13 = paddingTop + ((ViewGroup.MarginLayoutParams) layoutParams).topMargin;
-                        setChildFrame(childAt, i7, i13, measuredWidth, measuredHeight2);
-                        paddingTop = i13 + measuredHeight2 + ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin;
                     } else {
-                        i5 = paddingRight - measuredWidth;
+                        i5 = ((paddingRight2 - measuredWidth) / 2) + paddingLeft + ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin;
                         i6 = ((ViewGroup.MarginLayoutParams) layoutParams).rightMargin;
                     }
                     i7 = i5 - i6;
@@ -249,30 +282,8 @@ public class AlertDialogLayout extends LinearLayoutCompat {
     @Override // androidx.appcompat.widget.LinearLayoutCompat, android.view.View
     public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) || tryOnMeasure(i, i2)) {
-            return;
-        }
-        super.onMeasure(i, i2);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AlertDialogLayout(@Nullable Context context, @Nullable AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if ((interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) && !tryOnMeasure(i, i2)) {
+            super.onMeasure(i, i2);
         }
     }
 }

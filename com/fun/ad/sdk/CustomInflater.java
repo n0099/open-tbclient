@@ -1,6 +1,5 @@
 package com.fun.ad.sdk;
 
-import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -32,9 +31,9 @@ public abstract class CustomInflater implements NativeInflater {
         this.a = funNativeAd2;
     }
 
-    public abstract List<View> getClickViews();
+    public abstract List getClickViews();
 
-    public abstract List<View> getCreativeViews();
+    public abstract List getCreativeViews();
 
     public final FunNativeInfo getNativeInfo() {
         InterceptResult invokeV;

@@ -1,6 +1,5 @@
 package com.bun.miitmdid;
 
-import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,17 +7,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Keep
 /* loaded from: classes7.dex */
 public class f0 {
     public static /* synthetic */ Interceptable $ic;
-    @Keep
     public static boolean a;
-    @Keep
     public static boolean b;
-    @Keep
     public static boolean c;
-    @Keep
     public static boolean d;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -51,18 +45,13 @@ public class f0 {
         }
     }
 
-    @Keep
     public static native void a(String str, String str2);
 
-    @Keep
     public static native void a(boolean z);
 
-    @Keep
     public static native void b(String str, String str2);
 
-    @Keep
     public static native void c(String str, String str2);
 
-    @Keep
     public static native void d(String str, String str2);
 }

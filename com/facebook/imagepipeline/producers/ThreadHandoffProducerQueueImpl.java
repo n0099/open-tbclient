@@ -16,7 +16,7 @@ public class ThreadHandoffProducerQueueImpl implements ThreadHandoffProducerQueu
     public transient /* synthetic */ FieldHolder $fh;
     public final Executor mExecutor;
     public boolean mQueueing;
-    public final Deque<Runnable> mRunnableList;
+    public final Deque mRunnableList;
 
     public ThreadHandoffProducerQueueImpl(Executor executor) {
         Interceptable interceptable = $ic;
@@ -42,23 +42,9 @@ public class ThreadHandoffProducerQueueImpl implements ThreadHandoffProducerQueu
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             while (!this.mRunnableList.isEmpty()) {
-                this.mExecutor.execute(this.mRunnableList.pop());
+                this.mExecutor.execute((Runnable) this.mRunnableList.pop());
             }
             this.mRunnableList.clear();
-        }
-    }
-
-    @Override // com.facebook.imagepipeline.producers.ThreadHandoffProducerQueue
-    public synchronized void addToQueueOrExecute(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-            synchronized (this) {
-                if (this.mQueueing) {
-                    this.mRunnableList.add(runnable);
-                } else {
-                    this.mExecutor.execute(runnable);
-                }
-            }
         }
     }
 
@@ -74,16 +60,6 @@ public class ThreadHandoffProducerQueueImpl implements ThreadHandoffProducerQueu
             return z;
         }
         return invokeV.booleanValue;
-    }
-
-    @Override // com.facebook.imagepipeline.producers.ThreadHandoffProducerQueue
-    public synchronized void remove(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable) == null) {
-            synchronized (this) {
-                this.mRunnableList.remove(runnable);
-            }
-        }
     }
 
     @Override // com.facebook.imagepipeline.producers.ThreadHandoffProducerQueue
@@ -103,6 +79,30 @@ public class ThreadHandoffProducerQueueImpl implements ThreadHandoffProducerQueu
             synchronized (this) {
                 this.mQueueing = false;
                 execInQueue();
+            }
+        }
+    }
+
+    @Override // com.facebook.imagepipeline.producers.ThreadHandoffProducerQueue
+    public synchronized void addToQueueOrExecute(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
+            synchronized (this) {
+                if (this.mQueueing) {
+                    this.mRunnableList.add(runnable);
+                } else {
+                    this.mExecutor.execute(runnable);
+                }
+            }
+        }
+    }
+
+    @Override // com.facebook.imagepipeline.producers.ThreadHandoffProducerQueue
+    public synchronized void remove(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable) == null) {
+            synchronized (this) {
+                this.mRunnableList.remove(runnable);
             }
         }
     }

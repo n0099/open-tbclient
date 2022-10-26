@@ -1,7 +1,6 @@
 package com.kwad.components.core.offline.init.a;
 
 import android.view.Surface;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -38,7 +37,7 @@ public final class a implements IKsMediaPlayer {
         }
     }
 
-    public final a a(@NonNull com.kwad.components.core.video.b bVar) {
+    public final a a(com.kwad.components.core.video.b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) {
@@ -175,7 +174,7 @@ public final class a implements IKsMediaPlayer {
     }
 
     @Override // com.kwad.components.offline.api.core.video.IKsMediaPlayer
-    public final void initMediaPlayer(@NonNull PlayVideoInfo playVideoInfo, @NonNull IKsMediaPlayerView iKsMediaPlayerView) {
+    public final void initMediaPlayer(PlayVideoInfo playVideoInfo, IKsMediaPlayerView iKsMediaPlayerView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048592, this, playVideoInfo, iKsMediaPlayerView) == null) {
             if (iKsMediaPlayerView instanceof b) {
@@ -187,7 +186,7 @@ public final class a implements IKsMediaPlayer {
     }
 
     @Override // com.kwad.components.offline.api.core.video.IKsMediaPlayer
-    public final void initMediaPlayer(@NonNull PlayVideoInfo playVideoInfo, boolean z, boolean z2, @NonNull IKsMediaPlayerView iKsMediaPlayerView) {
+    public final void initMediaPlayer(PlayVideoInfo playVideoInfo, boolean z, boolean z2, IKsMediaPlayerView iKsMediaPlayerView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{playVideoInfo, Boolean.valueOf(z), Boolean.valueOf(z2), iKsMediaPlayerView}) == null) {
             if (iKsMediaPlayerView instanceof b) {
@@ -351,7 +350,7 @@ public final class a implements IKsMediaPlayer {
     }
 
     @Override // com.kwad.components.offline.api.core.video.IKsMediaPlayer
-    public final void setDataSource(@NonNull PlayVideoInfo playVideoInfo) {
+    public final void setDataSource(PlayVideoInfo playVideoInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048613, this, playVideoInfo) == null) {
             this.Fc.a(d.a(playVideoInfo));

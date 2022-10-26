@@ -17,8 +17,8 @@ import com.baidu.tbadk.coreExtra.data.VideoInfo;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.bb8;
 import com.baidu.tieba.play.VideoControllerView;
-import com.baidu.tieba.ra8;
 import com.baidu.tieba.video.CustomVideoView;
 import com.baidu.tieba.view.VideoFullscreenButton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 /* loaded from: classes6.dex */
-public class GpVideoPreviewActivity extends BaseActivity<GpVideoPreviewActivity> {
+public class GpVideoPreviewActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NavigationBar a;
@@ -37,7 +37,7 @@ public class GpVideoPreviewActivity extends BaseActivity<GpVideoPreviewActivity>
     public int e;
     public View.OnClickListener f;
     public boolean g;
-    public ra8 h;
+    public bb8 h;
     public TbImageView i;
     public TBLottieAnimationView j;
 
@@ -117,7 +117,7 @@ public class GpVideoPreviewActivity extends BaseActivity<GpVideoPreviewActivity>
                 if (this.a.i != null) {
                     this.a.i.setVisibility(8);
                 }
-                this.a.F1();
+                this.a.E1();
             }
         }
     }
@@ -149,11 +149,10 @@ public class GpVideoPreviewActivity extends BaseActivity<GpVideoPreviewActivity>
         @Override // android.media.MediaPlayer.OnCompletionListener
         public void onCompletion(MediaPlayer mediaPlayer) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) || this.a.b == null || this.a.d == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) && this.a.b != null && this.a.d != null) {
+                this.a.b.start();
+                this.a.d.p();
             }
-            this.a.b.start();
-            this.a.d.p();
         }
     }
 
@@ -184,10 +183,9 @@ public class GpVideoPreviewActivity extends BaseActivity<GpVideoPreviewActivity>
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.h == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.h != null) {
+                this.a.h.l();
             }
-            this.a.h.l();
         }
     }
 
@@ -205,19 +203,18 @@ public class GpVideoPreviewActivity extends BaseActivity<GpVideoPreviewActivity>
         }
     }
 
-    public final void F1() {
+    public final void E1() {
         TBLottieAnimationView tBLottieAnimationView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (tBLottieAnimationView = this.j) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (tBLottieAnimationView = this.j) != null) {
+            if (tBLottieAnimationView.isAnimating()) {
+                this.j.cancelAnimation();
+            }
+            this.j.setVisibility(8);
         }
-        if (tBLottieAnimationView.isAnimating()) {
-            this.j.cancelAnimation();
-        }
-        this.j.setVisibility(8);
     }
 
-    public final void G1() {
+    public final void F1() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f == null) {
             this.f = new a(this);
@@ -225,54 +222,15 @@ public class GpVideoPreviewActivity extends BaseActivity<GpVideoPreviewActivity>
     }
 
     public final void H1() {
-        VideoInfo videoInfo;
-        TbImageView tbImageView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091a73);
-            this.i = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090fef);
-            ((ImageView) this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.f).findViewById(R.id.obfuscated_res_0x7f092680)).setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a22));
-            this.b = (CustomVideoView) findViewById(R.id.obfuscated_res_0x7f091a75);
-            if (!StringUtils.isNull(this.c.getVideoPath())) {
-                this.b.setVideoPath(this.c.getVideoPath());
-            }
-            if (!StringUtils.isNull(this.c.getThumbPath()) && (tbImageView = this.i) != null) {
-                tbImageView.setPlaceHolder(2);
-                this.i.setLongIconSupport(false);
-                this.i.setGifIconSupport(false);
-                this.i.K(this.c.getThumbPath(), 10, false);
-            }
-            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0920d7);
-            this.j = tBLottieAnimationView;
-            SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.obfuscated_res_0x7f11001b);
-            I1();
-            this.b.setOnPreparedListener(new b(this));
-            this.b.setOnCompletionListener(new c(this));
-            VideoControllerView videoControllerView = (VideoControllerView) findViewById(R.id.obfuscated_res_0x7f091a71);
-            this.d = videoControllerView;
-            videoControllerView.setPlayer(this.b);
-            VideoFullscreenButton videoFullscreenButton = (VideoFullscreenButton) findViewById(R.id.obfuscated_res_0x7f0924f3);
-            if (this.g && (videoInfo = this.c) != null && videoInfo.getVideoWidth() > this.c.getVideoHeight()) {
-                videoFullscreenButton.setVisibility(0);
-            } else {
-                videoFullscreenButton.setVisibility(8);
-            }
-            videoFullscreenButton.setOnClickListener(new d(this));
-        }
-    }
-
-    public final void I1() {
         TBLottieAnimationView tBLottieAnimationView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (tBLottieAnimationView = this.j) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (tBLottieAnimationView = this.j) != null) {
+            tBLottieAnimationView.setVisibility(0);
+            if (!this.j.isAnimating()) {
+                this.j.setSpeed(1.1f);
+                this.j.playAnimation();
+            }
         }
-        tBLottieAnimationView.setVisibility(0);
-        if (this.j.isAnimating()) {
-            return;
-        }
-        this.j.setSpeed(1.1f);
-        this.j.playAnimation();
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -280,32 +238,6 @@ public class GpVideoPreviewActivity extends BaseActivity<GpVideoPreviewActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             ActivityPendingTransitionFactory.closeAnimation(getPageContext(), 0);
-        }
-    }
-
-    public final void initData() {
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (intent = getIntent()) == null) {
-            return;
-        }
-        Serializable serializableExtra = intent.getSerializableExtra("videoInfo");
-        if (serializableExtra instanceof VideoInfo) {
-            this.c = (VideoInfo) serializableExtra;
-        }
-        this.g = intent.getBooleanExtra(GpVideoPreviewActivityConfig.KEY_IS_SUPPORT_FULLSCREEN, false);
-        this.h = new ra8(this);
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
-            super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0038);
-            initData();
-            G1();
-            H1();
         }
     }
 
@@ -346,5 +278,68 @@ public class GpVideoPreviewActivity extends BaseActivity<GpVideoPreviewActivity>
                 this.d.p();
             }
         }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
+            super.onCreate(bundle);
+            setContentView(R.layout.obfuscated_res_0x7f0d0038);
+            initData();
+            F1();
+            G1();
+        }
+    }
+
+    public final void G1() {
+        VideoInfo videoInfo;
+        TbImageView tbImageView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091a6f);
+            this.i = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090fe3);
+            ((ImageView) this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.f).findViewById(R.id.obfuscated_res_0x7f092668)).setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a23));
+            this.b = (CustomVideoView) findViewById(R.id.obfuscated_res_0x7f091a71);
+            if (!StringUtils.isNull(this.c.getVideoPath())) {
+                this.b.setVideoPath(this.c.getVideoPath());
+            }
+            if (!StringUtils.isNull(this.c.getThumbPath()) && (tbImageView = this.i) != null) {
+                tbImageView.setPlaceHolder(2);
+                this.i.setLongIconSupport(false);
+                this.i.setGifIconSupport(false);
+                this.i.L(this.c.getThumbPath(), 10, false);
+            }
+            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0920d6);
+            this.j = tBLottieAnimationView;
+            SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.obfuscated_res_0x7f11001b);
+            H1();
+            this.b.setOnPreparedListener(new b(this));
+            this.b.setOnCompletionListener(new c(this));
+            VideoControllerView videoControllerView = (VideoControllerView) findViewById(R.id.obfuscated_res_0x7f091a6d);
+            this.d = videoControllerView;
+            videoControllerView.setPlayer(this.b);
+            VideoFullscreenButton videoFullscreenButton = (VideoFullscreenButton) findViewById(R.id.obfuscated_res_0x7f0924dd);
+            if (this.g && (videoInfo = this.c) != null && videoInfo.getVideoWidth() > this.c.getVideoHeight()) {
+                videoFullscreenButton.setVisibility(0);
+            } else {
+                videoFullscreenButton.setVisibility(8);
+            }
+            videoFullscreenButton.setOnClickListener(new d(this));
+        }
+    }
+
+    public final void initData() {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || (intent = getIntent()) == null) {
+            return;
+        }
+        Serializable serializableExtra = intent.getSerializableExtra("videoInfo");
+        if (serializableExtra instanceof VideoInfo) {
+            this.c = (VideoInfo) serializableExtra;
+        }
+        this.g = intent.getBooleanExtra(GpVideoPreviewActivityConfig.KEY_IS_SUPPORT_FULLSCREEN, false);
+        this.h = new bb8(this);
     }
 }

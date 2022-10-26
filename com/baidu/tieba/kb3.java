@@ -16,18 +16,18 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class kb3 extends i53 {
+public class kb3 extends j53 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public kb3(i43 i43Var) {
-        super(i43Var, "/swanAPI/getStorageInfoSync");
+    public kb3(j43 j43Var) {
+        super(j43Var, "/swanAPI/getStorageInfo");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {i43Var};
+            Object[] objArr = {j43Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -41,26 +41,26 @@ public class kb3 extends i53 {
         }
     }
 
-    @Override // com.baidu.tieba.i53
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, l33 l33Var) {
+    @Override // com.baidu.tieba.j53
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, m33 m33Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, l33Var)) == null) {
-            if (l33Var == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, m33Var)) == null) {
+            if (m33Var == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
                 return false;
             }
-            ua3 f0 = l33Var.f0();
+            va3 f0 = m33Var.f0();
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put(SavedStateHandle.KEYS, new JSONArray((Collection) f0.g().a()));
                 jSONObject.put("currentSize", f0.e() / 1024);
                 jSONObject.put("limitSize", f0.n() / 1024);
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
                 return true;
             } catch (JSONException e) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "JSONException");
-                if (i53.b) {
+                if (j53.b) {
                     e.printStackTrace();
                 }
                 return false;

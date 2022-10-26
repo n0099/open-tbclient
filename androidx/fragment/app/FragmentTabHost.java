@@ -1,6 +1,5 @@
 package androidx.fragment.app;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Bundle;
@@ -12,8 +11,6 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TabHost;
 import android.widget.TabWidget;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -120,7 +117,10 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
                 public SavedState createFromParcel(Parcel parcel) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new SavedState(parcel) : (SavedState) invokeL.objValue;
+                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                        return new SavedState(parcel);
+                    }
+                    return (SavedState) invokeL.objValue;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -129,48 +129,12 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
                 public SavedState[] newArray(int i) {
                     InterceptResult invokeI;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new SavedState[i] : (SavedState[]) invokeI.objValue;
+                    if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                        return new SavedState[i];
+                    }
+                    return (SavedState[]) invokeI.objValue;
                 }
             };
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public SavedState(Parcelable parcelable) {
-            super(parcelable);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {parcelable};
-                interceptable.invokeUnInit(65538, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Parcelable) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65538, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        @NonNull
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "FragmentTabHost.SavedState{" + Integer.toHexString(System.identityHashCode(this)) + " curTab=" + this.curTab + "}";
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @Override // android.view.View.BaseSavedState, android.view.AbsSavedState, android.os.Parcelable
-        public void writeToParcel(Parcel parcel, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i) == null) {
-                super.writeToParcel(parcel, i);
-                parcel.writeString(this.curTab);
-            }
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -193,21 +157,56 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
             }
             this.curTab = parcel.readString();
         }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SavedState(Parcelable parcelable) {
+            super(parcelable);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {parcelable};
+                interceptable.invokeUnInit(65538, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Parcelable) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65538, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return "FragmentTabHost.SavedState{" + Integer.toHexString(System.identityHashCode(this)) + " curTab=" + this.curTab + "}";
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @Override // android.view.View.BaseSavedState, android.view.AbsSavedState, android.os.Parcelable
+        public void writeToParcel(Parcel parcel, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i) == null) {
+                super.writeToParcel(parcel, i);
+                parcel.writeString(this.curTab);
+            }
+        }
     }
 
     /* loaded from: classes.dex */
     public static final class TabInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        @Nullable
         public final Bundle args;
-        @NonNull
         public final Class<?> clss;
         public Fragment fragment;
-        @NonNull
         public final String tag;
 
-        public TabInfo(@NonNull String str, @NonNull Class<?> cls, @Nullable Bundle bundle) {
+        public TabInfo(String str, Class<?> cls, Bundle bundle) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -230,7 +229,7 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     @Deprecated
-    public FragmentTabHost(@NonNull Context context) {
+    public FragmentTabHost(Context context) {
         super(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -252,8 +251,31 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
         initFragmentTabHost(context, null);
     }
 
-    @Nullable
-    private FragmentTransaction doTabChanged(@Nullable String str, @Nullable FragmentTransaction fragmentTransaction) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    @Deprecated
+    public FragmentTabHost(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mTabs = new ArrayList<>();
+        initFragmentTabHost(context, attributeSet);
+    }
+
+    private FragmentTransaction doTabChanged(String str, FragmentTransaction fragmentTransaction) {
         InterceptResult invokeLL;
         Fragment fragment;
         Interceptable interceptable = $ic;
@@ -290,10 +312,9 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
         if ((interceptable == null || interceptable.invokeV(65539, this) == null) && this.mRealTabContent == null) {
             FrameLayout frameLayout = (FrameLayout) findViewById(this.mContainerId);
             this.mRealTabContent = frameLayout;
-            if (frameLayout != null) {
-                return;
+            if (frameLayout == null) {
+                throw new IllegalStateException("No tab content FrameLayout found for id " + this.mContainerId);
             }
-            throw new IllegalStateException("No tab content FrameLayout found for id " + this.mContainerId);
         }
     }
 
@@ -317,7 +338,6 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
         }
     }
 
-    @Nullable
     private TabInfo getTabInfoForTag(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -334,6 +354,46 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
         return (TabInfo) invokeL.objValue;
     }
 
+    @Override // android.view.View
+    @Deprecated
+    public void onRestoreInstanceState(Parcelable parcelable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, parcelable) == null) {
+            if (!(parcelable instanceof SavedState)) {
+                super.onRestoreInstanceState(parcelable);
+                return;
+            }
+            SavedState savedState = (SavedState) parcelable;
+            super.onRestoreInstanceState(savedState.getSuperState());
+            setCurrentTabByTag(savedState.curTab);
+        }
+    }
+
+    @Override // android.widget.TabHost.OnTabChangeListener
+    @Deprecated
+    public void onTabChanged(String str) {
+        FragmentTransaction doTabChanged;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            if (this.mAttached && (doTabChanged = doTabChanged(str, null)) != null) {
+                doTabChanged.commit();
+            }
+            TabHost.OnTabChangeListener onTabChangeListener = this.mOnTabChangeListener;
+            if (onTabChangeListener != null) {
+                onTabChangeListener.onTabChanged(str);
+            }
+        }
+    }
+
+    @Override // android.widget.TabHost
+    @Deprecated
+    public void setOnTabChangedListener(TabHost.OnTabChangeListener onTabChangeListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, onTabChangeListener) == null) {
+            this.mOnTabChangeListener = onTabChangeListener;
+        }
+    }
+
     private void initFragmentTabHost(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65542, this, context, attributeSet) == null) {
@@ -345,7 +405,19 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
     }
 
     @Deprecated
-    public void addTab(@NonNull TabHost.TabSpec tabSpec, @NonNull Class<?> cls, @Nullable Bundle bundle) {
+    public void setup(Context context, FragmentManager fragmentManager) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, fragmentManager) == null) {
+            ensureHierarchy(context);
+            super.setup();
+            this.mContext = context;
+            this.mFragmentManager = fragmentManager;
+            ensureContent();
+        }
+    }
+
+    @Deprecated
+    public void addTab(TabHost.TabSpec tabSpec, Class<?> cls, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, tabSpec, cls, bundle) == null) {
             tabSpec.setContent(new DummyTabFactory(this.mContext));
@@ -410,22 +482,6 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
 
     @Override // android.view.View
     @Deprecated
-    public void onRestoreInstanceState(@SuppressLint({"UnknownNullness"}) Parcelable parcelable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, parcelable) == null) {
-            if (!(parcelable instanceof SavedState)) {
-                super.onRestoreInstanceState(parcelable);
-                return;
-            }
-            SavedState savedState = (SavedState) parcelable;
-            super.onRestoreInstanceState(savedState.getSuperState());
-            setCurrentTabByTag(savedState.curTab);
-        }
-    }
-
-    @Override // android.view.View
-    @NonNull
-    @Deprecated
     public Parcelable onSaveInstanceState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -435,31 +491,6 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
             return savedState;
         }
         return (Parcelable) invokeV.objValue;
-    }
-
-    @Override // android.widget.TabHost.OnTabChangeListener
-    @Deprecated
-    public void onTabChanged(@Nullable String str) {
-        FragmentTransaction doTabChanged;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            if (this.mAttached && (doTabChanged = doTabChanged(str, null)) != null) {
-                doTabChanged.commit();
-            }
-            TabHost.OnTabChangeListener onTabChangeListener = this.mOnTabChangeListener;
-            if (onTabChangeListener != null) {
-                onTabChangeListener.onTabChanged(str);
-            }
-        }
-    }
-
-    @Override // android.widget.TabHost
-    @Deprecated
-    public void setOnTabChangedListener(@Nullable TabHost.OnTabChangeListener onTabChangeListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, onTabChangeListener) == null) {
-            this.mOnTabChangeListener = onTabChangeListener;
-        }
     }
 
     @Override // android.widget.TabHost
@@ -472,43 +503,7 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
     }
 
     @Deprecated
-    public void setup(@NonNull Context context, @NonNull FragmentManager fragmentManager) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, fragmentManager) == null) {
-            ensureHierarchy(context);
-            super.setup();
-            this.mContext = context;
-            this.mFragmentManager = fragmentManager;
-            ensureContent();
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    @Deprecated
-    public FragmentTabHost(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mTabs = new ArrayList<>();
-        initFragmentTabHost(context, attributeSet);
-    }
-
-    @Deprecated
-    public void setup(@NonNull Context context, @NonNull FragmentManager fragmentManager, int i) {
+    public void setup(Context context, FragmentManager fragmentManager, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048585, this, context, fragmentManager, i) == null) {
             ensureHierarchy(context);

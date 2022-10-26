@@ -41,6 +41,9 @@ public final class PriorityDataSourceFactory implements DataSource.Factory {
     public PriorityDataSource createDataSource() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new PriorityDataSource(this.upstreamFactory.createDataSource(), this.priorityTaskManager, this.priority) : (PriorityDataSource) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return new PriorityDataSource(this.upstreamFactory.createDataSource(), this.priorityTaskManager, this.priority);
+        }
+        return (PriorityDataSource) invokeV.objValue;
     }
 }

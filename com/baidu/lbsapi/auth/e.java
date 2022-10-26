@@ -17,12 +17,12 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public List<HashMap<String, String>> b;
-    public a<String> c;
+    public List b;
+    public a c;
 
     /* loaded from: classes2.dex */
-    public interface a<Result> {
-        void a(Result result);
+    public interface a {
+        void a(Object obj);
     }
 
     public e(Context context) {
@@ -45,7 +45,7 @@ public class e {
         this.a = context;
     }
 
-    private List<HashMap<String, String>> a(HashMap<String, String> hashMap, String[] strArr) {
+    private List a(HashMap hashMap, String[] strArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, hashMap, strArr)) == null) {
@@ -93,7 +93,7 @@ public class e {
                     e.printStackTrace();
                 }
             }
-            a<String> aVar = this.c;
+            a aVar = this.c;
             if (aVar != null) {
                 aVar.a(jSONObject.toString());
             }
@@ -101,7 +101,7 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(List<HashMap<String, String>> list) {
+    public void a(List list) {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, this, list) == null) {
@@ -114,7 +114,7 @@ public class e {
             int i2 = 0;
             while (i2 < list.size()) {
                 com.baidu.lbsapi.auth.a.a("syncConnect resuest " + i2 + "  start!!!");
-                HashMap<String, String> hashMap = list.get(i2);
+                HashMap hashMap = (HashMap) list.get(i2);
                 g gVar = new g(this.a);
                 if (gVar.a()) {
                     String a2 = gVar.a(hashMap);
@@ -157,7 +157,7 @@ public class e {
         }
     }
 
-    public void a(HashMap<String, String> hashMap, String[] strArr, a<String> aVar) {
+    public void a(HashMap hashMap, String[] strArr, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, hashMap, strArr, aVar) == null) {
             this.b = a(hashMap, strArr);

@@ -8,7 +8,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.common.memory.ByteArrayPool;
 import com.facebook.common.memory.PooledByteBufferFactory;
 import com.facebook.common.memory.PooledByteBufferOutputStream;
@@ -24,12 +23,11 @@ import java.io.InputStream;
 import java.util.Map;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
-public class NetworkFetchProducer implements Producer<EncodedImage> {
+public class NetworkFetchProducer implements Producer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INTERMEDIATE_RESULT_PRODUCER_EVENT = "intermediate_result";
     public static final String PRODUCER_NAME = "NetworkFetchProducer";
     public static final int READ_SIZE = 16384;
-    @VisibleForTesting
     public static final long TIME_BETWEEN_PARTIAL_RESULTS_MS = 100;
     public transient /* synthetic */ FieldHolder $fh;
     public final ByteArrayPool mByteArrayPool;
@@ -59,47 +57,52 @@ public class NetworkFetchProducer implements Producer<EncodedImage> {
     public static float calculateProgress(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i, i2)) == null) ? i2 > 0 ? i / i2 : 1.0f - ((float) Math.exp((-i) / 50000.0d)) : invokeII.floatValue;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i, i2)) == null) {
+            if (i2 > 0) {
+                return i / i2;
+            }
+            return 1.0f - ((float) Math.exp((-i) / 50000.0d));
+        }
+        return invokeII.floatValue;
     }
 
     @Nullable
-    private Map<String, String> getExtraMap(FetchState fetchState, int i) {
+    private Map getExtraMap(FetchState fetchState, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, this, fetchState, i)) == null) {
-            if (fetchState.getListener().requiresExtraMap(fetchState.getContext(), PRODUCER_NAME)) {
-                return this.mNetworkFetcher.getExtraMap(fetchState, i);
+            if (!fetchState.getListener().requiresExtraMap(fetchState.getContext(), PRODUCER_NAME)) {
+                return null;
             }
-            return null;
+            return this.mNetworkFetcher.getExtraMap(fetchState, i);
         }
         return (Map) invokeLI.objValue;
     }
 
-    public static void notifyConsumer(PooledByteBufferOutputStream pooledByteBufferOutputStream, int i, @Nullable BytesRange bytesRange, Consumer<EncodedImage> consumer, ProducerContext producerContext) {
+    public static void notifyConsumer(PooledByteBufferOutputStream pooledByteBufferOutputStream, int i, @Nullable BytesRange bytesRange, Consumer consumer, ProducerContext producerContext) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeCommon(65541, null, new Object[]{pooledByteBufferOutputStream, Integer.valueOf(i), bytesRange, consumer, producerContext}) != null) {
-            return;
-        }
-        CloseableReference of = CloseableReference.of(pooledByteBufferOutputStream.toByteBuffer());
-        EncodedImage encodedImage = null;
-        try {
-            EncodedImage encodedImage2 = new EncodedImage(of);
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{pooledByteBufferOutputStream, Integer.valueOf(i), bytesRange, consumer, producerContext}) == null) {
+            CloseableReference of = CloseableReference.of(pooledByteBufferOutputStream.toByteBuffer());
+            EncodedImage encodedImage = null;
             try {
-                encodedImage2.setBytesRange(bytesRange);
-                encodedImage2.parseMetaData();
-                producerContext.setEncodedImageOrigin(EncodedImageOrigin.NETWORK);
-                consumer.onNewResult(encodedImage2, i);
-                EncodedImage.closeSafely(encodedImage2);
-                CloseableReference.closeSafely(of);
-            } catch (Throwable th) {
-                th = th;
-                encodedImage = encodedImage2;
-                EncodedImage.closeSafely(encodedImage);
-                CloseableReference.closeSafely(of);
-                throw th;
+                EncodedImage encodedImage2 = new EncodedImage(of);
+                try {
+                    encodedImage2.setBytesRange(bytesRange);
+                    encodedImage2.parseMetaData();
+                    producerContext.setEncodedImageOrigin(EncodedImageOrigin.NETWORK);
+                    consumer.onNewResult(encodedImage2, i);
+                    EncodedImage.closeSafely(encodedImage2);
+                    CloseableReference.closeSafely(of);
+                } catch (Throwable th) {
+                    th = th;
+                    encodedImage = encodedImage2;
+                    EncodedImage.closeSafely(encodedImage);
+                    CloseableReference.closeSafely(of);
+                    throw th;
+                }
+            } catch (Throwable th2) {
+                th = th2;
             }
-        } catch (Throwable th2) {
-            th = th2;
         }
     }
 
@@ -110,6 +113,18 @@ public class NetworkFetchProducer implements Producer<EncodedImage> {
             fetchState.getListener().onProducerFinishWithCancellation(fetchState.getContext(), PRODUCER_NAME, null);
             fetchState.getConsumer().onCancellation();
         }
+    }
+
+    private boolean shouldPropagateIntermediateResults(FetchState fetchState) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, fetchState)) == null) {
+            if (!fetchState.getContext().isIntermediateResultExpected()) {
+                return false;
+            }
+            return this.mNetworkFetcher.shouldPropagate(fetchState);
+        }
+        return invokeL.booleanValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -123,83 +138,8 @@ public class NetworkFetchProducer implements Producer<EncodedImage> {
         }
     }
 
-    private boolean shouldPropagateIntermediateResults(FetchState fetchState) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, fetchState)) == null) {
-            if (fetchState.getContext().isIntermediateResultExpected()) {
-                return this.mNetworkFetcher.shouldPropagate(fetchState);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @VisibleForTesting
-    public long getSystemUptime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? SystemClock.uptimeMillis() : invokeV.longValue;
-    }
-
-    public void handleFinalResult(PooledByteBufferOutputStream pooledByteBufferOutputStream, FetchState fetchState) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pooledByteBufferOutputStream, fetchState) == null) {
-            Map<String, String> extraMap = getExtraMap(fetchState, pooledByteBufferOutputStream.size());
-            ProducerListener2 listener = fetchState.getListener();
-            listener.onProducerFinishWithSuccess(fetchState.getContext(), PRODUCER_NAME, extraMap);
-            listener.onUltimateProducerReached(fetchState.getContext(), PRODUCER_NAME, true);
-            fetchState.getContext().putOriginExtra("network");
-            notifyConsumer(pooledByteBufferOutputStream, fetchState.getOnNewResultStatusFlags() | 1, fetchState.getResponseBytesRange(), fetchState.getConsumer(), fetchState.getContext());
-        }
-    }
-
-    public void maybeHandleIntermediateResult(PooledByteBufferOutputStream pooledByteBufferOutputStream, FetchState fetchState) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, pooledByteBufferOutputStream, fetchState) == null) {
-            long systemUptime = getSystemUptime();
-            if (!shouldPropagateIntermediateResults(fetchState) || systemUptime - fetchState.getLastIntermediateResultTimeMs() < 100) {
-                return;
-            }
-            fetchState.setLastIntermediateResultTimeMs(systemUptime);
-            fetchState.getListener().onProducerEvent(fetchState.getContext(), PRODUCER_NAME, INTERMEDIATE_RESULT_PRODUCER_EVENT);
-            notifyConsumer(pooledByteBufferOutputStream, fetchState.getOnNewResultStatusFlags(), fetchState.getResponseBytesRange(), fetchState.getConsumer(), fetchState.getContext());
-        }
-    }
-
-    public void onResponse(FetchState fetchState, InputStream inputStream, int i) throws IOException {
-        PooledByteBufferOutputStream newOutputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLLI(1048579, this, fetchState, inputStream, i) != null) {
-            return;
-        }
-        if (i > 0) {
-            newOutputStream = this.mPooledByteBufferFactory.newOutputStream(i);
-        } else {
-            newOutputStream = this.mPooledByteBufferFactory.newOutputStream();
-        }
-        byte[] bArr = this.mByteArrayPool.get(16384);
-        while (true) {
-            try {
-                int read = inputStream.read(bArr);
-                if (read < 0) {
-                    this.mNetworkFetcher.onFetchCompletion(fetchState, newOutputStream.size());
-                    handleFinalResult(newOutputStream, fetchState);
-                    return;
-                } else if (read > 0) {
-                    newOutputStream.write(bArr, 0, read);
-                    maybeHandleIntermediateResult(newOutputStream, fetchState);
-                    fetchState.getConsumer().onProgressUpdate(calculateProgress(newOutputStream.size(), i));
-                }
-            } finally {
-                this.mByteArrayPool.release(bArr);
-                newOutputStream.close();
-            }
-        }
-    }
-
     @Override // com.facebook.imagepipeline.producers.Producer
-    public void produceResults(Consumer<EncodedImage> consumer, ProducerContext producerContext) {
+    public void produceResults(Consumer consumer, ProducerContext producerContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, consumer, producerContext) == null) {
             producerContext.getProducerListener().onProducerStart(producerContext, PRODUCER_NAME);
@@ -239,9 +179,10 @@ public class NetworkFetchProducer implements Producer<EncodedImage> {
                 @Override // com.facebook.imagepipeline.producers.NetworkFetcher.Callback
                 public void onCancellation() {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.this$0.onCancellation(this.val$fetchState);
+                    if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
+                        return;
                     }
+                    this.this$0.onCancellation(this.val$fetchState);
                 }
 
                 @Override // com.facebook.imagepipeline.producers.NetworkFetcher.Callback
@@ -266,6 +207,71 @@ public class NetworkFetchProducer implements Producer<EncodedImage> {
                     }
                 }
             });
+        }
+    }
+
+    public long getSystemUptime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return SystemClock.uptimeMillis();
+        }
+        return invokeV.longValue;
+    }
+
+    public void handleFinalResult(PooledByteBufferOutputStream pooledByteBufferOutputStream, FetchState fetchState) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pooledByteBufferOutputStream, fetchState) == null) {
+            Map extraMap = getExtraMap(fetchState, pooledByteBufferOutputStream.size());
+            ProducerListener2 listener = fetchState.getListener();
+            listener.onProducerFinishWithSuccess(fetchState.getContext(), PRODUCER_NAME, extraMap);
+            listener.onUltimateProducerReached(fetchState.getContext(), PRODUCER_NAME, true);
+            fetchState.getContext().putOriginExtra("network");
+            notifyConsumer(pooledByteBufferOutputStream, fetchState.getOnNewResultStatusFlags() | 1, fetchState.getResponseBytesRange(), fetchState.getConsumer(), fetchState.getContext());
+        }
+    }
+
+    public void maybeHandleIntermediateResult(PooledByteBufferOutputStream pooledByteBufferOutputStream, FetchState fetchState) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, pooledByteBufferOutputStream, fetchState) == null) {
+            long systemUptime = getSystemUptime();
+            if (shouldPropagateIntermediateResults(fetchState) && systemUptime - fetchState.getLastIntermediateResultTimeMs() >= 100) {
+                fetchState.setLastIntermediateResultTimeMs(systemUptime);
+                fetchState.getListener().onProducerEvent(fetchState.getContext(), PRODUCER_NAME, INTERMEDIATE_RESULT_PRODUCER_EVENT);
+                notifyConsumer(pooledByteBufferOutputStream, fetchState.getOnNewResultStatusFlags(), fetchState.getResponseBytesRange(), fetchState.getConsumer(), fetchState.getContext());
+            }
+        }
+    }
+
+    public void onResponse(FetchState fetchState, InputStream inputStream, int i) throws IOException {
+        PooledByteBufferOutputStream newOutputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048579, this, fetchState, inputStream, i) == null) {
+            if (i > 0) {
+                newOutputStream = this.mPooledByteBufferFactory.newOutputStream(i);
+            } else {
+                newOutputStream = this.mPooledByteBufferFactory.newOutputStream();
+            }
+            byte[] bArr = (byte[]) this.mByteArrayPool.get(16384);
+            while (true) {
+                try {
+                    int read = inputStream.read(bArr);
+                    if (read >= 0) {
+                        if (read > 0) {
+                            newOutputStream.write(bArr, 0, read);
+                            maybeHandleIntermediateResult(newOutputStream, fetchState);
+                            fetchState.getConsumer().onProgressUpdate(calculateProgress(newOutputStream.size(), i));
+                        }
+                    } else {
+                        this.mNetworkFetcher.onFetchCompletion(fetchState, newOutputStream.size());
+                        handleFinalResult(newOutputStream, fetchState);
+                        return;
+                    }
+                } finally {
+                    this.mByteArrayPool.release(bArr);
+                    newOutputStream.close();
+                }
+            }
         }
     }
 }

@@ -41,9 +41,9 @@ public final class HttpDns {
     public static String serverIp = "180.76.76.112/v2";
     public transient /* synthetic */ FieldHolder $fh;
     public DegradationFilter degradationFilter;
-    public ConcurrentMap<String, HostObject> hostManager;
+    public ConcurrentMap hostManager;
     public boolean isExpiredIpAvailable;
-    public CopyOnWriteArrayList<String> mRequstingHost;
+    public CopyOnWriteArrayList mRequstingHost;
     public ExecutorService pool;
 
     /* loaded from: classes2.dex */
@@ -74,36 +74,6 @@ public final class HttpDns {
             this.this$0 = httpDns;
         }
 
-        public String getHostName() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.hostName : (String) invokeV.objValue;
-        }
-
-        public String[] getIp() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.ip : (String[]) invokeV.objValue;
-        }
-
-        public long getmQueryTime() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mQueryTime : invokeV.longValue;
-        }
-
-        public long getmTtl() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mTtl : invokeV.longValue;
-        }
-
-        public boolean isExpired() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? Math.abs((getmQueryTime() + this.mTtl) - (System.currentTimeMillis() / 1000)) < 0 : invokeV.booleanValue;
-        }
-
         public void setHostName(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
@@ -132,6 +102,54 @@ public final class HttpDns {
             }
         }
 
+        public String getHostName() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.hostName;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public String[] getIp() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.ip;
+            }
+            return (String[]) invokeV.objValue;
+        }
+
+        public long getmQueryTime() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.mQueryTime;
+            }
+            return invokeV.longValue;
+        }
+
+        public long getmTtl() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.mTtl;
+            }
+            return invokeV.longValue;
+        }
+
+        public boolean isExpired() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                if (Math.abs((getmQueryTime() + this.mTtl) - (System.currentTimeMillis() / 1000)) < 0) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -143,7 +161,7 @@ public final class HttpDns {
     }
 
     /* loaded from: classes2.dex */
-    public class QueryHostTask implements Callable<String[]> {
+    public class QueryHostTask implements Callable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String hostName;
@@ -230,7 +248,21 @@ public final class HttpDns {
                                         }
                                     } else {
                                         JSONArray optJSONArray = optJSONObject2.optJSONArray("ip");
-                                        if (optJSONArray != null) {
+                                        if (optJSONArray == null) {
+                                            if (httpURLConnection != null) {
+                                                httpURLConnection.disconnect();
+                                            }
+                                            if (inputStream != null) {
+                                                try {
+                                                    inputStream.close();
+                                                } catch (IOException e2) {
+                                                    e = e2;
+                                                    e.printStackTrace();
+                                                    this.this$0.mRequstingHost.remove(this.hostName);
+                                                    return null;
+                                                }
+                                            }
+                                        } else {
                                             String[] strArr = new String[optJSONArray.length()];
                                             for (int i = 0; i < optJSONArray.length(); i++) {
                                                 strArr[i] = optJSONArray.getString(i);
@@ -249,25 +281,12 @@ public final class HttpDns {
                                             if (inputStream != null) {
                                                 try {
                                                     inputStream.close();
-                                                } catch (IOException e2) {
-                                                    e2.printStackTrace();
+                                                } catch (IOException e3) {
+                                                    e3.printStackTrace();
                                                 }
                                             }
                                             this.this$0.mRequstingHost.remove(this.hostName);
                                             return strArr;
-                                        }
-                                        if (httpURLConnection != null) {
-                                            httpURLConnection.disconnect();
-                                        }
-                                        if (inputStream != null) {
-                                            try {
-                                                inputStream.close();
-                                            } catch (IOException e3) {
-                                                e = e3;
-                                                e.printStackTrace();
-                                                this.this$0.mRequstingHost.remove(this.hostName);
-                                                return null;
-                                            }
                                         }
                                     }
                                     this.this$0.mRequstingHost.remove(this.hostName);
@@ -286,7 +305,7 @@ public final class HttpDns {
                                     }
                                 }
                                 this.this$0.mRequstingHost.remove(this.hostName);
-                                if (this.isRequestRetried) {
+                                if (!this.isRequestRetried) {
                                 }
                             } catch (Throwable th) {
                                 th = th;
@@ -320,11 +339,11 @@ public final class HttpDns {
                     inputStream = null;
                 }
                 this.this$0.mRequstingHost.remove(this.hostName);
-                if (this.isRequestRetried) {
-                    this.isRequestRetried = true;
-                    return call();
+                if (!this.isRequestRetried) {
+                    return null;
                 }
-                return null;
+                this.isRequestRetried = true;
+                return call();
             }
             return (String[]) invokeV.objValue;
         }
@@ -346,6 +365,31 @@ public final class HttpDns {
         instance = new HttpDns();
     }
 
+    public static HttpDns getInstance() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return instance;
+        }
+        return (HttpDns) invokeV.objValue;
+    }
+
+    public boolean isExpiredIpAvailable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.isExpiredIpAvailable;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void resetCacheIps() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.hostManager.clear();
+        }
+    }
+
     public HttpDns() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -360,59 +404,10 @@ public final class HttpDns {
             }
         }
         this.isExpiredIpAvailable = false;
-        this.mRequstingHost = new CopyOnWriteArrayList<>();
+        this.mRequstingHost = new CopyOnWriteArrayList();
         this.hostManager = new ConcurrentHashMap();
         this.pool = Executors.newCachedThreadPool(new NamingThreadFactory(TAG));
         this.degradationFilter = null;
-    }
-
-    public static HttpDns getInstance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? instance : (HttpDns) invokeV.objValue;
-    }
-
-    public synchronized String[] getIpByHost(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            synchronized (this) {
-                if (this.degradationFilter != null && this.degradationFilter.shouldDegradeHttpDNS(str)) {
-                    Log.v(TAG, "[degradationFilter] - degradationFilter Degrade " + str);
-                    return null;
-                }
-                HostObject hostObject = this.hostManager.get(str);
-                if ((hostObject != null && (!hostObject.isExpired() || isExpiredIpAvailable())) || this.mRequstingHost.contains(str)) {
-                    if (hostObject == null) {
-                        return null;
-                    }
-                    return hostObject.getIp();
-                }
-                Log.v(TAG, "[getIpByHost] - fetch result from network, host: " + str);
-                Future submit = this.pool.submit(new QueryHostTask(this, str));
-                this.mRequstingHost.add(str);
-                try {
-                    return (String[]) submit.get(3L, TimeUnit.SECONDS);
-                } catch (Exception unused) {
-                    this.mRequstingHost.remove(str);
-                    return null;
-                }
-            }
-        }
-        return (String[]) invokeL.objValue;
-    }
-
-    public boolean isExpiredIpAvailable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.isExpiredIpAvailable : invokeV.booleanValue;
-    }
-
-    public void resetCacheIps() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.hostManager.clear();
-        }
     }
 
     public void setDegradationFilter(DegradationFilter degradationFilter) {
@@ -436,9 +431,39 @@ public final class HttpDns {
         }
     }
 
+    public synchronized String[] getIpByHost(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            synchronized (this) {
+                if (this.degradationFilter != null && this.degradationFilter.shouldDegradeHttpDNS(str)) {
+                    Log.v(TAG, "[degradationFilter] - degradationFilter Degrade " + str);
+                    return null;
+                }
+                HostObject hostObject = (HostObject) this.hostManager.get(str);
+                if ((hostObject == null || (hostObject.isExpired() && !isExpiredIpAvailable())) && !this.mRequstingHost.contains(str)) {
+                    Log.v(TAG, "[getIpByHost] - fetch result from network, host: " + str);
+                    Future submit = this.pool.submit(new QueryHostTask(this, str));
+                    this.mRequstingHost.add(str);
+                    try {
+                        return (String[]) submit.get(3L, TimeUnit.SECONDS);
+                    } catch (Exception unused) {
+                        this.mRequstingHost.remove(str);
+                        return null;
+                    }
+                } else if (hostObject == null) {
+                    return null;
+                } else {
+                    return hostObject.getIp();
+                }
+            }
+        }
+        return (String[]) invokeL.objValue;
+    }
+
     public void setPreResolveHosts(String[] strArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, strArr) == null) || strArr == null) {
+        if ((interceptable != null && interceptable.invokeL(1048582, this, strArr) != null) || strArr == null) {
             return;
         }
         for (String str : strArr) {

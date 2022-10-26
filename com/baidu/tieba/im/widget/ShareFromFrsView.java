@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.data.ShareFromFrsMsgData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dj;
+import com.baidu.tieba.ej;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,6 +28,28 @@ public class ShareFromFrsView extends LinearLayout {
     public TextView f;
     public Context g;
     public ShareFromFrsMsgData h;
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ShareFromFrsView(Context context) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.g = context;
+        b();
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ShareFromFrsView(Context context, AttributeSet attributeSet) {
@@ -56,21 +78,29 @@ public class ShareFromFrsView extends LinearLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return dj.cutString(str, 8) + this.g.getString(R.string.obfuscated_res_0x7f0f066e);
+            return ej.cutString(str, 8) + this.g.getString(R.string.obfuscated_res_0x7f0f0677);
         }
         return (String) invokeL.objValue;
+    }
+
+    public void setData(ShareFromFrsMsgData shareFromFrsMsgData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, shareFromFrsMsgData) == null) {
+            this.h = shareFromFrsMsgData;
+            c();
+        }
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d07be, this);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090bc2);
-            this.b = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090b63);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090bb0);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090bcc);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090bb1);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090bcd);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d07bf, this);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090bcc);
+            this.b = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090b6d);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090bba);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090bd6);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090bbb);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090bd7);
         }
     }
 
@@ -80,17 +110,9 @@ public class ShareFromFrsView extends LinearLayout {
             this.a.setText(a(this.h.getName()));
             this.b.setPlaceHolder(1);
             this.b.setAutoChangeStyle(false);
-            this.b.K(this.h.getImageUrl(), 10, false);
+            this.b.L(this.h.getImageUrl(), 10, false);
             this.d.setText(StringHelper.numFormatOver10000(this.h.getMemberNum()));
             this.f.setText(StringHelper.numFormatOver10000(this.h.getPostNum()));
-        }
-    }
-
-    public void setData(ShareFromFrsMsgData shareFromFrsMsgData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, shareFromFrsMsgData) == null) {
-            this.h = shareFromFrsMsgData;
-            c();
         }
     }
 
@@ -111,27 +133,5 @@ public class ShareFromFrsView extends LinearLayout {
             this.c.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
             this.e.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ShareFromFrsView(Context context) {
-        super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.g = context;
-        b();
     }
 }

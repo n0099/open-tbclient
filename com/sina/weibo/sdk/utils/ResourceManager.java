@@ -75,7 +75,10 @@ public class ResourceManager {
     public static ColorStateList createColorStateList(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i, i2)) == null) ? new ColorStateList(new int[][]{new int[]{16842919}, new int[]{16842913}, new int[]{16842908}, StateSet.WILD_CARD}, new int[]{i2, i2, i2, i}) : (ColorStateList) invokeII.objValue;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i, i2)) == null) {
+            return new ColorStateList(new int[][]{new int[]{16842919}, new int[]{16842913}, new int[]{16842908}, StateSet.WILD_CARD}, new int[]{i2, i2, i2, i});
+        }
+        return (ColorStateList) invokeII.objValue;
     }
 
     public static StateListDrawable createStateListDrawable(Context context, String str, String str2) {
@@ -104,10 +107,64 @@ public class ResourceManager {
         return (StateListDrawable) invokeLLL.objValue;
     }
 
+    public static StateListDrawable createStateListDrawable(Context context, String str, String str2, String str3) {
+        InterceptResult invokeLLLL;
+        Drawable drawable;
+        Drawable drawable2;
+        Drawable drawable3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, str2, str3)) == null) {
+            if (str.indexOf(".9") > -1) {
+                drawable = getNinePatchDrawable(context, str);
+            } else {
+                drawable = getDrawable(context, str);
+            }
+            if (str3.indexOf(".9") > -1) {
+                drawable2 = getNinePatchDrawable(context, str3);
+            } else {
+                drawable2 = getDrawable(context, str3);
+            }
+            if (str2.indexOf(".9") > -1) {
+                drawable3 = getNinePatchDrawable(context, str2);
+            } else {
+                drawable3 = getDrawable(context, str2);
+            }
+            StateListDrawable stateListDrawable = new StateListDrawable();
+            stateListDrawable.addState(new int[]{16842919}, drawable3);
+            stateListDrawable.addState(new int[]{16842913}, drawable3);
+            stateListDrawable.addState(new int[]{16842908}, drawable3);
+            stateListDrawable.addState(new int[]{16842766}, drawable2);
+            stateListDrawable.addState(StateSet.WILD_CARD, drawable);
+            return stateListDrawable;
+        }
+        return (StateListDrawable) invokeLLLL.objValue;
+    }
+
     public static int dp2px(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, context, i)) == null) ? (int) ((i * context.getResources().getDisplayMetrics().density) + 0.5d) : invokeLI.intValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, context, i)) == null) {
+            return (int) ((i * context.getResources().getDisplayMetrics().density) + 0.5d);
+        }
+        return invokeLI.intValue;
+    }
+
+    public static Drawable getDrawable(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, context, str)) == null) {
+            return getDrawableFromAssert(context, getAppropriatePathOfDrawable(context, str), false);
+        }
+        return (Drawable) invokeLL.objValue;
+    }
+
+    public static Drawable getNinePatchDrawable(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, context, str)) == null) {
+            return getDrawableFromAssert(context, getAppropriatePathOfDrawable(context, str), true);
+        }
+        return (Drawable) invokeLL.objValue;
     }
 
     public static Drawable extractDrawable(Context context, String str) throws Exception {
@@ -125,10 +182,44 @@ public class ResourceManager {
         return (Drawable) invokeLL.objValue;
     }
 
+    public static String readCountryFromAsset(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65552, null, context, str)) == null) {
+            String str2 = "";
+            try {
+                InputStream open = context.getAssets().open(str);
+                if (open == null) {
+                    return "";
+                }
+                DataInputStream dataInputStream = new DataInputStream(open);
+                byte[] bArr = new byte[dataInputStream.available()];
+                dataInputStream.read(bArr);
+                String str3 = new String(bArr, "UTF-8");
+                try {
+                    open.close();
+                    return str3;
+                } catch (IOException e) {
+                    e = e;
+                    str2 = str3;
+                    e.printStackTrace();
+                    return str2;
+                }
+            } catch (IOException e2) {
+                e = e2;
+            }
+        } else {
+            return (String) invokeLL.objValue;
+        }
+    }
+
     public static View extractView(Context context, String str, ViewGroup viewGroup) throws Exception {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, context, str, viewGroup)) == null) ? ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(context.getAssets().openXmlResourceParser(str), viewGroup) : (View) invokeLLL.objValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, context, str, viewGroup)) == null) {
+            return ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(context.getAssets().openXmlResourceParser(str), viewGroup);
+        }
+        return (View) invokeLLL.objValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:26:0x0069, code lost:
@@ -153,25 +244,25 @@ public class ResourceManager {
             int i4 = -1;
             while (true) {
                 String[] strArr = PRE_INSTALL_DRAWBLE_PATHS;
-                if (i >= strArr.length) {
-                    i = -1;
-                    break;
-                }
-                if (strArr[i].equals(currentDpiFolder)) {
-                    i3 = i;
-                }
-                String str2 = PRE_INSTALL_DRAWBLE_PATHS[i] + "/" + str;
-                if (isFileExisted(context, str2)) {
-                    if (i3 != i) {
+                if (i < strArr.length) {
+                    if (strArr[i].equals(currentDpiFolder)) {
+                        i3 = i;
+                    }
+                    String str2 = PRE_INSTALL_DRAWBLE_PATHS[i] + "/" + str;
+                    if (isFileExisted(context, str2)) {
+                        if (i3 == i) {
+                            return str2;
+                        }
                         if (i3 >= 0) {
                             break;
                         }
                         i4 = i;
-                    } else {
-                        return str2;
                     }
+                    i++;
+                } else {
+                    i = -1;
+                    break;
                 }
-                i++;
             }
             if (i4 <= 0 || i <= 0) {
                 if (i4 <= 0 || i >= 0) {
@@ -196,15 +287,21 @@ public class ResourceManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
             int i = context.getResources().getDisplayMetrics().densityDpi;
-            return i <= 120 ? DRAWABLE_LDPI : (i <= 120 || i > 160) ? (i <= 160 || i > 240) ? (i <= 240 || i > 320) ? DRAWABLE_XXHDPI : DRAWABLE_XHDPI : DRAWABLE_HDPI : DRAWABLE_MDPI;
+            if (i <= 120) {
+                return DRAWABLE_LDPI;
+            }
+            if (i > 120 && i <= 160) {
+                return DRAWABLE_MDPI;
+            }
+            if (i > 160 && i <= 240) {
+                return DRAWABLE_HDPI;
+            }
+            if (i > 240 && i <= 320) {
+                return DRAWABLE_XHDPI;
+            }
+            return DRAWABLE_XXHDPI;
         }
         return (String) invokeL.objValue;
-    }
-
-    public static Drawable getDrawable(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, context, str)) == null) ? getDrawableFromAssert(context, getAppropriatePathOfDrawable(context, str), false) : (Drawable) invokeLL.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:42:0x006f A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -281,15 +378,15 @@ public class ResourceManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
             Locale locale = Locale.getDefault();
-            return (Locale.SIMPLIFIED_CHINESE.equals(locale) || Locale.TRADITIONAL_CHINESE.equals(locale)) ? locale : (locale.getLanguage().equals("zh") && (locale.getCountry().contains("CN") || locale.getCountry().contains("TW"))) ? locale : Locale.ENGLISH;
+            if (!Locale.SIMPLIFIED_CHINESE.equals(locale) && !Locale.TRADITIONAL_CHINESE.equals(locale)) {
+                if (!locale.getLanguage().equals("zh") || (!locale.getCountry().contains("CN") && !locale.getCountry().contains("TW"))) {
+                    return Locale.ENGLISH;
+                }
+                return locale;
+            }
+            return locale;
         }
         return (Locale) invokeV.objValue;
-    }
-
-    public static Drawable getNinePatchDrawable(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, context, str)) == null) ? getDrawableFromAssert(context, getAppropriatePathOfDrawable(context, str), true) : (Drawable) invokeLL.objValue;
     }
 
     public static String getString(Context context, String str, String str2, String str3) {
@@ -297,7 +394,13 @@ public class ResourceManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65550, null, context, str, str2, str3)) == null) {
             Locale language = getLanguage();
-            return (Locale.SIMPLIFIED_CHINESE.equals(language) || ("zh".equals(language.getLanguage()) && language.getCountry().contains("CN"))) ? str2 : (Locale.TRADITIONAL_CHINESE.equals(language) || ("zh".equals(language.getLanguage()) && language.getCountry().contains("TW"))) ? str3 : str;
+            if (!Locale.SIMPLIFIED_CHINESE.equals(language) && (!"zh".equals(language.getLanguage()) || !language.getCountry().contains("CN"))) {
+                if (!Locale.TRADITIONAL_CHINESE.equals(language) && (!"zh".equals(language.getLanguage()) || !language.getCountry().contains("TW"))) {
+                    return str;
+                }
+                return str3;
+            }
+            return str2;
         }
         return (String) invokeLLLL.objValue;
     }
@@ -348,68 +451,5 @@ public class ResourceManager {
             }
         }
         return invokeLL.booleanValue;
-    }
-
-    public static String readCountryFromAsset(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(65552, null, context, str)) != null) {
-            return (String) invokeLL.objValue;
-        }
-        String str2 = "";
-        try {
-            InputStream open = context.getAssets().open(str);
-            if (open != null) {
-                DataInputStream dataInputStream = new DataInputStream(open);
-                byte[] bArr = new byte[dataInputStream.available()];
-                dataInputStream.read(bArr);
-                String str3 = new String(bArr, "UTF-8");
-                try {
-                    open.close();
-                    return str3;
-                } catch (IOException e) {
-                    e = e;
-                    str2 = str3;
-                    e.printStackTrace();
-                    return str2;
-                }
-            }
-            return "";
-        } catch (IOException e2) {
-            e = e2;
-        }
-    }
-
-    public static StateListDrawable createStateListDrawable(Context context, String str, String str2, String str3) {
-        InterceptResult invokeLLLL;
-        Drawable drawable;
-        Drawable drawable2;
-        Drawable drawable3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, str2, str3)) == null) {
-            if (str.indexOf(".9") > -1) {
-                drawable = getNinePatchDrawable(context, str);
-            } else {
-                drawable = getDrawable(context, str);
-            }
-            if (str3.indexOf(".9") > -1) {
-                drawable2 = getNinePatchDrawable(context, str3);
-            } else {
-                drawable2 = getDrawable(context, str3);
-            }
-            if (str2.indexOf(".9") > -1) {
-                drawable3 = getNinePatchDrawable(context, str2);
-            } else {
-                drawable3 = getDrawable(context, str2);
-            }
-            StateListDrawable stateListDrawable = new StateListDrawable();
-            stateListDrawable.addState(new int[]{16842919}, drawable3);
-            stateListDrawable.addState(new int[]{16842913}, drawable3);
-            stateListDrawable.addState(new int[]{16842908}, drawable3);
-            stateListDrawable.addState(new int[]{16842766}, drawable2);
-            stateListDrawable.addState(StateSet.WILD_CARD, drawable);
-            return stateListDrawable;
-        }
-        return (StateListDrawable) invokeLLLL.objValue;
     }
 }

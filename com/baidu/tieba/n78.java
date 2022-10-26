@@ -8,20 +8,95 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tieba.personPolymeric.view.PersonCommonForumItemView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class n78 extends qn<x88, CardViewHolder<ea8>> {
+public class n78 extends rn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
+    public TbPageContext a;
+    public vg b;
+
+    /* loaded from: classes5.dex */
+    public class a implements wg {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ n78 a;
+
+        public PersonCommonForumItemView e(PersonCommonForumItemView personCommonForumItemView) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, personCommonForumItemView)) == null) ? personCommonForumItemView : (PersonCommonForumItemView) invokeL.objValue;
+        }
+
+        public PersonCommonForumItemView h(PersonCommonForumItemView personCommonForumItemView) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, personCommonForumItemView)) == null) ? personCommonForumItemView : (PersonCommonForumItemView) invokeL.objValue;
+        }
+
+        public a(n78 n78Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {n78Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = n78Var;
+        }
+
+        @Override // com.baidu.tieba.wg
+        public /* bridge */ /* synthetic */ Object a(Object obj) {
+            PersonCommonForumItemView personCommonForumItemView = (PersonCommonForumItemView) obj;
+            e(personCommonForumItemView);
+            return personCommonForumItemView;
+        }
+
+        @Override // com.baidu.tieba.wg
+        public /* bridge */ /* synthetic */ Object c(Object obj) {
+            PersonCommonForumItemView personCommonForumItemView = (PersonCommonForumItemView) obj;
+            h(personCommonForumItemView);
+            return personCommonForumItemView;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.wg
+        /* renamed from: f */
+        public void b(PersonCommonForumItemView personCommonForumItemView) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048581, this, personCommonForumItemView) == null) && personCommonForumItemView != null) {
+                personCommonForumItemView.removeAllViews();
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.wg
+        /* renamed from: g */
+        public PersonCommonForumItemView d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return new PersonCommonForumItemView(this.a.mContext);
+            }
+            return (PersonCommonForumItemView) invokeV.objValue;
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public n78(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), x88.e);
+    public n78(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), y88.b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -38,27 +113,33 @@ public class n78 extends qn<x88, CardViewHolder<ea8>> {
                 return;
             }
         }
+        this.b = new vg(new a(this), 12, 0);
         this.a = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: s */
-    public CardViewHolder<ea8> onCreateViewHolder(ViewGroup viewGroup) {
+    @Override // com.baidu.tieba.rn
+    /* renamed from: t */
+    public CardViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new CardViewHolder<>(new ea8(this.a)) : (CardViewHolder) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            aa8 aa8Var = new aa8(this.a);
+            aa8Var.y(this.b);
+            return new CardViewHolder(aa8Var);
+        }
+        return (CardViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, x88 x88Var, CardViewHolder<ea8> cardViewHolder) {
+    @Override // com.baidu.tieba.rn
+    /* renamed from: u */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, y88 y88Var, CardViewHolder cardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, x88Var, cardViewHolder})) == null) {
-            cardViewHolder.a().i(x88Var);
-            cardViewHolder.a().j(this.a, TbadkCoreApplication.getInst().getSkinType());
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, y88Var, cardViewHolder})) == null) {
+            ((aa8) cardViewHolder.a()).m(this.a, TbadkCoreApplication.getInst().getSkinType());
+            ((aa8) cardViewHolder.a()).l(y88Var);
             return cardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;

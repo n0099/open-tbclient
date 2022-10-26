@@ -15,7 +15,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class Utils {
     public static /* synthetic */ Interceptable $ic;
-    public static final Class<?>[] EMPTY_CLASS_ARRAY;
+    public static final Class[] EMPTY_CLASS_ARRAY;
     public static final Object[] EMPTY_OBJECT_ARRAY;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -50,7 +50,7 @@ public class Utils {
         }
     }
 
-    public static List<Class<?>> getAllInterfaces(Class<?> cls) {
+    public static List getAllInterfaces(Class cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, cls)) == null) {
@@ -64,53 +64,19 @@ public class Utils {
         return (List) invokeL.objValue;
     }
 
-    public static boolean isSameLength(Object[] objArr, Object[] objArr2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, objArr, objArr2)) == null) {
-            if (objArr != null || objArr2 == null || objArr2.length <= 0) {
-                if (objArr2 != null || objArr == null || objArr.length <= 0) {
-                    return objArr == null || objArr2 == null || objArr.length == objArr2.length;
-                }
-                return false;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static Class<?>[] nullToEmpty(Class<?>[] clsArr) {
+    public static Class[] nullToEmpty(Class[] clsArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, clsArr)) == null) ? (clsArr == null || clsArr.length == 0) ? EMPTY_CLASS_ARRAY : clsArr : (Class[]) invokeL.objValue;
-    }
-
-    public static Class<?>[] toClass(Object... objArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, objArr)) == null) {
-            if (objArr == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, clsArr)) == null) {
+            if (clsArr != null && clsArr.length != 0) {
+                return clsArr;
             }
-            if (objArr.length == 0) {
-                return EMPTY_CLASS_ARRAY;
-            }
-            Class<?>[] clsArr = new Class[objArr.length];
-            for (int i = 0; i < objArr.length; i++) {
-                clsArr[i] = objArr[i] == null ? null : objArr[i].getClass();
-            }
-            return clsArr;
+            return EMPTY_CLASS_ARRAY;
         }
         return (Class[]) invokeL.objValue;
     }
 
-    public static Object[] nullToEmpty(Object[] objArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, objArr)) == null) ? (objArr == null || objArr.length == 0) ? EMPTY_OBJECT_ARRAY : objArr : (Object[]) invokeL.objValue;
-    }
-
-    public static void getAllInterfaces(Class<?> cls, HashSet<Class<?>> hashSet) {
+    public static void getAllInterfaces(Class cls, HashSet hashSet) {
         Class<?>[] interfaces;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, cls, hashSet) == null) {
@@ -123,5 +89,60 @@ public class Utils {
                 cls = cls.getSuperclass();
             }
         }
+    }
+
+    public static boolean isSameLength(Object[] objArr, Object[] objArr2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, objArr, objArr2)) == null) {
+            if (objArr != null || objArr2 == null || objArr2.length <= 0) {
+                if (objArr2 != null || objArr == null || objArr.length <= 0) {
+                    if (objArr != null && objArr2 != null && objArr.length != objArr2.length) {
+                        return false;
+                    }
+                    return true;
+                }
+                return false;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static Object[] nullToEmpty(Object[] objArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, objArr)) == null) {
+            if (objArr != null && objArr.length != 0) {
+                return objArr;
+            }
+            return EMPTY_OBJECT_ARRAY;
+        }
+        return (Object[]) invokeL.objValue;
+    }
+
+    public static Class[] toClass(Object... objArr) {
+        InterceptResult invokeL;
+        Class<?> cls;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, objArr)) == null) {
+            if (objArr == null) {
+                return null;
+            }
+            if (objArr.length == 0) {
+                return EMPTY_CLASS_ARRAY;
+            }
+            Class[] clsArr = new Class[objArr.length];
+            for (int i = 0; i < objArr.length; i++) {
+                if (objArr[i] == null) {
+                    cls = null;
+                } else {
+                    cls = objArr[i].getClass();
+                }
+                clsArr[i] = cls;
+            }
+            return clsArr;
+        }
+        return (Class[]) invokeL.objValue;
     }
 }

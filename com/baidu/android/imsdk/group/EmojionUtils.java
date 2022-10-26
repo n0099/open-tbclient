@@ -12,7 +12,7 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class EmojionUtils {
     public static /* synthetic */ Interceptable $ic;
-    public static ArrayList<Integer> emojionlist;
+    public static ArrayList emojionlist;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,7 +28,7 @@ public class EmojionUtils {
                 return;
             }
         }
-        ArrayList<Integer> arrayList = new ArrayList<>();
+        ArrayList arrayList = new ArrayList();
         emojionlist = arrayList;
         arrayList.add(128515);
         emojionlist.add(128522);
@@ -184,6 +184,12 @@ public class EmojionUtils {
     public static boolean isEmojiCharacter(char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Character.valueOf(c)})) == null) ? emojionlist.contains(Character.valueOf(c)) : invokeCommon.booleanValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Character.valueOf(c)})) == null) {
+            if (emojionlist.contains(Character.valueOf(c))) {
+                return true;
+            }
+            return false;
+        }
+        return invokeCommon.booleanValue;
     }
 }

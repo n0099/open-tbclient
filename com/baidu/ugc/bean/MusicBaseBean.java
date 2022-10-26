@@ -14,6 +14,8 @@ public abstract class MusicBaseBean implements Serializable {
     public transient /* synthetic */ FieldHolder $fh;
     public int type;
 
+    public abstract int getSpanSize();
+
     public MusicBaseBean() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -30,11 +32,12 @@ public abstract class MusicBaseBean implements Serializable {
         this.type = -1;
     }
 
-    public abstract int getSpanSize();
-
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.type : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.type;
+        }
+        return invokeV.intValue;
     }
 }

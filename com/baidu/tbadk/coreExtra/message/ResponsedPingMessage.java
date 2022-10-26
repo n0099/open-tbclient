@@ -1,6 +1,5 @@
 package com.baidu.tbadk.coreExtra.message;
 
-import androidx.annotation.Nullable;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,6 +10,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ResponsedPingMessage extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
+            return null;
+        }
+        return invokeIL.objValue;
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponsedPingMessage() {
@@ -28,16 +37,5 @@ public class ResponsedPingMessage extends TbSocketReponsedMessage {
                 return;
             }
         }
-    }
-
-    @Override // com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
-    public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
-            return null;
-        }
-        return invokeIL.objValue;
     }
 }

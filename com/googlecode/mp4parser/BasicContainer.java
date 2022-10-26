@@ -24,13 +24,13 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
 /* loaded from: classes7.dex */
-public class BasicContainer implements Container, Iterator<Box> {
+public class BasicContainer implements Container, Iterator {
     public static /* synthetic */ Interceptable $ic;
     public static final Box EOF;
     public static Logger LOG;
     public transient /* synthetic */ FieldHolder $fh;
     public BoxParser boxParser;
-    public List<Box> boxes;
+    public List boxes;
     public DataSource dataSource;
     public long endPosition;
     public Box lookahead;
@@ -55,26 +55,6 @@ public class BasicContainer implements Container, Iterator<Box> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            {
-                super(r7);
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {r7};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        super((String) newInitContext.callArgs[0]);
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-            }
-
             @Override // com.googlecode.mp4parser.AbstractBox
             public void _parseDetails(ByteBuffer byteBuffer) {
                 Interceptable interceptable2 = $ic;
@@ -98,7 +78,84 @@ public class BasicContainer implements Container, Iterator<Box> {
                 }
                 return invokeV.longValue;
             }
+
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            {
+                super(r7);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {r7};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        super((String) newInitContext.callArgs[0]);
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+            }
         };
+    }
+
+    @Override // com.coremedia.iso.boxes.Container
+    public List getBoxes() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.dataSource != null && this.lookahead != EOF) {
+                return new LazyList(this.boxes, this);
+            }
+            return this.boxes;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public long getContainerSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            long j = 0;
+            for (int i = 0; i < getBoxes().size(); i++) {
+                j += ((Box) this.boxes.get(i)).getSize();
+            }
+            return j;
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // java.util.Iterator
+    public boolean hasNext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            Box box = this.lookahead;
+            if (box == EOF) {
+                return false;
+            }
+            if (box != null) {
+                return true;
+            }
+            try {
+                this.lookahead = next();
+                return true;
+            } catch (NoSuchElementException unused) {
+                this.lookahead = EOF;
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // java.util.Iterator
+    public void remove() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            throw new UnsupportedOperationException();
+        }
     }
 
     public BasicContainer() {
@@ -131,16 +188,52 @@ public class BasicContainer implements Container, Iterator<Box> {
     }
 
     @Override // com.coremedia.iso.boxes.Container
-    public List<Box> getBoxes() {
-        InterceptResult invokeV;
+    public List getBoxes(Class cls) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.dataSource != null && this.lookahead != EOF) {
-                return new LazyList(this.boxes, this);
-            }
-            return this.boxes;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cls)) == null) {
+            return getBoxes(cls, false);
         }
-        return (List) invokeV.objValue;
+        return (List) invokeL.objValue;
+    }
+
+    @Override // com.coremedia.iso.boxes.Container
+    public void setBoxes(List list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, list) == null) {
+            this.boxes = new ArrayList(list);
+            this.lookahead = EOF;
+            this.dataSource = null;
+        }
+    }
+
+    @Override // com.coremedia.iso.boxes.Container
+    public final void writeContainer(WritableByteChannel writableByteChannel) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, writableByteChannel) == null) {
+            for (Box box : getBoxes()) {
+                box.getBox(writableByteChannel);
+            }
+        }
+    }
+
+    @Override // com.coremedia.iso.boxes.Container
+    public List getBoxes(Class cls, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, cls, z)) == null) {
+            ArrayList arrayList = new ArrayList(2);
+            for (Box box : getBoxes()) {
+                if (cls.isInstance(box)) {
+                    arrayList.add(box);
+                }
+                if (z && (box instanceof Container)) {
+                    arrayList.addAll(((Container) box).getBoxes(cls, z));
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeLZ.objValue;
     }
 
     @Override // com.coremedia.iso.boxes.Container
@@ -157,104 +250,7 @@ public class BasicContainer implements Container, Iterator<Box> {
         return (ByteBuffer) invokeCommon.objValue;
     }
 
-    public long getContainerSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            long j = 0;
-            for (int i = 0; i < getBoxes().size(); i++) {
-                j += this.boxes.get(i).getSize();
-            }
-            return j;
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // java.util.Iterator
-    public boolean hasNext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            Box box = this.lookahead;
-            if (box == EOF) {
-                return false;
-            }
-            if (box != null) {
-                return true;
-            }
-            try {
-                this.lookahead = next();
-                return true;
-            } catch (NoSuchElementException unused) {
-                this.lookahead = EOF;
-                return false;
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void parseContainer(DataSource dataSource, long j, BoxParser boxParser) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{dataSource, Long.valueOf(j), boxParser}) == null) {
-            this.dataSource = dataSource;
-            long position = dataSource.position();
-            this.startPosition = position;
-            this.parsePosition = position;
-            dataSource.position(dataSource.position() + j);
-            this.endPosition = dataSource.position();
-            this.boxParser = boxParser;
-        }
-    }
-
-    @Override // java.util.Iterator
-    public void remove() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            throw new UnsupportedOperationException();
-        }
-    }
-
-    @Override // com.coremedia.iso.boxes.Container
-    public void setBoxes(List<Box> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, list) == null) {
-            this.boxes = new ArrayList(list);
-            this.lookahead = EOF;
-            this.dataSource = null;
-        }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(getClass().getSimpleName());
-            sb.append(PreferencesUtil.LEFT_MOUNT);
-            for (int i = 0; i < this.boxes.size(); i++) {
-                if (i > 0) {
-                    sb.append(ParamableElem.DIVIDE_PARAM);
-                }
-                sb.append(this.boxes.get(i).toString());
-            }
-            sb.append(PreferencesUtil.RIGHT_MOUNT);
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.coremedia.iso.boxes.Container
-    public final void writeContainer(WritableByteChannel writableByteChannel) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, writableByteChannel) == null) {
-            for (Box box : getBoxes()) {
-                box.getBox(writableByteChannel);
-            }
-        }
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
     @Override // java.util.Iterator
     public Box next() {
         InterceptResult invokeV;
@@ -288,29 +284,35 @@ public class BasicContainer implements Container, Iterator<Box> {
         return (Box) invokeV.objValue;
     }
 
-    @Override // com.coremedia.iso.boxes.Container
-    public <T extends Box> List<T> getBoxes(Class<T> cls) {
-        InterceptResult invokeL;
+    public void parseContainer(DataSource dataSource, long j, BoxParser boxParser) throws IOException {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cls)) == null) ? getBoxes(cls, false) : (List) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{dataSource, Long.valueOf(j), boxParser}) == null) {
+            this.dataSource = dataSource;
+            long position = dataSource.position();
+            this.startPosition = position;
+            this.parsePosition = position;
+            dataSource.position(dataSource.position() + j);
+            this.endPosition = dataSource.position();
+            this.boxParser = boxParser;
+        }
     }
 
-    @Override // com.coremedia.iso.boxes.Container
-    public <T extends Box> List<T> getBoxes(Class<T> cls, boolean z) {
-        InterceptResult invokeLZ;
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, cls, z)) == null) {
-            ArrayList arrayList = new ArrayList(2);
-            for (Box box : getBoxes()) {
-                if (cls.isInstance(box)) {
-                    arrayList.add(box);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(getClass().getSimpleName());
+            sb.append(PreferencesUtil.LEFT_MOUNT);
+            for (int i = 0; i < this.boxes.size(); i++) {
+                if (i > 0) {
+                    sb.append(ParamableElem.DIVIDE_PARAM);
                 }
-                if (z && (box instanceof Container)) {
-                    arrayList.addAll(((Container) box).getBoxes(cls, z));
-                }
+                sb.append(((Box) this.boxes.get(i)).toString());
             }
-            return arrayList;
+            sb.append(PreferencesUtil.RIGHT_MOUNT);
+            return sb.toString();
         }
-        return (List) invokeLZ.objValue;
+        return (String) invokeV.objValue;
     }
 }

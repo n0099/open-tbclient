@@ -42,58 +42,6 @@ public class ManualObservableScrollView extends ScrollView {
         }
     }
 
-    public a getScrollChangedListener() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (a) invokeV.objValue;
-    }
-
-    @Override // android.view.View
-    public void onScrollChanged(int i, int i2, int i3, int i4) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3, i4) == null) {
-            super.onScrollChanged(i, i2, i3, i4);
-            if (!this.a || (aVar = this.b) == null) {
-                return;
-            }
-            aVar.onScrollChanged(i, i2, i3, i4);
-        }
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:10:0x0011, code lost:
-        if (r0 != 3) goto L10;
-     */
-    @Override // android.widget.ScrollView, android.view.View
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
-            int action = motionEvent.getAction();
-            if (action != 0) {
-                if (action != 1) {
-                    if (action != 2) {
-                    }
-                }
-                this.a = false;
-                return super.onTouchEvent(motionEvent);
-            }
-            this.a = true;
-            return super.onTouchEvent(motionEvent);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void setScrollChangedListener(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.b = aVar;
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ManualObservableScrollView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -133,6 +81,60 @@ public class ManualObservableScrollView extends ScrollView {
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
+        }
+    }
+
+    public a getScrollChangedListener() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (a) invokeV.objValue;
+    }
+
+    @Override // android.view.View
+    public void onScrollChanged(int i, int i2, int i3, int i4) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3, i4) == null) {
+            super.onScrollChanged(i, i2, i3, i4);
+            if (this.a && (aVar = this.b) != null) {
+                aVar.onScrollChanged(i, i2, i3, i4);
+            }
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:10:0x0011, code lost:
+        if (r0 != 3) goto L10;
+     */
+    @Override // android.widget.ScrollView, android.view.View
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
+            int action = motionEvent.getAction();
+            if (action != 0) {
+                if (action != 1) {
+                    if (action != 2) {
+                    }
+                }
+                this.a = false;
+                return super.onTouchEvent(motionEvent);
+            }
+            this.a = true;
+            return super.onTouchEvent(motionEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void setScrollChangedListener(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+            this.b = aVar;
         }
     }
 }

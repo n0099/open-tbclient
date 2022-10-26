@@ -38,30 +38,12 @@ public class SetPendantHttpResponse extends TbHttpResponsedMessage {
         }
     }
 
-    public int getFreeUseLevel() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.freeUseLevel : invokeV.intValue;
-    }
-
-    public long getPendantId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.pendantId : invokeV.longValue;
-    }
-
-    public int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.type : invokeV.intValue;
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         SetPendantResIdl setPendantResIdl;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (setPendantResIdl = (SetPendantResIdl) new Wire(new Class[0]).parseFrom(bArr, SetPendantResIdl.class)) == null) {
+        if ((interceptable != null && interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) != null) || (setPendantResIdl = (SetPendantResIdl) new Wire(new Class[0]).parseFrom(bArr, SetPendantResIdl.class)) == null) {
             return;
         }
         Error error = setPendantResIdl.error;
@@ -79,5 +61,32 @@ public class SetPendantHttpResponse extends TbHttpResponsedMessage {
             this.freeUseLevel = setPendantRequest.getFreeUseLevel();
             setPendantRequest.getFreeUseLevel();
         }
+    }
+
+    public int getFreeUseLevel() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.freeUseLevel;
+        }
+        return invokeV.intValue;
+    }
+
+    public long getPendantId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.pendantId;
+        }
+        return invokeV.longValue;
+    }
+
+    public int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.type;
+        }
+        return invokeV.intValue;
     }
 }

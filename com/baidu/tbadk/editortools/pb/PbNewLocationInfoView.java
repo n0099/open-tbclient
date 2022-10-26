@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,35 +39,6 @@ public class PbNewLocationInfoView extends TextView {
         }
     }
 
-    public int getState() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public void setState(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-            this.a = i;
-            if (i == 1) {
-                if (str == null) {
-                    str = getResources().getString(R.string.obfuscated_res_0x7f0f0a6c);
-                }
-                setText(str);
-            } else if (i == 2) {
-                if (str == null) {
-                    str = getResources().getString(R.string.obfuscated_res_0x7f0f0a69);
-                }
-                setText(str);
-            } else {
-                if (str == null) {
-                    str = getResources().getString(R.string.obfuscated_res_0x7f0f0a69);
-                }
-                setText(str);
-            }
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbNewLocationInfoView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -90,7 +61,39 @@ public class PbNewLocationInfoView extends TextView {
         setMaxEms(8);
         setSingleLine(true);
         setEllipsize(TextUtils.TruncateAt.END);
-        setTextSize(0, ej.f(context, R.dimen.obfuscated_res_0x7f0701e8));
+        setTextSize(0, fj.f(context, R.dimen.obfuscated_res_0x7f0701e8));
         setState(0, null);
+    }
+
+    public void setState(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+            this.a = i;
+            if (i == 1) {
+                if (str == null) {
+                    str = getResources().getString(R.string.obfuscated_res_0x7f0f0a79);
+                }
+                setText(str);
+            } else if (i == 2) {
+                if (str == null) {
+                    str = getResources().getString(R.string.obfuscated_res_0x7f0f0a76);
+                }
+                setText(str);
+            } else {
+                if (str == null) {
+                    str = getResources().getString(R.string.obfuscated_res_0x7f0f0a76);
+                }
+                setText(str);
+            }
+        }
+    }
+
+    public int getState() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
     }
 }

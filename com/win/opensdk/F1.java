@@ -45,40 +45,6 @@ public class F1 {
     public int x;
     public long y;
 
-    public F1(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.e = Collections.synchronizedList(new ArrayList());
-        this.h = 0L;
-        this.i = new z1(this);
-        this.j = false;
-        this.k = 0L;
-        this.a = context;
-        r1 r1Var = new r1(context, str, L.e);
-        this.b = r1Var;
-        r1Var.g = this.i;
-        this.g = new m2(context);
-    }
-
-    public static /* synthetic */ void a(F1 f1, View view2) {
-        if (f1.t <= 0 || f1.u <= 0) {
-            f1.u = view2.getHeight();
-            f1.t = view2.getWidth();
-        }
-    }
-
     public final List a(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -166,54 +132,93 @@ public class F1 {
         return (HashMap) invokeV.objValue;
     }
 
+    public F1(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.e = Collections.synchronizedList(new ArrayList());
+        this.h = 0L;
+        this.i = new z1(this);
+        this.j = false;
+        this.k = 0L;
+        this.a = context;
+        r1 r1Var = new r1(context, str, L.e);
+        this.b = r1Var;
+        r1Var.g = this.i;
+        this.g = new m2(context);
+    }
+
+    public static /* synthetic */ void a(F1 f1, View view2) {
+        if (f1.t <= 0 || f1.u <= 0) {
+            f1.u = view2.getHeight();
+            f1.t = view2.getWidth();
+        }
+    }
+
     public void a(View view2, PBMediaView pBMediaView) {
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, pBMediaView) == null) {
             List<View> arrayList = new ArrayList();
             if (view2 != null) {
                 arrayList = a(view2);
             }
-            if (view2 == null || arrayList == null || arrayList.size() == 0 || !b()) {
-                return;
-            }
-            this.h = 0L;
-            if (this.d != null) {
-                c();
-            }
-            this.d = view2;
-            try {
-                E1 e1 = new E1(this);
-                for (View view3 : arrayList) {
-                    if (view3 != null && !(view3 instanceof PBMediaView)) {
-                        if (!this.e.contains(view3)) {
-                            this.e.add(view3);
-                        }
-                        if (!(view3 instanceof CircleProgressbar)) {
-                            view3.setOnClickListener(e1);
-                            view3.setOnTouchListener(e1);
-                        }
-                    }
+            if (view2 != null && arrayList != null && arrayList.size() != 0 && b()) {
+                this.h = 0L;
+                if (this.d != null) {
+                    c();
                 }
-            } catch (Exception unused) {
-            }
-            if (pBMediaView != null) {
+                this.d = view2;
                 try {
-                    if (pBMediaView.getHtmlWebView() != null) {
-                        g0 htmlWebView = pBMediaView.getHtmlWebView();
-                        htmlWebView.a(b() ? this.c.getLoad() : "", this.c);
-                        if (this.c.isNat()) {
-                            htmlWebView.c.setOnTouchListener(new C1(this));
+                    E1 e1 = new E1(this);
+                    for (View view3 : arrayList) {
+                        if (view3 != null && !(view3 instanceof PBMediaView)) {
+                            if (!this.e.contains(view3)) {
+                                this.e.add(view3);
+                            }
+                            if (!(view3 instanceof CircleProgressbar)) {
+                                view3.setOnClickListener(e1);
+                                view3.setOnTouchListener(e1);
+                            }
                         }
-                        htmlWebView.b = new D1(this);
                     }
-                } catch (Exception unused2) {
+                } catch (Exception unused) {
                 }
+                if (pBMediaView != null) {
+                    try {
+                        if (pBMediaView.getHtmlWebView() != null) {
+                            g0 htmlWebView = pBMediaView.getHtmlWebView();
+                            if (b()) {
+                                str = this.c.getLoad();
+                            } else {
+                                str = "";
+                            }
+                            htmlWebView.a(str, this.c);
+                            if (this.c.isNat()) {
+                                htmlWebView.c.setOnTouchListener(new C1(this));
+                            }
+                            htmlWebView.b = new D1(this);
+                        }
+                    } catch (Exception unused2) {
+                    }
+                }
+                e1.a(this.a).b(new f1(this.c)).a();
+                if (this.c != null) {
+                    Z1.b(this.a, this.c.getId() + ":" + System.currentTimeMillis(), false);
+                }
+                new N0().a(view2, this.c, new B1(this, view2));
             }
-            e1.a(this.a).b(new f1(this.c)).a();
-            if (this.c != null) {
-                Z1.b(this.a, this.c.getId() + ":" + System.currentTimeMillis(), false);
-            }
-            new N0().a(view2, this.c, new B1(this, view2));
         }
     }
 }

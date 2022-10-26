@@ -1,27 +1,33 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class h44 {
+public class h44 implements cl1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile g44 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized g44 a() {
-        InterceptResult invokeV;
-        g44 g44Var;
+    public h44() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (h44.class) {
-                if (a == null) {
-                    a = new g44();
-                }
-                g44Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return g44Var;
         }
-        return (g44) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.cl1
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            j44.a(str);
+        }
     }
 }

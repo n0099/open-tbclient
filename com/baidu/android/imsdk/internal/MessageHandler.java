@@ -1,7 +1,5 @@
 package com.baidu.android.imsdk.internal;
 
-import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.net.SSLCertificateSocketFactory;
 import android.net.SSLSessionCache;
@@ -64,6 +62,29 @@ public class MessageHandler extends IMessageHandler {
         HOSTNAME_VERIFIER = HttpsURLConnection.getDefaultHostnameVerifier();
     }
 
+    @Override // com.baidu.android.imsdk.internal.IMessageHandler
+    public Message readMessage() throws EOFException, IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return super.readMessage(this.mIs);
+        }
+        return (Message) invokeV.objValue;
+    }
+
+    @Override // com.baidu.android.imsdk.internal.IMessageHandler
+    public boolean socketClose() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            synchronized (this.mSendQueque) {
+                this.mSendQueque.notifyAll();
+            }
+            return socketClose(this.mCurrentSocketState);
+        }
+        return invokeV.booleanValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MessageHandler(Context context) {
         super(context);
@@ -115,10 +136,10 @@ public class MessageHandler extends IMessageHandler {
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, this, str, i)) == null) {
             int readIntData = Utility.readIntData(this.mContext, Constants.KEY_ENV, 0);
             if (readIntData != 0) {
-                if (readIntData == 1 || readIntData == 2 || readIntData == 3) {
-                    return createSocketRD(str, i);
+                if (readIntData != 1 && readIntData != 2 && readIntData != 3) {
+                    return null;
                 }
-                return null;
+                return createSocketRD(str, i);
             } else if (Utility.isCreateTlsSocket(this.mContext)) {
                 return createSocketOnLine(str, i);
             } else {
@@ -132,7 +153,6 @@ public class MessageHandler extends IMessageHandler {
     /* JADX WARN: Code restructure failed: missing block: B:16:0x002e, code lost:
         r8 = r5.getHostAddress();
      */
-    @SuppressLint({"NewApi"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -194,29 +214,36 @@ public class MessageHandler extends IMessageHandler {
     private Socket createSocketOnlineByTcp(String str, int i) throws IOException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65541, this, str, i)) == null) ? new Socket(str, i) : (Socket) invokeLI.objValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, this, str, i)) == null) {
+            return new Socket(str, i);
+        }
+        return (Socket) invokeLI.objValue;
     }
 
     private Socket createSocketRD(String str, int i) throws IOException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65542, this, str, i)) == null) ? new Socket(str, i) : (Socket) invokeLI.objValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, this, str, i)) == null) {
+            return new Socket(str, i);
+        }
+        return (Socket) invokeLI.objValue;
     }
 
-    @TargetApi(17)
     public void enableSessionTicket(SSLCertificateSocketFactory sSLCertificateSocketFactory, Socket socket) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, sSLCertificateSocketFactory, socket) == null) || Build.VERSION.SDK_INT <= 17) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, sSLCertificateSocketFactory, socket) == null) && Build.VERSION.SDK_INT > 17) {
+            sSLCertificateSocketFactory.setUseSessionTickets(socket, true);
         }
-        sSLCertificateSocketFactory.setUseSessionTickets(socket, true);
     }
 
     @Override // com.baidu.android.imsdk.internal.IMessageHandler
-    public Message readMessage() throws EOFException, IOException {
-        InterceptResult invokeV;
+    public SocketState socketConnect(String str, int i) throws KeyManagementException, CertificateException, KeyStoreException, NoSuchAlgorithmException, IOException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, TimeoutException, AssertionError {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? super.readMessage(this.mIs) : (Message) invokeV.objValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, str, i)) == null) {
+            return connectImpl(str, i);
+        }
+        return (SocketState) invokeLI.objValue;
     }
 
     @Override // com.baidu.android.imsdk.internal.IMessageHandler
@@ -238,62 +265,41 @@ public class MessageHandler extends IMessageHandler {
     }
 
     @Override // com.baidu.android.imsdk.internal.IMessageHandler
-    public boolean socketClose() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            synchronized (this.mSendQueque) {
-                this.mSendQueque.notifyAll();
-            }
-            return socketClose(this.mCurrentSocketState);
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.android.imsdk.internal.IMessageHandler
-    public SocketState socketConnect(String str, int i) throws KeyManagementException, CertificateException, KeyStoreException, NoSuchAlgorithmException, IOException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, TimeoutException, AssertionError {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, str, i)) == null) ? connectImpl(str, i) : (SocketState) invokeLI.objValue;
-    }
-
-    @Override // com.baidu.android.imsdk.internal.IMessageHandler
     public void socketWrite(Message message) throws IOException {
         OutputStream outputStream;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, message) == null) || (outputStream = this.mOutputStream) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, message) == null) && (outputStream = this.mOutputStream) != null) {
+            outputStream.write(message.getMessageBytes());
+            this.mOutputStream.flush();
         }
-        outputStream.write(message.getMessageBytes());
-        this.mOutputStream.flush();
     }
 
     public boolean socketClose(SocketState socketState) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, socketState)) == null) {
-            if (socketState != null && socketState.mSocketCreateOk.booleanValue()) {
-                try {
-                    if (socketState.mSocket != null) {
-                        socketState.mSocket.close();
-                        socketState.mSocket = null;
-                    }
-                    if (socketState.mInputStream != null) {
-                        socketState.mInputStream.close();
-                        socketState.mInputStream = null;
-                    }
-                    if (socketState.mOutputStream != null) {
-                        socketState.mOutputStream.close();
-                        socketState.mOutputStream = null;
-                        return true;
-                    }
-                    return true;
-                } catch (IOException e) {
-                    LogUtils.e(TAG, "destroy:" + e.getMessage(), e);
-                    return false;
-                }
+            if (socketState == null || !socketState.mSocketCreateOk.booleanValue()) {
+                return true;
             }
-            return true;
+            try {
+                if (socketState.mSocket != null) {
+                    socketState.mSocket.close();
+                    socketState.mSocket = null;
+                }
+                if (socketState.mInputStream != null) {
+                    socketState.mInputStream.close();
+                    socketState.mInputStream = null;
+                }
+                if (socketState.mOutputStream == null) {
+                    return true;
+                }
+                socketState.mOutputStream.close();
+                socketState.mOutputStream = null;
+                return true;
+            } catch (IOException e) {
+                LogUtils.e(TAG, "destroy:" + e.getMessage(), e);
+                return false;
+            }
         }
         return invokeL.booleanValue;
     }

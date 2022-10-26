@@ -5,13 +5,12 @@ import android.opengl.GLSurfaceView;
 import android.view.SurfaceHolder;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.NotProguard;
 import com.baidu.searchbox.v8engine.V8Engine;
 import com.baidu.searchbox.v8engine.V8EngineConfiguration;
 import com.baidu.searchbox.v8engine.console.DebugConsole;
 import com.baidu.smallgame.sdk.ArBridge;
 import com.baidu.smallgame.sdk.delegate.AREngineDelegate;
-import com.baidu.tieba.ah1;
+import com.baidu.tieba.bh1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +18,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-@NotProguard
 /* loaded from: classes2.dex */
 public class MarioSDK {
     public static /* synthetic */ Interceptable $ic = null;
@@ -30,14 +28,19 @@ public class MarioSDK {
     public V8Engine mV8Engine;
 
     /* loaded from: classes2.dex */
-    public static class a {
+    public interface b {
+        void a();
+    }
+
+    /* loaded from: classes2.dex */
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public SurfaceHolder a;
         public GLSurfaceView.Renderer b;
         public ArBridge.FirstFrameListener c;
         public int d;
-        public List<DebugConsole> e;
+        public List e;
         public Context f;
 
         public a() {
@@ -56,24 +59,30 @@ public class MarioSDK {
             this.e = new ArrayList();
         }
 
-        public void f(DebugConsole debugConsole) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, debugConsole) == null) || debugConsole == null) {
-                return;
-            }
-            this.e.add(debugConsole);
-        }
-
-        public List<DebugConsole> g() {
+        public List g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : (List) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.e;
+            }
+            return (List) invokeV.objValue;
         }
 
         public Context getContext() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f : (Context) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.f;
+            }
+            return (Context) invokeV.objValue;
+        }
+
+        public void f(DebugConsole debugConsole) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, debugConsole) != null) || debugConsole == null) {
+                return;
+            }
+            this.e.add(debugConsole);
         }
 
         public void h(Context context) {
@@ -105,11 +114,6 @@ public class MarioSDK {
         }
     }
 
-    /* loaded from: classes2.dex */
-    public interface b {
-        void a();
-    }
-
     public MarioSDK(V8Engine v8Engine, AREngineDelegate aREngineDelegate) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -136,26 +140,26 @@ public class MarioSDK {
             if (aVar == null) {
                 return null;
             }
-            ah1 ah1Var = new ah1();
+            bh1 bh1Var = new bh1();
             if (aVar.a != null) {
-                ah1Var.p(aVar.a);
+                bh1Var.p(aVar.a);
             }
             if (aVar.c != null) {
-                ah1Var.setFirstFrameListener(aVar.c);
+                bh1Var.setFirstFrameListener(aVar.c);
             }
-            ah1Var.setRenderMode(aVar.d);
+            bh1Var.setRenderMode(aVar.d);
             if (aVar.f != null) {
-                ah1Var.o(aVar.f);
+                bh1Var.o(aVar.f);
             }
             if (aVar.b != null) {
-                ah1Var.setRenderer(aVar.b);
+                bh1Var.setRenderer(aVar.b);
             }
             if (aVar.g() != null) {
                 for (DebugConsole debugConsole : aVar.g()) {
-                    ah1Var.addDebugConsole(debugConsole);
+                    bh1Var.addDebugConsole(debugConsole);
                 }
             }
-            return ah1Var;
+            return bh1Var;
         }
         return (AREngineDelegate) invokeL.objValue;
     }
@@ -198,19 +202,54 @@ public class MarioSDK {
     public static MarioSDK initialize(Context context, V8EngineConfiguration v8EngineConfiguration, a aVar) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, context, v8EngineConfiguration, aVar)) == null) ? initialize(context, v8EngineConfiguration, aVar, null) : (MarioSDK) invokeLLL.objValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, context, v8EngineConfiguration, aVar)) == null) {
+            return initialize(context, v8EngineConfiguration, aVar, null);
+        }
+        return (MarioSDK) invokeLLL.objValue;
+    }
+
+    public static MarioSDK initialize(Context context, V8EngineConfiguration v8EngineConfiguration, a aVar, b bVar) {
+        InterceptResult invokeLLLL;
+        V8Engine v8Engine;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, v8EngineConfiguration, aVar, bVar)) == null) {
+            AREngineDelegate aREngineDelegate = null;
+            try {
+                v8Engine = createV8Engine(context, v8EngineConfiguration);
+            } catch (Exception e) {
+                Log.e(TAG, "v8Engine init error", e);
+                v8Engine = null;
+            }
+            try {
+                aREngineDelegate = createAREngine(aVar);
+            } catch (Exception e2) {
+                Log.e(TAG, "AREngine init error", e2);
+            }
+            MarioSDK marioSDK = new MarioSDK(v8Engine, aREngineDelegate);
+            if (bVar != null) {
+                bVar.a();
+            }
+            return marioSDK;
+        }
+        return (MarioSDK) invokeLLLL.objValue;
     }
 
     public AREngineDelegate getAREngineDelegate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mAREngineDelegate : (AREngineDelegate) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mAREngineDelegate;
+        }
+        return (AREngineDelegate) invokeV.objValue;
     }
 
     public V8Engine getV8Engine() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mV8Engine : (V8Engine) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mV8Engine;
+        }
+        return (V8Engine) invokeV.objValue;
     }
 
     public void reset() {
@@ -240,31 +279,5 @@ public class MarioSDK {
         if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
             this.mMarioInitListener = bVar;
         }
-    }
-
-    public static MarioSDK initialize(Context context, V8EngineConfiguration v8EngineConfiguration, a aVar, b bVar) {
-        InterceptResult invokeLLLL;
-        V8Engine v8Engine;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, v8EngineConfiguration, aVar, bVar)) == null) {
-            AREngineDelegate aREngineDelegate = null;
-            try {
-                v8Engine = createV8Engine(context, v8EngineConfiguration);
-            } catch (Exception e) {
-                Log.e(TAG, "v8Engine init error", e);
-                v8Engine = null;
-            }
-            try {
-                aREngineDelegate = createAREngine(aVar);
-            } catch (Exception e2) {
-                Log.e(TAG, "AREngine init error", e2);
-            }
-            MarioSDK marioSDK = new MarioSDK(v8Engine, aREngineDelegate);
-            if (bVar != null) {
-                bVar.a();
-            }
-            return marioSDK;
-        }
-        return (MarioSDK) invokeLLLL.objValue;
     }
 }

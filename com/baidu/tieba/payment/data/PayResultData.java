@@ -19,7 +19,7 @@ public class PayResultData extends OrmObject implements Serializable {
     public int wrongtime;
 
     /* loaded from: classes5.dex */
-    public static final class UnusualInfo extends OrmObject implements Serializable {
+    public final class UnusualInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 7762965384357134074L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -43,13 +43,19 @@ public class PayResultData extends OrmObject implements Serializable {
         public String getUrl() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.url : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.url;
+            }
+            return (String) invokeV.objValue;
         }
 
         public String getWord() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.word : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.word;
+            }
+            return (String) invokeV.objValue;
         }
 
         public void setUrl(String str) {
@@ -84,25 +90,37 @@ public class PayResultData extends OrmObject implements Serializable {
     public UnusualInfo getDescribe() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.describe : (UnusualInfo) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.describe;
+        }
+        return (UnusualInfo) invokeV.objValue;
     }
 
     public String getPubkey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.pubkey : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.pubkey;
+        }
+        return (String) invokeV.objValue;
     }
 
     public PayVcodeInfoData getVcode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.vcode : (PayVcodeInfoData) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.vcode;
+        }
+        return (PayVcodeInfoData) invokeV.objValue;
     }
 
     public int getWrongtime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.wrongtime : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.wrongtime;
+        }
+        return invokeV.intValue;
     }
 
     public void setDescribe(UnusualInfo unusualInfo) {

@@ -76,40 +76,42 @@ public class a implements b {
         c();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public com.ss.android.socialbase.downloader.f.a d() throws p, InterruptedException {
-        com.ss.android.socialbase.downloader.f.a aVar = this.h;
-        if (aVar != null) {
-            if (!this.l) {
-                this.h = aVar.d;
-                aVar.d = null;
-                return aVar;
-            }
-            throw new p("");
-        }
+    private void b(com.ss.android.socialbase.downloader.f.a aVar) {
         synchronized (this.d) {
-            if (!this.l) {
-                com.ss.android.socialbase.downloader.f.a aVar2 = this.f;
-                if (aVar2 == null && this.p < this.c) {
-                    this.p++;
-                    return new com.ss.android.socialbase.downloader.f.a(this.b);
-                }
-                while (aVar2 == null) {
-                    this.d.wait();
-                    if (!this.l) {
-                        aVar2 = this.f;
-                    } else {
-                        throw new p("");
-                    }
-                }
-                this.h = aVar2.d;
-                this.g = null;
-                this.f = null;
-                aVar2.d = null;
-                return aVar2;
+            com.ss.android.socialbase.downloader.f.a aVar2 = this.g;
+            if (aVar2 == null) {
+                this.g = aVar;
+                this.f = aVar;
+                this.d.notify();
+            } else {
+                aVar2.d = aVar;
+                this.g = aVar;
             }
-            throw new p("");
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void c(com.ss.android.socialbase.downloader.f.a aVar) {
+        synchronized (this.e) {
+            com.ss.android.socialbase.downloader.f.a aVar2 = this.j;
+            if (aVar2 == null) {
+                this.j = aVar;
+                this.i = aVar;
+                this.e.notify();
+            } else {
+                aVar2.d = aVar;
+                this.j = aVar;
+            }
+        }
+    }
+
+    @Override // com.ss.android.socialbase.downloader.e.b
+    public void a(com.ss.android.socialbase.downloader.f.a aVar) {
+        b(aVar);
+    }
+
+    private void c() throws Throwable {
+        this.o = com.ss.android.socialbase.downloader.downloader.c.q().submit(this.q);
     }
 
     private com.ss.android.socialbase.downloader.f.a e() throws BaseException, InterruptedException {
@@ -155,8 +157,9 @@ public class a implements b {
         throw new BaseException(1069, "async reader terminated!");
     }
 
-    private void c() throws Throwable {
-        this.o = com.ss.android.socialbase.downloader.downloader.c.q().submit(this.q);
+    @Override // com.ss.android.socialbase.downloader.e.b
+    public com.ss.android.socialbase.downloader.f.a a() throws BaseException, InterruptedException {
+        return e();
     }
 
     @Override // com.ss.android.socialbase.downloader.e.b
@@ -176,41 +179,38 @@ public class a implements b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void c(com.ss.android.socialbase.downloader.f.a aVar) {
-        synchronized (this.e) {
-            com.ss.android.socialbase.downloader.f.a aVar2 = this.j;
-            if (aVar2 == null) {
-                this.j = aVar;
-                this.i = aVar;
-                this.e.notify();
-            } else {
-                aVar2.d = aVar;
-                this.j = aVar;
+    public com.ss.android.socialbase.downloader.f.a d() throws p, InterruptedException {
+        com.ss.android.socialbase.downloader.f.a aVar = this.h;
+        if (aVar != null) {
+            if (!this.l) {
+                this.h = aVar.d;
+                aVar.d = null;
+                return aVar;
             }
+            throw new p("");
         }
-    }
-
-    @Override // com.ss.android.socialbase.downloader.e.b
-    public com.ss.android.socialbase.downloader.f.a a() throws BaseException, InterruptedException {
-        return e();
-    }
-
-    @Override // com.ss.android.socialbase.downloader.e.b
-    public void a(com.ss.android.socialbase.downloader.f.a aVar) {
-        b(aVar);
-    }
-
-    private void b(com.ss.android.socialbase.downloader.f.a aVar) {
         synchronized (this.d) {
-            com.ss.android.socialbase.downloader.f.a aVar2 = this.g;
-            if (aVar2 == null) {
-                this.g = aVar;
-                this.f = aVar;
-                this.d.notify();
-            } else {
-                aVar2.d = aVar;
-                this.g = aVar;
+            if (!this.l) {
+                com.ss.android.socialbase.downloader.f.a aVar2 = this.f;
+                if (aVar2 == null && this.p < this.c) {
+                    this.p++;
+                    return new com.ss.android.socialbase.downloader.f.a(this.b);
+                }
+                while (aVar2 == null) {
+                    this.d.wait();
+                    if (!this.l) {
+                        aVar2 = this.f;
+                    } else {
+                        throw new p("");
+                    }
+                }
+                this.h = aVar2.d;
+                this.g = null;
+                this.f = null;
+                aVar2.d = null;
+                return aVar2;
             }
+            throw new p("");
         }
     }
 }

@@ -7,7 +7,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.SingleObserver;
-import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.disposables.ListCompositeDisposable;
@@ -15,11 +14,17 @@ import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.internal.util.EndConsumerHelper;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public abstract class ResourceSingleObserver<T> implements SingleObserver<T>, Disposable {
+public abstract class ResourceSingleObserver implements SingleObserver, Disposable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ListCompositeDisposable resources;
-    public final AtomicReference<Disposable> s;
+    public final AtomicReference s;
+
+    public void onStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
 
     public ResourceSingleObserver() {
         Interceptable interceptable = $ic;
@@ -34,16 +39,8 @@ public abstract class ResourceSingleObserver<T> implements SingleObserver<T>, Di
                 return;
             }
         }
-        this.s = new AtomicReference<>();
+        this.s = new AtomicReference();
         this.resources = new ListCompositeDisposable();
-    }
-
-    public final void add(@NonNull Disposable disposable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, disposable) == null) {
-            ObjectHelper.requireNonNull(disposable, "resource is null");
-            this.resources.add(disposable);
-        }
     }
 
     @Override // io.reactivex.disposables.Disposable
@@ -58,17 +55,22 @@ public abstract class ResourceSingleObserver<T> implements SingleObserver<T>, Di
     public final boolean isDisposed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? DisposableHelper.isDisposed(this.s.get()) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return DisposableHelper.isDisposed((Disposable) this.s.get());
+        }
+        return invokeV.booleanValue;
     }
 
-    public void onStart() {
+    public final void add(Disposable disposable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, disposable) == null) {
+            ObjectHelper.requireNonNull(disposable, "resource is null");
+            this.resources.add(disposable);
         }
     }
 
     @Override // io.reactivex.SingleObserver
-    public final void onSubscribe(@NonNull Disposable disposable) {
+    public final void onSubscribe(Disposable disposable) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, disposable) == null) && EndConsumerHelper.setOnce(this.s, disposable, ResourceSingleObserver.class)) {
             onStart();

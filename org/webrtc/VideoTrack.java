@@ -11,7 +11,15 @@ import java.util.IdentityHashMap;
 public class VideoTrack extends MediaStreamTrack {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final IdentityHashMap<VideoSink, Long> sinks;
+    public final IdentityHashMap sinks;
+
+    public static native void nativeAddSink(long j, long j2);
+
+    public static native void nativeFreeSink(long j);
+
+    public static native void nativeRemoveSink(long j, long j2);
+
+    public static native long nativeWrapSink(VideoSink videoSink);
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VideoTrack(long j) {
@@ -31,27 +39,19 @@ public class VideoTrack extends MediaStreamTrack {
                 return;
             }
         }
-        this.sinks = new IdentityHashMap<>();
+        this.sinks = new IdentityHashMap();
     }
-
-    public static native void nativeAddSink(long j, long j2);
-
-    public static native void nativeFreeSink(long j);
-
-    public static native void nativeRemoveSink(long j, long j2);
-
-    public static native long nativeWrapSink(VideoSink videoSink);
 
     public void addSink(VideoSink videoSink) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, videoSink) == null) {
             if (videoSink != null) {
-                if (this.sinks.containsKey(videoSink)) {
+                if (!this.sinks.containsKey(videoSink)) {
+                    long nativeWrapSink = nativeWrapSink(videoSink);
+                    this.sinks.put(videoSink, Long.valueOf(nativeWrapSink));
+                    nativeAddSink(getNativeMediaStreamTrack(), nativeWrapSink);
                     return;
                 }
-                long nativeWrapSink = nativeWrapSink(videoSink);
-                this.sinks.put(videoSink, Long.valueOf(nativeWrapSink));
-                nativeAddSink(getNativeMediaStreamTrack(), nativeWrapSink);
                 return;
             }
             throw new IllegalArgumentException("The VideoSink is not allowed to be null");
@@ -75,16 +75,18 @@ public class VideoTrack extends MediaStreamTrack {
     public long getNativeVideoTrack() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? getNativeMediaStreamTrack() : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return getNativeMediaStreamTrack();
+        }
+        return invokeV.longValue;
     }
 
     public void removeSink(VideoSink videoSink) {
-        Long remove;
+        Long l;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, videoSink) == null) || (remove = this.sinks.remove(videoSink)) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, videoSink) == null) && (l = (Long) this.sinks.remove(videoSink)) != null) {
+            nativeRemoveSink(getNativeMediaStreamTrack(), l.longValue());
+            nativeFreeSink(l.longValue());
         }
-        nativeRemoveSink(getNativeMediaStreamTrack(), remove.longValue());
-        nativeFreeSink(remove.longValue());
     }
 }

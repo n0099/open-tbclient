@@ -11,6 +11,8 @@ public abstract class NamedRunnable implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
     public final String name;
 
+    public abstract void execute();
+
     public NamedRunnable(String str, Object... objArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -28,8 +30,6 @@ public abstract class NamedRunnable implements Runnable {
         }
         this.name = Util.format(str, objArr);
     }
-
-    public abstract void execute();
 
     @Override // java.lang.Runnable
     public final void run() {

@@ -45,6 +45,36 @@ public class AppleRecordingYearBox extends AppleDataBox {
         ajc$preClinit();
     }
 
+    @Override // com.googlecode.mp4parser.boxes.apple.AppleDataBox
+    public int getDataLength() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return Utf8.convert(rfc822toIso8601Date(this.df.format(this.date))).length;
+        }
+        return invokeV.intValue;
+    }
+
+    public Date getDate() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
+            return this.date;
+        }
+        return (Date) invokeV.objValue;
+    }
+
+    @Override // com.googlecode.mp4parser.boxes.apple.AppleDataBox
+    public byte[] writeData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return Utf8.convert(rfc822toIso8601Date(this.df.format(this.date)));
+        }
+        return (byte[]) invokeV.objValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AppleRecordingYearBox() {
         super("©day", 1);
@@ -77,30 +107,19 @@ public class AppleRecordingYearBox extends AppleDataBox {
     public static String iso8601toRfc822Date(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? str.replaceAll("Z$", "+0000").replaceAll("([0-9][0-9]):([0-9][0-9])$", "$1$2") : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return str.replaceAll("Z$", "+0000").replaceAll("([0-9][0-9]):([0-9][0-9])$", "$1$2");
+        }
+        return (String) invokeL.objValue;
     }
 
     public static String rfc822toIso8601Date(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? str.replaceAll("\\+0000$", "Z") : (String) invokeL.objValue;
-    }
-
-    @Override // com.googlecode.mp4parser.boxes.apple.AppleDataBox
-    public int getDataLength() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Utf8.convert(rfc822toIso8601Date(this.df.format(this.date))).length : invokeV.intValue;
-    }
-
-    public Date getDate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
-            return this.date;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            return str.replaceAll("\\+0000$", "Z");
         }
-        return (Date) invokeV.objValue;
+        return (String) invokeL.objValue;
     }
 
     @Override // com.googlecode.mp4parser.boxes.apple.AppleDataBox
@@ -121,12 +140,5 @@ public class AppleRecordingYearBox extends AppleDataBox {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, date));
             this.date = date;
         }
-    }
-
-    @Override // com.googlecode.mp4parser.boxes.apple.AppleDataBox
-    public byte[] writeData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? Utf8.convert(rfc822toIso8601Date(this.df.format(this.date))) : (byte[]) invokeV.objValue;
     }
 }

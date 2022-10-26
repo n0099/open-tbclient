@@ -3,8 +3,6 @@ package com.kwad.components.ad.draw;
 import android.content.Context;
 import android.view.View;
 import android.widget.ImageView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
@@ -27,7 +25,6 @@ import com.kwad.sdk.widget.KSFrameLayout;
 public final class b extends KSFrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
     public KsDrawAd.AdInteractionListener aJ;
     public com.kwad.components.ad.draw.kwai.b aK;
     public com.kwad.components.ad.draw.b.a aL;
@@ -37,7 +34,6 @@ public final class b extends KSFrameLayout {
     public View.OnClickListener aP;
     public g aQ;
     public AdInfo mAdInfo;
-    @NonNull
     public AdTemplate mAdTemplate;
     public Context mContext;
     public DetailVideoView mDetailVideoView;
@@ -45,7 +41,7 @@ public final class b extends KSFrameLayout {
     public AdBaseFrameLayout mRootContainer;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b(@NonNull Context context) {
+    public b(Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -89,7 +85,7 @@ public final class b extends KSFrameLayout {
             public final void onClick(View view2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                    com.kwad.components.core.c.a.a.a(new a.C0570a(this.aR.aK.mRootContainer.getContext()).L(this.aR.aK.mAdTemplate).b(this.aR.aK.mApkDownloadHelper).aj(false).ae(3).a(new a.b(this) { // from class: com.kwad.components.ad.draw.b.1.1
+                    com.kwad.components.core.c.a.a.a(new a.C0566a(this.aR.aK.mRootContainer.getContext()).L(this.aR.aK.mAdTemplate).b(this.aR.aK.mApkDownloadHelper).aj(false).ae(3).a(new a.b(this) { // from class: com.kwad.components.ad.draw.b.1.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ AnonymousClass1 aS;
@@ -242,11 +238,11 @@ public final class b extends KSFrameLayout {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            View.inflate(this.mContext, R.layout.obfuscated_res_0x7f0d041d, this);
-            AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0911d6);
+            View.inflate(this.mContext, R.layout.obfuscated_res_0x7f0d041a, this);
+            AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0911ca);
             this.mRootContainer = adBaseFrameLayout;
-            this.aO = (ImageView) adBaseFrameLayout.findViewById(R.id.obfuscated_res_0x7f091216);
-            DetailVideoView detailVideoView = (DetailVideoView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f09122c);
+            this.aO = (ImageView) adBaseFrameLayout.findViewById(R.id.obfuscated_res_0x7f09120a);
+            DetailVideoView detailVideoView = (DetailVideoView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f091220);
             this.mDetailVideoView = detailVideoView;
             detailVideoView.setAd(true);
             this.mDetailVideoView.setOnClickListener(this.aP);
@@ -295,7 +291,7 @@ public final class b extends KSFrameLayout {
         }
     }
 
-    public final void b(@NonNull AdTemplate adTemplate) {
+    public final void b(AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adTemplate) == null) {
             this.mAdTemplate = adTemplate;

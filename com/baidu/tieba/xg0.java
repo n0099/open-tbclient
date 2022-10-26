@@ -1,23 +1,24 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-import org.json.JSONObject;
-@Service
 /* loaded from: classes6.dex */
-public class xg0 extends ji0 {
+public class xg0 extends ki0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.ki0
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "pcharge" : (String) invokeV.objValue;
+    }
 
     public xg0() {
         Interceptable interceptable = $ic;
@@ -33,29 +34,13 @@ public class xg0 extends ji0 {
         }
     }
 
-    @Override // com.baidu.tieba.ji0
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "registerDeeplink" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ji0
-    public boolean b(@NonNull Context context, @NonNull ni0 ni0Var, @Nullable Map<String, Object> map, @Nullable ri0 ri0Var) {
+    @Override // com.baidu.tieba.ki0
+    public boolean b(Context context, oi0 oi0Var, Map map, si0 si0Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, ni0Var, map, ri0Var)) == null) {
-            super.b(context, ni0Var, map, ri0Var);
-            String str = (String) yz0.b(ni0Var.d(), "params");
-            if (TextUtils.isEmpty(str)) {
-                return true;
-            }
-            JSONObject c = xz0.c(str);
-            String optString = c.optString("packageName");
-            String optString2 = c.optString("deeplinkUrl");
-            if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
-                ak0.b(optString, optString2);
-            }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, oi0Var, map, si0Var)) == null) {
+            super.b(context, oi0Var, map, si0Var);
+            ji0.e((String) zz0.b(oi0Var.d(), "lp_cmd"), context, map, si0Var);
             return true;
         }
         return invokeLLLL.booleanValue;

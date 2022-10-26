@@ -25,7 +25,7 @@ public class PayChannelEntity implements Serializable {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean alreadySigned;
     public long available_par_money;
-    public List<PayChannelEntity> childrenPayChannels;
+    public List childrenPayChannels;
     public int disAbled;
     public String disAbledMsg;
     public String display_color;
@@ -66,147 +66,157 @@ public class PayChannelEntity implements Serializable {
     public long getAvailableParMoney() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.available_par_money : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.available_par_money;
+        }
+        return invokeV.longValue;
     }
 
     public String getDisplayColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.display_color : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.display_color;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getDisplayName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.display_name : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.display_name;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getEnable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.enable : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.enable;
+        }
+        return invokeV.intValue;
     }
 
     public String getHostMarketingDetail() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.host_marketing_detail : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.host_marketing_detail;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getIcon() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.icon : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.icon;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getInstallmentPeriod() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.installmentPeriod : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.installmentPeriod;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getIsFold() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.is_fold : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.is_fold;
+        }
+        return invokeV.intValue;
     }
 
     public int getIsSelected() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.is_selected : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.is_selected;
+        }
+        return invokeV.intValue;
     }
 
     public String getLoadingIcon() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.loadingIcon : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.loadingIcon;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getPayChannel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.pay_channel : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.pay_channel;
+        }
+        return (String) invokeV.objValue;
     }
 
     public PayChannelExtInfoEntity getPayChannelExtInfoEntity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.payChannelExtInfoEntity : (PayChannelExtInfoEntity) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.payChannelExtInfoEntity;
+        }
+        return (PayChannelExtInfoEntity) invokeV.objValue;
     }
 
     public String getPayText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.pay_text : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.pay_text;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getQueryOrderString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.queryOrderString : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.queryOrderString;
+        }
+        return (String) invokeV.objValue;
     }
 
     public boolean isAlreadySigned() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.alreadySigned : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.alreadySigned;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isFold() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.is_fold == 1 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            if (this.is_fold == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isNeedAgreementGuide() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.needAgreementGuide : invokeV.booleanValue;
-    }
-
-    public void setHostMarketingDetail(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
-            this.host_marketing_detail = str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.needAgreementGuide;
         }
-    }
-
-    public void setIcon(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
-            this.icon = str;
-        }
-    }
-
-    public void setInstallmentPeriod(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
-            this.installmentPeriod = str;
-        }
-    }
-
-    public void setIsFold(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
-            this.is_fold = i;
-        }
-    }
-
-    public void setIsSelected(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
-            this.is_selected = i;
-        }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            return "PayChannelEntity{display_name='" + this.display_name + "', pay_channel='" + this.pay_channel + "', pay_text='" + this.pay_text + "', error_text='" + this.error_text + "', icon='" + this.icon + "', is_fold=" + this.is_fold + ", is_selected=" + this.is_selected + ", is_private=" + this.is_private + ", free_pay=" + this.free_pay + ", needAgreementGuide=" + this.needAgreementGuide + ", alreadySigned=" + this.alreadySigned + ", queryOrderString=" + this.queryOrderString + ", pre_pay_money=" + this.pre_pay_money + ", enable=" + this.enable + ", display_color='" + this.display_color + "', flow=" + this.flow + ", parasitifer=" + this.parasitifer + '}';
-        }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
     public PayChannelEntity(JSONObject jSONObject) {
@@ -255,7 +265,7 @@ public class PayChannelEntity implements Serializable {
             JSONArray optJSONArray2 = optJSONObject.optJSONArray("detail");
             String optString = optJSONObject.optString("total");
             if (optJSONArray2 != null && optJSONArray2.length() != 0) {
-                ArrayList<InstallmentEntity> arrayList = new ArrayList<>();
+                ArrayList arrayList = new ArrayList();
                 int i3 = 0;
                 while (i3 < optJSONArray2.length()) {
                     JSONObject optJSONObject2 = optJSONArray2.optJSONObject(i3);
@@ -285,42 +295,86 @@ public class PayChannelEntity implements Serializable {
                 payChannelExtInfoEntity.setInstallmentEntities(arrayList);
                 this.payChannelExtInfoEntity.setInstallmentTotal(optString);
                 optJSONArray = jSONObject.optJSONArray("childrenPayChannels");
-                if (optJSONArray != null || optJSONArray.length() <= 0) {
-                }
-                ArrayList arrayList2 = new ArrayList();
-                int i4 = 0;
-                while (i4 < optJSONArray.length()) {
-                    try {
-                        JSONObject jSONObject2 = optJSONArray.getJSONObject(i4);
-                        PayChannelEntity payChannelEntity = new PayChannelEntity();
-                        payChannelEntity.display_name = jSONObject2.optString("display_name");
-                        payChannelEntity.pay_channel = jSONObject2.optString(DI.PAY_CHANNEL);
-                        payChannelEntity.pay_text = jSONObject2.optString("pay_text");
-                        payChannelEntity.icon = jSONObject2.optString("icon");
-                        str2 = str;
+                if (optJSONArray == null && optJSONArray.length() > 0) {
+                    ArrayList arrayList2 = new ArrayList();
+                    int i4 = 0;
+                    while (i4 < optJSONArray.length()) {
                         try {
-                            payChannelEntity.is_selected = jSONObject2.optInt(str2);
-                            arrayList2.add(payChannelEntity);
-                        } catch (JSONException e) {
-                            e = e;
-                            e.printStackTrace();
-                            i4++;
-                            str = str2;
+                            JSONObject jSONObject2 = optJSONArray.getJSONObject(i4);
+                            PayChannelEntity payChannelEntity = new PayChannelEntity();
+                            payChannelEntity.display_name = jSONObject2.optString("display_name");
+                            payChannelEntity.pay_channel = jSONObject2.optString(DI.PAY_CHANNEL);
+                            payChannelEntity.pay_text = jSONObject2.optString("pay_text");
+                            payChannelEntity.icon = jSONObject2.optString("icon");
+                            str2 = str;
+                            try {
+                                payChannelEntity.is_selected = jSONObject2.optInt(str2);
+                                arrayList2.add(payChannelEntity);
+                            } catch (JSONException e) {
+                                e = e;
+                                e.printStackTrace();
+                                i4++;
+                                str = str2;
+                            }
+                        } catch (JSONException e2) {
+                            e = e2;
+                            str2 = str;
                         }
-                    } catch (JSONException e2) {
-                        e = e2;
-                        str2 = str;
+                        i4++;
+                        str = str2;
                     }
-                    i4++;
-                    str = str2;
+                    this.childrenPayChannels = arrayList2;
+                    return;
                 }
-                this.childrenPayChannels = arrayList2;
-                return;
             }
         }
         str = "is_selected";
         optJSONArray = jSONObject.optJSONArray("childrenPayChannels");
-        if (optJSONArray != null) {
+        if (optJSONArray == null) {
         }
+    }
+
+    public void setHostMarketingDetail(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
+            this.host_marketing_detail = str;
+        }
+    }
+
+    public void setIcon(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
+            this.icon = str;
+        }
+    }
+
+    public void setInstallmentPeriod(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
+            this.installmentPeriod = str;
+        }
+    }
+
+    public void setIsFold(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
+            this.is_fold = i;
+        }
+    }
+
+    public void setIsSelected(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
+            this.is_selected = i;
+        }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return "PayChannelEntity{display_name='" + this.display_name + "', pay_channel='" + this.pay_channel + "', pay_text='" + this.pay_text + "', error_text='" + this.error_text + "', icon='" + this.icon + "', is_fold=" + this.is_fold + ", is_selected=" + this.is_selected + ", is_private=" + this.is_private + ", free_pay=" + this.free_pay + ", needAgreementGuide=" + this.needAgreementGuide + ", alreadySigned=" + this.alreadySigned + ", queryOrderString=" + this.queryOrderString + ", pre_pay_money=" + this.pre_pay_money + ", enable=" + this.enable + ", display_color='" + this.display_color + "', flow=" + this.flow + ", parasitifer=" + this.parasitifer + '}';
+        }
+        return (String) invokeV.objValue;
     }
 }

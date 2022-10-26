@@ -82,6 +82,34 @@ public final class ModulusPoly {
         return (ModulusPoly) invokeL.objValue;
     }
 
+    public ModulusPoly multiply(ModulusPoly modulusPoly) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, modulusPoly)) == null) {
+            if (this.field.equals(modulusPoly.field)) {
+                if (!isZero() && !modulusPoly.isZero()) {
+                    int[] iArr = this.coefficients;
+                    int length = iArr.length;
+                    int[] iArr2 = modulusPoly.coefficients;
+                    int length2 = iArr2.length;
+                    int[] iArr3 = new int[(length + length2) - 1];
+                    for (int i = 0; i < length; i++) {
+                        int i2 = iArr[i];
+                        for (int i3 = 0; i3 < length2; i3++) {
+                            int i4 = i + i3;
+                            ModulusGF modulusGF = this.field;
+                            iArr3[i4] = modulusGF.add(iArr3[i4], modulusGF.multiply(i2, iArr2[i3]));
+                        }
+                    }
+                    return new ModulusPoly(this.field, iArr3);
+                }
+                return this.field.getZero();
+            }
+            throw new IllegalArgumentException("ModulusPolys do not have same ModulusGF field");
+        }
+        return (ModulusPoly) invokeL.objValue;
+    }
+
     public int evaluateAt(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -121,43 +149,62 @@ public final class ModulusPoly {
     public int[] getCoefficients() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.coefficients : (int[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.coefficients;
+        }
+        return (int[]) invokeV.objValue;
     }
 
     public int getDegree() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.coefficients.length - 1 : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.coefficients.length - 1;
+        }
+        return invokeV.intValue;
     }
 
     public boolean isZero() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.coefficients[0] == 0 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.coefficients[0] != 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
-    public ModulusPoly multiply(ModulusPoly modulusPoly) {
+    public ModulusPoly multiply(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            if (i == 0) {
+                return this.field.getZero();
+            }
+            if (i == 1) {
+                return this;
+            }
+            int length = this.coefficients.length;
+            int[] iArr = new int[length];
+            for (int i2 = 0; i2 < length; i2++) {
+                iArr[i2] = this.field.multiply(this.coefficients[i2], i);
+            }
+            return new ModulusPoly(this.field, iArr);
+        }
+        return (ModulusPoly) invokeI.objValue;
+    }
+
+    public ModulusPoly subtract(ModulusPoly modulusPoly) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, modulusPoly)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, modulusPoly)) == null) {
             if (this.field.equals(modulusPoly.field)) {
-                if (!isZero() && !modulusPoly.isZero()) {
-                    int[] iArr = this.coefficients;
-                    int length = iArr.length;
-                    int[] iArr2 = modulusPoly.coefficients;
-                    int length2 = iArr2.length;
-                    int[] iArr3 = new int[(length + length2) - 1];
-                    for (int i = 0; i < length; i++) {
-                        int i2 = iArr[i];
-                        for (int i3 = 0; i3 < length2; i3++) {
-                            int i4 = i + i3;
-                            ModulusGF modulusGF = this.field;
-                            iArr3[i4] = modulusGF.add(iArr3[i4], modulusGF.multiply(i2, iArr2[i3]));
-                        }
-                    }
-                    return new ModulusPoly(this.field, iArr3);
+                if (modulusPoly.isZero()) {
+                    return this;
                 }
-                return this.field.getZero();
+                return add(modulusPoly.negative());
             }
             throw new IllegalArgumentException("ModulusPolys do not have same ModulusGF field");
         }
@@ -198,18 +245,6 @@ public final class ModulusPoly {
         return (ModulusPoly) invokeV.objValue;
     }
 
-    public ModulusPoly subtract(ModulusPoly modulusPoly) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, modulusPoly)) == null) {
-            if (this.field.equals(modulusPoly.field)) {
-                return modulusPoly.isZero() ? this : add(modulusPoly.negative());
-            }
-            throw new IllegalArgumentException("ModulusPolys do not have same ModulusGF field");
-        }
-        return (ModulusPoly) invokeL.objValue;
-    }
-
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -240,25 +275,5 @@ public final class ModulusPoly {
             return sb.toString();
         }
         return (String) invokeV.objValue;
-    }
-
-    public ModulusPoly multiply(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            if (i == 0) {
-                return this.field.getZero();
-            }
-            if (i == 1) {
-                return this;
-            }
-            int length = this.coefficients.length;
-            int[] iArr = new int[length];
-            for (int i2 = 0; i2 < length; i2++) {
-                iArr[i2] = this.field.multiply(this.coefficients[i2], i);
-            }
-            return new ModulusPoly(this.field, iArr);
-        }
-        return (ModulusPoly) invokeI.objValue;
     }
 }

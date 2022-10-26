@@ -5,7 +5,7 @@ import android.media.MediaRecorder;
 import android.os.Handler;
 import android.os.Looper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ww9;
+import com.baidu.tieba.ox9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -56,9 +56,33 @@ public abstract class CameraCapturer implements CameraVideoCapturer {
     public final Handler uiThreadHandler;
     public int width;
 
+    @Override // org.webrtc.CameraVideoCapturer
+    @Deprecated
+    public /* synthetic */ void addMediaRecorderToCamera(MediaRecorder mediaRecorder, CameraVideoCapturer.MediaRecorderHandler mediaRecorderHandler) {
+        ox9.$default$addMediaRecorderToCamera(this, mediaRecorder, mediaRecorderHandler);
+    }
+
+    public abstract void createCameraSession(CameraSession.CreateSessionCallback createSessionCallback, CameraSession.Events events, Context context, SurfaceTextureHelper surfaceTextureHelper, String str, int i, int i2, int i3);
+
+    @Override // org.webrtc.VideoCapturer
+    public boolean isScreencast() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // org.webrtc.CameraVideoCapturer
+    @Deprecated
+    public /* synthetic */ void removeMediaRecorderFromCamera(CameraVideoCapturer.MediaRecorderHandler mediaRecorderHandler) {
+        ox9.$default$removeMediaRecorderFromCamera(this, mediaRecorderHandler);
+    }
+
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public static final class SwitchState {
+    public final class SwitchState {
         public static final /* synthetic */ SwitchState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final SwitchState IDLE;
@@ -108,13 +132,19 @@ public abstract class CameraCapturer implements CameraVideoCapturer {
         public static SwitchState valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (SwitchState) Enum.valueOf(SwitchState.class, str) : (SwitchState) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (SwitchState) Enum.valueOf(SwitchState.class, str);
+            }
+            return (SwitchState) invokeL.objValue;
         }
 
         public static SwitchState[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (SwitchState[]) $VALUES.clone() : (SwitchState[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (SwitchState[]) $VALUES.clone();
+            }
+            return (SwitchState[]) invokeV.objValue;
         }
     }
 
@@ -170,17 +200,15 @@ public abstract class CameraCapturer implements CameraVideoCapturer {
                         this.this$0.cameraStatistics = new CameraVideoCapturer.CameraStatistics(this.this$0.surfaceHelper, this.this$0.eventsHandler);
                         this.this$0.firstFrameObserved = false;
                         this.this$0.stateLock.notifyAll();
-                        if (this.this$0.switchState != SwitchState.IN_PROGRESS) {
-                            if (this.this$0.switchState == SwitchState.PENDING) {
-                                this.this$0.switchState = SwitchState.IDLE;
-                                this.this$0.switchCameraInternal(this.this$0.switchEventsHandler);
-                            }
-                        } else {
+                        if (this.this$0.switchState == SwitchState.IN_PROGRESS) {
                             this.this$0.switchState = SwitchState.IDLE;
                             if (this.this$0.switchEventsHandler != null) {
                                 this.this$0.switchEventsHandler.onCameraSwitchDone(this.this$0.cameraEnumerator.isFrontFacing(this.this$0.cameraName));
                                 this.this$0.switchEventsHandler = null;
                             }
+                        } else if (this.this$0.switchState == SwitchState.PENDING) {
+                            this.this$0.switchState = SwitchState.IDLE;
+                            this.this$0.switchCameraInternal(this.this$0.switchEventsHandler);
                         }
                     }
                 }
@@ -248,10 +276,10 @@ public abstract class CameraCapturer implements CameraVideoCapturer {
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, cameraSession) == null) {
                     this.this$0.checkIsOnCameraThread();
                     synchronized (this.this$0.stateLock) {
-                        if (cameraSession == this.this$0.currentSession || this.this$0.currentSession == null) {
-                            this.this$0.eventsHandler.onCameraClosed();
-                        } else {
+                        if (cameraSession != this.this$0.currentSession && this.this$0.currentSession != null) {
                             Logging.d(CameraCapturer.TAG, "onCameraClosed from another session.");
+                        } else {
+                            this.this$0.eventsHandler.onCameraClosed();
                         }
                     }
                 }
@@ -263,12 +291,12 @@ public abstract class CameraCapturer implements CameraVideoCapturer {
                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cameraSession) == null) {
                     this.this$0.checkIsOnCameraThread();
                     synchronized (this.this$0.stateLock) {
-                        if (cameraSession == this.this$0.currentSession) {
-                            this.this$0.eventsHandler.onCameraDisconnected();
-                            this.this$0.stopCapture();
+                        if (cameraSession != this.this$0.currentSession) {
+                            Logging.w(CameraCapturer.TAG, "onCameraDisconnected from another session.");
                             return;
                         }
-                        Logging.w(CameraCapturer.TAG, "onCameraDisconnected from another session.");
+                        this.this$0.eventsHandler.onCameraDisconnected();
+                        this.this$0.stopCapture();
                     }
                 }
             }
@@ -279,27 +307,12 @@ public abstract class CameraCapturer implements CameraVideoCapturer {
                 if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cameraSession, str2) == null) {
                     this.this$0.checkIsOnCameraThread();
                     synchronized (this.this$0.stateLock) {
-                        if (cameraSession == this.this$0.currentSession) {
-                            this.this$0.eventsHandler.onCameraError(str2);
-                            this.this$0.stopCapture();
+                        if (cameraSession != this.this$0.currentSession) {
+                            Logging.w(CameraCapturer.TAG, "onCameraError from another session: " + str2);
                             return;
                         }
-                        Logging.w(CameraCapturer.TAG, "onCameraError from another session: " + str2);
-                    }
-                }
-            }
-
-            @Override // org.webrtc.CameraSession.Events
-            public void onCameraOpening() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048579, this) == null) {
-                    this.this$0.checkIsOnCameraThread();
-                    synchronized (this.this$0.stateLock) {
-                        if (this.this$0.currentSession == null) {
-                            this.this$0.eventsHandler.onCameraOpening(this.this$0.cameraName);
-                        } else {
-                            Logging.w(CameraCapturer.TAG, "onCameraOpening while session was open.");
-                        }
+                        this.this$0.eventsHandler.onCameraError(str2);
+                        this.this$0.stopCapture();
                     }
                 }
             }
@@ -310,16 +323,31 @@ public abstract class CameraCapturer implements CameraVideoCapturer {
                 if (interceptable2 == null || interceptable2.invokeLL(1048580, this, cameraSession, videoFrame) == null) {
                     this.this$0.checkIsOnCameraThread();
                     synchronized (this.this$0.stateLock) {
-                        if (cameraSession == this.this$0.currentSession) {
-                            if (!this.this$0.firstFrameObserved) {
-                                this.this$0.eventsHandler.onFirstFrameAvailable();
-                                this.this$0.firstFrameObserved = true;
-                            }
-                            this.this$0.cameraStatistics.addFrame();
-                            this.this$0.capturerObserver.onFrameCaptured(videoFrame);
+                        if (cameraSession != this.this$0.currentSession) {
+                            Logging.w(CameraCapturer.TAG, "onFrameCaptured from another session.");
                             return;
                         }
-                        Logging.w(CameraCapturer.TAG, "onFrameCaptured from another session.");
+                        if (!this.this$0.firstFrameObserved) {
+                            this.this$0.eventsHandler.onFirstFrameAvailable();
+                            this.this$0.firstFrameObserved = true;
+                        }
+                        this.this$0.cameraStatistics.addFrame();
+                        this.this$0.capturerObserver.onFrameCaptured(videoFrame);
+                    }
+                }
+            }
+
+            @Override // org.webrtc.CameraSession.Events
+            public void onCameraOpening() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048579, this) == null) {
+                    this.this$0.checkIsOnCameraThread();
+                    synchronized (this.this$0.stateLock) {
+                        if (this.this$0.currentSession != null) {
+                            Logging.w(CameraCapturer.TAG, "onCameraOpening while session was open.");
+                        } else {
+                            this.this$0.eventsHandler.onCameraOpening(this.this$0.cameraName);
+                        }
                     }
                 }
             }
@@ -362,24 +390,6 @@ public abstract class CameraCapturer implements CameraVideoCapturer {
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ CameraCapturer this$0;
 
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = r2;
-                    Object[] objArr2 = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i3 = newInitContext2.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-            }
-
             @Override // org.webrtc.CameraVideoCapturer.CameraEventsHandler
             public void onCameraClosed() {
                 Interceptable interceptable2 = $ic;
@@ -421,6 +431,24 @@ public abstract class CameraCapturer implements CameraVideoCapturer {
                 if (interceptable2 == null || interceptable2.invokeV(1048581, this) == null) {
                 }
             }
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr2 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
         } : cameraEventsHandler;
         this.cameraEnumerator = cameraEnumerator;
         this.cameraName = str;
@@ -439,16 +467,6 @@ public abstract class CameraCapturer implements CameraVideoCapturer {
         int i = cameraCapturer.openAttemptsRemaining;
         cameraCapturer.openAttemptsRemaining = i - 1;
         return i;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void checkIsOnCameraThread() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65567, this) == null) || Thread.currentThread() == this.cameraThreadHandler.getLooper().getThread()) {
-            return;
-        }
-        Logging.e(TAG, "Check is on camera thread failed.");
-        throw new RuntimeException("Not on camera thread.");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -491,6 +509,48 @@ public abstract class CameraCapturer implements CameraVideoCapturer {
         }
     }
 
+    @Override // org.webrtc.CameraVideoCapturer
+    public void switchCamera(CameraVideoCapturer.CameraSwitchHandler cameraSwitchHandler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, cameraSwitchHandler) == null) {
+            Logging.d(TAG, "switchCamera");
+            this.cameraThreadHandler.post(new Runnable(this, cameraSwitchHandler) { // from class: org.webrtc.CameraCapturer.7
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ CameraCapturer this$0;
+                public final /* synthetic */ CameraVideoCapturer.CameraSwitchHandler val$switchEventsHandler;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, cameraSwitchHandler};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$switchEventsHandler = cameraSwitchHandler;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
+                        return;
+                    }
+                    this.this$0.switchCameraInternal(this.val$switchEventsHandler);
+                }
+            });
+        }
+    }
+
     private void reportCameraSwitchError(String str, @Nullable CameraVideoCapturer.CameraSwitchHandler cameraSwitchHandler) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65569, this, str, cameraSwitchHandler) == null) {
@@ -499,6 +559,38 @@ public abstract class CameraCapturer implements CameraVideoCapturer {
                 cameraSwitchHandler.onCameraSwitchError(str);
             }
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void checkIsOnCameraThread() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(65567, this) != null) || Thread.currentThread() == this.cameraThreadHandler.getLooper().getThread()) {
+            return;
+        }
+        Logging.e(TAG, "Check is on camera thread failed.");
+        throw new RuntimeException("Not on camera thread.");
+    }
+
+    @Override // org.webrtc.VideoCapturer
+    public void dispose() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            Logging.d(TAG, "dispose");
+            stopCapture();
+        }
+    }
+
+    public String getCameraName() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            synchronized (this.stateLock) {
+                str = this.cameraName;
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -573,12 +665,6 @@ public abstract class CameraCapturer implements CameraVideoCapturer {
         }
     }
 
-    @Override // org.webrtc.CameraVideoCapturer
-    @Deprecated
-    public /* synthetic */ void addMediaRecorderToCamera(MediaRecorder mediaRecorder, CameraVideoCapturer.MediaRecorderHandler mediaRecorderHandler) {
-        ww9.$default$addMediaRecorderToCamera(this, mediaRecorder, mediaRecorderHandler);
-    }
-
     @Override // org.webrtc.VideoCapturer
     public void changeCaptureFormat(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
@@ -591,56 +677,33 @@ public abstract class CameraCapturer implements CameraVideoCapturer {
         }
     }
 
-    public abstract void createCameraSession(CameraSession.CreateSessionCallback createSessionCallback, CameraSession.Events events, Context context, SurfaceTextureHelper surfaceTextureHelper, String str, int i, int i2, int i3);
-
-    @Override // org.webrtc.VideoCapturer
-    public void dispose() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            Logging.d(TAG, "dispose");
-            stopCapture();
-        }
-    }
-
-    public String getCameraName() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            synchronized (this.stateLock) {
-                str = this.cameraName;
-            }
-            return str;
-        }
-        return (String) invokeV.objValue;
-    }
-
     @Override // org.webrtc.VideoCapturer
     public void initialize(@Nullable SurfaceTextureHelper surfaceTextureHelper, Context context, CapturerObserver capturerObserver) {
+        Handler handler;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048581, this, surfaceTextureHelper, context, capturerObserver) == null) {
             this.applicationContext = context;
             this.capturerObserver = capturerObserver;
             this.surfaceHelper = surfaceTextureHelper;
-            this.cameraThreadHandler = surfaceTextureHelper == null ? null : surfaceTextureHelper.getHandler();
+            if (surfaceTextureHelper == null) {
+                handler = null;
+            } else {
+                handler = surfaceTextureHelper.getHandler();
+            }
+            this.cameraThreadHandler = handler;
         }
-    }
-
-    @Override // org.webrtc.VideoCapturer
-    public boolean isScreencast() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 
     public void printStackTrace() {
+        Thread thread;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             Handler handler = this.cameraThreadHandler;
-            Thread thread = handler != null ? handler.getLooper().getThread() : null;
+            if (handler != null) {
+                thread = handler.getLooper().getThread();
+            } else {
+                thread = null;
+            }
             if (thread != null) {
                 StackTraceElement[] stackTrace = thread.getStackTrace();
                 if (stackTrace.length > 0) {
@@ -651,12 +714,6 @@ public abstract class CameraCapturer implements CameraVideoCapturer {
                 }
             }
         }
-    }
-
-    @Override // org.webrtc.CameraVideoCapturer
-    @Deprecated
-    public /* synthetic */ void removeMediaRecorderFromCamera(CameraVideoCapturer.MediaRecorderHandler mediaRecorderHandler) {
-        ww9.$default$removeMediaRecorderFromCamera(this, mediaRecorderHandler);
     }
 
     @Override // org.webrtc.VideoCapturer
@@ -743,47 +800,6 @@ public abstract class CameraCapturer implements CameraVideoCapturer {
                 }
             }
             Logging.d(TAG, "Stop capture done");
-        }
-    }
-
-    @Override // org.webrtc.CameraVideoCapturer
-    public void switchCamera(CameraVideoCapturer.CameraSwitchHandler cameraSwitchHandler) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, cameraSwitchHandler) == null) {
-            Logging.d(TAG, "switchCamera");
-            this.cameraThreadHandler.post(new Runnable(this, cameraSwitchHandler) { // from class: org.webrtc.CameraCapturer.7
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ CameraCapturer this$0;
-                public final /* synthetic */ CameraVideoCapturer.CameraSwitchHandler val$switchEventsHandler;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, cameraSwitchHandler};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$switchEventsHandler = cameraSwitchHandler;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.this$0.switchCameraInternal(this.val$switchEventsHandler);
-                    }
-                }
-            });
         }
     }
 }

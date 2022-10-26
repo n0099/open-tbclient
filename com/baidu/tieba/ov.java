@@ -2,34 +2,199 @@ package com.baidu.tieba;
 
 import android.app.Activity;
 import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.BDPTask;
+import com.baidu.bdtask.component.toast.TaskToastViewData;
+import com.baidu.bdtask.ctrl.model.TaskStatus;
+import com.baidu.bdtask.model.info.TaskInfo;
+import com.baidu.tieba.pv;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ov {
+public final class ov extends mt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CharSequence a;
-    public int b;
-    public CharSequence c;
-    public int d;
-    public int e;
-    public a f;
-    public String g;
-    public String h;
-    public String i;
-    public String j;
-    public String k;
-    public String l;
-    public mt m;
+    public pv a;
+    public final long b;
+    public final int c;
 
     /* loaded from: classes5.dex */
-    public interface a {
-        void a();
+    public final class a implements jt {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ov a;
+
+        public a(ov ovVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ovVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ovVar;
+        }
+
+        /* renamed from: com.baidu.tieba.ov$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public final class C0349a implements pv.a {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ String a;
+            public final /* synthetic */ TaskToastViewData b;
+            public final /* synthetic */ a c;
+
+            public C0349a(String str, TaskToastViewData taskToastViewData, a aVar, TaskToastViewData taskToastViewData2) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {str, taskToastViewData, aVar, taskToastViewData2};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = str;
+                this.b = taskToastViewData;
+                this.c = aVar;
+            }
+
+            @Override // com.baidu.tieba.pv.a
+            public final void a() {
+                vs b;
+                qu d;
+                qu d2;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    pu v = BDPTask.m.v();
+                    if (v != null && (d2 = v.d()) != null) {
+                        d2.b(this.b.getTaskInfoSingleKey(), lr.c.a());
+                    }
+                    pu v2 = BDPTask.m.v();
+                    if (v2 != null && (d = v2.d()) != null) {
+                        d.a(this.b.getTaskInfoSingleKey());
+                    }
+                    pu v3 = BDPTask.m.v();
+                    if (v3 != null && (b = v3.b()) != null) {
+                        b.a(this.a, 2);
+                    }
+                    this.c.a.h(this.b.getTaskInfo());
+                }
+            }
+        }
+
+        /* loaded from: classes5.dex */
+        public final class b implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ Context a;
+            public final /* synthetic */ a b;
+
+            public b(Context context, a aVar, TaskToastViewData taskToastViewData) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {context, aVar, taskToastViewData};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = context;
+                this.b = aVar;
+            }
+
+            @Override // java.lang.Runnable
+            public final void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.b.a.a.k(this.a);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.jt
+        /* renamed from: a */
+        public final void onChanged(TaskToastViewData taskToastViewData) {
+            Context context;
+            ps h;
+            ps h2;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, taskToastViewData) == null) && taskToastViewData != null) {
+                this.a.a.a(this.a.c);
+                this.a.a.d(taskToastViewData.getMessage());
+                this.a.a.e(taskToastViewData.getBackColor());
+                this.a.a.h(taskToastViewData.getDuration());
+                this.a.a.j(taskToastViewData.getTxtColor());
+                this.a.a.b(taskToastViewData.getToastLayoutParams());
+                this.a.a.q(taskToastViewData.getBgUrl());
+                String backBtnBgUrl = taskToastViewData.getBackBtnBgUrl();
+                if (backBtnBgUrl != null) {
+                    this.a.a.o(backBtnBgUrl);
+                }
+                String backBtnColor = taskToastViewData.getBackBtnColor();
+                if (backBtnColor != null) {
+                    this.a.a.n(backBtnColor);
+                }
+                String backBtnSchema = taskToastViewData.getBackBtnSchema();
+                if (backBtnSchema != null) {
+                    this.a.a.c(new C0349a(backBtnSchema, taskToastViewData, this, taskToastViewData));
+                }
+                String backBtnTxt = taskToastViewData.getBackBtnTxt();
+                if (backBtnTxt != null) {
+                    this.a.a.i(backBtnTxt);
+                }
+                String backBtnTxtColor = taskToastViewData.getBackBtnTxtColor();
+                if (backBtnTxtColor != null) {
+                    this.a.a.p(backBtnTxtColor);
+                }
+                pu v = BDPTask.m.v();
+                Activity activity = null;
+                if (v != null && (h2 = v.h()) != null) {
+                    context = h2.getAppContext();
+                } else {
+                    context = null;
+                }
+                pu v2 = BDPTask.m.v();
+                if (v2 != null && (h = v2.h()) != null) {
+                    activity = h.a();
+                }
+                if (activity == null) {
+                    activity = context;
+                }
+                if (activity != null) {
+                    int showType = taskToastViewData.getShowType();
+                    if (showType != 1) {
+                        if (showType == 2) {
+                            st.d(new b(activity, this, taskToastViewData), this.a.b);
+                        }
+                    } else if (context != null) {
+                        this.a.a.g(context);
+                    }
+                    this.a.i(taskToastViewData.getTaskInfo(), taskToastViewData.getTaskStatus());
+                }
+            }
+        }
     }
 
     public ov() {
@@ -45,168 +210,39 @@ public class ov {
                 return;
             }
         }
-        this.e = 2;
-        this.b = 14;
-        this.d = 14;
+        this.a = new pv();
+        this.b = 100L;
+        this.c = 2;
     }
 
-    public static void f() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ft
+    /* renamed from: g */
+    public void a(lq lqVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            qv.e();
-            sv.f();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lqVar) == null) {
+            lqVar.a().l(new a(this));
         }
     }
 
-    public static int m(Context context) {
-        InterceptResult invokeL;
+    public final void h(TaskInfo taskInfo) {
+        pu v;
+        yu f;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? qt.a() : invokeL.intValue;
-    }
-
-    public ov a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? this : (ov) invokeI.objValue;
-    }
-
-    public ov b(mt mtVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mtVar)) == null) {
-            this.m = mtVar;
-            return this;
-        }
-        return (ov) invokeL.objValue;
-    }
-
-    public ov c(a aVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar)) == null) {
-            this.f = aVar;
-            return this;
-        }
-        return (ov) invokeL.objValue;
-    }
-
-    public ov d(CharSequence charSequence) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, charSequence)) == null) {
-            this.a = charSequence;
-            return this;
-        }
-        return (ov) invokeL.objValue;
-    }
-
-    public ov e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            this.g = str;
-            return this;
-        }
-        return (ov) invokeL.objValue;
-    }
-
-    public void g(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, context) == null) && l()) {
-            f();
-            qv.g(context, this.a, this.e, this.g, this.l, this.h, this.m);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, taskInfo) == null) && (v = BDPTask.m.v()) != null && (f = v.f()) != null) {
+            f.a("y_task_toast", "icon_clk", zu.b(zu.a, taskInfo.getId(), taskInfo.getActTaskId(), null, 4, null));
         }
     }
 
-    public ov h(int i) {
-        InterceptResult invokeI;
+    public final void i(TaskInfo taskInfo, TaskStatus taskStatus) {
+        yu f;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            if (i >= 1 && i <= 10) {
-                this.e = i;
-            } else {
-                this.e = 2;
-            }
-            return this;
-        }
-        return (ov) invokeI.objValue;
-    }
-
-    public ov i(CharSequence charSequence) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, charSequence)) == null) {
-            this.c = charSequence;
-            return this;
-        }
-        return (ov) invokeL.objValue;
-    }
-
-    public ov j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            this.h = str;
-            return this;
-        }
-        return (ov) invokeL.objValue;
-    }
-
-    public void k(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, context) == null) && l() && context != null) {
-            f();
-            if (context instanceof Activity) {
-                sv.g((Activity) context, this.a, this.b, this.c, this.d, this.e, this.g, this.l, this.h, this.i, this.j, this.k, this.f, this.m);
-            } else {
-                qv.f(context, this.a, this.b, this.l, this.c, this.d, this.e, this.g, this.h, this.i, this.j, this.k, this.f, this.m);
+        if (interceptable == null || interceptable.invokeLL(1048579, this, taskInfo, taskStatus) == null) {
+            String c = zu.a.c(taskStatus);
+            pu v = BDPTask.m.v();
+            if (v != null && (f = v.f()) != null) {
+                f.a("y_task_toast", "c_pv", zu.a.a(taskInfo.getId(), taskInfo.getActTaskId(), c));
             }
         }
-    }
-
-    public final boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.a != null : invokeV.booleanValue;
-    }
-
-    public ov n(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            this.i = str;
-            return this;
-        }
-        return (ov) invokeL.objValue;
-    }
-
-    public ov o(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-            this.j = str;
-            return this;
-        }
-        return (ov) invokeL.objValue;
-    }
-
-    public ov p(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            this.k = str;
-            return this;
-        }
-        return (ov) invokeL.objValue;
-    }
-
-    public ov q(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
-            this.l = str;
-            return this;
-        }
-        return (ov) invokeL.objValue;
     }
 }

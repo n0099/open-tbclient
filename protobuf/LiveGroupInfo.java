@@ -112,14 +112,20 @@ public final class LiveGroupInfo extends Message {
     public final String streamId;
 
     /* loaded from: classes9.dex */
-    public static final class Builder extends Message.Builder<LiveGroupInfo> {
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes9.dex */
+    public final class Builder extends Message.Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Long authorId;
         public String authorName;
         public Photo avatar;
         public String background;
-        public List<Photo> backgrounds;
+        public List backgrounds;
         public Integer createTime;
         public Integer deviceId;
         public Integer flag;
@@ -222,14 +228,11 @@ public final class LiveGroupInfo extends Message {
         public LiveGroupInfo build(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) ? new LiveGroupInfo(this, z, null) : (LiveGroupInfo) invokeZ.objValue;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+                return new LiveGroupInfo(this, z, null);
+            }
+            return (LiveGroupInfo) invokeZ.objValue;
         }
-    }
-
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
     }
 
     static {
@@ -263,10 +266,6 @@ public final class LiveGroupInfo extends Message {
         DEFAULT_FROMTYPE = 0;
         DEFAULT_ISVIP = 0;
         DEFAULT_BACKGROUNDS = Collections.emptyList();
-    }
-
-    public /* synthetic */ LiveGroupInfo(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -463,7 +462,7 @@ public final class LiveGroupInfo extends Message {
             } else {
                 this.signature = str12;
             }
-            List<Photo> list = builder.backgrounds;
+            List list = builder.backgrounds;
             if (list == null) {
                 this.backgrounds = DEFAULT_BACKGROUNDS;
             } else {
@@ -504,5 +503,9 @@ public final class LiveGroupInfo extends Message {
         this.signature = builder.signature;
         this.backgrounds = Message.immutableCopyOf(builder.backgrounds);
         this.avatar = builder.avatar;
+    }
+
+    public /* synthetic */ LiveGroupInfo(Builder builder, boolean z, a aVar) {
+        this(builder, z);
     }
 }

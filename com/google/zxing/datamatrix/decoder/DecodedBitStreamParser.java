@@ -34,7 +34,7 @@ public final class DecodedBitStreamParser {
 
     /* renamed from: com.google.zxing.datamatrix.decoder.DecodedBitStreamParser$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$google$zxing$datamatrix$decoder$DecodedBitStreamParser$Mode;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,7 +79,7 @@ public final class DecodedBitStreamParser {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public static final class Mode {
+    public final class Mode {
         public static final /* synthetic */ Mode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Mode ANSIX12_ENCODE;
@@ -137,13 +137,19 @@ public final class DecodedBitStreamParser {
         public static Mode valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Mode) Enum.valueOf(Mode.class, str) : (Mode) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (Mode) Enum.valueOf(Mode.class, str);
+            }
+            return (Mode) invokeL.objValue;
         }
 
         public static Mode[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Mode[]) $VALUES.clone() : (Mode[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (Mode[]) $VALUES.clone();
+            }
+            return (Mode[]) invokeV.objValue;
         }
     }
 
@@ -196,18 +202,26 @@ public final class DecodedBitStreamParser {
                     mode = decodeAsciiSegment(bitSource, sb, sb2);
                 } else {
                     int i = AnonymousClass1.$SwitchMap$com$google$zxing$datamatrix$decoder$DecodedBitStreamParser$Mode[mode.ordinal()];
-                    if (i == 1) {
-                        decodeC40Segment(bitSource, sb);
-                    } else if (i == 2) {
-                        decodeTextSegment(bitSource, sb);
-                    } else if (i == 3) {
-                        decodeAnsiX12Segment(bitSource, sb);
-                    } else if (i == 4) {
-                        decodeEdifactSegment(bitSource, sb);
-                    } else if (i == 5) {
-                        decodeBase256Segment(bitSource, sb, arrayList);
+                    if (i != 1) {
+                        if (i != 2) {
+                            if (i != 3) {
+                                if (i != 4) {
+                                    if (i == 5) {
+                                        decodeBase256Segment(bitSource, sb, arrayList);
+                                    } else {
+                                        throw FormatException.getFormatInstance();
+                                    }
+                                } else {
+                                    decodeEdifactSegment(bitSource, sb);
+                                }
+                            } else {
+                                decodeAnsiX12Segment(bitSource, sb);
+                            }
+                        } else {
+                            decodeTextSegment(bitSource, sb);
+                        }
                     } else {
-                        throw FormatException.getFormatInstance();
+                        decodeC40Segment(bitSource, sb);
                     }
                     mode = Mode.ASCII_ENCODE;
                 }
@@ -266,56 +280,57 @@ public final class DecodedBitStreamParser {
             boolean z = false;
             do {
                 int readBits = bitSource.readBits(8);
-                if (readBits == 0) {
-                    throw FormatException.getFormatInstance();
-                }
-                if (readBits <= 128) {
-                    if (z) {
-                        readBits += 128;
-                    }
-                    sb.append((char) (readBits - 1));
-                    return Mode.ASCII_ENCODE;
-                } else if (readBits == 129) {
-                    return Mode.PAD_ENCODE;
-                } else {
-                    if (readBits <= 229) {
-                        int i = readBits + MultiPluginManagerServiceImpl.INSTALL_ERR_BK_FILE_DOWNLOAD_FAIL;
-                        if (i < 10) {
-                            sb.append('0');
+                if (readBits != 0) {
+                    if (readBits <= 128) {
+                        if (z) {
+                            readBits += 128;
                         }
-                        sb.append(i);
-                    } else if (readBits == 230) {
-                        return Mode.C40_ENCODE;
+                        sb.append((char) (readBits - 1));
+                        return Mode.ASCII_ENCODE;
+                    } else if (readBits == 129) {
+                        return Mode.PAD_ENCODE;
                     } else {
-                        if (readBits == 231) {
-                            return Mode.BASE256_ENCODE;
-                        }
-                        if (readBits == 232) {
-                            sb.append(com.google.zxing.maxicode.decoder.DecodedBitStreamParser.GS);
-                        } else if (readBits != 233 && readBits != 234) {
-                            if (readBits == 235) {
-                                z = true;
-                            } else if (readBits == 236) {
-                                sb.append(HighLevelEncoder.MACRO_05_HEADER);
-                                sb2.insert(0, HighLevelEncoder.MACRO_TRAILER);
-                            } else if (readBits == 237) {
-                                sb.append(HighLevelEncoder.MACRO_06_HEADER);
-                                sb2.insert(0, HighLevelEncoder.MACRO_TRAILER);
-                            } else if (readBits == 238) {
-                                return Mode.ANSIX12_ENCODE;
-                            } else {
-                                if (readBits == 239) {
-                                    return Mode.TEXT_ENCODE;
-                                }
-                                if (readBits == 240) {
-                                    return Mode.EDIFACT_ENCODE;
-                                }
-                                if (readBits != 241 && readBits >= 242 && (readBits != 254 || bitSource.available() != 0)) {
-                                    throw FormatException.getFormatInstance();
+                        if (readBits <= 229) {
+                            int i = readBits + MultiPluginManagerServiceImpl.INSTALL_ERR_BK_FILE_DOWNLOAD_FAIL;
+                            if (i < 10) {
+                                sb.append('0');
+                            }
+                            sb.append(i);
+                        } else if (readBits == 230) {
+                            return Mode.C40_ENCODE;
+                        } else {
+                            if (readBits == 231) {
+                                return Mode.BASE256_ENCODE;
+                            }
+                            if (readBits == 232) {
+                                sb.append(com.google.zxing.maxicode.decoder.DecodedBitStreamParser.GS);
+                            } else if (readBits != 233 && readBits != 234) {
+                                if (readBits == 235) {
+                                    z = true;
+                                } else if (readBits == 236) {
+                                    sb.append(HighLevelEncoder.MACRO_05_HEADER);
+                                    sb2.insert(0, HighLevelEncoder.MACRO_TRAILER);
+                                } else if (readBits == 237) {
+                                    sb.append(HighLevelEncoder.MACRO_06_HEADER);
+                                    sb2.insert(0, HighLevelEncoder.MACRO_TRAILER);
+                                } else if (readBits == 238) {
+                                    return Mode.ANSIX12_ENCODE;
+                                } else {
+                                    if (readBits == 239) {
+                                        return Mode.TEXT_ENCODE;
+                                    }
+                                    if (readBits == 240) {
+                                        return Mode.EDIFACT_ENCODE;
+                                    }
+                                    if (readBits != 241 && readBits >= 242 && (readBits != 254 || bitSource.available() != 0)) {
+                                        throw FormatException.getFormatInstance();
+                                    }
                                 }
                             }
                         }
                     }
+                } else {
+                    throw FormatException.getFormatInstance();
                 }
             } while (bitSource.available() > 0);
             return Mode.ASCII_ENCODE;
@@ -323,7 +338,7 @@ public final class DecodedBitStreamParser {
         return (Mode) invokeLLL.objValue;
     }
 
-    public static void decodeBase256Segment(BitSource bitSource, StringBuilder sb, Collection<byte[]> collection) throws FormatException {
+    public static void decodeBase256Segment(BitSource bitSource, StringBuilder sb, Collection collection) throws FormatException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65541, null, bitSource, sb, collection) == null) {
             int byteOffset = bitSource.getByteOffset() + 1;
@@ -372,7 +387,20 @@ public final class DecodedBitStreamParser {
                     int i3 = iArr[i2];
                     if (i != 0) {
                         if (i != 1) {
-                            if (i == 2) {
+                            if (i != 2) {
+                                if (i == 3) {
+                                    if (z) {
+                                        sb.append((char) (i3 + 224));
+                                        z = false;
+                                        i = 0;
+                                    } else {
+                                        sb.append((char) (i3 + 96));
+                                        i = 0;
+                                    }
+                                } else {
+                                    throw FormatException.getFormatInstance();
+                                }
+                            } else {
                                 char[] cArr = C40_SHIFT2_SET_CHARS;
                                 if (i3 < cArr.length) {
                                     char c = cArr[i3];
@@ -384,23 +412,12 @@ public final class DecodedBitStreamParser {
                                     }
                                 } else if (i3 == 27) {
                                     sb.append(com.google.zxing.maxicode.decoder.DecodedBitStreamParser.GS);
-                                } else if (i3 != 30) {
-                                    throw FormatException.getFormatInstance();
-                                } else {
+                                } else if (i3 == 30) {
                                     z = true;
+                                } else {
+                                    throw FormatException.getFormatInstance();
                                 }
                                 i = 0;
-                            } else if (i != 3) {
-                                throw FormatException.getFormatInstance();
-                            } else {
-                                if (z) {
-                                    sb.append((char) (i3 + 224));
-                                    z = false;
-                                    i = 0;
-                                } else {
-                                    sb.append((char) (i3 + 96));
-                                    i = 0;
-                                }
                             }
                         } else if (z) {
                             sb.append((char) (i3 + 128));
@@ -421,6 +438,89 @@ public final class DecodedBitStreamParser {
                                 z = false;
                             } else {
                                 sb.append(c2);
+                            }
+                        } else {
+                            throw FormatException.getFormatInstance();
+                        }
+                    }
+                }
+                if (bitSource.available() <= 0) {
+                    return;
+                }
+            }
+        }
+    }
+
+    public static void decodeTextSegment(BitSource bitSource, StringBuilder sb) throws FormatException {
+        int readBits;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65544, null, bitSource, sb) == null) {
+            int[] iArr = new int[3];
+            boolean z = false;
+            int i = 0;
+            while (bitSource.available() != 8 && (readBits = bitSource.readBits(8)) != 254) {
+                parseTwoBytes(readBits, bitSource.readBits(8), iArr);
+                for (int i2 = 0; i2 < 3; i2++) {
+                    int i3 = iArr[i2];
+                    if (i != 0) {
+                        if (i != 1) {
+                            if (i != 2) {
+                                if (i == 3) {
+                                    char[] cArr = TEXT_SHIFT3_SET_CHARS;
+                                    if (i3 < cArr.length) {
+                                        char c = cArr[i3];
+                                        if (z) {
+                                            sb.append((char) (c + 128));
+                                            z = false;
+                                            i = 0;
+                                        } else {
+                                            sb.append(c);
+                                            i = 0;
+                                        }
+                                    } else {
+                                        throw FormatException.getFormatInstance();
+                                    }
+                                } else {
+                                    throw FormatException.getFormatInstance();
+                                }
+                            } else {
+                                char[] cArr2 = TEXT_SHIFT2_SET_CHARS;
+                                if (i3 < cArr2.length) {
+                                    char c2 = cArr2[i3];
+                                    if (z) {
+                                        sb.append((char) (c2 + 128));
+                                        z = false;
+                                    } else {
+                                        sb.append(c2);
+                                    }
+                                } else if (i3 == 27) {
+                                    sb.append(com.google.zxing.maxicode.decoder.DecodedBitStreamParser.GS);
+                                } else if (i3 == 30) {
+                                    z = true;
+                                } else {
+                                    throw FormatException.getFormatInstance();
+                                }
+                                i = 0;
+                            }
+                        } else if (z) {
+                            sb.append((char) (i3 + 128));
+                            z = false;
+                            i = 0;
+                        } else {
+                            sb.append((char) i3);
+                            i = 0;
+                        }
+                    } else if (i3 < 3) {
+                        i = i3 + 1;
+                    } else {
+                        char[] cArr3 = TEXT_BASIC_SET_CHARS;
+                        if (i3 < cArr3.length) {
+                            char c3 = cArr3[i3];
+                            if (z) {
+                                sb.append((char) (c3 + 128));
+                                z = false;
+                            } else {
+                                sb.append(c3);
                             }
                         } else {
                             throw FormatException.getFormatInstance();
@@ -460,87 +560,6 @@ public final class DecodedBitStreamParser {
         }
     }
 
-    public static void decodeTextSegment(BitSource bitSource, StringBuilder sb) throws FormatException {
-        int readBits;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, null, bitSource, sb) == null) {
-            int[] iArr = new int[3];
-            boolean z = false;
-            int i = 0;
-            while (bitSource.available() != 8 && (readBits = bitSource.readBits(8)) != 254) {
-                parseTwoBytes(readBits, bitSource.readBits(8), iArr);
-                for (int i2 = 0; i2 < 3; i2++) {
-                    int i3 = iArr[i2];
-                    if (i != 0) {
-                        if (i != 1) {
-                            if (i == 2) {
-                                char[] cArr = TEXT_SHIFT2_SET_CHARS;
-                                if (i3 < cArr.length) {
-                                    char c = cArr[i3];
-                                    if (z) {
-                                        sb.append((char) (c + 128));
-                                        z = false;
-                                    } else {
-                                        sb.append(c);
-                                    }
-                                } else if (i3 == 27) {
-                                    sb.append(com.google.zxing.maxicode.decoder.DecodedBitStreamParser.GS);
-                                } else if (i3 != 30) {
-                                    throw FormatException.getFormatInstance();
-                                } else {
-                                    z = true;
-                                }
-                                i = 0;
-                            } else if (i == 3) {
-                                char[] cArr2 = TEXT_SHIFT3_SET_CHARS;
-                                if (i3 < cArr2.length) {
-                                    char c2 = cArr2[i3];
-                                    if (z) {
-                                        sb.append((char) (c2 + 128));
-                                        z = false;
-                                        i = 0;
-                                    } else {
-                                        sb.append(c2);
-                                        i = 0;
-                                    }
-                                } else {
-                                    throw FormatException.getFormatInstance();
-                                }
-                            } else {
-                                throw FormatException.getFormatInstance();
-                            }
-                        } else if (z) {
-                            sb.append((char) (i3 + 128));
-                            z = false;
-                            i = 0;
-                        } else {
-                            sb.append((char) i3);
-                            i = 0;
-                        }
-                    } else if (i3 < 3) {
-                        i = i3 + 1;
-                    } else {
-                        char[] cArr3 = TEXT_BASIC_SET_CHARS;
-                        if (i3 < cArr3.length) {
-                            char c3 = cArr3[i3];
-                            if (z) {
-                                sb.append((char) (c3 + 128));
-                                z = false;
-                            } else {
-                                sb.append(c3);
-                            }
-                        } else {
-                            throw FormatException.getFormatInstance();
-                        }
-                    }
-                }
-                if (bitSource.available() <= 0) {
-                    return;
-                }
-            }
-        }
-    }
-
     public static void parseTwoBytes(int i, int i2, int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(65545, null, i, i2, iArr) == null) {
@@ -559,7 +578,10 @@ public final class DecodedBitStreamParser {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(65546, null, i, i2)) == null) {
             int i3 = i - (((i2 * 149) % 255) + 1);
-            return i3 >= 0 ? i3 : i3 + 256;
+            if (i3 >= 0) {
+                return i3;
+            }
+            return i3 + 256;
         }
         return invokeII.intValue;
     }

@@ -1,110 +1,197 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.lifecycle.SavedStateHandle;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTRewardVideoAd;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.tencent.open.SocialConstants;
+import java.io.ObjectInput;
+import java.io.ObjectOutput;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class sl9 implements TTRewardVideoAd.RewardAdInteractionListener {
+public class sl9 extends br9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public final /* synthetic */ an9 c;
-    public final /* synthetic */ String d;
-    public final /* synthetic */ jn9 e;
+    public final Set a;
 
-    public sl9(jn9 jn9Var, an9 an9Var, String str) {
+    /* loaded from: classes5.dex */
+    public class a extends br9 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final String a;
+        public final Map b;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(int i, ObjectInput objectInput) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), objectInput};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = objectInput.readUTF();
+            HashMap hashMap = new HashMap();
+            int readInt = objectInput.readInt();
+            for (int i4 = 0; i4 < readInt; i4++) {
+                String readUTF = objectInput.readUTF();
+                int readInt2 = objectInput.readInt();
+                HashSet hashSet = new HashSet();
+                for (int i5 = 0; i5 < readInt2; i5++) {
+                    try {
+                        hashSet.add(objectInput.readObject());
+                    } catch (ClassNotFoundException e) {
+                        LogPrinter.e(e);
+                    }
+                }
+                hashMap.put(readUTF, Collections.unmodifiableSet(hashSet));
+            }
+            this.b = Collections.unmodifiableMap(hashMap);
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(JSONObject jSONObject) {
+            super(1);
+            Map unmodifiableMap;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jSONObject};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.a = jSONObject.getString("key");
+            JSONArray optJSONArray = jSONObject.optJSONArray("content");
+            if (optJSONArray == null) {
+                unmodifiableMap = Collections.emptyMap();
+            } else {
+                HashMap hashMap = new HashMap();
+                for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
+                    JSONObject jSONObject2 = optJSONArray.getJSONObject(i3);
+                    String string = jSONObject2.getString(CriusAttrConstants.COLUMN);
+                    JSONArray optJSONArray2 = jSONObject2.optJSONArray(SavedStateHandle.VALUES);
+                    int length = optJSONArray2 == null ? 0 : optJSONArray2.length();
+                    HashSet hashSet = new HashSet();
+                    for (int i4 = 0; i4 < length; i4++) {
+                        hashSet.add(optJSONArray2.get(i4));
+                    }
+                    hashMap.put(string, Collections.unmodifiableSet(hashSet));
+                }
+                unmodifiableMap = Collections.unmodifiableMap(hashMap);
+            }
+            this.b = unmodifiableMap;
+        }
+
+        @Override // com.baidu.tieba.br9
+        public void srzableInternal(ObjectOutput objectOutput) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, objectOutput) == null) {
+                objectOutput.writeUTF(this.a);
+                objectOutput.writeInt(this.b.size());
+                for (Map.Entry entry : this.b.entrySet()) {
+                    Set<Object> set = (Set) entry.getValue();
+                    objectOutput.writeUTF((String) entry.getKey());
+                    objectOutput.writeInt(set.size());
+                    for (Object obj : set) {
+                        objectOutput.writeObject(obj);
+                    }
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public sl9(int i, ObjectInput objectInput) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jn9Var, an9Var, str};
+            Object[] objArr = {Integer.valueOf(i), objectInput};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = jn9Var;
-        this.c = an9Var;
-        this.d = str;
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTRewardVideoAd.RewardAdInteractionListener
-    public void onAdClose() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LogPrinter.d();
-            this.e.onAdClose(this.c);
+        int readInt = objectInput.readInt();
+        HashSet hashSet = new HashSet();
+        for (int i4 = 0; i4 < readInt; i4++) {
+            hashSet.add(new a(objectInput.readInt(), objectInput));
         }
+        this.a = Collections.unmodifiableSet(hashSet);
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTRewardVideoAd.RewardAdInteractionListener
-    public void onAdShow() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public sl9(JSONObject jSONObject) {
+        super(1);
+        Set unmodifiableSet;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LogPrinter.d();
-            this.e.onAdShow(this.c, this.a, this.d);
-            this.a = true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONObject};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTRewardVideoAd.RewardAdInteractionListener
-    public void onAdVideoBarClick() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            LogPrinter.d();
-            this.e.onAdClicked(this.c, this.b, this.d);
-            this.b = true;
+        JSONArray optJSONArray = jSONObject.optJSONArray(SocialConstants.PARAM_EXCLUDE);
+        if (optJSONArray == null) {
+            unmodifiableSet = Collections.emptySet();
+        } else {
+            HashSet hashSet = new HashSet();
+            for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
+                hashSet.add(new a(optJSONArray.getJSONObject(i3)));
+            }
+            unmodifiableSet = Collections.unmodifiableSet(hashSet);
         }
+        this.a = unmodifiableSet;
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTRewardVideoAd.RewardAdInteractionListener
-    public void onRewardArrived(boolean z, int i, Bundle bundle) {
+    @Override // com.baidu.tieba.br9
+    public void srzableInternal(ObjectOutput objectOutput) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), bundle}) == null) {
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTRewardVideoAd.RewardAdInteractionListener
-    public void onRewardVerify(boolean z, int i, String str, int i2, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), str, Integer.valueOf(i2), str2}) == null) {
-            LogPrinter.d("onRewardVerify rewardVerify:%b rewardAmount:%d rewardName:%s errCode:%d errMsg:%s", Boolean.valueOf(z), Integer.valueOf(i), str, Integer.valueOf(i2), str2);
-            this.e.onRewardedVideo(this.c, z, i2, this.d);
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTRewardVideoAd.RewardAdInteractionListener
-    public void onSkippedVideo() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            LogPrinter.e("CSJRewardVideoAd onSkippedVideo", new Object[0]);
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTRewardVideoAd.RewardAdInteractionListener
-    public void onVideoComplete() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            LogPrinter.d();
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTRewardVideoAd.RewardAdInteractionListener
-    public void onVideoError() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            LogPrinter.d();
-            this.e.onAdError(this.c, 0, "F:onVideoError");
+        if (interceptable == null || interceptable.invokeL(1048576, this, objectOutput) == null) {
+            objectOutput.writeInt(this.a.size());
+            for (a aVar : this.a) {
+                aVar.srzable(objectOutput);
+            }
         }
     }
 }

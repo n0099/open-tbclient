@@ -17,7 +17,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.data.MetaData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,6 +39,18 @@ public class HeadPendantView extends RelativeLayout {
     public boolean j;
     public boolean k;
     public boolean l;
+
+    public void setAuthIconType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+        }
+    }
+
+    public void setBigVIconResId(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
+        }
+    }
 
     /* loaded from: classes3.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
@@ -76,6 +88,88 @@ public class HeadPendantView extends RelativeLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public HeadPendantView(Context context) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f = false;
+        this.g = false;
+        this.h = false;
+        this.i = fj.f(TbadkApplication.getInst(), R.dimen.tbds36);
+        this.k = true;
+        this.l = false;
+        this.a = context;
+        d();
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public HeadPendantView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f = false;
+        this.g = false;
+        this.h = false;
+        this.i = fj.f(TbadkApplication.getInst(), R.dimen.tbds36);
+        this.k = true;
+        this.l = false;
+        this.a = context;
+        d();
+    }
+
+    @Override // android.widget.RelativeLayout, android.view.View
+    public void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048594, this, i, i2) == null) {
+            if (this.f) {
+                int size = View.MeasureSpec.getSize(i);
+                int i3 = (int) (size * 0.13f);
+                int size2 = (int) (View.MeasureSpec.getSize(i2) * 0.13f);
+                ((RelativeLayout.LayoutParams) this.e.getLayoutParams()).setMargins(i3, size2, i3, size2);
+                ImageView imageView = this.d;
+                if (imageView != null) {
+                    ((RelativeLayout.LayoutParams) imageView.getLayoutParams()).setMargins(i3, size2, i3, size2);
+                }
+            }
+            if (this.g) {
+                ((RelativeLayout.LayoutParams) this.e.getLayoutParams()).setMargins(0, 0, 0, 0);
+                ImageView imageView2 = this.d;
+                if (imageView2 != null) {
+                    ((RelativeLayout.LayoutParams) imageView2.getLayoutParams()).setMargins(0, 0, 0, 0);
+                }
+            }
+            super.onMeasure(i, i2);
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HeadPendantView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
@@ -97,7 +191,7 @@ public class HeadPendantView extends RelativeLayout {
         this.f = false;
         this.g = false;
         this.h = false;
-        this.i = ej.f(TbadkApplication.getInst(), R.dimen.tbds36);
+        this.i = fj.f(TbadkApplication.getInst(), R.dimen.tbds36);
         this.k = true;
         this.l = false;
         this.a = context;
@@ -154,10 +248,56 @@ public class HeadPendantView extends RelativeLayout {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.i = ej.f(getContext(), R.dimen.tbds42);
+            this.i = fj.f(getContext(), R.dimen.tbds42);
             b();
             c();
             a();
+        }
+    }
+
+    public final void f() {
+        ImageView imageView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.i > 0 && (imageView = this.d) != null) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) imageView.getLayoutParams();
+            int i = this.i;
+            layoutParams.width = i;
+            layoutParams.height = i;
+            this.d.setLayoutParams(layoutParams);
+        }
+    }
+
+    public ImageView getBigVIconView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.d;
+        }
+        return (ImageView) invokeV.objValue;
+    }
+
+    public HeadImageView getHeadView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.e;
+        }
+        return (HeadImageView) invokeV.objValue;
+    }
+
+    public TbImageView getPendantView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.c;
+        }
+        return (TbImageView) invokeV.objValue;
+    }
+
+    public void setHasPendantStyle() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
+            this.f = true;
         }
     }
 
@@ -169,97 +309,24 @@ public class HeadPendantView extends RelativeLayout {
         }
     }
 
-    public final void e(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, view2) == null) {
-            view2.setAlpha(0.0f);
-            ValueAnimator ofInt = ValueAnimator.ofInt(0, 1);
-            ofInt.setDuration(50L);
-            ofInt.addUpdateListener(new a(this, view2));
-            ofInt.start();
-        }
-    }
-
-    public final void f() {
-        ImageView imageView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.i <= 0 || (imageView = this.d) == null) {
-            return;
-        }
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) imageView.getLayoutParams();
-        int i = this.i;
-        layoutParams.width = i;
-        layoutParams.height = i;
-        this.d.setLayoutParams(layoutParams);
-    }
-
-    public final void g(MetaData metaData) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, metaData) == null) || metaData == null) {
-            return;
-        }
-        if (this.j) {
-            this.d.setVisibility(8);
-            return;
-        }
-        this.e.setShowV(false);
-        if (UtilHelper.isFllowByPriorty(metaData)) {
-            if (metaData.getAuthType() == 1) {
-                z = UtilHelper.showOfficialIcon(this.d, metaData);
-            } else if (metaData.getAuthType() == 1) {
-                z = UtilHelper.showOriginalIcon(this.d, metaData);
-            } else if (metaData.getAuthType() == 3) {
-                z = UtilHelper.showNewGodIcon(this.d, metaData);
-            } else if (metaData.getAuthType() == 4 && !this.h) {
-                z = UtilHelper.showHeadBazhuIcon(this.d, metaData, this.k);
-            }
-            if (!z || UtilHelper.showOfficialIcon(this.d, metaData) || UtilHelper.showOriginalIcon(this.d, metaData) || UtilHelper.showNewGodIcon(this.d, metaData)) {
-                return;
-            }
-            h(false);
-            if (this.h || UtilHelper.showHeadBazhuIcon(this.d, metaData, this.k)) {
-            }
-        }
-        z = false;
-        if (!z) {
-            return;
-        }
-        h(false);
-        if (this.h) {
-        }
-    }
-
-    public ImageView getBigVIconView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.d : (ImageView) invokeV.objValue;
-    }
-
-    public HeadImageView getHeadView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.e : (HeadImageView) invokeV.objValue;
-    }
-
-    public TbImageView getPendantView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.c : (TbImageView) invokeV.objValue;
-    }
-
     public void h(boolean z) {
         ImageView imageView;
+        int i;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048587, this, z) == null) || (imageView = this.d) == null) {
+        if ((interceptable != null && interceptable.invokeZ(1048587, this, z) != null) || (imageView = this.d) == null) {
             return;
         }
-        imageView.setVisibility(z ? 0 : 8);
+        if (z) {
+            i = 0;
+        } else {
+            i = 8;
+        }
+        imageView.setVisibility(i);
     }
 
     public void i(MetaData metaData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048588, this, metaData) == null) || metaData == null) {
+        if ((interceptable != null && interceptable.invokeL(1048588, this, metaData) != null) || metaData == null) {
             return;
         }
         if (metaData.getPendantData() != null) {
@@ -268,99 +335,6 @@ public class HeadPendantView extends RelativeLayout {
             m(null);
         }
         g(metaData);
-    }
-
-    public void j(MetaData metaData, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048589, this, metaData, i) == null) || metaData == null) {
-            return;
-        }
-        i(metaData);
-    }
-
-    public void k(String str, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{str, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            this.e.G(str, i, 0, 0, z);
-        }
-    }
-
-    public void l(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048591, this, str) == null) || StringUtils.isNull(str)) {
-            return;
-        }
-        this.e.setImageBitmap(null);
-        this.e.setUrl(str);
-        if (str.startsWith("http")) {
-            k(str, 10, false);
-        } else {
-            k(str, 25, false);
-        }
-    }
-
-    public void m(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048592, this, str) == null) || this.c == null) {
-            return;
-        }
-        if (this.f && !StringUtils.isNull(str)) {
-            this.c.setVisibility(0);
-            this.c.setImageDrawable(null);
-            this.c.K(str, 10, false);
-            if (this.l) {
-                e(this.c);
-                return;
-            }
-            return;
-        }
-        this.c.setVisibility(8);
-    }
-
-    public void n(MetaData metaData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048593, this, metaData) == null) || metaData == null || TextUtils.isEmpty(metaData.getPortrait())) {
-            return;
-        }
-        String avater = metaData.getAvater();
-        setUrl(avater);
-        if (avater.startsWith("http")) {
-            k(avater, 10, false);
-        } else {
-            k(avater, 25, false);
-        }
-        i(metaData);
-    }
-
-    @Override // android.widget.RelativeLayout, android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048594, this, i, i2) == null) {
-            if (this.f) {
-                int size = View.MeasureSpec.getSize(i);
-                int i3 = (int) (size * 0.13f);
-                int size2 = (int) (View.MeasureSpec.getSize(i2) * 0.13f);
-                ((RelativeLayout.LayoutParams) this.e.getLayoutParams()).setMargins(i3, size2, i3, size2);
-                ImageView imageView = this.d;
-                if (imageView != null) {
-                    ((RelativeLayout.LayoutParams) imageView.getLayoutParams()).setMargins(i3, size2, i3, size2);
-                }
-            }
-            if (this.g) {
-                ((RelativeLayout.LayoutParams) this.e.getLayoutParams()).setMargins(0, 0, 0, 0);
-                ImageView imageView2 = this.d;
-                if (imageView2 != null) {
-                    ((RelativeLayout.LayoutParams) imageView2.getLayoutParams()).setMargins(0, 0, 0, 0);
-                }
-            }
-            super.onMeasure(i, i2);
-        }
-    }
-
-    public void setAuthIconType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
-        }
     }
 
     public void setAutoChangeStyle(boolean z) {
@@ -375,15 +349,9 @@ public class HeadPendantView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
             if (i > 0) {
-                this.i = ej.f(getContext(), i);
+                this.i = fj.f(getContext(), i);
             }
             f();
-        }
-    }
-
-    public void setBigVIconResId(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
         }
     }
 
@@ -398,13 +366,6 @@ public class HeadPendantView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
             this.e.setDefaultResource(i);
-        }
-    }
-
-    public void setHasPendantStyle() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-            this.f = true;
         }
     }
 
@@ -458,6 +419,115 @@ public class HeadPendantView extends RelativeLayout {
         }
     }
 
+    public final void e(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, view2) == null) {
+            view2.setAlpha(0.0f);
+            ValueAnimator ofInt = ValueAnimator.ofInt(0, 1);
+            ofInt.setDuration(50L);
+            ofInt.addUpdateListener(new a(this, view2));
+            ofInt.start();
+        }
+    }
+
+    public void l(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048591, this, str) != null) || StringUtils.isNull(str)) {
+            return;
+        }
+        this.e.setImageBitmap(null);
+        this.e.setUrl(str);
+        if (str.startsWith("http")) {
+            k(str, 10, false);
+        } else {
+            k(str, 25, false);
+        }
+    }
+
+    public void m(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048592, this, str) != null) || this.c == null) {
+            return;
+        }
+        if (this.f && !StringUtils.isNull(str)) {
+            this.c.setVisibility(0);
+            this.c.setImageDrawable(null);
+            this.c.L(str, 10, false);
+            if (this.l) {
+                e(this.c);
+                return;
+            }
+            return;
+        }
+        this.c.setVisibility(8);
+    }
+
+    public void n(MetaData metaData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048593, this, metaData) == null) && metaData != null && !TextUtils.isEmpty(metaData.getPortrait())) {
+            String avater = metaData.getAvater();
+            setUrl(avater);
+            if (avater.startsWith("http")) {
+                k(avater, 10, false);
+            } else {
+                k(avater, 25, false);
+            }
+            i(metaData);
+        }
+    }
+
+    public final void g(MetaData metaData) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048583, this, metaData) != null) || metaData == null) {
+            return;
+        }
+        if (this.j) {
+            this.d.setVisibility(8);
+            return;
+        }
+        this.e.setShowV(false);
+        if (UtilHelper.isFllowByPriorty(metaData)) {
+            if (metaData.getAuthType() == 1) {
+                z = UtilHelper.showOfficialIcon(this.d, metaData);
+            } else if (metaData.getAuthType() == 1) {
+                z = UtilHelper.showOriginalIcon(this.d, metaData);
+            } else if (metaData.getAuthType() == 3) {
+                z = UtilHelper.showNewGodIcon(this.d, metaData);
+            } else if (metaData.getAuthType() == 4 && !this.h) {
+                z = UtilHelper.showHeadBazhuIcon(this.d, metaData, this.k);
+            }
+            if (!z || UtilHelper.showOfficialIcon(this.d, metaData) || UtilHelper.showOriginalIcon(this.d, metaData) || UtilHelper.showNewGodIcon(this.d, metaData)) {
+                return;
+            }
+            h(false);
+            if (!this.h || UtilHelper.showHeadBazhuIcon(this.d, metaData, this.k)) {
+            }
+        }
+        z = false;
+        if (!z) {
+            return;
+        }
+        h(false);
+        if (!this.h) {
+        }
+    }
+
+    public void j(MetaData metaData, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(1048589, this, metaData, i) != null) || metaData == null) {
+            return;
+        }
+        i(metaData);
+    }
+
+    public void k(String str, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{str, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            this.e.H(str, i, 0, 0, z);
+        }
+    }
+
     public void setHasPendantStyle(boolean z) {
         HeadImageView headImageView;
         HeadImageView headImageView2;
@@ -486,62 +556,5 @@ public class HeadPendantView extends RelativeLayout {
             }
             this.f = z;
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HeadPendantView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.f = false;
-        this.g = false;
-        this.h = false;
-        this.i = ej.f(TbadkApplication.getInst(), R.dimen.tbds36);
-        this.k = true;
-        this.l = false;
-        this.a = context;
-        d();
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HeadPendantView(Context context) {
-        super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.f = false;
-        this.g = false;
-        this.h = false;
-        this.i = ej.f(TbadkApplication.getInst(), R.dimen.tbds36);
-        this.k = true;
-        this.l = false;
-        this.a = context;
-        d();
     }
 }

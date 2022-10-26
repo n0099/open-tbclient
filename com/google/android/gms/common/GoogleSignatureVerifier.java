@@ -1,13 +1,11 @@
 package com.google.android.gms.common;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.util.Log;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,12 +13,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.gms.common.annotation.KeepForSdk;
 import com.google.android.gms.common.internal.Preconditions;
-import com.google.android.gms.common.internal.ShowFirstParty;
 import javax.annotation.Nullable;
-@ShowFirstParty
-@KeepForSdk
 /* loaded from: classes7.dex */
 public class GoogleSignatureVerifier {
     public static /* synthetic */ Interceptable $ic;
@@ -30,7 +24,7 @@ public class GoogleSignatureVerifier {
     public final Context zzb;
     public volatile String zzc;
 
-    public GoogleSignatureVerifier(@NonNull Context context) {
+    public GoogleSignatureVerifier(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -48,108 +42,7 @@ public class GoogleSignatureVerifier {
         this.zzb = context.getApplicationContext();
     }
 
-    @NonNull
-    @KeepForSdk
-    public static GoogleSignatureVerifier getInstance(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            Preconditions.checkNotNull(context);
-            synchronized (GoogleSignatureVerifier.class) {
-                if (zza == null) {
-                    zzm.zzd(context);
-                    zza = new GoogleSignatureVerifier(context);
-                }
-            }
-            return zza;
-        }
-        return (GoogleSignatureVerifier) invokeL.objValue;
-    }
-
-    @Nullable
-    public static final zzi zza(PackageInfo packageInfo, zzi... zziVarArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, packageInfo, zziVarArr)) == null) {
-            Signature[] signatureArr = packageInfo.signatures;
-            if (signatureArr == null) {
-                return null;
-            }
-            if (signatureArr.length != 1) {
-                Log.w("GoogleSignatureVerifier", "Package has more than one signature.");
-                return null;
-            }
-            zzj zzjVar = new zzj(packageInfo.signatures[0].toByteArray());
-            for (int i = 0; i < zziVarArr.length; i++) {
-                if (zziVarArr[i].equals(zzjVar)) {
-                    return zziVarArr[i];
-                }
-            }
-            return null;
-        }
-        return (zzi) invokeLL.objValue;
-    }
-
-    public static final boolean zzb(@NonNull PackageInfo packageInfo, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, packageInfo, z)) == null) {
-            if (packageInfo != null && packageInfo.signatures != null) {
-                if ((z ? zza(packageInfo, zzl.zza) : zza(packageInfo, zzl.zza[0])) != null) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeLZ.booleanValue;
-    }
-
-    @SuppressLint({"PackageManagerGetSignatures"})
-    private final zzw zzc(String str, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        zzw zzc;
-        ApplicationInfo applicationInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            if (str == null) {
-                return zzw.zzc("null pkg");
-            }
-            if (!str.equals(this.zzc)) {
-                if (zzm.zze()) {
-                    zzc = zzm.zzb(str, GooglePlayServicesUtilLight.honorsDebugCertificates(this.zzb), false, false);
-                } else {
-                    try {
-                        PackageInfo packageInfo = this.zzb.getPackageManager().getPackageInfo(str, 64);
-                        boolean honorsDebugCertificates = GooglePlayServicesUtilLight.honorsDebugCertificates(this.zzb);
-                        if (packageInfo == null) {
-                            zzc = zzw.zzc("null pkg");
-                        } else {
-                            Signature[] signatureArr = packageInfo.signatures;
-                            if (signatureArr != null && signatureArr.length == 1) {
-                                zzj zzjVar = new zzj(packageInfo.signatures[0].toByteArray());
-                                String str2 = packageInfo.packageName;
-                                zzw zza2 = zzm.zza(str2, zzjVar, honorsDebugCertificates, false);
-                                zzc = (!zza2.zza || (applicationInfo = packageInfo.applicationInfo) == null || (applicationInfo.flags & 2) == 0 || !zzm.zza(str2, zzjVar, false, true).zza) ? zza2 : zzw.zzc("debuggable release cert app rejected");
-                            } else {
-                                zzc = zzw.zzc("single cert required");
-                            }
-                        }
-                    } catch (PackageManager.NameNotFoundException e) {
-                        return zzw.zzd(str.length() != 0 ? "no pkg ".concat(str) : new String("no pkg "), e);
-                    }
-                }
-                if (zzc.zza) {
-                    this.zzc = str;
-                }
-                return zzc;
-            }
-            return zzw.zzb();
-        }
-        return (zzw) invokeCommon.objValue;
-    }
-
-    @KeepForSdk
-    public boolean isGooglePublicSignedPackage(@NonNull PackageInfo packageInfo) {
+    public boolean isGooglePublicSignedPackage(PackageInfo packageInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, packageInfo)) == null) {
@@ -170,21 +63,6 @@ public class GoogleSignatureVerifier {
         return invokeL.booleanValue;
     }
 
-    @ShowFirstParty
-    @KeepForSdk
-    public boolean isPackageGoogleSigned(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            zzw zzc = zzc(str, false, false);
-            zzc.zze();
-            return zzc.zza;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @ShowFirstParty
-    @KeepForSdk
     public boolean isUidGoogleSigned(int i) {
         InterceptResult invokeI;
         zzw zzc;
@@ -214,5 +92,129 @@ public class GoogleSignatureVerifier {
             return zzc.zza;
         }
         return invokeI.booleanValue;
+    }
+
+    public static GoogleSignatureVerifier getInstance(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            Preconditions.checkNotNull(context);
+            synchronized (GoogleSignatureVerifier.class) {
+                if (zza == null) {
+                    zzm.zzd(context);
+                    zza = new GoogleSignatureVerifier(context);
+                }
+            }
+            return zza;
+        }
+        return (GoogleSignatureVerifier) invokeL.objValue;
+    }
+
+    public boolean isPackageGoogleSigned(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            zzw zzc = zzc(str, false, false);
+            zzc.zze();
+            return zzc.zza;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Nullable
+    public static final zzi zza(PackageInfo packageInfo, zzi... zziVarArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, packageInfo, zziVarArr)) == null) {
+            Signature[] signatureArr = packageInfo.signatures;
+            if (signatureArr == null) {
+                return null;
+            }
+            if (signatureArr.length != 1) {
+                Log.w("GoogleSignatureVerifier", "Package has more than one signature.");
+                return null;
+            }
+            zzj zzjVar = new zzj(packageInfo.signatures[0].toByteArray());
+            for (int i = 0; i < zziVarArr.length; i++) {
+                if (zziVarArr[i].equals(zzjVar)) {
+                    return zziVarArr[i];
+                }
+            }
+            return null;
+        }
+        return (zzi) invokeLL.objValue;
+    }
+
+    public static final boolean zzb(PackageInfo packageInfo, boolean z) {
+        InterceptResult invokeLZ;
+        zzi zza2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, packageInfo, z)) == null) {
+            if (packageInfo != null && packageInfo.signatures != null) {
+                if (z) {
+                    zza2 = zza(packageInfo, zzl.zza);
+                } else {
+                    zza2 = zza(packageInfo, zzl.zza[0]);
+                }
+                if (zza2 != null) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeLZ.booleanValue;
+    }
+
+    private final zzw zzc(String str, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        String str2;
+        zzw zzc;
+        ApplicationInfo applicationInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            if (str == null) {
+                return zzw.zzc("null pkg");
+            }
+            if (!str.equals(this.zzc)) {
+                if (zzm.zze()) {
+                    zzc = zzm.zzb(str, GooglePlayServicesUtilLight.honorsDebugCertificates(this.zzb), false, false);
+                } else {
+                    try {
+                        PackageInfo packageInfo = this.zzb.getPackageManager().getPackageInfo(str, 64);
+                        boolean honorsDebugCertificates = GooglePlayServicesUtilLight.honorsDebugCertificates(this.zzb);
+                        if (packageInfo == null) {
+                            zzc = zzw.zzc("null pkg");
+                        } else {
+                            Signature[] signatureArr = packageInfo.signatures;
+                            if (signatureArr != null && signatureArr.length == 1) {
+                                zzj zzjVar = new zzj(packageInfo.signatures[0].toByteArray());
+                                String str3 = packageInfo.packageName;
+                                zzw zza2 = zzm.zza(str3, zzjVar, honorsDebugCertificates, false);
+                                if (zza2.zza && (applicationInfo = packageInfo.applicationInfo) != null && (applicationInfo.flags & 2) != 0 && zzm.zza(str3, zzjVar, false, true).zza) {
+                                    zzc = zzw.zzc("debuggable release cert app rejected");
+                                } else {
+                                    zzc = zza2;
+                                }
+                            } else {
+                                zzc = zzw.zzc("single cert required");
+                            }
+                        }
+                    } catch (PackageManager.NameNotFoundException e) {
+                        if (str.length() != 0) {
+                            str2 = "no pkg ".concat(str);
+                        } else {
+                            str2 = new String("no pkg ");
+                        }
+                        return zzw.zzd(str2, e);
+                    }
+                }
+                if (zzc.zza) {
+                    this.zzc = str;
+                }
+                return zzc;
+            }
+            return zzw.zzb();
+        }
+        return (zzw) invokeCommon.objValue;
     }
 }

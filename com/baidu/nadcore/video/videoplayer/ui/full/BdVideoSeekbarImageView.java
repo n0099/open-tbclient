@@ -10,11 +10,10 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c41;
+import com.baidu.tieba.d41;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -74,26 +73,26 @@ public class BdVideoSeekbarImageView extends View {
                 return;
             }
         }
-        p = c41.a(12.0f);
-        q = c41.d(30.0f);
-        r = c41.a(17.0f);
-        s = c41.a(13.0f);
-        t = c41.a(2.0f);
-        c41.a(9.0f);
-        u = c41.b(90.0f);
-        v = c41.b(90.0f);
-        w = c41.a(77.0f);
-        x = c41.a(7.0f);
-        y = c41.a(1.0f);
-        z = c41.a(23.0f);
-        A = c41.a(21.0f);
-        B = c41.a(64.0f);
-        C = c41.a(34.0f);
-        D = c41.a(27.0f);
-        E = c41.a(25.0f);
-        F = c41.a(11.0f);
-        G = c41.a(9.0f);
-        H = c41.a(60.0f);
+        p = d41.a(12.0f);
+        q = d41.d(30.0f);
+        r = d41.a(17.0f);
+        s = d41.a(13.0f);
+        t = d41.a(2.0f);
+        d41.a(9.0f);
+        u = d41.b(90.0f);
+        v = d41.b(90.0f);
+        w = d41.a(77.0f);
+        x = d41.a(7.0f);
+        y = d41.a(1.0f);
+        z = d41.a(23.0f);
+        A = d41.a(21.0f);
+        B = d41.a(64.0f);
+        C = d41.a(34.0f);
+        D = d41.a(27.0f);
+        E = d41.a(25.0f);
+        F = d41.a(11.0f);
+        G = d41.a(9.0f);
+        H = d41.a(60.0f);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -115,6 +114,37 @@ public class BdVideoSeekbarImageView extends View {
                 return;
             }
         }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public BdVideoSeekbarImageView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.e = u;
+        this.f = v;
+        this.g = "";
+        this.h = "";
+        this.i = "";
+        this.l = q;
+        this.m = p;
+        this.o = true;
+        this.b = context;
+        b();
     }
 
     public Bitmap a(View view2) {
@@ -150,7 +180,7 @@ public class BdVideoSeekbarImageView extends View {
             this.d.setTextSize(p);
             this.d.setColor(-7829368);
             this.k = new Rect();
-            this.j = this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e2c);
+            this.j = this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e3d);
             BdThumbSeekBar bdThumbSeekBar = new BdThumbSeekBar(this.b, y);
             this.a = bdThumbSeekBar;
             bdThumbSeekBar.setDragable(false);
@@ -168,14 +198,43 @@ public class BdVideoSeekbarImageView extends View {
         }
     }
 
+    @Override // android.view.View
+    public void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
+            setMeasuredDimension(this.e, this.f);
+        }
+    }
+
+    public void setMsg(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048587, this, str, str2) == null) {
+            this.h = str;
+            this.i = str2;
+            invalidate();
+        }
+    }
+
     public float d() {
         InterceptResult invokeV;
+        int i;
+        int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             if (this.i.length() < 6) {
-                return this.o ? D : E;
+                if (this.o) {
+                    i2 = D;
+                } else {
+                    i2 = E;
+                }
+                return i2;
             }
-            return this.o ? F : G;
+            if (this.o) {
+                i = F;
+            } else {
+                i = G;
+            }
+            return i;
         }
         return invokeV.floatValue;
     }
@@ -222,14 +281,6 @@ public class BdVideoSeekbarImageView extends View {
         }
     }
 
-    @Override // android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
-            setMeasuredDimension(this.e, this.f);
-        }
-    }
-
     public void setBackground(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
@@ -240,10 +291,9 @@ public class BdVideoSeekbarImageView extends View {
     public void setDuration(int i) {
         BdThumbSeekBar bdThumbSeekBar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048583, this, i) == null) || (bdThumbSeekBar = this.a) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeI(1048583, this, i) == null) && (bdThumbSeekBar = this.a) != null) {
+            bdThumbSeekBar.setMax(i);
         }
-        bdThumbSeekBar.setMax(i);
     }
 
     public void setHeight(int i) {
@@ -267,15 +317,6 @@ public class BdVideoSeekbarImageView extends View {
         }
     }
 
-    public void setMsg(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, str, str2) == null) {
-            this.h = str;
-            this.i = str2;
-            invalidate();
-        }
-    }
-
     public void setMsgFontSize(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
@@ -286,10 +327,9 @@ public class BdVideoSeekbarImageView extends View {
     public void setPosition(int i) {
         BdThumbSeekBar bdThumbSeekBar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048589, this, i) == null) || (bdThumbSeekBar = this.a) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeI(1048589, this, i) == null) && (bdThumbSeekBar = this.a) != null) {
+            bdThumbSeekBar.setProgress(i);
         }
-        bdThumbSeekBar.setProgress(i);
     }
 
     public void setTitle(String str) {
@@ -311,36 +351,5 @@ public class BdVideoSeekbarImageView extends View {
         if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
             this.e = i;
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BdVideoSeekbarImageView(Context context, @Nullable AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.e = u;
-        this.f = v;
-        this.g = "";
-        this.h = "";
-        this.i = "";
-        this.l = q;
-        this.m = p;
-        this.o = true;
-        this.b = context;
-        b();
     }
 }

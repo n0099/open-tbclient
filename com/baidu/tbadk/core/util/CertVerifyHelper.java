@@ -40,11 +40,25 @@ public class CertVerifyHelper {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             try {
                 PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 64);
-                if (packageInfo == null || packageInfo.signatures[0] == null) {
-                    return null;
+                if (packageInfo != null && packageInfo.signatures[0] != null) {
+                    return parsePublicKey(packageInfo.signatures[0].toByteArray());
                 }
-                return parsePublicKey(packageInfo.signatures[0].toByteArray());
+                return null;
             } catch (Exception e) {
+                BdLog.e(e);
+                return null;
+            }
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public static byte[] parsePublicKey(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
+            try {
+                return ((X509Certificate) CertificateFactory.getInstance("X.509").generateCertificate(new ByteArrayInputStream(bArr))).getPublicKey().getEncoded();
+            } catch (CertificateException e) {
                 BdLog.e(e);
                 return null;
             }
@@ -73,22 +87,11 @@ public class CertVerifyHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             byte[] publicKey = getPublicKey(context);
-            return publicKey == null || publicKey.length == 0 || Arrays.equals(publicKey, hexStr2Bytes(DEFAUKLT_PACKAGE_PUBLIC_KEY));
+            if (publicKey == null || publicKey.length == 0 || Arrays.equals(publicKey, hexStr2Bytes(DEFAUKLT_PACKAGE_PUBLIC_KEY))) {
+                return true;
+            }
+            return false;
         }
         return invokeL.booleanValue;
-    }
-
-    public static byte[] parsePublicKey(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
-            try {
-                return ((X509Certificate) CertificateFactory.getInstance("X.509").generateCertificate(new ByteArrayInputStream(bArr))).getPublicKey().getEncoded();
-            } catch (CertificateException e) {
-                BdLog.e(e);
-                return null;
-            }
-        }
-        return (byte[]) invokeL.objValue;
     }
 }

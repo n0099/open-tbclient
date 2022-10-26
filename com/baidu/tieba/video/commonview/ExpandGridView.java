@@ -45,53 +45,6 @@ public class ExpandGridView extends GridView {
         this.a = new Scroller(context);
     }
 
-    @Override // android.view.View
-    public void computeScroll() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.a.computeScrollOffset()) {
-                int currY = this.a.getCurrY();
-                a aVar = this.b;
-                if (aVar != null) {
-                    aVar.a(currY);
-                }
-                if (getLayoutParams() != null) {
-                    ViewGroup.LayoutParams layoutParams = getLayoutParams();
-                    layoutParams.height = currY;
-                    setLayoutParams(layoutParams);
-                }
-            }
-            super.computeScroll();
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
-            if (motionEvent.getAction() != 3) {
-                motionEvent.getAction();
-            }
-            return super.dispatchTouchEvent(motionEvent);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // android.widget.AbsListView, android.view.View
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) ? super.onTouchEvent(motionEvent) : invokeL.booleanValue;
-    }
-
-    public void setScrollCallBack(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.b = aVar;
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ExpandGridView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -134,5 +87,55 @@ public class ExpandGridView extends GridView {
             }
         }
         this.a = new Scroller(context);
+    }
+
+    @Override // android.view.View
+    public void computeScroll() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (this.a.computeScrollOffset()) {
+                int currY = this.a.getCurrY();
+                a aVar = this.b;
+                if (aVar != null) {
+                    aVar.a(currY);
+                }
+                if (getLayoutParams() != null) {
+                    ViewGroup.LayoutParams layoutParams = getLayoutParams();
+                    layoutParams.height = currY;
+                    setLayoutParams(layoutParams);
+                }
+            }
+            super.computeScroll();
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
+            if (motionEvent.getAction() != 3) {
+                motionEvent.getAction();
+            }
+            return super.dispatchTouchEvent(motionEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.widget.AbsListView, android.view.View
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
+            return super.onTouchEvent(motionEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void setScrollCallBack(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+            this.b = aVar;
+        }
     }
 }

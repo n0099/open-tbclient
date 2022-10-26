@@ -1,7 +1,7 @@
 package com.baidu.bdtask.service.cache.storage.storer.file.history;
 
 import com.baidu.bdtask.framework.utils.DebugTrace;
-import com.baidu.tieba.gv;
+import com.baidu.tieba.hv;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.File;
@@ -13,7 +13,7 @@ public interface b {
 
     @Metadata(bv = {1, 0, 2}, d1 = {}, d2 = {}, k = 3, mv = {1, 1, 9}, pn = "", xi = 0, xs = "")
     /* loaded from: classes.dex */
-    public static final class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -32,7 +32,7 @@ public interface b {
                     FilesKt__UtilsKt.copyTo$default(a, file, false, 0, 6, null);
                     a.delete();
                     DebugTrace.a.c(FileV1StorageUpgrade$onProcessV1StorageFile$1.INSTANCE);
-                    gv.c.a();
+                    hv.c.a();
                 } catch (Throwable th) {
                     th.printStackTrace();
                 }

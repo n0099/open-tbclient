@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class FaceLoginModel implements Comparable<FaceLoginModel> {
+public class FaceLoginModel implements Comparable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String livingUname;
@@ -42,7 +42,10 @@ public class FaceLoginModel implements Comparable<FaceLoginModel> {
             if (j - j2 > 0) {
                 return -1;
             }
-            return j - j2 == 0 ? 0 : 1;
+            if (j - j2 == 0) {
+                return 0;
+            }
+            return 1;
         }
         return invokeL.intValue;
     }

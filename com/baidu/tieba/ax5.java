@@ -1,123 +1,76 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.mainTab.FragmentTabIndicator;
-import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
-import com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsLiveFragment;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.ala.frsgamelive.view.AlaGameFrsLiveGameCardView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class ax5 extends l95 {
+public class ax5 extends rn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AlaFrsLiveFragment c;
+    public TbPageContext a;
+    public qt5 b;
 
-    public ax5(boolean z) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ax5(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        AlaFrsLiveFragment alaFrsLiveFragment = new AlaFrsLiveFragment();
-        this.c = alaFrsLiveFragment;
-        alaFrsLiveFragment.F1(z);
-        b().a = this.c;
+        this.a = tbPageContext;
     }
 
-    @Override // com.baidu.tieba.l95
-    public m95 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            m95 m95Var = new m95();
-            m95Var.e = 2;
-            m95Var.b = R.string.obfuscated_res_0x7f0f0226;
-            m95Var.i = m95.k;
-            return m95Var;
-        }
-        return (m95) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.l95
-    public TbFragmentTabIndicator c(Context context) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.rn
+    /* renamed from: s */
+    public AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02ee, (ViewGroup) null);
-            this.b = fragmentTabIndicator;
-            fragmentTabIndicator.setTextSize(2.0f);
-            return this.b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            return new AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder(new AlaGameFrsLiveGameCardView(this.a));
         }
-        return (TbFragmentTabIndicator) invokeL.objValue;
+        return (AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.l95
-    public boolean d() {
-        InterceptResult invokeV;
+    public void u(qt5 qt5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return true;
+        if (interceptable == null || interceptable.invokeL(1048580, this, qt5Var) == null) {
+            this.b = qt5Var;
         }
-        return invokeV.booleanValue;
     }
 
-    public void g(String str) {
-        AlaFrsLiveFragment alaFrsLiveFragment;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.rn
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, gx5 gx5Var, AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder alaGameFrsGameViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || (alaFrsLiveFragment = this.c) == null) {
-            return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, gx5Var, alaGameFrsGameViewHolder})) == null) {
+            alaGameFrsGameViewHolder.a.l(gx5Var);
+            alaGameFrsGameViewHolder.a.t(this.b);
+            return alaGameFrsGameViewHolder.getView();
         }
-        alaFrsLiveFragment.B1(str);
-    }
-
-    public void h(String str) {
-        AlaFrsLiveFragment alaFrsLiveFragment;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (alaFrsLiveFragment = this.c) == null) {
-            return;
-        }
-        alaFrsLiveFragment.C1(str);
-    }
-
-    public void i(String str) {
-        AlaFrsLiveFragment alaFrsLiveFragment;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || (alaFrsLiveFragment = this.c) == null) {
-            return;
-        }
-        alaFrsLiveFragment.D1(str);
-    }
-
-    public void j(int i) {
-        AlaFrsLiveFragment alaFrsLiveFragment;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048582, this, i) == null) || (alaFrsLiveFragment = this.c) == null) {
-            return;
-        }
-        alaFrsLiveFragment.E1(i);
-    }
-
-    public void k(boolean z) {
-        AlaFrsLiveFragment alaFrsLiveFragment;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048583, this, z) == null) || (alaFrsLiveFragment = this.c) == null) {
-            return;
-        }
-        alaFrsLiveFragment.G1(z);
+        return (View) invokeCommon.objValue;
     }
 }

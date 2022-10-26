@@ -5,7 +5,6 @@ import android.os.Handler;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,30 +24,21 @@ public class CountDownTextView extends TextView {
     public String f;
 
     /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
+    public /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes5.dex */
-    public static class b implements Runnable {
+    public interface c {
+        void onTimeout(View view2);
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final WeakReference<CountDownTextView> a;
-
-        public /* synthetic */ b(CountDownTextView countDownTextView, a aVar) {
-            this(countDownTextView);
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            CountDownTextView countDownTextView;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (countDownTextView = this.a.get()) == null) {
-                return;
-            }
-            countDownTextView.b(1);
-        }
+        public final WeakReference a;
 
         public b(CountDownTextView countDownTextView) {
             Interceptable interceptable = $ic;
@@ -65,13 +55,22 @@ public class CountDownTextView extends TextView {
                     return;
                 }
             }
-            this.a = new WeakReference<>(countDownTextView);
+            this.a = new WeakReference(countDownTextView);
         }
-    }
 
-    /* loaded from: classes5.dex */
-    public interface c {
-        void onTimeout(View view2);
+        public /* synthetic */ b(CountDownTextView countDownTextView, a aVar) {
+            this(countDownTextView);
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            CountDownTextView countDownTextView;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (countDownTextView = (CountDownTextView) this.a.get()) == null) {
+                return;
+            }
+            countDownTextView.b(1);
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -98,9 +97,59 @@ public class CountDownTextView extends TextView {
         d();
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public CountDownTextView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = null;
+        this.c = null;
+        this.e = true;
+        d();
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public CountDownTextView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.b = null;
+        this.c = null;
+        this.e = true;
+        d();
+    }
+
     public final void b(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || i <= 0) {
+        if ((interceptable != null && interceptable.invokeI(1048576, this, i) != null) || i <= 0) {
             return;
         }
         int i2 = this.a;
@@ -206,55 +255,5 @@ public class CountDownTextView extends TextView {
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
             this.a = i;
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CountDownTextView(Context context, @Nullable AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.b = null;
-        this.c = null;
-        this.e = true;
-        d();
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CountDownTextView(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.b = null;
-        this.c = null;
-        this.e = true;
-        d();
     }
 }

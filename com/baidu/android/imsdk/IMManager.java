@@ -33,6 +33,15 @@ public final class IMManager extends BaseManager implements NoProGuard {
         }
     }
 
+    public static String getVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return IMManagerImpl.getVersion();
+        }
+        return (String) invokeV.objValue;
+    }
+
     public static boolean enableDebugMode(Context context, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
@@ -43,18 +52,6 @@ public final class IMManager extends BaseManager implements NoProGuard {
             return IMSettings.enableDebugMode(context.getApplicationContext(), z);
         }
         return invokeLZ.booleanValue;
-    }
-
-    public static String getIMDeviceId(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? Utility.getIMDeviceId(context) : (String) invokeL.objValue;
-    }
-
-    public static String getVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? IMManagerImpl.getVersion() : (String) invokeV.objValue;
     }
 
     public static boolean init(Context context, int i) {
@@ -71,5 +68,14 @@ public final class IMManager extends BaseManager implements NoProGuard {
             return productLine;
         }
         return invokeLI.booleanValue;
+    }
+
+    public static String getIMDeviceId(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            return Utility.getIMDeviceId(context);
+        }
+        return (String) invokeL.objValue;
     }
 }

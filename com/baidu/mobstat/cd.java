@@ -1,346 +1,149 @@
 package com.baidu.mobstat;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobstat.by;
-import com.baidu.mobstat.cq;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Binder;
+import android.os.IBinder;
+import android.os.IInterface;
+import android.os.Parcel;
+import android.os.RemoteException;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
-import java.nio.ByteBuffer;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
 /* loaded from: classes2.dex */
-public abstract class cd {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = 1000;
-    public static int b = 64;
-    public static final byte[] c;
-    public transient /* synthetic */ FieldHolder $fh;
-    public by.b d;
-    public cq.a e;
+public interface cd extends IInterface {
+    String a() throws RemoteException;
 
-    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    boolean b() throws RemoteException;
+
     /* loaded from: classes2.dex */
-    public static final class a {
+    public abstract class a extends Binder implements cd {
         public static /* synthetic */ Interceptable $ic;
-        public static final a a;
-        public static final a b;
-        public static final a c;
-        public static final /* synthetic */ a[] d;
         public transient /* synthetic */ FieldHolder $fh;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(628401748, "Lcom/baidu/mobstat/cd$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
+        /* renamed from: com.baidu.mobstat.cd$a$a  reason: collision with other inner class name */
+        /* loaded from: classes2.dex */
+        public class C0115a implements cd {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public IBinder a;
+
+            public C0115a(IBinder iBinder) {
+                Interceptable interceptable = $ic;
                 if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(628401748, "Lcom/baidu/mobstat/cd$a;");
-                    return;
-                }
-            }
-            a = new a(HlsPlaylistParser.METHOD_NONE, 0);
-            b = new a("ONEWAY", 1);
-            a aVar = new a("TWOWAY", 2);
-            c = aVar;
-            d = new a[]{a, b, aVar};
-        }
-
-        public a(String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    String str2 = (String) objArr2[0];
-                    ((Integer) objArr2[1]).intValue();
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-
-        public static a valueOf(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (a) Enum.valueOf(a.class, str) : (a) invokeL.objValue;
-        }
-
-        public static a[] values() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) d.clone() : (a[]) invokeV.objValue;
-        }
-    }
-
-    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final b a;
-        public static final b b;
-        public static final /* synthetic */ b[] c;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(628401779, "Lcom/baidu/mobstat/cd$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(628401779, "Lcom/baidu/mobstat/cd$b;");
-                    return;
-                }
-            }
-            a = new b("MATCHED", 0);
-            b bVar = new b("NOT_MATCHED", 1);
-            b = bVar;
-            c = new b[]{a, bVar};
-        }
-
-        public b(String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    String str2 = (String) objArr2[0];
-                    ((Integer) objArr2[1]).intValue();
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-
-        public static b valueOf(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (b) Enum.valueOf(b.class, str) : (b) invokeL.objValue;
-        }
-
-        public static b[] values() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (b[]) c.clone() : (b[]) invokeV.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(581658865, "Lcom/baidu/mobstat/cd;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(581658865, "Lcom/baidu/mobstat/cd;");
-                return;
-            }
-        }
-        c = dc.a("<policy-file-request/>\u0000");
-    }
-
-    public cd() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.d = null;
-        this.e = null;
-    }
-
-    public static ByteBuffer a(ByteBuffer byteBuffer) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, byteBuffer)) == null) {
-            ByteBuffer allocate = ByteBuffer.allocate(byteBuffer.remaining());
-            byte b2 = 48;
-            while (byteBuffer.hasRemaining()) {
-                byte b3 = byteBuffer.get();
-                allocate.put(b3);
-                if (b2 == 13 && b3 == 10) {
-                    allocate.limit(allocate.position() - 2);
-                    allocate.position(0);
-                    return allocate;
-                }
-                b2 = b3;
-            }
-            byteBuffer.position(byteBuffer.position() - allocate.position());
-            return null;
-        }
-        return (ByteBuffer) invokeL.objValue;
-    }
-
-    public static String b(ByteBuffer byteBuffer) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, byteBuffer)) == null) {
-            ByteBuffer a2 = a(byteBuffer);
-            if (a2 == null) {
-                return null;
-            }
-            return dc.a(a2.array(), 0, a2.limit());
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public abstract b a(cs csVar, cz czVar) throws cj;
-
-    public abstract ct a(ct ctVar) throws cj;
-
-    public abstract ByteBuffer a(cq cqVar);
-
-    public abstract List<cq> a(ByteBuffer byteBuffer, boolean z);
-
-    public abstract void a();
-
-    public abstract a b();
-
-    public abstract cd c();
-
-    public abstract List<cq> c(ByteBuffer byteBuffer) throws ch;
-
-    public cx d(ByteBuffer byteBuffer) throws cj {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, byteBuffer)) == null) ? a(byteBuffer, this.d) : (cx) invokeL.objValue;
-    }
-
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r7v5, types: [com.baidu.mobstat.da, com.baidu.mobstat.cw] */
-    public static cu a(ByteBuffer byteBuffer, by.b bVar) throws cj, cg {
-        InterceptResult invokeLL;
-        cv cvVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, byteBuffer, bVar)) == null) {
-            String b2 = b(byteBuffer);
-            if (b2 != null) {
-                String[] split = b2.split(" ", 3);
-                if (split.length == 3) {
-                    if (bVar == by.b.a) {
-                        ?? cwVar = new cw();
-                        cwVar.a(Short.parseShort(split[1]));
-                        cwVar.a(split[2]);
-                        cvVar = cwVar;
-                    } else {
-                        cv cvVar2 = new cv();
-                        cvVar2.a(split[1]);
-                        cvVar = cvVar2;
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {iBinder};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
                     }
-                    String b3 = b(byteBuffer);
-                    while (b3 != null && b3.length() > 0) {
-                        String[] split2 = b3.split(":", 2);
-                        if (split2.length == 2) {
-                            cvVar.a(split2[0], split2[1].replaceFirst("^ +", ""));
-                            b3 = b(byteBuffer);
-                        } else {
-                            throw new cj("not an http header");
+                }
+                this.a = iBinder;
+            }
+
+            @Override // com.baidu.mobstat.cd
+            public String a() throws RemoteException {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                    Parcel obtain = Parcel.obtain();
+                    Parcel obtain2 = Parcel.obtain();
+                    try {
+                        obtain.writeInterfaceToken("com.uodis.opendevice.aidl.OpenDeviceIdentifierService");
+                        this.a.transact(1, obtain, obtain2, 0);
+                        obtain2.readException();
+                        return obtain2.readString();
+                    } finally {
+                        obtain2.recycle();
+                        obtain.recycle();
+                    }
+                }
+                return (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.mobstat.cd
+            public boolean b() throws RemoteException {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                    Parcel obtain = Parcel.obtain();
+                    Parcel obtain2 = Parcel.obtain();
+                    try {
+                        obtain.writeInterfaceToken("com.uodis.opendevice.aidl.OpenDeviceIdentifierService");
+                        boolean z = false;
+                        this.a.transact(2, obtain, obtain2, 0);
+                        obtain2.readException();
+                        if (obtain2.readInt() != 0) {
+                            z = true;
                         }
+                        return z;
+                    } finally {
+                        obtain2.recycle();
+                        obtain.recycle();
                     }
-                    if (b3 != null) {
-                        return cvVar;
-                    }
-                    throw new cg();
                 }
-                throw new cj();
+                return invokeV.booleanValue;
             }
-            throw new cg(byteBuffer.capacity() + 128);
+
+            @Override // android.os.IInterface
+            public IBinder asBinder() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                    return this.a;
+                }
+                return (IBinder) invokeV.objValue;
+            }
         }
-        return (cu) invokeLL.objValue;
-    }
 
-    public List<ByteBuffer> a(cx cxVar, by.b bVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, cxVar, bVar)) == null) ? a(cxVar, bVar, true) : (List) invokeLL.objValue;
-    }
-
-    public List<ByteBuffer> a(cx cxVar, by.b bVar, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048581, this, cxVar, bVar, z)) == null) {
-            StringBuilder sb = new StringBuilder(100);
-            if (cxVar instanceof cs) {
-                sb.append("GET ");
-                sb.append(((cs) cxVar).a());
-                sb.append(" HTTP/1.1");
-            } else if (cxVar instanceof cz) {
-                sb.append("HTTP/1.1 101 ");
-                sb.append(((cz) cxVar).a());
-            } else {
-                throw new RuntimeException("unknown role");
+        public static cd a(IBinder iBinder) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, iBinder)) == null) {
+                if (iBinder == null) {
+                    return null;
+                }
+                IInterface queryLocalInterface = iBinder.queryLocalInterface("com.uodis.opendevice.aidl.OpenDeviceIdentifierService");
+                if (queryLocalInterface != null && (queryLocalInterface instanceof cd)) {
+                    return (cd) queryLocalInterface;
+                }
+                return new C0115a(iBinder);
             }
-            sb.append("\r\n");
-            Iterator<String> b2 = cxVar.b();
-            while (b2.hasNext()) {
-                String next = b2.next();
-                String b3 = cxVar.b(next);
-                sb.append(next);
-                sb.append(": ");
-                sb.append(b3);
-                sb.append("\r\n");
-            }
-            sb.append("\r\n");
-            byte[] b4 = dc.b(sb.toString());
-            byte[] c2 = z ? cxVar.c() : null;
-            ByteBuffer allocate = ByteBuffer.allocate((c2 == null ? 0 : c2.length) + b4.length);
-            allocate.put(b4);
-            if (c2 != null) {
-                allocate.put(c2);
-            }
-            allocate.flip();
-            return Collections.singletonList(allocate);
+            return (cd) invokeL.objValue;
         }
-        return (List) invokeLLZ.objValue;
-    }
 
-    public int a(int i) throws ck, ch {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i >= 0) {
-                return i;
+        @Override // android.os.Binder
+        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), parcel, parcel2, Integer.valueOf(i2)})) == null) {
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i != 1598968902) {
+                            return super.onTransact(i, parcel, parcel2, i2);
+                        }
+                        parcel2.writeString("com.uodis.opendevice.aidl.OpenDeviceIdentifierService");
+                        return true;
+                    }
+                    parcel.enforceInterface("com.uodis.opendevice.aidl.OpenDeviceIdentifierService");
+                    boolean b = b();
+                    parcel2.writeNoException();
+                    parcel2.writeInt(b ? 1 : 0);
+                    return true;
+                }
+                parcel.enforceInterface("com.uodis.opendevice.aidl.OpenDeviceIdentifierService");
+                String a = a();
+                parcel2.writeNoException();
+                parcel2.writeString(a);
+                return true;
             }
-            throw new ch(1002, "Negative count");
-        }
-        return invokeI.intValue;
-    }
-
-    public void a(by.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) {
-            this.d = bVar;
+            return invokeCommon.booleanValue;
         }
     }
 }

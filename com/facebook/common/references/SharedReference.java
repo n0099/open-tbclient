@@ -12,26 +12,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Objects;
 import com.facebook.common.internal.Preconditions;
-import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.common.logging.FLog;
 import java.util.IdentityHashMap;
 import java.util.Map;
-import javax.annotation.concurrent.GuardedBy;
-@VisibleForTesting
 /* loaded from: classes7.dex */
-public class SharedReference<T> {
+public class SharedReference {
     public static /* synthetic */ Interceptable $ic;
-    @GuardedBy("itself")
-    public static final Map<Object, Integer> sLiveObjects;
+    public static final Map sLiveObjects;
     public transient /* synthetic */ FieldHolder $fh;
-    @GuardedBy("this")
     public int mRefCount;
-    public final ResourceReleaser<T> mResourceReleaser;
-    @GuardedBy("this")
-    public T mValue;
+    public final ResourceReleaser mResourceReleaser;
+    public Object mValue;
 
     /* loaded from: classes7.dex */
-    public static class NullReferenceException extends RuntimeException {
+    public class NullReferenceException extends RuntimeException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -70,52 +64,20 @@ public class SharedReference<T> {
         sLiveObjects = new IdentityHashMap();
     }
 
-    public SharedReference(T t, ResourceReleaser<T> resourceReleaser) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {t, resourceReleaser};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mValue = (T) Preconditions.checkNotNull(t);
-        this.mResourceReleaser = (ResourceReleaser) Preconditions.checkNotNull(resourceReleaser);
-        this.mRefCount = 1;
-        addLiveReference(t);
-    }
-
-    public static void addLiveReference(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, obj) == null) {
-            if (CloseableReference.useGc() && ((obj instanceof Bitmap) || (obj instanceof HasBitmap))) {
-                return;
-            }
-            synchronized (sLiveObjects) {
-                Integer num = sLiveObjects.get(obj);
-                if (num == null) {
-                    sLiveObjects.put(obj, 1);
-                } else {
-                    sLiveObjects.put(obj, Integer.valueOf(num.intValue() + 1));
-                }
-            }
-        }
-    }
-
     private synchronized int decreaseRefCount() {
         InterceptResult invokeV;
+        boolean z;
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             synchronized (this) {
                 ensureValid();
-                Preconditions.checkArgument(this.mRefCount > 0);
+                if (this.mRefCount > 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                Preconditions.checkArgument(z);
                 i = this.mRefCount - 1;
                 this.mRefCount = i;
             }
@@ -126,31 +88,19 @@ public class SharedReference<T> {
 
     private void ensureValid() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && !isValid(this)) {
-            throw new NullReferenceException();
+        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) != null) || isValid(this)) {
+            return;
         }
-    }
-
-    public static void removeLiveReference(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, obj) == null) {
-            synchronized (sLiveObjects) {
-                Integer num = sLiveObjects.get(obj);
-                if (num == null) {
-                    FLog.wtf("SharedReference", "No entry in sLiveObjects for value of type %s", obj.getClass());
-                } else if (num.intValue() == 1) {
-                    sLiveObjects.remove(obj);
-                } else {
-                    sLiveObjects.put(obj, Integer.valueOf(num.intValue() - 1));
-                }
-            }
-        }
+        throw new NullReferenceException();
     }
 
     public static String reportData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? Objects.toStringHelper("SharedReference").add("live_objects_count", sLiveObjects.size()).toString() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return Objects.toStringHelper("SharedReference").add("live_objects_count", sLiveObjects.size()).toString();
+        }
+        return (String) invokeV.objValue;
     }
 
     public synchronized void addReference() {
@@ -179,15 +129,15 @@ public class SharedReference<T> {
     }
 
     public void deleteReference() {
-        T t;
+        Object obj;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && decreaseRefCount() == 0) {
             synchronized (this) {
-                t = this.mValue;
+                obj = this.mValue;
                 this.mValue = null;
             }
-            this.mResourceReleaser.release(t);
-            removeLiveReference(t);
+            this.mResourceReleaser.release(obj);
+            removeLiveReference(obj);
         }
     }
 
@@ -206,17 +156,17 @@ public class SharedReference<T> {
         return invokeV.booleanValue;
     }
 
-    public synchronized T get() {
+    public synchronized Object get() {
         InterceptResult invokeV;
-        T t;
+        Object obj;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             synchronized (this) {
-                t = this.mValue;
+                obj = this.mValue;
             }
-            return t;
+            return obj;
         }
-        return (T) invokeV.objValue;
+        return invokeV.objValue;
     }
 
     public synchronized int getRefCountTestOnly() {
@@ -238,16 +188,80 @@ public class SharedReference<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             synchronized (this) {
-                z = this.mRefCount > 0;
+                if (this.mRefCount > 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
             }
             return z;
         }
         return invokeV.booleanValue;
     }
 
-    public static boolean isValid(SharedReference<?> sharedReference) {
+    public SharedReference(Object obj, ResourceReleaser resourceReleaser) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {obj, resourceReleaser};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mValue = Preconditions.checkNotNull(obj);
+        this.mResourceReleaser = (ResourceReleaser) Preconditions.checkNotNull(resourceReleaser);
+        this.mRefCount = 1;
+        addLiveReference(obj);
+    }
+
+    public static void addLiveReference(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, obj) == null) {
+            if (CloseableReference.useGc() && ((obj instanceof Bitmap) || (obj instanceof HasBitmap))) {
+                return;
+            }
+            synchronized (sLiveObjects) {
+                Integer num = (Integer) sLiveObjects.get(obj);
+                if (num == null) {
+                    sLiveObjects.put(obj, 1);
+                } else {
+                    sLiveObjects.put(obj, Integer.valueOf(num.intValue() + 1));
+                }
+            }
+        }
+    }
+
+    public static void removeLiveReference(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, null, obj) == null) {
+            synchronized (sLiveObjects) {
+                Integer num = (Integer) sLiveObjects.get(obj);
+                if (num == null) {
+                    FLog.wtf("SharedReference", "No entry in sLiveObjects for value of type %s", obj.getClass());
+                } else if (num.intValue() == 1) {
+                    sLiveObjects.remove(obj);
+                } else {
+                    sLiveObjects.put(obj, Integer.valueOf(num.intValue() - 1));
+                }
+            }
+        }
+    }
+
+    public static boolean isValid(SharedReference sharedReference) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, sharedReference)) == null) ? sharedReference != null && sharedReference.isValid() : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, sharedReference)) == null) {
+            if (sharedReference != null && sharedReference.isValid()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

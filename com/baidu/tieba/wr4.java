@@ -1,86 +1,76 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.FrsPage.ColorEgg;
 /* loaded from: classes6.dex */
-public class wr4 extends yq4 implements mb5 {
+public class wr4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
-    public static final int[] c;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948280176, "Lcom/baidu/tieba/wr4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948280176, "Lcom/baidu/tieba/wr4;");
-                return;
-            }
-        }
-        b = BdUniqueId.gen();
-        c = new int[]{0, 1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15};
-    }
+    public ArrayList<String> a;
+    public int b;
 
     public wr4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 6;
+        this.a = new ArrayList<>();
     }
 
-    public int c() {
+    public ArrayList<String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.a = i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
+        return (ArrayList) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yq4
-    public vs4 getNegFeedBackData() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-        return (vs4) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.yq4
-    public ThreadData getThreadData() {
-        InterceptResult invokeV;
+    public boolean c(ColorEgg colorEgg) {
+        InterceptResult invokeL;
+        List<String> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, colorEgg)) == null) {
+            this.b = 0;
+            if (colorEgg == null || (list = colorEgg.holiday_words) == null || list.size() <= 0) {
+                return false;
+            }
+            for (String str : colorEgg.holiday_words) {
+                if (!StringUtils.isNull(str)) {
+                    this.a.add(str);
+                }
+            }
+            if (this.a.size() <= 0) {
+                return false;
+            }
+            this.b = colorEgg.style_flag.intValue();
+            return true;
         }
-        return (ThreadData) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 }

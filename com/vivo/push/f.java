@@ -41,13 +41,12 @@ public final class f implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             context = this.b.h;
-            if (context == null || TextUtils.isEmpty(this.a)) {
-                return;
-            }
-            context2 = this.b.h;
-            context3 = this.b.h;
-            if (z.b(context2, context3.getPackageName(), this.a)) {
-                this.b.i();
+            if (context != null && !TextUtils.isEmpty(this.a)) {
+                context2 = this.b.h;
+                context3 = this.b.h;
+                if (z.b(context2, context3.getPackageName(), this.a)) {
+                    this.b.i();
+                }
             }
         }
     }

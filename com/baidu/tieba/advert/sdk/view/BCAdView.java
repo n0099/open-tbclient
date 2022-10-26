@@ -9,13 +9,13 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.advert.sdk.data.AdInfo;
 import com.baidu.tieba.advert.sdk.data.AdType;
-import com.baidu.tieba.dj;
-import com.baidu.tieba.gr5;
-import com.baidu.tieba.on;
-import com.baidu.tieba.pq5;
-import com.baidu.tieba.rq5;
-import com.baidu.tieba.tq5;
-import com.baidu.tieba.yg;
+import com.baidu.tieba.ah;
+import com.baidu.tieba.ar5;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.nr5;
+import com.baidu.tieba.pn;
+import com.baidu.tieba.wq5;
+import com.baidu.tieba.yq5;
 import com.baidu.tieba.zg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -28,10 +28,10 @@ import org.json.JSONObject;
 public class BCAdView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public tq5 a;
+    public ar5 a;
     public BCAdView b;
     public TbImageView c;
-    public TbPageContext<?> d;
+    public TbPageContext d;
     public Context e;
     public AdInfo f;
     public AdInfo g;
@@ -39,24 +39,24 @@ public class BCAdView extends RelativeLayout {
     public int i;
     public int j;
     public AdType k;
-    public rq5 l;
+    public yq5 l;
 
     /* loaded from: classes3.dex */
-    public static class a implements gr5.b {
+    public class a implements nr5.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final WeakReference<BCAdView> a;
+        public final WeakReference a;
         public AdInfo b;
-        public rq5 c;
+        public yq5 c;
         public AdType d;
 
         /* renamed from: com.baidu.tieba.advert.sdk.view.BCAdView$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0199a extends yg<on> {
+        public class C0198a extends zg {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0199a(a aVar) {
+            public C0198a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -72,7 +72,7 @@ public class BCAdView extends RelativeLayout {
                 }
             }
 
-            @Override // com.baidu.tieba.yg
+            @Override // com.baidu.tieba.zg
             public void onCancelled(String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -80,7 +80,7 @@ public class BCAdView extends RelativeLayout {
                 }
             }
 
-            @Override // com.baidu.tieba.yg
+            @Override // com.baidu.tieba.zg
             public void onProgressUpdate(Object... objArr) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048579, this, objArr) == null) {
@@ -89,11 +89,11 @@ public class BCAdView extends RelativeLayout {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.yg
-            public void onLoaded(on onVar, String str, int i) {
+            @Override // com.baidu.tieba.zg
+            public void onLoaded(pn pnVar, String str, int i) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onVar, str, i) == null) {
-                    super.onLoaded((C0199a) onVar, str, i);
+                if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pnVar, str, i) == null) {
+                    super.onLoaded((C0198a) pnVar, str, i);
                 }
             }
         }
@@ -116,21 +116,21 @@ public class BCAdView extends RelativeLayout {
             this.b = bCAdView.g;
             this.c = bCAdView.l;
             this.d = bCAdView.k;
-            this.a = new WeakReference<>(bCAdView);
+            this.a = new WeakReference(bCAdView);
         }
 
-        @Override // com.baidu.tieba.gr5.b
+        @Override // com.baidu.tieba.nr5.b
         public void a(String str) {
             BCAdView bCAdView;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (bCAdView = this.a.get()) == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || (bCAdView = (BCAdView) this.a.get()) == null) {
                 return;
             }
             try {
                 if (!TextUtils.isEmpty(str)) {
-                    pq5 pq5Var = new pq5(new JSONObject(str));
+                    wq5 wq5Var = new wq5(new JSONObject(str));
                     if (bCAdView.a != null) {
-                        bCAdView.a.b(pq5Var);
+                        bCAdView.a.b(wq5Var);
                     }
                 }
                 if (bCAdView.k == AdType.SPLASH) {
@@ -143,29 +143,28 @@ public class BCAdView extends RelativeLayout {
             }
         }
 
-        @Override // com.baidu.tieba.gr5.b
+        @Override // com.baidu.tieba.nr5.b
         public void b(String str) {
-            tq5 tq5Var;
+            ar5 ar5Var;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || dj.isEmpty(str)) {
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || ej.isEmpty(str)) {
                 return;
             }
             AdInfo jsonToObject = AdInfo.jsonToObject(str);
             this.b = jsonToObject;
-            if (this.d == AdType.SPLASH && !dj.isEmpty(jsonToObject.adImgUrl)) {
-                zg.h().k(this.b.adImgUrl, 10, new C0199a(this), 0, 0, null, new Object[0]);
+            if (this.d == AdType.SPLASH && !ej.isEmpty(jsonToObject.adImgUrl)) {
+                ah.h().k(this.b.adImgUrl, 10, new C0198a(this), 0, 0, null, new Object[0]);
             }
             this.c.b(str);
-            BCAdView bCAdView = this.a.get();
-            if (bCAdView == null || (tq5Var = bCAdView.a) == null) {
-                return;
+            BCAdView bCAdView = (BCAdView) this.a.get();
+            if (bCAdView != null && (ar5Var = bCAdView.a) != null) {
+                ar5Var.d();
             }
-            tq5Var.d();
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BCAdView(TbPageContext<?> tbPageContext, String str, AdType adType, int i, int i2) {
+    public BCAdView(TbPageContext tbPageContext, String str, AdType adType, int i, int i2) {
         super(tbPageContext.getPageActivity());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -194,24 +193,11 @@ public class BCAdView extends RelativeLayout {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            tq5 tq5Var = this.a;
-            if (tq5Var != null) {
-                tq5Var.c();
+            ar5 ar5Var = this.a;
+            if (ar5Var != null) {
+                ar5Var.c();
             }
             c();
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            AdInfo adInfo = new AdInfo();
-            this.g = adInfo;
-            adInfo.placeId = this.h;
-            adInfo.adHeight = this.i;
-            adInfo.adWidth = this.j;
-            adInfo.typeId = this.k;
-            gr5.d().e(this.d, new a(this), this.g);
         }
     }
 
@@ -229,12 +215,11 @@ public class BCAdView extends RelativeLayout {
     }
 
     public final void d() {
-        tq5 tq5Var;
+        ar5 ar5Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (tq5Var = this.a) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (ar5Var = this.a) != null) {
+            ar5Var.e();
         }
-        tq5Var.e();
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -246,11 +231,23 @@ public class BCAdView extends RelativeLayout {
         }
     }
 
-    public void setBCAdCallBack(tq5 tq5Var) {
+    public void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, tq5Var) == null) || tq5Var == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            AdInfo adInfo = new AdInfo();
+            this.g = adInfo;
+            adInfo.placeId = this.h;
+            adInfo.adHeight = this.i;
+            adInfo.adWidth = this.j;
+            adInfo.typeId = this.k;
+            nr5.d().e(this.d, new a(this), this.g);
         }
-        this.a = tq5Var;
+    }
+
+    public void setBCAdCallBack(ar5 ar5Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, ar5Var) == null) && ar5Var != null) {
+            this.a = ar5Var;
+        }
     }
 }

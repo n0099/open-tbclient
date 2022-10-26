@@ -57,14 +57,6 @@ public class RoundAsCirclePostprocessor extends BasePostprocessor {
         return (CacheKey) invokeV.objValue;
     }
 
-    @Override // com.facebook.imagepipeline.request.BasePostprocessor
-    public void process(Bitmap bitmap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) {
-            NativeRoundingFilter.toCircleFast(bitmap, this.mEnableAntiAliasing);
-        }
-    }
-
     public RoundAsCirclePostprocessor(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -81,5 +73,13 @@ public class RoundAsCirclePostprocessor extends BasePostprocessor {
             }
         }
         this.mEnableAntiAliasing = z;
+    }
+
+    @Override // com.facebook.imagepipeline.request.BasePostprocessor
+    public void process(Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) {
+            NativeRoundingFilter.toCircleFast(bitmap, this.mEnableAntiAliasing);
+        }
     }
 }

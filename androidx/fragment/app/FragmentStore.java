@@ -3,9 +3,6 @@ package androidx.fragment.app;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.annotation.IdRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
@@ -47,7 +44,46 @@ public class FragmentStore {
         this.mActive = new HashMap<>();
     }
 
-    public void addFragment(@NonNull Fragment fragment) {
+    public void burpActive() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.mActive.values().removeAll(Collections.singleton(null));
+        }
+    }
+
+    public int getActiveFragmentCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.mActive.size();
+        }
+        return invokeV.intValue;
+    }
+
+    public List<Fragment> getFragments() {
+        InterceptResult invokeV;
+        ArrayList arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            if (this.mAdded.isEmpty()) {
+                return Collections.emptyList();
+            }
+            synchronized (this.mAdded) {
+                arrayList = new ArrayList(this.mAdded);
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public void resetActiveFragments() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            this.mActive.clear();
+        }
+    }
+
+    public void addFragment(Fragment fragment) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, fragment) == null) {
             if (!this.mAdded.contains(fragment)) {
@@ -61,17 +97,86 @@ public class FragmentStore {
         }
     }
 
-    public void burpActive() {
+    public Fragment findFragmentByWho(String str) {
+        InterceptResult invokeL;
+        Fragment findFragmentByWho;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.mActive.values().removeAll(Collections.singleton(null));
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            for (FragmentStateManager fragmentStateManager : this.mActive.values()) {
+                if (fragmentStateManager != null && (findFragmentByWho = fragmentStateManager.getFragment().findFragmentByWho(str)) != null) {
+                    return findFragmentByWho;
+                }
+            }
+            return null;
+        }
+        return (Fragment) invokeL.objValue;
+    }
+
+    public Fragment findFragmentUnder(Fragment fragment) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, fragment)) == null) {
+            ViewGroup viewGroup = fragment.mContainer;
+            View view2 = fragment.mView;
+            if (viewGroup != null && view2 != null) {
+                for (int indexOf = this.mAdded.indexOf(fragment) - 1; indexOf >= 0; indexOf--) {
+                    Fragment fragment2 = this.mAdded.get(indexOf);
+                    if (fragment2.mContainer == viewGroup && fragment2.mView != null) {
+                        return fragment2;
+                    }
+                }
+            }
+            return null;
+        }
+        return (Fragment) invokeL.objValue;
+    }
+
+    public boolean containsActiveFragment(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return this.mActive.containsKey(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public Fragment findActiveFragment(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            FragmentStateManager fragmentStateManager = this.mActive.get(str);
+            if (fragmentStateManager != null) {
+                return fragmentStateManager.getFragment();
+            }
+            return null;
+        }
+        return (Fragment) invokeL.objValue;
+    }
+
+    public FragmentStateManager getFragmentStateManager(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
+            return this.mActive.get(str);
+        }
+        return (FragmentStateManager) invokeL.objValue;
+    }
+
+    public void makeActive(FragmentStateManager fragmentStateManager) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, fragmentStateManager) == null) {
+            this.mActive.put(fragmentStateManager.getFragment().mWho, fragmentStateManager);
         }
     }
 
-    public boolean containsActiveFragment(@NonNull String str) {
-        InterceptResult invokeL;
+    public void removeFragment(Fragment fragment) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.mActive.containsKey(str) : invokeL.booleanValue;
+        if (interceptable == null || interceptable.invokeL(1048592, this, fragment) == null) {
+            synchronized (this.mAdded) {
+                this.mAdded.remove(fragment);
+            }
+            fragment.mAdded = false;
+        }
     }
 
     public void dispatchStateChange(int i) {
@@ -92,7 +197,79 @@ public class FragmentStore {
         }
     }
 
-    public void dump(@NonNull String str, @Nullable FileDescriptor fileDescriptor, @NonNull PrintWriter printWriter, @Nullable String[] strArr) {
+    public Fragment findFragmentById(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            for (int size = this.mAdded.size() - 1; size >= 0; size--) {
+                Fragment fragment = this.mAdded.get(size);
+                if (fragment != null && fragment.mFragmentId == i) {
+                    return fragment;
+                }
+            }
+            for (FragmentStateManager fragmentStateManager : this.mActive.values()) {
+                if (fragmentStateManager != null) {
+                    Fragment fragment2 = fragmentStateManager.getFragment();
+                    if (fragment2.mFragmentId == i) {
+                        return fragment2;
+                    }
+                }
+            }
+            return null;
+        }
+        return (Fragment) invokeI.objValue;
+    }
+
+    public Fragment findFragmentByTag(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            if (str != null) {
+                for (int size = this.mAdded.size() - 1; size >= 0; size--) {
+                    Fragment fragment = this.mAdded.get(size);
+                    if (fragment != null && str.equals(fragment.mTag)) {
+                        return fragment;
+                    }
+                }
+            }
+            if (str != null) {
+                for (FragmentStateManager fragmentStateManager : this.mActive.values()) {
+                    if (fragmentStateManager != null) {
+                        Fragment fragment2 = fragmentStateManager.getFragment();
+                        if (str.equals(fragment2.mTag)) {
+                            return fragment2;
+                        }
+                    }
+                }
+                return null;
+            }
+            return null;
+        }
+        return (Fragment) invokeL.objValue;
+    }
+
+    public void makeInactive(FragmentStateManager fragmentStateManager) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, fragmentStateManager) == null) {
+            Fragment fragment = fragmentStateManager.getFragment();
+            for (FragmentStateManager fragmentStateManager2 : this.mActive.values()) {
+                if (fragmentStateManager2 != null) {
+                    Fragment fragment2 = fragmentStateManager2.getFragment();
+                    if (fragment.mWho.equals(fragment2.mTargetWho)) {
+                        fragment2.mTarget = fragment;
+                        fragment2.mTargetWho = null;
+                    }
+                }
+            }
+            this.mActive.put(fragment.mWho, null);
+            String str = fragment.mTargetWho;
+            if (str != null) {
+                fragment.mTarget = findActiveFragment(str);
+            }
+        }
+    }
+
+    public void dump(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048580, this, str, fileDescriptor, printWriter, strArr) == null) {
             String str2 = str + "    ";
@@ -125,115 +302,6 @@ public class FragmentStore {
         }
     }
 
-    @Nullable
-    public Fragment findActiveFragment(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            FragmentStateManager fragmentStateManager = this.mActive.get(str);
-            if (fragmentStateManager != null) {
-                return fragmentStateManager.getFragment();
-            }
-            return null;
-        }
-        return (Fragment) invokeL.objValue;
-    }
-
-    @Nullable
-    public Fragment findFragmentById(@IdRes int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            for (int size = this.mAdded.size() - 1; size >= 0; size--) {
-                Fragment fragment = this.mAdded.get(size);
-                if (fragment != null && fragment.mFragmentId == i) {
-                    return fragment;
-                }
-            }
-            for (FragmentStateManager fragmentStateManager : this.mActive.values()) {
-                if (fragmentStateManager != null) {
-                    Fragment fragment2 = fragmentStateManager.getFragment();
-                    if (fragment2.mFragmentId == i) {
-                        return fragment2;
-                    }
-                }
-            }
-            return null;
-        }
-        return (Fragment) invokeI.objValue;
-    }
-
-    @Nullable
-    public Fragment findFragmentByTag(@Nullable String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            if (str != null) {
-                for (int size = this.mAdded.size() - 1; size >= 0; size--) {
-                    Fragment fragment = this.mAdded.get(size);
-                    if (fragment != null && str.equals(fragment.mTag)) {
-                        return fragment;
-                    }
-                }
-            }
-            if (str != null) {
-                for (FragmentStateManager fragmentStateManager : this.mActive.values()) {
-                    if (fragmentStateManager != null) {
-                        Fragment fragment2 = fragmentStateManager.getFragment();
-                        if (str.equals(fragment2.mTag)) {
-                            return fragment2;
-                        }
-                    }
-                }
-                return null;
-            }
-            return null;
-        }
-        return (Fragment) invokeL.objValue;
-    }
-
-    @Nullable
-    public Fragment findFragmentByWho(@NonNull String str) {
-        InterceptResult invokeL;
-        Fragment findFragmentByWho;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            for (FragmentStateManager fragmentStateManager : this.mActive.values()) {
-                if (fragmentStateManager != null && (findFragmentByWho = fragmentStateManager.getFragment().findFragmentByWho(str)) != null) {
-                    return findFragmentByWho;
-                }
-            }
-            return null;
-        }
-        return (Fragment) invokeL.objValue;
-    }
-
-    public Fragment findFragmentUnder(@NonNull Fragment fragment) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, fragment)) == null) {
-            ViewGroup viewGroup = fragment.mContainer;
-            View view2 = fragment.mView;
-            if (viewGroup != null && view2 != null) {
-                for (int indexOf = this.mAdded.indexOf(fragment) - 1; indexOf >= 0; indexOf--) {
-                    Fragment fragment2 = this.mAdded.get(indexOf);
-                    if (fragment2.mContainer == viewGroup && fragment2.mView != null) {
-                        return fragment2;
-                    }
-                }
-            }
-            return null;
-        }
-        return (Fragment) invokeL.objValue;
-    }
-
-    public int getActiveFragmentCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mActive.size() : invokeV.intValue;
-    }
-
-    @NonNull
     public List<Fragment> getActiveFragments() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -251,76 +319,7 @@ public class FragmentStore {
         return (List) invokeV.objValue;
     }
 
-    @Nullable
-    public FragmentStateManager getFragmentStateManager(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) ? this.mActive.get(str) : (FragmentStateManager) invokeL.objValue;
-    }
-
-    @NonNull
-    public List<Fragment> getFragments() {
-        InterceptResult invokeV;
-        ArrayList arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            if (this.mAdded.isEmpty()) {
-                return Collections.emptyList();
-            }
-            synchronized (this.mAdded) {
-                arrayList = new ArrayList(this.mAdded);
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public void makeActive(@NonNull FragmentStateManager fragmentStateManager) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, fragmentStateManager) == null) {
-            this.mActive.put(fragmentStateManager.getFragment().mWho, fragmentStateManager);
-        }
-    }
-
-    public void makeInactive(@NonNull FragmentStateManager fragmentStateManager) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, fragmentStateManager) == null) {
-            Fragment fragment = fragmentStateManager.getFragment();
-            for (FragmentStateManager fragmentStateManager2 : this.mActive.values()) {
-                if (fragmentStateManager2 != null) {
-                    Fragment fragment2 = fragmentStateManager2.getFragment();
-                    if (fragment.mWho.equals(fragment2.mTargetWho)) {
-                        fragment2.mTarget = fragment;
-                        fragment2.mTargetWho = null;
-                    }
-                }
-            }
-            this.mActive.put(fragment.mWho, null);
-            String str = fragment.mTargetWho;
-            if (str != null) {
-                fragment.mTarget = findActiveFragment(str);
-            }
-        }
-    }
-
-    public void removeFragment(@NonNull Fragment fragment) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, fragment) == null) {
-            synchronized (this.mAdded) {
-                this.mAdded.remove(fragment);
-            }
-            fragment.mAdded = false;
-        }
-    }
-
-    public void resetActiveFragments() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            this.mActive.clear();
-        }
-    }
-
-    public void restoreAddedFragments(@Nullable List<String> list) {
+    public void restoreAddedFragments(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, list) == null) {
             this.mAdded.clear();
@@ -340,7 +339,6 @@ public class FragmentStore {
         }
     }
 
-    @NonNull
     public ArrayList<FragmentState> saveActiveFragments() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -361,7 +359,6 @@ public class FragmentStore {
         return (ArrayList) invokeV.objValue;
     }
 
-    @Nullable
     public ArrayList<String> saveAddedFragments() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -32,6 +32,13 @@ public final class BarcodeRow {
         this.currentLocation = 0;
     }
 
+    private void set(int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            this.row[i] = z ? (byte) 1 : (byte) 0;
+        }
+    }
+
     public void addBar(boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
@@ -61,13 +68,6 @@ public final class BarcodeRow {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Byte.valueOf(b)}) == null) {
             this.row[i] = b;
-        }
-    }
-
-    private void set(int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            this.row[i] = z ? (byte) 1 : (byte) 0;
         }
     }
 }

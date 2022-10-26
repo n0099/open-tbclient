@@ -1,320 +1,227 @@
 package com.baidu.tieba;
 
-import android.content.ContentResolver;
-import android.content.Context;
-import android.database.Cursor;
-import android.media.MediaMetadataRetriever;
-import android.provider.MediaStore;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.down.statistic.ConfigSpeedStat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.TbMd5;
+import com.baidu.tbadk.download.DownloadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
-import com.google.android.exoplayer2.util.MimeTypes;
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.HashMap;
 /* loaded from: classes4.dex */
 public class hw8 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile hw8 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public HashMap a;
+    public DownloadData b;
 
     /* loaded from: classes4.dex */
-    public static final class a implements Comparator<gw8> {
+    public interface b {
+        void a(String str);
+
+        void b();
+
+        void c(String str, String str2);
+    }
+
+    /* loaded from: classes4.dex */
+    public class a implements g55 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ hw8 c;
 
-        public a() {
+        @Override // com.baidu.tieba.g55
+        public boolean onFileDownloaded(DownloadData downloadData) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadData)) == null) {
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.g55
+        public boolean onPreDownload(DownloadData downloadData) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, downloadData)) == null) {
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+
+        public a(hw8 hw8Var, b bVar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hw8Var, bVar, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.c = hw8Var;
+            this.a = bVar;
+            this.b = str;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(gw8 gw8Var, gw8 gw8Var2) {
-            InterceptResult invokeLL;
+        @Override // com.baidu.tieba.g55
+        public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, gw8Var, gw8Var2)) == null) {
-                int i = gw8Var.b() < gw8Var2.b() ? 1 : 0;
-                if (gw8Var.b() > gw8Var2.b()) {
-                    return -1;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) {
+                File file = new File(downloadData.getPath());
+                if (file.exists()) {
+                    file.delete();
                 }
-                return i;
+                if (this.c.b != null && downloadData.getUrl().equals(this.c.b.getUrl())) {
+                    this.c.b = null;
+                }
+                b bVar = this.a;
+                if (bVar != null) {
+                    bVar.a(str);
+                }
             }
-            return invokeLL.intValue;
+        }
+
+        @Override // com.baidu.tieba.g55
+        public void onFileDownloadSucceed(DownloadData downloadData) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) && downloadData != null && !StringUtils.isNull(downloadData.getPath())) {
+                if (this.c.b != null && downloadData.getUrl().equals(this.c.b.getUrl())) {
+                    this.c.b = null;
+                }
+                if (this.a != null) {
+                    this.c.a.put(downloadData.getPath().substring(mv8.h.length(), downloadData.getPath().lastIndexOf(".")), downloadData.getPath());
+                    this.a.c(this.b, downloadData.getPath());
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.g55
+        public void onFileUpdateProgress(DownloadData downloadData) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) && downloadData.getStatus() == 4) {
+                File file = new File(downloadData.getPath());
+                if (file.exists()) {
+                    file.delete();
+                }
+                if (this.c.b != null && downloadData.getUrl().equals(this.c.b.getUrl())) {
+                    this.c.b = null;
+                }
+                b bVar = this.a;
+                if (bVar != null) {
+                    bVar.b();
+                }
+            }
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:25:0x00d3, code lost:
-        if (r2 != null) goto L21;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:26:0x00d5, code lost:
-        r2.close();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:36:0x00ec, code lost:
-        if (r2 != null) goto L21;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:38:0x00ef, code lost:
-        r15.moveToNext();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:39:0x00f6, code lost:
-        if (r8.d() == null) goto L47;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:41:0x0100, code lost:
-        if (r8.a() == 0) goto L46;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:43:0x010a, code lost:
-        if (c(r8.c()) == false) goto L45;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:45:0x0114, code lost:
-        if (r8.a() < 1000) goto L44;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:46:0x0116, code lost:
-        r0 = r8.d();
-        r2 = r0.substring(r9, r0.lastIndexOf("/"));
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:47:0x012a, code lost:
-        if (r0.contains("/DCIM/") != false) goto L43;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:48:0x012c, code lost:
-        if (r2 == null) goto L38;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:50:0x0132, code lost:
-        if (r2.equals("/sdcard") == false) goto L38;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:53:0x013e, code lost:
-        if (new java.io.File(r0).exists() == false) goto L42;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:54:0x0140, code lost:
-        r1.add(r8);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:55:0x0143, code lost:
-        r5 = r21 + 1;
-        r7 = r17;
-        r9 = r18;
-        r8 = r22;
-        r6 = 0;
-     */
-    /* JADX WARN: Removed duplicated region for block: B:77:0x0173  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static List<gw8> a(Context context) {
-        InterceptResult invokeL;
-        Cursor cursor;
-        Cursor cursor2;
-        int i;
-        ContentResolver contentResolver;
-        String str;
-        int i2;
-        gw8 gw8Var;
-        Cursor cursor3;
-        ContentResolver contentResolver2;
-        String string;
+    public hw8() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            ArrayList arrayList = new ArrayList();
-            ContentResolver contentResolver3 = context.getContentResolver();
-            String str2 = "_id";
-            try {
-                Cursor query = contentResolver3.query(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, new String[]{"_id", "_data", "duration", "mime_type", "date_modified"}, null, null, "title");
-                try {
-                    String[] strArr = {"video_id", "_data"};
-                    query.moveToFirst();
-                    int count = query.getCount();
-                    int i3 = 0;
-                    int i4 = 0;
-                    while (i4 < count) {
-                        gw8 gw8Var2 = new gw8();
-                        String string2 = query.getString(query.getColumnIndex(str2));
-                        gw8Var2.i(string2);
-                        String string3 = query.getString(query.getColumnIndex("_data"));
-                        if (string3 != null) {
-                            gw8Var2.j(string3.replace("/storage/emulated/0", "/sdcard"));
-                        }
-                        int i5 = count;
-                        gw8Var2.e(dh.e(query.getString(query.getColumnIndex("duration")), i3));
-                        gw8Var2.g(query.getString(query.getColumnIndex("mime_type")));
-                        gw8Var2.f(Long.parseLong(query.getString(query.getColumnIndex("date_modified"))));
-                        try {
-                            try {
-                                contentResolver2 = contentResolver3;
-                                i = i4;
-                                contentResolver = contentResolver3;
-                                str = str2;
-                                i2 = 0;
-                                gw8Var = gw8Var2;
-                            } catch (Exception e) {
-                                e = e;
-                                i = i4;
-                                contentResolver = contentResolver3;
-                                str = str2;
-                                i2 = 0;
-                                gw8Var = gw8Var2;
-                            }
-                            try {
-                                cursor3 = contentResolver2.query(MediaStore.Video.Thumbnails.EXTERNAL_CONTENT_URI, strArr, "video_id=" + string2, null, null);
-                                if (cursor3 != null) {
-                                    try {
-                                        try {
-                                            if (cursor3.moveToFirst() && (string = cursor3.getString(cursor3.getColumnIndex("_data"))) != null) {
-                                                gw8Var.h(string.replace("/storage/emulated/0", "/sdcard"));
-                                            }
-                                        } catch (Throwable th) {
-                                            th = th;
-                                            cursor2 = cursor3;
-                                            if (cursor2 != null) {
-                                                cursor2.close();
-                                            }
-                                            throw th;
-                                        }
-                                    } catch (Exception e2) {
-                                        e = e2;
-                                        e.printStackTrace();
-                                    }
-                                }
-                            } catch (Exception e3) {
-                                e = e3;
-                                cursor3 = null;
-                                e.printStackTrace();
-                            }
-                        } catch (Throwable th2) {
-                            th = th2;
-                            cursor2 = null;
-                        }
-                    }
-                    if (query != null) {
-                        query.close();
-                    }
-                } catch (Exception e4) {
-                    e = e4;
-                    cursor = query;
-                    try {
-                        e.printStackTrace();
-                        if (cursor != null) {
-                            cursor.close();
-                        }
-                        return arrayList;
-                    } catch (Throwable th3) {
-                        th = th3;
-                        if (cursor != null) {
-                            cursor.close();
-                        }
-                        throw th;
-                    }
-                } catch (Throwable th4) {
-                    th = th4;
-                    cursor = query;
-                    if (cursor != null) {
-                    }
-                    throw th;
-                }
-            } catch (Exception e5) {
-                e = e5;
-                cursor = null;
-            } catch (Throwable th5) {
-                th = th5;
-                cursor = null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return arrayList;
         }
-        return (List) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
-    public static gw8 b(String str) {
-        InterceptResult invokeL;
+    public static hw8 g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            File file = new File(str);
-            if (file.exists() && file.isFile()) {
-                gw8 gw8Var = new gw8();
-                gw8Var.j(str);
-                gw8Var.f(file.lastModified());
-                MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
-                try {
-                    try {
-                        try {
-                            mediaMetadataRetriever.setDataSource(str);
-                            String extractMetadata = mediaMetadataRetriever.extractMetadata(9);
-                            if (extractMetadata != null) {
-                                gw8Var.e(Integer.parseInt(extractMetadata));
-                            }
-                            gw8Var.g(mediaMetadataRetriever.extractMetadata(12));
-                            mediaMetadataRetriever.release();
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                            mediaMetadataRetriever.release();
-                        }
-                    } catch (Throwable th) {
-                        try {
-                            mediaMetadataRetriever.release();
-                        } catch (Exception e2) {
-                            e2.printStackTrace();
-                        }
-                        throw th;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (c == null) {
+                synchronized (hw8.class) {
+                    if (c == null) {
+                        c = new hw8();
                     }
-                } catch (Exception e3) {
-                    e3.printStackTrace();
                 }
-                return gw8Var;
             }
-            return null;
+            return c;
         }
-        return (gw8) invokeL.objValue;
+        return (hw8) invokeV.objValue;
     }
 
-    public static boolean c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? MimeTypes.VIDEO_MP4.equals(str) || "video/ext-mp4".equals(str) : invokeL.booleanValue;
-    }
-
-    public static void d(String str, List<gw8> list, boolean z) {
+    public void d() {
         File[] listFiles;
-        gw8 b;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(65539, null, str, list, z) == null) || list == null || StringUtils.isNull(str) || (listFiles = new File(str).listFiles()) == null || listFiles.length == 0) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            HashMap hashMap = this.a;
+            if (hashMap == null) {
+                this.a = new HashMap();
+            } else {
+                hashMap.clear();
+            }
+            File file = new File(mv8.h);
+            if (file.exists()) {
+                for (File file2 : file.listFiles()) {
+                    if (file2.isFile()) {
+                        this.a.put(file2.getName().substring(0, file2.getName().lastIndexOf(".")), file2.getAbsolutePath());
+                    }
+                }
+            }
+        }
+    }
+
+    public void e(String str, String str2, b bVar) {
+        String nameMd5FromUrl;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, bVar) != null) || TextUtils.isEmpty(str2) || (nameMd5FromUrl = TbMd5.getNameMd5FromUrl(str2)) == null) {
             return;
         }
-        for (File file : listFiles) {
-            if (file != null && !StringUtils.isNull(file.getPath())) {
-                String path = file.getPath();
-                if (file.isFile()) {
-                    if (path.contains("_tiebaconverting.mp4")) {
-                        if (file.exists()) {
-                            file.delete();
-                        }
-                    } else if (path.contains(DefaultHlsExtractorFactory.MP4_FILE_EXTENSION) && DefaultHlsExtractorFactory.MP4_FILE_EXTENSION.equals(path.substring(path.lastIndexOf(DefaultHlsExtractorFactory.MP4_FILE_EXTENSION))) && (b = b(file.getPath())) != null && file.length() > ConfigSpeedStat.CFG_MIN_SIZE_DEFAULT && b.a() >= 1000 && c(b.c())) {
-                        list.add(b);
-                    }
-                } else if (file.isDirectory() && !path.contains(com.kuaishou.weapon.p0.i1.j) && z) {
-                    d(path, list, z);
-                }
-            }
+        if (this.b != null) {
+            h55.k().h(this.b.getUrl(), true);
         }
+        File file = new File(mv8.h);
+        if (!file.exists()) {
+            file.mkdirs();
+        }
+        DownloadData downloadData = new DownloadData();
+        downloadData.setType(18);
+        downloadData.setId(str);
+        downloadData.setUrl(str2);
+        downloadData.setPath(mv8.h + nameMd5FromUrl + ("." + str2.substring(str2.lastIndexOf(".") + 1)));
+        downloadData.setCallback(new a(this, bVar, str2));
+        this.b = downloadData;
+        h55.k().l(downloadData);
     }
 
-    public static void e(List<gw8> list) {
+    public String f(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list) == null) {
-            Collections.sort(list, new a());
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            String nameMd5FromUrl = TbMd5.getNameMd5FromUrl(str);
+            if (nameMd5FromUrl == null) {
+                return null;
+            }
+            HashMap hashMap = this.a;
+            if (hashMap == null) {
+                this.a = new HashMap();
+                d();
+                if (this.a.size() <= 0) {
+                    return null;
+                }
+                return (String) this.a.get(nameMd5FromUrl);
+            }
+            return (String) hashMap.get(nameMd5FromUrl);
         }
+        return (String) invokeL.objValue;
     }
 }

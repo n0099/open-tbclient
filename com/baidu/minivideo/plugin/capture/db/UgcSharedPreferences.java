@@ -69,13 +69,82 @@ public class UgcSharedPreferences {
     public static int getBeautifulLevel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? sPref.getInt(KEY_BEAUTIFUL_LEVEL, 65) : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return sPref.getInt(KEY_BEAUTIFUL_LEVEL, 65);
+        }
+        return invokeV.intValue;
     }
 
     public static String getCaptureConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? sPref.getString(CAPTURE_CONFIG, "") : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return sPref.getString(CAPTURE_CONFIG, "");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String getFilter() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return sPref.getString(KEY_FILTER, null);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static long getLastCaptureConfigTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return sPref.getLong(LAST_CAPTURE_CONFIG_TIME, 0L);
+        }
+        return invokeV.longValue;
+    }
+
+    public static int getSaveVideoLocalStatus() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return sPref.getInt(KEY_SAVE_VIDEO_LOACL, -1);
+        }
+        return invokeV.intValue;
+    }
+
+    public static int getShootDisplayLimit() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return sPref.getInt(KEY_CONFIG_DISPLAY_TIMES, 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public static String getSyncVideoPublishConfig() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            return sPref.getString(SYNC_VIDEO_PUBLISH_CONFIG, "");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static int getThinFaceLevel() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            return sPref.getInt(KEY_THIN_FACE_LEVEL, 65);
+        }
+        return invokeV.intValue;
+    }
+
+    public static boolean isFrontCamera() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            return sPref.getBoolean(FRONT_OR_BACK_CAMERA, true);
+        }
+        return invokeV.booleanValue;
     }
 
     public static Point getEncodeSupportMaxSize() {
@@ -90,52 +159,13 @@ public class UgcSharedPreferences {
         return (Point) invokeV.objValue;
     }
 
-    public static String getFilter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? sPref.getString(KEY_FILTER, null) : (String) invokeV.objValue;
-    }
-
-    public static long getLastCaptureConfigTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? sPref.getLong(LAST_CAPTURE_CONFIG_TIME, 0L) : invokeV.longValue;
-    }
-
-    public static int getSaveVideoLocalStatus() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? sPref.getInt(KEY_SAVE_VIDEO_LOACL, -1) : invokeV.intValue;
-    }
-
-    public static int getShootDisplayLimit() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? sPref.getInt(KEY_CONFIG_DISPLAY_TIMES, 0) : invokeV.intValue;
-    }
-
     public static int getSyncIconCloseTimes(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) ? sPref.getInt(str, 0) : invokeL.intValue;
-    }
-
-    public static String getSyncVideoPublishConfig() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? sPref.getString(SYNC_VIDEO_PUBLISH_CONFIG, "") : (String) invokeV.objValue;
-    }
-
-    public static int getThinFaceLevel() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? sPref.getInt(KEY_THIN_FACE_LEVEL, 65) : invokeV.intValue;
-    }
-
-    public static boolean isFrontCamera() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? sPref.getBoolean(FRONT_OR_BACK_CAMERA, true) : invokeV.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
+            return sPref.getInt(str, 0);
+        }
+        return invokeL.intValue;
     }
 
     public static void setBeautifulLevel(int i) {
@@ -154,42 +184,10 @@ public class UgcSharedPreferences {
 
     public static void setCaptureConfig(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65551, null, str) == null) || TextUtils.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeL(65551, null, str) != null) || TextUtils.isEmpty(str)) {
             return;
         }
         sPref.edit().putString(CAPTURE_CONFIG, str).apply();
-    }
-
-    public static void setCreatorCenterConfig(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65552, null, str) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        try {
-            JSONObject optJSONObject = new JSONObject(str).optJSONObject("creatorCenter");
-            if (optJSONObject != null) {
-                LogUtils.d("mini_ugc_creator_center(app) --> " + optJSONObject.toString());
-                PreferenceUtils.putString("mini_ugc_creator_center", optJSONObject.toString());
-            } else {
-                PreferenceUtils.putString("mini_ugc_creator_center", "");
-            }
-        } catch (Exception unused) {
-            PreferenceUtils.putString("mini_ugc_creator_center", "");
-        }
-    }
-
-    public static void setEncodeSupportMaxSize(Point point) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65553, null, point) == null) {
-            SharedPreferences.Editor edit = sPref.edit();
-            if (point != null) {
-                edit.putInt(ENCODE_HARD_SUPPORT_MAX_W, point.x);
-                edit.putInt(ENCODE_HARD_SUPPORT_MAX_H, point.y).apply();
-                return;
-            }
-            edit.remove(ENCODE_HARD_SUPPORT_MAX_W);
-            edit.remove(ENCODE_HARD_SUPPORT_MAX_H).apply();
-        }
     }
 
     public static void setFilter(String str) {
@@ -220,16 +218,9 @@ public class UgcSharedPreferences {
         }
     }
 
-    public static void setSyncIconCloseTimes(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65558, null, str, i) == null) {
-            sPref.edit().putInt(str, i).apply();
-        }
-    }
-
     public static void setSyncVideoPublishConfig(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65559, null, str) == null) || TextUtils.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeL(65559, null, str) != null) || TextUtils.isEmpty(str)) {
             return;
         }
         sPref.edit().putString(SYNC_VIDEO_PUBLISH_CONFIG, str).apply();
@@ -239,6 +230,45 @@ public class UgcSharedPreferences {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65560, null, i) == null) {
             sPref.edit().putInt(KEY_THIN_FACE_LEVEL, i).apply();
+        }
+    }
+
+    public static void setCreatorCenterConfig(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65552, null, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        try {
+            JSONObject optJSONObject = new JSONObject(str).optJSONObject("creatorCenter");
+            if (optJSONObject != null) {
+                LogUtils.d("mini_ugc_creator_center(app) --> " + optJSONObject.toString());
+                PreferenceUtils.putString("mini_ugc_creator_center", optJSONObject.toString());
+            } else {
+                PreferenceUtils.putString("mini_ugc_creator_center", "");
+            }
+        } catch (Exception unused) {
+            PreferenceUtils.putString("mini_ugc_creator_center", "");
+        }
+    }
+
+    public static void setEncodeSupportMaxSize(Point point) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65553, null, point) == null) {
+            SharedPreferences.Editor edit = sPref.edit();
+            if (point != null) {
+                edit.putInt(ENCODE_HARD_SUPPORT_MAX_W, point.x);
+                edit.putInt(ENCODE_HARD_SUPPORT_MAX_H, point.y).apply();
+                return;
+            }
+            edit.remove(ENCODE_HARD_SUPPORT_MAX_W);
+            edit.remove(ENCODE_HARD_SUPPORT_MAX_H).apply();
+        }
+    }
+
+    public static void setSyncIconCloseTimes(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65558, null, str, i) == null) {
+            sPref.edit().putInt(str, i).apply();
         }
     }
 }

@@ -1,6 +1,5 @@
 package com.ss.android.downloadlib.c;
 
-import androidx.annotation.WorkerThread;
 import com.baidu.down.request.db.DownloadDataConstants;
 import com.ss.android.downloadlib.addownload.b.i;
 import com.ss.android.downloadlib.addownload.j;
@@ -17,15 +16,7 @@ public class d implements com.ss.android.socialbase.appdownloader.c.g, k {
     }
 
     @Override // com.ss.android.socialbase.appdownloader.c.g
-    public void a(DownloadInfo downloadInfo, boolean z) {
-        if (downloadInfo == null) {
-            return;
-        }
-        a(downloadInfo, downloadInfo.getRealStatus(), z);
-    }
-
-    @Override // com.ss.android.socialbase.appdownloader.c.g
-    public void a(List<DownloadInfo> list) {
+    public void a(List list) {
     }
 
     @Override // com.ss.android.socialbase.downloader.depend.k
@@ -64,8 +55,8 @@ public class d implements com.ss.android.socialbase.appdownloader.c.g, k {
         }, 5000L);
     }
 
-    @WorkerThread
     public void a(DownloadInfo downloadInfo, int i, boolean z) {
+        int i2;
         com.ss.android.downloadlib.addownload.b.f.a().b();
         com.ss.android.downloadad.api.a.b a = com.ss.android.downloadlib.addownload.b.f.a().a(downloadInfo);
         if (a == null) {
@@ -88,17 +79,30 @@ public class d implements com.ss.android.socialbase.appdownloader.c.g, k {
             jSONObject.put("download_status", i);
             jSONObject.put("cur_bytes", downloadInfo.getCurBytes());
             jSONObject.put(DownloadDataConstants.Columns.COLUMN_TOTAL_BYTES, downloadInfo.getTotalBytes());
-            int i2 = 1;
-            jSONObject.put("only_wifi", downloadInfo.isOnlyWifi() ? 1 : 0);
+            int i3 = 1;
+            if (downloadInfo.isOnlyWifi()) {
+                i2 = 1;
+            } else {
+                i2 = 0;
+            }
+            jSONObject.put("only_wifi", i2);
             jSONObject.put("chunk_count", downloadInfo.getChunkCount());
             if (!z) {
-                i2 = 2;
+                i3 = 2;
             }
-            jSONObject.put("launch_resumed", i2);
+            jSONObject.put("launch_resumed", i3);
             jSONObject.put("failed_resume_count", downloadInfo.getFailedResumeCount());
             com.ss.android.downloadlib.d.a.a().a("embeded_ad", "download_uncompleted", jSONObject, a);
         } catch (Throwable th) {
             th.printStackTrace();
         }
+    }
+
+    @Override // com.ss.android.socialbase.appdownloader.c.g
+    public void a(DownloadInfo downloadInfo, boolean z) {
+        if (downloadInfo == null) {
+            return;
+        }
+        a(downloadInfo, downloadInfo.getRealStatus(), z);
     }
 }

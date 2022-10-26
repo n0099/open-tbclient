@@ -26,7 +26,12 @@ public final class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static class a implements c {
+    public interface c {
+        boolean a(Context context);
+    }
+
+    /* loaded from: classes7.dex */
+    public class a implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -44,48 +49,6 @@ public final class b {
             }
         }
 
-        public static Object b(Context context) {
-            Field field;
-            Object readField;
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-                try {
-                    Field field2 = FieldUtils.getField(Class.forName("android.app.LoadedApk"), "mReceiverResource");
-                    if (field2 == null || (field = FieldUtils.getField(Class.forName("android.app.ContextImpl"), "mPackageInfo")) == null || (readField = FieldUtils.readField(field, context)) == null) {
-                        return null;
-                    }
-                    return FieldUtils.readField(field2, readField);
-                } catch (Throwable unused) {
-                    return null;
-                }
-            }
-            return invokeL.objValue;
-        }
-
-        @Override // com.bytedance.pangle.receiver.b.c
-        public boolean a(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                Object b = b(context);
-                Object a = a(b, "mWhiteList");
-                if (!(a instanceof String[])) {
-                    if (b != null) {
-                        FieldUtils.writeField(b, "mResourceConfig", (Object) null);
-                        return false;
-                    }
-                    return false;
-                }
-                ArrayList arrayList = new ArrayList();
-                arrayList.add(context.getPackageName());
-                Collections.addAll(arrayList, (String[]) a);
-                FieldUtils.writeField(b, "mWhiteList", arrayList.toArray(new String[arrayList.size()]));
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-
         public /* synthetic */ a(byte b) {
             this();
         }
@@ -93,7 +56,10 @@ public final class b {
         public static Object a(Context context, String str) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) ? a(b(context), str) : invokeLL.objValue;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
+                return a(b(context), str);
+            }
+            return invokeLL.objValue;
         }
 
         public static Object a(Object obj, String str) {
@@ -111,16 +77,68 @@ public final class b {
             }
             return invokeLL.objValue;
         }
+
+        public static Object b(Context context) {
+            Field field;
+            Object readField;
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+                try {
+                    Field field2 = FieldUtils.getField(Class.forName("android.app.LoadedApk"), "mReceiverResource");
+                    if (field2 != null && (field = FieldUtils.getField(Class.forName("android.app.ContextImpl"), "mPackageInfo")) != null && (readField = FieldUtils.readField(field, context)) != null) {
+                        return FieldUtils.readField(field2, readField);
+                    }
+                    return null;
+                } catch (Throwable unused) {
+                    return null;
+                }
+            }
+            return invokeL.objValue;
+        }
+
+        @Override // com.bytedance.pangle.receiver.b.c
+        public boolean a(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+                Object b = b(context);
+                Object a = a(b, "mWhiteList");
+                if (a instanceof String[]) {
+                    ArrayList arrayList = new ArrayList();
+                    arrayList.add(context.getPackageName());
+                    Collections.addAll(arrayList, (String[]) a);
+                    FieldUtils.writeField(b, "mWhiteList", arrayList.toArray(new String[arrayList.size()]));
+                    return true;
+                } else if (b != null) {
+                    FieldUtils.writeField(b, "mResourceConfig", (Object) null);
+                    return false;
+                } else {
+                    return false;
+                }
+            }
+            return invokeL.booleanValue;
+        }
     }
 
     /* renamed from: com.bytedance.pangle.receiver.b$b  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C0500b extends e {
+    public final class C0496b extends e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
+        @Override // com.bytedance.pangle.receiver.b.e, com.bytedance.pangle.receiver.b.a, com.bytedance.pangle.receiver.b.c
+        public final boolean a(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0500b() {
+        public C0496b() {
             super((byte) 0);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -137,28 +155,13 @@ public final class b {
             }
         }
 
-        @Override // com.bytedance.pangle.receiver.b.e, com.bytedance.pangle.receiver.b.a, com.bytedance.pangle.receiver.b.c
-        public final boolean a(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                return false;
-            }
-            return invokeL.booleanValue;
-        }
-
-        public /* synthetic */ C0500b(byte b) {
+        public /* synthetic */ C0496b(byte b) {
             this();
         }
     }
 
     /* loaded from: classes7.dex */
-    public interface c {
-        boolean a(Context context);
-    }
-
-    /* loaded from: classes7.dex */
-    public static class d extends a {
+    public final class d extends a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -180,6 +183,10 @@ public final class b {
             }
         }
 
+        public /* synthetic */ d(byte b) {
+            this();
+        }
+
         @Override // com.bytedance.pangle.receiver.b.a, com.bytedance.pangle.receiver.b.c
         public final boolean a(Context context) {
             InterceptResult invokeL;
@@ -194,14 +201,10 @@ public final class b {
             }
             return invokeL.booleanValue;
         }
-
-        public /* synthetic */ d(byte b) {
-            this();
-        }
     }
 
     /* loaded from: classes7.dex */
-    public static class e extends a {
+    public class e extends a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -223,29 +226,29 @@ public final class b {
             }
         }
 
+        public /* synthetic */ e(byte b) {
+            this();
+        }
+
         @Override // com.bytedance.pangle.receiver.b.a, com.bytedance.pangle.receiver.b.c
         public boolean a(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
                 Object a = a.a(context, "mWhiteListMap");
-                if (a instanceof Map) {
-                    Map map = (Map) a;
-                    List list = (List) map.get(0);
-                    if (list == null) {
-                        list = new ArrayList();
-                        map.put(0, list);
-                    }
-                    list.add(context.getPackageName());
-                    return true;
+                if (!(a instanceof Map)) {
+                    return false;
                 }
-                return false;
+                Map map = (Map) a;
+                List list = (List) map.get(0);
+                if (list == null) {
+                    list = new ArrayList();
+                    map.put(0, list);
+                }
+                list.add(context.getPackageName());
+                return true;
             }
             return invokeL.booleanValue;
-        }
-
-        public /* synthetic */ e(byte b) {
-            this();
         }
     }
 
@@ -270,20 +273,19 @@ public final class b {
         } else if (i < 28) {
             a = new e((byte) 0);
         } else {
-            a = new C0500b((byte) 0);
+            a = new C0496b((byte) 0);
         }
     }
 
     public static void a(Application application) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, application) == null) || application == null) {
-            return;
-        }
-        try {
-            if (TextUtils.equals(Build.BRAND.toLowerCase(), RomUtils.MANUFACTURER_HUAWEI)) {
-                a.a(application.getBaseContext());
+        if ((interceptable == null || interceptable.invokeL(65537, null, application) == null) && application != null) {
+            try {
+                if (TextUtils.equals(Build.BRAND.toLowerCase(), RomUtils.MANUFACTURER_HUAWEI)) {
+                    a.a(application.getBaseContext());
+                }
+            } catch (Throwable unused) {
             }
-        } catch (Throwable unused) {
         }
     }
 }

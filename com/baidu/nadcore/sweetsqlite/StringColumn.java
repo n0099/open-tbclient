@@ -1,7 +1,7 @@
 package com.baidu.nadcore.sweetsqlite;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.r01;
+import com.baidu.tieba.s01;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,19 +15,29 @@ public class StringColumn extends Column implements Serializable {
     public transient /* synthetic */ FieldHolder $fh;
     public String value;
 
+    @Override // com.baidu.nadcore.sweetsqlite.Column
+    public int type() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return 4;
+        }
+        return invokeV.intValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public StringColumn(r01 r01Var) {
-        super(r01Var);
+    public StringColumn(s01 s01Var) {
+        super(s01Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {r01Var};
+            Object[] objArr = {s01Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((r01) newInitContext.callArgs[0]);
+                super((s01) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -48,7 +58,23 @@ public class StringColumn extends Column implements Serializable {
     public String getValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.value : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.value;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.nadcore.sweetsqlite.Column
+    public String stringValue() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.isAssignedValue) {
+                return this.value;
+            }
+            return "";
+        }
+        return (String) invokeV.objValue;
     }
 
     public StringColumn setDefaultValue(String str) {
@@ -65,21 +91,20 @@ public class StringColumn extends Column implements Serializable {
     }
 
     public void setValue(String str) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.isAssignedValue = str != null;
+            if (str != null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.isAssignedValue = z;
             if (str == null) {
                 str = "";
             }
             this.value = str;
         }
-    }
-
-    @Override // com.baidu.nadcore.sweetsqlite.Column
-    public String stringValue() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.isAssignedValue ? this.value : "" : (String) invokeV.objValue;
     }
 
     public String toString() {
@@ -89,15 +114,5 @@ public class StringColumn extends Column implements Serializable {
             return this.field.b + ":" + this.value + ":" + this.field.b + ":" + this.field.d;
         }
         return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.nadcore.sweetsqlite.Column
-    public int type() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return 4;
-        }
-        return invokeV.intValue;
     }
 }

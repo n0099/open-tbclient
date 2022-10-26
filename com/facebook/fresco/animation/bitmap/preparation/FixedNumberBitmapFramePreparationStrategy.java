@@ -14,7 +14,7 @@ import com.facebook.fresco.animation.bitmap.BitmapFrameCache;
 public class FixedNumberBitmapFramePreparationStrategy implements BitmapFramePreparationStrategy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_FRAMES_TO_PREPARE = 3;
-    public static final Class<?> TAG;
+    public static final Class TAG;
     public transient /* synthetic */ FieldHolder $fh;
     public final int mFramesToPrepare;
 
@@ -52,22 +52,6 @@ public class FixedNumberBitmapFramePreparationStrategy implements BitmapFramePre
         }
     }
 
-    @Override // com.facebook.fresco.animation.bitmap.preparation.BitmapFramePreparationStrategy
-    public void prepareFrames(BitmapFramePreparer bitmapFramePreparer, BitmapFrameCache bitmapFrameCache, AnimationBackend animationBackend, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(1048576, this, bitmapFramePreparer, bitmapFrameCache, animationBackend, i) == null) {
-            for (int i2 = 1; i2 <= this.mFramesToPrepare; i2++) {
-                int frameCount = (i + i2) % animationBackend.getFrameCount();
-                if (FLog.isLoggable(2)) {
-                    FLog.v(TAG, "Preparing frame %d, last drawn: %d", Integer.valueOf(frameCount), Integer.valueOf(i));
-                }
-                if (!bitmapFramePreparer.prepareFrame(bitmapFrameCache, animationBackend, frameCount)) {
-                    return;
-                }
-            }
-        }
-    }
-
     public FixedNumberBitmapFramePreparationStrategy(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -84,5 +68,21 @@ public class FixedNumberBitmapFramePreparationStrategy implements BitmapFramePre
             }
         }
         this.mFramesToPrepare = i;
+    }
+
+    @Override // com.facebook.fresco.animation.bitmap.preparation.BitmapFramePreparationStrategy
+    public void prepareFrames(BitmapFramePreparer bitmapFramePreparer, BitmapFrameCache bitmapFrameCache, AnimationBackend animationBackend, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLI(1048576, this, bitmapFramePreparer, bitmapFrameCache, animationBackend, i) == null) {
+            for (int i2 = 1; i2 <= this.mFramesToPrepare; i2++) {
+                int frameCount = (i + i2) % animationBackend.getFrameCount();
+                if (FLog.isLoggable(2)) {
+                    FLog.v(TAG, "Preparing frame %d, last drawn: %d", Integer.valueOf(frameCount), Integer.valueOf(i));
+                }
+                if (!bitmapFramePreparer.prepareFrame(bitmapFrameCache, animationBackend, frameCount)) {
+                    return;
+                }
+            }
+        }
     }
 }

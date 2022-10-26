@@ -29,7 +29,7 @@ public class cr {
     public String f182a;
 
     /* renamed from: a  reason: collision with other field name */
-    public ArrayList<da> f183a;
+    public ArrayList f183a;
     public long b;
 
     /* renamed from: b  reason: collision with other field name */
@@ -59,7 +59,7 @@ public class cr {
             }
         }
         this.f182a = "";
-        this.f183a = new ArrayList<>();
+        this.f183a = new ArrayList();
         this.a = 0.1d;
         this.j = "s.mi1.cc";
         this.b = 86400000L;
@@ -68,7 +68,7 @@ public class cr {
         }
         this.f181a = System.currentTimeMillis();
         this.f183a.add(new da(str, -1));
-        this.f182a = cv.m252a();
+        this.f182a = cv.m251a();
         this.f184b = str;
     }
 
@@ -76,9 +76,9 @@ public class cr {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, str) == null) {
             synchronized (this) {
-                Iterator<da> it = this.f183a.iterator();
+                Iterator it = this.f183a.iterator();
                 while (it.hasNext()) {
-                    if (TextUtils.equals(it.next().f200a, str)) {
+                    if (TextUtils.equals(((da) it.next()).f200a, str)) {
                         it.remove();
                     }
                 }
@@ -132,9 +132,9 @@ public class cr {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized ArrayList<String> m243a() {
+    public synchronized ArrayList m242a() {
         InterceptResult invokeV;
-        ArrayList<String> a;
+        ArrayList a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             synchronized (this) {
@@ -145,7 +145,7 @@ public class cr {
         return (ArrayList) invokeV.objValue;
     }
 
-    public ArrayList<String> a(String str) {
+    public ArrayList a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
@@ -154,11 +154,11 @@ public class cr {
             }
             URL url = new URL(str);
             if (TextUtils.equals(url.getHost(), this.f184b)) {
-                ArrayList<String> arrayList = new ArrayList<>();
-                Iterator<String> it = a(true).iterator();
+                ArrayList arrayList = new ArrayList();
+                Iterator it = a(true).iterator();
                 while (it.hasNext()) {
-                    ct a = ct.a(it.next(), url.getPort());
-                    arrayList.add(new URL(url.getProtocol(), a.m251a(), a.a(), url.getFile()).toString());
+                    ct a = ct.a((String) it.next(), url.getPort());
+                    arrayList.add(new URL(url.getProtocol(), a.m250a(), a.a(), url.getFile()).toString());
                 }
                 return arrayList;
             }
@@ -167,9 +167,9 @@ public class cr {
         return (ArrayList) invokeL.objValue;
     }
 
-    public synchronized ArrayList<String> a(boolean z) {
+    public synchronized ArrayList a(boolean z) {
         InterceptResult invokeZ;
-        ArrayList<String> arrayList;
+        ArrayList arrayList;
         String substring;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
@@ -178,7 +178,7 @@ public class cr {
                 da[] daVarArr = new da[size];
                 this.f183a.toArray(daVarArr);
                 Arrays.sort(daVarArr);
-                arrayList = new ArrayList<>();
+                arrayList = new ArrayList();
                 for (int i = 0; i < size; i++) {
                     da daVar = daVarArr[i];
                     if (z) {
@@ -196,7 +196,7 @@ public class cr {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized JSONObject m244a() {
+    public synchronized JSONObject m243a() {
         InterceptResult invokeV;
         JSONObject jSONObject;
         Interceptable interceptable = $ic;
@@ -215,9 +215,9 @@ public class cr {
                 jSONObject.put("host", this.f184b);
                 jSONObject.put("xf", this.h);
                 JSONArray jSONArray = new JSONArray();
-                Iterator<da> it = this.f183a.iterator();
+                Iterator it = this.f183a.iterator();
                 while (it.hasNext()) {
-                    jSONArray.put(it.next().a());
+                    jSONArray.put(((da) it.next()).a());
                 }
                 jSONObject.put("fbs", jSONArray);
             }
@@ -255,7 +255,7 @@ public class cr {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m245a(String str) {
+    public synchronized void m244a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
             synchronized (this) {
@@ -301,13 +301,13 @@ public class cr {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048589, this, str, cqVar) == null) {
             synchronized (this) {
-                Iterator<da> it = this.f183a.iterator();
+                Iterator it = this.f183a.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
-                    da next = it.next();
-                    if (TextUtils.equals(str, next.f200a)) {
+                    da daVar = (da) it.next();
+                    if (TextUtils.equals(str, daVar.f200a)) {
                         break;
                     }
                 }
@@ -329,7 +329,7 @@ public class cr {
                     int length = strArr.length;
                     while (true) {
                         if (i < length) {
-                            if (TextUtils.equals(this.f183a.get(size).f200a, strArr[i])) {
+                            if (TextUtils.equals(((da) this.f183a.get(size)).f200a, strArr[i])) {
                                 this.f183a.remove(size);
                                 break;
                             }
@@ -338,12 +338,12 @@ public class cr {
                     }
                     size--;
                 }
-                Iterator<da> it = this.f183a.iterator();
+                Iterator it = this.f183a.iterator();
                 int i2 = 0;
                 while (it.hasNext()) {
-                    da next = it.next();
-                    if (next.a > i2) {
-                        i2 = next.a;
+                    da daVar = (da) it.next();
+                    if (daVar.a > i2) {
+                        i2 = daVar.a;
                     }
                 }
                 while (i < strArr.length) {
@@ -355,10 +355,10 @@ public class cr {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m246a() {
+    public boolean m245a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? TextUtils.equals(this.f182a, cv.m252a()) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? TextUtils.equals(this.f182a, cv.m251a()) : invokeV.booleanValue;
     }
 
     public boolean a(cr crVar) {
@@ -417,10 +417,10 @@ public class cr {
             sb.append(this.f182a);
             sb.append("\n");
             sb.append(a());
-            Iterator<da> it = this.f183a.iterator();
+            Iterator it = this.f183a.iterator();
             while (it.hasNext()) {
                 sb.append("\n");
-                sb.append(it.next().toString());
+                sb.append(((da) it.next()).toString());
             }
             sb.append("\n");
             return sb.toString();

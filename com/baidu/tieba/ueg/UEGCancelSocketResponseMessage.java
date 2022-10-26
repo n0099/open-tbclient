@@ -1,6 +1,5 @@
 package com.baidu.tieba.ueg;
 
-import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.BlockPopInfoData;
@@ -37,8 +36,16 @@ public class UEGCancelSocketResponseMessage extends SocketResponsedMessage {
         }
     }
 
+    public BlockPopInfoData getData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.info;
+        }
+        return (BlockPopInfoData) invokeV.objValue;
+    }
+
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         QueryBlockAndAppealInfoResIdl queryBlockAndAppealInfoResIdl;
@@ -69,12 +76,6 @@ public class UEGCancelSocketResponseMessage extends SocketResponsedMessage {
             return queryBlockAndAppealInfoResIdl;
         }
         return invokeIL.objValue;
-    }
-
-    public BlockPopInfoData getData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.info : (BlockPopInfoData) invokeV.objValue;
     }
 
     public void setData(BlockPopInfoData blockPopInfoData) {

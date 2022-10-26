@@ -15,15 +15,15 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.disposables.EmptyDisposable;
 import io.reactivex.plugins.RxJavaPlugins;
 /* loaded from: classes8.dex */
-public final class DisposableLambdaObserver<T> implements Observer<T>, Disposable {
+public final class DisposableLambdaObserver implements Observer, Disposable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Observer<? super T> actual;
+    public final Observer actual;
     public final Action onDispose;
-    public final Consumer<? super Disposable> onSubscribe;
+    public final Consumer onSubscribe;
     public Disposable s;
 
-    public DisposableLambdaObserver(Observer<? super T> observer, Consumer<? super Disposable> consumer, Action action) {
+    public DisposableLambdaObserver(Observer observer, Consumer consumer, Action action) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -61,16 +61,18 @@ public final class DisposableLambdaObserver<T> implements Observer<T>, Disposabl
     public boolean isDisposed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.s.isDisposed() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.s.isDisposed();
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // io.reactivex.Observer
     public void onComplete() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.s == DisposableHelper.DISPOSED) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.s != DisposableHelper.DISPOSED) {
+            this.actual.onComplete();
         }
-        this.actual.onComplete();
     }
 
     @Override // io.reactivex.Observer
@@ -86,10 +88,10 @@ public final class DisposableLambdaObserver<T> implements Observer<T>, Disposabl
     }
 
     @Override // io.reactivex.Observer
-    public void onNext(T t) {
+    public void onNext(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
-            this.actual.onNext(t);
+        if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+            this.actual.onNext(obj);
         }
     }
 

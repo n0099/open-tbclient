@@ -40,10 +40,10 @@ public class RequestUtil {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if ((resource & 1) != 0) {
-                str = "banner,";
-            } else {
+            if ((resource & 1) == 0) {
                 str = "";
+            } else {
+                str = "banner,";
             }
             if ((resource & 2) != 0) {
                 str = str + "follow,";
@@ -60,7 +60,10 @@ public class RequestUtil {
             if ((resource & 32) != 0) {
                 str = str + "topic,";
             }
-            return TextUtils.isEmpty(str) ? "" : str.substring(0, str.length() - 1);
+            if (TextUtils.isEmpty(str)) {
+                return "";
+            }
+            return str.substring(0, str.length() - 1);
         }
         return (String) invokeV.objValue;
     }

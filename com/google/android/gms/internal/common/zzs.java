@@ -13,20 +13,21 @@ public final class zzs {
         String zza;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65536, null, i, i2, str)) == null) {
-            if (i < 0 || i >= i2) {
-                if (i < 0) {
-                    zza = zzy.zza("%s (%s) must not be negative", "index", Integer.valueOf(i));
-                } else if (i2 < 0) {
+            if (i >= 0 && i < i2) {
+                return i;
+            }
+            if (i >= 0) {
+                if (i2 < 0) {
                     StringBuilder sb = new StringBuilder(26);
                     sb.append("negative size: ");
                     sb.append(i2);
                     throw new IllegalArgumentException(sb.toString());
-                } else {
-                    zza = zzy.zza("%s (%s) must be less than size (%s)", "index", Integer.valueOf(i), Integer.valueOf(i2));
                 }
-                throw new IndexOutOfBoundsException(zza);
+                zza = zzy.zza("%s (%s) must be less than size (%s)", "index", Integer.valueOf(i), Integer.valueOf(i2));
+            } else {
+                zza = zzy.zza("%s (%s) must not be negative", "index", Integer.valueOf(i));
             }
-            return i;
+            throw new IndexOutOfBoundsException(zza);
         }
         return invokeIIL.intValue;
     }
@@ -35,10 +36,10 @@ public final class zzs {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65537, null, i, i2, str)) == null) {
-            if (i < 0 || i > i2) {
-                throw new IndexOutOfBoundsException(zzd(i, i2, "index"));
+            if (i >= 0 && i <= i2) {
+                return i;
             }
-            return i;
+            throw new IndexOutOfBoundsException(zzd(i, i2, "index"));
         }
         return invokeIIL.intValue;
     }
@@ -47,14 +48,19 @@ public final class zzs {
         String zzd;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIII(65538, null, i, i2, i3) == null) {
-            if (i < 0 || i2 < i || i2 > i3) {
-                if (i >= 0 && i <= i3) {
-                    zzd = (i2 < 0 || i2 > i3) ? zzd(i2, i3, "end index") : zzy.zza("end index (%s) must not be less than start index (%s)", Integer.valueOf(i2), Integer.valueOf(i));
-                } else {
-                    zzd = zzd(i, i3, "start index");
-                }
-                throw new IndexOutOfBoundsException(zzd);
+            if (i >= 0 && i2 >= i && i2 <= i3) {
+                return;
             }
+            if (i >= 0 && i <= i3) {
+                if (i2 >= 0 && i2 <= i3) {
+                    zzd = zzy.zza("end index (%s) must not be less than start index (%s)", Integer.valueOf(i2), Integer.valueOf(i));
+                } else {
+                    zzd = zzd(i2, i3, "end index");
+                }
+            } else {
+                zzd = zzd(i, i3, "start index");
+            }
+            throw new IndexOutOfBoundsException(zzd);
         }
     }
 

@@ -32,6 +32,42 @@ public final class n implements Serializable {
         }
     }
 
+    public final String I() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.H;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String N() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.V;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String O() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.W;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String P() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.Y;
+        }
+        return (String) invokeV.objValue;
+    }
+
     public final void A(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -39,44 +75,11 @@ public final class n implements Serializable {
         }
     }
 
-    public final String I() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.H : (String) invokeV.objValue;
-    }
-
-    public final String N() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.V : (String) invokeV.objValue;
-    }
-
-    public final String O() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.W : (String) invokeV.objValue;
-    }
-
-    public final String P() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.Y : (String) invokeV.objValue;
-    }
-
     public final void setStartTime(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             this.V = str;
         }
-    }
-
-    public final String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "SessionEntity{id=" + this.id + ", startTime='" + this.V + "', keepTime='" + this.Y + "', endTime='" + this.W + "', sessionId='" + this.H + "'}";
-        }
-        return (String) invokeV.objValue;
     }
 
     public final void x(String str) {
@@ -91,5 +94,14 @@ public final class n implements Serializable {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
             this.W = str;
         }
+    }
+
+    public final String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return "SessionEntity{id=" + this.id + ", startTime='" + this.V + "', keepTime='" + this.Y + "', endTime='" + this.W + "', sessionId='" + this.H + "'}";
+        }
+        return (String) invokeV.objValue;
     }
 }

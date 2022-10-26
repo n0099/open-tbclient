@@ -33,6 +33,9 @@ public class NoSuchPointcutException extends Exception {
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.name : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.name;
+        }
+        return (String) invokeV.objValue;
     }
 }

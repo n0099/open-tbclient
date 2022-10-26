@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -54,78 +54,18 @@ public class FrsHeaderBannerView extends LinearLayout implements View.OnClickLis
         a();
     }
 
-    private TbPageContext getTbPageContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            TbPageContext tbPageContext = this.g;
-            if (tbPageContext != null) {
-                return tbPageContext;
-            }
-            Context context = getContext();
-            if (context instanceof BaseActivity) {
-                this.g = ((BaseActivity) context).getPageContext();
-            } else if (context instanceof BaseFragmentActivity) {
-                this.g = ((BaseFragmentActivity) context).getPageContext();
-            }
-            return this.g;
-        }
-        return (TbPageContext) invokeV.objValue;
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0315, (ViewGroup) this, true);
-            this.d = inflate.findViewById(R.id.obfuscated_res_0x7f090b56);
-            this.a = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090b4b);
-            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090b55);
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090b57);
-            this.e = inflate.findViewById(R.id.obfuscated_res_0x7f090b62);
-            this.a.setOnClickListener(this);
-            this.d.setOnClickListener(this);
-            this.e.setOnClickListener(this);
-            this.a.setDefaultResource(0);
-            this.a.setRadius(ej.f(getContext(), R.dimen.tbds20));
-            this.a.setConrers(15);
-            this.a.setPlaceHolder(2);
-            this.c.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0721));
-            this.g = getTbPageContext();
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            TbPageContext<?> tbPageContext = getTbPageContext();
-            if (TextUtils.isEmpty(this.f) || tbPageContext == null) {
-                return;
-            }
-            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{this.f}, true);
-        }
-    }
-
-    public void setSchemaUrl(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f = str;
-        }
-    }
-
     public void setTitle(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || this.b == null || this.c == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && this.b != null && this.c != null) {
+            if (!TextUtils.isEmpty(str)) {
+                this.b.setText(str);
+                this.c.setVisibility(0);
+                this.b.setVisibility(0);
+                return;
+            }
+            this.c.setVisibility(8);
+            this.b.setVisibility(8);
         }
-        if (!TextUtils.isEmpty(str)) {
-            this.b.setText(str);
-            this.c.setVisibility(0);
-            this.b.setVisibility(0);
-            return;
-        }
-        this.c.setVisibility(8);
-        this.b.setVisibility(8);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -170,5 +110,63 @@ public class FrsHeaderBannerView extends LinearLayout implements View.OnClickLis
             }
         }
         a();
+    }
+
+    private TbPageContext getTbPageContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+            TbPageContext tbPageContext = this.g;
+            if (tbPageContext != null) {
+                return tbPageContext;
+            }
+            Context context = getContext();
+            if (context instanceof BaseActivity) {
+                this.g = ((BaseActivity) context).getPageContext();
+            } else if (context instanceof BaseFragmentActivity) {
+                this.g = ((BaseFragmentActivity) context).getPageContext();
+            }
+            return this.g;
+        }
+        return (TbPageContext) invokeV.objValue;
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0314, (ViewGroup) this, true);
+            this.d = inflate.findViewById(R.id.obfuscated_res_0x7f090b60);
+            this.a = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090b55);
+            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090b5f);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090b61);
+            this.e = inflate.findViewById(R.id.obfuscated_res_0x7f090b6c);
+            this.a.setOnClickListener(this);
+            this.d.setOnClickListener(this);
+            this.e.setOnClickListener(this);
+            this.a.setDefaultResource(0);
+            this.a.setRadius(fj.f(getContext(), R.dimen.tbds20));
+            this.a.setConrers(15);
+            this.a.setPlaceHolder(2);
+            this.c.setText(getContext().getString(R.string.obfuscated_res_0x7f0f072d));
+            this.g = getTbPageContext();
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            TbPageContext tbPageContext = getTbPageContext();
+            if (!TextUtils.isEmpty(this.f) && tbPageContext != null) {
+                UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{this.f}, true);
+            }
+        }
+    }
+
+    public void setSchemaUrl(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.f = str;
+        }
     }
 }

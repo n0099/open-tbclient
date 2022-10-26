@@ -41,13 +41,13 @@ public class PayUVEventContentImpl implements PayEventStatistics.IPayUVEventCont
         PayUVEventContent build;
         String act;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, str3, str4) == null) || (act = (build = new PayUVEventContent.ProductEventBuilder().setAbstractHiidoContent(this.mBaseHiidoContent).setEvent(str).setPayChannel(str2).setPayMethod(str3).setChargeConfigId(str4).build()).getAct()) == null) {
+        if ((interceptable != null && interceptable.invokeLLLL(1048576, this, str, str2, str3, str4) != null) || (act = (build = new PayUVEventContent.ProductEventBuilder().setAbstractHiidoContent(this.mBaseHiidoContent).setEvent(str).setPayChannel(str2).setPayMethod(str3).setChargeConfigId(str4).build()).getAct()) == null) {
             return;
         }
-        Map<String, String> mapContent = build.getMapContent();
+        Map mapContent = build.getMapContent();
         StatisContent statisContent = new StatisContent();
-        for (Map.Entry<String, String> entry : mapContent.entrySet()) {
-            statisContent.put(entry.getKey(), entry.getValue());
+        for (Map.Entry entry : mapContent.entrySet()) {
+            statisContent.put((String) entry.getKey(), (String) entry.getValue());
         }
         RLog.debug("PayUVEventContentImpl", "report statisContent:" + statisContent.toString());
         HiidoSDKApi.reportStatisticContent(act, statisContent);

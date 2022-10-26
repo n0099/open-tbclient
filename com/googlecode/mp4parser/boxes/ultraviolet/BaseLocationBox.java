@@ -32,6 +32,16 @@ public class BaseLocationBox extends AbstractFullBox {
     public String baseLocation;
     public String purchaseLocation;
 
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public long getContentSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return 1028L;
+        }
+        return invokeV.longValue;
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -46,6 +56,26 @@ public class BaseLocationBox extends AbstractFullBox {
             }
         }
         ajc$preClinit();
+    }
+
+    public String getBaseLocation() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
+            return this.baseLocation;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getPurchaseLocation() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
+            return this.purchaseLocation;
+        }
+        return (String) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -66,6 +96,53 @@ public class BaseLocationBox extends AbstractFullBox {
         }
         this.baseLocation = "";
         this.purchaseLocation = "";
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_5, this, this));
+            String str = this.baseLocation;
+            int i2 = 0;
+            if (str != null) {
+                i = str.hashCode();
+            } else {
+                i = 0;
+            }
+            int i3 = i * 31;
+            String str2 = this.purchaseLocation;
+            if (str2 != null) {
+                i2 = str2.hashCode();
+            }
+            return i3 + i2;
+        }
+        return invokeV.intValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public BaseLocationBox(String str, String str2) {
+        super(TYPE);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.baseLocation = "";
+        this.purchaseLocation = "";
+        this.baseLocation = str;
+        this.purchaseLocation = str2;
     }
 
     public static /* synthetic */ void ajc$preClinit() {
@@ -94,39 +171,6 @@ public class BaseLocationBox extends AbstractFullBox {
         }
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_4, this, this, obj));
-            if (this == obj) {
-                return true;
-            }
-            if (obj == null || BaseLocationBox.class != obj.getClass()) {
-                return false;
-            }
-            BaseLocationBox baseLocationBox = (BaseLocationBox) obj;
-            String str = this.baseLocation;
-            if (str == null ? baseLocationBox.baseLocation == null : str.equals(baseLocationBox.baseLocation)) {
-                String str2 = this.purchaseLocation;
-                String str3 = baseLocationBox.purchaseLocation;
-                return str2 == null ? str3 == null : str2.equals(str3);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public String getBaseLocation() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
-            return this.baseLocation;
-        }
-        return (String) invokeV.objValue;
-    }
-
     @Override // com.googlecode.mp4parser.AbstractBox
     public void getContent(ByteBuffer byteBuffer) {
         Interceptable interceptable = $ic;
@@ -140,37 +184,30 @@ public class BaseLocationBox extends AbstractFullBox {
         }
     }
 
-    @Override // com.googlecode.mp4parser.AbstractBox
-    public long getContentSize() {
-        InterceptResult invokeV;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return 1028L;
-        }
-        return invokeV.longValue;
-    }
-
-    public String getPurchaseLocation() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
-            return this.purchaseLocation;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_5, this, this));
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_4, this, this, obj));
+            if (this == obj) {
+                return true;
+            }
+            if (obj == null || BaseLocationBox.class != obj.getClass()) {
+                return false;
+            }
+            BaseLocationBox baseLocationBox = (BaseLocationBox) obj;
             String str = this.baseLocation;
-            int hashCode = (str != null ? str.hashCode() : 0) * 31;
+            if (str == null ? baseLocationBox.baseLocation != null : !str.equals(baseLocationBox.baseLocation)) {
+                return false;
+            }
             String str2 = this.purchaseLocation;
-            return hashCode + (str2 != null ? str2.hashCode() : 0);
+            String str3 = baseLocationBox.purchaseLocation;
+            if (str2 == null ? str3 == null : str2.equals(str3)) {
+                return true;
+            }
+            return false;
         }
-        return invokeV.intValue;
+        return invokeL.booleanValue;
     }
 
     public void setBaseLocation(String str) {
@@ -197,29 +234,5 @@ public class BaseLocationBox extends AbstractFullBox {
             return "BaseLocationBox{baseLocation='" + this.baseLocation + "', purchaseLocation='" + this.purchaseLocation + "'}";
         }
         return (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BaseLocationBox(String str, String str2) {
-        super(TYPE);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.baseLocation = "";
-        this.purchaseLocation = "";
-        this.baseLocation = str;
-        this.purchaseLocation = str2;
     }
 }

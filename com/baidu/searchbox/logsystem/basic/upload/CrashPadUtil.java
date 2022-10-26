@@ -5,7 +5,6 @@ import android.util.Base64;
 import android.util.JsonWriter;
 import android.util.Log;
 import android.util.Pair;
-import androidx.annotation.NonNull;
 import com.baidu.android.util.io.Closeables;
 import com.baidu.searchbox.logsystem.util.DebugUtil;
 import com.baidu.searchbox.logsystem.util.LLog;
@@ -60,91 +59,88 @@ public final class CrashPadUtil {
         }
     }
 
-    public static void createJsonExtraInfo(@NonNull File file, @NonNull JsonWriter jsonWriter) {
+    public static void createJsonExtraInfo(File file, JsonWriter jsonWriter) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, null, file, jsonWriter) == null) || file == null || !file.exists() || jsonWriter == null) {
-            return;
-        }
-        try {
-            Pair<String, Boolean> readFile = Utility.readFile(file, 20480);
-            if (readFile == null || TextUtils.isEmpty((CharSequence) readFile.first)) {
-                return;
+        if ((interceptable == null || interceptable.invokeLL(65538, null, file, jsonWriter) == null) && file != null && file.exists() && jsonWriter != null) {
+            try {
+                Pair readFile = Utility.readFile(file, 20480);
+                if (readFile != null && !TextUtils.isEmpty((CharSequence) readFile.first)) {
+                    if (DEBUG) {
+                        DebugUtil.saveLog("json-extra : " + ((String) readFile.first));
+                        Log.d(TAG, "json-extra.size = " + ((String) readFile.first).length());
+                    }
+                    jsonWriter.name(Constant.CRASH_ENVIR).value((String) readFile.first);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-            if (DEBUG) {
-                DebugUtil.saveLog("json-extra : " + ((String) readFile.first));
-                Log.d(TAG, "json-extra.size = " + ((String) readFile.first).length());
-            }
-            jsonWriter.name(Constant.CRASH_ENVIR).value((String) readFile.first);
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 
-    public static void createMiniBDMPInfo(@NonNull File file, @NonNull JsonWriter jsonWriter) {
+    public static void createMiniBDMPInfo(File file, JsonWriter jsonWriter) {
         ByteArrayOutputStream byteArrayOutputStream;
         FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65539, null, file, jsonWriter) == null) || file == null || jsonWriter == null || !file.exists()) {
-            return;
-        }
-        FileInputStream fileInputStream2 = null;
-        try {
-            fileInputStream = new FileInputStream(file);
+        if ((interceptable == null || interceptable.invokeLL(65539, null, file, jsonWriter) == null) && file != null && jsonWriter != null && file.exists()) {
+            FileInputStream fileInputStream2 = null;
             try {
-                byteArrayOutputStream = new ByteArrayOutputStream();
-            } catch (Exception e) {
-                e = e;
-                byteArrayOutputStream = null;
-            } catch (Throwable th) {
-                th = th;
-                byteArrayOutputStream = null;
-            }
-        } catch (Exception e2) {
-            e = e2;
-            byteArrayOutputStream = null;
-        } catch (Throwable th2) {
-            th = th2;
-            byteArrayOutputStream = null;
-        }
-        try {
-            byte[] bArr = new byte[1024];
-            int round = Math.round(76800.0f);
-            int i = 0;
-            while (true) {
-                int read = fileInputStream.read(bArr);
-                if (read == -1 || i >= round) {
-                    break;
+                fileInputStream = new FileInputStream(file);
+                try {
+                    byteArrayOutputStream = new ByteArrayOutputStream();
+                } catch (Exception e) {
+                    e = e;
+                    byteArrayOutputStream = null;
+                } catch (Throwable th) {
+                    th = th;
+                    byteArrayOutputStream = null;
                 }
-                byteArrayOutputStream.write(bArr, 0, read);
-                i += read;
+            } catch (Exception e2) {
+                e = e2;
+                byteArrayOutputStream = null;
+            } catch (Throwable th2) {
+                th = th2;
+                byteArrayOutputStream = null;
             }
-            byteArrayOutputStream.flush();
-            String encodeToString = Base64.encodeToString(byteArrayOutputStream.toByteArray(), 11);
-            if (DEBUG) {
-                DebugUtil.saveLog("mini-bdmp : " + encodeToString);
-            }
-            jsonWriter.name(Constant.STACKTRACE_BDMP).value(encodeToString);
-            Closeables.closeSafely(fileInputStream);
-        } catch (Exception e3) {
-            e = e3;
-            fileInputStream2 = fileInputStream;
             try {
-                e.printStackTrace();
-                Closeables.closeSafely(fileInputStream2);
-                Closeables.closeSafely(byteArrayOutputStream);
-            } catch (Throwable th3) {
-                th = th3;
+                byte[] bArr = new byte[1024];
+                int round = Math.round(76800.0f);
+                int i = 0;
+                while (true) {
+                    int read = fileInputStream.read(bArr);
+                    if (read == -1 || i >= round) {
+                        break;
+                    }
+                    byteArrayOutputStream.write(bArr, 0, read);
+                    i += read;
+                }
+                byteArrayOutputStream.flush();
+                String encodeToString = Base64.encodeToString(byteArrayOutputStream.toByteArray(), 11);
+                if (DEBUG) {
+                    DebugUtil.saveLog("mini-bdmp : " + encodeToString);
+                }
+                jsonWriter.name(Constant.STACKTRACE_BDMP).value(encodeToString);
+                Closeables.closeSafely(fileInputStream);
+            } catch (Exception e3) {
+                e = e3;
+                fileInputStream2 = fileInputStream;
+                try {
+                    e.printStackTrace();
+                    Closeables.closeSafely(fileInputStream2);
+                    Closeables.closeSafely(byteArrayOutputStream);
+                } catch (Throwable th3) {
+                    th = th3;
+                    Closeables.closeSafely(fileInputStream2);
+                    Closeables.closeSafely(byteArrayOutputStream);
+                    throw th;
+                }
+            } catch (Throwable th4) {
+                th = th4;
+                fileInputStream2 = fileInputStream;
                 Closeables.closeSafely(fileInputStream2);
                 Closeables.closeSafely(byteArrayOutputStream);
                 throw th;
             }
-        } catch (Throwable th4) {
-            th = th4;
-            fileInputStream2 = fileInputStream;
-            Closeables.closeSafely(fileInputStream2);
             Closeables.closeSafely(byteArrayOutputStream);
-            throw th;
         }
-        Closeables.closeSafely(byteArrayOutputStream);
     }
 }

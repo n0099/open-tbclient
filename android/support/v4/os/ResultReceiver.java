@@ -1,13 +1,11 @@
 package android.support.v4.os;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.RemoteException;
 import android.support.v4.os.IResultReceiver;
-import androidx.annotation.RestrictTo;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,16 +14,30 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@SuppressLint({"BanParcelableUsage"})
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class ResultReceiver implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<ResultReceiver> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public final Handler mHandler;
     public final boolean mLocal;
     public IResultReceiver mReceiver;
+
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public void onReceiveResult(int i, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bundle) == null) {
+        }
+    }
 
     /* loaded from: classes.dex */
     public class MyResultReceiver extends IResultReceiver.Stub {
@@ -116,7 +128,7 @@ public class ResultReceiver implements Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<ResultReceiver>() { // from class: android.support.v4.os.ResultReceiver.1
+        CREATOR = new Parcelable.Creator() { // from class: android.support.v4.os.ResultReceiver.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -135,21 +147,25 @@ public class ResultReceiver implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public ResultReceiver createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new ResultReceiver(parcel) : (ResultReceiver) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new ResultReceiver(parcel);
+                }
+                return (ResultReceiver) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public ResultReceiver[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new ResultReceiver[i] : (ResultReceiver[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new ResultReceiver[i];
+                }
+                return (ResultReceiver[]) invokeI.objValue;
             }
         };
     }
@@ -173,20 +189,24 @@ public class ResultReceiver implements Parcelable {
         this.mHandler = handler;
     }
 
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
+    public ResultReceiver(Parcel parcel) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
         }
-        return invokeV.intValue;
-    }
-
-    public void onReceiveResult(int i, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bundle) == null) {
-        }
+        this.mLocal = false;
+        this.mHandler = null;
+        this.mReceiver = IResultReceiver.Stub.asInterface(parcel.readStrongBinder());
     }
 
     public void send(int i, Bundle bundle) {
@@ -223,25 +243,5 @@ public class ResultReceiver implements Parcelable {
                 parcel.writeStrongBinder(this.mReceiver.asBinder());
             }
         }
-    }
-
-    public ResultReceiver(Parcel parcel) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.mLocal = false;
-        this.mHandler = null;
-        this.mReceiver = IResultReceiver.Stub.asInterface(parcel.readStrongBinder());
     }
 }

@@ -1,6 +1,5 @@
 package com.baidu.searchbox.afx.recode;
 
-import android.annotation.SuppressLint;
 import android.content.res.AssetFileDescriptor;
 import android.media.MediaCodecInfo;
 import android.media.MediaCodecList;
@@ -49,6 +48,83 @@ public class Mp4ComposerEngine {
         }
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:31:0x00b3  */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x00b8  */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x00bd  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    private void compose(MediaExtractor mediaExtractor, String str, Mp4Info mp4Info) throws IOException {
+        MediaMuxer mediaMuxer;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65537, this, mediaExtractor, str, mp4Info) == null) {
+            VideoTrackTranscoder videoTrackTranscoder = null;
+            try {
+                int selectVideoTrackIndex = selectVideoTrackIndex(mediaExtractor);
+                if (selectVideoTrackIndex >= 0) {
+                    MediaFormat trackFormat = mediaExtractor.getTrackFormat(selectVideoTrackIndex);
+                    String string = trackFormat.getString("mime");
+                    int i = 25;
+                    try {
+                        i = trackFormat.getInteger("frame-rate");
+                    } catch (Exception e) {
+                        Log.e(TAG, "get frame rate (FPS) failed.", e);
+                    }
+                    this.mDurationUs = mp4Info.getDurationUs();
+                    MediaFormat createVideoFormat = MediaFormat.createVideoFormat(string, mp4Info.getWidth(), mp4Info.getHeight());
+                    createVideoFormat.setInteger(HardwareVideoEncoder.KEY_BITRATE_MODE, 0);
+                    createVideoFormat.setInteger("bitrate", mp4Info.getBitrate() * 3);
+                    createVideoFormat.setInteger("frame-rate", i);
+                    createVideoFormat.setInteger("i-frame-interval", 0);
+                    createVideoFormat.setInteger("color-format", 2130708361);
+                    mediaMuxer = new MediaMuxer(str, 0);
+                    try {
+                        VideoTrackTranscoder videoTrackTranscoder2 = new VideoTrackTranscoder(mediaExtractor, selectVideoTrackIndex, createVideoFormat, new QueuedMuxer(mediaMuxer));
+                        try {
+                            videoTrackTranscoder2.setup(mp4Info);
+                            mediaExtractor.selectTrack(selectVideoTrackIndex);
+                            runPipelinesNoAudio(videoTrackTranscoder2);
+                            mediaMuxer.stop();
+                            videoTrackTranscoder2.release();
+                            if (mediaExtractor != null) {
+                                mediaExtractor.release();
+                            }
+                            mediaMuxer.release();
+                        } catch (Throwable th) {
+                            videoTrackTranscoder = videoTrackTranscoder2;
+                            th = th;
+                            if (videoTrackTranscoder != null) {
+                                videoTrackTranscoder.release();
+                            }
+                            if (mediaExtractor != null) {
+                                mediaExtractor.release();
+                            }
+                            if (mediaMuxer != null) {
+                                mediaMuxer.release();
+                            }
+                            throw th;
+                        }
+                    } catch (Throwable th2) {
+                        th = th2;
+                    }
+                } else {
+                    Log.e(TAG, "No video track found in " + str);
+                    throw new RuntimeException("No video track found in " + str);
+                }
+            } catch (Throwable th3) {
+                th = th3;
+                mediaMuxer = null;
+                if (videoTrackTranscoder != null) {
+                }
+                if (mediaExtractor != null) {
+                }
+                if (mediaMuxer != null) {
+                }
+                throw th;
+            }
+        }
+    }
+
     private void runPipelinesNoAudio(VideoTrackTranscoder videoTrackTranscoder) {
         ProgressCallback progressCallback;
         Interceptable interceptable = $ic;
@@ -61,10 +137,13 @@ public class Mp4ComposerEngine {
                 boolean stepPipeline = videoTrackTranscoder.stepPipeline();
                 j++;
                 if (this.mDurationUs > 0 && j % 10 == 0) {
-                    float min = videoTrackTranscoder.isFinished() ? 1.0f : Math.min(1.0f, ((float) videoTrackTranscoder.getWrittenPresentationTimeUs()) / ((float) this.mDurationUs));
+                    float f = 1.0f;
+                    if (!videoTrackTranscoder.isFinished()) {
+                        f = Math.min(1.0f, ((float) videoTrackTranscoder.getWrittenPresentationTimeUs()) / ((float) this.mDurationUs));
+                    }
                     ProgressCallback progressCallback2 = this.mProgressCallback;
                     if (progressCallback2 != null) {
-                        progressCallback2.onProgress(min);
+                        progressCallback2.onProgress(f);
                     }
                 }
                 if (!stepPipeline) {
@@ -113,22 +192,6 @@ public class Mp4ComposerEngine {
         return invokeL.intValue;
     }
 
-    public void compose(FileDescriptor fileDescriptor, String str, Mp4Info mp4Info) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fileDescriptor, str, mp4Info) == null) {
-            MediaExtractor mediaExtractor = new MediaExtractor();
-            mediaExtractor.setDataSource(fileDescriptor);
-            compose(mediaExtractor, str, mp4Info);
-        }
-    }
-
-    public void setProgressCallback(ProgressCallback progressCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, progressCallback) == null) {
-            this.mProgressCallback = progressCallback;
-        }
-    }
-
     public void compose(AssetFileDescriptor assetFileDescriptor, String str, Mp4Info mp4Info) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, assetFileDescriptor, str, mp4Info) == null) {
@@ -142,82 +205,19 @@ public class Mp4ComposerEngine {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:31:0x00b3  */
-    /* JADX WARN: Removed duplicated region for block: B:33:0x00b8  */
-    /* JADX WARN: Removed duplicated region for block: B:35:0x00bd  */
-    @SuppressLint({"BDThrowableCheck, InlinedApi"})
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    private void compose(MediaExtractor mediaExtractor, String str, Mp4Info mp4Info) throws IOException {
-        MediaMuxer mediaMuxer;
+    public void compose(FileDescriptor fileDescriptor, String str, Mp4Info mp4Info) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLLL(65537, this, mediaExtractor, str, mp4Info) != null) {
-            return;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fileDescriptor, str, mp4Info) == null) {
+            MediaExtractor mediaExtractor = new MediaExtractor();
+            mediaExtractor.setDataSource(fileDescriptor);
+            compose(mediaExtractor, str, mp4Info);
         }
-        VideoTrackTranscoder videoTrackTranscoder = null;
-        try {
-            int selectVideoTrackIndex = selectVideoTrackIndex(mediaExtractor);
-            if (selectVideoTrackIndex >= 0) {
-                MediaFormat trackFormat = mediaExtractor.getTrackFormat(selectVideoTrackIndex);
-                String string = trackFormat.getString("mime");
-                int i = 25;
-                try {
-                    i = trackFormat.getInteger("frame-rate");
-                } catch (Exception e) {
-                    Log.e(TAG, "get frame rate (FPS) failed.", e);
-                }
-                this.mDurationUs = mp4Info.getDurationUs();
-                MediaFormat createVideoFormat = MediaFormat.createVideoFormat(string, mp4Info.getWidth(), mp4Info.getHeight());
-                createVideoFormat.setInteger(HardwareVideoEncoder.KEY_BITRATE_MODE, 0);
-                createVideoFormat.setInteger("bitrate", mp4Info.getBitrate() * 3);
-                createVideoFormat.setInteger("frame-rate", i);
-                createVideoFormat.setInteger("i-frame-interval", 0);
-                createVideoFormat.setInteger("color-format", 2130708361);
-                mediaMuxer = new MediaMuxer(str, 0);
-                try {
-                    VideoTrackTranscoder videoTrackTranscoder2 = new VideoTrackTranscoder(mediaExtractor, selectVideoTrackIndex, createVideoFormat, new QueuedMuxer(mediaMuxer));
-                    try {
-                        videoTrackTranscoder2.setup(mp4Info);
-                        mediaExtractor.selectTrack(selectVideoTrackIndex);
-                        runPipelinesNoAudio(videoTrackTranscoder2);
-                        mediaMuxer.stop();
-                        videoTrackTranscoder2.release();
-                        if (mediaExtractor != null) {
-                            mediaExtractor.release();
-                        }
-                        mediaMuxer.release();
-                    } catch (Throwable th) {
-                        videoTrackTranscoder = videoTrackTranscoder2;
-                        th = th;
-                        if (videoTrackTranscoder != null) {
-                            videoTrackTranscoder.release();
-                        }
-                        if (mediaExtractor != null) {
-                            mediaExtractor.release();
-                        }
-                        if (mediaMuxer != null) {
-                            mediaMuxer.release();
-                        }
-                        throw th;
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                }
-            } else {
-                Log.e(TAG, "No video track found in " + str);
-                throw new RuntimeException("No video track found in " + str);
-            }
-        } catch (Throwable th3) {
-            th = th3;
-            mediaMuxer = null;
-            if (videoTrackTranscoder != null) {
-            }
-            if (mediaExtractor != null) {
-            }
-            if (mediaMuxer != null) {
-            }
-            throw th;
+    }
+
+    public void setProgressCallback(ProgressCallback progressCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, progressCallback) == null) {
+            this.mProgressCallback = progressCallback;
         }
     }
 }

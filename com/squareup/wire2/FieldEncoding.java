@@ -23,7 +23,7 @@ public final class FieldEncoding {
     public final int value;
 
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
+    public /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -128,16 +128,22 @@ public final class FieldEncoding {
     public static FieldEncoding valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (FieldEncoding) Enum.valueOf(FieldEncoding.class, str) : (FieldEncoding) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return (FieldEncoding) Enum.valueOf(FieldEncoding.class, str);
+        }
+        return (FieldEncoding) invokeL.objValue;
     }
 
     public static FieldEncoding[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (FieldEncoding[]) $VALUES.clone() : (FieldEncoding[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return (FieldEncoding[]) $VALUES.clone();
+        }
+        return (FieldEncoding[]) invokeV.objValue;
     }
 
-    public ProtoAdapter<?> rawProtoAdapter() {
+    public ProtoAdapter rawProtoAdapter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

@@ -18,22 +18,22 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class ReverseGeoCodeResult extends SearchResult {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<ReverseGeoCodeResult> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
     public AddressComponent c;
     public LatLng d;
     public int e;
-    public List<PoiInfo> f;
+    public List f;
     public String g;
-    public List<PoiRegionsInfo> h;
+    public List h;
     public int i;
 
     /* loaded from: classes2.dex */
-    public static class AddressComponent implements Parcelable {
+    public class AddressComponent implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
-        public static final Parcelable.Creator<AddressComponent> CREATOR;
+        public static final Parcelable.Creator CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
         public int adcode;
         public String city;
@@ -174,9 +174,9 @@ public class ReverseGeoCodeResult extends SearchResult {
     }
 
     /* loaded from: classes2.dex */
-    public static class PoiRegionsInfo implements Parcelable {
+    public class PoiRegionsInfo implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
-        public static final Parcelable.Creator<PoiRegionsInfo> CREATOR;
+        public static final Parcelable.Creator CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
         public String directionDesc;
         public String regionName;
@@ -395,13 +395,13 @@ public class ReverseGeoCodeResult extends SearchResult {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d : (LatLng) invokeV.objValue;
     }
 
-    public List<PoiInfo> getPoiList() {
+    public List getPoiList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f : (List) invokeV.objValue;
     }
 
-    public List<PoiRegionsInfo> getPoiRegionsInfoList() {
+    public List getPoiRegionsInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.h : (List) invokeV.objValue;
@@ -455,14 +455,14 @@ public class ReverseGeoCodeResult extends SearchResult {
         }
     }
 
-    public void setPoiList(List<PoiInfo> list) {
+    public void setPoiList(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, list) == null) {
             this.f = list;
         }
     }
 
-    public void setPoiRegionsInfoList(List<PoiRegionsInfo> list) {
+    public void setPoiRegionsInfoList(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, list) == null) {
             this.h = list;
@@ -515,11 +515,11 @@ public class ReverseGeoCodeResult extends SearchResult {
                 stringBuffer.append(this.c.distance);
                 stringBuffer.append("\n#AddressComponent Info END# \n");
             }
-            List<PoiRegionsInfo> list = this.h;
+            List list = this.h;
             if (list != null && !list.isEmpty()) {
                 stringBuffer.append("\n#PoiRegions Info  BEGIN#");
                 for (int i = 0; i < this.h.size(); i++) {
-                    PoiRegionsInfo poiRegionsInfo = this.h.get(i);
+                    PoiRegionsInfo poiRegionsInfo = (PoiRegionsInfo) this.h.get(i);
                     if (poiRegionsInfo != null) {
                         stringBuffer.append("\ndirectionDesc = ");
                         stringBuffer.append(poiRegionsInfo.getDirectionDesc());
@@ -531,11 +531,11 @@ public class ReverseGeoCodeResult extends SearchResult {
                 }
                 stringBuffer.append("\n#PoiRegions Info  END# \n");
             }
-            List<PoiInfo> list2 = this.f;
+            List list2 = this.f;
             if (list2 != null && !list2.isEmpty()) {
                 stringBuffer.append("\n #PoiList Info  BEGIN#");
                 for (int i2 = 0; i2 < this.f.size(); i2++) {
-                    PoiInfo poiInfo = this.f.get(i2);
+                    PoiInfo poiInfo = (PoiInfo) this.f.get(i2);
                     if (poiInfo != null) {
                         stringBuffer.append("\n address = ");
                         stringBuffer.append(poiInfo.getAddress());

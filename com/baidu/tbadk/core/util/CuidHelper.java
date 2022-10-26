@@ -1,7 +1,6 @@
 package com.baidu.tbadk.core.util;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -27,7 +26,7 @@ public class CuidHelper {
         }
     }
 
-    public static void cleanSdkCache(@NonNull Context context) {
+    public static void cleanSdkCache(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
             try {

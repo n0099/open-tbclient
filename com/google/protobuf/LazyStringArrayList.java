@@ -16,11 +16,11 @@ import java.util.Collections;
 import java.util.List;
 import java.util.RandomAccess;
 /* loaded from: classes7.dex */
-public class LazyStringArrayList extends AbstractList<String> implements LazyStringList, RandomAccess {
+public class LazyStringArrayList extends AbstractList implements LazyStringList, RandomAccess {
     public static /* synthetic */ Interceptable $ic;
     public static final LazyStringList EMPTY;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<Object> list;
+    public final List list;
 
     static {
         InterceptResult invokeClinit;
@@ -54,6 +54,72 @@ public class LazyStringArrayList extends AbstractList<String> implements LazyStr
         this.list = new ArrayList();
     }
 
+    @Override // java.util.AbstractList, java.util.AbstractCollection, java.util.Collection, java.util.List
+    public void clear() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.list.clear();
+            ((AbstractList) this).modCount++;
+        }
+    }
+
+    @Override // com.google.protobuf.LazyStringList
+    public List getUnderlyingElements() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return Collections.unmodifiableList(this.list);
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
+    public int size() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.list.size();
+        }
+        return invokeV.intValue;
+    }
+
+    public LazyStringArrayList(LazyStringList lazyStringList) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {lazyStringList};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.list = new ArrayList(lazyStringList.size());
+        addAll(lazyStringList);
+    }
+
+    public LazyStringArrayList(List list) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.list = new ArrayList(list);
+    }
+
     private String asString(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -66,20 +132,23 @@ public class LazyStringArrayList extends AbstractList<String> implements LazyStr
         return (String) invokeL.objValue;
     }
 
-    @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
-    public boolean addAll(Collection<? extends String> collection) {
-        InterceptResult invokeL;
+    @Override // com.google.protobuf.LazyStringList
+    public void add(ByteString byteString) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, collection)) == null) ? addAll(size(), collection) : invokeL.booleanValue;
-    }
-
-    @Override // java.util.AbstractList, java.util.AbstractCollection, java.util.Collection, java.util.List
-    public void clear() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.list.clear();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, byteString) == null) {
+            this.list.add(byteString);
             ((AbstractList) this).modCount++;
         }
+    }
+
+    @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
+    public boolean addAll(Collection collection) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, collection)) == null) {
+            return addAll(size(), collection);
+        }
+        return invokeL.booleanValue;
     }
 
     @Override // com.google.protobuf.LazyStringList
@@ -98,18 +167,19 @@ public class LazyStringArrayList extends AbstractList<String> implements LazyStr
         return (ByteString) invokeI.objValue;
     }
 
-    @Override // com.google.protobuf.LazyStringList
-    public List<?> getUnderlyingElements() {
-        InterceptResult invokeV;
+    @Override // java.util.AbstractList, java.util.List
+    public boolean addAll(int i, Collection collection) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? Collections.unmodifiableList(this.list) : (List) invokeV.objValue;
-    }
-
-    @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
-    public int size() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.list.size() : invokeV.intValue;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, collection)) == null) {
+            if (collection instanceof LazyStringList) {
+                collection = ((LazyStringList) collection).getUnderlyingElements();
+            }
+            boolean addAll = this.list.addAll(i, collection);
+            ((AbstractList) this).modCount++;
+            return addAll;
+        }
+        return invokeIL.booleanValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -122,19 +192,15 @@ public class LazyStringArrayList extends AbstractList<String> implements LazyStr
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.AbstractList, java.util.List
-    public boolean addAll(int i, Collection<? extends String> collection) {
+    public String set(int i, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, collection)) == null) {
-            if (collection instanceof LazyStringList) {
-                collection = ((LazyStringList) collection).getUnderlyingElements();
-            }
-            boolean addAll = this.list.addAll(i, collection);
-            ((AbstractList) this).modCount++;
-            return addAll;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048589, this, i, str)) == null) {
+            return asString(this.list.set(i, str));
         }
-        return invokeIL.booleanValue;
+        return (String) invokeIL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -168,59 +234,5 @@ public class LazyStringArrayList extends AbstractList<String> implements LazyStr
             return asString(remove);
         }
         return (String) invokeI.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.util.AbstractList, java.util.List
-    public String set(int i, String str) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048589, this, i, str)) == null) ? asString(this.list.set(i, str)) : (String) invokeIL.objValue;
-    }
-
-    public LazyStringArrayList(LazyStringList lazyStringList) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {lazyStringList};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.list = new ArrayList(lazyStringList.size());
-        addAll(lazyStringList);
-    }
-
-    @Override // com.google.protobuf.LazyStringList
-    public void add(ByteString byteString) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, byteString) == null) {
-            this.list.add(byteString);
-            ((AbstractList) this).modCount++;
-        }
-    }
-
-    public LazyStringArrayList(List<String> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        this.list = new ArrayList(list);
     }
 }

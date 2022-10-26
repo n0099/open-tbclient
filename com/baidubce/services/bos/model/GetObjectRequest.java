@@ -36,7 +36,10 @@ public class GetObjectRequest extends GenericObjectRequest {
     public BosProgressCallback getProgressCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.progressCallback : (BosProgressCallback) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.progressCallback;
+        }
+        return (BosProgressCallback) invokeV.objValue;
     }
 
     public long[] getRange() {
@@ -52,23 +55,36 @@ public class GetObjectRequest extends GenericObjectRequest {
         return (long[]) invokeV.objValue;
     }
 
-    public <T extends GetObjectRequest> void setProgressCallback(BosProgressCallback<T> bosProgressCallback) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public GetObjectRequest(String str, String str2) {
+        super(str, str2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.progressCallback = null;
+    }
+
+    public void setProgressCallback(BosProgressCallback bosProgressCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bosProgressCallback) == null) {
             this.progressCallback = bosProgressCallback;
         }
     }
 
-    public void setRange(long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            CheckUtils.checkArgument(j >= 0, "start should be non-negative.");
-            CheckUtils.checkArgument(j <= j2, "start should not be greater than end");
-            this.range = new long[]{j, j2};
-        }
-    }
-
-    public <T extends GetObjectRequest> GetObjectRequest withProgressCallback(BosProgressCallback<T> bosProgressCallback) {
+    public GetObjectRequest withProgressCallback(BosProgressCallback bosProgressCallback) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bosProgressCallback)) == null) {
@@ -78,14 +94,25 @@ public class GetObjectRequest extends GenericObjectRequest {
         return (GetObjectRequest) invokeL.objValue;
     }
 
-    public GetObjectRequest withRange(long j, long j2) {
-        InterceptResult invokeCommon;
+    public void setRange(long j, long j2) {
+        boolean z;
+        boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            setRange(j, j2);
-            return this;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            if (j >= 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            CheckUtils.checkArgument(z, "start should be non-negative.");
+            if (j <= j2) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            CheckUtils.checkArgument(z2, "start should not be greater than end");
+            this.range = new long[]{j, j2};
         }
-        return (GetObjectRequest) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -124,25 +151,13 @@ public class GetObjectRequest extends GenericObjectRequest {
         return (GetObjectRequest) invokeL.objValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GetObjectRequest(String str, String str2) {
-        super(str, str2);
+    public GetObjectRequest withRange(long j, long j2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            setRange(j, j2);
+            return this;
         }
-        this.progressCallback = null;
+        return (GetObjectRequest) invokeCommon.objValue;
     }
 }

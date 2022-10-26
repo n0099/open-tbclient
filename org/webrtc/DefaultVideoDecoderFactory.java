@@ -1,7 +1,7 @@
 package org.webrtc;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ax9;
+import com.baidu.tieba.sx9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,6 +19,13 @@ public class DefaultVideoDecoderFactory implements VideoDecoderFactory {
     @Nullable
     public final VideoDecoderFactory platformSoftwareVideoDecoderFactory;
     public final VideoDecoderFactory softwareVideoDecoderFactory;
+
+    @Override // org.webrtc.VideoDecoderFactory
+    @Nullable
+    @Deprecated
+    public /* synthetic */ VideoDecoder createDecoder(String str) {
+        return sx9.$default$createDecoder(this, str);
+    }
 
     public DefaultVideoDecoderFactory(@Nullable EglBase.Context context) {
         Interceptable interceptable = $ic;
@@ -42,13 +49,6 @@ public class DefaultVideoDecoderFactory implements VideoDecoderFactory {
 
     @Override // org.webrtc.VideoDecoderFactory
     @Nullable
-    @Deprecated
-    public /* synthetic */ VideoDecoder createDecoder(String str) {
-        return ax9.$default$createDecoder(this, str);
-    }
-
-    @Override // org.webrtc.VideoDecoderFactory
-    @Nullable
     public VideoDecoder createDecoder(VideoCodecInfo videoCodecInfo) {
         InterceptResult invokeL;
         VideoDecoderFactory videoDecoderFactory;
@@ -59,29 +59,15 @@ public class DefaultVideoDecoderFactory implements VideoDecoderFactory {
             if (createDecoder == null && (videoDecoderFactory = this.platformSoftwareVideoDecoderFactory) != null) {
                 createDecoder = videoDecoderFactory.createDecoder(videoCodecInfo);
             }
-            if (createDecoder2 == null || createDecoder == null) {
-                return createDecoder2 != null ? createDecoder2 : createDecoder;
+            if (createDecoder2 != null && createDecoder != null) {
+                return new VideoDecoderFallback(createDecoder, createDecoder2);
             }
-            return new VideoDecoderFallback(createDecoder, createDecoder2);
+            if (createDecoder2 == null) {
+                return createDecoder;
+            }
+            return createDecoder2;
         }
         return (VideoDecoder) invokeL.objValue;
-    }
-
-    @Override // org.webrtc.VideoDecoderFactory
-    public VideoCodecInfo[] getSupportedCodecs() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            LinkedHashSet linkedHashSet = new LinkedHashSet();
-            linkedHashSet.addAll(Arrays.asList(this.softwareVideoDecoderFactory.getSupportedCodecs()));
-            linkedHashSet.addAll(Arrays.asList(this.hardwareVideoDecoderFactory.getSupportedCodecs()));
-            VideoDecoderFactory videoDecoderFactory = this.platformSoftwareVideoDecoderFactory;
-            if (videoDecoderFactory != null) {
-                linkedHashSet.addAll(Arrays.asList(videoDecoderFactory.getSupportedCodecs()));
-            }
-            return (VideoCodecInfo[]) linkedHashSet.toArray(new VideoCodecInfo[linkedHashSet.size()]);
-        }
-        return (VideoCodecInfo[]) invokeV.objValue;
     }
 
     public DefaultVideoDecoderFactory(VideoDecoderFactory videoDecoderFactory) {
@@ -102,5 +88,22 @@ public class DefaultVideoDecoderFactory implements VideoDecoderFactory {
         this.softwareVideoDecoderFactory = new SoftwareVideoDecoderFactory();
         this.hardwareVideoDecoderFactory = videoDecoderFactory;
         this.platformSoftwareVideoDecoderFactory = null;
+    }
+
+    @Override // org.webrtc.VideoDecoderFactory
+    public VideoCodecInfo[] getSupportedCodecs() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            LinkedHashSet linkedHashSet = new LinkedHashSet();
+            linkedHashSet.addAll(Arrays.asList(this.softwareVideoDecoderFactory.getSupportedCodecs()));
+            linkedHashSet.addAll(Arrays.asList(this.hardwareVideoDecoderFactory.getSupportedCodecs()));
+            VideoDecoderFactory videoDecoderFactory = this.platformSoftwareVideoDecoderFactory;
+            if (videoDecoderFactory != null) {
+                linkedHashSet.addAll(Arrays.asList(videoDecoderFactory.getSupportedCodecs()));
+            }
+            return (VideoCodecInfo[]) linkedHashSet.toArray(new VideoCodecInfo[linkedHashSet.size()]);
+        }
+        return (VideoCodecInfo[]) invokeV.objValue;
     }
 }

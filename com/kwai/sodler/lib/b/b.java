@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwai.sodler.lib.a.f;
 import com.kwai.sodler.lib.g;
 /* loaded from: classes8.dex */
-public class b<P extends g> extends f<P> {
+public class b extends f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -36,9 +36,9 @@ public class b<P extends g> extends f<P> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwai.sodler.lib.a.f
     /* renamed from: fe */
-    public P fb(String str) {
+    public g fb(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? (P) new g(str) : (P) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? new g(str) : (g) invokeL.objValue;
     }
 }

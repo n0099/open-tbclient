@@ -32,6 +32,9 @@ public class CodeResult {
     public int getReturnCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.returnCode : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.returnCode;
+        }
+        return invokeV.intValue;
     }
 }

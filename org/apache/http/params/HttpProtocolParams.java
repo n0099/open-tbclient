@@ -65,6 +65,15 @@ public final class HttpProtocolParams implements CoreProtocolPNames {
         return (ProtocolVersion) invokeL.objValue;
     }
 
+    public static boolean useExpectContinue(HttpParams httpParams) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, httpParams)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeL.booleanValue;
+    }
+
     public static void setContentCharset(HttpParams httpParams, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, httpParams, str) == null) {
@@ -98,14 +107,5 @@ public final class HttpProtocolParams implements CoreProtocolPNames {
         if (interceptable == null || interceptable.invokeLL(65545, null, httpParams, protocolVersion) == null) {
             throw new RuntimeException("Stub!");
         }
-    }
-
-    public static boolean useExpectContinue(HttpParams httpParams) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, httpParams)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeL.booleanValue;
     }
 }

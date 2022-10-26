@@ -31,7 +31,10 @@ public class GetBucketLocationResponse extends BosResponse {
     public String getLocationConstraint() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.locationConstraint : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.locationConstraint;
+        }
+        return (String) invokeV.objValue;
     }
 
     public void setLocationConstraint(String str) {

@@ -45,7 +45,10 @@ public class CommonHelper {
     public static String getIp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? mIp : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return mIp;
+        }
+        return (String) invokeV.objValue;
     }
 
     public static void setIp(String str) {

@@ -47,6 +47,37 @@ public class OkHttpRequest implements HttpRequest {
         }
     }
 
+    @Override // com.baidu.livesdk.api.http.HttpRequest
+    public void cancel() {
+        Call call;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (call = this.mRequestCall) != null) {
+            call.cancel();
+        }
+    }
+
+    @Override // com.baidu.livesdk.api.http.HttpRequest
+    public HttpRequestEntity getHttpRequestEntity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mEntity;
+        }
+        return (HttpRequestEntity) invokeV.objValue;
+    }
+
+    @Override // com.baidu.livesdk.api.http.HttpRequest
+    public HttpResponse requestSync() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            Call requestBuild = requestBuild();
+            this.mRequestCall = requestBuild;
+            return getHttpResponse(requestBuild.execute());
+        }
+        return (HttpResponse) invokeV.objValue;
+    }
+
     private Call requestBuild() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -54,58 +85,43 @@ public class OkHttpRequest implements HttpRequest {
             if (this.mClient != null && this.mEntity != null) {
                 Request.Builder url = new Request.Builder().url(this.mEntity.getUrl());
                 if (this.mEntity.getHeader() != null) {
-                    for (Map.Entry<String, String> entry : this.mEntity.getHeader().entrySet()) {
-                        url.addHeader(entry.getKey(), entry.getValue());
+                    for (Map.Entry entry : this.mEntity.getHeader().entrySet()) {
+                        url.addHeader((String) entry.getKey(), (String) entry.getValue());
                     }
                 }
                 int method = this.mEntity.getMethod();
-                if (method == 0) {
-                    url.get();
-                } else if (method != 1) {
-                    url.get();
-                } else {
-                    RequestBody requestBody = null;
-                    if (this.mEntity.getPostParams() != null) {
-                        if (TextUtils.isEmpty(this.mEntity.getMediaType())) {
-                            FormBody.Builder builder = new FormBody.Builder();
-                            for (Map.Entry<String, String> entry2 : this.mEntity.getPostParams().entrySet()) {
-                                builder.add(entry2.getKey(), entry2.getValue());
+                if (method != 0) {
+                    if (method != 1) {
+                        url.get();
+                    } else {
+                        RequestBody requestBody = null;
+                        if (this.mEntity.getPostParams() != null) {
+                            if (TextUtils.isEmpty(this.mEntity.getMediaType())) {
+                                FormBody.Builder builder = new FormBody.Builder();
+                                for (Map.Entry entry2 : this.mEntity.getPostParams().entrySet()) {
+                                    builder.add((String) entry2.getKey(), (String) entry2.getValue());
+                                }
+                                requestBody = builder.build();
+                            } else {
+                                String str = "";
+                                for (Map.Entry entry3 : this.mEntity.getPostParams().entrySet()) {
+                                    str = (str + ((String) entry3.getKey()) + "=" + ((String) entry3.getValue())) + "&";
+                                }
+                                requestBody = RequestBody.create(MediaType.parse(this.mEntity.getMediaType()), str.substring(0, str.length() - 1));
                             }
-                            requestBody = builder.build();
-                        } else {
-                            String str = "";
-                            for (Map.Entry<String, String> entry3 : this.mEntity.getPostParams().entrySet()) {
-                                str = (str + entry3.getKey() + "=" + entry3.getValue()) + "&";
-                            }
-                            requestBody = RequestBody.create(MediaType.parse(this.mEntity.getMediaType()), str.substring(0, str.length() - 1));
+                        }
+                        if (requestBody != null) {
+                            url.post(requestBody);
                         }
                     }
-                    if (requestBody != null) {
-                        url.post(requestBody);
-                    }
+                } else {
+                    url.get();
                 }
                 return this.mClient.newCall(url.build());
             }
             throw new NullPointerException("params is null");
         }
         return (Call) invokeV.objValue;
-    }
-
-    @Override // com.baidu.livesdk.api.http.HttpRequest
-    public void cancel() {
-        Call call;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (call = this.mRequestCall) == null) {
-            return;
-        }
-        call.cancel();
-    }
-
-    @Override // com.baidu.livesdk.api.http.HttpRequest
-    public HttpRequestEntity getHttpRequestEntity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mEntity : (HttpRequestEntity) invokeV.objValue;
     }
 
     public HttpResponse getHttpResponse(Response response) throws IOException {
@@ -126,15 +142,16 @@ public class OkHttpRequest implements HttpRequest {
     public void onFailureCallback(Call call, IOException iOException) {
         int i;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, call, iOException) == null) || this.mCallback == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(1048579, this, call, iOException) == null) && this.mCallback != null) {
+            if (iOException instanceof SocketTimeoutException) {
+                i = 1;
+            } else if (iOException instanceof ConnectException) {
+                i = 2;
+            } else {
+                i = 3;
+            }
+            this.mCallback.onFail(i, iOException);
         }
-        if (iOException instanceof SocketTimeoutException) {
-            i = 1;
-        } else {
-            i = iOException instanceof ConnectException ? 2 : 3;
-        }
-        this.mCallback.onFail(i, iOException);
     }
 
     public void onResponseCallback(Call call, Response response) {
@@ -203,18 +220,6 @@ public class OkHttpRequest implements HttpRequest {
             return this;
         }
         return (HttpRequest) invokeL.objValue;
-    }
-
-    @Override // com.baidu.livesdk.api.http.HttpRequest
-    public HttpResponse requestSync() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            Call requestBuild = requestBuild();
-            this.mRequestCall = requestBuild;
-            return getHttpResponse(requestBuild.execute());
-        }
-        return (HttpResponse) invokeV.objValue;
     }
 
     @Override // com.baidu.livesdk.api.http.HttpRequest

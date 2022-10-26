@@ -8,28 +8,26 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.MaybeObserver;
 import io.reactivex.MaybeSource;
-import io.reactivex.annotations.Experimental;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.exceptions.Exceptions;
 import io.reactivex.functions.Consumer;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.plugins.RxJavaPlugins;
-@Experimental
 /* loaded from: classes8.dex */
-public final class MaybeDoAfterSuccess<T> extends AbstractMaybeWithUpstream<T, T> {
+public final class MaybeDoAfterSuccess extends AbstractMaybeWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Consumer<? super T> onAfterSuccess;
+    public final Consumer onAfterSuccess;
 
     /* loaded from: classes8.dex */
-    public static final class DoAfterObserver<T> implements MaybeObserver<T>, Disposable {
+    public final class DoAfterObserver implements MaybeObserver, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final MaybeObserver<? super T> actual;
+        public final MaybeObserver actual;
         public Disposable d;
-        public final Consumer<? super T> onAfterSuccess;
+        public final Consumer onAfterSuccess;
 
-        public DoAfterObserver(MaybeObserver<? super T> maybeObserver, Consumer<? super T> consumer) {
+        public DoAfterObserver(MaybeObserver maybeObserver, Consumer consumer) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -60,7 +58,10 @@ public final class MaybeDoAfterSuccess<T> extends AbstractMaybeWithUpstream<T, T
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d.isDisposed() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.d.isDisposed();
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.MaybeObserver
@@ -89,12 +90,12 @@ public final class MaybeDoAfterSuccess<T> extends AbstractMaybeWithUpstream<T, T
         }
 
         @Override // io.reactivex.MaybeObserver
-        public void onSuccess(T t) {
+        public void onSuccess(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
-                this.actual.onSuccess(t);
+            if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
+                this.actual.onSuccess(obj);
                 try {
-                    this.onAfterSuccess.accept(t);
+                    this.onAfterSuccess.accept(obj);
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
                     RxJavaPlugins.onError(th);
@@ -104,7 +105,7 @@ public final class MaybeDoAfterSuccess<T> extends AbstractMaybeWithUpstream<T, T
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MaybeDoAfterSuccess(MaybeSource<T> maybeSource, Consumer<? super T> consumer) {
+    public MaybeDoAfterSuccess(MaybeSource maybeSource, Consumer consumer) {
         super(maybeSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -125,7 +126,7 @@ public final class MaybeDoAfterSuccess<T> extends AbstractMaybeWithUpstream<T, T
     }
 
     @Override // io.reactivex.Maybe
-    public void subscribeActual(MaybeObserver<? super T> maybeObserver) {
+    public void subscribeActual(MaybeObserver maybeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, maybeObserver) == null) {
             this.source.subscribe(new DoAfterObserver(maybeObserver, this.onAfterSuccess));

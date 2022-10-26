@@ -54,7 +54,7 @@ public class b {
         return a;
     }
 
-    public c<String> a(String str, String str2, String str3, File file) {
+    public c a(String str, String str2, String str3, File file) {
         return this.d.a(str, str2, str3, file);
     }
 

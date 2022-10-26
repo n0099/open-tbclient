@@ -1,123 +1,190 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
 import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.ShareDialogConfig;
+import com.baidu.tbadk.core.data.OriginalThreadInfo;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
+import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
+import com.baidu.tieba.video.SendVideoSuccessShareModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-@TargetApi(18)
 /* loaded from: classes5.dex */
 public class ov8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public String b;
-    public String c;
-    public String d;
-    public boolean e;
-    public c f;
-    public sv8 g;
-    public qv8 h;
-    public rv8 i;
-    public volatile boolean j;
-    public volatile boolean k;
-    public volatile boolean l;
+    public View a;
+    public Context b;
+    public View c;
+    public TextView d;
+    public ImageView e;
+    public boolean f;
+    public PostWriteCallBackData g;
+    public TextView h;
+    public SendVideoSuccessShareModel i;
 
     /* loaded from: classes5.dex */
-    public class a extends sv8 {
+    public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ov8 f;
+        public final /* synthetic */ ov8 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(ov8 ov8Var, Context context, String str, String str2, rv8 rv8Var, c cVar) {
-            super(context, str, str2, rv8Var, cVar);
+        /* loaded from: classes5.dex */
+        public class a extends q9 {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ b a;
+
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = bVar;
+            }
+
+            @Override // com.baidu.tieba.q9
+            public void c(Object obj) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+                    ShareItem shareItem = new ShareItem();
+                    shareItem.l0 = false;
+                    shareItem.X = OriginalThreadInfo.ShareInfo.generateShareInfo((OriginalThreadInfo) obj);
+                    f46.c().l(new ShareDialogConfig(this.a.a.b, shareItem, true, true));
+                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("uid", TbadkCoreApplication.getCurrentAccount()).param(TiebaStatic.Params.OBJ_PARAM2, 1).param(TiebaStatic.Params.OBJ_PARAM3, 1));
+                }
+            }
+        }
+
+        public b(ov8 ov8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ov8Var, context, str, str2, rv8Var, cVar};
+                Object[] objArr = {ov8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((Context) objArr2[0], (String) objArr2[1], (String) objArr2[2], (rv8) objArr2[3], (c) objArr2[4]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f = ov8Var;
+            this.a = ov8Var;
         }
 
-        @Override // com.baidu.tieba.sv8
-        public void k() {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f.j = true;
-                this.f.d();
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.f();
+                if (this.a.g != null && !StringUtils.isNull(this.a.g.getVideoid())) {
+                    this.a.i.B(this.a.g.getVideoid());
+                    this.a.i.setLoadDataCallBack(new a(this));
+                }
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b extends qv8 {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ov8 f;
+        public final /* synthetic */ ov8 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(ov8 ov8Var, Context context, String str, rv8 rv8Var, c cVar) {
-            super(context, str, rv8Var, cVar);
+        public a(ov8 ov8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ov8Var, context, str, rv8Var, cVar};
+                Object[] objArr = {ov8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((Context) objArr2[0], (String) objArr2[1], (rv8) objArr2[2], (c) objArr2[3]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f = ov8Var;
+            this.a = ov8Var;
         }
 
-        @Override // com.baidu.tieba.qv8
-        public void k() {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f.k = true;
-                this.f.d();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.f) {
+                this.a.f();
+                if (this.a.g != null && !StringUtils.isNull(this.a.g.buildVideoFakeOnWallUrl())) {
+                    zo4.p(this.a.b, null, this.a.g.buildVideoFakeOnWallUrl());
+                }
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public interface c {
-        void onGenFilterVideoFail(int i, String str);
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ov8 a;
 
-        void onGenFilterVideoRecordError(int i, String str);
+        public c(ov8 ov8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ov8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ov8Var;
+        }
 
-        void onGenFilterVideoSuccess(String str);
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.f();
+            }
+        }
     }
 
-    public ov8(Context context, String str, String str2, String str3) {
+    public ov8(Context context, ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, str2, str3};
+            Object[] objArr = {context, viewGroup};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -127,96 +194,68 @@ public class ov8 {
                 return;
             }
         }
-        this.e = false;
-        this.a = context;
-        this.b = str;
-        this.c = str2;
-        this.d = str3;
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.j && this.k && !this.l) {
-            this.i.f();
-            this.l = true;
-            g();
+        this.b = context;
+        this.c = viewGroup;
+        this.i = new SendVideoSuccessShareModel();
+        if (this.b != null && this.c != null) {
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07b5, (ViewGroup) null);
+            this.a = inflate;
+            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091fb1);
+            this.e = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0924e7);
+            this.h = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092556);
+            ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(-1, fj.f(context, R.dimen.obfuscated_res_0x7f0701aa));
+            if (this.a.getParent() == null) {
+                viewGroup.addView(this.a, layoutParams);
+            }
+            this.a.setVisibility(8);
+            this.a.setOnClickListener(new a(this));
+            this.h.setOnClickListener(new b(this));
         }
     }
 
     public void e() {
+        SendVideoSuccessShareModel sendVideoSuccessShareModel;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            sv8 sv8Var = this.g;
-            if (sv8Var != null) {
-                sv8Var.interrupt();
-                this.g = null;
-            }
-            qv8 qv8Var = this.h;
-            if (qv8Var != null) {
-                qv8Var.interrupt();
-                this.h = null;
-            }
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (sendVideoSuccessShareModel = this.i) != null) {
+            sendVideoSuccessShareModel.cancelLoadData();
         }
     }
 
-    public boolean f() {
-        InterceptResult invokeV;
+    public void f() {
+        View view2;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : invokeV.booleanValue;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (view2 = this.a) != null) {
+            view2.setVisibility(8);
+        }
     }
 
-    public final void g() {
+    public void g(PostWriteCallBackData postWriteCallBackData) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.f != null) {
-                File file = new File(this.c);
-                if (file.exists() && file.length() > 0) {
-                    this.f.onGenFilterVideoSuccess(this.c);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, postWriteCallBackData) == null) && postWriteCallBackData != null) {
+            this.g = postWriteCallBackData;
+            if (postWriteCallBackData.mVideoTitleData != null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.f = z;
+            View view2 = this.a;
+            if (view2 != null && this.d != null && this.e != null && this.h != null) {
+                SkinManager.setBackgroundColor(view2, R.color.CAM_X0302);
+                SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
+                SkinManager.setImageResource(this.e, R.drawable.icon_arrow_more_white);
+                SkinManager.setBackgroundResource(this.h, R.drawable.immediately_share_background);
+                this.a.setVisibility(0);
+                this.a.postDelayed(new c(this), 5000L);
+                if (this.f) {
+                    this.d.setText(R.string.obfuscated_res_0x7f0f153e);
+                } else if (!StringUtils.isNull(postWriteCallBackData.getErrorString())) {
+                    this.d.setText(postWriteCallBackData.getErrorString());
                 } else {
-                    this.f.onGenFilterVideoFail(223, "Err empty outputFile");
+                    this.a.setVisibility(8);
                 }
             }
-            this.e = false;
-        }
-    }
-
-    public void h(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
-            this.f = cVar;
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.e) {
-            return;
-        }
-        this.e = true;
-        this.j = false;
-        this.k = false;
-        this.l = false;
-        try {
-            File file = new File(new File(this.c).getParent());
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            c cVar = this.f;
-            if (cVar != null) {
-                cVar.onGenFilterVideoFail(222, cp7.a(e));
-            }
-        }
-        try {
-            this.i = new rv8(this.c);
-            a aVar = new a(this, this.a, this.b, this.d, this.i, this.f);
-            this.g = aVar;
-            aVar.start();
-            b bVar = new b(this, this.a, this.b, this.i, this.f);
-            this.h = bVar;
-            bVar.start();
-        } catch (Exception unused) {
         }
     }
 }

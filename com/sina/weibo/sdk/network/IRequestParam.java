@@ -9,16 +9,50 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.Map;
 import org.apache.http.client.methods.HttpDelete;
 /* loaded from: classes8.dex */
 public interface IRequestParam {
+    void addInterceptResult(String str, Object obj);
+
+    Map byteArrays();
+
+    Map files();
+
+    Context getContext();
+
+    Bundle getExtraBundle();
+
+    Bundle getGetBundle();
+
+    Bundle getHeader();
+
+    ArrayList getIntercept();
+
+    Object getInterceptResult(String str);
+
+    RequestType getMethod();
+
+    Bundle getPostBundle();
+
+    int getRequestTimeout();
+
+    int getResponseTimeout();
+
+    String getUrl();
+
+    boolean needGzip();
+
+    boolean needIntercept();
+
+    void setUrl(String str);
+
+    boolean useDefaultHost();
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public static final class RequestType {
+    public final class RequestType {
         public static final /* synthetic */ RequestType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final RequestType DELETE;
@@ -70,22 +104,28 @@ public interface IRequestParam {
         public static RequestType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (RequestType) Enum.valueOf(RequestType.class, str) : (RequestType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (RequestType) Enum.valueOf(RequestType.class, str);
+            }
+            return (RequestType) invokeL.objValue;
         }
 
         public static RequestType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (RequestType[]) $VALUES.clone() : (RequestType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (RequestType[]) $VALUES.clone();
+            }
+            return (RequestType[]) invokeV.objValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public static class ValuePart<T> {
+    public class ValuePart {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String mimeType;
-        public T value;
+        public Object value;
 
         public ValuePart() {
             Interceptable interceptable = $ic;
@@ -101,40 +141,4 @@ public interface IRequestParam {
             }
         }
     }
-
-    void addInterceptResult(String str, Object obj);
-
-    Map<String, byte[]> byteArrays();
-
-    Map<String, ValuePart<File>> files();
-
-    Context getContext();
-
-    Bundle getExtraBundle();
-
-    Bundle getGetBundle();
-
-    Bundle getHeader();
-
-    ArrayList<IRequestIntercept> getIntercept();
-
-    Object getInterceptResult(String str);
-
-    RequestType getMethod();
-
-    Bundle getPostBundle();
-
-    int getRequestTimeout();
-
-    int getResponseTimeout();
-
-    String getUrl();
-
-    boolean needGzip();
-
-    boolean needIntercept();
-
-    void setUrl(String str);
-
-    boolean useDefaultHost();
 }

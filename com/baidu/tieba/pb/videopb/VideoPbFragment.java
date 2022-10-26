@@ -1,6 +1,7 @@
 package com.baidu.tieba.pb.videopb;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,6 +12,43 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class VideoPbFragment extends AbsVideoPbFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.pb.videopb.AbsVideoPbFragment
+    public int K3() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.pb.videopb.AbsVideoPbFragment
+    public int M3() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d08de : invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.pb.videopb.AbsVideoPbFragment
+    public boolean u4() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.pb.videopb.AbsVideoPbFragment
+    public boolean w4() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
 
     public VideoPbFragment() {
         Interceptable interceptable = $ic;
@@ -27,47 +65,17 @@ public class VideoPbFragment extends AbsVideoPbFragment {
     }
 
     @Override // com.baidu.tieba.pb.videopb.AbsVideoPbFragment
-    public int L3() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.pb.videopb.AbsVideoPbFragment
-    public int N3() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d08dd : invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.pb.videopb.AbsVideoPbFragment
-    public void j5(boolean z) {
+    public void i5(boolean z) {
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.m.setVisibility(z ? 0 : 8);
+            NavigationBar navigationBar = this.m;
+            if (z) {
+                i = 0;
+            } else {
+                i = 8;
+            }
+            navigationBar.setVisibility(i);
         }
-    }
-
-    @Override // com.baidu.tieba.pb.videopb.AbsVideoPbFragment
-    public boolean v4() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.pb.videopb.AbsVideoPbFragment
-    public boolean x4() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
     }
 }

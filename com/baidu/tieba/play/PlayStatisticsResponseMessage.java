@@ -36,10 +36,9 @@ public class PlayStatisticsResponseMessage extends JsonHttpResponsedMessage {
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) || i != 1001804 || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("info")) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) && i == 1001804 && jSONObject != null && (optJSONObject = jSONObject.optJSONObject("info")) != null) {
+            TbSingleton.getInstance().setVideoTestType(optJSONObject.optString("exp_tag", ""));
+            TbSingleton.getInstance().setPcdnConfigData(optJSONObject.optJSONObject("pcdn_config"));
         }
-        TbSingleton.getInstance().setVideoTestType(optJSONObject.optString("exp_tag", ""));
-        TbSingleton.getInstance().setPcdnConfigData(optJSONObject.optJSONObject("pcdn_config"));
     }
 }

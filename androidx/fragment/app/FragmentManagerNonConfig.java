@@ -1,6 +1,5 @@
 package androidx.fragment.app;
 
-import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelStore;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,14 +14,11 @@ import java.util.Map;
 public class FragmentManagerNonConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
     public final Map<String, FragmentManagerNonConfig> mChildNonConfigs;
-    @Nullable
     public final Collection<Fragment> mFragments;
-    @Nullable
     public final Map<String, ViewModelStore> mViewModelStores;
 
-    public FragmentManagerNonConfig(@Nullable Collection<Fragment> collection, @Nullable Map<String, FragmentManagerNonConfig> map, @Nullable Map<String, ViewModelStore> map2) {
+    public FragmentManagerNonConfig(Collection<Fragment> collection, Map<String, FragmentManagerNonConfig> map, Map<String, ViewModelStore> map2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -42,25 +38,31 @@ public class FragmentManagerNonConfig {
         this.mViewModelStores = map2;
     }
 
-    @Nullable
     public Map<String, FragmentManagerNonConfig> getChildNonConfigs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mChildNonConfigs : (Map) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mChildNonConfigs;
+        }
+        return (Map) invokeV.objValue;
     }
 
-    @Nullable
     public Collection<Fragment> getFragments() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mFragments : (Collection) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mFragments;
+        }
+        return (Collection) invokeV.objValue;
     }
 
-    @Nullable
     public Map<String, ViewModelStore> getViewModelStores() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mViewModelStores : (Map) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mViewModelStores;
+        }
+        return (Map) invokeV.objValue;
     }
 
     public boolean isRetaining(Fragment fragment) {

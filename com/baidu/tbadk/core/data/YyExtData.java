@@ -3,6 +3,7 @@ package com.baidu.tbadk.core.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.mutiprocess.live.YyLiveRoomConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,8 +29,18 @@ public class YyExtData implements Serializable, Parcelable {
     public String mYyUid;
     public String streamInfo;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     /* loaded from: classes3.dex */
-    public static class a implements Parcelable.Creator<YyExtData> {
+    public final class a implements Parcelable.Creator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -53,7 +64,10 @@ public class YyExtData implements Serializable, Parcelable {
         public YyExtData createFromParcel(Parcel parcel) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new YyExtData(parcel) : (YyExtData) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+                return new YyExtData(parcel);
+            }
+            return (YyExtData) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -62,7 +76,10 @@ public class YyExtData implements Serializable, Parcelable {
         public YyExtData[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new YyExtData[i] : (YyExtData[]) invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                return new YyExtData[i];
+            }
+            return (YyExtData[]) invokeI.objValue;
         }
     }
 
@@ -96,61 +113,6 @@ public class YyExtData implements Serializable, Parcelable {
         }
     }
 
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public void parseProtoBuf(YyExt yyExt) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yyExt) == null) || yyExt == null) {
-            return;
-        }
-        this.mSid = yyExt.sid;
-        this.mSsid = yyExt.ssid;
-        this.mTemplateId = yyExt.template_id;
-        this.mYyUid = yyExt.yy_uid;
-        this.isYyGame = yyExt.is_yy_game.intValue() == 1;
-        this.mRankShow = yyExt.rank_show;
-        this.mIconUrl = yyExt.icon_url;
-        this.streamInfo = yyExt.stream_info;
-    }
-
-    public void parserJson(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        this.mSid = jSONObject.optString("sid");
-        this.mSsid = jSONObject.optString("ssid");
-        this.mTemplateId = jSONObject.optString("template_id");
-        this.mYyUid = jSONObject.optString("yy_uid");
-        this.isYyGame = jSONObject.optInt("is_yy_game") == 1;
-        this.mRankShow = jSONObject.optString("rank_show");
-        this.mIconUrl = jSONObject.optString("icon_url");
-        this.streamInfo = jSONObject.optString("stream_info");
-    }
-
-    @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i) == null) {
-            parcel.writeString(this.mSid);
-            parcel.writeString(this.mSsid);
-            parcel.writeString(this.mTemplateId);
-            parcel.writeString(this.mYyUid);
-            parcel.writeByte(this.isYyGame ? (byte) 1 : (byte) 0);
-            parcel.writeString(this.mRankShow);
-            parcel.writeString(this.mIconUrl);
-            parcel.writeString(this.streamInfo);
-        }
-    }
-
     public YyExtData(Parcel parcel) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -174,5 +136,58 @@ public class YyExtData implements Serializable, Parcelable {
         this.mRankShow = parcel.readString();
         this.mIconUrl = parcel.readString();
         this.streamInfo = parcel.readString();
+    }
+
+    public void parserJson(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        this.mSid = jSONObject.optString("sid");
+        this.mSsid = jSONObject.optString(YyLiveRoomConfig.KEY_SSID);
+        this.mTemplateId = jSONObject.optString("template_id");
+        this.mYyUid = jSONObject.optString("yy_uid");
+        boolean z = true;
+        if (jSONObject.optInt("is_yy_game") != 1) {
+            z = false;
+        }
+        this.isYyGame = z;
+        this.mRankShow = jSONObject.optString("rank_show");
+        this.mIconUrl = jSONObject.optString("icon_url");
+        this.streamInfo = jSONObject.optString("stream_info");
+    }
+
+    public void parseProtoBuf(YyExt yyExt) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yyExt) != null) || yyExt == null) {
+            return;
+        }
+        this.mSid = yyExt.sid;
+        this.mSsid = yyExt.ssid;
+        this.mTemplateId = yyExt.template_id;
+        this.mYyUid = yyExt.yy_uid;
+        boolean z = true;
+        if (yyExt.is_yy_game.intValue() != 1) {
+            z = false;
+        }
+        this.isYyGame = z;
+        this.mRankShow = yyExt.rank_show;
+        this.mIconUrl = yyExt.icon_url;
+        this.streamInfo = yyExt.stream_info;
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i) == null) {
+            parcel.writeString(this.mSid);
+            parcel.writeString(this.mSsid);
+            parcel.writeString(this.mTemplateId);
+            parcel.writeString(this.mYyUid);
+            parcel.writeByte(this.isYyGame ? (byte) 1 : (byte) 0);
+            parcel.writeString(this.mRankShow);
+            parcel.writeString(this.mIconUrl);
+            parcel.writeString(this.streamInfo);
+        }
     }
 }

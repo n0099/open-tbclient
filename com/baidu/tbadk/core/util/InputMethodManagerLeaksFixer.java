@@ -5,7 +5,7 @@ import android.app.Application;
 import android.content.Context;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import com.baidu.tieba.rp4;
+import com.baidu.tieba.sp4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -33,7 +33,7 @@ public class InputMethodManagerLeaksFixer {
     public static void fixFocusedViewLeak(Application application) {
         InputMethodManager inputMethodManager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, application) == null) || application == null || (inputMethodManager = (InputMethodManager) application.getSystemService("input_method")) == null) {
+        if ((interceptable != null && interceptable.invokeL(65538, null, application) != null) || application == null || (inputMethodManager = (InputMethodManager) application.getSystemService("input_method")) == null) {
             return;
         }
         String[] strArr = {"mCurRootView", "mServedView", "mNextServedView"};
@@ -47,7 +47,7 @@ public class InputMethodManagerLeaksFixer {
             } catch (Exception unused) {
             }
         }
-        application.registerActivityLifecycleCallbacks(new rp4(fieldArr, inputMethodManager) { // from class: com.baidu.tbadk.core.util.InputMethodManagerLeaksFixer.1
+        application.registerActivityLifecycleCallbacks(new sp4(fieldArr, inputMethodManager) { // from class: com.baidu.tbadk.core.util.InputMethodManagerLeaksFixer.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Field[] val$field;
@@ -72,7 +72,7 @@ public class InputMethodManagerLeaksFixer {
                 this.val$inputMethodManager = inputMethodManager;
             }
 
-            @Override // com.baidu.tieba.rp4, android.app.Application.ActivityLifecycleCallbacks
+            @Override // com.baidu.tieba.sp4, android.app.Application.ActivityLifecycleCallbacks
             public void onActivityDestroyed(Activity activity) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, activity) == null) {
@@ -84,21 +84,20 @@ public class InputMethodManagerLeaksFixer {
 
     public static void fixInputMethodMemoryLeak(Context context, Field[] fieldArr, InputMethodManager inputMethodManager) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65539, null, context, fieldArr, inputMethodManager) == null) || context == null || fieldArr == null || fieldArr.length <= 0 || inputMethodManager == null) {
-            return;
-        }
-        for (Field field : fieldArr) {
-            if (field != null) {
-                try {
-                    Object obj = field.get(inputMethodManager);
-                    if (!(obj instanceof View)) {
-                        continue;
-                    } else if (((View) obj).getContext() != context) {
-                        return;
-                    } else {
-                        field.set(inputMethodManager, null);
+        if ((interceptable == null || interceptable.invokeLLL(65539, null, context, fieldArr, inputMethodManager) == null) && context != null && fieldArr != null && fieldArr.length > 0 && inputMethodManager != null) {
+            for (Field field : fieldArr) {
+                if (field != null) {
+                    try {
+                        Object obj = field.get(inputMethodManager);
+                        if (!(obj instanceof View)) {
+                            continue;
+                        } else if (((View) obj).getContext() == context) {
+                            field.set(inputMethodManager, null);
+                        } else {
+                            return;
+                        }
+                    } catch (Exception unused) {
                     }
-                } catch (Exception unused) {
                 }
             }
         }

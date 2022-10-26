@@ -1,13 +1,10 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public interface xe4 {
-    @Nullable
-    JSONObject a(@Nullable ve4<JSONObject> ve4Var);
+    void a(JSONArray jSONArray, hb4 hb4Var, hb4 hb4Var2, hb4 hb4Var3);
 
-    @Nullable
-    JSONArray b(@Nullable ve4<JSONArray> ve4Var);
+    void b(JSONObject jSONObject, hb4 hb4Var, hb4 hb4Var2, hb4 hb4Var3);
 }

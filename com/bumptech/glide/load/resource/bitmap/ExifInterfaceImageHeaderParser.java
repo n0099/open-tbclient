@@ -1,8 +1,6 @@
 package com.bumptech.glide.load.resource.bitmap;
 
-import android.media.ExifInterface;
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,7 +13,6 @@ import com.bumptech.glide.util.ByteBufferUtil;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
-@RequiresApi(27)
 /* loaded from: classes7.dex */
 public final class ExifInterfaceImageHeaderParser implements ImageHeaderParser {
     public static /* synthetic */ Interceptable $ic;
@@ -36,11 +33,11 @@ public final class ExifInterfaceImageHeaderParser implements ImageHeaderParser {
     }
 
     @Override // com.bumptech.glide.load.ImageHeaderParser
-    public int getOrientation(@NonNull InputStream inputStream, @NonNull ArrayPool arrayPool) throws IOException {
+    public int getOrientation(InputStream inputStream, ArrayPool arrayPool) throws IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, inputStream, arrayPool)) == null) {
-            int attributeInt = new ExifInterface(inputStream).getAttributeInt("Orientation", 1);
+            int attributeInt = new ExifInterface(inputStream).getAttributeInt(ExifInterface.TAG_ORIENTATION, 1);
             if (attributeInt == 0) {
                 return -1;
             }
@@ -50,25 +47,32 @@ public final class ExifInterfaceImageHeaderParser implements ImageHeaderParser {
     }
 
     @Override // com.bumptech.glide.load.ImageHeaderParser
-    @NonNull
-    public ImageHeaderParser.ImageType getType(@NonNull InputStream inputStream) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, inputStream)) == null) ? ImageHeaderParser.ImageType.UNKNOWN : (ImageHeaderParser.ImageType) invokeL.objValue;
-    }
-
-    @Override // com.bumptech.glide.load.ImageHeaderParser
-    @NonNull
-    public ImageHeaderParser.ImageType getType(@NonNull ByteBuffer byteBuffer) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, byteBuffer)) == null) ? ImageHeaderParser.ImageType.UNKNOWN : (ImageHeaderParser.ImageType) invokeL.objValue;
-    }
-
-    @Override // com.bumptech.glide.load.ImageHeaderParser
-    public int getOrientation(@NonNull ByteBuffer byteBuffer, @NonNull ArrayPool arrayPool) throws IOException {
+    public int getOrientation(ByteBuffer byteBuffer, ArrayPool arrayPool) throws IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, byteBuffer, arrayPool)) == null) ? getOrientation(ByteBufferUtil.toStream(byteBuffer), arrayPool) : invokeLL.intValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, byteBuffer, arrayPool)) == null) {
+            return getOrientation(ByteBufferUtil.toStream(byteBuffer), arrayPool);
+        }
+        return invokeLL.intValue;
+    }
+
+    @Override // com.bumptech.glide.load.ImageHeaderParser
+    public ImageHeaderParser.ImageType getType(InputStream inputStream) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, inputStream)) == null) {
+            return ImageHeaderParser.ImageType.UNKNOWN;
+        }
+        return (ImageHeaderParser.ImageType) invokeL.objValue;
+    }
+
+    @Override // com.bumptech.glide.load.ImageHeaderParser
+    public ImageHeaderParser.ImageType getType(ByteBuffer byteBuffer) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, byteBuffer)) == null) {
+            return ImageHeaderParser.ImageType.UNKNOWN;
+        }
+        return (ImageHeaderParser.ImageType) invokeL.objValue;
     }
 }

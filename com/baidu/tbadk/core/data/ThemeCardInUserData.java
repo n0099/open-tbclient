@@ -40,36 +40,63 @@ public class ThemeCardInUserData extends OrmObject implements Serializable {
     public long getCardId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.cardId : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.cardId;
+        }
+        return invokeV.longValue;
     }
 
     public String getCardImageUrlAndroid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.cardImageUrlAndroid : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.cardImageUrlAndroid;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getCardImageUrlIos() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.cardImageUrlIos : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.cardImageUrlIos;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getCoordinate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.coordinate : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.coordinate;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getFreeLevel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.freeLevel : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.freeLevel;
+        }
+        return invokeV.intValue;
+    }
+
+    public void parser(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        this.cardId = jSONObject.optLong("props_id");
+        this.cardImageUrlAndroid = jSONObject.optString("img_android");
+        this.cardImageUrlIos = jSONObject.optString("img_ios");
+        this.freeLevel = jSONObject.optInt(PollingModel.LEVEL, 0);
+        this.coordinate = jSONObject.optString("coordinate");
     }
 
     public void parser(ThemeCardInUser themeCardInUser) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, themeCardInUser) == null) || themeCardInUser == null) {
+        if ((interceptable != null && interceptable.invokeL(1048582, this, themeCardInUser) != null) || themeCardInUser == null) {
             return;
         }
         this.cardId = themeCardInUser.props_id.longValue();
@@ -112,17 +139,5 @@ public class ThemeCardInUserData extends OrmObject implements Serializable {
         if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
             this.freeLevel = i;
         }
-    }
-
-    public void parser(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        this.cardId = jSONObject.optLong("props_id");
-        this.cardImageUrlAndroid = jSONObject.optString("img_android");
-        this.cardImageUrlIos = jSONObject.optString("img_ios");
-        this.freeLevel = jSONObject.optInt(PollingModel.LEVEL, 0);
-        this.coordinate = jSONObject.optString("coordinate");
     }
 }

@@ -38,25 +38,6 @@ public class PluginDelegateActivity extends ProcessDelegateBaseActivity {
         this.mFallbackFinish = true;
     }
 
-    @Override // com.baidu.searchbox.process.ipc.agent.activity.ProcessDelegateBaseActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            super.onCreate(bundle);
-            if (Build.VERSION.SDK_INT == 26) {
-                TranslucentUtils.convertFromTranslucent(this);
-                setRequestedOrientation(this.mDelegation.getScreenOrientation());
-                TranslucentUtils.convertToTranslucent(this);
-            } else {
-                setRequestedOrientation(this.mDelegation.getScreenOrientation());
-            }
-            if (this.mDelegation.mParams.isEmpty()) {
-                return;
-            }
-            this.mFallbackFinish = this.mDelegation.mParams.getBoolean(ENABLE_FALLBACK_FINISH_KEY, true);
-        }
-    }
-
     @Override // android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
@@ -69,6 +50,24 @@ public class PluginDelegateActivity extends ProcessDelegateBaseActivity {
                     this.mDelegation.onSelfFinish();
                     exit(6, "");
                 }
+            }
+        }
+    }
+
+    @Override // com.baidu.searchbox.process.ipc.agent.activity.ProcessDelegateBaseActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            super.onCreate(bundle);
+            if (Build.VERSION.SDK_INT == 26) {
+                TranslucentUtils.convertFromTranslucent(this);
+                setRequestedOrientation(this.mDelegation.getScreenOrientation());
+                TranslucentUtils.convertToTranslucent(this);
+            } else {
+                setRequestedOrientation(this.mDelegation.getScreenOrientation());
+            }
+            if (!this.mDelegation.mParams.isEmpty()) {
+                this.mFallbackFinish = this.mDelegation.mParams.getBoolean(ENABLE_FALLBACK_FINISH_KEY, true);
             }
         }
     }

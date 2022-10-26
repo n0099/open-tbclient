@@ -2,7 +2,6 @@ package com.baidu.ufosdk;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.Message;
 import android.text.TextUtils;
 import android.view.View;
@@ -27,7 +26,7 @@ public class u extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final h a;
-    public ValueCallback<Uri[]> b;
+    public ValueCallback b;
 
     public u(h hVar) {
         Interceptable interceptable = $ic;
@@ -45,6 +44,34 @@ public class u extends WebChromeClient {
             }
         }
         this.a = hVar;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public void onCloseWindow(WebView webView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webView) == null) {
+            super.onCloseWindow(webView);
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, consoleMessage)) == null) {
+            h hVar = this.a;
+            if (hVar != null) {
+                consoleMessage.message();
+                consoleMessage.lineNumber();
+                consoleMessage.sourceId();
+                if (((FeedbackBrowserActivity) hVar) != null) {
+                    return false;
+                }
+                throw null;
+            }
+            return super.onConsoleMessage(consoleMessage);
+        }
+        return invokeL.booleanValue;
     }
 
     @Override // android.webkit.WebChromeClient
@@ -89,38 +116,13 @@ public class u extends WebChromeClient {
     }
 
     @Override // android.webkit.WebChromeClient
-    public void onCloseWindow(WebView webView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webView) == null) {
-            super.onCloseWindow(webView);
-        }
-    }
-
-    @Override // android.webkit.WebChromeClient
-    public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, consoleMessage)) == null) {
-            h hVar = this.a;
-            if (hVar != null) {
-                consoleMessage.message();
-                consoleMessage.lineNumber();
-                consoleMessage.sourceId();
-                if (((FeedbackBrowserActivity) hVar) != null) {
-                    return false;
-                }
-                throw null;
-            }
-            return super.onConsoleMessage(consoleMessage);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // android.webkit.WebChromeClient
     public boolean onCreateWindow(WebView webView, boolean z, boolean z2, Message message) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{webView, Boolean.valueOf(z), Boolean.valueOf(z2), message})) == null) ? super.onCreateWindow(webView, z, z2, message) : invokeCommon.booleanValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{webView, Boolean.valueOf(z), Boolean.valueOf(z2), message})) == null) {
+            return super.onCreateWindow(webView, z, z2, message);
+        }
+        return invokeCommon.booleanValue;
     }
 
     @Override // android.webkit.WebChromeClient
@@ -139,6 +141,7 @@ public class u extends WebChromeClient {
     @Override // android.webkit.WebChromeClient
     public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLLL;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048582, this, webView, str, str2, str3, jsPromptResult)) == null) {
             if (str2.startsWith("ufobridge://")) {
@@ -146,7 +149,12 @@ public class u extends WebChromeClient {
             }
             if (this.a != null && !TextUtils.isEmpty(str2)) {
                 f fVar = ((FeedbackBrowserActivity) this.a).f;
-                if (fVar != null ? ((FeedbackBrowserActivity.b) fVar).a(webView, str2) : false) {
+                if (fVar != null) {
+                    z = ((FeedbackBrowserActivity.b) fVar).a(webView, str2);
+                } else {
+                    z = false;
+                }
+                if (z) {
                     jsPromptResult.confirm("");
                     return true;
                 }
@@ -160,10 +168,9 @@ public class u extends WebChromeClient {
     public void onProgressChanged(WebView webView, int i) {
         h hVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048583, this, webView, i) == null) || (hVar = this.a) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLI(1048583, this, webView, i) == null) && (hVar = this.a) != null) {
+            hVar.b(i);
         }
-        hVar.b(i);
     }
 
     @Override // android.webkit.WebChromeClient
@@ -177,10 +184,9 @@ public class u extends WebChromeClient {
     @Override // android.webkit.WebChromeClient
     public void onReceivedTitle(WebView webView, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048585, this, webView, str) == null) || TextUtils.isEmpty(str) || str.length() > 10) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(1048585, this, webView, str) == null) && !TextUtils.isEmpty(str) && str.length() <= 10) {
+            this.a.b(str);
         }
-        this.a.b(str);
     }
 
     @Override // android.webkit.WebChromeClient
@@ -197,7 +203,7 @@ public class u extends WebChromeClient {
     }
 
     @Override // android.webkit.WebChromeClient
-    public boolean onShowFileChooser(WebView webView, ValueCallback<Uri[]> valueCallback, WebChromeClient.FileChooserParams fileChooserParams) {
+    public boolean onShowFileChooser(WebView webView, ValueCallback valueCallback, WebChromeClient.FileChooserParams fileChooserParams) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048587, this, webView, valueCallback, fileChooserParams)) == null) {

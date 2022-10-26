@@ -7,10 +7,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TbMd5;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.kc;
-import com.baidu.tieba.oc;
-import com.baidu.tieba.xg;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.lc;
+import com.baidu.tieba.pc;
+import com.baidu.tieba.yg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -46,20 +46,20 @@ public class SimpleLoaderProc extends AbstractImageLoaderProc {
         this.mIsNeedFormat = z2;
         this.mIsForceLoad = z3;
         this.mProcType = i;
-        int k = ej.k(TbadkCoreApplication.getInst());
-        int i4 = ej.i(TbadkCoreApplication.getInst());
+        int k = fj.k(TbadkCoreApplication.getInst());
+        int i4 = fj.i(TbadkCoreApplication.getInst());
         if (i == 13) {
             k = k <= 0 ? 200 : k;
             this.mSuggestWidth = k;
             if (k > 480) {
                 this.mSuggestWidth = 480;
             }
-            if (this.mSuggestWidth > ej.d(TbadkCoreApplication.getInst(), 320.0f)) {
-                this.mSuggestWidth = ej.d(TbadkCoreApplication.getInst(), 320.0f);
+            if (this.mSuggestWidth > fj.d(TbadkCoreApplication.getInst(), 320.0f)) {
+                this.mSuggestWidth = fj.d(TbadkCoreApplication.getInst(), 320.0f);
             }
             this.mSuggestHeight = this.mSuggestWidth;
         } else if (i == 17) {
-            int min = Math.min(ej.d(TbadkCoreApplication.getInst().getApp(), 427.0f), 640);
+            int min = Math.min(fj.d(TbadkCoreApplication.getInst().getApp(), 427.0f), 640);
             this.mSuggestWidth = min;
             this.mSuggestHeight = (int) (min * 1.6f);
         } else if (i == 15) {
@@ -77,8 +77,8 @@ public class SimpleLoaderProc extends AbstractImageLoaderProc {
             if (k <= 0 || k > 644) {
                 this.mSuggestWidth = 644;
             }
-            if (this.mSuggestWidth > ej.d(TbadkCoreApplication.getInst().getApp(), 430.0f)) {
-                this.mSuggestWidth = ej.d(TbadkCoreApplication.getInst().getApp(), 430.0f);
+            if (this.mSuggestWidth > fj.d(TbadkCoreApplication.getInst().getApp(), 430.0f)) {
+                this.mSuggestWidth = fj.d(TbadkCoreApplication.getInst().getApp(), 430.0f);
             }
             this.mSuggestHeight = (int) (this.mSuggestWidth * 0.43f);
         } else if (i == 46) {
@@ -95,31 +95,43 @@ public class SimpleLoaderProc extends AbstractImageLoaderProc {
     public int getProcType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mProcType : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mProcType;
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
     public int getSuggestHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mSuggestHeight : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mSuggestHeight;
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
     public int getSuggestWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mSuggestWidth : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mSuggestWidth;
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
     public boolean isFromCDN() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mIsFromCDN : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mIsFromCDN;
+        }
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.ah
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.bh
     public boolean isNeedLoad() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -138,7 +150,10 @@ public class SimpleLoaderProc extends AbstractImageLoaderProc {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048581, this, bitmap, i, i2)) == null) {
             int i3 = this.mProcType;
-            return (i3 == 13 || i3 == 17) ? bitmap : super.resizeBitmapSize(bitmap, i, i2);
+            if (i3 != 13 && i3 != 17) {
+                return super.resizeBitmapSize(bitmap, i, i2);
+            }
+            return bitmap;
         }
         return (Bitmap) invokeLII.objValue;
     }
@@ -146,29 +161,27 @@ public class SimpleLoaderProc extends AbstractImageLoaderProc {
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
     public void storeLocal(String str, byte[] bArr, Object... objArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048582, this, str, bArr, objArr) == null) || TextUtils.isEmpty(str) || bArr == null) {
-            return;
-        }
-        boolean booleanValue = ((Boolean) objArr[0]).booleanValue();
-        boolean booleanValue2 = ((Boolean) objArr[1]).booleanValue();
-        if (!booleanValue || booleanValue2) {
-            return;
-        }
-        boolean booleanValue3 = ((Boolean) objArr[2]).booleanValue();
-        oc ocVar = new oc("images", TbMd5.getNameMd5FromUrl(str), DiskFileOperate.Action.WRITE);
-        ocVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
-        ocVar.setSubFolder(true);
-        ocVar.setData(bArr);
-        ocVar.setSdCard(false);
-        ocVar.setSavedCache(true);
-        ocVar.setGif(booleanValue3);
-        ocVar.f(this.mIsNeedFormat);
-        kc.f().a(ocVar);
-        xg xgVar = (xg) objArr[3];
-        if (xgVar != null) {
-            DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
-            diskCancelWorker.setOperate(ocVar);
-            xgVar.a = diskCancelWorker;
+        if ((interceptable == null || interceptable.invokeLLL(1048582, this, str, bArr, objArr) == null) && !TextUtils.isEmpty(str) && bArr != null) {
+            boolean booleanValue = ((Boolean) objArr[0]).booleanValue();
+            boolean booleanValue2 = ((Boolean) objArr[1]).booleanValue();
+            if (booleanValue && !booleanValue2) {
+                boolean booleanValue3 = ((Boolean) objArr[2]).booleanValue();
+                pc pcVar = new pc("images", TbMd5.getNameMd5FromUrl(str), DiskFileOperate.Action.WRITE);
+                pcVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
+                pcVar.setSubFolder(true);
+                pcVar.setData(bArr);
+                pcVar.setSdCard(false);
+                pcVar.setSavedCache(true);
+                pcVar.setGif(booleanValue3);
+                pcVar.f(this.mIsNeedFormat);
+                lc.f().a(pcVar);
+                yg ygVar = (yg) objArr[3];
+                if (ygVar != null) {
+                    DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
+                    diskCancelWorker.setOperate(pcVar);
+                    ygVar.a = diskCancelWorker;
+                }
+            }
         }
     }
 }

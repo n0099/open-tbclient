@@ -34,7 +34,46 @@ public class Makeup extends BaseBeautyItem {
     public String getId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mId : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mId;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getMakeupName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mMakeupName;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getResPath() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mResPath;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public BeautyType getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mType;
+        }
+        return (BeautyType) invokeV.objValue;
+    }
+
+    public float getValue() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mValue;
+        }
+        return invokeV.floatValue;
     }
 
     public String getInfo() {
@@ -44,30 +83,6 @@ public class Makeup extends BaseBeautyItem {
             return "type: " + this.mType + ", value: " + this.mValue + ", Res: " + this.mResPath;
         }
         return (String) invokeV.objValue;
-    }
-
-    public String getMakeupName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mMakeupName : (String) invokeV.objValue;
-    }
-
-    public String getResPath() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mResPath : (String) invokeV.objValue;
-    }
-
-    public BeautyType getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mType : (BeautyType) invokeV.objValue;
-    }
-
-    public float getValue() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mValue : invokeV.floatValue;
     }
 
     public void setId(String str) {

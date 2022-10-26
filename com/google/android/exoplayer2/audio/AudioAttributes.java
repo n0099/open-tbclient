@@ -1,6 +1,5 @@
 package com.google.android.exoplayer2.audio;
 
-import android.annotation.TargetApi;
 import android.media.AudioAttributes;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -22,13 +21,13 @@ public final class AudioAttributes {
 
     /* renamed from: com.google.android.exoplayer2.audio.AudioAttributes$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes7.dex */
-    public static final class Builder {
+    public final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int contentType;
@@ -56,7 +55,10 @@ public final class AudioAttributes {
         public AudioAttributes build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new AudioAttributes(this.contentType, this.flags, this.usage, null) : (AudioAttributes) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new AudioAttributes(this.contentType, this.flags, this.usage, null);
+            }
+            return (AudioAttributes) invokeV.objValue;
         }
 
         public Builder setContentType(int i) {
@@ -106,43 +108,13 @@ public final class AudioAttributes {
         DEFAULT = new Builder().build();
     }
 
-    public /* synthetic */ AudioAttributes(int i, int i2, int i3, AnonymousClass1 anonymousClass1) {
-        this(i, i2, i3);
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj == null || AudioAttributes.class != obj.getClass()) {
-                return false;
-            }
-            AudioAttributes audioAttributes = (AudioAttributes) obj;
-            return this.contentType == audioAttributes.contentType && this.flags == audioAttributes.flags && this.usage == audioAttributes.usage;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @TargetApi(21)
-    public android.media.AudioAttributes getAudioAttributesV21() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.audioAttributesV21 == null) {
-                this.audioAttributesV21 = new AudioAttributes.Builder().setContentType(this.contentType).setFlags(this.flags).setUsage(this.usage).build();
-            }
-            return this.audioAttributesV21;
-        }
-        return (android.media.AudioAttributes) invokeV.objValue;
-    }
-
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ((((527 + this.contentType) * 31) + this.flags) * 31) + this.usage : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return ((((527 + this.contentType) * 31) + this.flags) * 31) + this.usage;
+        }
+        return invokeV.intValue;
     }
 
     public AudioAttributes(int i, int i2, int i3) {
@@ -163,5 +135,40 @@ public final class AudioAttributes {
         this.contentType = i;
         this.flags = i2;
         this.usage = i3;
+    }
+
+    public /* synthetic */ AudioAttributes(int i, int i2, int i3, AnonymousClass1 anonymousClass1) {
+        this(i, i2, i3);
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj == null || AudioAttributes.class != obj.getClass()) {
+                return false;
+            }
+            AudioAttributes audioAttributes = (AudioAttributes) obj;
+            if (this.contentType == audioAttributes.contentType && this.flags == audioAttributes.flags && this.usage == audioAttributes.usage) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public android.media.AudioAttributes getAudioAttributesV21() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.audioAttributesV21 == null) {
+                this.audioAttributesV21 = new AudioAttributes.Builder().setContentType(this.contentType).setFlags(this.flags).setUsage(this.usage).build();
+            }
+            return this.audioAttributesV21;
+        }
+        return (android.media.AudioAttributes) invokeV.objValue;
     }
 }

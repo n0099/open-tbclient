@@ -36,10 +36,9 @@ public class MenuKeyUtils {
 
     public static void hideSoftMenuKey(Window window) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, window) == null) || Build.VERSION.SDK_INT <= 10) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(65538, null, window) == null) && Build.VERSION.SDK_INT > 10) {
+            window.clearFlags(1073741824);
         }
-        window.clearFlags(1073741824);
     }
 
     public static void setActionBarViewCollapsable(Activity activity, boolean z) {

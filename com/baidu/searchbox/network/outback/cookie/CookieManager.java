@@ -7,12 +7,33 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes2.dex */
 public interface CookieManager {
     public static final CookieManager WEBKIT_COOKIES = new CookieManager() { // from class: com.baidu.searchbox.network.outback.cookie.CookieManager.1
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.searchbox.network.outback.cookie.CookieManager
+        public boolean shouldAcceptCookie(String str, String str2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+                return true;
+            }
+            return invokeLL.booleanValue;
+        }
+
+        @Override // com.baidu.searchbox.network.outback.cookie.CookieManager
+        public boolean shouldSendCookie(String str, String str2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+                return true;
+            }
+            return invokeLL.booleanValue;
+        }
 
         {
             Interceptable interceptable = $ic;
@@ -43,38 +64,18 @@ public interface CookieManager {
         }
 
         @Override // com.baidu.searchbox.network.outback.cookie.CookieManager
-        public boolean shouldAcceptCookie(String str, String str2) {
-            InterceptResult invokeLL;
+        public void storeCookie(String str, List list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-                return true;
-            }
-            return invokeLL.booleanValue;
-        }
-
-        @Override // com.baidu.searchbox.network.outback.cookie.CookieManager
-        public boolean shouldSendCookie(String str, String str2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-                return true;
-            }
-            return invokeLL.booleanValue;
-        }
-
-        @Override // com.baidu.searchbox.network.outback.cookie.CookieManager
-        public void storeCookie(String str, List<String> list) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048579, this, str, list) == null) || list == null || list.size() <= 0) {
-                return;
-            }
-            try {
-                android.webkit.CookieManager cookieManager = android.webkit.CookieManager.getInstance();
-                for (String str2 : list) {
-                    cookieManager.setCookie(str, str2);
+            if ((interceptable == null || interceptable.invokeLL(1048579, this, str, list) == null) && list != null && list.size() > 0) {
+                try {
+                    android.webkit.CookieManager cookieManager = android.webkit.CookieManager.getInstance();
+                    Iterator it = list.iterator();
+                    while (it.hasNext()) {
+                        cookieManager.setCookie(str, (String) it.next());
+                    }
+                    CookieSyncManager.getInstance().sync();
+                } catch (Exception unused) {
                 }
-                CookieSyncManager.getInstance().sync();
-            } catch (Exception unused) {
             }
         }
     };
@@ -85,5 +86,5 @@ public interface CookieManager {
 
     boolean shouldSendCookie(String str, String str2);
 
-    void storeCookie(String str, List<String> list);
+    void storeCookie(String str, List list);
 }

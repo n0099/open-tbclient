@@ -1,87 +1,34 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.UrlManager;
+import android.content.Intent;
+import com.baidu.tbadk.util.AppLaunchInfoFetcher;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class vh5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public AppLaunchInfoFetcher.Type a;
+    public Intent b;
 
-    public static Boolean a(String str) {
-        InterceptResult invokeL;
+    public vh5(AppLaunchInfoFetcher.Type type, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (str == null) {
-                return Boolean.FALSE;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {type, intent};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            String c = si5.c(str, "topic_id=");
-            String c2 = si5.c(str, "topic_name=");
-            String c3 = si5.c(str, "customfullscreen=");
-            String c4 = si5.c(str, "nonavigationbar=");
-            if ((c != null || c2 != null) && StringHelper.equals(c3, "1") && StringHelper.equals(c4, "1")) {
-                return Boolean.TRUE;
-            }
-            return Boolean.FALSE;
         }
-        return (Boolean) invokeL.objValue;
-    }
-
-    public static Boolean b(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, uri)) == null) {
-            if (uri != null && uri.toString() != null) {
-                if (si5.c(uri.toString(), "source=").contains("hottopic_detail_hybrid")) {
-                    return Boolean.TRUE;
-                }
-                return Boolean.FALSE;
-            }
-            return Boolean.FALSE;
-        }
-        return (Boolean) invokeL.objValue;
-    }
-
-    public static String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? si5.c(str, "topic_id=") : (String) invokeL.objValue;
-    }
-
-    public static String d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? si5.c(str, "hottopic_detail_hybrid-") : (String) invokeL.objValue;
-    }
-
-    public static void e(TbPageContext tbPageContext, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, tbPageContext, str, str2) == null) || tbPageContext == null) {
-            return;
-        }
-        StringBuilder sb = new StringBuilder("https://tieba.baidu.com/mo/q/newtopic/topicTemplate?");
-        sb.append("customfullscreen=");
-        sb.append("1");
-        sb.append("&nonavigationbar=");
-        sb.append("1");
-        sb.append("&from=");
-        sb.append("1");
-        if (str != null) {
-            sb.append("&topic_id=");
-            sb.append(str);
-        }
-        if (str2 != null) {
-            sb.append("&topic_name=");
-            sb.append(str2);
-        }
-        sb.append("&skin=");
-        sb.append(SkinManager.getCurrentSkinTypeString());
-        UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{sb.toString()});
+        this.a = type;
+        this.b = intent;
     }
 }

@@ -35,16 +35,19 @@ public class FingerprintUtil {
             if (Build.VERSION.SDK_INT < 23) {
                 return 101;
             }
-            if (sapiConfiguration.isSupportTouchLogin()) {
-                FingerprintManager fingerprintManager = null;
-                try {
-                    fingerprintManager = (FingerprintManager) sapiConfiguration.context.getSystemService(FingerprintManager.class);
-                } catch (Exception e) {
-                    Log.e(e);
-                }
-                return (fingerprintManager != null && fingerprintManager.isHardwareDetected() && fingerprintManager.hasEnrolledFingerprints()) ? 0 : 104;
+            if (!sapiConfiguration.isSupportTouchLogin()) {
+                return 102;
             }
-            return 102;
+            FingerprintManager fingerprintManager = null;
+            try {
+                fingerprintManager = (FingerprintManager) sapiConfiguration.context.getSystemService(FingerprintManager.class);
+            } catch (Exception e) {
+                Log.e(e);
+            }
+            if (fingerprintManager != null && fingerprintManager.isHardwareDetected() && fingerprintManager.hasEnrolledFingerprints()) {
+                return 0;
+            }
+            return 104;
         }
         return invokeL.intValue;
     }

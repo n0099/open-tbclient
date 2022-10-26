@@ -37,6 +37,42 @@ public class PushCountMessage extends TbSocketMessage {
         }
     }
 
+    public long getDownFlowSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.downFlowSize;
+        }
+        return invokeV.longValue;
+    }
+
+    public int getEnterForeCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.enterForeCount;
+        }
+        return invokeV.intValue;
+    }
+
+    public long getPusherCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.pusherCount;
+        }
+        return invokeV.longValue;
+    }
+
+    public long getUpFlowSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.upFlowSize;
+        }
+        return invokeV.longValue;
+    }
+
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
     public Object encode() {
         InterceptResult invokeV;
@@ -51,30 +87,6 @@ public class PushCountMessage extends TbSocketMessage {
             return builder2.build(false);
         }
         return invokeV.objValue;
-    }
-
-    public long getDownFlowSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.downFlowSize : invokeV.longValue;
-    }
-
-    public int getEnterForeCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.enterForeCount : invokeV.intValue;
-    }
-
-    public long getPusherCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.pusherCount : invokeV.longValue;
-    }
-
-    public long getUpFlowSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.upFlowSize : invokeV.longValue;
     }
 
     public void setDownFlowSize(long j) {

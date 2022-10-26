@@ -13,37 +13,28 @@ public final class PmsConstant {
     public static boolean DEBUG;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
-    public static final class DynamicDBVersion {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static final int DB_VERSION_10_6_0 = 1;
-        public static final int DB_VERSION_12_12_0 = 2;
-        public static final int DB_VERSION_12_14_0 = 3;
-        public static final int DB_VERSION_12_27_7 = 4;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public DynamicDBVersion() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1403212012, "Lcom/baidu/searchbox/pms/constants/PmsConstant;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1403212012, "Lcom/baidu/searchbox/pms/constants/PmsConstant;");
         }
     }
 
     /* loaded from: classes2.dex */
-    public static final class EnvParam {
+    public final class EnvParam {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* loaded from: classes2.dex */
-        public static final class Key {
+        public final class Key {
             public static /* synthetic */ Interceptable $ic = null;
             public static final String CPU_ABI = "cpu_abi";
             public static final String CPU_FEATURE = "cpu_feature";
@@ -82,7 +73,7 @@ public final class PmsConstant {
     }
 
     /* loaded from: classes2.dex */
-    public static final class Statistic {
+    public final class Statistic {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String STATISTIC_CHANNELID = "channel_id";
         public static final String STATISTIC_CHANNELIDS = "channel_ids";
@@ -98,7 +89,7 @@ public final class PmsConstant {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* loaded from: classes2.dex */
-        public static final class Key {
+        public final class Key {
             public static /* synthetic */ Interceptable $ic = null;
             public static final String REV_DETAIL = "detail";
             public static final String REV_EXT = "ext";
@@ -129,7 +120,7 @@ public final class PmsConstant {
         }
 
         /* loaded from: classes2.dex */
-        public static final class UBC {
+        public final class UBC {
             public static /* synthetic */ Interceptable $ic = null;
             public static final String UBC_REV_ID = "645";
             public transient /* synthetic */ FieldHolder $fh;
@@ -150,7 +141,7 @@ public final class PmsConstant {
         }
 
         /* loaded from: classes2.dex */
-        public static final class Value {
+        public final class Value {
             public static /* synthetic */ Interceptable $ic = null;
             public static final String REV_FROM = "research";
             public static final String REV_ITEM_VALID = "1";
@@ -189,18 +180,27 @@ public final class PmsConstant {
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1403212012, "Lcom/baidu/searchbox/pms/constants/PmsConstant;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-1403212012, "Lcom/baidu/searchbox/pms/constants/PmsConstant;");
+    /* loaded from: classes2.dex */
+    public final class DynamicDBVersion {
+        public static /* synthetic */ Interceptable $ic = null;
+        public static final int DB_VERSION_10_6_0 = 1;
+        public static final int DB_VERSION_12_12_0 = 2;
+        public static final int DB_VERSION_12_14_0 = 3;
+        public static final int DB_VERSION_12_27_7 = 4;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public DynamicDBVersion() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
     }
 

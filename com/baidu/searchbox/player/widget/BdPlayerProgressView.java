@@ -1,13 +1,11 @@
 package com.baidu.searchbox.player.widget;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.player.utils.BdPlayerUtils;
@@ -62,22 +60,6 @@ public class BdPlayerProgressView extends View {
         }
     }
 
-    private int calculateLeftOffest(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65539, this, i, i2)) == null) {
-            int i3 = this.mGravity;
-            if (i3 != 0) {
-                if (i3 == 1 || i3 != 2) {
-                    return 0;
-                }
-                return getMeasuredWidth() - i2;
-            }
-            return (getMeasuredWidth() - i2) / 2;
-        }
-        return invokeII.intValue;
-    }
-
     private void drawProgressText(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, canvas) == null) {
@@ -98,110 +80,28 @@ public class BdPlayerProgressView extends View {
         }
     }
 
-    private int setMeasuredHeight(int i) {
+    private int setMeasuredWidth(int i) {
         InterceptResult invokeI;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65542, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65543, this, i)) == null) {
+            if (this.mProgressMode == 1) {
+                str = DEFAULT_PROGRESS_TIME_TEXT;
+            } else {
+                str = DEFAULT_TIME_TEXT;
+            }
+            int measureText = (int) this.mPaint.measureText(str);
             int mode = View.MeasureSpec.getMode(i);
             int size = View.MeasureSpec.getSize(i);
             if (mode == 1073741824) {
-                return this.DEFAULT_HEIGHT;
+                return size;
             }
-            if (mode == Integer.MIN_VALUE) {
-                return Math.min(this.DEFAULT_HEIGHT, size);
+            if (mode != Integer.MIN_VALUE) {
+                return this.DEFAULT_WIDTH;
             }
-            return this.DEFAULT_HEIGHT;
+            return measureText;
         }
         return invokeI.intValue;
-    }
-
-    private int setMeasuredWidth(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65543, this, i)) == null) {
-            int measureText = (int) this.mPaint.measureText(this.mProgressMode == 1 ? DEFAULT_PROGRESS_TIME_TEXT : DEFAULT_TIME_TEXT);
-            int mode = View.MeasureSpec.getMode(i);
-            return mode == 1073741824 ? View.MeasureSpec.getSize(i) : mode == Integer.MIN_VALUE ? measureText : this.DEFAULT_WIDTH;
-        }
-        return invokeI.intValue;
-    }
-
-    public String getPositionText() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mPositionText : (String) invokeV.objValue;
-    }
-
-    public int getTextColor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mTextColor : invokeV.intValue;
-    }
-
-    public float getTextSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mTextSize : invokeV.floatValue;
-    }
-
-    public String getTimeText() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mTimeText : (String) invokeV.objValue;
-    }
-
-    @Override // android.view.View
-    public void onDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
-            super.onDraw(canvas);
-            int i = this.mProgressMode;
-            if (i == 1) {
-                drawProgressText(canvas);
-            } else if (i == 2) {
-                drawTimeText(canvas);
-            }
-        }
-    }
-
-    @Override // android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
-            setMeasuredDimension(setMeasuredWidth(i), setMeasuredHeight(i2));
-        }
-    }
-
-    public void setPositionText(@NonNull String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && this.mProgressMode == 1) {
-            this.mPositionText = str;
-            postInvalidate();
-        }
-    }
-
-    public void setTextColor(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.mTextColor = i;
-        }
-    }
-
-    public void setTextSize(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f) == null) {
-            this.mTextSize = f;
-            this.mPaint.setTextSize(f);
-            invalidate();
-        }
-    }
-
-    public void setTimeText(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, str) == null) && this.mProgressMode == 2) {
-            this.mTimeText = str;
-            postInvalidate();
-        }
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -226,7 +126,6 @@ public class BdPlayerProgressView extends View {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    @SuppressLint({"CustomViewStyleable"})
     public BdPlayerProgressView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
@@ -270,5 +169,128 @@ public class BdPlayerProgressView extends View {
                 typedArray.recycle();
             }
         }
+    }
+
+    private int calculateLeftOffest(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65539, this, i, i2)) == null) {
+            int i3 = this.mGravity;
+            if (i3 != 0) {
+                if (i3 == 1 || i3 != 2) {
+                    return 0;
+                }
+                return getMeasuredWidth() - i2;
+            }
+            return (getMeasuredWidth() - i2) / 2;
+        }
+        return invokeII.intValue;
+    }
+
+    @Override // android.view.View
+    public void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
+            setMeasuredDimension(setMeasuredWidth(i), setMeasuredHeight(i2));
+        }
+    }
+
+    private int setMeasuredHeight(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65542, this, i)) == null) {
+            int mode = View.MeasureSpec.getMode(i);
+            int size = View.MeasureSpec.getSize(i);
+            if (mode == 1073741824) {
+                return this.DEFAULT_HEIGHT;
+            }
+            if (mode == Integer.MIN_VALUE) {
+                return Math.min(this.DEFAULT_HEIGHT, size);
+            }
+            return this.DEFAULT_HEIGHT;
+        }
+        return invokeI.intValue;
+    }
+
+    @Override // android.view.View
+    public void onDraw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
+            super.onDraw(canvas);
+            int i = this.mProgressMode;
+            if (i == 1) {
+                drawProgressText(canvas);
+            } else if (i == 2) {
+                drawTimeText(canvas);
+            }
+        }
+    }
+
+    public void setPositionText(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && this.mProgressMode == 1) {
+            this.mPositionText = str;
+            postInvalidate();
+        }
+    }
+
+    public void setTextColor(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.mTextColor = i;
+        }
+    }
+
+    public void setTextSize(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f) == null) {
+            this.mTextSize = f;
+            this.mPaint.setTextSize(f);
+            invalidate();
+        }
+    }
+
+    public void setTimeText(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048585, this, str) == null) && this.mProgressMode == 2) {
+            this.mTimeText = str;
+            postInvalidate();
+        }
+    }
+
+    public String getPositionText() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mPositionText;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getTextColor() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mTextColor;
+        }
+        return invokeV.intValue;
+    }
+
+    public float getTextSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mTextSize;
+        }
+        return invokeV.floatValue;
+    }
+
+    public String getTimeText() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mTimeText;
+        }
+        return (String) invokeV.objValue;
     }
 }

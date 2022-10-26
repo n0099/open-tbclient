@@ -39,6 +39,15 @@ public final class Scheme {
         return invokeL.booleanValue;
     }
 
+    public final int resolvePort(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeI.intValue;
+    }
+
     public final int getDefaultPort() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -82,15 +91,6 @@ public final class Scheme {
             throw new RuntimeException("Stub!");
         }
         return invokeV.booleanValue;
-    }
-
-    public final int resolvePort(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeI.intValue;
     }
 
     public final String toString() {

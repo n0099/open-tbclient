@@ -17,30 +17,30 @@ import io.reactivex.internal.fuseable.FuseToObservable;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.NoSuchElementException;
 /* loaded from: classes8.dex */
-public final class ObservableElementAtSingle<T> extends Single<T> implements FuseToObservable<T> {
+public final class ObservableElementAtSingle extends Single implements FuseToObservable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final T defaultValue;
+    public final Object defaultValue;
     public final long index;
-    public final ObservableSource<T> source;
+    public final ObservableSource source;
 
     /* loaded from: classes8.dex */
-    public static final class ElementAtObserver<T> implements Observer<T>, Disposable {
+    public final class ElementAtObserver implements Observer, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SingleObserver<? super T> actual;
+        public final SingleObserver actual;
         public long count;
-        public final T defaultValue;
+        public final Object defaultValue;
         public boolean done;
         public final long index;
         public Disposable s;
 
-        public ElementAtObserver(SingleObserver<? super T> singleObserver, long j, T t) {
+        public ElementAtObserver(SingleObserver singleObserver, long j, Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {singleObserver, Long.valueOf(j), t};
+                Object[] objArr = {singleObserver, Long.valueOf(j), obj};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -52,7 +52,7 @@ public final class ObservableElementAtSingle<T> extends Single<T> implements Fus
             }
             this.actual = singleObserver;
             this.index = j;
-            this.defaultValue = t;
+            this.defaultValue = obj;
         }
 
         @Override // io.reactivex.disposables.Disposable
@@ -67,21 +67,23 @@ public final class ObservableElementAtSingle<T> extends Single<T> implements Fus
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.s.isDisposed() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.s.isDisposed();
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.Observer
         public void onComplete() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.done) {
-                return;
-            }
-            this.done = true;
-            T t = this.defaultValue;
-            if (t != null) {
-                this.actual.onSuccess(t);
-            } else {
-                this.actual.onError(new NoSuchElementException());
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && !this.done) {
+                this.done = true;
+                Object obj = this.defaultValue;
+                if (obj != null) {
+                    this.actual.onSuccess(obj);
+                } else {
+                    this.actual.onError(new NoSuchElementException());
+                }
             }
         }
 
@@ -99,16 +101,16 @@ public final class ObservableElementAtSingle<T> extends Single<T> implements Fus
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048580, this, t) == null) || this.done) {
+            if ((interceptable != null && interceptable.invokeL(1048580, this, obj) != null) || this.done) {
                 return;
             }
             long j = this.count;
             if (j == this.index) {
                 this.done = true;
                 this.s.dispose();
-                this.actual.onSuccess(t);
+                this.actual.onSuccess(obj);
                 return;
             }
             this.count = j + 1;
@@ -124,12 +126,12 @@ public final class ObservableElementAtSingle<T> extends Single<T> implements Fus
         }
     }
 
-    public ObservableElementAtSingle(ObservableSource<T> observableSource, long j, T t) {
+    public ObservableElementAtSingle(ObservableSource observableSource, long j, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {observableSource, Long.valueOf(j), t};
+            Object[] objArr = {observableSource, Long.valueOf(j), obj};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -141,18 +143,21 @@ public final class ObservableElementAtSingle<T> extends Single<T> implements Fus
         }
         this.source = observableSource;
         this.index = j;
-        this.defaultValue = t;
+        this.defaultValue = obj;
     }
 
     @Override // io.reactivex.internal.fuseable.FuseToObservable
-    public Observable<T> fuseToObservable() {
+    public Observable fuseToObservable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? RxJavaPlugins.onAssembly(new ObservableElementAt(this.source, this.index, this.defaultValue, true)) : (Observable) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return RxJavaPlugins.onAssembly(new ObservableElementAt(this.source, this.index, this.defaultValue, true));
+        }
+        return (Observable) invokeV.objValue;
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver<? super T> singleObserver) {
+    public void subscribeActual(SingleObserver singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, singleObserver) == null) {
             this.source.subscribe(new ElementAtObserver(singleObserver, this.index, this.defaultValue));

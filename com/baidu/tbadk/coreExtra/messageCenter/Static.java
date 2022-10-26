@@ -5,9 +5,8 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.i25;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.o25;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +20,7 @@ public class Static {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public static class a implements CustomMessageTask.CustomRunnable<AccountData> {
+    public final class a implements CustomMessageTask.CustomRunnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -51,7 +50,7 @@ public class Static {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    i25.h0().g();
+                    o25.h0().g();
                 }
             }
         }
@@ -71,12 +70,12 @@ public class Static {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<AccountData> customMessage) {
+        public CustomResponsedMessage run(CustomMessage customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (ej.C()) {
-                    i25.h0().g();
+                if (fj.C()) {
+                    o25.h0().g();
                     return null;
                 } else if (TbadkCoreApplication.getInst() != null) {
                     TbadkCoreApplication.getInst().handler.post(new RunnableC0188a(this));
@@ -102,7 +101,7 @@ public class Static {
                 return;
             }
         }
-        i25.h0();
+        o25.h0();
         CustomMessageTask customMessageTask = new CustomMessageTask(2005006, new a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);

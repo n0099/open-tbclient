@@ -1,26 +1,24 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.utils.FileUtils;
+import com.baidu.ugc.bean.LocalAlbumInfo;
 /* loaded from: classes5.dex */
-public class t09 implements Runnable {
+public class t09 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Bitmap a;
-    public String b;
-    public String c;
+    public LocalAlbumInfo a;
+    public boolean b;
+    public int c;
 
-    public t09(String str, String str2, Bitmap bitmap) {
+    public t09() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, bitmap};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,18 +28,40 @@ public class t09 implements Runnable {
                 return;
             }
         }
-        this.b = str;
-        this.c = str2;
-        this.a = bitmap;
+        this.c = -1;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        Bitmap bitmap;
+    public LocalAlbumInfo a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.b) || TextUtils.isEmpty(this.c) || (bitmap = this.a) == null || bitmap.isRecycled()) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        FileUtils.saveBitmap2JPG(this.b, k09.a(this.c), this.a, 100);
+        return (LocalAlbumInfo) invokeV.objValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.b = z;
+        }
     }
 }

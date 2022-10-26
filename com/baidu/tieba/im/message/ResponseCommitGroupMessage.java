@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.message;
 
-import androidx.annotation.Nullable;
-import com.baidu.tieba.sc7;
+import com.baidu.tieba.ad7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,7 +32,6 @@ public class ResponseCommitGroupMessage extends ResponseCommitMessage {
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -44,7 +42,7 @@ public class ResponseCommitGroupMessage extends ResponseCommitMessage {
             if (getError() != 0) {
                 return commitGroupMsgResIdl;
             }
-            setMsgId(sc7.a(commitGroupMsgResIdl.data.msgId.longValue()));
+            setMsgId(ad7.a(commitGroupMsgResIdl.data.msgId.longValue()));
             setRecordId(commitGroupMsgResIdl.data.recordId.longValue());
             setGroupId(String.valueOf(commitGroupMsgResIdl.data.groupId));
             return commitGroupMsgResIdl;

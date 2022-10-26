@@ -54,14 +54,20 @@ public class MetaData extends com.baidu.tbadk.data.MetaData implements TbCheckBo
     public int getItemType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mFlag : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mFlag;
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.tbadk.core.view.TbCheckBox.c
     public boolean isChecked() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mIsChecked : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mIsChecked;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.tbadk.core.view.TbCheckBox.c

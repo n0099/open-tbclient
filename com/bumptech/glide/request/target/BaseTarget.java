@@ -1,7 +1,6 @@
 package com.bumptech.glide.request.target;
 
 import android.graphics.drawable.Drawable;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,32 +10,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.request.Request;
 @Deprecated
 /* loaded from: classes7.dex */
-public abstract class BaseTarget<Z> implements Target<Z> {
+public abstract class BaseTarget implements Target {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Request request;
-
-    public BaseTarget() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.bumptech.glide.request.target.Target
-    @Nullable
-    public Request getRequest() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.request : (Request) invokeV.objValue;
-    }
 
     @Override // com.bumptech.glide.manager.LifecycleListener
     public void onDestroy() {
@@ -46,21 +23,21 @@ public abstract class BaseTarget<Z> implements Target<Z> {
     }
 
     @Override // com.bumptech.glide.request.target.Target
-    public void onLoadCleared(@Nullable Drawable drawable) {
+    public void onLoadCleared(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, drawable) == null) {
         }
     }
 
     @Override // com.bumptech.glide.request.target.Target
-    public void onLoadFailed(@Nullable Drawable drawable) {
+    public void onLoadFailed(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, drawable) == null) {
         }
     }
 
     @Override // com.bumptech.glide.request.target.Target
-    public void onLoadStarted(@Nullable Drawable drawable) {
+    public void onLoadStarted(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, drawable) == null) {
         }
@@ -80,8 +57,32 @@ public abstract class BaseTarget<Z> implements Target<Z> {
         }
     }
 
+    public BaseTarget() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     @Override // com.bumptech.glide.request.target.Target
-    public void setRequest(@Nullable Request request) {
+    public Request getRequest() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.request;
+        }
+        return (Request) invokeV.objValue;
+    }
+
+    @Override // com.bumptech.glide.request.target.Target
+    public void setRequest(Request request) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, request) == null) {
             this.request = request;

@@ -27,7 +27,7 @@ public final class c extends com.kwad.components.core.webview.kwai.a {
     public a gX;
 
     /* loaded from: classes7.dex */
-    public static class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean KN;

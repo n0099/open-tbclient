@@ -64,7 +64,10 @@ public class StsClient extends AbstractBceClient {
     public GetSessionTokenResponse getSessionToken() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? getSessionToken(new GetSessionTokenRequest()) : (GetSessionTokenResponse) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return getSessionToken(new GetSessionTokenRequest());
+        }
+        return (GetSessionTokenResponse) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -90,16 +93,26 @@ public class StsClient extends AbstractBceClient {
 
     public GetSessionTokenResponse getSessionToken(GetSessionTokenRequest getSessionTokenRequest) {
         InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, getSessionTokenRequest)) == null) {
             CheckUtils.isNotNull(getSessionTokenRequest, "The parameter request should NOT be null.");
-            CheckUtils.checkArgument(getSessionTokenRequest.getDurationSeconds().intValue() > 0, "the durationSeconds parameter should be greater than zero");
+            int i = 0;
+            if (getSessionTokenRequest.getDurationSeconds().intValue() > 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            CheckUtils.checkArgument(z, "the durationSeconds parameter should be greater than zero");
             InternalRequest internalRequest = new InternalRequest(HttpMethodName.POST, HttpUtils.appendUri(getEndpoint(), "v1", GET_SESSION_TOKEN_PATH));
             if (getSessionTokenRequest.getDurationSeconds() != null) {
                 internalRequest.addParameter("durationSeconds", String.valueOf(getSessionTokenRequest.getDurationSeconds()));
             }
             internalRequest.setCredentials(getSessionTokenRequest.getRequestCredentials());
-            internalRequest.addHeader("Content-Length", String.valueOf(getSessionTokenRequest.getAcl() != null ? getSessionTokenRequest.getAcl().length() : 0));
+            if (getSessionTokenRequest.getAcl() != null) {
+                i = getSessionTokenRequest.getAcl().length();
+            }
+            internalRequest.addHeader("Content-Length", String.valueOf(i));
             internalRequest.addHeader("Content-Type", "application/json");
             if (getSessionTokenRequest.getAcl() != null) {
                 internalRequest.setContent(RestartableInputStream.wrap(getSessionTokenRequest.getAcl().getBytes()));

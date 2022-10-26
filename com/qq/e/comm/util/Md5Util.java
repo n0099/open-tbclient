@@ -48,22 +48,6 @@ public class Md5Util {
         }
     }
 
-    public static String byteArrayToHexString(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
-            StringBuffer stringBuffer = new StringBuffer();
-            for (int i : bArr) {
-                if (i < 0) {
-                    i += 256;
-                }
-                stringBuffer.append(a[i / 16] + a[i % 16]);
-            }
-            return stringBuffer.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
     public static String encode(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -146,6 +130,22 @@ public class Md5Util {
                 GDTLogger.d("Exception while md5 base64String");
                 return null;
             }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String byteArrayToHexString(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
+            StringBuffer stringBuffer = new StringBuffer();
+            for (int i : bArr) {
+                if (i < 0) {
+                    i += 256;
+                }
+                stringBuffer.append(a[i / 16] + a[i % 16]);
+            }
+            return stringBuffer.toString();
         }
         return (String) invokeL.objValue;
     }

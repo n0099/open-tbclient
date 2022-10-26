@@ -1,87 +1,23 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class k20 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile o20 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a() {
+    public static o20 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? j20.a().a("expInfo.txt") : (String) invokeV.objValue;
-    }
-
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? j20.a().a("sapFile.txt") : (String) invokeV.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? j20.a().a("v1_.txt") : (String) invokeV.objValue;
-    }
-
-    public static String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? j20.a().a("v2_.txt") : (String) invokeV.objValue;
-    }
-
-    public static String e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
-            return j20.a().a("v3_" + i + "_" + DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            if (a == null) {
+                a = new p20();
+            }
+            return a;
         }
-        return (String) invokeI.objValue;
-    }
-
-    public static void f(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65541, null, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        j20.a().b("expInfo.txt", jSONObject.toString());
-    }
-
-    public static void g(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65542, null, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        j20.a().b("sapFile.txt", jSONObject.toString());
-    }
-
-    public static void h(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65543, null, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        j20.a().b("v1_.txt", jSONObject.toString());
-    }
-
-    public static void i(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65544, null, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        j20.a().b("v2_.txt", jSONObject.toString());
-    }
-
-    public static void j(JSONObject jSONObject, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65545, null, jSONObject, i) == null) || jSONObject == null) {
-            return;
-        }
-        n20 a = j20.a();
-        a.b("v3_" + i + "_" + DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION, jSONObject.toString());
+        return (o20) invokeV.objValue;
     }
 }

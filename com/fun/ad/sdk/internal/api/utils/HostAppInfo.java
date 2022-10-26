@@ -11,10 +11,10 @@ import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.WindowManager;
-import androidx.annotation.NonNull;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
-import com.baidu.tieba.rk9;
-import com.baidu.tieba.uk9;
+import com.baidu.mobstat.Config;
+import com.baidu.tieba.jl9;
+import com.baidu.tieba.ml9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -127,7 +127,7 @@ public class HostAppInfo {
                         if (!TextUtils.isEmpty(imeiNew)) {
                             b.v = FunOpenIDSdk.getMD5(imeiNew);
                         }
-                        FunOpenIDSdk.getOaid(appContext, rk9.a);
+                        FunOpenIDSdk.getOaid(appContext, jl9.a);
                         if (FunAdSdk.isLogEnabled()) {
                             LogPrinter.d(b.toString(), new Object[0]);
                         }
@@ -271,7 +271,7 @@ public class HostAppInfo {
             jSONObject.put("iidn", a2.v);
             jSONObject.put("cfgv", a);
             jSONObject.put(Constants.PHONE_BRAND, a2.w);
-            jSONObject.put("gaid", a2.x);
+            jSONObject.put(Config.GAID, a2.x);
             return a2;
         }
         return (HostAppInfo) invokeL.objValue;
@@ -365,14 +365,23 @@ public class HostAppInfo {
             }
             this.l = String.valueOf(displayMetrics.heightPixels);
             this.m = String.valueOf(displayMetrics.widthPixels);
-            this.o = uk9.c();
+            this.o = ml9.c();
         }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return "HostAppInfo{packageName='" + this.d + "', versionName='" + this.e + "', versionCode='" + this.f + "', networkTypeName='" + this.h + "', manufacturer='" + this.i + "', model='" + this.j + "', osVersion='" + this.k + "', h='" + this.l + "', w='" + this.m + "', opcode='" + this.n + "', token='" + this.o + "', anid='" + this.p + "', oaid='" + this.q + "', locale='" + this.r + "', lic='" + this.s + "', userId='" + this.t + "', imei='" + this.u + "', imeiNew='" + this.v + "', cfgv='" + a + "', brand='" + this.w + "', gaid='" + this.x + "'}";
+        }
+        return (String) invokeV.objValue;
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            n0.b bVar = new n0.b() { // from class: com.baidu.tieba.qk9
+            n0.b bVar = new n0.b() { // from class: com.baidu.tieba.il9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -384,21 +393,11 @@ public class HostAppInfo {
                     }
                 }
             };
-            HashSet<n0.b> hashSet = n0.b;
+            HashSet hashSet = n0.b;
             synchronized (hashSet) {
                 hashSet.add(bVar);
             }
             bVar.a(n0.a);
         }
-    }
-
-    @NonNull
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "HostAppInfo{packageName='" + this.d + "', versionName='" + this.e + "', versionCode='" + this.f + "', networkTypeName='" + this.h + "', manufacturer='" + this.i + "', model='" + this.j + "', osVersion='" + this.k + "', h='" + this.l + "', w='" + this.m + "', opcode='" + this.n + "', token='" + this.o + "', anid='" + this.p + "', oaid='" + this.q + "', locale='" + this.r + "', lic='" + this.s + "', userId='" + this.t + "', imei='" + this.u + "', imeiNew='" + this.v + "', cfgv='" + a + "', brand='" + this.w + "', gaid='" + this.x + "'}";
-        }
-        return (String) invokeV.objValue;
     }
 }

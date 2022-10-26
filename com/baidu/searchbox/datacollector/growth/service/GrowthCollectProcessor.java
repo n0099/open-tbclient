@@ -73,6 +73,221 @@ public class GrowthCollectProcessor {
         init();
     }
 
+    public static GrowthCollectProcessor getInstance() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
+            if (sSingleton == null) {
+                synchronized (GrowthCollectProcessor.class) {
+                    if (sSingleton == null) {
+                        sSingleton = new GrowthCollectProcessor();
+                    }
+                }
+            }
+            return sSingleton;
+        }
+        return (GrowthCollectProcessor) invokeV.objValue;
+    }
+
+    private void init() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65552, this) == null) {
+            this.mExecutorService = new ThreadPoolExecutor(1, 1, 600000L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
+            this.ubcManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void invokeGenerateActiveStatistic(ActiveData activeData, Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65557, this, activeData, context, str) == null) {
+            this.mExecutorService.execute(new Runnable(this, activeData, context, str) { // from class: com.baidu.searchbox.datacollector.growth.service.GrowthCollectProcessor.6
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ GrowthCollectProcessor this$0;
+                public final /* synthetic */ ActiveData val$activeData;
+                public final /* synthetic */ Context val$context;
+                public final /* synthetic */ String val$oaid;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, activeData, context, str};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$activeData = activeData;
+                    this.val$context = context;
+                    this.val$oaid = str;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
+                        return;
+                    }
+                    this.this$0.generateActiveStatistic(this.val$activeData, this.val$context, this.val$oaid);
+                }
+            });
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void invokeActiveStatistic(ActiveData activeData, Context context) {
+        Context context2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65553, this, activeData, context) != null) || this.ubcManager == null) {
+            return;
+        }
+        if (!(context instanceof Application)) {
+            context2 = context.getApplicationContext();
+        } else {
+            context2 = context;
+        }
+        DeviceUtil.generateOaid(context2, new IDeviceCallback(this, activeData, context) { // from class: com.baidu.searchbox.datacollector.growth.service.GrowthCollectProcessor.5
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ GrowthCollectProcessor this$0;
+            public final /* synthetic */ ActiveData val$activeData;
+            public final /* synthetic */ Context val$context;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this, activeData, context};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+                this.val$activeData = activeData;
+                this.val$context = context;
+            }
+
+            @Override // com.baidu.searchbox.datacollector.growth.utils.IDeviceCallback
+            public void onFail() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    if (GrowthCollectProcessor.DEBUG) {
+                        Log.d(GrowthCollectProcessor.TAG, "oaid fail: ");
+                    }
+                    this.this$0.invokeGenerateActiveStatistic(this.val$activeData, this.val$context, "");
+                }
+            }
+
+            @Override // com.baidu.searchbox.datacollector.growth.utils.IDeviceCallback
+            public void onSuccess(String str) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                    if (GrowthCollectProcessor.DEBUG) {
+                        Log.d(GrowthCollectProcessor.TAG, "oaid: " + str);
+                    }
+                    this.this$0.invokeGenerateActiveStatistic(this.val$activeData, this.val$context, str);
+                }
+            }
+        });
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void invokeGenerateDeviceStatistic(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65558, this, context, str) == null) {
+            this.mExecutorService.execute(new Runnable(this, context, str) { // from class: com.baidu.searchbox.datacollector.growth.service.GrowthCollectProcessor.8
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ GrowthCollectProcessor this$0;
+                public final /* synthetic */ Context val$context;
+                public final /* synthetic */ String val$oaid;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, context, str};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$context = context;
+                    this.val$oaid = str;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        this.this$0.generateDeviceStatistic(this.val$context, this.val$oaid);
+                    }
+                }
+            });
+        }
+    }
+
+    public void statisticActiveData(ActiveData activeData, Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, activeData, context) == null) && activeData != null && context != null) {
+            this.mExecutorService.execute(new Runnable(this, activeData, context) { // from class: com.baidu.searchbox.datacollector.growth.service.GrowthCollectProcessor.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ GrowthCollectProcessor this$0;
+                public final /* synthetic */ ActiveData val$activeData;
+                public final /* synthetic */ Context val$context;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, activeData, context};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$activeData = activeData;
+                    this.val$context = context;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        this.this$0.invokeActiveStatistic(this.val$activeData, this.val$context);
+                    }
+                }
+            });
+        }
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public void generateActiveStatistic(ActiveData activeData, Context context, String str) {
         Interceptable interceptable = $ic;
@@ -176,91 +391,10 @@ public class GrowthCollectProcessor {
         }
     }
 
-    public static GrowthCollectProcessor getInstance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
-            if (sSingleton == null) {
-                synchronized (GrowthCollectProcessor.class) {
-                    if (sSingleton == null) {
-                        sSingleton = new GrowthCollectProcessor();
-                    }
-                }
-            }
-            return sSingleton;
-        }
-        return (GrowthCollectProcessor) invokeV.objValue;
-    }
-
-    private void init() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65552, this) == null) {
-            this.mExecutorService = new ThreadPoolExecutor(1, 1, 600000L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
-            this.ubcManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void invokeActiveStatistic(ActiveData activeData, Context context) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65553, this, activeData, context) == null) || this.ubcManager == null) {
-            return;
-        }
-        DeviceUtil.generateOaid(!(context instanceof Application) ? context.getApplicationContext() : context, new IDeviceCallback(this, activeData, context) { // from class: com.baidu.searchbox.datacollector.growth.service.GrowthCollectProcessor.5
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ GrowthCollectProcessor this$0;
-            public final /* synthetic */ ActiveData val$activeData;
-            public final /* synthetic */ Context val$context;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this, activeData, context};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-                this.val$activeData = activeData;
-                this.val$context = context;
-            }
-
-            @Override // com.baidu.searchbox.datacollector.growth.utils.IDeviceCallback
-            public void onFail() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    if (GrowthCollectProcessor.DEBUG) {
-                        Log.d(GrowthCollectProcessor.TAG, "oaid fail: ");
-                    }
-                    this.this$0.invokeGenerateActiveStatistic(this.val$activeData, this.val$context, "");
-                }
-            }
-
-            @Override // com.baidu.searchbox.datacollector.growth.utils.IDeviceCallback
-            public void onSuccess(String str) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                    if (GrowthCollectProcessor.DEBUG) {
-                        Log.d(GrowthCollectProcessor.TAG, "oaid: " + str);
-                    }
-                    this.this$0.invokeGenerateActiveStatistic(this.val$activeData, this.val$context, str);
-                }
-            }
-        });
-    }
-
     /* JADX INFO: Access modifiers changed from: private */
     public void invokeChannelStatistic(ChannelData channelData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65554, this, channelData) == null) || this.ubcManager == null) {
+        if ((interceptable != null && interceptable.invokeL(65554, this, channelData) != null) || this.ubcManager == null) {
             return;
         }
         JSONObject jSONObject = new JSONObject();
@@ -288,7 +422,7 @@ public class GrowthCollectProcessor {
     /* JADX INFO: Access modifiers changed from: private */
     public void invokeClipBoardStatistic(ClipBoardData clipBoardData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65555, this, clipBoardData) == null) || this.ubcManager == null) {
+        if ((interceptable != null && interceptable.invokeL(65555, this, clipBoardData) != null) || this.ubcManager == null) {
             return;
         }
         JSONObject jSONObject = new JSONObject();
@@ -315,125 +449,37 @@ public class GrowthCollectProcessor {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void invokeDeviceStatistic(Context context) {
+        Context context2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65556, this, context) == null) || this.ubcManager == null || context == null) {
-            return;
-        }
-        if (this.mLastDeviceRecordTime == 0) {
-            this.mLastDeviceRecordTime = context.getSharedPreferences(GrowthConstant.PREF_NAME, 0).getLong(GrowthConstant.SP_KEY_LAST_DEVICE_RECORD_TIME, 0L);
-        }
-        long currentTimeMillis = System.currentTimeMillis() - this.mLastDeviceRecordTime;
-        if (currentTimeMillis <= 86400000) {
-            if (DEBUG) {
-                Log.d(TAG, "diffTime: " + currentTimeMillis + ", not record this data");
+        if ((interceptable == null || interceptable.invokeL(65556, this, context) == null) && this.ubcManager != null && context != null) {
+            if (this.mLastDeviceRecordTime == 0) {
+                this.mLastDeviceRecordTime = context.getSharedPreferences(GrowthConstant.PREF_NAME, 0).getLong(GrowthConstant.SP_KEY_LAST_DEVICE_RECORD_TIME, 0L);
+            }
+            long currentTimeMillis = System.currentTimeMillis() - this.mLastDeviceRecordTime;
+            if (currentTimeMillis <= 86400000) {
+                if (DEBUG) {
+                    Log.d(TAG, "diffTime: " + currentTimeMillis + ", not record this data");
+                    return;
+                }
                 return;
             }
-            return;
-        }
-        DeviceUtil.generateOaid(!(context instanceof Application) ? context.getApplicationContext() : context, new IDeviceCallback(this, context) { // from class: com.baidu.searchbox.datacollector.growth.service.GrowthCollectProcessor.7
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ GrowthCollectProcessor this$0;
-            public final /* synthetic */ Context val$context;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this, context};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-                this.val$context = context;
+            if (!(context instanceof Application)) {
+                context2 = context.getApplicationContext();
+            } else {
+                context2 = context;
             }
-
-            @Override // com.baidu.searchbox.datacollector.growth.utils.IDeviceCallback
-            public void onFail() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.this$0.invokeGenerateDeviceStatistic(this.val$context, "");
-                }
-            }
-
-            @Override // com.baidu.searchbox.datacollector.growth.utils.IDeviceCallback
-            public void onSuccess(String str) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                    this.this$0.invokeGenerateDeviceStatistic(this.val$context, str);
-                }
-            }
-        });
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void invokeGenerateActiveStatistic(ActiveData activeData, Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65557, this, activeData, context, str) == null) {
-            this.mExecutorService.execute(new Runnable(this, activeData, context, str) { // from class: com.baidu.searchbox.datacollector.growth.service.GrowthCollectProcessor.6
+            DeviceUtil.generateOaid(context2, new IDeviceCallback(this, context) { // from class: com.baidu.searchbox.datacollector.growth.service.GrowthCollectProcessor.7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ GrowthCollectProcessor this$0;
-                public final /* synthetic */ ActiveData val$activeData;
                 public final /* synthetic */ Context val$context;
-                public final /* synthetic */ String val$oaid;
 
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, activeData, context, str};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$activeData = activeData;
-                    this.val$context = context;
-                    this.val$oaid = str;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.this$0.generateActiveStatistic(this.val$activeData, this.val$context, this.val$oaid);
-                    }
-                }
-            });
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void invokeGenerateDeviceStatistic(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65558, this, context, str) == null) {
-            this.mExecutorService.execute(new Runnable(this, context, str) { // from class: com.baidu.searchbox.datacollector.growth.service.GrowthCollectProcessor.8
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ GrowthCollectProcessor this$0;
-                public final /* synthetic */ Context val$context;
-                public final /* synthetic */ String val$oaid;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, context, str};
+                        Object[] objArr = {this, context};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -445,65 +491,30 @@ public class GrowthCollectProcessor {
                     }
                     this.this$0 = this;
                     this.val$context = context;
-                    this.val$oaid = str;
                 }
 
-                @Override // java.lang.Runnable
-                public void run() {
+                @Override // com.baidu.searchbox.datacollector.growth.utils.IDeviceCallback
+                public void onFail() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.this$0.generateDeviceStatistic(this.val$context, this.val$oaid);
+                        this.this$0.invokeGenerateDeviceStatistic(this.val$context, "");
+                    }
+                }
+
+                @Override // com.baidu.searchbox.datacollector.growth.utils.IDeviceCallback
+                public void onSuccess(String str) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                        this.this$0.invokeGenerateDeviceStatistic(this.val$context, str);
                     }
                 }
             });
         }
-    }
-
-    public void statisticActiveData(ActiveData activeData, Context context) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, activeData, context) == null) || activeData == null || context == null) {
-            return;
-        }
-        this.mExecutorService.execute(new Runnable(this, activeData, context) { // from class: com.baidu.searchbox.datacollector.growth.service.GrowthCollectProcessor.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ GrowthCollectProcessor this$0;
-            public final /* synthetic */ ActiveData val$activeData;
-            public final /* synthetic */ Context val$context;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this, activeData, context};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-                this.val$activeData = activeData;
-                this.val$context = context;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.this$0.invokeActiveStatistic(this.val$activeData, this.val$context);
-                }
-            }
-        });
     }
 
     public void statisticChannelData(ChannelData channelData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, channelData) == null) || channelData == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, channelData) != null) || channelData == null) {
             return;
         }
         this.mExecutorService.execute(new Runnable(this, channelData) { // from class: com.baidu.searchbox.datacollector.growth.service.GrowthCollectProcessor.2
@@ -534,16 +545,17 @@ public class GrowthCollectProcessor {
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.this$0.invokeChannelStatistic(this.val$channelData);
+                if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
+                    return;
                 }
+                this.this$0.invokeChannelStatistic(this.val$channelData);
             }
         });
     }
 
     public void statisticClipBoardData(ClipBoardData clipBoardData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, clipBoardData) == null) || clipBoardData == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, clipBoardData) != null) || clipBoardData == null) {
             return;
         }
         this.mExecutorService.execute(new Runnable(this, clipBoardData) { // from class: com.baidu.searchbox.datacollector.growth.service.GrowthCollectProcessor.3
@@ -574,16 +586,17 @@ public class GrowthCollectProcessor {
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.this$0.invokeClipBoardStatistic(this.val$clipBoardData);
+                if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
+                    return;
                 }
+                this.this$0.invokeClipBoardStatistic(this.val$clipBoardData);
             }
         });
     }
 
     public void statisticDeviceData(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, context) == null) || context == null) {
+        if ((interceptable != null && interceptable.invokeL(1048579, this, context) != null) || context == null) {
             return;
         }
         this.mExecutorService.execute(new Runnable(this, context) { // from class: com.baidu.searchbox.datacollector.growth.service.GrowthCollectProcessor.4
@@ -614,9 +627,10 @@ public class GrowthCollectProcessor {
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.this$0.invokeDeviceStatistic(this.val$context);
+                if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
+                    return;
                 }
+                this.this$0.invokeDeviceStatistic(this.val$context);
             }
         });
     }

@@ -38,7 +38,7 @@ public final class DefaultOggSeeker implements OggSeeker {
 
     /* renamed from: com.google.android.exoplayer2.extractor.ogg.DefaultOggSeeker$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -48,6 +48,16 @@ public final class DefaultOggSeeker implements OggSeeker {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DefaultOggSeeker this$0;
+
+        @Override // com.google.android.exoplayer2.extractor.SeekMap
+        public boolean isSeekable() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
 
         public OggSeekMap(DefaultOggSeeker defaultOggSeeker) {
             Interceptable interceptable = $ic;
@@ -67,11 +77,18 @@ public final class DefaultOggSeeker implements OggSeeker {
             this.this$0 = defaultOggSeeker;
         }
 
+        public /* synthetic */ OggSeekMap(DefaultOggSeeker defaultOggSeeker, AnonymousClass1 anonymousClass1) {
+            this(defaultOggSeeker);
+        }
+
         @Override // com.google.android.exoplayer2.extractor.SeekMap
         public long getDurationUs() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.this$0.streamReader.convertGranuleToTime(this.this$0.totalGranules) : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.this$0.streamReader.convertGranuleToTime(this.this$0.totalGranules);
+            }
+            return invokeV.longValue;
         }
 
         @Override // com.google.android.exoplayer2.extractor.SeekMap
@@ -88,23 +105,10 @@ public final class DefaultOggSeeker implements OggSeeker {
             }
             return invokeJ.longValue;
         }
-
-        @Override // com.google.android.exoplayer2.extractor.SeekMap
-        public boolean isSeekable() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public /* synthetic */ OggSeekMap(DefaultOggSeeker defaultOggSeeker, AnonymousClass1 anonymousClass1) {
-            this(defaultOggSeeker);
-        }
     }
 
     public DefaultOggSeeker(long j, long j2, StreamReader streamReader, int i, long j3) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -120,7 +124,12 @@ public final class DefaultOggSeeker implements OggSeeker {
             }
         }
         this.pageHeader = new OggPageHeader();
-        Assertions.checkArgument(j >= 0 && j2 > j);
+        if (j >= 0 && j2 > j) {
+            z = true;
+        } else {
+            z = false;
+        }
+        Assertions.checkArgument(z);
         this.streamReader = streamReader;
         this.startPosition = j;
         this.endPosition = j2;
@@ -130,6 +139,14 @@ public final class DefaultOggSeeker implements OggSeeker {
             return;
         }
         this.state = 0;
+    }
+
+    public void skipToNextPage(ExtractorInput extractorInput) throws IOException, InterruptedException {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, extractorInput) != null) || skipToNextPage(extractorInput, this.endPosition)) {
+            return;
+        }
+        throw new EOFException();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -144,13 +161,64 @@ public final class DefaultOggSeeker implements OggSeeker {
                 j5 = j6;
             }
             long j7 = this.endPosition;
-            return j5 >= j7 ? j7 - 1 : j5;
+            if (j5 >= j7) {
+                return j7 - 1;
+            }
+            return j5;
         }
         return invokeCommon.longValue;
     }
 
+    public long skipToPageOfGranule(ExtractorInput extractorInput, long j, long j2) throws IOException, InterruptedException {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{extractorInput, Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            this.pageHeader.populate(extractorInput, false);
+            while (true) {
+                OggPageHeader oggPageHeader = this.pageHeader;
+                if (oggPageHeader.granulePosition < j) {
+                    extractorInput.skipFully(oggPageHeader.headerSize + oggPageHeader.bodySize);
+                    OggPageHeader oggPageHeader2 = this.pageHeader;
+                    long j3 = oggPageHeader2.granulePosition;
+                    oggPageHeader2.populate(extractorInput, false);
+                    j2 = j3;
+                } else {
+                    extractorInput.resetPeekPosition();
+                    return j2;
+                }
+            }
+        } else {
+            return invokeCommon.longValue;
+        }
+    }
+
+    public void resetSeeking() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.start = this.startPosition;
+            this.end = this.endPosition;
+            this.startGranule = 0L;
+            this.endGranule = this.totalGranules;
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.google.android.exoplayer2.extractor.ogg.OggSeeker
+    public OggSeekMap createSeekMap() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.totalGranules == 0) {
+                return null;
+            }
+            return new OggSeekMap(this, null);
+        }
+        return (OggSeekMap) invokeV.objValue;
+    }
+
     public long getNextSeekPosition(long j, ExtractorInput extractorInput) throws IOException, InterruptedException {
         InterceptResult invokeJL;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJL = interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, extractorInput)) == null) {
             if (this.start == this.end) {
@@ -168,22 +236,22 @@ public final class DefaultOggSeeker implements OggSeeker {
             extractorInput.resetPeekPosition();
             OggPageHeader oggPageHeader = this.pageHeader;
             long j3 = j - oggPageHeader.granulePosition;
-            int i = oggPageHeader.headerSize + oggPageHeader.bodySize;
-            int i2 = (j3 > 0L ? 1 : (j3 == 0L ? 0 : -1));
-            if (i2 >= 0 && j3 <= 72000) {
-                extractorInput.skipFully(i);
+            int i2 = oggPageHeader.headerSize + oggPageHeader.bodySize;
+            int i3 = (j3 > 0L ? 1 : (j3 == 0L ? 0 : -1));
+            if (i3 >= 0 && j3 <= 72000) {
+                extractorInput.skipFully(i2);
                 return -(this.pageHeader.granulePosition + 2);
             }
-            if (i2 < 0) {
+            if (i3 < 0) {
                 this.end = position;
                 this.endGranule = this.pageHeader.granulePosition;
             } else {
-                long j4 = i;
+                long j4 = i2;
                 long position2 = extractorInput.getPosition() + j4;
                 this.start = position2;
                 this.startGranule = this.pageHeader.granulePosition;
                 if ((this.end - position2) + j4 < 100000) {
-                    extractorInput.skipFully(i);
+                    extractorInput.skipFully(i2);
                     return -(this.startGranule + 2);
                 }
             }
@@ -193,7 +261,12 @@ public final class DefaultOggSeeker implements OggSeeker {
                 this.end = j6;
                 return j6;
             }
-            long position3 = extractorInput.getPosition() - (i * (i2 <= 0 ? 2 : 1));
+            if (i3 <= 0) {
+                i = 2;
+            } else {
+                i = 1;
+            }
+            long position3 = extractorInput.getPosition() - (i2 * i);
             long j7 = this.end;
             long j8 = this.start;
             return Math.min(Math.max(position3 + ((j3 * (j7 - j8)) / (this.endGranule - this.startGranule)), j8), this.end - 1);
@@ -207,32 +280,34 @@ public final class DefaultOggSeeker implements OggSeeker {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, extractorInput)) == null) {
             int i = this.state;
-            if (i == 0) {
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i == 3) {
+                            return -1L;
+                        }
+                        throw new IllegalStateException();
+                    }
+                    long j = this.targetGranule;
+                    long j2 = 0;
+                    if (j != 0) {
+                        long nextSeekPosition = getNextSeekPosition(j, extractorInput);
+                        if (nextSeekPosition >= 0) {
+                            return nextSeekPosition;
+                        }
+                        j2 = skipToPageOfGranule(extractorInput, this.targetGranule, -(nextSeekPosition + 2));
+                    }
+                    this.state = 3;
+                    return -(j2 + 2);
+                }
+            } else {
                 long position = extractorInput.getPosition();
                 this.positionBeforeSeekToEnd = position;
                 this.state = 1;
-                long j = this.endPosition - 65307;
-                if (j > position) {
-                    return j;
+                long j3 = this.endPosition - 65307;
+                if (j3 > position) {
+                    return j3;
                 }
-            } else if (i != 1) {
-                if (i != 2) {
-                    if (i == 3) {
-                        return -1L;
-                    }
-                    throw new IllegalStateException();
-                }
-                long j2 = this.targetGranule;
-                long j3 = 0;
-                if (j2 != 0) {
-                    long nextSeekPosition = getNextSeekPosition(j2, extractorInput);
-                    if (nextSeekPosition >= 0) {
-                        return nextSeekPosition;
-                    }
-                    j3 = skipToPageOfGranule(extractorInput, this.targetGranule, -(nextSeekPosition + 2));
-                }
-                this.state = 3;
-                return -(j3 + 2);
             }
             this.totalGranules = readGranuleOfLastPage(extractorInput);
             this.state = 3;
@@ -257,53 +332,24 @@ public final class DefaultOggSeeker implements OggSeeker {
         return invokeL.longValue;
     }
 
-    public void resetSeeking() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.start = this.startPosition;
-            this.end = this.endPosition;
-            this.startGranule = 0L;
-            this.endGranule = this.totalGranules;
-        }
-    }
-
-    public void skipToNextPage(ExtractorInput extractorInput) throws IOException, InterruptedException {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, extractorInput) == null) && !skipToNextPage(extractorInput, this.endPosition)) {
-            throw new EOFException();
-        }
-    }
-
-    public long skipToPageOfGranule(ExtractorInput extractorInput, long j, long j2) throws IOException, InterruptedException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{extractorInput, Long.valueOf(j), Long.valueOf(j2)})) != null) {
-            return invokeCommon.longValue;
-        }
-        this.pageHeader.populate(extractorInput, false);
-        while (true) {
-            OggPageHeader oggPageHeader = this.pageHeader;
-            if (oggPageHeader.granulePosition < j) {
-                extractorInput.skipFully(oggPageHeader.headerSize + oggPageHeader.bodySize);
-                OggPageHeader oggPageHeader2 = this.pageHeader;
-                long j3 = oggPageHeader2.granulePosition;
-                oggPageHeader2.populate(extractorInput, false);
-                j2 = j3;
-            } else {
-                extractorInput.resetPeekPosition();
-                return j2;
-            }
-        }
-    }
-
     @Override // com.google.android.exoplayer2.extractor.ogg.OggSeeker
     public long startSeek(long j) {
         InterceptResult invokeJ;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j)) == null) {
             int i = this.state;
-            Assertions.checkArgument(i == 3 || i == 2);
-            this.targetGranule = j != 0 ? this.streamReader.convertTimeToGranule(j) : 0L;
+            if (i != 3 && i != 2) {
+                z = false;
+            } else {
+                z = true;
+            }
+            Assertions.checkArgument(z);
+            long j2 = 0;
+            if (j != 0) {
+                j2 = this.streamReader.convertTimeToGranule(j);
+            }
+            this.targetGranule = j2;
             this.state = 2;
             resetSeeking();
             return this.targetGranule;
@@ -311,47 +357,34 @@ public final class DefaultOggSeeker implements OggSeeker {
         return invokeJ.longValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.android.exoplayer2.extractor.ogg.OggSeeker
-    public OggSeekMap createSeekMap() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.totalGranules != 0) {
-                return new OggSeekMap(this, null);
-            }
-            return null;
-        }
-        return (OggSeekMap) invokeV.objValue;
-    }
-
     public boolean skipToNextPage(ExtractorInput extractorInput, long j) throws IOException, InterruptedException {
         InterceptResult invokeLJ;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLJ = interceptable.invokeLJ(1048583, this, extractorInput, j)) != null) {
-            return invokeLJ.booleanValue;
-        }
-        long min = Math.min(j + 3, this.endPosition);
-        int i2 = 2048;
-        byte[] bArr = new byte[2048];
-        while (true) {
-            int i3 = 0;
-            if (extractorInput.getPosition() + i2 > min && (i2 = (int) (min - extractorInput.getPosition())) < 4) {
-                return false;
-            }
-            extractorInput.peekFully(bArr, 0, i2, false);
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048583, this, extractorInput, j)) == null) {
+            long min = Math.min(j + 3, this.endPosition);
+            int i2 = 2048;
+            byte[] bArr = new byte[2048];
             while (true) {
-                i = i2 - 3;
-                if (i3 < i) {
-                    if (bArr[i3] == 79 && bArr[i3 + 1] == 103 && bArr[i3 + 2] == 103 && bArr[i3 + 3] == 83) {
-                        extractorInput.skipFully(i3);
-                        return true;
-                    }
-                    i3++;
+                int i3 = 0;
+                if (extractorInput.getPosition() + i2 > min && (i2 = (int) (min - extractorInput.getPosition())) < 4) {
+                    return false;
                 }
+                extractorInput.peekFully(bArr, 0, i2, false);
+                while (true) {
+                    i = i2 - 3;
+                    if (i3 < i) {
+                        if (bArr[i3] == 79 && bArr[i3 + 1] == 103 && bArr[i3 + 2] == 103 && bArr[i3 + 3] == 83) {
+                            extractorInput.skipFully(i3);
+                            return true;
+                        }
+                        i3++;
+                    }
+                }
+                extractorInput.skipFully(i);
             }
-            extractorInput.skipFully(i);
+        } else {
+            return invokeLJ.booleanValue;
         }
     }
 }

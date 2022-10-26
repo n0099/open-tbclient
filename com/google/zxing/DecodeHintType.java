@@ -25,7 +25,7 @@ public final class DecodeHintType {
     public static final DecodeHintType RETURN_CODABAR_START_END;
     public static final DecodeHintType TRY_HARDER;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Class<?> valueType;
+    public final Class valueType;
 
     static {
         InterceptResult invokeClinit;
@@ -79,18 +79,27 @@ public final class DecodeHintType {
     public static DecodeHintType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (DecodeHintType) Enum.valueOf(DecodeHintType.class, str) : (DecodeHintType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (DecodeHintType) Enum.valueOf(DecodeHintType.class, str);
+        }
+        return (DecodeHintType) invokeL.objValue;
     }
 
     public static DecodeHintType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (DecodeHintType[]) $VALUES.clone() : (DecodeHintType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (DecodeHintType[]) $VALUES.clone();
+        }
+        return (DecodeHintType[]) invokeV.objValue;
     }
 
-    public Class<?> getValueType() {
+    public Class getValueType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.valueType : (Class) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.valueType;
+        }
+        return (Class) invokeV.objValue;
     }
 }

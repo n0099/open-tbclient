@@ -19,7 +19,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class ChatUser implements Parcelable, NoProGuard, PinYinUtils.PinYinObject {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<ChatUser> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public int mAccountType;
     public int mAttrBlack;
@@ -51,6 +51,22 @@ public final class ChatUser implements Parcelable, NoProGuard, PinYinUtils.PinYi
     public String mVipId;
     public String vPortrait;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public ChatUser getUser() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this : (ChatUser) invokeV.objValue;
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -64,7 +80,7 @@ public final class ChatUser implements Parcelable, NoProGuard, PinYinUtils.PinYi
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<ChatUser>() { // from class: com.baidu.android.imsdk.chatuser.ChatUser.1
+        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatuser.ChatUser.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -83,23 +99,318 @@ public final class ChatUser implements Parcelable, NoProGuard, PinYinUtils.PinYi
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public ChatUser createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new ChatUser(parcel) : (ChatUser) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new ChatUser(parcel);
+                }
+                return (ChatUser) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public ChatUser[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new ChatUser[i] : (ChatUser[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new ChatUser[i];
+                }
+                return (ChatUser[]) invokeI.objValue;
             }
         };
+    }
+
+    public int getAccountType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mAccountType;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getBlack() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mAttrBlack;
+        }
+        return invokeV.intValue;
+    }
+
+    public long getBuid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mBuid;
+        }
+        return invokeV.longValue;
+    }
+
+    public int getDisturb() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mAttrDisturb;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getGroupStatus() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mGroupStatus;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getHasSpecialIdentity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mHasSpecialIdentity;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getIconUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mIconUrl;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getIdentity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mIdentity;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public IpInfo getIpInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mIpInfo;
+        }
+        return (IpInfo) invokeV.objValue;
+    }
+
+    @Deprecated
+    public int getIsIpLocationExist() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.mIsIpLocatonExist;
+        }
+        return invokeV.intValue;
+    }
+
+    public long getLastUpdate() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.mLastUpdate;
+        }
+        return invokeV.longValue;
+    }
+
+    public int getMarkTop() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.mMarkTop;
+        }
+        return invokeV.intValue;
+    }
+
+    public long getMarkTopTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.mMarkTopTime;
+        }
+        return invokeV.longValue;
+    }
+
+    public long getPhone() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.mPhone;
+        }
+        return invokeV.longValue;
+    }
+
+    public int getPhoneRelation() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.mPhoneRelation;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.android.imsdk.utils.PinYinUtils.PinYinObject
+    public String getPy() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            if (TextUtils.isEmpty(this.mUserNamePy)) {
+                this.mUserNamePy = PinYinUtils.getPy(this.mUserNamePy);
+            }
+            return this.mUserNamePy;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getSex() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return this.mSex;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getShield() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return this.mShield;
+        }
+        return invokeV.intValue;
+    }
+
+    public long getShieldTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return this.mShieldTime;
+        }
+        return invokeV.longValue;
+    }
+
+    public String getSpecialIdentity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return this.mSpecialIdentity;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getSubscribe() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return this.mSubscribe;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getTinyUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            return this.mTinyUrl;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long getUk() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            return this.mUk;
+        }
+        return invokeV.longValue;
+    }
+
+    public String getUserDetail() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            return this.mUserDetail;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getUserExt() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            return this.mUserExt;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Deprecated
+    public long getUserId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+            return this.mUk;
+        }
+        return invokeV.longValue;
+    }
+
+    public String getUserName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+            return this.mUserName;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getVPortrait() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+            return this.vPortrait;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getVipId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
+            return this.mVipId;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean isAnonymousUser() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
+            if (this.mAccountType == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isIpLocationExist() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
+            if (this.mIsIpLocatonExist == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public ChatUser(long j, long j2, String str, String str2) {
@@ -146,118 +457,71 @@ public final class ChatUser implements Parcelable, NoProGuard, PinYinUtils.PinYi
         this.mIconUrl = str2;
     }
 
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
+    public ChatUser(Parcel parcel) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public int getAccountType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mAccountType : invokeV.intValue;
-    }
-
-    public int getBlack() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mAttrBlack : invokeV.intValue;
-    }
-
-    public long getBuid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mBuid : invokeV.longValue;
-    }
-
-    public int getDisturb() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mAttrDisturb : invokeV.intValue;
-    }
-
-    public int getGroupStatus() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mGroupStatus : invokeV.intValue;
-    }
-
-    public int getHasSpecialIdentity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mHasSpecialIdentity : invokeV.intValue;
-    }
-
-    public String getIconUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mIconUrl : (String) invokeV.objValue;
-    }
-
-    public String getIdentity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mIdentity : (String) invokeV.objValue;
-    }
-
-    public IpInfo getIpInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mIpInfo : (IpInfo) invokeV.objValue;
-    }
-
-    @Deprecated
-    public int getIsIpLocationExist() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mIsIpLocatonExist : invokeV.intValue;
-    }
-
-    public long getLastUpdate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mLastUpdate : invokeV.longValue;
-    }
-
-    public int getMarkTop() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mMarkTop : invokeV.intValue;
-    }
-
-    public long getMarkTopTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mMarkTopTime : invokeV.longValue;
-    }
-
-    public long getPhone() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mPhone : invokeV.longValue;
-    }
-
-    public int getPhoneRelation() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.mPhoneRelation : invokeV.intValue;
-    }
-
-    @Override // com.baidu.android.imsdk.utils.PinYinUtils.PinYinObject
-    public String getPy() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            if (TextUtils.isEmpty(this.mUserNamePy)) {
-                this.mUserNamePy = PinYinUtils.getPy(this.mUserNamePy);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
             }
-            return this.mUserNamePy;
         }
-        return (String) invokeV.objValue;
+        this.mUserName = "";
+        this.mIconUrl = "";
+        this.mSex = 0;
+        this.mTinyUrl = "";
+        this.mPhone = 0L;
+        this.mUserDetail = "";
+        this.mUserNamePy = "";
+        this.mAccountType = -1;
+        this.mIsIpLocatonExist = 1;
+        this.vPortrait = "";
+        this.mVipId = "";
+        this.mIdentity = "";
+        this.mLastUpdate = 0L;
+        this.mShield = 0;
+        this.mShieldTime = 0L;
+        this.mMarkTop = 0;
+        this.mMarkTopTime = 0L;
+        this.mSubscribe = 0;
+        this.mPhoneRelation = 0;
+        this.mHasSpecialIdentity = 0;
+        this.mSpecialIdentity = "";
+        this.mUserExt = "";
+        this.mGroupStatus = 1;
+        this.mUk = parcel.readLong();
+        this.mBuid = parcel.readLong();
+        this.mUserName = parcel.readString();
+        this.mIconUrl = parcel.readString();
+        this.mSex = parcel.readInt();
+        this.mTinyUrl = parcel.readString();
+        this.mPhone = parcel.readLong();
+        this.mUserDetail = parcel.readString();
+        this.mUserNamePy = parcel.readString();
+        this.mAccountType = parcel.readInt();
+        this.mIsIpLocatonExist = parcel.readInt();
+        this.mIpInfo = (IpInfo) parcel.readParcelable(IpInfo.class.getClassLoader());
+        this.mVipId = parcel.readString();
+        this.vPortrait = parcel.readString();
+        this.mIdentity = parcel.readString();
+        this.mLastUpdate = parcel.readLong();
+        this.mShield = parcel.readInt();
+        this.mShieldTime = parcel.readLong();
+        this.mMarkTop = parcel.readInt();
+        this.mMarkTopTime = parcel.readLong();
+        this.mSubscribe = parcel.readInt();
+        this.mPhoneRelation = parcel.readInt();
+        this.mHasSpecialIdentity = parcel.readInt();
+        this.mSpecialIdentity = parcel.readString();
+        this.mUserExt = parcel.readString();
+        this.mSchema = parcel.readString();
+        this.mGroupStatus = parcel.readInt();
     }
 
     public String getSchema() {
@@ -274,103 +538,6 @@ public final class ChatUser implements Parcelable, NoProGuard, PinYinUtils.PinYi
             return this.mSchema;
         }
         return (String) invokeV.objValue;
-    }
-
-    public int getSex() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.mSex : invokeV.intValue;
-    }
-
-    public int getShield() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.mShield : invokeV.intValue;
-    }
-
-    public long getShieldTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.mShieldTime : invokeV.longValue;
-    }
-
-    public String getSpecialIdentity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.mSpecialIdentity : (String) invokeV.objValue;
-    }
-
-    public int getSubscribe() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.mSubscribe : invokeV.intValue;
-    }
-
-    public String getTinyUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.mTinyUrl : (String) invokeV.objValue;
-    }
-
-    public long getUk() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.mUk : invokeV.longValue;
-    }
-
-    public ChatUser getUser() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this : (ChatUser) invokeV.objValue;
-    }
-
-    public String getUserDetail() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.mUserDetail : (String) invokeV.objValue;
-    }
-
-    public String getUserExt() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.mUserExt : (String) invokeV.objValue;
-    }
-
-    @Deprecated
-    public long getUserId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.mUk : invokeV.longValue;
-    }
-
-    public String getUserName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.mUserName : (String) invokeV.objValue;
-    }
-
-    public String getVPortrait() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.vPortrait : (String) invokeV.objValue;
-    }
-
-    public String getVipId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.mVipId : (String) invokeV.objValue;
-    }
-
-    public boolean isAnonymousUser() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.mAccountType == 0 : invokeV.booleanValue;
-    }
-
-    public boolean isIpLocationExist() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.mIsIpLocatonExist == 0 : invokeV.booleanValue;
     }
 
     public void setAccountType(int i) {
@@ -531,13 +698,12 @@ public final class ChatUser implements Parcelable, NoProGuard, PinYinUtils.PinYi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048632, this, str) == null) {
             this.mUserExt = str;
-            if (TextUtils.isEmpty(str)) {
-                return;
-            }
-            try {
-                setSchema(new JSONObject(str).optString("homepage", ""));
-            } catch (Exception e) {
-                e.printStackTrace();
+            if (!TextUtils.isEmpty(str)) {
+                try {
+                    setSchema(new JSONObject(str).optString("homepage", ""));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
@@ -605,72 +771,5 @@ public final class ChatUser implements Parcelable, NoProGuard, PinYinUtils.PinYi
             parcel.writeString(this.mSchema);
             parcel.writeInt(this.mGroupStatus);
         }
-    }
-
-    public ChatUser(Parcel parcel) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.mUserName = "";
-        this.mIconUrl = "";
-        this.mSex = 0;
-        this.mTinyUrl = "";
-        this.mPhone = 0L;
-        this.mUserDetail = "";
-        this.mUserNamePy = "";
-        this.mAccountType = -1;
-        this.mIsIpLocatonExist = 1;
-        this.vPortrait = "";
-        this.mVipId = "";
-        this.mIdentity = "";
-        this.mLastUpdate = 0L;
-        this.mShield = 0;
-        this.mShieldTime = 0L;
-        this.mMarkTop = 0;
-        this.mMarkTopTime = 0L;
-        this.mSubscribe = 0;
-        this.mPhoneRelation = 0;
-        this.mHasSpecialIdentity = 0;
-        this.mSpecialIdentity = "";
-        this.mUserExt = "";
-        this.mGroupStatus = 1;
-        this.mUk = parcel.readLong();
-        this.mBuid = parcel.readLong();
-        this.mUserName = parcel.readString();
-        this.mIconUrl = parcel.readString();
-        this.mSex = parcel.readInt();
-        this.mTinyUrl = parcel.readString();
-        this.mPhone = parcel.readLong();
-        this.mUserDetail = parcel.readString();
-        this.mUserNamePy = parcel.readString();
-        this.mAccountType = parcel.readInt();
-        this.mIsIpLocatonExist = parcel.readInt();
-        this.mIpInfo = (IpInfo) parcel.readParcelable(IpInfo.class.getClassLoader());
-        this.mVipId = parcel.readString();
-        this.vPortrait = parcel.readString();
-        this.mIdentity = parcel.readString();
-        this.mLastUpdate = parcel.readLong();
-        this.mShield = parcel.readInt();
-        this.mShieldTime = parcel.readLong();
-        this.mMarkTop = parcel.readInt();
-        this.mMarkTopTime = parcel.readLong();
-        this.mSubscribe = parcel.readInt();
-        this.mPhoneRelation = parcel.readInt();
-        this.mHasSpecialIdentity = parcel.readInt();
-        this.mSpecialIdentity = parcel.readString();
-        this.mUserExt = parcel.readString();
-        this.mSchema = parcel.readString();
-        this.mGroupStatus = parcel.readInt();
     }
 }

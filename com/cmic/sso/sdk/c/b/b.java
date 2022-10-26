@@ -39,30 +39,27 @@ public class b extends g {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // com.cmic.sso.sdk.c.b.g
-    public JSONObject b() {
-        InterceptResult invokeV;
+    public String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("version", this.a);
-                jSONObject.put("apptype", this.b);
-                jSONObject.put("phone_ID", this.c);
-                jSONObject.put("certflag", this.d);
-                jSONObject.put("sdkversion", this.e);
-                jSONObject.put("appid", this.f);
-                jSONObject.put("expandparams", "");
-                jSONObject.put("sign", this.g);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return this.a + this.e + this.f + "iYm0HAnkxQtpvN44";
         }
-        return (JSONObject) invokeV.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    public void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.a = str;
+        }
     }
 
     public void c(String str) {
@@ -108,19 +105,25 @@ public class b extends g {
     }
 
     @Override // com.cmic.sso.sdk.c.b.g
-    public String a(String str) {
-        InterceptResult invokeL;
+    public JSONObject b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return this.a + this.e + this.f + "iYm0HAnkxQtpvN44";
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("version", this.a);
+                jSONObject.put("apptype", this.b);
+                jSONObject.put("phone_ID", this.c);
+                jSONObject.put("certflag", this.d);
+                jSONObject.put("sdkversion", this.e);
+                jSONObject.put("appid", this.f);
+                jSONObject.put("expandparams", "");
+                jSONObject.put("sign", this.g);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject;
         }
-        return (String) invokeL.objValue;
-    }
-
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.a = str;
-        }
+        return (JSONObject) invokeV.objValue;
     }
 }

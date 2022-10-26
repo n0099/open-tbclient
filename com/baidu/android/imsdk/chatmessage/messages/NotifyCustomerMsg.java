@@ -17,7 +17,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class NotifyCustomerMsg extends NotifyMsg implements Parcelable, NoProGuard {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<NotifyCustomerMsg> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public long csuid;
     public String text;
@@ -35,7 +35,7 @@ public class NotifyCustomerMsg extends NotifyMsg implements Parcelable, NoProGua
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<NotifyCustomerMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.NotifyCustomerMsg.1
+        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.NotifyCustomerMsg.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -54,23 +54,45 @@ public class NotifyCustomerMsg extends NotifyMsg implements Parcelable, NoProGua
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public NotifyCustomerMsg createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new NotifyCustomerMsg(parcel) : (NotifyCustomerMsg) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new NotifyCustomerMsg(parcel);
+                }
+                return (NotifyCustomerMsg) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public NotifyCustomerMsg[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new NotifyCustomerMsg[i] : (NotifyCustomerMsg[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new NotifyCustomerMsg[i];
+                }
+                return (NotifyCustomerMsg[]) invokeI.objValue;
             }
         };
+    }
+
+    public long getCsUid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.csuid;
+        }
+        return invokeV.longValue;
+    }
+
+    public String getText() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.text;
+        }
+        return (String) invokeV.objValue;
     }
 
     public NotifyCustomerMsg(int i) {
@@ -93,16 +115,28 @@ public class NotifyCustomerMsg extends NotifyMsg implements Parcelable, NoProGua
         setNotifyCmd(i);
     }
 
-    public long getCsUid() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public NotifyCustomerMsg(Parcel parcel) {
+        super(parcel);
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.csuid : invokeV.longValue;
-    }
-
-    public String getText() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.text : (String) invokeV.objValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Parcel) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.csuid = -1L;
+        this.text = "";
+        this.csuid = parcel.readLong();
+        this.text = parcel.readString();
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
@@ -138,29 +172,5 @@ public class NotifyCustomerMsg extends NotifyMsg implements Parcelable, NoProGua
             parcel.writeLong(this.csuid);
             parcel.writeString(this.text);
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NotifyCustomerMsg(Parcel parcel) {
-        super(parcel);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Parcel) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.csuid = -1L;
-        this.text = "";
-        this.csuid = parcel.readLong();
-        this.text = parcel.readString();
     }
 }

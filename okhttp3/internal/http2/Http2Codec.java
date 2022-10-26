@@ -89,7 +89,7 @@ public final class Http2Codec implements HttpCodec {
 
         private void endOfInput(IOException iOException) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(65537, this, iOException) == null) || this.completed) {
+            if ((interceptable != null && interceptable.invokeL(65537, this, iOException) != null) || this.completed) {
                 return;
             }
             this.completed = true;
@@ -240,17 +240,9 @@ public final class Http2Codec implements HttpCodec {
     public void cancel() {
         Http2Stream http2Stream;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (http2Stream = this.stream) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (http2Stream = this.stream) != null) {
+            http2Stream.closeLater(ErrorCode.CANCEL);
         }
-        http2Stream.closeLater(ErrorCode.CANCEL);
-    }
-
-    @Override // okhttp3.internal.http.HttpCodec
-    public Sink createRequestBody(Request request, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, request, j)) == null) ? this.stream.getSink() : (Sink) invokeLJ.objValue;
     }
 
     @Override // okhttp3.internal.http.HttpCodec
@@ -267,6 +259,16 @@ public final class Http2Codec implements HttpCodec {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.connection.flush();
         }
+    }
+
+    @Override // okhttp3.internal.http.HttpCodec
+    public Sink createRequestBody(Request request, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, request, j)) == null) {
+            return this.stream.getSink();
+        }
+        return (Sink) invokeLJ.objValue;
     }
 
     @Override // okhttp3.internal.http.HttpCodec
@@ -297,12 +299,19 @@ public final class Http2Codec implements HttpCodec {
 
     @Override // okhttp3.internal.http.HttpCodec
     public void writeRequestHeaders(Request request) throws IOException {
+        boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, request) == null) && this.stream == null) {
-            Http2Stream newStream = this.connection.newStream(http2HeadersList(request), request.body() != null);
-            this.stream = newStream;
-            newStream.readTimeout().timeout(this.chain.readTimeoutMillis(), TimeUnit.MILLISECONDS);
-            this.stream.writeTimeout().timeout(this.chain.writeTimeoutMillis(), TimeUnit.MILLISECONDS);
+        if ((interceptable != null && interceptable.invokeL(1048582, this, request) != null) || this.stream != null) {
+            return;
         }
+        if (request.body() != null) {
+            z = true;
+        } else {
+            z = false;
+        }
+        Http2Stream newStream = this.connection.newStream(http2HeadersList(request), z);
+        this.stream = newStream;
+        newStream.readTimeout().timeout(this.chain.readTimeoutMillis(), TimeUnit.MILLISECONDS);
+        this.stream.writeTimeout().timeout(this.chain.writeTimeoutMillis(), TimeUnit.MILLISECONDS);
     }
 }

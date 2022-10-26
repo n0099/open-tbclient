@@ -17,12 +17,22 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class SettingRemindMsg extends NormalMsg {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator<SettingRemindMsg> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public static final String PAGE_SYMBOL = "msg_setting_page";
     public static final char SEARCH_SYMBOL = '#';
     public transient /* synthetic */ FieldHolder $fh;
     public String mContent;
     public String mPage;
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
+    public String getRecommendDescription() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -37,7 +47,7 @@ public class SettingRemindMsg extends NormalMsg {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<SettingRemindMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.SettingRemindMsg.1
+        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.SettingRemindMsg.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -56,23 +66,61 @@ public class SettingRemindMsg extends NormalMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public SettingRemindMsg createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new SettingRemindMsg(parcel) : (SettingRemindMsg) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new SettingRemindMsg(parcel);
+                }
+                return (SettingRemindMsg) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public SettingRemindMsg[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new SettingRemindMsg[i] : (SettingRemindMsg[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new SettingRemindMsg[i];
+                }
+                return (SettingRemindMsg[]) invokeI.objValue;
             }
         };
+    }
+
+    public SettingRemindMsg() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        setMsgType(36);
+    }
+
+    public String getPage() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mPage;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getText() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mContent;
+        }
+        return (String) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -95,28 +143,6 @@ public class SettingRemindMsg extends NormalMsg {
         }
         this.mContent = parcel.readString();
         this.mPage = parcel.readString();
-    }
-
-    public String getPage() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mPage : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
-    public String getRecommendDescription() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String getText() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mContent : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
@@ -148,21 +174,5 @@ public class SettingRemindMsg extends NormalMsg {
             parcel.writeString(this.mContent);
             parcel.writeString(this.mPage);
         }
-    }
-
-    public SettingRemindMsg() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        setMsgType(36);
     }
 }

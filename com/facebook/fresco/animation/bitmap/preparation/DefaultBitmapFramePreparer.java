@@ -19,12 +19,12 @@ import java.util.concurrent.ExecutorService;
 /* loaded from: classes7.dex */
 public class DefaultBitmapFramePreparer implements BitmapFramePreparer {
     public static /* synthetic */ Interceptable $ic;
-    public static final Class<?> TAG;
+    public static final Class TAG;
     public transient /* synthetic */ FieldHolder $fh;
     public final Bitmap.Config mBitmapConfig;
     public final BitmapFrameRenderer mBitmapFrameRenderer;
     public final ExecutorService mExecutorService;
-    public final SparseArray<Runnable> mPendingFrameDecodeJobs;
+    public final SparseArray mPendingFrameDecodeJobs;
     public final PlatformBitmapFactory mPlatformBitmapFactory;
 
     /* loaded from: classes7.dex */
@@ -61,44 +61,48 @@ public class DefaultBitmapFramePreparer implements BitmapFramePreparer {
 
         private boolean prepareFrameAndCache(int i, int i2) {
             InterceptResult invokeII;
-            CloseableReference<Bitmap> bitmapToReuseForFrame;
+            CloseableReference bitmapToReuseForFrame;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeII = interceptable.invokeII(65537, this, i, i2)) == null) {
                 int i3 = 2;
                 try {
-                    if (i2 == 1) {
-                        bitmapToReuseForFrame = this.mBitmapFrameCache.getBitmapToReuseForFrame(i, this.mAnimationBackend.getIntrinsicWidth(), this.mAnimationBackend.getIntrinsicHeight());
-                    } else if (i2 != 2) {
-                        return false;
-                    } else {
+                    if (i2 != 1) {
+                        if (i2 != 2) {
+                            return false;
+                        }
                         bitmapToReuseForFrame = this.this$0.mPlatformBitmapFactory.createBitmap(this.mAnimationBackend.getIntrinsicWidth(), this.mAnimationBackend.getIntrinsicHeight(), this.this$0.mBitmapConfig);
                         i3 = -1;
+                    } else {
+                        bitmapToReuseForFrame = this.mBitmapFrameCache.getBitmapToReuseForFrame(i, this.mAnimationBackend.getIntrinsicWidth(), this.mAnimationBackend.getIntrinsicHeight());
                     }
                     boolean renderFrameAndCache = renderFrameAndCache(i, bitmapToReuseForFrame, i2);
                     CloseableReference.closeSafely(bitmapToReuseForFrame);
-                    return (renderFrameAndCache || i3 == -1) ? renderFrameAndCache : prepareFrameAndCache(i, i3);
+                    if (!renderFrameAndCache && i3 != -1) {
+                        return prepareFrameAndCache(i, i3);
+                    }
+                    return renderFrameAndCache;
                 } catch (RuntimeException e) {
                     FLog.w(DefaultBitmapFramePreparer.TAG, "Failed to create frame bitmap", e);
                     return false;
                 } finally {
-                    CloseableReference.closeSafely((CloseableReference<?>) null);
+                    CloseableReference.closeSafely((CloseableReference) null);
                 }
             }
             return invokeII.booleanValue;
         }
 
-        private boolean renderFrameAndCache(int i, CloseableReference<Bitmap> closeableReference, int i2) {
+        private boolean renderFrameAndCache(int i, CloseableReference closeableReference, int i2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{Integer.valueOf(i), closeableReference, Integer.valueOf(i2)})) == null) {
-                if (CloseableReference.isValid(closeableReference) && this.this$0.mBitmapFrameRenderer.renderFrame(i, closeableReference.get())) {
-                    FLog.v(DefaultBitmapFramePreparer.TAG, "Frame %d ready.", Integer.valueOf(this.mFrameNumber));
-                    synchronized (this.this$0.mPendingFrameDecodeJobs) {
-                        this.mBitmapFrameCache.onFramePrepared(this.mFrameNumber, closeableReference, i2);
-                    }
-                    return true;
+                if (!CloseableReference.isValid(closeableReference) || !this.this$0.mBitmapFrameRenderer.renderFrame(i, (Bitmap) closeableReference.get())) {
+                    return false;
                 }
-                return false;
+                FLog.v(DefaultBitmapFramePreparer.TAG, "Frame %d ready.", Integer.valueOf(this.mFrameNumber));
+                synchronized (this.this$0.mPendingFrameDecodeJobs) {
+                    this.mBitmapFrameCache.onFramePrepared(this.mFrameNumber, closeableReference, i2);
+                }
+                return true;
             }
             return invokeCommon.booleanValue;
         }
@@ -169,13 +173,16 @@ public class DefaultBitmapFramePreparer implements BitmapFramePreparer {
         this.mBitmapFrameRenderer = bitmapFrameRenderer;
         this.mBitmapConfig = config;
         this.mExecutorService = executorService;
-        this.mPendingFrameDecodeJobs = new SparseArray<>();
+        this.mPendingFrameDecodeJobs = new SparseArray();
     }
 
     public static int getUniqueId(AnimationBackend animationBackend, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, animationBackend, i)) == null) ? (animationBackend.hashCode() * 31) + i : invokeLI.intValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, animationBackend, i)) == null) {
+            return (animationBackend.hashCode() * 31) + i;
+        }
+        return invokeLI.intValue;
     }
 
     @Override // com.facebook.fresco.animation.bitmap.preparation.BitmapFramePreparer

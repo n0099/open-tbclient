@@ -2,7 +2,6 @@ package com.baidu.searchbox.taskmanager;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.BaseTaskPool;
-import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.searchbox.task.async.appcreate.InitAbi64WebViewCompatTask;
 import com.baidu.searchbox.task.async.appcreate.InitAccountChangeTask;
 import com.baidu.searchbox.task.async.appcreate.InitArTask;
@@ -99,7 +98,20 @@ public class ApplicationTaskPool extends BaseTaskPool {
     }
 
     @Override // com.baidu.searchbox.performance.speed.task.BaseTaskPool
-    public List<LaunchTask> onAppCreateFirst(int i) {
+    public List viewOnActivity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new InitPersonalizeViewTask());
+            arrayList.add(new InitAdCardViewTask());
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.performance.speed.task.BaseTaskPool
+    public List onAppCreateFirst(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
@@ -132,7 +144,41 @@ public class ApplicationTaskPool extends BaseTaskPool {
     }
 
     @Override // com.baidu.searchbox.performance.speed.task.BaseTaskPool
-    public List<LaunchTask> onAppCreateSecond(int i) {
+    public List onPrivacyPolicyGranted(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (i == 2) {
+                arrayList.add(new LaunchWithPrivacyTask());
+                arrayList.add(new DeleteApkTask());
+                if (!DelayInitNightPluginSwitch.isOn()) {
+                    arrayList.add(new NightPluginTask());
+                }
+                arrayList.add(new LogoTask());
+            } else if (i == 1) {
+                arrayList.add(new InitSDKWithPrivacyTask());
+            } else if (i == 3) {
+                arrayList.add(new MainTabLoadFinishTask());
+                arrayList.add(new GetYYCloudTask());
+                arrayList.add(new InitCookieTask());
+                arrayList.add(new InitUnionIDTask());
+                arrayList.add(new MaintabAsyncInitTask());
+                arrayList.add(new LaunchStatTask());
+                arrayList.add(new InitSDKIdleTask());
+                if (DelayInitNightPluginSwitch.isOn()) {
+                    arrayList.add(new NightPluginTask());
+                }
+                arrayList.add(new InitCyberPlayerTask());
+                arrayList.add(new InitSwanAppTask());
+            }
+            return arrayList;
+        }
+        return (List) invokeI.objValue;
+    }
+
+    @Override // com.baidu.searchbox.performance.speed.task.BaseTaskPool
+    public List onAppCreateSecond(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
@@ -176,54 +222,7 @@ public class ApplicationTaskPool extends BaseTaskPool {
     }
 
     @Override // com.baidu.searchbox.performance.speed.task.BaseTaskPool
-    public List<LaunchTask> onPrivacyPolicyGranted(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (i == 2) {
-                arrayList.add(new LaunchWithPrivacyTask());
-                arrayList.add(new DeleteApkTask());
-                if (!DelayInitNightPluginSwitch.isOn()) {
-                    arrayList.add(new NightPluginTask());
-                }
-                arrayList.add(new LogoTask());
-            } else if (i == 1) {
-                arrayList.add(new InitSDKWithPrivacyTask());
-            } else if (i == 3) {
-                arrayList.add(new MainTabLoadFinishTask());
-                arrayList.add(new GetYYCloudTask());
-                arrayList.add(new InitCookieTask());
-                arrayList.add(new InitUnionIDTask());
-                arrayList.add(new MaintabAsyncInitTask());
-                arrayList.add(new LaunchStatTask());
-                arrayList.add(new InitSDKIdleTask());
-                if (DelayInitNightPluginSwitch.isOn()) {
-                    arrayList.add(new NightPluginTask());
-                }
-                arrayList.add(new InitCyberPlayerTask());
-                arrayList.add(new InitSwanAppTask());
-            }
-            return arrayList;
-        }
-        return (List) invokeI.objValue;
-    }
-
-    @Override // com.baidu.searchbox.performance.speed.task.BaseTaskPool
-    public List<LaunchTask> viewOnActivity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new InitPersonalizeViewTask());
-            arrayList.add(new InitAdCardViewTask());
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.performance.speed.task.BaseTaskPool
-    public List<LaunchTask> viewOnAppCreateView() {
+    public List viewOnAppCreateView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {

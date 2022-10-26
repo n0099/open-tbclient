@@ -11,11 +11,11 @@ import java.util.List;
 public class ResultData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<PackageInfo> addList;
-    public List<PackageInfo> configChangeList;
-    public List<PackageInfo> filterList;
-    public List<PackageInfo> invalidList;
-    public List<PackageInfo> updateList;
+    public List addList;
+    public List configChangeList;
+    public List filterList;
+    public List invalidList;
+    public List updateList;
 
     public ResultData() {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class ResultData {
         }
     }
 
-    private void putString(StringBuilder sb, String str, List<PackageInfo> list) {
+    private void putString(StringBuilder sb, String str, List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65537, this, sb, str, list) == null) {
             sb.append(str);
@@ -40,7 +40,7 @@ public class ResultData {
             if (list.size() > 0) {
                 sb.append(" [");
                 for (int i = 0; i < list.size(); i++) {
-                    PackageInfo packageInfo = list.get(i);
+                    PackageInfo packageInfo = (PackageInfo) list.get(i);
                     if (i == 0) {
                         sb.append(packageInfo.packageName);
                     } else {

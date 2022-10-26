@@ -10,7 +10,7 @@ import java.lang.ref.WeakReference;
 public final class k extends s {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<com.kwad.components.ad.reward.k> ns;
+    public WeakReference ns;
     public long tQ;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -34,7 +34,7 @@ public final class k extends s {
         this.tQ = -1L;
         this.tQ = j;
         if (kVar != null) {
-            this.ns = new WeakReference<>(kVar);
+            this.ns = new WeakReference(kVar);
         }
     }
 
@@ -43,9 +43,9 @@ public final class k extends s {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
             super.a(fVar);
-            WeakReference<com.kwad.components.ad.reward.k> weakReference = this.ns;
+            WeakReference weakReference = this.ns;
             if (weakReference != null && weakReference.get() != null) {
-                fVar.F(this.ns.get().eF.getPlayDuration());
+                fVar.F(((com.kwad.components.ad.reward.k) this.ns.get()).eF.getPlayDuration());
                 return;
             }
             long j = this.tQ;

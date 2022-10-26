@@ -3,8 +3,8 @@ package com.baidu.adp.lib.OrmObject.toolsystem.orm.object;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.rc;
 import com.baidu.tieba.sc;
+import com.baidu.tieba.tc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class OrmObject extends sc {
+public class OrmObject extends tc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -37,10 +37,10 @@ public class OrmObject extends sc {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, ormObject)) == null) {
             Bundle bundle = new Bundle();
-            if (ormObject == null || !ormObject.fillInBundle(bundle)) {
-                return null;
+            if (ormObject != null && ormObject.fillInBundle(bundle)) {
+                return bundle;
             }
-            return bundle;
+            return null;
         }
         return (Bundle) invokeL.objValue;
     }
@@ -50,10 +50,10 @@ public class OrmObject extends sc {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, ormObject)) == null) {
             Intent intent = new Intent();
-            if (ormObject == null || !ormObject.fillByIntent(intent)) {
-                return null;
+            if (ormObject != null && ormObject.fillByIntent(intent)) {
+                return intent;
             }
-            return intent;
+            return null;
         }
         return (Intent) invokeL.objValue;
     }
@@ -76,10 +76,10 @@ public class OrmObject extends sc {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, ormObject)) == null) {
             JSONObject jSONObject = new JSONObject();
-            if (ormObject == null || !ormObject.fillInJsonObject(jSONObject)) {
-                return null;
+            if (ormObject != null && ormObject.fillInJsonObject(jSONObject)) {
+                return jSONObject;
             }
-            return jSONObject;
+            return null;
         }
         return (JSONObject) invokeL.objValue;
     }
@@ -89,10 +89,10 @@ public class OrmObject extends sc {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, ormObject)) == null) {
             HashMap hashMap = new HashMap();
-            if (ormObject == null || !ormObject.fillInMap(hashMap)) {
-                return null;
+            if (ormObject != null && ormObject.fillInMap(hashMap)) {
+                return hashMap;
             }
-            return hashMap;
+            return null;
         }
         return (Map) invokeL.objValue;
     }
@@ -101,11 +101,11 @@ public class OrmObject extends sc {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, bundle, cls)) == null) {
-            OrmObject ormObject = (OrmObject) rc.g(cls);
-            if (ormObject == null || !ormObject.fillByBundle(bundle)) {
-                return null;
+            OrmObject ormObject = (OrmObject) sc.g(cls);
+            if (ormObject != null && ormObject.fillByBundle(bundle)) {
+                return ormObject;
             }
-            return ormObject;
+            return null;
         }
         return (OrmObject) invokeLL.objValue;
     }
@@ -114,11 +114,11 @@ public class OrmObject extends sc {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, intent, cls)) == null) {
-            OrmObject ormObject = (OrmObject) rc.g(cls);
-            if (ormObject == null || !ormObject.fillByIntent(intent)) {
-                return null;
+            OrmObject ormObject = (OrmObject) sc.g(cls);
+            if (ormObject != null && ormObject.fillByIntent(intent)) {
+                return ormObject;
             }
-            return ormObject;
+            return null;
         }
         return (OrmObject) invokeLL.objValue;
     }
@@ -127,11 +127,11 @@ public class OrmObject extends sc {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, jSONObject, cls)) == null) {
-            OrmObject ormObject = (OrmObject) rc.g(cls);
-            if (ormObject == null || !ormObject.fillByJsonObject(jSONObject)) {
-                return null;
+            OrmObject ormObject = (OrmObject) sc.g(cls);
+            if (ormObject != null && ormObject.fillByJsonObject(jSONObject)) {
+                return ormObject;
             }
-            return ormObject;
+            return null;
         }
         return (OrmObject) invokeLL.objValue;
     }
@@ -157,11 +157,11 @@ public class OrmObject extends sc {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, map, cls)) == null) {
-            OrmObject ormObject = (OrmObject) rc.g(cls);
-            if (ormObject == null || !ormObject.fillByMap(map)) {
-                return null;
+            OrmObject ormObject = (OrmObject) sc.g(cls);
+            if (ormObject != null && ormObject.fillByMap(map)) {
+                return ormObject;
             }
-            return ormObject;
+            return null;
         }
         return (OrmObject) invokeLL.objValue;
     }

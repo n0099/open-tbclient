@@ -17,7 +17,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class UserSettingPaCmdMsg extends NotifyMsg implements Parcelable, NoProGuard {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<UserSettingPaCmdMsg> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public long mPaId;
     public int status;
@@ -36,7 +36,7 @@ public class UserSettingPaCmdMsg extends NotifyMsg implements Parcelable, NoProG
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<UserSettingPaCmdMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.UserSettingPaCmdMsg.1
+        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.UserSettingPaCmdMsg.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -55,65 +55,27 @@ public class UserSettingPaCmdMsg extends NotifyMsg implements Parcelable, NoProG
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public UserSettingPaCmdMsg createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new UserSettingPaCmdMsg(parcel) : (UserSettingPaCmdMsg) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new UserSettingPaCmdMsg(parcel);
+                }
+                return (UserSettingPaCmdMsg) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public UserSettingPaCmdMsg[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new UserSettingPaCmdMsg[i] : (UserSettingPaCmdMsg[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new UserSettingPaCmdMsg[i];
+                }
+                return (UserSettingPaCmdMsg[]) invokeI.objValue;
             }
         };
-    }
-
-    public long getPaId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mPaId : invokeV.longValue;
-    }
-
-    public int getSyncStatus() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.status : invokeV.intValue;
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
-    public boolean parseJsonString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject(getJsonContent());
-                this.mPaId = jSONObject.getLong("pa_uid");
-                this.status = jSONObject.getInt("status");
-                this.updateTime = jSONObject.getInt("update_time");
-                return true;
-            } catch (JSONException e) {
-                LogUtils.e(LogUtils.TAG, "parseJsonString", e);
-                return false;
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.messages.NotifyMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i) == null) {
-            super.writeToParcel(parcel, i);
-            parcel.writeLong(this.mPaId);
-            parcel.writeInt(this.status);
-            parcel.writeLong(this.updateTime);
-        }
     }
 
     public UserSettingPaCmdMsg() {
@@ -133,6 +95,24 @@ public class UserSettingPaCmdMsg extends NotifyMsg implements Parcelable, NoProG
         this.status = -1;
         this.updateTime = -1L;
         setNotifyCmd(23);
+    }
+
+    public long getPaId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mPaId;
+        }
+        return invokeV.longValue;
+    }
+
+    public int getSyncStatus() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.status;
+        }
+        return invokeV.intValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -159,5 +139,35 @@ public class UserSettingPaCmdMsg extends NotifyMsg implements Parcelable, NoProG
         this.mPaId = parcel.readLong();
         this.status = parcel.readInt();
         this.updateTime = parcel.readInt();
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.NotifyMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i) == null) {
+            super.writeToParcel(parcel, i);
+            parcel.writeLong(this.mPaId);
+            parcel.writeInt(this.status);
+            parcel.writeLong(this.updateTime);
+        }
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
+    public boolean parseJsonString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject(getJsonContent());
+                this.mPaId = jSONObject.getLong("pa_uid");
+                this.status = jSONObject.getInt("status");
+                this.updateTime = jSONObject.getInt("update_time");
+                return true;
+            } catch (JSONException e) {
+                LogUtils.e(LogUtils.TAG, "parseJsonString", e);
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
     }
 }

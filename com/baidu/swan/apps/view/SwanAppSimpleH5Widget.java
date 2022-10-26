@@ -5,7 +5,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.sailor.BdSailorWebChromeClient;
 import com.baidu.browser.sailor.BdSailorWebView;
 import com.baidu.swan.apps.core.slave.SwanAppWebViewWidget;
-import com.baidu.tieba.z42;
+import com.baidu.tieba.a52;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,6 +15,32 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class SwanAppSimpleH5Widget extends SwanAppWebViewWidget {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes3.dex */
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget
+    public boolean U1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget
+    public boolean V1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
     /* loaded from: classes3.dex */
     public class SimpleWebChromeClient extends BdSailorWebChromeClient {
@@ -79,6 +105,10 @@ public class SwanAppSimpleH5Widget extends SwanAppWebViewWidget {
             this.this$0 = swanAppSimpleH5Widget;
         }
 
+        public /* synthetic */ SimpleWebViewClient(SwanAppSimpleH5Widget swanAppSimpleH5Widget, a aVar) {
+            this(swanAppSimpleH5Widget);
+        }
+
         @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget.WebViewWidgetClient, com.baidu.browser.sailor.BdSailorWebViewClient
         public void onPageFinished(BdSailorWebView bdSailorWebView, String str) {
             Interceptable interceptable = $ic;
@@ -91,6 +121,19 @@ public class SwanAppSimpleH5Widget extends SwanAppWebViewWidget {
         }
 
         @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget.WebViewWidgetClient, com.baidu.browser.sailor.BdSailorWebViewClient
+        public boolean shouldOverrideUrlLoading(BdSailorWebView bdSailorWebView, String str) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, bdSailorWebView, str)) == null) {
+                if (this.this$0.U != null && this.this$0.U.b(str)) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeLL.booleanValue;
+        }
+
+        @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget.WebViewWidgetClient, com.baidu.browser.sailor.BdSailorWebViewClient
         public void onReceivedError(BdSailorWebView bdSailorWebView, int i, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdSailorWebView, i, str, str2) == null) {
@@ -100,23 +143,6 @@ public class SwanAppSimpleH5Widget extends SwanAppWebViewWidget {
                 super.onReceivedError(bdSailorWebView, i, str, str2);
             }
         }
-
-        @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget.WebViewWidgetClient, com.baidu.browser.sailor.BdSailorWebViewClient
-        public boolean shouldOverrideUrlLoading(BdSailorWebView bdSailorWebView, String str) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, bdSailorWebView, str)) == null) ? this.this$0.U != null && this.this$0.U.b(str) : invokeLL.booleanValue;
-        }
-
-        public /* synthetic */ SimpleWebViewClient(SwanAppSimpleH5Widget swanAppSimpleH5Widget, a aVar) {
-            this(swanAppSimpleH5Widget);
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -141,34 +167,14 @@ public class SwanAppSimpleH5Widget extends SwanAppWebViewWidget {
         X0(new SimpleWebChromeClient(this));
     }
 
-    @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget
-    public boolean U1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget
-    public boolean V1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget, com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.l22
+    @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget, com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.m22
     public boolean o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            z42 z42Var = this.U;
-            if (z42Var != null) {
-                z42Var.goBack();
+            a52 a52Var = this.U;
+            if (a52Var != null) {
+                a52Var.goBack();
             }
             return super.o();
         }

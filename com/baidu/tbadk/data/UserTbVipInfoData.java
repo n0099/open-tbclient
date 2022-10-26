@@ -35,24 +35,33 @@ public class UserTbVipInfoData implements Serializable {
     public String getvipIntro() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.vipIntro : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.vipIntro;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getvipV_detail() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.vipV_detail : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.vipV_detail;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getvipV_url() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.vipV_url : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.vipV_url;
+        }
+        return (String) invokeV.objValue;
     }
 
     public void parseJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         this.vipIntro = jSONObject.optString("intro", "");
@@ -62,7 +71,7 @@ public class UserTbVipInfoData implements Serializable {
 
     public void parserProtobuf(TbVipInfo tbVipInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, tbVipInfo) == null) || tbVipInfo == null) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, tbVipInfo) != null) || tbVipInfo == null) {
             return;
         }
         this.vipIntro = tbVipInfo.intro;

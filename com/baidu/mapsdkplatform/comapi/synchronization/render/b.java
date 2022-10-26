@@ -60,10 +60,10 @@ public class b extends Handler {
     public volatile boolean J;
     public volatile long K;
     public volatile int L;
-    public List<LatLng> M;
-    public List<BitmapDescriptor> N;
+    public List M;
+    public List N;
     public Polyline O;
-    public List<Integer> P;
+    public List P;
     public volatile boolean Q;
     public int R;
     public String S;
@@ -81,7 +81,7 @@ public class b extends Handler {
     public Marker l;
     public Marker m;
     public Marker n;
-    public List<LinkPointPolyLineInfo> o;
+    public List o;
     public Thread q;
     public int s;
     public double t;
@@ -319,7 +319,7 @@ public class b extends Handler {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class d {
+    public final class d {
         public static /* synthetic */ Interceptable $ic;
         public static final d a;
         public static final d b;
@@ -875,7 +875,7 @@ public class b extends Handler {
                     this.c.a(2004, SynchronizationConstants.LBS_STATUS_MESSAGE_QUERY_TRACK_DRIVER_POSITION_FAILED);
                     return;
                 }
-                BitmapDescriptor carIcon = (!e.get3DCarMarkerEnable() || e.get3DCarMarkerIconList() == null || e.get3DCarMarkerIconList().isEmpty()) ? e.getCarIcon() : e.get3DCarMarkerIconList().get(0);
+                BitmapDescriptor carIcon = (!e.get3DCarMarkerEnable() || e.get3DCarMarkerIconList() == null || e.get3DCarMarkerIconList().isEmpty()) ? e.getCarIcon() : (BitmapDescriptor) e.get3DCarMarkerIconList().get(0);
                 if (carIcon == null) {
                     com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "The car icon is null, use default 2D car icon");
                     carIcon = new DisplayOptions().getCarIcon();
@@ -1009,7 +1009,7 @@ public class b extends Handler {
                     this.O = null;
                 }
                 X();
-                List<LinkPointPolyLineInfo> list = this.o;
+                List list = this.o;
                 if (list == null || list.isEmpty()) {
                     com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "LinkPointPolyline info is null");
                 } else {
@@ -1050,7 +1050,7 @@ public class b extends Handler {
         int[] iArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65560, this) == null) {
-            ArrayList<Integer> b = g.b().b();
+            ArrayList b = g.b().b();
             if (b == null || b.isEmpty()) {
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "Traffic status data is null");
                 return;
@@ -1074,7 +1074,7 @@ public class b extends Handler {
                 size = (this.P.size() - p) + this.s;
                 iArr = new int[size];
                 for (int i3 = 0; i3 < (this.P.size() - p) + this.s; i3++) {
-                    iArr[i3] = this.P.get((p + i3) - this.s).intValue();
+                    iArr[i3] = ((Integer) this.P.get((p + i3) - this.s)).intValue();
                 }
             } catch (Exception e2) {
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(a, "Exception caught when updateTrafficStatus", e2);
@@ -1096,16 +1096,16 @@ public class b extends Handler {
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "Route info or syncResponseResult is null");
                 return;
             }
-            List<RouteLineInfo.RouteSectionInfo> b = g.a().b();
-            ArrayList<Integer> b2 = g.b().b();
+            List b = g.a().b();
+            ArrayList b2 = g.b().b();
             if (b == null || b.isEmpty()) {
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "route section info is null");
                 this.c.a(2001, SynchronizationConstants.LBS_STATUS_MESSAGE_ROUTE_PLAN_FAILED);
             } else if (b.isEmpty() || b2 == null || b2.isEmpty() || b2.size() == b.size()) {
                 for (int i = 0; i < b.size(); i++) {
                     if (b.get(i) != null) {
-                        LatLng a2 = b.get(i).a();
-                        LatLng b3 = b.get(i).b();
+                        LatLng a2 = ((RouteLineInfo.RouteSectionInfo) b.get(i)).a();
+                        LatLng b3 = ((RouteLineInfo.RouteSectionInfo) b.get(i)).b();
                         int a3 = a(i, b2);
                         LinkPointPolyLineInfo linkPointPolyLineInfo = new LinkPointPolyLineInfo();
                         linkPointPolyLineInfo.a(a2);
@@ -1115,7 +1115,7 @@ public class b extends Handler {
                         this.M.add(a2);
                     }
                 }
-                this.M.add(b.get(b.size() - 1).b());
+                this.M.add(((RouteLineInfo.RouteSectionInfo) b.get(b.size() - 1)).b());
             } else {
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "route section info or traffic status info is invalid");
             }
@@ -1150,7 +1150,7 @@ public class b extends Handler {
             }
             for (int i = 0; i < size - 1; i++) {
                 if (this.M.get(i) != null) {
-                    this.P.add(Integer.valueOf(this.o.get(i).c()));
+                    this.P.add(Integer.valueOf(((LinkPointPolyLineInfo) this.o.get(i)).c()));
                 }
             }
             if (e == null) {
@@ -1176,7 +1176,7 @@ public class b extends Handler {
     }
 
     private void Z() {
-        List<LinkPointPolyLineInfo> list;
+        List list;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65563, this) == null) {
             if (this.m == null) {
@@ -1184,7 +1184,7 @@ public class b extends Handler {
             } else if (r != null || (list = this.o) == null || list.isEmpty()) {
                 aa();
             } else {
-                LatLng a2 = this.o.get(0).a();
+                LatLng a2 = ((LinkPointPolyLineInfo) this.o.get(0)).a();
                 r = a2;
                 b(a2);
                 c(r);
@@ -1216,14 +1216,14 @@ public class b extends Handler {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65566, this, new Object[]{Double.valueOf(d2), latLng})) == null) ? latLng.latitude - (d2 * latLng.longitude) : invokeCommon.doubleValue;
     }
 
-    private int a(int i, ArrayList<Integer> arrayList) {
+    private int a(int i, ArrayList arrayList) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65568, this, i, arrayList)) == null) {
             if (arrayList == null || arrayList.isEmpty() || i >= arrayList.size()) {
                 return 0;
             }
-            return arrayList.get(i).intValue();
+            return ((Integer) arrayList.get(i)).intValue();
         }
         return invokeIL.intValue;
     }
@@ -1237,15 +1237,15 @@ public class b extends Handler {
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(a, "WAIT_PASSENGER State, no need calculate");
                 return null;
             }
-            List<LinkPointPolyLineInfo> list = this.o;
+            List list = this.o;
             if (list == null || list.isEmpty()) {
                 String str = a;
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(str, "mLinkPolyLineInfos size = " + this.o.size());
                 return null;
             }
             for (int i = p; i < this.o.size(); i++) {
-                LatLng a2 = this.o.get(i).a();
-                LatLng b = this.o.get(i).b();
+                LatLng a2 = ((LinkPointPolyLineInfo) this.o.get(i)).a();
+                LatLng b = ((LinkPointPolyLineInfo) this.o.get(i)).b();
                 if (!a(latLng, a2)) {
                     if (a(latLng, b)) {
                         this.s = d(i + 1);
@@ -1274,7 +1274,7 @@ public class b extends Handler {
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "User not set DisplayOptions, use default 2D marker");
                 displayOptions = new DisplayOptions();
             } else {
-                List<BitmapDescriptor> list = displayOptions2.get3DCarMarkerIconList();
+                List list = displayOptions2.get3DCarMarkerIconList();
                 if (list != null && !list.isEmpty()) {
                     double atan2 = (Math.atan2(latLng2.latitude - latLng.latitude, latLng2.longitude - latLng.longitude) / 3.141592653589793d) * 180.0d;
                     if (atan2 < 0.0d) {
@@ -1290,7 +1290,7 @@ public class b extends Handler {
                     if (size == i2) {
                         i2 = 0;
                     }
-                    BitmapDescriptor bitmapDescriptor = list.get(i2);
+                    BitmapDescriptor bitmapDescriptor = (BitmapDescriptor) list.get(i2);
                     if (bitmapDescriptor == null || (marker = this.m) == null) {
                         return;
                     }
@@ -1503,13 +1503,13 @@ public class b extends Handler {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65589, this)) == null) {
-            List<LinkPointPolyLineInfo> list = this.o;
+            List list = this.o;
             if (list == null || list.isEmpty() || p > this.o.size()) {
                 return 1.0d;
             }
             double d2 = 0.0d;
             for (int i = p - this.s; i < p; i++) {
-                d2 += f(this.o.get(i).a(), this.o.get(i).b());
+                d2 += f(((LinkPointPolyLineInfo) this.o.get(i)).a(), ((LinkPointPolyLineInfo) this.o.get(i)).b());
             }
             return d2;
         }
@@ -1523,8 +1523,8 @@ public class b extends Handler {
             return;
         }
         for (int i = p - this.s; i < p; i++) {
-            LatLng a2 = this.o.get(i).a();
-            LatLng b = this.o.get(i).b();
+            LatLng a2 = ((LinkPointPolyLineInfo) this.o.get(i)).a();
+            LatLng b = ((LinkPointPolyLineInfo) this.o.get(i)).b();
             double f2 = f(a2, b) / 2.0d;
             double d2 = (b.latitude - a2.latitude) / f2;
             double d3 = (b.longitude - a2.longitude) / f2;
@@ -1543,7 +1543,7 @@ public class b extends Handler {
                     d6 += d2;
                 }
                 LatLng latLng = new LatLng(d6, d4);
-                List<LatLng> list = this.M;
+                List list = this.M;
                 if (list != null && !list.isEmpty()) {
                     if (this.z) {
                         this.Q = true;
@@ -1551,9 +1551,9 @@ public class b extends Handler {
                     }
                     this.M.set(i, latLng);
                 }
-                List<Integer> list2 = this.P;
+                List list2 = this.P;
                 if (list2 != null && !list2.isEmpty()) {
-                    this.P.set(i, Integer.valueOf(this.o.get(i).c()));
+                    this.P.set(i, Integer.valueOf(((LinkPointPolyLineInfo) this.o.get(i)).c()));
                 }
                 if (!b(a2, latLng)) {
                     return;
@@ -1943,7 +1943,7 @@ public class b extends Handler {
         int[] iArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65626, this, i) == null) {
-            List<LatLng> list = this.M;
+            List list = this.M;
             if (list == null || list.isEmpty()) {
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "Route polyline points is null when remove");
             } else if (this.M.size() <= 2 || i >= this.M.size() - 2) {
@@ -1952,15 +1952,15 @@ public class b extends Handler {
                     polyline.remove();
                 }
             } else {
-                List<Integer> list2 = this.P;
+                List list2 = this.P;
                 if (list2 == null || list2.isEmpty()) {
                     com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "No need removeTravelledPolyLine");
                 } else if (!this.z) {
                     try {
-                        List<Integer> subList = this.P.subList(i, this.P.size());
+                        List subList = this.P.subList(i, this.P.size());
                         iArr = new int[subList.size()];
                         for (int i2 = 0; i2 < subList.size(); i2++) {
-                            iArr[i2] = subList.get(i2).intValue();
+                            iArr[i2] = ((Integer) subList.get(i2)).intValue();
                         }
                     } catch (Exception e2) {
                         e2.printStackTrace();
@@ -1986,7 +1986,7 @@ public class b extends Handler {
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "User set not show routeLine in span");
                 return;
             }
-            List<LinkPointPolyLineInfo> list = this.o;
+            List list = this.o;
             if (list == null || list.isEmpty()) {
                 g(builder);
             } else {
@@ -2005,10 +2005,10 @@ public class b extends Handler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65631, this, builder) == null) {
             for (int i = this.L; i < this.o.size(); i++) {
-                builder.include(this.o.get(i).a());
+                builder.include(((LinkPointPolyLineInfo) this.o.get(i)).a());
             }
-            List<LinkPointPolyLineInfo> list = this.o;
-            builder.include(list.get(list.size() - 1).b());
+            List list = this.o;
+            builder.include(((LinkPointPolyLineInfo) list.get(list.size() - 1)).b());
         }
     }
 
@@ -2019,15 +2019,15 @@ public class b extends Handler {
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "There no routeLine info, no need show in span");
                 return;
             }
-            List<RouteLineInfo.RouteSectionInfo> b = g.a().b();
+            List b = g.a().b();
             if (b == null || b.isEmpty()) {
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "There no routeLine position, no need show in span");
                 return;
             }
             for (int i = 0; i < b.size(); i++) {
-                builder.include(b.get(i).a());
+                builder.include(((RouteLineInfo.RouteSectionInfo) b.get(i)).a());
             }
-            builder.include(b.get(b.size() - 1).b());
+            builder.include(((RouteLineInfo.RouteSectionInfo) b.get(b.size() - 1)).b());
         }
     }
 
@@ -2135,7 +2135,7 @@ public class b extends Handler {
                 this.O = null;
             }
             for (int i = 0; i < this.N.size(); i++) {
-                this.N.get(i).recycle();
+                ((BitmapDescriptor) this.N.get(i)).recycle();
             }
             this.N.clear();
         }

@@ -15,31 +15,6 @@ public interface PushObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // okhttp3.internal.http2.PushObserver
-        public boolean onData(int i, BufferedSource bufferedSource, int i2, boolean z) throws IOException {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), bufferedSource, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-                bufferedSource.skip(i2);
-                return true;
-            }
-            return invokeCommon.booleanValue;
-        }
-
         @Override // okhttp3.internal.http2.PushObserver
         public boolean onHeaders(int i, List<Header> list, boolean z) {
             InterceptResult invokeCommon;
@@ -65,6 +40,31 @@ public interface PushObserver {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048579, this, i, errorCode) == null) {
             }
+        }
+
+        {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // okhttp3.internal.http2.PushObserver
+        public boolean onData(int i, BufferedSource bufferedSource, int i2, boolean z) throws IOException {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), bufferedSource, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+                bufferedSource.skip(i2);
+                return true;
+            }
+            return invokeCommon.booleanValue;
         }
     };
 

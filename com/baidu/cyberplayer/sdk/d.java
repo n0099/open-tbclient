@@ -35,7 +35,7 @@ public class d {
     public static final String e;
     public static final String f;
     public static final String g;
-    public static Class<?> h;
+    public static Class h;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -56,7 +56,7 @@ public class d {
         g = d + ".CyberPlayerCoreImpl";
     }
 
-    public static int a(String str, int i, int i2, int i3, Map<String, String> map) {
+    public static int a(String str, int i, int i2, int i3, Map map) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), map})) == null) ? a(1) ? a.getDevicePlayQualityScore(str, i, i2, i3, map) : i2 * i3 < 921600 ? 100 : -1 : invokeCommon.intValue;
@@ -74,7 +74,7 @@ public class d {
                     h = null;
                 }
             }
-            Class<?> cls = h;
+            Class cls = h;
             if (cls != null) {
                 try {
                     return (CyberVRRenderProvider) cls.getConstructor(Context.class).newInstance(context);
@@ -141,7 +141,7 @@ public class d {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, videoSourceBean)) == null) ? a(1) ? a.startDownload(str, videoSourceBean) : str : (String) invokeLL.objValue;
     }
 
-    public static Map<String, String> a(CyberPlayerCoreProvider.LibsVersionType libsVersionType) {
+    public static Map a(CyberPlayerCoreProvider.LibsVersionType libsVersionType) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, libsVersionType)) == null) {
@@ -239,7 +239,7 @@ public class d {
         return invokeI.booleanValue;
     }
 
-    public static boolean a(int i, Map<String, String> map) throws FileNotFoundException {
+    public static boolean a(int i, Map map) throws FileNotFoundException {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65552, null, i, map)) == null) {
@@ -415,7 +415,7 @@ public class d {
         return invokeV.longValue;
     }
 
-    public static HashMap<Integer, Long> j() {
+    public static HashMap j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65570, null)) == null) {

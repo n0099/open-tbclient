@@ -8,8 +8,6 @@ import android.os.ParcelFileDescriptor;
 import android.os.Process;
 import android.system.Os;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
 import com.kwad.sdk.crash.model.message.DiskInfo;
@@ -47,7 +45,7 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class f {
     public static final File aik = new File("/proc/self/fd");
     public static final File ail = new File("/proc/self/task");
@@ -152,7 +150,7 @@ public final class f {
         return BigDecimal.valueOf(((float) (j >> 20)) / 1024.0f).setScale(2, 4).floatValue();
     }
 
-    public static String L(@NonNull String str, String str2) {
+    public static String L(String str, String str2) {
         am.dQ(str);
         return !str.endsWith(str2) ? str : str.substring(0, str.lastIndexOf(str2));
     }
@@ -179,7 +177,7 @@ public final class f {
         }
     }
 
-    public static void a(@NonNull ExceptionMessage exceptionMessage, @Nullable Context context) {
+    public static void a(ExceptionMessage exceptionMessage, Context context) {
         if (exceptionMessage instanceof JavaExceptionMessage) {
             if ("Unknown".equals(exceptionMessage.mThreadName)) {
                 exceptionMessage.mThreadName = Thread.currentThread().getName();
@@ -229,8 +227,8 @@ public final class f {
         }
     }
 
-    public static void a(ExceptionMessage exceptionMessage, MemoryInfo memoryInfo, @Nullable Context context) {
-        List<String> list;
+    public static void a(ExceptionMessage exceptionMessage, MemoryInfo memoryInfo, Context context) {
+        List list;
         String canonicalPath;
         SystemUtil.a AA = SystemUtil.AA();
         AA.aoD = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
@@ -276,15 +274,14 @@ public final class f {
             exceptionMessage.mCrashType = exceptionMessage.getTypeThreadOOM();
             exceptionMessage.mThreadOverflow = "True";
             a(memoryInfo);
-            Collections.sort(memoryInfo.mAllThreads, new Comparator<ThreadInfo>() { // from class: com.kwad.sdk.crash.utils.f.1
+            Collections.sort(memoryInfo.mAllThreads, new Comparator() { // from class: com.kwad.sdk.crash.utils.f.1
                 public static int a(ThreadInfo threadInfo, ThreadInfo threadInfo2) {
                     return threadInfo.mName.compareTo(threadInfo2.mName);
                 }
 
-                /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
                 @Override // java.util.Comparator
-                public final /* synthetic */ int compare(ThreadInfo threadInfo, ThreadInfo threadInfo2) {
-                    return a(threadInfo, threadInfo2);
+                public final /* synthetic */ int compare(Object obj, Object obj2) {
+                    return a((ThreadInfo) obj, (ThreadInfo) obj2);
                 }
             });
         }
@@ -407,7 +404,7 @@ public final class f {
         return a(stackTraceElementArr, 0);
     }
 
-    public static void b(@NonNull ExceptionMessage exceptionMessage, @Nullable Context context) {
+    public static void b(ExceptionMessage exceptionMessage, Context context) {
         String absolutePath;
         String packageName;
         if (context == null) {
@@ -501,7 +498,7 @@ public final class f {
         }
     }
 
-    public static void b(@NonNull Throwable th, @NonNull ExceptionMessage exceptionMessage) {
+    public static void b(Throwable th, ExceptionMessage exceptionMessage) {
         String l = l(th);
         if (th instanceof StackOverflowError) {
             l = di(l);
@@ -509,7 +506,7 @@ public final class f {
         exceptionMessage.mCrashDetail = l.replaceAll("[\n\t]", "#");
     }
 
-    public static void b(@Nullable Throwable th, @NonNull ExceptionMessage exceptionMessage, @Nullable Context context) {
+    public static void b(Throwable th, ExceptionMessage exceptionMessage, Context context) {
         if (th != null) {
             b(th, exceptionMessage);
         }
@@ -588,7 +585,7 @@ public final class f {
         return sb.toString();
     }
 
-    public static void d(@NonNull ExceptionMessage exceptionMessage) {
+    public static void d(ExceptionMessage exceptionMessage) {
         exceptionMessage.mVirtualApp = com.kwad.sdk.crash.d.wz().wC();
         exceptionMessage.mVersionCode = com.kwad.sdk.crash.d.wz().getSdkVersion();
     }
@@ -634,7 +631,7 @@ public final class f {
         return -1;
     }
 
-    public static boolean k(@Nullable Throwable th) {
+    public static boolean k(Throwable th) {
         if (th == null) {
             return false;
         }

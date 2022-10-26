@@ -1,149 +1,221 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.animation.ValueAnimator;
-import android.util.SparseArray;
-import android.util.SparseIntArray;
+import android.view.MotionEvent;
+import android.view.VelocityTracker;
 import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.card.CardLinkageManager;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
 /* loaded from: classes3.dex */
 public class co {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdTypeRecyclerView a;
-    public zn b;
-    public int c;
-    public SparseIntArray d;
-    public int e;
+    public zn a;
+    public Cdo b;
+    public RecyclerView c;
+    public VelocityTracker d;
+    public float e;
     public float f;
-    public float g;
-    public boolean h;
-    public SparseArray<ValueAnimator> i;
-    public SparseIntArray j;
-    public LinearLayoutManager k;
-    public HashSet<Integer> l;
-    public HashSet<Integer> m;
+    public int g;
+    public int h;
+    public int i;
+    public be5 j;
+    public RecyclerView.OnChildAttachStateChangeListener k;
+    public RecyclerView.OnScrollListener l;
+    public RecyclerView.OnItemTouchListener m;
 
     /* loaded from: classes3.dex */
-    public class a implements ValueAnimator.AnimatorUpdateListener {
+    public class a implements RecyclerView.OnChildAttachStateChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ View a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ co c;
+        public final /* synthetic */ co a;
 
-        public a(co coVar, View view2, int i) {
+        public a(co coVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {coVar, view2, Integer.valueOf(i)};
+                Object[] objArr = {coVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.c = coVar;
-            this.a = view2;
-            this.b = i;
+            this.a = coVar;
         }
 
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
+        @Override // androidx.recyclerview.widget.RecyclerView.OnChildAttachStateChangeListener
+        public void onChildViewAttachedToWindow(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                this.c.r(this.a, this.b, ((Float) valueAnimator.getAnimatedValue()).floatValue());
+            if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
+                return;
             }
+            this.a.r(view2);
+        }
+
+        @Override // androidx.recyclerview.widget.RecyclerView.OnChildAttachStateChangeListener
+        public void onChildViewDetachedFromWindow(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) != null) {
+                return;
+            }
+            this.a.s(view2);
         }
     }
 
     /* loaded from: classes3.dex */
-    public class b implements Animator.AnimatorListener {
+    public class b extends RecyclerView.OnScrollListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ View b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ co d;
+        public final /* synthetic */ co a;
 
-        public b(co coVar, int i, View view2, int i2) {
+        public b(co coVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {coVar, Integer.valueOf(i), view2, Integer.valueOf(i2)};
+                Object[] objArr = {coVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.d = coVar;
-            this.a = i;
-            this.b = view2;
-            this.c = i2;
+            this.a = coVar;
         }
 
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationCancel(Animator animator) {
+        @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
+        public void onScrollStateChanged(RecyclerView recyclerView, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                this.d.i.delete(this.a);
-                this.d.j.delete(this.a);
-                this.d.r(this.b, this.c, 0.0f);
+            if (interceptable == null || interceptable.invokeLI(1048576, this, recyclerView, i) == null) {
+                this.a.u(i);
             }
         }
 
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
+        @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
+        public void onScrolled(RecyclerView recyclerView, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.d.i.delete(this.a);
-                this.d.j.delete(this.a);
-                this.d.d.delete(this.a);
-                this.d.r(this.b, this.c, 0.0f);
+            if (interceptable != null && interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recyclerView, i, i2) != null) {
+                return;
             }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationRepeat(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationStart(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-            }
+            this.a.t(i, i2);
         }
     }
 
-    public co(zn znVar) {
+    /* loaded from: classes3.dex */
+    public class c implements RecyclerView.OnItemTouchListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ co a;
+
+        @Override // androidx.recyclerview.widget.RecyclerView.OnItemTouchListener
+        public void onRequestDisallowInterceptTouchEvent(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            }
+        }
+
+        @Override // androidx.recyclerview.widget.RecyclerView.OnItemTouchListener
+        public void onTouchEvent(RecyclerView recyclerView, MotionEvent motionEvent) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, recyclerView, motionEvent) == null) {
+            }
+        }
+
+        public c(co coVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {coVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = coVar;
+        }
+
+        @Override // androidx.recyclerview.widget.RecyclerView.OnItemTouchListener
+        public boolean onInterceptTouchEvent(RecyclerView recyclerView, MotionEvent motionEvent) {
+            InterceptResult invokeLL;
+            float f;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, recyclerView, motionEvent)) == null) {
+                int actionMasked = motionEvent.getActionMasked();
+                if (actionMasked == 0) {
+                    this.a.c.stopScroll();
+                    this.a.e = motionEvent.getX();
+                    this.a.f = motionEvent.getY();
+                    co coVar = this.a;
+                    View x = coVar.x(coVar.e, this.a.f);
+                    co coVar2 = this.a;
+                    coVar2.g = coVar2.c.getChildAdapterPosition(x);
+                    if (this.a.d == null) {
+                        this.a.d = VelocityTracker.obtain();
+                    }
+                    this.a.d.addMovement(motionEvent);
+                    return false;
+                }
+                int i = 1;
+                if (actionMasked == 2) {
+                    float x2 = motionEvent.getX();
+                    float y = motionEvent.getY();
+                    if (this.a.i == 2) {
+                        f = y - this.a.f;
+                    } else {
+                        f = x2 - this.a.e;
+                    }
+                    if (f >= 0.0f) {
+                        i = 2;
+                    }
+                    if (i != this.a.h) {
+                        this.a.h = i;
+                        this.a.d.clear();
+                    }
+                    this.a.d.addMovement(motionEvent);
+                    this.a.d.computeCurrentVelocity(50);
+                    co coVar3 = this.a;
+                    coVar3.v(coVar3.d.getXVelocity(), this.a.d.getYVelocity());
+                    this.a.e = x2;
+                    this.a.f = y;
+                    return false;
+                } else if (actionMasked == 3 || actionMasked == 1) {
+                    this.a.e = 0.0f;
+                    this.a.f = 0.0f;
+                    this.a.d.clear();
+                    return false;
+                } else {
+                    return false;
+                }
+            }
+            return invokeLL.booleanValue;
+        }
+    }
+
+    public co(ao aoVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {znVar};
+            Object[] objArr = {aoVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -153,441 +225,126 @@ public class co {
                 return;
             }
         }
-        this.h = false;
-        this.l = new HashSet<>();
-        this.m = new HashSet<>();
-        this.b = znVar;
-        this.d = new SparseIntArray();
-        this.i = new SparseArray<>();
-        this.j = new SparseIntArray();
+        this.k = new a(this);
+        this.l = new b(this);
+        this.m = new c(this);
+        this.a = new zn(aoVar);
+        this.b = new Cdo(aoVar);
     }
 
-    public void e(BdTypeRecyclerView bdTypeRecyclerView, int i) {
+    public final void t(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, bdTypeRecyclerView, i) == null) {
-            this.a = bdTypeRecyclerView;
-            this.c = i;
-            if (bdTypeRecyclerView == null || !(bdTypeRecyclerView.getLayoutManager() instanceof LinearLayoutManager)) {
-                return;
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            if (this.c instanceof BdTypeRecyclerView) {
+                this.b.p(i, i2, this.g);
             }
-            this.k = (LinearLayoutManager) bdTypeRecyclerView.getLayoutManager();
+            this.a.l(i, i2, this.g);
         }
     }
 
-    public final float f(int i, int i2, boolean z) {
-        InterceptResult invokeCommon;
+    public final void r(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            if (z) {
-                return i(this.a.getChildAt(g(i + 1, i2, true)));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            if (this.c instanceof BdTypeRecyclerView) {
+                this.b.k(view2);
+            } else {
+                this.a.g(view2);
             }
-            return i(this.a.getChildAt(g(i - 1, i2, false)));
         }
-        return invokeCommon.floatValue;
     }
 
-    public final int g(int i, int i2, boolean z) {
-        InterceptResult invokeCommon;
+    public final void s(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            int i3 = 1;
-            if (!z) {
-                while (i3 < i2) {
-                    int i4 = i2 - i3;
-                    if (i == h(i4)) {
-                        return i4;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
+            if (this.c instanceof BdTypeRecyclerView) {
+                this.b.l(view2);
+            } else {
+                this.a.h(view2);
+            }
+        }
+    }
+
+    public void q(RecyclerView recyclerView, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(1048576, this, recyclerView, i) != null) || recyclerView == null) {
+            return;
+        }
+        RecyclerView recyclerView2 = this.c;
+        if (recyclerView2 != null) {
+            recyclerView2.removeOnItemTouchListener(this.m);
+            this.c.removeOnScrollListener(this.l);
+            this.c.removeOnChildAttachStateChangeListener(this.k);
+        }
+        this.c = recyclerView;
+        this.i = i;
+        if (recyclerView instanceof BdTypeRecyclerView) {
+            this.b.e((BdTypeRecyclerView) recyclerView, i);
+        } else {
+            this.a.e(recyclerView, i);
+        }
+        this.c.addOnItemTouchListener(this.m);
+        this.c.addOnScrollListener(this.l);
+        this.c.addOnChildAttachStateChangeListener(this.k);
+    }
+
+    public final void u(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            if (i == 1) {
+                if (TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_slide")) {
+                    if (this.j == null) {
+                        this.j = new be5("anim_switch_slide");
                     }
-                    i3++;
+                    this.j.b();
                 }
-                return -1;
+            } else if (i == 0 && this.j != null && TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_slide")) {
+                this.j.c();
             }
-            int count = this.a.getCount() - i2;
-            while (i3 < count) {
-                int i5 = i2 + i3;
-                if (i == h(i5)) {
-                    return i5;
-                }
-                i3++;
+            if (this.c instanceof BdTypeRecyclerView) {
+                this.b.q(i);
             }
-            return -1;
-        }
-        return invokeCommon.intValue;
-    }
-
-    public final int h(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            if (i > 0) {
-                Cdo B = this.a.B(i - this.a.getHeaderViewsCount());
-                if (B instanceof BaseCardInfo) {
-                    return ((BaseCardInfo) B).position;
-                }
-                if (B instanceof ms4) {
-                    return ((ms4) B).i();
-                }
-            }
-            return -1;
-        }
-        return invokeI.intValue;
-    }
-
-    public final float i(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, view2)) == null) {
-            if (view2 == null) {
-                return 0.0f;
-            }
-            return this.c == 2 ? view2.getTranslationY() : view2.getTranslationX();
-        }
-        return invokeL.floatValue;
-    }
-
-    public final boolean j(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            if (i > 0) {
-                return rg5.p(this.a.B(i - this.a.getHeaderViewsCount()));
-            }
-            return false;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public void k(View view2) {
-        BdTypeRecyclerView bdTypeRecyclerView;
-        int childAdapterPosition;
-        int h;
-        BdTypeRecyclerView bdTypeRecyclerView2;
-        float f;
-        BdTypeRecyclerView bdTypeRecyclerView3;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, view2) == null) || (bdTypeRecyclerView = this.a) == null || this.k == null || this.e == 0 || (h = h((childAdapterPosition = bdTypeRecyclerView.getChildAdapterPosition(view2)))) < 0) {
-            return;
-        }
-        if (childAdapterPosition <= this.k.findFirstVisibleItemPosition()) {
-            float i = this.a.getChildAt(1) != null ? i(this.a.getChildAt(1)) : 0.0f;
-            int h2 = h(childAdapterPosition + 1);
-            if (h2 < 0) {
-                return;
-            }
-            if (h2 == h) {
-                if (!j(childAdapterPosition)) {
-                    s(view2, i);
-                }
-            } else {
-                float f2 = -this.d.get(h, 0);
-                if (f2 != 0.0f) {
-                    this.f = f2;
-                } else {
-                    f2 = this.f;
-                }
-                if (!j(childAdapterPosition)) {
-                    s(view2, f2 + i);
-                }
-            }
-        } else {
-            if (this.a.getChildAt(bdTypeRecyclerView2.getChildCount() - 2) != null) {
-                f = i(this.a.getChildAt(bdTypeRecyclerView3.getChildCount() - 2));
-            } else {
-                f = 0.0f;
-            }
-            int h3 = h(childAdapterPosition - 1);
-            if (h3 < 0) {
-                return;
-            }
-            if (h3 == h) {
-                if (!j(childAdapterPosition)) {
-                    s(view2, f);
-                }
-            } else {
-                float f3 = -this.d.get(h, 0);
-                if (f3 != 0.0f) {
-                    this.g = f3;
-                } else {
-                    f3 = this.g;
-                }
-                if (!j(childAdapterPosition)) {
-                    s(view2, f3 + f);
-                }
-            }
-        }
-        n(view2, childAdapterPosition);
-    }
-
-    public void l(View view2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, view2) == null) || this.a == null) {
-            return;
-        }
-        s(view2, 0.0f);
-        int h = h(this.a.getChildAdapterPosition(view2));
-        if (h >= 0 && g(h, 0, true) == -1) {
-            this.d.delete(h);
-            if (this.i.get(h) != null) {
-                this.i.get(h).cancel();
-            }
-            this.i.delete(h);
-            this.j.delete(h);
+            this.a.m(i);
         }
     }
 
-    public final void m(View view2, int i, int i2, int i3, int i4) {
+    public final void v(float f, float f2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) || view2 == null) {
-            return;
-        }
-        if (i < 0) {
-            if (i2 < i3) {
-                float i5 = i(view2) + (i * this.b.l());
-                if (i5 > (-this.d.get(i4)) + f(i4, i2, true)) {
-                    r(view2, i2, i5);
-                } else {
-                    n(view2, i2);
-                }
-            } else if (i2 > i3) {
-                float i6 = i(view2) + (i * this.b.e());
-                if (i6 > (-this.d.get(i4)) + f(i4, i2, false)) {
-                    r(view2, i2, i6);
-                } else {
-                    n(view2, i2);
-                }
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            if (this.c instanceof BdTypeRecyclerView) {
+                this.b.t(f, f2, this.g);
             }
-        } else if (i2 > i3) {
-            float i7 = i(view2) + (i * this.b.l());
-            if (i7 < (-this.d.get(i4)) + f(i4, i2, false)) {
-                r(view2, i2, i7);
-            } else {
-                n(view2, i2);
-            }
-        } else if (i2 < i3) {
-            float i8 = i(view2) + (i * this.b.e());
-            if (i8 < (-this.d.get(i4)) + f(i4, i2, true)) {
-                r(view2, i2, i8);
-            } else {
-                n(view2, i2);
-            }
+            this.a.o(f, f2, this.g);
         }
     }
 
-    public final void n(View view2, int i) {
-        int h;
+    public void w() {
+        RecyclerView recyclerView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048585, this, view2, i) == null) || view2 == null || (h = h(i)) < 0) {
-            return;
-        }
-        ValueAnimator valueAnimator = this.i.get(h);
-        if (valueAnimator == null) {
-            if (Math.abs(i(view2)) < 0.1f) {
-                r(view2, i, 0.0f);
-                return;
-            }
-            ValueAnimator ofFloat = ValueAnimator.ofFloat(i(view2), 0.0f);
-            ofFloat.setInterpolator(new ao(1.0f));
-            ofFloat.setDuration(this.b.a());
-            ofFloat.addUpdateListener(new a(this, view2, i));
-            ofFloat.addListener(new b(this, h, view2, i));
-            this.i.append(h, ofFloat);
-            this.j.append(h, (int) i(view2));
-            ofFloat.start();
-            return;
-        }
-        if (!valueAnimator.isRunning()) {
-            valueAnimator.start();
-        }
-        float i2 = i(view2);
-        if (Math.abs(i2) > Math.abs(this.j.get(h)) + this.b.b()) {
-            this.j.append(h, (int) i2);
-            valueAnimator.setFloatValues(i2, 0.0f);
-            valueAnimator.cancel();
-            valueAnimator.start();
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (recyclerView = this.c) != null) {
+            recyclerView.removeOnItemTouchListener(this.m);
+            this.c.removeOnScrollListener(this.l);
+            this.c.removeOnChildAttachStateChangeListener(this.k);
         }
     }
 
-    public final void o() {
+    public View x(float f, float f2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            int childCount = this.a.getChildCount();
-            this.m.clear();
-            for (int i = 0; i < childCount; i++) {
-                View childAt = this.a.getChildAt(i);
-                int childAdapterPosition = this.a.getChildAdapterPosition(childAt);
-                int h = h(childAdapterPosition);
-                if (h >= 0 && !this.m.contains(Integer.valueOf(h))) {
-                    this.m.add(Integer.valueOf(h));
-                    n(childAt, childAdapterPosition);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            RecyclerView recyclerView = this.c;
+            if (recyclerView == null) {
+                return null;
+            }
+            for (int childCount = recyclerView.getChildCount() - 1; childCount >= 0; childCount--) {
+                View childAt = this.c.getChildAt(childCount);
+                float translationX = childAt.getTranslationX();
+                float translationY = childAt.getTranslationY();
+                if (f >= childAt.getLeft() + translationX && f <= childAt.getRight() + translationX && f2 >= childAt.getTop() + translationY && f2 <= childAt.getBottom() + translationY) {
+                    return childAt;
                 }
             }
+            return null;
         }
-    }
-
-    public void p(int i, int i2, int i3) {
-        LinearLayoutManager linearLayoutManager;
-        int h;
-        int h2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIII(1048587, this, i, i2, i3) == null) || this.a == null || (linearLayoutManager = this.k) == null || this.e != 1 || this.h) {
-            return;
-        }
-        int findFirstVisibleItemPosition = i3 - linearLayoutManager.findFirstVisibleItemPosition();
-        int h3 = h(i3);
-        if (h3 < 0) {
-            return;
-        }
-        this.l.add(Integer.valueOf(h3));
-        if (this.c == 2) {
-            i = i2;
-        }
-        int childCount = this.a.getChildCount();
-        for (int i4 = findFirstVisibleItemPosition - 1; i4 >= 0; i4--) {
-            View childAt = this.a.getChildAt(i4);
-            int childAdapterPosition = this.a.getChildAdapterPosition(childAt);
-            if (childAdapterPosition != -1 && (h2 = h(childAdapterPosition)) >= 0 && !this.l.contains(Integer.valueOf(h2))) {
-                this.l.add(Integer.valueOf(h2));
-                m(childAt, i, childAdapterPosition, i3, h2);
-            }
-        }
-        for (int i5 = findFirstVisibleItemPosition + 1; i5 <= childCount - 1; i5++) {
-            View childAt2 = this.a.getChildAt(i5);
-            int childAdapterPosition2 = this.a.getChildAdapterPosition(childAt2);
-            if (childAdapterPosition2 != -1 && (h = h(childAdapterPosition2)) >= 0 && !this.l.contains(Integer.valueOf(h))) {
-                this.l.add(Integer.valueOf(h));
-                m(childAt2, i, childAdapterPosition2, i3, h);
-            }
-        }
-    }
-
-    public void q(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048588, this, i) == null) || this.a == null) {
-            return;
-        }
-        this.e = i;
-        if (i == 0) {
-            this.d.clear();
-            o();
-        } else if (i == 2) {
-            o();
-        } else if (i == 1) {
-            this.d.clear();
-            o();
-        }
-    }
-
-    public final void r(View view2, int i, float f) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{view2, Integer.valueOf(i), Float.valueOf(f)}) == null) || view2 == null) {
-            return;
-        }
-        if (this.c == 2) {
-            CardLinkageManager.INSTANCE.translationY(this.a, i, f);
-        } else {
-            view2.setTranslationX(f);
-        }
-    }
-
-    public final void s(View view2, float f) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLF(1048590, this, view2, f) == null) || view2 == null) {
-            return;
-        }
-        if (this.c == 2) {
-            view2.setTranslationY(f);
-        } else {
-            view2.setTranslationX(f);
-        }
-    }
-
-    public void t(float f, float f2, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Integer.valueOf(i)}) == null) || this.a == null) {
-            return;
-        }
-        if (this.c == 2) {
-            f = f2;
-        }
-        int i2 = 1;
-        if (Math.abs(f) < this.b.i()) {
-            this.h = true;
-            o();
-            return;
-        }
-        this.h = false;
-        if (Math.abs(f) > this.b.h()) {
-            f = f > 0.0f ? this.b.h() : -this.b.h();
-        }
-        this.d.clear();
-        float f3 = this.b.f() * f;
-        int h = h(i);
-        if (h < 0) {
-            return;
-        }
-        if (f < 0.0f) {
-            float g = this.b.g();
-            int i3 = 1;
-            while (true) {
-                int i4 = h - i3;
-                float f4 = (i3 * g) + f3;
-                g *= 1.2f;
-                if (f4 > 0.0f) {
-                    break;
-                }
-                float c = (f4 / this.b.c()) + this.d.get(i4);
-                if (Math.abs(c) > this.b.d()) {
-                    c = -this.b.d();
-                }
-                this.d.append(i4, (int) c);
-                i3++;
-            }
-            float g2 = this.b.g();
-            while (true) {
-                int i5 = h + i2;
-                float f5 = (i2 * g2) + f3;
-                g2 *= 1.2f;
-                if (f5 > 0.0f) {
-                    return;
-                }
-                float j = (f5 / this.b.j()) + this.d.get(i5);
-                if (Math.abs(j) > this.b.k()) {
-                    j = -this.b.k();
-                }
-                this.d.append(i5, (int) j);
-                i2++;
-            }
-        } else {
-            float g3 = this.b.g();
-            int i6 = 1;
-            while (true) {
-                int i7 = h - i6;
-                float f6 = f3 - (i6 * g3);
-                g3 *= 1.2f;
-                if (f6 < 0.0f) {
-                    break;
-                }
-                float j2 = (f6 / this.b.j()) + this.d.get(i7);
-                if (Math.abs(j2) > this.b.k()) {
-                    j2 = this.b.k();
-                }
-                this.d.append(i7, (int) j2);
-                i6++;
-            }
-            float g4 = this.b.g();
-            while (true) {
-                int i8 = h + i2;
-                float f7 = f3 - (i2 * g4);
-                g4 *= 1.2f;
-                if (f7 < 0.0f) {
-                    return;
-                }
-                float c2 = (f7 / this.b.c()) + this.d.get(i8);
-                if (Math.abs(c2) > this.b.d()) {
-                    c2 = this.b.d();
-                }
-                this.d.append(i8, (int) c2);
-                i2++;
-            }
-        }
+        return (View) invokeCommon.objValue;
     }
 }

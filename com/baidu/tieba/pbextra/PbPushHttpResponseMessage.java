@@ -37,12 +37,6 @@ public class PbPushHttpResponseMessage extends TbHttpResponsedMessage {
         }
     }
 
-    public int getPushType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mPushType : invokeV.intValue;
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
@@ -60,5 +54,14 @@ public class PbPushHttpResponseMessage extends TbHttpResponsedMessage {
             }
             this.mPushType = dataRes.push_type.intValue();
         }
+    }
+
+    public int getPushType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mPushType;
+        }
+        return invokeV.intValue;
     }
 }

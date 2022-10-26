@@ -1,7 +1,6 @@
 package com.baidu.live.business.model.data;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.ExternalTransferSpeedStats;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -63,7 +62,7 @@ public class LiveFeedData {
 
     public void parserJson(JSONObject jSONObject, int i, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{jSONObject, Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{jSONObject, Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)}) != null) || jSONObject == null) {
             return;
         }
         this.errno = jSONObject.optInt("errno");
@@ -90,7 +89,7 @@ public class LiveFeedData {
         if (optJSONObject4 != null) {
             LiveFollowWrapData liveFollowWrapData2 = new LiveFollowWrapData();
             liveFollowWrapData2.parserJson(optJSONObject4);
-            List<LiveFollowEntity> list = liveFollowWrapData2.followList;
+            List list = liveFollowWrapData2.followList;
             if (list != null && !list.isEmpty()) {
                 this.followWrapData = liveFollowWrapData2;
             }
@@ -101,7 +100,7 @@ public class LiveFeedData {
             this.tabWrapData = liveTabWrapData;
             liveTabWrapData.parserJson(optJSONObject5, z, this.errno, z2);
         }
-        JSONObject optJSONObject6 = optJSONObject.optJSONObject(ExternalTransferSpeedStats.FEED_PAGE);
+        JSONObject optJSONObject6 = optJSONObject.optJSONObject("feed");
         if (optJSONObject6 != null) {
             LiveFeedWrapData liveFeedWrapData = new LiveFeedWrapData();
             this.feedWrapData = liveFeedWrapData;
@@ -123,7 +122,11 @@ public class LiveFeedData {
         this.toolWrapData = LiveFeedToolWrapData.parse(optJSONObject.optJSONObject("diamond"));
         JSONObject optJSONObject9 = optJSONObject.optJSONObject("state");
         if (optJSONObject9 != null) {
-            this.isMinor = optJSONObject9.optInt("is_minor") == 1;
+            boolean z3 = true;
+            if (optJSONObject9.optInt("is_minor") != 1) {
+                z3 = false;
+            }
+            this.isMinor = z3;
         }
     }
 }

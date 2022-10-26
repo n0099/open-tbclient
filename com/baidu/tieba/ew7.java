@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,11 +10,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class ew7 implements Cdo {
+public class ew7 extends PostData {
     public static /* synthetic */ Interceptable $ic;
-    public static BdUniqueId b;
+    public static final BdUniqueId a1;
     public transient /* synthetic */ FieldHolder $fh;
-    public ThreadData a;
+    public int U0;
+    public String V0;
+    public int W0;
+    public int X0;
+    public int Y0;
+    public int Z0;
 
     static {
         InterceptResult invokeClinit;
@@ -29,7 +34,7 @@ public class ew7 implements Cdo {
                 return;
             }
         }
-        b = BdUniqueId.gen();
+        a1 = BdUniqueId.gen();
     }
 
     public ew7() {
@@ -42,14 +47,19 @@ public class ew7 implements Cdo {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.Z0 = 0;
     }
 
-    @Override // com.baidu.tieba.Cdo
+    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.tieba.eo
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b : (BdUniqueId) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return a1;
+        }
+        return (BdUniqueId) invokeV.objValue;
     }
 }

@@ -34,13 +34,6 @@ public class SvgPureType extends AbsSvgType {
         this.tintColorId = i2;
     }
 
-    @Override // com.baidu.tbadk.core.util.svg.AbsSvgType
-    public Drawable getDrawable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? SvgManager.getInstance().getPureDrawable(this.drawableId, this.tintColorId, this.stateType) : (Drawable) invokeV.objValue;
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SvgPureType(int i, SvgManager.SvgResourceStateType svgResourceStateType, int i2) {
         super(i, svgResourceStateType);
@@ -61,5 +54,15 @@ public class SvgPureType extends AbsSvgType {
             }
         }
         this.tintColorId = i2;
+    }
+
+    @Override // com.baidu.tbadk.core.util.svg.AbsSvgType
+    public Drawable getDrawable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return SvgManager.getInstance().getPureDrawable(this.drawableId, this.tintColorId, this.stateType);
+        }
+        return (Drawable) invokeV.objValue;
     }
 }

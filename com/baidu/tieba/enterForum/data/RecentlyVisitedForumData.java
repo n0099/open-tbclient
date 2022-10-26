@@ -3,7 +3,7 @@ package com.baidu.tieba.enterForum.data;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.data.VisitedForumData;
-import com.baidu.tieba.dj;
+import com.baidu.tieba.ej;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,6 +34,15 @@ public class RecentlyVisitedForumData extends OrmObject implements Serializable 
         this.mForumData = new LinkedList<>();
     }
 
+    public LinkedList<VisitedForumData> getForumData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mForumData;
+        }
+        return (LinkedList) invokeV.objValue;
+    }
+
     private boolean isExist(LinkedList<VisitedForumData> linkedList, VisitedForumData visitedForumData) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -42,7 +51,7 @@ public class RecentlyVisitedForumData extends OrmObject implements Serializable 
                 Iterator<VisitedForumData> it = linkedList.iterator();
                 while (it.hasNext()) {
                     VisitedForumData next = it.next();
-                    if (!dj.isEmpty(visitedForumData.getForumId()) && visitedForumData.getForumId().equals(next.getForumId())) {
+                    if (!ej.isEmpty(visitedForumData.getForumId()) && visitedForumData.getForumId().equals(next.getForumId())) {
                         return true;
                     }
                 }
@@ -54,7 +63,7 @@ public class RecentlyVisitedForumData extends OrmObject implements Serializable 
 
     public void addForumItem(VisitedForumData visitedForumData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, visitedForumData) == null) || visitedForumData == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, visitedForumData) != null) || visitedForumData == null) {
             return;
         }
         VisitedForumData visitedForumData2 = null;
@@ -64,7 +73,7 @@ public class RecentlyVisitedForumData extends OrmObject implements Serializable 
                 break;
             }
             VisitedForumData next = it.next();
-            if (!dj.isEmpty(visitedForumData.getForumId()) && visitedForumData.getForumId().equals(next.getForumId())) {
+            if (!ej.isEmpty(visitedForumData.getForumId()) && visitedForumData.getForumId().equals(next.getForumId())) {
                 visitedForumData2 = next;
                 break;
             }
@@ -90,7 +99,7 @@ public class RecentlyVisitedForumData extends OrmObject implements Serializable 
                     break;
                 }
                 VisitedForumData visitedForumData2 = this.mForumData.get(i2);
-                if (!dj.isEmpty(visitedForumData.getForumId()) && visitedForumData.getForumId().equals(visitedForumData2.getForumId())) {
+                if (!ej.isEmpty(visitedForumData.getForumId()) && visitedForumData.getForumId().equals(visitedForumData2.getForumId())) {
                     i = i2;
                     break;
                 }
@@ -104,39 +113,31 @@ public class RecentlyVisitedForumData extends OrmObject implements Serializable 
         return invokeL.intValue;
     }
 
-    public LinkedList<VisitedForumData> getForumData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mForumData : (LinkedList) invokeV.objValue;
-    }
-
     public void mergeForumData(RecentlyVisitedForumData recentlyVisitedForumData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, recentlyVisitedForumData) == null) || recentlyVisitedForumData == null || recentlyVisitedForumData.getForumData() == null || recentlyVisitedForumData.getForumData().size() == 0) {
-            return;
-        }
-        Iterator<VisitedForumData> it = recentlyVisitedForumData.getForumData().iterator();
-        while (it.hasNext()) {
-            VisitedForumData next = it.next();
-            if (!isExist(this.mForumData, next)) {
-                this.mForumData.addLast(next);
+        if ((interceptable == null || interceptable.invokeL(1048579, this, recentlyVisitedForumData) == null) && recentlyVisitedForumData != null && recentlyVisitedForumData.getForumData() != null && recentlyVisitedForumData.getForumData().size() != 0) {
+            Iterator<VisitedForumData> it = recentlyVisitedForumData.getForumData().iterator();
+            while (it.hasNext()) {
+                VisitedForumData next = it.next();
+                if (!isExist(this.mForumData, next)) {
+                    this.mForumData.addLast(next);
+                }
             }
+            trimSize(20);
         }
-        trimSize(20);
     }
 
     public void setForumData(LinkedList<VisitedForumData> linkedList) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, linkedList) == null) || linkedList == null || linkedList.size() == 0) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, linkedList) == null) && linkedList != null && linkedList.size() != 0) {
+            this.mForumData.clear();
+            this.mForumData.addAll(linkedList);
         }
-        this.mForumData.clear();
-        this.mForumData.addAll(linkedList);
     }
 
     public void trimSize(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048581, this, i) == null) || this.mForumData == null) {
+        if ((interceptable != null && interceptable.invokeI(1048581, this, i) != null) || this.mForumData == null) {
             return;
         }
         while (this.mForumData.size() > i) {

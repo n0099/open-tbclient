@@ -25,6 +25,18 @@ public final class TornadoState {
         return new TornadoState[]{STATE_UNINIT, STATE_INIT, STATE_STARTING, STATE_RUNNING};
     }
 
+    public static TornadoState valueOf(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (TornadoState) Enum.valueOf(TornadoState.class, str) : (TornadoState) invokeL.objValue;
+    }
+
+    public static TornadoState[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (TornadoState[]) $VALUES.clone() : (TornadoState[]) invokeV.objValue;
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -62,17 +74,5 @@ public final class TornadoState {
                 interceptable.invokeInitBody(65538, newInitContext);
             }
         }
-    }
-
-    public static TornadoState valueOf(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (TornadoState) Enum.valueOf(TornadoState.class, str) : (TornadoState) invokeL.objValue;
-    }
-
-    public static TornadoState[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (TornadoState[]) $VALUES.clone() : (TornadoState[]) invokeV.objValue;
     }
 }

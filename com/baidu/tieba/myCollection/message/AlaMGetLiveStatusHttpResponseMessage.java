@@ -16,7 +16,7 @@ import org.json.JSONObject;
 public class AlaMGetLiveStatusHttpResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<Long> closeLives;
+    public List closeLives;
     public long interval;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -50,27 +50,31 @@ public class AlaMGetLiveStatusHttpResponseMessage extends JsonHttpResponsedMessa
             }
             setError(jSONObject.optInt("error_code"));
             setErrorString(jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG));
-            if (getError() == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-                JSONArray optJSONArray = optJSONObject.optJSONArray("close_live");
-                if (optJSONArray != null) {
-                    if (this.closeLives == null) {
-                        this.closeLives = new ArrayList();
-                    }
-                    this.closeLives.clear();
-                    for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                        if (optJSONArray.get(i2) instanceof Integer) {
-                            this.closeLives.add(Long.valueOf(((Integer) optJSONArray.get(i2)).longValue()));
-                        }
+            if (getError() != 0 || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
+                return;
+            }
+            JSONArray optJSONArray = optJSONObject.optJSONArray("close_live");
+            if (optJSONArray != null) {
+                if (this.closeLives == null) {
+                    this.closeLives = new ArrayList();
+                }
+                this.closeLives.clear();
+                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                    if (optJSONArray.get(i2) instanceof Integer) {
+                        this.closeLives.add(Long.valueOf(((Integer) optJSONArray.get(i2)).longValue()));
                     }
                 }
-                this.interval = jSONObject.optLong("interval");
             }
+            this.interval = jSONObject.optLong("interval");
         }
     }
 
-    public List<Long> getCloseLives() {
+    public List getCloseLives() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.closeLives : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.closeLives;
+        }
+        return (List) invokeV.objValue;
     }
 }

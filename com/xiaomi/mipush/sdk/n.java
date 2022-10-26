@@ -64,7 +64,7 @@ public class n {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m160a(Context context) {
+    public static boolean m159a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {

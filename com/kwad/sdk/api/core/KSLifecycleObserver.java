@@ -4,20 +4,17 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.os.Bundle;
-import androidx.annotation.Keep;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import java.lang.ref.WeakReference;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes7.dex */
 public class KSLifecycleObserver {
     public static KSLifecycleObserver sKSLifecycleObserver;
-    public WeakReference<Activity> currentActivity;
+    public WeakReference currentActivity;
     public Application mApplication;
     public boolean mIsInBackground = true;
     public int startedActivityCount = 0;
-    public final List<KSLifecycleListener> mListeners = new CopyOnWriteArrayList();
+    public final List mListeners = new CopyOnWriteArrayList();
     public boolean mHasInit = false;
     public boolean mEnable = false;
 
@@ -68,21 +65,19 @@ public class KSLifecycleObserver {
         }
     }
 
-    @Keep
     public Application getApplication() {
         return this.mApplication;
     }
 
-    @Keep
     public Activity getCurrentActivity() {
-        WeakReference<Activity> weakReference = this.currentActivity;
+        WeakReference weakReference = this.currentActivity;
         if (weakReference == null) {
             return null;
         }
-        return weakReference.get();
+        return (Activity) weakReference.get();
     }
 
-    public void init(@NonNull Context context) {
+    public void init(Context context) {
         try {
             if ((context instanceof Application) && !this.mHasInit) {
                 this.mHasInit = true;
@@ -90,7 +85,7 @@ public class KSLifecycleObserver {
                 this.mApplication = application;
                 application.registerActivityLifecycleCallbacks(new Application.ActivityLifecycleCallbacks() { // from class: com.kwad.sdk.api.core.KSLifecycleObserver.1
                     @Override // android.app.Application.ActivityLifecycleCallbacks
-                    public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
+                    public void onActivityCreated(Activity activity, Bundle bundle) {
                         KSLifecycleObserver.this.mEnable = true;
                         try {
                             for (KSLifecycleListener kSLifecycleListener : KSLifecycleObserver.this.mListeners) {
@@ -102,7 +97,7 @@ public class KSLifecycleObserver {
                     }
 
                     @Override // android.app.Application.ActivityLifecycleCallbacks
-                    public void onActivityDestroyed(@NonNull Activity activity) {
+                    public void onActivityDestroyed(Activity activity) {
                         try {
                             for (KSLifecycleListener kSLifecycleListener : KSLifecycleObserver.this.mListeners) {
                                 kSLifecycleListener.onActivityDestroyed(activity);
@@ -113,7 +108,7 @@ public class KSLifecycleObserver {
                     }
 
                     @Override // android.app.Application.ActivityLifecycleCallbacks
-                    public void onActivityPaused(@NonNull Activity activity) {
+                    public void onActivityPaused(Activity activity) {
                         try {
                             if (KSLifecycleObserver.this.currentActivity != null && KSLifecycleObserver.this.currentActivity.get() != null && ((Activity) KSLifecycleObserver.this.currentActivity.get()).equals(activity)) {
                                 KSLifecycleObserver.this.currentActivity = null;
@@ -127,7 +122,7 @@ public class KSLifecycleObserver {
                     }
 
                     @Override // android.app.Application.ActivityLifecycleCallbacks
-                    public void onActivityResumed(@NonNull Activity activity) {
+                    public void onActivityResumed(Activity activity) {
                         try {
                             KSLifecycleObserver.this.currentActivity = new WeakReference(activity);
                             for (KSLifecycleListener kSLifecycleListener : KSLifecycleObserver.this.mListeners) {
@@ -139,11 +134,11 @@ public class KSLifecycleObserver {
                     }
 
                     @Override // android.app.Application.ActivityLifecycleCallbacks
-                    public void onActivitySaveInstanceState(@NonNull Activity activity, @NonNull Bundle bundle) {
+                    public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
                     }
 
                     @Override // android.app.Application.ActivityLifecycleCallbacks
-                    public void onActivityStarted(@NonNull Activity activity) {
+                    public void onActivityStarted(Activity activity) {
                         try {
                             KSLifecycleObserver.access$208(KSLifecycleObserver.this);
                             if (KSLifecycleObserver.this.startedActivityCount == 1) {
@@ -155,7 +150,7 @@ public class KSLifecycleObserver {
                     }
 
                     @Override // android.app.Application.ActivityLifecycleCallbacks
-                    public void onActivityStopped(@NonNull Activity activity) {
+                    public void onActivityStopped(Activity activity) {
                         try {
                             KSLifecycleObserver.access$210(KSLifecycleObserver.this);
                             if (KSLifecycleObserver.this.startedActivityCount == 0) {
@@ -172,22 +167,18 @@ public class KSLifecycleObserver {
         }
     }
 
-    @Keep
     public boolean isAppOnForeground() {
         return !this.mIsInBackground;
     }
 
-    @Keep
     public boolean isEnable() {
         return this.mEnable;
     }
 
-    @Keep
     public void registerLifecycleListener(KSLifecycleListener kSLifecycleListener) {
         this.mListeners.add(kSLifecycleListener);
     }
 
-    @Keep
     public void unRegisterLifecycleListener(KSLifecycleListener kSLifecycleListener) {
         this.mListeners.remove(kSLifecycleListener);
     }

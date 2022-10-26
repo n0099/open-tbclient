@@ -33,12 +33,6 @@ public class DecodeException extends RuntimeException {
         this.mEncodedImage = encodedImage;
     }
 
-    public EncodedImage getEncodedImage() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mEncodedImage : (EncodedImage) invokeV.objValue;
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DecodeException(String str, Throwable th, EncodedImage encodedImage) {
         super(str, th);
@@ -59,5 +53,14 @@ public class DecodeException extends RuntimeException {
             }
         }
         this.mEncodedImage = encodedImage;
+    }
+
+    public EncodedImage getEncodedImage() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mEncodedImage;
+        }
+        return (EncodedImage) invokeV.objValue;
     }
 }

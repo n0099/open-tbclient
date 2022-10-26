@@ -7,16 +7,13 @@ import android.graphics.Path;
 import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import androidx.annotation.ColorInt;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.widget.IAdImageView;
-import com.baidu.tieba.f61;
-import com.baidu.tieba.p61;
-import com.baidu.tieba.u61;
+import com.baidu.tieba.g61;
+import com.baidu.tieba.q61;
+import com.baidu.tieba.v61;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,12 +23,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class AdImageView extends AppCompatImageView implements IAdImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final u61 a;
+    public final v61 a;
     public IAdImageView.ImageScaleType b;
     public final Path c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AdImageView(@NonNull Context context) {
+    public AdImageView(Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -51,10 +48,55 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
         }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public AdImageView(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public AdImageView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.a = new v61();
+        this.c = new Path();
+        n(attributeSet);
+    }
+
     public void f(String str, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048576, this, str, i, i2) == null) {
-            f61.a().b(str, this, i, i2);
+            g61.a().b(str, this, i, i2);
         }
     }
 
@@ -65,17 +107,64 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
         }
     }
 
-    @NonNull
-    public u61 getConfig() {
+    public void m(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            g61.a().d(str);
+        }
+    }
+
+    public void setImageScaleType(IAdImageView.ImageScaleType imageScaleType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, imageScaleType) == null) {
+            if (imageScaleType != null) {
+                if (this.b != imageScaleType) {
+                    this.b = imageScaleType;
+                    requestLayout();
+                    invalidate();
+                    return;
+                }
+                return;
+            }
+            throw null;
+        }
+    }
+
+    public void setPlaceHolderDrawable(Drawable drawable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, drawable) == null) {
+            this.a.b = drawable;
+        }
+    }
+
+    public v61 getConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (u61) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (v61) invokeV.objValue;
     }
 
     public IAdImageView.ImageScaleType getImageScaleType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (IAdImageView.ImageScaleType) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return (IAdImageView.ImageScaleType) invokeV.objValue;
+    }
+
+    public void setCircle() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            v61.a aVar = this.a.d;
+            if (aVar == null) {
+                aVar = new v61.a();
+            }
+            aVar.a = true;
+            this.a.d = aVar;
+        }
     }
 
     public void k(String str, boolean z) {
@@ -84,24 +173,17 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
             if (TextUtils.isEmpty(str)) {
                 setImageBitmap(null);
             } else {
-                f61.a().a(str, this, z);
+                g61.a().a(str, this, z);
             }
-        }
-    }
-
-    public void m(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            f61.a().d(str);
         }
     }
 
     public final void n(AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, attributeSet) == null) || attributeSet == null) {
+        if ((interceptable != null && interceptable.invokeL(1048582, this, attributeSet) != null) || attributeSet == null) {
             return;
         }
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, p61.AdImageView);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, q61.AdImageView);
         int resourceId = obtainStyledAttributes.getResourceId(5, 0);
         if (resourceId != 0) {
             this.a.a = resourceId;
@@ -110,7 +192,7 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
         if (resourceId2 != 0) {
             this.a.c = resourceId2;
         }
-        u61.a aVar = new u61.a();
+        v61.a aVar = new v61.a();
         if (obtainStyledAttributes.getBoolean(3, false)) {
             aVar.a = true;
         } else {
@@ -134,7 +216,7 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, canvas) == null) {
-            u61.a aVar = getConfig().d;
+            v61.a aVar = getConfig().d;
             if (aVar == null) {
                 super.onDraw(canvas);
                 return;
@@ -174,12 +256,12 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
         }
     }
 
-    public void setBorder(float f, @ColorInt int i) {
+    public void setBorder(float f, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Float.valueOf(f), Integer.valueOf(i)}) == null) {
-            u61.a aVar = this.a.d;
+            v61.a aVar = this.a.d;
             if (aVar == null) {
-                aVar = new u61.a();
+                aVar = new v61.a();
             }
             aVar.c = f;
             aVar.d = i;
@@ -187,96 +269,16 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
         }
     }
 
-    public void setCircle() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            u61.a aVar = this.a.d;
-            if (aVar == null) {
-                aVar = new u61.a();
-            }
-            aVar.a = true;
-            this.a.d = aVar;
-        }
-    }
-
-    public void setImageScaleType(IAdImageView.ImageScaleType imageScaleType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, imageScaleType) == null) {
-            if (imageScaleType != null) {
-                if (this.b != imageScaleType) {
-                    this.b = imageScaleType;
-                    requestLayout();
-                    invalidate();
-                    return;
-                }
-                return;
-            }
-            throw null;
-        }
-    }
-
-    public void setPlaceHolderDrawable(Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, drawable) == null) {
-            this.a.b = drawable;
-        }
-    }
-
     public void setRadius(float f, float f2, float f3, float f4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
-            u61.a aVar = this.a.d;
+            v61.a aVar = this.a.d;
             if (aVar == null) {
-                aVar = new u61.a();
+                aVar = new v61.a();
             }
             aVar.a = false;
             aVar.b = new float[]{f, f2, f3, f4};
             this.a.d = aVar;
         }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AdImageView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AdImageView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.a = new u61();
-        this.c = new Path();
-        n(attributeSet);
     }
 }

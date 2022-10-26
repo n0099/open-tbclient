@@ -14,23 +14,23 @@ import java.util.Comparator;
 /* loaded from: classes7.dex */
 public class SlidingPercentile {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Comparator<Sample> INDEX_COMPARATOR;
+    public static final Comparator INDEX_COMPARATOR;
     public static final int MAX_RECYCLED_SAMPLES = 5;
     public static final int SORT_ORDER_BY_INDEX = 1;
     public static final int SORT_ORDER_BY_VALUE = 0;
     public static final int SORT_ORDER_NONE = -1;
-    public static final Comparator<Sample> VALUE_COMPARATOR;
+    public static final Comparator VALUE_COMPARATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public int currentSortOrder;
     public final int maxWeight;
     public int nextSampleIndex;
     public int recycledSampleCount;
     public final Sample[] recycledSamples;
-    public final ArrayList<Sample> samples;
+    public final ArrayList samples;
     public int totalWeight;
 
     /* loaded from: classes7.dex */
-    public static class Sample {
+    public class Sample {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int index;
@@ -65,7 +65,7 @@ public class SlidingPercentile {
                 return;
             }
         }
-        INDEX_COMPARATOR = new Comparator<Sample>() { // from class: com.google.android.exoplayer2.util.SlidingPercentile.1
+        INDEX_COMPARATOR = new Comparator() { // from class: com.google.android.exoplayer2.util.SlidingPercentile.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -88,10 +88,13 @@ public class SlidingPercentile {
             public int compare(Sample sample, Sample sample2) {
                 InterceptResult invokeLL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, sample, sample2)) == null) ? sample.index - sample2.index : invokeLL.intValue;
+                if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, sample, sample2)) == null) {
+                    return sample.index - sample2.index;
+                }
+                return invokeLL.intValue;
             }
         };
-        VALUE_COMPARATOR = new Comparator<Sample>() { // from class: com.google.android.exoplayer2.util.SlidingPercentile.2
+        VALUE_COMPARATOR = new Comparator() { // from class: com.google.android.exoplayer2.util.SlidingPercentile.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -120,11 +123,30 @@ public class SlidingPercentile {
                     if (f < f2) {
                         return -1;
                     }
-                    return f2 < f ? 1 : 0;
+                    if (f2 < f) {
+                        return 1;
+                    }
+                    return 0;
                 }
                 return invokeLL.intValue;
             }
         };
+    }
+
+    private void ensureSortedByIndex() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && this.currentSortOrder != 1) {
+            Collections.sort(this.samples, INDEX_COMPARATOR);
+            this.currentSortOrder = 1;
+        }
+    }
+
+    private void ensureSortedByValue() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && this.currentSortOrder != 0) {
+            Collections.sort(this.samples, VALUE_COMPARATOR);
+            this.currentSortOrder = 0;
+        }
     }
 
     public SlidingPercentile(int i) {
@@ -144,72 +166,54 @@ public class SlidingPercentile {
         }
         this.maxWeight = i;
         this.recycledSamples = new Sample[5];
-        this.samples = new ArrayList<>();
+        this.samples = new ArrayList();
         this.currentSortOrder = -1;
-    }
-
-    private void ensureSortedByIndex() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || this.currentSortOrder == 1) {
-            return;
-        }
-        Collections.sort(this.samples, INDEX_COMPARATOR);
-        this.currentSortOrder = 1;
-    }
-
-    private void ensureSortedByValue() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || this.currentSortOrder == 0) {
-            return;
-        }
-        Collections.sort(this.samples, VALUE_COMPARATOR);
-        this.currentSortOrder = 0;
     }
 
     public void addSample(int i, float f) {
         Sample sample;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) != null) {
-            return;
-        }
-        ensureSortedByIndex();
-        int i2 = this.recycledSampleCount;
-        if (i2 > 0) {
-            Sample[] sampleArr = this.recycledSamples;
-            int i3 = i2 - 1;
-            this.recycledSampleCount = i3;
-            sample = sampleArr[i3];
-        } else {
-            sample = new Sample();
-        }
-        int i4 = this.nextSampleIndex;
-        this.nextSampleIndex = i4 + 1;
-        sample.index = i4;
-        sample.weight = i;
-        sample.value = f;
-        this.samples.add(sample);
-        this.totalWeight += i;
-        while (true) {
-            int i5 = this.totalWeight;
-            int i6 = this.maxWeight;
-            if (i5 <= i6) {
-                return;
-            }
-            int i7 = i5 - i6;
-            Sample sample2 = this.samples.get(0);
-            int i8 = sample2.weight;
-            if (i8 <= i7) {
-                this.totalWeight -= i8;
-                this.samples.remove(0);
-                int i9 = this.recycledSampleCount;
-                if (i9 < 5) {
-                    Sample[] sampleArr2 = this.recycledSamples;
-                    this.recycledSampleCount = i9 + 1;
-                    sampleArr2[i9] = sample2;
-                }
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
+            ensureSortedByIndex();
+            int i2 = this.recycledSampleCount;
+            if (i2 > 0) {
+                Sample[] sampleArr = this.recycledSamples;
+                int i3 = i2 - 1;
+                this.recycledSampleCount = i3;
+                sample = sampleArr[i3];
             } else {
-                sample2.weight = i8 - i7;
-                this.totalWeight -= i7;
+                sample = new Sample();
+            }
+            int i4 = this.nextSampleIndex;
+            this.nextSampleIndex = i4 + 1;
+            sample.index = i4;
+            sample.weight = i;
+            sample.value = f;
+            this.samples.add(sample);
+            this.totalWeight += i;
+            while (true) {
+                int i5 = this.totalWeight;
+                int i6 = this.maxWeight;
+                if (i5 > i6) {
+                    int i7 = i5 - i6;
+                    Sample sample2 = (Sample) this.samples.get(0);
+                    int i8 = sample2.weight;
+                    if (i8 <= i7) {
+                        this.totalWeight -= i8;
+                        this.samples.remove(0);
+                        int i9 = this.recycledSampleCount;
+                        if (i9 < 5) {
+                            Sample[] sampleArr2 = this.recycledSamples;
+                            this.recycledSampleCount = i9 + 1;
+                            sampleArr2[i9] = sample2;
+                        }
+                    } else {
+                        sample2.weight = i8 - i7;
+                        this.totalWeight -= i7;
+                    }
+                } else {
+                    return;
+                }
             }
         }
     }
@@ -222,7 +226,7 @@ public class SlidingPercentile {
             float f2 = f * this.totalWeight;
             int i = 0;
             for (int i2 = 0; i2 < this.samples.size(); i2++) {
-                Sample sample = this.samples.get(i2);
+                Sample sample = (Sample) this.samples.get(i2);
                 i += sample.weight;
                 if (i >= f2) {
                     return sample.value;
@@ -231,8 +235,8 @@ public class SlidingPercentile {
             if (this.samples.isEmpty()) {
                 return Float.NaN;
             }
-            ArrayList<Sample> arrayList = this.samples;
-            return arrayList.get(arrayList.size() - 1).value;
+            ArrayList arrayList = this.samples;
+            return ((Sample) arrayList.get(arrayList.size() - 1)).value;
         }
         return invokeF.floatValue;
     }

@@ -19,7 +19,7 @@ public class DeclareAnnotationImpl implements DeclareAnnotation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String annText;
-    public AjType<?> declaringType;
+    public AjType declaringType;
     public DeclareAnnotation.Kind kind;
     public SignaturePattern signaturePattern;
     public Annotation theAnnotation;
@@ -27,7 +27,7 @@ public class DeclareAnnotationImpl implements DeclareAnnotation {
 
     /* renamed from: org.aspectj.internal.lang.reflect.DeclareAnnotationImpl$1  reason: invalid class name */
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$org$aspectj$lang$reflect$DeclareAnnotation$Kind;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -66,7 +66,7 @@ public class DeclareAnnotationImpl implements DeclareAnnotation {
         }
     }
 
-    public DeclareAnnotationImpl(AjType<?> ajType, String str, String str2, Annotation annotation, String str3) {
+    public DeclareAnnotationImpl(AjType ajType, String str, String str2, Annotation annotation, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -88,10 +88,10 @@ public class DeclareAnnotationImpl implements DeclareAnnotation {
             this.kind = DeclareAnnotation.Kind.Field;
         } else if (str.equals("at_method")) {
             this.kind = DeclareAnnotation.Kind.Method;
-        } else if (!str.equals("at_constructor")) {
-            throw new IllegalStateException("Unknown declare annotation kind: " + str);
-        } else {
+        } else if (str.equals("at_constructor")) {
             this.kind = DeclareAnnotation.Kind.Constructor;
+        } else {
+            throw new IllegalStateException("Unknown declare annotation kind: " + str);
         }
         if (this.kind == DeclareAnnotation.Kind.Type) {
             this.typePattern = new TypePatternImpl(str2);
@@ -106,42 +106,60 @@ public class DeclareAnnotationImpl implements DeclareAnnotation {
     public Annotation getAnnotation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.theAnnotation : (Annotation) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.theAnnotation;
+        }
+        return (Annotation) invokeV.objValue;
     }
 
     @Override // org.aspectj.lang.reflect.DeclareAnnotation
     public String getAnnotationAsText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.annText : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.annText;
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // org.aspectj.lang.reflect.DeclareAnnotation
-    public AjType<?> getDeclaringType() {
+    public AjType getDeclaringType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.declaringType : (AjType) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.declaringType;
+        }
+        return (AjType) invokeV.objValue;
     }
 
     @Override // org.aspectj.lang.reflect.DeclareAnnotation
     public DeclareAnnotation.Kind getKind() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.kind : (DeclareAnnotation.Kind) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.kind;
+        }
+        return (DeclareAnnotation.Kind) invokeV.objValue;
     }
 
     @Override // org.aspectj.lang.reflect.DeclareAnnotation
     public SignaturePattern getSignaturePattern() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.signaturePattern : (SignaturePattern) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.signaturePattern;
+        }
+        return (SignaturePattern) invokeV.objValue;
     }
 
     @Override // org.aspectj.lang.reflect.DeclareAnnotation
     public TypePattern getTypePattern() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.typePattern : (TypePattern) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.typePattern;
+        }
+        return (TypePattern) invokeV.objValue;
     }
 
     public String toString() {
@@ -151,18 +169,24 @@ public class DeclareAnnotationImpl implements DeclareAnnotation {
             StringBuffer stringBuffer = new StringBuffer();
             stringBuffer.append("declare @");
             int i = AnonymousClass1.$SwitchMap$org$aspectj$lang$reflect$DeclareAnnotation$Kind[getKind().ordinal()];
-            if (i == 1) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i == 4) {
+                            stringBuffer.append("constructor : ");
+                            stringBuffer.append(getSignaturePattern().asString());
+                        }
+                    } else {
+                        stringBuffer.append("field : ");
+                        stringBuffer.append(getSignaturePattern().asString());
+                    }
+                } else {
+                    stringBuffer.append("method : ");
+                    stringBuffer.append(getSignaturePattern().asString());
+                }
+            } else {
                 stringBuffer.append("type : ");
                 stringBuffer.append(getTypePattern().asString());
-            } else if (i == 2) {
-                stringBuffer.append("method : ");
-                stringBuffer.append(getSignaturePattern().asString());
-            } else if (i == 3) {
-                stringBuffer.append("field : ");
-                stringBuffer.append(getSignaturePattern().asString());
-            } else if (i == 4) {
-                stringBuffer.append("constructor : ");
-                stringBuffer.append(getSignaturePattern().asString());
             }
             stringBuffer.append(ZeusCrashHandler.NAME_SEPERATOR);
             stringBuffer.append(getAnnotationAsText());

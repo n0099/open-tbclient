@@ -40,19 +40,6 @@ public class DownloadException extends RuntimeException {
         this.code = i;
     }
 
-    public int getCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.code : invokeV.intValue;
-    }
-
-    public void setCode(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.code = i;
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DownloadException(int i, String str) {
         super(str);
@@ -115,5 +102,21 @@ public class DownloadException extends RuntimeException {
             }
         }
         this.code = i;
+    }
+
+    public int getCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.code;
+        }
+        return invokeV.intValue;
+    }
+
+    public void setCode(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.code = i;
+        }
     }
 }

@@ -1,9 +1,8 @@
 package com.baidu.tieba.view.anniversary.model;
 
-import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.kz8;
+import com.baidu.tieba.uz8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +15,7 @@ import tbclient.VideoTemplate.VideoTemplateResIdl;
 public class AnniversaryEtSocketResMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public kz8 resultData;
+    public uz8 resultData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AnniversaryEtSocketResMessage() {
@@ -36,8 +35,16 @@ public class AnniversaryEtSocketResMessage extends SocketResponsedMessage {
         }
     }
 
+    public uz8 getResultData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.resultData;
+        }
+        return (uz8) invokeV.objValue;
+    }
+
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -50,19 +57,13 @@ public class AnniversaryEtSocketResMessage extends SocketResponsedMessage {
                     setErrorString(videoTemplateResIdl.error.usermsg);
                 }
                 if (videoTemplateResIdl.data != null) {
-                    kz8 kz8Var = new kz8();
-                    this.resultData = kz8Var;
-                    kz8Var.g(videoTemplateResIdl.data);
+                    uz8 uz8Var = new uz8();
+                    this.resultData = uz8Var;
+                    uz8Var.g(videoTemplateResIdl.data);
                 }
             }
             return videoTemplateResIdl;
         }
         return invokeIL.objValue;
-    }
-
-    public kz8 getResultData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.resultData : (kz8) invokeV.objValue;
     }
 }

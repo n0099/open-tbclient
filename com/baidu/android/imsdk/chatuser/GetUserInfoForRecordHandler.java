@@ -92,9 +92,8 @@ public class GetUserInfoForRecordHandler extends GetChatObjectInfoForRecordHandl
     public void updateChatRecord(ChatObject chatObject, int i, int i2, Object obj) {
         ChatUser chatUser;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{chatObject, Integer.valueOf(i), Integer.valueOf(i2), obj}) == null) || (chatUser = (ChatUser) obj) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{chatObject, Integer.valueOf(i), Integer.valueOf(i2), obj}) == null) && (chatUser = (ChatUser) obj) != null) {
+            updateChatRecord(chatObject, chatUser.getUserName(), i, chatUser.getIconUrl(), 0, "", "", 0, chatUser.getMarkTop(), chatUser.getMarkTopTime(), chatUser.getShield(), chatUser.getShieldTime(), chatUser.getVipId(), chatUser.getVPortrait(), chatUser.getIdentity());
         }
-        updateChatRecord(chatObject, chatUser.getUserName(), i, chatUser.getIconUrl(), 0, "", "", 0, chatUser.getMarkTop(), chatUser.getMarkTopTime(), chatUser.getShield(), chatUser.getShieldTime(), chatUser.getVipId(), chatUser.getVPortrait(), chatUser.getIdentity());
     }
 }

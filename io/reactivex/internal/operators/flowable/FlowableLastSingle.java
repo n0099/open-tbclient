@@ -15,27 +15,27 @@ import java.util.NoSuchElementException;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableLastSingle<T> extends Single<T> {
+public final class FlowableLastSingle extends Single {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final T defaultItem;
-    public final Publisher<T> source;
+    public final Object defaultItem;
+    public final Publisher source;
 
     /* loaded from: classes8.dex */
-    public static final class LastSubscriber<T> implements FlowableSubscriber<T>, Disposable {
+    public final class LastSubscriber implements FlowableSubscriber, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SingleObserver<? super T> actual;
-        public final T defaultItem;
-        public T item;
+        public final SingleObserver actual;
+        public final Object defaultItem;
+        public Object item;
         public Subscription s;
 
-        public LastSubscriber(SingleObserver<? super T> singleObserver, T t) {
+        public LastSubscriber(SingleObserver singleObserver, Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {singleObserver, t};
+                Object[] objArr = {singleObserver, obj};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -46,7 +46,7 @@ public final class FlowableLastSingle<T> extends Single<T> {
                 }
             }
             this.actual = singleObserver;
-            this.defaultItem = t;
+            this.defaultItem = obj;
         }
 
         @Override // io.reactivex.disposables.Disposable
@@ -62,7 +62,13 @@ public final class FlowableLastSingle<T> extends Single<T> {
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.s == SubscriptionHelper.CANCELLED : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (this.s == SubscriptionHelper.CANCELLED) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // org.reactivestreams.Subscriber
@@ -70,15 +76,15 @@ public final class FlowableLastSingle<T> extends Single<T> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 this.s = SubscriptionHelper.CANCELLED;
-                T t = this.item;
-                if (t != null) {
+                Object obj = this.item;
+                if (obj != null) {
                     this.item = null;
-                    this.actual.onSuccess(t);
+                    this.actual.onSuccess(obj);
                     return;
                 }
-                T t2 = this.defaultItem;
-                if (t2 != null) {
-                    this.actual.onSuccess(t2);
+                Object obj2 = this.defaultItem;
+                if (obj2 != null) {
+                    this.actual.onSuccess(obj2);
                 } else {
                     this.actual.onError(new NoSuchElementException());
                 }
@@ -96,10 +102,10 @@ public final class FlowableLastSingle<T> extends Single<T> {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
-                this.item = t;
+            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+                this.item = obj;
             }
         }
 
@@ -114,12 +120,12 @@ public final class FlowableLastSingle<T> extends Single<T> {
         }
     }
 
-    public FlowableLastSingle(Publisher<T> publisher, T t) {
+    public FlowableLastSingle(Publisher publisher, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {publisher, t};
+            Object[] objArr = {publisher, obj};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -130,11 +136,11 @@ public final class FlowableLastSingle<T> extends Single<T> {
             }
         }
         this.source = publisher;
-        this.defaultItem = t;
+        this.defaultItem = obj;
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver<? super T> singleObserver) {
+    public void subscribeActual(SingleObserver singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, singleObserver) == null) {
             this.source.subscribe(new LastSubscriber(singleObserver, this.defaultItem));

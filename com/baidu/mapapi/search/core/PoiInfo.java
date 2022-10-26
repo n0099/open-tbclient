@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class PoiInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<PoiInfo> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public String address;
     public String area;
@@ -39,7 +39,7 @@ public class PoiInfo implements Parcelable {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class POITYPE {
+    public final class POITYPE {
         public static final /* synthetic */ POITYPE[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final POITYPE BUS_LINE;
@@ -137,9 +137,9 @@ public class PoiInfo implements Parcelable {
     }
 
     /* loaded from: classes2.dex */
-    public static class ParentPoiInfo implements Parcelable {
+    public class ParentPoiInfo implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
-        public static final Parcelable.Creator<ParentPoiInfo> CREATOR;
+        public static final Parcelable.Creator CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
         public String parentPoiAddress;
         public String parentPoiDirection;

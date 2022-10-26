@@ -21,7 +21,7 @@ public class Property implements Serializable {
     public static final int MAX_SIZE = 30;
     public static final long serialVersionUID = -6839046473425691433L;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedHashMap<String, PropertyPair> mParams;
+    public LinkedHashMap mParams;
 
     public Property() {
         Interceptable interceptable = $ic;
@@ -36,31 +36,19 @@ public class Property implements Serializable {
                 return;
             }
         }
-        this.mParams = new LinkedHashMap<>(30);
+        this.mParams = new LinkedHashMap(30);
     }
 
     private boolean isOverSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? this.mParams.size() >= 30 : invokeV.booleanValue;
-    }
-
-    private void readObject(ObjectInputStream objectInputStream) throws IOException, ClassNotFoundException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, this, objectInputStream) == null) {
-            LinkedHashMap<String, PropertyPair> linkedHashMap = (LinkedHashMap) objectInputStream.readObject();
-            this.mParams = linkedHashMap;
-            if (linkedHashMap == null) {
-                this.mParams = new LinkedHashMap<>();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+            if (this.mParams.size() >= 30) {
+                return true;
             }
+            return false;
         }
-    }
-
-    private void writeObject(ObjectOutputStream objectOutputStream) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, this, objectOutputStream) == null) {
-            objectOutputStream.writeObject(this.mParams);
-        }
+        return invokeV.booleanValue;
     }
 
     public synchronized void clear() {
@@ -70,19 +58,6 @@ public class Property implements Serializable {
                 this.mParams.clear();
             }
         }
-    }
-
-    public synchronized boolean containsKey(String str) {
-        InterceptResult invokeL;
-        boolean containsKey;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            synchronized (this) {
-                containsKey = this.mParams.containsKey(str);
-            }
-            return containsKey;
-        }
-        return invokeL.booleanValue;
     }
 
     public synchronized Property copy() {
@@ -101,15 +76,76 @@ public class Property implements Serializable {
         return (Property) invokeV.objValue;
     }
 
+    public synchronized int size() {
+        InterceptResult invokeV;
+        int size;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            synchronized (this) {
+                size = this.mParams.size();
+            }
+            return size;
+        }
+        return invokeV.intValue;
+    }
+
+    private void readObject(ObjectInputStream objectInputStream) throws IOException, ClassNotFoundException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, this, objectInputStream) == null) {
+            LinkedHashMap linkedHashMap = (LinkedHashMap) objectInputStream.readObject();
+            this.mParams = linkedHashMap;
+            if (linkedHashMap == null) {
+                this.mParams = new LinkedHashMap();
+            }
+        }
+    }
+
+    private void writeObject(ObjectOutputStream objectOutputStream) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, this, objectOutputStream) == null) {
+            objectOutputStream.writeObject(this.mParams);
+        }
+    }
+
+    public synchronized boolean containsKey(String str) {
+        InterceptResult invokeL;
+        boolean containsKey;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            synchronized (this) {
+                containsKey = this.mParams.containsKey(str);
+            }
+            return containsKey;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public synchronized boolean removeProperty(String str) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            synchronized (this) {
+                if (this.mParams.remove(str) != null) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+            }
+            return z;
+        }
+        return invokeL.booleanValue;
+    }
+
     public synchronized String getConnectedPropertys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             synchronized (this) {
-                LinkedHashMap<String, PropertyPair> linkedHashMap = this.mParams;
+                LinkedHashMap linkedHashMap = this.mParams;
                 if (linkedHashMap != null && linkedHashMap.size() != 0) {
                     if (linkedHashMap.size() == 1) {
-                        return Util.replaceEncode(linkedHashMap.values().iterator().next().getConnectedPair(), ",");
+                        return Util.replaceEncode(((PropertyPair) linkedHashMap.values().iterator().next()).getConnectedPair(), ",");
                     }
                     StringBuilder sb = new StringBuilder();
                     for (PropertyPair propertyPair : linkedHashMap.values()) {
@@ -146,43 +182,14 @@ public class Property implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) {
             synchronized (this) {
-                if (!isOverSize()) {
-                    if (Util.empty(str)) {
-                        L.debug(this, "key is not allow null.", new Object[0]);
-                        return;
-                    } else {
-                        this.mParams.put(str, new PropertyPair(str, str2));
-                        return;
-                    }
+                if (isOverSize()) {
+                    L.warn(this, "Property max size is %d,now is %d,so get up this inParam:key=[%s],value=[%s]", 30, Integer.valueOf(size()), str + "", str2 + "");
+                } else if (Util.empty(str)) {
+                    L.debug(this, "key is not allow null.", new Object[0]);
+                } else {
+                    this.mParams.put(str, new PropertyPair(str, str2));
                 }
-                L.warn(this, "Property max size is %d,now is %d,so get up this inParam:key=[%s],value=[%s]", 30, Integer.valueOf(size()), str + "", str2 + "");
             }
         }
-    }
-
-    public synchronized boolean removeProperty(String str) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            synchronized (this) {
-                z = this.mParams.remove(str) != null;
-            }
-            return z;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public synchronized int size() {
-        InterceptResult invokeV;
-        int size;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            synchronized (this) {
-                size = this.mParams.size();
-            }
-            return size;
-        }
-        return invokeV.intValue;
     }
 }

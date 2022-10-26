@@ -84,6 +84,7 @@ public final class DiskLruCache implements Closeable, Flushable {
         public final boolean[] written;
 
         public Editor(DiskLruCache diskLruCache, Entry entry) {
+            boolean[] zArr;
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -100,7 +101,12 @@ public final class DiskLruCache implements Closeable, Flushable {
             }
             this.this$0 = diskLruCache;
             this.entry = entry;
-            this.written = entry.readable ? null : new boolean[diskLruCache.valueCount];
+            if (entry.readable) {
+                zArr = null;
+            } else {
+                zArr = new boolean[diskLruCache.valueCount];
+            }
+            this.written = zArr;
         }
 
         public void abort() throws IOException {
@@ -151,21 +157,20 @@ public final class DiskLruCache implements Closeable, Flushable {
 
         public void detach() {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || this.entry.currentEditor != this) {
-                return;
-            }
-            int i = 0;
-            while (true) {
-                DiskLruCache diskLruCache = this.this$0;
-                if (i < diskLruCache.valueCount) {
-                    try {
-                        diskLruCache.fileSystem.delete(this.entry.dirtyFiles[i]);
-                    } catch (IOException unused) {
+            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.entry.currentEditor == this) {
+                int i = 0;
+                while (true) {
+                    DiskLruCache diskLruCache = this.this$0;
+                    if (i < diskLruCache.valueCount) {
+                        try {
+                            diskLruCache.fileSystem.delete(this.entry.dirtyFiles[i]);
+                        } catch (IOException unused) {
+                        }
+                        i++;
+                    } else {
+                        this.entry.currentEditor = null;
+                        return;
                     }
-                    i++;
-                } else {
-                    this.entry.currentEditor = null;
-                    return;
                 }
             }
         }
@@ -235,14 +240,14 @@ public final class DiskLruCache implements Closeable, Flushable {
             if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
                 synchronized (this.this$0) {
                     if (!this.done) {
-                        if (this.entry.readable && this.entry.currentEditor == this) {
-                            try {
-                                return this.this$0.fileSystem.source(this.entry.cleanFiles[i]);
-                            } catch (FileNotFoundException unused) {
-                                return null;
-                            }
+                        if (!this.entry.readable || this.entry.currentEditor != this) {
+                            return null;
                         }
-                        return null;
+                        try {
+                            return this.this$0.fileSystem.source(this.entry.cleanFiles[i]);
+                        } catch (FileNotFoundException unused) {
+                            return null;
+                        }
                     }
                     throw new IllegalStateException();
                 }
@@ -323,6 +328,15 @@ public final class DiskLruCache implements Closeable, Flushable {
             }
         }
 
+        public void writeLengths(BufferedSink bufferedSink) throws IOException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bufferedSink) == null) {
+                for (long j : this.lengths) {
+                    bufferedSink.writeByte(32).writeDecimalLong(j);
+                }
+            }
+        }
+
         public Snapshot snapshot() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -350,15 +364,6 @@ public final class DiskLruCache implements Closeable, Flushable {
                 throw new AssertionError();
             }
             return (Snapshot) invokeV.objValue;
-        }
-
-        public void writeLengths(BufferedSink bufferedSink) throws IOException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bufferedSink) == null) {
-                for (long j : this.lengths) {
-                    bufferedSink.writeByte(32).writeDecimalLong(j);
-                }
-            }
         }
     }
 
@@ -394,6 +399,24 @@ public final class DiskLruCache implements Closeable, Flushable {
             this.lengths = jArr;
         }
 
+        public long getLength(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                return this.lengths[i];
+            }
+            return invokeI.longValue;
+        }
+
+        public Source getSource(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+                return this.sources[i];
+            }
+            return (Source) invokeI.objValue;
+        }
+
         @Override // java.io.Closeable, java.lang.AutoCloseable
         public void close() {
             Interceptable interceptable = $ic;
@@ -408,25 +431,19 @@ public final class DiskLruCache implements Closeable, Flushable {
         public Editor edit() throws IOException {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.this$0.edit(this.key, this.sequenceNumber) : (Editor) invokeV.objValue;
-        }
-
-        public long getLength(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? this.lengths[i] : invokeI.longValue;
-        }
-
-        public Source getSource(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? this.sources[i] : (Source) invokeI.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.this$0.edit(this.key, this.sequenceNumber);
+            }
+            return (Editor) invokeV.objValue;
         }
 
         public String key() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.key : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.key;
+            }
+            return (String) invokeV.objValue;
         }
     }
 
@@ -446,84 +463,6 @@ public final class DiskLruCache implements Closeable, Flushable {
         LEGAL_KEY_PATTERN = Pattern.compile("[a-z0-9_-]{1,120}");
     }
 
-    public DiskLruCache(FileSystem fileSystem, File file, int i, int i2, long j, Executor executor) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {fileSystem, file, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), executor};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.size = 0L;
-        this.lruEntries = new LinkedHashMap<>(0, 0.75f, true);
-        this.nextSequenceNumber = 0L;
-        this.cleanupRunnable = new Runnable(this) { // from class: okhttp3.internal.cache.DiskLruCache.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ DiskLruCache this$0;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = r2;
-                    Object[] objArr2 = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i5 = newInitContext2.flag;
-                    if ((i5 & 1) != 0) {
-                        int i6 = i5 & 2;
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    synchronized (this.this$0) {
-                        if ((!this.this$0.initialized) || this.this$0.closed) {
-                            return;
-                        }
-                        try {
-                            this.this$0.trimToSize();
-                        } catch (IOException unused) {
-                            this.this$0.mostRecentTrimFailed = true;
-                        }
-                        try {
-                            if (this.this$0.journalRebuildRequired()) {
-                                this.this$0.rebuildJournal();
-                                this.this$0.redundantOpCount = 0;
-                            }
-                        } catch (IOException unused2) {
-                            this.this$0.mostRecentRebuildFailed = true;
-                            this.this$0.journalWriter = Okio.buffer(Okio.blackhole());
-                        }
-                    }
-                }
-            }
-        };
-        this.fileSystem = fileSystem;
-        this.directory = file;
-        this.appVersion = i;
-        this.journalFile = new File(file, "journal");
-        this.journalFileTmp = new File(file, "journal.tmp");
-        this.journalFileBackup = new File(file, "journal.bkp");
-        this.valueCount = i2;
-        this.maxSize = j;
-        this.executor = executor;
-    }
-
     private synchronized void checkNotClosed() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
@@ -535,272 +474,61 @@ public final class DiskLruCache implements Closeable, Flushable {
         }
     }
 
-    public static DiskLruCache create(FileSystem fileSystem, File file, int i, int i2, long j) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{fileSystem, file, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)})) == null) {
-            if (j > 0) {
-                if (i2 > 0) {
-                    return new DiskLruCache(fileSystem, file, i, i2, j, new ThreadPoolExecutor(0, 1, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), Util.threadFactory("OkHttp DiskLruCache", true)));
-                }
-                throw new IllegalArgumentException("valueCount <= 0");
-            }
-            throw new IllegalArgumentException("maxSize <= 0");
-        }
-        return (DiskLruCache) invokeCommon.objValue;
-    }
-
     private BufferedSink newJournalWriter() throws FileNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? Okio.buffer(new FaultHidingSink(this, this.fileSystem.appendingSink(this.journalFile)) { // from class: okhttp3.internal.cache.DiskLruCache.2
-            public static final /* synthetic */ boolean $assertionsDisabled = false;
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ DiskLruCache this$0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
+            return Okio.buffer(new FaultHidingSink(this, this.fileSystem.appendingSink(this.journalFile)) { // from class: okhttp3.internal.cache.DiskLruCache.2
+                public static final /* synthetic */ boolean $assertionsDisabled = false;
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ DiskLruCache this$0;
 
-            static {
-                InterceptResult invokeClinit;
-                ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-                if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1315311658, "Lokhttp3/internal/cache/DiskLruCache$2;")) != null) {
-                    Interceptable interceptable2 = invokeClinit.interceptor;
+                static {
+                    InterceptResult invokeClinit;
+                    ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+                    if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1315311658, "Lokhttp3/internal/cache/DiskLruCache$2;")) != null) {
+                        Interceptable interceptable2 = invokeClinit.interceptor;
+                        if (interceptable2 != null) {
+                            $ic = interceptable2;
+                        }
+                        if ((invokeClinit.flags & 1) != 0) {
+                            classClinitInterceptable.invokePostClinit(1315311658, "Lokhttp3/internal/cache/DiskLruCache$2;");
+                        }
+                    }
+                }
+
+                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                {
+                    super(r8);
+                    Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
-                        $ic = interceptable2;
-                    }
-                    if ((invokeClinit.flags & 1) != 0) {
-                        classClinitInterceptable.invokePostClinit(1315311658, "Lokhttp3/internal/cache/DiskLruCache$2;");
-                    }
-                }
-            }
-
-            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            {
-                super(r8);
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this, r8};
-                    interceptable2.invokeUnInit(65537, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        super((Sink) newInitContext.callArgs[0]);
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65537, newInitContext);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-            }
-
-            @Override // okhttp3.internal.cache.FaultHidingSink
-            public void onException(IOException iOException) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, iOException) == null) {
-                    this.this$0.hasJournalErrors = true;
-                }
-            }
-        }) : (BufferedSink) invokeV.objValue;
-    }
-
-    private void processJournal() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            this.fileSystem.delete(this.journalFileTmp);
-            Iterator<Entry> it = this.lruEntries.values().iterator();
-            while (it.hasNext()) {
-                Entry next = it.next();
-                int i = 0;
-                if (next.currentEditor == null) {
-                    while (i < this.valueCount) {
-                        this.size += next.lengths[i];
-                        i++;
-                    }
-                } else {
-                    next.currentEditor = null;
-                    while (i < this.valueCount) {
-                        this.fileSystem.delete(next.cleanFiles[i]);
-                        this.fileSystem.delete(next.dirtyFiles[i]);
-                        i++;
-                    }
-                    it.remove();
-                }
-            }
-        }
-    }
-
-    private void readJournal() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(65542, this) != null) {
-            return;
-        }
-        BufferedSource buffer = Okio.buffer(this.fileSystem.source(this.journalFile));
-        try {
-            String readUtf8LineStrict = buffer.readUtf8LineStrict();
-            String readUtf8LineStrict2 = buffer.readUtf8LineStrict();
-            String readUtf8LineStrict3 = buffer.readUtf8LineStrict();
-            String readUtf8LineStrict4 = buffer.readUtf8LineStrict();
-            String readUtf8LineStrict5 = buffer.readUtf8LineStrict();
-            if (!"libcore.io.DiskLruCache".equals(readUtf8LineStrict) || !"1".equals(readUtf8LineStrict2) || !Integer.toString(this.appVersion).equals(readUtf8LineStrict3) || !Integer.toString(this.valueCount).equals(readUtf8LineStrict4) || !"".equals(readUtf8LineStrict5)) {
-                throw new IOException("unexpected journal header: [" + readUtf8LineStrict + StringUtil.ARRAY_ELEMENT_SEPARATOR + readUtf8LineStrict2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + readUtf8LineStrict4 + StringUtil.ARRAY_ELEMENT_SEPARATOR + readUtf8LineStrict5 + PreferencesUtil.RIGHT_MOUNT);
-            }
-            int i = 0;
-            while (true) {
-                try {
-                    readJournalLine(buffer.readUtf8LineStrict());
-                    i++;
-                } catch (EOFException unused) {
-                    this.redundantOpCount = i - this.lruEntries.size();
-                    if (!buffer.exhausted()) {
-                        rebuildJournal();
-                    } else {
-                        this.journalWriter = newJournalWriter();
-                    }
-                    Util.closeQuietly(buffer);
-                    return;
-                }
-            }
-        } catch (Throwable th) {
-            Util.closeQuietly(buffer);
-            throw th;
-        }
-    }
-
-    private void readJournalLine(String str) throws IOException {
-        String substring;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, this, str) == null) {
-            int indexOf = str.indexOf(32);
-            if (indexOf != -1) {
-                int i = indexOf + 1;
-                int indexOf2 = str.indexOf(32, i);
-                if (indexOf2 == -1) {
-                    substring = str.substring(i);
-                    if (indexOf == 6 && str.startsWith("REMOVE")) {
-                        this.lruEntries.remove(substring);
-                        return;
-                    }
-                } else {
-                    substring = str.substring(i, indexOf2);
-                }
-                Entry entry = this.lruEntries.get(substring);
-                if (entry == null) {
-                    entry = new Entry(this, substring);
-                    this.lruEntries.put(substring, entry);
-                }
-                if (indexOf2 != -1 && indexOf == 5 && str.startsWith("CLEAN")) {
-                    String[] split = str.substring(indexOf2 + 1).split(" ");
-                    entry.readable = true;
-                    entry.currentEditor = null;
-                    entry.setLengths(split);
-                    return;
-                } else if (indexOf2 == -1 && indexOf == 5 && str.startsWith("DIRTY")) {
-                    entry.currentEditor = new Editor(this, entry);
-                    return;
-                } else if (indexOf2 == -1 && indexOf == 4 && str.startsWith("READ")) {
-                    return;
-                } else {
-                    throw new IOException("unexpected journal line: " + str);
-                }
-            }
-            throw new IOException("unexpected journal line: " + str);
-        }
-    }
-
-    private void validateKey(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65544, this, str) == null) || LEGAL_KEY_PATTERN.matcher(str).matches()) {
-            return;
-        }
-        throw new IllegalArgumentException("keys must match regex [a-z0-9_-]{1,120}: \"" + str + "\"");
-    }
-
-    @Override // java.io.Closeable, java.lang.AutoCloseable
-    public synchronized void close() throws IOException {
-        Entry[] entryArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this) {
-                if (this.initialized && !this.closed) {
-                    for (Entry entry : (Entry[]) this.lruEntries.values().toArray(new Entry[this.lruEntries.size()])) {
-                        if (entry.currentEditor != null) {
-                            entry.currentEditor.abort();
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, r8};
+                        interceptable2.invokeUnInit(65537, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            super((Sink) newInitContext.callArgs[0]);
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65537, newInitContext);
+                            return;
                         }
                     }
-                    trimToSize();
-                    this.journalWriter.close();
-                    this.journalWriter = null;
-                    this.closed = true;
-                    return;
+                    this.this$0 = this;
                 }
-                this.closed = true;
-            }
-        }
-    }
 
-    public synchronized void completeEdit(Editor editor, boolean z) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editor, z) == null) {
-            synchronized (this) {
-                Entry entry = editor.entry;
-                if (entry.currentEditor == editor) {
-                    if (z && !entry.readable) {
-                        for (int i = 0; i < this.valueCount; i++) {
-                            if (editor.written[i]) {
-                                if (!this.fileSystem.exists(entry.dirtyFiles[i])) {
-                                    editor.abort();
-                                    return;
-                                }
-                            } else {
-                                editor.abort();
-                                throw new IllegalStateException("Newly created entry didn't create value for index " + i);
-                            }
-                        }
+                @Override // okhttp3.internal.cache.FaultHidingSink
+                public void onException(IOException iOException) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, iOException) == null) {
+                        this.this$0.hasJournalErrors = true;
                     }
-                    for (int i2 = 0; i2 < this.valueCount; i2++) {
-                        File file = entry.dirtyFiles[i2];
-                        if (z) {
-                            if (this.fileSystem.exists(file)) {
-                                File file2 = entry.cleanFiles[i2];
-                                this.fileSystem.rename(file, file2);
-                                long j = entry.lengths[i2];
-                                long size = this.fileSystem.size(file2);
-                                entry.lengths[i2] = size;
-                                this.size = (this.size - j) + size;
-                            }
-                        } else {
-                            this.fileSystem.delete(file);
-                        }
-                    }
-                    this.redundantOpCount++;
-                    entry.currentEditor = null;
-                    if (entry.readable | z) {
-                        entry.readable = true;
-                        this.journalWriter.writeUtf8("CLEAN").writeByte(32);
-                        this.journalWriter.writeUtf8(entry.key);
-                        entry.writeLengths(this.journalWriter);
-                        this.journalWriter.writeByte(10);
-                        if (z) {
-                            long j2 = this.nextSequenceNumber;
-                            this.nextSequenceNumber = 1 + j2;
-                            entry.sequenceNumber = j2;
-                        }
-                    } else {
-                        this.lruEntries.remove(entry.key);
-                        this.journalWriter.writeUtf8("REMOVE").writeByte(32);
-                        this.journalWriter.writeUtf8(entry.key);
-                        this.journalWriter.writeByte(10);
-                    }
-                    this.journalWriter.flush();
-                    if (this.size > this.maxSize || journalRebuildRequired()) {
-                        this.executor.execute(this.cleanupRunnable);
-                    }
-                    return;
                 }
-                throw new IllegalStateException();
-            }
+            });
         }
+        return (BufferedSink) invokeV.objValue;
     }
 
     public void delete() throws IOException {
@@ -811,71 +539,28 @@ public final class DiskLruCache implements Closeable, Flushable {
         }
     }
 
-    @Nullable
-    public Editor edit(String str) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? edit(str, -1L) : (Editor) invokeL.objValue;
-    }
-
-    public synchronized void evictAll() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            synchronized (this) {
-                initialize();
-                for (Entry entry : (Entry[]) this.lruEntries.values().toArray(new Entry[this.lruEntries.size()])) {
-                    removeEntry(entry);
-                }
-                this.mostRecentTrimFailed = false;
-            }
-        }
-    }
-
     @Override // java.io.Flushable
     public synchronized void flush() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             synchronized (this) {
-                if (this.initialized) {
-                    checkNotClosed();
-                    trimToSize();
-                    this.journalWriter.flush();
+                if (!this.initialized) {
+                    return;
                 }
-            }
-        }
-    }
-
-    public synchronized Snapshot get(String str) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            synchronized (this) {
-                initialize();
                 checkNotClosed();
-                validateKey(str);
-                Entry entry = this.lruEntries.get(str);
-                if (entry != null && entry.readable) {
-                    Snapshot snapshot = entry.snapshot();
-                    if (snapshot == null) {
-                        return null;
-                    }
-                    this.redundantOpCount++;
-                    this.journalWriter.writeUtf8("READ").writeByte(32).writeUtf8(str).writeByte(10);
-                    if (journalRebuildRequired()) {
-                        this.executor.execute(this.cleanupRunnable);
-                    }
-                    return snapshot;
-                }
-                return null;
+                trimToSize();
+                this.journalWriter.flush();
             }
         }
-        return (Snapshot) invokeL.objValue;
     }
 
     public File getDirectory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.directory : (File) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.directory;
+        }
+        return (File) invokeV.objValue;
     }
 
     public synchronized long getMaxSize() {
@@ -889,39 +574,6 @@ public final class DiskLruCache implements Closeable, Flushable {
             return j;
         }
         return invokeV.longValue;
-    }
-
-    public synchronized void initialize() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            synchronized (this) {
-                if (this.initialized) {
-                    return;
-                }
-                if (this.fileSystem.exists(this.journalFileBackup)) {
-                    if (this.fileSystem.exists(this.journalFile)) {
-                        this.fileSystem.delete(this.journalFileBackup);
-                    } else {
-                        this.fileSystem.rename(this.journalFileBackup, this.journalFile);
-                    }
-                }
-                if (this.fileSystem.exists(this.journalFile)) {
-                    try {
-                        readJournal();
-                        processJournal();
-                        this.initialized = true;
-                        return;
-                    } catch (IOException e) {
-                        Platform platform = Platform.get();
-                        platform.log(5, "DiskLruCache " + this.directory + " is corrupt: " + e.getMessage() + ", removing", e);
-                        delete();
-                        this.closed = false;
-                    }
-                }
-                rebuildJournal();
-                this.initialized = true;
-            }
-        }
     }
 
     public synchronized boolean isClosed() {
@@ -942,107 +594,12 @@ public final class DiskLruCache implements Closeable, Flushable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             int i = this.redundantOpCount;
-            return i >= 2000 && i >= this.lruEntries.size();
+            if (i >= 2000 && i >= this.lruEntries.size()) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
-    }
-
-    public synchronized void rebuildJournal() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            synchronized (this) {
-                if (this.journalWriter != null) {
-                    this.journalWriter.close();
-                }
-                BufferedSink buffer = Okio.buffer(this.fileSystem.sink(this.journalFileTmp));
-                buffer.writeUtf8("libcore.io.DiskLruCache").writeByte(10);
-                buffer.writeUtf8("1").writeByte(10);
-                buffer.writeDecimalLong(this.appVersion).writeByte(10);
-                buffer.writeDecimalLong(this.valueCount).writeByte(10);
-                buffer.writeByte(10);
-                for (Entry entry : this.lruEntries.values()) {
-                    if (entry.currentEditor != null) {
-                        buffer.writeUtf8("DIRTY").writeByte(32);
-                        buffer.writeUtf8(entry.key);
-                        buffer.writeByte(10);
-                    } else {
-                        buffer.writeUtf8("CLEAN").writeByte(32);
-                        buffer.writeUtf8(entry.key);
-                        entry.writeLengths(buffer);
-                        buffer.writeByte(10);
-                    }
-                }
-                buffer.close();
-                if (this.fileSystem.exists(this.journalFile)) {
-                    this.fileSystem.rename(this.journalFile, this.journalFileBackup);
-                }
-                this.fileSystem.rename(this.journalFileTmp, this.journalFile);
-                this.fileSystem.delete(this.journalFileBackup);
-                this.journalWriter = newJournalWriter();
-                this.hasJournalErrors = false;
-                this.mostRecentRebuildFailed = false;
-            }
-        }
-    }
-
-    public synchronized boolean remove(String str) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
-            synchronized (this) {
-                initialize();
-                checkNotClosed();
-                validateKey(str);
-                Entry entry = this.lruEntries.get(str);
-                if (entry == null) {
-                    return false;
-                }
-                boolean removeEntry = removeEntry(entry);
-                if (removeEntry && this.size <= this.maxSize) {
-                    this.mostRecentTrimFailed = false;
-                }
-                return removeEntry;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean removeEntry(Entry entry) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, entry)) == null) {
-            Editor editor = entry.currentEditor;
-            if (editor != null) {
-                editor.detach();
-            }
-            for (int i = 0; i < this.valueCount; i++) {
-                this.fileSystem.delete(entry.cleanFiles[i]);
-                long j = this.size;
-                long[] jArr = entry.lengths;
-                this.size = j - jArr[i];
-                jArr[i] = 0;
-            }
-            this.redundantOpCount++;
-            this.journalWriter.writeUtf8("REMOVE").writeByte(32).writeUtf8(entry.key).writeByte(10);
-            this.lruEntries.remove(entry.key);
-            if (journalRebuildRequired()) {
-                this.executor.execute(this.cleanupRunnable);
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public synchronized void setMaxSize(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
-            synchronized (this) {
-                this.maxSize = j;
-                if (this.initialized) {
-                    this.executor.execute(this.cleanupRunnable);
-                }
-            }
-        }
     }
 
     public synchronized long size() throws IOException {
@@ -1171,6 +728,348 @@ public final class DiskLruCache implements Closeable, Flushable {
         }
     }
 
+    public DiskLruCache(FileSystem fileSystem, File file, int i, int i2, long j, Executor executor) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {fileSystem, file, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), executor};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.size = 0L;
+        this.lruEntries = new LinkedHashMap<>(0, 0.75f, true);
+        this.nextSequenceNumber = 0L;
+        this.cleanupRunnable = new Runnable(this) { // from class: okhttp3.internal.cache.DiskLruCache.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ DiskLruCache this$0;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr2 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i5 = newInitContext2.flag;
+                    if ((i5 & 1) != 0) {
+                        int i6 = i5 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                boolean z;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    synchronized (this.this$0) {
+                        if (!this.this$0.initialized) {
+                            z = true;
+                        } else {
+                            z = false;
+                        }
+                        if (z | this.this$0.closed) {
+                            return;
+                        }
+                        try {
+                            this.this$0.trimToSize();
+                        } catch (IOException unused) {
+                            this.this$0.mostRecentTrimFailed = true;
+                        }
+                        try {
+                            if (this.this$0.journalRebuildRequired()) {
+                                this.this$0.rebuildJournal();
+                                this.this$0.redundantOpCount = 0;
+                            }
+                        } catch (IOException unused2) {
+                            this.this$0.mostRecentRebuildFailed = true;
+                            this.this$0.journalWriter = Okio.buffer(Okio.blackhole());
+                        }
+                    }
+                }
+            }
+        };
+        this.fileSystem = fileSystem;
+        this.directory = file;
+        this.appVersion = i;
+        this.journalFile = new File(file, "journal");
+        this.journalFileTmp = new File(file, "journal.tmp");
+        this.journalFileBackup = new File(file, "journal.bkp");
+        this.valueCount = i2;
+        this.maxSize = j;
+        this.executor = executor;
+    }
+
+    public static DiskLruCache create(FileSystem fileSystem, File file, int i, int i2, long j) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{fileSystem, file, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)})) == null) {
+            if (j > 0) {
+                if (i2 > 0) {
+                    return new DiskLruCache(fileSystem, file, i, i2, j, new ThreadPoolExecutor(0, 1, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), Util.threadFactory("OkHttp DiskLruCache", true)));
+                }
+                throw new IllegalArgumentException("valueCount <= 0");
+            }
+            throw new IllegalArgumentException("maxSize <= 0");
+        }
+        return (DiskLruCache) invokeCommon.objValue;
+    }
+
+    private void processJournal() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
+            this.fileSystem.delete(this.journalFileTmp);
+            Iterator<Entry> it = this.lruEntries.values().iterator();
+            while (it.hasNext()) {
+                Entry next = it.next();
+                int i = 0;
+                if (next.currentEditor == null) {
+                    while (i < this.valueCount) {
+                        this.size += next.lengths[i];
+                        i++;
+                    }
+                } else {
+                    next.currentEditor = null;
+                    while (i < this.valueCount) {
+                        this.fileSystem.delete(next.cleanFiles[i]);
+                        this.fileSystem.delete(next.dirtyFiles[i]);
+                        i++;
+                    }
+                    it.remove();
+                }
+            }
+        }
+    }
+
+    @Override // java.io.Closeable, java.lang.AutoCloseable
+    public synchronized void close() throws IOException {
+        Entry[] entryArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this) {
+                if (this.initialized && !this.closed) {
+                    for (Entry entry : (Entry[]) this.lruEntries.values().toArray(new Entry[this.lruEntries.size()])) {
+                        if (entry.currentEditor != null) {
+                            entry.currentEditor.abort();
+                        }
+                    }
+                    trimToSize();
+                    this.journalWriter.close();
+                    this.journalWriter = null;
+                    this.closed = true;
+                    return;
+                }
+                this.closed = true;
+            }
+        }
+    }
+
+    private void readJournal() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
+            BufferedSource buffer = Okio.buffer(this.fileSystem.source(this.journalFile));
+            try {
+                String readUtf8LineStrict = buffer.readUtf8LineStrict();
+                String readUtf8LineStrict2 = buffer.readUtf8LineStrict();
+                String readUtf8LineStrict3 = buffer.readUtf8LineStrict();
+                String readUtf8LineStrict4 = buffer.readUtf8LineStrict();
+                String readUtf8LineStrict5 = buffer.readUtf8LineStrict();
+                if ("libcore.io.DiskLruCache".equals(readUtf8LineStrict) && "1".equals(readUtf8LineStrict2) && Integer.toString(this.appVersion).equals(readUtf8LineStrict3) && Integer.toString(this.valueCount).equals(readUtf8LineStrict4) && "".equals(readUtf8LineStrict5)) {
+                    int i = 0;
+                    while (true) {
+                        try {
+                            readJournalLine(buffer.readUtf8LineStrict());
+                            i++;
+                        } catch (EOFException unused) {
+                            this.redundantOpCount = i - this.lruEntries.size();
+                            if (!buffer.exhausted()) {
+                                rebuildJournal();
+                            } else {
+                                this.journalWriter = newJournalWriter();
+                            }
+                            Util.closeQuietly(buffer);
+                            return;
+                        }
+                    }
+                } else {
+                    throw new IOException("unexpected journal header: [" + readUtf8LineStrict + StringUtil.ARRAY_ELEMENT_SEPARATOR + readUtf8LineStrict2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + readUtf8LineStrict4 + StringUtil.ARRAY_ELEMENT_SEPARATOR + readUtf8LineStrict5 + PreferencesUtil.RIGHT_MOUNT);
+                }
+            } catch (Throwable th) {
+                Util.closeQuietly(buffer);
+                throw th;
+            }
+        }
+    }
+
+    private void readJournalLine(String str) throws IOException {
+        String substring;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, this, str) == null) {
+            int indexOf = str.indexOf(32);
+            if (indexOf != -1) {
+                int i = indexOf + 1;
+                int indexOf2 = str.indexOf(32, i);
+                if (indexOf2 == -1) {
+                    substring = str.substring(i);
+                    if (indexOf == 6 && str.startsWith("REMOVE")) {
+                        this.lruEntries.remove(substring);
+                        return;
+                    }
+                } else {
+                    substring = str.substring(i, indexOf2);
+                }
+                Entry entry = this.lruEntries.get(substring);
+                if (entry == null) {
+                    entry = new Entry(this, substring);
+                    this.lruEntries.put(substring, entry);
+                }
+                if (indexOf2 != -1 && indexOf == 5 && str.startsWith("CLEAN")) {
+                    String[] split = str.substring(indexOf2 + 1).split(" ");
+                    entry.readable = true;
+                    entry.currentEditor = null;
+                    entry.setLengths(split);
+                    return;
+                } else if (indexOf2 == -1 && indexOf == 5 && str.startsWith("DIRTY")) {
+                    entry.currentEditor = new Editor(this, entry);
+                    return;
+                } else if (indexOf2 == -1 && indexOf == 4 && str.startsWith("READ")) {
+                    return;
+                } else {
+                    throw new IOException("unexpected journal line: " + str);
+                }
+            }
+            throw new IOException("unexpected journal line: " + str);
+        }
+    }
+
+    private void validateKey(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65544, this, str) != null) || LEGAL_KEY_PATTERN.matcher(str).matches()) {
+            return;
+        }
+        throw new IllegalArgumentException("keys must match regex [a-z0-9_-]{1,120}: \"" + str + "\"");
+    }
+
+    public synchronized boolean remove(String str) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
+            synchronized (this) {
+                initialize();
+                checkNotClosed();
+                validateKey(str);
+                Entry entry = this.lruEntries.get(str);
+                if (entry == null) {
+                    return false;
+                }
+                boolean removeEntry = removeEntry(entry);
+                if (removeEntry && this.size <= this.maxSize) {
+                    this.mostRecentTrimFailed = false;
+                }
+                return removeEntry;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public synchronized void completeEdit(Editor editor, boolean z) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editor, z) == null) {
+            synchronized (this) {
+                Entry entry = editor.entry;
+                if (entry.currentEditor == editor) {
+                    if (z && !entry.readable) {
+                        for (int i = 0; i < this.valueCount; i++) {
+                            if (editor.written[i]) {
+                                if (!this.fileSystem.exists(entry.dirtyFiles[i])) {
+                                    editor.abort();
+                                    return;
+                                }
+                            } else {
+                                editor.abort();
+                                throw new IllegalStateException("Newly created entry didn't create value for index " + i);
+                            }
+                        }
+                    }
+                    for (int i2 = 0; i2 < this.valueCount; i2++) {
+                        File file = entry.dirtyFiles[i2];
+                        if (z) {
+                            if (this.fileSystem.exists(file)) {
+                                File file2 = entry.cleanFiles[i2];
+                                this.fileSystem.rename(file, file2);
+                                long j = entry.lengths[i2];
+                                long size = this.fileSystem.size(file2);
+                                entry.lengths[i2] = size;
+                                this.size = (this.size - j) + size;
+                            }
+                        } else {
+                            this.fileSystem.delete(file);
+                        }
+                    }
+                    this.redundantOpCount++;
+                    entry.currentEditor = null;
+                    if (entry.readable | z) {
+                        entry.readable = true;
+                        this.journalWriter.writeUtf8("CLEAN").writeByte(32);
+                        this.journalWriter.writeUtf8(entry.key);
+                        entry.writeLengths(this.journalWriter);
+                        this.journalWriter.writeByte(10);
+                        if (z) {
+                            long j2 = this.nextSequenceNumber;
+                            this.nextSequenceNumber = 1 + j2;
+                            entry.sequenceNumber = j2;
+                        }
+                    } else {
+                        this.lruEntries.remove(entry.key);
+                        this.journalWriter.writeUtf8("REMOVE").writeByte(32);
+                        this.journalWriter.writeUtf8(entry.key);
+                        this.journalWriter.writeByte(10);
+                    }
+                    this.journalWriter.flush();
+                    if (this.size > this.maxSize || journalRebuildRequired()) {
+                        this.executor.execute(this.cleanupRunnable);
+                    }
+                    return;
+                }
+                throw new IllegalStateException();
+            }
+        }
+    }
+
+    @Nullable
+    public Editor edit(String str) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return edit(str, -1L);
+        }
+        return (Editor) invokeL.objValue;
+    }
+
+    public synchronized void setMaxSize(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
+            synchronized (this) {
+                this.maxSize = j;
+                if (this.initialized) {
+                    this.executor.execute(this.cleanupRunnable);
+                }
+            }
+        }
+    }
+
     public synchronized Editor edit(String str, long j) throws IOException {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
@@ -1180,30 +1079,167 @@ public final class DiskLruCache implements Closeable, Flushable {
                 checkNotClosed();
                 validateKey(str);
                 Entry entry = this.lruEntries.get(str);
-                if (j == -1 || (entry != null && entry.sequenceNumber == j)) {
-                    if (entry == null || entry.currentEditor == null) {
-                        if (!this.mostRecentTrimFailed && !this.mostRecentRebuildFailed) {
-                            this.journalWriter.writeUtf8("DIRTY").writeByte(32).writeUtf8(str).writeByte(10);
-                            this.journalWriter.flush();
-                            if (this.hasJournalErrors) {
-                                return null;
-                            }
-                            if (entry == null) {
-                                entry = new Entry(this, str);
-                                this.lruEntries.put(str, entry);
-                            }
-                            Editor editor = new Editor(this, entry);
-                            entry.currentEditor = editor;
-                            return editor;
-                        }
-                        this.executor.execute(this.cleanupRunnable);
-                        return null;
-                    }
+                if (j != -1 && (entry == null || entry.sequenceNumber != j)) {
                     return null;
                 }
+                if (entry != null && entry.currentEditor != null) {
+                    return null;
+                }
+                if (!this.mostRecentTrimFailed && !this.mostRecentRebuildFailed) {
+                    this.journalWriter.writeUtf8("DIRTY").writeByte(32).writeUtf8(str).writeByte(10);
+                    this.journalWriter.flush();
+                    if (this.hasJournalErrors) {
+                        return null;
+                    }
+                    if (entry == null) {
+                        entry = new Entry(this, str);
+                        this.lruEntries.put(str, entry);
+                    }
+                    Editor editor = new Editor(this, entry);
+                    entry.currentEditor = editor;
+                    return editor;
+                }
+                this.executor.execute(this.cleanupRunnable);
                 return null;
             }
         }
         return (Editor) invokeLJ.objValue;
+    }
+
+    public synchronized void evictAll() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            synchronized (this) {
+                initialize();
+                for (Entry entry : (Entry[]) this.lruEntries.values().toArray(new Entry[this.lruEntries.size()])) {
+                    removeEntry(entry);
+                }
+                this.mostRecentTrimFailed = false;
+            }
+        }
+    }
+
+    public synchronized Snapshot get(String str) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            synchronized (this) {
+                initialize();
+                checkNotClosed();
+                validateKey(str);
+                Entry entry = this.lruEntries.get(str);
+                if (entry != null && entry.readable) {
+                    Snapshot snapshot = entry.snapshot();
+                    if (snapshot == null) {
+                        return null;
+                    }
+                    this.redundantOpCount++;
+                    this.journalWriter.writeUtf8("READ").writeByte(32).writeUtf8(str).writeByte(10);
+                    if (journalRebuildRequired()) {
+                        this.executor.execute(this.cleanupRunnable);
+                    }
+                    return snapshot;
+                }
+                return null;
+            }
+        }
+        return (Snapshot) invokeL.objValue;
+    }
+
+    public boolean removeEntry(Entry entry) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, entry)) == null) {
+            Editor editor = entry.currentEditor;
+            if (editor != null) {
+                editor.detach();
+            }
+            for (int i = 0; i < this.valueCount; i++) {
+                this.fileSystem.delete(entry.cleanFiles[i]);
+                long j = this.size;
+                long[] jArr = entry.lengths;
+                this.size = j - jArr[i];
+                jArr[i] = 0;
+            }
+            this.redundantOpCount++;
+            this.journalWriter.writeUtf8("REMOVE").writeByte(32).writeUtf8(entry.key).writeByte(10);
+            this.lruEntries.remove(entry.key);
+            if (journalRebuildRequired()) {
+                this.executor.execute(this.cleanupRunnable);
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public synchronized void initialize() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            synchronized (this) {
+                if (this.initialized) {
+                    return;
+                }
+                if (this.fileSystem.exists(this.journalFileBackup)) {
+                    if (this.fileSystem.exists(this.journalFile)) {
+                        this.fileSystem.delete(this.journalFileBackup);
+                    } else {
+                        this.fileSystem.rename(this.journalFileBackup, this.journalFile);
+                    }
+                }
+                if (this.fileSystem.exists(this.journalFile)) {
+                    try {
+                        readJournal();
+                        processJournal();
+                        this.initialized = true;
+                        return;
+                    } catch (IOException e) {
+                        Platform platform = Platform.get();
+                        platform.log(5, "DiskLruCache " + this.directory + " is corrupt: " + e.getMessage() + ", removing", e);
+                        delete();
+                        this.closed = false;
+                    }
+                }
+                rebuildJournal();
+                this.initialized = true;
+            }
+        }
+    }
+
+    public synchronized void rebuildJournal() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            synchronized (this) {
+                if (this.journalWriter != null) {
+                    this.journalWriter.close();
+                }
+                BufferedSink buffer = Okio.buffer(this.fileSystem.sink(this.journalFileTmp));
+                buffer.writeUtf8("libcore.io.DiskLruCache").writeByte(10);
+                buffer.writeUtf8("1").writeByte(10);
+                buffer.writeDecimalLong(this.appVersion).writeByte(10);
+                buffer.writeDecimalLong(this.valueCount).writeByte(10);
+                buffer.writeByte(10);
+                for (Entry entry : this.lruEntries.values()) {
+                    if (entry.currentEditor != null) {
+                        buffer.writeUtf8("DIRTY").writeByte(32);
+                        buffer.writeUtf8(entry.key);
+                        buffer.writeByte(10);
+                    } else {
+                        buffer.writeUtf8("CLEAN").writeByte(32);
+                        buffer.writeUtf8(entry.key);
+                        entry.writeLengths(buffer);
+                        buffer.writeByte(10);
+                    }
+                }
+                buffer.close();
+                if (this.fileSystem.exists(this.journalFile)) {
+                    this.fileSystem.rename(this.journalFile, this.journalFileBackup);
+                }
+                this.fileSystem.rename(this.journalFileTmp, this.journalFile);
+                this.fileSystem.delete(this.journalFileBackup);
+                this.journalWriter = newJournalWriter();
+                this.hasJournalErrors = false;
+                this.mostRecentRebuildFailed = false;
+            }
+        }
     }
 }

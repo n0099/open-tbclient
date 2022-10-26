@@ -23,9 +23,15 @@ public final class BdLog {
     public static String e;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static void a(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
+        }
+    }
+
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class LogLevel {
+    public final class LogLevel {
         public static final /* synthetic */ LogLevel[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final LogLevel DEBUG;
@@ -79,18 +85,24 @@ public final class BdLog {
         public static LogLevel valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (LogLevel) Enum.valueOf(LogLevel.class, str) : (LogLevel) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (LogLevel) Enum.valueOf(LogLevel.class, str);
+            }
+            return (LogLevel) invokeL.objValue;
         }
 
         public static LogLevel[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (LogLevel[]) $VALUES.clone() : (LogLevel[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (LogLevel[]) $VALUES.clone();
+            }
+            return (LogLevel[]) invokeV.objValue;
         }
     }
 
     /* loaded from: classes.dex */
-    public static /* synthetic */ class a {
+    public /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -157,12 +169,6 @@ public final class BdLog {
         sb2.toString();
     }
 
-    public static void a(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
-        }
-    }
-
     public static void b(LogLevel logLevel, String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65538, null, logLevel, str, str2, th) == null) {
@@ -216,27 +222,31 @@ public final class BdLog {
 
     public static void d(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && Environment.getExternalStorageState().equals("mounted")) {
-            try {
-                File file = new File(d);
-                if (!file.exists()) {
-                    file.mkdirs();
-                }
-                if (b == null) {
-                    b = new FileOutputStream(e);
-                }
-                b.write((str + ZeusCrashHandler.NAME_SEPERATOR + str2).getBytes("UTF-8"));
-                b.write("\n".getBytes());
-            } catch (Exception e2) {
-                e2.printStackTrace();
+        if ((interceptable != null && interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) != null) || !Environment.getExternalStorageState().equals("mounted")) {
+            return;
+        }
+        try {
+            File file = new File(d);
+            if (!file.exists()) {
+                file.mkdirs();
             }
+            if (b == null) {
+                b = new FileOutputStream(e);
+            }
+            b.write((str + ZeusCrashHandler.NAME_SEPERATOR + str2).getBytes("UTF-8"));
+            b.write("\n".getBytes());
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
     }
 
     public static boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? a : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return a;
+        }
+        return invokeV.booleanValue;
     }
 
     public static void f(boolean z) {

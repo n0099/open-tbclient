@@ -1,28 +1,22 @@
 package com.kwad.sdk.api;
 
-import androidx.annotation.Keep;
 import com.kwad.sdk.api.core.KsAdSdkApi;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 @KsAdSdkApi
-@Keep
 /* loaded from: classes7.dex */
 public interface KsInnerAd {
 
     @KsAdSdkApi
-    @Keep
     /* loaded from: classes7.dex */
     public interface KsInnerAdInteractionListener {
         @KsAdSdkApi
-        @Keep
         void onAdClicked(KsInnerAd ksInnerAd);
 
         @KsAdSdkApi
-        @Keep
         void onAdShow(KsInnerAd ksInnerAd);
     }
 
-    @Keep
     @Retention(RetentionPolicy.SOURCE)
     /* loaded from: classes7.dex */
     public @interface KsInnerAdType {

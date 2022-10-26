@@ -36,22 +36,6 @@ public class ChildVerifyActivity extends BaseActivity {
         }
     }
 
-    @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            super.onCreate(bundle);
-            try {
-                this.t = CoreViewRouter.getInstance().getAccountRealNameCallback();
-                CoreViewRouter.getInstance().releaseAccountRealNameCallback();
-                setContentView(R.layout.obfuscated_res_0x7f0d0508);
-                setupViews();
-            } catch (Throwable th) {
-                reportWebviewError(th);
-            }
-        }
-    }
-
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void setupViews() {
         Interceptable interceptable = $ic;
@@ -108,6 +92,22 @@ public class ChildVerifyActivity extends BaseActivity {
                 }
             });
             this.sapiWebView.loadUrl(getIntent().getStringExtra("external_url"));
+        }
+    }
+
+    @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            super.onCreate(bundle);
+            try {
+                this.t = CoreViewRouter.getInstance().getAccountRealNameCallback();
+                CoreViewRouter.getInstance().releaseAccountRealNameCallback();
+                setContentView(R.layout.obfuscated_res_0x7f0d0505);
+                setupViews();
+            } catch (Throwable th) {
+                reportWebviewError(th);
+            }
         }
     }
 }

@@ -1,9 +1,7 @@
 package com.kwad.sdk.core.download;
 
-import com.ksad.json.annotation.KsJson;
 import com.kwad.sdk.core.response.model.AdInfo;
 import java.io.Serializable;
-@KsJson
 /* loaded from: classes7.dex */
 public class DownloadParams extends com.kwad.sdk.core.response.kwai.a implements Serializable {
     public static final long serialVersionUID = -4966891183505507851L;

@@ -3,7 +3,6 @@ package com.google.android.gms.common.stats;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,50 +11,30 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.gms.common.annotation.KeepForSdk;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelWriter;
-import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
 import java.util.List;
 import javax.annotation.Nullable;
-@KeepForSdk
-@SafeParcelable.Class(creator = "WakeLockEventCreator")
 @Deprecated
 /* loaded from: classes7.dex */
 public final class WakeLockEvent extends StatsEvent {
     public static /* synthetic */ Interceptable $ic;
-    @NonNull
-    public static final Parcelable.Creator<WakeLockEvent> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
-    @SafeParcelable.VersionField(id = 1)
     public final int zza;
-    @SafeParcelable.Field(getter = "getTimeMillis", id = 2)
     public final long zzb;
-    @SafeParcelable.Field(getter = "getEventType", id = 11)
     public int zzc;
-    @SafeParcelable.Field(getter = "getWakeLockName", id = 4)
     public final String zzd;
-    @SafeParcelable.Field(getter = "getSecondaryWakeLockName", id = 10)
     public final String zze;
-    @SafeParcelable.Field(getter = "getCodePackage", id = 17)
     public final String zzf;
-    @SafeParcelable.Field(getter = "getWakeLockType", id = 5)
     public final int zzg;
     @Nullable
-    @SafeParcelable.Field(getter = "getCallingPackages", id = 6)
-    public final List<String> zzh;
-    @SafeParcelable.Field(getter = "getEventKey", id = 12)
+    public final List zzh;
     public final String zzi;
-    @SafeParcelable.Field(getter = "getElapsedRealtime", id = 8)
     public final long zzj;
-    @SafeParcelable.Field(getter = "getDeviceState", id = 14)
     public int zzk;
-    @SafeParcelable.Field(getter = "getHostPackage", id = 13)
     public final String zzl;
-    @SafeParcelable.Field(getter = "getBeginPowerPercentage", id = 15)
     public final float zzm;
-    @SafeParcelable.Field(getter = "getTimeout", id = 16)
     public final long zzn;
-    @SafeParcelable.Field(getter = "getAcquiredWithTimeout", id = 18)
     public final boolean zzo;
     public long zzp;
 
@@ -75,8 +54,7 @@ public final class WakeLockEvent extends StatsEvent {
         CREATOR = new zza();
     }
 
-    @SafeParcelable.Constructor
-    public WakeLockEvent(@SafeParcelable.Param(id = 1) int i, @SafeParcelable.Param(id = 2) long j, @SafeParcelable.Param(id = 11) int i2, @SafeParcelable.Param(id = 4) String str, @SafeParcelable.Param(id = 5) int i3, @SafeParcelable.Param(id = 6) @Nullable List<String> list, @SafeParcelable.Param(id = 12) String str2, @SafeParcelable.Param(id = 8) long j2, @SafeParcelable.Param(id = 14) int i4, @SafeParcelable.Param(id = 10) String str3, @SafeParcelable.Param(id = 13) String str4, @SafeParcelable.Param(id = 15) float f, @SafeParcelable.Param(id = 16) long j3, @SafeParcelable.Param(id = 17) String str5, @SafeParcelable.Param(id = 18) boolean z) {
+    public WakeLockEvent(int i, long j, int i2, String str, int i3, @Nullable List list, String str2, long j2, int i4, String str3, String str4, float f, long j3, String str5, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -109,8 +87,29 @@ public final class WakeLockEvent extends StatsEvent {
         this.zzo = z;
     }
 
+    @Override // com.google.android.gms.common.stats.StatsEvent
+    public final int zza() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.zzc : invokeV.intValue;
+    }
+
+    @Override // com.google.android.gms.common.stats.StatsEvent
+    public final long zzb() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.zzp : invokeV.longValue;
+    }
+
+    @Override // com.google.android.gms.common.stats.StatsEvent
+    public final long zzc() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.zzb : invokeV.longValue;
+    }
+
     @Override // android.os.Parcelable
-    public final void writeToParcel(@NonNull Parcel parcel, int i) {
+    public final void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, parcel, i) == null) {
             int beginObjectHeader = SafeParcelWriter.beginObjectHeader(parcel);
@@ -134,50 +133,36 @@ public final class WakeLockEvent extends StatsEvent {
     }
 
     @Override // com.google.android.gms.common.stats.StatsEvent
-    public final int zza() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.zzc : invokeV.intValue;
-    }
-
-    @Override // com.google.android.gms.common.stats.StatsEvent
-    public final long zzb() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.zzp : invokeV.longValue;
-    }
-
-    @Override // com.google.android.gms.common.stats.StatsEvent
-    public final long zzc() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.zzb : invokeV.longValue;
-    }
-
-    @Override // com.google.android.gms.common.stats.StatsEvent
-    @NonNull
     public final String zzd() {
         InterceptResult invokeV;
+        String join;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List<String> list = this.zzh;
+            List list = this.zzh;
             String str = this.zzd;
             int i = this.zzg;
-            String join = list == null ? "" : TextUtils.join(",", list);
-            int i2 = this.zzk;
-            String str2 = this.zze;
-            if (str2 == null) {
-                str2 = "";
+            String str2 = "";
+            if (list == null) {
+                join = "";
+            } else {
+                join = TextUtils.join(",", list);
             }
-            String str3 = this.zzl;
+            int i2 = this.zzk;
+            String str3 = this.zze;
             if (str3 == null) {
                 str3 = "";
             }
+            String str4 = this.zzl;
+            if (str4 == null) {
+                str4 = "";
+            }
             float f = this.zzm;
-            String str4 = this.zzf;
-            String str5 = str4 != null ? str4 : "";
+            String str5 = this.zzf;
+            if (str5 != null) {
+                str2 = str5;
+            }
             boolean z = this.zzo;
-            StringBuilder sb = new StringBuilder(String.valueOf(str).length() + 51 + String.valueOf(join).length() + str2.length() + str3.length() + str5.length());
+            StringBuilder sb = new StringBuilder(String.valueOf(str).length() + 51 + String.valueOf(join).length() + str3.length() + str4.length() + str2.length());
             sb.append("\t");
             sb.append(str);
             sb.append("\t");
@@ -187,13 +172,13 @@ public final class WakeLockEvent extends StatsEvent {
             sb.append("\t");
             sb.append(i2);
             sb.append("\t");
-            sb.append(str2);
-            sb.append("\t");
             sb.append(str3);
+            sb.append("\t");
+            sb.append(str4);
             sb.append("\t");
             sb.append(f);
             sb.append("\t");
-            sb.append(str5);
+            sb.append(str2);
             sb.append("\t");
             sb.append(z);
             return sb.toString();

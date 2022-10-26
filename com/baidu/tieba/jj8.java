@@ -1,9 +1,11 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
@@ -11,7 +13,7 @@ import org.json.JSONObject;
 public class jj8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public int a;
     public String b;
 
     public jj8() {
@@ -24,18 +26,40 @@ public class jj8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = -1;
+        this.b = null;
     }
 
-    public void a(JSONObject jSONObject) {
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void c(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         try {
-            this.a = jSONObject.optString(SpeedStatsUtils.UBC_VALUE_BANNER);
-            this.b = jSONObject.optString("link");
+            this.a = jSONObject.optInt("errno");
+            jSONObject.optString("errmsg");
+            this.b = jSONObject.optString(VideoFinishResult.KEY_ERROR_USER_MSG);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }

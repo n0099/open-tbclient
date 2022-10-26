@@ -4,7 +4,6 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.dns.util.DnsUtil;
-import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,6 +14,7 @@ import com.yy.gslbsdk.db.ResultTB;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -27,11 +27,52 @@ public class a {
     public String C;
     public long D;
     public String Q;
-    public List<String> R;
+    public List R;
     public String S;
-    public List<String> l;
+    public List l;
 
-    public a(String str, int i, String str2, long j, List<String> list, List<String> list2) {
+    public a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.S = str;
+        if (!TextUtils.isEmpty(str)) {
+            try {
+                JSONObject jSONObject = new JSONObject(this.S);
+                this.C = jSONObject.optString("msg", "error");
+                this.Q = jSONObject.optString("area");
+                this.B = jSONObject.optInt(ResultTB.TTL, -1);
+                this.D = jSONObject.optLong("cachetime", -1L);
+                JSONArray optJSONArray = jSONObject.optJSONArray("ip");
+                this.l = new ArrayList(optJSONArray.length());
+                for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
+                    this.l.add(optJSONArray.getString(i3));
+                }
+                JSONArray optJSONArray2 = jSONObject.optJSONArray(HttpDnsCacheForHost.JSON_KEY_IPV6);
+                if (optJSONArray2 != null && optJSONArray2.length() > 0) {
+                    this.R = new ArrayList(optJSONArray2.length());
+                    for (int i4 = 0; i4 < optJSONArray2.length(); i4++) {
+                        this.R.add(optJSONArray2.getString(i4));
+                    }
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public a(String str, int i, String str2, long j, List list, List list2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -64,7 +105,7 @@ public class a {
                 JSONArray jSONArray = new JSONArray((Collection) this.l);
                 JSONArray jSONArray2 = new JSONArray((Collection) this.R);
                 jSONObject.put("msg", this.C);
-                jSONObject.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA, this.Q);
+                jSONObject.put("area", this.Q);
                 jSONObject.put(ResultTB.TTL, this.B);
                 jSONObject.put("cachetime", this.D);
                 jSONObject.put("ip", jSONArray);
@@ -78,7 +119,7 @@ public class a {
         return (String) invokeV.objValue;
     }
 
-    public static String b(List<String> list) {
+    public static String b(List list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, list)) == null) {
@@ -87,7 +128,9 @@ public class a {
             }
             StringBuilder sb = new StringBuilder();
             boolean z = true;
-            for (String str : list) {
+            Iterator it = list.iterator();
+            while (it.hasNext()) {
+                String str = (String) it.next();
                 if (z) {
                     z = false;
                 } else {
@@ -100,7 +143,7 @@ public class a {
         return (String) invokeL.objValue;
     }
 
-    public List<String> getIpList() {
+    public List getIpList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -115,13 +158,7 @@ public class a {
         return (List) invokeV.objValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.S : (String) invokeV.objValue;
-    }
-
-    public List<String> z() {
+    public List z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -136,46 +173,12 @@ public class a {
         return (List) invokeV.objValue;
     }
 
-    public a(String str) {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.S;
         }
-        this.S = str;
-        if (TextUtils.isEmpty(str)) {
-            return;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject(this.S);
-            this.C = jSONObject.optString("msg", "error");
-            this.Q = jSONObject.optString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA);
-            this.B = jSONObject.optInt(ResultTB.TTL, -1);
-            this.D = jSONObject.optLong("cachetime", -1L);
-            JSONArray optJSONArray = jSONObject.optJSONArray("ip");
-            this.l = new ArrayList(optJSONArray.length());
-            for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
-                this.l.add(optJSONArray.getString(i3));
-            }
-            JSONArray optJSONArray2 = jSONObject.optJSONArray(HttpDnsCacheForHost.JSON_KEY_IPV6);
-            if (optJSONArray2 == null || optJSONArray2.length() <= 0) {
-                return;
-            }
-            this.R = new ArrayList(optJSONArray2.length());
-            for (int i4 = 0; i4 < optJSONArray2.length(); i4++) {
-                this.R.add(optJSONArray2.getString(i4));
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+        return (String) invokeV.objValue;
     }
 }

@@ -6,14 +6,13 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Process;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import java.util.List;
 /* loaded from: classes8.dex */
 public final class an {
     public static String anX = "";
     public static volatile Boolean anY;
 
-    public static String cG(@NonNull Context context) {
+    public static String cG(Context context) {
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses;
         if (context == null) {
             return "";
@@ -30,7 +29,7 @@ public final class an {
         return "";
     }
 
-    public static String getProcessName(@NonNull Context context) {
+    public static String getProcessName(Context context) {
         if (TextUtils.isEmpty(anX)) {
             String zN = zN();
             anX = zN;
@@ -63,7 +62,7 @@ public final class an {
 
     public static String zO() {
         try {
-            Object b = q.b(Class.forName("android.app.ActivityThread", false, Application.class.getClassLoader()), "currentProcessName", new Object[0]);
+            Object b = q.b((Class) Class.forName("android.app.ActivityThread", false, Application.class.getClassLoader()), "currentProcessName", new Object[0]);
             return b instanceof String ? (String) b : "";
         } catch (Throwable th) {
             th.printStackTrace();

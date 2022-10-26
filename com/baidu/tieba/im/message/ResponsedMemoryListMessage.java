@@ -2,7 +2,6 @@ package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,13 +9,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class ResponsedMemoryListMessage extends CustomResponsedMessage<List<ImMessageCenterPojo>> {
+public class ResponsedMemoryListMessage extends CustomResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int type;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ResponsedMemoryListMessage(List<ImMessageCenterPojo> list, int i) {
+    public ResponsedMemoryListMessage(List list, int i) {
         super(2016007, list);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -40,7 +39,10 @@ public class ResponsedMemoryListMessage extends CustomResponsedMessage<List<ImMe
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.type : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.type;
+        }
+        return invokeV.intValue;
     }
 
     public void setType(int i) {

@@ -16,6 +16,7 @@ public abstract class ReaderException extends Exception {
 
     static {
         InterceptResult invokeClinit;
+        boolean z;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
         if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1813920874, "Lcom/google/zxing/ReaderException;")) != null) {
             Interceptable interceptable = invokeClinit.interceptor;
@@ -27,7 +28,12 @@ public abstract class ReaderException extends Exception {
                 return;
             }
         }
-        isStackTrace = System.getProperty("surefire.test.class.path") != null;
+        if (System.getProperty("surefire.test.class.path") != null) {
+            z = true;
+        } else {
+            z = false;
+        }
+        isStackTrace = z;
         NO_TRACE = new StackTraceElement[0];
     }
 

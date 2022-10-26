@@ -40,7 +40,10 @@ public class CheckRedNotifyHttpResMessage extends HttpResponsedMessage {
     public boolean isShowRedNotify() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.isShowRedNotify : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.isShowRedNotify;
+        }
+        return invokeV.booleanValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -49,6 +52,7 @@ public class CheckRedNotifyHttpResMessage extends HttpResponsedMessage {
         RedNotify redNotify;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
+            boolean z = false;
             RedNotifyResIdl redNotifyResIdl = (RedNotifyResIdl) new Wire(new Class[0]).parseFrom(bArr, RedNotifyResIdl.class);
             if (redNotifyResIdl != null) {
                 Error error = redNotifyResIdl.error;
@@ -57,10 +61,12 @@ public class CheckRedNotifyHttpResMessage extends HttpResponsedMessage {
                     setErrorString(redNotifyResIdl.error.errmsg);
                 }
                 DataRes dataRes = redNotifyResIdl.data;
-                if (dataRes == null || (redNotify = dataRes.notify_data) == null) {
-                    return;
+                if (dataRes != null && (redNotify = dataRes.notify_data) != null) {
+                    if (redNotify.notify_status.intValue() == 1) {
+                        z = true;
+                    }
+                    this.isShowRedNotify = z;
                 }
-                this.isShowRedNotify = redNotify.notify_status.intValue() == 1;
             }
         }
     }

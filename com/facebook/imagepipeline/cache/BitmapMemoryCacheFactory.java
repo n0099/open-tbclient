@@ -7,7 +7,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.cache.common.CacheKey;
-import com.facebook.imagepipeline.image.CloseableImage;
 /* loaded from: classes7.dex */
 public class BitmapMemoryCacheFactory {
     public static /* synthetic */ Interceptable $ic;
@@ -27,12 +26,12 @@ public class BitmapMemoryCacheFactory {
         }
     }
 
-    public static InstrumentedMemoryCache<CacheKey, CloseableImage> get(MemoryCache<CacheKey, CloseableImage> memoryCache, ImageCacheStatsTracker imageCacheStatsTracker) {
+    public static InstrumentedMemoryCache get(MemoryCache memoryCache, ImageCacheStatsTracker imageCacheStatsTracker) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, memoryCache, imageCacheStatsTracker)) == null) {
             imageCacheStatsTracker.registerBitmapMemoryCache(memoryCache);
-            return new InstrumentedMemoryCache<>(memoryCache, new MemoryCacheTracker<CacheKey>(imageCacheStatsTracker) { // from class: com.facebook.imagepipeline.cache.BitmapMemoryCacheFactory.1
+            return new InstrumentedMemoryCache(memoryCache, new MemoryCacheTracker(imageCacheStatsTracker) { // from class: com.facebook.imagepipeline.cache.BitmapMemoryCacheFactory.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ ImageCacheStatsTracker val$imageCacheStatsTracker;

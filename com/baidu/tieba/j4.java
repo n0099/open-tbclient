@@ -67,36 +67,10 @@ public class j4 extends e4 {
             }
         }
         this.d = new l3();
-        if (!f(j2)) {
-            throw new GdxRuntimeException("Invalid type specified");
+        if (f(j2)) {
+            return;
         }
-    }
-
-    public static final boolean f(long j2) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j2)) == null) ? (j2 & l) != 0 : invokeJ.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: e */
-    public int compareTo(e4 e4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e4Var)) == null) {
-            long j2 = this.a;
-            long j3 = e4Var.a;
-            return j2 != j3 ? (int) (j2 - j3) : ((j4) e4Var).d.g() - this.d.g();
-        }
-        return invokeL.intValue;
-    }
-
-    @Override // com.baidu.tieba.e4
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (super.hashCode() * CyberPlayerManager.DP_MSG_INFO_CACHE_DURATION) + this.d.g() : invokeV.intValue;
+        throw new GdxRuntimeException("Invalid type specified");
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -120,5 +94,44 @@ public class j4 extends e4 {
         if (l3Var != null) {
             this.d.e(l3Var);
         }
+    }
+
+    public static final boolean f(long j2) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j2)) == null) {
+            if ((j2 & l) != 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeJ.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    /* renamed from: e */
+    public int compareTo(e4 e4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e4Var)) == null) {
+            long j2 = this.a;
+            long j3 = e4Var.a;
+            if (j2 != j3) {
+                return (int) (j2 - j3);
+            }
+            return ((j4) e4Var).d.g() - this.d.g();
+        }
+        return invokeL.intValue;
+    }
+
+    @Override // com.baidu.tieba.e4
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return (super.hashCode() * CyberPlayerManager.DP_MSG_INFO_CACHE_DURATION) + this.d.g();
+        }
+        return invokeV.intValue;
     }
 }

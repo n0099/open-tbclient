@@ -21,7 +21,7 @@ public class InstallController {
     public IStatisAPI statisAPI;
 
     /* loaded from: classes8.dex */
-    public static class InstUtil {
+    public class InstUtil {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String INVALID_VERSIONNAME = "";
         public static final int INVALID_VERSIONNO = -1;
@@ -34,7 +34,7 @@ public class InstallController {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* loaded from: classes8.dex */
-        public static class InstInfo {
+        public class InstInfo {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public boolean isReport;
@@ -107,14 +107,28 @@ public class InstallController {
 
         public static InstInfo init(Context context) {
             InterceptResult invokeL;
+            boolean z;
+            int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
                 InstInfo instInfo2 = new InstInfo();
                 try {
                     int prefInt = DefaultPreference.getPreference().getPrefInt(context, PREF_KEY_VERSION_NO, -1);
                     String prefString = DefaultPreference.getPreference().getPrefString(context, PREF_KEY_VERSION_NAME, "");
-                    instInfo2.isReport = prefInt != -1 && !prefString.equals("") && prefInt == ArdUtil.getVersionNo(context) && prefString.equals(ArdUtil.getVersionName(context));
-                    instInfo2.type = (prefInt == -1 && prefString.equals("")) ? 1 : 0;
+                    int versionNo = ArdUtil.getVersionNo(context);
+                    String versionName = ArdUtil.getVersionName(context);
+                    if (prefInt != -1 && !prefString.equals("") && prefInt == versionNo && prefString.equals(versionName)) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    instInfo2.isReport = z;
+                    if (prefInt == -1 && prefString.equals("")) {
+                        i = 1;
+                    } else {
+                        i = 0;
+                    }
+                    instInfo2.type = i;
                 } catch (Throwable th) {
                     L.debug("InstallController", "init exception = %s", th);
                 }
@@ -157,45 +171,44 @@ public class InstallController {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             InstUtil.InstInfo instInfo = InstUtil.getInstInfo(context);
-            if (instInfo.isReport) {
-                return;
+            if (!instInfo.isReport) {
+                this.statisAPI.reportInstall(instInfo.type, new Packer.OnSavedListener(this, context) { // from class: com.yy.hiidostatis.defs.controller.InstallController.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ InstallController this$0;
+                    public final /* synthetic */ Context val$context;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, context};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                        this.val$context = context;
+                    }
+
+                    @Override // com.yy.hiidostatis.message.Packer.OnSavedListener
+                    public void onSaved(boolean z) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeZ(1048576, this, z) == null) {
+                            L.debug("InstallController", "report Install %b", Boolean.valueOf(z));
+                            if (z) {
+                                InstUtil.save(this.val$context);
+                            }
+                        }
+                    }
+                });
             }
-            this.statisAPI.reportInstall(instInfo.type, new Packer.OnSavedListener(this, context) { // from class: com.yy.hiidostatis.defs.controller.InstallController.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ InstallController this$0;
-                public final /* synthetic */ Context val$context;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, context};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$context = context;
-                }
-
-                @Override // com.yy.hiidostatis.message.Packer.OnSavedListener
-                public void onSaved(boolean z) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeZ(1048576, this, z) == null) {
-                        L.debug("InstallController", "report Install %b", Boolean.valueOf(z));
-                        if (z) {
-                            InstUtil.save(this.val$context);
-                        }
-                    }
-                }
-            });
         }
     }
 }

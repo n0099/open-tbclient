@@ -1,6 +1,5 @@
 package com.baidu.searchbox.logsystem.logsys;
 
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +14,33 @@ public class LogFile {
     public File mFile;
     public boolean mNecessary;
 
-    public LogFile(@NonNull File file, boolean z) {
+    public static void init() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+        }
+    }
+
+    public LogFile(File file) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {file};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mCanDelete = true;
+        this.mNecessary = false;
+        this.mFile = file;
+    }
+
+    public LogFile(File file, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -36,22 +61,7 @@ public class LogFile {
         this.mCanDelete = z;
     }
 
-    public static void init() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-        }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.mFile.getAbsolutePath() + "," + this.mCanDelete + "," + this.mNecessary;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public LogFile(@NonNull File file, boolean z, boolean z2) {
+    public LogFile(File file, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -73,23 +83,12 @@ public class LogFile {
         this.mNecessary = z2;
     }
 
-    public LogFile(@NonNull File file) {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {file};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mFile.getAbsolutePath() + "," + this.mCanDelete + "," + this.mNecessary;
         }
-        this.mCanDelete = true;
-        this.mNecessary = false;
-        this.mFile = file;
+        return (String) invokeV.objValue;
     }
 }

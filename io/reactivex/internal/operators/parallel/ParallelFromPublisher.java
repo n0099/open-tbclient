@@ -22,15 +22,15 @@ import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class ParallelFromPublisher<T> extends ParallelFlowable<T> {
+public final class ParallelFromPublisher extends ParallelFlowable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int parallelism;
     public final int prefetch;
-    public final Publisher<? extends T> source;
+    public final Publisher source;
 
     /* loaded from: classes8.dex */
-    public static final class ParallelDispatcher<T> extends AtomicInteger implements FlowableSubscriber<T> {
+    public final class ParallelDispatcher extends AtomicInteger implements FlowableSubscriber {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4470634016609963609L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -42,12 +42,12 @@ public final class ParallelFromPublisher<T> extends ParallelFlowable<T> {
         public final int limit;
         public final int prefetch;
         public int produced;
-        public SimpleQueue<T> queue;
+        public SimpleQueue queue;
         public final AtomicLongArray requests;
         public Subscription s;
         public int sourceMode;
         public final AtomicInteger subscriberCount;
-        public final Subscriber<? super T>[] subscribers;
+        public final Subscriber[] subscribers;
 
         /* loaded from: classes8.dex */
         public final class RailSubscription implements Subscription {
@@ -108,7 +108,7 @@ public final class ParallelFromPublisher<T> extends ParallelFlowable<T> {
             }
         }
 
-        public ParallelDispatcher(Subscriber<? super T>[] subscriberArr, int i) {
+        public ParallelDispatcher(Subscriber[] subscriberArr, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -146,13 +146,61 @@ public final class ParallelFromPublisher<T> extends ParallelFlowable<T> {
             }
         }
 
+        @Override // org.reactivestreams.Subscriber
+        public void onError(Throwable th) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, th) == null) {
+                this.error = th;
+                this.done = true;
+                drain();
+            }
+        }
+
+        @Override // org.reactivestreams.Subscriber
+        public void onNext(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, obj) == null) {
+                if (this.sourceMode == 0 && !this.queue.offer(obj)) {
+                    this.s.cancel();
+                    onError(new MissingBackpressureException("Queue is full?"));
+                    return;
+                }
+                drain();
+            }
+        }
+
         public void drain() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && getAndIncrement() == 0) {
-                if (this.sourceMode == 1) {
-                    drainSync();
-                } else {
-                    drainAsync();
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || getAndIncrement() != 0) {
+                return;
+            }
+            if (this.sourceMode == 1) {
+                drainSync();
+            } else {
+                drainAsync();
+            }
+        }
+
+        @Override // org.reactivestreams.Subscriber
+        public void onComplete() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                this.done = true;
+                drain();
+            }
+        }
+
+        public void setupSubscribers() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+                Subscriber[] subscriberArr = this.subscribers;
+                int length = subscriberArr.length;
+                int i = 0;
+                while (i < length && !this.cancelled) {
+                    int i2 = i + 1;
+                    this.subscriberCount.lazySet(i2);
+                    subscriberArr[i].onSubscribe(new RailSubscription(this, i, length));
+                    i = i2;
                 }
             }
         }
@@ -161,8 +209,8 @@ public final class ParallelFromPublisher<T> extends ParallelFlowable<T> {
             Throwable th;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                SimpleQueue<T> simpleQueue = this.queue;
-                Subscriber<? super T>[] subscriberArr = this.subscribers;
+                SimpleQueue simpleQueue = this.queue;
+                Subscriber[] subscriberArr = this.subscribers;
                 AtomicLongArray atomicLongArray = this.requests;
                 long[] jArr = this.emissions;
                 int length = jArr.length;
@@ -195,11 +243,9 @@ public final class ParallelFromPublisher<T> extends ParallelFlowable<T> {
                         if (!isEmpty) {
                             long j = atomicLongArray.get(i);
                             long j2 = jArr[i];
-                            if (j == j2 || atomicLongArray.get(length + i) != 0) {
-                                i5++;
-                            } else {
+                            if (j != j2 && atomicLongArray.get(length + i) == 0) {
                                 try {
-                                    T poll = simpleQueue.poll();
+                                    Object poll = simpleQueue.poll();
                                     if (poll != null) {
                                         subscriberArr[i].onNext(poll);
                                         jArr[i] = j2 + 1;
@@ -220,6 +266,8 @@ public final class ParallelFromPublisher<T> extends ParallelFlowable<T> {
                                     }
                                     return;
                                 }
+                            } else {
+                                i5++;
                             }
                             i++;
                             if (i == length) {
@@ -250,8 +298,8 @@ public final class ParallelFromPublisher<T> extends ParallelFlowable<T> {
         public void drainSync() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                SimpleQueue<T> simpleQueue = this.queue;
-                Subscriber<? super T>[] subscriberArr = this.subscribers;
+                SimpleQueue simpleQueue = this.queue;
+                Subscriber[] subscriberArr = this.subscribers;
                 AtomicLongArray atomicLongArray = this.requests;
                 long[] jArr = this.emissions;
                 int length = jArr.length;
@@ -271,11 +319,9 @@ public final class ParallelFromPublisher<T> extends ParallelFlowable<T> {
                         }
                         long j = atomicLongArray.get(i);
                         long j2 = jArr[i];
-                        if (j == j2 || atomicLongArray.get(length + i) != 0) {
-                            i4++;
-                        } else {
+                        if (j != j2 && atomicLongArray.get(length + i) == 0) {
                             try {
-                                T poll = simpleQueue.poll();
+                                Object poll = simpleQueue.poll();
                                 if (poll == null) {
                                     int length3 = subscriberArr.length;
                                     while (i3 < length3) {
@@ -297,6 +343,8 @@ public final class ParallelFromPublisher<T> extends ParallelFlowable<T> {
                                 }
                                 return;
                             }
+                        } else {
+                            i4++;
                         }
                         i++;
                         if (i == length) {
@@ -319,38 +367,6 @@ public final class ParallelFromPublisher<T> extends ParallelFlowable<T> {
                     simpleQueue.clear();
                     return;
                 }
-            }
-        }
-
-        @Override // org.reactivestreams.Subscriber
-        public void onComplete() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                this.done = true;
-                drain();
-            }
-        }
-
-        @Override // org.reactivestreams.Subscriber
-        public void onError(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, th) == null) {
-                this.error = th;
-                this.done = true;
-                drain();
-            }
-        }
-
-        @Override // org.reactivestreams.Subscriber
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
-                if (this.sourceMode == 0 && !this.queue.offer(t)) {
-                    this.s.cancel();
-                    onError(new MissingBackpressureException("Queue is full?"));
-                    return;
-                }
-                drain();
             }
         }
 
@@ -382,24 +398,9 @@ public final class ParallelFromPublisher<T> extends ParallelFlowable<T> {
                 subscription.request(this.prefetch);
             }
         }
-
-        public void setupSubscribers() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-                Subscriber<? super T>[] subscriberArr = this.subscribers;
-                int length = subscriberArr.length;
-                int i = 0;
-                while (i < length && !this.cancelled) {
-                    int i2 = i + 1;
-                    this.subscriberCount.lazySet(i2);
-                    subscriberArr[i].onSubscribe(new RailSubscription(this, i, length));
-                    i = i2;
-                }
-            }
-        }
     }
 
-    public ParallelFromPublisher(Publisher<? extends T> publisher, int i, int i2) {
+    public ParallelFromPublisher(Publisher publisher, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -423,14 +424,18 @@ public final class ParallelFromPublisher<T> extends ParallelFlowable<T> {
     public int parallelism() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.parallelism : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.parallelism;
+        }
+        return invokeV.intValue;
     }
 
     @Override // io.reactivex.parallel.ParallelFlowable
-    public void subscribe(Subscriber<? super T>[] subscriberArr) {
+    public void subscribe(Subscriber[] subscriberArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, subscriberArr) == null) && validate(subscriberArr)) {
-            this.source.subscribe(new ParallelDispatcher(subscriberArr, this.prefetch));
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, subscriberArr) != null) || !validate(subscriberArr)) {
+            return;
         }
+        this.source.subscribe(new ParallelDispatcher(subscriberArr, this.prefetch));
     }
 }

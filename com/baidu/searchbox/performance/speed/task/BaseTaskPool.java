@@ -11,6 +11,16 @@ public abstract class BaseTaskPool {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract List onAppCreateFirst(int i);
+
+    public abstract List onAppCreateSecond(int i);
+
+    public abstract List onPrivacyPolicyGranted(int i);
+
+    public abstract List viewOnActivity();
+
+    public abstract List viewOnAppCreateView();
+
     public BaseTaskPool() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -25,7 +35,7 @@ public abstract class BaseTaskPool {
         }
     }
 
-    public List<LaunchTask> getTaskList(int i, int i2) {
+    public List getTaskList(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
@@ -48,14 +58,4 @@ public abstract class BaseTaskPool {
         }
         return (List) invokeII.objValue;
     }
-
-    public abstract List<LaunchTask> onAppCreateFirst(int i);
-
-    public abstract List<LaunchTask> onAppCreateSecond(int i);
-
-    public abstract List<LaunchTask> onPrivacyPolicyGranted(int i);
-
-    public abstract List<LaunchTask> viewOnActivity();
-
-    public abstract List<LaunchTask> viewOnAppCreateView();
 }

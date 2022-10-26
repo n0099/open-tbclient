@@ -1,11 +1,9 @@
 package com.facebook.drawee.view;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.net.Uri;
 import android.util.AttributeSet;
-import androidx.annotation.DrawableRes;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,10 +24,97 @@ import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
 public class SimpleDraweeView extends GenericDraweeView {
     public static /* synthetic */ Interceptable $ic;
-    public static Supplier<? extends AbstractDraweeControllerBuilder> sDraweecontrollerbuildersupplier;
-    public static Supplier<Supplier<? extends AbstractDraweeControllerBuilder>> sSupplierFactory;
+    public static Supplier sDraweecontrollerbuildersupplier;
+    public static Supplier sSupplierFactory;
     public transient /* synthetic */ FieldHolder $fh;
     public AbstractDraweeControllerBuilder mControllerBuilder;
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public SimpleDraweeView(Context context) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        init(context, null);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public SimpleDraweeView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        init(context, attributeSet);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public SimpleDraweeView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        init(context, attributeSet);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public SimpleDraweeView(Context context, AttributeSet attributeSet, int i, int i2) {
+        super(context, attributeSet, i, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        init(context, attributeSet);
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SimpleDraweeView(Context context, GenericDraweeHierarchy genericDraweeHierarchy) {
@@ -58,7 +143,7 @@ public class SimpleDraweeView extends GenericDraweeView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, this, context, attributeSet) == null) {
             if (sDraweecontrollerbuildersupplier == null) {
-                sDraweecontrollerbuildersupplier = sSupplierFactory.get();
+                sDraweecontrollerbuildersupplier = (Supplier) sSupplierFactory.get();
             }
             try {
                 if (FrescoSystrace.isTracing()) {
@@ -69,7 +154,7 @@ public class SimpleDraweeView extends GenericDraweeView {
                     getTopLevelDrawable().invalidateSelf();
                 } else {
                     Preconditions.checkNotNull(sDraweecontrollerbuildersupplier, "SimpleDraweeView was not initialized!");
-                    this.mControllerBuilder = sDraweecontrollerbuildersupplier.get();
+                    this.mControllerBuilder = (AbstractDraweeControllerBuilder) sDraweecontrollerbuildersupplier.get();
                 }
                 if (attributeSet != null) {
                     TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.SimpleDraweeView);
@@ -92,28 +177,14 @@ public class SimpleDraweeView extends GenericDraweeView {
         }
     }
 
-    public static void initialize(Supplier<Supplier<? extends AbstractDraweeControllerBuilder>> supplier) {
+    public static void initialize(Supplier supplier) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, null, supplier) == null) {
             sSupplierFactory = supplier;
         }
     }
 
-    public static void shutDown() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            sSupplierFactory = null;
-            sDraweecontrollerbuildersupplier = null;
-        }
-    }
-
-    public AbstractDraweeControllerBuilder getControllerBuilder() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mControllerBuilder : (AbstractDraweeControllerBuilder) invokeV.objValue;
-    }
-
-    public void setActualImageResource(@DrawableRes int i) {
+    public void setActualImageResource(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             setActualImageResource(i, null);
@@ -143,17 +214,41 @@ public class SimpleDraweeView extends GenericDraweeView {
         }
     }
 
-    public void setImageURIWithHeader(Uri uri, Map<String, String> map, @Nullable Object obj) {
+    public static void shutDown() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048586, this, uri, map, obj) == null) {
-            setController(getControllerBuilder().setUri(uri, map).setCallerContext(obj).setOldController(getController()).build());
+        if (interceptable == null || interceptable.invokeV(65543, null) == null) {
+            sSupplierFactory = null;
+            sDraweecontrollerbuildersupplier = null;
         }
     }
 
-    public void setActualImageResource(@DrawableRes int i, @Nullable Object obj) {
+    public AbstractDraweeControllerBuilder getControllerBuilder() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mControllerBuilder;
+        }
+        return (AbstractDraweeControllerBuilder) invokeV.objValue;
+    }
+
+    public void setActualImageResource(int i, @Nullable Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, obj) == null) {
             setImageURI(UriUtil.getUriForResourceId(i), obj);
+        }
+    }
+
+    public void setImageURI(Uri uri, @Nullable Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, uri, obj) == null) {
+            setController(this.mControllerBuilder.setCallerContext(obj).setUri(uri).setOldController(getController()).build());
+        }
+    }
+
+    public void setImageURIWithHeader(Uri uri, Map map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, uri, map) == null) {
+            setImageURIWithHeader(uri, map, null);
         }
     }
 
@@ -164,112 +259,23 @@ public class SimpleDraweeView extends GenericDraweeView {
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SimpleDraweeView(Context context) {
-        super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        init(context, null);
-    }
-
-    public void setImageURI(Uri uri, @Nullable Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, uri, obj) == null) {
-            setController(this.mControllerBuilder.setCallerContext(obj).setUri(uri).setOldController(getController()).build());
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SimpleDraweeView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        init(context, attributeSet);
-    }
-
-    public void setImageURIWithHeader(Uri uri, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, uri, map) == null) {
-            setImageURIWithHeader(uri, map, null);
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SimpleDraweeView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        init(context, attributeSet);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    @TargetApi(21)
-    public SimpleDraweeView(Context context, AttributeSet attributeSet, int i, int i2) {
-        super(context, attributeSet, i, i2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        init(context, attributeSet);
-    }
-
     public void setImageURI(@Nullable String str, @Nullable Object obj) {
+        Uri uri;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, obj) == null) {
-            setImageURI(str != null ? Uri.parse(str) : null, obj);
+            if (str != null) {
+                uri = Uri.parse(str);
+            } else {
+                uri = null;
+            }
+            setImageURI(uri, obj);
+        }
+    }
+
+    public void setImageURIWithHeader(Uri uri, Map map, @Nullable Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048586, this, uri, map, obj) == null) {
+            setController(getControllerBuilder().setUri(uri, map).setCallerContext(obj).setOldController(getController()).build());
         }
     }
 }

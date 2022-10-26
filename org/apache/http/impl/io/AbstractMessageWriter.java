@@ -21,6 +21,8 @@ public abstract class AbstractMessageWriter implements HttpMessageWriter {
     public final LineFormatter lineFormatter;
     public final SessionOutputBuffer sessionBuffer;
 
+    public abstract void writeHeadLine(HttpMessage httpMessage) throws IOException;
+
     public AbstractMessageWriter(SessionOutputBuffer sessionOutputBuffer, LineFormatter lineFormatter, HttpParams httpParams) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -46,6 +48,4 @@ public abstract class AbstractMessageWriter implements HttpMessageWriter {
             throw new RuntimeException("Stub!");
         }
     }
-
-    public abstract void writeHeadLine(HttpMessage httpMessage) throws IOException;
 }

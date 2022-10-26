@@ -18,6 +18,43 @@ public class CallerThreadExecutor extends AbstractExecutorService {
     public static final CallerThreadExecutor sInstance;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // java.util.concurrent.ExecutorService
+    public boolean awaitTermination(long j, TimeUnit timeUnit) throws InterruptedException {
+        InterceptResult invokeJL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, timeUnit)) == null) {
+            return true;
+        }
+        return invokeJL.booleanValue;
+    }
+
+    @Override // java.util.concurrent.ExecutorService
+    public boolean isShutdown() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // java.util.concurrent.ExecutorService
+    public boolean isTerminated() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // java.util.concurrent.ExecutorService
+    public void shutdown() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -51,17 +88,21 @@ public class CallerThreadExecutor extends AbstractExecutorService {
     public static CallerThreadExecutor getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? sInstance : (CallerThreadExecutor) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return sInstance;
+        }
+        return (CallerThreadExecutor) invokeV.objValue;
     }
 
     @Override // java.util.concurrent.ExecutorService
-    public boolean awaitTermination(long j, TimeUnit timeUnit) throws InterruptedException {
-        InterceptResult invokeJL;
+    public List shutdownNow() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, timeUnit)) == null) {
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            shutdown();
+            return Collections.emptyList();
         }
-        return invokeJL.booleanValue;
+        return (List) invokeV.objValue;
     }
 
     @Override // java.util.concurrent.Executor
@@ -70,43 +111,5 @@ public class CallerThreadExecutor extends AbstractExecutorService {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable) == null) {
             runnable.run();
         }
-    }
-
-    @Override // java.util.concurrent.ExecutorService
-    public boolean isShutdown() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // java.util.concurrent.ExecutorService
-    public boolean isTerminated() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // java.util.concurrent.ExecutorService
-    public void shutdown() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-        }
-    }
-
-    @Override // java.util.concurrent.ExecutorService
-    public List<Runnable> shutdownNow() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            shutdown();
-            return Collections.emptyList();
-        }
-        return (List) invokeV.objValue;
     }
 }

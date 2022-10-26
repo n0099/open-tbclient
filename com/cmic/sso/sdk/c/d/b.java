@@ -7,17 +7,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 /* loaded from: classes7.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public Map<String, List<String>> b;
+    public Map b;
     public String c;
 
-    public b(int i, Map<String, List<String>> map, String str) {
+    public b(int i, Map map, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -40,15 +39,21 @@ public class b {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
     }
 
-    public Map<String, List<String>> b() {
+    public Map b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Map<String, List<String>> map = this.b;
-            return map == null ? new HashMap() : map;
+            Map map = this.b;
+            if (map == null) {
+                return new HashMap();
+            }
+            return map;
         }
         return (Map) invokeV.objValue;
     }
@@ -58,7 +63,10 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             String str = this.c;
-            return str == null ? "" : str;
+            if (str == null) {
+                return "";
+            }
+            return str;
         }
         return (String) invokeV.objValue;
     }
@@ -68,7 +76,10 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             int i = this.a;
-            return i == 302 || i == 301;
+            if (i != 302 && i != 301) {
+                return false;
+            }
+            return true;
         }
         return invokeV.booleanValue;
     }

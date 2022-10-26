@@ -5,9 +5,9 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.bh7;
+import com.baidu.tieba.kh7;
 import com.baidu.tieba.lego.card.exception.CardParseException;
-import com.baidu.tieba.zg7;
+import com.baidu.tieba.mh7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,9 +25,9 @@ public class HorRankCard extends BaseCardInfo {
     public final String itemStatistics;
     public final int picType;
     public final int position;
-    public List<a> rankInfoList;
+    public List rankInfoList;
     public final double ratio;
-    public final zg7 rightText;
+    public final kh7 rightText;
     public final boolean scrollEnabled;
     public final boolean showLeft;
     public final boolean showSep;
@@ -35,7 +35,7 @@ public class HorRankCard extends BaseCardInfo {
     public final int titleColorNight;
 
     /* loaded from: classes4.dex */
-    public static class a {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -70,6 +70,11 @@ public class HorRankCard extends BaseCardInfo {
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HorRankCard(JSONObject jSONObject) throws CardParseException {
         super(jSONObject);
+        boolean z;
+        boolean z2;
+        boolean z3;
+        int length;
+        boolean z4;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -85,8 +90,8 @@ public class HorRankCard extends BaseCardInfo {
                 return;
             }
         }
-        this.titleColor = bh7.b(jSONObject.optString("tColor", ""));
-        this.titleColorNight = bh7.b(jSONObject.optString("tColorNight", ""));
+        this.titleColor = mh7.b(jSONObject.optString("tColor", ""));
+        this.titleColorNight = mh7.b(jSONObject.optString("tColorNight", ""));
         this.displayNum = jSONObject.optDouble("displayNum", 5.0d);
         this.ratio = jSONObject.optDouble("ratio", 1.0d);
         int optInt = jSONObject.optInt("picType", 1);
@@ -95,13 +100,32 @@ public class HorRankCard extends BaseCardInfo {
         } else {
             this.picType = optInt;
         }
-        this.scrollEnabled = jSONObject.optInt("scrollEnabled", 1) == 1;
+        if (jSONObject.optInt("scrollEnabled", 1) == 1) {
+            z = true;
+        } else {
+            z = false;
+        }
+        this.scrollEnabled = z;
         this.position = jSONObject.optInt(CriusAttrConstants.POSITION);
         this.itemStatistics = jSONObject.optString("itemStatistics");
-        this.showLeft = jSONObject.optInt("showLeft", 1) == 1;
-        this.showSep = jSONObject.optInt("showSep") == 1;
+        if (jSONObject.optInt("showLeft", 1) == 1) {
+            z2 = true;
+        } else {
+            z2 = false;
+        }
+        this.showLeft = z2;
+        if (jSONObject.optInt("showSep") == 1) {
+            z3 = true;
+        } else {
+            z3 = false;
+        }
+        this.showSep = z3;
         JSONArray optJSONArray = jSONObject.optJSONArray("ranks");
-        int length = optJSONArray == null ? 0 : optJSONArray.length();
+        if (optJSONArray == null) {
+            length = 0;
+        } else {
+            length = optJSONArray.length();
+        }
         this.rankInfoList = new ArrayList(length);
         for (int i3 = 0; i3 < length; i3++) {
             a aVar = new a();
@@ -112,90 +136,141 @@ public class HorRankCard extends BaseCardInfo {
             aVar.d = optJSONObject.optString("title");
             aVar.e = optJSONObject.optString("subTitle");
             aVar.f = optJSONObject.optString("postUrl");
-            aVar.g = optJSONObject.optInt("isDone") == 1;
+            if (optJSONObject.optInt("isDone") == 1) {
+                z4 = true;
+            } else {
+                z4 = false;
+            }
+            aVar.g = z4;
             aVar.h = optJSONObject.optString("btnText");
             aVar.i = optJSONObject.optString("btnDone");
             aVar.j = optJSONObject.optString("picScheme");
-            aVar.k = bh7.b(optJSONObject.optString("bgColor", ""));
-            aVar.l = bh7.b(optJSONObject.optString("bgColorNight", ""));
+            aVar.k = mh7.b(optJSONObject.optString("bgColor", ""));
+            aVar.l = mh7.b(optJSONObject.optString("bgColorNight", ""));
             optJSONObject.optLong("resourceId");
             aVar.m = this;
             this.rankInfoList.add(aVar);
         }
-        this.rightText = zg7.a(jSONObject.optJSONObject("moreButton"));
+        this.rightText = kh7.a(jSONObject.optJSONObject("moreButton"));
     }
 
     public double getDisplayNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.displayNum : invokeV.doubleValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.displayNum;
+        }
+        return invokeV.doubleValue;
     }
 
     public String getItemStatistics() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.itemStatistics : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.itemStatistics;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getPicType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.picType : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.picType;
+        }
+        return invokeV.intValue;
     }
 
     public int getPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.position : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.position;
+        }
+        return invokeV.intValue;
     }
 
-    public List<a> getRankInfoList() {
+    public List getRankInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.rankInfoList : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.rankInfoList;
+        }
+        return (List) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.lego.card.model.BaseLegoCardInfo, com.baidu.tieba.lego.card.model.ICardInfo
     public double getRatio() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.ratio : invokeV.doubleValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.ratio;
+        }
+        return invokeV.doubleValue;
     }
 
-    public zg7 getRightText() {
+    public kh7 getRightText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.rightText : (zg7) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.rightText;
+        }
+        return (kh7) invokeV.objValue;
     }
 
     public int getTitleColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.titleColor : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.titleColor;
+        }
+        return invokeV.intValue;
     }
 
     public int getTitleColorNight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.titleColorNight : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.titleColorNight;
+        }
+        return invokeV.intValue;
     }
 
     public boolean isScrollEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.scrollEnabled : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.scrollEnabled;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isShowLeft() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.showLeft : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.showLeft;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isShowSep() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.showSep : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.showSep;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.lego.card.model.BaseCardInfo
+    public boolean shouldResponseAttention() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return !ListUtils.isEmpty(this.rankInfoList);
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.tieba.lego.card.model.BaseCardInfo
@@ -230,12 +305,5 @@ public class HorRankCard extends BaseCardInfo {
             return z2;
         }
         return invokeLZ.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.lego.card.model.BaseCardInfo
-    public boolean shouldResponseAttention() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? !ListUtils.isEmpty(this.rankInfoList) : invokeV.booleanValue;
     }
 }

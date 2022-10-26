@@ -1,6 +1,5 @@
 package com.airbnb.lottie.parser;
 
-import androidx.annotation.Nullable;
 import com.airbnb.lottie.LottieComposition;
 import com.airbnb.lottie.model.animatable.AnimatableColorValue;
 import com.airbnb.lottie.model.animatable.AnimatableFloatValue;
@@ -12,14 +11,30 @@ import com.airbnb.lottie.model.animatable.AnimatableShapeValue;
 import com.airbnb.lottie.model.animatable.AnimatableTextFrame;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.airbnb.lottie.utils.Utils;
-import com.airbnb.lottie.value.Keyframe;
 import java.io.IOException;
 import java.util.List;
 /* loaded from: classes.dex */
 public class AnimatableValueParser {
-    @Nullable
-    public static <T> List<Keyframe<T>> parse(JsonReader jsonReader, LottieComposition lottieComposition, ValueParser<T> valueParser) throws IOException {
+    public static List parse(JsonReader jsonReader, float f, LottieComposition lottieComposition, ValueParser valueParser) throws IOException {
+        return KeyframesParser.parse(jsonReader, lottieComposition, f, valueParser);
+    }
+
+    public static List parse(JsonReader jsonReader, LottieComposition lottieComposition, ValueParser valueParser) throws IOException {
         return KeyframesParser.parse(jsonReader, lottieComposition, 1.0f, valueParser);
+    }
+
+    public static AnimatableFloatValue parseFloat(JsonReader jsonReader, LottieComposition lottieComposition, boolean z) throws IOException {
+        float f;
+        if (z) {
+            f = Utils.dpScale();
+        } else {
+            f = 1.0f;
+        }
+        return new AnimatableFloatValue(parse(jsonReader, f, lottieComposition, FloatParser.INSTANCE));
+    }
+
+    public static AnimatableGradientColorValue parseGradientColor(JsonReader jsonReader, LottieComposition lottieComposition, int i) throws IOException {
+        return new AnimatableGradientColorValue(parse(jsonReader, lottieComposition, new GradientColorParser(i)));
     }
 
     public static AnimatableColorValue parseColor(JsonReader jsonReader, LottieComposition lottieComposition) throws IOException {
@@ -32,10 +47,6 @@ public class AnimatableValueParser {
 
     public static AnimatableFloatValue parseFloat(JsonReader jsonReader, LottieComposition lottieComposition) throws IOException {
         return parseFloat(jsonReader, lottieComposition, true);
-    }
-
-    public static AnimatableGradientColorValue parseGradientColor(JsonReader jsonReader, LottieComposition lottieComposition, int i) throws IOException {
-        return new AnimatableGradientColorValue(parse(jsonReader, lottieComposition, new GradientColorParser(i)));
     }
 
     public static AnimatableIntegerValue parseInteger(JsonReader jsonReader, LottieComposition lottieComposition) throws IOException {
@@ -52,14 +63,5 @@ public class AnimatableValueParser {
 
     public static AnimatableShapeValue parseShapeData(JsonReader jsonReader, LottieComposition lottieComposition) throws IOException {
         return new AnimatableShapeValue(parse(jsonReader, Utils.dpScale(), lottieComposition, ShapeDataParser.INSTANCE));
-    }
-
-    @Nullable
-    public static <T> List<Keyframe<T>> parse(JsonReader jsonReader, float f, LottieComposition lottieComposition, ValueParser<T> valueParser) throws IOException {
-        return KeyframesParser.parse(jsonReader, lottieComposition, f, valueParser);
-    }
-
-    public static AnimatableFloatValue parseFloat(JsonReader jsonReader, LottieComposition lottieComposition, boolean z) throws IOException {
-        return new AnimatableFloatValue(parse(jsonReader, z ? Utils.dpScale() : 1.0f, lottieComposition, FloatParser.INSTANCE));
     }
 }

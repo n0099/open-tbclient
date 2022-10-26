@@ -1,11 +1,23 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.tbadk.TbPageContext;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes3.dex */
-public interface ba5 extends t95 {
-    public static final String b = "com.baidu.tieba.ba5";
+public interface ba5 {
+    public static final ServiceReference a = new ServiceReference("HotTopic", "HotTopicRequest");
 
-    @NonNull
-    ca5 a(@NonNull TbPageContext tbPageContext);
+    /* loaded from: classes3.dex */
+    public interface a {
+        void a();
+
+        void b(List list, Map map);
+    }
+
+    ba5 a(TbPageContext tbPageContext, long j, String str);
+
+    void b(int i, bt4 bt4Var, long j);
+
+    void c(a aVar);
 }

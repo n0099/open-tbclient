@@ -8,16 +8,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class vw1 extends rw1 {
+public class vw1 extends sw1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
-    public float b;
-    public float c;
-    public float d;
-    public float e;
-    public float f;
-    public boolean g;
+
+    @Override // com.baidu.tieba.sw1
+    public void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+        }
+    }
 
     public vw1() {
         Interceptable interceptable = $ic;
@@ -29,32 +29,15 @@ public class vw1 extends rw1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.g = false;
     }
 
-    @Override // com.baidu.tieba.rw1
-    public void a(sw1 sw1Var, Canvas canvas) {
+    @Override // com.baidu.tieba.sw1
+    public void a(tw1 tw1Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, sw1Var, canvas) == null) && this.g) {
-            sw1Var.f.cubicTo(this.a, this.b, this.c, this.d, this.e, this.f);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, tw1Var, canvas) == null) {
+            tw1Var.f.reset();
         }
-    }
-
-    @Override // com.baidu.tieba.rw1
-    public void b(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) || jSONArray.length() <= 5) {
-            return;
-        }
-        this.a = ch3.g((float) jSONArray.optDouble(0));
-        this.b = ch3.g((float) jSONArray.optDouble(1));
-        this.c = ch3.g((float) jSONArray.optDouble(2));
-        this.d = ch3.g((float) jSONArray.optDouble(3));
-        this.e = ch3.g((float) jSONArray.optDouble(4));
-        this.f = ch3.g((float) jSONArray.optDouble(5));
-        this.g = true;
     }
 }

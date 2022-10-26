@@ -17,7 +17,7 @@ import org.json.JSONObject;
 public class ResponseGetQmFiltersMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<QmFilterItem> mQmFilterItems;
+    public List mQmFilterItems;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseGetQmFiltersMessage() {
@@ -37,29 +37,31 @@ public class ResponseGetQmFiltersMessage extends JsonHttpResponsedMessage {
         }
     }
 
+    public List getFilterItems() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mQmFilterItems;
+        }
+        return (List) invokeV.objValue;
+    }
+
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         JSONArray optJSONArray;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
             super.decodeLogicInBackGround(i, jSONObject);
-            if (getError() != 0 || jSONObject == null || (optJSONArray = jSONObject.optJSONArray("filter_list")) == null || optJSONArray.length() <= 0) {
-                return;
-            }
-            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                QmFilterItem qmFilterItem = new QmFilterItem();
-                qmFilterItem.parseJson(optJSONArray.getJSONObject(i2));
-                if (this.mQmFilterItems == null) {
-                    this.mQmFilterItems = new ArrayList();
+            if (getError() == 0 && jSONObject != null && (optJSONArray = jSONObject.optJSONArray("filter_list")) != null && optJSONArray.length() > 0) {
+                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                    QmFilterItem qmFilterItem = new QmFilterItem();
+                    qmFilterItem.parseJson(optJSONArray.getJSONObject(i2));
+                    if (this.mQmFilterItems == null) {
+                        this.mQmFilterItems = new ArrayList();
+                    }
+                    this.mQmFilterItems.add(qmFilterItem);
                 }
-                this.mQmFilterItems.add(qmFilterItem);
             }
         }
-    }
-
-    public List<QmFilterItem> getFilterItems() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mQmFilterItems : (List) invokeV.objValue;
     }
 }

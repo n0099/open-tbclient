@@ -12,7 +12,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidubce.http.Headers;
 import com.sina.weibo.sdk.exception.WeiboException;
 import com.sina.weibo.sdk.exception.WeiboHttpException;
 import com.sina.weibo.sdk.network.IRequestParam;
@@ -36,6 +35,14 @@ public class HttpManager {
     public static final String TAG = "HttpManager";
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static native String calcOauthSignNative(Context context, String str, String str2);
+
+    public static void fillCommonRequestParam(IRequestParam iRequestParam) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, iRequestParam) == null) {
+        }
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -55,6 +62,27 @@ public class HttpManager {
         END_MP_BOUNDARY = "--" + BOUNDARY + "--";
     }
 
+    public static String getBoundry() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            StringBuffer stringBuffer = new StringBuffer();
+            for (int i = 1; i < 12; i++) {
+                long currentTimeMillis = System.currentTimeMillis() + i;
+                long j = currentTimeMillis % 3;
+                if (j == 0) {
+                    stringBuffer.append(((char) currentTimeMillis) % '\t');
+                } else if (j == 1) {
+                    stringBuffer.append((char) ((currentTimeMillis % 26) + 65));
+                } else {
+                    stringBuffer.append((char) ((currentTimeMillis % 26) + 97));
+                }
+            }
+            return stringBuffer.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
     public HttpManager() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -67,6 +95,15 @@ public class HttpManager {
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
+    }
+
+    public static String getTimestamp() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return String.valueOf(System.currentTimeMillis() / 1000);
+        }
+        return (String) invokeV.objValue;
     }
 
     public static void buildParams(OutputStream outputStream, WeiboParameters weiboParameters) throws WeiboException {
@@ -111,8 +148,6 @@ public class HttpManager {
         }
     }
 
-    public static native String calcOauthSignNative(Context context, String str, String str2);
-
     public static synchronized String downloadFile(Context context, String str, String str2, String str3) throws WeiboException {
         InterceptResult invokeLLLL;
         long j;
@@ -128,84 +163,57 @@ public class HttpManager {
                 if (file2.exists()) {
                     return file2.getPath();
                 }
-                if (URLUtil.isValidUrl(str)) {
-                    File file3 = new File(str2, str3 + "_temp");
-                    HttpURLConnection createConnect = ConnectionFactory.createConnect(str, context);
-                    createConnect.setConnectTimeout(300000);
-                    createConnect.setReadTimeout(300000);
-                    try {
-                        createConnect.setRequestMethod("GET");
-                    } catch (Exception unused) {
-                    }
-                    try {
-                        if (file3.exists()) {
-                            j = file3.length();
-                        } else {
-                            file3.createNewFile();
-                            j = 0;
-                        }
-                        createConnect.setRequestProperty("RANGE", "bytes=" + j);
-                        int responseCode = createConnect.getResponseCode();
-                        if (responseCode == 206) {
-                            contentLength = 0;
-                        } else if (responseCode == 200) {
-                            contentLength = createConnect.getContentLength();
-                        } else {
-                            throw new WeiboHttpException(readConnectResponse(createConnect, true), responseCode);
-                        }
-                        InputStream inputStream = createConnect.getInputStream();
-                        RandomAccessFile randomAccessFile = new RandomAccessFile(file3, "rw");
-                        randomAccessFile.seek(0L);
-                        byte[] bArr = new byte[1024];
-                        while (true) {
-                            int read = inputStream.read(bArr);
-                            if (read == -1) {
-                                break;
-                            }
-                            randomAccessFile.write(bArr, 0, read);
-                        }
-                        randomAccessFile.close();
-                        inputStream.close();
-                        if (contentLength != 0 && file3.length() >= contentLength) {
-                            file3.renameTo(file2);
-                            return file2.getPath();
-                        }
-                        file3.delete();
-                    } catch (Exception unused2) {
-                    }
+                if (!URLUtil.isValidUrl(str)) {
                     return "";
+                }
+                File file3 = new File(str2, str3 + "_temp");
+                HttpURLConnection createConnect = ConnectionFactory.createConnect(str, context);
+                createConnect.setConnectTimeout(300000);
+                createConnect.setReadTimeout(300000);
+                try {
+                    createConnect.setRequestMethod("GET");
+                } catch (Exception unused) {
+                }
+                try {
+                    if (file3.exists()) {
+                        j = file3.length();
+                    } else {
+                        file3.createNewFile();
+                        j = 0;
+                    }
+                    createConnect.setRequestProperty("RANGE", "bytes=" + j);
+                    int responseCode = createConnect.getResponseCode();
+                    if (responseCode == 206) {
+                        contentLength = 0;
+                    } else if (responseCode == 200) {
+                        contentLength = createConnect.getContentLength();
+                    } else {
+                        throw new WeiboHttpException(readConnectResponse(createConnect, true), responseCode);
+                    }
+                    InputStream inputStream = createConnect.getInputStream();
+                    RandomAccessFile randomAccessFile = new RandomAccessFile(file3, "rw");
+                    randomAccessFile.seek(0L);
+                    byte[] bArr = new byte[1024];
+                    while (true) {
+                        int read = inputStream.read(bArr);
+                        if (read == -1) {
+                            break;
+                        }
+                        randomAccessFile.write(bArr, 0, read);
+                    }
+                    randomAccessFile.close();
+                    inputStream.close();
+                    if (contentLength != 0 && file3.length() >= contentLength) {
+                        file3.renameTo(file2);
+                        return file2.getPath();
+                    }
+                    file3.delete();
+                } catch (Exception unused2) {
                 }
                 return "";
             }
         }
         return (String) invokeLLLL.objValue;
-    }
-
-    public static void fillCommonRequestParam(IRequestParam iRequestParam) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, iRequestParam) == null) {
-        }
-    }
-
-    public static String getBoundry() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            StringBuffer stringBuffer = new StringBuffer();
-            for (int i = 1; i < 12; i++) {
-                long currentTimeMillis = System.currentTimeMillis() + i;
-                long j = currentTimeMillis % 3;
-                if (j == 0) {
-                    stringBuffer.append(((char) currentTimeMillis) % '\t');
-                } else if (j == 1) {
-                    stringBuffer.append((char) ((currentTimeMillis % 26) + 65));
-                } else {
-                    stringBuffer.append((char) ((currentTimeMillis % 26) + 97));
-                }
-            }
-            return stringBuffer.toString();
-        }
-        return (String) invokeV.objValue;
     }
 
     public static String getOauthSign(Context context, String str, String str2, String str3, String str4) {
@@ -225,12 +233,6 @@ public class HttpManager {
             return calcOauthSignNative(context, sb.toString(), str4);
         }
         return (String) invokeLLLLL.objValue;
-    }
-
-    public static String getTimestamp() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? String.valueOf(System.currentTimeMillis() / 1000) : (String) invokeV.objValue;
     }
 
     public static String openRedirectUrl4LocationUri(Context context, String str, String str2, WeiboParameters weiboParameters) {
@@ -258,7 +260,7 @@ public class HttpManager {
                     }
                     return str;
                 }
-                str = createConnect.getHeaderField(Headers.LOCATION);
+                str = createConnect.getHeaderField("Location");
                 return str;
             } catch (Exception unused) {
                 return "";
@@ -288,88 +290,118 @@ public class HttpManager {
         ByteArrayOutputStream byteArrayOutputStream;
         InputStream inputStream;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLZ = interceptable.invokeLZ(65547, null, httpURLConnection, z)) != null) {
-            return (String) invokeLZ.objValue;
-        }
-        InputStream inputStream2 = null;
-        String str = null;
-        inputStream2 = null;
-        try {
-            byte[] bArr = new byte[8192];
-            if (z) {
-                inputStream = httpURLConnection.getErrorStream();
-            } else {
-                inputStream = httpURLConnection.getInputStream();
-            }
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65547, null, httpURLConnection, z)) == null) {
+            InputStream inputStream2 = null;
+            String str = null;
+            inputStream2 = null;
             try {
-                byteArrayOutputStream = new ByteArrayOutputStream();
-                if (inputStream != null) {
-                    while (true) {
-                        try {
-                            int read = inputStream.read(bArr);
-                            if (read == -1) {
-                                break;
-                            }
-                            byteArrayOutputStream.write(bArr, 0, read);
-                        } catch (IOException e) {
-                            inputStream2 = inputStream;
-                            e = e;
+                byte[] bArr = new byte[8192];
+                if (z) {
+                    inputStream = httpURLConnection.getErrorStream();
+                } else {
+                    inputStream = httpURLConnection.getInputStream();
+                }
+                try {
+                    byteArrayOutputStream = new ByteArrayOutputStream();
+                    if (inputStream != null) {
+                        while (true) {
                             try {
-                                throw new WeiboException(e);
-                            } catch (Throwable th) {
-                                th = th;
-                                if (inputStream2 != null) {
-                                    try {
-                                        inputStream2.close();
-                                    } catch (Exception unused) {
+                                int read = inputStream.read(bArr);
+                                if (read == -1) {
+                                    break;
+                                }
+                                byteArrayOutputStream.write(bArr, 0, read);
+                            } catch (IOException e) {
+                                inputStream2 = inputStream;
+                                e = e;
+                                try {
+                                    throw new WeiboException(e);
+                                } catch (Throwable th) {
+                                    th = th;
+                                    if (inputStream2 != null) {
+                                        try {
+                                            inputStream2.close();
+                                        } catch (Exception unused) {
+                                        }
                                     }
+                                    if (byteArrayOutputStream != null) {
+                                        try {
+                                            byteArrayOutputStream.close();
+                                        } catch (Exception unused2) {
+                                        }
+                                    }
+                                    throw th;
+                                }
+                            } catch (Throwable th2) {
+                                inputStream2 = inputStream;
+                                th = th2;
+                                if (inputStream2 != null) {
                                 }
                                 if (byteArrayOutputStream != null) {
-                                    try {
-                                        byteArrayOutputStream.close();
-                                    } catch (Exception unused2) {
-                                    }
                                 }
                                 throw th;
                             }
-                        } catch (Throwable th2) {
-                            inputStream2 = inputStream;
-                            th = th2;
-                            if (inputStream2 != null) {
-                            }
-                            if (byteArrayOutputStream != null) {
-                            }
-                            throw th;
+                        }
+                        str = new String(byteArrayOutputStream.toByteArray(), "UTF-8");
+                    }
+                    if (inputStream != null) {
+                        try {
+                            inputStream.close();
+                        } catch (Exception unused3) {
                         }
                     }
-                    str = new String(byteArrayOutputStream.toByteArray(), "UTF-8");
-                }
-                if (inputStream != null) {
                     try {
-                        inputStream.close();
-                    } catch (Exception unused3) {
+                        byteArrayOutputStream.close();
+                    } catch (Exception unused4) {
                     }
+                    return str;
+                } catch (IOException e2) {
+                    inputStream2 = inputStream;
+                    e = e2;
+                    byteArrayOutputStream = null;
+                } catch (Throwable th3) {
+                    inputStream2 = inputStream;
+                    th = th3;
+                    byteArrayOutputStream = null;
                 }
-                try {
-                    byteArrayOutputStream.close();
-                } catch (Exception unused4) {
-                }
-                return str;
-            } catch (IOException e2) {
-                inputStream2 = inputStream;
-                e = e2;
+            } catch (IOException e3) {
+                e = e3;
                 byteArrayOutputStream = null;
-            } catch (Throwable th3) {
-                inputStream2 = inputStream;
-                th = th3;
+            } catch (Throwable th4) {
+                th = th4;
                 byteArrayOutputStream = null;
             }
-        } catch (IOException e3) {
-            e = e3;
-            byteArrayOutputStream = null;
-        } catch (Throwable th4) {
-            th = th4;
-            byteArrayOutputStream = null;
+        } else {
+            return (String) invokeLZ.objValue;
+        }
+    }
+
+    public static void setHttpCommonParam(Context context, WeiboParameters weiboParameters) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65549, null, context, weiboParameters) == null) {
+            String str2 = "";
+            if (TextUtils.isEmpty(weiboParameters.getAppKey())) {
+                str = "";
+            } else {
+                str = Utility.getAid(context, weiboParameters.getAppKey());
+                if (!TextUtils.isEmpty(str)) {
+                    weiboParameters.put("aid", str);
+                }
+            }
+            String timestamp = getTimestamp();
+            weiboParameters.put("oauth_timestamp", timestamp);
+            Object obj = weiboParameters.get("access_token");
+            Object obj2 = weiboParameters.get("refresh_token");
+            Object obj3 = weiboParameters.get("phone");
+            if (obj != null && (obj instanceof String)) {
+                str2 = (String) obj;
+            } else if (obj2 != null && (obj2 instanceof String)) {
+                str2 = (String) obj2;
+            } else if (obj3 != null && (obj3 instanceof String)) {
+                str2 = (String) obj3;
+            }
+            weiboParameters.put("oauth_sign", getOauthSign(context, str, str2, weiboParameters.getAppKey(), timestamp));
         }
     }
 
@@ -424,34 +456,5 @@ public class HttpManager {
             }
         }
         return (String) invokeLLLL.objValue;
-    }
-
-    public static void setHttpCommonParam(Context context, WeiboParameters weiboParameters) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65549, null, context, weiboParameters) == null) {
-            String str2 = "";
-            if (TextUtils.isEmpty(weiboParameters.getAppKey())) {
-                str = "";
-            } else {
-                str = Utility.getAid(context, weiboParameters.getAppKey());
-                if (!TextUtils.isEmpty(str)) {
-                    weiboParameters.put("aid", str);
-                }
-            }
-            String timestamp = getTimestamp();
-            weiboParameters.put("oauth_timestamp", timestamp);
-            Object obj = weiboParameters.get("access_token");
-            Object obj2 = weiboParameters.get("refresh_token");
-            Object obj3 = weiboParameters.get("phone");
-            if (obj != null && (obj instanceof String)) {
-                str2 = (String) obj;
-            } else if (obj2 != null && (obj2 instanceof String)) {
-                str2 = (String) obj2;
-            } else if (obj3 != null && (obj3 instanceof String)) {
-                str2 = (String) obj3;
-            }
-            weiboParameters.put("oauth_sign", getOauthSign(context, str, str2, weiboParameters.getAppKey(), timestamp));
-        }
     }
 }

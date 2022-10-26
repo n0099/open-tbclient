@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.annotation.Nullable;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -26,11 +25,11 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a68;
-import com.baidu.tieba.dj;
-import com.baidu.tieba.mr5;
-import com.baidu.tieba.o58;
-import com.baidu.tieba.z58;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.j68;
+import com.baidu.tieba.k68;
+import com.baidu.tieba.tr5;
+import com.baidu.tieba.y58;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,7 +42,7 @@ public class PersonCenterSmartAppItemView extends LinearLayout implements View.O
     public HeadImageView a;
     public TextView b;
     public ImageView c;
-    public o58 d;
+    public y58 d;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public PersonCenterSmartAppItemView(Context context) {
@@ -66,32 +65,83 @@ public class PersonCenterSmartAppItemView extends LinearLayout implements View.O
         }
     }
 
-    public void a(o58 o58Var) {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public PersonCenterSmartAppItemView(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, o58Var) == null) || o58Var == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public PersonCenterSmartAppItemView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0702, (ViewGroup) this, true);
+        HeadImageView headImageView = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f091014);
+        this.a = headImageView;
+        headImageView.setIsRound(true);
+        this.a.setDefaultResource(R.color.CAM_X0204);
+        this.a.setPlaceHolder(1);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0923d5);
+        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091462);
+        c();
+    }
+
+    public void a(y58 y58Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, y58Var) != null) || y58Var == null) {
             return;
         }
-        this.d = o58Var;
+        this.d = y58Var;
         this.c.setVisibility(8);
-        if (o58Var instanceof a68) {
-            a68 a68Var = (a68) o58Var;
-            this.a.L(a68Var.c(), 10, false, false);
-            String g = a68Var.g();
-            if (!dj.isEmpty(g)) {
+        if (y58Var instanceof k68) {
+            k68 k68Var = (k68) y58Var;
+            this.a.M(k68Var.c(), 10, false, false);
+            String g = k68Var.g();
+            if (!ej.isEmpty(g)) {
                 this.b.setText(UtilHelper.getFixedText(g, 5));
             } else {
-                this.b.setText(R.string.obfuscated_res_0x7f0f091e);
+                this.b.setText(R.string.obfuscated_res_0x7f0f092b);
             }
-            if (o58Var.getType() == 1) {
+            if (y58Var.getType() == 1) {
                 SkinManager.setImageResource(this.c, R.drawable.icon_personal_recommend);
                 this.c.setVisibility(0);
             } else {
                 this.c.setVisibility(8);
             }
             setOnClickListener(this);
-        } else if (o58Var instanceof z58) {
+        } else if (y58Var instanceof j68) {
             SkinManager.setImageResource(this.a, R.drawable.icon_personal_more);
-            this.b.setText(R.string.obfuscated_res_0x7f0f0afd);
+            this.b.setText(R.string.obfuscated_res_0x7f0f0b0c);
             setOnClickListener(this);
         }
     }
@@ -122,23 +172,23 @@ public class PersonCenterSmartAppItemView extends LinearLayout implements View.O
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-            o58 o58Var = this.d;
-            if (o58Var instanceof a68) {
-                a68 a68Var = (a68) o58Var;
-                if (!mr5.b(a68Var.b(), a68Var.f(), "1191000600000000", a68Var.e())) {
-                    if (dj.isEmpty(a68Var.d())) {
+            y58 y58Var = this.d;
+            if (y58Var instanceof k68) {
+                k68 k68Var = (k68) y58Var;
+                if (!tr5.b(k68Var.b(), k68Var.f(), "1191000600000000", k68Var.e())) {
+                    if (ej.isEmpty(k68Var.d())) {
                         return;
                     }
-                    UrlManager.getInstance().dealOneLink(b(getContext()), new String[]{a68Var.d()});
+                    UrlManager.getInstance().dealOneLink(b(getContext()), new String[]{k68Var.d()});
                 }
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_FE_FITE_PROGRAM_CLICK);
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
                 statisticItem.param("obj_source", "personal_center");
-                statisticItem.param("obj_id", a68Var.a().longValue());
-                statisticItem.param("obj_name", a68Var.g());
-                statisticItem.param("obj_param1", a68Var.e().intValue());
+                statisticItem.param("obj_id", k68Var.a().longValue());
+                statisticItem.param("obj_name", k68Var.g());
+                statisticItem.param("obj_param1", k68Var.e().intValue());
                 TiebaStatic.log(statisticItem);
-            } else if (o58Var instanceof z58) {
+            } else if (y58Var instanceof j68) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SmartAppBrowseHistoryActivityConfig(getContext())));
                 StatisticItem statisticItem2 = new StatisticItem(TbadkCoreStatisticKey.KEY_MORE_HISTORY_RECORD_CLICK);
                 statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccountId());
@@ -153,69 +203,22 @@ public class PersonCenterSmartAppItemView extends LinearLayout implements View.O
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
             int action = motionEvent.getAction();
-            if (action == 0) {
+            if (action != 0) {
+                if (action != 1) {
+                    if (action == 3) {
+                        SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
+                        SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
+                    }
+                } else {
+                    SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
+                    SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
+                }
+            } else {
                 SkinManager.setBackgroundColor(this, R.color.cp_bg_line_d_alpha50);
                 SkinManager.setViewTextColor(this.b, (int) R.color.cp_cont_b_alpha50);
-            } else if (action == 1) {
-                SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
-                SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
-            } else if (action == 3) {
-                SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
-                SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
             }
             return super.onTouchEvent(motionEvent);
         }
         return invokeL.booleanValue;
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public PersonCenterSmartAppItemView(Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PersonCenterSmartAppItemView(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0702, (ViewGroup) this, true);
-        HeadImageView headImageView = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f091020);
-        this.a = headImageView;
-        headImageView.setIsRound(true);
-        this.a.setDefaultResource(R.color.CAM_X0204);
-        this.a.setPlaceHolder(1);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0923ea);
-        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091470);
-        c();
     }
 }

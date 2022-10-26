@@ -2,7 +2,6 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import android.content.Intent;
-import androidx.annotation.Nullable;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class BaseWriteConfig<T> extends IntentConfig {
+public class BaseWriteConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CONTENT = "write_content";
     public static final String FORUM_ID = "forum_id";
@@ -48,9 +47,7 @@ public class BaseWriteConfig<T> extends IntentConfig {
         }
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: com.baidu.tbadk.core.atomData.BaseWriteConfig<T> */
-    /* JADX WARN: Multi-variable type inference failed */
-    public T setForumDir(@Nullable String str, @Nullable String str2) {
+    public Object setForumDir(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
@@ -66,6 +63,6 @@ public class BaseWriteConfig<T> extends IntentConfig {
             intent2.putExtra(IntentConfig.FORUM_SECOND_DIR, str2);
             return this;
         }
-        return (T) invokeLL.objValue;
+        return invokeLL.objValue;
     }
 }

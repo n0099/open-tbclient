@@ -36,7 +36,7 @@ public class AlaDynamicGift implements Serializable {
 
     public void parseJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         this.giftId = jSONObject.optString("gift_id");

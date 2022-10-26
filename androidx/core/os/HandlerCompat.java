@@ -5,8 +5,6 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,8 +31,7 @@ public final class HandlerCompat {
         }
     }
 
-    @NonNull
-    public static Handler createAsync(@NonNull Looper looper) {
+    public static Handler createAsync(Looper looper) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, looper)) == null) {
@@ -63,22 +60,7 @@ public final class HandlerCompat {
         return (Handler) invokeL.objValue;
     }
 
-    public static boolean postDelayed(@NonNull Handler handler, @NonNull Runnable runnable, @Nullable Object obj, long j) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{handler, runnable, obj, Long.valueOf(j)})) == null) {
-            if (Build.VERSION.SDK_INT >= 28) {
-                return handler.postDelayed(runnable, obj, j);
-            }
-            Message obtain = Message.obtain(handler, runnable);
-            obtain.obj = obj;
-            return handler.sendMessageDelayed(obtain, j);
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    @NonNull
-    public static Handler createAsync(@NonNull Looper looper, @NonNull Handler.Callback callback) {
+    public static Handler createAsync(Looper looper, Handler.Callback callback) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, looper, callback)) == null) {
@@ -105,5 +87,19 @@ public final class HandlerCompat {
             return new Handler(looper, callback);
         }
         return (Handler) invokeLL.objValue;
+    }
+
+    public static boolean postDelayed(Handler handler, Runnable runnable, Object obj, long j) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{handler, runnable, obj, Long.valueOf(j)})) == null) {
+            if (Build.VERSION.SDK_INT >= 28) {
+                return handler.postDelayed(runnable, obj, j);
+            }
+            Message obtain = Message.obtain(handler, runnable);
+            obtain.obj = obj;
+            return handler.sendMessageDelayed(obtain, j);
+        }
+        return invokeCommon.booleanValue;
     }
 }

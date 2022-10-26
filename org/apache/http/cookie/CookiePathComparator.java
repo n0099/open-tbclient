@@ -10,7 +10,7 @@ import java.io.Serializable;
 import java.util.Comparator;
 @Deprecated
 /* loaded from: classes8.dex */
-public class CookiePathComparator implements Serializable, Comparator<Cookie> {
+public class CookiePathComparator implements Serializable, Comparator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 

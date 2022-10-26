@@ -28,6 +28,9 @@ public abstract class UPCEANWriter extends OneDimensionalCodeWriter {
     public int getDefaultMargin() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? UPCEANReader.START_END_PATTERN.length : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return UPCEANReader.START_END_PATTERN.length;
+        }
+        return invokeV.intValue;
     }
 }

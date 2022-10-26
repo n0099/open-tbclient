@@ -1,6 +1,5 @@
 package com.kwad.components.core.a;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,7 +14,7 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
     public static volatile f Dx;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConcurrentHashMap<String, WeakReference<Object>> Dw;
+    public ConcurrentHashMap Dw;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -30,7 +29,7 @@ public class f {
                 return;
             }
         }
-        this.Dw = new ConcurrentHashMap<>();
+        this.Dw = new ConcurrentHashMap();
     }
 
     public static String J(AdTemplate adTemplate) {
@@ -55,7 +54,6 @@ public class f {
         return (String) invokeL.objValue;
     }
 
-    @NonNull
     public static f mb() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -87,7 +85,7 @@ public class f {
             com.kwad.sdk.core.e.b.d("AdMemCachePool", "contains key: " + b);
             boolean z = false;
             if (this.Dw.containsKey(b)) {
-                WeakReference<Object> weakReference = this.Dw.get(b);
+                WeakReference weakReference = (WeakReference) this.Dw.get(b);
                 if (weakReference != null && weakReference.get() != null) {
                     z = true;
                 }
@@ -104,7 +102,7 @@ public class f {
     public final void add(Object obj) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) && (obj instanceof com.kwad.components.core.internal.api.a)) {
-            this.Dw.put(J(((com.kwad.components.core.internal.api.a) obj).getAdTemplate()), new WeakReference<>(obj));
+            this.Dw.put(J(((com.kwad.components.core.internal.api.a) obj).getAdTemplate()), new WeakReference(obj));
         }
     }
 }

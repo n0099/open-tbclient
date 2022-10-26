@@ -31,7 +31,7 @@ public class MiddlewareUtils {
         }
     }
 
-    public static ControllerListener2.Extras obtainExtras(Map<String, Object> map, Map<String, Object> map2, @Nullable Map<String, Object> map3, @Nullable Rect rect, @Nullable String str, @Nullable PointF pointF, @Nullable Map<String, Object> map4, @Nullable Object obj, @Nullable Uri uri) {
+    public static ControllerListener2.Extras obtainExtras(Map map, Map map2, @Nullable Map map3, @Nullable Rect rect, @Nullable String str, @Nullable PointF pointF, @Nullable Map map4, @Nullable Object obj, @Nullable Uri uri) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{map, map2, map3, rect, str, pointF, map4, obj, uri})) == null) {

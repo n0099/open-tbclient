@@ -38,7 +38,7 @@ public final class ah {
             Cif cif = new Cif();
             try {
                 it.a(cif, bArr);
-                return a(u.m681a((Context) xMPushService), xMPushService, cif);
+                return a(u.m680a((Context) xMPushService), xMPushService, cif);
             } catch (iz e) {
                 com.xiaomi.channel.commonutils.logger.b.a(e);
                 return null;
@@ -62,7 +62,7 @@ public final class ah {
                 cif.f628a.f559c = str.substring(str.indexOf("/") + 1);
                 flVar.a(it.a(cif), tVar.c);
                 flVar.a((short) 1);
-                com.xiaomi.channel.commonutils.logger.b.m90a("try send mi push message. packagename:" + cif.f633b + " action:" + cif.f626a);
+                com.xiaomi.channel.commonutils.logger.b.m89a("try send mi push message. packagename:" + cif.f633b + " action:" + cif.f626a);
                 return flVar;
             } catch (NullPointerException e) {
                 com.xiaomi.channel.commonutils.logger.b.a(e);
@@ -86,17 +86,17 @@ public final class ah {
         return (Cif) invokeLL.objValue;
     }
 
-    public static <T extends iu<T, ?>> Cif a(String str, String str2, T t, hj hjVar) {
+    public static Cif a(String str, String str2, iu iuVar, hj hjVar) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, str, str2, t, hjVar)) == null) ? a(str, str2, t, hjVar, true) : (Cif) invokeLLLL.objValue;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, str, str2, iuVar, hjVar)) == null) ? a(str, str2, iuVar, hjVar, true) : (Cif) invokeLLLL.objValue;
     }
 
-    public static <T extends iu<T, ?>> Cif a(String str, String str2, T t, hj hjVar, boolean z) {
+    public static Cif a(String str, String str2, iu iuVar, hj hjVar, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, t, hjVar, Boolean.valueOf(z)})) == null) {
-            byte[] a = it.a(t);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, iuVar, hjVar, Boolean.valueOf(z)})) == null) {
+            byte[] a = it.a(iuVar);
             Cif cif = new Cif();
             hy hyVar = new hy();
             hyVar.f554a = 5L;
@@ -115,12 +115,12 @@ public final class ah {
 
     public static String a(Cif cif) {
         InterceptResult invokeL;
-        Map<String, String> map;
+        Map map;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, cif)) == null) {
             hw hwVar = cif.f627a;
             if (hwVar != null && (map = hwVar.f545b) != null) {
-                String str = map.get("ext_traffic_source_pkg");
+                String str = (String) map.get("ext_traffic_source_pkg");
                 if (!TextUtils.isEmpty(str)) {
                     return str;
                 }
@@ -140,33 +140,33 @@ public final class ah {
     }
 
     public static void a(XMPushService xMPushService) {
-        t m681a;
+        t m680a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65543, null, xMPushService) == null) || (m681a = u.m681a(xMPushService.getApplicationContext())) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65543, null, xMPushService) == null) || (m680a = u.m680a(xMPushService.getApplicationContext())) == null) {
             return;
         }
-        bg.b a = u.m681a(xMPushService.getApplicationContext()).a(xMPushService);
-        com.xiaomi.channel.commonutils.logger.b.m90a("prepare account. " + a.f934a);
+        bg.b a = u.m680a(xMPushService.getApplicationContext()).a(xMPushService);
+        com.xiaomi.channel.commonutils.logger.b.m89a("prepare account. " + a.f934a);
         a(xMPushService, a);
         bg.a().a(a);
-        bx.a(xMPushService).a(new ai("GAID", ChatMessageDBManager.CAST_RELIABLE_MSG_EXPIRED_TIME, xMPushService, m681a));
-        a(xMPushService, m681a, 172800);
+        bx.a(xMPushService).a(new ai("GAID", ChatMessageDBManager.CAST_RELIABLE_MSG_EXPIRED_TIME, xMPushService, m680a));
+        a(xMPushService, m680a, 172800);
     }
 
     public static void a(XMPushService xMPushService, Cif cif) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, null, xMPushService, cif) == null) {
             db.a(cif.b(), xMPushService.getApplicationContext(), cif, -1);
-            fw m590a = xMPushService.m590a();
-            if (m590a == null) {
+            fw m589a = xMPushService.m589a();
+            if (m589a == null) {
                 throw new gh("try send msg while connection is null.");
             }
-            if (!m590a.m357a()) {
+            if (!m589a.m356a()) {
                 throw new gh("Don't support XMPP connection.");
             }
-            fl a = a(u.m681a((Context) xMPushService), xMPushService, cif);
+            fl a = a(u.m680a((Context) xMPushService), xMPushService, cif);
             if (a != null) {
-                m590a.b(a);
+                m589a.b(a);
             }
         }
     }
@@ -190,16 +190,16 @@ public final class ah {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65547, null, xMPushService, str, bArr) == null) {
             db.a(str, xMPushService.getApplicationContext(), bArr);
-            fw m590a = xMPushService.m590a();
-            if (m590a == null) {
+            fw m589a = xMPushService.m589a();
+            if (m589a == null) {
                 throw new gh("try send msg while connection is null.");
             }
-            if (!m590a.m357a()) {
+            if (!m589a.m356a()) {
                 throw new gh("Don't support XMPP connection.");
             }
             fl a = a(xMPushService, bArr);
             if (a != null) {
-                m590a.b(a);
+                m589a.b(a);
             } else {
                 x.a(xMPushService, str, bArr, ErrorCode.ERROR_INVALID_PAYLOAD, "not a valid message");
             }
@@ -220,9 +220,9 @@ public final class ah {
         return (Cif) invokeLL.objValue;
     }
 
-    public static <T extends iu<T, ?>> Cif b(String str, String str2, T t, hj hjVar) {
+    public static Cif b(String str, String str2, iu iuVar, hj hjVar) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65549, null, str, str2, t, hjVar)) == null) ? a(str, str2, t, hjVar, false) : (Cif) invokeLLLL.objValue;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65549, null, str, str2, iuVar, hjVar)) == null) ? a(str, str2, iuVar, hjVar, false) : (Cif) invokeLLLL.objValue;
     }
 }

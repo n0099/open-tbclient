@@ -13,7 +13,7 @@ public class MultipartHashMap extends HttpHashMap implements com.baidu.pass.a {
     public a fileWrapper;
 
     /* loaded from: classes2.dex */
-    public static class a {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -47,7 +47,10 @@ public class MultipartHashMap extends HttpHashMap implements com.baidu.pass.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 String str = this.b;
-                return str != null ? str : "nofilename";
+                if (str != null) {
+                    return str;
+                }
+                return "nofilename";
             }
             return (String) invokeV.objValue;
         }

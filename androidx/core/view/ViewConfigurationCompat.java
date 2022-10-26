@@ -6,7 +6,6 @@ import android.os.Build;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.ViewConfiguration;
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -79,12 +78,24 @@ public final class ViewConfigurationCompat {
         return invokeLL.floatValue;
     }
 
-    public static float getScaledHorizontalScrollFactor(@NonNull ViewConfiguration viewConfiguration, @NonNull Context context) {
+    public static float getScaledHorizontalScrollFactor(ViewConfiguration viewConfiguration, Context context) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, viewConfiguration, context)) == null) {
             if (Build.VERSION.SDK_INT >= 26) {
                 return viewConfiguration.getScaledHorizontalScrollFactor();
+            }
+            return getLegacyScrollFactor(viewConfiguration, context);
+        }
+        return invokeLL.floatValue;
+    }
+
+    public static float getScaledVerticalScrollFactor(ViewConfiguration viewConfiguration, Context context) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, viewConfiguration, context)) == null) {
+            if (Build.VERSION.SDK_INT >= 26) {
+                return viewConfiguration.getScaledVerticalScrollFactor();
             }
             return getLegacyScrollFactor(viewConfiguration, context);
         }
@@ -107,29 +118,23 @@ public final class ViewConfigurationCompat {
     public static int getScaledPagingTouchSlop(ViewConfiguration viewConfiguration) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, viewConfiguration)) == null) ? viewConfiguration.getScaledPagingTouchSlop() : invokeL.intValue;
-    }
-
-    public static float getScaledVerticalScrollFactor(@NonNull ViewConfiguration viewConfiguration, @NonNull Context context) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, viewConfiguration, context)) == null) {
-            if (Build.VERSION.SDK_INT >= 26) {
-                return viewConfiguration.getScaledVerticalScrollFactor();
-            }
-            return getLegacyScrollFactor(viewConfiguration, context);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, viewConfiguration)) == null) {
+            return viewConfiguration.getScaledPagingTouchSlop();
         }
-        return invokeLL.floatValue;
+        return invokeL.intValue;
     }
 
     @Deprecated
     public static boolean hasPermanentMenuKey(ViewConfiguration viewConfiguration) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, viewConfiguration)) == null) ? viewConfiguration.hasPermanentMenuKey() : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, viewConfiguration)) == null) {
+            return viewConfiguration.hasPermanentMenuKey();
+        }
+        return invokeL.booleanValue;
     }
 
-    public static boolean shouldShowMenuShortcutsWhenKeyboardPresent(ViewConfiguration viewConfiguration, @NonNull Context context) {
+    public static boolean shouldShowMenuShortcutsWhenKeyboardPresent(ViewConfiguration viewConfiguration, Context context) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, viewConfiguration, context)) == null) {
@@ -138,7 +143,10 @@ public final class ViewConfigurationCompat {
             }
             Resources resources = context.getResources();
             int identifier = resources.getIdentifier("config_showMenuShortcutsWhenKeyboardPresent", "bool", "android");
-            return identifier != 0 && resources.getBoolean(identifier);
+            if (identifier != 0 && resources.getBoolean(identifier)) {
+                return true;
+            }
+            return false;
         }
         return invokeLL.booleanValue;
     }

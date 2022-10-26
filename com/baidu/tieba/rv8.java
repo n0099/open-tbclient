@@ -1,34 +1,104 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.media.MediaCodec;
-import android.media.MediaFormat;
-import android.media.MediaMuxer;
+import android.content.Context;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tieba.model.VideoHolyCardModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.nio.ByteBuffer;
-@TargetApi(18)
 /* loaded from: classes5.dex */
 public class rv8 {
     public static /* synthetic */ Interceptable $ic;
+    public static rv8 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MediaMuxer a;
-    public int b;
+    public VideoHolyCardModel a;
+    public boolean b;
     public boolean c;
-    public volatile boolean d;
-    public volatile boolean e;
+    public VideoHolyCardModel.c d;
 
-    public rv8(String str) throws IOException {
+    /* loaded from: classes5.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ rv8 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(rv8 rv8Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rv8Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = rv8Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || !BdNetTypeUtil.isMobileNet()) {
+                return;
+            }
+            this.a.b();
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements VideoHolyCardModel.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ rv8 a;
+
+        public b(rv8 rv8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rv8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = rv8Var;
+        }
+
+        @Override // com.baidu.tieba.model.VideoHolyCardModel.c
+        public void onResult(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeZ(1048576, this, z) != null) {
+                return;
+            }
+            this.a.b = z;
+        }
+    }
+
+    public rv8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,99 +108,63 @@ public class rv8 {
                 return;
             }
         }
-        this.b = 2;
-        this.c = false;
-        this.a = new MediaMuxer(str, 0);
+        this.d = new b(this);
+        e();
+        if (PermissionUtil.isAgreePrivacyPolicy()) {
+            b();
+        }
     }
 
-    public synchronized int a(MediaFormat mediaFormat) {
-        InterceptResult invokeL;
-        int addTrack;
+    public static rv8 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, mediaFormat)) == null) {
-            synchronized (this) {
-                if (!this.c) {
-                    addTrack = this.a.addTrack(mediaFormat);
-                } else {
-                    throw new IllegalStateException("muxer already started");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (e == null) {
+                synchronized (rv8.class) {
+                    if (e == null) {
+                        e = new rv8();
+                    }
                 }
             }
-            return addTrack;
+            return e;
         }
-        return invokeL.intValue;
+        return (rv8) invokeV.objValue;
     }
 
-    public synchronized boolean b() {
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (this.a == null) {
+                VideoHolyCardModel videoHolyCardModel = new VideoHolyCardModel();
+                this.a = videoHolyCardModel;
+                videoHolyCardModel.E(this.d);
+            }
+            this.a.C();
+        }
+    }
+
+    public boolean d() {
         InterceptResult invokeV;
-        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            synchronized (this) {
-                z = this.c;
-            }
-            return z;
+            return this.b;
         }
         return invokeV.booleanValue;
     }
 
-    public void c() {
+    public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.e = true;
+            MessageManager.getInstance().registerListener(new a(this, 2000994));
         }
     }
 
-    public void d() {
+    public void f(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.d = true;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, context) != null) || !this.b || this.c) {
+            return;
         }
-    }
-
-    public synchronized boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            synchronized (this) {
-                if (this.e && this.d) {
-                    if (this.b > 0 && this.e && this.d) {
-                        this.a.start();
-                        this.c = true;
-                        notifyAll();
-                    }
-                    return this.c;
-                }
-                return false;
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
-    public synchronized void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            synchronized (this) {
-                if (this.b > 0) {
-                    try {
-                        this.a.stop();
-                        this.a.release();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    this.c = false;
-                }
-            }
-        }
-    }
-
-    public synchronized void g(int i, ByteBuffer byteBuffer, MediaCodec.BufferInfo bufferInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048582, this, i, byteBuffer, bufferInfo) == null) {
-            synchronized (this) {
-                if (this.c) {
-                    this.a.writeSampleData(i, byteBuffer, bufferInfo);
-                }
-            }
-        }
+        fj.M(context, R.string.obfuscated_res_0x7f0f06ef);
+        this.c = true;
     }
 }

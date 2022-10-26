@@ -27,51 +27,29 @@ public class Grantee {
         }
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj != null && Grantee.class == obj.getClass()) {
-                Grantee grantee = (Grantee) obj;
-                String str = this.id;
-                if (str == null) {
-                    if (grantee.id != null) {
-                        return false;
-                    }
-                } else if (!str.equals(grantee.id)) {
-                    return false;
-                }
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
     public String getId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.id : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.id;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int hashCode() {
         InterceptResult invokeV;
+        int hashCode;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             String str = this.id;
-            return 31 + (str == null ? 0 : str.hashCode());
+            if (str == null) {
+                hashCode = 0;
+            } else {
+                hashCode = str.hashCode();
+            }
+            return 31 + hashCode;
         }
         return invokeV.intValue;
-    }
-
-    public void setId(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.id = str;
-        }
     }
 
     public String toString() {
@@ -81,16 +59,6 @@ public class Grantee {
             return "Grantee [id=" + this.id + PreferencesUtil.RIGHT_MOUNT;
         }
         return (String) invokeV.objValue;
-    }
-
-    public Grantee withId(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            setId(str);
-            return this;
-        }
-        return (Grantee) invokeL.objValue;
     }
 
     public Grantee(String str) {
@@ -109,5 +77,46 @@ public class Grantee {
             }
         }
         setId(str);
+    }
+
+    public void setId(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.id = str;
+        }
+    }
+
+    public Grantee withId(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            setId(str);
+            return this;
+        }
+        return (Grantee) invokeL.objValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj == null || Grantee.class != obj.getClass()) {
+                return false;
+            }
+            Grantee grantee = (Grantee) obj;
+            String str = this.id;
+            if (str == null) {
+                if (grantee.id != null) {
+                    return false;
+                }
+            } else if (!str.equals(grantee.id)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

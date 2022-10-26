@@ -48,62 +48,6 @@ public class AdVideoProgressBar extends View {
         this.f = new Rect();
     }
 
-    public float getProgress() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.floatValue;
-    }
-
-    @Override // android.view.View
-    public void onDraw(Canvas canvas) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            getDrawingRect(this.f);
-            Rect rect = this.f;
-            this.e.setStyle(Paint.Style.STROKE);
-            this.e.setStrokeWidth(this.d);
-            this.e.setStrokeCap(Paint.Cap.SQUARE);
-            this.e.setAlpha(204);
-            this.e.setAntiAlias(true);
-            this.e.setColor(this.c);
-            Rect rect2 = this.f;
-            float f = (rect.top + rect.bottom) / 2;
-            canvas.drawLine(rect2.left, f, rect2.right, f, this.e);
-            this.e.setColor(this.b);
-            canvas.drawLine(this.f.left, f, i + ((int) (((rect.right - rect.left) * this.a) / 100.0f)), f, this.e);
-        }
-    }
-
-    public void setProgress(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f) == null) {
-            this.a = f * 100.0f;
-            invalidate();
-        }
-    }
-
-    public void setProgressBackgroundColor(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    public void setProgressColor(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    public void setProgressHeight(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.d = i;
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AdVideoProgressBar(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -154,5 +98,64 @@ public class AdVideoProgressBar extends View {
         this.d = 4;
         this.e = new Paint();
         this.f = new Rect();
+    }
+
+    public float getProgress() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.floatValue;
+    }
+
+    @Override // android.view.View
+    public void onDraw(Canvas canvas) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
+            getDrawingRect(this.f);
+            Rect rect = this.f;
+            this.e.setStyle(Paint.Style.STROKE);
+            this.e.setStrokeWidth(this.d);
+            this.e.setStrokeCap(Paint.Cap.SQUARE);
+            this.e.setAlpha(204);
+            this.e.setAntiAlias(true);
+            this.e.setColor(this.c);
+            Rect rect2 = this.f;
+            float f = (rect.top + rect.bottom) / 2;
+            canvas.drawLine(rect2.left, f, rect2.right, f, this.e);
+            this.e.setColor(this.b);
+            canvas.drawLine(this.f.left, f, i + ((int) (((rect.right - rect.left) * this.a) / 100.0f)), f, this.e);
+        }
+    }
+
+    public void setProgress(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f) == null) {
+            this.a = f * 100.0f;
+            invalidate();
+        }
+    }
+
+    public void setProgressBackgroundColor(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.c = i;
+        }
+    }
+
+    public void setProgressColor(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.b = i;
+        }
+    }
+
+    public void setProgressHeight(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.d = i;
+        }
     }
 }

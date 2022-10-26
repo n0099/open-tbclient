@@ -12,23 +12,23 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.SequentialDisposable;
 import io.reactivex.plugins.RxJavaPlugins;
 /* loaded from: classes8.dex */
-public final class ObservableDelaySubscriptionOther<T, U> extends Observable<T> {
+public final class ObservableDelaySubscriptionOther extends Observable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ObservableSource<? extends T> main;
-    public final ObservableSource<U> other;
+    public final ObservableSource main;
+    public final ObservableSource other;
 
     /* loaded from: classes8.dex */
-    public final class DelayObserver implements Observer<U> {
+    public final class DelayObserver implements Observer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer<? super T> child;
+        public final Observer child;
         public boolean done;
         public final SequentialDisposable serial;
         public final /* synthetic */ ObservableDelaySubscriptionOther this$0;
 
         /* loaded from: classes8.dex */
-        public final class OnComplete implements Observer<T> {
+        public final class OnComplete implements Observer {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ DelayObserver this$1;
@@ -52,14 +52,6 @@ public final class ObservableDelaySubscriptionOther<T, U> extends Observable<T> 
             }
 
             @Override // io.reactivex.Observer
-            public void onComplete() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.this$1.child.onComplete();
-                }
-            }
-
-            @Override // io.reactivex.Observer
             public void onError(Throwable th) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
@@ -68,10 +60,10 @@ public final class ObservableDelaySubscriptionOther<T, U> extends Observable<T> 
             }
 
             @Override // io.reactivex.Observer
-            public void onNext(T t) {
+            public void onNext(Object obj) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-                    this.this$1.child.onNext(t);
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+                    this.this$1.child.onNext(obj);
                 }
             }
 
@@ -82,9 +74,17 @@ public final class ObservableDelaySubscriptionOther<T, U> extends Observable<T> 
                     this.this$1.serial.update(disposable);
                 }
             }
+
+            @Override // io.reactivex.Observer
+            public void onComplete() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.this$1.child.onComplete();
+                }
+            }
         }
 
-        public DelayObserver(ObservableDelaySubscriptionOther observableDelaySubscriptionOther, SequentialDisposable sequentialDisposable, Observer<? super T> observer) {
+        public DelayObserver(ObservableDelaySubscriptionOther observableDelaySubscriptionOther, SequentialDisposable sequentialDisposable, Observer observer) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -107,7 +107,7 @@ public final class ObservableDelaySubscriptionOther<T, U> extends Observable<T> 
         @Override // io.reactivex.Observer
         public void onComplete() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.done) {
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.done) {
                 return;
             }
             this.done = true;
@@ -128,9 +128,9 @@ public final class ObservableDelaySubscriptionOther<T, U> extends Observable<T> 
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(U u) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, u) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
                 onComplete();
             }
         }
@@ -144,7 +144,7 @@ public final class ObservableDelaySubscriptionOther<T, U> extends Observable<T> 
         }
     }
 
-    public ObservableDelaySubscriptionOther(ObservableSource<? extends T> observableSource, ObservableSource<U> observableSource2) {
+    public ObservableDelaySubscriptionOther(ObservableSource observableSource, ObservableSource observableSource2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -164,7 +164,7 @@ public final class ObservableDelaySubscriptionOther<T, U> extends Observable<T> 
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer<? super T> observer) {
+    public void subscribeActual(Observer observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             SequentialDisposable sequentialDisposable = new SequentialDisposable();

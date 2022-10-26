@@ -8,7 +8,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.hiidostatis.defs.obj.Elem;
 import com.yy.hiidostatis.inner.util.Util;
 import com.yy.hiidostatis.inner.util.log.L;
 import java.io.IOException;
@@ -20,12 +19,12 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes8.dex */
-public class Info<T extends Elem> implements Serializable {
+public class Info implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DIVIDE_ELEM = "|";
     public static final long serialVersionUID = 1;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<T> elems;
+    public List elems;
 
     public Info() {
         Interceptable interceptable = $ic;
@@ -41,6 +40,31 @@ public class Info<T extends Elem> implements Serializable {
             }
         }
         this.elems = new CopyOnWriteArrayList();
+    }
+
+    public void clear() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.elems.clear();
+        }
+    }
+
+    public int getElemsCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.elems.size();
+        }
+        return invokeV.intValue;
+    }
+
+    public Iterator iterator() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.elems.iterator();
+        }
+        return (Iterator) invokeV.objValue;
     }
 
     private void readObject(ObjectInputStream objectInputStream) throws IOException, ClassNotFoundException {
@@ -66,41 +90,39 @@ public class Info<T extends Elem> implements Serializable {
         }
     }
 
-    public void add(Info<T> info) {
+    public void add(Info info) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, info) == null) {
-            Iterator<T> it = info.iterator();
+            Iterator it = info.iterator();
             while (it.hasNext()) {
-                addElem(it.next());
+                addElem((Elem) it.next());
             }
         }
     }
 
-    public void addElem(T t) {
+    public void addElem(Elem elem) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) || t == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, elem) != null) || elem == null) {
             return;
         }
-        this.elems.add(t);
+        this.elems.add(elem);
     }
 
-    public void clear() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.elems.clear();
-        }
-    }
-
-    public T getElem(int i) {
+    public Elem getElem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? this.elems.get(i) : (T) invokeI.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            return (Elem) this.elems.get(i);
+        }
+        return (Elem) invokeI.objValue;
     }
 
-    public int getElemsCount() {
-        InterceptResult invokeV;
+    public void removeElem(Elem elem) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.elems.size() : invokeV.intValue;
+        if ((interceptable != null && interceptable.invokeL(1048583, this, elem) != null) || elem == null) {
+            return;
+        }
+        this.elems.remove(elem);
     }
 
     public String getResult() {
@@ -111,28 +133,17 @@ public class Info<T extends Elem> implements Serializable {
                 return "";
             }
             StringBuilder sb = new StringBuilder();
-            for (T t : this.elems) {
-                sb.append(Util.replaceEncode(t.getStringRep(), "|"));
+            for (Elem elem : this.elems) {
+                sb.append(Util.replaceEncode(elem.getStringRep(), "|"));
                 sb.append("|");
             }
             String sb2 = sb.toString();
-            return sb2.length() <= 1 ? sb2 : sb2.substring(0, sb2.length() - 1);
+            if (sb2.length() <= 1) {
+                return sb2;
+            }
+            return sb2.substring(0, sb2.length() - 1);
         }
         return (String) invokeV.objValue;
-    }
-
-    public Iterator<T> iterator() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.elems.iterator() : (Iterator) invokeV.objValue;
-    }
-
-    public void removeElem(T t) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, t) == null) || t == null) {
-            return;
-        }
-        this.elems.remove(t);
     }
 
     public String toString() {
@@ -141,8 +152,8 @@ public class Info<T extends Elem> implements Serializable {
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append(PreferencesUtil.LEFT_MOUNT);
-            for (T t : this.elems) {
-                sb.append(t.toString());
+            for (Elem elem : this.elems) {
+                sb.append(elem.toString());
                 sb.append(" ");
             }
             sb.append(PreferencesUtil.RIGHT_MOUNT);

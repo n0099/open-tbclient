@@ -26,7 +26,7 @@ import java.net.URL;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
-public class FileUploadTask extends AsyncTask<Void, Integer, Integer> {
+public class FileUploadTask extends AsyncTask {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DOWNLOAD_BYTES_SIZE = 8192;
     public static final String TAG;
@@ -176,6 +176,21 @@ public class FileUploadTask extends AsyncTask<Void, Integer, Integer> {
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.os.AsyncTask
+    public void onPostExecute(Integer num) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, num) == null) {
+            if (num.equals(0)) {
+                LogUtils.d(TAG, "upload ok");
+                notifyFinished();
+                return;
+            }
+            LogUtils.d(TAG, "upload failure ");
+            notifyFailed(num.intValue());
+        }
+    }
+
     private void notifyFinished() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
@@ -189,12 +204,6 @@ public class FileUploadTask extends AsyncTask<Void, Integer, Integer> {
                 new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
             }
         }
-    }
-
-    public String replaceToHttps(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) ? str.replace("http://", "https://") : (String) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -213,25 +222,19 @@ public class FileUploadTask extends AsyncTask<Void, Integer, Integer> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.AsyncTask
-    public void onPostExecute(Integer num) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, num) == null) {
-            if (num.equals(0)) {
-                LogUtils.d(TAG, "upload ok");
-                notifyFinished();
-                return;
-            }
-            LogUtils.d(TAG, "upload failure ");
-            notifyFailed(num.intValue());
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.os.AsyncTask
     public void onProgressUpdate(Integer... numArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, numArr) == null) {
             this.mListener.onProgress(numArr[0].intValue());
         }
+    }
+
+    public String replaceToHttps(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            return str.replace("http://", "https://");
+        }
+        return (String) invokeL.objValue;
     }
 }

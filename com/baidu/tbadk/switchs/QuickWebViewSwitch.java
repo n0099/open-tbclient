@@ -16,6 +16,13 @@ public class QuickWebViewSwitch extends BaseNormalSwitch {
     public static TriState state;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.rf
+    public String getName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "android_custom_offline_web_cache" : (String) invokeV.objValue;
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -54,9 +61,22 @@ public class QuickWebViewSwitch extends BaseNormalSwitch {
             if (state == TriState.UNSET) {
                 return mInstance.isOn();
             }
-            return state == TriState.YES;
+            if (state == TriState.YES) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.rf
+    public int getDefaultType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return super.getDefaultType();
+        }
+        return invokeV.intValue;
     }
 
     public static void setState(TriState triState) {
@@ -64,19 +84,5 @@ public class QuickWebViewSwitch extends BaseNormalSwitch {
         if (interceptable == null || interceptable.invokeL(65539, null, triState) == null) {
             state = triState;
         }
-    }
-
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.qf
-    public int getDefaultType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? super.getDefaultType() : invokeV.intValue;
-    }
-
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.qf
-    public String getName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "android_custom_offline_web_cache" : (String) invokeV.objValue;
     }
 }

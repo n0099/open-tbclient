@@ -55,7 +55,7 @@ public final class MediaLivePlayLogger {
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0014\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0012\n\u0002\u0018\u0002\n\u0002\b\b\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u001a\u0010\u001bR\u0016\u0010\u0002\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003R\u0016\u0010\u0004\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0004\u0010\u0003R\u0016\u0010\u0005\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0005\u0010\u0003R\u0016\u0010\u0006\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0006\u0010\u0003R\u0016\u0010\u0007\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0007\u0010\u0003R\u0016\u0010\b\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\b\u0010\u0003R\u0016\u0010\t\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\t\u0010\u0003R\u0016\u0010\n\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\n\u0010\u0003R\u0016\u0010\u000b\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u000b\u0010\u0003R\u0016\u0010\f\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\f\u0010\u0003R\u0016\u0010\r\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\r\u0010\u0003R\u0016\u0010\u000e\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u000e\u0010\u0003R\u0016\u0010\u000f\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u000f\u0010\u0003R\u0016\u0010\u0010\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0010\u0010\u0003R\u0016\u0010\u0011\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0011\u0010\u0003R\u0016\u0010\u0012\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0012\u0010\u0003R\u0016\u0010\u0013\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0013\u0010\u0003R\u001d\u0010\u0019\u001a\u00020\u00148F@\u0006X\u0086\u0084\u0002¢\u0006\f\n\u0004\b\u0015\u0010\u0016\u001a\u0004\b\u0017\u0010\u0018¨\u0006\u001c"}, d2 = {"Lcom/baidu/searchbox/live/ubc/MediaLivePlayLogger$Companion;", "", "KEY_CAN_PRE_PLAY", "Ljava/lang/String;", "K_ITEM_POS", "MEDIA_LIVE_PLUGIN_TAG", "PAGE_SLOT_BIND_MEDIA_COMPONENT", "PAGE_SLOT_CREATE", "PAGE_SLOT_CREATE_MEDIA_COMPONENT", "PAGE_SLOT_DISPATCH_ENTER_ACTION", "PAGE_SLOT_FIRST_FRAME", "PAGE_SLOT_GET_LIVE_TYPE_TIME", "PAGE_SLOT_PAGE_ATTACH", "PAGE_SLOT_PAGE_ENTER_LIVE_REQ", "PAGE_SLOT_PAGE_INIT", "PAGE_SLOT_PAGE_SELECT", "PAGE_SLOT_PAGE_SEND_ENTER_REQ", "PAGE_SLOT_RESUME", "SLOT_PLUGIN1_ATTA_P2", "SLOT_PLUGIN1_PLAY", "Lcom/baidu/searchbox/live/ubc/MediaLivePlayLogger;", "instance$delegate", "Lkotlin/Lazy;", "getInstance", "()Lcom/baidu/searchbox/live/ubc/MediaLivePlayLogger;", Transition.MATCH_INSTANCE_STR, "<init>", "()V", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public static final class Companion {
+    public final class Companion {
         public static final /* synthetic */ KProperty[] $$delegatedProperties;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -76,6 +76,18 @@ public final class MediaLivePlayLogger {
             $$delegatedProperties = new KProperty[]{Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(Companion.class), Transition.MATCH_INSTANCE_STR, "getInstance()Lcom/baidu/searchbox/live/ubc/MediaLivePlayLogger;"))};
         }
 
+        public final MediaLivePlayLogger getInstance() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                Lazy lazy = MediaLivePlayLogger.instance$delegate;
+                Companion companion = MediaLivePlayLogger.Companion;
+                KProperty kProperty = $$delegatedProperties[0];
+                return (MediaLivePlayLogger) lazy.getValue();
+            }
+            return (MediaLivePlayLogger) invokeV.objValue;
+        }
+
         public Companion() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -88,18 +100,6 @@ public final class MediaLivePlayLogger {
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
             }
-        }
-
-        public final MediaLivePlayLogger getInstance() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                Lazy lazy = MediaLivePlayLogger.instance$delegate;
-                Companion companion = MediaLivePlayLogger.Companion;
-                KProperty kProperty = $$delegatedProperties[0];
-                return (MediaLivePlayLogger) lazy.getValue();
-            }
-            return (MediaLivePlayLogger) invokeV.objValue;
         }
 
         public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
@@ -124,89 +124,10 @@ public final class MediaLivePlayLogger {
         instance$delegate = LazyKt__LazyJVMKt.lazy(MediaLivePlayLogger$Companion$instance$2.INSTANCE);
     }
 
-    public MediaLivePlayLogger() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        AppInfoService appInfoService = (AppInfoService) ServiceManager.getService(AppInfoService.Companion.getSERVICE_REFERENCE());
-        this.isDebug = appInfoService != null ? appInfoService.isDebug() : false;
-    }
-
-    public static /* synthetic */ void addSigleLineSlot$default(MediaLivePlayLogger mediaLivePlayLogger, String str, String str2, Boolean bool, int i, Object obj) {
-        if ((i & 4) != 0) {
-            bool = Boolean.TRUE;
-        }
-        mediaLivePlayLogger.addSigleLineSlot(str, str2, bool);
-    }
-
-    public static /* synthetic */ boolean createLaunchInfo$default(MediaLivePlayLogger mediaLivePlayLogger, String str, boolean z, int i, Object obj) {
-        if ((i & 2) != 0) {
-            z = true;
-        }
-        return mediaLivePlayLogger.createLaunchInfo(str, z);
-    }
-
-    public static /* synthetic */ void startLaunchInfoSigleLine$default(MediaLivePlayLogger mediaLivePlayLogger, String str, String str2, boolean z, int i, Object obj) {
-        if ((i & 4) != 0) {
-            z = false;
-        }
-        mediaLivePlayLogger.startLaunchInfoSigleLine(str, str2, z);
-    }
-
-    public final void addSigleLineSlot(String str, String str2, Boolean bool) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, bool) == null) {
-            if (this.isDebug) {
-                logDebug("addSigleLineSlot " + str + WebvttCueParser.CHAR_SPACE + str2);
-            }
-            this.roomId = str != null ? str : this.roomId;
-            MediaLivePlayLogUtils.INSTANCE.startSigleLineSlot(str, str2, bool);
-        }
-    }
-
     public final void close() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             MediaLivePlayLogUtils.endFlow$default(MediaLivePlayLogUtils.INSTANCE, this.roomId, null, 2, null);
-        }
-    }
-
-    public final boolean createLaunchInfo(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z)) == null) {
-            this.roomId = str;
-            return MediaLivePlayLogUtils.INSTANCE.createLaunchInfo(str, z);
-        }
-        return invokeLZ.booleanValue;
-    }
-
-    public final Object get(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
-            if (str == null) {
-                str = this.roomId;
-            }
-            this.roomId = str;
-            return MediaLivePlayLogUtils.INSTANCE.get(str, str2);
-        }
-        return invokeLL.objValue;
-    }
-
-    public final void logDebug(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && this.isDebug) {
-            Log.d(MEDIA_LIVE_PLUGIN_TAG, str);
         }
     }
 
@@ -318,7 +239,41 @@ public final class MediaLivePlayLogger {
         }
     }
 
-    public final HashMap<String, Object> popLaunchInfo(String str) {
+    public MediaLivePlayLogger() {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        AppInfoService appInfoService = (AppInfoService) ServiceManager.getService(AppInfoService.Companion.getSERVICE_REFERENCE());
+        if (appInfoService != null) {
+            z = appInfoService.isDebug();
+        } else {
+            z = false;
+        }
+        this.isDebug = z;
+    }
+
+    public /* synthetic */ MediaLivePlayLogger(DefaultConstructorMarker defaultConstructorMarker) {
+        this();
+    }
+
+    public final void logDebug(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && this.isDebug) {
+            Log.d(MEDIA_LIVE_PLUGIN_TAG, str);
+        }
+    }
+
+    public final HashMap popLaunchInfo(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
@@ -334,26 +289,6 @@ public final class MediaLivePlayLogger {
         return (HashMap) invokeL.objValue;
     }
 
-    public final void put(String str, String str2, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048593, this, str, str2, obj) == null) {
-            if (str == null) {
-                str = this.roomId;
-            }
-            this.roomId = str;
-            MediaLivePlayLogUtils.INSTANCE.put(str, str2, obj);
-        }
-    }
-
-    public final void startLaunchInfoSigleLine(String str, String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048594, this, str, str2, z) == null) {
-            this.roomId = str != null ? str : this.roomId;
-            logDebug("staSigLin " + str + ": " + str2);
-            MediaLivePlayLogUtils.INSTANCE.startSigleLineSlot(this.roomId, str2, Boolean.valueOf(z));
-        }
-    }
-
     public final void updateLaunchInfo(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, obj) == null) {
@@ -366,7 +301,90 @@ public final class MediaLivePlayLogger {
         }
     }
 
-    public /* synthetic */ MediaLivePlayLogger(DefaultConstructorMarker defaultConstructorMarker) {
-        this();
+    public static /* synthetic */ void addSigleLineSlot$default(MediaLivePlayLogger mediaLivePlayLogger, String str, String str2, Boolean bool, int i, Object obj) {
+        if ((i & 4) != 0) {
+            bool = Boolean.TRUE;
+        }
+        mediaLivePlayLogger.addSigleLineSlot(str, str2, bool);
+    }
+
+    public static /* synthetic */ void startLaunchInfoSigleLine$default(MediaLivePlayLogger mediaLivePlayLogger, String str, String str2, boolean z, int i, Object obj) {
+        if ((i & 4) != 0) {
+            z = false;
+        }
+        mediaLivePlayLogger.startLaunchInfoSigleLine(str, str2, z);
+    }
+
+    public static /* synthetic */ boolean createLaunchInfo$default(MediaLivePlayLogger mediaLivePlayLogger, String str, boolean z, int i, Object obj) {
+        if ((i & 2) != 0) {
+            z = true;
+        }
+        return mediaLivePlayLogger.createLaunchInfo(str, z);
+    }
+
+    public final void addSigleLineSlot(String str, String str2, Boolean bool) {
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, bool) == null) {
+            if (this.isDebug) {
+                logDebug("addSigleLineSlot " + str + WebvttCueParser.CHAR_SPACE + str2);
+            }
+            if (str != null) {
+                str3 = str;
+            } else {
+                str3 = this.roomId;
+            }
+            this.roomId = str3;
+            MediaLivePlayLogUtils.INSTANCE.startSigleLineSlot(str, str2, bool);
+        }
+    }
+
+    public final void startLaunchInfoSigleLine(String str, String str2, boolean z) {
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(1048594, this, str, str2, z) == null) {
+            if (str != null) {
+                str3 = str;
+            } else {
+                str3 = this.roomId;
+            }
+            this.roomId = str3;
+            logDebug("staSigLin " + str + ": " + str2);
+            MediaLivePlayLogUtils.INSTANCE.startSigleLineSlot(this.roomId, str2, Boolean.valueOf(z));
+        }
+    }
+
+    public final boolean createLaunchInfo(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z)) == null) {
+            this.roomId = str;
+            return MediaLivePlayLogUtils.INSTANCE.createLaunchInfo(str, z);
+        }
+        return invokeLZ.booleanValue;
+    }
+
+    public final Object get(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
+            if (str == null) {
+                str = this.roomId;
+            }
+            this.roomId = str;
+            return MediaLivePlayLogUtils.INSTANCE.get(str, str2);
+        }
+        return invokeLL.objValue;
+    }
+
+    public final void put(String str, String str2, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048593, this, str, str2, obj) == null) {
+            if (str == null) {
+                str = this.roomId;
+            }
+            this.roomId = str;
+            MediaLivePlayLogUtils.INSTANCE.put(str, str2, obj);
+        }
     }
 }

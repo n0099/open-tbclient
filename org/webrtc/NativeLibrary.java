@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class NativeLibrary {
     public static /* synthetic */ Interceptable $ic = null;
     public static String TAG = "NativeLibrary";
@@ -16,8 +16,8 @@ public class NativeLibrary {
     public static Object lock;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
-    public static class DefaultLoader implements NativeLibraryLoader {
+    /* loaded from: classes8.dex */
+    public class DefaultLoader implements NativeLibraryLoader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -86,6 +86,19 @@ public class NativeLibrary {
         }
     }
 
+    public static boolean isLoaded() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            synchronized (lock) {
+                z = libraryLoaded;
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
     public static void initialize(NativeLibraryLoader nativeLibraryLoader, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, nativeLibraryLoader, str) == null) {
@@ -99,18 +112,5 @@ public class NativeLibrary {
                 }
             }
         }
-    }
-
-    public static boolean isLoaded() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            synchronized (lock) {
-                z = libraryLoaded;
-            }
-            return z;
-        }
-        return invokeV.booleanValue;
     }
 }

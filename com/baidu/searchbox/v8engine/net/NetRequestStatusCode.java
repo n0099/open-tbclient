@@ -75,12 +75,18 @@ public final class NetRequestStatusCode {
     public static NetRequestStatusCode valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (NetRequestStatusCode) Enum.valueOf(NetRequestStatusCode.class, str) : (NetRequestStatusCode) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (NetRequestStatusCode) Enum.valueOf(NetRequestStatusCode.class, str);
+        }
+        return (NetRequestStatusCode) invokeL.objValue;
     }
 
     public static NetRequestStatusCode[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (NetRequestStatusCode[]) $VALUES.clone() : (NetRequestStatusCode[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (NetRequestStatusCode[]) $VALUES.clone();
+        }
+        return (NetRequestStatusCode[]) invokeV.objValue;
     }
 }

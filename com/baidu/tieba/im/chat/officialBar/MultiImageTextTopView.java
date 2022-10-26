@@ -18,11 +18,11 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.l97;
-import com.baidu.tieba.qa7;
-import com.baidu.tieba.tc7;
-import com.baidu.tieba.wb7;
-import com.baidu.tieba.yf;
+import com.baidu.tieba.bd7;
+import com.baidu.tieba.ec7;
+import com.baidu.tieba.t97;
+import com.baidu.tieba.ya7;
+import com.baidu.tieba.zf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,7 +36,7 @@ public class MultiImageTextTopView extends RelativeLayout {
     public TbImageView b;
     public TextView c;
     public TextView d;
-    public yf e;
+    public zf e;
     public int f;
 
     /* loaded from: classes4.dex */
@@ -82,12 +82,12 @@ public class MultiImageTextTopView extends RelativeLayout {
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qa7.a a;
+        public final /* synthetic */ ya7.a a;
         public final /* synthetic */ TbPageContext b;
         public final /* synthetic */ int c;
         public final /* synthetic */ MultiImageTextTopView d;
 
-        public b(MultiImageTextTopView multiImageTextTopView, qa7.a aVar, TbPageContext tbPageContext, int i) {
+        public b(MultiImageTextTopView multiImageTextTopView, ya7.a aVar, TbPageContext tbPageContext, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -110,30 +110,29 @@ public class MultiImageTextTopView extends RelativeLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            qa7.a aVar;
+            ya7.a aVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (aVar = this.a) == null || StringUtils.isNull(aVar.d)) {
-                return;
-            }
-            UrlManager.getInstance().dealOneLink(this.b, new String[]{this.a.d});
-            if (this.c == 1) {
-                TiebaStatic.eventStat(this.d.a, "official_msg_ck", "click", 1, "fid", this.a.e);
-                l97 m = tc7.m(this.a.f);
-                if (m != null) {
-                    TiebaStatic.eventStat(this.d.a, "message_open_detail", "click", 1, "task_type", m.a, "task_id", m.b, "loc", "0");
-                    int i = this.a.g;
-                    if ((i == 1 || i == 3) && !"0".equals(m.b)) {
-                        wb7.c().a(m.b);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (aVar = this.a) != null && !StringUtils.isNull(aVar.d)) {
+                UrlManager.getInstance().dealOneLink(this.b, new String[]{this.a.d});
+                if (this.c == 1) {
+                    TiebaStatic.eventStat(this.d.a, "official_msg_ck", "click", 1, "fid", this.a.e);
+                    t97 m = bd7.m(this.a.f);
+                    if (m != null) {
+                        TiebaStatic.eventStat(this.d.a, "message_open_detail", "click", 1, "task_type", m.a, "task_id", m.b, "loc", "0");
+                        int i = this.a.g;
+                        if ((i == 1 || i == 3) && !"0".equals(m.b)) {
+                            ec7.c().a(m.b);
+                        }
                     }
+                    StatisticItem statisticItem = new StatisticItem("official_message_open_detail");
+                    statisticItem.param("msg_id", this.a.h / 100);
+                    statisticItem.param("official_id", this.a.i);
+                    statisticItem.param("official_type", this.a.j);
+                    statisticItem.param("operate_time", System.currentTimeMillis() / 1000);
+                    statisticItem.param("task_id", this.a.k);
+                    statisticItem.param("obj_params1", this.a.d);
+                    TiebaStatic.log(statisticItem);
                 }
-                StatisticItem statisticItem = new StatisticItem("official_message_open_detail");
-                statisticItem.param("msg_id", this.a.h / 100);
-                statisticItem.param("official_id", this.a.i);
-                statisticItem.param("official_type", this.a.j);
-                statisticItem.param("operate_time", System.currentTimeMillis() / 1000);
-                statisticItem.param("task_id", this.a.k);
-                statisticItem.param("obj_params1", this.a.d);
-                TiebaStatic.log(statisticItem);
             }
         }
     }
@@ -156,89 +155,6 @@ public class MultiImageTextTopView extends RelativeLayout {
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d05a1, (ViewGroup) this, true);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09229b);
-            this.b = tbImageView;
-            tbImageView.setAutoChangeStyle(false);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0922b5);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091ecd);
-            setOnLongClickListener(new a(this));
-        }
-    }
-
-    public void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (!z) {
-                skinType = 0;
-            }
-            this.b.setAutoChangeStyle(z);
-            SkinManager.setViewTextColor(this.c, R.color.CAM_X0111, 1, skinType);
-            SkinManager.setViewTextColor(this.d, R.color.common_color_10067, 1, skinType);
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.c.setText("");
-            this.b.setBackgroundDrawable(null);
-            this.b.setImageDrawable(null);
-            this.d.setVisibility(8);
-            this.d.setText("");
-        }
-    }
-
-    public void setData(TbPageContext<?> tbPageContext, qa7.a aVar, View view2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(1048579, this, tbPageContext, aVar, view2, i) == null) {
-            setPadding((int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f070201), (int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f070201), (int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f070201), (int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f070201));
-            if (aVar == null) {
-                return;
-            }
-            this.c.setText(!TextUtils.isEmpty(aVar.a) ? aVar.a : "");
-            if (!TextUtils.isEmpty(aVar.d)) {
-                setOnClickListener(new b(this, aVar, tbPageContext, i));
-            }
-            if (TextUtils.isEmpty(aVar.c)) {
-                return;
-            }
-            this.b.setTag(aVar.c);
-            this.b.K(aVar.c, 10, false);
-        }
-    }
-
-    public void setOnItemViewLongClickListener(yf yfVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, yfVar) == null) {
-            this.e = yfVar;
-        }
-    }
-
-    public void setPosition(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.f = i;
-        }
-    }
-
-    public void setTime(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            if (TextUtils.isEmpty(str)) {
-                this.d.setVisibility(8);
-                this.d.setText("");
-                return;
-            }
-            this.d.setVisibility(0);
-            this.d.setText(str);
         }
     }
 
@@ -285,5 +201,93 @@ public class MultiImageTextTopView extends RelativeLayout {
         this.e = null;
         this.a = context;
         d();
+    }
+
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            if (!z) {
+                skinType = 0;
+            }
+            this.b.setAutoChangeStyle(z);
+            SkinManager.setViewTextColor(this.c, R.color.CAM_X0111, 1, skinType);
+            SkinManager.setViewTextColor(this.d, R.color.common_color_10067, 1, skinType);
+        }
+    }
+
+    public void setOnItemViewLongClickListener(zf zfVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, zfVar) == null) {
+            this.e = zfVar;
+        }
+    }
+
+    public void setPosition(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.f = i;
+        }
+    }
+
+    public void setTime(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            if (TextUtils.isEmpty(str)) {
+                this.d.setVisibility(8);
+                this.d.setText("");
+                return;
+            }
+            this.d.setVisibility(0);
+            this.d.setText(str);
+        }
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d05a1, (ViewGroup) this, true);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092285);
+            this.b = tbImageView;
+            tbImageView.setAutoChangeStyle(false);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09229f);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091ecc);
+            setOnLongClickListener(new a(this));
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.c.setText("");
+            this.b.setBackgroundDrawable(null);
+            this.b.setImageDrawable(null);
+            this.d.setVisibility(8);
+            this.d.setText("");
+        }
+    }
+
+    public void setData(TbPageContext tbPageContext, ya7.a aVar, View view2, int i) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLI(1048579, this, tbPageContext, aVar, view2, i) == null) {
+            setPadding((int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f070201), (int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f070201), (int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f070201), (int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f070201));
+            if (aVar == null) {
+                return;
+            }
+            if (!TextUtils.isEmpty(aVar.a)) {
+                str = aVar.a;
+            } else {
+                str = "";
+            }
+            this.c.setText(str);
+            if (!TextUtils.isEmpty(aVar.d)) {
+                setOnClickListener(new b(this, aVar, tbPageContext, i));
+            }
+            if (!TextUtils.isEmpty(aVar.c)) {
+                this.b.setTag(aVar.c);
+                this.b.L(aVar.c, 10, false);
+            }
+        }
     }
 }

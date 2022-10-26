@@ -59,7 +59,7 @@ public final class aj extends bx.a {
             iiVar.c(ht.g.f506a);
             iiVar.a(bd.a());
             iiVar.a(new HashMap());
-            a.a(iiVar.m482a());
+            a.a(iiVar.m481a());
             byte[] a3 = it.a(ah.a(this.a.getPackageName(), this.f889a.d, iiVar, hj.i));
             XMPushService xMPushService = this.a;
             xMPushService.a(xMPushService.getPackageName(), a3, true);

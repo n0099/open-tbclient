@@ -1,7 +1,7 @@
 package com.baidu.live.business.model.data;
 
-import com.baidu.tieba.fc0;
-import com.baidu.tieba.ic0;
+import com.baidu.tieba.gc0;
+import com.baidu.tieba.jc0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -16,11 +16,11 @@ public class LiveFollowWrapData {
     public transient /* synthetic */ FieldHolder $fh;
     public int errCode;
     public String errMsg;
-    public List<LiveFollowEntity> followList;
+    public List followList;
     public FollowMore followMore;
 
     /* loaded from: classes2.dex */
-    public static class FollowMore {
+    public class FollowMore {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String scheme;
@@ -63,7 +63,7 @@ public class LiveFollowWrapData {
     public void parserJson(JSONObject jSONObject) {
         JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         this.errCode = jSONObject.optInt("inner_errno");
@@ -80,13 +80,11 @@ public class LiveFollowWrapData {
                 }
             }
         }
-        if (fc0.c(this.followList) || (optJSONObject = jSONObject.optJSONObject("more")) == null) {
-            return;
+        if (!gc0.c(this.followList) && (optJSONObject = jSONObject.optJSONObject("more")) != null) {
+            String optString = optJSONObject.optString("scheme");
+            if (!jc0.a(optString)) {
+                this.followMore = new FollowMore(optString, optJSONObject.optString("txt"));
+            }
         }
-        String optString = optJSONObject.optString("scheme");
-        if (ic0.a(optString)) {
-            return;
-        }
-        this.followMore = new FollowMore(optString, optJSONObject.optString("txt"));
     }
 }

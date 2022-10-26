@@ -63,10 +63,10 @@ public class RequestBodyHelper {
                 sb.append("\r\n");
                 outputStream.write(sb.toString().getBytes("UTF-8"));
             }
-            Map<String, IRequestParam.ValuePart<File>> files = iRequestParam.files();
+            Map files = iRequestParam.files();
             for (String str3 : files.keySet()) {
-                IRequestParam.ValuePart<File> valuePart = files.get(str3);
-                File file = valuePart.value;
+                IRequestParam.ValuePart valuePart = (IRequestParam.ValuePart) files.get(str3);
+                File file = (File) valuePart.value;
                 String str4 = valuePart.mimeType;
                 StringBuffer stringBuffer = new StringBuffer();
                 stringBuffer.append("--");
@@ -93,7 +93,7 @@ public class RequestBodyHelper {
                 fileInputStream.close();
                 outputStream.write("\r\n".getBytes());
             }
-            Map<String, byte[]> byteArrays = iRequestParam.byteArrays();
+            Map byteArrays = iRequestParam.byteArrays();
             for (String str5 : byteArrays.keySet()) {
                 StringBuffer stringBuffer2 = new StringBuffer();
                 stringBuffer2.append("--");
@@ -106,7 +106,7 @@ public class RequestBodyHelper {
                 stringBuffer2.append("Content-Type: text/plain;charset:\"UTF-8\"\r\n");
                 stringBuffer2.append("\r\n");
                 outputStream.write(stringBuffer2.toString().getBytes());
-                outputStream.write(byteArrays.get(str5));
+                outputStream.write((byte[]) byteArrays.get(str5));
                 outputStream.write("\r\n".getBytes());
             }
             outputStream.write(("--" + str + "--\r\n").getBytes());
@@ -186,7 +186,12 @@ public class RequestBodyHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, iRequestParam)) == null) {
-            return (iRequestParam.files().isEmpty() && iRequestParam.byteArrays().isEmpty()) ? false : true;
+            Map files = iRequestParam.files();
+            Map byteArrays = iRequestParam.byteArrays();
+            if (files.isEmpty() && byteArrays.isEmpty()) {
+                return false;
+            }
+            return true;
         }
         return invokeL.booleanValue;
     }

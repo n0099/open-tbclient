@@ -20,11 +20,11 @@ public final class a {
 
     /* renamed from: com.baidu.sofire.face.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0164a implements Comparator<Camera.Size> {
+    public final class C0165a implements Comparator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0164a() {
+        public C0165a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -38,27 +38,29 @@ public final class a {
             }
         }
 
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
         @Override // java.util.Comparator
-        public int compare(Camera.Size size, Camera.Size size2) {
+        public int compare(Object obj, Object obj2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, size, size2)) == null) {
-                Camera.Size size3 = size;
-                Camera.Size size4 = size2;
-                int i = size3.height * size3.width;
-                int i2 = size4.height * size4.width;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, obj2)) == null) {
+                Camera.Size size = (Camera.Size) obj;
+                Camera.Size size2 = (Camera.Size) obj2;
+                int i = size.height * size.width;
+                int i2 = size2.height * size2.width;
                 if (i2 < i) {
                     return -1;
                 }
-                return i2 > i ? 1 : 0;
+                if (i2 > i) {
+                    return 1;
+                }
+                return 0;
             }
             return invokeLL.intValue;
         }
     }
 
     /* loaded from: classes2.dex */
-    public static class b implements Comparator<Camera.Size> {
+    public final class b implements Comparator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -76,87 +78,32 @@ public final class a {
             }
         }
 
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
         @Override // java.util.Comparator
-        public int compare(Camera.Size size, Camera.Size size2) {
+        public int compare(Object obj, Object obj2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, size, size2)) == null) {
-                Camera.Size size3 = size;
-                Camera.Size size4 = size2;
-                int i = size3.height * size3.width;
-                int i2 = size4.height * size4.width;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, obj2)) == null) {
+                Camera.Size size = (Camera.Size) obj;
+                Camera.Size size2 = (Camera.Size) obj2;
+                int i = size.height * size.width;
+                int i2 = size2.height * size2.width;
                 if (i2 < i) {
                     return 1;
                 }
-                return i2 > i ? -1 : 0;
+                if (i2 > i) {
+                    return -1;
+                }
+                return 0;
             }
             return invokeLL.intValue;
         }
-    }
-
-    public static Point a(Camera.Parameters parameters, Point point) {
-        InterceptResult invokeLL;
-        double d;
-        double d2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, parameters, point)) == null) {
-            List<Camera.Size> supportedPreviewSizes = parameters.getSupportedPreviewSizes();
-            if (supportedPreviewSizes == null) {
-                parameters.getPreviewSize();
-                return new Point(640, 480);
-            }
-            ArrayList arrayList = new ArrayList(supportedPreviewSizes);
-            Collections.sort(arrayList, new C0164a());
-            int i = point.x;
-            int i2 = point.y;
-            if (i > i2) {
-                d = i;
-                d2 = i2;
-            } else {
-                d = i2;
-                d2 = i;
-            }
-            double d3 = d / d2;
-            Camera.Size size = null;
-            Iterator it = arrayList.iterator();
-            double d4 = -1.0d;
-            while (it.hasNext()) {
-                Camera.Size size2 = (Camera.Size) it.next();
-                int i3 = size2.width;
-                int i4 = size2.height;
-                int i5 = i3 * i4;
-                if (i5 < 307200) {
-                    it.remove();
-                } else if (i5 > 2073600) {
-                    it.remove();
-                } else if (i4 % 4 == 0 && i3 % 4 == 0) {
-                    double abs = Math.abs((i3 > i4 ? i3 / i4 : i4 / i3) - d3);
-                    boolean z = false;
-                    if ((d4 == -1.0d && abs <= 0.25d) || (d4 >= abs && abs <= 0.25d)) {
-                        z = true;
-                    }
-                    if (z) {
-                        size = size2;
-                        d4 = abs;
-                    }
-                } else {
-                    it.remove();
-                }
-            }
-            if (size != null) {
-                return new Point(size.width, size.height);
-            }
-            parameters.getPreviewSize();
-            return new Point(640, 480);
-        }
-        return (Point) invokeLL.objValue;
     }
 
     public static Point a(Camera.Parameters parameters, int i, int i2) {
         InterceptResult invokeLII;
         double d;
         double d2;
+        double d3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65536, null, parameters, i, i2)) == null) {
             List<Camera.Size> supportedPreviewSizes = parameters.getSupportedPreviewSizes();
@@ -171,7 +118,7 @@ public final class a {
                     d = i2;
                     d2 = i;
                 }
-                double d3 = d / d2;
+                double d4 = d / d2;
                 HashMap hashMap = new HashMap();
                 for (Camera.Size size : supportedVideoSizes) {
                     int i3 = 0;
@@ -188,7 +135,7 @@ public final class a {
                 Collections.sort(arrayList, new b());
                 Iterator it = arrayList.iterator();
                 Point point = null;
-                double d4 = Double.MAX_VALUE;
+                double d5 = Double.MAX_VALUE;
                 while (it.hasNext()) {
                     Camera.Size size3 = (Camera.Size) it.next();
                     int i4 = size3.width;
@@ -199,19 +146,91 @@ public final class a {
                     } else if (i6 > 2073600) {
                         it.remove();
                     } else if (i5 % 2 == 0 && i4 % 2 == 0) {
-                        double abs = Math.abs((i4 > i5 ? i4 / i5 : i5 / i4) - d3);
-                        if (abs < d4) {
+                        if (i4 > i5) {
+                            d3 = i4 / i5;
+                        } else {
+                            d3 = i5 / i4;
+                        }
+                        double abs = Math.abs(d3 - d4);
+                        if (abs < d5) {
                             point = new Point(size3.width, size3.height);
-                            d4 = abs;
+                            d5 = abs;
                         }
                     } else {
                         it.remove();
                     }
                 }
-                return point == null ? new Point(640, 480) : point;
+                if (point == null) {
+                    return new Point(640, 480);
+                }
+                return point;
             }
             return new Point(640, 480);
         }
         return (Point) invokeLII.objValue;
+    }
+
+    public static Point a(Camera.Parameters parameters, Point point) {
+        InterceptResult invokeLL;
+        double d;
+        double d2;
+        double d3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, parameters, point)) == null) {
+            List<Camera.Size> supportedPreviewSizes = parameters.getSupportedPreviewSizes();
+            if (supportedPreviewSizes == null) {
+                parameters.getPreviewSize();
+                return new Point(640, 480);
+            }
+            ArrayList arrayList = new ArrayList(supportedPreviewSizes);
+            Collections.sort(arrayList, new C0165a());
+            int i = point.x;
+            int i2 = point.y;
+            if (i > i2) {
+                d = i;
+                d2 = i2;
+            } else {
+                d = i2;
+                d2 = i;
+            }
+            double d4 = d / d2;
+            Camera.Size size = null;
+            Iterator it = arrayList.iterator();
+            double d5 = -1.0d;
+            while (it.hasNext()) {
+                Camera.Size size2 = (Camera.Size) it.next();
+                int i3 = size2.width;
+                int i4 = size2.height;
+                int i5 = i3 * i4;
+                if (i5 < 307200) {
+                    it.remove();
+                } else if (i5 > 2073600) {
+                    it.remove();
+                } else if (i4 % 4 == 0 && i3 % 4 == 0) {
+                    if (i3 > i4) {
+                        d3 = i3 / i4;
+                    } else {
+                        d3 = i4 / i3;
+                    }
+                    double abs = Math.abs(d3 - d4);
+                    boolean z = false;
+                    if ((d5 == -1.0d && abs <= 0.25d) || (d5 >= abs && abs <= 0.25d)) {
+                        z = true;
+                    }
+                    if (z) {
+                        size = size2;
+                        d5 = abs;
+                    }
+                } else {
+                    it.remove();
+                }
+            }
+            if (size != null) {
+                return new Point(size.width, size.height);
+            }
+            parameters.getPreviewSize();
+            return new Point(640, 480);
+        }
+        return (Point) invokeLL.objValue;
     }
 }

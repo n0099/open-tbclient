@@ -2,12 +2,12 @@ package com.baidu.pass.biometrics.base.callback;
 
 import com.baidu.pass.biometrics.base.result.PassBiometricResult;
 /* loaded from: classes2.dex */
-public interface PassBiometricCallback<R extends PassBiometricResult> {
-    void onFailure(R r);
+public interface PassBiometricCallback {
+    void onFailure(PassBiometricResult passBiometricResult);
 
     void onFinish();
 
     void onStart();
 
-    void onSuccess(R r);
+    void onSuccess(PassBiometricResult passBiometricResult);
 }

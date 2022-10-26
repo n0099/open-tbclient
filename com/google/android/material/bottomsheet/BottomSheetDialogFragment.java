@@ -4,8 +4,6 @@ import android.app.Dialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDialogFragment;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -23,7 +21,7 @@ public class BottomSheetDialogFragment extends AppCompatDialogFragment {
 
     /* renamed from: com.google.android.material.bottomsheet.BottomSheetDialogFragment$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -33,6 +31,13 @@ public class BottomSheetDialogFragment extends AppCompatDialogFragment {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BottomSheetDialogFragment this$0;
+
+        @Override // com.google.android.material.bottomsheet.BottomSheetBehavior.BottomSheetCallback
+        public void onSlide(View view2, float f) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLF(1048576, this, view2, f) == null) {
+            }
+        }
 
         public BottomSheetDismissCallback(BottomSheetDialogFragment bottomSheetDialogFragment) {
             Interceptable interceptable = $ic;
@@ -52,23 +57,16 @@ public class BottomSheetDialogFragment extends AppCompatDialogFragment {
             this.this$0 = bottomSheetDialogFragment;
         }
 
-        @Override // com.google.android.material.bottomsheet.BottomSheetBehavior.BottomSheetCallback
-        public void onSlide(@NonNull View view2, float f) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLF(1048576, this, view2, f) == null) {
-            }
+        public /* synthetic */ BottomSheetDismissCallback(BottomSheetDialogFragment bottomSheetDialogFragment, AnonymousClass1 anonymousClass1) {
+            this(bottomSheetDialogFragment);
         }
 
         @Override // com.google.android.material.bottomsheet.BottomSheetBehavior.BottomSheetCallback
-        public void onStateChanged(@NonNull View view2, int i) {
+        public void onStateChanged(View view2, int i) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i) == null) && i == 5) {
                 this.this$0.dismissAfterAnimation();
             }
-        }
-
-        public /* synthetic */ BottomSheetDismissCallback(BottomSheetDialogFragment bottomSheetDialogFragment, AnonymousClass1 anonymousClass1) {
-            this(bottomSheetDialogFragment);
         }
     }
 
@@ -98,19 +96,19 @@ public class BottomSheetDialogFragment extends AppCompatDialogFragment {
         }
     }
 
-    private void dismissWithAnimation(@NonNull BottomSheetBehavior<?> bottomSheetBehavior, boolean z) {
+    @Override // androidx.fragment.app.DialogFragment
+    public void dismiss() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65539, this, bottomSheetBehavior, z) == null) {
-            this.waitingForDismissAllowingStateLoss = z;
-            if (bottomSheetBehavior.getState() == 5) {
-                dismissAfterAnimation();
-                return;
-            }
-            if (getDialog() instanceof BottomSheetDialog) {
-                ((BottomSheetDialog) getDialog()).removeDefaultCallback();
-            }
-            bottomSheetBehavior.addBottomSheetCallback(new BottomSheetDismissCallback(this, null));
-            bottomSheetBehavior.setState(5);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !tryDismissWithAnimation(false)) {
+            super.dismiss();
+        }
+    }
+
+    @Override // androidx.fragment.app.DialogFragment
+    public void dismissAllowingStateLoss() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !tryDismissWithAnimation(true)) {
+            super.dismissAllowingStateLoss();
         }
     }
 
@@ -133,29 +131,29 @@ public class BottomSheetDialogFragment extends AppCompatDialogFragment {
         return invokeZ.booleanValue;
     }
 
-    @Override // androidx.fragment.app.DialogFragment
-    public void dismiss() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || tryDismissWithAnimation(false)) {
-            return;
-        }
-        super.dismiss();
-    }
-
-    @Override // androidx.fragment.app.DialogFragment
-    public void dismissAllowingStateLoss() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || tryDismissWithAnimation(true)) {
-            return;
-        }
-        super.dismissAllowingStateLoss();
-    }
-
     @Override // androidx.appcompat.app.AppCompatDialogFragment, androidx.fragment.app.DialogFragment
-    @NonNull
-    public Dialog onCreateDialog(@Nullable Bundle bundle) {
+    public Dialog onCreateDialog(Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle)) == null) ? new BottomSheetDialog(getContext(), getTheme()) : (Dialog) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle)) == null) {
+            return new BottomSheetDialog(getContext(), getTheme());
+        }
+        return (Dialog) invokeL.objValue;
+    }
+
+    private void dismissWithAnimation(BottomSheetBehavior bottomSheetBehavior, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65539, this, bottomSheetBehavior, z) == null) {
+            this.waitingForDismissAllowingStateLoss = z;
+            if (bottomSheetBehavior.getState() == 5) {
+                dismissAfterAnimation();
+                return;
+            }
+            if (getDialog() instanceof BottomSheetDialog) {
+                ((BottomSheetDialog) getDialog()).removeDefaultCallback();
+            }
+            bottomSheetBehavior.addBottomSheetCallback(new BottomSheetDismissCallback(this, null));
+            bottomSheetBehavior.setState(5);
+        }
     }
 }

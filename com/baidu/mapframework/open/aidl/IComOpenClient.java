@@ -16,13 +16,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public interface IComOpenClient extends IInterface {
 
     /* loaded from: classes2.dex */
-    public static abstract class a extends Binder implements IComOpenClient {
+    public abstract class a extends Binder implements IComOpenClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.baidu.mapframework.open.aidl.IComOpenClient$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public static class C0103a implements IComOpenClient {
+        public class C0103a implements IComOpenClient {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder a;

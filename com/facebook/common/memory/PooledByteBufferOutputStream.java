@@ -12,6 +12,10 @@ public abstract class PooledByteBufferOutputStream extends OutputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract int size();
+
+    public abstract PooledByteBuffer toByteBuffer();
+
     public PooledByteBufferOutputStream() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -37,8 +41,4 @@ public abstract class PooledByteBufferOutputStream extends OutputStream {
             }
         }
     }
-
-    public abstract int size();
-
-    public abstract PooledByteBuffer toByteBuffer();
 }

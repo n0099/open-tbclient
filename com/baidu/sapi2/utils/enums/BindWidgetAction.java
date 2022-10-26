@@ -71,24 +71,36 @@ public final class BindWidgetAction {
     public static BindWidgetAction valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (BindWidgetAction) Enum.valueOf(BindWidgetAction.class, str) : (BindWidgetAction) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (BindWidgetAction) Enum.valueOf(BindWidgetAction.class, str);
+        }
+        return (BindWidgetAction) invokeL.objValue;
     }
 
     public static BindWidgetAction[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (BindWidgetAction[]) $VALUES.clone() : (BindWidgetAction[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (BindWidgetAction[]) $VALUES.clone();
+        }
+        return (BindWidgetAction[]) invokeV.objValue;
     }
 
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.name : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.name;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getUri() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.uri : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.uri;
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -18,12 +18,12 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class DistrictResult extends SearchResult implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<DistrictResult> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public LatLng centerPt;
     public int cityCode;
     public String cityName;
-    public List<List<LatLng>> polylines;
+    public List polylines;
 
     static {
         InterceptResult invokeClinit;
@@ -120,7 +120,7 @@ public class DistrictResult extends SearchResult implements Parcelable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.cityName : (String) invokeV.objValue;
     }
 
-    public List<List<LatLng>> getPolylines() {
+    public List getPolylines() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.polylines : (List) invokeV.objValue;
@@ -147,7 +147,7 @@ public class DistrictResult extends SearchResult implements Parcelable {
         }
     }
 
-    public void setPolylines(List<List<LatLng>> list) {
+    public void setPolylines(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
             this.polylines = list;
@@ -160,9 +160,9 @@ public class DistrictResult extends SearchResult implements Parcelable {
         if (interceptable == null || interceptable.invokeLI(1048585, this, parcel, i) == null) {
             super.writeToParcel(parcel, i);
             parcel.writeParcelable(this.centerPt, i);
-            List<List<LatLng>> list = this.polylines;
+            List list = this.polylines;
             parcel.writeInt(list == null ? 0 : list.size());
-            for (List<LatLng> list2 : this.polylines) {
+            for (List list2 : this.polylines) {
                 parcel.writeTypedList(list2);
             }
             parcel.writeInt(this.cityCode);

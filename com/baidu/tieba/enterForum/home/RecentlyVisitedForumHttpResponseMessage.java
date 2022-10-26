@@ -21,7 +21,7 @@ import tbclient.HistoryForumInfo;
 public class RecentlyVisitedForumHttpResponseMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<VisitedForumData> mForumData;
+    public LinkedList mForumData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RecentlyVisitedForumHttpResponseMessage() {
@@ -41,10 +41,13 @@ public class RecentlyVisitedForumHttpResponseMessage extends HttpResponsedMessag
         }
     }
 
-    public LinkedList<VisitedForumData> getForumData() {
+    public LinkedList getForumData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mForumData : (LinkedList) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mForumData;
+        }
+        return (LinkedList) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -56,7 +59,7 @@ public class RecentlyVisitedForumHttpResponseMessage extends HttpResponsedMessag
         String str;
         Integer num;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (getHistoryForumResIdl = (GetHistoryForumResIdl) new Wire(new Class[0]).parseFrom(bArr, GetHistoryForumResIdl.class)) == null) {
+        if ((interceptable != null && interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) != null) || (getHistoryForumResIdl = (GetHistoryForumResIdl) new Wire(new Class[0]).parseFrom(bArr, GetHistoryForumResIdl.class)) == null) {
             return;
         }
         Error error = getHistoryForumResIdl.error;
@@ -67,24 +70,23 @@ public class RecentlyVisitedForumHttpResponseMessage extends HttpResponsedMessag
         if (error2 != null && (str = error2.usermsg) != null && str.length() > 0) {
             setErrorString(getHistoryForumResIdl.error.usermsg);
         }
-        if (getError() != 0 || (dataRes = getHistoryForumResIdl.data) == null || dataRes.history_forum == null) {
-            return;
-        }
-        this.mForumData = new LinkedList<>();
-        HashMap hashMap = new HashMap();
-        if (!ListUtils.isEmpty(getHistoryForumResIdl.data.this_week_forums)) {
-            for (HistoryForumInfo historyForumInfo : getHistoryForumResIdl.data.this_week_forums) {
-                if (historyForumInfo != null && (l = historyForumInfo.forum_id) != null) {
-                    hashMap.put(l, historyForumInfo);
+        if (getError() == 0 && (dataRes = getHistoryForumResIdl.data) != null && dataRes.history_forum != null) {
+            this.mForumData = new LinkedList();
+            HashMap hashMap = new HashMap();
+            if (!ListUtils.isEmpty(getHistoryForumResIdl.data.this_week_forums)) {
+                for (HistoryForumInfo historyForumInfo : getHistoryForumResIdl.data.this_week_forums) {
+                    if (historyForumInfo != null && (l = historyForumInfo.forum_id) != null) {
+                        hashMap.put(l, historyForumInfo);
+                    }
                 }
             }
-        }
-        for (HistoryForumInfo historyForumInfo2 : getHistoryForumResIdl.data.history_forum) {
-            if (historyForumInfo2 != null && historyForumInfo2.forum_id != null) {
-                VisitedForumData visitedForumData = new VisitedForumData();
-                visitedForumData.parseHistoryForum(historyForumInfo2);
-                visitedForumData.setIsPost(hashMap.containsKey(historyForumInfo2.forum_id));
-                this.mForumData.add(visitedForumData);
+            for (HistoryForumInfo historyForumInfo2 : getHistoryForumResIdl.data.history_forum) {
+                if (historyForumInfo2 != null && historyForumInfo2.forum_id != null) {
+                    VisitedForumData visitedForumData = new VisitedForumData();
+                    visitedForumData.parseHistoryForum(historyForumInfo2);
+                    visitedForumData.setIsPost(hashMap.containsKey(historyForumInfo2.forum_id));
+                    this.mForumData.add(visitedForumData);
+                }
             }
         }
     }

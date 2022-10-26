@@ -20,23 +20,23 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class ParallelReduceFull<T> extends Flowable<T> {
+public final class ParallelReduceFull extends Flowable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BiFunction<T, T, T> reducer;
-    public final ParallelFlowable<? extends T> source;
+    public final BiFunction reducer;
+    public final ParallelFlowable source;
 
     /* loaded from: classes8.dex */
-    public static final class ParallelReduceFullInnerSubscriber<T> extends AtomicReference<Subscription> implements FlowableSubscriber<T> {
+    public final class ParallelReduceFullInnerSubscriber extends AtomicReference implements FlowableSubscriber {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7954444275102466525L;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean done;
-        public final ParallelReduceFullMainSubscriber<T> parent;
-        public final BiFunction<T, T, T> reducer;
-        public T value;
+        public final ParallelReduceFullMainSubscriber parent;
+        public final BiFunction reducer;
+        public Object value;
 
-        public ParallelReduceFullInnerSubscriber(ParallelReduceFullMainSubscriber<T> parallelReduceFullMainSubscriber, BiFunction<T, T, T> biFunction) {
+        public ParallelReduceFullInnerSubscriber(ParallelReduceFullMainSubscriber parallelReduceFullMainSubscriber, BiFunction biFunction) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -65,11 +65,10 @@ public final class ParallelReduceFull<T> extends Flowable<T> {
         @Override // org.reactivestreams.Subscriber
         public void onComplete() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.done) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !this.done) {
+                this.done = true;
+                this.parent.innerComplete(this.value);
             }
-            this.done = true;
-            this.parent.innerComplete(this.value);
         }
 
         @Override // org.reactivestreams.Subscriber
@@ -85,26 +84,6 @@ public final class ParallelReduceFull<T> extends Flowable<T> {
             }
         }
 
-        @Override // org.reactivestreams.Subscriber
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, t) == null) || this.done) {
-                return;
-            }
-            T t2 = this.value;
-            if (t2 == null) {
-                this.value = t;
-                return;
-            }
-            try {
-                this.value = (T) ObjectHelper.requireNonNull(this.reducer.apply(t2, t), "The reducer returned a null value");
-            } catch (Throwable th) {
-                Exceptions.throwIfFatal(th);
-                get().cancel();
-                onError(th);
-            }
-        }
-
         @Override // io.reactivex.FlowableSubscriber, org.reactivestreams.Subscriber
         public void onSubscribe(Subscription subscription) {
             Interceptable interceptable = $ic;
@@ -112,21 +91,40 @@ public final class ParallelReduceFull<T> extends Flowable<T> {
                 SubscriptionHelper.setOnce(this, subscription, Long.MAX_VALUE);
             }
         }
+
+        @Override // org.reactivestreams.Subscriber
+        public void onNext(Object obj) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048579, this, obj) == null) && !this.done) {
+                Object obj2 = this.value;
+                if (obj2 == null) {
+                    this.value = obj;
+                    return;
+                }
+                try {
+                    this.value = ObjectHelper.requireNonNull(this.reducer.apply(obj2, obj), "The reducer returned a null value");
+                } catch (Throwable th) {
+                    Exceptions.throwIfFatal(th);
+                    ((Subscription) get()).cancel();
+                    onError(th);
+                }
+            }
+        }
     }
 
     /* loaded from: classes8.dex */
-    public static final class ParallelReduceFullMainSubscriber<T> extends DeferredScalarSubscription<T> {
+    public final class ParallelReduceFullMainSubscriber extends DeferredScalarSubscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -5370107872170712765L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final AtomicReference<SlotPair<T>> current;
-        public final AtomicReference<Throwable> error;
-        public final BiFunction<T, T, T> reducer;
+        public final AtomicReference current;
+        public final AtomicReference error;
+        public final BiFunction reducer;
         public final AtomicInteger remaining;
-        public final ParallelReduceFullInnerSubscriber<T>[] subscribers;
+        public final ParallelReduceFullInnerSubscriber[] subscribers;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ParallelReduceFullMainSubscriber(Subscriber<? super T> subscriber, int i, BiFunction<T, T, T> biFunction) {
+        public ParallelReduceFullMainSubscriber(Subscriber subscriber, int i, BiFunction biFunction) {
             super(subscriber);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -143,28 +141,28 @@ public final class ParallelReduceFull<T> extends Flowable<T> {
                     return;
                 }
             }
-            this.current = new AtomicReference<>();
+            this.current = new AtomicReference();
             this.remaining = new AtomicInteger();
-            this.error = new AtomicReference<>();
-            ParallelReduceFullInnerSubscriber<T>[] parallelReduceFullInnerSubscriberArr = new ParallelReduceFullInnerSubscriber[i];
+            this.error = new AtomicReference();
+            ParallelReduceFullInnerSubscriber[] parallelReduceFullInnerSubscriberArr = new ParallelReduceFullInnerSubscriber[i];
             for (int i4 = 0; i4 < i; i4++) {
-                parallelReduceFullInnerSubscriberArr[i4] = new ParallelReduceFullInnerSubscriber<>(this, biFunction);
+                parallelReduceFullInnerSubscriberArr[i4] = new ParallelReduceFullInnerSubscriber(this, biFunction);
             }
             this.subscribers = parallelReduceFullInnerSubscriberArr;
             this.reducer = biFunction;
             this.remaining.lazySet(i);
         }
 
-        public SlotPair<T> addValue(T t) {
-            SlotPair<T> slotPair;
+        public SlotPair addValue(Object obj) {
+            SlotPair slotPair;
             int tryAcquireSlot;
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
                 while (true) {
-                    slotPair = this.current.get();
+                    slotPair = (SlotPair) this.current.get();
                     if (slotPair == null) {
-                        slotPair = new SlotPair<>();
+                        slotPair = new SlotPair();
                         if (!this.current.compareAndSet(null, slotPair)) {
                             continue;
                         }
@@ -176,40 +174,30 @@ public final class ParallelReduceFull<T> extends Flowable<T> {
                     this.current.compareAndSet(slotPair, null);
                 }
                 if (tryAcquireSlot == 0) {
-                    slotPair.first = t;
+                    slotPair.first = obj;
                 } else {
-                    slotPair.second = t;
+                    slotPair.second = obj;
                 }
-                if (slotPair.releaseSlot()) {
-                    this.current.compareAndSet(slotPair, null);
-                    return slotPair;
+                if (!slotPair.releaseSlot()) {
+                    return null;
                 }
-                return null;
+                this.current.compareAndSet(slotPair, null);
+                return slotPair;
             }
             return (SlotPair) invokeL.objValue;
         }
 
-        @Override // io.reactivex.internal.subscriptions.DeferredScalarSubscription, org.reactivestreams.Subscription
-        public void cancel() {
+        public void innerComplete(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                for (ParallelReduceFullInnerSubscriber<T> parallelReduceFullInnerSubscriber : this.subscribers) {
-                    parallelReduceFullInnerSubscriber.cancel();
-                }
-            }
-        }
-
-        public void innerComplete(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-                if (t != null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+                if (obj != null) {
                     while (true) {
-                        SlotPair<T> addValue = addValue(t);
+                        SlotPair addValue = addValue(obj);
                         if (addValue == null) {
                             break;
                         }
                         try {
-                            t = (T) ObjectHelper.requireNonNull(this.reducer.apply(addValue.first, addValue.second), "The reducer returned a null value");
+                            obj = ObjectHelper.requireNonNull(this.reducer.apply(addValue.first, addValue.second), "The reducer returned a null value");
                         } catch (Throwable th) {
                             Exceptions.throwIfFatal(th);
                             innerError(th);
@@ -218,13 +206,23 @@ public final class ParallelReduceFull<T> extends Flowable<T> {
                     }
                 }
                 if (this.remaining.decrementAndGet() == 0) {
-                    SlotPair<T> slotPair = this.current.get();
+                    SlotPair slotPair = (SlotPair) this.current.get();
                     this.current.lazySet(null);
                     if (slotPair != null) {
                         complete(slotPair.first);
                     } else {
                         this.actual.onComplete();
                     }
+                }
+            }
+        }
+
+        @Override // io.reactivex.internal.subscriptions.DeferredScalarSubscription, org.reactivestreams.Subscription
+        public void cancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                for (ParallelReduceFullInnerSubscriber parallelReduceFullInnerSubscriber : this.subscribers) {
+                    parallelReduceFullInnerSubscriber.cancel();
                 }
             }
         }
@@ -243,13 +241,13 @@ public final class ParallelReduceFull<T> extends Flowable<T> {
     }
 
     /* loaded from: classes8.dex */
-    public static final class SlotPair<T> extends AtomicInteger {
+    public final class SlotPair extends AtomicInteger {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 473971317683868662L;
         public transient /* synthetic */ FieldHolder $fh;
-        public T first;
+        public Object first;
         public final AtomicInteger releaseIndex;
-        public T second;
+        public Object second;
 
         public SlotPair() {
             Interceptable interceptable = $ic;
@@ -270,7 +268,13 @@ public final class ParallelReduceFull<T> extends Flowable<T> {
         public boolean releaseSlot() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.releaseIndex.incrementAndGet() == 2 : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.releaseIndex.incrementAndGet() == 2) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
         }
 
         public int tryAcquireSlot() {
@@ -290,7 +294,7 @@ public final class ParallelReduceFull<T> extends Flowable<T> {
         }
     }
 
-    public ParallelReduceFull(ParallelFlowable<? extends T> parallelFlowable, BiFunction<T, T, T> biFunction) {
+    public ParallelReduceFull(ParallelFlowable parallelFlowable, BiFunction biFunction) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -310,7 +314,7 @@ public final class ParallelReduceFull<T> extends Flowable<T> {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber<? super T> subscriber) {
+    public void subscribeActual(Subscriber subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             ParallelReduceFullMainSubscriber parallelReduceFullMainSubscriber = new ParallelReduceFullMainSubscriber(subscriber, this.source.parallelism(), this.reducer);

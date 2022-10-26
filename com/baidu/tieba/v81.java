@@ -1,9 +1,8 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.interfa.IStatisticManager;
-import com.baidu.nps.interfa.IStatisticManager_StatisticManager_Provider;
-import com.baidu.pyramid.annotation.Inject;
+import com.baidu.nps.interfa.ISignatureVerifier;
+import com.baidu.nps.interfa.ISignatureVerifier_SignatureVerifier_Provider;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,8 +15,16 @@ public class v81 {
     public static /* synthetic */ Interceptable $ic;
     public static v81 b;
     public transient /* synthetic */ FieldHolder $fh;
-    @Inject
-    public se1<IStatisticManager> a;
+    public te1 a;
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            re1 b2 = re1.b();
+            this.a = b2;
+            b2.a(new ISignatureVerifier_SignatureVerifier_Provider());
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -54,21 +61,18 @@ public class v81 {
     public static v81 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (v81) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b;
+        }
+        return (v81) invokeV.objValue;
     }
 
-    public IStatisticManager b() {
+    public ISignatureVerifier b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.get() : (IStatisticManager) invokeV.objValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            qe1 b2 = qe1.b();
-            this.a = b2;
-            b2.a(new IStatisticManager_StatisticManager_Provider());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return (ISignatureVerifier) this.a.get();
         }
+        return (ISignatureVerifier) invokeV.objValue;
     }
 }

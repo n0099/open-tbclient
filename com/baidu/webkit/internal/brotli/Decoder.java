@@ -28,7 +28,7 @@ public class Decoder implements INoProGuard {
 
     /* renamed from: com.baidu.webkit.internal.brotli.Decoder$1  reason: invalid class name */
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public final /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;

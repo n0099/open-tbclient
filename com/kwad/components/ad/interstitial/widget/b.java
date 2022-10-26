@@ -4,7 +4,6 @@ import android.app.Dialog;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -16,7 +15,6 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 public abstract class b extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
     public Context mContext;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -41,7 +39,7 @@ public abstract class b extends FrameLayout {
         this.mContext = context;
     }
 
-    public abstract void a(@NonNull AdTemplate adTemplate, Dialog dialog, @NonNull KsAdVideoPlayConfig ksAdVideoPlayConfig, KsInterstitialAd.AdInteractionListener adInteractionListener);
+    public abstract void a(AdTemplate adTemplate, Dialog dialog, KsAdVideoPlayConfig ksAdVideoPlayConfig, KsInterstitialAd.AdInteractionListener adInteractionListener);
 
     public abstract void dM();
 

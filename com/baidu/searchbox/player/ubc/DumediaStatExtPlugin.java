@@ -22,53 +22,7 @@ public class DumediaStatExtPlugin extends AbsPlugin {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public DumediaStatExtPlugin() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    private final void setPageInfo() {
-        HashMap<String, String> createPageInfoMap;
-        BDVideoPlayer bindPlayer;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || (createPageInfoMap = createPageInfoMap()) == null || (bindPlayer = getBindPlayer()) == null) {
-            return;
-        }
-        bindPlayer.setExternalInfo(CyberPlayerManager.STR_STATISTICS_INFO, createPageInfoMap);
-    }
-
-    private final void setTraceInfo() {
-        BDVideoPlayer bindPlayer;
-        VideoTask videoTask;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || (bindPlayer = getBindPlayer()) == null || (videoTask = bindPlayer.getVideoTask()) == null) {
-            return;
-        }
-        HashMap hashMap = new HashMap();
-        hashMap.put("type", String.valueOf((int) DpStatConstants.SESSION_TYPE_PLAY_COMMON));
-        String str = videoTask.sessionId;
-        if (str == null) {
-            str = "";
-        }
-        hashMap.put("plogid", str);
-        String str2 = videoTask.traceId;
-        hashMap.put("traceid", str2 != null ? str2 : "");
-        BDVideoPlayer bindPlayer2 = getBindPlayer();
-        if (bindPlayer2 != null) {
-            bindPlayer2.setExternalInfo(CyberPlayerManager.STR_STATISTICS_INFO, hashMap);
-        }
-    }
-
-    public HashMap<String, String> createPageInfoMap() {
+    public HashMap createPageInfoMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -92,6 +46,54 @@ public class DumediaStatExtPlugin extends AbsPlugin {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new int[]{4} : (int[]) invokeV.objValue;
+    }
+
+    public DumediaStatExtPlugin() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    private final void setPageInfo() {
+        HashMap createPageInfoMap;
+        BDVideoPlayer bindPlayer;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && (createPageInfoMap = createPageInfoMap()) != null && (bindPlayer = getBindPlayer()) != null) {
+            bindPlayer.setExternalInfo(CyberPlayerManager.STR_STATISTICS_INFO, createPageInfoMap);
+        }
+    }
+
+    private final void setTraceInfo() {
+        BDVideoPlayer bindPlayer;
+        VideoTask videoTask;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && (bindPlayer = getBindPlayer()) != null && (videoTask = bindPlayer.getVideoTask()) != null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("type", String.valueOf((int) DpStatConstants.SESSION_TYPE_PLAY_COMMON));
+            String str = videoTask.sessionId;
+            String str2 = "";
+            if (str == null) {
+                str = "";
+            }
+            hashMap.put("plogid", str);
+            String str3 = videoTask.traceId;
+            if (str3 != null) {
+                str2 = str3;
+            }
+            hashMap.put("traceid", str2);
+            BDVideoPlayer bindPlayer2 = getBindPlayer();
+            if (bindPlayer2 != null) {
+                bindPlayer2.setExternalInfo(CyberPlayerManager.STR_STATISTICS_INFO, hashMap);
+            }
+        }
     }
 
     @Override // com.baidu.searchbox.player.plugin.AbsPlugin, com.baidu.searchbox.player.interfaces.INeuron

@@ -59,12 +59,18 @@ public final class VmClockType {
     public static VmClockType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (VmClockType) Enum.valueOf(VmClockType.class, str) : (VmClockType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (VmClockType) Enum.valueOf(VmClockType.class, str);
+        }
+        return (VmClockType) invokeL.objValue;
     }
 
     public static VmClockType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (VmClockType[]) $VALUES.clone() : (VmClockType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (VmClockType[]) $VALUES.clone();
+        }
+        return (VmClockType[]) invokeV.objValue;
     }
 }

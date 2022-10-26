@@ -5,9 +5,9 @@ import android.os.IBinder;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ev4;
-import com.baidu.tieba.hc;
-import com.baidu.tieba.kc;
+import com.baidu.tieba.ic;
+import com.baidu.tieba.kv4;
+import com.baidu.tieba.lc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,8 +23,18 @@ public class ImagesInvalidService extends BdBaseService {
     public transient /* synthetic */ FieldHolder $fh;
     public DiskFileOperate mDiskFileOperate;
 
+    @Override // android.app.Service
+    public IBinder onBind(Intent intent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
+            return null;
+        }
+        return (IBinder) invokeL.objValue;
+    }
+
     /* loaded from: classes3.dex */
-    public static class a extends DiskFileOperate implements hc {
+    public class a extends DiskFileOperate implements ic {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -54,16 +64,22 @@ public class ImagesInvalidService extends BdBaseService {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 super.callback(z);
-                ev4.stopService();
+                kv4.stopService();
                 ImagesInvalidReceiver.broadcast(z);
             }
         }
 
-        @Override // com.baidu.tieba.hc
+        @Override // com.baidu.tieba.ic
         public boolean compare(File file) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file)) == null) ? file != null && file.lastModified() + ImagesInvalidService.FILE_VALID_TIME < System.currentTimeMillis() : invokeL.booleanValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file)) == null) {
+                if (file == null || file.lastModified() + ImagesInvalidService.FILE_VALID_TIME >= System.currentTimeMillis()) {
+                    return false;
+                }
+                return true;
+            }
+            return invokeL.booleanValue;
         }
     }
 
@@ -83,30 +99,13 @@ public class ImagesInvalidService extends BdBaseService {
         this.mDiskFileOperate = null;
     }
 
-    public static void setSuccess(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
-            ev4.e(z);
-        }
-    }
-
-    @Override // android.app.Service
-    public IBinder onBind(Intent intent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
-            return null;
-        }
-        return (IBinder) invokeL.objValue;
-    }
-
     @Override // com.baidu.adp.base.BdBaseService, android.app.Service
     public void onCreate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onCreate();
             this.mDiskFileOperate = new a("images", null, DiskFileOperate.Action.DELETE_FILES);
-            kc.f().a(this.mDiskFileOperate);
+            lc.f().a(this.mDiskFileOperate);
         }
     }
 
@@ -115,8 +114,15 @@ public class ImagesInvalidService extends BdBaseService {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onDestroy();
-            kc.f().d(this.mDiskFileOperate);
+            lc.f().d(this.mDiskFileOperate);
             this.mDiskFileOperate = null;
+        }
+    }
+
+    public static void setSuccess(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
+            kv4.e(z);
         }
     }
 }

@@ -1,152 +1,363 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.util.Log;
+import android.util.SparseArray;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import com.baidu.adp.BdUniqueId;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.widget.ListView.BdRecyclerAdapter;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.widget.layout.FlowLabelLayout;
-import com.baidu.tieba.pb.videopb.VideoPbCommentFloatFragment;
-import com.baidu.tieba.pb.videopb.viewholder.VideoTabPbFloatEnterForumViewHolder;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tieba.pb.pb.adapter.PbReplyLoadMoreAdapter;
+import com.baidu.tieba.pb.videopb.fragment.ReplyFragment;
+import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes4.dex */
-public class f38 extends qn<dw7, VideoTabPbFloatEnterForumViewHolder> {
+public class f38 extends u38 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseFragment a;
-    public boolean b;
+    public ReplyFragment a;
+    public BdTypeRecyclerView b;
+    public uv7 c;
+    public final List d;
+    public jy7 e;
+    public PbReplyLoadMoreAdapter f;
+    public rn g;
+    public rn h;
+    public boolean i;
+    public ArrayList j;
+    public ArrayList k;
+    public String l;
+    public boolean m;
+    public boolean n;
+    public View.OnClickListener o;
+    public View.OnClickListener p;
+    public TbRichTextView.y q;
+    public ww7 r;
+    public View.OnLongClickListener s;
 
-    /* loaded from: classes4.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ f38 a;
-
-        public a(f38 f38Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {f38Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = f38Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (this.a.a instanceof VideoPbCommentFloatFragment)) {
-                VideoPbCommentFloatFragment videoPbCommentFloatFragment = (VideoPbCommentFloatFragment) this.a.a;
-                StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_VIDEO_TAB_COMMENT_FLOAT_CLICK);
-                statisticItem.param("fid", videoPbCommentFloatFragment.K().getForumId());
-                statisticItem.param("tid", videoPbCommentFloatFragment.K().m2());
-                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-                statisticItem.param("post_id", videoPbCommentFloatFragment.K().q1());
-                statisticItem.param("obj_source", 1);
-                statisticItem.param("obj_type", 16);
-                statisticItem.param("obj_locate", videoPbCommentFloatFragment.L3());
-                TiebaStatic.log(statisticItem);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f38(Context context, BdUniqueId bdUniqueId, BaseFragment baseFragment) {
-        super(context, bdUniqueId);
+    public f38(ReplyFragment replyFragment, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId, baseFragment};
+            Object[] objArr = {replyFragment, bdTypeRecyclerView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = baseFragment;
+        this.d = new ArrayList();
+        this.i = true;
+        this.l = null;
+        this.m = true;
+        this.n = false;
+        this.o = null;
+        this.p = null;
+        this.q = null;
+        this.r = null;
+        this.s = null;
+        this.a = replyFragment;
+        this.b = bdTypeRecyclerView;
+        d();
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.qn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, dw7 dw7Var, VideoTabPbFloatEnterForumViewHolder videoTabPbFloatEnterForumViewHolder) {
-        u(i, view2, viewGroup, dw7Var, videoTabPbFloatEnterForumViewHolder);
-        return view2;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: t */
-    public VideoTabPbFloatEnterForumViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.u38
+    public ArrayList a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            FrameLayout frameLayout = new FrameLayout(this.mContext);
-            FlowLabelLayout flowLabelLayout = new FlowLabelLayout(this.mContext);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
-            layoutParams.leftMargin = ej.f(this.mContext, R.dimen.tbds156);
-            layoutParams.topMargin = ej.f(this.mContext, R.dimen.M_H_X003);
-            layoutParams.rightMargin = ej.f(this.mContext, R.dimen.M_W_X007);
-            layoutParams.bottomMargin = ej.f(this.mContext, R.dimen.M_H_X005);
-            frameLayout.addView(flowLabelLayout, layoutParams);
-            View view2 = new View(this.mContext);
-            view2.setId(R.id.obfuscated_res_0x7f090a0c);
-            view2.setAlpha(0.5f);
-            frameLayout.addView(view2, new FrameLayout.LayoutParams(-1, -1));
-            return new VideoTabPbFloatEnterForumViewHolder(this.mContext, frameLayout);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.k;
         }
-        return (VideoTabPbFloatEnterForumViewHolder) invokeL.objValue;
+        return (ArrayList) invokeV.objValue;
     }
 
-    public View u(int i, View view2, ViewGroup viewGroup, dw7 dw7Var, VideoTabPbFloatEnterForumViewHolder videoTabPbFloatEnterForumViewHolder) {
-        InterceptResult invokeCommon;
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, dw7Var, videoTabPbFloatEnterForumViewHolder})) == null) {
-            if (dw7Var != null) {
-                videoTabPbFloatEnterForumViewHolder.setData(dw7Var.a);
-                videoTabPbFloatEnterForumViewHolder.b(new a(this));
-            }
-            if (this.b) {
-                videoTabPbFloatEnterForumViewHolder.d.setVisibility(0);
-            } else {
-                videoTabPbFloatEnterForumViewHolder.d.setVisibility(8);
-            }
-            SkinManager.setBackgroundColor(view2, R.color.CAM_X0204);
-            SkinManager.setBackgroundColor(videoTabPbFloatEnterForumViewHolder.d, this.b ? R.color.CAM_X0201 : R.color.transparent);
-            videoTabPbFloatEnterForumViewHolder.a();
-            return view2;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (this.b.getAdapter() instanceof BdRecyclerAdapter)) {
+            this.b.getAdapter().notifyDataSetChanged();
         }
-        return (View) invokeCommon.objValue;
     }
 
-    public void v(boolean z) {
+    public final void b(qn8 qn8Var) {
+        ForumData l;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.b = z;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qn8Var) == null) && qn8Var != null && this.c != null && qn8Var.getAdvertAppInfo() != null) {
+            qn8Var.getAdvertAppInfo().i = new fr4();
+            if (this.c.y() != null) {
+                qn8Var.getAdvertAppInfo().i.b = this.c.y().a();
+            }
+            qn8Var.getAdvertAppInfo().i.a = qn8Var.m1();
+            if (this.c.l() != null && (l = this.c.l()) != null) {
+                qn8Var.getAdvertAppInfo().i.c = l.getId();
+                qn8Var.getAdvertAppInfo().i.d = l.getFirst_class();
+                qn8Var.getAdvertAppInfo().i.e = l.getSecond_class();
+            }
+            AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
+            if (currentAccountObj != null) {
+                qn8Var.getAdvertAppInfo().i.f = String.valueOf(currentAccountObj.isMemberCloseAdIsOpen());
+            }
+            qn8Var.getAdvertAppInfo().i.g = qn8Var.getAdvertAppInfo().g;
+            qn8Var.getAdvertAppInfo().i.h = false;
+        }
+    }
+
+    public final boolean c(ArrayList arrayList, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, arrayList, i)) == null) {
+            for (int max = Math.max(i - 4, 0); max < arrayList.size() && max < i + 4; max++) {
+                if (arrayList.get(max) instanceof qn8) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            jy7 jy7Var = new jy7(this.a.B(), PostData.L0);
+            this.e = jy7Var;
+            jy7Var.v0(this.a.B());
+            this.f = new PbReplyLoadMoreAdapter(this.a.B(), PostData.S0);
+            this.g = le8.l().a(this.a.B().getBaseFragmentActivity(), AdvertAppInfo.x);
+            this.h = le8.l().a(this.a.B().getBaseFragmentActivity(), AdvertAppInfo.z);
+            this.d.add(this.g);
+            this.d.add(this.h);
+            this.d.add(this.e);
+            this.d.add(this.f);
+            this.b.a(this.d);
+        }
+    }
+
+    public void f(uv7 uv7Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, uv7Var) != null) || uv7Var == null) {
+            return;
+        }
+        this.c = uv7Var;
+        if (uv7Var != null && uv7Var.P() != null && uv7Var.P().getAuthor() != null) {
+            this.l = uv7Var.P().getAuthor().getUserId();
+        }
+        if (this.j == null) {
+            this.j = new ArrayList();
+        }
+        this.j.clear();
+        uv7 uv7Var2 = this.c;
+        if (uv7Var2 != null && uv7Var2.G() != null && this.c.G().size() > 0) {
+            this.j.addAll(this.c.G());
+        }
+        this.e.r(uv7Var);
+        this.e.setFromCDN(this.n);
+        this.e.o(this.l);
+        this.e.c(this.m);
+        this.e.e(this.p);
+        this.e.k(this.o);
+        this.e.n(this.q);
+        this.e.d(this.s);
+        this.e.u0(this.r);
+        this.f.w(this.p);
+        n();
+        rn rnVar = this.h;
+        if (rnVar != null && (rnVar instanceof he8)) {
+            ((he8) rnVar).setIsFromCDN(this.n);
+        }
+        ArrayList arrayList = new ArrayList(uv7Var.G());
+        boolean z = false;
+        PostData postData = null;
+        Iterator it = arrayList.iterator();
+        while (true) {
+            if (!it.hasNext()) {
+                break;
+            }
+            eo eoVar = (eo) it.next();
+            if (eoVar instanceof PostData) {
+                PostData postData2 = (PostData) eoVar;
+                if (postData2.D() == 1) {
+                    postData = postData2;
+                    z = true;
+                    break;
+                }
+            }
+        }
+        if (z) {
+            arrayList.remove(postData);
+        }
+        BdTypeRecyclerView bdTypeRecyclerView = this.b;
+        if (bdTypeRecyclerView != null) {
+            this.k = arrayList;
+            bdTypeRecyclerView.setData(arrayList);
+        }
+    }
+
+    public void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.n = z;
+        }
+    }
+
+    public void h(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.i = z;
+        }
+    }
+
+    public void i(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onClickListener) == null) {
+            this.o = onClickListener;
+        }
+    }
+
+    public void j(TbRichTextView.y yVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, yVar) == null) {
+            this.q = yVar;
+        }
+    }
+
+    public void k(View.OnLongClickListener onLongClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, onLongClickListener) == null) {
+            this.s = onLongClickListener;
+        }
+    }
+
+    public void l(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, onClickListener) == null) {
+            this.p = onClickListener;
+        }
+    }
+
+    public void m(ww7 ww7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, ww7Var) == null) {
+            this.r = ww7Var;
+        }
+    }
+
+    public final void n() {
+        uv7 uv7Var;
+        qn8 qn8Var;
+        qn8 qn8Var2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048589, this) != null) || (uv7Var = this.c) == null || uv7Var.b0 || uv7Var.c0 == 2) {
+            return;
+        }
+        ArrayList G = uv7Var.G();
+        ArrayList e = this.c.e();
+        if (e != null && !e.isEmpty() && G != null && !G.isEmpty()) {
+            StringBuilder sb = new StringBuilder();
+            Iterator it = e.iterator();
+            while (it.hasNext()) {
+                qn8 qn8Var3 = (qn8) it.next();
+                if (qn8Var3 != null && qn8Var3.l1() != null) {
+                    sb.append(qn8Var3.l1());
+                    sb.append(",");
+                }
+            }
+            if (sb.length() > 1) {
+                sb.deleteCharAt(sb.length() - 1);
+            }
+            Iterator it2 = e.iterator();
+            while (it2.hasNext()) {
+                qn8 qn8Var4 = (qn8) it2.next();
+                if (qn8Var4 != null) {
+                    qn8Var4.c1 = qn8Var4.getPosition() - 1;
+                }
+            }
+            SparseArray sparseArray = new SparseArray();
+            Iterator it3 = e.iterator();
+            while (it3.hasNext()) {
+                qn8 qn8Var5 = (qn8) it3.next();
+                if (qn8Var5.getAdvertAppInfo() != null) {
+                    int n = qn8Var5.getAdvertAppInfo().n();
+                    if (n != 0) {
+                        yf8.j(qn8Var5, n);
+                        if (n != 28 && n != 31) {
+                            qn8Var5.getAdvertAppInfo().c = -1001;
+                            Log.e("cq", "updateAppData，Data InValidate: " + n);
+                        }
+                    }
+                    sparseArray.put(qn8Var5.getPosition(), qn8Var5);
+                }
+            }
+            HashMap hashMap = new HashMap();
+            for (int i = 0; i < sparseArray.size(); i++) {
+                qn8 qn8Var6 = (qn8) sparseArray.get(sparseArray.keyAt(i));
+                if (qn8Var6 != null && (qn8Var2 = (qn8) hashMap.put(qn8Var6.k1(), qn8Var6)) != null) {
+                    yf8.j(qn8Var2, 30);
+                }
+            }
+            sparseArray.clear();
+            for (Map.Entry entry : hashMap.entrySet()) {
+                if (entry != null && (qn8Var = (qn8) entry.getValue()) != null) {
+                    sparseArray.put(qn8Var.getPosition(), qn8Var);
+                }
+            }
+            ArrayList arrayList = new ArrayList();
+            for (int i2 = 0; i2 < sparseArray.size(); i2++) {
+                arrayList.add(Integer.valueOf(sparseArray.keyAt(i2)));
+            }
+            Collections.sort(arrayList);
+            for (int i3 = 0; i3 < arrayList.size(); i3++) {
+                qn8 qn8Var7 = (qn8) sparseArray.get(((Integer) arrayList.get(i3)).intValue());
+                if (this.c.l() != null) {
+                    qn8Var7.W0 = this.c.l().getId();
+                }
+                if (this.c.P() != null) {
+                    qn8Var7.Z0 = eh.g(this.c.P().getId(), 0L);
+                }
+                uv7 uv7Var2 = this.c;
+                if (uv7Var2 != null && uv7Var2.y() != null) {
+                    qn8Var7.a1 = this.c.y().a();
+                }
+                b(qn8Var7);
+                int position = qn8Var7.getPosition() + this.c.a0;
+                if (position >= G.size()) {
+                    qn8Var7.c1 = position;
+                    yf8.k(qn8Var7, 2, position + i3, lh7.i(arrayList));
+                    return;
+                }
+                if (!this.i) {
+                    position--;
+                    qn8Var7.c1 = position;
+                }
+                if (position < 0) {
+                    yf8.j(qn8Var7, 23);
+                } else if (c(G, position)) {
+                    yf8.j(qn8Var7, 1);
+                } else {
+                    G.add(position, qn8Var7);
+                    TiebaStatic.eventStat(this.a.getPageContext().getPageActivity(), CommonStatisticKey.PB_SHOW_APP, "", 1, "app_name", qn8Var7.getAdvertAppInfo().p);
+                }
+            }
         }
     }
 }

@@ -3,8 +3,8 @@ package com.baidu.mobstat;
 import android.content.Context;
 import com.baidu.mobstat.ActivityLifeObserver;
 import com.baidu.mobstat.AutoTrack;
-import com.baidu.mobstat.af;
-import com.baidu.mobstat.av;
+import com.baidu.mobstat.ad;
+import com.baidu.mobstat.au;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -56,8 +56,8 @@ public class ActivityLifeTask {
         if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
             synchronized (ActivityLifeTask.class) {
                 b = new AutoTrack.MyActivityLifeCallback(1);
-                d = new af.a();
-                c = new av.a();
+                d = new ad.a();
+                c = new au.a();
                 e = new AutoTrack.MyActivityLifeCallback(2);
             }
         }

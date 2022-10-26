@@ -8,14 +8,42 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.URL;
-import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public interface IHttpNet {
+    void a(URL url, int i, int i2) throws Exception;
+
+    Map b();
+
+    int c() throws Exception;
+
+    void connect() throws Exception;
+
+    URL d();
+
+    void disconnect();
+
+    void e(URL url);
+
+    byte[] execute() throws Exception;
+
+    void f();
+
+    void g(URL url, boolean z);
+
+    String getContentEncoding();
+
+    long getContentLength();
+
+    String getContentType();
+
+    int getResponseCode() throws Exception;
+
+    void h() throws Exception;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class HttpNetType {
+    public final class HttpNetType {
         public static final /* synthetic */ HttpNetType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final HttpNetType GET;
@@ -65,43 +93,19 @@ public interface IHttpNet {
         public static HttpNetType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (HttpNetType) Enum.valueOf(HttpNetType.class, str) : (HttpNetType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (HttpNetType) Enum.valueOf(HttpNetType.class, str);
+            }
+            return (HttpNetType) invokeL.objValue;
         }
 
         public static HttpNetType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (HttpNetType[]) $VALUES.clone() : (HttpNetType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (HttpNetType[]) $VALUES.clone();
+            }
+            return (HttpNetType[]) invokeV.objValue;
         }
     }
-
-    void a(URL url, int i, int i2) throws Exception;
-
-    Map<String, List<String>> b();
-
-    int c() throws Exception;
-
-    void connect() throws Exception;
-
-    URL d();
-
-    void disconnect();
-
-    void e(URL url);
-
-    byte[] execute() throws Exception;
-
-    void f();
-
-    void g(URL url, boolean z);
-
-    String getContentEncoding();
-
-    long getContentLength();
-
-    String getContentType();
-
-    int getResponseCode() throws Exception;
-
-    void h() throws Exception;
 }

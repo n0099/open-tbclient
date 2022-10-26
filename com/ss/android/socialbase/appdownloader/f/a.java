@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.ContextWrapper;
 import android.os.Build;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import com.ss.android.socialbase.appdownloader.g;
 import java.lang.reflect.Field;
 import java.util.HashMap;
@@ -12,55 +11,45 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class a {
-    public static final HashMap<String, g.a> a = new HashMap<>();
+    public static final HashMap a = new HashMap();
 
-    public static boolean a(JSONArray jSONArray, String str) {
-        if (jSONArray != null && !TextUtils.isEmpty(str)) {
-            int length = jSONArray.length();
-            for (int i = 0; i < length; i++) {
-                JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                if (optJSONObject != null && str.equals(optJSONObject.optString("type")) && a(optJSONObject)) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
-    public static boolean b(JSONObject jSONObject) {
-        if (jSONObject == null) {
-            return true;
-        }
-        int i = Build.VERSION.SDK_INT;
-        String optString = jSONObject.optString("allow_os_api_range");
-        int optInt = jSONObject.optInt("min_os_api", -1);
-        if (TextUtils.isEmpty(optString)) {
-            return optInt <= 0 || i >= optInt;
+    public static g.a a(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return null;
         }
         try {
-            String[] split = optString.split("[-,]");
-            for (int i2 = 0; i2 < split.length; i2 += 2) {
-                int parseInt = Integer.parseInt(split[i2]);
-                int parseInt2 = Integer.parseInt(split[i2 + 1]);
-                if (i >= parseInt && i <= parseInt2) {
-                    return true;
+            if (!TextUtils.isEmpty(str)) {
+                g.a b = b(str);
+                if (b != null) {
+                    return b;
                 }
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Throwable unused) {
         }
-        return false;
+        return null;
+    }
+
+    public static g.a b(String str) {
+        if (a.containsKey(str)) {
+            g.a aVar = (g.a) a.get(str);
+            if (aVar == null) {
+                return null;
+            }
+            return aVar;
+        }
+        g.a b = g.b(str);
+        a.put(str, b);
+        if (b == null) {
+            return null;
+        }
+        return b;
     }
 
     public static boolean c(JSONObject jSONObject) {
-        return jSONObject == null || e.a() || jSONObject.optInt("scy_mode") != 1;
-    }
-
-    public static boolean a(JSONObject jSONObject) {
-        if (jSONObject == null) {
-            return false;
+        if (jSONObject == null || e.a() || jSONObject.optInt("scy_mode") != 1) {
+            return true;
         }
-        return b(jSONObject) && a(jSONObject.optJSONArray("device_requirements")) && c(jSONObject);
+        return false;
     }
 
     public static boolean a(JSONArray jSONArray) {
@@ -95,6 +84,19 @@ public class a {
         return z;
     }
 
+    public static boolean a(JSONArray jSONArray, String str) {
+        if (jSONArray != null && !TextUtils.isEmpty(str)) {
+            int length = jSONArray.length();
+            for (int i = 0; i < length; i++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                if (optJSONObject != null && str.equals(optJSONObject.optString("type")) && a(optJSONObject)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     public static boolean b(JSONArray jSONArray, String str) {
         if (jSONArray != null && str != null) {
             int length = jSONArray.length();
@@ -107,23 +109,7 @@ public class a {
         return false;
     }
 
-    public static g.a b(String str) {
-        if (a.containsKey(str)) {
-            g.a aVar = a.get(str);
-            if (aVar != null) {
-                return aVar;
-            }
-            return null;
-        }
-        g.a b = g.b(str);
-        a.put(str, b);
-        if (b != null) {
-            return b;
-        }
-        return null;
-    }
-
-    public static boolean a(JSONArray jSONArray, JSONArray jSONArray2, String str, @NonNull g.a aVar) {
+    public static boolean a(JSONArray jSONArray, JSONArray jSONArray2, String str, g.a aVar) {
         String g = aVar.g();
         int f = aVar.f();
         String str2 = f + "_" + g;
@@ -150,20 +136,15 @@ public class a {
         return false;
     }
 
-    public static g.a a(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return null;
+    public static boolean a(JSONObject jSONObject) {
+        if (jSONObject == null) {
+            return false;
         }
-        try {
-            if (!TextUtils.isEmpty(str)) {
-                g.a b = b(str);
-                if (b != null) {
-                    return b;
-                }
-            }
-        } catch (Throwable unused) {
+        JSONArray optJSONArray = jSONObject.optJSONArray("device_requirements");
+        if (!b(jSONObject) || !a(optJSONArray) || !c(jSONObject)) {
+            return false;
         }
-        return null;
+        return true;
     }
 
     public static boolean a(JSONObject jSONObject, Context context, String str) {
@@ -183,5 +164,33 @@ public class a {
             }
         }
         return false;
+    }
+
+    public static boolean b(JSONObject jSONObject) {
+        if (jSONObject == null) {
+            return true;
+        }
+        int i = Build.VERSION.SDK_INT;
+        String optString = jSONObject.optString("allow_os_api_range");
+        int optInt = jSONObject.optInt("min_os_api", -1);
+        if (!TextUtils.isEmpty(optString)) {
+            try {
+                String[] split = optString.split("[-,]");
+                for (int i2 = 0; i2 < split.length; i2 += 2) {
+                    int parseInt = Integer.parseInt(split[i2]);
+                    int parseInt2 = Integer.parseInt(split[i2 + 1]);
+                    if (i >= parseInt && i <= parseInt2) {
+                        return true;
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return false;
+        } else if (optInt <= 0 || i >= optInt) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

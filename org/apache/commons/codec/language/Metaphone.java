@@ -30,16 +30,6 @@ public class Metaphone implements StringEncoder {
         throw new RuntimeException("Stub!");
     }
 
-    @Override // org.apache.commons.codec.Encoder
-    public Object encode(Object obj) throws EncoderException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeL.objValue;
-    }
-
     public int getMaxCodeLen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -49,13 +39,14 @@ public class Metaphone implements StringEncoder {
         return invokeV.intValue;
     }
 
-    public boolean isMetaphoneEqual(String str, String str2) {
-        InterceptResult invokeLL;
+    @Override // org.apache.commons.codec.Encoder
+    public Object encode(Object obj) throws EncoderException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
             throw new RuntimeException("Stub!");
         }
-        return invokeLL.booleanValue;
+        return invokeL.objValue;
     }
 
     public String metaphone(String str) {
@@ -82,5 +73,14 @@ public class Metaphone implements StringEncoder {
             throw new RuntimeException("Stub!");
         }
         return (String) invokeL.objValue;
+    }
+
+    public boolean isMetaphoneEqual(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeLL.booleanValue;
     }
 }

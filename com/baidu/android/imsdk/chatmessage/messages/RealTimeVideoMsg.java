@@ -14,8 +14,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class RealTimeVideoMsg extends RealTimeMsg implements Parcelable, NoProGuard {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<RealTimeVideoMsg> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
+    public String getRecommendDescription() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "[实时视频]" : (String) invokeV.objValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -30,7 +37,7 @@ public class RealTimeVideoMsg extends RealTimeMsg implements Parcelable, NoProGu
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<RealTimeVideoMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.RealTimeVideoMsg.1
+        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.RealTimeVideoMsg.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -49,30 +56,27 @@ public class RealTimeVideoMsg extends RealTimeMsg implements Parcelable, NoProGu
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public RealTimeVideoMsg createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new RealTimeVideoMsg(parcel) : (RealTimeVideoMsg) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new RealTimeVideoMsg(parcel);
+                }
+                return (RealTimeVideoMsg) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public RealTimeVideoMsg[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new RealTimeVideoMsg[i] : (RealTimeVideoMsg[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new RealTimeVideoMsg[i];
+                }
+                return (RealTimeVideoMsg[]) invokeI.objValue;
             }
         };
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
-    public String getRecommendDescription() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "[实时视频]" : (String) invokeV.objValue;
     }
 
     public RealTimeVideoMsg() {

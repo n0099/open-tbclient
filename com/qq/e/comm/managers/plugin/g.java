@@ -39,6 +39,24 @@ public class g {
         this.b = file2;
     }
 
+    public boolean a(File file, File file2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file, file2)) == null) ? (file.equals(this.a) || FileUtil.renameTo(this.a, file)) && (file2.equals(this.b) || FileUtil.renameTo(this.b, file2)) : invokeLL.booleanValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (String) invokeV.objValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : invokeV.intValue;
+    }
+
     /* JADX WARN: Removed duplicated region for block: B:20:0x004b A[Catch: all -> 0x0054, TryCatch #0 {all -> 0x0054, blocks: (B:5:0x0005, B:7:0x000d, B:9:0x0015, B:11:0x0025, B:14:0x0038, B:17:0x003f, B:20:0x004b, B:24:0x0052), top: B:32:0x0005 }] */
     /* JADX WARN: Removed duplicated region for block: B:22:0x0050 A[RETURN] */
     /*
@@ -82,23 +100,5 @@ public class g {
             }
         }
         return invokeV.booleanValue;
-    }
-
-    public boolean a(File file, File file2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file, file2)) == null) ? (file.equals(this.a) || FileUtil.renameTo(this.a, file)) && (file2.equals(this.b) || FileUtil.renameTo(this.b, file2)) : invokeLL.booleanValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : invokeV.intValue;
     }
 }

@@ -41,7 +41,7 @@ public final class am extends al.a {
 
     @Override // com.xiaomi.push.al.a
     /* renamed from: a */
-    public String mo208a() {
+    public String mo207a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f899a : (String) invokeV.objValue;

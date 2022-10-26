@@ -5,7 +5,7 @@ import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
 import com.baidu.tieba.lego.card.model.BigImgCard;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,10 +13,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class BigImgView extends BaseCardView<BigImgCard> {
+public class BigImgView extends BaseCardView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbImageView m;
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
+    /* renamed from: C */
+    public void t(BigImgCard bigImgCard, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, bigImgCard, i) == null) {
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BigImgView(TbPageContext tbPageContext) {
@@ -40,31 +49,22 @@ public class BigImgView extends BaseCardView<BigImgCard> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    /* renamed from: C */
-    public void t(BigImgCard bigImgCard, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, bigImgCard, i) == null) {
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
     /* renamed from: D */
     public void u(BigImgCard bigImgCard) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bigImgCard) == null) {
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.m.getLayoutParams();
             if (bigImgCard.getRatio() > 0.0d) {
-                int ratio = (int) (bigImgCard.getRatio() * ej.k(getContext()));
+                int ratio = (int) (bigImgCard.getRatio() * fj.k(getContext()));
                 if (Math.abs(ratio - layoutParams.height) > 10) {
                     layoutParams.height = ratio;
                     this.m.setLayoutParams(layoutParams);
                 }
             } else {
-                layoutParams.height = (int) ((ej.k(getContext()) * 0.5f) + 0.5f);
+                layoutParams.height = (int) ((fj.k(getContext()) * 0.5f) + 0.5f);
                 this.m.setLayoutParams(layoutParams);
             }
-            this.m.K(bigImgCard.getUrl(), 10, false);
+            this.m.L(bigImgCard.getUrl(), 10, false);
         }
     }
 

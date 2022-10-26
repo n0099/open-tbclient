@@ -1,6 +1,7 @@
 package okhttp3.internal.publicsuffix;
 
 import androidx.core.view.InputDeviceCompat;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
@@ -50,7 +51,7 @@ public final class PublicSuffixDatabase {
                 return;
             }
         }
-        WILDCARD_LABEL = new byte[]{42};
+        WILDCARD_LABEL = new byte[]{ExifInterface.START_CODE};
         EMPTY_RULE = new String[0];
         PREVAILING_RULE = new String[]{"*"};
         instance = new PublicSuffixDatabase();
@@ -71,6 +72,38 @@ public final class PublicSuffixDatabase {
         }
         this.listRead = new AtomicBoolean(false);
         this.readCompleteLatch = new CountDownLatch(1);
+    }
+
+    private void readTheListUninterruptibly() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
+            boolean z = false;
+            while (true) {
+                try {
+                    try {
+                        readTheList();
+                        break;
+                    } catch (InterruptedIOException unused) {
+                        z = true;
+                    } catch (IOException e) {
+                        Platform.get().log(5, "Failed to read public suffix list", e);
+                        if (z) {
+                            Thread.currentThread().interrupt();
+                            return;
+                        }
+                        return;
+                    }
+                } catch (Throwable th) {
+                    if (z) {
+                        Thread.currentThread().interrupt();
+                    }
+                    throw th;
+                }
+            }
+            if (z) {
+                Thread.currentThread().interrupt();
+            }
+        }
     }
 
     public static String binarySearchBytes(byte[] bArr, byte[][] bArr2, int i) {
@@ -116,14 +149,15 @@ public final class PublicSuffixDatabase {
                         i11++;
                         if (i12 == i9) {
                             break;
-                        } else if (bArr2[i10].length != i11) {
-                            z2 = z;
-                        } else if (i10 == bArr2.length - 1) {
-                            break;
-                        } else {
+                        } else if (bArr2[i10].length == i11) {
+                            if (i10 == bArr2.length - 1) {
+                                break;
+                            }
                             i10++;
                             z2 = true;
                             i11 = -1;
+                        } else {
+                            z2 = z;
                         }
                     } else {
                         break;
@@ -187,15 +221,16 @@ public final class PublicSuffixDatabase {
             int i3 = 0;
             while (true) {
                 str = null;
-                if (i3 >= length) {
+                if (i3 < length) {
+                    str2 = binarySearchBytes(this.publicSuffixListBytes, bArr, i3);
+                    if (str2 != null) {
+                        break;
+                    }
+                    i3++;
+                } else {
                     str2 = null;
                     break;
                 }
-                str2 = binarySearchBytes(this.publicSuffixListBytes, bArr, i3);
-                if (str2 != null) {
-                    break;
-                }
-                i3++;
             }
             if (length > 1) {
                 byte[][] bArr2 = (byte[][]) bArr.clone();
@@ -236,7 +271,10 @@ public final class PublicSuffixDatabase {
                 } else {
                     strArr3 = EMPTY_RULE;
                 }
-                return strArr2.length > strArr3.length ? strArr2 : strArr3;
+                if (strArr2.length <= strArr3.length) {
+                    return strArr3;
+                }
+                return strArr2;
             }
         }
         return (String[]) invokeL.objValue;
@@ -245,13 +283,16 @@ public final class PublicSuffixDatabase {
     public static PublicSuffixDatabase get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? instance : (PublicSuffixDatabase) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return instance;
+        }
+        return (PublicSuffixDatabase) invokeV.objValue;
     }
 
     private void readTheList() throws IOException {
         InputStream resourceAsStream;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65541, this) == null) || (resourceAsStream = PublicSuffixDatabase.class.getResourceAsStream(PUBLIC_SUFFIX_RESOURCE)) == null) {
+        if ((interceptable != null && interceptable.invokeV(65541, this) != null) || (resourceAsStream = PublicSuffixDatabase.class.getResourceAsStream(PUBLIC_SUFFIX_RESOURCE)) == null) {
             return;
         }
         BufferedSource buffer = Okio.buffer(new GzipSource(Okio.source(resourceAsStream)));
@@ -270,38 +311,6 @@ public final class PublicSuffixDatabase {
         }
     }
 
-    private void readTheListUninterruptibly() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            boolean z = false;
-            while (true) {
-                try {
-                    try {
-                        readTheList();
-                        break;
-                    } catch (InterruptedIOException unused) {
-                        z = true;
-                    } catch (IOException e) {
-                        Platform.get().log(5, "Failed to read public suffix list", e);
-                        if (z) {
-                            Thread.currentThread().interrupt();
-                            return;
-                        }
-                        return;
-                    }
-                } catch (Throwable th) {
-                    if (z) {
-                        Thread.currentThread().interrupt();
-                    }
-                    throw th;
-                }
-            }
-            if (z) {
-                Thread.currentThread().interrupt();
-            }
-        }
-    }
-
     public String getEffectiveTldPlusOne(String str) {
         InterceptResult invokeL;
         int length;
@@ -311,24 +320,24 @@ public final class PublicSuffixDatabase {
             if (str != null) {
                 String[] split = IDN.toUnicode(str).split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
                 String[] findMatchingRule = findMatchingRule(split);
-                if (split.length != findMatchingRule.length || findMatchingRule[0].charAt(0) == '!') {
-                    if (findMatchingRule[0].charAt(0) == '!') {
-                        length = split.length;
-                        length2 = findMatchingRule.length;
-                    } else {
-                        length = split.length;
-                        length2 = findMatchingRule.length + 1;
-                    }
-                    StringBuilder sb = new StringBuilder();
-                    String[] split2 = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
-                    for (int i = length - length2; i < split2.length; i++) {
-                        sb.append(split2[i]);
-                        sb.append(IStringUtil.EXTENSION_SEPARATOR);
-                    }
-                    sb.deleteCharAt(sb.length() - 1);
-                    return sb.toString();
+                if (split.length == findMatchingRule.length && findMatchingRule[0].charAt(0) != '!') {
+                    return null;
                 }
-                return null;
+                if (findMatchingRule[0].charAt(0) == '!') {
+                    length = split.length;
+                    length2 = findMatchingRule.length;
+                } else {
+                    length = split.length;
+                    length2 = findMatchingRule.length + 1;
+                }
+                StringBuilder sb = new StringBuilder();
+                String[] split2 = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+                for (int i = length - length2; i < split2.length; i++) {
+                    sb.append(split2[i]);
+                    sb.append(IStringUtil.EXTENSION_SEPARATOR);
+                }
+                sb.deleteCharAt(sb.length() - 1);
+                return sb.toString();
             }
             throw new NullPointerException("domain == null");
         }

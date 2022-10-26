@@ -9,7 +9,7 @@ import android.os.Process;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.i89;
+import com.baidu.tieba.a99;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,10 +17,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.base.annotations.CalledByNative;
 import com.baidu.turbonet.base.annotations.JNINamespace;
 import com.baidu.turbonet.base.annotations.NativeClassQualifiedName;
-import com.baidu.turbonet.base.annotations.UsedByReflection;
 import com.baidu.turbonet.net.TurbonetEngine;
 import com.baidu.turbonet.net.UrlRequest;
 import com.baidu.turbonet.net.proxy.ProxyConfig;
@@ -33,8 +31,6 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.RejectedExecutionException;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.regex.Pattern;
-import javax.annotation.concurrent.GuardedBy;
-@UsedByReflection
 @JNINamespace
 /* loaded from: classes6.dex */
 public class CronetUrlRequestContext extends TurbonetEngine {
@@ -51,17 +47,100 @@ public class CronetUrlRequestContext extends TurbonetEngine {
     public final Object h;
     public Executor i;
     public final Object j;
-    public final Map<Object, HashSet<UrlRequest>> k;
+    public final Map k;
     public ProxyConfig l;
     public TurbonetEngine.TCPNetworkQualityStatus m;
-    @GuardedBy("mDataTrafficMonitorLock")
-    public final i89<DataTrafficListener> n;
-    @GuardedBy("mNetworkQualityLock")
-    public final i89<NetworkQualityListener> o;
+    public final a99 n;
+    public final a99 o;
+
+    public static native void nativeApplyBaiduConfigDictionary(long j, String str);
+
+    public static native void nativeApplyBaiduConfiguration(long j, String str);
+
+    public static native long nativeCreateRequestContextAdapter(long j);
+
+    public static native long nativeCreateRequestContextConfig(String str, String str2, boolean z, String str3, boolean z2, boolean z3, String str4, String str5, String str6, String str7, boolean z4, int i, long j, String str8, long j2, boolean z5);
+
+    @NativeClassQualifiedName
+    private native void nativeDestroy(long j);
+
+    @NativeClassQualifiedName
+    private native void nativeDetectQuicConnectStatusByPreconnect(long j);
+
+    @NativeClassQualifiedName
+    private native void nativeDisableSpdyPingByHost(long j, String str);
+
+    @NativeClassQualifiedName
+    private native void nativeEnableCustomProxy(long j, boolean z);
+
+    @NativeClassQualifiedName
+    private native void nativeEnableDataTrafficMonitor(long j);
+
+    @NativeClassQualifiedName
+    private native void nativeEnableMulConnect(long j, boolean z);
+
+    @NativeClassQualifiedName
+    private native void nativeEnableSpdyPingByHost(long j, String str, int i, int i2);
+
+    @NativeClassQualifiedName
+    private native void nativeForceDisableQuic(long j, boolean z);
+
+    public static native byte[] nativeGetHistogramDeltas();
+
+    @NativeClassQualifiedName
+    private native void nativeGetNetworkQualityStats(long j, NetworkQualityListener networkQualityListener);
+
+    @NativeClassQualifiedName
+    public static native String nativeGetTurboNetVersion();
+
+    /* JADX INFO: Access modifiers changed from: private */
+    @NativeClassQualifiedName
+    public native void nativeInitRequestContextOnInitThread(long j);
+
+    @NativeClassQualifiedName
+    private native void nativeOnBdAppStatusChange(long j, int i);
+
+    @NativeClassQualifiedName
+    private native void nativePreconnectURL(long j, String str, int i, boolean z);
+
+    @NativeClassQualifiedName
+    private native void nativeProvideDataTrafficObservations(long j, boolean z);
+
+    @NativeClassQualifiedName
+    private native void nativeProvideNetworkQualityObservations(long j, boolean z);
+
+    @NativeClassQualifiedName
+    private native void nativeResolveHost(long j, ResolveResult resolveResult, String str, boolean z);
+
+    @NativeClassQualifiedName
+    private native void nativeSetAltQuicInterceptor(long j, boolean z);
+
+    @NativeClassQualifiedName
+    private native void nativeSetAltQuicInterceptorWhitelist(long j, String str);
+
+    @NativeClassQualifiedName
+    private native void nativeSetDataTrafficThreshold(long j, int i, int i2, int i3);
+
+    @NativeClassQualifiedName
+    private native void nativeSetDualStackBdnsCachePolicy(long j, int i);
+
+    public static native int nativeSetMinLogLevel(int i);
+
+    @NativeClassQualifiedName
+    private native void nativeStartNetLogToFile(long j, String str, boolean z);
+
+    @NativeClassQualifiedName
+    private native void nativeStopNetLog(long j);
+
+    @NativeClassQualifiedName
+    private native void nativeUploadNativeRequestLog(long j, String str, String str2, int i, int i2, long j2, long j3, long j4, long j5);
+
+    @NativeClassQualifiedName
+    private native void nativeUploadNetLog(long j, String str);
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes6.dex */
-    public static final class AppThreadState {
+    public final class AppThreadState {
         public static final /* synthetic */ AppThreadState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final AppThreadState APP_THREAD_BACKGROUND;
@@ -111,21 +190,33 @@ public class CronetUrlRequestContext extends TurbonetEngine {
         public static AppThreadState valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (AppThreadState) Enum.valueOf(AppThreadState.class, str) : (AppThreadState) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (AppThreadState) Enum.valueOf(AppThreadState.class, str);
+            }
+            return (AppThreadState) invokeL.objValue;
         }
 
         public static AppThreadState[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (AppThreadState[]) $VALUES.clone() : (AppThreadState[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (AppThreadState[]) $VALUES.clone();
+            }
+            return (AppThreadState[]) invokeV.objValue;
         }
     }
 
     /* loaded from: classes6.dex */
-    public static final class ResolveResult {
+    public final class ResolveResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Object a;
+
+        public void b(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            }
+        }
 
         public ResolveResult() {
             Interceptable interceptable = $ic;
@@ -146,13 +237,10 @@ public class CronetUrlRequestContext extends TurbonetEngine {
         public Object a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.objValue;
-        }
-
-        public void b(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a;
             }
+            return invokeV.objValue;
         }
     }
 
@@ -225,12 +313,13 @@ public class CronetUrlRequestContext extends TurbonetEngine {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (this.c.j) {
-                    Iterator it = this.c.n.iterator();
-                    while (it.hasNext()) {
-                        ((DataTrafficListener) it.next()).a(this.a, this.b);
-                    }
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            synchronized (this.c.j) {
+                Iterator it = this.c.n.iterator();
+                while (it.hasNext()) {
+                    ((DataTrafficListener) it.next()).a(this.a, this.b);
                 }
             }
         }
@@ -323,7 +412,105 @@ public class CronetUrlRequestContext extends TurbonetEngine {
         p = 0L;
     }
 
-    @UsedByReflection
+    @Override // com.baidu.turbonet.net.TurbonetEngine
+    public long d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (p == 0) {
+                p = CronetLibraryLoader.c();
+            }
+            return p;
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // com.baidu.turbonet.net.TurbonetEngine
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (Build.VERSION.SDK_INT >= 14) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.turbonet.net.TurbonetEngine
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.l.a();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void n() throws IllegalStateException {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || r()) {
+            return;
+        }
+        throw new IllegalStateException("Engine is shut down.");
+    }
+
+    public final int p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (Log.isLoggable("ChromiumNetwork", 2)) {
+                return -2;
+            }
+            if (!Log.isLoggable("ChromiumNetwork", 3)) {
+                return 3;
+            }
+            return -1;
+        }
+        return invokeV.intValue;
+    }
+
+    public long q() {
+        InterceptResult invokeV;
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            synchronized (this.a) {
+                n();
+                j = this.d;
+            }
+            return j;
+        }
+        return invokeV.longValue;
+    }
+
+    public final boolean r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            if (this.d != 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            this.c.decrementAndGet();
+        }
+    }
+
+    public void t() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            this.c.incrementAndGet();
+        }
+    }
+
     public CronetUrlRequestContext(TurbonetEngine.Builder builder) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -349,8 +536,8 @@ public class CronetUrlRequestContext extends TurbonetEngine {
         this.l = ProxyConfig.b;
         TurbonetEngine.QUICConnectStatus qUICConnectStatus = TurbonetEngine.QUICConnectStatus.UNKNOWN;
         this.m = TurbonetEngine.TCPNetworkQualityStatus.UNKNOWN;
-        this.n = new i89<>();
-        this.o = new i89<>();
+        this.n = new a99();
+        this.o = new a99();
         this.g = builder.f();
         try {
             this.e = (PowerManager) builder.getContext().getSystemService("power");
@@ -378,7 +565,6 @@ public class CronetUrlRequestContext extends TurbonetEngine {
         CronetLibraryLoader.e(new a(this, builder));
     }
 
-    @CalledByNative
     private int getAppState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -414,7 +600,24 @@ public class CronetUrlRequestContext extends TurbonetEngine {
         return invokeV.intValue;
     }
 
-    @CalledByNative
+    private void updateQUICConnectStatus(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(65582, this, i) == null) && i >= 0 && i <= 2) {
+            TurbonetEngine.QUICConnectStatus qUICConnectStatus = TurbonetEngine.QUICConnectStatus.values()[i];
+        }
+    }
+
+    public void u(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, runnable) == null) {
+            try {
+                this.i.execute(runnable);
+            } catch (RejectedExecutionException e) {
+                Log.e("ChromiumNetwork", "Exception posting task to executor", e);
+            }
+        }
+    }
+
     private void initNetworkThread(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65541, this, z) == null) {
@@ -430,7 +633,53 @@ public class CronetUrlRequestContext extends TurbonetEngine {
         }
     }
 
-    @CalledByNative
+    public void m(UrlRequest urlRequest) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, urlRequest) == null) {
+            synchronized (this.k) {
+                HashSet hashSet = (HashSet) this.k.get(urlRequest.getTag());
+                if (hashSet == null) {
+                    hashSet = new HashSet();
+                    this.k.put(urlRequest.getTag(), hashSet);
+                }
+                hashSet.add(urlRequest);
+            }
+        }
+    }
+
+    public final void w(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            if (this.m != TurbonetEngine.TCPNetworkQualityStatus.WEAK && i == 7) {
+                this.m = TurbonetEngine.TCPNetworkQualityStatus.NORMAL;
+            } else if (i != 3 && i != 6) {
+                if (i != 0 && i != 4) {
+                    return;
+                }
+                this.m = TurbonetEngine.TCPNetworkQualityStatus.UNKNOWN;
+            } else {
+                this.m = TurbonetEngine.TCPNetworkQualityStatus.WEAK;
+            }
+        }
+    }
+
+    public void x(UrlRequest urlRequest) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, urlRequest) == null) {
+            synchronized (this.k) {
+                HashSet hashSet = (HashSet) this.k.get(urlRequest.getTag());
+                if (hashSet == null) {
+                    Log.e("ChromiumNetwork", "Remove a tagged request which is not in mTaggedRequestList");
+                } else {
+                    hashSet.remove(urlRequest);
+                    if (hashSet.isEmpty()) {
+                        this.k.remove(urlRequest.getTag());
+                    }
+                }
+            }
+        }
+    }
+
     private boolean isAppForeground() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -442,7 +691,10 @@ public class CronetUrlRequestContext extends TurbonetEngine {
             if (this.f != null) {
                 for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : this.f.getRunningAppProcesses()) {
                     if (runningAppProcessInfo.processName.equalsIgnoreCase(this.g)) {
-                        return runningAppProcessInfo.importance == 100;
+                        if (runningAppProcessInfo.importance != 100) {
+                            return false;
+                        }
+                        return true;
                     }
                 }
                 return false;
@@ -452,7 +704,6 @@ public class CronetUrlRequestContext extends TurbonetEngine {
         return invokeV.booleanValue;
     }
 
-    @CalledByNative
     private boolean isInteractive() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -473,90 +724,45 @@ public class CronetUrlRequestContext extends TurbonetEngine {
         return invokeV.booleanValue;
     }
 
-    public static native void nativeApplyBaiduConfigDictionary(long j, String str);
+    private void onDataTrafficObservation(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(65578, this, i, i2) == null) {
+            u(new b(this, i, i2));
+        }
+    }
 
-    public static native void nativeApplyBaiduConfiguration(long j, String str);
+    private void onGetNetworkQualityStatsComplete(NetworkQualityListener networkQualityListener, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65579, this, networkQualityListener, str) == null) {
+            d dVar = new d(this, networkQualityListener, str);
+            if (networkQualityListener.a() != null) {
+                v(networkQualityListener.a(), dVar);
+                return;
+            }
+            throw new NullPointerException("Executor of listener is null");
+        }
+    }
 
-    public static native long nativeCreateRequestContextAdapter(long j);
+    private void onResolveComplete(ResolveResult resolveResult, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65581, this, resolveResult, str) == null) {
+            synchronized (resolveResult.a()) {
+                resolveResult.b(str);
+                resolveResult.a().notifyAll();
+            }
+        }
+    }
 
-    public static native long nativeCreateRequestContextConfig(String str, String str2, boolean z, String str3, boolean z2, boolean z3, String str4, String str5, String str6, String str7, boolean z4, int i, long j, String str8, long j2, boolean z5);
-
-    @NativeClassQualifiedName
-    private native void nativeDestroy(long j);
-
-    @NativeClassQualifiedName
-    private native void nativeDetectQuicConnectStatusByPreconnect(long j);
-
-    @NativeClassQualifiedName
-    private native void nativeDisableSpdyPingByHost(long j, String str);
-
-    @NativeClassQualifiedName
-    private native void nativeEnableCustomProxy(long j, boolean z);
-
-    @NativeClassQualifiedName
-    private native void nativeEnableDataTrafficMonitor(long j);
-
-    @NativeClassQualifiedName
-    private native void nativeEnableMulConnect(long j, boolean z);
-
-    @NativeClassQualifiedName
-    private native void nativeEnableSpdyPingByHost(long j, String str, int i, int i2);
-
-    @NativeClassQualifiedName
-    private native void nativeForceDisableQuic(long j, boolean z);
-
-    public static native byte[] nativeGetHistogramDeltas();
-
-    @NativeClassQualifiedName
-    private native void nativeGetNetworkQualityStats(long j, NetworkQualityListener networkQualityListener);
-
-    @NativeClassQualifiedName
-    public static native String nativeGetTurboNetVersion();
-
-    /* JADX INFO: Access modifiers changed from: private */
-    @NativeClassQualifiedName
-    public native void nativeInitRequestContextOnInitThread(long j);
-
-    @NativeClassQualifiedName
-    private native void nativeOnBdAppStatusChange(long j, int i);
-
-    @NativeClassQualifiedName
-    private native void nativePreconnectURL(long j, String str, int i, boolean z);
-
-    @NativeClassQualifiedName
-    private native void nativeProvideDataTrafficObservations(long j, boolean z);
-
-    @NativeClassQualifiedName
-    private native void nativeProvideNetworkQualityObservations(long j, boolean z);
-
-    @NativeClassQualifiedName
-    private native void nativeResolveHost(long j, ResolveResult resolveResult, String str, boolean z);
-
-    @NativeClassQualifiedName
-    private native void nativeSetAltQuicInterceptor(long j, boolean z);
-
-    @NativeClassQualifiedName
-    private native void nativeSetAltQuicInterceptorWhitelist(long j, String str);
-
-    @NativeClassQualifiedName
-    private native void nativeSetDataTrafficThreshold(long j, int i, int i2, int i3);
-
-    @NativeClassQualifiedName
-    private native void nativeSetDualStackBdnsCachePolicy(long j, int i);
-
-    public static native int nativeSetMinLogLevel(int i);
-
-    @NativeClassQualifiedName
-    private native void nativeStartNetLogToFile(long j, String str, boolean z);
-
-    @NativeClassQualifiedName
-    private native void nativeStopNetLog(long j);
-
-    @NativeClassQualifiedName
-    private native void nativeUploadNativeRequestLog(long j, String str, String str2, int i, int i2, long j2, long j3, long j4, long j5);
-
-    @NativeClassQualifiedName
-    private native void nativeUploadNetLog(long j, String str);
+    public static void v(Executor executor, Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65583, null, executor, runnable) == null) {
+            try {
+                executor.execute(runnable);
+            } catch (RejectedExecutionException e) {
+                Log.e("ChromiumNetwork", "Exception posting task to executor", e);
+            }
+        }
+    }
 
     public static long o(Context context, TurbonetEngine.Builder builder) {
         InterceptResult invokeLL;
@@ -574,38 +780,16 @@ public class CronetUrlRequestContext extends TurbonetEngine {
         return invokeLL.longValue;
     }
 
-    @CalledByNative
-    private void onDataTrafficObservation(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65578, this, i, i2) == null) {
-            u(new b(this, i, i2));
-        }
-    }
-
-    @CalledByNative
-    private void onGetNetworkQualityStatsComplete(NetworkQualityListener networkQualityListener, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65579, this, networkQualityListener, str) == null) {
-            d dVar = new d(this, networkQualityListener, str);
-            if (networkQualityListener.a() != null) {
-                v(networkQualityListener.a(), dVar);
-                return;
-            }
-            throw new NullPointerException("Executor of listener is null");
-        }
-    }
-
-    @CalledByNative
     private void onNetworkQualityObservation(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65580, this, i) == null) {
             synchronized (this.h) {
-                Iterator<NetworkQualityListener> it = this.o.iterator();
+                Iterator it = this.o.iterator();
                 while (it.hasNext()) {
-                    NetworkQualityListener next = it.next();
-                    c cVar = new c(this, next, i);
-                    if (next.a() != null) {
-                        v(next.a(), cVar);
+                    NetworkQualityListener networkQualityListener = (NetworkQualityListener) it.next();
+                    c cVar = new c(this, networkQualityListener, i);
+                    if (networkQualityListener.a() != null) {
+                        v(networkQualityListener.a(), cVar);
                     } else {
                         throw new NullPointerException("Executor of listener is null");
                     }
@@ -615,39 +799,8 @@ public class CronetUrlRequestContext extends TurbonetEngine {
         }
     }
 
-    @CalledByNative
-    private void onResolveComplete(ResolveResult resolveResult, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65581, this, resolveResult, str) == null) {
-            synchronized (resolveResult.a()) {
-                resolveResult.b(str);
-                resolveResult.a().notifyAll();
-            }
-        }
-    }
-
-    @CalledByNative
-    private void updateQUICConnectStatus(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65582, this, i) == null) || i < 0 || i > 2) {
-            return;
-        }
-        TurbonetEngine.QUICConnectStatus qUICConnectStatus = TurbonetEngine.QUICConnectStatus.values()[i];
-    }
-
-    public static void v(Executor executor, Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65583, null, executor, runnable) == null) {
-            try {
-                executor.execute(runnable);
-            } catch (RejectedExecutionException e) {
-                Log.e("ChromiumNetwork", "Exception posting task to executor", e);
-            }
-        }
-    }
-
     @Override // com.baidu.turbonet.net.TurbonetEngine
-    public UrlRequest b(String str, UrlRequest.Callback callback, Executor executor, int i, Collection<Object> collection, boolean z, boolean z2, boolean z3) {
+    public UrlRequest b(String str, UrlRequest.Callback callback, Executor executor, int i, Collection collection, boolean z, boolean z2, boolean z3) {
         InterceptResult invokeCommon;
         CronetUrlRequest cronetUrlRequest;
         Interceptable interceptable = $ic;
@@ -662,156 +815,20 @@ public class CronetUrlRequestContext extends TurbonetEngine {
     }
 
     @Override // com.baidu.turbonet.net.TurbonetEngine
-    public long d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (p == 0) {
-                p = CronetLibraryLoader.c();
-            }
-            return p;
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // com.baidu.turbonet.net.TurbonetEngine
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Build.VERSION.SDK_INT >= 14 : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.turbonet.net.TurbonetEngine
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.l.a() : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.turbonet.net.TurbonetEngine
     public void g(String str, String str2, int i, int i2, long j, long j2, long j3, long j4) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)}) != null) {
-            return;
-        }
-        synchronized (this.a) {
-            try {
-                try {
-                    n();
-                    nativeUploadNativeRequestLog(this.d, str, str2, i, i2, j, j2, j3, j4);
-                } catch (Throwable th) {
-                    th = th;
-                    throw th;
-                }
-            } catch (Throwable th2) {
-                th = th2;
-            }
-        }
-    }
-
-    public void m(UrlRequest urlRequest) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, urlRequest) == null) {
-            synchronized (this.k) {
-                HashSet<UrlRequest> hashSet = this.k.get(urlRequest.getTag());
-                if (hashSet == null) {
-                    hashSet = new HashSet<>();
-                    this.k.put(urlRequest.getTag(), hashSet);
-                }
-                hashSet.add(urlRequest);
-            }
-        }
-    }
-
-    public final void n() throws IllegalStateException {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && !r()) {
-            throw new IllegalStateException("Engine is shut down.");
-        }
-    }
-
-    public final int p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (Log.isLoggable("ChromiumNetwork", 2)) {
-                return -2;
-            }
-            return Log.isLoggable("ChromiumNetwork", 3) ? -1 : 3;
-        }
-        return invokeV.intValue;
-    }
-
-    public long q() {
-        InterceptResult invokeV;
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)}) == null) {
             synchronized (this.a) {
-                n();
-                j = this.d;
-            }
-            return j;
-        }
-        return invokeV.longValue;
-    }
-
-    public final boolean r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.d != 0 : invokeV.booleanValue;
-    }
-
-    public void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.c.decrementAndGet();
-        }
-    }
-
-    public void t() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.c.incrementAndGet();
-        }
-    }
-
-    public void u(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, runnable) == null) {
-            try {
-                this.i.execute(runnable);
-            } catch (RejectedExecutionException e) {
-                Log.e("ChromiumNetwork", "Exception posting task to executor", e);
-            }
-        }
-    }
-
-    public final void w(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            if (this.m != TurbonetEngine.TCPNetworkQualityStatus.WEAK && i == 7) {
-                this.m = TurbonetEngine.TCPNetworkQualityStatus.NORMAL;
-            } else if (i == 3 || i == 6) {
-                this.m = TurbonetEngine.TCPNetworkQualityStatus.WEAK;
-            } else if (i == 0 || i == 4) {
-                this.m = TurbonetEngine.TCPNetworkQualityStatus.UNKNOWN;
-            }
-        }
-    }
-
-    public void x(UrlRequest urlRequest) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, urlRequest) == null) {
-            synchronized (this.k) {
-                HashSet<UrlRequest> hashSet = this.k.get(urlRequest.getTag());
-                if (hashSet == null) {
-                    Log.e("ChromiumNetwork", "Remove a tagged request which is not in mTaggedRequestList");
-                } else {
-                    hashSet.remove(urlRequest);
-                    if (hashSet.isEmpty()) {
-                        this.k.remove(urlRequest.getTag());
+                try {
+                    try {
+                        n();
+                        nativeUploadNativeRequestLog(this.d, str, str2, i, i2, j, j2, j3, j4);
+                    } catch (Throwable th) {
+                        th = th;
+                        throw th;
                     }
+                } catch (Throwable th2) {
+                    th = th2;
                 }
             }
         }

@@ -1,166 +1,88 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
+import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Locale;
 /* loaded from: classes4.dex */
 public class h89 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public ImageView b;
+    public EMTextView c;
+    public View d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947777728, "Lcom/baidu/tieba/h89;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947777728, "Lcom/baidu/tieba/h89;");
-        }
-    }
-
-    public h89() {
+    public h89(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = context;
+        c();
     }
 
-    public static void a(String str, String str2) {
+    public void d(int i) {
+        ImageView imageView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
-            b(str, str2, new Object[0]);
+        if ((interceptable == null || interceptable.invokeI(1048579, this, i) == null) && (imageView = this.b) != null) {
+            imageView.setImageDrawable(WebPManager.getMaskDrawable(i, false));
         }
     }
 
-    public static void b(String str, String str2, Object... objArr) {
+    public void e(String str) {
+        EMTextView eMTextView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, objArr) == null) {
-            String e = e(str2, objArr);
-            Throwable g = g(objArr);
-            if (g != null) {
-                if (a) {
-                    Log.d(i(str), e, g);
-                }
-            } else if (a) {
-                Log.d(i(str), e);
-            }
+        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (eMTextView = this.c) != null) {
+            eMTextView.setText(str);
         }
     }
 
-    public static void c(String str, String str2, Object... objArr) {
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, objArr) == null) {
-            String d = d(str2, objArr);
-            Throwable g = g(objArr);
-            if (g != null) {
-                if (a) {
-                    Log.e(i(str), d, g);
-                }
-            } else if (a) {
-                Log.e(i(str), d);
-            }
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.d != null) {
+            nv4 d = nv4.d(this.c);
+            d.w(R.dimen.M_T_X001);
+            d.z(R.dimen.T_X05);
         }
     }
 
-    public static String d(String str, Object... objArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, objArr)) == null) ? (objArr == null || objArr.length == 0) ? str : String.format(Locale.US, str, objArr) : (String) invokeLL.objValue;
-    }
-
-    public static String e(String str, Object... objArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, objArr)) == null) {
-            return PreferencesUtil.LEFT_MOUNT + f() + "] " + d(str, objArr);
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String f() {
+    public View b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
-            String name = h89.class.getName();
-            int i = 0;
-            while (true) {
-                if (i >= stackTrace.length) {
-                    break;
-                } else if (stackTrace[i].getClassName().equals(name)) {
-                    i += 4;
-                    break;
-                } else {
-                    i++;
-                }
-            }
-            return stackTrace[i].getFileName() + ":" + stackTrace[i].getLineNumber();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
         }
-        return (String) invokeV.objValue;
+        return (View) invokeV.objValue;
     }
 
-    public static Throwable g(Object[] objArr) {
-        InterceptResult invokeL;
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, objArr)) == null) {
-            if (objArr == null || objArr.length == 0) {
-                return null;
-            }
-            Object obj = objArr[objArr.length - 1];
-            if (obj instanceof Throwable) {
-                return (Throwable) obj;
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0935, (ViewGroup) null);
+            this.d = inflate;
+            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090fa2);
+            this.c = (EMTextView) this.d.findViewById(R.id.obfuscated_res_0x7f090fd1);
+            a();
         }
-        return (Throwable) invokeL.objValue;
-    }
-
-    public static void h(String str, String str2, Object... objArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65545, null, str, str2, objArr) == null) {
-            String d = d(str2, objArr);
-            Throwable g = g(objArr);
-            if (g != null) {
-                if (a) {
-                    Log.i(i(str), d, g);
-                }
-            } else if (a) {
-                Log.i(i(str), d);
-            }
-        }
-    }
-
-    public static String i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
-            if (str.startsWith("cr_")) {
-                return str;
-            }
-            int i = str.startsWith("cr.") ? 3 : 0;
-            return "cr_" + str.substring(i, str.length());
-        }
-        return (String) invokeL.objValue;
     }
 }

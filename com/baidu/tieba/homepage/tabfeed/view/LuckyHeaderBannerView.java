@@ -5,8 +5,6 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
@@ -25,6 +23,13 @@ public class LuckyHeaderBannerView extends FrameLayout {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LuckyHeaderBannerView a;
+
+        @Override // com.baidu.tbadk.widget.TbImageView.g
+        public void onCancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
+        }
 
         public a(LuckyHeaderBannerView luckyHeaderBannerView) {
             Interceptable interceptable = $ic;
@@ -53,17 +58,10 @@ public class LuckyHeaderBannerView extends FrameLayout {
                 this.a.a.setLayoutParams(layoutParams);
             }
         }
-
-        @Override // com.baidu.tbadk.widget.TbImageView.g
-        public void onCancel() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LuckyHeaderBannerView(@NonNull Context context) {
+    public LuckyHeaderBannerView(Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -86,10 +84,10 @@ public class LuckyHeaderBannerView extends FrameLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04b1, this);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04ae, this);
             inflate.setLayoutParams(new FrameLayout.LayoutParams(-1, -2));
             setClipChildren(false);
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090eca);
+            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090ebe);
             this.a = tbImageView;
             tbImageView.setUseNightOrDarkMask(false);
             this.a.setPlaceHolderAutoChangeSkinType(3);
@@ -97,22 +95,8 @@ public class LuckyHeaderBannerView extends FrameLayout {
         }
     }
 
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.a.K(str, 10, false);
-        }
-    }
-
-    public void setClickCallback(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-            this.a.setOnClickListener(onClickListener);
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LuckyHeaderBannerView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+    public LuckyHeaderBannerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -134,7 +118,7 @@ public class LuckyHeaderBannerView extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LuckyHeaderBannerView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+    public LuckyHeaderBannerView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -153,5 +137,19 @@ public class LuckyHeaderBannerView extends FrameLayout {
             }
         }
         b(context);
+    }
+
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.a.L(str, 10, false);
+        }
+    }
+
+    public void setClickCallback(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
+            this.a.setOnClickListener(onClickListener);
+        }
     }
 }

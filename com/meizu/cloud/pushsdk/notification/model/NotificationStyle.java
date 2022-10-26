@@ -10,7 +10,7 @@ import org.json.JSONObject;
 public class NotificationStyle implements Parcelable {
     public static final String BANNER_IMAGE_URL = "bi";
     public static final String BASE_STYLE = "bs";
-    public static final Parcelable.Creator<NotificationStyle> CREATOR = new Parcelable.Creator<NotificationStyle>() { // from class: com.meizu.cloud.pushsdk.notification.model.NotificationStyle.1
+    public static final Parcelable.Creator CREATOR = new Parcelable.Creator() { // from class: com.meizu.cloud.pushsdk.notification.model.NotificationStyle.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: a */

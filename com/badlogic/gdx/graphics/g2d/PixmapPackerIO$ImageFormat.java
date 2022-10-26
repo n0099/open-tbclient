@@ -61,18 +61,27 @@ public final class PixmapPackerIO$ImageFormat {
     public static PixmapPackerIO$ImageFormat valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (PixmapPackerIO$ImageFormat) Enum.valueOf(PixmapPackerIO$ImageFormat.class, str) : (PixmapPackerIO$ImageFormat) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (PixmapPackerIO$ImageFormat) Enum.valueOf(PixmapPackerIO$ImageFormat.class, str);
+        }
+        return (PixmapPackerIO$ImageFormat) invokeL.objValue;
     }
 
     public static PixmapPackerIO$ImageFormat[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PixmapPackerIO$ImageFormat[]) $VALUES.clone() : (PixmapPackerIO$ImageFormat[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (PixmapPackerIO$ImageFormat[]) $VALUES.clone();
+        }
+        return (PixmapPackerIO$ImageFormat[]) invokeV.objValue;
     }
 
     public String getExtension() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.extension : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.extension;
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -26,6 +26,6 @@ public final class AwaitKt$joinAll$3 extends ContinuationImpl {
     public final Object invokeSuspend(Object obj) {
         this.result = obj;
         this.label |= Integer.MIN_VALUE;
-        return AwaitKt.joinAll((Collection<? extends Job>) null, this);
+        return AwaitKt.joinAll((Collection) null, this);
     }
 }

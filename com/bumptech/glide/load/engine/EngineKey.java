@@ -1,6 +1,5 @@
 package com.bumptech.glide.load.engine;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,7 +8,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.Key;
 import com.bumptech.glide.load.Options;
-import com.bumptech.glide.load.Transformation;
 import com.bumptech.glide.util.Preconditions;
 import java.security.MessageDigest;
 import java.util.Map;
@@ -21,13 +19,13 @@ public class EngineKey implements Key {
     public final int height;
     public final Object model;
     public final Options options;
-    public final Class<?> resourceClass;
+    public final Class resourceClass;
     public final Key signature;
-    public final Class<?> transcodeClass;
-    public final Map<Class<?>, Transformation<?>> transformations;
+    public final Class transcodeClass;
+    public final Map transformations;
     public final int width;
 
-    public EngineKey(Object obj, Key key, int i, int i2, Map<Class<?>, Transformation<?>> map, Class<?> cls, Class<?> cls2, Options options) {
+    public EngineKey(Object obj, Key key, int i, int i2, Map map, Class cls, Class cls2, Options options) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -57,11 +55,14 @@ public class EngineKey implements Key {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (obj instanceof EngineKey) {
-                EngineKey engineKey = (EngineKey) obj;
-                return this.model.equals(engineKey.model) && this.signature.equals(engineKey.signature) && this.height == engineKey.height && this.width == engineKey.width && this.transformations.equals(engineKey.transformations) && this.resourceClass.equals(engineKey.resourceClass) && this.transcodeClass.equals(engineKey.transcodeClass) && this.options.equals(engineKey.options);
+            if (!(obj instanceof EngineKey)) {
+                return false;
             }
-            return false;
+            EngineKey engineKey = (EngineKey) obj;
+            if (!this.model.equals(engineKey.model) || !this.signature.equals(engineKey.signature) || this.height != engineKey.height || this.width != engineKey.width || !this.transformations.equals(engineKey.transformations) || !this.resourceClass.equals(engineKey.resourceClass) || !this.transcodeClass.equals(engineKey.transcodeClass) || !this.options.equals(engineKey.options)) {
+                return false;
+            }
+            return true;
         }
         return invokeL.booleanValue;
     }
@@ -103,7 +104,7 @@ public class EngineKey implements Key {
     }
 
     @Override // com.bumptech.glide.load.Key
-    public void updateDiskCacheKey(@NonNull MessageDigest messageDigest) {
+    public void updateDiskCacheKey(MessageDigest messageDigest) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, messageDigest) == null) {
             throw new UnsupportedOperationException();

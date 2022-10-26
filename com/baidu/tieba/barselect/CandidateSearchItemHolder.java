@@ -21,9 +21,9 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.data.CommitVoteReqMsg;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dh;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.i06;
+import com.baidu.tieba.eh;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.p06;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -38,7 +38,7 @@ public class CandidateSearchItemHolder extends RecyclerView.ViewHolder {
     public TextView d;
     public TextView e;
     public int f;
-    public i06 g;
+    public p06 g;
     public BdUniqueId h;
     public View i;
     public View.OnClickListener j;
@@ -69,33 +69,39 @@ public class CandidateSearchItemHolder extends RecyclerView.ViewHolder {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
+            boolean z;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.g == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || this.a.g == null) {
                 return;
             }
             if (view2.getId() != this.a.i.getId() && view2.getId() != this.a.a.getId()) {
-                if (view2.getId() == this.a.e.getId() && (this.a.itemView.getContext() instanceof Activity) && ViewHelper.checkUpIsLogin(this.a.itemView.getContext())) {
-                    if (this.a.g.k) {
-                        ej.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f0841);
-                        return;
-                    }
-                    CommitVoteReqMsg commitVoteReqMsg = new CommitVoteReqMsg(this.a.g.b, this.a.g.a, this.a.g.l, 3);
-                    if (this.a.h == null) {
-                        if (this.a.itemView.getContext() instanceof BaseActivity) {
-                            CandidateSearchItemHolder candidateSearchItemHolder = this.a;
-                            candidateSearchItemHolder.h = ((BaseActivity) candidateSearchItemHolder.itemView.getContext()).getUniqueId();
-                        } else if (this.a.itemView.getContext() instanceof BaseFragmentActivity) {
-                            CandidateSearchItemHolder candidateSearchItemHolder2 = this.a;
-                            candidateSearchItemHolder2.h = ((BaseFragmentActivity) candidateSearchItemHolder2.itemView.getContext()).getUniqueId();
-                        }
-                    }
-                    commitVoteReqMsg.setTag(this.a.h);
-                    MessageManager.getInstance().sendMessage(commitVoteReqMsg);
+                if (view2.getId() != this.a.e.getId() || !(this.a.itemView.getContext() instanceof Activity) || !ViewHelper.checkUpIsLogin(this.a.itemView.getContext())) {
                     return;
                 }
+                if (this.a.g.k) {
+                    fj.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f084d);
+                    return;
+                }
+                CommitVoteReqMsg commitVoteReqMsg = new CommitVoteReqMsg(this.a.g.b, this.a.g.a, this.a.g.l, 3);
+                if (this.a.h == null) {
+                    if (this.a.itemView.getContext() instanceof BaseActivity) {
+                        CandidateSearchItemHolder candidateSearchItemHolder = this.a;
+                        candidateSearchItemHolder.h = ((BaseActivity) candidateSearchItemHolder.itemView.getContext()).getUniqueId();
+                    } else if (this.a.itemView.getContext() instanceof BaseFragmentActivity) {
+                        CandidateSearchItemHolder candidateSearchItemHolder2 = this.a;
+                        candidateSearchItemHolder2.h = ((BaseFragmentActivity) candidateSearchItemHolder2.itemView.getContext()).getUniqueId();
+                    }
+                }
+                commitVoteReqMsg.setTag(this.a.h);
+                MessageManager.getInstance().sendMessage(commitVoteReqMsg);
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.a.itemView.getContext()).createNormalConfig(this.a.g.b, this.a.g.b == dh.g(TbadkCoreApplication.getCurrentAccount(), 0L), false)));
+            if (this.a.g.b == eh.g(TbadkCoreApplication.getCurrentAccount(), 0L)) {
+                z = true;
+            } else {
+                z = false;
+            }
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.a.itemView.getContext()).createNormalConfig(this.a.g.b, z, false)));
         }
     }
 
@@ -120,67 +126,65 @@ public class CandidateSearchItemHolder extends RecyclerView.ViewHolder {
         this.f = 3;
         this.h = null;
         this.j = new a(this);
-        HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ee7);
+        HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090edb);
         this.a = headImageView;
         headImageView.setIsRound(true);
         this.a.setOnClickListener(this.j);
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091620);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09171a);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091612);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09170c);
         this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090160);
-        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090462);
+        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09046b);
         this.itemView.setOnClickListener(this.j);
         this.e.setOnClickListener(this.j);
-        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f0904a5);
+        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f0904ae);
         this.i = findViewById;
         findViewById.setOnClickListener(this.j);
     }
 
-    public void g(i06 i06Var) {
+    public void g(p06 p06Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, i06Var) == null) {
-            this.g = i06Var;
-            if (i06Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, p06Var) == null) {
+            this.g = p06Var;
+            if (p06Var == null) {
                 return;
             }
-            this.a.K(i06Var.c, 12, false);
-            this.b.setText(i06Var.d);
-            String valueOf = String.valueOf(i06Var.e);
+            this.a.L(p06Var.c, 12, false);
+            this.b.setText(p06Var.d);
+            String valueOf = String.valueOf(p06Var.e);
             if (valueOf != null && valueOf.length() < 4) {
-                valueOf = String.format("%04d", Long.valueOf(i06Var.e));
+                valueOf = String.format("%04d", Long.valueOf(p06Var.e));
             }
-            h(this.c, String.format(this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f0ce3), valueOf, Integer.valueOf(i06Var.f)), i06Var.j);
-            this.d.setText(String.format(this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f00ea), StringHelper.numFormatOverWanWithNegative(i06Var.g), StringHelper.numFormatOverWanWithNegative(i06Var.h), StringHelper.numFormatOverWanWithNegative(i06Var.i)));
+            h(this.c, String.format(this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f0cf4), valueOf, Integer.valueOf(p06Var.f)), p06Var.j);
+            this.d.setText(String.format(this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f00ea), StringHelper.numFormatOverWanWithNegative(p06Var.g), StringHelper.numFormatOverWanWithNegative(p06Var.h), StringHelper.numFormatOverWanWithNegative(p06Var.i)));
             i();
         }
     }
 
     public void h(TextView textView, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textView, str, str2) == null) || textView == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-            return;
+        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textView, str, str2) == null) && textView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+            String lowerCase = str.toLowerCase();
+            String lowerCase2 = str2.toLowerCase();
+            if (!lowerCase.contains(lowerCase2)) {
+                textView.setText(str);
+                return;
+            }
+            int indexOf = lowerCase.indexOf(lowerCase2);
+            ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0302));
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
+            spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, str2.length() + indexOf, 33);
+            textView.setText(spannableStringBuilder);
         }
-        String lowerCase = str.toLowerCase();
-        String lowerCase2 = str2.toLowerCase();
-        if (!lowerCase.contains(lowerCase2)) {
-            textView.setText(str);
-            return;
-        }
-        int indexOf = lowerCase.indexOf(lowerCase2);
-        ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0302));
-        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-        spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, str2.length() + indexOf, 33);
-        textView.setText(spannableStringBuilder);
     }
 
     public final void i() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || TbadkCoreApplication.getInst().getSkinType() == this.f) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && TbadkCoreApplication.getInst().getSkinType() != this.f) {
+            SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0106);
+            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0108);
+            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0302);
+            SkinManager.setBackgroundResource(this.e, R.drawable.shape_vote_button);
         }
-        SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0106);
-        SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0108);
-        SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0109);
-        SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0302);
-        SkinManager.setBackgroundResource(this.e, R.drawable.shape_vote_button);
     }
 }

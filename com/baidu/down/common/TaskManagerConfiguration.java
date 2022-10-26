@@ -53,85 +53,127 @@ public class TaskManagerConfiguration {
     public boolean geDomainNameToIpEnable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mDomainNameToIpEnable : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mDomainNameToIpEnable;
+        }
+        return invokeV.booleanValue;
     }
 
     public int getBufferSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.bufferSize : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.bufferSize;
+        }
+        return invokeV.intValue;
     }
 
     public String getDomainNameToIpReg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mDomainNameToIpReg : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mDomainNameToIpReg;
+        }
+        return (String) invokeV.objValue;
     }
 
     public boolean getDownSpeedStatEnable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mDownSpeedStatEnable : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mDownSpeedStatEnable;
+        }
+        return invokeV.booleanValue;
     }
 
     public String getHttpDnsServerIp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mHttpDnsServerIp : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mHttpDnsServerIp;
+        }
+        return (String) invokeV.objValue;
     }
 
     public boolean getHttpRetryStrategyEnable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mHttpRetryStrategyEnable : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mHttpRetryStrategyEnable;
+        }
+        return invokeV.booleanValue;
     }
 
     public int getLogLevel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mLogLevel : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mLogLevel;
+        }
+        return invokeV.intValue;
     }
 
     public int getMaxBufferCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.maxBufferCount : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.maxBufferCount;
+        }
+        return invokeV.intValue;
     }
 
     public int getMaxTaskCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.maxTaskCount : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.maxTaskCount;
+        }
+        return invokeV.intValue;
     }
 
     public String getPreResolveDominName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mPreResolveDomainName : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mPreResolveDomainName;
+        }
+        return (String) invokeV.objValue;
     }
 
     public long[] getRetryIntervals() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.retryIntervals : (long[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.retryIntervals;
+        }
+        return (long[]) invokeV.objValue;
     }
 
     public int getTrafficStatsTag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mTrafficStatsTag : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.mTrafficStatsTag;
+        }
+        return invokeV.intValue;
     }
 
     public String getURLRetryHostReg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mURLRetryHostReg : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.mURLRetryHostReg;
+        }
+        return (String) invokeV.objValue;
     }
 
     public boolean isRetryNetDetect() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.retryNetDetect : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.retryNetDetect;
+        }
+        return invokeV.booleanValue;
     }
 
     public void setBufferSize(int i) {
@@ -218,10 +260,9 @@ public class TaskManagerConfiguration {
 
     public void setRetryIntervals(long[] jArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048600, this, jArr) == null) || jArr == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048600, this, jArr) == null) && jArr != null) {
+            this.retryIntervals = jArr;
         }
-        this.retryIntervals = jArr;
     }
 
     public void setRetryNetDetect(boolean z) {

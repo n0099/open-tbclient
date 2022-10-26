@@ -6,7 +6,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.zxing.ResultPoint;
 import com.google.zxing.common.BitMatrix;
 import java.util.List;
 /* loaded from: classes7.dex */
@@ -14,9 +13,9 @@ public final class PDF417DetectorResult {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final BitMatrix bits;
-    public final List<ResultPoint[]> points;
+    public final List points;
 
-    public PDF417DetectorResult(BitMatrix bitMatrix, List<ResultPoint[]> list) {
+    public PDF417DetectorResult(BitMatrix bitMatrix, List list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -38,12 +37,18 @@ public final class PDF417DetectorResult {
     public BitMatrix getBits() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.bits : (BitMatrix) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.bits;
+        }
+        return (BitMatrix) invokeV.objValue;
     }
 
-    public List<ResultPoint[]> getPoints() {
+    public List getPoints() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.points : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.points;
+        }
+        return (List) invokeV.objValue;
     }
 }

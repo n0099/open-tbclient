@@ -22,42 +22,8 @@ public class f implements TTInitializer {
     public static final Bundle c = new Bundle();
     public static ScheduledExecutorService a = Executors.newSingleThreadScheduledExecutor(new a());
 
-    @Override // com.bytedance.sdk.openadsdk.TTInitializer
-    public TTAdManager getAdManager() {
-        return com.bytedance.sdk.openadsdk.api.plugin.a.a;
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTInitializer
-    public void init(Context context, AdConfig adConfig, TTAdSdk.InitCallback initCallback) {
-        if (Build.VERSION.SDK_INT < 21) {
-            initCallback.fail(4201, "Only support >= 5.0");
-            return;
-        }
-        e.a(context).a();
-        if (this.b != null) {
-            this.b.init(context, adConfig, initCallback);
-        } else {
-            a(context, adConfig, initCallback);
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTInitializer
-    public boolean isInitSuccess() {
-        if (this.b != null) {
-            return this.b.isInitSuccess();
-        }
-        return false;
-    }
-
-    public static void a(String str, Bundle bundle) {
-        if (TextUtils.isEmpty(str) || bundle == null) {
-            return;
-        }
-        c.putBundle(str, bundle);
-    }
-
     /* loaded from: classes7.dex */
-    public static class a implements ThreadFactory {
+    public class a implements ThreadFactory {
         public final ThreadGroup a;
         public final AtomicInteger b;
         public final String c;
@@ -66,6 +32,12 @@ public class f implements TTInitializer {
             this.b = new AtomicInteger(1);
             this.a = new ThreadGroup("tt_pangle_group_pl_init");
             this.c = "tt_pangle_thread_pl_init";
+        }
+
+        public a(String str) {
+            this.b = new AtomicInteger(1);
+            this.a = new ThreadGroup("tt_pangle_group_pl_init");
+            this.c = str;
         }
 
         @Override // java.util.concurrent.ThreadFactory
@@ -80,57 +52,19 @@ public class f implements TTInitializer {
             }
             return thread;
         }
-
-        public a(String str) {
-            this.b = new AtomicInteger(1);
-            this.a = new ThreadGroup("tt_pangle_group_pl_init");
-            this.c = str;
-        }
-    }
-
-    private void a(final Context context, final AdConfig adConfig, final TTAdSdk.InitCallback initCallback) {
-        a.execute(new Runnable() { // from class: com.bytedance.sdk.openadsdk.api.plugin.f.1
-            @Override // java.lang.Runnable
-            public void run() {
-                TTInitializer a2 = f.this.a(context, adConfig);
-                if (a2 != null) {
-                    com.bytedance.sdk.openadsdk.api.plugin.a.a.a(a2.getAdManager());
-                    a2.init(context, adConfig, initCallback);
-                    d.a();
-                    a2.getAdManager().register(com.bytedance.sdk.openadsdk.a.b.a());
-                    return;
-                }
-                initCallback.fail(4201, "No initializer");
-            }
-        });
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public TTInitializer a(Context context, AdConfig adConfig) {
-        if (this.b == null) {
-            synchronized (this) {
-                if (this.b == null) {
-                    d.a(adConfig);
-                    com.bytedance.sdk.openadsdk.api.a.b("TTPluginManager", "Create initializer");
-                    long currentTimeMillis = System.currentTimeMillis();
-                    this.b = a(context);
-                    long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
-                    JSONObject jSONObject = new JSONObject();
-                    try {
-                        jSONObject.putOpt("duration", Long.valueOf(currentTimeMillis2));
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                    adConfig.setExtra("plugin", jSONObject);
-                }
-            }
-        }
-        return this.b;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTInitializer
-    public TTAdManager init(Context context, AdConfig adConfig) {
-        throw new RuntimeException("Please use init(Context context, AdConfig config, TTAdSdk.InitCallback callback)!");
+    public TTAdManager getAdManager() {
+        return com.bytedance.sdk.openadsdk.api.plugin.a.a;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTInitializer
+    public boolean isInitSuccess() {
+        if (this.b != null) {
+            return this.b.isInitSuccess();
+        }
+        return false;
     }
 
     public static TTInitializer a(Context context) {
@@ -158,5 +92,70 @@ public class f implements TTInitializer {
         TTInitializer tTInitializer = (TTInitializer) loadClass.getDeclaredMethod("getInstance", Bundle.class).invoke(null, bundle);
         com.bytedance.sdk.openadsdk.api.a.b("TTPluginManager", "Create initializer success");
         return tTInitializer;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public TTInitializer a(Context context, AdConfig adConfig) {
+        if (this.b == null) {
+            synchronized (this) {
+                if (this.b == null) {
+                    d.a(adConfig);
+                    com.bytedance.sdk.openadsdk.api.a.b("TTPluginManager", "Create initializer");
+                    long currentTimeMillis = System.currentTimeMillis();
+                    this.b = a(context);
+                    long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
+                    JSONObject jSONObject = new JSONObject();
+                    try {
+                        jSONObject.putOpt("duration", Long.valueOf(currentTimeMillis2));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    adConfig.setExtra("plugin", jSONObject);
+                }
+            }
+        }
+        return this.b;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTInitializer
+    public void init(Context context, AdConfig adConfig, TTAdSdk.InitCallback initCallback) {
+        if (Build.VERSION.SDK_INT < 21) {
+            initCallback.fail(4201, "Only support >= 5.0");
+            return;
+        }
+        e.a(context).a();
+        if (this.b != null) {
+            this.b.init(context, adConfig, initCallback);
+        } else {
+            a(context, adConfig, initCallback);
+        }
+    }
+
+    private void a(final Context context, final AdConfig adConfig, final TTAdSdk.InitCallback initCallback) {
+        a.execute(new Runnable() { // from class: com.bytedance.sdk.openadsdk.api.plugin.f.1
+            @Override // java.lang.Runnable
+            public void run() {
+                TTInitializer a2 = f.this.a(context, adConfig);
+                if (a2 != null) {
+                    com.bytedance.sdk.openadsdk.api.plugin.a.a.a(a2.getAdManager());
+                    a2.init(context, adConfig, initCallback);
+                    d.a();
+                    a2.getAdManager().register(com.bytedance.sdk.openadsdk.a.b.a());
+                    return;
+                }
+                initCallback.fail(4201, "No initializer");
+            }
+        });
+    }
+
+    public static void a(String str, Bundle bundle) {
+        if (!TextUtils.isEmpty(str) && bundle != null) {
+            c.putBundle(str, bundle);
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTInitializer
+    public TTAdManager init(Context context, AdConfig adConfig) {
+        throw new RuntimeException("Please use init(Context context, AdConfig config, TTAdSdk.InitCallback callback)!");
     }
 }

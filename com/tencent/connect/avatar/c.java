@@ -37,6 +37,12 @@ public class c extends ImageView {
     public float o;
     public Rect p;
 
+    private void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(Context context) {
         super(context);
@@ -73,9 +79,64 @@ public class c extends ImageView {
         a();
     }
 
-    private void a() {
+    private void a(PointF pointF) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
+        if ((interceptable != null && interceptable.invokeL(65539, this, pointF) != null) || this.h == null) {
+            return;
+        }
+        float[] fArr = new float[9];
+        this.c.getValues(fArr);
+        float f = fArr[2];
+        float f2 = fArr[5];
+        float f3 = fArr[0];
+        float width = this.h.getWidth() * f3;
+        float height = this.h.getHeight() * f3;
+        float f4 = this.p.left - f;
+        float f5 = 1.0f;
+        if (f4 <= 1.0f) {
+            f4 = 1.0f;
+        }
+        float f6 = (f + width) - this.p.right;
+        if (f6 <= 1.0f) {
+            f6 = 1.0f;
+        }
+        float width2 = this.p.width() * f4;
+        Rect rect = this.p;
+        float f7 = (width2 / (f6 + f4)) + rect.left;
+        float f8 = rect.top - f2;
+        float f9 = (f2 + height) - rect.bottom;
+        if (f8 <= 1.0f) {
+            f8 = 1.0f;
+        }
+        if (f9 > 1.0f) {
+            f5 = f9;
+        }
+        pointF.set(f7, ((this.p.height() * f8) / (f5 + f8)) + this.p.top);
+    }
+
+    private float a(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, motionEvent)) == null) {
+            if (motionEvent.getPointerCount() < 2) {
+                return 0.0f;
+            }
+            float x = motionEvent.getX(0) - motionEvent.getX(1);
+            float y = motionEvent.getY(0) - motionEvent.getY(1);
+            return (float) Math.sqrt((x * x) + (y * y));
+        }
+        return invokeL.floatValue;
+    }
+
+    @Override // android.widget.ImageView
+    public void setImageBitmap(Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap) == null) {
+            super.setImageBitmap(bitmap);
+            this.h = bitmap;
+            if (bitmap != null) {
+                this.h = bitmap;
+            }
         }
     }
 
@@ -84,7 +145,7 @@ public class c extends ImageView {
         Rect rect;
         boolean z;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65542, this) == null) || this.h == null) {
+        if ((interceptable != null && interceptable.invokeV(65542, this) != null) || this.h == null) {
             return;
         }
         float width = this.p.width();
@@ -232,7 +293,7 @@ public class c extends ImageView {
 
     private void c() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65543, this) == null) || this.h == null) {
+        if ((interceptable != null && interceptable.invokeV(65543, this) != null) || this.h == null) {
             return;
         }
         this.c.getValues(r0);
@@ -249,6 +310,16 @@ public class c extends ImageView {
             this.f = max;
         }
         setImageMatrix(this.c);
+    }
+
+    public void a(Rect rect) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, rect) == null) {
+            this.p = rect;
+            if (this.h != null) {
+                c();
+            }
+        }
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:15:0x001d, code lost:
@@ -268,7 +339,17 @@ public class c extends ImageView {
             int action = motionEvent.getAction() & 255;
             if (action != 0) {
                 if (action != 1) {
-                    if (action == 2) {
+                    if (action != 2) {
+                        if (action == 5) {
+                            float a = a(motionEvent);
+                            this.n = a;
+                            if (a > 10.0f) {
+                                this.d.set(this.c);
+                                a(this.m);
+                                this.e = 2;
+                            }
+                        }
+                    } else {
                         int i = this.e;
                         if (i == 1) {
                             this.c.set(this.d);
@@ -277,23 +358,15 @@ public class c extends ImageView {
                         } else if (i == 2) {
                             Matrix matrix = this.c;
                             matrix.set(matrix);
-                            float a = a(motionEvent);
-                            if (a > 10.0f) {
+                            float a2 = a(motionEvent);
+                            if (a2 > 10.0f) {
                                 this.c.set(this.d);
-                                float f = a / this.n;
+                                float f = a2 / this.n;
                                 Matrix matrix2 = this.c;
                                 PointF pointF = this.m;
                                 matrix2.postScale(f, f, pointF.x, pointF.y);
                             }
                             setImageMatrix(this.c);
-                        }
-                    } else if (action == 5) {
-                        float a2 = a(motionEvent);
-                        this.n = a2;
-                        if (a2 > 10.0f) {
-                            this.d.set(this.c);
-                            a(this.m);
-                            this.e = 2;
                         }
                     }
                 }
@@ -309,72 +382,5 @@ public class c extends ImageView {
             return true;
         }
         return invokeL.booleanValue;
-    }
-
-    @Override // android.widget.ImageView
-    public void setImageBitmap(Bitmap bitmap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap) == null) {
-            super.setImageBitmap(bitmap);
-            this.h = bitmap;
-            if (bitmap != null) {
-                this.h = bitmap;
-            }
-        }
-    }
-
-    private float a(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, motionEvent)) == null) {
-            if (motionEvent.getPointerCount() < 2) {
-                return 0.0f;
-            }
-            float x = motionEvent.getX(0) - motionEvent.getX(1);
-            float y = motionEvent.getY(0) - motionEvent.getY(1);
-            return (float) Math.sqrt((x * x) + (y * y));
-        }
-        return invokeL.floatValue;
-    }
-
-    public void a(Rect rect) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, rect) == null) {
-            this.p = rect;
-            if (this.h != null) {
-                c();
-            }
-        }
-    }
-
-    private void a(PointF pointF) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, this, pointF) == null) || this.h == null) {
-            return;
-        }
-        float[] fArr = new float[9];
-        this.c.getValues(fArr);
-        float f = fArr[2];
-        float f2 = fArr[5];
-        float f3 = fArr[0];
-        float width = this.h.getWidth() * f3;
-        float height = this.h.getHeight() * f3;
-        float f4 = this.p.left - f;
-        if (f4 <= 1.0f) {
-            f4 = 1.0f;
-        }
-        float f5 = (f + width) - this.p.right;
-        if (f5 <= 1.0f) {
-            f5 = 1.0f;
-        }
-        float width2 = this.p.width() * f4;
-        Rect rect = this.p;
-        float f6 = (width2 / (f5 + f4)) + rect.left;
-        float f7 = rect.top - f2;
-        float f8 = (f2 + height) - rect.bottom;
-        if (f7 <= 1.0f) {
-            f7 = 1.0f;
-        }
-        pointF.set(f6, ((this.p.height() * f7) / ((f8 > 1.0f ? f8 : 1.0f) + f7)) + this.p.top);
     }
 }

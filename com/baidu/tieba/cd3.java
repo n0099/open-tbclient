@@ -3,29 +3,71 @@ package com.baidu.tieba;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.tieba.ed3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class cd3 extends i53 {
+public class cd3 extends j53 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* loaded from: classes3.dex */
+    public class a implements ed3.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ UnitedSchemeEntity b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ cd3 d;
+
+        public a(cd3 cd3Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cd3Var, callbackHandler, unitedSchemeEntity, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = cd3Var;
+            this.a = callbackHandler;
+            this.b = unitedSchemeEntity;
+            this.c = str;
+        }
+
+        @Override // com.baidu.tieba.ed3.b
+        public void a(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                this.d.k(i, this.a, this.b, this.c);
+            }
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cd3(i43 i43Var) {
-        super(i43Var, "/swanAPI/stopMediaVolumeListen");
+    public cd3(j43 j43Var) {
+        super(j43Var, "/swanAPI/startMediaVolumeListen");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {i43Var};
+            Object[] objArr = {j43Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,46 +81,67 @@ public class cd3 extends i53 {
         }
     }
 
-    @Override // com.baidu.tieba.i53
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, l33 l33Var) {
+    @Override // com.baidu.tieba.j53
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, m33 m33Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, l33Var)) == null) {
-            if (l33Var == null) {
-                l02.c("stopMediaVolumeListen", "none swanApp");
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, m33Var)) == null) {
+            if (m33Var == null) {
+                m02.c("startMediaVolumeListen", "none swanApp");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal swanApp");
-                if (i53.b) {
-                    Log.d("SwanAppAction", "stopMediaVolumeListen --- illegal swanApp");
-                }
                 return false;
             } else if (context == null) {
-                l02.c("stopMediaVolumeListen", "none context");
+                m02.c("startMediaVolumeListen", "none context");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal context");
-                if (i53.b) {
-                    Log.d("SwanAppAction", "stopMediaVolumeListen --- illegal context");
-                }
                 return false;
             } else {
                 JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
                 if (optParamsAsJo == null) {
-                    l02.c("stopMediaVolumeListen", "none params");
+                    m02.c("startMediaVolumeListen", "none params");
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
                     return false;
                 }
-                String optString = optParamsAsJo.optString("id");
+                String optString = optParamsAsJo.optString("cb");
                 if (TextUtils.isEmpty(optString)) {
-                    l02.c("stopMediaVolumeListen", "id is empty");
+                    m02.c("startMediaVolumeListen", "cb is empty");
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                     return false;
-                } else if (!dd3.e().i(optString)) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                } else {
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                    return true;
                 }
+                String optString2 = optParamsAsJo.optString("id");
+                if (TextUtils.isEmpty(optString2)) {
+                    m02.c("startMediaVolumeListen", "id is empty");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
+                }
+                ed3.e().d(optString2, new a(this, callbackHandler, unitedSchemeEntity, optString));
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                return true;
             }
         }
         return invokeLLLL.booleanValue;
+    }
+
+    public final void k(double d, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Double.valueOf(d), callbackHandler, unitedSchemeEntity, str}) == null) {
+            JSONObject jSONObject = new JSONObject();
+            int f = (int) ((d / ed3.e().f()) * 100.0d);
+            if (f < 0) {
+                f = 0;
+            }
+            if (f > 100) {
+                f = 100;
+            }
+            try {
+                jSONObject.put("volume", f);
+                if (j53.b) {
+                    Log.d("startMediaVolumeListen", "NewVolume: " + f);
+                }
+                UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), str);
+            } catch (JSONException e) {
+                m02.c("startMediaVolumeListen", "handle volume json error，" + e.toString());
+                UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001, "Json error").toString(), str);
+            }
+        }
     }
 }

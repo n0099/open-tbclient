@@ -5,11 +5,11 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.util.AdExtParam;
-import com.baidu.tieba.dh;
-import com.baidu.tieba.kf8;
-import com.baidu.tieba.nf8;
-import com.baidu.tieba.sh5;
-import com.baidu.tieba.wg5;
+import com.baidu.tieba.ch5;
+import com.baidu.tieba.eh;
+import com.baidu.tieba.uf8;
+import com.baidu.tieba.xf8;
+import com.baidu.tieba.yh5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -100,6 +100,78 @@ public class PbPageRequestMessage extends NetMessage {
         WIRE = new Wire(new Class[0]);
     }
 
+    public String getCacheKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.cacheKey;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean getIsFromMark() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.isFromMark;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public Integer getPn() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.pn;
+        }
+        return (Integer) invokeV.objValue;
+    }
+
+    public Integer getR() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.r;
+        }
+        return (Integer) invokeV.objValue;
+    }
+
+    public String getSchemeUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mSchemeUrl;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getUpdateType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.updateType;
+        }
+        return invokeV.intValue;
+    }
+
+    public long get_kz() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.kz;
+        }
+        return invokeV.longValue;
+    }
+
+    public boolean isFromPbOptimize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.isFromPbOptimize;
+        }
+        return invokeV.booleanValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbPageRequestMessage() {
         super(CmdConfigHttp.PB_PAGE_HTTP_CMD, 302001);
@@ -135,6 +207,8 @@ public class PbPageRequestMessage extends NetMessage {
 
     @Override // com.baidu.adp.framework.message.NetMessage
     public Object encode(boolean z) {
+        int i;
+        int i2;
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
@@ -167,9 +241,19 @@ public class PbPageRequestMessage extends NetMessage {
                 builder.last = this.last;
                 builder.lastids = this.lastids;
                 builder.request_times = Integer.valueOf(this.requestTime);
-                int i = 1;
-                builder.is_comm_reverse = Integer.valueOf(this.isSubPostDataReverse ? 1 : 0);
-                builder.is_jumpfloor = Integer.valueOf(this.isJumpFloor ? 1 : 0);
+                int i3 = 1;
+                if (this.isSubPostDataReverse) {
+                    i = 1;
+                } else {
+                    i = 0;
+                }
+                builder.is_comm_reverse = Integer.valueOf(i);
+                if (this.isJumpFloor) {
+                    i2 = 1;
+                } else {
+                    i2 = 0;
+                }
+                builder.is_jumpfloor = Integer.valueOf(i2);
                 builder.jumpfloor_num = Integer.valueOf(this.jumpFloorNum);
                 builder.broadcast_id = Long.valueOf(this.officialBarMsgId);
                 builder.floor_sort_type = Integer.valueOf(this.mFloorSortType);
@@ -183,7 +267,7 @@ public class PbPageRequestMessage extends NetMessage {
                 builder.obj_source = this.obj_source;
                 builder.obj_locate = this.mObjLocate;
                 builder.from_smart_frs = this.fromSmartFrs;
-                builder.app_pos = kf8.e().a();
+                builder.app_pos = uf8.e().a();
                 builder.forum_id = this.forumId;
                 builder.need_repost_recommend_forum = this.needRepostRecommendForum;
                 AdParam.Builder builder2 = new AdParam.Builder();
@@ -195,20 +279,20 @@ public class PbPageRequestMessage extends NetMessage {
                 builder.ori_ugc_tid = this.oriUgcTid;
                 builder.ori_ugc_type = Integer.valueOf(this.oriUgcType);
                 builder.ori_ugc_vid = this.oriUgcVid;
-                builder.ad_context_list = nf8.f().d("PB");
+                builder.ad_context_list = xf8.f().d("PB");
                 builder.up_schema = this.mSchemeUrl;
                 builder.from_push = Integer.valueOf(this.from_push);
                 AdExtParam.a b = AdExtParam.a.b();
                 b.h(this.updateType);
                 builder.ad_ext_params = b.a();
                 builder.source_type = Integer.valueOf(this.sourceType);
-                sh5.c(builder, true, false, true);
+                yh5.c(builder, true, false, true);
                 builder.immersion_video_comment_source = Integer.valueOf(this.immersionVideoCommentSource);
-                builder.app_transmit_data = wg5.b();
+                builder.app_transmit_data = ch5.b();
                 if (!this.isReqFoldComment) {
-                    i = 0;
+                    i3 = 0;
                 }
-                builder.is_fold_comment_req = Integer.valueOf(i);
+                builder.is_fold_comment_req = Integer.valueOf(i3);
                 PbPageReqIdl.Builder builder3 = new PbPageReqIdl.Builder();
                 builder3.data = builder.build(false);
                 return builder3.build(false);
@@ -217,54 +301,6 @@ public class PbPageRequestMessage extends NetMessage {
             }
         }
         return invokeZ.objValue;
-    }
-
-    public String getCacheKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.cacheKey : (String) invokeV.objValue;
-    }
-
-    public boolean getIsFromMark() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.isFromMark : invokeV.booleanValue;
-    }
-
-    public Integer getPn() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.pn : (Integer) invokeV.objValue;
-    }
-
-    public Integer getR() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.r : (Integer) invokeV.objValue;
-    }
-
-    public String getSchemeUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mSchemeUrl : (String) invokeV.objValue;
-    }
-
-    public int getUpdateType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.updateType : invokeV.intValue;
-    }
-
-    public long get_kz() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.kz : invokeV.longValue;
-    }
-
-    public boolean isFromPbOptimize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.isFromPbOptimize : invokeV.booleanValue;
     }
 
     public void setAfterAdThreadCount(int i) {
@@ -298,7 +334,7 @@ public class PbPageRequestMessage extends NetMessage {
     public void setForumId(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.forumId = Long.valueOf(dh.g(str, 0L));
+            this.forumId = Long.valueOf(eh.g(str, 0L));
         }
     }
 

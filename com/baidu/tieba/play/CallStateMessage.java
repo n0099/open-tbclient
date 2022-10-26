@@ -37,6 +37,9 @@ public class CallStateMessage extends CustomResponsedMessage {
     public int getCallState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mState : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mState;
+        }
+        return invokeV.intValue;
     }
 }

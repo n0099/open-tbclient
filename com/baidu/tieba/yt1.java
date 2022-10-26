@@ -2,34 +2,39 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import android.util.Pair;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.l12;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class yt1 extends rt1 {
+public class yt1 extends st1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String f;
+    public fi3 g;
+
+    @Override // com.baidu.tieba.pr1
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "ExitFullScreenApi" : (String) invokeV.objValue;
+    }
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    public class a implements fi3 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ yt1 b;
+        public final /* synthetic */ yt1 a;
 
-        public a(yt1 yt1Var, String str) {
+        public a(yt1 yt1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {yt1Var, str};
+                Object[] objArr = {yt1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -39,124 +44,72 @@ public class yt1 extends rt1 {
                     return;
                 }
             }
-            this.b = yt1Var;
-            this.a = str;
+            this.a = yt1Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.fi3
+        /* renamed from: b */
+        public void a(Integer num) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.d(this.a, new lv1(0, b.a().b()));
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public float a;
-        public float b;
-        public float c;
-        public float d;
-        public float e;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, num) == null) {
+                if (num.intValue() != 1 && num.intValue() != 0) {
+                    return;
                 }
+                this.a.z();
             }
-        }
-
-        @NonNull
-        public static b a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-                b bVar = new b();
-                bVar.a = l12.d();
-                l12.c i = l12.i();
-                bVar.b = i.c;
-                bVar.c = i.a;
-                bVar.d = i.b;
-                bVar.e = k12.b();
-                return bVar;
-            }
-            return (b) invokeV.objValue;
-        }
-
-        public JSONObject b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("deviceTotalMem", this.a);
-                    jSONObject.put("deviceUsedMem", this.b);
-                    jSONObject.put("hostUsedMem", this.c);
-                    jSONObject.put("appUsedMem", this.d);
-                    jSONObject.put("appUsedCpu", this.e);
-                } catch (JSONException e) {
-                    l02.l("GetDeviceProfileApi", "#toJSONObject 失败", e);
-                }
-                return jSONObject;
-            }
-            return (JSONObject) invokeV.objValue;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yt1(@NonNull mr1 mr1Var) {
-        super(mr1Var);
+    public yt1(nr1 nr1Var) {
+        super(nr1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mr1Var};
+            Object[] objArr = {nr1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((mr1) newInitContext.callArgs[0]);
+                super((nr1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.g = new a(this);
     }
 
-    @Override // com.baidu.tieba.or1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "GetDeviceProfileApi" : (String) invokeV.objValue;
-    }
-
-    public lv1 x(String str) {
+    public mv1 y(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#getDeviceProfile", false);
-            Pair<lv1, JSONObject> s = s(str);
-            lv1 lv1Var = (lv1) s.first;
-            if (lv1Var.isSuccess()) {
-                String optString = ((JSONObject) s.second).optString("cb");
-                if (TextUtils.isEmpty(optString)) {
-                    return new lv1(202, "cb is empty");
-                }
-                fg3.k(new a(this, optString), "GetDeviceProfileApi");
-                return lv1.f();
+            q("#exitFullScreen", false);
+            Pair s = s(str);
+            mv1 mv1Var = (mv1) s.first;
+            if (!mv1Var.isSuccess()) {
+                return mv1Var;
             }
-            return lv1Var;
+            String optString = ((JSONObject) s.second).optString("cb");
+            this.f = optString;
+            if (TextUtils.isEmpty(optString)) {
+                return new mv1(201);
+            }
+            du1.e().v(this.g);
+            du1.e().m();
+            return mv1.f();
         }
-        return (lv1) invokeL.objValue;
+        return (mv1) invokeL.objValue;
+    }
+
+    public final void z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            du1.e().w();
+            du1.e().p();
+            d(this.f, new mv1(0));
+        }
     }
 }

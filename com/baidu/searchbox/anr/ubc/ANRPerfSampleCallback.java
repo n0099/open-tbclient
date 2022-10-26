@@ -2,7 +2,6 @@ package com.baidu.searchbox.anr.ubc;
 
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.PerfSampleManager;
 import com.baidu.searchbox.config.AppConfig;
@@ -15,7 +14,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubc.UBCManager;
-@Service
 /* loaded from: classes2.dex */
 public class ANRPerfSampleCallback implements PerfSampleManager.IPerfSampleCallback {
     public static /* synthetic */ Interceptable $ic = null;
@@ -72,7 +70,10 @@ public class ANRPerfSampleCallback implements PerfSampleManager.IPerfSampleCallb
                     QuickPersistConfig.getInstance().putBoolean(UbcANRRegister.KEY_ANR_ACTIVE_UPLOAD, false);
                 }
             }
-            return UbcANRRegister.sEnable ? UBC_ANR_ID : "";
+            if (UbcANRRegister.sEnable) {
+                return UBC_ANR_ID;
+            }
+            return "";
         }
         return (String) invokeV.objValue;
     }

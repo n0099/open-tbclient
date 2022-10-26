@@ -21,7 +21,7 @@ public class b extends com.baidu.ar.arplay.b.a {
 
     /* renamed from: if  reason: not valid java name */
     public d f2if;
-    public List<WeakReference<c>> sV;
+    public List sV;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(Context context) {
@@ -49,7 +49,7 @@ public class b extends com.baidu.ar.arplay.b.a {
         c(dVar);
     }
 
-    private synchronized boolean b(int i, int i2, HashMap<String, Object> hashMap) {
+    private synchronized boolean b(int i, int i2, HashMap hashMap) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65537, this, i, i2, hashMap)) == null) {
@@ -84,7 +84,7 @@ public class b extends com.baidu.ar.arplay.b.a {
         }
     }
 
-    public void b(int i, HashMap<String, Object> hashMap) {
+    public void b(int i, HashMap hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, hashMap) == null) {
             ARPMessage.getInstance().sendMessage(i, hashMap);
@@ -99,13 +99,13 @@ public class b extends com.baidu.ar.arplay.b.a {
                 if (this.sV == null) {
                     return false;
                 }
-                for (WeakReference<c> weakReference : this.sV) {
-                    if (weakReference.get() != null && weakReference.get().equals(cVar)) {
+                for (WeakReference weakReference : this.sV) {
+                    if (weakReference.get() != null && ((c) weakReference.get()).equals(cVar)) {
                         return false;
                     }
                 }
                 com.baidu.ar.h.b.c("EngineMsgBridge", "addEngineMsgListener engineMsgListener = " + cVar.hashCode());
-                return this.sV.add(new WeakReference<>(cVar));
+                return this.sV.add(new WeakReference(cVar));
             }
         }
         return invokeL.booleanValue;
@@ -119,8 +119,8 @@ public class b extends com.baidu.ar.arplay.b.a {
                 if (this.sV == null) {
                     return false;
                 }
-                for (WeakReference<c> weakReference : this.sV) {
-                    if (weakReference.get() != null && weakReference.get().equals(cVar)) {
+                for (WeakReference weakReference : this.sV) {
+                    if (weakReference.get() != null && ((c) weakReference.get()).equals(cVar)) {
                         com.baidu.ar.h.b.c("EngineMsgBridge", "removeEngineMsgListener engineMsgListener = " + cVar.hashCode());
                         boolean remove = this.sV.remove(weakReference);
                         weakReference.clear();
@@ -142,7 +142,7 @@ public class b extends com.baidu.ar.arplay.b.a {
                     this.f2if = null;
                 }
                 if (this.sV != null) {
-                    for (WeakReference<c> weakReference : this.sV) {
+                    for (WeakReference weakReference : this.sV) {
                         weakReference.clear();
                     }
                     this.sV.clear();
@@ -164,7 +164,7 @@ public class b extends com.baidu.ar.arplay.b.a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public synchronized void handleMessage(int i, int i2, HashMap<String, Object> hashMap) {
+    public synchronized void handleMessage(int i, int i2, HashMap hashMap) {
         c cVar;
         Interceptable interceptable = $ic;
         if (interceptable != null && interceptable.invokeIIL(1048582, this, i, i2, hashMap) != null) {
@@ -178,8 +178,8 @@ public class b extends com.baidu.ar.arplay.b.a {
                     return;
                 }
                 for (int i3 = 0; i3 < this.sV.size(); i3++) {
-                    WeakReference<c> weakReference = this.sV.get(i3);
-                    if (weakReference != null && (cVar = weakReference.get()) != null && cVar.n() != null) {
+                    WeakReference weakReference = (WeakReference) this.sV.get(i3);
+                    if (weakReference != null && (cVar = (c) weakReference.get()) != null && cVar.n() != null) {
                         for (Integer num : cVar.n()) {
                             if (i == num.intValue()) {
                                 cVar.a(i, i2, hashMap);

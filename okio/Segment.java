@@ -39,27 +39,6 @@ public final class Segment {
         this.shared = false;
     }
 
-    public void compact() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Segment segment = this.prev;
-            if (segment != this) {
-                if (segment.owner) {
-                    int i = this.limit - this.pos;
-                    if (i > (8192 - segment.limit) + (segment.shared ? 0 : segment.pos)) {
-                        return;
-                    }
-                    writeTo(this.prev, i);
-                    pop();
-                    SegmentPool.recycle(this);
-                    return;
-                }
-                return;
-            }
-            throw new IllegalStateException();
-        }
-    }
-
     @Nullable
     public Segment pop() {
         InterceptResult invokeV;
@@ -79,6 +58,75 @@ public final class Segment {
         return (Segment) invokeV.objValue;
     }
 
+    public Segment sharedCopy() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            this.shared = true;
+            return new Segment(this.data, this.pos, this.limit, true, false);
+        }
+        return (Segment) invokeV.objValue;
+    }
+
+    public Segment unsharedCopy() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return new Segment((byte[]) this.data.clone(), this.pos, this.limit, false, true);
+        }
+        return (Segment) invokeV.objValue;
+    }
+
+    public Segment(byte[] bArr, int i, int i2, boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bArr, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.data = bArr;
+        this.pos = i;
+        this.limit = i2;
+        this.shared = z;
+        this.owner = z2;
+    }
+
+    public void compact() {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            Segment segment = this.prev;
+            if (segment != this) {
+                if (!segment.owner) {
+                    return;
+                }
+                int i2 = this.limit - this.pos;
+                int i3 = 8192 - segment.limit;
+                if (segment.shared) {
+                    i = 0;
+                } else {
+                    i = segment.pos;
+                }
+                if (i2 > i3 + i) {
+                    return;
+                }
+                writeTo(this.prev, i2);
+                pop();
+                SegmentPool.recycle(this);
+                return;
+            }
+            throw new IllegalStateException();
+        }
+    }
+
     public Segment push(Segment segment) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -90,16 +138,6 @@ public final class Segment {
             return segment;
         }
         return (Segment) invokeL.objValue;
-    }
-
-    public Segment sharedCopy() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            this.shared = true;
-            return new Segment(this.data, this.pos, this.limit, true, false);
-        }
-        return (Segment) invokeV.objValue;
     }
 
     public Segment split(int i) {
@@ -122,12 +160,6 @@ public final class Segment {
             throw new IllegalArgumentException();
         }
         return (Segment) invokeI.objValue;
-    }
-
-    public Segment unsharedCopy() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? new Segment((byte[]) this.data.clone(), this.pos, this.limit, false, true) : (Segment) invokeV.objValue;
     }
 
     public void writeTo(Segment segment, int i) {
@@ -157,27 +189,5 @@ public final class Segment {
             }
             throw new IllegalArgumentException();
         }
-    }
-
-    public Segment(byte[] bArr, int i, int i2, boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bArr, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.data = bArr;
-        this.pos = i;
-        this.limit = i2;
-        this.shared = z;
-        this.owner = z2;
     }
 }

@@ -1,8 +1,6 @@
 package com.kwad.components.ad.draw.b;
 
 import android.content.Context;
-import androidx.annotation.MainThread;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,7 +28,7 @@ public final class a extends com.kwad.components.ad.h.a {
     public Context mContext;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a(@NonNull AdTemplate adTemplate, @NonNull b bVar, @NonNull DetailVideoView detailVideoView) {
+    public a(AdTemplate adTemplate, b bVar, DetailVideoView detailVideoView) {
         super(adTemplate, detailVideoView);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -149,7 +147,6 @@ public final class a extends com.kwad.components.ad.h.a {
         }
     }
 
-    @MainThread
     public final void a(g gVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, gVar) == null) || gVar == null) {
@@ -179,7 +176,6 @@ public final class a extends com.kwad.components.ad.h.a {
         }
     }
 
-    @MainThread
     public final void b(g gVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048579, this, gVar) == null) || gVar == null) {
@@ -203,7 +199,6 @@ public final class a extends com.kwad.components.ad.h.a {
     }
 
     @Override // com.kwad.components.ad.h.a
-    @MainThread
     public final void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {

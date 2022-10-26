@@ -1,63 +1,57 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
-public interface ug7 {
+public class ug7 implements un4 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public ArrayList<String> c;
-        public ArrayList<String> d;
+    @Override // com.baidu.tieba.un4
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TbConfig.FOLLOW_ADDRESS : (String) invokeV.objValue;
+    }
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = new ArrayList<>();
-            this.d = new ArrayList<>();
-        }
-
-        public void a(JSONObject jSONObject) {
-            JSONArray optJSONArray;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null || (optJSONArray = jSONObject.optJSONArray("ad_monitor_url")) == null) {
-                return;
-            }
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                if (optJSONObject != null) {
-                    String optString = optJSONObject.optString("show_url");
-                    if (!TextUtils.isEmpty(optString)) {
-                        this.c.add(optString);
-                    }
-                    String optString2 = optJSONObject.optString("click_url");
-                    if (!TextUtils.isEmpty(optString2)) {
-                        this.d.add(optString2);
-                    }
-                }
+    public ug7() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    a getParallelCharge();
+    @Override // com.baidu.tieba.un4
+    public void b(HashMap hashMap, vn4 vn4Var) {
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap, vn4Var) == null) && vn4Var != null && hashMap != null && !hashMap.isEmpty()) {
+            UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
+            aVar.a = vn4Var.a;
+            aVar.b = vn4Var.c;
+            aVar.d = true;
+            if (hashMap.get("touid") == null) {
+                str = "";
+            } else {
+                str = (String) hashMap.get("touid");
+            }
+            aVar.c = str;
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new UpdateAttentionMessage(aVar));
+        }
+    }
 }

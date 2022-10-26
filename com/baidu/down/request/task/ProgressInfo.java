@@ -24,10 +24,10 @@ public class ProgressInfo {
     public static final String TAG = "ProgressInfo";
     public transient /* synthetic */ FieldHolder $fh;
     public int mCurrentLength;
-    public List<Segment> mSegments;
+    public List mSegments;
 
     /* loaded from: classes2.dex */
-    public static class HandleProgressException extends RuntimeException {
+    public class HandleProgressException extends RuntimeException {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -1207561809132867949L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -54,7 +54,7 @@ public class ProgressInfo {
     }
 
     /* loaded from: classes2.dex */
-    public static class Segment {
+    public class Segment {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long begin;
@@ -102,6 +102,67 @@ public class ProgressInfo {
         this.mSegments = new ArrayList();
     }
 
+    public long getCurrentLength() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mCurrentLength;
+        }
+        return invokeV.longValue;
+    }
+
+    public int getSegmentCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mSegments.size();
+        }
+        return invokeV.intValue;
+    }
+
+    public List getSegments() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mSegments;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public ProgressInfo(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mCurrentLength = 0;
+        this.mSegments = new ArrayList();
+        if (TextUtils.isEmpty(str)) {
+            return;
+        }
+        try {
+            JSONArray jSONArray = new JSONArray(str);
+            for (int i3 = 0; i3 < jSONArray.length(); i3++) {
+                JSONObject jSONObject = jSONArray.getJSONObject(i3);
+                Segment segment = new Segment(jSONObject.getLong("begin"), jSONObject.getLong("end"));
+                long j = jSONObject.getLong(JSON_KEY_CURRENT);
+                segment.current = j;
+                this.mCurrentLength = (int) (this.mCurrentLength + (j - segment.begin));
+                this.mSegments.add(segment);
+            }
+        } catch (JSONException unused) {
+        }
+    }
+
     public void addSegment(long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
@@ -109,7 +170,7 @@ public class ProgressInfo {
         }
     }
 
-    public synchronized List<Segment> balanceSegment(int i, long j) {
+    public synchronized List balanceSegment(int i, long j) {
         InterceptResult invokeCommon;
         ArrayList arrayList;
         int i2;
@@ -118,23 +179,23 @@ public class ProgressInfo {
             synchronized (this) {
                 ArrayList arrayList2 = new ArrayList();
                 arrayList = new ArrayList();
-                Iterator<Segment> it = this.mSegments.iterator();
+                Iterator it = this.mSegments.iterator();
                 while (true) {
                     i2 = 0;
                     if (!it.hasNext()) {
                         break;
                     }
-                    Segment next = it.next();
-                    if (next.current < next.end) {
+                    Segment segment = (Segment) it.next();
+                    if (segment.current < segment.end) {
                         if (arrayList2.size() > 0) {
-                            Segment segment = (Segment) arrayList2.get(0);
-                            if (segment.end - segment.current >= next.end - next.current) {
-                                arrayList2.add(next);
+                            Segment segment2 = (Segment) arrayList2.get(0);
+                            if (segment2.end - segment2.current >= segment.end - segment.current) {
+                                arrayList2.add(segment);
                             } else {
-                                arrayList2.add(0, next);
+                                arrayList2.add(0, segment);
                             }
                         } else {
-                            arrayList2.add(next);
+                            arrayList2.add(segment);
                         }
                     }
                 }
@@ -144,16 +205,16 @@ public class ProgressInfo {
                         if (i2 >= arrayList2.size()) {
                             break;
                         }
-                        Segment segment2 = (Segment) arrayList2.get(i2);
-                        long j2 = (segment2.end - segment2.current) / 2;
+                        Segment segment3 = (Segment) arrayList2.get(i2);
+                        long j2 = (segment3.end - segment3.current) / 2;
                         if (j2 <= j) {
                             break;
                         }
                         long j3 = (((j2 + AbstractTask.bufferSize) - 1) / AbstractTask.bufferSize) * AbstractTask.bufferSize;
-                        Segment segment3 = new Segment(segment2.end - j3, segment2.end);
-                        segment2.end -= j3;
-                        this.mSegments.add(segment3);
-                        arrayList.add(segment3);
+                        Segment segment4 = new Segment(segment3.end - j3, segment3.end);
+                        segment3.end -= j3;
+                        this.mSegments.add(segment4);
+                        arrayList.add(segment4);
                         size++;
                         i2++;
                     }
@@ -174,12 +235,6 @@ public class ProgressInfo {
                 }
             }
         }
-    }
-
-    public long getCurrentLength() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mCurrentLength : invokeV.longValue;
     }
 
     public long getSegCurrentByPos(long j) {
@@ -222,18 +277,6 @@ public class ProgressInfo {
         return (Segment) invokeJ.objValue;
     }
 
-    public int getSegmentCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mSegments.size() : invokeV.intValue;
-    }
-
-    public List<Segment> getSegments() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mSegments : (List) invokeV.objValue;
-    }
-
     public boolean leftSegmentIsNeedMultiSrc(int i, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -244,7 +287,10 @@ public class ProgressInfo {
                     i2++;
                 }
             }
-            return i2 >= i;
+            if (i2 < i) {
+                return false;
+            }
+            return true;
         }
         return invokeCommon.booleanValue;
     }
@@ -291,40 +337,6 @@ public class ProgressInfo {
                 }
                 this.mCurrentLength = (int) (this.mCurrentLength + (segment.current - segment.begin));
             }
-        }
-    }
-
-    public ProgressInfo(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mCurrentLength = 0;
-        this.mSegments = new ArrayList();
-        if (TextUtils.isEmpty(str)) {
-            return;
-        }
-        try {
-            JSONArray jSONArray = new JSONArray(str);
-            for (int i3 = 0; i3 < jSONArray.length(); i3++) {
-                JSONObject jSONObject = jSONArray.getJSONObject(i3);
-                Segment segment = new Segment(jSONObject.getLong("begin"), jSONObject.getLong("end"));
-                long j = jSONObject.getLong(JSON_KEY_CURRENT);
-                segment.current = j;
-                this.mCurrentLength = (int) (this.mCurrentLength + (j - segment.begin));
-                this.mSegments.add(segment);
-            }
-        } catch (JSONException unused) {
         }
     }
 }

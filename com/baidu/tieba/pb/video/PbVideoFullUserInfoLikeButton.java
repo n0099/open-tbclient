@@ -34,20 +34,6 @@ public class PbVideoFullUserInfoLikeButton extends EntelechyUserLikeButton {
         }
     }
 
-    @Override // com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton, com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
-    public void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            if (this.c) {
-                SkinManager.setBackgroundResource(this, R.drawable.haslike_grey_bg);
-                SkinManager.setViewTextColor(this, (int) R.color.CAM_X0110);
-                return;
-            }
-            SkinManager.setBackgroundResource(this, R.drawable.like_blue_bg);
-            SkinManager.setViewTextColor(this, (int) R.color.CAM_X0101);
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbVideoFullUserInfoLikeButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -87,6 +73,20 @@ public class PbVideoFullUserInfoLikeButton extends EntelechyUserLikeButton {
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton, com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
+    public void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            if (this.c) {
+                SkinManager.setBackgroundResource(this, R.drawable.haslike_grey_bg);
+                SkinManager.setViewTextColor(this, (int) R.color.CAM_X0110);
+                return;
+            }
+            SkinManager.setBackgroundResource(this, R.drawable.like_blue_bg);
+            SkinManager.setViewTextColor(this, (int) R.color.CAM_X0101);
         }
     }
 }

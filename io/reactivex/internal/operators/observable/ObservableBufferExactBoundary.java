@@ -23,19 +23,19 @@ import io.reactivex.observers.SerializedObserver;
 import java.util.Collection;
 import java.util.concurrent.Callable;
 /* loaded from: classes8.dex */
-public final class ObservableBufferExactBoundary<T, U extends Collection<? super T>, B> extends AbstractObservableWithUpstream<T, U> {
+public final class ObservableBufferExactBoundary extends AbstractObservableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ObservableSource<B> boundary;
-    public final Callable<U> bufferSupplier;
+    public final ObservableSource boundary;
+    public final Callable bufferSupplier;
 
     /* loaded from: classes8.dex */
-    public static final class BufferBoundaryObserver<T, U extends Collection<? super T>, B> extends DisposableObserver<B> {
+    public final class BufferBoundaryObserver extends DisposableObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final BufferExactBoundaryObserver<T, U, B> parent;
+        public final BufferExactBoundaryObserver parent;
 
-        public BufferBoundaryObserver(BufferExactBoundaryObserver<T, U, B> bufferExactBoundaryObserver) {
+        public BufferBoundaryObserver(BufferExactBoundaryObserver bufferExactBoundaryObserver) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -54,14 +54,6 @@ public final class ObservableBufferExactBoundary<T, U extends Collection<? super
         }
 
         @Override // io.reactivex.Observer
-        public void onComplete() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.parent.onComplete();
-            }
-        }
-
-        @Override // io.reactivex.Observer
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
@@ -70,26 +62,34 @@ public final class ObservableBufferExactBoundary<T, U extends Collection<? super
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(B b) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
                 this.parent.next();
+            }
+        }
+
+        @Override // io.reactivex.Observer
+        public void onComplete() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.parent.onComplete();
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public static final class BufferExactBoundaryObserver<T, U extends Collection<? super T>, B> extends QueueDrainObserver<T, U, U> implements Observer<T>, Disposable {
+    public final class BufferExactBoundaryObserver extends QueueDrainObserver implements Observer, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final ObservableSource<B> boundary;
-        public U buffer;
-        public final Callable<U> bufferSupplier;
+        public final ObservableSource boundary;
+        public Collection buffer;
+        public final Callable bufferSupplier;
         public Disposable other;
         public Disposable s;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public BufferExactBoundaryObserver(Observer<? super U> observer, Callable<U> callable, ObservableSource<B> observableSource) {
+        public BufferExactBoundaryObserver(Observer observer, Callable callable, ObservableSource observableSource) {
             super(observer, new MpscLinkedQueue());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -111,24 +111,25 @@ public final class ObservableBufferExactBoundary<T, U extends Collection<? super
             this.boundary = observableSource;
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: io.reactivex.internal.operators.observable.ObservableBufferExactBoundary$BufferExactBoundaryObserver<T, U extends java.util.Collection<? super T>, B> */
-        /* JADX WARN: Multi-variable type inference failed */
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // io.reactivex.internal.observers.QueueDrainObserver, io.reactivex.internal.util.ObservableQueueDrain
-        public /* bridge */ /* synthetic */ void accept(Observer observer, Object obj) {
-            accept((Observer<? super Observer>) observer, (Observer) ((Collection) obj));
+        public void accept(Observer observer, Collection collection) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, observer, collection) == null) {
+                this.actual.onNext(collection);
+            }
         }
 
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.cancelled) {
-                return;
-            }
-            this.cancelled = true;
-            this.other.dispose();
-            this.s.dispose();
-            if (enter()) {
-                this.queue.clear();
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && !this.cancelled) {
+                this.cancelled = true;
+                this.other.dispose();
+                this.s.dispose();
+                if (enter()) {
+                    this.queue.clear();
+                }
             }
         }
 
@@ -136,21 +137,24 @@ public final class ObservableBufferExactBoundary<T, U extends Collection<? super
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.cancelled : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.cancelled;
+            }
+            return invokeV.booleanValue;
         }
 
         public void next() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
                 try {
-                    U u = (U) ObjectHelper.requireNonNull(this.bufferSupplier.call(), "The buffer supplied is null");
+                    Collection collection = (Collection) ObjectHelper.requireNonNull(this.bufferSupplier.call(), "The buffer supplied is null");
                     synchronized (this) {
-                        U u2 = this.buffer;
-                        if (u2 == null) {
+                        Collection collection2 = this.buffer;
+                        if (collection2 == null) {
                             return;
                         }
-                        this.buffer = u;
-                        fastPathEmit(u2, false, this);
+                        this.buffer = collection;
+                        fastPathEmit(collection2, false, this);
                     }
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
@@ -165,12 +169,12 @@ public final class ObservableBufferExactBoundary<T, U extends Collection<? super
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
                 synchronized (this) {
-                    U u = this.buffer;
-                    if (u == null) {
+                    Collection collection = this.buffer;
+                    if (collection == null) {
                         return;
                     }
                     this.buffer = null;
-                    this.queue.offer(u);
+                    this.queue.offer(collection);
                     this.done = true;
                     if (enter()) {
                         QueueDrainHelper.drainLoop(this.queue, this.actual, false, this, this);
@@ -189,15 +193,15 @@ public final class ObservableBufferExactBoundary<T, U extends Collection<? super
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, t) == null) {
+            if (interceptable == null || interceptable.invokeL(1048583, this, obj) == null) {
                 synchronized (this) {
-                    U u = this.buffer;
-                    if (u == null) {
+                    Collection collection = this.buffer;
+                    if (collection == null) {
                         return;
                     }
-                    u.add(t);
+                    collection.add(obj);
                 }
             }
         }
@@ -208,14 +212,13 @@ public final class ObservableBufferExactBoundary<T, U extends Collection<? super
             if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, disposable) == null) && DisposableHelper.validate(this.s, disposable)) {
                 this.s = disposable;
                 try {
-                    this.buffer = (U) ObjectHelper.requireNonNull(this.bufferSupplier.call(), "The buffer supplied is null");
+                    this.buffer = (Collection) ObjectHelper.requireNonNull(this.bufferSupplier.call(), "The buffer supplied is null");
                     BufferBoundaryObserver bufferBoundaryObserver = new BufferBoundaryObserver(this);
                     this.other = bufferBoundaryObserver;
                     this.actual.onSubscribe(this);
-                    if (this.cancelled) {
-                        return;
+                    if (!this.cancelled) {
+                        this.boundary.subscribe(bufferBoundaryObserver);
                     }
-                    this.boundary.subscribe(bufferBoundaryObserver);
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
                     this.cancelled = true;
@@ -224,17 +227,10 @@ public final class ObservableBufferExactBoundary<T, U extends Collection<? super
                 }
             }
         }
-
-        public void accept(Observer<? super U> observer, U u) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, observer, u) == null) {
-                this.actual.onNext(u);
-            }
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableBufferExactBoundary(ObservableSource<T> observableSource, ObservableSource<B> observableSource2, Callable<U> callable) {
+    public ObservableBufferExactBoundary(ObservableSource observableSource, ObservableSource observableSource2, Callable callable) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -256,7 +252,7 @@ public final class ObservableBufferExactBoundary<T, U extends Collection<? super
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer<? super U> observer) {
+    public void subscribeActual(Observer observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             this.source.subscribe(new BufferExactBoundaryObserver(new SerializedObserver(observer), this.bufferSupplier, this.boundary));

@@ -1,6 +1,7 @@
 package com.baidu.searchbox.unitedscheme;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
@@ -11,7 +12,6 @@ import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.net.update.CommandPostData;
 import com.baidu.searchbox.net.update.v2.ActionData;
 import com.baidu.searchbox.net.update.v2.JSONObjectCommandListener;
-import com.baidu.searchbox.net.update.v2.UpdateAction;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +24,6 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-@UpdateAction(action = SchemeUsageStatisticsListener.STATISTIC_SWITCH_ACTION, module = "scheme")
 /* loaded from: classes2.dex */
 public class SchemeUsageStatisticsListener extends JSONObjectCommandListener {
     public static /* synthetic */ Interceptable $ic = null;
@@ -34,8 +33,8 @@ public class SchemeUsageStatisticsListener extends JSONObjectCommandListener {
     public static final String STATISTIC_SWITCH_ACTION = "statistic_switch";
     public static final String STATISTIC_SWITCH_VERSION = "statistic_switch_v";
     public static final String TAG;
-    public static ArrayList<String> jsinterfaceList;
-    public static ArrayList<String> schemeList;
+    public static ArrayList jsinterfaceList;
+    public static ArrayList schemeList;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -53,8 +52,8 @@ public class SchemeUsageStatisticsListener extends JSONObjectCommandListener {
         }
         DEBUG = AppConfig.isDebug();
         TAG = SchemeUsageStatisticsListener.class.getSimpleName();
-        schemeList = new ArrayList<>();
-        jsinterfaceList = new ArrayList<>();
+        schemeList = new ArrayList();
+        jsinterfaceList = new ArrayList();
     }
 
     public SchemeUsageStatisticsListener() {
@@ -71,7 +70,7 @@ public class SchemeUsageStatisticsListener extends JSONObjectCommandListener {
         }
     }
 
-    public static ArrayList<String> getStatisticJsinterfaceList() {
+    public static ArrayList getStatisticJsinterfaceList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
@@ -93,7 +92,7 @@ public class SchemeUsageStatisticsListener extends JSONObjectCommandListener {
         return (ArrayList) invokeV.objValue;
     }
 
-    public static ArrayList<String> getStatisticSchemeList() {
+    public static ArrayList getStatisticSchemeList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
@@ -126,46 +125,46 @@ public class SchemeUsageStatisticsListener extends JSONObjectCommandListener {
                 Uri parse = Uri.parse(str);
                 return parse.getScheme() + "://" + parse.getAuthority() + parse.getPath();
             } catch (Exception e) {
-                if (DEBUG) {
-                    e.printStackTrace();
+                if (!DEBUG) {
                     return "";
                 }
+                e.printStackTrace();
                 return "";
             }
         }
         return (String) invokeL.objValue;
     }
 
-    public static void setDataList(JSONArray jSONArray, List<String> list) {
+    public static void setDataList(JSONArray jSONArray, List list) {
         String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65541, null, jSONArray, list) == null) || jSONArray == null) {
-            return;
-        }
-        list.clear();
-        for (int i = 0; i < jSONArray.length(); i++) {
-            try {
-                str = jSONArray.get(i).toString();
-            } catch (JSONException e) {
-                e.printStackTrace();
-                str = "";
+        if ((interceptable == null || interceptable.invokeLL(65541, null, jSONArray, list) == null) && jSONArray != null) {
+            list.clear();
+            for (int i = 0; i < jSONArray.length(); i++) {
+                try {
+                    str = jSONArray.get(i).toString();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    str = "";
+                }
+                list.add(str);
             }
-            list.add(str);
         }
     }
 
     @Override // com.baidu.searchbox.net.update.v2.AbstractCommandListener
     public void addPostData(Context context, String str, String str2, CommandPostData commandPostData) throws JSONException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(1048576, this, context, str, str2, commandPostData) == null) || commandPostData == null || commandPostData.getVersion() == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLLLL(1048576, this, context, str, str2, commandPostData) == null) && commandPostData != null && commandPostData.getVersion() != null) {
+            commandPostData.getVersion().put(STATISTIC_SWITCH_ACTION, getLocalVersion(context, str, str2));
         }
-        commandPostData.getVersion().put(STATISTIC_SWITCH_ACTION, getLocalVersion(context, str, str2));
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.content.Context, java.lang.String, java.lang.String, com.baidu.searchbox.net.update.v2.ActionData] */
     @Override // com.baidu.searchbox.net.update.v2.AbstractCommandListener
     public boolean executeCommand(Context context, String str, String str2, ActionData<JSONObject> actionData) {
         InterceptResult invokeLLLL;
+        String jSONArray;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, actionData)) == null) {
             if (actionData == null || !TextUtils.equals(str2, STATISTIC_SWITCH_ACTION) || TextUtils.isEmpty(actionData.version)) {
@@ -176,11 +175,22 @@ public class SchemeUsageStatisticsListener extends JSONObjectCommandListener {
                     String str3 = TAG;
                     Log.d(str3, "value.data " + actionData.data);
                 }
-                JSONArray optJSONArray = actionData.data.optJSONArray(SCHEME_SWITCH_LIST);
+                JSONArray optJSONArray = ((JSONObject) actionData.data).optJSONArray(SCHEME_SWITCH_LIST);
                 setDataList(optJSONArray, schemeList);
-                JSONArray optJSONArray2 = actionData.data.optJSONArray(JSINTERFACE_SWITCH_LIST);
+                JSONArray optJSONArray2 = ((JSONObject) actionData.data).optJSONArray(JSINTERFACE_SWITCH_LIST);
                 setDataList(optJSONArray2, jsinterfaceList);
-                PreferenceManager.getDefaultSharedPreferences(SchemeConfig.getAppContext()).edit().putString(STATISTIC_SWITCH_VERSION, actionData.version).putString(SCHEME_SWITCH_LIST, optJSONArray == null ? "" : optJSONArray.toString()).putString(JSINTERFACE_SWITCH_LIST, optJSONArray2 != null ? optJSONArray2.toString() : "").apply();
+                SharedPreferences.Editor putString = PreferenceManager.getDefaultSharedPreferences(SchemeConfig.getAppContext()).edit().putString(STATISTIC_SWITCH_VERSION, actionData.version);
+                String str4 = "";
+                if (optJSONArray == null) {
+                    jSONArray = "";
+                } else {
+                    jSONArray = optJSONArray.toString();
+                }
+                SharedPreferences.Editor putString2 = putString.putString(SCHEME_SWITCH_LIST, jSONArray);
+                if (optJSONArray2 != null) {
+                    str4 = optJSONArray2.toString();
+                }
+                putString2.putString(JSINTERFACE_SWITCH_LIST, str4).apply();
                 return true;
             }
             return false;
@@ -192,6 +202,9 @@ public class SchemeUsageStatisticsListener extends JSONObjectCommandListener {
     public String getLocalVersion(Context context, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, str2)) == null) ? PreferenceManager.getDefaultSharedPreferences(SchemeConfig.getAppContext()).getString(STATISTIC_SWITCH_VERSION, "0") : (String) invokeLLL.objValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, str2)) == null) {
+            return PreferenceManager.getDefaultSharedPreferences(SchemeConfig.getAppContext()).getString(STATISTIC_SWITCH_VERSION, "0");
+        }
+        return (String) invokeLLL.objValue;
     }
 }

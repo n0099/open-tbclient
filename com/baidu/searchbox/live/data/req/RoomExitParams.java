@@ -24,29 +24,6 @@ public final class RoomExitParams extends MixBaseParams {
     public final String roomId;
     public final String templateId;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RoomExitParams(String str, String str2) {
-        super(null, null, 3, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), (DefaultConstructorMarker) objArr2[3]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.roomId = str;
-        this.templateId = str2;
-    }
-
     public static /* synthetic */ RoomExitParams copy$default(RoomExitParams roomExitParams, String str, String str2, int i, Object obj) {
         if ((i & 1) != 0) {
             str = roomExitParams.roomId;
@@ -91,18 +68,6 @@ public final class RoomExitParams extends MixBaseParams {
         return invokeL.booleanValue;
     }
 
-    public final String getRoomId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.roomId : (String) invokeV.objValue;
-    }
-
-    public final String getTemplateId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.templateId : (String) invokeV.objValue;
-    }
-
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -115,21 +80,67 @@ public final class RoomExitParams extends MixBaseParams {
         return invokeV.intValue;
     }
 
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return "RoomExitParams(roomId=" + this.roomId + ", templateId=" + this.templateId + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public RoomExitParams(String str, String str2) {
+        super(null, null, 3, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), (DefaultConstructorMarker) objArr2[3]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.roomId = str;
+        this.templateId = str2;
+    }
+
+    public final String getRoomId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.roomId;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String getTemplateId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.templateId;
+        }
+        return (String) invokeV.objValue;
+    }
+
     public final Boolean isAudio() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.isAudio : (Boolean) invokeV.objValue;
-    }
-
-    public final void setAudio(Boolean bool) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bool) == null) {
-            this.isAudio = bool;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.isAudio;
         }
+        return (Boolean) invokeV.objValue;
     }
 
     @Override // com.baidu.searchbox.live.data.req.MixBaseParams
-    public Map<String, String> toMap() {
+    public Map toMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
@@ -143,12 +154,10 @@ public final class RoomExitParams extends MixBaseParams {
         return (Map) invokeV.objValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public final void setAudio(Boolean bool) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return "RoomExitParams(roomId=" + this.roomId + ", templateId=" + this.templateId + SmallTailInfo.EMOTION_SUFFIX;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bool) == null) {
+            this.isAudio = bool;
         }
-        return (String) invokeV.objValue;
     }
 }

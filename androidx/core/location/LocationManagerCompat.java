@@ -2,7 +2,6 @@ package androidx.core.location;
 
 import android.location.LocationManager;
 import android.os.Build;
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,14 +26,17 @@ public final class LocationManagerCompat {
         }
     }
 
-    public static boolean isLocationEnabled(@NonNull LocationManager locationManager) {
+    public static boolean isLocationEnabled(LocationManager locationManager) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, locationManager)) == null) {
             if (Build.VERSION.SDK_INT >= 28) {
                 return locationManager.isLocationEnabled();
             }
-            return locationManager.isProviderEnabled("network") || locationManager.isProviderEnabled("gps");
+            if (!locationManager.isProviderEnabled("network") && !locationManager.isProviderEnabled("gps")) {
+                return false;
+            }
+            return true;
         }
         return invokeL.booleanValue;
     }

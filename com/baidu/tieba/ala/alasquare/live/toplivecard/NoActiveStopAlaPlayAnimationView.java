@@ -35,33 +35,6 @@ public class NoActiveStopAlaPlayAnimationView extends AlaPlayAnimationView {
         this.d = false;
     }
 
-    @Override // com.baidu.tieba.view.AlaPlayAnimationView, android.widget.ImageView, android.view.View
-    public void onAttachedToWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.onAttachedToWindow();
-            if (this.d) {
-                return;
-            }
-            b();
-        }
-    }
-
-    @Override // com.baidu.tieba.view.AlaPlayAnimationView, android.widget.ImageView, android.view.View
-    public void onDetachedFromWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.onDetachedFromWindow();
-        }
-    }
-
-    public void setFromSpecialForum(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.d = z;
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NoActiveStopAlaPlayAnimationView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -82,5 +55,31 @@ public class NoActiveStopAlaPlayAnimationView extends AlaPlayAnimationView {
             }
         }
         this.d = false;
+    }
+
+    @Override // com.baidu.tieba.view.AlaPlayAnimationView, android.widget.ImageView, android.view.View
+    public void onAttachedToWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.onAttachedToWindow();
+            if (!this.d) {
+                b();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.view.AlaPlayAnimationView, android.widget.ImageView, android.view.View
+    public void onDetachedFromWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.onDetachedFromWindow();
+        }
+    }
+
+    public void setFromSpecialForum(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.d = z;
+        }
     }
 }

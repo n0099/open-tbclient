@@ -74,26 +74,6 @@ public class PProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
-    public boolean onCreate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            Context context = getContext();
-            this.a = context;
-            if (context != null) {
-                if (Z1.h(context) == 0) {
-                    M.d(this.a);
-                    return true;
-                }
-                return true;
-            }
-            new Handler(Looper.getMainLooper()).post(new H1(this));
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // android.content.ContentProvider
     public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
@@ -111,5 +91,25 @@ public class PProvider extends ContentProvider {
             return 0;
         }
         return invokeLLLL.intValue;
+    }
+
+    @Override // android.content.ContentProvider
+    public boolean onCreate() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            Context context = getContext();
+            this.a = context;
+            if (context != null) {
+                if (Z1.h(context) == 0) {
+                    M.d(this.a);
+                    return true;
+                }
+                return true;
+            }
+            new Handler(Looper.getMainLooper()).post(new H1(this));
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 }

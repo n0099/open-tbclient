@@ -14,11 +14,11 @@ import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public final class TrafficInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<TrafficInfo> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
     public String b;
-    public ArrayList<Integer> c;
+    public ArrayList c;
 
     static {
         InterceptResult invokeClinit;
@@ -53,7 +53,7 @@ public final class TrafficInfo implements Parcelable {
         this.b = null;
         this.a = false;
         this.b = null;
-        this.c = new ArrayList<>();
+        this.c = new ArrayList();
     }
 
     public TrafficInfo(Parcel parcel) {
@@ -90,7 +90,7 @@ public final class TrafficInfo implements Parcelable {
         }
     }
 
-    public void a(ArrayList<Integer> arrayList) {
+    public void a(ArrayList arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
             this.c = arrayList;
@@ -104,7 +104,7 @@ public final class TrafficInfo implements Parcelable {
         }
     }
 
-    public ArrayList<Integer> b() {
+    public ArrayList b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : (ArrayList) invokeV.objValue;

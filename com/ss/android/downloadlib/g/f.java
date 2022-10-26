@@ -1,6 +1,5 @@
 package com.ss.android.downloadlib.g;
 
-import androidx.annotation.NonNull;
 import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.ss.android.socialbase.appdownloader.g;
@@ -9,22 +8,89 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class f {
+    public static JSONObject a(JSONObject jSONObject, com.ss.android.downloadad.api.a.a aVar) {
+        l.a(jSONObject, "open_url", l.a(aVar.f(), "open_url_not_exist"));
+        return jSONObject;
+    }
+
+    public static JSONObject b(JSONObject jSONObject, com.ss.android.downloadad.api.a.a aVar) {
+        l.a(jSONObject, com.ss.android.socialbase.appdownloader.f.d.i().replaceAll(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX, "_"), Integer.valueOf(l.b(com.ss.android.downloadlib.addownload.j.getContext(), com.ss.android.socialbase.appdownloader.f.d.i())));
+        return jSONObject;
+    }
+
+    public static void a(com.ss.android.downloadad.api.a.b bVar, JSONObject jSONObject) {
+        int i;
+        if (jSONObject == null || bVar == null) {
+            return;
+        }
+        try {
+            if (bVar.X()) {
+                i = 1;
+            } else {
+                i = 0;
+            }
+            jSONObject.put("is_patch_apply_handled", i);
+            jSONObject.put("origin_mime_type", bVar.W());
+        } catch (Throwable th) {
+            th.printStackTrace();
+        }
+    }
+
     public static void a(DownloadInfo downloadInfo, JSONObject jSONObject) {
+        int i;
         try {
             c(downloadInfo, jSONObject);
             com.ss.android.downloadad.api.a.b a = com.ss.android.downloadlib.addownload.b.f.a().a(downloadInfo);
             if (a == null) {
                 return;
             }
-            jSONObject.put("is_update_download", a.V() ? 1 : 2);
+            if (a.V()) {
+                i = 1;
+            } else {
+                i = 2;
+            }
+            jSONObject.put("is_update_download", i);
             a(a, jSONObject);
         } catch (Throwable th) {
             th.printStackTrace();
         }
     }
 
+    public static void a(JSONObject jSONObject, int i) {
+        int i2;
+        if (jSONObject == null) {
+            return;
+        }
+        JSONArray e = com.ss.android.socialbase.downloader.g.a.a(i).e("ah_report_config");
+        if (e != null) {
+            for (int i3 = 0; i3 < e.length(); i3++) {
+                try {
+                    String string = e.getString(i3);
+                    g.a a = com.ss.android.socialbase.appdownloader.f.a.a(string);
+                    if (a != null) {
+                        String replaceAll = string.replaceAll(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX, "_");
+                        jSONObject.put(replaceAll, a.f() + "_" + a.g());
+                    }
+                } catch (Throwable th) {
+                    th.printStackTrace();
+                }
+            }
+        }
+        try {
+            if (com.ss.android.socialbase.appdownloader.b.a(com.ss.android.socialbase.downloader.downloader.c.N())) {
+                i2 = 1;
+            } else {
+                i2 = 2;
+            }
+            jSONObject.put("is_unknown_source_enabled", i2);
+        } catch (Throwable unused) {
+        }
+    }
+
     public static void b(DownloadInfo downloadInfo, JSONObject jSONObject) {
         com.ss.android.downloadad.api.a.b a;
+        double d;
+        int i;
         if (jSONObject == null || (a = com.ss.android.downloadlib.addownload.b.f.a().a(downloadInfo)) == null) {
             return;
         }
@@ -39,7 +105,12 @@ public class f {
             jSONObject.put("click_pause_times", a.z());
             long totalBytes = downloadInfo.getTotalBytes();
             long curBytes = downloadInfo.getCurBytes();
-            jSONObject.put("download_percent", (curBytes < 0 || totalBytes <= 0) ? 0.0d : curBytes / totalBytes);
+            if (curBytes >= 0 && totalBytes > 0) {
+                d = curBytes / totalBytes;
+            } else {
+                d = 0.0d;
+            }
+            jSONObject.put("download_percent", d);
             jSONObject.put("download_status", downloadInfo.getRealStatus());
             long currentTimeMillis = System.currentTimeMillis();
             long H = a.H();
@@ -53,7 +124,12 @@ public class f {
             jSONObject.putOpt("fail_status", Integer.valueOf(a.E()));
             jSONObject.putOpt("fail_msg", a.F());
             jSONObject.put("download_failed_times", a.x());
-            jSONObject.put("can_show_notification", com.ss.android.socialbase.appdownloader.e.d.a() ? 1 : 2);
+            if (com.ss.android.socialbase.appdownloader.e.d.a()) {
+                i = 1;
+            } else {
+                i = 2;
+            }
+            jSONObject.put("can_show_notification", i);
             jSONObject.put("first_speed_time", downloadInfo.getFirstSpeedTime());
             jSONObject.put("all_connect_time", downloadInfo.getAllConnectTime());
             jSONObject.put("download_prepare_time", downloadInfo.getDownloadPrepareTime());
@@ -64,6 +140,8 @@ public class f {
     }
 
     public static void c(DownloadInfo downloadInfo, JSONObject jSONObject) {
+        int i;
+        int i2;
         if (downloadInfo != null) {
             try {
                 jSONObject.putOpt(DownloadDataConstants.Columns.COLUMN_TOTAL_BYTES, Long.valueOf(downloadInfo.getTotalBytes()));
@@ -84,59 +162,22 @@ public class f {
                 return;
             }
         }
-        int i = 1;
-        jSONObject.putOpt("permission_notification", Integer.valueOf(com.ss.android.socialbase.appdownloader.e.d.a() ? 1 : 2));
-        jSONObject.putOpt("network_available", Integer.valueOf(com.ss.android.socialbase.downloader.i.f.c(com.ss.android.downloadlib.addownload.j.getContext()) ? 1 : 2));
-        if (!com.ss.android.socialbase.downloader.i.f.b(com.ss.android.downloadlib.addownload.j.getContext())) {
+        int i3 = 1;
+        if (com.ss.android.socialbase.appdownloader.e.d.a()) {
+            i = 1;
+        } else {
             i = 2;
         }
-        jSONObject.putOpt("network_is_wifi", Integer.valueOf(i));
-    }
-
-    public static void a(com.ss.android.downloadad.api.a.b bVar, JSONObject jSONObject) {
-        if (jSONObject == null || bVar == null) {
-            return;
+        jSONObject.putOpt("permission_notification", Integer.valueOf(i));
+        if (com.ss.android.socialbase.downloader.i.f.c(com.ss.android.downloadlib.addownload.j.getContext())) {
+            i2 = 1;
+        } else {
+            i2 = 2;
         }
-        try {
-            jSONObject.put("is_patch_apply_handled", bVar.X() ? 1 : 0);
-            jSONObject.put("origin_mime_type", bVar.W());
-        } catch (Throwable th) {
-            th.printStackTrace();
+        jSONObject.putOpt("network_available", Integer.valueOf(i2));
+        if (!com.ss.android.socialbase.downloader.i.f.b(com.ss.android.downloadlib.addownload.j.getContext())) {
+            i3 = 2;
         }
-    }
-
-    public static void a(JSONObject jSONObject, int i) {
-        if (jSONObject == null) {
-            return;
-        }
-        JSONArray e = com.ss.android.socialbase.downloader.g.a.a(i).e("ah_report_config");
-        if (e != null) {
-            for (int i2 = 0; i2 < e.length(); i2++) {
-                try {
-                    String string = e.getString(i2);
-                    g.a a = com.ss.android.socialbase.appdownloader.f.a.a(string);
-                    if (a != null) {
-                        String replaceAll = string.replaceAll(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX, "_");
-                        jSONObject.put(replaceAll, a.f() + "_" + a.g());
-                    }
-                } catch (Throwable th) {
-                    th.printStackTrace();
-                }
-            }
-        }
-        try {
-            jSONObject.put("is_unknown_source_enabled", com.ss.android.socialbase.appdownloader.b.a(com.ss.android.socialbase.downloader.downloader.c.N()) ? 1 : 2);
-        } catch (Throwable unused) {
-        }
-    }
-
-    public static JSONObject a(@NonNull JSONObject jSONObject, com.ss.android.downloadad.api.a.a aVar) {
-        l.a(jSONObject, "open_url", l.a(aVar.f(), "open_url_not_exist"));
-        return jSONObject;
-    }
-
-    public static JSONObject b(@NonNull JSONObject jSONObject, com.ss.android.downloadad.api.a.a aVar) {
-        l.a(jSONObject, com.ss.android.socialbase.appdownloader.f.d.i().replaceAll(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX, "_"), Integer.valueOf(l.b(com.ss.android.downloadlib.addownload.j.getContext(), com.ss.android.socialbase.appdownloader.f.d.i())));
-        return jSONObject;
+        jSONObject.putOpt("network_is_wifi", Integer.valueOf(i3));
     }
 }

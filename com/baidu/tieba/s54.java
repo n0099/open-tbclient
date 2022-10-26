@@ -1,86 +1,127 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.JsFunction;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes5.dex */
 public class s54 {
     public static /* synthetic */ Interceptable $ic;
+    public static final ReentrantLock c;
+    public static volatile s54 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public JsFunction a;
-    public JsFunction b;
-    public JsFunction c;
+    public List a;
+    public v54 b;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948102391, "Lcom/baidu/tieba/s54;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948102391, "Lcom/baidu/tieba/s54;");
+                return;
+            }
+        }
+        c = new ReentrantLock();
+    }
 
     public s54() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayList(3);
     }
 
-    public static s54 d(sv1 sv1Var) {
-        InterceptResult invokeL;
+    public static s54 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, sv1Var)) == null) {
-            if (sv1Var == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (d == null) {
+                synchronized (s54.class) {
+                    if (d == null) {
+                        d = new s54();
+                    }
+                }
             }
-            s54 s54Var = new s54();
-            JsFunction u = sv1Var.u("onCheckForUpdate");
-            s54Var.a = u;
-            if (u != null) {
-                u.setReleaseMode(false);
-            }
-            JsFunction u2 = sv1Var.u("onUpdateReady");
-            s54Var.b = u2;
-            if (u2 != null) {
-                u2.setReleaseMode(false);
-            }
-            JsFunction u3 = sv1Var.u("onUpdateFailed");
-            s54Var.c = u3;
-            if (u3 != null) {
-                u3.setReleaseMode(false);
-            }
-            return s54Var;
+            return d;
         }
-        return (s54) invokeL.objValue;
-    }
-
-    public void a(t54 t54Var) {
-        JsFunction jsFunction;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, t54Var) == null) || (jsFunction = this.a) == null) {
-            return;
-        }
-        jsFunction.call(t54Var);
+        return (s54) invokeV.objValue;
     }
 
     public void b() {
-        JsFunction jsFunction;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (jsFunction = this.c) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b = null;
+            this.a.clear();
         }
-        jsFunction.call();
     }
 
-    public void c() {
-        JsFunction jsFunction;
+    public final void c(u54 u54Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (jsFunction = this.b) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u54Var) == null) {
+            c.lock();
+            try {
+                if (this.b != null) {
+                    this.b.a(u54Var);
+                } else {
+                    this.a.add(u54Var);
+                }
+            } finally {
+                c.unlock();
+            }
         }
-        jsFunction.call();
+    }
+
+    public void f(v54 v54Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, v54Var) == null) {
+            this.b = v54Var;
+            e();
+        }
+    }
+
+    public void d(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z) == null) {
+            m02.i("SwanGameBundleUpdateManager", String.format("sendJSMessage : eventType = %s; hasUpdate = %s", str, Boolean.valueOf(z)));
+            u54 u54Var = new u54(str);
+            u54Var.hasUpdate = z;
+            c(u54Var);
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && !this.a.isEmpty() && this.b != null) {
+            c.lock();
+            try {
+                for (u54 u54Var : this.a) {
+                    this.b.a(u54Var);
+                }
+                this.a.clear();
+            } finally {
+                c.unlock();
+            }
+        }
     }
 }

@@ -21,21 +21,21 @@ public class a {
     public long xj;
     public long xk;
     public long xl;
-    public BlockingQueue<C0060a> xm;
+    public BlockingQueue xm;
 
     /* renamed from: com.baidu.ar.statistic.performance.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0060a {
+    public class C0060a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int xn;
         public long xo;
         public long xp;
-        public BlockingQueue<C0061a> xq;
+        public BlockingQueue xq;
 
         /* renamed from: com.baidu.ar.statistic.performance.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public static class C0061a {
+        public class C0061a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int count;

@@ -8,7 +8,6 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.util.Log;
 import android.widget.Toast;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -127,7 +126,14 @@ public class TitanLocalService extends Service {
     }
 
     @Override // android.app.Service
-    @Nullable
+    public void onCreate() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.onCreate();
+        }
+    }
+
+    @Override // android.app.Service
     public IBinder onBind(Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -137,14 +143,6 @@ public class TitanLocalService extends Service {
             return bVar;
         }
         return (IBinder) invokeL.objValue;
-    }
-
-    @Override // android.app.Service
-    public void onCreate() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.onCreate();
-        }
     }
 
     @Override // android.app.Service

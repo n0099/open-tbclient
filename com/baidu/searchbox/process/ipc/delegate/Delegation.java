@@ -1,7 +1,6 @@
 package com.baidu.searchbox.process.ipc.delegate;
 
 import android.os.Bundle;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.process.ipc.agent.Agent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,11 +9,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public abstract class Delegation<AgentT extends Agent> {
+public abstract class Delegation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public AgentT mAgent;
+    public Agent mAgent;
     public final Bundle mParams;
     public final Bundle mResult;
 
@@ -35,23 +33,31 @@ public abstract class Delegation<AgentT extends Agent> {
         this.mResult = new Bundle();
     }
 
-    @NonNull
-    public AgentT getAgent() {
+    public Agent getAgent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mAgent : (AgentT) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mAgent;
+        }
+        return (Agent) invokeV.objValue;
     }
 
     public boolean isLegal() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mAgent != null : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.mAgent != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
-    public void setAgent(AgentT agentt) {
+    public void setAgent(Agent agent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, agentt) == null) {
-            this.mAgent = agentt;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, agent) == null) {
+            this.mAgent = agent;
         }
     }
 }

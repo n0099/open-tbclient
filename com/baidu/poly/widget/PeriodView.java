@@ -14,9 +14,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.poly.widget.entitiy.InstallmentEntity;
 import com.baidu.poly.widget.entitiy.PayChannelExtInfoEntity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bc1;
-import com.baidu.tieba.cd1;
-import com.baidu.tieba.yb1;
+import com.baidu.tieba.cc1;
+import com.baidu.tieba.dd1;
+import com.baidu.tieba.zb1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,9 +38,16 @@ public class PeriodView extends FrameLayout {
     public TextView i;
     public TextView j;
     public PayChannelEntity k;
-    public cd1 l;
+    public dd1 l;
     public InstallmentEntity m;
     public String n;
+
+    /* loaded from: classes2.dex */
+    public interface d {
+        void a();
+
+        void b(String str);
+    }
 
     /* loaded from: classes2.dex */
     public class a implements View.OnTouchListener {
@@ -72,15 +79,15 @@ public class PeriodView extends FrameLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
                 int action = motionEvent.getAction();
-                if (action == 0) {
-                    this.a.h.setAlpha(0.2f);
-                    return false;
-                } else if (action != 1) {
-                    return false;
-                } else {
-                    this.a.h.setAlpha(1.0f);
+                if (action != 0) {
+                    if (action == 1) {
+                        this.a.h.setAlpha(1.0f);
+                        return false;
+                    }
                     return false;
                 }
+                this.a.h.setAlpha(0.2f);
+                return false;
             }
             return invokeLL.booleanValue;
         }
@@ -113,21 +120,20 @@ public class PeriodView extends FrameLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             PayChannelExtInfoEntity payChannelExtInfoEntity;
-            ArrayList<InstallmentEntity> installmentEntities;
+            ArrayList installmentEntities;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.e == null || this.a.k == null || this.a.k.getPayChannelExtInfoEntity() == null || (payChannelExtInfoEntity = this.a.k.getPayChannelExtInfoEntity()) == null || (installmentEntities = payChannelExtInfoEntity.getInstallmentEntities()) == null) {
-                return;
-            }
-            for (int i = 0; i < installmentEntities.size(); i++) {
-                InstallmentEntity installmentEntity = installmentEntities.get(i);
-                if (this.a.m == installmentEntity) {
-                    installmentEntity.setIsSelected("1");
-                } else {
-                    installmentEntity.setIsSelected("0");
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.e != null && this.a.k != null && this.a.k.getPayChannelExtInfoEntity() != null && (payChannelExtInfoEntity = this.a.k.getPayChannelExtInfoEntity()) != null && (installmentEntities = payChannelExtInfoEntity.getInstallmentEntities()) != null) {
+                for (int i = 0; i < installmentEntities.size(); i++) {
+                    InstallmentEntity installmentEntity = (InstallmentEntity) installmentEntities.get(i);
+                    if (this.a.m == installmentEntity) {
+                        installmentEntity.setIsSelected("1");
+                    } else {
+                        installmentEntity.setIsSelected("0");
+                    }
                 }
+                this.a.e.a();
+                this.a.e.b("confirm");
             }
-            this.a.e.a();
-            this.a.e.b("confirm");
         }
     }
 
@@ -158,18 +164,10 @@ public class PeriodView extends FrameLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.e == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.e != null) {
+                this.a.e.b("back");
             }
-            this.a.e.b("back");
         }
-    }
-
-    /* loaded from: classes2.dex */
-    public interface d {
-        void a();
-
-        void b(String str);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -196,52 +194,6 @@ public class PeriodView extends FrameLayout {
         e(context);
     }
 
-    public final void e(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06f1, (ViewGroup) this, true);
-            this.c = (PolyFrameLayout) findViewById(R.id.obfuscated_res_0x7f091c7c);
-            this.d = findViewById(R.id.obfuscated_res_0x7f0918c9);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f090621);
-            this.h = findViewById;
-            findViewById.setOnTouchListener(new a(this));
-            this.h.setOnClickListener(new b(this));
-            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f090313);
-            this.f = findViewById2;
-            findViewById2.setOnClickListener(new c(this));
-            this.g = (ListView) findViewById(R.id.obfuscated_res_0x7f0918ca);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f090f42);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f09068a);
-            cd1 cd1Var = new cd1(getContext());
-            this.l = cd1Var;
-            this.g.setAdapter((ListAdapter) cd1Var);
-            setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-            yb1 yb1Var = new yb1("10");
-            yb1Var.a("type", this.n);
-            bc1.e(yb1Var);
-        }
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        d dVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!this.b && this.a && (dVar = this.e) != null) {
-                dVar.b("back");
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void setListener(d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) {
-            this.e = dVar;
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PeriodView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
@@ -264,5 +216,51 @@ public class PeriodView extends FrameLayout {
         this.a = false;
         this.b = false;
         e(context);
+    }
+
+    public void setListener(d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) {
+            this.e = dVar;
+        }
+    }
+
+    public final void e(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06f1, (ViewGroup) this, true);
+            this.c = (PolyFrameLayout) findViewById(R.id.obfuscated_res_0x7f091c78);
+            this.d = findViewById(R.id.obfuscated_res_0x7f0918bc);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f09062a);
+            this.h = findViewById;
+            findViewById.setOnTouchListener(new a(this));
+            this.h.setOnClickListener(new b(this));
+            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f090313);
+            this.f = findViewById2;
+            findViewById2.setOnClickListener(new c(this));
+            this.g = (ListView) findViewById(R.id.obfuscated_res_0x7f0918bd);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f090f36);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f090693);
+            dd1 dd1Var = new dd1(getContext());
+            this.l = dd1Var;
+            this.g.setAdapter((ListAdapter) dd1Var);
+            setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+            zb1 zb1Var = new zb1("10");
+            zb1Var.a("type", this.n);
+            cc1.e(zb1Var);
+        }
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        d dVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (!this.b && this.a && (dVar = this.e) != null) {
+                dVar.b("back");
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 }

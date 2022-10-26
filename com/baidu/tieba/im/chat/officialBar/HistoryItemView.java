@@ -48,43 +48,6 @@ public class HistoryItemView extends LinearLayout {
         a();
     }
 
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            setOrientation(1);
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0688, (ViewGroup) this, true);
-            setClickable(false);
-            setFocusable(false);
-            this.e = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090d6d);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090d73);
-            this.b = (TbRichTextView) findViewById(R.id.obfuscated_res_0x7f090d75);
-            this.d = (ChatImageWithTailView) findViewById(R.id.obfuscated_res_0x7f090d71);
-            SkinManager.setBackgroundResource(this.e, R.drawable.selector_history_multi_single_bg);
-            SkinManager.setViewTextColor(this.c, R.color.common_color_10067, 1);
-            this.b.setTextColor(SkinManager.getColor(R.color.CAM_X0108));
-            this.d.setIsSupportNight(true);
-        }
-    }
-
-    public ChatImageWithTailView getImageView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (ChatImageWithTailView) invokeV.objValue;
-    }
-
-    public TbRichTextView getRichTextView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (TbRichTextView) invokeV.objValue;
-    }
-
-    public void setTime(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.c.setText(str);
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HistoryItemView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -106,5 +69,48 @@ public class HistoryItemView extends LinearLayout {
         }
         this.a = context;
         a();
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            setOrientation(1);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0688, (ViewGroup) this, true);
+            setClickable(false);
+            setFocusable(false);
+            this.e = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090d7a);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090d80);
+            this.b = (TbRichTextView) findViewById(R.id.obfuscated_res_0x7f090d82);
+            this.d = (ChatImageWithTailView) findViewById(R.id.obfuscated_res_0x7f090d7e);
+            SkinManager.setBackgroundResource(this.e, R.drawable.selector_history_multi_single_bg);
+            SkinManager.setViewTextColor(this.c, R.color.common_color_10067, 1);
+            this.b.setTextColor(SkinManager.getColor(R.color.CAM_X0108));
+            this.d.setIsSupportNight(true);
+        }
+    }
+
+    public ChatImageWithTailView getImageView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return (ChatImageWithTailView) invokeV.objValue;
+    }
+
+    public TbRichTextView getRichTextView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (TbRichTextView) invokeV.objValue;
+    }
+
+    public void setTime(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.c.setText(str);
+        }
     }
 }

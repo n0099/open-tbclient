@@ -1,6 +1,5 @@
 package com.baidu.mapsdkplatform.comapi.map;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Rect;
 import android.opengl.GLSurfaceView;
@@ -18,6 +17,7 @@ import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.WinRound;
 import com.baidu.mapapi.model.inner.GeoPoint;
 import com.baidu.mapsdkplatform.comapi.map.MapRenderer;
+import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,7 +33,6 @@ import javax.microedition.khronos.egl.EGLContext;
 import javax.microedition.khronos.egl.EGLDisplay;
 import org.json.JSONException;
 import org.json.JSONObject;
-@SuppressLint({"NewApi"})
 /* loaded from: classes2.dex */
 public class j extends GLSurfaceView implements GestureDetector.OnDoubleTapListener, GestureDetector.OnGestureListener, MapRenderer.a {
     public static /* synthetic */ Interceptable $ic;
@@ -47,7 +46,7 @@ public class j extends GLSurfaceView implements GestureDetector.OnDoubleTapListe
     public e g;
 
     /* loaded from: classes2.dex */
-    public static class a {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public float a;
@@ -575,7 +574,7 @@ public class j extends GLSurfaceView implements GestureDetector.OnDoubleTapListe
                         jSONObject = new JSONObject(a2);
                         try {
                             jSONObject.put("px", (int) motionEvent.getX());
-                            jSONObject.put("py", (int) motionEvent.getY());
+                            jSONObject.put(Config.PY, (int) motionEvent.getY());
                         } catch (JSONException e) {
                             e = e;
                             jSONObject2 = jSONObject;

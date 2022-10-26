@@ -1,5 +1,5 @@
 package com.baidu.tieba;
 /* loaded from: classes4.dex */
 public interface ir2 {
-    void a(int i);
+    void a(boolean z, String str, Object obj);
 }

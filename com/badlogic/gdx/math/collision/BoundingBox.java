@@ -13,6 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
+import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class BoundingBox implements Serializable {
@@ -24,6 +25,18 @@ public class BoundingBox implements Serializable {
     public final Vector3 dim;
     public final Vector3 max;
     public final Vector3 min;
+
+    public static final float max(float f, float f2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) ? f > f2 ? f : f2 : invokeCommon.floatValue;
+    }
+
+    public static final float min(float f, float f2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) ? f > f2 ? f2 : f : invokeCommon.floatValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -39,6 +52,97 @@ public class BoundingBox implements Serializable {
             }
         }
         tmpVector = new Vector3();
+    }
+
+    public BoundingBox clr() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return set(this.min.set(0.0f, 0.0f, 0.0f), this.max.set(0.0f, 0.0f, 0.0f));
+        }
+        return (BoundingBox) invokeV.objValue;
+    }
+
+    public float getCenterX() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.cnt.x;
+        }
+        return invokeV.floatValue;
+    }
+
+    public float getCenterY() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.cnt.y;
+        }
+        return invokeV.floatValue;
+    }
+
+    public float getCenterZ() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.cnt.z;
+        }
+        return invokeV.floatValue;
+    }
+
+    public float getDepth() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return this.dim.z;
+        }
+        return invokeV.floatValue;
+    }
+
+    public float getHeight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return this.dim.y;
+        }
+        return invokeV.floatValue;
+    }
+
+    public float getWidth() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            return this.dim.x;
+        }
+        return invokeV.floatValue;
+    }
+
+    public BoundingBox inf() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            this.min.set(Float.POSITIVE_INFINITY, Float.POSITIVE_INFINITY, Float.POSITIVE_INFINITY);
+            this.max.set(Float.NEGATIVE_INFINITY, Float.NEGATIVE_INFINITY, Float.NEGATIVE_INFINITY);
+            this.cnt.set(0.0f, 0.0f, 0.0f);
+            this.dim.set(0.0f, 0.0f, 0.0f);
+            return this;
+        }
+        return (BoundingBox) invokeV.objValue;
+    }
+
+    public boolean isValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+            Vector3 vector3 = this.min;
+            float f = vector3.x;
+            Vector3 vector32 = this.max;
+            if (f <= vector32.x && vector3.y <= vector32.y && vector3.z <= vector32.z) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public BoundingBox() {
@@ -61,22 +165,69 @@ public class BoundingBox implements Serializable {
         clr();
     }
 
-    public static final float max(float f, float f2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) ? f > f2 ? f : f2 : invokeCommon.floatValue;
-    }
-
-    public static final float min(float f, float f2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) ? f > f2 ? f2 : f : invokeCommon.floatValue;
-    }
-
-    public BoundingBox clr() {
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? set(this.min.set(0.0f, 0.0f, 0.0f), this.max.set(0.0f, 0.0f, 0.0f)) : (BoundingBox) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
+            return PreferencesUtil.LEFT_MOUNT + this.min + "|" + this.max + PreferencesUtil.RIGHT_MOUNT;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public BoundingBox(Vector3 vector3, Vector3 vector32) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vector3, vector32};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.min = new Vector3();
+        this.max = new Vector3();
+        this.cnt = new Vector3();
+        this.dim = new Vector3();
+        set(vector3, vector32);
+    }
+
+    public BoundingBox ext(Vector3 vector3, float f) {
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048581, this, vector3, f)) == null) {
+            Vector3 vector32 = this.min;
+            Vector3 vector33 = vector32.set(min(vector32.x, vector3.x - f), min(this.min.y, vector3.y - f), min(this.min.z, vector3.z - f));
+            Vector3 vector34 = this.max;
+            return set(vector33, vector34.set(max(vector34.x, vector3.x + f), max(this.max.y, vector3.y + f), max(this.max.z, vector3.z + f)));
+        }
+        return (BoundingBox) invokeLF.objValue;
+    }
+
+    public BoundingBox(BoundingBox boundingBox) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {boundingBox};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.min = new Vector3();
+        this.max = new Vector3();
+        this.cnt = new Vector3();
+        this.dim = new Vector3();
+        set(boundingBox);
     }
 
     public boolean contains(BoundingBox boundingBox) {
@@ -113,28 +264,145 @@ public class BoundingBox implements Serializable {
         return (BoundingBox) invokeL.objValue;
     }
 
+    public boolean contains(Vector3 vector3) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vector3)) == null) {
+            Vector3 vector32 = this.min;
+            float f = vector32.x;
+            float f2 = vector3.x;
+            if (f <= f2) {
+                Vector3 vector33 = this.max;
+                if (vector33.x >= f2) {
+                    float f3 = vector32.y;
+                    float f4 = vector3.y;
+                    if (f3 <= f4 && vector33.y >= f4) {
+                        float f5 = vector32.z;
+                        float f6 = vector3.z;
+                        if (f5 <= f6 && vector33.z >= f6) {
+                            return true;
+                        }
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public BoundingBox ext(float f, float f2, float f3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+            Vector3 vector3 = this.min;
+            Vector3 vector32 = vector3.set(min(vector3.x, f), min(this.min.y, f2), min(this.min.z, f3));
+            Vector3 vector33 = this.max;
+            return set(vector32, vector33.set(max(vector33.x, f), max(this.max.y, f2), max(this.max.z, f3)));
+        }
+        return (BoundingBox) invokeCommon.objValue;
+    }
+
+    public BoundingBox ext(BoundingBox boundingBox) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, boundingBox)) == null) {
+            Vector3 vector3 = this.min;
+            Vector3 vector32 = vector3.set(min(vector3.x, boundingBox.min.x), min(this.min.y, boundingBox.min.y), min(this.min.z, boundingBox.min.z));
+            Vector3 vector33 = this.max;
+            return set(vector32, vector33.set(max(vector33.x, boundingBox.max.x), max(this.max.y, boundingBox.max.y), max(this.max.z, boundingBox.max.z)));
+        }
+        return (BoundingBox) invokeL.objValue;
+    }
+
+    public boolean intersects(BoundingBox boundingBox) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, boundingBox)) == null) {
+            if (!isValid()) {
+                return false;
+            }
+            float abs = Math.abs(this.cnt.x - boundingBox.cnt.x);
+            float f = (this.dim.x / 2.0f) + (boundingBox.dim.x / 2.0f);
+            float abs2 = Math.abs(this.cnt.y - boundingBox.cnt.y);
+            float f2 = (this.dim.y / 2.0f) + (boundingBox.dim.y / 2.0f);
+            float abs3 = Math.abs(this.cnt.z - boundingBox.cnt.z);
+            float f3 = (this.dim.z / 2.0f) + (boundingBox.dim.z / 2.0f);
+            if (abs > f || abs2 > f2 || abs3 > f3) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public BoundingBox mul(Matrix4 matrix4) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, matrix4)) == null) {
+            Vector3 vector3 = this.min;
+            float f = vector3.x;
+            float f2 = vector3.y;
+            float f3 = vector3.z;
+            Vector3 vector32 = this.max;
+            float f4 = vector32.x;
+            float f5 = vector32.y;
+            float f6 = vector32.z;
+            inf();
+            ext(tmpVector.set(f, f2, f3).mul(matrix4));
+            ext(tmpVector.set(f, f2, f6).mul(matrix4));
+            ext(tmpVector.set(f, f5, f3).mul(matrix4));
+            ext(tmpVector.set(f, f5, f6).mul(matrix4));
+            ext(tmpVector.set(f4, f2, f3).mul(matrix4));
+            ext(tmpVector.set(f4, f2, f6).mul(matrix4));
+            ext(tmpVector.set(f4, f5, f3).mul(matrix4));
+            ext(tmpVector.set(f4, f5, f6).mul(matrix4));
+            return this;
+        }
+        return (BoundingBox) invokeL.objValue;
+    }
+
+    public BoundingBox ext(BoundingBox boundingBox, Matrix4 matrix4) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, boundingBox, matrix4)) == null) {
+            Vector3 vector3 = tmpVector;
+            Vector3 vector32 = boundingBox.min;
+            ext(vector3.set(vector32.x, vector32.y, vector32.z).mul(matrix4));
+            Vector3 vector33 = tmpVector;
+            Vector3 vector34 = boundingBox.min;
+            ext(vector33.set(vector34.x, vector34.y, boundingBox.max.z).mul(matrix4));
+            Vector3 vector35 = tmpVector;
+            Vector3 vector36 = boundingBox.min;
+            ext(vector35.set(vector36.x, boundingBox.max.y, vector36.z).mul(matrix4));
+            Vector3 vector37 = tmpVector;
+            float f = boundingBox.min.x;
+            Vector3 vector38 = boundingBox.max;
+            ext(vector37.set(f, vector38.y, vector38.z).mul(matrix4));
+            Vector3 vector39 = tmpVector;
+            float f2 = boundingBox.max.x;
+            Vector3 vector310 = boundingBox.min;
+            ext(vector39.set(f2, vector310.y, vector310.z).mul(matrix4));
+            Vector3 vector311 = tmpVector;
+            Vector3 vector312 = boundingBox.max;
+            ext(vector311.set(vector312.x, boundingBox.min.y, vector312.z).mul(matrix4));
+            Vector3 vector313 = tmpVector;
+            Vector3 vector314 = boundingBox.max;
+            ext(vector313.set(vector314.x, vector314.y, boundingBox.min.z).mul(matrix4));
+            Vector3 vector315 = tmpVector;
+            Vector3 vector316 = boundingBox.max;
+            ext(vector315.set(vector316.x, vector316.y, vector316.z).mul(matrix4));
+            return this;
+        }
+        return (BoundingBox) invokeLL.objValue;
+    }
+
     public Vector3 getCenter(Vector3 vector3) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, vector3)) == null) ? vector3.set(this.cnt) : (Vector3) invokeL.objValue;
-    }
-
-    public float getCenterX() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.cnt.x : invokeV.floatValue;
-    }
-
-    public float getCenterY() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.cnt.y : invokeV.floatValue;
-    }
-
-    public float getCenterZ() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.cnt.z : invokeV.floatValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, vector3)) == null) {
+            return vector3.set(this.cnt);
+        }
+        return (Vector3) invokeL.objValue;
     }
 
     public Vector3 getCorner000(Vector3 vector3) {
@@ -219,144 +487,40 @@ public class BoundingBox implements Serializable {
         return (Vector3) invokeL.objValue;
     }
 
-    public float getDepth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.dim.z : invokeV.floatValue;
-    }
-
     public Vector3 getDimensions(Vector3 vector3) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, vector3)) == null) ? vector3.set(this.dim) : (Vector3) invokeL.objValue;
-    }
-
-    public float getHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.dim.y : invokeV.floatValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, vector3)) == null) {
+            return vector3.set(this.dim);
+        }
+        return (Vector3) invokeL.objValue;
     }
 
     public Vector3 getMax(Vector3 vector3) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, vector3)) == null) ? vector3.set(this.max) : (Vector3) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, vector3)) == null) {
+            return vector3.set(this.max);
+        }
+        return (Vector3) invokeL.objValue;
     }
 
     public Vector3 getMin(Vector3 vector3) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, vector3)) == null) ? vector3.set(this.min) : (Vector3) invokeL.objValue;
-    }
-
-    public float getWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.dim.x : invokeV.floatValue;
-    }
-
-    public BoundingBox inf() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            this.min.set(Float.POSITIVE_INFINITY, Float.POSITIVE_INFINITY, Float.POSITIVE_INFINITY);
-            this.max.set(Float.NEGATIVE_INFINITY, Float.NEGATIVE_INFINITY, Float.NEGATIVE_INFINITY);
-            this.cnt.set(0.0f, 0.0f, 0.0f);
-            this.dim.set(0.0f, 0.0f, 0.0f);
-            return this;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, vector3)) == null) {
+            return vector3.set(this.min);
         }
-        return (BoundingBox) invokeV.objValue;
-    }
-
-    public boolean intersects(BoundingBox boundingBox) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, boundingBox)) == null) {
-            if (isValid()) {
-                return Math.abs(this.cnt.x - boundingBox.cnt.x) <= (this.dim.x / 2.0f) + (boundingBox.dim.x / 2.0f) && Math.abs(this.cnt.y - boundingBox.cnt.y) <= (this.dim.y / 2.0f) + (boundingBox.dim.y / 2.0f) && Math.abs(this.cnt.z - boundingBox.cnt.z) <= (this.dim.z / 2.0f) + (boundingBox.dim.z / 2.0f);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean isValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
-            Vector3 vector3 = this.min;
-            float f = vector3.x;
-            Vector3 vector32 = this.max;
-            return f <= vector32.x && vector3.y <= vector32.y && vector3.z <= vector32.z;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public BoundingBox mul(Matrix4 matrix4) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, matrix4)) == null) {
-            Vector3 vector3 = this.min;
-            float f = vector3.x;
-            float f2 = vector3.y;
-            float f3 = vector3.z;
-            Vector3 vector32 = this.max;
-            float f4 = vector32.x;
-            float f5 = vector32.y;
-            float f6 = vector32.z;
-            inf();
-            ext(tmpVector.set(f, f2, f3).mul(matrix4));
-            ext(tmpVector.set(f, f2, f6).mul(matrix4));
-            ext(tmpVector.set(f, f5, f3).mul(matrix4));
-            ext(tmpVector.set(f, f5, f6).mul(matrix4));
-            ext(tmpVector.set(f4, f2, f3).mul(matrix4));
-            ext(tmpVector.set(f4, f2, f6).mul(matrix4));
-            ext(tmpVector.set(f4, f5, f3).mul(matrix4));
-            ext(tmpVector.set(f4, f5, f6).mul(matrix4));
-            return this;
-        }
-        return (BoundingBox) invokeL.objValue;
+        return (Vector3) invokeL.objValue;
     }
 
     public BoundingBox set(BoundingBox boundingBox) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048607, this, boundingBox)) == null) ? set(boundingBox.min, boundingBox.max) : (BoundingBox) invokeL.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
-            return PreferencesUtil.LEFT_MOUNT + this.min + "|" + this.max + PreferencesUtil.RIGHT_MOUNT;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048607, this, boundingBox)) == null) {
+            return set(boundingBox.min, boundingBox.max);
         }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean contains(Vector3 vector3) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vector3)) == null) {
-            Vector3 vector32 = this.min;
-            float f = vector32.x;
-            float f2 = vector3.x;
-            if (f <= f2) {
-                Vector3 vector33 = this.max;
-                if (vector33.x >= f2) {
-                    float f3 = vector32.y;
-                    float f4 = vector3.y;
-                    if (f3 <= f4 && vector33.y >= f4) {
-                        float f5 = vector32.z;
-                        float f6 = vector3.z;
-                        if (f5 <= f6 && vector33.z >= f6) {
-                            return true;
-                        }
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
+        return (BoundingBox) invokeL.objValue;
     }
 
     public BoundingBox set(Vector3 vector3, Vector3 vector32) {
@@ -404,14 +568,16 @@ public class BoundingBox implements Serializable {
         return (BoundingBox) invokeLL.objValue;
     }
 
-    public BoundingBox ext(BoundingBox boundingBox) {
+    public BoundingBox set(List list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, boundingBox)) == null) {
-            Vector3 vector3 = this.min;
-            Vector3 vector32 = vector3.set(min(vector3.x, boundingBox.min.x), min(this.min.y, boundingBox.min.y), min(this.min.z, boundingBox.min.z));
-            Vector3 vector33 = this.max;
-            return set(vector32, vector33.set(max(vector33.x, boundingBox.max.x), max(this.max.y, boundingBox.max.y), max(this.max.z, boundingBox.max.z)));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048608, this, list)) == null) {
+            inf();
+            Iterator it = list.iterator();
+            while (it.hasNext()) {
+                ext((Vector3) it.next());
+            }
+            return this;
         }
         return (BoundingBox) invokeL.objValue;
     }
@@ -427,121 +593,5 @@ public class BoundingBox implements Serializable {
             return this;
         }
         return (BoundingBox) invokeL.objValue;
-    }
-
-    public BoundingBox(BoundingBox boundingBox) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {boundingBox};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        this.min = new Vector3();
-        this.max = new Vector3();
-        this.cnt = new Vector3();
-        this.dim = new Vector3();
-        set(boundingBox);
-    }
-
-    public BoundingBox ext(Vector3 vector3, float f) {
-        InterceptResult invokeLF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048581, this, vector3, f)) == null) {
-            Vector3 vector32 = this.min;
-            Vector3 vector33 = vector32.set(min(vector32.x, vector3.x - f), min(this.min.y, vector3.y - f), min(this.min.z, vector3.z - f));
-            Vector3 vector34 = this.max;
-            return set(vector33, vector34.set(max(vector34.x, vector3.x + f), max(this.max.y, vector3.y + f), max(this.max.z, vector3.z + f)));
-        }
-        return (BoundingBox) invokeLF.objValue;
-    }
-
-    public BoundingBox set(List<Vector3> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048608, this, list)) == null) {
-            inf();
-            for (Vector3 vector3 : list) {
-                ext(vector3);
-            }
-            return this;
-        }
-        return (BoundingBox) invokeL.objValue;
-    }
-
-    public BoundingBox ext(BoundingBox boundingBox, Matrix4 matrix4) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, boundingBox, matrix4)) == null) {
-            Vector3 vector3 = tmpVector;
-            Vector3 vector32 = boundingBox.min;
-            ext(vector3.set(vector32.x, vector32.y, vector32.z).mul(matrix4));
-            Vector3 vector33 = tmpVector;
-            Vector3 vector34 = boundingBox.min;
-            ext(vector33.set(vector34.x, vector34.y, boundingBox.max.z).mul(matrix4));
-            Vector3 vector35 = tmpVector;
-            Vector3 vector36 = boundingBox.min;
-            ext(vector35.set(vector36.x, boundingBox.max.y, vector36.z).mul(matrix4));
-            Vector3 vector37 = tmpVector;
-            float f = boundingBox.min.x;
-            Vector3 vector38 = boundingBox.max;
-            ext(vector37.set(f, vector38.y, vector38.z).mul(matrix4));
-            Vector3 vector39 = tmpVector;
-            float f2 = boundingBox.max.x;
-            Vector3 vector310 = boundingBox.min;
-            ext(vector39.set(f2, vector310.y, vector310.z).mul(matrix4));
-            Vector3 vector311 = tmpVector;
-            Vector3 vector312 = boundingBox.max;
-            ext(vector311.set(vector312.x, boundingBox.min.y, vector312.z).mul(matrix4));
-            Vector3 vector313 = tmpVector;
-            Vector3 vector314 = boundingBox.max;
-            ext(vector313.set(vector314.x, vector314.y, boundingBox.min.z).mul(matrix4));
-            Vector3 vector315 = tmpVector;
-            Vector3 vector316 = boundingBox.max;
-            ext(vector315.set(vector316.x, vector316.y, vector316.z).mul(matrix4));
-            return this;
-        }
-        return (BoundingBox) invokeLL.objValue;
-    }
-
-    public BoundingBox(Vector3 vector3, Vector3 vector32) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vector3, vector32};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.min = new Vector3();
-        this.max = new Vector3();
-        this.cnt = new Vector3();
-        this.dim = new Vector3();
-        set(vector3, vector32);
-    }
-
-    public BoundingBox ext(float f, float f2, float f3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            Vector3 vector3 = this.min;
-            Vector3 vector32 = vector3.set(min(vector3.x, f), min(this.min.y, f2), min(this.min.z, f3));
-            Vector3 vector33 = this.max;
-            return set(vector32, vector33.set(max(vector33.x, f), max(this.max.y, f2), max(this.max.z, f3)));
-        }
-        return (BoundingBox) invokeCommon.objValue;
     }
 }

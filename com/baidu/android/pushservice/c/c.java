@@ -1,6 +1,5 @@
 package com.baidu.android.pushservice.c;
 
-import android.annotation.TargetApi;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
@@ -48,14 +47,14 @@ public class c {
 
     /* renamed from: com.baidu.android.pushservice.c.c$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;
         public static final a b;
@@ -113,7 +112,7 @@ public class c {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class b {
+    public final class b {
         public static /* synthetic */ Interceptable $ic;
         public static final b a;
         public static final b b;
@@ -161,7 +160,7 @@ public class c {
 
     /* renamed from: com.baidu.android.pushservice.c.c$c  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0018c implements DatabaseErrorHandler {
+    public class C0018c implements DatabaseErrorHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -183,7 +182,6 @@ public class c {
             this();
         }
 
-        @TargetApi(16)
         private void a(String str) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(65538, this, str) == null) && !str.equalsIgnoreCase(":memory:") && str.trim().length() != 0) {
@@ -230,7 +228,7 @@ public class c {
     }
 
     /* loaded from: classes.dex */
-    public static class d extends SQLiteOpenHelper {
+    public class d extends SQLiteOpenHelper {
         public static /* synthetic */ Interceptable $ic;
         public static final String a;
         public static final String b;
@@ -439,7 +437,7 @@ public class c {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class e {
+    public final class e {
         public static /* synthetic */ Interceptable $ic;
         public static final e a;
         public static final e b;
@@ -503,7 +501,7 @@ public class c {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class f {
+    public final class f {
         public static /* synthetic */ Interceptable $ic;
         public static final f a;
         public static final f b;
@@ -561,7 +559,7 @@ public class c {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class g {
+    public final class g {
         public static /* synthetic */ Interceptable $ic;
         public static final g a;
         public static final g b;
@@ -629,7 +627,7 @@ public class c {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class h {
+    public final class h {
         public static /* synthetic */ Interceptable $ic;
         public static final h a;
         public static final h b;
@@ -1126,7 +1124,7 @@ public class c {
         }
     }
 
-    public static void a(Context context, ArrayList<String> arrayList) {
+    public static void a(Context context, ArrayList arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65547, null, context, arrayList) == null) {
             synchronized (b) {
@@ -1134,7 +1132,7 @@ public class c {
                 sb.append("(");
                 for (int i = 0; i < arrayList.size(); i++) {
                     sb.append("'");
-                    sb.append(arrayList.get(i));
+                    sb.append((String) arrayList.get(i));
                     sb.append("'");
                     if (i < arrayList.size() - 1) {
                         sb.append(",");

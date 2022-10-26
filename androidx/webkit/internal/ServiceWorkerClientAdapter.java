@@ -34,17 +34,23 @@ public class ServiceWorkerClientAdapter implements ServiceWorkerClientBoundaryIn
         this.mClient = serviceWorkerClientCompat;
     }
 
-    @Override // org.chromium.support_lib_boundary.FeatureFlagHolderBoundaryInterface
-    public String[] getSupportedFeatures() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new String[]{"SERVICE_WORKER_SHOULD_INTERCEPT_REQUEST"} : (String[]) invokeV.objValue;
-    }
-
     @Override // org.chromium.support_lib_boundary.ServiceWorkerClientBoundaryInterface
     public WebResourceResponse shouldInterceptRequest(WebResourceRequest webResourceRequest) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webResourceRequest)) == null) ? this.mClient.shouldInterceptRequest(webResourceRequest) : (WebResourceResponse) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webResourceRequest)) == null) {
+            return this.mClient.shouldInterceptRequest(webResourceRequest);
+        }
+        return (WebResourceResponse) invokeL.objValue;
+    }
+
+    @Override // org.chromium.support_lib_boundary.FeatureFlagHolderBoundaryInterface
+    public String[] getSupportedFeatures() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new String[]{"SERVICE_WORKER_SHOULD_INTERCEPT_REQUEST"};
+        }
+        return (String[]) invokeV.objValue;
     }
 }

@@ -3,6 +3,7 @@ package com.baidu.tieba.enterForum.recforum.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
+import android.view.ViewParent;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
@@ -37,39 +38,6 @@ public class CustomRecyclerView extends BdTypeRecyclerView {
                 return;
             }
         }
-    }
-
-    @Override // android.view.View
-    public boolean canScrollHorizontally(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if ((getLayoutManager() instanceof LinearLayoutManager) && ((LinearLayoutManager) getLayoutManager()).getOrientation() == 0) {
-                return true;
-            }
-            return super.canScrollHorizontally(i);
-        }
-        return invokeI.booleanValue;
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
-            if (motionEvent.getAction() == 0) {
-                this.z = motionEvent.getX();
-                this.A = motionEvent.getY();
-            } else {
-                if (motionEvent.getAction() == 2) {
-                    getParent().requestDisallowInterceptTouchEvent(Math.abs(motionEvent.getX() - this.z) > Math.abs(motionEvent.getY() - this.A));
-                } else {
-                    getParent().requestDisallowInterceptTouchEvent(false);
-                }
-            }
-            return super.dispatchTouchEvent(motionEvent);
-        }
-        return invokeL.booleanValue;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -112,5 +80,43 @@ public class CustomRecyclerView extends BdTypeRecyclerView {
                 return;
             }
         }
+    }
+
+    @Override // android.view.View
+    public boolean canScrollHorizontally(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if ((getLayoutManager() instanceof LinearLayoutManager) && ((LinearLayoutManager) getLayoutManager()).getOrientation() == 0) {
+                return true;
+            }
+            return super.canScrollHorizontally(i);
+        }
+        return invokeI.booleanValue;
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
+            if (motionEvent.getAction() == 0) {
+                this.z = motionEvent.getX();
+                this.A = motionEvent.getY();
+            } else {
+                boolean z = false;
+                if (motionEvent.getAction() == 2) {
+                    ViewParent parent = getParent();
+                    if (Math.abs(motionEvent.getX() - this.z) > Math.abs(motionEvent.getY() - this.A)) {
+                        z = true;
+                    }
+                    parent.requestDisallowInterceptTouchEvent(z);
+                } else {
+                    getParent().requestDisallowInterceptTouchEvent(false);
+                }
+            }
+            return super.dispatchTouchEvent(motionEvent);
+        }
+        return invokeL.booleanValue;
     }
 }

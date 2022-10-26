@@ -42,11 +42,13 @@ public class f0 extends ImageButton {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
             int action = motionEvent.getAction();
             if (action != 0) {
-                if (action == 1) {
+                if (action != 1) {
+                    if (action == 3) {
+                        setColorFilter((ColorFilter) null);
+                    }
+                } else {
                     setAlpha(1.0f);
                     super.performClick();
-                } else if (action == 3) {
-                    setColorFilter((ColorFilter) null);
                 }
                 return super.onTouchEvent(motionEvent);
             }

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.resource.SimpleResource;
 import java.io.File;
 /* loaded from: classes7.dex */
-public class FileResource extends SimpleResource<File> {
+public class FileResource extends SimpleResource {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 

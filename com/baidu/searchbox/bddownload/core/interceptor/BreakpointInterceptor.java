@@ -1,7 +1,5 @@
 package com.baidu.searchbox.bddownload.core.interceptor;
 
-import androidx.annotation.IntRange;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.searchbox.bddownload.BdDownload;
@@ -62,8 +60,7 @@ public class BreakpointInterceptor implements Interceptor.Connect, Interceptor.F
         }
     }
 
-    @IntRange(from = -1)
-    public static long getRangeRightFromContentRange(@NonNull String str) {
+    public static long getRangeRightFromContentRange(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
@@ -78,36 +75,38 @@ public class BreakpointInterceptor implements Interceptor.Connect, Interceptor.F
 
     /* JADX WARN: Removed duplicated region for block: B:12:0x0024  */
     /* JADX WARN: Removed duplicated region for block: B:20:? A[RETURN, SYNTHETIC] */
-    @IntRange(from = -1)
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public long getExactContentLengthRangeFrom0(@NonNull DownloadConnection.Connected connected) {
+    public long getExactContentLengthRangeFrom0(DownloadConnection.Connected connected) {
         InterceptResult invokeL;
         long j;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, connected)) != null) {
-            return invokeL.longValue;
-        }
-        String responseHeaderField = connected.getResponseHeaderField("Content-Range");
-        if (!Util.isEmpty(responseHeaderField)) {
-            long rangeRightFromContentRange = getRangeRightFromContentRange(responseHeaderField);
-            if (rangeRightFromContentRange > 0) {
-                j = rangeRightFromContentRange + 1;
-                if (j >= 0) {
-                    String responseHeaderField2 = connected.getResponseHeaderField("Content-Length");
-                    return !Util.isEmpty(responseHeaderField2) ? Long.parseLong(responseHeaderField2) : j;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, connected)) == null) {
+            String responseHeaderField = connected.getResponseHeaderField("Content-Range");
+            if (!Util.isEmpty(responseHeaderField)) {
+                long rangeRightFromContentRange = getRangeRightFromContentRange(responseHeaderField);
+                if (rangeRightFromContentRange > 0) {
+                    j = rangeRightFromContentRange + 1;
+                    if (j >= 0) {
+                        String responseHeaderField2 = connected.getResponseHeaderField("Content-Length");
+                        if (!Util.isEmpty(responseHeaderField2)) {
+                            return Long.parseLong(responseHeaderField2);
+                        }
+                        return j;
+                    }
+                    return j;
                 }
-                return j;
             }
-        }
-        j = -1;
-        if (j >= 0) {
+            j = -1;
+            if (j >= 0) {
+            }
+        } else {
+            return invokeL.longValue;
         }
     }
 
     @Override // com.baidu.searchbox.bddownload.core.interceptor.Interceptor.Connect
-    @NonNull
     public DownloadConnection.Connected interceptConnect(DownloadChain downloadChain) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -115,12 +114,15 @@ public class BreakpointInterceptor implements Interceptor.Connect, Interceptor.F
             DownloadConnection.Connected processConnect = downloadChain.processConnect();
             BreakpointInfo info = downloadChain.getInfo();
             if (!downloadChain.getCache().isInterrupt()) {
+                boolean z = true;
                 if (info.getBlockCount() == 1 && !info.isChunked()) {
                     long exactContentLengthRangeFrom0 = getExactContentLengthRangeFrom0(processConnect);
                     long totalLength = info.getTotalLength();
                     if (exactContentLengthRangeFrom0 > 0 && exactContentLengthRangeFrom0 != totalLength) {
                         Util.d(TAG, "SingleBlock special check: the response instance-length[" + exactContentLengthRangeFrom0 + "] isn't equal to the instance length from trial-connection[" + totalLength + PreferencesUtil.RIGHT_MOUNT);
-                        boolean z = info.getBlock(0).getRangeLeft() != 0;
+                        if (info.getBlock(0).getRangeLeft() == 0) {
+                            z = false;
+                        }
                         BlockInfo blockInfo = new BlockInfo(0L, exactContentLengthRangeFrom0);
                         info.resetBlockInfos();
                         info.addBlock(blockInfo);
@@ -149,11 +151,16 @@ public class BreakpointInterceptor implements Interceptor.Connect, Interceptor.F
     @Override // com.baidu.searchbox.bddownload.core.interceptor.Interceptor.Fetch
     public long interceptFetch(DownloadChain downloadChain) throws IOException {
         InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadChain)) == null) {
             long responseContentLength = downloadChain.getResponseContentLength();
             int blockIndex = downloadChain.getBlockIndex();
-            boolean z = responseContentLength != -1;
+            if (responseContentLength != -1) {
+                z = true;
+            } else {
+                z = false;
+            }
             long j = 0;
             MultiPointOutputStream outputStream = downloadChain.getOutputStream();
             while (true) {

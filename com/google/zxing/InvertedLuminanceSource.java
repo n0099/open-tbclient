@@ -38,7 +38,10 @@ public final class InvertedLuminanceSource extends LuminanceSource {
     public LuminanceSource crop(int i, int i2, int i3, int i4) {
         InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048576, this, i, i2, i3, i4)) == null) ? new InvertedLuminanceSource(this.delegate.crop(i, i2, i3, i4)) : (LuminanceSource) invokeIIII.objValue;
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048576, this, i, i2, i3, i4)) == null) {
+            return new InvertedLuminanceSource(this.delegate.crop(i, i2, i3, i4));
+        }
+        return (LuminanceSource) invokeIIII.objValue;
     }
 
     @Override // com.google.zxing.LuminanceSource
@@ -76,34 +79,49 @@ public final class InvertedLuminanceSource extends LuminanceSource {
     public LuminanceSource invert() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.delegate : (LuminanceSource) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.delegate;
+        }
+        return (LuminanceSource) invokeV.objValue;
     }
 
     @Override // com.google.zxing.LuminanceSource
     public boolean isCropSupported() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.delegate.isCropSupported() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.delegate.isCropSupported();
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.google.zxing.LuminanceSource
     public boolean isRotateSupported() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.delegate.isRotateSupported() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.delegate.isRotateSupported();
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.google.zxing.LuminanceSource
     public LuminanceSource rotateCounterClockwise() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new InvertedLuminanceSource(this.delegate.rotateCounterClockwise()) : (LuminanceSource) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return new InvertedLuminanceSource(this.delegate.rotateCounterClockwise());
+        }
+        return (LuminanceSource) invokeV.objValue;
     }
 
     @Override // com.google.zxing.LuminanceSource
     public LuminanceSource rotateCounterClockwise45() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? new InvertedLuminanceSource(this.delegate.rotateCounterClockwise45()) : (LuminanceSource) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return new InvertedLuminanceSource(this.delegate.rotateCounterClockwise45());
+        }
+        return (LuminanceSource) invokeV.objValue;
     }
 }

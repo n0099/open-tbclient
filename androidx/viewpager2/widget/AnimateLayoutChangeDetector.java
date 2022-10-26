@@ -3,7 +3,6 @@ package androidx.viewpager2.widget;
 import android.animation.LayoutTransition;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import com.baidu.android.imsdk.internal.Constants;
@@ -42,7 +41,34 @@ public final class AnimateLayoutChangeDetector {
         marginLayoutParams.setMargins(0, 0, 0, 0);
     }
 
-    public AnimateLayoutChangeDetector(@NonNull LinearLayoutManager linearLayoutManager) {
+    private boolean hasRunningChangingLayoutTransition() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+            int childCount = this.mLayoutManager.getChildCount();
+            for (int i = 0; i < childCount; i++) {
+                if (hasRunningChangingLayoutTransition(this.mLayoutManager.getChildAt(i))) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean mayHaveInterferingAnimations() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if ((!arePagesLaidOutContiguously() || this.mLayoutManager.getChildCount() <= 1) && hasRunningChangingLayoutTransition()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public AnimateLayoutChangeDetector(LinearLayoutManager linearLayoutManager) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -62,6 +88,7 @@ public final class AnimateLayoutChangeDetector {
 
     private boolean arePagesLaidOutContiguously() {
         InterceptResult invokeV;
+        boolean z;
         ViewGroup.MarginLayoutParams marginLayoutParams;
         int top;
         int i;
@@ -73,7 +100,11 @@ public final class AnimateLayoutChangeDetector {
             if (childCount == 0) {
                 return true;
             }
-            boolean z = this.mLayoutManager.getOrientation() == 0;
+            if (this.mLayoutManager.getOrientation() == 0) {
+                z = true;
+            } else {
+                z = false;
+            }
             int[][] iArr = (int[][]) Array.newInstance(int.class, childCount, 2);
             for (int i3 = 0; i3 < childCount; i3++) {
                 View childAt = this.mLayoutManager.getChildAt(i3);
@@ -134,7 +165,10 @@ public final class AnimateLayoutChangeDetector {
                 public int compare(int[] iArr4, int[] iArr5) {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iArr4, iArr5)) == null) ? iArr4[0] - iArr5[0] : invokeLL.intValue;
+                    if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iArr4, iArr5)) == null) {
+                        return iArr4[0] - iArr5[0];
+                    }
+                    return invokeLL.intValue;
                 }
             });
             for (int i4 = 1; i4 < childCount; i4++) {
@@ -142,30 +176,13 @@ public final class AnimateLayoutChangeDetector {
                     return false;
                 }
             }
-            return iArr[0][0] <= 0 && iArr[childCount - 1][1] >= iArr[0][1] - iArr[0][0];
-        }
-        return invokeV.booleanValue;
-    }
-
-    private boolean hasRunningChangingLayoutTransition() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            int childCount = this.mLayoutManager.getChildCount();
-            for (int i = 0; i < childCount; i++) {
-                if (hasRunningChangingLayoutTransition(this.mLayoutManager.getChildAt(i))) {
-                    return true;
-                }
+            int i5 = iArr[0][1] - iArr[0][0];
+            if (iArr[0][0] <= 0 && iArr[childCount - 1][1] >= i5) {
+                return true;
             }
             return false;
         }
         return invokeV.booleanValue;
-    }
-
-    public boolean mayHaveInterferingAnimations() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (!arePagesLaidOutContiguously() || this.mLayoutManager.getChildCount() <= 1) && hasRunningChangingLayoutTransition() : invokeV.booleanValue;
     }
 
     public static boolean hasRunningChangingLayoutTransition(View view2) {

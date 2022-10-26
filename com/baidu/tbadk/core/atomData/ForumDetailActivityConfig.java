@@ -12,7 +12,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 /* loaded from: classes3.dex */
 public class ForumDetailActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
@@ -21,12 +20,12 @@ public class ForumDetailActivityConfig extends IntentConfig {
     public transient /* synthetic */ FieldHolder $fh;
     public int hostTab;
     public String mRedPotNum;
-    public List<Map<String, Object>> serviceAreaListData;
-    public ArrayList<String> tabs;
+    public List serviceAreaListData;
+    public ArrayList tabs;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
-    public static final class FromType {
+    public final class FromType {
         public static final /* synthetic */ FromType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final FromType BAR;
@@ -92,13 +91,19 @@ public class ForumDetailActivityConfig extends IntentConfig {
         public static FromType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (FromType) Enum.valueOf(FromType.class, str) : (FromType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (FromType) Enum.valueOf(FromType.class, str);
+            }
+            return (FromType) invokeL.objValue;
         }
 
         public static FromType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (FromType[]) $VALUES.clone() : (FromType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (FromType[]) $VALUES.clone();
+            }
+            return (FromType[]) invokeV.objValue;
         }
     }
 
@@ -127,28 +132,43 @@ public class ForumDetailActivityConfig extends IntentConfig {
     public static boolean isFromFrs(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? FromType.FRS.toString().equals(str) || FromType.FRS_GAME_INFO.toString().equals(str) || FromType.FRS_GAME_STRATEGY.toString().equals(str) || FromType.FRS_GAME_LIVE.toString().equals(str) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (!FromType.FRS.toString().equals(str) && !FromType.FRS_GAME_INFO.toString().equals(str) && !FromType.FRS_GAME_STRATEGY.toString().equals(str) && !FromType.FRS_GAME_LIVE.toString().equals(str)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
     public String getRedPotNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mRedPotNum : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mRedPotNum;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getSelectHostTab() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.hostTab : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.hostTab;
+        }
+        return invokeV.intValue;
     }
 
-    public List<Map<String, Object>> getServiceAreaListData() {
+    public List getServiceAreaListData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.serviceAreaListData : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.serviceAreaListData;
+        }
+        return (List) invokeV.objValue;
     }
 
-    public void setForumTabs(ArrayList<String> arrayList) {
+    public void setForumTabs(ArrayList arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) {
             this.tabs = arrayList;
@@ -169,7 +189,7 @@ public class ForumDetailActivityConfig extends IntentConfig {
         }
     }
 
-    public void setServiceAreaListData(List<Map<String, Object>> list) {
+    public void setServiceAreaListData(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
             this.serviceAreaListData = list;

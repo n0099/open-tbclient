@@ -1,7 +1,6 @@
 package com.baidu.bdptask.bdtls;
 
 import android.content.Context;
-import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,11 +8,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Keep
 /* loaded from: classes.dex */
 public class Certificate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public static native byte[] signature(Object obj);
 
     static {
         InterceptResult invokeClinit;
@@ -52,9 +52,9 @@ public class Certificate {
     public static byte[] getSignature(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? signature(context) : (byte[]) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            return signature(context);
+        }
+        return (byte[]) invokeL.objValue;
     }
-
-    @Keep
-    public static native byte[] signature(Object obj);
 }

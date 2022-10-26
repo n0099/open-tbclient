@@ -31,29 +31,19 @@ public class VisualRandomAccessEntry extends GroupEntry {
         }
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj == null || VisualRandomAccessEntry.class != obj.getClass()) {
-                return false;
-            }
-            VisualRandomAccessEntry visualRandomAccessEntry = (VisualRandomAccessEntry) obj;
-            return this.numLeadingSamples == visualRandomAccessEntry.numLeadingSamples && this.numLeadingSamplesKnown == visualRandomAccessEntry.numLeadingSamplesKnown;
-        }
-        return invokeL.booleanValue;
-    }
-
     @Override // com.googlecode.mp4parser.boxes.mp4.samplegrouping.GroupEntry
     public ByteBuffer get() {
         InterceptResult invokeV;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ByteBuffer allocate = ByteBuffer.allocate(1);
-            allocate.put((byte) ((this.numLeadingSamplesKnown ? 128 : 0) | (this.numLeadingSamples & 127)));
+            if (this.numLeadingSamplesKnown) {
+                i = 128;
+            } else {
+                i = 0;
+            }
+            allocate.put((byte) (i | (this.numLeadingSamples & 127)));
             allocate.rewind();
             return allocate;
         }
@@ -63,7 +53,10 @@ public class VisualRandomAccessEntry extends GroupEntry {
     public short getNumLeadingSamples() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.numLeadingSamples : invokeV.shortValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.numLeadingSamples;
+        }
+        return invokeV.shortValue;
     }
 
     public int hashCode() {
@@ -78,15 +71,43 @@ public class VisualRandomAccessEntry extends GroupEntry {
     public boolean isNumLeadingSamplesKnown() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.numLeadingSamplesKnown : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.numLeadingSamplesKnown;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj == null || VisualRandomAccessEntry.class != obj.getClass()) {
+                return false;
+            }
+            VisualRandomAccessEntry visualRandomAccessEntry = (VisualRandomAccessEntry) obj;
+            if (this.numLeadingSamples == visualRandomAccessEntry.numLeadingSamples && this.numLeadingSamplesKnown == visualRandomAccessEntry.numLeadingSamplesKnown) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     @Override // com.googlecode.mp4parser.boxes.mp4.samplegrouping.GroupEntry
     public void parse(ByteBuffer byteBuffer) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, byteBuffer) == null) {
             byte b = byteBuffer.get();
-            this.numLeadingSamplesKnown = (b & 128) == 128;
+            if ((b & 128) == 128) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.numLeadingSamplesKnown = z;
             this.numLeadingSamples = (short) (b & ByteCompanionObject.MAX_VALUE);
         }
     }

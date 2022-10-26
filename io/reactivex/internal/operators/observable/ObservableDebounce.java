@@ -19,38 +19,38 @@ import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class ObservableDebounce<T, U> extends AbstractObservableWithUpstream<T, T> {
+public final class ObservableDebounce extends AbstractObservableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Function<? super T, ? extends ObservableSource<U>> debounceSelector;
+    public final Function debounceSelector;
 
     /* loaded from: classes8.dex */
-    public static final class DebounceObserver<T, U> implements Observer<T>, Disposable {
+    public final class DebounceObserver implements Observer, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer<? super T> actual;
-        public final Function<? super T, ? extends ObservableSource<U>> debounceSelector;
-        public final AtomicReference<Disposable> debouncer;
+        public final Observer actual;
+        public final Function debounceSelector;
+        public final AtomicReference debouncer;
         public boolean done;
         public volatile long index;
         public Disposable s;
 
         /* loaded from: classes8.dex */
-        public static final class DebounceInnerObserver<T, U> extends DisposableObserver<U> {
+        public final class DebounceInnerObserver extends DisposableObserver {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public boolean done;
             public final long index;
             public final AtomicBoolean once;
-            public final DebounceObserver<T, U> parent;
-            public final T value;
+            public final DebounceObserver parent;
+            public final Object value;
 
-            public DebounceInnerObserver(DebounceObserver<T, U> debounceObserver, long j, T t) {
+            public DebounceInnerObserver(DebounceObserver debounceObserver, long j, Object obj) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {debounceObserver, Long.valueOf(j), t};
+                    Object[] objArr = {debounceObserver, Long.valueOf(j), obj};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -63,7 +63,7 @@ public final class ObservableDebounce<T, U> extends AbstractObservableWithUpstre
                 this.once = new AtomicBoolean();
                 this.parent = debounceObserver;
                 this.index = j;
-                this.value = t;
+                this.value = obj;
             }
 
             public void emit() {
@@ -76,7 +76,7 @@ public final class ObservableDebounce<T, U> extends AbstractObservableWithUpstre
             @Override // io.reactivex.Observer
             public void onComplete() {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.done) {
+                if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.done) {
                     return;
                 }
                 this.done = true;
@@ -97,9 +97,9 @@ public final class ObservableDebounce<T, U> extends AbstractObservableWithUpstre
             }
 
             @Override // io.reactivex.Observer
-            public void onNext(U u) {
+            public void onNext(Object obj) {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048579, this, u) == null) || this.done) {
+                if ((interceptable != null && interceptable.invokeL(1048579, this, obj) != null) || this.done) {
                     return;
                 }
                 this.done = true;
@@ -108,7 +108,7 @@ public final class ObservableDebounce<T, U> extends AbstractObservableWithUpstre
             }
         }
 
-        public DebounceObserver(Observer<? super T> observer, Function<? super T, ? extends ObservableSource<U>> function) {
+        public DebounceObserver(Observer observer, Function function) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -123,7 +123,7 @@ public final class ObservableDebounce<T, U> extends AbstractObservableWithUpstre
                     return;
                 }
             }
-            this.debouncer = new AtomicReference<>();
+            this.debouncer = new AtomicReference();
             this.actual = observer;
             this.debounceSelector = function;
         }
@@ -137,28 +137,31 @@ public final class ObservableDebounce<T, U> extends AbstractObservableWithUpstre
             }
         }
 
-        public void emit(long j, T t) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j, t) == null) && j == this.index) {
-                this.actual.onNext(t);
-            }
-        }
-
         @Override // io.reactivex.disposables.Disposable
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.s.isDisposed() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.s.isDisposed();
+            }
+            return invokeV.booleanValue;
+        }
+
+        public void emit(long j, Object obj) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j, obj) == null) && j == this.index) {
+                this.actual.onNext(obj);
+            }
         }
 
         @Override // io.reactivex.Observer
         public void onComplete() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.done) {
+            if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || this.done) {
                 return;
             }
             this.done = true;
-            Disposable disposable = this.debouncer.get();
+            Disposable disposable = (Disposable) this.debouncer.get();
             if (disposable != DisposableHelper.DISPOSED) {
                 ((DebounceInnerObserver) disposable).emit();
                 DisposableHelper.dispose(this.debouncer);
@@ -176,20 +179,29 @@ public final class ObservableDebounce<T, U> extends AbstractObservableWithUpstre
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(T t) {
+        public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048581, this, t) == null) || this.done) {
+            if ((interceptable == null || interceptable.invokeL(1048582, this, disposable) == null) && DisposableHelper.validate(this.s, disposable)) {
+                this.s = disposable;
+                this.actual.onSubscribe(this);
+            }
+        }
+
+        @Override // io.reactivex.Observer
+        public void onNext(Object obj) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048581, this, obj) != null) || this.done) {
                 return;
             }
             long j = this.index + 1;
             this.index = j;
-            Disposable disposable = this.debouncer.get();
+            Disposable disposable = (Disposable) this.debouncer.get();
             if (disposable != null) {
                 disposable.dispose();
             }
             try {
-                ObservableSource observableSource = (ObservableSource) ObjectHelper.requireNonNull(this.debounceSelector.apply(t), "The ObservableSource supplied is null");
-                DebounceInnerObserver debounceInnerObserver = new DebounceInnerObserver(this, j, t);
+                ObservableSource observableSource = (ObservableSource) ObjectHelper.requireNonNull(this.debounceSelector.apply(obj), "The ObservableSource supplied is null");
+                DebounceInnerObserver debounceInnerObserver = new DebounceInnerObserver(this, j, obj);
                 if (this.debouncer.compareAndSet(disposable, debounceInnerObserver)) {
                     observableSource.subscribe(debounceInnerObserver);
                 }
@@ -199,19 +211,10 @@ public final class ObservableDebounce<T, U> extends AbstractObservableWithUpstre
                 this.actual.onError(th);
             }
         }
-
-        @Override // io.reactivex.Observer
-        public void onSubscribe(Disposable disposable) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048582, this, disposable) == null) && DisposableHelper.validate(this.s, disposable)) {
-                this.s = disposable;
-                this.actual.onSubscribe(this);
-            }
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableDebounce(ObservableSource<T> observableSource, Function<? super T, ? extends ObservableSource<U>> function) {
+    public ObservableDebounce(ObservableSource observableSource, Function function) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -232,7 +235,7 @@ public final class ObservableDebounce<T, U> extends AbstractObservableWithUpstre
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer<? super T> observer) {
+    public void subscribeActual(Observer observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             this.source.subscribe(new DebounceObserver(new SerializedObserver(observer), this.debounceSelector));

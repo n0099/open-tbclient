@@ -29,7 +29,10 @@ public class ExecutorProvider {
     public static IYYTaskExecutor getIyyTaskExecutor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? iyyTaskExecutor : (IYYTaskExecutor) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return iyyTaskExecutor;
+        }
+        return (IYYTaskExecutor) invokeV.objValue;
     }
 
     public static void setIyyTaskExecutor(IYYTaskExecutor iYYTaskExecutor) {

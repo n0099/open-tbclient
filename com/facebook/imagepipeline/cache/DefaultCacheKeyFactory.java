@@ -35,6 +35,12 @@ public class DefaultCacheKeyFactory implements CacheKeyFactory {
         }
     }
 
+    public Uri getCacheKeySourceUri(Uri uri) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri)) == null) ? uri : (Uri) invokeL.objValue;
+    }
+
     public DefaultCacheKeyFactory() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -69,20 +75,30 @@ public class DefaultCacheKeyFactory implements CacheKeyFactory {
     public CacheKey getBitmapCacheKey(ImageRequest imageRequest, @Nullable Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, imageRequest, obj)) == null) ? new BitmapMemoryCacheKey(getCacheKeySourceUri(imageRequest.getSourceUri()).toString(), imageRequest.getResizeOptions(), imageRequest.getRotationOptions(), imageRequest.getImageDecodeOptions(), null, null, obj) : (CacheKey) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, imageRequest, obj)) == null) {
+            return new BitmapMemoryCacheKey(getCacheKeySourceUri(imageRequest.getSourceUri()).toString(), imageRequest.getResizeOptions(), imageRequest.getRotationOptions(), imageRequest.getImageDecodeOptions(), null, null, obj);
+        }
+        return (CacheKey) invokeLL.objValue;
     }
 
-    public Uri getCacheKeySourceUri(Uri uri) {
-        InterceptResult invokeL;
+    @Override // com.facebook.imagepipeline.cache.CacheKeyFactory
+    public CacheKey getEncodedCacheKey(ImageRequest imageRequest, Uri uri, @Nullable Object obj) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri)) == null) ? uri : (Uri) invokeL.objValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, imageRequest, uri, obj)) == null) {
+            return new SimpleCacheKey(getCacheKeySourceUri(uri).toString());
+        }
+        return (CacheKey) invokeLLL.objValue;
     }
 
     @Override // com.facebook.imagepipeline.cache.CacheKeyFactory
     public CacheKey getEncodedCacheKey(ImageRequest imageRequest, @Nullable Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, imageRequest, obj)) == null) ? getEncodedCacheKey(imageRequest, imageRequest.getSourceUri(), obj) : (CacheKey) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, imageRequest, obj)) == null) {
+            return getEncodedCacheKey(imageRequest, imageRequest.getSourceUri(), obj);
+        }
+        return (CacheKey) invokeLL.objValue;
     }
 
     @Override // com.facebook.imagepipeline.cache.CacheKeyFactory
@@ -104,12 +120,5 @@ public class DefaultCacheKeyFactory implements CacheKeyFactory {
             return new BitmapMemoryCacheKey(getCacheKeySourceUri(imageRequest.getSourceUri()).toString(), imageRequest.getResizeOptions(), imageRequest.getRotationOptions(), imageRequest.getImageDecodeOptions(), cacheKey, str, obj);
         }
         return (CacheKey) invokeLL.objValue;
-    }
-
-    @Override // com.facebook.imagepipeline.cache.CacheKeyFactory
-    public CacheKey getEncodedCacheKey(ImageRequest imageRequest, Uri uri, @Nullable Object obj) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, imageRequest, uri, obj)) == null) ? new SimpleCacheKey(getCacheKeySourceUri(uri).toString()) : (CacheKey) invokeLLL.objValue;
     }
 }

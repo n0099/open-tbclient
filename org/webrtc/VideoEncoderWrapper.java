@@ -16,6 +16,8 @@ public class VideoEncoderWrapper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static native void nativeOnEncodedFrame(long j, ByteBuffer byteBuffer, int i, int i2, long j2, int i3, int i4, boolean z, Integer num);
+
     public VideoEncoderWrapper() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -30,46 +32,52 @@ public class VideoEncoderWrapper {
         }
     }
 
-    @CalledByNative
     public static VideoEncoder.Callback createEncoderCallback(final long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) ? new VideoEncoder.Callback() { // from class: com.baidu.tieba.ow9
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
+            return new VideoEncoder.Callback() { // from class: com.baidu.tieba.gx9
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
 
-            @Override // org.webrtc.VideoEncoder.Callback
-            public final void onEncodedFrame(EncodedImage encodedImage, VideoEncoder.CodecSpecificInfo codecSpecificInfo) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLL(1048576, this, encodedImage, codecSpecificInfo) == null) {
-                    VideoEncoderWrapper.nativeOnEncodedFrame(j, encodedImage.buffer, encodedImage.encodedWidth, encodedImage.encodedHeight, encodedImage.captureTimeNs, encodedImage.frameType.getNative(), encodedImage.rotation, encodedImage.completeFrame, encodedImage.qp);
+                @Override // org.webrtc.VideoEncoder.Callback
+                public final void onEncodedFrame(EncodedImage encodedImage, VideoEncoder.CodecSpecificInfo codecSpecificInfo) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLL(1048576, this, encodedImage, codecSpecificInfo) == null) {
+                        VideoEncoderWrapper.nativeOnEncodedFrame(j, encodedImage.buffer, encodedImage.encodedWidth, encodedImage.encodedHeight, encodedImage.captureTimeNs, encodedImage.frameType.getNative(), encodedImage.rotation, encodedImage.completeFrame, encodedImage.qp);
+                    }
                 }
-            }
-        } : (VideoEncoder.Callback) invokeJ.objValue;
+            };
+        }
+        return (VideoEncoder.Callback) invokeJ.objValue;
     }
 
     @Nullable
-    @CalledByNative
     public static Integer getScalingSettingsHigh(VideoEncoder.ScalingSettings scalingSettings) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, scalingSettings)) == null) ? scalingSettings.high : (Integer) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, scalingSettings)) == null) {
+            return scalingSettings.high;
+        }
+        return (Integer) invokeL.objValue;
     }
 
     @Nullable
-    @CalledByNative
     public static Integer getScalingSettingsLow(VideoEncoder.ScalingSettings scalingSettings) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, scalingSettings)) == null) ? scalingSettings.low : (Integer) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, scalingSettings)) == null) {
+            return scalingSettings.low;
+        }
+        return (Integer) invokeL.objValue;
     }
 
-    @CalledByNative
     public static boolean getScalingSettingsOn(VideoEncoder.ScalingSettings scalingSettings) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, scalingSettings)) == null) ? scalingSettings.on : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, scalingSettings)) == null) {
+            return scalingSettings.on;
+        }
+        return invokeL.booleanValue;
     }
-
-    public static native void nativeOnEncodedFrame(long j, ByteBuffer byteBuffer, int i, int i2, long j2, int i3, int i4, boolean z, Integer num);
 }

@@ -13,7 +13,7 @@ import java.util.Map;
 public class H5PayParams {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, String> appClientExpand;
+    public Map appClientExpand;
     public int appId;
     public IAppPayService appPayService;
     public int cid;

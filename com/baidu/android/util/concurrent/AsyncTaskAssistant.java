@@ -1,6 +1,5 @@
 package com.baidu.android.util.concurrent;
 
-import android.annotation.SuppressLint;
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.Looper;
@@ -32,12 +31,12 @@ public final class AsyncTaskAssistant {
     public static final String TAG = "AsyncTaskAssistant";
     public static final Executor THREAD_POOL_EXECUTOR;
     public static Handler sHandler;
-    public static final BlockingQueue<Runnable> sPoolWorkQueue;
+    public static final BlockingQueue sPoolWorkQueue;
     public static final ThreadFactory sThreadFactory;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
-    public static class Task {
+    public class Task {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String name;
@@ -59,7 +58,7 @@ public final class AsyncTaskAssistant {
     }
 
     /* loaded from: classes.dex */
-    public static class WorkerAsyncTask extends AsyncTask<Task, Object, Object> {
+    public class WorkerAsyncTask extends AsyncTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -81,15 +80,21 @@ public final class AsyncTaskAssistant {
         @Override // android.os.AsyncTask
         public Object doInBackground(Task... taskArr) {
             InterceptResult invokeL;
+            String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, taskArr)) == null) {
                 Process.setThreadPriority(10);
                 try {
-                    if (taskArr[0] == null || taskArr[0].runnable == null) {
+                    if (taskArr[0] != null && taskArr[0].runnable != null) {
+                        if (!TextUtils.isEmpty(taskArr[0].name)) {
+                            str = taskArr[0].name;
+                        } else {
+                            str = "noname";
+                        }
+                        Thread.currentThread().setName(str);
+                        taskArr[0].runnable.run();
                         return null;
                     }
-                    Thread.currentThread().setName(!TextUtils.isEmpty(taskArr[0].name) ? taskArr[0].name : "noname");
-                    taskArr[0].runnable.run();
                     return null;
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -140,7 +145,10 @@ public final class AsyncTaskAssistant {
             public Thread newThread(Runnable runnable) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, runnable)) == null) ? new Thread(runnable) : (Thread) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, runnable)) == null) {
+                    return new Thread(runnable);
+                }
+                return (Thread) invokeL.objValue;
             }
         };
         sPoolWorkQueue = new LinkedBlockingQueue();
@@ -174,7 +182,6 @@ public final class AsyncTaskAssistant {
         }
     }
 
-    @SuppressLint({"NewApi"})
     public static void executeOnThreadPool(Runnable runnable, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, runnable, str) == null) {

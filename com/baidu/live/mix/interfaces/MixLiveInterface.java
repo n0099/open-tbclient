@@ -12,7 +12,7 @@ public interface MixLiveInterface extends MixLiveLifeCycleInterface, MixLiveList
 
     @Metadata(bv = {1, 0, 3}, d1 = {}, d2 = {}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public static final class DefaultImpls {
+    public final class DefaultImpls {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

@@ -30,6 +30,44 @@ public class e7 {
         this.a = new long[]{0};
     }
 
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            Arrays.fill(this.a, 0L);
+        }
+    }
+
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            long[] jArr = this.a;
+            int length = jArr.length;
+            for (int i = 0; i < length; i++) {
+                if (jArr[i] != 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            int h = h() >>> 6;
+            int i = 0;
+            for (int i2 = 0; h >= i2; i2++) {
+                long[] jArr = this.a;
+                i = (i * 127) + ((int) (jArr[i2] ^ (jArr[i2] >>> 32)));
+            }
+            return i;
+        }
+        return invokeV.intValue;
+    }
+
     public final void a(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
@@ -42,13 +80,6 @@ public class e7 {
         }
     }
 
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            Arrays.fill(this.a, 0L);
-        }
-    }
-
     public void c(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
@@ -58,6 +89,46 @@ public class e7 {
                 return;
             }
             jArr[i2] = jArr[i2] & (~(1 << (i & 63)));
+        }
+    }
+
+    public boolean e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            int i2 = i >>> 6;
+            long[] jArr = this.a;
+            if (i2 >= jArr.length || (jArr[i2] & (1 << (i & 63))) == 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public boolean f(e7 e7Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, e7Var)) == null) {
+            long[] jArr = this.a;
+            long[] jArr2 = e7Var.a;
+            for (int min = Math.min(jArr.length, jArr2.length) - 1; min >= 0; min--) {
+                if ((jArr[min] & jArr2[min]) != 0) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void k(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            int i2 = i >>> 6;
+            a(i2);
+            long[] jArr = this.a;
+            jArr[i2] = jArr[i2] | (1 << (i & 63));
         }
     }
 
@@ -84,15 +155,24 @@ public class e7 {
         return invokeL.booleanValue;
     }
 
-    public boolean e(int i) {
-        InterceptResult invokeI;
+    public void j(e7 e7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            int i2 = i >>> 6;
-            long[] jArr = this.a;
-            return i2 < jArr.length && (jArr[i2] & (1 << (i & 63))) != 0;
+        if (interceptable == null || interceptable.invokeL(1048587, this, e7Var) == null) {
+            int min = Math.min(this.a.length, e7Var.a.length);
+            for (int i = 0; min > i; i++) {
+                long[] jArr = this.a;
+                jArr[i] = jArr[i] | e7Var.a[i];
+            }
+            long[] jArr2 = e7Var.a;
+            if (min < jArr2.length) {
+                a(jArr2.length);
+                int length = e7Var.a.length;
+                while (length > min) {
+                    this.a[min] = e7Var.a[min];
+                    min++;
+                }
+            }
         }
-        return invokeI.booleanValue;
     }
 
     public boolean equals(Object obj) {
@@ -102,50 +182,76 @@ public class e7 {
             if (this == obj) {
                 return true;
             }
-            if (obj != null && e7.class == obj.getClass()) {
-                e7 e7Var = (e7) obj;
-                long[] jArr = e7Var.a;
-                int min = Math.min(this.a.length, jArr.length);
-                for (int i = 0; min > i; i++) {
-                    if (this.a[i] != jArr[i]) {
-                        return false;
-                    }
-                }
-                return this.a.length == jArr.length || h() == e7Var.h();
+            if (obj == null || e7.class != obj.getClass()) {
+                return false;
             }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean f(e7 e7Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, e7Var)) == null) {
-            long[] jArr = this.a;
-            long[] jArr2 = e7Var.a;
-            for (int min = Math.min(jArr.length, jArr2.length) - 1; min >= 0; min--) {
-                if ((jArr[min] & jArr2[min]) != 0) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            for (long j : this.a) {
-                if (j != 0) {
+            e7 e7Var = (e7) obj;
+            long[] jArr = e7Var.a;
+            int min = Math.min(this.a.length, jArr.length);
+            for (int i = 0; min > i; i++) {
+                if (this.a[i] != jArr[i]) {
                     return false;
                 }
             }
-            return true;
+            if (this.a.length == jArr.length || h() == e7Var.h()) {
+                return true;
+            }
+            return false;
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x0029, code lost:
+        return (r1 << 6) + r15;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public int i(int i) {
+        InterceptResult invokeI;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
+            long[] jArr = this.a;
+            int i3 = i >>> 6;
+            int length = jArr.length;
+            if (i3 >= length) {
+                return -1;
+            }
+            long j = jArr[i3];
+            if (j != 0) {
+                i2 = i & 63;
+                while (i2 < 64) {
+                    if (((1 << (i2 & 63)) & j) != 0) {
+                        break;
+                    }
+                    i2++;
+                }
+            }
+            loop1: while (true) {
+                i3++;
+                if (i3 >= length) {
+                    return -1;
+                }
+                if (i3 != 0) {
+                    long j2 = jArr[i3];
+                    if (j2 != 0) {
+                        i2 = 0;
+                        while (i2 < 64) {
+                            if (((1 << (i2 & 63)) & j2) != 0) {
+                                break loop1;
+                            }
+                            i2++;
+                        }
+                        continue;
+                    } else {
+                        continue;
+                    }
+                }
+            }
+        } else {
+            return invokeI.intValue;
+        }
     }
 
     public int h() {
@@ -167,102 +273,5 @@ public class e7 {
             return 0;
         }
         return invokeV.intValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            int h = h() >>> 6;
-            int i = 0;
-            for (int i2 = 0; h >= i2; i2++) {
-                long[] jArr = this.a;
-                i = (i * 127) + ((int) (jArr[i2] ^ (jArr[i2] >>> 32)));
-            }
-            return i;
-        }
-        return invokeV.intValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:14:0x0029, code lost:
-        return (r1 << 6) + r15;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public int i(int i) {
-        InterceptResult invokeI;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeI = interceptable.invokeI(1048586, this, i)) != null) {
-            return invokeI.intValue;
-        }
-        long[] jArr = this.a;
-        int i3 = i >>> 6;
-        int length = jArr.length;
-        if (i3 >= length) {
-            return -1;
-        }
-        long j = jArr[i3];
-        if (j != 0) {
-            i2 = i & 63;
-            while (i2 < 64) {
-                if (((1 << (i2 & 63)) & j) != 0) {
-                    break;
-                }
-                i2++;
-            }
-        }
-        loop1: while (true) {
-            i3++;
-            if (i3 >= length) {
-                return -1;
-            }
-            if (i3 != 0) {
-                long j2 = jArr[i3];
-                if (j2 != 0) {
-                    i2 = 0;
-                    while (i2 < 64) {
-                        if (((1 << (i2 & 63)) & j2) != 0) {
-                            break loop1;
-                        }
-                        i2++;
-                    }
-                    continue;
-                } else {
-                    continue;
-                }
-            }
-        }
-    }
-
-    public void j(e7 e7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, e7Var) == null) {
-            int min = Math.min(this.a.length, e7Var.a.length);
-            for (int i = 0; min > i; i++) {
-                long[] jArr = this.a;
-                jArr[i] = jArr[i] | e7Var.a[i];
-            }
-            long[] jArr2 = e7Var.a;
-            if (min < jArr2.length) {
-                a(jArr2.length);
-                int length = e7Var.a.length;
-                while (length > min) {
-                    this.a[min] = e7Var.a[min];
-                    min++;
-                }
-            }
-        }
-    }
-
-    public void k(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            int i2 = i >>> 6;
-            a(i2);
-            long[] jArr = this.a;
-            jArr[i2] = jArr[i2] | (1 << (i & 63));
-        }
     }
 }

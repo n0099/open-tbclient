@@ -45,7 +45,18 @@ public class RequestBodyOutputStream extends OutputStream {
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return invokeV.intValue;
+    }
+
+    public void e() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.b.close();
+            this.a.close();
+        }
     }
 
     @Override // java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
@@ -56,14 +67,6 @@ public class RequestBodyOutputStream extends OutputStream {
                 String str = "\r\n--" + this.c + "--\r\n";
                 write(str.getBytes(), 0, str.getBytes().length);
             }
-            this.a.close();
-        }
-    }
-
-    public void e() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b.close();
             this.a.close();
         }
     }

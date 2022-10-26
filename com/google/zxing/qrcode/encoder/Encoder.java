@@ -29,7 +29,7 @@ public final class Encoder {
 
     /* renamed from: com.google.zxing.qrcode.encoder.Encoder$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$google$zxing$qrcode$decoder$Mode;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -111,6 +111,18 @@ public final class Encoder {
         }
     }
 
+    public static boolean willFit(int i, Version version, ErrorCorrectionLevel errorCorrectionLevel) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(65561, null, i, version, errorCorrectionLevel)) == null) {
+            if (version.getTotalCodewords() - version.getECBlocksForLevel(errorCorrectionLevel).getTotalECCodewords() >= (i + 7) / 8) {
+                return true;
+            }
+            return false;
+        }
+        return invokeILL.booleanValue;
+    }
+
     public static void appendAlphanumericBytes(CharSequence charSequence, BitArray bitArray) throws WriterException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, charSequence, bitArray) == null) {
@@ -118,106 +130,24 @@ public final class Encoder {
             int i = 0;
             while (i < length) {
                 int alphanumericCode = getAlphanumericCode(charSequence.charAt(i));
-                if (alphanumericCode == -1) {
-                    throw new WriterException();
-                }
-                int i2 = i + 1;
-                if (i2 < length) {
-                    int alphanumericCode2 = getAlphanumericCode(charSequence.charAt(i2));
-                    if (alphanumericCode2 != -1) {
-                        bitArray.appendBits((alphanumericCode * 45) + alphanumericCode2, 11);
-                        i += 2;
+                if (alphanumericCode != -1) {
+                    int i2 = i + 1;
+                    if (i2 < length) {
+                        int alphanumericCode2 = getAlphanumericCode(charSequence.charAt(i2));
+                        if (alphanumericCode2 != -1) {
+                            bitArray.appendBits((alphanumericCode * 45) + alphanumericCode2, 11);
+                            i += 2;
+                        } else {
+                            throw new WriterException();
+                        }
                     } else {
-                        throw new WriterException();
+                        bitArray.appendBits(alphanumericCode, 6);
+                        i = i2;
                     }
                 } else {
-                    bitArray.appendBits(alphanumericCode, 6);
-                    i = i2;
+                    throw new WriterException();
                 }
             }
-        }
-    }
-
-    public static void appendBytes(String str, Mode mode, BitArray bitArray, String str2) throws WriterException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, mode, bitArray, str2) == null) {
-            int i = AnonymousClass1.$SwitchMap$com$google$zxing$qrcode$decoder$Mode[mode.ordinal()];
-            if (i == 1) {
-                appendNumericBytes(str, bitArray);
-            } else if (i == 2) {
-                appendAlphanumericBytes(str, bitArray);
-            } else if (i == 3) {
-                append8BitBytes(str, bitArray, str2);
-            } else if (i == 4) {
-                appendKanjiBytes(str, bitArray);
-            } else {
-                throw new WriterException("Invalid mode: " + mode);
-            }
-        }
-    }
-
-    public static void appendECI(CharacterSetECI characterSetECI, BitArray bitArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, characterSetECI, bitArray) == null) {
-            bitArray.appendBits(Mode.ECI.getBits(), 4);
-            bitArray.appendBits(characterSetECI.getValue(), 8);
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:19:0x0039 A[LOOP:0: B:6:0x000c->B:19:0x0039, LOOP_END] */
-    /* JADX WARN: Removed duplicated region for block: B:32:0x0048 A[SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void appendKanjiBytes(String str, BitArray bitArray) throws WriterException {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, str, bitArray) == null) {
-            try {
-                byte[] bytes = str.getBytes("Shift_JIS");
-                int length = bytes.length;
-                for (int i2 = 0; i2 < length; i2 += 2) {
-                    int i3 = ((bytes[i2] & 255) << 8) | (bytes[i2 + 1] & 255);
-                    int i4 = 33088;
-                    if (i3 < 33088 || i3 > 40956) {
-                        if (i3 < 57408 || i3 > 60351) {
-                            i = -1;
-                            if (i == -1) {
-                                bitArray.appendBits(((i >> 8) * 192) + (i & 255), 13);
-                            } else {
-                                throw new WriterException("Invalid byte sequence");
-                            }
-                        } else {
-                            i4 = 49472;
-                        }
-                    }
-                    i = i3 - i4;
-                    if (i == -1) {
-                    }
-                }
-            } catch (UnsupportedEncodingException e) {
-                throw new WriterException(e);
-            }
-        }
-    }
-
-    public static void appendLengthInfo(int i, Version version, Mode mode, BitArray bitArray) throws WriterException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{Integer.valueOf(i), version, mode, bitArray}) == null) {
-            int characterCountBits = mode.getCharacterCountBits(version);
-            int i2 = 1 << characterCountBits;
-            if (i < i2) {
-                bitArray.appendBits(i, characterCountBits);
-                return;
-            }
-            throw new WriterException(i + " is bigger than " + (i2 - 1));
-        }
-    }
-
-    public static void appendModeInfo(Mode mode, BitArray bitArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, null, mode, bitArray) == null) {
-            bitArray.appendBits(mode.getBits(), 4);
         }
     }
 
@@ -245,16 +175,189 @@ public final class Encoder {
         }
     }
 
+    public static Mode chooseMode(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, str, str2)) == null) {
+            if ("Shift_JIS".equals(str2) && isOnlyDoubleByteKanji(str)) {
+                return Mode.KANJI;
+            }
+            boolean z = false;
+            boolean z2 = false;
+            for (int i = 0; i < str.length(); i++) {
+                char charAt = str.charAt(i);
+                if (charAt >= '0' && charAt <= '9') {
+                    z2 = true;
+                } else if (getAlphanumericCode(charAt) != -1) {
+                    z = true;
+                } else {
+                    return Mode.BYTE;
+                }
+            }
+            if (z) {
+                return Mode.ALPHANUMERIC;
+            }
+            if (z2) {
+                return Mode.NUMERIC;
+            }
+            return Mode.BYTE;
+        }
+        return (Mode) invokeLL.objValue;
+    }
+
+    public static void appendBytes(String str, Mode mode, BitArray bitArray, String str2) throws WriterException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, mode, bitArray, str2) == null) {
+            int i = AnonymousClass1.$SwitchMap$com$google$zxing$qrcode$decoder$Mode[mode.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i == 4) {
+                            appendKanjiBytes(str, bitArray);
+                            return;
+                        }
+                        throw new WriterException("Invalid mode: " + mode);
+                    }
+                    append8BitBytes(str, bitArray, str2);
+                    return;
+                }
+                appendAlphanumericBytes(str, bitArray);
+                return;
+            }
+            appendNumericBytes(str, bitArray);
+        }
+    }
+
+    public static void appendLengthInfo(int i, Version version, Mode mode, BitArray bitArray) throws WriterException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{Integer.valueOf(i), version, mode, bitArray}) == null) {
+            int characterCountBits = mode.getCharacterCountBits(version);
+            int i2 = 1 << characterCountBits;
+            if (i < i2) {
+                bitArray.appendBits(i, characterCountBits);
+                return;
+            }
+            throw new WriterException(i + " is bigger than " + (i2 - 1));
+        }
+    }
+
+    public static void appendECI(CharacterSetECI characterSetECI, BitArray bitArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, characterSetECI, bitArray) == null) {
+            bitArray.appendBits(Mode.ECI.getBits(), 4);
+            bitArray.appendBits(characterSetECI.getValue(), 8);
+        }
+    }
+
+    public static void appendModeInfo(Mode mode, BitArray bitArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65544, null, mode, bitArray) == null) {
+            bitArray.appendBits(mode.getBits(), 4);
+        }
+    }
+
+    public static Version chooseVersion(int i, ErrorCorrectionLevel errorCorrectionLevel) throws WriterException {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65551, null, i, errorCorrectionLevel)) == null) {
+            for (int i2 = 1; i2 <= 40; i2++) {
+                Version versionForNumber = Version.getVersionForNumber(i2);
+                if (willFit(i, versionForNumber, errorCorrectionLevel)) {
+                    return versionForNumber;
+                }
+            }
+            throw new WriterException("Data too big");
+        }
+        return (Version) invokeIL.objValue;
+    }
+
+    public static QRCode encode(String str, ErrorCorrectionLevel errorCorrectionLevel) throws WriterException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65552, null, str, errorCorrectionLevel)) == null) {
+            return encode(str, errorCorrectionLevel, null);
+        }
+        return (QRCode) invokeLL.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:19:0x0039 A[LOOP:0: B:6:0x000c->B:19:0x0039, LOOP_END] */
+    /* JADX WARN: Removed duplicated region for block: B:32:0x0048 A[SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void appendKanjiBytes(String str, BitArray bitArray) throws WriterException {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65542, null, str, bitArray) == null) {
+            try {
+                byte[] bytes = str.getBytes("Shift_JIS");
+                int length = bytes.length;
+                for (int i2 = 0; i2 < length; i2 += 2) {
+                    int i3 = ((bytes[i2] & 255) << 8) | (bytes[i2 + 1] & 255);
+                    int i4 = 33088;
+                    if (i3 < 33088 || i3 > 40956) {
+                        if (i3 >= 57408 && i3 <= 60351) {
+                            i4 = 49472;
+                        } else {
+                            i = -1;
+                            if (i == -1) {
+                                bitArray.appendBits(((i >> 8) * 192) + (i & 255), 13);
+                            } else {
+                                throw new WriterException("Invalid byte sequence");
+                            }
+                        }
+                    }
+                    i = i3 - i4;
+                    if (i == -1) {
+                    }
+                }
+            } catch (UnsupportedEncodingException e) {
+                throw new WriterException(e);
+            }
+        }
+    }
+
+    public static void terminateBits(int i, BitArray bitArray) throws WriterException {
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65560, null, i, bitArray) == null) {
+            int i3 = i << 3;
+            if (bitArray.getSize() <= i3) {
+                for (int i4 = 0; i4 < 4 && bitArray.getSize() < i3; i4++) {
+                    bitArray.appendBit(false);
+                }
+                int size = bitArray.getSize() & 7;
+                if (size > 0) {
+                    while (size < 8) {
+                        bitArray.appendBit(false);
+                        size++;
+                    }
+                }
+                int sizeInBytes = i - bitArray.getSizeInBytes();
+                for (int i5 = 0; i5 < sizeInBytes; i5++) {
+                    if ((i5 & 1) == 0) {
+                        i2 = 236;
+                    } else {
+                        i2 = 17;
+                    }
+                    bitArray.appendBits(i2, 8);
+                }
+                if (bitArray.getSize() == i3) {
+                    return;
+                }
+                throw new WriterException("Bits size does not equal capacity");
+            }
+            throw new WriterException("data bits cannot fit in the QR Code" + bitArray.getSize() + " > " + i3);
+        }
+    }
+
     public static int calculateBitsNeeded(Mode mode, BitArray bitArray, BitArray bitArray2, Version version) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65546, null, mode, bitArray, bitArray2, version)) == null) ? bitArray.getSize() + mode.getCharacterCountBits(version) + bitArray2.getSize() : invokeLLLL.intValue;
-    }
-
-    public static int calculateMaskPenalty(ByteMatrix byteMatrix) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, byteMatrix)) == null) ? MaskUtil.applyMaskPenaltyRule1(byteMatrix) + MaskUtil.applyMaskPenaltyRule2(byteMatrix) + MaskUtil.applyMaskPenaltyRule3(byteMatrix) + MaskUtil.applyMaskPenaltyRule4(byteMatrix) : invokeL.intValue;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65546, null, mode, bitArray, bitArray2, version)) == null) {
+            return bitArray.getSize() + mode.getCharacterCountBits(version) + bitArray2.getSize();
+        }
+        return invokeLLLL.intValue;
     }
 
     public static int chooseMaskPattern(BitArray bitArray, ErrorCorrectionLevel errorCorrectionLevel, Version version, ByteMatrix byteMatrix) throws WriterException {
@@ -276,31 +379,101 @@ public final class Encoder {
         return invokeLLLL.intValue;
     }
 
+    public static Version recommendVersion(ErrorCorrectionLevel errorCorrectionLevel, Mode mode, BitArray bitArray, BitArray bitArray2) throws WriterException {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65559, null, errorCorrectionLevel, mode, bitArray, bitArray2)) == null) {
+            return chooseVersion(calculateBitsNeeded(mode, bitArray, bitArray2, chooseVersion(calculateBitsNeeded(mode, bitArray, bitArray2, Version.getVersionForNumber(1)), errorCorrectionLevel)), errorCorrectionLevel);
+        }
+        return (Version) invokeLLLL.objValue;
+    }
+
+    public static int calculateMaskPenalty(ByteMatrix byteMatrix) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, byteMatrix)) == null) {
+            return MaskUtil.applyMaskPenaltyRule1(byteMatrix) + MaskUtil.applyMaskPenaltyRule2(byteMatrix) + MaskUtil.applyMaskPenaltyRule3(byteMatrix) + MaskUtil.applyMaskPenaltyRule4(byteMatrix);
+        }
+        return invokeL.intValue;
+    }
+
     public static Mode chooseMode(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) ? chooseMode(str, null) : (Mode) invokeL.objValue;
-    }
-
-    public static Version chooseVersion(int i, ErrorCorrectionLevel errorCorrectionLevel) throws WriterException {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65551, null, i, errorCorrectionLevel)) == null) {
-            for (int i2 = 1; i2 <= 40; i2++) {
-                Version versionForNumber = Version.getVersionForNumber(i2);
-                if (willFit(i, versionForNumber, errorCorrectionLevel)) {
-                    return versionForNumber;
-                }
-            }
-            throw new WriterException("Data too big");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
+            return chooseMode(str, null);
         }
-        return (Version) invokeIL.objValue;
+        return (Mode) invokeL.objValue;
     }
 
-    public static QRCode encode(String str, ErrorCorrectionLevel errorCorrectionLevel) throws WriterException {
-        InterceptResult invokeLL;
+    public static int getAlphanumericCode(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65552, null, str, errorCorrectionLevel)) == null) ? encode(str, errorCorrectionLevel, null) : (QRCode) invokeLL.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65555, null, i)) == null) {
+            int[] iArr = ALPHANUMERIC_TABLE;
+            if (i < iArr.length) {
+                return iArr[i];
+            }
+            return -1;
+        }
+        return invokeI.intValue;
+    }
+
+    public static QRCode encode(String str, ErrorCorrectionLevel errorCorrectionLevel, Map map) throws WriterException {
+        InterceptResult invokeLLL;
+        String str2;
+        Version recommendVersion;
+        int length;
+        CharacterSetECI characterSetECIByName;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65553, null, str, errorCorrectionLevel, map)) == null) {
+            if (map == null || !map.containsKey(EncodeHintType.CHARACTER_SET)) {
+                str2 = "ISO-8859-1";
+            } else {
+                str2 = map.get(EncodeHintType.CHARACTER_SET).toString();
+            }
+            Mode chooseMode = chooseMode(str, str2);
+            BitArray bitArray = new BitArray();
+            if (chooseMode == Mode.BYTE && !"ISO-8859-1".equals(str2) && (characterSetECIByName = CharacterSetECI.getCharacterSetECIByName(str2)) != null) {
+                appendECI(characterSetECIByName, bitArray);
+            }
+            appendModeInfo(chooseMode, bitArray);
+            BitArray bitArray2 = new BitArray();
+            appendBytes(str, chooseMode, bitArray2, str2);
+            if (map != null && map.containsKey(EncodeHintType.QR_VERSION)) {
+                recommendVersion = Version.getVersionForNumber(Integer.parseInt(map.get(EncodeHintType.QR_VERSION).toString()));
+                if (!willFit(calculateBitsNeeded(chooseMode, bitArray, bitArray2, recommendVersion), recommendVersion, errorCorrectionLevel)) {
+                    throw new WriterException("Data too big for requested version");
+                }
+            } else {
+                recommendVersion = recommendVersion(errorCorrectionLevel, chooseMode, bitArray, bitArray2);
+            }
+            BitArray bitArray3 = new BitArray();
+            bitArray3.appendBitArray(bitArray);
+            if (chooseMode == Mode.BYTE) {
+                length = bitArray2.getSizeInBytes();
+            } else {
+                length = str.length();
+            }
+            appendLengthInfo(length, recommendVersion, chooseMode, bitArray3);
+            bitArray3.appendBitArray(bitArray2);
+            Version.ECBlocks eCBlocksForLevel = recommendVersion.getECBlocksForLevel(errorCorrectionLevel);
+            int totalCodewords = recommendVersion.getTotalCodewords() - eCBlocksForLevel.getTotalECCodewords();
+            terminateBits(totalCodewords, bitArray3);
+            BitArray interleaveWithECBytes = interleaveWithECBytes(bitArray3, recommendVersion.getTotalCodewords(), totalCodewords, eCBlocksForLevel.getNumBlocks());
+            QRCode qRCode = new QRCode();
+            qRCode.setECLevel(errorCorrectionLevel);
+            qRCode.setMode(chooseMode);
+            qRCode.setVersion(recommendVersion);
+            int dimensionForVersion = recommendVersion.getDimensionForVersion();
+            ByteMatrix byteMatrix = new ByteMatrix(dimensionForVersion, dimensionForVersion);
+            int chooseMaskPattern = chooseMaskPattern(interleaveWithECBytes, errorCorrectionLevel, recommendVersion, byteMatrix);
+            qRCode.setMaskPattern(chooseMaskPattern);
+            MatrixUtil.buildMatrix(interleaveWithECBytes, errorCorrectionLevel, recommendVersion, chooseMaskPattern, byteMatrix);
+            qRCode.setMatrix(byteMatrix);
+            return qRCode;
+        }
+        return (QRCode) invokeLLL.objValue;
     }
 
     public static byte[] generateECBytes(byte[] bArr, int i) {
@@ -322,19 +495,6 @@ public final class Encoder {
         return (byte[]) invokeLI.objValue;
     }
 
-    public static int getAlphanumericCode(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65555, null, i)) == null) {
-            int[] iArr = ALPHANUMERIC_TABLE;
-            if (i < iArr.length) {
-                return iArr[i];
-            }
-            return -1;
-        }
-        return invokeI.intValue;
-    }
-
     public static void getNumDataBytesAndNumECBytesForBlockID(int i, int i2, int i3, int i4, int[] iArr, int[] iArr2) throws WriterException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65556, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), iArr, iArr2}) == null) {
@@ -347,23 +507,23 @@ public final class Encoder {
                 int i10 = i9 + 1;
                 int i11 = i7 - i9;
                 int i12 = i8 - i10;
-                if (i11 != i12) {
-                    throw new WriterException("EC bytes mismatch");
-                }
-                if (i3 != i6 + i5) {
+                if (i11 == i12) {
+                    if (i3 == i6 + i5) {
+                        if (i == ((i9 + i11) * i6) + ((i10 + i12) * i5)) {
+                            if (i4 < i6) {
+                                iArr[0] = i9;
+                                iArr2[0] = i11;
+                                return;
+                            }
+                            iArr[0] = i10;
+                            iArr2[0] = i12;
+                            return;
+                        }
+                        throw new WriterException("Total bytes mismatch");
+                    }
                     throw new WriterException("RS blocks mismatch");
                 }
-                if (i != ((i9 + i11) * i6) + ((i10 + i12) * i5)) {
-                    throw new WriterException("Total bytes mismatch");
-                }
-                if (i4 < i6) {
-                    iArr[0] = i9;
-                    iArr2[0] = i11;
-                    return;
-                }
-                iArr[0] = i10;
-                iArr2[0] = i12;
-                return;
+                throw new WriterException("EC bytes mismatch");
             }
             throw new WriterException("Block ID too large");
         }
@@ -443,121 +603,5 @@ public final class Encoder {
             }
         }
         return invokeL.booleanValue;
-    }
-
-    public static Version recommendVersion(ErrorCorrectionLevel errorCorrectionLevel, Mode mode, BitArray bitArray, BitArray bitArray2) throws WriterException {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65559, null, errorCorrectionLevel, mode, bitArray, bitArray2)) == null) ? chooseVersion(calculateBitsNeeded(mode, bitArray, bitArray2, chooseVersion(calculateBitsNeeded(mode, bitArray, bitArray2, Version.getVersionForNumber(1)), errorCorrectionLevel)), errorCorrectionLevel) : (Version) invokeLLLL.objValue;
-    }
-
-    public static void terminateBits(int i, BitArray bitArray) throws WriterException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65560, null, i, bitArray) == null) {
-            int i2 = i << 3;
-            if (bitArray.getSize() <= i2) {
-                for (int i3 = 0; i3 < 4 && bitArray.getSize() < i2; i3++) {
-                    bitArray.appendBit(false);
-                }
-                int size = bitArray.getSize() & 7;
-                if (size > 0) {
-                    while (size < 8) {
-                        bitArray.appendBit(false);
-                        size++;
-                    }
-                }
-                int sizeInBytes = i - bitArray.getSizeInBytes();
-                for (int i4 = 0; i4 < sizeInBytes; i4++) {
-                    bitArray.appendBits((i4 & 1) == 0 ? 236 : 17, 8);
-                }
-                if (bitArray.getSize() != i2) {
-                    throw new WriterException("Bits size does not equal capacity");
-                }
-                return;
-            }
-            throw new WriterException("data bits cannot fit in the QR Code" + bitArray.getSize() + " > " + i2);
-        }
-    }
-
-    public static boolean willFit(int i, Version version, ErrorCorrectionLevel errorCorrectionLevel) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeILL = interceptable.invokeILL(65561, null, i, version, errorCorrectionLevel)) == null) ? version.getTotalCodewords() - version.getECBlocksForLevel(errorCorrectionLevel).getTotalECCodewords() >= (i + 7) / 8 : invokeILL.booleanValue;
-    }
-
-    public static Mode chooseMode(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, str, str2)) == null) {
-            if ("Shift_JIS".equals(str2) && isOnlyDoubleByteKanji(str)) {
-                return Mode.KANJI;
-            }
-            boolean z = false;
-            boolean z2 = false;
-            for (int i = 0; i < str.length(); i++) {
-                char charAt = str.charAt(i);
-                if (charAt >= '0' && charAt <= '9') {
-                    z2 = true;
-                } else if (getAlphanumericCode(charAt) == -1) {
-                    return Mode.BYTE;
-                } else {
-                    z = true;
-                }
-            }
-            if (z) {
-                return Mode.ALPHANUMERIC;
-            }
-            if (z2) {
-                return Mode.NUMERIC;
-            }
-            return Mode.BYTE;
-        }
-        return (Mode) invokeLL.objValue;
-    }
-
-    public static QRCode encode(String str, ErrorCorrectionLevel errorCorrectionLevel, Map<EncodeHintType, ?> map) throws WriterException {
-        InterceptResult invokeLLL;
-        Version recommendVersion;
-        CharacterSetECI characterSetECIByName;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65553, null, str, errorCorrectionLevel, map)) == null) {
-            String obj = (map == null || !map.containsKey(EncodeHintType.CHARACTER_SET)) ? "ISO-8859-1" : map.get(EncodeHintType.CHARACTER_SET).toString();
-            Mode chooseMode = chooseMode(str, obj);
-            BitArray bitArray = new BitArray();
-            if (chooseMode == Mode.BYTE && !"ISO-8859-1".equals(obj) && (characterSetECIByName = CharacterSetECI.getCharacterSetECIByName(obj)) != null) {
-                appendECI(characterSetECIByName, bitArray);
-            }
-            appendModeInfo(chooseMode, bitArray);
-            BitArray bitArray2 = new BitArray();
-            appendBytes(str, chooseMode, bitArray2, obj);
-            if (map != null && map.containsKey(EncodeHintType.QR_VERSION)) {
-                recommendVersion = Version.getVersionForNumber(Integer.parseInt(map.get(EncodeHintType.QR_VERSION).toString()));
-                if (!willFit(calculateBitsNeeded(chooseMode, bitArray, bitArray2, recommendVersion), recommendVersion, errorCorrectionLevel)) {
-                    throw new WriterException("Data too big for requested version");
-                }
-            } else {
-                recommendVersion = recommendVersion(errorCorrectionLevel, chooseMode, bitArray, bitArray2);
-            }
-            BitArray bitArray3 = new BitArray();
-            bitArray3.appendBitArray(bitArray);
-            appendLengthInfo(chooseMode == Mode.BYTE ? bitArray2.getSizeInBytes() : str.length(), recommendVersion, chooseMode, bitArray3);
-            bitArray3.appendBitArray(bitArray2);
-            Version.ECBlocks eCBlocksForLevel = recommendVersion.getECBlocksForLevel(errorCorrectionLevel);
-            int totalCodewords = recommendVersion.getTotalCodewords() - eCBlocksForLevel.getTotalECCodewords();
-            terminateBits(totalCodewords, bitArray3);
-            BitArray interleaveWithECBytes = interleaveWithECBytes(bitArray3, recommendVersion.getTotalCodewords(), totalCodewords, eCBlocksForLevel.getNumBlocks());
-            QRCode qRCode = new QRCode();
-            qRCode.setECLevel(errorCorrectionLevel);
-            qRCode.setMode(chooseMode);
-            qRCode.setVersion(recommendVersion);
-            int dimensionForVersion = recommendVersion.getDimensionForVersion();
-            ByteMatrix byteMatrix = new ByteMatrix(dimensionForVersion, dimensionForVersion);
-            int chooseMaskPattern = chooseMaskPattern(interleaveWithECBytes, errorCorrectionLevel, recommendVersion, byteMatrix);
-            qRCode.setMaskPattern(chooseMaskPattern);
-            MatrixUtil.buildMatrix(interleaveWithECBytes, errorCorrectionLevel, recommendVersion, chooseMaskPattern, byteMatrix);
-            qRCode.setMatrix(byteMatrix);
-            return qRCode;
-        }
-        return (QRCode) invokeLLL.objValue;
     }
 }

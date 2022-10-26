@@ -61,7 +61,7 @@ public final class c {
     /* JADX WARN: Type inference failed for: r7v11 */
     /* JADX WARN: Type inference failed for: r7v12 */
     /* JADX WARN: Type inference failed for: r7v13, types: [java.io.BufferedInputStream, java.io.InputStream] */
-    public static Set<String> h(File file, File file2) {
+    public static Set h(File file, File file2) {
         InterceptResult invokeLL;
         ZipFile zipFile;
         OutputStream outputStream;

@@ -18,7 +18,7 @@ public class NetWorkUtils {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class NetType {
+    public final class NetType {
         public static final /* synthetic */ NetType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final NetType NONE;
@@ -79,13 +79,19 @@ public class NetWorkUtils {
         public static NetType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (NetType) Enum.valueOf(NetType.class, str) : (NetType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (NetType) Enum.valueOf(NetType.class, str);
+            }
+            return (NetType) invokeL.objValue;
         }
 
         public static NetType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (NetType[]) $VALUES.clone() : (NetType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (NetType[]) $VALUES.clone();
+            }
+            return (NetType[]) invokeV.objValue;
         }
     }
 
@@ -114,7 +120,10 @@ public class NetWorkUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             NetworkInfo a = a(context);
-            return a != null && a.isConnectedOrConnecting();
+            if (a != null && a.isConnectedOrConnecting()) {
+                return true;
+            }
+            return false;
         }
         return invokeL.booleanValue;
     }

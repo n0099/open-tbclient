@@ -4,14 +4,14 @@ import android.content.Context;
 import android.content.Intent;
 import com.baidu.tbadk.core.atomData.TbTitleActivityConfig;
 import com.baidu.tieba.frs.forumRule.ForumRulesShowActivity;
-import com.baidu.tieba.zf8;
+import com.baidu.tieba.jg8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class ForumRulesShowDispatcher implements zf8 {
+public class ForumRulesShowDispatcher implements jg8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,15 +29,14 @@ public class ForumRulesShowDispatcher implements zf8 {
         }
     }
 
-    @Override // com.baidu.tieba.zf8
+    @Override // com.baidu.tieba.jg8
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) || jSONObject == null || context == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) && jSONObject != null && context != null) {
+            Intent intent = new Intent();
+            intent.putExtra("forum_id", jSONObject.optString(TbTitleActivityConfig.FORUM_ID));
+            intent.setClass(context, ForumRulesShowActivity.class);
+            context.startActivity(intent);
         }
-        Intent intent = new Intent();
-        intent.putExtra("forum_id", jSONObject.optString(TbTitleActivityConfig.FORUM_ID));
-        intent.setClass(context, ForumRulesShowActivity.class);
-        context.startActivity(intent);
     }
 }

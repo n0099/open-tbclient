@@ -19,16 +19,26 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class AdResponseInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator<AdResponseInfo> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public static final String TAG = "AdResponseInfo";
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<AdElementInfo> mAdInstanceList;
+    public ArrayList mAdInstanceList;
     public int mAdsNum;
     public String mErrorCode;
     public String mRequestId;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     /* loaded from: classes3.dex */
-    public static class a implements Parcelable.Creator<AdResponseInfo> {
+    public final class a implements Parcelable.Creator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -52,7 +62,10 @@ public class AdResponseInfo implements Parcelable {
         public AdResponseInfo createFromParcel(Parcel parcel) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new AdResponseInfo(parcel) : (AdResponseInfo) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+                return new AdResponseInfo(parcel);
+            }
+            return (AdResponseInfo) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -61,7 +74,10 @@ public class AdResponseInfo implements Parcelable {
         public AdResponseInfo[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new AdResponseInfo[i] : (AdResponseInfo[]) invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                return new AdResponseInfo[i];
+            }
+            return (AdResponseInfo[]) invokeI.objValue;
         }
     }
 
@@ -81,6 +97,76 @@ public class AdResponseInfo implements Parcelable {
         CREATOR = new a();
     }
 
+    public ArrayList getAdInstanceList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mAdInstanceList;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public int getAdsNum() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mAdsNum;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getErrorCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mErrorCode;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public AdElementInfo getPrimaryAdInstanceInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.mAdInstanceList.size() > 0) {
+                return (AdElementInfo) this.mAdInstanceList.get(0);
+            }
+            return null;
+        }
+        return (AdElementInfo) invokeV.objValue;
+    }
+
+    public String getRequestId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mRequestId;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public AdResponseInfo(Parcel parcel) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mAdsNum = 0;
+        this.mAdInstanceList = new ArrayList();
+        this.mAdsNum = parcel.readInt();
+        this.mRequestId = parcel.readString();
+        this.mErrorCode = parcel.readString();
+    }
+
     public AdResponseInfo(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -97,7 +183,7 @@ public class AdResponseInfo implements Parcelable {
             }
         }
         this.mAdsNum = 0;
-        this.mAdInstanceList = new ArrayList<>();
+        this.mAdInstanceList = new ArrayList();
         if (str == null) {
             return;
         }
@@ -112,68 +198,12 @@ public class AdResponseInfo implements Parcelable {
                     try {
                         this.mAdInstanceList.add(new AdElementInfo(jSONArray.getJSONObject(i3)));
                     } catch (Exception unused) {
-                        this.mAdInstanceList = new ArrayList<>();
+                        this.mAdInstanceList = new ArrayList();
                     }
                 }
             }
         } catch (Exception unused2) {
-            this.mAdInstanceList = new ArrayList<>();
-        }
-    }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public ArrayList<AdElementInfo> getAdInstanceList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mAdInstanceList : (ArrayList) invokeV.objValue;
-    }
-
-    public int getAdsNum() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mAdsNum : invokeV.intValue;
-    }
-
-    public String getErrorCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mErrorCode : (String) invokeV.objValue;
-    }
-
-    public AdElementInfo getPrimaryAdInstanceInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.mAdInstanceList.size() > 0) {
-                return this.mAdInstanceList.get(0);
-            }
-            return null;
-        }
-        return (AdElementInfo) invokeV.objValue;
-    }
-
-    public String getRequestId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mRequestId : (String) invokeV.objValue;
-    }
-
-    @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048582, this, parcel, i) == null) {
-            parcel.writeInt(this.mAdsNum);
-            parcel.writeString(this.mRequestId);
-            parcel.writeString(this.mErrorCode);
+            this.mAdInstanceList = new ArrayList();
         }
     }
 
@@ -194,7 +224,7 @@ public class AdResponseInfo implements Parcelable {
             }
         }
         this.mAdsNum = 0;
-        this.mAdInstanceList = new ArrayList<>();
+        this.mAdInstanceList = new ArrayList();
         if (str == null) {
             return;
         }
@@ -202,42 +232,31 @@ public class AdResponseInfo implements Parcelable {
             JSONObject jSONObject = new JSONObject(str);
             String optString = jSONObject.optString(Constants.KEYS.RET, "");
             this.mErrorCode = optString;
-            if (TextUtils.equals(optString, "0") && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-                this.mRequestId = optJSONObject.optString("id");
-                JSONArray optJSONArray = optJSONObject.optJSONArray("ads");
-                if (optJSONArray != null) {
-                    for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
-                        JSONObject optJSONObject2 = optJSONArray.optJSONObject(i3);
-                        if (optJSONObject2 != null) {
-                            this.mAdInstanceList.add(new AdElementInfo(optJSONObject2, z));
-                        }
+            if (!TextUtils.equals(optString, "0") || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
+                return;
+            }
+            this.mRequestId = optJSONObject.optString("id");
+            JSONArray optJSONArray = optJSONObject.optJSONArray("ads");
+            if (optJSONArray != null) {
+                for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
+                    JSONObject optJSONObject2 = optJSONArray.optJSONObject(i3);
+                    if (optJSONObject2 != null) {
+                        this.mAdInstanceList.add(new AdElementInfo(optJSONObject2, z));
                     }
                 }
             }
         } catch (Exception unused) {
-            this.mAdInstanceList = new ArrayList<>();
+            this.mAdInstanceList = new ArrayList();
         }
     }
 
-    public AdResponseInfo(Parcel parcel) {
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeLI(1048582, this, parcel, i) == null) {
+            parcel.writeInt(this.mAdsNum);
+            parcel.writeString(this.mRequestId);
+            parcel.writeString(this.mErrorCode);
         }
-        this.mAdsNum = 0;
-        this.mAdInstanceList = new ArrayList<>();
-        this.mAdsNum = parcel.readInt();
-        this.mRequestId = parcel.readString();
-        this.mErrorCode = parcel.readString();
     }
 }

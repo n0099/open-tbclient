@@ -12,7 +12,6 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewOutlineProvider;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.constraintlayout.utils.widget.ImageFilterView;
 import androidx.constraintlayout.widget.R;
@@ -64,6 +63,103 @@ public class ImageFilterButton extends AppCompatImageButton {
         init(context, null);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ImageFilterButton(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mImageMatrix = new ImageFilterView.ImageMatrix();
+        this.mCrossfade = 0.0f;
+        this.mRoundPercent = 0.0f;
+        this.mRound = Float.NaN;
+        this.mOverlay = true;
+        init(context, attributeSet);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ImageFilterButton(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.mImageMatrix = new ImageFilterView.ImageMatrix();
+        this.mCrossfade = 0.0f;
+        this.mRoundPercent = 0.0f;
+        this.mRound = Float.NaN;
+        this.mOverlay = true;
+        init(context, attributeSet);
+    }
+
+    private void setOverlay(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65542, this, z) == null) {
+            this.mOverlay = z;
+        }
+    }
+
+    public void setBrightness(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048583, this, f) == null) {
+            ImageFilterView.ImageMatrix imageMatrix = this.mImageMatrix;
+            imageMatrix.mBrightness = f;
+            imageMatrix.updateMatrix(this);
+        }
+    }
+
+    public void setContrast(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f) == null) {
+            ImageFilterView.ImageMatrix imageMatrix = this.mImageMatrix;
+            imageMatrix.mContrast = f;
+            imageMatrix.updateMatrix(this);
+        }
+    }
+
+    public void setSaturation(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048588, this, f) == null) {
+            ImageFilterView.ImageMatrix imageMatrix = this.mImageMatrix;
+            imageMatrix.mSaturation = f;
+            imageMatrix.updateMatrix(this);
+        }
+    }
+
+    public void setWarmth(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048589, this, f) == null) {
+            ImageFilterView.ImageMatrix imageMatrix = this.mImageMatrix;
+            imageMatrix.mWarmth = f;
+            imageMatrix.updateMatrix(this);
+        }
+    }
+
     private void init(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, this, context, attributeSet) == null) {
@@ -109,83 +205,22 @@ public class ImageFilterButton extends AppCompatImageButton {
         }
     }
 
-    private void setOverlay(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65542, this, z) == null) {
-            this.mOverlay = z;
-        }
-    }
-
     @Override // android.view.View
     public void draw(Canvas canvas) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            if (Build.VERSION.SDK_INT >= 21 || this.mRound == 0.0f || this.mPath == null) {
-                z = false;
-            } else {
+            if (Build.VERSION.SDK_INT < 21 && this.mRound != 0.0f && this.mPath != null) {
                 z = true;
                 canvas.save();
                 canvas.clipPath(this.mPath);
+            } else {
+                z = false;
             }
             super.draw(canvas);
             if (z) {
                 canvas.restore();
             }
-        }
-    }
-
-    public float getContrast() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mImageMatrix.mContrast : invokeV.floatValue;
-    }
-
-    public float getCrossfade() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mCrossfade : invokeV.floatValue;
-    }
-
-    public float getRound() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mRound : invokeV.floatValue;
-    }
-
-    public float getRoundPercent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mRoundPercent : invokeV.floatValue;
-    }
-
-    public float getSaturation() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mImageMatrix.mSaturation : invokeV.floatValue;
-    }
-
-    public float getWarmth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mImageMatrix.mWarmth : invokeV.floatValue;
-    }
-
-    public void setBrightness(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048583, this, f) == null) {
-            ImageFilterView.ImageMatrix imageMatrix = this.mImageMatrix;
-            imageMatrix.mBrightness = f;
-            imageMatrix.updateMatrix(this);
-        }
-    }
-
-    public void setContrast(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f) == null) {
-            ImageFilterView.ImageMatrix imageMatrix = this.mImageMatrix;
-            imageMatrix.mContrast = f;
-            imageMatrix.updateMatrix(this);
         }
     }
 
@@ -203,8 +238,62 @@ public class ImageFilterButton extends AppCompatImageButton {
         }
     }
 
-    @RequiresApi(21)
+    public float getContrast() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mImageMatrix.mContrast;
+        }
+        return invokeV.floatValue;
+    }
+
+    public float getCrossfade() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mCrossfade;
+        }
+        return invokeV.floatValue;
+    }
+
+    public float getRound() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mRound;
+        }
+        return invokeV.floatValue;
+    }
+
+    public float getRoundPercent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mRoundPercent;
+        }
+        return invokeV.floatValue;
+    }
+
+    public float getSaturation() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mImageMatrix.mSaturation;
+        }
+        return invokeV.floatValue;
+    }
+
+    public float getWarmth() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mImageMatrix.mWarmth;
+        }
+        return invokeV.floatValue;
+    }
+
     public void setRound(float f) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048586, this, f) == null) {
             if (Float.isNaN(f)) {
@@ -214,7 +303,11 @@ public class ImageFilterButton extends AppCompatImageButton {
                 setRoundPercent(f2);
                 return;
             }
-            boolean z = this.mRound != f;
+            if (this.mRound != f) {
+                z = true;
+            } else {
+                z = false;
+            }
             this.mRound = f;
             if (f != 0.0f) {
                 if (this.mPath == null) {
@@ -270,18 +363,21 @@ public class ImageFilterButton extends AppCompatImageButton {
             } else if (Build.VERSION.SDK_INT >= 21) {
                 setClipToOutline(false);
             }
-            if (!z || Build.VERSION.SDK_INT < 21) {
-                return;
+            if (z && Build.VERSION.SDK_INT >= 21) {
+                invalidateOutline();
             }
-            invalidateOutline();
         }
     }
 
-    @RequiresApi(21)
     public void setRoundPercent(float f) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048587, this, f) == null) {
-            boolean z = this.mRoundPercent != f;
+            if (this.mRoundPercent != f) {
+                z = true;
+            } else {
+                z = false;
+            }
             this.mRoundPercent = f;
             if (f != 0.0f) {
                 if (this.mPath == null) {
@@ -339,82 +435,9 @@ public class ImageFilterButton extends AppCompatImageButton {
             } else if (Build.VERSION.SDK_INT >= 21) {
                 setClipToOutline(false);
             }
-            if (!z || Build.VERSION.SDK_INT < 21) {
-                return;
-            }
-            invalidateOutline();
-        }
-    }
-
-    public void setSaturation(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048588, this, f) == null) {
-            ImageFilterView.ImageMatrix imageMatrix = this.mImageMatrix;
-            imageMatrix.mSaturation = f;
-            imageMatrix.updateMatrix(this);
-        }
-    }
-
-    public void setWarmth(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048589, this, f) == null) {
-            ImageFilterView.ImageMatrix imageMatrix = this.mImageMatrix;
-            imageMatrix.mWarmth = f;
-            imageMatrix.updateMatrix(this);
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ImageFilterButton(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+            if (z && Build.VERSION.SDK_INT >= 21) {
+                invalidateOutline();
             }
         }
-        this.mImageMatrix = new ImageFilterView.ImageMatrix();
-        this.mCrossfade = 0.0f;
-        this.mRoundPercent = 0.0f;
-        this.mRound = Float.NaN;
-        this.mOverlay = true;
-        init(context, attributeSet);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ImageFilterButton(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.mImageMatrix = new ImageFilterView.ImageMatrix();
-        this.mCrossfade = 0.0f;
-        this.mRoundPercent = 0.0f;
-        this.mRound = Float.NaN;
-        this.mOverlay = true;
-        init(context, attributeSet);
     }
 }

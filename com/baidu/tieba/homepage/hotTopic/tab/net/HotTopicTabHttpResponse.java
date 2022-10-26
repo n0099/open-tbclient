@@ -3,9 +3,8 @@ package com.baidu.tieba.homepage.hotTopic.tab.net;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.Cdo;
-import com.baidu.tieba.hz6;
-import com.baidu.tieba.zz6;
+import com.baidu.tieba.h07;
+import com.baidu.tieba.pz6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,11 +14,11 @@ import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.HotThreadList.HotThreadListResIdl;
 /* loaded from: classes4.dex */
-public class HotTopicTabHttpResponse extends TbHttpResponsedMessage implements zz6 {
+public class HotTopicTabHttpResponse extends TbHttpResponsedMessage implements h07 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HotThreadListResIdl mData;
-    public List<Cdo> mHotTopicDataList;
+    public List mHotTopicDataList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HotTopicTabHttpResponse() {
@@ -39,18 +38,24 @@ public class HotTopicTabHttpResponse extends TbHttpResponsedMessage implements z
         }
     }
 
-    @Override // com.baidu.tieba.zz6
-    public List<Cdo> getDataList() {
+    @Override // com.baidu.tieba.h07
+    public List getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mHotTopicDataList : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mHotTopicDataList;
+        }
+        return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.zz6
+    @Override // com.baidu.tieba.h07
     public HotThreadListResIdl getResData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mData : (HotThreadListResIdl) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mData;
+        }
+        return (HotThreadListResIdl) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -65,9 +70,10 @@ public class HotTopicTabHttpResponse extends TbHttpResponsedMessage implements z
             }
             setError(hotThreadListResIdl.error.errorno.intValue());
             setErrorString(hotThreadListResIdl.error.usermsg);
-            if (getError() == 0 && hotThreadListResIdl.data != null) {
-                this.mHotTopicDataList = hz6.c(hotThreadListResIdl);
+            if (getError() != 0 || hotThreadListResIdl.data == null) {
+                return;
             }
+            this.mHotTopicDataList = pz6.c(hotThreadListResIdl);
         }
     }
 }

@@ -1,37 +1,27 @@
 package com.baidu.tieba;
 
-import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
-import org.json.JSONException;
 /* loaded from: classes6.dex */
 public class w99 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile v99 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(ha9 ha9Var) {
+    public static synchronized v99 a() {
+        InterceptResult invokeV;
+        v99 v99Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65536, null, ha9Var) == null) || ha9Var == null || ha9Var.y()) {
-            return;
-        }
-        JSONArray n = ha9Var.n();
-        int length = n.length();
-        boolean B = ha9Var.B();
-        for (int i = 0; i < length; i++) {
-            try {
-                if (B != c99.o().e(n.getJSONObject(i).getString("id"))) {
-                    Log.w("UBCDebug", " data is " + B + "  content " + ha9Var.u().toString());
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (w99.class) {
+                if (a == null) {
+                    a = new v99();
                 }
-            } catch (JSONException e) {
-                e.printStackTrace();
+                v99Var = a;
             }
+            return v99Var;
         }
-    }
-
-    public static void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-        }
+        return (v99) invokeV.objValue;
     }
 }

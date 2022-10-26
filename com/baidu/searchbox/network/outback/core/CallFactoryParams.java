@@ -23,7 +23,7 @@ public class CallFactoryParams {
     public int mWriteTimeoutMs;
 
     /* loaded from: classes2.dex */
-    public static class Builder {
+    public class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public CookieManager cookieManager;
@@ -56,12 +56,6 @@ public class CallFactoryParams {
             this.mConnectionPoolTimeUnit = TimeUnit.MINUTES;
         }
 
-        public CallFactoryParams build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new CallFactoryParams(this) : (CallFactoryParams) invokeV.objValue;
-        }
-
         public Builder setConnectTimeoutMs(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
@@ -80,18 +74,6 @@ public class CallFactoryParams {
                 return this;
             }
             return (Builder) invokeL.objValue;
-        }
-
-        public Builder setOkHttpConnectionPool(int i, long j, TimeUnit timeUnit) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), timeUnit})) == null) {
-                this.mConnectionPoolMaxIdleConnections = i;
-                this.mConnectionPoolKeepAliveDurationNs = j;
-                this.mConnectionPoolTimeUnit = timeUnit;
-                return this;
-            }
-            return (Builder) invokeCommon.objValue;
         }
 
         public Builder setProxySelector(ProxySelector proxySelector) {
@@ -122,6 +104,27 @@ public class CallFactoryParams {
                 return this;
             }
             return (Builder) invokeI.objValue;
+        }
+
+        public CallFactoryParams build() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new CallFactoryParams(this);
+            }
+            return (CallFactoryParams) invokeV.objValue;
+        }
+
+        public Builder setOkHttpConnectionPool(int i, long j, TimeUnit timeUnit) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), timeUnit})) == null) {
+                this.mConnectionPoolMaxIdleConnections = i;
+                this.mConnectionPoolKeepAliveDurationNs = j;
+                this.mConnectionPoolTimeUnit = timeUnit;
+                return this;
+            }
+            return (Builder) invokeCommon.objValue;
         }
     }
 
@@ -159,48 +162,72 @@ public class CallFactoryParams {
     public int getConnectTimeoutMs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mConnectTimeoutMs : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mConnectTimeoutMs;
+        }
+        return invokeV.intValue;
     }
 
     public long getConnectionPoolKeepAliveDurationNs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mConnectionPoolKeepAliveDurationNs : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mConnectionPoolKeepAliveDurationNs;
+        }
+        return invokeV.longValue;
     }
 
     public int getConnectionPoolMaxIdleConnections() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mConnectionPoolMaxIdleConnections : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mConnectionPoolMaxIdleConnections;
+        }
+        return invokeV.intValue;
     }
 
     public TimeUnit getConnectionPoolTimeUnit() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mConnectionPoolTimeUnit : (TimeUnit) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mConnectionPoolTimeUnit;
+        }
+        return (TimeUnit) invokeV.objValue;
     }
 
     public CookieManager getCookieManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.cookieManager : (CookieManager) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.cookieManager;
+        }
+        return (CookieManager) invokeV.objValue;
     }
 
     public ProxySelector getProxySelector() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mProxySelector : (ProxySelector) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mProxySelector;
+        }
+        return (ProxySelector) invokeV.objValue;
     }
 
     public int getReadTimeoutMs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mReadTimeoutMs : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mReadTimeoutMs;
+        }
+        return invokeV.intValue;
     }
 
     public int getWriteTimeoutMs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mWriteTimeoutMs : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mWriteTimeoutMs;
+        }
+        return invokeV.intValue;
     }
 }

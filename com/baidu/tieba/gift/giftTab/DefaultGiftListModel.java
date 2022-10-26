@@ -5,13 +5,10 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.is4;
-import com.baidu.tieba.js4;
-import com.baidu.tieba.ov6;
-import com.baidu.tieba.pb;
+import com.baidu.tieba.ls4;
+import com.baidu.tieba.qb;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.sm8;
-import com.baidu.tieba.sv6;
+import com.baidu.tieba.zm8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,19 +16,44 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
+public class DefaultGiftListModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<ov6> a;
-    public ArrayList<is4> b;
-    public ArrayList<sv6> c;
+    public ArrayList a;
+    public ArrayList b;
+    public ArrayList c;
     public String d;
     public int e;
     public b f;
-    public pb g;
+    public qb g;
 
     /* loaded from: classes4.dex */
-    public class a extends pb {
+    public interface b {
+        void a(int i, String str, int i2, String str2, int i3, ls4 ls4Var, ArrayList arrayList, ArrayList arrayList2, ArrayList arrayList3);
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* loaded from: classes4.dex */
+    public class a extends qb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DefaultGiftListModel a;
@@ -60,17 +82,17 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
 
         /* JADX WARN: Removed duplicated region for block: B:21:0x008e  */
         /* JADX WARN: Removed duplicated region for block: B:26:? A[RETURN, SYNTHETIC] */
-        @Override // com.baidu.tieba.pb
+        @Override // com.baidu.tieba.qb
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            js4 js4Var;
+        public void onMessage(ResponsedMessage responsedMessage) {
+            ls4 ls4Var;
             int i;
             int i2;
-            js4 js4Var2;
+            ls4 ls4Var2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
                 return;
             }
             boolean z = responsedMessage instanceof DefaultGiftListHttpResponseMessage;
@@ -85,16 +107,8 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
                 this.a.d = defaultGiftListHttpResponseMessage.getAddFreeUrl();
                 this.a.e = defaultGiftListHttpResponseMessage.getFreeChance();
                 i2 = defaultGiftListHttpResponseMessage.currencyType;
-                js4Var2 = defaultGiftListHttpResponseMessage.urlTitleData;
-            } else if (!(responsedMessage instanceof DefaultGiftListSocketResponseMessage)) {
-                js4Var = null;
-                i = 0;
-                if (this.a.f == null) {
-                    this.a.f.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.e, this.a.d, i, js4Var, this.a.a, this.a.b, this.a.c);
-                    return;
-                }
-                return;
-            } else {
+                ls4Var2 = defaultGiftListHttpResponseMessage.urlTitleData;
+            } else if (responsedMessage instanceof DefaultGiftListSocketResponseMessage) {
                 DefaultGiftListSocketResponseMessage defaultGiftListSocketResponseMessage = (DefaultGiftListSocketResponseMessage) responsedMessage;
                 this.a.a = defaultGiftListSocketResponseMessage.getCategoryList();
                 this.a.b = defaultGiftListSocketResponseMessage.getGiftList();
@@ -102,22 +116,25 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
                 this.a.d = defaultGiftListSocketResponseMessage.getAddFreeUrl();
                 this.a.e = defaultGiftListSocketResponseMessage.getFreeChance();
                 i2 = defaultGiftListSocketResponseMessage.currencyType;
-                js4Var2 = defaultGiftListSocketResponseMessage.urlTitleData;
+                ls4Var2 = defaultGiftListSocketResponseMessage.urlTitleData;
+            } else {
+                ls4Var = null;
+                i = 0;
+                if (this.a.f == null) {
+                    this.a.f.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.e, this.a.d, i, ls4Var, this.a.a, this.a.b, this.a.c);
+                    return;
+                }
+                return;
             }
             i = i2;
-            js4Var = js4Var2;
+            ls4Var = ls4Var2;
             if (this.a.f == null) {
             }
         }
     }
 
-    /* loaded from: classes4.dex */
-    public interface b {
-        void a(int i, String str, int i2, String str2, int i3, js4 js4Var, ArrayList<ov6> arrayList, ArrayList<is4> arrayList2, ArrayList<sv6> arrayList3);
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DefaultGiftListModel(r9<GiftTabActivity> r9Var) {
+    public DefaultGiftListModel(r9 r9Var) {
         super(r9Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -156,26 +173,6 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
         }
     }
 
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean loadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
     public final void registerListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -186,8 +183,8 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            sm8.h(309054, DefaultGiftListSocketResponseMessage.class, false, false);
-            sm8.c(309054, CmdConfigHttp.CMD_DEFAULT_GIFT_LIST, TbConfig.GET_DEFAULT_GIFT_LIST, DefaultGiftListHttpResponseMessage.class, false, false, false, false);
+            zm8.h(309054, DefaultGiftListSocketResponseMessage.class, false, false);
+            zm8.c(309054, CmdConfigHttp.CMD_DEFAULT_GIFT_LIST, TbConfig.GET_DEFAULT_GIFT_LIST, DefaultGiftListHttpResponseMessage.class, false, false, false, false);
         }
     }
 }

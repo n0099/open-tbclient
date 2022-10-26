@@ -25,6 +25,8 @@ public class H264Utils {
     public static final String H264_PROFILE_CONSTRAINED_HIGH = "640c";
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static native boolean nativeIsSameH264Profile(Map map, Map map2);
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -56,24 +58,31 @@ public class H264Utils {
         }
     }
 
-    public static Map<String, String> getDefaultH264Params(boolean z) {
+    public static Map getDefaultH264Params(boolean z) {
         InterceptResult invokeZ;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
             HashMap hashMap = new HashMap();
             hashMap.put("level-asymmetry-allowed", "1");
             hashMap.put("packetization-mode", "1");
-            hashMap.put("profile-level-id", z ? "640c1f" : "42e01f");
+            if (z) {
+                str = "640c1f";
+            } else {
+                str = "42e01f";
+            }
+            hashMap.put("profile-level-id", str);
             return hashMap;
         }
         return (Map) invokeZ.objValue;
     }
 
-    public static boolean isSameH264Profile(Map<String, String> map, Map<String, String> map2) {
+    public static boolean isSameH264Profile(Map map, Map map2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, map, map2)) == null) ? nativeIsSameH264Profile(map, map2) : invokeLL.booleanValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, map, map2)) == null) {
+            return nativeIsSameH264Profile(map, map2);
+        }
+        return invokeLL.booleanValue;
     }
-
-    public static native boolean nativeIsSameH264Profile(Map<String, String> map, Map<String, String> map2);
 }

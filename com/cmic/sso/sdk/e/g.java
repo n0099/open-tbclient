@@ -12,6 +12,12 @@ public class g {
     public static boolean a(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) ? context.getPackageManager().checkPermission(str, context.getPackageName()) == 0 : invokeLL.booleanValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
+            if (context.getPackageManager().checkPermission(str, context.getPackageName()) == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
     }
 }

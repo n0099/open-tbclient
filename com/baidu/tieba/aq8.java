@@ -1,62 +1,217 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.tblauncher.MainTabScheduleStrategy;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import java.util.PriorityQueue;
 /* loaded from: classes3.dex */
-public class aq8 extends zp8 {
+public class aq8 {
     public static /* synthetic */ Interceptable $ic;
+    public static int a;
+    public static MainTabScheduleStrategy b;
+    public static boolean c;
+    public static final PriorityQueue d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final WeakReference<View> b;
 
-    public aq8(View view2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes3.dex */
+    public final class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                aq8.d();
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public final class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                aq8.d();
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public final class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gq8 a;
+
+        public c(gq8 gq8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gq8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = gq8Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.c();
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947623937, "Lcom/baidu/tieba/aq8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947623937, "Lcom/baidu/tieba/aq8;");
                 return;
             }
         }
-        this.b = new WeakReference<>(view2);
-        this.a = i;
+        b = MainTabScheduleStrategy.FLUSHING;
+        c = false;
+        d = new PriorityQueue();
     }
 
-    @Override // com.baidu.tieba.zp8
-    public void b() {
-        View view2;
+    public static void e() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (view2 = this.b.get()) == null) {
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            while (!d.isEmpty()) {
+                gq8 gq8Var = (gq8) d.poll();
+                if (gq8Var != null) {
+                    gq8Var.b();
+                    gq8Var.c();
+                }
+            }
+        }
+    }
+
+    public static void b(MainTabScheduleStrategy mainTabScheduleStrategy) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, mainTabScheduleStrategy) == null) {
+            b = mainTabScheduleStrategy;
+            if (mainTabScheduleStrategy != MainTabScheduleStrategy.UNSCHEDULE && !c) {
+                g(true);
+            }
+        }
+    }
+
+    public static void c(gq8 gq8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, gq8Var) == null) {
+            System.nanoTime();
+            gq8Var.b();
+            hh.a().postAtFrontOfQueue(new c(gq8Var));
+        }
+    }
+
+    public static void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            c = false;
+            if (d.isEmpty() || b == MainTabScheduleStrategy.UNSCHEDULE) {
+                return;
+            }
+            if (b == MainTabScheduleStrategy.FLUSHING) {
+                e();
+                return;
+            }
+            if (d.peek() != null && a >= ((gq8) d.peek()).a) {
+                gq8 gq8Var = (gq8) d.poll();
+                if (gq8Var == null) {
+                    return;
+                }
+                c(gq8Var);
+            }
+            if (b == MainTabScheduleStrategy.SCHEDULE) {
+                g(false);
+            }
+        }
+    }
+
+    public static void f(gq8 gq8Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65542, null, gq8Var) != null) || gq8Var == null) {
             return;
         }
-        view2.setVisibility(0);
-    }
-
-    @Override // com.baidu.tieba.zp8
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            tp8.a = Math.max(tp8.a, this.a + 1);
-        }
-    }
-
-    @Override // com.baidu.tieba.zp8
-    public void d() {
-        View view2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (view2 = this.b.get()) == null) {
+        if (b == MainTabScheduleStrategy.FLUSHING) {
+            if (!(gq8Var instanceof hq8)) {
+                gq8Var.d();
+                gq8Var.b();
+            }
+            gq8Var.c();
             return;
         }
-        view2.setVisibility(8);
+        gq8Var.d();
+        d.add(gq8Var);
+        if (b != MainTabScheduleStrategy.UNSCHEDULE && !c) {
+            g(false);
+        }
+    }
+
+    public static void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(65543, null, z) != null) || c) {
+            return;
+        }
+        c = true;
+        if (z) {
+            hh.a().postAtFrontOfQueue(new a());
+        } else {
+            hh.a().post(new b());
+        }
     }
 }

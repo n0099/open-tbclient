@@ -14,20 +14,20 @@ import io.reactivex.exceptions.Exceptions;
 import io.reactivex.functions.Function;
 import io.reactivex.internal.disposables.DisposableHelper;
 /* loaded from: classes8.dex */
-public final class ObservableOnErrorReturn<T> extends AbstractObservableWithUpstream<T, T> {
+public final class ObservableOnErrorReturn extends AbstractObservableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Function<? super Throwable, ? extends T> valueSupplier;
+    public final Function valueSupplier;
 
     /* loaded from: classes8.dex */
-    public static final class OnErrorReturnObserver<T> implements Observer<T>, Disposable {
+    public final class OnErrorReturnObserver implements Observer, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer<? super T> actual;
+        public final Observer actual;
         public Disposable s;
-        public final Function<? super Throwable, ? extends T> valueSupplier;
+        public final Function valueSupplier;
 
-        public OnErrorReturnObserver(Observer<? super T> observer, Function<? super Throwable, ? extends T> function) {
+        public OnErrorReturnObserver(Observer observer, Function function) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -58,7 +58,10 @@ public final class ObservableOnErrorReturn<T> extends AbstractObservableWithUpst
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.s.isDisposed() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.s.isDisposed();
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.Observer
@@ -74,7 +77,7 @@ public final class ObservableOnErrorReturn<T> extends AbstractObservableWithUpst
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
                 try {
-                    T apply = this.valueSupplier.apply(th);
+                    Object apply = this.valueSupplier.apply(th);
                     if (apply == null) {
                         NullPointerException nullPointerException = new NullPointerException("The supplied value is null");
                         nullPointerException.initCause(th);
@@ -91,10 +94,10 @@ public final class ObservableOnErrorReturn<T> extends AbstractObservableWithUpst
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
-                this.actual.onNext(t);
+            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+                this.actual.onNext(obj);
             }
         }
 
@@ -109,7 +112,7 @@ public final class ObservableOnErrorReturn<T> extends AbstractObservableWithUpst
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableOnErrorReturn(ObservableSource<T> observableSource, Function<? super Throwable, ? extends T> function) {
+    public ObservableOnErrorReturn(ObservableSource observableSource, Function function) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -130,7 +133,7 @@ public final class ObservableOnErrorReturn<T> extends AbstractObservableWithUpst
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer<? super T> observer) {
+    public void subscribeActual(Observer observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             this.source.subscribe(new OnErrorReturnObserver(observer, this.valueSupplier));

@@ -1,7 +1,6 @@
 package com.kwad.components.offline.api.tk;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +19,7 @@ public interface ITkOfflineCompo extends IOfflineCompo {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public static final class TKState {
+    public final class TKState {
         public static final /* synthetic */ TKState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final TKState READY;
@@ -92,5 +91,5 @@ public interface ITkOfflineCompo extends IOfflineCompo {
 
     StyleTemplate loadTkFileByTemplateId(Context context, String str);
 
-    void onConfigRefresh(Context context, @NonNull JSONObject jSONObject);
+    void onConfigRefresh(Context context, JSONObject jSONObject);
 }

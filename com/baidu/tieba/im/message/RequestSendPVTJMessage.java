@@ -40,25 +40,6 @@ public class RequestSendPVTJMessage extends TbSocketMessage {
         }
     }
 
-    public static String buildExtJson(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("st_param", str);
-            hashMap.put("jobid", "0");
-            return new JSONObject(hashMap).toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void sendOfficialBarPVTJ(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
-            MessageManager.getInstance().sendMessage(new RequestSendPVTJMessage(str, buildExtJson(str2)));
-        }
-    }
-
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
     public Object encode() {
         InterceptResult invokeV;
@@ -77,27 +58,19 @@ public class RequestSendPVTJMessage extends TbSocketMessage {
     public String getStExt() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.stExt : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.stExt;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getStType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.stType : (String) invokeV.objValue;
-    }
-
-    public void setStExt(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.stExt = str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.stType;
         }
-    }
-
-    public void setStType(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.stType = str;
-        }
+        return (String) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -120,5 +93,38 @@ public class RequestSendPVTJMessage extends TbSocketMessage {
         }
         this.stType = str;
         this.stExt = str2;
+    }
+
+    public static String buildExtJson(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("st_param", str);
+            hashMap.put("jobid", "0");
+            return new JSONObject(hashMap).toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void setStExt(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.stExt = str;
+        }
+    }
+
+    public void setStType(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.stType = str;
+        }
+    }
+
+    public static void sendOfficialBarPVTJ(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
+            MessageManager.getInstance().sendMessage(new RequestSendPVTJMessage(str, buildExtJson(str2)));
+        }
     }
 }

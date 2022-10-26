@@ -2,9 +2,6 @@ package androidx.core.graphics;
 
 import android.graphics.Path;
 import android.graphics.PointF;
-import androidx.annotation.FloatRange;
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,17 +28,16 @@ public final class PathUtils {
         }
     }
 
-    @NonNull
-    @RequiresApi(26)
-    public static Collection<PathSegment> flatten(@NonNull Path path) {
+    public static Collection<PathSegment> flatten(Path path) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, path)) == null) ? flatten(path, 0.5f) : (Collection) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, path)) == null) {
+            return flatten(path, 0.5f);
+        }
+        return (Collection) invokeL.objValue;
     }
 
-    @NonNull
-    @RequiresApi(26)
-    public static Collection<PathSegment> flatten(@NonNull Path path, @FloatRange(from = 0.0d) float f) {
+    public static Collection<PathSegment> flatten(Path path, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLF = interceptable.invokeLF(65538, null, path, f)) == null) {

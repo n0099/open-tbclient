@@ -14,21 +14,21 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.observers.ResumeSingleObserver;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class SingleDelayWithSingle<T, U> extends Single<T> {
+public final class SingleDelayWithSingle extends Single {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SingleSource<U> other;
-    public final SingleSource<T> source;
+    public final SingleSource other;
+    public final SingleSource source;
 
     /* loaded from: classes8.dex */
-    public static final class OtherObserver<T, U> extends AtomicReference<Disposable> implements SingleObserver<U>, Disposable {
+    public final class OtherObserver extends AtomicReference implements SingleObserver, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -8565274649390031272L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SingleObserver<? super T> actual;
-        public final SingleSource<T> source;
+        public final SingleObserver actual;
+        public final SingleSource source;
 
-        public OtherObserver(SingleObserver<? super T> singleObserver, SingleSource<T> singleSource) {
+        public OtherObserver(SingleObserver singleObserver, SingleSource singleSource) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -59,7 +59,10 @@ public final class SingleDelayWithSingle<T, U> extends Single<T> {
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? DisposableHelper.isDisposed(get()) : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return DisposableHelper.isDisposed((Disposable) get());
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.SingleObserver
@@ -79,15 +82,15 @@ public final class SingleDelayWithSingle<T, U> extends Single<T> {
         }
 
         @Override // io.reactivex.SingleObserver
-        public void onSuccess(U u) {
+        public void onSuccess(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, u) == null) {
+            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
                 this.source.subscribe(new ResumeSingleObserver(this, this.actual));
             }
         }
     }
 
-    public SingleDelayWithSingle(SingleSource<T> singleSource, SingleSource<U> singleSource2) {
+    public SingleDelayWithSingle(SingleSource singleSource, SingleSource singleSource2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -107,7 +110,7 @@ public final class SingleDelayWithSingle<T, U> extends Single<T> {
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver<? super T> singleObserver) {
+    public void subscribeActual(SingleObserver singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, singleObserver) == null) {
             this.other.subscribe(new OtherObserver(singleObserver, this.source));

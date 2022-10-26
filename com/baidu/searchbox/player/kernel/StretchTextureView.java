@@ -24,6 +24,18 @@ public class StretchTextureView extends TextureView {
     public int mVideoHeight;
     public int mVideoWidth;
 
+    private int setStyleMatchHeight(int i, int i2, int i3, int i4) {
+        InterceptResult invokeIIII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeIIII = interceptable.invokeIIII(65538, this, i, i2, i3, i4)) == null) ? (i3 <= 0 || i4 <= 0) ? i : (int) (i3 * (i2 / i4)) : invokeIIII.intValue;
+    }
+
+    private int setStyleMatchWidth(int i, int i2, int i3, int i4) {
+        InterceptResult invokeIIII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeIIII = interceptable.invokeIIII(65539, this, i, i2, i3, i4)) == null) ? (i3 <= 0 || i4 <= 0) ? i2 : (int) (i4 * (i / i3)) : invokeIIII.intValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public StretchTextureView(Context context) {
         super(context);
@@ -45,16 +57,26 @@ public class StretchTextureView extends TextureView {
         this.mStyle = 0;
     }
 
-    private int setStyleMatchHeight(int i, int i2, int i3, int i4) {
-        InterceptResult invokeIIII;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public StretchTextureView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIIII = interceptable.invokeIIII(65538, this, i, i2, i3, i4)) == null) ? (i3 <= 0 || i4 <= 0) ? i : (int) (i3 * (i2 / i4)) : invokeIIII.intValue;
-    }
-
-    private int setStyleMatchWidth(int i, int i2, int i3, int i4) {
-        InterceptResult invokeIIII;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIIII = interceptable.invokeIIII(65539, this, i, i2, i3, i4)) == null) ? (i3 <= 0 || i4 <= 0) ? i2 : (int) (i4 * (i / i3)) : invokeIIII.intValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mStyle = 0;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:51:0x00e5, code lost:
@@ -116,17 +138,17 @@ public class StretchTextureView extends TextureView {
                     } else {
                         int i11 = this.mVideoWidth;
                         int i12 = this.mVideoHeight;
-                        if (mode2 != Integer.MIN_VALUE || i12 <= size2) {
-                            defaultSize2 = i12;
-                        } else {
+                        if (mode2 == Integer.MIN_VALUE && i12 > size2) {
                             i11 = (i11 * size2) / i12;
                             defaultSize2 = size2;
-                        }
-                        if (mode != Integer.MIN_VALUE || i11 <= size) {
-                            defaultSize = i11;
                         } else {
+                            defaultSize2 = i12;
+                        }
+                        if (mode == Integer.MIN_VALUE && i11 > size) {
                             defaultSize2 = (this.mVideoHeight * size) / this.mVideoWidth;
                             defaultSize = size;
+                        } else {
+                            defaultSize = i11;
                         }
                     }
                 }
@@ -144,12 +166,14 @@ public class StretchTextureView extends TextureView {
             } else if (i5 == 2) {
                 defaultSize2 = setStyleMatchWidth(defaultSize, defaultSize2, this.mVideoWidth, this.mVideoHeight);
             } else if (i5 == 3 && (i3 = this.mVideoWidth) > 0 && (i4 = this.mVideoHeight) > 0) {
-                if (i3 / i4 > 1.0f) {
-                    defaultSize2 = setStyleMatchWidth(defaultSize, defaultSize2, i3, i4);
-                } else if (i3 / i4 <= defaultSize / defaultSize2) {
-                    defaultSize2 = setStyleMatchWidth(defaultSize, defaultSize2, i3, i4);
+                if (i3 / i4 <= 1.0f) {
+                    if (i3 / i4 <= defaultSize / defaultSize2) {
+                        defaultSize2 = setStyleMatchWidth(defaultSize, defaultSize2, i3, i4);
+                    } else {
+                        defaultSize = setStyleMatchHeight(defaultSize, defaultSize2, i3, i4);
+                    }
                 } else {
-                    defaultSize = setStyleMatchHeight(defaultSize, defaultSize2, i3, i4);
+                    defaultSize2 = setStyleMatchWidth(defaultSize, defaultSize2, i3, i4);
                 }
             }
             BdVideoLog.d(TAG, "setMeasuredDimension **  TextureViewWidth : " + defaultSize + ", TextureViewHeight : " + defaultSize2);
@@ -175,27 +199,5 @@ public class StretchTextureView extends TextureView {
             this.mVideoWidth = i;
             this.mVideoHeight = i2;
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public StretchTextureView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mStyle = 0;
     }
 }

@@ -16,11 +16,10 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 /* loaded from: classes7.dex */
 public interface HttpDataSource extends DataSource {
-    public static final Predicate<String> REJECT_PAYWALL_TYPES = new Predicate<String>() { // from class: com.google.android.exoplayer2.upstream.HttpDataSource.1
+    public static final Predicate REJECT_PAYWALL_TYPES = new Predicate() { // from class: com.google.android.exoplayer2.upstream.HttpDataSource.1
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -45,17 +44,56 @@ public interface HttpDataSource extends DataSource {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
                 String lowerInvariant = Util.toLowerInvariant(str);
-                return (TextUtils.isEmpty(lowerInvariant) || (lowerInvariant.contains("text") && !lowerInvariant.contains(MimeTypes.TEXT_VTT)) || lowerInvariant.contains("html") || lowerInvariant.contains("xml")) ? false : true;
+                if (!TextUtils.isEmpty(lowerInvariant) && ((!lowerInvariant.contains("text") || lowerInvariant.contains(MimeTypes.TEXT_VTT)) && !lowerInvariant.contains("html") && !lowerInvariant.contains("xml"))) {
+                    return true;
+                }
+                return false;
             }
             return invokeL.booleanValue;
         }
     };
 
     /* loaded from: classes7.dex */
-    public static abstract class BaseFactory implements Factory {
+    public interface Factory extends DataSource.Factory {
+        @Deprecated
+        void clearAllDefaultRequestProperties();
+
+        @Deprecated
+        void clearDefaultRequestProperty(String str);
+
+        @Override // com.google.android.exoplayer2.upstream.DataSource.Factory
+        HttpDataSource createDataSource();
+
+        RequestProperties getDefaultRequestProperties();
+
+        @Deprecated
+        void setDefaultRequestProperty(String str, String str2);
+    }
+
+    void clearAllRequestProperties();
+
+    void clearRequestProperty(String str);
+
+    @Override // com.google.android.exoplayer2.upstream.DataSource
+    void close() throws HttpDataSourceException;
+
+    Map getResponseHeaders();
+
+    @Override // com.google.android.exoplayer2.upstream.DataSource
+    long open(DataSpec dataSpec) throws HttpDataSourceException;
+
+    @Override // com.google.android.exoplayer2.upstream.DataSource
+    int read(byte[] bArr, int i, int i2) throws HttpDataSourceException;
+
+    void setRequestProperty(String str, String str2);
+
+    /* loaded from: classes7.dex */
+    public abstract class BaseFactory implements Factory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final RequestProperties defaultRequestProperties;
+
+        public abstract HttpDataSource createDataSourceInternal(RequestProperties requestProperties);
 
         public BaseFactory() {
             Interceptable interceptable = $ic;
@@ -83,6 +121,16 @@ public interface HttpDataSource extends DataSource {
         }
 
         @Override // com.google.android.exoplayer2.upstream.HttpDataSource.Factory
+        public final RequestProperties getDefaultRequestProperties() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return this.defaultRequestProperties;
+            }
+            return (RequestProperties) invokeV.objValue;
+        }
+
+        @Override // com.google.android.exoplayer2.upstream.HttpDataSource.Factory
         @Deprecated
         public final void clearDefaultRequestProperty(String str) {
             Interceptable interceptable = $ic;
@@ -91,13 +139,15 @@ public interface HttpDataSource extends DataSource {
             }
         }
 
-        public abstract HttpDataSource createDataSourceInternal(RequestProperties requestProperties);
-
-        @Override // com.google.android.exoplayer2.upstream.HttpDataSource.Factory
-        public final RequestProperties getDefaultRequestProperties() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.android.exoplayer2.upstream.HttpDataSource.Factory, com.google.android.exoplayer2.upstream.DataSource.Factory
+        public final HttpDataSource createDataSource() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.defaultRequestProperties : (RequestProperties) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return createDataSourceInternal(this.defaultRequestProperties);
+            }
+            return (HttpDataSource) invokeV.objValue;
         }
 
         @Override // com.google.android.exoplayer2.upstream.HttpDataSource.Factory
@@ -108,112 +158,10 @@ public interface HttpDataSource extends DataSource {
                 this.defaultRequestProperties.set(str, str2);
             }
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.android.exoplayer2.upstream.HttpDataSource.Factory, com.google.android.exoplayer2.upstream.DataSource.Factory
-        public final HttpDataSource createDataSource() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? createDataSourceInternal(this.defaultRequestProperties) : (HttpDataSource) invokeV.objValue;
-        }
     }
 
     /* loaded from: classes7.dex */
-    public interface Factory extends DataSource.Factory {
-        @Deprecated
-        void clearAllDefaultRequestProperties();
-
-        @Deprecated
-        void clearDefaultRequestProperty(String str);
-
-        @Override // com.google.android.exoplayer2.upstream.DataSource.Factory
-        HttpDataSource createDataSource();
-
-        RequestProperties getDefaultRequestProperties();
-
-        @Deprecated
-        void setDefaultRequestProperty(String str, String str2);
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class InvalidContentTypeException extends HttpDataSourceException {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final String contentType;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public InvalidContentTypeException(String str, DataSpec dataSpec) {
-            super("Invalid content type: " + str, dataSpec, 1);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, dataSpec};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((String) objArr2[0], (DataSpec) objArr2[1], ((Integer) objArr2[2]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.contentType = str;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class InvalidResponseCodeException extends HttpDataSourceException {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final Map<String, List<String>> headerFields;
-        public final int responseCode;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public InvalidResponseCodeException(int i, Map<String, List<String>> map, DataSpec dataSpec) {
-            super("Response code: " + i, dataSpec, 1);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), map, dataSpec};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((String) objArr2[0], (DataSpec) objArr2[1], ((Integer) objArr2[2]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.responseCode = i;
-            this.headerFields = map;
-        }
-    }
-
-    void clearAllRequestProperties();
-
-    void clearRequestProperty(String str);
-
-    @Override // com.google.android.exoplayer2.upstream.DataSource
-    void close() throws HttpDataSourceException;
-
-    Map<String, List<String>> getResponseHeaders();
-
-    @Override // com.google.android.exoplayer2.upstream.DataSource
-    long open(DataSpec dataSpec) throws HttpDataSourceException;
-
-    @Override // com.google.android.exoplayer2.upstream.DataSource
-    int read(byte[] bArr, int i, int i2) throws HttpDataSourceException;
-
-    void setRequestProperty(String str, String str2);
-
-    /* loaded from: classes7.dex */
-    public static class HttpDataSourceException extends IOException {
+    public class HttpDataSourceException extends IOException {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int TYPE_CLOSE = 3;
         public static final int TYPE_OPEN = 1;
@@ -247,28 +195,6 @@ public interface HttpDataSource extends DataSource {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public HttpDataSourceException(String str, DataSpec dataSpec, int i) {
-            super(str);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, dataSpec, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65538, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super((String) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65538, newInitContext);
-                    return;
-                }
-            }
-            this.dataSpec = dataSpec;
-            this.type = i;
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public HttpDataSourceException(IOException iOException, DataSpec dataSpec, int i) {
             super(iOException);
             Interceptable interceptable = $ic;
@@ -283,6 +209,28 @@ public interface HttpDataSource extends DataSource {
                     super((Throwable) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.dataSpec = dataSpec;
+            this.type = i;
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public HttpDataSourceException(String str, DataSpec dataSpec, int i) {
+            super(str);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, dataSpec, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65538, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((String) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65538, newInitContext);
                     return;
                 }
             }
@@ -315,11 +263,71 @@ public interface HttpDataSource extends DataSource {
     }
 
     /* loaded from: classes7.dex */
-    public static final class RequestProperties {
+    public final class InvalidContentTypeException extends HttpDataSourceException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Map<String, String> requestProperties;
-        public Map<String, String> requestPropertiesSnapshot;
+        public final String contentType;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public InvalidContentTypeException(String str, DataSpec dataSpec) {
+            super("Invalid content type: " + str, dataSpec, 1);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, dataSpec};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((String) objArr2[0], (DataSpec) objArr2[1], ((Integer) objArr2[2]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.contentType = str;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public final class InvalidResponseCodeException extends HttpDataSourceException {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final Map headerFields;
+        public final int responseCode;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public InvalidResponseCodeException(int i, Map map, DataSpec dataSpec) {
+            super("Response code: " + i, dataSpec, 1);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), map, dataSpec};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((String) objArr2[0], (DataSpec) objArr2[1], ((Integer) objArr2[2]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.responseCode = i;
+            this.headerFields = map;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public final class RequestProperties {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final Map requestProperties;
+        public Map requestPropertiesSnapshot;
 
         public RequestProperties() {
             Interceptable interceptable = $ic;
@@ -347,20 +355,9 @@ public interface HttpDataSource extends DataSource {
             }
         }
 
-        public synchronized void clearAndSet(Map<String, String> map) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map) == null) {
-                synchronized (this) {
-                    this.requestPropertiesSnapshot = null;
-                    this.requestProperties.clear();
-                    this.requestProperties.putAll(map);
-                }
-            }
-        }
-
-        public synchronized Map<String, String> getSnapshot() {
+        public synchronized Map getSnapshot() {
             InterceptResult invokeV;
-            Map<String, String> map;
+            Map map;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 synchronized (this) {
@@ -374,6 +371,17 @@ public interface HttpDataSource extends DataSource {
             return (Map) invokeV.objValue;
         }
 
+        public synchronized void clearAndSet(Map map) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map) == null) {
+                synchronized (this) {
+                    this.requestPropertiesSnapshot = null;
+                    this.requestProperties.clear();
+                    this.requestProperties.putAll(map);
+                }
+            }
+        }
+
         public synchronized void remove(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
@@ -384,22 +392,22 @@ public interface HttpDataSource extends DataSource {
             }
         }
 
+        public synchronized void set(Map map) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, map) == null) {
+                synchronized (this) {
+                    this.requestPropertiesSnapshot = null;
+                    this.requestProperties.putAll(map);
+                }
+            }
+        }
+
         public synchronized void set(String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
                 synchronized (this) {
                     this.requestPropertiesSnapshot = null;
                     this.requestProperties.put(str, str2);
-                }
-            }
-        }
-
-        public synchronized void set(Map<String, String> map) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, map) == null) {
-                synchronized (this) {
-                    this.requestPropertiesSnapshot = null;
-                    this.requestProperties.putAll(map);
                 }
             }
         }

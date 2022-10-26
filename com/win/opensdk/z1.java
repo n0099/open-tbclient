@@ -45,10 +45,12 @@ public class z1 implements s1 {
             try {
                 this.a.c = info;
                 if (this.a.f != null) {
-                    if (info == null || info.getType() != 51) {
+                    if (info != null && info.getType() == 51) {
+                        if (this.a.b()) {
+                            this.a.f.onLoaded();
+                        }
+                    } else {
                         this.a.f.onFail(PBError.PID_TYPE_ERROR);
-                    } else if (this.a.b()) {
-                        this.a.f.onLoaded();
                     }
                 }
             } catch (Exception unused) {
@@ -60,9 +62,8 @@ public class z1 implements s1 {
     public void onFail(PBError pBError) {
         E e;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) || (e = this.a.f) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) && (e = this.a.f) != null) {
+            e.onFail(pBError);
         }
-        e.onFail(pBError);
     }
 }

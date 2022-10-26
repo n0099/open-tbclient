@@ -20,14 +20,17 @@ public final class CoroutineContext$plus$1 extends Lambda implements Function2<C
         Intrinsics.checkNotNullParameter(acc, "acc");
         Intrinsics.checkNotNullParameter(element, "element");
         CoroutineContext minusKey = acc.minusKey(element.getKey());
-        if (minusKey == EmptyCoroutineContext.INSTANCE) {
-            return element;
+        if (minusKey != EmptyCoroutineContext.INSTANCE) {
+            ContinuationInterceptor continuationInterceptor = (ContinuationInterceptor) minusKey.get(ContinuationInterceptor.Key);
+            if (continuationInterceptor == null) {
+                return new CombinedContext(minusKey, element);
+            }
+            CoroutineContext minusKey2 = minusKey.minusKey(ContinuationInterceptor.Key);
+            if (minusKey2 == EmptyCoroutineContext.INSTANCE) {
+                return new CombinedContext(element, continuationInterceptor);
+            }
+            return new CombinedContext(new CombinedContext(minusKey2, element), continuationInterceptor);
         }
-        ContinuationInterceptor continuationInterceptor = (ContinuationInterceptor) minusKey.get(ContinuationInterceptor.Key);
-        if (continuationInterceptor == null) {
-            return new CombinedContext(minusKey, element);
-        }
-        CoroutineContext minusKey2 = minusKey.minusKey(ContinuationInterceptor.Key);
-        return minusKey2 == EmptyCoroutineContext.INSTANCE ? new CombinedContext(element, continuationInterceptor) : new CombinedContext(new CombinedContext(minusKey2, element), continuationInterceptor);
+        return element;
     }
 }

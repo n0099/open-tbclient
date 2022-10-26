@@ -89,7 +89,7 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
     public int n;
     public Path o;
     public int p;
-    public HashMap<String, x> q;
+    public HashMap q;
     public x r;
     public Bitmap s;
     public Bitmap t;
@@ -162,6 +162,22 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
         R = 0;
     }
 
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            if (this.c != null) {
+                this.i = new Canvas(this.c);
+            }
+            this.j.setColor(Q);
+            this.j.setStyle(Paint.Style.STROKE);
+            float strokeWidth = this.j.getStrokeWidth();
+            float f = R;
+            if (strokeWidth < f) {
+                this.j.setStrokeWidth(f);
+            }
+        }
+    }
+
     public ScreenCapEditActivity() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -195,6 +211,355 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
         this.L = new a(this);
     }
 
+    public static String a() {
+        InterceptResult invokeV;
+        File file;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (Environment.getExternalStorageState().equals("mounted")) {
+                file = Environment.getExternalStorageDirectory();
+            } else {
+                file = null;
+            }
+            if (file == null) {
+                return null;
+            }
+            return file.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void a(ScreenCapEditActivity screenCapEditActivity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, screenCapEditActivity) == null) {
+            if (screenCapEditActivity != null) {
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                screenCapEditActivity.H = byteArrayOutputStream;
+                Bitmap bitmap = screenCapEditActivity.c;
+                int i = 70;
+                if (bitmap != null) {
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, 70, byteArrayOutputStream);
+                }
+                String str = "stream.toByteArray() length is " + screenCapEditActivity.H.toByteArray().length;
+                String str2 = "stream.toByteArray() length is " + p1.a(screenCapEditActivity.H.toByteArray().length);
+                int length = screenCapEditActivity.H.toByteArray().length;
+                while (screenCapEditActivity.c != null && length > 300000 && i >= 0) {
+                    String str3 = "quality is " + i;
+                    ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream();
+                    screenCapEditActivity.H = byteArrayOutputStream2;
+                    screenCapEditActivity.c.compress(Bitmap.CompressFormat.JPEG, i, byteArrayOutputStream2);
+                    i -= 10;
+                    length = screenCapEditActivity.H.toByteArray().length;
+                    String str4 = "streamLength is " + length;
+                }
+                String str5 = "stream.toByteArray() length is " + screenCapEditActivity.H.toByteArray().length;
+                String str6 = "stream.toByteArray() length is " + p1.a(screenCapEditActivity.H.toByteArray().length);
+                Intent intent = new Intent();
+                intent.putExtra("shot", screenCapEditActivity.H.toByteArray());
+                intent.putExtra("editAgain", screenCapEditActivity.I);
+                screenCapEditActivity.setResult(-1, intent);
+                screenCapEditActivity.finish();
+                return;
+            }
+            throw null;
+        }
+    }
+
+    public static void a(ScreenCapEditActivity screenCapEditActivity, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, screenCapEditActivity, i) == null) {
+            if (screenCapEditActivity != null) {
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                screenCapEditActivity.H = byteArrayOutputStream;
+                Bitmap bitmap = screenCapEditActivity.c;
+                int i2 = 40;
+                if (bitmap != null) {
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, 40, byteArrayOutputStream);
+                }
+                String str = "stream.toByteArray() length is " + screenCapEditActivity.H.toByteArray().length;
+                String str2 = "stream.toByteArray() length is " + p1.a(screenCapEditActivity.H.toByteArray().length);
+                int length = screenCapEditActivity.H.toByteArray().length;
+                while (screenCapEditActivity.c != null && length > 300000 && i2 >= 0) {
+                    String str3 = "quality is " + i2;
+                    ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream();
+                    screenCapEditActivity.H = byteArrayOutputStream2;
+                    screenCapEditActivity.c.compress(Bitmap.CompressFormat.JPEG, i2, byteArrayOutputStream2);
+                    i2 -= 10;
+                    length = screenCapEditActivity.H.toByteArray().length;
+                    String str4 = "streamLength is " + length;
+                }
+                String str5 = "stream.toByteArray() length is " + screenCapEditActivity.H.toByteArray().length;
+                String str6 = "stream.toByteArray() length is " + p1.a(screenCapEditActivity.H.toByteArray().length);
+                c0 c0Var = new c0(screenCapEditActivity, i);
+                if (screenCapEditActivity.c == null) {
+                    c0Var.run();
+                    return;
+                } else {
+                    c0Var.run();
+                    return;
+                }
+            }
+            throw null;
+        }
+    }
+
+    public final void a(float f, float f2, float f3, float f4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
+            int i = (f3 > f ? 1 : (f3 == f ? 0 : -1));
+            if (i > 0 && f4 > f2) {
+                a(this.i, this.j, f, f2, f3, f4);
+            }
+            if (i > 0 && f4 < f2) {
+                a(this.i, this.j, f, f4, f3, f2);
+            }
+            int i2 = (f3 > f ? 1 : (f3 == f ? 0 : -1));
+            if (i2 < 0 && f4 > f2) {
+                a(this.i, this.j, f3, f2, f, f4);
+            }
+            if (i2 < 0 && f4 < f2) {
+                a(this.i, this.j, f3, f4, f, f2);
+            }
+            if (i == 0 || f4 == f2) {
+                a(this.i, this.j, f, f2, f3, f4);
+            }
+        }
+    }
+
+    public final void a(int i, float f, float f2, float f3, float f4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
+            if (i != 13) {
+                if (i != 14) {
+                    if (i != 24) {
+                        if (i != 0) {
+                            if (i != 1) {
+                                if (i != 2) {
+                                    if (i != 3) {
+                                        if (i == 4) {
+                                            this.r.d = this.A + (f4 - f2);
+                                            a(false);
+                                            for (Map.Entry entry : this.q.entrySet()) {
+                                                String str = "key= " + ((String) entry.getKey()) + " and value= " + entry.getValue();
+                                                this.i.drawRect(((x) entry.getValue()).a, ((x) entry.getValue()).b, ((x) entry.getValue()).c, ((x) entry.getValue()).d, this.j);
+                                            }
+                                            x xVar = this.r;
+                                            b(xVar.a, xVar.b, xVar.c, xVar.d);
+                                            Bitmap bitmap = this.w;
+                                            x xVar2 = this.r;
+                                            a(bitmap, (xVar2.a + xVar2.c) / 2.0f, xVar2.d);
+                                            return;
+                                        }
+                                        return;
+                                    }
+                                    this.r.b = this.y + (f4 - f2);
+                                    a(false);
+                                    for (Map.Entry entry2 : this.q.entrySet()) {
+                                        String str2 = "key= " + ((String) entry2.getKey()) + " and value= " + entry2.getValue();
+                                        this.i.drawRect(((x) entry2.getValue()).a, ((x) entry2.getValue()).b, ((x) entry2.getValue()).c, ((x) entry2.getValue()).d, this.j);
+                                    }
+                                    x xVar3 = this.r;
+                                    b(xVar3.a, xVar3.b, xVar3.c, xVar3.d);
+                                    Bitmap bitmap2 = this.w;
+                                    x xVar4 = this.r;
+                                    a(bitmap2, (xVar4.a + xVar4.c) / 2.0f, xVar4.b);
+                                    return;
+                                }
+                                this.r.c = this.z + (f3 - f);
+                                a(false);
+                                for (Map.Entry entry3 : this.q.entrySet()) {
+                                    String str3 = "key= " + ((String) entry3.getKey()) + " and value= " + entry3.getValue();
+                                    this.i.drawRect(((x) entry3.getValue()).a, ((x) entry3.getValue()).b, ((x) entry3.getValue()).c, ((x) entry3.getValue()).d, this.j);
+                                }
+                                x xVar5 = this.r;
+                                b(xVar5.a, xVar5.b, xVar5.c, xVar5.d);
+                                Bitmap bitmap3 = this.s;
+                                x xVar6 = this.r;
+                                a(bitmap3, xVar6.c, (xVar6.b + xVar6.d) / 2.0f);
+                                return;
+                            }
+                            this.r.a = this.x + (f3 - f);
+                            a(false);
+                            for (Map.Entry entry4 : this.q.entrySet()) {
+                                String str4 = "key= " + ((String) entry4.getKey()) + " and value= " + entry4.getValue();
+                                this.i.drawRect(((x) entry4.getValue()).a, ((x) entry4.getValue()).b, ((x) entry4.getValue()).c, ((x) entry4.getValue()).d, this.j);
+                            }
+                            x xVar7 = this.r;
+                            b(xVar7.a, xVar7.b, xVar7.c, xVar7.d);
+                            Bitmap bitmap4 = this.s;
+                            x xVar8 = this.r;
+                            a(bitmap4, xVar8.a, (xVar8.b + xVar8.d) / 2.0f);
+                            return;
+                        }
+                        float f5 = f3 - f;
+                        float f6 = f4 - f2;
+                        x xVar9 = this.r;
+                        xVar9.a = this.x + f5;
+                        xVar9.b = this.y + f6;
+                        xVar9.c = this.z + f5;
+                        xVar9.d = this.A + f6;
+                        a(false);
+                        for (Map.Entry entry5 : this.q.entrySet()) {
+                            System.out.println("key= " + ((String) entry5.getKey()) + " and value= " + entry5.getValue());
+                            this.i.drawRect(((x) entry5.getValue()).a, ((x) entry5.getValue()).b, ((x) entry5.getValue()).c, ((x) entry5.getValue()).d, this.j);
+                        }
+                        x xVar10 = this.r;
+                        b(xVar10.a, xVar10.b, xVar10.c, xVar10.d);
+                        Bitmap bitmap5 = this.u;
+                        x xVar11 = this.r;
+                        a(bitmap5, (xVar11.a + xVar11.c) / 2.0f, (xVar11.b + xVar11.d) / 2.0f);
+                        return;
+                    }
+                    x xVar12 = this.r;
+                    xVar12.c = this.z + (f3 - f);
+                    xVar12.d = this.A + (f4 - f2);
+                    a(false);
+                    for (Map.Entry entry6 : this.q.entrySet()) {
+                        String str5 = "key= " + ((String) entry6.getKey()) + " and value= " + entry6.getValue();
+                        this.i.drawRect(((x) entry6.getValue()).a, ((x) entry6.getValue()).b, ((x) entry6.getValue()).c, ((x) entry6.getValue()).d, this.j);
+                    }
+                    x xVar13 = this.r;
+                    b(xVar13.a, xVar13.b, xVar13.c, xVar13.d);
+                    Bitmap bitmap6 = this.t;
+                    x xVar14 = this.r;
+                    a(bitmap6, xVar14.c, xVar14.d);
+                    return;
+                }
+                x xVar15 = this.r;
+                xVar15.a = this.x + (f3 - f);
+                xVar15.d = this.A + (f4 - f2);
+                a(false);
+                for (Map.Entry entry7 : this.q.entrySet()) {
+                    String str6 = "key= " + ((String) entry7.getKey()) + " and value= " + entry7.getValue();
+                    this.i.drawRect(((x) entry7.getValue()).a, ((x) entry7.getValue()).b, ((x) entry7.getValue()).c, ((x) entry7.getValue()).d, this.j);
+                }
+                x xVar16 = this.r;
+                b(xVar16.a, xVar16.b, xVar16.c, xVar16.d);
+                Bitmap bitmap7 = this.v;
+                x xVar17 = this.r;
+                a(bitmap7, xVar17.a, xVar17.d);
+                return;
+            }
+            x xVar18 = this.r;
+            xVar18.a = this.x + (f3 - f);
+            xVar18.b = this.y + (f4 - f2);
+            a(false);
+            for (Map.Entry entry8 : this.q.entrySet()) {
+                String str7 = "key= " + ((String) entry8.getKey()) + " and value= " + entry8.getValue();
+                this.i.drawRect(((x) entry8.getValue()).a, ((x) entry8.getValue()).b, ((x) entry8.getValue()).c, ((x) entry8.getValue()).d, this.j);
+            }
+            x xVar19 = this.r;
+            b(xVar19.a, xVar19.b, xVar19.c, xVar19.d);
+            Bitmap bitmap8 = this.t;
+            x xVar20 = this.r;
+            a(bitmap8, xVar20.a, xVar20.b);
+        }
+    }
+
+    public final void a(Bitmap bitmap, float f, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{bitmap, Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            this.i.drawBitmap(bitmap, f - (bitmap.getWidth() / 2), f2 - (bitmap.getHeight() / 2), this.j);
+        }
+    }
+
+    public final void a(Canvas canvas, Paint paint, float f, float f2, float f3, float f4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{canvas, paint, Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
+            paint.setStrokeWidth(b.a(getApplicationContext(), 1.0f));
+            paint.setStyle(Paint.Style.FILL);
+            paint.setColor(-1);
+            canvas.drawCircle(f, f2, b.a(getApplicationContext(), 7.0f), paint);
+            float f5 = (f2 + f4) / 2.0f;
+            canvas.drawCircle(f, f5, b.a(getApplicationContext(), 5.0f), paint);
+            canvas.drawCircle(f, f4, b.a(getApplicationContext(), 7.0f), paint);
+            float f6 = (f + f3) / 2.0f;
+            canvas.drawCircle(f6, f2, b.a(getApplicationContext(), 5.0f), paint);
+            canvas.drawCircle(f6, f4, b.a(getApplicationContext(), 5.0f), paint);
+            canvas.drawCircle(f3, f5, b.a(getApplicationContext(), 5.0f), paint);
+            canvas.drawCircle(f3, f4, b.a(getApplicationContext(), 7.0f), paint);
+            canvas.drawCircle(f3, f2, b.a(getApplicationContext(), 7.0f), paint);
+            paint.setStyle(Paint.Style.STROKE);
+            paint.setColor(-65536);
+            canvas.drawCircle(f, f2, b.a(getApplicationContext(), 7.0f), paint);
+            canvas.drawCircle(f, f5, b.a(getApplicationContext(), 5.0f), paint);
+            canvas.drawCircle(f, f4, b.a(getApplicationContext(), 7.0f), paint);
+            canvas.drawCircle(f6, f2, b.a(getApplicationContext(), 5.0f), paint);
+            canvas.drawCircle(f6, f4, b.a(getApplicationContext(), 5.0f), paint);
+            canvas.drawCircle(f3, f5, b.a(getApplicationContext(), 5.0f), paint);
+            canvas.drawCircle(f3, f4, b.a(getApplicationContext(), 7.0f), paint);
+            canvas.drawCircle(f3, f2, b.a(getApplicationContext(), 7.0f), paint);
+            canvas.drawLine(f3, f2, f3 - b.a(getApplicationContext(), 3.0f), f2 + b.a(getApplicationContext(), 3.0f), paint);
+            canvas.drawLine(f3, f2, f3 + b.a(getApplicationContext(), 3.0f), f2 - b.a(getApplicationContext(), 3.0f), paint);
+            canvas.drawLine(f3, f2, f3 - b.a(getApplicationContext(), 3.0f), f2 - b.a(getApplicationContext(), 3.0f), paint);
+            canvas.drawLine(f3, f2, f3 + b.a(getApplicationContext(), 3.0f), f2 + b.a(getApplicationContext(), 3.0f), paint);
+            String str = System.currentTimeMillis() + UUID.randomUUID().toString();
+            x xVar = new x(f, f2, f3, f4, true, str);
+            this.q.put(str, xVar);
+            this.r = xVar;
+            this.x = xVar.a;
+            this.y = xVar.b;
+            this.z = xVar.c;
+            this.A = xVar.d;
+            this.E = false;
+            this.P.setBackgroundDrawable(p1.a(getApplicationContext(), -15066598, -16777216));
+        }
+    }
+
+    public final void a(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            int width = this.b.getWidth();
+            int height = this.b.getHeight();
+            Matrix matrix = new Matrix();
+            matrix.postScale((float) ((this.k * 1.0d) / width), (float) ((this.l * 1.0d) / height));
+            try {
+                this.c = Bitmap.createBitmap(this.b, 0, 0, width, height, matrix, true).copy(Bitmap.Config.ARGB_8888, true);
+            } catch (Throwable th) {
+                th.printStackTrace();
+            }
+            this.a.setImageBitmap(this.c);
+            b();
+            this.a.invalidate();
+            if (z) {
+                this.q.clear();
+            }
+        }
+    }
+
+    public final void b(float f, float f2, float f3, float f4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
+            this.j.setStrokeWidth(b.a(getApplicationContext(), 1.0f));
+            this.j.setStyle(Paint.Style.FILL);
+            this.j.setColor(-1);
+            this.i.drawCircle(f, f2, b.a(getApplicationContext(), 7.0f), this.j);
+            float f5 = (f2 + f4) / 2.0f;
+            this.i.drawCircle(f, f5, b.a(getApplicationContext(), 5.0f), this.j);
+            this.i.drawCircle(f, f4, b.a(getApplicationContext(), 7.0f), this.j);
+            float f6 = (f + f3) / 2.0f;
+            this.i.drawCircle(f6, f2, b.a(getApplicationContext(), 5.0f), this.j);
+            this.i.drawCircle(f6, f4, b.a(getApplicationContext(), 5.0f), this.j);
+            this.i.drawCircle(f3, f5, b.a(getApplicationContext(), 5.0f), this.j);
+            this.i.drawCircle(f3, f4, b.a(getApplicationContext(), 7.0f), this.j);
+            this.i.drawCircle(f3, f2, b.a(getApplicationContext(), 7.0f), this.j);
+            this.j.setStyle(Paint.Style.STROKE);
+            this.j.setColor(-65536);
+            this.i.drawCircle(f, f2, b.a(getApplicationContext(), 7.0f), this.j);
+            this.i.drawCircle(f, f5, b.a(getApplicationContext(), 5.0f), this.j);
+            this.i.drawCircle(f, f4, b.a(getApplicationContext(), 7.0f), this.j);
+            this.i.drawCircle(f6, f2, b.a(getApplicationContext(), 5.0f), this.j);
+            this.i.drawCircle(f6, f4, b.a(getApplicationContext(), 5.0f), this.j);
+            this.i.drawCircle(f3, f5, b.a(getApplicationContext(), 5.0f), this.j);
+            this.i.drawCircle(f3, f4, b.a(getApplicationContext(), 7.0f), this.j);
+            this.i.drawCircle(f3, f2, b.a(getApplicationContext(), 7.0f), this.j);
+            this.i.drawLine(f3, f2, f3 - b.a(getApplicationContext(), 3.0f), f2 + b.a(getApplicationContext(), 3.0f), this.j);
+            this.i.drawLine(f3, f2, f3 + b.a(getApplicationContext(), 3.0f), f2 - b.a(getApplicationContext(), 3.0f), this.j);
+            this.i.drawLine(f3, f2, f3 - b.a(getApplicationContext(), 3.0f), f2 - b.a(getApplicationContext(), 3.0f), this.j);
+            this.i.drawLine(f3, f2, f3 + b.a(getApplicationContext(), 3.0f), f2 + b.a(getApplicationContext(), 3.0f), this.j);
+        }
+    }
+
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean dispatchKeyEvent(KeyEvent keyEvent) {
         InterceptResult invokeL;
@@ -213,6 +578,7 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
 
     @Override // android.app.Activity
     public void onCreate(Bundle bundle) {
+        Bitmap bitmap;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
             super.onCreate(bundle);
@@ -224,12 +590,16 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
             this.G = getIntent().getBooleanExtra("input", false);
             this.J = getIntent().getBooleanExtra("from_app", false);
             this.K = getIntent().getIntExtra("extend_feedback_channel", 0);
-            SoftReference<Bitmap> softReference = w.a().a;
-            Bitmap bitmap = softReference == null ? null : softReference.get();
+            SoftReference softReference = w.a().a;
+            if (softReference == null) {
+                bitmap = null;
+            } else {
+                bitmap = (Bitmap) softReference.get();
+            }
             if (bitmap != null) {
                 this.b = bitmap;
                 w a2 = w.a();
-                SoftReference<Bitmap> softReference2 = a2.a;
+                SoftReference softReference2 = a2.a;
                 if (softReference2 != null) {
                     softReference2.clear();
                     a2.a = null;
@@ -411,7 +781,7 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
             this.j.setStrokeCap(Paint.Cap.ROUND);
             this.j.setStrokeJoin(Paint.Join.ROUND);
             this.j.setAntiAlias(true);
-            this.q = new HashMap<>();
+            this.q = new HashMap();
             this.s = p1.b(getApplicationContext(), "arrow_left_right.png");
             this.t = p1.b(getApplicationContext(), "arrow_left_up.png");
             this.u = p1.b(getApplicationContext(), "arrow_move.png");
@@ -453,154 +823,162 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, view2, motionEvent)) == null) {
             try {
                 int action = motionEvent.getAction();
-                if (action == 0) {
-                    this.g = motionEvent.getX();
-                    this.h = motionEvent.getY();
-                    this.e = motionEvent.getX();
-                    float y = motionEvent.getY();
-                    this.f = y;
-                    this.o.moveTo(this.e, y);
-                    this.d = Bitmap.createBitmap(this.c);
-                    if (this.q.size() > 0 && this.r.e) {
-                        this.r.f = this.r.a(this.g, this.h, (int) (getResources().getDisplayMetrics().density * 7.0f), (int) (getResources().getDisplayMetrics().density * 7.0f));
-                        String str = "^#^ --> OperationTag: " + this.r.f;
-                        if (this.r.f == 23) {
-                            a(false);
-                            this.q.remove(this.r.h);
-                            for (Map.Entry<String, x> entry : this.q.entrySet()) {
-                                String str2 = "key= " + entry.getKey() + " and value= " + entry.getValue();
-                                this.i.drawRect(entry.getValue().a, entry.getValue().b, entry.getValue().c, entry.getValue().d, this.j);
-                            }
-                            return true;
-                        }
-                    }
-                } else if (action == 1) {
-                    float x = motionEvent.getX();
-                    float y2 = motionEvent.getY();
-                    if (this.m) {
-                        this.L.obtainMessage(0).sendToTarget();
-                        if (this.q.size() > 0) {
-                            int i = this.r.f;
-                            if (i == 13 || i == 14 || i == 24) {
-                                if (this.r.a > this.r.c && this.r.b > this.r.d) {
-                                    float f3 = this.r.c;
-                                    float f4 = this.r.d;
-                                    this.r.c = this.r.a;
-                                    this.r.d = this.r.b;
-                                    this.r.a = f3;
-                                    this.r.b = f4;
-                                }
-                                if (this.r.a < this.r.c && this.r.b > this.r.d) {
-                                    float f5 = this.r.b;
-                                    this.r.b = this.r.d;
-                                    this.r.d = f5;
-                                }
-                                if (this.r.a > this.r.c && this.r.b < this.r.d) {
-                                    float f6 = this.r.a;
-                                    this.r.a = this.r.c;
-                                    this.r.c = f6;
-                                }
-                            } else if (i != 1 && i != 2) {
-                                if ((i == 3 || i == 4) && this.r.b > this.r.d) {
-                                    float f7 = this.r.b;
-                                    this.r.b = this.r.d;
-                                    this.r.d = f7;
-                                }
-                            } else if (this.r.a > this.r.c) {
-                                float f8 = this.r.a;
-                                this.r.a = this.r.c;
-                                this.r.c = f8;
-                            }
-                            String str3 = "###selectedRect.getOperateTag(): " + this.r.f;
-                        }
-                        a(false);
-                        for (Map.Entry<String, x> entry2 : this.q.entrySet()) {
-                            String str4 = "key= " + entry2.getKey() + " and value= " + entry2.getValue();
-                            this.i.drawRect(entry2.getValue().a, entry2.getValue().b, entry2.getValue().c, entry2.getValue().d, this.j);
-                            entry2.getValue().e = false;
-                            entry2.getValue().f = -1;
-                        }
-                        if (Math.abs(x - this.g) <= 20.0f && Math.abs(y2 - this.h) <= 20.0f) {
-                            Iterator<Map.Entry<String, x>> it = this.q.entrySet().iterator();
-                            while (true) {
-                                if (!it.hasNext()) {
-                                    break;
-                                }
-                                Map.Entry<String, x> next = it.next();
-                                String str5 = "key= " + next.getKey() + " and value= " + next.getValue();
-                                if (next.getValue().a(x, b.a(getApplicationContext(), 7.0f), y2, b.a(getApplicationContext(), 7.0f))) {
-                                    next.getValue().e = true;
-                                    next.getValue().f = 0;
-                                    b(next.getValue().a, next.getValue().b, next.getValue().c, next.getValue().d);
-                                    this.r = next.getValue();
-                                    x value = next.getValue();
-                                    this.x = value.a;
-                                    this.y = value.b;
-                                    this.z = value.c;
-                                    this.A = value.d;
-                                    break;
+                if (action != 0) {
+                    if (action != 1) {
+                        if (action == 2) {
+                            float x = motionEvent.getX();
+                            float y = motionEvent.getY();
+                            if (this.i != null && this.j != null) {
+                                if (!this.m) {
+                                    Bitmap createBitmap = Bitmap.createBitmap(this.d);
+                                    this.c = createBitmap;
+                                    this.a.setImageBitmap(createBitmap);
+                                    b();
+                                    this.o.lineTo(x, y);
+                                    this.i.drawPath(this.o, this.j);
+                                } else {
+                                    Bitmap createBitmap2 = Bitmap.createBitmap(this.d);
+                                    this.c = createBitmap2;
+                                    this.a.setImageBitmap(createBitmap2);
+                                    b();
+                                    if (this.q.size() > 0) {
+                                        a(this.r.f, this.g, this.h, x, y);
+                                    }
+                                    if (this.E && (Math.abs(x - this.g) > 20.0f || Math.abs(y - this.h) > 20.0f)) {
+                                        if (this.q.size() > 0) {
+                                            if (this.r.e && this.r.f != -1) {
+                                                this.B = false;
+                                                return false;
+                                            }
+                                            this.B = true;
+                                            f = y;
+                                            f2 = x;
+                                            this.i.drawRect(this.g, this.h, x, f, this.j);
+                                        } else {
+                                            f = y;
+                                            f2 = x;
+                                            this.B = true;
+                                            this.i.drawRect(this.g, this.h, f2, f, this.j);
+                                        }
+                                    } else {
+                                        f = y;
+                                        f2 = x;
+                                    }
+                                    if (!this.E) {
+                                        this.B = false;
+                                    }
+                                    this.e = f2;
+                                    this.f = f;
+                                    this.a.invalidate();
                                 }
                             }
-                            this.a.invalidate();
-                        }
-                        if (this.B) {
-                            this.i.drawRect(this.g, this.h, x, y2, this.j);
-                            a(this.g, this.h, x, y2);
-                        }
-                        this.a.invalidate();
-                    } else {
-                        this.o.reset();
-                    }
-                } else if (action == 2) {
-                    float x2 = motionEvent.getX();
-                    float y3 = motionEvent.getY();
-                    if (this.i != null && this.j != null) {
-                        if (!this.m) {
-                            Bitmap createBitmap = Bitmap.createBitmap(this.d);
-                            this.c = createBitmap;
-                            this.a.setImageBitmap(createBitmap);
-                            b();
-                            this.o.lineTo(x2, y3);
-                            this.i.drawPath(this.o, this.j);
-                        } else {
-                            Bitmap createBitmap2 = Bitmap.createBitmap(this.d);
-                            this.c = createBitmap2;
-                            this.a.setImageBitmap(createBitmap2);
-                            b();
-                            if (this.q.size() > 0) {
-                                a(this.r.f, this.g, this.h, x2, y3);
-                            }
-                            if (!this.E || (Math.abs(x2 - this.g) <= 20.0f && Math.abs(y3 - this.h) <= 20.0f)) {
-                                f = y3;
-                                f2 = x2;
-                            } else if (this.q.size() > 0) {
-                                if (this.r.e && this.r.f != -1) {
-                                    this.B = false;
-                                    return false;
-                                }
-                                this.B = true;
-                                f = y3;
-                                f2 = x2;
-                                this.i.drawRect(this.g, this.h, x2, f, this.j);
-                            } else {
-                                f = y3;
-                                f2 = x2;
-                                this.B = true;
-                                this.i.drawRect(this.g, this.h, f2, f, this.j);
-                            }
-                            if (!this.E) {
-                                this.B = false;
-                            }
+                            f = y;
+                            f2 = x;
                             this.e = f2;
                             this.f = f;
                             this.a.invalidate();
                         }
+                    } else {
+                        float x2 = motionEvent.getX();
+                        float y2 = motionEvent.getY();
+                        if (this.m) {
+                            this.L.obtainMessage(0).sendToTarget();
+                            if (this.q.size() > 0) {
+                                int i = this.r.f;
+                                if (i != 13 && i != 14 && i != 24) {
+                                    if (i != 1 && i != 2) {
+                                        if ((i == 3 || i == 4) && this.r.b > this.r.d) {
+                                            float f3 = this.r.b;
+                                            this.r.b = this.r.d;
+                                            this.r.d = f3;
+                                        }
+                                    } else if (this.r.a > this.r.c) {
+                                        float f4 = this.r.a;
+                                        this.r.a = this.r.c;
+                                        this.r.c = f4;
+                                    }
+                                } else {
+                                    if (this.r.a > this.r.c && this.r.b > this.r.d) {
+                                        float f5 = this.r.c;
+                                        float f6 = this.r.d;
+                                        this.r.c = this.r.a;
+                                        this.r.d = this.r.b;
+                                        this.r.a = f5;
+                                        this.r.b = f6;
+                                    }
+                                    if (this.r.a < this.r.c && this.r.b > this.r.d) {
+                                        float f7 = this.r.b;
+                                        this.r.b = this.r.d;
+                                        this.r.d = f7;
+                                    }
+                                    if (this.r.a > this.r.c && this.r.b < this.r.d) {
+                                        float f8 = this.r.a;
+                                        this.r.a = this.r.c;
+                                        this.r.c = f8;
+                                    }
+                                }
+                                String str = "###selectedRect.getOperateTag(): " + this.r.f;
+                            }
+                            a(false);
+                            for (Map.Entry entry : this.q.entrySet()) {
+                                String str2 = "key= " + ((String) entry.getKey()) + " and value= " + entry.getValue();
+                                this.i.drawRect(((x) entry.getValue()).a, ((x) entry.getValue()).b, ((x) entry.getValue()).c, ((x) entry.getValue()).d, this.j);
+                                ((x) entry.getValue()).e = false;
+                                ((x) entry.getValue()).f = -1;
+                            }
+                            if (Math.abs(x2 - this.g) <= 20.0f && Math.abs(y2 - this.h) <= 20.0f) {
+                                Iterator it = this.q.entrySet().iterator();
+                                while (true) {
+                                    if (!it.hasNext()) {
+                                        break;
+                                    }
+                                    Map.Entry entry2 = (Map.Entry) it.next();
+                                    String str3 = "key= " + ((String) entry2.getKey()) + " and value= " + entry2.getValue();
+                                    if (((x) entry2.getValue()).a(x2, b.a(getApplicationContext(), 7.0f), y2, b.a(getApplicationContext(), 7.0f))) {
+                                        ((x) entry2.getValue()).e = true;
+                                        ((x) entry2.getValue()).f = 0;
+                                        b(((x) entry2.getValue()).a, ((x) entry2.getValue()).b, ((x) entry2.getValue()).c, ((x) entry2.getValue()).d);
+                                        this.r = (x) entry2.getValue();
+                                        x xVar = (x) entry2.getValue();
+                                        this.x = xVar.a;
+                                        this.y = xVar.b;
+                                        this.z = xVar.c;
+                                        this.A = xVar.d;
+                                        break;
+                                    }
+                                }
+                                this.a.invalidate();
+                            }
+                            if (this.B) {
+                                this.i.drawRect(this.g, this.h, x2, y2, this.j);
+                                a(this.g, this.h, x2, y2);
+                            }
+                            this.a.invalidate();
+                        } else {
+                            this.o.reset();
+                        }
                     }
-                    f = y3;
-                    f2 = x2;
-                    this.e = f2;
-                    this.f = f;
-                    this.a.invalidate();
+                } else {
+                    this.g = motionEvent.getX();
+                    this.h = motionEvent.getY();
+                    this.e = motionEvent.getX();
+                    float y3 = motionEvent.getY();
+                    this.f = y3;
+                    this.o.moveTo(this.e, y3);
+                    this.d = Bitmap.createBitmap(this.c);
+                    if (this.q.size() > 0 && this.r.e) {
+                        this.r.f = this.r.a(this.g, this.h, (int) (getResources().getDisplayMetrics().density * 7.0f), (int) (getResources().getDisplayMetrics().density * 7.0f));
+                        String str4 = "^#^ --> OperationTag: " + this.r.f;
+                        if (this.r.f == 23) {
+                            a(false);
+                            this.q.remove(this.r.h);
+                            for (Map.Entry entry3 : this.q.entrySet()) {
+                                String str5 = "key= " + ((String) entry3.getKey()) + " and value= " + entry3.getValue();
+                                this.i.drawRect(((x) entry3.getValue()).a, ((x) entry3.getValue()).b, ((x) entry3.getValue()).c, ((x) entry3.getValue()).d, this.j);
+                            }
+                            return true;
+                        }
+                    }
                 }
                 return true;
             } catch (Throwable th) {
@@ -609,350 +987,5 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
             }
         }
         return invokeLL.booleanValue;
-    }
-
-    public static void a(ScreenCapEditActivity screenCapEditActivity, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, screenCapEditActivity, i) == null) {
-            if (screenCapEditActivity != null) {
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                screenCapEditActivity.H = byteArrayOutputStream;
-                Bitmap bitmap = screenCapEditActivity.c;
-                int i2 = 40;
-                if (bitmap != null) {
-                    bitmap.compress(Bitmap.CompressFormat.JPEG, 40, byteArrayOutputStream);
-                }
-                String str = "stream.toByteArray() length is " + screenCapEditActivity.H.toByteArray().length;
-                String str2 = "stream.toByteArray() length is " + p1.a(screenCapEditActivity.H.toByteArray().length);
-                int length = screenCapEditActivity.H.toByteArray().length;
-                while (screenCapEditActivity.c != null && length > 300000 && i2 >= 0) {
-                    String str3 = "quality is " + i2;
-                    ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream();
-                    screenCapEditActivity.H = byteArrayOutputStream2;
-                    screenCapEditActivity.c.compress(Bitmap.CompressFormat.JPEG, i2, byteArrayOutputStream2);
-                    i2 -= 10;
-                    length = screenCapEditActivity.H.toByteArray().length;
-                    String str4 = "streamLength is " + length;
-                }
-                String str5 = "stream.toByteArray() length is " + screenCapEditActivity.H.toByteArray().length;
-                String str6 = "stream.toByteArray() length is " + p1.a(screenCapEditActivity.H.toByteArray().length);
-                c0 c0Var = new c0(screenCapEditActivity, i);
-                if (screenCapEditActivity.c == null) {
-                    c0Var.run();
-                    return;
-                } else {
-                    c0Var.run();
-                    return;
-                }
-            }
-            throw null;
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            if (this.c != null) {
-                this.i = new Canvas(this.c);
-            }
-            this.j.setColor(Q);
-            this.j.setStyle(Paint.Style.STROKE);
-            float strokeWidth = this.j.getStrokeWidth();
-            float f = R;
-            if (strokeWidth < f) {
-                this.j.setStrokeWidth(f);
-            }
-        }
-    }
-
-    public final void b(float f, float f2, float f3, float f4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
-            this.j.setStrokeWidth(b.a(getApplicationContext(), 1.0f));
-            this.j.setStyle(Paint.Style.FILL);
-            this.j.setColor(-1);
-            this.i.drawCircle(f, f2, b.a(getApplicationContext(), 7.0f), this.j);
-            float f5 = (f2 + f4) / 2.0f;
-            this.i.drawCircle(f, f5, b.a(getApplicationContext(), 5.0f), this.j);
-            this.i.drawCircle(f, f4, b.a(getApplicationContext(), 7.0f), this.j);
-            float f6 = (f + f3) / 2.0f;
-            this.i.drawCircle(f6, f2, b.a(getApplicationContext(), 5.0f), this.j);
-            this.i.drawCircle(f6, f4, b.a(getApplicationContext(), 5.0f), this.j);
-            this.i.drawCircle(f3, f5, b.a(getApplicationContext(), 5.0f), this.j);
-            this.i.drawCircle(f3, f4, b.a(getApplicationContext(), 7.0f), this.j);
-            this.i.drawCircle(f3, f2, b.a(getApplicationContext(), 7.0f), this.j);
-            this.j.setStyle(Paint.Style.STROKE);
-            this.j.setColor(-65536);
-            this.i.drawCircle(f, f2, b.a(getApplicationContext(), 7.0f), this.j);
-            this.i.drawCircle(f, f5, b.a(getApplicationContext(), 5.0f), this.j);
-            this.i.drawCircle(f, f4, b.a(getApplicationContext(), 7.0f), this.j);
-            this.i.drawCircle(f6, f2, b.a(getApplicationContext(), 5.0f), this.j);
-            this.i.drawCircle(f6, f4, b.a(getApplicationContext(), 5.0f), this.j);
-            this.i.drawCircle(f3, f5, b.a(getApplicationContext(), 5.0f), this.j);
-            this.i.drawCircle(f3, f4, b.a(getApplicationContext(), 7.0f), this.j);
-            this.i.drawCircle(f3, f2, b.a(getApplicationContext(), 7.0f), this.j);
-            this.i.drawLine(f3, f2, f3 - b.a(getApplicationContext(), 3.0f), f2 + b.a(getApplicationContext(), 3.0f), this.j);
-            this.i.drawLine(f3, f2, f3 + b.a(getApplicationContext(), 3.0f), f2 - b.a(getApplicationContext(), 3.0f), this.j);
-            this.i.drawLine(f3, f2, f3 - b.a(getApplicationContext(), 3.0f), f2 - b.a(getApplicationContext(), 3.0f), this.j);
-            this.i.drawLine(f3, f2, f3 + b.a(getApplicationContext(), 3.0f), f2 + b.a(getApplicationContext(), 3.0f), this.j);
-        }
-    }
-
-    public static void a(ScreenCapEditActivity screenCapEditActivity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, screenCapEditActivity) == null) {
-            if (screenCapEditActivity != null) {
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                screenCapEditActivity.H = byteArrayOutputStream;
-                Bitmap bitmap = screenCapEditActivity.c;
-                int i = 70;
-                if (bitmap != null) {
-                    bitmap.compress(Bitmap.CompressFormat.JPEG, 70, byteArrayOutputStream);
-                }
-                String str = "stream.toByteArray() length is " + screenCapEditActivity.H.toByteArray().length;
-                String str2 = "stream.toByteArray() length is " + p1.a(screenCapEditActivity.H.toByteArray().length);
-                int length = screenCapEditActivity.H.toByteArray().length;
-                while (screenCapEditActivity.c != null && length > 300000 && i >= 0) {
-                    String str3 = "quality is " + i;
-                    ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream();
-                    screenCapEditActivity.H = byteArrayOutputStream2;
-                    screenCapEditActivity.c.compress(Bitmap.CompressFormat.JPEG, i, byteArrayOutputStream2);
-                    i -= 10;
-                    length = screenCapEditActivity.H.toByteArray().length;
-                    String str4 = "streamLength is " + length;
-                }
-                String str5 = "stream.toByteArray() length is " + screenCapEditActivity.H.toByteArray().length;
-                String str6 = "stream.toByteArray() length is " + p1.a(screenCapEditActivity.H.toByteArray().length);
-                Intent intent = new Intent();
-                intent.putExtra("shot", screenCapEditActivity.H.toByteArray());
-                intent.putExtra("editAgain", screenCapEditActivity.I);
-                screenCapEditActivity.setResult(-1, intent);
-                screenCapEditActivity.finish();
-                return;
-            }
-            throw null;
-        }
-    }
-
-    public final void a(float f, float f2, float f3, float f4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
-            int i = (f3 > f ? 1 : (f3 == f ? 0 : -1));
-            if (i > 0 && f4 > f2) {
-                a(this.i, this.j, f, f2, f3, f4);
-            }
-            if (i > 0 && f4 < f2) {
-                a(this.i, this.j, f, f4, f3, f2);
-            }
-            int i2 = (f3 > f ? 1 : (f3 == f ? 0 : -1));
-            if (i2 < 0 && f4 > f2) {
-                a(this.i, this.j, f3, f2, f, f4);
-            }
-            if (i2 < 0 && f4 < f2) {
-                a(this.i, this.j, f3, f4, f, f2);
-            }
-            if (i == 0 || f4 == f2) {
-                a(this.i, this.j, f, f2, f3, f4);
-            }
-        }
-    }
-
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            File externalStorageDirectory = Environment.getExternalStorageState().equals("mounted") ? Environment.getExternalStorageDirectory() : null;
-            if (externalStorageDirectory == null) {
-                return null;
-            }
-            return externalStorageDirectory.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void a(Canvas canvas, Paint paint, float f, float f2, float f3, float f4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{canvas, paint, Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
-            paint.setStrokeWidth(b.a(getApplicationContext(), 1.0f));
-            paint.setStyle(Paint.Style.FILL);
-            paint.setColor(-1);
-            canvas.drawCircle(f, f2, b.a(getApplicationContext(), 7.0f), paint);
-            float f5 = (f2 + f4) / 2.0f;
-            canvas.drawCircle(f, f5, b.a(getApplicationContext(), 5.0f), paint);
-            canvas.drawCircle(f, f4, b.a(getApplicationContext(), 7.0f), paint);
-            float f6 = (f + f3) / 2.0f;
-            canvas.drawCircle(f6, f2, b.a(getApplicationContext(), 5.0f), paint);
-            canvas.drawCircle(f6, f4, b.a(getApplicationContext(), 5.0f), paint);
-            canvas.drawCircle(f3, f5, b.a(getApplicationContext(), 5.0f), paint);
-            canvas.drawCircle(f3, f4, b.a(getApplicationContext(), 7.0f), paint);
-            canvas.drawCircle(f3, f2, b.a(getApplicationContext(), 7.0f), paint);
-            paint.setStyle(Paint.Style.STROKE);
-            paint.setColor(-65536);
-            canvas.drawCircle(f, f2, b.a(getApplicationContext(), 7.0f), paint);
-            canvas.drawCircle(f, f5, b.a(getApplicationContext(), 5.0f), paint);
-            canvas.drawCircle(f, f4, b.a(getApplicationContext(), 7.0f), paint);
-            canvas.drawCircle(f6, f2, b.a(getApplicationContext(), 5.0f), paint);
-            canvas.drawCircle(f6, f4, b.a(getApplicationContext(), 5.0f), paint);
-            canvas.drawCircle(f3, f5, b.a(getApplicationContext(), 5.0f), paint);
-            canvas.drawCircle(f3, f4, b.a(getApplicationContext(), 7.0f), paint);
-            canvas.drawCircle(f3, f2, b.a(getApplicationContext(), 7.0f), paint);
-            canvas.drawLine(f3, f2, f3 - b.a(getApplicationContext(), 3.0f), f2 + b.a(getApplicationContext(), 3.0f), paint);
-            canvas.drawLine(f3, f2, f3 + b.a(getApplicationContext(), 3.0f), f2 - b.a(getApplicationContext(), 3.0f), paint);
-            canvas.drawLine(f3, f2, f3 - b.a(getApplicationContext(), 3.0f), f2 - b.a(getApplicationContext(), 3.0f), paint);
-            canvas.drawLine(f3, f2, f3 + b.a(getApplicationContext(), 3.0f), f2 + b.a(getApplicationContext(), 3.0f), paint);
-            String str = System.currentTimeMillis() + UUID.randomUUID().toString();
-            x xVar = new x(f, f2, f3, f4, true, str);
-            this.q.put(str, xVar);
-            this.r = xVar;
-            this.x = xVar.a;
-            this.y = xVar.b;
-            this.z = xVar.c;
-            this.A = xVar.d;
-            this.E = false;
-            this.P.setBackgroundDrawable(p1.a(getApplicationContext(), -15066598, -16777216));
-        }
-    }
-
-    public final void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            int width = this.b.getWidth();
-            int height = this.b.getHeight();
-            Matrix matrix = new Matrix();
-            matrix.postScale((float) ((this.k * 1.0d) / width), (float) ((this.l * 1.0d) / height));
-            try {
-                this.c = Bitmap.createBitmap(this.b, 0, 0, width, height, matrix, true).copy(Bitmap.Config.ARGB_8888, true);
-            } catch (Throwable th) {
-                th.printStackTrace();
-            }
-            this.a.setImageBitmap(this.c);
-            b();
-            this.a.invalidate();
-            if (z) {
-                this.q.clear();
-            }
-        }
-    }
-
-    public final void a(int i, float f, float f2, float f3, float f4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
-            if (i == 13) {
-                x xVar = this.r;
-                xVar.a = this.x + (f3 - f);
-                xVar.b = this.y + (f4 - f2);
-                a(false);
-                for (Map.Entry<String, x> entry : this.q.entrySet()) {
-                    String str = "key= " + entry.getKey() + " and value= " + entry.getValue();
-                    this.i.drawRect(entry.getValue().a, entry.getValue().b, entry.getValue().c, entry.getValue().d, this.j);
-                }
-                x xVar2 = this.r;
-                b(xVar2.a, xVar2.b, xVar2.c, xVar2.d);
-                Bitmap bitmap = this.t;
-                x xVar3 = this.r;
-                a(bitmap, xVar3.a, xVar3.b);
-            } else if (i == 14) {
-                x xVar4 = this.r;
-                xVar4.a = this.x + (f3 - f);
-                xVar4.d = this.A + (f4 - f2);
-                a(false);
-                for (Map.Entry<String, x> entry2 : this.q.entrySet()) {
-                    String str2 = "key= " + entry2.getKey() + " and value= " + entry2.getValue();
-                    this.i.drawRect(entry2.getValue().a, entry2.getValue().b, entry2.getValue().c, entry2.getValue().d, this.j);
-                }
-                x xVar5 = this.r;
-                b(xVar5.a, xVar5.b, xVar5.c, xVar5.d);
-                Bitmap bitmap2 = this.v;
-                x xVar6 = this.r;
-                a(bitmap2, xVar6.a, xVar6.d);
-            } else if (i == 24) {
-                x xVar7 = this.r;
-                xVar7.c = this.z + (f3 - f);
-                xVar7.d = this.A + (f4 - f2);
-                a(false);
-                for (Map.Entry<String, x> entry3 : this.q.entrySet()) {
-                    String str3 = "key= " + entry3.getKey() + " and value= " + entry3.getValue();
-                    this.i.drawRect(entry3.getValue().a, entry3.getValue().b, entry3.getValue().c, entry3.getValue().d, this.j);
-                }
-                x xVar8 = this.r;
-                b(xVar8.a, xVar8.b, xVar8.c, xVar8.d);
-                Bitmap bitmap3 = this.t;
-                x xVar9 = this.r;
-                a(bitmap3, xVar9.c, xVar9.d);
-            } else if (i == 0) {
-                float f5 = f3 - f;
-                float f6 = f4 - f2;
-                x xVar10 = this.r;
-                xVar10.a = this.x + f5;
-                xVar10.b = this.y + f6;
-                xVar10.c = this.z + f5;
-                xVar10.d = this.A + f6;
-                a(false);
-                for (Map.Entry<String, x> entry4 : this.q.entrySet()) {
-                    System.out.println("key= " + entry4.getKey() + " and value= " + entry4.getValue());
-                    this.i.drawRect(entry4.getValue().a, entry4.getValue().b, entry4.getValue().c, entry4.getValue().d, this.j);
-                }
-                x xVar11 = this.r;
-                b(xVar11.a, xVar11.b, xVar11.c, xVar11.d);
-                Bitmap bitmap4 = this.u;
-                x xVar12 = this.r;
-                a(bitmap4, (xVar12.a + xVar12.c) / 2.0f, (xVar12.b + xVar12.d) / 2.0f);
-            } else if (i == 1) {
-                this.r.a = this.x + (f3 - f);
-                a(false);
-                for (Map.Entry<String, x> entry5 : this.q.entrySet()) {
-                    String str4 = "key= " + entry5.getKey() + " and value= " + entry5.getValue();
-                    this.i.drawRect(entry5.getValue().a, entry5.getValue().b, entry5.getValue().c, entry5.getValue().d, this.j);
-                }
-                x xVar13 = this.r;
-                b(xVar13.a, xVar13.b, xVar13.c, xVar13.d);
-                Bitmap bitmap5 = this.s;
-                x xVar14 = this.r;
-                a(bitmap5, xVar14.a, (xVar14.b + xVar14.d) / 2.0f);
-            } else if (i == 2) {
-                this.r.c = this.z + (f3 - f);
-                a(false);
-                for (Map.Entry<String, x> entry6 : this.q.entrySet()) {
-                    String str5 = "key= " + entry6.getKey() + " and value= " + entry6.getValue();
-                    this.i.drawRect(entry6.getValue().a, entry6.getValue().b, entry6.getValue().c, entry6.getValue().d, this.j);
-                }
-                x xVar15 = this.r;
-                b(xVar15.a, xVar15.b, xVar15.c, xVar15.d);
-                Bitmap bitmap6 = this.s;
-                x xVar16 = this.r;
-                a(bitmap6, xVar16.c, (xVar16.b + xVar16.d) / 2.0f);
-            } else if (i == 3) {
-                this.r.b = this.y + (f4 - f2);
-                a(false);
-                for (Map.Entry<String, x> entry7 : this.q.entrySet()) {
-                    String str6 = "key= " + entry7.getKey() + " and value= " + entry7.getValue();
-                    this.i.drawRect(entry7.getValue().a, entry7.getValue().b, entry7.getValue().c, entry7.getValue().d, this.j);
-                }
-                x xVar17 = this.r;
-                b(xVar17.a, xVar17.b, xVar17.c, xVar17.d);
-                Bitmap bitmap7 = this.w;
-                x xVar18 = this.r;
-                a(bitmap7, (xVar18.a + xVar18.c) / 2.0f, xVar18.b);
-            } else if (i == 4) {
-                this.r.d = this.A + (f4 - f2);
-                a(false);
-                for (Map.Entry<String, x> entry8 : this.q.entrySet()) {
-                    String str7 = "key= " + entry8.getKey() + " and value= " + entry8.getValue();
-                    this.i.drawRect(entry8.getValue().a, entry8.getValue().b, entry8.getValue().c, entry8.getValue().d, this.j);
-                }
-                x xVar19 = this.r;
-                b(xVar19.a, xVar19.b, xVar19.c, xVar19.d);
-                Bitmap bitmap8 = this.w;
-                x xVar20 = this.r;
-                a(bitmap8, (xVar20.a + xVar20.c) / 2.0f, xVar20.d);
-            }
-        }
-    }
-
-    public final void a(Bitmap bitmap, float f, float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{bitmap, Float.valueOf(f), Float.valueOf(f2)}) == null) {
-            this.i.drawBitmap(bitmap, f - (bitmap.getWidth() / 2), f2 - (bitmap.getHeight() / 2), this.j);
-        }
     }
 }

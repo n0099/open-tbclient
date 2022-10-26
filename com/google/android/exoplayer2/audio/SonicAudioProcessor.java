@@ -37,6 +37,16 @@ public final class SonicAudioProcessor implements AudioProcessor {
     public Sonic sonic;
     public float speed;
 
+    @Override // com.google.android.exoplayer2.audio.AudioProcessor
+    public int getOutputEncoding() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return 2;
+        }
+        return invokeV.intValue;
+    }
+
     public SonicAudioProcessor() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -60,6 +70,38 @@ public final class SonicAudioProcessor implements AudioProcessor {
         this.shortBuffer = byteBuffer.asShortBuffer();
         this.outputBuffer = AudioProcessor.EMPTY_BUFFER;
         this.pendingOutputSampleRateHz = -1;
+    }
+
+    @Override // com.google.android.exoplayer2.audio.AudioProcessor
+    public boolean isActive() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (Math.abs(this.speed - 1.0f) < 0.01f && Math.abs(this.pitch - 1.0f) < 0.01f && this.outputSampleRateHz == this.sampleRateHz) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.google.android.exoplayer2.audio.AudioProcessor
+    public void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            this.sonic = null;
+            ByteBuffer byteBuffer = AudioProcessor.EMPTY_BUFFER;
+            this.buffer = byteBuffer;
+            this.shortBuffer = byteBuffer.asShortBuffer();
+            this.outputBuffer = AudioProcessor.EMPTY_BUFFER;
+            this.channelCount = -1;
+            this.sampleRateHz = -1;
+            this.outputSampleRateHz = -1;
+            this.inputBytes = 0L;
+            this.outputBytes = 0L;
+            this.inputEnded = false;
+            this.pendingOutputSampleRateHz = -1;
+        }
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioProcessor
@@ -113,15 +155,8 @@ public final class SonicAudioProcessor implements AudioProcessor {
     public int getOutputChannelCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.channelCount : invokeV.intValue;
-    }
-
-    @Override // com.google.android.exoplayer2.audio.AudioProcessor
-    public int getOutputEncoding() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return 2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.channelCount;
         }
         return invokeV.intValue;
     }
@@ -130,14 +165,10 @@ public final class SonicAudioProcessor implements AudioProcessor {
     public int getOutputSampleRateHz() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.outputSampleRateHz : invokeV.intValue;
-    }
-
-    @Override // com.google.android.exoplayer2.audio.AudioProcessor
-    public boolean isActive() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? Math.abs(this.speed - 1.0f) >= 0.01f || Math.abs(this.pitch - 1.0f) >= 0.01f || this.outputSampleRateHz != this.sampleRateHz : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.outputSampleRateHz;
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioProcessor
@@ -145,7 +176,13 @@ public final class SonicAudioProcessor implements AudioProcessor {
         InterceptResult invokeV;
         Sonic sonic;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.inputEnded && ((sonic = this.sonic) == null || sonic.getSamplesAvailable() == 0) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (this.inputEnded && ((sonic = this.sonic) == null || sonic.getSamplesAvailable() == 0)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioProcessor
@@ -183,25 +220,6 @@ public final class SonicAudioProcessor implements AudioProcessor {
                 this.buffer.limit(samplesAvailable);
                 this.outputBuffer = this.buffer;
             }
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.audio.AudioProcessor
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.sonic = null;
-            ByteBuffer byteBuffer = AudioProcessor.EMPTY_BUFFER;
-            this.buffer = byteBuffer;
-            this.shortBuffer = byteBuffer.asShortBuffer();
-            this.outputBuffer = AudioProcessor.EMPTY_BUFFER;
-            this.channelCount = -1;
-            this.sampleRateHz = -1;
-            this.outputSampleRateHz = -1;
-            this.inputBytes = 0L;
-            this.outputBytes = 0L;
-            this.inputEnded = false;
-            this.pendingOutputSampleRateHz = -1;
         }
     }
 

@@ -1,24 +1,82 @@
 package com.baidu.tieba;
 
-import androidx.annotation.ColorInt;
-import com.baidu.searchbox.v8engine.V8Engine;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.android.util.io.AssetUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes6.dex */
-public class xf3 {
+public final class xf3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(@ColorInt int i) {
-        InterceptResult invokeI;
+    public static boolean a(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) ? ((int) (((((double) ((16711680 & i) >> 16)) * 0.299d) + (((double) ((65280 & i) >> 8)) * 0.587d)) + (((double) (i & 255)) * 0.114d))) >= 220 : invokeI.booleanValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
+            if (context == null || TextUtils.isEmpty(str)) {
+                return false;
+            }
+            try {
+                qj4.d(context.getAssets().open(str, 0));
+                return true;
+            } catch (IOException unused) {
+                qj4.d(null);
+                return false;
+            } catch (Throwable th) {
+                qj4.d(null);
+                throw th;
+            }
+        }
+        return invokeLL.booleanValue;
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
+    public static String b(Context context, String str) {
+        InterceptResult invokeLL;
+        InputStream inputStream;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? V8Engine.toColorRGBA(str) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
+            InputStream inputStream2 = null;
+            r0 = null;
+            String str2 = null;
+            try {
+                inputStream = context.getAssets().open(str);
+            } catch (IOException e) {
+                e = e;
+                inputStream = null;
+            } catch (Throwable th) {
+                th = th;
+                qj4.d(inputStream2);
+                throw th;
+            }
+            if (inputStream == null) {
+                qj4.d(inputStream);
+                return null;
+            }
+            try {
+                try {
+                    str2 = tj4.b(inputStream);
+                } catch (IOException e2) {
+                    e = e2;
+                    if (wj1.a) {
+                        Log.w(AssetUtils.TAG, "loadPresetDatas", e);
+                    }
+                    qj4.d(inputStream);
+                    return str2;
+                }
+                qj4.d(inputStream);
+                return str2;
+            } catch (Throwable th2) {
+                th = th2;
+                inputStream2 = inputStream;
+                qj4.d(inputStream2);
+                throw th;
+            }
+        }
+        return (String) invokeLL.objValue;
     }
 }

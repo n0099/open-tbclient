@@ -2,7 +2,6 @@ package com.kwad.components.ad.reward.k;
 
 import android.view.ViewGroup;
 import android.view.ViewStub;
-import androidx.annotation.IdRes;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -29,7 +28,7 @@ public abstract class v extends d {
         }
     }
 
-    public final void a(ViewGroup viewGroup, @IdRes int i, @IdRes int i2) {
+    public final void a(ViewGroup viewGroup, int i, int i2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLII(1048576, this, viewGroup, i, i2) == null) && this.pV == null) {
             ViewStub viewStub = (ViewStub) viewGroup.findViewById(i);

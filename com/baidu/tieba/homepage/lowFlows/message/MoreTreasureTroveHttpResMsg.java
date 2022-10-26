@@ -3,9 +3,8 @@ package com.baidu.tieba.homepage.lowFlows.message;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.Cdo;
-import com.baidu.tieba.q07;
-import com.baidu.tieba.v07;
+import com.baidu.tieba.d17;
+import com.baidu.tieba.y07;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,10 +15,10 @@ import java.util.List;
 import tbclient.Error;
 import tbclient.MoreTreasureTrove.MoreTreasureTroveResIdl;
 /* loaded from: classes4.dex */
-public class MoreTreasureTroveHttpResMsg extends HttpResponsedMessage implements q07 {
+public class MoreTreasureTroveHttpResMsg extends HttpResponsedMessage implements y07 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<Cdo> mMoreTreasureTroveDataList;
+    public List mMoreTreasureTroveDataList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MoreTreasureTroveHttpResMsg() {
@@ -39,11 +38,14 @@ public class MoreTreasureTroveHttpResMsg extends HttpResponsedMessage implements
         }
     }
 
-    @Override // com.baidu.tieba.q07
-    public List<Cdo> getDataList() {
+    @Override // com.baidu.tieba.y07
+    public List getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mMoreTreasureTroveDataList : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mMoreTreasureTroveDataList;
+        }
+        return (List) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -51,14 +53,13 @@ public class MoreTreasureTroveHttpResMsg extends HttpResponsedMessage implements
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         MoreTreasureTroveResIdl moreTreasureTroveResIdl;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || bArr == null || (moreTreasureTroveResIdl = (MoreTreasureTroveResIdl) new Wire(new Class[0]).parseFrom(bArr, MoreTreasureTroveResIdl.class)) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) && bArr != null && (moreTreasureTroveResIdl = (MoreTreasureTroveResIdl) new Wire(new Class[0]).parseFrom(bArr, MoreTreasureTroveResIdl.class)) != null) {
+            Error error = moreTreasureTroveResIdl.error;
+            if (error != null) {
+                setError(error.errorno.intValue());
+                setErrorString(moreTreasureTroveResIdl.error.usermsg);
+            }
+            this.mMoreTreasureTroveDataList = d17.b(moreTreasureTroveResIdl);
         }
-        Error error = moreTreasureTroveResIdl.error;
-        if (error != null) {
-            setError(error.errorno.intValue());
-            setErrorString(moreTreasureTroveResIdl.error.usermsg);
-        }
-        this.mMoreTreasureTroveDataList = v07.b(moreTreasureTroveResIdl);
     }
 }

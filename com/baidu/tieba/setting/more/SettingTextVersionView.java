@@ -2,6 +2,7 @@ package com.baidu.tieba.setting.more;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.widget.TextView;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -57,22 +58,35 @@ public final class SettingTextVersionView extends TbSettingTextTipView {
     }
 
     public void i() {
+        boolean z;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            boolean z = false;
-            boolean z2 = TbadkCoreApplication.getInst().getSkinType() == 1;
+            boolean z2 = false;
+            if (TbadkCoreApplication.getInst().getSkinType() == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
             VersionData versionData = TbadkCoreApplication.getInst().getVersionData();
             if (versionData != null && versionData.hasNewVer()) {
-                z = true;
+                z2 = true;
             }
-            if (z) {
+            if (z2) {
                 SkinManager.setBackgroundResource(this.e, R.drawable.icon_news_head_new);
                 this.e.setText((CharSequence) null);
                 return;
             }
             this.e.setText(TbConfig.getVersion());
             this.e.setBackgroundDrawable(null);
-            this.e.setTextAppearance(this.a, z2 ? R.style.obfuscated_res_0x7f1003f6 : R.style.obfuscated_res_0x7f1003f5);
+            TextView textView = this.e;
+            Context context = this.a;
+            if (z) {
+                i = R.style.obfuscated_res_0x7f1003f7;
+            } else {
+                i = R.style.obfuscated_res_0x7f1003f6;
+            }
+            textView.setTextAppearance(context, i);
         }
     }
 }

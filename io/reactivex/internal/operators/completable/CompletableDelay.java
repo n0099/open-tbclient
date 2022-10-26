@@ -132,13 +132,19 @@ public final class CompletableDelay extends Completable {
 
         @Override // io.reactivex.CompletableObserver
         public void onError(Throwable th) {
+            long j;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
                 CompositeDisposable compositeDisposable = this.set;
                 Scheduler scheduler = this.this$0.scheduler;
                 OnError onError = new OnError(this, th);
                 CompletableDelay completableDelay = this.this$0;
-                compositeDisposable.add(scheduler.scheduleDirect(onError, completableDelay.delayError ? completableDelay.delay : 0L, this.this$0.unit));
+                if (completableDelay.delayError) {
+                    j = completableDelay.delay;
+                } else {
+                    j = 0;
+                }
+                compositeDisposable.add(scheduler.scheduleDirect(onError, j, this.this$0.unit));
             }
         }
 

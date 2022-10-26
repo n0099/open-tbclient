@@ -1,174 +1,98 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tieba.hottopic.data.RelateForumItemData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import tbclient.Hottopic.RelateForum;
 /* loaded from: classes4.dex */
-public class l77 extends BaseAdapter {
+public class l77 extends v26 {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public final List<n77> b;
-    public LayoutInflater c;
+    public List a;
 
-    /* loaded from: classes4.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947895869, "Lcom/baidu/tieba/l77;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947895869, "Lcom/baidu/tieba/l77;");
+                return;
+            }
+        }
+        b = BdUniqueId.gen();
     }
 
-    public l77(TbPageContext tbPageContext) {
+    public l77() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = new ArrayList();
-        this.c = LayoutInflater.from(tbPageContext.getPageActivity());
+        this.a = null;
     }
 
-    public final void a(b bVar, View view2, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(1048576, this, bVar, view2, i) == null) || bVar == null || bVar.a == i) {
-            return;
-        }
-        SkinManager.setBackgroundResource(view2, R.drawable.addresslist_item_bg);
-        SkinManager.setBackgroundColor(bVar.d, R.color.CAM_X0204);
-        SkinManager.setBackgroundColor(bVar.c, R.color.CAM_X0204);
-        SkinManager.setViewTextColor(bVar.b, R.color.CAM_X0105, 1);
-        bVar.a = i;
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b.clear();
-            notifyDataSetChanged();
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: c */
-    public n77 getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? this.b.get(i) : (n77) invokeI.objValue;
-    }
-
-    public List<n77> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (List) invokeV.objValue;
-    }
-
-    public void e(String str, List<n77> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, list) == null) {
-            this.a = str;
-            this.b.clear();
-            if (list != null) {
-                this.b.addAll(list);
-            }
-            notifyDataSetChanged();
-        }
-    }
-
-    @Override // android.widget.Adapter
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b.size() : invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? i : invokeI.longValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        b bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, view2, viewGroup)) == null) {
-            n77 item = getItem(i);
-            if (item == null) {
-                return view2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            List list = this.a;
+            if (list != null && list.size() != 0) {
+                return this.a.size();
             }
-            if (view2 != null && (view2.getTag() instanceof b)) {
-                bVar = (b) view2.getTag();
-            } else {
-                view2 = this.c.inflate(R.layout.obfuscated_res_0x7f0d03a1, (ViewGroup) null);
-                bVar = new b(this, null);
-                bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091620);
-                bVar.c = view2.findViewById(R.id.obfuscated_res_0x7f090817);
-                bVar.d = view2.findViewById(R.id.obfuscated_res_0x7f090811);
-                view2.setTag(bVar);
-            }
-            bVar.c.setVisibility(i == 0 ? 0 : 8);
-            bVar.b.setText(StringHelper.highLightText(hh5.a(StringHelper.cutStringWithEllipsisNew(item.b(), 18)), this.a, R.color.CAM_X0302));
-            a(bVar, view2, TbadkCoreApplication.getInst().getSkinType());
-            return view2;
+            return 0;
         }
-        return (View) invokeILL.objValue;
+        return invokeV.intValue;
     }
 
-    /* loaded from: classes4.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public TextView b;
-        public View c;
-        public View d;
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.eo
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return b;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
 
-        public b(l77 l77Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {l77Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public void parserProtobuf(List list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) && list != null && list.size() != 0) {
+            this.showTopDivider = true;
+            this.mGroupTitle = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fe1);
+            this.a = new ArrayList();
+            Iterator it = list.iterator();
+            while (it.hasNext()) {
+                RelateForum relateForum = (RelateForum) it.next();
+                if (!StringUtils.isNull(relateForum.forum_name)) {
+                    RelateForumItemData relateForumItemData = new RelateForumItemData();
+                    relateForumItemData.parserProtobuf(relateForum);
+                    this.a.add(relateForumItemData);
                 }
             }
-            this.a = 3;
-        }
-
-        public /* synthetic */ b(l77 l77Var, a aVar) {
-            this(l77Var);
         }
     }
 }

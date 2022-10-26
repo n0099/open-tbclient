@@ -36,15 +36,19 @@ public abstract class AI01decoder extends AbstractExpandedDecoder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65537, null, sb, i) == null) {
             int i2 = 0;
-            for (int i3 = 0; i3 < 13; i3++) {
-                int charAt = sb.charAt(i3 + i) - '0';
-                if ((i3 & 1) == 0) {
+            int i3 = 0;
+            for (int i4 = 0; i4 < 13; i4++) {
+                int charAt = sb.charAt(i4 + i) - '0';
+                if ((i4 & 1) == 0) {
                     charAt *= 3;
                 }
-                i2 += charAt;
+                i3 += charAt;
             }
-            int i4 = 10 - (i2 % 10);
-            sb.append(i4 != 10 ? i4 : 0);
+            int i5 = 10 - (i3 % 10);
+            if (i5 != 10) {
+                i2 = i5;
+            }
+            sb.append(i2);
         }
     }
 

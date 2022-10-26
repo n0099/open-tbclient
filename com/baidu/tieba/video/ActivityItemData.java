@@ -15,7 +15,7 @@ import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class ActivityItemData implements Serializable, Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<ActivityItemData> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public String activity_describe;
     public String activity_id;
@@ -24,11 +24,21 @@ public class ActivityItemData implements Serializable, Parcelable {
     public String link_url;
     public String play_count;
     public String topic_id;
-    public ArrayList<UserItemData> user_list;
+    public ArrayList user_list;
     public String video_num;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     /* loaded from: classes6.dex */
-    public static class a implements Parcelable.Creator<ActivityItemData> {
+    public final class a implements Parcelable.Creator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -52,7 +62,10 @@ public class ActivityItemData implements Serializable, Parcelable {
         public ActivityItemData createFromParcel(Parcel parcel) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new ActivityItemData(parcel) : (ActivityItemData) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+                return new ActivityItemData(parcel);
+            }
+            return (ActivityItemData) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -61,7 +74,10 @@ public class ActivityItemData implements Serializable, Parcelable {
         public ActivityItemData[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new ActivityItemData[i] : (ActivityItemData[]) invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                return new ActivityItemData[i];
+            }
+            return (ActivityItemData[]) invokeI.objValue;
         }
     }
 
@@ -95,32 +111,6 @@ public class ActivityItemData implements Serializable, Parcelable {
         }
     }
 
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i) == null) {
-            parcel.writeString(this.activity_id);
-            parcel.writeString(this.activity_name);
-            parcel.writeString(this.activity_describe);
-            parcel.writeString(this.banner_pic);
-            parcel.writeString(this.play_count);
-            parcel.writeString(this.topic_id);
-            parcel.writeString(this.video_num);
-            parcel.writeString(this.link_url);
-            parcel.writeTypedList(this.user_list);
-        }
-    }
-
     public ActivityItemData(Parcel parcel) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -145,5 +135,21 @@ public class ActivityItemData implements Serializable, Parcelable {
         this.video_num = parcel.readString();
         this.link_url = parcel.readString();
         this.user_list = parcel.createTypedArrayList(UserItemData.CREATOR);
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i) == null) {
+            parcel.writeString(this.activity_id);
+            parcel.writeString(this.activity_name);
+            parcel.writeString(this.activity_describe);
+            parcel.writeString(this.banner_pic);
+            parcel.writeString(this.play_count);
+            parcel.writeString(this.topic_id);
+            parcel.writeString(this.video_num);
+            parcel.writeString(this.link_url);
+            parcel.writeTypedList(this.user_list);
+        }
     }
 }

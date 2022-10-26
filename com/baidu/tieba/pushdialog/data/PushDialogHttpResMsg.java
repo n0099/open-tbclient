@@ -2,8 +2,8 @@ package com.baidu.tieba.pushdialog.data;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.pc8;
 import com.baidu.tieba.pushdialog.PushDialogStatic;
+import com.baidu.tieba.zc8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import tbclient.GetLockWindowMsg.GetLockWindowMsgResIdl;
 public class PushDialogHttpResMsg extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public pc8 mData;
+    public zc8 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PushDialogHttpResMsg(int i) {
@@ -37,12 +37,6 @@ public class PushDialogHttpResMsg extends TbHttpResponsedMessage {
         }
     }
 
-    public pc8 getData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (pc8) invokeV.objValue;
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) {
@@ -53,12 +47,21 @@ public class PushDialogHttpResMsg extends TbHttpResponsedMessage {
                 setError(getLockWindowMsgResIdl.error.errorno.intValue());
                 setErrorString(getLockWindowMsgResIdl.error.usermsg);
                 if (getLockWindowMsgResIdl.data != null) {
-                    pc8 pc8Var = new pc8();
-                    this.mData = pc8Var;
-                    pc8Var.e(getLockWindowMsgResIdl.data);
+                    zc8 zc8Var = new zc8();
+                    this.mData = zc8Var;
+                    zc8Var.e(getLockWindowMsgResIdl.data);
                 }
             } catch (IOException unused) {
             }
         }
+    }
+
+    public zc8 getData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mData;
+        }
+        return (zc8) invokeV.objValue;
     }
 }

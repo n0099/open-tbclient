@@ -1,6 +1,5 @@
 package com.baidu.android.imrtc.upload;
 
-import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -19,6 +18,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class BIMRtcTrackDatabase {
@@ -28,14 +28,13 @@ public class BIMRtcTrackDatabase {
     public static final int MAX_QUERY_COUNT = 1000;
     public static String TAG = "BIMRtcTrackDatabase";
     public static DbOpenHelper dbOpenHelper;
-    @SuppressLint({"StaticFieldLeak"})
     public static BIMRtcTrackDatabase instance;
     public static final Object myLock;
     public transient /* synthetic */ FieldHolder $fh;
     public Context context;
 
     /* loaded from: classes.dex */
-    public static class DbOpenHelper extends SQLiteOpenHelper {
+    public class DbOpenHelper extends SQLiteOpenHelper {
         public static /* synthetic */ Interceptable $ic;
         public static final String SQL_TABLE_CREATE_REQUEST;
         public transient /* synthetic */ FieldHolder $fh;
@@ -55,6 +54,28 @@ public class BIMRtcTrackDatabase {
                 }
             }
             SQL_TABLE_CREATE_REQUEST = "CREATE TABLE request (" + RequestEnum.id.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + RequestEnum.method.name() + " TEXT, " + RequestEnum.requestId.name() + " TEXT, " + RequestEnum.timestamp.name() + " LONG, " + RequestEnum.responseTime.name() + " LONG, " + RequestEnum.errorCode.name() + " LONG, " + RequestEnum.ext.name() + " TEXT, " + RequestEnum.aliasId.name() + " LONG NOT NULL);";
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public DbOpenHelper(Context context, String str, int i) {
+            super(context, str, (SQLiteDatabase.CursorFactory) null, i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, str, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.context = context;
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -111,33 +132,11 @@ public class BIMRtcTrackDatabase {
                 onCreate(sQLiteDatabase);
             }
         }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public DbOpenHelper(Context context, String str, int i) {
-            super(context, str, (SQLiteDatabase.CursorFactory) null, i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, str, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.context = context;
-        }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class RequestEnum {
+    public final class RequestEnum {
         public static final /* synthetic */ RequestEnum[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
         public static final String TABLE_NAME = "request";
@@ -198,13 +197,19 @@ public class BIMRtcTrackDatabase {
         public static RequestEnum valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (RequestEnum) Enum.valueOf(RequestEnum.class, str) : (RequestEnum) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (RequestEnum) Enum.valueOf(RequestEnum.class, str);
+            }
+            return (RequestEnum) invokeL.objValue;
         }
 
         public static RequestEnum[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (RequestEnum[]) $VALUES.clone() : (RequestEnum[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (RequestEnum[]) $VALUES.clone();
+            }
+            return (RequestEnum[]) invokeV.objValue;
         }
     }
 
@@ -243,7 +248,24 @@ public class BIMRtcTrackDatabase {
         dbOpenHelper = new DbOpenHelper(context, DB_NAME, 1);
     }
 
-    private List<Request> getCursorRequests(Cursor cursor) {
+    public static SQLiteDatabase getDb(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            if (dbOpenHelper == null) {
+                dbOpenHelper = new DbOpenHelper(context, DB_NAME, 1);
+            }
+            try {
+                return dbOpenHelper.getWritableDatabase();
+            } catch (Throwable th) {
+                LogUtils.e(TAG, "getDb Exception: ", th);
+                return null;
+            }
+        }
+        return (SQLiteDatabase) invokeL.objValue;
+    }
+
+    private List getCursorRequests(Cursor cursor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, cursor)) == null) {
@@ -264,23 +286,6 @@ public class BIMRtcTrackDatabase {
         return (List) invokeL.objValue;
     }
 
-    public static SQLiteDatabase getDb(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            if (dbOpenHelper == null) {
-                dbOpenHelper = new DbOpenHelper(context, DB_NAME, 1);
-            }
-            try {
-                return dbOpenHelper.getWritableDatabase();
-            } catch (Throwable th) {
-                LogUtils.e(TAG, "getDb Exception: ", th);
-                return null;
-            }
-        }
-        return (SQLiteDatabase) invokeL.objValue;
-    }
-
     public static BIMRtcTrackDatabase getInstance(Context context) {
         InterceptResult invokeL;
         BIMRtcTrackDatabase bIMRtcTrackDatabase;
@@ -295,6 +300,18 @@ public class BIMRtcTrackDatabase {
             return bIMRtcTrackDatabase;
         }
         return (BIMRtcTrackDatabase) invokeL.objValue;
+    }
+
+    public void deleteRequests(List list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            synchronized (myLock) {
+                Iterator it = list.iterator();
+                while (it.hasNext()) {
+                    deleteRequest((Request) it.next());
+                }
+            }
+        }
     }
 
     public void clearRequestTable() {
@@ -335,17 +352,6 @@ public class BIMRtcTrackDatabase {
         }
     }
 
-    public void deleteRequests(List<Request> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            synchronized (myLock) {
-                for (Request request : list) {
-                    deleteRequest(request);
-                }
-            }
-        }
-    }
-
     public long getRequestCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -378,7 +384,7 @@ public class BIMRtcTrackDatabase {
         return invokeV.longValue;
     }
 
-    public List<Request> getRequests() {
+    public List getRequests() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -388,7 +394,7 @@ public class BIMRtcTrackDatabase {
                 if (db == null) {
                     return null;
                 }
-                List<Request> arrayList = new ArrayList<>();
+                List arrayList = new ArrayList();
                 try {
                     cursor = db.rawQuery("select * from request limit 1000", null);
                     arrayList = getCursorRequests(cursor);
@@ -409,7 +415,7 @@ public class BIMRtcTrackDatabase {
         return (List) invokeV.objValue;
     }
 
-    public List<Request> getRequestsByAliasId(long j) {
+    public List getRequestsByAliasId(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
@@ -419,7 +425,7 @@ public class BIMRtcTrackDatabase {
                 if (db == null) {
                     return null;
                 }
-                List<Request> arrayList = new ArrayList<>();
+                List arrayList = new ArrayList();
                 try {
                     cursor = db.rawQuery("select * from request limit 1000 where " + RequestEnum.aliasId + " = " + j, null);
                     arrayList = getCursorRequests(cursor);

@@ -37,6 +37,9 @@ public class ResumeFailedException extends IOException {
     public ResumeFailedCause getResumeFailedCause() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.resumeFailedCause : (ResumeFailedCause) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.resumeFailedCause;
+        }
+        return (ResumeFailedCause) invokeV.objValue;
     }
 }

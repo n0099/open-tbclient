@@ -23,6 +23,29 @@ public abstract class BaseClearCache {
         void onCacheSizeResult(long j);
     }
 
+    public abstract void calculateCacheSize(CacheSizeCallback cacheSizeCallback);
+
+    public abstract void clearCache(CacheClearCallback cacheClearCallback);
+
+    public abstract String getCacheDesc();
+
+    public abstract String getCacheName();
+
+    public abstract String getUBCExtKey();
+
+    public abstract boolean isCalculateCacheSize();
+
+    public abstract boolean isDefaultSelected();
+
+    public boolean isShow() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
     public BaseClearCache() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -40,37 +63,20 @@ public abstract class BaseClearCache {
         this.mSelected = isDefaultSelected();
     }
 
-    public abstract void calculateCacheSize(CacheSizeCallback cacheSizeCallback);
-
-    public abstract void clearCache(CacheClearCallback cacheClearCallback);
-
-    public abstract String getCacheDesc();
-
-    public abstract String getCacheName();
-
     public long getCacheSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mCacheSize : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mCacheSize;
+        }
+        return invokeV.longValue;
     }
-
-    public abstract String getUBCExtKey();
-
-    public abstract boolean isCalculateCacheSize();
-
-    public abstract boolean isDefaultSelected();
 
     public boolean isSelected() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mSelected : invokeV.booleanValue;
-    }
-
-    public boolean isShow() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mSelected;
         }
         return invokeV.booleanValue;
     }

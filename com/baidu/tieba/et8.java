@@ -1,31 +1,69 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.MemberPayStatistic;
+import com.baidu.tieba.themeCenter.background.BackgroundItemView;
 import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class et8 {
+public class et8 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public int b;
+    public List a;
+    public TbPageContext b;
+    public ht8 c;
 
-    public et8(TbPageContext<?> tbPageContext) {
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getViewTypeCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return 2;
+        }
+        return invokeV.intValue;
+    }
+
+    /* loaded from: classes3.dex */
+    public class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TextView a;
+        public BackgroundItemView b;
+        public BackgroundItemView c;
+        public BackgroundItemView d;
+        public View e;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    public et8(TbPageContext tbPageContext, ht8 ht8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tbPageContext, ht8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,51 +73,121 @@ public class et8 {
                 return;
             }
         }
-        this.a = tbPageContext;
+        this.b = tbPageContext;
+        this.c = ht8Var;
     }
 
-    public final boolean a(DressItemData dressItemData) {
-        InterceptResult invokeL;
+    public void a(List list) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dressItemData)) == null) ? TbadkCoreApplication.getCurrentMemberType() == 1 && dressItemData.getFreeUserLevel() == 1 : invokeL.booleanValue;
+        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+            this.a = list;
+        }
     }
 
-    public void b(DressItemData dressItemData, boolean z) {
-        String string;
-        String str;
-        int i;
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dressItemData, z) == null) || dressItemData == null) {
-            return;
-        }
-        boolean a = os8.a(dressItemData);
-        if (!a) {
-            a = a(dressItemData);
-        }
-        if (a) {
-            this.b = dressItemData.getPropsId();
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_BUBBLE_SET);
-            httpMessage.setExtra(Integer.valueOf(this.b));
-            httpMessage.addParam("bcode", String.valueOf(this.b));
-            MessageManager.getInstance().sendMessage(httpMessage);
-        } else if (dressItemData.getFreeUserLevel() == 100) {
-            if (dressItemData.getActivityFinish() == 0) {
-                os8.b(this.a, 5, dressItemData.getActivityUrl());
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            List list = this.a;
+            if (list != null && list.size() > 0 && i >= 0 && i < this.a.size()) {
+                return this.a.get(i);
             }
-        } else {
-            if (dressItemData.getFreeUserLevel() == 101) {
-                str = this.a.getString(R.string.obfuscated_res_0x7f0f0309);
-                i = 9;
+            return null;
+        }
+        return invokeI.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            if (getItem(i) != null) {
+                return i;
+            }
+            return -1L;
+        }
+        return invokeI.longValue;
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getItemViewType(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            return getItem(i) instanceof List ? 1 : 0;
+        }
+        return invokeI.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            List list = this.a;
+            if (list != null) {
+                return list.size();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
+            Object item = getItem(i);
+            if (view2 != null) {
+                aVar = (a) view2.getTag();
+            } else if (getItemViewType(i) == 0) {
+                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d012d, viewGroup, false);
+                aVar = new a();
+                aVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d0c);
+                view2.setTag(aVar);
             } else {
-                if (dressItemData.getFreeUserLevel() > 1) {
-                    string = String.format(this.a.getString(R.string.obfuscated_res_0x7f0f030f), Integer.valueOf(dressItemData.getFreeUserLevel()));
-                } else {
-                    string = this.a.getString(R.string.obfuscated_res_0x7f0f030b);
-                }
-                str = string;
-                i = 0;
+                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0133, viewGroup, false);
+                aVar = new a();
+                aVar.b = (BackgroundItemView) view2.findViewById(R.id.obfuscated_res_0x7f09038a);
+                aVar.c = (BackgroundItemView) view2.findViewById(R.id.obfuscated_res_0x7f09038b);
+                aVar.d = (BackgroundItemView) view2.findViewById(R.id.obfuscated_res_0x7f09038c);
+                aVar.e = view2.findViewById(R.id.divider_line);
+                view2.setTag(aVar);
             }
-            os8.d(this.a, 5, str, i, z ? MemberPayStatistic.REFER_PAGE_POST_BUBBLE : MemberPayStatistic.REFER_PAGE_ALL_BUBBLE, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_RENEWWALFEE_BUTTON);
+            if (item != null) {
+                if (getItemViewType(i) == 0) {
+                    aVar.a.setText(item.toString());
+                } else {
+                    List list = (List) item;
+                    aVar.b.e((DressItemData) list.get(0));
+                    aVar.b.setController(this.c);
+                    if (list.size() > 2) {
+                        aVar.c.e((DressItemData) list.get(1));
+                        aVar.d.e((DressItemData) list.get(2));
+                        aVar.c.setController(this.c);
+                        aVar.d.setController(this.c);
+                    } else if (list.size() > 1) {
+                        aVar.c.e((DressItemData) list.get(1));
+                        aVar.c.setController(this.c);
+                        aVar.d.f();
+                    } else {
+                        aVar.c.f();
+                        aVar.d.f();
+                    }
+                    if (getItem(i + 1) instanceof List) {
+                        aVar.e.setVisibility(8);
+                    } else {
+                        aVar.e.setVisibility(0);
+                    }
+                }
+            }
+            this.b.getLayoutMode().k(view2);
+            return view2;
         }
+        return (View) invokeILL.objValue;
     }
 }

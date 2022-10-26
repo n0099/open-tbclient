@@ -1,141 +1,107 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Handler;
-import android.os.Message;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.diskCache.ImagesInvalidService;
-import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.content.DialogInterface;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.data.UserData;
+import com.baidu.tieba.fv4;
+import com.baidu.tieba.tl4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class ev4 {
+public class ev4 extends fv4 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
-    public static Handler b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final TbPageContext c;
+    public final UserData d;
+    public final tl4.m e;
+    public nm4 f;
 
     /* loaded from: classes3.dex */
-    public static class a extends Handler {
+    public class a implements DialogInterface.OnDismissListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ev4 a;
 
-        public a() {
+        public a(ev4 ev4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ev4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = ev4Var;
         }
 
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
+        @Override // android.content.DialogInterface.OnDismissListener
+        public void onDismiss(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1) {
-                ev4.startService();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                this.a.c();
             }
         }
     }
 
-    /* loaded from: classes3.dex */
-    public static class b extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof BackgroundSwitchMessage)) {
-                if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                    if (ev4.a) {
-                        return;
-                    }
-                    ev4.b.sendEmptyMessageDelayed(1, 10000L);
-                    return;
-                }
-                ev4.b.removeMessages(1);
-                ev4.stopService();
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947747782, "Lcom/baidu/tieba/ev4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947747782, "Lcom/baidu/tieba/ev4;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ev4(TbPageContext tbPageContext, Activity activity, UserData userData, tl4.m mVar) {
+        super(activity);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, activity, userData, mVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Activity) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        b = new a();
+        this.c = tbPageContext;
+        this.d = userData;
+        this.e = mVar;
     }
 
-    public static void d() {
+    @Override // com.baidu.tieba.fv4
+    public void b() {
+        nm4 nm4Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            MessageManager.getInstance().registerListener(new b(2001011));
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (nm4Var = this.f) != null) {
+            nm4Var.b();
         }
     }
 
-    public static void e(boolean z) {
+    @Override // com.baidu.tieba.fv4
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65541, null, z) == null) {
-            a = z;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            nm4 c = nm4.c();
+            this.f = c;
+            c.b();
+            this.f.d(new a(this));
+            this.f.e(this.c, this.b, this.d, this.e);
         }
     }
 
-    public static void startService() {
+    @Override // com.baidu.tieba.fv4
+    public void d(fv4.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            hh.startService(BdBaseApplication.getInst().getContext(), new Intent(BdBaseApplication.getInst().getContext(), ImagesInvalidService.class));
-        }
-    }
-
-    public static void stopService() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            hh.stopService(BdBaseApplication.getInst().getContext(), new Intent(BdBaseApplication.getInst().getContext(), ImagesInvalidService.class));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            aVar.a(true);
         }
     }
 }

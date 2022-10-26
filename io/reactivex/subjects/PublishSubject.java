@@ -11,30 +11,29 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Observer;
 import io.reactivex.annotations.CheckReturnValue;
-import io.reactivex.annotations.Nullable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class PublishSubject<T> extends Subject<T> {
+public final class PublishSubject extends Subject {
     public static /* synthetic */ Interceptable $ic;
     public static final PublishDisposable[] EMPTY;
     public static final PublishDisposable[] TERMINATED;
     public transient /* synthetic */ FieldHolder $fh;
     public Throwable error;
-    public final AtomicReference<PublishDisposable<T>[]> subscribers;
+    public final AtomicReference subscribers;
 
     /* loaded from: classes8.dex */
-    public static final class PublishDisposable<T> extends AtomicBoolean implements Disposable {
+    public final class PublishDisposable extends AtomicBoolean implements Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3562861878281475070L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer<? super T> actual;
-        public final PublishSubject<T> parent;
+        public final Observer actual;
+        public final PublishSubject parent;
 
-        public PublishDisposable(Observer<? super T> observer, PublishSubject<T> publishSubject) {
+        public PublishDisposable(Observer observer, PublishSubject publishSubject) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -65,15 +64,17 @@ public final class PublishSubject<T> extends Subject<T> {
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? get() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return get();
+            }
+            return invokeV.booleanValue;
         }
 
         public void onComplete() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || get()) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && !get()) {
+                this.actual.onComplete();
             }
-            this.actual.onComplete();
         }
 
         public void onError(Throwable th) {
@@ -87,12 +88,11 @@ public final class PublishSubject<T> extends Subject<T> {
             }
         }
 
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048580, this, t) == null) || get()) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048580, this, obj) == null) && !get()) {
+                this.actual.onNext(obj);
             }
-            this.actual.onNext(t);
         }
     }
 
@@ -126,39 +126,20 @@ public final class PublishSubject<T> extends Subject<T> {
                 return;
             }
         }
-        this.subscribers = new AtomicReference<>(EMPTY);
+        this.subscribers = new AtomicReference(EMPTY);
     }
 
     @CheckReturnValue
-    public static <T> PublishSubject<T> create() {
+    public static PublishSubject create() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new PublishSubject<>() : (PublishSubject) invokeV.objValue;
-    }
-
-    public boolean add(PublishDisposable<T> publishDisposable) {
-        PublishDisposable<T>[] publishDisposableArr;
-        PublishDisposable<T>[] publishDisposableArr2;
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, publishDisposable)) == null) {
-            do {
-                publishDisposableArr = this.subscribers.get();
-                if (publishDisposableArr == TERMINATED) {
-                    return false;
-                }
-                int length = publishDisposableArr.length;
-                publishDisposableArr2 = new PublishDisposable[length + 1];
-                System.arraycopy(publishDisposableArr, 0, publishDisposableArr2, 0, length);
-                publishDisposableArr2[length] = publishDisposable;
-            } while (!this.subscribers.compareAndSet(publishDisposableArr, publishDisposableArr2));
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new PublishSubject();
         }
-        return invokeL.booleanValue;
+        return (PublishSubject) invokeV.objValue;
     }
 
     @Override // io.reactivex.subjects.Subject
-    @Nullable
     public Throwable getThrowable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -175,68 +156,75 @@ public final class PublishSubject<T> extends Subject<T> {
     public boolean hasComplete() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.subscribers.get() == TERMINATED && this.error == null : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.subscribers.get() == TERMINATED && this.error == null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // io.reactivex.subjects.Subject
     public boolean hasObservers() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.subscribers.get().length != 0 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (((PublishDisposable[]) this.subscribers.get()).length != 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // io.reactivex.subjects.Subject
     public boolean hasThrowable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.subscribers.get() == TERMINATED && this.error != null : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.subscribers.get() == TERMINATED && this.error != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // io.reactivex.Observer
     public void onComplete() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            PublishDisposable<T>[] publishDisposableArr = this.subscribers.get();
-            PublishDisposable<T>[] publishDisposableArr2 = TERMINATED;
-            if (publishDisposableArr == publishDisposableArr2) {
+            Object obj = this.subscribers.get();
+            Object obj2 = TERMINATED;
+            if (obj == obj2) {
                 return;
             }
-            for (PublishDisposable<T> publishDisposable : this.subscribers.getAndSet(publishDisposableArr2)) {
+            for (PublishDisposable publishDisposable : (PublishDisposable[]) this.subscribers.getAndSet(obj2)) {
                 publishDisposable.onComplete();
             }
         }
     }
 
-    @Override // io.reactivex.Observer
-    public void onError(Throwable th) {
+    public boolean add(PublishDisposable publishDisposable) {
+        PublishDisposable[] publishDisposableArr;
+        PublishDisposable[] publishDisposableArr2;
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, th) == null) {
-            ObjectHelper.requireNonNull(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
-            PublishDisposable<T>[] publishDisposableArr = this.subscribers.get();
-            PublishDisposable<T>[] publishDisposableArr2 = TERMINATED;
-            if (publishDisposableArr == publishDisposableArr2) {
-                RxJavaPlugins.onError(th);
-                return;
-            }
-            this.error = th;
-            for (PublishDisposable<T> publishDisposable : this.subscribers.getAndSet(publishDisposableArr2)) {
-                publishDisposable.onError(th);
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, publishDisposable)) == null) {
+            do {
+                publishDisposableArr = (PublishDisposable[]) this.subscribers.get();
+                if (publishDisposableArr == TERMINATED) {
+                    return false;
+                }
+                int length = publishDisposableArr.length;
+                publishDisposableArr2 = new PublishDisposable[length + 1];
+                System.arraycopy(publishDisposableArr, 0, publishDisposableArr2, 0, length);
+                publishDisposableArr2[length] = publishDisposable;
+            } while (!this.subscribers.compareAndSet(publishDisposableArr, publishDisposableArr2));
+            return true;
         }
-    }
-
-    @Override // io.reactivex.Observer
-    public void onNext(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, t) == null) {
-            ObjectHelper.requireNonNull(t, "onNext called with null. Null values are generally not allowed in 2.x operators and sources.");
-            if (this.subscribers.get() == TERMINATED) {
-                return;
-            }
-            for (PublishDisposable<T> publishDisposable : this.subscribers.get()) {
-                publishDisposable.onNext(t);
-            }
-        }
+        return invokeL.booleanValue;
     }
 
     @Override // io.reactivex.Observer
@@ -247,51 +235,43 @@ public final class PublishSubject<T> extends Subject<T> {
         }
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r2v2, resolved type: java.util.concurrent.atomic.AtomicReference<io.reactivex.subjects.PublishSubject$PublishDisposable<T>[]> */
-    /* JADX WARN: Multi-variable type inference failed */
-    public void remove(PublishDisposable<T> publishDisposable) {
-        PublishDisposable<T>[] publishDisposableArr;
-        PublishDisposable[] publishDisposableArr2;
+    @Override // io.reactivex.Observer
+    public void onError(Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, publishDisposable) == null) {
-            do {
-                publishDisposableArr = this.subscribers.get();
-                if (publishDisposableArr == TERMINATED || publishDisposableArr == EMPTY) {
-                    return;
-                }
-                int length = publishDisposableArr.length;
-                int i = -1;
-                int i2 = 0;
-                while (true) {
-                    if (i2 >= length) {
-                        break;
-                    } else if (publishDisposableArr[i2] == publishDisposable) {
-                        i = i2;
-                        break;
-                    } else {
-                        i2++;
-                    }
-                }
-                if (i < 0) {
-                    return;
-                }
-                if (length == 1) {
-                    publishDisposableArr2 = EMPTY;
-                } else {
-                    PublishDisposable[] publishDisposableArr3 = new PublishDisposable[length - 1];
-                    System.arraycopy(publishDisposableArr, 0, publishDisposableArr3, 0, i);
-                    System.arraycopy(publishDisposableArr, i + 1, publishDisposableArr3, i, (length - i) - 1);
-                    publishDisposableArr2 = publishDisposableArr3;
-                }
-            } while (!this.subscribers.compareAndSet(publishDisposableArr, publishDisposableArr2));
+        if (interceptable == null || interceptable.invokeL(1048582, this, th) == null) {
+            ObjectHelper.requireNonNull(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
+            Object obj = this.subscribers.get();
+            Object obj2 = TERMINATED;
+            if (obj == obj2) {
+                RxJavaPlugins.onError(th);
+                return;
+            }
+            this.error = th;
+            for (PublishDisposable publishDisposable : (PublishDisposable[]) this.subscribers.getAndSet(obj2)) {
+                publishDisposable.onError(th);
+            }
+        }
+    }
+
+    @Override // io.reactivex.Observer
+    public void onNext(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, obj) == null) {
+            ObjectHelper.requireNonNull(obj, "onNext called with null. Null values are generally not allowed in 2.x operators and sources.");
+            if (this.subscribers.get() == TERMINATED) {
+                return;
+            }
+            for (PublishDisposable publishDisposable : (PublishDisposable[]) this.subscribers.get()) {
+                publishDisposable.onNext(obj);
+            }
         }
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer<? super T> observer) {
+    public void subscribeActual(Observer observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, observer) == null) {
-            PublishDisposable<T> publishDisposable = new PublishDisposable<>(observer, this);
+            PublishDisposable publishDisposable = new PublishDisposable(observer, this);
             observer.onSubscribe(publishDisposable);
             if (add(publishDisposable)) {
                 if (publishDisposable.isDisposed()) {
@@ -306,6 +286,45 @@ public final class PublishSubject<T> extends Subject<T> {
             } else {
                 observer.onComplete();
             }
+        }
+    }
+
+    public void remove(PublishDisposable publishDisposable) {
+        PublishDisposable[] publishDisposableArr;
+        PublishDisposable[] publishDisposableArr2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, publishDisposable) == null) {
+            do {
+                publishDisposableArr = (PublishDisposable[]) this.subscribers.get();
+                if (publishDisposableArr != TERMINATED && publishDisposableArr != EMPTY) {
+                    int length = publishDisposableArr.length;
+                    int i = -1;
+                    int i2 = 0;
+                    while (true) {
+                        if (i2 >= length) {
+                            break;
+                        } else if (publishDisposableArr[i2] == publishDisposable) {
+                            i = i2;
+                            break;
+                        } else {
+                            i2++;
+                        }
+                    }
+                    if (i < 0) {
+                        return;
+                    }
+                    if (length == 1) {
+                        publishDisposableArr2 = EMPTY;
+                    } else {
+                        PublishDisposable[] publishDisposableArr3 = new PublishDisposable[length - 1];
+                        System.arraycopy(publishDisposableArr, 0, publishDisposableArr3, 0, i);
+                        System.arraycopy(publishDisposableArr, i + 1, publishDisposableArr3, i, (length - i) - 1);
+                        publishDisposableArr2 = publishDisposableArr3;
+                    }
+                } else {
+                    return;
+                }
+            } while (!this.subscribers.compareAndSet(publishDisposableArr, publishDisposableArr2));
         }
     }
 }

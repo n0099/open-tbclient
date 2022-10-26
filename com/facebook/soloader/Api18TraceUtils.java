@@ -1,14 +1,11 @@
 package com.facebook.soloader;
 
-import android.annotation.TargetApi;
 import android.os.Trace;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.annotation.Nullable;
-@DoNotOptimize
-@TargetApi(18)
 /* loaded from: classes7.dex */
 public class Api18TraceUtils {
     public static /* synthetic */ Interceptable $ic = null;
@@ -29,6 +26,13 @@ public class Api18TraceUtils {
         }
     }
 
+    public static void endSection() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            Trace.endSection();
+        }
+    }
+
     public static void beginTraceSection(String str, @Nullable String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65537, null, str, str2, str3) == null) {
@@ -38,13 +42,6 @@ public class Api18TraceUtils {
                 str4 = str + str2.substring(0, length) + str3;
             }
             Trace.beginSection(str4);
-        }
-    }
-
-    public static void endSection() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            Trace.endSection();
         }
     }
 }

@@ -17,19 +17,19 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class MaybeDelaySubscriptionOtherPublisher<T, U> extends AbstractMaybeWithUpstream<T, T> {
+public final class MaybeDelaySubscriptionOtherPublisher extends AbstractMaybeWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Publisher<U> other;
+    public final Publisher other;
 
     /* loaded from: classes8.dex */
-    public static final class DelayMaybeObserver<T> extends AtomicReference<Disposable> implements MaybeObserver<T> {
+    public final class DelayMaybeObserver extends AtomicReference implements MaybeObserver {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 706635022205076709L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final MaybeObserver<? super T> actual;
+        public final MaybeObserver actual;
 
-        public DelayMaybeObserver(MaybeObserver<? super T> maybeObserver) {
+        public DelayMaybeObserver(MaybeObserver maybeObserver) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -45,14 +45,6 @@ public final class MaybeDelaySubscriptionOtherPublisher<T, U> extends AbstractMa
                 }
             }
             this.actual = maybeObserver;
-        }
-
-        @Override // io.reactivex.MaybeObserver
-        public void onComplete() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.actual.onComplete();
-            }
         }
 
         @Override // io.reactivex.MaybeObserver
@@ -72,23 +64,31 @@ public final class MaybeDelaySubscriptionOtherPublisher<T, U> extends AbstractMa
         }
 
         @Override // io.reactivex.MaybeObserver
-        public void onSuccess(T t) {
+        public void onSuccess(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
-                this.actual.onSuccess(t);
+            if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
+                this.actual.onSuccess(obj);
+            }
+        }
+
+        @Override // io.reactivex.MaybeObserver
+        public void onComplete() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.actual.onComplete();
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public static final class OtherSubscriber<T> implements FlowableSubscriber<Object>, Disposable {
+    public final class OtherSubscriber implements FlowableSubscriber, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final DelayMaybeObserver<T> main;
+        public final DelayMaybeObserver main;
         public Subscription s;
-        public MaybeSource<T> source;
+        public MaybeSource source;
 
-        public OtherSubscriber(MaybeObserver<? super T> maybeObserver, MaybeSource<T> maybeSource) {
+        public OtherSubscriber(MaybeObserver maybeObserver, MaybeSource maybeSource) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,7 +103,7 @@ public final class MaybeDelaySubscriptionOtherPublisher<T, U> extends AbstractMa
                     return;
                 }
             }
-            this.main = new DelayMaybeObserver<>(maybeObserver);
+            this.main = new DelayMaybeObserver(maybeObserver);
             this.source = maybeSource;
         }
 
@@ -121,7 +121,10 @@ public final class MaybeDelaySubscriptionOtherPublisher<T, U> extends AbstractMa
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? DisposableHelper.isDisposed(this.main.get()) : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return DisposableHelper.isDisposed((Disposable) this.main.get());
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // org.reactivestreams.Subscriber
@@ -134,6 +137,15 @@ public final class MaybeDelaySubscriptionOtherPublisher<T, U> extends AbstractMa
                     this.s = subscriptionHelper;
                     subscribeNext();
                 }
+            }
+        }
+
+        public void subscribeNext() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+                MaybeSource maybeSource = this.source;
+                this.source = null;
+                maybeSource.subscribe(this.main);
             }
         }
 
@@ -156,12 +168,11 @@ public final class MaybeDelaySubscriptionOtherPublisher<T, U> extends AbstractMa
         public void onNext(Object obj) {
             Subscription subscription;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048580, this, obj) == null) || (subscription = this.s) == SubscriptionHelper.CANCELLED) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048580, this, obj) == null) && (subscription = this.s) != SubscriptionHelper.CANCELLED) {
+                subscription.cancel();
+                this.s = SubscriptionHelper.CANCELLED;
+                subscribeNext();
             }
-            subscription.cancel();
-            this.s = SubscriptionHelper.CANCELLED;
-            subscribeNext();
         }
 
         @Override // io.reactivex.FlowableSubscriber, org.reactivestreams.Subscriber
@@ -173,19 +184,10 @@ public final class MaybeDelaySubscriptionOtherPublisher<T, U> extends AbstractMa
                 subscription.request(Long.MAX_VALUE);
             }
         }
-
-        public void subscribeNext() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-                MaybeSource<T> maybeSource = this.source;
-                this.source = null;
-                maybeSource.subscribe(this.main);
-            }
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MaybeDelaySubscriptionOtherPublisher(MaybeSource<T> maybeSource, Publisher<U> publisher) {
+    public MaybeDelaySubscriptionOtherPublisher(MaybeSource maybeSource, Publisher publisher) {
         super(maybeSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -206,7 +208,7 @@ public final class MaybeDelaySubscriptionOtherPublisher<T, U> extends AbstractMa
     }
 
     @Override // io.reactivex.Maybe
-    public void subscribeActual(MaybeObserver<? super T> maybeObserver) {
+    public void subscribeActual(MaybeObserver maybeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, maybeObserver) == null) {
             this.other.subscribe(new OtherSubscriber(maybeObserver, this.source));

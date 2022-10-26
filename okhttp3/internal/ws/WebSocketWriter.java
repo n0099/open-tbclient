@@ -90,22 +90,30 @@ public final class WebSocketWriter {
         public Timeout timeout() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.this$0.sink.timeout() : (Timeout) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.this$0.sink.timeout();
+            }
+            return (Timeout) invokeV.objValue;
         }
 
         @Override // okio.Sink
         public void write(Buffer buffer, long j) throws IOException {
+            boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(1048579, this, buffer, j) == null) {
                 if (!this.closed) {
                     this.this$0.buffer.write(buffer, j);
-                    boolean z = this.isFirstFrame && this.contentLength != -1 && this.this$0.buffer.size() > this.contentLength - PlaybackStateCompat.ACTION_PLAY_FROM_URI;
+                    if (this.isFirstFrame && this.contentLength != -1 && this.this$0.buffer.size() > this.contentLength - PlaybackStateCompat.ACTION_PLAY_FROM_URI) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
                     long completeSegmentByteCount = this.this$0.buffer.completeSegmentByteCount();
-                    if (completeSegmentByteCount <= 0 || z) {
+                    if (completeSegmentByteCount > 0 && !z) {
+                        this.this$0.writeMessageFrame(this.formatOpcode, completeSegmentByteCount, this.isFirstFrame, false);
+                        this.isFirstFrame = false;
                         return;
                     }
-                    this.this$0.writeMessageFrame(this.formatOpcode, completeSegmentByteCount, this.isFirstFrame, false);
-                    this.isFirstFrame = false;
                     return;
                 }
                 throw new IOException("closed");
@@ -114,6 +122,7 @@ public final class WebSocketWriter {
     }
 
     public WebSocketWriter(boolean z, BufferedSink bufferedSink, Random random) {
+        byte[] bArr;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -130,19 +139,24 @@ public final class WebSocketWriter {
         }
         this.buffer = new Buffer();
         this.frameSink = new FrameSink(this);
-        if (bufferedSink == null) {
-            throw new NullPointerException("sink == null");
+        if (bufferedSink != null) {
+            if (random != null) {
+                this.isClient = z;
+                this.sink = bufferedSink;
+                this.sinkBuffer = bufferedSink.buffer();
+                this.random = random;
+                if (z) {
+                    bArr = new byte[4];
+                } else {
+                    bArr = null;
+                }
+                this.maskKey = bArr;
+                this.maskCursor = z ? new Buffer.UnsafeCursor() : null;
+                return;
+            }
+            throw new NullPointerException("random == null");
         }
-        if (random != null) {
-            this.isClient = z;
-            this.sink = bufferedSink;
-            this.sinkBuffer = bufferedSink.buffer();
-            this.random = random;
-            this.maskKey = z ? new byte[4] : null;
-            this.maskCursor = z ? new Buffer.UnsafeCursor() : null;
-            return;
-        }
-        throw new NullPointerException("random == null");
+        throw new NullPointerException("sink == null");
     }
 
     private void writeControlFrame(int i, ByteString byteString) throws IOException {
@@ -222,6 +236,7 @@ public final class WebSocketWriter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             if (!this.writerClosed) {
+                int i2 = 0;
                 if (!z) {
                     i = 0;
                 }
@@ -229,7 +244,9 @@ public final class WebSocketWriter {
                     i |= 128;
                 }
                 this.sinkBuffer.writeByte(i);
-                int i2 = this.isClient ? 128 : 0;
+                if (this.isClient) {
+                    i2 = 128;
+                }
                 if (j <= 125) {
                     this.sinkBuffer.writeByte(((int) j) | i2);
                 } else if (j <= WebSocketProtocol.PAYLOAD_SHORT_MAX) {

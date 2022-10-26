@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class CriusUISwiperView extends CriusUI<CriusSwiperView> {
+public class CriusUISwiperView extends CriusUI {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "CriusUISwiperView";
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,6 +41,24 @@ public class CriusUISwiperView extends CriusUI<CriusSwiperView> {
                 return;
             }
         }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.crius.ui.CriusUI
+    public CriusSwiperView createView(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            SwiperItemHelper swiperItemHelper = new SwiperItemHelper();
+            this.mItemHelper = swiperItemHelper;
+            this.mAdapter = new CriusSwiperAdapter(context, swiperItemHelper);
+            CriusSwiperView criusSwiperView = new CriusSwiperView(context);
+            this.mCriusSwiperView = criusSwiperView;
+            criusSwiperView.init(this.renderObject.swiperAttrs);
+            this.mCriusSwiperView.setAdapter(this.mAdapter);
+            return this.mCriusSwiperView;
+        }
+        return (CriusSwiperView) invokeL.objValue;
     }
 
     @Override // com.baidu.searchbox.crius.ui.CriusUI, com.baidu.searchbox.crius.ui.RenderImplInterface
@@ -76,23 +94,5 @@ public class CriusUISwiperView extends CriusUI<CriusSwiperView> {
             }
             super.layout(f, f2);
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.searchbox.crius.ui.CriusUI
-    public CriusSwiperView createView(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            SwiperItemHelper swiperItemHelper = new SwiperItemHelper();
-            this.mItemHelper = swiperItemHelper;
-            this.mAdapter = new CriusSwiperAdapter(context, swiperItemHelper);
-            CriusSwiperView criusSwiperView = new CriusSwiperView(context);
-            this.mCriusSwiperView = criusSwiperView;
-            criusSwiperView.init(this.renderObject.swiperAttrs);
-            this.mCriusSwiperView.setAdapter(this.mAdapter);
-            return this.mCriusSwiperView;
-        }
-        return (CriusSwiperView) invokeL.objValue;
     }
 }

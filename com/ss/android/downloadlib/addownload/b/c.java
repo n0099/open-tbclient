@@ -14,7 +14,10 @@ public class c {
     public String i = "";
 
     public boolean a() {
-        return this.d == b;
+        if (this.d == b) {
+            return true;
+        }
+        return false;
     }
 
     public int b() {

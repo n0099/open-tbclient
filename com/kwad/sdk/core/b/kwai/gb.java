@@ -3,9 +3,8 @@ package com.kwad.sdk.core.b.kwai;
 import com.kwad.components.core.webview.jshandler.WebCardVideoPositionHandler;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class gb implements com.kwad.sdk.core.d<WebCardVideoPositionHandler.VideoPosition> {
-    /* renamed from: a  reason: avoid collision after fix types in other method */
-    public static void a2(WebCardVideoPositionHandler.VideoPosition videoPosition, JSONObject jSONObject) {
+public final class gb implements com.kwad.sdk.core.d {
+    public static void a(WebCardVideoPositionHandler.VideoPosition videoPosition, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
@@ -20,8 +19,7 @@ public final class gb implements com.kwad.sdk.core.d<WebCardVideoPositionHandler
         videoPosition.borderRadius = jSONObject.optInt("borderRadius");
     }
 
-    /* renamed from: b  reason: avoid collision after fix types in other method */
-    public static JSONObject b2(WebCardVideoPositionHandler.VideoPosition videoPosition, JSONObject jSONObject) {
+    public static JSONObject b(WebCardVideoPositionHandler.VideoPosition videoPosition, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
@@ -64,15 +62,13 @@ public final class gb implements com.kwad.sdk.core.d<WebCardVideoPositionHandler
         return jSONObject;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ void a(WebCardVideoPositionHandler.VideoPosition videoPosition, JSONObject jSONObject) {
-        a2(videoPosition, jSONObject);
+    public final /* bridge */ /* synthetic */ void a(com.kwad.sdk.core.b bVar, JSONObject jSONObject) {
+        a((WebCardVideoPositionHandler.VideoPosition) bVar, jSONObject);
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ JSONObject b(WebCardVideoPositionHandler.VideoPosition videoPosition, JSONObject jSONObject) {
-        return b2(videoPosition, jSONObject);
+    public final /* bridge */ /* synthetic */ JSONObject b(com.kwad.sdk.core.b bVar, JSONObject jSONObject) {
+        return b((WebCardVideoPositionHandler.VideoPosition) bVar, jSONObject);
     }
 }

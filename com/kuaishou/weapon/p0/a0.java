@@ -25,10 +25,10 @@ public class a0 {
     public String b;
     public String c;
     public String d;
-    public Set<String> e;
-    public Set<String> f;
-    public Set<String> g;
-    public Set<String> h;
+    public Set e;
+    public Set f;
+    public Set g;
+    public Set h;
 
     public a0() {
         Interceptable interceptable = $ic;
@@ -53,7 +53,7 @@ public class a0 {
         this.d = j.a("fc03e7a44510", "0820");
     }
 
-    public Set<String> a() {
+    public Set a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -84,7 +84,7 @@ public class a0 {
         boolean z;
         int indexOf;
         String substring;
-        Set<String> set;
+        Set set;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
             BufferedReader bufferedReader2 = null;
@@ -205,7 +205,7 @@ public class a0 {
         return invokeV.intValue;
     }
 
-    public Set<String> c() {
+    public Set c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {

@@ -38,48 +38,69 @@ public class LiveHorseRaceData implements Serializable {
     public Integer getAmount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.amount : (Integer) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.amount;
+        }
+        return (Integer) invokeV.objValue;
     }
 
     public Long getLive_id() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.live_id : (Long) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.live_id;
+        }
+        return (Long) invokeV.objValue;
     }
 
     public String getLive_title() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.live_title : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.live_title;
+        }
+        return (String) invokeV.objValue;
     }
 
     public Long getRob_end_tm() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.rob_end_tm : (Long) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.rob_end_tm;
+        }
+        return (Long) invokeV.objValue;
     }
 
     public Integer getScreen_direction() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.screen_direction : (Integer) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.screen_direction;
+        }
+        return (Integer) invokeV.objValue;
     }
 
     public Long getUser_id() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.user_id : (Long) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.user_id;
+        }
+        return (Long) invokeV.objValue;
     }
 
     public String getUser_nickname() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.user_nickname : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.user_nickname;
+        }
+        return (String) invokeV.objValue;
     }
 
     public void parserProtobuf(LiveList liveList) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, liveList) == null) || liveList == null) {
+        if ((interceptable != null && interceptable.invokeL(1048583, this, liveList) != null) || liveList == null) {
             return;
         }
         this.live_id = liveList.live_id;

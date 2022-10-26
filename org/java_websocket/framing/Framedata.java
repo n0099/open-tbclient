@@ -10,10 +10,21 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 /* loaded from: classes8.dex */
 public interface Framedata {
+    ByteBuffer a();
+
+    boolean b();
+
+    boolean c();
+
+    Opcode d();
+
+    boolean e();
+
+    boolean f();
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public static final class Opcode {
+    public final class Opcode {
         public static final /* synthetic */ Opcode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Opcode BINARY;
@@ -69,25 +80,19 @@ public interface Framedata {
         public static Opcode valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Opcode) Enum.valueOf(Opcode.class, str) : (Opcode) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (Opcode) Enum.valueOf(Opcode.class, str);
+            }
+            return (Opcode) invokeL.objValue;
         }
 
         public static Opcode[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Opcode[]) $VALUES.clone() : (Opcode[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (Opcode[]) $VALUES.clone();
+            }
+            return (Opcode[]) invokeV.objValue;
         }
     }
-
-    ByteBuffer a();
-
-    boolean b();
-
-    boolean c();
-
-    Opcode d();
-
-    boolean e();
-
-    boolean f();
 }

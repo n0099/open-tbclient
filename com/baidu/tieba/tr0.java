@@ -1,26 +1,54 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
-public final class tr0 {
+public class tr0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final vr0 b;
+    public final HashMap a;
 
-    public tr0(String host, vr0 vr0Var) {
+    /* loaded from: classes6.dex */
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final tr0 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-394517543, "Lcom/baidu/tieba/tr0$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-394517543, "Lcom/baidu/tieba/tr0$b;");
+                    return;
+                }
+            }
+            a = new tr0(null);
+        }
+    }
+
+    public tr0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {host, vr0Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,57 +58,44 @@ public final class tr0 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(host, "host");
-        this.a = host;
-        this.b = vr0Var;
+        this.a = new HashMap(2);
     }
 
-    public final vr0 a() {
+    public static tr0 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (vr0) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
+        }
+        return (tr0) invokeV.objValue;
     }
 
-    public final String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
+    public /* synthetic */ tr0(a aVar) {
+        this();
     }
 
-    public boolean equals(Object obj) {
+    public pw0 b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (this != obj) {
-                if (obj instanceof tr0) {
-                    tr0 tr0Var = (tr0) obj;
-                    return Intrinsics.areEqual(this.a, tr0Var.a) && Intrinsics.areEqual(this.b, tr0Var.b);
-                }
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return (pw0) this.a.get(str);
         }
-        return invokeL.booleanValue;
+        return (pw0) invokeL.objValue;
     }
 
-    public int hashCode() {
-        InterceptResult invokeV;
+    public pw0 d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            String str = this.a;
-            int hashCode = (str != null ? str.hashCode() : 0) * 31;
-            vr0 vr0Var = this.b;
-            return hashCode + (vr0Var != null ? vr0Var.hashCode() : 0);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return (pw0) this.a.remove(str);
         }
-        return invokeV.intValue;
+        return (pw0) invokeL.objValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public void c(String str, pw0 pw0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "AuthHostItemModel(host=" + this.a + ", auth=" + this.b + SmallTailInfo.EMOTION_SUFFIX;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, pw0Var) == null) && pw0Var != null && !TextUtils.isEmpty(str)) {
+            this.a.put(str, pw0Var);
         }
-        return (String) invokeV.objValue;
     }
 }

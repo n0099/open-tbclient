@@ -107,14 +107,18 @@ public final class UrlTemplate {
                         } else if (substring.equals(NUMBER)) {
                             c = 0;
                         }
-                        if (c == 0) {
-                            iArr[i2] = 2;
-                        } else if (c == 1) {
-                            iArr[i2] = 3;
-                        } else if (c == 2) {
-                            iArr[i2] = 4;
+                        if (c != 0) {
+                            if (c != 1) {
+                                if (c == 2) {
+                                    iArr[i2] = 4;
+                                } else {
+                                    throw new IllegalArgumentException("Invalid template: " + str);
+                                }
+                            } else {
+                                iArr[i2] = 3;
+                            }
                         } else {
-                            throw new IllegalArgumentException("Invalid template: " + str);
+                            iArr[i2] = 2;
                         }
                         strArr2[i2] = str2;
                     }
@@ -131,30 +135,31 @@ public final class UrlTemplate {
     public String buildUri(String str, int i, int i2, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)})) != null) {
-            return (String) invokeCommon.objValue;
-        }
-        StringBuilder sb = new StringBuilder();
-        int i3 = 0;
-        while (true) {
-            int i4 = this.identifierCount;
-            if (i3 < i4) {
-                sb.append(this.urlPieces[i3]);
-                int[] iArr = this.identifiers;
-                if (iArr[i3] == 1) {
-                    sb.append(str);
-                } else if (iArr[i3] == 2) {
-                    sb.append(String.format(Locale.US, this.identifierFormatTags[i3], Integer.valueOf(i)));
-                } else if (iArr[i3] == 3) {
-                    sb.append(String.format(Locale.US, this.identifierFormatTags[i3], Integer.valueOf(i2)));
-                } else if (iArr[i3] == 4) {
-                    sb.append(String.format(Locale.US, this.identifierFormatTags[i3], Long.valueOf(j)));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)})) == null) {
+            StringBuilder sb = new StringBuilder();
+            int i3 = 0;
+            while (true) {
+                int i4 = this.identifierCount;
+                if (i3 < i4) {
+                    sb.append(this.urlPieces[i3]);
+                    int[] iArr = this.identifiers;
+                    if (iArr[i3] == 1) {
+                        sb.append(str);
+                    } else if (iArr[i3] == 2) {
+                        sb.append(String.format(Locale.US, this.identifierFormatTags[i3], Integer.valueOf(i)));
+                    } else if (iArr[i3] == 3) {
+                        sb.append(String.format(Locale.US, this.identifierFormatTags[i3], Integer.valueOf(i2)));
+                    } else if (iArr[i3] == 4) {
+                        sb.append(String.format(Locale.US, this.identifierFormatTags[i3], Long.valueOf(j)));
+                    }
+                    i3++;
+                } else {
+                    sb.append(this.urlPieces[i4]);
+                    return sb.toString();
                 }
-                i3++;
-            } else {
-                sb.append(this.urlPieces[i4]);
-                return sb.toString();
             }
+        } else {
+            return (String) invokeCommon.objValue;
         }
     }
 }

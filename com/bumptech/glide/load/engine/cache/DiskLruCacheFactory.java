@@ -19,6 +19,25 @@ public class DiskLruCacheFactory implements DiskCache.Factory {
         File getCacheDirectory();
     }
 
+    public DiskLruCacheFactory(CacheDirectoryGetter cacheDirectoryGetter, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cacheDirectoryGetter, Long.valueOf(j)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.diskCacheSize = j;
+        this.cacheDirectoryGetter = cacheDirectoryGetter;
+    }
+
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public DiskLruCacheFactory(String str, long j) {
         this(new CacheDirectoryGetter(str) { // from class: com.bumptech.glide.load.engine.cache.DiskLruCacheFactory.1
@@ -48,7 +67,10 @@ public class DiskLruCacheFactory implements DiskCache.Factory {
             public File getCacheDirectory() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new File(this.val$diskCacheFolder) : (File) invokeV.objValue;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                    return new File(this.val$diskCacheFolder);
+                }
+                return (File) invokeV.objValue;
             }
         }, j);
         Interceptable interceptable = $ic;
@@ -67,23 +89,6 @@ public class DiskLruCacheFactory implements DiskCache.Factory {
                 return;
             }
         }
-    }
-
-    @Override // com.bumptech.glide.load.engine.cache.DiskCache.Factory
-    public DiskCache build() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            File cacheDirectory = this.cacheDirectoryGetter.getCacheDirectory();
-            if (cacheDirectory == null) {
-                return null;
-            }
-            if (cacheDirectory.mkdirs() || (cacheDirectory.exists() && cacheDirectory.isDirectory())) {
-                return DiskLruCacheWrapper.create(cacheDirectory, this.diskCacheSize);
-            }
-            return null;
-        }
-        return (DiskCache) invokeV.objValue;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -117,7 +122,10 @@ public class DiskLruCacheFactory implements DiskCache.Factory {
             public File getCacheDirectory() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new File(this.val$diskCacheFolder, this.val$diskCacheName) : (File) invokeV.objValue;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                    return new File(this.val$diskCacheFolder, this.val$diskCacheName);
+                }
+                return (File) invokeV.objValue;
             }
         }, j);
         Interceptable interceptable = $ic;
@@ -138,22 +146,20 @@ public class DiskLruCacheFactory implements DiskCache.Factory {
         }
     }
 
-    public DiskLruCacheFactory(CacheDirectoryGetter cacheDirectoryGetter, long j) {
+    @Override // com.bumptech.glide.load.engine.cache.DiskCache.Factory
+    public DiskCache build() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {cacheDirectoryGetter, Long.valueOf(j)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            File cacheDirectory = this.cacheDirectoryGetter.getCacheDirectory();
+            if (cacheDirectory == null) {
+                return null;
             }
+            if (!cacheDirectory.isDirectory() && !cacheDirectory.mkdirs()) {
+                return null;
+            }
+            return DiskLruCacheWrapper.create(cacheDirectory, this.diskCacheSize);
         }
-        this.diskCacheSize = j;
-        this.cacheDirectoryGetter = cacheDirectoryGetter;
+        return (DiskCache) invokeV.objValue;
     }
 }

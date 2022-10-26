@@ -5,7 +5,7 @@ import java.io.Serializable;
 public interface DevelopMangerComponents extends a {
 
     /* loaded from: classes7.dex */
-    public static class DevelopValue implements Serializable {
+    public class DevelopValue implements Serializable {
         public static final long serialVersionUID = 2793333073373146040L;
         public Serializable mValue;
 
@@ -13,10 +13,10 @@ public interface DevelopMangerComponents extends a {
             this.mValue = serializable;
         }
 
-        public <T> T getValue() {
-            T t = (T) this.mValue;
-            if (t != null) {
-                return t;
+        public Object getValue() {
+            Serializable serializable = this.mValue;
+            if (serializable != null) {
+                return serializable;
             }
             return null;
         }

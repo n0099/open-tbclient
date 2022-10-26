@@ -17,7 +17,7 @@ public class InferenceRecorder {
     public static volatile InferenceRecorder mInstance;
     public transient /* synthetic */ FieldHolder $fh;
     public int mCount;
-    public Map<String, Integer> mInferenceMap;
+    public Map mInferenceMap;
 
     public InferenceRecorder() {
         Interceptable interceptable = $ic;
@@ -52,6 +52,23 @@ public class InferenceRecorder {
         return (InferenceRecorder) invokeV.objValue;
     }
 
+    public synchronized boolean isInferencing() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this) {
+                if (this.mCount > 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
     public synchronized void inferenceStart(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -59,7 +76,11 @@ public class InferenceRecorder {
                 if (TextUtils.isEmpty(str)) {
                     return;
                 }
-                this.mInferenceMap.put(str, Integer.valueOf((this.mInferenceMap.containsKey(str) ? this.mInferenceMap.get(str).intValue() : 0) + 1));
+                int i = 0;
+                if (this.mInferenceMap.containsKey(str)) {
+                    i = ((Integer) this.mInferenceMap.get(str)).intValue();
+                }
+                this.mInferenceMap.put(str, Integer.valueOf(i + 1));
                 this.mCount++;
             }
         }
@@ -73,7 +94,7 @@ public class InferenceRecorder {
                     return;
                 }
                 if (this.mInferenceMap.containsKey(str)) {
-                    int intValue = this.mInferenceMap.get(str).intValue();
+                    int intValue = ((Integer) this.mInferenceMap.get(str)).intValue();
                     if (intValue > 0 && this.mCount > 0) {
                         int i = intValue - 1;
                         if (i == 0) {
@@ -89,18 +110,5 @@ public class InferenceRecorder {
                 }
             }
         }
-    }
-
-    public synchronized boolean isInferencing() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this) {
-                z = this.mCount > 0;
-            }
-            return z;
-        }
-        return invokeV.booleanValue;
     }
 }

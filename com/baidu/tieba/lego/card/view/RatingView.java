@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,7 +26,7 @@ public class RatingView extends LinearLayout {
     public a b;
 
     /* loaded from: classes4.dex */
-    public static class a {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -69,6 +69,42 @@ public class RatingView extends LinearLayout {
         }
     }
 
+    public final ImageView b(Drawable drawable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, drawable)) == null) {
+            ImageView imageView = new ImageView(this.a);
+            imageView.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
+            imageView.setPadding(0, 0, fj.f(this.a, R.dimen.obfuscated_res_0x7f070224), 0);
+            imageView.setImageDrawable(drawable);
+            return imageView;
+        }
+        return (ImageView) invokeL.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public RatingView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = context;
+        c();
+    }
+
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -81,9 +117,9 @@ public class RatingView extends LinearLayout {
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                 TextView textView = new TextView(this.a);
                 textView.setText(this.b.a);
-                textView.setTextSize(0, ej.f(this.a, R.dimen.obfuscated_res_0x7f0702b3));
+                textView.setTextSize(0, fj.f(this.a, R.dimen.obfuscated_res_0x7f0702b3));
                 textView.setTextColor(SkinManager.getColor(R.color.CAM_X0109));
-                textView.setPadding(0, 0, ej.f(this.a, R.dimen.obfuscated_res_0x7f070201), 0);
+                textView.setPadding(0, 0, fj.f(this.a, R.dimen.obfuscated_res_0x7f070201), 0);
                 textView.setLayoutParams(layoutParams);
                 textView.setIncludeFontPadding(false);
                 addView(textView);
@@ -92,50 +128,36 @@ public class RatingView extends LinearLayout {
                 LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
                 TextView textView2 = new TextView(this.a);
                 textView2.setText(this.b.b);
-                textView2.setTextSize(0, ej.f(this.a, R.dimen.obfuscated_res_0x7f0702b3));
+                textView2.setTextSize(0, fj.f(this.a, R.dimen.obfuscated_res_0x7f0702b3));
                 textView2.setTextColor(SkinManager.getColor(R.color.CAM_X0109));
-                textView2.setPadding(0, 0, ej.f(this.a, R.dimen.obfuscated_res_0x7f0702e6), 0);
+                textView2.setPadding(0, 0, fj.f(this.a, R.dimen.obfuscated_res_0x7f0702e6), 0);
                 textView2.setLayoutParams(layoutParams2);
                 textView2.setIncludeFontPadding(false);
                 addView(textView2);
             }
             Double d = this.b.c;
-            if (d == null || Double.isNaN(d.doubleValue())) {
-                return;
-            }
-            Integer valueOf = Integer.valueOf(this.b.c.intValue());
-            if (valueOf.intValue() > 10) {
-                valueOf = 10;
-            }
-            if (valueOf.intValue() < 0) {
-                valueOf = 0;
-            }
-            int intValue = valueOf.intValue() >> 1;
-            for (int i = 0; i < intValue; i++) {
-                addView(b(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080a9b)));
-            }
-            int i2 = 5 - intValue;
-            if (valueOf.intValue() > 0 && valueOf.intValue() % 2 == 1) {
-                addView(b(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080a9c)));
-                i2--;
-            }
-            for (int i3 = 0; i3 < i2; i3++) {
-                addView(b(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080a9a)));
+            if (d != null && !Double.isNaN(d.doubleValue())) {
+                Integer valueOf = Integer.valueOf(this.b.c.intValue());
+                if (valueOf.intValue() > 10) {
+                    valueOf = 10;
+                }
+                if (valueOf.intValue() < 0) {
+                    valueOf = 0;
+                }
+                int intValue = valueOf.intValue() >> 1;
+                for (int i = 0; i < intValue; i++) {
+                    addView(b(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080aaa)));
+                }
+                int i2 = 5 - intValue;
+                if (valueOf.intValue() > 0 && valueOf.intValue() % 2 == 1) {
+                    addView(b(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080aab)));
+                    i2--;
+                }
+                for (int i3 = 0; i3 < i2; i3++) {
+                    addView(b(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080aa9)));
+                }
             }
         }
-    }
-
-    public final ImageView b(Drawable drawable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, drawable)) == null) {
-            ImageView imageView = new ImageView(this.a);
-            imageView.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-            imageView.setPadding(0, 0, ej.f(this.a, R.dimen.obfuscated_res_0x7f070224), 0);
-            imageView.setImageDrawable(drawable);
-            return imageView;
-        }
-        return (ImageView) invokeL.objValue;
     }
 
     public final void c() {
@@ -180,28 +202,5 @@ public class RatingView extends LinearLayout {
             d.a = str;
             a();
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RatingView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = context;
-        c();
     }
 }

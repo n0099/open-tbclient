@@ -43,6 +43,7 @@ import java.lang.reflect.Method;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -51,90 +52,6 @@ import org.json.JSONObject;
 public class JsonUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: com.baidubce.util.JsonUtils$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
-        public static final /* synthetic */ int[] $SwitchMap$com$baidubce$services$bos$model$Permission;
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1622746778, "Lcom/baidubce/util/JsonUtils$1;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-1622746778, "Lcom/baidubce/util/JsonUtils$1;");
-                    return;
-                }
-            }
-            int[] iArr = new int[Permission.values().length];
-            $SwitchMap$com$baidubce$services$bos$model$Permission = iArr;
-            try {
-                iArr[Permission.FULL_CONTROL.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                $SwitchMap$com$baidubce$services$bos$model$Permission[Permission.READ.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                $SwitchMap$com$baidubce$services$bos$model$Permission[Permission.WRITE.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-        }
-    }
-
-    public JsonUtils() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static void load(BceHttpResponse bceHttpResponse, AbstractBceResponse abstractBceResponse) throws IOException, NoSuchMethodException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, JSONException, ParseException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, bceHttpResponse, abstractBceResponse) == null) {
-            load(bceHttpResponse.getContent(), abstractBceResponse);
-        }
-    }
-
-    public static BceErrorResponse loadError(InputStream inputStream) throws IOException, JSONException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, inputStream)) == null) {
-            BceErrorResponse bceErrorResponse = new BceErrorResponse();
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-            String str = "";
-            while (true) {
-                String readLine = bufferedReader.readLine();
-                if (readLine == null) {
-                    break;
-                }
-                str = str + readLine;
-            }
-            if (str.isEmpty()) {
-                return null;
-            }
-            JSONObject jSONObject = new JSONObject(str);
-            bceErrorResponse.setCode(jSONObject.getString("code"));
-            bceErrorResponse.setMessage(jSONObject.getString("message"));
-            bceErrorResponse.setRequestId(jSONObject.getString("requestId"));
-            return bceErrorResponse;
-        }
-        return (BceErrorResponse) invokeL.objValue;
-    }
 
     public static void loadFromString(String str, AbstractBceResponse abstractBceResponse) throws IOException, NoSuchMethodException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, JSONException, ParseException {
         Interceptable interceptable = $ic;
@@ -325,13 +242,117 @@ public class JsonUtils {
         }
     }
 
-    public static String setAclJson(List<Grant> list) throws JSONException {
+    /* renamed from: com.baidubce.util.JsonUtils$1  reason: invalid class name */
+    /* loaded from: classes7.dex */
+    public /* synthetic */ class AnonymousClass1 {
+        public static final /* synthetic */ int[] $SwitchMap$com$baidubce$services$bos$model$Permission;
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1622746778, "Lcom/baidubce/util/JsonUtils$1;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-1622746778, "Lcom/baidubce/util/JsonUtils$1;");
+                    return;
+                }
+            }
+            int[] iArr = new int[Permission.values().length];
+            $SwitchMap$com$baidubce$services$bos$model$Permission = iArr;
+            try {
+                iArr[Permission.FULL_CONTROL.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                $SwitchMap$com$baidubce$services$bos$model$Permission[Permission.READ.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                $SwitchMap$com$baidubce$services$bos$model$Permission[Permission.WRITE.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+        }
+    }
+
+    public JsonUtils() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public static void load(BceHttpResponse bceHttpResponse, AbstractBceResponse abstractBceResponse) throws IOException, NoSuchMethodException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, JSONException, ParseException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, bceHttpResponse, abstractBceResponse) == null) {
+            load(bceHttpResponse.getContent(), abstractBceResponse);
+        }
+    }
+
+    public static void load(InputStream inputStream, AbstractBceResponse abstractBceResponse) throws IOException, NoSuchMethodException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, JSONException, ParseException {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65538, null, inputStream, abstractBceResponse) == null) && inputStream != null) {
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+            String str = "";
+            while (true) {
+                String readLine = bufferedReader.readLine();
+                if (readLine != null) {
+                    str = str + readLine;
+                } else {
+                    inputStream.close();
+                    loadFromString(str, abstractBceResponse);
+                    return;
+                }
+            }
+        }
+    }
+
+    public static BceErrorResponse loadError(InputStream inputStream) throws IOException, JSONException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, inputStream)) == null) {
+            BceErrorResponse bceErrorResponse = new BceErrorResponse();
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+            String str = "";
+            while (true) {
+                String readLine = bufferedReader.readLine();
+                if (readLine == null) {
+                    break;
+                }
+                str = str + readLine;
+            }
+            if (str.isEmpty()) {
+                return null;
+            }
+            JSONObject jSONObject = new JSONObject(str);
+            bceErrorResponse.setCode(jSONObject.getString("code"));
+            bceErrorResponse.setMessage(jSONObject.getString("message"));
+            bceErrorResponse.setRequestId(jSONObject.getString("requestId"));
+            return bceErrorResponse;
+        }
+        return (BceErrorResponse) invokeL.objValue;
+    }
+
+    public static String setAclJson(List list) throws JSONException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, list)) == null) {
             JSONArray jSONArray = new JSONArray();
             JSONObject jSONObject = new JSONObject();
-            for (Grant grant : list) {
+            Iterator it = list.iterator();
+            while (it.hasNext()) {
+                Grant grant = (Grant) it.next();
                 JSONObject jSONObject2 = new JSONObject();
                 JSONArray jSONArray2 = new JSONArray();
                 for (Permission permission : grant.getPermission()) {
@@ -353,13 +374,15 @@ public class JsonUtils {
         return (String) invokeL.objValue;
     }
 
-    public static String setPartETag(List<PartETag> list) throws JSONException {
+    public static String setPartETag(List list) throws JSONException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, list)) == null) {
             JSONArray jSONArray = new JSONArray();
             JSONObject jSONObject = new JSONObject();
-            for (PartETag partETag : list) {
+            Iterator it = list.iterator();
+            while (it.hasNext()) {
+                PartETag partETag = (PartETag) it.next();
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("eTag", partETag.getETag());
                 jSONObject2.put("partNumber", partETag.getPartNumber());
@@ -369,24 +392,5 @@ public class JsonUtils {
             return jSONObject.toString();
         }
         return (String) invokeL.objValue;
-    }
-
-    public static void load(InputStream inputStream, AbstractBceResponse abstractBceResponse) throws IOException, NoSuchMethodException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, JSONException, ParseException {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, null, inputStream, abstractBceResponse) == null) || inputStream == null) {
-            return;
-        }
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-        String str = "";
-        while (true) {
-            String readLine = bufferedReader.readLine();
-            if (readLine != null) {
-                str = str + readLine;
-            } else {
-                inputStream.close();
-                loadFromString(str, abstractBceResponse);
-                return;
-            }
-        }
     }
 }

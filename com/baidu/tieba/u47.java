@@ -1,6 +1,8 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,16 +10,31 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class u47 implements Cdo {
+public class u47 extends ar4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId e;
+    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
+
+    @Override // com.baidu.tieba.ar4
+    public xs4 getNegFeedBackData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
+        }
+        return (xs4) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ar4
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
+        }
+        return (ThreadData) invokeV.objValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -32,7 +49,7 @@ public class u47 implements Cdo {
                 return;
             }
         }
-        e = BdUniqueId.gen();
+        a = BdUniqueId.gen();
     }
 
     public u47() {
@@ -49,27 +66,13 @@ public class u47 implements Cdo {
         }
     }
 
-    public static u47 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            u47 u47Var = new u47();
-            u47Var.a = jSONObject.optString("title");
-            u47Var.b = jSONObject.optString("desc");
-            u47Var.c = jSONObject.optString("tag");
-            u47Var.d = jSONObject.optString("img");
-            return u47Var;
-        }
-        return (u47) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.Cdo
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.eo
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? e : (BdUniqueId) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return a;
+        }
+        return (BdUniqueId) invokeV.objValue;
     }
 }

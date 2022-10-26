@@ -3,8 +3,8 @@ package com.google.ar.core;
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pr9;
-import com.baidu.tieba.qr9;
+import com.baidu.tieba.hs9;
+import com.baidu.tieba.is9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,9 +18,153 @@ public class ArCoreApk {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* loaded from: classes7.dex */
+    public interface a {
+        void a(Availability availability);
+    }
+
+    public abstract Availability a(Context context);
+
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public static final class InstallBehavior {
+    public class Availability {
+        public static final /* synthetic */ Availability[] $VALUES;
+        public static /* synthetic */ Interceptable $ic;
+        public static final Availability SUPPORTED_APK_TOO_OLD;
+        public static final Availability SUPPORTED_INSTALLED;
+        public static final Availability SUPPORTED_NOT_INSTALLED;
+        public static final Availability UNKNOWN_CHECKING;
+        public static final Availability UNKNOWN_ERROR;
+        public static final Availability UNKNOWN_TIMED_OUT;
+        public static final Availability UNSUPPORTED_DEVICE_NOT_CAPABLE;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final int nativeCode;
+
+        public boolean isSupported() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public boolean isTransient() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public boolean isUnknown() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public boolean isUnsupported() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-2030114726, "Lcom/google/ar/core/ArCoreApk$Availability;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-2030114726, "Lcom/google/ar/core/ArCoreApk$Availability;");
+                    return;
+                }
+            }
+            UNKNOWN_ERROR = new com.google.ar.core.a("UNKNOWN_ERROR", 0, 0);
+            UNKNOWN_CHECKING = new b("UNKNOWN_CHECKING", 1, 1);
+            UNKNOWN_TIMED_OUT = new c("UNKNOWN_TIMED_OUT", 2, 2);
+            UNSUPPORTED_DEVICE_NOT_CAPABLE = new d("UNSUPPORTED_DEVICE_NOT_CAPABLE", 3, 100);
+            SUPPORTED_NOT_INSTALLED = new e("SUPPORTED_NOT_INSTALLED", 4, 201);
+            SUPPORTED_APK_TOO_OLD = new f("SUPPORTED_APK_TOO_OLD", 5, 202);
+            g gVar = new g("SUPPORTED_INSTALLED", 6, 203);
+            SUPPORTED_INSTALLED = gVar;
+            $VALUES = new Availability[]{UNKNOWN_ERROR, UNKNOWN_CHECKING, UNKNOWN_TIMED_OUT, UNSUPPORTED_DEVICE_NOT_CAPABLE, SUPPORTED_NOT_INSTALLED, SUPPORTED_APK_TOO_OLD, gVar};
+        }
+
+        public Availability(String str, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str2 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.nativeCode = i2;
+        }
+
+        public /* synthetic */ Availability(String str, int i, int i2, hs9 hs9Var) {
+            this(str, i, i2);
+        }
+
+        public static Availability forNumber(int i) {
+            InterceptResult invokeI;
+            Availability[] values;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+                for (Availability availability : values()) {
+                    if (availability.nativeCode == i) {
+                        return availability;
+                    }
+                }
+                StringBuilder sb = new StringBuilder(59);
+                sb.append("Unexpected value for native Availability, value=");
+                sb.append(i);
+                throw new FatalException(sb.toString());
+            }
+            return (Availability) invokeI.objValue;
+        }
+
+        public static Availability valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+                return (Availability) Enum.valueOf(Availability.class, str);
+            }
+            return (Availability) invokeL.objValue;
+        }
+
+        public static Availability[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+                return (Availability[]) $VALUES.clone();
+            }
+            return (Availability[]) invokeV.objValue;
+        }
+    }
+
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    /* loaded from: classes7.dex */
+    public final class InstallBehavior {
         public static final /* synthetic */ InstallBehavior[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final InstallBehavior OPTIONAL;
@@ -89,19 +233,25 @@ public class ArCoreApk {
         public static InstallBehavior valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (InstallBehavior) Enum.valueOf(InstallBehavior.class, str) : (InstallBehavior) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+                return (InstallBehavior) Enum.valueOf(InstallBehavior.class, str);
+            }
+            return (InstallBehavior) invokeL.objValue;
         }
 
         public static InstallBehavior[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (InstallBehavior[]) $VALUES.clone() : (InstallBehavior[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+                return (InstallBehavior[]) $VALUES.clone();
+            }
+            return (InstallBehavior[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public static final class InstallStatus {
+    public final class InstallStatus {
         public static final /* synthetic */ InstallStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final InstallStatus INSTALLED;
@@ -170,19 +320,25 @@ public class ArCoreApk {
         public static InstallStatus valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (InstallStatus) Enum.valueOf(InstallStatus.class, str) : (InstallStatus) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+                return (InstallStatus) Enum.valueOf(InstallStatus.class, str);
+            }
+            return (InstallStatus) invokeL.objValue;
         }
 
         public static InstallStatus[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (InstallStatus[]) $VALUES.clone() : (InstallStatus[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+                return (InstallStatus[]) $VALUES.clone();
+            }
+            return (InstallStatus[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public static final class UserMessageType {
+    public final class UserMessageType {
         public static final /* synthetic */ UserMessageType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final UserMessageType APPLICATION;
@@ -253,19 +409,20 @@ public class ArCoreApk {
         public static UserMessageType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (UserMessageType) Enum.valueOf(UserMessageType.class, str) : (UserMessageType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+                return (UserMessageType) Enum.valueOf(UserMessageType.class, str);
+            }
+            return (UserMessageType) invokeL.objValue;
         }
 
         public static UserMessageType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (UserMessageType[]) $VALUES.clone() : (UserMessageType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+                return (UserMessageType[]) $VALUES.clone();
+            }
+            return (UserMessageType[]) invokeV.objValue;
         }
-    }
-
-    /* loaded from: classes7.dex */
-    public interface a {
-        void a(Availability availability);
     }
 
     public ArCoreApk() {
@@ -285,139 +442,9 @@ public class ArCoreApk {
     public static ArCoreApk b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? qr9.d() : (ArCoreApk) invokeV.objValue;
-    }
-
-    public abstract Availability a(Context context);
-
-    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
-    public static class Availability {
-        public static final /* synthetic */ Availability[] $VALUES;
-        public static /* synthetic */ Interceptable $ic;
-        public static final Availability SUPPORTED_APK_TOO_OLD;
-        public static final Availability SUPPORTED_INSTALLED;
-        public static final Availability SUPPORTED_NOT_INSTALLED;
-        public static final Availability UNKNOWN_CHECKING;
-        public static final Availability UNKNOWN_ERROR;
-        public static final Availability UNKNOWN_TIMED_OUT;
-        public static final Availability UNSUPPORTED_DEVICE_NOT_CAPABLE;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final int nativeCode;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-2030114726, "Lcom/google/ar/core/ArCoreApk$Availability;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-2030114726, "Lcom/google/ar/core/ArCoreApk$Availability;");
-                    return;
-                }
-            }
-            UNKNOWN_ERROR = new com.google.ar.core.a("UNKNOWN_ERROR", 0, 0);
-            UNKNOWN_CHECKING = new b("UNKNOWN_CHECKING", 1, 1);
-            UNKNOWN_TIMED_OUT = new c("UNKNOWN_TIMED_OUT", 2, 2);
-            UNSUPPORTED_DEVICE_NOT_CAPABLE = new d("UNSUPPORTED_DEVICE_NOT_CAPABLE", 3, 100);
-            SUPPORTED_NOT_INSTALLED = new e("SUPPORTED_NOT_INSTALLED", 4, 201);
-            SUPPORTED_APK_TOO_OLD = new f("SUPPORTED_APK_TOO_OLD", 5, 202);
-            g gVar = new g("SUPPORTED_INSTALLED", 6, 203);
-            SUPPORTED_INSTALLED = gVar;
-            $VALUES = new Availability[]{UNKNOWN_ERROR, UNKNOWN_CHECKING, UNKNOWN_TIMED_OUT, UNSUPPORTED_DEVICE_NOT_CAPABLE, SUPPORTED_NOT_INSTALLED, SUPPORTED_APK_TOO_OLD, gVar};
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return is9.d();
         }
-
-        public Availability(String str, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    String str2 = (String) objArr2[0];
-                    ((Integer) objArr2[1]).intValue();
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.nativeCode = i2;
-        }
-
-        public static Availability forNumber(int i) {
-            InterceptResult invokeI;
-            Availability[] values;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-                for (Availability availability : values()) {
-                    if (availability.nativeCode == i) {
-                        return availability;
-                    }
-                }
-                StringBuilder sb = new StringBuilder(59);
-                sb.append("Unexpected value for native Availability, value=");
-                sb.append(i);
-                throw new FatalException(sb.toString());
-            }
-            return (Availability) invokeI.objValue;
-        }
-
-        public static Availability valueOf(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? (Availability) Enum.valueOf(Availability.class, str) : (Availability) invokeL.objValue;
-        }
-
-        public static Availability[] values() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? (Availability[]) $VALUES.clone() : (Availability[]) invokeV.objValue;
-        }
-
-        public boolean isSupported() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public boolean isTransient() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public boolean isUnknown() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public boolean isUnsupported() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public /* synthetic */ Availability(String str, int i, int i2, pr9 pr9Var) {
-            this(str, i, i2);
-        }
+        return (ArCoreApk) invokeV.objValue;
     }
 }

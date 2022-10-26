@@ -4,7 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.qg9;
+import com.baidu.tieba.ih9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -30,29 +30,6 @@ public class SimpleDraweeView extends com.facebook.drawee.view.SimpleDraweeView 
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
-            }
-        }
-    }
-
-    @Override // android.widget.ImageView, android.view.View
-    public void onDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            try {
-                super.onDraw(canvas);
-            } catch (Exception e) {
-                qg9.g(e);
-            }
-        }
-    }
-
-    @Override // android.widget.ImageView, android.view.View
-    public void onVisibilityAggregated(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            super.onVisibilityAggregated(z);
-            if (getDrawable() != null) {
-                getDrawable().setVisible(true, false);
             }
         }
     }
@@ -95,6 +72,29 @@ public class SimpleDraweeView extends com.facebook.drawee.view.SimpleDraweeView 
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
+            }
+        }
+    }
+
+    @Override // android.widget.ImageView, android.view.View
+    public void onDraw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
+            try {
+                super.onDraw(canvas);
+            } catch (Exception e) {
+                ih9.g(e);
+            }
+        }
+    }
+
+    @Override // android.widget.ImageView, android.view.View
+    public void onVisibilityAggregated(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            super.onVisibilityAggregated(z);
+            if (getDrawable() != null) {
+                getDrawable().setVisible(true, false);
             }
         }
     }

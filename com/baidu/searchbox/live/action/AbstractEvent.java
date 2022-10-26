@@ -29,7 +29,10 @@ public abstract class AbstractEvent {
     public int getUniqueId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.uniqueId : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.uniqueId;
+        }
+        return invokeV.intValue;
     }
 
     public void setUniqueId(int i) {

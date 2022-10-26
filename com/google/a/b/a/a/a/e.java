@@ -2,7 +2,7 @@ package com.google.a.b.a.a.a;
 
 import android.os.Bundle;
 import android.os.Parcel;
-import com.baidu.tieba.jr9;
+import com.baidu.tieba.bs9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,15 +36,18 @@ public abstract class e extends com.google.a.a.b implements d {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, parcel)) == null) {
-            if (i == 1) {
-                a((Bundle) jr9.a(parcel, Bundle.CREATOR));
-            } else if (i == 2) {
-                b((Bundle) jr9.a(parcel, Bundle.CREATOR));
-            } else if (i != 3) {
-                return false;
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        return false;
+                    }
+                    bs9.a(parcel, Bundle.CREATOR);
+                    a();
+                } else {
+                    b((Bundle) bs9.a(parcel, Bundle.CREATOR));
+                }
             } else {
-                jr9.a(parcel, Bundle.CREATOR);
-                a();
+                a((Bundle) bs9.a(parcel, Bundle.CREATOR));
             }
             return true;
         }

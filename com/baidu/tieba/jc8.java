@@ -1,133 +1,48 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import androidx.lifecycle.Lifecycle;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.live.arch.utils.LiveActivityHelper;
-import com.baidu.tieba.push.PushExtData;
-import com.baidu.tieba.push.PushRemindInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.personPolymeric.mode.message.UserPostPageHttpResponseMessage;
+import com.baidu.tieba.personPolymeric.mode.message.UserPostPageSocketResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.Set;
 /* loaded from: classes4.dex */
 public class jc8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Set<Activity> a;
 
-    /* loaded from: classes4.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ jc8 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(jc8 jc8Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jc8Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = jc8Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            au4 au4Var;
-            Activity activity;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof au4) || (au4Var = (au4) customResponsedMessage.getData()) == null || (activity = au4Var.b) == null || au4Var.c == null || !LiveActivityHelper.MIX_ACTIVITY_NAME.equals(activity.getClass().getName())) {
-                return;
-            }
-            if (Lifecycle.Event.ON_START.equals(au4Var.c)) {
-                if (this.a.a.contains(au4Var.b)) {
-                    return;
-                }
-                this.a.a.add(au4Var.b);
-            } else if (Lifecycle.Event.ON_DESTROY.equals(au4Var.c)) {
-                this.a.a.remove(au4Var.b);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final jc8 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-694423540, "Lcom/baidu/tieba/jc8$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-694423540, "Lcom/baidu/tieba/jc8$b;");
-                    return;
-                }
-            }
-            a = new jc8();
-        }
-    }
-
-    public jc8() {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new HashSet();
-    }
-
-    public static jc8 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (jc8) invokeV.objValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            MessageManager.getInstance().registerListener(new a(this, 2921698));
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            c();
+            b();
         }
     }
 
-    public void d(PushExtData pushExtData, PushRemindInfo pushRemindInfo) {
+    public static void c() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pushExtData, pushRemindInfo) == null) || this.a.isEmpty()) {
-            return;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            zm8.h(303002, UserPostPageSocketResponsedMessage.class, false, false);
         }
-        new ic8((Activity) this.a.toArray()[0], pushExtData, pushRemindInfo).s();
+    }
+
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.USER_POST_HTTP_CMD, zm8.a("c/u/feed/userpost", 303002));
+            tbHttpMessageTask.setIsNeedLogin(false);
+            tbHttpMessageTask.setIsNeedTbs(false);
+            tbHttpMessageTask.setIsNeedAddCommenParam(false);
+            tbHttpMessageTask.setIsUseCurrentBDUSS(false);
+            tbHttpMessageTask.setResponsedClass(UserPostPageHttpResponseMessage.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+            TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(CmdConfigHttp.SET_PRIVATE_CMD, TbConfig.SERVER_ADDRESS + TbConfig.SET_PRIVATE);
+            tbHttpMessageTask2.setIsNeedLogin(true);
+            tbHttpMessageTask2.setResponsedClass(JsonHttpResponsedMessage.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask2);
+        }
     }
 }

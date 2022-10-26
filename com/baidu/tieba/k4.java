@@ -32,6 +32,16 @@ public class k4 extends e4 {
         e4.d("alphaTest");
     }
 
+    @Override // com.baidu.tieba.e4
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return (super.hashCode() * 977) + u7.b(this.d);
+        }
+        return invokeV.intValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public k4(long j, float f) {
         super(j);
@@ -69,15 +79,11 @@ public class k4 extends e4 {
             if (com.badlogic.gdx.math.d.e(this.d, f)) {
                 return 0;
             }
-            return this.d < f ? -1 : 1;
+            if (this.d < f) {
+                return -1;
+            }
+            return 1;
         }
         return invokeL.intValue;
-    }
-
-    @Override // com.baidu.tieba.e4
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (super.hashCode() * 977) + u7.b(this.d) : invokeV.intValue;
     }
 }

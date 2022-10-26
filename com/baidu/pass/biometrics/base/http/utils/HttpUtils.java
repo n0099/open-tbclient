@@ -35,14 +35,14 @@ public class HttpUtils {
         }
     }
 
-    public static String getNonce(Context context, List<RestNameValuePair> list) {
+    public static String getNonce(Context context, List list) {
         InterceptResult invokeLL;
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, list)) == null) {
             ArrayList arrayList = new ArrayList();
             arrayList.addAll(list);
-            Collections.sort(arrayList, new Comparator<RestNameValuePair>() { // from class: com.baidu.pass.biometrics.base.http.utils.HttpUtils.1
+            Collections.sort(arrayList, new Comparator() { // from class: com.baidu.pass.biometrics.base.http.utils.HttpUtils.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -65,7 +65,10 @@ public class HttpUtils {
                 public int compare(RestNameValuePair restNameValuePair, RestNameValuePair restNameValuePair2) {
                     InterceptResult invokeLL2;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeLL2 = interceptable2.invokeLL(1048576, this, restNameValuePair, restNameValuePair2)) == null) ? restNameValuePair.getName().compareTo(restNameValuePair2.getName()) : invokeLL2.intValue;
+                    if (interceptable2 == null || (invokeLL2 = interceptable2.invokeLL(1048576, this, restNameValuePair, restNameValuePair2)) == null) {
+                        return restNameValuePair.getName().compareTo(restNameValuePair2.getName());
+                    }
+                    return invokeLL2.intValue;
                 }
             });
             RestNameValuePair restNameValuePair = new RestNameValuePair();

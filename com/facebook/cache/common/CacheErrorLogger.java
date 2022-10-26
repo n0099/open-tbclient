@@ -10,10 +10,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
 public interface CacheErrorLogger {
+    void logError(CacheErrorCategory cacheErrorCategory, Class cls, String str, @Nullable Throwable th);
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public static final class CacheErrorCategory {
+    public final class CacheErrorCategory {
         public static final /* synthetic */ CacheErrorCategory[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final CacheErrorCategory DELETE_FILE;
@@ -91,15 +92,19 @@ public interface CacheErrorLogger {
         public static CacheErrorCategory valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (CacheErrorCategory) Enum.valueOf(CacheErrorCategory.class, str) : (CacheErrorCategory) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (CacheErrorCategory) Enum.valueOf(CacheErrorCategory.class, str);
+            }
+            return (CacheErrorCategory) invokeL.objValue;
         }
 
         public static CacheErrorCategory[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (CacheErrorCategory[]) $VALUES.clone() : (CacheErrorCategory[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (CacheErrorCategory[]) $VALUES.clone();
+            }
+            return (CacheErrorCategory[]) invokeV.objValue;
         }
     }
-
-    void logError(CacheErrorCategory cacheErrorCategory, Class<?> cls, String str, @Nullable Throwable th);
 }

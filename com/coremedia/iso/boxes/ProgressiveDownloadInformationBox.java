@@ -26,10 +26,10 @@ public class ProgressiveDownloadInformationBox extends AbstractFullBox {
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_1 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_2 = null;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<Entry> entries;
+    public List entries;
 
     /* loaded from: classes7.dex */
-    public static class Entry {
+    public class Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long initialDelay;
@@ -65,7 +65,10 @@ public class ProgressiveDownloadInformationBox extends AbstractFullBox {
                     return false;
                 }
                 Entry entry = (Entry) obj;
-                return this.initialDelay == entry.initialDelay && this.rate == entry.rate;
+                if (this.initialDelay == entry.initialDelay && this.rate == entry.rate) {
+                    return true;
+                }
+                return false;
             }
             return invokeL.booleanValue;
         }
@@ -73,13 +76,19 @@ public class ProgressiveDownloadInformationBox extends AbstractFullBox {
         public long getInitialDelay() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.initialDelay : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.initialDelay;
+            }
+            return invokeV.longValue;
         }
 
         public long getRate() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.rate : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.rate;
+            }
+            return invokeV.longValue;
         }
 
         public int hashCode() {
@@ -133,6 +142,26 @@ public class ProgressiveDownloadInformationBox extends AbstractFullBox {
         ajc$preClinit();
     }
 
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public long getContentSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return (this.entries.size() * 8) + 4;
+        }
+        return invokeV.longValue;
+    }
+
+    public List getEntries() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
+            return this.entries;
+        }
+        return (List) invokeV.objValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ProgressiveDownloadInformationBox() {
         super(TYPE);
@@ -150,6 +179,16 @@ public class ProgressiveDownloadInformationBox extends AbstractFullBox {
             }
         }
         this.entries = Collections.emptyList();
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
+            return "ProgressiveDownloadInfoBox{entries=" + this.entries + '}';
+        }
+        return (String) invokeV.objValue;
     }
 
     public static /* synthetic */ void ajc$preClinit() {
@@ -183,38 +222,11 @@ public class ProgressiveDownloadInformationBox extends AbstractFullBox {
         }
     }
 
-    @Override // com.googlecode.mp4parser.AbstractBox
-    public long getContentSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (this.entries.size() * 8) + 4 : invokeV.longValue;
-    }
-
-    public List<Entry> getEntries() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
-            return this.entries;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public void setEntries(List<Entry> list) {
+    public void setEntries(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, list));
             this.entries = list;
         }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
-            return "ProgressiveDownloadInfoBox{entries=" + this.entries + '}';
-        }
-        return (String) invokeV.objValue;
     }
 }

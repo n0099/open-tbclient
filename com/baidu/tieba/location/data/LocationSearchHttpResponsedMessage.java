@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.si7;
+import com.baidu.tieba.dj7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import tbclient.GetSuggestionByAddrName.GetSuggestionByAddrNameResIdl;
 public class LocationSearchHttpResponsedMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public si7 mLocationData;
+    public dj7 mLocationData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LocationSearchHttpResponsedMessage(int i) {
@@ -38,19 +38,6 @@ public class LocationSearchHttpResponsedMessage extends HttpResponsedMessage {
         }
     }
 
-    public si7 getLocationData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mLocationData : (si7) invokeV.objValue;
-    }
-
-    public void setLocationData(si7 si7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, si7Var) == null) {
-            this.mLocationData = si7Var;
-        }
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
@@ -62,10 +49,26 @@ public class LocationSearchHttpResponsedMessage extends HttpResponsedMessage {
             if (getError() != 0) {
                 return;
             }
-            si7 si7Var = new si7();
-            this.mLocationData = si7Var;
-            si7Var.b(getSuggestionByAddrNameResIdl.data);
+            dj7 dj7Var = new dj7();
+            this.mLocationData = dj7Var;
+            dj7Var.b(getSuggestionByAddrNameResIdl.data);
             BdLog.detailException(null);
+        }
+    }
+
+    public dj7 getLocationData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mLocationData;
+        }
+        return (dj7) invokeV.objValue;
+    }
+
+    public void setLocationData(dj7 dj7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, dj7Var) == null) {
+            this.mLocationData = dj7Var;
         }
     }
 }

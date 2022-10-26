@@ -22,20 +22,6 @@ public class BoxConfig extends DefaultConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public BoxConfig() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     @Override // com.baidu.android.imsdk.internal.DefaultConfig, com.baidu.android.imsdk.internal.IIMConfig
     public int getHeartBeatType() {
         InterceptResult invokeV;
@@ -44,20 +30,6 @@ public class BoxConfig extends DefaultConfig {
             return 1;
         }
         return invokeV.intValue;
-    }
-
-    @Override // com.baidu.android.imsdk.internal.DefaultConfig, com.baidu.android.imsdk.internal.IIMConfig
-    public Map<String, Object> getOtherParameters(Context context, ChatMsg chatMsg) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, chatMsg)) == null) {
-            HashMap hashMap = new HashMap();
-            if (chatMsg != null && chatMsg.isZhida()) {
-                hashMap.put("tpl", Integer.valueOf(Constants.getTplZhida(context)));
-            }
-            return hashMap;
-        }
-        return (Map) invokeLL.objValue;
     }
 
     @Override // com.baidu.android.imsdk.internal.DefaultConfig, com.baidu.android.imsdk.internal.IIMConfig
@@ -81,6 +53,34 @@ public class BoxConfig extends DefaultConfig {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? FileUtils.SEARCHBOX_FOLDER : (String) invokeV.objValue;
     }
 
+    public BoxConfig() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.android.imsdk.internal.DefaultConfig, com.baidu.android.imsdk.internal.IIMConfig
+    public Map getOtherParameters(Context context, ChatMsg chatMsg) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, chatMsg)) == null) {
+            HashMap hashMap = new HashMap();
+            if (chatMsg != null && chatMsg.isZhida()) {
+                hashMap.put("tpl", Integer.valueOf(Constants.getTplZhida(context)));
+            }
+            return hashMap;
+        }
+        return (Map) invokeLL.objValue;
+    }
+
     @Override // com.baidu.android.imsdk.internal.DefaultConfig, com.baidu.android.imsdk.internal.IIMConfig
     public String getToken(ChatObject chatObject) {
         InterceptResult invokeL;
@@ -98,7 +98,10 @@ public class BoxConfig extends DefaultConfig {
     public boolean isMsgTypeSupported(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? BIMManager.isSupportMsgType(i) : invokeI.booleanValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            return BIMManager.isSupportMsgType(i);
+        }
+        return invokeI.booleanValue;
     }
 
     @Override // com.baidu.android.imsdk.internal.DefaultConfig, com.baidu.android.imsdk.internal.IIMConfig
@@ -108,10 +111,10 @@ public class BoxConfig extends DefaultConfig {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, context, str)) == null) {
             String[] tokens = DefaultConfig.getTokens(str, 3);
             try {
-                if (tokens.length == 3) {
-                    return new ChatObject(context, Integer.parseInt(tokens[0]), Long.parseLong(tokens[1]), -1L, Integer.parseInt(tokens[2]));
+                if (tokens.length != 3) {
+                    return null;
                 }
-                return null;
+                return new ChatObject(context, Integer.parseInt(tokens[0]), Long.parseLong(tokens[1]), -1L, Integer.parseInt(tokens[2]));
             } catch (Exception e) {
                 LogUtils.e("BoxConfig", "parseTokenToChatObject", e);
                 new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();

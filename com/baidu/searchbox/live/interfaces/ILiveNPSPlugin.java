@@ -1,8 +1,6 @@
 package com.baidu.searchbox.live.interfaces;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.searchbox.live.interfaces.callback.ILiveDiskClearCacheCallback;
 import com.baidu.searchbox.live.interfaces.callback.ILiveFileSizeCallback;
 import com.baidu.searchbox.live.interfaces.callback.LiveStatusDataCallback;
@@ -20,20 +18,20 @@ public interface ILiveNPSPlugin {
     public static final String PARAMS_SCHEME = "scheme";
     public static final String PARAMS_SOURCE = "source";
 
-    void clearLiveResourceSize(@NonNull Context context);
+    void clearLiveResourceSize(Context context);
 
-    void dispatchHostEvent(Context context, String str, Map<String, Object> map);
+    void dispatchHostEvent(Context context, String str, Map map);
 
     @Deprecated
     ILiveBjhEntry getLiveBjhEntry();
 
     ILiveMediaEntry getLiveMediaEntry();
 
-    void getLiveResourceSize(@NonNull Context context, @NonNull ILiveFileSizeCallback iLiveFileSizeCallback);
+    void getLiveResourceSize(Context context, ILiveFileSizeCallback iLiveFileSizeCallback);
 
-    void getLiveRoomStatus(@NonNull String str, @NonNull LiveStatusDataCallback<String> liveStatusDataCallback);
+    void getLiveRoomStatus(String str, LiveStatusDataCallback liveStatusDataCallback);
 
-    void getLiveSdkSize(@NonNull Context context, @NonNull ILiveFileSizeCallback iLiveFileSizeCallback);
+    void getLiveSdkSize(Context context, ILiveFileSizeCallback iLiveFileSizeCallback);
 
     @Deprecated
     ILiveShowEntry getLiveShowEntry();
@@ -44,19 +42,18 @@ public interface ILiveNPSPlugin {
     @Deprecated
     ILiveYuYinEntry getLiveYuYinEntry();
 
-    @Nullable
-    Map<String, Object> getPlayConfig(@Nullable String str, @Nullable Map<String, Object> map);
+    Map getPlayConfig(String str, Map map);
 
     ILiveYYCashierEntry getYYCashierEntry();
 
     @Deprecated
     IYYLiveNPSPlugin getYYLiveEntry();
 
-    void isInHistory(@NonNull String str, @NonNull LiveStatusDataCallback<Boolean> liveStatusDataCallback);
+    void isInHistory(String str, LiveStatusDataCallback liveStatusDataCallback);
 
     void onDiskClearCacheChange(long j, int i, int i2, ILiveDiskClearCacheCallback iLiveDiskClearCacheCallback);
 
     void startMasterActivity(Context context, String str);
 
-    void startMasterActivity(Context context, String str, @NonNull String str2);
+    void startMasterActivity(Context context, String str, String str2);
 }

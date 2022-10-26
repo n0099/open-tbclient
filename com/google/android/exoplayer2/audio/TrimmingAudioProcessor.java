@@ -27,6 +27,16 @@ public final class TrimmingAudioProcessor implements AudioProcessor {
     public int trimEndSamples;
     public int trimStartSamples;
 
+    @Override // com.google.android.exoplayer2.audio.AudioProcessor
+    public int getOutputEncoding() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return 2;
+        }
+        return invokeV.intValue;
+    }
+
     public TrimmingAudioProcessor() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -44,29 +54,6 @@ public final class TrimmingAudioProcessor implements AudioProcessor {
         this.buffer = byteBuffer;
         this.outputBuffer = byteBuffer;
         this.channelCount = -1;
-    }
-
-    @Override // com.google.android.exoplayer2.audio.AudioProcessor
-    public boolean configure(int i, int i2, int i3) throws AudioProcessor.UnhandledFormatException {
-        InterceptResult invokeIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(1048576, this, i, i2, i3)) == null) {
-            if (i3 == 2) {
-                this.channelCount = i2;
-                this.sampleRateHz = i;
-                int i4 = this.trimEndSamples;
-                this.endBuffer = new byte[i4 * i2 * 2];
-                this.endBufferSize = 0;
-                int i5 = this.trimStartSamples;
-                this.pendingTrimStartBytes = i2 * i5 * 2;
-                boolean z = this.isActive;
-                boolean z2 = (i5 == 0 && i4 == 0) ? false : true;
-                this.isActive = z2;
-                return z != z2;
-            }
-            throw new AudioProcessor.UnhandledFormatException(i, i2, i3);
-        }
-        return invokeIII.booleanValue;
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioProcessor
@@ -96,15 +83,8 @@ public final class TrimmingAudioProcessor implements AudioProcessor {
     public int getOutputChannelCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.channelCount : invokeV.intValue;
-    }
-
-    @Override // com.google.android.exoplayer2.audio.AudioProcessor
-    public int getOutputEncoding() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return 2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.channelCount;
         }
         return invokeV.intValue;
     }
@@ -113,21 +93,33 @@ public final class TrimmingAudioProcessor implements AudioProcessor {
     public int getOutputSampleRateHz() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.sampleRateHz : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.sampleRateHz;
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioProcessor
     public boolean isActive() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.isActive : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.isActive;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioProcessor
     public boolean isEnded() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.inputEnded && this.outputBuffer == AudioProcessor.EMPTY_BUFFER : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (this.inputEnded && this.outputBuffer == AudioProcessor.EMPTY_BUFFER) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioProcessor
@@ -136,6 +128,49 @@ public final class TrimmingAudioProcessor implements AudioProcessor {
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             this.inputEnded = true;
         }
+    }
+
+    @Override // com.google.android.exoplayer2.audio.AudioProcessor
+    public void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            flush();
+            this.buffer = AudioProcessor.EMPTY_BUFFER;
+            this.channelCount = -1;
+            this.sampleRateHz = -1;
+            this.endBuffer = null;
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.audio.AudioProcessor
+    public boolean configure(int i, int i2, int i3) throws AudioProcessor.UnhandledFormatException {
+        InterceptResult invokeIII;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(1048576, this, i, i2, i3)) == null) {
+            if (i3 == 2) {
+                this.channelCount = i2;
+                this.sampleRateHz = i;
+                int i4 = this.trimEndSamples;
+                this.endBuffer = new byte[i4 * i2 * 2];
+                this.endBufferSize = 0;
+                int i5 = this.trimStartSamples;
+                this.pendingTrimStartBytes = i2 * i5 * 2;
+                boolean z2 = this.isActive;
+                if (i5 == 0 && i4 == 0) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                this.isActive = z;
+                if (z2 == z) {
+                    return false;
+                }
+                return true;
+            }
+            throw new AudioProcessor.UnhandledFormatException(i, i2, i3);
+        }
+        return invokeIII.booleanValue;
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioProcessor
@@ -173,18 +208,6 @@ public final class TrimmingAudioProcessor implements AudioProcessor {
             this.endBufferSize += i3;
             this.buffer.flip();
             this.outputBuffer = this.buffer;
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.audio.AudioProcessor
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            flush();
-            this.buffer = AudioProcessor.EMPTY_BUFFER;
-            this.channelCount = -1;
-            this.sampleRateHz = -1;
-            this.endBuffer = null;
         }
     }
 

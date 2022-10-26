@@ -27,7 +27,12 @@ public final class XorWowRandom extends Random implements Serializable {
         }
     }
 
+    public XorWowRandom(int i, int i2) {
+        this(i, i2, 0, 0, ~i, (i << 10) ^ (i2 >>> 4));
+    }
+
     public XorWowRandom(int i, int i2, int i3, int i4, int i5, int i6) {
+        boolean z;
         this.x = i;
         this.y = i2;
         this.z = i3;
@@ -35,12 +40,18 @@ public final class XorWowRandom extends Random implements Serializable {
         this.v = i5;
         this.addend = i6;
         int i7 = i | i2 | i3 | i4 | i5;
-        if (!(i7 != 0)) {
-            throw new IllegalArgumentException("Initial state must have at least one non-zero element.".toString());
+        if (i7 != 0) {
+            z = true;
+        } else {
+            z = false;
         }
-        for (int i8 = 0; i8 < 64; i8++) {
-            nextInt();
+        if (z) {
+            for (int i8 = 0; i8 < 64; i8++) {
+                nextInt();
+            }
+            return;
         }
+        throw new IllegalArgumentException("Initial state must have at least one non-zero element.".toString());
     }
 
     @Override // kotlin.random.Random
@@ -62,9 +73,5 @@ public final class XorWowRandom extends Random implements Serializable {
         int i5 = this.addend + 362437;
         this.addend = i5;
         return i4 + i5;
-    }
-
-    public XorWowRandom(int i, int i2) {
-        this(i, i2, 0, 0, ~i, (i << 10) ^ (i2 >>> 4));
     }
 }

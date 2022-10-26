@@ -18,13 +18,37 @@ public class DataChannel {
     public long nativeObserver;
 
     /* loaded from: classes8.dex */
-    public static class Buffer {
+    public interface Observer {
+        void onBufferedAmountChange(long j);
+
+        void onMessage(Buffer buffer);
+
+        void onStateChange();
+    }
+
+    private native long nativeBufferedAmount();
+
+    private native void nativeClose();
+
+    private native int nativeId();
+
+    private native String nativeLabel();
+
+    private native long nativeRegisterObserver(Observer observer);
+
+    private native boolean nativeSend(byte[] bArr, boolean z);
+
+    private native State nativeState();
+
+    private native void nativeUnregisterObserver(long j);
+
+    /* loaded from: classes8.dex */
+    public class Buffer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final boolean binary;
         public final ByteBuffer data;
 
-        @CalledByNative("Buffer")
         public Buffer(ByteBuffer byteBuffer, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -46,7 +70,7 @@ public class DataChannel {
     }
 
     /* loaded from: classes8.dex */
-    public static class Init {
+    public class Init {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int id;
@@ -76,64 +100,64 @@ public class DataChannel {
             this.id = -1;
         }
 
-        @CalledByNative("Init")
         public int getId() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.id : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.id;
+            }
+            return invokeV.intValue;
         }
 
-        @CalledByNative("Init")
         public int getMaxRetransmitTimeMs() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.maxRetransmitTimeMs : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.maxRetransmitTimeMs;
+            }
+            return invokeV.intValue;
         }
 
-        @CalledByNative("Init")
         public int getMaxRetransmits() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.maxRetransmits : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.maxRetransmits;
+            }
+            return invokeV.intValue;
         }
 
-        @CalledByNative("Init")
         public boolean getNegotiated() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.negotiated : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.negotiated;
+            }
+            return invokeV.booleanValue;
         }
 
-        @CalledByNative("Init")
         public boolean getOrdered() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.ordered : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.ordered;
+            }
+            return invokeV.booleanValue;
         }
 
-        @CalledByNative("Init")
         public String getProtocol() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.protocol : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return this.protocol;
+            }
+            return (String) invokeV.objValue;
         }
-    }
-
-    /* loaded from: classes8.dex */
-    public interface Observer {
-        @CalledByNative("Observer")
-        void onBufferedAmountChange(long j);
-
-        @CalledByNative("Observer")
-        void onMessage(Buffer buffer);
-
-        @CalledByNative("Observer")
-        void onStateChange();
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public static final class State {
+    public final class State {
         public static final /* synthetic */ State[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final State CLOSED;
@@ -182,27 +206,34 @@ public class DataChannel {
             }
         }
 
-        @CalledByNative("State")
         public static State fromNativeIndex(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? values()[i] : (State) invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+                return values()[i];
+            }
+            return (State) invokeI.objValue;
         }
 
         public static State valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (State) Enum.valueOf(State.class, str) : (State) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+                return (State) Enum.valueOf(State.class, str);
+            }
+            return (State) invokeL.objValue;
         }
 
         public static State[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (State[]) $VALUES.clone() : (State[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+                return (State[]) $VALUES.clone();
+            }
+            return (State[]) invokeV.objValue;
         }
     }
 
-    @CalledByNative
     public DataChannel(long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -223,26 +254,11 @@ public class DataChannel {
 
     private void checkDataChannelExists() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && this.nativeDataChannel == 0) {
-            throw new IllegalStateException("DataChannel has been disposed.");
+        if ((interceptable != null && interceptable.invokeV(65537, this) != null) || this.nativeDataChannel != 0) {
+            return;
         }
+        throw new IllegalStateException("DataChannel has been disposed.");
     }
-
-    private native long nativeBufferedAmount();
-
-    private native void nativeClose();
-
-    private native int nativeId();
-
-    private native String nativeLabel();
-
-    private native long nativeRegisterObserver(Observer observer);
-
-    private native boolean nativeSend(byte[] bArr, boolean z);
-
-    private native State nativeState();
-
-    private native void nativeUnregisterObserver(long j);
 
     public long bufferedAmount() {
         InterceptResult invokeV;
@@ -271,11 +287,13 @@ public class DataChannel {
         }
     }
 
-    @CalledByNative
     public long getNativeDataChannel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.nativeDataChannel : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.nativeDataChannel;
+        }
+        return invokeV.longValue;
     }
 
     public int id() {
@@ -296,6 +314,24 @@ public class DataChannel {
             return nativeLabel();
         }
         return (String) invokeV.objValue;
+    }
+
+    public State state() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            checkDataChannelExists();
+            return nativeState();
+        }
+        return (State) invokeV.objValue;
+    }
+
+    public void unregisterObserver() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            checkDataChannelExists();
+            nativeUnregisterObserver(this.nativeObserver);
+        }
     }
 
     public void registerObserver(Observer observer) {
@@ -320,23 +356,5 @@ public class DataChannel {
             return nativeSend(bArr, buffer.binary);
         }
         return invokeL.booleanValue;
-    }
-
-    public State state() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            checkDataChannelExists();
-            return nativeState();
-        }
-        return (State) invokeV.objValue;
-    }
-
-    public void unregisterObserver() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            checkDataChannelExists();
-            nativeUnregisterObserver(this.nativeObserver);
-        }
     }
 }

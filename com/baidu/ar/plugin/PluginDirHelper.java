@@ -94,25 +94,74 @@ public class PluginDirHelper {
     public static String getContextDataDir(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? new File(new File(Environment.getDataDirectory(), "data/").getPath(), context.getPackageName()).getPath() : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            return new File(new File(Environment.getDataDirectory(), "data/").getPath(), context.getPackageName()).getPath();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void init(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65551, null, context) == null) && sBaseDir == null) {
+            File file = new File(context.getCacheDir().getParentFile(), Plugin.TAG);
+            sBaseDir = file;
+            enforceDirExists(file);
+        }
     }
 
     public static String getPluginApkDir(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) ? enforceDirExists(new File(makePluginBaseDir(context, str), "apk")) : (String) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) {
+            return enforceDirExists(new File(makePluginBaseDir(context, str), "apk"));
+        }
+        return (String) invokeLL.objValue;
     }
 
     public static String getPluginApkFile(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, str)) == null) ? new File(getPluginApkDir(context, str), "base-1.apk").getPath() : (String) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, str)) == null) {
+            return new File(getPluginApkDir(context, str), "base-1.apk").getPath();
+        }
+        return (String) invokeLL.objValue;
     }
 
     public static String getPluginDalvikCacheDir(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, context, str)) == null) ? enforceDirExists(new File(makePluginBaseDir(context, str), "dalvik-cache")) : (String) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, context, str)) == null) {
+            return enforceDirExists(new File(makePluginBaseDir(context, str), "dalvik-cache"));
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String getPluginNativeLibraryDir(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, context, str)) == null) {
+            return enforceDirExists(new File(makePluginBaseDir(context, str), "lib"));
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String getPluginSignatureDir(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, context, str)) == null) {
+            return enforceDirExists(new File(makePluginBaseDir(context, str), "Signature/"));
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String makePluginBaseDir(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65552, null, context, str)) == null) {
+            init(context);
+            return enforceDirExists(new File(sBaseDir, str));
+        }
+        return (String) invokeLL.objValue;
     }
 
     public static String getPluginDalvikCacheFile(Context context, String str) {
@@ -139,25 +188,7 @@ public class PluginDirHelper {
         return (String) invokeLL.objValue;
     }
 
-    public static String getPluginNativeLibraryDir(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, context, str)) == null) ? enforceDirExists(new File(makePluginBaseDir(context, str), "lib")) : (String) invokeLL.objValue;
-    }
-
-    public static String getPluginSignatureDir(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, context, str)) == null) ? enforceDirExists(new File(makePluginBaseDir(context, str), "Signature/")) : (String) invokeLL.objValue;
-    }
-
-    public static String getPluginSignatureFile(Context context, String str, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65549, null, context, str, i)) == null) ? new File(getPluginSignatureDir(context, str), String.format("Signature_%s.key", Integer.valueOf(i))).getPath() : (String) invokeLLI.objValue;
-    }
-
-    public static List<String> getPluginSignatureFiles(Context context, String str) {
+    public static List getPluginSignatureFiles(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, context, str)) == null) {
@@ -173,22 +204,12 @@ public class PluginDirHelper {
         return (List) invokeLL.objValue;
     }
 
-    public static void init(Context context) {
+    public static String getPluginSignatureFile(Context context, String str, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65551, null, context) == null) && sBaseDir == null) {
-            File file = new File(context.getCacheDir().getParentFile(), Plugin.TAG);
-            sBaseDir = file;
-            enforceDirExists(file);
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65549, null, context, str, i)) == null) {
+            return new File(getPluginSignatureDir(context, str), String.format("Signature_%s.key", Integer.valueOf(i))).getPath();
         }
-    }
-
-    public static String makePluginBaseDir(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65552, null, context, str)) == null) {
-            init(context);
-            return enforceDirExists(new File(sBaseDir, str));
-        }
-        return (String) invokeLL.objValue;
+        return (String) invokeLLI.objValue;
     }
 }

@@ -23,6 +23,16 @@ public class DownloadWrapperImpl implements IDownloadWrapper {
     public transient /* synthetic */ FieldHolder $fh;
     public BinaryTaskMng mTaskManager;
 
+    @Override // com.baidu.down.common.IDownloadWrapper
+    public int getDownloadCommonVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 7;
+        }
+        return invokeV.intValue;
+    }
+
     public DownloadWrapperImpl() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -38,35 +48,13 @@ public class DownloadWrapperImpl implements IDownloadWrapper {
     }
 
     @Override // com.baidu.down.common.IDownloadWrapper
-    public void addObserver(TaskObserver taskObserver) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, taskObserver) == null) {
-            this.mTaskManager.addObserver(taskObserver);
-        }
-    }
-
-    @Override // com.baidu.down.common.IDownloadWrapper
     public int getCurrentVacant() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mTaskManager.getCurrentVacant() : invokeV.intValue;
-    }
-
-    @Override // com.baidu.down.common.IDownloadWrapper
-    public int getDownloadCommonVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 7;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mTaskManager.getCurrentVacant();
         }
         return invokeV.intValue;
-    }
-
-    @Override // com.baidu.down.common.IDownloadWrapper
-    public StatisticInfo getStatisticInfo(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) ? this.mTaskManager.getStatsticInfo(j) : (StatisticInfo) invokeJ.objValue;
     }
 
     @Override // com.baidu.down.common.IDownloadWrapper
@@ -78,11 +66,21 @@ public class DownloadWrapperImpl implements IDownloadWrapper {
     }
 
     @Override // com.baidu.down.common.IDownloadWrapper
-    public void pauseDownload(String str, long j) {
+    public void addObserver(TaskObserver taskObserver) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048581, this, str, j) == null) {
-            this.mTaskManager.pauseDownload(str, j);
+        if (interceptable == null || interceptable.invokeL(1048576, this, taskObserver) == null) {
+            this.mTaskManager.addObserver(taskObserver);
         }
+    }
+
+    @Override // com.baidu.down.common.IDownloadWrapper
+    public StatisticInfo getStatisticInfo(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
+            return this.mTaskManager.getStatsticInfo(j);
+        }
+        return (StatisticInfo) invokeJ.objValue;
     }
 
     @Override // com.baidu.down.common.IDownloadWrapper
@@ -94,18 +92,29 @@ public class DownloadWrapperImpl implements IDownloadWrapper {
     }
 
     @Override // com.baidu.down.common.IDownloadWrapper
+    public long startDownload(FileMsg fileMsg) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, fileMsg)) == null) {
+            return this.mTaskManager.startDownload(fileMsg);
+        }
+        return invokeL.longValue;
+    }
+
+    @Override // com.baidu.down.common.IDownloadWrapper
+    public void pauseDownload(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048581, this, str, j) == null) {
+            this.mTaskManager.pauseDownload(str, j);
+        }
+    }
+
+    @Override // com.baidu.down.common.IDownloadWrapper
     public void setup(Context context, TaskManagerConfiguration taskManagerConfiguration) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, context, taskManagerConfiguration) == null) {
             this.mTaskManager = TaskFacade.getInstanceByConfig(context, taskManagerConfiguration).getBinaryTaskMng();
         }
-    }
-
-    @Override // com.baidu.down.common.IDownloadWrapper
-    public long startDownload(FileMsg fileMsg) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, fileMsg)) == null) ? this.mTaskManager.startDownload(fileMsg) : invokeL.longValue;
     }
 
     @Override // com.baidu.down.common.IDownloadWrapper

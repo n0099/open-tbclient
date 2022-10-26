@@ -8,7 +8,6 @@ import android.os.IBinder;
 import android.os.RemoteException;
 import android.util.Log;
 import android.view.KeyEvent;
-import androidx.annotation.GuardedBy;
 import androidx.collection.ArrayMap;
 import androidx.core.view.InputDeviceCompat;
 import androidx.media.MediaBrowserServiceCompat;
@@ -35,14 +34,10 @@ public class MediaSessionServiceImplBase implements MediaSessionService.MediaSes
     public static final boolean DEBUG = true;
     public static final String TAG = "MSS2ImplBase";
     public transient /* synthetic */ FieldHolder $fh;
-    @GuardedBy("mLock")
     public MediaSessionService mInstance;
     public final Object mLock;
-    @GuardedBy("mLock")
     public MediaNotificationHandler mNotificationHandler;
-    @GuardedBy("mLock")
     public Map<String, MediaSession> mSessions;
-    @GuardedBy("mLock")
     public MediaSessionServiceStub mStub;
 
     /* loaded from: classes.dex */
@@ -84,6 +79,8 @@ public class MediaSessionServiceImplBase implements MediaSessionService.MediaSes
 
         @Override // androidx.media2.session.IMediaSessionService
         public void connect(IMediaController iMediaController, ParcelImpl parcelImpl) {
+            String packageName;
+            Bundle connectionHints;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iMediaController, parcelImpl) == null) {
                 if (this.mServiceImpl.get() == null) {
@@ -97,8 +94,19 @@ public class MediaSessionServiceImplBase implements MediaSessionService.MediaSes
                 if (callingPid == 0) {
                     callingPid = connectionRequest.getPid();
                 }
+                int i = callingPid;
+                if (parcelImpl == null) {
+                    packageName = null;
+                } else {
+                    packageName = connectionRequest.getPackageName();
+                }
+                if (parcelImpl == null) {
+                    connectionHints = null;
+                } else {
+                    connectionHints = connectionRequest.getConnectionHints();
+                }
                 try {
-                    this.mHandler.post(new Runnable(this, parcelImpl == null ? null : connectionRequest.getPackageName(), callingPid, callingUid, connectionRequest, parcelImpl == null ? null : connectionRequest.getConnectionHints(), iMediaController) { // from class: androidx.media2.session.MediaSessionServiceImplBase.MediaSessionServiceStub.1
+                    this.mHandler.post(new Runnable(this, packageName, i, callingUid, connectionRequest, connectionHints, iMediaController) { // from class: androidx.media2.session.MediaSessionServiceImplBase.MediaSessionServiceStub.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ MediaSessionServiceStub this$0;
@@ -114,22 +122,22 @@ public class MediaSessionServiceImplBase implements MediaSessionService.MediaSes
                             if (interceptable2 != null) {
                                 InitContext newInitContext = TitanRuntime.newInitContext();
                                 newInitContext.initArgs = r2;
-                                Object[] objArr = {this, r7, Integer.valueOf(callingPid), Integer.valueOf(callingUid), connectionRequest, r11, iMediaController};
+                                Object[] objArr = {this, packageName, Integer.valueOf(i), Integer.valueOf(callingUid), connectionRequest, connectionHints, iMediaController};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i = newInitContext.flag;
-                                if ((i & 1) != 0) {
-                                    int i2 = i & 2;
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
                                 }
                             }
                             this.this$0 = this;
-                            this.val$packageName = r7;
-                            this.val$pid = callingPid;
+                            this.val$packageName = packageName;
+                            this.val$pid = i;
                             this.val$uid = callingUid;
                             this.val$request = connectionRequest;
-                            this.val$connectionHints = r11;
+                            this.val$connectionHints = connectionHints;
                             this.val$caller = iMediaController;
                         }
 
@@ -142,83 +150,81 @@ public class MediaSessionServiceImplBase implements MediaSessionService.MediaSes
                         public void run() {
                             MediaSession onGetSession;
                             Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
-                                return;
-                            }
-                            boolean z = true;
-                            try {
-                                MediaSessionServiceImplBase mediaSessionServiceImplBase = this.this$0.mServiceImpl.get();
-                                if (mediaSessionServiceImplBase == null) {
-                                    Log.d(MediaSessionServiceImplBase.TAG, "ServiceImpl isn't available");
-                                    Log.d(MediaSessionServiceImplBase.TAG, "Notifying the controller of its disconnection");
-                                    try {
-                                        this.val$caller.onDisconnected(0);
-                                        return;
-                                    } catch (RemoteException unused) {
-                                        return;
-                                    }
-                                }
-                                MediaSessionService mediaSessionServiceImplBase2 = mediaSessionServiceImplBase.getInstance();
-                                if (mediaSessionServiceImplBase2 == null) {
-                                    Log.d(MediaSessionServiceImplBase.TAG, "Service isn't available");
-                                    Log.d(MediaSessionServiceImplBase.TAG, "Notifying the controller of its disconnection");
-                                    try {
-                                        this.val$caller.onDisconnected(0);
-                                        return;
-                                    } catch (RemoteException unused2) {
-                                        return;
-                                    }
-                                }
-                                MediaSessionManager.RemoteUserInfo remoteUserInfo = new MediaSessionManager.RemoteUserInfo(this.val$packageName, this.val$pid, this.val$uid);
-                                MediaSession.ControllerInfo controllerInfo = new MediaSession.ControllerInfo(remoteUserInfo, this.val$request.getVersion(), this.this$0.mMediaSessionManager.isTrustedForMediaControl(remoteUserInfo), null, this.val$connectionHints);
-                                Log.d(MediaSessionServiceImplBase.TAG, "Handling incoming connection request from the controller=" + controllerInfo);
+                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                boolean z = true;
                                 try {
-                                    onGetSession = mediaSessionServiceImplBase2.onGetSession(controllerInfo);
-                                } catch (Exception e) {
-                                    e = e;
-                                }
-                                if (onGetSession == null) {
-                                    Log.w(MediaSessionServiceImplBase.TAG, "Rejecting incoming connection request from the controller=" + controllerInfo);
-                                    Log.d(MediaSessionServiceImplBase.TAG, "Notifying the controller of its disconnection");
-                                    try {
-                                        this.val$caller.onDisconnected(0);
-                                        return;
-                                    } catch (RemoteException unused3) {
-                                        return;
-                                    }
-                                }
-                                mediaSessionServiceImplBase2.addSession(onGetSession);
-                                try {
-                                    onGetSession.handleControllerConnectionFromService(this.val$caller, this.val$request.getVersion(), this.val$packageName, this.val$pid, this.val$uid, this.val$connectionHints);
-                                    z = false;
-                                } catch (Exception e2) {
-                                    e = e2;
-                                    z = false;
-                                    Log.w(MediaSessionServiceImplBase.TAG, "Failed to add a session to session service", e);
-                                    if (z) {
-                                    }
-                                } catch (Throwable th) {
-                                    th = th;
-                                    z = false;
-                                    if (z) {
+                                    MediaSessionServiceImplBase mediaSessionServiceImplBase = this.this$0.mServiceImpl.get();
+                                    if (mediaSessionServiceImplBase == null) {
+                                        Log.d(MediaSessionServiceImplBase.TAG, "ServiceImpl isn't available");
                                         Log.d(MediaSessionServiceImplBase.TAG, "Notifying the controller of its disconnection");
                                         try {
                                             this.val$caller.onDisconnected(0);
-                                        } catch (RemoteException unused4) {
+                                            return;
+                                        } catch (RemoteException unused) {
+                                            return;
                                         }
                                     }
-                                    throw th;
+                                    MediaSessionService mediaSessionServiceImplBase2 = mediaSessionServiceImplBase.getInstance();
+                                    if (mediaSessionServiceImplBase2 == null) {
+                                        Log.d(MediaSessionServiceImplBase.TAG, "Service isn't available");
+                                        Log.d(MediaSessionServiceImplBase.TAG, "Notifying the controller of its disconnection");
+                                        try {
+                                            this.val$caller.onDisconnected(0);
+                                            return;
+                                        } catch (RemoteException unused2) {
+                                            return;
+                                        }
+                                    }
+                                    MediaSessionManager.RemoteUserInfo remoteUserInfo = new MediaSessionManager.RemoteUserInfo(this.val$packageName, this.val$pid, this.val$uid);
+                                    MediaSession.ControllerInfo controllerInfo = new MediaSession.ControllerInfo(remoteUserInfo, this.val$request.getVersion(), this.this$0.mMediaSessionManager.isTrustedForMediaControl(remoteUserInfo), null, this.val$connectionHints);
+                                    Log.d(MediaSessionServiceImplBase.TAG, "Handling incoming connection request from the controller=" + controllerInfo);
+                                    try {
+                                        onGetSession = mediaSessionServiceImplBase2.onGetSession(controllerInfo);
+                                    } catch (Exception e) {
+                                        e = e;
+                                    }
+                                    if (onGetSession == null) {
+                                        Log.w(MediaSessionServiceImplBase.TAG, "Rejecting incoming connection request from the controller=" + controllerInfo);
+                                        Log.d(MediaSessionServiceImplBase.TAG, "Notifying the controller of its disconnection");
+                                        try {
+                                            this.val$caller.onDisconnected(0);
+                                            return;
+                                        } catch (RemoteException unused3) {
+                                            return;
+                                        }
+                                    }
+                                    mediaSessionServiceImplBase2.addSession(onGetSession);
+                                    try {
+                                        onGetSession.handleControllerConnectionFromService(this.val$caller, this.val$request.getVersion(), this.val$packageName, this.val$pid, this.val$uid, this.val$connectionHints);
+                                        z = false;
+                                    } catch (Exception e2) {
+                                        e = e2;
+                                        z = false;
+                                        Log.w(MediaSessionServiceImplBase.TAG, "Failed to add a session to session service", e);
+                                        if (!z) {
+                                        }
+                                    } catch (Throwable th) {
+                                        th = th;
+                                        z = false;
+                                        if (z) {
+                                            Log.d(MediaSessionServiceImplBase.TAG, "Notifying the controller of its disconnection");
+                                            try {
+                                                this.val$caller.onDisconnected(0);
+                                            } catch (RemoteException unused4) {
+                                            }
+                                        }
+                                        throw th;
+                                    }
+                                    if (!z) {
+                                        Log.d(MediaSessionServiceImplBase.TAG, "Notifying the controller of its disconnection");
+                                        try {
+                                            this.val$caller.onDisconnected(0);
+                                        } catch (RemoteException unused5) {
+                                        }
+                                    }
+                                } catch (Throwable th2) {
+                                    th = th2;
                                 }
-                                if (z) {
-                                    return;
-                                }
-                                Log.d(MediaSessionServiceImplBase.TAG, "Notifying the controller of its disconnection");
-                                try {
-                                    this.val$caller.onDisconnected(0);
-                                } catch (RemoteException unused5) {
-                                }
-                            } catch (Throwable th2) {
-                                th = th2;
                             }
                         }
                     });
@@ -246,6 +252,64 @@ public class MediaSessionServiceImplBase implements MediaSessionService.MediaSes
         this.mSessions = new ArrayMap();
     }
 
+    public MediaSessionService getInstance() {
+        InterceptResult invokeV;
+        MediaSessionService mediaSessionService;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            synchronized (this.mLock) {
+                mediaSessionService = this.mInstance;
+            }
+            return mediaSessionService;
+        }
+        return (MediaSessionService) invokeV.objValue;
+    }
+
+    public IBinder getServiceBinder() {
+        InterceptResult invokeV;
+        IBinder iBinder;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this.mLock) {
+                if (this.mStub != null) {
+                    iBinder = this.mStub.asBinder();
+                } else {
+                    iBinder = null;
+                }
+            }
+            return iBinder;
+        }
+        return (IBinder) invokeV.objValue;
+    }
+
+    @Override // androidx.media2.session.MediaSessionService.MediaSessionServiceImpl
+    public List<MediaSession> getSessions() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            synchronized (this.mLock) {
+                arrayList.addAll(this.mSessions.values());
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // androidx.media2.session.MediaSessionService.MediaSessionServiceImpl
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            synchronized (this.mLock) {
+                this.mInstance = null;
+                if (this.mStub != null) {
+                    this.mStub.close();
+                    this.mStub = null;
+                }
+            }
+        }
+    }
+
     @Override // androidx.media2.session.MediaSessionService.MediaSessionServiceImpl
     public void addSession(MediaSession mediaSession) {
         MediaSession mediaSession2;
@@ -267,46 +331,6 @@ public class MediaSessionServiceImplBase implements MediaSessionService.MediaSes
                 mediaSession.getCallback().setForegroundServiceEventCallback(mediaNotificationHandler);
             }
         }
-    }
-
-    public MediaSessionService getInstance() {
-        InterceptResult invokeV;
-        MediaSessionService mediaSessionService;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            synchronized (this.mLock) {
-                mediaSessionService = this.mInstance;
-            }
-            return mediaSessionService;
-        }
-        return (MediaSessionService) invokeV.objValue;
-    }
-
-    public IBinder getServiceBinder() {
-        InterceptResult invokeV;
-        IBinder asBinder;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this.mLock) {
-                asBinder = this.mStub != null ? this.mStub.asBinder() : null;
-            }
-            return asBinder;
-        }
-        return (IBinder) invokeV.objValue;
-    }
-
-    @Override // androidx.media2.session.MediaSessionService.MediaSessionServiceImpl
-    public List<MediaSession> getSessions() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            synchronized (this.mLock) {
-                arrayList.addAll(this.mSessions.values());
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
     }
 
     @Override // androidx.media2.session.MediaSessionService.MediaSessionServiceImpl
@@ -359,15 +383,28 @@ public class MediaSessionServiceImplBase implements MediaSessionService.MediaSes
     }
 
     @Override // androidx.media2.session.MediaSessionService.MediaSessionServiceImpl
-    public void onDestroy() {
+    public MediaSessionService.MediaNotification onUpdateNotification(MediaSession mediaSession) {
+        InterceptResult invokeL;
+        MediaNotificationHandler mediaNotificationHandler;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, mediaSession)) == null) {
             synchronized (this.mLock) {
-                this.mInstance = null;
-                if (this.mStub != null) {
-                    this.mStub.close();
-                    this.mStub = null;
-                }
+                mediaNotificationHandler = this.mNotificationHandler;
+            }
+            if (mediaNotificationHandler != null) {
+                return mediaNotificationHandler.onUpdateNotification(mediaSession);
+            }
+            throw new IllegalStateException("Service hasn't created");
+        }
+        return (MediaSessionService.MediaNotification) invokeL.objValue;
+    }
+
+    @Override // androidx.media2.session.MediaSessionService.MediaSessionServiceImpl
+    public void removeSession(MediaSession mediaSession) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, mediaSession) == null) {
+            synchronized (this.mLock) {
+                this.mSessions.remove(mediaSession.getId());
             }
         }
     }
@@ -405,32 +442,5 @@ public class MediaSessionServiceImplBase implements MediaSessionService.MediaSes
             return 1;
         }
         return invokeLII.intValue;
-    }
-
-    @Override // androidx.media2.session.MediaSessionService.MediaSessionServiceImpl
-    public MediaSessionService.MediaNotification onUpdateNotification(MediaSession mediaSession) {
-        InterceptResult invokeL;
-        MediaNotificationHandler mediaNotificationHandler;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, mediaSession)) == null) {
-            synchronized (this.mLock) {
-                mediaNotificationHandler = this.mNotificationHandler;
-            }
-            if (mediaNotificationHandler != null) {
-                return mediaNotificationHandler.onUpdateNotification(mediaSession);
-            }
-            throw new IllegalStateException("Service hasn't created");
-        }
-        return (MediaSessionService.MediaNotification) invokeL.objValue;
-    }
-
-    @Override // androidx.media2.session.MediaSessionService.MediaSessionServiceImpl
-    public void removeSession(MediaSession mediaSession) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, mediaSession) == null) {
-            synchronized (this.mLock) {
-                this.mSessions.remove(mediaSession.getId());
-            }
-        }
     }
 }

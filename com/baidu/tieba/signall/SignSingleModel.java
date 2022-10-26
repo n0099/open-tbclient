@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
+public class SignSingleModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
@@ -26,7 +26,7 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
     public String e;
 
     /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
+    public /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -36,6 +36,136 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
         void a(SignData signData);
 
         void onError(String str, String str2);
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public class c extends BdAsyncTask {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public volatile NetWork a;
+        public final /* synthetic */ SignSingleModel b;
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPreExecute() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            }
+        }
+
+        public c(SignSingleModel signSingleModel) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {signSingleModel};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = signSingleModel;
+            this.a = null;
+        }
+
+        public /* synthetic */ c(SignSingleModel signSingleModel, a aVar) {
+            this(signSingleModel);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public SignData doInBackground(Object... objArr) {
+            InterceptResult invokeL;
+            SignData signData;
+            Exception e;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
+                SignData signData2 = null;
+                try {
+                    this.a = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.SIGN_ADDRESS);
+                    this.a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, this.b.a);
+                    this.a.addPostData("fid", this.b.b);
+                    this.a.addPostData("authsid", this.b.e);
+                    this.a.getNetContext().getRequest().mIsNeedTbs = true;
+                    this.a.setNeedSig(true);
+                    String postNetData = this.a.postNetData();
+                    if (this.a.isNetSuccess() && this.a.getNetContext().getResponse().isRequestSuccess()) {
+                        signData = new SignData();
+                        try {
+                            signData.parserJson(postNetData);
+                            signData.forumId = this.b.b;
+                            signData.forumName = this.b.a;
+                            signData2 = signData;
+                        } catch (Exception e2) {
+                            e = e2;
+                            BdLog.e(e.getMessage());
+                            return signData;
+                        }
+                    }
+                    AuthTokenData.parse(postNetData);
+                    return signData2;
+                } catch (Exception e3) {
+                    signData = signData2;
+                    e = e3;
+                }
+            } else {
+                return (SignData) invokeL.objValue;
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onPostExecute(SignData signData) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, signData) == null) {
+                this.b.c = null;
+                if (signData == null && this.a != null) {
+                    this.b.mErrorCode = this.a.getServerErrorCode();
+                    this.b.mErrorString = this.a.getErrorString();
+                    this.b.d.onError(this.b.b, this.b.mErrorString);
+                    return;
+                }
+                this.b.d.a(signData);
+            }
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void cancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                if (this.a != null) {
+                    this.a.cancelNetConnect();
+                }
+                this.b.c = null;
+                super.cancel(true);
+                this.b.d.onError(this.b.b, null);
+            }
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -61,16 +191,6 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
         this.c = null;
     }
 
-    public void H() {
-        c cVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (cVar = this.c) == null) {
-            return;
-        }
-        cVar.cancel();
-        this.c = null;
-    }
-
     public void I(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
@@ -78,145 +198,24 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
         }
     }
 
+    public void H() {
+        c cVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (cVar = this.c) != null) {
+            cVar.cancel();
+            this.c = null;
+        }
+    }
+
     public void J(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) || str == null || str.length() <= 0 || str2 == null || str2.length() <= 0 || this.c != null) {
-            return;
-        }
-        this.a = str;
-        this.b = str2;
-        c cVar = new c(this, null);
-        this.c = cVar;
-        cVar.setPriority(2);
-        this.c.execute(new Object[0]);
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean loadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    /* loaded from: classes5.dex */
-    public class c extends BdAsyncTask<Object, Integer, SignData> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public volatile NetWork a;
-        public final /* synthetic */ SignSingleModel b;
-
-        public c(SignSingleModel signSingleModel) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {signSingleModel};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = signSingleModel;
-            this.a = null;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public SignData doInBackground(Object... objArr) {
-            InterceptResult invokeL;
-            SignData signData;
-            Exception e;
-            Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, objArr)) != null) {
-                return (SignData) invokeL.objValue;
-            }
-            SignData signData2 = null;
-            try {
-                this.a = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.SIGN_ADDRESS);
-                this.a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, this.b.a);
-                this.a.addPostData("fid", this.b.b);
-                this.a.addPostData("authsid", this.b.e);
-                this.a.getNetContext().getRequest().mIsNeedTbs = true;
-                this.a.setNeedSig(true);
-                String postNetData = this.a.postNetData();
-                if (this.a.isNetSuccess() && this.a.getNetContext().getResponse().isRequestSuccess()) {
-                    signData = new SignData();
-                    try {
-                        signData.parserJson(postNetData);
-                        signData.forumId = this.b.b;
-                        signData.forumName = this.b.a;
-                        signData2 = signData;
-                    } catch (Exception e2) {
-                        e = e2;
-                        BdLog.e(e.getMessage());
-                        return signData;
-                    }
-                }
-                AuthTokenData.parse(postNetData);
-                return signData2;
-            } catch (Exception e3) {
-                signData = signData2;
-                e = e3;
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(SignData signData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, signData) == null) {
-                this.b.c = null;
-                if (signData != null || this.a == null) {
-                    this.b.d.a(signData);
-                    return;
-                }
-                this.b.mErrorCode = this.a.getServerErrorCode();
-                this.b.mErrorString = this.a.getErrorString();
-                this.b.d.onError(this.b.b, this.b.mErrorString);
-            }
-        }
-
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void cancel() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                if (this.a != null) {
-                    this.a.cancelNetConnect();
-                }
-                this.b.c = null;
-                super.cancel(true);
-                this.b.d.onError(this.b.b, null);
-            }
-        }
-
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPreExecute() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            }
-        }
-
-        public /* synthetic */ c(SignSingleModel signSingleModel, a aVar) {
-            this(signSingleModel);
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) && str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.c == null) {
+            this.a = str;
+            this.b = str2;
+            c cVar = new c(this, null);
+            this.c = cVar;
+            cVar.setPriority(2);
+            this.c.execute(new Object[0]);
         }
     }
 }

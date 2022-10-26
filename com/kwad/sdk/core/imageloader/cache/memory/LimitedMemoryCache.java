@@ -11,7 +11,7 @@ public abstract class LimitedMemoryCache extends BaseMemoryCache {
     public static final int MAX_NORMAL_CACHE_SIZE = 16777216;
     public static final int MAX_NORMAL_CACHE_SIZE_IN_MB = 16;
     public final int sizeLimit;
-    public final List<DecodedResult> hardCache = Collections.synchronizedList(new LinkedList());
+    public final List hardCache = Collections.synchronizedList(new LinkedList());
     public final AtomicInteger cacheSize = new AtomicInteger();
 
     public LimitedMemoryCache(int i) {

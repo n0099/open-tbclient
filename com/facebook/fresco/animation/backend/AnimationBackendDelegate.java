@@ -1,11 +1,9 @@
 package com.facebook.fresco.animation.backend;
 
-import android.annotation.SuppressLint;
 import android.graphics.Canvas;
 import android.graphics.ColorFilter;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
-import androidx.annotation.IntRange;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,28 +11,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.fresco.animation.backend.AnimationBackend;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
-public class AnimationBackendDelegate<T extends AnimationBackend> implements AnimationBackend {
+public class AnimationBackendDelegate implements AnimationBackend {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ALPHA_UNSET = -1;
     public transient /* synthetic */ FieldHolder $fh;
-    @IntRange(from = -1, to = 255)
     public int mAlpha;
     @Nullable
-    public T mAnimationBackend;
+    public AnimationBackend mAnimationBackend;
     @Nullable
     public Rect mBounds;
     @Nullable
     public ColorFilter mColorFilter;
 
-    public AnimationBackendDelegate(@Nullable T t) {
+    public AnimationBackendDelegate(@Nullable AnimationBackend animationBackend) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {t};
+            Object[] objArr = {animationBackend};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -45,10 +41,9 @@ public class AnimationBackendDelegate<T extends AnimationBackend> implements Ani
             }
         }
         this.mAlpha = -1;
-        this.mAnimationBackend = t;
+        this.mAnimationBackend = animationBackend;
     }
 
-    @SuppressLint({"Range"})
     private void applyBackendProperties(AnimationBackend animationBackend) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, animationBackend) == null) {
@@ -67,136 +62,38 @@ public class AnimationBackendDelegate<T extends AnimationBackend> implements Ani
         }
     }
 
-    @Override // com.facebook.fresco.animation.backend.AnimationBackend
-    public void clear() {
-        T t;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (t = this.mAnimationBackend) == null) {
-            return;
-        }
-        t.clear();
-    }
-
-    @Override // com.facebook.fresco.animation.backend.AnimationBackend
-    public boolean drawFrame(Drawable drawable, Canvas canvas, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, drawable, canvas, i)) == null) {
-            T t = this.mAnimationBackend;
-            return t != null && t.drawFrame(drawable, canvas, i);
-        }
-        return invokeLLI.booleanValue;
-    }
-
-    @Nullable
-    public T getAnimationBackend() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mAnimationBackend : (T) invokeV.objValue;
-    }
-
-    @Override // com.facebook.fresco.animation.backend.AnimationInformation
-    public int getFrameCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            T t = this.mAnimationBackend;
-            if (t == null) {
-                return 0;
-            }
-            return t.getFrameCount();
-        }
-        return invokeV.intValue;
-    }
-
     @Override // com.facebook.fresco.animation.backend.AnimationInformation
     public int getFrameDurationMs(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            T t = this.mAnimationBackend;
-            if (t == null) {
+            AnimationBackend animationBackend = this.mAnimationBackend;
+            if (animationBackend == null) {
                 return 0;
             }
-            return t.getFrameDurationMs(i);
+            return animationBackend.getFrameDurationMs(i);
         }
         return invokeI.intValue;
     }
 
     @Override // com.facebook.fresco.animation.backend.AnimationBackend
-    public int getIntrinsicHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            T t = this.mAnimationBackend;
-            if (t == null) {
-                return -1;
-            }
-            return t.getIntrinsicHeight();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.facebook.fresco.animation.backend.AnimationBackend
-    public int getIntrinsicWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            T t = this.mAnimationBackend;
-            if (t == null) {
-                return -1;
-            }
-            return t.getIntrinsicWidth();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.facebook.fresco.animation.backend.AnimationInformation
-    public int getLoopCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            T t = this.mAnimationBackend;
-            if (t == null) {
-                return 0;
-            }
-            return t.getLoopCount();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.facebook.fresco.animation.backend.AnimationBackend
-    public int getSizeInBytes() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            T t = this.mAnimationBackend;
-            if (t == null) {
-                return 0;
-            }
-            return t.getSizeInBytes();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.facebook.fresco.animation.backend.AnimationBackend
-    public void setAlpha(@IntRange(from = 0, to = 255) int i) {
+    public void setAlpha(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            T t = this.mAnimationBackend;
-            if (t != null) {
-                t.setAlpha(i);
+            AnimationBackend animationBackend = this.mAnimationBackend;
+            if (animationBackend != null) {
+                animationBackend.setAlpha(i);
             }
             this.mAlpha = i;
         }
     }
 
-    public void setAnimationBackend(@Nullable T t) {
+    public void setAnimationBackend(@Nullable AnimationBackend animationBackend) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, t) == null) {
-            this.mAnimationBackend = t;
-            if (t != null) {
-                applyBackendProperties(t);
+        if (interceptable == null || interceptable.invokeL(1048586, this, animationBackend) == null) {
+            this.mAnimationBackend = animationBackend;
+            if (animationBackend != null) {
+                applyBackendProperties(animationBackend);
             }
         }
     }
@@ -205,9 +102,9 @@ public class AnimationBackendDelegate<T extends AnimationBackend> implements Ani
     public void setBounds(@Nullable Rect rect) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, rect) == null) {
-            T t = this.mAnimationBackend;
-            if (t != null) {
-                t.setBounds(rect);
+            AnimationBackend animationBackend = this.mAnimationBackend;
+            if (animationBackend != null) {
+                animationBackend.setBounds(rect);
             }
             this.mBounds = rect;
         }
@@ -217,11 +114,114 @@ public class AnimationBackendDelegate<T extends AnimationBackend> implements Ani
     public void setColorFilter(ColorFilter colorFilter) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, colorFilter) == null) {
-            T t = this.mAnimationBackend;
-            if (t != null) {
-                t.setColorFilter(colorFilter);
+            AnimationBackend animationBackend = this.mAnimationBackend;
+            if (animationBackend != null) {
+                animationBackend.setColorFilter(colorFilter);
             }
             this.mColorFilter = colorFilter;
         }
+    }
+
+    @Override // com.facebook.fresco.animation.backend.AnimationBackend
+    public void clear() {
+        AnimationBackend animationBackend;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (animationBackend = this.mAnimationBackend) != null) {
+            animationBackend.clear();
+        }
+    }
+
+    @Nullable
+    public AnimationBackend getAnimationBackend() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mAnimationBackend;
+        }
+        return (AnimationBackend) invokeV.objValue;
+    }
+
+    @Override // com.facebook.fresco.animation.backend.AnimationInformation
+    public int getFrameCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            AnimationBackend animationBackend = this.mAnimationBackend;
+            if (animationBackend == null) {
+                return 0;
+            }
+            return animationBackend.getFrameCount();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.facebook.fresco.animation.backend.AnimationBackend
+    public int getIntrinsicHeight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            AnimationBackend animationBackend = this.mAnimationBackend;
+            if (animationBackend == null) {
+                return -1;
+            }
+            return animationBackend.getIntrinsicHeight();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.facebook.fresco.animation.backend.AnimationBackend
+    public int getIntrinsicWidth() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            AnimationBackend animationBackend = this.mAnimationBackend;
+            if (animationBackend == null) {
+                return -1;
+            }
+            return animationBackend.getIntrinsicWidth();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.facebook.fresco.animation.backend.AnimationInformation
+    public int getLoopCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            AnimationBackend animationBackend = this.mAnimationBackend;
+            if (animationBackend == null) {
+                return 0;
+            }
+            return animationBackend.getLoopCount();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.facebook.fresco.animation.backend.AnimationBackend
+    public int getSizeInBytes() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            AnimationBackend animationBackend = this.mAnimationBackend;
+            if (animationBackend == null) {
+                return 0;
+            }
+            return animationBackend.getSizeInBytes();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.facebook.fresco.animation.backend.AnimationBackend
+    public boolean drawFrame(Drawable drawable, Canvas canvas, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, drawable, canvas, i)) == null) {
+            AnimationBackend animationBackend = this.mAnimationBackend;
+            if (animationBackend != null && animationBackend.drawFrame(drawable, canvas, i)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLLI.booleanValue;
     }
 }

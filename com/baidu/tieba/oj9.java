@@ -1,75 +1,501 @@
 package com.baidu.tieba;
 
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.SQLException;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.config.AppConfig;
+import com.baidu.tieba.mj9;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.yalog.Logger;
-import com.baidu.yalog.LoggerManager;
-import java.io.File;
-import java.util.List;
-@Singleton
-@Service
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.concurrent.locks.ReentrantLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class oj9 extends LoggerManager.c {
+public class oj9 extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
+    public static oj9 c;
+    public static ReentrantLock d;
     public transient /* synthetic */ FieldHolder $fh;
+    public ReentrantReadWriteLock a;
 
-    public oj9() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948034315, "Lcom/baidu/tieba/oj9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948034315, "Lcom/baidu/tieba/oj9;");
+                return;
+            }
+        }
+        b = AppConfig.isDebug();
+        c = null;
+        d = new ReentrantLock();
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public oj9(Context context) {
+        super(context, "voyager.db", (SQLiteDatabase.CursorFactory) null, 1);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new ReentrantReadWriteLock(true);
+    }
+
+    public static oj9 f(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            if (c == null) {
+                d.lock();
+                if (c == null) {
+                    c = new oj9(context);
+                }
+                d.unlock();
+            }
+            return c;
+        }
+        return (oj9) invokeL.objValue;
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onConfigure(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sQLiteDatabase) == null) {
+            sQLiteDatabase.enableWriteAheadLogging();
+            super.onConfigure(sQLiteDatabase);
+        }
+    }
+
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            this.a.writeLock().lock();
+            try {
+                try {
+                    SQLiteDatabase writableDatabase = getWritableDatabase();
+                    writableDatabase.beginTransactionNonExclusive();
+                    try {
+                        long delete = writableDatabase.delete("task", null, null);
+                        if (b) {
+                            Log.d("VoyagerDBHelper", "clear task data from table task, count = " + delete);
+                        }
+                        writableDatabase.setTransactionSuccessful();
+                        return true;
+                    } finally {
+                        writableDatabase.endTransaction();
+                    }
+                } catch (SQLException e) {
+                    if (b) {
+                        e.printStackTrace();
+                    }
+                    this.a.writeLock().unlock();
+                    return false;
+                }
+            } finally {
+                this.a.writeLock().unlock();
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:16:0x007e A[Catch: all -> 0x009b, SQLException -> 0x009d, Merged into TryCatch #2 {all -> 0x009b, SQLException -> 0x009d, blocks: (B:5:0x0010, B:16:0x007e, B:17:0x0081, B:25:0x0094, B:26:0x0097, B:27:0x009a, B:31:0x009e, B:33:0x00a2), top: B:45:0x0010 }, TRY_ENTER] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public String c() {
+        InterceptResult invokeV;
+        Cursor cursor;
+        String string;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            this.a.writeLock().lock();
+            try {
+                SQLiteDatabase writableDatabase = getWritableDatabase();
+                writableDatabase.beginTransactionNonExclusive();
+                try {
+                    cursor = writableDatabase.rawQuery("SELECT * FROM task ORDER BY timestamp LIMIT 1", null);
+                    if (cursor != null) {
+                        try {
+                            if (cursor.getCount() > 0) {
+                                cursor.moveToFirst();
+                                string = cursor.getString(cursor.getColumnIndex("task_id"));
+                                long delete = writableDatabase.delete("task", "task_id =? ", new String[]{string});
+                                if (b) {
+                                    Log.d("VoyagerDBHelper", "delete task data count: " + delete);
+                                }
+                                writableDatabase.setTransactionSuccessful();
+                                if (cursor != null) {
+                                    cursor.close();
+                                }
+                                writableDatabase.endTransaction();
+                                return string;
+                            }
+                        } catch (Throwable th) {
+                            th = th;
+                            if (cursor != null) {
+                                cursor.close();
+                            }
+                            writableDatabase.endTransaction();
+                            throw th;
+                        }
+                    }
+                    string = null;
+                    writableDatabase.setTransactionSuccessful();
+                    if (cursor != null) {
+                    }
+                    writableDatabase.endTransaction();
+                    return string;
+                } catch (Throwable th2) {
+                    th = th2;
+                    cursor = null;
+                }
+            } catch (SQLException e) {
+                if (b) {
+                    e.printStackTrace();
+                }
+                return null;
+            } finally {
+                this.a.writeLock().unlock();
+            }
+        } else {
+            return (String) invokeV.objValue;
+        }
+    }
+
+    public final ContentValues d(mj9 mj9Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mj9Var)) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("task_id", mj9Var.j());
+            contentValues.put("timestamp", Long.valueOf(mj9Var.i()));
+            contentValues.put("biz_type", mj9Var.a());
+            contentValues.put("file_list", mj9Var.g().toString());
+            if (!mj9Var.l()) {
+                contentValues.put("zip_src", (Integer) 0);
+            } else {
+                contentValues.put("zip_src", (Integer) 1);
+            }
+            contentValues.put("priority", Integer.valueOf(mj9Var.h()));
+            contentValues.put("upload_count", Integer.valueOf(mj9Var.k()));
+            contentValues.put("network_type", Integer.valueOf(mj9Var.f()));
+            JSONObject jSONObject = new JSONObject();
+            try {
+                JSONObject b2 = mj9Var.b();
+                if (b2 != null) {
+                    jSONObject.put("ext_info", b2);
+                }
+                JSONObject c2 = mj9Var.c();
+                if (c2 != null) {
+                    jSONObject.put("file_meta", c2);
+                }
+                jSONObject.put("max_zip_size", mj9Var.e());
+            } catch (JSONException e) {
+                if (b) {
+                    e.printStackTrace();
+                }
+            }
+            if (jSONObject.length() > 0) {
+                contentValues.put("extend", jSONObject.toString());
+            }
+            return contentValues;
+        }
+        return (ContentValues) invokeL.objValue;
+    }
+
+    public boolean h(mj9 mj9Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, mj9Var)) == null) {
+            if (mj9Var != null && !TextUtils.isEmpty(mj9Var.j()) && !TextUtils.isEmpty(mj9Var.a())) {
+                this.a.writeLock().lock();
+                try {
+                    ContentValues d2 = d(mj9Var);
+                    SQLiteDatabase writableDatabase = getWritableDatabase();
+                    writableDatabase.beginTransactionNonExclusive();
+                    try {
+                        long insert = writableDatabase.insert("task", null, d2);
+                        if (b) {
+                            Log.d("VoyagerDBHelper", "insert task data into table task, rowId = " + insert);
+                        }
+                        writableDatabase.setTransactionSuccessful();
+                        return true;
+                    } finally {
+                        writableDatabase.endTransaction();
+                    }
+                } catch (SQLException e) {
+                    if (b) {
+                        e.printStackTrace();
+                    }
+                    return false;
+                } finally {
+                    this.a.writeLock().unlock();
+                }
+            }
+            if (b) {
+                Log.d("VoyagerDBHelper", "insert task data : task id should not null");
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final String e(ArrayList arrayList) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, arrayList)) == null) {
+            StringBuilder sb = new StringBuilder();
+            Iterator it = arrayList.iterator();
+            int i = 0;
+            while (it.hasNext()) {
+                String str = (String) it.next();
+                if (i > 0) {
+                    sb.append(",");
+                }
+                sb.append(str);
+                i++;
+            }
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onCreate(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, sQLiteDatabase) == null) {
+            if (b) {
+                Log.i("VoyagerDBHelper", "Creating database voyager.db version: 1");
+            }
+            try {
+                sQLiteDatabase.execSQL("CREATE TABLE task (_id INTEGER PRIMARY KEY AUTOINCREMENT,task_id TEXT,timestamp LONG,biz_type TEXT,file_list TEXT,zip_src INTEGER,priority INTEGER,upload_count INTEGER,network_type INTEGER,extend TEXT,reserve1 TEXT);");
+            } catch (Exception e) {
+                if (b) {
+                    Log.w("VoyagerDBHelper", "Error while creating db: " + e.toString());
+                }
             }
         }
     }
 
-    @Override // com.baidu.yalog.LoggerManager.c
-    public List<String> a(long j, long j2, String str, String str2, boolean z, boolean z2, String str3) {
-        InterceptResult invokeCommon;
+    /* JADX WARN: Removed duplicated region for block: B:47:0x0141 A[LOOP:0: B:12:0x003a->B:47:0x0141, LOOP_END] */
+    /* JADX WARN: Removed duplicated region for block: B:52:0x014d A[Catch: all -> 0x0186, SQLException -> 0x0188, TRY_ENTER, TryCatch #1 {SQLException -> 0x0188, blocks: (B:5:0x0011, B:52:0x014d, B:53:0x0150, B:57:0x0160, B:60:0x0182, B:61:0x0185), top: B:77:0x0011, outer: #3 }] */
+    /* JADX WARN: Removed duplicated region for block: B:55:0x0156 A[DONT_GENERATE] */
+    /* JADX WARN: Removed duplicated region for block: B:57:0x0160 A[Catch: all -> 0x0186, SQLException -> 0x0188, TRY_ENTER, TryCatch #1 {SQLException -> 0x0188, blocks: (B:5:0x0011, B:52:0x014d, B:53:0x0150, B:57:0x0160, B:60:0x0182, B:61:0x0185), top: B:77:0x0011, outer: #3 }] */
+    /* JADX WARN: Removed duplicated region for block: B:83:0x014b A[EDGE_INSN: B:83:0x014b->B:51:0x014b ?: BREAK  , SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void g(ArrayList arrayList, LinkedList linkedList) {
+        SQLiteDatabase writableDatabase;
+        Cursor cursor;
+        long j;
+        ArrayList arrayList2;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), str3})) == null) ? pj9.o(j, j2, str, str2, z, z2, str3) : (List) invokeCommon.objValue;
-    }
-
-    @Override // com.baidu.yalog.LoggerManager.c
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return AppRuntime.getAppContext().getApplicationInfo().dataDir + File.separator + ".yalog";
+        if (interceptable == null || interceptable.invokeLL(1048580, this, arrayList, linkedList) == null) {
+            this.a.writeLock().lock();
+            try {
+                try {
+                    writableDatabase = getWritableDatabase();
+                    cursor = null;
+                } catch (SQLException e) {
+                    if (b) {
+                        e.printStackTrace();
+                    }
+                }
+                try {
+                    Cursor rawQuery = writableDatabase.rawQuery("SELECT * FROM task", null);
+                    if (rawQuery != null) {
+                        try {
+                            if (rawQuery.getCount() > 0) {
+                                rawQuery.moveToFirst();
+                                long currentTimeMillis = System.currentTimeMillis();
+                                while (true) {
+                                    String string = rawQuery.getString(rawQuery.getColumnIndex("task_id"));
+                                    String string2 = rawQuery.getString(rawQuery.getColumnIndex("biz_type"));
+                                    long j2 = rawQuery.getLong(rawQuery.getColumnIndex("timestamp"));
+                                    long b2 = cj9.f().b(string2);
+                                    int i = rawQuery.getInt(rawQuery.getColumnIndex("upload_count"));
+                                    int e2 = cj9.f().e(string2);
+                                    if (b2 + j2 >= currentTimeMillis) {
+                                        if (i >= e2) {
+                                            arrayList2 = arrayList;
+                                            j = currentTimeMillis;
+                                        } else {
+                                            int i2 = rawQuery.getInt(rawQuery.getColumnIndex("priority"));
+                                            String string3 = rawQuery.getString(rawQuery.getColumnIndex("file_list"));
+                                            int i3 = rawQuery.getInt(rawQuery.getColumnIndex("network_type"));
+                                            boolean z = true;
+                                            j = currentTimeMillis;
+                                            ArrayList arrayList3 = new ArrayList(Arrays.asList(string3));
+                                            if (rawQuery.getInt(rawQuery.getColumnIndex("zip_src")) == 0) {
+                                                z = false;
+                                            }
+                                            mj9.b bVar = new mj9.b(string, string2, arrayList3, j2);
+                                            bVar.o(i2);
+                                            bVar.n(i3);
+                                            bVar.p(z);
+                                            mj9 k = bVar.k();
+                                            k.s(i);
+                                            String string4 = rawQuery.getString(rawQuery.getColumnIndex("extend"));
+                                            if (!TextUtils.isEmpty(string4)) {
+                                                try {
+                                                    JSONObject jSONObject = new JSONObject(string4);
+                                                    if (jSONObject.length() > 0) {
+                                                        JSONObject optJSONObject = jSONObject.optJSONObject("ext_info");
+                                                        if (optJSONObject != null && optJSONObject.length() > 0) {
+                                                            k.m(optJSONObject);
+                                                        }
+                                                        JSONObject optJSONObject2 = jSONObject.optJSONObject("file_meta");
+                                                        if (optJSONObject2 != null && optJSONObject2.length() > 0) {
+                                                            k.n(optJSONObject2);
+                                                        }
+                                                        long optLong = jSONObject.optLong("max_zip_size", 0L);
+                                                        if (optLong > 0) {
+                                                            k.o(optLong);
+                                                        }
+                                                    }
+                                                } catch (JSONException e3) {
+                                                    if (b) {
+                                                        e3.printStackTrace();
+                                                    }
+                                                }
+                                            }
+                                            linkedList.addFirst(k);
+                                            if (rawQuery.moveToNext()) {
+                                                break;
+                                            }
+                                            currentTimeMillis = j;
+                                        }
+                                    } else {
+                                        j = currentTimeMillis;
+                                        arrayList2 = arrayList;
+                                    }
+                                    arrayList2.add(string);
+                                    if (rawQuery.moveToNext()) {
+                                    }
+                                }
+                                if (rawQuery != null) {
+                                    rawQuery.close();
+                                }
+                                if (arrayList.size() != 0) {
+                                    return;
+                                }
+                                writableDatabase.delete("task", "task_id IN ( " + e(arrayList) + " )", null);
+                                return;
+                            }
+                        } catch (Throwable th) {
+                            th = th;
+                            cursor = rawQuery;
+                            if (cursor != null) {
+                                cursor.close();
+                            }
+                            throw th;
+                        }
+                    }
+                    if (rawQuery != null) {
+                    }
+                    if (arrayList.size() != 0) {
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                }
+            } finally {
+                this.a.writeLock().unlock();
+            }
         }
-        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.yalog.LoggerManager.c
-    public Logger d(String str) {
-        InterceptResult invokeL;
+    public void i(mj9 mj9Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? new pj9(str) : (Logger) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeL(1048582, this, mj9Var) == null) {
+            if (mj9Var != null && !TextUtils.isEmpty(mj9Var.j()) && !TextUtils.isEmpty(mj9Var.a())) {
+                this.a.writeLock().lock();
+                try {
+                    try {
+                        int delete = getWritableDatabase().delete("task", "task_id =? ", new String[]{mj9Var.j()});
+                        if (b) {
+                            Log.d("VoyagerDBHelper", "delete data from table task, del count = " + delete);
+                        }
+                    } catch (SQLException e) {
+                        if (b) {
+                            e.printStackTrace();
+                        }
+                    }
+                } finally {
+                    this.a.writeLock().unlock();
+                }
+            } else if (b) {
+                Log.d("VoyagerDBHelper", "task data and task id should not null");
+            }
+        }
     }
 
-    @Override // com.baidu.yalog.LoggerManager.c
-    public List<String> e(long j, long j2, String str, String str2) {
-        InterceptResult invokeCommon;
+    public void j(mj9 mj9Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2})) == null) ? pj9.y(j, j2, str, str2) : (List) invokeCommon.objValue;
+        if (interceptable == null || interceptable.invokeL(1048583, this, mj9Var) == null) {
+            if (mj9Var != null && !TextUtils.isEmpty(mj9Var.j()) && !TextUtils.isEmpty(mj9Var.a())) {
+                this.a.writeLock().lock();
+                try {
+                    try {
+                        long update = getWritableDatabase().update("task", d(mj9Var), null, null);
+                        if (b) {
+                            Log.d("VoyagerDBHelper", "update data into table task, update count = " + update);
+                        }
+                    } catch (SQLException e) {
+                        if (b) {
+                            e.printStackTrace();
+                        }
+                    }
+                } finally {
+                    this.a.writeLock().unlock();
+                }
+            } else if (b) {
+                Log.d("VoyagerDBHelper", "task data and task id should not null");
+            }
+        }
     }
 
-    @Override // com.baidu.yalog.LoggerManager.c
-    public void f() {
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            pj9.z();
+        if ((interceptable == null || interceptable.invokeLII(1048586, this, sQLiteDatabase, i, i2) == null) && b) {
+            Log.d("VoyagerDBHelper", "old version: " + i + ", new version: " + i2);
         }
     }
 }

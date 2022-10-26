@@ -7,10 +7,6 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
-import androidx.annotation.CallSuper;
-import androidx.annotation.MainThread;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
 import com.kwad.sdk.utils.aa;
 import java.util.Arrays;
@@ -26,7 +22,7 @@ public class KSFrameLayout extends FrameLayout implements e, i {
     public boolean aqK;
     public View aqL;
 
-    public KSFrameLayout(@NonNull Context context) {
+    public KSFrameLayout(Context context) {
         super(context);
         this.Kt = new AtomicBoolean(true);
         this.aqJ = 0.0f;
@@ -35,7 +31,7 @@ public class KSFrameLayout extends FrameLayout implements e, i {
         b(context, null);
     }
 
-    public KSFrameLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+    public KSFrameLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.Kt = new AtomicBoolean(true);
         this.aqJ = 0.0f;
@@ -44,7 +40,7 @@ public class KSFrameLayout extends FrameLayout implements e, i {
         b(context, attributeSet);
     }
 
-    public KSFrameLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+    public KSFrameLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.Kt = new AtomicBoolean(true);
         this.aqJ = 0.0f;
@@ -53,7 +49,7 @@ public class KSFrameLayout extends FrameLayout implements e, i {
         b(context, attributeSet);
     }
 
-    public KSFrameLayout(@NonNull Context context, View view2) {
+    public KSFrameLayout(Context context, View view2) {
         super(context);
         this.Kt = new AtomicBoolean(true);
         this.aqJ = 0.0f;
@@ -63,7 +59,7 @@ public class KSFrameLayout extends FrameLayout implements e, i {
         b(context, null);
     }
 
-    private void b(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+    private void b(Context context, AttributeSet attributeSet) {
         if (attributeSet != null) {
             int[] iArr = {R.attr.obfuscated_res_0x7f0403b5};
             Arrays.sort(iArr);
@@ -103,12 +99,10 @@ public class KSFrameLayout extends FrameLayout implements e, i {
         an();
     }
 
-    @CallSuper
     public void am() {
         this.aqH.onAttachedToWindow();
     }
 
-    @CallSuper
     public void an() {
         this.aqH.onDetachedFromWindow();
     }
@@ -140,7 +134,6 @@ public class KSFrameLayout extends FrameLayout implements e, i {
     }
 
     @Override // com.kwad.sdk.widget.e
-    @MainThread
     public aa.a getTouchCoords() {
         return this.afd;
     }
@@ -149,7 +142,6 @@ public class KSFrameLayout extends FrameLayout implements e, i {
         return this.aqH.getVisiblePercent();
     }
 
-    @CallSuper
     public void k(View view2) {
         i iVar = this.aqI;
         if (iVar != null) {

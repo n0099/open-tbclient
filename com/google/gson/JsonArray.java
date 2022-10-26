@@ -33,38 +33,6 @@ public final class JsonArray extends JsonElement implements Iterable<JsonElement
         this.elements = new ArrayList();
     }
 
-    public void add(Boolean bool) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bool) == null) {
-            this.elements.add(bool == null ? JsonNull.INSTANCE : new JsonPrimitive(bool));
-        }
-    }
-
-    public void addAll(JsonArray jsonArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, jsonArray) == null) {
-            this.elements.addAll(jsonArray.elements);
-        }
-    }
-
-    public boolean contains(JsonElement jsonElement) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, jsonElement)) == null) ? this.elements.contains(jsonElement) : invokeL.booleanValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, obj)) == null) ? obj == this || ((obj instanceof JsonArray) && ((JsonArray) obj).elements.equals(this.elements)) : invokeL.booleanValue;
-    }
-
-    public JsonElement get(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) ? this.elements.get(i) : (JsonElement) invokeI.objValue;
-    }
-
     @Override // com.google.gson.JsonElement
     public BigDecimal getAsBigDecimal() {
         InterceptResult invokeV;
@@ -224,38 +192,167 @@ public final class JsonArray extends JsonElement implements Iterable<JsonElement
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.elements.hashCode() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            return this.elements.hashCode();
+        }
+        return invokeV.intValue;
     }
 
     @Override // java.lang.Iterable
     public Iterator<JsonElement> iterator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.elements.iterator() : (Iterator) invokeV.objValue;
-    }
-
-    public boolean remove(JsonElement jsonElement) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, jsonElement)) == null) ? this.elements.remove(jsonElement) : invokeL.booleanValue;
-    }
-
-    public JsonElement set(int i, JsonElement jsonElement) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048603, this, i, jsonElement)) == null) ? this.elements.set(i, jsonElement) : (JsonElement) invokeIL.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            return this.elements.iterator();
+        }
+        return (Iterator) invokeV.objValue;
     }
 
     public int size() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.elements.size() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+            return this.elements.size();
+        }
+        return invokeV.intValue;
+    }
+
+    public JsonArray(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.elements = new ArrayList(i);
+    }
+
+    public void add(JsonElement jsonElement) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jsonElement) == null) {
+            if (jsonElement == null) {
+                jsonElement = JsonNull.INSTANCE;
+            }
+            this.elements.add(jsonElement);
+        }
+    }
+
+    public void addAll(JsonArray jsonArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, jsonArray) == null) {
+            this.elements.addAll(jsonArray.elements);
+        }
+    }
+
+    public boolean contains(JsonElement jsonElement) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, jsonElement)) == null) {
+            return this.elements.contains(jsonElement);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, obj)) == null) {
+            if (obj != this && (!(obj instanceof JsonArray) || !((JsonArray) obj).elements.equals(this.elements))) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public JsonElement get(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
+            return this.elements.get(i);
+        }
+        return (JsonElement) invokeI.objValue;
+    }
+
+    public JsonElement remove(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048601, this, i)) == null) {
+            return this.elements.remove(i);
+        }
+        return (JsonElement) invokeI.objValue;
+    }
+
+    public void add(Boolean bool) {
+        JsonElement jsonPrimitive;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bool) == null) {
+            List<JsonElement> list = this.elements;
+            if (bool == null) {
+                jsonPrimitive = JsonNull.INSTANCE;
+            } else {
+                jsonPrimitive = new JsonPrimitive(bool);
+            }
+            list.add(jsonPrimitive);
+        }
+    }
+
+    public boolean remove(JsonElement jsonElement) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, jsonElement)) == null) {
+            return this.elements.remove(jsonElement);
+        }
+        return invokeL.booleanValue;
     }
 
     public void add(Character ch) {
+        JsonElement jsonPrimitive;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ch) == null) {
-            this.elements.add(ch == null ? JsonNull.INSTANCE : new JsonPrimitive(ch));
+            List<JsonElement> list = this.elements;
+            if (ch == null) {
+                jsonPrimitive = JsonNull.INSTANCE;
+            } else {
+                jsonPrimitive = new JsonPrimitive(ch);
+            }
+            list.add(jsonPrimitive);
+        }
+    }
+
+    public void add(Number number) {
+        JsonElement jsonPrimitive;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, number) == null) {
+            List<JsonElement> list = this.elements;
+            if (number == null) {
+                jsonPrimitive = JsonNull.INSTANCE;
+            } else {
+                jsonPrimitive = new JsonPrimitive(number);
+            }
+            list.add(jsonPrimitive);
+        }
+    }
+
+    public void add(String str) {
+        JsonElement jsonPrimitive;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            List<JsonElement> list = this.elements;
+            if (str == null) {
+                jsonPrimitive = JsonNull.INSTANCE;
+            } else {
+                jsonPrimitive = new JsonPrimitive(str);
+            }
+            list.add(jsonPrimitive);
         }
     }
 
@@ -277,51 +374,12 @@ public final class JsonArray extends JsonElement implements Iterable<JsonElement
         return (JsonArray) invokeV.objValue;
     }
 
-    public JsonElement remove(int i) {
-        InterceptResult invokeI;
+    public JsonElement set(int i, JsonElement jsonElement) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048601, this, i)) == null) ? this.elements.remove(i) : (JsonElement) invokeI.objValue;
-    }
-
-    public JsonArray(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048603, this, i, jsonElement)) == null) {
+            return this.elements.set(i, jsonElement);
         }
-        this.elements = new ArrayList(i);
-    }
-
-    public void add(Number number) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, number) == null) {
-            this.elements.add(number == null ? JsonNull.INSTANCE : new JsonPrimitive(number));
-        }
-    }
-
-    public void add(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.elements.add(str == null ? JsonNull.INSTANCE : new JsonPrimitive(str));
-        }
-    }
-
-    public void add(JsonElement jsonElement) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jsonElement) == null) {
-            if (jsonElement == null) {
-                jsonElement = JsonNull.INSTANCE;
-            }
-            this.elements.add(jsonElement);
-        }
+        return (JsonElement) invokeIL.objValue;
     }
 }

@@ -53,7 +53,7 @@ public final class k {
             e3.printStackTrace();
         }
         try {
-            SYSTEM_UI_FLAG_LIGHT_STATUS_BAR = ((Integer) q.c((Class<?>) View.class, "SYSTEM_UI_FLAG_LIGHT_STATUS_BAR")).intValue();
+            SYSTEM_UI_FLAG_LIGHT_STATUS_BAR = ((Integer) q.c(View.class, "SYSTEM_UI_FLAG_LIGHT_STATUS_BAR")).intValue();
         } catch (Exception e4) {
             e4.printStackTrace();
         }

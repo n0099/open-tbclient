@@ -15,8 +15,6 @@ import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
-import androidx.annotation.ColorInt;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +25,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class TextProgressBar extends ProgressBar {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
     public String Hb;
     public LinearGradient Hc;
     public Matrix Hd;
@@ -297,7 +294,7 @@ public class TextProgressBar extends ProgressBar {
         }
     }
 
-    public final void setTextColor(@ColorInt int i, @ColorInt int i2) {
+    public final void setTextColor(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048586, this, i, i2) == null) {
             this.Hp = true;

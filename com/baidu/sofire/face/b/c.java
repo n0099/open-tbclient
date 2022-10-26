@@ -29,6 +29,27 @@ public final class c {
         a = new String[]{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"};
     }
 
+    public static String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            try {
+                String str2 = new String(str);
+                try {
+                    return a(MessageDigest.getInstance("MD5").digest(str2.getBytes()));
+                } catch (Throwable unused) {
+                    return str2;
+                }
+            } catch (Throwable unused2) {
+                return null;
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
     public static String a(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -53,37 +74,16 @@ public final class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
-            if (bArr != null) {
-                if (bArr.length > 0) {
-                    try {
-                    } catch (Throwable unused) {
-                        return null;
-                    }
-                }
-                return a(MessageDigest.getInstance("MD5").digest(bArr));
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
+            if (bArr == null) {
                 return null;
             }
-            try {
-                String str2 = new String(str);
+            if (bArr.length > 0) {
                 try {
-                    return a(MessageDigest.getInstance("MD5").digest(str2.getBytes()));
                 } catch (Throwable unused) {
-                    return str2;
+                    return null;
                 }
-            } catch (Throwable unused2) {
-                return null;
             }
+            return a(MessageDigest.getInstance("MD5").digest(bArr));
         }
         return (String) invokeL.objValue;
     }

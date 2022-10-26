@@ -1,40 +1,37 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.retrieve.upload.AcUploadResultObserver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.io.File;
 /* loaded from: classes6.dex */
-public class yi9 implements pe1 {
+public class yi9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public yi9() {
+    public static String a(File file, Object obj) {
+        InterceptResult invokeLL;
+        String b;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, file, obj)) == null) {
+            synchronized (obj) {
+                b = zi9.b(file);
             }
+            return b;
         }
+        return (String) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.pe1
-    public Object get() {
-        InterceptResult invokeV;
+    public static boolean b(String str, File file, boolean z, Object obj) {
+        InterceptResult invokeCommon;
+        boolean e;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new AcUploadResultObserver());
-            return arrayList;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, file, Boolean.valueOf(z), obj})) == null) {
+            synchronized (obj) {
+                e = zi9.e(str, file, z);
+            }
+            return e;
         }
-        return invokeV.objValue;
+        return invokeCommon.booleanValue;
     }
 }

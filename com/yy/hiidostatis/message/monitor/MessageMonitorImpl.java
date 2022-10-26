@@ -19,11 +19,18 @@ public class MessageMonitorImpl implements MessageMonitor {
     public transient /* synthetic */ FieldHolder $fh;
     public MessageConfig config;
     public Object lock;
-    public final ConcurrentHashMap<String, MessageParams> msgParams;
+    public final ConcurrentHashMap msgParams;
     public int processId;
 
+    @Override // com.yy.hiidostatis.message.MessageMonitor
+    public void init() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
+    }
+
     /* loaded from: classes8.dex */
-    public static class MessageParams {
+    public class MessageParams {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String act;
@@ -55,31 +62,46 @@ public class MessageMonitorImpl implements MessageMonitor {
         public String getAct() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.act : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.act;
+            }
+            return (String) invokeV.objValue;
         }
 
         public long getAutoId() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.autoId.get() : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.autoId.get();
+            }
+            return invokeV.longValue;
         }
 
         public String getAutoIdKey() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.autoIdKey : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.autoIdKey;
+            }
+            return (String) invokeV.objValue;
         }
 
         public long incrementAndGetAutoId() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.autoId.incrementAndGet() : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.autoId.incrementAndGet();
+            }
+            return invokeV.longValue;
         }
 
         public int incrementAndGetPackId() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.packId.incrementAndGet() : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.packId.incrementAndGet();
+            }
+            return invokeV.intValue;
         }
     }
 
@@ -100,7 +122,7 @@ public class MessageMonitorImpl implements MessageMonitor {
         }
         this.lock = new Object();
         this.config = messageConfig;
-        this.msgParams = new ConcurrentHashMap<>();
+        this.msgParams = new ConcurrentHashMap();
         this.processId = KVIO.get().decodeInt(PROCESS_ID_KEY, 1);
         KVIO.get().encode(PROCESS_ID_KEY, this.processId + 1);
     }
@@ -109,10 +131,10 @@ public class MessageMonitorImpl implements MessageMonitor {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) {
-            MessageParams messageParams = this.msgParams.get(str);
+            MessageParams messageParams = (MessageParams) this.msgParams.get(str);
             if (messageParams == null) {
                 synchronized (this.lock) {
-                    messageParams = this.msgParams.get(str);
+                    messageParams = (MessageParams) this.msgParams.get(str);
                     if (messageParams == null) {
                         messageParams = new MessageParams(str);
                         this.msgParams.put(str, messageParams);
@@ -134,14 +156,6 @@ public class MessageMonitorImpl implements MessageMonitor {
     }
 
     @Override // com.yy.hiidostatis.message.MessageMonitor
-    public void commit() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            KVIO.get().commit();
-        }
-    }
-
-    @Override // com.yy.hiidostatis.message.MessageMonitor
     public long getAutoId(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -158,20 +172,27 @@ public class MessageMonitorImpl implements MessageMonitor {
     public int getPackId(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? getAct(str).incrementAndGetPackId() : invokeL.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return getAct(str).incrementAndGetPackId();
+        }
+        return invokeL.intValue;
+    }
+
+    @Override // com.yy.hiidostatis.message.MessageMonitor
+    public void commit() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            KVIO.get().commit();
+        }
     }
 
     @Override // com.yy.hiidostatis.message.MessageMonitor
     public int getProcessId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.processId : invokeV.intValue;
-    }
-
-    @Override // com.yy.hiidostatis.message.MessageMonitor
-    public void init() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.processId;
         }
+        return invokeV.intValue;
     }
 }

@@ -6,11 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class TurnCustomizer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long nativeTurnCustomizer;
+
+    public static native void nativeFreeTurnCustomizer(long j);
 
     public TurnCustomizer(long j) {
         Interceptable interceptable = $ic;
@@ -32,12 +34,11 @@ public class TurnCustomizer {
 
     private void checkTurnCustomizerExists() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && this.nativeTurnCustomizer == 0) {
-            throw new IllegalStateException("TurnCustomizer has been disposed.");
+        if ((interceptable != null && interceptable.invokeV(65537, this) != null) || this.nativeTurnCustomizer != 0) {
+            return;
         }
+        throw new IllegalStateException("TurnCustomizer has been disposed.");
     }
-
-    public static native void nativeFreeTurnCustomizer(long j);
 
     public void dispose() {
         Interceptable interceptable = $ic;
@@ -48,7 +49,6 @@ public class TurnCustomizer {
         }
     }
 
-    @CalledByNative
     public long getNativeTurnCustomizer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

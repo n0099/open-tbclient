@@ -1,8 +1,6 @@
 package com.baidu.searchbox.logsystem.basic.eventhandler;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.searchbox.logsystem.logsys.eventscene.EventObject;
 import com.baidu.searchbox.logsystem.logsys.eventscene.handler.ProcessEventSceneHandler;
 import com.baidu.searchbox.logsystem.logsys.eventscene.snapshot.ProcessSnapshotType;
@@ -18,6 +16,12 @@ public class DefaultProcessEventSceneHandler extends ProcessEventSceneHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static void init() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+        }
+    }
+
     public DefaultProcessEventSceneHandler() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -32,15 +36,8 @@ public class DefaultProcessEventSceneHandler extends ProcessEventSceneHandler {
         }
     }
 
-    public static void init() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-        }
-    }
-
     @Override // com.baidu.searchbox.logsystem.logsys.eventscene.handler.ProcessEventSceneHandler, com.baidu.searchbox.logsystem.logsys.eventscene.handler.BaseEventSceneHandler, com.baidu.searchbox.logsystem.logsys.eventscene.handler.EventSceneHandler
-    @Nullable
-    public Set<ProcessSnapshotType> requireGeneralSnapshots(@NonNull Context context, @NonNull EventObject eventObject) {
+    public Set requireGeneralSnapshots(Context context, EventObject eventObject) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, eventObject)) == null) {

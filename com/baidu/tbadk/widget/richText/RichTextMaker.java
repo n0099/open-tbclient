@@ -2,18 +2,14 @@ package com.baidu.tbadk.widget.richText;
 
 import android.text.SpannableString;
 import android.view.View;
-import androidx.annotation.ColorRes;
-import androidx.annotation.DimenRes;
-import androidx.annotation.DrawableRes;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.span.EMRichTextAnyIconSpan;
 import com.baidu.tbadk.core.util.DeviceInfoUtil;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.il5;
-import com.baidu.tieba.xh5;
+import com.baidu.tieba.ci5;
+import com.baidu.tieba.pl5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +19,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 /* loaded from: classes3.dex */
-public abstract class RichTextMaker<T> {
+public abstract class RichTextMaker {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public IconPos a;
@@ -31,9 +27,11 @@ public abstract class RichTextMaker<T> {
     public int c;
     public int d;
 
+    public abstract void c(View view2, int i, Object obj);
+
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
-    public static final class IconPos {
+    public final class IconPos {
         public static final /* synthetic */ IconPos[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final IconPos END;
@@ -86,30 +84,46 @@ public abstract class RichTextMaker<T> {
         public static IconPos valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (IconPos) Enum.valueOf(IconPos.class, str) : (IconPos) invokeL.objValue;
-        }
-
-        public static IconPos[] values() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (IconPos[]) $VALUES.clone() : (IconPos[]) invokeV.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+                return (IconPos) Enum.valueOf(IconPos.class, str);
+            }
+            return (IconPos) invokeL.objValue;
         }
 
         public IconPos setOffset(int i) {
             InterceptResult invokeI;
+            boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-                xh5.a(i >= 0);
-                xh5.c(this == START_OFFSET);
+                boolean z2 = true;
+                if (i >= 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                ci5.a(z);
+                if (this != START_OFFSET) {
+                    z2 = false;
+                }
+                ci5.c(z2);
                 this.offset = i;
                 return this;
             }
             return (IconPos) invokeI.objValue;
         }
+
+        public static IconPos[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+                return (IconPos[]) $VALUES.clone();
+            }
+            return (IconPos[]) invokeV.objValue;
+        }
     }
 
     /* loaded from: classes3.dex */
-    public class a extends il5 {
+    public class a extends pl5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int h;
@@ -140,20 +154,18 @@ public abstract class RichTextMaker<T> {
             this.i = obj;
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: com.baidu.tbadk.widget.richText.RichTextMaker */
-        /* JADX WARN: Multi-variable type inference failed */
-        @Override // com.baidu.tieba.il5, android.text.style.ClickableSpan
+        @Override // com.baidu.tieba.pl5, android.text.style.ClickableSpan
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.j.c(view2, this.h, this.i);
-                view2.setTag(R.id.obfuscated_res_0x7f092047, Boolean.TRUE);
+                view2.setTag(R.id.obfuscated_res_0x7f092046, Boolean.TRUE);
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public static /* synthetic */ class b {
+    public /* synthetic */ class b {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -193,7 +205,7 @@ public abstract class RichTextMaker<T> {
     }
 
     /* loaded from: classes3.dex */
-    public static final class c {
+    public final class c {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int g = 1;
         public transient /* synthetic */ FieldHolder $fh;
@@ -219,7 +231,7 @@ public abstract class RichTextMaker<T> {
             }
         }
 
-        public c(@NonNull SpannableString spannableString, int i, int i2, int i3, int i4, int i5) {
+        public c(SpannableString spannableString, int i, int i2, int i3, int i4, int i5) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -242,8 +254,7 @@ public abstract class RichTextMaker<T> {
             this.f = i5;
         }
 
-        @NonNull
-        public static c g(@NonNull String str, @NonNull IconPos iconPos) {
+        public static c g(String str, IconPos iconPos) {
             InterceptResult invokeLL;
             int i;
             int i2;
@@ -255,34 +266,38 @@ public abstract class RichTextMaker<T> {
                 int length = str.length();
                 int i5 = b.a[iconPos.ordinal()];
                 if (i5 != 1) {
-                    if (i5 == 2) {
-                        SpannableString spannableString2 = new SpannableString(str + "m");
+                    if (i5 != 2) {
+                        if (i5 != 3) {
+                            if (i5 == 4) {
+                                int i6 = iconPos.offset;
+                                if (i6 > length) {
+                                    i6 = length;
+                                }
+                                StringBuilder sb = new StringBuilder();
+                                sb.append(str.substring(0, i6));
+                                sb.append("m");
+                                sb.append(str.substring(i6));
+                                SpannableString spannableString2 = new SpannableString(sb);
+                                int i7 = g;
+                                spannableString = spannableString2;
+                                i4 = i6;
+                                i3 = (i7 + length) - 1;
+                                i = i6 + i7;
+                            } else {
+                                throw new IllegalArgumentException("IconPos 参数异常");
+                            }
+                        } else {
+                            spannableString = new SpannableString(str);
+                            i3 = length - 1;
+                            i4 = 0;
+                            i = 0;
+                        }
+                    } else {
+                        SpannableString spannableString3 = new SpannableString(str + "m");
                         i = g + length;
-                        spannableString = spannableString2;
+                        spannableString = spannableString3;
                         i4 = length + (-1);
                         i3 = i4;
-                    } else if (i5 == 3) {
-                        spannableString = new SpannableString(str);
-                        i3 = length - 1;
-                        i4 = 0;
-                        i = 0;
-                    } else if (i5 == 4) {
-                        int i6 = iconPos.offset;
-                        if (i6 > length) {
-                            i6 = length;
-                        }
-                        StringBuilder sb = new StringBuilder();
-                        sb.append(str.substring(0, i6));
-                        sb.append("m");
-                        sb.append(str.substring(i6));
-                        SpannableString spannableString3 = new SpannableString(sb);
-                        int i7 = g;
-                        spannableString = spannableString3;
-                        i4 = i6;
-                        i3 = (i7 + length) - 1;
-                        i = i6 + i7;
-                    } else {
-                        throw new IllegalArgumentException("IconPos 参数异常");
                     }
                     i2 = 0;
                 } else {
@@ -299,11 +314,13 @@ public abstract class RichTextMaker<T> {
             return (c) invokeLL.objValue;
         }
 
-        @NonNull
         public SpannableString h() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (SpannableString) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a;
+            }
+            return (SpannableString) invokeV.objValue;
         }
     }
 
@@ -323,85 +340,7 @@ public abstract class RichTextMaker<T> {
         this.a = IconPos.NONE;
     }
 
-    @NonNull
-    public c a(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (!str.endsWith(" ")) {
-                str = str + " ";
-            }
-            return c.g(str, this.a);
-        }
-        return (c) invokeL.objValue;
-    }
-
-    @NonNull
-    public SpannableString b(int i, @NonNull String str, @NonNull T t) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, t)) == null) {
-            c a2 = a(str);
-            e(a2);
-            d(a2, i, t);
-            return a2.h();
-        }
-        return (SpannableString) invokeILL.objValue;
-    }
-
-    public abstract void c(@NonNull View view2, int i, @NonNull T t);
-
-    public void d(@NonNull c cVar, int i, @NonNull T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048579, this, cVar, i, t) == null) {
-            a aVar = new a(this, i, t instanceof String ? (String) t : "", i, t);
-            aVar.j(this.c);
-            cVar.a.setSpan(aVar, cVar.d, cVar.e, cVar.f);
-        }
-    }
-
-    public void e(@NonNull c cVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) || this.a == IconPos.NONE) {
-            return;
-        }
-        EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(this.b, this.c, EMRichTextAnyIconSpan.IconType.WEBP);
-        eMRichTextAnyIconSpan.c(this.d);
-        if (DeviceInfoUtil.isXiaoMi()) {
-            eMRichTextAnyIconSpan.a(R.dimen.tbds6);
-        }
-        cVar.a.setSpan(eMRichTextAnyIconSpan, cVar.b, cVar.c, cVar.f);
-    }
-
-    public void f(@ColorRes int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    public void g(@NonNull IconPos iconPos) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, iconPos) == null) {
-            this.a = iconPos;
-        }
-    }
-
-    public void h(@DrawableRes int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    public void i(@DimenRes int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.d = UtilHelper.getDimenPixelSize(i);
-        }
-    }
-
-    public RichTextMaker(@NonNull IconPos iconPos, @DrawableRes int i, @ColorRes int i2, @DimenRes int i3) {
+    public RichTextMaker(IconPos iconPos, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -420,5 +359,84 @@ public abstract class RichTextMaker<T> {
         h(i);
         f(i2);
         i(i3);
+    }
+
+    public c a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (!str.endsWith(" ")) {
+                str = str + " ";
+            }
+            return c.g(str, this.a);
+        }
+        return (c) invokeL.objValue;
+    }
+
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.c = i;
+        }
+    }
+
+    public void g(IconPos iconPos) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, iconPos) == null) {
+            this.a = iconPos;
+        }
+    }
+
+    public void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.b = i;
+        }
+    }
+
+    public void i(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.d = UtilHelper.getDimenPixelSize(i);
+        }
+    }
+
+    public SpannableString b(int i, String str, Object obj) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, obj)) == null) {
+            c a2 = a(str);
+            e(a2);
+            d(a2, i, obj);
+            return a2.h();
+        }
+        return (SpannableString) invokeILL.objValue;
+    }
+
+    public void d(c cVar, int i, Object obj) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048579, this, cVar, i, obj) == null) {
+            if (obj instanceof String) {
+                str = (String) obj;
+            } else {
+                str = "";
+            }
+            a aVar = new a(this, i, str, i, obj);
+            aVar.j(this.c);
+            cVar.a.setSpan(aVar, cVar.d, cVar.e, cVar.f);
+        }
+    }
+
+    public void e(c cVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) && this.a != IconPos.NONE) {
+            EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(this.b, this.c, EMRichTextAnyIconSpan.IconType.WEBP);
+            eMRichTextAnyIconSpan.c(this.d);
+            if (DeviceInfoUtil.isXiaoMi()) {
+                eMRichTextAnyIconSpan.a(R.dimen.tbds6);
+            }
+            cVar.a.setSpan(eMRichTextAnyIconSpan, cVar.b, cVar.c, cVar.f);
+        }
     }
 }

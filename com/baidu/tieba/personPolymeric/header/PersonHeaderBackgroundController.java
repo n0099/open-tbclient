@@ -15,10 +15,10 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dh;
-import com.baidu.tieba.dj;
-import com.baidu.tieba.on;
-import com.baidu.tieba.yg;
+import com.baidu.tieba.ah;
+import com.baidu.tieba.eh;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.pn;
 import com.baidu.tieba.zg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -43,7 +43,7 @@ public class PersonHeaderBackgroundController {
     public View.OnClickListener f;
 
     /* loaded from: classes5.dex */
-    public class a extends yg<on> {
+    public class a extends zg {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonHeaderBackgroundController a;
@@ -66,7 +66,7 @@ public class PersonHeaderBackgroundController {
             this.a = personHeaderBackgroundController;
         }
 
-        @Override // com.baidu.tieba.yg
+        @Override // com.baidu.tieba.zg
         public void onCancelled(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -74,7 +74,7 @@ public class PersonHeaderBackgroundController {
             }
         }
 
-        @Override // com.baidu.tieba.yg
+        @Override // com.baidu.tieba.zg
         public void onProgressUpdate(Object... objArr) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, objArr) == null) {
@@ -83,13 +83,13 @@ public class PersonHeaderBackgroundController {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.yg
-        public void onLoaded(on onVar, String str, int i) {
+        @Override // com.baidu.tieba.zg
+        public void onLoaded(pn pnVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onVar, str, i) == null) {
-                super.onLoaded((a) onVar, str, i);
-                if (onVar != null) {
-                    onVar.h(this.a.b);
+            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pnVar, str, i) == null) {
+                super.onLoaded((a) pnVar, str, i);
+                if (pnVar != null) {
+                    pnVar.h(this.a.b);
                 }
             }
         }
@@ -123,28 +123,30 @@ public class PersonHeaderBackgroundController {
         public void onClick(View view2) {
             int i;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.e) {
-                if (this.a.d == null || !this.a.d.isBaijiahaoUser()) {
-                    TiebaStatic.log(new StatisticItem("c12502").param("obj_locate", "3"));
-                    String userId = this.a.d.getUserId();
-                    String bg_pic = this.a.d.getBg_pic();
-                    try {
-                        i = dh.e((String) this.a.f(bg_pic).get("props_id"), -1);
-                    } catch (URISyntaxException unused) {
-                        i = -1;
-                    }
-                    if (i != -1 && !userId.equals(TbadkCoreApplication.getCurrentAccount())) {
-                        AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
-                        int i2 = 0;
-                        if (currentAccountInfo != null && !StringUtils.isNull(bg_pic) && !StringUtils.isNull(currentAccountInfo.getPersonalBgUrl()) && bg_pic.equalsIgnoreCase(currentAccountInfo.getPersonalBgUrl())) {
-                            i2 = 1;
-                        }
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalBackgroundPreviewActivityConfig(this.a.b.getContext(), i, i2)));
-                        return;
-                    }
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalBackdropGroupActivityConfig(this.a.b.getContext())));
-                }
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || !this.a.e) {
+                return;
             }
+            if (this.a.d != null && this.a.d.isBaijiahaoUser()) {
+                return;
+            }
+            TiebaStatic.log(new StatisticItem("c12502").param("obj_locate", "3"));
+            String userId = this.a.d.getUserId();
+            String bg_pic = this.a.d.getBg_pic();
+            try {
+                i = eh.e((String) this.a.f(bg_pic).get("props_id"), -1);
+            } catch (URISyntaxException unused) {
+                i = -1;
+            }
+            if (i != -1 && !userId.equals(TbadkCoreApplication.getCurrentAccount())) {
+                AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
+                int i2 = 0;
+                if (currentAccountInfo != null && !StringUtils.isNull(bg_pic) && !StringUtils.isNull(currentAccountInfo.getPersonalBgUrl()) && bg_pic.equalsIgnoreCase(currentAccountInfo.getPersonalBgUrl())) {
+                    i2 = 1;
+                }
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalBackgroundPreviewActivityConfig(this.a.b.getContext(), i, i2)));
+                return;
+            }
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalBackdropGroupActivityConfig(this.a.b.getContext())));
         }
     }
 
@@ -172,49 +174,51 @@ public class PersonHeaderBackgroundController {
         view2.setOnClickListener(this.f);
     }
 
+    public final Map f(String str) throws URISyntaxException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return new HashMap(this, str) { // from class: com.baidu.tieba.personPolymeric.header.PersonHeaderBackgroundController.3
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ PersonHeaderBackgroundController this$0;
+                public final /* synthetic */ String val$url;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, str};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$url = str;
+                    for (NameValuePair nameValuePair : URLEncodedUtils.parse(new URI(this.val$url), "UTF-8")) {
+                        put(nameValuePair.getName(), nameValuePair.getValue());
+                    }
+                }
+            };
+        }
+        return (Map) invokeL.objValue;
+    }
+
     public void e(UserData userData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, userData) == null) || userData == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, userData) != null) || userData == null) {
             return;
         }
         this.d = userData;
         String bg_pic = userData.getBg_pic();
-        if (dj.isEmpty(bg_pic)) {
-            return;
+        if (!ej.isEmpty(bg_pic)) {
+            ah.h().k(bg_pic, 10, new a(this), 0, 0, this.a.getUniqueId(), new Object[0]);
         }
-        zg.h().k(bg_pic, 10, new a(this), 0, 0, this.a.getUniqueId(), new Object[0]);
-    }
-
-    public final Map<String, String> f(String str) throws URISyntaxException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? new HashMap<String, String>(this, str) { // from class: com.baidu.tieba.personPolymeric.header.PersonHeaderBackgroundController.3
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ PersonHeaderBackgroundController this$0;
-            public final /* synthetic */ String val$url;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this, str};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-                this.val$url = str;
-                for (NameValuePair nameValuePair : URLEncodedUtils.parse(new URI(this.val$url), "UTF-8")) {
-                    put(nameValuePair.getName(), nameValuePair.getValue());
-                }
-            }
-        } : (Map) invokeL.objValue;
     }
 }

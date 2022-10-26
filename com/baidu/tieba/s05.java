@@ -1,19 +1,18 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class s05 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<t05> a;
+    public t05 a;
+    public t05 b;
 
     public s05() {
         Interceptable interceptable = $ic;
@@ -25,25 +24,46 @@ public class s05 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new ArrayList();
     }
 
-    public void a(JSONObject jSONObject) throws JSONException {
-        JSONArray optJSONArray;
+    public t05 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null || (optJSONArray = jSONObject.optJSONArray("applist")) == null || optJSONArray.length() == 0) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (t05) invokeV.objValue;
+    }
+
+    public t05 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (t05) invokeV.objValue;
+    }
+
+    public void c(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        for (int i = 0; i < optJSONArray.length(); i++) {
-            JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
-            if (jSONObject2 != null) {
-                t05 t05Var = new t05();
-                t05Var.a(jSONObject2);
-                this.a.add(t05Var);
-            }
+        JSONObject optJSONObject = jSONObject.optJSONObject("homepage");
+        if (optJSONObject != null) {
+            t05 t05Var = new t05();
+            this.a = t05Var;
+            t05Var.q = 1;
+            t05Var.e(optJSONObject);
+        }
+        JSONObject optJSONObject2 = jSONObject.optJSONObject("pb");
+        if (optJSONObject2 != null) {
+            t05 t05Var2 = new t05();
+            this.b = t05Var2;
+            t05Var2.q = 2;
+            t05Var2.e(optJSONObject2);
         }
     }
 }

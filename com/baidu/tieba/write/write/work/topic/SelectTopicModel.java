@@ -1,37 +1,61 @@
 package com.baidu.tieba.write.write.work.topic;
 
-import androidx.annotation.NonNull;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.a89;
-import com.baidu.tieba.p77;
-import com.baidu.tieba.pb;
+import com.baidu.tieba.qb;
 import com.baidu.tieba.r9;
+import com.baidu.tieba.s89;
 import com.baidu.tieba.write.write.work.topic.model.GetRecommendTopicReqMessage;
+import com.baidu.tieba.x77;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import tbclient.GetRecommendTopic.TopicList;
 /* loaded from: classes6.dex */
-public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
+public class SelectTopicModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final pb a;
+    public final qb a;
     public b b;
     public boolean c;
-    public List<p77> d;
+    public List d;
 
     /* loaded from: classes6.dex */
-    public class a extends pb {
+    public interface b {
+        void a(List list);
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public class a extends qb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SelectTopicModel a;
@@ -58,25 +82,20 @@ public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
             this.a = selectTopicModel;
         }
 
-        @Override // com.baidu.tieba.pb
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
+        @Override // com.baidu.tieba.qb
+        public void onMessage(ResponsedMessage responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 this.a.c = false;
-                if (responsedMessage != null && (responsedMessage instanceof a89)) {
-                    this.a.D(((a89) responsedMessage).getTopicList());
+                if (responsedMessage != null && (responsedMessage instanceof s89)) {
+                    this.a.D(((s89) responsedMessage).getTopicList());
                 }
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(@NonNull List<p77> list);
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SelectTopicModel(TbPageContext<BaseFragmentActivity> tbPageContext) {
+    public SelectTopicModel(TbPageContext tbPageContext) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -97,6 +116,21 @@ public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
         B();
     }
 
+    public final void D(List list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) && !ListUtils.isEmpty(list)) {
+            this.d = new ArrayList();
+            Iterator it = list.iterator();
+            while (it.hasNext()) {
+                this.d.add(new x77((TopicList) it.next()));
+            }
+            b bVar = this.b;
+            if (bVar != null) {
+                bVar.a(this.d);
+            }
+        }
+    }
+
     public final void B() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -112,45 +146,10 @@ public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
         }
     }
 
-    public final void D(List<TopicList> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || ListUtils.isEmpty(list)) {
-            return;
-        }
-        this.d = new ArrayList();
-        for (TopicList topicList : list) {
-            this.d.add(new p77(topicList));
-        }
-        b bVar = this.b;
-        if (bVar != null) {
-            bVar.a(this.d);
-        }
-    }
-
     public void E(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
             this.b = bVar;
         }
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean loadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

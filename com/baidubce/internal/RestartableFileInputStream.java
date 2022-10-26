@@ -48,10 +48,13 @@ public class RestartableFileInputStream extends RestartableInputStream {
     }
 
     @Override // java.io.InputStream
-    public int read(byte[] bArr, int i, int i2) throws IOException {
-        InterceptResult invokeLII;
+    public int read() throws IOException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i, i2)) == null) ? this.input.read(bArr, i, i2) : invokeLII.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.input.read();
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.baidubce.internal.RestartableInputStream
@@ -68,9 +71,12 @@ public class RestartableFileInputStream extends RestartableInputStream {
     }
 
     @Override // java.io.InputStream
-    public int read() throws IOException {
-        InterceptResult invokeV;
+    public int read(byte[] bArr, int i, int i2) throws IOException {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.input.read() : invokeV.intValue;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i, i2)) == null) {
+            return this.input.read(bArr, i, i2);
+        }
+        return invokeLII.intValue;
     }
 }

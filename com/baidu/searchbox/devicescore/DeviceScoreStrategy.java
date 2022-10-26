@@ -89,8 +89,7 @@ public class DeviceScoreStrategy {
                 if (DEBUG) {
                     Log.d(TAG, "updateStrategy success. low threshold:" + deviceScoreConfig.lowThreshold + " mid threshold:" + deviceScoreConfig.midThreshold);
                 }
-            } else if (!DEBUG || deviceScoreConfig == null) {
-            } else {
+            } else if (DEBUG && deviceScoreConfig != null) {
                 Log.d(TAG, "updateStrategy exception. low threshold:" + deviceScoreConfig.lowThreshold + " mid threshold:" + deviceScoreConfig.midThreshold);
             }
         }
@@ -99,6 +98,12 @@ public class DeviceScoreStrategy {
     public static boolean validThreshold(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(65541, null, f)) == null) ? Float.compare(f, -1.0f) > 0 && Float.compare(f, 1.0f) <= 0 : invokeF.booleanValue;
+        if (interceptable == null || (invokeF = interceptable.invokeF(65541, null, f)) == null) {
+            if (Float.compare(f, -1.0f) > 0 && Float.compare(f, 1.0f) <= 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeF.booleanValue;
     }
 }

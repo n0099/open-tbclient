@@ -108,7 +108,7 @@ public class k extends com.baidu.platform.base.d {
         return (SuggestAddrInfo) invokeL.objValue;
     }
 
-    private List<CityInfo> a(JSONArray jSONArray) {
+    private List a(JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, jSONArray)) == null) {
@@ -131,7 +131,7 @@ public class k extends com.baidu.platform.base.d {
         return (List) invokeL.objValue;
     }
 
-    private List<PoiInfo> a(JSONArray jSONArray, String str) {
+    private List a(JSONArray jSONArray, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, jSONArray, str)) == null) {
@@ -159,7 +159,7 @@ public class k extends com.baidu.platform.base.d {
         return (List) invokeLL.objValue;
     }
 
-    private List<List<CityInfo>> a(JSONObject jSONObject, String str) {
+    private List a(JSONObject jSONObject, String str) {
         InterceptResult invokeLL;
         JSONArray optJSONArray;
         Interceptable interceptable = $ic;
@@ -169,7 +169,7 @@ public class k extends com.baidu.platform.base.d {
                 return null;
             }
             for (int i = 0; i < optJSONArray.length(); i++) {
-                List<CityInfo> a = a((JSONArray) optJSONArray.opt(i));
+                List a = a((JSONArray) optJSONArray.opt(i));
                 if (a != null) {
                     arrayList.add(a);
                 }
@@ -179,7 +179,7 @@ public class k extends com.baidu.platform.base.d {
         return (List) invokeLL.objValue;
     }
 
-    private List<List<PoiInfo>> b(JSONObject jSONObject, String str) {
+    private List b(JSONObject jSONObject, String str) {
         InterceptResult invokeLL;
         JSONArray optJSONArray;
         Interceptable interceptable = $ic;
@@ -189,7 +189,7 @@ public class k extends com.baidu.platform.base.d {
                 return null;
             }
             for (int i = 0; i < optJSONArray.length(); i++) {
-                List<PoiInfo> a = a(((JSONObject) optJSONArray.opt(i)).optJSONArray("way_ponits"), "");
+                List a = a(((JSONObject) optJSONArray.opt(i)).optJSONArray("way_ponits"), "");
                 if (a != null) {
                     arrayList.add(a);
                 }

@@ -2,9 +2,9 @@ package com.baidu.lcp.sdk.connect;
 
 import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.r80;
 import com.baidu.tieba.s80;
 import com.baidu.tieba.t80;
+import com.baidu.tieba.u80;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,9 +16,65 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes2.dex */
-public class QuicMessageHandler extends s80 implements QuicEventCallbackListener {
+public class QuicMessageHandler extends t80 implements QuicEventCallbackListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.t80
+    public InputStream b() throws EOFException, IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
+        }
+        return (InputStream) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.t80
+    public void c(u80 u80Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u80Var) == null) {
+        }
+    }
+
+    public native void closeStream(int i);
+
+    @Override // com.baidu.tieba.t80
+    public boolean d() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.t80
+    public u80 e(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, str, i)) == null) {
+            return null;
+        }
+        return (u80) invokeLI.objValue;
+    }
+
+    public native void enableQuicCache(boolean z, String str);
+
+    @Override // com.baidu.tieba.t80
+    public void f(s80 s80Var) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, s80Var) == null) {
+        }
+    }
+
+    public native void initGlobalRef(QuicEventCallbackListener quicEventCallbackListener);
+
+    public native int sendMsg(byte[] bArr);
+
+    public native int startConnect(String str, String str2);
+
+    public native int stopConnect();
 
     static {
         InterceptResult invokeClinit;
@@ -56,60 +112,4 @@ public class QuicMessageHandler extends s80 implements QuicEventCallbackListener
         }
         initGlobalRef(this);
     }
-
-    @Override // com.baidu.tieba.s80
-    public InputStream b() throws EOFException, IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (InputStream) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.s80
-    public void c(t80 t80Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t80Var) == null) {
-        }
-    }
-
-    public native void closeStream(int i);
-
-    @Override // com.baidu.tieba.s80
-    public boolean d() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.s80
-    public t80 e(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, str, i)) == null) {
-            return null;
-        }
-        return (t80) invokeLI.objValue;
-    }
-
-    public native void enableQuicCache(boolean z, String str);
-
-    @Override // com.baidu.tieba.s80
-    public void f(r80 r80Var) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, r80Var) == null) {
-        }
-    }
-
-    public native void initGlobalRef(QuicEventCallbackListener quicEventCallbackListener);
-
-    public native int sendMsg(byte[] bArr);
-
-    public native int startConnect(String str, String str2);
-
-    public native int stopConnect();
 }

@@ -38,7 +38,10 @@ public class UserBlockInfoHttpResponseMessage extends TbHttpResponsedMessage {
     public DataRes getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (DataRes) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mData;
+        }
+        return (DataRes) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

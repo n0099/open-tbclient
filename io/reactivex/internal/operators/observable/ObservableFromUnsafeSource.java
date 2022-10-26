@@ -8,12 +8,12 @@ import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
 import io.reactivex.Observer;
 /* loaded from: classes8.dex */
-public final class ObservableFromUnsafeSource<T> extends Observable<T> {
+public final class ObservableFromUnsafeSource extends Observable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ObservableSource<T> source;
+    public final ObservableSource source;
 
-    public ObservableFromUnsafeSource(ObservableSource<T> observableSource) {
+    public ObservableFromUnsafeSource(ObservableSource observableSource) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -32,7 +32,7 @@ public final class ObservableFromUnsafeSource<T> extends Observable<T> {
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer<? super T> observer) {
+    public void subscribeActual(Observer observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             this.source.subscribe(observer);

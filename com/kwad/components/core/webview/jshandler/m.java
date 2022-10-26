@@ -1,22 +1,20 @@
 package com.kwad.components.core.webview.jshandler;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.ksad.json.annotation.KsJson;
+import com.kwad.sdk.core.response.model.AdInfo;
 /* loaded from: classes7.dex */
 public final class m implements com.kwad.sdk.core.webview.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final com.kwad.sdk.core.webview.b Lk;
 
-    @KsJson
     /* loaded from: classes7.dex */
-    public static final class a extends com.kwad.sdk.core.response.kwai.a {
+    public final class a extends com.kwad.sdk.core.response.kwai.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String playableExtraData;
@@ -55,7 +53,7 @@ public final class m implements com.kwad.sdk.core.webview.kwai.a {
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
-    public final void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
+    public final void a(String str, com.kwad.sdk.core.webview.kwai.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, cVar) == null) {
             if (this.Lk.wh()) {
@@ -64,7 +62,7 @@ public final class m implements com.kwad.sdk.core.webview.kwai.a {
             }
             a aVar = new a();
             try {
-                aVar.playableExtraData = this.Lk.getAdTemplate().adInfoList.get(0).adStyleInfo.playableExtraData;
+                aVar.playableExtraData = ((AdInfo) this.Lk.getAdTemplate().adInfoList.get(0)).adStyleInfo.playableExtraData;
             } catch (Exception e) {
                 com.kwad.sdk.core.e.b.printStackTraceOnly(e);
             }
@@ -73,7 +71,6 @@ public final class m implements com.kwad.sdk.core.webview.kwai.a {
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
-    @NonNull
     public final String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

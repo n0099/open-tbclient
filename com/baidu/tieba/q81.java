@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 
+import android.app.Application;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.interfa.IPackageGetter;
-import com.baidu.nps.interfa.IPackageGetter_PackageGetter_Provider;
-import com.baidu.pyramid.annotation.Inject;
+import com.baidu.nps.interfa.IHostAppRuntime;
+import com.baidu.nps.interfa.IHostAppRuntime_HostAppRuntimeManager_Provider;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,8 +16,16 @@ public class q81 {
     public static /* synthetic */ Interceptable $ic;
     public static q81 b;
     public transient /* synthetic */ FieldHolder $fh;
-    @Inject
-    public se1<IPackageGetter> a;
+    public te1 a;
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            re1 b2 = re1.b();
+            this.a = b2;
+            b2.a(new IHostAppRuntime_HostAppRuntimeManager_Provider());
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -51,24 +59,21 @@ public class q81 {
         c();
     }
 
-    public static q81 a() {
+    public static q81 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (q81) invokeV.objValue;
-    }
-
-    public IPackageGetter b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.get() : (IPackageGetter) invokeV.objValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            qe1 b2 = qe1.b();
-            this.a = b2;
-            b2.a(new IPackageGetter_PackageGetter_Provider());
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b;
         }
+        return (q81) invokeV.objValue;
+    }
+
+    public Application a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return ((IHostAppRuntime) this.a.get()).getApplication();
+        }
+        return (Application) invokeV.objValue;
     }
 }

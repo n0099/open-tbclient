@@ -8,18 +8,35 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.common.internal.DoNotStrip;
 import com.facebook.imagepipeline.animated.base.AnimatedImageFrame;
-import javax.annotation.concurrent.ThreadSafe;
-@ThreadSafe
 /* loaded from: classes7.dex */
 public class GifFrame implements AnimatedImageFrame {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @DoNotStrip
     public long mNativeContext;
 
-    @DoNotStrip
+    private native void nativeDispose();
+
+    private native void nativeFinalize();
+
+    private native int nativeGetDisposalMode();
+
+    private native int nativeGetDurationMs();
+
+    private native int nativeGetHeight();
+
+    private native int nativeGetTransparentPixelColor();
+
+    private native int nativeGetWidth();
+
+    private native int nativeGetXOffset();
+
+    private native int nativeGetYOffset();
+
+    private native boolean nativeHasTransparency();
+
+    private native void nativeRenderFrame(int i, int i2, Bitmap bitmap);
+
     public GifFrame(long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -37,39 +54,6 @@ public class GifFrame implements AnimatedImageFrame {
         }
         this.mNativeContext = j;
     }
-
-    @DoNotStrip
-    private native void nativeDispose();
-
-    @DoNotStrip
-    private native void nativeFinalize();
-
-    @DoNotStrip
-    private native int nativeGetDisposalMode();
-
-    @DoNotStrip
-    private native int nativeGetDurationMs();
-
-    @DoNotStrip
-    private native int nativeGetHeight();
-
-    @DoNotStrip
-    private native int nativeGetTransparentPixelColor();
-
-    @DoNotStrip
-    private native int nativeGetWidth();
-
-    @DoNotStrip
-    private native int nativeGetXOffset();
-
-    @DoNotStrip
-    private native int nativeGetYOffset();
-
-    @DoNotStrip
-    private native boolean nativeHasTransparency();
-
-    @DoNotStrip
-    private native void nativeRenderFrame(int i, int i2, Bitmap bitmap);
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedImageFrame
     public void dispose() {
@@ -89,54 +73,78 @@ public class GifFrame implements AnimatedImageFrame {
     public int getDisposalMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? nativeGetDisposalMode() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return nativeGetDisposalMode();
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedImageFrame
     public int getDurationMs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? nativeGetDurationMs() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return nativeGetDurationMs();
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedImageFrame
     public int getHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? nativeGetHeight() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return nativeGetHeight();
+        }
+        return invokeV.intValue;
     }
 
     public int getTransparentPixelColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? nativeGetTransparentPixelColor() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return nativeGetTransparentPixelColor();
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedImageFrame
     public int getWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? nativeGetWidth() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return nativeGetWidth();
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedImageFrame
     public int getXOffset() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? nativeGetXOffset() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return nativeGetXOffset();
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedImageFrame
     public int getYOffset() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? nativeGetYOffset() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return nativeGetYOffset();
+        }
+        return invokeV.intValue;
     }
 
     public boolean hasTransparency() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? nativeHasTransparency() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return nativeHasTransparency();
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedImageFrame

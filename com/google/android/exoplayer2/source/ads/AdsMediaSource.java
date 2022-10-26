@@ -4,7 +4,6 @@ import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
 import android.view.ViewGroup;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -33,7 +32,7 @@ public final class AdsMediaSource implements MediaSource {
     public transient /* synthetic */ FieldHolder $fh;
     public long[][] adDurationsUs;
     public MediaSource[][] adGroupMediaSources;
-    public final Map<MediaPeriod, MediaSource> adMediaSourceByMediaPeriod;
+    public final Map adMediaSourceByMediaPeriod;
     public AdPlaybackState adPlaybackState;
     public final ViewGroup adUiViewGroup;
     public final AdsLoader adsLoader;
@@ -42,9 +41,7 @@ public final class AdsMediaSource implements MediaSource {
     public final MediaSource contentMediaSource;
     public Timeline contentTimeline;
     public final DataSource.Factory dataSourceFactory;
-    @Nullable
     public final Handler eventHandler;
-    @Nullable
     public final AdsListener eventListener;
     public MediaSource.Listener listener;
     public final Handler mainHandler;
@@ -87,49 +84,9 @@ public final class AdsMediaSource implements MediaSource {
         }
 
         @Override // com.google.android.exoplayer2.source.ads.AdsLoader.EventListener
-        public void onAdClicked() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.this$0.eventHandler == null || this.this$0.eventListener == null) {
-                return;
-            }
-            this.this$0.eventHandler.post(new Runnable(this) { // from class: com.google.android.exoplayer2.source.ads.AdsMediaSource.ComponentListener.2
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ ComponentListener this$1;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$1 = this;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$1.this$0.released) {
-                        return;
-                    }
-                    this.this$1.this$0.eventListener.onAdClicked();
-                }
-            });
-        }
-
-        @Override // com.google.android.exoplayer2.source.ads.AdsLoader.EventListener
         public void onAdPlaybackState(AdPlaybackState adPlaybackState) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adPlaybackState) == null) || this.this$0.released) {
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adPlaybackState) != null) || this.this$0.released) {
                 return;
             }
             this.this$0.playerHandler.post(new Runnable(this, adPlaybackState) { // from class: com.google.android.exoplayer2.source.ads.AdsMediaSource.ComponentListener.1
@@ -160,7 +117,7 @@ public final class AdsMediaSource implements MediaSource {
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$1.this$0.released) {
+                    if ((interceptable2 != null && interceptable2.invokeV(1048576, this) != null) || this.this$1.this$0.released) {
                         return;
                     }
                     this.this$1.this$0.onAdPlaybackState(this.val$adPlaybackState);
@@ -168,50 +125,10 @@ public final class AdsMediaSource implements MediaSource {
             });
         }
 
-        @Override // com.google.android.exoplayer2.source.ads.AdsLoader.EventListener
-        public void onAdTapped() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.this$0.eventHandler == null || this.this$0.eventListener == null) {
-                return;
-            }
-            this.this$0.eventHandler.post(new Runnable(this) { // from class: com.google.android.exoplayer2.source.ads.AdsMediaSource.ComponentListener.3
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ ComponentListener this$1;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$1 = this;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$1.this$0.released) {
-                        return;
-                    }
-                    this.this$1.this$0.eventListener.onAdTapped();
-                }
-            });
-        }
-
         @Override // com.google.android.exoplayer2.source.ads.AdsLoader.EventListener, com.google.android.exoplayer2.source.ExtractorMediaSource.EventListener
         public void onLoadError(IOException iOException) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, iOException) == null) || this.this$0.released) {
+            if ((interceptable != null && interceptable.invokeL(1048579, this, iOException) != null) || this.this$0.released) {
                 return;
             }
             this.this$0.playerHandler.post(new Runnable(this, iOException) { // from class: com.google.android.exoplayer2.source.ads.AdsMediaSource.ComponentListener.4
@@ -242,12 +159,88 @@ public final class AdsMediaSource implements MediaSource {
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$1.this$0.released) {
+                    if ((interceptable2 != null && interceptable2.invokeV(1048576, this) != null) || this.this$1.this$0.released) {
                         return;
                     }
                     this.this$1.this$0.onLoadError(this.val$error);
                 }
             });
+        }
+
+        @Override // com.google.android.exoplayer2.source.ads.AdsLoader.EventListener
+        public void onAdClicked() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.this$0.eventHandler != null && this.this$0.eventListener != null) {
+                this.this$0.eventHandler.post(new Runnable(this) { // from class: com.google.android.exoplayer2.source.ads.AdsMediaSource.ComponentListener.2
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ ComponentListener this$1;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$1 = this;
+                    }
+
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        Interceptable interceptable2 = $ic;
+                        if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && !this.this$1.this$0.released) {
+                            this.this$1.this$0.eventListener.onAdClicked();
+                        }
+                    }
+                });
+            }
+        }
+
+        @Override // com.google.android.exoplayer2.source.ads.AdsLoader.EventListener
+        public void onAdTapped() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.this$0.eventHandler != null && this.this$0.eventListener != null) {
+                this.this$0.eventHandler.post(new Runnable(this) { // from class: com.google.android.exoplayer2.source.ads.AdsMediaSource.ComponentListener.3
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ ComponentListener this$1;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$1 = this;
+                    }
+
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        Interceptable interceptable2 = $ic;
+                        if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && !this.this$1.this$0.released) {
+                            this.this$1.this$0.eventListener.onAdTapped();
+                        }
+                    }
+                });
+            }
         }
     }
 
@@ -272,19 +265,47 @@ public final class AdsMediaSource implements MediaSource {
         }
     }
 
-    private void maybeUpdateSourceInfo() {
-        AdPlaybackState adPlaybackState;
-        Timeline timeline;
+    public AdsMediaSource(MediaSource mediaSource, DataSource.Factory factory, AdsLoader adsLoader, ViewGroup viewGroup, Handler handler, AdsListener adsListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65549, this) == null) || (adPlaybackState = this.adPlaybackState) == null || (timeline = this.contentTimeline) == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mediaSource, factory, adsLoader, viewGroup, handler, adsListener};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        if (adPlaybackState.adGroupCount != 0) {
-            Timeline timeline2 = this.contentTimeline;
-            AdPlaybackState adPlaybackState2 = this.adPlaybackState;
-            timeline = new SinglePeriodAdTimeline(timeline2, adPlaybackState2.adGroupTimesUs, adPlaybackState2.adCounts, adPlaybackState2.adsLoadedCounts, adPlaybackState2.adsPlayedCounts, this.adDurationsUs, adPlaybackState2.adResumePositionUs, adPlaybackState2.contentDurationUs);
+        this.contentMediaSource = mediaSource;
+        this.dataSourceFactory = factory;
+        this.adsLoader = adsLoader;
+        this.adUiViewGroup = viewGroup;
+        this.eventHandler = handler;
+        this.eventListener = adsListener;
+        this.mainHandler = new Handler(Looper.getMainLooper());
+        this.componentListener = new ComponentListener();
+        this.adMediaSourceByMediaPeriod = new HashMap();
+        this.period = new Timeline.Period();
+        this.adGroupMediaSources = new MediaSource[0];
+        this.adDurationsUs = new long[0];
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void onAdSourceInfoRefreshed(int i, int i2, Timeline timeline) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(65551, this, i, i2, timeline) == null) {
+            boolean z = true;
+            if (timeline.getPeriodCount() != 1) {
+                z = false;
+            }
+            Assertions.checkArgument(z);
+            this.adDurationsUs[i][i2] = timeline.getPeriod(0, this.period).getDurationUs();
+            maybeUpdateSourceInfo();
         }
-        this.listener.onSourceInfoRefreshed(this, timeline, this.contentManifest);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -305,12 +326,58 @@ public final class AdsMediaSource implements MediaSource {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void onAdSourceInfoRefreshed(int i, int i2, Timeline timeline) {
+    public void onLoadError(IOException iOException) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(65551, this, i, i2, timeline) == null) {
-            Assertions.checkArgument(timeline.getPeriodCount() == 1);
-            this.adDurationsUs[i][i2] = timeline.getPeriod(0, this.period).getDurationUs();
-            maybeUpdateSourceInfo();
+        if (interceptable == null || interceptable.invokeL(65553, this, iOException) == null) {
+            Log.w(TAG, "Ad load error", iOException);
+            Handler handler = this.eventHandler;
+            if (handler != null && this.eventListener != null) {
+                handler.post(new Runnable(this, iOException) { // from class: com.google.android.exoplayer2.source.ads.AdsMediaSource.5
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ AdsMediaSource this$0;
+                    public final /* synthetic */ IOException val$error;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, iOException};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                        this.val$error = iOException;
+                    }
+
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        Interceptable interceptable2 = $ic;
+                        if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && !this.this$0.released) {
+                            this.this$0.eventListener.onAdLoadError(this.val$error);
+                        }
+                    }
+                });
+            }
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.source.MediaSource
+    public void releasePeriod(MediaPeriod mediaPeriod) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, mediaPeriod) == null) {
+            if (this.adMediaSourceByMediaPeriod.containsKey(mediaPeriod)) {
+                ((MediaSource) this.adMediaSourceByMediaPeriod.remove(mediaPeriod)).releasePeriod(mediaPeriod);
+            } else {
+                this.contentMediaSource.releasePeriod(mediaPeriod);
+            }
         }
     }
 
@@ -324,27 +391,45 @@ public final class AdsMediaSource implements MediaSource {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void onLoadError(IOException iOException) {
+    private void maybeUpdateSourceInfo() {
+        AdPlaybackState adPlaybackState;
+        Timeline timeline;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65553, this, iOException) == null) {
-            Log.w(TAG, "Ad load error", iOException);
-            Handler handler = this.eventHandler;
-            if (handler == null || this.eventListener == null) {
-                return;
+        if ((interceptable == null || interceptable.invokeV(65549, this) == null) && (adPlaybackState = this.adPlaybackState) != null && (timeline = this.contentTimeline) != null) {
+            if (adPlaybackState.adGroupCount != 0) {
+                Timeline timeline2 = this.contentTimeline;
+                AdPlaybackState adPlaybackState2 = this.adPlaybackState;
+                timeline = new SinglePeriodAdTimeline(timeline2, adPlaybackState2.adGroupTimesUs, adPlaybackState2.adCounts, adPlaybackState2.adsLoadedCounts, adPlaybackState2.adsPlayedCounts, this.adDurationsUs, adPlaybackState2.adResumePositionUs, adPlaybackState2.contentDurationUs);
             }
-            handler.post(new Runnable(this, iOException) { // from class: com.google.android.exoplayer2.source.ads.AdsMediaSource.5
+            this.listener.onSourceInfoRefreshed(this, timeline, this.contentManifest);
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.source.MediaSource
+    public void releaseSource() {
+        MediaSource[][] mediaSourceArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.released = true;
+            this.contentMediaSource.releaseSource();
+            for (MediaSource[] mediaSourceArr2 : this.adGroupMediaSources) {
+                for (MediaSource mediaSource : mediaSourceArr2) {
+                    if (mediaSource != null) {
+                        mediaSource.releaseSource();
+                    }
+                }
+            }
+            this.mainHandler.post(new Runnable(this) { // from class: com.google.android.exoplayer2.source.ads.AdsMediaSource.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ AdsMediaSource this$0;
-                public final /* synthetic */ IOException val$error;
 
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, iOException};
+                        Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -355,16 +440,14 @@ public final class AdsMediaSource implements MediaSource {
                         }
                     }
                     this.this$0 = this;
-                    this.val$error = iOException;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.released) {
-                        return;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        this.this$0.adsLoader.detachPlayer();
                     }
-                    this.this$0.eventListener.onAdLoadError(this.val$error);
                 }
             });
         }
@@ -420,9 +503,10 @@ public final class AdsMediaSource implements MediaSource {
                         @Override // com.google.android.exoplayer2.source.MediaSource.Listener
                         public void onSourceInfoRefreshed(MediaSource mediaSource, Timeline timeline, Object obj) {
                             Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeLLL(1048576, this, mediaSource, timeline, obj) == null) {
-                                this.this$0.onAdSourceInfoRefreshed(this.val$adGroupIndex, this.val$adIndexInAdGroup, timeline);
+                            if (interceptable2 != null && interceptable2.invokeLLL(1048576, this, mediaSource, timeline, obj) != null) {
+                                return;
                             }
+                            this.this$0.onAdSourceInfoRefreshed(this.val$adGroupIndex, this.val$adIndexInAdGroup, timeline);
                         }
                     });
                 }
@@ -486,9 +570,10 @@ public final class AdsMediaSource implements MediaSource {
                 @Override // com.google.android.exoplayer2.source.MediaSource.Listener
                 public void onSourceInfoRefreshed(MediaSource mediaSource, Timeline timeline, Object obj) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLLL(1048576, this, mediaSource, timeline, obj) == null) {
-                        this.this$0.onContentSourceInfoRefreshed(timeline, obj);
+                    if (interceptable2 != null && interceptable2.invokeLLL(1048576, this, mediaSource, timeline, obj) != null) {
+                        return;
                     }
+                    this.this$0.onContentSourceInfoRefreshed(timeline, obj);
                 }
             });
             this.mainHandler.post(new Runnable(this, exoPlayer) { // from class: com.google.android.exoplayer2.source.ads.AdsMediaSource.2
@@ -525,94 +610,5 @@ public final class AdsMediaSource implements MediaSource {
                 }
             });
         }
-    }
-
-    @Override // com.google.android.exoplayer2.source.MediaSource
-    public void releasePeriod(MediaPeriod mediaPeriod) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, mediaPeriod) == null) {
-            if (this.adMediaSourceByMediaPeriod.containsKey(mediaPeriod)) {
-                this.adMediaSourceByMediaPeriod.remove(mediaPeriod).releasePeriod(mediaPeriod);
-            } else {
-                this.contentMediaSource.releasePeriod(mediaPeriod);
-            }
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.source.MediaSource
-    public void releaseSource() {
-        MediaSource[][] mediaSourceArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.released = true;
-            this.contentMediaSource.releaseSource();
-            for (MediaSource[] mediaSourceArr2 : this.adGroupMediaSources) {
-                for (MediaSource mediaSource : mediaSourceArr2) {
-                    if (mediaSource != null) {
-                        mediaSource.releaseSource();
-                    }
-                }
-            }
-            this.mainHandler.post(new Runnable(this) { // from class: com.google.android.exoplayer2.source.ads.AdsMediaSource.4
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ AdsMediaSource this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.this$0.adsLoader.detachPlayer();
-                    }
-                }
-            });
-        }
-    }
-
-    public AdsMediaSource(MediaSource mediaSource, DataSource.Factory factory, AdsLoader adsLoader, ViewGroup viewGroup, @Nullable Handler handler, @Nullable AdsListener adsListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mediaSource, factory, adsLoader, viewGroup, handler, adsListener};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.contentMediaSource = mediaSource;
-        this.dataSourceFactory = factory;
-        this.adsLoader = adsLoader;
-        this.adUiViewGroup = viewGroup;
-        this.eventHandler = handler;
-        this.eventListener = adsListener;
-        this.mainHandler = new Handler(Looper.getMainLooper());
-        this.componentListener = new ComponentListener();
-        this.adMediaSourceByMediaPeriod = new HashMap();
-        this.period = new Timeline.Period();
-        this.adGroupMediaSources = new MediaSource[0];
-        this.adDurationsUs = new long[0];
     }
 }

@@ -16,6 +16,10 @@ public class SpreadBuilder {
         this.list.add(obj);
     }
 
+    public Object[] toArray(Object[] objArr) {
+        return this.list.toArray(objArr);
+    }
+
     public void addSpread(Object obj) {
         if (obj == null) {
             return;
@@ -45,9 +49,5 @@ public class SpreadBuilder {
 
     public int size() {
         return this.list.size();
-    }
-
-    public Object[] toArray(Object[] objArr) {
-        return this.list.toArray(objArr);
     }
 }

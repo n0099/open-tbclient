@@ -6,7 +6,7 @@ import android.content.Intent;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.dj;
+import com.baidu.tieba.ej;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,6 +42,23 @@ public class VideoListActivityConfig extends IntentConfig {
         this.mContext = context;
     }
 
+    public VideoListActivityConfig createNormalCfg(long j, String str) {
+        InterceptResult invokeJL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, str)) == null) {
+            Intent intent = getIntent();
+            intent.putExtra("user_id", j);
+            if (!ej.isEmpty(str)) {
+                intent.putExtra(KEY_SOURCE, str);
+            }
+            if (!(this.mContext instanceof Activity)) {
+                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+            }
+            return this;
+        }
+        return (VideoListActivityConfig) invokeJL.objValue;
+    }
+
     public VideoListActivityConfig createNormalCfg(String str, String str2, String str3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
@@ -52,7 +69,7 @@ public class VideoListActivityConfig extends IntentConfig {
             Intent intent = getIntent();
             intent.putExtra("KEY_FORUM_ID", str);
             intent.putExtra(KEY_THREAD_ID, str2);
-            if (!dj.isEmpty(str3)) {
+            if (!ej.isEmpty(str3)) {
                 intent.putExtra(KEY_SOURCE, str3);
             }
             if (!(this.mContext instanceof Activity)) {
@@ -61,22 +78,5 @@ public class VideoListActivityConfig extends IntentConfig {
             return this;
         }
         return (VideoListActivityConfig) invokeLLL.objValue;
-    }
-
-    public VideoListActivityConfig createNormalCfg(long j, String str) {
-        InterceptResult invokeJL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, str)) == null) {
-            Intent intent = getIntent();
-            intent.putExtra("user_id", j);
-            if (!dj.isEmpty(str)) {
-                intent.putExtra(KEY_SOURCE, str);
-            }
-            if (!(this.mContext instanceof Activity)) {
-                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-            }
-            return this;
-        }
-        return (VideoListActivityConfig) invokeJL.objValue;
     }
 }

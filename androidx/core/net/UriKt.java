@@ -29,17 +29,6 @@ public final class UriKt {
         return (File) invokeL.objValue;
     }
 
-    public static final Uri toUri(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            Uri parse = Uri.parse(str);
-            Intrinsics.checkExpressionValueIsNotNull(parse, "Uri.parse(this)");
-            return parse;
-        }
-        return (Uri) invokeL.objValue;
-    }
-
     public static final Uri toUri(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -47,6 +36,17 @@ public final class UriKt {
             Uri fromFile = Uri.fromFile(file);
             Intrinsics.checkExpressionValueIsNotNull(fromFile, "Uri.fromFile(this)");
             return fromFile;
+        }
+        return (Uri) invokeL.objValue;
+    }
+
+    public static final Uri toUri(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            Uri parse = Uri.parse(str);
+            Intrinsics.checkExpressionValueIsNotNull(parse, "Uri.parse(this)");
+            return parse;
         }
         return (Uri) invokeL.objValue;
     }

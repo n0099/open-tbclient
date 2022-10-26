@@ -2,16 +2,15 @@ package com.airbnb.lottie.model.animatable;
 
 import com.airbnb.lottie.animation.keyframe.BaseKeyframeAnimation;
 import com.airbnb.lottie.animation.keyframe.IntegerKeyframeAnimation;
-import com.airbnb.lottie.value.Keyframe;
 import java.util.List;
 /* loaded from: classes.dex */
-public class AnimatableIntegerValue extends BaseAnimatableValue<Integer, Integer> {
+public class AnimatableIntegerValue extends BaseAnimatableValue {
     public AnimatableIntegerValue() {
-        super(100);
+        super((Object) 100);
     }
 
     @Override // com.airbnb.lottie.model.animatable.AnimatableValue
-    public BaseKeyframeAnimation<Integer, Integer> createAnimation() {
+    public BaseKeyframeAnimation createAnimation() {
         return new IntegerKeyframeAnimation(this.keyframes);
     }
 
@@ -30,7 +29,7 @@ public class AnimatableIntegerValue extends BaseAnimatableValue<Integer, Integer
         return super.toString();
     }
 
-    public AnimatableIntegerValue(List<Keyframe<Integer>> list) {
-        super((List) list);
+    public AnimatableIntegerValue(List list) {
+        super(list);
     }
 }

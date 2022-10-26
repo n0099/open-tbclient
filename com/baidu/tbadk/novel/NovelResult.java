@@ -67,12 +67,18 @@ public final class NovelResult {
     public static NovelResult valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (NovelResult) Enum.valueOf(NovelResult.class, str) : (NovelResult) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (NovelResult) Enum.valueOf(NovelResult.class, str);
+        }
+        return (NovelResult) invokeL.objValue;
     }
 
     public static NovelResult[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (NovelResult[]) $VALUES.clone() : (NovelResult[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (NovelResult[]) $VALUES.clone();
+        }
+        return (NovelResult[]) invokeV.objValue;
     }
 }

@@ -17,24 +17,24 @@ import io.reactivex.plugins.RxJavaPlugins;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableDoOnLifecycle<T> extends AbstractFlowableWithUpstream<T, T> {
+public final class FlowableDoOnLifecycle extends AbstractFlowableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Action onCancel;
     public final LongConsumer onRequest;
-    public final Consumer<? super Subscription> onSubscribe;
+    public final Consumer onSubscribe;
 
     /* loaded from: classes8.dex */
-    public static final class SubscriptionLambdaSubscriber<T> implements FlowableSubscriber<T>, Subscription {
+    public final class SubscriptionLambdaSubscriber implements FlowableSubscriber, Subscription {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber<? super T> actual;
+        public final Subscriber actual;
         public final Action onCancel;
         public final LongConsumer onRequest;
-        public final Consumer<? super Subscription> onSubscribe;
+        public final Consumer onSubscribe;
         public Subscription s;
 
-        public SubscriptionLambdaSubscriber(Subscriber<? super T> subscriber, Consumer<? super Subscription> consumer, LongConsumer longConsumer, Action action) {
+        public SubscriptionLambdaSubscriber(Subscriber subscriber, Consumer consumer, LongConsumer longConsumer, Action action) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -72,10 +72,9 @@ public final class FlowableDoOnLifecycle<T> extends AbstractFlowableWithUpstream
         @Override // org.reactivestreams.Subscriber
         public void onComplete() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.s == SubscriptionHelper.CANCELLED) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.s != SubscriptionHelper.CANCELLED) {
+                this.actual.onComplete();
             }
-            this.actual.onComplete();
         }
 
         @Override // org.reactivestreams.Subscriber
@@ -91,10 +90,24 @@ public final class FlowableDoOnLifecycle<T> extends AbstractFlowableWithUpstream
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
-                this.actual.onNext(t);
+            if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
+                this.actual.onNext(obj);
+            }
+        }
+
+        @Override // org.reactivestreams.Subscription
+        public void request(long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+                try {
+                    this.onRequest.accept(j);
+                } catch (Throwable th) {
+                    Exceptions.throwIfFatal(th);
+                    RxJavaPlugins.onError(th);
+                }
+                this.s.request(j);
             }
         }
 
@@ -116,24 +129,10 @@ public final class FlowableDoOnLifecycle<T> extends AbstractFlowableWithUpstream
                 }
             }
         }
-
-        @Override // org.reactivestreams.Subscription
-        public void request(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-                try {
-                    this.onRequest.accept(j);
-                } catch (Throwable th) {
-                    Exceptions.throwIfFatal(th);
-                    RxJavaPlugins.onError(th);
-                }
-                this.s.request(j);
-            }
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableDoOnLifecycle(Flowable<T> flowable, Consumer<? super Subscription> consumer, LongConsumer longConsumer, Action action) {
+    public FlowableDoOnLifecycle(Flowable flowable, Consumer consumer, LongConsumer longConsumer, Action action) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -156,7 +155,7 @@ public final class FlowableDoOnLifecycle<T> extends AbstractFlowableWithUpstream
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber<? super T> subscriber) {
+    public void subscribeActual(Subscriber subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             this.source.subscribe((FlowableSubscriber) new SubscriptionLambdaSubscriber(subscriber, this.onSubscribe, this.onRequest, this.onCancel));

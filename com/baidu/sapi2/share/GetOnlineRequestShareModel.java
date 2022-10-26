@@ -32,30 +32,6 @@ public class GetOnlineRequestShareModel {
         }
     }
 
-    public static JSONObject parseModel2JsonObject(GetOnlineRequestShareModel getOnlineRequestShareModel) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, getOnlineRequestShareModel)) == null) {
-            if (getOnlineRequestShareModel == null) {
-                return null;
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                String str = "";
-                jSONObject.put("app", getOnlineRequestShareModel.app == null ? "" : getOnlineRequestShareModel.app);
-                jSONObject.put("pkg", getOnlineRequestShareModel.pkg == null ? "" : getOnlineRequestShareModel.pkg);
-                if (getOnlineRequestShareModel.bduss != null) {
-                    str = getOnlineRequestShareModel.bduss;
-                }
-                jSONObject.put("bduss", str);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
     public GetOnlineRequestShareModel(ShareStorage.StorageModel storageModel) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -77,5 +53,41 @@ public class GetOnlineRequestShareModel {
         this.app = storageModel.app;
         this.pkg = storageModel.pkg;
         this.bduss = storageModel.bduss;
+    }
+
+    public static JSONObject parseModel2JsonObject(GetOnlineRequestShareModel getOnlineRequestShareModel) {
+        InterceptResult invokeL;
+        String str;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, getOnlineRequestShareModel)) == null) {
+            if (getOnlineRequestShareModel == null) {
+                return null;
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                String str3 = "";
+                if (getOnlineRequestShareModel.app == null) {
+                    str = "";
+                } else {
+                    str = getOnlineRequestShareModel.app;
+                }
+                jSONObject.put("app", str);
+                if (getOnlineRequestShareModel.pkg == null) {
+                    str2 = "";
+                } else {
+                    str2 = getOnlineRequestShareModel.pkg;
+                }
+                jSONObject.put("pkg", str2);
+                if (getOnlineRequestShareModel.bduss != null) {
+                    str3 = getOnlineRequestShareModel.bduss;
+                }
+                jSONObject.put("bduss", str3);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
     }
 }

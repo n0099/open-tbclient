@@ -6,7 +6,7 @@ import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.qg9;
+import com.baidu.tieba.ih9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -62,6 +62,12 @@ public class Texture2dProgram {
     public int muTexMatrixLoc;
     public int muTexMatrixLoc2;
     public int muTexOffsetLoc;
+
+    public int hexCharToDecimal(char c) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Character.valueOf(c)})) == null) ? (c < 'A' || c > 'F') ? c - '0' : (c + '\n') - 65 : invokeCommon.intValue;
+    }
 
     /* renamed from: com.baidu.ugc.editvideo.faceunity.gles.Texture2dProgram$1  reason: invalid class name */
     /* loaded from: classes6.dex */
@@ -212,13 +218,19 @@ public class Texture2dProgram {
         public static ProgramType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (ProgramType) Enum.valueOf(ProgramType.class, str) : (ProgramType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (ProgramType) Enum.valueOf(ProgramType.class, str);
+            }
+            return (ProgramType) invokeL.objValue;
         }
 
         public static ProgramType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ProgramType[]) $VALUES.clone() : (ProgramType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (ProgramType[]) $VALUES.clone();
+            }
+            return (ProgramType[]) invokeV.objValue;
         }
     }
 
@@ -302,7 +314,7 @@ public class Texture2dProgram {
                 throw new RuntimeException("Unhandled type " + programType);
         }
         if (this.mProgramHandle != 0) {
-            qg9.c("Grafika", "Created program " + this.mProgramHandle + " (" + programType + SmallTailInfo.EMOTION_SUFFIX);
+            ih9.c("Grafika", "Created program " + this.mProgramHandle + " (" + programType + SmallTailInfo.EMOTION_SUFFIX);
             int glGetAttribLocation = GLES20.glGetAttribLocation(this.mProgramHandle, "aPosition");
             this.maPositionLoc = glGetAttribLocation;
             GlUtil.checkLocation(glGetAttribLocation, "aPosition");
@@ -399,6 +411,35 @@ public class Texture2dProgram {
         return invokeV.intValue;
     }
 
+    public void draw(float[] fArr, FloatBuffer floatBuffer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, fArr, floatBuffer) == null) {
+            GlUtil.checkGlError("draw start");
+            GLES20.glUseProgram(this.mProgramHandle);
+            GlUtil.checkGlError("glUseProgram");
+            GLES20.glUniformMatrix4fv(this.muMVPMatrixLoc, 1, false, fArr, 0);
+            GlUtil.checkGlError("glUniformMatrix4fv");
+            GLES20.glEnableVertexAttribArray(this.maPositionLoc);
+            GlUtil.checkGlError("glEnableVertexAttribArray");
+            GLES20.glVertexAttribPointer(this.maPositionLoc, 2, 5126, false, 0, (Buffer) floatBuffer);
+            GlUtil.checkGlError("glVertexAttribPointer");
+            GLES20.glUniform4f(this.muColorLocation, 1.0f, 1.0f, 1.0f, 1.0f);
+            GLES20.glLineWidth(2.0f);
+            GLES20.glDrawArrays(2, 0, 4);
+        }
+    }
+
+    public void setTexSize(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048592, this, i, i2) == null) {
+            float f = 1.0f / i;
+            float f2 = 1.0f / i2;
+            float f3 = -f;
+            float f4 = -f2;
+            this.mTexOffset = new float[]{f3, f4, 0.0f, f4, f, f4, f3, 0.0f, 0.0f, 0.0f, f, 0.0f, f3, f2, 0.0f, f2, f, f2};
+        }
+    }
+
     public void draw(float[] fArr, FloatBuffer floatBuffer, int i, int i2, int i3, int i4, float[] fArr2, FloatBuffer floatBuffer2, int i5, int i6) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{fArr, floatBuffer, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), fArr2, floatBuffer2, Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
@@ -432,162 +473,6 @@ public class Texture2dProgram {
             GLES20.glDisableVertexAttribArray(this.maTextureCoordLoc);
             GLES20.glBindTexture(this.mTextureTarget, 0);
             GLES20.glUseProgram(0);
-        }
-    }
-
-    public ProgramType getProgramType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mProgramType : (ProgramType) invokeV.objValue;
-    }
-
-    public int hexCharToDecimal(char c) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Character.valueOf(c)})) == null) ? (c < 'A' || c > 'F') ? c - '0' : (c + '\n') - 65 : invokeCommon.intValue;
-    }
-
-    public int hexToDecimal(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return 0;
-            }
-            int i = 0;
-            for (int i2 = 0; i2 < str.length(); i2++) {
-                i = (i * 16) + hexCharToDecimal(str.charAt(i2));
-            }
-            return i;
-        }
-        return invokeL.intValue;
-    }
-
-    public void onDrawArraysPre() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            GLES20.glUniform1f(GLES20.glGetUniformLocation(this.mProgramHandle, Key.ALPHA), this.mAlpha);
-            if (this.mProgramType == ProgramType.TEXTURE_2D_BLEND) {
-                GLES20.glUniform1f(GLES20.glGetUniformLocation(this.mProgramHandle, "thresholdSensitivity"), 0.5f);
-                GLES20.glUniform1f(GLES20.glGetUniformLocation(this.mProgramHandle, "smoothing"), 0.2f);
-                GLES20.glUniform3fv(GLES20.glGetUniformLocation(this.mProgramHandle, "colorToReplace"), 1, FloatBuffer.wrap(this.mColorToReplace));
-            }
-            if (this.mProgramType == ProgramType.TEXTURE_2D_HUMAN_SEGMENTATION) {
-                GLES20.glUniform1i(GLES20.glGetUniformLocation(this.mProgramHandle, "maskMode"), this.mMaskMode);
-                GLES20.glUniform4fv(GLES20.glGetUniformLocation(this.mProgramHandle, "maskColor"), 1, FloatBuffer.wrap(this.mMaskColor));
-            }
-            ProgramType programType = this.mProgramType;
-            if (programType == ProgramType.TEXTURE_2D_SLIDE || programType == ProgramType.TEXTURE_2D_X_BLUR) {
-                GLES20.glUniform1f(GLES20.glGetUniformLocation(this.mProgramHandle, "distance"), this.mDistance);
-            }
-            if (this.mProgramType == ProgramType.TEXTURE_2D_FOLLOW) {
-                GLES20.glUniform1f(GLES20.glGetUniformLocation(this.mProgramHandle, "dx"), this.mDx);
-                GLES20.glUniform1f(GLES20.glGetUniformLocation(this.mProgramHandle, "dy"), this.mDy);
-            }
-        }
-    }
-
-    public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            qg9.c("Grafika", "deleting program " + this.mProgramHandle);
-            GLES20.glDeleteProgram(this.mProgramHandle);
-            this.mProgramHandle = -1;
-        }
-    }
-
-    public void setAlpha(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048586, this, f) == null) {
-            this.mAlpha = f;
-        }
-    }
-
-    public void setDistance(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048587, this, f) == null) {
-            this.mDistance = f;
-        }
-    }
-
-    public void setDxDy(float f, float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
-            this.mDx = f;
-            this.mDy = f2;
-        }
-    }
-
-    public void setHumanSegMaskParams(int i, String str, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i), str, Float.valueOf(f)}) == null) {
-            this.mMaskMode = i;
-            if (TextUtils.isEmpty(str) || str.length() < 6) {
-                return;
-            }
-            try {
-                String substring = str.substring(str.length() - 6, str.length() - 4);
-                String substring2 = str.substring(str.length() - 4, str.length() - 2);
-                String substring3 = str.substring(str.length() - 2, str.length());
-                int hexToDecimal = hexToDecimal(substring.toUpperCase());
-                int hexToDecimal2 = hexToDecimal(substring2.toUpperCase());
-                int hexToDecimal3 = hexToDecimal(substring3.toUpperCase());
-                this.mMaskColor[0] = (hexToDecimal * 1.0f) / 255.0f;
-                this.mMaskColor[1] = (hexToDecimal2 * 1.0f) / 255.0f;
-                this.mMaskColor[2] = (hexToDecimal3 * 1.0f) / 255.0f;
-            } catch (Exception unused) {
-                float[] fArr = this.mMaskColor;
-                fArr[0] = 1.0f;
-                fArr[1] = 0.0f;
-                fArr[2] = 0.0f;
-            }
-            this.mMaskColor[3] = f;
-        }
-    }
-
-    public void setKernel(float[] fArr, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(1048590, this, fArr, f) == null) {
-            if (fArr.length == 9) {
-                System.arraycopy(fArr, 0, this.mKernel, 0, 9);
-                this.mColorAdjust = f;
-                return;
-            }
-            throw new IllegalArgumentException("Kernel size is " + fArr.length + " vs. 9");
-        }
-    }
-
-    public void setShaderBgColor(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048591, this, str) == null) || TextUtils.isEmpty(str) || str.length() < 6) {
-            return;
-        }
-        try {
-            String substring = str.substring(str.length() - 6, str.length() - 4);
-            String substring2 = str.substring(str.length() - 4, str.length() - 2);
-            String substring3 = str.substring(str.length() - 2, str.length());
-            int hexToDecimal = hexToDecimal(substring.toUpperCase());
-            int hexToDecimal2 = hexToDecimal(substring2.toUpperCase());
-            int hexToDecimal3 = hexToDecimal(substring3.toUpperCase());
-            this.mColorToReplace[0] = (hexToDecimal * 1.0f) / 255.0f;
-            this.mColorToReplace[1] = (hexToDecimal2 * 1.0f) / 255.0f;
-            this.mColorToReplace[2] = (hexToDecimal3 * 1.0f) / 255.0f;
-        } catch (Exception unused) {
-            float[] fArr = this.mColorToReplace;
-            fArr[0] = 0.0f;
-            fArr[1] = 0.0f;
-            fArr[2] = 0.0f;
-        }
-    }
-
-    public void setTexSize(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048592, this, i, i2) == null) {
-            float f = 1.0f / i;
-            float f2 = 1.0f / i2;
-            float f3 = -f;
-            float f4 = -f2;
-            this.mTexOffset = new float[]{f3, f4, 0.0f, f4, f, f4, f3, 0.0f, 0.0f, 0.0f, f, 0.0f, f3, f2, 0.0f, f2, f, f2};
         }
     }
 
@@ -642,21 +527,143 @@ public class Texture2dProgram {
         }
     }
 
-    public void draw(float[] fArr, FloatBuffer floatBuffer) {
+    public ProgramType getProgramType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, fArr, floatBuffer) == null) {
-            GlUtil.checkGlError("draw start");
-            GLES20.glUseProgram(this.mProgramHandle);
-            GlUtil.checkGlError("glUseProgram");
-            GLES20.glUniformMatrix4fv(this.muMVPMatrixLoc, 1, false, fArr, 0);
-            GlUtil.checkGlError("glUniformMatrix4fv");
-            GLES20.glEnableVertexAttribArray(this.maPositionLoc);
-            GlUtil.checkGlError("glEnableVertexAttribArray");
-            GLES20.glVertexAttribPointer(this.maPositionLoc, 2, 5126, false, 0, (Buffer) floatBuffer);
-            GlUtil.checkGlError("glVertexAttribPointer");
-            GLES20.glUniform4f(this.muColorLocation, 1.0f, 1.0f, 1.0f, 1.0f);
-            GLES20.glLineWidth(2.0f);
-            GLES20.glDrawArrays(2, 0, 4);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mProgramType;
+        }
+        return (ProgramType) invokeV.objValue;
+    }
+
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            ih9.c("Grafika", "deleting program " + this.mProgramHandle);
+            GLES20.glDeleteProgram(this.mProgramHandle);
+            this.mProgramHandle = -1;
+        }
+    }
+
+    public int hexToDecimal(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return 0;
+            }
+            int i = 0;
+            for (int i2 = 0; i2 < str.length(); i2++) {
+                i = (i * 16) + hexCharToDecimal(str.charAt(i2));
+            }
+            return i;
+        }
+        return invokeL.intValue;
+    }
+
+    public void setAlpha(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048586, this, f) == null) {
+            this.mAlpha = f;
+        }
+    }
+
+    public void setDistance(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048587, this, f) == null) {
+            this.mDistance = f;
+        }
+    }
+
+    public void onDrawArraysPre() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            GLES20.glUniform1f(GLES20.glGetUniformLocation(this.mProgramHandle, Key.ALPHA), this.mAlpha);
+            if (this.mProgramType == ProgramType.TEXTURE_2D_BLEND) {
+                GLES20.glUniform1f(GLES20.glGetUniformLocation(this.mProgramHandle, "thresholdSensitivity"), 0.5f);
+                GLES20.glUniform1f(GLES20.glGetUniformLocation(this.mProgramHandle, "smoothing"), 0.2f);
+                GLES20.glUniform3fv(GLES20.glGetUniformLocation(this.mProgramHandle, "colorToReplace"), 1, FloatBuffer.wrap(this.mColorToReplace));
+            }
+            if (this.mProgramType == ProgramType.TEXTURE_2D_HUMAN_SEGMENTATION) {
+                GLES20.glUniform1i(GLES20.glGetUniformLocation(this.mProgramHandle, "maskMode"), this.mMaskMode);
+                GLES20.glUniform4fv(GLES20.glGetUniformLocation(this.mProgramHandle, "maskColor"), 1, FloatBuffer.wrap(this.mMaskColor));
+            }
+            ProgramType programType = this.mProgramType;
+            if (programType == ProgramType.TEXTURE_2D_SLIDE || programType == ProgramType.TEXTURE_2D_X_BLUR) {
+                GLES20.glUniform1f(GLES20.glGetUniformLocation(this.mProgramHandle, "distance"), this.mDistance);
+            }
+            if (this.mProgramType == ProgramType.TEXTURE_2D_FOLLOW) {
+                GLES20.glUniform1f(GLES20.glGetUniformLocation(this.mProgramHandle, "dx"), this.mDx);
+                GLES20.glUniform1f(GLES20.glGetUniformLocation(this.mProgramHandle, "dy"), this.mDy);
+            }
+        }
+    }
+
+    public void setDxDy(float f, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            this.mDx = f;
+            this.mDy = f2;
+        }
+    }
+
+    public void setHumanSegMaskParams(int i, String str, float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i), str, Float.valueOf(f)}) == null) {
+            this.mMaskMode = i;
+            if (!TextUtils.isEmpty(str) && str.length() >= 6) {
+                try {
+                    String substring = str.substring(str.length() - 6, str.length() - 4);
+                    String substring2 = str.substring(str.length() - 4, str.length() - 2);
+                    String substring3 = str.substring(str.length() - 2, str.length());
+                    int hexToDecimal = hexToDecimal(substring.toUpperCase());
+                    int hexToDecimal2 = hexToDecimal(substring2.toUpperCase());
+                    int hexToDecimal3 = hexToDecimal(substring3.toUpperCase());
+                    this.mMaskColor[0] = (hexToDecimal * 1.0f) / 255.0f;
+                    this.mMaskColor[1] = (hexToDecimal2 * 1.0f) / 255.0f;
+                    this.mMaskColor[2] = (hexToDecimal3 * 1.0f) / 255.0f;
+                } catch (Exception unused) {
+                    float[] fArr = this.mMaskColor;
+                    fArr[0] = 1.0f;
+                    fArr[1] = 0.0f;
+                    fArr[2] = 0.0f;
+                }
+                this.mMaskColor[3] = f;
+            }
+        }
+    }
+
+    public void setKernel(float[] fArr, float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLF(1048590, this, fArr, f) == null) {
+            if (fArr.length == 9) {
+                System.arraycopy(fArr, 0, this.mKernel, 0, 9);
+                this.mColorAdjust = f;
+                return;
+            }
+            throw new IllegalArgumentException("Kernel size is " + fArr.length + " vs. 9");
+        }
+    }
+
+    public void setShaderBgColor(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048591, this, str) == null) && !TextUtils.isEmpty(str) && str.length() >= 6) {
+            try {
+                String substring = str.substring(str.length() - 6, str.length() - 4);
+                String substring2 = str.substring(str.length() - 4, str.length() - 2);
+                String substring3 = str.substring(str.length() - 2, str.length());
+                int hexToDecimal = hexToDecimal(substring.toUpperCase());
+                int hexToDecimal2 = hexToDecimal(substring2.toUpperCase());
+                int hexToDecimal3 = hexToDecimal(substring3.toUpperCase());
+                this.mColorToReplace[0] = (hexToDecimal * 1.0f) / 255.0f;
+                this.mColorToReplace[1] = (hexToDecimal2 * 1.0f) / 255.0f;
+                this.mColorToReplace[2] = (hexToDecimal3 * 1.0f) / 255.0f;
+            } catch (Exception unused) {
+                float[] fArr = this.mColorToReplace;
+                fArr[0] = 0.0f;
+                fArr[1] = 0.0f;
+                fArr[2] = 0.0f;
+            }
         }
     }
 }

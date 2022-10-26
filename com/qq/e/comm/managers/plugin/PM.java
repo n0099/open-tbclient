@@ -28,7 +28,7 @@ import java.util.concurrent.Future;
 /* loaded from: classes8.dex */
 public class PM {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<Class<?>, String> p;
+    public static final Map p;
     public transient /* synthetic */ FieldHolder $fh;
     public final ExecutorService a;
     public final Context b;
@@ -42,53 +42,9 @@ public class PM {
     public final e j;
     public POFactory k;
     public int l;
-    public Future<Boolean> m;
+    public Future m;
     public final f n;
     public f o;
-
-    /* loaded from: classes8.dex */
-    public class a implements Callable<Boolean> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ PM a;
-
-        public a(PM pm) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pm};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = pm;
-        }
-
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        /* JADX WARN: Type inference failed for: r1v0, types: [java.lang.Boolean, java.lang.Object] */
-        @Override // java.util.concurrent.Callable
-        public Boolean call() throws Exception {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                long currentTimeMillis = System.currentTimeMillis();
-                PM pm = this.a;
-                pm.i = PM.a(pm);
-                if (PM.b(this.a)) {
-                    this.a.c();
-                }
-                this.a.l = (int) (System.currentTimeMillis() - currentTimeMillis);
-                return Boolean.TRUE;
-            }
-            return invokeV.objValue;
-        }
-    }
 
     /* loaded from: classes8.dex */
     public class b implements f {
@@ -116,7 +72,7 @@ public class PM {
     }
 
     /* loaded from: classes8.dex */
-    public static class c extends HashMap<Class<?>, String> {
+    public final class c extends HashMap {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -187,36 +143,6 @@ public class PM {
         eVar.onLoadFail();
     }
 
-    public static boolean a(PM pm) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, pm)) == null) {
-            if (pm != null) {
-                try {
-                    File b2 = h.b(pm.b);
-                    if (!b2.exists()) {
-                        b2.createNewFile();
-                        StringUtil.writeTo("lock", b2);
-                    }
-                    if (b2.exists()) {
-                        RandomAccessFile randomAccessFile = new RandomAccessFile(b2, "rw");
-                        pm.g = randomAccessFile;
-                        FileLock tryLock = randomAccessFile.getChannel().tryLock();
-                        pm.h = tryLock;
-                        if (tryLock != null) {
-                            pm.g.writeByte(37);
-                            return true;
-                        }
-                    }
-                } catch (Throwable unused) {
-                }
-                return false;
-            }
-            throw null;
-        }
-        return invokeL.booleanValue;
-    }
-
     private boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -236,89 +162,6 @@ public class PM {
             return false;
         }
         return invokeV.booleanValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:10:0x002b, code lost:
-        if (r5.b() != false) goto L16;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static boolean b(PM pm) {
-        InterceptResult invokeL;
-        StringBuilder sb;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, pm)) == null) {
-            if (pm != null) {
-                boolean z = false;
-                try {
-                    GDTLogger.d("TimeStap_BEFORE_PLUGIN_INIT:" + System.currentTimeMillis());
-                    if (!pm.d()) {
-                    }
-                    z = true;
-                    sb = new StringBuilder();
-                } catch (Throwable th) {
-                    try {
-                        GDTLogger.e("插件加载出现异常", th);
-                        com.qq.e.comm.managers.plugin.a.a(th, th.getMessage());
-                        sb = new StringBuilder();
-                    } catch (Throwable th2) {
-                        GDTLogger.d("TimeStap_AFTER_PLUGIN_INIT:" + System.currentTimeMillis());
-                        throw th2;
-                    }
-                }
-                sb.append("TimeStap_AFTER_PLUGIN_INIT:");
-                sb.append(System.currentTimeMillis());
-                GDTLogger.d(sb.toString());
-                return z;
-            }
-            throw null;
-        }
-        return invokeL.booleanValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65544, this) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("PluginFile:\t");
-            File file = this.d;
-            sb.append(file == null ? com.baidu.android.common.others.lang.StringUtil.NULL_STRING : file.getAbsolutePath());
-            GDTLogger.d(sb.toString());
-            if (this.c == null || this.d == null) {
-                this.f = null;
-                return;
-            }
-            try {
-                this.f = new DexClassLoader(this.d.getAbsolutePath(), h.a(this.b).getAbsolutePath(), null, getClass().getClassLoader());
-                e eVar = this.j;
-                if (eVar != null) {
-                    eVar.onLoadSuccess();
-                }
-            } catch (Throwable th) {
-                GDTLogger.e("插件ClassLoader构造发生异常", th);
-                a();
-                com.qq.e.comm.managers.plugin.a.a(th, th.getMessage());
-            }
-        }
-    }
-
-    public static void d(PM pm) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, null, pm) == null) {
-            if (pm == null) {
-                throw null;
-            }
-            try {
-                if (pm.f == null && pm.d()) {
-                    pm.c();
-                }
-            } catch (Exception e) {
-                GDTLogger.e("插件更新失败: ", e);
-                pm.a();
-            }
-        }
     }
 
     private boolean d() {
@@ -355,7 +198,7 @@ public class PM {
     }
 
     private void f() {
-        Future<Boolean> future;
+        Future future;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(65550, this) == null) || (future = this.m) == null) {
             return;
@@ -364,36 +207,6 @@ public class PM {
             future.get();
         } catch (InterruptedException | ExecutionException unused) {
         }
-    }
-
-    public <T> T getFactory(Class<T> cls) throws d {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
-            f();
-            GDTLogger.d("GetFactoryInstaceforInterface:" + cls);
-            ClassLoader classLoader = Sig.ASSET_PLUGIN_SIG == null ? PM.class.getClassLoader() : this.f;
-            StringBuilder sb = new StringBuilder();
-            sb.append("PluginClassLoader is parent");
-            sb.append(PM.class.getClassLoader() == classLoader);
-            GDTLogger.d(sb.toString());
-            if (classLoader == null) {
-                throw new d("Fail to init GDTADPLugin,PluginClassLoader == null;while loading factory impl for:" + cls);
-            }
-            try {
-                String str = p.get(cls);
-                if (StringUtil.isEmpty(str)) {
-                    throw new d("factory  implemention name is not specified for interface:" + cls.getName());
-                }
-                Class<?> loadClass = classLoader.loadClass(str);
-                T cast = cls.cast(loadClass.getDeclaredMethod("getInstance", new Class[0]).invoke(loadClass, new Object[0]));
-                GDTLogger.d("ServiceDelegateFactory =" + cast);
-                return cast;
-            } catch (Throwable th) {
-                throw new d("Fail to getfactory implement instance for interface:" + cls.getName(), th);
-            }
-        }
-        return (T) invokeL.objValue;
     }
 
     public int getInitCostTime() {
@@ -441,5 +254,212 @@ public class PM {
             cVar.a(this.o);
             cVar.a(str, str2);
         }
+    }
+
+    /* loaded from: classes8.dex */
+    public class a implements Callable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ PM a;
+
+        public a(PM pm) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pm};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = pm;
+        }
+
+        @Override // java.util.concurrent.Callable
+        public Object call() throws Exception {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                long currentTimeMillis = System.currentTimeMillis();
+                PM pm = this.a;
+                pm.i = PM.a(pm);
+                if (PM.b(this.a)) {
+                    this.a.c();
+                }
+                this.a.l = (int) (System.currentTimeMillis() - currentTimeMillis);
+                return Boolean.TRUE;
+            }
+            return invokeV.objValue;
+        }
+    }
+
+    public static boolean a(PM pm) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, pm)) == null) {
+            if (pm != null) {
+                try {
+                    File b2 = h.b(pm.b);
+                    if (!b2.exists()) {
+                        b2.createNewFile();
+                        StringUtil.writeTo("lock", b2);
+                    }
+                    if (b2.exists()) {
+                        RandomAccessFile randomAccessFile = new RandomAccessFile(b2, "rw");
+                        pm.g = randomAccessFile;
+                        FileLock tryLock = randomAccessFile.getChannel().tryLock();
+                        pm.h = tryLock;
+                        if (tryLock != null) {
+                            pm.g.writeByte(37);
+                            return true;
+                        }
+                    }
+                } catch (Throwable unused) {
+                }
+                return false;
+            }
+            throw null;
+        }
+        return invokeL.booleanValue;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:10:0x002b, code lost:
+        if (r5.b() != false) goto L16;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static boolean b(PM pm) {
+        InterceptResult invokeL;
+        StringBuilder sb;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, pm)) == null) {
+            if (pm != null) {
+                boolean z = false;
+                try {
+                    GDTLogger.d("TimeStap_BEFORE_PLUGIN_INIT:" + System.currentTimeMillis());
+                    if (!pm.d()) {
+                    }
+                    z = true;
+                    sb = new StringBuilder();
+                } catch (Throwable th) {
+                    try {
+                        GDTLogger.e("插件加载出现异常", th);
+                        com.qq.e.comm.managers.plugin.a.a(th, th.getMessage());
+                        sb = new StringBuilder();
+                    } catch (Throwable th2) {
+                        GDTLogger.d("TimeStap_AFTER_PLUGIN_INIT:" + System.currentTimeMillis());
+                        throw th2;
+                    }
+                }
+                sb.append("TimeStap_AFTER_PLUGIN_INIT:");
+                sb.append(System.currentTimeMillis());
+                GDTLogger.d(sb.toString());
+                return z;
+            }
+            throw null;
+        }
+        return invokeL.booleanValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void c() {
+        String absolutePath;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65544, this) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("PluginFile:\t");
+            File file = this.d;
+            if (file == null) {
+                absolutePath = com.baidu.android.common.others.lang.StringUtil.NULL_STRING;
+            } else {
+                absolutePath = file.getAbsolutePath();
+            }
+            sb.append(absolutePath);
+            GDTLogger.d(sb.toString());
+            if (this.c != null && this.d != null) {
+                try {
+                    this.f = new DexClassLoader(this.d.getAbsolutePath(), h.a(this.b).getAbsolutePath(), null, getClass().getClassLoader());
+                    e eVar = this.j;
+                    if (eVar != null) {
+                        eVar.onLoadSuccess();
+                        return;
+                    }
+                    return;
+                } catch (Throwable th) {
+                    GDTLogger.e("插件ClassLoader构造发生异常", th);
+                    a();
+                    com.qq.e.comm.managers.plugin.a.a(th, th.getMessage());
+                    return;
+                }
+            }
+            this.f = null;
+        }
+    }
+
+    public static void d(PM pm) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65546, null, pm) == null) {
+            if (pm != null) {
+                try {
+                    if (pm.f == null && pm.d()) {
+                        pm.c();
+                        return;
+                    }
+                    return;
+                } catch (Exception e) {
+                    GDTLogger.e("插件更新失败: ", e);
+                    pm.a();
+                    return;
+                }
+            }
+            throw null;
+        }
+    }
+
+    public Object getFactory(Class cls) throws d {
+        InterceptResult invokeL;
+        ClassLoader classLoader;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
+            f();
+            GDTLogger.d("GetFactoryInstaceforInterface:" + cls);
+            if (Sig.ASSET_PLUGIN_SIG == null) {
+                classLoader = PM.class.getClassLoader();
+            } else {
+                classLoader = this.f;
+            }
+            StringBuilder sb = new StringBuilder();
+            sb.append("PluginClassLoader is parent");
+            if (PM.class.getClassLoader() == classLoader) {
+                z = true;
+            } else {
+                z = false;
+            }
+            sb.append(z);
+            GDTLogger.d(sb.toString());
+            if (classLoader != null) {
+                try {
+                    String str = (String) p.get(cls);
+                    if (!StringUtil.isEmpty(str)) {
+                        Class<?> loadClass = classLoader.loadClass(str);
+                        Object cast = cls.cast(loadClass.getDeclaredMethod("getInstance", new Class[0]).invoke(loadClass, new Object[0]));
+                        GDTLogger.d("ServiceDelegateFactory =" + cast);
+                        return cast;
+                    }
+                    throw new d("factory  implemention name is not specified for interface:" + cls.getName());
+                } catch (Throwable th) {
+                    throw new d("Fail to getfactory implement instance for interface:" + cls.getName(), th);
+                }
+            }
+            throw new d("Fail to init GDTADPLugin,PluginClassLoader == null;while loading factory impl for:" + cls);
+        }
+        return invokeL.objValue;
     }
 }

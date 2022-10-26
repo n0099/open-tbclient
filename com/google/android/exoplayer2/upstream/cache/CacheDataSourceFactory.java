@@ -63,21 +63,6 @@ public final class CacheDataSourceFactory implements DataSource.Factory {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.android.exoplayer2.upstream.DataSource.Factory
-    public CacheDataSource createDataSource() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Cache cache = this.cache;
-            DataSource createDataSource = this.upstreamFactory.createDataSource();
-            DataSource createDataSource2 = this.cacheReadDataSourceFactory.createDataSource();
-            DataSink.Factory factory = this.cacheWriteDataSinkFactory;
-            return new CacheDataSource(cache, createDataSource, createDataSource2, factory != null ? factory.createDataSink() : null, this.flags, this.eventListener);
-        }
-        return (CacheDataSource) invokeV.objValue;
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public CacheDataSourceFactory(Cache cache, DataSource.Factory factory, int i, long j) {
         this(cache, factory, new FileDataSourceFactory(), new CacheDataSinkFactory(cache, j), i, null);
@@ -120,5 +105,26 @@ public final class CacheDataSourceFactory implements DataSource.Factory {
         this.cacheWriteDataSinkFactory = factory3;
         this.flags = i;
         this.eventListener = eventListener;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.google.android.exoplayer2.upstream.DataSource.Factory
+    public CacheDataSource createDataSource() {
+        InterceptResult invokeV;
+        DataSink dataSink;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            Cache cache = this.cache;
+            DataSource createDataSource = this.upstreamFactory.createDataSource();
+            DataSource createDataSource2 = this.cacheReadDataSourceFactory.createDataSource();
+            DataSink.Factory factory = this.cacheWriteDataSinkFactory;
+            if (factory != null) {
+                dataSink = factory.createDataSink();
+            } else {
+                dataSink = null;
+            }
+            return new CacheDataSource(cache, createDataSource, createDataSource2, dataSink, this.flags, this.eventListener);
+        }
+        return (CacheDataSource) invokeV.objValue;
     }
 }

@@ -1,27 +1,24 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Method;
 /* loaded from: classes6.dex */
-public class yn3 {
+public class yn3 implements xn3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Method a;
-    public Object b;
+    public zn3 a;
+    public boolean b;
 
-    public yn3(Class<?> cls) {
+    public yn3(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cls};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,58 +28,41 @@ public class yn3 {
                 return;
             }
         }
-        if (cls == null) {
-            return;
-        }
-        try {
-            this.b = p74.m(cls);
-            Method i3 = p74.i(cls, "perfEvent", Integer.TYPE, String.class, int[].class);
-            this.a = i3;
-            if (i3 != null) {
-                i3.setAccessible(true);
-            }
-        } catch (Throwable unused) {
+        this.b = false;
+        c(context);
+    }
+
+    @Override // com.baidu.tieba.xn3
+    public void a() {
+        zn3 zn3Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b && (zn3Var = this.a) != null && zn3Var.b()) {
+            this.b = false;
+            this.a.c(6, "", new int[0]);
+            this.a.c(3, "", new int[0]);
+            this.a.c(12, "", new int[0]);
+            this.a.c(9, "", new int[0]);
         }
     }
 
-    public static yn3 a(@NonNull Context context) {
-        Class<?> cls;
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.xn3
+    public void b(int i) {
+        zn3 zn3Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            try {
-                cls = p74.b("com.hisi.perfhub.PerfHub", true);
-            } catch (Throwable unused) {
-                cls = null;
-            }
-            return new yn3(cls);
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && !this.b && (zn3Var = this.a) != null && zn3Var.b() && this.a.c(12, "", new int[0]) == 0) {
+            this.b = true;
+            this.a.c(5, "", new int[0]);
+            this.a.c(2, "", new int[0]);
+            this.a.c(11, "", new int[0]);
+            this.a.c(8, "", new int[0]);
+            this.a.c(39, "", new int[0]);
         }
-        return (yn3) invokeL.objValue;
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    public final void c(Context context) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (this.b == null || this.a == null) ? false : true : invokeV.booleanValue;
-    }
-
-    public int c(int i, String str, int... iArr) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, iArr)) == null) {
-            if (b()) {
-                try {
-                    Object invoke = this.a.invoke(this.b, Integer.valueOf(i), str, iArr);
-                    if (invoke == null) {
-                        return -1;
-                    }
-                    return ((Integer) invoke).intValue();
-                } catch (Throwable unused) {
-                    return -1;
-                }
-            }
-            return -1;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && this.a == null) {
+            this.a = zn3.a(context);
         }
-        return invokeILL.intValue;
     }
 }

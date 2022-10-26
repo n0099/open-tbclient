@@ -31,7 +31,6 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
-import androidx.annotation.Nullable;
 import androidx.appcompat.R;
 import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.core.view.InputDeviceCompat;
@@ -266,7 +265,13 @@ public class AlertController {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeLLL(1048576, this, view2, context, cursor) == null) {
                                     ((CheckedTextView) view2.findViewById(16908308)).setText(cursor.getString(this.mLabelIndex));
-                                    this.val$listView.setItemChecked(cursor.getPosition(), cursor.getInt(this.mIsCheckedIndex) == 1);
+                                    RecycleListView recycleListView2 = this.val$listView;
+                                    int position = cursor.getPosition();
+                                    boolean z = true;
+                                    if (cursor.getInt(this.mIsCheckedIndex) != 1) {
+                                        z = false;
+                                    }
+                                    recycleListView2.setItemChecked(position, z);
                                 }
                             }
 
@@ -274,7 +279,10 @@ public class AlertController {
                             public View newView(Context context, Cursor cursor, ViewGroup viewGroup) {
                                 InterceptResult invokeLLL;
                                 Interceptable interceptable2 = $ic;
-                                return (interceptable2 == null || (invokeLLL = interceptable2.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, cursor, viewGroup)) == null) ? this.this$0.mInflater.inflate(this.val$dialog.mMultiChoiceItemLayout, viewGroup, false) : (View) invokeLLL.objValue;
+                                if (interceptable2 == null || (invokeLLL = interceptable2.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, cursor, viewGroup)) == null) {
+                                    return this.this$0.mInflater.inflate(this.val$dialog.mMultiChoiceItemLayout, viewGroup, false);
+                                }
+                                return (View) invokeLLL.objValue;
                             }
                         };
                     }
@@ -331,10 +339,9 @@ public class AlertController {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i3), Long.valueOf(j)}) == null) {
                                 this.this$0.mOnClickListener.onClick(this.val$dialog.mDialog, i3);
-                                if (this.this$0.mIsSingleChoice) {
-                                    return;
+                                if (!this.this$0.mIsSingleChoice) {
+                                    this.val$dialog.mDialog.dismiss();
                                 }
-                                this.val$dialog.mDialog.dismiss();
                             }
                         }
                     });
@@ -480,12 +487,14 @@ public class AlertController {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 int i = message.what;
-                if (i == -3 || i == -2 || i == -1) {
-                    ((DialogInterface.OnClickListener) message.obj).onClick(this.mDialog.get(), message.what);
-                } else if (i != 1) {
-                } else {
-                    ((DialogInterface) message.obj).dismiss();
+                if (i != -3 && i != -2 && i != -1) {
+                    if (i == 1) {
+                        ((DialogInterface) message.obj).dismiss();
+                        return;
+                    }
+                    return;
                 }
+                ((DialogInterface.OnClickListener) message.obj).onClick(this.mDialog.get(), message.what);
             }
         }
     }
@@ -494,6 +503,23 @@ public class AlertController {
     public static class CheckedItemAdapter extends ArrayAdapter<CharSequence> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // android.widget.ArrayAdapter, android.widget.Adapter
+        public long getItemId(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? i : invokeI.longValue;
+        }
+
+        @Override // android.widget.BaseAdapter, android.widget.Adapter
+        public boolean hasStableIds() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public CheckedItemAdapter(Context context, int i, int i2, CharSequence[] charSequenceArr) {
@@ -514,23 +540,6 @@ public class AlertController {
                     return;
                 }
             }
-        }
-
-        @Override // android.widget.ArrayAdapter, android.widget.Adapter
-        public long getItemId(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? i : invokeI.longValue;
-        }
-
-        @Override // android.widget.BaseAdapter, android.widget.Adapter
-        public boolean hasStableIds() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return true;
-            }
-            return invokeV.booleanValue;
         }
     }
 
@@ -562,16 +571,6 @@ public class AlertController {
             }
         }
 
-        public void setHasDecor(boolean z, boolean z2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-                if (z2 && z) {
-                    return;
-                }
-                setPadding(getPaddingLeft(), z ? getPaddingTop() : this.mPaddingTopNoTitle, getPaddingRight(), z2 ? getPaddingBottom() : this.mPaddingBottomNoButtons);
-            }
-        }
-
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public RecycleListView(Context context, AttributeSet attributeSet) {
             super(context, attributeSet);
@@ -594,6 +593,29 @@ public class AlertController {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.RecycleListView);
             this.mPaddingBottomNoButtons = obtainStyledAttributes.getDimensionPixelOffset(0, -1);
             this.mPaddingTopNoTitle = obtainStyledAttributes.getDimensionPixelOffset(1, -1);
+        }
+
+        public void setHasDecor(boolean z, boolean z2) {
+            int i;
+            int i2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+                if (!z2 || !z) {
+                    int paddingLeft = getPaddingLeft();
+                    if (z) {
+                        i = getPaddingTop();
+                    } else {
+                        i = this.mPaddingTopNoTitle;
+                    }
+                    int paddingRight = getPaddingRight();
+                    if (z2) {
+                        i2 = getPaddingBottom();
+                    } else {
+                        i2 = this.mPaddingBottomNoButtons;
+                    }
+                    setPadding(paddingLeft, i, paddingRight, i2);
+                }
+            }
         }
     }
 
@@ -641,26 +663,30 @@ public class AlertController {
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                Message obtain;
                 Message message;
                 Message message2;
                 Message message3;
+                Message message4;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
                     AlertController alertController = this.this$0;
-                    if (view2 == alertController.mButtonPositive && (message3 = alertController.mButtonPositiveMessage) != null) {
-                        obtain = Message.obtain(message3);
+                    if (view2 == alertController.mButtonPositive && (message4 = alertController.mButtonPositiveMessage) != null) {
+                        message = Message.obtain(message4);
                     } else {
                         AlertController alertController2 = this.this$0;
-                        if (view2 == alertController2.mButtonNegative && (message2 = alertController2.mButtonNegativeMessage) != null) {
-                            obtain = Message.obtain(message2);
+                        if (view2 == alertController2.mButtonNegative && (message3 = alertController2.mButtonNegativeMessage) != null) {
+                            message = Message.obtain(message3);
                         } else {
                             AlertController alertController3 = this.this$0;
-                            obtain = (view2 != alertController3.mButtonNeutral || (message = alertController3.mButtonNeutralMessage) == null) ? null : Message.obtain(message);
+                            if (view2 == alertController3.mButtonNeutral && (message2 = alertController3.mButtonNeutralMessage) != null) {
+                                message = Message.obtain(message2);
+                            } else {
+                                message = null;
+                            }
                         }
                     }
-                    if (obtain != null) {
-                        obtain.sendToTarget();
+                    if (message != null) {
+                        message.sendToTarget();
                     }
                     AlertController alertController4 = this.this$0;
                     alertController4.mHandler.obtainMessage(1, alertController4.mDialog).sendToTarget();
@@ -691,16 +717,16 @@ public class AlertController {
             if (view2.onCheckIsTextEditor()) {
                 return true;
             }
-            if (view2 instanceof ViewGroup) {
-                ViewGroup viewGroup = (ViewGroup) view2;
-                int childCount = viewGroup.getChildCount();
-                while (childCount > 0) {
-                    childCount--;
-                    if (canTextInput(viewGroup.getChildAt(childCount))) {
-                        return true;
-                    }
-                }
+            if (!(view2 instanceof ViewGroup)) {
                 return false;
+            }
+            ViewGroup viewGroup = (ViewGroup) view2;
+            int childCount = viewGroup.getChildCount();
+            while (childCount > 0) {
+                childCount--;
+                if (canTextInput(viewGroup.getChildAt(childCount))) {
+                    return true;
+                }
             }
             return false;
         }
@@ -717,484 +743,16 @@ public class AlertController {
         }
     }
 
-    public static void manageScrollIndicators(View view2, View view3, View view4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, view2, view3, view4) == null) {
-            if (view3 != null) {
-                view3.setVisibility(view2.canScrollVertically(-1) ? 0 : 4);
-            }
-            if (view4 != null) {
-                view4.setVisibility(view2.canScrollVertically(1) ? 0 : 4);
-            }
-        }
-    }
-
-    @Nullable
-    private ViewGroup resolvePanel(@Nullable View view2, @Nullable View view3) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, view2, view3)) == null) {
-            if (view2 == null) {
-                if (view3 instanceof ViewStub) {
-                    view3 = ((ViewStub) view3).inflate();
-                }
-                return (ViewGroup) view3;
-            }
-            if (view3 != null) {
-                ViewParent parent = view3.getParent();
-                if (parent instanceof ViewGroup) {
-                    ((ViewGroup) parent).removeView(view3);
-                }
-            }
-            if (view2 instanceof ViewStub) {
-                view2 = ((ViewStub) view2).inflate();
-            }
-            return (ViewGroup) view2;
-        }
-        return (ViewGroup) invokeLL.objValue;
-    }
-
-    private int selectContentView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
-            int i = this.mButtonPanelSideLayout;
-            if (i == 0) {
-                return this.mAlertDialogLayout;
-            }
-            return this.mButtonPanelLayoutHint == 1 ? i : this.mAlertDialogLayout;
-        }
-        return invokeV.intValue;
-    }
-
-    private void setScrollIndicators(ViewGroup viewGroup, View view2, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(65542, this, viewGroup, view2, i, i2) == null) {
-            View findViewById = this.mWindow.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091dcc);
-            View findViewById2 = this.mWindow.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091dcb);
-            if (Build.VERSION.SDK_INT >= 23) {
-                ViewCompat.setScrollIndicators(view2, i, i2);
-                if (findViewById != null) {
-                    viewGroup.removeView(findViewById);
-                }
-                if (findViewById2 != null) {
-                    viewGroup.removeView(findViewById2);
-                    return;
-                }
-                return;
-            }
-            if (findViewById != null && (i & 1) == 0) {
-                viewGroup.removeView(findViewById);
-                findViewById = null;
-            }
-            if (findViewById2 != null && (i & 2) == 0) {
-                viewGroup.removeView(findViewById2);
-                findViewById2 = null;
-            }
-            if (findViewById == null && findViewById2 == null) {
-                return;
-            }
-            if (this.mMessage != null) {
-                this.mScrollView.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener(this, findViewById, findViewById2) { // from class: androidx.appcompat.app.AlertController.2
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ AlertController this$0;
-                    public final /* synthetic */ View val$bottom;
-                    public final /* synthetic */ View val$top;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, findViewById, findViewById2};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i3 = newInitContext.flag;
-                            if ((i3 & 1) != 0) {
-                                int i4 = i3 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                        this.val$top = findViewById;
-                        this.val$bottom = findViewById2;
-                    }
-
-                    @Override // androidx.core.widget.NestedScrollView.OnScrollChangeListener
-                    public void onScrollChange(NestedScrollView nestedScrollView, int i3, int i4, int i5, int i6) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{nestedScrollView, Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
-                            AlertController.manageScrollIndicators(nestedScrollView, this.val$top, this.val$bottom);
-                        }
-                    }
-                });
-                this.mScrollView.post(new Runnable(this, findViewById, findViewById2) { // from class: androidx.appcompat.app.AlertController.3
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ AlertController this$0;
-                    public final /* synthetic */ View val$bottom;
-                    public final /* synthetic */ View val$top;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, findViewById, findViewById2};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i3 = newInitContext.flag;
-                            if ((i3 & 1) != 0) {
-                                int i4 = i3 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                        this.val$top = findViewById;
-                        this.val$bottom = findViewById2;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            AlertController.manageScrollIndicators(this.this$0.mScrollView, this.val$top, this.val$bottom);
-                        }
-                    }
-                });
-                return;
-            }
-            ListView listView = this.mListView;
-            if (listView != null) {
-                listView.setOnScrollListener(new AbsListView.OnScrollListener(this, findViewById, findViewById2) { // from class: androidx.appcompat.app.AlertController.4
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ AlertController this$0;
-                    public final /* synthetic */ View val$bottom;
-                    public final /* synthetic */ View val$top;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, findViewById, findViewById2};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i3 = newInitContext.flag;
-                            if ((i3 & 1) != 0) {
-                                int i4 = i3 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                        this.val$top = findViewById;
-                        this.val$bottom = findViewById2;
-                    }
-
-                    @Override // android.widget.AbsListView.OnScrollListener
-                    public void onScroll(AbsListView absListView, int i3, int i4, int i5) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeLIII(1048576, this, absListView, i3, i4, i5) == null) {
-                            AlertController.manageScrollIndicators(absListView, this.val$top, this.val$bottom);
-                        }
-                    }
-
-                    @Override // android.widget.AbsListView.OnScrollListener
-                    public void onScrollStateChanged(AbsListView absListView, int i3) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absListView, i3) == null) {
-                        }
-                    }
-                });
-                this.mListView.post(new Runnable(this, findViewById, findViewById2) { // from class: androidx.appcompat.app.AlertController.5
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ AlertController this$0;
-                    public final /* synthetic */ View val$bottom;
-                    public final /* synthetic */ View val$top;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, findViewById, findViewById2};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i3 = newInitContext.flag;
-                            if ((i3 & 1) != 0) {
-                                int i4 = i3 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                        this.val$top = findViewById;
-                        this.val$bottom = findViewById2;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            AlertController.manageScrollIndicators(this.this$0.mListView, this.val$top, this.val$bottom);
-                        }
-                    }
-                });
-                return;
-            }
-            if (findViewById != null) {
-                viewGroup.removeView(findViewById);
-            }
-            if (findViewById2 != null) {
-                viewGroup.removeView(findViewById2);
-            }
-        }
-    }
-
-    private void setupButtons(ViewGroup viewGroup) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, this, viewGroup) == null) {
-            Button button = (Button) viewGroup.findViewById(16908313);
-            this.mButtonPositive = button;
-            button.setOnClickListener(this.mButtonHandler);
-            if (TextUtils.isEmpty(this.mButtonPositiveText) && this.mButtonPositiveIcon == null) {
-                this.mButtonPositive.setVisibility(8);
-                z = false;
-            } else {
-                this.mButtonPositive.setText(this.mButtonPositiveText);
-                Drawable drawable = this.mButtonPositiveIcon;
-                if (drawable != null) {
-                    int i = this.mButtonIconDimen;
-                    drawable.setBounds(0, 0, i, i);
-                    this.mButtonPositive.setCompoundDrawables(this.mButtonPositiveIcon, null, null, null);
-                }
-                this.mButtonPositive.setVisibility(0);
-                z = true;
-            }
-            Button button2 = (Button) viewGroup.findViewById(16908314);
-            this.mButtonNegative = button2;
-            button2.setOnClickListener(this.mButtonHandler);
-            if (TextUtils.isEmpty(this.mButtonNegativeText) && this.mButtonNegativeIcon == null) {
-                this.mButtonNegative.setVisibility(8);
-            } else {
-                this.mButtonNegative.setText(this.mButtonNegativeText);
-                Drawable drawable2 = this.mButtonNegativeIcon;
-                if (drawable2 != null) {
-                    int i2 = this.mButtonIconDimen;
-                    drawable2.setBounds(0, 0, i2, i2);
-                    this.mButtonNegative.setCompoundDrawables(this.mButtonNegativeIcon, null, null, null);
-                }
-                this.mButtonNegative.setVisibility(0);
-                z |= true;
-            }
-            Button button3 = (Button) viewGroup.findViewById(16908315);
-            this.mButtonNeutral = button3;
-            button3.setOnClickListener(this.mButtonHandler);
-            if (TextUtils.isEmpty(this.mButtonNeutralText) && this.mButtonNeutralIcon == null) {
-                this.mButtonNeutral.setVisibility(8);
-            } else {
-                this.mButtonNeutral.setText(this.mButtonNeutralText);
-                Drawable drawable3 = this.mButtonNeutralIcon;
-                if (drawable3 != null) {
-                    int i3 = this.mButtonIconDimen;
-                    drawable3.setBounds(0, 0, i3, i3);
-                    this.mButtonNeutral.setCompoundDrawables(this.mButtonNeutralIcon, null, null, null);
-                }
-                this.mButtonNeutral.setVisibility(0);
-                z |= true;
-            }
-            if (shouldCenterSingleButton(this.mContext)) {
-                if (z) {
-                    centerButton(this.mButtonPositive);
-                } else if (z) {
-                    centerButton(this.mButtonNegative);
-                } else if (z) {
-                    centerButton(this.mButtonNeutral);
-                }
-            }
-            if (z) {
-                return;
-            }
-            viewGroup.setVisibility(8);
-        }
-    }
-
-    private void setupContent(ViewGroup viewGroup) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, this, viewGroup) == null) {
-            NestedScrollView nestedScrollView = (NestedScrollView) this.mWindow.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091dcd);
-            this.mScrollView = nestedScrollView;
-            nestedScrollView.setFocusable(false);
-            this.mScrollView.setNestedScrollingEnabled(false);
-            TextView textView = (TextView) viewGroup.findViewById(16908299);
-            this.mMessageView = textView;
-            if (textView == null) {
-                return;
-            }
-            CharSequence charSequence = this.mMessage;
-            if (charSequence != null) {
-                textView.setText(charSequence);
-                return;
-            }
-            textView.setVisibility(8);
-            this.mScrollView.removeView(this.mMessageView);
-            if (this.mListView != null) {
-                ViewGroup viewGroup2 = (ViewGroup) this.mScrollView.getParent();
-                int indexOfChild = viewGroup2.indexOfChild(this.mScrollView);
-                viewGroup2.removeViewAt(indexOfChild);
-                viewGroup2.addView(this.mListView, indexOfChild, new ViewGroup.LayoutParams(-1, -1));
-                return;
-            }
-            viewGroup.setVisibility(8);
-        }
-    }
-
-    private void setupCustomContent(ViewGroup viewGroup) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, this, viewGroup) == null) {
-            View view2 = this.mView;
-            if (view2 == null) {
-                view2 = this.mViewLayoutResId != 0 ? LayoutInflater.from(this.mContext).inflate(this.mViewLayoutResId, viewGroup, false) : null;
-            }
-            boolean z = view2 != null;
-            if (!z || !canTextInput(view2)) {
-                this.mWindow.setFlags(131072, 131072);
-            }
-            if (z) {
-                FrameLayout frameLayout = (FrameLayout) this.mWindow.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09074e);
-                frameLayout.addView(view2, new ViewGroup.LayoutParams(-1, -1));
-                if (this.mViewSpacingSpecified) {
-                    frameLayout.setPadding(this.mViewSpacingLeft, this.mViewSpacingTop, this.mViewSpacingRight, this.mViewSpacingBottom);
-                }
-                if (this.mListView != null) {
-                    ((LinearLayoutCompat.LayoutParams) viewGroup.getLayoutParams()).weight = 0.0f;
-                    return;
-                }
-                return;
-            }
-            viewGroup.setVisibility(8);
-        }
-    }
-
-    private void setupTitle(ViewGroup viewGroup) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, this, viewGroup) == null) {
-            if (this.mCustomTitleView != null) {
-                viewGroup.addView(this.mCustomTitleView, 0, new ViewGroup.LayoutParams(-1, -2));
-                this.mWindow.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092243).setVisibility(8);
-                return;
-            }
-            this.mIconView = (ImageView) this.mWindow.findViewById(16908294);
-            if ((!TextUtils.isEmpty(this.mTitle)) && this.mShowTitle) {
-                TextView textView = (TextView) this.mWindow.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090266);
-                this.mTitleView = textView;
-                textView.setText(this.mTitle);
-                int i = this.mIconId;
-                if (i != 0) {
-                    this.mIconView.setImageResource(i);
-                    return;
-                }
-                Drawable drawable = this.mIcon;
-                if (drawable != null) {
-                    this.mIconView.setImageDrawable(drawable);
-                    return;
-                }
-                this.mTitleView.setPadding(this.mIconView.getPaddingLeft(), this.mIconView.getPaddingTop(), this.mIconView.getPaddingRight(), this.mIconView.getPaddingBottom());
-                this.mIconView.setVisibility(8);
-                return;
-            }
-            this.mWindow.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092243).setVisibility(8);
-            this.mIconView.setVisibility(8);
-            viewGroup.setVisibility(8);
-        }
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r7v2, resolved type: boolean */
-    /* JADX DEBUG: Multi-variable search result rejected for r7v3, resolved type: boolean */
-    /* JADX DEBUG: Multi-variable search result rejected for r7v5, resolved type: boolean */
-    /* JADX WARN: Multi-variable type inference failed */
-    private void setupView() {
-        View findViewById;
-        ListAdapter listAdapter;
-        View findViewById2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65547, this) == null) {
-            View findViewById3 = this.mWindow.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091793);
-            View findViewById4 = findViewById3.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09228a);
-            View findViewById5 = findViewById3.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0906e6);
-            View findViewById6 = findViewById3.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090481);
-            ViewGroup viewGroup = (ViewGroup) findViewById3.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09074f);
-            setupCustomContent(viewGroup);
-            View findViewById7 = viewGroup.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09228a);
-            View findViewById8 = viewGroup.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0906e6);
-            View findViewById9 = viewGroup.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090481);
-            ViewGroup resolvePanel = resolvePanel(findViewById7, findViewById4);
-            ViewGroup resolvePanel2 = resolvePanel(findViewById8, findViewById5);
-            ViewGroup resolvePanel3 = resolvePanel(findViewById9, findViewById6);
-            setupContent(resolvePanel2);
-            setupButtons(resolvePanel3);
-            setupTitle(resolvePanel);
-            boolean z = (viewGroup == null || viewGroup.getVisibility() == 8) ? false : true;
-            boolean z2 = (resolvePanel == null || resolvePanel.getVisibility() == 8) ? 0 : 1;
-            boolean z3 = (resolvePanel3 == null || resolvePanel3.getVisibility() == 8) ? false : true;
-            if (!z3 && resolvePanel2 != null && (findViewById2 = resolvePanel2.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092105)) != null) {
-                findViewById2.setVisibility(0);
-            }
-            if (z2) {
-                NestedScrollView nestedScrollView = this.mScrollView;
-                if (nestedScrollView != null) {
-                    nestedScrollView.setClipToPadding(true);
-                }
-                View view2 = null;
-                if (this.mMessage != null || this.mListView != null) {
-                    view2 = resolvePanel.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09221b);
-                }
-                if (view2 != null) {
-                    view2.setVisibility(0);
-                }
-            } else if (resolvePanel2 != null && (findViewById = resolvePanel2.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092106)) != null) {
-                findViewById.setVisibility(0);
-            }
-            ListView listView = this.mListView;
-            if (listView instanceof RecycleListView) {
-                ((RecycleListView) listView).setHasDecor(z2, z3);
-            }
-            if (!z) {
-                View view3 = this.mListView;
-                if (view3 == null) {
-                    view3 = this.mScrollView;
-                }
-                if (view3 != null) {
-                    setScrollIndicators(resolvePanel2, view3, z2 | (z3 ? 2 : 0), 3);
-                }
-            }
-            ListView listView2 = this.mListView;
-            if (listView2 == null || (listAdapter = this.mAdapter) == null) {
-                return;
-            }
-            listView2.setAdapter(listAdapter);
-            int i = this.mCheckedItem;
-            if (i > -1) {
-                listView2.setItemChecked(i, true);
-                listView2.setSelection(i);
-            }
-        }
-    }
-
     public static boolean shouldCenterSingleButton(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
             TypedValue typedValue = new TypedValue();
             context.getTheme().resolveAttribute(com.baidu.tieba.R.attr.obfuscated_res_0x7f040086, typedValue, true);
-            return typedValue.data != 0;
+            if (typedValue.data != 0) {
+                return true;
+            }
+            return false;
         }
         return invokeL.booleanValue;
     }
@@ -1226,64 +784,6 @@ public class AlertController {
             return typedValue.resourceId;
         }
         return invokeI.intValue;
-    }
-
-    public ListView getListView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mListView : (ListView) invokeV.objValue;
-    }
-
-    public void installContent() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.mDialog.setContentView(selectContentView());
-            setupView();
-        }
-    }
-
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048580, this, i, keyEvent)) == null) {
-            NestedScrollView nestedScrollView = this.mScrollView;
-            return nestedScrollView != null && nestedScrollView.executeKeyEvent(keyEvent);
-        }
-        return invokeIL.booleanValue;
-    }
-
-    public boolean onKeyUp(int i, KeyEvent keyEvent) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, keyEvent)) == null) {
-            NestedScrollView nestedScrollView = this.mScrollView;
-            return nestedScrollView != null && nestedScrollView.executeKeyEvent(keyEvent);
-        }
-        return invokeIL.booleanValue;
-    }
-
-    public void setButton(int i, CharSequence charSequence, DialogInterface.OnClickListener onClickListener, Message message, Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), charSequence, onClickListener, message, drawable}) == null) {
-            if (message == null && onClickListener != null) {
-                message = this.mHandler.obtainMessage(i, onClickListener);
-            }
-            if (i == -3) {
-                this.mButtonNeutralText = charSequence;
-                this.mButtonNeutralMessage = message;
-                this.mButtonNeutralIcon = drawable;
-            } else if (i == -2) {
-                this.mButtonNegativeText = charSequence;
-                this.mButtonNegativeMessage = message;
-                this.mButtonNegativeIcon = drawable;
-            } else if (i == -1) {
-                this.mButtonPositiveText = charSequence;
-                this.mButtonPositiveMessage = message;
-                this.mButtonPositiveIcon = drawable;
-            } else {
-                throw new IllegalArgumentException("Button does not exist");
-            }
-        }
     }
 
     public void setButtonPanelLayoutHint(int i) {
@@ -1348,12 +848,596 @@ public class AlertController {
         }
     }
 
-    public void setView(View view2) {
+    public static void manageScrollIndicators(View view2, View view3, View view4) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, view2) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65539, null, view2, view3, view4) == null) {
+            int i2 = 0;
+            if (view3 != null) {
+                if (view2.canScrollVertically(-1)) {
+                    i = 0;
+                } else {
+                    i = 4;
+                }
+                view3.setVisibility(i);
+            }
+            if (view4 != null) {
+                if (!view2.canScrollVertically(1)) {
+                    i2 = 4;
+                }
+                view4.setVisibility(i2);
+            }
+        }
+    }
+
+    private ViewGroup resolvePanel(View view2, View view3) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, view2, view3)) == null) {
+            if (view2 == null) {
+                if (view3 instanceof ViewStub) {
+                    view3 = ((ViewStub) view3).inflate();
+                }
+                return (ViewGroup) view3;
+            }
+            if (view3 != null) {
+                ViewParent parent = view3.getParent();
+                if (parent instanceof ViewGroup) {
+                    ((ViewGroup) parent).removeView(view3);
+                }
+            }
+            if (view2 instanceof ViewStub) {
+                view2 = ((ViewStub) view2).inflate();
+            }
+            return (ViewGroup) view2;
+        }
+        return (ViewGroup) invokeLL.objValue;
+    }
+
+    private int selectContentView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
+            int i = this.mButtonPanelSideLayout;
+            if (i == 0) {
+                return this.mAlertDialogLayout;
+            }
+            if (this.mButtonPanelLayoutHint == 1) {
+                return i;
+            }
+            return this.mAlertDialogLayout;
+        }
+        return invokeV.intValue;
+    }
+
+    public ListView getListView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mListView;
+        }
+        return (ListView) invokeV.objValue;
+    }
+
+    public void installContent() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.mDialog.setContentView(selectContentView());
+            setupView();
+        }
+    }
+
+    private void setScrollIndicators(ViewGroup viewGroup, View view2, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLII(65542, this, viewGroup, view2, i, i2) == null) {
+            View findViewById = this.mWindow.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091dc8);
+            View findViewById2 = this.mWindow.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091dc7);
+            if (Build.VERSION.SDK_INT >= 23) {
+                ViewCompat.setScrollIndicators(view2, i, i2);
+                if (findViewById != null) {
+                    viewGroup.removeView(findViewById);
+                }
+                if (findViewById2 != null) {
+                    viewGroup.removeView(findViewById2);
+                    return;
+                }
+                return;
+            }
+            if (findViewById != null && (i & 1) == 0) {
+                viewGroup.removeView(findViewById);
+                findViewById = null;
+            }
+            if (findViewById2 != null && (i & 2) == 0) {
+                viewGroup.removeView(findViewById2);
+                findViewById2 = null;
+            }
+            if (findViewById != null || findViewById2 != null) {
+                if (this.mMessage != null) {
+                    this.mScrollView.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener(this, findViewById, findViewById2) { // from class: androidx.appcompat.app.AlertController.2
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+                        public final /* synthetic */ AlertController this$0;
+                        public final /* synthetic */ View val$bottom;
+                        public final /* synthetic */ View val$top;
+
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {this, findViewById, findViewById2};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i3 = newInitContext.flag;
+                                if ((i3 & 1) != 0) {
+                                    int i4 = i3 & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.this$0 = this;
+                            this.val$top = findViewById;
+                            this.val$bottom = findViewById2;
+                        }
+
+                        @Override // androidx.core.widget.NestedScrollView.OnScrollChangeListener
+                        public void onScrollChange(NestedScrollView nestedScrollView, int i3, int i4, int i5, int i6) {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{nestedScrollView, Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
+                                AlertController.manageScrollIndicators(nestedScrollView, this.val$top, this.val$bottom);
+                            }
+                        }
+                    });
+                    this.mScrollView.post(new Runnable(this, findViewById, findViewById2) { // from class: androidx.appcompat.app.AlertController.3
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+                        public final /* synthetic */ AlertController this$0;
+                        public final /* synthetic */ View val$bottom;
+                        public final /* synthetic */ View val$top;
+
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {this, findViewById, findViewById2};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i3 = newInitContext.flag;
+                                if ((i3 & 1) != 0) {
+                                    int i4 = i3 & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.this$0 = this;
+                            this.val$top = findViewById;
+                            this.val$bottom = findViewById2;
+                        }
+
+                        @Override // java.lang.Runnable
+                        public void run() {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                AlertController.manageScrollIndicators(this.this$0.mScrollView, this.val$top, this.val$bottom);
+                            }
+                        }
+                    });
+                    return;
+                }
+                ListView listView = this.mListView;
+                if (listView != null) {
+                    listView.setOnScrollListener(new AbsListView.OnScrollListener(this, findViewById, findViewById2) { // from class: androidx.appcompat.app.AlertController.4
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+                        public final /* synthetic */ AlertController this$0;
+                        public final /* synthetic */ View val$bottom;
+                        public final /* synthetic */ View val$top;
+
+                        @Override // android.widget.AbsListView.OnScrollListener
+                        public void onScrollStateChanged(AbsListView absListView, int i3) {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absListView, i3) == null) {
+                            }
+                        }
+
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {this, findViewById, findViewById2};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i3 = newInitContext.flag;
+                                if ((i3 & 1) != 0) {
+                                    int i4 = i3 & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.this$0 = this;
+                            this.val$top = findViewById;
+                            this.val$bottom = findViewById2;
+                        }
+
+                        @Override // android.widget.AbsListView.OnScrollListener
+                        public void onScroll(AbsListView absListView, int i3, int i4, int i5) {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeLIII(1048576, this, absListView, i3, i4, i5) == null) {
+                                AlertController.manageScrollIndicators(absListView, this.val$top, this.val$bottom);
+                            }
+                        }
+                    });
+                    this.mListView.post(new Runnable(this, findViewById, findViewById2) { // from class: androidx.appcompat.app.AlertController.5
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+                        public final /* synthetic */ AlertController this$0;
+                        public final /* synthetic */ View val$bottom;
+                        public final /* synthetic */ View val$top;
+
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {this, findViewById, findViewById2};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i3 = newInitContext.flag;
+                                if ((i3 & 1) != 0) {
+                                    int i4 = i3 & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.this$0 = this;
+                            this.val$top = findViewById;
+                            this.val$bottom = findViewById2;
+                        }
+
+                        @Override // java.lang.Runnable
+                        public void run() {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                AlertController.manageScrollIndicators(this.this$0.mListView, this.val$top, this.val$bottom);
+                            }
+                        }
+                    });
+                    return;
+                }
+                if (findViewById != null) {
+                    viewGroup.removeView(findViewById);
+                }
+                if (findViewById2 != null) {
+                    viewGroup.removeView(findViewById2);
+                }
+            }
+        }
+    }
+
+    private void setupButtons(ViewGroup viewGroup) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, this, viewGroup) == null) {
+            Button button = (Button) viewGroup.findViewById(16908313);
+            this.mButtonPositive = button;
+            button.setOnClickListener(this.mButtonHandler);
+            boolean z2 = true;
+            if (TextUtils.isEmpty(this.mButtonPositiveText) && this.mButtonPositiveIcon == null) {
+                this.mButtonPositive.setVisibility(8);
+                z = false;
+            } else {
+                this.mButtonPositive.setText(this.mButtonPositiveText);
+                Drawable drawable = this.mButtonPositiveIcon;
+                if (drawable != null) {
+                    int i = this.mButtonIconDimen;
+                    drawable.setBounds(0, 0, i, i);
+                    this.mButtonPositive.setCompoundDrawables(this.mButtonPositiveIcon, null, null, null);
+                }
+                this.mButtonPositive.setVisibility(0);
+                z = true;
+            }
+            Button button2 = (Button) viewGroup.findViewById(16908314);
+            this.mButtonNegative = button2;
+            button2.setOnClickListener(this.mButtonHandler);
+            if (TextUtils.isEmpty(this.mButtonNegativeText) && this.mButtonNegativeIcon == null) {
+                this.mButtonNegative.setVisibility(8);
+            } else {
+                this.mButtonNegative.setText(this.mButtonNegativeText);
+                Drawable drawable2 = this.mButtonNegativeIcon;
+                if (drawable2 != null) {
+                    int i2 = this.mButtonIconDimen;
+                    drawable2.setBounds(0, 0, i2, i2);
+                    this.mButtonNegative.setCompoundDrawables(this.mButtonNegativeIcon, null, null, null);
+                }
+                this.mButtonNegative.setVisibility(0);
+                z |= true;
+            }
+            Button button3 = (Button) viewGroup.findViewById(16908315);
+            this.mButtonNeutral = button3;
+            button3.setOnClickListener(this.mButtonHandler);
+            if (TextUtils.isEmpty(this.mButtonNeutralText) && this.mButtonNeutralIcon == null) {
+                this.mButtonNeutral.setVisibility(8);
+            } else {
+                this.mButtonNeutral.setText(this.mButtonNeutralText);
+                Drawable drawable3 = this.mButtonNeutralIcon;
+                if (drawable3 != null) {
+                    int i3 = this.mButtonIconDimen;
+                    drawable3.setBounds(0, 0, i3, i3);
+                    this.mButtonNeutral.setCompoundDrawables(this.mButtonNeutralIcon, null, null, null);
+                }
+                this.mButtonNeutral.setVisibility(0);
+                z |= true;
+            }
+            if (shouldCenterSingleButton(this.mContext)) {
+                if (z) {
+                    centerButton(this.mButtonPositive);
+                } else if (z) {
+                    centerButton(this.mButtonNegative);
+                } else if (z) {
+                    centerButton(this.mButtonNeutral);
+                }
+            }
+            if (!z) {
+                z2 = false;
+            }
+            if (!z2) {
+                viewGroup.setVisibility(8);
+            }
+        }
+    }
+
+    private void setupContent(ViewGroup viewGroup) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, this, viewGroup) == null) {
+            NestedScrollView nestedScrollView = (NestedScrollView) this.mWindow.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091dc9);
+            this.mScrollView = nestedScrollView;
+            nestedScrollView.setFocusable(false);
+            this.mScrollView.setNestedScrollingEnabled(false);
+            TextView textView = (TextView) viewGroup.findViewById(16908299);
+            this.mMessageView = textView;
+            if (textView == null) {
+                return;
+            }
+            CharSequence charSequence = this.mMessage;
+            if (charSequence != null) {
+                textView.setText(charSequence);
+                return;
+            }
+            textView.setVisibility(8);
+            this.mScrollView.removeView(this.mMessageView);
+            if (this.mListView != null) {
+                ViewGroup viewGroup2 = (ViewGroup) this.mScrollView.getParent();
+                int indexOfChild = viewGroup2.indexOfChild(this.mScrollView);
+                viewGroup2.removeViewAt(indexOfChild);
+                viewGroup2.addView(this.mListView, indexOfChild, new ViewGroup.LayoutParams(-1, -1));
+                return;
+            }
+            viewGroup.setVisibility(8);
+        }
+    }
+
+    private void setupCustomContent(ViewGroup viewGroup) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65545, this, viewGroup) == null) {
+            View view2 = this.mView;
+            boolean z = false;
+            if (view2 == null) {
+                if (this.mViewLayoutResId != 0) {
+                    view2 = LayoutInflater.from(this.mContext).inflate(this.mViewLayoutResId, viewGroup, false);
+                } else {
+                    view2 = null;
+                }
+            }
+            if (view2 != null) {
+                z = true;
+            }
+            if (!z || !canTextInput(view2)) {
+                this.mWindow.setFlags(131072, 131072);
+            }
+            if (z) {
+                FrameLayout frameLayout = (FrameLayout) this.mWindow.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090757);
+                frameLayout.addView(view2, new ViewGroup.LayoutParams(-1, -1));
+                if (this.mViewSpacingSpecified) {
+                    frameLayout.setPadding(this.mViewSpacingLeft, this.mViewSpacingTop, this.mViewSpacingRight, this.mViewSpacingBottom);
+                }
+                if (this.mListView != null) {
+                    ((LinearLayoutCompat.LayoutParams) viewGroup.getLayoutParams()).weight = 0.0f;
+                    return;
+                }
+                return;
+            }
+            viewGroup.setVisibility(8);
+        }
+    }
+
+    private void setupTitle(ViewGroup viewGroup) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65546, this, viewGroup) == null) {
+            if (this.mCustomTitleView != null) {
+                viewGroup.addView(this.mCustomTitleView, 0, new ViewGroup.LayoutParams(-1, -2));
+                this.mWindow.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09222d).setVisibility(8);
+                return;
+            }
+            this.mIconView = (ImageView) this.mWindow.findViewById(16908294);
+            if ((!TextUtils.isEmpty(this.mTitle)) && this.mShowTitle) {
+                TextView textView = (TextView) this.mWindow.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090266);
+                this.mTitleView = textView;
+                textView.setText(this.mTitle);
+                int i = this.mIconId;
+                if (i != 0) {
+                    this.mIconView.setImageResource(i);
+                    return;
+                }
+                Drawable drawable = this.mIcon;
+                if (drawable != null) {
+                    this.mIconView.setImageDrawable(drawable);
+                    return;
+                }
+                this.mTitleView.setPadding(this.mIconView.getPaddingLeft(), this.mIconView.getPaddingTop(), this.mIconView.getPaddingRight(), this.mIconView.getPaddingBottom());
+                this.mIconView.setVisibility(8);
+                return;
+            }
+            this.mWindow.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09222d).setVisibility(8);
+            this.mIconView.setVisibility(8);
+            viewGroup.setVisibility(8);
+        }
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r7v2, resolved type: boolean */
+    /* JADX DEBUG: Multi-variable search result rejected for r7v3, resolved type: boolean */
+    /* JADX DEBUG: Multi-variable search result rejected for r7v5, resolved type: boolean */
+    /* JADX WARN: Multi-variable type inference failed */
+    private void setupView() {
+        boolean z;
+        boolean z2;
+        boolean z3;
+        View findViewById;
+        ListAdapter listAdapter;
+        View findViewById2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65547, this) == null) {
+            View findViewById3 = this.mWindow.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091785);
+            View findViewById4 = findViewById3.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092274);
+            View findViewById5 = findViewById3.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0906ef);
+            View findViewById6 = findViewById3.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09048a);
+            ViewGroup viewGroup = (ViewGroup) findViewById3.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090758);
+            setupCustomContent(viewGroup);
+            View findViewById7 = viewGroup.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092274);
+            View findViewById8 = viewGroup.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0906ef);
+            View findViewById9 = viewGroup.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09048a);
+            ViewGroup resolvePanel = resolvePanel(findViewById7, findViewById4);
+            ViewGroup resolvePanel2 = resolvePanel(findViewById8, findViewById5);
+            ViewGroup resolvePanel3 = resolvePanel(findViewById9, findViewById6);
+            setupContent(resolvePanel2);
+            setupButtons(resolvePanel3);
+            setupTitle(resolvePanel);
+            int i = 0;
+            if (viewGroup != null && viewGroup.getVisibility() != 8) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (resolvePanel != null && resolvePanel.getVisibility() != 8) {
+                z2 = 1;
+            } else {
+                z2 = 0;
+            }
+            if (resolvePanel3 != null && resolvePanel3.getVisibility() != 8) {
+                z3 = true;
+            } else {
+                z3 = false;
+            }
+            if (!z3 && resolvePanel2 != null && (findViewById2 = resolvePanel2.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092104)) != null) {
+                findViewById2.setVisibility(0);
+            }
+            if (z2) {
+                NestedScrollView nestedScrollView = this.mScrollView;
+                if (nestedScrollView != null) {
+                    nestedScrollView.setClipToPadding(true);
+                }
+                View view2 = null;
+                if (this.mMessage != null || this.mListView != null) {
+                    view2 = resolvePanel.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092205);
+                }
+                if (view2 != null) {
+                    view2.setVisibility(0);
+                }
+            } else if (resolvePanel2 != null && (findViewById = resolvePanel2.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092105)) != null) {
+                findViewById.setVisibility(0);
+            }
+            ListView listView = this.mListView;
+            if (listView instanceof RecycleListView) {
+                ((RecycleListView) listView).setHasDecor(z2, z3);
+            }
+            if (!z) {
+                View view3 = this.mListView;
+                if (view3 == null) {
+                    view3 = this.mScrollView;
+                }
+                if (view3 != null) {
+                    if (z3) {
+                        i = 2;
+                    }
+                    setScrollIndicators(resolvePanel2, view3, z2 | i, 3);
+                }
+            }
+            ListView listView2 = this.mListView;
+            if (listView2 != null && (listAdapter = this.mAdapter) != null) {
+                listView2.setAdapter(listAdapter);
+                int i2 = this.mCheckedItem;
+                if (i2 > -1) {
+                    listView2.setItemChecked(i2, true);
+                    listView2.setSelection(i2);
+                }
+            }
+        }
+    }
+
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048580, this, i, keyEvent)) == null) {
+            NestedScrollView nestedScrollView = this.mScrollView;
+            if (nestedScrollView != null && nestedScrollView.executeKeyEvent(keyEvent)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeIL.booleanValue;
+    }
+
+    public boolean onKeyUp(int i, KeyEvent keyEvent) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, keyEvent)) == null) {
+            NestedScrollView nestedScrollView = this.mScrollView;
+            if (nestedScrollView != null && nestedScrollView.executeKeyEvent(keyEvent)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeIL.booleanValue;
+    }
+
+    public void setButton(int i, CharSequence charSequence, DialogInterface.OnClickListener onClickListener, Message message, Drawable drawable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), charSequence, onClickListener, message, drawable}) == null) {
+            if (message == null && onClickListener != null) {
+                message = this.mHandler.obtainMessage(i, onClickListener);
+            }
+            if (i != -3) {
+                if (i != -2) {
+                    if (i == -1) {
+                        this.mButtonPositiveText = charSequence;
+                        this.mButtonPositiveMessage = message;
+                        this.mButtonPositiveIcon = drawable;
+                        return;
+                    }
+                    throw new IllegalArgumentException("Button does not exist");
+                }
+                this.mButtonNegativeText = charSequence;
+                this.mButtonNegativeMessage = message;
+                this.mButtonNegativeIcon = drawable;
+                return;
+            }
+            this.mButtonNeutralText = charSequence;
+            this.mButtonNeutralMessage = message;
+            this.mButtonNeutralIcon = drawable;
+        }
+    }
+
+    public void setView(View view2, int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             this.mView = view2;
             this.mViewLayoutResId = 0;
-            this.mViewSpacingSpecified = false;
+            this.mViewSpacingSpecified = true;
+            this.mViewSpacingLeft = i;
+            this.mViewSpacingTop = i2;
+            this.mViewSpacingRight = i3;
+            this.mViewSpacingBottom = i4;
         }
     }
 
@@ -1374,16 +1458,12 @@ public class AlertController {
         }
     }
 
-    public void setView(View view2, int i, int i2, int i3, int i4) {
+    public void setView(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+        if (interceptable == null || interceptable.invokeL(1048590, this, view2) == null) {
             this.mView = view2;
             this.mViewLayoutResId = 0;
-            this.mViewSpacingSpecified = true;
-            this.mViewSpacingLeft = i;
-            this.mViewSpacingTop = i2;
-            this.mViewSpacingRight = i3;
-            this.mViewSpacingBottom = i4;
+            this.mViewSpacingSpecified = false;
         }
     }
 }

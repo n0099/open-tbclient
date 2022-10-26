@@ -3,20 +3,29 @@ package com.baidu.tbadk.abtest.group;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.abtest.UsbAbTestSwitch;
-import com.baidu.tieba.Cdo;
-import com.baidu.tieba.yq4;
+import com.baidu.tieba.ar4;
+import com.baidu.tieba.eo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public abstract class AbsGroupUbsABTest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract ArrayList getABTestKeys();
+
+    public abstract UsbAbTestSwitch getCurrentUsbAbTest();
+
+    public abstract BdUniqueId getGroupKey();
+
+    public abstract void setCurrentUsbAbTest(UsbAbTestSwitch usbAbTestSwitch);
 
     public AbsGroupUbsABTest() {
         Interceptable interceptable = $ic;
@@ -32,33 +41,27 @@ public abstract class AbsGroupUbsABTest {
         }
     }
 
-    public static void setCardInfoUbsABTest(List<Cdo> list) {
+    public static void setCardInfoUbsABTest(List list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, list) == null) || list == null) {
+        if ((interceptable != null && interceptable.invokeL(65537, null, list) != null) || list == null) {
             return;
         }
         HashMap hashMap = new HashMap(UbsABTestHelper.getUbsABTestMap());
-        for (Cdo cdo : list) {
-            if (cdo instanceof yq4) {
-                yq4 yq4Var = (yq4) cdo;
+        Iterator it = list.iterator();
+        while (it.hasNext()) {
+            eo eoVar = (eo) it.next();
+            if (eoVar instanceof ar4) {
+                ar4 ar4Var = (ar4) eoVar;
                 for (Map.Entry entry : hashMap.entrySet()) {
-                    yq4Var.setABTest((BdUniqueId) entry.getKey(), (UsbAbTestSwitch) entry.getValue());
+                    ar4Var.setABTest((BdUniqueId) entry.getKey(), (UsbAbTestSwitch) entry.getValue());
                 }
             }
         }
     }
 
-    public abstract ArrayList<String> getABTestKeys();
-
-    public abstract UsbAbTestSwitch getCurrentUsbAbTest();
-
-    public abstract BdUniqueId getGroupKey();
-
-    public abstract void setCurrentUsbAbTest(UsbAbTestSwitch usbAbTestSwitch);
-
     public static void setCardInfoUbsABTest(IThreadCardUbsABTest... iThreadCardUbsABTestArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, iThreadCardUbsABTestArr) == null) || iThreadCardUbsABTestArr == null) {
+        if ((interceptable != null && interceptable.invokeL(65538, null, iThreadCardUbsABTestArr) != null) || iThreadCardUbsABTestArr == null) {
             return;
         }
         HashMap hashMap = new HashMap(UbsABTestHelper.getUbsABTestMap());

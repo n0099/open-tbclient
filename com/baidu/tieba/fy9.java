@@ -1,52 +1,70 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.fx9;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes4.dex */
-public final class fy9<T, R> implements fx9.a<R> {
+public final class fy9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final fy9 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final fx9.a<T> a;
-    public final fx9.b<? extends R, ? super T> b;
+    public final AtomicReference a;
 
-    public fy9(fx9.a<T> aVar, fx9.b<? extends R, ? super T> bVar) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947780611, "Lcom/baidu/tieba/fy9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947780611, "Lcom/baidu/tieba/fy9;");
+                return;
+            }
+        }
+        b = new fy9();
+    }
+
+    public fy9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar, bVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = aVar;
-        this.b = bVar;
+        this.a = new AtomicReference();
     }
 
-    @Override // com.baidu.tieba.fx9.a, com.baidu.tieba.tx9
-    public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((lx9) ((lx9) obj));
-    }
-
-    public void call(lx9<? super R> lx9Var) {
+    public static fy9 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, lx9Var) == null) {
-            try {
-                lx9 lx9Var2 = (lx9) m1a.n(this.b).call(lx9Var);
-                lx9Var2.d();
-                this.a.call(lx9Var2);
-            } catch (Throwable th) {
-                rx9.e(th);
-                lx9Var.onError(th);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b;
         }
+        return (fy9) invokeV.objValue;
+    }
+
+    public gy9 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.a.get() == null) {
+                this.a.compareAndSet(null, gy9.a());
+            }
+            return (gy9) this.a.get();
+        }
+        return (gy9) invokeV.objValue;
     }
 }

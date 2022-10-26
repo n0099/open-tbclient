@@ -1,6 +1,5 @@
 package com.baidu.tieba.compatible;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -35,6 +34,7 @@ public class BlurDrawable {
 
     static {
         InterceptResult invokeClinit;
+        boolean z;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
         if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1642874263, "Lcom/baidu/tieba/compatible/BlurDrawable;")) != null) {
             Interceptable interceptable = invokeClinit.interceptor;
@@ -46,7 +46,21 @@ public class BlurDrawable {
                 return;
             }
         }
-        enabled = Build.VERSION.SDK_INT >= 17;
+        if (Build.VERSION.SDK_INT >= 17) {
+            z = true;
+        } else {
+            z = false;
+        }
+        enabled = z;
+    }
+
+    public Bitmap getBlurredBitmap() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mBlurredBitmap;
+        }
+        return (Bitmap) invokeV.objValue;
     }
 
     public BlurDrawable(Context context) {
@@ -70,7 +84,6 @@ public class BlurDrawable {
         initializeRenderScript(context);
     }
 
-    @TargetApi(17)
     private void initializeRenderScript(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, context) == null) {
@@ -87,18 +100,17 @@ public class BlurDrawable {
         }
     }
 
-    @TargetApi(17)
     public void blur(Bitmap bitmap, Bitmap bitmap2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, bitmap, bitmap2) == null) && enabled) {
-            this.mBlurInput.copyFrom(bitmap);
-            this.mBlurScript.setInput(this.mBlurInput);
-            this.mBlurScript.forEach(this.mBlurOutput);
-            this.mBlurOutput.copyTo(bitmap2);
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, bitmap, bitmap2) != null) || !enabled) {
+            return;
         }
+        this.mBlurInput.copyFrom(bitmap);
+        this.mBlurScript.setInput(this.mBlurInput);
+        this.mBlurScript.forEach(this.mBlurOutput);
+        this.mBlurOutput.copyTo(bitmap2);
     }
 
-    @TargetApi(17)
     public boolean drawBlur() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -117,13 +129,23 @@ public class BlurDrawable {
         return invokeV.booleanValue;
     }
 
-    public Bitmap getBlurredBitmap() {
+    public boolean prepare() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mBlurredBitmap : (Bitmap) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            Bitmap bitmap = this.mBitmapToBlur;
+            if (bitmap != null && !bitmap.isRecycled()) {
+                this.mBlurredBitmap = Bitmap.createBitmap(this.mBitmapToBlur.getWidth(), this.mBitmapToBlur.getHeight(), Bitmap.Config.ARGB_8888);
+                Allocation createFromBitmap = Allocation.createFromBitmap(this.mRenderScript, this.mBitmapToBlur, Allocation.MipmapControl.MIPMAP_NONE, 1);
+                this.mBlurInput = createFromBitmap;
+                this.mBlurOutput = Allocation.createTyped(this.mRenderScript, createFromBitmap.getType());
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
-    @TargetApi(17)
     public void init(int i, int i2, Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIIL(1048579, this, i, i2, bitmap) == null) && enabled && i > 0 && i2 > 0 && bitmap != null) {
@@ -139,42 +161,24 @@ public class BlurDrawable {
         }
     }
 
-    @TargetApi(17)
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && enabled) {
-            RenderScript renderScript = this.mRenderScript;
-            if (renderScript != null) {
-                renderScript.destroy();
-            }
-            Bitmap bitmap = this.mBitmapToBlur;
-            if (bitmap != null && !bitmap.isRecycled()) {
-                this.mBitmapToBlur.recycle();
-                this.mBitmapToBlur = null;
-            }
-            Bitmap bitmap2 = this.mBlurredBitmap;
-            if (bitmap2 == null || bitmap2.isRecycled()) {
-                return;
-            }
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || !enabled) {
+            return;
+        }
+        RenderScript renderScript = this.mRenderScript;
+        if (renderScript != null) {
+            renderScript.destroy();
+        }
+        Bitmap bitmap = this.mBitmapToBlur;
+        if (bitmap != null && !bitmap.isRecycled()) {
+            this.mBitmapToBlur.recycle();
+            this.mBitmapToBlur = null;
+        }
+        Bitmap bitmap2 = this.mBlurredBitmap;
+        if (bitmap2 != null && !bitmap2.isRecycled()) {
             this.mBlurredBitmap.recycle();
             this.mBlurredBitmap = null;
         }
-    }
-
-    public boolean prepare() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            Bitmap bitmap = this.mBitmapToBlur;
-            if (bitmap == null || bitmap.isRecycled()) {
-                return false;
-            }
-            this.mBlurredBitmap = Bitmap.createBitmap(this.mBitmapToBlur.getWidth(), this.mBitmapToBlur.getHeight(), Bitmap.Config.ARGB_8888);
-            Allocation createFromBitmap = Allocation.createFromBitmap(this.mRenderScript, this.mBitmapToBlur, Allocation.MipmapControl.MIPMAP_NONE, 1);
-            this.mBlurInput = createFromBitmap;
-            this.mBlurOutput = Allocation.createTyped(this.mRenderScript, createFromBitmap.getType());
-            return true;
-        }
-        return invokeV.booleanValue;
     }
 }

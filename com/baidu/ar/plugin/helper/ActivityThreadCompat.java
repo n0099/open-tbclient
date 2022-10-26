@@ -60,6 +60,15 @@ public class ActivityThreadCompat {
         return (Class) invokeV.objValue;
     }
 
+    public static Instrumentation getInstrumentation() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return (Instrumentation) MethodUtils.invokeMethod(currentActivityThread(), "getInstrumentation", new Object[0]);
+        }
+        return (Instrumentation) invokeV.objValue;
+    }
+
     public static final synchronized Object currentActivityThread() {
         InterceptResult invokeV;
         Object obj;
@@ -135,23 +144,17 @@ public class ActivityThreadCompat {
                     }
                 }
             });
-            if (sActivityThread != null || Looper.getMainLooper() == Looper.myLooper()) {
-                return null;
-            }
-            synchronized (obj) {
-                try {
-                    obj.wait(300L);
-                } catch (InterruptedException unused) {
+            if (sActivityThread == null && Looper.getMainLooper() != Looper.myLooper()) {
+                synchronized (obj) {
+                    try {
+                        obj.wait(300L);
+                    } catch (InterruptedException unused) {
+                    }
                 }
+                return null;
             }
             return null;
         }
         return invokeV.objValue;
-    }
-
-    public static Instrumentation getInstrumentation() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? (Instrumentation) MethodUtils.invokeMethod(currentActivityThread(), "getInstrumentation", new Object[0]) : (Instrumentation) invokeV.objValue;
     }
 }

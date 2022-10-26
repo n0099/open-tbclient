@@ -110,13 +110,13 @@ public class w2 {
         }
     }
 
-    public static String b(Map<String, String> map) {
+    public static String b(Map map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, map)) == null) {
             String str = "";
-            for (Map.Entry<String, String> entry : map.entrySet()) {
-                str = str + "&" + entry.getKey() + "=" + entry.getValue();
+            for (Map.Entry entry : map.entrySet()) {
+                str = str + "&" + ((String) entry.getKey()) + "=" + ((String) entry.getValue());
             }
             return str.substring(1);
         }

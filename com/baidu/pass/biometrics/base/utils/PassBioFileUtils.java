@@ -35,26 +35,25 @@ public class PassBioFileUtils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
-            if (file.exists()) {
-                return true;
+            if (!file.exists()) {
+                file.getParentFile().mkdirs();
+                return file.createNewFile();
             }
-            file.getParentFile().mkdirs();
-            return file.createNewFile();
+            return true;
         }
         return invokeL.booleanValue;
     }
 
-    public static boolean deleteFile(String str) {
+    public static boolean deleteFile(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, file)) == null) {
+            try {
+                return file.delete();
+            } catch (Exception e) {
+                Log.e(e);
                 return false;
             }
-            if (isFileExist(str)) {
-                return deleteFile(new File(str));
-            }
-            return true;
         }
         return invokeL.booleanValue;
     }
@@ -71,25 +70,43 @@ public class PassBioFileUtils {
         return invokeL.booleanValue;
     }
 
+    public static boolean deleteFile(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            if (!isFileExist(str)) {
+                return true;
+            }
+            return deleteFile(new File(str));
+        }
+        return invokeL.booleanValue;
+    }
+
     public static boolean write(File file, byte[] bArr) throws IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, file, bArr)) == null) ? write(file, bArr, true) : invokeLL.booleanValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, file, bArr)) == null) {
+            return write(file, bArr, true);
+        }
+        return invokeLL.booleanValue;
     }
 
     public static boolean write(File file, byte[] bArr, boolean z) throws IOException {
         InterceptResult invokeLLZ;
         FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLLZ = interceptable.invokeLLZ(65542, null, file, bArr, z)) != null) {
-            return invokeLLZ.booleanValue;
-        }
-        try {
-            if (!file.exists()) {
-                file.getParentFile().mkdirs();
-                file.createNewFile();
-            }
-            if (file.canWrite()) {
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65542, null, file, bArr, z)) == null) {
+            try {
+                if (!file.exists()) {
+                    file.getParentFile().mkdirs();
+                    file.createNewFile();
+                }
+                if (!file.canWrite()) {
+                    return false;
+                }
                 fileOutputStream = new FileOutputStream(file, z);
                 try {
                     fileOutputStream.write(bArr);
@@ -101,24 +118,11 @@ public class PassBioFileUtils {
                     }
                     return false;
                 }
+            } catch (Throwable unused2) {
+                fileOutputStream = null;
             }
-            return false;
-        } catch (Throwable unused2) {
-            fileOutputStream = null;
+        } else {
+            return invokeLLZ.booleanValue;
         }
-    }
-
-    public static boolean deleteFile(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, file)) == null) {
-            try {
-                return file.delete();
-            } catch (Exception e) {
-                Log.e(e);
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
     }
 }

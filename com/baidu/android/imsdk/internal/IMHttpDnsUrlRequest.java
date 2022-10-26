@@ -24,6 +24,33 @@ public class IMHttpDnsUrlRequest extends BaseHttpRequest {
     public static final String TAG = "IMHttpDnsUrlRequest";
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
+    public int getConnectTimeout() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 5000;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getContentType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "application/x-www-form-urlencoded" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public boolean shouldAbort() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     public IMHttpDnsUrlRequest(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -43,24 +70,7 @@ public class IMHttpDnsUrlRequest extends BaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
-    public int getConnectTimeout() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 5000;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public String getContentType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "application/x-www-form-urlencoded" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
-    public Map<String, String> getHeaders() {
+    public Map getHeaders() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -75,7 +85,13 @@ public class IMHttpDnsUrlRequest extends BaseHttpRequest {
     public String getHost() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? !Utility.isIpv4Reachable() ? HTTP_DNS_URL_IPV6 : HTTP_DNS_URL : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (!Utility.isIpv4Reachable()) {
+                return HTTP_DNS_URL_IPV6;
+            }
+            return HTTP_DNS_URL;
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -99,6 +115,8 @@ public class IMHttpDnsUrlRequest extends BaseHttpRequest {
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     public void onSuccess(int i, byte[] bArr) {
+        int length;
+        int length2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048582, this, i, bArr) == null) {
             String str = new String(bArr);
@@ -108,8 +126,16 @@ public class IMHttpDnsUrlRequest extends BaseHttpRequest {
                 JSONObject jSONObject = new JSONObject(str).getJSONObject("data").getJSONObject(Constants.URL_SOCKET_SERVER);
                 JSONArray optJSONArray = jSONObject.optJSONArray("ip");
                 JSONArray optJSONArray2 = jSONObject.optJSONArray(HttpDnsCacheForHost.JSON_KEY_IPV6);
-                int length = optJSONArray2 == null ? 0 : optJSONArray2.length();
-                int length2 = optJSONArray == null ? 0 : optJSONArray.length();
+                if (optJSONArray2 == null) {
+                    length = 0;
+                } else {
+                    length = optJSONArray2.length();
+                }
+                if (optJSONArray == null) {
+                    length2 = 0;
+                } else {
+                    length2 = optJSONArray.length();
+                }
                 if (length2 + length > 0) {
                     ArrayList arrayList2 = new ArrayList();
                     if (optJSONArray != null && length2 > 0) {
@@ -132,15 +158,5 @@ public class IMHttpDnsUrlRequest extends BaseHttpRequest {
             }
             IMSocketAddrProvider.getInstance(this.mContext).onGetHttpDNSAddressResult(arrayList);
         }
-    }
-
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public boolean shouldAbort() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

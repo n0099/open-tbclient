@@ -42,37 +42,62 @@ public final class DetectionResult {
 
     private void adjustIndicatorColumnRowNumbers(DetectionResultColumn detectionResultColumn) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, this, detectionResultColumn) == null) || detectionResultColumn == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(65537, this, detectionResultColumn) == null) && detectionResultColumn != null) {
+            ((DetectionResultRowIndicatorColumn) detectionResultColumn).adjustCompleteIndicatorColumnRowNumbers(this.barcodeMetadata);
         }
-        ((DetectionResultRowIndicatorColumn) detectionResultColumn).adjustCompleteIndicatorColumnRowNumbers(this.barcodeMetadata);
+    }
+
+    public DetectionResultColumn getDetectionResultColumn(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            return this.detectionResultColumns[i];
+        }
+        return (DetectionResultColumn) invokeI.objValue;
+    }
+
+    public void setBoundingBox(BoundingBox boundingBox) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, boundingBox) == null) {
+            this.boundingBox = boundingBox;
+        }
     }
 
     public static boolean adjustRowNumber(Codeword codeword, Codeword codeword2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, codeword, codeword2)) == null) {
-            if (codeword2 != null && codeword2.hasValidRowNumber() && codeword2.getBucket() == codeword.getBucket()) {
-                codeword.setRowNumber(codeword2.getRowNumber());
-                return true;
+            if (codeword2 == null || !codeword2.hasValidRowNumber() || codeword2.getBucket() != codeword.getBucket()) {
+                return false;
             }
-            return false;
+            codeword.setRowNumber(codeword2.getRowNumber());
+            return true;
         }
         return invokeLL.booleanValue;
+    }
+
+    public void setDetectionResultColumn(int i, DetectionResultColumn detectionResultColumn) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048583, this, i, detectionResultColumn) == null) {
+            this.detectionResultColumns[i] = detectionResultColumn;
+        }
     }
 
     public static int adjustRowNumberIfValid(int i, int i2, Codeword codeword) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65539, null, i, i2, codeword)) == null) {
-            if (codeword == null || codeword.hasValidRowNumber()) {
+            if (codeword == null) {
                 return i2;
             }
-            if (codeword.isValidRowNumber(i)) {
-                codeword.setRowNumber(i);
-                return 0;
+            if (!codeword.hasValidRowNumber()) {
+                if (codeword.isValidRowNumber(i)) {
+                    codeword.setRowNumber(i);
+                    return 0;
+                }
+                return i2 + 1;
             }
-            return i2 + 1;
+            return i2;
         }
         return invokeIIL.intValue;
     }
@@ -98,6 +123,70 @@ public final class DetectionResult {
         return invokeV.intValue;
     }
 
+    public DetectionResultColumn[] getDetectionResultColumns() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            adjustIndicatorColumnRowNumbers(this.detectionResultColumns[0]);
+            adjustIndicatorColumnRowNumbers(this.detectionResultColumns[this.barcodeColumnCount + 1]);
+            int i = 928;
+            while (true) {
+                int adjustRowNumbers = adjustRowNumbers();
+                if (adjustRowNumbers <= 0 || adjustRowNumbers >= i) {
+                    break;
+                }
+                i = adjustRowNumbers;
+            }
+            return this.detectionResultColumns;
+        }
+        return (DetectionResultColumn[]) invokeV.objValue;
+    }
+
+    private void adjustRowNumbers(int i, int i2, Codeword[] codewordArr) {
+        Codeword[] codewordArr2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(65541, this, i, i2, codewordArr) == null) {
+            Codeword codeword = codewordArr[i2];
+            Codeword[] codewords = this.detectionResultColumns[i - 1].getCodewords();
+            DetectionResultColumn[] detectionResultColumnArr = this.detectionResultColumns;
+            int i3 = i + 1;
+            if (detectionResultColumnArr[i3] != null) {
+                codewordArr2 = detectionResultColumnArr[i3].getCodewords();
+            } else {
+                codewordArr2 = codewords;
+            }
+            Codeword[] codewordArr3 = new Codeword[14];
+            codewordArr3[2] = codewords[i2];
+            codewordArr3[3] = codewordArr2[i2];
+            if (i2 > 0) {
+                int i4 = i2 - 1;
+                codewordArr3[0] = codewordArr[i4];
+                codewordArr3[4] = codewords[i4];
+                codewordArr3[5] = codewordArr2[i4];
+            }
+            if (i2 > 1) {
+                int i5 = i2 - 2;
+                codewordArr3[8] = codewordArr[i5];
+                codewordArr3[10] = codewords[i5];
+                codewordArr3[11] = codewordArr2[i5];
+            }
+            if (i2 < codewordArr.length - 1) {
+                int i6 = i2 + 1;
+                codewordArr3[1] = codewordArr[i6];
+                codewordArr3[6] = codewords[i6];
+                codewordArr3[7] = codewordArr2[i6];
+            }
+            if (i2 < codewordArr.length - 2) {
+                int i7 = i2 + 2;
+                codewordArr3[9] = codewordArr[i7];
+                codewordArr3[12] = codewords[i7];
+                codewordArr3[13] = codewordArr2[i7];
+            }
+            for (int i8 = 0; i8 < 14 && !adjustRowNumber(codeword, codewordArr3[i8]); i8++) {
+            }
+        }
+    }
+
     private int adjustRowNumbersByRow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -108,29 +197,98 @@ public final class DetectionResult {
         return invokeV.intValue;
     }
 
+    public int getBarcodeColumnCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.barcodeColumnCount;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getBarcodeECLevel() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.barcodeMetadata.getErrorCorrectionLevel();
+        }
+        return invokeV.intValue;
+    }
+
+    public int getBarcodeRowCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.barcodeMetadata.getRowCount();
+        }
+        return invokeV.intValue;
+    }
+
+    public BoundingBox getBoundingBox() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.boundingBox;
+        }
+        return (BoundingBox) invokeV.objValue;
+    }
+
     private void adjustRowNumbersFromBothRI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
             DetectionResultColumn[] detectionResultColumnArr = this.detectionResultColumns;
-            if (detectionResultColumnArr[0] == null || detectionResultColumnArr[this.barcodeColumnCount + 1] == null) {
-                return;
-            }
-            Codeword[] codewords = detectionResultColumnArr[0].getCodewords();
-            Codeword[] codewords2 = this.detectionResultColumns[this.barcodeColumnCount + 1].getCodewords();
-            for (int i = 0; i < codewords.length; i++) {
-                if (codewords[i] != null && codewords2[i] != null && codewords[i].getRowNumber() == codewords2[i].getRowNumber()) {
-                    for (int i2 = 1; i2 <= this.barcodeColumnCount; i2++) {
-                        Codeword codeword = this.detectionResultColumns[i2].getCodewords()[i];
-                        if (codeword != null) {
-                            codeword.setRowNumber(codewords[i].getRowNumber());
-                            if (!codeword.hasValidRowNumber()) {
-                                this.detectionResultColumns[i2].getCodewords()[i] = null;
+            if (detectionResultColumnArr[0] != null && detectionResultColumnArr[this.barcodeColumnCount + 1] != null) {
+                Codeword[] codewords = detectionResultColumnArr[0].getCodewords();
+                Codeword[] codewords2 = this.detectionResultColumns[this.barcodeColumnCount + 1].getCodewords();
+                for (int i = 0; i < codewords.length; i++) {
+                    if (codewords[i] != null && codewords2[i] != null && codewords[i].getRowNumber() == codewords2[i].getRowNumber()) {
+                        for (int i2 = 1; i2 <= this.barcodeColumnCount; i2++) {
+                            Codeword codeword = this.detectionResultColumns[i2].getCodewords()[i];
+                            if (codeword != null) {
+                                codeword.setRowNumber(codewords[i].getRowNumber());
+                                if (!codeword.hasValidRowNumber()) {
+                                    this.detectionResultColumns[i2].getCodewords()[i] = null;
+                                }
                             }
                         }
                     }
                 }
             }
         }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            DetectionResultColumn[] detectionResultColumnArr = this.detectionResultColumns;
+            DetectionResultColumn detectionResultColumn = detectionResultColumnArr[0];
+            if (detectionResultColumn == null) {
+                detectionResultColumn = detectionResultColumnArr[this.barcodeColumnCount + 1];
+            }
+            Formatter formatter = new Formatter();
+            for (int i = 0; i < detectionResultColumn.getCodewords().length; i++) {
+                formatter.format("CW %3d:", Integer.valueOf(i));
+                for (int i2 = 0; i2 < this.barcodeColumnCount + 2; i2++) {
+                    DetectionResultColumn[] detectionResultColumnArr2 = this.detectionResultColumns;
+                    if (detectionResultColumnArr2[i2] == null) {
+                        formatter.format("    |   ", new Object[0]);
+                    } else {
+                        Codeword codeword = detectionResultColumnArr2[i2].getCodewords()[i];
+                        if (codeword == null) {
+                            formatter.format("    |   ", new Object[0]);
+                        } else {
+                            formatter.format(" %3d|%3d", Integer.valueOf(codeword.getRowNumber()), Integer.valueOf(codeword.getValue()));
+                        }
+                    }
+                }
+                formatter.format("%n", new Object[0]);
+            }
+            String formatter2 = formatter.toString();
+            formatter.close();
+            return formatter2;
+        }
+        return (String) invokeV.objValue;
     }
 
     private int adjustRowNumbersFromLRI() {
@@ -192,142 +350,5 @@ public final class DetectionResult {
             return i2;
         }
         return invokeV.intValue;
-    }
-
-    public int getBarcodeColumnCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.barcodeColumnCount : invokeV.intValue;
-    }
-
-    public int getBarcodeECLevel() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.barcodeMetadata.getErrorCorrectionLevel() : invokeV.intValue;
-    }
-
-    public int getBarcodeRowCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.barcodeMetadata.getRowCount() : invokeV.intValue;
-    }
-
-    public BoundingBox getBoundingBox() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.boundingBox : (BoundingBox) invokeV.objValue;
-    }
-
-    public DetectionResultColumn getDetectionResultColumn(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? this.detectionResultColumns[i] : (DetectionResultColumn) invokeI.objValue;
-    }
-
-    public DetectionResultColumn[] getDetectionResultColumns() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            adjustIndicatorColumnRowNumbers(this.detectionResultColumns[0]);
-            adjustIndicatorColumnRowNumbers(this.detectionResultColumns[this.barcodeColumnCount + 1]);
-            int i = 928;
-            while (true) {
-                int adjustRowNumbers = adjustRowNumbers();
-                if (adjustRowNumbers <= 0 || adjustRowNumbers >= i) {
-                    break;
-                }
-                i = adjustRowNumbers;
-            }
-            return this.detectionResultColumns;
-        }
-        return (DetectionResultColumn[]) invokeV.objValue;
-    }
-
-    public void setBoundingBox(BoundingBox boundingBox) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, boundingBox) == null) {
-            this.boundingBox = boundingBox;
-        }
-    }
-
-    public void setDetectionResultColumn(int i, DetectionResultColumn detectionResultColumn) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048583, this, i, detectionResultColumn) == null) {
-            this.detectionResultColumns[i] = detectionResultColumn;
-        }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            DetectionResultColumn[] detectionResultColumnArr = this.detectionResultColumns;
-            DetectionResultColumn detectionResultColumn = detectionResultColumnArr[0];
-            if (detectionResultColumn == null) {
-                detectionResultColumn = detectionResultColumnArr[this.barcodeColumnCount + 1];
-            }
-            Formatter formatter = new Formatter();
-            for (int i = 0; i < detectionResultColumn.getCodewords().length; i++) {
-                formatter.format("CW %3d:", Integer.valueOf(i));
-                for (int i2 = 0; i2 < this.barcodeColumnCount + 2; i2++) {
-                    DetectionResultColumn[] detectionResultColumnArr2 = this.detectionResultColumns;
-                    if (detectionResultColumnArr2[i2] == null) {
-                        formatter.format("    |   ", new Object[0]);
-                    } else {
-                        Codeword codeword = detectionResultColumnArr2[i2].getCodewords()[i];
-                        if (codeword == null) {
-                            formatter.format("    |   ", new Object[0]);
-                        } else {
-                            formatter.format(" %3d|%3d", Integer.valueOf(codeword.getRowNumber()), Integer.valueOf(codeword.getValue()));
-                        }
-                    }
-                }
-                formatter.format("%n", new Object[0]);
-            }
-            String formatter2 = formatter.toString();
-            formatter.close();
-            return formatter2;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    private void adjustRowNumbers(int i, int i2, Codeword[] codewordArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(65541, this, i, i2, codewordArr) == null) {
-            Codeword codeword = codewordArr[i2];
-            Codeword[] codewords = this.detectionResultColumns[i - 1].getCodewords();
-            DetectionResultColumn[] detectionResultColumnArr = this.detectionResultColumns;
-            int i3 = i + 1;
-            Codeword[] codewords2 = detectionResultColumnArr[i3] != null ? detectionResultColumnArr[i3].getCodewords() : codewords;
-            Codeword[] codewordArr2 = new Codeword[14];
-            codewordArr2[2] = codewords[i2];
-            codewordArr2[3] = codewords2[i2];
-            if (i2 > 0) {
-                int i4 = i2 - 1;
-                codewordArr2[0] = codewordArr[i4];
-                codewordArr2[4] = codewords[i4];
-                codewordArr2[5] = codewords2[i4];
-            }
-            if (i2 > 1) {
-                int i5 = i2 - 2;
-                codewordArr2[8] = codewordArr[i5];
-                codewordArr2[10] = codewords[i5];
-                codewordArr2[11] = codewords2[i5];
-            }
-            if (i2 < codewordArr.length - 1) {
-                int i6 = i2 + 1;
-                codewordArr2[1] = codewordArr[i6];
-                codewordArr2[6] = codewords[i6];
-                codewordArr2[7] = codewords2[i6];
-            }
-            if (i2 < codewordArr.length - 2) {
-                int i7 = i2 + 2;
-                codewordArr2[9] = codewordArr[i7];
-                codewordArr2[12] = codewords[i7];
-                codewordArr2[13] = codewords2[i7];
-            }
-            for (int i8 = 0; i8 < 14 && !adjustRowNumber(codeword, codewordArr2[i8]); i8++) {
-            }
-        }
     }
 }

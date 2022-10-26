@@ -1,6 +1,5 @@
 package com.baidu.android.imsdk.db;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
@@ -24,8 +23,23 @@ public class IMDatabase {
     public static DbOpenHelper mDbHelper;
     public transient /* synthetic */ FieldHolder $fh;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1453033070, "Lcom/baidu/android/imsdk/db/IMDatabase;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1453033070, "Lcom/baidu/android/imsdk/db/IMDatabase;");
+        }
+    }
+
     /* loaded from: classes.dex */
-    public static class DbOpenHelper extends SQLiteOpenHelper {
+    public class DbOpenHelper extends SQLiteOpenHelper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Context mContext;
@@ -61,7 +75,6 @@ public class IMDatabase {
         }
 
         @Override // android.database.sqlite.SQLiteOpenHelper
-        @TargetApi(11)
         public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
@@ -75,21 +88,6 @@ public class IMDatabase {
             if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase, i, i2) == null) {
                 DBVersionManager.getInstance(this.mContext).onUpgrade(sQLiteDatabase, i, i2);
             }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1453033070, "Lcom/baidu/android/imsdk/db/IMDatabase;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-1453033070, "Lcom/baidu/android/imsdk/db/IMDatabase;");
         }
     }
 

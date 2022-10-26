@@ -2,30 +2,37 @@ package com.baidu.tieba;
 
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import com.baidu.ala.data.SdkLiveInfoData;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.TiebaStaticHelper;
-import com.baidu.tieba.ala.alasquare.live_tab.view.TabLiveStageLiveView;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class bv5 extends i16<zt5> {
+public class bv5 extends p16 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View i;
-    public TabLiveStageLiveView j;
-    public int k;
+    public TextView i;
+    public TextView j;
+    public TbImageView k;
+    public TbImageView l;
+    public View m;
+    public su5 n;
+
+    @Override // com.baidu.tieba.p16
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0852 : invokeV.intValue;
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bv5(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
+    public bv5(TbPageContext tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -43,98 +50,48 @@ public class bv5 extends i16<zt5> {
                 return;
             }
         }
-        this.k = 0;
-        r();
-    }
-
-    @Override // com.baidu.tieba.i16
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0847 : invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.i16
-    public void j(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            SkinManager.setBackgroundColor(h(), R.color.CAM_X0201);
-            TabLiveStageLiveView tabLiveStageLiveView = this.j;
-            if (tabLiveStageLiveView != null) {
-                tabLiveStageLiveView.c();
-            }
-        }
+        this.m = k();
+        this.i = (TextView) k().findViewById(R.id.obfuscated_res_0x7f090e4e);
+        this.j = (TextView) k().findViewById(R.id.obfuscated_res_0x7f090e4d);
+        this.k = (TbImageView) k().findViewById(R.id.obfuscated_res_0x7f090e4c);
+        TbImageView tbImageView = (TbImageView) k().findViewById(R.id.obfuscated_res_0x7f090e4b);
+        this.l = tbImageView;
+        tbImageView.setAutoChangeStyle(true);
+        this.l.setDefaultResource(17170445);
+        this.l.setDefaultBgResource(17170445);
+        this.k.setOnClickListener(this);
+        this.j.setOnClickListener(this);
+        m(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-        }
-    }
-
-    public final void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.i = h();
-            int[] b = qt5.b(getContext());
-            int i = b[0];
-            int i2 = b[1];
-            TabLiveStageLiveView tabLiveStageLiveView = (TabLiveStageLiveView) this.i.findViewById(R.id.obfuscated_res_0x7f091f69);
-            this.j = tabLiveStageLiveView;
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) tabLiveStageLiveView.getLayoutParams();
-            if (layoutParams == null) {
-                layoutParams = (FrameLayout.LayoutParams) new ViewGroup.LayoutParams(i, i2);
-            } else {
-                layoutParams.width = i;
-                layoutParams.height = i2;
-            }
-            layoutParams.gravity = 1;
-            this.j.setLayoutParams(layoutParams);
+        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && e() != null) {
+            e().a(view2, this.n);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.i16
-    /* renamed from: s */
-    public void i(zt5 zt5Var) {
-        SdkLiveInfoData sdkLiveInfoData;
-        SdkLiveInfoData.AlaLiveInfo alaLiveInfo;
-        String str;
+    @Override // com.baidu.tieba.p16
+    /* renamed from: r */
+    public void l(su5 su5Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, zt5Var) == null) || zt5Var == null || zt5Var.a == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048580, this, su5Var) == null) {
+            this.n = su5Var;
         }
-        int k = ej.k(this.c);
-        if (k != this.k) {
-            int[] b = qt5.b(getContext());
-            int i = b[0];
-            int i2 = b[1];
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.j.getLayoutParams();
-            layoutParams.width = i;
-            layoutParams.height = i2;
-            this.j.setLayoutParams(layoutParams);
-            this.k = k;
+    }
+
+    @Override // com.baidu.tieba.p16
+    public void m(TbPageContext tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            SkinManager.setBackgroundResource(this.m, R.color.CAM_X0201);
+            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0101);
+            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0101);
+            SkinManager.setImageResource(this.k, R.drawable.icon_tab_live_close_n);
+            SkinManager.setBackgroundResource(this.j, R.drawable.tab_sub_notification_btn_bg_selecor);
+            SkinManager.setImageResource(this.l, R.drawable.obfuscated_res_0x7f0802ea);
         }
-        this.j.setData(zt5Var.a.a, 101);
-        StatisticItem statisticItem = new StatisticItem("c13551");
-        au5 au5Var = zt5Var.a;
-        if (au5Var != null && (sdkLiveInfoData = au5Var.a) != null && (alaLiveInfo = sdkLiveInfoData.liveInfo) != null) {
-            int a = qt5.a(alaLiveInfo);
-            SdkLiveInfoData sdkLiveInfoData2 = zt5Var.a.a;
-            SdkLiveInfoData.YYExt yYExt = sdkLiveInfoData2.liveInfo.yyExt;
-            if (yYExt != null) {
-                TiebaStaticHelper.addYYParam(statisticItem, qt5.j(yYExt, sdkLiveInfoData2.roomId));
-                str = TiebaStatic.YYValues.YY_LIVE;
-            } else {
-                str = "";
-            }
-            statisticItem.param("obj_param1", a);
-            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, str);
-        }
-        statisticItem.param(TiebaStatic.Params.ENTRY_NAME, "推荐");
-        statisticItem.param("nid", zt5Var.a.a.nid);
-        statisticItem.param(TiebaStatic.Params.LOGID, zt5Var.a.a.logid);
-        TiebaStatic.log(statisticItem);
     }
 }

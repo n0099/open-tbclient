@@ -13,6 +13,12 @@ public abstract class Binarizer {
     public transient /* synthetic */ FieldHolder $fh;
     public final LuminanceSource source;
 
+    public abstract Binarizer createBinarizer(LuminanceSource luminanceSource);
+
+    public abstract BitMatrix getBlackMatrix() throws NotFoundException;
+
+    public abstract BitArray getBlackRow(int i, BitArray bitArray) throws NotFoundException;
+
     public Binarizer(LuminanceSource luminanceSource) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -31,27 +37,30 @@ public abstract class Binarizer {
         this.source = luminanceSource;
     }
 
-    public abstract Binarizer createBinarizer(LuminanceSource luminanceSource);
-
-    public abstract BitMatrix getBlackMatrix() throws NotFoundException;
-
-    public abstract BitArray getBlackRow(int i, BitArray bitArray) throws NotFoundException;
-
     public final int getHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.source.getHeight() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.source.getHeight();
+        }
+        return invokeV.intValue;
     }
 
     public final LuminanceSource getLuminanceSource() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.source : (LuminanceSource) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.source;
+        }
+        return (LuminanceSource) invokeV.objValue;
     }
 
     public final int getWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.source.getWidth() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.source.getWidth();
+        }
+        return invokeV.intValue;
     }
 }

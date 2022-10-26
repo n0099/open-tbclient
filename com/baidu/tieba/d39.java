@@ -1,47 +1,60 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.webkit.WebView;
-import androidx.annotation.NonNull;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
-import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.tieba.write.vcode.newVcode.NewVcodeView;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.write.transmit.model.GetRepostForumHttpResMessage;
+import com.baidu.tieba.write.transmit.model.GetRepostForumReqMessage;
+import com.baidu.tieba.write.transmit.model.GetRepostForumSocketResMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class d39 implements c39 {
+public class d39 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final NewVcodeView a;
-    @NonNull
-    public final NewWriteModel b;
-    public final NewWriteModel.d c;
+    public BdUniqueId a;
+    public List b;
+    public String c;
+    public b d;
+    public String e;
+    public String f;
+    public int g;
+    public String h;
+    public BdUniqueId i;
+    public qb j;
 
     /* loaded from: classes3.dex */
-    public class a implements NewWriteModel.d {
+    public interface b {
+        void a(List list, int i);
+
+        void onError();
+    }
+
+    /* loaded from: classes3.dex */
+    public class a extends qb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ d39 a;
 
-        public a(d39 d39Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(d39 d39Var, int i, int i2) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {d39Var};
+                Object[] objArr = {d39Var, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -50,37 +63,50 @@ public class d39 implements c39 {
             this.a = d39Var;
         }
 
-        @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
-        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, y15 y15Var, WriteData writeData, AntiData antiData) {
+        @Override // com.baidu.tieba.qb
+        public void onMessage(ResponsedMessage responsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, y15Var, writeData, antiData}) == null) {
-                this.a.a.showPostThreadLoadingView(false);
-                if (z) {
-                    Intent intent = new Intent();
-                    Bundle bundle = new Bundle();
-                    bundle.putSerializable("post_write_callback_data", postWriteCallBackData);
-                    intent.putExtras(bundle);
-                    np8.a(writeData, postWriteCallBackData.getThreadId());
-                    this.a.a.getContext().setResult(-1, intent);
-                    this.a.a.getContext().finish();
-                } else if (y15Var == null || TextUtils.isEmpty(y15Var.c())) {
-                    if (postWriteCallBackData != null) {
-                        this.a.a.showToast(false, postWriteCallBackData.getErrorString());
-                    }
-                    this.a.a.getContext().finish();
-                } else if (this.a.a.getWebView() != null) {
-                    this.a.a.getWebView().loadUrl(y15Var.c());
+            if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
+                return;
+            }
+            boolean z = responsedMessage instanceof GetRepostForumHttpResMessage;
+            if (!z && !(responsedMessage instanceof GetRepostForumSocketResMessage)) {
+                return;
+            }
+            if (responsedMessage.getOrginalMessage() != null && (responsedMessage.getOrginalMessage().getExtra() instanceof GetRepostForumReqMessage) && this.a.i != ((GetRepostForumReqMessage) responsedMessage.getOrginalMessage().getExtra()).getRequestId()) {
+                return;
+            }
+            if (responsedMessage.hasError()) {
+                if (this.a.d != null) {
+                    this.a.d.onError();
+                    return;
                 }
+                return;
+            }
+            if (z) {
+                GetRepostForumHttpResMessage getRepostForumHttpResMessage = (GetRepostForumHttpResMessage) responsedMessage;
+                this.a.b = getRepostForumHttpResMessage.getForumList();
+                this.a.c = getRepostForumHttpResMessage.getRecommendExtension();
+                this.a.g = getRepostForumHttpResMessage.getPrivateThread();
+            }
+            if (responsedMessage instanceof GetRepostForumSocketResMessage) {
+                GetRepostForumSocketResMessage getRepostForumSocketResMessage = (GetRepostForumSocketResMessage) responsedMessage;
+                this.a.b = getRepostForumSocketResMessage.getForumList();
+                this.a.c = getRepostForumSocketResMessage.getRecommendExtension();
+                this.a.g = getRepostForumSocketResMessage.getPrivateThread();
+            }
+            if (this.a.d != null) {
+                this.a.d.a(this.a.b, this.a.g);
             }
         }
     }
 
-    public d39(@NonNull NewVcodeView newVcodeView, @NonNull NewWriteModel newWriteModel) {
+    public d39(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {newVcodeView, newWriteModel};
+            Object[] objArr = {bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -90,103 +116,53 @@ public class d39 implements c39 {
                 return;
             }
         }
-        a aVar = new a(this);
-        this.c = aVar;
-        this.a = newVcodeView;
-        this.b = newWriteModel;
-        newWriteModel.b0(aVar);
+        a aVar = new a(this, CmdConfigHttp.CMD_GET_REPOST_RECOMMEND_FORUM, 309450);
+        this.j = aVar;
+        this.a = bdUniqueId;
+        aVar.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.j);
+        this.j.getHttpMessageListener().setSelfListener(true);
+        this.j.getSocketMessageListener().setSelfListener(true);
     }
 
-    @Override // com.baidu.tieba.c39
-    public void a(boolean z) {
+    public void i(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.a.showWebView(false);
-            if (this.b.S() == null) {
-                return;
-            }
-            String vcodeUrl = this.b.S().getVcodeUrl();
-            if (TextUtils.isEmpty(vcodeUrl) || this.a.getWebView() == null) {
-                return;
-            }
-            this.a.getWebView().loadUrl(vcodeUrl);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+            this.d = bVar;
         }
     }
 
-    @Override // com.baidu.tieba.c39
-    public boolean b(WebView webView, String str) {
-        InterceptResult invokeLL;
+    public void j(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str)) == null) {
-            if (!TextUtils.isEmpty(str) && str.contains("objc:jsAiCodeBack")) {
-                String a2 = vi5.a(str);
-                if (!TextUtils.isEmpty(a2) && !"0".equals(a2)) {
-                    g(a2);
-                    return true;
-                }
-                this.a.getContext().finish();
-                return true;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.c39
-    public void c(NewWriteModel.d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId) == null) {
+            this.i = bdUniqueId;
         }
     }
 
-    @Override // com.baidu.tieba.c39
-    public void d() {
+    public void k(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a.showPostThreadLoadingView(false);
-            this.b.cancelLoadData();
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.f = str;
         }
     }
 
-    @Override // com.baidu.tieba.c39
-    public void e(boolean z, String str) {
+    public void l(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048580, this, z, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.e = str;
         }
     }
 
-    public final void g(String str) {
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            if (!ej.D()) {
-                this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0c59);
-                this.a.getContext().finish();
-            } else if (!TextUtils.isEmpty(str)) {
-                this.a.showPostThreadLoadingView(true);
-                if (this.b.S() != null) {
-                    this.b.S().setVcode(str);
-                    this.b.S().setVcodeType("6");
-                }
-                this.b.e0();
-            } else {
-                this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0c59);
-                this.a.getContext().finish();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.c39
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.c39
-    public void onPageFinished(WebView webView, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, webView, str) == null) {
-            this.a.showWebViewDelay(500);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            GetRepostForumReqMessage getRepostForumReqMessage = new GetRepostForumReqMessage();
+            getRepostForumReqMessage.setThreadTitle(this.e);
+            getRepostForumReqMessage.setThreadContent(this.f);
+            getRepostForumReqMessage.setForumId(this.h);
+            getRepostForumReqMessage.setTag(this.a);
+            getRepostForumReqMessage.setRequestId(this.i);
+            MessageManager.getInstance().sendMessage(getRepostForumReqMessage);
         }
     }
 }

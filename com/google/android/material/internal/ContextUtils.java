@@ -3,14 +3,11 @@ package com.google.android.material.internal;
 import android.app.Activity;
 import android.content.Context;
 import android.content.ContextWrapper;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes7.dex */
 public class ContextUtils {
     public static /* synthetic */ Interceptable $ic;
@@ -30,7 +27,6 @@ public class ContextUtils {
         }
     }
 
-    @Nullable
     public static Activity getActivity(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

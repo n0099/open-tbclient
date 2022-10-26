@@ -12,5 +12,5 @@ public interface Postprocessor {
     @Nullable
     CacheKey getPostprocessorCacheKey();
 
-    CloseableReference<Bitmap> process(Bitmap bitmap, PlatformBitmapFactory platformBitmapFactory);
+    CloseableReference process(Bitmap bitmap, PlatformBitmapFactory platformBitmapFactory);
 }

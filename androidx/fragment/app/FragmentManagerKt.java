@@ -29,20 +29,6 @@ public final class FragmentManagerKt {
         }
     }
 
-    public static /* synthetic */ void commit$default(FragmentManager fragmentManager, boolean z, Function1 function1, int i, Object obj) {
-        if ((i & 1) != 0) {
-            z = false;
-        }
-        FragmentTransaction beginTransaction = fragmentManager.beginTransaction();
-        Intrinsics.checkExpressionValueIsNotNull(beginTransaction, "beginTransaction()");
-        function1.invoke(beginTransaction);
-        if (z) {
-            beginTransaction.commitAllowingStateLoss();
-        } else {
-            beginTransaction.commit();
-        }
-    }
-
     public static final void commitNow(FragmentManager fragmentManager, boolean z, Function1<? super FragmentTransaction, Unit> function1) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{fragmentManager, Boolean.valueOf(z), function1}) == null) {
@@ -54,6 +40,20 @@ public final class FragmentManagerKt {
             } else {
                 beginTransaction.commitNow();
             }
+        }
+    }
+
+    public static /* synthetic */ void commit$default(FragmentManager fragmentManager, boolean z, Function1 function1, int i, Object obj) {
+        if ((i & 1) != 0) {
+            z = false;
+        }
+        FragmentTransaction beginTransaction = fragmentManager.beginTransaction();
+        Intrinsics.checkExpressionValueIsNotNull(beginTransaction, "beginTransaction()");
+        function1.invoke(beginTransaction);
+        if (z) {
+            beginTransaction.commitAllowingStateLoss();
+        } else {
+            beginTransaction.commit();
         }
     }
 

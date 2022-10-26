@@ -14,6 +14,11 @@ public final class FilteringSequence$iterator$1 implements Iterator<T>, KMappedM
     public int nextState;
     public final /* synthetic */ FilteringSequence this$0;
 
+    @Override // java.util.Iterator
+    public void remove() {
+        throw new UnsupportedOperationException("Operation is not supported for read-only collection");
+    }
+
     /* JADX DEBUG: Incorrect args count in method signature: ()V */
     public FilteringSequence$iterator$1(FilteringSequence filteringSequence) {
         Sequence sequence;
@@ -23,6 +28,16 @@ public final class FilteringSequence$iterator$1 implements Iterator<T>, KMappedM
         this.nextState = -1;
     }
 
+    public final void setNextItem(T t) {
+        this.nextItem = t;
+    }
+
+    public final void setNextState(int i) {
+        this.nextState = i;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: kotlin.jvm.functions.Function1 */
+    /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r0v4, types: [T, java.lang.Object] */
     private final void calcNext() {
         Function1 function1;
@@ -58,7 +73,10 @@ public final class FilteringSequence$iterator$1 implements Iterator<T>, KMappedM
         if (this.nextState == -1) {
             calcNext();
         }
-        return this.nextState == 1;
+        if (this.nextState == 1) {
+            return true;
+        }
+        return false;
     }
 
     @Override // java.util.Iterator
@@ -73,18 +91,5 @@ public final class FilteringSequence$iterator$1 implements Iterator<T>, KMappedM
             return t;
         }
         throw new NoSuchElementException();
-    }
-
-    @Override // java.util.Iterator
-    public void remove() {
-        throw new UnsupportedOperationException("Operation is not supported for read-only collection");
-    }
-
-    public final void setNextItem(T t) {
-        this.nextItem = t;
-    }
-
-    public final void setNextState(int i) {
-        this.nextState = i;
     }
 }

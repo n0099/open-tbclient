@@ -29,6 +29,9 @@ public abstract class MAFragment extends Fragment {
     public Context getTargetActivity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? getActivity() : (Context) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return getActivity();
+        }
+        return (Context) invokeV.objValue;
     }
 }

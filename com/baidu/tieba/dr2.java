@@ -1,78 +1,122 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.apps.media.chooser.model.MediaModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class dr2 {
     public static /* synthetic */ Interceptable $ic;
+    public static ArrayList a;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public boolean b;
-    public String c;
-    public String d;
-    public int e;
 
-    public dr2() {
+    public static void a() {
+        ArrayList arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if ((interceptable == null || interceptable.invokeV(65536, null) == null) && (arrayList = a) != null) {
+            arrayList.clear();
+            a = null;
         }
-        this.a = 3;
-        this.b = true;
-        this.d = "back";
-        this.e = 60;
     }
 
-    public static dr2 a(JSONObject jSONObject) {
+    public static int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            ArrayList arrayList = a;
+            if (arrayList == null) {
+                return 0;
+            }
+            return arrayList.size();
+        }
+        return invokeV.intValue;
+    }
+
+    public static ArrayList e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return a;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            ArrayList arrayList = a;
+            if (arrayList != null && arrayList.size() != 0 && a.get(0) != null) {
+                return ((MediaModel) a.get(0)).getType();
+            }
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static int c(MediaModel mediaModel) {
+        InterceptResult invokeL;
+        ArrayList arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, mediaModel)) == null) {
+            if (mediaModel == null || (arrayList = a) == null) {
+                return -1;
+            }
+            int size = arrayList.size();
+            for (int i = 0; i < size; i++) {
+                if (mediaModel.equals(a.get(i))) {
+                    return i;
+                }
+            }
+            return -1;
+        }
+        return invokeL.intValue;
+    }
+
+    public static boolean f(MediaModel mediaModel) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            dr2 dr2Var = new dr2();
-            if (jSONObject != null) {
-                JSONArray optJSONArray = jSONObject.optJSONArray("sourceType");
-                if (optJSONArray != null && optJSONArray.length() > 0) {
-                    int length = optJSONArray.length();
-                    int i = 0;
-                    for (int i2 = 0; i2 < length; i2++) {
-                        String optString = optJSONArray.optString(i2);
-                        char c = 65535;
-                        int hashCode = optString.hashCode();
-                        if (hashCode != -1367751899) {
-                            if (hashCode == 92896879 && optString.equals("album")) {
-                                c = 0;
-                            }
-                        } else if (optString.equals("camera")) {
-                            c = 1;
-                        }
-                        if (c == 0) {
-                            i |= 1;
-                        } else if (c == 1) {
-                            i |= 2;
-                        }
-                    }
-                    dr2Var.a = i;
-                }
-                dr2Var.b = jSONObject.optBoolean("compressed", true);
-                int optInt = jSONObject.optInt("maxDuration", 60);
-                dr2Var.e = optInt <= 60 ? optInt : 60;
-                dr2Var.d = jSONObject.optString("camera");
-                dr2Var.c = jSONObject.optString("cb");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, mediaModel)) == null) {
+            ArrayList arrayList = a;
+            if (arrayList == null) {
+                return false;
             }
-            return dr2Var;
+            return arrayList.contains(mediaModel);
         }
-        return (dr2) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public static boolean g(MediaModel mediaModel) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, mediaModel)) == null) {
+            ArrayList arrayList = a;
+            if (arrayList != null && arrayList.size() != 0) {
+                return a.contains(mediaModel);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void h(MediaModel mediaModel) {
+        ArrayList arrayList;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65543, null, mediaModel) == null) && (arrayList = a) != null) {
+            arrayList.remove(mediaModel);
+        }
+    }
+
+    public static void i(MediaModel mediaModel) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65544, null, mediaModel) != null) || mediaModel == null) {
+            return;
+        }
+        if (a == null) {
+            a = new ArrayList();
+        }
+        a.add(mediaModel);
     }
 }

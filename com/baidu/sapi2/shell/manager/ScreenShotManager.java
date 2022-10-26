@@ -103,6 +103,31 @@ public class ScreenShotManager {
         }
     }
 
+    public void register() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.mContentResolver.registerContentObserver(MediaStore.Images.Media.INTERNAL_CONTENT_URI, false, this.mInternalObserver);
+            this.mContentResolver.registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, false, this.mExternalObserver);
+        }
+    }
+
+    public void unRegister() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.mContentResolver.unregisterContentObserver(this.mInternalObserver);
+            this.mContentResolver.unregisterContentObserver(this.mExternalObserver);
+            Handler handler = this.mHandler;
+            if (handler != null) {
+                handler.removeCallbacksAndMessages(null);
+                this.mHandler = null;
+            }
+            HandlerThread handlerThread = this.mHandlerThread;
+            if (handlerThread != null) {
+                handlerThread.quit();
+            }
+        }
+    }
+
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, IF, INVOKE] complete} */
     /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Code restructure failed: missing block: B:17:0x0041, code lost:
@@ -162,10 +187,23 @@ public class ScreenShotManager {
                     Log.e(e);
                 }
             }
-            if (!isScreenShot(str) || (iScreenShotListener = this.mScreenShotListener) == null) {
-                return;
+            if (isScreenShot(str) && (iScreenShotListener = this.mScreenShotListener) != null) {
+                iScreenShotListener.onScreenShot();
             }
-            iScreenShotListener.onScreenShot();
+        }
+    }
+
+    public void init(ContentResolver contentResolver, IScreenShotListener iScreenShotListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, contentResolver, iScreenShotListener) == null) {
+            this.mContentResolver = contentResolver;
+            this.mScreenShotListener = iScreenShotListener;
+            HandlerThread handlerThread = new HandlerThread(SCREEN_SHOT_OBSERVER);
+            this.mHandlerThread = handlerThread;
+            handlerThread.start();
+            this.mHandler = new Handler(this.mHandlerThread.getLooper());
+            this.mInternalObserver = new MediaContentObserver(this, MediaStore.Images.Media.INTERNAL_CONTENT_URI, this.mHandler);
+            this.mExternalObserver = new MediaContentObserver(this, MediaStore.Images.Media.EXTERNAL_CONTENT_URI, this.mHandler);
         }
     }
 
@@ -185,44 +223,5 @@ public class ScreenShotManager {
             return false;
         }
         return invokeL.booleanValue;
-    }
-
-    public void init(ContentResolver contentResolver, IScreenShotListener iScreenShotListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, contentResolver, iScreenShotListener) == null) {
-            this.mContentResolver = contentResolver;
-            this.mScreenShotListener = iScreenShotListener;
-            HandlerThread handlerThread = new HandlerThread(SCREEN_SHOT_OBSERVER);
-            this.mHandlerThread = handlerThread;
-            handlerThread.start();
-            this.mHandler = new Handler(this.mHandlerThread.getLooper());
-            this.mInternalObserver = new MediaContentObserver(this, MediaStore.Images.Media.INTERNAL_CONTENT_URI, this.mHandler);
-            this.mExternalObserver = new MediaContentObserver(this, MediaStore.Images.Media.EXTERNAL_CONTENT_URI, this.mHandler);
-        }
-    }
-
-    public void register() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.mContentResolver.registerContentObserver(MediaStore.Images.Media.INTERNAL_CONTENT_URI, false, this.mInternalObserver);
-            this.mContentResolver.registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, false, this.mExternalObserver);
-        }
-    }
-
-    public void unRegister() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.mContentResolver.unregisterContentObserver(this.mInternalObserver);
-            this.mContentResolver.unregisterContentObserver(this.mExternalObserver);
-            Handler handler = this.mHandler;
-            if (handler != null) {
-                handler.removeCallbacksAndMessages(null);
-                this.mHandler = null;
-            }
-            HandlerThread handlerThread = this.mHandlerThread;
-            if (handlerThread != null) {
-                handlerThread.quit();
-            }
-        }
     }
 }

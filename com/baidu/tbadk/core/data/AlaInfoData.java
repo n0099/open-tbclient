@@ -8,8 +8,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.searchbox.live.interfaces.service.bd.IFavorStateServiceKt;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import com.baidu.tieba.dj;
-import com.baidu.tieba.fr4;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.hr4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -46,7 +46,7 @@ public class AlaInfoData implements Serializable, Parcelable {
     public boolean haveRedpkg;
     public String hls_url;
     public boolean isChushou;
-    public transient fr4 label;
+    public transient hr4 label;
     public String label_name;
     public boolean liveStageForceTop;
     public String liveStagePicUrl;
@@ -77,8 +77,18 @@ public class AlaInfoData implements Serializable, Parcelable {
     public long thread_id;
     public transient AlaUserInfoData user_info;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     /* loaded from: classes3.dex */
-    public static class a implements Parcelable.Creator<AlaInfoData> {
+    public final class a implements Parcelable.Creator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -102,7 +112,10 @@ public class AlaInfoData implements Serializable, Parcelable {
         public AlaInfoData createFromParcel(Parcel parcel) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new AlaInfoData(parcel) : (AlaInfoData) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+                return new AlaInfoData(parcel);
+            }
+            return (AlaInfoData) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -111,7 +124,10 @@ public class AlaInfoData implements Serializable, Parcelable {
         public AlaInfoData[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new AlaInfoData[i] : (AlaInfoData[]) invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                return new AlaInfoData[i];
+            }
+            return (AlaInfoData[]) invokeI.objValue;
         }
     }
 
@@ -145,22 +161,15 @@ public class AlaInfoData implements Serializable, Parcelable {
         }
     }
 
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
     public boolean isLegalYYLiveData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             YyExtData yyExtData = this.mYyExtData;
-            return (yyExtData == null || dj.isEmpty(yyExtData.mSid) || dj.isEmpty(this.mYyExtData.mSsid)) ? false : true;
+            if (yyExtData != null && !ej.isEmpty(yyExtData.mSid) && !ej.isEmpty(this.mYyExtData.mSsid)) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
@@ -168,102 +177,13 @@ public class AlaInfoData implements Serializable, Parcelable {
     public boolean isVertialLive() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.screen_direction == 0 : invokeV.booleanValue;
-    }
-
-    public void parserJson(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            try {
-                parserJson(new JSONObject(str));
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.screen_direction == 0) {
+                return true;
             }
+            return false;
         }
-    }
-
-    public void parserProtobuf(AlaLiveInfo alaLiveInfo) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, alaLiveInfo) == null) || alaLiveInfo == null) {
-            return;
-        }
-        try {
-            this.live_id = alaLiveInfo.live_id.longValue();
-            this.cover = alaLiveInfo.cover;
-            this.session_id = alaLiveInfo.session_id;
-            this.rtmp_url = alaLiveInfo.rtmp_url;
-            this.hls_url = alaLiveInfo.hls_url;
-            this.group_id = alaLiveInfo.group_id.longValue();
-            this.media_url = alaLiveInfo.media_url;
-            this.media_pic = alaLiveInfo.media_pic;
-            this.media_id = alaLiveInfo.media_id;
-            this.media_subtitle = alaLiveInfo.media_subtitle;
-            this.description = alaLiveInfo.description;
-            AlaUserInfoData alaUserInfoData = new AlaUserInfoData();
-            this.user_info = alaUserInfoData;
-            alaUserInfoData.parserProtobuf(alaLiveInfo.user_info);
-            AlaShareInfoData alaShareInfoData = new AlaShareInfoData();
-            this.share_info = alaShareInfoData;
-            alaShareInfoData.z(alaLiveInfo.share_info);
-            this.live_status = alaLiveInfo.live_status.intValue();
-            this.duration = alaLiveInfo.duration.intValue();
-            this.audience_count = alaLiveInfo.audience_count.intValue();
-            this.live_type = alaLiveInfo.live_type.intValue();
-            this.screen_direction = alaLiveInfo.screen_direction.intValue();
-            this.label_name = alaLiveInfo.label_name;
-            this.distance = alaLiveInfo.distance.longValue();
-            this.appId = alaLiveInfo.third_app_id;
-            this.thread_id = alaLiveInfo.thread_id.longValue();
-            if (alaLiveInfo.stage_dislike_info != null) {
-                if (this.dislikeInfo == null) {
-                    this.dislikeInfo = new SparseArray<>();
-                }
-                this.dislikeInfo.clear();
-                for (int i = 0; i < alaLiveInfo.stage_dislike_info.size(); i++) {
-                    AlaStageDislikeInfo alaStageDislikeInfo = alaLiveInfo.stage_dislike_info.get(i);
-                    if (alaStageDislikeInfo != null) {
-                        this.dislikeInfo.put(alaStageDislikeInfo.dislike_id.intValue(), alaStageDislikeInfo.dislike_reason);
-                    }
-                }
-            }
-            AlaChallengeInfoData alaChallengeInfoData = new AlaChallengeInfoData();
-            this.mChallengeInfoData = alaChallengeInfoData;
-            alaChallengeInfoData.parserProtobuf(alaLiveInfo.challenge_info);
-            this.frsLiveStageType = alaLiveInfo.frs_toplive_type.intValue();
-            this.liveStagePicUrl = alaLiveInfo.frs_toplive_pic;
-            this.liveStageForceTop = alaLiveInfo.frs_toplive_force.intValue() == 1;
-            this.isChushou = alaLiveInfo.live_from.intValue() == 1;
-            this.thirdLiveType = alaLiveInfo.third_live_type;
-            this.thirdRoomId = alaLiveInfo.third_room_id;
-            this.routeType = alaLiveInfo.router_type;
-            this.recomReason = alaLiveInfo.recom_reason;
-            this.openRecomReason = alaLiveInfo.open_recom_reason.intValue();
-            this.openRecomLocation = alaLiveInfo.open_recom_location.intValue();
-            this.openRecomFans = alaLiveInfo.open_recom_fans.intValue();
-            this.openRecomDuration = alaLiveInfo.open_recom_duration.intValue();
-            this.roomId = alaLiveInfo.room_id.longValue();
-            this.friendRoomStatus = alaLiveInfo.room_status.intValue();
-            this.friendRoomName = alaLiveInfo.room_name;
-            this.forumUserLiveMsg = alaLiveInfo.forum_user_live_msg;
-            this.mCoverWide = alaLiveInfo.cover_wide;
-            if (alaLiveInfo.yy_ext != null) {
-                YyExtData yyExtData = new YyExtData();
-                this.mYyExtData = yyExtData;
-                yyExtData.parseProtoBuf(alaLiveInfo.yy_ext);
-            }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
-    }
-
-    @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048582, this, parcel, i) == null) {
-            parcel.writeLong(this.live_id);
-            parcel.writeInt(this.live_status);
-            parcel.writeParcelable(this.mYyExtData, i);
-        }
+        return invokeV.booleanValue;
     }
 
     public AlaInfoData(Parcel parcel) {
@@ -286,9 +206,20 @@ public class AlaInfoData implements Serializable, Parcelable {
         this.mYyExtData = (YyExtData) parcel.readParcelable(YyExtData.class.getClassLoader());
     }
 
+    public void parserJson(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            try {
+                parserJson(new JSONObject(str));
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         try {
@@ -320,11 +251,12 @@ public class AlaInfoData implements Serializable, Parcelable {
             this.thread_id = jSONObject.optLong("thread_id");
             JSONObject optJSONObject = jSONObject.optJSONObject("label");
             if (optJSONObject != null) {
-                fr4 fr4Var = new fr4();
-                this.label = fr4Var;
-                fr4Var.a(optJSONObject);
+                hr4 hr4Var = new hr4();
+                this.label = hr4Var;
+                hr4Var.a(optJSONObject);
             }
             JSONArray optJSONArray = jSONObject.optJSONArray("stage_dislike_info");
+            boolean z = false;
             if (optJSONArray != null) {
                 if (this.dislikeInfo == null) {
                     this.dislikeInfo = new SparseArray<>();
@@ -344,7 +276,10 @@ public class AlaInfoData implements Serializable, Parcelable {
             }
             this.frsLiveStageType = jSONObject.optInt("frs_toplive_type");
             this.liveStagePicUrl = jSONObject.optString("frs_toplive_pic");
-            this.liveStageForceTop = jSONObject.optInt("frs_toplive_force", 0) == 1;
+            if (jSONObject.optInt("frs_toplive_force", 0) == 1) {
+                z = true;
+            }
+            this.liveStageForceTop = z;
             this.haveRedpkg = "1".equals(jSONObject.optString("red_packet", ""));
             this.isChushou = "1".equals(jSONObject.optString("live_from", ""));
             this.thirdLiveType = jSONObject.optString("third_live_type");
@@ -369,6 +304,100 @@ public class AlaInfoData implements Serializable, Parcelable {
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
+        }
+    }
+
+    public void parserProtobuf(AlaLiveInfo alaLiveInfo) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, alaLiveInfo) != null) || alaLiveInfo == null) {
+            return;
+        }
+        try {
+            this.live_id = alaLiveInfo.live_id.longValue();
+            this.cover = alaLiveInfo.cover;
+            this.session_id = alaLiveInfo.session_id;
+            this.rtmp_url = alaLiveInfo.rtmp_url;
+            this.hls_url = alaLiveInfo.hls_url;
+            this.group_id = alaLiveInfo.group_id.longValue();
+            this.media_url = alaLiveInfo.media_url;
+            this.media_pic = alaLiveInfo.media_pic;
+            this.media_id = alaLiveInfo.media_id;
+            this.media_subtitle = alaLiveInfo.media_subtitle;
+            this.description = alaLiveInfo.description;
+            AlaUserInfoData alaUserInfoData = new AlaUserInfoData();
+            this.user_info = alaUserInfoData;
+            alaUserInfoData.parserProtobuf(alaLiveInfo.user_info);
+            AlaShareInfoData alaShareInfoData = new AlaShareInfoData();
+            this.share_info = alaShareInfoData;
+            alaShareInfoData.z(alaLiveInfo.share_info);
+            this.live_status = alaLiveInfo.live_status.intValue();
+            this.duration = alaLiveInfo.duration.intValue();
+            this.audience_count = alaLiveInfo.audience_count.intValue();
+            this.live_type = alaLiveInfo.live_type.intValue();
+            this.screen_direction = alaLiveInfo.screen_direction.intValue();
+            this.label_name = alaLiveInfo.label_name;
+            this.distance = alaLiveInfo.distance.longValue();
+            this.appId = alaLiveInfo.third_app_id;
+            this.thread_id = alaLiveInfo.thread_id.longValue();
+            boolean z2 = false;
+            if (alaLiveInfo.stage_dislike_info != null) {
+                if (this.dislikeInfo == null) {
+                    this.dislikeInfo = new SparseArray<>();
+                }
+                this.dislikeInfo.clear();
+                for (int i = 0; i < alaLiveInfo.stage_dislike_info.size(); i++) {
+                    AlaStageDislikeInfo alaStageDislikeInfo = alaLiveInfo.stage_dislike_info.get(i);
+                    if (alaStageDislikeInfo != null) {
+                        this.dislikeInfo.put(alaStageDislikeInfo.dislike_id.intValue(), alaStageDislikeInfo.dislike_reason);
+                    }
+                }
+            }
+            AlaChallengeInfoData alaChallengeInfoData = new AlaChallengeInfoData();
+            this.mChallengeInfoData = alaChallengeInfoData;
+            alaChallengeInfoData.parserProtobuf(alaLiveInfo.challenge_info);
+            this.frsLiveStageType = alaLiveInfo.frs_toplive_type.intValue();
+            this.liveStagePicUrl = alaLiveInfo.frs_toplive_pic;
+            if (alaLiveInfo.frs_toplive_force.intValue() == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.liveStageForceTop = z;
+            if (alaLiveInfo.live_from.intValue() == 1) {
+                z2 = true;
+            }
+            this.isChushou = z2;
+            this.thirdLiveType = alaLiveInfo.third_live_type;
+            this.thirdRoomId = alaLiveInfo.third_room_id;
+            this.routeType = alaLiveInfo.router_type;
+            this.recomReason = alaLiveInfo.recom_reason;
+            this.openRecomReason = alaLiveInfo.open_recom_reason.intValue();
+            this.openRecomLocation = alaLiveInfo.open_recom_location.intValue();
+            this.openRecomFans = alaLiveInfo.open_recom_fans.intValue();
+            this.openRecomDuration = alaLiveInfo.open_recom_duration.intValue();
+            this.roomId = alaLiveInfo.room_id.longValue();
+            this.friendRoomStatus = alaLiveInfo.room_status.intValue();
+            this.friendRoomName = alaLiveInfo.room_name;
+            this.forumUserLiveMsg = alaLiveInfo.forum_user_live_msg;
+            this.mCoverWide = alaLiveInfo.cover_wide;
+            if (alaLiveInfo.yy_ext != null) {
+                YyExtData yyExtData = new YyExtData();
+                this.mYyExtData = yyExtData;
+                yyExtData.parseProtoBuf(alaLiveInfo.yy_ext);
+            }
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048582, this, parcel, i) == null) {
+            parcel.writeLong(this.live_id);
+            parcel.writeInt(this.live_status);
+            parcel.writeParcelable(this.mYyExtData, i);
         }
     }
 }

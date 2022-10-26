@@ -15,7 +15,7 @@ import org.aspectj.internal.lang.reflect.AjTypeImpl;
 /* loaded from: classes8.dex */
 public class AjTypeSystem {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<Class, WeakReference<AjType>> ajTypes;
+    public static Map ajTypes;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -48,22 +48,22 @@ public class AjTypeSystem {
         }
     }
 
-    public static <T> AjType<T> getAjType(Class<T> cls) {
+    public static AjType getAjType(Class cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, cls)) == null) {
-            WeakReference<AjType> weakReference = ajTypes.get(cls);
+            WeakReference weakReference = (WeakReference) ajTypes.get(cls);
             if (weakReference != null) {
-                AjType<T> ajType = weakReference.get();
+                AjType ajType = (AjType) weakReference.get();
                 if (ajType != null) {
                     return ajType;
                 }
                 AjTypeImpl ajTypeImpl = new AjTypeImpl(cls);
-                ajTypes.put(cls, new WeakReference<>(ajTypeImpl));
+                ajTypes.put(cls, new WeakReference(ajTypeImpl));
                 return ajTypeImpl;
             }
             AjTypeImpl ajTypeImpl2 = new AjTypeImpl(cls);
-            ajTypes.put(cls, new WeakReference<>(ajTypeImpl2));
+            ajTypes.put(cls, new WeakReference(ajTypeImpl2));
             return ajTypeImpl2;
         }
         return (AjType) invokeL.objValue;

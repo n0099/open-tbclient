@@ -2,8 +2,6 @@ package com.baidu.searchbox.ruka;
 
 import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.looper.impl.LooperMonitor_Factory;
 import com.baidu.searchbox.ruka.ioc.ILooperMonitor;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -13,7 +11,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Autowired
 /* loaded from: classes2.dex */
 public class LooperProvider {
     public static /* synthetic */ Interceptable $ic;
@@ -36,20 +33,6 @@ public class LooperProvider {
         EMPTY = new ILooperMonitor() { // from class: com.baidu.searchbox.ruka.LooperProvider.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
 
             @Override // com.baidu.searchbox.ruka.ioc.ILooperMonitor
             public boolean enableMonitor() {
@@ -84,6 +67,20 @@ public class LooperProvider {
                 if (interceptable2 == null || interceptable2.invokeV(1048579, this) == null) {
                 }
             }
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
         };
     }
 
@@ -101,10 +98,12 @@ public class LooperProvider {
         }
     }
 
-    @Inject(force = false)
     public static ILooperMonitor getLooperMonitor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? LooperMonitor_Factory.get() : (ILooperMonitor) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return LooperMonitor_Factory.get();
+        }
+        return (ILooperMonitor) invokeV.objValue;
     }
 }

@@ -21,7 +21,7 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\b\n\u0000\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "Lcom/baidu/searchbox/live/widget/PagerLayoutManager;", "invoke"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
-public final class RecyleController$layoutManger$2 extends Lambda implements Function0<PagerLayoutManager> {
+public final class RecyleController$layoutManger$2 extends Lambda implements Function0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ RecyleController this$0;
@@ -48,7 +48,6 @@ public final class RecyleController$layoutManger$2 extends Lambda implements Fun
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
     @Override // kotlin.jvm.functions.Function0
     public final PagerLayoutManager invoke() {
         InterceptResult invokeV;
@@ -81,16 +80,36 @@ public final class RecyleController$layoutManger$2 extends Lambda implements Fun
                     this.lastSelectedPos = -1;
                 }
 
+                public final void setLastSelectView(View view2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048582, this, view2) == null) {
+                        this.lastSelectView = view2;
+                    }
+                }
+
+                public final void setLastSelectedPos(int i) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeI(1048583, this, i) == null) {
+                        this.lastSelectedPos = i;
+                    }
+                }
+
                 public final View getLastSelectView() {
                     InterceptResult invokeV2;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048576, this)) == null) ? this.lastSelectView : (View) invokeV2.objValue;
+                    if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048576, this)) == null) {
+                        return this.lastSelectView;
+                    }
+                    return (View) invokeV2.objValue;
                 }
 
                 public final int getLastSelectedPos() {
                     InterceptResult invokeV2;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV2 = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.lastSelectedPos : invokeV2.intValue;
+                    if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                        return this.lastSelectedPos;
+                    }
+                    return invokeV2.intValue;
                 }
 
                 @Override // com.baidu.searchbox.live.widget.PagerLayoutManager.SimplePagerListener, com.baidu.searchbox.live.widget.PagerLayoutManager.PagerListener
@@ -107,6 +126,7 @@ public final class RecyleController$layoutManger$2 extends Lambda implements Fun
 
                 @Override // com.baidu.searchbox.live.widget.PagerLayoutManager.SimplePagerListener, com.baidu.searchbox.live.widget.PagerLayoutManager.PagerListener
                 public void onPageSelected(PagerLayoutManager.PagerListener.PageAction pageAction, int i, View view2) {
+                    LiveContainer.LiveItemModel liveItemModel;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLIL(1048579, this, pageAction, i, view2) == null) {
                         if (pageAction == PagerLayoutManager.PagerListener.PageAction.NONE && i == 0 && this.this$0.this$0.getListController().getCurrentPosition() != 0 && this.this$0.this$0.getListController().getCurrentPosition() < this.this$0.this$0.getListController().getItemData().size()) {
@@ -114,7 +134,11 @@ public final class RecyleController$layoutManger$2 extends Lambda implements Fun
                         }
                         int i2 = this.lastSelectedPos;
                         if (i2 >= 0 && this.lastSelectView != null && i2 != i) {
-                            LiveContainer.LiveItemModel liveItemModel = i2 < this.this$0.this$0.getListController().getItemData().size() ? this.this$0.this$0.getListController().getItemData().get(this.lastSelectedPos) : null;
+                            if (i2 < this.this$0.this$0.getListController().getItemData().size()) {
+                                liveItemModel = (LiveContainer.LiveItemModel) this.this$0.this$0.getListController().getItemData().get(this.lastSelectedPos);
+                            } else {
+                                liveItemModel = null;
+                            }
                             View view3 = this.lastSelectView;
                             if (!(view3 instanceof LiveContainer)) {
                                 view3 = null;
@@ -124,7 +148,7 @@ public final class RecyleController$layoutManger$2 extends Lambda implements Fun
                                 liveContainer.onDeselected(this.lastSelectedPos, liveItemModel);
                             }
                         }
-                        Set<Integer> handleClosedLiveRoom = this.this$0.this$0.handleClosedLiveRoom();
+                        Set handleClosedLiveRoom = this.this$0.this$0.handleClosedLiveRoom();
                         if (!handleClosedLiveRoom.isEmpty()) {
                             if (handleClosedLiveRoom.size() == 1) {
                                 MiniUiThreadUtil.INSTANCE.runOnUiThread(new Runnable(this, handleClosedLiveRoom) { // from class: com.baidu.searchbox.live.list.controller.RecyleController$layoutManger$2$$special$$inlined$apply$lambda$1.1
@@ -156,13 +180,14 @@ public final class RecyleController$layoutManger$2 extends Lambda implements Fun
                                     public final void run() {
                                         RecyleController.ListAdapter adapter;
                                         Interceptable interceptable3 = $ic;
-                                        if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                            try {
-                                                adapter = this.this$0.this$0.this$0.getAdapter();
-                                                adapter.notifyItemRemoved(((Number) CollectionsKt___CollectionsKt.first(this.$needRefresh)).intValue());
-                                            } catch (Exception e) {
-                                                e.printStackTrace();
-                                            }
+                                        if (interceptable3 != null && interceptable3.invokeV(1048576, this) != null) {
+                                            return;
+                                        }
+                                        try {
+                                            adapter = this.this$0.this$0.this$0.getAdapter();
+                                            adapter.notifyItemRemoved(((Number) CollectionsKt___CollectionsKt.first(this.$needRefresh)).intValue());
+                                        } catch (Exception e) {
+                                            e.printStackTrace();
                                         }
                                     }
                                 });
@@ -194,13 +219,14 @@ public final class RecyleController$layoutManger$2 extends Lambda implements Fun
                                     public final void run() {
                                         RecyleController.ListAdapter adapter;
                                         Interceptable interceptable3 = $ic;
-                                        if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                            try {
-                                                adapter = this.this$0.this$0.this$0.getAdapter();
-                                                adapter.notifyDataSetChanged();
-                                            } catch (Exception e) {
-                                                e.printStackTrace();
-                                            }
+                                        if (interceptable3 != null && interceptable3.invokeV(1048576, this) != null) {
+                                            return;
+                                        }
+                                        try {
+                                            adapter = this.this$0.this$0.this$0.getAdapter();
+                                            adapter.notifyDataSetChanged();
+                                        } catch (Exception e) {
+                                            e.printStackTrace();
                                         }
                                     }
                                 });
@@ -211,14 +237,14 @@ public final class RecyleController$layoutManger$2 extends Lambda implements Fun
                             this.this$0.this$0.getListController().setCurrentPosition(i);
                             this.lastSelectedPos = i;
                             this.lastSelectView = view2;
-                            this.this$0.this$0.getListController().setCurRoomModel(this.this$0.this$0.getListController().getItemData().get(i));
+                            this.this$0.this$0.getListController().setCurRoomModel((LiveContainer.LiveItemModel) this.this$0.this$0.getListController().getItemData().get(i));
                             this.this$0.this$0.getListController().onBeforeSelect(i);
                             if (!(view2 instanceof LiveContainer)) {
                                 view2 = null;
                             }
                             LiveContainer liveContainer2 = (LiveContainer) view2;
                             if (liveContainer2 != null) {
-                                liveContainer2.onSelected(i, this.this$0.this$0.getListController().getItemData().get(i), !this.this$0.this$0.getListController().isFromForward());
+                                liveContainer2.onSelected(i, (LiveContainer.LiveItemModel) this.this$0.this$0.getListController().getItemData().get(i), !this.this$0.this$0.getListController().isFromForward());
                             }
                             this.this$0.this$0.getListController().onAfterSelect(i);
                         }
@@ -246,20 +272,6 @@ public final class RecyleController$layoutManger$2 extends Lambda implements Fun
                         if (mixShellScrollInterface != null) {
                             mixShellScrollInterface.pageStartScrolledOffsetAction(z, i);
                         }
-                    }
-                }
-
-                public final void setLastSelectView(View view2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048582, this, view2) == null) {
-                        this.lastSelectView = view2;
-                    }
-                }
-
-                public final void setLastSelectedPos(int i) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeI(1048583, this, i) == null) {
-                        this.lastSelectedPos = i;
                     }
                 }
             });

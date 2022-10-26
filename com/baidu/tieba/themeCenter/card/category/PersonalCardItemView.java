@@ -12,8 +12,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.ns8;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.xs8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,10 +32,15 @@ public class PersonalCardItemView extends LinearLayout {
     public ImageView g;
     public TextView h;
     public View i;
-    public ns8 j;
+    public xs8 j;
     public b k;
     public int l;
     public int m;
+
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(xs8 xs8Var);
+    }
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
@@ -64,16 +69,10 @@ public class PersonalCardItemView extends LinearLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || view2 == null || this.a.k == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2 != null && this.a.k != null) {
+                this.a.k.a(this.a.j);
             }
-            this.a.k.a(this.a.j);
         }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(ns8 ns8Var);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -96,84 +95,6 @@ public class PersonalCardItemView extends LinearLayout {
         }
         this.a = context;
         d();
-    }
-
-    public void c(ns8 ns8Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, ns8Var) == null) || ns8Var == null) {
-            return;
-        }
-        this.j = ns8Var;
-        if (ns8Var.a() == ns8.k) {
-            this.c.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-            SkinManager.setBackgroundColor(this.c, R.color.CAM_X0204);
-            SkinManager.setImageResource(this.c, R.drawable.icon_bubble_choose_no);
-            this.d.setVisibility(0);
-            this.f.setVisibility(8);
-            this.e.setVisibility(8);
-        } else {
-            this.d.setVisibility(8);
-            this.f.setVisibility(0);
-            this.e.setVisibility(0);
-            this.c.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.c.setImageBitmap(null);
-            this.c.setDefaultResource(R.drawable.obfuscated_res_0x7f080be3);
-            this.c.K(ns8Var.e(), 10, false);
-        }
-        if (ns8Var.g() == 1) {
-            this.g.setVisibility(0);
-            SkinManager.setImageResource(this.g, R.drawable.icon_choose_photo);
-        } else {
-            this.g.setVisibility(8);
-        }
-        this.e.K(ns8Var.i(), 10, false);
-        this.f.K(ns8Var.b(), 10, false);
-        this.h.setText(ns8Var.j());
-        setVisibility(0);
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            setOrientation(1);
-            int k = (ej.k(this.a) - ej.f(this.a, R.dimen.obfuscated_res_0x7f070306)) / 3;
-            this.l = k;
-            this.m = (int) (k * 0.57d);
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0730, this);
-            this.b = inflate;
-            this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090e97);
-            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0918d1);
-            this.e = tbImageView;
-            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f081241);
-            this.e.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081241);
-            TbImageView tbImageView2 = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091f7d);
-            this.f = tbImageView2;
-            tbImageView2.setDefaultResource(R.drawable.obfuscated_res_0x7f081241);
-            this.f.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081241);
-            this.g = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090620);
-            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092439);
-            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0925ac);
-            this.i = this.b.findViewById(R.id.obfuscated_res_0x7f0903a5);
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.c.getLayoutParams();
-            layoutParams.height = this.m;
-            layoutParams.width = this.l;
-            this.c.setLayoutParams(layoutParams);
-            this.i.setLayoutParams(layoutParams);
-            this.c.setOnClickListener(new a(this));
-        }
-    }
-
-    public b getCardViewController() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.k : (b) invokeV.objValue;
-    }
-
-    public void setCardViewController(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            this.k = bVar;
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -220,5 +141,86 @@ public class PersonalCardItemView extends LinearLayout {
         }
         this.a = context;
         d();
+    }
+
+    public void setCardViewController(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
+            this.k = bVar;
+        }
+    }
+
+    public void c(xs8 xs8Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, xs8Var) != null) || xs8Var == null) {
+            return;
+        }
+        this.j = xs8Var;
+        if (xs8Var.a() == xs8.k) {
+            this.c.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+            SkinManager.setBackgroundColor(this.c, R.color.CAM_X0204);
+            SkinManager.setImageResource(this.c, R.drawable.icon_bubble_choose_no);
+            this.d.setVisibility(0);
+            this.f.setVisibility(8);
+            this.e.setVisibility(8);
+        } else {
+            this.d.setVisibility(8);
+            this.f.setVisibility(0);
+            this.e.setVisibility(0);
+            this.c.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.c.setImageBitmap(null);
+            this.c.setDefaultResource(R.drawable.obfuscated_res_0x7f080bf3);
+            this.c.L(xs8Var.e(), 10, false);
+        }
+        if (xs8Var.g() == 1) {
+            this.g.setVisibility(0);
+            SkinManager.setImageResource(this.g, R.drawable.icon_choose_photo);
+        } else {
+            this.g.setVisibility(8);
+        }
+        this.e.L(xs8Var.i(), 10, false);
+        this.f.L(xs8Var.b(), 10, false);
+        this.h.setText(xs8Var.j());
+        setVisibility(0);
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            setOrientation(1);
+            int k = (fj.k(this.a) - fj.f(this.a, R.dimen.obfuscated_res_0x7f070306)) / 3;
+            this.l = k;
+            this.m = (int) (k * 0.57d);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0730, this);
+            this.b = inflate;
+            this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090e8b);
+            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0918c4);
+            this.e = tbImageView;
+            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f081252);
+            this.e.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081252);
+            TbImageView tbImageView2 = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091f7c);
+            this.f = tbImageView2;
+            tbImageView2.setDefaultResource(R.drawable.obfuscated_res_0x7f081252);
+            this.f.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081252);
+            this.g = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090629);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092423);
+            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092594);
+            this.i = this.b.findViewById(R.id.obfuscated_res_0x7f0903ae);
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.c.getLayoutParams();
+            layoutParams.height = this.m;
+            layoutParams.width = this.l;
+            this.c.setLayoutParams(layoutParams);
+            this.i.setLayoutParams(layoutParams);
+            this.c.setOnClickListener(new a(this));
+        }
+    }
+
+    public b getCardViewController() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.k;
+        }
+        return (b) invokeV.objValue;
     }
 }

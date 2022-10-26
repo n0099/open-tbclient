@@ -5,14 +5,14 @@ import android.content.Intent;
 import com.baidu.tbadk.core.atomData.HotUserRankActivityConfig;
 import com.baidu.tbadk.core.atomData.TbTitleActivityConfig;
 import com.baidu.tieba.enterForum.hotuserrank.HotUserRankActivity;
-import com.baidu.tieba.zf8;
+import com.baidu.tieba.jg8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class HotUserRankListDispatcher implements zf8 {
+public class HotUserRankListDispatcher implements jg8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,15 +30,14 @@ public class HotUserRankListDispatcher implements zf8 {
         }
     }
 
-    @Override // com.baidu.tieba.zf8
+    @Override // com.baidu.tieba.jg8
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) || jSONObject == null || context == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) && jSONObject != null && context != null) {
+            Intent intent = new Intent();
+            intent.setClass(context, HotUserRankActivity.class);
+            intent.putExtra(HotUserRankActivityConfig.KEY_FORUM_ID, jSONObject.optLong(TbTitleActivityConfig.FORUM_ID));
+            context.startActivity(intent);
         }
-        Intent intent = new Intent();
-        intent.setClass(context, HotUserRankActivity.class);
-        intent.putExtra(HotUserRankActivityConfig.KEY_FORUM_ID, jSONObject.optLong(TbTitleActivityConfig.FORUM_ID));
-        context.startActivity(intent);
     }
 }

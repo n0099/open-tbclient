@@ -22,6 +22,22 @@ public abstract class RTCVideoExternalRender implements VideoSink {
     public BaiduRtcRoom.BaiduRtcRoomVideoObserver mVideoObserver;
     public StuckDataCalculator stuckDataCalculator;
 
+    public abstract void changeSurfaceSize(int i, int i2);
+
+    public abstract void clearImage();
+
+    public abstract Surface getSurface();
+
+    public abstract boolean hasSurface();
+
+    public abstract void init();
+
+    public abstract void release();
+
+    public abstract void releaseSurface();
+
+    public abstract void setSurface(Surface surface);
+
     public RTCVideoExternalRender(BaiduRtcRoom.BaiduRtcRoomVideoObserver baiduRtcRoomVideoObserver, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -46,20 +62,13 @@ public abstract class RTCVideoExternalRender implements VideoSink {
         this.mVideoObserver = baiduRtcRoomVideoObserver;
     }
 
-    public abstract void changeSurfaceSize(int i, int i2);
-
-    public abstract void clearImage();
-
-    public abstract Surface getSurface();
-
-    public abstract boolean hasSurface();
-
-    public abstract void init();
-
     public boolean isRenderInited() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mIsRenderInited : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mIsRenderInited;
+        }
+        return invokeV.booleanValue;
     }
 
     public void leaving() {
@@ -83,10 +92,6 @@ public abstract class RTCVideoExternalRender implements VideoSink {
         }
     }
 
-    public abstract void release();
-
-    public abstract void releaseSurface();
-
     public void setEnableSLIDataReport(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
@@ -107,6 +112,4 @@ public abstract class RTCVideoExternalRender implements VideoSink {
             this.stuckDataCalculator.setStuckEventListener(sLIReportInterface);
         }
     }
-
-    public abstract void setSurface(Surface surface);
 }

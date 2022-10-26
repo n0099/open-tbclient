@@ -17,7 +17,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ConfirmFriendMsg extends NotifyMsg implements Parcelable, NoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator<ConfirmFriendMsg> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public static final String TAG = "ConfirmFriendMsg";
     public transient /* synthetic */ FieldHolder $fh;
     public long fromUser;
@@ -35,7 +35,7 @@ public class ConfirmFriendMsg extends NotifyMsg implements Parcelable, NoProGuar
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<ConfirmFriendMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.ConfirmFriendMsg.1
+        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.ConfirmFriendMsg.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -54,21 +54,25 @@ public class ConfirmFriendMsg extends NotifyMsg implements Parcelable, NoProGuar
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public ConfirmFriendMsg createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new ConfirmFriendMsg(parcel) : (ConfirmFriendMsg) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new ConfirmFriendMsg(parcel);
+                }
+                return (ConfirmFriendMsg) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public ConfirmFriendMsg[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new ConfirmFriendMsg[i] : (ConfirmFriendMsg[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new ConfirmFriendMsg[i];
+                }
+                return (ConfirmFriendMsg[]) invokeI.objValue;
             }
         };
     }
@@ -93,7 +97,10 @@ public class ConfirmFriendMsg extends NotifyMsg implements Parcelable, NoProGuar
     public long getFromUser() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.fromUser : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.fromUser;
+        }
+        return invokeV.longValue;
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
@@ -110,23 +117,6 @@ public class ConfirmFriendMsg extends NotifyMsg implements Parcelable, NoProGuar
             }
         }
         return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
-    public void setFromUser(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            this.fromUser = j;
-        }
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.messages.NotifyMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i) == null) {
-            super.writeToParcel(parcel, i);
-            parcel.writeLong(this.fromUser);
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -148,5 +138,22 @@ public class ConfirmFriendMsg extends NotifyMsg implements Parcelable, NoProGuar
             }
         }
         this.fromUser = parcel.readLong();
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
+    public void setFromUser(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            this.fromUser = j;
+        }
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.NotifyMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i) == null) {
+            super.writeToParcel(parcel, i);
+            parcel.writeLong(this.fromUser);
+        }
     }
 }

@@ -13,20 +13,20 @@ import io.reactivex.exceptions.CompositeException;
 import io.reactivex.exceptions.Exceptions;
 import io.reactivex.functions.BiConsumer;
 /* loaded from: classes8.dex */
-public final class SingleDoOnEvent<T> extends Single<T> {
+public final class SingleDoOnEvent extends Single {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BiConsumer<? super T, ? super Throwable> onEvent;
-    public final SingleSource<T> source;
+    public final BiConsumer onEvent;
+    public final SingleSource source;
 
     /* loaded from: classes8.dex */
-    public final class DoOnEvent implements SingleObserver<T> {
+    public final class DoOnEvent implements SingleObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SingleObserver<? super T> s;
+        public final SingleObserver s;
         public final /* synthetic */ SingleDoOnEvent this$0;
 
-        public DoOnEvent(SingleDoOnEvent singleDoOnEvent, SingleObserver<? super T> singleObserver) {
+        public DoOnEvent(SingleDoOnEvent singleDoOnEvent, SingleObserver singleObserver) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -68,12 +68,12 @@ public final class SingleDoOnEvent<T> extends Single<T> {
         }
 
         @Override // io.reactivex.SingleObserver
-        public void onSuccess(T t) {
+        public void onSuccess(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
                 try {
-                    this.this$0.onEvent.accept(t, null);
-                    this.s.onSuccess(t);
+                    this.this$0.onEvent.accept(obj, null);
+                    this.s.onSuccess(obj);
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
                     this.s.onError(th);
@@ -82,7 +82,7 @@ public final class SingleDoOnEvent<T> extends Single<T> {
         }
     }
 
-    public SingleDoOnEvent(SingleSource<T> singleSource, BiConsumer<? super T, ? super Throwable> biConsumer) {
+    public SingleDoOnEvent(SingleSource singleSource, BiConsumer biConsumer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -102,7 +102,7 @@ public final class SingleDoOnEvent<T> extends Single<T> {
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver<? super T> singleObserver) {
+    public void subscribeActual(SingleObserver singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, singleObserver) == null) {
             this.source.subscribe(new DoOnEvent(this, singleObserver));

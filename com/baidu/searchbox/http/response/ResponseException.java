@@ -34,25 +34,49 @@ public class ResponseException {
     public static boolean isCancel(Exception exc) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, exc)) == null) ? (exc == null || TextUtils.isEmpty(exc.getMessage()) || !exc.getMessage().contains("Canceled")) ? false : true : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, exc)) == null) {
+            if (exc != null && !TextUtils.isEmpty(exc.getMessage()) && exc.getMessage().contains("Canceled")) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     public static boolean isNoNetwork(Exception exc) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, exc)) == null) ? (exc == null || TextUtils.isEmpty(exc.getMessage()) || !exc.getMessage().startsWith(" no network connected")) ? false : true : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, exc)) == null) {
+            if (exc != null && !TextUtils.isEmpty(exc.getMessage()) && exc.getMessage().startsWith(" no network connected")) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     public static boolean isOnlyWifiException(Exception exc) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, exc)) == null) ? exc != null && " only allow wifi connected".equals(exc.getMessage()) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, exc)) == null) {
+            if (exc != null && " only allow wifi connected".equals(exc.getMessage())) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     public static boolean isTimeoutException(Exception exc) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, exc)) == null) ? exc != null && (exc instanceof SocketTimeoutException) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, exc)) == null) {
+            if (exc != null && (exc instanceof SocketTimeoutException)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     public static IOException wrapNoNetworkExceptionWithDetail(Exception exc) {

@@ -15,21 +15,21 @@ public final class DebugStringsKt {
         return Integer.toHexString(System.identityHashCode(obj));
     }
 
-    public static final String toDebugString(Continuation<?> continuation) {
-        String m699constructorimpl;
+    public static final String toDebugString(Continuation continuation) {
+        String m698constructorimpl;
         if (continuation instanceof DispatchedContinuation) {
             return continuation.toString();
         }
         try {
             Result.Companion companion = Result.Companion;
-            m699constructorimpl = Result.m699constructorimpl(continuation + '@' + getHexAddress(continuation));
+            m698constructorimpl = Result.m698constructorimpl(continuation + '@' + getHexAddress(continuation));
         } catch (Throwable th) {
             Result.Companion companion2 = Result.Companion;
-            m699constructorimpl = Result.m699constructorimpl(ResultKt.createFailure(th));
+            m698constructorimpl = Result.m698constructorimpl(ResultKt.createFailure(th));
         }
-        if (Result.m702exceptionOrNullimpl(m699constructorimpl) != null) {
-            m699constructorimpl = continuation.getClass().getName() + '@' + getHexAddress(continuation);
+        if (Result.m701exceptionOrNullimpl(m698constructorimpl) != null) {
+            m698constructorimpl = continuation.getClass().getName() + '@' + getHexAddress(continuation);
         }
-        return (String) m699constructorimpl;
+        return (String) m698constructorimpl;
     }
 }

@@ -94,11 +94,10 @@ public class ChannelManager {
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             String readChannelFromCache = readChannelFromCache();
             this.mChannel = readChannelFromCache;
-            if (!TextUtils.isEmpty(readChannelFromCache) || TextUtils.isEmpty(this.mLastChannel)) {
-                return;
+            if (TextUtils.isEmpty(readChannelFromCache) && !TextUtils.isEmpty(this.mLastChannel)) {
+                this.mChannel = this.mLastChannel;
+                saveCannelToCache();
             }
-            this.mChannel = this.mLastChannel;
-            saveCannelToCache();
         }
     }
 
@@ -116,7 +115,35 @@ public class ChannelManager {
     private String readChannelFromCache() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) ? this.mCache.getString("channel", null) : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
+            return this.mCache.getString("channel", null);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    private void saveCannelToCache() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65545, this) == null) {
+            this.mCache.edit().putString("channel", this.mChannel).apply();
+        }
+    }
+
+    public String getChannel() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mChannel;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getLastChannel() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mLastChannel;
+        }
+        return (String) invokeV.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:51:0x0084 A[Catch: Exception -> 0x0080, TRY_LEAVE, TryCatch #0 {Exception -> 0x0080, blocks: (B:47:0x007c, B:51:0x0084), top: B:61:0x007c }] */
@@ -285,24 +312,5 @@ public class ChannelManager {
             }
         }
         return (String) invokeV.objValue;
-    }
-
-    private void saveCannelToCache() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65545, this) == null) {
-            this.mCache.edit().putString("channel", this.mChannel).apply();
-        }
-    }
-
-    public String getChannel() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mChannel : (String) invokeV.objValue;
-    }
-
-    public String getLastChannel() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mLastChannel : (String) invokeV.objValue;
     }
 }

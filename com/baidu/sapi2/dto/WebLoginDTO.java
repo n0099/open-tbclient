@@ -2,7 +2,6 @@ package com.baidu.sapi2.dto;
 
 import android.text.TextUtils;
 import com.baidu.sapi2.utils.SapiUtils;
-import com.baidu.sapi2.utils.enums.FastLoginFeature;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,12 +23,12 @@ public class WebLoginDTO extends SapiWebDTO {
     public static final String EXTRA_LOGIN_WITH_USERNAME = "extra_login_with_username";
     public static final String EXTRA_STAT_EXTRA = "extrajson";
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedHashMap<String, String> agreement;
+    public LinkedHashMap agreement;
     public int businessType;
     public Config config;
     public String encryptedId;
     public String extraJson;
-    public List<PassNameValuePair> extraParams;
+    public List extraParams;
     public boolean finishActivityAfterSuc;
     public boolean hideSuccessTip;
     public boolean isAcceptBrowseModeAgreement;
@@ -43,10 +42,10 @@ public class WebLoginDTO extends SapiWebDTO {
     public String uid;
 
     /* loaded from: classes2.dex */
-    public static class Config {
+    public class Config {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<FastLoginFeature> fastLoginFeatureList;
+        public List fastLoginFeatureList;
         public boolean supportTouchGuide;
 
         public Config() {
@@ -92,7 +91,10 @@ public class WebLoginDTO extends SapiWebDTO {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
             try {
-                return TextUtils.isEmpty(str) ? "" : URLDecoder.decode(str, "UTF-8");
+                if (TextUtils.isEmpty(str)) {
+                    return "";
+                }
+                return URLDecoder.decode(str, "UTF-8");
             } catch (UnsupportedEncodingException unused) {
                 return "";
             }
@@ -103,6 +105,9 @@ public class WebLoginDTO extends SapiWebDTO {
     public static boolean statExtraValid(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? SapiUtils.statExtraValid(str) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return SapiUtils.statExtraValid(str);
+        }
+        return invokeL.booleanValue;
     }
 }

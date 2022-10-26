@@ -29,20 +29,6 @@ public class StringEncoderComparator implements Comparator {
         this.stringEncoder = null;
     }
 
-    @Override // java.util.Comparator
-    public int compare(Object obj, Object obj2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, obj2)) == null) {
-            try {
-                return ((Comparable) this.stringEncoder.encode(obj)).compareTo((Comparable) this.stringEncoder.encode(obj2));
-            } catch (EncoderException unused) {
-                return 0;
-            }
-        }
-        return invokeLL.intValue;
-    }
-
     public StringEncoderComparator(StringEncoder stringEncoder) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -59,5 +45,19 @@ public class StringEncoderComparator implements Comparator {
             }
         }
         this.stringEncoder = stringEncoder;
+    }
+
+    @Override // java.util.Comparator
+    public int compare(Object obj, Object obj2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, obj2)) == null) {
+            try {
+                return ((Comparable) this.stringEncoder.encode(obj)).compareTo((Comparable) this.stringEncoder.encode(obj2));
+            } catch (EncoderException unused) {
+                return 0;
+            }
+        }
+        return invokeLL.intValue;
     }
 }

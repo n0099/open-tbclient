@@ -33,6 +33,24 @@ public class FilePartSource implements PartSource {
         throw new RuntimeException("Stub!");
     }
 
+    public FilePartSource(String str, File file) throws FileNotFoundException {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, file};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        throw new RuntimeException("Stub!");
+    }
+
     @Override // com.android.internal.http.multipart.PartSource
     public InputStream createInputStream() throws IOException {
         InterceptResult invokeV;
@@ -61,23 +79,5 @@ public class FilePartSource implements PartSource {
             throw new RuntimeException("Stub!");
         }
         return invokeV.longValue;
-    }
-
-    public FilePartSource(String str, File file) throws FileNotFoundException {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, file};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        throw new RuntimeException("Stub!");
     }
 }

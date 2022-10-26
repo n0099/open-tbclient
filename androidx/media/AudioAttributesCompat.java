@@ -3,9 +3,6 @@ package androidx.media;
 import android.media.AudioAttributes;
 import android.os.Build;
 import android.util.SparseIntArray;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import androidx.media.AudioAttributesImpl;
 import androidx.media.AudioAttributesImplApi21;
@@ -67,17 +64,14 @@ public class AudioAttributesCompat implements VersionedParcelable {
     public static final int USAGE_VOICE_COMMUNICATION_SIGNALLING = 3;
     public static boolean sForceLegacyBehavior;
     public transient /* synthetic */ FieldHolder $fh;
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public AudioAttributesImpl mImpl;
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
     /* loaded from: classes.dex */
     public @interface AttributeContentType {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
     /* loaded from: classes.dex */
     public @interface AttributeUsage {
     }
@@ -106,6 +100,118 @@ public class AudioAttributesCompat implements VersionedParcelable {
         }
     }
 
+    /* loaded from: classes.dex */
+    public static class Builder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final AudioAttributesImpl.Builder mBuilderImpl;
+
+        public Builder() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            if (AudioAttributesCompat.sForceLegacyBehavior) {
+                this.mBuilderImpl = new AudioAttributesImplBase.Builder();
+                return;
+            }
+            int i3 = Build.VERSION.SDK_INT;
+            if (i3 >= 26) {
+                this.mBuilderImpl = new AudioAttributesImplApi26.Builder();
+            } else if (i3 >= 21) {
+                this.mBuilderImpl = new AudioAttributesImplApi21.Builder();
+            } else {
+                this.mBuilderImpl = new AudioAttributesImplBase.Builder();
+            }
+        }
+
+        public Builder(AudioAttributesCompat audioAttributesCompat) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {audioAttributesCompat};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            if (AudioAttributesCompat.sForceLegacyBehavior) {
+                this.mBuilderImpl = new AudioAttributesImplBase.Builder(audioAttributesCompat);
+                return;
+            }
+            int i3 = Build.VERSION.SDK_INT;
+            if (i3 >= 26) {
+                this.mBuilderImpl = new AudioAttributesImplApi26.Builder(audioAttributesCompat.unwrap());
+            } else if (i3 >= 21) {
+                this.mBuilderImpl = new AudioAttributesImplApi21.Builder(audioAttributesCompat.unwrap());
+            } else {
+                this.mBuilderImpl = new AudioAttributesImplBase.Builder(audioAttributesCompat);
+            }
+        }
+
+        public AudioAttributesCompat build() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new AudioAttributesCompat(this.mBuilderImpl.build());
+            }
+            return (AudioAttributesCompat) invokeV.objValue;
+        }
+
+        public Builder setContentType(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                this.mBuilderImpl.setContentType(i);
+                return this;
+            }
+            return (Builder) invokeI.objValue;
+        }
+
+        public Builder setFlags(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                this.mBuilderImpl.setFlags(i);
+                return this;
+            }
+            return (Builder) invokeI.objValue;
+        }
+
+        public Builder setLegacyStreamType(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+                this.mBuilderImpl.setLegacyStreamType(i);
+                return this;
+            }
+            return (Builder) invokeI.objValue;
+        }
+
+        public Builder setUsage(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+                this.mBuilderImpl.setUsage(i);
+                return this;
+            }
+            return (Builder) invokeI.objValue;
+        }
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -130,7 +236,6 @@ public class AudioAttributesCompat implements VersionedParcelable {
         SDK_USAGES = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16};
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public AudioAttributesCompat() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -145,7 +250,105 @@ public class AudioAttributesCompat implements VersionedParcelable {
         }
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
+    public int getContentType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mImpl.getContentType();
+        }
+        return invokeV.intValue;
+    }
+
+    public int getFlags() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mImpl.getFlags();
+        }
+        return invokeV.intValue;
+    }
+
+    public int getLegacyStreamType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mImpl.getLegacyStreamType();
+        }
+        return invokeV.intValue;
+    }
+
+    public int getRawLegacyStreamType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mImpl.getRawLegacyStreamType();
+        }
+        return invokeV.intValue;
+    }
+
+    public int getUsage() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mImpl.getUsage();
+        }
+        return invokeV.intValue;
+    }
+
+    public int getVolumeControlStream() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mImpl.getVolumeControlStream();
+        }
+        return invokeV.intValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mImpl.hashCode();
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mImpl.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public Object unwrap() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mImpl.getAudioAttributes();
+        }
+        return invokeV.objValue;
+    }
+
+    public AudioAttributesCompat(AudioAttributesImpl audioAttributesImpl) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {audioAttributesImpl};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.mImpl = audioAttributesImpl;
+    }
+
     public static void setForceLegacyBehavior(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65539, null, z) == null) {
@@ -153,14 +356,40 @@ public class AudioAttributesCompat implements VersionedParcelable {
         }
     }
 
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (!(obj instanceof AudioAttributesCompat)) {
+                return false;
+            }
+            AudioAttributesCompat audioAttributesCompat = (AudioAttributesCompat) obj;
+            AudioAttributesImpl audioAttributesImpl = this.mImpl;
+            if (audioAttributesImpl == null) {
+                if (audioAttributesCompat.mImpl != null) {
+                    return false;
+                }
+                return true;
+            }
+            return audioAttributesImpl.equals(audioAttributesCompat.mImpl);
+        }
+        return invokeL.booleanValue;
+    }
+
     public static int toVolumeStreamType(boolean z, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
             if ((i & 1) == 1) {
-                return z ? 1 : 7;
+                if (z) {
+                    return 1;
+                }
+                return 7;
             } else if ((i & 4) == 4) {
-                return z ? 0 : 6;
+                if (z) {
+                    return 0;
+                }
+                return 6;
             } else {
                 switch (i2) {
                     case 0:
@@ -172,7 +401,10 @@ public class AudioAttributesCompat implements VersionedParcelable {
                     case 2:
                         return 0;
                     case 3:
-                        return z ? 0 : 8;
+                        if (z) {
+                            return 0;
+                        }
+                        return 8;
                     case 4:
                         return 4;
                     case 5:
@@ -189,10 +421,10 @@ public class AudioAttributesCompat implements VersionedParcelable {
                         return 1;
                     case 15:
                     default:
-                        if (z) {
-                            throw new IllegalArgumentException("Unknown usage value " + i2 + " in audio attributes");
+                        if (!z) {
+                            return 3;
                         }
-                        return 3;
+                        throw new IllegalArgumentException("Unknown usage value " + i2 + " in audio attributes");
                 }
             }
         }
@@ -244,8 +476,7 @@ public class AudioAttributesCompat implements VersionedParcelable {
         return (String) invokeI.objValue;
     }
 
-    @Nullable
-    public static AudioAttributesCompat wrap(@NonNull Object obj) {
+    public static AudioAttributesCompat wrap(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, obj)) == null) {
@@ -256,210 +487,11 @@ public class AudioAttributesCompat implements VersionedParcelable {
             if (i >= 26) {
                 return new AudioAttributesCompat(new AudioAttributesImplApi26((AudioAttributes) obj));
             }
-            if (i >= 21) {
-                return new AudioAttributesCompat(new AudioAttributesImplApi21((AudioAttributes) obj));
+            if (i < 21) {
+                return null;
             }
-            return null;
+            return new AudioAttributesCompat(new AudioAttributesImplApi21((AudioAttributes) obj));
         }
         return (AudioAttributesCompat) invokeL.objValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (obj instanceof AudioAttributesCompat) {
-                AudioAttributesCompat audioAttributesCompat = (AudioAttributesCompat) obj;
-                AudioAttributesImpl audioAttributesImpl = this.mImpl;
-                if (audioAttributesImpl == null) {
-                    return audioAttributesCompat.mImpl == null;
-                }
-                return audioAttributesImpl.equals(audioAttributesCompat.mImpl);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int getContentType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mImpl.getContentType() : invokeV.intValue;
-    }
-
-    public int getFlags() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mImpl.getFlags() : invokeV.intValue;
-    }
-
-    public int getLegacyStreamType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mImpl.getLegacyStreamType() : invokeV.intValue;
-    }
-
-    public int getRawLegacyStreamType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mImpl.getRawLegacyStreamType() : invokeV.intValue;
-    }
-
-    public int getUsage() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mImpl.getUsage() : invokeV.intValue;
-    }
-
-    public int getVolumeControlStream() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mImpl.getVolumeControlStream() : invokeV.intValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mImpl.hashCode() : invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mImpl.toString() : (String) invokeV.objValue;
-    }
-
-    @Nullable
-    public Object unwrap() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mImpl.getAudioAttributes() : invokeV.objValue;
-    }
-
-    public AudioAttributesCompat(AudioAttributesImpl audioAttributesImpl) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {audioAttributesImpl};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.mImpl = audioAttributesImpl;
-    }
-
-    /* loaded from: classes.dex */
-    public static class Builder {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final AudioAttributesImpl.Builder mBuilderImpl;
-
-        public Builder() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            if (AudioAttributesCompat.sForceLegacyBehavior) {
-                this.mBuilderImpl = new AudioAttributesImplBase.Builder();
-                return;
-            }
-            int i3 = Build.VERSION.SDK_INT;
-            if (i3 >= 26) {
-                this.mBuilderImpl = new AudioAttributesImplApi26.Builder();
-            } else if (i3 >= 21) {
-                this.mBuilderImpl = new AudioAttributesImplApi21.Builder();
-            } else {
-                this.mBuilderImpl = new AudioAttributesImplBase.Builder();
-            }
-        }
-
-        public AudioAttributesCompat build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new AudioAttributesCompat(this.mBuilderImpl.build()) : (AudioAttributesCompat) invokeV.objValue;
-        }
-
-        public Builder setContentType(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-                this.mBuilderImpl.setContentType(i);
-                return this;
-            }
-            return (Builder) invokeI.objValue;
-        }
-
-        public Builder setFlags(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-                this.mBuilderImpl.setFlags(i);
-                return this;
-            }
-            return (Builder) invokeI.objValue;
-        }
-
-        public Builder setLegacyStreamType(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-                this.mBuilderImpl.setLegacyStreamType(i);
-                return this;
-            }
-            return (Builder) invokeI.objValue;
-        }
-
-        public Builder setUsage(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-                this.mBuilderImpl.setUsage(i);
-                return this;
-            }
-            return (Builder) invokeI.objValue;
-        }
-
-        public Builder(AudioAttributesCompat audioAttributesCompat) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {audioAttributesCompat};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            if (AudioAttributesCompat.sForceLegacyBehavior) {
-                this.mBuilderImpl = new AudioAttributesImplBase.Builder(audioAttributesCompat);
-                return;
-            }
-            int i3 = Build.VERSION.SDK_INT;
-            if (i3 >= 26) {
-                this.mBuilderImpl = new AudioAttributesImplApi26.Builder(audioAttributesCompat.unwrap());
-            } else if (i3 >= 21) {
-                this.mBuilderImpl = new AudioAttributesImplApi21.Builder(audioAttributesCompat.unwrap());
-            } else {
-                this.mBuilderImpl = new AudioAttributesImplBase.Builder(audioAttributesCompat);
-            }
-        }
     }
 }

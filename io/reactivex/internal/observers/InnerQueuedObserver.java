@@ -15,17 +15,17 @@ import io.reactivex.internal.fuseable.SimpleQueue;
 import io.reactivex.internal.util.QueueDrainHelper;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class InnerQueuedObserver<T> extends AtomicReference<Disposable> implements Observer<T>, Disposable {
+public final class InnerQueuedObserver extends AtomicReference implements Observer, Disposable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -5417183359794346637L;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile boolean done;
     public int fusionMode;
-    public final InnerQueuedObserverSupport<T> parent;
+    public final InnerQueuedObserverSupport parent;
     public final int prefetch;
-    public SimpleQueue<T> queue;
+    public SimpleQueue queue;
 
-    public InnerQueuedObserver(InnerQueuedObserverSupport<T> innerQueuedObserverSupport, int i) {
+    public InnerQueuedObserver(InnerQueuedObserverSupport innerQueuedObserverSupport, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -55,20 +55,29 @@ public final class InnerQueuedObserver<T> extends AtomicReference<Disposable> im
     public int fusionMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.fusionMode : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.fusionMode;
+        }
+        return invokeV.intValue;
     }
 
     @Override // io.reactivex.disposables.Disposable
     public boolean isDisposed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? DisposableHelper.isDisposed(get()) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return DisposableHelper.isDisposed((Disposable) get());
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isDone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.done : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.done;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // io.reactivex.Observer
@@ -76,6 +85,22 @@ public final class InnerQueuedObserver<T> extends AtomicReference<Disposable> im
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.parent.innerComplete(this);
+        }
+    }
+
+    public SimpleQueue queue() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.queue;
+        }
+        return (SimpleQueue) invokeV.objValue;
+    }
+
+    public void setDone() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.done = true;
         }
     }
 
@@ -88,11 +113,11 @@ public final class InnerQueuedObserver<T> extends AtomicReference<Disposable> im
     }
 
     @Override // io.reactivex.Observer
-    public void onNext(T t) {
+    public void onNext(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, obj) == null) {
             if (this.fusionMode == 0) {
-                this.parent.innerNext(this, t);
+                this.parent.innerNext(this, obj);
             } else {
                 this.parent.drain();
             }
@@ -119,19 +144,6 @@ public final class InnerQueuedObserver<T> extends AtomicReference<Disposable> im
                 }
             }
             this.queue = QueueDrainHelper.createQueue(-this.prefetch);
-        }
-    }
-
-    public SimpleQueue<T> queue() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.queue : (SimpleQueue) invokeV.objValue;
-    }
-
-    public void setDone() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.done = true;
         }
     }
 }

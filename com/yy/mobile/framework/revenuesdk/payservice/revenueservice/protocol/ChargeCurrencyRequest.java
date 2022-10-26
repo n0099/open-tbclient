@@ -32,7 +32,7 @@ public class ChargeCurrencyRequest implements IRequestProtocol {
     public int usedChannel;
 
     /* loaded from: classes8.dex */
-    public static class ExpandBuilder {
+    public class ExpandBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String hdid;
@@ -104,60 +104,6 @@ public class ChargeCurrencyRequest implements IRequestProtocol {
         }
     }
 
-    @Override // com.yy.mobile.framework.revenuesdk.payservice.revenueservice.request.IRequestProtocol
-    public String getProtocol() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("cmd", 1022);
-                jSONObject.put("uid", this.uid);
-                jSONObject.put("sid", this.sid);
-                jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.appId);
-                jSONObject.put("usedChannel", this.usedChannel);
-                jSONObject.put("currencyType", this.currencyType);
-                jSONObject.put("seq", this.seq);
-                jSONObject.put("payChannel", this.payChannel);
-                jSONObject.put("payMethod", this.payMethod);
-                jSONObject.put(PayUiEventContent.AMOUNT, this.amount);
-                jSONObject.put("chargeCurrencyConfigId", this.chargeCurrencyConfigId);
-                jSONObject.put("needUnicast", this.needUnicast);
-                jSONObject.put("returnUrl", this.returnUrl);
-                jSONObject.put("clientVersion", this.clientVersion);
-                if (!TextUtils.isEmpty(this.expand)) {
-                    jSONObject.put("expand", this.expand);
-                }
-                return jSONObject.toString();
-            } catch (JSONException e) {
-                RLog.error("ChargeCurrencyRequest", "constructPSCIMessageRequest", e);
-                return "";
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ChargeCurrencyRequest(long j, int i, int i2, String str, String str2, String str3, double d) {
-        this(j, 0, i, 10002, i2, str, str2, str3, d, 0, true, "", "", "1.0.0", "");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r3;
-            Object[] objArr = {Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), str, str2, str3, Double.valueOf(d)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this(((Long) objArr2[0]).longValue(), ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue(), ((Integer) objArr2[4]).intValue(), (String) objArr2[5], (String) objArr2[6], (String) objArr2[7], ((Double) objArr2[8]).doubleValue(), ((Integer) objArr2[9]).intValue(), ((Boolean) objArr2[10]).booleanValue(), (String) objArr2[11], (String) objArr2[12], (String) objArr2[13], (String) objArr2[14]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-    }
-
     public ChargeCurrencyRequest(long j, int i, int i2, int i3, int i4, String str, String str2, String str3, double d, int i5, boolean z, String str4, String str5, String str6, String str7) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -194,5 +140,59 @@ public class ChargeCurrencyRequest implements IRequestProtocol {
         this.returnUrl = str4;
         this.expand = str5;
         this.clientVersion = str6;
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public ChargeCurrencyRequest(long j, int i, int i2, String str, String str2, String str3, double d) {
+        this(j, 0, i, 10002, i2, str, str2, str3, d, 0, true, "", "", "1.0.0", "");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r3;
+            Object[] objArr = {Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), str, str2, str3, Double.valueOf(d)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this(((Long) objArr2[0]).longValue(), ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue(), ((Integer) objArr2[4]).intValue(), (String) objArr2[5], (String) objArr2[6], (String) objArr2[7], ((Double) objArr2[8]).doubleValue(), ((Integer) objArr2[9]).intValue(), ((Boolean) objArr2[10]).booleanValue(), (String) objArr2[11], (String) objArr2[12], (String) objArr2[13], (String) objArr2[14]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.payservice.revenueservice.request.IRequestProtocol
+    public String getProtocol() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("cmd", 1022);
+                jSONObject.put("uid", this.uid);
+                jSONObject.put("sid", this.sid);
+                jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.appId);
+                jSONObject.put("usedChannel", this.usedChannel);
+                jSONObject.put("currencyType", this.currencyType);
+                jSONObject.put("seq", this.seq);
+                jSONObject.put("payChannel", this.payChannel);
+                jSONObject.put("payMethod", this.payMethod);
+                jSONObject.put(PayUiEventContent.AMOUNT, this.amount);
+                jSONObject.put("chargeCurrencyConfigId", this.chargeCurrencyConfigId);
+                jSONObject.put("needUnicast", this.needUnicast);
+                jSONObject.put("returnUrl", this.returnUrl);
+                jSONObject.put("clientVersion", this.clientVersion);
+                if (!TextUtils.isEmpty(this.expand)) {
+                    jSONObject.put("expand", this.expand);
+                }
+                return jSONObject.toString();
+            } catch (JSONException e) {
+                RLog.error("ChargeCurrencyRequest", "constructPSCIMessageRequest", e);
+                return "";
+            }
+        }
+        return (String) invokeV.objValue;
     }
 }

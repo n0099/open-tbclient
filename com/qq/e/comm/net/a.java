@@ -86,8 +86,8 @@ public class a {
                     if (!StringUtil.isEmpty(str)) {
                         jSONObject.putOpt("cell_native", str);
                     }
-                    for (Map.Entry<String, String> entry : deviceStatus.getLacAndCeilId().entrySet()) {
-                        jSONObject.putOpt(entry.getKey(), entry.getValue());
+                    for (Map.Entry entry : deviceStatus.getLacAndCeilId().entrySet()) {
+                        jSONObject.putOpt((String) entry.getKey(), entry.getValue());
                     }
                 }
                 str = null;
@@ -125,7 +125,7 @@ public class a {
                         jSONObject.putOpt("td", string);
                     }
                     if (!TextUtils.isEmpty(string2)) {
-                        jSONObject.putOpt("od", string2);
+                        jSONObject.putOpt(Config.OAID, string2);
                     }
                 }
             }

@@ -25,6 +25,16 @@ public final class Tensor implements AutoCloseable {
     public long nativeHandle;
     public long[] shapeCopy;
 
+    public static native ByteBuffer buffer(long j, int i);
+
+    public static native long createNaTensor(int i, long[] jArr);
+
+    public static native long createNaTensorAndSetValue(int i, long[] jArr, Object obj);
+
+    public static native void deleteNaTensor(long j, int i);
+
+    public static native long readArray(long j, int i, Object obj);
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -57,62 +67,69 @@ public final class Tensor implements AutoCloseable {
         this.shapeCopy = null;
     }
 
+    @Override // java.lang.AutoCloseable
+    public void close() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            long j = this.nativeHandle;
+            if (j != 0) {
+                deleteNaTensor(j, this.datatype.value());
+                this.nativeHandle = 0L;
+            }
+        }
+    }
+
+    public DataType getDataType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.datatype;
+        }
+        return (DataType) invokeV.objValue;
+    }
+
+    public long getNativeHandle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.nativeHandle;
+        }
+        return invokeV.longValue;
+    }
+
+    public int getNumDimens() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.shapeCopy.length;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getNumElements() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return numElements(this.shapeCopy);
+        }
+        return invokeV.intValue;
+    }
+
+    public long[] shape() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.shapeCopy;
+        }
+        return (long[]) invokeV.objValue;
+    }
+
     public static void assertArgIsArray(Object obj) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, obj) == null) && !obj.getClass().isArray()) {
-            throw new IllegalArgumentException("object must is array");
-        }
-    }
-
-    public static native ByteBuffer buffer(long j, int i);
-
-    public static Tensor createInstance(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj)) == null) {
-            assertArgIsArray(obj);
-            DataType dataTypeOf = DataType.dataTypeOf(obj);
-            Tensor tensor = new Tensor();
-            tensor.datatype = dataTypeOf;
-            long[] jArr = new long[numDimensions(obj, dataTypeOf)];
-            tensor.shapeCopy = jArr;
-            fillShape(obj, 0, jArr);
-            tensor.nativeHandle = createNaTensorAndSetValue(dataTypeOf.value(), flatShape(tensor.shapeCopy), flatObject(obj, tensor.shapeCopy, dataTypeOf));
-            return tensor;
-        }
-        return (Tensor) invokeL.objValue;
-    }
-
-    public static native long createNaTensor(int i, long[] jArr);
-
-    public static native long createNaTensorAndSetValue(int i, long[] jArr, Object obj);
-
-    public static native void deleteNaTensor(long j, int i);
-
-    public static void fillShape(Object obj, int i, long[] jArr) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(65549, null, obj, i, jArr) == null) || jArr == null || i == jArr.length) {
+        if ((interceptable != null && interceptable.invokeL(65538, null, obj) != null) || obj.getClass().isArray()) {
             return;
         }
-        int length = Array.getLength(obj);
-        if (length != 0) {
-            if (jArr[i] == 0) {
-                jArr[i] = length;
-            } else if (jArr[i] != length) {
-                throw new IllegalArgumentException(String.format("mismatched lengths (%d and %d) in dimension %d", Long.valueOf(jArr[i]), Integer.valueOf(length), Integer.valueOf(i)));
-            }
-            for (int i2 = 0; i2 < length; i2++) {
-                fillShape(Array.get(obj, i2), i + 1, jArr);
-            }
-            return;
-        }
-        throw new IllegalArgumentException("cannot create Tensors with a 0 dimension");
-    }
-
-    public static Object flatObject(Object obj, long[] jArr, DataType dataType) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65550, null, obj, jArr, dataType)) == null) ? Util.flat(obj, jArr, dataType) : invokeLLL.objValue;
+        throw new IllegalArgumentException("object must is array");
     }
 
     public static long[] flatShape(long[] jArr) {
@@ -133,20 +150,10 @@ public final class Tensor implements AutoCloseable {
     private ByteBuffer getBuffer(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65552, this, i)) == null) ? buffer(this.nativeHandle, i).order(ByteOrder.nativeOrder()) : (ByteBuffer) invokeI.objValue;
-    }
-
-    public static Tensor innerCreateInstance(DataType dataType, long[] jArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65553, null, dataType, jArr)) == null) {
-            Tensor tensor = new Tensor();
-            tensor.datatype = dataType;
-            tensor.shapeCopy = Arrays.copyOf(jArr, jArr.length);
-            tensor.nativeHandle = createNaTensor(dataType.value(), flatShape(jArr));
-            return tensor;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65552, this, i)) == null) {
+            return buffer(this.nativeHandle, i).order(ByteOrder.nativeOrder());
         }
-        return (Tensor) invokeLL.objValue;
+        return (ByteBuffer) invokeI.objValue;
     }
 
     public static int numArrayDimensions(Object obj) {
@@ -164,16 +171,6 @@ public final class Tensor implements AutoCloseable {
         return invokeL.intValue;
     }
 
-    public static int numDimensions(Object obj, DataType dataType) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65555, null, obj, dataType)) == null) {
-            int numArrayDimensions = numArrayDimensions(obj);
-            return (dataType != DataType.STRING || numArrayDimensions <= 0) ? numArrayDimensions : numArrayDimensions - 1;
-        }
-        return invokeLL.intValue;
-    }
-
     public static int numElements(long[] jArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -187,59 +184,32 @@ public final class Tensor implements AutoCloseable {
         return invokeL.intValue;
     }
 
-    public static native long readArray(long j, int i, Object obj);
-
-    @Override // java.lang.AutoCloseable
-    public void close() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            long j = this.nativeHandle;
-            if (j != 0) {
-                deleteNaTensor(j, this.datatype.value());
-                this.nativeHandle = 0L;
-            }
-        }
-    }
-
-    public DataType getDataType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.datatype : (DataType) invokeV.objValue;
-    }
-
-    public long getNativeHandle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.nativeHandle : invokeV.longValue;
-    }
-
-    public int getNumDimens() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.shapeCopy.length : invokeV.intValue;
-    }
-
-    public int getNumElements() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? numElements(this.shapeCopy) : invokeV.intValue;
-    }
-
-    public <T> T read(T t) {
+    public Object read(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, t)) == null) {
-            assertArgIsArray(t);
-            readArray(this.nativeHandle, this.datatype.value(), t);
-            return t;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            assertArgIsArray(obj);
+            readArray(this.nativeHandle, this.datatype.value(), obj);
+            return obj;
         }
-        return (T) invokeL.objValue;
+        return invokeL.objValue;
     }
 
-    public long[] shape() {
-        InterceptResult invokeV;
+    public static Tensor createInstance(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.shapeCopy : (long[]) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj)) == null) {
+            assertArgIsArray(obj);
+            DataType dataTypeOf = DataType.dataTypeOf(obj);
+            Tensor tensor = new Tensor();
+            tensor.datatype = dataTypeOf;
+            long[] jArr = new long[numDimensions(obj, dataTypeOf)];
+            tensor.shapeCopy = jArr;
+            fillShape(obj, 0, jArr);
+            tensor.nativeHandle = createNaTensorAndSetValue(dataTypeOf.value(), flatShape(tensor.shapeCopy), flatObject(obj, tensor.shapeCopy, dataTypeOf));
+            return tensor;
+        }
+        return (Tensor) invokeL.objValue;
     }
 
     public static Tensor createInstance(long[] jArr, ByteBuffer byteBuffer) {
@@ -249,6 +219,56 @@ public final class Tensor implements AutoCloseable {
             Tensor innerCreateInstance = innerCreateInstance(DataType.UINT8, jArr);
             byteBuffer.rewind();
             innerCreateInstance.getBuffer(DataType.UINT8.value()).put(byteBuffer);
+            return innerCreateInstance;
+        }
+        return (Tensor) invokeLL.objValue;
+    }
+
+    public static Tensor innerCreateInstance(DataType dataType, long[] jArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65553, null, dataType, jArr)) == null) {
+            Tensor tensor = new Tensor();
+            tensor.datatype = dataType;
+            tensor.shapeCopy = Arrays.copyOf(jArr, jArr.length);
+            tensor.nativeHandle = createNaTensor(dataType.value(), flatShape(jArr));
+            return tensor;
+        }
+        return (Tensor) invokeLL.objValue;
+    }
+
+    public static int numDimensions(Object obj, DataType dataType) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65555, null, obj, dataType)) == null) {
+            int numArrayDimensions = numArrayDimensions(obj);
+            if (dataType == DataType.STRING && numArrayDimensions > 0) {
+                return numArrayDimensions - 1;
+            }
+            return numArrayDimensions;
+        }
+        return invokeLL.intValue;
+    }
+
+    public static Tensor createInstance(long[] jArr, DoubleBuffer doubleBuffer) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, jArr, doubleBuffer)) == null) {
+            Tensor innerCreateInstance = innerCreateInstance(DataType.DOUBLE, jArr);
+            doubleBuffer.rewind();
+            innerCreateInstance.getBuffer(DataType.DOUBLE.value()).asDoubleBuffer().put(doubleBuffer);
+            return innerCreateInstance;
+        }
+        return (Tensor) invokeLL.objValue;
+    }
+
+    public static Tensor createInstance(long[] jArr, FloatBuffer floatBuffer) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, jArr, floatBuffer)) == null) {
+            Tensor innerCreateInstance = innerCreateInstance(DataType.FLOAT, jArr);
+            floatBuffer.rewind();
+            innerCreateInstance.getBuffer(DataType.FLOAT.value()).asFloatBuffer().put(floatBuffer);
             return innerCreateInstance;
         }
         return (Tensor) invokeLL.objValue;
@@ -278,27 +298,31 @@ public final class Tensor implements AutoCloseable {
         return (Tensor) invokeLL.objValue;
     }
 
-    public static Tensor createInstance(long[] jArr, FloatBuffer floatBuffer) {
-        InterceptResult invokeLL;
+    public static void fillShape(Object obj, int i, long[] jArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, jArr, floatBuffer)) == null) {
-            Tensor innerCreateInstance = innerCreateInstance(DataType.FLOAT, jArr);
-            floatBuffer.rewind();
-            innerCreateInstance.getBuffer(DataType.FLOAT.value()).asFloatBuffer().put(floatBuffer);
-            return innerCreateInstance;
+        if ((interceptable == null || interceptable.invokeLIL(65549, null, obj, i, jArr) == null) && jArr != null && i != jArr.length) {
+            int length = Array.getLength(obj);
+            if (length != 0) {
+                if (jArr[i] == 0) {
+                    jArr[i] = length;
+                } else if (jArr[i] != length) {
+                    throw new IllegalArgumentException(String.format("mismatched lengths (%d and %d) in dimension %d", Long.valueOf(jArr[i]), Integer.valueOf(length), Integer.valueOf(i)));
+                }
+                for (int i2 = 0; i2 < length; i2++) {
+                    fillShape(Array.get(obj, i2), i + 1, jArr);
+                }
+                return;
+            }
+            throw new IllegalArgumentException("cannot create Tensors with a 0 dimension");
         }
-        return (Tensor) invokeLL.objValue;
     }
 
-    public static Tensor createInstance(long[] jArr, DoubleBuffer doubleBuffer) {
-        InterceptResult invokeLL;
+    public static Object flatObject(Object obj, long[] jArr, DataType dataType) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, jArr, doubleBuffer)) == null) {
-            Tensor innerCreateInstance = innerCreateInstance(DataType.DOUBLE, jArr);
-            doubleBuffer.rewind();
-            innerCreateInstance.getBuffer(DataType.DOUBLE.value()).asDoubleBuffer().put(doubleBuffer);
-            return innerCreateInstance;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65550, null, obj, jArr, dataType)) == null) {
+            return Util.flat(obj, jArr, dataType);
         }
-        return (Tensor) invokeLL.objValue;
+        return invokeLLL.objValue;
     }
 }

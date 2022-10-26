@@ -43,16 +43,6 @@ public final class MultihomePlainSocketFactory implements SocketFactory {
     }
 
     @Override // org.apache.http.conn.scheme.SocketFactory
-    public Socket connectSocket(Socket socket, String str, int i, InetAddress inetAddress, int i2, HttpParams httpParams) throws IOException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{socket, str, Integer.valueOf(i), inetAddress, Integer.valueOf(i2), httpParams})) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (Socket) invokeCommon.objValue;
-    }
-
-    @Override // org.apache.http.conn.scheme.SocketFactory
     public Socket createSocket() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -62,15 +52,6 @@ public final class MultihomePlainSocketFactory implements SocketFactory {
         return (Socket) invokeV.objValue;
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeL.booleanValue;
-    }
-
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -78,6 +59,25 @@ public final class MultihomePlainSocketFactory implements SocketFactory {
             throw new RuntimeException("Stub!");
         }
         return invokeV.intValue;
+    }
+
+    @Override // org.apache.http.conn.scheme.SocketFactory
+    public Socket connectSocket(Socket socket, String str, int i, InetAddress inetAddress, int i2, HttpParams httpParams) throws IOException {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{socket, str, Integer.valueOf(i), inetAddress, Integer.valueOf(i2), httpParams})) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (Socket) invokeCommon.objValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeL.booleanValue;
     }
 
     @Override // org.apache.http.conn.scheme.SocketFactory

@@ -1,6 +1,5 @@
 package com.facebook.drawee.view;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
@@ -27,12 +26,12 @@ import com.facebook.drawee.view.AspectRatioMeasure;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
-public class DraweeView<DH extends DraweeHierarchy> extends ImageView {
+public class DraweeView extends ImageView {
     public static /* synthetic */ Interceptable $ic;
     public static boolean sGlobalLegacyVisibilityHandlingEnabled;
     public transient /* synthetic */ FieldHolder $fh;
     public float mAspectRatio;
-    public DraweeHolder<DH> mDraweeHolder;
+    public DraweeHolder mDraweeHolder;
     public boolean mInitialised;
     public boolean mLegacyVisibilityHandlingEnabled;
     public final AspectRatioMeasure.Spec mMeasureSpec;
@@ -67,6 +66,84 @@ public class DraweeView<DH extends DraweeHierarchy> extends ImageView {
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mMeasureSpec = new AspectRatioMeasure.Spec();
+        this.mAspectRatio = 0.0f;
+        this.mInitialised = false;
+        this.mLegacyVisibilityHandlingEnabled = false;
+        init(context);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public DraweeView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.mMeasureSpec = new AspectRatioMeasure.Spec();
+        this.mAspectRatio = 0.0f;
+        this.mInitialised = false;
+        this.mLegacyVisibilityHandlingEnabled = false;
+        init(context);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public DraweeView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.mMeasureSpec = new AspectRatioMeasure.Spec();
+        this.mAspectRatio = 0.0f;
+        this.mInitialised = false;
+        this.mLegacyVisibilityHandlingEnabled = false;
+        init(context);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public DraweeView(Context context, AttributeSet attributeSet, int i, int i2) {
+        super(context, attributeSet, i, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
             }
         }
@@ -123,16 +200,15 @@ public class DraweeView<DH extends DraweeHierarchy> extends ImageView {
 
     private void maybeOverrideVisibilityHandling() {
         Drawable drawable;
+        boolean z;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65542, this) == null) && this.mLegacyVisibilityHandlingEnabled && (drawable = getDrawable()) != null) {
-            drawable.setVisible(getVisibility() == 0, false);
-        }
-    }
-
-    public static void setGlobalLegacyVisibilityHandlingEnabled(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65543, null, z) == null) {
-            sGlobalLegacyVisibilityHandlingEnabled = z;
+            if (getVisibility() == 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            drawable.setVisible(z, false);
         }
     }
 
@@ -153,39 +229,60 @@ public class DraweeView<DH extends DraweeHierarchy> extends ImageView {
     public float getAspectRatio() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mAspectRatio : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mAspectRatio;
+        }
+        return invokeV.floatValue;
     }
 
     @Nullable
     public DraweeController getController() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mDraweeHolder.getController() : (DraweeController) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mDraweeHolder.getController();
+        }
+        return (DraweeController) invokeV.objValue;
     }
 
-    public DH getHierarchy() {
+    public DraweeHierarchy getHierarchy() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mDraweeHolder.getHierarchy() : (DH) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mDraweeHolder.getHierarchy();
+        }
+        return (DraweeHierarchy) invokeV.objValue;
     }
 
     @Nullable
     public Drawable getTopLevelDrawable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mDraweeHolder.getTopLevelDrawable() : (Drawable) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mDraweeHolder.getTopLevelDrawable();
+        }
+        return (Drawable) invokeV.objValue;
     }
 
     public boolean hasController() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mDraweeHolder.getController() != null : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (this.mDraweeHolder.getController() != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean hasHierarchy() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mDraweeHolder.hasHierarchy() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mDraweeHolder.hasHierarchy();
+        }
+        return invokeV.booleanValue;
     }
 
     public void onAttach() {
@@ -232,19 +329,6 @@ public class DraweeView<DH extends DraweeHierarchy> extends ImageView {
         }
     }
 
-    @Override // android.widget.ImageView, android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048589, this, i, i2) == null) {
-            AspectRatioMeasure.Spec spec = this.mMeasureSpec;
-            spec.width = i;
-            spec.height = i2;
-            AspectRatioMeasure.updateMeasureSpec(spec, this.mAspectRatio, getLayoutParams(), getPaddingLeft() + getPaddingRight(), getPaddingTop() + getPaddingBottom());
-            AspectRatioMeasure.Spec spec2 = this.mMeasureSpec;
-            super.onMeasure(spec2.width, spec2.height);
-        }
-    }
-
     @Override // android.view.View
     public void onStartTemporaryDetach() {
         Interceptable interceptable = $ic;
@@ -252,6 +336,31 @@ public class DraweeView<DH extends DraweeHierarchy> extends ImageView {
             super.onStartTemporaryDetach();
             maybeOverrideVisibilityHandling();
             onDetach();
+        }
+    }
+
+    @Override // android.view.View
+    public String toString() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            Objects.ToStringHelper stringHelper = Objects.toStringHelper(this);
+            DraweeHolder draweeHolder = this.mDraweeHolder;
+            if (draweeHolder != null) {
+                str = draweeHolder.toString();
+            } else {
+                str = "<no holder set>";
+            }
+            return stringHelper.add("holder", str).toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void setGlobalLegacyVisibilityHandlingEnabled(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65543, null, z) == null) {
+            sGlobalLegacyVisibilityHandlingEnabled = z;
         }
     }
 
@@ -268,18 +377,9 @@ public class DraweeView<DH extends DraweeHierarchy> extends ImageView {
         return invokeL.booleanValue;
     }
 
-    @Override // android.view.View
-    public void onVisibilityChanged(View view2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048592, this, view2, i) == null) {
-            super.onVisibilityChanged(view2, i);
-            maybeOverrideVisibilityHandling();
-        }
-    }
-
     public void setAspectRatio(float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048593, this, f) == null) || f == this.mAspectRatio) {
+        if ((interceptable != null && interceptable.invokeF(1048593, this, f) != null) || f == this.mAspectRatio) {
             return;
         }
         this.mAspectRatio = f;
@@ -294,10 +394,10 @@ public class DraweeView<DH extends DraweeHierarchy> extends ImageView {
         }
     }
 
-    public void setHierarchy(DH dh) {
+    public void setHierarchy(DraweeHierarchy draweeHierarchy) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, dh) == null) {
-            this.mDraweeHolder.setHierarchy(dh);
+        if (interceptable == null || interceptable.invokeL(1048595, this, draweeHierarchy) == null) {
+            this.mDraweeHolder.setHierarchy(draweeHierarchy);
             super.setImageDrawable(this.mDraweeHolder.getTopLevelDrawable());
         }
     }
@@ -353,94 +453,25 @@ public class DraweeView<DH extends DraweeHierarchy> extends ImageView {
         }
     }
 
+    @Override // android.widget.ImageView, android.view.View
+    public void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048589, this, i, i2) == null) {
+            AspectRatioMeasure.Spec spec = this.mMeasureSpec;
+            spec.width = i;
+            spec.height = i2;
+            AspectRatioMeasure.updateMeasureSpec(spec, this.mAspectRatio, getLayoutParams(), getPaddingLeft() + getPaddingRight(), getPaddingTop() + getPaddingBottom());
+            AspectRatioMeasure.Spec spec2 = this.mMeasureSpec;
+            super.onMeasure(spec2.width, spec2.height);
+        }
+    }
+
     @Override // android.view.View
-    public String toString() {
-        InterceptResult invokeV;
+    public void onVisibilityChanged(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            Objects.ToStringHelper stringHelper = Objects.toStringHelper(this);
-            DraweeHolder<DH> draweeHolder = this.mDraweeHolder;
-            return stringHelper.add("holder", draweeHolder != null ? draweeHolder.toString() : "<no holder set>").toString();
+        if (interceptable == null || interceptable.invokeLI(1048592, this, view2, i) == null) {
+            super.onVisibilityChanged(view2, i);
+            maybeOverrideVisibilityHandling();
         }
-        return (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DraweeView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.mMeasureSpec = new AspectRatioMeasure.Spec();
-        this.mAspectRatio = 0.0f;
-        this.mInitialised = false;
-        this.mLegacyVisibilityHandlingEnabled = false;
-        init(context);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DraweeView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        this.mMeasureSpec = new AspectRatioMeasure.Spec();
-        this.mAspectRatio = 0.0f;
-        this.mInitialised = false;
-        this.mLegacyVisibilityHandlingEnabled = false;
-        init(context);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    @TargetApi(21)
-    public DraweeView(Context context, AttributeSet attributeSet, int i, int i2) {
-        super(context, attributeSet, i, i2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-                return;
-            }
-        }
-        this.mMeasureSpec = new AspectRatioMeasure.Spec();
-        this.mAspectRatio = 0.0f;
-        this.mInitialised = false;
-        this.mLegacyVisibilityHandlingEnabled = false;
-        init(context);
     }
 }

@@ -35,17 +35,6 @@ public class CustomRecyclerView extends BdTypeRecyclerView {
         }
     }
 
-    @Override // android.view.ViewGroup, android.view.View
-    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-            getParent().requestDisallowInterceptTouchEvent(true);
-            return super.dispatchTouchEvent(motionEvent);
-        }
-        return invokeL.booleanValue;
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public CustomRecyclerView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
@@ -86,5 +75,16 @@ public class CustomRecyclerView extends BdTypeRecyclerView {
                 return;
             }
         }
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
+            getParent().requestDisallowInterceptTouchEvent(true);
+            return super.dispatchTouchEvent(motionEvent);
+        }
+        return invokeL.booleanValue;
     }
 }

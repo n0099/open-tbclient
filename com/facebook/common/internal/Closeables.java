@@ -8,7 +8,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.infer.annotation.Nullsafe;
 import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStream;
@@ -16,11 +15,9 @@ import java.io.Reader;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.Nullable;
-@Nullsafe(Nullsafe.Mode.STRICT)
 /* loaded from: classes7.dex */
 public final class Closeables {
     public static /* synthetic */ Interceptable $ic;
-    @VisibleForTesting
     public static final Logger logger;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -56,7 +53,7 @@ public final class Closeables {
 
     public static void close(@Nullable Closeable closeable, boolean z) throws IOException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(65538, null, closeable, z) == null) || closeable == null) {
+        if ((interceptable != null && interceptable.invokeLZ(65538, null, closeable, z) != null) || closeable == null) {
             return;
         }
         try {

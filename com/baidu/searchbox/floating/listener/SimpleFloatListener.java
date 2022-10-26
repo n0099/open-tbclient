@@ -19,36 +19,11 @@ public class SimpleFloatListener implements FloatViewListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public SimpleFloatListener() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     @Override // com.baidu.searchbox.floating.listener.FloatViewListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
             Intrinsics.checkNotNullParameter(view2, "view");
-        }
-    }
-
-    @Override // com.baidu.searchbox.floating.listener.FloatViewListener
-    public void onClick(View view2, ScaleMode scaleLevel, Point position) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, scaleLevel, position) == null) {
-            Intrinsics.checkNotNullParameter(view2, "view");
-            Intrinsics.checkNotNullParameter(scaleLevel, "scaleLevel");
-            Intrinsics.checkNotNullParameter(position, "position");
-            onClick(view2);
         }
     }
 
@@ -67,29 +42,9 @@ public class SimpleFloatListener implements FloatViewListener {
     }
 
     @Override // com.baidu.searchbox.floating.listener.FloatViewListener
-    public void onScale(boolean z, ScaleMode scaleLevel, Point position) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), scaleLevel, position}) == null) {
-            Intrinsics.checkNotNullParameter(scaleLevel, "scaleLevel");
-            Intrinsics.checkNotNullParameter(position, "position");
-            onScale(z);
-        }
-    }
-
-    @Override // com.baidu.searchbox.floating.listener.FloatViewListener
     public void onViewCreate(boolean z, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(1048581, this, z, view2) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.floating.listener.FloatViewListener
-    public void onViewCreate(boolean z, View view2, ScaleMode scaleLevel, Point position) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), view2, scaleLevel, position}) == null) {
-            Intrinsics.checkNotNullParameter(scaleLevel, "scaleLevel");
-            Intrinsics.checkNotNullParameter(position, "position");
-            onViewCreate(z, view2);
         }
     }
 
@@ -98,6 +53,57 @@ public class SimpleFloatListener implements FloatViewListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, view2) == null) {
             Intrinsics.checkNotNullParameter(view2, "view");
+        }
+    }
+
+    @Override // com.baidu.searchbox.floating.listener.FloatViewListener
+    public void onViewHide(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, view2) == null) {
+            Intrinsics.checkNotNullParameter(view2, "view");
+        }
+    }
+
+    @Override // com.baidu.searchbox.floating.listener.FloatViewListener
+    public void onViewShow(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, view2) == null) {
+            Intrinsics.checkNotNullParameter(view2, "view");
+        }
+    }
+
+    public SimpleFloatListener() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.searchbox.floating.listener.FloatViewListener
+    public void onClick(View view2, ScaleMode scaleLevel, Point position) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, scaleLevel, position) == null) {
+            Intrinsics.checkNotNullParameter(view2, "view");
+            Intrinsics.checkNotNullParameter(scaleLevel, "scaleLevel");
+            Intrinsics.checkNotNullParameter(position, "position");
+            onClick(view2);
+        }
+    }
+
+    @Override // com.baidu.searchbox.floating.listener.FloatViewListener
+    public void onScale(boolean z, ScaleMode scaleLevel, Point position) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), scaleLevel, position}) == null) {
+            Intrinsics.checkNotNullParameter(scaleLevel, "scaleLevel");
+            Intrinsics.checkNotNullParameter(position, "position");
+            onScale(z);
         }
     }
 
@@ -113,14 +119,6 @@ public class SimpleFloatListener implements FloatViewListener {
     }
 
     @Override // com.baidu.searchbox.floating.listener.FloatViewListener
-    public void onViewHide(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, view2) == null) {
-            Intrinsics.checkNotNullParameter(view2, "view");
-        }
-    }
-
-    @Override // com.baidu.searchbox.floating.listener.FloatViewListener
     public void onViewHide(View view2, ScaleMode scaleLevel, Point position) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048586, this, view2, scaleLevel, position) == null) {
@@ -132,14 +130,6 @@ public class SimpleFloatListener implements FloatViewListener {
     }
 
     @Override // com.baidu.searchbox.floating.listener.FloatViewListener
-    public void onViewShow(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, view2) == null) {
-            Intrinsics.checkNotNullParameter(view2, "view");
-        }
-    }
-
-    @Override // com.baidu.searchbox.floating.listener.FloatViewListener
     public void onViewShow(View view2, ScaleMode scaleLevel, Point position) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048588, this, view2, scaleLevel, position) == null) {
@@ -147,6 +137,16 @@ public class SimpleFloatListener implements FloatViewListener {
             Intrinsics.checkNotNullParameter(scaleLevel, "scaleLevel");
             Intrinsics.checkNotNullParameter(position, "position");
             onViewShow(view2);
+        }
+    }
+
+    @Override // com.baidu.searchbox.floating.listener.FloatViewListener
+    public void onViewCreate(boolean z, View view2, ScaleMode scaleLevel, Point position) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), view2, scaleLevel, position}) == null) {
+            Intrinsics.checkNotNullParameter(scaleLevel, "scaleLevel");
+            Intrinsics.checkNotNullParameter(position, "position");
+            onViewCreate(z, view2);
         }
     }
 }

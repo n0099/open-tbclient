@@ -1,6 +1,5 @@
 package androidx.fragment.app;
 
-import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -10,11 +9,6 @@ import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
-import androidx.annotation.MainThread;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
-import androidx.annotation.StyleRes;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,7 +33,6 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
     public int mBackStackId;
     public boolean mCancelable;
     public boolean mCreatingDialog;
-    @Nullable
     public Dialog mDialog;
     public Runnable mDismissRunnable;
     public boolean mDismissed;
@@ -51,6 +44,13 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
     public int mStyle;
     public int mTheme;
     public boolean mViewDestroyed;
+
+    @Override // android.content.DialogInterface.OnCancelListener
+    public void onCancel(DialogInterface dialogInterface) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, dialogInterface) == null) {
+        }
+    }
 
     public DialogFragment() {
         Interceptable interceptable = $ic;
@@ -89,7 +89,6 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
             }
 
             @Override // java.lang.Runnable
-            @SuppressLint({"SyntheticAccessor"})
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
@@ -121,14 +120,12 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
             }
 
             @Override // android.content.DialogInterface.OnCancelListener
-            @SuppressLint({"SyntheticAccessor"})
-            public void onCancel(@Nullable DialogInterface dialogInterface) {
+            public void onCancel(DialogInterface dialogInterface) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) || this.this$0.mDialog == null) {
-                    return;
+                if ((interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) && this.this$0.mDialog != null) {
+                    DialogFragment dialogFragment = this.this$0;
+                    dialogFragment.onCancel(dialogFragment.mDialog);
                 }
-                DialogFragment dialogFragment = this.this$0;
-                dialogFragment.onCancel(dialogFragment.mDialog);
             }
         };
         this.mOnDismissListener = new DialogInterface.OnDismissListener(this) { // from class: androidx.fragment.app.DialogFragment.3
@@ -155,14 +152,12 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
             }
 
             @Override // android.content.DialogInterface.OnDismissListener
-            @SuppressLint({"SyntheticAccessor"})
-            public void onDismiss(@Nullable DialogInterface dialogInterface) {
+            public void onDismiss(DialogInterface dialogInterface) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) || this.this$0.mDialog == null) {
-                    return;
+                if ((interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) && this.this$0.mDialog != null) {
+                    DialogFragment dialogFragment = this.this$0;
+                    dialogFragment.onDismiss(dialogFragment.mDialog);
                 }
-                DialogFragment dialogFragment = this.this$0;
-                dialogFragment.onDismiss(dialogFragment.mDialog);
             }
         };
         this.mStyle = 0;
@@ -172,9 +167,68 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
         this.mBackStackId = -1;
     }
 
+    public final Dialog requireDialog() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            Dialog dialog = getDialog();
+            if (dialog != null) {
+                return dialog;
+            }
+            throw new IllegalStateException("DialogFragment " + this + " does not have a Dialog.");
+        }
+        return (Dialog) invokeV.objValue;
+    }
+
+    @Override // androidx.fragment.app.Fragment
+    public void onAttach(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, context) == null) {
+            super.onAttach(context);
+            if (!this.mShownByMe) {
+                this.mDismissed = false;
+            }
+        }
+    }
+
+    public Dialog onCreateDialog(Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, bundle)) == null) {
+            return new Dialog(requireContext(), getTheme());
+        }
+        return (Dialog) invokeL.objValue;
+    }
+
+    @Override // android.content.DialogInterface.OnDismissListener
+    public void onDismiss(DialogInterface dialogInterface) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048589, this, dialogInterface) == null) && !this.mViewDestroyed) {
+            dismissInternal(true, true);
+        }
+    }
+
+    public void setCancelable(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
+            this.mCancelable = z;
+            Dialog dialog = this.mDialog;
+            if (dialog != null) {
+                dialog.setCancelable(z);
+            }
+        }
+    }
+
+    public void setShowsDialog(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
+            this.mShowsDialog = z;
+        }
+    }
+
     private void dismissInternal(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || this.mDismissed) {
+        if ((interceptable != null && interceptable.invokeCommon(65539, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) != null) || this.mDismissed) {
             return;
         }
         this.mDismissed = true;
@@ -220,113 +274,43 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
         }
     }
 
-    @Nullable
     public Dialog getDialog() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mDialog : (Dialog) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mDialog;
+        }
+        return (Dialog) invokeV.objValue;
     }
 
     public boolean getShowsDialog() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mShowsDialog : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mShowsDialog;
+        }
+        return invokeV.booleanValue;
     }
 
-    @StyleRes
     public int getTheme() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mTheme : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mTheme;
+        }
+        return invokeV.intValue;
     }
 
     public boolean isCancelable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mCancelable : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mCancelable;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // androidx.fragment.app.Fragment
-    @MainThread
-    public void onActivityCreated(@Nullable Bundle bundle) {
-        Bundle bundle2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
-            super.onActivityCreated(bundle);
-            if (this.mShowsDialog) {
-                View view2 = getView();
-                if (this.mDialog != null) {
-                    if (view2 != null) {
-                        if (view2.getParent() == null) {
-                            this.mDialog.setContentView(view2);
-                        } else {
-                            throw new IllegalStateException("DialogFragment can not be attached to a container view");
-                        }
-                    }
-                    FragmentActivity activity = getActivity();
-                    if (activity != null) {
-                        this.mDialog.setOwnerActivity(activity);
-                    }
-                    this.mDialog.setCancelable(this.mCancelable);
-                    this.mDialog.setOnCancelListener(this.mOnCancelListener);
-                    this.mDialog.setOnDismissListener(this.mOnDismissListener);
-                    if (bundle == null || (bundle2 = bundle.getBundle(SAVED_DIALOG_STATE_TAG)) == null) {
-                        return;
-                    }
-                    this.mDialog.onRestoreInstanceState(bundle2);
-                }
-            }
-        }
-    }
-
-    @Override // androidx.fragment.app.Fragment
-    @MainThread
-    public void onAttach(@NonNull Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, context) == null) {
-            super.onAttach(context);
-            if (this.mShownByMe) {
-                return;
-            }
-            this.mDismissed = false;
-        }
-    }
-
-    @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(@NonNull DialogInterface dialogInterface) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, dialogInterface) == null) {
-        }
-    }
-
-    @Override // androidx.fragment.app.Fragment
-    @MainThread
-    public void onCreate(@Nullable Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
-            super.onCreate(bundle);
-            this.mHandler = new Handler();
-            this.mShowsDialog = this.mContainerId == 0;
-            if (bundle != null) {
-                this.mStyle = bundle.getInt(SAVED_STYLE, 0);
-                this.mTheme = bundle.getInt(SAVED_THEME, 0);
-                this.mCancelable = bundle.getBoolean(SAVED_CANCELABLE, true);
-                this.mShowsDialog = bundle.getBoolean(SAVED_SHOWS_DIALOG, this.mShowsDialog);
-                this.mBackStackId = bundle.getInt(SAVED_BACK_STACK_ID, -1);
-            }
-        }
-    }
-
-    @NonNull
-    @MainThread
-    public Dialog onCreateDialog(@Nullable Bundle bundle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, bundle)) == null) ? new Dialog(requireContext(), getTheme()) : (Dialog) invokeL.objValue;
-    }
-
-    @Override // androidx.fragment.app.Fragment
-    @MainThread
     public void onDestroyView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
@@ -345,55 +329,98 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
     }
 
     @Override // androidx.fragment.app.Fragment
-    @MainThread
     public void onDetach() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onDetach();
-            if (this.mShownByMe || this.mDismissed) {
+            if (!this.mShownByMe && !this.mDismissed) {
+                this.mDismissed = true;
+            }
+        }
+    }
+
+    @Override // androidx.fragment.app.Fragment
+    public void onStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            super.onStart();
+            Dialog dialog = this.mDialog;
+            if (dialog != null) {
+                this.mViewDestroyed = false;
+                dialog.show();
+            }
+        }
+    }
+
+    @Override // androidx.fragment.app.Fragment
+    public void onStop() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            super.onStop();
+            Dialog dialog = this.mDialog;
+            if (dialog != null) {
+                dialog.hide();
+            }
+        }
+    }
+
+    @Override // androidx.fragment.app.Fragment
+    public void onActivityCreated(Bundle bundle) {
+        Bundle bundle2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
+            super.onActivityCreated(bundle);
+            if (!this.mShowsDialog) {
                 return;
             }
-            this.mDismissed = true;
+            View view2 = getView();
+            if (this.mDialog != null) {
+                if (view2 != null) {
+                    if (view2.getParent() == null) {
+                        this.mDialog.setContentView(view2);
+                    } else {
+                        throw new IllegalStateException("DialogFragment can not be attached to a container view");
+                    }
+                }
+                FragmentActivity activity = getActivity();
+                if (activity != null) {
+                    this.mDialog.setOwnerActivity(activity);
+                }
+                this.mDialog.setCancelable(this.mCancelable);
+                this.mDialog.setOnCancelListener(this.mOnCancelListener);
+                this.mDialog.setOnDismissListener(this.mOnDismissListener);
+                if (bundle != null && (bundle2 = bundle.getBundle(SAVED_DIALOG_STATE_TAG)) != null) {
+                    this.mDialog.onRestoreInstanceState(bundle2);
+                }
+            }
         }
-    }
-
-    @Override // android.content.DialogInterface.OnDismissListener
-    public void onDismiss(@NonNull DialogInterface dialogInterface) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, dialogInterface) == null) || this.mViewDestroyed) {
-            return;
-        }
-        dismissInternal(true, true);
     }
 
     @Override // androidx.fragment.app.Fragment
-    @NonNull
-    public LayoutInflater onGetLayoutInflater(@Nullable Bundle bundle) {
-        InterceptResult invokeL;
+    public void onCreate(Bundle bundle) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, bundle)) == null) {
-            LayoutInflater onGetLayoutInflater = super.onGetLayoutInflater(bundle);
-            if (!this.mShowsDialog || this.mCreatingDialog) {
-                return onGetLayoutInflater;
+        if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
+            super.onCreate(bundle);
+            this.mHandler = new Handler();
+            if (this.mContainerId == 0) {
+                z = true;
+            } else {
+                z = false;
             }
-            try {
-                this.mCreatingDialog = true;
-                Dialog onCreateDialog = onCreateDialog(bundle);
-                this.mDialog = onCreateDialog;
-                setupDialog(onCreateDialog, this.mStyle);
-                this.mCreatingDialog = false;
-                return onGetLayoutInflater.cloneInContext(requireDialog().getContext());
-            } catch (Throwable th) {
-                this.mCreatingDialog = false;
-                throw th;
+            this.mShowsDialog = z;
+            if (bundle != null) {
+                this.mStyle = bundle.getInt(SAVED_STYLE, 0);
+                this.mTheme = bundle.getInt(SAVED_THEME, 0);
+                this.mCancelable = bundle.getBoolean(SAVED_CANCELABLE, true);
+                this.mShowsDialog = bundle.getBoolean(SAVED_SHOWS_DIALOG, this.mShowsDialog);
+                this.mBackStackId = bundle.getInt(SAVED_BACK_STACK_ID, -1);
             }
         }
-        return (LayoutInflater) invokeL.objValue;
     }
 
     @Override // androidx.fragment.app.Fragment
-    @MainThread
-    public void onSaveInstanceState(@NonNull Bundle bundle) {
+    public void onSaveInstanceState(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, bundle) == null) {
             super.onSaveInstanceState(bundle);
@@ -425,65 +452,30 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
     }
 
     @Override // androidx.fragment.app.Fragment
-    @MainThread
-    public void onStart() {
+    public LayoutInflater onGetLayoutInflater(Bundle bundle) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            super.onStart();
-            Dialog dialog = this.mDialog;
-            if (dialog != null) {
-                this.mViewDestroyed = false;
-                dialog.show();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, bundle)) == null) {
+            LayoutInflater onGetLayoutInflater = super.onGetLayoutInflater(bundle);
+            if (this.mShowsDialog && !this.mCreatingDialog) {
+                try {
+                    this.mCreatingDialog = true;
+                    Dialog onCreateDialog = onCreateDialog(bundle);
+                    this.mDialog = onCreateDialog;
+                    setupDialog(onCreateDialog, this.mStyle);
+                    this.mCreatingDialog = false;
+                    return onGetLayoutInflater.cloneInContext(requireDialog().getContext());
+                } catch (Throwable th) {
+                    this.mCreatingDialog = false;
+                    throw th;
+                }
             }
+            return onGetLayoutInflater;
         }
+        return (LayoutInflater) invokeL.objValue;
     }
 
-    @Override // androidx.fragment.app.Fragment
-    @MainThread
-    public void onStop() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            super.onStop();
-            Dialog dialog = this.mDialog;
-            if (dialog != null) {
-                dialog.hide();
-            }
-        }
-    }
-
-    @NonNull
-    public final Dialog requireDialog() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            Dialog dialog = getDialog();
-            if (dialog != null) {
-                return dialog;
-            }
-            throw new IllegalStateException("DialogFragment " + this + " does not have a Dialog.");
-        }
-        return (Dialog) invokeV.objValue;
-    }
-
-    public void setCancelable(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
-            this.mCancelable = z;
-            Dialog dialog = this.mDialog;
-            if (dialog != null) {
-                dialog.setCancelable(z);
-            }
-        }
-    }
-
-    public void setShowsDialog(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
-            this.mShowsDialog = z;
-        }
-    }
-
-    public void setStyle(int i, @StyleRes int i2) {
+    public void setStyle(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048597, this, i, i2) == null) {
             this.mStyle = i;
@@ -496,46 +488,24 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
         }
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public void setupDialog(@NonNull Dialog dialog, int i) {
+    public void setupDialog(Dialog dialog, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048598, this, dialog, i) == null) {
             if (i != 1 && i != 2) {
-                if (i != 3) {
+                if (i == 3) {
+                    Window window = dialog.getWindow();
+                    if (window != null) {
+                        window.addFlags(24);
+                    }
+                } else {
                     return;
-                }
-                Window window = dialog.getWindow();
-                if (window != null) {
-                    window.addFlags(24);
                 }
             }
             dialog.requestWindowFeature(1);
         }
     }
 
-    public void show(@NonNull FragmentManager fragmentManager, @Nullable String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048600, this, fragmentManager, str) == null) {
-            this.mDismissed = false;
-            this.mShownByMe = true;
-            FragmentTransaction beginTransaction = fragmentManager.beginTransaction();
-            beginTransaction.add(this, str);
-            beginTransaction.commit();
-        }
-    }
-
-    public void showNow(@NonNull FragmentManager fragmentManager, @Nullable String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048601, this, fragmentManager, str) == null) {
-            this.mDismissed = false;
-            this.mShownByMe = true;
-            FragmentTransaction beginTransaction = fragmentManager.beginTransaction();
-            beginTransaction.add(this, str);
-            beginTransaction.commitNow();
-        }
-    }
-
-    public int show(@NonNull FragmentTransaction fragmentTransaction, @Nullable String str) {
+    public int show(FragmentTransaction fragmentTransaction, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048599, this, fragmentTransaction, str)) == null) {
@@ -548,5 +518,27 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
             return commit;
         }
         return invokeLL.intValue;
+    }
+
+    public void showNow(FragmentManager fragmentManager, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048601, this, fragmentManager, str) == null) {
+            this.mDismissed = false;
+            this.mShownByMe = true;
+            FragmentTransaction beginTransaction = fragmentManager.beginTransaction();
+            beginTransaction.add(this, str);
+            beginTransaction.commitNow();
+        }
+    }
+
+    public void show(FragmentManager fragmentManager, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048600, this, fragmentManager, str) == null) {
+            this.mDismissed = false;
+            this.mShownByMe = true;
+            FragmentTransaction beginTransaction = fragmentManager.beginTransaction();
+            beginTransaction.add(this, str);
+            beginTransaction.commit();
+        }
     }
 }

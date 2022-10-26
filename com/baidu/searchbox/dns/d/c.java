@@ -24,7 +24,7 @@ import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLSession;
 /* loaded from: classes2.dex */
-public class c extends com.baidu.searchbox.dns.d.c.b<com.baidu.searchbox.dns.d.a.b> {
+public class c extends com.baidu.searchbox.dns.d.c.b {
     public static /* synthetic */ Interceptable $ic = null;
     public static String L = null;
     public static long M = -1;
@@ -36,8 +36,33 @@ public class c extends com.baidu.searchbox.dns.d.c.b<com.baidu.searchbox.dns.d.a
     public int H;
     public boolean N;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-957690909, "Lcom/baidu/searchbox/dns/d/c;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-957690909, "Lcom/baidu/searchbox/dns/d/c;");
+        }
+    }
+
+    @Override // com.baidu.searchbox.dns.d.c.a
+    public int w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     /* loaded from: classes2.dex */
-    public static class a implements HostnameVerifier {
+    public class a implements HostnameVerifier {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -58,35 +83,29 @@ public class c extends com.baidu.searchbox.dns.d.c.b<com.baidu.searchbox.dns.d.a
         public static a y() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new a() : (a) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+                return new a();
+            }
+            return (a) invokeV.objValue;
         }
 
         public boolean equals(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? obj instanceof a : invokeL.booleanValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+                return obj instanceof a;
+            }
+            return invokeL.booleanValue;
         }
 
         @Override // javax.net.ssl.HostnameVerifier
         public boolean verify(String str, SSLSession sSLSession) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, sSLSession)) == null) ? HttpsURLConnection.getDefaultHostnameVerifier().verify("httpsdns.baidu.com", sSLSession) : invokeLL.booleanValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-957690909, "Lcom/baidu/searchbox/dns/d/c;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-957690909, "Lcom/baidu/searchbox/dns/d/c;");
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, sSLSession)) == null) {
+                return HttpsURLConnection.getDefaultHostnameVerifier().verify("httpsdns.baidu.com", sSLSession);
+            }
+            return invokeLL.booleanValue;
         }
     }
 
@@ -132,35 +151,6 @@ public class c extends com.baidu.searchbox.dns.d.c.b<com.baidu.searchbox.dns.d.a
         }
     }
 
-    private String r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) ? (O && !TextUtils.isEmpty(L) && this.H == 2) ? L : "180.76.76.112" : (String) invokeV.objValue;
-    }
-
-    private void s() {
-        com.baidu.searchbox.dns.d.a a2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65543, this) == null) || !O || this.H != 2 || M <= 0 || System.currentTimeMillis() - M <= FlushManager.ReportTimer.DEFAULT_INTERVAL || (a2 = b.o().a("httpsdns.baidu.com", false, 2)) == null) {
-            return;
-        }
-        if (DnsUtil.DEBUG) {
-            Log.d(DnsUtil.TAG, " start update domain task: httpsdns.baidu.com");
-        }
-        a2.start();
-    }
-
-    private void u() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65544, this) == null) && O && this.H == 2) {
-            L = null;
-            M = -1L;
-            if (DnsUtil.DEBUG) {
-                Log.d(DnsUtil.TAG, "changeToBGPServer");
-            }
-        }
-    }
-
     @Override // com.baidu.searchbox.dns.d.c.a
     public void c(int i) {
         Interceptable interceptable = $ic;
@@ -172,57 +162,34 @@ public class c extends com.baidu.searchbox.dns.d.c.b<com.baidu.searchbox.dns.d.a
         }
     }
 
-    @Override // com.baidu.searchbox.dns.d.c.a
-    public Map<String, Object> getParameters() {
-        InterceptResult invokeV;
+    public static void a(HttpDNSStat httpDNSStat) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            HashMap hashMap = new HashMap();
-            if (this.E) {
-                hashMap.put("label", this.F);
-            } else {
-                hashMap.put(Config.DEVICE_NAME, this.F);
-            }
-            hashMap.put(UnitedSchemeConstants.UNITED_SCHEME_BACKUP, com.baidu.searchbox.dns.a.a.e().g());
-            hashMap.put("type", "ipv4,ipv6");
-            if (DnsUtil.iPv6TestEnable) {
-                hashMap.put("group", DnsUtil.iPv6Perfer ? HttpDnsCacheForHost.JSON_KEY_IPV6 : "ipv4");
-            }
-            return hashMap;
+        if (interceptable == null || interceptable.invokeL(65539, null, httpDNSStat) == null) {
+            P = httpDNSStat;
         }
-        return (Map) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.searchbox.dns.d.c.a
-    /* renamed from: l */
-    public com.baidu.searchbox.dns.d.a.b m(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (DnsUtil.DEBUG) {
-                Log.d(DnsUtil.TAG, " response " + str);
-            }
-            return new com.baidu.searchbox.dns.d.a.b(str);
-        }
-        return (com.baidu.searchbox.dns.d.a.b) invokeL.objValue;
-    }
-
-    @Override // com.baidu.searchbox.dns.d.c.b
-    public String q() {
+    private String r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (DnsUtil.DEBUG && !TextUtils.isEmpty(DnsUtil.httpDnsDebugAddress)) {
-                return DnsUtil.httpDnsDebugAddress;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
+            if (O && !TextUtils.isEmpty(L) && this.H == 2) {
+                return L;
             }
-            StringBuilder sb = new StringBuilder();
-            sb.append("https://");
-            sb.append(r());
-            sb.append(DnsUtil.iPv6TestEnable ? "/v6/0001/" : "/v5/0001/");
-            return sb.toString();
+            return "180.76.76.112";
         }
         return (String) invokeV.objValue;
+    }
+
+    private void u() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65544, this) == null) && O && this.H == 2) {
+            L = null;
+            M = -1L;
+            if (DnsUtil.DEBUG) {
+                Log.d(DnsUtil.TAG, "changeToBGPServer");
+            }
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -246,17 +213,51 @@ public class c extends com.baidu.searchbox.dns.d.c.b<com.baidu.searchbox.dns.d.a
     public boolean v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? q().toLowerCase().startsWith("https") : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (q().toLowerCase().startsWith("https")) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    private void s() {
+        com.baidu.searchbox.dns.d.a a2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65543, this) == null) && O && this.H == 2 && M > 0 && System.currentTimeMillis() - M > FlushManager.ReportTimer.DEFAULT_INTERVAL && (a2 = b.o().a("httpsdns.baidu.com", false, 2)) != null) {
+            if (DnsUtil.DEBUG) {
+                Log.d(DnsUtil.TAG, " start update domain task: httpsdns.baidu.com");
+            }
+            a2.start();
+        }
     }
 
     @Override // com.baidu.searchbox.dns.d.c.a
-    public int w() {
+    public Map getParameters() {
         InterceptResult invokeV;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            HashMap hashMap = new HashMap();
+            if (this.E) {
+                hashMap.put("label", this.F);
+            } else {
+                hashMap.put(Config.DEVICE_NAME, this.F);
+            }
+            hashMap.put(UnitedSchemeConstants.UNITED_SCHEME_BACKUP, com.baidu.searchbox.dns.a.a.e().g());
+            hashMap.put("type", "ipv4,ipv6");
+            if (DnsUtil.iPv6TestEnable) {
+                if (DnsUtil.iPv6Perfer) {
+                    str = HttpDnsCacheForHost.JSON_KEY_IPV6;
+                } else {
+                    str = "ipv4";
+                }
+                hashMap.put("group", str);
+            }
+            return hashMap;
         }
-        return invokeV.intValue;
+        return (Map) invokeV.objValue;
     }
 
     @Override // com.baidu.searchbox.dns.d.c.a
@@ -283,10 +284,41 @@ public class c extends com.baidu.searchbox.dns.d.c.b<com.baidu.searchbox.dns.d.a
         }
     }
 
-    public static void a(HttpDNSStat httpDNSStat) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.dns.d.c.a
+    /* renamed from: l */
+    public com.baidu.searchbox.dns.d.a.b m(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, httpDNSStat) == null) {
-            P = httpDNSStat;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            if (DnsUtil.DEBUG) {
+                Log.d(DnsUtil.TAG, " response " + str);
+            }
+            return new com.baidu.searchbox.dns.d.a.b(str);
         }
+        return (com.baidu.searchbox.dns.d.a.b) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.dns.d.c.b
+    public String q() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (DnsUtil.DEBUG && !TextUtils.isEmpty(DnsUtil.httpDnsDebugAddress)) {
+                return DnsUtil.httpDnsDebugAddress;
+            }
+            StringBuilder sb = new StringBuilder();
+            sb.append("https://");
+            sb.append(r());
+            if (DnsUtil.iPv6TestEnable) {
+                str = "/v6/0001/";
+            } else {
+                str = "/v5/0001/";
+            }
+            sb.append(str);
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

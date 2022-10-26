@@ -3,8 +3,8 @@ package com.meizu.cloud.pushsdk.base.a;
 import java.util.HashMap;
 /* loaded from: classes8.dex */
 public class a {
-    public static HashMap<String, Class<?>> a = new HashMap<>();
-    public Class<?> b;
+    public static HashMap a = new HashMap();
+    public Class b;
     public String c;
     public Object d;
 
@@ -24,16 +24,16 @@ public class a {
         return new a(str);
     }
 
-    public b a(Class<?>... clsArr) {
+    public b a(Class... clsArr) {
         return new b(this, clsArr);
     }
 
-    public c a(String str, Class<?>... clsArr) {
+    public c a(String str, Class... clsArr) {
         return new c(this, str, clsArr);
     }
 
-    public Class<?> a() throws ClassNotFoundException {
-        Class<?> cls = this.b;
+    public Class a() throws ClassNotFoundException {
+        Class cls = this.b;
         if (cls != null) {
             return cls;
         }
@@ -41,7 +41,7 @@ public class a {
         if (obj != null) {
             return obj.getClass();
         }
-        Class<?> cls2 = a.get(this.c);
+        Class cls2 = (Class) a.get(this.c);
         if (cls2 == null) {
             Class<?> cls3 = Class.forName(this.c);
             a.put(this.c, cls3);

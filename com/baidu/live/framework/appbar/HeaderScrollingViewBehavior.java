@@ -20,13 +20,30 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.badge.BadgeDrawable;
 import java.util.List;
 /* loaded from: classes2.dex */
-public abstract class HeaderScrollingViewBehavior extends ViewOffsetBehavior<View> {
+public abstract class HeaderScrollingViewBehavior extends ViewOffsetBehavior {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Rect d;
     public final Rect e;
     public int f;
     public int g;
+
+    public static int N(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? i == 0 ? BadgeDrawable.TOP_START : i : invokeI.intValue;
+    }
+
+    public abstract View H(List list);
+
+    public float J(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view2)) == null) {
+            return 1.0f;
+        }
+        return invokeL.floatValue;
+    }
 
     public HeaderScrollingViewBehavior() {
         Interceptable interceptable = $ic;
@@ -46,10 +63,28 @@ public abstract class HeaderScrollingViewBehavior extends ViewOffsetBehavior<Vie
         this.f = 0;
     }
 
-    public static int N(int i) {
-        InterceptResult invokeI;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public HeaderScrollingViewBehavior(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? i == 0 ? BadgeDrawable.TOP_START : i : invokeI.intValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.d = new Rect();
+        this.e = new Rect();
+        this.f = 0;
     }
 
     @Override // com.baidu.live.framework.appbar.ViewOffsetBehavior
@@ -78,8 +113,6 @@ public abstract class HeaderScrollingViewBehavior extends ViewOffsetBehavior<Vie
         }
     }
 
-    public abstract View H(List<View> list);
-
     public final int I(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -94,31 +127,13 @@ public abstract class HeaderScrollingViewBehavior extends ViewOffsetBehavior<Vie
         return invokeL.intValue;
     }
 
-    public float J(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view2)) == null) {
-            return 1.0f;
-        }
-        return invokeL.floatValue;
-    }
-
-    public final int K() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.g : invokeV.intValue;
-    }
-
     public int L(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, view2)) == null) ? view2.getMeasuredHeight() : invokeL.intValue;
-    }
-
-    public final int M() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f : invokeV.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, view2)) == null) {
+            return view2.getMeasuredHeight();
+        }
+        return invokeL.intValue;
     }
 
     public final void O(int i) {
@@ -128,14 +143,33 @@ public abstract class HeaderScrollingViewBehavior extends ViewOffsetBehavior<Vie
         }
     }
 
+    public final int K() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.g;
+        }
+        return invokeV.intValue;
+    }
+
+    public final int M() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.f;
+        }
+        return invokeV.intValue;
+    }
+
     @Override // com.baidu.live.framework.coordinatorlayout.CoordinatorLayout.Behavior
     public boolean m(CoordinatorLayout coordinatorLayout, View view2, int i, int i2, int i3, int i4) {
         InterceptResult invokeCommon;
         View H;
+        int i5;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{coordinatorLayout, view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
-            int i5 = view2.getLayoutParams().height;
-            if ((i5 == -1 || i5 == -2) && (H = H(coordinatorLayout.l(view2))) != null) {
+            int i6 = view2.getLayoutParams().height;
+            if ((i6 == -1 || i6 == -2) && (H = H(coordinatorLayout.l(view2))) != null) {
                 if (ViewCompat.getFitsSystemWindows(H) && !ViewCompat.getFitsSystemWindows(view2)) {
                     ViewCompat.setFitsSystemWindows(view2, true);
                     if (ViewCompat.getFitsSystemWindows(view2)) {
@@ -147,35 +181,17 @@ public abstract class HeaderScrollingViewBehavior extends ViewOffsetBehavior<Vie
                 if (size == 0) {
                     size = coordinatorLayout.getHeight();
                 }
-                coordinatorLayout.D(view2, i, i2, View.MeasureSpec.makeMeasureSpec((size - H.getMeasuredHeight()) + L(H), i5 == -1 ? 1073741824 : Integer.MIN_VALUE), i4);
+                int measuredHeight = (size - H.getMeasuredHeight()) + L(H);
+                if (i6 == -1) {
+                    i5 = 1073741824;
+                } else {
+                    i5 = Integer.MIN_VALUE;
+                }
+                coordinatorLayout.D(view2, i, i2, View.MeasureSpec.makeMeasureSpec(measuredHeight, i5), i4);
                 return true;
             }
             return false;
         }
         return invokeCommon.booleanValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HeaderScrollingViewBehavior(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.d = new Rect();
-        this.e = new Rect();
-        this.f = 0;
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.tieba.danmu.ecs.system;
 
 import android.graphics.Point;
 import android.graphics.RectF;
-import com.baidu.tieba.n66;
+import com.baidu.tieba.u66;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Lambda;
 @Metadata(d1 = {"\u0000\f\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u0003H\n"}, d2 = {"<anonymous>", "", AdvanceSetting.NETWORK_TYPE, "Lcom/baidu/tieba/danmu/render/RenderObject;"}, k = 3, mv = {1, 5, 1}, xi = 48)
 /* loaded from: classes3.dex */
-public final class RenderSystem$getDanmakus$1 extends Lambda implements Function1<n66, Boolean> {
+public final class RenderSystem$getDanmakus$1 extends Lambda implements Function1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ Point $point;
@@ -43,7 +43,7 @@ public final class RenderSystem$getDanmakus$1 extends Lambda implements Function
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.functions.Function1
-    public final Boolean invoke(n66 it) {
+    public final Boolean invoke(u66 it) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, it)) == null) {

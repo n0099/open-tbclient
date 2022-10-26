@@ -19,9 +19,41 @@ import kotlin.Metadata;
 public interface LiveNickNameService {
     public static final Companion Companion = Companion.$$INSTANCE;
 
+    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001e\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0004\bf\u0018\u00002\u00020\u0001J\u0017\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H&¢\u0006\u0004\b\u0005\u0010\u0006J\u001f\u0010\t\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u00022\u0006\u0010\b\u001a\u00020\u0007H&¢\u0006\u0004\b\t\u0010\n¨\u0006\u000b"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/service/LiveNickNameService$INickNameGuideDialogListener;", "Lkotlin/Any;", "", "var1", "", "dismissByModifySuccess", "(Z)V", "", "var2", "isShowSuccess", "(ZI)V", "lib-live-interfaces_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    /* loaded from: classes2.dex */
+    public interface INickNameGuideDialogListener {
+        void dismissByModifySuccess(boolean z);
+
+        void isShowSuccess(boolean z, int i);
+    }
+
+    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001e\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\b\n\u0002\b\u0007\bf\u0018\u00002\u00020\u0001J\u000f\u0010\u0003\u001a\u00020\u0002H&¢\u0006\u0004\b\u0003\u0010\u0004J\u001f\u0010\t\u001a\u00020\u00022\u0006\u0010\u0006\u001a\u00020\u00052\u0006\u0010\b\u001a\u00020\u0007H&¢\u0006\u0004\b\t\u0010\nJ\u0017\u0010\u000b\u001a\u00020\u00022\u0006\u0010\u0006\u001a\u00020\u0005H&¢\u0006\u0004\b\u000b\u0010\fJ\u0017\u0010\r\u001a\u00020\u00022\u0006\u0010\u0006\u001a\u00020\u0005H&¢\u0006\u0004\b\r\u0010\f¨\u0006\u000e"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/service/LiveNickNameService$INickNamePortraitDialogCallback;", "Lkotlin/Any;", "", "onDialogDismiss", "()V", "", "var1", "", "var2", "onDialogShow", "(ZI)V", "onNicknameModifyResult", "(Z)V", "onPortraitModifyResult", "lib-live-interfaces_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    /* loaded from: classes2.dex */
+    public interface INickNamePortraitDialogCallback {
+        void onDialogDismiss();
+
+        void onDialogShow(boolean z, int i);
+
+        void onNicknameModifyResult(boolean z);
+
+        void onPortraitModifyResult(boolean z);
+    }
+
+    int getNickNamePortraitType();
+
+    int nickNameDialogStatus();
+
+    void showNickNameDialog(Activity activity, String str, int i);
+
+    void showNickNameGuideDialog(Activity activity, int i, String str, int i2);
+
+    void showNickNameGuideDialog(Activity activity, int i, String str, INickNameGuideDialogListener iNickNameGuideDialogListener);
+
+    void showNicknamePortraitDialog(Activity activity, int i, INickNamePortraitDialogCallback iNickNamePortraitDialogCallback);
+
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0014\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0007\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0010\u0010\u0011R\"\u0010\u0002\u001a\u00020\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0002\u0010\u0003\u001a\u0004\b\u0004\u0010\u0005\"\u0004\b\u0006\u0010\u0007R\"\u0010\b\u001a\u00020\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\b\u0010\u0003\u001a\u0004\b\t\u0010\u0005\"\u0004\b\n\u0010\u0007R\u0019\u0010\f\u001a\u00020\u000b8\u0006@\u0006¢\u0006\f\n\u0004\b\f\u0010\r\u001a\u0004\b\u000e\u0010\u000f¨\u0006\u0012"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/service/LiveNickNameService$Companion;", "", "NICKNAME_DIALOG_TYPE_DISTRIBUTE", "I", "getNICKNAME_DIALOG_TYPE_DISTRIBUTE", "()I", "setNICKNAME_DIALOG_TYPE_DISTRIBUTE", "(I)V", "NICKNAME_DIALOG_TYPE_RECOMMEND", "getNICKNAME_DIALOG_TYPE_RECOMMEND", "setNICKNAME_DIALOG_TYPE_RECOMMEND", "Lcom/baidu/pyramid/runtime/service/ServiceReference;", "SERVICE_REFERENCE", "Lcom/baidu/pyramid/runtime/service/ServiceReference;", "getSERVICE_REFERENCE", "()Lcom/baidu/pyramid/runtime/service/ServiceReference;", "<init>", "()V", "lib-live-interfaces_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public static final class Companion {
+    public final class Companion {
         public static final /* synthetic */ Companion $$INSTANCE;
         public static /* synthetic */ Interceptable $ic;
         public static int NICKNAME_DIALOG_TYPE_DISTRIBUTE;
@@ -64,19 +96,28 @@ public interface LiveNickNameService {
         public final int getNICKNAME_DIALOG_TYPE_DISTRIBUTE() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? NICKNAME_DIALOG_TYPE_DISTRIBUTE : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return NICKNAME_DIALOG_TYPE_DISTRIBUTE;
+            }
+            return invokeV.intValue;
         }
 
         public final int getNICKNAME_DIALOG_TYPE_RECOMMEND() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? NICKNAME_DIALOG_TYPE_RECOMMEND : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return NICKNAME_DIALOG_TYPE_RECOMMEND;
+            }
+            return invokeV.intValue;
         }
 
         public final ServiceReference getSERVICE_REFERENCE() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? SERVICE_REFERENCE : (ServiceReference) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return SERVICE_REFERENCE;
+            }
+            return (ServiceReference) invokeV.objValue;
         }
 
         public final void setNICKNAME_DIALOG_TYPE_DISTRIBUTE(int i) {
@@ -93,36 +134,4 @@ public interface LiveNickNameService {
             }
         }
     }
-
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001e\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0004\bf\u0018\u00002\u00020\u0001J\u0017\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H&¢\u0006\u0004\b\u0005\u0010\u0006J\u001f\u0010\t\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u00022\u0006\u0010\b\u001a\u00020\u0007H&¢\u0006\u0004\b\t\u0010\n¨\u0006\u000b"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/service/LiveNickNameService$INickNameGuideDialogListener;", "Lkotlin/Any;", "", "var1", "", "dismissByModifySuccess", "(Z)V", "", "var2", "isShowSuccess", "(ZI)V", "lib-live-interfaces_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-    /* loaded from: classes2.dex */
-    public interface INickNameGuideDialogListener {
-        void dismissByModifySuccess(boolean z);
-
-        void isShowSuccess(boolean z, int i);
-    }
-
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001e\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\b\n\u0002\b\u0007\bf\u0018\u00002\u00020\u0001J\u000f\u0010\u0003\u001a\u00020\u0002H&¢\u0006\u0004\b\u0003\u0010\u0004J\u001f\u0010\t\u001a\u00020\u00022\u0006\u0010\u0006\u001a\u00020\u00052\u0006\u0010\b\u001a\u00020\u0007H&¢\u0006\u0004\b\t\u0010\nJ\u0017\u0010\u000b\u001a\u00020\u00022\u0006\u0010\u0006\u001a\u00020\u0005H&¢\u0006\u0004\b\u000b\u0010\fJ\u0017\u0010\r\u001a\u00020\u00022\u0006\u0010\u0006\u001a\u00020\u0005H&¢\u0006\u0004\b\r\u0010\f¨\u0006\u000e"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/service/LiveNickNameService$INickNamePortraitDialogCallback;", "Lkotlin/Any;", "", "onDialogDismiss", "()V", "", "var1", "", "var2", "onDialogShow", "(ZI)V", "onNicknameModifyResult", "(Z)V", "onPortraitModifyResult", "lib-live-interfaces_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-    /* loaded from: classes2.dex */
-    public interface INickNamePortraitDialogCallback {
-        void onDialogDismiss();
-
-        void onDialogShow(boolean z, int i);
-
-        void onNicknameModifyResult(boolean z);
-
-        void onPortraitModifyResult(boolean z);
-    }
-
-    int getNickNamePortraitType();
-
-    int nickNameDialogStatus();
-
-    void showNickNameDialog(Activity activity, String str, int i);
-
-    void showNickNameGuideDialog(Activity activity, int i, String str, int i2);
-
-    void showNickNameGuideDialog(Activity activity, int i, String str, INickNameGuideDialogListener iNickNameGuideDialogListener);
-
-    void showNicknamePortraitDialog(Activity activity, int i, INickNamePortraitDialogCallback iNickNamePortraitDialogCallback);
 }

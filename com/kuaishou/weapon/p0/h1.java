@@ -1,7 +1,6 @@
 package com.kuaishou.weapon.p0;
 
 import android.accessibilityservice.AccessibilityServiceInfo;
-import android.annotation.TargetApi;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
@@ -19,6 +18,7 @@ import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.tbadk.browser.SearchJsBridge;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.core.util.ApiReplaceUtil;
+import com.baidu.tbadk.mutiprocess.live.YyLiveRoomConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,7 +41,7 @@ public class h1 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static class a implements Runnable {
+    public final class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -142,7 +142,6 @@ public class h1 {
         return invokeL.booleanValue;
     }
 
-    @TargetApi(22)
     public static int a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -216,7 +215,7 @@ public class h1 {
         return (String) invokeL.objValue;
     }
 
-    public static Method a(Class<?> cls, String str, Class<?>... clsArr) {
+    public static Method a(Class cls, String str, Class... clsArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, null, cls, str, clsArr)) == null) {
@@ -241,7 +240,7 @@ public class h1 {
         return (Method) invokeLLL.objValue;
     }
 
-    public static void a(Context context, String str, Map<String, String> map) {
+    public static void a(Context context, String str, Map map) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLL(65546, null, context, str, map) == null) || TextUtils.isEmpty(str) || i.a(context, "re_po_rt").b(f3.c1, 1) == 0) {
             return;
@@ -324,7 +323,7 @@ public class h1 {
         return (String) invokeLI.objValue;
     }
 
-    public static Method b(Class<?> cls, String str, Class<?>... clsArr) {
+    public static Method b(Class cls, String str, Class... clsArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65551, null, cls, str, clsArr)) == null) {
@@ -674,7 +673,7 @@ public class h1 {
                     JSONArray jSONArray2 = new JSONArray(c);
                     for (int i = 0; i < jSONArray2.length(); i++) {
                         JSONObject jSONObject = new JSONObject();
-                        jSONObject.put("1", jSONArray2.getJSONObject(i).getString("ssid"));
+                        jSONObject.put("1", jSONArray2.getJSONObject(i).getString(YyLiveRoomConfig.KEY_SSID));
                         jSONObject.put("2", jSONArray2.getJSONObject(i).getString("bssid"));
                         jSONArray.put(jSONObject);
                     }
@@ -916,7 +915,6 @@ public class h1 {
         return (String) invokeL.objValue;
     }
 
-    @TargetApi(23)
     public static int x(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

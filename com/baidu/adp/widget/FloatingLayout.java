@@ -24,6 +24,113 @@ public class FloatingLayout extends LinearLayout {
     public int c;
     public int d;
 
+    /* loaded from: classes.dex */
+    public class LayoutParams extends LinearLayout.LayoutParams {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public LayoutParams(int i, int i2) {
+            super(i, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = 0;
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public LayoutParams(int i, int i2, int i3) {
+            super(i, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.a = 0;
+            this.a = i3;
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public LayoutParams(Context context, AttributeSet attributeSet) {
+            super(context, attributeSet);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, attributeSet};
+                interceptable.invokeUnInit(65538, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65538, newInitContext);
+                    return;
+                }
+            }
+            this.a = 0;
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.FloatingLayout_Layout);
+            String string = obtainStyledAttributes.getString(0);
+            if (string != null) {
+                if ("before".equals(string)) {
+                    this.a = 1;
+                } else if ("after".equals(string)) {
+                    this.a = 2;
+                } else if (ShareDirectionType.BOTH.equals(string)) {
+                    this.a = 3;
+                }
+            }
+            obtainStyledAttributes.recycle();
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public LayoutParams(ViewGroup.LayoutParams layoutParams) {
+            super(layoutParams);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {layoutParams};
+                interceptable.invokeUnInit(65539, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((ViewGroup.LayoutParams) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65539, newInitContext);
+                    return;
+                }
+            }
+            this.a = 0;
+        }
+    }
+
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public FloatingLayout(Context context) {
         this(context, null);
@@ -45,13 +152,52 @@ public class FloatingLayout extends LinearLayout {
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public FloatingLayout(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    @Override // android.widget.LinearLayout, android.view.View
+    public void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048590, this, i, i2) == null) {
+            this.a = 0;
+            this.b = 0;
+            if (getOrientation() == 1) {
+                g(i, i2);
+            } else if (getOrientation() == 0) {
+                f(i, i2);
+            }
+            setMeasuredDimension(this.c + getPaddingLeft() + getPaddingRight(), this.d + getPaddingTop() + getPaddingBottom());
+        }
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.LinearLayout, android.view.ViewGroup
     /* renamed from: a */
     public LayoutParams generateDefaultLayoutParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new LayoutParams(-2, -2, 0) : (LayoutParams) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new LayoutParams(-2, -2, 0);
+        }
+        return (LayoutParams) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -60,7 +206,10 @@ public class FloatingLayout extends LinearLayout {
     public LayoutParams generateLayoutParams(AttributeSet attributeSet) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, attributeSet)) == null) ? new LayoutParams(getContext(), attributeSet) : (LayoutParams) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, attributeSet)) == null) {
+            return new LayoutParams(getContext(), attributeSet);
+        }
+        return (LayoutParams) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -69,7 +218,10 @@ public class FloatingLayout extends LinearLayout {
     public LayoutParams generateLayoutParams(ViewGroup.LayoutParams layoutParams) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, layoutParams)) == null) ? new LayoutParams(layoutParams) : (LayoutParams) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, layoutParams)) == null) {
+            return new LayoutParams(layoutParams);
+        }
+        return (LayoutParams) invokeL.objValue;
     }
 
     public final void d() {
@@ -210,12 +362,10 @@ public class FloatingLayout extends LinearLayout {
                     int measuredHeight = this.b + childAt.getMeasuredHeight() + ((LinearLayout.LayoutParams) layoutParams2).topMargin + ((LinearLayout.LayoutParams) layoutParams2).bottomMargin;
                     this.b = measuredHeight;
                     this.d = Math.max(measuredHeight, this.d);
-                    if ((layoutParams2.a & 2) != 2) {
-                        if ((layoutParams2.a & 1) == 1) {
-                            this.a += i4;
-                        }
-                    } else {
+                    if ((layoutParams2.a & 2) == 2) {
                         this.b = 0;
+                        this.a += i4;
+                    } else if ((layoutParams2.a & 1) == 1) {
                         this.a += i4;
                     }
                     i4 = 0;
@@ -235,149 +385,6 @@ public class FloatingLayout extends LinearLayout {
             } else if (orientation == 1) {
                 e();
             }
-        }
-    }
-
-    @Override // android.widget.LinearLayout, android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048590, this, i, i2) == null) {
-            this.a = 0;
-            this.b = 0;
-            if (getOrientation() == 1) {
-                g(i, i2);
-            } else if (getOrientation() == 0) {
-                f(i, i2);
-            }
-            setMeasuredDimension(this.c + getPaddingLeft() + getPaddingRight(), this.d + getPaddingTop() + getPaddingBottom());
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FloatingLayout(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public static class LayoutParams extends LinearLayout.LayoutParams {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public LayoutParams(Context context, AttributeSet attributeSet) {
-            super(context, attributeSet);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, attributeSet};
-                interceptable.invokeUnInit(65538, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65538, newInitContext);
-                    return;
-                }
-            }
-            this.a = 0;
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.FloatingLayout_Layout);
-            String string = obtainStyledAttributes.getString(0);
-            if (string != null) {
-                if ("before".equals(string)) {
-                    this.a = 1;
-                } else if ("after".equals(string)) {
-                    this.a = 2;
-                } else if (ShareDirectionType.BOTH.equals(string)) {
-                    this.a = 3;
-                }
-            }
-            obtainStyledAttributes.recycle();
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public LayoutParams(int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = 0;
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public LayoutParams(int i, int i2, int i3) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.a = 0;
-            this.a = i3;
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public LayoutParams(ViewGroup.LayoutParams layoutParams) {
-            super(layoutParams);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {layoutParams};
-                interceptable.invokeUnInit(65539, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((ViewGroup.LayoutParams) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65539, newInitContext);
-                    return;
-                }
-            }
-            this.a = 0;
         }
     }
 }

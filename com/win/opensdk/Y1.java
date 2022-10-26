@@ -21,19 +21,23 @@ public class Y1 {
             }
             String[] split = System.getenv("PATH").split(":");
             int length = split.length;
+            boolean z2 = false;
             int i = 0;
             while (true) {
-                if (i >= length) {
+                if (i < length) {
+                    str = split[i] + "/su";
+                    if (new File(str).exists()) {
+                        break;
+                    }
+                    i++;
+                } else {
                     str = null;
                     break;
                 }
-                str = split[i] + "/su";
-                if (new File(str).exists()) {
-                    break;
-                }
-                i++;
             }
-            boolean z2 = str != null;
+            if (str != null) {
+                z2 = true;
+            }
             a = z2;
             return z2;
         }

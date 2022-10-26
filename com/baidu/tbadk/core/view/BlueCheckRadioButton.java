@@ -52,11 +52,10 @@ public class BlueCheckRadioButton extends RelativeLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.c == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.c != null) {
+                this.a.c.setButtonDrawable(R.drawable.obfuscated_res_0x7f08045a);
+                this.a.c.toggle();
             }
-            this.a.c.setButtonDrawable(R.drawable.obfuscated_res_0x7f08045a);
-            this.a.c.toggle();
         }
     }
 
@@ -82,68 +81,6 @@ public class BlueCheckRadioButton extends RelativeLayout {
         b();
     }
 
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0206, (ViewGroup) this, true);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090751);
-            this.c = (RadioButton) findViewById(R.id.obfuscated_res_0x7f090750);
-            c();
-            setOnClickListener(new a(this));
-        }
-    }
-
-    public void c() {
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (textView = this.b) == null) {
-            return;
-        }
-        SkinManager.setViewTextColor(textView, "CAM_X0302");
-    }
-
-    @Override // android.view.View
-    public Object getTag() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c.getTag() : invokeV.objValue;
-    }
-
-    public void setChecked(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.c.setChecked(z);
-        }
-    }
-
-    public void setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener onCheckedChangeListener) {
-        RadioButton radioButton;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, onCheckedChangeListener) == null) || (radioButton = this.c) == null) {
-            return;
-        }
-        radioButton.setOnCheckedChangeListener(onCheckedChangeListener);
-    }
-
-    @Override // android.view.View
-    public void setTag(Object obj) {
-        RadioButton radioButton;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, obj) == null) || (radioButton = this.c) == null) {
-            return;
-        }
-        radioButton.setTag(obj);
-    }
-
-    public void setText(String str) {
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || (textView = this.b) == null) {
-            return;
-        }
-        textView.setText(str);
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BlueCheckRadioButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -165,5 +102,66 @@ public class BlueCheckRadioButton extends RelativeLayout {
         }
         this.a = context;
         b();
+    }
+
+    public void setChecked(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.c.setChecked(z);
+        }
+    }
+
+    public void setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener onCheckedChangeListener) {
+        RadioButton radioButton;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, onCheckedChangeListener) == null) && (radioButton = this.c) != null) {
+            radioButton.setOnCheckedChangeListener(onCheckedChangeListener);
+        }
+    }
+
+    @Override // android.view.View
+    public void setTag(Object obj) {
+        RadioButton radioButton;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, obj) == null) && (radioButton = this.c) != null) {
+            radioButton.setTag(obj);
+        }
+    }
+
+    public void setText(String str) {
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && (textView = this.b) != null) {
+            textView.setText(str);
+        }
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0205, (ViewGroup) this, true);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09075a);
+            this.c = (RadioButton) findViewById(R.id.obfuscated_res_0x7f090759);
+            c();
+            setOnClickListener(new a(this));
+        }
+    }
+
+    public void c() {
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (textView = this.b) != null) {
+            SkinManager.setViewTextColor(textView, "CAM_X0302");
+        }
+    }
+
+    @Override // android.view.View
+    public Object getTag() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c.getTag();
+        }
+        return invokeV.objValue;
     }
 }

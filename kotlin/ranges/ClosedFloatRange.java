@@ -10,14 +10,25 @@ public final class ClosedFloatRange implements ClosedFloatingPointRange<Float> {
     public final float _endInclusive;
     public final float _start;
 
+    public boolean lessThanOrEquals(float f, float f2) {
+        return f <= f2;
+    }
+
     public ClosedFloatRange(float f, float f2) {
         this._start = f;
         this._endInclusive = f2;
     }
 
-    @Override // kotlin.ranges.ClosedFloatingPointRange, kotlin.ranges.ClosedRange
-    public /* bridge */ /* synthetic */ boolean contains(Comparable comparable) {
-        return contains(((Number) comparable).floatValue());
+    @Override // kotlin.ranges.ClosedFloatingPointRange
+    public /* bridge */ /* synthetic */ boolean lessThanOrEquals(Comparable comparable, Comparable comparable2) {
+        return lessThanOrEquals(((Number) comparable).floatValue(), ((Number) comparable2).floatValue());
+    }
+
+    public boolean contains(float f) {
+        if (f >= this._start && f <= this._endInclusive) {
+            return true;
+        }
+        return false;
     }
 
     public boolean equals(Object obj) {
@@ -32,6 +43,11 @@ public final class ClosedFloatRange implements ClosedFloatingPointRange<Float> {
         return false;
     }
 
+    @Override // kotlin.ranges.ClosedFloatingPointRange, kotlin.ranges.ClosedRange
+    public /* bridge */ /* synthetic */ boolean contains(Comparable comparable) {
+        return contains(((Number) comparable).floatValue());
+    }
+
     public int hashCode() {
         if (isEmpty()) {
             return -1;
@@ -41,25 +57,14 @@ public final class ClosedFloatRange implements ClosedFloatingPointRange<Float> {
 
     @Override // kotlin.ranges.ClosedFloatingPointRange, kotlin.ranges.ClosedRange
     public boolean isEmpty() {
-        return this._start > this._endInclusive;
-    }
-
-    public boolean lessThanOrEquals(float f, float f2) {
-        return f <= f2;
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Comparable, java.lang.Comparable] */
-    @Override // kotlin.ranges.ClosedFloatingPointRange
-    public /* bridge */ /* synthetic */ boolean lessThanOrEquals(Float f, Float f2) {
-        return lessThanOrEquals(f.floatValue(), f2.floatValue());
+        if (this._start > this._endInclusive) {
+            return true;
+        }
+        return false;
     }
 
     public String toString() {
         return this._start + IStringUtil.TOP_PATH + this._endInclusive;
-    }
-
-    public boolean contains(float f) {
-        return f >= this._start && f <= this._endInclusive;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

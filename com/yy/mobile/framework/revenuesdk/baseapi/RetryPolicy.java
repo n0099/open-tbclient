@@ -12,10 +12,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public interface RetryPolicy {
+    void cancel();
+
+    void retry();
+
+    void retryCountExhaust();
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public static final class Status {
+    public final class Status {
         public static final /* synthetic */ Status[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Status RETRY_CANCEL;
@@ -67,30 +72,6 @@ public interface RetryPolicy {
             this.message = str2;
         }
 
-        public static Status valueOf(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (Status) Enum.valueOf(Status.class, str) : (Status) invokeL.objValue;
-        }
-
-        public static Status[] values() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (Status[]) $VALUES.clone() : (Status[]) invokeV.objValue;
-        }
-
-        public int getCode() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.code : invokeV.intValue;
-        }
-
-        public String getMessage() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.message : (String) invokeV.objValue;
-        }
-
         public static Status valueOf(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
@@ -102,11 +83,41 @@ public interface RetryPolicy {
             }
             return (Status) invokeI.objValue;
         }
+
+        public static Status valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+                return (Status) Enum.valueOf(Status.class, str);
+            }
+            return (Status) invokeL.objValue;
+        }
+
+        public static Status[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+                return (Status[]) $VALUES.clone();
+            }
+            return (Status[]) invokeV.objValue;
+        }
+
+        public int getCode() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.code;
+            }
+            return invokeV.intValue;
+        }
+
+        public String getMessage() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.message;
+            }
+            return (String) invokeV.objValue;
+        }
     }
-
-    void cancel();
-
-    void retry();
-
-    void retryCountExhaust();
 }

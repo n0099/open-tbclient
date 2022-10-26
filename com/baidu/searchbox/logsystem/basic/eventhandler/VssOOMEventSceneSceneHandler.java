@@ -1,8 +1,6 @@
 package com.baidu.searchbox.logsystem.basic.eventhandler;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.searchbox.logsystem.logsys.eventscene.EventObject;
 import com.baidu.searchbox.logsystem.logsys.eventscene.snapshot.ProcessSnapshotType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,16 +32,15 @@ public class VssOOMEventSceneSceneHandler extends OOMEventSceneSceneHandler {
     }
 
     @Override // com.baidu.searchbox.logsystem.basic.eventhandler.OOMEventSceneSceneHandler, com.baidu.searchbox.logsystem.logsys.eventscene.handler.ProcessEventSceneHandler, com.baidu.searchbox.logsystem.logsys.eventscene.handler.BaseEventSceneHandler, com.baidu.searchbox.logsystem.logsys.eventscene.handler.EventSceneHandler
-    @Nullable
-    public Set<ProcessSnapshotType> requireGeneralSnapshots(@NonNull Context context, @NonNull EventObject eventObject) {
+    public Set requireGeneralSnapshots(Context context, EventObject eventObject) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, eventObject)) == null) {
             String str = eventObject.mEventLog;
             if ((str.contains("java.lang.OutOfMemoryError") && str.contains(PC)) || str.contains(CWA)) {
-                Set<ProcessSnapshotType> requireGeneralSnapshots = super.requireGeneralSnapshots(context, eventObject);
+                Set requireGeneralSnapshots = super.requireGeneralSnapshots(context, eventObject);
                 if (requireGeneralSnapshots == null) {
-                    requireGeneralSnapshots = new HashSet<>(4);
+                    requireGeneralSnapshots = new HashSet(4);
                 }
                 requireGeneralSnapshots.add(ProcessSnapshotType.PROCESS_SMAPS);
                 requireGeneralSnapshots.add(ProcessSnapshotType.PROCESS_MAPS);

@@ -30,18 +30,6 @@ public class ABIUtils {
         }
     }
 
-    public static boolean checkABIIsValid(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (checkCpuAbiIs64() && "1".equals(str)) {
-                return false;
-            }
-            return checkCpuAbiIs64() || !"2".equals(str);
-        }
-        return invokeL.booleanValue;
-    }
-
     public static boolean checkCpuAbiIs64() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -50,16 +38,31 @@ public class ABIUtils {
             if (i >= 23) {
                 return Process.is64Bit();
             }
-            if (i >= 21) {
-                String[] strArr = Build.SUPPORTED_64_BIT_ABIS;
-                if (strArr.length > 0) {
-                    return Build.CPU_ABI.equals(strArr[0]);
-                }
+            if (i < 21) {
                 return false;
+            }
+            String[] strArr = Build.SUPPORTED_64_BIT_ABIS;
+            if (strArr.length <= 0) {
+                return false;
+            }
+            return Build.CPU_ABI.equals(strArr[0]);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean checkABIIsValid(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (!checkCpuAbiIs64() || !"1".equals(str)) {
+                if (!checkCpuAbiIs64() && "2".equals(str)) {
+                    return false;
+                }
+                return true;
             }
             return false;
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 
     public static boolean checkLocalABIIsValid(String str, String str2) {
@@ -67,13 +70,15 @@ public class ABIUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
             if (!"".equals(str2) && !"3".equals(str2)) {
-                if (TextUtils.isEmpty(str) && !"3".equals(str2)) {
-                    return false;
-                }
-                if ("1".equals(str) && "2".equals(str2)) {
-                    return false;
-                }
-                if ("2".equals(str) && "1".equals(str2)) {
+                if (!TextUtils.isEmpty(str) || "3".equals(str2)) {
+                    if (!"1".equals(str) || !"2".equals(str2)) {
+                        if ("2".equals(str) && "1".equals(str2)) {
+                            return false;
+                        }
+                    } else {
+                        return false;
+                    }
+                } else {
                     return false;
                 }
             }

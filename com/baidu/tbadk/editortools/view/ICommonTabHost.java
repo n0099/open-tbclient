@@ -4,15 +4,21 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.editortools.EditorTools;
-import com.baidu.tieba.t55;
+import com.baidu.tieba.x55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public abstract class ICommonTabHost extends LinearLayout implements t55 {
+public abstract class ICommonTabHost extends LinearLayout implements x55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract /* synthetic */ int getToolId();
+
+    public abstract /* synthetic */ void setEditorTools(EditorTools editorTools);
+
+    public abstract /* synthetic */ void setToolId(int i);
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ICommonTabHost(Context context) {
@@ -33,12 +39,6 @@ public abstract class ICommonTabHost extends LinearLayout implements t55 {
             }
         }
     }
-
-    public abstract /* synthetic */ int getToolId();
-
-    public abstract /* synthetic */ void setEditorTools(EditorTools editorTools);
-
-    public abstract /* synthetic */ void setToolId(int i);
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ICommonTabHost(Context context, AttributeSet attributeSet) {

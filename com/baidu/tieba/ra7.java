@@ -1,120 +1,89 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.qa7;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.dialog.TBAlertBuilder;
+import com.baidu.tbadk.core.dialog.TBAlertConfig;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.Anti;
 /* loaded from: classes5.dex */
-public class ra7 implements mb5 {
+public class ra7 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public qa7.a b;
-    public ba7 c;
-    public long d;
-    public int e;
 
-    public ra7() {
+    public static boolean a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            if (c()) {
+                if (!lh5.a()) {
+                    d(context);
+                    return true;
+                }
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void b(boolean z, Anti anti) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZL(65537, null, z, anti) == null) && z && anti != null) {
+            if (anti.user_chat_block.intValue() == 1) {
+                e();
+            } else {
+                f();
             }
         }
     }
 
-    public static ra7 a(ChatMessage chatMessage, qa7.a aVar) {
-        InterceptResult invokeLL;
+    public static boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, chatMessage, aVar)) == null) {
-            ra7 ra7Var = new ra7();
-            if (chatMessage == null) {
-                return ra7Var;
-            }
-            aVar.h /= 100;
-            ra7Var.m(chatMessage.getReadCountPv());
-            ra7Var.l(aVar);
-            ra7Var.h(chatMessage.getTime());
-            if (chatMessage.getObjContent() instanceof ba7) {
-                ra7Var.j((ba7) chatMessage.getObjContent());
-            }
-            return ra7Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a;
         }
-        return (ra7) invokeLL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public long b() {
-        InterceptResult invokeV;
+    public static void e() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : invokeV.longValue;
-    }
-
-    public ba7 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (ba7) invokeV.objValue;
-    }
-
-    public qa7.a d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (qa7.a) invokeV.objValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : invokeV.intValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : invokeV.booleanValue;
-    }
-
-    public void h(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            this.d = j;
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) && !c()) {
+            a = true;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921720, Boolean.TRUE));
         }
     }
 
-    public void i(boolean z) {
+    public static void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.a = z;
+        if ((interceptable == null || interceptable.invokeV(65541, null) == null) && c()) {
+            a = false;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921720, Boolean.FALSE));
         }
     }
 
-    public void j(ba7 ba7Var) {
+    public static void d(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, ba7Var) == null) {
-            this.c = ba7Var;
-        }
-    }
-
-    public void l(qa7.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
-            this.b = aVar;
-        }
-    }
-
-    public void m(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.e = i;
+        if ((interceptable == null || interceptable.invokeL(65539, null, context) == null) && (context instanceof Activity)) {
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_IM_MESSAGE_BLOCK_DIALOG_SHOW).addParam("uid", TbadkCoreApplication.getCurrentAccount()));
+            TBAlertBuilder tBAlertBuilder = new TBAlertBuilder((Activity) context);
+            tBAlertBuilder.t(R.string.obfuscated_res_0x7f0f03ad);
+            tBAlertBuilder.k(R.string.obfuscated_res_0x7f0f03ac);
+            tBAlertBuilder.r(new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f03ab, TBAlertConfig.OperateBtnStyle.MAIN));
+            tBAlertBuilder.h(false);
+            tBAlertBuilder.g();
+            tBAlertBuilder.w();
         }
     }
 }

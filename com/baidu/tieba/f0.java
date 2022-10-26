@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
@@ -28,13 +27,13 @@ public final class f0 {
     public final Executor a;
 
     /* loaded from: classes3.dex */
-    public static /* synthetic */ class a {
+    public /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes3.dex */
-    public static class b implements Executor {
+    public class b implements Executor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -52,16 +51,16 @@ public final class f0 {
             }
         }
 
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+
         @Override // java.util.concurrent.Executor
         public void execute(Runnable runnable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
                 new Handler(Looper.getMainLooper()).post(runnable);
             }
-        }
-
-        public /* synthetic */ b(a aVar) {
-            this();
         }
     }
 
@@ -101,15 +100,6 @@ public final class f0 {
         this.a = new b(null);
     }
 
-    @SuppressLint({"NewApi"})
-    public static void a(ThreadPoolExecutor threadPoolExecutor, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(65538, null, threadPoolExecutor, z) == null) || Build.VERSION.SDK_INT < 9) {
-            return;
-        }
-        threadPoolExecutor.allowCoreThreadTimeOut(z);
-    }
-
     public static ExecutorService b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -124,6 +114,16 @@ public final class f0 {
     public static Executor c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? b.a : (Executor) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return b.a;
+        }
+        return (Executor) invokeV.objValue;
+    }
+
+    public static void a(ThreadPoolExecutor threadPoolExecutor, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(65538, null, threadPoolExecutor, z) == null) && Build.VERSION.SDK_INT >= 9) {
+            threadPoolExecutor.allowCoreThreadTimeOut(z);
+        }
     }
 }

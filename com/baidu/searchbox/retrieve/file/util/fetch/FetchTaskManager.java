@@ -62,19 +62,28 @@ public class FetchTaskManager {
     public String getOriginData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mSharedPrefsWrapper.getString(SP_TASK_ORIGIN_KEY, "") : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mSharedPrefsWrapper.getString(SP_TASK_ORIGIN_KEY, "");
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getRetryCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mSharedPrefsWrapper.getInt(SP_TASK_RETRY_COUNT_KEY, 0) : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mSharedPrefsWrapper.getInt(SP_TASK_RETRY_COUNT_KEY, 0);
+        }
+        return invokeV.intValue;
     }
 
     public boolean isDebug() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mSharedPrefsWrapper.getBoolean(SP_FETCH_DEBUG_KEY, false) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mSharedPrefsWrapper.getBoolean(SP_FETCH_DEBUG_KEY, false);
+        }
+        return invokeV.booleanValue;
     }
 
     public void saveOriginData(String str) {

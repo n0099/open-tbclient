@@ -2,7 +2,6 @@ package com.google.android.material.datepicker;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -16,19 +15,27 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 /* loaded from: classes7.dex */
-public final class Month implements Comparable<Month>, Parcelable {
+public final class Month implements Comparable, Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<Month> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public final int daysInMonth;
     public final int daysInWeek;
-    @NonNull
     public final Calendar firstOfMonth;
-    @NonNull
     public final String longName;
     public final int month;
     public final long timeInMillis;
     public final int year;
+
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -43,7 +50,7 @@ public final class Month implements Comparable<Month>, Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<Month>() { // from class: com.google.android.material.datepicker.Month.1
+        CREATOR = new Parcelable.Creator() { // from class: com.google.android.material.datepicker.Month.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -62,28 +69,79 @@ public final class Month implements Comparable<Month>, Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            @NonNull
-            public Month createFromParcel(@NonNull Parcel parcel) {
+            public Month createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? Month.create(parcel.readInt(), parcel.readInt()) : (Month) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return Month.create(parcel.readInt(), parcel.readInt());
+                }
+                return (Month) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            @NonNull
             public Month[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new Month[i] : (Month[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new Month[i];
+                }
+                return (Month[]) invokeI.objValue;
             }
         };
     }
 
-    public Month(@NonNull Calendar calendar) {
+    public static Month current() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return new Month(UtcDates.getTodayCalendar());
+        }
+        return (Month) invokeV.objValue;
+    }
+
+    public int daysFromStartOfWeekToFirstOfMonth() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            int firstDayOfWeek = this.firstOfMonth.get(7) - this.firstOfMonth.getFirstDayOfWeek();
+            if (firstDayOfWeek < 0) {
+                return firstDayOfWeek + this.daysInWeek;
+            }
+            return firstDayOfWeek;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getLongName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.longName;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long getStableId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.firstOfMonth.getTimeInMillis();
+        }
+        return invokeV.longValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return Arrays.hashCode(new Object[]{Integer.valueOf(this.month), Integer.valueOf(this.year)});
+        }
+        return invokeV.intValue;
+    }
+
+    public Month(Calendar calendar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -109,7 +167,27 @@ public final class Month implements Comparable<Month>, Parcelable {
         this.timeInMillis = this.firstOfMonth.getTimeInMillis();
     }
 
-    @NonNull
+    public static Month create(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i, i2)) == null) {
+            Calendar utcCalendar = UtcDates.getUtcCalendar();
+            utcCalendar.set(1, i);
+            utcCalendar.set(2, i2);
+            return new Month(utcCalendar);
+        }
+        return (Month) invokeII.objValue;
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048587, this, parcel, i) == null) {
+            parcel.writeInt(this.year);
+            parcel.writeInt(this.month);
+        }
+    }
+
     public static Month create(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
@@ -121,31 +199,15 @@ public final class Month implements Comparable<Month>, Parcelable {
         return (Month) invokeJ.objValue;
     }
 
-    @NonNull
-    public static Month current() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    public int compareTo(Month month) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? new Month(UtcDates.getTodayCalendar()) : (Month) invokeV.objValue;
-    }
-
-    public int daysFromStartOfWeekToFirstOfMonth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int firstDayOfWeek = this.firstOfMonth.get(7) - this.firstOfMonth.getFirstDayOfWeek();
-            return firstDayOfWeek < 0 ? firstDayOfWeek + this.daysInWeek : firstDayOfWeek;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, month)) == null) {
+            return this.firstOfMonth.compareTo(month.firstOfMonth);
         }
-        return invokeV.intValue;
-    }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
+        return invokeL.intValue;
     }
 
     public boolean equals(Object obj) {
@@ -155,9 +217,12 @@ public final class Month implements Comparable<Month>, Parcelable {
             if (this == obj) {
                 return true;
             }
-            if (obj instanceof Month) {
-                Month month = (Month) obj;
-                return this.month == month.month && this.year == month.year;
+            if (!(obj instanceof Month)) {
+                return false;
+            }
+            Month month = (Month) obj;
+            if (this.month == month.month && this.year == month.year) {
+                return true;
             }
             return false;
         }
@@ -175,26 +240,6 @@ public final class Month implements Comparable<Month>, Parcelable {
         return invokeI.longValue;
     }
 
-    @NonNull
-    public String getLongName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.longName : (String) invokeV.objValue;
-    }
-
-    public long getStableId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.firstOfMonth.getTimeInMillis() : invokeV.longValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? Arrays.hashCode(new Object[]{Integer.valueOf(this.month), Integer.valueOf(this.year)}) : invokeV.intValue;
-    }
-
-    @NonNull
     public Month monthsLater(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -206,7 +251,7 @@ public final class Month implements Comparable<Month>, Parcelable {
         return (Month) invokeI.objValue;
     }
 
-    public int monthsUntil(@NonNull Month month) {
+    public int monthsUntil(Month month) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, month)) == null) {
@@ -216,35 +261,5 @@ public final class Month implements Comparable<Month>, Parcelable {
             throw new IllegalArgumentException("Only Gregorian calendars are supported.");
         }
         return invokeL.intValue;
-    }
-
-    @Override // android.os.Parcelable
-    public void writeToParcel(@NonNull Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048587, this, parcel, i) == null) {
-            parcel.writeInt(this.year);
-            parcel.writeInt(this.month);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    public int compareTo(@NonNull Month month) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, month)) == null) ? this.firstOfMonth.compareTo(month.firstOfMonth) : invokeL.intValue;
-    }
-
-    @NonNull
-    public static Month create(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i, i2)) == null) {
-            Calendar utcCalendar = UtcDates.getUtcCalendar();
-            utcCalendar.set(1, i);
-            utcCalendar.set(2, i2);
-            return new Month(utcCalendar);
-        }
-        return (Month) invokeII.objValue;
     }
 }

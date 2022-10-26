@@ -11,7 +11,7 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public static class a {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public static final b ai;
         public transient /* synthetic */ FieldHolder $fh;
@@ -36,6 +36,9 @@ public class d {
     public static b N() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? a.ai : (b) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return a.ai;
+        }
+        return (b) invokeV.objValue;
     }
 }

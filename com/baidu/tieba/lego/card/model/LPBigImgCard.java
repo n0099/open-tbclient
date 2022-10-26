@@ -5,11 +5,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
-import com.baidu.tieba.bh7;
-import com.baidu.tieba.dh7;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.wg7;
-import com.baidu.tieba.zg;
+import com.baidu.tieba.ah;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.hh7;
+import com.baidu.tieba.mh7;
+import com.baidu.tieba.oh7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class LPBigImgCard extends BaseCardInfo implements wg7<LPBigImgCard> {
+public class LPBigImgCard extends BaseCardInfo implements hh7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int bgColor;
@@ -53,96 +53,145 @@ public class LPBigImgCard extends BaseCardInfo implements wg7<LPBigImgCard> {
             }
         }
         this.picUrl = jSONObject.optString("pic_url");
-        this.picWidth = dh7.a(jSONObject.optInt(VrPlayerActivityConfig.PIC_WIDTH));
-        this.picHeight = dh7.a(jSONObject.optInt(VrPlayerActivityConfig.PIC_HEIGHT));
-        this.bgColor = bh7.b(jSONObject.optString("bg_color"));
-        this.bgColorNight = bh7.b(jSONObject.optString("bg_color_n"));
+        this.picWidth = oh7.a(jSONObject.optInt(VrPlayerActivityConfig.PIC_WIDTH));
+        this.picHeight = oh7.a(jSONObject.optInt(VrPlayerActivityConfig.PIC_HEIGHT));
+        this.bgColor = mh7.b(jSONObject.optString("bg_color"));
+        this.bgColorNight = mh7.b(jSONObject.optString("bg_color_n"));
         this.btnText = jSONObject.optString("btn_text");
-        this.btnColor = bh7.b(jSONObject.optString("btn_color"));
-        this.btnColorNight = bh7.b(jSONObject.optString("btn_color_n"));
+        this.btnColor = mh7.b(jSONObject.optString("btn_color"));
+        this.btnColorNight = mh7.b(jSONObject.optString("btn_color_n"));
         this.btnImgUrl = jSONObject.optString("btn_img");
-        this.btnWidth = dh7.a(jSONObject.optInt("btn_width"));
-        this.btnHeight = dh7.a(jSONObject.optInt("btn_height"));
+        this.btnWidth = oh7.a(jSONObject.optInt("btn_width"));
+        this.btnHeight = oh7.a(jSONObject.optInt("btn_height"));
         this.btnPosRatio = jSONObject.optDouble("btn_pos", 0.5d);
         this.btnLink = jSONObject.optString("link");
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.hh7
+    public void doLoad(LPBigImgCard lPBigImgCard, TbPageContext tbPageContext) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lPBigImgCard, tbPageContext) == null) && lPBigImgCard != null && tbPageContext != null) {
+            int k = fj.k(TbadkCoreApplication.getInst());
+            ah.h().k(lPBigImgCard.getPicUrl(), 17, null, k, (int) ((lPBigImgCard.getPicHeight() / lPBigImgCard.getPicWidth()) * k), tbPageContext.getUniqueId(), new Object[0]);
+        }
     }
 
     public int getBgColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.bgColor : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.bgColor;
+        }
+        return invokeV.intValue;
     }
 
     public int getBgColorNight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.bgColorNight : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.bgColorNight;
+        }
+        return invokeV.intValue;
     }
 
     public int getBtnColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.btnColor : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.btnColor;
+        }
+        return invokeV.intValue;
     }
 
     public int getBtnColorNight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.btnColorNight : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.btnColorNight;
+        }
+        return invokeV.intValue;
     }
 
     public int getBtnHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.btnHeight : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.btnHeight;
+        }
+        return invokeV.intValue;
     }
 
     public String getBtnImgUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.btnImgUrl : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.btnImgUrl;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getBtnLink() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.btnLink : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.btnLink;
+        }
+        return (String) invokeV.objValue;
     }
 
     public double getBtnPosRatio() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.btnPosRatio : invokeV.doubleValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.btnPosRatio;
+        }
+        return invokeV.doubleValue;
     }
 
     public String getBtnText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.btnText : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.btnText;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getBtnWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.btnWidth : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.btnWidth;
+        }
+        return invokeV.intValue;
     }
 
     public int getPicHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.picHeight : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.picHeight;
+        }
+        return invokeV.intValue;
     }
 
     public String getPicUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.picUrl : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.picUrl;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getPicWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.picWidth : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.picWidth;
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.lego.card.model.BaseLegoCardInfo, com.baidu.tieba.lego.card.model.ICardInfo
@@ -157,16 +206,5 @@ public class LPBigImgCard extends BaseCardInfo implements wg7<LPBigImgCard> {
             return super.getRatio();
         }
         return invokeV.doubleValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wg7
-    public void doLoad(LPBigImgCard lPBigImgCard, TbPageContext tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lPBigImgCard, tbPageContext) == null) || lPBigImgCard == null || tbPageContext == null) {
-            return;
-        }
-        int k = ej.k(TbadkCoreApplication.getInst());
-        zg.h().k(lPBigImgCard.getPicUrl(), 17, null, k, (int) ((lPBigImgCard.getPicHeight() / lPBigImgCard.getPicWidth()) * k), tbPageContext.getUniqueId(), new Object[0]);
     }
 }

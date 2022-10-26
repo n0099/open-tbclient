@@ -24,7 +24,7 @@ public abstract class a extends b {
         }
     }
 
-    public abstract List<c> ir();
+    public abstract List ir();
 
     public abstract int is();
 }

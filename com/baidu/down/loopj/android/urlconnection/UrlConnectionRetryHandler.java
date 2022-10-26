@@ -50,38 +50,38 @@ public class UrlConnectionRetryHandler extends BaseRetryHandler {
                 if (i <= jArr.length && i2 <= jArr.length * 3 && !isInList(BaseRetryHandler.exceptionBlacklist, iOException)) {
                     isInList(BaseRetryHandler.exceptionWhitelist, iOException);
                     z = true;
-                    if ((iOException instanceof HttpResponseException) || ((HttpResponseException) iOException).getStatusCode() != 412) {
-                        if (!z) {
-                            try {
-                                long j = this.retryIntervals[i - 1];
-                                if (j > 0) {
-                                    if (NetWorkDetector.getInstance().sNeedDetect && !TextUtils.isEmpty(str) && !NetWorkDetector.getInstance().isHostReachableCached(str, 5000L)) {
-                                        while (true) {
-                                            long j2 = j - 5000;
-                                            if (j2 <= 0) {
-                                                break;
-                                            }
-                                            Thread.sleep(5000L);
-                                            if (NetWorkDetector.getInstance().isHostReachableCached(str, 5000L)) {
-                                                return z;
-                                            }
-                                            j = j2;
-                                        }
-                                    }
-                                    Thread.sleep(j);
-                                }
-                            } catch (InterruptedException unused) {
-                            }
-                        } else {
-                            iOException.printStackTrace();
-                        }
-                        return z;
+                    if (!(iOException instanceof HttpResponseException) && ((HttpResponseException) iOException).getStatusCode() == 412) {
+                        return false;
                     }
-                    return false;
+                    if (!z) {
+                        try {
+                            long j = this.retryIntervals[i - 1];
+                            if (j > 0) {
+                                if (NetWorkDetector.getInstance().sNeedDetect && !TextUtils.isEmpty(str) && !NetWorkDetector.getInstance().isHostReachableCached(str, 5000L)) {
+                                    while (true) {
+                                        long j2 = j - 5000;
+                                        if (j2 <= 0) {
+                                            break;
+                                        }
+                                        Thread.sleep(5000L);
+                                        if (NetWorkDetector.getInstance().isHostReachableCached(str, 5000L)) {
+                                            return z;
+                                        }
+                                        j = j2;
+                                    }
+                                }
+                                Thread.sleep(j);
+                            }
+                        } catch (InterruptedException unused) {
+                        }
+                    } else {
+                        iOException.printStackTrace();
+                    }
+                    return z;
                 }
             }
             z = false;
-            if (iOException instanceof HttpResponseException) {
+            if (!(iOException instanceof HttpResponseException)) {
             }
             if (!z) {
             }

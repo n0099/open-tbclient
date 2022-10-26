@@ -17,23 +17,23 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 /* loaded from: classes8.dex */
-public final class ObservableReduceMaybe<T> extends Maybe<T> {
+public final class ObservableReduceMaybe extends Maybe {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BiFunction<T, T, T> reducer;
-    public final ObservableSource<T> source;
+    public final BiFunction reducer;
+    public final ObservableSource source;
 
     /* loaded from: classes8.dex */
-    public static final class ReduceObserver<T> implements Observer<T>, Disposable {
+    public final class ReduceObserver implements Observer, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final MaybeObserver<? super T> actual;
+        public final MaybeObserver actual;
         public Disposable d;
         public boolean done;
-        public final BiFunction<T, T, T> reducer;
-        public T value;
+        public final BiFunction reducer;
+        public Object value;
 
-        public ReduceObserver(MaybeObserver<? super T> maybeObserver, BiFunction<T, T, T> biFunction) {
+        public ReduceObserver(MaybeObserver maybeObserver, BiFunction biFunction) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -64,20 +64,23 @@ public final class ObservableReduceMaybe<T> extends Maybe<T> {
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d.isDisposed() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.d.isDisposed();
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.Observer
         public void onComplete() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.done) {
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.done) {
                 return;
             }
             this.done = true;
-            T t = this.value;
+            Object obj = this.value;
             this.value = null;
-            if (t != null) {
-                this.actual.onSuccess(t);
+            if (obj != null) {
+                this.actual.onSuccess(obj);
             } else {
                 this.actual.onComplete();
             }
@@ -98,26 +101,6 @@ public final class ObservableReduceMaybe<T> extends Maybe<T> {
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048580, this, t) == null) || this.done) {
-                return;
-            }
-            T t2 = this.value;
-            if (t2 == null) {
-                this.value = t;
-                return;
-            }
-            try {
-                this.value = (T) ObjectHelper.requireNonNull(this.reducer.apply(t2, t), "The reducer returned a null value");
-            } catch (Throwable th) {
-                Exceptions.throwIfFatal(th);
-                this.d.dispose();
-                onError(th);
-            }
-        }
-
-        @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048581, this, disposable) == null) && DisposableHelper.validate(this.d, disposable)) {
@@ -125,9 +108,28 @@ public final class ObservableReduceMaybe<T> extends Maybe<T> {
                 this.actual.onSubscribe(this);
             }
         }
+
+        @Override // io.reactivex.Observer
+        public void onNext(Object obj) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048580, this, obj) == null) && !this.done) {
+                Object obj2 = this.value;
+                if (obj2 == null) {
+                    this.value = obj;
+                    return;
+                }
+                try {
+                    this.value = ObjectHelper.requireNonNull(this.reducer.apply(obj2, obj), "The reducer returned a null value");
+                } catch (Throwable th) {
+                    Exceptions.throwIfFatal(th);
+                    this.d.dispose();
+                    onError(th);
+                }
+            }
+        }
     }
 
-    public ObservableReduceMaybe(ObservableSource<T> observableSource, BiFunction<T, T, T> biFunction) {
+    public ObservableReduceMaybe(ObservableSource observableSource, BiFunction biFunction) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -147,7 +149,7 @@ public final class ObservableReduceMaybe<T> extends Maybe<T> {
     }
 
     @Override // io.reactivex.Maybe
-    public void subscribeActual(MaybeObserver<? super T> maybeObserver) {
+    public void subscribeActual(MaybeObserver maybeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, maybeObserver) == null) {
             this.source.subscribe(new ReduceObserver(maybeObserver, this.reducer));

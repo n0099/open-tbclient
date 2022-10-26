@@ -69,12 +69,12 @@ public class BinaryTaskMng {
     public static final int THREAD_REQUEST_UPDATE_MSG = 8;
     public static boolean mAllowRequestConfig;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConcurrentHashMap<String, AbstractTask> mAllTaskMap;
+    public ConcurrentHashMap mAllTaskMap;
     public ByteArrayInfoMng mByteArrayInfoMng;
     public AsyncHttpClient mClient;
     public BroadcastReceiver mConnectivityReceiver;
     public Context mContext;
-    public List<AbstractTask> mCurTaskList;
+    public List mCurTaskList;
     public DatabaseMng mDbmng;
     public DownConfig mDownConfig;
     public Handler mHandler;
@@ -82,10 +82,10 @@ public class BinaryTaskMng {
     public CopyOnWriteArrayList mInfoTypeList;
     public Looper mLooper;
     public int mMaxThread;
-    public List<TaskObserverInterface> mObserverList;
+    public List mObserverList;
     public PatternConfig mPatternConfig;
-    public Map<Long, StatisticInfo> mStatsticMap;
-    public PriorityQueue<AbstractTask> mTaskPriorityQueue;
+    public Map mStatsticMap;
+    public PriorityQueue mTaskPriorityQueue;
     public HandlerThread mThr;
     public PowerManager.WakeLock mWakelock;
     public WriteThreadMng mWriteThreadMng;
@@ -150,8 +150,8 @@ public class BinaryTaskMng {
             initHttpDns(taskManagerConfiguration.getPreResolveDominName());
             DownPrefUtils.setString(this.mContext, DownPrefUtils.PREF_CONFI_HOST_TYPE, DownPrefUtils.HOST_TYPE_IP);
         }
-        this.mAllTaskMap = new ConcurrentHashMap<>();
-        this.mTaskPriorityQueue = new PriorityQueue<>();
+        this.mAllTaskMap = new ConcurrentHashMap();
+        this.mTaskPriorityQueue = new PriorityQueue();
         this.mCurTaskList = new ArrayList();
         this.mObserverList = new CopyOnWriteArrayList();
         this.mStatsticMap = new HashMap();
@@ -197,10 +197,9 @@ public class BinaryTaskMng {
                                 this.this$0.mHandler.removeMessages(2);
                                 this.this$0.mHandler.sendMessageDelayed(this.this$0.mHandler.obtainMessage(2), TooltipCompatHandler.LONG_CLICK_HIDE_TIMEOUT_MS);
                             }
-                            if (this.this$0.mDownConfig == null || !this.this$0.mDownConfig.mDomainNameToIpEnable) {
-                                return;
+                            if (this.this$0.mDownConfig != null && this.this$0.mDownConfig.mDomainNameToIpEnable) {
+                                HttpDns.getInstance().resetCacheIps();
                             }
-                            HttpDns.getInstance().resetCacheIps();
                         }
                     }
                 };
@@ -208,38 +207,6 @@ public class BinaryTaskMng {
                 context.registerReceiver(broadcastReceiver, intentFilter);
             }
         } catch (Exception unused) {
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void handleAPNChangeIntercept() {
-        Map<String, IIntercepter<?>> map;
-        com.baidu.down.common.intercepter.InterceptResult process;
-        com.baidu.down.common.intercepter.InterceptResult process2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65548, this) == null) {
-            List<AbstractTask> list = this.mCurTaskList;
-            if (list != null && list.size() > 0) {
-                for (AbstractTask abstractTask : this.mCurTaskList) {
-                    Map<String, IIntercepter<?>> map2 = abstractTask.mIntercepters;
-                    if (map2 != null && map2.containsKey("network") && (process2 = abstractTask.mIntercepters.get("network").process(abstractTask.mContext, abstractTask.getTaskKey(), abstractTask.mDownloadId, null)) != null && process2.retCode == 1) {
-                        abstractTask.pause();
-                    }
-                }
-            }
-            if (this.mTaskPriorityQueue.size() <= 0) {
-                return;
-            }
-            int size = this.mTaskPriorityQueue.size();
-            AbstractTask[] abstractTaskArr = new AbstractTask[size];
-            if (size > 0) {
-                for (int i = 0; i < size; i++) {
-                    AbstractTask abstractTask2 = abstractTaskArr[i];
-                    if (abstractTask2 != null && (map = abstractTask2.mIntercepters) != null && map.containsKey("network") && (process = abstractTask2.mIntercepters.get("network").process(abstractTask2.mContext, abstractTask2.getTaskKey(), abstractTask2.mDownloadId, null)) != null && process.retCode == 1) {
-                        abstractTask2.pause();
-                    }
-                }
-            }
         }
     }
 
@@ -259,9 +226,207 @@ public class BinaryTaskMng {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, this, str)) == null) {
             CopyOnWriteArrayList copyOnWriteArrayList = this.mInfoTypeList;
-            return (copyOnWriteArrayList == null || copyOnWriteArrayList.isEmpty() || TextUtils.isEmpty(str) || !this.mInfoTypeList.contains(str)) ? false : true;
+            if (copyOnWriteArrayList != null && !copyOnWriteArrayList.isEmpty() && !TextUtils.isEmpty(str) && this.mInfoTypeList.contains(str)) {
+                return true;
+            }
+            return false;
         }
         return invokeL.booleanValue;
+    }
+
+    public static void setAllowRequestConfig(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65554, null, z) == null) {
+            mAllowRequestConfig = z;
+        }
+    }
+
+    public void addObserver(TaskObserverInterface taskObserverInterface) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, taskObserverInterface) == null) {
+            synchronized (this.mObserverList) {
+                if (!this.mObserverList.contains(taskObserverInterface)) {
+                    this.mObserverList.add(taskObserverInterface);
+                }
+            }
+        }
+    }
+
+    public StatisticInfo getStatsticInfo(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048593, this, j)) == null) {
+            Map map = this.mStatsticMap;
+            if (map != null) {
+                return (StatisticInfo) map.get(Long.valueOf(j));
+            }
+            return null;
+        }
+        return (StatisticInfo) invokeJ.objValue;
+    }
+
+    public AbstractTask getTaskByKey(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
+            if (str == null) {
+                return null;
+            }
+            return (AbstractTask) this.mAllTaskMap.get(str);
+        }
+        return (AbstractTask) invokeL.objValue;
+    }
+
+    public void notifyUi(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, obj) == null) {
+            for (TaskObserverInterface taskObserverInterface : this.mObserverList) {
+                try {
+                    taskObserverInterface.onUpdate(obj);
+                } catch (Exception unused) {
+                }
+            }
+        }
+    }
+
+    public void removeObserver(TaskObserverInterface taskObserverInterface) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048602, this, taskObserverInterface) == null) {
+            synchronized (this.mObserverList) {
+                this.mObserverList.remove(taskObserverInterface);
+            }
+        }
+    }
+
+    public synchronized void setHttpDNSCacheInfo(HttpDNSCacheInfo httpDNSCacheInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048606, this, httpDNSCacheInfo) == null) {
+            synchronized (this) {
+                this.mHttpDNSCacheInfo = httpDNSCacheInfo;
+            }
+        }
+    }
+
+    public void setMaxDownloadThread(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048608, this, i) == null) && this.mMaxThread != i) {
+            this.mMaxThread = i;
+            Handler handler = this.mHandler;
+            if (handler != null) {
+                handler.removeMessages(0);
+                this.mHandler.sendEmptyMessage(0);
+            }
+        }
+    }
+
+    public void stopAllTask(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048610, this, z) == null) {
+            for (AbstractTask abstractTask : this.mAllTaskMap.values()) {
+                abstractTask.stop(z);
+            }
+        }
+    }
+
+    public void taskPriorityQueueOffer(AbstractTask abstractTask) {
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048612, this, abstractTask) == null) && (i = abstractTask.mStatus) != 1002 && i != 1009 && i != 1001) {
+            abstractTask.mStatus = 1009;
+            Message obtainMessage = this.mHandler.obtainMessage();
+            obtainMessage.what = 3;
+            obtainMessage.obj = abstractTask;
+            this.mHandler.sendMessageAtFrontOfQueue(obtainMessage);
+        }
+    }
+
+    public void addStatsticMap(Long l, StatisticInfo statisticInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l, statisticInfo) == null) {
+            this.mStatsticMap.put(l, statisticInfo);
+        }
+    }
+
+    public void pauseDownload(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048600, this, str, j) == null) {
+            if (j > 0) {
+                str = str + j;
+            }
+            AbstractTask abstractTask = (AbstractTask) this.mAllTaskMap.get(str);
+            if (abstractTask != null) {
+                abstractTask.pause();
+            }
+        }
+    }
+
+    public void sendMessage(int i, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048605, this, i, obj) == null) {
+            Message obtainMessage = this.mHandler.obtainMessage();
+            obtainMessage.what = i;
+            obtainMessage.obj = obj;
+            this.mHandler.sendMessage(obtainMessage);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void handleAPNChangeIntercept() {
+        Map map;
+        com.baidu.down.common.intercepter.InterceptResult process;
+        com.baidu.down.common.intercepter.InterceptResult process2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65548, this) == null) {
+            List list = this.mCurTaskList;
+            if (list != null && list.size() > 0) {
+                for (AbstractTask abstractTask : this.mCurTaskList) {
+                    Map map2 = abstractTask.mIntercepters;
+                    if (map2 != null && map2.containsKey("network") && (process2 = ((IIntercepter) abstractTask.mIntercepters.get("network")).process(abstractTask.mContext, abstractTask.getTaskKey(), abstractTask.mDownloadId, null)) != null && process2.retCode == 1) {
+                        abstractTask.pause();
+                    }
+                }
+            }
+            if (this.mTaskPriorityQueue.size() <= 0) {
+                return;
+            }
+            int size = this.mTaskPriorityQueue.size();
+            AbstractTask[] abstractTaskArr = new AbstractTask[size];
+            if (size > 0) {
+                for (int i = 0; i < size; i++) {
+                    AbstractTask abstractTask2 = abstractTaskArr[i];
+                    if (abstractTask2 != null && (map = abstractTask2.mIntercepters) != null && map.containsKey("network") && (process = ((IIntercepter) abstractTask2.mIntercepters.get("network")).process(abstractTask2.mContext, abstractTask2.getTaskKey(), abstractTask2.mDownloadId, null)) != null && process.retCode == 1) {
+                        abstractTask2.pause();
+                    }
+                }
+            }
+        }
+    }
+
+    public void resumeTaskFromDB() {
+        DatabaseMng databaseMng;
+        Cursor query;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048603, this) == null) && (databaseMng = this.mDbmng) != null && (query = databaseMng.getDownLoad().query(this.mDbmng.getSQLiteDatabase(), null, null, null, null, null, null)) != null && query.moveToFirst()) {
+            do {
+                int i = query.getInt(query.getColumnIndex(DownloadDataConstants.Columns.COLUMN_TASK_TYPE));
+                int i2 = query.getInt(query.getColumnIndex("status"));
+                String string = query.getString(query.getColumnIndex("uri"));
+                String string2 = query.getString(query.getColumnIndex("path"));
+                String string3 = query.getString(query.getColumnIndex("name"));
+                String string4 = query.getString(query.getColumnIndex(DownloadDataConstants.Columns.COLUMN_MIME_TYPE));
+                String string5 = query.getString(query.getColumnIndex("etag"));
+                long j = query.getLong(query.getColumnIndex("_id"));
+                BinaryReqTask binaryReqTask = null;
+                if (i == 1 && i2 != 1003) {
+                    binaryReqTask = new BinaryReqTask(this.mContext, new FileMsg(string, j, string2, string3, string4, Boolean.FALSE, string5));
+                }
+                if (binaryReqTask != null) {
+                    ConcurrentHashMap concurrentHashMap = this.mAllTaskMap;
+                    concurrentHashMap.put(string + j, binaryReqTask);
+                    taskPriorityQueueOffer(binaryReqTask);
+                }
+            } while (query.moveToNext());
+        }
     }
 
     private void notifySpeedIdle(AbstractTask abstractTask) {
@@ -282,6 +447,27 @@ public class BinaryTaskMng {
         }
     }
 
+    public void setInfoTypeList(Context context) {
+        String[] split;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048607, this, context) == null) {
+            String string = DownPrefUtils.getString(context, DownPrefUtils.PREF_CONFI_IS_INFO_TYPE, "");
+            CopyOnWriteArrayList copyOnWriteArrayList = this.mInfoTypeList;
+            if (copyOnWriteArrayList == null) {
+                this.mInfoTypeList = new CopyOnWriteArrayList();
+            } else {
+                copyOnWriteArrayList.clear();
+            }
+            if (!TextUtils.isEmpty(string) && (split = string.intern().replace(" ", "").toLowerCase().split(",")) != null && split.length > 0) {
+                for (int i = 0; i < split.length; i++) {
+                    if (!TextUtils.isEmpty(split[i])) {
+                        this.mInfoTypeList.add(split[i]);
+                    }
+                }
+            }
+        }
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public void priorityRunning() {
         int i;
@@ -293,7 +479,7 @@ public class BinaryTaskMng {
         int i6;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65552, this) == null) {
-            Iterator<AbstractTask> it = this.mCurTaskList.iterator();
+            Iterator it = this.mCurTaskList.iterator();
             while (true) {
                 i = 1006;
                 i2 = 1008;
@@ -302,79 +488,78 @@ public class BinaryTaskMng {
                 if (!it.hasNext()) {
                     break;
                 }
-                AbstractTask next = it.next();
-                int i7 = next.mStatus;
+                AbstractTask abstractTask2 = (AbstractTask) it.next();
+                int i7 = abstractTask2.mStatus;
                 if (i7 == 1004 || i7 == 1005 || i7 == 1003 || i7 == 1008 || i7 == 1006) {
                     it.remove();
                 }
                 long elapsedRealtime = SystemClock.elapsedRealtime();
-                int i8 = next.mStatus;
+                int i8 = abstractTask2.mStatus;
                 if (i8 == 1001 || i8 == 1002) {
-                    if (next.mLastNotifySpeed != 0 && elapsedRealtime - next.mLastNotifyTime > 2000) {
-                        notifySpeedIdle(next);
+                    if (abstractTask2.mLastNotifySpeed != 0 && elapsedRealtime - abstractTask2.mLastNotifyTime > 2000) {
+                        notifySpeedIdle(abstractTask2);
                     }
                 }
             }
             while (this.mTaskPriorityQueue.size() > 0) {
                 if (this.mCurTaskList.size() < this.mMaxThread) {
-                    AbstractTask abstractTask2 = this.mAllTaskMap.get(this.mTaskPriorityQueue.poll().getTaskKey());
-                    if (abstractTask2 != null && (i5 = abstractTask2.mStatus) != 1004 && i5 != i4 && i5 != i3 && i5 != i2 && i5 != i && !this.mCurTaskList.contains(abstractTask2)) {
-                        this.mCurTaskList.add(abstractTask2);
-                        abstractTask2.start();
+                    AbstractTask abstractTask3 = (AbstractTask) this.mAllTaskMap.get(((AbstractTask) this.mTaskPriorityQueue.poll()).getTaskKey());
+                    if (abstractTask3 != null && (i5 = abstractTask3.mStatus) != 1004 && i5 != i4 && i5 != i3 && i5 != i2 && i5 != i && !this.mCurTaskList.contains(abstractTask3)) {
+                        this.mCurTaskList.add(abstractTask3);
+                        abstractTask3.start();
                     }
                 } else {
-                    AbstractTask peek = this.mTaskPriorityQueue.peek();
-                    long j = peek.mLastNotifyBytes;
+                    AbstractTask abstractTask4 = (AbstractTask) this.mTaskPriorityQueue.peek();
+                    long j = abstractTask4.mLastNotifyBytes;
                     if (j > 0) {
-                        long j2 = peek.mTotalLength;
+                        long j2 = abstractTask4.mTotalLength;
                         if (j2 > 0) {
-                            long j3 = peek.mLastNotifySpeed;
+                            long j3 = abstractTask4.mLastNotifySpeed;
                             if (j3 > 0 && (j2 - j) / j3 <= 3) {
-                                peek.setPriority(peek.getPriority() + 1);
+                                abstractTask4.setPriority(abstractTask4.getPriority() + 1);
                             }
                         }
                     }
-                    Iterator<AbstractTask> it2 = this.mCurTaskList.iterator();
+                    Iterator it2 = this.mCurTaskList.iterator();
                     while (true) {
-                        if (!it2.hasNext()) {
+                        if (it2.hasNext()) {
+                            AbstractTask abstractTask5 = (AbstractTask) it2.next();
+                            long j4 = abstractTask5.mLastNotifyBytes;
+                            Iterator it3 = it2;
+                            if (j4 > 0) {
+                                long j5 = abstractTask5.mTotalLength;
+                                if (j5 > 0) {
+                                    long j6 = abstractTask5.mLastNotifySpeed;
+                                    if (j6 > 0 && (j5 - j4) / j6 <= 3) {
+                                        it2 = it3;
+                                    }
+                                }
+                            }
+                            if (abstractTask4.getPriority() > abstractTask5.getPriority()) {
+                                abstractTask = abstractTask5;
+                                break;
+                            }
+                            it2 = it3;
+                        } else {
                             abstractTask = null;
                             break;
                         }
-                        AbstractTask next2 = it2.next();
-                        long j4 = next2.mLastNotifyBytes;
-                        Iterator<AbstractTask> it3 = it2;
-                        if (j4 > 0) {
-                            long j5 = next2.mTotalLength;
-                            if (j5 > 0) {
-                                long j6 = next2.mLastNotifySpeed;
-                                if (j6 > 0 && (j5 - j4) / j6 <= 3) {
-                                    it2 = it3;
-                                }
-                            }
-                        }
-                        if (peek.getPriority() > next2.getPriority()) {
-                            abstractTask = next2;
-                            break;
-                        }
-                        it2 = it3;
                     }
                     if (abstractTask == null) {
                         break;
                     }
-                    this.mTaskPriorityQueue.remove(peek);
-                    AbstractTask abstractTask3 = this.mAllTaskMap.get(peek.getTaskKey());
-                    if (abstractTask3 == null || (i6 = abstractTask3.mStatus) == 1004) {
-                        i3 = 1003;
-                    } else {
+                    this.mTaskPriorityQueue.remove(abstractTask4);
+                    AbstractTask abstractTask6 = (AbstractTask) this.mAllTaskMap.get(abstractTask4.getTaskKey());
+                    if (abstractTask6 != null && (i6 = abstractTask6.mStatus) != 1004) {
                         i3 = 1003;
                         if (i6 != 1005) {
                             if (i6 != 1003) {
-                                if (i6 != 1008 && i6 != 1006 && !this.mCurTaskList.contains(abstractTask3)) {
+                                if (i6 != 1008 && i6 != 1006 && !this.mCurTaskList.contains(abstractTask6)) {
                                     abstractTask.pend();
                                     this.mCurTaskList.remove(abstractTask);
                                     this.mTaskPriorityQueue.add(abstractTask);
-                                    this.mCurTaskList.add(abstractTask3);
-                                    abstractTask3.start();
+                                    this.mCurTaskList.add(abstractTask6);
+                                    abstractTask6.start();
                                 }
                                 i = 1006;
                                 i2 = 1008;
@@ -384,6 +569,8 @@ public class BinaryTaskMng {
                             i2 = 1008;
                             i4 = 1005;
                         }
+                    } else {
+                        i3 = 1003;
                     }
                     i = 1006;
                     i2 = 1008;
@@ -392,10 +579,10 @@ public class BinaryTaskMng {
             }
             if (this.mTaskPriorityQueue.size() <= 0 && this.mCurTaskList.size() <= 0) {
                 PowerManager.WakeLock wakeLock = this.mWakelock;
-                if (wakeLock == null || !wakeLock.isHeld()) {
+                if (wakeLock != null && wakeLock.isHeld()) {
+                    this.mWakelock.release();
                     return;
                 }
-                this.mWakelock.release();
                 return;
             }
             this.mHandler.sendEmptyMessageDelayed(0, 5000L);
@@ -405,34 +592,136 @@ public class BinaryTaskMng {
                 newWakeLock.acquire();
             }
             PowerManager.WakeLock wakeLock2 = this.mWakelock;
-            if (wakeLock2 == null || wakeLock2.isHeld()) {
-                return;
+            if (wakeLock2 != null && !wakeLock2.isHeld()) {
+                this.mWakelock.acquire();
             }
-            this.mWakelock.acquire();
         }
     }
 
     private void resumeDownload(String str, FileMsg fileMsg) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65553, this, str, fileMsg) == null) {
-            AbstractTask abstractTask = this.mAllTaskMap.get(str);
+            AbstractTask abstractTask = (AbstractTask) this.mAllTaskMap.get(str);
             abstractTask.setPriority(fileMsg.mPriority);
             taskPriorityQueueOffer(abstractTask);
             abstractTask.mRealUrl = fileMsg.mRealUrl;
             abstractTask.mIntercepters = fileMsg.mIntercepters;
-            if (abstractTask.mFileDir.equals(fileMsg.mSavePath)) {
-                return;
+            if (!abstractTask.mFileDir.equals(fileMsg.mSavePath)) {
+                abstractTask.mFileDir = fileMsg.mSavePath;
+                abstractTask.mFilePath = null;
             }
-            abstractTask.mFileDir = fileMsg.mSavePath;
-            abstractTask.mFilePath = null;
         }
     }
 
-    public static void setAllowRequestConfig(boolean z) {
+    public long findTaskCurrentLength(String str, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65554, null, z) == null) {
-            mAllowRequestConfig = z;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j)) == null) {
+            if (j > 0) {
+                str = str + j;
+            }
+            AbstractTask abstractTask = (AbstractTask) this.mAllTaskMap.get(str);
+            if (abstractTask == null) {
+                return 0L;
+            }
+            return abstractTask.mProgressInfo.getCurrentLength();
         }
+        return invokeLJ.longValue;
+    }
+
+    public String findTaskFilename(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048579, this, str, j)) == null) {
+            if (j > 0) {
+                str = str + j;
+            }
+            AbstractTask abstractTask = (AbstractTask) this.mAllTaskMap.get(str);
+            if (abstractTask != null) {
+                return abstractTask.mFilename;
+            }
+            return "";
+        }
+        return (String) invokeLJ.objValue;
+    }
+
+    public String findTaskFilepath(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048580, this, str, j)) == null) {
+            if (j > 0) {
+                str = str + j;
+            }
+            AbstractTask abstractTask = (AbstractTask) this.mAllTaskMap.get(str);
+            if (abstractTask != null) {
+                return abstractTask.mFileDir;
+            }
+            return "";
+        }
+        return (String) invokeLJ.objValue;
+    }
+
+    public String findTaskMimetype(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048581, this, str, j)) == null) {
+            if (j > 0) {
+                str = str + j;
+            }
+            AbstractTask abstractTask = (AbstractTask) this.mAllTaskMap.get(str);
+            if (abstractTask != null) {
+                return abstractTask.mMimetype;
+            }
+            return "";
+        }
+        return (String) invokeLJ.objValue;
+    }
+
+    public int findTaskStatus(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048582, this, str, j)) == null) {
+            if (j > 0) {
+                str = str + j;
+            }
+            AbstractTask abstractTask = (AbstractTask) this.mAllTaskMap.get(str);
+            if (abstractTask != null) {
+                return abstractTask.mStatus;
+            }
+            return -1;
+        }
+        return invokeLJ.intValue;
+    }
+
+    public long findTaskTotalLength(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048583, this, str, j)) == null) {
+            if (j > 0) {
+                str = str + j;
+            }
+            AbstractTask abstractTask = (AbstractTask) this.mAllTaskMap.get(str);
+            if (abstractTask == null) {
+                return 0L;
+            }
+            return abstractTask.mTotalLength;
+        }
+        return invokeLJ.longValue;
+    }
+
+    public String getDownThreadStat(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048588, this, str, j)) == null) {
+            if (j > 0) {
+                str = str + j;
+            }
+            if (this.mAllTaskMap.get(str) == null) {
+                return "";
+            }
+            return SpeedStatData.buildSpeedStat(this.mContext, ((AbstractTask) this.mAllTaskMap.get(str)).mTaskSpeedStat, null);
+        }
+        return (String) invokeLJ.objValue;
     }
 
     private void startTaskMng() {
@@ -524,121 +813,22 @@ public class BinaryTaskMng {
         }
     }
 
-    public void addObserver(TaskObserverInterface taskObserverInterface) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, taskObserverInterface) == null) {
-            synchronized (this.mObserverList) {
-                if (!this.mObserverList.contains(taskObserverInterface)) {
-                    this.mObserverList.add(taskObserverInterface);
-                }
-            }
-        }
-    }
-
-    public void addStatsticMap(Long l, StatisticInfo statisticInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l, statisticInfo) == null) {
-            this.mStatsticMap.put(l, statisticInfo);
-        }
-    }
-
-    public long findTaskCurrentLength(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j)) == null) {
-            if (j > 0) {
-                str = str + j;
-            }
-            AbstractTask abstractTask = this.mAllTaskMap.get(str);
-            if (abstractTask != null) {
-                return abstractTask.mProgressInfo.getCurrentLength();
-            }
-            return 0L;
-        }
-        return invokeLJ.longValue;
-    }
-
-    public String findTaskFilename(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048579, this, str, j)) == null) {
-            if (j > 0) {
-                str = str + j;
-            }
-            AbstractTask abstractTask = this.mAllTaskMap.get(str);
-            return abstractTask != null ? abstractTask.mFilename : "";
-        }
-        return (String) invokeLJ.objValue;
-    }
-
-    public String findTaskFilepath(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048580, this, str, j)) == null) {
-            if (j > 0) {
-                str = str + j;
-            }
-            AbstractTask abstractTask = this.mAllTaskMap.get(str);
-            return abstractTask != null ? abstractTask.mFileDir : "";
-        }
-        return (String) invokeLJ.objValue;
-    }
-
-    public String findTaskMimetype(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048581, this, str, j)) == null) {
-            if (j > 0) {
-                str = str + j;
-            }
-            AbstractTask abstractTask = this.mAllTaskMap.get(str);
-            return abstractTask != null ? abstractTask.mMimetype : "";
-        }
-        return (String) invokeLJ.objValue;
-    }
-
-    public int findTaskStatus(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048582, this, str, j)) == null) {
-            if (j > 0) {
-                str = str + j;
-            }
-            AbstractTask abstractTask = this.mAllTaskMap.get(str);
-            if (abstractTask != null) {
-                return abstractTask.mStatus;
-            }
-            return -1;
-        }
-        return invokeLJ.intValue;
-    }
-
-    public long findTaskTotalLength(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048583, this, str, j)) == null) {
-            if (j > 0) {
-                str = str + j;
-            }
-            AbstractTask abstractTask = this.mAllTaskMap.get(str);
-            if (abstractTask != null) {
-                return abstractTask.mTotalLength;
-            }
-            return 0L;
-        }
-        return invokeLJ.longValue;
-    }
-
     public ByteArrayInfoMng getByteArrayInfoMng() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mByteArrayInfoMng : (ByteArrayInfoMng) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mByteArrayInfoMng;
+        }
+        return (ByteArrayInfoMng) invokeV.objValue;
     }
 
     public int getCurrentVacant() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mMaxThread - this.mCurTaskList.size() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mMaxThread - this.mCurTaskList.size();
+        }
+        return invokeV.intValue;
     }
 
     public DatabaseMng getDatabaseMng() {
@@ -656,25 +846,19 @@ public class BinaryTaskMng {
     public DownConfig getDownConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mDownConfig : (DownConfig) invokeV.objValue;
-    }
-
-    public String getDownThreadStat(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048588, this, str, j)) == null) {
-            if (j > 0) {
-                str = str + j;
-            }
-            return this.mAllTaskMap.get(str) == null ? "" : SpeedStatData.buildSpeedStat(this.mContext, this.mAllTaskMap.get(str).mTaskSpeedStat, null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.mDownConfig;
         }
-        return (String) invokeLJ.objValue;
+        return (DownConfig) invokeV.objValue;
     }
 
     public AsyncHttpClient getHttpClient() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mClient : (AsyncHttpClient) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.mClient;
+        }
+        return (AsyncHttpClient) invokeV.objValue;
     }
 
     public synchronized HttpDNSCacheInfo getHttpDNSCacheInfo() {
@@ -693,44 +877,57 @@ public class BinaryTaskMng {
     public int getMaxDownloadThread() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.mMaxThread : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.mMaxThread;
+        }
+        return invokeV.intValue;
     }
 
     public PatternConfig getPatternConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.mPatternConfig : (PatternConfig) invokeV.objValue;
-    }
-
-    public StatisticInfo getStatsticInfo(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048593, this, j)) == null) {
-            Map<Long, StatisticInfo> map = this.mStatsticMap;
-            if (map != null) {
-                return map.get(Long.valueOf(j));
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.mPatternConfig;
         }
-        return (StatisticInfo) invokeJ.objValue;
-    }
-
-    public AbstractTask getTaskByKey(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
-            if (str == null) {
-                return null;
-            }
-            return this.mAllTaskMap.get(str);
-        }
-        return (AbstractTask) invokeL.objValue;
+        return (PatternConfig) invokeV.objValue;
     }
 
     public WriteThreadMng getWriteThreadMng() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.mWriteThreadMng : (WriteThreadMng) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return this.mWriteThreadMng;
+        }
+        return (WriteThreadMng) invokeV.objValue;
+    }
+
+    public void pauseAllTask() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
+            for (AbstractTask abstractTask : this.mAllTaskMap.values()) {
+                abstractTask.pause();
+            }
+        }
+    }
+
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
+            this.mLooper.quit();
+            this.mThr.interrupt();
+            BroadcastReceiver broadcastReceiver = this.mConnectivityReceiver;
+            if (broadcastReceiver != null) {
+                this.mContext.unregisterReceiver(broadcastReceiver);
+                this.mConnectivityReceiver = null;
+            }
+        }
+    }
+
+    public void runAllTask() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
+            this.mHandler.sendEmptyMessage(4);
+        }
     }
 
     public void notifyMngTaskStatus(String str, long j) {
@@ -739,7 +936,7 @@ public class BinaryTaskMng {
             if (j > 0) {
                 str = str + j;
             }
-            AbstractTask abstractTask = this.mAllTaskMap.get(str);
+            AbstractTask abstractTask = (AbstractTask) this.mAllTaskMap.get(str);
             if (abstractTask == null) {
                 return;
             }
@@ -769,157 +966,12 @@ public class BinaryTaskMng {
         }
     }
 
-    public void notifyUi(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, obj) == null) {
-            for (TaskObserverInterface taskObserverInterface : this.mObserverList) {
-                try {
-                    taskObserverInterface.onUpdate(obj);
-                } catch (Exception unused) {
-                }
-            }
-        }
-    }
-
     public void notifyUiMessageType(String str, long j, int i, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{str, Long.valueOf(j), Integer.valueOf(i), obj}) == null) {
             for (TaskObserverInterface taskObserverInterface : this.mObserverList) {
                 taskObserverInterface.onDownloadMsgType(str, j, i, obj);
             }
-        }
-    }
-
-    public void pauseAllTask() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            for (AbstractTask abstractTask : this.mAllTaskMap.values()) {
-                abstractTask.pause();
-            }
-        }
-    }
-
-    public void pauseDownload(String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048600, this, str, j) == null) {
-            if (j > 0) {
-                str = str + j;
-            }
-            AbstractTask abstractTask = this.mAllTaskMap.get(str);
-            if (abstractTask != null) {
-                abstractTask.pause();
-            }
-        }
-    }
-
-    public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-            this.mLooper.quit();
-            this.mThr.interrupt();
-            BroadcastReceiver broadcastReceiver = this.mConnectivityReceiver;
-            if (broadcastReceiver != null) {
-                this.mContext.unregisterReceiver(broadcastReceiver);
-                this.mConnectivityReceiver = null;
-            }
-        }
-    }
-
-    public void removeObserver(TaskObserverInterface taskObserverInterface) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, taskObserverInterface) == null) {
-            synchronized (this.mObserverList) {
-                this.mObserverList.remove(taskObserverInterface);
-            }
-        }
-    }
-
-    public void resumeTaskFromDB() {
-        DatabaseMng databaseMng;
-        Cursor query;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048603, this) == null) || (databaseMng = this.mDbmng) == null || (query = databaseMng.getDownLoad().query(this.mDbmng.getSQLiteDatabase(), null, null, null, null, null, null)) == null || !query.moveToFirst()) {
-            return;
-        }
-        do {
-            int i = query.getInt(query.getColumnIndex(DownloadDataConstants.Columns.COLUMN_TASK_TYPE));
-            int i2 = query.getInt(query.getColumnIndex("status"));
-            String string = query.getString(query.getColumnIndex("uri"));
-            String string2 = query.getString(query.getColumnIndex("path"));
-            String string3 = query.getString(query.getColumnIndex("name"));
-            String string4 = query.getString(query.getColumnIndex(DownloadDataConstants.Columns.COLUMN_MIME_TYPE));
-            String string5 = query.getString(query.getColumnIndex("etag"));
-            long j = query.getLong(query.getColumnIndex("_id"));
-            BinaryReqTask binaryReqTask = null;
-            if (i == 1 && i2 != 1003) {
-                binaryReqTask = new BinaryReqTask(this.mContext, new FileMsg(string, j, string2, string3, string4, Boolean.FALSE, string5));
-            }
-            if (binaryReqTask != null) {
-                ConcurrentHashMap<String, AbstractTask> concurrentHashMap = this.mAllTaskMap;
-                concurrentHashMap.put(string + j, binaryReqTask);
-                taskPriorityQueueOffer(binaryReqTask);
-            }
-        } while (query.moveToNext());
-    }
-
-    public void runAllTask() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
-            this.mHandler.sendEmptyMessage(4);
-        }
-    }
-
-    public void sendMessage(int i, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048605, this, i, obj) == null) {
-            Message obtainMessage = this.mHandler.obtainMessage();
-            obtainMessage.what = i;
-            obtainMessage.obj = obj;
-            this.mHandler.sendMessage(obtainMessage);
-        }
-    }
-
-    public synchronized void setHttpDNSCacheInfo(HttpDNSCacheInfo httpDNSCacheInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048606, this, httpDNSCacheInfo) == null) {
-            synchronized (this) {
-                this.mHttpDNSCacheInfo = httpDNSCacheInfo;
-            }
-        }
-    }
-
-    public void setInfoTypeList(Context context) {
-        String[] split;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048607, this, context) == null) {
-            String string = DownPrefUtils.getString(context, DownPrefUtils.PREF_CONFI_IS_INFO_TYPE, "");
-            CopyOnWriteArrayList copyOnWriteArrayList = this.mInfoTypeList;
-            if (copyOnWriteArrayList == null) {
-                this.mInfoTypeList = new CopyOnWriteArrayList();
-            } else {
-                copyOnWriteArrayList.clear();
-            }
-            if (TextUtils.isEmpty(string) || (split = string.intern().replace(" ", "").toLowerCase().split(",")) == null || split.length <= 0) {
-                return;
-            }
-            for (int i = 0; i < split.length; i++) {
-                if (!TextUtils.isEmpty(split[i])) {
-                    this.mInfoTypeList.add(split[i]);
-                }
-            }
-        }
-    }
-
-    public void setMaxDownloadThread(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048608, this, i) == null) || this.mMaxThread == i) {
-            return;
-        }
-        this.mMaxThread = i;
-        Handler handler = this.mHandler;
-        if (handler != null) {
-            handler.removeMessages(0);
-            this.mHandler.sendEmptyMessage(0);
         }
     }
 
@@ -974,22 +1026,13 @@ public class BinaryTaskMng {
         return invokeL.longValue;
     }
 
-    public void stopAllTask(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048610, this, z) == null) {
-            for (AbstractTask abstractTask : this.mAllTaskMap.values()) {
-                abstractTask.stop(z);
-            }
-        }
-    }
-
     public void stopDownload(String str, long j, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048611, this, new Object[]{str, Long.valueOf(j), Boolean.valueOf(z)}) == null) {
             if (j > 0) {
                 str = str + j;
             }
-            AbstractTask abstractTask = this.mAllTaskMap.get(str);
+            AbstractTask abstractTask = (AbstractTask) this.mAllTaskMap.get(str);
             if (abstractTask != null) {
                 abstractTask.stop(z);
             }
@@ -1032,49 +1075,36 @@ public class BinaryTaskMng {
         }
     }
 
-    public void taskPriorityQueueOffer(AbstractTask abstractTask) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048612, this, abstractTask) == null) || (i = abstractTask.mStatus) == 1002 || i == 1009 || i == 1001) {
-            return;
-        }
-        abstractTask.mStatus = 1009;
-        Message obtainMessage = this.mHandler.obtainMessage();
-        obtainMessage.what = 3;
-        obtainMessage.obj = abstractTask;
-        this.mHandler.sendMessageAtFrontOfQueue(obtainMessage);
-    }
-
     public void updateTaskPrioirty(long j, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048613, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) {
-            Iterator<AbstractTask> it = this.mAllTaskMap.values().iterator();
+            Iterator it = this.mAllTaskMap.values().iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
-                AbstractTask next = it.next();
-                if (next.mDownloadId == j) {
-                    next.setPriority(i);
+                AbstractTask abstractTask = (AbstractTask) it.next();
+                if (abstractTask.mDownloadId == j) {
+                    abstractTask.setPriority(i);
                     break;
                 }
             }
-            Iterator<AbstractTask> it2 = this.mCurTaskList.iterator();
+            Iterator it2 = this.mCurTaskList.iterator();
             while (true) {
                 if (!it2.hasNext()) {
                     break;
                 }
-                AbstractTask next2 = it2.next();
-                if (next2.mDownloadId == j) {
-                    next2.setPriority(i);
+                AbstractTask abstractTask2 = (AbstractTask) it2.next();
+                if (abstractTask2.mDownloadId == j) {
+                    abstractTask2.setPriority(i);
                     break;
                 }
             }
-            Iterator<AbstractTask> it3 = this.mTaskPriorityQueue.iterator();
+            Iterator it3 = this.mTaskPriorityQueue.iterator();
             while (it3.hasNext()) {
-                AbstractTask next3 = it3.next();
-                if (next3.mDownloadId == j) {
-                    next3.setPriority(i);
+                AbstractTask abstractTask3 = (AbstractTask) it3.next();
+                if (abstractTask3.mDownloadId == j) {
+                    abstractTask3.setPriority(i);
                     return;
                 }
             }

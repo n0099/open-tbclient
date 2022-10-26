@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.mg0;
+import com.baidu.tieba.ng0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,8 +36,18 @@ public class MediaAEffect implements Parcelable, Cloneable {
     public String sceneTransitionName;
     public String shaderConfigKey;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     /* loaded from: classes2.dex */
-    public static class a implements Parcelable.Creator<MediaAEffect> {
+    public final class a implements Parcelable.Creator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -61,7 +71,10 @@ public class MediaAEffect implements Parcelable, Cloneable {
         public MediaAEffect createFromParcel(Parcel parcel) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new MediaAEffect(parcel) : (MediaAEffect) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+                return new MediaAEffect(parcel);
+            }
+            return (MediaAEffect) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -70,7 +83,10 @@ public class MediaAEffect implements Parcelable, Cloneable {
         public MediaAEffect[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new MediaAEffect[i] : (MediaAEffect[]) invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                return new MediaAEffect[i];
+            }
+            return (MediaAEffect[]) invokeI.objValue;
         }
     }
 
@@ -108,80 +124,43 @@ public class MediaAEffect implements Parcelable, Cloneable {
         this.randomMode = 0;
     }
 
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
     public boolean isEqualityEffect() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? AE_TYPE_EQUALITY.equals(this.effectType) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return AE_TYPE_EQUALITY.equals(this.effectType);
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isRandomModeOnce() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.randomMode == 1 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.randomMode == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isSceneEffect() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "scene".equals(this.effectType) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return "scene".equals(this.effectType);
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isStartEndEffect() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? AE_TYPE_START_END.equals(this.effectType) : invokeV.booleanValue;
-    }
-
-    @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048583, this, parcel, i) == null) {
-            parcel.writeLong(this.duration);
-            parcel.writeString(this.repeatMode);
-            parcel.writeTypedList(this.mediaOneAEffects);
-            parcel.writeString(this.shaderConfigKey);
-            parcel.writeString(this.effectType);
-            parcel.writeString(this.sceneTransitionName);
-            parcel.writeInt(this.randomMode);
-            parcel.writeString(this.name);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return AE_TYPE_START_END.equals(this.effectType);
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: clone */
-    public MediaAEffect m31clone() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                MediaAEffect mediaAEffect = (MediaAEffect) super.clone();
-                if (TextUtils.isEmpty(mediaAEffect.shaderConfigKey)) {
-                    mediaAEffect.shaderConfigKey = mg0.b;
-                }
-                if (mediaAEffect.mediaOneAEffects != null) {
-                    ArrayList arrayList = new ArrayList();
-                    for (MediaOneAEffect mediaOneAEffect : mediaAEffect.mediaOneAEffects) {
-                        arrayList.add((MediaOneAEffect) mediaOneAEffect.clone());
-                    }
-                    mediaAEffect.mediaOneAEffects = arrayList;
-                }
-                return mediaAEffect;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return new MediaAEffect();
-            }
-        }
-        return (MediaAEffect) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
     public MediaAEffect(Parcel parcel) {
@@ -210,5 +189,47 @@ public class MediaAEffect implements Parcelable, Cloneable {
         this.sceneTransitionName = parcel.readString();
         this.randomMode = parcel.readInt();
         this.name = parcel.readString();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: clone */
+    public MediaAEffect m31clone() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                MediaAEffect mediaAEffect = (MediaAEffect) super.clone();
+                if (TextUtils.isEmpty(mediaAEffect.shaderConfigKey)) {
+                    mediaAEffect.shaderConfigKey = ng0.b;
+                }
+                if (mediaAEffect.mediaOneAEffects != null) {
+                    ArrayList arrayList = new ArrayList();
+                    for (MediaOneAEffect mediaOneAEffect : mediaAEffect.mediaOneAEffects) {
+                        arrayList.add((MediaOneAEffect) mediaOneAEffect.clone());
+                    }
+                    mediaAEffect.mediaOneAEffects = arrayList;
+                }
+                return mediaAEffect;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return new MediaAEffect();
+            }
+        }
+        return (MediaAEffect) invokeV.objValue;
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048583, this, parcel, i) == null) {
+            parcel.writeLong(this.duration);
+            parcel.writeString(this.repeatMode);
+            parcel.writeTypedList(this.mediaOneAEffects);
+            parcel.writeString(this.shaderConfigKey);
+            parcel.writeString(this.effectType);
+            parcel.writeString(this.sceneTransitionName);
+            parcel.writeInt(this.randomMode);
+            parcel.writeString(this.name);
+        }
     }
 }

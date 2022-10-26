@@ -15,6 +15,12 @@ public class McastManagerImpl {
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
 
+    public void sendQuizOpts(long j, long j2, int i, String str, IMcastSetListener iMcastSetListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), str, iMcastSetListener}) == null) {
+        }
+    }
+
     public McastManagerImpl(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -49,33 +55,39 @@ public class McastManagerImpl {
         return (McastManagerImpl) invokeL.objValue;
     }
 
-    public String getAllCastIdList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ConversationStudioManImpl.getInstance(this.mContext).getAllCastIdList() : (String) invokeV.objValue;
-    }
-
-    public long getJoinedCastId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ConversationStudioManImpl.getInstance(this.mContext).getJoinedCastId() : invokeV.longValue;
-    }
-
     public long getMaxReliableMsgId(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) ? ConversationStudioManImpl.getInstance(this.mContext).getMaxReliableMsgId(j) : invokeJ.longValue;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
+            return ConversationStudioManImpl.getInstance(this.mContext).getMaxReliableMsgId(j);
+        }
+        return invokeJ.longValue;
     }
 
     public long getReliableMsgCount(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) ? ConversationStudioManImpl.getInstance(this.mContext).getReliableMsgCount(j) : invokeJ.longValue;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
+            return ConversationStudioManImpl.getInstance(this.mContext).getReliableMsgCount(j);
+        }
+        return invokeJ.longValue;
     }
 
-    public void sendQuizOpts(long j, long j2, int i, String str, IMcastSetListener iMcastSetListener) {
+    public String getAllCastIdList() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), str, iMcastSetListener}) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return ConversationStudioManImpl.getInstance(this.mContext).getAllCastIdList();
         }
+        return (String) invokeV.objValue;
+    }
+
+    public long getJoinedCastId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return ConversationStudioManImpl.getInstance(this.mContext).getJoinedCastId();
+        }
+        return invokeV.longValue;
     }
 }

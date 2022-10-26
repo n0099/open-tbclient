@@ -20,7 +20,7 @@ public interface f {
 
     String lC();
 
-    List<String> lD();
+    List lD();
 
     boolean lE();
 

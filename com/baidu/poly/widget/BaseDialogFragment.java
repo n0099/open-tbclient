@@ -19,6 +19,8 @@ public abstract class BaseDialogFragment extends DialogFragment implements View.
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract int a();
+
     public BaseDialogFragment() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -32,8 +34,6 @@ public abstract class BaseDialogFragment extends DialogFragment implements View.
             }
         }
     }
-
-    public abstract int a();
 
     @Override // android.app.DialogFragment, android.app.Fragment
     public void onActivityCreated(Bundle bundle) {
@@ -56,7 +56,7 @@ public abstract class BaseDialogFragment extends DialogFragment implements View.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            setStyle(1, R.style.obfuscated_res_0x7f1003d6);
+            setStyle(1, R.style.obfuscated_res_0x7f1003d7);
         }
     }
 
@@ -66,7 +66,7 @@ public abstract class BaseDialogFragment extends DialogFragment implements View.
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, layoutInflater, viewGroup, bundle)) == null) {
             View inflate = layoutInflater.inflate(a(), viewGroup);
-            getDialog().getWindow().getAttributes().windowAnimations = R.style.obfuscated_res_0x7f1003d5;
+            getDialog().getWindow().getAttributes().windowAnimations = R.style.obfuscated_res_0x7f1003d6;
             return inflate;
         }
         return (View) invokeLLL.objValue;

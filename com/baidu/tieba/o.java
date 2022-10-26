@@ -9,24 +9,24 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.Executor;
 /* loaded from: classes5.dex */
-public class o implements e10 {
+public class o implements f10 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Executor a;
 
     /* loaded from: classes5.dex */
-    public static class a implements Runnable {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final d10 a;
-        public final c10 b;
+        public final e10 a;
+        public final d10 b;
 
-        public a(d10 d10Var) {
+        public a(e10 e10Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {d10Var};
+                Object[] objArr = {e10Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -36,8 +36,8 @@ public class o implements e10 {
                     return;
                 }
             }
-            this.a = d10Var;
-            this.b = d10Var.a();
+            this.a = e10Var;
+            this.b = e10Var.a();
         }
 
         @Override // java.lang.Runnable
@@ -46,35 +46,35 @@ public class o implements e10 {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 switch (this.a.h()) {
                     case 102:
-                        i10.a(DownloadStatusDeliveryImpl.TAG, "STATUS_CONNECTING");
+                        j10.a(DownloadStatusDeliveryImpl.TAG, "STATUS_CONNECTING");
                         this.b.c();
                         return;
                     case 103:
-                        i10.a(DownloadStatusDeliveryImpl.TAG, "STATUS_CONNECTED length: " + this.a.e() + " acceptRanges: " + this.a.i());
+                        j10.a(DownloadStatusDeliveryImpl.TAG, "STATUS_CONNECTED length: " + this.a.e() + " acceptRanges: " + this.a.i());
                         this.b.b(this.a.e(), this.a.i());
                         return;
                     case 104:
-                        i10.a(DownloadStatusDeliveryImpl.TAG, "STATUS_PROGRESS finished: " + this.a.d() + " length: " + this.a.e() + " percent: " + this.a.f());
+                        j10.a(DownloadStatusDeliveryImpl.TAG, "STATUS_PROGRESS finished: " + this.a.d() + " length: " + this.a.e() + " percent: " + this.a.f());
                         this.b.g(this.a.d(), this.a.e(), this.a.f());
                         return;
                     case 105:
-                        i10.a(DownloadStatusDeliveryImpl.TAG, "STATUS_COMPLETED Path:" + this.a.g());
-                        if (this.a.b()) {
+                        j10.a(DownloadStatusDeliveryImpl.TAG, "STATUS_COMPLETED Path:" + this.a.g());
+                        if (!this.a.b()) {
+                            this.a.l(true);
+                            this.b.a(this.a.g());
                             return;
                         }
-                        this.a.l(true);
-                        this.b.a(this.a.g());
                         return;
                     case 106:
-                        i10.a(DownloadStatusDeliveryImpl.TAG, "STATUS_PAUSED");
+                        j10.a(DownloadStatusDeliveryImpl.TAG, "STATUS_PAUSED");
                         this.b.e();
                         return;
                     case 107:
-                        i10.a(DownloadStatusDeliveryImpl.TAG, "STATUS_CANCELED");
+                        j10.a(DownloadStatusDeliveryImpl.TAG, "STATUS_CANCELED");
                         this.b.d();
                         return;
                     case 108:
-                        i10.b(DownloadStatusDeliveryImpl.TAG, "STATUS_FAILED error: " + this.a.c().getCause());
+                        j10.b(DownloadStatusDeliveryImpl.TAG, "STATUS_FAILED error: " + this.a.c().getCause());
                         this.b.f((DownloadException) this.a.c());
                         return;
                     default:
@@ -135,11 +135,11 @@ public class o implements e10 {
         this.a = new b(this, handler);
     }
 
-    @Override // com.baidu.tieba.e10
-    public void a(d10 d10Var) {
+    @Override // com.baidu.tieba.f10
+    public void a(e10 e10Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, d10Var) == null) {
-            this.a.execute(new a(d10Var));
+        if (interceptable == null || interceptable.invokeL(1048576, this, e10Var) == null) {
+            this.a.execute(new a(e10Var));
         }
     }
 }

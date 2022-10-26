@@ -93,10 +93,10 @@ public class ClientIdHelper {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            if (TextUtils.isEmpty(Build.BOARD)) {
-                return 0;
+            if (!TextUtils.isEmpty(Build.BOARD)) {
+                return Build.BOARD.length() % 10;
             }
-            return Build.BOARD.length() % 10;
+            return 0;
         }
         return invokeV.intValue;
     }
@@ -105,10 +105,10 @@ public class ClientIdHelper {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            if (TextUtils.isEmpty(Build.BRAND)) {
-                return 0;
+            if (!TextUtils.isEmpty(Build.BRAND)) {
+                return Build.BRAND.length() % 10;
             }
-            return Build.BRAND.length() % 10;
+            return 0;
         }
         return invokeV.intValue;
     }
@@ -116,24 +116,31 @@ public class ClientIdHelper {
     private boolean checkBuild() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? (((((this.boardDigit + this.brandDigit) + this.cpuAbiDigit) + this.deviceDigit) + this.manufacturerDigit) + this.modelDigit) + this.productDigit != 0 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
+            if (this.boardDigit + this.brandDigit + this.cpuAbiDigit + this.deviceDigit + this.manufacturerDigit + this.modelDigit + this.productDigit != 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     private void checkConfig() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65541, this) == null) && this.mConfig == null) {
-            throw new RuntimeException("IConfig must be initialized !!");
+        if ((interceptable != null && interceptable.invokeV(65541, this) != null) || this.mConfig != null) {
+            return;
         }
+        throw new RuntimeException("IConfig must be initialized !!");
     }
 
     private int cpuAbiDigit() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
-            if (TextUtils.isEmpty(Build.CPU_ABI)) {
-                return 0;
+            if (!TextUtils.isEmpty(Build.CPU_ABI)) {
+                return Build.CPU_ABI.length() % 10;
             }
-            return Build.CPU_ABI.length() % 10;
+            return 0;
         }
         return invokeV.intValue;
     }
@@ -141,7 +148,132 @@ public class ClientIdHelper {
     private String createPsuedoID() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) ? UUID.randomUUID().toString() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
+            return UUID.randomUUID().toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    private int deviceDigit() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
+            if (!TextUtils.isEmpty(Build.DEVICE)) {
+                return Build.DEVICE.length() % 10;
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public static ClientIdHelper getInstance() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            if (mInstance != null) {
+                return mInstance;
+            }
+            throw new RuntimeException("ClientIdHelper must be initialized ! init should be called Firstly !");
+        }
+        return (ClientIdHelper) invokeV.objValue;
+    }
+
+    private boolean initClientId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
+            String readFromSp = readFromSp();
+            if (!TextUtils.isEmpty(readFromSp)) {
+                setMemoryClientId(readFromSp);
+                return true;
+            }
+            String createUniquePsuedoID = createUniquePsuedoID();
+            if (!TextUtils.isEmpty(createUniquePsuedoID)) {
+                setClientId(createUniquePsuedoID);
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    private int manufacturerDigit() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, this)) == null) {
+            if (!TextUtils.isEmpty(Build.MANUFACTURER)) {
+                return Build.MANUFACTURER.length() % 10;
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    private int modelDigit() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65550, this)) == null) {
+            if (!TextUtils.isEmpty(Build.MODEL)) {
+                return Build.MODEL.length() % 10;
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    private int productDigit() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65551, this)) == null) {
+            if (!TextUtils.isEmpty(Build.PRODUCT)) {
+                return Build.PRODUCT.length() % 10;
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    private String readFromSp() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65552, this)) == null) {
+            if (this.mConfig.logEnable()) {
+                Log.d(TAG, "readFromSp");
+            }
+            return sharedPref().getString("hdcltid", null);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    private SharedPreferences sharedPref() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65555, this)) == null) {
+            return this.mConfig.getAppContext().getSharedPreferences("hdcltid", 0);
+        }
+        return (SharedPreferences) invokeV.objValue;
+    }
+
+    public byte[] getByteClientId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String str = mClientID;
+            if (str != null) {
+                return str.getBytes();
+            }
+            return null;
+        }
+        return (byte[]) invokeV.objValue;
+    }
+
+    public String getClientId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return mClientID;
+        }
+        return (String) invokeV.objValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:15:0x0027, code lost:
@@ -165,7 +297,11 @@ public class ClientIdHelper {
             boolean checkBuild = checkBuild();
             boolean z = false;
             try {
-                str2 = Build.VERSION.SDK_INT >= 26 ? Build.getSerial() : "";
+                if (Build.VERSION.SDK_INT < 26) {
+                    str2 = "";
+                } else {
+                    str2 = Build.getSerial();
+                }
                 if (str2 != null) {
                     try {
                     } catch (Throwable th) {
@@ -225,30 +361,6 @@ public class ClientIdHelper {
         return (String) invokeV.objValue;
     }
 
-    private int deviceDigit() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
-            if (TextUtils.isEmpty(Build.DEVICE)) {
-                return 0;
-            }
-            return Build.DEVICE.length() % 10;
-        }
-        return invokeV.intValue;
-    }
-
-    public static ClientIdHelper getInstance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            if (mInstance != null) {
-                return mInstance;
-            }
-            throw new RuntimeException("ClientIdHelper must be initialized ! init should be called Firstly !");
-        }
-        return (ClientIdHelper) invokeV.objValue;
-    }
-
     public static void init(IClientIdConfig iClientIdConfig) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65547, null, iClientIdConfig) == null) && mInstance == null) {
@@ -258,73 +370,6 @@ public class ClientIdHelper {
                 }
             }
         }
-    }
-
-    private boolean initClientId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
-            String readFromSp = readFromSp();
-            if (!TextUtils.isEmpty(readFromSp)) {
-                setMemoryClientId(readFromSp);
-                return true;
-            }
-            String createUniquePsuedoID = createUniquePsuedoID();
-            if (TextUtils.isEmpty(createUniquePsuedoID)) {
-                return false;
-            }
-            setClientId(createUniquePsuedoID);
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    private int manufacturerDigit() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65549, this)) == null) {
-            if (TextUtils.isEmpty(Build.MANUFACTURER)) {
-                return 0;
-            }
-            return Build.MANUFACTURER.length() % 10;
-        }
-        return invokeV.intValue;
-    }
-
-    private int modelDigit() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65550, this)) == null) {
-            if (TextUtils.isEmpty(Build.MODEL)) {
-                return 0;
-            }
-            return Build.MODEL.length() % 10;
-        }
-        return invokeV.intValue;
-    }
-
-    private int productDigit() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65551, this)) == null) {
-            if (TextUtils.isEmpty(Build.PRODUCT)) {
-                return 0;
-            }
-            return Build.PRODUCT.length() % 10;
-        }
-        return invokeV.intValue;
-    }
-
-    private String readFromSp() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65552, this)) == null) {
-            if (this.mConfig.logEnable()) {
-                Log.d(TAG, "readFromSp");
-            }
-            return sharedPref().getString("hdcltid", null);
-        }
-        return (String) invokeV.objValue;
     }
 
     private void setClientId(String str) {
@@ -342,12 +387,6 @@ public class ClientIdHelper {
         }
     }
 
-    private SharedPreferences sharedPref() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65555, this)) == null) ? this.mConfig.getAppContext().getSharedPreferences("hdcltid", 0) : (SharedPreferences) invokeV.objValue;
-    }
-
     private boolean writeIntoSp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -358,24 +397,5 @@ public class ClientIdHelper {
             return sharedPref().edit().putString("hdcltid", mClientID).commit();
         }
         return invokeV.booleanValue;
-    }
-
-    public byte[] getByteClientId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String str = mClientID;
-            if (str != null) {
-                return str.getBytes();
-            }
-            return null;
-        }
-        return (byte[]) invokeV.objValue;
-    }
-
-    public String getClientId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? mClientID : (String) invokeV.objValue;
     }
 }

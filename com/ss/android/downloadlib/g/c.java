@@ -2,36 +2,56 @@ package com.ss.android.downloadlib.g;
 
 import java.lang.ref.SoftReference;
 /* loaded from: classes8.dex */
-public class c<P, R> implements Runnable {
-    public P a;
-    public R b;
+public class c implements Runnable {
+    public Object a;
+    public Object b;
     public int c;
-    public SoftReference<a<P, R>> d;
-    public c<?, P> e;
-    public c<R, ?> f;
+    public SoftReference d;
+    public c e;
+    public c f;
 
     /* loaded from: classes8.dex */
-    public interface a<PARAM, RESULT> {
-        RESULT a(PARAM param);
+    public interface a {
+        Object a(Object obj);
     }
 
-    public c(int i, a<P, R> aVar, P p) {
+    public c(int i, a aVar, Object obj) {
         this.c = i;
-        this.d = new SoftReference<>(aVar);
-        this.a = p;
+        this.d = new SoftReference(aVar);
+        this.a = obj;
     }
 
-    public static <P, R> c<P, R> a(a<P, R> aVar, P p) {
-        return new c<>(2, aVar, p);
+    public static c a(a aVar, Object obj) {
+        return new c(2, aVar, obj);
     }
 
-    private R b() {
+    private Object b() {
         return this.b;
+    }
+
+    public void a() {
+        c cVar = this.e;
+        if (cVar != null) {
+            cVar.a();
+        } else {
+            run();
+        }
+    }
+
+    public c a(int i, a aVar) {
+        c cVar = new c(i, aVar, null);
+        this.f = cVar;
+        cVar.e = this;
+        return cVar;
+    }
+
+    public c a(a aVar) {
+        return a(0, aVar);
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        c<?, P> cVar;
+        c cVar;
         if (this.c == 0 && !l.a()) {
             com.ss.android.downloadlib.f.a().b().post(this);
         } else if (this.c == 1 && l.a()) {
@@ -42,37 +62,15 @@ public class c<P, R> implements Runnable {
             if (this.a == null && (cVar = this.e) != null) {
                 this.a = cVar.b();
             }
-            a<P, R> aVar = this.d.get();
+            a aVar = (a) this.d.get();
             if (aVar == null) {
                 return;
             }
             this.b = aVar.a(this.a);
-            c<R, ?> cVar2 = this.f;
+            c cVar2 = this.f;
             if (cVar2 != null) {
                 cVar2.run();
             }
-        }
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.ss.android.downloadlib.g.c<P, R> */
-    /* JADX WARN: Multi-variable type inference failed */
-    public <NR> c<R, NR> a(int i, a<R, NR> aVar) {
-        c cVar = (c<R, ?>) new c(i, aVar, null);
-        this.f = cVar;
-        cVar.e = this;
-        return cVar;
-    }
-
-    public <NR> c<R, NR> a(a<R, NR> aVar) {
-        return a(0, aVar);
-    }
-
-    public void a() {
-        c<?, P> cVar = this.e;
-        if (cVar != null) {
-            cVar.a();
-        } else {
-            run();
         }
     }
 }

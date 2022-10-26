@@ -5,8 +5,6 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.animation.PathInterpolatorCompat;
 import com.baidu.tieba.R;
@@ -20,7 +18,6 @@ public final class r {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Nullable
     public static Animator a(AdTemplate adTemplate, View view2, DetailVideoView detailVideoView) {
         InterceptResult invokeLLL;
         ValueAnimator a;
@@ -39,8 +36,7 @@ public final class r {
         return (Animator) invokeLLL.objValue;
     }
 
-    @Nullable
-    public static Animator a(@NonNull AdTemplate adTemplate, DetailVideoView detailVideoView, View view2) {
+    public static Animator a(AdTemplate adTemplate, DetailVideoView detailVideoView, View view2) {
         InterceptResult invokeLLL;
         int width;
         Interceptable interceptable = $ic;
@@ -61,7 +57,6 @@ public final class r {
         return (Animator) invokeLLL.objValue;
     }
 
-    @Nullable
     public static Animator q(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

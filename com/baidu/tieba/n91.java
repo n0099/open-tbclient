@@ -1,226 +1,81 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.os.Handler;
+import android.content.Context;
 import android.os.Looper;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.os.Message;
+import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.tieba.o91;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
-@Autowired
+import java.util.concurrent.CountDownLatch;
 /* loaded from: classes5.dex */
 public class n91 {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<String, String> a;
+    public static volatile n91 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
 
-    /* loaded from: classes5.dex */
-    public static class a implements o91 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.o91
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.o91
-        public String b(Activity activity, String str, o91.a aVar) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str, aVar)) == null) {
-                return null;
-            }
-            return (String) invokeLLL.objValue;
-        }
-
-        @Override // com.baidu.tieba.o91
-        public void c(String str, String str2, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, str, str2, i) == null) {
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Activity a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ o91.a c;
-        public final /* synthetic */ String d;
-
-        public b(Activity activity, String str, o91.a aVar, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {activity, str, aVar, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = activity;
-            this.b = str;
-            this.c = aVar;
-            this.d = str2;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                n91.f(this.a, this.b, this.c, this.d);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-
-        public c(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                n91.e(this.a);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947957187, "Lcom/baidu/tieba/n91;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947957187, "Lcom/baidu/tieba/n91;");
+    public n91() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new HashMap();
+        this.a = false;
     }
 
-    public static void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            if (Looper.myLooper() != Looper.getMainLooper()) {
-                new Handler(Looper.getMainLooper()).post(new c(str));
-            } else {
-                e(str);
-            }
-        }
-    }
-
-    @Inject(force = false)
-    public static o91 d() {
+    public static n91 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? new a() : (o91) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (n91.class) {
+                    if (b == null) {
+                        b = new n91();
+                    }
+                }
+            }
+            return b;
+        }
+        return (n91) invokeV.objValue;
     }
 
-    public static void e(String str) {
+    public void b(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
-            String remove = a.remove(str);
-            if (TextUtils.isEmpty(remove)) {
-                return;
-            }
-            d().a(remove);
+        if ((interceptable != null && interceptable.invokeL(1048576, this, context) != null) || this.a) {
+            return;
+        }
+        if (Thread.currentThread() == Looper.getMainLooper().getThread()) {
+            c(context);
+            return;
+        }
+        CountDownLatch countDownLatch = new CountDownLatch(1);
+        new m91(context, countDownLatch).sendMessage(Message.obtain());
+        try {
+            countDownLatch.await();
+        } catch (Exception unused) {
         }
     }
 
-    public static void f(Activity activity, String str, o91.a aVar, String str2) {
+    public final void c(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65542, null, activity, str, aVar, str2) == null) {
-            String b2 = d().b(activity, str, aVar);
-            if (TextUtils.isEmpty(b2)) {
-                return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            y81.a().c();
+            try {
+                new WebView(context);
+            } catch (Exception unused) {
             }
-            a.put(str2, b2);
-        }
-    }
-
-    public static String g(Activity activity, String str, o91.a aVar) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, activity, str, aVar)) == null) {
-            String uuid = UUID.randomUUID().toString();
-            if (Looper.myLooper() != Looper.getMainLooper()) {
-                new Handler(Looper.getMainLooper()).post(new b(activity, str, aVar, uuid));
-            } else {
-                f(activity, str, aVar, uuid);
-            }
-            return uuid;
-        }
-        return (String) invokeLLL.objValue;
-    }
-
-    public static void h(String str, String str2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65544, null, str, str2, i) == null) {
-            String str3 = a.get(str);
-            if (TextUtils.isEmpty(str3)) {
-                return;
-            }
-            d().c(str3, str2, i);
+            this.a = true;
         }
     }
 }

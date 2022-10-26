@@ -3,10 +3,10 @@ package com.baidu.bdtask.ui.components.dialog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.BDPTask;
 import com.baidu.bdtask.component.dialog.TaskDialogViewData;
-import com.baidu.tieba.kr;
-import com.baidu.tieba.ou;
+import com.baidu.tieba.lr;
 import com.baidu.tieba.pu;
-import com.baidu.tieba.us;
+import com.baidu.tieba.qu;
+import com.baidu.tieba.vs;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -17,7 +17,7 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 2}, d1 = {"\u0000\b\n\u0000\n\u0002\u0010\u0002\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "", "invoke"}, k = 3, mv = {1, 1, 9}, pn = "", xi = 0, xs = "")
 /* loaded from: classes.dex */
-public final class SingleBtnDialog$initExtraView$1 extends Lambda implements Function0<Unit> {
+public final class SingleBtnDialog$initExtraView$1 extends Lambda implements Function0 {
     public static /* synthetic */ Interceptable $ic;
     public final /* synthetic */ TaskDialogViewData $data;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,30 +45,28 @@ public final class SingleBtnDialog$initExtraView$1 extends Lambda implements Fun
         this.$data = taskDialogViewData;
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // kotlin.jvm.functions.Function0
-    public /* bridge */ /* synthetic */ Unit invoke() {
-        invoke2();
+    public /* bridge */ /* synthetic */ Object invoke() {
+        invoke();
         return Unit.INSTANCE;
     }
 
     @Override // kotlin.jvm.functions.Function0
-    /* renamed from: invoke  reason: avoid collision after fix types in other method */
-    public final void invoke2() {
-        us b;
-        pu d;
-        pu d2;
+    public final void invoke() {
+        vs b;
+        qu d;
+        qu d2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ou v = BDPTask.m.v();
+            pu v = BDPTask.m.v();
             if (v != null && (d2 = v.d()) != null) {
-                d2.b(this.$data.getTaskInfoSingleKey(), kr.c.a());
+                d2.b(this.$data.getTaskInfoSingleKey(), lr.c.a());
             }
-            ou v2 = BDPTask.m.v();
+            pu v2 = BDPTask.m.v();
             if (v2 != null && (d = v2.d()) != null) {
                 d.a(this.$data.getTaskInfoSingleKey());
             }
-            ou v3 = BDPTask.m.v();
+            pu v3 = BDPTask.m.v();
             if (v3 != null && (b = v3.b()) != null) {
                 b.a(this.$data.getBackBtnSchema(), 1);
             }

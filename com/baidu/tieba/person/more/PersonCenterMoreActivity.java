@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import androidx.annotation.NonNull;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -17,27 +16,27 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.i26;
-import com.baidu.tieba.u48;
-import com.baidu.tieba.u58;
-import com.baidu.tieba.yo4;
+import com.baidu.tieba.e58;
+import com.baidu.tieba.e68;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.p26;
+import com.baidu.tieba.zo4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActivity> {
+public class PersonCenterMoreActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public u48 a;
+    public e58 a;
     public Bundle b;
-    public u58 c;
-    public i26 d;
+    public e68 c;
+    public p26 d;
 
     /* loaded from: classes5.dex */
-    public class a extends i26<u58> {
+    public class a extends p26 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonCenterMoreActivity b;
@@ -61,18 +60,19 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.i26
+        @Override // com.baidu.tieba.p26
         /* renamed from: d */
-        public void a(View view2, u58 u58Var) {
+        public void a(View view2, e68 e68Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, u58Var) == null) {
-                this.b.c = u58Var;
-                if (this.b.c == null || this.b.F1()) {
-                    return;
-                }
-                PersonCenterMoreActivity personCenterMoreActivity = this.b;
-                personCenterMoreActivity.D1(personCenterMoreActivity.c.g);
+            if (interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, e68Var) != null) {
+                return;
             }
+            this.b.c = e68Var;
+            if (this.b.c == null || this.b.E1()) {
+                return;
+            }
+            PersonCenterMoreActivity personCenterMoreActivity = this.b;
+            personCenterMoreActivity.C1(personCenterMoreActivity.c.g);
         }
     }
 
@@ -92,43 +92,7 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         this.d = new a(this);
     }
 
-    public final void D1(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || StringUtils.isNull(str)) {
-            return;
-        }
-        if (str.startsWith("tieba&")) {
-            E1(str);
-        } else if (str.startsWith("nohead:url")) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(str.replaceFirst("nohead:url=", ""));
-            sb.append(str.contains("?") ? "&" : "?");
-            sb.append("jump=open_full_screen_web_page&nonavigationbar=1");
-            UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{sb.toString()});
-        } else {
-            UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{str});
-        }
-    }
-
-    public final void E1(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || StringUtils.isNull(str)) {
-            return;
-        }
-        if (str.startsWith("tieba&")) {
-            if (!TbadkCoreApplication.getInst().appResponseToIntentClass(ConsumptionRecordsActivityConfig.class)) {
-                ej.M(getPageContext().getPageActivity(), R.string.obfuscated_res_0x7f0f0465);
-                return;
-            }
-            UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{str.substring(6)});
-        } else if (!str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTP) && !str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTPS)) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001387, str));
-        } else {
-            yo4.x(getPageContext().getPageActivity(), true, str);
-        }
-    }
-
-    public final boolean F1() {
+    public final boolean E1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -146,10 +110,50 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.onChangeSkinType(i);
-            u48 u48Var = this.a;
-            if (u48Var != null) {
-                u48Var.c();
+            e58 e58Var = this.a;
+            if (e58Var != null) {
+                e58Var.d();
             }
+        }
+    }
+
+    public final void C1(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || StringUtils.isNull(str)) {
+            return;
+        }
+        if (str.startsWith("tieba&")) {
+            D1(str);
+        } else if (str.startsWith("nohead:url")) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(str.replaceFirst("nohead:url=", ""));
+            String str2 = "?";
+            if (str.contains("?")) {
+                str2 = "&";
+            }
+            sb.append(str2);
+            sb.append("jump=open_full_screen_web_page&nonavigationbar=1");
+            UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{sb.toString()});
+        } else {
+            UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{str});
+        }
+    }
+
+    public final void D1(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || StringUtils.isNull(str)) {
+            return;
+        }
+        if (str.startsWith("tieba&")) {
+            if (!TbadkCoreApplication.getInst().appResponseToIntentClass(ConsumptionRecordsActivityConfig.class)) {
+                fj.M(getPageContext().getPageActivity(), R.string.obfuscated_res_0x7f0f046c);
+                return;
+            }
+            UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{str.substring(6)});
+        } else if (!str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTP) && !str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTPS)) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001387, str));
+        } else {
+            zo4.x(getPageContext().getPageActivity(), true, str);
         }
     }
 
@@ -163,17 +167,17 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
                 this.b = intent.getBundleExtra(PersonMoreActivityConfig.URL_BUNDLE);
             }
             setContentView(R.layout.obfuscated_res_0x7f0d06fb);
-            u48 u48Var = new u48(getPageContext(), this.b, this.d);
-            this.a = u48Var;
-            u48Var.b();
+            e58 e58Var = new e58(getPageContext(), this.b, this.d);
+            this.a = e58Var;
+            e58Var.c();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
-    public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
+    public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeILL(1048581, this, i, strArr, iArr) == null) && 25040 == i && iArr[0] == 0) {
-            D1(this.c.g);
+            C1(this.c.g);
         }
     }
 }

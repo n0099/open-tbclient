@@ -26,6 +26,51 @@ public class b extends com.ss.android.socialbase.downloader.depend.d {
         this.f = str4;
     }
 
+    public b(com.ss.android.socialbase.downloader.notification.a aVar) {
+        this.a = com.ss.android.socialbase.downloader.downloader.c.N();
+        this.g = aVar;
+    }
+
+    @Override // com.ss.android.socialbase.downloader.depend.d, com.ss.android.socialbase.downloader.depend.AbsDownloadListener, com.ss.android.socialbase.downloader.depend.IDownloadListener
+    public void onPause(DownloadInfo downloadInfo) {
+        if (downloadInfo != null && !downloadInfo.isAutoInstallWithoutNotification()) {
+            super.onPause(downloadInfo);
+        }
+    }
+
+    @Override // com.ss.android.socialbase.downloader.depend.d, com.ss.android.socialbase.downloader.depend.AbsDownloadListener, com.ss.android.socialbase.downloader.depend.IDownloadListener
+    public void onPrepare(DownloadInfo downloadInfo) {
+        if (downloadInfo != null && !downloadInfo.isAutoInstallWithoutNotification()) {
+            super.onPrepare(downloadInfo);
+        }
+    }
+
+    @Override // com.ss.android.socialbase.downloader.depend.d, com.ss.android.socialbase.downloader.depend.AbsDownloadListener, com.ss.android.socialbase.downloader.depend.IDownloadListener
+    public void onProgress(DownloadInfo downloadInfo) {
+        if (downloadInfo != null && !downloadInfo.isAutoInstallWithoutNotification()) {
+            super.onProgress(downloadInfo);
+        }
+    }
+
+    @Override // com.ss.android.socialbase.downloader.depend.d, com.ss.android.socialbase.downloader.depend.AbsDownloadListener, com.ss.android.socialbase.downloader.depend.IDownloadListener
+    public void onStart(DownloadInfo downloadInfo) {
+        if (downloadInfo != null && !downloadInfo.isAutoInstallWithoutNotification()) {
+            super.onStart(downloadInfo);
+        }
+    }
+
+    @Override // com.ss.android.socialbase.downloader.depend.d, com.ss.android.socialbase.downloader.depend.AbsDownloadListener, com.ss.android.socialbase.downloader.depend.IDownloadListener
+    public void onSuccessed(DownloadInfo downloadInfo) {
+        if (downloadInfo != null && this.a != null) {
+            if (downloadInfo.canShowNotification() && (!downloadInfo.isAutoInstallWithoutNotification() || !downloadInfo.isAutoInstall())) {
+                super.onSuccessed(downloadInfo);
+            }
+            if (downloadInfo.isAutoInstall()) {
+                com.ss.android.socialbase.appdownloader.f.b.a(downloadInfo);
+            }
+        }
+    }
+
     @Override // com.ss.android.socialbase.downloader.depend.d
     public com.ss.android.socialbase.downloader.notification.a a() {
         Context context;
@@ -37,59 +82,8 @@ public class b extends com.ss.android.socialbase.downloader.depend.d {
 
     @Override // com.ss.android.socialbase.downloader.depend.d, com.ss.android.socialbase.downloader.depend.AbsDownloadListener, com.ss.android.socialbase.downloader.depend.IDownloadListener
     public void onFailed(DownloadInfo downloadInfo, BaseException baseException) {
-        if (downloadInfo == null || this.a == null || !downloadInfo.canShowNotification() || downloadInfo.isAutoInstallWithoutNotification()) {
-            return;
+        if (downloadInfo != null && this.a != null && downloadInfo.canShowNotification() && !downloadInfo.isAutoInstallWithoutNotification()) {
+            super.onFailed(downloadInfo, baseException);
         }
-        super.onFailed(downloadInfo, baseException);
-    }
-
-    @Override // com.ss.android.socialbase.downloader.depend.d, com.ss.android.socialbase.downloader.depend.AbsDownloadListener, com.ss.android.socialbase.downloader.depend.IDownloadListener
-    public void onPause(DownloadInfo downloadInfo) {
-        if (downloadInfo == null || downloadInfo.isAutoInstallWithoutNotification()) {
-            return;
-        }
-        super.onPause(downloadInfo);
-    }
-
-    @Override // com.ss.android.socialbase.downloader.depend.d, com.ss.android.socialbase.downloader.depend.AbsDownloadListener, com.ss.android.socialbase.downloader.depend.IDownloadListener
-    public void onPrepare(DownloadInfo downloadInfo) {
-        if (downloadInfo == null || downloadInfo.isAutoInstallWithoutNotification()) {
-            return;
-        }
-        super.onPrepare(downloadInfo);
-    }
-
-    @Override // com.ss.android.socialbase.downloader.depend.d, com.ss.android.socialbase.downloader.depend.AbsDownloadListener, com.ss.android.socialbase.downloader.depend.IDownloadListener
-    public void onProgress(DownloadInfo downloadInfo) {
-        if (downloadInfo == null || downloadInfo.isAutoInstallWithoutNotification()) {
-            return;
-        }
-        super.onProgress(downloadInfo);
-    }
-
-    @Override // com.ss.android.socialbase.downloader.depend.d, com.ss.android.socialbase.downloader.depend.AbsDownloadListener, com.ss.android.socialbase.downloader.depend.IDownloadListener
-    public void onStart(DownloadInfo downloadInfo) {
-        if (downloadInfo == null || downloadInfo.isAutoInstallWithoutNotification()) {
-            return;
-        }
-        super.onStart(downloadInfo);
-    }
-
-    @Override // com.ss.android.socialbase.downloader.depend.d, com.ss.android.socialbase.downloader.depend.AbsDownloadListener, com.ss.android.socialbase.downloader.depend.IDownloadListener
-    public void onSuccessed(DownloadInfo downloadInfo) {
-        if (downloadInfo == null || this.a == null) {
-            return;
-        }
-        if (downloadInfo.canShowNotification() && (!downloadInfo.isAutoInstallWithoutNotification() || !downloadInfo.isAutoInstall())) {
-            super.onSuccessed(downloadInfo);
-        }
-        if (downloadInfo.isAutoInstall()) {
-            com.ss.android.socialbase.appdownloader.f.b.a(downloadInfo);
-        }
-    }
-
-    public b(com.ss.android.socialbase.downloader.notification.a aVar) {
-        this.a = com.ss.android.socialbase.downloader.downloader.c.N();
-        this.g = aVar;
     }
 }

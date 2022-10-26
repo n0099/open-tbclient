@@ -13,7 +13,7 @@ import java.util.Map;
 /* loaded from: classes5.dex */
 public class r3 extends p3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<Application, b7<r3>> j;
+    public static final Map j;
     public transient /* synthetic */ FieldHolder $fh;
     public s3 i;
 
@@ -33,6 +33,27 @@ public class r3 extends p3 {
         j = new HashMap();
     }
 
+    public boolean u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.i.a();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void w() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (u()) {
+                this.b = f1.e.a();
+                v(this.i);
+                return;
+            }
+            throw new GdxRuntimeException("Tried to reload an unmanaged TextureArray");
+        }
+    }
+
     public static void s(Application application) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, application) == null) {
@@ -41,20 +62,14 @@ public class r3 extends p3 {
     }
 
     public static void t(Application application) {
-        b7<r3> b7Var;
+        b7 b7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, application) == null) || (b7Var = j.get(application)) == null) {
+        if ((interceptable != null && interceptable.invokeL(65538, null, application) != null) || (b7Var = (b7) j.get(application)) == null) {
             return;
         }
         for (int i = 0; i < b7Var.b; i++) {
-            b7Var.get(i).w();
+            ((r3) b7Var.get(i)).w();
         }
-    }
-
-    public boolean u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.i.a() : invokeV.booleanValue;
     }
 
     public final void v(s3 s3Var) {
@@ -73,18 +88,6 @@ public class r3 extends p3 {
             l(this.c, this.d);
             m(this.e, this.f);
             f1.e.N(this.a, 0);
-        }
-    }
-
-    public void w() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (u()) {
-                this.b = f1.e.a();
-                v(this.i);
-                return;
-            }
-            throw new GdxRuntimeException("Tried to reload an unmanaged TextureArray");
         }
     }
 }

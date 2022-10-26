@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.atomData.PbChosenActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.iu7;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
+import com.baidu.tieba.tu7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,7 +28,24 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
     public HttpMessageListener a;
 
     /* loaded from: classes3.dex */
-    public static class ShareSuccessReplySeverResponseMessage extends JsonHttpResponsedMessage {
+    public interface b {
+        void a();
+
+        void b(CustomDialogData customDialogData);
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* loaded from: classes3.dex */
+    public class ShareSuccessReplySeverResponseMessage extends JsonHttpResponsedMessage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public CustomDialogData mActDialogData;
@@ -64,14 +81,17 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
                 if (statusCode != 200 || error < 0 || jSONObject == null || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
                     return;
                 }
-                this.mActDialogData = iu7.a(optJSONObject);
+                this.mActDialogData = tu7.a(optJSONObject);
             }
         }
 
         public CustomDialogData getActivityDialogData() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mActDialogData : (CustomDialogData) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.mActDialogData;
+            }
+            return (CustomDialogData) invokeV.objValue;
         }
     }
 
@@ -105,7 +125,7 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             b bVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) || httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003383 || !(httpResponsedMessage instanceof ShareSuccessReplySeverResponseMessage) || httpResponsedMessage.getOrginalMessage() == null || httpResponsedMessage.getOrginalMessage().getExtra() == null || (bVar = (b) httpResponsedMessage.getOrginalMessage().getExtra()) == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003383 || !(httpResponsedMessage instanceof ShareSuccessReplySeverResponseMessage) || httpResponsedMessage.getOrginalMessage() == null || httpResponsedMessage.getOrginalMessage().getExtra() == null || (bVar = (b) httpResponsedMessage.getOrginalMessage().getExtra()) == null) {
                 return;
             }
             ShareSuccessReplySeverResponseMessage shareSuccessReplySeverResponseMessage = (ShareSuccessReplySeverResponseMessage) httpResponsedMessage;
@@ -115,13 +135,6 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
                 bVar.a();
             }
         }
-    }
-
-    /* loaded from: classes3.dex */
-    public interface b {
-        void a();
-
-        void b(CustomDialogData customDialogData);
     }
 
     public ShareSuccessReplyToServerModel() {
@@ -156,16 +169,6 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean loadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -177,20 +180,28 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
 
     public void z(String str, int i, b bVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(1048579, this, str, i, bVar) == null) || str == null) {
+        if ((interceptable != null && interceptable.invokeLIL(1048579, this, str, i, bVar) != null) || str == null) {
             return;
         }
         int i2 = 0;
-        if (i == 2) {
+        if (i != 2) {
+            if (i != 3) {
+                if (i != 4) {
+                    if (i != 6) {
+                        if (i == 8) {
+                            i2 = 4;
+                        }
+                    } else {
+                        i2 = 5;
+                    }
+                } else {
+                    i2 = 3;
+                }
+            } else {
+                i2 = 1;
+            }
+        } else {
             i2 = 2;
-        } else if (i == 3) {
-            i2 = 1;
-        } else if (i == 4) {
-            i2 = 3;
-        } else if (i == 6) {
-            i2 = 5;
-        } else if (i == 8) {
-            i2 = 4;
         }
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SHARE_SUCCESS_REPLY_SERVER);
         httpMessage.addParam(PbChosenActivityConfig.KEY_SHARE_URL, str);

@@ -15,6 +15,31 @@ public final class ConnPerRouteBean implements ConnPerRoute {
     public static final int DEFAULT_MAX_CONNECTIONS_PER_ROUTE = 2;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public ConnPerRouteBean() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        throw new RuntimeException("Stub!");
+    }
+
+    public int getDefaultMax() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeV.intValue;
+    }
+
     public ConnPerRouteBean(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -31,15 +56,6 @@ public final class ConnPerRouteBean implements ConnPerRoute {
             }
         }
         throw new RuntimeException("Stub!");
-    }
-
-    public int getDefaultMax() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeV.intValue;
     }
 
     @Override // org.apache.http.conn.params.ConnPerRoute
@@ -59,33 +75,17 @@ public final class ConnPerRouteBean implements ConnPerRoute {
         }
     }
 
-    public void setMaxForRoute(HttpRoute httpRoute, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, httpRoute, i) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
-    public void setMaxForRoutes(Map<HttpRoute, Integer> map) {
+    public void setMaxForRoutes(Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, map) == null) {
             throw new RuntimeException("Stub!");
         }
     }
 
-    public ConnPerRouteBean() {
+    public void setMaxForRoute(HttpRoute httpRoute, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeLI(1048579, this, httpRoute, i) == null) {
+            throw new RuntimeException("Stub!");
         }
-        throw new RuntimeException("Stub!");
     }
 }

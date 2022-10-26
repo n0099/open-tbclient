@@ -1,25 +1,32 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.List;
+import tbclient.Page;
+import tbclient.RecommendForumInfo;
 /* loaded from: classes4.dex */
 public class hg6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fg6 a;
+    public List a;
+    public List b;
+    public Page c;
+    public boolean d;
+    public int e;
+    public int f;
+    public int g;
 
-    public hg6(TbPageContext tbPageContext, BdTypeListView bdTypeListView) {
+    public hg6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,23 +36,45 @@ public class hg6 {
                 return;
             }
         }
-        if (bdTypeListView == null) {
-            return;
-        }
-        ArrayList arrayList = new ArrayList();
-        arrayList.add(new dg6(tbPageContext, mg6.d, tbPageContext.getUniqueId()));
-        fg6 fg6Var = new fg6(tbPageContext, ng6.h, tbPageContext.getUniqueId());
-        this.a = fg6Var;
-        arrayList.add(fg6Var);
-        arrayList.add(new eg6(tbPageContext, mg6.c, tbPageContext.getUniqueId()));
-        arrayList.add(new gg6(tbPageContext, mg6.e, tbPageContext.getUniqueId()));
-        bdTypeListView.a(arrayList);
+        this.a = new ArrayList();
+        this.d = true;
+        this.e = 0;
+        this.f = 0;
+        this.g = 0;
     }
 
-    public void a(View.OnClickListener onClickListener) {
+    public List a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
-            this.a.u(onClickListener);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public void b(o96 o96Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, o96Var) == null) {
+            String str = o96Var.d;
+            this.c = o96Var.c;
+            List list = o96Var.a;
+            this.b = list;
+            if (!ListUtils.isEmpty(list)) {
+                for (RecommendForumInfo recommendForumInfo : this.b) {
+                    gg6 gg6Var = new gg6();
+                    gg6Var.r(recommendForumInfo);
+                    this.a.add(gg6Var);
+                }
+            }
+            Page page = this.c;
+            if (page != null) {
+                boolean z = true;
+                if (page.has_more.intValue() != 1) {
+                    z = false;
+                }
+                this.d = z;
+                this.e = this.c.current_page.intValue();
+            }
         }
     }
 }

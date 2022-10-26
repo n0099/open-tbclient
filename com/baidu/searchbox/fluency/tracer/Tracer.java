@@ -1,6 +1,5 @@
 package com.baidu.searchbox.fluency.tracer;
 
-import androidx.annotation.CallSuper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.fluency.core.FrameRefreshMonitor;
 import com.baidu.searchbox.fluency.utils.Logcat;
@@ -38,10 +37,12 @@ public abstract class Tracer extends FrameRefreshMonitor.FrameRefreshObserver im
     public boolean isAlive() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.isAlive : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.isAlive;
+        }
+        return invokeV.booleanValue;
     }
 
-    @CallSuper
     public void onAlive() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -60,7 +61,6 @@ public abstract class Tracer extends FrameRefreshMonitor.FrameRefreshObserver im
         }
     }
 
-    @CallSuper
     public void onDead() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -73,10 +73,9 @@ public abstract class Tracer extends FrameRefreshMonitor.FrameRefreshObserver im
     @Override // com.baidu.searchbox.fluency.tracer.ITracer
     public void onStartTrace() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.isAlive) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && !this.isAlive) {
+            this.isAlive = true;
+            onAlive();
         }
-        this.isAlive = true;
-        onAlive();
     }
 }

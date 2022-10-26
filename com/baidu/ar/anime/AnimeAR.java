@@ -259,7 +259,7 @@ public class AnimeAR extends c {
                     }
 
                     @Override // com.baidu.ar.lua.LuaMsgListener
-                    public List<String> getMsgKeyListened() {
+                    public List getMsgKeyListened() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
@@ -271,7 +271,7 @@ public class AnimeAR extends c {
                     }
 
                     @Override // com.baidu.ar.lua.LuaMsgListener
-                    public void onLuaMessage(HashMap<String, Object> hashMap) {
+                    public void onLuaMessage(HashMap hashMap) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap) == null) {
                             String str = (String) hashMap.get("event_name");
@@ -347,7 +347,7 @@ public class AnimeAR extends c {
     }
 
     @Override // com.baidu.ar.c
-    public void setup(HashMap<String, Object> hashMap) {
+    public void setup(HashMap hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap) == null) {
             super.setup(hashMap);

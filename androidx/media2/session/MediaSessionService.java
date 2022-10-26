@@ -4,9 +4,6 @@ import android.app.Notification;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
-import androidx.annotation.CallSuper;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.media2.session.MediaSession;
 import com.baidu.android.imsdk.internal.Constants;
@@ -24,13 +21,34 @@ public abstract class MediaSessionService extends Service {
     public final MediaSessionServiceImpl mImpl;
 
     /* loaded from: classes.dex */
+    public interface MediaSessionServiceImpl {
+        void addSession(MediaSession mediaSession);
+
+        List getSessions();
+
+        IBinder onBind(Intent intent);
+
+        void onCreate(MediaSessionService mediaSessionService);
+
+        void onDestroy();
+
+        int onStartCommand(Intent intent, int i, int i2);
+
+        MediaNotification onUpdateNotification(MediaSession mediaSession);
+
+        void removeSession(MediaSession mediaSession);
+    }
+
+    public abstract MediaSession onGetSession(MediaSession.ControllerInfo controllerInfo);
+
+    /* loaded from: classes.dex */
     public static class MediaNotification {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Notification mNotification;
         public final int mNotificationId;
 
-        public MediaNotification(int i, @NonNull Notification notification) {
+        public MediaNotification(int i, Notification notification) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -53,37 +71,23 @@ public abstract class MediaSessionService extends Service {
             throw new NullPointerException("notification shouldn't be null");
         }
 
-        @NonNull
         public Notification getNotification() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mNotification : (Notification) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.mNotification;
+            }
+            return (Notification) invokeV.objValue;
         }
 
         public int getNotificationId() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mNotificationId : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.mNotificationId;
+            }
+            return invokeV.intValue;
         }
-    }
-
-    /* loaded from: classes.dex */
-    public interface MediaSessionServiceImpl {
-        void addSession(MediaSession mediaSession);
-
-        List<MediaSession> getSessions();
-
-        IBinder onBind(Intent intent);
-
-        void onCreate(MediaSessionService mediaSessionService);
-
-        void onDestroy();
-
-        int onStartCommand(Intent intent, int i, int i2);
-
-        MediaNotification onUpdateNotification(MediaSession mediaSession);
-
-        void removeSession(MediaSession mediaSession);
     }
 
     public MediaSessionService() {
@@ -102,7 +106,43 @@ public abstract class MediaSessionService extends Service {
         this.mImpl = createImpl();
     }
 
-    public final void addSession(@NonNull MediaSession mediaSession) {
+    public MediaSessionServiceImpl createImpl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return new MediaSessionServiceImplBase();
+        }
+        return (MediaSessionServiceImpl) invokeV.objValue;
+    }
+
+    public final List<MediaSession> getSessions() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mImpl.getSessions();
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // android.app.Service
+    public void onCreate() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.onCreate();
+            this.mImpl.onCreate(this);
+        }
+    }
+
+    @Override // android.app.Service
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.onDestroy();
+            this.mImpl.onDestroy();
+        }
+    }
+
+    public final void addSession(MediaSession mediaSession) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, mediaSession) == null) {
             if (mediaSession != null) {
@@ -116,61 +156,17 @@ public abstract class MediaSessionService extends Service {
         }
     }
 
-    public MediaSessionServiceImpl createImpl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new MediaSessionServiceImplBase() : (MediaSessionServiceImpl) invokeV.objValue;
-    }
-
-    @NonNull
-    public final List<MediaSession> getSessions() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mImpl.getSessions() : (List) invokeV.objValue;
-    }
-
     @Override // android.app.Service
-    @Nullable
-    @CallSuper
-    public IBinder onBind(@NonNull Intent intent) {
+    public IBinder onBind(Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, intent)) == null) ? this.mImpl.onBind(intent) : (IBinder) invokeL.objValue;
-    }
-
-    @Override // android.app.Service
-    @CallSuper
-    public void onCreate() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.onCreate();
-            this.mImpl.onCreate(this);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, intent)) == null) {
+            return this.mImpl.onBind(intent);
         }
+        return (IBinder) invokeL.objValue;
     }
 
-    @Override // android.app.Service
-    @CallSuper
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            super.onDestroy();
-            this.mImpl.onDestroy();
-        }
-    }
-
-    @Nullable
-    public abstract MediaSession onGetSession(@NonNull MediaSession.ControllerInfo controllerInfo);
-
-    @Override // android.app.Service
-    @CallSuper
-    public int onStartCommand(Intent intent, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(1048583, this, intent, i, i2)) == null) ? this.mImpl.onStartCommand(intent, i, i2) : invokeLII.intValue;
-    }
-
-    @Nullable
-    public MediaNotification onUpdateNotification(@NonNull MediaSession mediaSession) {
+    public MediaNotification onUpdateNotification(MediaSession mediaSession) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, mediaSession)) == null) {
@@ -182,7 +178,7 @@ public abstract class MediaSessionService extends Service {
         return (MediaNotification) invokeL.objValue;
     }
 
-    public final void removeSession(@NonNull MediaSession mediaSession) {
+    public final void removeSession(MediaSession mediaSession) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, mediaSession) == null) {
             if (mediaSession != null) {
@@ -191,5 +187,15 @@ public abstract class MediaSessionService extends Service {
             }
             throw new NullPointerException("session shouldn't be null");
         }
+    }
+
+    @Override // android.app.Service
+    public int onStartCommand(Intent intent, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048583, this, intent, i, i2)) == null) {
+            return this.mImpl.onStartCommand(intent, i, i2);
+        }
+        return invokeLII.intValue;
     }
 }

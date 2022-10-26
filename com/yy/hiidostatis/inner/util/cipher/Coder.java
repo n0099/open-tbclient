@@ -40,7 +40,73 @@ public final class Coder {
     public static byte[] StringToBytes(String str) throws UnsupportedEncodingException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? str.getBytes("UTF-8") : (byte[]) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return str.getBytes("UTF-8");
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public static String bytesToString(byte[] bArr) throws UnsupportedEncodingException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
+            return new String(bArr, "UTF-8");
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String decryptBASE64(String str) throws Exception {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            return bytesToString(Base64Util.decode(str));
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String encryptBASE64(String str) throws Exception {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            return Base64Util.encode(StringToBytes(str));
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String encryptMD5(String str) throws Exception {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
+            return bytesToHexString(MessageDigest.getInstance("MD5").digest(StringToBytes(str)));
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String encryptSHA(String str) throws Exception {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
+            MessageDigest messageDigest = MessageDigest.getInstance(KEY_SHA);
+            messageDigest.update(StringToBytes(str));
+            return bytesToHexString(messageDigest.digest());
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String sha256Encrypt(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
+            byte[] bytes = str.getBytes();
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
+                messageDigest.update(bytes);
+                return bytesToHexString(messageDigest.digest());
+            } catch (UnsupportedEncodingException | NoSuchAlgorithmException unused) {
+                return null;
+            }
+        }
+        return (String) invokeL.objValue;
     }
 
     public static String bytesToHexString(byte[] bArr) throws UnsupportedEncodingException {
@@ -54,59 +120,6 @@ public final class Coder {
                 }
             }
             return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String bytesToString(byte[] bArr) throws UnsupportedEncodingException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) ? new String(bArr, "UTF-8") : (String) invokeL.objValue;
-    }
-
-    public static String decryptBASE64(String str) throws Exception {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? bytesToString(Base64Util.decode(str)) : (String) invokeL.objValue;
-    }
-
-    public static String decryptDES(String str, String str2) throws Exception {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
-            if (str == null) {
-                return null;
-            }
-            return bytesToString(decryptDES(Base64Util.decode(str), StringToBytes(str2)));
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String encryptBASE64(String str) throws Exception {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) ? Base64Util.encode(StringToBytes(str)) : (String) invokeL.objValue;
-    }
-
-    public static String encryptDES(String str, String str2) throws Exception {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, str2)) == null) ? Base64Util.encode(encryptDES(StringToBytes(str), StringToBytes(str2))) : (String) invokeLL.objValue;
-    }
-
-    public static String encryptMD5(String str) throws Exception {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) ? bytesToHexString(MessageDigest.getInstance("MD5").digest(StringToBytes(str))) : (String) invokeL.objValue;
-    }
-
-    public static String encryptSHA(String str) throws Exception {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
-            MessageDigest messageDigest = MessageDigest.getInstance(KEY_SHA);
-            messageDigest.update(StringToBytes(str));
-            return bytesToHexString(messageDigest.digest());
         }
         return (String) invokeL.objValue;
     }
@@ -131,33 +144,25 @@ public final class Coder {
         return (byte[]) invokeL.objValue;
     }
 
-    public static String sha256Encrypt(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
-            byte[] bytes = str.getBytes();
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
-                messageDigest.update(bytes);
-                return bytesToHexString(messageDigest.digest());
-            } catch (UnsupportedEncodingException | NoSuchAlgorithmException unused) {
-                return null;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static byte[] encryptDES(byte[] bArr, byte[] bArr2) throws Exception {
+    public static String decryptDES(String str, String str2) throws Exception {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, bArr, bArr2)) == null) {
-            SecureRandom secureRandom = new SecureRandom();
-            SecretKey generateSecret = SecretKeyFactory.getInstance(KEY_DES).generateSecret(new DESKeySpec(bArr2));
-            Cipher cipher = Cipher.getInstance(KEY_DES);
-            cipher.init(1, generateSecret, secureRandom);
-            return cipher.doFinal(bArr);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
+            if (str == null) {
+                return null;
+            }
+            return bytesToString(decryptDES(Base64Util.decode(str), StringToBytes(str2)));
         }
-        return (byte[]) invokeLL.objValue;
+        return (String) invokeLL.objValue;
+    }
+
+    public static String encryptDES(String str, String str2) throws Exception {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, str2)) == null) {
+            return Base64Util.encode(encryptDES(StringToBytes(str), StringToBytes(str2)));
+        }
+        return (String) invokeLL.objValue;
     }
 
     public static byte[] decryptDES(byte[] bArr, byte[] bArr2) throws Exception {
@@ -168,6 +173,19 @@ public final class Coder {
             SecretKey generateSecret = SecretKeyFactory.getInstance(KEY_DES).generateSecret(new DESKeySpec(bArr2));
             Cipher cipher = Cipher.getInstance(KEY_DES);
             cipher.init(2, generateSecret, secureRandom);
+            return cipher.doFinal(bArr);
+        }
+        return (byte[]) invokeLL.objValue;
+    }
+
+    public static byte[] encryptDES(byte[] bArr, byte[] bArr2) throws Exception {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, bArr, bArr2)) == null) {
+            SecureRandom secureRandom = new SecureRandom();
+            SecretKey generateSecret = SecretKeyFactory.getInstance(KEY_DES).generateSecret(new DESKeySpec(bArr2));
+            Cipher cipher = Cipher.getInstance(KEY_DES);
+            cipher.init(1, generateSecret, secureRandom);
             return cipher.doFinal(bArr);
         }
         return (byte[]) invokeLL.objValue;

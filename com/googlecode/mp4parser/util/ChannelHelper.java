@@ -47,13 +47,6 @@ public class ChannelHelper {
         }
     }
 
-    public static void readFully(ReadableByteChannel readableByteChannel, ByteBuffer byteBuffer) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, readableByteChannel, byteBuffer) == null) {
-            readFully(readableByteChannel, byteBuffer, byteBuffer.remaining());
-        }
-    }
-
     public static int readFully(ReadableByteChannel readableByteChannel, ByteBuffer byteBuffer, int i) throws IOException {
         InterceptResult invokeLLI;
         int read;
@@ -73,5 +66,12 @@ public class ChannelHelper {
             throw new EOFException("End of file. No more boxes.");
         }
         return invokeLLI.intValue;
+    }
+
+    public static void readFully(ReadableByteChannel readableByteChannel, ByteBuffer byteBuffer) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, readableByteChannel, byteBuffer) == null) {
+            readFully(readableByteChannel, byteBuffer, byteBuffer.remaining());
+        }
     }
 }

@@ -8,12 +8,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes8.dex */
 public final class ab implements w {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SparseArray<Handler> atK;
+    public final SparseArray atK;
 
     public ab() {
         Interceptable interceptable = $ic;
@@ -28,7 +29,7 @@ public final class ab implements w {
                 return;
             }
         }
-        this.atK = new SparseArray<>();
+        this.atK = new SparseArray();
     }
 
     public static void a(Handler handler) {
@@ -50,7 +51,7 @@ public final class ab implements w {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             for (int i = 0; i < this.atK.size(); i++) {
-                a(this.atK.get(this.atK.keyAt(i)));
+                a((Handler) this.atK.get(this.atK.keyAt(i)));
             }
         }
     }
@@ -63,11 +64,12 @@ public final class ab implements w {
     }
 
     @Override // com.kwai.filedownloader.w
-    public final void E(List<Integer> list) {
+    public final void E(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            for (Integer num : list) {
-                b(this.atK.get(num.intValue()));
+            Iterator it = list.iterator();
+            while (it.hasNext()) {
+                b((Handler) this.atK.get(((Integer) it.next()).intValue()));
             }
         }
     }

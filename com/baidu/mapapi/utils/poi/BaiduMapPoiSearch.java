@@ -125,7 +125,7 @@ public class BaiduMapPoiSearch {
         }
     }
 
-    public static boolean dispatchPoiToBaiduMap(List<DispathcPoiData> list, Context context) throws Exception {
+    public static boolean dispatchPoiToBaiduMap(List list, Context context) throws Exception {
         InterceptResult invokeLL;
         String str;
         Interceptable interceptable = $ic;

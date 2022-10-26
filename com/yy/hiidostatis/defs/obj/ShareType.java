@@ -57,12 +57,18 @@ public final class ShareType {
     public static ShareType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (ShareType) Enum.valueOf(ShareType.class, str) : (ShareType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (ShareType) Enum.valueOf(ShareType.class, str);
+        }
+        return (ShareType) invokeL.objValue;
     }
 
     public static ShareType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ShareType[]) $VALUES.clone() : (ShareType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (ShareType[]) $VALUES.clone();
+        }
+        return (ShareType[]) invokeV.objValue;
     }
 }

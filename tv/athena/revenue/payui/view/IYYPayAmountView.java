@@ -3,42 +3,51 @@ package tv.athena.revenue.payui.view;
 import android.app.Activity;
 import android.view.View;
 import android.view.Window;
-import androidx.annotation.Keep;
-import com.baidu.tieba.m4a;
-import com.baidu.tieba.n5a;
+import com.baidu.tieba.e5a;
+import com.baidu.tieba.f6a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
 import java.util.List;
 import java.util.Map;
 import tv.athena.revenue.api.pay.params.AppCustomExpand;
 import tv.athena.revenue.payui.model.PayScene;
-@Keep
 /* loaded from: classes9.dex */
-public interface IYYPayAmountView extends n5a {
+public interface IYYPayAmountView extends f6a {
 
-    @Keep
     /* loaded from: classes9.dex */
     public interface Callback {
         void onRefreshViewFail(int i, String str);
 
-        void showInputNumberDialog(Activity activity, List<PayWayInfo> list, String str);
+        void showInputNumberDialog(Activity activity, List list, String str);
 
         void toHelpCenterPage();
 
-        void toPayWayDialog(m4a m4aVar, List<PayWayInfo> list, String str);
+        void toPayWayDialog(e5a e5aVar, List list, String str);
     }
 
-    @Keep
+    @Override // com.baidu.tieba.f6a
+    /* synthetic */ void attachWindow(Window window);
+
+    @Override // com.baidu.tieba.f6a
+    /* synthetic */ View getContentView();
+
+    @Override // com.baidu.tieba.f6a
+    /* synthetic */ void refreshView();
+
+    @Override // com.baidu.tieba.f6a
+    /* synthetic */ void refreshWindow(WindowParams windowParams);
+
+    void setCallback(Callback callback);
+
     /* loaded from: classes9.dex */
-    public static class ViewParams {
+    public class ViewParams {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public AppCustomExpand appCustomExpand;
-        public Map<String, String> clientInfoExpand;
+        public Map clientInfoExpand;
         public boolean closeOnSuccess;
         public String payAmountDialogTitle;
         public PayScene payScene;
@@ -73,18 +82,4 @@ public interface IYYPayAmountView extends n5a {
             return (String) invokeV.objValue;
         }
     }
-
-    @Override // com.baidu.tieba.n5a
-    /* synthetic */ void attachWindow(Window window);
-
-    @Override // com.baidu.tieba.n5a
-    /* synthetic */ View getContentView();
-
-    @Override // com.baidu.tieba.n5a
-    /* synthetic */ void refreshView();
-
-    @Override // com.baidu.tieba.n5a
-    /* synthetic */ void refreshWindow(WindowParams windowParams);
-
-    void setCallback(Callback callback);
 }

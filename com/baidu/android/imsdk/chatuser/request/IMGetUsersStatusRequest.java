@@ -94,6 +94,7 @@ public class IMGetUsersStatusRequest extends Message {
     @Override // com.baidu.android.imsdk.request.Message
     public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
         JSONArray jSONArray;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, jSONObject, i, str) == null) {
             if (i != 0) {
@@ -106,18 +107,28 @@ public class IMGetUsersStatusRequest extends Message {
                     return;
                 }
             }
-            ArrayList<UserStatus> arrayList = null;
+            ArrayList arrayList = null;
             if (i == 0) {
                 try {
                     if (jSONObject.has("user_status") && (jSONArray = jSONObject.getJSONArray("user_status")) != null && jSONArray.length() > 0) {
-                        ArrayList<UserStatus> arrayList2 = new ArrayList<>();
+                        ArrayList arrayList2 = new ArrayList();
                         for (int i3 = 0; i3 < jSONArray.length(); i3++) {
                             try {
                                 JSONObject jSONObject2 = jSONArray.getJSONObject(i3);
                                 if (jSONObject2.has("uid") && jSONObject2.has("status")) {
                                     long j = jSONObject2.getLong("uid");
                                     int i4 = jSONObject2.getInt("status");
-                                    arrayList2.add(new UserStatus(j, i4 == 1, jSONObject2.has("last_operate_time") ? jSONObject2.getLong("last_operate_time") : 0L));
+                                    long j2 = 0;
+                                    if (jSONObject2.has("last_operate_time")) {
+                                        j2 = jSONObject2.getLong("last_operate_time");
+                                    }
+                                    long j3 = j2;
+                                    if (i4 == 1) {
+                                        z = true;
+                                    } else {
+                                        z = false;
+                                    }
+                                    arrayList2.add(new UserStatus(j, z, j3));
                                 }
                             } catch (Exception e) {
                                 e = e;

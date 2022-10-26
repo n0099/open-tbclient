@@ -1,11 +1,11 @@
 package org.reactivestreams;
 /* loaded from: classes8.dex */
-public interface Subscriber<T> {
+public interface Subscriber {
     void onComplete();
 
     void onError(Throwable th);
 
-    void onNext(T t);
+    void onNext(Object obj);
 
     void onSubscribe(Subscription subscription);
 }

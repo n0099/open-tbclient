@@ -1,14 +1,12 @@
 package com.baidu.searchbox.v8engine.event;
 
 import android.text.TextUtils;
-import com.baidu.searchbox.v8engine.NotProguard;
 import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@NotProguard
 /* loaded from: classes2.dex */
 public class JSEvent {
     public static /* synthetic */ Interceptable $ic;
@@ -42,10 +40,23 @@ public class JSEvent {
         }
     }
 
-    public static boolean isValid(JSEvent jSEvent) {
-        InterceptResult invokeL;
+    public JSEvent(String str, Object obj) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSEvent)) == null) ? (jSEvent == null || TextUtils.isEmpty(jSEvent.type)) ? false : true : invokeL.booleanValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, obj};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.type = str;
+        this.data = obj;
     }
 
     public JSEvent(String str, Object obj, Object obj2) {
@@ -69,22 +80,15 @@ public class JSEvent {
         this.data = obj2;
     }
 
-    public JSEvent(String str, Object obj) {
+    public static boolean isValid(JSEvent jSEvent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, obj};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSEvent)) == null) {
+            if (jSEvent != null && !TextUtils.isEmpty(jSEvent.type)) {
+                return true;
             }
+            return false;
         }
-        this.type = str;
-        this.data = obj;
+        return invokeL.booleanValue;
     }
 }

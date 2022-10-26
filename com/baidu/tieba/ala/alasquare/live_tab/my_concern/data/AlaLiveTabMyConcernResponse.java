@@ -5,7 +5,7 @@ import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.mu5;
+import com.baidu.tieba.tu5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -18,13 +18,13 @@ import org.json.JSONObject;
 public class AlaLiveTabMyConcernResponse extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<mu5> followCloseList;
+    public List followCloseList;
     public int followCloseNum;
-    public List<ThreadData> followList;
+    public List followList;
     public int followStatus;
     public boolean hasMore;
     public int pn;
-    public List<ThreadData> recommendList;
+    public List recommendList;
     public int totalFollowCount;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -55,45 +55,48 @@ public class AlaLiveTabMyConcernResponse extends JsonHttpResponsedMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
             super.decodeLogicInBackGround(i, jSONObject);
-            if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
-                return;
-            }
-            this.hasMore = optJSONObject.optInt("has_more") == 1;
-            this.followStatus = optJSONObject.optInt(DI.FOLLOW_STATUS);
-            this.followCloseNum = optJSONObject.optInt("follow_close_num");
-            this.pn = optJSONObject.optInt("pn");
-            this.totalFollowCount = optJSONObject.optInt(PersonListActivityConfig.TOTLEFOLLOWNUM);
-            JSONArray optJSONArray = optJSONObject.optJSONArray("follow_list");
-            if (optJSONArray != null) {
-                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                    JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
-                    if (optJSONObject2 != null) {
-                        ThreadData threadData = new ThreadData();
-                        threadData.parserJson(optJSONObject2);
-                        this.followList.add(threadData);
+            if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
+                boolean z = true;
+                if (optJSONObject.optInt("has_more") != 1) {
+                    z = false;
+                }
+                this.hasMore = z;
+                this.followStatus = optJSONObject.optInt(DI.FOLLOW_STATUS);
+                this.followCloseNum = optJSONObject.optInt("follow_close_num");
+                this.pn = optJSONObject.optInt("pn");
+                this.totalFollowCount = optJSONObject.optInt(PersonListActivityConfig.TOTLEFOLLOWNUM);
+                JSONArray optJSONArray = optJSONObject.optJSONArray("follow_list");
+                if (optJSONArray != null) {
+                    for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                        JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
+                        if (optJSONObject2 != null) {
+                            ThreadData threadData = new ThreadData();
+                            threadData.parserJson(optJSONObject2);
+                            this.followList.add(threadData);
+                        }
                     }
                 }
-            }
-            JSONArray optJSONArray2 = optJSONObject.optJSONArray("follow_close_list");
-            if (optJSONArray2 != null) {
-                for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
-                    JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i3);
-                    if (optJSONObject3 != null) {
-                        mu5 mu5Var = new mu5();
-                        mu5Var.c(optJSONObject3);
-                        this.followCloseList.add(mu5Var);
+                JSONArray optJSONArray2 = optJSONObject.optJSONArray("follow_close_list");
+                if (optJSONArray2 != null) {
+                    for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
+                        JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i3);
+                        if (optJSONObject3 != null) {
+                            tu5 tu5Var = new tu5();
+                            tu5Var.c(optJSONObject3);
+                            this.followCloseList.add(tu5Var);
+                        }
                     }
                 }
-            }
-            JSONArray optJSONArray3 = optJSONObject.optJSONArray("recommend_list");
-            if (optJSONArray3 != null) {
-                this.recommendList.clear();
-                for (int i4 = 0; i4 < optJSONArray3.length(); i4++) {
-                    JSONObject optJSONObject4 = optJSONArray3.optJSONObject(i4);
-                    if (optJSONObject4 != null) {
-                        ThreadData threadData2 = new ThreadData();
-                        threadData2.parserJson(optJSONObject4);
-                        this.recommendList.add(threadData2);
+                JSONArray optJSONArray3 = optJSONObject.optJSONArray("recommend_list");
+                if (optJSONArray3 != null) {
+                    this.recommendList.clear();
+                    for (int i4 = 0; i4 < optJSONArray3.length(); i4++) {
+                        JSONObject optJSONObject4 = optJSONArray3.optJSONObject(i4);
+                        if (optJSONObject4 != null) {
+                            ThreadData threadData2 = new ThreadData();
+                            threadData2.parserJson(optJSONObject4);
+                            this.recommendList.add(threadData2);
+                        }
                     }
                 }
             }

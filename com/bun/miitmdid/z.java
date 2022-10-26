@@ -1,20 +1,16 @@
 package com.bun.miitmdid;
 
 import android.os.AsyncTask;
-import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bun.lib.MsaIdInterface;
-@Keep
 /* loaded from: classes7.dex */
-public class z extends AsyncTask<Void, Void, Boolean> {
+public class z extends AsyncTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Keep
     public b0 a;
-    @Keep
     public MsaIdInterface b;
 
     public z(MsaIdInterface msaIdInterface, b0 b0Var) {
@@ -38,13 +34,11 @@ public class z extends AsyncTask<Void, Void, Boolean> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.AsyncTask
-    @Keep
     /* renamed from: a */
     public native Boolean doInBackground(Void... voidArr);
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.AsyncTask
-    @Keep
     /* renamed from: a */
     public native void onPostExecute(Boolean bool);
 }

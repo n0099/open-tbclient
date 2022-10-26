@@ -63,13 +63,6 @@ public abstract class AbstractSessionInputBuffer implements SessionInputBuffer {
         return invokeV.booleanValue;
     }
 
-    public void init(InputStream inputStream, int i, HttpParams httpParams) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048579, this, inputStream, i, httpParams) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
     @Override // org.apache.http.io.SessionInputBuffer
     public int read() throws IOException {
         InterceptResult invokeV;
@@ -81,13 +74,20 @@ public abstract class AbstractSessionInputBuffer implements SessionInputBuffer {
     }
 
     @Override // org.apache.http.io.SessionInputBuffer
-    public int readLine(CharArrayBuffer charArrayBuffer) throws IOException {
-        InterceptResult invokeL;
+    public String readLine() throws IOException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, charArrayBuffer)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             throw new RuntimeException("Stub!");
         }
-        return invokeL.intValue;
+        return (String) invokeV.objValue;
+    }
+
+    public void init(InputStream inputStream, int i, HttpParams httpParams) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048579, this, inputStream, i, httpParams) == null) {
+            throw new RuntimeException("Stub!");
+        }
     }
 
     @Override // org.apache.http.io.SessionInputBuffer
@@ -101,20 +101,20 @@ public abstract class AbstractSessionInputBuffer implements SessionInputBuffer {
     }
 
     @Override // org.apache.http.io.SessionInputBuffer
-    public String readLine() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // org.apache.http.io.SessionInputBuffer
     public int read(byte[] bArr) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bArr)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeL.intValue;
+    }
+
+    @Override // org.apache.http.io.SessionInputBuffer
+    public int readLine(CharArrayBuffer charArrayBuffer) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, charArrayBuffer)) == null) {
             throw new RuntimeException("Stub!");
         }
         return invokeL.intValue;

@@ -1,7 +1,6 @@
 package com.baidu.searchbox.live.service;
 
 import com.baidu.live.arch.api.IService;
-import com.baidu.searchbox.live.widget.LiveContainer;
 import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
 import java.util.List;
 import kotlin.Metadata;
@@ -13,7 +12,7 @@ public interface MixListOperatorInterface extends IService {
 
     void doJumpNewLiveRoom(JSONObject jSONObject);
 
-    List<LiveContainer.LiveItemModel> getListData();
+    List getListData();
 
     void insertRoom(int i, JSONObject jSONObject);
 

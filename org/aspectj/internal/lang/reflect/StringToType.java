@@ -80,21 +80,30 @@ public class StringToType {
                 public Type[] getActualTypeArguments() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.val$typeParams : (Type[]) invokeV.objValue;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                        return this.val$typeParams;
+                    }
+                    return (Type[]) invokeV.objValue;
                 }
 
                 @Override // java.lang.reflect.ParameterizedType
                 public Type getOwnerType() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.val$baseClass.getEnclosingClass() : (Type) invokeV.objValue;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                        return this.val$baseClass.getEnclosingClass();
+                    }
+                    return (Type) invokeV.objValue;
                 }
 
                 @Override // java.lang.reflect.ParameterizedType
                 public Type getRawType() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.val$baseClass : (Type) invokeV.objValue;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                        return this.val$baseClass;
+                    }
+                    return (Type) invokeV.objValue;
                 }
             };
         }

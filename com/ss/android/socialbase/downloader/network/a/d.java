@@ -7,11 +7,15 @@ import java.util.List;
 /* loaded from: classes8.dex */
 public class d implements i {
     public final Object a;
-    public final List<com.ss.android.socialbase.downloader.model.c> b;
+    public final List b;
     public i c;
     public boolean d;
     public long e;
     public InputStream f;
+
+    public boolean a(int i) {
+        return i >= 200 && i < 300;
+    }
 
     @Override // com.ss.android.socialbase.downloader.network.i
     public InputStream a() throws IOException {
@@ -20,10 +24,6 @@ public class d implements i {
             return inputStream;
         }
         return null;
-    }
-
-    public boolean a(int i) {
-        return i >= 200 && i < 300;
     }
 
     @Override // com.ss.android.socialbase.downloader.network.g
@@ -59,16 +59,19 @@ public class d implements i {
         }
     }
 
-    public List<com.ss.android.socialbase.downloader.model.c> f() {
+    public List f() {
         return this.b;
     }
 
     public boolean g() {
         try {
-            if (this.c != null) {
-                return a(this.c.b());
+            if (this.c == null) {
+                return false;
             }
-            return false;
+            if (!a(this.c.b())) {
+                return false;
+            }
+            return true;
         } catch (IOException e) {
             e.printStackTrace();
             return false;
@@ -76,7 +79,10 @@ public class d implements i {
     }
 
     public boolean h() {
-        return System.currentTimeMillis() - this.e < b.a;
+        if (System.currentTimeMillis() - this.e < b.a) {
+            return true;
+        }
+        return false;
     }
 
     @Override // com.ss.android.socialbase.downloader.network.g

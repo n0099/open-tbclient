@@ -19,7 +19,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class BrandMsg extends NormalMsg {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator<BrandMsg> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public static final String DEFAULT_DESC = "有事搜一搜，没事看一看";
     public static final String TAG = "BrandMsg";
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,7 +43,7 @@ public class BrandMsg extends NormalMsg {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<BrandMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.BrandMsg.1
+        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.BrandMsg.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -62,21 +62,25 @@ public class BrandMsg extends NormalMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public BrandMsg createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new BrandMsg(parcel) : (BrandMsg) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new BrandMsg(parcel);
+                }
+                return (BrandMsg) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public BrandMsg[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new BrandMsg[i] : (BrandMsg[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new BrandMsg[i];
+                }
+                return (BrandMsg[]) invokeI.objValue;
             }
         };
     }
@@ -101,44 +105,92 @@ public class BrandMsg extends NormalMsg {
     public String getButtonText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mButtonText : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mButtonText;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getDescreiption() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mDescreiption : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mDescreiption;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getImgUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mImgUrl : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mImgUrl;
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
     public String getRecommendDescription() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mTitle : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mTitle;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getSkipAddr() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mSkipAddr : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mSkipAddr;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getSkipType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mSkipType : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mSkipType;
+        }
+        return invokeV.intValue;
     }
 
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mTitle : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mTitle;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public BrandMsg(Parcel parcel) {
+        super(parcel);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Parcel) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.mSkipAddr = "";
+        this.mTitle = parcel.readString();
+        this.mDescreiption = parcel.readString();
+        this.mImgUrl = parcel.readString();
+        this.mButtonText = parcel.readString();
+        this.mSkipType = parcel.readInt();
+        this.mSkipAddr = parcel.readString();
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
@@ -228,32 +280,5 @@ public class BrandMsg extends NormalMsg {
             parcel.writeInt(this.mSkipType);
             parcel.writeString(this.mSkipAddr);
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BrandMsg(Parcel parcel) {
-        super(parcel);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Parcel) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.mSkipAddr = "";
-        this.mTitle = parcel.readString();
-        this.mDescreiption = parcel.readString();
-        this.mImgUrl = parcel.readString();
-        this.mButtonText = parcel.readString();
-        this.mSkipType = parcel.readInt();
-        this.mSkipAddr = parcel.readString();
     }
 }

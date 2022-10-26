@@ -1,12 +1,11 @@
 package androidx.core.graphics;
 
+import android.graphics.BlendMode;
 import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.os.Build;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.util.Pair;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -54,7 +53,7 @@ public final class PaintCompat {
         }
     }
 
-    public static boolean hasGlyph(@NonNull Paint paint, @NonNull String str) {
+    public static boolean hasGlyph(Paint paint, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, paint, str)) == null) {
@@ -114,17 +113,28 @@ public final class PaintCompat {
         return (Pair) invokeV.objValue;
     }
 
-    public static boolean setBlendMode(@NonNull Paint paint, @Nullable BlendModeCompat blendModeCompat) {
+    public static boolean setBlendMode(Paint paint, BlendModeCompat blendModeCompat) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, paint, blendModeCompat)) == null) {
+            PorterDuffXfermode porterDuffXfermode = null;
+            BlendMode blendMode = null;
             if (Build.VERSION.SDK_INT >= 29) {
-                paint.setBlendMode(blendModeCompat != null ? BlendModeUtils.obtainBlendModeFromCompat(blendModeCompat) : null);
+                if (blendModeCompat != null) {
+                    blendMode = BlendModeUtils.obtainBlendModeFromCompat(blendModeCompat);
+                }
+                paint.setBlendMode(blendMode);
                 return true;
             } else if (blendModeCompat != null) {
                 PorterDuff.Mode obtainPorterDuffFromCompat = BlendModeUtils.obtainPorterDuffFromCompat(blendModeCompat);
-                paint.setXfermode(obtainPorterDuffFromCompat != null ? new PorterDuffXfermode(obtainPorterDuffFromCompat) : null);
-                return obtainPorterDuffFromCompat != null;
+                if (obtainPorterDuffFromCompat != null) {
+                    porterDuffXfermode = new PorterDuffXfermode(obtainPorterDuffFromCompat);
+                }
+                paint.setXfermode(porterDuffXfermode);
+                if (obtainPorterDuffFromCompat != null) {
+                    return true;
+                }
+                return false;
             } else {
                 paint.setXfermode(null);
                 return true;

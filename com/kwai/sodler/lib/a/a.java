@@ -1,7 +1,6 @@
 package com.kwai.sodler.lib.a;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -76,7 +75,7 @@ public abstract class a {
         return (String) invokeV.objValue;
     }
 
-    public final a a(@NonNull com.kwai.sodler.lib.c.b bVar) {
+    public final a a(com.kwai.sodler.lib.c.b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar)) == null) {

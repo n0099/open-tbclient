@@ -36,45 +36,6 @@ public final class WifiParsedResult extends ParsedResult {
         }
     }
 
-    @Override // com.google.zxing.client.result.ParsedResult
-    public String getDisplayResult() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            StringBuilder sb = new StringBuilder(80);
-            ParsedResult.maybeAppend(this.ssid, sb);
-            ParsedResult.maybeAppend(this.networkEncryption, sb);
-            ParsedResult.maybeAppend(this.password, sb);
-            ParsedResult.maybeAppend(Boolean.toString(this.hidden), sb);
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String getNetworkEncryption() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.networkEncryption : (String) invokeV.objValue;
-    }
-
-    public String getPassword() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.password : (String) invokeV.objValue;
-    }
-
-    public String getSsid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.ssid : (String) invokeV.objValue;
-    }
-
-    public boolean isHidden() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.hidden : invokeV.booleanValue;
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public WifiParsedResult(String str, String str2, String str3, boolean z) {
         super(ParsedResultType.WIFI);
@@ -97,5 +58,56 @@ public final class WifiParsedResult extends ParsedResult {
         this.networkEncryption = str;
         this.password = str3;
         this.hidden = z;
+    }
+
+    @Override // com.google.zxing.client.result.ParsedResult
+    public String getDisplayResult() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            StringBuilder sb = new StringBuilder(80);
+            ParsedResult.maybeAppend(this.ssid, sb);
+            ParsedResult.maybeAppend(this.networkEncryption, sb);
+            ParsedResult.maybeAppend(this.password, sb);
+            ParsedResult.maybeAppend(Boolean.toString(this.hidden), sb);
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getNetworkEncryption() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.networkEncryption;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getPassword() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.password;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getSsid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.ssid;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean isHidden() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.hidden;
+        }
+        return invokeV.booleanValue;
     }
 }

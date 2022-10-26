@@ -1,5 +1,6 @@
 package kotlinx.coroutines.channels;
 
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.sapi2.ecommerce.activity.InvoiceBuildActivity;
 import java.util.List;
 import java.util.concurrent.CancellationException;
@@ -15,116 +16,36 @@ import kotlinx.coroutines.internal.ConcurrentKt;
 import kotlinx.coroutines.internal.Symbol;
 import kotlinx.coroutines.selects.SelectInstance;
 import kotlinx.coroutines.selects.SelectKt;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0084\u0001\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0003\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0010\t\n\u0002\b\u0006\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u0011\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0010\n\u0002\u0010!\n\u0002\u0018\u0002\n\u0002\b\b\b\u0000\u0018\u0000*\u0004\b\u0000\u0010\u00012\u00020\u00022\u00020\u0003:\u0001KB\u000f\u0012\u0006\u00103\u001a\u000202¢\u0006\u0004\bJ\u0010AJ\u0019\u0010\u0007\u001a\u00020\u00062\b\u0010\u0005\u001a\u0004\u0018\u00010\u0004H\u0017¢\u0006\u0004\b\u0007\u0010\bJ\u001f\u0010\u0007\u001a\u00020\u000b2\u000e\u0010\u0005\u001a\n\u0018\u00010\tj\u0004\u0018\u0001`\nH\u0016¢\u0006\u0004\b\u0007\u0010\fJ\u0019\u0010\r\u001a\u00020\u00062\b\u0010\u0005\u001a\u0004\u0018\u00010\u0004H\u0002¢\u0006\u0004\b\r\u0010\bJ\u000f\u0010\u000e\u001a\u00020\u000bH\u0002¢\u0006\u0004\b\u000e\u0010\u000fJ\u0019\u0010\u0010\u001a\u00020\u00062\b\u0010\u0005\u001a\u0004\u0018\u00010\u0004H\u0016¢\u0006\u0004\b\u0010\u0010\bJ\u000f\u0010\u0012\u001a\u00020\u0011H\u0002¢\u0006\u0004\b\u0012\u0010\u0013J\u0017\u0010\u0015\u001a\u00028\u00002\u0006\u0010\u0014\u001a\u00020\u0011H\u0002¢\u0006\u0004\b\u0015\u0010\u0016J\u0017\u0010\u0019\u001a\u00020\u00182\u0006\u0010\u0017\u001a\u00028\u0000H\u0014¢\u0006\u0004\b\u0019\u0010\u001aJ#\u0010\u001d\u001a\u00020\u00182\u0006\u0010\u0017\u001a\u00028\u00002\n\u0010\u001c\u001a\u0006\u0012\u0002\b\u00030\u001bH\u0014¢\u0006\u0004\b\u001d\u0010\u001eJ\u0015\u0010 \u001a\b\u0012\u0004\u0012\u00028\u00000\u001fH\u0016¢\u0006\u0004\b \u0010!J4\u0010%\u001a\u00020\u000b2\u0010\b\u0002\u0010#\u001a\n\u0012\u0004\u0012\u00028\u0000\u0018\u00010\"2\u0010\b\u0002\u0010$\u001a\n\u0012\u0004\u0012\u00028\u0000\u0018\u00010\"H\u0082\u0010¢\u0006\u0004\b%\u0010&R\u001e\u0010(\u001a\n\u0012\u0006\u0012\u0004\u0018\u00010\u00180'8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b(\u0010)R\u0016\u0010-\u001a\u00020*8T@\u0014X\u0094\u0004¢\u0006\u0006\u001a\u0004\b+\u0010,R\u001a\u00100\u001a\u00060.j\u0002`/8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b0\u00101R\u0019\u00103\u001a\u0002028\u0006@\u0006¢\u0006\f\n\u0004\b3\u00104\u001a\u0004\b5\u00106R$\u0010;\u001a\u00020\u00112\u0006\u00107\u001a\u00020\u00118B@BX\u0082\u000e¢\u0006\f\u001a\u0004\b8\u0010\u0013\"\u0004\b9\u0010:R\u0016\u0010<\u001a\u00020\u00068T@\u0014X\u0094\u0004¢\u0006\u0006\u001a\u0004\b<\u0010=R\u0016\u0010>\u001a\u00020\u00068T@\u0014X\u0094\u0004¢\u0006\u0006\u001a\u0004\b>\u0010=R$\u0010B\u001a\u0002022\u0006\u00107\u001a\u0002028B@BX\u0082\u000e¢\u0006\f\u001a\u0004\b?\u00106\"\u0004\b@\u0010AR2\u0010E\u001a\u001e\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00000\"0Cj\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00000\"`D8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bE\u0010FR$\u0010I\u001a\u00020\u00112\u0006\u00107\u001a\u00020\u00118B@BX\u0082\u000e¢\u0006\f\u001a\u0004\bG\u0010\u0013\"\u0004\bH\u0010:¨\u0006L"}, d2 = {"Lkotlinx/coroutines/channels/ArrayBroadcastChannel;", "E", "Lkotlinx/coroutines/channels/BroadcastChannel;", "Lkotlinx/coroutines/channels/AbstractSendChannel;", "", "cause", "", "cancel", "(Ljava/lang/Throwable;)Z", "Ljava/util/concurrent/CancellationException;", "Lkotlinx/coroutines/CancellationException;", "", "(Ljava/util/concurrent/CancellationException;)V", "cancelInternal", "checkSubOffers", "()V", "close", "", "computeMinHead", "()J", "index", "elementAt", "(J)Ljava/lang/Object;", "element", "", "offerInternal", "(Ljava/lang/Object;)Ljava/lang/Object;", "Lkotlinx/coroutines/selects/SelectInstance;", InvoiceBuildActivity.EXTRA_PARAMS_TYPE, "offerSelectInternal", "(Ljava/lang/Object;Lkotlinx/coroutines/selects/SelectInstance;)Ljava/lang/Object;", "Lkotlinx/coroutines/channels/ReceiveChannel;", "openSubscription", "()Lkotlinx/coroutines/channels/ReceiveChannel;", "Lkotlinx/coroutines/channels/ArrayBroadcastChannel$Subscriber;", "addSub", "removeSub", "updateHead", "(Lkotlinx/coroutines/channels/ArrayBroadcastChannel$Subscriber;Lkotlinx/coroutines/channels/ArrayBroadcastChannel$Subscriber;)V", "", "buffer", "[Ljava/lang/Object;", "", "getBufferDebugString", "()Ljava/lang/String;", "bufferDebugString", "Ljava/util/concurrent/locks/ReentrantLock;", "Lkotlinx/coroutines/internal/ReentrantLock;", "bufferLock", "Ljava/util/concurrent/locks/ReentrantLock;", "", "capacity", "I", "getCapacity", "()I", "value", "getHead", "setHead", "(J)V", "head", "isBufferAlwaysFull", "()Z", "isBufferFull", "getSize", "setSize", "(I)V", "size", "", "Lkotlinx/coroutines/internal/SubscribersList;", "subscribers", "Ljava/util/List;", "getTail", "setTail", "tail", "<init>", "Subscriber", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0084\u0001\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0003\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0010\t\n\u0002\b\u0006\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u0011\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0010\n\u0002\u0010!\n\u0002\u0018\u0002\n\u0002\b\b\b\u0000\u0018\u0000*\u0004\b\u0000\u0010\u00012\u00020\u00022\u00020\u0003:\u0001KB\u000f\u0012\u0006\u00103\u001a\u000202¢\u0006\u0004\bJ\u0010AJ\u0019\u0010\u0007\u001a\u00020\u00062\b\u0010\u0005\u001a\u0004\u0018\u00010\u0004H\u0017¢\u0006\u0004\b\u0007\u0010\bJ\u001f\u0010\u0007\u001a\u00020\u000b2\u000e\u0010\u0005\u001a\n\u0018\u00010\tj\u0004\u0018\u0001`\nH\u0016¢\u0006\u0004\b\u0007\u0010\fJ\u0019\u0010\r\u001a\u00020\u00062\b\u0010\u0005\u001a\u0004\u0018\u00010\u0004H\u0002¢\u0006\u0004\b\r\u0010\bJ\u000f\u0010\u000e\u001a\u00020\u000bH\u0002¢\u0006\u0004\b\u000e\u0010\u000fJ\u0019\u0010\u0010\u001a\u00020\u00062\b\u0010\u0005\u001a\u0004\u0018\u00010\u0004H\u0016¢\u0006\u0004\b\u0010\u0010\bJ\u000f\u0010\u0012\u001a\u00020\u0011H\u0002¢\u0006\u0004\b\u0012\u0010\u0013J\u0017\u0010\u0015\u001a\u00028\u00002\u0006\u0010\u0014\u001a\u00020\u0011H\u0002¢\u0006\u0004\b\u0015\u0010\u0016J\u0017\u0010\u0019\u001a\u00020\u00182\u0006\u0010\u0017\u001a\u00028\u0000H\u0014¢\u0006\u0004\b\u0019\u0010\u001aJ#\u0010\u001d\u001a\u00020\u00182\u0006\u0010\u0017\u001a\u00028\u00002\n\u0010\u001c\u001a\u0006\u0012\u0002\b\u00030\u001bH\u0014¢\u0006\u0004\b\u001d\u0010\u001eJ\u0015\u0010 \u001a\b\u0012\u0004\u0012\u00028\u00000\u001fH\u0016¢\u0006\u0004\b \u0010!J4\u0010%\u001a\u00020\u000b2\u0010\b\u0002\u0010#\u001a\n\u0012\u0004\u0012\u00028\u0000\u0018\u00010\"2\u0010\b\u0002\u0010$\u001a\n\u0012\u0004\u0012\u00028\u0000\u0018\u00010\"H\u0082\u0010¢\u0006\u0004\b%\u0010&R\u001e\u0010(\u001a\n\u0012\u0006\u0012\u0004\u0018\u00010\u00180'8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b(\u0010)R\u0016\u0010-\u001a\u00020*8T@\u0014X\u0094\u0004¢\u0006\u0006\u001a\u0004\b+\u0010,R\u001a\u00100\u001a\u00060.j\u0002`/8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b0\u00101R\u0019\u00103\u001a\u0002028\u0006@\u0006¢\u0006\f\n\u0004\b3\u00104\u001a\u0004\b5\u00106R$\u0010;\u001a\u00020\u00112\u0006\u00107\u001a\u00020\u00118B@BX\u0082\u000e¢\u0006\f\u001a\u0004\b8\u0010\u0013\"\u0004\b9\u0010:R\u0016\u0010<\u001a\u00020\u00068T@\u0014X\u0094\u0004¢\u0006\u0006\u001a\u0004\b<\u0010=R\u0016\u0010>\u001a\u00020\u00068T@\u0014X\u0094\u0004¢\u0006\u0006\u001a\u0004\b>\u0010=R$\u0010B\u001a\u0002022\u0006\u00107\u001a\u0002028B@BX\u0082\u000e¢\u0006\f\u001a\u0004\b?\u00106\"\u0004\b@\u0010AR2\u0010E\u001a\u001e\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00000\"0Cj\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00000\"`D8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bE\u0010FR$\u0010I\u001a\u00020\u00112\u0006\u00107\u001a\u00020\u00118B@BX\u0082\u000e¢\u0006\f\u001a\u0004\bG\u0010\u0013\"\u0004\bH\u0010:¨\u0006L"}, d2 = {"Lkotlinx/coroutines/channels/ArrayBroadcastChannel;", ExifInterface.LONGITUDE_EAST, "Lkotlinx/coroutines/channels/BroadcastChannel;", "Lkotlinx/coroutines/channels/AbstractSendChannel;", "", "cause", "", "cancel", "(Ljava/lang/Throwable;)Z", "Ljava/util/concurrent/CancellationException;", "Lkotlinx/coroutines/CancellationException;", "", "(Ljava/util/concurrent/CancellationException;)V", "cancelInternal", "checkSubOffers", "()V", "close", "", "computeMinHead", "()J", "index", "elementAt", "(J)Ljava/lang/Object;", "element", "", "offerInternal", "(Ljava/lang/Object;)Ljava/lang/Object;", "Lkotlinx/coroutines/selects/SelectInstance;", InvoiceBuildActivity.EXTRA_PARAMS_TYPE, "offerSelectInternal", "(Ljava/lang/Object;Lkotlinx/coroutines/selects/SelectInstance;)Ljava/lang/Object;", "Lkotlinx/coroutines/channels/ReceiveChannel;", "openSubscription", "()Lkotlinx/coroutines/channels/ReceiveChannel;", "Lkotlinx/coroutines/channels/ArrayBroadcastChannel$Subscriber;", "addSub", "removeSub", "updateHead", "(Lkotlinx/coroutines/channels/ArrayBroadcastChannel$Subscriber;Lkotlinx/coroutines/channels/ArrayBroadcastChannel$Subscriber;)V", "", "buffer", "[Ljava/lang/Object;", "", "getBufferDebugString", "()Ljava/lang/String;", "bufferDebugString", "Ljava/util/concurrent/locks/ReentrantLock;", "Lkotlinx/coroutines/internal/ReentrantLock;", "bufferLock", "Ljava/util/concurrent/locks/ReentrantLock;", "", "capacity", "I", "getCapacity", "()I", "value", "getHead", "setHead", "(J)V", "head", "isBufferAlwaysFull", "()Z", "isBufferFull", "getSize", "setSize", "(I)V", "size", "", "Lkotlinx/coroutines/internal/SubscribersList;", "subscribers", "Ljava/util/List;", "getTail", "setTail", "tail", "<init>", "Subscriber", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes8.dex */
-public final class ArrayBroadcastChannel<E> extends AbstractSendChannel<E> implements BroadcastChannel<E> {
+public final class ArrayBroadcastChannel extends AbstractSendChannel implements BroadcastChannel {
     public volatile long _head;
     public volatile int _size;
     public volatile long _tail;
     public final Object[] buffer;
     public final ReentrantLock bufferLock;
     public final int capacity;
-    public final List<Subscriber<E>> subscribers;
+    public final List subscribers;
 
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000J\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000b\n\u0002\b\u0004\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u0000\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\t\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\b\u0002\u0018\u0000*\u0004\b\u0001\u0010\u00012\u00020\u00022\u00020\u0003B\u0015\u0012\f\u0010\u0015\u001a\b\u0012\u0004\u0012\u00028\u00010\u0014¢\u0006\u0004\b&\u0010'J\r\u0010\u0005\u001a\u00020\u0004¢\u0006\u0004\b\u0005\u0010\u0006J\u000f\u0010\u0007\u001a\u00020\u0004H\u0002¢\u0006\u0004\b\u0007\u0010\u0006J\u0017\u0010\n\u001a\u00020\t2\u0006\u0010\b\u001a\u00020\u0004H\u0014¢\u0006\u0004\b\n\u0010\u000bJ\u0011\u0010\r\u001a\u0004\u0018\u00010\fH\u0002¢\u0006\u0004\b\r\u0010\u000eJ\u0011\u0010\u000f\u001a\u0004\u0018\u00010\fH\u0014¢\u0006\u0004\b\u000f\u0010\u000eJ\u001d\u0010\u0012\u001a\u0004\u0018\u00010\f2\n\u0010\u0011\u001a\u0006\u0012\u0002\b\u00030\u0010H\u0014¢\u0006\u0004\b\u0012\u0010\u0013R\u001c\u0010\u0015\u001a\b\u0012\u0004\u0012\u00028\u00010\u00148\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u0015\u0010\u0016R\u0016\u0010\u0017\u001a\u00020\u00048T@\u0014X\u0094\u0004¢\u0006\u0006\u001a\u0004\b\u0017\u0010\u0006R\u0016\u0010\u0018\u001a\u00020\u00048T@\u0014X\u0094\u0004¢\u0006\u0006\u001a\u0004\b\u0018\u0010\u0006R\u0016\u0010\u0019\u001a\u00020\u00048T@\u0014X\u0094\u0004¢\u0006\u0006\u001a\u0004\b\u0019\u0010\u0006R\u0016\u0010\u001a\u001a\u00020\u00048T@\u0014X\u0094\u0004¢\u0006\u0006\u001a\u0004\b\u001a\u0010\u0006R$\u0010!\u001a\u00020\u001b2\u0006\u0010\u001c\u001a\u00020\u001b8F@FX\u0086\u000e¢\u0006\f\u001a\u0004\b\u001d\u0010\u001e\"\u0004\b\u001f\u0010 R\u001a\u0010$\u001a\u00060\"j\u0002`#8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b$\u0010%¨\u0006("}, d2 = {"Lkotlinx/coroutines/channels/ArrayBroadcastChannel$Subscriber;", "E", "Lkotlinx/coroutines/channels/ReceiveChannel;", "Lkotlinx/coroutines/channels/AbstractChannel;", "", "checkOffer", "()Z", "needsToCheckOfferWithoutLock", "wasClosed", "", "onCancelIdempotent", "(Z)V", "", "peekUnderLock", "()Ljava/lang/Object;", "pollInternal", "Lkotlinx/coroutines/selects/SelectInstance;", InvoiceBuildActivity.EXTRA_PARAMS_TYPE, "pollSelectInternal", "(Lkotlinx/coroutines/selects/SelectInstance;)Ljava/lang/Object;", "Lkotlinx/coroutines/channels/ArrayBroadcastChannel;", "broadcastChannel", "Lkotlinx/coroutines/channels/ArrayBroadcastChannel;", "isBufferAlwaysEmpty", "isBufferAlwaysFull", "isBufferEmpty", "isBufferFull", "", "value", "getSubHead", "()J", "setSubHead", "(J)V", "subHead", "Ljava/util/concurrent/locks/ReentrantLock;", "Lkotlinx/coroutines/internal/ReentrantLock;", "subLock", "Ljava/util/concurrent/locks/ReentrantLock;", "<init>", "(Lkotlinx/coroutines/channels/ArrayBroadcastChannel;)V", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    @Override // kotlinx.coroutines.channels.AbstractSendChannel
+    public boolean isBufferAlwaysFull() {
+        return false;
+    }
+
+    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000J\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000b\n\u0002\b\u0004\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u0000\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\t\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\b\u0002\u0018\u0000*\u0004\b\u0001\u0010\u00012\u00020\u00022\u00020\u0003B\u0015\u0012\f\u0010\u0015\u001a\b\u0012\u0004\u0012\u00028\u00010\u0014¢\u0006\u0004\b&\u0010'J\r\u0010\u0005\u001a\u00020\u0004¢\u0006\u0004\b\u0005\u0010\u0006J\u000f\u0010\u0007\u001a\u00020\u0004H\u0002¢\u0006\u0004\b\u0007\u0010\u0006J\u0017\u0010\n\u001a\u00020\t2\u0006\u0010\b\u001a\u00020\u0004H\u0014¢\u0006\u0004\b\n\u0010\u000bJ\u0011\u0010\r\u001a\u0004\u0018\u00010\fH\u0002¢\u0006\u0004\b\r\u0010\u000eJ\u0011\u0010\u000f\u001a\u0004\u0018\u00010\fH\u0014¢\u0006\u0004\b\u000f\u0010\u000eJ\u001d\u0010\u0012\u001a\u0004\u0018\u00010\f2\n\u0010\u0011\u001a\u0006\u0012\u0002\b\u00030\u0010H\u0014¢\u0006\u0004\b\u0012\u0010\u0013R\u001c\u0010\u0015\u001a\b\u0012\u0004\u0012\u00028\u00010\u00148\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u0015\u0010\u0016R\u0016\u0010\u0017\u001a\u00020\u00048T@\u0014X\u0094\u0004¢\u0006\u0006\u001a\u0004\b\u0017\u0010\u0006R\u0016\u0010\u0018\u001a\u00020\u00048T@\u0014X\u0094\u0004¢\u0006\u0006\u001a\u0004\b\u0018\u0010\u0006R\u0016\u0010\u0019\u001a\u00020\u00048T@\u0014X\u0094\u0004¢\u0006\u0006\u001a\u0004\b\u0019\u0010\u0006R\u0016\u0010\u001a\u001a\u00020\u00048T@\u0014X\u0094\u0004¢\u0006\u0006\u001a\u0004\b\u001a\u0010\u0006R$\u0010!\u001a\u00020\u001b2\u0006\u0010\u001c\u001a\u00020\u001b8F@FX\u0086\u000e¢\u0006\f\u001a\u0004\b\u001d\u0010\u001e\"\u0004\b\u001f\u0010 R\u001a\u0010$\u001a\u00060\"j\u0002`#8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b$\u0010%¨\u0006("}, d2 = {"Lkotlinx/coroutines/channels/ArrayBroadcastChannel$Subscriber;", ExifInterface.LONGITUDE_EAST, "Lkotlinx/coroutines/channels/ReceiveChannel;", "Lkotlinx/coroutines/channels/AbstractChannel;", "", "checkOffer", "()Z", "needsToCheckOfferWithoutLock", "wasClosed", "", "onCancelIdempotent", "(Z)V", "", "peekUnderLock", "()Ljava/lang/Object;", "pollInternal", "Lkotlinx/coroutines/selects/SelectInstance;", InvoiceBuildActivity.EXTRA_PARAMS_TYPE, "pollSelectInternal", "(Lkotlinx/coroutines/selects/SelectInstance;)Ljava/lang/Object;", "Lkotlinx/coroutines/channels/ArrayBroadcastChannel;", "broadcastChannel", "Lkotlinx/coroutines/channels/ArrayBroadcastChannel;", "isBufferAlwaysEmpty", "isBufferAlwaysFull", "isBufferEmpty", "isBufferFull", "", "value", "getSubHead", "()J", "setSubHead", "(J)V", "subHead", "Ljava/util/concurrent/locks/ReentrantLock;", "Lkotlinx/coroutines/internal/ReentrantLock;", "subLock", "Ljava/util/concurrent/locks/ReentrantLock;", "<init>", "(Lkotlinx/coroutines/channels/ArrayBroadcastChannel;)V", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes8.dex */
-    public static final class Subscriber<E> extends AbstractChannel<E> implements ReceiveChannel<E> {
-        public final ArrayBroadcastChannel<E> broadcastChannel;
+    public final class Subscriber extends AbstractChannel implements ReceiveChannel {
+        public final ArrayBroadcastChannel broadcastChannel;
         public final ReentrantLock subLock = new ReentrantLock();
         public volatile long _subHead = 0;
-
-        public Subscriber(ArrayBroadcastChannel<E> arrayBroadcastChannel) {
-            this.broadcastChannel = arrayBroadcastChannel;
-        }
-
-        private final boolean needsToCheckOfferWithoutLock() {
-            if (getClosedForReceive() != null) {
-                return false;
-            }
-            return (isBufferEmpty() && this.broadcastChannel.getClosedForReceive() == null) ? false : true;
-        }
-
-        private final Object peekUnderLock() {
-            long subHead = getSubHead();
-            Closed<?> closedForReceive = this.broadcastChannel.getClosedForReceive();
-            if (subHead >= this.broadcastChannel.getTail()) {
-                if (closedForReceive == null) {
-                    closedForReceive = getClosedForReceive();
-                }
-                return closedForReceive != null ? closedForReceive : AbstractChannelKt.POLL_FAILED;
-            }
-            Object elementAt = this.broadcastChannel.elementAt(subHead);
-            Closed<?> closedForReceive2 = getClosedForReceive();
-            return closedForReceive2 != null ? closedForReceive2 : elementAt;
-        }
-
-        public final boolean checkOffer() {
-            Closed closed;
-            boolean z = false;
-            while (true) {
-                closed = null;
-                if (!needsToCheckOfferWithoutLock() || !this.subLock.tryLock()) {
-                    break;
-                }
-                try {
-                    E e = (E) peekUnderLock();
-                    if (e != AbstractChannelKt.POLL_FAILED) {
-                        if (e instanceof Closed) {
-                            closed = (Closed) e;
-                            break;
-                        }
-                        ReceiveOrClosed<E> takeFirstReceiveOrPeekClosed = takeFirstReceiveOrPeekClosed();
-                        if (takeFirstReceiveOrPeekClosed == null || (takeFirstReceiveOrPeekClosed instanceof Closed)) {
-                            break;
-                        }
-                        Symbol tryResumeReceive = takeFirstReceiveOrPeekClosed.tryResumeReceive(e, null);
-                        if (tryResumeReceive != null) {
-                            if (DebugKt.getASSERTIONS_ENABLED()) {
-                                if (!(tryResumeReceive == CancellableContinuationImplKt.RESUME_TOKEN)) {
-                                    throw new AssertionError();
-                                }
-                            }
-                            setSubHead(getSubHead() + 1);
-                            this.subLock.unlock();
-                            if (takeFirstReceiveOrPeekClosed == null) {
-                                Intrinsics.throwNpe();
-                            }
-                            takeFirstReceiveOrPeekClosed.completeResumeReceive(e);
-                            z = true;
-                        }
-                    }
-                } finally {
-                    this.subLock.unlock();
-                }
-            }
-            if (closed != null) {
-                close(closed.closeCause);
-            }
-            return z;
-        }
-
-        public final long getSubHead() {
-            return this._subHead;
-        }
 
         @Override // kotlinx.coroutines.channels.AbstractChannel
         public boolean isBufferAlwaysEmpty() {
             return false;
         }
 
-        @Override // kotlinx.coroutines.channels.AbstractSendChannel
-        public boolean isBufferAlwaysFull() {
-            throw new IllegalStateException("Should not be used".toString());
-        }
-
-        @Override // kotlinx.coroutines.channels.AbstractChannel
-        public boolean isBufferEmpty() {
-            return getSubHead() >= this.broadcastChannel.getTail();
-        }
-
-        @Override // kotlinx.coroutines.channels.AbstractSendChannel
-        public boolean isBufferFull() {
-            throw new IllegalStateException("Should not be used".toString());
+        public Subscriber(ArrayBroadcastChannel arrayBroadcastChannel) {
+            this.broadcastChannel = arrayBroadcastChannel;
         }
 
         @Override // kotlinx.coroutines.channels.AbstractChannel
@@ -142,6 +63,113 @@ public final class ArrayBroadcastChannel<E> extends AbstractSendChannel<E> imple
             }
         }
 
+        public final void setSubHead(long j) {
+            this._subHead = j;
+        }
+
+        private final boolean needsToCheckOfferWithoutLock() {
+            if (getClosedForReceive() != null) {
+                return false;
+            }
+            if (isBufferEmpty() && this.broadcastChannel.getClosedForReceive() == null) {
+                return false;
+            }
+            return true;
+        }
+
+        private final Object peekUnderLock() {
+            long subHead = getSubHead();
+            Closed closedForReceive = this.broadcastChannel.getClosedForReceive();
+            if (subHead < this.broadcastChannel.getTail()) {
+                Object elementAt = this.broadcastChannel.elementAt(subHead);
+                Closed closedForReceive2 = getClosedForReceive();
+                if (closedForReceive2 != null) {
+                    return closedForReceive2;
+                }
+                return elementAt;
+            }
+            if (closedForReceive == null) {
+                closedForReceive = getClosedForReceive();
+            }
+            if (closedForReceive == null) {
+                return AbstractChannelKt.POLL_FAILED;
+            }
+            return closedForReceive;
+        }
+
+        public final long getSubHead() {
+            return this._subHead;
+        }
+
+        @Override // kotlinx.coroutines.channels.AbstractSendChannel
+        public boolean isBufferAlwaysFull() {
+            throw new IllegalStateException("Should not be used".toString());
+        }
+
+        @Override // kotlinx.coroutines.channels.AbstractChannel
+        public boolean isBufferEmpty() {
+            if (getSubHead() >= this.broadcastChannel.getTail()) {
+                return true;
+            }
+            return false;
+        }
+
+        @Override // kotlinx.coroutines.channels.AbstractSendChannel
+        public boolean isBufferFull() {
+            throw new IllegalStateException("Should not be used".toString());
+        }
+
+        public final boolean checkOffer() {
+            Closed closed;
+            boolean z;
+            boolean z2 = false;
+            while (true) {
+                closed = null;
+                if (!needsToCheckOfferWithoutLock() || !this.subLock.tryLock()) {
+                    break;
+                }
+                try {
+                    Object peekUnderLock = peekUnderLock();
+                    if (peekUnderLock != AbstractChannelKt.POLL_FAILED) {
+                        if (peekUnderLock instanceof Closed) {
+                            closed = (Closed) peekUnderLock;
+                            break;
+                        }
+                        ReceiveOrClosed takeFirstReceiveOrPeekClosed = takeFirstReceiveOrPeekClosed();
+                        if (takeFirstReceiveOrPeekClosed == null || (takeFirstReceiveOrPeekClosed instanceof Closed)) {
+                            break;
+                        }
+                        Symbol tryResumeReceive = takeFirstReceiveOrPeekClosed.tryResumeReceive(peekUnderLock, null);
+                        if (tryResumeReceive != null) {
+                            if (DebugKt.getASSERTIONS_ENABLED()) {
+                                if (tryResumeReceive == CancellableContinuationImplKt.RESUME_TOKEN) {
+                                    z = true;
+                                } else {
+                                    z = false;
+                                }
+                                if (!z) {
+                                    throw new AssertionError();
+                                }
+                            }
+                            setSubHead(getSubHead() + 1);
+                            this.subLock.unlock();
+                            if (takeFirstReceiveOrPeekClosed == null) {
+                                Intrinsics.throwNpe();
+                            }
+                            takeFirstReceiveOrPeekClosed.completeResumeReceive(peekUnderLock);
+                            z2 = true;
+                        }
+                    }
+                } finally {
+                    this.subLock.unlock();
+                }
+            }
+            if (closed != null) {
+                close(closed.closeCause);
+            }
+            return z2;
+        }
+
         /* JADX WARN: Removed duplicated region for block: B:13:0x0028  */
         /* JADX WARN: Removed duplicated region for block: B:14:0x002a  */
         /* JADX WARN: Removed duplicated region for block: B:17:0x002f  */
@@ -153,30 +181,44 @@ public final class ArrayBroadcastChannel<E> extends AbstractSendChannel<E> imple
         */
         public Object pollInternal() {
             boolean z;
+            Object obj;
             Closed closed;
             ReentrantLock reentrantLock = this.subLock;
             reentrantLock.lock();
             try {
                 Object peekUnderLock = peekUnderLock();
+                boolean z2 = true;
                 if (!(peekUnderLock instanceof Closed) && peekUnderLock != AbstractChannelKt.POLL_FAILED) {
                     setSubHead(getSubHead() + 1);
                     z = true;
                     reentrantLock.unlock();
-                    closed = (Closed) (peekUnderLock instanceof Closed ? null : peekUnderLock);
+                    if (peekUnderLock instanceof Closed) {
+                        obj = null;
+                    } else {
+                        obj = peekUnderLock;
+                    }
+                    closed = (Closed) obj;
                     if (closed != null) {
                         close(closed.closeCause);
                     }
-                    if (checkOffer() ? true : z) {
+                    if (!checkOffer()) {
+                        z2 = z;
+                    }
+                    if (z2) {
                         ArrayBroadcastChannel.updateHead$default(this.broadcastChannel, null, null, 3, null);
                     }
                     return peekUnderLock;
                 }
                 z = false;
                 reentrantLock.unlock();
-                closed = (Closed) (peekUnderLock instanceof Closed ? null : peekUnderLock);
+                if (peekUnderLock instanceof Closed) {
+                }
+                closed = (Closed) obj;
                 if (closed != null) {
                 }
-                if (checkOffer() ? true : z) {
+                if (!checkOffer()) {
+                }
+                if (z2) {
                 }
                 return peekUnderLock;
             } catch (Throwable th) {
@@ -186,26 +228,36 @@ public final class ArrayBroadcastChannel<E> extends AbstractSendChannel<E> imple
         }
 
         @Override // kotlinx.coroutines.channels.AbstractChannel
-        public Object pollSelectInternal(SelectInstance<?> selectInstance) {
+        public Object pollSelectInternal(SelectInstance selectInstance) {
+            Object obj;
             ReentrantLock reentrantLock = this.subLock;
             reentrantLock.lock();
             try {
                 Object peekUnderLock = peekUnderLock();
-                boolean z = false;
+                boolean z = true;
+                boolean z2 = false;
                 if (!(peekUnderLock instanceof Closed) && peekUnderLock != AbstractChannelKt.POLL_FAILED) {
                     if (!selectInstance.trySelect()) {
                         peekUnderLock = SelectKt.getALREADY_SELECTED();
                     } else {
                         setSubHead(getSubHead() + 1);
-                        z = true;
+                        z2 = true;
                     }
                 }
                 reentrantLock.unlock();
-                Closed closed = (Closed) (!(peekUnderLock instanceof Closed) ? null : peekUnderLock);
+                if (!(peekUnderLock instanceof Closed)) {
+                    obj = null;
+                } else {
+                    obj = peekUnderLock;
+                }
+                Closed closed = (Closed) obj;
                 if (closed != null) {
                     close(closed.closeCause);
                 }
-                if (checkOffer() ? true : z) {
+                if (!checkOffer()) {
+                    z = z2;
+                }
+                if (z) {
                     ArrayBroadcastChannel.updateHead$default(this.broadcastChannel, null, null, 3, null);
                 }
                 return peekUnderLock;
@@ -213,10 +265,6 @@ public final class ArrayBroadcastChannel<E> extends AbstractSendChannel<E> imple
                 reentrantLock.unlock();
                 throw th;
             }
-        }
-
-        public final void setSubHead(long j) {
-            this._subHead = j;
         }
     }
 
@@ -240,50 +288,15 @@ public final class ArrayBroadcastChannel<E> extends AbstractSendChannel<E> imple
     /* renamed from: cancelInternal */
     public final boolean cancel(Throwable th) {
         boolean close = close(th);
-        for (Subscriber<E> subscriber : this.subscribers) {
+        for (Subscriber subscriber : this.subscribers) {
             subscriber.cancel(th);
         }
         return close;
     }
 
-    private final void checkSubOffers() {
-        boolean z = false;
-        boolean z2 = false;
-        for (Subscriber<E> subscriber : this.subscribers) {
-            if (subscriber.checkOffer()) {
-                z = true;
-            }
-            z2 = true;
-        }
-        if (z || !z2) {
-            updateHead$default(this, null, null, 3, null);
-        }
-    }
-
-    private final long computeMinHead() {
-        long j = Long.MAX_VALUE;
-        for (Subscriber<E> subscriber : this.subscribers) {
-            j = RangesKt___RangesKt.coerceAtMost(j, subscriber.getSubHead());
-        }
-        return j;
-    }
-
     /* JADX INFO: Access modifiers changed from: private */
-    public final E elementAt(long j) {
-        return (E) this.buffer[(int) (j % this.capacity)];
-    }
-
-    private final long getHead() {
-        return this._head;
-    }
-
-    private final int getSize() {
-        return this._size;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public final long getTail() {
-        return this._tail;
+    public final Object elementAt(long j) {
+        return this.buffer[(int) (j % this.capacity)];
     }
 
     private final void setHead(long j) {
@@ -299,7 +312,81 @@ public final class ArrayBroadcastChannel<E> extends AbstractSendChannel<E> imple
         this._tail = j;
     }
 
-    private final void updateHead(Subscriber<E> subscriber, Subscriber<E> subscriber2) {
+    @Override // kotlinx.coroutines.channels.BroadcastChannel
+    public void cancel(CancellationException cancellationException) {
+        cancel(cancellationException);
+    }
+
+    @Override // kotlinx.coroutines.channels.AbstractSendChannel, kotlinx.coroutines.channels.SendChannel
+    public boolean close(Throwable th) {
+        if (!super.close(th)) {
+            return false;
+        }
+        checkSubOffers();
+        return true;
+    }
+
+    private final void checkSubOffers() {
+        boolean z = false;
+        boolean z2 = false;
+        for (Subscriber subscriber : this.subscribers) {
+            if (subscriber.checkOffer()) {
+                z = true;
+            }
+            z2 = true;
+        }
+        if (z || !z2) {
+            updateHead$default(this, null, null, 3, null);
+        }
+    }
+
+    private final long computeMinHead() {
+        long j = Long.MAX_VALUE;
+        for (Subscriber subscriber : this.subscribers) {
+            j = RangesKt___RangesKt.coerceAtMost(j, subscriber.getSubHead());
+        }
+        return j;
+    }
+
+    private final long getHead() {
+        return this._head;
+    }
+
+    private final int getSize() {
+        return this._size;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public final long getTail() {
+        return this._tail;
+    }
+
+    @Override // kotlinx.coroutines.channels.AbstractSendChannel
+    public String getBufferDebugString() {
+        return "(buffer:capacity=" + this.buffer.length + ",size=" + getSize() + ')';
+    }
+
+    public final int getCapacity() {
+        return this.capacity;
+    }
+
+    @Override // kotlinx.coroutines.channels.AbstractSendChannel
+    public boolean isBufferFull() {
+        if (getSize() >= this.capacity) {
+            return true;
+        }
+        return false;
+    }
+
+    @Override // kotlinx.coroutines.channels.BroadcastChannel
+    public ReceiveChannel openSubscription() {
+        Subscriber subscriber = new Subscriber(this);
+        updateHead$default(this, subscriber, null, 2, null);
+        return subscriber;
+    }
+
+    private final void updateHead(Subscriber subscriber, Subscriber subscriber2) {
+        boolean z;
         Send takeFirstSendOrPeekClosed;
         Symbol tryResumeSend;
         while (true) {
@@ -333,7 +420,12 @@ public final class ArrayBroadcastChannel<E> extends AbstractSendChannel<E> imple
             int size = getSize();
             while (head < coerceAtMost) {
                 this.buffer[(int) (head % this.capacity)] = null;
-                boolean z = size >= this.capacity;
+                boolean z2 = false;
+                if (size >= this.capacity) {
+                    z = true;
+                } else {
+                    z = false;
+                }
                 head++;
                 setHead(head);
                 size--;
@@ -349,7 +441,10 @@ public final class ArrayBroadcastChannel<E> extends AbstractSendChannel<E> imple
                         }
                     } while (tryResumeSend == null);
                     if (DebugKt.getASSERTIONS_ENABLED()) {
-                        if (!(tryResumeSend == CancellableContinuationImplKt.RESUME_TOKEN)) {
+                        if (tryResumeSend == CancellableContinuationImplKt.RESUME_TOKEN) {
+                            z2 = true;
+                        }
+                        if (!z2) {
                             throw new AssertionError();
                         }
                     }
@@ -377,8 +472,6 @@ public final class ArrayBroadcastChannel<E> extends AbstractSendChannel<E> imple
         }
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: kotlinx.coroutines.channels.ArrayBroadcastChannel */
-    /* JADX WARN: Multi-variable type inference failed */
     public static /* synthetic */ void updateHead$default(ArrayBroadcastChannel arrayBroadcastChannel, Subscriber subscriber, Subscriber subscriber2, int i, Object obj) {
         if ((i & 1) != 0) {
             subscriber = null;
@@ -389,40 +482,12 @@ public final class ArrayBroadcastChannel<E> extends AbstractSendChannel<E> imple
         arrayBroadcastChannel.updateHead(subscriber, subscriber2);
     }
 
-    @Override // kotlinx.coroutines.channels.AbstractSendChannel, kotlinx.coroutines.channels.SendChannel
-    public boolean close(Throwable th) {
-        if (super.close(th)) {
-            checkSubOffers();
-            return true;
-        }
-        return false;
-    }
-
     @Override // kotlinx.coroutines.channels.AbstractSendChannel
-    public String getBufferDebugString() {
-        return "(buffer:capacity=" + this.buffer.length + ",size=" + getSize() + ')';
-    }
-
-    public final int getCapacity() {
-        return this.capacity;
-    }
-
-    @Override // kotlinx.coroutines.channels.AbstractSendChannel
-    public boolean isBufferAlwaysFull() {
-        return false;
-    }
-
-    @Override // kotlinx.coroutines.channels.AbstractSendChannel
-    public boolean isBufferFull() {
-        return getSize() >= this.capacity;
-    }
-
-    @Override // kotlinx.coroutines.channels.AbstractSendChannel
-    public Object offerInternal(E e) {
+    public Object offerInternal(Object obj) {
         ReentrantLock reentrantLock = this.bufferLock;
         reentrantLock.lock();
         try {
-            Closed<?> closedForSend = getClosedForSend();
+            Closed closedForSend = getClosedForSend();
             if (closedForSend != null) {
                 return closedForSend;
             }
@@ -431,7 +496,7 @@ public final class ArrayBroadcastChannel<E> extends AbstractSendChannel<E> imple
                 return AbstractChannelKt.OFFER_FAILED;
             }
             long tail = getTail();
-            this.buffer[(int) (tail % this.capacity)] = e;
+            this.buffer[(int) (tail % this.capacity)] = obj;
             setSize(size + 1);
             setTail(tail + 1);
             Unit unit = Unit.INSTANCE;
@@ -444,11 +509,11 @@ public final class ArrayBroadcastChannel<E> extends AbstractSendChannel<E> imple
     }
 
     @Override // kotlinx.coroutines.channels.AbstractSendChannel
-    public Object offerSelectInternal(E e, SelectInstance<?> selectInstance) {
+    public Object offerSelectInternal(Object obj, SelectInstance selectInstance) {
         ReentrantLock reentrantLock = this.bufferLock;
         reentrantLock.lock();
         try {
-            Closed<?> closedForSend = getClosedForSend();
+            Closed closedForSend = getClosedForSend();
             if (closedForSend != null) {
                 return closedForSend;
             }
@@ -460,7 +525,7 @@ public final class ArrayBroadcastChannel<E> extends AbstractSendChannel<E> imple
                 return SelectKt.getALREADY_SELECTED();
             }
             long tail = getTail();
-            this.buffer[(int) (tail % this.capacity)] = e;
+            this.buffer[(int) (tail % this.capacity)] = obj;
             setSize(size + 1);
             setTail(tail + 1);
             Unit unit = Unit.INSTANCE;
@@ -470,17 +535,5 @@ public final class ArrayBroadcastChannel<E> extends AbstractSendChannel<E> imple
         } finally {
             reentrantLock.unlock();
         }
-    }
-
-    @Override // kotlinx.coroutines.channels.BroadcastChannel
-    public ReceiveChannel<E> openSubscription() {
-        Subscriber subscriber = new Subscriber(this);
-        updateHead$default(this, subscriber, null, 2, null);
-        return subscriber;
-    }
-
-    @Override // kotlinx.coroutines.channels.BroadcastChannel
-    public void cancel(CancellationException cancellationException) {
-        cancel(cancellationException);
     }
 }

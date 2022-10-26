@@ -23,7 +23,7 @@ public class CacheManager {
 
     @Deprecated
     /* loaded from: classes6.dex */
-    public static class CacheResult {
+    public class CacheResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long contentLength;
@@ -206,7 +206,7 @@ public class CacheManager {
     }
 
     @Deprecated
-    public static CacheResult getCacheFile(String str, Map<String, String> map) {
+    public static CacheResult getCacheFile(String str, Map map) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, map)) == null) {

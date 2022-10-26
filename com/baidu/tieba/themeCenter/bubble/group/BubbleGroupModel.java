@@ -11,13 +11,13 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.gt8;
-import com.baidu.tieba.pb;
+import com.baidu.tieba.cu8;
+import com.baidu.tieba.qb;
+import com.baidu.tieba.qt8;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.sm8;
-import com.baidu.tieba.st8;
 import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.tieba.themeCenter.bubble.all.BubbleSetResponseMessage;
+import com.baidu.tieba.zm8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,19 +25,34 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
+public class BubbleGroupModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BubbleGroupActivity a;
-    public st8 b;
-    public List<gt8> c;
+    public cu8 b;
+    public List c;
     public c d;
     public boolean e;
-    public pb f;
+    public qb f;
     public final HttpMessageListener g;
 
     /* loaded from: classes6.dex */
-    public class a extends pb {
+    public interface c {
+        void a(int i, String str, cu8 cu8Var, List list);
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public class a extends qb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BubbleGroupModel a;
@@ -64,33 +79,34 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
             this.a = bubbleGroupModel;
         }
 
-        @Override // com.baidu.tieba.pb
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
+        @Override // com.baidu.tieba.qb
+        public void onMessage(ResponsedMessage responsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
                 return;
             }
             boolean z = responsedMessage instanceof BubbleGroupHttpResponseMessage;
-            if (z || (responsedMessage instanceof BubbleGroupSocketResponseMessage)) {
-                if (responsedMessage.getError() != 0) {
-                    if (this.a.d != null) {
-                        this.a.d.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.b, this.a.c);
-                        return;
-                    }
-                    return;
-                }
-                if (z) {
-                    BubbleGroupHttpResponseMessage bubbleGroupHttpResponseMessage = (BubbleGroupHttpResponseMessage) responsedMessage;
-                    this.a.b = bubbleGroupHttpResponseMessage.getRecommand();
-                    this.a.c = bubbleGroupHttpResponseMessage.getGroupList();
-                } else if (responsedMessage instanceof BubbleGroupSocketResponseMessage) {
-                    BubbleGroupSocketResponseMessage bubbleGroupSocketResponseMessage = (BubbleGroupSocketResponseMessage) responsedMessage;
-                    this.a.b = bubbleGroupSocketResponseMessage.getRecommand();
-                    this.a.c = bubbleGroupSocketResponseMessage.getGroupList();
-                }
+            if (!z && !(responsedMessage instanceof BubbleGroupSocketResponseMessage)) {
+                return;
+            }
+            if (responsedMessage.getError() != 0) {
                 if (this.a.d != null) {
                     this.a.d.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.b, this.a.c);
+                    return;
                 }
+                return;
+            }
+            if (z) {
+                BubbleGroupHttpResponseMessage bubbleGroupHttpResponseMessage = (BubbleGroupHttpResponseMessage) responsedMessage;
+                this.a.b = bubbleGroupHttpResponseMessage.getRecommand();
+                this.a.c = bubbleGroupHttpResponseMessage.getGroupList();
+            } else if (responsedMessage instanceof BubbleGroupSocketResponseMessage) {
+                BubbleGroupSocketResponseMessage bubbleGroupSocketResponseMessage = (BubbleGroupSocketResponseMessage) responsedMessage;
+                this.a.b = bubbleGroupSocketResponseMessage.getRecommand();
+                this.a.c = bubbleGroupSocketResponseMessage.getGroupList();
+            }
+            if (this.a.d != null) {
+                this.a.d.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.b, this.a.c);
             }
         }
     }
@@ -138,11 +154,6 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public interface c {
-        void a(int i, String str, st8 st8Var, List<gt8> list);
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BubbleGroupModel(BubbleGroupActivity bubbleGroupActivity) {
         super(bubbleGroupActivity.getPageContext());
@@ -171,18 +182,39 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
         registerListener(this.g);
     }
 
+    public void J(c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
+            this.d = cVar;
+        }
+    }
+
     public boolean G() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e;
+        }
+        return invokeV.booleanValue;
     }
 
     public final void H() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            sm8.h(309030, BubbleGroupSocketResponseMessage.class, false, false);
-            sm8.c(309030, CmdConfigHttp.CMD_BUBBLE_CATEGORY, TbConfig.BUBBLE_GROUP_PAGE, BubbleGroupHttpResponseMessage.class, false, false, true, false);
+            zm8.h(309030, BubbleGroupSocketResponseMessage.class, false, false);
+            zm8.c(309030, CmdConfigHttp.CMD_BUBBLE_CATEGORY, TbConfig.BUBBLE_GROUP_PAGE, BubbleGroupHttpResponseMessage.class, false, false, true, false);
         }
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            sendMessage(new BubbleGroupRequestMessage());
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public final void I() {
@@ -195,52 +227,23 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
         }
     }
 
-    public void J(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
-            this.d = cVar;
-        }
-    }
-
     public final void K(int i) {
-        List<gt8> list;
+        List list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048580, this, i) == null) || (list = this.c) == null || list.size() <= 0) {
-            return;
-        }
-        for (gt8 gt8Var : this.c) {
-            if (gt8Var != null && gt8Var.a() != null) {
-                for (DressItemData dressItemData : gt8Var.a()) {
-                    if (dressItemData != null) {
-                        if (dressItemData.getPropsId() == i) {
-                            dressItemData.setInUse(true);
-                        } else {
-                            dressItemData.setInUse(false);
+        if ((interceptable == null || interceptable.invokeI(1048580, this, i) == null) && (list = this.c) != null && list.size() > 0) {
+            for (qt8 qt8Var : this.c) {
+                if (qt8Var != null && qt8Var.a() != null) {
+                    for (DressItemData dressItemData : qt8Var.a()) {
+                        if (dressItemData != null) {
+                            if (dressItemData.getPropsId() == i) {
+                                dressItemData.setInUse(true);
+                            } else {
+                                dressItemData.setInUse(false);
+                            }
                         }
                     }
                 }
             }
         }
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean loadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            sendMessage(new BubbleGroupRequestMessage());
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

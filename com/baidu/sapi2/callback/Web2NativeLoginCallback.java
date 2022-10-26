@@ -6,9 +6,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public abstract class Web2NativeLoginCallback implements LoginStatusAware<Web2NativeLoginResult> {
+public abstract class Web2NativeLoginCallback implements LoginStatusAware {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract void onBdussEmpty(Web2NativeLoginResult web2NativeLoginResult);
 
     public Web2NativeLoginCallback() {
         Interceptable interceptable = $ic;
@@ -23,6 +25,4 @@ public abstract class Web2NativeLoginCallback implements LoginStatusAware<Web2Na
             }
         }
     }
-
-    public abstract void onBdussEmpty(Web2NativeLoginResult web2NativeLoginResult);
 }

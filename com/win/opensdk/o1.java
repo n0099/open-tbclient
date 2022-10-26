@@ -34,9 +34,8 @@ public class o1 implements Runnable {
     public void run() {
         s1 s1Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (s1Var = this.b.g) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (s1Var = this.b.g) != null) {
+            s1Var.onFail(this.a);
         }
-        s1Var.onFail(this.a);
     }
 }

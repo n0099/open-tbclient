@@ -47,26 +47,30 @@ public class BaseRouter {
     public static boolean invokeNextScheme(Context context, Intent intent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, intent)) == null) ? SchemeRouter.invokeNextScheme(context, intent) : invokeLL.booleanValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, intent)) == null) {
+            return SchemeRouter.invokeNextScheme(context, intent);
+        }
+        return invokeLL.booleanValue;
     }
 
-    public static boolean invokeScheme(Context context, Uri uri, String str, CallbackHandler callbackHandler) {
-        InterceptResult invokeLLLL;
+    @Deprecated
+    public static boolean invokeScheme(Context context, Uri uri) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65541, null, context, uri, str, callbackHandler)) == null) {
-            if (context == null) {
-                context = AppRuntime.getAppContext();
-            }
-            return SchemeRouter.invokeScheme(context, uri, str, callbackHandler);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, uri)) == null) {
+            return SchemeRouter.invokeSchemeForInner(context, uri);
         }
-        return invokeLLLL.booleanValue;
+        return invokeLL.booleanValue;
     }
 
     @Deprecated
     public static boolean invokeSchemeForInner(Context context, Uri uri) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, uri)) == null) ? SchemeRouter.invokeSchemeForInner(context, uri) : invokeLL.booleanValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, uri)) == null) {
+            return SchemeRouter.invokeSchemeForInner(context, uri);
+        }
+        return invokeLL.booleanValue;
     }
 
     @Deprecated
@@ -82,6 +86,15 @@ public class BaseRouter {
         return invokeLL.booleanValue;
     }
 
+    public static boolean invokeScheme(Context context, Uri uri, String str) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, uri, str)) == null) {
+            return invokeScheme(context, uri, str, null);
+        }
+        return invokeLLL.booleanValue;
+    }
+
     public static boolean isSchemeAvailable(Context context, Uri uri, String str) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
@@ -94,16 +107,15 @@ public class BaseRouter {
         return invokeLLL.booleanValue;
     }
 
-    public static boolean invokeScheme(Context context, Uri uri, String str) {
-        InterceptResult invokeLLL;
+    public static boolean invokeScheme(Context context, Uri uri, String str, CallbackHandler callbackHandler) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, uri, str)) == null) ? invokeScheme(context, uri, str, null) : invokeLLL.booleanValue;
-    }
-
-    @Deprecated
-    public static boolean invokeScheme(Context context, Uri uri) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, uri)) == null) ? SchemeRouter.invokeSchemeForInner(context, uri) : invokeLL.booleanValue;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65541, null, context, uri, str, callbackHandler)) == null) {
+            if (context == null) {
+                context = AppRuntime.getAppContext();
+            }
+            return SchemeRouter.invokeScheme(context, uri, str, callbackHandler);
+        }
+        return invokeLLLL.booleanValue;
     }
 }

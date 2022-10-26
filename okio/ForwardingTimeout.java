@@ -41,34 +41,77 @@ public class ForwardingTimeout extends Timeout {
     public Timeout clearDeadline() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.delegate.clearDeadline() : (Timeout) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.delegate.clearDeadline();
+        }
+        return (Timeout) invokeV.objValue;
     }
 
     @Override // okio.Timeout
     public Timeout clearTimeout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.delegate.clearTimeout() : (Timeout) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.delegate.clearTimeout();
+        }
+        return (Timeout) invokeV.objValue;
     }
 
     @Override // okio.Timeout
     public long deadlineNanoTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.delegate.deadlineNanoTime() : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.delegate.deadlineNanoTime();
+        }
+        return invokeV.longValue;
     }
 
     public final Timeout delegate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.delegate : (Timeout) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.delegate;
+        }
+        return (Timeout) invokeV.objValue;
     }
 
     @Override // okio.Timeout
     public boolean hasDeadline() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.delegate.hasDeadline() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.delegate.hasDeadline();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // okio.Timeout
+    public void throwIfReached() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.delegate.throwIfReached();
+        }
+    }
+
+    @Override // okio.Timeout
+    public long timeoutNanos() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.delegate.timeoutNanos();
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // okio.Timeout
+    public Timeout deadlineNanoTime(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
+            return this.delegate.deadlineNanoTime(j);
+        }
+        return (Timeout) invokeJ.objValue;
     }
 
     public final ForwardingTimeout setDelegate(Timeout timeout) {
@@ -85,31 +128,12 @@ public class ForwardingTimeout extends Timeout {
     }
 
     @Override // okio.Timeout
-    public void throwIfReached() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.delegate.throwIfReached();
-        }
-    }
-
-    @Override // okio.Timeout
     public Timeout timeout(long j, TimeUnit timeUnit) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(InputDeviceCompat.SOURCE_TOUCHPAD, this, j, timeUnit)) == null) ? this.delegate.timeout(j, timeUnit) : (Timeout) invokeJL.objValue;
-    }
-
-    @Override // okio.Timeout
-    public long timeoutNanos() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.delegate.timeoutNanos() : invokeV.longValue;
-    }
-
-    @Override // okio.Timeout
-    public Timeout deadlineNanoTime(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) ? this.delegate.deadlineNanoTime(j) : (Timeout) invokeJ.objValue;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(InputDeviceCompat.SOURCE_TOUCHPAD, this, j, timeUnit)) == null) {
+            return this.delegate.timeout(j, timeUnit);
+        }
+        return (Timeout) invokeJL.objValue;
     }
 }

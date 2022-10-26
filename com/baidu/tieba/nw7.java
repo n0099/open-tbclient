@@ -1,28 +1,25 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.pb.interactionpopupwindow.IBaseDialogData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public abstract class nw7<D extends IBaseDialogData> implements sw7<D> {
+public class nw7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public ViewGroup b;
+    public final List a;
+    public final List b;
+    public String c;
+    public int d;
 
-    public nw7(TbPageContext<?> tbPageContext) {
+    public nw7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,21 +29,17 @@ public abstract class nw7<D extends IBaseDialogData> implements sw7<D> {
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.b = (ViewGroup) LayoutInflater.from(tbPageContext.getPageActivity()).inflate(c(), (ViewGroup) null, false);
-        a();
+        this.a = new ArrayList();
+        this.b = new ArrayList();
+        this.d = 0;
     }
 
-    public TbPageContext<?> d() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (TbPageContext) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.sw7
-    public ViewGroup getViewGroup() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (ViewGroup) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
+        }
+        return invokeV.intValue;
     }
 }

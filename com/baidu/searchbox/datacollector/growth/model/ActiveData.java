@@ -17,7 +17,7 @@ public class ActiveData {
     public String mType;
 
     /* loaded from: classes2.dex */
-    public static class Builder {
+    public class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String channel;
@@ -43,12 +43,6 @@ public class ActiveData {
             this.channel = str;
         }
 
-        public ActiveData build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ActiveData(this) : (ActiveData) invokeV.objValue;
-        }
-
         public Builder setExtend(JSONObject jSONObject) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -69,6 +63,15 @@ public class ActiveData {
                 return this;
             }
             return (Builder) invokeL.objValue;
+        }
+
+        public ActiveData build() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new ActiveData(this);
+            }
+            return (ActiveData) invokeV.objValue;
         }
     }
 
@@ -92,19 +95,28 @@ public class ActiveData {
     public String getChannel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mChannel : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mChannel;
+        }
+        return (String) invokeV.objValue;
     }
 
     public JSONObject getExtend() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mExtend : (JSONObject) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mExtend;
+        }
+        return (JSONObject) invokeV.objValue;
     }
 
     public String getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mType : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mType;
+        }
+        return (String) invokeV.objValue;
     }
 
     public ActiveData(Builder builder) {

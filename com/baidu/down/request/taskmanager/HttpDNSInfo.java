@@ -12,7 +12,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
-public class HttpDNSInfo implements Comparable<HttpDNSInfo> {
+public class HttpDNSInfo implements Comparable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STATUS_IP_AVAILABLE = 2;
     public static final int STATUS_IP_INAVAILABLE = 3;
@@ -23,7 +23,7 @@ public class HttpDNSInfo implements Comparable<HttpDNSInfo> {
     public String mCNDIp;
     public long mDownloadBytes;
     public long mDownloadTimes;
-    public List<Long> mHttpConnectTime;
+    public List mHttpConnectTime;
     public int mIsWorking;
     public int mStatus;
     public int mTestSpeedThread;
@@ -63,6 +63,20 @@ public class HttpDNSInfo implements Comparable<HttpDNSInfo> {
         return (HttpDNSInfo) invokeV.objValue;
     }
 
+    public long getTestAverageSpeed() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            long j = this.mDownloadTimes;
+            if (j == 0 || (i = this.mTestSpeedThread) == 0) {
+                return 0L;
+            }
+            return (this.mDownloadBytes * 1000) / (j * i);
+        }
+        return invokeV.longValue;
+    }
+
     public HttpDNSInfo clone(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -91,20 +105,6 @@ public class HttpDNSInfo implements Comparable<HttpDNSInfo> {
         return (HttpDNSInfo) invokeLL.objValue;
     }
 
-    public long getTestAverageSpeed() {
-        InterceptResult invokeV;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            long j = this.mDownloadTimes;
-            if (j == 0 || (i = this.mTestSpeedThread) == 0) {
-                return 0L;
-            }
-            return (this.mDownloadBytes * 1000) / (j * i);
-        }
-        return invokeV.longValue;
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
     public int compareTo(HttpDNSInfo httpDNSInfo) {
@@ -127,7 +127,10 @@ public class HttpDNSInfo implements Comparable<HttpDNSInfo> {
             if (i3 != 0 || (i4 = this.mCDNSequence) > (i5 = httpDNSInfo.mCDNSequence)) {
                 return 1;
             }
-            return i4 < i5 ? -1 : 0;
+            if (i4 < i5) {
+                return -1;
+            }
+            return 0;
         }
         return invokeL.intValue;
     }

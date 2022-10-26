@@ -1,25 +1,24 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.logsystem.logsys.LogFile;
-import com.baidu.searchbox.logsystem.logsys.eventscene.EventObject;
-import com.baidu.searchbox.logsystem.logsys.eventscene.handler.ProcessEventSceneHandler;
-import com.baidu.searchbox.logsystem.logsys.eventscene.snapshot.ProcessSnapshotType;
+import com.baidu.tbadk.core.liveremind.LiveRemindConfig;
+import com.baidu.tbadk.data.LiveRemindData;
+import com.baidu.tbadk.data.LiveRemindNormalConfigData;
+import com.baidu.tbadk.data.LiveRemindRecommendData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class hx4 extends ProcessEventSceneHandler {
+public class hx4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile hx4 d;
     public transient /* synthetic */ FieldHolder $fh;
+    public LiveRemindData a;
+    public LiveRemindNormalConfigData b;
+    public List c;
 
     public hx4() {
         Interceptable interceptable = $ic;
@@ -35,39 +34,54 @@ public class hx4 extends ProcessEventSceneHandler {
         }
     }
 
-    @Override // com.baidu.searchbox.logsystem.logsys.eventscene.handler.BaseEventSceneHandler, com.baidu.searchbox.logsystem.logsys.eventscene.handler.EventSceneHandler
-    @Nullable
-    public Set<LogFile> getCustomizedSnapshots(@NonNull Context context, @NonNull File file, @NonNull EventObject eventObject) {
-        InterceptResult invokeLLL;
+    public static hx4 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, file, eventObject)) == null) {
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (d == null) {
+                synchronized (hx4.class) {
+                    if (d == null) {
+                        d = new hx4();
+                    }
+                }
+            }
+            return d;
         }
-        return (Set) invokeLLL.objValue;
+        return (hx4) invokeV.objValue;
     }
 
-    @Override // com.baidu.searchbox.logsystem.logsys.eventscene.handler.ProcessEventSceneHandler, com.baidu.searchbox.logsystem.logsys.eventscene.handler.BaseEventSceneHandler, com.baidu.searchbox.logsystem.logsys.eventscene.handler.EventSceneHandler
-    public Set<ProcessSnapshotType> requireGeneralSnapshots(@NonNull Context context, @NonNull EventObject eventObject) {
-        InterceptResult invokeLL;
+    public final void b() {
+        List list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, eventObject)) == null) {
-            if (eventObject.mEventLog.contains("OutOfMemoryError")) {
-                HashSet hashSet = new HashSet(1);
-                hashSet.add(ProcessSnapshotType.PROCESS_MEMORY_STATUS);
-                return hashSet;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (list = this.c) != null && list.size() >= 1) {
+            LiveRemindConfig.c().e((LiveRemindRecommendData) this.c.get(0));
+        }
+    }
+
+    public LiveRemindRecommendData c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            if (this.c != null) {
+                for (int i2 = 0; i2 < this.c.size(); i2++) {
+                    if (this.c.get(i2) != null && ((LiveRemindRecommendData) this.c.get(i2)).getShowPage() == i) {
+                        return (LiveRemindRecommendData) this.c.get(i2);
+                    }
+                }
             }
             return null;
         }
-        return (Set) invokeLL.objValue;
+        return (LiveRemindRecommendData) invokeI.objValue;
     }
 
-    @Override // com.baidu.searchbox.logsystem.logsys.eventscene.handler.BaseEventSceneHandler, com.baidu.searchbox.logsystem.logsys.eventscene.handler.EventSceneHandler
-    public boolean saveFragmentSnapshot(@NonNull Context context, @NonNull EventObject eventObject, @NonNull File file) {
-        InterceptResult invokeLLL;
+    public void d(LiveRemindData liveRemindData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, eventObject, file)) == null) {
-            return false;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, liveRemindData) != null) || liveRemindData == null) {
+            return;
         }
-        return invokeLLL.booleanValue;
+        this.a = liveRemindData;
+        this.b = liveRemindData.getNormalConfig();
+        this.c = liveRemindData.getLiveRecommendList();
+        b();
     }
 }

@@ -21,7 +21,7 @@ public class DBTableDefine {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
-    public static final class GroupInfoColumns implements BaseColumns {
+    public final class GroupInfoColumns implements BaseColumns {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String COLUMN_ACTIVE_STATE = "active_state";
         public static final String COLUMN_BD_UID = "bduid";
@@ -65,7 +65,7 @@ public class DBTableDefine {
     }
 
     /* loaded from: classes.dex */
-    public static final class GroupMemberColumns implements BaseColumns {
+    public final class GroupMemberColumns implements BaseColumns {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String COLUMN_AVATAR = "avatar";
         public static final String COLUMN_BD_UID = "bduid";
@@ -96,7 +96,7 @@ public class DBTableDefine {
     }
 
     /* loaded from: classes.dex */
-    public static final class GroupMessageColumns implements BaseColumns {
+    public final class GroupMessageColumns implements BaseColumns {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String COLUMN_CMD = "cmd";
         public static final String COLUMN_CONTENT = "content";

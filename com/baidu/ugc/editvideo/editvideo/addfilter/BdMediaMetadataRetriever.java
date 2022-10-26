@@ -5,13 +5,12 @@ import android.media.MediaMetadataRetriever;
 import android.media.ThumbnailUtils;
 import android.os.Build;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.eh9;
-import com.baidu.tieba.kh9;
-import com.baidu.tieba.qg9;
-import com.baidu.tieba.vg9;
+import com.baidu.tieba.ci9;
+import com.baidu.tieba.ih9;
+import com.baidu.tieba.nh9;
+import com.baidu.tieba.wh9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,6 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.editvideo.addfilter.VideoKeyFrameModel;
 import com.baidu.ugc.editvideo.magicmusic.VideoEffectData;
 import java.io.Closeable;
+import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class BdMediaMetadataRetriever extends MediaMetadataRetriever implements Closeable {
@@ -50,10 +50,9 @@ public class BdMediaMetadataRetriever extends MediaMetadataRetriever implements 
             }
         }
         this.mPath = null;
-        this.isUseMediacodec = eh9.a();
+        this.isUseMediacodec = wh9.a();
     }
 
-    @NonNull
     private VideoKeyFrameModel getVideoKeyFrameModel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -70,7 +69,7 @@ public class BdMediaMetadataRetriever extends MediaMetadataRetriever implements 
     private boolean isUseMediacodec() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? this.isUseMediacodec && !kh9.a(this.mPath) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? this.isUseMediacodec && !ci9.a(this.mPath) : invokeV.booleanValue;
     }
 
     @Override // android.media.MediaMetadataRetriever, java.lang.AutoCloseable, java.io.Closeable
@@ -167,15 +166,18 @@ public class BdMediaMetadataRetriever extends MediaMetadataRetriever implements 
         return (Bitmap) invokeCommon.objValue;
     }
 
-    public void getFrameAtTimeList(List<Long> list, int i, int i2, VideoKeyFrameModel.OnDecodeFrameAvailableListener onDecodeFrameAvailableListener) {
+    public void getFrameAtTimeList(List list, int i, int i2, VideoKeyFrameModel.OnDecodeFrameAvailableListener onDecodeFrameAvailableListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{list, Integer.valueOf(i), Integer.valueOf(i2), onDecodeFrameAvailableListener}) == null) || vg9.e(list) || onDecodeFrameAvailableListener == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{list, Integer.valueOf(i), Integer.valueOf(i2), onDecodeFrameAvailableListener}) == null) || nh9.e(list) || onDecodeFrameAvailableListener == null) {
             return;
         }
         if (isUseMediacodec()) {
             getVideoKeyFrameModel().getFrameAtTimeList(this.mPath, list, i, i2, onDecodeFrameAvailableListener);
-        } else if (!TextUtils.isEmpty(this.mPath)) {
-            for (Long l : list) {
+        } else if (TextUtils.isEmpty(this.mPath)) {
+        } else {
+            Iterator it = list.iterator();
+            while (it.hasNext()) {
+                Long l = (Long) it.next();
                 onDecodeFrameAvailableListener.onFrameAvailable(l.longValue(), getFrameAtTime(l.longValue(), 2, i, i2));
             }
         }
@@ -216,7 +218,7 @@ public class BdMediaMetadataRetriever extends MediaMetadataRetriever implements 
                     this.mPath = str;
                 }
             } catch (Exception e) {
-                qg9.g(e);
+                ih9.g(e);
             }
         }
     }

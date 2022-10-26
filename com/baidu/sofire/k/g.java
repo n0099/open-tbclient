@@ -32,7 +32,7 @@ public class g {
     public Context a;
 
     /* loaded from: classes2.dex */
-    public static class a {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -75,10 +75,10 @@ public class g {
                             i = b3 + 4;
                         } else if (b3 == 43) {
                             i = 62;
-                        } else if (b3 != 47) {
-                            return null;
-                        } else {
+                        } else if (b3 == 47) {
                             i = 63;
+                        } else {
+                            return null;
                         }
                         i6 = (i6 << 6) | ((byte) i);
                         if (i7 % 4 == 3) {
@@ -114,7 +114,7 @@ public class g {
     }
 
     /* loaded from: classes2.dex */
-    public static class b {
+    public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -181,6 +181,63 @@ public class g {
         d = str + str2;
     }
 
+    public final b a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                String c2 = c(com.baidu.sofire.k.a.b("FLI7RPHK558lhmIMdK5V18TV2libLOeHJlQPRa8lKBaxRs4pujQo1mXKtiCUFVkg"));
+                String c3 = c(com.baidu.sofire.k.a.b("ARQJ8IArCy4jLSUJ6i4PbDdNue2ww1CwfUTDQn8F4ug="));
+                if (TextUtils.isEmpty(c3)) {
+                    c3 = "0";
+                    if (TextUtils.isEmpty("0")) {
+                        c3 = "";
+                    }
+                }
+                if (TextUtils.isEmpty(c2)) {
+                    String f = m.f(this.a);
+                    c2 = c(com.baidu.sofire.a.a.a((com.baidu.sofire.k.a.b("q6R8gqLUgHDSsH6dbL27xN7Qr9sa0MxMqXTV66AWUUE=") + c3 + f).getBytes(), true));
+                }
+                if (!TextUtils.isEmpty(c2)) {
+                    b bVar = new b();
+                    bVar.a = c2;
+                    bVar.b = c3;
+                    return bVar;
+                }
+                return null;
+            } catch (Throwable unused) {
+                int i = com.baidu.sofire.a.b.a;
+                return null;
+            }
+        }
+        return (b) invokeV.objValue;
+    }
+
+    public final b b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            try {
+            } catch (Throwable unused) {
+                int i = com.baidu.sofire.a.b.a;
+            }
+            if (!m.b(this.a)) {
+                return null;
+            }
+            File externalStorageDirectory = Environment.getExternalStorageDirectory();
+            File file = new File(externalStorageDirectory, com.baidu.sofire.k.a.b("_99uIeWLLYgYWnfdVm4xmTNMy58crLVzIq1_1xd6OaXaqNsyUOaKaQPHeL9hMa2J") + "/" + com.baidu.sofire.k.a.b("idzo8hWEQF2c4tBTa5WOlQMU8UU8Wq-86X4X9ljayiU="));
+            if (file.exists()) {
+                String a2 = a(file);
+                if (!TextUtils.isEmpty(a2)) {
+                    String str = d;
+                    return b.a(new String(com.baidu.sofire.a.a.a(str, str, a.a(a2.getBytes()))));
+                }
+            }
+            return null;
+        }
+        return (b) invokeV.objValue;
+    }
+
     public g(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -197,6 +254,46 @@ public class g {
             }
         }
         this.a = context;
+    }
+
+    public final String c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            try {
+                if (m.c(this.a)) {
+                    return ApiReplaceUtil.getString(this.a.getContentResolver(), str);
+                }
+                return "";
+            } catch (Throwable unused) {
+                int i = com.baidu.sofire.a.b.a;
+                return null;
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            try {
+                b b2 = b(context);
+                if (b2 != null) {
+                    String str = b2.b;
+                    if (TextUtils.isEmpty(str)) {
+                        str = "0";
+                    }
+                    String stringBuffer = new StringBuffer(str).reverse().toString();
+                    return b2.a + "|" + stringBuffer;
+                }
+                return "";
+            } catch (Throwable unused) {
+                int i = com.baidu.sofire.a.b.a;
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
     }
 
     public static String a(File file) {
@@ -244,187 +341,6 @@ public class g {
         return (String) invokeL.objValue;
     }
 
-    public static synchronized b b(Context context) {
-        InterceptResult invokeL;
-        b bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            synchronized (g.class) {
-                if (e == null) {
-                    g gVar = new g(context);
-                    File file = new File(gVar.a.getFilesDir(), com.baidu.sofire.k.a.b("K5j7Snuat7HHCaEg62XaRa41Ukv_4vtSH9Z4FqXi1Fs="));
-                    b a2 = file.exists() ? b.a(a(a(file))) : null;
-                    if (a2 == null && (a2 = b.a(a(gVar.c(com.baidu.sofire.k.a.b("FLI7RPHK558lhmIMdK5V1-nh-gfSlVAFvUdffcjh8sgAXO2nb2l_YXWA6lX6geWt"))))) == null) {
-                        boolean z = gVar.a.checkPermission(com.kuaishou.weapon.p0.h.i, Process.myPid(), Process.myUid()) == 0;
-                        if (z) {
-                            a2 = gVar.b();
-                        }
-                        if (a2 == null && (a2 = gVar.a()) == null && z) {
-                            String str = "";
-                            if (!TextUtils.isEmpty("0")) {
-                                str = "0";
-                            }
-                            a2 = gVar.b(str);
-                        }
-                    }
-                    e = a2;
-                }
-                bVar = e;
-            }
-            return bVar;
-        }
-        return (b) invokeL.objValue;
-    }
-
-    public final String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            try {
-                return m.c(this.a) ? ApiReplaceUtil.getString(this.a.getContentResolver(), str) : "";
-            } catch (Throwable unused) {
-                int i = com.baidu.sofire.a.b.a;
-                return null;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            try {
-                b b2 = b(context);
-                if (b2 != null) {
-                    String str = b2.b;
-                    if (TextUtils.isEmpty(str)) {
-                        str = "0";
-                    }
-                    String stringBuffer = new StringBuffer(str).reverse().toString();
-                    return b2.a + "|" + stringBuffer;
-                }
-                return "";
-            } catch (Throwable unused) {
-                int i = com.baidu.sofire.a.b.a;
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final b b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            try {
-            } catch (Throwable unused) {
-                int i = com.baidu.sofire.a.b.a;
-            }
-            if (m.b(this.a)) {
-                File externalStorageDirectory = Environment.getExternalStorageDirectory();
-                File file = new File(externalStorageDirectory, com.baidu.sofire.k.a.b("_99uIeWLLYgYWnfdVm4xmTNMy58crLVzIq1_1xd6OaXaqNsyUOaKaQPHeL9hMa2J") + "/" + com.baidu.sofire.k.a.b("idzo8hWEQF2c4tBTa5WOlQMU8UU8Wq-86X4X9ljayiU="));
-                if (file.exists()) {
-                    String a2 = a(file);
-                    if (!TextUtils.isEmpty(a2)) {
-                        String str = d;
-                        return b.a(new String(com.baidu.sofire.a.a.a(str, str, a.a(a2.getBytes()))));
-                    }
-                }
-                return null;
-            }
-            return null;
-        }
-        return (b) invokeV.objValue;
-    }
-
-    public final b a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                String c2 = c(com.baidu.sofire.k.a.b("FLI7RPHK558lhmIMdK5V18TV2libLOeHJlQPRa8lKBaxRs4pujQo1mXKtiCUFVkg"));
-                String c3 = c(com.baidu.sofire.k.a.b("ARQJ8IArCy4jLSUJ6i4PbDdNue2ww1CwfUTDQn8F4ug="));
-                if (TextUtils.isEmpty(c3)) {
-                    c3 = "0";
-                    if (TextUtils.isEmpty("0")) {
-                        c3 = "";
-                    }
-                }
-                if (TextUtils.isEmpty(c2)) {
-                    String f = m.f(this.a);
-                    c2 = c(com.baidu.sofire.a.a.a((com.baidu.sofire.k.a.b("q6R8gqLUgHDSsH6dbL27xN7Qr9sa0MxMqXTV66AWUUE=") + c3 + f).getBytes(), true));
-                }
-                if (TextUtils.isEmpty(c2)) {
-                    return null;
-                }
-                b bVar = new b();
-                bVar.a = c2;
-                bVar.b = c3;
-                return bVar;
-            } catch (Throwable unused) {
-                int i = com.baidu.sofire.a.b.a;
-                return null;
-            }
-        }
-        return (b) invokeV.objValue;
-    }
-
-    public final b b(String str) {
-        InterceptResult invokeL;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            boolean z = Build.VERSION.SDK_INT < 23;
-            if (!(z && TextUtils.isEmpty(str)) && m.b(this.a)) {
-                String str3 = "";
-                File externalStorageDirectory = Environment.getExternalStorageDirectory();
-                File file = new File(externalStorageDirectory, com.baidu.sofire.k.a.b("u_lhldj5Nkwulw6YvIU2wr_ieZRcYQnQZ7zSlbUYnYY=") + "/" + com.baidu.sofire.k.a.b("u2fjUEpcZJL7IE6RlBqIRmFJW_FjZrNApjdMKDgt7FM="));
-                if (!file.exists()) {
-                    File externalStorageDirectory2 = Environment.getExternalStorageDirectory();
-                    file = new File(externalStorageDirectory2, com.baidu.sofire.k.a.b("_99uIeWLLYgYWnfdVm4xmTNMy58crLVzIq1_1xd6OaXaqNsyUOaKaQPHeL9hMa2J") + "/" + com.baidu.sofire.k.a.b("u2fjUEpcZJL7IE6RlBqIRmFJW_FjZrNApjdMKDgt7FM="));
-                }
-                try {
-                    BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
-                    StringBuilder sb = new StringBuilder();
-                    while (true) {
-                        String readLine = bufferedReader.readLine();
-                        if (readLine == null) {
-                            break;
-                        }
-                        sb.append(readLine);
-                        sb.append("\r\n");
-                    }
-                    bufferedReader.close();
-                    String str4 = d;
-                    String[] split = new String(com.baidu.sofire.a.a.a(str4, str4, a.a(sb.toString().getBytes()))).split("=");
-                    if (split != null && split.length == 2) {
-                        if (z && str.equals(split[0])) {
-                            str2 = split[1];
-                        } else if (!z) {
-                            if (TextUtils.isEmpty(str)) {
-                                str = split[1];
-                            }
-                            str2 = split[1];
-                        }
-                        str3 = str2;
-                    }
-                } catch (Throwable unused) {
-                    int i = com.baidu.sofire.a.b.a;
-                }
-                if (TextUtils.isEmpty(str3)) {
-                    return null;
-                }
-                b bVar = new b();
-                bVar.a = str3;
-                bVar.b = str;
-                return bVar;
-            }
-            return null;
-        }
-        return (b) invokeL.objValue;
-    }
-
     public static String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -441,5 +357,105 @@ public class g {
             }
         }
         return (String) invokeL.objValue;
+    }
+
+    public static synchronized b b(Context context) {
+        InterceptResult invokeL;
+        b bVar;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            synchronized (g.class) {
+                if (e == null) {
+                    g gVar = new g(context);
+                    b bVar2 = null;
+                    File file = new File(gVar.a.getFilesDir(), com.baidu.sofire.k.a.b("K5j7Snuat7HHCaEg62XaRa41Ukv_4vtSH9Z4FqXi1Fs="));
+                    if (file.exists()) {
+                        bVar2 = b.a(a(a(file)));
+                    }
+                    if (bVar2 == null && (bVar2 = b.a(a(gVar.c(com.baidu.sofire.k.a.b("FLI7RPHK558lhmIMdK5V1-nh-gfSlVAFvUdffcjh8sgAXO2nb2l_YXWA6lX6geWt"))))) == null) {
+                        if (gVar.a.checkPermission(com.kuaishou.weapon.p0.h.i, Process.myPid(), Process.myUid()) == 0) {
+                            z = true;
+                        } else {
+                            z = false;
+                        }
+                        if (z) {
+                            bVar2 = gVar.b();
+                        }
+                        if (bVar2 == null && (bVar2 = gVar.a()) == null && z) {
+                            String str = "";
+                            if (!TextUtils.isEmpty("0")) {
+                                str = "0";
+                            }
+                            bVar2 = gVar.b(str);
+                        }
+                    }
+                    e = bVar2;
+                }
+                bVar = e;
+            }
+            return bVar;
+        }
+        return (b) invokeL.objValue;
+    }
+
+    public final b b(String str) {
+        InterceptResult invokeL;
+        boolean z;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (Build.VERSION.SDK_INT < 23) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if ((z && TextUtils.isEmpty(str)) || !m.b(this.a)) {
+                return null;
+            }
+            String str3 = "";
+            File externalStorageDirectory = Environment.getExternalStorageDirectory();
+            File file = new File(externalStorageDirectory, com.baidu.sofire.k.a.b("u_lhldj5Nkwulw6YvIU2wr_ieZRcYQnQZ7zSlbUYnYY=") + "/" + com.baidu.sofire.k.a.b("u2fjUEpcZJL7IE6RlBqIRmFJW_FjZrNApjdMKDgt7FM="));
+            if (!file.exists()) {
+                File externalStorageDirectory2 = Environment.getExternalStorageDirectory();
+                file = new File(externalStorageDirectory2, com.baidu.sofire.k.a.b("_99uIeWLLYgYWnfdVm4xmTNMy58crLVzIq1_1xd6OaXaqNsyUOaKaQPHeL9hMa2J") + "/" + com.baidu.sofire.k.a.b("u2fjUEpcZJL7IE6RlBqIRmFJW_FjZrNApjdMKDgt7FM="));
+            }
+            try {
+                BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+                StringBuilder sb = new StringBuilder();
+                while (true) {
+                    String readLine = bufferedReader.readLine();
+                    if (readLine == null) {
+                        break;
+                    }
+                    sb.append(readLine);
+                    sb.append("\r\n");
+                }
+                bufferedReader.close();
+                String str4 = d;
+                String[] split = new String(com.baidu.sofire.a.a.a(str4, str4, a.a(sb.toString().getBytes()))).split("=");
+                if (split != null && split.length == 2) {
+                    if (z && str.equals(split[0])) {
+                        str2 = split[1];
+                    } else if (!z) {
+                        if (TextUtils.isEmpty(str)) {
+                            str = split[1];
+                        }
+                        str2 = split[1];
+                    }
+                    str3 = str2;
+                }
+            } catch (Throwable unused) {
+                int i = com.baidu.sofire.a.b.a;
+            }
+            if (TextUtils.isEmpty(str3)) {
+                return null;
+            }
+            b bVar = new b();
+            bVar.a = str3;
+            bVar.b = str;
+            return bVar;
+        }
+        return (b) invokeL.objValue;
     }
 }

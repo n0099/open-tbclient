@@ -9,10 +9,25 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public interface CacheEventListener {
+    void onCleared();
+
+    void onEviction(CacheEvent cacheEvent);
+
+    void onHit(CacheEvent cacheEvent);
+
+    void onMiss(CacheEvent cacheEvent);
+
+    void onReadException(CacheEvent cacheEvent);
+
+    void onWriteAttempt(CacheEvent cacheEvent);
+
+    void onWriteException(CacheEvent cacheEvent);
+
+    void onWriteSuccess(CacheEvent cacheEvent);
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public static final class EvictionReason {
+    public final class EvictionReason {
         public static final /* synthetic */ EvictionReason[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final EvictionReason CACHE_FULL;
@@ -64,29 +79,19 @@ public interface CacheEventListener {
         public static EvictionReason valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (EvictionReason) Enum.valueOf(EvictionReason.class, str) : (EvictionReason) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (EvictionReason) Enum.valueOf(EvictionReason.class, str);
+            }
+            return (EvictionReason) invokeL.objValue;
         }
 
         public static EvictionReason[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EvictionReason[]) $VALUES.clone() : (EvictionReason[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (EvictionReason[]) $VALUES.clone();
+            }
+            return (EvictionReason[]) invokeV.objValue;
         }
     }
-
-    void onCleared();
-
-    void onEviction(CacheEvent cacheEvent);
-
-    void onHit(CacheEvent cacheEvent);
-
-    void onMiss(CacheEvent cacheEvent);
-
-    void onReadException(CacheEvent cacheEvent);
-
-    void onWriteAttempt(CacheEvent cacheEvent);
-
-    void onWriteException(CacheEvent cacheEvent);
-
-    void onWriteSuccess(CacheEvent cacheEvent);
 }

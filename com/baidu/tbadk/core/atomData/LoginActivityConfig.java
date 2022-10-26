@@ -10,7 +10,7 @@ import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.tbadk.ala.ILoginListener;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.dx4;
+import com.baidu.tieba.jx4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -51,6 +51,27 @@ public class LoginActivityConfig extends IntentConfig {
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public LoginActivityConfig(Context context) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        jx4.a(DI.ACCOUNT, -1L, 0, context.getClass().toString(), 0, "", new Object[0]);
+    }
+
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public LoginActivityConfig(Context context, int i) {
         this(context);
@@ -71,6 +92,73 @@ public class LoginActivityConfig extends IntentConfig {
         }
         setRequestCode(i);
         setIntentAction(IntentAction.ActivityForResult);
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public LoginActivityConfig(Context context, boolean z) {
+        this(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                this((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        getIntent().putExtra("close", z);
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public LoginActivityConfig(Context context, boolean z, int i) {
+        this(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Boolean.valueOf(z), Integer.valueOf(i)};
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                this((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+                return;
+            }
+        }
+        getIntent().putExtra("close", z);
+        setRequestCode(i);
+        setIntentAction(IntentAction.ActivityForResult);
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public LoginActivityConfig(Context context, boolean z, String str, String str2) {
+        this(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Boolean.valueOf(z), str, str2};
+            interceptable.invokeUnInit(65541, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                this((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65541, newInitContext);
+                return;
+            }
+        }
+        getIntent().putExtra("close", z);
+        getIntent().putExtra("url", str);
+        getIntent().putExtra(CUSTOM_LOGIN_CSS_URL, str2);
     }
 
     public static boolean canStartActivity() {
@@ -124,7 +212,7 @@ public class LoginActivityConfig extends IntentConfig {
 
     public void setJumpUrl(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || TextUtils.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeL(1048581, this, str) != null) || TextUtils.isEmpty(str)) {
             return;
         }
         getIntent().putExtra(LoginDialogActivityConfig.HOME_OPERATE_JUMP_URL, str);
@@ -134,10 +222,16 @@ public class LoginActivityConfig extends IntentConfig {
 
     public void setLoginListener(ILoginListener iLoginListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, iLoginListener) == null) || iLoginListener == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, iLoginListener) == null) && iLoginListener != null) {
+            getIntent().putExtra("login_dialog_login_listener", iLoginListener);
         }
-        getIntent().putExtra("login_dialog_login_listener", iLoginListener);
+    }
+
+    public void setUrl(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            getIntent().putExtra("url", str);
+        }
     }
 
     public void setMinePageStatisticParams(String str, String str2) {
@@ -156,100 +250,5 @@ public class LoginActivityConfig extends IntentConfig {
             setRequestCode(11043);
             setIntentAction(IntentAction.ActivityForResult);
         }
-    }
-
-    public void setUrl(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            getIntent().putExtra("url", str);
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public LoginActivityConfig(Context context, boolean z, int i) {
-        this(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Boolean.valueOf(z), Integer.valueOf(i)};
-            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                this((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-                return;
-            }
-        }
-        getIntent().putExtra("close", z);
-        setRequestCode(i);
-        setIntentAction(IntentAction.ActivityForResult);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LoginActivityConfig(Context context) {
-        super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        dx4.a(DI.ACCOUNT, -1L, 0, context.getClass().toString(), 0, "", new Object[0]);
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public LoginActivityConfig(Context context, boolean z) {
-        this(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                this((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        getIntent().putExtra("close", z);
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public LoginActivityConfig(Context context, boolean z, String str, String str2) {
-        this(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Boolean.valueOf(z), str, str2};
-            interceptable.invokeUnInit(65541, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                this((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65541, newInitContext);
-                return;
-            }
-        }
-        getIntent().putExtra("close", z);
-        getIntent().putExtra("url", str);
-        getIntent().putExtra(CUSTOM_LOGIN_CSS_URL, str2);
     }
 }

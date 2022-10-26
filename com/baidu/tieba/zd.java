@@ -7,17 +7,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 /* loaded from: classes6.dex */
-public class zd implements be {
+public class zd implements ce {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Double a;
+    public char a;
 
-    public zd(double d) {
+    public zd(char c) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Double.valueOf(d)};
+            Object[] objArr = {Character.valueOf(c)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,15 +27,15 @@ public class zd implements be {
                 return;
             }
         }
-        this.a = Double.valueOf(d);
+        this.a = c;
     }
 
-    @Override // com.baidu.tieba.be
-    public Object a(re reVar) {
+    @Override // com.baidu.tieba.ce
+    public Object a(se seVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, reVar)) == null) {
-            Class<?> a = reVar.a();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, seVar)) == null) {
+            Class a = seVar.a();
             if (a != Byte.class && a != Byte.TYPE) {
                 if (a != Short.class && a != Short.TYPE) {
                     if (a != Integer.class && a != Integer.TYPE) {
@@ -43,17 +43,17 @@ public class zd implements be {
                             if (a != Float.class && a != Float.TYPE) {
                                 if (a != Double.class && a != Double.TYPE) {
                                     if (a != Character.class && a != Character.TYPE) {
-                                        if (a == Boolean.class || a == Boolean.TYPE) {
-                                            return Boolean.valueOf(this.a.byteValue() == 0);
-                                        } else if (a == String.class) {
-                                            return String.valueOf(this.a);
-                                        } else {
+                                        boolean z = false;
+                                        if (a != Boolean.class && a != Boolean.TYPE) {
+                                            if (a == String.class) {
+                                                return String.valueOf(this.a);
+                                            }
                                             if (a == char[].class) {
                                                 return String.valueOf(this.a).toCharArray();
                                             }
                                             if (a == byte[].class) {
                                                 try {
-                                                    return wi.e(String.valueOf(this.a), 0);
+                                                    return xi.e(String.valueOf(this.a), 0);
                                                 } catch (IOException e) {
                                                     e.printStackTrace();
                                                     return null;
@@ -61,20 +61,24 @@ public class zd implements be {
                                             }
                                             return null;
                                         }
+                                        if (((byte) this.a) == 0) {
+                                            z = true;
+                                        }
+                                        return Boolean.valueOf(z);
                                     }
-                                    return Character.valueOf((char) this.a.intValue());
+                                    return Character.valueOf(this.a);
                                 }
-                                return Double.valueOf(this.a.doubleValue());
+                                return Double.valueOf(this.a);
                             }
-                            return Float.valueOf(this.a.floatValue());
+                            return Float.valueOf(this.a);
                         }
-                        return Long.valueOf(this.a.longValue());
+                        return Long.valueOf(this.a);
                     }
-                    return Integer.valueOf(this.a.intValue());
+                    return Integer.valueOf(this.a);
                 }
-                return Short.valueOf(this.a.shortValue());
+                return Short.valueOf((short) this.a);
             }
-            return Byte.valueOf(this.a.byteValue());
+            return Byte.valueOf((byte) this.a);
         }
         return invokeL.objValue;
     }

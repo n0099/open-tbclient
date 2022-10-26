@@ -1,9 +1,6 @@
 package androidx.core.graphics;
 
 import android.graphics.Rect;
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -16,7 +13,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public final class Insets {
     public static /* synthetic */ Interceptable $ic;
-    @NonNull
     public static final Insets NONE;
     public transient /* synthetic */ FieldHolder $fh;
     public final int bottom;
@@ -40,6 +36,24 @@ public final class Insets {
         NONE = new Insets(0, 0, 0, 0);
     }
 
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return (((((this.left * 31) + this.top) * 31) + this.right) * 31) + this.bottom;
+        }
+        return invokeV.intValue;
+    }
+
+    public android.graphics.Insets toPlatformInsets() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return android.graphics.Insets.of(this.left, this.top, this.right, this.bottom);
+        }
+        return (android.graphics.Insets) invokeV.objValue;
+    }
+
     public Insets(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -61,7 +75,6 @@ public final class Insets {
         this.bottom = i4;
     }
 
-    @NonNull
     public static Insets of(int i, int i2, int i3, int i4) {
         InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
@@ -74,22 +87,32 @@ public final class Insets {
         return (Insets) invokeIIII.objValue;
     }
 
-    @NonNull
-    @RequiresApi(api = 29)
-    public static Insets toCompatInsets(@NonNull android.graphics.Insets insets) {
+    public static Insets of(Rect rect) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, insets)) == null) ? of(insets.left, insets.top, insets.right, insets.bottom) : (Insets) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, rect)) == null) {
+            return of(rect.left, rect.top, rect.right, rect.bottom);
+        }
+        return (Insets) invokeL.objValue;
     }
 
-    @NonNull
-    @Deprecated
-    @RequiresApi(api = 29)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public static Insets wrap(@NonNull android.graphics.Insets insets) {
+    public static Insets toCompatInsets(android.graphics.Insets insets) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, insets)) == null) ? toCompatInsets(insets) : (Insets) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, insets)) == null) {
+            return of(insets.left, insets.top, insets.right, insets.bottom);
+        }
+        return (Insets) invokeL.objValue;
+    }
+
+    @Deprecated
+    public static Insets wrap(android.graphics.Insets insets) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, insets)) == null) {
+            return toCompatInsets(insets);
+        }
+        return (Insets) invokeL.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -103,23 +126,12 @@ public final class Insets {
                 return false;
             }
             Insets insets = (Insets) obj;
-            return this.bottom == insets.bottom && this.left == insets.left && this.right == insets.right && this.top == insets.top;
+            if (this.bottom == insets.bottom && this.left == insets.left && this.right == insets.right && this.top == insets.top) {
+                return true;
+            }
+            return false;
         }
         return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (((((this.left * 31) + this.top) * 31) + this.right) * 31) + this.bottom : invokeV.intValue;
-    }
-
-    @NonNull
-    @RequiresApi(api = 29)
-    public android.graphics.Insets toPlatformInsets() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? android.graphics.Insets.of(this.left, this.top, this.right, this.bottom) : (android.graphics.Insets) invokeV.objValue;
     }
 
     public String toString() {
@@ -129,12 +141,5 @@ public final class Insets {
             return "Insets{left=" + this.left + ", top=" + this.top + ", right=" + this.right + ", bottom=" + this.bottom + '}';
         }
         return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public static Insets of(@NonNull Rect rect) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, rect)) == null) ? of(rect.left, rect.top, rect.right, rect.bottom) : (Insets) invokeL.objValue;
     }
 }

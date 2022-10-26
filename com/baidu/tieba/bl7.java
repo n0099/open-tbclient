@@ -1,14 +1,14 @@
 package com.baidu.tieba;
 
 import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.live.interfaces.service.NetworkAgentService;
+import com.baidu.searchbox.live.interfaces.service.FollowStatusService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class bl7 extends ff1<NetworkAgentService> {
+public class bl7 extends gf1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,11 +27,14 @@ public class bl7 extends ff1<NetworkAgentService> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ff1
+    @Override // com.baidu.tieba.gf1
     /* renamed from: a */
-    public NetworkAgentService createService() throws ServiceNotFoundException {
+    public FollowStatusService createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new cl7() : (NetworkAgentService) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new cl7();
+        }
+        return (FollowStatusService) invokeV.objValue;
     }
 }

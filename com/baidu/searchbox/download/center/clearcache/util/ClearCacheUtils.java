@@ -39,6 +39,13 @@ public class ClearCacheUtils {
         }
     }
 
+    public static void markDoneClearJob() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            DefaultSharedPrefsWrapper.getInstance().putLong(LAST_DO_CLEAR_CACHE_COUNT_TIME, System.currentTimeMillis());
+        }
+    }
+
     public static void doClearCacheJob() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
@@ -84,7 +91,10 @@ public class ClearCacheUtils {
             String str3 = "0" + str;
             try {
                 String format = String.format(Locale.CHINESE, "%.1f%s", Double.valueOf(d), str);
-                return format.substring(format.length() + (-3), format.length() - 2).equals("0") ? String.format(Locale.CHINESE, "%.0f%s", Double.valueOf(d), str) : format;
+                if (format.substring(format.length() - 3, format.length() - 2).equals("0")) {
+                    return String.format(Locale.CHINESE, "%.0f%s", Double.valueOf(d), str);
+                }
+                return format;
             } catch (Throwable th2) {
                 if (AppConfig.isDebug()) {
                     Log.w(TAG, "formatSize: " + th2.getMessage());
@@ -108,12 +118,5 @@ public class ClearCacheUtils {
             }
         }
         return (String) invokeL.objValue;
-    }
-
-    public static void markDoneClearJob() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            DefaultSharedPrefsWrapper.getInstance().putLong(LAST_DO_CLEAR_CACHE_COUNT_TIME, System.currentTimeMillis());
-        }
     }
 }

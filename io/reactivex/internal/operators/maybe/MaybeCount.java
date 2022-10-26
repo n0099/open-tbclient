@@ -14,19 +14,19 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.fuseable.HasUpstreamMaybeSource;
 /* loaded from: classes8.dex */
-public final class MaybeCount<T> extends Single<Long> implements HasUpstreamMaybeSource<T> {
+public final class MaybeCount extends Single implements HasUpstreamMaybeSource {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MaybeSource<T> source;
+    public final MaybeSource source;
 
     /* loaded from: classes8.dex */
-    public static final class CountMaybeObserver implements MaybeObserver<Object>, Disposable {
+    public final class CountMaybeObserver implements MaybeObserver, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SingleObserver<? super Long> actual;
+        public final SingleObserver actual;
         public Disposable d;
 
-        public CountMaybeObserver(SingleObserver<? super Long> singleObserver) {
+        public CountMaybeObserver(SingleObserver singleObserver) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -42,31 +42,6 @@ public final class MaybeCount<T> extends Single<Long> implements HasUpstreamMayb
                 }
             }
             this.actual = singleObserver;
-        }
-
-        @Override // io.reactivex.disposables.Disposable
-        public void dispose() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.d.dispose();
-                this.d = DisposableHelper.DISPOSED;
-            }
-        }
-
-        @Override // io.reactivex.disposables.Disposable
-        public boolean isDisposed() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d.isDisposed() : invokeV.booleanValue;
-        }
-
-        @Override // io.reactivex.MaybeObserver
-        public void onComplete() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.d = DisposableHelper.DISPOSED;
-                this.actual.onSuccess(0L);
-            }
         }
 
         @Override // io.reactivex.MaybeObserver
@@ -95,9 +70,37 @@ public final class MaybeCount<T> extends Single<Long> implements HasUpstreamMayb
                 this.actual.onSuccess(1L);
             }
         }
+
+        @Override // io.reactivex.disposables.Disposable
+        public void dispose() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.d.dispose();
+                this.d = DisposableHelper.DISPOSED;
+            }
+        }
+
+        @Override // io.reactivex.disposables.Disposable
+        public boolean isDisposed() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.d.isDisposed();
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // io.reactivex.MaybeObserver
+        public void onComplete() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                this.d = DisposableHelper.DISPOSED;
+                this.actual.onSuccess(0L);
+            }
+        }
     }
 
-    public MaybeCount(MaybeSource<T> maybeSource) {
+    public MaybeCount(MaybeSource maybeSource) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -115,18 +118,21 @@ public final class MaybeCount<T> extends Single<Long> implements HasUpstreamMayb
         this.source = maybeSource;
     }
 
-    @Override // io.reactivex.internal.fuseable.HasUpstreamMaybeSource
-    public MaybeSource<T> source() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.source : (MaybeSource) invokeV.objValue;
-    }
-
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver<? super Long> singleObserver) {
+    public void subscribeActual(SingleObserver singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, singleObserver) == null) {
             this.source.subscribe(new CountMaybeObserver(singleObserver));
         }
+    }
+
+    @Override // io.reactivex.internal.fuseable.HasUpstreamMaybeSource
+    public MaybeSource source() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.source;
+        }
+        return (MaybeSource) invokeV.objValue;
     }
 }

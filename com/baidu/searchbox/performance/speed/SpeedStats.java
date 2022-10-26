@@ -10,7 +10,6 @@ import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.aop.annotation.DebugTrace;
 import com.baidu.searchbox.aop.annotation.TimeSpendTrace;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
@@ -20,7 +19,7 @@ import com.baidu.searchbox.launch.SmartLaunchStats;
 import com.baidu.searchbox.launch.stats.SpeedStatsManager;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.searchbox.launched.LaunchedTaskSpeedStats;
-import com.baidu.tieba.gc;
+import com.baidu.tieba.hc;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -85,6 +84,13 @@ public class SpeedStats {
     public String mUbcType;
     public String mUbcValue;
 
+    /* JADX INFO: Access modifiers changed from: private */
+    public String calcultateUbcFrom() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65570, this)) == null) ? SpeedStatsUtils.UBC_FROM_MAINLINE : (String) invokeV.objValue;
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -99,6 +105,171 @@ public class SpeedStats {
             }
         }
         DEBUG = AppConfig.isDebug();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public int calculateCpuCore() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65564, this)) == null) {
+            Runtime runtime = Runtime.getRuntime();
+            if (runtime != null) {
+                return runtime.availableProcessors();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public String calculateUbcPage() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65567, this)) == null) {
+            if (!TextUtils.isEmpty(this.mUbcPage)) {
+                return this.mUbcPage;
+            }
+            return "unknown";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    private boolean checkValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65571, this)) == null) {
+            if (getAppLaunchDuration() >= 0 && getAppStartTime() >= 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static SpeedStats getInstance() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65573, null)) == null) {
+            if (mInstance == null) {
+                mInstance = new SpeedStats();
+            }
+            return mInstance;
+        }
+        return (SpeedStats) invokeV.objValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void resetMainActivityStatsPeriod() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65577, this) == null) {
+            this.mSpeedStatsManager.reset();
+            this.mHasBanner = false;
+            this.mFeedDataType = 0;
+            this.mHotwordDataType = 0;
+            this.mUbcType = null;
+            this.mUbcValue = null;
+            this.mUbcPage = null;
+            this.mUbcFrom = null;
+            this.mFlow = null;
+        }
+    }
+
+    public long getAppInBackgroundDuration() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.backgroudDuration;
+        }
+        return invokeV.longValue;
+    }
+
+    public long getAppLaunchDuration() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mSpeedStatsManager.getAppLaunchDuration();
+        }
+        return invokeV.longValue;
+    }
+
+    public long getAppStartTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mSpeedStatsManager.getAppLaunchStartTimeStamp();
+        }
+        return invokeV.longValue;
+    }
+
+    public long getLaunchEndTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mSpeedStatsManager.getAppLaunchEndTimeStamp();
+        }
+        return invokeV.longValue;
+    }
+
+    public int getLaunchType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mLaunchType;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean hasForegroundToBackground() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mHasForegroundToBackground;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isHotLaunch() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            int i = this.mStartMainActivityType;
+            if (i != 6 && i != 7) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isStartAppFromLauncher() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mIsStartAppFromLauncher;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void onAppBackground() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.backgroudTimeStamp = System.currentTimeMillis();
+        }
+    }
+
+    public void onAppCreateEnd() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            SmartLaunchStats.setAppStartTimeStamp(getAppStartTime());
+        }
+    }
+
+    public void onAppForeground() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && !this.isMainPageStatsEnd && this.backgroudTimeStamp != 0) {
+            this.backgroudDuration += System.currentTimeMillis() - this.backgroudTimeStamp;
+            this.backgroudTimeStamp = 0L;
+        }
     }
 
     public SpeedStats() {
@@ -136,7 +307,202 @@ public class SpeedStats {
         this.isSchemePushStatsEnd = false;
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
+    public String calculateDuration() {
+        InterceptResult invokeV;
+        long appLaunchDuration;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65565, this)) == null) {
+            int i = this.mStartMainActivityType;
+            if (i != 8 && i != 9) {
+                if (i == 4) {
+                    appLaunchDuration = this.mSpeedStatsManager.getAppUserPerceptionLaunchDuration() - this.mSpeedStatsManager.getAdShowDuration();
+                } else {
+                    appLaunchDuration = 0;
+                }
+            } else {
+                appLaunchDuration = this.mSpeedStatsManager.getAppLaunchDuration();
+            }
+            if (appLaunchDuration > 50 && appLaunchDuration < 60000) {
+                return String.valueOf(appLaunchDuration);
+            }
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public String calculateStage() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65566, this)) == null) {
+            if ((TextUtils.equals(this.mUbcType, SpeedStatsUtils.UBC_TYPE_COLD_DIRECT) || TextUtils.equals(this.mUbcType, "push") || TextUtils.equals(this.mUbcType, "scheme")) && ((TextUtils.equals(this.mUbcValue, "none") || TextUtils.equals(this.mUbcValue, "skin")) && TextUtils.equals(this.mUbcFrom, SpeedStatsUtils.UBC_FROM_MAINLINE))) {
+                JSONObject jSONObject = new JSONObject();
+                if (this.mSpeedStatsManager.packData(jSONObject)) {
+                    return jSONObject.toString();
+                }
+            }
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public String calculateUbcType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65568, this)) == null) {
+            switch (this.mStartMainActivityType) {
+                case 0:
+                    return SpeedStatsUtils.UBC_TYPE_NEW_INSTALL_DIRECT;
+                case 1:
+                    return SpeedStatsUtils.UBC_TYPE_NEW_INSTALL_INDIRECT;
+                case 2:
+                    return SpeedStatsUtils.UBC_TYPE_UPGRADE_DIRECT;
+                case 3:
+                    return SpeedStatsUtils.UBC_TYPE_UPGRADE_INDIRECT;
+                case 4:
+                    return SpeedStatsUtils.UBC_TYPE_COLD_DIRECT;
+                case 5:
+                    return SpeedStatsUtils.UBC_TYPE_COLD_INDIRECT;
+                case 6:
+                    return SpeedStatsUtils.UBC_TYPE_HOT_LAUNCH;
+                case 7:
+                default:
+                    return null;
+                case 8:
+                    return "scheme";
+                case 9:
+                    return "push";
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void asyncWriteSpeedInfoToSdcard(Map map) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65563, this, map) == null) && map != null && map.size() > 0 && SpeedStatsUtils.hasPermission(this.mContext, "android.permission.WRITE_EXTERNAL_STORAGE")) {
+            ExecutorUtilsExt.delayPostOnElastic(new Runnable(this, map) { // from class: com.baidu.searchbox.performance.speed.SpeedStats.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ SpeedStats this$0;
+                public final /* synthetic */ Map val$map;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, map};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$map = map;
+                }
+
+                /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:26:0x0099 -> B:37:0x009c). Please submit an issue!!! */
+                @Override // java.lang.Runnable
+                public void run() {
+                    BufferedWriter bufferedWriter;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        BufferedWriter bufferedWriter2 = null;
+                        try {
+                            try {
+                                try {
+                                    File file = new File(Environment.getExternalStorageDirectory(), "cold_start.txt");
+                                    if (!file.exists()) {
+                                        file.createNewFile();
+                                    }
+                                    bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file, true)));
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                            } catch (IOException e2) {
+                                e = e2;
+                            }
+                        } catch (Throwable th) {
+                            th = th;
+                        }
+                        try {
+                            bufferedWriter.write("starttime：" + System.currentTimeMillis() + "\n");
+                            StringBuilder sb = new StringBuilder();
+                            sb.append(this.val$map.toString());
+                            sb.append("\n");
+                            bufferedWriter.write(sb.toString());
+                            if (SpeedStats.DEBUG) {
+                                Log.d(SpeedStats.TAG, "write info to cold_start.txt: " + this.val$map.toString());
+                            }
+                            bufferedWriter.close();
+                        } catch (IOException e3) {
+                            e = e3;
+                            bufferedWriter2 = bufferedWriter;
+                            e.printStackTrace();
+                            if (bufferedWriter2 != null) {
+                                bufferedWriter2.close();
+                            }
+                        } catch (Throwable th2) {
+                            th = th2;
+                            bufferedWriter2 = bufferedWriter;
+                            if (bufferedWriter2 != null) {
+                                try {
+                                    bufferedWriter2.close();
+                                } catch (IOException e4) {
+                                    e4.printStackTrace();
+                                }
+                            }
+                            throw th;
+                        }
+                    }
+                }
+            }, "asyncWriteSpeedInfoToSdcard", 3, 10000L);
+        }
+    }
+
+    private boolean isMainTabActivity(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65575, this, activity)) == null) {
+            ComponentName componentName = activity.getComponentName();
+            if (componentName == null || !SpeedRuntimeProvider.MAIN_ACTIVITY_NAME.equals(componentName.getClassName())) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void onAppProcessUpgrade(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.mLaunchType = i;
+        }
+    }
+
+    public void setContext(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, context) == null) {
+            this.mContext = context;
+        }
+    }
+
+    public void setSid(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+            this.mSid = str;
+        }
+    }
+
     private void asyncUploadSpeedInfo() {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65562, this) == null) {
             Runnable runnable = new Runnable(this) { // from class: com.baidu.searchbox.performance.speed.SpeedStats.1
@@ -249,187 +615,46 @@ public class SpeedStats {
                 }
             };
             SmartLaunchStats.setAppStartEndTimeStamp(getLaunchEndTime());
-            LaunchStatsUtils.setLaunchTypeDetail(this.mLaunchType, this.mIsStartAppFromLauncher, this.mHasSkin, this.mIntroductionType != -1);
+            int i = this.mLaunchType;
+            boolean z2 = this.mIsStartAppFromLauncher;
+            boolean z3 = this.mHasSkin;
+            if (this.mIntroductionType != -1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            LaunchStatsUtils.setLaunchTypeDetail(i, z2, z3, z);
             ExecutorUtilsExt.postOnElastic(runnable, "asyncUploadSpeedInfo", 3);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void asyncWriteSpeedInfoToSdcard(Map map) {
+    private void getMainActivityStartType() {
+        int i;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65563, this, map) == null) || map == null || map.size() <= 0 || !SpeedStatsUtils.hasPermission(this.mContext, "android.permission.WRITE_EXTERNAL_STORAGE")) {
-            return;
-        }
-        ExecutorUtilsExt.delayPostOnElastic(new Runnable(this, map) { // from class: com.baidu.searchbox.performance.speed.SpeedStats.2
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ SpeedStats this$0;
-            public final /* synthetic */ Map val$map;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this, map};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeV(65574, this) == null) {
+            int i2 = this.mLaunchType;
+            if (i2 != 0) {
+                int i3 = 2;
+                if (i2 != 1) {
+                    if (i2 == 2) {
+                        this.mStartMainActivityType = !this.mIsStartAppFromLauncher ? 1 : 0;
                         return;
                     }
+                    return;
                 }
-                this.this$0 = this;
-                this.val$map = map;
-            }
-
-            /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:26:0x0099 -> B:37:0x009c). Please submit an issue!!! */
-            @Override // java.lang.Runnable
-            public void run() {
-                BufferedWriter bufferedWriter;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    BufferedWriter bufferedWriter2 = null;
-                    try {
-                        try {
-                            try {
-                                File file = new File(Environment.getExternalStorageDirectory(), "cold_start.txt");
-                                if (!file.exists()) {
-                                    file.createNewFile();
-                                }
-                                bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file, true)));
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-                        } catch (IOException e2) {
-                            e = e2;
-                        }
-                    } catch (Throwable th) {
-                        th = th;
-                    }
-                    try {
-                        bufferedWriter.write("starttime：" + System.currentTimeMillis() + "\n");
-                        StringBuilder sb = new StringBuilder();
-                        sb.append(this.val$map.toString());
-                        sb.append("\n");
-                        bufferedWriter.write(sb.toString());
-                        if (SpeedStats.DEBUG) {
-                            Log.d(SpeedStats.TAG, "write info to cold_start.txt: " + this.val$map.toString());
-                        }
-                        bufferedWriter.close();
-                    } catch (IOException e3) {
-                        e = e3;
-                        bufferedWriter2 = bufferedWriter;
-                        e.printStackTrace();
-                        if (bufferedWriter2 != null) {
-                            bufferedWriter2.close();
-                        }
-                    } catch (Throwable th2) {
-                        th = th2;
-                        bufferedWriter2 = bufferedWriter;
-                        if (bufferedWriter2 != null) {
-                            try {
-                                bufferedWriter2.close();
-                            } catch (IOException e4) {
-                                e4.printStackTrace();
-                            }
-                        }
-                        throw th;
-                    }
+                if (!this.mIsStartAppFromLauncher) {
+                    i3 = 3;
                 }
+                this.mStartMainActivityType = i3;
+                return;
             }
-        }, "asyncWriteSpeedInfoToSdcard", 3, 10000L);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public int calculateCpuCore() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65564, this)) == null) {
-            Runtime runtime = Runtime.getRuntime();
-            if (runtime != null) {
-                return runtime.availableProcessors();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public String calculateDuration() {
-        InterceptResult invokeV;
-        long appLaunchDuration;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65565, this)) == null) {
-            int i = this.mStartMainActivityType;
-            if (i != 8 && i != 9) {
-                appLaunchDuration = i == 4 ? this.mSpeedStatsManager.getAppUserPerceptionLaunchDuration() - this.mSpeedStatsManager.getAdShowDuration() : 0L;
+            if (this.mIsStartAppFromLauncher) {
+                i = 4;
             } else {
-                appLaunchDuration = this.mSpeedStatsManager.getAppLaunchDuration();
+                i = 5;
             }
-            if (appLaunchDuration <= 50 || appLaunchDuration >= 60000) {
-                return null;
-            }
-            return String.valueOf(appLaunchDuration);
+            this.mStartMainActivityType = i;
         }
-        return (String) invokeV.objValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public String calculateStage() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65566, this)) == null) {
-            if ((TextUtils.equals(this.mUbcType, SpeedStatsUtils.UBC_TYPE_COLD_DIRECT) || TextUtils.equals(this.mUbcType, "push") || TextUtils.equals(this.mUbcType, "scheme")) && ((TextUtils.equals(this.mUbcValue, "none") || TextUtils.equals(this.mUbcValue, "skin")) && TextUtils.equals(this.mUbcFrom, SpeedStatsUtils.UBC_FROM_MAINLINE))) {
-                JSONObject jSONObject = new JSONObject();
-                if (this.mSpeedStatsManager.packData(jSONObject)) {
-                    return jSONObject.toString();
-                }
-            }
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public String calculateUbcPage() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65567, this)) == null) ? !TextUtils.isEmpty(this.mUbcPage) ? this.mUbcPage : "unknown" : (String) invokeV.objValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public String calculateUbcType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65568, this)) == null) {
-            switch (this.mStartMainActivityType) {
-                case 0:
-                    return SpeedStatsUtils.UBC_TYPE_NEW_INSTALL_DIRECT;
-                case 1:
-                    return SpeedStatsUtils.UBC_TYPE_NEW_INSTALL_INDIRECT;
-                case 2:
-                    return SpeedStatsUtils.UBC_TYPE_UPGRADE_DIRECT;
-                case 3:
-                    return SpeedStatsUtils.UBC_TYPE_UPGRADE_INDIRECT;
-                case 4:
-                    return SpeedStatsUtils.UBC_TYPE_COLD_DIRECT;
-                case 5:
-                    return SpeedStatsUtils.UBC_TYPE_COLD_INDIRECT;
-                case 6:
-                    return SpeedStatsUtils.UBC_TYPE_HOT_LAUNCH;
-                case 7:
-                default:
-                    return null;
-                case 8:
-                    return "scheme";
-                case 9:
-                    return "push";
-            }
-        }
-        return (String) invokeV.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -438,71 +663,59 @@ public class SpeedStats {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65569, this)) == null) {
             int i = this.mIntroductionType;
-            if (i == -1) {
-                if (this.mHasBanner && this.mHasSkin) {
-                    return SpeedStatsUtils.UBC_VALUE_BANNER_SKIN;
-                }
-                if (!this.mHasBanner || this.mHasSkin) {
-                    if (this.mHasBanner || !this.mHasSkin) {
-                        if (this.mHasBanner || this.mHasSkin) {
-                            return null;
+            if (i != -1) {
+                if (i != 0) {
+                    if (i == 1) {
+                        if (this.mHasBanner && this.mHasSkin) {
+                            return SpeedStatsUtils.UBC_VALUE_SPLASH_BANNER_SKIN;
                         }
-                        return "none";
+                        if (this.mHasBanner && !this.mHasSkin) {
+                            return SpeedStatsUtils.UBC_VALUE_SPLASH_BANNER;
+                        }
+                        if (!this.mHasBanner && this.mHasSkin) {
+                            return SpeedStatsUtils.UBC_VALUE_SPLASH_SKIN;
+                        }
+                        if (!this.mHasBanner && !this.mHasSkin) {
+                            return SpeedStatsUtils.UBC_VALUE_SPLASH;
+                        }
+                        return null;
                     }
-                    return "skin";
-                }
-                return SpeedStatsUtils.UBC_VALUE_BANNER;
-            } else if (i == 0) {
-                if (this.mHasBanner && this.mHasSkin) {
+                    return null;
+                } else if (this.mHasBanner && this.mHasSkin) {
                     return SpeedStatsUtils.UBC_VALUE_INTRO_BANNER_SKIN;
-                }
-                if (!this.mHasBanner || this.mHasSkin) {
-                    if (this.mHasBanner || !this.mHasSkin) {
-                        if (this.mHasBanner || this.mHasSkin) {
-                            return null;
-                        }
+                } else {
+                    if (this.mHasBanner && !this.mHasSkin) {
+                        return SpeedStatsUtils.UBC_VALUE_INTRO_BANNER;
+                    }
+                    if (!this.mHasBanner && this.mHasSkin) {
+                        return SpeedStatsUtils.UBC_VALUE_INTRO_SKIN;
+                    }
+                    if (!this.mHasBanner && !this.mHasSkin) {
                         return SpeedStatsUtils.UBC_VALUE_INTRODUCTION;
                     }
-                    return SpeedStatsUtils.UBC_VALUE_INTRO_SKIN;
+                    return null;
                 }
-                return SpeedStatsUtils.UBC_VALUE_INTRO_BANNER;
-            } else if (i != 1) {
-                return null;
+            } else if (this.mHasBanner && this.mHasSkin) {
+                return SpeedStatsUtils.UBC_VALUE_BANNER_SKIN;
             } else {
-                if (this.mHasBanner && this.mHasSkin) {
-                    return SpeedStatsUtils.UBC_VALUE_SPLASH_BANNER_SKIN;
+                if (this.mHasBanner && !this.mHasSkin) {
+                    return SpeedStatsUtils.UBC_VALUE_BANNER;
                 }
-                if (!this.mHasBanner || this.mHasSkin) {
-                    if (this.mHasBanner || !this.mHasSkin) {
-                        if (this.mHasBanner || this.mHasSkin) {
-                            return null;
-                        }
-                        return SpeedStatsUtils.UBC_VALUE_SPLASH;
-                    }
-                    return SpeedStatsUtils.UBC_VALUE_SPLASH_SKIN;
+                if (!this.mHasBanner && this.mHasSkin) {
+                    return "skin";
                 }
-                return SpeedStatsUtils.UBC_VALUE_SPLASH_BANNER;
+                if (!this.mHasBanner && !this.mHasSkin) {
+                    return "none";
+                }
+                return null;
             }
         }
         return (String) invokeV.objValue;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public String calcultateUbcFrom() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65570, this)) == null) ? SpeedStatsUtils.UBC_FROM_MAINLINE : (String) invokeV.objValue;
-    }
-
-    private boolean checkValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65571, this)) == null) ? getAppLaunchDuration() >= 0 && getAppStartTime() >= 0 : invokeV.booleanValue;
-    }
-
     private void detectStartAppFrom(Activity activity) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65572, this, activity) == null) || activity == null || this.mHasActivityCreate) {
+        if ((interceptable != null && interceptable.invokeL(65572, this, activity) != null) || activity == null || this.mHasActivityCreate) {
             return;
         }
         if (!this.mHasDetectStartAppFromLauncher) {
@@ -528,156 +741,52 @@ public class SpeedStats {
         Log.d(TAG, "detectStartAppFrom hasDetect=" + this.mHasDetectStartAppFromLauncher + ",isStartAppFromLauncher=" + this.mIsStartAppFromLauncher);
     }
 
-    public static SpeedStats getInstance() {
-        InterceptResult invokeV;
+    @TimeSpendTrace(isEnd = true)
+    public void onMainPageStatsEnd(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65573, null)) == null) {
-            if (mInstance == null) {
-                mInstance = new SpeedStats();
-            }
-            return mInstance;
+        if ((interceptable != null && interceptable.invokeL(1048589, this, context) != null) || this.isMainPageStatsEnd) {
+            return;
         }
-        return (SpeedStats) invokeV.objValue;
-    }
-
-    private void getMainActivityStartType() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65574, this) == null) {
-            int i = this.mLaunchType;
-            if (i == 0) {
-                this.mStartMainActivityType = this.mIsStartAppFromLauncher ? 4 : 5;
+        boolean z = true;
+        this.isMainPageStatsEnd = true;
+        hc.b().d();
+        this.mSpeedStatsManager.addStatsTimeStamp(6000);
+        if (!SmartLaunchStats.hasTriedToFindFirstAvailableTime() && !hasForegroundToBackground()) {
+            SmartLaunchStats.tryToFindFirstIdleTimeStamp();
+        }
+        if (this.mSpeedStatsManager.getStatsFlag() == 0) {
+            this.mUbcPage = SpeedStatsUtils.UBC_PAGE_ALLCACHE;
+            Log.d(TAG, "*****************统计终点*****************");
+            if (!checkValid()) {
+                resetMainActivityStatsPeriod();
+                return;
+            } else {
+                asyncUploadSpeedInfo();
                 return;
             }
-            if (i == 1) {
-                this.mStartMainActivityType = this.mIsStartAppFromLauncher ? 2 : 3;
-            } else if (i != 2) {
-            } else {
-                this.mStartMainActivityType = !this.mIsStartAppFromLauncher ? 1 : 0;
-            }
         }
-    }
-
-    private boolean isMainTabActivity(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65575, this, activity)) == null) {
-            ComponentName componentName = activity.getComponentName();
-            return componentName != null && SpeedRuntimeProvider.MAIN_ACTIVITY_NAME.equals(componentName.getClassName());
+        int i = this.mLaunchType;
+        boolean z2 = this.mIsStartAppFromLauncher;
+        boolean z3 = this.mHasSkin;
+        if (this.mIntroductionType == -1) {
+            z = false;
         }
-        return invokeL.booleanValue;
+        LaunchStatsUtils.setLaunchTypeDetail(i, z2, z3, z);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void printUBCFlow(Map<String, String> map) {
+    public void printUBCFlow(Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65576, this, map) == null) {
             Log.d(TAG, "*****************UBC start*****************");
-            Log.d(TAG, "************" + map.get(SpeedStatsUtils.UBC_KEY_OPTION) + "*************");
-            Log.d(TAG, "************duration:" + map.get("duration") + "*************");
-            Log.d(TAG, "************version:" + map.get("version") + "*************");
-            Log.d(TAG, "************stage:" + map.get("stage") + "*************");
-            Log.d(TAG, "************cpu:" + map.get("cpu") + "*************");
-            Log.d(TAG, "************device_score:" + map.get("device_score") + "*************");
-            Log.d(TAG, "************drawCount:" + map.get(SpeedStatsUtils.UBC_KEY_DRAW_COUNT) + "*************");
+            Log.d(TAG, "************" + ((String) map.get(SpeedStatsUtils.UBC_KEY_OPTION)) + "*************");
+            Log.d(TAG, "************duration:" + ((String) map.get("duration")) + "*************");
+            Log.d(TAG, "************version:" + ((String) map.get("version")) + "*************");
+            Log.d(TAG, "************stage:" + ((String) map.get("stage")) + "*************");
+            Log.d(TAG, "************cpu:" + ((String) map.get("cpu")) + "*************");
+            Log.d(TAG, "************device_score:" + ((String) map.get("device_score")) + "*************");
+            Log.d(TAG, "************drawCount:" + ((String) map.get(SpeedStatsUtils.UBC_KEY_DRAW_COUNT)) + "*************");
             Log.d(TAG, "*****************UBC end*****************");
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void resetMainActivityStatsPeriod() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65577, this) == null) {
-            this.mSpeedStatsManager.reset();
-            this.mHasBanner = false;
-            this.mFeedDataType = 0;
-            this.mHotwordDataType = 0;
-            this.mUbcType = null;
-            this.mUbcValue = null;
-            this.mUbcPage = null;
-            this.mUbcFrom = null;
-            this.mFlow = null;
-        }
-    }
-
-    public long getAppInBackgroundDuration() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.backgroudDuration : invokeV.longValue;
-    }
-
-    public long getAppLaunchDuration() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mSpeedStatsManager.getAppLaunchDuration() : invokeV.longValue;
-    }
-
-    public long getAppStartTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mSpeedStatsManager.getAppLaunchStartTimeStamp() : invokeV.longValue;
-    }
-
-    public long getLaunchEndTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mSpeedStatsManager.getAppLaunchEndTimeStamp() : invokeV.longValue;
-    }
-
-    public int getLaunchType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mLaunchType : invokeV.intValue;
-    }
-
-    public boolean hasForegroundToBackground() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mHasForegroundToBackground : invokeV.booleanValue;
-    }
-
-    public boolean isHotLaunch() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            int i = this.mStartMainActivityType;
-            return i == 6 || i == 7;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean isStartAppFromLauncher() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mIsStartAppFromLauncher : invokeV.booleanValue;
-    }
-
-    public void onAppBackground() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.backgroudTimeStamp = System.currentTimeMillis();
-        }
-    }
-
-    public void onAppCreateEnd() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            SmartLaunchStats.setAppStartTimeStamp(getAppStartTime());
-        }
-    }
-
-    public void onAppForeground() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.isMainPageStatsEnd || this.backgroudTimeStamp == 0) {
-            return;
-        }
-        this.backgroudDuration += System.currentTimeMillis() - this.backgroudTimeStamp;
-        this.backgroudTimeStamp = 0L;
-    }
-
-    public void onAppProcessUpgrade(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.mLaunchType = i;
         }
     }
 
@@ -716,83 +825,38 @@ public class SpeedStats {
                         }
                     }
                     this.mHasMainActivityLaunched = true;
-                } else if (intent == null || intent.getComponent() == null) {
-                } else {
+                } else if (intent != null && intent.getComponent() != null) {
                     String dataString = intent.getDataString();
                     String className = intent.getComponent().getClassName();
                     if (SpeedRuntime.getSpeedContext().isAgreePrivacyPolicy()) {
                         if (!TextUtils.isEmpty(dataString) && !TextUtils.isEmpty(className) && className.equals("com.baidu.tieba.tblauncher.SchemaRouteActivity")) {
                             SpeedStatsManager.getInstance().setStatsFlag(2);
                         }
-                        if (TextUtils.isEmpty(dataString) || TextUtils.isEmpty(className) || !className.equals(PUSH_ACTIVITY)) {
-                            return;
+                        if (!TextUtils.isEmpty(dataString) && !TextUtils.isEmpty(className) && className.equals(PUSH_ACTIVITY)) {
+                            SpeedStatsManager.getInstance().setStatsFlag(1);
                         }
-                        SpeedStatsManager.getInstance().setStatsFlag(1);
                     }
                 }
             }
         }
     }
 
-    @DebugTrace
-    @TimeSpendTrace(isEnd = true)
-    public void onMainPageStatsEnd(Context context) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, context) == null) || this.isMainPageStatsEnd) {
-            return;
-        }
-        this.isMainPageStatsEnd = true;
-        gc.b().d();
-        this.mSpeedStatsManager.addStatsTimeStamp(6000);
-        if (!SmartLaunchStats.hasTriedToFindFirstAvailableTime() && !hasForegroundToBackground()) {
-            SmartLaunchStats.tryToFindFirstIdleTimeStamp();
-        }
-        if (this.mSpeedStatsManager.getStatsFlag() == 0) {
-            this.mUbcPage = SpeedStatsUtils.UBC_PAGE_ALLCACHE;
-            Log.d(TAG, "*****************统计终点*****************");
-            if (!checkValid()) {
-                resetMainActivityStatsPeriod();
-                return;
-            } else {
-                asyncUploadSpeedInfo();
-                return;
-            }
-        }
-        LaunchStatsUtils.setLaunchTypeDetail(this.mLaunchType, this.mIsStartAppFromLauncher, this.mHasSkin, this.mIntroductionType != -1);
-    }
-
-    @DebugTrace
     @TimeSpendTrace(isEnd = true)
     public void onSchemeOrPushStatsEnd(Context context, int i, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(1048590, this, context, i, str) == null) || this.isSchemePushStatsEnd) {
+        if ((interceptable != null && interceptable.invokeLIL(1048590, this, context, i, str) != null) || this.isSchemePushStatsEnd) {
             return;
         }
         this.isSchemePushStatsEnd = true;
-        gc.b().d();
+        hc.b().d();
         if (this.mSpeedStatsManager.getStatsFlag() == 2 || this.mSpeedStatsManager.getStatsFlag() == 1) {
             this.mStartMainActivityType = i;
             this.mUbcPage = str;
             this.mSpeedStatsManager.addStatsTimeStamp(6000);
             asyncUploadSpeedInfo();
         }
-        if (SmartLaunchStats.hasTriedToFindFirstAvailableTime() || hasForegroundToBackground()) {
-            return;
-        }
-        SmartLaunchStats.tryToFindFirstIdleTimeStamp();
-    }
-
-    public void setContext(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, context) == null) {
-            this.mContext = context;
-        }
-    }
-
-    public void setSid(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-            this.mSid = str;
+        if (!SmartLaunchStats.hasTriedToFindFirstAvailableTime() && !hasForegroundToBackground()) {
+            SmartLaunchStats.tryToFindFirstIdleTimeStamp();
         }
     }
 }

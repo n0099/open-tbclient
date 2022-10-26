@@ -2,9 +2,6 @@ package androidx.webkit;
 
 import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.WorkerThread;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -13,6 +10,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public abstract class ServiceWorkerClientCompat {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract WebResourceResponse shouldInterceptRequest(WebResourceRequest webResourceRequest);
 
     public ServiceWorkerClientCompat() {
         Interceptable interceptable = $ic;
@@ -27,8 +26,4 @@ public abstract class ServiceWorkerClientCompat {
             }
         }
     }
-
-    @Nullable
-    @WorkerThread
-    public abstract WebResourceResponse shouldInterceptRequest(@NonNull WebResourceRequest webResourceRequest);
 }

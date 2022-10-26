@@ -73,12 +73,18 @@ public final class ILoadingLayout$State {
     public static ILoadingLayout$State valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (ILoadingLayout$State) Enum.valueOf(ILoadingLayout$State.class, str) : (ILoadingLayout$State) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (ILoadingLayout$State) Enum.valueOf(ILoadingLayout$State.class, str);
+        }
+        return (ILoadingLayout$State) invokeL.objValue;
     }
 
     public static ILoadingLayout$State[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ILoadingLayout$State[]) $VALUES.clone() : (ILoadingLayout$State[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (ILoadingLayout$State[]) $VALUES.clone();
+        }
+        return (ILoadingLayout$State[]) invokeV.objValue;
     }
 }

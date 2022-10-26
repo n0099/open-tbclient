@@ -1,6 +1,5 @@
 package androidx.lifecycle;
 
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.lifecycle.Lifecycle;
 import com.baidu.android.imsdk.internal.Constants;
@@ -65,11 +64,10 @@ public class ClassesInfoCache {
 
         public static void invokeMethodsForEvent(List<MethodReference> list, LifecycleOwner lifecycleOwner, Lifecycle.Event event, Object obj) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLLL(65537, null, list, lifecycleOwner, event, obj) == null) || list == null) {
-                return;
-            }
-            for (int size = list.size() - 1; size >= 0; size--) {
-                list.get(size).invokeCallback(lifecycleOwner, event, obj);
+            if ((interceptable == null || interceptable.invokeLLLL(65537, null, list, lifecycleOwner, event, obj) == null) && list != null) {
+                for (int size = list.size() - 1; size >= 0; size--) {
+                    list.get(size).invokeCallback(lifecycleOwner, event, obj);
+                }
             }
         }
 
@@ -120,7 +118,10 @@ public class ClassesInfoCache {
                     return false;
                 }
                 MethodReference methodReference = (MethodReference) obj;
-                return this.mCallType == methodReference.mCallType && this.mMethod.getName().equals(methodReference.mMethod.getName());
+                if (this.mCallType == methodReference.mCallType && this.mMethod.getName().equals(methodReference.mMethod.getName())) {
+                    return true;
+                }
+                return false;
             }
             return invokeL.booleanValue;
         }
@@ -128,7 +129,10 @@ public class ClassesInfoCache {
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (this.mCallType * 31) + this.mMethod.getName().hashCode() : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return (this.mCallType * 31) + this.mMethod.getName().hashCode();
+            }
+            return invokeV.intValue;
         }
 
         public void invokeCallback(LifecycleOwner lifecycleOwner, Lifecycle.Event event, Object obj) {
@@ -136,14 +140,18 @@ public class ClassesInfoCache {
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, lifecycleOwner, event, obj) == null) {
                 try {
                     int i = this.mCallType;
-                    if (i == 0) {
-                        this.mMethod.invoke(obj, new Object[0]);
-                    } else if (i == 1) {
+                    if (i != 0) {
+                        if (i != 1) {
+                            if (i == 2) {
+                                this.mMethod.invoke(obj, lifecycleOwner, event);
+                                return;
+                            }
+                            return;
+                        }
                         this.mMethod.invoke(obj, lifecycleOwner);
-                    } else if (i != 2) {
-                    } else {
-                        this.mMethod.invoke(obj, lifecycleOwner, event);
+                        return;
                     }
+                    this.mMethod.invoke(obj, new Object[0]);
                 } catch (IllegalAccessException e) {
                     throw new RuntimeException(e);
                 } catch (InvocationTargetException e2) {
@@ -186,7 +194,7 @@ public class ClassesInfoCache {
         this.mHasLifecycleMethods = new HashMap();
     }
 
-    private CallbackInfo createInfo(Class<?> cls, @Nullable Method[] methodArr) {
+    private CallbackInfo createInfo(Class<?> cls, Method[] methodArr) {
         InterceptResult invokeLL;
         int i;
         CallbackInfo info;
@@ -210,20 +218,23 @@ public class ClassesInfoCache {
                 OnLifecycleEvent onLifecycleEvent = (OnLifecycleEvent) method.getAnnotation(OnLifecycleEvent.class);
                 if (onLifecycleEvent != null) {
                     Class<?>[] parameterTypes = method.getParameterTypes();
-                    if (parameterTypes.length <= 0) {
-                        i = 0;
-                    } else if (!parameterTypes[0].isAssignableFrom(LifecycleOwner.class)) {
-                        throw new IllegalArgumentException("invalid parameter type. Must be one and instanceof LifecycleOwner");
+                    if (parameterTypes.length > 0) {
+                        if (parameterTypes[0].isAssignableFrom(LifecycleOwner.class)) {
+                            i = 1;
+                        } else {
+                            throw new IllegalArgumentException("invalid parameter type. Must be one and instanceof LifecycleOwner");
+                        }
                     } else {
-                        i = 1;
+                        i = 0;
                     }
                     Lifecycle.Event value = onLifecycleEvent.value();
                     if (parameterTypes.length > 1) {
                         if (parameterTypes[1].isAssignableFrom(Lifecycle.Event.class)) {
-                            if (value != Lifecycle.Event.ON_ANY) {
+                            if (value == Lifecycle.Event.ON_ANY) {
+                                i = 2;
+                            } else {
                                 throw new IllegalArgumentException("Second arg is supported only for ON_ANY value");
                             }
-                            i = 2;
                         } else {
                             throw new IllegalArgumentException("invalid parameter type. second arg must be an event");
                         }
@@ -257,30 +268,30 @@ public class ClassesInfoCache {
         return (Method[]) invokeL.objValue;
     }
 
-    private void verifyAndPutHandler(Map<MethodReference, Lifecycle.Event> map, MethodReference methodReference, Lifecycle.Event event, Class<?> cls) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, map, methodReference, event, cls) == null) {
-            Lifecycle.Event event2 = map.get(methodReference);
-            if (event2 == null || event == event2) {
-                if (event2 == null) {
-                    map.put(methodReference, event);
-                    return;
-                }
-                return;
-            }
-            Method method = methodReference.mMethod;
-            throw new IllegalArgumentException("Method " + method.getName() + " in " + cls.getName() + " already declared with different @OnLifecycleEvent value: previous value " + event2 + ", new value " + event);
-        }
-    }
-
     public CallbackInfo getInfo(Class<?> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
             CallbackInfo callbackInfo = this.mCallbackMap.get(cls);
-            return callbackInfo != null ? callbackInfo : createInfo(cls, null);
+            if (callbackInfo != null) {
+                return callbackInfo;
+            }
+            return createInfo(cls, null);
         }
         return (CallbackInfo) invokeL.objValue;
+    }
+
+    private void verifyAndPutHandler(Map<MethodReference, Lifecycle.Event> map, MethodReference methodReference, Lifecycle.Event event, Class<?> cls) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, map, methodReference, event, cls) == null) {
+            Lifecycle.Event event2 = map.get(methodReference);
+            if (event2 != null && event != event2) {
+                Method method = methodReference.mMethod;
+                throw new IllegalArgumentException("Method " + method.getName() + " in " + cls.getName() + " already declared with different @OnLifecycleEvent value: previous value " + event2 + ", new value " + event);
+            } else if (event2 == null) {
+                map.put(methodReference, event);
+            }
+        }
     }
 
     public boolean hasLifecycleMethods(Class<?> cls) {

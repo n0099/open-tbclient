@@ -47,10 +47,9 @@ public class t implements E {
     public void onDisplayed() {
         PBSplashListener pBSplashListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (pBSplashListener = this.a.e) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (pBSplashListener = this.a.e) != null) {
+            pBSplashListener.onDisplayed();
         }
-        pBSplashListener.onDisplayed();
     }
 
     @Override // com.win.opensdk.PBListener
@@ -67,21 +66,26 @@ public class t implements E {
             }
             PBSplash pBSplash = this.a;
             PBSplashListener pBSplashListener2 = pBSplash.e;
-            if (pBSplashListener2 == null || pBSplash.j) {
-                return;
+            if (pBSplashListener2 != null && !pBSplash.j) {
+                pBSplashListener2.onFail(PBError.NO_FILL);
             }
-            pBSplashListener2.onFail(PBError.NO_FILL);
         }
     }
 
     @Override // com.win.opensdk.PBListener
     public void onLoaded() {
+        long j;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.a.b.c()) {
             PBSplash pBSplash = this.a;
             Context context = pBSplash.a;
             F1 f1 = pBSplash.b.a;
-            Z1.d(context, (f1 == null || !f1.b()) ? 0L : f1.c.getLo_timeout());
+            if (f1 != null && f1.b()) {
+                j = f1.c.getLo_timeout();
+            } else {
+                j = 0;
+            }
+            Z1.d(context, j);
             String str = "";
             if (this.a.b.b().equals("image")) {
                 F1 f12 = this.a.b.a;

@@ -2,8 +2,6 @@ package com.baidu.searchbox.player.kernel;
 
 import android.view.View;
 import android.widget.FrameLayout;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
@@ -24,6 +22,33 @@ public class EmptyKernel extends AbsVideoKernel {
     public static final String TAG = "EmptyKernel";
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
+    public int getDecodeMode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel, com.baidu.searchbox.player.pool.IPoolItem
+    public void onRelease() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
+    public boolean takeSnapshotAsync(OnSnapShotFrameListener onSnapShotFrameListener, float f) {
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048616, this, onSnapShotFrameListener, f)) == null) {
+            return false;
+        }
+        return invokeLF.booleanValue;
+    }
+
     public EmptyKernel() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -39,15 +64,6 @@ public class EmptyKernel extends AbsVideoKernel {
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
-    public <T extends VideoUrlModel> void changePlayUrl(@NonNull T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, t) == null) {
-            BdVideoLog.e(TAG, "changePlayUrl(" + t.videoUrl + SmallTailInfo.EMOTION_SUFFIX);
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
-    @NonNull
     public View getBVideoView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -64,16 +80,6 @@ public class EmptyKernel extends AbsVideoKernel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             BdVideoLog.e(TAG, "getBufferingPosition()");
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
-    public int getDecodeMode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return 0;
         }
         return invokeV.intValue;
@@ -168,14 +174,6 @@ public class EmptyKernel extends AbsVideoKernel {
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
-    public void mute(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            BdVideoLog.e(TAG, "mute(" + z + SmallTailInfo.EMOTION_SUFFIX);
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
     public void onComplete() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
@@ -192,49 +190,10 @@ public class EmptyKernel extends AbsVideoKernel {
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
-    public void onInfo(int i, int i2, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048591, this, i, i2, obj) == null) {
-            BdVideoLog.e(TAG, "onInfo(" + i + StringUtil.ARRAY_ELEMENT_SEPARATOR + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + obj + SmallTailInfo.EMOTION_SUFFIX);
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
     public void onPrepared() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             BdVideoLog.e(TAG, "onPrepared()");
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel, com.baidu.searchbox.player.pool.IPoolItem
-    public void onRelease() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
-    public void play(@NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
-            BdVideoLog.e(TAG, "play(" + str + SmallTailInfo.EMOTION_SUFFIX);
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
-    public void seekToMs(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048595, this, i, i2) == null) {
-            BdVideoLog.e(TAG, "seekTo(" + i + SmallTailInfo.EMOTION_SUFFIX);
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
-    public void setClarityInfo(@Nullable String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
-            BdVideoLog.e(TAG, "setClarityInfo(" + str + SmallTailInfo.EMOTION_SUFFIX);
         }
     }
 
@@ -247,6 +206,46 @@ public class EmptyKernel extends AbsVideoKernel {
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
+    public void start() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
+            BdVideoLog.e(TAG, "start()");
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
+    public void changePlayUrl(VideoUrlModel videoUrlModel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, videoUrlModel) == null) {
+            BdVideoLog.e(TAG, "changePlayUrl(" + videoUrlModel.videoUrl + SmallTailInfo.EMOTION_SUFFIX);
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
+    public void mute(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+            BdVideoLog.e(TAG, "mute(" + z + SmallTailInfo.EMOTION_SUFFIX);
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
+    public void play(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
+            BdVideoLog.e(TAG, "play(" + str + SmallTailInfo.EMOTION_SUFFIX);
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
+    public void setClarityInfo(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
+            BdVideoLog.e(TAG, "setClarityInfo(" + str + SmallTailInfo.EMOTION_SUFFIX);
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
     public void setDecodeMode(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
@@ -255,15 +254,7 @@ public class EmptyKernel extends AbsVideoKernel {
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
-    public void setExternalInfo(String str, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048599, this, str, obj) == null) {
-            BdVideoLog.e(TAG, "setExternalInfo(" + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + obj + SmallTailInfo.EMOTION_SUFFIX);
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
-    public void setHttpHeader(@Nullable HashMap<String, String> hashMap) {
+    public void setHttpHeader(HashMap hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, hashMap) == null) {
             BdVideoLog.e(TAG, "setHttpHeader(" + hashMap + SmallTailInfo.EMOTION_SUFFIX);
@@ -287,14 +278,6 @@ public class EmptyKernel extends AbsVideoKernel {
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
-    public void setOption(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048603, this, str, str2) == null) {
-            BdVideoLog.e(TAG, "setOption(" + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + str2 + SmallTailInfo.EMOTION_SUFFIX);
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
     public void setPageUrl(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048604, this, str) == null) {
@@ -303,7 +286,7 @@ public class EmptyKernel extends AbsVideoKernel {
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
-    public void setPlayConf(@Nullable String str) {
+    public void setPlayConf(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
             BdVideoLog.e(TAG, "setPlayConf(" + str + SmallTailInfo.EMOTION_SUFFIX);
@@ -311,7 +294,7 @@ public class EmptyKernel extends AbsVideoKernel {
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
-    public void setProxy(@Nullable String str) {
+    public void setProxy(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048606, this, str) == null) {
             BdVideoLog.e(TAG, "setProxy(" + str + SmallTailInfo.EMOTION_SUFFIX);
@@ -331,14 +314,6 @@ public class EmptyKernel extends AbsVideoKernel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048608, this, str) == null) {
             BdVideoLog.e(TAG, "setUserAgent(" + str + SmallTailInfo.EMOTION_SUFFIX);
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
-    public void setVideoFormatOptions(String str, @NonNull HashMap<String, String> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048609, this, str, hashMap) == null) {
-            BdVideoLog.e(TAG, "setVideoFormatOptions(" + str + SmallTailInfo.EMOTION_SUFFIX);
         }
     }
 
@@ -367,14 +342,6 @@ public class EmptyKernel extends AbsVideoKernel {
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
-    public void start() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
-            BdVideoLog.e(TAG, "start()");
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
     public void switchMediaSource(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048615, this, i) == null) {
@@ -383,17 +350,7 @@ public class EmptyKernel extends AbsVideoKernel {
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
-    public boolean takeSnapshotAsync(OnSnapShotFrameListener onSnapShotFrameListener, float f) {
-        InterceptResult invokeLF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048616, this, onSnapShotFrameListener, f)) == null) {
-            return false;
-        }
-        return invokeLF.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
-    public void updateFreeProxy(@Nullable String str) {
+    public void updateFreeProxy(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048617, this, str) == null) {
             BdVideoLog.e(TAG, "updateFreeProxy(" + str + SmallTailInfo.EMOTION_SUFFIX);
@@ -401,10 +358,37 @@ public class EmptyKernel extends AbsVideoKernel {
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel, com.baidu.searchbox.player.pool.IPoolItem
-    public boolean verify(@NonNull String str) {
+    public boolean verify(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048618, this, str)) == null) ? TAG.equals(str) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048618, this, str)) == null) {
+            return TAG.equals(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
+    public void onInfo(int i, int i2, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(1048591, this, i, i2, obj) == null) {
+            BdVideoLog.e(TAG, "onInfo(" + i + StringUtil.ARRAY_ELEMENT_SEPARATOR + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + obj + SmallTailInfo.EMOTION_SUFFIX);
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
+    public void seekToMs(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048595, this, i, i2) == null) {
+            BdVideoLog.e(TAG, "seekTo(" + i + SmallTailInfo.EMOTION_SUFFIX);
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
+    public void setVideoFormatOptions(String str, HashMap hashMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048609, this, str, hashMap) == null) {
+            BdVideoLog.e(TAG, "setVideoFormatOptions(" + str + SmallTailInfo.EMOTION_SUFFIX);
+        }
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
@@ -412,6 +396,22 @@ public class EmptyKernel extends AbsVideoKernel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048613, this, str, z) == null) {
             BdVideoLog.e(TAG, "player has released, cannot call setVideoUrl!!! isNeedChangeState = " + z);
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
+    public void setExternalInfo(String str, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048599, this, str, obj) == null) {
+            BdVideoLog.e(TAG, "setExternalInfo(" + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + obj + SmallTailInfo.EMOTION_SUFFIX);
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
+    public void setOption(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048603, this, str, str2) == null) {
+            BdVideoLog.e(TAG, "setOption(" + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + str2 + SmallTailInfo.EMOTION_SUFFIX);
         }
     }
 }

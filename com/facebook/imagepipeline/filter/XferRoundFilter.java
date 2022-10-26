@@ -6,7 +6,6 @@ import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.os.Build;
-import androidx.annotation.RequiresApi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,10 +34,15 @@ public final class XferRoundFilter {
     public static boolean canUseXferRoundFilter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? Build.VERSION.SDK_INT >= 12 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (Build.VERSION.SDK_INT >= 12) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
-    @RequiresApi(api = 12)
     public static void xferRoundBitmap(Bitmap bitmap, Bitmap bitmap2, boolean z) {
         Paint paint;
         Paint paint2;

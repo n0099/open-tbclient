@@ -1,190 +1,31 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.database.Cursor;
+import android.os.Bundle;
+import android.os.IBinder;
+import android.os.Parcelable;
+import android.util.SparseArray;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.Serializable;
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.Set;
-import java.util.TreeSet;
 /* loaded from: classes5.dex */
-public class nd implements od {
+public class nd implements pd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Cursor a;
-    public final ContentValues b;
-    public final Set<String> c;
+    public Bundle a;
 
-    public nd(Cursor cursor) {
+    public nd(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cursor};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = cursor;
-        this.b = null;
-        this.c = new TreeSet();
-        if (cursor != null) {
-            int columnCount = cursor.getColumnCount();
-            for (int i3 = 0; i3 < columnCount; i3++) {
-                String columnName = cursor.getColumnName(i3);
-                if (columnName != null) {
-                    this.c.add(columnName);
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.od
-    public void a(String str, Object obj) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, obj) == null) || str == null) {
-            return;
-        }
-        if (obj == null) {
-            this.b.putNull(str);
-        } else if (obj.getClass() != Boolean.TYPE && obj.getClass() != Boolean.class) {
-            if (obj.getClass() != Byte.TYPE && obj.getClass() != Byte.class) {
-                if (obj.getClass() == byte[].class) {
-                    this.b.put(str, (byte[]) obj);
-                    return;
-                } else if (obj.getClass() != Double.TYPE && obj.getClass() != Double.class) {
-                    if (obj.getClass() != Float.TYPE && obj.getClass() != Float.class) {
-                        if (obj.getClass() != Integer.TYPE && obj.getClass() != Integer.class) {
-                            if (obj.getClass() != Long.TYPE && obj.getClass() != Long.class) {
-                                if (obj.getClass() != Short.TYPE && obj.getClass() != Short.class) {
-                                    if (obj.getClass() == String.class) {
-                                        this.b.put(str, (String) obj);
-                                        return;
-                                    }
-                                    return;
-                                }
-                                this.b.put(str, (Short) obj);
-                                return;
-                            }
-                            this.b.put(str, (Long) obj);
-                            return;
-                        }
-                        this.b.put(str, (Integer) obj);
-                        return;
-                    }
-                    this.b.put(str, (Float) obj);
-                    return;
-                } else {
-                    this.b.put(str, (Double) obj);
-                    return;
-                }
-            }
-            this.b.put(str, (Byte) obj);
-        } else {
-            this.b.put(str, (Boolean) obj);
-        }
-    }
-
-    @Override // com.baidu.tieba.od
-    public Object b(String str, Type type) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, type)) == null) {
-            Object c = c(str);
-            if (c != null) {
-                re reVar = new re(type);
-                be a = ve.a(c);
-                return a != null ? a.a(reVar) : c;
-            }
-            return c;
-        }
-        return invokeLL.objValue;
-    }
-
-    public Object c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            int columnIndex = this.a.getColumnIndex(str);
-            Object obj = null;
-            if (columnIndex <= 0 || columnIndex >= this.a.getColumnCount()) {
-                return null;
-            }
-            try {
-                obj = Short.valueOf(this.a.getShort(columnIndex));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            if (obj == null) {
-                try {
-                    obj = Integer.valueOf(this.a.getInt(columnIndex));
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                }
-            }
-            if (obj == null) {
-                try {
-                    obj = Long.valueOf(this.a.getLong(columnIndex));
-                } catch (Exception e3) {
-                    e3.printStackTrace();
-                }
-            }
-            if (obj == null) {
-                try {
-                    obj = Float.valueOf(this.a.getFloat(columnIndex));
-                } catch (Exception e4) {
-                    e4.printStackTrace();
-                }
-            }
-            if (obj == null) {
-                try {
-                    obj = Double.valueOf(this.a.getDouble(columnIndex));
-                } catch (Exception e5) {
-                    e5.printStackTrace();
-                }
-            }
-            if (obj == null) {
-                try {
-                    obj = this.a.getString(columnIndex);
-                } catch (Exception e6) {
-                    e6.printStackTrace();
-                }
-            }
-            if (obj == null) {
-                try {
-                    return this.a.getBlob(columnIndex);
-                } catch (Exception e7) {
-                    e7.printStackTrace();
-                    return obj;
-                }
-            }
-            return obj;
-        }
-        return invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.od
-    public Set<String> getKeys() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : (Set) invokeV.objValue;
-    }
-
-    public nd(ContentValues contentValues) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {contentValues};
+            Object[] objArr = {bundle};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -194,7 +35,117 @@ public class nd implements od {
                 return;
             }
         }
-        this.b = contentValues;
-        this.c = new TreeSet();
+        this.a = bundle;
+    }
+
+    public Object c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return this.a.get(str);
+        }
+        return invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.pd
+    public void a(String str, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, obj) == null) {
+            if (obj instanceof Boolean) {
+                this.a.putBoolean(str, ((Boolean) obj).booleanValue());
+            } else if (obj instanceof Byte) {
+                this.a.putByte(str, ((Byte) obj).byteValue());
+            } else if (obj instanceof Short) {
+                this.a.putShort(str, ((Short) obj).shortValue());
+            } else if (obj instanceof Integer) {
+                this.a.putInt(str, ((Integer) obj).intValue());
+            } else if (obj instanceof Character) {
+                this.a.putChar(str, ((Character) obj).charValue());
+            } else if (obj instanceof Long) {
+                this.a.putLong(str, ((Long) obj).longValue());
+            } else if (obj instanceof Float) {
+                this.a.putFloat(str, ((Float) obj).floatValue());
+            } else if (obj instanceof Double) {
+                this.a.putDouble(str, ((Double) obj).doubleValue());
+            } else if (obj instanceof String) {
+                this.a.putString(str, (String) obj);
+            } else if (obj instanceof Bundle) {
+                this.a.putBundle(str, (Bundle) obj);
+            } else if (obj instanceof ArrayList) {
+                ArrayList<String> arrayList = (ArrayList) obj;
+                if (arrayList != null && arrayList.size() > 0) {
+                    String str2 = arrayList.get(0);
+                    if (str2 instanceof String) {
+                        this.a.putStringArrayList(str, arrayList);
+                    } else if (str2 instanceof Integer) {
+                        this.a.putIntegerArrayList(str, arrayList);
+                    } else if (str2 instanceof Parcelable) {
+                        this.a.putParcelableArrayList(str, arrayList);
+                    }
+                }
+            } else if (obj instanceof SparseArray) {
+                this.a.putSparseParcelableArray(str, (SparseArray) obj);
+            } else if (obj.getClass().isArray()) {
+                Class<?> componentType = obj.getClass().getComponentType();
+                if (componentType == Boolean.TYPE) {
+                    this.a.putBooleanArray(str, (boolean[]) obj);
+                } else if (componentType == Byte.TYPE) {
+                    this.a.putByteArray(str, (byte[]) obj);
+                } else if (componentType == Character.TYPE) {
+                    this.a.putCharArray(str, (char[]) obj);
+                } else if (componentType == Double.TYPE) {
+                    this.a.putDoubleArray(str, (double[]) obj);
+                } else if (componentType == Float.TYPE) {
+                    this.a.putFloatArray(str, (float[]) obj);
+                } else if (componentType == Integer.TYPE) {
+                    this.a.putIntArray(str, (int[]) obj);
+                } else if (componentType == Long.TYPE) {
+                    this.a.putLongArray(str, (long[]) obj);
+                } else if (componentType == Short.TYPE) {
+                    this.a.putShortArray(str, (short[]) obj);
+                } else if (componentType == String.class) {
+                    this.a.putStringArray(str, (String[]) obj);
+                } else if (sc.e(componentType, Parcelable.class)) {
+                    this.a.putParcelableArray(str, (Parcelable[]) obj);
+                }
+            } else if (obj instanceof CharSequence) {
+                this.a.putCharSequence(str, (CharSequence) obj);
+            } else if (!(obj instanceof IBinder)) {
+                if (obj instanceof Parcelable) {
+                    this.a.putParcelable(str, (Parcelable) obj);
+                } else if (obj instanceof Serializable) {
+                    this.a.putSerializable(str, (Serializable) obj);
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.pd
+    public Object b(String str, Type type) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, type)) == null) {
+            Object c = c(str);
+            if (c != null) {
+                se seVar = new se(type);
+                ce a = we.a(c);
+                if (a != null) {
+                    return a.a(seVar);
+                }
+                return null;
+            }
+            return null;
+        }
+        return invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.pd
+    public Set getKeys() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a.keySet();
+        }
+        return (Set) invokeV.objValue;
     }
 }

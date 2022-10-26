@@ -28,7 +28,7 @@ public abstract class e {
     public String h;
     public int i;
     public String j;
-    public Map<String, Object> k;
+    public Map k;
     public String l;
     public byte[] m;
     public byte[] n;

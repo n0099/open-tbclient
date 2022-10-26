@@ -1,39 +1,98 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import android.net.Uri;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.browser.BaseWebViewActivity;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.net.URLDecoder;
 /* loaded from: classes3.dex */
 public class ai5 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a() {
-        InterceptResult invokeV;
+    public static Boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (StringUtils.isNull(a)) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (str == null) {
+                return Boolean.FALSE;
             }
-            return a;
+            if (!ej.isEquals(yi5.c(str, BaseWebViewActivity.CUSTOM_FULL_SCREEN), "=")) {
+                str = URLDecoder.decode(str);
+            }
+            String c = yi5.c(str, "topic_id=");
+            String c2 = yi5.c(str, "topic_name=");
+            String c3 = yi5.c(str, BaseWebViewActivity.CUSTOM_FULL_SCREEN_EQUAL);
+            String c4 = yi5.c(str, "nonavigationbar=");
+            if ((c != null || c2 != null) && StringHelper.equals(c3, "1") && StringHelper.equals(c4, "1")) {
+                return Boolean.TRUE;
+            }
+            return Boolean.FALSE;
         }
-        return (String) invokeV.objValue;
+        return (Boolean) invokeL.objValue;
     }
 
-    public static void b(String str) {
+    public static Boolean b(Uri uri) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            a = str;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, uri)) == null) {
+            if (uri != null && uri.toString() != null) {
+                if (yi5.c(uri.toString(), "source=").contains("hottopic_detail_hybrid")) {
+                    return Boolean.TRUE;
+                }
+                return Boolean.FALSE;
+            }
+            return Boolean.FALSE;
         }
+        return (Boolean) invokeL.objValue;
     }
 
-    public static void c() {
+    public static String c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, null) == null) || a == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return yi5.c(str, "topic_id=");
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return yi5.c(str, "hottopic_detail_hybrid-");
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void e(TbPageContext tbPageContext, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, tbPageContext, str, str2) != null) || tbPageContext == null) {
             return;
         }
-        a = null;
+        StringBuilder sb = new StringBuilder("https://tieba.baidu.com/mo/q/newtopic/topicTemplate?");
+        sb.append(BaseWebViewActivity.CUSTOM_FULL_SCREEN_EQUAL);
+        sb.append("1");
+        sb.append("&nonavigationbar=");
+        sb.append("1");
+        sb.append("&from=");
+        sb.append("1");
+        if (str != null) {
+            sb.append("&topic_id=");
+            sb.append(str);
+        }
+        if (str2 != null) {
+            sb.append("&topic_name=");
+            sb.append(str2);
+        }
+        sb.append("&skin=");
+        sb.append(SkinManager.getCurrentSkinTypeString());
+        UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{sb.toString()});
     }
 }

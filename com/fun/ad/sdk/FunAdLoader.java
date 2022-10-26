@@ -8,7 +8,7 @@ import java.util.List;
 public interface FunAdLoader {
     void destroy();
 
-    List<CacheStatistic> getCacheStatistics(String str);
+    List getCacheStatistics(String str);
 
     FunNativeAd2 getNativeAd2(Context context);
 
@@ -18,7 +18,7 @@ public interface FunAdLoader {
 
     void recycleListener();
 
-    <T extends ViewGroup> boolean show(Activity activity, T t, String str, FunAdInteractionListener funAdInteractionListener);
+    boolean show(Activity activity, ViewGroup viewGroup, String str, FunAdInteractionListener funAdInteractionListener);
 
-    <T extends ViewGroup> FunSplashAd showSplash(Activity activity, T t, String str, FunAdInteractionListener funAdInteractionListener);
+    FunSplashAd showSplash(Activity activity, ViewGroup viewGroup, String str, FunAdInteractionListener funAdInteractionListener);
 }

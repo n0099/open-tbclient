@@ -33,16 +33,6 @@ public class DefaultHttpRequestFactory implements HttpRequestFactory {
     }
 
     @Override // org.apache.http.HttpRequestFactory
-    public HttpRequest newHttpRequest(RequestLine requestLine) throws MethodNotSupportedException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, requestLine)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (HttpRequest) invokeL.objValue;
-    }
-
-    @Override // org.apache.http.HttpRequestFactory
     public HttpRequest newHttpRequest(String str, String str2) throws MethodNotSupportedException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -50,5 +40,15 @@ public class DefaultHttpRequestFactory implements HttpRequestFactory {
             throw new RuntimeException("Stub!");
         }
         return (HttpRequest) invokeLL.objValue;
+    }
+
+    @Override // org.apache.http.HttpRequestFactory
+    public HttpRequest newHttpRequest(RequestLine requestLine) throws MethodNotSupportedException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, requestLine)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (HttpRequest) invokeL.objValue;
     }
 }

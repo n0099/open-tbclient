@@ -41,54 +41,84 @@ public final class FieldAttributes {
     public Object get(Object obj) throws IllegalAccessException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? this.field.get(obj) : invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            return this.field.get(obj);
+        }
+        return invokeL.objValue;
     }
 
     public <T extends Annotation> T getAnnotation(Class<T> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls)) == null) ? (T) this.field.getAnnotation(cls) : (T) invokeL.objValue;
-    }
-
-    public Collection<Annotation> getAnnotations() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Arrays.asList(this.field.getAnnotations()) : (Collection) invokeV.objValue;
-    }
-
-    public Class<?> getDeclaredClass() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.field.getType() : (Class) invokeV.objValue;
-    }
-
-    public Type getDeclaredType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.field.getGenericType() : (Type) invokeV.objValue;
-    }
-
-    public Class<?> getDeclaringClass() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.field.getDeclaringClass() : (Class) invokeV.objValue;
-    }
-
-    public String getName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.field.getName() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls)) == null) {
+            return (T) this.field.getAnnotation(cls);
+        }
+        return (T) invokeL.objValue;
     }
 
     public boolean hasModifier(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? (i & this.field.getModifiers()) != 0 : invokeI.booleanValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            if ((i & this.field.getModifiers()) != 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public Collection<Annotation> getAnnotations() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return Arrays.asList(this.field.getAnnotations());
+        }
+        return (Collection) invokeV.objValue;
+    }
+
+    public Class<?> getDeclaredClass() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.field.getType();
+        }
+        return (Class) invokeV.objValue;
+    }
+
+    public Type getDeclaredType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.field.getGenericType();
+        }
+        return (Type) invokeV.objValue;
+    }
+
+    public Class<?> getDeclaringClass() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.field.getDeclaringClass();
+        }
+        return (Class) invokeV.objValue;
+    }
+
+    public String getName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.field.getName();
+        }
+        return (String) invokeV.objValue;
     }
 
     public boolean isSynthetic() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.field.isSynthetic() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.field.isSynthetic();
+        }
+        return invokeV.booleanValue;
     }
 }

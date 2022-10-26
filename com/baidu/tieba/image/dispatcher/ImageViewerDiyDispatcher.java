@@ -2,14 +2,14 @@ package com.baidu.tieba.image.dispatcher;
 
 import android.util.TypedValue;
 import com.baidu.tbadk.core.util.tbselector.utils.SelectorHelper;
-import com.baidu.tieba.zf8;
+import com.baidu.tieba.jg8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ImageViewerDiyDispatcher implements zf8 {
+public class ImageViewerDiyDispatcher implements jg8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,7 +30,10 @@ public class ImageViewerDiyDispatcher implements zf8 {
     private int changeToPx(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(65537, this, f)) == null) ? (int) TypedValue.applyDimension(1, f, SelectorHelper.getResources().getDisplayMetrics()) : invokeF.intValue;
+        if (interceptable == null || (invokeF = interceptable.invokeF(65537, this, f)) == null) {
+            return (int) TypedValue.applyDimension(1, f, SelectorHelper.getResources().getDisplayMetrics());
+        }
+        return invokeF.intValue;
     }
 
     /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
@@ -39,7 +42,7 @@ public class ImageViewerDiyDispatcher implements zf8 {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:47)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
-    @Override // com.baidu.tieba.zf8
+    @Override // com.baidu.tieba.jg8
     public void dispatch(org.json.JSONObject r23, android.content.Context r24) {
         /*
             r22 = this;
@@ -56,13 +59,13 @@ public class ImageViewerDiyDispatcher implements zf8 {
             java.lang.String r3 = "index"
             java.lang.String r3 = r0.optString(r3)
             r4 = -1
-            int r3 = com.baidu.tieba.dh.e(r3, r4)
+            int r3 = com.baidu.tieba.eh.e(r3, r4)
             java.lang.String r4 = "enterType"
             r0.optString(r4)
             java.lang.String r4 = "forbidAd"
             java.lang.String r4 = r0.optString(r4)
             r5 = 1
-            int r4 = com.baidu.tieba.dh.e(r4, r5)
+            int r4 = com.baidu.tieba.eh.e(r4, r5)
             if (r4 != r5) goto L2f
             r4 = 1
             goto L30
@@ -81,7 +84,7 @@ public class ImageViewerDiyDispatcher implements zf8 {
             r0.optString(r11)
             java.lang.String r11 = "isShowHost"
             java.lang.String r11 = r0.optString(r11)
-            int r11 = com.baidu.tieba.dh.e(r11, r5)
+            int r11 = com.baidu.tieba.eh.e(r11, r5)
             if (r11 != r5) goto L5b
             r11 = 1
             goto L5c
@@ -269,10 +272,10 @@ public class ImageViewerDiyDispatcher implements zf8 {
             java.lang.String r4 = (java.lang.String) r4
             r3.imageUrl = r4
             r8 = -1
-            long r10 = com.baidu.tieba.dh.g(r7, r8)
+            long r10 = com.baidu.tieba.eh.g(r7, r8)
             r3.threadId = r10
             r4 = r20
-            long r8 = com.baidu.tieba.dh.g(r4, r8)
+            long r8 = com.baidu.tieba.eh.g(r4, r8)
             r3.postId = r8
             java.lang.Object r8 = com.baidu.tbadk.core.util.ListUtils.getItem(r15, r6)
             java.lang.String r8 = (java.lang.String) r8

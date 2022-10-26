@@ -44,7 +44,7 @@ public class SignStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public static class a implements CustomMessageTask.CustomRunnable<ForumData> {
+    public final class a implements CustomMessageTask.CustomRunnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -63,15 +63,15 @@ public class SignStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<ForumData> customMessage) {
+        public CustomResponsedMessage run(CustomMessage customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 SignData signData = null;
                 if (customMessage != null && customMessage.getData() != null) {
-                    ForumData data = customMessage.getData();
-                    String name = data.getName();
-                    String id = data.getId();
+                    ForumData forumData = (ForumData) customMessage.getData();
+                    String name = forumData.getName();
+                    String id = forumData.getId();
                     if (name != null && name.length() > 0 && id != null && id.length() > 0) {
                         Context context = TbadkCoreApplication.getInst().getContext();
                         TiebaStatic.eventStat(context, "sign_start_time", System.currentTimeMillis() + "");
@@ -84,8 +84,8 @@ public class SignStatic {
                             NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.SIGN_ADDRESS);
                             netWork.addPostData(TiebaStatic.Params.H5_FORUM_NAME, name);
                             netWork.addPostData("fid", id);
-                            if (!TextUtils.isEmpty(data.getFromPage())) {
-                                netWork.addPostData("sign_from", data.getFromPage());
+                            if (!TextUtils.isEmpty(forumData.getFromPage())) {
+                                netWork.addPostData("sign_from", forumData.getFromPage());
                             }
                             if (!TextUtils.isEmpty(TbSingleton.getInstance().getActivityId())) {
                                 netWork.addPostData("activity_id", TbSingleton.getInstance().getActivityId());
@@ -103,7 +103,7 @@ public class SignStatic {
                                     signData.parserJson(postNetData);
                                     signData.forumId = id;
                                     signData.forumName = name;
-                                } else if (!dj.isEmpty(postNetData)) {
+                                } else if (!ej.isEmpty(postNetData)) {
                                     JSONObject jSONObject = new JSONObject(postNetData);
                                     signMessage.parserJson(netWork, jSONObject);
                                     if (AntiHelper.l(netWork.getServerErrorCode()) || "199901".equals(jSONObject.optString("error_code"))) {
@@ -134,7 +134,7 @@ public class SignStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class b implements CustomMessageTask.CustomRunnable<el8> {
+    public final class b implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -152,41 +152,8 @@ public class SignStatic {
             }
         }
 
-        @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<el8> customMessage) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (customMessage != null && (customMessage.getData() instanceof wt4)) {
-                    new zk8().j((wt4) customMessage.getData());
-                }
-                return null;
-            }
-            return (CustomResponsedMessage) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class c implements UrlManager.UrlDealListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
         @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
-        public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
+        public int deal(TbPageContext tbPageContext, String[] strArr) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tbPageContext, strArr)) == null) {
@@ -226,7 +193,6 @@ public class SignStatic {
         TbadkCoreApplication.getInst().RegisterIntent(SignAllForumActivityConfig.class, SignAllForumActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(SignAllForumAdvertActivityConfig.class, SignAllForumAdvertActivity.class);
         b();
-        d();
         c();
     }
 
@@ -244,45 +210,35 @@ public class SignStatic {
         }
     }
 
-    public static void a(NetWork netWork) {
-        Address j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, netWork) == null) {
-            String locationLng = TbadkCoreApplication.getInst().getLocationLng();
-            String locationLat = TbadkCoreApplication.getInst().getLocationLat();
-            if ((TextUtils.isEmpty(locationLat) || TextUtils.isEmpty(locationLng)) && (j = zf.n().j(false)) != null) {
-                locationLng = String.valueOf(j.getLongitude());
-                locationLat = String.valueOf(j.getLatitude());
-            }
-            if (TextUtils.isEmpty(locationLat) || TextUtils.isEmpty(locationLng)) {
-                return;
-            }
-            netWork.addPostData("location", locationLng + "," + locationLat);
-        }
-    }
-
     public static void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            UrlManager.getInstance().addListener(new c());
+            UrlManager.getInstance().addListener(new b());
         }
     }
 
     public static void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            CustomMessageTask customMessageTask = new CustomMessageTask(2921663, new b());
-            customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+            CustomMessageTask customMessageTask = new CustomMessageTask(2001425, new a());
+            customMessageTask.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
             MessageManager.getInstance().registerTask(customMessageTask);
         }
     }
 
-    public static void d() {
+    public static void a(NetWork netWork) {
+        Address j;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            CustomMessageTask customMessageTask = new CustomMessageTask(2001425, new a());
-            customMessageTask.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
-            MessageManager.getInstance().registerTask(customMessageTask);
+        if (interceptable == null || interceptable.invokeL(65538, null, netWork) == null) {
+            String locationLng = TbadkCoreApplication.getInst().getLocationLng();
+            String locationLat = TbadkCoreApplication.getInst().getLocationLat();
+            if ((TextUtils.isEmpty(locationLat) || TextUtils.isEmpty(locationLng)) && (j = ag.n().j(false)) != null) {
+                locationLng = String.valueOf(j.getLongitude());
+                locationLat = String.valueOf(j.getLatitude());
+            }
+            if (!TextUtils.isEmpty(locationLat) && !TextUtils.isEmpty(locationLng)) {
+                netWork.addPostData("location", locationLng + "," + locationLat);
+            }
         }
     }
 }

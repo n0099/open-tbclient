@@ -29,6 +29,16 @@ public final class zzn extends zzm {
         zza = new zzn();
     }
 
+    @Override // com.google.android.gms.internal.common.zzo
+    public final boolean zza(char c) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Character.valueOf(c)})) == null) {
+            throw null;
+        }
+        return invokeCommon.booleanValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public zzn() {
         super("CharMatcher.none()");
@@ -45,15 +55,5 @@ public final class zzn extends zzm {
                 return;
             }
         }
-    }
-
-    @Override // com.google.android.gms.internal.common.zzo
-    public final boolean zza(char c) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Character.valueOf(c)})) == null) {
-            throw null;
-        }
-        return invokeCommon.booleanValue;
     }
 }

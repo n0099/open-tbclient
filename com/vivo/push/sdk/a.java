@@ -35,7 +35,7 @@ import java.util.List;
 public final class a extends q {
     public static /* synthetic */ Interceptable $ic;
     public static a c;
-    public static final List<Integer> e;
+    public static final List e;
     public transient /* synthetic */ FieldHolder $fh;
     public String d;
     public String f;
@@ -88,6 +88,61 @@ public final class a extends q {
         return (a) invokeV.objValue;
     }
 
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.d = null;
+        }
+    }
+
+    public static String a(Context context, String str, String str2) {
+        InterceptResult invokeLLL;
+        List<ResolveInfo> queryBroadcastReceivers;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, context, str, str2)) == null) {
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                return null;
+            }
+            Intent intent = new Intent(str2);
+            intent.setPackage(str);
+            try {
+                PackageManager packageManager = context.getPackageManager();
+                if (packageManager == null || (queryBroadcastReceivers = packageManager.queryBroadcastReceivers(intent, 64)) == null || queryBroadcastReceivers.size() <= 0) {
+                    return null;
+                }
+                return queryBroadcastReceivers.get(0).activityInfo.name;
+            } catch (Exception e2) {
+                p.a("CommandWorker", "error  " + e2.getMessage());
+                return null;
+            }
+        }
+        return (String) invokeLLL.objValue;
+    }
+
+    private boolean b(Intent intent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, intent)) == null) {
+            String stringExtra = intent.getStringExtra("security_avoid_pull");
+            if (!TextUtils.isEmpty(stringExtra)) {
+                try {
+                    String b = com.vivo.push.util.a.a(this.a).b(stringExtra);
+                    if (!"com.vivo.pushservice".equals(b)) {
+                        p.a("CommandWorker", "!decrypt.equals, so decrypt == ".concat(String.valueOf(b)));
+                        return false;
+                    }
+                    return true;
+                } catch (Exception e2) {
+                    p.a("CommandWorker", "checkIntentIsSecurity Exception: " + e2.getMessage());
+                    return false;
+                }
+            }
+            p.a("CommandWorker", "checkIntentIsSecurityTextUtils.isEmpty");
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
     private boolean c(Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -97,25 +152,25 @@ public final class a extends q {
             }
             String c2 = z.c(this.a, "com.vivo.pushservice");
             p.d("CommandWorker", " 配置的验签参数 = ".concat(String.valueOf(c2)));
-            if (TextUtils.equals(c2, "1")) {
-                String stringExtra = intent.getStringExtra("security_avoid_pull_rsa");
-                String stringExtra2 = intent.getStringExtra("security_avoid_rsa_public_key");
-                if (!TextUtils.isEmpty(stringExtra) && !TextUtils.isEmpty(stringExtra2)) {
-                    try {
-                        if (d.a(this.a).a().a("com.vivo.pushservice".getBytes("UTF-8"), u.a(stringExtra2), Base64.decode(stringExtra, 2))) {
-                            p.d("CommandWorker", " RSA验签通过  ");
-                            return true;
-                        }
-                    } catch (Exception e2) {
-                        p.a("CommandWorker", "checkIntentIsSecurity Exception: " + e2.getMessage());
+            if (!TextUtils.equals(c2, "1")) {
+                return true;
+            }
+            String stringExtra = intent.getStringExtra("security_avoid_pull_rsa");
+            String stringExtra2 = intent.getStringExtra("security_avoid_rsa_public_key");
+            if (!TextUtils.isEmpty(stringExtra) && !TextUtils.isEmpty(stringExtra2)) {
+                try {
+                    if (d.a(this.a).a().a("com.vivo.pushservice".getBytes("UTF-8"), u.a(stringExtra2), Base64.decode(stringExtra, 2))) {
+                        p.d("CommandWorker", " RSA验签通过  ");
+                        return true;
                     }
-                    p.d("CommandWorker", " RSA验签 不通过  ");
-                    return false;
+                } catch (Exception e2) {
+                    p.a("CommandWorker", "checkIntentIsSecurity Exception: " + e2.getMessage());
                 }
-                p.a("CommandWorker", "!decrypt.equals, so securityContent == " + stringExtra + " or publickKey isempty ");
+                p.d("CommandWorker", " RSA验签 不通过  ");
                 return false;
             }
-            return true;
+            p.a("CommandWorker", "!decrypt.equals, so securityContent == " + stringExtra + " or publickKey isempty ");
+            return false;
         }
         return invokeL.booleanValue;
     }
@@ -123,10 +178,16 @@ public final class a extends q {
     private int d(Intent intent) {
         InterceptResult invokeL;
         String stringExtra;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, intent)) == null) {
             if (!TextUtils.isEmpty(this.f) && this.f.contains("CommandService")) {
-                if (!(intent != null && b(intent) && c(intent))) {
+                if (intent != null && b(intent) && c(intent)) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (!z) {
                     p.a("CommandWorker", " !checkIntentIsSecurity(intent)");
                     return 2151;
                 }
@@ -165,13 +226,6 @@ public final class a extends q {
         return invokeL.intValue;
     }
 
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.d = null;
-        }
-    }
-
     @Override // com.vivo.push.q
     public final void b(Message message) {
         Context context;
@@ -183,10 +237,14 @@ public final class a extends q {
                 int d = d(intent);
                 if (d > 0) {
                     x xVar = new x(d);
-                    HashMap<String, String> hashMap = new HashMap<>();
+                    HashMap hashMap = new HashMap();
                     if (intent != null) {
                         Bundle extras = intent.getExtras();
-                        hashMap.put("messageID", String.valueOf(extras != null ? extras.getLong("notify_id", 404000044642424832L) : 404000044642424832L));
+                        long j = 404000044642424832L;
+                        if (extras != null) {
+                            j = extras.getLong("notify_id", 404000044642424832L);
+                        }
+                        hashMap.put("messageID", String.valueOf(j));
                     }
                     String b = z.b(this.a, packageName);
                     if (!TextUtils.isEmpty(b)) {
@@ -212,13 +270,6 @@ public final class a extends q {
         }
     }
 
-    public final void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f = str;
-        }
-    }
-
     public final void a(Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, intent) == null) {
@@ -232,51 +283,10 @@ public final class a extends q {
         }
     }
 
-    public static String a(Context context, String str, String str2) {
-        InterceptResult invokeLLL;
-        List<ResolveInfo> queryBroadcastReceivers;
+    public final void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, context, str, str2)) == null) {
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                return null;
-            }
-            Intent intent = new Intent(str2);
-            intent.setPackage(str);
-            try {
-                PackageManager packageManager = context.getPackageManager();
-                if (packageManager == null || (queryBroadcastReceivers = packageManager.queryBroadcastReceivers(intent, 64)) == null || queryBroadcastReceivers.size() <= 0) {
-                    return null;
-                }
-                return queryBroadcastReceivers.get(0).activityInfo.name;
-            } catch (Exception e2) {
-                p.a("CommandWorker", "error  " + e2.getMessage());
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.f = str;
         }
-        return (String) invokeLLL.objValue;
-    }
-
-    private boolean b(Intent intent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, intent)) == null) {
-            String stringExtra = intent.getStringExtra("security_avoid_pull");
-            if (!TextUtils.isEmpty(stringExtra)) {
-                try {
-                    String b = com.vivo.push.util.a.a(this.a).b(stringExtra);
-                    if ("com.vivo.pushservice".equals(b)) {
-                        return true;
-                    }
-                    p.a("CommandWorker", "!decrypt.equals, so decrypt == ".concat(String.valueOf(b)));
-                    return false;
-                } catch (Exception e2) {
-                    p.a("CommandWorker", "checkIntentIsSecurity Exception: " + e2.getMessage());
-                    return false;
-                }
-            }
-            p.a("CommandWorker", "checkIntentIsSecurityTextUtils.isEmpty");
-            return true;
-        }
-        return invokeL.booleanValue;
     }
 }

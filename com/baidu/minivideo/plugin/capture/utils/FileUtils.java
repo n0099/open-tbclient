@@ -44,6 +44,15 @@ public class FileUtils {
         }
     }
 
+    public static boolean isSDMounted() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
+            return Environment.getExternalStorageState().equals("mounted");
+        }
+        return invokeV.booleanValue;
+    }
+
     public static String createTempFileName(File file, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -72,14 +81,82 @@ public class FileUtils {
     public static void deleteAllFiles(File file) {
         File[] listFiles;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, file) == null) || file == null || (listFiles = file.listFiles()) == null || listFiles.length == 0) {
-            return;
-        }
-        for (File file2 : listFiles) {
-            if (!file2.isDirectory()) {
-                file2.delete();
+        if ((interceptable == null || interceptable.invokeL(65539, null, file) == null) && file != null && (listFiles = file.listFiles()) != null && listFiles.length != 0) {
+            for (File file2 : listFiles) {
+                if (!file2.isDirectory()) {
+                    file2.delete();
+                }
             }
         }
+    }
+
+    public static boolean deleteFile(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                File file = new File(str);
+                if (file.exists()) {
+                    return file.delete();
+                }
+                return false;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean getExistFile(File file) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, file)) == null) {
+            if (file.exists()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static String getFileMD5(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                File file = new File(str);
+                if (file.exists()) {
+                    return EncryptUtils.encrypt("MD5", file, false);
+                }
+                return null;
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String getSuffix(String str) {
+        InterceptResult invokeL;
+        int lastIndexOf;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
+            if (!TextUtils.isEmpty(str) && (lastIndexOf = str.lastIndexOf(".")) > 0) {
+                return str.substring(lastIndexOf);
+            }
+            return "";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean isExistFile(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, str)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                return new File(str).exists();
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     public static boolean deleteDir(File file) {
@@ -94,22 +171,6 @@ public class FileUtils {
                 }
             }
             return file.delete();
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean deleteFile(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            File file = new File(str);
-            if (file.exists()) {
-                return file.delete();
-            }
-            return false;
         }
         return invokeL.booleanValue;
     }
@@ -131,6 +192,30 @@ public class FileUtils {
             }
             file.delete();
         }
+    }
+
+    public static long getDirectorySize(File file) throws IOException {
+        InterceptResult invokeL;
+        long length;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, file)) == null) {
+            File[] listFiles = file.listFiles();
+            if (listFiles == null) {
+                return file.length();
+            }
+            int length2 = listFiles.length;
+            long j = 0;
+            for (int i = 0; i < length2; i++) {
+                if (listFiles[i].isDirectory()) {
+                    length = getDirectorySize(listFiles[i]);
+                } else {
+                    length = listFiles[i].length();
+                }
+                j += length;
+            }
+            return j;
+        }
+        return invokeL.longValue;
     }
 
     public static long getDirectorySize(String str) throws IOException {
@@ -156,28 +241,6 @@ public class FileUtils {
             return j;
         }
         return invokeL.longValue;
-    }
-
-    public static boolean getExistFile(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, file)) == null) ? file.exists() : invokeL.booleanValue;
-    }
-
-    public static String getFileMD5(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            File file = new File(str);
-            if (file.exists()) {
-                return EncryptUtils.encrypt("MD5", file, false);
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
     }
 
     public static Bitmap getLocalVideoBitmap(String str) {
@@ -206,48 +269,6 @@ public class FileUtils {
         return (Bitmap) invokeL.objValue;
     }
 
-    public static String getSuffix(String str) {
-        InterceptResult invokeL;
-        int lastIndexOf;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) ? (TextUtils.isEmpty(str) || (lastIndexOf = str.lastIndexOf(".")) <= 0) ? "" : str.substring(lastIndexOf) : (String) invokeL.objValue;
-    }
-
-    public static File getVideoCoverCacheDir() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            File externalCacheDir = Application.get().getExternalCacheDir();
-            if (externalCacheDir == null || !externalCacheDir.exists()) {
-                externalCacheDir = Application.get().getFilesDir();
-            }
-            File file = new File(externalCacheDir, VIDEO_COVER_DIR);
-            if (file.exists() || file.mkdirs()) {
-                return file;
-            }
-            return null;
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public static boolean isExistFile(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            return new File(str).exists();
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean isSDMounted() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) ? Environment.getExternalStorageState().equals("mounted") : invokeV.booleanValue;
-    }
-
     public static String saveBitmap(Bitmap bitmap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -269,6 +290,23 @@ public class FileUtils {
             return file.getAbsolutePath();
         }
         return (String) invokeL.objValue;
+    }
+
+    public static File getVideoCoverCacheDir() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
+            File externalCacheDir = Application.get().getExternalCacheDir();
+            if (externalCacheDir == null || !externalCacheDir.exists()) {
+                externalCacheDir = Application.get().getFilesDir();
+            }
+            File file = new File(externalCacheDir, VIDEO_COVER_DIR);
+            if (!file.exists() && !file.mkdirs()) {
+                return null;
+            }
+            return file;
+        }
+        return (File) invokeV.objValue;
     }
 
     public static void unzipFile(File file, String str) throws ZipException, IOException {
@@ -307,29 +345,5 @@ public class FileUtils {
                 }
             }
         }
-    }
-
-    public static long getDirectorySize(File file) throws IOException {
-        InterceptResult invokeL;
-        long length;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, file)) == null) {
-            File[] listFiles = file.listFiles();
-            if (listFiles == null) {
-                return file.length();
-            }
-            int length2 = listFiles.length;
-            long j = 0;
-            for (int i = 0; i < length2; i++) {
-                if (listFiles[i].isDirectory()) {
-                    length = getDirectorySize(listFiles[i]);
-                } else {
-                    length = listFiles[i].length();
-                }
-                j += length;
-            }
-            return j;
-        }
-        return invokeL.longValue;
     }
 }

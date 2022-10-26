@@ -7,9 +7,6 @@ import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.FrameLayout;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -18,7 +15,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@RestrictTo({RestrictTo.Scope.LIBRARY})
 /* loaded from: classes.dex */
 public class ContentFrameLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -40,7 +36,7 @@ public class ContentFrameLayout extends FrameLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ContentFrameLayout(@NonNull Context context) {
+    public ContentFrameLayout(Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -60,11 +56,60 @@ public class ContentFrameLayout extends FrameLayout {
         }
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public ContentFrameLayout(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ContentFrameLayout(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.mDecorPadding = new Rect();
+    }
+
     public void dispatchFitSystemWindows(Rect rect) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, rect) == null) {
             fitSystemWindows(rect);
+        }
+    }
+
+    public void setAttachListener(OnAttachListener onAttachListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, onAttachListener) == null) {
+            this.mAttachListener = onAttachListener;
         }
     }
 
@@ -181,135 +226,145 @@ public class ContentFrameLayout extends FrameLayout {
     */
     public void onMeasure(int i, int i2) {
         boolean z;
+        boolean z2;
         int measuredWidth;
         TypedValue typedValue;
         int i3;
         int i4;
         float fraction;
+        TypedValue typedValue2;
         int i5;
         int i6;
         float fraction2;
+        TypedValue typedValue3;
         int i7;
         int i8;
         float fraction3;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeII(1048585, this, i, i2) != null) {
-            return;
-        }
-        DisplayMetrics displayMetrics = getContext().getResources().getDisplayMetrics();
-        boolean z2 = true;
-        boolean z3 = displayMetrics.widthPixels < displayMetrics.heightPixels;
-        int mode = View.MeasureSpec.getMode(i);
-        int mode2 = View.MeasureSpec.getMode(i2);
-        if (mode == Integer.MIN_VALUE) {
-            TypedValue typedValue2 = z3 ? this.mFixedWidthMinor : this.mFixedWidthMajor;
-            if (typedValue2 != null && (i7 = typedValue2.type) != 0) {
-                if (i7 == 5) {
-                    fraction3 = typedValue2.getDimension(displayMetrics);
-                } else if (i7 == 6) {
-                    int i9 = displayMetrics.widthPixels;
-                    fraction3 = typedValue2.getFraction(i9, i9);
+        if (interceptable == null || interceptable.invokeII(1048585, this, i, i2) == null) {
+            DisplayMetrics displayMetrics = getContext().getResources().getDisplayMetrics();
+            boolean z3 = true;
+            if (displayMetrics.widthPixels < displayMetrics.heightPixels) {
+                z = true;
+            } else {
+                z = false;
+            }
+            int mode = View.MeasureSpec.getMode(i);
+            int mode2 = View.MeasureSpec.getMode(i2);
+            if (mode == Integer.MIN_VALUE) {
+                if (z) {
+                    typedValue3 = this.mFixedWidthMinor;
                 } else {
-                    i8 = 0;
-                    if (i8 > 0) {
-                        Rect rect = this.mDecorPadding;
-                        i = View.MeasureSpec.makeMeasureSpec(Math.min(i8 - (rect.left + rect.right), View.MeasureSpec.getSize(i)), 1073741824);
-                        z = true;
-                        if (mode2 == Integer.MIN_VALUE) {
-                            TypedValue typedValue3 = z3 ? this.mFixedHeightMajor : this.mFixedHeightMinor;
-                            if (typedValue3 != null && (i5 = typedValue3.type) != 0) {
-                                if (i5 == 5) {
-                                    fraction2 = typedValue3.getDimension(displayMetrics);
-                                } else if (i5 == 6) {
-                                    int i10 = displayMetrics.heightPixels;
-                                    fraction2 = typedValue3.getFraction(i10, i10);
+                    typedValue3 = this.mFixedWidthMajor;
+                }
+                if (typedValue3 != null && (i7 = typedValue3.type) != 0) {
+                    if (i7 == 5) {
+                        fraction3 = typedValue3.getDimension(displayMetrics);
+                    } else if (i7 == 6) {
+                        int i9 = displayMetrics.widthPixels;
+                        fraction3 = typedValue3.getFraction(i9, i9);
+                    } else {
+                        i8 = 0;
+                        if (i8 > 0) {
+                            Rect rect = this.mDecorPadding;
+                            i = View.MeasureSpec.makeMeasureSpec(Math.min(i8 - (rect.left + rect.right), View.MeasureSpec.getSize(i)), 1073741824);
+                            z2 = true;
+                            if (mode2 == Integer.MIN_VALUE) {
+                                if (z) {
+                                    typedValue2 = this.mFixedHeightMajor;
                                 } else {
-                                    i6 = 0;
-                                    if (i6 > 0) {
-                                        Rect rect2 = this.mDecorPadding;
-                                        i2 = View.MeasureSpec.makeMeasureSpec(Math.min(i6 - (rect2.top + rect2.bottom), View.MeasureSpec.getSize(i2)), 1073741824);
-                                    }
+                                    typedValue2 = this.mFixedHeightMinor;
                                 }
-                                i6 = (int) fraction2;
-                                if (i6 > 0) {
+                                if (typedValue2 != null && (i5 = typedValue2.type) != 0) {
+                                    if (i5 == 5) {
+                                        fraction2 = typedValue2.getDimension(displayMetrics);
+                                    } else if (i5 == 6) {
+                                        int i10 = displayMetrics.heightPixels;
+                                        fraction2 = typedValue2.getFraction(i10, i10);
+                                    } else {
+                                        i6 = 0;
+                                        if (i6 > 0) {
+                                            Rect rect2 = this.mDecorPadding;
+                                            i2 = View.MeasureSpec.makeMeasureSpec(Math.min(i6 - (rect2.top + rect2.bottom), View.MeasureSpec.getSize(i2)), 1073741824);
+                                        }
+                                    }
+                                    i6 = (int) fraction2;
+                                    if (i6 > 0) {
+                                    }
                                 }
                             }
-                        }
-                        super.onMeasure(i, i2);
-                        measuredWidth = getMeasuredWidth();
-                        int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(measuredWidth, 1073741824);
-                        if (!z && mode == Integer.MIN_VALUE) {
-                            typedValue = !z3 ? this.mMinWidthMinor : this.mMinWidthMajor;
-                            if (typedValue != null && (i3 = typedValue.type) != 0) {
-                                if (i3 != 5) {
-                                    fraction = typedValue.getDimension(displayMetrics);
-                                } else if (i3 == 6) {
-                                    int i11 = displayMetrics.widthPixels;
-                                    fraction = typedValue.getFraction(i11, i11);
+                            super.onMeasure(i, i2);
+                            measuredWidth = getMeasuredWidth();
+                            int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(measuredWidth, 1073741824);
+                            if (!z2 && mode == Integer.MIN_VALUE) {
+                                if (!z) {
+                                    typedValue = this.mMinWidthMinor;
                                 } else {
-                                    i4 = 0;
-                                    if (i4 > 0) {
-                                        Rect rect3 = this.mDecorPadding;
-                                        i4 -= rect3.left + rect3.right;
-                                    }
-                                    if (measuredWidth < i4) {
-                                        makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(i4, 1073741824);
-                                        if (z2) {
-                                            super.onMeasure(makeMeasureSpec, i2);
+                                    typedValue = this.mMinWidthMajor;
+                                }
+                                if (typedValue != null && (i3 = typedValue.type) != 0) {
+                                    if (i3 != 5) {
+                                        fraction = typedValue.getDimension(displayMetrics);
+                                    } else if (i3 == 6) {
+                                        int i11 = displayMetrics.widthPixels;
+                                        fraction = typedValue.getFraction(i11, i11);
+                                    } else {
+                                        i4 = 0;
+                                        if (i4 > 0) {
+                                            Rect rect3 = this.mDecorPadding;
+                                            i4 -= rect3.left + rect3.right;
+                                        }
+                                        if (measuredWidth < i4) {
+                                            makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(i4, 1073741824);
+                                            if (z3) {
+                                                super.onMeasure(makeMeasureSpec, i2);
+                                                return;
+                                            }
                                             return;
                                         }
-                                        return;
+                                    }
+                                    i4 = (int) fraction;
+                                    if (i4 > 0) {
+                                    }
+                                    if (measuredWidth < i4) {
                                     }
                                 }
-                                i4 = (int) fraction;
-                                if (i4 > 0) {
-                                }
-                                if (measuredWidth < i4) {
-                                }
+                            }
+                            z3 = false;
+                            if (z3) {
                             }
                         }
-                        z2 = false;
-                        if (z2) {
-                        }
+                    }
+                    i8 = (int) fraction3;
+                    if (i8 > 0) {
                     }
                 }
-                i8 = (int) fraction3;
-                if (i8 > 0) {
+            }
+            z2 = false;
+            if (mode2 == Integer.MIN_VALUE) {
+            }
+            super.onMeasure(i, i2);
+            measuredWidth = getMeasuredWidth();
+            int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(measuredWidth, 1073741824);
+            if (!z2) {
+                if (!z) {
+                }
+                if (typedValue != null) {
+                    if (i3 != 5) {
+                    }
+                    i4 = (int) fraction;
+                    if (i4 > 0) {
+                    }
+                    if (measuredWidth < i4) {
+                    }
                 }
             }
-        }
-        z = false;
-        if (mode2 == Integer.MIN_VALUE) {
-        }
-        super.onMeasure(i, i2);
-        measuredWidth = getMeasuredWidth();
-        int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(measuredWidth, 1073741824);
-        if (!z) {
-            if (!z3) {
+            z3 = false;
+            if (z3) {
             }
-            if (typedValue != null) {
-                if (i3 != 5) {
-                }
-                i4 = (int) fraction;
-                if (i4 > 0) {
-                }
-                if (measuredWidth < i4) {
-                }
-            }
-        }
-        z2 = false;
-        if (z2) {
         }
     }
 
-    public void setAttachListener(OnAttachListener onAttachListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, onAttachListener) == null) {
-            this.mAttachListener = onAttachListener;
-        }
-    }
-
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void setDecorPadding(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048587, this, i, i2, i3, i4) == null) {
@@ -318,48 +373,5 @@ public class ContentFrameLayout extends FrameLayout {
                 requestLayout();
             }
         }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ContentFrameLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ContentFrameLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.mDecorPadding = new Rect();
     }
 }

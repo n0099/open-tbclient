@@ -15,8 +15,13 @@ public final class LimitingDispatcher extends ExecutorCoroutineDispatcher implem
     public final ExperimentalCoroutineDispatcher dispatcher;
     public final int parallelism;
     public final int taskMode;
-    public final ConcurrentLinkedQueue<Runnable> queue = new ConcurrentLinkedQueue<>();
+    public final ConcurrentLinkedQueue queue = new ConcurrentLinkedQueue();
     public volatile int inFlightTasks = 0;
+
+    @Override // kotlinx.coroutines.ExecutorCoroutineDispatcher
+    public Executor getExecutor() {
+        return this;
+    }
 
     public LimitingDispatcher(ExperimentalCoroutineDispatcher experimentalCoroutineDispatcher, int i, int i2) {
         this.dispatcher = experimentalCoroutineDispatcher;
@@ -24,17 +29,38 @@ public final class LimitingDispatcher extends ExecutorCoroutineDispatcher implem
         this.taskMode = i2;
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:6:0x0010  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    private final void dispatch(Runnable runnable, boolean z) {
+        while (inFlightTasks$FU.incrementAndGet(this) > this.parallelism) {
+            this.queue.add(runnable);
+            if (inFlightTasks$FU.decrementAndGet(this) >= this.parallelism || (runnable = (Runnable) this.queue.poll()) == null) {
+                return;
+            }
+            while (inFlightTasks$FU.incrementAndGet(this) > this.parallelism) {
+            }
+        }
+        this.dispatcher.dispatchWithContext$kotlinx_coroutines_core(runnable, this, z);
+    }
+
+    @Override // kotlinx.coroutines.CoroutineDispatcher
+    public void dispatchYield(CoroutineContext coroutineContext, Runnable runnable) {
+        dispatch(runnable, true);
+    }
+
     @Override // kotlinx.coroutines.scheduling.TaskContext
     public void afterTask() {
-        Runnable poll = this.queue.poll();
-        if (poll != null) {
-            this.dispatcher.dispatchWithContext$kotlinx_coroutines_core(poll, this, true);
+        Runnable runnable = (Runnable) this.queue.poll();
+        if (runnable != null) {
+            this.dispatcher.dispatchWithContext$kotlinx_coroutines_core(runnable, this, true);
             return;
         }
         inFlightTasks$FU.decrementAndGet(this);
-        Runnable poll2 = this.queue.poll();
-        if (poll2 != null) {
-            dispatch(poll2, true);
+        Runnable runnable2 = (Runnable) this.queue.poll();
+        if (runnable2 != null) {
+            dispatch(runnable2, true);
         }
     }
 
@@ -43,28 +69,8 @@ public final class LimitingDispatcher extends ExecutorCoroutineDispatcher implem
         throw new IllegalStateException("Close cannot be invoked on LimitingBlockingDispatcher".toString());
     }
 
-    @Override // kotlinx.coroutines.CoroutineDispatcher
-    public void dispatch(CoroutineContext coroutineContext, Runnable runnable) {
-        dispatch(runnable, false);
-    }
-
-    @Override // kotlinx.coroutines.CoroutineDispatcher
-    public void dispatchYield(CoroutineContext coroutineContext, Runnable runnable) {
-        dispatch(runnable, true);
-    }
-
-    @Override // java.util.concurrent.Executor
-    public void execute(Runnable runnable) {
-        dispatch(runnable, false);
-    }
-
     public final ExperimentalCoroutineDispatcher getDispatcher() {
         return this.dispatcher;
-    }
-
-    @Override // kotlinx.coroutines.ExecutorCoroutineDispatcher
-    public Executor getExecutor() {
-        return this;
     }
 
     public final int getParallelism() {
@@ -81,19 +87,13 @@ public final class LimitingDispatcher extends ExecutorCoroutineDispatcher implem
         return super.toString() + "[dispatcher = " + this.dispatcher + ']';
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:6:0x0010  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    private final void dispatch(Runnable runnable, boolean z) {
-        while (inFlightTasks$FU.incrementAndGet(this) > this.parallelism) {
-            this.queue.add(runnable);
-            if (inFlightTasks$FU.decrementAndGet(this) >= this.parallelism || (runnable = this.queue.poll()) == null) {
-                return;
-            }
-            while (inFlightTasks$FU.incrementAndGet(this) > this.parallelism) {
-            }
-        }
-        this.dispatcher.dispatchWithContext$kotlinx_coroutines_core(runnable, this, z);
+    @Override // kotlinx.coroutines.CoroutineDispatcher
+    public void dispatch(CoroutineContext coroutineContext, Runnable runnable) {
+        dispatch(runnable, false);
+    }
+
+    @Override // java.util.concurrent.Executor
+    public void execute(Runnable runnable) {
+        dispatch(runnable, false);
     }
 }

@@ -4,14 +4,18 @@ import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.airbnb.lottie.value.ScaleXY;
 import java.io.IOException;
 /* loaded from: classes.dex */
-public class ScaleXYParser implements ValueParser<ScaleXY> {
+public class ScaleXYParser implements ValueParser {
     public static final ScaleXYParser INSTANCE = new ScaleXYParser();
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.airbnb.lottie.parser.ValueParser
     public ScaleXY parse(JsonReader jsonReader, float f) throws IOException {
-        boolean z = jsonReader.peek() == JsonReader.Token.BEGIN_ARRAY;
+        boolean z;
+        if (jsonReader.peek() == JsonReader.Token.BEGIN_ARRAY) {
+            z = true;
+        } else {
+            z = false;
+        }
         if (z) {
             jsonReader.beginArray();
         }

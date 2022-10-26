@@ -14,6 +14,18 @@ public abstract class UnitedSchemeBaseInterceptor implements UnitedSchemeAbsInte
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract String getInterceptorName();
+
+    @Override // com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeAbsInterceptor
+    public boolean shouldInterceptDispatch(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler)) == null) {
+            return false;
+        }
+        return invokeLLL.booleanValue;
+    }
+
     public UnitedSchemeBaseInterceptor() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -26,17 +38,5 @@ public abstract class UnitedSchemeBaseInterceptor implements UnitedSchemeAbsInte
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    public abstract String getInterceptorName();
-
-    @Override // com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeAbsInterceptor
-    public boolean shouldInterceptDispatch(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler)) == null) {
-            return false;
-        }
-        return invokeLLL.booleanValue;
     }
 }

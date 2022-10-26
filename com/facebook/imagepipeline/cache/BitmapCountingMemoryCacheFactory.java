@@ -5,7 +5,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.cache.common.CacheKey;
 import com.facebook.common.internal.Supplier;
 import com.facebook.common.memory.MemoryTrimmableRegistry;
 import com.facebook.imagepipeline.cache.CountingMemoryCache;
@@ -31,17 +30,20 @@ public class BitmapCountingMemoryCacheFactory {
         }
     }
 
-    public static CountingMemoryCache<CacheKey, CloseableImage> get(Supplier<MemoryCacheParams> supplier, MemoryTrimmableRegistry memoryTrimmableRegistry, @Nullable CountingMemoryCache.EntryStateObserver<CacheKey> entryStateObserver) {
+    public static CountingMemoryCache get(Supplier supplier, MemoryTrimmableRegistry memoryTrimmableRegistry, @Nullable CountingMemoryCache.EntryStateObserver entryStateObserver) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, supplier, memoryTrimmableRegistry, entryStateObserver)) == null) ? get(supplier, memoryTrimmableRegistry, new BitmapMemoryCacheTrimStrategy(), entryStateObserver) : (CountingMemoryCache) invokeLLL.objValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, supplier, memoryTrimmableRegistry, entryStateObserver)) == null) {
+            return get(supplier, memoryTrimmableRegistry, new BitmapMemoryCacheTrimStrategy(), entryStateObserver);
+        }
+        return (CountingMemoryCache) invokeLLL.objValue;
     }
 
-    public static CountingMemoryCache<CacheKey, CloseableImage> get(Supplier<MemoryCacheParams> supplier, MemoryTrimmableRegistry memoryTrimmableRegistry, MemoryCache.CacheTrimStrategy cacheTrimStrategy, @Nullable CountingMemoryCache.EntryStateObserver<CacheKey> entryStateObserver) {
+    public static CountingMemoryCache get(Supplier supplier, MemoryTrimmableRegistry memoryTrimmableRegistry, MemoryCache.CacheTrimStrategy cacheTrimStrategy, @Nullable CountingMemoryCache.EntryStateObserver entryStateObserver) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, supplier, memoryTrimmableRegistry, cacheTrimStrategy, entryStateObserver)) == null) {
-            CountingMemoryCache<CacheKey, CloseableImage> countingMemoryCache = new CountingMemoryCache<>(new ValueDescriptor<CloseableImage>() { // from class: com.facebook.imagepipeline.cache.BitmapCountingMemoryCacheFactory.1
+            CountingMemoryCache countingMemoryCache = new CountingMemoryCache(new ValueDescriptor() { // from class: com.facebook.imagepipeline.cache.BitmapCountingMemoryCacheFactory.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -64,7 +66,10 @@ public class BitmapCountingMemoryCacheFactory {
                 public int getSizeInBytes(CloseableImage closeableImage) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, closeableImage)) == null) ? closeableImage.getSizeInBytes() : invokeL.intValue;
+                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, closeableImage)) == null) {
+                        return closeableImage.getSizeInBytes();
+                    }
+                    return invokeL.intValue;
                 }
             }, cacheTrimStrategy, supplier, entryStateObserver);
             memoryTrimmableRegistry.registerMemoryTrimmable(countingMemoryCache);

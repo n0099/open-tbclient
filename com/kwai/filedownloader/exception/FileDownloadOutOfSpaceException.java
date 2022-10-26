@@ -1,6 +1,5 @@
 package com.kwai.filedownloader.exception;
 
-import android.annotation.TargetApi;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -39,7 +38,6 @@ public class FileDownloadOutOfSpaceException extends IOException {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    @TargetApi(9)
     public FileDownloadOutOfSpaceException(long j, long j2, long j3, Throwable th) {
         super(f.h("The file is too large to store, breakpoint in bytes:  %d, required space in bytes: %d, but free space in bytes: %d", Long.valueOf(j3), Long.valueOf(j2), Long.valueOf(j)), th);
         Interceptable interceptable = $ic;

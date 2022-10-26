@@ -4,8 +4,6 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.view.TextureView;
 import android.view.View;
-import androidx.annotation.MainThread;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,12 +35,12 @@ public final class a extends com.kwad.components.ad.h.a implements b {
     public KsVideoPlayConfig mVideoPlayConfig;
     public VideoPlayerStatus mVideoPlayerStatus;
     public String uf;
-    public final List<h.a> uj;
+    public final List uj;
     public h.a uk;
     public boolean zJ;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a(@NonNull AdTemplate adTemplate, @NonNull DetailVideoView detailVideoView, KsVideoPlayConfig ksVideoPlayConfig) {
+    public a(AdTemplate adTemplate, DetailVideoView detailVideoView, KsVideoPlayConfig ksVideoPlayConfig) {
         super(adTemplate, detailVideoView);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -168,7 +166,6 @@ public final class a extends com.kwad.components.ad.h.a implements b {
         }
     }
 
-    @MainThread
     public final void a(g gVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, gVar) == null) || gVar == null) {
@@ -207,7 +204,6 @@ public final class a extends com.kwad.components.ad.h.a implements b {
         }
     }
 
-    @MainThread
     public final void b(g gVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048581, this, gVar) == null) || gVar == null) {
@@ -266,7 +262,6 @@ public final class a extends com.kwad.components.ad.h.a implements b {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mDetailVideoView.Kb : (TextureView) invokeV.objValue;
     }
 
-    @MainThread
     public final void kz() {
         com.kwad.components.core.video.b bVar;
         Interceptable interceptable = $ic;
@@ -285,7 +280,6 @@ public final class a extends com.kwad.components.ad.h.a implements b {
     }
 
     @Override // com.kwad.components.ad.h.a
-    @MainThread
     public final void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {

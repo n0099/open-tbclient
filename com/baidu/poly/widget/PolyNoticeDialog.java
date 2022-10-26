@@ -37,6 +37,13 @@ public class PolyNoticeDialog extends BaseDialogFragment implements View.OnClick
         void onOptionClick(int i);
     }
 
+    @Override // com.baidu.poly.widget.BaseDialogFragment
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d073e : invokeV.intValue;
+    }
+
     public PolyNoticeDialog() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -51,11 +58,21 @@ public class PolyNoticeDialog extends BaseDialogFragment implements View.OnClick
         }
     }
 
-    @Override // com.baidu.poly.widget.BaseDialogFragment
-    public int a() {
-        InterceptResult invokeV;
+    public void h() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d073e : invokeV.intValue;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.c.setVisibility(0);
+            this.c.startAnimation(AnimationUtils.loadAnimation(this.c.getContext(), R.anim.obfuscated_res_0x7f010098));
+        }
+    }
+
+    public void i() {
+        ImageView imageView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (imageView = this.c) != null) {
+            imageView.clearAnimation();
+            this.c.setVisibility(8);
+        }
     }
 
     public void b(String str, String str2) {
@@ -78,10 +95,9 @@ public class PolyNoticeDialog extends BaseDialogFragment implements View.OnClick
     public void d(boolean z) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (textView = this.g) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeZ(1048579, this, z) == null) && (textView = this.g) != null) {
+            textView.setEnabled(z);
         }
-        textView.setEnabled(z);
     }
 
     public void e(String str) {
@@ -96,10 +112,9 @@ public class PolyNoticeDialog extends BaseDialogFragment implements View.OnClick
     public void f(String str) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || (textView = this.b) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && (textView = this.b) != null) {
+            textView.setText(str);
         }
-        textView.setText(str);
     }
 
     public void g(String str) {
@@ -109,32 +124,13 @@ public class PolyNoticeDialog extends BaseDialogFragment implements View.OnClick
         }
     }
 
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.c.setVisibility(0);
-            this.c.startAnimation(AnimationUtils.loadAnimation(this.c.getContext(), R.anim.obfuscated_res_0x7f010098));
-        }
-    }
-
-    public void i() {
-        ImageView imageView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (imageView = this.c) == null) {
-            return;
-        }
-        imageView.clearAnimation();
-        this.c.setVisibility(8);
-    }
-
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, view2) == null) || (aVar = this.h) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048585, this, view2) == null) && (aVar = this.h) != null) {
+            aVar.onOptionClick(view2.getId());
         }
-        aVar.onOptionClick(view2.getId());
     }
 
     @Override // android.app.DialogFragment, android.content.DialogInterface.OnDismissListener
@@ -154,13 +150,13 @@ public class PolyNoticeDialog extends BaseDialogFragment implements View.OnClick
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048587, this, view2, bundle) == null) {
             super.onViewCreated(view2, bundle);
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a0a);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a09);
-            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091a06);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a08);
-            this.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091a04);
-            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a05);
-            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a07);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a06);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a05);
+            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091a02);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a04);
+            this.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091a00);
+            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a01);
+            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a03);
             this.d.setOnClickListener(this);
             this.f.setOnClickListener(this);
             this.g.setOnClickListener(this);

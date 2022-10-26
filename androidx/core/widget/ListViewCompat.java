@@ -3,7 +3,6 @@ package androidx.core.widget;
 import android.os.Build;
 import android.view.View;
 import android.widget.ListView;
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,7 +27,7 @@ public final class ListViewCompat {
         }
     }
 
-    public static boolean canScrollList(@NonNull ListView listView, int i) {
+    public static boolean canScrollList(ListView listView, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, listView, i)) == null) {
@@ -41,14 +40,22 @@ public final class ListViewCompat {
             }
             int firstVisiblePosition = listView.getFirstVisiblePosition();
             if (i > 0) {
-                return firstVisiblePosition + childCount < listView.getCount() || listView.getChildAt(childCount + (-1)).getBottom() > listView.getHeight() - listView.getListPaddingBottom();
+                int bottom = listView.getChildAt(childCount - 1).getBottom();
+                if (firstVisiblePosition + childCount >= listView.getCount() && bottom <= listView.getHeight() - listView.getListPaddingBottom()) {
+                    return false;
+                }
+                return true;
             }
-            return firstVisiblePosition > 0 || listView.getChildAt(0).getTop() < listView.getListPaddingTop();
+            int top = listView.getChildAt(0).getTop();
+            if (firstVisiblePosition <= 0 && top >= listView.getListPaddingTop()) {
+                return false;
+            }
+            return true;
         }
         return invokeLI.booleanValue;
     }
 
-    public static void scrollListBy(@NonNull ListView listView, int i) {
+    public static void scrollListBy(ListView listView, int i) {
         View childAt;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65538, null, listView, i) == null) {

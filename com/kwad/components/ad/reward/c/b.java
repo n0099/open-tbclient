@@ -1,6 +1,5 @@
 package com.kwad.components.ad.reward.c;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,6 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes7.dex */
 public final class b {
@@ -17,7 +17,7 @@ public final class b {
     public Object oR;
     public AdTemplate oS;
 
-    public b(@NonNull AdTemplate adTemplate, int i) {
+    public b(AdTemplate adTemplate, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -40,13 +40,14 @@ public final class b {
         }
     }
 
-    public static List<AdTemplate> f(List<b> list) {
+    public static List f(List list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
             ArrayList arrayList = new ArrayList();
-            for (b bVar : list) {
-                arrayList.add(bVar.getAdTemplate());
+            Iterator it = list.iterator();
+            while (it.hasNext()) {
+                arrayList.add(((b) it.next()).getAdTemplate());
             }
             return arrayList;
         }

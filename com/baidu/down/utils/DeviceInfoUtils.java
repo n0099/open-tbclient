@@ -66,7 +66,13 @@ public final class DeviceInfoUtils {
                     public boolean accept(File file) {
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, file)) == null) ? Pattern.matches("cpu[0-9]", file.getName()) : invokeL.booleanValue;
+                        if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, file)) == null) {
+                            if (Pattern.matches("cpu[0-9]", file.getName())) {
+                                return true;
+                            }
+                            return false;
+                        }
+                        return invokeL.booleanValue;
                     }
                 }).length;
             } catch (Exception unused) {
@@ -114,40 +120,54 @@ public final class DeviceInfoUtils {
         BufferedReader bufferedReader;
         Throwable th;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(65539, null)) != null) {
-            return invokeV.longValue;
-        }
-        BufferedReader bufferedReader2 = null;
-        try {
-            bufferedReader = new BufferedReader(new InputStreamReader(new ProcessBuilder("/system/bin/cat", "/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq").start().getInputStream()));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            BufferedReader bufferedReader2 = null;
             try {
-                long parseLong = Long.parseLong(bufferedReader.readLine());
+                bufferedReader = new BufferedReader(new InputStreamReader(new ProcessBuilder("/system/bin/cat", "/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq").start().getInputStream()));
                 try {
-                    bufferedReader.close();
-                    return parseLong;
-                } catch (IOException unused) {
-                    return parseLong;
-                }
-            } catch (IOException unused2) {
-                bufferedReader2 = bufferedReader;
-            } catch (NumberFormatException unused3) {
-                bufferedReader2 = bufferedReader;
-            } catch (Throwable th2) {
-                th = th2;
-                if (bufferedReader != null) {
+                    long parseLong = Long.parseLong(bufferedReader.readLine());
                     try {
                         bufferedReader.close();
-                    } catch (IOException unused4) {
+                        return parseLong;
+                    } catch (IOException unused) {
+                        return parseLong;
                     }
+                } catch (IOException unused2) {
+                    bufferedReader2 = bufferedReader;
+                } catch (NumberFormatException unused3) {
+                    bufferedReader2 = bufferedReader;
+                } catch (Throwable th2) {
+                    th = th2;
+                    if (bufferedReader != null) {
+                        try {
+                            bufferedReader.close();
+                        } catch (IOException unused4) {
+                        }
+                    }
+                    throw th;
                 }
-                throw th;
+            } catch (IOException unused5) {
+            } catch (NumberFormatException unused6) {
+            } catch (Throwable th3) {
+                bufferedReader = null;
+                th = th3;
             }
-        } catch (IOException unused5) {
-        } catch (NumberFormatException unused6) {
-        } catch (Throwable th3) {
-            bufferedReader = null;
-            th = th3;
+        } else {
+            return invokeV.longValue;
         }
+    }
+
+    public static String getCut() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            String str = Build.MODEL;
+            String str2 = Build.VERSION.RELEASE;
+            int i = Build.VERSION.SDK_INT;
+            String str3 = Build.MANUFACTURER;
+            return str.replace("_", "-") + "_" + str2.replace("_", "-") + "_" + i + "_" + str3.replace("_", "-");
+        }
+        return (String) invokeV.objValue;
     }
 
     public static long getCpuFreqWithCache(Context context) {
@@ -166,18 +186,5 @@ public final class DeviceInfoUtils {
             return j;
         }
         return invokeL.longValue;
-    }
-
-    public static String getCut() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            String str = Build.MODEL;
-            String str2 = Build.VERSION.RELEASE;
-            int i = Build.VERSION.SDK_INT;
-            String str3 = Build.MANUFACTURER;
-            return str.replace("_", "-") + "_" + str2.replace("_", "-") + "_" + i + "_" + str3.replace("_", "-");
-        }
-        return (String) invokeV.objValue;
     }
 }

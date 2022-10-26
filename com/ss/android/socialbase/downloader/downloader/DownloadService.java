@@ -11,20 +11,6 @@ public class DownloadService extends Service {
     public o a;
 
     @Override // android.app.Service
-    public IBinder onBind(Intent intent) {
-        String str = b;
-        StringBuilder sb = new StringBuilder();
-        sb.append("onBind downloadServiceHandler != null:");
-        sb.append(this.a != null);
-        com.ss.android.socialbase.downloader.c.a.b(str, sb.toString());
-        o oVar = this.a;
-        if (oVar != null) {
-            return oVar.a(intent);
-        }
-        return null;
-    }
-
-    @Override // android.app.Service
     public void onCreate() {
         super.onCreate();
         c.a(this);
@@ -47,6 +33,26 @@ public class DownloadService extends Service {
     }
 
     @Override // android.app.Service
+    public IBinder onBind(Intent intent) {
+        boolean z;
+        String str = b;
+        StringBuilder sb = new StringBuilder();
+        sb.append("onBind downloadServiceHandler != null:");
+        if (this.a != null) {
+            z = true;
+        } else {
+            z = false;
+        }
+        sb.append(z);
+        com.ss.android.socialbase.downloader.c.a.b(str, sb.toString());
+        o oVar = this.a;
+        if (oVar != null) {
+            return oVar.a(intent);
+        }
+        return null;
+    }
+
+    @Override // android.app.Service
     public int onStartCommand(final Intent intent, final int i, final int i2) {
         if (com.ss.android.socialbase.downloader.c.a.a()) {
             com.ss.android.socialbase.downloader.c.a.b(b, "DownloadService onStartCommand");
@@ -64,6 +70,9 @@ public class DownloadService extends Service {
                 }
             });
         }
-        return c.j() ? 2 : 3;
+        if (c.j()) {
+            return 2;
+        }
+        return 3;
     }
 }

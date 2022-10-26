@@ -7,16 +7,16 @@ import android.view.View;
 import com.airbnb.lottie.L;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.breathetip.tipview.BreatheTipView;
-import com.baidu.tieba.gh;
-import com.baidu.tieba.gy4;
-import com.baidu.tieba.hy4;
-import com.baidu.tieba.iy4;
-import com.baidu.tieba.jy4;
-import com.baidu.tieba.ky4;
-import com.baidu.tieba.ly4;
-import com.baidu.tieba.uf;
+import com.baidu.tieba.hh;
+import com.baidu.tieba.my4;
+import com.baidu.tieba.ny4;
+import com.baidu.tieba.oy4;
+import com.baidu.tieba.py4;
+import com.baidu.tieba.qy4;
+import com.baidu.tieba.ry4;
 import com.baidu.tieba.vf;
 import com.baidu.tieba.wf;
+import com.baidu.tieba.xf;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,16 +30,31 @@ public class BreatheTipWidget {
     public static boolean h;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
-    public vf b;
-    public ky4 c;
+    public wf b;
+    public qy4 c;
     public BreatheTipView d;
     public View e;
-    public ly4 f;
+    public ry4 f;
     public final Runnable g;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-2019225915, "Lcom/baidu/tbadk/core/view/breathetip/BreatheTipWidget;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-2019225915, "Lcom/baidu/tbadk/core/view/breathetip/BreatheTipWidget;");
+        }
+    }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
-    public static final class PointType {
+    public final class PointType {
         public static final /* synthetic */ PointType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final PointType DRAWABLE;
@@ -87,13 +102,19 @@ public class BreatheTipWidget {
         public static PointType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (PointType) Enum.valueOf(PointType.class, str) : (PointType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (PointType) Enum.valueOf(PointType.class, str);
+            }
+            return (PointType) invokeL.objValue;
         }
 
         public static PointType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PointType[]) $VALUES.clone() : (PointType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (PointType[]) $VALUES.clone();
+            }
+            return (PointType[]) invokeV.objValue;
         }
     }
 
@@ -131,7 +152,7 @@ public class BreatheTipWidget {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements wf.a {
+    public class b implements xf.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BreatheTipWidget a;
@@ -154,7 +175,7 @@ public class BreatheTipWidget {
             this.a = breatheTipWidget;
         }
 
-        @Override // com.baidu.tieba.wf.a
+        @Override // com.baidu.tieba.xf.a
         public void onDismiss() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -163,7 +184,7 @@ public class BreatheTipWidget {
             }
         }
 
-        @Override // com.baidu.tieba.wf.a
+        @Override // com.baidu.tieba.xf.a
         public void onShown() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -173,7 +194,7 @@ public class BreatheTipWidget {
     }
 
     /* loaded from: classes3.dex */
-    public class c implements uf {
+    public class c implements vf {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BreatheTipWidget a;
@@ -196,33 +217,7 @@ public class BreatheTipWidget {
             this.a = breatheTipWidget;
         }
 
-        @Override // com.baidu.tieba.uf
-        public int a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.a.f != null) {
-                    return this.a.f.c();
-                }
-                return 0;
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // com.baidu.tieba.uf
-        public int b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (this.a.f != null) {
-                    return this.a.f.d();
-                }
-                return 0;
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // com.baidu.tieba.uf
+        @Override // com.baidu.tieba.vf
         public View c(LayoutInflater layoutInflater) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -235,7 +230,33 @@ public class BreatheTipWidget {
             return (View) invokeL.objValue;
         }
 
-        @Override // com.baidu.tieba.uf
+        @Override // com.baidu.tieba.vf
+        public int a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.a.f != null) {
+                    return this.a.f.c();
+                }
+                return 0;
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // com.baidu.tieba.vf
+        public int b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (this.a.f != null) {
+                    return this.a.f.d();
+                }
+                return 0;
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // com.baidu.tieba.vf
         public int getXOffset() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -248,7 +269,7 @@ public class BreatheTipWidget {
             return invokeV.intValue;
         }
 
-        @Override // com.baidu.tieba.uf
+        @Override // com.baidu.tieba.vf
         public int getYOffset() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -259,21 +280,6 @@ public class BreatheTipWidget {
                 return 0;
             }
             return invokeV.intValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-2019225915, "Lcom/baidu/tbadk/core/view/breathetip/BreatheTipWidget;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-2019225915, "Lcom/baidu/tbadk/core/view/breathetip/BreatheTipWidget;");
         }
     }
 
@@ -296,49 +302,6 @@ public class BreatheTipWidget {
         this.a = context;
     }
 
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? h : invokeV.booleanValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            vf vfVar = this.b;
-            if (vfVar != null) {
-                vfVar.d();
-            }
-            gh.a().removeCallbacks(this.g);
-        }
-    }
-
-    public BreatheTipWidget f(hy4 hy4Var, gy4 gy4Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hy4Var, gy4Var)) == null) {
-            PointType pointType = gy4Var.a;
-            if (pointType == PointType.LOTTIE) {
-                this.c = new iy4(this.a);
-            } else if (pointType == PointType.DRAWABLE) {
-                this.c = new jy4(this.a);
-            }
-            if (this.d == null) {
-                this.d = new BreatheTipView(this.a);
-            }
-            ky4 ky4Var = this.c;
-            if (ky4Var != null) {
-                ky4Var.a(gy4Var);
-            }
-            BreatheTipView breatheTipView = this.d;
-            if (breatheTipView != null) {
-                breatheTipView.setData(hy4Var);
-            }
-            return this;
-        }
-        return (BreatheTipWidget) invokeLL.objValue;
-    }
-
     public BreatheTipWidget g(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -349,6 +312,52 @@ public class BreatheTipWidget {
         return (BreatheTipWidget) invokeL.objValue;
     }
 
+    public static boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return h;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            wf wfVar = this.b;
+            if (wfVar != null) {
+                wfVar.d();
+            }
+            hh.a().removeCallbacks(this.g);
+        }
+    }
+
+    public BreatheTipWidget f(ny4 ny4Var, my4 my4Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ny4Var, my4Var)) == null) {
+            PointType pointType = my4Var.a;
+            if (pointType == PointType.LOTTIE) {
+                this.c = new oy4(this.a);
+            } else if (pointType == PointType.DRAWABLE) {
+                this.c = new py4(this.a);
+            }
+            if (this.d == null) {
+                this.d = new BreatheTipView(this.a);
+            }
+            qy4 qy4Var = this.c;
+            if (qy4Var != null) {
+                qy4Var.a(my4Var);
+            }
+            BreatheTipView breatheTipView = this.d;
+            if (breatheTipView != null) {
+                breatheTipView.setData(ny4Var);
+            }
+            return this;
+        }
+        return (BreatheTipWidget) invokeLL.objValue;
+    }
+
     public boolean h(Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -357,23 +366,23 @@ public class BreatheTipWidget {
                 return false;
             }
             h = true;
-            ly4 ly4Var = new ly4();
-            this.f = ly4Var;
-            ly4Var.h(this.d, this.c, this.e);
-            wf wfVar = new wf();
-            wfVar.c(0);
-            wfVar.k(this.e);
-            wfVar.i(true);
-            wfVar.j(true);
-            wfVar.d(true);
-            wfVar.h(new b(this));
-            wfVar.a(new c(this));
-            vf b2 = wfVar.b();
+            ry4 ry4Var = new ry4();
+            this.f = ry4Var;
+            ry4Var.h(this.d, this.c, this.e);
+            xf xfVar = new xf();
+            xfVar.c(0);
+            xfVar.k(this.e);
+            xfVar.i(true);
+            xfVar.j(true);
+            xfVar.d(true);
+            xfVar.h(new b(this));
+            xfVar.a(new c(this));
+            wf b2 = xfVar.b();
             this.b = b2;
             b2.k(false);
             this.b.l(true);
             this.b.n(activity, false);
-            gh.a().postDelayed(this.g, 4000L);
+            hh.a().postDelayed(this.g, 4000L);
             return true;
         }
         return invokeL.booleanValue;

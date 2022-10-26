@@ -1,6 +1,5 @@
 package com.baidu.location;
 
-import android.annotation.SuppressLint;
 import android.app.Notification;
 import android.app.Service;
 import android.content.Context;
@@ -132,7 +131,6 @@ public class f extends Service {
     }
 
     @Override // android.app.Service
-    @SuppressLint({"NewApi"})
     public void onCreate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {

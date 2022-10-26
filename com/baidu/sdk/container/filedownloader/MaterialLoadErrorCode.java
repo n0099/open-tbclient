@@ -71,24 +71,36 @@ public final class MaterialLoadErrorCode {
     public static MaterialLoadErrorCode valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (MaterialLoadErrorCode) Enum.valueOf(MaterialLoadErrorCode.class, str) : (MaterialLoadErrorCode) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (MaterialLoadErrorCode) Enum.valueOf(MaterialLoadErrorCode.class, str);
+        }
+        return (MaterialLoadErrorCode) invokeL.objValue;
     }
 
     public static MaterialLoadErrorCode[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (MaterialLoadErrorCode[]) $VALUES.clone() : (MaterialLoadErrorCode[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (MaterialLoadErrorCode[]) $VALUES.clone();
+        }
+        return (MaterialLoadErrorCode[]) invokeV.objValue;
     }
 
     public int getCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.code : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.code;
+        }
+        return invokeV.intValue;
     }
 
     public String getMessage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.msg : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.msg;
+        }
+        return (String) invokeV.objValue;
     }
 }

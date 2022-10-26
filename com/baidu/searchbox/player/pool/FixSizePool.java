@@ -1,22 +1,21 @@
 package com.baidu.searchbox.player.pool;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.player.pool.IPoolItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public abstract class FixSizePool<T extends IPoolItem> implements IPool<T> {
+public abstract class FixSizePool implements IPool {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_SIZE = 2;
     public static final String TAG = "FixSizePool";
     public transient /* synthetic */ FieldHolder $fh;
     public final Object[] mPool;
     public int mPoolSize;
+
+    public abstract IPoolItem createItem();
 
     public FixSizePool(int i) {
         Interceptable interceptable = $ic;
@@ -36,12 +35,12 @@ public abstract class FixSizePool<T extends IPoolItem> implements IPool<T> {
         this.mPool = new Object[i <= 0 ? 2 : i];
     }
 
-    private boolean isInPool(T t) {
+    private boolean isInPool(IPoolItem iPoolItem) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, t)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, iPoolItem)) == null) {
             for (int i = 0; i < this.mPoolSize; i++) {
-                if (this.mPool[i] == t) {
+                if (this.mPool[i] == iPoolItem) {
                     return true;
                 }
             }
@@ -50,59 +49,53 @@ public abstract class FixSizePool<T extends IPoolItem> implements IPool<T> {
         return invokeL.booleanValue;
     }
 
-    public abstract T createItem();
-
-    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.searchbox.player.pool.FixSizePool<T extends com.baidu.searchbox.player.pool.IPoolItem> */
-    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.player.pool.IPool
-    public /* bridge */ /* synthetic */ void release(@NonNull Object obj) {
-        release((FixSizePool<T>) ((IPoolItem) obj));
+    public IPoolItem acquire(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return acquire();
+        }
+        return (IPoolItem) invokeL.objValue;
     }
 
-    public void release(@NonNull T t) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.player.pool.IPool
+    public void release(IPoolItem iPoolItem) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, t) == null) || isInPool(t)) {
+        if ((interceptable != null && interceptable.invokeL(1048581, this, iPoolItem) != null) || isInPool(iPoolItem)) {
             return;
         }
         int i = this.mPoolSize;
         Object[] objArr = this.mPool;
         if (i < objArr.length) {
-            objArr[i] = t;
+            objArr[i] = iPoolItem;
             this.mPoolSize = i + 1;
         }
-        t.onRelease();
+        iPoolItem.onRelease();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.player.pool.IPool
-    @NonNull
-    public T acquire() {
+    public IPoolItem acquire() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             int i = this.mPoolSize;
             if (i <= 0) {
-                T createItem = createItem();
+                IPoolItem createItem = createItem();
                 createItem.onInit();
                 return createItem;
             }
             int i2 = i - 1;
             Object[] objArr = this.mPool;
-            T t = (T) objArr[i2];
+            IPoolItem iPoolItem = (IPoolItem) objArr[i2];
             objArr[i2] = null;
             this.mPoolSize = i - 1;
-            t.onInit();
-            return t;
+            iPoolItem.onInit();
+            return iPoolItem;
         }
-        return (T) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.searchbox.player.pool.IPool
-    @Nullable
-    public T acquire(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? acquire() : (T) invokeL.objValue;
+        return (IPoolItem) invokeV.objValue;
     }
 }

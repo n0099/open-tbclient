@@ -1,8 +1,5 @@
 package com.kwad.components.core.webview.jshandler;
 
-import android.annotation.SuppressLint;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -26,7 +23,7 @@ public class s implements com.kwad.sdk.core.webview.kwai.a {
     }
 
     /* loaded from: classes7.dex */
-    public static final class b implements com.kwad.sdk.core.b {
+    public final class b implements com.kwad.sdk.core.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int Mm;
@@ -49,7 +46,7 @@ public class s implements com.kwad.sdk.core.webview.kwai.a {
         }
 
         @Override // com.kwad.sdk.core.b
-        public final void parseJson(@Nullable JSONObject jSONObject) {
+        public final void parseJson(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
                 return;
@@ -103,8 +100,7 @@ public class s implements com.kwad.sdk.core.webview.kwai.a {
         this.Lk = bVar;
     }
 
-    @SuppressLint({"SwitchIntDef"})
-    private void a(@NonNull b bVar) {
+    private void a(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, bVar) == null) {
             com.kwad.sdk.core.e.b.d("WebCardLogHandler", "handleH5Log actionType actionType" + bVar.Mm);
@@ -138,7 +134,7 @@ public class s implements com.kwad.sdk.core.webview.kwai.a {
         }
     }
 
-    private AdTemplate b(@NonNull b bVar) {
+    private AdTemplate b(b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65538, this, bVar)) == null) ? bVar.adTemplate != null ? bVar.adTemplate : this.Lk.getAdTemplate() : (AdTemplate) invokeL.objValue;
@@ -158,7 +154,7 @@ public class s implements com.kwad.sdk.core.webview.kwai.a {
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
-    public final void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
+    public final void a(String str, com.kwad.sdk.core.webview.kwai.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, cVar) == null) {
             if (this.Lk.wh()) {
@@ -177,7 +173,6 @@ public class s implements com.kwad.sdk.core.webview.kwai.a {
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
-    @NonNull
     public final String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

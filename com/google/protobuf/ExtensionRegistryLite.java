@@ -19,10 +19,10 @@ public class ExtensionRegistryLite {
     public static final ExtensionRegistryLite EMPTY;
     public static volatile boolean eagerlyParseMessageSets;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<ObjectIntPair, GeneratedMessageLite.GeneratedExtension<?, ?>> extensionsByNumber;
+    public final Map extensionsByNumber;
 
     /* loaded from: classes7.dex */
-    public static final class ObjectIntPair {
+    public final class ObjectIntPair {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int number;
@@ -51,11 +51,14 @@ public class ExtensionRegistryLite {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-                if (obj instanceof ObjectIntPair) {
-                    ObjectIntPair objectIntPair = (ObjectIntPair) obj;
-                    return this.object == objectIntPair.object && this.number == objectIntPair.number;
+                if (!(obj instanceof ObjectIntPair)) {
+                    return false;
                 }
-                return false;
+                ObjectIntPair objectIntPair = (ObjectIntPair) obj;
+                if (this.object != objectIntPair.object || this.number != objectIntPair.number) {
+                    return false;
+                }
+                return true;
             }
             return invokeL.booleanValue;
         }
@@ -63,7 +66,10 @@ public class ExtensionRegistryLite {
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (System.identityHashCode(this.object) * 65535) + this.number : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return (System.identityHashCode(this.object) * 65535) + this.number;
+            }
+            return invokeV.intValue;
         }
     }
 
@@ -102,45 +108,37 @@ public class ExtensionRegistryLite {
     public static ExtensionRegistryLite getEmptyRegistry() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? EMPTY : (ExtensionRegistryLite) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return EMPTY;
+        }
+        return (ExtensionRegistryLite) invokeV.objValue;
     }
 
     public static boolean isEagerlyParseMessageSets() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? eagerlyParseMessageSets : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return eagerlyParseMessageSets;
+        }
+        return invokeV.booleanValue;
     }
 
     public static ExtensionRegistryLite newInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? new ExtensionRegistryLite() : (ExtensionRegistryLite) invokeV.objValue;
-    }
-
-    public static void setEagerlyParseMessageSets(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65543, null, z) == null) {
-            eagerlyParseMessageSets = z;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return new ExtensionRegistryLite();
         }
-    }
-
-    public final void add(GeneratedMessageLite.GeneratedExtension<?, ?> generatedExtension) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, generatedExtension) == null) {
-            this.extensionsByNumber.put(new ObjectIntPair(generatedExtension.getContainingTypeDefaultInstance(), generatedExtension.getNumber()), generatedExtension);
-        }
-    }
-
-    public <ContainingType extends MessageLite> GeneratedMessageLite.GeneratedExtension<ContainingType, ?> findLiteExtensionByNumber(ContainingType containingtype, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, containingtype, i)) == null) ? (GeneratedMessageLite.GeneratedExtension<ContainingType, ?>) this.extensionsByNumber.get(new ObjectIntPair(containingtype, i)) : (GeneratedMessageLite.GeneratedExtension) invokeLI.objValue;
+        return (ExtensionRegistryLite) invokeV.objValue;
     }
 
     public ExtensionRegistryLite getUnmodifiable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new ExtensionRegistryLite(this) : (ExtensionRegistryLite) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return new ExtensionRegistryLite(this);
+        }
+        return (ExtensionRegistryLite) invokeV.objValue;
     }
 
     public ExtensionRegistryLite(ExtensionRegistryLite extensionRegistryLite) {
@@ -181,5 +179,28 @@ public class ExtensionRegistryLite {
             }
         }
         this.extensionsByNumber = Collections.emptyMap();
+    }
+
+    public static void setEagerlyParseMessageSets(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65543, null, z) == null) {
+            eagerlyParseMessageSets = z;
+        }
+    }
+
+    public final void add(GeneratedMessageLite.GeneratedExtension generatedExtension) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, generatedExtension) == null) {
+            this.extensionsByNumber.put(new ObjectIntPair(generatedExtension.getContainingTypeDefaultInstance(), generatedExtension.getNumber()), generatedExtension);
+        }
+    }
+
+    public GeneratedMessageLite.GeneratedExtension findLiteExtensionByNumber(MessageLite messageLite, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, messageLite, i)) == null) {
+            return (GeneratedMessageLite.GeneratedExtension) this.extensionsByNumber.get(new ObjectIntPair(messageLite, i));
+        }
+        return (GeneratedMessageLite.GeneratedExtension) invokeLI.objValue;
     }
 }

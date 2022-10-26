@@ -36,18 +36,24 @@ public class PushStatusData implements Serializable {
     public List<PushTypeData> getPushTypeDatas() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mPushTypeDatas : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mPushTypeDatas;
+        }
+        return (List) invokeV.objValue;
     }
 
     public int getStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mStatus : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mStatus;
+        }
+        return invokeV.intValue;
     }
 
     public void parserProtobuf(PushStatus pushStatus) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pushStatus) == null) || pushStatus == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pushStatus) != null) || pushStatus == null) {
             return;
         }
         this.mStatus = pushStatus.status.intValue();

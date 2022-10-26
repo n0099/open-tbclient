@@ -9,7 +9,7 @@ public interface IBundleInfo {
 
     String getDependence();
 
-    List<String> getDependency();
+    List getDependency();
 
     String getDescription();
 
@@ -45,7 +45,7 @@ public interface IBundleInfo {
 
     long getSize();
 
-    List<SubBundleInfo> getSubBundle();
+    List getSubBundle();
 
     int getType();
 
@@ -76,7 +76,7 @@ public interface IBundleInfo {
     @Deprecated
     void setDependence(String str);
 
-    void setDependency(List<String> list);
+    void setDependency(List list);
 
     void setDescription(String str);
 
@@ -118,7 +118,7 @@ public interface IBundleInfo {
 
     void setSize(long j);
 
-    void setSubBundle(List<SubBundleInfo> list);
+    void setSubBundle(List list);
 
     void setType(int i);
 

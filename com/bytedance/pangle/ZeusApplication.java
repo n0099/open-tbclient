@@ -2,19 +2,23 @@ package com.bytedance.pangle;
 
 import android.app.Application;
 import android.content.Context;
-import androidx.annotation.Keep;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.pangle.plugin.Plugin;
-@Keep
 /* loaded from: classes7.dex */
 public class ZeusApplication extends PluginContext {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Application mHostApplication;
+
+    public void onCreate() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
 
     public ZeusApplication() {
         Interceptable interceptable = $ic;
@@ -45,12 +49,6 @@ public class ZeusApplication extends PluginContext {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             super.attachBaseContext(context);
-        }
-    }
-
-    public void onCreate() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
     }
 }

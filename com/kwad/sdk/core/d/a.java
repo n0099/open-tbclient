@@ -1,7 +1,6 @@
 package com.kwad.sdk.core.d;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
 import com.baidu.livesdk.sdk.service.IMLikeRequest;
 import com.kwad.sdk.core.e.b;
 import com.kwad.sdk.core.request.model.f;
@@ -29,7 +28,7 @@ public class a {
         context.getSharedPreferences("ksadsdk_local_ad_task_info", 0).edit().putInt("reward_aggregation_max_per_day", i).putLong("reward_aggregation_min_interval", j).apply();
     }
 
-    public static boolean a(@NonNull f fVar) {
+    public static boolean a(f fVar) {
         long j = fVar.acW;
         if (j <= 0) {
             return false;
@@ -37,8 +36,7 @@ public class a {
         return EB.format(new Date(j)).equals(EB.format(new Date()));
     }
 
-    @NonNull
-    public static List<f> aA(int i) {
+    public static List aA(int i) {
         ArrayList arrayList = new ArrayList();
         List<f> ts = ts();
         if (ts != null && ts.size() != 0) {
@@ -113,7 +111,7 @@ public class a {
         return XK;
     }
 
-    public static List<f> ts() {
+    public static List ts() {
         if (((d) ServiceProvider.get(d.class)).getContext() == null) {
             return null;
         }

@@ -19,7 +19,13 @@ public final class PersonalizedResIdl extends Message {
     public final Error error;
 
     /* loaded from: classes3.dex */
-    public static final class Builder extends Message.Builder<PersonalizedResIdl> {
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes3.dex */
+    public final class Builder extends Message.Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public DataRes data;
@@ -65,23 +71,15 @@ public final class PersonalizedResIdl extends Message {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.squareup.wire.Message.Builder
         public PersonalizedResIdl build(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) ? new PersonalizedResIdl(this, z, null) : (PersonalizedResIdl) invokeZ.objValue;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+                return new PersonalizedResIdl(this, z, null);
+            }
+            return (PersonalizedResIdl) invokeZ.objValue;
         }
-    }
-
-    /* loaded from: classes3.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    public /* synthetic */ PersonalizedResIdl(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -109,5 +107,9 @@ public final class PersonalizedResIdl extends Message {
         }
         this.error = builder.error;
         this.data = builder.data;
+    }
+
+    public /* synthetic */ PersonalizedResIdl(Builder builder, boolean z, a aVar) {
+        this(builder, z);
     }
 }

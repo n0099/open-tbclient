@@ -14,6 +14,11 @@ public final class LinesSequence$iterator$1 implements Iterator<String>, KMapped
     public String nextValue;
     public final /* synthetic */ LinesSequence this$0;
 
+    @Override // java.util.Iterator
+    public void remove() {
+        throw new UnsupportedOperationException("Operation is not supported for read-only collection");
+    }
+
     /* JADX DEBUG: Incorrect args count in method signature: ()V */
     public LinesSequence$iterator$1(LinesSequence linesSequence) {
         this.this$0 = linesSequence;
@@ -30,12 +35,10 @@ public final class LinesSequence$iterator$1 implements Iterator<String>, KMapped
                 this.done = true;
             }
         }
-        return this.nextValue != null;
-    }
-
-    @Override // java.util.Iterator
-    public void remove() {
-        throw new UnsupportedOperationException("Operation is not supported for read-only collection");
+        if (this.nextValue != null) {
+            return true;
+        }
+        return false;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

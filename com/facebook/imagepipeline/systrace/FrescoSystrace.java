@@ -20,7 +20,7 @@ public class FrescoSystrace {
 
     /* renamed from: com.facebook.imagepipeline.systrace.FrescoSystrace$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -39,23 +39,20 @@ public class FrescoSystrace {
     }
 
     /* loaded from: classes7.dex */
-    public static final class NoOpArgsBuilder implements ArgsBuilder {
+    public interface Systrace {
+        void beginSection(String str);
+
+        ArgsBuilder beginSectionWithArgs(String str);
+
+        void endSection();
+
+        boolean isTracing();
+    }
+
+    /* loaded from: classes7.dex */
+    public final class NoOpArgsBuilder implements ArgsBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        public NoOpArgsBuilder() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
 
         @Override // com.facebook.imagepipeline.systrace.FrescoSystrace.ArgsBuilder
         public ArgsBuilder arg(String str, double d) {
@@ -92,20 +89,23 @@ public class FrescoSystrace {
             }
         }
 
+        public NoOpArgsBuilder() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
         public /* synthetic */ NoOpArgsBuilder(AnonymousClass1 anonymousClass1) {
             this();
         }
-    }
-
-    /* loaded from: classes7.dex */
-    public interface Systrace {
-        void beginSection(String str);
-
-        ArgsBuilder beginSectionWithArgs(String str);
-
-        void endSection();
-
-        boolean isTracing();
     }
 
     static {
@@ -139,19 +139,6 @@ public class FrescoSystrace {
         }
     }
 
-    public static void beginSection(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            getInstance().beginSection(str);
-        }
-    }
-
-    public static ArgsBuilder beginSectionWithArgs(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? getInstance().beginSectionWithArgs(str) : (ArgsBuilder) invokeL.objValue;
-    }
-
     public static void endSection() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
@@ -178,7 +165,26 @@ public class FrescoSystrace {
     public static boolean isTracing() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? getInstance().isTracing() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return getInstance().isTracing();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void beginSection(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+            getInstance().beginSection(str);
+        }
+    }
+
+    public static ArgsBuilder beginSectionWithArgs(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return getInstance().beginSectionWithArgs(str);
+        }
+        return (ArgsBuilder) invokeL.objValue;
     }
 
     public static void provide(Systrace systrace) {

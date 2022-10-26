@@ -33,30 +33,6 @@ public class IMSetShieldAndTopRequest extends IMSettingBaseHttpRequest {
     public long timeStamp;
     public ChatSession user;
 
-    public IMSetShieldAndTopRequest(Context context, String str, long j, int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.mContext = context;
-        this.mContacter = j;
-        this.mSubBusiness = i;
-        this.mKey = str;
-        this.mContacterType = getContacterType(i2);
-        this.mState = i3;
-        this.user = new ChatSession();
-    }
-
     private int getContacterType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -83,9 +59,34 @@ public class IMSetShieldAndTopRequest extends IMSettingBaseHttpRequest {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "set_user_contacter_setting" : (String) invokeV.objValue;
     }
 
+    public IMSetShieldAndTopRequest(Context context, String str, long j, int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str, Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mContext = context;
+        this.mContacter = j;
+        this.mSubBusiness = i;
+        this.mKey = str;
+        this.mContacterType = getContacterType(i2);
+        this.mState = i3;
+        this.user = new ChatSession();
+    }
+
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public byte[] getRequestParameter() {
         InterceptResult invokeV;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             try {
@@ -105,7 +106,12 @@ public class IMSetShieldAndTopRequest extends IMSettingBaseHttpRequest {
                 jSONObject.put("timestamp", this.timeStamp);
                 jSONObject.put("ability", this.mState);
                 jSONObject.put("sign", getMd5("" + this.timeStamp + uk + appid));
-                jSONObject.put("account_type", AccountManager.isCuidLogin(this.mContext) ? 1 : 0);
+                if (AccountManager.isCuidLogin(this.mContext)) {
+                    i = 1;
+                } else {
+                    i = 0;
+                }
+                jSONObject.put("account_type", i);
                 LogUtils.d(TAG, "IMSetShieldAndTopRequest msg :" + jSONObject.toString());
                 return jSONObject.toString().getBytes();
             } catch (Exception unused) {
@@ -120,7 +126,7 @@ public class IMSetShieldAndTopRequest extends IMSettingBaseHttpRequest {
         IStatusListener iStatusListener;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048579, this, i, bArr, th) == null) {
-            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
+            Pair transErrorCode = transErrorCode(i, bArr, th);
             int i2 = this.mSubBusiness;
             if (i2 == 1) {
                 if (this.mContacterType == 0) {
@@ -128,12 +134,7 @@ public class IMSetShieldAndTopRequest extends IMSettingBaseHttpRequest {
                 } else {
                     ShieldAndTopManager.getInstance(this.mContext).onPaShieldResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, this.user, this.mKey);
                 }
-            } else if (i2 != 2) {
-                if (i2 != 3 || (iStatusListener = (IStatusListener) ListenerManager.getInstance().removeListener(this.mKey)) == null) {
-                    return;
-                }
-                iStatusListener.onResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, this.mState, this.mContacter);
-            } else {
+            } else if (i2 == 2) {
                 int i3 = this.mContacterType;
                 if (i3 == 0) {
                     ShieldAndTopManager.getInstance(this.mContext).onUserMarkTopResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, this.user, this.mKey);
@@ -142,6 +143,8 @@ public class IMSetShieldAndTopRequest extends IMSettingBaseHttpRequest {
                 } else {
                     ShieldAndTopManager.getInstance(this.mContext).onPaMarkTopResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, this.user, this.mKey);
                 }
+            } else if (i2 == 3 && (iStatusListener = (IStatusListener) ListenerManager.getInstance().removeListener(this.mKey)) != null) {
+                iStatusListener.onResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, this.mState, this.mContacter);
             }
         }
     }
@@ -183,11 +186,7 @@ public class IMSetShieldAndTopRequest extends IMSettingBaseHttpRequest {
                 } else {
                     ShieldAndTopManager.getInstance(this.mContext).onPaShieldResult(i2, str, this.user, this.mKey);
                 }
-            } else if (i4 != 2) {
-                if ((i4 == 3 || i4 == 4 || i4 == 5) && (iStatusListener = (IStatusListener) ListenerManager.getInstance().removeListener(this.mKey)) != null) {
-                    iStatusListener.onResult(i2, str, this.mState, this.mContacter);
-                }
-            } else {
+            } else if (i4 == 2) {
                 int i5 = this.mContacterType;
                 if (i5 == 0) {
                     ShieldAndTopManager.getInstance(this.mContext).onUserMarkTopResult(i2, str, this.user, this.mKey);
@@ -196,6 +195,8 @@ public class IMSetShieldAndTopRequest extends IMSettingBaseHttpRequest {
                 } else {
                     ShieldAndTopManager.getInstance(this.mContext).onPaMarkTopResult(i2, str, this.user, this.mKey);
                 }
+            } else if ((i4 == 3 || i4 == 4 || i4 == 5) && (iStatusListener = (IStatusListener) ListenerManager.getInstance().removeListener(this.mKey)) != null) {
+                iStatusListener.onResult(i2, str, this.mState, this.mContacter);
             }
         }
     }

@@ -22,18 +22,18 @@ import java.util.UUID;
 public class b implements k.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<Context> wn;
-    public Map<String, a> wo;
+    public WeakReference wn;
+    public Map wo;
     public d wp;
     public String wq;
     public String wr;
     public String[][] ws;
-    public Map<String, String> wt;
+    public Map wt;
     public long wu;
     public long wv;
     public k ww;
 
-    public b(Context context, d dVar, String[][] strArr, Map<String, String> map, k kVar) {
+    public b(Context context, d dVar, String[][] strArr, Map map, k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -48,18 +48,18 @@ public class b implements k.a {
                 return;
             }
         }
-        this.wn = new WeakReference<>(context);
+        this.wn = new WeakReference(context);
         this.wp = dVar;
         this.wo = new HashMap();
         this.ws = strArr;
         this.wu = 0L;
         this.wv = 0L;
-        this.wt = map == null ? new HashMap<>() : map;
+        this.wt = map == null ? new HashMap() : map;
         this.ww = kVar;
         kVar.a(this);
     }
 
-    private Pair<Long, Long> a(long j, long j2) {
+    private Pair a(long j, long j2) {
         InterceptResult invokeCommon;
         long j3;
         long j4;
@@ -83,16 +83,16 @@ public class b implements k.a {
             if (j3 < 0) {
                 j3 = 0;
             }
-            return new Pair<>(Long.valueOf(j3), Long.valueOf(j4 >= 0 ? j4 : 0L));
+            return new Pair(Long.valueOf(j3), Long.valueOf(j4 >= 0 ? j4 : 0L));
         }
         return (Pair) invokeCommon.objValue;
     }
 
-    private ArrayList<String> aH(String str) {
+    private ArrayList aH(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
-            ArrayList<String> arrayList = new ArrayList<>();
+            ArrayList arrayList = new ArrayList();
             String[][] strArr = this.ws;
             if (strArr != null && strArr.length > 0) {
                 for (String[] strArr2 : strArr) {
@@ -167,7 +167,7 @@ public class b implements k.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
             if (this.wq == null) {
-                Context context = this.wn.get();
+                Context context = (Context) this.wn.get();
                 if (context == null) {
                     return "";
                 }
@@ -234,7 +234,7 @@ public class b implements k.a {
                 ArrayList arrayList = new ArrayList();
                 int size = this.wp.size();
                 for (int i = 0; i < size; i++) {
-                    a aVar2 = this.wp.get(i);
+                    a aVar2 = (a) this.wp.get(i);
                     if (gf.equals(aVar2.gf()) && longValue == aVar2.aD("_db_period") && aVar.getTimestamp() - aVar2.getTimestamp() < longValue) {
                         arrayList.add(Integer.valueOf(i));
                     }
@@ -243,7 +243,7 @@ public class b implements k.a {
                     for (int size2 = arrayList.size() - 1; size2 >= 0; size2--) {
                         int intValue = ((Integer) arrayList.get(size2)).intValue();
                         this.wp.remove(intValue);
-                        a.a(this.wp.get(intValue));
+                        a.a((a) this.wp.get(intValue));
                     }
                 }
                 this.wp.k(aVar);
@@ -256,7 +256,7 @@ public class b implements k.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
             String gf = aVar.gf();
-            a aVar2 = this.wo.get(gf);
+            a aVar2 = (a) this.wo.get(gf);
             boolean equals = "1".equals(aVar.aC("__stt"));
             if (aVar2 == null) {
                 if (equals) {
@@ -294,20 +294,20 @@ public class b implements k.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
             String gf = aVar.gf();
-            ArrayList<String> aH = aH(gf);
+            ArrayList aH = aH(gf);
             if (aH.isEmpty()) {
                 return;
             }
             c(aVar.clone());
-            Iterator<String> it = aH.iterator();
+            Iterator it = aH.iterator();
             while (it.hasNext()) {
-                Map<String, a> map = this.wo;
-                map.put(gf + ":" + it.next(), aVar);
+                Map map = this.wo;
+                map.put(gf + ":" + ((String) it.next()), aVar);
             }
         }
     }
 
-    public void h(List<String> list) {
+    public void h(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
             this.ww.j(list);
@@ -322,9 +322,9 @@ public class b implements k.a {
             return;
         }
         String str = aI + ":" + gf;
-        a aVar2 = this.wo.get(str);
+        a aVar2 = (a) this.wo.get(str);
         if (aVar2 != null) {
-            Pair<Long, Long> a = a(aVar2.getTimestamp(), aVar.getTimestamp());
+            Pair a = a(aVar2.getTimestamp(), aVar.getTimestamp());
             aVar.b("st", String.valueOf(aVar2.getTimestamp()));
             aVar.b("duration", String.valueOf(((Long) a.first).longValue()));
             aVar.b("_pausedt", String.valueOf(((Long) a.second).longValue()));
@@ -336,7 +336,7 @@ public class b implements k.a {
 
     public void init() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || this.wn.get() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || ((Context) this.wn.get()) == null) {
             return;
         }
         this.wr = com.baidu.ar.h.l.aT(gj() + String.valueOf(System.currentTimeMillis()));

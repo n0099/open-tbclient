@@ -4,5 +4,5 @@ import com.baidu.android.imsdk.IMListener;
 import java.util.List;
 /* loaded from: classes.dex */
 public interface IQuerySubscribedPaListListener extends IMListener {
-    void onQuerySubscribedPaResult(int i, String str, List<PaInfo> list);
+    void onQuerySubscribedPaResult(int i, String str, List list);
 }

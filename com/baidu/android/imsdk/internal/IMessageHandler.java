@@ -9,7 +9,6 @@ import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.account.LoginManager;
 import com.baidu.android.imsdk.account.request.IMUserLoginByTokenMsg;
 import com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl;
-import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.chatmessage.request.Type;
 import com.baidu.android.imsdk.chatmessage.sync.Generator;
 import com.baidu.android.imsdk.chatmessage.sync.SyncGroupMessageService;
@@ -52,8 +51,18 @@ public abstract class IMessageHandler {
     public static final String TAG = "IMessageHandler";
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
-    public LinkedList<Message> mSendQueque;
+    public LinkedList mSendQueque;
     public String mSocketIp;
+
+    public abstract Message readMessage() throws EOFException, IOException;
+
+    public abstract void setCurrentSocketState(SocketState socketState);
+
+    public abstract boolean socketClose() throws IOException;
+
+    public abstract SocketState socketConnect(String str, int i) throws KeyManagementException, CertificateException, KeyStoreException, NoSuchAlgorithmException, IOException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, TimeoutException, SSLHandshakeException, AssertionError;
+
+    public abstract void socketWrite(Message message) throws IOException;
 
     public IMessageHandler(Context context) {
         Interceptable interceptable = $ic;
@@ -70,14 +79,26 @@ public abstract class IMessageHandler {
                 return;
             }
         }
-        this.mSendQueque = new LinkedList<>();
+        this.mSendQueque = new LinkedList();
         this.mSocketIp = "";
         this.mContext = context;
     }
 
-    /* JADX WARN: Type inference failed for: r3v4, types: [T, java.lang.Long] */
+    private void handleMcastMessage(JSONObject jSONObject) throws JSONException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, jSONObject) == null) {
+            LogUtils.i(TAG, "handleMessage mcast:" + jSONObject.toString());
+            if (jSONObject.has("mcast_id")) {
+                jSONObject.getLong("mcast_id");
+            } else {
+                LogUtils.e(TAG, "handleMcastMessage cast error!!");
+            }
+            ConversationStudioManImpl.getInstance(this.mContext).handleMessage(jSONObject);
+        }
+    }
+
     private void handleConfigMessage(JSONObject jSONObject) throws JSONException {
-        ArrayList<ChatMsg> arrayList;
+        ArrayList arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, jSONObject) == null) {
             LogUtils.i(TAG, "handleMessage Config:" + jSONObject.toString());
@@ -99,96 +120,6 @@ public abstract class IMessageHandler {
             arrayList = MessageParser.parserMessage(this.mContext, jSONArray, type, true, false);
             ChatMsgManagerImpl.getInstance(this.mContext).persisConfigMsgIds(arrayList);
             ChatMsgManagerImpl.getInstance(this.mContext).deliverConfigMessage(arrayList);
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:23:0x0090  */
-    /* JADX WARN: Removed duplicated region for block: B:35:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    private void handleDeliverMessage(JSONObject jSONObject) throws JSONException {
-        long j;
-        SyncStrategy generate;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeL(65538, this, jSONObject) != null) {
-            return;
-        }
-        LogUtils.i(TAG, "handleMessage Deliver:" + jSONObject.toString());
-        int i = jSONObject.getInt("category");
-        if (i == 0 && jSONObject.has("msgid")) {
-            try {
-                j = jSONObject.getLong("msgid");
-            } catch (JSONException e) {
-                LogUtils.i(TAG, "JSONException:" + e.getMessage());
-            }
-            if (i != 0 || i == 2) {
-                generate = Generator.generate(this.mContext, 5);
-                if (generate == null) {
-                    if (j != -1) {
-                        generate.start(2, j);
-                        return;
-                    } else {
-                        generate.start(2);
-                        return;
-                    }
-                }
-                return;
-            } else if (i == 1) {
-                long j2 = jSONObject.getLong("contacter");
-                long j3 = jSONObject.getLong("msgid");
-                LogUtils.i(TAG, "msgid : " + j3);
-                SyncGroupMessageService.getInstance().execute(this.mContext, i, j2, j3, 2);
-                return;
-            } else {
-                LogUtils.e(TAG, "handleDeliverMessage category error!!");
-                return;
-            }
-        }
-        j = -1;
-        if (i != 0) {
-        }
-        generate = Generator.generate(this.mContext, 5);
-        if (generate == null) {
-        }
-    }
-
-    private void handleFatalMessage(Message message) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, this, message) == null) {
-            LogUtils.d(TAG, "handleFatalMessage");
-            if (message == null) {
-                return;
-            }
-            try {
-                int length = message.getBody().length();
-                String str = Constants.ERROR_MSG_CONNECT_SERVER_ERROR;
-                if (length <= 0) {
-                    message.handleMessageResult(this.mContext, null, 1004, Constants.ERROR_MSG_CONNECT_SERVER_ERROR);
-                    return;
-                }
-                JSONObject jSONObject = new JSONObject(message.getBody());
-                int i = jSONObject.has(PmsConstant.Statistic.STATISTIC_ERRCODE) ? jSONObject.getInt(PmsConstant.Statistic.STATISTIC_ERRCODE) : 1004;
-                if (jSONObject.has("msg")) {
-                    str = jSONObject.getString("msg");
-                }
-                message.handleMessageResult(this.mContext, jSONObject, i, str);
-            } catch (Exception e) {
-                LogUtils.e(LogUtils.TAG, "handleFatalMessage:", e);
-            }
-        }
-    }
-
-    private void handleMcastMessage(JSONObject jSONObject) throws JSONException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, jSONObject) == null) {
-            LogUtils.i(TAG, "handleMessage mcast:" + jSONObject.toString());
-            if (jSONObject.has("mcast_id")) {
-                jSONObject.getLong("mcast_id");
-            } else {
-                LogUtils.e(TAG, "handleMcastMessage cast error!!");
-            }
-            ConversationStudioManImpl.getInstance(this.mContext).handleMessage(jSONObject);
         }
     }
 
@@ -266,10 +197,117 @@ public abstract class IMessageHandler {
         return (String) invokeL.objValue;
     }
 
-    public LinkedList<Message> getMessageQueue() {
+    /* JADX WARN: Removed duplicated region for block: B:23:0x0090  */
+    /* JADX WARN: Removed duplicated region for block: B:35:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    private void handleDeliverMessage(JSONObject jSONObject) throws JSONException {
+        long j;
+        SyncStrategy generate;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, this, jSONObject) == null) {
+            LogUtils.i(TAG, "handleMessage Deliver:" + jSONObject.toString());
+            int i = jSONObject.getInt("category");
+            if (i == 0 && jSONObject.has("msgid")) {
+                try {
+                    j = jSONObject.getLong("msgid");
+                } catch (JSONException e) {
+                    LogUtils.i(TAG, "JSONException:" + e.getMessage());
+                }
+                if (i == 0 && i != 2) {
+                    if (i == 1) {
+                        long j2 = jSONObject.getLong("contacter");
+                        long j3 = jSONObject.getLong("msgid");
+                        LogUtils.i(TAG, "msgid : " + j3);
+                        SyncGroupMessageService.getInstance().execute(this.mContext, i, j2, j3, 2);
+                        return;
+                    }
+                    LogUtils.e(TAG, "handleDeliverMessage category error!!");
+                    return;
+                }
+                generate = Generator.generate(this.mContext, 5);
+                if (generate == null) {
+                    if (j != -1) {
+                        generate.start(2, j);
+                        return;
+                    } else {
+                        generate.start(2);
+                        return;
+                    }
+                }
+                return;
+            }
+            j = -1;
+            if (i == 0) {
+            }
+            generate = Generator.generate(this.mContext, 5);
+            if (generate == null) {
+            }
+        }
+    }
+
+    private void handleFatalMessage(Message message) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, this, message) == null) {
+            LogUtils.d(TAG, "handleFatalMessage");
+            if (message == null) {
+                return;
+            }
+            try {
+                int length = message.getBody().length();
+                String str = Constants.ERROR_MSG_CONNECT_SERVER_ERROR;
+                int i = 1004;
+                if (length <= 0) {
+                    message.handleMessageResult(this.mContext, null, 1004, Constants.ERROR_MSG_CONNECT_SERVER_ERROR);
+                    return;
+                }
+                JSONObject jSONObject = new JSONObject(message.getBody());
+                if (jSONObject.has(PmsConstant.Statistic.STATISTIC_ERRCODE)) {
+                    i = jSONObject.getInt(PmsConstant.Statistic.STATISTIC_ERRCODE);
+                }
+                if (jSONObject.has("msg")) {
+                    str = jSONObject.getString("msg");
+                }
+                message.handleMessageResult(this.mContext, jSONObject, i, str);
+            } catch (Exception e) {
+                LogUtils.e(LogUtils.TAG, "handleFatalMessage:", e);
+            }
+        }
+    }
+
+    public LinkedList getMessageQueue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mSendQueque : (LinkedList) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mSendQueque;
+        }
+        return (LinkedList) invokeV.objValue;
+    }
+
+    public void onLoginSuccess() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this.mSendQueque) {
+                this.mSendQueque.notifyAll();
+                IMSDK.getInstance(this.mContext).setAlarmTimeout();
+            }
+        }
+    }
+
+    public void onSessionClosed() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            LoginManager.getInstance(this.mContext).logoutInternal(null);
+        }
+    }
+
+    public void sendHeartbeatMessage() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            LogUtils.d(TAG, "onLoginSuccess sendHeartbeatMessage!");
+            sendMessage(new HeartbeatMessage(), false);
+        }
     }
 
     public void handleMessage(Message message, Message message2, boolean z) {
@@ -279,12 +317,16 @@ public abstract class IMessageHandler {
                 if (!z) {
                     handleFatalMessage(message);
                 } else if (message != null && message2 != null) {
+                    String str = "";
                     JSONObject jSONObject = new JSONObject();
                     if (message.getBody().length() > 0) {
                         jSONObject = new JSONObject(message.getBody());
                     }
                     int optInt = jSONObject.optInt(PmsConstant.Statistic.STATISTIC_ERRCODE);
-                    message2.handleMessageResult(this.mContext, jSONObject, optInt, jSONObject.has("msg") ? jSONObject.getString("msg") : "");
+                    if (jSONObject.has("msg")) {
+                        str = jSONObject.getString("msg");
+                    }
+                    message2.handleMessageResult(this.mContext, jSONObject, optInt, str);
                     if (50 == message2.getType() && optInt == 0) {
                         onLoginSuccess();
                     }
@@ -318,39 +360,19 @@ public abstract class IMessageHandler {
         }
     }
 
-    public void onLoginSuccess() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this.mSendQueque) {
-                this.mSendQueque.notifyAll();
-                IMSDK.getInstance(this.mContext).setAlarmTimeout();
-            }
-        }
-    }
-
-    public void onSessionClosed() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LoginManager.getInstance(this.mContext).logoutInternal(null);
-        }
-    }
-
     public void onSessionOpened() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             String token = AccountManager.getToken(this.mContext);
             LogUtils.d(TAG, "Send handShake Message token is: " + token);
-            if (TextUtils.isEmpty(token)) {
-                return;
+            if (!TextUtils.isEmpty(token)) {
+                Utility.writeLoginFlag(this.mContext, "16Y_1", "send Logig msg");
+                Context context = this.mContext;
+                sendMessage(new IMUserLoginByTokenMsg(context, token, true, AccountManagerImpl.getInstance(context).getFrom(), AccountManagerImpl.getInstance(this.mContext).getcFrom()), true);
+                LogUtils.d(TAG, "onSessionOpened, send IMUserLoginByTokenMsg...");
             }
-            Utility.writeLoginFlag(this.mContext, "16Y_1", "send Logig msg");
-            Context context = this.mContext;
-            sendMessage(new IMUserLoginByTokenMsg(context, token, true, AccountManagerImpl.getInstance(context).getFrom(), AccountManagerImpl.getInstance(this.mContext).getcFrom()), true);
-            LogUtils.d(TAG, "onSessionOpened, send IMUserLoginByTokenMsg...");
         }
     }
-
-    public abstract Message readMessage() throws EOFException, IOException;
 
     public Message readMessage(BigEndianDataIutputStream bigEndianDataIutputStream) throws EOFException, IOException {
         InterceptResult invokeL;
@@ -397,26 +419,10 @@ public abstract class IMessageHandler {
         return (Message) invokeL.objValue;
     }
 
-    public void sendHeartbeatMessage() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            LogUtils.d(TAG, "onLoginSuccess sendHeartbeatMessage!");
-            sendMessage(new HeartbeatMessage(), false);
-        }
-    }
-
     public void sendMessage(Message message, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, message, z) == null) {
             IMConnection.getInstance(this.mContext).sendMessage(message, z);
         }
     }
-
-    public abstract void setCurrentSocketState(SocketState socketState);
-
-    public abstract boolean socketClose() throws IOException;
-
-    public abstract SocketState socketConnect(String str, int i) throws KeyManagementException, CertificateException, KeyStoreException, NoSuchAlgorithmException, IOException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, TimeoutException, SSLHandshakeException, AssertionError;
-
-    public abstract void socketWrite(Message message) throws IOException;
 }

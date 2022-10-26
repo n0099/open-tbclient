@@ -1,110 +1,87 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.content.Context;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.cq9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.reporter.Reporter;
+import com.fun.ad.sdk.CustomInflater;
+import com.fun.ad.sdk.ExpressInflater;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.internal.api.BaseNativeAd2;
+import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
+import com.fun.ad.sdk.internal.api.ReporterPidLoader;
+import com.kwad.sdk.api.KsFeedAd;
 /* loaded from: classes3.dex */
-public class dq9 {
+public class dq9 extends FunNativeAd2Bridger {
     public static /* synthetic */ Interceptable $ic;
-    public static final lq9<Reporter> a;
-    public static final lq9<Reporter> b;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean b;
+    public cq9.b c;
+    public final /* synthetic */ Context d;
+    public final /* synthetic */ cq9 e;
 
-    /* loaded from: classes3.dex */
-    public static class a extends lq9<Reporter> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        /* JADX WARN: Type inference failed for: r1v0, types: [com.fun.ad.sdk.internal.api.reporter.Reporter, java.lang.Object] */
-        @Override // com.baidu.tieba.lq9
-        public Reporter a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new iq9("https://rpe.xdplt.com/evt/", true) : invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class b extends lq9<Reporter> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        /* JADX WARN: Type inference failed for: r1v0, types: [com.fun.ad.sdk.internal.api.reporter.Reporter, java.lang.Object] */
-        @Override // com.baidu.tieba.lq9
-        public Reporter a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new gq9("https://rpd.xdplt.com/evt/") : invokeV.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947713341, "Lcom/baidu/tieba/dq9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947713341, "Lcom/baidu/tieba/dq9;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dq9(cq9 cq9Var, ReporterPidLoader reporterPidLoader, Context context) {
+        super(reporterPidLoader);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cq9Var, reporterPidLoader, context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((ReporterPidLoader) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new a();
-        b = new b();
+        this.e = cq9Var;
+        this.d = context;
     }
 
-    /* JADX WARN: Type inference failed for: r1v7, types: [T, java.lang.Object] */
-    public static Reporter a() {
-        InterceptResult invokeV;
-        Reporter reporter;
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showCustom(Activity activity, CustomInflater customInflater, String str, Object obj, BaseNativeAd2 baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            lq9<Reporter> lq9Var = a;
-            synchronized (lq9Var) {
-                if (lq9Var.a == null) {
-                    lq9Var.a = lq9Var.a();
-                }
-                reporter = lq9Var.a;
-            }
-            return reporter;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, obj, baseNativeAd2, funAdInteractionListener}) == null) {
+            KsFeedAd ksFeedAd = (KsFeedAd) obj;
         }
-        return (Reporter) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public View createExpressView(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            return this.e.e(this.d, (KsFeedAd) obj);
+        }
+        return (View) invokeL.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, Object obj, BaseNativeAd2 baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, obj, baseNativeAd2, funAdInteractionListener}) == null) {
+            KsFeedAd ksFeedAd = (KsFeedAd) obj;
+            this.e.onShowStart(ksFeedAd, this.b);
+            this.b = true;
+            View expressView = expressInflater.getExpressView();
+            if (this.c == null) {
+                cq9 cq9Var = this.e;
+                cq9.b bVar = new cq9.b(cq9Var, ksFeedAd, expressView, str);
+                this.c = bVar;
+                cq9Var.k(ksFeedAd, bVar);
+            }
+            this.c.d = funAdInteractionListener;
+            expressInflater.inflate();
+        }
     }
 }

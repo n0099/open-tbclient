@@ -11,18 +11,18 @@ import io.reactivex.MaybeSource;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 /* loaded from: classes8.dex */
-public final class MaybeHide<T> extends AbstractMaybeWithUpstream<T, T> {
+public final class MaybeHide extends AbstractMaybeWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public static final class HideMaybeObserver<T> implements MaybeObserver<T>, Disposable {
+    public final class HideMaybeObserver implements MaybeObserver, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final MaybeObserver<? super T> actual;
+        public final MaybeObserver actual;
         public Disposable d;
 
-        public HideMaybeObserver(MaybeObserver<? super T> maybeObserver) {
+        public HideMaybeObserver(MaybeObserver maybeObserver) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -38,30 +38,6 @@ public final class MaybeHide<T> extends AbstractMaybeWithUpstream<T, T> {
                 }
             }
             this.actual = maybeObserver;
-        }
-
-        @Override // io.reactivex.disposables.Disposable
-        public void dispose() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.d.dispose();
-                this.d = DisposableHelper.DISPOSED;
-            }
-        }
-
-        @Override // io.reactivex.disposables.Disposable
-        public boolean isDisposed() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d.isDisposed() : invokeV.booleanValue;
-        }
-
-        @Override // io.reactivex.MaybeObserver
-        public void onComplete() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.actual.onComplete();
-            }
         }
 
         @Override // io.reactivex.MaybeObserver
@@ -82,16 +58,43 @@ public final class MaybeHide<T> extends AbstractMaybeWithUpstream<T, T> {
         }
 
         @Override // io.reactivex.MaybeObserver
-        public void onSuccess(T t) {
+        public void onSuccess(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
-                this.actual.onSuccess(t);
+            if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
+                this.actual.onSuccess(obj);
+            }
+        }
+
+        @Override // io.reactivex.disposables.Disposable
+        public void dispose() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.d.dispose();
+                this.d = DisposableHelper.DISPOSED;
+            }
+        }
+
+        @Override // io.reactivex.disposables.Disposable
+        public boolean isDisposed() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.d.isDisposed();
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // io.reactivex.MaybeObserver
+        public void onComplete() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                this.actual.onComplete();
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MaybeHide(MaybeSource<T> maybeSource) {
+    public MaybeHide(MaybeSource maybeSource) {
         super(maybeSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -111,7 +114,7 @@ public final class MaybeHide<T> extends AbstractMaybeWithUpstream<T, T> {
     }
 
     @Override // io.reactivex.Maybe
-    public void subscribeActual(MaybeObserver<? super T> maybeObserver) {
+    public void subscribeActual(MaybeObserver maybeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, maybeObserver) == null) {
             this.source.subscribe(new HideMaybeObserver(maybeObserver));

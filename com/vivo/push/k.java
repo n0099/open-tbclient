@@ -41,9 +41,8 @@ public final class k implements Runnable {
     public final void run() {
         e.a d;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || d == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && d != null) {
+            d.a(1003, new Object[0]);
         }
-        d.a(1003, new Object[0]);
     }
 }

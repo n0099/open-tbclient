@@ -37,7 +37,13 @@ public final class BaijiahaoInfo extends Message {
     public final String name;
 
     /* loaded from: classes9.dex */
-    public static final class Builder extends Message.Builder<BaijiahaoInfo> {
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes9.dex */
+    public final class Builder extends Message.Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String authDesc;
@@ -97,14 +103,11 @@ public final class BaijiahaoInfo extends Message {
         public BaijiahaoInfo build(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) ? new BaijiahaoInfo(this, z, null) : (BaijiahaoInfo) invokeZ.objValue;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+                return new BaijiahaoInfo(this, z, null);
+            }
+            return (BaijiahaoInfo) invokeZ.objValue;
         }
-    }
-
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
     }
 
     static {
@@ -122,10 +125,6 @@ public final class BaijiahaoInfo extends Message {
         }
         DEFAULT_AUTHID = 0;
         DEFAULT_CANMODIFYAVATAR = 0;
-    }
-
-    public /* synthetic */ BaijiahaoInfo(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -199,5 +198,9 @@ public final class BaijiahaoInfo extends Message {
         this.authId = builder.authId;
         this.authDesc = builder.authDesc;
         this.canModifyAvatar = builder.canModifyAvatar;
+    }
+
+    public /* synthetic */ BaijiahaoInfo(Builder builder, boolean z, a aVar) {
+        this(builder, z);
     }
 }

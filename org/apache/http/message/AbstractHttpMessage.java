@@ -19,6 +19,52 @@ public abstract class AbstractHttpMessage implements HttpMessage {
     public HeaderGroup headergroup;
     public HttpParams params;
 
+    public AbstractHttpMessage() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.HttpMessage
+    public Header[] getAllHeaders() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (Header[]) invokeV.objValue;
+    }
+
+    @Override // org.apache.http.HttpMessage
+    public HttpParams getParams() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (HttpParams) invokeV.objValue;
+    }
+
+    @Override // org.apache.http.HttpMessage
+    public HeaderIterator headerIterator() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (HeaderIterator) invokeV.objValue;
+    }
+
     public AbstractHttpMessage(HttpParams httpParams) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -38,6 +84,22 @@ public abstract class AbstractHttpMessage implements HttpMessage {
     }
 
     @Override // org.apache.http.HttpMessage
+    public void addHeader(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    @Override // org.apache.http.HttpMessage
+    public void setHeader(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048588, this, str, str2) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    @Override // org.apache.http.HttpMessage
     public void addHeader(Header header) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, header) == null) {
@@ -53,16 +115,6 @@ public abstract class AbstractHttpMessage implements HttpMessage {
             throw new RuntimeException("Stub!");
         }
         return invokeL.booleanValue;
-    }
-
-    @Override // org.apache.http.HttpMessage
-    public Header[] getAllHeaders() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (Header[]) invokeV.objValue;
     }
 
     @Override // org.apache.http.HttpMessage
@@ -96,23 +148,13 @@ public abstract class AbstractHttpMessage implements HttpMessage {
     }
 
     @Override // org.apache.http.HttpMessage
-    public HttpParams getParams() {
-        InterceptResult invokeV;
+    public HeaderIterator headerIterator(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
             throw new RuntimeException("Stub!");
         }
-        return (HttpParams) invokeV.objValue;
-    }
-
-    @Override // org.apache.http.HttpMessage
-    public HeaderIterator headerIterator() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (HeaderIterator) invokeV.objValue;
+        return (HeaderIterator) invokeL.objValue;
     }
 
     @Override // org.apache.http.HttpMessage
@@ -151,48 +193,6 @@ public abstract class AbstractHttpMessage implements HttpMessage {
     public void setParams(HttpParams httpParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, httpParams) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
-    public AbstractHttpMessage() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.HttpMessage
-    public void addHeader(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
-    @Override // org.apache.http.HttpMessage
-    public HeaderIterator headerIterator(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (HeaderIterator) invokeL.objValue;
-    }
-
-    @Override // org.apache.http.HttpMessage
-    public void setHeader(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048588, this, str, str2) == null) {
             throw new RuntimeException("Stub!");
         }
     }

@@ -2,7 +2,6 @@ package com.baidu.minivideo.effect.core.vlogedit;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -24,8 +23,18 @@ public class MediaAEffectKeyData implements Parcelable, Cloneable {
     public String keyMode;
     public String type;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     /* loaded from: classes2.dex */
-    public static class a implements Parcelable.Creator<MediaAEffectKeyData> {
+    public final class a implements Parcelable.Creator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -49,7 +58,10 @@ public class MediaAEffectKeyData implements Parcelable, Cloneable {
         public MediaAEffectKeyData createFromParcel(Parcel parcel) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new MediaAEffectKeyData(parcel) : (MediaAEffectKeyData) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+                return new MediaAEffectKeyData(parcel);
+            }
+            return (MediaAEffectKeyData) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -58,7 +70,10 @@ public class MediaAEffectKeyData implements Parcelable, Cloneable {
         public MediaAEffectKeyData[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new MediaAEffectKeyData[i] : (MediaAEffectKeyData[]) invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                return new MediaAEffectKeyData[i];
+            }
+            return (MediaAEffectKeyData[]) invokeI.objValue;
         }
     }
 
@@ -94,31 +109,7 @@ public class MediaAEffectKeyData implements Parcelable, Cloneable {
         this.keyMode = "fixed";
     }
 
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i) == null) {
-            parcel.writeString(this.type);
-            parcel.writeString(this.keyMode);
-            parcel.writeStringList(this.effectConfigKeys);
-            parcel.writeString(this.headerEffectKey);
-            parcel.writeString(this.footerEffectKey);
-            parcel.writeStringList(this.calculateEffectKeys);
-        }
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
-    @NonNull
     /* renamed from: clone */
     public MediaAEffectKeyData m32clone() {
         InterceptResult invokeV;
@@ -156,5 +147,18 @@ public class MediaAEffectKeyData implements Parcelable, Cloneable {
         this.headerEffectKey = parcel.readString();
         this.footerEffectKey = parcel.readString();
         this.calculateEffectKeys = parcel.createStringArrayList();
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i) == null) {
+            parcel.writeString(this.type);
+            parcel.writeString(this.keyMode);
+            parcel.writeStringList(this.effectConfigKeys);
+            parcel.writeString(this.headerEffectKey);
+            parcel.writeString(this.footerEffectKey);
+            parcel.writeStringList(this.calculateEffectKeys);
+        }
     }
 }

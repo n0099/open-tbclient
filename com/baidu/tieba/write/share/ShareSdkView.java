@@ -18,8 +18,8 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.r29;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.x29;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -50,10 +50,29 @@ public class ShareSdkView extends LinearLayout implements View.OnClickListener {
     public c t;
 
     /* loaded from: classes6.dex */
+    public interface c {
+        void a(String str);
+    }
+
+    /* loaded from: classes6.dex */
     public class a implements TextWatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ShareSdkView a;
+
+        @Override // android.text.TextWatcher
+        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2, i3) == null) {
+            }
+        }
+
+        @Override // android.text.TextWatcher
+        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i, i2, i3) == null) {
+            }
+        }
 
         public a(ShareSdkView shareSdkView) {
             Interceptable interceptable = $ic;
@@ -78,12 +97,13 @@ public class ShareSdkView extends LinearLayout implements View.OnClickListener {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
                 if (editable.length() > this.a.n * 2) {
-                    if (this.a.o != 0) {
-                        this.a.o = 0;
-                        ShareSdkView shareSdkView = this.a;
-                        shareSdkView.p = shareSdkView.r;
-                        this.a.i.setPadding(this.a.s, this.a.o, this.a.s, this.a.p);
+                    if (this.a.o == 0) {
+                        return;
                     }
+                    this.a.o = 0;
+                    ShareSdkView shareSdkView = this.a;
+                    shareSdkView.p = shareSdkView.r;
+                    this.a.i.setPadding(this.a.s, this.a.o, this.a.s, this.a.p);
                 } else if (editable.length() > this.a.n) {
                     if (this.a.o != this.a.r) {
                         ShareSdkView shareSdkView2 = this.a;
@@ -101,20 +121,6 @@ public class ShareSdkView extends LinearLayout implements View.OnClickListener {
                 }
             }
         }
-
-        @Override // android.text.TextWatcher
-        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2, i3) == null) {
-            }
-        }
-
-        @Override // android.text.TextWatcher
-        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i, i2, i3) == null) {
-            }
-        }
     }
 
     /* loaded from: classes6.dex */
@@ -122,6 +128,13 @@ public class ShareSdkView extends LinearLayout implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ShareSdkView a;
+
+        @Override // com.baidu.tbadk.widget.TbImageView.g
+        public void onCancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
+        }
 
         public b(ShareSdkView shareSdkView) {
             Interceptable interceptable = $ic;
@@ -146,22 +159,10 @@ public class ShareSdkView extends LinearLayout implements View.OnClickListener {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) {
                 ViewGroup.LayoutParams layoutParams = this.a.h.getLayoutParams();
-                layoutParams.height = ((ej.k(this.a.getContext()) - ej.f(this.a.getContext(), R.dimen.tbds408)) * 9) / 16;
+                layoutParams.height = ((fj.k(this.a.getContext()) - fj.f(this.a.getContext(), R.dimen.tbds408)) * 9) / 16;
                 this.a.h.setLayoutParams(layoutParams);
             }
         }
-
-        @Override // com.baidu.tbadk.widget.TbImageView.g
-        public void onCancel() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface c {
-        void a(String str);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -186,38 +187,91 @@ public class ShareSdkView extends LinearLayout implements View.OnClickListener {
         k(context);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ShareSdkView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = 3;
+        k(context);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ShareSdkView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.a = 3;
+        k(context);
+    }
+
+    public void setOnShareListener(c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
+            this.t = cVar;
+        }
+    }
+
     public final void k(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(1);
             setGravity(16);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07c2, (ViewGroup) this, true);
-            this.b = findViewById(R.id.obfuscated_res_0x7f091ea8);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091eaa);
-            this.d = findViewById(R.id.obfuscated_res_0x7f091ea6);
-            this.e = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f091ea2);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091ea3);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091ea5);
-            this.h = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091eab);
-            this.i = (EditText) findViewById(R.id.obfuscated_res_0x7f091ea9);
-            this.j = findViewById(R.id.obfuscated_res_0x7f091ea7);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f091ea4);
-            this.l = findViewById(R.id.obfuscated_res_0x7f091ea1);
-            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f091eac);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07c3, (ViewGroup) this, true);
+            this.b = findViewById(R.id.obfuscated_res_0x7f091ea7);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091ea9);
+            this.d = findViewById(R.id.obfuscated_res_0x7f091ea5);
+            this.e = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f091ea1);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091ea2);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091ea4);
+            this.h = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091eaa);
+            this.i = (EditText) findViewById(R.id.obfuscated_res_0x7f091ea8);
+            this.j = findViewById(R.id.obfuscated_res_0x7f091ea6);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f091ea3);
+            this.l = findViewById(R.id.obfuscated_res_0x7f091ea0);
+            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f091eab);
             setOnClickListener(this);
             this.k.setOnClickListener(this);
             this.m.setOnClickListener(this);
             this.e.setIsRound(true);
             this.e.setIsPreDrawBorder(true);
             this.e.setDrawBorder(true);
-            this.e.setBorderWidth(ej.f(context, R.dimen.tbds1));
+            this.e.setBorderWidth(fj.f(context, R.dimen.tbds1));
             this.e.setDefaultResource(R.color.CAM_X0205);
-            this.e.setRadius(ej.f(context, R.dimen.obfuscated_res_0x7f070266));
-            this.h.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080f86);
-            this.n = (ej.k(getContext()) - ej.f(getContext(), R.dimen.tbds516)) / ej.f(getContext(), R.dimen.tbds45);
-            this.q = ej.f(getContext(), R.dimen.tbds27);
-            this.r = ej.f(getContext(), R.dimen.tbds11);
-            this.s = ej.f(getContext(), R.dimen.tbds36);
+            this.e.setRadius(fj.f(context, R.dimen.obfuscated_res_0x7f070266));
+            this.h.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080f97);
+            this.n = (fj.k(getContext()) - fj.f(getContext(), R.dimen.tbds516)) / fj.f(getContext(), R.dimen.tbds45);
+            this.q = fj.f(getContext(), R.dimen.tbds27);
+            this.r = fj.f(getContext(), R.dimen.tbds11);
+            this.s = fj.f(getContext(), R.dimen.tbds36);
             int i = this.q;
             this.o = i;
             this.p = i;
@@ -229,7 +283,7 @@ public class ShareSdkView extends LinearLayout implements View.OnClickListener {
     public void l() {
         int skinType;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.a) {
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.a) {
             return;
         }
         this.a = skinType;
@@ -281,76 +335,23 @@ public class ShareSdkView extends LinearLayout implements View.OnClickListener {
         }
     }
 
-    public void setData(r29 r29Var) {
+    public void setData(x29 x29Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, r29Var) == null) {
-            if (r29Var == null && getParent() != null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, x29Var) == null) {
+            if (x29Var == null && getParent() != null) {
                 ((ViewGroup) getParent()).removeView(this);
                 return;
             }
-            this.c.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f1175), r29Var.f));
-            this.e.K(r29Var.d, 10, false);
-            this.f.setText(r29Var.c);
-            if (StringUtils.isNull(r29Var.h)) {
+            this.c.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f1189), x29Var.f));
+            this.e.L(x29Var.d, 10, false);
+            this.f.setText(x29Var.c);
+            if (StringUtils.isNull(x29Var.h)) {
                 this.g.setVisibility(8);
             } else {
-                this.g.setText(r29Var.h);
+                this.g.setText(x29Var.h);
             }
             this.h.setEvent(new b(this));
-            this.h.K(r29Var.i, 42, false);
+            this.h.L(x29Var.i, 42, false);
         }
-    }
-
-    public void setOnShareListener(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
-            this.t = cVar;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ShareSdkView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = 3;
-        k(context);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ShareSdkView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.a = 3;
-        k(context);
     }
 }

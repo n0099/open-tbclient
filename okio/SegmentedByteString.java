@@ -77,42 +77,200 @@ public final class SegmentedByteString extends ByteString {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i)) == null) {
             int binarySearch = Arrays.binarySearch(this.directory, 0, this.segments.length, i + 1);
-            return binarySearch >= 0 ? binarySearch : ~binarySearch;
+            if (binarySearch < 0) {
+                return ~binarySearch;
+            }
+            return binarySearch;
         }
         return invokeI.intValue;
+    }
+
+    @Override // okio.ByteString
+    public ByteString hmacSha1(ByteString byteString) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, byteString)) == null) {
+            return toByteString().hmacSha1(byteString);
+        }
+        return (ByteString) invokeL.objValue;
+    }
+
+    @Override // okio.ByteString
+    public ByteString hmacSha256(ByteString byteString) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, byteString)) == null) {
+            return toByteString().hmacSha256(byteString);
+        }
+        return (ByteString) invokeL.objValue;
+    }
+
+    @Override // okio.ByteString
+    public String string(Charset charset) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, charset)) == null) {
+            return toByteString().string(charset);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // okio.ByteString
+    public ByteString substring(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i)) == null) {
+            return toByteString().substring(i);
+        }
+        return (ByteString) invokeI.objValue;
     }
 
     private ByteString toByteString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? new ByteString(toByteArray()) : (ByteString) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+            return new ByteString(toByteArray());
+        }
+        return (ByteString) invokeV.objValue;
     }
 
     private Object writeReplace() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? toByteString() : invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+            return toByteString();
+        }
+        return invokeV.objValue;
     }
 
     @Override // okio.ByteString
     public ByteBuffer asByteBuffer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ByteBuffer.wrap(toByteArray()).asReadOnlyBuffer() : (ByteBuffer) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return ByteBuffer.wrap(toByteArray()).asReadOnlyBuffer();
+        }
+        return (ByteBuffer) invokeV.objValue;
     }
 
     @Override // okio.ByteString
     public String base64() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? toByteString().base64() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return toByteString().base64();
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // okio.ByteString
     public String base64Url() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? toByteString().base64Url() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return toByteString().base64Url();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // okio.ByteString
+    public String hex() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return toByteString().hex();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // okio.ByteString
+    public byte[] internalArray() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return toByteArray();
+        }
+        return (byte[]) invokeV.objValue;
+    }
+
+    @Override // okio.ByteString
+    public ByteString md5() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return toByteString().md5();
+        }
+        return (ByteString) invokeV.objValue;
+    }
+
+    @Override // okio.ByteString
+    public ByteString sha1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return toByteString().sha1();
+        }
+        return (ByteString) invokeV.objValue;
+    }
+
+    @Override // okio.ByteString
+    public ByteString sha256() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return toByteString().sha256();
+        }
+        return (ByteString) invokeV.objValue;
+    }
+
+    @Override // okio.ByteString
+    public int size() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.directory[this.segments.length - 1];
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // okio.ByteString
+    public ByteString toAsciiLowercase() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return toByteString().toAsciiLowercase();
+        }
+        return (ByteString) invokeV.objValue;
+    }
+
+    @Override // okio.ByteString
+    public ByteString toAsciiUppercase() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return toByteString().toAsciiUppercase();
+        }
+        return (ByteString) invokeV.objValue;
+    }
+
+    @Override // okio.ByteString
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            return toByteString().toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // okio.ByteString
+    public String utf8() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            return toByteString().utf8();
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // okio.ByteString
@@ -137,16 +295,43 @@ public final class SegmentedByteString extends ByteString {
     @Override // okio.ByteString
     public byte getByte(int i) {
         InterceptResult invokeI;
+        int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
             Util.checkOffsetAndCount(this.directory[this.segments.length - 1], i, 1L);
             int segment = segment(i);
-            int i2 = segment == 0 ? 0 : this.directory[segment - 1];
+            if (segment == 0) {
+                i2 = 0;
+            } else {
+                i2 = this.directory[segment - 1];
+            }
             int[] iArr = this.directory;
             byte[][] bArr = this.segments;
             return bArr[segment][(i - i2) + iArr[bArr.length + segment]];
         }
         return invokeI.byteValue;
+    }
+
+    @Override // okio.ByteString
+    public void write(OutputStream outputStream) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048602, this, outputStream) == null) {
+            if (outputStream != null) {
+                int length = this.segments.length;
+                int i = 0;
+                int i2 = 0;
+                while (i < length) {
+                    int[] iArr = this.directory;
+                    int i3 = iArr[length + i];
+                    int i4 = iArr[i];
+                    outputStream.write(this.segments[i], i3, i4 - i2);
+                    i++;
+                    i2 = i4;
+                }
+                return;
+            }
+            throw new IllegalArgumentException("out == null");
+        }
     }
 
     @Override // okio.ByteString
@@ -182,131 +367,6 @@ public final class SegmentedByteString extends ByteString {
     }
 
     @Override // okio.ByteString
-    public String hex() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? toByteString().hex() : (String) invokeV.objValue;
-    }
-
-    @Override // okio.ByteString
-    public ByteString hmacSha1(ByteString byteString) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, byteString)) == null) ? toByteString().hmacSha1(byteString) : (ByteString) invokeL.objValue;
-    }
-
-    @Override // okio.ByteString
-    public ByteString hmacSha256(ByteString byteString) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, byteString)) == null) ? toByteString().hmacSha256(byteString) : (ByteString) invokeL.objValue;
-    }
-
-    @Override // okio.ByteString
-    public int indexOf(byte[] bArr, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, bArr, i)) == null) ? toByteString().indexOf(bArr, i) : invokeLI.intValue;
-    }
-
-    @Override // okio.ByteString
-    public byte[] internalArray() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? toByteArray() : (byte[]) invokeV.objValue;
-    }
-
-    @Override // okio.ByteString
-    public int lastIndexOf(byte[] bArr, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048587, this, bArr, i)) == null) ? toByteString().lastIndexOf(bArr, i) : invokeLI.intValue;
-    }
-
-    @Override // okio.ByteString
-    public ByteString md5() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? toByteString().md5() : (ByteString) invokeV.objValue;
-    }
-
-    @Override // okio.ByteString
-    public boolean rangeEquals(int i, ByteString byteString, int i2, int i3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i), byteString, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
-            if (i < 0 || i > size() - i3) {
-                return false;
-            }
-            int segment = segment(i);
-            while (i3 > 0) {
-                int i4 = segment == 0 ? 0 : this.directory[segment - 1];
-                int min = Math.min(i3, ((this.directory[segment] - i4) + i4) - i);
-                int[] iArr = this.directory;
-                byte[][] bArr = this.segments;
-                if (!byteString.rangeEquals(i2, bArr[segment], (i - i4) + iArr[bArr.length + segment], min)) {
-                    return false;
-                }
-                i += min;
-                i2 += min;
-                i3 -= min;
-                segment++;
-            }
-            return true;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    @Override // okio.ByteString
-    public ByteString sha1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? toByteString().sha1() : (ByteString) invokeV.objValue;
-    }
-
-    @Override // okio.ByteString
-    public ByteString sha256() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? toByteString().sha256() : (ByteString) invokeV.objValue;
-    }
-
-    @Override // okio.ByteString
-    public int size() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.directory[this.segments.length - 1] : invokeV.intValue;
-    }
-
-    @Override // okio.ByteString
-    public String string(Charset charset) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, charset)) == null) ? toByteString().string(charset) : (String) invokeL.objValue;
-    }
-
-    @Override // okio.ByteString
-    public ByteString substring(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i)) == null) ? toByteString().substring(i) : (ByteString) invokeI.objValue;
-    }
-
-    @Override // okio.ByteString
-    public ByteString toAsciiLowercase() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? toByteString().toAsciiLowercase() : (ByteString) invokeV.objValue;
-    }
-
-    @Override // okio.ByteString
-    public ByteString toAsciiUppercase() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? toByteString().toAsciiUppercase() : (ByteString) invokeV.objValue;
-    }
-
-    @Override // okio.ByteString
     public byte[] toByteArray() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -331,46 +391,97 @@ public final class SegmentedByteString extends ByteString {
     }
 
     @Override // okio.ByteString
-    public String toString() {
-        InterceptResult invokeV;
+    public int indexOf(byte[] bArr, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? toByteString().toString() : (String) invokeV.objValue;
-    }
-
-    @Override // okio.ByteString
-    public String utf8() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? toByteString().utf8() : (String) invokeV.objValue;
-    }
-
-    @Override // okio.ByteString
-    public void write(OutputStream outputStream) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, outputStream) == null) {
-            if (outputStream != null) {
-                int length = this.segments.length;
-                int i = 0;
-                int i2 = 0;
-                while (i < length) {
-                    int[] iArr = this.directory;
-                    int i3 = iArr[length + i];
-                    int i4 = iArr[i];
-                    outputStream.write(this.segments[i], i3, i4 - i2);
-                    i++;
-                    i2 = i4;
-                }
-                return;
-            }
-            throw new IllegalArgumentException("out == null");
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, bArr, i)) == null) {
+            return toByteString().indexOf(bArr, i);
         }
+        return invokeLI.intValue;
+    }
+
+    @Override // okio.ByteString
+    public int lastIndexOf(byte[] bArr, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048587, this, bArr, i)) == null) {
+            return toByteString().lastIndexOf(bArr, i);
+        }
+        return invokeLI.intValue;
     }
 
     @Override // okio.ByteString
     public ByteString substring(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(1048596, this, i, i2)) == null) ? toByteString().substring(i, i2) : (ByteString) invokeII.objValue;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048596, this, i, i2)) == null) {
+            return toByteString().substring(i, i2);
+        }
+        return (ByteString) invokeII.objValue;
+    }
+
+    @Override // okio.ByteString
+    public boolean rangeEquals(int i, ByteString byteString, int i2, int i3) {
+        InterceptResult invokeCommon;
+        int i4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i), byteString, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+            if (i < 0 || i > size() - i3) {
+                return false;
+            }
+            int segment = segment(i);
+            while (i3 > 0) {
+                if (segment == 0) {
+                    i4 = 0;
+                } else {
+                    i4 = this.directory[segment - 1];
+                }
+                int min = Math.min(i3, ((this.directory[segment] - i4) + i4) - i);
+                int[] iArr = this.directory;
+                byte[][] bArr = this.segments;
+                if (!byteString.rangeEquals(i2, bArr[segment], (i - i4) + iArr[bArr.length + segment], min)) {
+                    return false;
+                }
+                i += min;
+                i2 += min;
+                i3 -= min;
+                segment++;
+            }
+            return true;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    @Override // okio.ByteString
+    public boolean rangeEquals(int i, byte[] bArr, int i2, int i3) {
+        InterceptResult invokeCommon;
+        int i4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i), bArr, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+            if (i < 0 || i > size() - i3 || i2 < 0 || i2 > bArr.length - i3) {
+                return false;
+            }
+            int segment = segment(i);
+            while (i3 > 0) {
+                if (segment == 0) {
+                    i4 = 0;
+                } else {
+                    i4 = this.directory[segment - 1];
+                }
+                int min = Math.min(i3, ((this.directory[segment] - i4) + i4) - i);
+                int[] iArr = this.directory;
+                byte[][] bArr2 = this.segments;
+                if (!Util.arrayRangeEquals(bArr2[segment], (i - i4) + iArr[bArr2.length + segment], bArr, i2, min)) {
+                    return false;
+                }
+                i += min;
+                i2 += min;
+                i3 -= min;
+                segment++;
+            }
+            return true;
+        }
+        return invokeCommon.booleanValue;
     }
 
     @Override // okio.ByteString
@@ -398,32 +509,5 @@ public final class SegmentedByteString extends ByteString {
             }
             buffer.size += i2;
         }
-    }
-
-    @Override // okio.ByteString
-    public boolean rangeEquals(int i, byte[] bArr, int i2, int i3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i), bArr, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
-            if (i < 0 || i > size() - i3 || i2 < 0 || i2 > bArr.length - i3) {
-                return false;
-            }
-            int segment = segment(i);
-            while (i3 > 0) {
-                int i4 = segment == 0 ? 0 : this.directory[segment - 1];
-                int min = Math.min(i3, ((this.directory[segment] - i4) + i4) - i);
-                int[] iArr = this.directory;
-                byte[][] bArr2 = this.segments;
-                if (!Util.arrayRangeEquals(bArr2[segment], (i - i4) + iArr[bArr2.length + segment], bArr, i2, min)) {
-                    return false;
-                }
-                i += min;
-                i2 += min;
-                i3 -= min;
-                segment++;
-            }
-            return true;
-        }
-        return invokeCommon.booleanValue;
     }
 }

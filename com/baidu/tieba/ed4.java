@@ -1,26 +1,25 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.nio.channels.ReadableByteChannel;
+import okhttp3.Response;
 import okhttp3.ResponseBody;
 /* loaded from: classes3.dex */
-public class ed4 implements gd4 {
+public class ed4 implements id4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ResponseBody a;
+    public final Response a;
 
-    public ed4(@NonNull ResponseBody responseBody) {
+    public ed4(Response response) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {responseBody};
+            Object[] objArr = {response};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,20 +29,38 @@ public class ed4 implements gd4 {
                 return;
             }
         }
-        this.a = responseBody;
+        this.a = response;
     }
 
-    @Override // com.baidu.tieba.gd4
-    public long a() {
+    @Override // com.baidu.tieba.id4
+    public hd4 body() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.contentLength() : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ResponseBody body = this.a.body();
+            if (body == null) {
+                return null;
+            }
+            return new fd4(body);
+        }
+        return (hd4) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.gd4
-    public ReadableByteChannel source() {
+    @Override // java.io.Closeable, java.lang.AutoCloseable
+    public void close() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.close();
+        }
+    }
+
+    @Override // com.baidu.tieba.id4
+    public int code() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.source() : (ReadableByteChannel) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a.code();
+        }
+        return invokeV.intValue;
     }
 }

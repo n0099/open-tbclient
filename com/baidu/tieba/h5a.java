@@ -1,29 +1,46 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.payapi.PayType;
 /* loaded from: classes4.dex */
 public class h5a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public PayType a;
+    public String b;
+    public String c;
 
-    public static boolean a(String str, String str2) {
-        InterceptResult invokeLL;
+    public h5a(PayType payType, String str, String str2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) ? PayType.DXM_PAY_H5.getChannel().equals(str) && PayType.DXM_PAY_H5.getMethod().equals(str2) : invokeLL.booleanValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {payType, str, str2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = "";
+        this.a = payType;
+        this.b = str;
+        this.c = str2;
     }
 
-    public static boolean b(String str, String str2) {
-        InterceptResult invokeLL;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) ? PayType.DXM_PAY_KJ.getChannel().equals(str) && PayType.DXM_PAY_KJ.getMethod().equals(str2) : invokeLL.booleanValue;
-    }
-
-    public static boolean c(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) ? b(str, str2) || a(str, str2) || PayType.MOCK_TEST_PAY.getChannel().equals(str) || PayType.UNION_PAY.getChannel().equals(str) : invokeLL.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
     }
 }

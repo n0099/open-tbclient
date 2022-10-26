@@ -1,6 +1,5 @@
 package com.kwad.components.ad.reward.i.kwai;
 
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,16 +17,16 @@ public final class a extends com.kwad.components.ad.reward.i.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b ua;
-    public final C0547a ub;
+    public final C0543a ub;
 
     /* renamed from: com.kwad.components.ad.reward.i.kwai.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C0547a extends com.kwad.components.ad.reward.i.b {
+    public final class C0543a extends com.kwad.components.ad.reward.i.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r6v0 int)] */
-        public C0547a(int i) {
+        public C0543a(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -52,7 +51,7 @@ public final class a extends com.kwad.components.ad.reward.i.a {
     }
 
     /* loaded from: classes7.dex */
-    public static class b extends com.kwad.components.ad.reward.i.b {
+    public final class b extends com.kwad.components.ad.reward.i.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -88,7 +87,7 @@ public final class a extends com.kwad.components.ad.reward.i.a {
             }
         }
         this.ua = new b();
-        this.ub = new C0547a(d.sf());
+        this.ub = new C0543a(d.sf());
     }
 
     private void iE() {
@@ -118,7 +117,7 @@ public final class a extends com.kwad.components.ad.reward.i.a {
     }
 
     @Override // com.kwad.components.ad.reward.i.a
-    public final List<c> ir() {
+    public final List ir() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -163,7 +162,7 @@ public final class a extends com.kwad.components.ad.reward.i.a {
     }
 
     @Override // com.kwad.components.ad.reward.i.b, com.kwad.sdk.core.b
-    public final void parseJson(@Nullable JSONObject jSONObject) {
+    public final void parseJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) {
             try {

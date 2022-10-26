@@ -37,18 +37,6 @@ public final class TimestampAdjuster {
         setFirstSampleTimestampUs(j);
     }
 
-    public static long ptsToUs(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j)) == null) ? (j * 1000000) / SapiWebView.DEFAULT_TIMEOUT_MILLIS : invokeJ.longValue;
-    }
-
-    public static long usToPts(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) ? (j * SapiWebView.DEFAULT_TIMEOUT_MILLIS) / 1000000 : invokeJ.longValue;
-    }
-
     public long adjustSampleTimestamp(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
@@ -71,6 +59,40 @@ public final class TimestampAdjuster {
             return j + this.timestampOffsetUs;
         }
         return invokeJ.longValue;
+    }
+
+    public static long ptsToUs(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j)) == null) {
+            return (j * 1000000) / SapiWebView.DEFAULT_TIMEOUT_MILLIS;
+        }
+        return invokeJ.longValue;
+    }
+
+    public static long usToPts(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
+            return (j * SapiWebView.DEFAULT_TIMEOUT_MILLIS) / 1000000;
+        }
+        return invokeJ.longValue;
+    }
+
+    public synchronized void setFirstSampleTimestampUs(long j) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            synchronized (this) {
+                if (this.lastSampleTimestamp == C.TIME_UNSET) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                Assertions.checkState(z);
+                this.firstSampleTimestampUs = j;
+            }
+        }
     }
 
     public long adjustTsTimestamp(long j) {
@@ -97,7 +119,10 @@ public final class TimestampAdjuster {
     public long getFirstSampleTimestampUs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.firstSampleTimestampUs : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.firstSampleTimestampUs;
+        }
+        return invokeV.longValue;
     }
 
     public long getLastAdjustedTimestampUs() {
@@ -108,7 +133,10 @@ public final class TimestampAdjuster {
                 return this.lastSampleTimestamp;
             }
             long j = this.firstSampleTimestampUs;
-            return j != Long.MAX_VALUE ? j : C.TIME_UNSET;
+            if (j == Long.MAX_VALUE) {
+                return C.TIME_UNSET;
+            }
+            return j;
         }
         return invokeV.longValue;
     }
@@ -120,7 +148,10 @@ public final class TimestampAdjuster {
             if (this.firstSampleTimestampUs == Long.MAX_VALUE) {
                 return 0L;
             }
-            return this.lastSampleTimestamp == C.TIME_UNSET ? C.TIME_UNSET : this.timestampOffsetUs;
+            if (this.lastSampleTimestamp == C.TIME_UNSET) {
+                return C.TIME_UNSET;
+            }
+            return this.timestampOffsetUs;
         }
         return invokeV.longValue;
     }
@@ -129,16 +160,6 @@ public final class TimestampAdjuster {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.lastSampleTimestamp = C.TIME_UNSET;
-        }
-    }
-
-    public synchronized void setFirstSampleTimestampUs(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            synchronized (this) {
-                Assertions.checkState(this.lastSampleTimestamp == C.TIME_UNSET);
-                this.firstSampleTimestampUs = j;
-            }
         }
     }
 

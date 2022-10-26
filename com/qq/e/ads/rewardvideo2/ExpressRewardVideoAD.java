@@ -23,7 +23,7 @@ import com.qq.e.comm.util.VideoAdValidity;
 import java.util.HashMap;
 @Deprecated
 /* loaded from: classes8.dex */
-public class ExpressRewardVideoAD extends LiteAbstractAD<RVADI2> {
+public class ExpressRewardVideoAD extends LiteAbstractAD {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean g;
@@ -32,7 +32,7 @@ public class ExpressRewardVideoAD extends LiteAbstractAD<RVADI2> {
     public ExpressRewardVideoAdListener j;
 
     /* loaded from: classes8.dex */
-    public static class AdListenerAdapter implements ADListener {
+    public class AdListenerAdapter implements ADListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public ExpressRewardVideoAdListener a;
@@ -162,20 +162,6 @@ public class ExpressRewardVideoAD extends LiteAbstractAD<RVADI2> {
     }
 
     @Override // com.qq.e.ads.AbstractAD
-    public void a(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-            RVADI2 rvadi2 = (RVADI2) obj;
-            rvadi2.setVolumeOn(this.h);
-            rvadi2.setServerSideVerificationOptions(this.i);
-            if (this.g) {
-                rvadi2.loadAD();
-                this.g = false;
-            }
-        }
-    }
-
-    @Override // com.qq.e.ads.AbstractAD
     public void b(int i) {
         ExpressRewardVideoAdListener expressRewardVideoAdListener;
         Interceptable interceptable = $ic;
@@ -185,45 +171,22 @@ public class ExpressRewardVideoAD extends LiteAbstractAD<RVADI2> {
         expressRewardVideoAdListener.onError(AdErrorConvertor.formatErrorCode(i));
     }
 
-    public VideoAdValidity checkValidity() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (hasShown()) {
-                return VideoAdValidity.SHOWED;
-            }
-            if (SystemClock.elapsedRealtime() > getExpireTimestamp()) {
-                return VideoAdValidity.OVERDUE;
-            }
-            T t = this.a;
-            if (t != 0) {
-                z = ((RVADI2) t).isVideoCached();
-            } else {
-                a("isVideoCached");
-                z = false;
-            }
-            return !z ? VideoAdValidity.NONE_CACHE : VideoAdValidity.VALID;
-        }
-        return (VideoAdValidity) invokeV.objValue;
-    }
-
     public void destroy() {
-        T t;
+        Object obj;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (t = this.a) == 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (obj = this.a) == null) {
             return;
         }
-        ((RVADI2) t).destroy();
+        ((RVADI2) obj).destroy();
     }
 
     public long getExpireTimestamp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            T t = this.a;
-            if (t != 0) {
-                return ((RVADI2) t).getExpireTimestamp();
+            Object obj = this.a;
+            if (obj != null) {
+                return ((RVADI2) obj).getExpireTimestamp();
             }
             a("getExpireTimestamp");
             return 0L;
@@ -235,9 +198,9 @@ public class ExpressRewardVideoAD extends LiteAbstractAD<RVADI2> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            T t = this.a;
-            if (t != 0) {
-                return ((RVADI2) t).getVideoDuration();
+            Object obj = this.a;
+            if (obj != null) {
+                return ((RVADI2) obj).getVideoDuration();
             }
             a("getVideoDuration");
             return 0;
@@ -249,9 +212,9 @@ public class ExpressRewardVideoAD extends LiteAbstractAD<RVADI2> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            T t = this.a;
-            if (t != 0) {
-                return ((RVADI2) t).hasShown();
+            Object obj = this.a;
+            if (obj != null) {
+                return ((RVADI2) obj).hasShown();
             }
             a("hasShown");
             return false;
@@ -266,9 +229,9 @@ public class ExpressRewardVideoAD extends LiteAbstractAD<RVADI2> {
                 this.g = true;
                 return;
             }
-            T t = this.a;
-            if (t != 0) {
-                ((RVADI2) t).loadAD();
+            Object obj = this.a;
+            if (obj != null) {
+                ((RVADI2) obj).loadAD();
             } else {
                 a("loadAD");
             }
@@ -278,9 +241,9 @@ public class ExpressRewardVideoAD extends LiteAbstractAD<RVADI2> {
     public void setServerSideVerificationOptions(ServerSideVerificationOptions serverSideVerificationOptions) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, serverSideVerificationOptions) == null) {
-            T t = this.a;
-            if (t != 0) {
-                ((RVADI2) t).setServerSideVerificationOptions(serverSideVerificationOptions);
+            Object obj = this.a;
+            if (obj != null) {
+                ((RVADI2) obj).setServerSideVerificationOptions(serverSideVerificationOptions);
             } else {
                 this.i = serverSideVerificationOptions;
             }
@@ -290,9 +253,9 @@ public class ExpressRewardVideoAD extends LiteAbstractAD<RVADI2> {
     public void setVolumeOn(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            T t = this.a;
-            if (t != 0) {
-                ((RVADI2) t).setVolumeOn(z);
+            Object obj = this.a;
+            if (obj != null) {
+                ((RVADI2) obj).setVolumeOn(z);
             } else {
                 this.h = z;
             }
@@ -302,12 +265,52 @@ public class ExpressRewardVideoAD extends LiteAbstractAD<RVADI2> {
     public void showAD(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, activity) == null) {
-            T t = this.a;
-            if (t != 0) {
-                ((RVADI2) t).showAD(activity);
+            Object obj = this.a;
+            if (obj != null) {
+                ((RVADI2) obj).showAD(activity);
             } else {
                 a("showAD");
             }
         }
+    }
+
+    @Override // com.qq.e.ads.AbstractAD
+    public void a(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+            RVADI2 rvadi2 = (RVADI2) obj;
+            rvadi2.setVolumeOn(this.h);
+            rvadi2.setServerSideVerificationOptions(this.i);
+            if (this.g) {
+                rvadi2.loadAD();
+                this.g = false;
+            }
+        }
+    }
+
+    public VideoAdValidity checkValidity() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (hasShown()) {
+                return VideoAdValidity.SHOWED;
+            }
+            if (SystemClock.elapsedRealtime() > getExpireTimestamp()) {
+                return VideoAdValidity.OVERDUE;
+            }
+            Object obj = this.a;
+            if (obj != null) {
+                z = ((RVADI2) obj).isVideoCached();
+            } else {
+                a("isVideoCached");
+                z = false;
+            }
+            if (!z) {
+                return VideoAdValidity.NONE_CACHE;
+            }
+            return VideoAdValidity.VALID;
+        }
+        return (VideoAdValidity) invokeV.objValue;
     }
 }

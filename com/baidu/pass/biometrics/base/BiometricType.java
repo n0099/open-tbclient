@@ -11,6 +11,12 @@ public final class BiometricType {
     public static final int LIVENESS_RECOG = 4;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static String a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? i != 4 ? "" : "com.baidu.pass.biometrics.face.liveness.PassFaceRecogManager" : (String) invokeI.objValue;
+    }
+
     public BiometricType() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -23,11 +29,5 @@ public final class BiometricType {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    public static String a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? i != 4 ? "" : "com.baidu.pass.biometrics.face.liveness.PassFaceRecogManager" : (String) invokeI.objValue;
     }
 }

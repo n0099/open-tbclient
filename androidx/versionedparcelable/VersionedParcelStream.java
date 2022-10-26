@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcelable;
-import androidx.annotation.RestrictTo;
 import androidx.collection.ArrayMap;
 import androidx.core.view.InputDeviceCompat;
 import androidx.versionedparcelable.VersionedParcel;
@@ -26,7 +25,6 @@ import java.io.OutputStream;
 import java.lang.reflect.Method;
 import java.nio.charset.Charset;
 import java.util.Set;
-@RestrictTo({RestrictTo.Scope.LIBRARY})
 /* loaded from: classes.dex */
 public class VersionedParcelStream extends VersionedParcel {
     public static /* synthetic */ Interceptable $ic = null;
@@ -56,6 +54,46 @@ public class VersionedParcelStream extends VersionedParcel {
     public boolean mIgnoreParcelables;
     public final DataInputStream mMasterInput;
     public final DataOutputStream mMasterOutput;
+
+    @Override // androidx.versionedparcelable.VersionedParcel
+    public boolean isStream() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // androidx.versionedparcelable.VersionedParcel
+    public CharSequence readCharSequence() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return null;
+        }
+        return (CharSequence) invokeV.objValue;
+    }
+
+    @Override // androidx.versionedparcelable.VersionedParcel
+    public <T extends Parcelable> T readParcelable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return null;
+        }
+        return (T) invokeV.objValue;
+    }
+
+    @Override // androidx.versionedparcelable.VersionedParcel
+    public IBinder readStrongBinder() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return null;
+        }
+        return (IBinder) invokeV.objValue;
+    }
 
     /* loaded from: classes.dex */
     public static class FieldBuffer {
@@ -88,11 +126,18 @@ public class VersionedParcelStream extends VersionedParcel {
         }
 
         public void flushField() throws IOException {
+            int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.mDataStream.flush();
                 int size = this.mOutput.size();
-                this.mTarget.writeInt((this.mFieldId << 16) | (size >= 65535 ? 65535 : size));
+                int i2 = this.mFieldId << 16;
+                if (size >= 65535) {
+                    i = 65535;
+                } else {
+                    i = size;
+                }
+                this.mTarget.writeInt(i2 | i);
                 if (size >= 65535) {
                     this.mTarget.writeInt(size);
                 }
@@ -117,6 +162,140 @@ public class VersionedParcelStream extends VersionedParcel {
         UTF_16 = Charset.forName("UTF-16");
     }
 
+    @Override // androidx.versionedparcelable.VersionedParcel
+    public void closeField() {
+        FieldBuffer fieldBuffer;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (fieldBuffer = this.mFieldBuffer) != null) {
+            try {
+                if (fieldBuffer.mOutput.size() != 0) {
+                    this.mFieldBuffer.flushField();
+                }
+                this.mFieldBuffer = null;
+            } catch (IOException e) {
+                throw new VersionedParcel.ParcelException(e);
+            }
+        }
+    }
+
+    @Override // androidx.versionedparcelable.VersionedParcel
+    public VersionedParcel createSubParcel() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return new VersionedParcelStream(this.mCurrentInput, this.mCurrentOutput, this.mReadCache, this.mWriteCache, this.mParcelizerCache);
+        }
+        return (VersionedParcel) invokeV.objValue;
+    }
+
+    @Override // androidx.versionedparcelable.VersionedParcel
+    public boolean readBoolean() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            try {
+                return this.mCurrentInput.readBoolean();
+            } catch (IOException e) {
+                throw new VersionedParcel.ParcelException(e);
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // androidx.versionedparcelable.VersionedParcel
+    public Bundle readBundle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            int readInt = readInt();
+            if (readInt < 0) {
+                return null;
+            }
+            Bundle bundle = new Bundle();
+            for (int i = 0; i < readInt; i++) {
+                readObject(readInt(), readString(), bundle);
+            }
+            return bundle;
+        }
+        return (Bundle) invokeV.objValue;
+    }
+
+    @Override // androidx.versionedparcelable.VersionedParcel
+    public byte[] readByteArray() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            try {
+                int readInt = this.mCurrentInput.readInt();
+                if (readInt > 0) {
+                    byte[] bArr = new byte[readInt];
+                    this.mCurrentInput.readFully(bArr);
+                    return bArr;
+                }
+                return null;
+            } catch (IOException e) {
+                throw new VersionedParcel.ParcelException(e);
+            }
+        }
+        return (byte[]) invokeV.objValue;
+    }
+
+    @Override // androidx.versionedparcelable.VersionedParcel
+    public double readDouble() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            try {
+                return this.mCurrentInput.readDouble();
+            } catch (IOException e) {
+                throw new VersionedParcel.ParcelException(e);
+            }
+        }
+        return invokeV.doubleValue;
+    }
+
+    @Override // androidx.versionedparcelable.VersionedParcel
+    public float readFloat() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            try {
+                return this.mCurrentInput.readFloat();
+            } catch (IOException e) {
+                throw new VersionedParcel.ParcelException(e);
+            }
+        }
+        return invokeV.floatValue;
+    }
+
+    @Override // androidx.versionedparcelable.VersionedParcel
+    public int readInt() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            try {
+                return this.mCurrentInput.readInt();
+            } catch (IOException e) {
+                throw new VersionedParcel.ParcelException(e);
+            }
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // androidx.versionedparcelable.VersionedParcel
+    public long readLong() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            try {
+                return this.mCurrentInput.readLong();
+            } catch (IOException e) {
+                throw new VersionedParcel.ParcelException(e);
+            }
+        }
+        return invokeV.longValue;
+    }
+
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public VersionedParcelStream(InputStream inputStream, OutputStream outputStream) {
         this(inputStream, outputStream, new ArrayMap(), new ArrayMap(), new ArrayMap());
@@ -136,6 +315,121 @@ public class VersionedParcelStream extends VersionedParcel {
                 return;
             }
         }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public VersionedParcelStream(InputStream inputStream, OutputStream outputStream, ArrayMap<String, Method> arrayMap, ArrayMap<String, Method> arrayMap2, ArrayMap<String, Class> arrayMap3) {
+        super(arrayMap, arrayMap2, arrayMap3);
+        DataInputStream dataInputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {inputStream, outputStream, arrayMap, arrayMap2, arrayMap3};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((ArrayMap) objArr2[0], (ArrayMap) objArr2[1], (ArrayMap) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.mCount = 0;
+        this.mFieldId = -1;
+        this.mFieldSize = -1;
+        if (inputStream != null) {
+            dataInputStream = new DataInputStream(new FilterInputStream(this, inputStream) { // from class: androidx.versionedparcelable.VersionedParcelStream.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ VersionedParcelStream this$0;
+
+                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                {
+                    super(inputStream);
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext2 = TitanRuntime.newInitContext();
+                        newInitContext2.initArgs = r2;
+                        Object[] objArr3 = {this, inputStream};
+                        interceptable2.invokeUnInit(65536, newInitContext2);
+                        int i3 = newInitContext2.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
+                            super((InputStream) newInitContext2.callArgs[0]);
+                            newInitContext2.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext2);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
+                @Override // java.io.FilterInputStream, java.io.InputStream
+                public int read() throws IOException {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                        VersionedParcelStream versionedParcelStream = this.this$0;
+                        int i3 = versionedParcelStream.mFieldSize;
+                        if (i3 != -1 && versionedParcelStream.mCount >= i3) {
+                            throw new IOException();
+                        }
+                        int read = super.read();
+                        this.this$0.mCount++;
+                        return read;
+                    }
+                    return invokeV.intValue;
+                }
+
+                @Override // java.io.FilterInputStream, java.io.InputStream
+                public int read(byte[] bArr, int i3, int i4) throws IOException {
+                    InterceptResult invokeLII;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeLII = interceptable2.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i3, i4)) == null) {
+                        VersionedParcelStream versionedParcelStream = this.this$0;
+                        int i5 = versionedParcelStream.mFieldSize;
+                        if (i5 != -1 && versionedParcelStream.mCount >= i5) {
+                            throw new IOException();
+                        }
+                        int read = super.read(bArr, i3, i4);
+                        if (read > 0) {
+                            this.this$0.mCount += read;
+                        }
+                        return read;
+                    }
+                    return invokeLII.intValue;
+                }
+
+                @Override // java.io.FilterInputStream, java.io.InputStream
+                public long skip(long j) throws IOException {
+                    InterceptResult invokeJ;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeJ = interceptable2.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
+                        VersionedParcelStream versionedParcelStream = this.this$0;
+                        int i3 = versionedParcelStream.mFieldSize;
+                        if (i3 != -1 && versionedParcelStream.mCount >= i3) {
+                            throw new IOException();
+                        }
+                        long skip = super.skip(j);
+                        if (skip > 0) {
+                            this.this$0.mCount += (int) skip;
+                        }
+                        return skip;
+                    }
+                    return invokeJ.longValue;
+                }
+            });
+        } else {
+            dataInputStream = null;
+        }
+        this.mMasterInput = dataInputStream;
+        DataOutputStream dataOutputStream = outputStream != null ? new DataOutputStream(outputStream) : null;
+        this.mMasterOutput = dataOutputStream;
+        this.mCurrentInput = this.mMasterInput;
+        this.mCurrentOutput = dataOutputStream;
     }
 
     private void readObject(int i, String str, Bundle bundle) {
@@ -244,116 +538,6 @@ public class VersionedParcelStream extends VersionedParcel {
     }
 
     @Override // androidx.versionedparcelable.VersionedParcel
-    public void closeField() {
-        FieldBuffer fieldBuffer;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (fieldBuffer = this.mFieldBuffer) == null) {
-            return;
-        }
-        try {
-            if (fieldBuffer.mOutput.size() != 0) {
-                this.mFieldBuffer.flushField();
-            }
-            this.mFieldBuffer = null;
-        } catch (IOException e) {
-            throw new VersionedParcel.ParcelException(e);
-        }
-    }
-
-    @Override // androidx.versionedparcelable.VersionedParcel
-    public VersionedParcel createSubParcel() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new VersionedParcelStream(this.mCurrentInput, this.mCurrentOutput, this.mReadCache, this.mWriteCache, this.mParcelizerCache) : (VersionedParcel) invokeV.objValue;
-    }
-
-    @Override // androidx.versionedparcelable.VersionedParcel
-    public boolean isStream() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // androidx.versionedparcelable.VersionedParcel
-    public boolean readBoolean() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            try {
-                return this.mCurrentInput.readBoolean();
-            } catch (IOException e) {
-                throw new VersionedParcel.ParcelException(e);
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // androidx.versionedparcelable.VersionedParcel
-    public Bundle readBundle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int readInt = readInt();
-            if (readInt < 0) {
-                return null;
-            }
-            Bundle bundle = new Bundle();
-            for (int i = 0; i < readInt; i++) {
-                readObject(readInt(), readString(), bundle);
-            }
-            return bundle;
-        }
-        return (Bundle) invokeV.objValue;
-    }
-
-    @Override // androidx.versionedparcelable.VersionedParcel
-    public byte[] readByteArray() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            try {
-                int readInt = this.mCurrentInput.readInt();
-                if (readInt > 0) {
-                    byte[] bArr = new byte[readInt];
-                    this.mCurrentInput.readFully(bArr);
-                    return bArr;
-                }
-                return null;
-            } catch (IOException e) {
-                throw new VersionedParcel.ParcelException(e);
-            }
-        }
-        return (byte[]) invokeV.objValue;
-    }
-
-    @Override // androidx.versionedparcelable.VersionedParcel
-    public CharSequence readCharSequence() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return null;
-        }
-        return (CharSequence) invokeV.objValue;
-    }
-
-    @Override // androidx.versionedparcelable.VersionedParcel
-    public double readDouble() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            try {
-                return this.mCurrentInput.readDouble();
-            } catch (IOException e) {
-                throw new VersionedParcel.ParcelException(e);
-            }
-        }
-        return invokeV.doubleValue;
-    }
-
-    @Override // androidx.versionedparcelable.VersionedParcel
     public boolean readField(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -385,55 +569,24 @@ public class VersionedParcelStream extends VersionedParcel {
     }
 
     @Override // androidx.versionedparcelable.VersionedParcel
-    public float readFloat() {
-        InterceptResult invokeV;
+    public void writeBundle(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || interceptable.invokeL(1048594, this, bundle) == null) {
             try {
-                return this.mCurrentInput.readFloat();
+                if (bundle != null) {
+                    Set<String> keySet = bundle.keySet();
+                    this.mCurrentOutput.writeInt(keySet.size());
+                    for (String str : keySet) {
+                        writeString(str);
+                        writeObject(bundle.get(str));
+                    }
+                    return;
+                }
+                this.mCurrentOutput.writeInt(-1);
             } catch (IOException e) {
                 throw new VersionedParcel.ParcelException(e);
             }
         }
-        return invokeV.floatValue;
-    }
-
-    @Override // androidx.versionedparcelable.VersionedParcel
-    public int readInt() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            try {
-                return this.mCurrentInput.readInt();
-            } catch (IOException e) {
-                throw new VersionedParcel.ParcelException(e);
-            }
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // androidx.versionedparcelable.VersionedParcel
-    public long readLong() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            try {
-                return this.mCurrentInput.readLong();
-            } catch (IOException e) {
-                throw new VersionedParcel.ParcelException(e);
-            }
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // androidx.versionedparcelable.VersionedParcel
-    public <T extends Parcelable> T readParcelable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return null;
-        }
-        return (T) invokeV.objValue;
     }
 
     @Override // androidx.versionedparcelable.VersionedParcel
@@ -457,16 +610,6 @@ public class VersionedParcelStream extends VersionedParcel {
     }
 
     @Override // androidx.versionedparcelable.VersionedParcel
-    public IBinder readStrongBinder() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return null;
-        }
-        return (IBinder) invokeV.objValue;
-    }
-
-    @Override // androidx.versionedparcelable.VersionedParcel
     public void setOutputField(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
@@ -478,44 +621,11 @@ public class VersionedParcelStream extends VersionedParcel {
     }
 
     @Override // androidx.versionedparcelable.VersionedParcel
-    public void setSerializationFlags(boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            if (z) {
-                this.mIgnoreParcelables = z2;
-                return;
-            }
-            throw new RuntimeException("Serialization of this object is not allowed");
-        }
-    }
-
-    @Override // androidx.versionedparcelable.VersionedParcel
     public void writeBoolean(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
             try {
                 this.mCurrentOutput.writeBoolean(z);
-            } catch (IOException e) {
-                throw new VersionedParcel.ParcelException(e);
-            }
-        }
-    }
-
-    @Override // androidx.versionedparcelable.VersionedParcel
-    public void writeBundle(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, bundle) == null) {
-            try {
-                if (bundle != null) {
-                    Set<String> keySet = bundle.keySet();
-                    this.mCurrentOutput.writeInt(keySet.size());
-                    for (String str : keySet) {
-                        writeString(str);
-                        writeObject(bundle.get(str));
-                    }
-                    return;
-                }
-                this.mCurrentOutput.writeInt(-1);
             } catch (IOException e) {
                 throw new VersionedParcel.ParcelException(e);
             }
@@ -542,9 +652,10 @@ public class VersionedParcelStream extends VersionedParcel {
     @Override // androidx.versionedparcelable.VersionedParcel
     public void writeCharSequence(CharSequence charSequence) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048597, this, charSequence) == null) && !this.mIgnoreParcelables) {
-            throw new RuntimeException("CharSequence cannot be written to an OutputStream");
+        if ((interceptable != null && interceptable.invokeL(1048597, this, charSequence) != null) || this.mIgnoreParcelables) {
+            return;
         }
+        throw new RuntimeException("CharSequence cannot be written to an OutputStream");
     }
 
     @Override // androidx.versionedparcelable.VersionedParcel
@@ -598,9 +709,10 @@ public class VersionedParcelStream extends VersionedParcel {
     @Override // androidx.versionedparcelable.VersionedParcel
     public void writeParcelable(Parcelable parcelable) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048602, this, parcelable) == null) && !this.mIgnoreParcelables) {
-            throw new RuntimeException("Parcelables cannot be written to an OutputStream");
+        if ((interceptable != null && interceptable.invokeL(1048602, this, parcelable) != null) || this.mIgnoreParcelables) {
+            return;
         }
+        throw new RuntimeException("Parcelables cannot be written to an OutputStream");
     }
 
     @Override // androidx.versionedparcelable.VersionedParcel
@@ -624,126 +736,31 @@ public class VersionedParcelStream extends VersionedParcel {
     @Override // androidx.versionedparcelable.VersionedParcel
     public void writeStrongBinder(IBinder iBinder) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048604, this, iBinder) == null) && !this.mIgnoreParcelables) {
-            throw new RuntimeException("Binders cannot be written to an OutputStream");
+        if ((interceptable != null && interceptable.invokeL(1048604, this, iBinder) != null) || this.mIgnoreParcelables) {
+            return;
         }
+        throw new RuntimeException("Binders cannot be written to an OutputStream");
     }
 
     @Override // androidx.versionedparcelable.VersionedParcel
     public void writeStrongInterface(IInterface iInterface) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048605, this, iInterface) == null) && !this.mIgnoreParcelables) {
-            throw new RuntimeException("Binders cannot be written to an OutputStream");
+        if ((interceptable != null && interceptable.invokeL(1048605, this, iInterface) != null) || this.mIgnoreParcelables) {
+            return;
         }
+        throw new RuntimeException("Binders cannot be written to an OutputStream");
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VersionedParcelStream(InputStream inputStream, OutputStream outputStream, ArrayMap<String, Method> arrayMap, ArrayMap<String, Method> arrayMap2, ArrayMap<String, Class> arrayMap3) {
-        super(arrayMap, arrayMap2, arrayMap3);
+    @Override // androidx.versionedparcelable.VersionedParcel
+    public void setSerializationFlags(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream, outputStream, arrayMap, arrayMap2, arrayMap3};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((ArrayMap) objArr2[0], (ArrayMap) objArr2[1], (ArrayMap) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
+        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            if (z) {
+                this.mIgnoreParcelables = z2;
                 return;
             }
+            throw new RuntimeException("Serialization of this object is not allowed");
         }
-        this.mCount = 0;
-        this.mFieldId = -1;
-        this.mFieldSize = -1;
-        this.mMasterInput = inputStream != null ? new DataInputStream(new FilterInputStream(this, inputStream) { // from class: androidx.versionedparcelable.VersionedParcelStream.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ VersionedParcelStream this$0;
-
-            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            {
-                super(inputStream);
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = r2;
-                    Object[] objArr3 = {this, inputStream};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i3 = newInitContext2.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
-                        super((InputStream) newInitContext2.callArgs[0]);
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-            }
-
-            @Override // java.io.FilterInputStream, java.io.InputStream
-            public int read() throws IOException {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    VersionedParcelStream versionedParcelStream = this.this$0;
-                    int i3 = versionedParcelStream.mFieldSize;
-                    if (i3 != -1 && versionedParcelStream.mCount >= i3) {
-                        throw new IOException();
-                    }
-                    int read = super.read();
-                    this.this$0.mCount++;
-                    return read;
-                }
-                return invokeV.intValue;
-            }
-
-            @Override // java.io.FilterInputStream, java.io.InputStream
-            public long skip(long j) throws IOException {
-                InterceptResult invokeJ;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeJ = interceptable2.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
-                    VersionedParcelStream versionedParcelStream = this.this$0;
-                    int i3 = versionedParcelStream.mFieldSize;
-                    if (i3 != -1 && versionedParcelStream.mCount >= i3) {
-                        throw new IOException();
-                    }
-                    long skip = super.skip(j);
-                    if (skip > 0) {
-                        this.this$0.mCount += (int) skip;
-                    }
-                    return skip;
-                }
-                return invokeJ.longValue;
-            }
-
-            @Override // java.io.FilterInputStream, java.io.InputStream
-            public int read(byte[] bArr, int i3, int i4) throws IOException {
-                InterceptResult invokeLII;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeLII = interceptable2.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i3, i4)) == null) {
-                    VersionedParcelStream versionedParcelStream = this.this$0;
-                    int i5 = versionedParcelStream.mFieldSize;
-                    if (i5 != -1 && versionedParcelStream.mCount >= i5) {
-                        throw new IOException();
-                    }
-                    int read = super.read(bArr, i3, i4);
-                    if (read > 0) {
-                        this.this$0.mCount += read;
-                    }
-                    return read;
-                }
-                return invokeLII.intValue;
-            }
-        }) : null;
-        DataOutputStream dataOutputStream = outputStream != null ? new DataOutputStream(outputStream) : null;
-        this.mMasterOutput = dataOutputStream;
-        this.mCurrentInput = this.mMasterInput;
-        this.mCurrentOutput = dataOutputStream;
     }
 
     @Override // androidx.versionedparcelable.VersionedParcel

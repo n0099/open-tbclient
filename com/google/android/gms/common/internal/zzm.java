@@ -14,7 +14,7 @@ import com.google.android.gms.common.api.Scope;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelReader;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelWriter;
 /* loaded from: classes7.dex */
-public final class zzm implements Parcelable.Creator<GetServiceRequest> {
+public final class zzm implements Parcelable.Creator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -54,9 +54,8 @@ public final class zzm implements Parcelable.Creator<GetServiceRequest> {
         }
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // android.os.Parcelable.Creator
-    public final /* bridge */ /* synthetic */ GetServiceRequest createFromParcel(Parcel parcel) {
+    public final /* bridge */ /* synthetic */ Object createFromParcel(Parcel parcel) {
         int validateObjectHeader = SafeParcelReader.validateObjectHeader(parcel);
         String str = null;
         IBinder iBinder = null;
@@ -127,9 +126,8 @@ public final class zzm implements Parcelable.Creator<GetServiceRequest> {
         return new GetServiceRequest(i, i2, i3, str, iBinder, scopeArr, bundle, account, featureArr, featureArr2, z, i4, z2, str2);
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object[]' to match base method */
     @Override // android.os.Parcelable.Creator
-    public final /* synthetic */ GetServiceRequest[] newArray(int i) {
+    public final /* synthetic */ Object[] newArray(int i) {
         return new GetServiceRequest[i];
     }
 }

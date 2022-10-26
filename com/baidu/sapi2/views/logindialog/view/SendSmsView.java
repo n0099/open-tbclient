@@ -15,7 +15,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.callback.GetDynamicPwdCallback;
@@ -87,6 +86,20 @@ public class SendSmsView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SendSmsView a;
 
+        @Override // android.text.TextWatcher
+        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2, i3) == null) {
+            }
+        }
+
+        @Override // android.text.TextWatcher
+        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i, i2, i3) == null) {
+            }
+        }
+
         public b(SendSmsView sendSmsView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -110,30 +123,16 @@ public class SendSmsView extends LinearLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
                 String trim = editable.toString().trim();
-                if (TextUtils.isEmpty(trim) || trim.length() == 0) {
-                    this.a.c.setVisibility(8);
-                    this.a.d.setVisibility(8);
-                    this.a.h.onShowThirdParty();
-                } else {
+                if (!TextUtils.isEmpty(trim) && trim.length() != 0) {
                     this.a.c.setVisibility(0);
                     this.a.d.setVisibility(0);
                     this.a.h.onHideThirdParty();
+                } else {
+                    this.a.c.setVisibility(8);
+                    this.a.d.setVisibility(8);
+                    this.a.h.onShowThirdParty();
                 }
                 this.a.h.onHideErrorTip();
-            }
-        }
-
-        @Override // android.text.TextWatcher
-        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2, i3) == null) {
-            }
-        }
-
-        @Override // android.text.TextWatcher
-        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i, i2, i3) == null) {
             }
         }
     }
@@ -166,21 +165,18 @@ public class SendSmsView extends LinearLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (this.a.f != null) {
-                    if (this.a.g.onPreStart(false)) {
-                        String trim = this.a.b.getText().toString().trim();
-                        if (!TextUtils.isEmpty(trim) && trim.length() == 11) {
-                            this.a.b(trim);
-                            return;
-                        } else {
-                            ToastUtil.show("请您输入正确的手机号");
-                            return;
-                        }
-                    }
+                if (this.a.f == null) {
+                    Log.e(QuickLoginDialog.STAG, "sharelogin mWebAuthListener is null");
+                } else if (!this.a.g.onPreStart(false)) {
                     Log.e(QuickLoginDialog.STAG, "sharelogin privacy is not agree");
-                    return;
+                } else {
+                    String trim = this.a.b.getText().toString().trim();
+                    if (TextUtils.isEmpty(trim) || trim.length() != 11) {
+                        ToastUtil.show("请您输入正确的手机号");
+                    } else {
+                        this.a.b(trim);
+                    }
                 }
-                Log.e(QuickLoginDialog.STAG, "sharelogin mWebAuthListener is null");
             }
         }
     }
@@ -206,33 +202,6 @@ public class SendSmsView extends LinearLayout {
         }
     }
 
-    public TextView getTvSendSms() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.d : (TextView) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SendSmsView(Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
     /* JADX INFO: Access modifiers changed from: private */
     public void b(String str) {
         Interceptable interceptable = $ic;
@@ -246,6 +215,18 @@ public class SendSmsView extends LinearLayout {
                 public final /* synthetic */ long a;
                 public final /* synthetic */ String b;
                 public final /* synthetic */ SendSmsView c;
+
+                public void onFinish() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048580, this) == null) {
+                    }
+                }
+
+                public void onStart() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048581, this) == null) {
+                    }
+                }
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -265,18 +246,6 @@ public class SendSmsView extends LinearLayout {
                     this.c = this;
                     this.a = r7;
                     this.b = str;
-                }
-
-                public void onFinish() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048580, this) == null) {
-                    }
-                }
-
-                public void onStart() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048581, this) == null) {
-                    }
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -319,23 +288,29 @@ public class SendSmsView extends LinearLayout {
         }
     }
 
-    private void c() {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public SendSmsView(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65544, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04d9, this);
-            setOrientation(1);
-            this.b = (EditText) findViewById(R.id.obfuscated_res_0x7f091d2f);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d45);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091d9c);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091d97);
-            this.c.setOnClickListener(new a(this));
-            this.b.addTextChangedListener(new b(this));
-            this.d.setOnClickListener(new c(this));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SendSmsView(Context context, @Nullable AttributeSet attributeSet, int i2) {
+    public SendSmsView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -357,12 +332,18 @@ public class SendSmsView extends LinearLayout {
         c();
     }
 
-    public void a(ILoginConfirmCallback iLoginConfirmCallback, ISendSmsCallback iSendSmsCallback, ISendSmsUICallback iSendSmsUICallback) {
+    private void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, iLoginConfirmCallback, iSendSmsCallback, iSendSmsUICallback) == null) {
-            this.g = iLoginConfirmCallback;
-            this.f = iSendSmsCallback;
-            this.h = iSendSmsUICallback;
+        if (interceptable == null || interceptable.invokeV(65544, this) == null) {
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04d6, this);
+            setOrientation(1);
+            this.b = (EditText) findViewById(R.id.obfuscated_res_0x7f091d2b);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d41);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091d98);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091d93);
+            this.c.setOnClickListener(new a(this));
+            this.b.addTextChangedListener(new b(this));
+            this.d.setOnClickListener(new c(this));
         }
     }
 
@@ -370,7 +351,7 @@ public class SendSmsView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.b.setTextColor(Color.parseColor("#CCFFFFFF"));
-            this.b.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080ea4));
+            this.b.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080eb5));
         }
     }
 
@@ -381,23 +362,40 @@ public class SendSmsView extends LinearLayout {
         }
     }
 
+    public TextView getTvSendSms() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.d;
+        }
+        return (TextView) invokeV.objValue;
+    }
+
+    public void a(Activity activity) {
+        EditText editText;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) && (editText = this.b) != null) {
+            editText.setFocusable(true);
+            this.b.setFocusableInTouchMode(true);
+            this.b.requestFocus();
+            ((InputMethodManager) activity.getSystemService("input_method")).showSoftInput(this.b, 0);
+        }
+    }
+
+    public void a(ILoginConfirmCallback iLoginConfirmCallback, ISendSmsCallback iSendSmsCallback, ISendSmsUICallback iSendSmsUICallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, iLoginConfirmCallback, iSendSmsCallback, iSendSmsUICallback) == null) {
+            this.g = iLoginConfirmCallback;
+            this.f = iSendSmsCallback;
+            this.h = iSendSmsUICallback;
+        }
+    }
+
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             this.e.setText(str);
             this.e.setVisibility(0);
         }
-    }
-
-    public void a(Activity activity) {
-        EditText editText;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) || (editText = this.b) == null) {
-            return;
-        }
-        editText.setFocusable(true);
-        this.b.setFocusableInTouchMode(true);
-        this.b.requestFocus();
-        ((InputMethodManager) activity.getSystemService("input_method")).showSoftInput(this.b, 0);
     }
 }

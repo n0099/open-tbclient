@@ -14,7 +14,7 @@ import java.util.WeakHashMap;
 /* loaded from: classes6.dex */
 public abstract class SingleActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
-    public static WeakHashMap<String, WeakReference<SingleActivity>> e;
+    public static WeakHashMap e;
     public transient /* synthetic */ FieldHolder $fh;
     public String d;
 
@@ -31,7 +31,7 @@ public abstract class SingleActivity extends BaseActivity {
                 return;
             }
         }
-        e = new WeakHashMap<>();
+        e = new WeakHashMap();
     }
 
     public SingleActivity() {
@@ -48,42 +48,11 @@ public abstract class SingleActivity extends BaseActivity {
         }
     }
 
-    public final SingleActivity d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.d == null) {
-                this.d = SingleActivity.class.getName();
-            }
-            WeakReference<SingleActivity> weakReference = e.get(this.d);
-            if (weakReference != null) {
-                return weakReference.get();
-            }
-            return null;
-        }
-        return (SingleActivity) invokeV.objValue;
-    }
-
     @Override // com.baidu.ufosdk.hybrid.base.BaseActivity, android.app.Activity
     public void finish() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.finish();
-        }
-    }
-
-    @Override // com.baidu.ufosdk.hybrid.base.BaseActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
-            super.onCreate(bundle);
-            SingleActivity d = d();
-            if (d != null) {
-                d.finish();
-            }
-            synchronized (e) {
-                e.put(this.d, new WeakReference<>(this));
-            }
         }
     }
 
@@ -96,6 +65,37 @@ public abstract class SingleActivity extends BaseActivity {
                 synchronized (e) {
                     e.remove(this.d);
                 }
+            }
+        }
+    }
+
+    public final SingleActivity d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.d == null) {
+                this.d = SingleActivity.class.getName();
+            }
+            WeakReference weakReference = (WeakReference) e.get(this.d);
+            if (weakReference != null) {
+                return (SingleActivity) weakReference.get();
+            }
+            return null;
+        }
+        return (SingleActivity) invokeV.objValue;
+    }
+
+    @Override // com.baidu.ufosdk.hybrid.base.BaseActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
+            super.onCreate(bundle);
+            SingleActivity d = d();
+            if (d != null) {
+                d.finish();
+            }
+            synchronized (e) {
+                e.put(this.d, new WeakReference(this));
             }
         }
     }

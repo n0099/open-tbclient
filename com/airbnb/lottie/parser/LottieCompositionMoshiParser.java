@@ -31,13 +31,13 @@ public class LottieCompositionMoshiParser {
         ArrayList arrayList;
         JsonReader jsonReader2 = jsonReader;
         float dpScale = Utils.dpScale();
-        LongSparseArray<Layer> longSparseArray = new LongSparseArray<>();
+        LongSparseArray longSparseArray = new LongSparseArray();
         ArrayList arrayList2 = new ArrayList();
         HashMap hashMap2 = new HashMap();
         HashMap hashMap3 = new HashMap();
         HashMap hashMap4 = new HashMap();
         ArrayList arrayList3 = new ArrayList();
-        SparseArrayCompat<FontCharacter> sparseArrayCompat = new SparseArrayCompat<>();
+        SparseArrayCompat sparseArrayCompat = new SparseArrayCompat();
         LottieComposition lottieComposition = new LottieComposition();
         jsonReader.beginObject();
         int i = 0;
@@ -117,7 +117,7 @@ public class LottieCompositionMoshiParser {
         return lottieComposition;
     }
 
-    public static void parseAssets(JsonReader jsonReader, LottieComposition lottieComposition, Map<String, List<Layer>> map, Map<String, LottieImageAsset> map2) throws IOException {
+    public static void parseAssets(JsonReader jsonReader, LottieComposition lottieComposition, Map map, Map map2) throws IOException {
         jsonReader.beginArray();
         while (jsonReader.hasNext()) {
             ArrayList arrayList = new ArrayList();
@@ -130,27 +130,37 @@ public class LottieCompositionMoshiParser {
             int i2 = 0;
             while (jsonReader.hasNext()) {
                 int selectName = jsonReader.selectName(ASSETS_NAMES);
-                if (selectName == 0) {
-                    str = jsonReader.nextString();
-                } else if (selectName == 1) {
-                    jsonReader.beginArray();
-                    while (jsonReader.hasNext()) {
-                        Layer parse = LayerParser.parse(jsonReader, lottieComposition);
-                        longSparseArray.put(parse.getId(), parse);
-                        arrayList.add(parse);
+                if (selectName != 0) {
+                    if (selectName != 1) {
+                        if (selectName != 2) {
+                            if (selectName != 3) {
+                                if (selectName != 4) {
+                                    if (selectName != 5) {
+                                        jsonReader.skipName();
+                                        jsonReader.skipValue();
+                                    } else {
+                                        str3 = jsonReader.nextString();
+                                    }
+                                } else {
+                                    str2 = jsonReader.nextString();
+                                }
+                            } else {
+                                i2 = jsonReader.nextInt();
+                            }
+                        } else {
+                            i = jsonReader.nextInt();
+                        }
+                    } else {
+                        jsonReader.beginArray();
+                        while (jsonReader.hasNext()) {
+                            Layer parse = LayerParser.parse(jsonReader, lottieComposition);
+                            longSparseArray.put(parse.getId(), parse);
+                            arrayList.add(parse);
+                        }
+                        jsonReader.endArray();
                     }
-                    jsonReader.endArray();
-                } else if (selectName == 2) {
-                    i = jsonReader.nextInt();
-                } else if (selectName == 3) {
-                    i2 = jsonReader.nextInt();
-                } else if (selectName == 4) {
-                    str2 = jsonReader.nextString();
-                } else if (selectName != 5) {
-                    jsonReader.skipName();
-                    jsonReader.skipValue();
                 } else {
-                    str3 = jsonReader.nextString();
+                    str = jsonReader.nextString();
                 }
             }
             jsonReader.endObject();
@@ -164,7 +174,7 @@ public class LottieCompositionMoshiParser {
         jsonReader.endArray();
     }
 
-    public static void parseChars(JsonReader jsonReader, LottieComposition lottieComposition, SparseArrayCompat<FontCharacter> sparseArrayCompat) throws IOException {
+    public static void parseChars(JsonReader jsonReader, LottieComposition lottieComposition, SparseArrayCompat sparseArrayCompat) throws IOException {
         jsonReader.beginArray();
         while (jsonReader.hasNext()) {
             FontCharacter parse = FontCharacterParser.parse(jsonReader, lottieComposition);
@@ -173,7 +183,7 @@ public class LottieCompositionMoshiParser {
         jsonReader.endArray();
     }
 
-    public static void parseFonts(JsonReader jsonReader, Map<String, Font> map) throws IOException {
+    public static void parseFonts(JsonReader jsonReader, Map map) throws IOException {
         jsonReader.beginObject();
         while (jsonReader.hasNext()) {
             if (jsonReader.selectName(FONT_NAMES) != 0) {
@@ -191,7 +201,7 @@ public class LottieCompositionMoshiParser {
         jsonReader.endObject();
     }
 
-    public static void parseLayers(JsonReader jsonReader, LottieComposition lottieComposition, List<Layer> list, LongSparseArray<Layer> longSparseArray) throws IOException {
+    public static void parseLayers(JsonReader jsonReader, LottieComposition lottieComposition, List list, LongSparseArray longSparseArray) throws IOException {
         jsonReader.beginArray();
         int i = 0;
         while (jsonReader.hasNext()) {
@@ -208,7 +218,7 @@ public class LottieCompositionMoshiParser {
         jsonReader.endArray();
     }
 
-    public static void parseMarkers(JsonReader jsonReader, LottieComposition lottieComposition, List<Marker> list) throws IOException {
+    public static void parseMarkers(JsonReader jsonReader, LottieComposition lottieComposition, List list) throws IOException {
         jsonReader.beginArray();
         while (jsonReader.hasNext()) {
             String str = null;
@@ -217,15 +227,19 @@ public class LottieCompositionMoshiParser {
             float f2 = 0.0f;
             while (jsonReader.hasNext()) {
                 int selectName = jsonReader.selectName(MARKER_NAMES);
-                if (selectName == 0) {
-                    str = jsonReader.nextString();
-                } else if (selectName == 1) {
-                    f = (float) jsonReader.nextDouble();
-                } else if (selectName != 2) {
-                    jsonReader.skipName();
-                    jsonReader.skipValue();
+                if (selectName != 0) {
+                    if (selectName != 1) {
+                        if (selectName != 2) {
+                            jsonReader.skipName();
+                            jsonReader.skipValue();
+                        } else {
+                            f2 = (float) jsonReader.nextDouble();
+                        }
+                    } else {
+                        f = (float) jsonReader.nextDouble();
+                    }
                 } else {
-                    f2 = (float) jsonReader.nextDouble();
+                    str = jsonReader.nextString();
                 }
             }
             jsonReader.endObject();

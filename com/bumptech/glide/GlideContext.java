@@ -2,11 +2,8 @@ package com.bumptech.glide;
 
 import android.content.Context;
 import android.content.ContextWrapper;
-import android.os.Handler;
-import android.os.Looper;
 import android.widget.ImageView;
-import androidx.annotation.NonNull;
-import androidx.annotation.VisibleForTesting;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,25 +12,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.Engine;
 import com.bumptech.glide.load.engine.bitmap_recycle.ArrayPool;
 import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.ImageViewTargetFactory;
 import com.bumptech.glide.request.target.ViewTarget;
+import java.util.List;
 import java.util.Map;
 /* loaded from: classes7.dex */
 public class GlideContext extends ContextWrapper {
     public static /* synthetic */ Interceptable $ic;
-    @VisibleForTesting
-    public static final TransitionOptions<?, ?> DEFAULT_TRANSITION_OPTIONS;
+    public static final TransitionOptions DEFAULT_TRANSITION_OPTIONS;
     public transient /* synthetic */ FieldHolder $fh;
     public final ArrayPool arrayPool;
-    public final RequestOptions defaultRequestOptions;
-    public final Map<Class<?>, TransitionOptions<?, ?>> defaultTransitionOptions;
+    public final List defaultRequestListeners;
+    public RequestOptions defaultRequestOptions;
+    public final Glide.RequestOptionsFactory defaultRequestOptionsFactory;
+    public final Map defaultTransitionOptions;
     public final Engine engine;
+    public final GlideExperiments experiments;
     public final ImageViewTargetFactory imageViewTargetFactory;
     public final int logLevel;
-    public final Handler mainHandler;
     public final Registry registry;
 
     static {
@@ -52,14 +52,84 @@ public class GlideContext extends ContextWrapper {
         DEFAULT_TRANSITION_OPTIONS = new GenericTransitionOptions();
     }
 
+    public ArrayPool getArrayPool() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.arrayPool;
+        }
+        return (ArrayPool) invokeV.objValue;
+    }
+
+    public List getDefaultRequestListeners() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.defaultRequestListeners;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public synchronized RequestOptions getDefaultRequestOptions() {
+        InterceptResult invokeV;
+        RequestOptions requestOptions;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            synchronized (this) {
+                if (this.defaultRequestOptions == null) {
+                    this.defaultRequestOptions = (RequestOptions) this.defaultRequestOptionsFactory.build().lock();
+                }
+                requestOptions = this.defaultRequestOptions;
+            }
+            return requestOptions;
+        }
+        return (RequestOptions) invokeV.objValue;
+    }
+
+    public Engine getEngine() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.engine;
+        }
+        return (Engine) invokeV.objValue;
+    }
+
+    public GlideExperiments getExperiments() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.experiments;
+        }
+        return (GlideExperiments) invokeV.objValue;
+    }
+
+    public int getLogLevel() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.logLevel;
+        }
+        return invokeV.intValue;
+    }
+
+    public Registry getRegistry() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.registry;
+        }
+        return (Registry) invokeV.objValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GlideContext(@NonNull Context context, @NonNull ArrayPool arrayPool, @NonNull Registry registry, @NonNull ImageViewTargetFactory imageViewTargetFactory, @NonNull RequestOptions requestOptions, @NonNull Map<Class<?>, TransitionOptions<?, ?>> map, @NonNull Engine engine, int i) {
+    public GlideContext(Context context, ArrayPool arrayPool, Registry registry, ImageViewTargetFactory imageViewTargetFactory, Glide.RequestOptionsFactory requestOptionsFactory, Map map, List list, Engine engine, GlideExperiments glideExperiments, int i) {
         super(context.getApplicationContext());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, arrayPool, registry, imageViewTargetFactory, requestOptions, map, engine, Integer.valueOf(i)};
+            newInitContext.initArgs = r3;
+            Object[] objArr = {context, arrayPool, registry, imageViewTargetFactory, requestOptionsFactory, map, list, engine, glideExperiments, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -73,75 +143,40 @@ public class GlideContext extends ContextWrapper {
         this.arrayPool = arrayPool;
         this.registry = registry;
         this.imageViewTargetFactory = imageViewTargetFactory;
-        this.defaultRequestOptions = requestOptions;
+        this.defaultRequestOptionsFactory = requestOptionsFactory;
+        this.defaultRequestListeners = list;
         this.defaultTransitionOptions = map;
         this.engine = engine;
+        this.experiments = glideExperiments;
         this.logLevel = i;
-        this.mainHandler = new Handler(Looper.getMainLooper());
     }
 
-    @NonNull
-    public <X> ViewTarget<ImageView, X> buildImageViewTarget(@NonNull ImageView imageView, @NonNull Class<X> cls) {
+    public ViewTarget buildImageViewTarget(ImageView imageView, Class cls) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, imageView, cls)) == null) ? this.imageViewTargetFactory.buildTarget(imageView, cls) : (ViewTarget) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, imageView, cls)) == null) {
+            return this.imageViewTargetFactory.buildTarget(imageView, cls);
+        }
+        return (ViewTarget) invokeLL.objValue;
     }
 
-    @NonNull
-    public ArrayPool getArrayPool() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.arrayPool : (ArrayPool) invokeV.objValue;
-    }
-
-    public RequestOptions getDefaultRequestOptions() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.defaultRequestOptions : (RequestOptions) invokeV.objValue;
-    }
-
-    @NonNull
-    public <T> TransitionOptions<?, T> getDefaultTransitionOptions(@NonNull Class<T> cls) {
+    public TransitionOptions getDefaultTransitionOptions(Class cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cls)) == null) {
-            TransitionOptions<?, T> transitionOptions = (TransitionOptions<?, T>) this.defaultTransitionOptions.get(cls);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cls)) == null) {
+            TransitionOptions transitionOptions = (TransitionOptions) this.defaultTransitionOptions.get(cls);
             if (transitionOptions == null) {
-                for (Map.Entry<Class<?>, TransitionOptions<?, ?>> entry : this.defaultTransitionOptions.entrySet()) {
-                    if (entry.getKey().isAssignableFrom(cls)) {
-                        transitionOptions = (TransitionOptions<?, T>) entry.getValue();
+                for (Map.Entry entry : this.defaultTransitionOptions.entrySet()) {
+                    if (((Class) entry.getKey()).isAssignableFrom(cls)) {
+                        transitionOptions = (TransitionOptions) entry.getValue();
                     }
                 }
             }
-            return transitionOptions == null ? (TransitionOptions<?, T>) DEFAULT_TRANSITION_OPTIONS : transitionOptions;
+            if (transitionOptions == null) {
+                return DEFAULT_TRANSITION_OPTIONS;
+            }
+            return transitionOptions;
         }
         return (TransitionOptions) invokeL.objValue;
-    }
-
-    @NonNull
-    public Engine getEngine() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.engine : (Engine) invokeV.objValue;
-    }
-
-    public int getLogLevel() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.logLevel : invokeV.intValue;
-    }
-
-    @NonNull
-    public Handler getMainHandler() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mainHandler : (Handler) invokeV.objValue;
-    }
-
-    @NonNull
-    public Registry getRegistry() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.registry : (Registry) invokeV.objValue;
     }
 }

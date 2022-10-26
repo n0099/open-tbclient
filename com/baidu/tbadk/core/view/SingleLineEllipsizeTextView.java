@@ -4,11 +4,10 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.text.TextPaint;
 import android.util.AttributeSet;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tieba.dj;
+import com.baidu.tieba.ej;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -41,59 +40,8 @@ public class SingleLineEllipsizeTextView extends EMTextView {
         setSingleLine();
     }
 
-    @Override // android.widget.TextView, android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
-            super.onMeasure(i, i2);
-            CharSequence text = getText();
-            if (dj.isEmpty(text.toString())) {
-                return;
-            }
-            TextPaint paint = getPaint();
-            float measureText = paint.measureText(this.b);
-            float measureText2 = paint.measureText(text.toString());
-            float paddingRight = getPaddingRight() + getPaddingLeft();
-            Drawable[] compoundDrawables = getCompoundDrawables();
-            if (compoundDrawables.length == 4) {
-                if (compoundDrawables[0] != null) {
-                    paddingRight += compoundDrawables[0].getBounds().width() + getCompoundDrawablePadding();
-                }
-                if (compoundDrawables[2] != null) {
-                    paddingRight += compoundDrawables[2].getBounds().width() + getCompoundDrawablePadding();
-                }
-            }
-            float measuredWidth = getMeasuredWidth() - paddingRight;
-            if (measureText2 > measuredWidth) {
-                int length = text.length();
-                while (measureText2 + measureText > measuredWidth && length > 1) {
-                    length--;
-                    measureText2 = paint.measureText(text, 0, length - 1);
-                }
-                if (length > 0) {
-                    if (paint.measureText(((Object) text.subSequence(0, length - 1)) + this.b) > measuredWidth) {
-                        length--;
-                    }
-                }
-                if (length > 0) {
-                    text = ((Object) text.subSequence(0, length - 1)) + this.b;
-                }
-                float measureText3 = paint.measureText(text.toString());
-                setText(text);
-                setMeasuredDimension((int) (measureText3 + paddingRight), getMeasuredHeight());
-            }
-        }
-    }
-
-    public void setEllipsisSuffix(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.b = str;
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SingleLineEllipsizeTextView(Context context, @Nullable AttributeSet attributeSet) {
+    public SingleLineEllipsizeTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -116,7 +64,7 @@ public class SingleLineEllipsizeTextView extends EMTextView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SingleLineEllipsizeTextView(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public SingleLineEllipsizeTextView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -136,5 +84,55 @@ public class SingleLineEllipsizeTextView extends EMTextView {
         }
         this.b = StringHelper.STRING_MORE;
         setSingleLine();
+    }
+
+    @Override // android.widget.TextView, android.view.View
+    public void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
+            super.onMeasure(i, i2);
+            CharSequence text = getText();
+            if (!ej.isEmpty(text.toString())) {
+                TextPaint paint = getPaint();
+                float measureText = paint.measureText(this.b);
+                float measureText2 = paint.measureText(text.toString());
+                float paddingRight = getPaddingRight() + getPaddingLeft();
+                Drawable[] compoundDrawables = getCompoundDrawables();
+                if (compoundDrawables.length == 4) {
+                    if (compoundDrawables[0] != null) {
+                        paddingRight += compoundDrawables[0].getBounds().width() + getCompoundDrawablePadding();
+                    }
+                    if (compoundDrawables[2] != null) {
+                        paddingRight += compoundDrawables[2].getBounds().width() + getCompoundDrawablePadding();
+                    }
+                }
+                float measuredWidth = getMeasuredWidth() - paddingRight;
+                if (measureText2 > measuredWidth) {
+                    int length = text.length();
+                    while (measureText2 + measureText > measuredWidth && length > 1) {
+                        length--;
+                        measureText2 = paint.measureText(text, 0, length - 1);
+                    }
+                    if (length > 0) {
+                        if (paint.measureText(((Object) text.subSequence(0, length - 1)) + this.b) > measuredWidth) {
+                            length--;
+                        }
+                    }
+                    if (length > 0) {
+                        text = ((Object) text.subSequence(0, length - 1)) + this.b;
+                    }
+                    float measureText3 = paint.measureText(text.toString());
+                    setText(text);
+                    setMeasuredDimension((int) (measureText3 + paddingRight), getMeasuredHeight());
+                }
+            }
+        }
+    }
+
+    public void setEllipsisSuffix(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.b = str;
+        }
     }
 }

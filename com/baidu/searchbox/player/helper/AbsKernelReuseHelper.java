@@ -1,8 +1,6 @@
 package com.baidu.searchbox.player.helper;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.player.BDVideoPlayer;
 import com.baidu.searchbox.player.assistant.KernelCacheAssistant;
@@ -19,6 +17,8 @@ public abstract class AbsKernelReuseHelper implements IKernelLayerReuseHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract boolean performAutoDetachCache(BDVideoPlayer bDVideoPlayer, String str);
+
     public AbsKernelReuseHelper() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -34,7 +34,7 @@ public abstract class AbsKernelReuseHelper implements IKernelLayerReuseHelper {
     }
 
     @Override // com.baidu.searchbox.player.interfaces.IKernelLayerReuseHelper
-    public boolean attachCache(@NonNull BDVideoPlayer bDVideoPlayer, @Nullable String str) {
+    public boolean attachCache(BDVideoPlayer bDVideoPlayer, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bDVideoPlayer, str)) == null) {
@@ -53,7 +53,7 @@ public abstract class AbsKernelReuseHelper implements IKernelLayerReuseHelper {
     }
 
     @Override // com.baidu.searchbox.player.interfaces.IKernelLayerReuseHelper
-    public boolean detachCache(@NonNull BDVideoPlayer bDVideoPlayer, @Nullable String str) {
+    public boolean detachCache(BDVideoPlayer bDVideoPlayer, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bDVideoPlayer, str)) == null) {
@@ -73,12 +73,12 @@ public abstract class AbsKernelReuseHelper implements IKernelLayerReuseHelper {
     }
 
     @Override // com.baidu.searchbox.player.interfaces.IKernelLayerReuseHelper
-    @Nullable
-    public BaseKernelLayer getValidCache(@NonNull BDVideoPlayer bDVideoPlayer, @Nullable String str) {
+    public BaseKernelLayer getValidCache(BDVideoPlayer bDVideoPlayer, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, bDVideoPlayer, str)) == null) ? KernelCacheAssistant.get().removeCache(str) : (BaseKernelLayer) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, bDVideoPlayer, str)) == null) {
+            return KernelCacheAssistant.get().removeCache(str);
+        }
+        return (BaseKernelLayer) invokeLL.objValue;
     }
-
-    public abstract boolean performAutoDetachCache(@NonNull BDVideoPlayer bDVideoPlayer, @Nullable String str);
 }

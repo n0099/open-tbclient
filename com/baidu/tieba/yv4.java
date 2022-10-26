@@ -1,12 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.util.AppLaunchInfoFetcher;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class yv4 implements AppLaunchInfoFetcher.a {
+public class yv4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -22,14 +21,5 @@ public class yv4 implements AppLaunchInfoFetcher.a {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    @Override // com.baidu.tbadk.util.AppLaunchInfoFetcher.a
-    public void onFinish(ph5 ph5Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, ph5Var) == null) || ph5Var == null) {
-            return;
-        }
-        zv4.a().c(ph5Var.b);
     }
 }

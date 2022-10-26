@@ -51,6 +51,7 @@ public final class a {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, intent)) == null) {
+            String str2 = null;
             if (intent == null) {
                 com.vivo.push.util.p.a("BundleWapper", "create error : intent is null");
                 return null;
@@ -63,30 +64,66 @@ public final class a {
             if (TextUtils.isEmpty(str)) {
                 com.vivo.push.util.p.b("BundleWapper", "create warning: pkgName is null");
             }
-            String str2 = intent.getPackage();
-            if (TextUtils.isEmpty(str2)) {
-                String packageName = intent.getComponent() != null ? intent.getComponent().getPackageName() : null;
-                if (TextUtils.isEmpty(packageName)) {
+            String str3 = intent.getPackage();
+            if (TextUtils.isEmpty(str3)) {
+                if (intent.getComponent() != null) {
+                    str2 = intent.getComponent().getPackageName();
+                }
+                if (TextUtils.isEmpty(str2)) {
                     com.vivo.push.util.p.b("BundleWapper", "create warning: targetPkgName is null");
                 }
-                str2 = packageName;
+                str3 = str2;
             }
-            return new a(str, str2, extras);
+            return new a(str, str3, extras);
         }
         return (a) invokeL.objValue;
     }
 
-    public final int b(String str, int i) {
-        InterceptResult invokeLI;
+    public final String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, str, i)) == null) {
-            Bundle bundle = this.a;
-            return bundle == null ? i : bundle.getInt(str, i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return invokeLI.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public final ArrayList<String> c(String str) {
+    public final Bundle b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.a;
+        }
+        return (Bundle) invokeV.objValue;
+    }
+
+    public final String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            Bundle bundle = this.a;
+            if (bundle == null) {
+                return null;
+            }
+            return bundle.getString(str);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final byte[] b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
+            Bundle bundle = this.a;
+            if (bundle == null) {
+                return null;
+            }
+            return bundle.getByteArray(str);
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public final ArrayList c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
@@ -125,35 +162,6 @@ public final class a {
         return invokeL.booleanValue;
     }
 
-    public final byte[] b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-            Bundle bundle = this.a;
-            if (bundle == null) {
-                return null;
-            }
-            return bundle.getByteArray(str);
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public final long b(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048586, this, str, j)) == null) {
-            Bundle bundle = this.a;
-            return bundle == null ? j : bundle.getLong(str, j);
-        }
-        return invokeLJ.longValue;
-    }
-
-    public final Bundle b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.a : (Bundle) invokeV.objValue;
-    }
-
     public final void a(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
@@ -164,6 +172,19 @@ public final class a {
         }
     }
 
+    public final int b(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, str, i)) == null) {
+            Bundle bundle = this.a;
+            if (bundle == null) {
+                return i;
+            }
+            return bundle.getInt(str, i);
+        }
+        return invokeLI.intValue;
+    }
+
     public final void a(String str, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(1048579, this, str, j) == null) {
@@ -171,6 +192,29 @@ public final class a {
                 this.a = new Bundle();
             }
             this.a.putLong(str, j);
+        }
+    }
+
+    public final long b(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048586, this, str, j)) == null) {
+            Bundle bundle = this.a;
+            if (bundle == null) {
+                return j;
+            }
+            return bundle.getLong(str, j);
+        }
+        return invokeLJ.longValue;
+    }
+
+    public final void a(String str, Serializable serializable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, serializable) == null) {
+            if (this.a == null) {
+                this.a = new Bundle();
+            }
+            this.a.putSerializable(str, serializable);
         }
     }
 
@@ -184,23 +228,13 @@ public final class a {
         }
     }
 
-    public final void a(String str, byte[] bArr) {
+    public final void a(String str, ArrayList arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, bArr) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048582, this, str, arrayList) == null) {
             if (this.a == null) {
                 this.a = new Bundle();
             }
-            this.a.putByteArray(str, bArr);
-        }
-    }
-
-    public final void a(String str, Serializable serializable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, serializable) == null) {
-            if (this.a == null) {
-                this.a = new Bundle();
-            }
-            this.a.putSerializable(str, serializable);
+            this.a.putStringArrayList(str, arrayList);
         }
     }
 
@@ -214,32 +248,13 @@ public final class a {
         }
     }
 
-    public final void a(String str, ArrayList<String> arrayList) {
+    public final void a(String str, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, arrayList) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, bArr) == null) {
             if (this.a == null) {
                 this.a = new Bundle();
             }
-            this.a.putStringArrayList(str, arrayList);
+            this.a.putByteArray(str, bArr);
         }
-    }
-
-    public final String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            Bundle bundle = this.a;
-            if (bundle == null) {
-                return null;
-            }
-            return bundle.getString(str);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 }

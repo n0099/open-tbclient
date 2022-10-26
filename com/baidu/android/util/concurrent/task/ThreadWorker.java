@@ -49,37 +49,38 @@ public class ThreadWorker implements Runnable {
     public Looper getLooper() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mLooper : (Looper) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mLooper;
+        }
+        return (Looper) invokeV.objValue;
     }
 
     public void join() {
         Looper looper;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (looper = getLooper()) == null) {
-            return;
-        }
-        try {
-            Thread thread = looper.getThread();
-            if (thread != null) {
-                thread.join();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (looper = getLooper()) != null) {
+            try {
+                Thread thread = looper.getThread();
+                if (thread != null) {
+                    thread.join();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 
     public void pause() {
         Thread thread;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (thread = getLooper().getThread()) == null) {
-            return;
-        }
-        try {
-            synchronized (thread) {
-                thread.wait();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (thread = getLooper().getThread()) != null) {
+            try {
+                synchronized (thread) {
+                    thread.wait();
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
         }
     }
 
@@ -93,15 +94,14 @@ public class ThreadWorker implements Runnable {
     public void restart() {
         Thread thread;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (thread = getLooper().getThread()) == null) {
-            return;
-        }
-        try {
-            synchronized (thread) {
-                thread.notifyAll();
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (thread = getLooper().getThread()) != null) {
+            try {
+                synchronized (thread) {
+                    thread.notifyAll();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 

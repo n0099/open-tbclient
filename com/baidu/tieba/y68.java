@@ -1,166 +1,161 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.yu4;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.personCenter.view.PersonOftenFuncItemView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
-import tbclient.SmartApp;
 /* loaded from: classes6.dex */
-public class y68 {
+public class y68 extends p16 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public Context b;
-    public wu4 c;
-    public yu4 d;
-    public List<uu4> e;
-    public uu4 f;
-    public b g;
-    public SmartApp h;
-    public yu4.d i;
+    public LinearLayout i;
+    public LinearLayout j;
+    public TextView k;
+    public PersonOftenFuncItemView l;
 
-    /* loaded from: classes6.dex */
-    public class a implements yu4.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ y68 a;
+    @Override // com.baidu.tieba.p16
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0700 : invokeV.intValue;
+    }
 
-        public a(y68 y68Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y68Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = y68Var;
-        }
-
-        @Override // com.baidu.tieba.yu4.d
-        public void onClick() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.h == null) {
-                return;
-            }
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SMART_APP_DEL_BROWSE_HISTORY);
-            httpMessage.addParam("swan_app_key", this.a.h.id);
-            MessageManager.getInstance().sendMessage(httpMessage);
-            if (this.a.g != null) {
-                this.a.g.a(this.a.h.id);
-            }
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SMART_APP_HISTORY_DELETE_CLICK);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.param("obj_id", this.a.h.swan_app_id.longValue());
-            statisticItem.param("obj_name", this.a.h.name);
-            TiebaStatic.log(statisticItem);
-            if (this.a.c != null) {
-                this.a.c.dismiss();
-            }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(String str);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948282222, "Lcom/baidu/tieba/y68;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948282222, "Lcom/baidu/tieba/y68;");
-                return;
-            }
-        }
-        MessageManager.getInstance().registerTask(new TbHttpMessageTask(CmdConfigHttp.CMD_SMART_APP_DEL_BROWSE_HISTORY, TbConfig.SERVER_ADDRESS + TbConfig.URL_SMART_APP_DEL_BROWSE_HISTORY));
-    }
-
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public y68(TbPageContext tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = new a(this);
-        this.a = tbPageContext;
-        Activity pageActivity = tbPageContext.getPageActivity();
-        this.b = pageActivity;
-        this.d = new yu4(pageActivity);
-        this.e = new ArrayList();
+        View k = k();
+        int f = fj.f(this.c, R.dimen.M_W_X003);
+        k.setPadding(f, 0, f, 0);
+        this.i = (LinearLayout) k.findViewById(R.id.obfuscated_res_0x7f091722);
+        this.k = (TextView) k.findViewById(R.id.obfuscated_res_0x7f0918f4);
+        this.j = (LinearLayout) k.findViewById(R.id.obfuscated_res_0x7f0918f5);
+        m(g(), this.a);
     }
 
-    public void d(SmartApp smartApp) {
+    @Override // com.baidu.tieba.p16
+    public void m(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, smartApp) == null) {
-            this.h = smartApp;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            k();
+            SkinManager.setBackgroundColor(this.i, R.color.CAM_X0205);
+            SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0105);
+            SkinManager.setBackgroundColor(this.j, R.color.CAM_X0205);
+            nv4 d = nv4.d(this.i);
+            d.n(R.string.J_X06);
+            d.f(R.color.CAM_X0205);
+            nv4 d2 = nv4.d(this.k);
+            d2.n(R.string.J_X06);
+            d2.f(R.color.CAM_X0205);
+            nv4 d3 = nv4.d(this.j);
+            d3.n(R.string.J_X06);
+            d3.f(R.color.CAM_X0205);
+            int childCount = this.j.getChildCount();
+            for (int i2 = 0; i2 < childCount; i2++) {
+                View childAt = this.j.getChildAt(i2);
+                if (childAt instanceof LinearLayout) {
+                    int i3 = 0;
+                    while (true) {
+                        LinearLayout linearLayout = (LinearLayout) childAt;
+                        if (i3 < linearLayout.getChildCount()) {
+                            View childAt2 = linearLayout.getChildAt(i3);
+                            if (childAt2 instanceof PersonOftenFuncItemView) {
+                                PersonOftenFuncItemView personOftenFuncItemView = (PersonOftenFuncItemView) childAt2;
+                                SkinManager.setBackgroundColor(personOftenFuncItemView, R.color.CAM_X0205);
+                                SkinManager.setViewTextColor(personOftenFuncItemView.b, (int) R.color.CAM_X0105);
+                            }
+                            i3++;
+                        }
+                    }
+                }
+            }
         }
     }
 
-    public void e() {
+    public void onScroll() {
+        PersonOftenFuncItemView personOftenFuncItemView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.c == null) {
-            uu4 uu4Var = new uu4(this.b.getString(R.string.obfuscated_res_0x7f0f04b0), this.d);
-            this.f = uu4Var;
-            uu4Var.m(this.i);
-            this.e.add(this.f);
-            this.d.j(this.e);
-            this.c = new wu4(this.a, this.d);
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (personOftenFuncItemView = this.l) != null) {
+            personOftenFuncItemView.d();
         }
     }
 
-    public void f(b bVar) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.p16
+    /* renamed from: r */
+    public void l(h68 h68Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.g = bVar;
+        if (interceptable == null || interceptable.invokeL(1048581, this, h68Var) == null) {
+            if (h68Var != null && h68Var.c() != null && !ListUtils.isEmpty(h68Var.c())) {
+                this.j.removeAllViews();
+                List<e68> c = h68Var.c();
+                LinearLayout linearLayout = new LinearLayout(getContext());
+                int i = 0;
+                for (e68 e68Var : c) {
+                    i++;
+                    if (i % 4 == 1) {
+                        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
+                        layoutParams.bottomMargin = fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds60);
+                        LinearLayout linearLayout2 = new LinearLayout(getContext());
+                        linearLayout2.setOrientation(0);
+                        linearLayout2.setLayoutParams(layoutParams);
+                        this.j.addView(linearLayout2);
+                        linearLayout = linearLayout2;
+                    }
+                    LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(0, -2, 1.0f);
+                    PersonOftenFuncItemView personOftenFuncItemView = new PersonOftenFuncItemView(getContext());
+                    personOftenFuncItemView.a(e68Var);
+                    personOftenFuncItemView.setLayoutParams(layoutParams2);
+                    linearLayout.addView(personOftenFuncItemView);
+                    if (e68Var.a == 59) {
+                        this.l = personOftenFuncItemView;
+                    }
+                }
+                if (c.size() != 0 && c.size() % 4 != 0) {
+                    for (int i2 = 0; i2 < 4 - (c.size() % 4); i2++) {
+                        PersonOftenFuncItemView personOftenFuncItemView2 = new PersonOftenFuncItemView(getContext());
+                        LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(0, -2);
+                        layoutParams3.weight = 1.0f;
+                        personOftenFuncItemView2.setLayoutParams(layoutParams3);
+                        linearLayout.addView(personOftenFuncItemView2);
+                    }
+                }
+                m(g(), this.a);
+                return;
+            }
+            q(8);
         }
-    }
-
-    public void g() {
-        wu4 wu4Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (wu4Var = this.c) == null) {
-            return;
-        }
-        wu4Var.k();
     }
 }

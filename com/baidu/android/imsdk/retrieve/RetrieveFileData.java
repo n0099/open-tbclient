@@ -29,18 +29,18 @@ public class RetrieveFileData {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
-    public static final class RetrieveFileBean {
+    public final class RetrieveFileBean {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long mExpiredTime;
         public String mJobId;
         public long mMaxFileSize;
-        public List<String> mPathList;
+        public List mPathList;
         public String mPathStr;
         public String mType;
         public String mVersion;
 
-        public RetrieveFileBean(String str, String str2, String str3, long j, List<String> list, String str4, long j2) {
+        public RetrieveFileBean(String str, String str2, String str3, long j, List list, String str4, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -111,7 +111,9 @@ public class RetrieveFileData {
                 LogUtils.d("FetchFileData", "retrieve--> 文件回捞命令过期");
                 RetrieveReportImpl.getInstance(context).reportDispatch(optString2, optString, optString3, jSONObject, "1", null);
                 return null;
-            } else if ("file".equals(optString2)) {
+            } else if (!"file".equals(optString2)) {
+                return null;
+            } else {
                 try {
                     str = new String(Utility.decrypt(AES_PATH_IV, String.format("aperf_%s", optString3), Base64.decode(optJSONObject.optString("path"), 0)));
                     LogUtils.d("FetchFileData", "解密后的path路径：" + str);
@@ -128,8 +130,6 @@ public class RetrieveFileData {
                     }
                     return new RetrieveFileBean(optString, optString2, optString3, longValue, arrayList, str, optJSONObject.optLong("maxTotalFileSize"));
                 }
-                return null;
-            } else {
                 return null;
             }
         }

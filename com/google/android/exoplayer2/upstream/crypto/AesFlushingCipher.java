@@ -62,7 +62,10 @@ public final class AesFlushingCipher {
     private byte[] getInitializationVector(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? ByteBuffer.allocate(16).putLong(j).putLong(j2).array() : (byte[]) invokeCommon.objValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            return ByteBuffer.allocate(16).putLong(j).putLong(j2).array();
+        }
+        return (byte[]) invokeCommon.objValue;
     }
 
     private int nonFlushingUpdate(byte[] bArr, int i, int i2, byte[] bArr2, int i3) {
@@ -79,6 +82,7 @@ public final class AesFlushingCipher {
     }
 
     public void update(byte[] bArr, int i, int i2, byte[] bArr2, int i3) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), bArr2, Integer.valueOf(i3)}) == null) {
             int i4 = i;
@@ -97,11 +101,20 @@ public final class AesFlushingCipher {
                     }
                     int i6 = i2 - nonFlushingUpdate;
                     int i7 = 0;
-                    Assertions.checkState(i6 < this.blockSize);
+                    boolean z2 = true;
+                    if (i6 < this.blockSize) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    Assertions.checkState(z);
                     int i8 = i3 + nonFlushingUpdate;
                     int i9 = this.blockSize - i6;
                     this.pendingXorBytes = i9;
-                    Assertions.checkState(nonFlushingUpdate(this.zerosBlock, 0, i9, this.flushedBlock, 0) == this.blockSize);
+                    if (nonFlushingUpdate(this.zerosBlock, 0, i9, this.flushedBlock, 0) != this.blockSize) {
+                        z2 = false;
+                    }
+                    Assertions.checkState(z2);
                     while (i7 < i6) {
                         bArr2[i8] = this.flushedBlock[i7];
                         i7++;

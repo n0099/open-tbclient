@@ -16,6 +16,15 @@ public class DownConfig {
     public boolean mHttpRetryStrategyEnable;
     public int mTrafficStatsTag;
 
+    public boolean speedStatEnable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
     public DownConfig() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -33,14 +42,5 @@ public class DownConfig {
         this.mHttpRetryStrategyEnable = false;
         this.mDownSpeedStatEnable = false;
         this.mConfigSpeedStat = new ConfigSpeedStat();
-    }
-
-    public boolean speedStatEnable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
     }
 }

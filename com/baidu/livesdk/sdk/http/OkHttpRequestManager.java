@@ -34,7 +34,10 @@ public class OkHttpRequestManager implements HttpRequestManager {
     public OkHttpRequest createRequest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new OkHttpRequest() : (OkHttpRequest) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new OkHttpRequest();
+        }
+        return (OkHttpRequest) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

@@ -41,6 +41,13 @@ public class C0 implements View.OnClickListener, View.OnTouchListener {
         this.g = d0;
     }
 
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+        }
+    }
+
     public HashMap a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -59,55 +66,48 @@ public class C0 implements View.OnClickListener, View.OnTouchListener {
         return (HashMap) invokeV.objValue;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-        }
-    }
-
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view2, MotionEvent motionEvent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, motionEvent)) == null) {
             int action = motionEvent.getAction();
-            if (action == 0) {
-                this.a = (int) motionEvent.getRawX();
-                this.b = (int) motionEvent.getRawY();
-                this.c = System.currentTimeMillis();
-                this.g.p = (int) motionEvent.getX();
-                this.g.q = (int) motionEvent.getY();
-                D0.a(this.g, view2);
-                return false;
-            } else if (action != 1) {
-                return false;
-            } else {
-                this.d = (int) motionEvent.getRawX();
-                this.e = (int) motionEvent.getRawY();
-                this.f = System.currentTimeMillis();
-                this.g.r = (int) motionEvent.getX();
-                this.g.s = (int) motionEvent.getY();
-                D0 d0 = this.g;
-                Info info = d0.c;
-                if (info == null || !V1.a(info, d0.h)) {
-                    return false;
-                }
-                this.g.h = System.currentTimeMillis();
-                D0 d02 = this.g;
-                Context context = d02.a;
-                String open = d02.c.getOpen();
-                D0 d03 = this.g;
-                V1.a(context, open, d03.c, d03.g, a().toString());
-                e1.a(this.g.a).a(new f1(this.g.c), (String) null).a("desc", a().toString()).a();
-                M.a(this.g.c, a().toString());
-                PBNativeListener pBNativeListener = this.g.f;
-                if (pBNativeListener != null) {
-                    pBNativeListener.onClicked();
+            if (action != 0) {
+                if (action == 1) {
+                    this.d = (int) motionEvent.getRawX();
+                    this.e = (int) motionEvent.getRawY();
+                    this.f = System.currentTimeMillis();
+                    this.g.r = (int) motionEvent.getX();
+                    this.g.s = (int) motionEvent.getY();
+                    D0 d0 = this.g;
+                    Info info = d0.c;
+                    if (info != null && V1.a(info, d0.h)) {
+                        this.g.h = System.currentTimeMillis();
+                        D0 d02 = this.g;
+                        Context context = d02.a;
+                        String open = d02.c.getOpen();
+                        D0 d03 = this.g;
+                        V1.a(context, open, d03.c, d03.g, a().toString());
+                        e1.a(this.g.a).a(new f1(this.g.c), (String) null).a("desc", a().toString()).a();
+                        M.a(this.g.c, a().toString());
+                        PBNativeListener pBNativeListener = this.g.f;
+                        if (pBNativeListener != null) {
+                            pBNativeListener.onClicked();
+                            return false;
+                        }
+                        return false;
+                    }
                     return false;
                 }
                 return false;
             }
+            this.a = (int) motionEvent.getRawX();
+            this.b = (int) motionEvent.getRawY();
+            this.c = System.currentTimeMillis();
+            this.g.p = (int) motionEvent.getX();
+            this.g.q = (int) motionEvent.getY();
+            D0.a(this.g, view2);
+            return false;
         }
         return invokeLL.booleanValue;
     }

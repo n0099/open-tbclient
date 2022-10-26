@@ -1,8 +1,6 @@
 package com.baidu.searchbox.ruka;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.block.impl.BlockMonitor_Factory;
 import com.baidu.searchbox.ruka.ioc.IBlockMonitor;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -12,7 +10,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Autowired
 /* loaded from: classes2.dex */
 public class BlockProvider {
     public static /* synthetic */ Interceptable $ic;
@@ -35,20 +32,6 @@ public class BlockProvider {
         EMPTY = new IBlockMonitor() { // from class: com.baidu.searchbox.ruka.BlockProvider.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
 
             @Override // com.baidu.searchbox.ruka.ioc.IBlockMonitor
             public boolean enableMonitor() {
@@ -73,6 +56,20 @@ public class BlockProvider {
                 if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 }
             }
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
         };
     }
 
@@ -90,10 +87,12 @@ public class BlockProvider {
         }
     }
 
-    @Inject(force = false)
     public static IBlockMonitor getBlockMonitor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? BlockMonitor_Factory.get() : (IBlockMonitor) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return BlockMonitor_Factory.get();
+        }
+        return (IBlockMonitor) invokeV.objValue;
     }
 }

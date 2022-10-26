@@ -1,7 +1,5 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,10 +14,31 @@ public abstract class z31 {
     public static final z31 a;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract String a(String str);
+
+    public abstract void b(boolean z);
+
     /* loaded from: classes6.dex */
-    public static class a extends z31 {
+    public final class a extends z31 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.z31
+        public String a(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                return null;
+            }
+            return (String) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.z31
+        public void b(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            }
+        }
 
         public a() {
             Interceptable interceptable = $ic;
@@ -32,20 +51,6 @@ public abstract class z31 {
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
-            }
-        }
-
-        @Override // com.baidu.tieba.z31
-        public void a(Context context, nx0 nx0Var, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLZ(1048576, this, context, nx0Var, z) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.z31
-        public void b(@Nullable String str, @Nullable String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
             }
         }
     }
@@ -79,8 +84,4 @@ public abstract class z31 {
             }
         }
     }
-
-    public abstract void a(Context context, nx0 nx0Var, boolean z);
-
-    public abstract void b(@Nullable String str, @Nullable String str2);
 }

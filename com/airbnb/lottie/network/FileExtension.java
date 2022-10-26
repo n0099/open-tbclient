@@ -8,6 +8,15 @@ public enum FileExtension {
     
     public final String extension;
 
+    public String tempExtension() {
+        return ".temp" + this.extension;
+    }
+
+    @Override // java.lang.Enum
+    public String toString() {
+        return this.extension;
+    }
+
     FileExtension(String str) {
         this.extension = str;
     }
@@ -21,14 +30,5 @@ public enum FileExtension {
         }
         Logger.warning("Unable to find correct extension for " + str);
         return JSON;
-    }
-
-    public String tempExtension() {
-        return ".temp" + this.extension;
-    }
-
-    @Override // java.lang.Enum
-    public String toString() {
-        return this.extension;
     }
 }

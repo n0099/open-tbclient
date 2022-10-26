@@ -1,13 +1,12 @@
 package com.baidu.swan.apps.res.ui;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.vj1;
+import com.baidu.tieba.wj1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,8 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@SuppressLint({"AppCompatCustomView"})
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SelectorTextView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean b;
@@ -36,7 +34,7 @@ public class SelectorTextView extends TextView {
                 return;
             }
         }
-        b = vj1.a;
+        b = wj1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -58,41 +56,6 @@ public class SelectorTextView extends TextView {
             }
         }
         this.a = false;
-    }
-
-    @Override // android.widget.TextView, android.view.View
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-            if (isEnabled()) {
-                int action = motionEvent.getAction();
-                if (action == 0) {
-                    if (b) {
-                        Log.d("ACTION_DOWN", "ACTION_DOWN");
-                    }
-                    if (this.a) {
-                        setAlpha(0.5f);
-                    } else {
-                        setAlpha(0.4f);
-                    }
-                } else if (action == 1 || action == 3) {
-                    if (b) {
-                        Log.d("ACTION_UP", "ACTION_UP");
-                    }
-                    setAlpha(1.0f);
-                }
-            }
-            return super.onTouchEvent(motionEvent);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void setMode(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.a = z;
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -137,5 +100,42 @@ public class SelectorTextView extends TextView {
             }
         }
         this.a = false;
+    }
+
+    @Override // android.widget.TextView, android.view.View
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
+            if (isEnabled()) {
+                int action = motionEvent.getAction();
+                if (action != 0) {
+                    if (action == 1 || action == 3) {
+                        if (b) {
+                            Log.d("ACTION_UP", "ACTION_UP");
+                        }
+                        setAlpha(1.0f);
+                    }
+                } else {
+                    if (b) {
+                        Log.d("ACTION_DOWN", "ACTION_DOWN");
+                    }
+                    if (this.a) {
+                        setAlpha(0.5f);
+                    } else {
+                        setAlpha(0.4f);
+                    }
+                }
+            }
+            return super.onTouchEvent(motionEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void setMode(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.a = z;
+        }
     }
 }

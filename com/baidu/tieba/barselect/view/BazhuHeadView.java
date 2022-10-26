@@ -7,8 +7,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.HeadPendantView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bh7;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.mh7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,6 +19,47 @@ public class BazhuHeadView extends HeadPendantView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbImageView m;
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public BazhuHeadView(Context context) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public BazhuHeadView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BazhuHeadView(Context context, AttributeSet attributeSet, int i) {
@@ -46,8 +87,8 @@ public class BazhuHeadView extends HeadPendantView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.d();
-            int f = ej.f(getContext(), R.dimen.tbds92);
-            int f2 = ej.f(getContext(), R.dimen.tbds82);
+            int f = fj.f(getContext(), R.dimen.tbds92);
+            int f2 = fj.f(getContext(), R.dimen.tbds82);
             if (getPendantView() != null) {
                 getPendantView().setLayoutParams(new RelativeLayout.LayoutParams(f, f2));
             }
@@ -56,10 +97,10 @@ public class BazhuHeadView extends HeadPendantView {
             tbImageView.setDefaultBgResource(0);
             this.m.setDefaultResource(0);
             this.m.setImageDrawable(null);
-            int f3 = ej.f(getContext(), R.dimen.tbds115);
-            int f4 = ej.f(getContext(), R.dimen.tbds34);
-            int f5 = ej.f(getContext(), R.dimen.tbds154);
-            int f6 = ej.f(getContext(), R.dimen.tbds32);
+            int f3 = fj.f(getContext(), R.dimen.tbds115);
+            int f4 = fj.f(getContext(), R.dimen.tbds34);
+            int f5 = fj.f(getContext(), R.dimen.tbds154);
+            int f6 = fj.f(getContext(), R.dimen.tbds32);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(f3, f4);
             layoutParams.topMargin = f5;
             layoutParams.leftMargin = f6;
@@ -71,19 +112,22 @@ public class BazhuHeadView extends HeadPendantView {
     public TbImageView getBawuLogoView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.m : (TbImageView) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.m;
+        }
+        return (TbImageView) invokeV.objValue;
     }
 
     public void o(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             if (z) {
-                int f = ej.f(getContext(), R.dimen.tbds5);
-                int f2 = ej.f(getContext(), R.dimen.tbds130);
-                int f3 = ej.f(getContext(), R.dimen.tbds26);
-                int f4 = ej.f(getContext(), R.dimen.tbds44);
+                int f = fj.f(getContext(), R.dimen.tbds5);
+                int f2 = fj.f(getContext(), R.dimen.tbds130);
+                int f3 = fj.f(getContext(), R.dimen.tbds26);
+                int f4 = fj.f(getContext(), R.dimen.tbds44);
                 getHeadView().setBorderWidth(f);
-                getHeadView().setBorderColor(bh7.b("#FCD442"));
+                getHeadView().setBorderColor(mh7.b("#FCD442"));
                 getHeadView().setDrawBorder(true);
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(f2, f2);
                 layoutParams.leftMargin = f3;
@@ -91,7 +135,7 @@ public class BazhuHeadView extends HeadPendantView {
                 getHeadView().setLayoutParams(layoutParams);
                 return;
             }
-            int f5 = ej.f(getContext(), R.dimen.tbds90);
+            int f5 = fj.f(getContext(), R.dimen.tbds90);
             getHeadView().setBorderWidth(0);
             getHeadView().setDrawBorder(false);
             getHeadView().setLayoutParams(new RelativeLayout.LayoutParams(f5, f5));
@@ -119,55 +163,13 @@ public class BazhuHeadView extends HeadPendantView {
 
     public void setPendantView(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048580, this, i) == null) || getPendantView() == null) {
-            return;
-        }
-        if (i == 0) {
-            getPendantView().setVisibility(8);
-            return;
-        }
-        getPendantView().setVisibility(0);
-        getPendantView().setImageResource(i);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BazhuHeadView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if ((interceptable == null || interceptable.invokeI(1048580, this, i) == null) && getPendantView() != null) {
+            if (i == 0) {
+                getPendantView().setVisibility(8);
                 return;
             }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BazhuHeadView(Context context) {
-        super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            getPendantView().setVisibility(0);
+            getPendantView().setImageResource(i);
         }
     }
 }

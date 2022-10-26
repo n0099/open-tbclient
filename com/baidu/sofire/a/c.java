@@ -12,7 +12,7 @@ import java.util.Map;
 /* loaded from: classes2.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<String, e> a;
+    public static Map a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -54,11 +54,11 @@ public class c {
 
     public static void a(File file) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, file) == null) || file == null) {
+        if ((interceptable != null && interceptable.invokeL(65538, null, file) != null) || file == null) {
             return;
         }
         try {
-            e eVar = a.get(file.getAbsolutePath());
+            e eVar = (e) a.get(file.getAbsolutePath());
             if (eVar != null) {
                 eVar.stopWatching();
                 a.remove(file.getAbsolutePath());

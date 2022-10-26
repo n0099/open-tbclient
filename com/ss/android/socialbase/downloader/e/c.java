@@ -8,6 +8,10 @@ public class c implements b {
     public final InputStream a;
     public final com.ss.android.socialbase.downloader.f.a b;
 
+    @Override // com.ss.android.socialbase.downloader.e.b
+    public void a(com.ss.android.socialbase.downloader.f.a aVar) {
+    }
+
     public c(InputStream inputStream, int i) {
         this.a = inputStream;
         this.b = new com.ss.android.socialbase.downloader.f.a(i);
@@ -18,10 +22,6 @@ public class c implements b {
         com.ss.android.socialbase.downloader.f.a aVar = this.b;
         aVar.c = this.a.read(aVar.a);
         return this.b;
-    }
-
-    @Override // com.ss.android.socialbase.downloader.e.b
-    public void a(com.ss.android.socialbase.downloader.f.a aVar) {
     }
 
     @Override // com.ss.android.socialbase.downloader.e.b

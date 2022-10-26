@@ -1,7 +1,5 @@
 package androidx.lifecycle;
 
-import androidx.annotation.MainThread;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,9 +14,14 @@ import java.util.Map;
 public abstract class ViewModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
     public final Map<String, Object> mBagOfTags;
     public volatile boolean mCleared;
+
+    public void onCleared() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
 
     public ViewModel() {
         Interceptable interceptable = $ic;
@@ -48,23 +51,6 @@ public abstract class ViewModel {
         }
     }
 
-    @MainThread
-    public final void clear() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.mCleared = true;
-            Map<String, Object> map = this.mBagOfTags;
-            if (map != null) {
-                synchronized (map) {
-                    for (Object obj : this.mBagOfTags.values()) {
-                        closeWithRuntimeException(obj);
-                    }
-                }
-            }
-            onCleared();
-        }
-    }
-
     public <T> T getTag(String str) {
         InterceptResult invokeL;
         T t;
@@ -82,9 +68,19 @@ public abstract class ViewModel {
         return (T) invokeL.objValue;
     }
 
-    public void onCleared() {
+    public final void clear() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.mCleared = true;
+            Map<String, Object> map = this.mBagOfTags;
+            if (map != null) {
+                synchronized (map) {
+                    for (Object obj : this.mBagOfTags.values()) {
+                        closeWithRuntimeException(obj);
+                    }
+                }
+            }
+            onCleared();
         }
     }
 

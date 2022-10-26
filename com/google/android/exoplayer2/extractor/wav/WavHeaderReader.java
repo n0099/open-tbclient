@@ -21,7 +21,7 @@ public final class WavHeaderReader {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static final class ChunkHeader {
+    public final class ChunkHeader {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int SIZE_IN_BYTES = 8;
         public transient /* synthetic */ FieldHolder $fh;
@@ -75,6 +75,7 @@ public final class WavHeaderReader {
 
     public static WavHeader peek(ExtractorInput extractorInput) throws IOException, InterruptedException {
         InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, extractorInput)) == null) {
             Assertions.checkNotNull(extractorInput);
@@ -94,7 +95,12 @@ public final class WavHeaderReader {
                 extractorInput.advancePeekPosition((int) peek.size);
                 peek = ChunkHeader.peek(extractorInput, parsableByteArray);
             }
-            Assertions.checkState(peek.size >= 16);
+            if (peek.size >= 16) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Assertions.checkState(z);
             extractorInput.peekFully(parsableByteArray.data, 0, 16);
             parsableByteArray.setPosition(0);
             int readLittleEndianUnsignedShort = parsableByteArray.readLittleEndianUnsignedShort();

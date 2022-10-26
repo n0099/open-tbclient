@@ -1,6 +1,5 @@
 package com.kwad.sdk.utils;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -13,9 +12,6 @@ import android.telephony.CellSignalStrength;
 import android.telephony.TelephonyManager;
 import android.telephony.cdma.CdmaCellLocation;
 import android.telephony.gsm.GsmCellLocation;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
-import androidx.annotation.WorkerThread;
 import androidx.core.content.ContextCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.kwad.sdk.service.ServiceProvider;
@@ -29,18 +25,16 @@ import java.util.concurrent.TimeUnit;
 /* loaded from: classes8.dex */
 public final class at {
     public static Context WF;
-    public static Map<String, i> aoc = new HashMap();
+    public static Map aoc = new HashMap();
 
     /* loaded from: classes8.dex */
-    public static class a extends i<com.kwad.sdk.f.kwai.b> {
+    public final class a extends i {
         public static com.kwad.sdk.f.kwai.b aod;
 
         public a(boolean z) {
             super(z);
         }
 
-        @RequiresApi(api = 17)
-        @SuppressLint({"BlockedPrivateApi"})
         public static int a(CellInfo cellInfo) {
             if (cellInfo == null) {
                 return -1;
@@ -112,7 +106,7 @@ public final class at {
     }
 
     /* loaded from: classes8.dex */
-    public static class b extends i<List<com.kwad.sdk.f.kwai.e>> implements SensorEventListener {
+    public final class b extends i implements SensorEventListener {
         public d aoe;
         public d aof;
         public d aog;
@@ -126,7 +120,7 @@ public final class at {
             }
         }
 
-        private List<com.kwad.sdk.f.kwai.e> Ap() {
+        private List Ap() {
             ArrayList arrayList = new ArrayList();
             d dVar = this.aoe;
             if (dVar != null) {
@@ -169,8 +163,7 @@ public final class at {
             com.kwad.sdk.core.e.b.d("SensitiveInfoCollectors", "gravitySensorAvailable : " + a3);
         }
 
-        @WorkerThread
-        private synchronized List<com.kwad.sdk.f.kwai.e> df(Context context) {
+        private synchronized List df(Context context) {
             final ArrayList arrayList;
             arrayList = new ArrayList();
             final SensorManager sensorManager = (SensorManager) context.getSystemService("sensor");
@@ -218,10 +211,8 @@ public final class at {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: private */
         @Override // com.kwad.sdk.utils.i
-        @Nullable
-        @WorkerThread
         /* renamed from: dg */
-        public List<com.kwad.sdk.f.kwai.e> ca(Context context) {
+        public List ca(Context context) {
             if (context == null) {
                 return null;
             }
@@ -251,14 +242,14 @@ public final class at {
     }
 
     /* loaded from: classes8.dex */
-    public static abstract class c implements SensorEventListener {
+    public abstract class c implements SensorEventListener {
         @Override // android.hardware.SensorEventListener
         public void onAccuracyChanged(Sensor sensor, int i) {
         }
     }
 
     /* loaded from: classes8.dex */
-    public static class d {
+    public final class d {
         public SensorEvent aol;
         public long timestamp = System.currentTimeMillis();
 
@@ -276,12 +267,11 @@ public final class at {
     }
 
     /* loaded from: classes8.dex */
-    public static class e extends i<com.kwad.sdk.f.kwai.f> {
+    public final class e extends i {
         public e(boolean z) {
             super(z);
         }
 
-        @Nullable
         public static com.kwad.sdk.f.kwai.f dh(Context context) {
             com.kwad.sdk.f.kwai.f fVar = new com.kwad.sdk.f.kwai.f();
             fVar.amF = ar.cR(context);
@@ -289,17 +279,13 @@ public final class at {
             return fVar;
         }
 
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
         @Override // com.kwad.sdk.utils.i
-        @Nullable
-        public final /* synthetic */ com.kwad.sdk.f.kwai.f ca(Context context) {
+        public final /* synthetic */ Object ca(Context context) {
             return dh(context);
         }
     }
 
-    @Nullable
-    @WorkerThread
-    public static List<com.kwad.sdk.f.kwai.e> Aj() {
+    public static List Aj() {
         if (Ao()) {
             return (List) dR("sensorEventEnable");
         }
@@ -310,11 +296,10 @@ public final class at {
         return WF != null;
     }
 
-    @Nullable
-    public static <T> T dR(String str) {
-        i iVar = aoc.get(str);
+    public static Object dR(String str) {
+        i iVar = (i) aoc.get(str);
         if (iVar != null) {
-            return (T) iVar.bZ(WF);
+            return iVar.bZ(WF);
         }
         return null;
     }
@@ -333,21 +318,21 @@ public final class at {
         if (Ao()) {
             if (aoc.containsKey("baseStationEnable")) {
                 boolean lz = fVar.lz();
-                i iVar = aoc.get("baseStationEnable");
+                i iVar = (i) aoc.get("baseStationEnable");
                 if (iVar != null) {
                     iVar.aD(lz);
                 }
             }
             if (aoc.containsKey("sensorEventEnable")) {
                 boolean ly2 = fVar.ly();
-                i iVar2 = aoc.get("sensorEventEnable");
+                i iVar2 = (i) aoc.get("sensorEventEnable");
                 if (iVar2 != null) {
                     iVar2.aD(ly2);
                 }
             }
             if (aoc.containsKey("simCardInfoEnable")) {
                 boolean lx = fVar.lx();
-                i iVar3 = aoc.get("simCardInfoEnable");
+                i iVar3 = (i) aoc.get("simCardInfoEnable");
                 if (iVar3 != null) {
                     iVar3.aD(lx);
                 }
@@ -364,7 +349,6 @@ public final class at {
         }
     }
 
-    @Nullable
     public static com.kwad.sdk.f.kwai.b yS() {
         if (Ao()) {
             return (com.kwad.sdk.f.kwai.b) dR("baseStationEnable");
@@ -372,7 +356,6 @@ public final class at {
         return null;
     }
 
-    @Nullable
     public static com.kwad.sdk.f.kwai.f yT() {
         if (Ao()) {
             return (com.kwad.sdk.f.kwai.f) dR("simCardInfoEnable");

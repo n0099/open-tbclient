@@ -100,14 +100,14 @@ public class HeadersConverter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, headers)) == null) {
             ConverterUtils.requireNonNull(headers, "headers should not be null");
-            Map<String, List<String>> multimap = headers.toMultimap();
+            Map multimap = headers.toMultimap();
             String[] strArr = new String[headers.size() * 2];
             int i = 0;
-            for (Map.Entry<String, List<String>> entry : multimap.entrySet()) {
+            for (Map.Entry entry : multimap.entrySet()) {
                 if (entry.getKey() != null && entry.getValue() != null) {
-                    String trim = entry.getKey().trim();
+                    String trim = ((String) entry.getKey()).trim();
                     checkName(trim);
-                    for (String str : entry.getValue()) {
+                    for (String str : (List) entry.getValue()) {
                         if (checkValue(str, trim)) {
                             strArr[i] = trim;
                             strArr[i + 1] = str;

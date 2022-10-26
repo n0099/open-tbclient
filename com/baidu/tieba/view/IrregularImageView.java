@@ -12,8 +12,8 @@ import android.util.AttributeSet;
 import androidx.appcompat.widget.AppCompatImageView;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.on;
-import com.baidu.tieba.yg;
+import com.baidu.tieba.ah;
+import com.baidu.tieba.pn;
 import com.baidu.tieba.zg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -26,10 +26,10 @@ public class IrregularImageView extends AppCompatImageView {
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public int b;
-    public final yg<on> c;
+    public final zg c;
 
     /* loaded from: classes6.dex */
-    public class a extends yg<on> {
+    public class a extends zg {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ IrregularImageView a;
@@ -53,11 +53,11 @@ public class IrregularImageView extends AppCompatImageView {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.yg
-        public void onLoaded(on onVar, String str, int i) {
+        @Override // com.baidu.tieba.zg
+        public void onLoaded(pn pnVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, onVar, str, i) == null) {
-                if (onVar == null) {
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, pnVar, str, i) == null) {
+                if (pnVar == null) {
                     if (this.a.b != 0) {
                         Bitmap bitmap = null;
                         try {
@@ -74,7 +74,7 @@ public class IrregularImageView extends AppCompatImageView {
                     }
                     return;
                 }
-                this.a.setImage(onVar.p(), this.a.a);
+                this.a.setImage(pnVar.p(), this.a.a);
             }
         }
     }
@@ -100,62 +100,6 @@ public class IrregularImageView extends AppCompatImageView {
         this.c = new a(this);
     }
 
-    public final Bitmap k(Bitmap bitmap, int i, int i2) {
-        InterceptResult invokeLII;
-        int i3;
-        float f;
-        int i4;
-        int i5;
-        int i6;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bitmap, i, i2)) == null) {
-            if (bitmap == null || bitmap.getWidth() == 0 || bitmap.getHeight() == 0 || i == 0 || i2 == 0) {
-                return null;
-            }
-            int width = bitmap.getWidth();
-            int height = bitmap.getHeight();
-            float f2 = i * 1.0f;
-            float f3 = i2;
-            float f4 = width;
-            float f5 = height;
-            if (f2 / f3 > (f4 * 1.0f) / f5) {
-                f = f2 / f4;
-                int i7 = (int) ((f3 * 1.0f) / f);
-                i4 = i7;
-                i3 = width;
-                i5 = (height - i7) / 2;
-                i6 = 0;
-            } else {
-                float f6 = (f3 * 1.0f) / f5;
-                int i8 = (int) (f2 / f6);
-                i3 = i8;
-                f = f6;
-                i4 = height;
-                i5 = 0;
-                i6 = (width - i8) / 2;
-            }
-            Matrix matrix = new Matrix();
-            matrix.postScale(f, f);
-            return Bitmap.createBitmap(bitmap, i6, i5, i3, i4, matrix, false);
-        }
-        return (Bitmap) invokeLII.objValue;
-    }
-
-    public void setErrorRes(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    public void setImage(String str, BdUniqueId bdUniqueId, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048579, this, str, bdUniqueId, i) == null) {
-            this.a = i;
-            zg.h().k(str, 10, this.c, 0, 0, bdUniqueId, new Object[0]);
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public IrregularImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -178,50 +122,6 @@ public class IrregularImageView extends AppCompatImageView {
         this.c = new a(this);
     }
 
-    public void setImage(Bitmap bitmap, int i) {
-        Bitmap bitmap2;
-        Bitmap bitmap3;
-        Bitmap bitmap4;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, bitmap, i) == null) || bitmap == null) {
-            return;
-        }
-        try {
-            bitmap2 = BitmapFactory.decodeResource(getResources(), i);
-            try {
-                bitmap3 = Bitmap.createBitmap(bitmap2.getWidth(), bitmap2.getHeight(), Bitmap.Config.ARGB_8888);
-                try {
-                    bitmap4 = k(bitmap, bitmap2.getWidth(), bitmap2.getHeight());
-                } catch (Throwable th) {
-                    th = th;
-                    th.printStackTrace();
-                    bitmap4 = null;
-                    if (bitmap2 != null) {
-                        return;
-                    }
-                    return;
-                }
-            } catch (Throwable th2) {
-                th = th2;
-                bitmap3 = null;
-            }
-        } catch (Throwable th3) {
-            th = th3;
-            bitmap2 = null;
-            bitmap3 = null;
-        }
-        if (bitmap2 != null || bitmap3 == null || bitmap4 == null) {
-            return;
-        }
-        Canvas canvas = new Canvas(bitmap3);
-        Paint paint = new Paint(1);
-        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
-        canvas.drawBitmap(bitmap4, 0.0f, 0.0f, (Paint) null);
-        canvas.drawBitmap(bitmap2, 0.0f, 0.0f, paint);
-        paint.setXfermode(null);
-        setImageBitmap(bitmap3);
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public IrregularImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
@@ -242,5 +142,104 @@ public class IrregularImageView extends AppCompatImageView {
             }
         }
         this.c = new a(this);
+    }
+
+    public void setErrorRes(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.b = i;
+        }
+    }
+
+    public final Bitmap k(Bitmap bitmap, int i, int i2) {
+        InterceptResult invokeLII;
+        int i3;
+        float f;
+        int i4;
+        int i5;
+        int i6;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bitmap, i, i2)) == null) {
+            if (bitmap != null && bitmap.getWidth() != 0 && bitmap.getHeight() != 0 && i != 0 && i2 != 0) {
+                int width = bitmap.getWidth();
+                int height = bitmap.getHeight();
+                float f2 = i * 1.0f;
+                float f3 = i2;
+                float f4 = width;
+                float f5 = height;
+                if (f2 / f3 > (f4 * 1.0f) / f5) {
+                    f = f2 / f4;
+                    int i7 = (int) ((f3 * 1.0f) / f);
+                    i4 = i7;
+                    i3 = width;
+                    i5 = (height - i7) / 2;
+                    i6 = 0;
+                } else {
+                    float f6 = (f3 * 1.0f) / f5;
+                    int i8 = (int) (f2 / f6);
+                    i3 = i8;
+                    f = f6;
+                    i4 = height;
+                    i5 = 0;
+                    i6 = (width - i8) / 2;
+                }
+                Matrix matrix = new Matrix();
+                matrix.postScale(f, f);
+                return Bitmap.createBitmap(bitmap, i6, i5, i3, i4, matrix, false);
+            }
+            return null;
+        }
+        return (Bitmap) invokeLII.objValue;
+    }
+
+    public void setImage(Bitmap bitmap, int i) {
+        Bitmap bitmap2;
+        Bitmap bitmap3;
+        Bitmap bitmap4;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, bitmap, i) != null) || bitmap == null) {
+            return;
+        }
+        try {
+            bitmap2 = BitmapFactory.decodeResource(getResources(), i);
+            try {
+                bitmap3 = Bitmap.createBitmap(bitmap2.getWidth(), bitmap2.getHeight(), Bitmap.Config.ARGB_8888);
+                try {
+                    bitmap4 = k(bitmap, bitmap2.getWidth(), bitmap2.getHeight());
+                } catch (Throwable th) {
+                    th = th;
+                    th.printStackTrace();
+                    bitmap4 = null;
+                    if (bitmap2 == null) {
+                        return;
+                    }
+                    return;
+                }
+            } catch (Throwable th2) {
+                th = th2;
+                bitmap3 = null;
+            }
+        } catch (Throwable th3) {
+            th = th3;
+            bitmap2 = null;
+            bitmap3 = null;
+        }
+        if (bitmap2 == null && bitmap3 != null && bitmap4 != null) {
+            Canvas canvas = new Canvas(bitmap3);
+            Paint paint = new Paint(1);
+            paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
+            canvas.drawBitmap(bitmap4, 0.0f, 0.0f, (Paint) null);
+            canvas.drawBitmap(bitmap2, 0.0f, 0.0f, paint);
+            paint.setXfermode(null);
+            setImageBitmap(bitmap3);
+        }
+    }
+
+    public void setImage(String str, BdUniqueId bdUniqueId, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048579, this, str, bdUniqueId, i) == null) {
+            this.a = i;
+            ah.h().k(str, 10, this.c, 0, 0, bdUniqueId, new Object[0]);
+        }
     }
 }

@@ -25,8 +25,14 @@ public final class VorbisReader extends StreamReader {
     public VorbisUtil.VorbisIdHeader vorbisIdHeader;
     public VorbisSetup vorbisSetup;
 
+    public static int readBits(byte b, int i, int i2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Byte.valueOf(b), Integer.valueOf(i), Integer.valueOf(i2)})) == null) ? (b >> i2) & (255 >>> (8 - i)) : invokeCommon.intValue;
+    }
+
     /* loaded from: classes7.dex */
-    public static final class VorbisSetup {
+    public final class VorbisSetup {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final VorbisUtil.CommentHeader commentHeader;
@@ -95,12 +101,6 @@ public final class VorbisReader extends StreamReader {
         return invokeCommon.intValue;
     }
 
-    public static int readBits(byte b, int i, int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Byte.valueOf(b), Integer.valueOf(i), Integer.valueOf(i2)})) == null) ? (b >> i2) & (255 >>> (8 - i)) : invokeCommon.intValue;
-    }
-
     public static boolean verifyBitstreamType(ParsableByteArray parsableByteArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -116,12 +116,37 @@ public final class VorbisReader extends StreamReader {
 
     @Override // com.google.android.exoplayer2.extractor.ogg.StreamReader
     public void onSeekEnd(long j) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
             super.onSeekEnd(j);
-            this.seenFirstAudioPacket = j != 0;
+            int i = 0;
+            if (j != 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.seenFirstAudioPacket = z;
             VorbisUtil.VorbisIdHeader vorbisIdHeader = this.vorbisIdHeader;
-            this.previousPacketBlockSize = vorbisIdHeader != null ? vorbisIdHeader.blockSize0 : 0;
+            if (vorbisIdHeader != null) {
+                i = vorbisIdHeader.blockSize0;
+            }
+            this.previousPacketBlockSize = i;
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.extractor.ogg.StreamReader
+    public void reset(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            super.reset(z);
+            if (z) {
+                this.vorbisSetup = null;
+                this.vorbisIdHeader = null;
+                this.commentHeader = null;
+            }
+            this.previousPacketBlockSize = 0;
+            this.seenFirstAudioPacket = false;
         }
     }
 
@@ -131,11 +156,15 @@ public final class VorbisReader extends StreamReader {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parsableByteArray)) == null) {
             byte[] bArr = parsableByteArray.data;
+            int i = 0;
             if ((bArr[0] & 1) == 1) {
                 return -1L;
             }
             int decodeBlockSize = decodeBlockSize(bArr[0], this.vorbisSetup);
-            long j = this.seenFirstAudioPacket ? (this.previousPacketBlockSize + decodeBlockSize) / 4 : 0;
+            if (this.seenFirstAudioPacket) {
+                i = (this.previousPacketBlockSize + decodeBlockSize) / 4;
+            }
+            long j = i;
             appendNumberOfSamples(parsableByteArray, j);
             this.seenFirstAudioPacket = true;
             this.previousPacketBlockSize = decodeBlockSize;
@@ -185,20 +214,5 @@ public final class VorbisReader extends StreamReader {
             }
         }
         return (VorbisSetup) invokeL.objValue;
-    }
-
-    @Override // com.google.android.exoplayer2.extractor.ogg.StreamReader
-    public void reset(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            super.reset(z);
-            if (z) {
-                this.vorbisSetup = null;
-                this.vorbisIdHeader = null;
-                this.commentHeader = null;
-            }
-            this.previousPacketBlockSize = 0;
-            this.seenFirstAudioPacket = false;
-        }
     }
 }

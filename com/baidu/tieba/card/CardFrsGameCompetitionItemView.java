@@ -9,7 +9,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -103,63 +102,60 @@ public class CardFrsGameCompetitionItemView extends LinearLayout {
     public void b(FeatureCardCompetitionSubNode featureCardCompetitionSubNode) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, featureCardCompetitionSubNode) == null) {
-            this.d.K(featureCardCompetitionSubNode.competition_logo, 10, false);
-            this.b.K(featureCardCompetitionSubNode.competition_image, 10, false);
+            this.d.L(featureCardCompetitionSubNode.competition_logo, 10, false);
+            this.b.L(featureCardCompetitionSubNode.competition_image, 10, false);
             this.e.setText(featureCardCompetitionSubNode.title);
-            this.h.K(featureCardCompetitionSubNode.team1_image, 10, false);
+            this.h.L(featureCardCompetitionSubNode.team1_image, 10, false);
             this.i.setText(featureCardCompetitionSubNode.team1_name);
-            this.j.K(featureCardCompetitionSubNode.team2_image, 10, false);
+            this.j.L(featureCardCompetitionSubNode.team2_image, 10, false);
             this.k.setText(featureCardCompetitionSubNode.team2_name);
         }
     }
 
-    public final void c(Context context) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public CardFrsGameCompetitionItemView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0189, (ViewGroup) this, true);
-            this.a = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0904dd);
-            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0904da);
-            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0904e4);
-            this.d = (ClickableHeaderImageView) findViewById(R.id.obfuscated_res_0x7f0904e3);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0904e2);
-            this.f = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0904dc);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0904e5);
-            this.h = (ClickableHeaderImageView) findViewById(R.id.obfuscated_res_0x7f0904de);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0904df);
-            this.j = (ClickableHeaderImageView) findViewById(R.id.obfuscated_res_0x7f0904e0);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f0904e1);
-            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f0904db);
-            int dimensionPixelSize = context.getResources().getDimensionPixelSize(R.dimen.tbds170) * 2;
-            int i = (dimensionPixelSize * 21) / 9;
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.b.getLayoutParams();
-            layoutParams.height = dimensionPixelSize;
-            layoutParams.width = i;
-            this.b.setLayoutParams(layoutParams);
-            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.a.getLayoutParams();
-            layoutParams2.height = dimensionPixelSize;
-            layoutParams2.width = i;
-            this.a.setLayoutParams(layoutParams2);
-            this.b.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080891);
-            this.d.setDrawBorder(true);
-            this.d.setDrawerType(1);
-            this.d.setRadius(context.getResources().getDimensionPixelSize(R.dimen.tbds5));
-            this.d.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.d.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
-            this.d.setBorderWidth(context.getResources().getDimensionPixelSize(R.dimen.tbds1));
-            this.h.setDefaultResource(17170445);
-            this.h.setDefaultBgResource(R.color.CAM_X0205);
-            this.h.setIsRound(true);
-            this.h.setDrawBorder(true);
-            this.h.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
-            this.h.setBorderWidth(context.getResources().getDimensionPixelSize(R.dimen.tbds1));
-            this.j.setDefaultResource(17170445);
-            this.j.setDefaultBgResource(R.color.CAM_X0205);
-            this.j.setIsRound(true);
-            this.j.setDrawBorder(true);
-            this.j.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
-            this.j.setBorderWidth(context.getResources().getDimensionPixelSize(R.dimen.tbds1));
-            setOnClickListener(new a(this));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
+        this.n = 3;
+        c(context);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public CardFrsGameCompetitionItemView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.n = 3;
+        c(context);
     }
 
     public void d(int i) {
@@ -183,49 +179,52 @@ public class CardFrsGameCompetitionItemView extends LinearLayout {
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CardFrsGameCompetitionItemView(Context context, @Nullable AttributeSet attributeSet) {
-        super(context, attributeSet);
+    public final void c(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0188, (ViewGroup) this, true);
+            this.a = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0904e6);
+            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0904e3);
+            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0904ed);
+            this.d = (ClickableHeaderImageView) findViewById(R.id.obfuscated_res_0x7f0904ec);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0904eb);
+            this.f = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0904e5);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0904ee);
+            this.h = (ClickableHeaderImageView) findViewById(R.id.obfuscated_res_0x7f0904e7);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0904e8);
+            this.j = (ClickableHeaderImageView) findViewById(R.id.obfuscated_res_0x7f0904e9);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f0904ea);
+            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f0904e4);
+            int dimensionPixelSize = context.getResources().getDimensionPixelSize(R.dimen.tbds170) * 2;
+            int i = (dimensionPixelSize * 21) / 9;
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.b.getLayoutParams();
+            layoutParams.height = dimensionPixelSize;
+            layoutParams.width = i;
+            this.b.setLayoutParams(layoutParams);
+            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.a.getLayoutParams();
+            layoutParams2.height = dimensionPixelSize;
+            layoutParams2.width = i;
+            this.a.setLayoutParams(layoutParams2);
+            this.b.setDefaultBgResource(R.drawable.obfuscated_res_0x7f08088e);
+            this.d.setDrawBorder(true);
+            this.d.setDrawerType(1);
+            this.d.setRadius(context.getResources().getDimensionPixelSize(R.dimen.tbds5));
+            this.d.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.d.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
+            this.d.setBorderWidth(context.getResources().getDimensionPixelSize(R.dimen.tbds1));
+            this.h.setDefaultResource(17170445);
+            this.h.setDefaultBgResource(R.color.CAM_X0205);
+            this.h.setIsRound(true);
+            this.h.setDrawBorder(true);
+            this.h.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
+            this.h.setBorderWidth(context.getResources().getDimensionPixelSize(R.dimen.tbds1));
+            this.j.setDefaultResource(17170445);
+            this.j.setDefaultBgResource(R.color.CAM_X0205);
+            this.j.setIsRound(true);
+            this.j.setDrawBorder(true);
+            this.j.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
+            this.j.setBorderWidth(context.getResources().getDimensionPixelSize(R.dimen.tbds1));
+            setOnClickListener(new a(this));
         }
-        this.n = 3;
-        c(context);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CardFrsGameCompetitionItemView(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.n = 3;
-        c(context);
     }
 }

@@ -1,112 +1,67 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.Collection;
-import org.json.JSONArray;
-import org.json.JSONException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class lg6 {
+public class lg6 extends rn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext a;
 
-    public static void a() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public lg6(TbPageContext tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        super(tbPageContext.getPageActivity(), bdUniqueId, bdUniqueId2);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            ox4.k().y(ox4.o("search_forum_history"), "");
-        }
-    }
-
-    public static void b(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, str) == null) || StringUtils.isNull(str)) {
-            return;
-        }
-        String q = ox4.k().q(ox4.o("search_forum_history"), "");
-        if (StringUtils.isNull(q)) {
-            return;
-        }
-        try {
-            JSONArray jSONArray = new JSONArray(q);
-            if (jSONArray.length() <= 0) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < jSONArray.length(); i++) {
-                Object obj = jSONArray.get(i);
-                if (!str.equals(obj)) {
-                    arrayList.add((String) obj);
-                }
-            }
-            ox4.k().y(ox4.o("search_forum_history"), new JSONArray((Collection) arrayList).toString());
-        } catch (JSONException e) {
-            e.printStackTrace();
         }
+        this.a = tbPageContext;
     }
 
-    public static ArrayList<String> c() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.rn
+    /* renamed from: s */
+    public CardViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(65538, null)) != null) {
-            return (ArrayList) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            return new CardViewHolder(new xg6(this.a));
         }
-        String q = ox4.k().q(ox4.o("search_forum_history"), "");
-        ArrayList<String> arrayList = null;
-        if (StringUtils.isNull(q)) {
-            return null;
-        }
-        try {
-            JSONArray jSONArray = new JSONArray(q);
-            if (jSONArray.length() <= 0) {
-                return null;
-            }
-            ArrayList<String> arrayList2 = new ArrayList<>();
-            for (int i = 0; i < jSONArray.length(); i++) {
-                try {
-                    Object obj = jSONArray.get(i);
-                    if (obj instanceof String) {
-                        arrayList2.add((String) obj);
-                    }
-                } catch (JSONException e) {
-                    e = e;
-                    arrayList = arrayList2;
-                    e.printStackTrace();
-                    return arrayList;
-                }
-            }
-            return arrayList2;
-        } catch (JSONException e2) {
-            e = e2;
-        }
+        return (CardViewHolder) invokeL.objValue;
     }
 
-    public static void d(String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.rn
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, tg6 tg6Var, CardViewHolder cardViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, str) == null) || StringUtils.isNull(str)) {
-            return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, tg6Var, cardViewHolder})) == null) {
+            ((xg6) cardViewHolder.a()).l(tg6Var);
+            return cardViewHolder.getView();
         }
-        String q = ox4.k().q(ox4.o("search_forum_history"), "");
-        try {
-            JSONArray jSONArray = StringUtils.isNull(q) ? new JSONArray() : new JSONArray(q);
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(str);
-            int i = 1;
-            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                Object obj = jSONArray.get(i2);
-                if ((obj instanceof String) && !str.equals(obj)) {
-                    arrayList.add((String) obj);
-                    i++;
-                }
-                if (i == 6) {
-                    break;
-                }
-            }
-            ox4.k().y(ox4.o("search_forum_history"), new JSONArray((Collection) arrayList).toString());
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+        return (View) invokeCommon.objValue;
     }
 }

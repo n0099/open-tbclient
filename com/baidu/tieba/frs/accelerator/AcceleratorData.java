@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.accelerator;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.core.data.ItemData;
-import com.baidu.tieba.ws6;
+import com.baidu.tieba.ct6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,12 +48,17 @@ public class AcceleratorData implements Serializable {
 
     public static AcceleratorData parseJson(JSONObject jSONObject) {
         InterceptResult invokeL;
+        TokenInfo tokenInfo;
         ItemData itemData;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
             JSONObject optJSONObject = jSONObject.optJSONObject("token_info");
             ArrayList arrayList = null;
-            TokenInfo parseJson = optJSONObject != null ? TokenInfo.parseJson(optJSONObject) : null;
+            if (optJSONObject != null) {
+                tokenInfo = TokenInfo.parseJson(optJSONObject);
+            } else {
+                tokenInfo = null;
+            }
             JSONObject optJSONObject2 = jSONObject.optJSONObject(WriteActivityConfig.ITEM_INFO);
             if (optJSONObject2 != null) {
                 itemData = new ItemData();
@@ -68,7 +73,7 @@ public class AcceleratorData implements Serializable {
                     arrayList.add(TornadoNodeInfo.parseJson(optJSONArray.optJSONObject(i)));
                 }
             }
-            return new AcceleratorData(parseJson, itemData, arrayList);
+            return new AcceleratorData(tokenInfo, itemData, arrayList);
         }
         return (AcceleratorData) invokeL.objValue;
     }
@@ -76,7 +81,28 @@ public class AcceleratorData implements Serializable {
     public int getAvailableNodesNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.availableNodesNum : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.availableNodesNum;
+        }
+        return invokeV.intValue;
+    }
+
+    public ItemData getItemData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.itemData;
+        }
+        return (ItemData) invokeV.objValue;
+    }
+
+    public TokenInfo getTokenInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.tokenInfo;
+        }
+        return (TokenInfo) invokeV.objValue;
     }
 
     public List<TornadoNodeInfo> getAvailableTornadoNodeInfoList() {
@@ -84,38 +110,26 @@ public class AcceleratorData implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             List<TornadoNodeInfo> list = this.tornadoNodeInfoList;
-            if (list == null || list.isEmpty()) {
-                return null;
-            }
-            if (this.availableNodesNum != 0) {
+            if (list != null && !list.isEmpty()) {
+                if (this.availableNodesNum != 0) {
+                    return this.availableTornadoNodeInfoList;
+                }
+                this.availableTornadoNodeInfoList = new ArrayList();
+                for (int i = 0; i < this.tornadoNodeInfoList.size(); i++) {
+                    if (ct6.a(this.tornadoNodeInfoList.get(i).getPackageName()) != null) {
+                        this.availableTornadoNodeInfoList.add(this.tornadoNodeInfoList.get(i));
+                        this.availableNodesNum += this.tornadoNodeInfoList.get(i).getNodeInfoList().size();
+                    }
+                }
+                if (this.availableTornadoNodeInfoList.isEmpty()) {
+                    this.availableTornadoNodeInfoList.add(this.tornadoNodeInfoList.get(0));
+                    this.availableNodesNum += this.tornadoNodeInfoList.get(0).getNodeInfoList().size();
+                }
                 return this.availableTornadoNodeInfoList;
             }
-            this.availableTornadoNodeInfoList = new ArrayList();
-            for (int i = 0; i < this.tornadoNodeInfoList.size(); i++) {
-                if (ws6.a(this.tornadoNodeInfoList.get(i).getPackageName()) != null) {
-                    this.availableTornadoNodeInfoList.add(this.tornadoNodeInfoList.get(i));
-                    this.availableNodesNum += this.tornadoNodeInfoList.get(i).getNodeInfoList().size();
-                }
-            }
-            if (this.availableTornadoNodeInfoList.isEmpty()) {
-                this.availableTornadoNodeInfoList.add(this.tornadoNodeInfoList.get(0));
-                this.availableNodesNum += this.tornadoNodeInfoList.get(0).getNodeInfoList().size();
-            }
-            return this.availableTornadoNodeInfoList;
+            return null;
         }
         return (List) invokeV.objValue;
-    }
-
-    public ItemData getItemData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.itemData : (ItemData) invokeV.objValue;
-    }
-
-    public TokenInfo getTokenInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.tokenInfo : (TokenInfo) invokeV.objValue;
     }
 
     public void setItemData(ItemData itemData) {

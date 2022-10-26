@@ -9,9 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class PersonMoreData extends OrmObject {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String URL_MAPS = "mUrlMaps";
     public transient /* synthetic */ FieldHolder $fh;
-    public List<PersonMoreItemData> mUrlMaps;
+    public List mUrlMaps;
 
     public PersonMoreData() {
         Interceptable interceptable = $ic;

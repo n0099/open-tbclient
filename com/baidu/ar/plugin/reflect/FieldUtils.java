@@ -16,7 +16,7 @@ import java.util.Map;
 /* loaded from: classes.dex */
 public class FieldUtils {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<String, Field> sFieldCache;
+    public static Map sFieldCache;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -49,11 +49,17 @@ public class FieldUtils {
         }
     }
 
-    public static Field getDeclaredField(Class<?> cls, String str, boolean z) {
+    public static Field getDeclaredField(Class cls, String str, boolean z) {
         InterceptResult invokeLLZ;
+        boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, cls, str, z)) == null) {
-            Validate.isTrue(cls != null, "The class must not be null", new Object[0]);
+            if (cls != null) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            Validate.isTrue(z2, "The class must not be null", new Object[0]);
             Validate.isTrue(!TextUtils.isEmpty(str), "The field name must not be blank/empty", new Object[0]);
             try {
                 Field declaredField = cls.getDeclaredField(str);
@@ -71,17 +77,131 @@ public class FieldUtils {
         return (Field) invokeLLZ.objValue;
     }
 
-    public static Field getField(Class<?> cls, String str, boolean z) {
+    public static Object readField(Object obj, String str, boolean z) {
         InterceptResult invokeLLZ;
+        boolean z2;
+        boolean z3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65543, null, obj, str, z)) == null) {
+            if (obj != null) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            Validate.isTrue(z2, "target object must not be null", new Object[0]);
+            Class<?> cls = obj.getClass();
+            Field field = getField(cls, str, z);
+            if (field != null) {
+                z3 = true;
+            } else {
+                z3 = false;
+            }
+            Validate.isTrue(z3, "Cannot locate field %s on %s", str, cls);
+            return readField(field, obj, z);
+        }
+        return invokeLLZ.objValue;
+    }
+
+    public static void writeDeclaredField(Object obj, String str, Object obj2) {
+        boolean z;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65548, null, obj, str, obj2) == null) {
+            if (obj != null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Validate.isTrue(z, "target object must not be null", new Object[0]);
+            Class<?> cls = obj.getClass();
+            Field declaredField = getDeclaredField(cls, str, true);
+            if (declaredField != null) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            Validate.isTrue(z2, "Cannot locate declared field %s.%s", cls.getName(), str);
+            writeField(declaredField, obj, obj2, false);
+        }
+    }
+
+    public static void writeStaticField(Field field, Object obj, boolean z) {
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(65554, null, field, obj, z) == null) {
+            if (field != null) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            Validate.isTrue(z2, "The field must not be null", new Object[0]);
+            Validate.isTrue(Modifier.isStatic(field.getModifiers()), "The field %s.%s is not static", field.getDeclaringClass().getName(), field.getName());
+            writeField(field, (Object) null, obj, z);
+        }
+    }
+
+    public static Field getField(Class cls, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, cls, str)) == null) {
+            return getField(cls, str, true);
+        }
+        return (Field) invokeLL.objValue;
+    }
+
+    public static String getKey(Class cls, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, cls, str)) == null) {
+            return cls.toString() + "#" + str;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static Object readField(Field field, Object obj) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, field, obj)) == null) {
+            return readField(field, obj, true);
+        }
+        return invokeLL.objValue;
+    }
+
+    public static Object readStaticField(Class cls, String str) {
+        InterceptResult invokeLL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, cls, str)) == null) {
+            Field field = getField(cls, str, true);
+            if (field != null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Validate.isTrue(z, "Cannot locate field '%s' on %s", str, cls);
+            return readStaticField(field, true);
+        }
+        return invokeLL.objValue;
+    }
+
+    public static Field getField(Class cls, String str, boolean z) {
+        InterceptResult invokeLLZ;
+        boolean z2;
         Field field;
+        boolean z3;
         Field declaredField;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, cls, str, z)) == null) {
-            Validate.isTrue(cls != null, "The class must not be null", new Object[0]);
+            if (cls != null) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            Validate.isTrue(z2, "The class must not be null", new Object[0]);
             Validate.isTrue(!TextUtils.isEmpty(str), "The field name must not be blank/empty", new Object[0]);
             String key = getKey(cls, str);
             synchronized (sFieldCache) {
-                field = sFieldCache.get(key);
+                field = (Field) sFieldCache.get(key);
             }
             if (field != null) {
                 if (z && !field.isAccessible()) {
@@ -89,7 +209,7 @@ public class FieldUtils {
                 }
                 return field;
             }
-            for (Class<?> cls2 = cls; cls2 != null; cls2 = cls2.getSuperclass()) {
+            for (Class cls2 = cls; cls2 != null; cls2 = cls2.getSuperclass()) {
                 try {
                     declaredField = cls2.getDeclaredField(str);
                 } catch (NoSuchFieldException unused) {
@@ -107,10 +227,15 @@ public class FieldUtils {
                 return declaredField;
             }
             Field field2 = null;
-            for (Class<?> cls3 : Utils.getAllInterfaces(cls)) {
+            for (Class cls3 : Utils.getAllInterfaces(cls)) {
                 try {
                     Field field3 = cls3.getField(str);
-                    Validate.isTrue(field2 == null, "Reference to field %s is ambiguous relative to %s; a matching field exists on two or more implemented interfaces.", str, cls);
+                    if (field2 == null) {
+                        z3 = true;
+                    } else {
+                        z3 = false;
+                    }
+                    Validate.isTrue(z3, "Reference to field %s is ambiguous relative to %s; a matching field exists on two or more implemented interfaces.", str, cls);
                     field2 = field3;
                 } catch (NoSuchFieldException unused2) {
                 }
@@ -123,20 +248,59 @@ public class FieldUtils {
         return (Field) invokeLLZ.objValue;
     }
 
-    public static String getKey(Class<?> cls, String str) {
+    public static Object readField(Object obj, String str) {
         InterceptResult invokeLL;
+        boolean z;
+        boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, cls, str)) == null) {
-            return cls.toString() + "#" + str;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, obj, str)) == null) {
+            if (obj != null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Validate.isTrue(z, "target object must not be null", new Object[0]);
+            Class<?> cls = obj.getClass();
+            Field field = getField(cls, str, true);
+            if (field != null) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            Validate.isTrue(z2, "Cannot locate field %s on %s", str, cls);
+            return readField(field, obj, false);
         }
-        return (String) invokeLL.objValue;
+        return invokeLL.objValue;
+    }
+
+    public static Object readStaticField(Field field, boolean z) {
+        InterceptResult invokeLZ;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65547, null, field, z)) == null) {
+            if (field != null) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            Validate.isTrue(z2, "The field must not be null", new Object[0]);
+            Validate.isTrue(Modifier.isStatic(field.getModifiers()), "The field '%s' is not static", field.getName());
+            return readField(field, (Object) null, z);
+        }
+        return invokeLZ.objValue;
     }
 
     public static Object readField(Field field, Object obj, boolean z) {
         InterceptResult invokeLLZ;
+        boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65545, null, field, obj, z)) == null) {
-            Validate.isTrue(field != null, "The field must not be null", new Object[0]);
+            if (field != null) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            Validate.isTrue(z2, "The field must not be null", new Object[0]);
             if (z && !field.isAccessible()) {
                 field.setAccessible(true);
             } else {
@@ -147,67 +311,6 @@ public class FieldUtils {
         return invokeLLZ.objValue;
     }
 
-    public static Object readStaticField(Field field, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65547, null, field, z)) == null) {
-            Validate.isTrue(field != null, "The field must not be null", new Object[0]);
-            Validate.isTrue(Modifier.isStatic(field.getModifiers()), "The field '%s' is not static", field.getName());
-            return readField(field, (Object) null, z);
-        }
-        return invokeLZ.objValue;
-    }
-
-    public static void writeDeclaredField(Object obj, String str, Object obj2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65548, null, obj, str, obj2) == null) {
-            Validate.isTrue(obj != null, "target object must not be null", new Object[0]);
-            Class<?> cls = obj.getClass();
-            Field declaredField = getDeclaredField(cls, str, true);
-            Validate.isTrue(declaredField != null, "Cannot locate declared field %s.%s", cls.getName(), str);
-            writeField(declaredField, obj, obj2, false);
-        }
-    }
-
-    public static void writeField(Field field, Object obj, Object obj2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65552, null, new Object[]{field, obj, obj2, Boolean.valueOf(z)}) == null) {
-            Validate.isTrue(field != null, "The field must not be null", new Object[0]);
-            if (z && !field.isAccessible()) {
-                field.setAccessible(true);
-            } else {
-                MemberUtils.setAccessibleWorkaround(field);
-            }
-            field.set(obj, obj2);
-        }
-    }
-
-    public static void writeStaticField(Field field, Object obj, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65554, null, field, obj, z) == null) {
-            Validate.isTrue(field != null, "The field must not be null", new Object[0]);
-            Validate.isTrue(Modifier.isStatic(field.getModifiers()), "The field %s.%s is not static", field.getDeclaringClass().getName(), field.getName());
-            writeField(field, (Object) null, obj, z);
-        }
-    }
-
-    public static Object readStaticField(Class<?> cls, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, cls, str)) == null) {
-            Field field = getField(cls, str, true);
-            Validate.isTrue(field != null, "Cannot locate field '%s' on %s", str, cls);
-            return readStaticField(field, true);
-        }
-        return invokeLL.objValue;
-    }
-
-    public static Object readField(Field field, Object obj) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, field, obj)) == null) ? readField(field, obj, true) : invokeLL.objValue;
-    }
-
     public static void writeField(Object obj, String str, Object obj2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65549, null, obj, str, obj2) == null) {
@@ -215,50 +318,42 @@ public class FieldUtils {
         }
     }
 
-    public static void writeStaticField(Class<?> cls, String str, Object obj) {
+    public static void writeStaticField(Class cls, String str, Object obj) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65553, null, cls, str, obj) == null) {
             Field field = getField(cls, str, true);
-            Validate.isTrue(field != null, "Cannot locate field %s on %s", str, cls);
+            if (field != null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Validate.isTrue(z, "Cannot locate field %s on %s", str, cls);
             writeStaticField(field, obj, true);
         }
     }
 
-    public static Object readField(Object obj, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, obj, str)) == null) {
-            Validate.isTrue(obj != null, "target object must not be null", new Object[0]);
-            Class<?> cls = obj.getClass();
-            Field field = getField(cls, str, true);
-            Validate.isTrue(field != null, "Cannot locate field %s on %s", str, cls);
-            return readField(field, obj, false);
-        }
-        return invokeLL.objValue;
-    }
-
     public static void writeField(Object obj, String str, Object obj2, boolean z) {
+        boolean z2;
+        boolean z3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65550, null, new Object[]{obj, str, obj2, Boolean.valueOf(z)}) == null) {
-            Validate.isTrue(obj != null, "target object must not be null", new Object[0]);
+            if (obj != null) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            Validate.isTrue(z2, "target object must not be null", new Object[0]);
             Class<?> cls = obj.getClass();
             Field field = getField(cls, str, true);
-            Validate.isTrue(field != null, "Cannot locate declared field %s.%s", cls.getName(), str);
+            if (field != null) {
+                z3 = true;
+            } else {
+                z3 = false;
+            }
+            Validate.isTrue(z3, "Cannot locate declared field %s.%s", cls.getName(), str);
             writeField(field, obj, obj2, z);
         }
-    }
-
-    public static Object readField(Object obj, String str, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65543, null, obj, str, z)) == null) {
-            Validate.isTrue(obj != null, "target object must not be null", new Object[0]);
-            Class<?> cls = obj.getClass();
-            Field field = getField(cls, str, z);
-            Validate.isTrue(field != null, "Cannot locate field %s on %s", str, cls);
-            return readField(field, obj, z);
-        }
-        return invokeLLZ.objValue;
     }
 
     public static void writeField(Field field, Object obj, Object obj2) {
@@ -268,9 +363,22 @@ public class FieldUtils {
         }
     }
 
-    public static Field getField(Class<?> cls, String str) {
-        InterceptResult invokeLL;
+    public static void writeField(Field field, Object obj, Object obj2, boolean z) {
+        boolean z2;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, cls, str)) == null) ? getField(cls, str, true) : (Field) invokeLL.objValue;
+        if (interceptable == null || interceptable.invokeCommon(65552, null, new Object[]{field, obj, obj2, Boolean.valueOf(z)}) == null) {
+            if (field != null) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            Validate.isTrue(z2, "The field must not be null", new Object[0]);
+            if (z && !field.isAccessible()) {
+                field.setAccessible(true);
+            } else {
+                MemberUtils.setAccessibleWorkaround(field);
+            }
+            field.set(obj, obj2);
+        }
     }
 }

@@ -2,7 +2,6 @@ package com.google.android.material.transition;
 
 import android.graphics.Path;
 import android.graphics.PointF;
-import androidx.annotation.NonNull;
 import androidx.transition.PathMotion;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -41,7 +40,6 @@ public final class MaterialArcMotion extends PathMotion {
     }
 
     @Override // androidx.transition.PathMotion
-    @NonNull
     public Path getPath(float f, float f2, float f3, float f4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;

@@ -60,6 +60,19 @@ public class HkWebView extends HkMWebView {
         }
 
         @Override // com.baidu.tieba.medialive.browser.HkMWebView.c, android.webkit.WebViewClient
+        public boolean shouldOverrideUrlLoading(WebView webView, String str) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, webView, str)) == null) {
+                if (str.toLowerCase().trim().startsWith("tmall://")) {
+                    return true;
+                }
+                return super.shouldOverrideUrlLoading(webView, str);
+            }
+            return invokeLL.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.medialive.browser.HkMWebView.c, android.webkit.WebViewClient
         public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, bitmap) == null) {
@@ -75,19 +88,6 @@ public class HkWebView extends HkMWebView {
                 if (-10 == i) {
                 }
             }
-        }
-
-        @Override // com.baidu.tieba.medialive.browser.HkMWebView.c, android.webkit.WebViewClient
-        public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, webView, str)) == null) {
-                if (str.toLowerCase().trim().startsWith("tmall://")) {
-                    return true;
-                }
-                return super.shouldOverrideUrlLoading(webView, str);
-            }
-            return invokeLL.booleanValue;
         }
     }
 
@@ -114,16 +114,41 @@ public class HkWebView extends HkMWebView {
         init();
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public HkWebView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.d = this;
+        this.e = context;
+        init();
+    }
+
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, context) == null) && Build.VERSION.SDK_INT == 17 && context != null) {
             try {
                 AccessibilityManager accessibilityManager = (AccessibilityManager) context.getSystemService("accessibility");
-                if (accessibilityManager.isEnabled()) {
-                    Method declaredMethod = accessibilityManager.getClass().getDeclaredMethod("setState", Integer.TYPE);
-                    declaredMethod.setAccessible(true);
-                    declaredMethod.invoke(accessibilityManager, 0);
+                if (!accessibilityManager.isEnabled()) {
+                    return;
                 }
+                Method declaredMethod = accessibilityManager.getClass().getDeclaredMethod("setState", Integer.TYPE);
+                declaredMethod.setAccessible(true);
+                declaredMethod.invoke(accessibilityManager, 0);
             } catch (Error e) {
                 e.printStackTrace();
             } catch (Exception e2) {
@@ -159,29 +184,5 @@ public class HkWebView extends HkMWebView {
             setDownloadListener(new HkMWebView.b(this.d, (Activity) this.e));
             setWebViewClient(new a(this, this.d, (Activity) this.e));
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HkWebView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.d = this;
-        this.e = context;
-        init();
     }
 }

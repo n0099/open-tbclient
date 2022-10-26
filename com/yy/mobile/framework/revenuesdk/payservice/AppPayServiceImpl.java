@@ -2,7 +2,6 @@ package com.yy.mobile.framework.revenuesdk.payservice;
 
 import android.app.Activity;
 import android.os.Looper;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,12 +31,8 @@ import com.yy.mobile.framework.revenuesdk.payapi.PayType;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.PollingModeInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.PurchaseInfo;
-import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.BannerConfigResult;
 import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.GetChargeOrderStatusResult;
-import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.MyBalanceResult;
 import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.PayOrderResult;
-import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.ProductListResult;
 import com.yy.mobile.framework.revenuesdk.payapi.payservice.IPayMethod;
 import com.yy.mobile.framework.revenuesdk.payapi.request.ChargeCurrencyReqParams;
 import com.yy.mobile.framework.revenuesdk.payapi.request.GetBannerConfigReqParams;
@@ -68,7 +63,7 @@ public class AppPayServiceImpl implements IAppPayService, IPayServiceCallback, I
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "AppPayServiceImpl";
     public transient /* synthetic */ FieldHolder $fh;
-    public List<IAppPayServiceListener> listeners;
+    public List listeners;
     public int mAppId;
     public IPayEventStatistics mPayEventStatistics;
     public PayOrderResultPoller mPayOrderResultPoller;
@@ -77,6 +72,12 @@ public class AppPayServiceImpl implements IAppPayService, IPayServiceCallback, I
     public ProtocolType mProtocolType;
     public RevenueService mRevenueService;
     public int mUsedChannel;
+
+    private boolean checkNotNull(RequestParams requestParams, IResult iResult) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, requestParams, iResult)) == null) ? (requestParams == null || iResult == null) ? false : true : invokeLL.booleanValue;
+    }
 
     public AppPayServiceImpl(int i, int i2, boolean z, IRevenueDataSender iRevenueDataSender, IPayMetricsStatistics iPayMetricsStatistics, IPayEventStatistics iPayEventStatistics, ProtocolType protocolType) {
         Interceptable interceptable = $ic;
@@ -106,83 +107,79 @@ public class AppPayServiceImpl implements IAppPayService, IPayServiceCallback, I
         RLog.info("AppPayServiceImpl", "create AppPayServiceImpl versionName:4.3.30-bdpay-fix.2-SNAPSHOT appId:" + i + " usedChannel:" + i2);
     }
 
-    private boolean checkNotNull(RequestParams requestParams, IResult iResult) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, requestParams, iResult)) == null) ? (requestParams == null || iResult == null) ? false : true : invokeLL.booleanValue;
-    }
-
-    private void doOrderRequest(@NonNull Activity activity, @NonNull ChargeCurrencyReqParams chargeCurrencyReqParams, @NonNull ProductInfo productInfo, @NonNull PayType payType, int i, int i2, int i3, IPayCallback iPayCallback) {
+    private void doOrderRequest(Activity activity, ChargeCurrencyReqParams chargeCurrencyReqParams, ProductInfo productInfo, PayType payType, int i, int i2, int i3, IPayCallback iPayCallback) {
         String onUpdateToken;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{activity, chargeCurrencyReqParams, productInfo, payType, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), iPayCallback}) == null) {
             RLog.info("AppPayServiceImpl", "---doOrderRequest---");
-            if (checkNotNull(chargeCurrencyReqParams, iPayCallback)) {
-                long currentTimeMillis = System.currentTimeMillis();
-                if (!isSupported(activity, payType)) {
-                    iPayCallback.onFail(IPayMethod.Status.NOT_SUPPORT.getCode(), IPayMethod.Status.NOT_SUPPORT.getMessage(), new PayCallBackBean(null, productInfo.productId, null, currentTimeMillis, null, null, null, null, PurchaseStatus.ORDER_FAIL, chargeCurrencyReqParams.getAppClientExpand()));
-                    return;
-                }
-                chargeCurrencyReqParams.setContextWeakRef(new WeakReference<>(activity));
-                chargeCurrencyReqParams.setCallback(iPayCallback);
-                chargeCurrencyReqParams.setPayChannel(payType.getChannel());
-                chargeCurrencyReqParams.setPayMethod(payType.getMethod());
-                chargeCurrencyReqParams.setSrcAmount(productInfo.srcAmount);
-                chargeCurrencyReqParams.setProductId(productInfo.productId);
-                chargeCurrencyReqParams.setCid(productInfo.cid);
-                ChargeCurrencyReqParams clone = ChargeCurrencyReqParams.Companion.clone(chargeCurrencyReqParams);
-                clone.setPayChannel(payType.getChannel());
-                clone.setPayMethod(payType.getMethod());
-                clone.setSrcAmount(productInfo.srcAmount);
-                clone.setProductId(productInfo.productId);
-                clone.setCid(productInfo.cid);
-                clone.setRetryCount(i);
-                clone.setIntervalMs(i2);
-                clone.setTimeOutMs(i3);
-                clone.setPayType(payType);
-                clone.setProductId(chargeCurrencyReqParams.getProductId());
-                clone.setFrom(chargeCurrencyReqParams.getFrom());
-                clone.setSubscriptionType(chargeCurrencyReqParams.getSubscriptionType());
-                clone.setOldProductId(chargeCurrencyReqParams.getOldProductId());
-                clone.setProrationMode(chargeCurrencyReqParams.getProrationMode());
-                clone.setReturnUrl(chargeCurrencyReqParams.getReturnUrl());
-                clone.setExpand(chargeCurrencyReqParams.getExpand());
-                clone.setRequestTime(currentTimeMillis);
-                clone.setTokenCallback(chargeCurrencyReqParams.getTokenCallback());
-                clone.setTraceid(chargeCurrencyReqParams.getTraceid());
-                clone.setFrom(chargeCurrencyReqParams.getFrom());
-                clone.setAppClientExpand(chargeCurrencyReqParams.getAppClientExpand());
-                clone.setPayFlowTypeId(chargeCurrencyReqParams.getPayFlowTypeId());
-                IToken tokenCallback = chargeCurrencyReqParams.getTokenCallback();
-                if (tokenCallback != null && (onUpdateToken = tokenCallback.onUpdateToken()) != null) {
-                    clone.setToken(onUpdateToken);
-                    RLog.info("AppPayServiceImpl", "doOrderRequest---onUpdateToken");
-                }
-                clone.setCid(chargeCurrencyReqParams.getCid());
-                clone.setCurrencyType(chargeCurrencyReqParams.getCurrencyType());
-                clone.setCurrencyType(chargeCurrencyReqParams.getCurrencyType());
-                RLog.info("AppPayServiceImpl", "doOrderRequest---reqParams:" + clone.getPayType() + " " + clone.getSubscriptionType() + " " + clone.getCid() + "requestTime:" + currentTimeMillis + "--productId:" + clone.getProductId());
-                iPayCallback.onPayStatus(PurchaseStatus.ORDER_START, new PayCallBackBean(null, clone.getProductId(), null, clone.getRequestTime(), null, null, null, null, PurchaseStatus.ORDER_START, clone.getAppClientExpand()));
-                IRequest obtainRequest = this.mRevenueService.obtainRequest(1022, chargeCurrencyReqParams);
-                obtainRequest.setExtParam(clone);
-                this.mRevenueService.sendRequest(obtainRequest);
-                HiidoReport.CReportResponse cReportResponse = new HiidoReport.CReportResponse();
-                cReportResponse.mPaysource = chargeCurrencyReqParams.getFrom();
-                cReportResponse.mUid = chargeCurrencyReqParams.getUid();
-                cReportResponse.mPayTraceId = chargeCurrencyReqParams.getTraceid();
-                IPayServiceStatistics iPayServiceStatistics = this.mPayServiceStatistics;
-                if (iPayServiceStatistics != null) {
-                    cReportResponse.mEventId = "0";
-                    cReportResponse.mEventaliae = EventAlias.PayEventAlias.REQUUEST_PAY;
-                    cReportResponse.mErrCode = "1";
-                    cReportResponse.mErrMsg = "doOrderRequest";
-                    iPayServiceStatistics.onRequestPay(cReportResponse);
-                }
+            if (!checkNotNull(chargeCurrencyReqParams, iPayCallback)) {
+                return;
+            }
+            long currentTimeMillis = System.currentTimeMillis();
+            if (!isSupported(activity, payType)) {
+                iPayCallback.onFail(IPayMethod.Status.NOT_SUPPORT.getCode(), IPayMethod.Status.NOT_SUPPORT.getMessage(), new PayCallBackBean(null, productInfo.productId, null, currentTimeMillis, null, null, null, null, PurchaseStatus.ORDER_FAIL, chargeCurrencyReqParams.getAppClientExpand()));
+                return;
+            }
+            chargeCurrencyReqParams.setContextWeakRef(new WeakReference(activity));
+            chargeCurrencyReqParams.setCallback(iPayCallback);
+            chargeCurrencyReqParams.setPayChannel(payType.getChannel());
+            chargeCurrencyReqParams.setPayMethod(payType.getMethod());
+            chargeCurrencyReqParams.setSrcAmount(productInfo.srcAmount);
+            chargeCurrencyReqParams.setProductId(productInfo.productId);
+            chargeCurrencyReqParams.setCid(productInfo.cid);
+            ChargeCurrencyReqParams clone = ChargeCurrencyReqParams.Companion.clone(chargeCurrencyReqParams);
+            clone.setPayChannel(payType.getChannel());
+            clone.setPayMethod(payType.getMethod());
+            clone.setSrcAmount(productInfo.srcAmount);
+            clone.setProductId(productInfo.productId);
+            clone.setCid(productInfo.cid);
+            clone.setRetryCount(i);
+            clone.setIntervalMs(i2);
+            clone.setTimeOutMs(i3);
+            clone.setPayType(payType);
+            clone.setProductId(chargeCurrencyReqParams.getProductId());
+            clone.setFrom(chargeCurrencyReqParams.getFrom());
+            clone.setSubscriptionType(chargeCurrencyReqParams.getSubscriptionType());
+            clone.setOldProductId(chargeCurrencyReqParams.getOldProductId());
+            clone.setProrationMode(chargeCurrencyReqParams.getProrationMode());
+            clone.setReturnUrl(chargeCurrencyReqParams.getReturnUrl());
+            clone.setExpand(chargeCurrencyReqParams.getExpand());
+            clone.setRequestTime(currentTimeMillis);
+            clone.setTokenCallback(chargeCurrencyReqParams.getTokenCallback());
+            clone.setTraceid(chargeCurrencyReqParams.getTraceid());
+            clone.setFrom(chargeCurrencyReqParams.getFrom());
+            clone.setAppClientExpand(chargeCurrencyReqParams.getAppClientExpand());
+            clone.setPayFlowTypeId(chargeCurrencyReqParams.getPayFlowTypeId());
+            IToken tokenCallback = chargeCurrencyReqParams.getTokenCallback();
+            if (tokenCallback != null && (onUpdateToken = tokenCallback.onUpdateToken()) != null) {
+                clone.setToken(onUpdateToken);
+                RLog.info("AppPayServiceImpl", "doOrderRequest---onUpdateToken");
+            }
+            clone.setCid(chargeCurrencyReqParams.getCid());
+            clone.setCurrencyType(chargeCurrencyReqParams.getCurrencyType());
+            clone.setCurrencyType(chargeCurrencyReqParams.getCurrencyType());
+            RLog.info("AppPayServiceImpl", "doOrderRequest---reqParams:" + clone.getPayType() + " " + clone.getSubscriptionType() + " " + clone.getCid() + "requestTime:" + currentTimeMillis + "--productId:" + clone.getProductId());
+            iPayCallback.onPayStatus(PurchaseStatus.ORDER_START, new PayCallBackBean(null, clone.getProductId(), null, clone.getRequestTime(), null, null, null, null, PurchaseStatus.ORDER_START, clone.getAppClientExpand()));
+            IRequest obtainRequest = this.mRevenueService.obtainRequest(1022, chargeCurrencyReqParams);
+            obtainRequest.setExtParam(clone);
+            this.mRevenueService.sendRequest(obtainRequest);
+            HiidoReport.CReportResponse cReportResponse = new HiidoReport.CReportResponse();
+            cReportResponse.mPaysource = chargeCurrencyReqParams.getFrom();
+            cReportResponse.mUid = chargeCurrencyReqParams.getUid();
+            cReportResponse.mPayTraceId = chargeCurrencyReqParams.getTraceid();
+            IPayServiceStatistics iPayServiceStatistics = this.mPayServiceStatistics;
+            if (iPayServiceStatistics != null) {
+                cReportResponse.mEventId = "0";
+                cReportResponse.mEventaliae = EventAlias.PayEventAlias.REQUUEST_PAY;
+                cReportResponse.mErrCode = "1";
+                cReportResponse.mErrMsg = "doOrderRequest";
+                iPayServiceStatistics.onRequestPay(cReportResponse);
             }
         }
     }
 
     private void reportOrderProductFail(IResponse iResponse, ChargeCurrencyReqParams chargeCurrencyReqParams, PayOrderResult payOrderResult, HiidoReport.CReportResponse cReportResponse) {
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, iResponse, chargeCurrencyReqParams, payOrderResult, cReportResponse) == null) {
             if (this.mPayServiceStatistics != null) {
@@ -193,8 +190,12 @@ public class AppPayServiceImpl implements IAppPayService, IPayServiceCallback, I
                 this.mPayServiceStatistics.onOrderResult(cReportResponse);
             }
             if (this.mPayEventStatistics != null) {
-                String orderId = payOrderResult != null ? payOrderResult.getOrderId() : "";
-                this.mPayEventStatistics.reportPayFlowEvent(PayFlowEventType.payorder, iResponse.getResponseCode() + "", "order fail, reason:" + iResponse.getMessage(), orderId, "" + chargeCurrencyReqParams.getRequestTime(), chargeCurrencyReqParams.getProductId(), chargeCurrencyReqParams.getPayType().getChannel(), chargeCurrencyReqParams.getTraceid());
+                if (payOrderResult == null) {
+                    str = "";
+                } else {
+                    str = payOrderResult.getOrderId();
+                }
+                this.mPayEventStatistics.reportPayFlowEvent(PayFlowEventType.payorder, iResponse.getResponseCode() + "", "order fail, reason:" + iResponse.getMessage(), str, "" + chargeCurrencyReqParams.getRequestTime(), chargeCurrencyReqParams.getProductId(), chargeCurrencyReqParams.getPayType().getChannel(), chargeCurrencyReqParams.getTraceid());
             }
         }
     }
@@ -219,10 +220,9 @@ public class AppPayServiceImpl implements IAppPayService, IPayServiceCallback, I
     private void reportPayRequestEvent(String str, String str2, ChargeCurrencyReqParams chargeCurrencyReqParams) {
         IPayEventStatistics iPayEventStatistics;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65542, this, str, str2, chargeCurrencyReqParams) == null) || (iPayEventStatistics = this.mPayEventStatistics) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLLL(65542, this, str, str2, chargeCurrencyReqParams) == null) && (iPayEventStatistics = this.mPayEventStatistics) != null) {
+            iPayEventStatistics.reportPayFlowEvent(PayFlowEventType.payingaddpaymentrequest, "0", str2, str, "" + chargeCurrencyReqParams.getRequestTime(), chargeCurrencyReqParams.getProductId(), chargeCurrencyReqParams.getPayType().getChannel(), chargeCurrencyReqParams.getTraceid());
         }
-        iPayEventStatistics.reportPayFlowEvent(PayFlowEventType.payingaddpaymentrequest, "0", str2, str, "" + chargeCurrencyReqParams.getRequestTime(), chargeCurrencyReqParams.getProductId(), chargeCurrencyReqParams.getPayType().getChannel(), chargeCurrencyReqParams.getTraceid());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -309,6 +309,15 @@ public class AppPayServiceImpl implements IAppPayService, IPayServiceCallback, I
         }
     }
 
+    private void requestPay(String str, Activity activity, ChargeCurrencyReqParams chargeCurrencyReqParams, PayType payType, String str2, String str3, IPayCallback iPayCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65545, this, new Object[]{str, activity, chargeCurrencyReqParams, payType, str2, str3, iPayCallback}) == null) {
+            RLog.info("AppPayServiceImpl", "payingaddpaymentrequest request sdk Pay orderId:" + str);
+            PayMethodFactory.valueOf(payType).requestPay(activity, chargeCurrencyReqParams.getUid(), str2, str3, iPayCallback);
+            reportPayRequestEvent(str, "request sdk pay", chargeCurrencyReqParams);
+        }
+    }
+
     @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
     public synchronized void addPayListener(IAppPayServiceListener iAppPayServiceListener) {
         Interceptable interceptable = $ic;
@@ -321,6 +330,48 @@ public class AppPayServiceImpl implements IAppPayService, IPayServiceCallback, I
         }
     }
 
+    @Override // com.yy.mobile.framework.revenuesdk.payservice.impl.IPayServiceCallback
+    public void onCurrencyChargeMessage(CurrencyChargeMessage currencyChargeMessage) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, currencyChargeMessage) == null) {
+            for (IAppPayServiceListener iAppPayServiceListener : this.listeners) {
+                iAppPayServiceListener.onCurrencyChargeMessage(currencyChargeMessage);
+            }
+        }
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
+    public void registerPayServiceStatistics(IPayServiceStatistics iPayServiceStatistics) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, iPayServiceStatistics) == null) {
+            RLog.debug("AppPayServiceImpl", "registerPayReporter IPayServiceReporter = " + iPayServiceStatistics);
+            this.mPayServiceStatistics = iPayServiceStatistics;
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:10:0x0017, code lost:
+        r0.remove();
+     */
+    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public synchronized void removePayListener(IAppPayServiceListener iAppPayServiceListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, iAppPayServiceListener) == null) {
+            synchronized (this) {
+                Iterator it = this.listeners.iterator();
+                while (true) {
+                    if (!it.hasNext()) {
+                        break;
+                    } else if (iAppPayServiceListener == it.next()) {
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
     @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
     public void cancelAllRequest() {
         Interceptable interceptable = $ic;
@@ -328,6 +379,16 @@ public class AppPayServiceImpl implements IAppPayService, IPayServiceCallback, I
             RLog.info("AppPayServiceImpl", "cancelAllRequest");
             this.mRevenueService.cancelAllRequest();
         }
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
+    public IPayServiceStatistics getPayServiceStatistics() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mPayServiceStatistics;
+        }
+        return (IPayServiceStatistics) invokeV.objValue;
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payservice.impl.IPayServiceCallback
@@ -366,13 +427,6 @@ public class AppPayServiceImpl implements IAppPayService, IPayServiceCallback, I
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
-    public IPayServiceStatistics getPayServiceStatistics() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mPayServiceStatistics : (IPayServiceStatistics) invokeV.objValue;
-    }
-
-    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
     public boolean isSupported(Activity activity, PayType payType) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -387,24 +441,43 @@ public class AppPayServiceImpl implements IAppPayService, IPayServiceCallback, I
         return invokeLL.booleanValue;
     }
 
-    @Override // com.yy.mobile.framework.revenuesdk.payservice.impl.IPayServiceCallback
-    public void onCurrencyChargeMessage(CurrencyChargeMessage currencyChargeMessage) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, currencyChargeMessage) == null) {
-            for (IAppPayServiceListener iAppPayServiceListener : this.listeners) {
-                iAppPayServiceListener.onCurrencyChargeMessage(currencyChargeMessage);
-            }
-        }
-    }
-
     @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
     public void onQQPayResult(int i, String str) {
         IPayMethod valueOf;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048582, this, i, str) == null) || (valueOf = PayMethodFactory.valueOf(PayType.QQ_PAY)) == null) {
+        if ((interceptable == null || interceptable.invokeIL(1048582, this, i, str) == null) && (valueOf = PayMethodFactory.valueOf(PayType.QQ_PAY)) != null) {
+            valueOf.onQQPayResult(i, str);
+        }
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.payservice.revenueservice.IRevenueService.IRevenueServiceListener
+    public void onRevenueResponse(int i, IResponse iResponse) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048585, this, i, iResponse) == null) {
+            RLog.debug("AppPayServiceImpl", "onRevenueResponse command = " + i);
+            this.mPayRespDispatcher.onRevenueResponse(i, iResponse);
+        }
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
+    public void onWxPayResult(int i, String str) {
+        IPayMethod valueOf;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIL(1048586, this, i, str) == null) && (valueOf = PayMethodFactory.valueOf(PayType.WECHAT_PAY)) != null) {
+            valueOf.onWxPayResult(i, str);
+        }
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
+    public void queryMyBalance(QueryCurrencyReqParams queryCurrencyReqParams, IResult iResult) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048590, this, queryCurrencyReqParams, iResult) != null) || !checkNotNull(queryCurrencyReqParams, iResult)) {
             return;
         }
-        valueOf.onQQPayResult(i, str);
+        queryCurrencyReqParams.setCallback(iResult);
+        IRequest obtainRequest = this.mRevenueService.obtainRequest(1005, queryCurrencyReqParams);
+        obtainRequest.setExtParam(queryCurrencyReqParams);
+        this.mRevenueService.sendRequest(obtainRequest);
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.baseapi.data.IRevenueDataReceiver
@@ -422,129 +495,6 @@ public class AppPayServiceImpl implements IAppPayService, IPayServiceCallback, I
         if (interceptable == null || interceptable.invokeIIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2, pSCIMessageResponse) == null) {
             RLog.debug("AppPayServiceImpl", "onResponseData responseData = " + pSCIMessageResponse);
             this.mRevenueService.onResponseData(i, i2, pSCIMessageResponse);
-        }
-    }
-
-    @Override // com.yy.mobile.framework.revenuesdk.payservice.revenueservice.IRevenueService.IRevenueServiceListener
-    public void onRevenueResponse(int i, IResponse iResponse) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048585, this, i, iResponse) == null) {
-            RLog.debug("AppPayServiceImpl", "onRevenueResponse command = " + i);
-            this.mPayRespDispatcher.onRevenueResponse(i, iResponse);
-        }
-    }
-
-    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
-    public void onWxPayResult(int i, String str) {
-        IPayMethod valueOf;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048586, this, i, str) == null) || (valueOf = PayMethodFactory.valueOf(PayType.WECHAT_PAY)) == null) {
-            return;
-        }
-        valueOf.onWxPayResult(i, str);
-    }
-
-    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
-    public void payWithProductInfo(@NonNull Activity activity, @NonNull ChargeCurrencyReqParams chargeCurrencyReqParams, @NonNull ProductInfo productInfo, @NonNull PayType payType, int i, int i2, int i3, IPayCallback<String> iPayCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{activity, chargeCurrencyReqParams, productInfo, payType, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), iPayCallback}) == null) {
-            RLog.info("AppPayServiceImpl", "---payWithProductInfo---");
-            doOrderRequest(activity, chargeCurrencyReqParams, productInfo, payType, i, i2, i3, iPayCallback);
-            IPayEventStatistics iPayEventStatistics = this.mPayEventStatistics;
-            if (iPayEventStatistics != null) {
-                iPayEventStatistics.reportPayFlowEvent(PayFlowEventType.payingstart, "0", "doOrderRequest", "", "" + chargeCurrencyReqParams.getRequestTime(), productInfo.productId, payType.getChannel(), chargeCurrencyReqParams.getTraceid());
-            }
-        }
-    }
-
-    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
-    public void queryBannerConfigRequest(@NonNull GetBannerConfigReqParams getBannerConfigReqParams, IResult<BannerConfigResult> iResult) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048588, this, getBannerConfigReqParams, iResult) == null) && checkNotNull(getBannerConfigReqParams, iResult)) {
-            getBannerConfigReqParams.setCallback(iResult);
-            getBannerConfigReqParams.setRequestTime(System.currentTimeMillis());
-            getBannerConfigReqParams.setTraceid(TraceIdUtil.newTraceId());
-            IRequest obtainRequest = this.mRevenueService.obtainRequest(RevenueServerConst.GetBannerConfigRequest, getBannerConfigReqParams);
-            obtainRequest.setExtParam(getBannerConfigReqParams);
-            this.mRevenueService.sendRequest(obtainRequest);
-        }
-    }
-
-    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
-    public void queryChargeOrderStatus(@NonNull GetChargeOrderStatusReqParams getChargeOrderStatusReqParams, IResult<GetChargeOrderStatusResult> iResult) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048589, this, getChargeOrderStatusReqParams, iResult) == null) && checkNotNull(getChargeOrderStatusReqParams, iResult)) {
-            getChargeOrderStatusReqParams.setCallback(iResult);
-            getChargeOrderStatusReqParams.setRequestTime(System.currentTimeMillis());
-            getChargeOrderStatusReqParams.setTraceid(TraceIdUtil.newTraceId());
-            IRequest obtainRequest = this.mRevenueService.obtainRequest(RevenueServerConst.GetChargeOrderStatusRequest, getChargeOrderStatusReqParams);
-            obtainRequest.setExtParam(getChargeOrderStatusReqParams);
-            this.mRevenueService.sendRequest(obtainRequest);
-        }
-    }
-
-    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
-    public void queryMyBalance(@NonNull QueryCurrencyReqParams queryCurrencyReqParams, IResult<MyBalanceResult> iResult) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048590, this, queryCurrencyReqParams, iResult) == null) && checkNotNull(queryCurrencyReqParams, iResult)) {
-            queryCurrencyReqParams.setCallback(iResult);
-            IRequest obtainRequest = this.mRevenueService.obtainRequest(1005, queryCurrencyReqParams);
-            obtainRequest.setExtParam(queryCurrencyReqParams);
-            this.mRevenueService.sendRequest(obtainRequest);
-        }
-    }
-
-    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
-    public void queryProductList(@NonNull QueryCurrencyReqParams queryCurrencyReqParams, IResult<ProductListResult> iResult) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048591, this, queryCurrencyReqParams, iResult) == null) && checkNotNull(queryCurrencyReqParams, iResult)) {
-            queryCurrencyReqParams.setCallback(iResult);
-            queryCurrencyReqParams.setRequestTime(System.currentTimeMillis());
-            queryCurrencyReqParams.setTraceid(TraceIdUtil.newTraceId());
-            IRequest obtainRequest = this.mRevenueService.obtainRequest(1021, queryCurrencyReqParams);
-            obtainRequest.setExtParam(queryCurrencyReqParams);
-            this.mRevenueService.sendRequest(obtainRequest);
-        }
-    }
-
-    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
-    public void registerPayServiceStatistics(IPayServiceStatistics iPayServiceStatistics) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, iPayServiceStatistics) == null) {
-            RLog.debug("AppPayServiceImpl", "registerPayReporter IPayServiceReporter = " + iPayServiceStatistics);
-            this.mPayServiceStatistics = iPayServiceStatistics;
-        }
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:10:0x0017, code lost:
-        r0.remove();
-     */
-    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public synchronized void removePayListener(IAppPayServiceListener iAppPayServiceListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, iAppPayServiceListener) == null) {
-            synchronized (this) {
-                Iterator<IAppPayServiceListener> it = this.listeners.iterator();
-                while (true) {
-                    if (!it.hasNext()) {
-                        break;
-                    } else if (iAppPayServiceListener == it.next()) {
-                        break;
-                    }
-                }
-            }
-        }
-    }
-
-    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
-    public void requestPay(Activity activity, PayType payType, String str, String str2, IPayCallback<PurchaseInfo> iPayCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048594, this, activity, payType, str, str2, iPayCallback) == null) {
-            RLog.info("AppPayServiceImpl", "requstPay,payType:" + payType + ",productId:" + str + ",payload:" + str2);
-            PayMethodFactory.valueOf(payType).requestPay(activity, 0L, str, str2, iPayCallback);
         }
     }
 
@@ -597,12 +547,67 @@ public class AppPayServiceImpl implements IAppPayService, IPayServiceCallback, I
         }
     }
 
-    private void requestPay(String str, Activity activity, ChargeCurrencyReqParams chargeCurrencyReqParams, PayType payType, String str2, String str3, IPayCallback iPayCallback) {
+    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
+    public void payWithProductInfo(Activity activity, ChargeCurrencyReqParams chargeCurrencyReqParams, ProductInfo productInfo, PayType payType, int i, int i2, int i3, IPayCallback iPayCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65545, this, new Object[]{str, activity, chargeCurrencyReqParams, payType, str2, str3, iPayCallback}) == null) {
-            RLog.info("AppPayServiceImpl", "payingaddpaymentrequest request sdk Pay orderId:" + str);
-            PayMethodFactory.valueOf(payType).requestPay(activity, chargeCurrencyReqParams.getUid(), str2, str3, iPayCallback);
-            reportPayRequestEvent(str, "request sdk pay", chargeCurrencyReqParams);
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{activity, chargeCurrencyReqParams, productInfo, payType, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), iPayCallback}) == null) {
+            RLog.info("AppPayServiceImpl", "---payWithProductInfo---");
+            doOrderRequest(activity, chargeCurrencyReqParams, productInfo, payType, i, i2, i3, iPayCallback);
+            IPayEventStatistics iPayEventStatistics = this.mPayEventStatistics;
+            if (iPayEventStatistics != null) {
+                iPayEventStatistics.reportPayFlowEvent(PayFlowEventType.payingstart, "0", "doOrderRequest", "", "" + chargeCurrencyReqParams.getRequestTime(), productInfo.productId, payType.getChannel(), chargeCurrencyReqParams.getTraceid());
+            }
+        }
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
+    public void queryBannerConfigRequest(GetBannerConfigReqParams getBannerConfigReqParams, IResult iResult) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048588, this, getBannerConfigReqParams, iResult) != null) || !checkNotNull(getBannerConfigReqParams, iResult)) {
+            return;
+        }
+        getBannerConfigReqParams.setCallback(iResult);
+        getBannerConfigReqParams.setRequestTime(System.currentTimeMillis());
+        getBannerConfigReqParams.setTraceid(TraceIdUtil.newTraceId());
+        IRequest obtainRequest = this.mRevenueService.obtainRequest(RevenueServerConst.GetBannerConfigRequest, getBannerConfigReqParams);
+        obtainRequest.setExtParam(getBannerConfigReqParams);
+        this.mRevenueService.sendRequest(obtainRequest);
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
+    public void queryChargeOrderStatus(GetChargeOrderStatusReqParams getChargeOrderStatusReqParams, IResult iResult) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048589, this, getChargeOrderStatusReqParams, iResult) != null) || !checkNotNull(getChargeOrderStatusReqParams, iResult)) {
+            return;
+        }
+        getChargeOrderStatusReqParams.setCallback(iResult);
+        getChargeOrderStatusReqParams.setRequestTime(System.currentTimeMillis());
+        getChargeOrderStatusReqParams.setTraceid(TraceIdUtil.newTraceId());
+        IRequest obtainRequest = this.mRevenueService.obtainRequest(RevenueServerConst.GetChargeOrderStatusRequest, getChargeOrderStatusReqParams);
+        obtainRequest.setExtParam(getChargeOrderStatusReqParams);
+        this.mRevenueService.sendRequest(obtainRequest);
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
+    public void queryProductList(QueryCurrencyReqParams queryCurrencyReqParams, IResult iResult) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048591, this, queryCurrencyReqParams, iResult) != null) || !checkNotNull(queryCurrencyReqParams, iResult)) {
+            return;
+        }
+        queryCurrencyReqParams.setCallback(iResult);
+        queryCurrencyReqParams.setRequestTime(System.currentTimeMillis());
+        queryCurrencyReqParams.setTraceid(TraceIdUtil.newTraceId());
+        IRequest obtainRequest = this.mRevenueService.obtainRequest(1021, queryCurrencyReqParams);
+        obtainRequest.setExtParam(queryCurrencyReqParams);
+        this.mRevenueService.sendRequest(obtainRequest);
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
+    public void requestPay(Activity activity, PayType payType, String str, String str2, IPayCallback iPayCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(1048594, this, activity, payType, str, str2, iPayCallback) == null) {
+            RLog.info("AppPayServiceImpl", "requstPay,payType:" + payType + ",productId:" + str + ",payload:" + str2);
+            PayMethodFactory.valueOf(payType).requestPay(activity, 0L, str, str2, iPayCallback);
         }
     }
 }

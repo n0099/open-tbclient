@@ -15,7 +15,6 @@ import com.baidu.down.loopj.android.request.handler.ICommonRequestHandler;
 import com.baidu.down.loopj.android.request.handler.RedirectException;
 import com.baidu.down.loopj.android.request.handler.UrlConnectionRequestHandler;
 import com.baidu.down.request.task.AbstractTask;
-import com.baidu.down.request.taskmanager.HttpDNSInfo;
 import com.baidu.down.request.taskmanager.OnFetchDataRequestListener;
 import com.baidu.down.request.taskmanager.TaskFacade;
 import com.baidu.down.retry.HttpRetryStatistic;
@@ -63,11 +62,11 @@ public class AsyncHttpRequest implements Runnable {
     public int mRetryFrequency;
     public boolean mSkipHttpsCertificate;
     public ThreadSpeedStat mThreadSpeedStat;
-    public HashSet<String> redirectUrls;
+    public HashSet redirectUrls;
     public BinaryHttpResponseHandler responseHandler;
 
     /* loaded from: classes2.dex */
-    public static class HandlerCdnRedirectException extends RuntimeException {
+    public class HandlerCdnRedirectException extends RuntimeException {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -5562528406378234456L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -88,7 +87,7 @@ public class AsyncHttpRequest implements Runnable {
     }
 
     /* loaded from: classes2.dex */
-    public static class HandlerRedirectException extends RuntimeException {
+    public class HandlerRedirectException extends RuntimeException {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4422626752285372402L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -150,14 +149,99 @@ public class AsyncHttpRequest implements Runnable {
         this.mHttpRetryStrategyHandler = this.responseHandler.mtask.mHttpRetryStrategyHandler;
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public AsyncHttpRequest(ICommonRequestHandler iCommonRequestHandler, AsyncHttpResponseHandler asyncHttpResponseHandler) {
+        this(asyncHttpResponseHandler);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {iCommonRequestHandler, asyncHttpResponseHandler};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                this((AsyncHttpResponseHandler) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        HashSet hashSet = new HashSet();
+        this.redirectUrls = hashSet;
+        hashSet.add(iCommonRequestHandler.getUrl());
+        this.mICommonRequestHandler = iCommonRequestHandler;
+        newThreadSpeedStat();
+        if (this.mHttpRetryStrategyHandler.HttpDNSCacheAvailable()) {
+            this.mNeedAcquiredRetryStrategy = false;
+            this.mRequestStage = 2;
+            retryWithStrategy();
+        }
+    }
+
+    private boolean skipHttpsCertificate(Exception exc) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, this, exc)) == null) {
+            if (((exc instanceof SSLException) || (exc instanceof CertificateException)) && this.mSkipHttpsCertificate && (this.mICommonRequestHandler instanceof UrlConnectionRequestHandler)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void setDownStartPos(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            ThreadSpeedStat threadSpeedStat = this.mThreadSpeedStat;
+            if (threadSpeedStat.dstart == -1) {
+                threadSpeedStat.dstart = j;
+            }
+        }
+    }
+
     private boolean isMultiSrcStageBeforeOrExe() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
             BinaryHttpResponseHandler binaryHttpResponseHandler = this.responseHandler;
-            return (binaryHttpResponseHandler instanceof MultiSrcBinaryTaskHandler) && ((MultiSrcBinaryTaskHandler) binaryHttpResponseHandler).isNeedMultiSrc() && ((MultiSrcBinaryTaskHandler) this.responseHandler).getTestSpeedStage() != 2;
+            if ((binaryHttpResponseHandler instanceof MultiSrcBinaryTaskHandler) && ((MultiSrcBinaryTaskHandler) binaryHttpResponseHandler).isNeedMultiSrc() && ((MultiSrcBinaryTaskHandler) this.responseHandler).getTestSpeedStage() != 2) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
+    }
+
+    public void cancelRequest() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ThreadSpeedStat threadSpeedStat = this.mThreadSpeedStat;
+            if (threadSpeedStat != null && TextUtils.isEmpty(threadSpeedStat.drs)) {
+                ThreadSpeedStat threadSpeedStat2 = this.mThreadSpeedStat;
+                threadSpeedStat2.drs = "c";
+                threadSpeedStat2.downEndTime = SystemClock.elapsedRealtime();
+            }
+            this.mICommonRequestHandler.cancelRequest();
+        }
+    }
+
+    public ThreadSpeedStat getThreadSpeedStat() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mThreadSpeedStat;
+        }
+        return (ThreadSpeedStat) invokeV.objValue;
+    }
+
+    public void interruptRetryWaiting() {
+        Thread thread;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.mIsWaitingForRetry && (thread = this.mCurrentThread) != null) {
+            thread.interrupt();
+        }
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:47:0x00f5, code lost:
@@ -174,88 +258,86 @@ public class AsyncHttpRequest implements Runnable {
     */
     private void makeRequest() throws IOException, HandlerRedirectException, HandlerCdnRedirectException, RedirectException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65543, this) == null) || this.isInterrupt) {
-            return;
-        }
-        try {
-            long elapsedRealtime = SystemClock.elapsedRealtime();
-            this.mICommonRequestHandler.onExeHttpConnect(this.responseHandler, this.mThreadSpeedStat, this.mEncodeURl);
-            this.mEncodeURl = false;
-            this.mRequestConnectedTime = SystemClock.elapsedRealtime() - elapsedRealtime;
-            if (this.mThreadSpeedStat != null) {
-                this.mThreadSpeedStat.downStartConnectTime = elapsedRealtime;
-                this.mThreadSpeedStat.downEndConnectTime = SystemClock.elapsedRealtime();
-            }
-            if (!isMultiSrcStageBeforeOrExe() && this.mICommonRequestHandler.getHttpStatus() == 403 && this.mICommonRequestHandler.onContainsRequestHeader("Range")) {
-                this.mICommonRequestHandler.onRemoveRequestHeader("Range");
-                throw new HandlerRetryException("403 with range");
-            }
-            if (this.mICommonRequestHandler.getHttpStatus() == 412 && this.mICommonRequestHandler.onContainsRequestHeader(Util.IF_MATCH)) {
-                this.mICommonRequestHandler.onRemoveRequestHeader(Util.IF_MATCH);
-                throw new HandlerRetryException("412 with If-Match");
-            }
-            if (this.mICommonRequestHandler.getHttpStatus() == 404 && Integer.parseInt(Build.VERSION.SDK) < 21 && this.executionCount == 0) {
-                this.mEncodeURl = true;
-                throw new HandlerRetryException("404 with path");
-            }
-            if (this.responseHandler.mtask.mIntercepters.containsKey("response")) {
-                IIntercepter<?> iIntercepter = this.responseHandler.mtask.mIntercepters.get("response");
-                if (iIntercepter instanceof AbstractResponseIntercept) {
-                    com.baidu.down.common.intercepter.InterceptResult process = ((AbstractResponseIntercept) iIntercepter).process(this.responseHandler.mtask.mContext, this.responseHandler.mtask.getTaskKey(), this.responseHandler.mtask.mDownloadId, this.mICommonRequestHandler.getResponseInfo());
-                    if (process != null && process.retCode == 2) {
-                        this.mFailType = 4;
-                        throw new IntercepterException(process.interceptMsg);
-                    }
-                    if (process != null && process.retCode == 4 && this.mNeedAcquiredRetryStrategy) {
-                        this.mFailType = 6;
-                        throw new RetryStrategyException("302 hijack");
+        if ((interceptable == null || interceptable.invokeV(65543, this) == null) && !this.isInterrupt) {
+            try {
+                long elapsedRealtime = SystemClock.elapsedRealtime();
+                this.mICommonRequestHandler.onExeHttpConnect(this.responseHandler, this.mThreadSpeedStat, this.mEncodeURl);
+                this.mEncodeURl = false;
+                this.mRequestConnectedTime = SystemClock.elapsedRealtime() - elapsedRealtime;
+                if (this.mThreadSpeedStat != null) {
+                    this.mThreadSpeedStat.downStartConnectTime = elapsedRealtime;
+                    this.mThreadSpeedStat.downEndConnectTime = SystemClock.elapsedRealtime();
+                }
+                if (!isMultiSrcStageBeforeOrExe() && this.mICommonRequestHandler.getHttpStatus() == 403 && this.mICommonRequestHandler.onContainsRequestHeader("Range")) {
+                    this.mICommonRequestHandler.onRemoveRequestHeader("Range");
+                    throw new HandlerRetryException("403 with range");
+                }
+                if (this.mICommonRequestHandler.getHttpStatus() == 412 && this.mICommonRequestHandler.onContainsRequestHeader(Util.IF_MATCH)) {
+                    this.mICommonRequestHandler.onRemoveRequestHeader(Util.IF_MATCH);
+                    throw new HandlerRetryException("412 with If-Match");
+                }
+                if (this.mICommonRequestHandler.getHttpStatus() == 404 && Integer.parseInt(Build.VERSION.SDK) < 21 && this.executionCount == 0) {
+                    this.mEncodeURl = true;
+                    throw new HandlerRetryException("404 with path");
+                }
+                if (this.responseHandler.mtask.mIntercepters.containsKey("response")) {
+                    IIntercepter iIntercepter = (IIntercepter) this.responseHandler.mtask.mIntercepters.get("response");
+                    if (iIntercepter instanceof AbstractResponseIntercept) {
+                        com.baidu.down.common.intercepter.InterceptResult process = ((AbstractResponseIntercept) iIntercepter).process(this.responseHandler.mtask.mContext, this.responseHandler.mtask.getTaskKey(), this.responseHandler.mtask.mDownloadId, this.mICommonRequestHandler.getResponseInfo());
+                        if (process != null && process.retCode == 2) {
+                            this.mFailType = 4;
+                            throw new IntercepterException(process.interceptMsg);
+                        }
+                        if (process != null && process.retCode == 4 && this.mNeedAcquiredRetryStrategy) {
+                            this.mFailType = 6;
+                            throw new RetryStrategyException("302 hijack");
+                        }
                     }
                 }
-            }
-            if (this.mICommonRequestHandler.getHttpStatus() == 200 || this.mICommonRequestHandler.getHttpStatus() == 206) {
-                this.executionCount = 0;
-                this.mNeedAcquiredRetryStrategy = false;
-                if (this.mRequestStage == 2) {
-                    this.mRequestStage = 4;
-                    this.mHttpRetryStrategyHandler.setRetryType(3);
-                    this.mHttpRetryStrategyHandler.appendDownDetail(hashCode(), HttpRetryStatistic.buildRetryStatistic(this.mICommonRequestHandler.getUrl(), "s", this.mICommonRequestHandler.onGetRequestHeader("host")));
-                }
-                this.redirectUrls.clear();
-            }
-            if (this.mICommonRequestHandler.getHttpStatus() == 301 || this.mICommonRequestHandler.getHttpStatus() == 303 || this.mICommonRequestHandler.getHttpStatus() == 302) {
-                String url = this.mICommonRequestHandler.getUrl();
-                try {
-                    this.mICommonRequestHandler.onHandleFollowRedirect(this.redirectUrls);
-                    String url2 = this.mICommonRequestHandler.getUrl();
-                    if (url2 != null && !url2.equals(url)) {
-                        this.responseHandler.sendRedirectMessage(url2);
+                if (this.mICommonRequestHandler.getHttpStatus() == 200 || this.mICommonRequestHandler.getHttpStatus() == 206) {
+                    this.executionCount = 0;
+                    this.mNeedAcquiredRetryStrategy = false;
+                    if (this.mRequestStage == 2) {
+                        this.mRequestStage = 4;
+                        this.mHttpRetryStrategyHandler.setRetryType(3);
+                        this.mHttpRetryStrategyHandler.appendDownDetail(hashCode(), HttpRetryStatistic.buildRetryStatistic(this.mICommonRequestHandler.getUrl(), "s", this.mICommonRequestHandler.onGetRequestHeader("host")));
                     }
-                } catch (RedirectException e) {
-                    throw e;
+                    this.redirectUrls.clear();
                 }
-            }
-            if (this.responseHandler != null) {
-                if (this.mICommonRequestHandler.getHttpStatus() == 503 && isMultiSrcStageBeforeOrExe()) {
+                if (this.mICommonRequestHandler.getHttpStatus() == 301 || this.mICommonRequestHandler.getHttpStatus() == 303 || this.mICommonRequestHandler.getHttpStatus() == 302) {
+                    String url = this.mICommonRequestHandler.getUrl();
                     try {
-                        ((MultiSrcBinaryTaskHandler) this.responseHandler).handlerCDNRedirectUrl(this.mICommonRequestHandler, this);
-                        throw new HandlerCdnRedirectException();
-                    } catch (IllegalArgumentException unused) {
-                        throw new HandlerRedirectException("Invalid uri: " + this.mICommonRequestHandler.onGetHttpHeader(true));
-                    }
-                } else if (this.isInterrupt) {
-                } else {
-                    long sendResponseMessage = this.responseHandler.sendResponseMessage(this.mICommonRequestHandler, this);
-                    if (sendResponseMessage > this.curPos) {
-                        this.curPos = sendResponseMessage;
+                        this.mICommonRequestHandler.onHandleFollowRedirect(this.redirectUrls);
+                        String url2 = this.mICommonRequestHandler.getUrl();
+                        if (url2 != null && !url2.equals(url)) {
+                            this.responseHandler.sendRedirectMessage(url2);
+                        }
+                    } catch (RedirectException e) {
+                        throw e;
                     }
                 }
-            }
-        } catch (IOException e2) {
-            if (e2 instanceof ConnectTimeoutException) {
-                this.mICommonRequestHandler.closeConnection();
-            }
-            if (!this.isInterrupt) {
-                throw e2;
+                if (this.responseHandler != null) {
+                    if (this.mICommonRequestHandler.getHttpStatus() == 503 && isMultiSrcStageBeforeOrExe()) {
+                        try {
+                            ((MultiSrcBinaryTaskHandler) this.responseHandler).handlerCDNRedirectUrl(this.mICommonRequestHandler, this);
+                            throw new HandlerCdnRedirectException();
+                        } catch (IllegalArgumentException unused) {
+                            throw new HandlerRedirectException("Invalid uri: " + this.mICommonRequestHandler.onGetHttpHeader(true));
+                        }
+                    } else if (!this.isInterrupt) {
+                        long sendResponseMessage = this.responseHandler.sendResponseMessage(this.mICommonRequestHandler, this);
+                        if (sendResponseMessage > this.curPos) {
+                            this.curPos = sendResponseMessage;
+                        }
+                    }
+                }
+            } catch (IOException e2) {
+                if (e2 instanceof ConnectTimeoutException) {
+                    this.mICommonRequestHandler.closeConnection();
+                }
+                if (!this.isInterrupt) {
+                    throw e2;
+                }
             }
         }
     }
@@ -434,7 +516,7 @@ public class AsyncHttpRequest implements Runnable {
                                             }
 
                                             @Override // com.baidu.down.request.taskmanager.OnFetchDataRequestListener
-                                            public void afterRequest(boolean z2, TreeSet<HttpDNSInfo> treeSet) {
+                                            public void afterRequest(boolean z2, TreeSet treeSet) {
                                                 Interceptable interceptable2 = $ic;
                                                 if (interceptable2 == null || interceptable2.invokeZL(1048576, this, z2, treeSet) == null) {
                                                     if (z2) {
@@ -501,7 +583,7 @@ public class AsyncHttpRequest implements Runnable {
                             this.mRequestStage = 3;
                         }
                     }
-                    if (this.executionCount > 0 && abstractTask.mIntercepters != null && abstractTask.mIntercepters.containsKey("network") && (process = abstractTask.mIntercepters.get("network").process(this.responseHandler.mtask.mContext, abstractTask.getTaskKey(), abstractTask.mDownloadId, null)) != null && process.retCode == 1) {
+                    if (this.executionCount > 0 && abstractTask.mIntercepters != null && abstractTask.mIntercepters.containsKey("network") && (process = ((IIntercepter) abstractTask.mIntercepters.get("network")).process(this.responseHandler.mtask.mContext, abstractTask.getTaskKey(), abstractTask.mDownloadId, null)) != null && process.retCode == 1) {
                         abstractTask.pause();
                         return;
                     }
@@ -523,6 +605,7 @@ public class AsyncHttpRequest implements Runnable {
         String str;
         String str2;
         long j;
+        long j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(65545, this, z)) == null) {
             BinaryHttpResponseHandler binaryHttpResponseHandler = this.responseHandler;
@@ -542,32 +625,37 @@ public class AsyncHttpRequest implements Runnable {
                 str = split[1].trim();
                 str2 = "";
             }
-            long j2 = 0;
+            long j3 = 0;
             try {
-                j2 = Long.valueOf(str).longValue();
+                j3 = Long.valueOf(str).longValue();
                 Long.valueOf(str2).longValue();
             } catch (NumberFormatException e) {
                 e.printStackTrace();
             }
             if (z) {
-                j = abstractTask.mProgressInfo.getSegCurrentByPos(j2);
+                j = abstractTask.mProgressInfo.getSegCurrentByPos(j3);
             } else {
                 j = this.curPos;
-                if (j <= j2) {
-                    j = j2;
+                if (j <= j3) {
+                    j = j3;
                 }
             }
-            long segEndByPos = abstractTask.mProgressInfo.getSegEndByPos(j2);
+            long segEndByPos = abstractTask.mProgressInfo.getSegEndByPos(j3);
             int i2 = (segEndByPos > Long.MAX_VALUE ? 1 : (segEndByPos == Long.MAX_VALUE ? 0 : -1));
             if (i2 == 0) {
-                j = abstractTask.mProgressInfo.getSegCurrentByPos(j2);
+                j = abstractTask.mProgressInfo.getSegCurrentByPos(j3);
             } else {
                 str3 = str2;
             }
             if (j < segEndByPos) {
                 if (i2 != 0 && TaskFacade.getInstance(null).getBinaryTaskMng().getHttpClient().isWap()) {
-                    long j3 = 307200 + j;
-                    str3 = String.valueOf(j3 - 1 < segEndByPos ? j3 - 2 : segEndByPos - 1);
+                    long j4 = 307200 + j;
+                    if (j4 - 1 < segEndByPos) {
+                        j2 = j4 - 2;
+                    } else {
+                        j2 = segEndByPos - 1;
+                    }
+                    str3 = String.valueOf(j2);
                 }
                 ICommonRequestHandler iCommonRequestHandler = this.mICommonRequestHandler;
                 iCommonRequestHandler.onSetRequestHeader("Range", "bytes=" + j + "-" + str3);
@@ -586,47 +674,14 @@ public class AsyncHttpRequest implements Runnable {
                 this.mICommonRequestHandler.saveRequest();
             }
             ICommonRequestHandler iCommonRequestHandler = this.mICommonRequestHandler;
-            List<RetryRequestInfo> retryRequestInfoList = this.mHttpRetryStrategyHandler.getRetryRequestInfoList();
+            List retryRequestInfoList = this.mHttpRetryStrategyHandler.getRetryRequestInfoList();
             int i = this.mRetryFrequency;
             this.mRetryFrequency = i + 1;
-            iCommonRequestHandler.replaceRequest(retryRequestInfoList.get(i));
+            iCommonRequestHandler.replaceRequest((RetryRequestInfo) retryRequestInfoList.get(i));
             ThreadSpeedStat threadSpeedStat = this.mThreadSpeedStat;
             if (threadSpeedStat != null) {
                 threadSpeedStat.drnum++;
             }
-        }
-    }
-
-    private boolean skipHttpsCertificate(Exception exc) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65547, this, exc)) == null) ? ((exc instanceof SSLException) || (exc instanceof CertificateException)) && this.mSkipHttpsCertificate && (this.mICommonRequestHandler instanceof UrlConnectionRequestHandler) : invokeL.booleanValue;
-    }
-
-    public void cancelRequest() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ThreadSpeedStat threadSpeedStat = this.mThreadSpeedStat;
-            if (threadSpeedStat != null && TextUtils.isEmpty(threadSpeedStat.drs)) {
-                ThreadSpeedStat threadSpeedStat2 = this.mThreadSpeedStat;
-                threadSpeedStat2.drs = "c";
-                threadSpeedStat2.downEndTime = SystemClock.elapsedRealtime();
-            }
-            this.mICommonRequestHandler.cancelRequest();
-        }
-    }
-
-    public ThreadSpeedStat getThreadSpeedStat() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mThreadSpeedStat : (ThreadSpeedStat) invokeV.objValue;
-    }
-
-    public void interruptRetryWaiting() {
-        Thread thread;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.mIsWaitingForRetry && (thread = this.mCurrentThread) != null) {
-            thread.interrupt();
         }
     }
 
@@ -707,46 +762,6 @@ public class AsyncHttpRequest implements Runnable {
                 }
                 throw th;
             }
-        }
-    }
-
-    public void setDownStartPos(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            ThreadSpeedStat threadSpeedStat = this.mThreadSpeedStat;
-            if (threadSpeedStat.dstart == -1) {
-                threadSpeedStat.dstart = j;
-            }
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AsyncHttpRequest(ICommonRequestHandler iCommonRequestHandler, AsyncHttpResponseHandler asyncHttpResponseHandler) {
-        this(asyncHttpResponseHandler);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {iCommonRequestHandler, asyncHttpResponseHandler};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                this((AsyncHttpResponseHandler) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        HashSet<String> hashSet = new HashSet<>();
-        this.redirectUrls = hashSet;
-        hashSet.add(iCommonRequestHandler.getUrl());
-        this.mICommonRequestHandler = iCommonRequestHandler;
-        newThreadSpeedStat();
-        if (this.mHttpRetryStrategyHandler.HttpDNSCacheAvailable()) {
-            this.mNeedAcquiredRetryStrategy = false;
-            this.mRequestStage = 2;
-            retryWithStrategy();
         }
     }
 }

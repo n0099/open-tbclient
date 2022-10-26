@@ -43,7 +43,37 @@ public final class GeoParsedResult extends ParsedResult {
     public double getAltitude() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.altitude : invokeV.doubleValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.altitude;
+        }
+        return invokeV.doubleValue;
+    }
+
+    public double getLatitude() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.latitude;
+        }
+        return invokeV.doubleValue;
+    }
+
+    public double getLongitude() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.longitude;
+        }
+        return invokeV.doubleValue;
+    }
+
+    public String getQuery() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.query;
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // com.google.zxing.client.result.ParsedResult
@@ -90,23 +120,5 @@ public final class GeoParsedResult extends ParsedResult {
             return sb.toString();
         }
         return (String) invokeV.objValue;
-    }
-
-    public double getLatitude() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.latitude : invokeV.doubleValue;
-    }
-
-    public double getLongitude() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.longitude : invokeV.doubleValue;
-    }
-
-    public String getQuery() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.query : (String) invokeV.objValue;
     }
 }

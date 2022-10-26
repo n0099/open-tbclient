@@ -1,94 +1,107 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.Message;
+import com.baidu.adp.framework.message.NetMessage;
+import com.baidu.adp.framework.task.HttpMessageTask;
+import com.baidu.adp.framework.task.MessageTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.emotion.editortool.EmotionTabHost;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.gson.Gson;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class n86 extends s55 {
+public class n86 extends ib {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public h86 a;
+    public HashMap b;
+    public Gson c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public n86(Context context, int i, boolean z) {
-        super(context, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0540), 5, i);
+    public n86(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.d = R.drawable.obfuscated_res_0x7f0809bb;
-        this.e = R.drawable.obfuscated_res_0x7f0809bc;
-        this.h = R.drawable.obfuscated_res_0x7f0809bd;
-        this.i = false;
-        this.j = true;
-        EmotionTabHost emotionTabHost = new EmotionTabHost(context);
-        emotionTabHost.setShowBigEmotion(z);
-        this.m = emotionTabHost;
-        this.o = true;
-        this.n = 6;
-        this.p = new int[]{1, 34, 35};
-    }
-
-    @Override // com.baidu.tieba.s55
-    public void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            ((EmotionTabHost) this.m).setShowUserCollect(z);
-        }
-    }
-
-    @Override // com.baidu.tieba.s55
-    public void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            ((EmotionTabHost) this.m).setShowDiyEmotion(z);
-            super.f(z);
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public n86(Context context, int i) {
-        super(context, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0540), 5, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = R.drawable.obfuscated_res_0x7f0809bb;
-        this.e = R.drawable.obfuscated_res_0x7f08081e;
-        this.h = R.drawable.obfuscated_res_0x7f0809bd;
-        this.i = false;
-        this.j = true;
-        this.m = new EmotionTabHost(context);
-        this.o = true;
-        this.n = 6;
-        this.p = new int[]{1, 34, 35};
+        this.c = new Gson();
+    }
+
+    public String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (str.contains("?")) {
+                str = str.split("[?]")[0];
+            }
+            String replace = str.replace(TbConfig.SERVER_ADDRESS, "");
+            HashMap hashMap = this.b;
+            if (hashMap != null) {
+                return (String) hashMap.get(replace);
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void b(h86 h86Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h86Var) == null) {
+            this.a = h86Var;
+        }
+    }
+
+    public void c(HashMap hashMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap) == null) {
+            this.b = hashMap;
+        }
+    }
+
+    public HttpMessage process(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
+        InterceptResult invokeLL;
+        String json;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, httpMessage, httpMessageTask)) == null) {
+            String a = a(httpMessageTask.getUrl());
+            if (a != null && this.a != null) {
+                if (httpMessage.getExtra() instanceof NetMessage) {
+                    NetMessage netMessage = (NetMessage) httpMessage.getExtra();
+                    if (netMessage.getSocketMessage() != null) {
+                        json = this.c.toJson(netMessage.getSocketMessage().getData());
+                    } else {
+                        json = "";
+                    }
+                } else {
+                    json = this.c.toJson(httpMessage.getParams());
+                }
+                this.a.a(httpMessageTask.getUrl(), this.c.toJson(a), this.c.toJson(json));
+            }
+            return httpMessage;
+        }
+        return (HttpMessage) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.kb
+    public /* bridge */ /* synthetic */ Message process(Message message, MessageTask messageTask) {
+        HttpMessage httpMessage = (HttpMessage) message;
+        process(httpMessage, (HttpMessageTask) messageTask);
+        return httpMessage;
     }
 }

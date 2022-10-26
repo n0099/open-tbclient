@@ -1,6 +1,5 @@
 package com.baidu.searchbox.datacollector.growth.utils;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
@@ -9,8 +8,8 @@ import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.tbadk.core.util.ApiReplaceUtil;
-import com.baidu.tieba.s20;
-import com.baidu.tieba.u20;
+import com.baidu.tieba.t20;
+import com.baidu.tieba.v20;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -58,9 +57,9 @@ public class DeviceUtil {
     public static void generateOaid(Context context, IDeviceCallback iDeviceCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, context, iDeviceCallback) == null) {
-            s20 e = s20.e(context);
-            if (e != null) {
-                e.l(new u20<String>(iDeviceCallback) { // from class: com.baidu.searchbox.datacollector.growth.utils.DeviceUtil.1
+            t20 f = t20.f(context);
+            if (f != null) {
+                f.o(new v20(iDeviceCallback) { // from class: com.baidu.searchbox.datacollector.growth.utils.DeviceUtil.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ IDeviceCallback val$callback;
@@ -83,25 +82,23 @@ public class DeviceUtil {
                         this.val$callback = iDeviceCallback;
                     }
 
-                    @Override // com.baidu.tieba.u20
+                    @Override // com.baidu.tieba.v20
                     public void onError(int i, Throwable th, Bundle bundle) {
                         IDeviceCallback iDeviceCallback2;
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeILL(1048576, this, i, th, bundle) == null) || (iDeviceCallback2 = this.val$callback) == null) {
-                            return;
+                        if ((interceptable2 == null || interceptable2.invokeILL(1048576, this, i, th, bundle) == null) && (iDeviceCallback2 = this.val$callback) != null) {
+                            iDeviceCallback2.onFail();
                         }
-                        iDeviceCallback2.onFail();
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.baidu.tieba.u20
+                    @Override // com.baidu.tieba.v20
                     public void onResult(String str, Bundle bundle) {
                         IDeviceCallback iDeviceCallback2;
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bundle) == null) || (iDeviceCallback2 = this.val$callback) == null) {
-                            return;
+                        if ((interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bundle) == null) && (iDeviceCallback2 = this.val$callback) != null) {
+                            iDeviceCallback2.onSuccess(str);
                         }
-                        iDeviceCallback2.onSuccess(str);
                     }
                 });
             } else if (iDeviceCallback != null) {
@@ -110,7 +107,6 @@ public class DeviceUtil {
         }
     }
 
-    @SuppressLint({"MissingPermission", "HardwareIds"})
     public static String getIMei(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -119,21 +115,24 @@ public class DeviceUtil {
             if (i >= 29) {
                 return "";
             }
-            if (i < 23 || context.checkSelfPermission(h.c) == 0) {
-                String str = null;
-                try {
-                    TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-                    if (telephonyManager != null) {
-                        str = ApiReplaceUtil.getDeviceId(telephonyManager);
-                    }
-                } catch (Exception e) {
-                    if (DEBUG) {
-                        e.printStackTrace();
-                    }
-                }
-                return TextUtils.isEmpty(str) ? "" : str;
+            if (i >= 23 && context.checkSelfPermission(h.c) != 0) {
+                return "";
             }
-            return "";
+            String str = null;
+            try {
+                TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
+                if (telephonyManager != null) {
+                    str = ApiReplaceUtil.getDeviceId(telephonyManager);
+                }
+            } catch (Exception e) {
+                if (DEBUG) {
+                    e.printStackTrace();
+                }
+            }
+            if (TextUtils.isEmpty(str)) {
+                return "";
+            }
+            return str;
         }
         return (String) invokeL.objValue;
     }

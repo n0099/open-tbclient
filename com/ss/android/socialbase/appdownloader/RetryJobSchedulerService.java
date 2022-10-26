@@ -1,6 +1,5 @@
 package com.ss.android.socialbase.appdownloader;
 
-import android.annotation.TargetApi;
 import android.app.job.JobInfo;
 import android.app.job.JobParameters;
 import android.app.job.JobScheduler;
@@ -11,9 +10,19 @@ import android.content.Intent;
 import com.ss.android.socialbase.downloader.downloader.Downloader;
 import com.ss.android.socialbase.downloader.downloader.r;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
-@TargetApi(21)
 /* loaded from: classes8.dex */
 public class RetryJobSchedulerService extends JobService {
+    @Override // android.app.job.JobService
+    public boolean onStopJob(JobParameters jobParameters) {
+        return false;
+    }
+
+    @Override // android.app.Service
+    public void onCreate() {
+        super.onCreate();
+        com.ss.android.socialbase.downloader.downloader.c.a(this);
+    }
+
     /* JADX WARN: Removed duplicated region for block: B:29:0x006e  */
     /* JADX WARN: Removed duplicated region for block: B:30:0x006f  */
     /* JADX WARN: Removed duplicated region for block: B:33:0x0081 A[Catch: all -> 0x00be, TryCatch #1 {all -> 0x00be, blocks: (B:14:0x002a, B:25:0x0048, B:27:0x0050, B:31:0x0070, B:33:0x0081, B:34:0x0084, B:36:0x008e, B:38:0x0094, B:40:0x00a2, B:42:0x00a7, B:17:0x0035), top: B:47:0x002a }] */
@@ -81,12 +90,6 @@ public class RetryJobSchedulerService extends JobService {
     }
 
     @Override // android.app.Service
-    public void onCreate() {
-        super.onCreate();
-        com.ss.android.socialbase.downloader.downloader.c.a(this);
-    }
-
-    @Override // android.app.Service
     public int onStartCommand(Intent intent, int i, int i2) {
         int onStartCommand = super.onStartCommand(intent, i, i2);
         if (com.ss.android.socialbase.downloader.downloader.c.j()) {
@@ -103,11 +106,6 @@ public class RetryJobSchedulerService extends JobService {
             com.ss.android.socialbase.downloader.impls.r.a().a(jobId);
             return false;
         }
-        return false;
-    }
-
-    @Override // android.app.job.JobService
-    public boolean onStopJob(JobParameters jobParameters) {
         return false;
     }
 }

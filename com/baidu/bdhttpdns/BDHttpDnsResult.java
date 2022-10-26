@@ -15,8 +15,8 @@ public class BDHttpDnsResult {
     public transient /* synthetic */ FieldHolder $fh;
     public ResolveType a;
     public final ResolveStatus b;
-    public ArrayList<String> c;
-    public ArrayList<String> d;
+    public ArrayList c;
+    public ArrayList d;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
@@ -72,13 +72,19 @@ public class BDHttpDnsResult {
         public static ResolveStatus valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (ResolveStatus) Enum.valueOf(ResolveStatus.class, str) : (ResolveStatus) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (ResolveStatus) Enum.valueOf(ResolveStatus.class, str);
+            }
+            return (ResolveStatus) invokeL.objValue;
         }
 
         public static ResolveStatus[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ResolveStatus[]) $VALUES.clone() : (ResolveStatus[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (ResolveStatus[]) $VALUES.clone();
+            }
+            return (ResolveStatus[]) invokeV.objValue;
         }
     }
 
@@ -140,13 +146,19 @@ public class BDHttpDnsResult {
         public static ResolveType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (ResolveType) Enum.valueOf(ResolveType.class, str) : (ResolveType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (ResolveType) Enum.valueOf(ResolveType.class, str);
+            }
+            return (ResolveType) invokeL.objValue;
         }
 
         public static ResolveType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ResolveType[]) $VALUES.clone() : (ResolveType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (ResolveType[]) $VALUES.clone();
+            }
+            return (ResolveType[]) invokeV.objValue;
         }
     }
 
@@ -169,31 +181,7 @@ public class BDHttpDnsResult {
         this.b = resolveStatus;
     }
 
-    public ArrayList<String> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (ArrayList) invokeV.objValue;
-    }
-
-    public ArrayList<String> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (ArrayList) invokeV.objValue;
-    }
-
-    public ResolveStatus c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (ResolveStatus) invokeV.objValue;
-    }
-
-    public ResolveType d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (ResolveType) invokeV.objValue;
-    }
-
-    public BDHttpDnsResult(ResolveType resolveType, ResolveStatus resolveStatus, ArrayList<String> arrayList, ArrayList<String> arrayList2) {
+    public BDHttpDnsResult(ResolveType resolveType, ResolveStatus resolveStatus, ArrayList arrayList, ArrayList arrayList2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -213,5 +201,41 @@ public class BDHttpDnsResult {
         this.b = resolveStatus;
         this.c = arrayList;
         this.d = arrayList2;
+    }
+
+    public ArrayList a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public ArrayList b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public ResolveStatus c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (ResolveStatus) invokeV.objValue;
+    }
+
+    public ResolveType d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return (ResolveType) invokeV.objValue;
     }
 }

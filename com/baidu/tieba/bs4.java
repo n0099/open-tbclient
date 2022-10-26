@@ -1,20 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import tbclient.FrsPage.ForumHeadlineImgInfo;
 /* loaded from: classes3.dex */
 public class bs4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public int a;
     public String b;
-    public xr4 c;
 
     public bs4() {
         Interceptable interceptable = $ic;
@@ -26,41 +21,7 @@ public class bs4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = "";
-        this.b = "";
-    }
-
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public void b(ForumHeadlineImgInfo forumHeadlineImgInfo) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumHeadlineImgInfo) == null) || forumHeadlineImgInfo == null) {
-            return;
-        }
-        forumHeadlineImgInfo.thread_id.longValue();
-        forumHeadlineImgInfo.thread_user_id.longValue();
-        String str = forumHeadlineImgInfo.thread_user_name;
-        forumHeadlineImgInfo.img_user_id.longValue();
-        String str2 = forumHeadlineImgInfo.img_user_name;
-        this.a = forumHeadlineImgInfo.img_url;
-        this.b = forumHeadlineImgInfo.headline_url;
-        this.c = new xr4();
-        ArrayList<as4> arrayList = new ArrayList<>();
-        String str3 = this.a;
-        if (str3 == null) {
-            str3 = "";
-        }
-        String str4 = this.b;
-        as4 as4Var = new as4(str3, str4 != null ? str4 : "", null);
-        as4Var.r(true);
-        arrayList.add(as4Var);
-        this.c.g(arrayList);
     }
 }

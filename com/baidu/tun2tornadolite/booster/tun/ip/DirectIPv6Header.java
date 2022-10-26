@@ -21,7 +21,7 @@ import kotlin.reflect.KProperty;
 @Metadata(d1 = {"\u0000 \n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0012\n\u0000\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0018\u0018\u0000  2\u00020\u0001:\u0001 B\u0015\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005¢\u0006\u0002\u0010\u0006R\u000e\u0010\u0007\u001a\u00020\u0005X\u0082\u000e¢\u0006\u0002\n\u0000RI\u0010\f\u001a\u00110\u0005¢\u0006\f\b\t\u0012\b\b\n\u0012\u0004\b\b(\u000b2\u0015\u0010\b\u001a\u00110\u0005¢\u0006\f\b\t\u0012\b\b\n\u0012\u0004\b\b(\u000b8V@VX\u0096\u008e\u0002¢\u0006\u0012\n\u0004\b\u0011\u0010\u0012\u001a\u0004\b\r\u0010\u000e\"\u0004\b\u000f\u0010\u0010R\u0014\u0010\u0013\u001a\u00020\u00058VX\u0096\u0004¢\u0006\u0006\u001a\u0004\b\u0014\u0010\u000eR\u000e\u0010\u0015\u001a\u00020\u0005X\u0082\u000e¢\u0006\u0002\n\u0000RI\u0010\u0016\u001a\u00110\u0005¢\u0006\f\b\t\u0012\b\b\n\u0012\u0004\b\b(\u000b2\u0015\u0010\b\u001a\u00110\u0005¢\u0006\f\b\t\u0012\b\b\n\u0012\u0004\b\b(\u000b8F@FX\u0086\u008e\u0002¢\u0006\u0012\n\u0004\b\u0019\u0010\u0012\u001a\u0004\b\u0017\u0010\u000e\"\u0004\b\u0018\u0010\u0010R\u0014\u0010\u001a\u001a\u00020\u00058VX\u0096\u0004¢\u0006\u0006\u001a\u0004\b\u001b\u0010\u000eRI\u0010\u001c\u001a\u00110\u0005¢\u0006\f\b\t\u0012\b\b\n\u0012\u0004\b\b(\u000b2\u0015\u0010\b\u001a\u00110\u0005¢\u0006\f\b\t\u0012\b\b\n\u0012\u0004\b\b(\u000b8V@VX\u0096\u008e\u0002¢\u0006\u0012\n\u0004\b\u001f\u0010\u0012\u001a\u0004\b\u001d\u0010\u000e\"\u0004\b\u001e\u0010\u0010¨\u0006!"}, d2 = {"Lcom/baidu/tun2tornadolite/booster/tun/ip/DirectIPv6Header;", "Lcom/baidu/tun2tornadolite/booster/tun/ip/DirectIPHeader;", "buffer", "", "packetLength", "", "([BI)V", "_protocol", "<set-?>", "Lkotlin/ParameterName;", "name", "value", "dataLength", "getDataLength", "()I", "setDataLength", "(I)V", "dataLength$delegate", "Lcom/baidu/tun2tornadolite/booster/tun/ip/DirectHeader$Field;", "headerLength", "getHeaderLength", "headerOffset", "nextHeader", "getNextHeader", "setNextHeader", "nextHeader$delegate", ProbeTB.PROTOCOL, "getProtocol", "version", WebChromeClient.MSG_METHOD_GETVERSION, "setVersion", "version$delegate", "Companion", "tun2tornadolite_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
 /* loaded from: classes6.dex */
 public final class DirectIPv6Header extends DirectIPHeader {
-    public static final /* synthetic */ KProperty<Object>[] $$delegatedProperties;
+    public static final /* synthetic */ KProperty[] $$delegatedProperties;
     public static /* synthetic */ Interceptable $ic = null;
     public static final Companion Companion;
     public static final int OFFSET_DESTINATION_ADDRESS = 24;
@@ -39,9 +39,13 @@ public final class DirectIPv6Header extends DirectIPHeader {
 
     @Metadata(d1 = {"\u0000\u0014\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0006\b\u0086\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0006\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\b\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000¨\u0006\n"}, d2 = {"Lcom/baidu/tun2tornadolite/booster/tun/ip/DirectIPv6Header$Companion;", "", "()V", "OFFSET_DESTINATION_ADDRESS", "", "OFFSET_HEADER", "OFFSET_NEXT_HEADER", "OFFSET_PAYLOAD_LENGTH", "OFFSET_SOURCE_ADDRESS", "OFFSET_VERSION", "tun2tornadolite_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
     /* loaded from: classes6.dex */
-    public static final class Companion {
+    public final class Companion {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
 
         public Companion() {
             Interceptable interceptable = $ic;
@@ -55,10 +59,6 @@ public final class DirectIPv6Header extends DirectIPHeader {
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-        }
-
-        public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
         }
     }
 
@@ -108,7 +108,10 @@ public final class DirectIPv6Header extends DirectIPHeader {
     public int getDataLength() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ((Number) this.dataLength$delegate.getValue(this, $$delegatedProperties[1])).intValue() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return ((Number) this.dataLength$delegate.getValue(this, $$delegatedProperties[1])).intValue();
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.tun2tornadolite.booster.tun.ip.DirectIPHeader
@@ -125,7 +128,20 @@ public final class DirectIPv6Header extends DirectIPHeader {
     public final int getNextHeader() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ((Number) this.nextHeader$delegate.getValue(this, $$delegatedProperties[2])).intValue() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return ((Number) this.nextHeader$delegate.getValue(this, $$delegatedProperties[2])).intValue();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tun2tornadolite.booster.tun.ip.DirectIPHeader
+    public int getVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return ((Number) this.version$delegate.getValue(this, $$delegatedProperties[0])).intValue();
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.tun2tornadolite.booster.tun.ip.DirectIPHeader
@@ -140,20 +156,13 @@ public final class DirectIPv6Header extends DirectIPHeader {
             int nextHeader = getNextHeader();
             int packetLength = (getPacketLength() - getOffset()) - getDataLength();
             while (this.headerOffset < packetLength && nextHeader != 58 && nextHeader != 6 && nextHeader != 17) {
-                nextHeader = UByte.m717constructorimpl(getBuffer()[this.headerOffset]) & 255;
-                this.headerOffset += (UByte.m717constructorimpl(getBuffer()[this.headerOffset + 1]) & 255) + 2;
+                nextHeader = UByte.m716constructorimpl(getBuffer()[this.headerOffset]) & 255;
+                this.headerOffset += (UByte.m716constructorimpl(getBuffer()[this.headerOffset + 1]) & 255) + 2;
             }
             this._protocol = nextHeader;
             return nextHeader;
         }
         return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tun2tornadolite.booster.tun.ip.DirectIPHeader
-    public int getVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? ((Number) this.version$delegate.getValue(this, $$delegatedProperties[0])).intValue() : invokeV.intValue;
     }
 
     public void setDataLength(int i) {

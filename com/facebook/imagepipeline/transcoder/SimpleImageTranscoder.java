@@ -26,6 +26,13 @@ public class SimpleImageTranscoder implements ImageTranscoder {
     public final int mMaxBitmapSize;
     public final boolean mResizingEnabled;
 
+    @Override // com.facebook.imagepipeline.transcoder.ImageTranscoder
+    public String getIdentifier() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? TAG : (String) invokeV.objValue;
+    }
+
     public SimpleImageTranscoder(boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -70,10 +77,10 @@ public class SimpleImageTranscoder implements ImageTranscoder {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, this, encodedImage, rotationOptions, resizeOptions)) == null) {
-            if (this.mResizingEnabled) {
-                return DownsampleUtil.determineSampleSize(rotationOptions, resizeOptions, encodedImage, this.mMaxBitmapSize);
+            if (!this.mResizingEnabled) {
+                return 1;
             }
-            return 1;
+            return DownsampleUtil.determineSampleSize(rotationOptions, resizeOptions, encodedImage, this.mMaxBitmapSize);
         }
         return invokeLLL.intValue;
     }
@@ -86,7 +93,10 @@ public class SimpleImageTranscoder implements ImageTranscoder {
             if (rotationOptions == null) {
                 rotationOptions = RotationOptions.autoRotate();
             }
-            return this.mResizingEnabled && DownsampleUtil.determineSampleSize(rotationOptions, resizeOptions, encodedImage, this.mMaxBitmapSize) > 1;
+            if (this.mResizingEnabled && DownsampleUtil.determineSampleSize(rotationOptions, resizeOptions, encodedImage, this.mMaxBitmapSize) > 1) {
+                return true;
+            }
+            return false;
         }
         return invokeLLL.booleanValue;
     }
@@ -95,19 +105,19 @@ public class SimpleImageTranscoder implements ImageTranscoder {
     public boolean canTranscode(ImageFormat imageFormat) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageFormat)) == null) ? imageFormat == DefaultImageFormats.HEIF || imageFormat == DefaultImageFormats.JPEG : invokeL.booleanValue;
-    }
-
-    @Override // com.facebook.imagepipeline.transcoder.ImageTranscoder
-    public String getIdentifier() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? TAG : (String) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageFormat)) == null) {
+            if (imageFormat != DefaultImageFormats.HEIF && imageFormat != DefaultImageFormats.JPEG) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
     @Override // com.facebook.imagepipeline.transcoder.ImageTranscoder
     public ImageTranscodeResult transcode(EncodedImage encodedImage, OutputStream outputStream, @Nullable RotationOptions rotationOptions, @Nullable ResizeOptions resizeOptions, @Nullable ImageFormat imageFormat, @Nullable Integer num) {
         InterceptResult invokeCommon;
+        Integer num2;
         SimpleImageTranscoder simpleImageTranscoder;
         RotationOptions rotationOptions2;
         Bitmap bitmap;
@@ -115,7 +125,11 @@ public class SimpleImageTranscoder implements ImageTranscoder {
         OutOfMemoryError e;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{encodedImage, outputStream, rotationOptions, resizeOptions, imageFormat, num})) == null) {
-            Integer num2 = num == null ? 85 : num;
+            if (num == null) {
+                num2 = 85;
+            } else {
+                num2 = num;
+            }
             if (rotationOptions == null) {
                 rotationOptions2 = RotationOptions.autoRotate();
                 simpleImageTranscoder = this;
@@ -157,7 +171,11 @@ public class SimpleImageTranscoder implements ImageTranscoder {
                 try {
                     try {
                         bitmap.compress(getOutputFormat(imageFormat), num2.intValue(), outputStream);
-                        ImageTranscodeResult imageTranscodeResult2 = new ImageTranscodeResult(sampleSize > 1 ? 0 : 1);
+                        int i = 1;
+                        if (sampleSize > 1) {
+                            i = 0;
+                        }
+                        ImageTranscodeResult imageTranscodeResult2 = new ImageTranscodeResult(i);
                         bitmap.recycle();
                         decodeStream.recycle();
                         return imageTranscodeResult2;

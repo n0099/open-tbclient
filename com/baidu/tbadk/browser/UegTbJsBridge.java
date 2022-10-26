@@ -7,15 +7,16 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.novel.ReadRecordsData;
-import com.baidu.tieba.au8;
-import com.baidu.tieba.bo8;
-import com.baidu.tieba.kc5;
-import com.baidu.tieba.u05;
-import com.baidu.tieba.ui;
-import com.baidu.tieba.xn8;
-import com.baidu.tieba.xo;
+import com.baidu.tieba.eo8;
+import com.baidu.tieba.io8;
+import com.baidu.tieba.ku8;
+import com.baidu.tieba.pc5;
+import com.baidu.tieba.vi;
+import com.baidu.tieba.yo;
+import com.baidu.tieba.z05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,9 +25,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.BlockPopInfo;
-@xo
+@yo
 /* loaded from: classes3.dex */
-public class UegTbJsBridge implements xn8 {
+public class UegTbJsBridge implements eo8 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INTERFACE_NAME = "CommonJSBridge";
     public static final String METHOD_BIND_MOBILE_NUMBER = "bindMobileNumber";
@@ -38,173 +39,7 @@ public class UegTbJsBridge implements xn8 {
     public static final String SUCCESS_CODE = "1";
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
-    public TbPageContext<?> mTbPageContext;
-
-    public UegTbJsBridge(TbPageContext<?> tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mTbPageContext = tbPageContext;
-    }
-
-    private void copyToClipboard(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, this, str) == null) {
-            try {
-                ui.a(new JSONObject(str).optString("content"));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public bo8 bindingMobileNumber() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            bo8 bo8Var = new bo8();
-            try {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2921372, u05.b()));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return bo8Var;
-        }
-        return (bo8) invokeV.objValue;
-    }
-
-    public bo8 callNativeSMS(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            bo8 bo8Var = new bo8();
-            Context pageActivity = this.mTbPageContext.getPageActivity();
-            if (pageActivity == null) {
-                pageActivity = this.mContext;
-            }
-            UtilHelper.smsTo(pageActivity, str, str2);
-            return bo8Var;
-        }
-        return (bo8) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.xn8
-    public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3, jsPromptResult)) == null) {
-            if ("CommonJSBridge".equals(str)) {
-                if (METHOD_CALL_NATIVE_SMS.equals(str2)) {
-                    try {
-                        JSONObject jSONObject = new JSONObject(str3);
-                        callNativeSMS(jSONObject.optString("phoneNumber"), jSONObject.optString("content"));
-                        jsPromptResult.confirm("1");
-                    } catch (JSONException e) {
-                        BdLog.e(e);
-                    }
-                    return true;
-                } else if (METHOD_COPY_TO_CLIPBOARD.equals(str2)) {
-                    copyToClipboard(str3);
-                    jsPromptResult.confirm("1");
-                    return true;
-                } else if (METHOD_SET_BLOCK_POP_INFO.equals(str2)) {
-                    try {
-                        JSONObject jSONObject2 = new JSONObject(str3);
-                        setBlockPopInfo(jSONObject2.optInt("can_post"), jSONObject2.optString("block_info"), jSONObject2.optString("ahead_info"), jSONObject2.optString("ahead_url"), jSONObject2.optString("ok_info"), jSONObject2.optInt("ahead_type"));
-                        jsPromptResult.confirm("1");
-                    } catch (JSONException e2) {
-                        BdLog.e(e2);
-                    }
-                    return true;
-                } else if ("bindMobileNumber".equals(str2)) {
-                    jsPromptResult.confirm(bindingMobileNumber().a());
-                    return true;
-                } else if (METHOD_RECORD_NOVEL_INFO.equals(str2)) {
-                    try {
-                        JSONObject jSONObject3 = new JSONObject(str3);
-                        recordNovelInfo(jSONObject3.optString("bookProgress"), jSONObject3.optString("gid"), jSONObject3.optString("lastReadChapterId"), jSONObject3.optString("lastReadChapterIndex"), jSONObject3.optString("lastReadChapterName"));
-                        jsPromptResult.confirm("1");
-                    } catch (JSONException e3) {
-                        BdLog.e(e3);
-                    }
-                    return true;
-                } else if (METHOD_NOVEL_PAY_RESULT_TO_CLIENT.equals(str2)) {
-                    try {
-                        novelPayResultToClient(new JSONObject(str3).optBoolean("isPaySuccess"));
-                        jsPromptResult.confirm("1");
-                    } catch (JSONException e4) {
-                        BdLog.e(e4);
-                    }
-                    return true;
-                } else {
-                    return false;
-                }
-            }
-            return false;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    public bo8 novelPayResultToClient(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-            bo8 bo8Var = new bo8();
-            if (z) {
-                kc5.d();
-            }
-            return bo8Var;
-        }
-        return (bo8) invokeZ.objValue;
-    }
-
-    public bo8 recordNovelInfo(String str, String str2, String str3, String str4, String str5) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048580, this, str, str2, str3, str4, str5)) == null) {
-            bo8 bo8Var = new bo8();
-            ReadRecordsData readRecordsData = new ReadRecordsData(str, str2, str3, str4, str5);
-            readRecordsData.B(true);
-            kc5.e(str2, readRecordsData);
-            return bo8Var;
-        }
-        return (bo8) invokeLLLLL.objValue;
-    }
-
-    public bo8 setBlockPopInfo(int i, String str, String str2, String str3, String str4, int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), str, str2, str3, str4, Integer.valueOf(i2)})) == null) {
-            bo8 bo8Var = new bo8();
-            try {
-                BlockPopInfo.Builder builder = new BlockPopInfo.Builder();
-                builder.can_post = Integer.valueOf(i);
-                builder.block_info = str;
-                builder.ahead_info = str2;
-                builder.ahead_url = str3;
-                builder.ok_info = str4;
-                builder.ahead_type = Integer.valueOf(i2);
-                BlockPopInfo build = builder.build(false);
-                au8.h(build);
-                au8.g(build);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return bo8Var;
-        }
-        return (bo8) invokeCommon.objValue;
-    }
+    public TbPageContext mTbPageContext;
 
     public UegTbJsBridge(Context context) {
         Interceptable interceptable = $ic;
@@ -222,5 +57,171 @@ public class UegTbJsBridge implements xn8 {
             }
         }
         this.mContext = context;
+    }
+
+    private void copyToClipboard(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, this, str) == null) {
+            try {
+                vi.a(new JSONObject(str).optString("content"));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public io8 novelPayResultToClient(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
+            io8 io8Var = new io8();
+            if (z) {
+                pc5.d();
+            }
+            return io8Var;
+        }
+        return (io8) invokeZ.objValue;
+    }
+
+    public UegTbJsBridge(TbPageContext tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mTbPageContext = tbPageContext;
+    }
+
+    public io8 bindingMobileNumber() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            io8 io8Var = new io8();
+            try {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2921372, z05.b()));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return io8Var;
+        }
+        return (io8) invokeV.objValue;
+    }
+
+    public io8 callNativeSMS(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+            io8 io8Var = new io8();
+            Context pageActivity = this.mTbPageContext.getPageActivity();
+            if (pageActivity == null) {
+                pageActivity = this.mContext;
+            }
+            UtilHelper.smsTo(pageActivity, str, str2);
+            return io8Var;
+        }
+        return (io8) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.eo8
+    public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3, jsPromptResult)) == null) {
+            if (!"CommonJSBridge".equals(str)) {
+                return false;
+            }
+            if (METHOD_CALL_NATIVE_SMS.equals(str2)) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str3);
+                    callNativeSMS(jSONObject.optString("phoneNumber"), jSONObject.optString("content"));
+                    jsPromptResult.confirm("1");
+                } catch (JSONException e) {
+                    BdLog.e(e);
+                }
+                return true;
+            } else if (METHOD_COPY_TO_CLIPBOARD.equals(str2)) {
+                copyToClipboard(str3);
+                jsPromptResult.confirm("1");
+                return true;
+            } else if (METHOD_SET_BLOCK_POP_INFO.equals(str2)) {
+                try {
+                    JSONObject jSONObject2 = new JSONObject(str3);
+                    setBlockPopInfo(jSONObject2.optInt("can_post"), jSONObject2.optString("block_info"), jSONObject2.optString("ahead_info"), jSONObject2.optString("ahead_url"), jSONObject2.optString("ok_info"), jSONObject2.optInt("ahead_type"));
+                    jsPromptResult.confirm("1");
+                } catch (JSONException e2) {
+                    BdLog.e(e2);
+                }
+                return true;
+            } else if ("bindMobileNumber".equals(str2)) {
+                jsPromptResult.confirm(bindingMobileNumber().a());
+                return true;
+            } else if (METHOD_RECORD_NOVEL_INFO.equals(str2)) {
+                try {
+                    JSONObject jSONObject3 = new JSONObject(str3);
+                    recordNovelInfo(jSONObject3.optString("bookProgress"), jSONObject3.optString(TbEnum.ParamKey.GID), jSONObject3.optString("lastReadChapterId"), jSONObject3.optString("lastReadChapterIndex"), jSONObject3.optString("lastReadChapterName"));
+                    jsPromptResult.confirm("1");
+                } catch (JSONException e3) {
+                    BdLog.e(e3);
+                }
+                return true;
+            } else if (!METHOD_NOVEL_PAY_RESULT_TO_CLIENT.equals(str2)) {
+                return false;
+            } else {
+                try {
+                    novelPayResultToClient(new JSONObject(str3).optBoolean("isPaySuccess"));
+                    jsPromptResult.confirm("1");
+                } catch (JSONException e4) {
+                    BdLog.e(e4);
+                }
+                return true;
+            }
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    public io8 recordNovelInfo(String str, String str2, String str3, String str4, String str5) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048580, this, str, str2, str3, str4, str5)) == null) {
+            io8 io8Var = new io8();
+            ReadRecordsData readRecordsData = new ReadRecordsData(str, str2, str3, str4, str5);
+            readRecordsData.B(true);
+            pc5.e(str2, readRecordsData);
+            return io8Var;
+        }
+        return (io8) invokeLLLLL.objValue;
+    }
+
+    public io8 setBlockPopInfo(int i, String str, String str2, String str3, String str4, int i2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), str, str2, str3, str4, Integer.valueOf(i2)})) == null) {
+            io8 io8Var = new io8();
+            try {
+                BlockPopInfo.Builder builder = new BlockPopInfo.Builder();
+                builder.can_post = Integer.valueOf(i);
+                builder.block_info = str;
+                builder.ahead_info = str2;
+                builder.ahead_url = str3;
+                builder.ok_info = str4;
+                builder.ahead_type = Integer.valueOf(i2);
+                BlockPopInfo build = builder.build(false);
+                ku8.h(build);
+                ku8.g(build);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return io8Var;
+        }
+        return (io8) invokeCommon.objValue;
     }
 }

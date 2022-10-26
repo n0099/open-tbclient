@@ -14,7 +14,7 @@ import java.util.List;
 /* loaded from: classes7.dex */
 public class ImagePipelineNativeLoader {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final List<String> DEPENDENCIES;
+    public static final List DEPENDENCIES;
     public static final String DSO_NAME = "imagepipeline";
     public transient /* synthetic */ FieldHolder $fh;
 

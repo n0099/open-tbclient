@@ -1,14 +1,10 @@
 package com.bytedance.pangle.plugin;
 
 import android.content.SharedPreferences;
-import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
-import android.content.pm.ProviderInfo;
-import android.content.pm.ServiceInfo;
 import android.content.res.Resources;
 import android.os.Build;
 import android.text.TextUtils;
-import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
@@ -39,7 +35,6 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Locale;
 import org.json.JSONObject;
-@Keep
 /* loaded from: classes7.dex */
 public class Plugin {
     public static /* synthetic */ Interceptable $ic = null;
@@ -69,10 +64,10 @@ public class Plugin {
     public Resources mResources;
     public String mSignature;
     public int mVersionCode;
-    public HashMap<String, ActivityInfo> pluginActivities;
-    public HashMap<String, ProviderInfo> pluginProvider;
-    public HashMap<String, ActivityInfo> pluginReceiver;
-    public HashMap<String, ServiceInfo> pluginServices;
+    public HashMap pluginActivities;
+    public HashMap pluginProvider;
+    public HashMap pluginReceiver;
+    public HashMap pluginServices;
 
     public Plugin(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
@@ -89,10 +84,10 @@ public class Plugin {
                 return;
             }
         }
-        this.pluginActivities = new HashMap<>();
-        this.pluginServices = new HashMap<>();
-        this.pluginReceiver = new HashMap<>();
-        this.pluginProvider = new HashMap<>();
+        this.pluginActivities = new HashMap();
+        this.pluginServices = new HashMap();
+        this.pluginReceiver = new HashMap();
+        this.pluginProvider = new HashMap();
         this.mInternalVersionCode = -1;
         this.mMaxVersionCode = Integer.MAX_VALUE;
         this.mLifeCycle = 1;
@@ -109,6 +104,30 @@ public class Plugin {
         this.mAppSecretKey = jSONObject.optString("appSecretKey", "");
         this.mOpenLoadClassOpt = jSONObject.optBoolean("loadClassOpt", false);
         setupInternalPlugin();
+    }
+
+    private void updateToInstalled(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65547, this, i) == null) {
+            this.mVersionCode = i;
+            this.mLifeCycle = 2;
+        }
+    }
+
+    public boolean isVersionInstalled(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
+            return l.a().a(this.mPkgName, i);
+        }
+        return invokeI.booleanValue;
+    }
+
+    public void setLifeCycle(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.mLifeCycle = i;
+        }
     }
 
     private boolean checkValid(File file, String str, int i) {
@@ -145,16 +164,21 @@ public class Plugin {
 
     private boolean checkVersionValid(int i, int i2, boolean z) {
         InterceptResult invokeCommon;
+        boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
             int a = l.a().a(this.mPkgName);
-            boolean z2 = false;
+            boolean z3 = false;
             if (a > i2) {
                 ZeusLogger.w(ZeusLogger.TAG_INIT, TAG.concat(String.valueOf(String.format(" checkVersionValid %s apiVersion downgrade , lastApiVersion=%s , currentApiVersion=%s", this.mPkgName, Integer.valueOf(a), Integer.valueOf(i2)))));
                 return false;
             }
-            boolean z3 = i >= 0 && i >= this.mMinVersionCode && i <= this.mMaxVersionCode;
-            if (z3 && i2 != -1) {
+            if (i >= 0 && i >= this.mMinVersionCode && i <= this.mMaxVersionCode) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            if (z2 && i2 != -1) {
                 l a2 = l.a();
                 String str = this.mPkgName;
                 SharedPreferences sharedPreferences = a2.a;
@@ -162,20 +186,23 @@ public class Plugin {
                 l a3 = l.a();
                 String str2 = this.mPkgName;
                 SharedPreferences sharedPreferences2 = a3.a;
-                int i4 = sharedPreferences2.getInt("API_MAX_" + str2 + "_" + i, Integer.MAX_VALUE);
-                int i5 = i4 != 0 ? i4 : Integer.MAX_VALUE;
-                if (i2 < i3 || i2 > i5) {
-                    ZeusLogger.w(ZeusLogger.TAG_INIT, TAG.concat(String.valueOf(String.format(" checkVersionValid plugin[%s, ver=%s] is not compatible with api[ver_code=%s], apiCompatibleVer=[%s,%s]", this.mPkgName, Integer.valueOf(this.mVersionCode), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i5)))));
-                    z3 = false;
+                int i4 = Integer.MAX_VALUE;
+                int i5 = sharedPreferences2.getInt("API_MAX_" + str2 + "_" + i, Integer.MAX_VALUE);
+                if (i5 != 0) {
+                    i4 = i5;
+                }
+                if (i2 < i3 || i2 > i4) {
+                    ZeusLogger.w(ZeusLogger.TAG_INIT, TAG.concat(String.valueOf(String.format(" checkVersionValid plugin[%s, ver=%s] is not compatible with api[ver_code=%s], apiCompatibleVer=[%s,%s]", this.mPkgName, Integer.valueOf(this.mVersionCode), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)))));
+                    z2 = false;
                 }
             }
-            if (z3 && z && com.bytedance.pangle.c.b.b(new File(com.bytedance.pangle.c.c.b(this.mPkgName, i)))) {
+            if (z2 && z && com.bytedance.pangle.c.b.b(new File(com.bytedance.pangle.c.c.b(this.mPkgName, i)))) {
                 ZeusLogger.w(ZeusLogger.TAG_INIT, TAG.concat(String.valueOf(String.format(" checkVersionValid plugin[%s, ver=%s] not match hostAbi", this.mPkgName, Integer.valueOf(i)))));
             } else {
-                z2 = z3;
+                z3 = z2;
             }
-            ZeusLogger.i(ZeusLogger.TAG_INIT, "Plugin checkVersionValid, pkg=" + this.mPkgName + ", ver=" + this.mVersionCode + ", valid=" + z2);
-            return z2;
+            ZeusLogger.i(ZeusLogger.TAG_INIT, "Plugin checkVersionValid, pkg=" + this.mPkgName + ", ver=" + this.mVersionCode + ", valid=" + z3);
+            return z3;
         }
         return invokeCommon.booleanValue;
     }
@@ -193,6 +220,64 @@ public class Plugin {
                 ZeusLogger.w(ZeusLogger.TAG_INIT, "Plugin deleteIfNeeded " + this.mPkgName);
             }
         }
+    }
+
+    public int getInstalledMaxVer() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (TextUtils.isEmpty(this.mPackageDir)) {
+                this.mPackageDir = com.bytedance.pangle.c.c.a(this.mPkgName);
+            }
+            File[] listFiles = new File(this.mPackageDir).listFiles(new FileFilter(this) { // from class: com.bytedance.pangle.plugin.Plugin.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ Plugin a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.a = this;
+                }
+
+                @Override // java.io.FileFilter
+                public final boolean accept(File file) {
+                    InterceptResult invokeL;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, file)) == null) {
+                        if (file != null && file.getName().matches("^version-(\\d+)$")) {
+                            return true;
+                        }
+                        return false;
+                    }
+                    return invokeL.booleanValue;
+                }
+            });
+            int i = -1;
+            if (listFiles != null && listFiles.length > 0) {
+                for (File file : listFiles) {
+                    int parseInt = Integer.parseInt(file.getName().split("-")[1]);
+                    if (parseInt > i && l.a().a(this.mPkgName, parseInt) && new File(com.bytedance.pangle.c.c.b(this.mPkgName, parseInt)).exists()) {
+                        i = parseInt;
+                    }
+                }
+            }
+            ZeusLogger.i(ZeusLogger.TAG_INIT, "Plugin getInstalledMaxVersion, pkg=" + this.mPkgName + ", maxVer=" + i);
+            return i;
+        }
+        return invokeV.intValue;
     }
 
     private void deleteInstalledPlugin() {
@@ -239,6 +324,64 @@ public class Plugin {
             });
             f.a(this.mPackageDir);
         }
+    }
+
+    private void installInternalPlugin() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65543, this) == null) && com.bytedance.pangle.c.d.a(Zeus.getAppApplication()) && getVersion() < this.mInternalVersionCode && !TextUtils.isEmpty(this.mInternalPath)) {
+            com.bytedance.pangle.c.e.a.execute(new Runnable(this) { // from class: com.bytedance.pangle.plugin.Plugin.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ Plugin a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.a = this;
+                }
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        try {
+                            String b = com.bytedance.pangle.c.c.b();
+                            File file = new File(b, this.a.mPkgName + Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
+                            ZeusLogger.i(ZeusLogger.TAG_INIT, "Plugin copyInternalPlugin " + this.a.mInternalPath + " --> " + file.getAbsolutePath());
+                            g.a(Zeus.getAppApplication().getAssets().open(this.a.mInternalPath), new FileOutputStream(file));
+                            if (file.exists()) {
+                                PluginManager.getInstance().asyncInstall(this.a.mPkgName, file);
+                                return;
+                            }
+                            ZeusLogger.e(ZeusLogger.TAG_INSTALL, "installInternalPlugin failed. " + file.getAbsolutePath() + " is not exists.");
+                        } catch (Throwable th) {
+                            ZeusLogger.e(ZeusLogger.TAG_INSTALL, "installInternalPlugin failed. ", th);
+                        }
+                    }
+                }
+            });
+        }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return "Plugin{pkg=" + this.mPkgName + ", ver=" + this.mVersionCode + ", life=" + this.mLifeCycle + '}';
+        }
+        return (String) invokeV.objValue;
     }
 
     private void deleteOtherExpiredVer(int i) {
@@ -292,91 +435,47 @@ public class Plugin {
         }
     }
 
-    private void installInternalPlugin() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65543, this) == null) || !com.bytedance.pangle.c.d.a(Zeus.getAppApplication()) || getVersion() >= this.mInternalVersionCode || TextUtils.isEmpty(this.mInternalPath)) {
-            return;
-        }
-        com.bytedance.pangle.c.e.a.execute(new Runnable(this) { // from class: com.bytedance.pangle.plugin.Plugin.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ Plugin a;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = this;
-            }
-
-            @Override // java.lang.Runnable
-            public final void run() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    try {
-                        String b = com.bytedance.pangle.c.c.b();
-                        File file = new File(b, this.a.mPkgName + Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
-                        ZeusLogger.i(ZeusLogger.TAG_INIT, "Plugin copyInternalPlugin " + this.a.mInternalPath + " --> " + file.getAbsolutePath());
-                        g.a(Zeus.getAppApplication().getAssets().open(this.a.mInternalPath), new FileOutputStream(file));
-                        if (file.exists()) {
-                            PluginManager.getInstance().asyncInstall(this.a.mPkgName, file);
-                            return;
-                        }
-                        ZeusLogger.e(ZeusLogger.TAG_INSTALL, "installInternalPlugin failed. " + file.getAbsolutePath() + " is not exists.");
-                    } catch (Throwable th) {
-                        ZeusLogger.e(ZeusLogger.TAG_INSTALL, "installInternalPlugin failed. ", th);
-                    }
-                }
-            }
-        });
-    }
-
     private void modifyResIfNeed(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65544, this, i) == null) {
-            if (TextUtils.equals(l.a().b(this.mPkgName), com.bytedance.pangle.util.b.b(Zeus.getAppApplication()))) {
-                return;
-            }
-            ZeusLogger.d(ZeusLogger.TAG_INIT, "modifyRes by init. " + this.mPkgName + " " + i);
-            try {
-                b.a(com.bytedance.pangle.c.c.b(this.mPkgName, i), this.mPkgName, i);
-            } catch (b.a e) {
-                ZeusLogger.e(ZeusLogger.TAG_INSTALL, "modify res failed.", e);
+            if (!TextUtils.equals(l.a().b(this.mPkgName), com.bytedance.pangle.util.b.b(Zeus.getAppApplication()))) {
+                ZeusLogger.d(ZeusLogger.TAG_INIT, "modifyRes by init. " + this.mPkgName + " " + i);
+                try {
+                    b.a(com.bytedance.pangle.c.c.b(this.mPkgName, i), this.mPkgName, i);
+                } catch (b.a e) {
+                    ZeusLogger.e(ZeusLogger.TAG_INSTALL, "modify res failed.", e);
+                }
             }
         }
     }
 
     private void setupInternalPlugin() {
+        boolean z;
         String[] list;
         int a;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
             if (l.a().a.getInt(String.format(Locale.getDefault(), "OFFLINE_INTERNAL_%s", this.mPkgName), -1) == this.mApiVersionCode) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
                 return;
             }
-            if (TextUtils.isEmpty(this.mInternalPath) || this.mInternalVersionCode == -1) {
-                try {
-                    for (String str : Zeus.getAppApplication().getAssets().list(ZeusConstants.d)) {
-                        if (str.startsWith(this.mPkgName + "_") && (a = j.a(str.split("_")[1])) != -1) {
-                            this.mInternalPath = ZeusConstants.d + "/" + str;
-                            this.mInternalVersionCode = a;
-                            return;
-                        }
+            if (!TextUtils.isEmpty(this.mInternalPath) && this.mInternalVersionCode != -1) {
+                return;
+            }
+            try {
+                for (String str : Zeus.getAppApplication().getAssets().list(ZeusConstants.d)) {
+                    if (str.startsWith(this.mPkgName + "_") && (a = j.a(str.split("_")[1])) != -1) {
+                        this.mInternalPath = ZeusConstants.d + "/" + str;
+                        this.mInternalVersionCode = a;
+                        return;
                     }
-                } catch (IOException e) {
-                    ZeusLogger.e(ZeusLogger.TAG_INSTALL, "setupInternalPlugin failed.", e);
                 }
+            } catch (IOException e) {
+                ZeusLogger.e(ZeusLogger.TAG_INSTALL, "setupInternalPlugin failed.", e);
             }
         }
     }
@@ -386,10 +485,9 @@ public class Plugin {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
             try {
-                if (com.bytedance.pangle.c.d.a(Zeus.getAppApplication()) || this.mLifeCycle >= 2 || (a = com.bytedance.pangle.servermanager.b.a()) == null || !a.a(this.mPkgName)) {
-                    return;
+                if (!com.bytedance.pangle.c.d.a(Zeus.getAppApplication()) && this.mLifeCycle < 2 && (a = com.bytedance.pangle.servermanager.b.a()) != null && a.a(this.mPkgName)) {
+                    updateToInstalled(a.b(this.mPkgName));
                 }
-                updateToInstalled(a.b(this.mPkgName));
             } catch (Throwable th) {
                 StringBuilder sb = new StringBuilder("updateInstallStateFromMainProcess error. process = ");
                 Zeus.getAppApplication();
@@ -399,68 +497,11 @@ public class Plugin {
         }
     }
 
-    private void updateToInstalled(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65547, this, i) == null) {
-            this.mVersionCode = i;
-            this.mLifeCycle = 2;
-        }
-    }
-
     public int getApiVersionCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mApiVersionCode : invokeV.intValue;
-    }
-
-    public int getInstalledMaxVer() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (TextUtils.isEmpty(this.mPackageDir)) {
-                this.mPackageDir = com.bytedance.pangle.c.c.a(this.mPkgName);
-            }
-            File[] listFiles = new File(this.mPackageDir).listFiles(new FileFilter(this) { // from class: com.bytedance.pangle.plugin.Plugin.2
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ Plugin a;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.a = this;
-                }
-
-                @Override // java.io.FileFilter
-                public final boolean accept(File file) {
-                    InterceptResult invokeL;
-                    Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, file)) == null) ? file != null && file.getName().matches("^version-(\\d+)$") : invokeL.booleanValue;
-                }
-            });
-            int i = -1;
-            if (listFiles != null && listFiles.length > 0) {
-                for (File file : listFiles) {
-                    int parseInt = Integer.parseInt(file.getName().split("-")[1]);
-                    if (parseInt > i && l.a().a(this.mPkgName, parseInt) && new File(com.bytedance.pangle.c.c.b(this.mPkgName, parseInt)).exists()) {
-                        i = parseInt;
-                    }
-                }
-            }
-            ZeusLogger.i(ZeusLogger.TAG_INIT, "Plugin getInstalledMaxVersion, pkg=" + this.mPkgName + ", maxVer=" + i);
-            return i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mApiVersionCode;
         }
         return invokeV.intValue;
     }
@@ -468,7 +509,10 @@ public class Plugin {
     public int getInternalVersionCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mInternalVersionCode : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mInternalVersionCode;
+        }
+        return invokeV.intValue;
     }
 
     public int getLifeCycle() {
@@ -504,10 +548,35 @@ public class Plugin {
         return invokeV.intValue;
     }
 
+    public boolean isInstalled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            updateInstallStateFromMainProcess();
+            if (this.mLifeCycle >= 2) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isLoaded() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            if (this.mLifeCycle == 3) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     public void init() {
         boolean z;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.mInitialized) {
+        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || this.mInitialized) {
             return;
         }
         synchronized (this.initializeLock) {
@@ -519,7 +588,11 @@ public class Plugin {
                 if (!TextUtils.isEmpty(l.a().a.getString("HOST_ABI_".concat(String.valueOf(this.mPkgName)), ""))) {
                     l a = l.a();
                     String str = this.mPkgName;
-                    z = !TextUtils.equals(a.a.getString("HOST_ABI_".concat(String.valueOf(str)), ""), Zeus.getHostAbi());
+                    if (!TextUtils.equals(a.a.getString("HOST_ABI_".concat(String.valueOf(str)), ""), Zeus.getHostAbi())) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
                     ZeusLogger.i(ZeusLogger.TAG_INIT, "ZeusSpUtils isHostAbiUpdate HOST_ABI=" + a.a.getString("HOST_ABI_".concat(String.valueOf(str)), "") + StringUtil.ARRAY_ELEMENT_SEPARATOR + Zeus.getHostAbi() + ", result=" + z);
                 } else {
                     z = false;
@@ -611,17 +684,19 @@ public class Plugin {
                         }
                         synchronized (this) {
                             if (checkValid) {
-                                if (this.mLifeCycle == 3) {
-                                    ZeusLogger.w(ZeusLogger.TAG_INSTALL, "Plugin LIFE_LOADED, valid next restart " + str + ":" + i);
-                                } else if (z) {
-                                    updateToInstalled(i);
-                                    ZeusLogger.i(ZeusLogger.TAG_INSTALL, "Plugin INSTALLED " + str + ":" + i);
-                                    ZeusPluginStateListener.postStateChange(this.mPkgName, 6, new Object[0]);
+                                if (this.mLifeCycle != 3) {
+                                    if (z) {
+                                        updateToInstalled(i);
+                                        ZeusLogger.i(ZeusLogger.TAG_INSTALL, "Plugin INSTALLED " + str + ":" + i);
+                                        ZeusPluginStateListener.postStateChange(this.mPkgName, 6, new Object[0]);
+                                    } else {
+                                        ZeusLogger.i(ZeusLogger.TAG_INSTALL, "Plugin INSTALL_FAILED" + str + ":" + i);
+                                        ZeusPluginStateListener.postStateChange(this.mPkgName, 7, "Internal error.");
+                                        f.a(file);
+                                        ZeusLogger.w(ZeusLogger.TAG_INSTALL, "Plugin delete file by failedCount > 0 " + str + ":" + i);
+                                    }
                                 } else {
-                                    ZeusLogger.i(ZeusLogger.TAG_INSTALL, "Plugin INSTALL_FAILED" + str + ":" + i);
-                                    ZeusPluginStateListener.postStateChange(this.mPkgName, 7, "Internal error.");
-                                    f.a(file);
-                                    ZeusLogger.w(ZeusLogger.TAG_INSTALL, "Plugin delete file by failedCount > 0 " + str + ":" + i);
+                                    ZeusLogger.w(ZeusLogger.TAG_INSTALL, "Plugin LIFE_LOADED, valid next restart " + str + ":" + i);
                                 }
                             } else {
                                 f.a(file);
@@ -642,28 +717,6 @@ public class Plugin {
         return invokeLL.booleanValue;
     }
 
-    public boolean isInstalled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            updateInstallStateFromMainProcess();
-            return this.mLifeCycle >= 2;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean isLoaded() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mLifeCycle == 3 : invokeV.booleanValue;
-    }
-
-    public boolean isVersionInstalled(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) ? l.a().a(this.mPkgName, i) : invokeI.booleanValue;
-    }
-
     public void setApiCompatVersion(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIII(1048587, this, i, i2, i3) == null) {
@@ -674,21 +727,5 @@ public class Plugin {
             edit.putInt("API_MAX_" + str + "_" + i, i3);
             edit.apply();
         }
-    }
-
-    public void setLifeCycle(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            this.mLifeCycle = i;
-        }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return "Plugin{pkg=" + this.mPkgName + ", ver=" + this.mVersionCode + ", life=" + this.mLifeCycle + '}';
-        }
-        return (String) invokeV.objValue;
     }
 }

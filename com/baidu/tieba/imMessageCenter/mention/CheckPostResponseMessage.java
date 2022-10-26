@@ -1,6 +1,5 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -40,8 +39,52 @@ public class CheckPostResponseMessage extends SocketResponsedMessage {
         }
     }
 
+    public long getForumId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.forumId;
+        }
+        return invokeV.longValue;
+    }
+
+    public String getForumName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.forumName;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long getPostState() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.postState;
+        }
+        return invokeV.longValue;
+    }
+
+    public long getQuoteId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.quoteId;
+        }
+        return invokeV.longValue;
+    }
+
+    public long getRepostId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.repostId;
+        }
+        return invokeV.longValue;
+    }
+
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -67,36 +110,6 @@ public class CheckPostResponseMessage extends SocketResponsedMessage {
             return checkPostResIdl;
         }
         return invokeIL.objValue;
-    }
-
-    public long getForumId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.forumId : invokeV.longValue;
-    }
-
-    public String getForumName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.forumName : (String) invokeV.objValue;
-    }
-
-    public long getPostState() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.postState : invokeV.longValue;
-    }
-
-    public long getQuoteId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.quoteId : invokeV.longValue;
-    }
-
-    public long getRepostId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.repostId : invokeV.longValue;
     }
 
     public void setForumId(long j) {

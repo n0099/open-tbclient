@@ -38,30 +38,42 @@ public class MyGift extends OrmObject implements Serializable {
     public String getGiftIcon() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mGiftIcon : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mGiftIcon;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getGiftName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mGiftName : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mGiftName;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getGiftNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mGiftNum : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mGiftNum;
+        }
+        return invokeV.intValue;
     }
 
     public String getSender() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mSender : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mSender;
+        }
+        return (String) invokeV.objValue;
     }
 
     public void parseJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         this.mGiftIcon = jSONObject.optString("icon");
@@ -70,7 +82,7 @@ public class MyGift extends OrmObject implements Serializable {
 
     public void parserProtobuf(GiftInfo giftInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, giftInfo) == null) || giftInfo == null) {
+        if ((interceptable != null && interceptable.invokeL(1048581, this, giftInfo) != null) || giftInfo == null) {
             return;
         }
         this.mGiftIcon = giftInfo.icon;

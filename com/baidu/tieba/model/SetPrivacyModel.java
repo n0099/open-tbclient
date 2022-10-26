@@ -36,7 +36,7 @@ public class SetPrivacyModel extends BdBaseModel {
     }
 
     /* loaded from: classes5.dex */
-    public class b extends BdAsyncTask<CardPersonDynamicThreadData, Integer, Integer> {
+    public class b extends BdAsyncTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SetPrivacyModel a;
@@ -118,13 +118,12 @@ public class SetPrivacyModel extends BdBaseModel {
                 super.onPostExecute((b) num);
                 this.a.c = false;
                 this.a.b = null;
-                if (this.a.e == null || this.a.d == null) {
-                    return;
-                }
-                if (num.intValue() == 1) {
-                    this.a.e.onSuccess();
-                } else if (num.intValue() == 0) {
-                    this.a.e.onError(this.a.d.getErrorString());
+                if (this.a.e != null && this.a.d != null) {
+                    if (num.intValue() == 1) {
+                        this.a.e.onSuccess();
+                    } else if (num.intValue() == 0) {
+                        this.a.e.onError(this.a.d.getErrorString());
+                    }
                 }
             }
         }
@@ -168,17 +167,20 @@ public class SetPrivacyModel extends BdBaseModel {
         this.a = cardPersonDynamicThreadData;
     }
 
-    public boolean F() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : invokeV.booleanValue;
-    }
-
     public void G(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
             this.e = aVar;
         }
+    }
+
+    public boolean F() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

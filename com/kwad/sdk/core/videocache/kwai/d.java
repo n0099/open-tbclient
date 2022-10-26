@@ -13,7 +13,7 @@ import java.util.List;
 public final class d {
 
     /* loaded from: classes7.dex */
-    public static final class a implements Comparator<File> {
+    public final class a implements Comparator {
         public a() {
         }
 
@@ -49,11 +49,11 @@ public final class d {
         }
     }
 
-    public static List<File> s(File file) {
+    public static List s(File file) {
         LinkedList linkedList = new LinkedList();
         File[] listFiles = file.listFiles();
         if (listFiles != null) {
-            List<File> asList = Arrays.asList(listFiles);
+            List asList = Arrays.asList(listFiles);
             Collections.sort(asList, new a((byte) 0));
             return asList;
         }

@@ -10,12 +10,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 /* loaded from: classes2.dex */
-public class PutBodyRequest extends HttpCommonRequest<PutBodyRequestBuilder> {
+public class PutBodyRequest extends HttpCommonRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public static class PutBodyRequestBuilder extends HttpCommonRequestBuilder<PutBodyRequestBuilder> {
+    public class PutBodyRequestBuilder extends HttpCommonRequestBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -60,14 +60,6 @@ public class PutBodyRequest extends HttpCommonRequest<PutBodyRequestBuilder> {
             }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.request.HttpRequestBuilder
-        public PutBodyRequest build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new PutBodyRequest(this) : (PutBodyRequest) invokeV.objValue;
-        }
-
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public PutBodyRequestBuilder(PutBodyRequest putBodyRequest, AbstractHttpManager abstractHttpManager) {
             super(putBodyRequest, abstractHttpManager);
@@ -87,6 +79,17 @@ public class PutBodyRequest extends HttpCommonRequest<PutBodyRequestBuilder> {
                     return;
                 }
             }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.request.HttpRequestBuilder
+        public PutBodyRequest build() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return new PutBodyRequest(this);
+            }
+            return (PutBodyRequest) invokeV.objValue;
         }
     }
 
@@ -114,7 +117,10 @@ public class PutBodyRequest extends HttpCommonRequest<PutBodyRequestBuilder> {
     public Request buildOkRequest(RequestBody requestBody) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, requestBody)) == null) ? this.okRequestBuilder.put(requestBody).build() : (Request) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, requestBody)) == null) {
+            return this.okRequestBuilder.put(requestBody).build();
+        }
+        return (Request) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -122,7 +128,10 @@ public class PutBodyRequest extends HttpCommonRequest<PutBodyRequestBuilder> {
     public PutBodyRequestBuilder newBuilder() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new PutBodyRequestBuilder(this) : (PutBodyRequestBuilder) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return new PutBodyRequestBuilder(this);
+        }
+        return (PutBodyRequestBuilder) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -130,6 +139,9 @@ public class PutBodyRequest extends HttpCommonRequest<PutBodyRequestBuilder> {
     public PutBodyRequestBuilder newBuilder(AbstractHttpManager abstractHttpManager) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, abstractHttpManager)) == null) ? new PutBodyRequestBuilder(this, abstractHttpManager) : (PutBodyRequestBuilder) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, abstractHttpManager)) == null) {
+            return new PutBodyRequestBuilder(this, abstractHttpManager);
+        }
+        return (PutBodyRequestBuilder) invokeL.objValue;
     }
 }

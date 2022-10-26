@@ -1,6 +1,5 @@
 package com.baidu.tieba.im.message;
 
-import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.im.data.BlackListItemData;
@@ -20,7 +19,7 @@ public class ResponseGetMaskInfoMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public static final int FALSE = 0;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<BlackListItemData> blackList;
+    public ArrayList blackList;
     public int isMask;
     public String list;
 
@@ -42,10 +41,49 @@ public class ResponseGetMaskInfoMessage extends SocketResponsedMessage {
         }
     }
 
+    public ArrayList getBlackList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.blackList;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public int getIsMask() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.isMask;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.list;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean isMask() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.isMask != 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
+        int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
             GetMaskInfoResIdl getMaskInfoResIdl = (GetMaskInfoResIdl) new Wire(new Class[0]).parseFrom(bArr, GetMaskInfoResIdl.class);
@@ -54,49 +92,29 @@ public class ResponseGetMaskInfoMessage extends SocketResponsedMessage {
             if (getError() != 0) {
                 return getMaskInfoResIdl;
             }
-            this.blackList = new ArrayList<>();
+            this.blackList = new ArrayList();
             DataRes dataRes = getMaskInfoResIdl.data;
             if (dataRes != null) {
                 this.isMask = dataRes.isMask.intValue();
                 DataRes dataRes2 = getMaskInfoResIdl.data;
                 this.list = dataRes2.list;
                 List<UserInfo> list = dataRes2.users;
-                int size = list != null ? list.size() : 0;
-                for (int i2 = 0; i2 < size; i2++) {
+                if (list != null) {
+                    i2 = list.size();
+                } else {
+                    i2 = 0;
+                }
+                for (int i3 = 0; i3 < i2; i3++) {
                     BlackListItemData blackListItemData = new BlackListItemData();
-                    blackListItemData.z(list.get(i2).portrait);
-                    blackListItemData.setUserId(list.get(i2).uid.longValue());
-                    blackListItemData.setUserName(list.get(i2).name);
-                    blackListItemData.A(list.get(i2).nameShow);
+                    blackListItemData.z(list.get(i3).portrait);
+                    blackListItemData.setUserId(list.get(i3).uid.longValue());
+                    blackListItemData.setUserName(list.get(i3).name);
+                    blackListItemData.A(list.get(i3).nameShow);
                     this.blackList.add(blackListItemData);
                 }
             }
             return getMaskInfoResIdl;
         }
         return invokeIL.objValue;
-    }
-
-    public ArrayList<BlackListItemData> getBlackList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.blackList : (ArrayList) invokeV.objValue;
-    }
-
-    public int getIsMask() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.isMask : invokeV.intValue;
-    }
-
-    public String getList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.list : (String) invokeV.objValue;
-    }
-
-    public boolean isMask() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.isMask != 0 : invokeV.booleanValue;
     }
 }

@@ -38,14 +38,10 @@ public class SerialManager implements Recordable {
     public boolean checkBlockAndDredge() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ((SerialExecutorCell) this.mCurrentWorkingExecutor).checkBlockAndDredge() : invokeV.booleanValue;
-    }
-
-    public void insertTask(Runnable runnable, String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable, str, i) == null) {
-            this.mElasticQueue.insertTask(runnable, str, i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return ((SerialExecutorCell) this.mCurrentWorkingExecutor).checkBlockAndDredge();
         }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.searchbox.elasticthread.statistic.Recordable
@@ -69,12 +65,19 @@ public class SerialManager implements Recordable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             ElasticTask next = this.mElasticQueue.getNext();
-            if (next != null && this.mCurrentWorkingExecutor.execute(next)) {
-                this.mElasticQueue.remove(next);
-                return true;
+            if (next == null || !this.mCurrentWorkingExecutor.execute(next)) {
+                return false;
             }
-            return false;
+            this.mElasticQueue.remove(next);
+            return true;
         }
         return invokeV.booleanValue;
+    }
+
+    public void insertTask(Runnable runnable, String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable, str, i) == null) {
+            this.mElasticQueue.insertTask(runnable, str, i);
+        }
     }
 }

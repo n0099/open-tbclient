@@ -1,109 +1,168 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
+import android.text.SpannableStringBuilder;
+import android.text.style.ForegroundColorSpan;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.data.YyExtData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.switchs.NewWebHotTopicPageSwitch;
+import com.baidu.tbadk.widget.layout.FrsBaseVideoView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class l26 {
+public class l26 extends p16 implements zo5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final View i;
+    public TbPageContext j;
+    public HeadImageView k;
+    public TextView l;
+    public TextView m;
+    public TextView n;
+    public ThreadData o;
+    public j26 p;
+    public FrsBaseVideoView q;
 
-    public static void a(String str, YyExtData yyExtData, int i, long j, int i2, long j2, long j3, int i3, String str2, int i4) {
+    @Override // com.baidu.tieba.zo5
+    public void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, yyExtData, Integer.valueOf(i), Long.valueOf(j), Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i3), str2, Integer.valueOf(i4)}) == null) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.param("fid", i);
-            statisticItem.param("tid", j);
-            statisticItem.param("obj_type", i2);
-            statisticItem.param(TiebaStatic.Params.STAR_ID, j2);
-            statisticItem.param("liveid", j3);
-            if (yyExtData != null) {
-                b(statisticItem, yyExtData);
-                i3 = yyExtData.isYyGame ? 3 : 2;
-                str2 = TiebaStatic.YYValues.YY_LIVE;
-            }
-            statisticItem.param("obj_param1", i3);
-            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, str2);
-            statisticItem.param("obj_locate", i4);
-            TiebaStatic.log(statisticItem);
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
         }
     }
 
-    public static void b(StatisticItem statisticItem, YyExtData yyExtData) {
+    @Override // com.baidu.tieba.p16
+    public int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, statisticItem, yyExtData) == null) || yyExtData == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d0326 : invokeV.intValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public l26(TbPageContext tbPageContext, ViewGroup viewGroup) {
+        super(tbPageContext, viewGroup);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, viewGroup};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (ViewGroup) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        View k = k();
+        k.setOnClickListener(this);
+        this.j = tbPageContext;
+        HeadImageView headImageView = (HeadImageView) k.findViewById(R.id.obfuscated_res_0x7f0922c1);
+        this.k = headImageView;
+        headImageView.setIsRound(true);
+        this.k.setDefaultResource(R.drawable.obfuscated_res_0x7f080f62);
+        this.l = (TextView) k.findViewById(R.id.obfuscated_res_0x7f09059a);
+        this.n = (TextView) k.findViewById(R.id.obfuscated_res_0x7f090589);
+        this.m = (TextView) k.findViewById(R.id.obfuscated_res_0x7f090584);
+        this.i = k.findViewById(R.id.obfuscated_res_0x7f090509);
+        FrsBaseVideoView frsBaseVideoView = (FrsBaseVideoView) k.findViewById(R.id.obfuscated_res_0x7f09034e);
+        this.q = frsBaseVideoView;
+        frsBaseVideoView.setClickListener(this);
+    }
+
+    @Override // com.baidu.tieba.p16
+    public void m(TbPageContext tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
+            this.k.invalidate();
+            SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0105);
+            SkinManager.setBackgroundResource(k(), R.drawable.addresslist_item_bg);
+            SkinManager.setBackgroundColor(this.i, R.color.CAM_X0204);
+            FrsBaseVideoView frsBaseVideoView = this.q;
+            if (frsBaseVideoView != null) {
+                frsBaseVideoView.h(i);
+            }
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, view2) != null) || this.o == null) {
             return;
         }
-        statisticItem.param("hdid", TbadkCoreApplication.getInst().getHdid());
-        statisticItem.param(TiebaStatic.YYParams.YYSID, yyExtData.mSid);
-        statisticItem.param(TiebaStatic.YYParams.YYSID, yyExtData.mSid);
-        statisticItem.param(TiebaStatic.YYParams.YYSSID, yyExtData.mSsid);
-        statisticItem.param(TiebaStatic.YYParams.YYUID, yyExtData.mYyUid);
-        statisticItem.param(TiebaStatic.YYParams.YYLIVEID, 1);
-        statisticItem.param("template_id", yyExtData.mTemplateId);
-    }
-
-    public static StatisticItem c(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) ? d(str, i, -1, null, "0") : (StatisticItem) invokeLI.objValue;
-    }
-
-    public static StatisticItem d(String str, int i, int i2, String str2, String str3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), str2, str3})) == null) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.param("fid", str3);
-            statisticItem.param("obj_locate", i);
-            statisticItem.param("hdid", TbadkCoreApplication.getInst().getHdid());
-            if (i2 >= 0) {
-                statisticItem.param("obj_param1", i2);
-            }
-            if (!StringUtils.isNull(str2)) {
-                statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, str2);
-            }
-            return statisticItem;
+        if (e() != null) {
+            e().b(view2, this.o, this.p);
         }
-        return (StatisticItem) invokeCommon.objValue;
+        a26.a(this.o.getTid());
+        a26.l(this.n, this.o.getTid(), R.color.CAM_X0105, R.color.CAM_X0109);
+        r();
     }
 
-    public static StatisticItem e(String str, int i, String str2) {
-        InterceptResult invokeLIL;
+    public final void r() {
+        ThreadData threadData;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i, str2)) == null) ? d(str, i, -1, null, str2) : (StatisticItem) invokeLIL.objValue;
-    }
-
-    public static int f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if ("recommend".equals(str)) {
-                return 1;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (threadData = this.o) != null && threadData.getAuthor() != null && this.o.getAuthor().getName_show() != null) {
+            String name_show = this.o.getAuthor().getName_show();
+            if (NewWebHotTopicPageSwitch.isOn()) {
+                ai5.e(this.j, null, name_show);
+                return;
             }
-            if (ImageViewerConfig.FROM_CONCERN.equals(str)) {
-                return 2;
-            }
-            if ("ala_sub_tab".equals(str)) {
-                return 3;
-            }
-            if ("ala_sub_list".equals(str)) {
-                return 4;
-            }
-            if ("video_recommend".equals(str)) {
-                return 5;
-            }
-            return "video_concern".equals(str) ? 6 : 0;
+            HotTopicActivityConfig hotTopicActivityConfig = new HotTopicActivityConfig(getContext());
+            HotTopicActivityConfig createNormalConfig = hotTopicActivityConfig.createNormalConfig("", name_show + "", "3");
+            createNormalConfig.setExtra(this.o.getFid(), this.o.getFirstClassName(), this.o.getSecondClassName(), eh.g(this.o.getTid(), 0L));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createNormalConfig));
         }
-        return invokeL.intValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.p16
+    /* renamed from: s */
+    public void l(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, threadData) == null) {
+            if (threadData == null) {
+                if (k() != null) {
+                    k().setVisibility(8);
+                    return;
+                }
+                return;
+            }
+            this.o = threadData;
+            if (k() != null) {
+                k().setVisibility(0);
+                k().setOnClickListener(this);
+            }
+            FrsBaseVideoView frsBaseVideoView = this.q;
+            if (frsBaseVideoView != null) {
+                frsBaseVideoView.g(this.o, threadData.getHotTopicInfo());
+            }
+            if (threadData.getAuthor() != null) {
+                this.l.setText(threadData.getAuthor().getName_show());
+            }
+            this.m.setText(StringHelper.getFormatTime(threadData.getLast_time_int() * 1000));
+            String str = threadData.getTopicUserName() + "：";
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
+            spannableStringBuilder.append((CharSequence) threadData.parseTitleOrAbstractForFrsNew(false, true));
+            spannableStringBuilder.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), 0, str.length(), 33);
+            this.n.setText(spannableStringBuilder);
+            a26.l(this.n, this.o.getTid(), R.color.CAM_X0105, R.color.CAM_X0109);
+            m(this.j, TbadkCoreApplication.getInst().getSkinType());
+        }
     }
 }

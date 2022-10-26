@@ -1,41 +1,88 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.person.holder.PersonCenterIntervalHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class s48 {
+public class s48 extends rn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<Cdo> a;
 
-    public s48() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public s48(Context context, BdUniqueId bdUniqueId) {
+        super(context, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public void a(ArrayList<Cdo> arrayList) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.rn
+    /* renamed from: s */
+    public PersonCenterIntervalHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, arrayList) == null) {
-            this.a = arrayList;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            return new PersonCenterIntervalHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d03f6, viewGroup, false));
         }
+        return (PersonCenterIntervalHolder) invokeL.objValue;
     }
 
-    public void b(boolean z) {
+    @Override // com.baidu.tieba.rn
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        t(i, view2, viewGroup, (o48) obj, (PersonCenterIntervalHolder) viewHolder);
+        return view2;
+    }
+
+    public View t(int i, View view2, ViewGroup viewGroup, o48 o48Var, PersonCenterIntervalHolder personCenterIntervalHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, o48Var, personCenterIntervalHolder})) == null) {
+            if (o48Var != null && personCenterIntervalHolder != null) {
+                int skinType = TbadkCoreApplication.getInst().getSkinType();
+                if (personCenterIntervalHolder.a != skinType) {
+                    personCenterIntervalHolder.a = skinType;
+                    SkinManager.setBackgroundResource(personCenterIntervalHolder.b, o48Var.c);
+                }
+                ViewGroup.LayoutParams layoutParams = personCenterIntervalHolder.b.getLayoutParams();
+                int i2 = o48Var.a;
+                if (i2 > 0) {
+                    layoutParams.height = i2;
+                }
+                int i3 = o48Var.b;
+                if (i3 > 0) {
+                    layoutParams.width = i3;
+                }
+                personCenterIntervalHolder.b.setLayoutParams(layoutParams);
+                personCenterIntervalHolder.b.setOnClickListener(null);
+            }
+            return view2;
         }
+        return (View) invokeCommon.objValue;
     }
 }

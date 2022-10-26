@@ -14,7 +14,7 @@ public class AperfRuntime {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public static final class Runtime {
+    public final class Runtime {
         public static /* synthetic */ Interceptable $ic;
         public static final String sProcessUUID;
         public transient /* synthetic */ FieldHolder $fh;
@@ -52,7 +52,10 @@ public class AperfRuntime {
         public static String getProcessUUID() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? sProcessUUID : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+                return sProcessUUID;
+            }
+            return (String) invokeV.objValue;
         }
     }
 

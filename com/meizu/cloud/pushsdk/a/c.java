@@ -1,6 +1,5 @@
 package com.meizu.cloud.pushsdk.a;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Point;
 import android.location.Location;
@@ -16,13 +15,13 @@ import java.util.Map;
 /* loaded from: classes8.dex */
 public class c {
     public static final String a = "c";
-    public HashMap<String, String> b;
-    public HashMap<String, String> c;
-    public HashMap<String, Object> d;
-    public HashMap<String, Object> e;
+    public HashMap b;
+    public HashMap c;
+    public HashMap d;
+    public HashMap e;
 
     /* loaded from: classes8.dex */
-    public static class a {
+    public class a {
         public Context a = null;
 
         public a a(Context context) {
@@ -36,10 +35,10 @@ public class c {
     }
 
     public c(a aVar) {
-        this.b = new HashMap<>();
-        this.c = new HashMap<>();
-        this.d = new HashMap<>();
-        this.e = new HashMap<>();
+        this.b = new HashMap();
+        this.c = new HashMap();
+        this.d = new HashMap();
+        this.e = new HashMap();
         e();
         if (aVar.a != null) {
             a(aVar.a);
@@ -128,7 +127,7 @@ public class c {
         b(b.E, MzSystemUtils.getWifiList(context));
     }
 
-    public Map<String, String> a() {
+    public Map a() {
         return this.b;
     }
 
@@ -144,11 +143,10 @@ public class c {
         d(context);
     }
 
-    public Map<String, String> b() {
+    public Map b() {
         return this.c;
     }
 
-    @TargetApi(19)
     public void b(Context context) {
         Display display = null;
         try {
@@ -167,11 +165,11 @@ public class c {
         }
     }
 
-    public Map<String, Object> c() {
+    public Map c() {
         return this.d;
     }
 
-    public Map<String, Object> d() {
+    public Map d() {
         return this.e;
     }
 }

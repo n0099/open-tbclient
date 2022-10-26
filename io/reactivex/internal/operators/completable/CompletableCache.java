@@ -11,11 +11,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Completable;
 import io.reactivex.CompletableObserver;
 import io.reactivex.CompletableSource;
-import io.reactivex.annotations.Experimental;
 import io.reactivex.disposables.Disposable;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
-@Experimental
 /* loaded from: classes8.dex */
 public final class CompletableCache extends Completable implements CompletableObserver {
     public static /* synthetic */ Interceptable $ic;
@@ -23,9 +21,16 @@ public final class CompletableCache extends Completable implements CompletableOb
     public static final InnerCompletableCache[] TERMINATED;
     public transient /* synthetic */ FieldHolder $fh;
     public Throwable error;
-    public final AtomicReference<InnerCompletableCache[]> observers;
+    public final AtomicReference observers;
     public final AtomicBoolean once;
     public final CompletableSource source;
+
+    @Override // io.reactivex.CompletableObserver
+    public void onSubscribe(Disposable disposable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, disposable) == null) {
+        }
+    }
 
     /* loaded from: classes8.dex */
     public final class InnerCompletableCache extends AtomicBoolean implements Disposable {
@@ -66,7 +71,10 @@ public final class CompletableCache extends Completable implements CompletableOb
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? get() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return get();
+            }
+            return invokeV.booleanValue;
         }
     }
 
@@ -87,6 +95,19 @@ public final class CompletableCache extends Completable implements CompletableOb
         TERMINATED = new InnerCompletableCache[0];
     }
 
+    @Override // io.reactivex.CompletableObserver, io.reactivex.MaybeObserver
+    public void onComplete() {
+        InnerCompletableCache[] innerCompletableCacheArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            for (InnerCompletableCache innerCompletableCache : (InnerCompletableCache[]) this.observers.getAndSet(TERMINATED)) {
+                if (!innerCompletableCache.get()) {
+                    innerCompletableCache.actual.onComplete();
+                }
+            }
+        }
+    }
+
     public CompletableCache(CompletableSource completableSource) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -103,8 +124,33 @@ public final class CompletableCache extends Completable implements CompletableOb
             }
         }
         this.source = completableSource;
-        this.observers = new AtomicReference<>(EMPTY);
+        this.observers = new AtomicReference(EMPTY);
         this.once = new AtomicBoolean();
+    }
+
+    @Override // io.reactivex.Completable
+    public void subscribeActual(CompletableObserver completableObserver) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, completableObserver) == null) {
+            InnerCompletableCache innerCompletableCache = new InnerCompletableCache(this, completableObserver);
+            completableObserver.onSubscribe(innerCompletableCache);
+            if (add(innerCompletableCache)) {
+                if (innerCompletableCache.isDisposed()) {
+                    remove(innerCompletableCache);
+                }
+                if (this.once.compareAndSet(false, true)) {
+                    this.source.subscribe(this);
+                    return;
+                }
+                return;
+            }
+            Throwable th = this.error;
+            if (th != null) {
+                completableObserver.onError(th);
+            } else {
+                completableObserver.onComplete();
+            }
+        }
     }
 
     public boolean add(InnerCompletableCache innerCompletableCache) {
@@ -114,7 +160,7 @@ public final class CompletableCache extends Completable implements CompletableOb
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, innerCompletableCache)) == null) {
             do {
-                innerCompletableCacheArr = this.observers.get();
+                innerCompletableCacheArr = (InnerCompletableCache[]) this.observers.get();
                 if (innerCompletableCacheArr == TERMINATED) {
                     return false;
                 }
@@ -128,37 +174,17 @@ public final class CompletableCache extends Completable implements CompletableOb
         return invokeL.booleanValue;
     }
 
-    @Override // io.reactivex.CompletableObserver, io.reactivex.MaybeObserver
-    public void onComplete() {
-        InnerCompletableCache[] andSet;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            for (InnerCompletableCache innerCompletableCache : this.observers.getAndSet(TERMINATED)) {
-                if (!innerCompletableCache.get()) {
-                    innerCompletableCache.actual.onComplete();
-                }
-            }
-        }
-    }
-
     @Override // io.reactivex.CompletableObserver
     public void onError(Throwable th) {
-        InnerCompletableCache[] andSet;
+        InnerCompletableCache[] innerCompletableCacheArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
             this.error = th;
-            for (InnerCompletableCache innerCompletableCache : this.observers.getAndSet(TERMINATED)) {
+            for (InnerCompletableCache innerCompletableCache : (InnerCompletableCache[]) this.observers.getAndSet(TERMINATED)) {
                 if (!innerCompletableCache.get()) {
                     innerCompletableCache.actual.onError(th);
                 }
             }
-        }
-    }
-
-    @Override // io.reactivex.CompletableObserver
-    public void onSubscribe(Disposable disposable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, disposable) == null) {
         }
     }
 
@@ -168,7 +194,7 @@ public final class CompletableCache extends Completable implements CompletableOb
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, innerCompletableCache) == null) {
             do {
-                innerCompletableCacheArr = this.observers.get();
+                innerCompletableCacheArr = (InnerCompletableCache[]) this.observers.get();
                 int length = innerCompletableCacheArr.length;
                 if (length == 0) {
                     return;
@@ -197,31 +223,6 @@ public final class CompletableCache extends Completable implements CompletableOb
                     innerCompletableCacheArr2 = innerCompletableCacheArr3;
                 }
             } while (!this.observers.compareAndSet(innerCompletableCacheArr, innerCompletableCacheArr2));
-        }
-    }
-
-    @Override // io.reactivex.Completable
-    public void subscribeActual(CompletableObserver completableObserver) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, completableObserver) == null) {
-            InnerCompletableCache innerCompletableCache = new InnerCompletableCache(this, completableObserver);
-            completableObserver.onSubscribe(innerCompletableCache);
-            if (add(innerCompletableCache)) {
-                if (innerCompletableCache.isDisposed()) {
-                    remove(innerCompletableCache);
-                }
-                if (this.once.compareAndSet(false, true)) {
-                    this.source.subscribe(this);
-                    return;
-                }
-                return;
-            }
-            Throwable th = this.error;
-            if (th != null) {
-                completableObserver.onError(th);
-            } else {
-                completableObserver.onComplete();
-            }
         }
     }
 }

@@ -7,8 +7,8 @@ import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hv4;
-import com.baidu.tieba.iv7;
+import com.baidu.tieba.nv4;
+import com.baidu.tieba.tv7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,24 +42,35 @@ public class PbChildTitleViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.a = view2;
-        this.b = view2.findViewById(R.id.obfuscated_res_0x7f0917e5);
-        this.c = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f091c64);
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923dc);
+        this.b = view2.findViewById(R.id.obfuscated_res_0x7f0917d7);
+        this.c = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f091c60);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923c7);
         this.d = textView;
-        hv4.d(textView).A(R.string.F_X02);
+        nv4.d(textView).A(R.string.F_X02);
     }
 
-    public void a(iv7 iv7Var) {
+    public void a(tv7 tv7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, iv7Var) == null) {
-            this.d.setText(iv7Var.b());
+        if (interceptable == null || interceptable.invokeL(1048576, this, tv7Var) == null) {
+            this.d.setText(tv7Var.b());
+        }
+    }
+
+    public void d(int i) {
+        View view2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048579, this, i) == null) && (view2 = this.a) != null) {
+            view2.setVisibility(i);
         }
     }
 
     public View b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (View) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (View) invokeV.objValue;
     }
 
     public void c() {
@@ -69,14 +80,5 @@ public class PbChildTitleViewHolder extends TypeAdapter.ViewHolder {
             SkinManager.setBackgroundColor(this.c, R.color.CAM_X0205);
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0105);
         }
-    }
-
-    public void d(int i) {
-        View view2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || (view2 = this.a) == null) {
-            return;
-        }
-        view2.setVisibility(i);
     }
 }

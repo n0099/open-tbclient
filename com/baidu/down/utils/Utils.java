@@ -48,7 +48,7 @@ public class Utils {
     public static final String TAG = "Utils";
     public static final int WAP = 1;
     public static final int WIFI = 0;
-    public static final Map<String, String> extMimeMap;
+    public static final Map extMimeMap;
     public static int mApnType = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -153,48 +153,59 @@ public class Utils {
     */
     public static String chooseExtension(String str, String str2, String str3) {
         InterceptResult invokeLLL;
+        int i;
         String str4;
         int lastIndexOf;
         int lastIndexOf2;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, str3)) != null) {
-            return (String) invokeLLL.objValue;
-        }
-        int lastIndexOf3 = (str2 == null || str2.endsWith("/")) ? -1 : str2.lastIndexOf(46);
-        String str5 = null;
-        if (lastIndexOf3 >= 0 && lastIndexOf3 < str2.length() - 1) {
-            String substring = str2.substring(lastIndexOf3 + 1);
-            if (!TextUtils.isEmpty(MimeTypeMap.getSingleton().getMimeTypeFromExtension(substring))) {
-                str4 = "." + substring;
-                if (TextUtils.isEmpty(str3)) {
-                    str4 = MimeTypeMap.getSingleton().getExtensionFromMimeType(str3);
-                    if (str4 != null) {
-                        str4 = "." + str4;
-                    } else if (str3.toLowerCase().startsWith("text/")) {
-                        if (str3.equalsIgnoreCase(SapiWebView.DATA_MIME_TYPE)) {
-                            str4 = DownloadDataConstants.DEFAULT_DL_HTML_EXTENSION;
-                        } else {
-                            str4 = str3.equalsIgnoreCase("text/bin") ? DownloadDataConstants.DEFAULT_DL_BINARY_EXTENSION : DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION;
-                        }
-                    } else if (str3.toLowerCase().startsWith("audio/")) {
-                        str4 = "." + str3.substring(6);
-                    }
-                } else {
-                    String decode = Uri.decode(str);
-                    if (decode != null && !decode.endsWith("/") && decode.indexOf(63) < 0 && (lastIndexOf2 = decode.lastIndexOf(47) + 1) > 0) {
-                        str5 = decode.substring(lastIndexOf2);
-                    }
-                    if (str5 != null && (lastIndexOf = str5.lastIndexOf(46)) > 0) {
-                        str4 = str5.substring(lastIndexOf);
-                    }
-                }
-                return str4 != null ? DownloadDataConstants.DEFAULT_DL_BINARY_EXTENSION : str4;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, str3)) == null) {
+            if (str2 != null && !str2.endsWith("/")) {
+                i = str2.lastIndexOf(46);
+            } else {
+                i = -1;
             }
-        }
-        str4 = null;
-        if (TextUtils.isEmpty(str3)) {
-        }
-        if (str4 != null) {
+            String str5 = null;
+            if (i >= 0 && i < str2.length() - 1) {
+                String substring = str2.substring(i + 1);
+                if (!TextUtils.isEmpty(MimeTypeMap.getSingleton().getMimeTypeFromExtension(substring))) {
+                    str4 = "." + substring;
+                    if (TextUtils.isEmpty(str3)) {
+                        str4 = MimeTypeMap.getSingleton().getExtensionFromMimeType(str3);
+                        if (str4 != null) {
+                            str4 = "." + str4;
+                        } else if (str3.toLowerCase().startsWith("text/")) {
+                            if (str3.equalsIgnoreCase(SapiWebView.DATA_MIME_TYPE)) {
+                                str4 = DownloadDataConstants.DEFAULT_DL_HTML_EXTENSION;
+                            } else if (str3.equalsIgnoreCase("text/bin")) {
+                                str4 = DownloadDataConstants.DEFAULT_DL_BINARY_EXTENSION;
+                            } else {
+                                str4 = DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION;
+                            }
+                        } else if (str3.toLowerCase().startsWith("audio/")) {
+                            str4 = "." + str3.substring(6);
+                        }
+                    } else {
+                        String decode = Uri.decode(str);
+                        if (decode != null && !decode.endsWith("/") && decode.indexOf(63) < 0 && (lastIndexOf2 = decode.lastIndexOf(47) + 1) > 0) {
+                            str5 = decode.substring(lastIndexOf2);
+                        }
+                        if (str5 != null && (lastIndexOf = str5.lastIndexOf(46)) > 0) {
+                            str4 = str5.substring(lastIndexOf);
+                        }
+                    }
+                    if (str4 != null) {
+                        return DownloadDataConstants.DEFAULT_DL_BINARY_EXTENSION;
+                    }
+                    return str4;
+                }
+            }
+            str4 = null;
+            if (TextUtils.isEmpty(str3)) {
+            }
+            if (str4 != null) {
+            }
+        } else {
+            return (String) invokeLLL.objValue;
         }
     }
 
@@ -204,13 +215,13 @@ public class Utils {
         int lastIndexOf;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, str, str2, str3)) == null) {
-            if (str2 == null || str2.endsWith("/")) {
-                str2 = null;
-            } else {
+            if (str2 != null && !str2.endsWith("/")) {
                 int lastIndexOf2 = str2.lastIndexOf(47) + 1;
                 if (lastIndexOf2 > 0) {
                     str2 = str2.substring(lastIndexOf2);
                 }
+            } else {
+                str2 = null;
             }
             if (str2 == null && (decode = Uri.decode(str)) != null && !decode.endsWith("/") && decode.indexOf(63) < 0 && (lastIndexOf = decode.lastIndexOf(47) + 1) > 0) {
                 str2 = decode.substring(lastIndexOf);
@@ -252,32 +263,38 @@ public class Utils {
             if (str.endsWith(str2)) {
                 str3 = str;
             }
-            if (new File(str3).exists()) {
-                String str4 = str + "_";
-                int i = 1;
-                for (int i2 = 1; i2 < 1000000000; i2 *= 10) {
-                    for (int i3 = 0; i3 < 9; i3++) {
-                        String str5 = str4 + i + str2;
-                        if (!new File(str5).exists()) {
-                            return str5;
-                        }
-                        i += new Random(SystemClock.uptimeMillis()).nextInt(i2) + 1;
-                    }
-                }
-                return "";
+            if (!new File(str3).exists()) {
+                return str3;
             }
-            return str3;
+            String str4 = str + "_";
+            int i = 1;
+            for (int i2 = 1; i2 < 1000000000; i2 *= 10) {
+                for (int i3 = 0; i3 < 9; i3++) {
+                    String str5 = str4 + i + str2;
+                    if (!new File(str5).exists()) {
+                        return str5;
+                    }
+                    i += new Random(SystemClock.uptimeMillis()).nextInt(i2) + 1;
+                }
+            }
+            return "";
         }
         return (String) invokeLL.objValue;
     }
 
     public static boolean detectIfProxyExist(Context context) {
         InterceptResult invokeL;
+        boolean z;
         int port;
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             if (Build.VERSION.SDK_INT >= 14) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
                 str = System.getProperty("http.proxyHost");
                 String property = System.getProperty("http.proxyPort");
                 if (property == null) {
@@ -289,7 +306,43 @@ public class Utils {
                 port = Proxy.getPort(context);
                 str = host;
             }
-            return (str == null || port == -1) ? false : true;
+            if (str != null && port != -1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean isIpAddress(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            int indexOf = str.indexOf(46);
+            int i = 0;
+            int i2 = 0;
+            while (i < str.length()) {
+                if (indexOf == -1) {
+                    indexOf = str.length();
+                }
+                try {
+                    int parseInt = Integer.parseInt(str.substring(i, indexOf));
+                    if (parseInt <= 255 && parseInt >= 0) {
+                        i2++;
+                        i = indexOf + 1;
+                        indexOf = str.indexOf(46, i);
+                    }
+                } catch (NumberFormatException unused) {
+                }
+                return false;
+            }
+            if (i2 != 4) {
+                return false;
+            }
+            return true;
         }
         return invokeL.booleanValue;
     }
@@ -318,6 +371,18 @@ public class Utils {
         return invokeLI.intValue;
     }
 
+    public static void removeMapKeyIgnoreCase(Map map, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65556, null, map, str) == null) && map != null && str != null) {
+            Iterator it = map.entrySet().iterator();
+            while (it.hasNext()) {
+                if (((String) ((Map.Entry) it.next()).getKey()).equalsIgnoreCase(str)) {
+                    it.remove();
+                }
+            }
+        }
+    }
+
     public static byte[] gZip(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -338,6 +403,19 @@ public class Utils {
             }
         }
         return (byte[]) invokeL.objValue;
+    }
+
+    public static String getCurrentNetWorkApn(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
+            NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
+            if (activeNetworkInfo != null && activeNetworkInfo.getExtraInfo() != null) {
+                return activeNetworkInfo.getExtraInfo().toLowerCase();
+            }
+            return "";
+        }
+        return (String) invokeL.objValue;
     }
 
     public static NetworkInfo getActiveNetworkInfoSafely(Context context) {
@@ -365,22 +443,15 @@ public class Utils {
         return invokeL.intValue;
     }
 
-    public static String getCurrentNetWorkApn(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
-            NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
-            return (activeNetworkInfo == null || activeNetworkInfo.getExtraInfo() == null) ? "" : activeNetworkInfo.getExtraInfo().toLowerCase();
-        }
-        return (String) invokeL.objValue;
-    }
-
     public static String getEncodedValue(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
             try {
-                return TextUtils.isEmpty(str) ? "" : URLEncoder.encode(str, IMAudioTransRequest.CHARSET);
+                if (TextUtils.isEmpty(str)) {
+                    return "";
+                }
+                return URLEncoder.encode(str, IMAudioTransRequest.CHARSET);
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
                 return "";
@@ -397,7 +468,7 @@ public class Utils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
             if (str != null) {
-                return extMimeMap.get(str);
+                return (String) extMimeMap.get(str);
             }
             return null;
         }
@@ -436,6 +507,30 @@ public class Utils {
         return invokeL.intValue;
     }
 
+    public static boolean isEmpty(Collection collection) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, collection)) == null) {
+            if (collection != null && collection.size() != 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean isUrlContainsQ(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, str)) == null) {
+            if (str.indexOf("?") > 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
     public static String getWifiOr2gOr3G(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -448,32 +543,32 @@ public class Utils {
                             return "WF";
                         }
                         int subtype = activeNetworkInfo.getSubtype();
-                        if (subtype != 3) {
-                            if (subtype != 20) {
-                                switch (subtype) {
-                                    case 5:
-                                    case 6:
-                                    case 7:
-                                    case 8:
-                                    case 9:
-                                    case 10:
-                                        return "3G";
-                                    default:
-                                        switch (subtype) {
-                                            case 12:
-                                            case 14:
-                                            case 15:
-                                                return "3G";
-                                            case 13:
-                                                return "4G";
-                                            default:
-                                                return "2G";
-                                        }
-                                }
-                            }
-                            return "5G";
+                        if (subtype == 3) {
+                            return "3G";
                         }
-                        return "3G";
+                        if (subtype != 20) {
+                            switch (subtype) {
+                                case 5:
+                                case 6:
+                                case 7:
+                                case 8:
+                                case 9:
+                                case 10:
+                                    return "3G";
+                                default:
+                                    switch (subtype) {
+                                        case 12:
+                                        case 14:
+                                        case 15:
+                                            return "3G";
+                                        case 13:
+                                            return "4G";
+                                        default:
+                                            return "2G";
+                                    }
+                            }
+                        }
+                        return "5G";
                     }
                 } catch (Exception unused) {
                     return "";
@@ -504,69 +599,13 @@ public class Utils {
                     }
                 }
                 String defaultHost = Proxy.getDefaultHost();
-                if (defaultHost == null || defaultHost.length() <= 0) {
-                    return;
-                }
-                if (!"10.0.0.172".equals(defaultHost.trim()) && !"10.0.0.200".equals(defaultHost.trim())) {
-                    mApnType = 2;
-                } else {
-                    mApnType = 1;
-                }
-            }
-        }
-    }
-
-    public static boolean isEmpty(Collection collection) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65553, null, collection)) == null) ? collection == null || collection.size() == 0 : invokeL.booleanValue;
-    }
-
-    public static boolean isIpAddress(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            int indexOf = str.indexOf(46);
-            int i = 0;
-            int i2 = 0;
-            while (i < str.length()) {
-                if (indexOf == -1) {
-                    indexOf = str.length();
-                }
-                try {
-                    int parseInt = Integer.parseInt(str.substring(i, indexOf));
-                    if (parseInt <= 255 && parseInt >= 0) {
-                        i2++;
-                        i = indexOf + 1;
-                        indexOf = str.indexOf(46, i);
+                if (defaultHost != null && defaultHost.length() > 0) {
+                    if (!"10.0.0.172".equals(defaultHost.trim()) && !"10.0.0.200".equals(defaultHost.trim())) {
+                        mApnType = 2;
+                    } else {
+                        mApnType = 1;
                     }
-                } catch (NumberFormatException unused) {
                 }
-                return false;
-            }
-            return i2 == 4;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean isUrlContainsQ(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65555, null, str)) == null) ? str.indexOf("?") > 0 : invokeL.booleanValue;
-    }
-
-    public static void removeMapKeyIgnoreCase(Map<String, String> map, String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65556, null, map, str) == null) || map == null || str == null) {
-            return;
-        }
-        Iterator<Map.Entry<String, String>> it = map.entrySet().iterator();
-        while (it.hasNext()) {
-            if (it.next().getKey().equalsIgnoreCase(str)) {
-                it.remove();
             }
         }
     }

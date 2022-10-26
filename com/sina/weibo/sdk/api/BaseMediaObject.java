@@ -28,6 +28,22 @@ public abstract class BaseMediaObject implements Parcelable {
     public byte[] thumbData;
     public String title;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public abstract int getObjType();
+
+    public abstract BaseMediaObject toExtraMediaObject(String str);
+
+    public abstract String toExtraMediaString();
+
     public BaseMediaObject() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -42,56 +58,28 @@ public abstract class BaseMediaObject implements Parcelable {
         }
     }
 
-    public boolean checkArgs() {
-        InterceptResult invokeV;
+    public BaseMediaObject(Parcel parcel) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String str = this.actionUrl;
-            if (str != null && str.length() <= 512) {
-                String str2 = this.identify;
-                if (str2 != null && str2.length() <= 512) {
-                    byte[] bArr = this.thumbData;
-                    if (bArr != null && bArr.length <= 32768) {
-                        String str3 = this.title;
-                        if (str3 != null && str3.length() <= 512) {
-                            String str4 = this.description;
-                            if (str4 == null || str4.length() > 1024) {
-                                LogUtil.e("Weibo.BaseMediaObject", "checkArgs fail, description is invalid");
-                                return false;
-                            }
-                            return true;
-                        }
-                        LogUtil.e("Weibo.BaseMediaObject", "checkArgs fail, title is invalid");
-                        return false;
-                    }
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("checkArgs fail, thumbData is invalid,size is ");
-                    byte[] bArr2 = this.thumbData;
-                    sb.append(bArr2 != null ? bArr2.length : -1);
-                    sb.append("! more then 32768.");
-                    LogUtil.e("Weibo.BaseMediaObject", sb.toString());
-                    return false;
-                }
-                LogUtil.e("Weibo.BaseMediaObject", "checkArgs fail, identify is invalid");
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            LogUtil.e("Weibo.BaseMediaObject", "checkArgs fail, actionUrl is invalid");
-            return false;
         }
-        return invokeV.booleanValue;
+        this.actionUrl = parcel.readString();
+        this.schema = parcel.readString();
+        this.identify = parcel.readString();
+        this.title = parcel.readString();
+        this.description = parcel.readString();
+        this.thumbData = parcel.createByteArray();
     }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public abstract int getObjType();
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:15:0x0023 */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x0005 */
@@ -145,9 +133,50 @@ public abstract class BaseMediaObject implements Parcelable {
         }
     }
 
-    public abstract BaseMediaObject toExtraMediaObject(String str);
-
-    public abstract String toExtraMediaString();
+    public boolean checkArgs() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String str = this.actionUrl;
+            if (str != null && str.length() <= 512) {
+                String str2 = this.identify;
+                if (str2 != null && str2.length() <= 512) {
+                    byte[] bArr = this.thumbData;
+                    if (bArr != null && bArr.length <= 32768) {
+                        String str3 = this.title;
+                        if (str3 != null && str3.length() <= 512) {
+                            String str4 = this.description;
+                            if (str4 != null && str4.length() <= 1024) {
+                                return true;
+                            }
+                            LogUtil.e("Weibo.BaseMediaObject", "checkArgs fail, description is invalid");
+                            return false;
+                        }
+                        LogUtil.e("Weibo.BaseMediaObject", "checkArgs fail, title is invalid");
+                        return false;
+                    }
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("checkArgs fail, thumbData is invalid,size is ");
+                    byte[] bArr2 = this.thumbData;
+                    if (bArr2 != null) {
+                        i = bArr2.length;
+                    } else {
+                        i = -1;
+                    }
+                    sb.append(i);
+                    sb.append("! more then 32768.");
+                    LogUtil.e("Weibo.BaseMediaObject", sb.toString());
+                    return false;
+                }
+                LogUtil.e("Weibo.BaseMediaObject", "checkArgs fail, identify is invalid");
+                return false;
+            }
+            LogUtil.e("Weibo.BaseMediaObject", "checkArgs fail, actionUrl is invalid");
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
@@ -160,28 +189,5 @@ public abstract class BaseMediaObject implements Parcelable {
             parcel.writeString(this.description);
             parcel.writeByteArray(this.thumbData);
         }
-    }
-
-    public BaseMediaObject(Parcel parcel) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.actionUrl = parcel.readString();
-        this.schema = parcel.readString();
-        this.identify = parcel.readString();
-        this.title = parcel.readString();
-        this.description = parcel.readString();
-        this.thumbData = parcel.createByteArray();
     }
 }

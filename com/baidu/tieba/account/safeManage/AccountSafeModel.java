@@ -4,8 +4,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
+import com.baidu.tieba.bh8;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.rg8;
 import com.baidu.tieba.setting.im.more.PrivateInfoNetMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,8 +18,18 @@ public class AccountSafeModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-    public rg8 b;
+    public bh8 b;
     public String c;
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AccountSafeModel(BaseActivity baseActivity) {
@@ -42,27 +52,33 @@ public class AccountSafeModel extends BdBaseModel {
         this.a = false;
     }
 
-    public rg8 A() {
+    public bh8 A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (rg8) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (bh8) invokeV.objValue;
     }
 
     public String B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final SimpleUser C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            rg8 rg8Var = this.b;
-            if (rg8Var == null || rg8Var.f() == null) {
-                return null;
+            bh8 bh8Var = this.b;
+            if (bh8Var != null && bh8Var.f() != null) {
+                return this.b.f();
             }
-            return this.b.f();
+            return null;
         }
         return (SimpleUser) invokeV.objValue;
     }
@@ -70,18 +86,20 @@ public class AccountSafeModel extends BdBaseModel {
     public boolean D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return invokeV.booleanValue;
     }
 
     public final void E() {
         SimpleUser C;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (C = C()) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (C = C()) != null) {
+            String str = C.secureemail;
+            String str2 = C.securemobil;
+            this.c = C.ahead_url;
         }
-        String str = C.secureemail;
-        String str2 = C.securemobil;
-        this.c = C.ahead_url;
     }
 
     public boolean F() {
@@ -98,21 +116,6 @@ public class AccountSafeModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public void G(rg8 rg8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, rg8Var) == null) {
-            this.b = rg8Var;
-            E();
-        }
-    }
-
-    public void H(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.a = z;
-        }
-    }
-
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         InterceptResult invokeV;
@@ -124,19 +127,27 @@ public class AccountSafeModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean loadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
     public final PrivateInfoNetMessage z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? new PrivateInfoNetMessage() : (PrivateInfoNetMessage) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return new PrivateInfoNetMessage();
+        }
+        return (PrivateInfoNetMessage) invokeV.objValue;
+    }
+
+    public void G(bh8 bh8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, bh8Var) == null) {
+            this.b = bh8Var;
+            E();
+        }
+    }
+
+    public void H(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.a = z;
+        }
     }
 }

@@ -6,14 +6,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public abstract class a extends com.baidu.ar.c.a<C0054a> {
+public abstract class a extends com.baidu.ar.c.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int cI;
 
     /* renamed from: com.baidu.ar.b.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0054a {
+    public class C0054a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int cJ;

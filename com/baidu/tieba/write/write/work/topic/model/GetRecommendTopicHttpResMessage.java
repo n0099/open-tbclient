@@ -3,7 +3,7 @@ package com.baidu.tieba.write.write.work.topic.model;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.a89;
+import com.baidu.tieba.s89;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,10 +14,9 @@ import java.util.List;
 import tbclient.Error;
 import tbclient.GetRecommendTopic.DataRes;
 import tbclient.GetRecommendTopic.GetRecommendTopicResIdl;
-import tbclient.GetRecommendTopic.TopicList;
 import tbclient.GetRecommendTopic.TopicListModule;
 /* loaded from: classes6.dex */
-public class GetRecommendTopicHttpResMessage extends HttpResponsedMessage implements a89 {
+public class GetRecommendTopicHttpResMessage extends HttpResponsedMessage implements s89 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TopicListModule recommendTopic;
@@ -40,8 +39,8 @@ public class GetRecommendTopicHttpResMessage extends HttpResponsedMessage implem
         }
     }
 
-    @Override // com.baidu.tieba.a89
-    public List<TopicList> getTopicList() {
+    @Override // com.baidu.tieba.s89
+    public List getTopicList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -59,20 +58,19 @@ public class GetRecommendTopicHttpResMessage extends HttpResponsedMessage implem
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         GetRecommendTopicResIdl getRecommendTopicResIdl;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (getRecommendTopicResIdl = (GetRecommendTopicResIdl) new Wire(new Class[0]).parseFrom(bArr, GetRecommendTopicResIdl.class)) == null) {
-            return;
-        }
-        Error error = getRecommendTopicResIdl.error;
-        if (error != null) {
-            setError(error.errorno.intValue());
-            setErrorString(getRecommendTopicResIdl.error.usermsg);
-            if (getError() != 0) {
-                return;
+        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) && (getRecommendTopicResIdl = (GetRecommendTopicResIdl) new Wire(new Class[0]).parseFrom(bArr, GetRecommendTopicResIdl.class)) != null) {
+            Error error = getRecommendTopicResIdl.error;
+            if (error != null) {
+                setError(error.errorno.intValue());
+                setErrorString(getRecommendTopicResIdl.error.usermsg);
+                if (getError() != 0) {
+                    return;
+                }
             }
-        }
-        DataRes dataRes = getRecommendTopicResIdl.data;
-        if (dataRes != null) {
-            this.recommendTopic = dataRes.recommend_topic;
+            DataRes dataRes = getRecommendTopicResIdl.data;
+            if (dataRes != null) {
+                this.recommendTopic = dataRes.recommend_topic;
+            }
         }
     }
 }

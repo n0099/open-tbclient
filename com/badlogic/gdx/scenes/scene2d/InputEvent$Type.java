@@ -74,12 +74,18 @@ public final class InputEvent$Type {
     public static InputEvent$Type valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (InputEvent$Type) Enum.valueOf(InputEvent$Type.class, str) : (InputEvent$Type) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (InputEvent$Type) Enum.valueOf(InputEvent$Type.class, str);
+        }
+        return (InputEvent$Type) invokeL.objValue;
     }
 
     public static InputEvent$Type[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (InputEvent$Type[]) $VALUES.clone() : (InputEvent$Type[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (InputEvent$Type[]) $VALUES.clone();
+        }
+        return (InputEvent$Type[]) invokeV.objValue;
     }
 }

@@ -47,37 +47,55 @@ public final class LiveAddressOpenBean {
     public final LiveAddressOpenPageName getOpenPageName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.openPageName : (LiveAddressOpenPageName) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.openPageName;
+        }
+        return (LiveAddressOpenPageName) invokeV.objValue;
     }
 
     public final boolean getSelectAddedAddress() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.selectAddedAddress : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.selectAddedAddress;
+        }
+        return invokeV.booleanValue;
     }
 
     public final boolean getSweepLightLoading() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.sweepLightLoading : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.sweepLightLoading;
+        }
+        return invokeV.booleanValue;
     }
 
     public final String getTplse() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.tplse : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.tplse;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String getTplt() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.tplt : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.tplt;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final LiveAddressType getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.type : (LiveAddressType) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.type;
+        }
+        return (LiveAddressType) invokeV.objValue;
     }
 
     public final void setOpenPageName(LiveAddressOpenPageName liveAddressOpenPageName) {

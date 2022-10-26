@@ -10,7 +10,6 @@ import android.text.style.StyleSpan;
 import android.text.style.SubscriptSpan;
 import android.text.style.SuperscriptSpan;
 import android.text.style.UnderlineSpan;
-import androidx.annotation.ColorInt;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +24,7 @@ public final class SpannableStringBuilderKt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final SpannableStringBuilder backgroundColor(SpannableStringBuilder spannableStringBuilder, @ColorInt int i, Function1<? super SpannableStringBuilder, Unit> function1) {
+    public static final SpannableStringBuilder backgroundColor(SpannableStringBuilder spannableStringBuilder, int i, Function1<? super SpannableStringBuilder, Unit> function1) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65536, null, spannableStringBuilder, i, function1)) == null) {
@@ -36,6 +35,31 @@ public final class SpannableStringBuilderKt {
             return spannableStringBuilder;
         }
         return (SpannableStringBuilder) invokeLIL.objValue;
+    }
+
+    public static final SpannableStringBuilder color(SpannableStringBuilder spannableStringBuilder, int i, Function1<? super SpannableStringBuilder, Unit> function1) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65539, null, spannableStringBuilder, i, function1)) == null) {
+            ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(i);
+            int length = spannableStringBuilder.length();
+            function1.invoke(spannableStringBuilder);
+            spannableStringBuilder.setSpan(foregroundColorSpan, length, spannableStringBuilder.length(), 17);
+            return spannableStringBuilder;
+        }
+        return (SpannableStringBuilder) invokeLIL.objValue;
+    }
+
+    public static final SpannableStringBuilder inSpans(SpannableStringBuilder spannableStringBuilder, Object obj, Function1<? super SpannableStringBuilder, Unit> function1) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, spannableStringBuilder, obj, function1)) == null) {
+            int length = spannableStringBuilder.length();
+            function1.invoke(spannableStringBuilder);
+            spannableStringBuilder.setSpan(obj, length, spannableStringBuilder.length(), 17);
+            return spannableStringBuilder;
+        }
+        return (SpannableStringBuilder) invokeLLL.objValue;
     }
 
     public static final SpannableStringBuilder bold(SpannableStringBuilder spannableStringBuilder, Function1<? super SpannableStringBuilder, Unit> function1) {
@@ -51,44 +75,6 @@ public final class SpannableStringBuilderKt {
         return (SpannableStringBuilder) invokeLL.objValue;
     }
 
-    public static final SpannedString buildSpannedString(Function1<? super SpannableStringBuilder, Unit> function1) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, function1)) == null) {
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            function1.invoke(spannableStringBuilder);
-            return new SpannedString(spannableStringBuilder);
-        }
-        return (SpannedString) invokeL.objValue;
-    }
-
-    public static final SpannableStringBuilder color(SpannableStringBuilder spannableStringBuilder, @ColorInt int i, Function1<? super SpannableStringBuilder, Unit> function1) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65539, null, spannableStringBuilder, i, function1)) == null) {
-            ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(i);
-            int length = spannableStringBuilder.length();
-            function1.invoke(spannableStringBuilder);
-            spannableStringBuilder.setSpan(foregroundColorSpan, length, spannableStringBuilder.length(), 17);
-            return spannableStringBuilder;
-        }
-        return (SpannableStringBuilder) invokeLIL.objValue;
-    }
-
-    public static final SpannableStringBuilder inSpans(SpannableStringBuilder spannableStringBuilder, Object[] objArr, Function1<? super SpannableStringBuilder, Unit> function1) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, spannableStringBuilder, objArr, function1)) == null) {
-            int length = spannableStringBuilder.length();
-            function1.invoke(spannableStringBuilder);
-            for (Object obj : objArr) {
-                spannableStringBuilder.setSpan(obj, length, spannableStringBuilder.length(), 17);
-            }
-            return spannableStringBuilder;
-        }
-        return (SpannableStringBuilder) invokeLLL.objValue;
-    }
-
     public static final SpannableStringBuilder italic(SpannableStringBuilder spannableStringBuilder, Function1<? super SpannableStringBuilder, Unit> function1) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -100,19 +86,6 @@ public final class SpannableStringBuilderKt {
             return spannableStringBuilder;
         }
         return (SpannableStringBuilder) invokeLL.objValue;
-    }
-
-    public static final SpannableStringBuilder scale(SpannableStringBuilder spannableStringBuilder, float f, Function1<? super SpannableStringBuilder, Unit> function1) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{spannableStringBuilder, Float.valueOf(f), function1})) == null) {
-            RelativeSizeSpan relativeSizeSpan = new RelativeSizeSpan(f);
-            int length = spannableStringBuilder.length();
-            function1.invoke(spannableStringBuilder);
-            spannableStringBuilder.setSpan(relativeSizeSpan, length, spannableStringBuilder.length(), 17);
-            return spannableStringBuilder;
-        }
-        return (SpannableStringBuilder) invokeCommon.objValue;
     }
 
     public static final SpannableStringBuilder strikeThrough(SpannableStringBuilder spannableStringBuilder, Function1<? super SpannableStringBuilder, Unit> function1) {
@@ -167,15 +140,41 @@ public final class SpannableStringBuilderKt {
         return (SpannableStringBuilder) invokeLL.objValue;
     }
 
-    public static final SpannableStringBuilder inSpans(SpannableStringBuilder spannableStringBuilder, Object obj, Function1<? super SpannableStringBuilder, Unit> function1) {
+    public static final SpannedString buildSpannedString(Function1<? super SpannableStringBuilder, Unit> function1) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, function1)) == null) {
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+            function1.invoke(spannableStringBuilder);
+            return new SpannedString(spannableStringBuilder);
+        }
+        return (SpannedString) invokeL.objValue;
+    }
+
+    public static final SpannableStringBuilder inSpans(SpannableStringBuilder spannableStringBuilder, Object[] objArr, Function1<? super SpannableStringBuilder, Unit> function1) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, spannableStringBuilder, obj, function1)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, spannableStringBuilder, objArr, function1)) == null) {
             int length = spannableStringBuilder.length();
             function1.invoke(spannableStringBuilder);
-            spannableStringBuilder.setSpan(obj, length, spannableStringBuilder.length(), 17);
+            for (Object obj : objArr) {
+                spannableStringBuilder.setSpan(obj, length, spannableStringBuilder.length(), 17);
+            }
             return spannableStringBuilder;
         }
         return (SpannableStringBuilder) invokeLLL.objValue;
+    }
+
+    public static final SpannableStringBuilder scale(SpannableStringBuilder spannableStringBuilder, float f, Function1<? super SpannableStringBuilder, Unit> function1) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{spannableStringBuilder, Float.valueOf(f), function1})) == null) {
+            RelativeSizeSpan relativeSizeSpan = new RelativeSizeSpan(f);
+            int length = spannableStringBuilder.length();
+            function1.invoke(spannableStringBuilder);
+            spannableStringBuilder.setSpan(relativeSizeSpan, length, spannableStringBuilder.length(), 17);
+            return spannableStringBuilder;
+        }
+        return (SpannableStringBuilder) invokeCommon.objValue;
     }
 }

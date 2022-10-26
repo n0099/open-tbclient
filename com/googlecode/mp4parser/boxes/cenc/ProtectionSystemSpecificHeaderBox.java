@@ -68,6 +68,36 @@ public class ProtectionSystemSpecificHeaderBox extends AbstractFullBox {
         }
     }
 
+    public byte[] getContent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
+            return this.content;
+        }
+        return (byte[]) invokeV.objValue;
+    }
+
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public long getContentSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.content.length + 24;
+        }
+        return invokeV.longValue;
+    }
+
+    public byte[] getSystemId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
+            return this.systemId;
+        }
+        return (byte[]) invokeV.objValue;
+    }
+
     public static /* synthetic */ void ajc$preClinit() {
         Factory factory = new Factory("ProtectionSystemSpecificHeaderBox.java", ProtectionSystemSpecificHeaderBox.class);
         ajc$tjp_0 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getSystemId", "com.googlecode.mp4parser.boxes.cenc.ProtectionSystemSpecificHeaderBox", "", "", "", "[B"), 38);
@@ -91,31 +121,15 @@ public class ProtectionSystemSpecificHeaderBox extends AbstractFullBox {
         }
     }
 
-    public byte[] getContent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
-            return this.content;
-        }
-        return (byte[]) invokeV.objValue;
-    }
-
     @Override // com.googlecode.mp4parser.AbstractBox
-    public long getContentSize() {
-        InterceptResult invokeV;
+    public void getContent(ByteBuffer byteBuffer) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.content.length + 24 : invokeV.longValue;
-    }
-
-    public byte[] getSystemId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
-            return this.systemId;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, byteBuffer) == null) {
+            writeVersionAndFlags(byteBuffer);
+            byteBuffer.put(this.systemId, 0, 16);
+            IsoTypeWriter.writeUInt32(byteBuffer, this.content.length);
+            byteBuffer.put(this.content);
         }
-        return (byte[]) invokeV.objValue;
     }
 
     public void setContent(byte[] bArr) {
@@ -131,17 +145,6 @@ public class ProtectionSystemSpecificHeaderBox extends AbstractFullBox {
         if (interceptable == null || interceptable.invokeL(1048582, this, bArr) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, bArr));
             this.systemId = bArr;
-        }
-    }
-
-    @Override // com.googlecode.mp4parser.AbstractBox
-    public void getContent(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, byteBuffer) == null) {
-            writeVersionAndFlags(byteBuffer);
-            byteBuffer.put(this.systemId, 0, 16);
-            IsoTypeWriter.writeUInt32(byteBuffer, this.content.length);
-            byteBuffer.put(this.content);
         }
     }
 }

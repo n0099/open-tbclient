@@ -1,13 +1,11 @@
 package com.baidu.android.util.devices;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.connect.ConnectManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
@@ -40,7 +38,7 @@ public class NetWorkUtils {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class NetType {
+    public final class NetType {
         public static final /* synthetic */ NetType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final NetType NONE;
@@ -101,13 +99,19 @@ public class NetWorkUtils {
         public static NetType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (NetType) Enum.valueOf(NetType.class, str) : (NetType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (NetType) Enum.valueOf(NetType.class, str);
+            }
+            return (NetType) invokeL.objValue;
         }
 
         public static NetType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (NetType[]) $VALUES.clone() : (NetType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (NetType[]) $VALUES.clone();
+            }
+            return (NetType[]) invokeV.objValue;
         }
     }
 
@@ -125,32 +129,333 @@ public class NetWorkUtils {
         }
     }
 
+    public static int getIPAddress() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            WifiInfo connectionInfo = ((WifiManager) AppRuntime.getAppContext().getApplicationContext().getSystemService("wifi")).getConnectionInfo();
+            if (connectionInfo == null) {
+                return 0;
+            }
+            return connectionInfo.getIpAddress();
+        }
+        return invokeV.intValue;
+    }
+
+    public static int getNetworkId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            WifiInfo connectionInfo = ((WifiManager) AppRuntime.getAppContext().getApplicationContext().getSystemService("wifi")).getConnectionInfo();
+            if (connectionInfo == null) {
+                return 0;
+            }
+            return connectionInfo.getNetworkId();
+        }
+        return invokeV.intValue;
+    }
+
+    public static boolean isMobileNetworkConnected() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65561, null)) == null) {
+            NetworkInfo activeNetworkInfo = getActiveNetworkInfo();
+            if (activeNetworkInfo != null && activeNetworkInfo.isAvailable() && activeNetworkInfo.getType() == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isNetworkConnected() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65563, null)) == null) {
+            NetworkInfo activeNetworkInfo = getActiveNetworkInfo();
+            if (activeNetworkInfo != null && activeNetworkInfo.isConnectedOrConnecting()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isWapNetWorkConnected() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65565, null)) == null) {
+            return new ConnectManager(AppRuntime.getAppContext().getApplicationContext()).isWapNetwork();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isWifiNetworkConnected() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65567, null)) == null) {
+            NetworkInfo activeNetworkInfo = getActiveNetworkInfo();
+            if (activeNetworkInfo != null && activeNetworkInfo.isAvailable() && activeNetworkInfo.getType() == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static NetworkInfo getActiveNetworkInfo() {
+        InterceptResult invokeV;
+        ConnectivityManager connectivityManager;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (AppRuntime.getAppContext() == null) {
+                return null;
+            }
+            try {
+                connectivityManager = (ConnectivityManager) AppRuntime.getAppContext().getSystemService("connectivity");
+            } catch (SecurityException unused) {
+                connectivityManager = null;
+            }
+            if (connectivityManager == null) {
+                return null;
+            }
+            return connectivityManager.getActiveNetworkInfo();
+        }
+        return (NetworkInfo) invokeV.objValue;
+    }
+
+    public static String getBSSID() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            WifiInfo connectionInfo = ((WifiManager) AppRuntime.getAppContext().getApplicationContext().getSystemService("wifi")).getConnectionInfo();
+            if (connectionInfo == null) {
+                return "NULL";
+            }
+            return connectionInfo.getBSSID();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String getMacAddress() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            WifiInfo connectionInfo = ((WifiManager) AppRuntime.getAppContext().getApplicationContext().getSystemService("wifi")).getConnectionInfo();
+            if (connectionInfo == null) {
+                return "NULL";
+            }
+            return ApiReplaceUtil.getMacAddress(connectionInfo);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String getNetworkClass() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            NetworkInfo activeNetworkInfo = getActiveNetworkInfo();
+            if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
+                if (activeNetworkInfo.getType() == 1) {
+                    return "wifi";
+                }
+                if (activeNetworkInfo.getType() == 0) {
+                    return getMobileNetworkType(activeNetworkInfo.getSubtype(), activeNetworkInfo.getSubtypeName());
+                }
+                return "unknown";
+            }
+            return "no";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String getWifiInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
+            WifiInfo connectionInfo = ((WifiManager) AppRuntime.getAppContext().getApplicationContext().getSystemService("wifi")).getConnectionInfo();
+            if (connectionInfo == null) {
+                return "NULL";
+            }
+            return connectionInfo.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String getWifiName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) {
+            WifiInfo connectionInfo = ((WifiManager) AppRuntime.getAppContext().getApplicationContext().getSystemService("wifi")).getConnectionInfo();
+            if (connectionInfo == null) {
+                return "NULL";
+            }
+            return connectionInfo.getSSID();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean isHighNetworkConnected() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) {
+            String networkClass = getNetworkClass();
+            if (!"wifi".equals(networkClass) && !"5g".equals(networkClass) && !"4g".equals(networkClass) && !"3g".equals(networkClass)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
     @Deprecated
     public static NetworkInfo getActiveNetworkInfo(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? getActiveNetworkInfo() : (NetworkInfo) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            return getActiveNetworkInfo();
+        }
+        return (NetworkInfo) invokeL.objValue;
     }
 
     @Deprecated
-    public static String getBSSID(@NonNull Context context) {
+    public static String getBSSID(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? getBSSID() : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            return getBSSID();
+        }
+        return (String) invokeL.objValue;
     }
 
     @Deprecated
-    public static int getIPAddress(@NonNull Context context) {
+    public static int getIPAddress(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) ? getIPAddress() : invokeL.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
+            return getIPAddress();
+        }
+        return invokeL.intValue;
     }
 
     @Deprecated
     public static String getMacAddress(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) ? getMacAddress() : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
+            return getMacAddress();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Deprecated
+    public static String getNetworkClass(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
+            return getNetworkClass();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Deprecated
+    public static int getNetworkId(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, context)) == null) {
+            return getNetworkId();
+        }
+        return invokeL.intValue;
+    }
+
+    @Deprecated
+    public static String getNetworkInfo(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, context)) == null) {
+            return getNetworkInfo();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Deprecated
+    public static NetType getNetworkType(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, context)) == null) {
+            return getNetworkType();
+        }
+        return (NetType) invokeL.objValue;
+    }
+
+    @Deprecated
+    public static String getWifiInfo(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, context)) == null) {
+            return getWifiInfo();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Deprecated
+    public static String getWifiName(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, context)) == null) {
+            return getWifiName();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Deprecated
+    public static boolean isHighNetworkConnected(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65560, null, context)) == null) {
+            return isHighNetworkConnected();
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Deprecated
+    public static boolean isMobileNetworkConnected(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65562, null, context)) == null) {
+            return isMobileNetworkConnected();
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Deprecated
+    public static boolean isNetworkConnected(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, context)) == null) {
+            return isNetworkConnected();
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Deprecated
+    public static boolean isWapNetWorkConnected(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, context)) == null) {
+            return isWapNetWorkConnected();
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Deprecated
+    public static boolean isWifiNetworkConnected(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65568, null, context)) == null) {
+            return isWifiNetworkConnected();
+        }
+        return invokeL.booleanValue;
     }
 
     public static String getMobileNetworkType(int i, String str) {
@@ -183,179 +488,13 @@ public class NetWorkUtils {
                 case 20:
                     return "5g";
                 default:
-                    return (TextUtils.isEmpty(str) || !str.equalsIgnoreCase("LTE_CA")) ? "unknown" : "4g";
+                    if (!TextUtils.isEmpty(str) && str.equalsIgnoreCase("LTE_CA")) {
+                        return "4g";
+                    }
+                    return "unknown";
             }
         }
         return (String) invokeIL.objValue;
-    }
-
-    @Deprecated
-    public static String getNetworkClass(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) ? getNetworkClass() : (String) invokeL.objValue;
-    }
-
-    @Deprecated
-    public static int getNetworkId(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65549, null, context)) == null) ? getNetworkId() : invokeL.intValue;
-    }
-
-    @Deprecated
-    public static String getNetworkInfo(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65551, null, context)) == null) ? getNetworkInfo() : (String) invokeL.objValue;
-    }
-
-    @Deprecated
-    public static NetType getNetworkType(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65553, null, context)) == null) ? getNetworkType() : (NetType) invokeL.objValue;
-    }
-
-    @Deprecated
-    public static String getWifiInfo(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65555, null, context)) == null) ? getWifiInfo() : (String) invokeL.objValue;
-    }
-
-    @Deprecated
-    public static String getWifiName(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65557, null, context)) == null) ? getWifiName() : (String) invokeL.objValue;
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public static InetAddress intToInetAddress(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65558, null, i)) == null) {
-            try {
-                return InetAddress.getByAddress(new byte[]{(byte) (i & 255), (byte) ((i >> 8) & 255), (byte) ((i >> 16) & 255), (byte) ((i >> 24) & 255)});
-            } catch (UnknownHostException unused) {
-                throw new AssertionError();
-            }
-        }
-        return (InetAddress) invokeI.objValue;
-    }
-
-    @Deprecated
-    public static boolean isHighNetworkConnected(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65560, null, context)) == null) ? isHighNetworkConnected() : invokeL.booleanValue;
-    }
-
-    @Deprecated
-    public static boolean isMobileNetworkConnected(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65562, null, context)) == null) ? isMobileNetworkConnected() : invokeL.booleanValue;
-    }
-
-    @Deprecated
-    public static boolean isNetworkConnected(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65564, null, context)) == null) ? isNetworkConnected() : invokeL.booleanValue;
-    }
-
-    @Deprecated
-    public static boolean isWapNetWorkConnected(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65566, null, context)) == null) ? isWapNetWorkConnected() : invokeL.booleanValue;
-    }
-
-    @Deprecated
-    public static boolean isWifiNetworkConnected(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65568, null, context)) == null) ? isWifiNetworkConnected() : invokeL.booleanValue;
-    }
-
-    public static NetworkInfo getActiveNetworkInfo() {
-        InterceptResult invokeV;
-        ConnectivityManager connectivityManager;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (AppRuntime.getAppContext() == null) {
-                return null;
-            }
-            try {
-                connectivityManager = (ConnectivityManager) AppRuntime.getAppContext().getSystemService("connectivity");
-            } catch (SecurityException unused) {
-                connectivityManager = null;
-            }
-            if (connectivityManager == null) {
-                return null;
-            }
-            return connectivityManager.getActiveNetworkInfo();
-        }
-        return (NetworkInfo) invokeV.objValue;
-    }
-
-    public static String getBSSID() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            WifiInfo connectionInfo = ((WifiManager) AppRuntime.getAppContext().getApplicationContext().getSystemService("wifi")).getConnectionInfo();
-            return connectionInfo == null ? "NULL" : connectionInfo.getBSSID();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static int getIPAddress() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            WifiInfo connectionInfo = ((WifiManager) AppRuntime.getAppContext().getApplicationContext().getSystemService("wifi")).getConnectionInfo();
-            if (connectionInfo == null) {
-                return 0;
-            }
-            return connectionInfo.getIpAddress();
-        }
-        return invokeV.intValue;
-    }
-
-    @SuppressLint({"HardwareIds"})
-    public static String getMacAddress() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            WifiInfo connectionInfo = ((WifiManager) AppRuntime.getAppContext().getApplicationContext().getSystemService("wifi")).getConnectionInfo();
-            return connectionInfo == null ? "NULL" : ApiReplaceUtil.getMacAddress(connectionInfo);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String getNetworkClass() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            NetworkInfo activeNetworkInfo = getActiveNetworkInfo();
-            return (activeNetworkInfo == null || !activeNetworkInfo.isConnected()) ? "no" : activeNetworkInfo.getType() == 1 ? "wifi" : activeNetworkInfo.getType() == 0 ? getMobileNetworkType(activeNetworkInfo.getSubtype(), activeNetworkInfo.getSubtypeName()) : "unknown";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static int getNetworkId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            WifiInfo connectionInfo = ((WifiManager) AppRuntime.getAppContext().getApplicationContext().getSystemService("wifi")).getConnectionInfo();
-            if (connectionInfo == null) {
-                return 0;
-            }
-            return connectionInfo.getNetworkId();
-        }
-        return invokeV.intValue;
     }
 
     @Deprecated
@@ -371,35 +510,35 @@ public class NetWorkUtils {
             if (activeNetworkInfo.getType() == 1) {
                 return "WiFi";
             }
-            if (activeNetworkInfo.getType() == 0) {
-                int subtype = activeNetworkInfo.getSubtype();
-                if (subtype != 20) {
-                    switch (subtype) {
-                        case 1:
-                        case 2:
-                        case 4:
-                        case 7:
-                        case 11:
-                            return "2G";
-                        case 3:
-                        case 5:
-                        case 6:
-                        case 8:
-                        case 9:
-                        case 10:
-                        case 12:
-                        case 14:
-                        case 15:
-                            return "3G";
-                        case 13:
-                            return "4G";
-                        default:
-                            return "unknown";
-                    }
-                }
-                return "5G";
+            if (activeNetworkInfo.getType() != 0) {
+                return "unknown";
             }
-            return "unknown";
+            int subtype = activeNetworkInfo.getSubtype();
+            if (subtype != 20) {
+                switch (subtype) {
+                    case 1:
+                    case 2:
+                    case 4:
+                    case 7:
+                    case 11:
+                        return "2G";
+                    case 3:
+                    case 5:
+                    case 6:
+                    case 8:
+                    case 9:
+                    case 10:
+                    case 12:
+                    case 14:
+                    case 15:
+                        return "3G";
+                    case 13:
+                        return "4G";
+                    default:
+                        return "unknown";
+                }
+            }
+            return "5G";
         }
         return (String) invokeV.objValue;
     }
@@ -411,39 +550,49 @@ public class NetWorkUtils {
         if (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) {
             String networkClass = getNetworkClass();
             int hashCode = networkClass.hashCode();
-            if (hashCode == -840472412) {
+            if (hashCode != -840472412) {
+                if (hashCode != 1653) {
+                    if (hashCode != 1684) {
+                        if (hashCode != 1715) {
+                            if (hashCode != 1746) {
+                                if (hashCode != 3521) {
+                                    if (hashCode == 3649301 && networkClass.equals("wifi")) {
+                                        c = 4;
+                                    }
+                                    c = 65535;
+                                } else {
+                                    if (networkClass.equals("no")) {
+                                        c = 5;
+                                    }
+                                    c = 65535;
+                                }
+                            } else {
+                                if (networkClass.equals("5g")) {
+                                    c = 3;
+                                }
+                                c = 65535;
+                            }
+                        } else {
+                            if (networkClass.equals("4g")) {
+                                c = 2;
+                            }
+                            c = 65535;
+                        }
+                    } else {
+                        if (networkClass.equals("3g")) {
+                            c = 1;
+                        }
+                        c = 65535;
+                    }
+                } else {
+                    if (networkClass.equals("2g")) {
+                        c = 0;
+                    }
+                    c = 65535;
+                }
+            } else {
                 if (networkClass.equals("unknow")) {
                     c = 6;
-                }
-                c = 65535;
-            } else if (hashCode == 1653) {
-                if (networkClass.equals("2g")) {
-                    c = 0;
-                }
-                c = 65535;
-            } else if (hashCode == 1684) {
-                if (networkClass.equals("3g")) {
-                    c = 1;
-                }
-                c = 65535;
-            } else if (hashCode == 1715) {
-                if (networkClass.equals("4g")) {
-                    c = 2;
-                }
-                c = 65535;
-            } else if (hashCode == 1746) {
-                if (networkClass.equals("5g")) {
-                    c = 3;
-                }
-                c = 65535;
-            } else if (hashCode != 3521) {
-                if (hashCode == 3649301 && networkClass.equals("wifi")) {
-                    c = 4;
-                }
-                c = 65535;
-            } else {
-                if (networkClass.equals("no")) {
-                    c = 5;
                 }
                 c = 65535;
             }
@@ -470,69 +619,16 @@ public class NetWorkUtils {
         return (NetType) invokeV.objValue;
     }
 
-    public static String getWifiInfo() {
-        InterceptResult invokeV;
+    public static InetAddress intToInetAddress(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
-            WifiInfo connectionInfo = ((WifiManager) AppRuntime.getAppContext().getApplicationContext().getSystemService("wifi")).getConnectionInfo();
-            return connectionInfo == null ? "NULL" : connectionInfo.toString();
+        if (interceptable == null || (invokeI = interceptable.invokeI(65558, null, i)) == null) {
+            try {
+                return InetAddress.getByAddress(new byte[]{(byte) (i & 255), (byte) ((i >> 8) & 255), (byte) ((i >> 16) & 255), (byte) ((i >> 24) & 255)});
+            } catch (UnknownHostException unused) {
+                throw new AssertionError();
+            }
         }
-        return (String) invokeV.objValue;
-    }
-
-    public static String getWifiName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) {
-            WifiInfo connectionInfo = ((WifiManager) AppRuntime.getAppContext().getApplicationContext().getSystemService("wifi")).getConnectionInfo();
-            return connectionInfo == null ? "NULL" : connectionInfo.getSSID();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean isHighNetworkConnected() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) {
-            String networkClass = getNetworkClass();
-            return "wifi".equals(networkClass) || "5g".equals(networkClass) || "4g".equals(networkClass) || "3g".equals(networkClass);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean isMobileNetworkConnected() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65561, null)) == null) {
-            NetworkInfo activeNetworkInfo = getActiveNetworkInfo();
-            return activeNetworkInfo != null && activeNetworkInfo.isAvailable() && activeNetworkInfo.getType() == 0;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean isNetworkConnected() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65563, null)) == null) {
-            NetworkInfo activeNetworkInfo = getActiveNetworkInfo();
-            return activeNetworkInfo != null && activeNetworkInfo.isConnectedOrConnecting();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean isWapNetWorkConnected() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65565, null)) == null) ? new ConnectManager(AppRuntime.getAppContext().getApplicationContext()).isWapNetwork() : invokeV.booleanValue;
-    }
-
-    public static boolean isWifiNetworkConnected() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65567, null)) == null) {
-            NetworkInfo activeNetworkInfo = getActiveNetworkInfo();
-            return activeNetworkInfo != null && activeNetworkInfo.isAvailable() && activeNetworkInfo.getType() == 1;
-        }
-        return invokeV.booleanValue;
+        return (InetAddress) invokeI.objValue;
     }
 }

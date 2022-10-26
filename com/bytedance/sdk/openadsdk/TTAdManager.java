@@ -12,7 +12,7 @@ public interface TTAdManager {
 
     String getBiddingToken(AdSlot adSlot, boolean z, int i);
 
-    <T> T getExtra(Class<T> cls, Bundle bundle);
+    Object getExtra(Class cls, Bundle bundle);
 
     String getPluginVersion();
 

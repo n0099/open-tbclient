@@ -12,8 +12,6 @@ import android.graphics.drawable.InsetDrawable;
 import android.graphics.drawable.RippleDrawable;
 import android.os.Build;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +20,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
-@RequiresApi(21)
 /* loaded from: classes.dex */
 public class WrappedDrawableApi21 extends WrappedDrawableApi14 {
     public static /* synthetic */ Interceptable $ic = null;
@@ -51,6 +48,28 @@ public class WrappedDrawableApi21 extends WrappedDrawableApi14 {
         findAndCacheIsProjectedDrawableMethod();
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public WrappedDrawableApi21(WrappedDrawableState wrappedDrawableState, Resources resources) {
+        super(wrappedDrawableState, resources);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {wrappedDrawableState, resources};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((WrappedDrawableState) objArr2[0], (Resources) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        findAndCacheIsProjectedDrawableMethod();
+    }
+
     private void findAndCacheIsProjectedDrawableMethod() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65538, this) == null) && sIsProjectedDrawableMethod == null) {
@@ -63,19 +82,13 @@ public class WrappedDrawableApi21 extends WrappedDrawableApi14 {
     }
 
     @Override // android.graphics.drawable.Drawable
-    @NonNull
     public Rect getDirtyBounds() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mDrawable.getDirtyBounds() : (Rect) invokeV.objValue;
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void getOutline(@NonNull Outline outline) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, outline) == null) {
-            this.mDrawable.getOutline(outline);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mDrawable.getDirtyBounds();
         }
+        return (Rect) invokeV.objValue;
     }
 
     @Override // androidx.core.graphics.drawable.WrappedDrawableApi14
@@ -83,11 +96,14 @@ public class WrappedDrawableApi21 extends WrappedDrawableApi14 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (Build.VERSION.SDK_INT == 21) {
-                Drawable drawable = this.mDrawable;
-                return (drawable instanceof GradientDrawable) || (drawable instanceof DrawableContainer) || (drawable instanceof InsetDrawable) || (drawable instanceof RippleDrawable);
+            if (Build.VERSION.SDK_INT != 21) {
+                return false;
             }
-            return false;
+            Drawable drawable = this.mDrawable;
+            if (!(drawable instanceof GradientDrawable) && !(drawable instanceof DrawableContainer) && !(drawable instanceof InsetDrawable) && !(drawable instanceof RippleDrawable)) {
+                return false;
+            }
+            return true;
         }
         return invokeV.booleanValue;
     }
@@ -112,23 +128,15 @@ public class WrappedDrawableApi21 extends WrappedDrawableApi14 {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setHotspot(float f, float f2) {
+    public void getOutline(Outline outline) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
-            this.mDrawable.setHotspot(f, f2);
-        }
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void setHotspotBounds(int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048581, this, i, i2, i3, i4) == null) {
-            this.mDrawable.setHotspotBounds(i, i2, i3, i4);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, outline) == null) {
+            this.mDrawable.getOutline(outline);
         }
     }
 
     @Override // androidx.core.graphics.drawable.WrappedDrawableApi14, android.graphics.drawable.Drawable
-    public boolean setState(@NonNull int[] iArr) {
+    public boolean setState(int[] iArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, iArr)) == null) {
@@ -166,7 +174,7 @@ public class WrappedDrawableApi21 extends WrappedDrawableApi14 {
     }
 
     @Override // androidx.core.graphics.drawable.WrappedDrawableApi14, android.graphics.drawable.Drawable, androidx.core.graphics.drawable.TintAwareDrawable
-    public void setTintMode(@NonNull PorterDuff.Mode mode) {
+    public void setTintMode(PorterDuff.Mode mode) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, mode) == null) {
             if (isCompatTintEnabled()) {
@@ -177,25 +185,19 @@ public class WrappedDrawableApi21 extends WrappedDrawableApi14 {
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public WrappedDrawableApi21(WrappedDrawableState wrappedDrawableState, Resources resources) {
-        super(wrappedDrawableState, resources);
+    @Override // android.graphics.drawable.Drawable
+    public void setHotspot(float f, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {wrappedDrawableState, resources};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((WrappedDrawableState) objArr2[0], (Resources) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            this.mDrawable.setHotspot(f, f2);
         }
-        findAndCacheIsProjectedDrawableMethod();
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public void setHotspotBounds(int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(1048581, this, i, i2, i3, i4) == null) {
+            this.mDrawable.setHotspotBounds(i, i2, i3, i4);
+        }
     }
 }

@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -100,7 +99,7 @@ public class KsLogoView extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public KsLogoView(Context context, @Nullable AttributeSet attributeSet) {
+    public KsLogoView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -165,7 +164,7 @@ public class KsLogoView extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public KsLogoView(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public KsLogoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -291,7 +290,7 @@ public class KsLogoView extends LinearLayout {
             }
         };
         if (z) {
-            setBackgroundResource(R.drawable.obfuscated_res_0x7f080c86);
+            setBackgroundResource(R.drawable.obfuscated_res_0x7f080c96);
         }
         init(context);
     }
@@ -301,17 +300,17 @@ public class KsLogoView extends LinearLayout {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, this, context) == null) {
-            LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0440, this);
-            this.Py = (TextView) findViewById(R.id.obfuscated_res_0x7f091102);
-            this.Pz = (ImageView) findViewById(R.id.obfuscated_res_0x7f091101);
+            LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d043d, this);
+            this.Py = (TextView) findViewById(R.id.obfuscated_res_0x7f0910f6);
+            this.Pz = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910f5);
             boolean z = getBackground() == null;
             this.Px = z;
             if (z) {
-                this.Pz.setImageDrawable(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c3d));
+                this.Pz.setImageDrawable(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c4d));
                 textView = this.Py;
                 i = -6513508;
             } else {
-                this.Pz.setImageDrawable(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c3e));
+                this.Pz.setImageDrawable(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c4e));
                 textView = this.Py;
                 i = -1711276033;
             }
@@ -323,14 +322,14 @@ public class KsLogoView extends LinearLayout {
     public void qg() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            this.Pz.setImageDrawable(getContext().getResources().getDrawable(this.Px ? R.drawable.obfuscated_res_0x7f080c3d : R.drawable.obfuscated_res_0x7f080c3e));
+            this.Pz.setImageDrawable(getContext().getResources().getDrawable(this.Px ? R.drawable.obfuscated_res_0x7f080c4d : R.drawable.obfuscated_res_0x7f080c4e));
         }
     }
 
     public final void T(AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, adTemplate) == null) {
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091100);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f0910f4);
             AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(adTemplate);
             String str = this.Px ? bQ.adBaseInfo.adGrayMarkIcon : bQ.adBaseInfo.adMarkIcon;
             if (TextUtils.isEmpty(str) && TextUtils.isEmpty(bQ.adBaseInfo.adSourceDescription)) {

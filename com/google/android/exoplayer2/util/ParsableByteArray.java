@@ -1,6 +1,7 @@
 package com.google.android.exoplayer2.util;
 
 import androidx.core.view.InputDeviceCompat;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -34,7 +35,10 @@ public final class ParsableByteArray {
     public int bytesLeft() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.limit - this.position : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.limit - this.position;
+        }
+        return invokeV.intValue;
     }
 
     public int capacity() {
@@ -53,13 +57,19 @@ public final class ParsableByteArray {
     public int getPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.position : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.position;
+        }
+        return invokeV.intValue;
     }
 
     public int limit() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.limit : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.limit;
+        }
+        return invokeV.intValue;
     }
 
     public char peekChar() {
@@ -76,7 +86,234 @@ public final class ParsableByteArray {
     public int peekUnsignedByte() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.data[this.position] & 255 : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.data[this.position] & 255;
+        }
+        return invokeV.intValue;
+    }
+
+    public double readDouble() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return Double.longBitsToDouble(readLong());
+        }
+        return invokeV.doubleValue;
+    }
+
+    public float readFloat() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return Float.intBitsToFloat(readInt());
+        }
+        return invokeV.floatValue;
+    }
+
+    public short readLittleEndianShort() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            byte[] bArr = this.data;
+            int i = this.position;
+            int i2 = i + 1;
+            this.position = i2;
+            this.position = i2 + 1;
+            return (short) (((bArr[i2] & 255) << 8) | (bArr[i] & 255));
+        }
+        return invokeV.shortValue;
+    }
+
+    public int readLittleEndianUnsignedIntToInt() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            int readLittleEndianInt = readLittleEndianInt();
+            if (readLittleEndianInt >= 0) {
+                return readLittleEndianInt;
+            }
+            throw new IllegalStateException("Top bit not zero: " + readLittleEndianInt);
+        }
+        return invokeV.intValue;
+    }
+
+    public int readLittleEndianUnsignedShort() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            byte[] bArr = this.data;
+            int i = this.position;
+            int i2 = i + 1;
+            this.position = i2;
+            this.position = i2 + 1;
+            return ((bArr[i2] & 255) << 8) | (bArr[i] & 255);
+        }
+        return invokeV.intValue;
+    }
+
+    public short readShort() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            byte[] bArr = this.data;
+            int i = this.position;
+            int i2 = i + 1;
+            this.position = i2;
+            this.position = i2 + 1;
+            return (short) ((bArr[i2] & 255) | ((bArr[i] & 255) << 8));
+        }
+        return invokeV.shortValue;
+    }
+
+    public int readSynchSafeInt() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+            return (readUnsignedByte() << 21) | (readUnsignedByte() << 14) | (readUnsignedByte() << 7) | readUnsignedByte();
+        }
+        return invokeV.intValue;
+    }
+
+    public int readUnsignedByte() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+            byte[] bArr = this.data;
+            int i = this.position;
+            this.position = i + 1;
+            return bArr[i] & 255;
+        }
+        return invokeV.intValue;
+    }
+
+    public int readUnsignedFixedPoint1616() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+            byte[] bArr = this.data;
+            int i = this.position;
+            int i2 = i + 1;
+            this.position = i2;
+            int i3 = i2 + 1;
+            this.position = i3;
+            int i4 = (bArr[i2] & 255) | ((bArr[i] & 255) << 8);
+            this.position = i3 + 2;
+            return i4;
+        }
+        return invokeV.intValue;
+    }
+
+    public int readUnsignedIntToInt() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
+            int readInt = readInt();
+            if (readInt >= 0) {
+                return readInt;
+            }
+            throw new IllegalStateException("Top bit not zero: " + readInt);
+        }
+        return invokeV.intValue;
+    }
+
+    public int readUnsignedShort() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
+            byte[] bArr = this.data;
+            int i = this.position;
+            int i2 = i + 1;
+            this.position = i2;
+            this.position = i2 + 1;
+            return (bArr[i2] & 255) | ((bArr[i] & 255) << 8);
+        }
+        return invokeV.intValue;
+    }
+
+    public void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048613, this) == null) {
+            this.position = 0;
+            this.limit = 0;
+        }
+    }
+
+    public ParsableByteArray(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.data = new byte[i];
+        this.limit = i;
+    }
+
+    public String readNullTerminatedString(int i) {
+        InterceptResult invokeI;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i)) == null) {
+            if (i == 0) {
+                return "";
+            }
+            int i3 = (this.position + i) - 1;
+            if (i3 < this.limit && this.data[i3] == 0) {
+                i2 = i - 1;
+            } else {
+                i2 = i;
+            }
+            String str = new String(this.data, this.position, i2);
+            this.position += i;
+            return str;
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public ParsableByteArray(byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bArr};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.data = bArr;
+        this.limit = bArr.length;
+    }
+
+    public ParsableByteArray(byte[] bArr, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bArr, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.data = bArr;
+        this.limit = i;
     }
 
     public void readBytes(ParsableBitArray parsableBitArray, int i) {
@@ -87,16 +324,40 @@ public final class ParsableByteArray {
         }
     }
 
-    public double readDouble() {
-        InterceptResult invokeV;
+    public String readString(int i, Charset charset) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? Double.longBitsToDouble(readLong()) : invokeV.doubleValue;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048603, this, i, charset)) == null) {
+            String str = new String(this.data, this.position, i, charset);
+            this.position += i;
+            return str;
+        }
+        return (String) invokeIL.objValue;
     }
 
-    public float readFloat() {
-        InterceptResult invokeV;
+    public void reset(byte[] bArr, int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? Float.intBitsToFloat(readInt()) : invokeV.floatValue;
+        if (interceptable == null || interceptable.invokeLI(1048615, this, bArr, i) == null) {
+            this.data = bArr;
+            this.limit = i;
+            this.position = 0;
+        }
+    }
+
+    public void readBytes(ByteBuffer byteBuffer, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048583, this, byteBuffer, i) == null) {
+            byteBuffer.put(this.data, this.position, i);
+            this.position += i;
+        }
+    }
+
+    public void readBytes(byte[] bArr, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, bArr, i, i2) == null) {
+            System.arraycopy(this.data, this.position, bArr, i, i2);
+            this.position += i2;
+        }
     }
 
     public int readInt() {
@@ -134,6 +395,113 @@ public final class ParsableByteArray {
             return (bArr[i3] & 255) | i4;
         }
         return invokeV.intValue;
+    }
+
+    public int readLittleEndianInt() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            byte[] bArr = this.data;
+            int i = this.position;
+            int i2 = i + 1;
+            this.position = i2;
+            int i3 = i2 + 1;
+            this.position = i3;
+            int i4 = (bArr[i] & 255) | ((bArr[i2] & 255) << 8);
+            int i5 = i3 + 1;
+            this.position = i5;
+            int i6 = i4 | ((bArr[i3] & 255) << 16);
+            this.position = i5 + 1;
+            return ((bArr[i5] & 255) << 24) | i6;
+        }
+        return invokeV.intValue;
+    }
+
+    public int readLittleEndianInt24() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            byte[] bArr = this.data;
+            int i = this.position;
+            int i2 = i + 1;
+            this.position = i2;
+            int i3 = i2 + 1;
+            this.position = i3;
+            int i4 = (bArr[i] & 255) | ((bArr[i2] & 255) << 8);
+            this.position = i3 + 1;
+            return ((bArr[i3] & 255) << 16) | i4;
+        }
+        return invokeV.intValue;
+    }
+
+    public int readLittleEndianUnsignedInt24() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            byte[] bArr = this.data;
+            int i = this.position;
+            int i2 = i + 1;
+            this.position = i2;
+            int i3 = i2 + 1;
+            this.position = i3;
+            int i4 = (bArr[i] & 255) | ((bArr[i2] & 255) << 8);
+            this.position = i3 + 1;
+            return ((bArr[i3] & 255) << 16) | i4;
+        }
+        return invokeV.intValue;
+    }
+
+    public String readNullTerminatedString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            if (bytesLeft() == 0) {
+                return null;
+            }
+            int i = this.position;
+            while (i < this.limit && this.data[i] != 0) {
+                i++;
+            }
+            byte[] bArr = this.data;
+            int i2 = this.position;
+            String str = new String(bArr, i2, i - i2);
+            this.position = i;
+            if (i < this.limit) {
+                this.position = i + 1;
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int readUnsignedInt24() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
+            byte[] bArr = this.data;
+            int i = this.position;
+            int i2 = i + 1;
+            this.position = i2;
+            int i3 = i2 + 1;
+            this.position = i3;
+            int i4 = ((bArr[i] & 255) << 16) | ((bArr[i2] & 255) << 8);
+            this.position = i3 + 1;
+            return (bArr[i3] & 255) | i4;
+        }
+        return invokeV.intValue;
+    }
+
+    public long readUnsignedLongToLong() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
+            long readLong = readLong();
+            if (readLong >= 0) {
+                return readLong;
+            }
+            throw new IllegalStateException("Top bit not zero: " + readLong);
+        }
+        return invokeV.longValue;
     }
 
     public String readLine() {
@@ -179,43 +547,6 @@ public final class ParsableByteArray {
         return (String) invokeV.objValue;
     }
 
-    public int readLittleEndianInt() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            byte[] bArr = this.data;
-            int i = this.position;
-            int i2 = i + 1;
-            this.position = i2;
-            int i3 = i2 + 1;
-            this.position = i3;
-            int i4 = (bArr[i] & 255) | ((bArr[i2] & 255) << 8);
-            int i5 = i3 + 1;
-            this.position = i5;
-            int i6 = i4 | ((bArr[i3] & 255) << 16);
-            this.position = i5 + 1;
-            return ((bArr[i5] & 255) << 24) | i6;
-        }
-        return invokeV.intValue;
-    }
-
-    public int readLittleEndianInt24() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            byte[] bArr = this.data;
-            int i = this.position;
-            int i2 = i + 1;
-            this.position = i2;
-            int i3 = i2 + 1;
-            this.position = i3;
-            int i4 = (bArr[i] & 255) | ((bArr[i2] & 255) << 8);
-            this.position = i3 + 1;
-            return ((bArr[i3] & 255) << 16) | i4;
-        }
-        return invokeV.intValue;
-    }
-
     public long readLittleEndianLong() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -240,82 +571,6 @@ public final class ParsableByteArray {
             return (bArr[i] & 255) | ((bArr[i2] & 255) << 8) | ((bArr[i3] & 255) << 16) | ((bArr[i4] & 255) << 24) | ((bArr[i5] & 255) << 32) | ((bArr[i6] & 255) << 40) | ((bArr[i7] & 255) << 48) | ((bArr[i8] & 255) << 56);
         }
         return invokeV.longValue;
-    }
-
-    public short readLittleEndianShort() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            byte[] bArr = this.data;
-            int i = this.position;
-            int i2 = i + 1;
-            this.position = i2;
-            this.position = i2 + 1;
-            return (short) (((bArr[i2] & 255) << 8) | (bArr[i] & 255));
-        }
-        return invokeV.shortValue;
-    }
-
-    public long readLittleEndianUnsignedInt() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            byte[] bArr = this.data;
-            int i = this.position;
-            int i2 = i + 1;
-            this.position = i2;
-            int i3 = i2 + 1;
-            this.position = i3;
-            int i4 = i3 + 1;
-            this.position = i4;
-            this.position = i4 + 1;
-            return (bArr[i] & 255) | ((bArr[i2] & 255) << 8) | ((bArr[i3] & 255) << 16) | ((bArr[i4] & 255) << 24);
-        }
-        return invokeV.longValue;
-    }
-
-    public int readLittleEndianUnsignedInt24() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            byte[] bArr = this.data;
-            int i = this.position;
-            int i2 = i + 1;
-            this.position = i2;
-            int i3 = i2 + 1;
-            this.position = i3;
-            int i4 = (bArr[i] & 255) | ((bArr[i2] & 255) << 8);
-            this.position = i3 + 1;
-            return ((bArr[i3] & 255) << 16) | i4;
-        }
-        return invokeV.intValue;
-    }
-
-    public int readLittleEndianUnsignedIntToInt() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            int readLittleEndianInt = readLittleEndianInt();
-            if (readLittleEndianInt >= 0) {
-                return readLittleEndianInt;
-            }
-            throw new IllegalStateException("Top bit not zero: " + readLittleEndianInt);
-        }
-        return invokeV.intValue;
-    }
-
-    public int readLittleEndianUnsignedShort() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            byte[] bArr = this.data;
-            int i = this.position;
-            int i2 = i + 1;
-            this.position = i2;
-            this.position = i2 + 1;
-            return ((bArr[i2] & 255) << 8) | (bArr[i] & 255);
-        }
-        return invokeV.intValue;
     }
 
     public long readLong() {
@@ -344,151 +599,6 @@ public final class ParsableByteArray {
         return invokeV.longValue;
     }
 
-    public String readNullTerminatedString(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i)) == null) {
-            if (i == 0) {
-                return "";
-            }
-            int i2 = (this.position + i) - 1;
-            String str = new String(this.data, this.position, (i2 >= this.limit || this.data[i2] != 0) ? i : i - 1);
-            this.position += i;
-            return str;
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public short readShort() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            byte[] bArr = this.data;
-            int i = this.position;
-            int i2 = i + 1;
-            this.position = i2;
-            this.position = i2 + 1;
-            return (short) ((bArr[i2] & 255) | ((bArr[i] & 255) << 8));
-        }
-        return invokeV.shortValue;
-    }
-
-    public String readString(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048602, this, i)) == null) ? readString(i, Charset.forName("UTF-8")) : (String) invokeI.objValue;
-    }
-
-    public int readSynchSafeInt() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? (readUnsignedByte() << 21) | (readUnsignedByte() << 14) | (readUnsignedByte() << 7) | readUnsignedByte() : invokeV.intValue;
-    }
-
-    public int readUnsignedByte() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
-            byte[] bArr = this.data;
-            int i = this.position;
-            this.position = i + 1;
-            return bArr[i] & 255;
-        }
-        return invokeV.intValue;
-    }
-
-    public int readUnsignedFixedPoint1616() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
-            byte[] bArr = this.data;
-            int i = this.position;
-            int i2 = i + 1;
-            this.position = i2;
-            int i3 = i2 + 1;
-            this.position = i3;
-            int i4 = (bArr[i2] & 255) | ((bArr[i] & 255) << 8);
-            this.position = i3 + 2;
-            return i4;
-        }
-        return invokeV.intValue;
-    }
-
-    public long readUnsignedInt() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
-            byte[] bArr = this.data;
-            int i = this.position;
-            int i2 = i + 1;
-            this.position = i2;
-            int i3 = i2 + 1;
-            this.position = i3;
-            int i4 = i3 + 1;
-            this.position = i4;
-            this.position = i4 + 1;
-            return ((bArr[i] & 255) << 24) | ((bArr[i2] & 255) << 16) | ((bArr[i3] & 255) << 8) | (bArr[i4] & 255);
-        }
-        return invokeV.longValue;
-    }
-
-    public int readUnsignedInt24() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
-            byte[] bArr = this.data;
-            int i = this.position;
-            int i2 = i + 1;
-            this.position = i2;
-            int i3 = i2 + 1;
-            this.position = i3;
-            int i4 = ((bArr[i] & 255) << 16) | ((bArr[i2] & 255) << 8);
-            this.position = i3 + 1;
-            return (bArr[i3] & 255) | i4;
-        }
-        return invokeV.intValue;
-    }
-
-    public int readUnsignedIntToInt() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
-            int readInt = readInt();
-            if (readInt >= 0) {
-                return readInt;
-            }
-            throw new IllegalStateException("Top bit not zero: " + readInt);
-        }
-        return invokeV.intValue;
-    }
-
-    public long readUnsignedLongToLong() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
-            long readLong = readLong();
-            if (readLong >= 0) {
-                return readLong;
-            }
-            throw new IllegalStateException("Top bit not zero: " + readLong);
-        }
-        return invokeV.longValue;
-    }
-
-    public int readUnsignedShort() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
-            byte[] bArr = this.data;
-            int i = this.position;
-            int i2 = i + 1;
-            this.position = i2;
-            this.position = i2 + 1;
-            return (bArr[i2] & 255) | ((bArr[i] & 255) << 8);
-        }
-        return invokeV.intValue;
-    }
-
     public long readUtf8EncodedLong() {
         InterceptResult invokeV;
         int i;
@@ -515,10 +625,11 @@ public final class ParsableByteArray {
             i2 = 0;
             if (i2 != 0) {
                 for (i = 1; i < i2; i++) {
-                    if ((this.data[this.position + i] & 192) != 128) {
+                    if ((this.data[this.position + i] & ExifInterface.MARKER_SOF0) == 128) {
+                        j = (j << 6) | (b & 63);
+                    } else {
                         throw new NumberFormatException("Invalid UTF-8 sequence continuation byte: " + j);
                     }
-                    j = (j << 6) | (b & 63);
                 }
                 this.position += i2;
                 return j;
@@ -528,25 +639,88 @@ public final class ParsableByteArray {
         return invokeV.longValue;
     }
 
+    public long readLittleEndianUnsignedInt() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            byte[] bArr = this.data;
+            int i = this.position;
+            int i2 = i + 1;
+            this.position = i2;
+            int i3 = i2 + 1;
+            this.position = i3;
+            int i4 = i3 + 1;
+            this.position = i4;
+            this.position = i4 + 1;
+            return (bArr[i] & 255) | ((bArr[i2] & 255) << 8) | ((bArr[i3] & 255) << 16) | ((bArr[i4] & 255) << 24);
+        }
+        return invokeV.longValue;
+    }
+
+    public long readUnsignedInt() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
+            byte[] bArr = this.data;
+            int i = this.position;
+            int i2 = i + 1;
+            this.position = i2;
+            int i3 = i2 + 1;
+            this.position = i3;
+            int i4 = i3 + 1;
+            this.position = i4;
+            this.position = i4 + 1;
+            return ((bArr[i] & 255) << 24) | ((bArr[i2] & 255) << 16) | ((bArr[i3] & 255) << 8) | (bArr[i4] & 255);
+        }
+        return invokeV.longValue;
+    }
+
+    public String readString(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048602, this, i)) == null) {
+            return readString(i, Charset.forName("UTF-8"));
+        }
+        return (String) invokeI.objValue;
+    }
+
     public void reset(int i) {
+        byte[] bArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048614, this, i) == null) {
-            reset(capacity() < i ? new byte[i] : this.data, i);
+            if (capacity() < i) {
+                bArr = new byte[i];
+            } else {
+                bArr = this.data;
+            }
+            reset(bArr, i);
         }
     }
 
     public void setLimit(int i) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048616, this, i) == null) {
-            Assertions.checkArgument(i >= 0 && i <= this.data.length);
+            if (i >= 0 && i <= this.data.length) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Assertions.checkArgument(z);
             this.limit = i;
         }
     }
 
     public void setPosition(int i) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048617, this, i) == null) {
-            Assertions.checkArgument(i >= 0 && i <= this.limit);
+            if (i >= 0 && i <= this.limit) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Assertions.checkArgument(z);
             this.position = i;
         }
     }
@@ -556,129 +730,5 @@ public final class ParsableByteArray {
         if (interceptable == null || interceptable.invokeI(1048618, this, i) == null) {
             setPosition(this.position + i);
         }
-    }
-
-    public ParsableByteArray(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.data = new byte[i];
-        this.limit = i;
-    }
-
-    public String readString(int i, Charset charset) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048603, this, i, charset)) == null) {
-            String str = new String(this.data, this.position, i, charset);
-            this.position += i;
-            return str;
-        }
-        return (String) invokeIL.objValue;
-    }
-
-    public void reset(byte[] bArr, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048615, this, bArr, i) == null) {
-            this.data = bArr;
-            this.limit = i;
-            this.position = 0;
-        }
-    }
-
-    public void readBytes(byte[] bArr, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, bArr, i, i2) == null) {
-            System.arraycopy(this.data, this.position, bArr, i, i2);
-            this.position += i2;
-        }
-    }
-
-    public ParsableByteArray(byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bArr};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.data = bArr;
-        this.limit = bArr.length;
-    }
-
-    public void readBytes(ByteBuffer byteBuffer, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048583, this, byteBuffer, i) == null) {
-            byteBuffer.put(this.data, this.position, i);
-            this.position += i;
-        }
-    }
-
-    public String readNullTerminatedString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            if (bytesLeft() == 0) {
-                return null;
-            }
-            int i = this.position;
-            while (i < this.limit && this.data[i] != 0) {
-                i++;
-            }
-            byte[] bArr = this.data;
-            int i2 = this.position;
-            String str = new String(bArr, i2, i - i2);
-            this.position = i;
-            if (i < this.limit) {
-                this.position = i + 1;
-            }
-            return str;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048613, this) == null) {
-            this.position = 0;
-            this.limit = 0;
-        }
-    }
-
-    public ParsableByteArray(byte[] bArr, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bArr, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        this.data = bArr;
-        this.limit = i;
     }
 }

@@ -9,8 +9,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Flowable;
 import io.reactivex.FlowableSubscriber;
-import io.reactivex.annotations.NonNull;
-import io.reactivex.annotations.Nullable;
 import io.reactivex.exceptions.Exceptions;
 import io.reactivex.functions.Function;
 import io.reactivex.internal.functions.ObjectHelper;
@@ -29,17 +27,15 @@ import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableWithLatestFromMany<T, R> extends AbstractFlowableWithUpstream<T, R> {
+public final class FlowableWithLatestFromMany extends AbstractFlowableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Function<? super Object[], R> combiner;
-    @Nullable
-    public final Publisher<?>[] otherArray;
-    @Nullable
-    public final Iterable<? extends Publisher<?>> otherIterable;
+    public final Function combiner;
+    public final Publisher[] otherArray;
+    public final Iterable otherIterable;
 
     /* loaded from: classes8.dex */
-    public final class SingletonArrayFunc implements Function<T, R> {
+    public final class SingletonArrayFunc implements Function {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FlowableWithLatestFromMany this$0;
@@ -62,30 +58,32 @@ public final class FlowableWithLatestFromMany<T, R> extends AbstractFlowableWith
             this.this$0 = flowableWithLatestFromMany;
         }
 
-        /* JADX WARN: Type inference failed for: r1v2, types: [java.lang.Object[], java.lang.Object] */
         @Override // io.reactivex.functions.Function
-        public R apply(T t) throws Exception {
+        public Object apply(Object obj) throws Exception {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) ? (R) ObjectHelper.requireNonNull(this.this$0.combiner.apply(new Object[]{t}), "The combiner returned a null value") : (R) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+                return ObjectHelper.requireNonNull(this.this$0.combiner.apply(new Object[]{obj}), "The combiner returned a null value");
+            }
+            return invokeL.objValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public static final class WithLatestFromSubscriber<T, R> extends AtomicInteger implements ConditionalSubscriber<T>, Subscription {
+    public final class WithLatestFromSubscriber extends AtomicInteger implements ConditionalSubscriber, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1577321883966341961L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber<? super R> actual;
-        public final Function<? super Object[], R> combiner;
+        public final Subscriber actual;
+        public final Function combiner;
         public volatile boolean done;
         public final AtomicThrowable error;
         public final AtomicLong requested;
-        public final AtomicReference<Subscription> s;
+        public final AtomicReference s;
         public final WithLatestInnerSubscriber[] subscribers;
-        public final AtomicReferenceArray<Object> values;
+        public final AtomicReferenceArray values;
 
-        public WithLatestFromSubscriber(Subscriber<? super R> subscriber, Function<? super Object[], R> function, int i) {
+        public WithLatestFromSubscriber(Subscriber subscriber, Function function, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -107,8 +105,8 @@ public final class FlowableWithLatestFromMany<T, R> extends AbstractFlowableWith
                 withLatestInnerSubscriberArr[i4] = new WithLatestInnerSubscriber(this, i4);
             }
             this.subscribers = withLatestInnerSubscriberArr;
-            this.values = new AtomicReferenceArray<>(i);
-            this.s = new AtomicReference<>();
+            this.values = new AtomicReferenceArray(i);
+            this.s = new AtomicReference();
             this.requested = new AtomicLong();
             this.error = new AtomicThrowable();
         }
@@ -124,6 +122,16 @@ public final class FlowableWithLatestFromMany<T, R> extends AbstractFlowableWith
             }
         }
 
+        @Override // org.reactivestreams.Subscriber
+        public void onComplete() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && !this.done) {
+                this.done = true;
+                cancelAllBut(-1);
+                HalfSerializer.onComplete(this.actual, this, this.error);
+            }
+        }
+
         public void cancelAllBut(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
@@ -136,15 +144,52 @@ public final class FlowableWithLatestFromMany<T, R> extends AbstractFlowableWith
             }
         }
 
+        @Override // org.reactivestreams.Subscriber
+        public void onError(Throwable th) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, th) == null) {
+                if (this.done) {
+                    RxJavaPlugins.onError(th);
+                    return;
+                }
+                this.done = true;
+                cancelAllBut(-1);
+                HalfSerializer.onError(this.actual, th, this, this.error);
+            }
+        }
+
+        @Override // org.reactivestreams.Subscriber
+        public void onNext(Object obj) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048583, this, obj) == null) && !tryOnNext(obj) && !this.done) {
+                ((Subscription) this.s.get()).request(1L);
+            }
+        }
+
+        @Override // io.reactivex.FlowableSubscriber, org.reactivestreams.Subscriber
+        public void onSubscribe(Subscription subscription) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, subscription) == null) {
+                SubscriptionHelper.deferredSetOnce(this.s, this.requested, subscription);
+            }
+        }
+
+        @Override // org.reactivestreams.Subscription
+        public void request(long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+                SubscriptionHelper.deferredRequest(this.s, this.requested, j);
+            }
+        }
+
         public void innerComplete(int i, boolean z) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) || z) {
-                return;
+            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) && !z) {
+                this.done = true;
+                SubscriptionHelper.cancel(this.s);
+                cancelAllBut(i);
+                HalfSerializer.onComplete(this.actual, this, this.error);
             }
-            this.done = true;
-            SubscriptionHelper.cancel(this.s);
-            cancelAllBut(i);
-            HalfSerializer.onComplete(this.actual, this, this.error);
         }
 
         public void innerError(int i, Throwable th) {
@@ -164,87 +209,37 @@ public final class FlowableWithLatestFromMany<T, R> extends AbstractFlowableWith
             }
         }
 
-        @Override // org.reactivestreams.Subscriber
-        public void onComplete() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.done) {
-                return;
-            }
-            this.done = true;
-            cancelAllBut(-1);
-            HalfSerializer.onComplete(this.actual, this, this.error);
-        }
-
-        @Override // org.reactivestreams.Subscriber
-        public void onError(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, th) == null) {
-                if (this.done) {
-                    RxJavaPlugins.onError(th);
-                    return;
-                }
-                this.done = true;
-                cancelAllBut(-1);
-                HalfSerializer.onError(this.actual, th, this, this.error);
-            }
-        }
-
-        @Override // org.reactivestreams.Subscriber
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048583, this, t) == null) || tryOnNext(t) || this.done) {
-                return;
-            }
-            this.s.get().request(1L);
-        }
-
-        @Override // io.reactivex.FlowableSubscriber, org.reactivestreams.Subscriber
-        public void onSubscribe(Subscription subscription) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, subscription) == null) {
-                SubscriptionHelper.deferredSetOnce(this.s, this.requested, subscription);
-            }
-        }
-
-        @Override // org.reactivestreams.Subscription
-        public void request(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
-                SubscriptionHelper.deferredRequest(this.s, this.requested, j);
-            }
-        }
-
-        public void subscribe(Publisher<?>[] publisherArr, int i) {
+        public void subscribe(Publisher[] publisherArr, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048586, this, publisherArr, i) == null) {
                 WithLatestInnerSubscriber[] withLatestInnerSubscriberArr = this.subscribers;
-                AtomicReference<Subscription> atomicReference = this.s;
-                for (int i2 = 0; i2 < i && !SubscriptionHelper.isCancelled(atomicReference.get()); i2++) {
+                AtomicReference atomicReference = this.s;
+                for (int i2 = 0; i2 < i && !SubscriptionHelper.isCancelled((Subscription) atomicReference.get()); i2++) {
                     publisherArr[i2].subscribe(withLatestInnerSubscriberArr[i2]);
                 }
             }
         }
 
         @Override // io.reactivex.internal.fuseable.ConditionalSubscriber
-        public boolean tryOnNext(T t) {
+        public boolean tryOnNext(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, t)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, obj)) == null) {
                 if (this.done) {
                     return false;
                 }
-                AtomicReferenceArray<Object> atomicReferenceArray = this.values;
+                AtomicReferenceArray atomicReferenceArray = this.values;
                 int length = atomicReferenceArray.length();
                 Object[] objArr = new Object[length + 1];
-                objArr[0] = t;
+                objArr[0] = obj;
                 int i = 0;
                 while (i < length) {
-                    Object obj = atomicReferenceArray.get(i);
-                    if (obj == null) {
+                    Object obj2 = atomicReferenceArray.get(i);
+                    if (obj2 == null) {
                         return false;
                     }
                     i++;
-                    objArr[i] = obj;
+                    objArr[i] = obj2;
                 }
                 try {
                     HalfSerializer.onNext(this.actual, ObjectHelper.requireNonNull(this.combiner.apply(objArr), "The combiner returned a null value"), this, this.error);
@@ -261,15 +256,15 @@ public final class FlowableWithLatestFromMany<T, R> extends AbstractFlowableWith
     }
 
     /* loaded from: classes8.dex */
-    public static final class WithLatestInnerSubscriber extends AtomicReference<Subscription> implements FlowableSubscriber<Object> {
+    public final class WithLatestInnerSubscriber extends AtomicReference implements FlowableSubscriber {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3256684027868224024L;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean hasValue;
         public final int index;
-        public final WithLatestFromSubscriber<?, ?> parent;
+        public final WithLatestFromSubscriber parent;
 
-        public WithLatestInnerSubscriber(WithLatestFromSubscriber<?, ?> withLatestFromSubscriber, int i) {
+        public WithLatestInnerSubscriber(WithLatestFromSubscriber withLatestFromSubscriber, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -332,7 +327,30 @@ public final class FlowableWithLatestFromMany<T, R> extends AbstractFlowableWith
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableWithLatestFromMany(@NonNull Flowable<T> flowable, @NonNull Publisher<?>[] publisherArr, Function<? super Object[], R> function) {
+    public FlowableWithLatestFromMany(Flowable flowable, Iterable iterable, Function function) {
+        super(flowable);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {flowable, iterable, function};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Flowable) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.otherArray = null;
+        this.otherIterable = iterable;
+        this.combiner = function;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public FlowableWithLatestFromMany(Flowable flowable, Publisher[] publisherArr, Function function) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -355,16 +373,16 @@ public final class FlowableWithLatestFromMany<T, R> extends AbstractFlowableWith
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber<? super R> subscriber) {
+    public void subscribeActual(Subscriber subscriber) {
         int length;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
-            Publisher<?>[] publisherArr = this.otherArray;
+            Publisher[] publisherArr = this.otherArray;
             if (publisherArr == null) {
                 publisherArr = new Publisher[8];
                 try {
                     length = 0;
-                    for (Publisher<?> publisher : this.otherIterable) {
+                    for (Publisher publisher : this.otherIterable) {
                         if (length == publisherArr.length) {
                             publisherArr = (Publisher[]) Arrays.copyOf(publisherArr, (length >> 1) + length);
                         }
@@ -389,28 +407,5 @@ public final class FlowableWithLatestFromMany<T, R> extends AbstractFlowableWith
             withLatestFromSubscriber.subscribe(publisherArr, length);
             this.source.subscribe((FlowableSubscriber) withLatestFromSubscriber);
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableWithLatestFromMany(@NonNull Flowable<T> flowable, @NonNull Iterable<? extends Publisher<?>> iterable, @NonNull Function<? super Object[], R> function) {
-        super(flowable);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {flowable, iterable, function};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Flowable) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.otherArray = null;
-        this.otherIterable = iterable;
-        this.combiner = function;
     }
 }

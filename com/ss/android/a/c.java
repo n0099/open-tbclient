@@ -10,7 +10,7 @@ public class c {
     public static final char[] a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
     /* loaded from: classes8.dex */
-    public static class a {
+    public class a {
         public int a;
         public int b;
         public int c;
@@ -21,91 +21,101 @@ public class c {
         }
     }
 
-    public static String a(File file) {
-        return a(file, 9, (long) PlaybackStateCompat.ACTION_PLAY_FROM_URI);
-    }
-
-    public static String b(File file, int i, long j) throws Exception {
-        return a(new com.ss.android.a.a(file), i, j);
-    }
-
-    public static String a(File file, int i, long j) {
-        if (file != null) {
-            try {
-                if (file.exists()) {
-                    return b(file, i, j);
-                }
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return "";
-            }
-        }
-        return "";
-    }
-
-    public static long b(String str) throws RuntimeException {
-        return (Long.parseLong(str, 16) - 31) >> 4;
-    }
-
     public static int a(String str, File file) {
         return a(str, file, (b) null);
     }
 
     public static int a(String str, File file, b bVar) {
         String b;
-        if (str == null || str.length() == 0) {
-            return 2;
-        }
-        try {
-            if (bVar != null) {
-                if (bVar.a() <= 0) {
-                    try {
-                        bVar.b();
-                    } catch (Throwable unused) {
+        if (str != null && str.length() != 0) {
+            try {
+                if (bVar != null) {
+                    if (bVar.a() <= 0) {
+                        try {
+                            bVar.b();
+                        } catch (Throwable unused) {
+                        }
+                        return 5;
                     }
+                } else if (file == null || !file.exists()) {
                     return 5;
                 }
-            } else if (file == null || !file.exists()) {
-                return 5;
-            }
-            int i = -1;
-            long j = -1;
-            try {
-                a a2 = a(str);
-                if (a2 != null) {
-                    if (a2.a > 1) {
-                        return 3;
-                    }
-                    i = a2.c;
-                    j = a2.d;
-                }
-                a aVar = null;
-                if (bVar != null) {
-                    b = a(bVar, i, j);
-                } else {
-                    b = b(file, i, j);
-                }
-                if (b != null && b.length() != 0) {
-                    if (a2 != null && (a2.a != 1 || a2.b != 1)) {
-                        if (a2.e != null) {
-                            try {
-                                aVar = a(b);
-                            } catch (Throwable unused2) {
-                            }
-                            if (aVar != null && a2.c == aVar.c && a2.d == aVar.d && a2.e.equals(aVar.e)) {
-                                return 0;
-                            }
+                int i = -1;
+                long j = -1;
+                try {
+                    a a2 = a(str);
+                    if (a2 != null) {
+                        if (a2.a <= 1) {
+                            i = a2.c;
+                            j = a2.d;
+                        } else {
+                            return 3;
                         }
                     }
-                    return b.equals(str) ? 0 : 1;
+                    a aVar = null;
+                    if (bVar != null) {
+                        b = a(bVar, i, j);
+                    } else {
+                        b = b(file, i, j);
+                    }
+                    if (b != null && b.length() != 0) {
+                        if (a2 != null && (a2.a != 1 || a2.b != 1)) {
+                            if (a2.e != null) {
+                                try {
+                                    aVar = a(b);
+                                } catch (Throwable unused2) {
+                                }
+                                if (aVar != null && a2.c == aVar.c && a2.d == aVar.d && a2.e.equals(aVar.e)) {
+                                    return 0;
+                                }
+                            }
+                            return 1;
+                        }
+                        if (!b.equals(str)) {
+                            return 1;
+                        }
+                        return 0;
+                    }
+                    return 6;
+                } catch (Throwable unused3) {
+                    return 4;
                 }
-                return 6;
-            } catch (Throwable unused3) {
-                return 4;
+            } catch (Throwable unused4) {
+                return 99;
             }
-        } catch (Throwable unused4) {
-            return 99;
         }
+        return 2;
+    }
+
+    public static a a(String str) throws Exception {
+        if (!str.startsWith("ttmd5:")) {
+            return null;
+        }
+        String[] split = str.split(ParamableElem.DIVIDE_PARAM);
+        String[] split2 = split[0].split(":");
+        a aVar = new a();
+        aVar.a = Integer.parseInt(split2[1]);
+        if (aVar.a <= 1) {
+            aVar.b = Integer.parseInt(split2[2]);
+            String[] split3 = split2[3].split("g");
+            aVar.c = (int) b(split3[0]);
+            aVar.d = b(split3[1]);
+            aVar.e = split[1];
+            return aVar;
+        }
+        return aVar;
+    }
+
+    public static String a(int i, long j) {
+        return "ttmd5:1:1:" + a(i) + "g" + a(j);
+    }
+
+    public static String a(long j) {
+        return Long.toHexString((j << 4) + 31);
+    }
+
+    public static long b(String str) throws RuntimeException {
+        return (Long.parseLong(str, 16) - 31) >> 4;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
@@ -145,12 +155,12 @@ public class c {
                     a(bVar, messageDigest, bArr, a3 - j2, j2);
                 }
                 a2 = a(messageDigest.digest());
-                if (i2 == 1 || j2 != a3) {
-                    String str = a(i2, j2) + ParamableElem.DIVIDE_PARAM + a2;
-                    bVar.b();
-                    return str;
+                if (i2 != 1 && j2 == a3) {
+                    return a2;
                 }
-                return a2;
+                String str = a(i2, j2) + ParamableElem.DIVIDE_PARAM + a2;
+                bVar.b();
+                return str;
             }
             j2 = a3;
             i2 = 1;
@@ -162,7 +172,7 @@ public class c {
             if (i2 > 1) {
             }
             a2 = a(messageDigest.digest());
-            if (i2 == 1) {
+            if (i2 != 1) {
             }
             String str2 = a(i2, j2) + ParamableElem.DIVIDE_PARAM + a2;
             bVar.b();
@@ -175,18 +185,26 @@ public class c {
         }
     }
 
-    public static void a(b bVar, MessageDigest messageDigest, byte[] bArr, long j, long j2) throws IOException {
-        bVar.a(j, j2);
-        long j3 = 0;
-        while (j3 < j2) {
-            int a2 = bVar.a(bArr, 0, (int) Math.min(j2 - j3, bArr.length));
-            if (a2 > 0) {
-                messageDigest.update(bArr, 0, a2);
-                j3 += a2;
-            } else {
-                throw new IOException("updateSample unexpected readCount <= 0, readCount = " + a2 + ", readTotalCount = " + j3 + ", sampleSize = " + j2);
+    public static String a(File file) {
+        return a(file, 9, (long) PlaybackStateCompat.ACTION_PLAY_FROM_URI);
+    }
+
+    public static String a(File file, int i, long j) {
+        if (file != null) {
+            try {
+                if (file.exists()) {
+                    return b(file, i, j);
+                }
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return "";
             }
         }
+        return "";
+    }
+
+    public static String b(File file, int i, long j) throws Exception {
+        return a(new com.ss.android.a.a(file), i, j);
     }
 
     public static String a(byte[] bArr) {
@@ -208,30 +226,17 @@ public class c {
         throw new NullPointerException("bytes is null");
     }
 
-    public static String a(int i, long j) {
-        return "ttmd5:1:1:" + a(i) + "g" + a(j);
-    }
-
-    public static a a(String str) throws Exception {
-        if (str.startsWith("ttmd5:")) {
-            String[] split = str.split(ParamableElem.DIVIDE_PARAM);
-            String[] split2 = split[0].split(":");
-            a aVar = new a();
-            aVar.a = Integer.parseInt(split2[1]);
-            if (aVar.a > 1) {
-                return aVar;
+    public static void a(b bVar, MessageDigest messageDigest, byte[] bArr, long j, long j2) throws IOException {
+        bVar.a(j, j2);
+        long j3 = 0;
+        while (j3 < j2) {
+            int a2 = bVar.a(bArr, 0, (int) Math.min(j2 - j3, bArr.length));
+            if (a2 > 0) {
+                messageDigest.update(bArr, 0, a2);
+                j3 += a2;
+            } else {
+                throw new IOException("updateSample unexpected readCount <= 0, readCount = " + a2 + ", readTotalCount = " + j3 + ", sampleSize = " + j2);
             }
-            aVar.b = Integer.parseInt(split2[2]);
-            String[] split3 = split2[3].split("g");
-            aVar.c = (int) b(split3[0]);
-            aVar.d = b(split3[1]);
-            aVar.e = split[1];
-            return aVar;
         }
-        return null;
-    }
-
-    public static String a(long j) {
-        return Long.toHexString((j << 4) + 31);
     }
 }

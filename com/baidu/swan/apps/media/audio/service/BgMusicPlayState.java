@@ -69,12 +69,18 @@ public final class BgMusicPlayState {
     public static BgMusicPlayState valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (BgMusicPlayState) Enum.valueOf(BgMusicPlayState.class, str) : (BgMusicPlayState) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (BgMusicPlayState) Enum.valueOf(BgMusicPlayState.class, str);
+        }
+        return (BgMusicPlayState) invokeL.objValue;
     }
 
     public static BgMusicPlayState[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (BgMusicPlayState[]) $VALUES.clone() : (BgMusicPlayState[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (BgMusicPlayState[]) $VALUES.clone();
+        }
+        return (BgMusicPlayState[]) invokeV.objValue;
     }
 }

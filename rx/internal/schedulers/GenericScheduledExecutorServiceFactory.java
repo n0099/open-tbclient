@@ -1,8 +1,8 @@
 package rx.internal.schedulers;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.m1a;
-import com.baidu.tieba.wx9;
+import com.baidu.tieba.e2a;
+import com.baidu.tieba.oy9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -40,6 +40,46 @@ public final class GenericScheduledExecutorServiceFactory {
         THREAD_FACTORY = new RxThreadFactory(THREAD_NAME_PREFIX);
     }
 
+    public static ScheduledExecutorService create() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            oy9 a = e2a.a();
+            if (a == null) {
+                return createDefault();
+            }
+            return (ScheduledExecutorService) a.call();
+        }
+        return (ScheduledExecutorService) invokeV.objValue;
+    }
+
+    public static ScheduledExecutorService createDefault() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return Executors.newScheduledThreadPool(1, threadFactory());
+        }
+        return (ScheduledExecutorService) invokeV.objValue;
+    }
+
+    public static ThreadFactory threadFactory() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return THREAD_FACTORY;
+        }
+        return (ThreadFactory) invokeV.objValue;
+    }
+
+    public static GenericScheduledExecutorServiceFactory[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return (GenericScheduledExecutorServiceFactory[]) $VALUES.clone();
+        }
+        return (GenericScheduledExecutorServiceFactory[]) invokeV.objValue;
+    }
+
     public GenericScheduledExecutorServiceFactory(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -59,40 +99,12 @@ public final class GenericScheduledExecutorServiceFactory {
         }
     }
 
-    public static ScheduledExecutorService create() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            wx9<? extends ScheduledExecutorService> a = m1a.a();
-            if (a == null) {
-                return createDefault();
-            }
-            return a.call();
-        }
-        return (ScheduledExecutorService) invokeV.objValue;
-    }
-
-    public static ScheduledExecutorService createDefault() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? Executors.newScheduledThreadPool(1, threadFactory()) : (ScheduledExecutorService) invokeV.objValue;
-    }
-
-    public static ThreadFactory threadFactory() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? THREAD_FACTORY : (ThreadFactory) invokeV.objValue;
-    }
-
     public static GenericScheduledExecutorServiceFactory valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? (GenericScheduledExecutorServiceFactory) Enum.valueOf(GenericScheduledExecutorServiceFactory.class, str) : (GenericScheduledExecutorServiceFactory) invokeL.objValue;
-    }
-
-    public static GenericScheduledExecutorServiceFactory[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? (GenericScheduledExecutorServiceFactory[]) $VALUES.clone() : (GenericScheduledExecutorServiceFactory[]) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            return (GenericScheduledExecutorServiceFactory) Enum.valueOf(GenericScheduledExecutorServiceFactory.class, str);
+        }
+        return (GenericScheduledExecutorServiceFactory) invokeL.objValue;
     }
 }

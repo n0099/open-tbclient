@@ -94,19 +94,21 @@ public final class QuickLoginType {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             int hashCode = str.hashCode();
-            if (hashCode == -1012429255) {
+            if (hashCode != -1012429255) {
+                if (hashCode != 109400031) {
+                    if (hashCode == 926934164 && str.equals("history")) {
+                        c2 = 0;
+                    }
+                    c2 = 65535;
+                } else {
+                    if (str.equals("share")) {
+                        c2 = 1;
+                    }
+                    c2 = 65535;
+                }
+            } else {
                 if (str.equals("onekey")) {
                     c2 = 2;
-                }
-                c2 = 65535;
-            } else if (hashCode != 109400031) {
-                if (hashCode == 926934164 && str.equals("history")) {
-                    c2 = 0;
-                }
-                c2 = 65535;
-            } else {
-                if (str.equals("share")) {
-                    c2 = 1;
                 }
                 c2 = 65535;
             }
@@ -127,24 +129,36 @@ public final class QuickLoginType {
     public static QuickLoginType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (QuickLoginType) Enum.valueOf(QuickLoginType.class, str) : (QuickLoginType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return (QuickLoginType) Enum.valueOf(QuickLoginType.class, str);
+        }
+        return (QuickLoginType) invokeL.objValue;
     }
 
     public static QuickLoginType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (QuickLoginType[]) c.clone() : (QuickLoginType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return (QuickLoginType[]) c.clone();
+        }
+        return (QuickLoginType[]) invokeV.objValue;
     }
 
     public int getIndex() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
     }
 
     public String getValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
     }
 }

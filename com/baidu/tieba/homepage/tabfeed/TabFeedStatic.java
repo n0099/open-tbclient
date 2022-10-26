@@ -42,20 +42,6 @@ public class TabFeedStatic {
         a();
     }
 
-    public TabFeedStatic() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
@@ -73,6 +59,20 @@ public class TabFeedStatic {
             tbHttpMessageTask.setResponsedClass(NearbyFriendsHttpResponseMessage.class);
             tbHttpMessageTask.setIsNeedTbs(true);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        }
+    }
+
+    public TabFeedStatic() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
     }
 }

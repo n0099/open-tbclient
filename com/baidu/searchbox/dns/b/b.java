@@ -23,7 +23,7 @@ import java.util.Map;
 /* loaded from: classes2.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<String, List<String>> s;
+    public static Map s;
     public static int t;
     public static int u;
     public static boolean v;
@@ -66,16 +66,50 @@ public class b {
         s.put("m.baidu.com", arrayList2);
     }
 
-    public static List<String> a(Map<String, List<String>> map) {
+    public static synchronized int a(int i) {
+        InterceptResult invokeI;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            synchronized (b.class) {
+                if (u >= i || u < 0) {
+                    u = 0;
+                }
+                i2 = u;
+                u = i2 + 1;
+            }
+            return i2;
+        }
+        return invokeI.intValue;
+    }
+
+    public static synchronized int b(int i) {
+        InterceptResult invokeI;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            synchronized (b.class) {
+                if (t >= i || t < 0) {
+                    t = 0;
+                }
+                i2 = t;
+                t = i2 + 1;
+            }
+            return i2;
+        }
+        return invokeI.intValue;
+    }
+
+    public static List a(Map map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, map)) == null) {
             if (map != null) {
                 if (map.containsKey(ImagesContract.LOCAL)) {
-                    return map.get(ImagesContract.LOCAL);
+                    return (List) map.get(ImagesContract.LOCAL);
                 }
                 if (map.containsKey(UnitedSchemeConstants.UNITED_SCHEME_BACKUP)) {
-                    return map.get(UnitedSchemeConstants.UNITED_SCHEME_BACKUP);
+                    return (List) map.get(UnitedSchemeConstants.UNITED_SCHEME_BACKUP);
                 }
                 return null;
             }
@@ -84,19 +118,25 @@ public class b {
         return (List) invokeL.objValue;
     }
 
-    public static boolean b(Map<String, List<String>> map) {
+    public static boolean b(Map map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, map)) == null) ? map != null && map.containsKey(UnitedSchemeConstants.UNITED_SCHEME_BACKUP) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, map)) == null) {
+            if (map != null && map.containsKey(UnitedSchemeConstants.UNITED_SCHEME_BACKUP)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
-    public static Map<String, List<String>> h(String str) {
+    public static Map h(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             HashMap hashMap = new HashMap();
             try {
-                List<String> parseRawAddressList = DnsUtil.parseRawAddressList(Arrays.asList(InetAddress.getAllByName(str)));
+                List parseRawAddressList = DnsUtil.parseRawAddressList(Arrays.asList(InetAddress.getAllByName(str)));
                 if (parseRawAddressList != null) {
                     hashMap.put(ImagesContract.LOCAL, parseRawAddressList);
                 }
@@ -126,58 +166,29 @@ public class b {
 
     public static String i(String str) {
         InterceptResult invokeL;
+        List list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
             com.baidu.searchbox.dns.d.a.a d = com.baidu.searchbox.dns.a.a.e().d(str);
-            List<String> ipList = d != null ? d.getIpList() : null;
-            if (ipList == null || ipList.size() == 0) {
-                ipList = s.get(str);
+            if (d != null) {
+                list = d.getIpList();
+            } else {
+                list = null;
             }
-            if (ipList == null || ipList.size() <= 0) {
+            if (list == null || list.size() == 0) {
+                list = (List) s.get(str);
+            }
+            if (list == null || list.size() <= 0) {
                 return null;
             }
             int i = 0;
             if ("m.baidu.com".equals(str)) {
-                i = a(ipList.size());
+                i = a(list.size());
             } else if ("mbd.baidu.com".equals(str)) {
-                i = b(ipList.size());
+                i = b(list.size());
             }
-            return ipList.get(i);
+            return (String) list.get(i);
         }
         return (String) invokeL.objValue;
-    }
-
-    public static synchronized int b(int i) {
-        InterceptResult invokeI;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            synchronized (b.class) {
-                if (t >= i || t < 0) {
-                    t = 0;
-                }
-                i2 = t;
-                t = i2 + 1;
-            }
-            return i2;
-        }
-        return invokeI.intValue;
-    }
-
-    public static synchronized int a(int i) {
-        InterceptResult invokeI;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            synchronized (b.class) {
-                if (u >= i || u < 0) {
-                    u = 0;
-                }
-                i2 = u;
-                u = i2 + 1;
-            }
-            return i2;
-        }
-        return invokeI.intValue;
     }
 }

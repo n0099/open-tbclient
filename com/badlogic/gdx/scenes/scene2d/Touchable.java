@@ -60,12 +60,18 @@ public final class Touchable {
     public static Touchable valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Touchable) Enum.valueOf(Touchable.class, str) : (Touchable) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (Touchable) Enum.valueOf(Touchable.class, str);
+        }
+        return (Touchable) invokeL.objValue;
     }
 
     public static Touchable[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Touchable[]) $VALUES.clone() : (Touchable[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (Touchable[]) $VALUES.clone();
+        }
+        return (Touchable[]) invokeV.objValue;
     }
 }

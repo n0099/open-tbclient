@@ -12,9 +12,16 @@ import java.io.IOException;
 import java.util.Arrays;
 /* loaded from: classes7.dex */
 public interface TrackOutput {
+    void format(Format format);
+
+    int sampleData(ExtractorInput extractorInput, int i, boolean z) throws IOException, InterruptedException;
+
+    void sampleData(ParsableByteArray parsableByteArray, int i);
+
+    void sampleMetadata(long j, int i, int i2, int i3, CryptoData cryptoData);
 
     /* loaded from: classes7.dex */
-    public static final class CryptoData {
+    public final class CryptoData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int clearBlocks;
@@ -54,7 +61,10 @@ public interface TrackOutput {
                     return false;
                 }
                 CryptoData cryptoData = (CryptoData) obj;
-                return this.cryptoMode == cryptoData.cryptoMode && this.encryptedBlocks == cryptoData.encryptedBlocks && this.clearBlocks == cryptoData.clearBlocks && Arrays.equals(this.encryptionKey, cryptoData.encryptionKey);
+                if (this.cryptoMode == cryptoData.cryptoMode && this.encryptedBlocks == cryptoData.encryptedBlocks && this.clearBlocks == cryptoData.clearBlocks && Arrays.equals(this.encryptionKey, cryptoData.encryptionKey)) {
+                    return true;
+                }
+                return false;
             }
             return invokeL.booleanValue;
         }
@@ -62,15 +72,10 @@ public interface TrackOutput {
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (((((this.cryptoMode * 31) + Arrays.hashCode(this.encryptionKey)) * 31) + this.encryptedBlocks) * 31) + this.clearBlocks : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return (((((this.cryptoMode * 31) + Arrays.hashCode(this.encryptionKey)) * 31) + this.encryptedBlocks) * 31) + this.clearBlocks;
+            }
+            return invokeV.intValue;
         }
     }
-
-    void format(Format format);
-
-    int sampleData(ExtractorInput extractorInput, int i, boolean z) throws IOException, InterruptedException;
-
-    void sampleData(ParsableByteArray parsableByteArray, int i);
-
-    void sampleMetadata(long j, int i, int i2, int i3, CryptoData cryptoData);
 }

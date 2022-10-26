@@ -11,6 +11,8 @@ public class AudioTrack extends MediaStreamTrack {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static native void nativeSetVolume(long j, double d);
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AudioTrack(long j) {
         super(j);
@@ -31,12 +33,13 @@ public class AudioTrack extends MediaStreamTrack {
         }
     }
 
-    public static native void nativeSetVolume(long j, double d);
-
     public long getNativeAudioTrack() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? getNativeMediaStreamTrack() : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return getNativeMediaStreamTrack();
+        }
+        return invokeV.longValue;
     }
 
     public void setVolume(double d) {

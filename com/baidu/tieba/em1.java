@@ -1,15 +1,80 @@
 package com.baidu.tieba;
 
-import android.os.Message;
+import android.app.Activity;
+import android.content.Context;
+import android.util.SparseArray;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class em1 implements lo1 {
+public class em1 implements o94 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public SparseArray a;
+
+    @Override // com.baidu.tieba.o94
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.o94
+    public void b(Activity activity, u94 u94Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, u94Var) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.o94
+    public void c(int i, List list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, list) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.o94
+    public void d(int i, List list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, list) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.o94
+    public void g(Activity activity, u94 u94Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, activity, u94Var) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.o94
+    public void h(Context context, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, context, jSONObject) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.o94
+    public boolean j(u94 u94Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, u94Var)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
 
     public em1() {
         Interceptable interceptable = $ic;
@@ -21,17 +86,42 @@ public class em1 implements lo1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        SparseArray sparseArray = new SparseArray();
+        this.a = sparseArray;
+        sparseArray.put(38, DI.BD.FAVOR);
+        if (!tm2.c0().a()) {
+            this.a.put(35, "add to launch");
+        }
+        if (tm2.n().a().equals("vivobrowser")) {
+            this.a.put(4, "share");
         }
     }
 
-    @Override // com.baidu.tieba.lo1
-    public boolean a(Message message) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.o94
+    public void e(int i, List list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
-            return false;
+        if (interceptable == null || interceptable.invokeIL(1048580, this, i, list) == null) {
+            l(i, list);
         }
-        return invokeL.booleanValue;
+    }
+
+    public final void l(int i, List list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, list) == null) && !gh3.G() && list != null && list.size() > 0) {
+            ArrayList arrayList = new ArrayList();
+            Iterator it = list.iterator();
+            while (it.hasNext()) {
+                u94 u94Var = (u94) it.next();
+                if (this.a.get(u94Var.c()) != null) {
+                    arrayList.add(u94Var);
+                }
+            }
+            if (arrayList.size() > 0) {
+                list.removeAll(arrayList);
+            }
+        }
     }
 }

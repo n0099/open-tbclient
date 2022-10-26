@@ -80,12 +80,18 @@ public final class PlaceId {
     public static PlaceId valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (PlaceId) Enum.valueOf(PlaceId.class, str) : (PlaceId) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (PlaceId) Enum.valueOf(PlaceId.class, str);
+        }
+        return (PlaceId) invokeL.objValue;
     }
 
     public static PlaceId[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PlaceId[]) $VALUES.clone() : (PlaceId[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (PlaceId[]) $VALUES.clone();
+        }
+        return (PlaceId[]) invokeV.objValue;
     }
 }

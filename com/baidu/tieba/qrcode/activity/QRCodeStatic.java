@@ -1,7 +1,6 @@
 package com.baidu.tieba.qrcode.activity;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
@@ -14,9 +13,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.QRCodeScanActivityConfig;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ln8;
-import com.baidu.tieba.wc8;
-import com.baidu.tieba.xc8;
+import com.baidu.tieba.gd8;
+import com.baidu.tieba.hd8;
+import com.baidu.tieba.sn8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,7 +30,7 @@ public class QRCodeStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public static class a implements CustomMessageTask.CustomRunnable<String> {
+    public final class a implements CustomMessageTask.CustomRunnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -50,15 +49,18 @@ public class QRCodeStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<Bitmap> run(CustomMessage<String> customMessage) {
+        public CustomResponsedMessage run(CustomMessage customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2921388, xc8.b(customMessage.getData(), TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds247))) : (CustomResponsedMessage) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+                return new CustomResponsedMessage(2921388, hd8.b((String) customMessage.getData(), TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds247)));
+            }
+            return (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
     /* loaded from: classes5.dex */
-    public static class b implements CustomMessageTask.CustomRunnable<ln8> {
+    public final class b implements CustomMessageTask.CustomRunnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -77,34 +79,34 @@ public class QRCodeStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<ln8> customMessage) {
+        public CustomResponsedMessage run(CustomMessage customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 String str = null;
-                if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof ln8)) {
+                if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof sn8)) {
                     return null;
                 }
-                ln8 data = customMessage.getData();
-                int i = data.a;
+                sn8 sn8Var = (sn8) customMessage.getData();
+                int i = sn8Var.a;
                 if (i == 0) {
-                    str = wc8.b(data.c);
+                    str = gd8.b(sn8Var.c);
                 } else if (i == 1) {
-                    str = wc8.c(data.d);
+                    str = gd8.c(sn8Var.d);
                 }
                 if (TextUtils.isEmpty(str)) {
-                    data.e = "qr_none";
+                    sn8Var.e = "qr_none";
                 } else {
-                    data.e = str;
+                    sn8Var.e = str;
                 }
-                return new CustomResponsedMessage<>(2921403, data);
+                return new CustomResponsedMessage(2921403, sn8Var);
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
     /* loaded from: classes5.dex */
-    public static class c implements UrlManager.UrlDealListener {
+    public final class c implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -123,7 +125,7 @@ public class QRCodeStatic {
         }
 
         @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
-        public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
+        public int deal(TbPageContext tbPageContext, String[] strArr) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tbPageContext, strArr)) == null) {

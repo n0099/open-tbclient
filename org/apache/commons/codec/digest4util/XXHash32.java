@@ -1,6 +1,5 @@
 package org.apache.commons.codec.digest4util;
 
-import android.annotation.SuppressLint;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -45,7 +44,50 @@ public class XXHash32 implements Checksum {
         }
     }
 
-    @SuppressLint({"BDThrowableCheck"})
+    private void initializeState() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
+            int[] iArr = this.state;
+            int i = this.seed;
+            iArr[0] = i + PRIME1 + PRIME2;
+            iArr[1] = PRIME2 + i;
+            iArr[2] = i;
+            iArr[3] = i - PRIME1;
+        }
+    }
+
+    @Override // java.util.zip.Checksum
+    public void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            initializeState();
+            this.totalLen = 0;
+            this.pos = 0;
+        }
+    }
+
+    public XXHash32(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.oneByte = new byte[1];
+        this.state = new int[4];
+        this.buffer = new byte[16];
+        this.seed = i;
+        initializeState();
+    }
+
     public static long fromLittleEndian(byte[] bArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
@@ -65,19 +107,10 @@ public class XXHash32 implements Checksum {
     public static int getInt(byte[] bArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, bArr, i)) == null) ? (int) (fromLittleEndian(bArr, i, 4) & 4294967295L) : invokeLI.intValue;
-    }
-
-    private void initializeState() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            int[] iArr = this.state;
-            int i = this.seed;
-            iArr[0] = i + PRIME1 + PRIME2;
-            iArr[1] = PRIME2 + i;
-            iArr[2] = i;
-            iArr[3] = i - PRIME1;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, bArr, i)) == null) {
+            return (int) (fromLittleEndian(bArr, i, 4) & 4294967295L);
         }
+        return invokeLI.intValue;
     }
 
     private void process(byte[] bArr, int i) {
@@ -131,16 +164,6 @@ public class XXHash32 implements Checksum {
     }
 
     @Override // java.util.zip.Checksum
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            initializeState();
-            this.totalLen = 0;
-            this.pos = 0;
-        }
-    }
-
-    @Override // java.util.zip.Checksum
     public void update(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
@@ -150,32 +173,10 @@ public class XXHash32 implements Checksum {
         }
     }
 
-    public XXHash32(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.oneByte = new byte[1];
-        this.state = new int[4];
-        this.buffer = new byte[16];
-        this.seed = i;
-        initializeState();
-    }
-
     @Override // java.util.zip.Checksum
     public void update(byte[] bArr, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(1048579, this, bArr, i, i2) == null) || i2 <= 0) {
+        if ((interceptable != null && interceptable.invokeLII(1048579, this, bArr, i, i2) != null) || i2 <= 0) {
             return;
         }
         this.totalLen += i2;

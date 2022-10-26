@@ -1,8 +1,6 @@
 package com.kwad.sdk.crash.handler;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.kwad.sdk.crash.model.message.ExceptionMessage;
 import com.kwad.sdk.crash.report.e;
 import com.kwad.sdk.crash.utils.f;
@@ -10,11 +8,11 @@ import com.kwad.sdk.service.ServiceProvider;
 import java.io.File;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class c extends b {
 
-    /* loaded from: classes8.dex */
-    public static class a {
+    /* loaded from: classes7.dex */
+    public final class a {
         public static final c ahp = new c((byte) 0);
     }
 
@@ -119,7 +117,7 @@ public final class c extends b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void a(@NonNull Throwable th, @NonNull ExceptionMessage exceptionMessage, @Nullable Context context, boolean z) {
+    private void a(Throwable th, ExceptionMessage exceptionMessage, Context context, boolean z) {
         boolean z2;
         int andIncrement = this.mIndex.getAndIncrement();
         File file = this.mDumpFile;
@@ -397,7 +395,7 @@ public final class c extends b {
         return a.ahp;
     }
 
-    public final void a(@NonNull Throwable th, @NonNull ExceptionMessage exceptionMessage, @Nullable Context context) {
+    public final void a(Throwable th, ExceptionMessage exceptionMessage, Context context) {
         a(th, exceptionMessage, context, ((com.kwad.sdk.service.kwai.d) ServiceProvider.get(com.kwad.sdk.service.kwai.d.class)).getIsExternal());
     }
 
@@ -415,7 +413,7 @@ public final class c extends b {
     }
 
     @Override // com.kwad.sdk.crash.handler.b
-    public final void reportException(@NonNull File[] fileArr, @Nullable CountDownLatch countDownLatch) {
+    public final void reportException(File[] fileArr, CountDownLatch countDownLatch) {
         com.kwad.sdk.crash.report.f fVar = new com.kwad.sdk.crash.report.f();
         fVar.a(getUploader());
         for (File file : fileArr) {

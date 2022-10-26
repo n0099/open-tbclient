@@ -28,7 +28,10 @@ public class FpsSpUtil {
     public static boolean getFpsFloatSwitch() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? SharedPrefsUtil.getBoolean(KEY_FPS_FLOAT_VIEW_SWITCH, false) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return SharedPrefsUtil.getBoolean(KEY_FPS_FLOAT_VIEW_SWITCH, false);
+        }
+        return invokeV.booleanValue;
     }
 
     public static void putFpsFloatSwitch(boolean z) {

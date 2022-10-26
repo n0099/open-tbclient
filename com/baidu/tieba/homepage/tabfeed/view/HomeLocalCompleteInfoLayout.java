@@ -7,23 +7,22 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.PersonChangeActivityConfig;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.hv4;
-import com.baidu.tieba.o37;
-import com.baidu.tieba.xx;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.nv4;
+import com.baidu.tieba.w37;
+import com.baidu.tieba.yx;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class HomeLocalCompleteInfoLayout extends LinearLayout implements xx {
+public class HomeLocalCompleteInfoLayout extends LinearLayout implements yx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
@@ -57,10 +56,10 @@ public class HomeLocalCompleteInfoLayout extends LinearLayout implements xx {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.getContext() == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || this.a.getContext() == null) {
                 return;
             }
-            o37.h();
+            w37.h();
             PersonChangeActivityConfig personChangeActivityConfig = new PersonChangeActivityConfig(this.a.getContext());
             personChangeActivityConfig.setIsCompleteLocalInfo(true);
             personChangeActivityConfig.start();
@@ -88,81 +87,8 @@ public class HomeLocalCompleteInfoLayout extends LinearLayout implements xx {
         }
     }
 
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-1, -2);
-            marginLayoutParams.setMargins(0, ej.f(getContext(), R.dimen.M_H_X003), 0, 0);
-            setLayoutParams(marginLayoutParams);
-            setOrientation(0);
-            setGravity(16);
-            int f = ej.f(getContext(), R.dimen.M_W_X005);
-            setPadding(f, 0, f, 0);
-            TextView textView = new TextView(getContext());
-            this.a = textView;
-            textView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f086e));
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -2);
-            layoutParams.weight = 1.0f;
-            addView(this.a, layoutParams);
-            EMTextView eMTextView = new EMTextView(getContext());
-            this.b = eMTextView;
-            eMTextView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f086f));
-            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, ej.f(getContext(), R.dimen.tbds75));
-            int f2 = ej.f(getContext(), R.dimen.M_W_X004);
-            layoutParams2.setMargins(f2, ej.f(getContext(), R.dimen.M_H_X005), f2, ej.f(getContext(), R.dimen.tbds38));
-            int f3 = ej.f(getContext(), R.dimen.M_W_X007);
-            this.b.setGravity(16);
-            this.b.setPadding(f3, 0, f3, 0);
-            addView(this.b, layoutParams2);
-            this.b.setOnClickListener(new a(this));
-            this.c = new ImageView(getContext());
-            int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.tbds57);
-            addView(this.c, new LinearLayout.LayoutParams(dimensionPixelSize, dimensionPixelSize));
-        }
-    }
-
-    @Override // com.baidu.tieba.xx
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
-            TextView textView = this.a;
-            if (textView != null) {
-                hv4 d = hv4.d(textView);
-                d.v(R.color.CAM_X0105);
-                d.z(R.dimen.T_X06);
-                d.A(R.string.F_X01);
-            }
-            EMTextView eMTextView = this.b;
-            if (eMTextView != null) {
-                hv4 d2 = hv4.d(eMTextView);
-                d2.v(R.color.CAM_X0302);
-                d2.z(R.dimen.T_X08);
-                d2.A(R.string.F_X01);
-                d2.n(R.string.J_X01);
-                d2.l(R.dimen.L_X02);
-                d2.k(R.color.CAM_X0302);
-            }
-            ImageView imageView = this.c;
-            if (imageView != null) {
-                WebPManager.setPureDrawable(imageView, R.drawable.icon_pure_card_close22, R.color.CAM_X0111, null);
-            }
-            hv4 d3 = hv4.d(this);
-            d3.n(R.string.J_X06);
-            d3.f(R.color.CAM_X0205);
-        }
-    }
-
-    public void setCloseClickListener(View.OnClickListener onClickListener) {
-        ImageView imageView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) || (imageView = this.c) == null) {
-            return;
-        }
-        imageView.setOnClickListener(onClickListener);
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public HomeLocalCompleteInfoLayout(Context context, @Nullable AttributeSet attributeSet) {
+    public HomeLocalCompleteInfoLayout(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -183,7 +109,7 @@ public class HomeLocalCompleteInfoLayout extends LinearLayout implements xx {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public HomeLocalCompleteInfoLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public HomeLocalCompleteInfoLayout(Context context, AttributeSet attributeSet, int i) {
         this(context, attributeSet, i, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -223,5 +149,77 @@ public class HomeLocalCompleteInfoLayout extends LinearLayout implements xx {
             }
         }
         a();
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-1, -2);
+            marginLayoutParams.setMargins(0, fj.f(getContext(), R.dimen.M_H_X003), 0, 0);
+            setLayoutParams(marginLayoutParams);
+            setOrientation(0);
+            setGravity(16);
+            int f = fj.f(getContext(), R.dimen.M_W_X005);
+            setPadding(f, 0, f, 0);
+            TextView textView = new TextView(getContext());
+            this.a = textView;
+            textView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f087a));
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -2);
+            layoutParams.weight = 1.0f;
+            addView(this.a, layoutParams);
+            EMTextView eMTextView = new EMTextView(getContext());
+            this.b = eMTextView;
+            eMTextView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f087b));
+            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, fj.f(getContext(), R.dimen.tbds75));
+            int f2 = fj.f(getContext(), R.dimen.M_W_X004);
+            layoutParams2.setMargins(f2, fj.f(getContext(), R.dimen.M_H_X005), f2, fj.f(getContext(), R.dimen.tbds38));
+            int f3 = fj.f(getContext(), R.dimen.M_W_X007);
+            this.b.setGravity(16);
+            this.b.setPadding(f3, 0, f3, 0);
+            addView(this.b, layoutParams2);
+            this.b.setOnClickListener(new a(this));
+            this.c = new ImageView(getContext());
+            int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.tbds57);
+            addView(this.c, new LinearLayout.LayoutParams(dimensionPixelSize, dimensionPixelSize));
+        }
+    }
+
+    @Override // com.baidu.tieba.yx
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
+            TextView textView = this.a;
+            if (textView != null) {
+                nv4 d = nv4.d(textView);
+                d.v(R.color.CAM_X0105);
+                d.z(R.dimen.T_X06);
+                d.A(R.string.F_X01);
+            }
+            EMTextView eMTextView = this.b;
+            if (eMTextView != null) {
+                nv4 d2 = nv4.d(eMTextView);
+                d2.v(R.color.CAM_X0302);
+                d2.z(R.dimen.T_X08);
+                d2.A(R.string.F_X01);
+                d2.n(R.string.J_X01);
+                d2.l(R.dimen.L_X02);
+                d2.k(R.color.CAM_X0302);
+            }
+            ImageView imageView = this.c;
+            if (imageView != null) {
+                WebPManager.setPureDrawable(imageView, R.drawable.icon_pure_card_close22, R.color.CAM_X0111, null);
+            }
+            nv4 d3 = nv4.d(this);
+            d3.n(R.string.J_X06);
+            d3.f(R.color.CAM_X0205);
+        }
+    }
+
+    public void setCloseClickListener(View.OnClickListener onClickListener) {
+        ImageView imageView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) && (imageView = this.c) != null) {
+            imageView.setOnClickListener(onClickListener);
+        }
     }
 }

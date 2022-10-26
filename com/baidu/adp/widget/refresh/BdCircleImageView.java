@@ -1,6 +1,5 @@
 package com.baidu.adp.widget.refresh;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
@@ -88,7 +87,6 @@ public class BdCircleImageView extends AppCompatImageView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    @SuppressLint({"WrongConstant"})
     public BdCircleImageView(Context context, int i) {
         super(context);
         ShapeDrawable shapeDrawable;
@@ -129,7 +127,13 @@ public class BdCircleImageView extends AppCompatImageView {
     public final boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Build.VERSION.SDK_INT >= 21 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (Build.VERSION.SDK_INT >= 21) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // android.view.View
@@ -161,10 +165,9 @@ public class BdCircleImageView extends AppCompatImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
             super.onMeasure(i, i2);
-            if (f()) {
-                return;
+            if (!f()) {
+                setMeasuredDimension(getMeasuredWidth() + (this.b * 2), getMeasuredHeight() + (this.b * 2));
             }
-            setMeasuredDimension(getMeasuredWidth() + (this.b * 2), getMeasuredHeight() + (this.b * 2));
         }
     }
 

@@ -7,7 +7,6 @@ import com.baidu.pass.ecommerce.StatKey;
 import com.baidu.pass.ecommerce.bean.AddressField;
 import com.baidu.pass.ecommerce.common.MapObject;
 import com.baidu.pass.ecommerce.common.mvp.BasePresenter;
-import com.baidu.pass.ecommerce.common.mvp.IBaseView;
 import com.baidu.pass.ecommerce.common.request.NetCallback;
 import com.baidu.pass.ecommerce.request.AddressRequestFactory;
 import com.baidu.sapi2.SapiContext;
@@ -22,7 +21,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class AddressPresenter extends BasePresenter<IBaseView> {
+public class AddressPresenter extends BasePresenter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEL_ADDR_CODE = 1002;
     public static final int GET_ADDR_LIST_CODE = 1000;
@@ -48,17 +47,117 @@ public class AddressPresenter extends BasePresenter<IBaseView> {
         }
     }
 
+    public String getBdSTokenFromAddrList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.bdSTokenFromAddrList;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void ignoreNuoMiAddressStatus() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            AddressRequestFactory.newIgnoreNuoMiAddress().submit(new NetCallback(this) { // from class: com.baidu.pass.ecommerce.presenter.AddressPresenter.3
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ AddressPresenter this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+            });
+        }
+    }
+
+    public void importNuoMiAddressStatus() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            AddressRequestFactory.newImportNuoMiAddress().submit(new NetCallback(this) { // from class: com.baidu.pass.ecommerce.presenter.AddressPresenter.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ AddressPresenter this$0;
+
+                @Override // com.baidu.pass.ecommerce.common.request.NetCallback
+                public void onFailure(int i, String str) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i, str) == null) {
+                    }
+                }
+
+                @Override // com.baidu.pass.ecommerce.common.request.NetCallback
+                public void onShowLoading() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                    }
+                }
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
+                @Override // com.baidu.pass.ecommerce.common.request.NetCallback
+                public void onSuccess(JSONObject jSONObject) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+                        ArrayList arrayList = new ArrayList();
+                        JSONArray optJSONArray = jSONObject.optJSONArray(AddressField.KEY_IMPORT_NUOMI_ADDR_IDS);
+                        if (optJSONArray != null) {
+                            int length = optJSONArray.length();
+                            for (int i = 0; i < length; i++) {
+                                arrayList.add(optJSONArray.optString(i));
+                            }
+                        }
+                        if (arrayList.size() > 0) {
+                            this.this$0.doResult(10002, arrayList);
+                        } else {
+                            Log.d(AddressPresenter.TAG, "importNuoMiAddressStatus 没有可导入的糯米地址");
+                        }
+                    }
+                }
+            });
+        }
+    }
+
     private void appendRegionValue(StringBuilder sb, JSONObject jSONObject, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65546, this, sb, jSONObject, str) == null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeLLL(65546, this, sb, jSONObject, str) != null) || jSONObject == null) {
             return;
         }
         String optString = jSONObject.optString(str);
-        if (TextUtils.isEmpty(optString)) {
-            return;
+        if (!TextUtils.isEmpty(optString)) {
+            sb.append(optString);
+            sb.append(",");
         }
-        sb.append(optString);
-        sb.append(",");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -105,7 +204,10 @@ public class AddressPresenter extends BasePresenter<IBaseView> {
             appendRegionValue(sb, jSONObject, AddressField.KEY_CITY_ID);
             appendRegionValue(sb, jSONObject, AddressField.KEY_DISTRICT_ID);
             appendRegionValue(sb, jSONObject, AddressField.KEY_TOWN_ID);
-            return sb.length() > 0 ? sb.substring(0, sb.length() - 1) : "";
+            if (sb.length() > 0) {
+                return sb.substring(0, sb.length() - 1);
+            }
+            return "";
         }
         return (String) invokeL.objValue;
     }
@@ -144,17 +246,19 @@ public class AddressPresenter extends BasePresenter<IBaseView> {
                 @Override // com.baidu.pass.ecommerce.common.request.NetCallback
                 public void onFailure(int i, String str2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i, str2) == null) {
-                        this.this$0.doFailure(1002, i, str2);
+                    if (interceptable2 != null && interceptable2.invokeIL(1048576, this, i, str2) != null) {
+                        return;
                     }
+                    this.this$0.doFailure(1002, i, str2);
                 }
 
                 @Override // com.baidu.pass.ecommerce.common.request.NetCallback
                 public void onShowLoading() {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                        this.this$0.showLoading(1002);
+                    if (interceptable2 != null && interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
+                        return;
                     }
+                    this.this$0.showLoading(1002);
                 }
 
                 @Override // com.baidu.pass.ecommerce.common.request.NetCallback
@@ -199,9 +303,10 @@ public class AddressPresenter extends BasePresenter<IBaseView> {
                 @Override // com.baidu.pass.ecommerce.common.request.NetCallback
                 public void onFailure(int i, String str) {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeIL(1048576, this, i, str) == null) && this.val$needFailedCallback) {
-                        this.this$0.doFailure(1000, i, str);
+                    if ((interceptable2 != null && interceptable2.invokeIL(1048576, this, i, str) != null) || !this.val$needFailedCallback) {
+                        return;
                     }
+                    this.this$0.doFailure(1000, i, str);
                 }
 
                 @Override // com.baidu.pass.ecommerce.common.request.NetCallback
@@ -209,104 +314,6 @@ public class AddressPresenter extends BasePresenter<IBaseView> {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
                         this.this$0.doAddrListResult(jSONObject, this.val$needFailedCallback);
-                    }
-                }
-            });
-        }
-    }
-
-    public String getBdSTokenFromAddrList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.bdSTokenFromAddrList : (String) invokeV.objValue;
-    }
-
-    public void ignoreNuoMiAddressStatus() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            AddressRequestFactory.newIgnoreNuoMiAddress().submit(new NetCallback(this) { // from class: com.baidu.pass.ecommerce.presenter.AddressPresenter.3
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ AddressPresenter this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-            });
-        }
-    }
-
-    public void importNuoMiAddressStatus() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            AddressRequestFactory.newImportNuoMiAddress().submit(new NetCallback(this) { // from class: com.baidu.pass.ecommerce.presenter.AddressPresenter.2
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ AddressPresenter this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // com.baidu.pass.ecommerce.common.request.NetCallback
-                public void onFailure(int i, String str) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i, str) == null) {
-                    }
-                }
-
-                @Override // com.baidu.pass.ecommerce.common.request.NetCallback
-                public void onShowLoading() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    }
-                }
-
-                @Override // com.baidu.pass.ecommerce.common.request.NetCallback
-                public void onSuccess(JSONObject jSONObject) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-                        ArrayList arrayList = new ArrayList();
-                        JSONArray optJSONArray = jSONObject.optJSONArray(AddressField.KEY_IMPORT_NUOMI_ADDR_IDS);
-                        if (optJSONArray != null) {
-                            int length = optJSONArray.length();
-                            for (int i = 0; i < length; i++) {
-                                arrayList.add(optJSONArray.optString(i));
-                            }
-                        }
-                        if (arrayList.size() > 0) {
-                            this.this$0.doResult(10002, arrayList);
-                        } else {
-                            Log.d(AddressPresenter.TAG, "importNuoMiAddressStatus 没有可导入的糯米地址");
-                        }
                     }
                 }
             });
@@ -361,17 +368,19 @@ public class AddressPresenter extends BasePresenter<IBaseView> {
                 @Override // com.baidu.pass.ecommerce.common.request.NetCallback
                 public void onFailure(int i, String str) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i, str) == null) {
-                        this.this$0.doFailure(1003, i, str);
+                    if (interceptable2 != null && interceptable2.invokeIL(1048576, this, i, str) != null) {
+                        return;
                     }
+                    this.this$0.doFailure(1003, i, str);
                 }
 
                 @Override // com.baidu.pass.ecommerce.common.request.NetCallback
                 public void onShowLoading() {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                        this.this$0.showLoading(1003);
+                    if (interceptable2 != null && interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
+                        return;
                     }
+                    this.this$0.showLoading(1003);
                 }
 
                 @Override // com.baidu.pass.ecommerce.common.request.NetCallback

@@ -19,7 +19,13 @@ public final class GetGroupMsgReqIdl extends Message {
     public final DataReq data;
 
     /* loaded from: classes9.dex */
-    public static final class Builder extends Message.Builder<GetGroupMsgReqIdl> {
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes9.dex */
+    public final class Builder extends Message.Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String cuid;
@@ -69,18 +75,11 @@ public final class GetGroupMsgReqIdl extends Message {
         public GetGroupMsgReqIdl build(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) ? new GetGroupMsgReqIdl(this, z, null) : (GetGroupMsgReqIdl) invokeZ.objValue;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+                return new GetGroupMsgReqIdl(this, z, null);
+            }
+            return (GetGroupMsgReqIdl) invokeZ.objValue;
         }
-    }
-
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    public /* synthetic */ GetGroupMsgReqIdl(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -113,5 +112,9 @@ public final class GetGroupMsgReqIdl extends Message {
         }
         this.cuid = builder.cuid;
         this.data = builder.data;
+    }
+
+    public /* synthetic */ GetGroupMsgReqIdl(Builder builder, boolean z, a aVar) {
+        this(builder, z);
     }
 }

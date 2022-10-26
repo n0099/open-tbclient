@@ -55,59 +55,71 @@ public class SdkVerController {
 
     public void startSdkVerCheck(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || mIsShowSdkUpdate) {
-            return;
-        }
-        if (L.isLogOn()) {
-            ThreadPool.getPool().execute(new Runnable(this, context) { // from class: com.yy.hiidostatis.defs.controller.SdkVerController.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ SdkVerController this$0;
-                public final /* synthetic */ Context val$context;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, context) == null) && !mIsShowSdkUpdate) {
+            if (L.isLogOn()) {
+                ThreadPool.getPool().execute(new Runnable(this, context) { // from class: com.yy.hiidostatis.defs.controller.SdkVerController.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ SdkVerController this$0;
+                    public final /* synthetic */ Context val$context;
 
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, context};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$context = context;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        try {
-                            JSONObject sdkVer = this.this$0.mConfigApi.getSdkVer(this.val$context, true);
-                            if (sdkVer == null) {
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, context};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
                             }
-                            if ("1".equals(sdkVer.has("isUpdate") ? sdkVer.getString("isUpdate") : "")) {
-                                String string = sdkVer.has("ver") ? sdkVer.getString("ver") : "";
-                                String string2 = sdkVer.has("changeLog") ? sdkVer.getString("changeLog") : "";
-                                if (Util.empty(string) || Util.empty(string2)) {
+                        }
+                        this.this$0 = this;
+                        this.val$context = context;
+                    }
+
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        String str;
+                        String str2;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            try {
+                                JSONObject sdkVer = this.this$0.mConfigApi.getSdkVer(this.val$context, true);
+                                if (sdkVer == null) {
                                     return;
                                 }
-                                L.debug("SdkVerController", "统计SDK有新版本啦，欢迎使用新版本：V%s 。\n更新日志：\n%s", string, string2);
+                                String str3 = "";
+                                if (!sdkVer.has("isUpdate")) {
+                                    str = "";
+                                } else {
+                                    str = sdkVer.getString("isUpdate");
+                                }
+                                if ("1".equals(str)) {
+                                    if (!sdkVer.has("ver")) {
+                                        str2 = "";
+                                    } else {
+                                        str2 = sdkVer.getString("ver");
+                                    }
+                                    if (sdkVer.has("changeLog")) {
+                                        str3 = sdkVer.getString("changeLog");
+                                    }
+                                    if (!Util.empty(str2) && !Util.empty(str3)) {
+                                        L.debug("SdkVerController", "统计SDK有新版本啦，欢迎使用新版本：V%s 。\n更新日志：\n%s", str2, str3);
+                                    }
+                                }
+                            } catch (Throwable th) {
+                                L.debug("SdkVerController", "get startSdkVerCheck exception: %s", th);
                             }
-                        } catch (Throwable th) {
-                            L.debug("SdkVerController", "get startSdkVerCheck exception: %s", th);
                         }
                     }
-                }
-            });
+                });
+            }
+            mIsShowSdkUpdate = true;
         }
-        mIsShowSdkUpdate = true;
     }
 }

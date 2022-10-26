@@ -1,7 +1,6 @@
 package com.baidu.searchbox.v8engine.net.io;
 
 import android.support.v4.media.session.PlaybackStateCompat;
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,7 +9,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public final class f {
     public static /* synthetic */ Interceptable $ic;
-    @Nullable
     public static e a;
     public static long b;
     public transient /* synthetic */ FieldHolder $fh;

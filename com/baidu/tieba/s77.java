@@ -1,47 +1,49 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.TiebaIMConfig;
+import com.baidu.tieba.hottopicselect.HotSelectCacheReqMessage;
+import com.baidu.tieba.hottopicselect.HotSelectCacheResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class s77 {
+public class s77 implements CustomMessageTask.CustomRunnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static le5 a(int i, Class<? extends CustomMessageTask.CustomRunnable<?>> cls) {
-        InterceptResult invokeIL;
+    public s77() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i, cls)) == null) {
-            try {
-                le5 le5Var = new le5(i, cls.newInstance());
-                MessageManager.getInstance().registerTask(le5Var);
-                return le5Var;
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-                return null;
-            } catch (InstantiationException e2) {
-                e2.printStackTrace();
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        return (le5) invokeIL.objValue;
     }
 
-    public static me5 b(int i, Class<? extends SocketResponsedMessage> cls, boolean z) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage run(CustomMessage customMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), cls, Boolean.valueOf(z)})) == null) {
-            me5 me5Var = new me5(i);
-            me5Var.setResponsedClass(cls);
-            me5Var.h(z);
-            me5Var.setParallel(TiebaIMConfig.getParallel());
-            MessageManager.getInstance().registerTask(me5Var);
-            return me5Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            if (customMessage == null || !(customMessage instanceof HotSelectCacheReqMessage)) {
+                return null;
+            }
+            HotSelectCacheResponseMessage hotSelectCacheResponseMessage = new HotSelectCacheResponseMessage();
+            try {
+                hotSelectCacheResponseMessage.decodeInBackGround(2016491, (byte[]) null);
+            } catch (Exception unused) {
+            }
+            return hotSelectCacheResponseMessage;
         }
-        return (me5) invokeCommon.objValue;
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

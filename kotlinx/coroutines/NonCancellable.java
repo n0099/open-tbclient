@@ -5,7 +5,6 @@ import java.util.concurrent.CancellationException;
 import kotlin.Deprecated;
 import kotlin.DeprecationLevel;
 import kotlin.Metadata;
-import kotlin.Unit;
 import kotlin.coroutines.AbstractCoroutineContextElement;
 import kotlin.coroutines.Continuation;
 import kotlin.jvm.functions.Function1;
@@ -18,40 +17,19 @@ import kotlinx.coroutines.selects.SelectClause0;
 public final class NonCancellable extends AbstractCoroutineContextElement implements Job {
     public static final NonCancellable INSTANCE = new NonCancellable();
 
-    public NonCancellable() {
-        super(Job.Key);
-    }
-
-    @InternalCoroutinesApi
     public static /* synthetic */ void children$annotations() {
     }
 
-    @InternalCoroutinesApi
     public static /* synthetic */ void isActive$annotations() {
     }
 
-    @InternalCoroutinesApi
     public static /* synthetic */ void isCancelled$annotations() {
     }
 
-    @InternalCoroutinesApi
     public static /* synthetic */ void isCompleted$annotations() {
     }
 
     @Override // kotlinx.coroutines.Job
-    @InternalCoroutinesApi
-    public ChildHandle attachChild(ChildJob childJob) {
-        return NonDisposableHandle.INSTANCE;
-    }
-
-    @Override // kotlinx.coroutines.Job
-    @Deprecated(level = DeprecationLevel.HIDDEN, message = "Since 1.2.0, binary compatibility with versions <= 1.1.x")
-    public /* synthetic */ void cancel() {
-        cancel((CancellationException) null);
-    }
-
-    @Override // kotlinx.coroutines.Job
-    @InternalCoroutinesApi
     public void cancel(CancellationException cancellationException) {
     }
 
@@ -59,28 +37,6 @@ public final class NonCancellable extends AbstractCoroutineContextElement implem
     @Deprecated(level = DeprecationLevel.HIDDEN, message = "Since 1.2.0, binary compatibility with versions <= 1.1.x")
     public /* synthetic */ boolean cancel(Throwable th) {
         return false;
-    }
-
-    @Override // kotlinx.coroutines.Job
-    @InternalCoroutinesApi
-    public CancellationException getCancellationException() {
-        throw new IllegalStateException("This job is always active");
-    }
-
-    @Override // kotlinx.coroutines.Job
-    public Sequence<Job> getChildren() {
-        return SequencesKt__SequencesKt.emptySequence();
-    }
-
-    @Override // kotlinx.coroutines.Job
-    public SelectClause0 getOnJoin() {
-        throw new UnsupportedOperationException("This job is always active");
-    }
-
-    @Override // kotlinx.coroutines.Job
-    @InternalCoroutinesApi
-    public DisposableHandle invokeOnCompletion(Function1<? super Throwable, Unit> function1) {
-        return NonDisposableHandle.INSTANCE;
     }
 
     @Override // kotlinx.coroutines.Job
@@ -99,8 +55,51 @@ public final class NonCancellable extends AbstractCoroutineContextElement implem
     }
 
     @Override // kotlinx.coroutines.Job
-    @InternalCoroutinesApi
-    public Object join(Continuation<? super Unit> continuation) {
+    public boolean start() {
+        return false;
+    }
+
+    public String toString() {
+        return "NonCancellable";
+    }
+
+    public NonCancellable() {
+        super(Job.Key);
+    }
+
+    @Override // kotlinx.coroutines.Job
+    @Deprecated(level = DeprecationLevel.HIDDEN, message = "Since 1.2.0, binary compatibility with versions <= 1.1.x")
+    public /* synthetic */ void cancel() {
+        cancel((CancellationException) null);
+    }
+
+    @Override // kotlinx.coroutines.Job
+    public CancellationException getCancellationException() {
+        throw new IllegalStateException("This job is always active");
+    }
+
+    @Override // kotlinx.coroutines.Job
+    public Sequence getChildren() {
+        return SequencesKt__SequencesKt.emptySequence();
+    }
+
+    @Override // kotlinx.coroutines.Job
+    public SelectClause0 getOnJoin() {
+        throw new UnsupportedOperationException("This job is always active");
+    }
+
+    @Override // kotlinx.coroutines.Job
+    public ChildHandle attachChild(ChildJob childJob) {
+        return NonDisposableHandle.INSTANCE;
+    }
+
+    @Override // kotlinx.coroutines.Job
+    public DisposableHandle invokeOnCompletion(Function1 function1) {
+        return NonDisposableHandle.INSTANCE;
+    }
+
+    @Override // kotlinx.coroutines.Job
+    public Object join(Continuation continuation) {
         throw new UnsupportedOperationException("This job is always active");
     }
 
@@ -111,18 +110,7 @@ public final class NonCancellable extends AbstractCoroutineContextElement implem
     }
 
     @Override // kotlinx.coroutines.Job
-    @InternalCoroutinesApi
-    public boolean start() {
-        return false;
-    }
-
-    public String toString() {
-        return "NonCancellable";
-    }
-
-    @Override // kotlinx.coroutines.Job
-    @InternalCoroutinesApi
-    public DisposableHandle invokeOnCompletion(boolean z, boolean z2, Function1<? super Throwable, Unit> function1) {
+    public DisposableHandle invokeOnCompletion(boolean z, boolean z2, Function1 function1) {
         return NonDisposableHandle.INSTANCE;
     }
 }

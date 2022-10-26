@@ -2,16 +2,12 @@ package androidx.transition;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.content.res.XmlResourceParser;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
 import androidx.core.content.res.TypedArrayUtils;
 import androidx.core.view.InputDeviceCompat;
 import androidx.transition.AnimatorUtils;
@@ -38,6 +34,29 @@ public abstract class Visibility extends Transition {
     public transient /* synthetic */ FieldHolder $fh;
     public int mMode;
 
+    @Retention(RetentionPolicy.SOURCE)
+    /* loaded from: classes.dex */
+    public @interface Mode {
+    }
+
+    public Animator onAppear(ViewGroup viewGroup, View view2, TransitionValues transitionValues, TransitionValues transitionValues2) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, viewGroup, view2, transitionValues, transitionValues2)) == null) {
+            return null;
+        }
+        return (Animator) invokeLLLL.objValue;
+    }
+
+    public Animator onDisappear(ViewGroup viewGroup, View view2, TransitionValues transitionValues, TransitionValues transitionValues2) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048585, this, viewGroup, view2, transitionValues, transitionValues2)) == null) {
+            return null;
+        }
+        return (Animator) invokeLLLL.objValue;
+    }
+
     /* loaded from: classes.dex */
     public static class DisappearListener extends AnimatorListenerAdapter implements Transition.TransitionListener, AnimatorUtils.AnimatorPauseListenerCompat {
         public static /* synthetic */ Interceptable $ic;
@@ -48,6 +67,34 @@ public abstract class Visibility extends Transition {
         public final ViewGroup mParent;
         public final boolean mSuppressLayout;
         public final View mView;
+
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationRepeat(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
+            }
+        }
+
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationStart(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, animator) == null) {
+            }
+        }
+
+        @Override // androidx.transition.Transition.TransitionListener
+        public void onTransitionCancel(Transition transition) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, transition) == null) {
+            }
+        }
+
+        @Override // androidx.transition.Transition.TransitionListener
+        public void onTransitionStart(Transition transition) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048586, this, transition) == null) {
+            }
+        }
 
         public DisappearListener(View view2, int i, boolean z) {
             Interceptable interceptable = $ic;
@@ -89,11 +136,10 @@ public abstract class Visibility extends Transition {
         private void suppressLayout(boolean z) {
             ViewGroup viewGroup;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeZ(65538, this, z) == null) || !this.mSuppressLayout || this.mLayoutSuppressed == z || (viewGroup = this.mParent) == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeZ(65538, this, z) == null) && this.mSuppressLayout && this.mLayoutSuppressed != z && (viewGroup = this.mParent) != null) {
+                this.mLayoutSuppressed = z;
+                ViewGroupUtils.suppressLayout(viewGroup, z);
             }
-            this.mLayoutSuppressed = z;
-            ViewGroupUtils.suppressLayout(viewGroup, z);
         }
 
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -115,44 +161,21 @@ public abstract class Visibility extends Transition {
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorPauseListener, androidx.transition.AnimatorUtils.AnimatorPauseListenerCompat
         public void onAnimationPause(Animator animator) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) || this.mCanceled) {
-                return;
-            }
-            ViewUtils.setTransitionVisibility(this.mView, this.mFinalVisibility);
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationRepeat(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) && !this.mCanceled) {
+                ViewUtils.setTransitionVisibility(this.mView, this.mFinalVisibility);
             }
         }
 
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorPauseListener, androidx.transition.AnimatorUtils.AnimatorPauseListenerCompat
         public void onAnimationResume(Animator animator) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048580, this, animator) == null) || this.mCanceled) {
-                return;
-            }
-            ViewUtils.setTransitionVisibility(this.mView, 0);
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationStart(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, animator) == null) {
+            if ((interceptable == null || interceptable.invokeL(1048580, this, animator) == null) && !this.mCanceled) {
+                ViewUtils.setTransitionVisibility(this.mView, 0);
             }
         }
 
         @Override // androidx.transition.Transition.TransitionListener
-        public void onTransitionCancel(@NonNull Transition transition) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, transition) == null) {
-            }
-        }
-
-        @Override // androidx.transition.Transition.TransitionListener
-        public void onTransitionEnd(@NonNull Transition transition) {
+        public void onTransitionEnd(Transition transition) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048583, this, transition) == null) {
                 hideViewWhenNotCanceled();
@@ -161,7 +184,7 @@ public abstract class Visibility extends Transition {
         }
 
         @Override // androidx.transition.Transition.TransitionListener
-        public void onTransitionPause(@NonNull Transition transition) {
+        public void onTransitionPause(Transition transition) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, transition) == null) {
                 suppressLayout(false);
@@ -169,26 +192,12 @@ public abstract class Visibility extends Transition {
         }
 
         @Override // androidx.transition.Transition.TransitionListener
-        public void onTransitionResume(@NonNull Transition transition) {
+        public void onTransitionResume(Transition transition) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048585, this, transition) == null) {
                 suppressLayout(true);
             }
         }
-
-        @Override // androidx.transition.Transition.TransitionListener
-        public void onTransitionStart(@NonNull Transition transition) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048586, this, transition) == null) {
-            }
-        }
-    }
-
-    @SuppressLint({"UniqueConstants"})
-    @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    /* loaded from: classes.dex */
-    public @interface Mode {
     }
 
     /* loaded from: classes.dex */
@@ -249,6 +258,53 @@ public abstract class Visibility extends Transition {
         this.mMode = 3;
     }
 
+    public int getMode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mMode;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // androidx.transition.Transition
+    public String[] getTransitionProperties() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return sTransitionProperties;
+        }
+        return (String[]) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public Visibility(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.mMode = 3;
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, Styleable.VISIBILITY_TRANSITION);
+        int namedInt = TypedArrayUtils.getNamedInt(obtainStyledAttributes, (XmlResourceParser) attributeSet, "transitionVisibilityMode", 0, 0);
+        obtainStyledAttributes.recycle();
+        if (namedInt != 0) {
+            setMode(namedInt);
+        }
+    }
+
     private void captureValues(TransitionValues transitionValues) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, transitionValues) == null) {
@@ -258,6 +314,23 @@ public abstract class Visibility extends Transition {
             transitionValues.f1028view.getLocationOnScreen(iArr);
             transitionValues.values.put(PROPNAME_SCREEN_LOCATION, iArr);
         }
+    }
+
+    public boolean isVisible(TransitionValues transitionValues) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, transitionValues)) == null) {
+            if (transitionValues == null) {
+                return false;
+            }
+            int intValue = ((Integer) transitionValues.values.get(PROPNAME_VISIBILITY)).intValue();
+            View view2 = (View) transitionValues.values.get(PROPNAME_PARENT);
+            if (intValue != 0 || view2 == null) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
     private VisibilityInfo getVisibilityChangeInfo(TransitionValues transitionValues, TransitionValues transitionValues2) {
@@ -315,7 +388,7 @@ public abstract class Visibility extends Transition {
     }
 
     @Override // androidx.transition.Transition
-    public void captureEndValues(@NonNull TransitionValues transitionValues) {
+    public void captureEndValues(TransitionValues transitionValues) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, transitionValues) == null) {
             captureValues(transitionValues);
@@ -323,46 +396,42 @@ public abstract class Visibility extends Transition {
     }
 
     @Override // androidx.transition.Transition
-    public void captureStartValues(@NonNull TransitionValues transitionValues) {
+    public void captureStartValues(TransitionValues transitionValues) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, transitionValues) == null) {
             captureValues(transitionValues);
         }
     }
 
+    public void setMode(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            if ((i & (-4)) == 0) {
+                this.mMode = i;
+                return;
+            }
+            throw new IllegalArgumentException("Only MODE_IN and MODE_OUT flags are allowed");
+        }
+    }
+
     @Override // androidx.transition.Transition
-    @Nullable
-    public Animator createAnimator(@NonNull ViewGroup viewGroup, @Nullable TransitionValues transitionValues, @Nullable TransitionValues transitionValues2) {
+    public Animator createAnimator(ViewGroup viewGroup, TransitionValues transitionValues, TransitionValues transitionValues2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, viewGroup, transitionValues, transitionValues2)) == null) {
             VisibilityInfo visibilityChangeInfo = getVisibilityChangeInfo(transitionValues, transitionValues2);
             if (visibilityChangeInfo.mVisibilityChange) {
-                if (visibilityChangeInfo.mStartParent == null && visibilityChangeInfo.mEndParent == null) {
-                    return null;
+                if (visibilityChangeInfo.mStartParent != null || visibilityChangeInfo.mEndParent != null) {
+                    if (visibilityChangeInfo.mFadeIn) {
+                        return onAppear(viewGroup, transitionValues, visibilityChangeInfo.mStartVisibility, transitionValues2, visibilityChangeInfo.mEndVisibility);
+                    }
+                    return onDisappear(viewGroup, transitionValues, visibilityChangeInfo.mStartVisibility, transitionValues2, visibilityChangeInfo.mEndVisibility);
                 }
-                if (visibilityChangeInfo.mFadeIn) {
-                    return onAppear(viewGroup, transitionValues, visibilityChangeInfo.mStartVisibility, transitionValues2, visibilityChangeInfo.mEndVisibility);
-                }
-                return onDisappear(viewGroup, transitionValues, visibilityChangeInfo.mStartVisibility, transitionValues2, visibilityChangeInfo.mEndVisibility);
+                return null;
             }
             return null;
         }
         return (Animator) invokeLLL.objValue;
-    }
-
-    public int getMode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mMode : invokeV.intValue;
-    }
-
-    @Override // androidx.transition.Transition
-    @Nullable
-    public String[] getTransitionProperties() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? sTransitionProperties : (String[]) invokeV.objValue;
     }
 
     @Override // androidx.transition.Transition
@@ -373,37 +442,19 @@ public abstract class Visibility extends Transition {
             if (transitionValues == null && transitionValues2 == null) {
                 return false;
             }
-            if (transitionValues == null || transitionValues2 == null || transitionValues2.values.containsKey(PROPNAME_VISIBILITY) == transitionValues.values.containsKey(PROPNAME_VISIBILITY)) {
-                VisibilityInfo visibilityChangeInfo = getVisibilityChangeInfo(transitionValues, transitionValues2);
-                if (visibilityChangeInfo.mVisibilityChange) {
-                    return visibilityChangeInfo.mStartVisibility == 0 || visibilityChangeInfo.mEndVisibility == 0;
-                }
+            if (transitionValues != null && transitionValues2 != null && transitionValues2.values.containsKey(PROPNAME_VISIBILITY) != transitionValues.values.containsKey(PROPNAME_VISIBILITY)) {
                 return false;
             }
-            return false;
+            VisibilityInfo visibilityChangeInfo = getVisibilityChangeInfo(transitionValues, transitionValues2);
+            if (!visibilityChangeInfo.mVisibilityChange) {
+                return false;
+            }
+            if (visibilityChangeInfo.mStartVisibility != 0 && visibilityChangeInfo.mEndVisibility != 0) {
+                return false;
+            }
+            return true;
         }
         return invokeLL.booleanValue;
-    }
-
-    public boolean isVisible(TransitionValues transitionValues) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, transitionValues)) == null) {
-            if (transitionValues == null) {
-                return false;
-            }
-            return ((Integer) transitionValues.values.get(PROPNAME_VISIBILITY)).intValue() == 0 && ((View) transitionValues.values.get(PROPNAME_PARENT)) != null;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public Animator onAppear(ViewGroup viewGroup, View view2, TransitionValues transitionValues, TransitionValues transitionValues2) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, viewGroup, view2, transitionValues, transitionValues2)) == null) {
-            return null;
-        }
-        return (Animator) invokeLLLL.objValue;
     }
 
     public Animator onAppear(ViewGroup viewGroup, TransitionValues transitionValues, int i, TransitionValues transitionValues2, int i2) {
@@ -424,15 +475,6 @@ public abstract class Visibility extends Transition {
         return (Animator) invokeCommon.objValue;
     }
 
-    public Animator onDisappear(ViewGroup viewGroup, View view2, TransitionValues transitionValues, TransitionValues transitionValues2) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048585, this, viewGroup, view2, transitionValues, transitionValues2)) == null) {
-            return null;
-        }
-        return (Animator) invokeLLLL.objValue;
-    }
-
     /* JADX WARN: Code restructure failed: missing block: B:44:0x008e, code lost:
         if (r17.mCanRemoveViews != false) goto L54;
      */
@@ -443,96 +485,87 @@ public abstract class Visibility extends Transition {
     public Animator onDisappear(ViewGroup viewGroup, TransitionValues transitionValues, int i, TransitionValues transitionValues2, int i2) {
         InterceptResult invokeCommon;
         View view2;
+        View view3;
         boolean z;
         boolean z2;
-        View view3;
+        View view4;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{viewGroup, transitionValues, Integer.valueOf(i), transitionValues2, Integer.valueOf(i2)})) == null) {
-            if ((this.mMode & 2) == 2 && transitionValues != null) {
-                View view4 = transitionValues.f1028view;
-                View view5 = transitionValues2 != null ? transitionValues2.f1028view : null;
-                View view6 = (View) view4.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091db3);
-                if (view6 != null) {
+            if ((this.mMode & 2) != 2 || transitionValues == null) {
+                return null;
+            }
+            View view5 = transitionValues.f1028view;
+            if (transitionValues2 != null) {
+                view2 = transitionValues2.f1028view;
+            } else {
+                view2 = null;
+            }
+            View view6 = (View) view5.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091daf);
+            if (view6 != null) {
+                view4 = null;
+                z2 = true;
+            } else if (view2 != null && view2.getParent() != null) {
+                if (i2 == 4 || view5 == view2) {
+                    view3 = view2;
+                    z = false;
+                    view2 = null;
+                    if (z) {
+                    }
+                    z2 = false;
+                    View view7 = view3;
+                    view6 = view2;
+                    view4 = view7;
+                }
+                view2 = null;
+                view3 = null;
+                z = true;
+                if (z) {
+                }
+                z2 = false;
+                View view72 = view3;
+                view6 = view2;
+                view4 = view72;
+            } else {
+                if (view2 != null) {
                     view3 = null;
-                    z2 = true;
-                } else if (view5 == null || view5.getParent() == null) {
-                    if (view5 != null) {
-                        view2 = null;
-                        z = false;
-                        if (z) {
-                            if (view4.getParent() != null) {
-                                if (view4.getParent() instanceof View) {
-                                    View view7 = (View) view4.getParent();
-                                    if (!getVisibilityChangeInfo(getTransitionValues(view7, true), getMatchedTransitionValues(view7, true)).mVisibilityChange) {
-                                        view5 = TransitionUtils.copyViewImage(viewGroup, view4, view7);
-                                    } else {
-                                        int id = view7.getId();
-                                        if (view7.getParent() == null) {
-                                            if (id != -1) {
-                                                if (viewGroup.findViewById(id) != null) {
-                                                }
+                    z = false;
+                    if (z) {
+                        if (view5.getParent() != null) {
+                            if (view5.getParent() instanceof View) {
+                                View view8 = (View) view5.getParent();
+                                if (!getVisibilityChangeInfo(getTransitionValues(view8, true), getMatchedTransitionValues(view8, true)).mVisibilityChange) {
+                                    view2 = TransitionUtils.copyViewImage(viewGroup, view5, view8);
+                                } else {
+                                    int id = view8.getId();
+                                    if (view8.getParent() == null) {
+                                        if (id != -1) {
+                                            if (viewGroup.findViewById(id) != null) {
                                             }
                                         }
                                     }
                                 }
                             }
-                            view3 = view2;
-                            z2 = false;
-                            view6 = view4;
                         }
+                        view4 = view3;
                         z2 = false;
-                        View view8 = view2;
                         view6 = view5;
-                        view3 = view8;
-                    }
-                    view5 = null;
-                    view2 = null;
-                    z = true;
-                    if (z) {
                     }
                     z2 = false;
-                    View view82 = view2;
-                    view6 = view5;
-                    view3 = view82;
-                } else {
-                    if (i2 == 4 || view4 == view5) {
-                        view2 = view5;
-                        z = false;
-                        view5 = null;
-                        if (z) {
-                        }
-                        z2 = false;
-                        View view822 = view2;
-                        view6 = view5;
-                        view3 = view822;
-                    }
-                    view5 = null;
-                    view2 = null;
-                    z = true;
-                    if (z) {
-                    }
-                    z2 = false;
-                    View view8222 = view2;
-                    view6 = view5;
-                    view3 = view8222;
+                    View view722 = view3;
+                    view6 = view2;
+                    view4 = view722;
                 }
-                if (view6 == null) {
-                    if (view3 != null) {
-                        int visibility = view3.getVisibility();
-                        ViewUtils.setTransitionVisibility(view3, 0);
-                        Animator onDisappear = onDisappear(viewGroup, view3, transitionValues, transitionValues2);
-                        if (onDisappear != null) {
-                            DisappearListener disappearListener = new DisappearListener(view3, i2, true);
-                            onDisappear.addListener(disappearListener);
-                            AnimatorUtils.addPauseListener(onDisappear, disappearListener);
-                            addListener(disappearListener);
-                        } else {
-                            ViewUtils.setTransitionVisibility(view3, visibility);
-                        }
-                        return onDisappear;
-                    }
-                    return null;
+                view2 = null;
+                view3 = null;
+                z = true;
+                if (z) {
                 }
+                z2 = false;
+                View view7222 = view3;
+                view6 = view2;
+                view4 = view7222;
+            }
+            if (view6 != null) {
                 if (!z2) {
                     int[] iArr = (int[]) transitionValues.values.get(PROPNAME_SCREEN_LOCATION);
                     int i3 = iArr[0];
@@ -543,13 +576,13 @@ public abstract class Visibility extends Transition {
                     view6.offsetTopAndBottom((i4 - iArr2[1]) - view6.getTop());
                     ViewGroupUtils.getOverlay(viewGroup).add(view6);
                 }
-                Animator onDisappear2 = onDisappear(viewGroup, view6, transitionValues, transitionValues2);
+                Animator onDisappear = onDisappear(viewGroup, view6, transitionValues, transitionValues2);
                 if (!z2) {
-                    if (onDisappear2 == null) {
+                    if (onDisappear == null) {
                         ViewGroupUtils.getOverlay(viewGroup).remove(view6);
                     } else {
-                        view4.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091db3, view6);
-                        addListener(new TransitionListenerAdapter(this, viewGroup, view6, view4) { // from class: androidx.transition.Visibility.1
+                        view5.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091daf, view6);
+                        addListener(new TransitionListenerAdapter(this, viewGroup, view6, view5) { // from class: androidx.transition.Visibility.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ Visibility this$0;
@@ -562,7 +595,7 @@ public abstract class Visibility extends Transition {
                                 if (interceptable2 != null) {
                                     InitContext newInitContext = TitanRuntime.newInitContext();
                                     newInitContext.initArgs = r2;
-                                    Object[] objArr = {this, viewGroup, view6, view4};
+                                    Object[] objArr = {this, viewGroup, view6, view5};
                                     interceptable2.invokeUnInit(65536, newInitContext);
                                     int i5 = newInitContext.flag;
                                     if ((i5 & 1) != 0) {
@@ -575,21 +608,21 @@ public abstract class Visibility extends Transition {
                                 this.this$0 = this;
                                 this.val$overlayHost = viewGroup;
                                 this.val$finalOverlayView = view6;
-                                this.val$startView = view4;
+                                this.val$startView = view5;
                             }
 
                             @Override // androidx.transition.TransitionListenerAdapter, androidx.transition.Transition.TransitionListener
-                            public void onTransitionEnd(@NonNull Transition transition) {
+                            public void onTransitionEnd(Transition transition) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, transition) == null) {
-                                    this.val$startView.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091db3, null);
+                                    this.val$startView.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091daf, null);
                                     ViewGroupUtils.getOverlay(this.val$overlayHost).remove(this.val$finalOverlayView);
                                     transition.removeListener(this);
                                 }
                             }
 
                             @Override // androidx.transition.TransitionListenerAdapter, androidx.transition.Transition.TransitionListener
-                            public void onTransitionPause(@NonNull Transition transition) {
+                            public void onTransitionPause(Transition transition) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, transition) == null) {
                                     ViewGroupUtils.getOverlay(this.val$overlayHost).remove(this.val$finalOverlayView);
@@ -597,7 +630,7 @@ public abstract class Visibility extends Transition {
                             }
 
                             @Override // androidx.transition.TransitionListenerAdapter, androidx.transition.Transition.TransitionListener
-                            public void onTransitionResume(@NonNull Transition transition) {
+                            public void onTransitionResume(Transition transition) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, transition) == null) {
                                     if (this.val$finalOverlayView.getParent() == null) {
@@ -610,50 +643,24 @@ public abstract class Visibility extends Transition {
                         });
                     }
                 }
+                return onDisappear;
+            } else if (view4 == null) {
+                return null;
+            } else {
+                int visibility = view4.getVisibility();
+                ViewUtils.setTransitionVisibility(view4, 0);
+                Animator onDisappear2 = onDisappear(viewGroup, view4, transitionValues, transitionValues2);
+                if (onDisappear2 != null) {
+                    DisappearListener disappearListener = new DisappearListener(view4, i2, true);
+                    onDisappear2.addListener(disappearListener);
+                    AnimatorUtils.addPauseListener(onDisappear2, disappearListener);
+                    addListener(disappearListener);
+                } else {
+                    ViewUtils.setTransitionVisibility(view4, visibility);
+                }
                 return onDisappear2;
             }
-            return null;
         }
         return (Animator) invokeCommon.objValue;
-    }
-
-    public void setMode(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            if ((i & (-4)) == 0) {
-                this.mMode = i;
-                return;
-            }
-            throw new IllegalArgumentException("Only MODE_IN and MODE_OUT flags are allowed");
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    @SuppressLint({"RestrictedApi"})
-    public Visibility(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.mMode = 3;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, Styleable.VISIBILITY_TRANSITION);
-        int namedInt = TypedArrayUtils.getNamedInt(obtainStyledAttributes, (XmlResourceParser) attributeSet, "transitionVisibilityMode", 0, 0);
-        obtainStyledAttributes.recycle();
-        if (namedInt != 0) {
-            setMode(namedInt);
-        }
     }
 }

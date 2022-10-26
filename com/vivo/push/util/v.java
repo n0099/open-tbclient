@@ -31,17 +31,19 @@ public final class v implements d {
     }
 
     @Override // com.vivo.push.util.d
-    public final boolean a(Context context) {
-        InterceptResult invokeL;
+    public final String a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            if (j.b()) {
-                this.a = context.getContentResolver();
-                return true;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            try {
+                return ApiReplaceUtil.getString(this.a, str);
+            } catch (Exception e) {
+                e.printStackTrace();
+                p.b("SettingsCache", "getString error by ".concat(String.valueOf(str)));
+                return str2;
             }
-            return false;
         }
-        return invokeL.booleanValue;
+        return (String) invokeLL.objValue;
     }
 
     @Override // com.vivo.push.util.d
@@ -58,18 +60,16 @@ public final class v implements d {
     }
 
     @Override // com.vivo.push.util.d
-    public final String a(String str, String str2) {
-        InterceptResult invokeLL;
+    public final boolean a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            try {
-                return ApiReplaceUtil.getString(this.a, str);
-            } catch (Exception e) {
-                e.printStackTrace();
-                p.b("SettingsCache", "getString error by ".concat(String.valueOf(str)));
-                return str2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            if (j.b()) {
+                this.a = context.getContentResolver();
+                return true;
             }
+            return false;
         }
-        return (String) invokeLL.objValue;
+        return invokeL.booleanValue;
     }
 }

@@ -7,8 +7,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
 import com.baidu.tieba.faceshop.emotioncenter.CommonEmotionCenterFragment;
+import com.baidu.tieba.fj;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,6 +24,13 @@ public class CommonEmotionManagerActivity extends BaseFragmentActivity {
     public FrameLayout a;
     public CommonEmotionCenterFragment b;
     public String c;
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -55,10 +62,15 @@ public class CommonEmotionManagerActivity extends BaseFragmentActivity {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void onChangeSkinType(int i) {
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            CommonEmotionCenterFragment commonEmotionCenterFragment = this.b;
+            if (commonEmotionCenterFragment != null) {
+                commonEmotionCenterFragment.onDestroy();
+            }
+            super.onDestroy();
         }
     }
 
@@ -68,10 +80,10 @@ public class CommonEmotionManagerActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
-            setContentView(R.layout.obfuscated_res_0x7f0d01e7);
-            this.a = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0906d3);
+            setContentView(R.layout.obfuscated_res_0x7f0d01e6);
+            this.a = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0906dc);
             if (isUseStyleImmersiveSticky()) {
-                ((FrameLayout.LayoutParams) this.a.getLayoutParams()).topMargin = ej.s(getPageContext().getPageActivity());
+                ((FrameLayout.LayoutParams) this.a.getLayoutParams()).topMargin = fj.s(getPageContext().getPageActivity());
             }
             String stringExtra = getIntent().getStringExtra("url");
             this.c = stringExtra;
@@ -82,19 +94,7 @@ public class CommonEmotionManagerActivity extends BaseFragmentActivity {
             Bundle bundle2 = new Bundle();
             bundle2.putString("key_load_url", this.c);
             this.b.setArguments(bundle2);
-            getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f0906d3, this.b).commit();
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            CommonEmotionCenterFragment commonEmotionCenterFragment = this.b;
-            if (commonEmotionCenterFragment != null) {
-                commonEmotionCenterFragment.onDestroy();
-            }
-            super.onDestroy();
+            getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f0906dc, this.b).commit();
         }
     }
 }

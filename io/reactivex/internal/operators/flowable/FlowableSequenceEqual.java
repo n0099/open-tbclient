@@ -23,29 +23,36 @@ import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableSequenceEqual<T> extends Flowable<Boolean> {
+public final class FlowableSequenceEqual extends Flowable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BiPredicate<? super T, ? super T> comparer;
-    public final Publisher<? extends T> first;
+    public final BiPredicate comparer;
+    public final Publisher first;
     public final int prefetch;
-    public final Publisher<? extends T> second;
+    public final Publisher second;
 
     /* loaded from: classes8.dex */
-    public static final class EqualCoordinator<T> extends DeferredScalarSubscription<Boolean> implements EqualCoordinatorHelper {
+    public interface EqualCoordinatorHelper {
+        void drain();
+
+        void innerError(Throwable th);
+    }
+
+    /* loaded from: classes8.dex */
+    public final class EqualCoordinator extends DeferredScalarSubscription implements EqualCoordinatorHelper {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -6178010334400373240L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final BiPredicate<? super T, ? super T> comparer;
+        public final BiPredicate comparer;
         public final AtomicThrowable error;
-        public final EqualSubscriber<T> first;
-        public final EqualSubscriber<T> second;
-        public T v1;
-        public T v2;
+        public final EqualSubscriber first;
+        public final EqualSubscriber second;
+        public Object v1;
+        public Object v2;
         public final AtomicInteger wip;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public EqualCoordinator(Subscriber<? super Boolean> subscriber, int i, BiPredicate<? super T, ? super T> biPredicate) {
+        public EqualCoordinator(Subscriber subscriber, int i, BiPredicate biPredicate) {
             super(subscriber);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -64,8 +71,8 @@ public final class FlowableSequenceEqual<T> extends Flowable<Boolean> {
             }
             this.comparer = biPredicate;
             this.wip = new AtomicInteger();
-            this.first = new EqualSubscriber<>(this, i);
-            this.second = new EqualSubscriber<>(this, i);
+            this.first = new EqualSubscriber(this, i);
+            this.second = new EqualSubscriber(this, i);
             this.error = new AtomicThrowable();
         }
 
@@ -95,91 +102,100 @@ public final class FlowableSequenceEqual<T> extends Flowable<Boolean> {
 
         @Override // io.reactivex.internal.operators.flowable.FlowableSequenceEqual.EqualCoordinatorHelper
         public void drain() {
+            boolean z;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.wip.getAndIncrement() == 0) {
-                int i = 1;
-                do {
-                    SimpleQueue<T> simpleQueue = this.first.queue;
-                    SimpleQueue<T> simpleQueue2 = this.second.queue;
-                    if (simpleQueue != null && simpleQueue2 != null) {
-                        while (!isCancelled()) {
-                            if (this.error.get() != null) {
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.wip.getAndIncrement() != 0) {
+                return;
+            }
+            int i = 1;
+            do {
+                SimpleQueue simpleQueue = this.first.queue;
+                SimpleQueue simpleQueue2 = this.second.queue;
+                if (simpleQueue != null && simpleQueue2 != null) {
+                    while (!isCancelled()) {
+                        if (((Throwable) this.error.get()) != null) {
+                            cancelAndClear();
+                            this.actual.onError(this.error.terminate());
+                            return;
+                        }
+                        boolean z2 = this.first.done;
+                        Object obj = this.v1;
+                        if (obj == null) {
+                            try {
+                                obj = simpleQueue.poll();
+                                this.v1 = obj;
+                            } catch (Throwable th) {
+                                Exceptions.throwIfFatal(th);
                                 cancelAndClear();
+                                this.error.addThrowable(th);
                                 this.actual.onError(this.error.terminate());
                                 return;
                             }
-                            boolean z = this.first.done;
-                            T t = this.v1;
-                            if (t == null) {
-                                try {
-                                    t = simpleQueue.poll();
-                                    this.v1 = t;
-                                } catch (Throwable th) {
-                                    Exceptions.throwIfFatal(th);
-                                    cancelAndClear();
-                                    this.error.addThrowable(th);
-                                    this.actual.onError(this.error.terminate());
-                                    return;
-                                }
-                            }
-                            boolean z2 = t == null;
-                            boolean z3 = this.second.done;
-                            T t2 = this.v2;
-                            if (t2 == null) {
-                                try {
-                                    t2 = simpleQueue2.poll();
-                                    this.v2 = t2;
-                                } catch (Throwable th2) {
-                                    Exceptions.throwIfFatal(th2);
-                                    cancelAndClear();
-                                    this.error.addThrowable(th2);
-                                    this.actual.onError(this.error.terminate());
-                                    return;
-                                }
-                            }
-                            boolean z4 = t2 == null;
-                            if (z && z3 && z2 && z4) {
-                                complete(Boolean.TRUE);
-                                return;
-                            } else if (z && z3 && z2 != z4) {
+                        }
+                        boolean z3 = false;
+                        if (obj == null) {
+                            z = true;
+                        } else {
+                            z = false;
+                        }
+                        boolean z4 = this.second.done;
+                        Object obj2 = this.v2;
+                        if (obj2 == null) {
+                            try {
+                                obj2 = simpleQueue2.poll();
+                                this.v2 = obj2;
+                            } catch (Throwable th2) {
+                                Exceptions.throwIfFatal(th2);
                                 cancelAndClear();
-                                complete(Boolean.FALSE);
+                                this.error.addThrowable(th2);
+                                this.actual.onError(this.error.terminate());
                                 return;
-                            } else if (!z2 && !z4) {
-                                try {
-                                    if (!this.comparer.test(t, t2)) {
-                                        cancelAndClear();
-                                        complete(Boolean.FALSE);
-                                        return;
-                                    }
-                                    this.v1 = null;
-                                    this.v2 = null;
-                                    this.first.request();
-                                    this.second.request();
-                                } catch (Throwable th3) {
-                                    Exceptions.throwIfFatal(th3);
-                                    cancelAndClear();
-                                    this.error.addThrowable(th3);
-                                    this.actual.onError(this.error.terminate());
-                                    return;
-                                }
                             }
                         }
-                        this.first.clear();
-                        this.second.clear();
-                        return;
-                    } else if (isCancelled()) {
-                        this.first.clear();
-                        this.second.clear();
-                        return;
-                    } else if (this.error.get() != null) {
-                        cancelAndClear();
-                        this.actual.onError(this.error.terminate());
-                        return;
+                        if (obj2 == null) {
+                            z3 = true;
+                        }
+                        if (z2 && z4 && z && z3) {
+                            complete(Boolean.TRUE);
+                            return;
+                        } else if (z2 && z4 && z != z3) {
+                            cancelAndClear();
+                            complete(Boolean.FALSE);
+                            return;
+                        } else if (!z && !z3) {
+                            try {
+                                if (!this.comparer.test(obj, obj2)) {
+                                    cancelAndClear();
+                                    complete(Boolean.FALSE);
+                                    return;
+                                }
+                                this.v1 = null;
+                                this.v2 = null;
+                                this.first.request();
+                                this.second.request();
+                            } catch (Throwable th3) {
+                                Exceptions.throwIfFatal(th3);
+                                cancelAndClear();
+                                this.error.addThrowable(th3);
+                                this.actual.onError(this.error.terminate());
+                                return;
+                            }
+                        }
                     }
-                    i = this.wip.addAndGet(-i);
-                } while (i != 0);
-            }
+                    this.first.clear();
+                    this.second.clear();
+                    return;
+                } else if (isCancelled()) {
+                    this.first.clear();
+                    this.second.clear();
+                    return;
+                } else if (((Throwable) this.error.get()) != null) {
+                    cancelAndClear();
+                    this.actual.onError(this.error.terminate());
+                    return;
+                }
+                i = this.wip.addAndGet(-i);
+            } while (i != 0);
         }
 
         @Override // io.reactivex.internal.operators.flowable.FlowableSequenceEqual.EqualCoordinatorHelper
@@ -194,7 +210,7 @@ public final class FlowableSequenceEqual<T> extends Flowable<Boolean> {
             }
         }
 
-        public void subscribe(Publisher<? extends T> publisher, Publisher<? extends T> publisher2) {
+        public void subscribe(Publisher publisher, Publisher publisher2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048580, this, publisher, publisher2) == null) {
                 publisher.subscribe(this.first);
@@ -204,14 +220,7 @@ public final class FlowableSequenceEqual<T> extends Flowable<Boolean> {
     }
 
     /* loaded from: classes8.dex */
-    public interface EqualCoordinatorHelper {
-        void drain();
-
-        void innerError(Throwable th);
-    }
-
-    /* loaded from: classes8.dex */
-    public static final class EqualSubscriber<T> extends AtomicReference<Subscription> implements FlowableSubscriber<T> {
+    public final class EqualSubscriber extends AtomicReference implements FlowableSubscriber {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4804128302091633067L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -220,7 +229,7 @@ public final class FlowableSequenceEqual<T> extends Flowable<Boolean> {
         public final EqualCoordinatorHelper parent;
         public final int prefetch;
         public long produced;
-        public volatile SimpleQueue<T> queue;
+        public volatile SimpleQueue queue;
         public int sourceMode;
 
         public EqualSubscriber(EqualCoordinatorHelper equalCoordinatorHelper, int i) {
@@ -251,12 +260,11 @@ public final class FlowableSequenceEqual<T> extends Flowable<Boolean> {
         }
 
         public void clear() {
-            SimpleQueue<T> simpleQueue;
+            SimpleQueue simpleQueue;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (simpleQueue = this.queue) == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (simpleQueue = this.queue) != null) {
+                simpleQueue.clear();
             }
-            simpleQueue.clear();
         }
 
         @Override // org.reactivestreams.Subscriber
@@ -265,6 +273,19 @@ public final class FlowableSequenceEqual<T> extends Flowable<Boolean> {
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 this.done = true;
                 this.parent.drain();
+            }
+        }
+
+        public void request() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.sourceMode != 1) {
+                long j = this.produced + 1;
+                if (j >= this.limit) {
+                    this.produced = 0L;
+                    ((Subscription) get()).request(j);
+                    return;
+                }
+                this.produced = j;
             }
         }
 
@@ -277,10 +298,10 @@ public final class FlowableSequenceEqual<T> extends Flowable<Boolean> {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
-                if (this.sourceMode == 0 && !this.queue.offer(t)) {
+            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+                if (this.sourceMode == 0 && !this.queue.offer(obj)) {
                     onError(new MissingBackpressureException());
                 } else {
                     this.parent.drain();
@@ -312,23 +333,9 @@ public final class FlowableSequenceEqual<T> extends Flowable<Boolean> {
                 subscription.request(this.prefetch);
             }
         }
-
-        public void request() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.sourceMode == 1) {
-                return;
-            }
-            long j = this.produced + 1;
-            if (j >= this.limit) {
-                this.produced = 0L;
-                get().request(j);
-                return;
-            }
-            this.produced = j;
-        }
     }
 
-    public FlowableSequenceEqual(Publisher<? extends T> publisher, Publisher<? extends T> publisher2, BiPredicate<? super T, ? super T> biPredicate, int i) {
+    public FlowableSequenceEqual(Publisher publisher, Publisher publisher2, BiPredicate biPredicate, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -350,7 +357,7 @@ public final class FlowableSequenceEqual<T> extends Flowable<Boolean> {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber<? super Boolean> subscriber) {
+    public void subscribeActual(Subscriber subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             EqualCoordinator equalCoordinator = new EqualCoordinator(subscriber, this.prefetch, this.comparer);

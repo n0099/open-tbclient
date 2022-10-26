@@ -24,7 +24,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableOnBackpressureBufferStrategy<T> extends AbstractFlowableWithUpstream<T, T> {
+public final class FlowableOnBackpressureBufferStrategy extends AbstractFlowableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long bufferSize;
@@ -33,7 +33,7 @@ public final class FlowableOnBackpressureBufferStrategy<T> extends AbstractFlowa
 
     /* renamed from: io.reactivex.internal.operators.flowable.FlowableOnBackpressureBufferStrategy$1  reason: invalid class name */
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$io$reactivex$BackpressureOverflowStrategy;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -65,14 +65,14 @@ public final class FlowableOnBackpressureBufferStrategy<T> extends AbstractFlowa
     }
 
     /* loaded from: classes8.dex */
-    public static final class OnBackpressureBufferStrategySubscriber<T> extends AtomicInteger implements FlowableSubscriber<T>, Subscription {
+    public final class OnBackpressureBufferStrategySubscriber extends AtomicInteger implements FlowableSubscriber, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3240706908776709697L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber<? super T> actual;
+        public final Subscriber actual;
         public final long bufferSize;
         public volatile boolean cancelled;
-        public final Deque<T> deque;
+        public final Deque deque;
         public volatile boolean done;
         public Throwable error;
         public final Action onOverflow;
@@ -80,7 +80,7 @@ public final class FlowableOnBackpressureBufferStrategy<T> extends AbstractFlowa
         public Subscription s;
         public final BackpressureOverflowStrategy strategy;
 
-        public OnBackpressureBufferStrategySubscriber(Subscriber<? super T> subscriber, Action action, BackpressureOverflowStrategy backpressureOverflowStrategy, long j) {
+        public OnBackpressureBufferStrategySubscriber(Subscriber subscriber, Action action, BackpressureOverflowStrategy backpressureOverflowStrategy, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -115,93 +115,21 @@ public final class FlowableOnBackpressureBufferStrategy<T> extends AbstractFlowa
             }
         }
 
-        public void clear(Deque<T> deque) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, deque) == null) {
-                synchronized (deque) {
-                    deque.clear();
-                }
-            }
-        }
-
-        public void drain() {
-            int i;
-            boolean isEmpty;
-            T poll;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && getAndIncrement() == 0) {
-                Deque<T> deque = this.deque;
-                Subscriber<? super T> subscriber = this.actual;
-                int i2 = 1;
-                do {
-                    long j = this.requested.get();
-                    long j2 = 0;
-                    while (true) {
-                        i = (j2 > j ? 1 : (j2 == j ? 0 : -1));
-                        if (i == 0) {
-                            break;
-                        } else if (this.cancelled) {
-                            clear(deque);
-                            return;
-                        } else {
-                            boolean z = this.done;
-                            synchronized (deque) {
-                                poll = deque.poll();
-                            }
-                            boolean z2 = poll == null;
-                            if (z) {
-                                Throwable th = this.error;
-                                if (th != null) {
-                                    clear(deque);
-                                    subscriber.onError(th);
-                                    return;
-                                } else if (z2) {
-                                    subscriber.onComplete();
-                                    return;
-                                }
-                            }
-                            if (z2) {
-                                break;
-                            }
-                            subscriber.onNext(poll);
-                            j2++;
-                        }
-                    }
-                    if (i == 0) {
-                        if (this.cancelled) {
-                            clear(deque);
-                            return;
-                        }
-                        boolean z3 = this.done;
-                        synchronized (deque) {
-                            isEmpty = deque.isEmpty();
-                        }
-                        if (z3) {
-                            Throwable th2 = this.error;
-                            if (th2 != null) {
-                                clear(deque);
-                                subscriber.onError(th2);
-                                return;
-                            } else if (isEmpty) {
-                                subscriber.onComplete();
-                                return;
-                            }
-                        }
-                    }
-                    if (j2 != 0) {
-                        BackpressureHelper.produced(this.requested, j2);
-                    }
-                    i2 = addAndGet(-i2);
-                } while (i2 != 0);
-            }
-        }
-
         @Override // org.reactivestreams.Subscriber
         public void onComplete() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                 this.done = true;
                 drain();
+            }
+        }
+
+        public void clear(Deque deque) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, deque) == null) {
+                synchronized (deque) {
+                    deque.clear();
+                }
             }
         }
 
@@ -216,54 +144,6 @@ public final class FlowableOnBackpressureBufferStrategy<T> extends AbstractFlowa
                 this.error = th;
                 this.done = true;
                 drain();
-            }
-        }
-
-        @Override // org.reactivestreams.Subscriber
-        public void onNext(T t) {
-            boolean z;
-            boolean z2;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048581, this, t) == null) || this.done) {
-                return;
-            }
-            Deque<T> deque = this.deque;
-            synchronized (deque) {
-                z = false;
-                z2 = true;
-                if (deque.size() == this.bufferSize) {
-                    int i = AnonymousClass1.$SwitchMap$io$reactivex$BackpressureOverflowStrategy[this.strategy.ordinal()];
-                    if (i == 1) {
-                        deque.pollLast();
-                        deque.offer(t);
-                    } else if (i == 2) {
-                        deque.poll();
-                        deque.offer(t);
-                    }
-                    z = true;
-                } else {
-                    deque.offer(t);
-                }
-                z2 = false;
-            }
-            if (!z) {
-                if (z2) {
-                    this.s.cancel();
-                    onError(new MissingBackpressureException());
-                    return;
-                }
-                drain();
-                return;
-            }
-            Action action = this.onOverflow;
-            if (action != null) {
-                try {
-                    action.run();
-                } catch (Throwable th) {
-                    Exceptions.throwIfFatal(th);
-                    this.s.cancel();
-                    onError(th);
-                }
             }
         }
 
@@ -285,10 +165,136 @@ public final class FlowableOnBackpressureBufferStrategy<T> extends AbstractFlowa
                 drain();
             }
         }
+
+        public void drain() {
+            int i;
+            boolean isEmpty;
+            Object poll;
+            boolean z;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || getAndIncrement() != 0) {
+                return;
+            }
+            Deque deque = this.deque;
+            Subscriber subscriber = this.actual;
+            int i2 = 1;
+            do {
+                long j = this.requested.get();
+                long j2 = 0;
+                while (true) {
+                    i = (j2 > j ? 1 : (j2 == j ? 0 : -1));
+                    if (i == 0) {
+                        break;
+                    } else if (this.cancelled) {
+                        clear(deque);
+                        return;
+                    } else {
+                        boolean z2 = this.done;
+                        synchronized (deque) {
+                            poll = deque.poll();
+                        }
+                        if (poll == null) {
+                            z = true;
+                        } else {
+                            z = false;
+                        }
+                        if (z2) {
+                            Throwable th = this.error;
+                            if (th != null) {
+                                clear(deque);
+                                subscriber.onError(th);
+                                return;
+                            } else if (z) {
+                                subscriber.onComplete();
+                                return;
+                            }
+                        }
+                        if (z) {
+                            break;
+                        }
+                        subscriber.onNext(poll);
+                        j2++;
+                    }
+                }
+                if (i == 0) {
+                    if (this.cancelled) {
+                        clear(deque);
+                        return;
+                    }
+                    boolean z3 = this.done;
+                    synchronized (deque) {
+                        isEmpty = deque.isEmpty();
+                    }
+                    if (z3) {
+                        Throwable th2 = this.error;
+                        if (th2 != null) {
+                            clear(deque);
+                            subscriber.onError(th2);
+                            return;
+                        } else if (isEmpty) {
+                            subscriber.onComplete();
+                            return;
+                        }
+                    }
+                }
+                if (j2 != 0) {
+                    BackpressureHelper.produced(this.requested, j2);
+                }
+                i2 = addAndGet(-i2);
+            } while (i2 != 0);
+        }
+
+        @Override // org.reactivestreams.Subscriber
+        public void onNext(Object obj) {
+            boolean z;
+            boolean z2;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048581, this, obj) != null) || this.done) {
+                return;
+            }
+            Deque deque = this.deque;
+            synchronized (deque) {
+                z = false;
+                z2 = true;
+                if (deque.size() == this.bufferSize) {
+                    int i = AnonymousClass1.$SwitchMap$io$reactivex$BackpressureOverflowStrategy[this.strategy.ordinal()];
+                    if (i != 1) {
+                        if (i == 2) {
+                            deque.poll();
+                            deque.offer(obj);
+                        }
+                    } else {
+                        deque.pollLast();
+                        deque.offer(obj);
+                    }
+                    z = true;
+                } else {
+                    deque.offer(obj);
+                }
+                z2 = false;
+            }
+            if (z) {
+                Action action = this.onOverflow;
+                if (action != null) {
+                    try {
+                        action.run();
+                    } catch (Throwable th) {
+                        Exceptions.throwIfFatal(th);
+                        this.s.cancel();
+                        onError(th);
+                    }
+                }
+            } else if (z2) {
+                this.s.cancel();
+                onError(new MissingBackpressureException());
+            } else {
+                drain();
+            }
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableOnBackpressureBufferStrategy(Flowable<T> flowable, long j, Action action, BackpressureOverflowStrategy backpressureOverflowStrategy) {
+    public FlowableOnBackpressureBufferStrategy(Flowable flowable, long j, Action action, BackpressureOverflowStrategy backpressureOverflowStrategy) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -311,7 +317,7 @@ public final class FlowableOnBackpressureBufferStrategy<T> extends AbstractFlowa
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber<? super T> subscriber) {
+    public void subscribeActual(Subscriber subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             this.source.subscribe((FlowableSubscriber) new OnBackpressureBufferStrategySubscriber(subscriber, this.onOverflow, this.strategy, this.bufferSize));

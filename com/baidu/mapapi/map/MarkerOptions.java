@@ -31,7 +31,7 @@ public final class MarkerOptions extends OverlayOptions {
     public String k;
     public int l;
     public boolean m;
-    public ArrayList<BitmapDescriptor> n;
+    public ArrayList n;
     public int o;
     public float p;
     public float q;
@@ -43,7 +43,7 @@ public final class MarkerOptions extends OverlayOptions {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class MarkerAnimateType {
+    public final class MarkerAnimateType {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ MarkerAnimateType[] a;
         public static final MarkerAnimateType drop;
@@ -296,7 +296,7 @@ public final class MarkerOptions extends OverlayOptions {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.e : (BitmapDescriptor) invokeV.objValue;
     }
 
-    public ArrayList<BitmapDescriptor> getIcons() {
+    public ArrayList getIcons() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.n : (ArrayList) invokeV.objValue;
@@ -346,7 +346,7 @@ public final class MarkerOptions extends OverlayOptions {
         return (MarkerOptions) invokeL.objValue;
     }
 
-    public MarkerOptions icons(ArrayList<BitmapDescriptor> arrayList) {
+    public MarkerOptions icons(ArrayList arrayList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, arrayList)) == null) {
@@ -355,7 +355,7 @@ public final class MarkerOptions extends OverlayOptions {
                     return this;
                 }
                 for (int i = 0; i < arrayList.size(); i++) {
-                    if (arrayList.get(i) == null || arrayList.get(i).a == null) {
+                    if (arrayList.get(i) == null || ((BitmapDescriptor) arrayList.get(i)).a == null) {
                         return this;
                     }
                 }

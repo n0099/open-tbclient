@@ -38,20 +38,29 @@ public class ByteArrayBinaryResource implements BinaryResource {
     public InputStream openStream() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ByteArrayInputStream(this.mBytes) : (InputStream) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new ByteArrayInputStream(this.mBytes);
+        }
+        return (InputStream) invokeV.objValue;
     }
 
     @Override // com.facebook.binaryresource.BinaryResource
     public byte[] read() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mBytes : (byte[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mBytes;
+        }
+        return (byte[]) invokeV.objValue;
     }
 
     @Override // com.facebook.binaryresource.BinaryResource
     public long size() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mBytes.length : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mBytes.length;
+        }
+        return invokeV.longValue;
     }
 }

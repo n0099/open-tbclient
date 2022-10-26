@@ -15,13 +15,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 /* loaded from: classes7.dex */
 public abstract class AbstractIFragmentLifecycle implements IFragmentLifecycle {
     @Override // com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     @Deprecated
-    public void onActivityCreated(@Nullable Bundle bundle) {
+    public void onActivityCreated(Bundle bundle) {
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragmentLifecycle
@@ -50,7 +48,7 @@ public abstract class AbstractIFragmentLifecycle implements IFragmentLifecycle {
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragmentLifecycle
-    public void onCreate(@Nullable Bundle bundle) {
+    public void onCreate(Bundle bundle) {
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragmentLifecycle
@@ -72,8 +70,7 @@ public abstract class AbstractIFragmentLifecycle implements IFragmentLifecycle {
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragmentLifecycle
-    @Nullable
-    public View onCreateView(@NonNull LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
+    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         return null;
     }
 
@@ -135,7 +132,7 @@ public abstract class AbstractIFragmentLifecycle implements IFragmentLifecycle {
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragmentLifecycle
-    public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
+    public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragmentLifecycle
@@ -143,7 +140,7 @@ public abstract class AbstractIFragmentLifecycle implements IFragmentLifecycle {
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragmentLifecycle
-    public void onSaveInstanceState(@NonNull Bundle bundle) {
+    public void onSaveInstanceState(Bundle bundle) {
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragmentLifecycle
@@ -155,10 +152,10 @@ public abstract class AbstractIFragmentLifecycle implements IFragmentLifecycle {
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragmentLifecycle
-    public void onViewCreated(@NonNull View view2, @Nullable Bundle bundle) {
+    public void onViewCreated(View view2, Bundle bundle) {
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragmentLifecycle
-    public void onViewStateRestored(@Nullable Bundle bundle) {
+    public void onViewStateRestored(Bundle bundle) {
     }
 }

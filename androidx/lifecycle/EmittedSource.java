@@ -1,6 +1,5 @@
 package androidx.lifecycle;
 
-import androidx.annotation.MainThread;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -43,16 +42,23 @@ public final class EmittedSource implements DisposableHandle {
         this.mediator = mediatorLiveData;
     }
 
+    public final Object disposeNow(Continuation<? super Unit> continuation) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, continuation)) == null) {
+            return BuildersKt.withContext(Dispatchers.getMain().getImmediate(), new EmittedSource$disposeNow$2(this, null), continuation);
+        }
+        return invokeL.objValue;
+    }
+
     /* JADX DEBUG: Type inference failed for r1v0. Raw type applied. Possible types: androidx.lifecycle.LiveData<?>, androidx.lifecycle.LiveData<S> */
     /* JADX INFO: Access modifiers changed from: private */
-    @MainThread
     public final void removeSource() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || this.disposed) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && !this.disposed) {
+            this.mediator.removeSource(this.source);
+            this.disposed = true;
         }
-        this.mediator.removeSource(this.source);
-        this.disposed = true;
     }
 
     @Override // kotlinx.coroutines.DisposableHandle
@@ -61,11 +67,5 @@ public final class EmittedSource implements DisposableHandle {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             BuildersKt__Builders_commonKt.launch$default(CoroutineScopeKt.CoroutineScope(Dispatchers.getMain().getImmediate()), null, null, new EmittedSource$dispose$1(this, null), 3, null);
         }
-    }
-
-    public final Object disposeNow(Continuation<? super Unit> continuation) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, continuation)) == null) ? BuildersKt.withContext(Dispatchers.getMain().getImmediate(), new EmittedSource$disposeNow$2(this, null), continuation) : invokeL.objValue;
     }
 }

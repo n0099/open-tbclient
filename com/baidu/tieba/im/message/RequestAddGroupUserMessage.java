@@ -41,6 +41,78 @@ public class RequestAddGroupUserMessage extends TbSocketMessage {
         }
     }
 
+    public int getDecision() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.decision;
+        }
+        return invokeV.intValue;
+    }
+
+    public long getGroupId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.groupId;
+        }
+        return invokeV.longValue;
+    }
+
+    public long getInviterUserId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.inviterUserId;
+        }
+        return invokeV.longValue;
+    }
+
+    public int getJoinType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.joinType;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getNotice_id() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.notice_id;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getSysGroupId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.sysGroupId;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getSysMsgId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.sysMsgId;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getUserIds() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.userIds;
+        }
+        return (String) invokeV.objValue;
+    }
+
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
     public Object encode() {
         InterceptResult invokeV;
@@ -59,54 +131,6 @@ public class RequestAddGroupUserMessage extends TbSocketMessage {
             return builder2.build(false);
         }
         return invokeV.objValue;
-    }
-
-    public int getDecision() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.decision : invokeV.intValue;
-    }
-
-    public long getGroupId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.groupId : invokeV.longValue;
-    }
-
-    public long getInviterUserId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.inviterUserId : invokeV.longValue;
-    }
-
-    public int getJoinType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.joinType : invokeV.intValue;
-    }
-
-    public String getNotice_id() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.notice_id : (String) invokeV.objValue;
-    }
-
-    public int getSysGroupId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.sysGroupId : invokeV.intValue;
-    }
-
-    public String getSysMsgId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.sysMsgId : (String) invokeV.objValue;
-    }
-
-    public String getUserIds() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.userIds : (String) invokeV.objValue;
     }
 
     public void setDecision(int i) {

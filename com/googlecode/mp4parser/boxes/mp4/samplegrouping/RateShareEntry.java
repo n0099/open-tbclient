@@ -19,14 +19,14 @@ public class RateShareEntry extends GroupEntry {
     public static final String TYPE = "rash";
     public transient /* synthetic */ FieldHolder $fh;
     public short discardPriority;
-    public List<Entry> entries;
+    public List entries;
     public int maximumBitrate;
     public int minimumBitrate;
     public short operationPointCut;
     public short targetRateShare;
 
     /* loaded from: classes7.dex */
-    public static class Entry {
+    public class Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int availableBitrate;
@@ -62,27 +62,12 @@ public class RateShareEntry extends GroupEntry {
                     return false;
                 }
                 Entry entry = (Entry) obj;
-                return this.availableBitrate == entry.availableBitrate && this.targetRateShare == entry.targetRateShare;
+                if (this.availableBitrate == entry.availableBitrate && this.targetRateShare == entry.targetRateShare) {
+                    return true;
+                }
+                return false;
             }
             return invokeL.booleanValue;
-        }
-
-        public int getAvailableBitrate() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.availableBitrate : invokeV.intValue;
-        }
-
-        public short getTargetRateShare() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.targetRateShare : invokeV.shortValue;
-        }
-
-        public int hashCode() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.availableBitrate * 31) + this.targetRateShare : invokeV.intValue;
         }
 
         public void setAvailableBitrate(int i) {
@@ -97,6 +82,33 @@ public class RateShareEntry extends GroupEntry {
             if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Short.valueOf(s)}) == null) {
                 this.targetRateShare = s;
             }
+        }
+
+        public int getAvailableBitrate() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.availableBitrate;
+            }
+            return invokeV.intValue;
+        }
+
+        public short getTargetRateShare() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.targetRateShare;
+            }
+            return invokeV.shortValue;
+        }
+
+        public int hashCode() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return (this.availableBitrate * 31) + this.targetRateShare;
+            }
+            return invokeV.intValue;
         }
 
         public String toString() {
@@ -125,6 +137,60 @@ public class RateShareEntry extends GroupEntry {
         this.entries = new LinkedList();
     }
 
+    public short getDiscardPriority() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.discardPriority;
+        }
+        return invokeV.shortValue;
+    }
+
+    public List getEntries() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.entries;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public int getMaximumBitrate() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.maximumBitrate;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getMinimumBitrate() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.minimumBitrate;
+        }
+        return invokeV.intValue;
+    }
+
+    public short getOperationPointCut() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.operationPointCut;
+        }
+        return invokeV.shortValue;
+    }
+
+    public short getTargetRateShare() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.targetRateShare;
+        }
+        return invokeV.shortValue;
+    }
+
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -136,86 +202,17 @@ public class RateShareEntry extends GroupEntry {
                 return false;
             }
             RateShareEntry rateShareEntry = (RateShareEntry) obj;
-            if (this.discardPriority == rateShareEntry.discardPriority && this.maximumBitrate == rateShareEntry.maximumBitrate && this.minimumBitrate == rateShareEntry.minimumBitrate && this.operationPointCut == rateShareEntry.operationPointCut && this.targetRateShare == rateShareEntry.targetRateShare) {
-                List<Entry> list = this.entries;
-                List<Entry> list2 = rateShareEntry.entries;
-                return list == null ? list2 == null : list.equals(list2);
+            if (this.discardPriority != rateShareEntry.discardPriority || this.maximumBitrate != rateShareEntry.maximumBitrate || this.minimumBitrate != rateShareEntry.minimumBitrate || this.operationPointCut != rateShareEntry.operationPointCut || this.targetRateShare != rateShareEntry.targetRateShare) {
+                return false;
+            }
+            List list = this.entries;
+            List list2 = rateShareEntry.entries;
+            if (list == null ? list2 == null : list.equals(list2)) {
+                return true;
             }
             return false;
         }
         return invokeL.booleanValue;
-    }
-
-    @Override // com.googlecode.mp4parser.boxes.mp4.samplegrouping.GroupEntry
-    public ByteBuffer get() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            short s = this.operationPointCut;
-            ByteBuffer allocate = ByteBuffer.allocate(s == 1 ? 13 : (s * 6) + 11);
-            allocate.putShort(this.operationPointCut);
-            if (this.operationPointCut == 1) {
-                allocate.putShort(this.targetRateShare);
-            } else {
-                for (Entry entry : this.entries) {
-                    allocate.putInt(entry.getAvailableBitrate());
-                    allocate.putShort(entry.getTargetRateShare());
-                }
-            }
-            allocate.putInt(this.maximumBitrate);
-            allocate.putInt(this.minimumBitrate);
-            IsoTypeWriter.writeUInt8(allocate, this.discardPriority);
-            allocate.rewind();
-            return allocate;
-        }
-        return (ByteBuffer) invokeV.objValue;
-    }
-
-    public short getDiscardPriority() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.discardPriority : invokeV.shortValue;
-    }
-
-    public List<Entry> getEntries() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.entries : (List) invokeV.objValue;
-    }
-
-    public int getMaximumBitrate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.maximumBitrate : invokeV.intValue;
-    }
-
-    public int getMinimumBitrate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.minimumBitrate : invokeV.intValue;
-    }
-
-    public short getOperationPointCut() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.operationPointCut : invokeV.shortValue;
-    }
-
-    public short getTargetRateShare() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.targetRateShare : invokeV.shortValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            int i = ((this.operationPointCut * 31) + this.targetRateShare) * 31;
-            List<Entry> list = this.entries;
-            return ((((((i + (list != null ? list.hashCode() : 0)) * 31) + this.maximumBitrate) * 31) + this.minimumBitrate) * 31) + this.discardPriority;
-        }
-        return invokeV.intValue;
     }
 
     /* JADX WARN: Multi-variable type inference failed */
@@ -244,6 +241,54 @@ public class RateShareEntry extends GroupEntry {
         }
     }
 
+    @Override // com.googlecode.mp4parser.boxes.mp4.samplegrouping.GroupEntry
+    public ByteBuffer get() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            short s = this.operationPointCut;
+            if (s == 1) {
+                i = 13;
+            } else {
+                i = (s * 6) + 11;
+            }
+            ByteBuffer allocate = ByteBuffer.allocate(i);
+            allocate.putShort(this.operationPointCut);
+            if (this.operationPointCut == 1) {
+                allocate.putShort(this.targetRateShare);
+            } else {
+                for (Entry entry : this.entries) {
+                    allocate.putInt(entry.getAvailableBitrate());
+                    allocate.putShort(entry.getTargetRateShare());
+                }
+            }
+            allocate.putInt(this.maximumBitrate);
+            allocate.putInt(this.minimumBitrate);
+            IsoTypeWriter.writeUInt8(allocate, this.discardPriority);
+            allocate.rewind();
+            return allocate;
+        }
+        return (ByteBuffer) invokeV.objValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            int i2 = ((this.operationPointCut * 31) + this.targetRateShare) * 31;
+            List list = this.entries;
+            if (list != null) {
+                i = list.hashCode();
+            } else {
+                i = 0;
+            }
+            return ((((((i2 + i) * 31) + this.maximumBitrate) * 31) + this.minimumBitrate) * 31) + this.discardPriority;
+        }
+        return invokeV.intValue;
+    }
+
     public void setDiscardPriority(short s) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Short.valueOf(s)}) == null) {
@@ -251,7 +296,7 @@ public class RateShareEntry extends GroupEntry {
         }
     }
 
-    public void setEntries(List<Entry> list) {
+    public void setEntries(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, list) == null) {
             this.entries = list;

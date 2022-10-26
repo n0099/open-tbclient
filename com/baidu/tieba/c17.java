@@ -1,47 +1,132 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.drawable.Drawable;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes3.dex */
 public class c17 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile List<Long> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947621984, "Lcom/baidu/tieba/c17;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static Drawable[] a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return null;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947621984, "Lcom/baidu/tieba/c17;");
-                return;
+            Drawable[] drawableArr = new Drawable[2];
+            char c = 65535;
+            switch (str.hashCode()) {
+                case -1581702362:
+                    if (str.equals("share_num")) {
+                        c = 1;
+                        break;
+                    }
+                    break;
+                case -6986408:
+                    if (str.equals("care_num")) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+                case 975378291:
+                    if (str.equals("agree_num")) {
+                        c = 0;
+                        break;
+                    }
+                    break;
+                case 2103869862:
+                    if (str.equals("comment_num")) {
+                        c = 2;
+                        break;
+                    }
+                    break;
             }
+            if (c != 0) {
+                if (c != 1) {
+                    if (c != 2) {
+                        if (c != 3) {
+                            drawableArr[0] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080f27, WebPManager.ResourceStateType.NORMAL);
+                            drawableArr[1] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080f5a, WebPManager.ResourceStateType.NORMAL);
+                        } else {
+                            drawableArr[0] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080f26, WebPManager.ResourceStateType.NORMAL);
+                            drawableArr[1] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080f59, WebPManager.ResourceStateType.NORMAL);
+                        }
+                    } else {
+                        drawableArr[0] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080f28, WebPManager.ResourceStateType.NORMAL);
+                        drawableArr[1] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080f5b, WebPManager.ResourceStateType.NORMAL);
+                    }
+                } else {
+                    drawableArr[0] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080f2a, WebPManager.ResourceStateType.NORMAL);
+                    drawableArr[1] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080f5d, WebPManager.ResourceStateType.NORMAL);
+                }
+            } else {
+                drawableArr[0] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080f29, WebPManager.ResourceStateType.NORMAL);
+                drawableArr[1] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080f5c, WebPManager.ResourceStateType.NORMAL);
+            }
+            return drawableArr;
         }
-        a = new ArrayList();
+        return (Drawable[]) invokeL.objValue;
     }
 
-    public static void a(long j) {
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    public static String b(String str) {
+        InterceptResult invokeL;
+        char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65537, null, j) == null) {
-            if (a.size() > 300) {
-                a.remove(0);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            switch (str.hashCode()) {
+                case -1581702362:
+                    if (str.equals("share_num")) {
+                        c = 1;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -6986408:
+                    if (str.equals("care_num")) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 975378291:
+                    if (str.equals("agree_num")) {
+                        c = 0;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 2103869862:
+                    if (str.equals("comment_num")) {
+                        c = 2;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    c = 65535;
+                    break;
             }
-            a.add(Long.valueOf(j));
+            if (c != 0) {
+                if (c != 1) {
+                    if (c != 2) {
+                        if (c != 3) {
+                            return TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f09fe);
+                        }
+                        return TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f09fd);
+                    }
+                    return TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f09ff);
+                }
+                return TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0a01);
+            }
+            return TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0a00);
         }
-    }
-
-    public static boolean b(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) ? a.contains(Long.valueOf(j)) : invokeJ.booleanValue;
+        return (String) invokeL.objValue;
     }
 }

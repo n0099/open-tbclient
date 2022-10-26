@@ -19,6 +19,12 @@ public abstract class AbsPayMessageReceiver extends BroadcastReceiver {
     public long mCreateNanoTime;
     public PayFlowType mPayFlowType;
 
+    public abstract void onAllPayFlowViewRelease();
+
+    public abstract void onDialogPayFlowViewRelease();
+
+    public abstract void onWalletPayFlowViewRelease();
+
     public AbsPayMessageReceiver(PayFlowType payFlowType) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -41,10 +47,15 @@ public abstract class AbsPayMessageReceiver extends BroadcastReceiver {
     }
 
     private void checkReleaseAllView(String str, Intent intent) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, this, str, intent) == null) {
             long longExtra = intent.getLongExtra(H5PayConstant.EXTRA_PAY_FLOW_VIEW_RELEASE_NANO_TIME, 0L);
-            boolean z = longExtra == 0 || longExtra > this.mCreateNanoTime;
+            if (longExtra != 0 && longExtra <= this.mCreateNanoTime) {
+                z = false;
+            } else {
+                z = true;
+            }
             RLog.info("AbsPayMessageReceiver", "checkReleaseAllView action:" + str + " mPayFlowType:" + this.mPayFlowType + " releaseNanoTime:" + longExtra + " mCreateNanoTime:" + this.mCreateNanoTime + " release:" + z);
             if (z) {
                 onAllPayFlowViewRelease();
@@ -53,11 +64,16 @@ public abstract class AbsPayMessageReceiver extends BroadcastReceiver {
     }
 
     private void checkReleaseDialogPayFlowView(String str, Intent intent) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, this, str, intent) == null) {
             if (this.mPayFlowType == PayFlowType.DIOALOG_PAY_FLOW) {
                 long longExtra = intent.getLongExtra(H5PayConstant.EXTRA_PAY_FLOW_VIEW_RELEASE_NANO_TIME, 0L);
-                boolean z = longExtra == 0 || longExtra > this.mCreateNanoTime;
+                if (longExtra != 0 && longExtra <= this.mCreateNanoTime) {
+                    z = false;
+                } else {
+                    z = true;
+                }
                 RLog.info("AbsPayMessageReceiver", "checkReleaseDialogPayFlowView action:" + str + " mPayFlowType:" + this.mPayFlowType + " releaseNanoTime:" + longExtra + " mCreateNanoTime:" + this.mCreateNanoTime + " release:" + z);
                 if (z) {
                     onDialogPayFlowViewRelease();
@@ -70,11 +86,16 @@ public abstract class AbsPayMessageReceiver extends BroadcastReceiver {
     }
 
     private void checkReleaseWalletPayFlowView(String str, Intent intent) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, this, str, intent) == null) {
             if (this.mPayFlowType == PayFlowType.WALLET_PAY_FLOW) {
                 long longExtra = intent.getLongExtra(H5PayConstant.EXTRA_PAY_FLOW_VIEW_RELEASE_NANO_TIME, 0L);
-                boolean z = longExtra == 0 || longExtra > this.mCreateNanoTime;
+                if (longExtra != 0 && longExtra <= this.mCreateNanoTime) {
+                    z = false;
+                } else {
+                    z = true;
+                }
                 RLog.info("AbsPayMessageReceiver", "checkReleaseWalletPayFlowView action:" + str + " mPayFlowType:" + this.mPayFlowType + " releaseNanoTime:" + longExtra + " mCreateNanoTime:" + this.mCreateNanoTime + " release:" + z);
                 if (z) {
                     onWalletPayFlowViewRelease();
@@ -86,25 +107,24 @@ public abstract class AbsPayMessageReceiver extends BroadcastReceiver {
         }
     }
 
-    public abstract void onAllPayFlowViewRelease();
-
-    public abstract void onDialogPayFlowViewRelease();
-
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, intent) == null) {
-            String action = intent != null ? intent.getAction() : "";
-            RLog.info("AbsPayMessageReceiver", "onReceive action:" + action + " mPayFlowType:" + this.mPayFlowType);
-            if ("tv.athena.revenue.payui.release_all_pay_flow_ui_action".equals(action)) {
-                checkReleaseAllView(action, intent);
-            } else if ("tv.athena.revenue.payui.release_all_pay_dialog_flow_ui_action".equals(action)) {
-                checkReleaseDialogPayFlowView(action, intent);
-            } else if ("tv.athena.revenue.payui.release_all_pay_wallet_flow_ui_action".equals(action)) {
-                checkReleaseWalletPayFlowView(action, intent);
+            if (intent != null) {
+                str = intent.getAction();
+            } else {
+                str = "";
+            }
+            RLog.info("AbsPayMessageReceiver", "onReceive action:" + str + " mPayFlowType:" + this.mPayFlowType);
+            if ("tv.athena.revenue.payui.release_all_pay_flow_ui_action".equals(str)) {
+                checkReleaseAllView(str, intent);
+            } else if ("tv.athena.revenue.payui.release_all_pay_dialog_flow_ui_action".equals(str)) {
+                checkReleaseDialogPayFlowView(str, intent);
+            } else if ("tv.athena.revenue.payui.release_all_pay_wallet_flow_ui_action".equals(str)) {
+                checkReleaseWalletPayFlowView(str, intent);
             }
         }
     }
-
-    public abstract void onWalletPayFlowViewRelease();
 }

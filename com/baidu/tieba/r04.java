@@ -1,27 +1,48 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.http.HttpManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import okhttp3.Callback;
+import okhttp3.Request;
 /* loaded from: classes5.dex */
-public class r04 {
+public class r04 implements zk1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile q04 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized q04 a() {
-        InterceptResult invokeV;
-        q04 q04Var;
+    public r04() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (r04.class) {
-                if (a == null) {
-                    a = new q04();
-                }
-                q04Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return q04Var;
         }
-        return (q04) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.zk1
+    public HttpManager a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return t14.b();
+        }
+        return (HttpManager) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.zk1
+    public void call(HttpManager httpManager, Request request, Callback callback) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpManager, request, callback) == null) && httpManager != null && (httpManager instanceof t14)) {
+            ((t14) httpManager).call(request, callback);
+        }
     }
 }

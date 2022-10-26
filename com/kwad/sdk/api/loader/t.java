@@ -1,6 +1,5 @@
 package com.kwad.sdk.api.loader;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 /* loaded from: classes7.dex */
 public final class t {
@@ -10,17 +9,14 @@ public final class t {
         return d(context, str, "");
     }
 
-    @SuppressLint({"ApplySharedPref"})
     public static void a(Context context, String str, long j) {
         context.getSharedPreferences(a, 0).edit().putLong(str, j).commit();
     }
 
-    @SuppressLint({"ApplySharedPref"})
     public static void a(Context context, String str, boolean z) {
         context.getSharedPreferences(a, 0).edit().putBoolean(str, z).commit();
     }
 
-    @SuppressLint({"ApplySharedPref"})
     public static void c(Context context, String str, String str2) {
         context.getSharedPreferences(a, 0).edit().putString(str, str2).commit();
     }

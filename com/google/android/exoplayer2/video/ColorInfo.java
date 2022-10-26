@@ -16,13 +16,23 @@ import java.util.Arrays;
 /* loaded from: classes7.dex */
 public final class ColorInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<ColorInfo> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public final int colorRange;
     public final int colorSpace;
     public final int colorTransfer;
     public int hashCode;
     public final byte[] hdrStaticInfo;
+
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -37,9 +47,17 @@ public final class ColorInfo implements Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<ColorInfo>() { // from class: com.google.android.exoplayer2.video.ColorInfo.1
+        CREATOR = new Parcelable.Creator() { // from class: com.google.android.exoplayer2.video.ColorInfo.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // android.os.Parcelable.Creator
+            public ColorInfo[] newArray(int i) {
+                InterceptResult invokeI;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new ColorInfo[0] : (ColorInfo[]) invokeI.objValue;
+            }
 
             {
                 Interceptable interceptable2 = $ic;
@@ -56,23 +74,28 @@ public final class ColorInfo implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
-            @Override // android.os.Parcelable.Creator
-            public ColorInfo[] newArray(int i) {
-                InterceptResult invokeI;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new ColorInfo[0] : (ColorInfo[]) invokeI.objValue;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public ColorInfo createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new ColorInfo(parcel) : (ColorInfo) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new ColorInfo(parcel);
+                }
+                return (ColorInfo) invokeL.objValue;
             }
         };
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.hashCode == 0) {
+                this.hashCode = ((((((527 + this.colorSpace) * 31) + this.colorRange) * 31) + this.colorTransfer) * 31) + Arrays.hashCode(this.hdrStaticInfo);
+            }
+            return this.hashCode;
+        }
+        return invokeV.intValue;
     }
 
     public ColorInfo(int i, int i2, int i3, byte[] bArr) {
@@ -96,14 +119,37 @@ public final class ColorInfo implements Parcelable {
         this.hdrStaticInfo = bArr;
     }
 
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
+    public ColorInfo(Parcel parcel) {
+        boolean z;
+        byte[] bArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
         }
-        return invokeV.intValue;
+        this.colorSpace = parcel.readInt();
+        this.colorRange = parcel.readInt();
+        this.colorTransfer = parcel.readInt();
+        if (parcel.readInt() != 0) {
+            z = true;
+        } else {
+            z = false;
+        }
+        if (z) {
+            bArr = parcel.createByteArray();
+        } else {
+            bArr = null;
+        }
+        this.hdrStaticInfo = bArr;
     }
 
     public boolean equals(Object obj) {
@@ -124,20 +170,9 @@ public final class ColorInfo implements Parcelable {
         return invokeL.booleanValue;
     }
 
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.hashCode == 0) {
-                this.hashCode = ((((((527 + this.colorSpace) * 31) + this.colorRange) * 31) + this.colorTransfer) * 31) + Arrays.hashCode(this.hdrStaticInfo);
-            }
-            return this.hashCode;
-        }
-        return invokeV.intValue;
-    }
-
     public String toString() {
         InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             StringBuilder sb = new StringBuilder();
@@ -148,7 +183,12 @@ public final class ColorInfo implements Parcelable {
             sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
             sb.append(this.colorTransfer);
             sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-            sb.append(this.hdrStaticInfo != null);
+            if (this.hdrStaticInfo != null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            sb.append(z);
             sb.append(SmallTailInfo.EMOTION_SUFFIX);
             return sb.toString();
         }
@@ -157,37 +197,22 @@ public final class ColorInfo implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
+        int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, parcel, i) == null) {
             parcel.writeInt(this.colorSpace);
             parcel.writeInt(this.colorRange);
             parcel.writeInt(this.colorTransfer);
-            parcel.writeInt(this.hdrStaticInfo != null ? 1 : 0);
+            if (this.hdrStaticInfo != null) {
+                i2 = 1;
+            } else {
+                i2 = 0;
+            }
+            parcel.writeInt(i2);
             byte[] bArr = this.hdrStaticInfo;
             if (bArr != null) {
                 parcel.writeByteArray(bArr);
             }
         }
-    }
-
-    public ColorInfo(Parcel parcel) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.colorSpace = parcel.readInt();
-        this.colorRange = parcel.readInt();
-        this.colorTransfer = parcel.readInt();
-        this.hdrStaticInfo = parcel.readInt() != 0 ? parcel.createByteArray() : null;
     }
 }

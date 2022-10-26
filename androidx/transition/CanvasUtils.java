@@ -1,9 +1,7 @@
 package androidx.transition;
 
-import android.annotation.SuppressLint;
 import android.graphics.Canvas;
 import android.os.Build;
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -32,49 +30,46 @@ public class CanvasUtils {
         }
     }
 
-    @SuppressLint({"SoonBlockedPrivateApi"})
-    public static void enableZ(@NonNull Canvas canvas, boolean z) {
+    public static void enableZ(Canvas canvas, boolean z) {
         int i;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(65537, null, canvas, z) == null) || (i = Build.VERSION.SDK_INT) < 21) {
-            return;
-        }
-        if (i >= 29) {
-            if (z) {
-                canvas.enableZ();
-            } else {
-                canvas.disableZ();
-            }
-        } else if (i != 28) {
-            if (!sOrderMethodsFetched) {
-                try {
-                    Method declaredMethod = Canvas.class.getDeclaredMethod("insertReorderBarrier", new Class[0]);
-                    sReorderBarrierMethod = declaredMethod;
-                    declaredMethod.setAccessible(true);
-                    Method declaredMethod2 = Canvas.class.getDeclaredMethod("insertInorderBarrier", new Class[0]);
-                    sInorderBarrierMethod = declaredMethod2;
-                    declaredMethod2.setAccessible(true);
-                } catch (NoSuchMethodException unused) {
+        if ((interceptable == null || interceptable.invokeLZ(65537, null, canvas, z) == null) && (i = Build.VERSION.SDK_INT) >= 21) {
+            if (i >= 29) {
+                if (z) {
+                    canvas.enableZ();
+                } else {
+                    canvas.disableZ();
                 }
-                sOrderMethodsFetched = true;
-            }
-            if (z) {
-                try {
-                    if (sReorderBarrierMethod != null) {
-                        sReorderBarrierMethod.invoke(canvas, new Object[0]);
+            } else if (i != 28) {
+                if (!sOrderMethodsFetched) {
+                    try {
+                        Method declaredMethod = Canvas.class.getDeclaredMethod("insertReorderBarrier", new Class[0]);
+                        sReorderBarrierMethod = declaredMethod;
+                        declaredMethod.setAccessible(true);
+                        Method declaredMethod2 = Canvas.class.getDeclaredMethod("insertInorderBarrier", new Class[0]);
+                        sInorderBarrierMethod = declaredMethod2;
+                        declaredMethod2.setAccessible(true);
+                    } catch (NoSuchMethodException unused) {
                     }
-                } catch (IllegalAccessException unused2) {
-                    return;
-                } catch (InvocationTargetException e) {
-                    throw new RuntimeException(e.getCause());
+                    sOrderMethodsFetched = true;
                 }
+                if (z) {
+                    try {
+                        if (sReorderBarrierMethod != null) {
+                            sReorderBarrierMethod.invoke(canvas, new Object[0]);
+                        }
+                    } catch (IllegalAccessException unused2) {
+                        return;
+                    } catch (InvocationTargetException e) {
+                        throw new RuntimeException(e.getCause());
+                    }
+                }
+                if (!z && sInorderBarrierMethod != null) {
+                    sInorderBarrierMethod.invoke(canvas, new Object[0]);
+                }
+            } else {
+                throw new IllegalStateException("This method doesn't work on Pie!");
             }
-            if (z || sInorderBarrierMethod == null) {
-                return;
-            }
-            sInorderBarrierMethod.invoke(canvas, new Object[0]);
-        } else {
-            throw new IllegalStateException("This method doesn't work on Pie!");
         }
     }
 }

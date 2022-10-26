@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -64,7 +64,7 @@ public class FrsHeaderPraiseView extends RelativeLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || TextUtils.isEmpty(this.a.url)) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || TextUtils.isEmpty(this.a.url)) {
                 return;
             }
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.b.getContext(), null, this.a.url, true)));
@@ -89,59 +89,6 @@ public class FrsHeaderPraiseView extends RelativeLayout {
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-        }
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = findViewById(R.id.obfuscated_res_0x7f09081c);
-            this.b = findViewById(R.id.obfuscated_res_0x7f090803);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090bd1);
-            this.d = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090bd0);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090bce);
-            this.e = imageView;
-            SkinManager.setImageResource(imageView, R.drawable.icon_arrow_more_gray_n);
-        }
-    }
-
-    public void setData(AgreeBanner agreeBanner) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, agreeBanner) == null) {
-            if (agreeBanner == null) {
-                setVisibility(8);
-                return;
-            }
-            setVisibility(0);
-            this.c.setText(agreeBanner.text);
-            List<SimpleUser> list = agreeBanner.top_agree_user;
-            this.d.removeAllViews();
-            if (list != null) {
-                ArrayList arrayList = new ArrayList();
-                if (list.size() > 5) {
-                    for (int i = 0; i < list.size() && i != 5; i++) {
-                        arrayList.add(list.get(i));
-                    }
-                } else {
-                    arrayList.addAll(list);
-                }
-                for (int size = arrayList.size() - 1; size >= 0 && this.d.getChildCount() != 5; size--) {
-                    FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070225), getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070225));
-                    HeadImageView headImageView = new HeadImageView(getContext());
-                    headImageView.setDefaultResource(17170445);
-                    headImageView.setDefaultBgResource(R.color.CAM_X0205);
-                    headImageView.setIsRound(true);
-                    headImageView.setBorderColor(SkinManager.getColor(R.color.CAM_X0201));
-                    headImageView.setBorderWidth(ej.f(getContext(), R.dimen.obfuscated_res_0x7f0701d4));
-                    headImageView.K(((SimpleUser) arrayList.get(size)).portrait, 12, false);
-                    if (size != arrayList.size() - 1) {
-                        layoutParams.rightMargin = (((arrayList.size() - 1) - size) * getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070225)) - (((arrayList.size() - 1) - size) * getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070302));
-                    }
-                    layoutParams.gravity = 5;
-                    this.d.addView(headImageView, layoutParams);
-                }
-            }
-            setOnClickListener(new a(this, agreeBanner));
         }
     }
 
@@ -185,7 +132,60 @@ public class FrsHeaderPraiseView extends RelativeLayout {
                 return;
             }
         }
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d031b, this);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d031a, this);
         a();
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = findViewById(R.id.obfuscated_res_0x7f090825);
+            this.b = findViewById(R.id.obfuscated_res_0x7f09080c);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090bdb);
+            this.d = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090bda);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090bd8);
+            this.e = imageView;
+            SkinManager.setImageResource(imageView, R.drawable.icon_arrow_more_gray_n);
+        }
+    }
+
+    public void setData(AgreeBanner agreeBanner) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, agreeBanner) == null) {
+            if (agreeBanner == null) {
+                setVisibility(8);
+                return;
+            }
+            setVisibility(0);
+            this.c.setText(agreeBanner.text);
+            List<SimpleUser> list = agreeBanner.top_agree_user;
+            this.d.removeAllViews();
+            if (list != null) {
+                ArrayList arrayList = new ArrayList();
+                if (list.size() > 5) {
+                    for (int i = 0; i < list.size() && i != 5; i++) {
+                        arrayList.add(list.get(i));
+                    }
+                } else {
+                    arrayList.addAll(list);
+                }
+                for (int size = arrayList.size() - 1; size >= 0 && this.d.getChildCount() != 5; size--) {
+                    FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070225), getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070225));
+                    HeadImageView headImageView = new HeadImageView(getContext());
+                    headImageView.setDefaultResource(17170445);
+                    headImageView.setDefaultBgResource(R.color.CAM_X0205);
+                    headImageView.setIsRound(true);
+                    headImageView.setBorderColor(SkinManager.getColor(R.color.CAM_X0201));
+                    headImageView.setBorderWidth(fj.f(getContext(), R.dimen.obfuscated_res_0x7f0701d4));
+                    headImageView.L(((SimpleUser) arrayList.get(size)).portrait, 12, false);
+                    if (size != arrayList.size() - 1) {
+                        layoutParams.rightMargin = (((arrayList.size() - 1) - size) * getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070225)) - (((arrayList.size() - 1) - size) * getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070302));
+                    }
+                    layoutParams.gravity = 5;
+                    this.d.addView(headImageView, layoutParams);
+                }
+            }
+            setOnClickListener(new a(this, agreeBanner));
+        }
     }
 }

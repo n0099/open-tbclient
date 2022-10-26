@@ -30,7 +30,10 @@ public class DownloadEntity extends HttpRequestEntity {
     public String getLocalPath() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.localPath : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.localPath;
+        }
+        return (String) invokeV.objValue;
     }
 
     public void setLocalPath(String str) {

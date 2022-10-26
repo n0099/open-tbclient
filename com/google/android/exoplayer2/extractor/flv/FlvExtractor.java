@@ -47,6 +47,33 @@ public final class FlvExtractor implements Extractor, SeekMap {
     public int tagType;
     public VideoTagPayloadReader videoReader;
 
+    @Override // com.google.android.exoplayer2.extractor.SeekMap
+    public long getPosition(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+            return 0L;
+        }
+        return invokeJ.longValue;
+    }
+
+    @Override // com.google.android.exoplayer2.extractor.SeekMap
+    public boolean isSeekable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.google.android.exoplayer2.extractor.Extractor
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        }
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -88,6 +115,16 @@ public final class FlvExtractor implements Extractor, SeekMap {
         FLV_TAG = Util.getIntegerCodeForString("FLV");
     }
 
+    @Override // com.google.android.exoplayer2.extractor.SeekMap
+    public long getDurationUs() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.metadataReader.getDurationUs();
+        }
+        return invokeV.longValue;
+    }
+
     public FlvExtractor() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -125,36 +162,6 @@ public final class FlvExtractor implements Extractor, SeekMap {
         return (ParsableByteArray) invokeL.objValue;
     }
 
-    private boolean readFlvHeader(ExtractorInput extractorInput) throws IOException, InterruptedException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, extractorInput)) == null) {
-            if (extractorInput.readFully(this.headerBuffer.data, 0, 9, true)) {
-                this.headerBuffer.setPosition(0);
-                this.headerBuffer.skipBytes(4);
-                int readUnsignedByte = this.headerBuffer.readUnsignedByte();
-                boolean z = (readUnsignedByte & 4) != 0;
-                boolean z2 = (readUnsignedByte & 1) != 0;
-                if (z && this.audioReader == null) {
-                    this.audioReader = new AudioTagPayloadReader(this.extractorOutput.track(8, 1));
-                }
-                if (z2 && this.videoReader == null) {
-                    this.videoReader = new VideoTagPayloadReader(this.extractorOutput.track(9, 2));
-                }
-                if (this.metadataReader == null) {
-                    this.metadataReader = new ScriptTagPayloadReader(null);
-                }
-                this.extractorOutput.endTracks();
-                this.extractorOutput.seekMap(this);
-                this.bytesToNextTagHeader = (this.headerBuffer.readInt() - 9) + 4;
-                this.parserState = 2;
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
     private boolean readTagData(ExtractorInput extractorInput) throws IOException, InterruptedException {
         InterceptResult invokeL;
         boolean z;
@@ -188,104 +195,57 @@ public final class FlvExtractor implements Extractor, SeekMap {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, extractorInput)) == null) {
-            if (extractorInput.readFully(this.tagHeaderBuffer.data, 0, 11, true)) {
-                this.tagHeaderBuffer.setPosition(0);
-                this.tagType = this.tagHeaderBuffer.readUnsignedByte();
-                this.tagDataSize = this.tagHeaderBuffer.readUnsignedInt24();
-                this.tagTimestampUs = this.tagHeaderBuffer.readUnsignedInt24();
-                this.tagTimestampUs = ((this.tagHeaderBuffer.readUnsignedByte() << 24) | this.tagTimestampUs) * 1000;
-                this.tagHeaderBuffer.skipBytes(3);
-                this.parserState = 4;
-                return true;
+            if (!extractorInput.readFully(this.tagHeaderBuffer.data, 0, 11, true)) {
+                return false;
             }
-            return false;
+            this.tagHeaderBuffer.setPosition(0);
+            this.tagType = this.tagHeaderBuffer.readUnsignedByte();
+            this.tagDataSize = this.tagHeaderBuffer.readUnsignedInt24();
+            this.tagTimestampUs = this.tagHeaderBuffer.readUnsignedInt24();
+            this.tagTimestampUs = ((this.tagHeaderBuffer.readUnsignedByte() << 24) | this.tagTimestampUs) * 1000;
+            this.tagHeaderBuffer.skipBytes(3);
+            this.parserState = 4;
+            return true;
         }
         return invokeL.booleanValue;
     }
 
-    private void skipToTagHeader(ExtractorInput extractorInput) throws IOException, InterruptedException {
+    private boolean readFlvHeader(ExtractorInput extractorInput) throws IOException, InterruptedException {
+        InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, this, extractorInput) == null) {
-            extractorInput.skipFully(this.bytesToNextTagHeader);
-            this.bytesToNextTagHeader = 0;
-            this.parserState = 3;
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.extractor.SeekMap
-    public long getDurationUs() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.metadataReader.getDurationUs() : invokeV.longValue;
-    }
-
-    @Override // com.google.android.exoplayer2.extractor.SeekMap
-    public long getPosition(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-            return 0L;
-        }
-        return invokeJ.longValue;
-    }
-
-    @Override // com.google.android.exoplayer2.extractor.Extractor
-    public void init(ExtractorOutput extractorOutput) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, extractorOutput) == null) {
-            this.extractorOutput = extractorOutput;
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.extractor.SeekMap
-    public boolean isSeekable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.google.android.exoplayer2.extractor.Extractor
-    public int read(ExtractorInput extractorInput, PositionHolder positionHolder) throws IOException, InterruptedException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(1048580, this, extractorInput, positionHolder)) != null) {
-            return invokeLL.intValue;
-        }
-        while (true) {
-            int i = this.parserState;
-            if (i != 1) {
-                if (i == 2) {
-                    skipToTagHeader(extractorInput);
-                } else if (i != 3) {
-                    if (i == 4 && readTagData(extractorInput)) {
-                        return 0;
-                    }
-                } else if (!readTagHeader(extractorInput)) {
-                    return -1;
-                }
-            } else if (!readFlvHeader(extractorInput)) {
-                return -1;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, extractorInput)) == null) {
+            boolean z2 = false;
+            if (!extractorInput.readFully(this.headerBuffer.data, 0, 9, true)) {
+                return false;
             }
+            this.headerBuffer.setPosition(0);
+            this.headerBuffer.skipBytes(4);
+            int readUnsignedByte = this.headerBuffer.readUnsignedByte();
+            if ((readUnsignedByte & 4) != 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if ((readUnsignedByte & 1) != 0) {
+                z2 = true;
+            }
+            if (z && this.audioReader == null) {
+                this.audioReader = new AudioTagPayloadReader(this.extractorOutput.track(8, 1));
+            }
+            if (z2 && this.videoReader == null) {
+                this.videoReader = new VideoTagPayloadReader(this.extractorOutput.track(9, 2));
+            }
+            if (this.metadataReader == null) {
+                this.metadataReader = new ScriptTagPayloadReader(null);
+            }
+            this.extractorOutput.endTracks();
+            this.extractorOutput.seekMap(this);
+            this.bytesToNextTagHeader = (this.headerBuffer.readInt() - 9) + 4;
+            this.parserState = 2;
+            return true;
         }
-    }
-
-    @Override // com.google.android.exoplayer2.extractor.Extractor
-    public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.extractor.Extractor
-    public void seek(long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            this.parserState = 1;
-            this.bytesToNextTagHeader = 0;
-        }
+        return invokeL.booleanValue;
     }
 
     @Override // com.google.android.exoplayer2.extractor.Extractor
@@ -310,8 +270,64 @@ public final class FlvExtractor implements Extractor, SeekMap {
             extractorInput.advancePeekPosition(readInt);
             extractorInput.peekFully(this.scratch.data, 0, 4);
             this.scratch.setPosition(0);
-            return this.scratch.readInt() == 0;
+            if (this.scratch.readInt() != 0) {
+                return false;
+            }
+            return true;
         }
         return invokeL.booleanValue;
+    }
+
+    private void skipToTagHeader(ExtractorInput extractorInput) throws IOException, InterruptedException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, this, extractorInput) == null) {
+            extractorInput.skipFully(this.bytesToNextTagHeader);
+            this.bytesToNextTagHeader = 0;
+            this.parserState = 3;
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.extractor.Extractor
+    public void init(ExtractorOutput extractorOutput) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, extractorOutput) == null) {
+            this.extractorOutput = extractorOutput;
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.extractor.Extractor
+    public int read(ExtractorInput extractorInput, PositionHolder positionHolder) throws IOException, InterruptedException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(1048580, this, extractorInput, positionHolder)) != null) {
+            return invokeLL.intValue;
+        }
+        while (true) {
+            int i = this.parserState;
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i == 4 && readTagData(extractorInput)) {
+                            return 0;
+                        }
+                    } else if (!readTagHeader(extractorInput)) {
+                        return -1;
+                    }
+                } else {
+                    skipToTagHeader(extractorInput);
+                }
+            } else if (!readFlvHeader(extractorInput)) {
+                return -1;
+            }
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.extractor.Extractor
+    public void seek(long j, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            this.parserState = 1;
+            this.bytesToNextTagHeader = 0;
+        }
     }
 }

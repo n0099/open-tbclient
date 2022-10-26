@@ -4,18 +4,16 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.ViewGroup;
 import android.view.Window;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.support.v4.app.FragmentActivity;
-import com.baidu.tieba.a93;
-import com.baidu.tieba.b03;
-import com.baidu.tieba.d03;
-import com.baidu.tieba.do2;
-import com.baidu.tieba.fh3;
-import com.baidu.tieba.py2;
-import com.baidu.tieba.sm2;
-import com.baidu.tieba.vj1;
+import com.baidu.tieba.b93;
+import com.baidu.tieba.c03;
+import com.baidu.tieba.e03;
+import com.baidu.tieba.eo2;
+import com.baidu.tieba.gh3;
+import com.baidu.tieba.qy2;
+import com.baidu.tieba.tm2;
+import com.baidu.tieba.wj1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,8 +26,8 @@ public class SwanAppBaseActivity extends FragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean l;
     public transient /* synthetic */ FieldHolder $fh;
-    public a93 j;
-    public py2 k;
+    public b93 j;
+    public qy2 k;
 
     static {
         InterceptResult invokeClinit;
@@ -44,7 +42,7 @@ public class SwanAppBaseActivity extends FragmentActivity {
                 return;
             }
         }
-        l = vj1.a;
+        l = wj1.a;
     }
 
     public SwanAppBaseActivity() {
@@ -63,13 +61,22 @@ public class SwanAppBaseActivity extends FragmentActivity {
         this.j = null;
     }
 
-    @Override // com.baidu.swan.support.v4.app.FragmentActivity, com.baidu.tieba.bh4, android.app.Activity
-    public void onCreate(@Nullable Bundle bundle) {
+    public b93 w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.j;
+        }
+        return (b93) invokeV.objValue;
+    }
+
+    @Override // com.baidu.swan.support.v4.app.FragmentActivity, com.baidu.tieba.ch4, android.app.Activity
+    public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            int c0 = fh3.c0(this);
+            int c0 = gh3.c0(this);
             super.onCreate(bundle);
-            fh3.g(this, c0);
+            gh3.g(this, c0);
         }
     }
 
@@ -78,29 +85,39 @@ public class SwanAppBaseActivity extends FragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onPostCreate(bundle);
-            boolean a = sm2.M().a();
-            do2.e(Boolean.valueOf(a));
+            boolean a = tm2.M().a();
+            eo2.e(Boolean.valueOf(a));
             x(a, false);
         }
     }
 
-    @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity, com.baidu.tieba.vg4.b
-    public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
+    @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity, com.baidu.tieba.wg4.b
+    public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, strArr, iArr) == null) {
-            py2 py2Var = this.k;
-            if (py2Var != null) {
-                py2Var.f(this, i, strArr, iArr);
+            qy2 qy2Var = this.k;
+            if (qy2Var != null) {
+                qy2Var.f(this, i, strArr, iArr);
             } else {
                 z(i, strArr, iArr);
             }
         }
     }
 
-    public a93 w() {
-        InterceptResult invokeV;
+    public void y(int i, String[] strArr, qy2.a aVar) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.j : (a93) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeILL(1048581, this, i, strArr, aVar) == null) {
+            qy2 c = qy2.c();
+            this.k = c;
+            c.requestPermissions(this, i, strArr, aVar);
+        }
+    }
+
+    public void z(int i, String[] strArr, int[] iArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(1048582, this, i, strArr, iArr) == null) {
+            super.onRequestPermissionsResult(i, strArr, iArr);
+        }
     }
 
     public void x(boolean z, boolean z2) {
@@ -115,7 +132,7 @@ public class SwanAppBaseActivity extends FragmentActivity {
                 return;
             }
             if (this.j == null) {
-                this.j = new a93();
+                this.j = new b93();
             }
             ViewGroup viewGroup = (ViewGroup) window.getDecorView();
             if (z) {
@@ -124,27 +141,11 @@ public class SwanAppBaseActivity extends FragmentActivity {
                 this.j.b(viewGroup);
             }
             if (z2) {
-                b03 e = b03.e();
-                d03 d03Var = new d03(5);
-                d03Var.f(true);
-                e.h(d03Var);
+                c03 e = c03.e();
+                e03 e03Var = new e03(5);
+                e03Var.f(true);
+                e.h(e03Var);
             }
-        }
-    }
-
-    public void y(int i, @NonNull String[] strArr, py2.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048581, this, i, strArr, aVar) == null) {
-            py2 c = py2.c();
-            this.k = c;
-            c.requestPermissions(this, i, strArr, aVar);
-        }
-    }
-
-    public void z(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048582, this, i, strArr, iArr) == null) {
-            super.onRequestPermissionsResult(i, strArr, iArr);
         }
     }
 }

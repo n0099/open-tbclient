@@ -14,9 +14,9 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.R;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.jn;
-import com.baidu.tieba.so;
-import com.baidu.tieba.vo;
+import com.baidu.tieba.kn;
+import com.baidu.tieba.to;
+import com.baidu.tieba.wo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -51,12 +51,12 @@ public class RefresherView extends ViewGroup {
     public int u;
     public final b v;
     public final c w;
-    public vo x;
+    public wo x;
     public d y;
-    public so z;
+    public to z;
 
     /* loaded from: classes.dex */
-    public static /* synthetic */ class a {
+    public /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -90,29 +90,35 @@ public class RefresherView extends ViewGroup {
             this.f = refresherView;
         }
 
+        public /* synthetic */ b(RefresherView refresherView, a aVar) {
+            this(refresherView);
+        }
+
         public void a(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
                 long uptimeMillis = SystemClock.uptimeMillis();
                 this.a = uptimeMillis;
                 this.b = uptimeMillis + 16;
-                if (i == 1000) {
+                if (i != 1000) {
+                    if (i == 1001) {
+                        this.e = this.f.c;
+                        this.d = 0;
+                        this.c = this.f.b;
+                        this.f.w.removeMessages(1001);
+                        this.f.w.sendEmptyMessageAtTime(1001, this.b);
+                    }
+                } else {
                     this.e = this.f.s - this.f.u;
                     this.d = 0;
                     this.c = Math.max(this.f.a, (this.f.s - this.f.u) * 2);
                     this.f.w.removeMessages(1000);
                     this.f.w.sendEmptyMessageAtTime(1000, this.b);
-                } else if (i == 1001) {
-                    this.e = this.f.c;
-                    this.d = 0;
-                    this.c = this.f.b;
-                    this.f.w.removeMessages(1001);
-                    this.f.w.sendEmptyMessageAtTime(1001, this.b);
                 }
                 this.f.A = IRefreshable$State.animating;
-                vo voVar = this.f.x;
-                if (voVar != null) {
-                    voVar.a(IRefreshable$State.animating);
+                wo woVar = this.f.x;
+                if (woVar != null) {
+                    woVar.a(IRefreshable$State.animating);
                 }
             }
         }
@@ -127,18 +133,18 @@ public class RefresherView extends ViewGroup {
                     RefresherView refresherView = this.f;
                     refresherView.s = refresherView.u;
                     this.f.A = IRefreshable$State.idle;
-                    vo voVar = this.f.x;
-                    if (voVar != null) {
-                        voVar.a(IRefreshable$State.idle);
+                    wo woVar = this.f.x;
+                    if (woVar != null) {
+                        woVar.a(IRefreshable$State.idle);
                     }
-                    if (this.f.u == 0 && voVar != null) {
-                        voVar.b();
+                    if (this.f.u == 0 && woVar != null) {
+                        woVar.b();
                         this.f.l = false;
                     }
                 } else {
                     RefresherView refresherView2 = this.f;
                     int i2 = this.e;
-                    refresherView2.s = (int) (refresherView2.u + (i2 * (1.0f - jn.a.getInterpolation(this.d / i2))));
+                    refresherView2.s = (int) (refresherView2.u + (i2 * (1.0f - kn.a.getInterpolation(this.d / i2))));
                     this.a = uptimeMillis;
                     this.b = uptimeMillis + 16;
                     this.f.w.removeMessages(1000);
@@ -159,13 +165,13 @@ public class RefresherView extends ViewGroup {
                     RefresherView refresherView = this.f;
                     refresherView.s = refresherView.c;
                     this.f.A = IRefreshable$State.idle;
-                    vo voVar = this.f.x;
-                    if (voVar != null) {
-                        voVar.a(IRefreshable$State.idle);
+                    wo woVar = this.f.x;
+                    if (woVar != null) {
+                        woVar.a(IRefreshable$State.idle);
                         this.f.W();
                     }
                 } else {
-                    this.f.s = jn.a(i2, i, false);
+                    this.f.s = kn.a(i2, i, false);
                     this.a = uptimeMillis;
                     this.b = uptimeMillis + 16;
                     this.f.w.removeMessages(1001);
@@ -173,10 +179,6 @@ public class RefresherView extends ViewGroup {
                 }
                 this.f.invalidate();
             }
-        }
-
-        public /* synthetic */ b(RefresherView refresherView, a aVar) {
-            this(refresherView);
         }
     }
 
@@ -223,10 +225,10 @@ public class RefresherView extends ViewGroup {
     }
 
     /* loaded from: classes.dex */
-    public class d extends BdAsyncTask<Void, Void, Void> {
+    public class d extends BdAsyncTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final vo a;
+        public final wo a;
         public final /* synthetic */ RefresherView b;
 
         public d(RefresherView refresherView) {
@@ -253,21 +255,11 @@ public class RefresherView extends ViewGroup {
         /* renamed from: b */
         public void onPostExecute(Void r5) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, r5) == null) {
-                this.b.u = 0;
-                this.b.z.c(1000);
-            }
-        }
-
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPreExecute() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.a == null) {
+            if (interceptable != null && interceptable.invokeL(1048576, this, r5) != null) {
                 return;
             }
-            RefresherView refresherView = this.b;
-            refresherView.u = refresherView.c;
-            this.a.d();
+            this.b.u = 0;
+            this.b.z.c(1000);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -275,21 +267,31 @@ public class RefresherView extends ViewGroup {
         public Void doInBackground(Void... voidArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, voidArr)) == null) {
-                this.b.l = true;
-                vo voVar = this.a;
-                if (voVar != null) {
-                    voVar.c();
-                    return null;
-                }
+            if (interceptable != null && (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, voidArr)) != null) {
+                return (Void) invokeL.objValue;
+            }
+            this.b.l = true;
+            wo woVar = this.a;
+            if (woVar != null) {
+                woVar.c();
                 return null;
             }
-            return (Void) invokeL.objValue;
+            return null;
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPreExecute() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.a != null) {
+                RefresherView refresherView = this.b;
+                refresherView.u = refresherView.c;
+                this.a.d();
+            }
         }
     }
 
     /* loaded from: classes.dex */
-    public class e extends Handler implements so {
+    public class e extends Handler implements to {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int a;
@@ -322,7 +324,7 @@ public class RefresherView extends ViewGroup {
         /* JADX WARN: Code restructure failed: missing block: B:9:0x0017, code lost:
             if (r0 != 3) goto L9;
          */
-        @Override // com.baidu.tieba.to
+        @Override // com.baidu.tieba.uo
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -339,26 +341,26 @@ public class RefresherView extends ViewGroup {
                         if (this.g.t <= this.g.c || this.g.A != IRefreshable$State.pulling_no_refresh) {
                             if (this.g.t < this.g.c && this.g.A == IRefreshable$State.pulling_refresh) {
                                 this.g.A = IRefreshable$State.pulling_no_refresh;
-                                vo voVar = this.g.x;
-                                if (voVar != null) {
-                                    voVar.a(IRefreshable$State.pulling_no_refresh);
+                                wo woVar = this.g.x;
+                                if (woVar != null) {
+                                    woVar.a(IRefreshable$State.pulling_no_refresh);
                                 }
                             }
                         } else {
                             this.g.A = IRefreshable$State.pulling_refresh;
-                            vo voVar2 = this.g.x;
-                            if (voVar2 != null) {
-                                voVar2.a(IRefreshable$State.pulling_refresh);
+                            wo woVar2 = this.g.x;
+                            if (woVar2 != null) {
+                                woVar2.a(IRefreshable$State.pulling_refresh);
                             }
                         }
                         this.g.invalidate();
                     }
                     return true;
                 }
-                if (this.g.t <= this.g.c) {
-                    this.g.u = 0;
-                } else {
+                if (this.g.t > this.g.c) {
                     this.g.W();
+                } else {
+                    this.g.u = 0;
                 }
                 c(1000);
                 return true;
@@ -366,7 +368,7 @@ public class RefresherView extends ViewGroup {
             return invokeL.booleanValue;
         }
 
-        @Override // com.baidu.tieba.to
+        @Override // com.baidu.tieba.uo
         public void b(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
@@ -388,20 +390,49 @@ public class RefresherView extends ViewGroup {
             }
         }
 
-        @Override // com.baidu.tieba.to
+        @Override // com.baidu.tieba.uo
         public void c(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-                if (i == 1000) {
-                    f();
-                } else if (i != 1001) {
-                } else {
-                    g();
+                if (i != 1000) {
+                    if (i == 1001) {
+                        g();
+                        return;
+                    }
+                    return;
                 }
+                f();
             }
         }
 
-        @Override // com.baidu.tieba.so
+        @Override // com.baidu.tieba.uo
+        public boolean dispatchTouchEvent(MotionEvent motionEvent) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable != null && (invokeL = interceptable.invokeL(1048580, this, motionEvent)) != null) {
+                return invokeL.booleanValue;
+            }
+            RefresherView.super.dispatchTouchEvent(motionEvent);
+            return true;
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048586, this, message) == null) {
+                int i = message.what;
+                if (i != 1000) {
+                    if (i == 1001) {
+                        i();
+                        return;
+                    }
+                    return;
+                }
+                h();
+            }
+        }
+
+        @Override // com.baidu.tieba.to
         public void d(boolean z, int i, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
@@ -423,18 +454,7 @@ public class RefresherView extends ViewGroup {
             }
         }
 
-        @Override // com.baidu.tieba.to
-        public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
-                RefresherView.super.dispatchTouchEvent(motionEvent);
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.to
+        @Override // com.baidu.tieba.uo
         public void draw(Canvas canvas) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
@@ -455,7 +475,7 @@ public class RefresherView extends ViewGroup {
             }
         }
 
-        @Override // com.baidu.tieba.to
+        @Override // com.baidu.tieba.uo
         public boolean e(MotionEvent motionEvent) {
             InterceptResult invokeL;
             View childAt;
@@ -469,23 +489,23 @@ public class RefresherView extends ViewGroup {
                         removeMessages(1000);
                         removeMessages(1001);
                     } else if (action == 2) {
-                        if (!(this.g.h instanceof ViewGroup) || (childAt = ((ViewGroup) this.g.h).getChildAt(0)) == null) {
-                            this.g.h.getLocationOnScreen(this.g.o);
+                        if ((this.g.h instanceof ViewGroup) && (childAt = ((ViewGroup) this.g.h).getChildAt(0)) != null) {
+                            childAt.getLocationOnScreen(this.g.o);
                             if (this.g.o[0] == this.g.r && x > this.g.n + this.a) {
                                 this.g.A = IRefreshable$State.pulling_no_refresh;
-                                vo voVar = this.g.x;
-                                if (voVar != null) {
-                                    voVar.a(IRefreshable$State.pulling_no_refresh);
+                                wo woVar = this.g.x;
+                                if (woVar != null) {
+                                    woVar.a(IRefreshable$State.pulling_no_refresh);
                                 }
                                 return true;
                             }
                         } else {
-                            childAt.getLocationOnScreen(this.g.o);
+                            this.g.h.getLocationOnScreen(this.g.o);
                             if (this.g.o[0] == this.g.r && x > this.g.n + this.a) {
                                 this.g.A = IRefreshable$State.pulling_no_refresh;
-                                vo voVar2 = this.g.x;
-                                if (voVar2 != null) {
-                                    voVar2.a(IRefreshable$State.pulling_no_refresh);
+                                wo woVar2 = this.g.x;
+                                if (woVar2 != null) {
+                                    woVar2.a(IRefreshable$State.pulling_no_refresh);
                                 }
                                 return true;
                             }
@@ -535,38 +555,24 @@ public class RefresherView extends ViewGroup {
                     RefresherView refresherView = this.g;
                     refresherView.t = refresherView.u;
                     this.g.A = IRefreshable$State.idle;
-                    vo voVar = this.g.x;
-                    if (voVar != null) {
-                        voVar.a(IRefreshable$State.idle);
+                    wo woVar = this.g.x;
+                    if (woVar != null) {
+                        woVar.a(IRefreshable$State.idle);
                     }
-                    if (this.g.u == 0 && voVar != null) {
-                        voVar.b();
+                    if (this.g.u == 0 && woVar != null) {
+                        woVar.b();
                         this.g.l = false;
                     }
                 } else {
                     RefresherView refresherView2 = this.g;
                     float f2 = this.e;
-                    refresherView2.t = (int) (refresherView2.u + (f2 * (1.0f - jn.a.getInterpolation(this.d / f2))));
+                    refresherView2.t = (int) (refresherView2.u + (f2 * (1.0f - kn.a.getInterpolation(this.d / f2))));
                     this.c = uptimeMillis;
                     this.b = uptimeMillis + 16;
                     removeMessages(1000);
                     sendEmptyMessageAtTime(1000, this.b);
                 }
                 this.g.invalidate();
-            }
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048586, this, message) == null) {
-                int i = message.what;
-                if (i == 1000) {
-                    h();
-                } else if (i != 1001) {
-                } else {
-                    i();
-                }
             }
         }
 
@@ -581,13 +587,13 @@ public class RefresherView extends ViewGroup {
                     RefresherView refresherView = this.g;
                     refresherView.t = refresherView.c;
                     this.g.A = IRefreshable$State.idle;
-                    vo voVar = this.g.x;
-                    if (voVar != null) {
-                        voVar.a(IRefreshable$State.idle);
+                    wo woVar = this.g.x;
+                    if (woVar != null) {
+                        woVar.a(IRefreshable$State.idle);
                         this.g.W();
                     }
                 } else {
-                    this.g.t = jn.a(f2, f, false);
+                    this.g.t = kn.a(f2, f, false);
                     this.c = uptimeMillis;
                     this.b = uptimeMillis + 16;
                     removeMessages(1001);
@@ -599,7 +605,7 @@ public class RefresherView extends ViewGroup {
     }
 
     /* loaded from: classes.dex */
-    public class f implements so {
+    public class f implements to {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ RefresherView a;
@@ -622,10 +628,33 @@ public class RefresherView extends ViewGroup {
             this.a = refresherView;
         }
 
+        @Override // com.baidu.tieba.uo
+        public void c(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+                this.a.v.a(i);
+            }
+        }
+
+        @Override // com.baidu.tieba.uo
+        public boolean dispatchTouchEvent(MotionEvent motionEvent) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable != null && (invokeL = interceptable.invokeL(1048580, this, motionEvent)) != null) {
+                return invokeL.booleanValue;
+            }
+            RefresherView.super.dispatchTouchEvent(motionEvent);
+            return true;
+        }
+
+        public /* synthetic */ f(RefresherView refresherView, a aVar) {
+            this(refresherView);
+        }
+
         /* JADX WARN: Code restructure failed: missing block: B:9:0x0017, code lost:
             if (r0 != 3) goto L9;
          */
-        @Override // com.baidu.tieba.to
+        @Override // com.baidu.tieba.uo
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -642,26 +671,26 @@ public class RefresherView extends ViewGroup {
                         if (this.a.s <= this.a.c || this.a.A != IRefreshable$State.pulling_no_refresh) {
                             if (this.a.s < this.a.c && this.a.A == IRefreshable$State.pulling_refresh) {
                                 this.a.A = IRefreshable$State.pulling_no_refresh;
-                                vo voVar = this.a.x;
-                                if (voVar != null) {
-                                    voVar.a(IRefreshable$State.pulling_no_refresh);
+                                wo woVar = this.a.x;
+                                if (woVar != null) {
+                                    woVar.a(IRefreshable$State.pulling_no_refresh);
                                 }
                             }
                         } else {
                             this.a.A = IRefreshable$State.pulling_refresh;
-                            vo voVar2 = this.a.x;
-                            if (voVar2 != null) {
-                                voVar2.a(IRefreshable$State.pulling_refresh);
+                            wo woVar2 = this.a.x;
+                            if (woVar2 != null) {
+                                woVar2.a(IRefreshable$State.pulling_refresh);
                             }
                         }
                         this.a.invalidate();
                     }
                     return true;
                 }
-                if (this.a.s <= this.a.c) {
-                    this.a.u = 0;
-                } else {
+                if (this.a.s > this.a.c) {
                     this.a.W();
+                } else {
+                    this.a.u = 0;
                 }
                 c(1000);
                 return true;
@@ -669,7 +698,7 @@ public class RefresherView extends ViewGroup {
             return invokeL.booleanValue;
         }
 
-        @Override // com.baidu.tieba.to
+        @Override // com.baidu.tieba.uo
         public void b(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
@@ -692,14 +721,6 @@ public class RefresherView extends ViewGroup {
         }
 
         @Override // com.baidu.tieba.to
-        public void c(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-                this.a.v.a(i);
-            }
-        }
-
-        @Override // com.baidu.tieba.so
         public void d(boolean z, int i, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
@@ -721,18 +742,7 @@ public class RefresherView extends ViewGroup {
             }
         }
 
-        @Override // com.baidu.tieba.to
-        public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
-                RefresherView.super.dispatchTouchEvent(motionEvent);
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.to
+        @Override // com.baidu.tieba.uo
         public void draw(Canvas canvas) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
@@ -753,7 +763,7 @@ public class RefresherView extends ViewGroup {
             }
         }
 
-        @Override // com.baidu.tieba.to
+        @Override // com.baidu.tieba.uo
         public boolean e(MotionEvent motionEvent) {
             InterceptResult invokeL;
             View childAt;
@@ -766,23 +776,23 @@ public class RefresherView extends ViewGroup {
                         this.a.m = y;
                         this.a.w.removeMessages(1000);
                     } else if (action == 2) {
-                        if (!(this.a.h instanceof ViewGroup) || (childAt = ((ViewGroup) this.a.h).getChildAt(0)) == null) {
-                            this.a.h.getLocationOnScreen(this.a.o);
+                        if ((this.a.h instanceof ViewGroup) && (childAt = ((ViewGroup) this.a.h).getChildAt(0)) != null) {
+                            childAt.getLocationOnScreen(this.a.o);
                             if (this.a.o[1] == this.a.q && y > this.a.m) {
                                 this.a.A = IRefreshable$State.pulling_no_refresh;
-                                vo voVar = this.a.x;
-                                if (voVar != null) {
-                                    voVar.a(IRefreshable$State.pulling_no_refresh);
+                                wo woVar = this.a.x;
+                                if (woVar != null) {
+                                    woVar.a(IRefreshable$State.pulling_no_refresh);
                                 }
                                 return true;
                             }
                         } else {
-                            childAt.getLocationOnScreen(this.a.o);
+                            this.a.h.getLocationOnScreen(this.a.o);
                             if (this.a.o[1] == this.a.q && y > this.a.m) {
                                 this.a.A = IRefreshable$State.pulling_no_refresh;
-                                vo voVar2 = this.a.x;
-                                if (voVar2 != null) {
-                                    voVar2.a(IRefreshable$State.pulling_no_refresh);
+                                wo woVar2 = this.a.x;
+                                if (woVar2 != null) {
+                                    woVar2.a(IRefreshable$State.pulling_no_refresh);
                                 }
                                 return true;
                             }
@@ -792,10 +802,6 @@ public class RefresherView extends ViewGroup {
                 return false;
             }
             return invokeL.booleanValue;
-        }
-
-        public /* synthetic */ f(RefresherView refresherView, a aVar) {
-            this(refresherView);
         }
     }
 
@@ -817,191 +823,6 @@ public class RefresherView extends ViewGroup {
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-        }
-    }
-
-    public void W() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            d dVar = this.y;
-            if (dVar == null || dVar.getStatus() != BdAsyncTask.BdAsyncTaskStatus.RUNNING) {
-                d dVar2 = new d(this);
-                this.y = dVar2;
-                dVar2.execute(null);
-            }
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void dispatchDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            this.z.draw(canvas);
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) ? this.z.dispatchTouchEvent(motionEvent) : invokeL.booleanValue;
-    }
-
-    public View getEmptyView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.j : (View) invokeV.objValue;
-    }
-
-    public View getRefresherContent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.h : (View) invokeV.objValue;
-    }
-
-    public View getRefresherHeader() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.i : (View) invokeV.objValue;
-    }
-
-    public IRefreshable$State getState() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.A : (IRefreshable$State) invokeV.objValue;
-    }
-
-    @Override // android.view.View
-    public boolean isEnabled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.k : invokeV.booleanValue;
-    }
-
-    @Override // android.view.View
-    public void onFinishInflate() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            super.onFinishInflate();
-            int i = this.e;
-            if (i != -1) {
-                View findViewById = findViewById(i);
-                this.h = findViewById;
-                if (findViewById != null) {
-                    int i2 = this.f;
-                    if (i2 != -1) {
-                        View findViewById2 = findViewById(i2);
-                        this.i = findViewById2;
-                        if (findViewById2 != null) {
-                            int i3 = this.g;
-                            if (i3 != -1) {
-                                View findViewById3 = findViewById(i3);
-                                this.j = findViewById3;
-                                if (findViewById3 == null) {
-                                    throw new RuntimeException("empty view not found in the view tree by the empty view's id");
-                                }
-                                return;
-                            }
-                            throw new RuntimeException("empty view id is not set in xml, or call setEmptyView before add it to a view tree");
-                        }
-                        throw new RuntimeException("refresher header not found in the view tree by the header id.");
-                    }
-                    throw new RuntimeException("refresher head id is not set in xml, or call setRefresherHeader before add it to a view tree.");
-                }
-                throw new RuntimeException("refresher content not found in the view tree by the content id.");
-            }
-            throw new RuntimeException("refresher content id is not set in xml, or call setRefresherContent before add it to a view tree.");
-        }
-    }
-
-    @Override // android.view.ViewGroup
-    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, motionEvent)) == null) ? this.z.e(motionEvent) : invokeL.booleanValue;
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            this.z.d(z, i, i2, i3, i4);
-        }
-    }
-
-    @Override // android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048587, this, i, i2) == null) {
-            this.z.b(i, i2);
-        }
-    }
-
-    @Override // android.view.View
-    public final boolean onTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, motionEvent)) == null) ? this.z.a(motionEvent) : invokeL.booleanValue;
-    }
-
-    public void setEmptyView(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, view2) == null) {
-            removeView(this.j);
-            this.j = view2;
-            if (view2 != null) {
-                addView(view2);
-            }
-        }
-    }
-
-    public void setEnable(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            this.k = (!z || this.h == null || this.i == null) ? false : true;
-        }
-    }
-
-    public void setOnRefreshListener(vo voVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, voVar) == null) {
-            this.x = voVar;
-        }
-    }
-
-    public void setRefresherContent(ViewGroup viewGroup) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, viewGroup) == null) {
-            removeView(this.h);
-            this.h = viewGroup;
-            boolean z = false;
-            if (viewGroup == null) {
-                this.k = false;
-                return;
-            }
-            addView(viewGroup);
-            if (this.i != null && this.h != null) {
-                z = true;
-            }
-            this.k = z;
-        }
-    }
-
-    public void setRefresherHeader(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, view2) == null) {
-            removeView(this.i);
-            this.i = view2;
-            boolean z = false;
-            if (view2 == null) {
-                this.k = false;
-                return;
-            }
-            addView(view2);
-            if (this.i != null && this.h != null) {
-                z = true;
-            }
-            this.k = z;
         }
     }
 
@@ -1076,5 +897,220 @@ public class RefresherView extends ViewGroup {
         this.e = obtainStyledAttributes.getResourceId(3, -1);
         this.f = obtainStyledAttributes.getResourceId(4, -1);
         this.g = obtainStyledAttributes.getResourceId(1, -1);
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void dispatchDraw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
+            this.z.draw(canvas);
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
+            return this.z.dispatchTouchEvent(motionEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.view.ViewGroup
+    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, motionEvent)) == null) {
+            return this.z.e(motionEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.view.View
+    public final boolean onTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, motionEvent)) == null) {
+            return this.z.a(motionEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void setEmptyView(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, view2) == null) {
+            removeView(this.j);
+            this.j = view2;
+            if (view2 != null) {
+                addView(view2);
+            }
+        }
+    }
+
+    public void setEnable(boolean z) {
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
+            if (z && this.h != null && this.i != null) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            this.k = z2;
+        }
+    }
+
+    public void setOnRefreshListener(wo woVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, woVar) == null) {
+            this.x = woVar;
+        }
+    }
+
+    public void setRefresherContent(ViewGroup viewGroup) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, viewGroup) == null) {
+            removeView(this.h);
+            this.h = viewGroup;
+            boolean z = false;
+            if (viewGroup == null) {
+                this.k = false;
+                return;
+            }
+            addView(viewGroup);
+            if (this.i != null && this.h != null) {
+                z = true;
+            }
+            this.k = z;
+        }
+    }
+
+    public void setRefresherHeader(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, view2) == null) {
+            removeView(this.i);
+            this.i = view2;
+            boolean z = false;
+            if (view2 == null) {
+                this.k = false;
+                return;
+            }
+            addView(view2);
+            if (this.i != null && this.h != null) {
+                z = true;
+            }
+            this.k = z;
+        }
+    }
+
+    @Override // android.view.View
+    public void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048587, this, i, i2) == null) {
+            this.z.b(i, i2);
+        }
+    }
+
+    public void W() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            d dVar = this.y;
+            if (dVar == null || dVar.getStatus() != BdAsyncTask.BdAsyncTaskStatus.RUNNING) {
+                d dVar2 = new d(this);
+                this.y = dVar2;
+                dVar2.execute(null);
+            }
+        }
+    }
+
+    public View getEmptyView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.j;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public View getRefresherContent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.h;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public View getRefresherHeader() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.i;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public IRefreshable$State getState() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.A;
+        }
+        return (IRefreshable$State) invokeV.objValue;
+    }
+
+    @Override // android.view.View
+    public boolean isEnabled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.k;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.view.View
+    public void onFinishInflate() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            super.onFinishInflate();
+            int i = this.e;
+            if (i != -1) {
+                View findViewById = findViewById(i);
+                this.h = findViewById;
+                if (findViewById != null) {
+                    int i2 = this.f;
+                    if (i2 != -1) {
+                        View findViewById2 = findViewById(i2);
+                        this.i = findViewById2;
+                        if (findViewById2 != null) {
+                            int i3 = this.g;
+                            if (i3 != -1) {
+                                View findViewById3 = findViewById(i3);
+                                this.j = findViewById3;
+                                if (findViewById3 != null) {
+                                    return;
+                                }
+                                throw new RuntimeException("empty view not found in the view tree by the empty view's id");
+                            }
+                            throw new RuntimeException("empty view id is not set in xml, or call setEmptyView before add it to a view tree");
+                        }
+                        throw new RuntimeException("refresher header not found in the view tree by the header id.");
+                    }
+                    throw new RuntimeException("refresher head id is not set in xml, or call setRefresherHeader before add it to a view tree.");
+                }
+                throw new RuntimeException("refresher content not found in the view tree by the content id.");
+            }
+            throw new RuntimeException("refresher content id is not set in xml, or call setRefresherContent before add it to a view tree.");
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            this.z.d(z, i, i2, i3, i4);
+        }
     }
 }

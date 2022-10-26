@@ -1,18 +1,24 @@
 package com.baidu.swan.bdtls;
 
 import android.text.TextUtils;
-import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.charset.StandardCharsets;
-@Keep
 /* loaded from: classes3.dex */
 public class RSA {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public static native byte[] decrypt(byte[] bArr);
+
+    public static native byte[] encrypt(byte[] bArr);
+
+    public static native byte[] privateDecrypt(byte[] bArr);
+
+    public static native byte[] privateEncrypt(byte[] bArr);
 
     public RSA() {
         Interceptable interceptable = $ic;
@@ -28,27 +34,18 @@ public class RSA {
         }
     }
 
-    @Keep
-    public static native byte[] decrypt(byte[] bArr);
-
-    @Keep
-    public static native byte[] encrypt(byte[] bArr);
-
-    @Keep
-    public static native byte[] privateDecrypt(byte[] bArr);
-
-    @Keep
-    public static native byte[] privateEncrypt(byte[] bArr);
-
     public static String privateKeyDecrypt(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) {
-            if (bArr == null || bArr.length < 1) {
-                return "null content";
+            if (bArr != null && bArr.length >= 1) {
+                byte[] privateDecrypt = privateDecrypt(bArr);
+                if (privateDecrypt != null && privateDecrypt.length >= 1) {
+                    return new String(privateDecrypt, StandardCharsets.UTF_8);
+                }
+                return "result is null";
             }
-            byte[] privateDecrypt = privateDecrypt(bArr);
-            return (privateDecrypt == null || privateDecrypt.length < 1) ? "result is null" : new String(privateDecrypt, StandardCharsets.UTF_8);
+            return "null content";
         }
         return (String) invokeL.objValue;
     }
@@ -70,11 +67,14 @@ public class RSA {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, bArr)) == null) {
-            if (bArr == null || bArr.length < 1) {
-                return "null content";
+            if (bArr != null && bArr.length >= 1) {
+                byte[] decrypt = decrypt(bArr);
+                if (decrypt != null && decrypt.length >= 1) {
+                    return new String(decrypt, StandardCharsets.UTF_8);
+                }
+                return "result is null";
             }
-            byte[] decrypt = decrypt(bArr);
-            return (decrypt == null || decrypt.length < 1) ? "result is null" : new String(decrypt, StandardCharsets.UTF_8);
+            return "null content";
         }
         return (String) invokeL.objValue;
     }

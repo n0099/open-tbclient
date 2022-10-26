@@ -62,16 +62,6 @@ public class ChunkedInputStream extends InputStream {
     }
 
     @Override // java.io.InputStream
-    public int read(byte[] bArr, int i, int i2) throws IOException {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, bArr, i, i2)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeLII.intValue;
-    }
-
-    @Override // java.io.InputStream
     public int read(byte[] bArr) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -79,5 +69,15 @@ public class ChunkedInputStream extends InputStream {
             throw new RuntimeException("Stub!");
         }
         return invokeL.intValue;
+    }
+
+    @Override // java.io.InputStream
+    public int read(byte[] bArr, int i, int i2) throws IOException {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, bArr, i, i2)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeLII.intValue;
     }
 }

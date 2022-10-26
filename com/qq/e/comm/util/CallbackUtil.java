@@ -13,7 +13,7 @@ import java.util.Map;
 /* loaded from: classes8.dex */
 public class CallbackUtil {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, Boolean> a;
+    public static final Map a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -46,40 +46,6 @@ public class CallbackUtil {
         }
     }
 
-    public static boolean a(Class cls, String str, Class... clsArr) {
-        InterceptResult invokeLLL;
-        String sb;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, cls, str, clsArr)) == null) {
-            if (cls == null) {
-                sb = "";
-            } else {
-                StringBuilder sb2 = new StringBuilder();
-                sb2.append(cls.getName());
-                sb2.append("#");
-                sb2.append(str);
-                for (Class cls2 : clsArr) {
-                    sb2.append("_");
-                    sb2.append(cls2.getName());
-                }
-                sb = sb2.toString();
-            }
-            Boolean bool = a.get(sb);
-            if (bool == null) {
-                try {
-                    cls.getDeclaredMethod(str, clsArr);
-                    a.put(sb, Boolean.TRUE);
-                    return true;
-                } catch (NoSuchMethodException unused) {
-                    a.put(sb, Boolean.FALSE);
-                    return false;
-                }
-            }
-            return Boolean.TRUE.equals(bool);
-        }
-        return invokeLLL.booleanValue;
-    }
-
     public static boolean hasRenderFailCallback(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -102,5 +68,39 @@ public class CallbackUtil {
             return a(obj.getClass(), "onRenderSuccess", new Class[0]);
         }
         return invokeL.booleanValue;
+    }
+
+    public static boolean a(Class cls, String str, Class... clsArr) {
+        InterceptResult invokeLLL;
+        String sb;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, cls, str, clsArr)) == null) {
+            if (cls == null) {
+                sb = "";
+            } else {
+                StringBuilder sb2 = new StringBuilder();
+                sb2.append(cls.getName());
+                sb2.append("#");
+                sb2.append(str);
+                for (Class cls2 : clsArr) {
+                    sb2.append("_");
+                    sb2.append(cls2.getName());
+                }
+                sb = sb2.toString();
+            }
+            Boolean bool = (Boolean) a.get(sb);
+            if (bool == null) {
+                try {
+                    cls.getDeclaredMethod(str, clsArr);
+                    a.put(sb, Boolean.TRUE);
+                    return true;
+                } catch (NoSuchMethodException unused) {
+                    a.put(sb, Boolean.FALSE);
+                    return false;
+                }
+            }
+            return Boolean.TRUE.equals(bool);
+        }
+        return invokeLLL.booleanValue;
     }
 }

@@ -31,7 +31,7 @@ public class ClientStartStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public static class a extends CustomMessageListener {
+    public final class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long a;
@@ -58,24 +58,25 @@ public class ClientStartStatic {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Boolean data;
+        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+            Boolean bool;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof BackgroundSwitchMessage) && (data = ((BackgroundSwitchMessage) customResponsedMessage).getData()) != null) {
-                if (data.booleanValue()) {
-                    this.a = SystemClock.elapsedRealtime();
-                    return;
-                }
-                if (SystemClock.elapsedRealtime() - this.a > 30000) {
-                    new c(null).execute(new Void[0]);
-                }
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.HOST_START).param("obj_param1", 1).param(TiebaStatic.Params.OBJ_PARAM2, TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_PARAM3, TbadkCoreApplication.getInst().getCanShowSplash()));
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || !(customResponsedMessage instanceof BackgroundSwitchMessage) || (bool = (Boolean) ((BackgroundSwitchMessage) customResponsedMessage).getData()) == null) {
+                return;
             }
+            if (bool.booleanValue()) {
+                this.a = SystemClock.elapsedRealtime();
+                return;
+            }
+            if (SystemClock.elapsedRealtime() - this.a > 30000) {
+                new c(null).execute(new Void[0]);
+            }
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.HOST_START).param("obj_param1", 1).param(TiebaStatic.Params.OBJ_PARAM2, TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_PARAM3, TbadkCoreApplication.getInst().getCanShowSplash()));
         }
     }
 
     /* loaded from: classes5.dex */
-    public static class b extends CustomMessageListener {
+    public final class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -101,22 +102,19 @@ public class ClientStartStatic {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
-                new c(null).execute(new Void[0]);
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || !PermissionUtil.isAgreePrivacyPolicy()) {
+                return;
             }
+            new c(null).execute(new Void[0]);
         }
     }
 
     /* loaded from: classes5.dex */
-    public static class c extends BdAsyncTask<Void, Void, Void> {
+    public class c extends BdAsyncTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ c(a aVar) {
-            this();
-        }
 
         public c() {
             Interceptable interceptable = $ic;
@@ -134,47 +132,51 @@ public class ClientStartStatic {
             setPriority(1);
         }
 
+        public /* synthetic */ c(a aVar) {
+            this();
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(Void... voidArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                if (PermissionUtil.isAgreePrivacyPolicy() && !TbadkCoreApplication.getInst().checkInterrupt()) {
-                    NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.STAT_CLIENT_START);
-                    netWork.addPostData("type", "1");
-                    netWork.postNetData();
-                    if (TbSingleton.getInstance().getBaiduIdForAnti() == null && netWork.getNetContext() != null && netWork.getNetContext().getResponse() != null && netWork.getNetContext().getResponse().mHeader != null) {
-                        List<String> list = netWork.getNetContext().getResponse().mHeader.get("Set-Cookie");
-                        if (!ListUtils.isEmpty(list)) {
-                            boolean z = false;
-                            for (int i = 0; i < list.size(); i++) {
-                                if (list.get(i) != null && list.get(i).contains("BAIDUID=")) {
-                                    String[] split = list.get(i).split(ParamableElem.DIVIDE_PARAM);
-                                    if (split != null) {
-                                        int length = split.length;
-                                        int i2 = 0;
-                                        while (true) {
-                                            if (i2 >= length) {
-                                                break;
-                                            }
-                                            String str = split[i2];
-                                            if (str != null && str.contains("BAIDUID=")) {
-                                                TbSingleton.getInstance().setBaiduIdForAnti(str.trim().substring(8));
-                                                z = true;
-                                                break;
-                                            }
-                                            i2++;
+                if (!PermissionUtil.isAgreePrivacyPolicy() || TbadkCoreApplication.getInst().checkInterrupt()) {
+                    return null;
+                }
+                NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.STAT_CLIENT_START);
+                netWork.addPostData("type", "1");
+                netWork.postNetData();
+                if (TbSingleton.getInstance().getBaiduIdForAnti() == null && netWork.getNetContext() != null && netWork.getNetContext().getResponse() != null && netWork.getNetContext().getResponse().mHeader != null) {
+                    List<String> list = netWork.getNetContext().getResponse().mHeader.get("Set-Cookie");
+                    if (!ListUtils.isEmpty(list)) {
+                        boolean z = false;
+                        for (int i = 0; i < list.size(); i++) {
+                            if (list.get(i) != null && list.get(i).contains("BAIDUID=")) {
+                                String[] split = list.get(i).split(ParamableElem.DIVIDE_PARAM);
+                                if (split != null) {
+                                    int length = split.length;
+                                    int i2 = 0;
+                                    while (true) {
+                                        if (i2 >= length) {
+                                            break;
                                         }
+                                        String str = split[i2];
+                                        if (str != null && str.contains("BAIDUID=")) {
+                                            TbSingleton.getInstance().setBaiduIdForAnti(str.trim().substring(8));
+                                            z = true;
+                                            break;
+                                        }
+                                        i2++;
                                     }
-                                    if (z) {
-                                        break;
-                                    }
+                                }
+                                if (z) {
+                                    break;
                                 }
                             }
                         }
                     }
-                    return null;
                 }
                 return null;
             }

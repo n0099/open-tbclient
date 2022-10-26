@@ -45,6 +45,16 @@ public final class TextRenderer extends BaseRenderer implements Handler.Callback
     public interface Output extends TextOutput {
     }
 
+    @Override // com.google.android.exoplayer2.Renderer
+    public boolean isReady() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public TextRenderer(TextOutput textOutput, Looper looper) {
         this(textOutput, looper, SubtitleDecoderFactory.DEFAULT);
@@ -66,6 +76,36 @@ public final class TextRenderer extends BaseRenderer implements Handler.Callback
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public TextRenderer(TextOutput textOutput, Looper looper, SubtitleDecoderFactory subtitleDecoderFactory) {
+        super(3);
+        Handler handler;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {textOutput, looper, subtitleDecoderFactory};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.output = (TextOutput) Assertions.checkNotNull(textOutput);
+        if (looper == null) {
+            handler = null;
+        } else {
+            handler = new Handler(looper, this);
+        }
+        this.outputHandler = handler;
+        this.decoderFactory = subtitleDecoderFactory;
+        this.formatHolder = new FormatHolder();
+    }
+
     private void clearOutput() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
@@ -78,19 +118,12 @@ public final class TextRenderer extends BaseRenderer implements Handler.Callback
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             int i = this.nextSubtitleEventIndex;
-            if (i == -1 || i >= this.subtitle.getEventTimeCount()) {
-                return Long.MAX_VALUE;
+            if (i != -1 && i < this.subtitle.getEventTimeCount()) {
+                return this.subtitle.getEventTime(this.nextSubtitleEventIndex);
             }
-            return this.subtitle.getEventTime(this.nextSubtitleEventIndex);
+            return Long.MAX_VALUE;
         }
         return invokeV.longValue;
-    }
-
-    private void invokeUpdateOutputInternal(List<Cue> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, list) == null) {
-            this.output.onCues(list);
-        }
     }
 
     private void releaseBuffers() {
@@ -129,7 +162,34 @@ public final class TextRenderer extends BaseRenderer implements Handler.Callback
         }
     }
 
-    private void updateOutput(List<Cue> list) {
+    @Override // com.google.android.exoplayer2.Renderer
+    public boolean isEnded() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.outputStreamEnded;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.google.android.exoplayer2.BaseRenderer
+    public void onDisabled() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.streamFormat = null;
+            clearOutput();
+            releaseDecoder();
+        }
+    }
+
+    private void invokeUpdateOutputInternal(List list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, list) == null) {
+            this.output.onCues(list);
+        }
+    }
+
+    private void updateOutput(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, list) == null) {
             Handler handler = this.outputHandler;
@@ -155,31 +215,23 @@ public final class TextRenderer extends BaseRenderer implements Handler.Callback
         return invokeL.booleanValue;
     }
 
-    @Override // com.google.android.exoplayer2.Renderer
-    public boolean isEnded() {
-        InterceptResult invokeV;
+    @Override // com.google.android.exoplayer2.RendererCapabilities
+    public int supportsFormat(Format format) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.outputStreamEnded : invokeV.booleanValue;
-    }
-
-    @Override // com.google.android.exoplayer2.Renderer
-    public boolean isReady() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, format)) == null) {
+            if (this.decoderFactory.supportsFormat(format)) {
+                if (BaseRenderer.supportsFormatDrm(null, format.drmInitData)) {
+                    return 4;
+                }
+                return 2;
+            } else if (MimeTypes.isText(format.sampleMimeType)) {
+                return 1;
+            } else {
+                return 0;
+            }
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.google.android.exoplayer2.BaseRenderer
-    public void onDisabled() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.streamFormat = null;
-            clearOutput();
-            releaseDecoder();
-        }
+        return invokeL.intValue;
     }
 
     @Override // com.google.android.exoplayer2.BaseRenderer
@@ -216,13 +268,13 @@ public final class TextRenderer extends BaseRenderer implements Handler.Callback
     public void render(long j, long j2) throws ExoPlaybackException {
         boolean z;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || this.outputStreamEnded) {
+        if ((interceptable != null && interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) != null) || this.outputStreamEnded) {
             return;
         }
         if (this.nextSubtitle == null) {
             this.decoder.setPositionUs(j);
             try {
-                this.nextSubtitle = this.decoder.dequeueOutputBuffer();
+                this.nextSubtitle = (SubtitleOutputBuffer) this.decoder.dequeueOutputBuffer();
             } catch (SubtitleDecoderException e) {
                 throw ExoPlaybackException.createForRenderer(e, getIndex());
             }
@@ -273,9 +325,9 @@ public final class TextRenderer extends BaseRenderer implements Handler.Callback
         while (!this.inputStreamEnded) {
             try {
                 if (this.nextInputBuffer == null) {
-                    SubtitleInputBuffer dequeueInputBuffer = this.decoder.dequeueInputBuffer();
-                    this.nextInputBuffer = dequeueInputBuffer;
-                    if (dequeueInputBuffer == null) {
+                    SubtitleInputBuffer subtitleInputBuffer = (SubtitleInputBuffer) this.decoder.dequeueInputBuffer();
+                    this.nextInputBuffer = subtitleInputBuffer;
+                    if (subtitleInputBuffer == null) {
                         return;
                     }
                 }
@@ -303,36 +355,5 @@ public final class TextRenderer extends BaseRenderer implements Handler.Callback
                 throw ExoPlaybackException.createForRenderer(e2, getIndex());
             }
         }
-    }
-
-    @Override // com.google.android.exoplayer2.RendererCapabilities
-    public int supportsFormat(Format format) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, format)) == null) ? this.decoderFactory.supportsFormat(format) ? BaseRenderer.supportsFormatDrm(null, format.drmInitData) ? 4 : 2 : MimeTypes.isText(format.sampleMimeType) ? 1 : 0 : invokeL.intValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TextRenderer(TextOutput textOutput, Looper looper, SubtitleDecoderFactory subtitleDecoderFactory) {
-        super(3);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {textOutput, looper, subtitleDecoderFactory};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.output = (TextOutput) Assertions.checkNotNull(textOutput);
-        this.outputHandler = looper == null ? null : new Handler(looper, this);
-        this.decoderFactory = subtitleDecoderFactory;
-        this.formatHolder = new FormatHolder();
     }
 }

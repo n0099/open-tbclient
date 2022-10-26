@@ -14,6 +14,21 @@ public class ImageUtil {
     public static final String TAG = "CameraExif";
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static int exifToDegrees(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (i == 6) {
+                return 90;
+            }
+            if (i == 3) {
+                return 180;
+            }
+            return i == 8 ? 270 : 0;
+        }
+        return invokeI.intValue;
+    }
+
     public ImageUtil() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -45,21 +60,6 @@ public class ImageUtil {
             return i5;
         }
         return invokeLII.intValue;
-    }
-
-    public static int exifToDegrees(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            if (i == 6) {
-                return 90;
-            }
-            if (i == 3) {
-                return 180;
-            }
-            return i == 8 ? 270 : 0;
-        }
-        return invokeI.intValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:41:0x006a, code lost:
@@ -213,24 +213,26 @@ public class ImageUtil {
         InterceptResult invokeCommon;
         int i3;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) != null) {
-            return invokeCommon.intValue;
-        }
-        if (z) {
-            i += i2 - 1;
-            i3 = -1;
-        } else {
-            i3 = 1;
-        }
-        int i4 = 0;
-        while (true) {
-            int i5 = i2 - 1;
-            if (i2 <= 0) {
-                return i4;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+            if (z) {
+                i += i2 - 1;
+                i3 = -1;
+            } else {
+                i3 = 1;
             }
-            i4 = (bArr[i] & 255) | (i4 << 8);
-            i += i3;
-            i2 = i5;
+            int i4 = 0;
+            while (true) {
+                int i5 = i2 - 1;
+                if (i2 > 0) {
+                    i4 = (bArr[i] & 255) | (i4 << 8);
+                    i += i3;
+                    i2 = i5;
+                } else {
+                    return i4;
+                }
+            }
+        } else {
+            return invokeCommon.intValue;
         }
     }
 }

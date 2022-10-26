@@ -12,6 +12,10 @@ public class VideoSource extends MediaSource {
     public transient /* synthetic */ FieldHolder $fh;
     public final NativeCapturerObserver capturerObserver;
 
+    public static native void nativeAdaptOutputFormat(long j, int i, int i2, int i3, int i4, int i5);
+
+    public static native long nativeGetInternalSource(long j);
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VideoSource(long j) {
         super(j);
@@ -33,10 +37,6 @@ public class VideoSource extends MediaSource {
         this.capturerObserver = new NativeCapturerObserver(nativeGetInternalSource(j));
     }
 
-    public static native void nativeAdaptOutputFormat(long j, int i, int i2, int i3, int i4, int i5);
-
-    public static native long nativeGetInternalSource(long j);
-
     public void adaptOutputFormat(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIII(1048576, this, i, i2, i3) == null) {
@@ -46,22 +46,28 @@ public class VideoSource extends MediaSource {
         }
     }
 
-    public CapturerObserver getCapturerObserver() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.capturerObserver : (CapturerObserver) invokeV.objValue;
-    }
-
-    public long getNativeVideoTrackSource() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? getNativeMediaSource() : invokeV.longValue;
-    }
-
     public void adaptOutputFormat(int i, int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             nativeAdaptOutputFormat(getNativeVideoTrackSource(), i, i2, i3, i4, i5);
         }
+    }
+
+    public CapturerObserver getCapturerObserver() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.capturerObserver;
+        }
+        return (CapturerObserver) invokeV.objValue;
+    }
+
+    public long getNativeVideoTrackSource() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return getNativeMediaSource();
+        }
+        return invokeV.longValue;
     }
 }

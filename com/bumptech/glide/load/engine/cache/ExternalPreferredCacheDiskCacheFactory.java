@@ -1,7 +1,6 @@
 package com.bumptech.glide.load.engine.cache;
 
 import android.content.Context;
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -83,7 +82,6 @@ public final class ExternalPreferredCacheDiskCacheFactory extends DiskLruCacheFa
                 this.val$diskCacheName = str;
             }
 
-            @Nullable
             private File getInternalCacheDirectory() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
@@ -92,7 +90,10 @@ public final class ExternalPreferredCacheDiskCacheFactory extends DiskLruCacheFa
                     if (cacheDir == null) {
                         return null;
                     }
-                    return this.val$diskCacheName != null ? new File(cacheDir, this.val$diskCacheName) : cacheDir;
+                    if (this.val$diskCacheName != null) {
+                        return new File(cacheDir, this.val$diskCacheName);
+                    }
+                    return cacheDir;
                 }
                 return (File) invokeV.objValue;
             }
@@ -100,11 +101,20 @@ public final class ExternalPreferredCacheDiskCacheFactory extends DiskLruCacheFa
             @Override // com.bumptech.glide.load.engine.cache.DiskLruCacheFactory.CacheDirectoryGetter
             public File getCacheDirectory() {
                 InterceptResult invokeV;
-                File externalCacheDir;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                     File internalCacheDirectory = getInternalCacheDirectory();
-                    return ((internalCacheDirectory == null || !internalCacheDirectory.exists()) && (externalCacheDir = this.val$context.getExternalCacheDir()) != null && externalCacheDir.canWrite()) ? this.val$diskCacheName != null ? new File(externalCacheDir, this.val$diskCacheName) : externalCacheDir : internalCacheDirectory;
+                    if (internalCacheDirectory != null && internalCacheDirectory.exists()) {
+                        return internalCacheDirectory;
+                    }
+                    File externalCacheDir = this.val$context.getExternalCacheDir();
+                    if (externalCacheDir != null && externalCacheDir.canWrite()) {
+                        if (this.val$diskCacheName != null) {
+                            return new File(externalCacheDir, this.val$diskCacheName);
+                        }
+                        return externalCacheDir;
+                    }
+                    return internalCacheDirectory;
                 }
                 return (File) invokeV.objValue;
             }

@@ -8,14 +8,13 @@ import java.nio.charset.Charset;
 public final class n {
     public static Charset alc = Charset.forName("ISO-8859-1");
     public static Charset ald = Charset.forName("UTF-8");
-    public static ThreadLocal<Boolean> ale = new ThreadLocal<Boolean>() { // from class: com.kwad.sdk.pngencrypt.n.1
+    public static ThreadLocal ale = new ThreadLocal() { // from class: com.kwad.sdk.pngencrypt.n.1
         public static Boolean yy() {
             return Boolean.FALSE;
         }
 
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
         @Override // java.lang.ThreadLocal
-        public final /* synthetic */ Boolean initialValue() {
+        public final /* synthetic */ Object initialValue() {
             return yy();
         }
     };

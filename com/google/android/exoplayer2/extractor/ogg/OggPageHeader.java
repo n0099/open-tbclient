@@ -68,52 +68,6 @@ public final class OggPageHeader {
         this.scratch = new ParsableByteArray(255);
     }
 
-    public boolean populate(ExtractorInput extractorInput, boolean z) throws IOException, InterruptedException {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, extractorInput, z)) == null) {
-            this.scratch.reset();
-            reset();
-            if ((extractorInput.getLength() == -1 || extractorInput.getLength() - extractorInput.getPeekPosition() >= 27) && extractorInput.peekFully(this.scratch.data, 0, 27, true)) {
-                if (this.scratch.readUnsignedInt() != TYPE_OGGS) {
-                    if (z) {
-                        return false;
-                    }
-                    throw new ParserException("expected OggS capture pattern at begin of page");
-                } else {
-                    int readUnsignedByte = this.scratch.readUnsignedByte();
-                    this.revision = readUnsignedByte;
-                    if (readUnsignedByte != 0) {
-                        if (z) {
-                            return false;
-                        }
-                        throw new ParserException("unsupported bit stream revision");
-                    }
-                    this.type = this.scratch.readUnsignedByte();
-                    this.granulePosition = this.scratch.readLittleEndianLong();
-                    this.streamSerialNumber = this.scratch.readLittleEndianUnsignedInt();
-                    this.pageSequenceNumber = this.scratch.readLittleEndianUnsignedInt();
-                    this.pageChecksum = this.scratch.readLittleEndianUnsignedInt();
-                    int readUnsignedByte2 = this.scratch.readUnsignedByte();
-                    this.pageSegmentCount = readUnsignedByte2;
-                    this.headerSize = readUnsignedByte2 + 27;
-                    this.scratch.reset();
-                    extractorInput.peekFully(this.scratch.data, 0, this.pageSegmentCount);
-                    for (int i = 0; i < this.pageSegmentCount; i++) {
-                        this.laces[i] = this.scratch.readUnsignedByte();
-                        this.bodySize += this.laces[i];
-                    }
-                    return true;
-                }
-            }
-            if (z) {
-                return false;
-            }
-            throw new EOFException();
-        }
-        return invokeLZ.booleanValue;
-    }
-
     public void reset() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -127,5 +81,56 @@ public final class OggPageHeader {
             this.headerSize = 0;
             this.bodySize = 0;
         }
+    }
+
+    public boolean populate(ExtractorInput extractorInput, boolean z) throws IOException, InterruptedException {
+        InterceptResult invokeLZ;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, extractorInput, z)) == null) {
+            this.scratch.reset();
+            reset();
+            if (extractorInput.getLength() != -1 && extractorInput.getLength() - extractorInput.getPeekPosition() < 27) {
+                z2 = false;
+            } else {
+                z2 = true;
+            }
+            if (z2 && extractorInput.peekFully(this.scratch.data, 0, 27, true)) {
+                if (this.scratch.readUnsignedInt() != TYPE_OGGS) {
+                    if (z) {
+                        return false;
+                    }
+                    throw new ParserException("expected OggS capture pattern at begin of page");
+                }
+                int readUnsignedByte = this.scratch.readUnsignedByte();
+                this.revision = readUnsignedByte;
+                if (readUnsignedByte != 0) {
+                    if (z) {
+                        return false;
+                    }
+                    throw new ParserException("unsupported bit stream revision");
+                }
+                this.type = this.scratch.readUnsignedByte();
+                this.granulePosition = this.scratch.readLittleEndianLong();
+                this.streamSerialNumber = this.scratch.readLittleEndianUnsignedInt();
+                this.pageSequenceNumber = this.scratch.readLittleEndianUnsignedInt();
+                this.pageChecksum = this.scratch.readLittleEndianUnsignedInt();
+                int readUnsignedByte2 = this.scratch.readUnsignedByte();
+                this.pageSegmentCount = readUnsignedByte2;
+                this.headerSize = readUnsignedByte2 + 27;
+                this.scratch.reset();
+                extractorInput.peekFully(this.scratch.data, 0, this.pageSegmentCount);
+                for (int i = 0; i < this.pageSegmentCount; i++) {
+                    this.laces[i] = this.scratch.readUnsignedByte();
+                    this.bodySize += this.laces[i];
+                }
+                return true;
+            } else if (z) {
+                return false;
+            } else {
+                throw new EOFException();
+            }
+        }
+        return invokeLZ.booleanValue;
     }
 }

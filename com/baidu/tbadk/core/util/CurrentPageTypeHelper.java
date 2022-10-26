@@ -17,7 +17,7 @@ public class CurrentPageTypeHelper {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
-    public static final class PageType {
+    public final class PageType {
         public static final /* synthetic */ PageType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final PageType FLUTTER;
@@ -75,13 +75,19 @@ public class CurrentPageTypeHelper {
         public static PageType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (PageType) Enum.valueOf(PageType.class, str) : (PageType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (PageType) Enum.valueOf(PageType.class, str);
+            }
+            return (PageType) invokeL.objValue;
         }
 
         public static PageType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PageType[]) $VALUES.clone() : (PageType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (PageType[]) $VALUES.clone();
+            }
+            return (PageType[]) invokeV.objValue;
         }
     }
 

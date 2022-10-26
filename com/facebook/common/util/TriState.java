@@ -9,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.infer.annotation.Functional;
 import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 import javax.annotation.Nullable;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -24,7 +23,7 @@ public final class TriState {
 
     /* renamed from: com.facebook.common.util.TriState$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$facebook$common$util$TriState;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -98,7 +97,6 @@ public final class TriState {
         }
     }
 
-    @Functional
     public static TriState fromDbValue(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -114,40 +112,97 @@ public final class TriState {
         return (TriState) invokeI.objValue;
     }
 
+    public static TriState valueOf(Boolean bool) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bool)) == null) {
+            if (bool != null) {
+                return valueOf(bool.booleanValue());
+            }
+            return UNSET;
+        }
+        return (TriState) invokeL.objValue;
+    }
+
     public static TriState valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? (TriState) Enum.valueOf(TriState.class, str) : (TriState) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            return (TriState) Enum.valueOf(TriState.class, str);
+        }
+        return (TriState) invokeL.objValue;
+    }
+
+    public static TriState valueOf(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65541, null, z)) == null) {
+            if (z) {
+                return YES;
+            }
+            return NO;
+        }
+        return (TriState) invokeZ.objValue;
     }
 
     public static TriState[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? (TriState[]) $VALUES.clone() : (TriState[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return (TriState[]) $VALUES.clone();
+        }
+        return (TriState[]) invokeV.objValue;
     }
 
-    @Functional
+    public int getDbValue() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            int i = AnonymousClass1.$SwitchMap$com$facebook$common$util$TriState[ordinal()];
+            int i2 = 1;
+            if (i != 1) {
+                i2 = 2;
+                if (i != 2) {
+                    return 3;
+                }
+            }
+            return i2;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean isSet() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this != UNSET) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     public boolean asBoolean() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             int i = AnonymousClass1.$SwitchMap$com$facebook$common$util$TriState[ordinal()];
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        throw new IllegalStateException("Unrecognized TriState value: " + this);
-                    }
-                    throw new IllegalStateException("No boolean equivalent for UNSET");
-                }
-                return false;
+            if (i == 1) {
+                return true;
             }
-            return true;
+            if (i != 2) {
+                if (i != 3) {
+                    throw new IllegalStateException("Unrecognized TriState value: " + this);
+                }
+                throw new IllegalStateException("No boolean equivalent for UNSET");
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
 
     @Nullable
-    @Functional
     public Boolean asBooleanObject() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -167,61 +222,21 @@ public final class TriState {
         return (Boolean) invokeV.objValue;
     }
 
-    @Functional
-    public int getDbValue() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            int i = AnonymousClass1.$SwitchMap$com$facebook$common$util$TriState[ordinal()];
-            int i2 = 1;
-            if (i != 1) {
-                i2 = 2;
-                if (i != 2) {
-                    return 3;
-                }
-            }
-            return i2;
-        }
-        return invokeV.intValue;
-    }
-
-    @Functional
-    public boolean isSet() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this != UNSET : invokeV.booleanValue;
-    }
-
-    @Functional
-    public static TriState valueOf(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(65541, null, z)) == null) ? z ? YES : NO : (TriState) invokeZ.objValue;
-    }
-
-    @Functional
-    public static TriState valueOf(Boolean bool) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bool)) == null) ? bool != null ? valueOf(bool.booleanValue()) : UNSET : (TriState) invokeL.objValue;
-    }
-
-    @Functional
     public boolean asBoolean(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
             int i = AnonymousClass1.$SwitchMap$com$facebook$common$util$TriState[ordinal()];
-            if (i != 1) {
-                if (i != 2) {
-                    if (i == 3) {
-                        return z;
-                    }
-                    throw new IllegalStateException("Unrecognized TriState value: " + this);
-                }
-                return false;
+            if (i == 1) {
+                return true;
             }
-            return true;
+            if (i != 2) {
+                if (i == 3) {
+                    return z;
+                }
+                throw new IllegalStateException("Unrecognized TriState value: " + this);
+            }
+            return false;
         }
         return invokeZ.booleanValue;
     }

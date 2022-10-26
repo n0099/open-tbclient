@@ -14,12 +14,18 @@ public final class CharSequenceKt {
     public static final boolean isDigitsOnly(CharSequence charSequence) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, charSequence)) == null) ? TextUtils.isDigitsOnly(charSequence) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, charSequence)) == null) {
+            return TextUtils.isDigitsOnly(charSequence);
+        }
+        return invokeL.booleanValue;
     }
 
     public static final int trimmedLength(CharSequence charSequence) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, charSequence)) == null) ? TextUtils.getTrimmedLength(charSequence) : invokeL.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, charSequence)) == null) {
+            return TextUtils.getTrimmedLength(charSequence);
+        }
+        return invokeL.intValue;
     }
 }

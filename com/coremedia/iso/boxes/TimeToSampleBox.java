@@ -18,6 +18,7 @@ import java.lang.ref.SoftReference;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.WeakHashMap;
@@ -31,12 +32,12 @@ public class TimeToSampleBox extends AbstractFullBox {
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_0 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_1 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_2 = null;
-    public static Map<List<Entry>, SoftReference<long[]>> cache;
+    public static Map cache;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<Entry> entries;
+    public List entries;
 
     /* loaded from: classes7.dex */
-    public static class Entry {
+    public class Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long count;
@@ -64,13 +65,19 @@ public class TimeToSampleBox extends AbstractFullBox {
         public long getCount() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.count : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.count;
+            }
+            return invokeV.longValue;
         }
 
         public long getDelta() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.delta : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.delta;
+            }
+            return invokeV.longValue;
         }
 
         public void setCount(long j) {
@@ -114,6 +121,26 @@ public class TimeToSampleBox extends AbstractFullBox {
         cache = new WeakHashMap();
     }
 
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public long getContentSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return (this.entries.size() * 8) + 8;
+        }
+        return invokeV.longValue;
+    }
+
+    public List getEntries() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
+            return this.entries;
+        }
+        return (List) invokeV.objValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TimeToSampleBox() {
         super(TYPE);
@@ -133,6 +160,16 @@ public class TimeToSampleBox extends AbstractFullBox {
         this.entries = Collections.emptyList();
     }
 
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
+            return "TimeToSampleBox[entryCount=" + this.entries.size() + PreferencesUtil.RIGHT_MOUNT;
+        }
+        return (String) invokeV.objValue;
+    }
+
     public static /* synthetic */ void ajc$preClinit() {
         Factory factory = new Factory("TimeToSampleBox.java", TimeToSampleBox.class);
         ajc$tjp_0 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getEntries", "com.coremedia.iso.boxes.TimeToSampleBox", "", "", "", "java.util.List"), 79);
@@ -140,32 +177,35 @@ public class TimeToSampleBox extends AbstractFullBox {
         ajc$tjp_2 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "toString", "com.coremedia.iso.boxes.TimeToSampleBox", "", "", "", "java.lang.String"), 87);
     }
 
-    public static synchronized long[] blowupTimeToSamples(List<Entry> list) {
+    public static synchronized long[] blowupTimeToSamples(List list) {
         InterceptResult invokeL;
         long[] jArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, list)) == null) {
             synchronized (TimeToSampleBox.class) {
-                SoftReference<long[]> softReference = cache.get(list);
-                if (softReference == null || (jArr = softReference.get()) == null) {
-                    long j = 0;
-                    for (Entry entry : list) {
-                        j += entry.getCount();
-                    }
-                    long[] jArr2 = new long[(int) j];
-                    int i = 0;
-                    for (Entry entry2 : list) {
-                        int i2 = 0;
-                        while (i2 < entry2.getCount()) {
-                            jArr2[i] = entry2.getDelta();
-                            i2++;
-                            i++;
-                        }
-                    }
-                    cache.put(list, new SoftReference<>(jArr2));
-                    return jArr2;
+                SoftReference softReference = (SoftReference) cache.get(list);
+                if (softReference != null && (jArr = (long[]) softReference.get()) != null) {
+                    return jArr;
                 }
-                return jArr;
+                long j = 0;
+                Iterator it = list.iterator();
+                while (it.hasNext()) {
+                    j += ((Entry) it.next()).getCount();
+                }
+                long[] jArr2 = new long[(int) j];
+                Iterator it2 = list.iterator();
+                int i = 0;
+                while (it2.hasNext()) {
+                    Entry entry = (Entry) it2.next();
+                    int i2 = 0;
+                    while (i2 < entry.getCount()) {
+                        jArr2[i] = entry.getDelta();
+                        i2++;
+                        i++;
+                    }
+                }
+                cache.put(list, new SoftReference(jArr2));
+                return jArr2;
             }
         }
         return (long[]) invokeL.objValue;
@@ -197,38 +237,11 @@ public class TimeToSampleBox extends AbstractFullBox {
         }
     }
 
-    @Override // com.googlecode.mp4parser.AbstractBox
-    public long getContentSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (this.entries.size() * 8) + 8 : invokeV.longValue;
-    }
-
-    public List<Entry> getEntries() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
-            return this.entries;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public void setEntries(List<Entry> list) {
+    public void setEntries(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, list));
             this.entries = list;
         }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
-            return "TimeToSampleBox[entryCount=" + this.entries.size() + PreferencesUtil.RIGHT_MOUNT;
-        }
-        return (String) invokeV.objValue;
     }
 }

@@ -29,6 +29,30 @@ public class IMGetTokenByCuidRequest extends BaseHttpRequest {
     public int mDeviceType;
     public String mKey;
 
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getContentType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "application/x-www-form-urlencoded" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getMethod() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "POST" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public boolean shouldAbort() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     public IMGetTokenByCuidRequest(Context context, long j, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -52,18 +76,14 @@ public class IMGetTokenByCuidRequest extends BaseHttpRequest {
         this.mKey = str2;
     }
 
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public String getContentType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "application/x-www-form-urlencoded" : (String) invokeV.objValue;
-    }
-
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
-    public Map<String, String> getHeaders() {
+    public Map getHeaders() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new HashMap() : (Map) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return new HashMap();
+        }
+        return (Map) invokeV.objValue;
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -72,31 +92,28 @@ public class IMGetTokenByCuidRequest extends BaseHttpRequest {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             int readIntData = Utility.readIntData(this.mContext, Constants.KEY_ENV, 0);
-            if (readIntData == 0) {
-                StringBuilder sb = new StringBuilder();
-                sb.append(Utility.isPeakTime() ? "https://pim.baidu.com/".replace("https://", "http://") : "https://pim.baidu.com/");
-                sb.append("rest/3.0/im/generate_token");
-                return sb.toString();
-            } else if (readIntData != 1) {
-                if (readIntData != 2) {
-                    if (readIntData != 3) {
-                        return null;
+            if (readIntData != 0) {
+                if (readIntData != 1) {
+                    if (readIntData != 2) {
+                        if (readIntData != 3) {
+                            return null;
+                        }
+                        return "http://180.97.36.95:8080/rest/3.0/im/generate_token";
                     }
-                    return "http://180.97.36.95:8080/rest/3.0/im/generate_token";
+                    return "http://sz-shaheenv-odprestapi-b.bcc-szwg.baidu.com:8080/rest/3.0/im/generate_token";
                 }
-                return "http://sz-shaheenv-odprestapi-b.bcc-szwg.baidu.com:8080/rest/3.0/im/generate_token";
-            } else {
                 return "http://rd-im-server.bcc-szth.baidu.com:8080/rest/3.0/im/generate_token";
             }
+            StringBuilder sb = new StringBuilder();
+            String str = "https://pim.baidu.com/";
+            if (Utility.isPeakTime()) {
+                str = "https://pim.baidu.com/".replace("https://", "http://");
+            }
+            sb.append(str);
+            sb.append("rest/3.0/im/generate_token");
+            return sb.toString();
         }
         return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
-    public String getMethod() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "POST" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -165,15 +182,5 @@ public class IMGetTokenByCuidRequest extends BaseHttpRequest {
             }
             AccountManagerImpl.getInstance(this.mContext).onGetTokenByCuidResult(this.mKey, i2, str, str3);
         }
-    }
-
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public boolean shouldAbort() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

@@ -4,8 +4,6 @@ import android.graphics.Canvas;
 import android.graphics.ColorFilter;
 import android.graphics.Outline;
 import android.graphics.drawable.Drawable;
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,6 +15,30 @@ public class ActionBarBackgroundDrawable extends Drawable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ActionBarContainer mContainer;
+
+    @Override // android.graphics.drawable.Drawable
+    public int getOpacity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public void setAlpha(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+        }
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public void setColorFilter(ColorFilter colorFilter) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, colorFilter) == null) {
+        }
+    }
 
     public ActionBarBackgroundDrawable(ActionBarContainer actionBarContainer) {
         Interceptable interceptable = $ic;
@@ -55,26 +77,14 @@ public class ActionBarBackgroundDrawable extends Drawable {
             }
             ActionBarContainer actionBarContainer2 = this.mContainer;
             Drawable drawable3 = actionBarContainer2.mStackedBackground;
-            if (drawable3 == null || !actionBarContainer2.mIsStacked) {
-                return;
+            if (drawable3 != null && actionBarContainer2.mIsStacked) {
+                drawable3.draw(canvas);
             }
-            drawable3.draw(canvas);
         }
     }
 
     @Override // android.graphics.drawable.Drawable
-    public int getOpacity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    @RequiresApi(21)
-    public void getOutline(@NonNull Outline outline) {
+    public void getOutline(Outline outline) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, outline) == null) {
             ActionBarContainer actionBarContainer = this.mContainer;
@@ -90,20 +100,6 @@ public class ActionBarBackgroundDrawable extends Drawable {
             if (drawable2 != null) {
                 drawable2.getOutline(outline);
             }
-        }
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void setAlpha(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-        }
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void setColorFilter(ColorFilter colorFilter) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, colorFilter) == null) {
         }
     }
 }

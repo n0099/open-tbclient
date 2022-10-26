@@ -1,7 +1,6 @@
 package com.kwad.sdk.utils;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import com.baidu.android.common.others.lang.StringUtil;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,7 +12,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public final class s {
-    public static <T> List<T> dD(String str) {
+    public static List dD(String str) {
         ArrayList arrayList = new ArrayList();
         if (TextUtils.isEmpty(str)) {
             return arrayList;
@@ -26,7 +25,7 @@ public final class s {
         }
     }
 
-    public static <T> List<T> f(JSONArray jSONArray) {
+    public static List f(JSONArray jSONArray) {
         ArrayList arrayList = new ArrayList();
         if (jSONArray == null) {
             return arrayList;
@@ -61,7 +60,7 @@ public final class s {
         }
     }
 
-    public static Map<String, String> parseJSON2MapString(String str) {
+    public static Map parseJSON2MapString(String str) {
         HashMap hashMap = new HashMap();
         try {
             JSONObject jSONObject = new JSONObject(str);
@@ -79,12 +78,12 @@ public final class s {
         return hashMap;
     }
 
-    public static JSONObject parseMap2JSON(Map<String, String> map) {
+    public static JSONObject parseMap2JSON(Map map) {
         JSONObject jSONObject = new JSONObject();
         if (map != null && !map.isEmpty()) {
             try {
-                for (Map.Entry<String, String> entry : map.entrySet()) {
-                    jSONObject.put(entry.getKey(), entry.getValue());
+                for (Map.Entry entry : map.entrySet()) {
+                    jSONObject.put((String) entry.getKey(), entry.getValue());
                 }
             } catch (Exception unused) {
             }
@@ -161,10 +160,11 @@ public final class s {
         }
     }
 
-    public static JSONArray toJsonArray(@NonNull List<String> list) {
+    public static JSONArray toJsonArray(List list) {
         JSONArray jSONArray = new JSONArray();
-        for (String str : list) {
-            jSONArray.put(str);
+        Iterator it = list.iterator();
+        while (it.hasNext()) {
+            jSONArray.put((String) it.next());
         }
         return jSONArray;
     }

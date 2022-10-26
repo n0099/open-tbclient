@@ -14,7 +14,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
-public class hm implements iu<hm, Object>, Serializable, Cloneable {
+public class hm implements iu, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public static final jc a;
 
@@ -23,7 +23,7 @@ public class hm implements iu<hm, Object>, Serializable, Cloneable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public List<hn> f475a;
+    public List f475a;
 
     static {
         InterceptResult invokeClinit;
@@ -60,7 +60,7 @@ public class hm implements iu<hm, Object>, Serializable, Cloneable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<hn> list = this.f475a;
+            List list = this.f475a;
             if (list == null) {
                 return 0;
             }
@@ -78,11 +78,11 @@ public class hm implements iu<hm, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hmVar)) == null) {
             if (hm.class.equals(hmVar.getClass())) {
-                int compareTo = Boolean.valueOf(m398a()).compareTo(Boolean.valueOf(hmVar.m398a()));
+                int compareTo = Boolean.valueOf(m397a()).compareTo(Boolean.valueOf(hmVar.m397a()));
                 if (compareTo != 0) {
                     return compareTo;
                 }
-                if (!m398a() || (a2 = iv.a(this.f475a, hmVar.f475a)) == 0) {
+                if (!m397a() || (a2 = iv.a(this.f475a, hmVar.f475a)) == 0) {
                     return 0;
                 }
                 return a2;
@@ -93,7 +93,7 @@ public class hm implements iu<hm, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m397a() {
+    public void m396a() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f475a == null) {
             throw new jg("Required field 'uploadDataItems' was not present! Struct: " + toString());
@@ -116,19 +116,19 @@ public class hm implements iu<hm, Object>, Serializable, Cloneable {
         if (interceptable != null && interceptable.invokeL(1048580, this, jfVar) != null) {
             return;
         }
-        jfVar.m550a();
+        jfVar.m549a();
         while (true) {
-            jc m546a = jfVar.m546a();
-            byte b = m546a.a;
+            jc m545a = jfVar.m545a();
+            byte b = m545a.a;
             if (b == 0) {
                 jfVar.f();
-                m397a();
+                m396a();
                 return;
             }
-            if (m546a.f810a == 1 && b == 15) {
-                jd m547a = jfVar.m547a();
-                this.f475a = new ArrayList(m547a.f811a);
-                for (int i = 0; i < m547a.f811a; i++) {
+            if (m545a.f810a == 1 && b == 15) {
+                jd m546a = jfVar.m546a();
+                this.f475a = new ArrayList(m546a.f811a);
+                for (int i = 0; i < m546a.f811a; i++) {
                     hn hnVar = new hn();
                     hnVar.a(jfVar);
                     this.f475a.add(hnVar);
@@ -142,24 +142,24 @@ public class hm implements iu<hm, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m398a() {
+    public boolean m397a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f475a != null : invokeV.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m399a(hm hmVar) {
+    public boolean m398a(hm hmVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, hmVar)) == null) {
             if (hmVar == null) {
                 return false;
             }
-            boolean m398a = m398a();
-            boolean m398a2 = hmVar.m398a();
-            if (m398a || m398a2) {
-                return m398a && m398a2 && this.f475a.equals(hmVar.f475a);
+            boolean m397a = m397a();
+            boolean m397a2 = hmVar.m397a();
+            if (m397a || m397a2) {
+                return m397a && m397a2 && this.f475a.equals(hmVar.f475a);
             }
             return true;
         }
@@ -170,7 +170,7 @@ public class hm implements iu<hm, Object>, Serializable, Cloneable {
     public void b(jf jfVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, jfVar) == null) {
-            m397a();
+            m396a();
             jfVar.a(f474a);
             if (this.f475a != null) {
                 jfVar.a(a);
@@ -182,7 +182,7 @@ public class hm implements iu<hm, Object>, Serializable, Cloneable {
                 jfVar.b();
             }
             jfVar.c();
-            jfVar.m554a();
+            jfVar.m553a();
         }
     }
 
@@ -191,7 +191,7 @@ public class hm implements iu<hm, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, obj)) == null) {
             if (obj != null && (obj instanceof hm)) {
-                return m399a((hm) obj);
+                return m398a((hm) obj);
             }
             return false;
         }
@@ -213,7 +213,7 @@ public class hm implements iu<hm, Object>, Serializable, Cloneable {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             StringBuilder sb = new StringBuilder("ClientUploadData(");
             sb.append("uploadDataItems:");
-            List<hn> list = this.f475a;
+            List list = this.f475a;
             if (list == null) {
                 sb.append(StringUtil.NULL_STRING);
             } else {

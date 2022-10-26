@@ -165,7 +165,7 @@ public class c implements com.baidu.mapsdkplatform.comapi.map.l {
                 JSONObject jSONObject = new JSONObject(str);
                 JSONObject optJSONObject = jSONObject.optJSONArray(ActionJsonData.TAG_DATASET).optJSONObject(0);
                 eVar = this.a.i;
-                GeoPoint b = eVar.b(jSONObject.optInt("px"), jSONObject.optInt("py"));
+                GeoPoint b = eVar.b(jSONObject.optInt("px"), jSONObject.optInt(Config.PY));
                 int optInt = optJSONObject.optInt(Config.EXCEPTION_CRASH_CHANNEL);
                 if (optInt == 17) {
                     onMapClickListener = this.a.s;

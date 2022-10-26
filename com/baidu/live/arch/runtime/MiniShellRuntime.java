@@ -37,8 +37,23 @@ public final class MiniShellRuntime {
     public static AppInfoService service;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public final boolean isNps() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            Lazy lazy = isNps$delegate;
+            KProperty kProperty = $$delegatedProperties[0];
+            return ((Boolean) lazy.getValue()).booleanValue();
+        }
+        return invokeV.booleanValue;
+    }
+
     static {
         InterceptResult invokeClinit;
+        Boolean bool;
+        String str;
+        String str2;
+        Application application;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
         if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1541994305, "Lcom/baidu/live/arch/runtime/MiniShellRuntime;")) != null) {
             Interceptable interceptable = invokeClinit.interceptor;
@@ -56,15 +71,39 @@ public final class MiniShellRuntime {
         Intrinsics.checkExpressionValueIsNotNull(service2, "ServiceManager.getServic…panion.SERVICE_REFERENCE)");
         AppInfoService appInfoService = (AppInfoService) service2;
         service = appInfoService;
-        isDebug = (appInfoService != null ? Boolean.valueOf(appInfoService.isDebug()) : null).booleanValue();
+        Application application2 = null;
+        if (appInfoService != null) {
+            bool = Boolean.valueOf(appInfoService.isDebug());
+        } else {
+            bool = null;
+        }
+        isDebug = bool.booleanValue();
         AppInfoService appInfoService2 = service;
-        isMobileBaidu = "mobilebaidu".equals(appInfoService2 != null ? appInfoService2.getLiveAppId() : null);
+        if (appInfoService2 != null) {
+            str = appInfoService2.getLiveAppId();
+        } else {
+            str = null;
+        }
+        isMobileBaidu = "mobilebaidu".equals(str);
         AppInfoService appInfoService3 = service;
-        isTieba = "tieba".equals(appInfoService3 != null ? appInfoService3.getLiveAppId() : null);
+        if (appInfoService3 != null) {
+            str2 = appInfoService3.getLiveAppId();
+        } else {
+            str2 = null;
+        }
+        isTieba = "tieba".equals(str2);
         AppInfoService appInfoService4 = service;
-        appApplication = appInfoService4 != null ? appInfoService4.getApplication() : null;
+        if (appInfoService4 != null) {
+            application = appInfoService4.getApplication();
+        } else {
+            application = null;
+        }
+        appApplication = application;
         AppInfoService appInfoService5 = service;
-        appContext = appInfoService5 != null ? appInfoService5.getApplication() : null;
+        if (appInfoService5 != null) {
+            application2 = appInfoService5.getApplication();
+        }
+        appContext = application2;
         isNps$delegate = LazyKt__LazyJVMKt.lazy(MiniShellRuntime$isNps$2.INSTANCE);
     }
 
@@ -82,49 +121,47 @@ public final class MiniShellRuntime {
         }
     }
 
-    public final String buildLiveScheme(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) ? MixUriUtilKt.buildScheme(str, str2) : (String) invokeLL.objValue;
-    }
-
     public final Application getAppApplication() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? appApplication : (Application) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return appApplication;
+        }
+        return (Application) invokeV.objValue;
     }
 
     public final Context getAppContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? appContext : (Context) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return appContext;
+        }
+        return (Context) invokeV.objValue;
     }
 
     public final AppInfoService getService() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? service : (AppInfoService) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return service;
+        }
+        return (AppInfoService) invokeV.objValue;
     }
 
     public final boolean isDebug() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? isDebug : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return isDebug;
+        }
+        return invokeV.booleanValue;
     }
 
     public final boolean isMobileBaidu() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? isMobileBaidu : invokeV.booleanValue;
-    }
-
-    public final boolean isNps() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            Lazy lazy = isNps$delegate;
-            KProperty kProperty = $$delegatedProperties[0];
-            return ((Boolean) lazy.getValue()).booleanValue();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return isMobileBaidu;
         }
         return invokeV.booleanValue;
     }
@@ -132,7 +169,19 @@ public final class MiniShellRuntime {
     public final boolean isTieba() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? isTieba : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return isTieba;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final String buildLiveScheme(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            return MixUriUtilKt.buildScheme(str, str2);
+        }
+        return (String) invokeLL.objValue;
     }
 
     public final void setService(AppInfoService appInfoService) {

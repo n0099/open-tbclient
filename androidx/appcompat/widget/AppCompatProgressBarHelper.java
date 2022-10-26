@@ -47,6 +47,15 @@ public class AppCompatProgressBarHelper {
         TINT_ATTRS = new int[]{16843067, 16843068};
     }
 
+    public Bitmap getSampleTile() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mSampleTile;
+        }
+        return (Bitmap) invokeV.objValue;
+    }
+
     public AppCompatProgressBarHelper(ProgressBar progressBar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -68,11 +77,15 @@ public class AppCompatProgressBarHelper {
     private Shape getDrawableShape() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? new RoundRectShape(new float[]{5.0f, 5.0f, 5.0f, 5.0f, 5.0f, 5.0f, 5.0f, 5.0f}, null, null) : (Shape) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+            return new RoundRectShape(new float[]{5.0f, 5.0f, 5.0f, 5.0f, 5.0f, 5.0f, 5.0f, 5.0f}, null, null);
+        }
+        return (Shape) invokeV.objValue;
     }
 
     private Drawable tileify(Drawable drawable, boolean z) {
         InterceptResult invokeLZ;
+        boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, this, drawable, z)) == null) {
             if (drawable instanceof WrappedDrawable) {
@@ -87,7 +100,13 @@ public class AppCompatProgressBarHelper {
                 Drawable[] drawableArr = new Drawable[numberOfLayers];
                 for (int i = 0; i < numberOfLayers; i++) {
                     int id = layerDrawable.getId(i);
-                    drawableArr[i] = tileify(layerDrawable.getDrawable(i), id == 16908301 || id == 16908303);
+                    Drawable drawable2 = layerDrawable.getDrawable(i);
+                    if (id != 16908301 && id != 16908303) {
+                        z2 = false;
+                    } else {
+                        z2 = true;
+                    }
+                    drawableArr[i] = tileify(drawable2, z2);
                 }
                 LayerDrawable layerDrawable2 = new LayerDrawable(drawableArr);
                 for (int i2 = 0; i2 < numberOfLayers; i2++) {
@@ -103,7 +122,10 @@ public class AppCompatProgressBarHelper {
                 ShapeDrawable shapeDrawable = new ShapeDrawable(getDrawableShape());
                 shapeDrawable.getPaint().setShader(new BitmapShader(bitmap, Shader.TileMode.REPEAT, Shader.TileMode.CLAMP));
                 shapeDrawable.getPaint().setColorFilter(bitmapDrawable.getPaint().getColorFilter());
-                return z ? new ClipDrawable(shapeDrawable, 3, 1) : shapeDrawable;
+                if (z) {
+                    return new ClipDrawable(shapeDrawable, 3, 1);
+                }
+                return shapeDrawable;
             }
             return drawable;
         }
@@ -130,12 +152,6 @@ public class AppCompatProgressBarHelper {
             return drawable;
         }
         return (Drawable) invokeL.objValue;
-    }
-
-    public Bitmap getSampleTile() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mSampleTile : (Bitmap) invokeV.objValue;
     }
 
     public void loadFromAttributes(AttributeSet attributeSet, int i) {

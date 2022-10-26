@@ -2,7 +2,7 @@ package com.baidu.tieba.pushdialog.data;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.tieba.sh5;
+import com.baidu.tieba.yh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,24 +36,6 @@ public class PullTidReqNetMessage extends NetMessage {
         }
     }
 
-    @Override // com.baidu.adp.framework.message.NetMessage
-    public Object encode(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-            try {
-                DataReq.Builder builder = new DataReq.Builder();
-                sh5.c(builder, true, true, true);
-                GetLockWindowTidReqIdl.Builder builder2 = new GetLockWindowTidReqIdl.Builder();
-                builder2.data = builder.build(true);
-                return builder2.build(true);
-            } catch (Throwable unused) {
-                return null;
-            }
-        }
-        return invokeZ.objValue;
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PullTidReqNetMessage(int i, int i2, BdUniqueId bdUniqueId) {
         super(i, i2, bdUniqueId);
@@ -73,5 +55,23 @@ public class PullTidReqNetMessage extends NetMessage {
                 return;
             }
         }
+    }
+
+    @Override // com.baidu.adp.framework.message.NetMessage
+    public Object encode(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+            try {
+                DataReq.Builder builder = new DataReq.Builder();
+                yh5.c(builder, true, true, true);
+                GetLockWindowTidReqIdl.Builder builder2 = new GetLockWindowTidReqIdl.Builder();
+                builder2.data = builder.build(true);
+                return builder2.build(true);
+            } catch (Throwable unused) {
+                return null;
+            }
+        }
+        return invokeZ.objValue;
     }
 }

@@ -2,7 +2,6 @@ package com.kwad.sdk.core.imageloader;
 
 import android.content.Context;
 import android.widget.ImageView;
-import androidx.annotation.NonNull;
 import com.kwad.sdk.api.core.fragment.KsFragment;
 import com.kwad.sdk.core.imageloader.core.DisplayImageOptionsCompat;
 import com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener;
@@ -15,7 +14,7 @@ public interface IImageLoader extends g {
 
     boolean isInited();
 
-    void load(@NonNull Context context, String str, ImageView imageView, DisplayImageOptionsCompat displayImageOptionsCompat, ImageLoadingListener imageLoadingListener);
+    void load(Context context, String str, ImageView imageView, DisplayImageOptionsCompat displayImageOptionsCompat, ImageLoadingListener imageLoadingListener);
 
     void load(Context context, String str, DisplayImageOptionsCompat displayImageOptionsCompat, ImageLoadingListener imageLoadingListener);
 

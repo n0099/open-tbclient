@@ -33,7 +33,7 @@ public final class Detector {
     public int shift;
 
     /* loaded from: classes7.dex */
-    public static final class Point {
+    public final class Point {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int x;
@@ -61,19 +61,28 @@ public final class Detector {
         public int getX() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.x : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.x;
+            }
+            return invokeV.intValue;
         }
 
         public int getY() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.y : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.y;
+            }
+            return invokeV.intValue;
         }
 
         public ResultPoint toResultPoint() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new ResultPoint(getX(), getY()) : (ResultPoint) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return new ResultPoint(getX(), getY());
+            }
+            return (ResultPoint) invokeV.objValue;
         }
 
         public String toString() {
@@ -102,6 +111,22 @@ public final class Detector {
         EXPECTED_CORNER_BITS = new int[]{3808, 476, 2107, 1799};
     }
 
+    private int getDimension() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
+            if (this.compact) {
+                return (this.nbLayers * 4) + 11;
+            }
+            int i = this.nbLayers;
+            if (i <= 4) {
+                return (i * 4) + 15;
+            }
+            return (i * 4) + ((((i - 4) / 8) + 1) * 2) + 15;
+        }
+        return invokeV.intValue;
+    }
+
     public Detector(BitMatrix bitMatrix) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -120,10 +145,52 @@ public final class Detector {
         this.image = bitMatrix;
     }
 
+    private ResultPoint[] getMatrixCornerPoints(ResultPoint[] resultPointArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, this, resultPointArr)) == null) {
+            return expandSquare(resultPointArr, this.nbCenterLayers * 2, getDimension());
+        }
+        return (ResultPoint[]) invokeL.objValue;
+    }
+
+    private boolean isValid(ResultPoint resultPoint) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, this, resultPoint)) == null) {
+            return isValid(MathUtils.round(resultPoint.getX()), MathUtils.round(resultPoint.getY()));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static float distance(ResultPoint resultPoint, ResultPoint resultPoint2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, resultPoint, resultPoint2)) == null) {
+            return MathUtils.distance(resultPoint.getX(), resultPoint.getY(), resultPoint2.getX(), resultPoint2.getY());
+        }
+        return invokeLL.floatValue;
+    }
+
+    private boolean isValid(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65550, this, i, i2)) == null) {
+            if (i >= 0 && i < this.image.getWidth() && i2 > 0 && i2 < this.image.getHeight()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeII.booleanValue;
+    }
+
     public static float distance(Point point, Point point2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, point, point2)) == null) ? MathUtils.distance(point.getX(), point.getY(), point2.getX(), point2.getY()) : invokeLL.floatValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, point, point2)) == null) {
+            return MathUtils.distance(point.getX(), point.getY(), point2.getX(), point2.getY());
+        }
+        return invokeLL.floatValue;
     }
 
     public static ResultPoint[] expandSquare(ResultPoint[] resultPointArr, float f, float f2) {
@@ -187,6 +254,7 @@ public final class Detector {
 
     private ResultPoint[] getBullsEyeCorners(Point point) throws NotFoundException {
         InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, point)) == null) {
             this.nbCenterLayers = 1;
@@ -194,19 +262,19 @@ public final class Detector {
             Point point3 = point2;
             Point point4 = point3;
             Point point5 = point4;
-            boolean z = true;
+            boolean z2 = true;
             while (this.nbCenterLayers < 9) {
-                Point firstDifferent = getFirstDifferent(point2, z, 1, -1);
-                Point firstDifferent2 = getFirstDifferent(point3, z, 1, 1);
-                Point firstDifferent3 = getFirstDifferent(point4, z, -1, 1);
-                Point firstDifferent4 = getFirstDifferent(point5, z, -1, -1);
+                Point firstDifferent = getFirstDifferent(point2, z2, 1, -1);
+                Point firstDifferent2 = getFirstDifferent(point3, z2, 1, 1);
+                Point firstDifferent3 = getFirstDifferent(point4, z2, -1, 1);
+                Point firstDifferent4 = getFirstDifferent(point5, z2, -1, -1);
                 if (this.nbCenterLayers > 2) {
                     double distance = (distance(firstDifferent4, firstDifferent) * this.nbCenterLayers) / (distance(point5, point2) * (this.nbCenterLayers + 2));
                     if (distance < 0.75d || distance > 1.25d || !isWhiteOrBlackRectangle(firstDifferent, firstDifferent2, firstDifferent3, firstDifferent4)) {
                         break;
                     }
                 }
-                z = !z;
+                z2 = !z2;
                 this.nbCenterLayers++;
                 point5 = firstDifferent4;
                 point2 = firstDifferent;
@@ -217,7 +285,12 @@ public final class Detector {
             if (i != 5 && i != 7) {
                 throw NotFoundException.getNotFoundInstance();
             }
-            this.compact = this.nbCenterLayers == 5;
+            if (this.nbCenterLayers == 5) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.compact = z;
             ResultPoint[] resultPointArr = {new ResultPoint(point2.getX() + 0.5f, point2.getY() - 0.5f), new ResultPoint(point3.getX() + 0.5f, point3.getY() + 0.5f), new ResultPoint(point4.getX() - 0.5f, point4.getY() + 0.5f), new ResultPoint(point5.getX() - 0.5f, point5.getY() - 0.5f)};
             int i2 = this.nbCenterLayers;
             return expandSquare(resultPointArr, (i2 * 2) - 3, i2 * 2);
@@ -236,6 +309,7 @@ public final class Detector {
             float y2 = point.getY();
             boolean z = this.image.get(point.getX(), point.getY());
             int ceil = (int) Math.ceil(distance);
+            boolean z2 = false;
             int i = 0;
             for (int i2 = 0; i2 < ceil; i2++) {
                 x2 += x;
@@ -245,10 +319,16 @@ public final class Detector {
                 }
             }
             float f = i / distance;
-            if (f <= 0.1f || f >= 0.9f) {
-                return (f <= 0.1f) == z ? 1 : -1;
+            if (f > 0.1f && f < 0.9f) {
+                return 0;
             }
-            return 0;
+            if (f <= 0.1f) {
+                z2 = true;
+            }
+            if (z2 == z) {
+                return 1;
+            }
+            return -1;
         }
         return invokeLL.intValue;
     }
@@ -286,17 +366,23 @@ public final class Detector {
         return invokeCommon.intValue;
     }
 
-    private int getDimension() {
-        InterceptResult invokeV;
+    public static int getRotation(int[] iArr, int i) throws NotFoundException {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
-            if (this.compact) {
-                return (this.nbLayers * 4) + 11;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65549, null, iArr, i)) == null) {
+            int i2 = 0;
+            for (int i3 : iArr) {
+                i2 = (i2 << 3) + ((i3 >> (i - 2)) << 1) + (i3 & 1);
             }
-            int i = this.nbLayers;
-            return i <= 4 ? (i * 4) + 15 : (i * 4) + ((((i - 4) / 8) + 1) * 2) + 15;
+            int i4 = ((i2 & 1) << 11) + (i2 >> 1);
+            for (int i5 = 0; i5 < 4; i5++) {
+                if (Integer.bitCount(EXPECTED_CORNER_BITS[i5] ^ i4) <= 2) {
+                    return i5;
+                }
+            }
+            throw NotFoundException.getNotFoundInstance();
         }
-        return invokeV.intValue;
+        return invokeLI.intValue;
     }
 
     private Point getFirstDifferent(Point point, boolean z, int i, int i2) {
@@ -324,6 +410,23 @@ public final class Detector {
             return new Point(i5, i4 - i2);
         }
         return (Point) invokeCommon.objValue;
+    }
+
+    private boolean isWhiteOrBlackRectangle(Point point, Point point2, Point point3, Point point4) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65552, this, point, point2, point3, point4)) == null) {
+            Point point5 = new Point(point.getX() - 3, point.getY() + 3);
+            Point point6 = new Point(point2.getX() - 3, point2.getY() - 3);
+            Point point7 = new Point(point3.getX() + 3, point3.getY() - 3);
+            Point point8 = new Point(point4.getX() + 3, point4.getY() + 3);
+            int color = getColor(point8, point5);
+            if (color == 0 || getColor(point5, point6) != color || getColor(point6, point7) != color || getColor(point7, point8) != color) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLLLL.booleanValue;
     }
 
     private Point getMatrixCenter() {
@@ -382,51 +485,6 @@ public final class Detector {
         return (Point) invokeV.objValue;
     }
 
-    private ResultPoint[] getMatrixCornerPoints(ResultPoint[] resultPointArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65548, this, resultPointArr)) == null) ? expandSquare(resultPointArr, this.nbCenterLayers * 2, getDimension()) : (ResultPoint[]) invokeL.objValue;
-    }
-
-    public static int getRotation(int[] iArr, int i) throws NotFoundException {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65549, null, iArr, i)) == null) {
-            int i2 = 0;
-            for (int i3 : iArr) {
-                i2 = (i2 << 3) + ((i3 >> (i - 2)) << 1) + (i3 & 1);
-            }
-            int i4 = ((i2 & 1) << 11) + (i2 >> 1);
-            for (int i5 = 0; i5 < 4; i5++) {
-                if (Integer.bitCount(EXPECTED_CORNER_BITS[i5] ^ i4) <= 2) {
-                    return i5;
-                }
-            }
-            throw NotFoundException.getNotFoundInstance();
-        }
-        return invokeLI.intValue;
-    }
-
-    private boolean isValid(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65550, this, i, i2)) == null) ? i >= 0 && i < this.image.getWidth() && i2 > 0 && i2 < this.image.getHeight() : invokeII.booleanValue;
-    }
-
-    private boolean isWhiteOrBlackRectangle(Point point, Point point2, Point point3, Point point4) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65552, this, point, point2, point3, point4)) == null) {
-            Point point5 = new Point(point.getX() - 3, point.getY() + 3);
-            Point point6 = new Point(point2.getX() - 3, point2.getY() - 3);
-            Point point7 = new Point(point3.getX() + 3, point3.getY() - 3);
-            Point point8 = new Point(point4.getX() + 3, point4.getY() + 3);
-            int color = getColor(point8, point5);
-            return color != 0 && getColor(point5, point6) == color && getColor(point6, point7) == color && getColor(point7, point8) == color;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
     private BitMatrix sampleGrid(BitMatrix bitMatrix, ResultPoint resultPoint, ResultPoint resultPoint2, ResultPoint resultPoint3, ResultPoint resultPoint4) throws NotFoundException {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
@@ -467,19 +525,10 @@ public final class Detector {
     public AztecDetectorResult detect() throws NotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? detect(false) : (AztecDetectorResult) invokeV.objValue;
-    }
-
-    public static float distance(ResultPoint resultPoint, ResultPoint resultPoint2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, resultPoint, resultPoint2)) == null) ? MathUtils.distance(resultPoint.getX(), resultPoint.getY(), resultPoint2.getX(), resultPoint2.getY()) : invokeLL.floatValue;
-    }
-
-    private boolean isValid(ResultPoint resultPoint) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65551, this, resultPoint)) == null) ? isValid(MathUtils.round(resultPoint.getX()), MathUtils.round(resultPoint.getY())) : invokeL.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return detect(false);
+        }
+        return (AztecDetectorResult) invokeV.objValue;
     }
 
     public AztecDetectorResult detect(boolean z) throws NotFoundException {

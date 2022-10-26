@@ -22,7 +22,13 @@ public final class PushSignMask extends Message {
     public final Integer signPushTimeStamp;
 
     /* loaded from: classes9.dex */
-    public static final class Builder extends Message.Builder<PushSignMask> {
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes9.dex */
+    public final class Builder extends Message.Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Integer signPushMask;
@@ -72,14 +78,11 @@ public final class PushSignMask extends Message {
         public PushSignMask build(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) ? new PushSignMask(this, z, null) : (PushSignMask) invokeZ.objValue;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+                return new PushSignMask(this, z, null);
+            }
+            return (PushSignMask) invokeZ.objValue;
         }
-    }
-
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
     }
 
     static {
@@ -97,10 +100,6 @@ public final class PushSignMask extends Message {
         }
         DEFAULT_SIGNPUSHMASK = 0;
         DEFAULT_SIGNPUSHTIMESTAMP = 0;
-    }
-
-    public /* synthetic */ PushSignMask(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -139,5 +138,9 @@ public final class PushSignMask extends Message {
         }
         this.signPushMask = builder.signPushMask;
         this.signPushTimeStamp = builder.signPushTimeStamp;
+    }
+
+    public /* synthetic */ PushSignMask(Builder builder, boolean z, a aVar) {
+        this(builder, z);
     }
 }

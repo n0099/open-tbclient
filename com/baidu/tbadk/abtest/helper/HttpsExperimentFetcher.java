@@ -5,10 +5,9 @@ import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.switchs.HttpsTestSwitch;
 import com.baidu.tbadk.switchs.Ipv6TestSwitch;
-import com.baidu.tieba.bg;
-import com.baidu.tieba.ff1;
-import com.baidu.tieba.i15;
-import com.baidu.tieba.kg;
+import com.baidu.tieba.cg;
+import com.baidu.tieba.gf1;
+import com.baidu.tieba.o15;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,19 +15,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class HttpsExperimentFetcher extends ff1<bg> {
+public class HttpsExperimentFetcher extends gf1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.tbadk.abtest.helper.HttpsExperimentFetcher$1  reason: invalid class name */
     /* loaded from: classes3.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes3.dex */
-    public static final class HttpsExperimentImpl implements bg {
+    public final class HttpsExperimentImpl implements cg {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -46,11 +45,11 @@ public class HttpsExperimentFetcher extends ff1<bg> {
             }
         }
 
-        public List<kg> getHttpsWhileList() {
+        public List getHttpsWhileList() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                i15 httpsWhileData = TbadkCoreApplication.getInst().getHttpsWhileData();
+                o15 httpsWhileData = TbadkCoreApplication.getInst().getHttpsWhileData();
                 if (httpsWhileData == null) {
                     return null;
                 }
@@ -63,7 +62,7 @@ public class HttpsExperimentFetcher extends ff1<bg> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                i15 httpsWhileData = TbadkCoreApplication.getInst().getHttpsWhileData();
+                o15 httpsWhileData = TbadkCoreApplication.getInst().getHttpsWhileData();
                 if (httpsWhileData == null) {
                     return false;
                 }
@@ -72,18 +71,24 @@ public class HttpsExperimentFetcher extends ff1<bg> {
             return invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.bg
+        @Override // com.baidu.tieba.cg
         public boolean isIpv6() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Ipv6TestSwitch.isOn() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return Ipv6TestSwitch.isOn();
+            }
+            return invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.bg
+        @Override // com.baidu.tieba.cg
         public boolean isSwitchOn() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? HttpsTestSwitch.isOn() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return HttpsTestSwitch.isOn();
+            }
+            return invokeV.booleanValue;
         }
 
         public /* synthetic */ HttpsExperimentImpl(AnonymousClass1 anonymousClass1) {
@@ -106,11 +111,13 @@ public class HttpsExperimentFetcher extends ff1<bg> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.ff1
-    public bg createService() throws ServiceNotFoundException {
+    @Override // com.baidu.tieba.gf1
+    public cg createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new HttpsExperimentImpl(null) : (bg) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new HttpsExperimentImpl(null);
+        }
+        return (cg) invokeV.objValue;
     }
 }

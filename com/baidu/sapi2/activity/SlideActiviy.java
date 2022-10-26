@@ -45,7 +45,13 @@ public class SlideActiviy extends BaseActivity {
     public SlideInterceptor w;
     public SlidingPaneLayout.PanelSlideListener x;
     public boolean y;
-    public WeakReference<Activity> z;
+    public WeakReference z;
+
+    public void loadSlideWebview(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3) == null) {
+        }
+    }
 
     /* loaded from: classes2.dex */
     public class PassSlideInterceptor implements SlideInterceptor {
@@ -75,7 +81,13 @@ public class SlideActiviy extends BaseActivity {
         public boolean isSlidable(MotionEvent motionEvent) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) ? this.a.y : invokeL.booleanValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
+                if (this.a.y) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
         }
     }
 
@@ -105,62 +117,12 @@ public class SlideActiviy extends BaseActivity {
         }
     }
 
-    public void forceActivityTransparent(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.v = z;
-        }
-    }
-
-    public void loadSlideWebview(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3) == null) {
-        }
-    }
-
-    @Override // android.app.Activity, android.content.ComponentCallbacks
-    public void onConfigurationChanged(Configuration configuration) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, configuration) == null) {
-            super.onConfigurationChanged(configuration);
-            Log.d(A, "onConfigurationChanged: ");
-            SlideHelper slideHelper = this.mSlideHelper;
-            if (slideHelper != null) {
-                slideHelper.setCanSlide(configuration.orientation != 2);
-            }
-        }
-    }
-
-    @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
-            ViewUtility.setOrientationToUndefined(this);
-            super.onCreate(bundle);
-            if (this.configuration.supportGestureSlide) {
-                this.t = true;
-            } else {
-                this.t = false;
-            }
-        }
-    }
-
     @Override // android.app.Activity, android.view.Window.Callback
     public void onDetachedFromWindow() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDetachedFromWindow();
             Log.d(A, "onDetachedFromWindow: ");
-        }
-    }
-
-    @Override // android.app.Activity
-    public void onPostCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
-            super.onPostCreate(bundle);
-            Log.d(A, "onPostCreate");
-            a();
         }
     }
 
@@ -199,6 +161,13 @@ public class SlideActiviy extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ SlideActiviy a;
 
+                @Override // com.baidu.searchbox.widget.OnTranslucentListener
+                public void onTranslucent(boolean z) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeZ(1048576, this, z) == null) {
+                    }
+                }
+
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
@@ -216,35 +185,7 @@ public class SlideActiviy extends BaseActivity {
                     }
                     this.a = this;
                 }
-
-                @Override // com.baidu.searchbox.widget.OnTranslucentListener
-                public void onTranslucent(boolean z) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeZ(1048576, this, z) == null) {
-                    }
-                }
             });
-        }
-    }
-
-    public void setEnableSliding(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.t = z;
-        }
-    }
-
-    public void setEnableTaskRootSlide(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            this.u = z;
-        }
-    }
-
-    public void setSlideExtraListener(SlidingPaneLayout.PanelSlideListener panelSlideListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, panelSlideListener) == null) {
-            this.x = panelSlideListener;
         }
     }
 
@@ -337,9 +278,15 @@ public class SlideActiviy extends BaseActivity {
     }
 
     private void a() {
+        boolean z;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65538, this) == null) && this.t) {
-            boolean z = getResources().getConfiguration().orientation != 2;
+            int i = 0;
+            if (getResources().getConfiguration().orientation == 2) {
+                z = false;
+            } else {
+                z = true;
+            }
             if (!this.u && isTaskRoot()) {
                 z = false;
             }
@@ -347,7 +294,9 @@ public class SlideActiviy extends BaseActivity {
                 Log.e(A, "Sliding failed, have you forgot the Activity Theme: @android:style/Theme.Translucent.NoTitleBar");
             }
             DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
-            int i = displayMetrics != null ? displayMetrics.widthPixels : 0;
+            if (displayMetrics != null) {
+                i = displayMetrics.widthPixels;
+            }
             SlideHelper slideHelper = new SlideHelper();
             this.mSlideHelper = slideHelper;
             slideHelper.attachSlideActivity(this);
@@ -380,6 +329,26 @@ public class SlideActiviy extends BaseActivity {
                 }
 
                 @Override // com.baidu.searchbox.widget.SlidingPaneLayout.PanelSlideListener
+                public void onPanelSlide(View view2, float f) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLF(Constants.METHOD_SEND_USER_MSG, this, view2, f) == null) {
+                        View maskView = this.b.mSlideHelper.getMaskView();
+                        if (maskView != null) {
+                            float f2 = 1.0f - f;
+                            if (f2 < 0.0f) {
+                                f2 = 0.0f;
+                            }
+                            maskView.setAlpha(f2);
+                        }
+                        if (this.b.x != null) {
+                            this.b.x.onPanelSlide(view2, f);
+                        }
+                        float f3 = this.a >> 2;
+                        this.b.a((f * f3) - f3);
+                    }
+                }
+
+                @Override // com.baidu.searchbox.widget.SlidingPaneLayout.PanelSlideListener
                 public void onPanelClosed(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
@@ -403,26 +372,6 @@ public class SlideActiviy extends BaseActivity {
                         this.b.overridePendingTransition(0, 0);
                     }
                 }
-
-                @Override // com.baidu.searchbox.widget.SlidingPaneLayout.PanelSlideListener
-                public void onPanelSlide(View view2, float f) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLF(Constants.METHOD_SEND_USER_MSG, this, view2, f) == null) {
-                        View maskView = this.b.mSlideHelper.getMaskView();
-                        if (maskView != null) {
-                            float f2 = 1.0f - f;
-                            if (f2 < 0.0f) {
-                                f2 = 0.0f;
-                            }
-                            maskView.setAlpha(f2);
-                        }
-                        if (this.b.x != null) {
-                            this.b.x.onPanelSlide(view2, f);
-                        }
-                        float f3 = this.a >> 2;
-                        this.b.a((f * f3) - f3);
-                    }
-                }
             });
         }
     }
@@ -433,11 +382,11 @@ public class SlideActiviy extends BaseActivity {
         if (interceptable == null || interceptable.invokeF(65539, this, f) == null) {
             try {
                 if (this.z == null || this.z.get() == null) {
-                    this.z = new WeakReference<>(ActivityStackManager.getInstance().getPenultimateActivity());
+                    this.z = new WeakReference(ActivityStackManager.getInstance().getPenultimateActivity());
                 }
                 if (this.z.get() != null) {
                     Activity realTopActivity = ActivityStackManager.getInstance().getRealTopActivity();
-                    Activity activity = this.z.get();
+                    Activity activity = (Activity) this.z.get();
                     if (realTopActivity != null && activity != null && realTopActivity.getLocalClassName().equals(activity.getLocalClassName())) {
                         a(activity, 0.0f);
                     } else {
@@ -453,9 +402,77 @@ public class SlideActiviy extends BaseActivity {
     private void a(Activity activity, float f) {
         ViewGroup viewGroup;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLF(InputDeviceCompat.SOURCE_TRACKBALL, this, activity, f) == null) || activity == null || activity.getWindow() == null || activity.getWindow().getDecorView() == null || (viewGroup = (ViewGroup) activity.getWindow().getDecorView().findViewById(16908290)) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLF(InputDeviceCompat.SOURCE_TRACKBALL, this, activity, f) == null) && activity != null && activity.getWindow() != null && activity.getWindow().getDecorView() != null && (viewGroup = (ViewGroup) activity.getWindow().getDecorView().findViewById(16908290)) != null) {
+            viewGroup.setX(f);
         }
-        viewGroup.setX(f);
+    }
+
+    public void forceActivityTransparent(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.v = z;
+        }
+    }
+
+    @Override // android.app.Activity, android.content.ComponentCallbacks
+    public void onConfigurationChanged(Configuration configuration) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, configuration) == null) {
+            super.onConfigurationChanged(configuration);
+            boolean z = true;
+            Log.d(A, "onConfigurationChanged: ");
+            SlideHelper slideHelper = this.mSlideHelper;
+            if (slideHelper != null) {
+                if (configuration.orientation == 2) {
+                    z = false;
+                }
+                slideHelper.setCanSlide(z);
+            }
+        }
+    }
+
+    @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
+            ViewUtility.setOrientationToUndefined(this);
+            super.onCreate(bundle);
+            if (this.configuration.supportGestureSlide) {
+                this.t = true;
+            } else {
+                this.t = false;
+            }
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onPostCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
+            super.onPostCreate(bundle);
+            Log.d(A, "onPostCreate");
+            a();
+        }
+    }
+
+    public void setEnableSliding(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.t = z;
+        }
+    }
+
+    public void setEnableTaskRootSlide(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+            this.u = z;
+        }
+    }
+
+    public void setSlideExtraListener(SlidingPaneLayout.PanelSlideListener panelSlideListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, panelSlideListener) == null) {
+            this.x = panelSlideListener;
+        }
     }
 }

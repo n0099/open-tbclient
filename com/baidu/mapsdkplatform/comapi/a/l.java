@@ -3,7 +3,6 @@ package com.baidu.mapsdkplatform.comapi.a;
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
 import android.animation.TypeEvaluator;
-import android.annotation.TargetApi;
 import android.graphics.Point;
 import android.view.animation.Interpolator;
 import androidx.core.view.InputDeviceCompat;
@@ -29,7 +28,6 @@ public class l extends c {
     public int f;
     public Object[] g;
 
-    @TargetApi(11)
     /* loaded from: classes2.dex */
     public class a implements TypeEvaluator {
         public static /* synthetic */ Interceptable $ic;
@@ -71,7 +69,6 @@ public class l extends c {
         }
     }
 
-    @TargetApi(11)
     /* loaded from: classes2.dex */
     public class b implements TypeEvaluator {
         public static /* synthetic */ Interceptable $ic;
@@ -160,7 +157,6 @@ public class l extends c {
         this.g = latLngArr;
     }
 
-    @TargetApi(11)
     public ObjectAnimator a(Marker marker) {
         InterceptResult invokeL;
         ObjectAnimator ofObject;
@@ -191,7 +187,6 @@ public class l extends c {
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
-    @TargetApi(11)
     public void a() {
         Animator animator;
         Interceptable interceptable = $ic;
@@ -221,7 +216,6 @@ public class l extends c {
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
-    @TargetApi(11)
     public void a(Animator animator) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048580, this, animator) == null) || animator == null) {
@@ -247,7 +241,6 @@ public class l extends c {
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
-    @TargetApi(11)
     public void a(Marker marker, Animation animation) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, marker, animation) == null) {
@@ -258,7 +251,6 @@ public class l extends c {
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
-    @TargetApi(11)
     public void b() {
         Animator animator;
         Interceptable interceptable = $ic;

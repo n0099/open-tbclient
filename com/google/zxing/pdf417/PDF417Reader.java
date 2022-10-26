@@ -10,7 +10,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.ChecksumException;
-import com.google.zxing.DecodeHintType;
 import com.google.zxing.FormatException;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.Reader;
@@ -29,6 +28,13 @@ public final class PDF417Reader implements Reader, MultipleBarcodeReader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.google.zxing.Reader
+    public void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
+    }
+
     public PDF417Reader() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -43,92 +49,7 @@ public final class PDF417Reader implements Reader, MultipleBarcodeReader {
         }
     }
 
-    public static int getMaxCodewordWidth(ResultPoint[] resultPointArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, resultPointArr)) == null) ? Math.max(Math.max(getMaxWidth(resultPointArr[0], resultPointArr[4]), (getMaxWidth(resultPointArr[6], resultPointArr[2]) * 17) / 18), Math.max(getMaxWidth(resultPointArr[1], resultPointArr[5]), (getMaxWidth(resultPointArr[7], resultPointArr[3]) * 17) / 18)) : invokeL.intValue;
-    }
-
-    public static int getMaxWidth(ResultPoint resultPoint, ResultPoint resultPoint2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, resultPoint, resultPoint2)) == null) {
-            if (resultPoint == null || resultPoint2 == null) {
-                return 0;
-            }
-            return (int) Math.abs(resultPoint.getX() - resultPoint2.getX());
-        }
-        return invokeLL.intValue;
-    }
-
-    public static int getMinCodewordWidth(ResultPoint[] resultPointArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, resultPointArr)) == null) ? Math.min(Math.min(getMinWidth(resultPointArr[0], resultPointArr[4]), (getMinWidth(resultPointArr[6], resultPointArr[2]) * 17) / 18), Math.min(getMinWidth(resultPointArr[1], resultPointArr[5]), (getMinWidth(resultPointArr[7], resultPointArr[3]) * 17) / 18)) : invokeL.intValue;
-    }
-
-    public static int getMinWidth(ResultPoint resultPoint, ResultPoint resultPoint2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, resultPoint, resultPoint2)) == null) {
-            if (resultPoint == null || resultPoint2 == null) {
-                return Integer.MAX_VALUE;
-            }
-            return (int) Math.abs(resultPoint.getX() - resultPoint2.getX());
-        }
-        return invokeLL.intValue;
-    }
-
-    @Override // com.google.zxing.Reader
-    public Result decode(BinaryBitmap binaryBitmap) throws NotFoundException, FormatException, ChecksumException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, binaryBitmap)) == null) ? decode(binaryBitmap, null) : (Result) invokeL.objValue;
-    }
-
-    @Override // com.google.zxing.multi.MultipleBarcodeReader
-    public Result[] decodeMultiple(BinaryBitmap binaryBitmap) throws NotFoundException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, binaryBitmap)) == null) ? decodeMultiple(binaryBitmap, null) : (Result[]) invokeL.objValue;
-    }
-
-    @Override // com.google.zxing.Reader
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-        }
-    }
-
-    @Override // com.google.zxing.Reader
-    public Result decode(BinaryBitmap binaryBitmap, Map<DecodeHintType, ?> map) throws NotFoundException, FormatException, ChecksumException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, binaryBitmap, map)) == null) {
-            Result[] decode = decode(binaryBitmap, map, false);
-            if (decode != null && decode.length != 0 && decode[0] != null) {
-                return decode[0];
-            }
-            throw NotFoundException.getNotFoundInstance();
-        }
-        return (Result) invokeLL.objValue;
-    }
-
-    @Override // com.google.zxing.multi.MultipleBarcodeReader
-    public Result[] decodeMultiple(BinaryBitmap binaryBitmap, Map<DecodeHintType, ?> map) throws NotFoundException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, binaryBitmap, map)) == null) {
-            try {
-                return decode(binaryBitmap, map, true);
-            } catch (ChecksumException | FormatException unused) {
-                throw NotFoundException.getNotFoundInstance();
-            }
-        }
-        return (Result[]) invokeLL.objValue;
-    }
-
-    public static Result[] decode(BinaryBitmap binaryBitmap, Map<DecodeHintType, ?> map, boolean z) throws NotFoundException, FormatException, ChecksumException {
+    public static Result[] decode(BinaryBitmap binaryBitmap, Map map, boolean z) throws NotFoundException, FormatException, ChecksumException {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65537, null, binaryBitmap, map, z)) == null) {
@@ -147,5 +68,95 @@ public final class PDF417Reader implements Reader, MultipleBarcodeReader {
             return (Result[]) arrayList.toArray(new Result[arrayList.size()]);
         }
         return (Result[]) invokeLLZ.objValue;
+    }
+
+    public static int getMaxCodewordWidth(ResultPoint[] resultPointArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, resultPointArr)) == null) {
+            return Math.max(Math.max(getMaxWidth(resultPointArr[0], resultPointArr[4]), (getMaxWidth(resultPointArr[6], resultPointArr[2]) * 17) / 18), Math.max(getMaxWidth(resultPointArr[1], resultPointArr[5]), (getMaxWidth(resultPointArr[7], resultPointArr[3]) * 17) / 18));
+        }
+        return invokeL.intValue;
+    }
+
+    public static int getMinCodewordWidth(ResultPoint[] resultPointArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, resultPointArr)) == null) {
+            return Math.min(Math.min(getMinWidth(resultPointArr[0], resultPointArr[4]), (getMinWidth(resultPointArr[6], resultPointArr[2]) * 17) / 18), Math.min(getMinWidth(resultPointArr[1], resultPointArr[5]), (getMinWidth(resultPointArr[7], resultPointArr[3]) * 17) / 18));
+        }
+        return invokeL.intValue;
+    }
+
+    public static int getMaxWidth(ResultPoint resultPoint, ResultPoint resultPoint2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, resultPoint, resultPoint2)) == null) {
+            if (resultPoint != null && resultPoint2 != null) {
+                return (int) Math.abs(resultPoint.getX() - resultPoint2.getX());
+            }
+            return 0;
+        }
+        return invokeLL.intValue;
+    }
+
+    public static int getMinWidth(ResultPoint resultPoint, ResultPoint resultPoint2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, resultPoint, resultPoint2)) == null) {
+            if (resultPoint != null && resultPoint2 != null) {
+                return (int) Math.abs(resultPoint.getX() - resultPoint2.getX());
+            }
+            return Integer.MAX_VALUE;
+        }
+        return invokeLL.intValue;
+    }
+
+    @Override // com.google.zxing.Reader
+    public Result decode(BinaryBitmap binaryBitmap, Map map) throws NotFoundException, FormatException, ChecksumException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, binaryBitmap, map)) == null) {
+            Result[] decode = decode(binaryBitmap, map, false);
+            if (decode != null && decode.length != 0 && decode[0] != null) {
+                return decode[0];
+            }
+            throw NotFoundException.getNotFoundInstance();
+        }
+        return (Result) invokeLL.objValue;
+    }
+
+    @Override // com.google.zxing.multi.MultipleBarcodeReader
+    public Result[] decodeMultiple(BinaryBitmap binaryBitmap, Map map) throws NotFoundException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, binaryBitmap, map)) == null) {
+            try {
+                return decode(binaryBitmap, map, true);
+            } catch (ChecksumException | FormatException unused) {
+                throw NotFoundException.getNotFoundInstance();
+            }
+        }
+        return (Result[]) invokeLL.objValue;
+    }
+
+    @Override // com.google.zxing.Reader
+    public Result decode(BinaryBitmap binaryBitmap) throws NotFoundException, FormatException, ChecksumException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, binaryBitmap)) == null) {
+            return decode(binaryBitmap, null);
+        }
+        return (Result) invokeL.objValue;
+    }
+
+    @Override // com.google.zxing.multi.MultipleBarcodeReader
+    public Result[] decodeMultiple(BinaryBitmap binaryBitmap) throws NotFoundException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, binaryBitmap)) == null) {
+            return decodeMultiple(binaryBitmap, null);
+        }
+        return (Result[]) invokeL.objValue;
     }
 }

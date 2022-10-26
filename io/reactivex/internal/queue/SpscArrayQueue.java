@@ -9,13 +9,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import io.reactivex.annotations.Nullable;
 import io.reactivex.internal.fuseable.SimplePlainQueue;
 import io.reactivex.internal.util.Pow2;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReferenceArray;
 /* loaded from: classes8.dex */
-public final class SpscArrayQueue<E> extends AtomicReferenceArray<E> implements SimplePlainQueue<E> {
+public final class SpscArrayQueue extends AtomicReferenceArray implements SimplePlainQueue {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Integer MAX_LOOK_AHEAD_STEP;
     public static final long serialVersionUID = -1296597691183856449L;
@@ -25,6 +24,12 @@ public final class SpscArrayQueue<E> extends AtomicReferenceArray<E> implements 
     public final int mask;
     public final AtomicLong producerIndex;
     public long producerLookAhead;
+
+    public int calcElementOffset(long j, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) == null) ? ((int) j) & i : invokeCommon.intValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -40,6 +45,50 @@ public final class SpscArrayQueue<E> extends AtomicReferenceArray<E> implements 
             }
         }
         MAX_LOOK_AHEAD_STEP = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096);
+    }
+
+    @Override // io.reactivex.internal.fuseable.SimpleQueue
+    public void clear() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) {
+            return;
+        }
+        while (true) {
+            if (poll() == null && isEmpty()) {
+                return;
+            }
+        }
+    }
+
+    @Override // io.reactivex.internal.fuseable.SimpleQueue
+    public boolean isEmpty() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.producerIndex.get() == this.consumerIndex.get()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // io.reactivex.internal.fuseable.SimplePlainQueue, io.reactivex.internal.fuseable.SimpleQueue
+    public Object poll() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            long j = this.consumerIndex.get();
+            int calcElementOffset = calcElementOffset(j);
+            Object lvElement = lvElement(calcElementOffset);
+            if (lvElement == null) {
+                return null;
+            }
+            soConsumerIndex(j + 1);
+            soElement(calcElementOffset, null);
+            return lvElement;
+        }
+        return invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -69,97 +118,25 @@ public final class SpscArrayQueue<E> extends AtomicReferenceArray<E> implements 
     public int calcElementOffset(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) ? this.mask & ((int) j) : invokeJ.intValue;
-    }
-
-    public int calcElementOffset(long j, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) == null) ? ((int) j) & i : invokeCommon.intValue;
-    }
-
-    @Override // io.reactivex.internal.fuseable.SimpleQueue
-    public void clear() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) {
-            return;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+            return this.mask & ((int) j);
         }
-        while (true) {
-            if (poll() == null && isEmpty()) {
-                return;
-            }
-        }
+        return invokeJ.intValue;
     }
 
-    @Override // io.reactivex.internal.fuseable.SimpleQueue
-    public boolean isEmpty() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.producerIndex.get() == this.consumerIndex.get() : invokeV.booleanValue;
-    }
-
-    public E lvElement(int i) {
+    public Object lvElement(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? get(i) : (E) invokeI.objValue;
-    }
-
-    @Override // io.reactivex.internal.fuseable.SimpleQueue
-    public boolean offer(E e) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, e)) == null) {
-            if (e != null) {
-                int i = this.mask;
-                long j = this.producerIndex.get();
-                int calcElementOffset = calcElementOffset(j, i);
-                if (j >= this.producerLookAhead) {
-                    long j2 = this.lookAheadStep + j;
-                    if (lvElement(calcElementOffset(j2, i)) == null) {
-                        this.producerLookAhead = j2;
-                    } else if (lvElement(calcElementOffset) != null) {
-                        return false;
-                    }
-                }
-                soElement(calcElementOffset, e);
-                soProducerIndex(j + 1);
-                return true;
-            }
-            throw new NullPointerException("Null is not a valid element");
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            return get(i);
         }
-        return invokeL.booleanValue;
-    }
-
-    @Override // io.reactivex.internal.fuseable.SimplePlainQueue, io.reactivex.internal.fuseable.SimpleQueue
-    @Nullable
-    public E poll() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            long j = this.consumerIndex.get();
-            int calcElementOffset = calcElementOffset(j);
-            E lvElement = lvElement(calcElementOffset);
-            if (lvElement == null) {
-                return null;
-            }
-            soConsumerIndex(j + 1);
-            soElement(calcElementOffset, null);
-            return lvElement;
-        }
-        return (E) invokeV.objValue;
+        return invokeI.objValue;
     }
 
     public void soConsumerIndex(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
             this.consumerIndex.lazySet(j);
-        }
-    }
-
-    public void soElement(int i, E e) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048585, this, i, e) == null) {
-            lazySet(i, e);
         }
     }
 
@@ -171,9 +148,48 @@ public final class SpscArrayQueue<E> extends AtomicReferenceArray<E> implements 
     }
 
     @Override // io.reactivex.internal.fuseable.SimpleQueue
-    public boolean offer(E e, E e2) {
+    public boolean offer(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (obj != null) {
+                int i = this.mask;
+                long j = this.producerIndex.get();
+                int calcElementOffset = calcElementOffset(j, i);
+                if (j >= this.producerLookAhead) {
+                    long j2 = this.lookAheadStep + j;
+                    if (lvElement(calcElementOffset(j2, i)) == null) {
+                        this.producerLookAhead = j2;
+                    } else if (lvElement(calcElementOffset) != null) {
+                        return false;
+                    }
+                }
+                soElement(calcElementOffset, obj);
+                soProducerIndex(j + 1);
+                return true;
+            }
+            throw new NullPointerException("Null is not a valid element");
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // io.reactivex.internal.fuseable.SimpleQueue
+    public boolean offer(Object obj, Object obj2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, e, e2)) == null) ? offer(e) && offer(e2) : invokeLL.booleanValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, obj, obj2)) == null) {
+            if (offer(obj) && offer(obj2)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public void soElement(int i, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048585, this, i, obj) == null) {
+            lazySet(i, obj);
+        }
     }
 }

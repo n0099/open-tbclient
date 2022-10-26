@@ -1,6 +1,5 @@
 package androidx.webkit.internal;
 
-import androidx.annotation.Nullable;
 import androidx.webkit.WebViewRenderProcess;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -35,7 +34,6 @@ public class WebViewRenderProcessImpl extends WebViewRenderProcess {
         this.mBoundaryInterface = webViewRendererBoundaryInterface;
     }
 
-    @Nullable
     public static WebViewRenderProcessImpl forInvocationHandler(InvocationHandler invocationHandler) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -68,7 +66,10 @@ public class WebViewRenderProcessImpl extends WebViewRenderProcess {
                 public Object call() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? new WebViewRenderProcessImpl(this.val$boundaryInterface) : invokeV.objValue;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                        return new WebViewRenderProcessImpl(this.val$boundaryInterface);
+                    }
+                    return invokeV.objValue;
                 }
             });
         }

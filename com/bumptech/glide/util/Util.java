@@ -1,11 +1,9 @@
 package com.bumptech.glide.util;
 
-import android.annotation.TargetApi;
 import android.graphics.Bitmap;
 import android.os.Build;
+import android.os.Handler;
 import android.os.Looper;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -28,11 +26,24 @@ public final class Util {
     public static final int HASH_MULTIPLIER = 31;
     public static final char[] HEX_CHAR_ARRAY;
     public static final char[] SHA_256_CHARS;
+    public static volatile Handler mainThreadHandler;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public static int hashCode(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65553, null, i, i2)) == null) ? (i2 * 31) + i : invokeII.intValue;
+    }
+
+    public static boolean isValidDimension(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65559, null, i)) == null) ? i > 0 || i == Integer.MIN_VALUE : invokeI.booleanValue;
+    }
 
     /* renamed from: com.bumptech.glide.util.Util$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$android$graphics$Bitmap$Config;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -108,24 +119,50 @@ public final class Util {
 
     public static void assertBackgroundThread() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && !isOnBackgroundThread()) {
-            throw new IllegalArgumentException("You must call this method on a background thread");
+        if ((interceptable != null && interceptable.invokeV(65538, null) != null) || isOnBackgroundThread()) {
+            return;
         }
+        throw new IllegalArgumentException("You must call this method on a background thread");
     }
 
     public static void assertMainThread() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65539, null) == null) && !isOnMainThread()) {
-            throw new IllegalArgumentException("You must call this method on the main thread");
+        if ((interceptable != null && interceptable.invokeV(65539, null) != null) || isOnMainThread()) {
+            return;
         }
+        throw new IllegalArgumentException("You must call this method on the main thread");
     }
 
-    public static boolean bothModelsNullEquivalentOrEquals(@Nullable Object obj, @Nullable Object obj2) {
+    public static boolean isOnBackgroundThread() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) {
+            return !isOnMainThread();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isOnMainThread() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) {
+            if (Looper.myLooper() == Looper.getMainLooper()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean bothModelsNullEquivalentOrEquals(Object obj, Object obj2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, obj2)) == null) {
             if (obj == null) {
-                return obj2 == null;
+                if (obj2 == null) {
+                    return true;
+                }
+                return false;
             } else if (obj instanceof Model) {
                 return ((Model) obj).isEquivalentTo(obj2);
             } else {
@@ -135,20 +172,43 @@ public final class Util {
         return invokeLL.booleanValue;
     }
 
-    public static boolean bothNullOrEqual(@Nullable Object obj, @Nullable Object obj2) {
+    public static boolean bothNullOrEqual(Object obj, Object obj2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, obj, obj2)) == null) {
             if (obj == null) {
-                return obj2 == null;
+                if (obj2 == null) {
+                    return true;
+                }
+                return false;
             }
             return obj.equals(obj2);
         }
         return invokeLL.booleanValue;
     }
 
-    @NonNull
-    public static String bytesToHex(@NonNull byte[] bArr, @NonNull char[] cArr) {
+    public static int hashCode(float f, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{Float.valueOf(f), Integer.valueOf(i)})) == null) {
+            return hashCode(Float.floatToIntBits(f), i);
+        }
+        return invokeCommon.intValue;
+    }
+
+    public static boolean isValidDimensions(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65560, null, i, i2)) == null) {
+            if (isValidDimension(i) && isValidDimension(i2)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeII.booleanValue;
+    }
+
+    public static String bytesToHex(byte[] bArr, char[] cArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, bArr, cArr)) == null) {
@@ -164,15 +224,71 @@ public final class Util {
         return (String) invokeLL.objValue;
     }
 
-    @NonNull
-    public static <T> Queue<T> createQueue(int i) {
+    public static Queue createQueue(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) ? new ArrayDeque(i) : (Queue) invokeI.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) {
+            return new ArrayDeque(i);
+        }
+        return (Queue) invokeI.objValue;
     }
 
-    @TargetApi(19)
-    public static int getBitmapByteSize(@NonNull Bitmap bitmap) {
+    @Deprecated
+    public static int getSize(Bitmap bitmap) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, bitmap)) == null) {
+            return getBitmapByteSize(bitmap);
+        }
+        return invokeL.intValue;
+    }
+
+    public static int hashCode(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(65550, null, f)) == null) {
+            return hashCode(f, 17);
+        }
+        return invokeF.intValue;
+    }
+
+    public static void postOnUiThread(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65561, null, runnable) == null) {
+            getUiThreadHandler().post(runnable);
+        }
+    }
+
+    public static void removeCallbacksOnUiThread(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65562, null, runnable) == null) {
+            getUiThreadHandler().removeCallbacks(runnable);
+        }
+    }
+
+    public static String sha256BytesToHex(byte[] bArr) {
+        InterceptResult invokeL;
+        String bytesToHex;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, bArr)) == null) {
+            synchronized (SHA_256_CHARS) {
+                bytesToHex = bytesToHex(bArr, SHA_256_CHARS);
+            }
+            return bytesToHex;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static int getBitmapByteSize(int i, int i2, Bitmap.Config config) {
+        InterceptResult invokeIIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65544, null, i, i2, config)) == null) {
+            return i * i2 * getBytesPerPixel(config);
+        }
+        return invokeIIL.intValue;
+    }
+
+    public static int getBitmapByteSize(Bitmap bitmap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, bitmap)) == null) {
@@ -190,7 +306,7 @@ public final class Util {
         return invokeL.intValue;
     }
 
-    public static int getBytesPerPixel(@Nullable Bitmap.Config config) {
+    public static int getBytesPerPixel(Bitmap.Config config) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, config)) == null) {
@@ -199,32 +315,27 @@ public final class Util {
             }
             int i = AnonymousClass1.$SwitchMap$android$graphics$Bitmap$Config[config.ordinal()];
             if (i != 1) {
-                if (i == 2 || i == 3) {
-                    return 2;
+                if (i != 2 && i != 3) {
+                    if (i != 4) {
+                        return 4;
+                    }
+                    return 8;
                 }
-                return i != 4 ? 4 : 8;
+                return 2;
             }
             return 1;
         }
         return invokeL.intValue;
     }
 
-    @Deprecated
-    public static int getSize(@NonNull Bitmap bitmap) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, bitmap)) == null) ? getBitmapByteSize(bitmap) : invokeL.intValue;
-    }
-
-    @NonNull
-    public static <T> List<T> getSnapshot(@NonNull Collection<T> collection) {
+    public static List getSnapshot(Collection collection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, collection)) == null) {
             ArrayList arrayList = new ArrayList(collection.size());
-            for (T t : collection) {
-                if (t != null) {
-                    arrayList.add(t);
+            for (Object obj : collection) {
+                if (obj != null) {
+                    arrayList.add(obj);
                 }
             }
             return arrayList;
@@ -232,95 +343,61 @@ public final class Util {
         return (List) invokeL.objValue;
     }
 
+    public static Handler getUiThreadHandler() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
+            if (mainThreadHandler == null) {
+                synchronized (Util.class) {
+                    if (mainThreadHandler == null) {
+                        mainThreadHandler = new Handler(Looper.getMainLooper());
+                    }
+                }
+            }
+            return mainThreadHandler;
+        }
+        return (Handler) invokeV.objValue;
+    }
+
     public static int hashCode(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65551, null, i)) == null) ? hashCode(i, 17) : invokeI.intValue;
-    }
-
-    public static int hashCode(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65552, null, i, i2)) == null) ? (i2 * 31) + i : invokeII.intValue;
-    }
-
-    public static boolean isOnBackgroundThread() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) ? !isOnMainThread() : invokeV.booleanValue;
-    }
-
-    public static boolean isOnMainThread() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) ? Looper.myLooper() == Looper.getMainLooper() : invokeV.booleanValue;
-    }
-
-    public static boolean isValidDimension(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65558, null, i)) == null) ? i > 0 || i == Integer.MIN_VALUE : invokeI.booleanValue;
-    }
-
-    public static boolean isValidDimensions(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65559, null, i, i2)) == null) ? isValidDimension(i) && isValidDimension(i2) : invokeII.booleanValue;
-    }
-
-    @NonNull
-    public static String sha256BytesToHex(@NonNull byte[] bArr) {
-        InterceptResult invokeL;
-        String bytesToHex;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65560, null, bArr)) == null) {
-            synchronized (SHA_256_CHARS) {
-                bytesToHex = bytesToHex(bArr, SHA_256_CHARS);
-            }
-            return bytesToHex;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65552, null, i)) == null) {
+            return hashCode(i, 17);
         }
-        return (String) invokeL.objValue;
+        return invokeI.intValue;
     }
 
-    public static int hashCode(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(65549, null, f)) == null) ? hashCode(f, 17) : invokeF.intValue;
-    }
-
-    public static int hashCode(float f, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{Float.valueOf(f), Integer.valueOf(i)})) == null) ? hashCode(Float.floatToIntBits(f), i) : invokeCommon.intValue;
-    }
-
-    public static int hashCode(@Nullable Object obj, int i) {
+    public static int hashCode(Object obj, int i) {
         InterceptResult invokeLI;
+        int hashCode;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65553, null, obj, i)) == null) {
-            return hashCode(obj == null ? 0 : obj.hashCode(), i);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65554, null, obj, i)) == null) {
+            if (obj == null) {
+                hashCode = 0;
+            } else {
+                hashCode = obj.hashCode();
+            }
+            return hashCode(hashCode, i);
         }
         return invokeLI.intValue;
-    }
-
-    public static int hashCode(boolean z, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65555, null, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
-            return hashCode(z ? 1 : 0, i);
-        }
-        return invokeCommon.intValue;
     }
 
     public static int hashCode(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(65554, null, z)) == null) ? hashCode(z, 17) : invokeZ.intValue;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65555, null, z)) == null) {
+            return hashCode(z, 17);
+        }
+        return invokeZ.intValue;
     }
 
-    public static int getBitmapByteSize(int i, int i2, @Nullable Bitmap.Config config) {
-        InterceptResult invokeIIL;
+    public static int hashCode(boolean z, int i) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIIL = interceptable.invokeIIL(65544, null, i, i2, config)) == null) ? i * i2 * getBytesPerPixel(config) : invokeIIL.intValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65556, null, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
+            return hashCode(z ? 1 : 0, i);
+        }
+        return invokeCommon.intValue;
     }
 }

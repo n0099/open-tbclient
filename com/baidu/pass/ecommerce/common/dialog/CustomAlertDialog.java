@@ -42,55 +42,6 @@ public class CustomAlertDialog extends Dialog {
         init();
     }
 
-    private void init() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            setContentView(R.layout.layout_sapi_sdk_dialog_alert);
-            setCanceledOnTouchOutside(true);
-            this.titleTv = (TextView) findViewById(R.id.sapi_sdk_common_dialog_title);
-            this.contentTv = (TextView) findViewById(R.id.sapi_sdk_common_dialog_content);
-            this.positiveBtn = (TextView) findViewById(R.id.sapi_sdk_common_dialog_positive_btn);
-            this.negativeBtn = (TextView) findViewById(R.id.sapi_sdk_common_dialog_negative_btn);
-        }
-    }
-
-    public void setContent(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.contentTv.setText(str);
-        }
-    }
-
-    public void setNegativeBtn(String str, View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, onClickListener) == null) {
-            this.negativeBtn.setText(str);
-            this.negativeBtn.setOnClickListener(onClickListener);
-        }
-    }
-
-    public void setPositiveBtn(String str, View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, onClickListener) == null) {
-            this.positiveBtn.setText(str);
-            this.positiveBtn.setOnClickListener(onClickListener);
-        }
-    }
-
-    public void setPositiveTvColor(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.positiveBtn.setTextColor(i);
-        }
-    }
-
-    public void setTitle(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.titleTv.setText(str);
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CustomAlertDialog(Context context, int i) {
         super(context, i);
@@ -133,5 +84,54 @@ public class CustomAlertDialog extends Dialog {
             }
         }
         init();
+    }
+
+    private void init() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+            setContentView(R.layout.layout_sapi_sdk_dialog_alert);
+            setCanceledOnTouchOutside(true);
+            this.titleTv = (TextView) findViewById(R.id.sapi_sdk_common_dialog_title);
+            this.contentTv = (TextView) findViewById(R.id.sapi_sdk_common_dialog_content);
+            this.positiveBtn = (TextView) findViewById(R.id.sapi_sdk_common_dialog_positive_btn);
+            this.negativeBtn = (TextView) findViewById(R.id.sapi_sdk_common_dialog_negative_btn);
+        }
+    }
+
+    public void setContent(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.contentTv.setText(str);
+        }
+    }
+
+    public void setPositiveTvColor(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.positiveBtn.setTextColor(i);
+        }
+    }
+
+    public void setTitle(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.titleTv.setText(str);
+        }
+    }
+
+    public void setNegativeBtn(String str, View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, onClickListener) == null) {
+            this.negativeBtn.setText(str);
+            this.negativeBtn.setOnClickListener(onClickListener);
+        }
+    }
+
+    public void setPositiveBtn(String str, View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, onClickListener) == null) {
+            this.positiveBtn.setText(str);
+            this.positiveBtn.setOnClickListener(onClickListener);
+        }
     }
 }

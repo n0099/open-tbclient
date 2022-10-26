@@ -3,15 +3,13 @@ package com.baidu.searchbox.block.impl;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.aperf.param.CommonUtils;
 import com.baidu.searchbox.block.ioc.IBlockContext;
 import com.baidu.searchbox.block.ioc.IBlockRegister;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.track.Track;
 import com.baidu.searchbox.track.ui.TrackUI;
-import com.baidu.tieba.te1;
+import com.baidu.tieba.ue1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +17,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Autowired
 /* loaded from: classes2.dex */
 public class BlockContext {
     public static /* synthetic */ Interceptable $ic;
@@ -64,25 +61,24 @@ public class BlockContext {
                     if (AppConfig.isDebug()) {
                         Log.d(BlockMonitor.TAG, "onAppBlock");
                     }
-                    te1<IBlockRegister> iBlockUploadList = BlockRuntime.getInstance().getIBlockUploadList();
-                    if (iBlockUploadList == null || iBlockUploadList.getList() == null || blockInfo == null) {
-                        return;
-                    }
-                    if (AppConfig.isDebug()) {
-                        Log.i(BlockMonitor.TAG, "blockInfo = " + blockInfo.getStackTrace());
-                    }
-                    TrackUI lastTrackUI = Track.getInstance().getLastTrackUI();
-                    if (lastTrackUI != null) {
-                        if (!TextUtils.isEmpty(lastTrackUI.getFragmentPage())) {
-                            blockInfo.setCurrentPage(lastTrackUI.getFragmentPage());
-                        } else if (!TextUtils.isEmpty(lastTrackUI.getActivityPage())) {
-                            blockInfo.setCurrentPage(lastTrackUI.getActivityPage());
+                    ue1 iBlockUploadList = BlockRuntime.getInstance().getIBlockUploadList();
+                    if (iBlockUploadList != null && iBlockUploadList.getList() != null && blockInfo != null) {
+                        if (AppConfig.isDebug()) {
+                            Log.i(BlockMonitor.TAG, "blockInfo = " + blockInfo.getStackTrace());
                         }
-                    }
-                    blockInfo.setTrackUIs(Track.getInstance().getAllTrackUIs());
-                    blockInfo.setLogId(CommonUtils.getLogId());
-                    for (IBlockRegister iBlockRegister : iBlockUploadList.getList()) {
-                        iBlockRegister.onBlockCatch(context, blockInfo);
+                        TrackUI lastTrackUI = Track.getInstance().getLastTrackUI();
+                        if (lastTrackUI != null) {
+                            if (!TextUtils.isEmpty(lastTrackUI.getFragmentPage())) {
+                                blockInfo.setCurrentPage(lastTrackUI.getFragmentPage());
+                            } else if (!TextUtils.isEmpty(lastTrackUI.getActivityPage())) {
+                                blockInfo.setCurrentPage(lastTrackUI.getActivityPage());
+                            }
+                        }
+                        blockInfo.setTrackUIs(Track.getInstance().getAllTrackUIs());
+                        blockInfo.setLogId(CommonUtils.getLogId());
+                        for (IBlockRegister iBlockRegister : iBlockUploadList.getList()) {
+                            iBlockRegister.onBlockCatch(context, blockInfo);
+                        }
                     }
                 }
             }
@@ -103,10 +99,12 @@ public class BlockContext {
         }
     }
 
-    @Inject(force = false)
     public static IBlockContext getBlockContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? BLOCK_CONTEXT : (IBlockContext) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return BLOCK_CONTEXT;
+        }
+        return (IBlockContext) invokeV.objValue;
     }
 }

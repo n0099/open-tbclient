@@ -16,9 +16,9 @@ import java.util.Map;
 public class ResInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedHashMap<String, DnsInfo> dns;
+    public LinkedHashMap dns;
     public HttpDnsInfo httpdns;
-    public List<Map<String, String>> listRefresh;
+    public List listRefresh;
     public NetStatusInfo netInfo;
     public int status;
     public String userIp;
@@ -41,7 +41,70 @@ public class ResInfo {
         this.status = 2;
     }
 
-    public void addRefresh(Map<String, String> map) {
+    public LinkedHashMap getDns() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.dns;
+        }
+        return (LinkedHashMap) invokeV.objValue;
+    }
+
+    public HttpDnsInfo getHttpdns() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.httpdns;
+        }
+        return (HttpDnsInfo) invokeV.objValue;
+    }
+
+    public List getListRefresh() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.listRefresh;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public NetStatusInfo getNetInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.netInfo;
+        }
+        return (NetStatusInfo) invokeV.objValue;
+    }
+
+    public int getStatus() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.status;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getUserIp() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.userIp;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getUserView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.userView;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void addRefresh(Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
             if (this.listRefresh == null) {
@@ -51,49 +114,7 @@ public class ResInfo {
         }
     }
 
-    public LinkedHashMap<String, DnsInfo> getDns() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.dns : (LinkedHashMap) invokeV.objValue;
-    }
-
-    public HttpDnsInfo getHttpdns() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.httpdns : (HttpDnsInfo) invokeV.objValue;
-    }
-
-    public List<Map<String, String>> getListRefresh() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.listRefresh : (List) invokeV.objValue;
-    }
-
-    public NetStatusInfo getNetInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.netInfo : (NetStatusInfo) invokeV.objValue;
-    }
-
-    public int getStatus() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.status : invokeV.intValue;
-    }
-
-    public String getUserIp() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.userIp : (String) invokeV.objValue;
-    }
-
-    public String getUserView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.userView : (String) invokeV.objValue;
-    }
-
-    public void setDns(LinkedHashMap<String, DnsInfo> linkedHashMap) {
+    public void setDns(LinkedHashMap linkedHashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, linkedHashMap) == null) {
             this.dns = linkedHashMap;

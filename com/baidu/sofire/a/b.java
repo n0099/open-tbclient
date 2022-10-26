@@ -34,47 +34,48 @@ public class b {
     public static String a(Throwable th) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65537, null, th)) != null) {
-            return (String) invokeL.objValue;
-        }
-        if (th == null) {
-            return "";
-        }
-        for (Throwable th2 = th; th2 != null; th2 = th2.getCause()) {
-            try {
-                if (th2 instanceof UnknownHostException) {
-                    return "";
-                }
-            } catch (Throwable unused) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, th)) == null) {
+            if (th == null) {
                 return "";
             }
-        }
-        StringWriter stringWriter = null;
-        try {
-            StringWriter stringWriter2 = new StringWriter();
-            try {
-                th.printStackTrace(new PrintWriter(stringWriter2));
-                String stringWriter3 = stringWriter2.toString();
+            for (Throwable th2 = th; th2 != null; th2 = th2.getCause()) {
                 try {
-                    stringWriter2.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                return stringWriter3;
-            } catch (Throwable th3) {
-                th = th3;
-                stringWriter = stringWriter2;
-                if (stringWriter != null) {
-                    try {
-                        stringWriter.close();
-                    } catch (IOException e2) {
-                        e2.printStackTrace();
+                    if (th2 instanceof UnknownHostException) {
+                        return "";
                     }
+                } catch (Throwable unused) {
+                    return "";
                 }
-                throw th;
             }
-        } catch (Throwable th4) {
-            th = th4;
+            StringWriter stringWriter = null;
+            try {
+                StringWriter stringWriter2 = new StringWriter();
+                try {
+                    th.printStackTrace(new PrintWriter(stringWriter2));
+                    String stringWriter3 = stringWriter2.toString();
+                    try {
+                        stringWriter2.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    return stringWriter3;
+                } catch (Throwable th3) {
+                    th = th3;
+                    stringWriter = stringWriter2;
+                    if (stringWriter != null) {
+                        try {
+                            stringWriter.close();
+                        } catch (IOException e2) {
+                            e2.printStackTrace();
+                        }
+                    }
+                    throw th;
+                }
+            } catch (Throwable th4) {
+                th = th4;
+            }
+        } else {
+            return (String) invokeL.objValue;
         }
     }
 }

@@ -1,100 +1,139 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
+import android.os.Looper;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
-import com.baidu.searchbox.download.center.clearcache.UserSettingForceListListener;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class m32 {
     public static /* synthetic */ Interceptable $ic;
+    public static long a;
+    public static volatile int b;
     public transient /* synthetic */ FieldHolder $fh;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947921661, "Lcom/baidu/tieba/m32;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947921661, "Lcom/baidu/tieba/m32;");
+        }
+    }
+
     /* loaded from: classes4.dex */
-    public static class a implements SwanAppNetworkUtils.b {
+    public final class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ int b;
 
-        public a(String str) {
+        public a(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str};
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = str;
+            this.a = i;
+            this.b = i2;
         }
 
-        @Override // com.baidu.swan.apps.network.SwanAppNetworkUtils.b
-        public void onResult(int i) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                m32.b(this.a, i);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                m32.c(this.a, this.b);
             }
         }
     }
 
-    public static void a(String str) {
+    public static void d(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
-            SwanAppNetworkUtils.b(new a(str));
-        }
-    }
-
-    public static void b(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65537, null, str, i) == null) {
-            c(str, i != 1 ? i != 2 ? i != 3 ? "unknown" : "offline" : "bad" : FrsActivityConfig.GOOD);
-        }
-    }
-
-    public static void c(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
-            d(str, str2, null);
-        }
-    }
-
-    public static void d(String str, String str2, @Nullable String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, str3) == null) {
-            e(str, str2, str3, 0, 0, 0, 0L);
-        }
-    }
-
-    public static void e(String str, String str2, @Nullable String str3, int i, int i2, int i3, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j)}) == null) {
-            na3 na3Var = new na3();
-            na3Var.a = "swan";
-            na3Var.b = str;
-            na3Var.a("appid", k33.K().getAppId());
-            na3Var.a(DpStatConstants.KEY_NETWORK_STATUS, str2);
-            if (!TextUtils.isEmpty(str3)) {
-                na3Var.a("request", str3);
-                na3Var.a("request_total", String.valueOf(i));
-                na3Var.a("request_fail", String.valueOf(i2));
-                na3Var.a("request_slow", String.valueOf(i3));
-                na3Var.a("error_duration", String.valueOf(j));
+        if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i, i2) == null) {
+            if (Looper.getMainLooper() == Looper.myLooper()) {
+                c(i, i2);
+            } else {
+                gh3.a0(new a(i, i2));
             }
-            na3Var.a("jserror", q32.d().c() ? "1" : "0");
-            na3Var.a(UserSettingForceListListener.FORCE_LIST_ITEM_SHOW_KEY, l32.b() ? "1" : "0");
-            ea3.x("1619", na3Var);
+        }
+    }
+
+    public static boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b < 2) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            b = 0;
+            a = 0L;
+        }
+    }
+
+    public static void c(int i, int i2) {
+        SwanAppActivity activity;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeII(65539, null, i, i2) == null) && (activity = zo2.U().getActivity()) != null && !activity.isFinishing()) {
+            if (i2 != 1) {
+                e33.f(activity, i).G();
+            } else {
+                e33.f(activity, i).I();
+            }
+        }
+    }
+
+    public static void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65542, null, i) == null) {
+            g(i, 0);
+        }
+    }
+
+    public static synchronized void g(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(65543, null, i, i2) == null) {
+            synchronized (m32.class) {
+                int i3 = b;
+                if (i3 != 0) {
+                    if (i3 == 1 && (a + 5000) - System.currentTimeMillis() < 0) {
+                        b = 2;
+                        d(i, i2);
+                        o32.g("toast提示个数已达2个");
+                    }
+                } else {
+                    b = 1;
+                    a = System.currentTimeMillis();
+                    d(i, i2);
+                }
+            }
         }
     }
 }

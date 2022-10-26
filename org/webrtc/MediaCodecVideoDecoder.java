@@ -8,12 +8,11 @@ import android.media.MediaFormat;
 import android.os.Build;
 import android.os.SystemClock;
 import android.view.Surface;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.rtc.PeerConnectionClient;
-import com.baidu.tieba.ax9;
-import com.baidu.tieba.xw9;
+import com.baidu.tieba.px9;
+import com.baidu.tieba.sx9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,6 +33,7 @@ import java.util.Queue;
 import java.util.Set;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
+import javax.annotation.Nullable;
 import org.webrtc.EglBase;
 import org.webrtc.VideoFrame;
 @Deprecated
@@ -59,44 +59,48 @@ public class MediaCodecVideoDecoder {
     public static final String VP8_MIME_TYPE = "video/x-vnd.on2.vp8";
     public static final String VP9_MIME_TYPE = "video/x-vnd.on2.vp9";
     public static int codecErrors = 0;
-    @Nullable
     public static EglBase eglBase = null;
-    @Nullable
     public static MediaCodecVideoDecoderErrorCallback errorCallback = null;
-    public static Set<String> hwDecoderDisabledTypes = null;
-    @Nullable
+    public static Set hwDecoderDisabledTypes = null;
     public static MediaCodecVideoDecoder runningInstance = null;
-    public static final List<Integer> supportedColorList;
+    public static final List supportedColorList;
     public static final String supportedExynosH264HighProfileHwCodecPrefix = "OMX.Exynos.";
     public static final String supportedHisiH264HighProfileHwCodecPrefix = "OMX.hisi.";
     public static final String supportedMediaTekH264HighProfileHwCodecPrefix = "OMX.MTK.";
     public static final String supportedQcomH264HighProfileHwCodecPrefix = "OMX.qcom.";
     public static final String[] supportedVp9HwCodecPrefixes;
-    @Nullable
     public static MediaCodecVideoDecoderObserver videoDecoderObserver;
     public transient /* synthetic */ FieldHolder $fh;
     public int colorFormat;
-    public final Queue<TimeStamps> decodeStartTimeMs;
-    public final Queue<DecodedOutputBuffer> dequeuedSurfaceOutputBuffers;
+    public final Queue decodeStartTimeMs;
+    public final Queue dequeuedSurfaceOutputBuffers;
     public int droppedFrames;
     public boolean hasDecodedFirstFrame;
     public int height;
     public ByteBuffer[] inputBuffers;
-    @Nullable
     public MediaCodec mediaCodec;
-    @Nullable
     public Thread mediaCodecThread;
     public ByteBuffer[] outputBuffers;
     public int sliceHeight;
     public int stride;
-    @Nullable
     public Surface surface;
-    @Nullable
     public TextureListener textureListener;
     public int width;
 
     /* loaded from: classes8.dex */
-    public static class DecodedOutputBuffer {
+    public interface MediaCodecVideoDecoderErrorCallback {
+        void onMediaCodecVideoDecoderCriticalError(int i);
+    }
+
+    /* loaded from: classes8.dex */
+    public interface MediaCodecVideoDecoderObserver {
+        void onSEIRecv(ByteBuffer byteBuffer);
+    }
+
+    public static native long nativeCreateDecoder(String str, boolean z);
+
+    /* loaded from: classes8.dex */
+    public class DecodedOutputBuffer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long decodeTimeMs;
@@ -133,58 +137,72 @@ public class MediaCodecVideoDecoder {
             this.endDecodeTimeMs = j5;
         }
 
-        @CalledByNative("DecodedOutputBuffer")
         public long getDecodeTimeMs() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.decodeTimeMs : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.decodeTimeMs;
+            }
+            return invokeV.longValue;
         }
 
-        @CalledByNative("DecodedOutputBuffer")
         public int getIndex() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.index : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.index;
+            }
+            return invokeV.intValue;
         }
 
-        @CalledByNative("DecodedOutputBuffer")
         public long getNtpTimestampMs() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.ntpTimeStampMs : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.ntpTimeStampMs;
+            }
+            return invokeV.longValue;
         }
 
-        @CalledByNative("DecodedOutputBuffer")
         public int getOffset() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.offset : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.offset;
+            }
+            return invokeV.intValue;
         }
 
-        @CalledByNative("DecodedOutputBuffer")
         public long getPresentationTimestampMs() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.presentationTimeStampMs : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.presentationTimeStampMs;
+            }
+            return invokeV.longValue;
         }
 
-        @CalledByNative("DecodedOutputBuffer")
         public int getSize() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.size : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return this.size;
+            }
+            return invokeV.intValue;
         }
 
-        @CalledByNative("DecodedOutputBuffer")
         public long getTimestampMs() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.timeStampMs : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return this.timeStampMs;
+            }
+            return invokeV.longValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public static class DecodedTextureBuffer {
+    public class DecodedTextureBuffer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long decodeTimeMs;
@@ -217,51 +235,63 @@ public class MediaCodecVideoDecoder {
             this.frameDelayMs = j5;
         }
 
-        @CalledByNative("DecodedTextureBuffer")
         public long getDecodeTimeMs() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.decodeTimeMs : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.decodeTimeMs;
+            }
+            return invokeV.longValue;
         }
 
-        @CalledByNative("DecodedTextureBuffer")
         public long getFrameDelayMs() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.frameDelayMs : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.frameDelayMs;
+            }
+            return invokeV.longValue;
         }
 
-        @CalledByNative("DecodedTextureBuffer")
         public long getNtpTimestampMs() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.ntpTimeStampMs : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.ntpTimeStampMs;
+            }
+            return invokeV.longValue;
         }
 
-        @CalledByNative("DecodedTextureBuffer")
         public long getPresentationTimestampMs() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.presentationTimeStampMs : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.presentationTimeStampMs;
+            }
+            return invokeV.longValue;
         }
 
-        @CalledByNative("DecodedTextureBuffer")
         public long getTimeStampMs() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.timeStampMs : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.timeStampMs;
+            }
+            return invokeV.longValue;
         }
 
-        @CalledByNative("DecodedTextureBuffer")
         public VideoFrame.Buffer getVideoFrameBuffer() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.videoFrameBuffer : (VideoFrame.Buffer) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return this.videoFrameBuffer;
+            }
+            return (VideoFrame.Buffer) invokeV.objValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public static class DecoderProperties {
+    public class DecoderProperties {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String codecName;
@@ -288,10 +318,17 @@ public class MediaCodecVideoDecoder {
     }
 
     /* loaded from: classes8.dex */
-    public static class HwDecoderFactory implements VideoDecoderFactory {
+    public class HwDecoderFactory implements VideoDecoderFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final VideoCodecInfo[] supportedHardwareCodecs;
+
+        @Override // org.webrtc.VideoDecoderFactory
+        @Nullable
+        @Deprecated
+        public /* synthetic */ VideoDecoder createDecoder(String str) {
+            return sx9.$default$createDecoder(this, str);
+        }
 
         public HwDecoderFactory() {
             Interceptable interceptable = $ic;
@@ -307,6 +344,16 @@ public class MediaCodecVideoDecoder {
                 }
             }
             this.supportedHardwareCodecs = getSupportedHardwareCodecs();
+        }
+
+        @Override // org.webrtc.VideoDecoderFactory
+        public VideoCodecInfo[] getSupportedCodecs() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.supportedHardwareCodecs;
+            }
+            return (VideoCodecInfo[]) invokeV.objValue;
         }
 
         public static VideoCodecInfo[] getSupportedHardwareCodecs() {
@@ -353,26 +400,18 @@ public class MediaCodecVideoDecoder {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, videoCodecInfo, videoCodecInfo2)) == null) {
-                if (videoCodecInfo.name.equalsIgnoreCase(videoCodecInfo2.name)) {
-                    if (videoCodecInfo.name.equalsIgnoreCase(PeerConnectionClient.VIDEO_CODEC_H264)) {
-                        return H264Utils.isSameH264Profile(videoCodecInfo.params, videoCodecInfo2.params);
-                    }
-                    return true;
+                if (!videoCodecInfo.name.equalsIgnoreCase(videoCodecInfo2.name)) {
+                    return false;
                 }
-                return false;
+                if (videoCodecInfo.name.equalsIgnoreCase(PeerConnectionClient.VIDEO_CODEC_H264)) {
+                    return H264Utils.isSameH264Profile(videoCodecInfo.params, videoCodecInfo2.params);
+                }
+                return true;
             }
             return invokeLL.booleanValue;
         }
 
         @Override // org.webrtc.VideoDecoderFactory
-        @javax.annotation.Nullable
-        @Deprecated
-        public /* synthetic */ VideoDecoder createDecoder(String str) {
-            return ax9.$default$createDecoder(this, str);
-        }
-
-        @Override // org.webrtc.VideoDecoderFactory
-        @Nullable
         public VideoDecoder createDecoder(VideoCodecInfo videoCodecInfo) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -411,39 +450,23 @@ public class MediaCodecVideoDecoder {
                     public long createNativeVideoDecoder() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? MediaCodecVideoDecoder.nativeCreateDecoder(this.val$codec.name, MediaCodecVideoDecoder.useSurface()) : invokeV.longValue;
+                        if (interceptable2 != null && (invokeV = interceptable2.invokeV(1048576, this)) != null) {
+                            return invokeV.longValue;
+                        }
+                        return MediaCodecVideoDecoder.nativeCreateDecoder(this.val$codec.name, MediaCodecVideoDecoder.useSurface());
                     }
                 };
             }
             return (VideoDecoder) invokeL.objValue;
         }
-
-        @Override // org.webrtc.VideoDecoderFactory
-        public VideoCodecInfo[] getSupportedCodecs() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.supportedHardwareCodecs : (VideoCodecInfo[]) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public interface MediaCodecVideoDecoderErrorCallback {
-        void onMediaCodecVideoDecoderCriticalError(int i);
-    }
-
-    /* loaded from: classes8.dex */
-    public interface MediaCodecVideoDecoderObserver {
-        void onSEIRecv(ByteBuffer byteBuffer);
     }
 
     /* loaded from: classes8.dex */
     public class TextureListener implements VideoSink {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        @Nullable
         public DecodedOutputBuffer bufferToRender;
         public final Object newFrameLock;
-        @Nullable
         public DecodedTextureBuffer renderedBuffer;
         public final SurfaceTextureHelper surfaceTextureHelper;
         public final /* synthetic */ MediaCodecVideoDecoder this$0;
@@ -481,7 +504,6 @@ public class MediaCodecVideoDecoder {
             }
         }
 
-        @Nullable
         public DecodedTextureBuffer dequeueTextureBuffer(int i) {
             InterceptResult invokeI;
             DecodedTextureBuffer decodedTextureBuffer;
@@ -509,11 +531,29 @@ public class MediaCodecVideoDecoder {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 synchronized (this.newFrameLock) {
-                    z = this.bufferToRender != null;
+                    if (this.bufferToRender != null) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
                 }
                 return z;
             }
             return invokeV.booleanValue;
+        }
+
+        public void release() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                this.surfaceTextureHelper.stopListening();
+                synchronized (this.newFrameLock) {
+                    if (this.renderedBuffer != null) {
+                        this.renderedBuffer.getVideoFrameBuffer().release();
+                        this.renderedBuffer = null;
+                    }
+                }
+                this.surfaceTextureHelper.dispose();
+            }
         }
 
         @Override // org.webrtc.VideoSink
@@ -535,20 +575,6 @@ public class MediaCodecVideoDecoder {
             }
         }
 
-        public void release() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                this.surfaceTextureHelper.stopListening();
-                synchronized (this.newFrameLock) {
-                    if (this.renderedBuffer != null) {
-                        this.renderedBuffer.getVideoFrameBuffer().release();
-                        this.renderedBuffer = null;
-                    }
-                }
-                this.surfaceTextureHelper.dispose();
-            }
-        }
-
         public void setSize(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
@@ -558,7 +584,7 @@ public class MediaCodecVideoDecoder {
     }
 
     /* loaded from: classes8.dex */
-    public static class TimeStamps {
+    public class TimeStamps {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long decodeStartTimeMs;
@@ -588,7 +614,7 @@ public class MediaCodecVideoDecoder {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public static final class VideoCodecType {
+    public final class VideoCodecType {
         public static final /* synthetic */ VideoCodecType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final VideoCodecType VIDEO_CODEC_H264;
@@ -637,23 +663,31 @@ public class MediaCodecVideoDecoder {
             }
         }
 
-        @CalledByNative("VideoCodecType")
         public static VideoCodecType fromNativeIndex(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? values()[i] : (VideoCodecType) invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+                return values()[i];
+            }
+            return (VideoCodecType) invokeI.objValue;
         }
 
         public static VideoCodecType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (VideoCodecType) Enum.valueOf(VideoCodecType.class, str) : (VideoCodecType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+                return (VideoCodecType) Enum.valueOf(VideoCodecType.class, str);
+            }
+            return (VideoCodecType) invokeL.objValue;
         }
 
         public static VideoCodecType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (VideoCodecType[]) $VALUES.clone() : (VideoCodecType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+                return (VideoCodecType[]) $VALUES.clone();
+            }
+            return (VideoCodecType[]) invokeV.objValue;
         }
     }
 
@@ -675,7 +709,121 @@ public class MediaCodecVideoDecoder {
         supportedColorList = Arrays.asList(19, 21, 2141391872, 2141391873, 2141391874, 2141391875, 2141391876);
     }
 
-    @CalledByNative
+    public static boolean isH264HighProfileHwSupported() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) {
+            if (hwDecoderDisabledTypes.contains("video/avc")) {
+                return false;
+            }
+            if (Build.VERSION.SDK_INT >= 21 && findDecoder("video/avc", new String[]{"OMX.qcom."}) != null) {
+                return true;
+            }
+            if (Build.VERSION.SDK_INT >= 23 && findDecoder("video/avc", new String[]{"OMX.Exynos."}) != null) {
+                return true;
+            }
+            if (PeerConnectionFactory.fieldTrialsFindFullName("WebRTC-MediaTekH264").equals(PeerConnectionFactory.TRIAL_ENABLED) && Build.VERSION.SDK_INT >= 27 && findDecoder("video/avc", new String[]{supportedMediaTekH264HighProfileHwCodecPrefix}) != null) {
+                return true;
+            }
+            if (Build.VERSION.SDK_INT < 23 || findDecoder("video/avc", new String[]{supportedHisiH264HighProfileHwCodecPrefix}) == null) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    private void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65560, this) == null) {
+            Logging.d(TAG, "Java releaseDecoder. Total number of dropped frames: " + this.droppedFrames);
+            checkOnMediaCodecThread();
+            CountDownLatch countDownLatch = new CountDownLatch(1);
+            new Thread(new Runnable(this, countDownLatch) { // from class: org.webrtc.MediaCodecVideoDecoder.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ MediaCodecVideoDecoder this$0;
+                public final /* synthetic */ CountDownLatch val$releaseDone;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, countDownLatch};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$releaseDone = countDownLatch;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        try {
+                            Logging.d(MediaCodecVideoDecoder.TAG, "Java releaseDecoder on release thread");
+                            this.this$0.mediaCodec.stop();
+                            this.this$0.mediaCodec.release();
+                            Logging.d(MediaCodecVideoDecoder.TAG, "Java releaseDecoder on release thread done");
+                        } catch (Exception e) {
+                            Logging.e(MediaCodecVideoDecoder.TAG, "Media decoder release failed", e);
+                        }
+                        this.val$releaseDone.countDown();
+                    }
+                }
+            }).start();
+            if (!ThreadUtils.awaitUninterruptibly(countDownLatch, 5000L)) {
+                Logging.e(TAG, "Media decoder release timeout");
+                codecErrors++;
+                if (errorCallback != null) {
+                    Logging.e(TAG, "Invoke codec error callback. Errors: " + codecErrors);
+                    errorCallback.onMediaCodecVideoDecoderCriticalError(codecErrors);
+                }
+            }
+            this.mediaCodec = null;
+            this.mediaCodecThread = null;
+            runningInstance = null;
+            if (useSurface()) {
+                this.surface.release();
+                this.surface = null;
+                this.textureListener.release();
+            }
+            Logging.d(TAG, "Java releaseDecoder done");
+        }
+    }
+
+    public static final String[] supportedH264HwCodecPrefixes() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65566, null)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add("OMX.qcom.");
+            arrayList.add(MediaCodecUtils.INTEL_PREFIX);
+            arrayList.add(supportedHisiH264HighProfileHwCodecPrefix);
+            arrayList.add("OMX.Exynos.");
+            if (PeerConnectionFactory.fieldTrialsFindFullName("BRTC.MTK.H264.Decode").equals(PeerConnectionFactory.TRIAL_ENABLED)) {
+                arrayList.add(supportedMediaTekH264HighProfileHwCodecPrefix);
+            }
+            arrayList.add("OMX.rk.");
+            arrayList.add("OMX.allwinner.");
+            arrayList.add(MediaCodecUtils.NVIDIA_PREFIX);
+            arrayList.add("OMX.IMG.");
+            arrayList.add("OMX.amlogic.");
+            arrayList.add("OMX.google.");
+            arrayList.add("OMX.sprd.");
+            return (String[]) arrayList.toArray(new String[arrayList.size()]);
+        }
+        return (String[]) invokeV.objValue;
+    }
+
     public MediaCodecVideoDecoder() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -693,31 +841,15 @@ public class MediaCodecVideoDecoder {
         this.dequeuedSurfaceOutputBuffers = new ArrayDeque();
     }
 
-    private void MaybeRenderDecodedTextureBuffer() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || this.dequeuedSurfaceOutputBuffers.isEmpty() || this.textureListener.isWaitingForTexture()) {
-            return;
-        }
-        DecodedOutputBuffer remove = this.dequeuedSurfaceOutputBuffers.remove();
-        this.textureListener.addBufferToRender(remove);
-        this.mediaCodec.releaseOutputBuffer(remove.index, true);
-    }
-
-    private void checkOnMediaCodecThread() throws IllegalStateException {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65541, this) == null) || this.mediaCodecThread.getId() == Thread.currentThread().getId()) {
-            return;
-        }
-        throw new IllegalStateException("MediaCodecVideoDecoder previously operated on " + this.mediaCodecThread + " but is now called on " + Thread.currentThread());
-    }
-
     public static VideoDecoderFactory createFactory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? new DefaultVideoDecoderFactory(new HwDecoderFactory()) : (VideoDecoderFactory) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return new DefaultVideoDecoderFactory(new HwDecoderFactory());
+        }
+        return (VideoDecoderFactory) invokeV.objValue;
     }
 
-    @CalledByNativeUnchecked
     private int dequeueInputBuffer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -733,8 +865,253 @@ public class MediaCodecVideoDecoder {
         return invokeV.intValue;
     }
 
-    @Nullable
-    @CalledByNativeUnchecked
+    public static void disableH264HwCodec() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65546, null) == null) {
+            Logging.w(TAG, "H.264 decoding is disabled by application.");
+            hwDecoderDisabledTypes.add("video/avc");
+        }
+    }
+
+    public static void disableVp8HwCodec() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65547, null) == null) {
+            Logging.w(TAG, "VP8 decoding is disabled by application.");
+            hwDecoderDisabledTypes.add("video/x-vnd.on2.vp8");
+        }
+    }
+
+    public static void disableVp9HwCodec() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65548, null) == null) {
+            Logging.w(TAG, "VP9 decoding is disabled by application.");
+            hwDecoderDisabledTypes.add("video/x-vnd.on2.vp9");
+        }
+    }
+
+    public static void disposeEglContext() {
+        EglBase eglBase2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65549, null) == null) && (eglBase2 = eglBase) != null) {
+            eglBase2.release();
+            eglBase = null;
+        }
+    }
+
+    public static boolean isH264HwSupported() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
+            if (!hwDecoderDisabledTypes.contains("video/avc") && findDecoder("video/avc", supportedH264HwCodecPrefixes()) != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isVp8HwSupported() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
+            if (!hwDecoderDisabledTypes.contains("video/x-vnd.on2.vp8") && findDecoder("video/x-vnd.on2.vp8", supportedVp8HwCodecPrefixes()) != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isVp9HwSupported() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) {
+            if (!hwDecoderDisabledTypes.contains("video/x-vnd.on2.vp9") && findDecoder("video/x-vnd.on2.vp9", supportedVp9HwCodecPrefixes) != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean useSurface() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65568, null)) == null) {
+            if (eglBase != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int getColorFormat() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.colorFormat;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getHeight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.height;
+        }
+        return invokeV.intValue;
+    }
+
+    public ByteBuffer[] getInputBuffers() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.inputBuffers;
+        }
+        return (ByteBuffer[]) invokeV.objValue;
+    }
+
+    public ByteBuffer[] getOutputBuffers() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.outputBuffers;
+        }
+        return (ByteBuffer[]) invokeV.objValue;
+    }
+
+    public int getSliceHeight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.sliceHeight;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getStride() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.stride;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getWidth() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.width;
+        }
+        return invokeV.intValue;
+    }
+
+    private void MaybeRenderDecodedTextureBuffer() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && !this.dequeuedSurfaceOutputBuffers.isEmpty() && !this.textureListener.isWaitingForTexture()) {
+            DecodedOutputBuffer decodedOutputBuffer = (DecodedOutputBuffer) this.dequeuedSurfaceOutputBuffers.remove();
+            this.textureListener.addBufferToRender(decodedOutputBuffer);
+            this.mediaCodec.releaseOutputBuffer(decodedOutputBuffer.index, true);
+        }
+    }
+
+    public static void printStackTrace() {
+        MediaCodecVideoDecoder mediaCodecVideoDecoder;
+        Thread thread;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65558, null) == null) && (mediaCodecVideoDecoder = runningInstance) != null && (thread = mediaCodecVideoDecoder.mediaCodecThread) != null) {
+            StackTraceElement[] stackTrace = thread.getStackTrace();
+            if (stackTrace.length > 0) {
+                Logging.d(TAG, "MediaCodecVideoDecoder stacks trace:");
+                for (StackTraceElement stackTraceElement : stackTrace) {
+                    Logging.d(TAG, stackTraceElement.toString());
+                }
+            }
+        }
+    }
+
+    private void foundSei(ByteBuffer byteBuffer) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65551, this, byteBuffer) == null) && byteBuffer != null) {
+            ByteBuffer allocate = ByteBuffer.allocate(byteBuffer.capacity());
+            byteBuffer.rewind();
+            allocate.put(byteBuffer);
+            byteBuffer.rewind();
+            allocate.flip();
+            MediaCodecVideoDecoderObserver mediaCodecVideoDecoderObserver = videoDecoderObserver;
+            if (mediaCodecVideoDecoderObserver != null) {
+                mediaCodecVideoDecoderObserver.onSEIRecv(allocate);
+            }
+        }
+    }
+
+    private void returnDecodedOutputBuffer(int i) throws IllegalStateException, MediaCodec.CodecException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65562, this, i) == null) {
+            checkOnMediaCodecThread();
+            if (!useSurface()) {
+                this.mediaCodec.releaseOutputBuffer(i, false);
+                return;
+            }
+            throw new IllegalStateException("returnDecodedOutputBuffer() called for surface decoding.");
+        }
+    }
+
+    public static void setEglContext(EglBase.Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65563, null, context) == null) {
+            if (eglBase != null) {
+                Logging.w(TAG, "Egl context already set.");
+                eglBase.release();
+            }
+            eglBase = px9.b(context);
+        }
+    }
+
+    public static void setErrorCallback(MediaCodecVideoDecoderErrorCallback mediaCodecVideoDecoderErrorCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65564, null, mediaCodecVideoDecoderErrorCallback) == null) {
+            Logging.d(TAG, "Set error callback");
+            errorCallback = mediaCodecVideoDecoderErrorCallback;
+        }
+    }
+
+    public static void setVideoDecoderObserver(MediaCodecVideoDecoderObserver mediaCodecVideoDecoderObserver) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65565, null, mediaCodecVideoDecoderObserver) == null) {
+            Logging.d(TAG, "Set video decoder observer");
+            videoDecoderObserver = mediaCodecVideoDecoderObserver;
+        }
+    }
+
+    private void checkOnMediaCodecThread() throws IllegalStateException {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(65541, this) != null) || this.mediaCodecThread.getId() == Thread.currentThread().getId()) {
+            return;
+        }
+        throw new IllegalStateException("MediaCodecVideoDecoder previously operated on " + this.mediaCodecThread + " but is now called on " + Thread.currentThread());
+    }
+
+    public static final String[] supportedVp8HwCodecPrefixes() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65567, null)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add("OMX.qcom.");
+            arrayList.add(MediaCodecUtils.NVIDIA_PREFIX);
+            arrayList.add("OMX.Exynos.");
+            arrayList.add(MediaCodecUtils.INTEL_PREFIX);
+            if (PeerConnectionFactory.fieldTrialsFindFullName("WebRTC-MediaTekVP8").equals(PeerConnectionFactory.TRIAL_ENABLED) && Build.VERSION.SDK_INT >= 24) {
+                arrayList.add(supportedMediaTekH264HighProfileHwCodecPrefix);
+            }
+            return (String[]) arrayList.toArray(new String[arrayList.size()]);
+        }
+        return (String[]) invokeV.objValue;
+    }
+
     private DecodedOutputBuffer dequeueOutputBuffer(int i) {
         InterceptResult invokeI;
         long j;
@@ -749,27 +1126,22 @@ public class MediaCodecVideoDecoder {
             MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
             while (true) {
                 int dequeueOutputBuffer = this.mediaCodec.dequeueOutputBuffer(bufferInfo, TimeUnit.MILLISECONDS.toMicros(i));
-                if (dequeueOutputBuffer == -3) {
-                    this.outputBuffers = this.mediaCodec.getOutputBuffers();
-                    Logging.d(TAG, "Decoder output buffers changed: " + this.outputBuffers.length);
-                    if (this.hasDecodedFirstFrame) {
-                        throw new RuntimeException("Unexpected output buffer change event.");
-                    }
-                } else if (dequeueOutputBuffer != -2) {
-                    if (dequeueOutputBuffer != -1) {
+                if (dequeueOutputBuffer != -3) {
+                    if (dequeueOutputBuffer != -2) {
+                        if (dequeueOutputBuffer == -1) {
+                            return null;
+                        }
                         this.hasDecodedFirstFrame = true;
-                        TimeStamps remove = this.decodeStartTimeMs.remove();
-                        long elapsedRealtime = SystemClock.elapsedRealtime() - remove.decodeStartTimeMs;
+                        TimeStamps timeStamps = (TimeStamps) this.decodeStartTimeMs.remove();
+                        long elapsedRealtime = SystemClock.elapsedRealtime() - timeStamps.decodeStartTimeMs;
                         if (elapsedRealtime > 200) {
                             Logging.e(TAG, "Very high decode time: " + elapsedRealtime + "ms. Q size: " + this.decodeStartTimeMs.size() + ". Might be caused by resuming H264 decoding after a pause.");
                             j = 200L;
                         } else {
                             j = elapsedRealtime;
                         }
-                        return new DecodedOutputBuffer(dequeueOutputBuffer, bufferInfo.offset, bufferInfo.size, TimeUnit.MICROSECONDS.toMillis(bufferInfo.presentationTimeUs), remove.timeStampMs, remove.ntpTimeStampMs, j, SystemClock.elapsedRealtime());
+                        return new DecodedOutputBuffer(dequeueOutputBuffer, bufferInfo.offset, bufferInfo.size, TimeUnit.MICROSECONDS.toMillis(bufferInfo.presentationTimeUs), timeStamps.timeStampMs, timeStamps.ntpTimeStampMs, j, SystemClock.elapsedRealtime());
                     }
-                    return null;
-                } else {
                     MediaFormat outputFormat = this.mediaCodec.getOutputFormat();
                     Logging.d(TAG, "Decoder format changed: " + outputFormat.toString());
                     if (outputFormat.containsKey("crop-left") && outputFormat.containsKey("crop-right") && outputFormat.containsKey("crop-bottom") && outputFormat.containsKey("crop-top")) {
@@ -811,6 +1183,12 @@ public class MediaCodecVideoDecoder {
                         this.stride = Math.max(this.width, this.stride);
                         this.sliceHeight = Math.max(this.height, this.sliceHeight);
                     }
+                } else {
+                    this.outputBuffers = this.mediaCodec.getOutputBuffers();
+                    Logging.d(TAG, "Decoder output buffers changed: " + this.outputBuffers.length);
+                    if (this.hasDecodedFirstFrame) {
+                        throw new RuntimeException("Unexpected output buffer change event.");
+                    }
                 }
             }
             throw new RuntimeException("Unexpected size change. Configured " + this.width + "*" + this.height + ". New " + integer + "*" + integer2);
@@ -818,8 +1196,6 @@ public class MediaCodecVideoDecoder {
         return (DecodedOutputBuffer) invokeI.objValue;
     }
 
-    @Nullable
-    @CalledByNativeUnchecked
     private DecodedTextureBuffer dequeueTextureBuffer(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -835,18 +1211,18 @@ public class MediaCodecVideoDecoder {
                 if (dequeueTextureBuffer != null) {
                     MaybeRenderDecodedTextureBuffer();
                     return dequeueTextureBuffer;
-                } else if (this.dequeuedSurfaceOutputBuffers.size() >= Math.min(3, this.outputBuffers.length) || (i > 0 && !this.dequeuedSurfaceOutputBuffers.isEmpty())) {
-                    this.droppedFrames++;
-                    DecodedOutputBuffer remove = this.dequeuedSurfaceOutputBuffers.remove();
-                    if (i > 0) {
-                        Logging.w(TAG, "Draining decoder. Dropping frame with TS: " + remove.presentationTimeStampMs + ". Total number of dropped frames: " + this.droppedFrames);
-                    } else {
-                        Logging.w(TAG, "Too many output buffers " + this.dequeuedSurfaceOutputBuffers.size() + ". Dropping frame with TS: " + remove.presentationTimeStampMs + ". Total number of dropped frames: " + this.droppedFrames);
-                    }
-                    this.mediaCodec.releaseOutputBuffer(remove.index, false);
-                    return new DecodedTextureBuffer(null, remove.presentationTimeStampMs, remove.timeStampMs, remove.ntpTimeStampMs, remove.decodeTimeMs, SystemClock.elapsedRealtime() - remove.endDecodeTimeMs);
-                } else {
+                } else if (this.dequeuedSurfaceOutputBuffers.size() < Math.min(3, this.outputBuffers.length) && (i <= 0 || this.dequeuedSurfaceOutputBuffers.isEmpty())) {
                     return null;
+                } else {
+                    this.droppedFrames++;
+                    DecodedOutputBuffer decodedOutputBuffer = (DecodedOutputBuffer) this.dequeuedSurfaceOutputBuffers.remove();
+                    if (i > 0) {
+                        Logging.w(TAG, "Draining decoder. Dropping frame with TS: " + decodedOutputBuffer.presentationTimeStampMs + ". Total number of dropped frames: " + this.droppedFrames);
+                    } else {
+                        Logging.w(TAG, "Too many output buffers " + this.dequeuedSurfaceOutputBuffers.size() + ". Dropping frame with TS: " + decodedOutputBuffer.presentationTimeStampMs + ". Total number of dropped frames: " + this.droppedFrames);
+                    }
+                    this.mediaCodec.releaseOutputBuffer(decodedOutputBuffer.index, false);
+                    return new DecodedTextureBuffer(null, decodedOutputBuffer.presentationTimeStampMs, decodedOutputBuffer.timeStampMs, decodedOutputBuffer.ntpTimeStampMs, decodedOutputBuffer.decodeTimeMs, SystemClock.elapsedRealtime() - decodedOutputBuffer.endDecodeTimeMs);
                 }
             }
             throw new IllegalStateException("dequeueTexture() called for byte buffer decoding.");
@@ -854,41 +1230,6 @@ public class MediaCodecVideoDecoder {
         return (DecodedTextureBuffer) invokeI.objValue;
     }
 
-    public static void disableH264HwCodec() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65546, null) == null) {
-            Logging.w(TAG, "H.264 decoding is disabled by application.");
-            hwDecoderDisabledTypes.add("video/avc");
-        }
-    }
-
-    public static void disableVp8HwCodec() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65547, null) == null) {
-            Logging.w(TAG, "VP8 decoding is disabled by application.");
-            hwDecoderDisabledTypes.add("video/x-vnd.on2.vp8");
-        }
-    }
-
-    public static void disableVp9HwCodec() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65548, null) == null) {
-            Logging.w(TAG, "VP9 decoding is disabled by application.");
-            hwDecoderDisabledTypes.add("video/x-vnd.on2.vp9");
-        }
-    }
-
-    public static void disposeEglContext() {
-        EglBase eglBase2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65549, null) == null) || (eglBase2 = eglBase) == null) {
-            return;
-        }
-        eglBase2.release();
-        eglBase = null;
-    }
-
-    @Nullable
     public static DecoderProperties findDecoder(String str, String[] strArr) {
         InterceptResult invokeLL;
         MediaCodecInfo mediaCodecInfo;
@@ -913,14 +1254,15 @@ public class MediaCodecVideoDecoder {
                     int length = supportedTypes.length;
                     int i2 = 0;
                     while (true) {
-                        if (i2 >= length) {
+                        if (i2 < length) {
+                            if (supportedTypes[i2].equals(str)) {
+                                str2 = mediaCodecInfo.getName();
+                                break;
+                            }
+                            i2++;
+                        } else {
                             str2 = null;
                             break;
-                        } else if (supportedTypes[i2].equals(str)) {
-                            str2 = mediaCodecInfo.getName();
-                            break;
-                        } else {
-                            i2++;
                         }
                     }
                     if (str2 == null) {
@@ -930,14 +1272,15 @@ public class MediaCodecVideoDecoder {
                         int length2 = strArr.length;
                         int i3 = 0;
                         while (true) {
-                            if (i3 >= length2) {
+                            if (i3 < length2) {
+                                if (str2.startsWith(strArr[i3])) {
+                                    z = true;
+                                    break;
+                                }
+                                i3++;
+                            } else {
                                 z = false;
                                 break;
-                            } else if (str2.startsWith(strArr[i3])) {
-                                z = true;
-                                break;
-                            } else {
-                                i3++;
                             }
                         }
                         if (z) {
@@ -978,24 +1321,6 @@ public class MediaCodecVideoDecoder {
         return (DecoderProperties) invokeLL.objValue;
     }
 
-    @CalledByNativeUnchecked
-    private void foundSei(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65551, this, byteBuffer) == null) || byteBuffer == null) {
-            return;
-        }
-        ByteBuffer allocate = ByteBuffer.allocate(byteBuffer.capacity());
-        byteBuffer.rewind();
-        allocate.put(byteBuffer);
-        byteBuffer.rewind();
-        allocate.flip();
-        MediaCodecVideoDecoderObserver mediaCodecVideoDecoderObserver = videoDecoderObserver;
-        if (mediaCodecVideoDecoderObserver != null) {
-            mediaCodecVideoDecoderObserver.onSEIRecv(allocate);
-        }
-    }
-
-    @CalledByNativeUnchecked
     private boolean initDecode(VideoCodecType videoCodecType, int i, int i2) {
         InterceptResult invokeLII;
         String[] supportedH264HwCodecPrefixes;
@@ -1066,64 +1391,6 @@ public class MediaCodecVideoDecoder {
         return invokeLII.booleanValue;
     }
 
-    public static boolean isH264HighProfileHwSupported() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) {
-            if (hwDecoderDisabledTypes.contains("video/avc")) {
-                return false;
-            }
-            if (Build.VERSION.SDK_INT < 21 || findDecoder("video/avc", new String[]{"OMX.qcom."}) == null) {
-                if (Build.VERSION.SDK_INT < 23 || findDecoder("video/avc", new String[]{"OMX.Exynos."}) == null) {
-                    if (!PeerConnectionFactory.fieldTrialsFindFullName("WebRTC-MediaTekH264").equals(PeerConnectionFactory.TRIAL_ENABLED) || Build.VERSION.SDK_INT < 27 || findDecoder("video/avc", new String[]{supportedMediaTekH264HighProfileHwCodecPrefix}) == null) {
-                        return Build.VERSION.SDK_INT >= 23 && findDecoder("video/avc", new String[]{supportedHisiH264HighProfileHwCodecPrefix}) != null;
-                    }
-                    return true;
-                }
-                return true;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean isH264HwSupported() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) ? (hwDecoderDisabledTypes.contains("video/avc") || findDecoder("video/avc", supportedH264HwCodecPrefixes()) == null) ? false : true : invokeV.booleanValue;
-    }
-
-    public static boolean isVp8HwSupported() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) ? (hwDecoderDisabledTypes.contains("video/x-vnd.on2.vp8") || findDecoder("video/x-vnd.on2.vp8", supportedVp8HwCodecPrefixes()) == null) ? false : true : invokeV.booleanValue;
-    }
-
-    public static boolean isVp9HwSupported() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) ? (hwDecoderDisabledTypes.contains("video/x-vnd.on2.vp9") || findDecoder("video/x-vnd.on2.vp9", supportedVp9HwCodecPrefixes) == null) ? false : true : invokeV.booleanValue;
-    }
-
-    public static native long nativeCreateDecoder(String str, boolean z);
-
-    public static void printStackTrace() {
-        MediaCodecVideoDecoder mediaCodecVideoDecoder;
-        Thread thread;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65558, null) == null) || (mediaCodecVideoDecoder = runningInstance) == null || (thread = mediaCodecVideoDecoder.mediaCodecThread) == null) {
-            return;
-        }
-        StackTraceElement[] stackTrace = thread.getStackTrace();
-        if (stackTrace.length > 0) {
-            Logging.d(TAG, "MediaCodecVideoDecoder stacks trace:");
-            for (StackTraceElement stackTraceElement : stackTrace) {
-                Logging.d(TAG, stackTraceElement.toString());
-            }
-        }
-    }
-
-    @CalledByNativeUnchecked
     private boolean queueInputBuffer(int i, int i2, long j, long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -1143,75 +1410,6 @@ public class MediaCodecVideoDecoder {
         return invokeCommon.booleanValue;
     }
 
-    @CalledByNativeUnchecked
-    private void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65560, this) == null) {
-            Logging.d(TAG, "Java releaseDecoder. Total number of dropped frames: " + this.droppedFrames);
-            checkOnMediaCodecThread();
-            CountDownLatch countDownLatch = new CountDownLatch(1);
-            new Thread(new Runnable(this, countDownLatch) { // from class: org.webrtc.MediaCodecVideoDecoder.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MediaCodecVideoDecoder this$0;
-                public final /* synthetic */ CountDownLatch val$releaseDone;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, countDownLatch};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$releaseDone = countDownLatch;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        try {
-                            Logging.d(MediaCodecVideoDecoder.TAG, "Java releaseDecoder on release thread");
-                            this.this$0.mediaCodec.stop();
-                            this.this$0.mediaCodec.release();
-                            Logging.d(MediaCodecVideoDecoder.TAG, "Java releaseDecoder on release thread done");
-                        } catch (Exception e) {
-                            Logging.e(MediaCodecVideoDecoder.TAG, "Media decoder release failed", e);
-                        }
-                        this.val$releaseDone.countDown();
-                    }
-                }
-            }).start();
-            if (!ThreadUtils.awaitUninterruptibly(countDownLatch, 5000L)) {
-                Logging.e(TAG, "Media decoder release timeout");
-                codecErrors++;
-                if (errorCallback != null) {
-                    Logging.e(TAG, "Invoke codec error callback. Errors: " + codecErrors);
-                    errorCallback.onMediaCodecVideoDecoderCriticalError(codecErrors);
-                }
-            }
-            this.mediaCodec = null;
-            this.mediaCodecThread = null;
-            runningInstance = null;
-            if (useSurface()) {
-                this.surface.release();
-                this.surface = null;
-                this.textureListener.release();
-            }
-            Logging.d(TAG, "Java releaseDecoder done");
-        }
-    }
-
-    @CalledByNativeUnchecked
     private void reset(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(65561, this, i, i2) == null) {
@@ -1232,141 +1430,5 @@ public class MediaCodecVideoDecoder {
             }
             throw new RuntimeException("Incorrect reset call for non-initialized decoder.");
         }
-    }
-
-    @CalledByNativeUnchecked
-    private void returnDecodedOutputBuffer(int i) throws IllegalStateException, MediaCodec.CodecException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65562, this, i) == null) {
-            checkOnMediaCodecThread();
-            if (!useSurface()) {
-                this.mediaCodec.releaseOutputBuffer(i, false);
-                return;
-            }
-            throw new IllegalStateException("returnDecodedOutputBuffer() called for surface decoding.");
-        }
-    }
-
-    public static void setEglContext(EglBase.Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65563, null, context) == null) {
-            if (eglBase != null) {
-                Logging.w(TAG, "Egl context already set.");
-                eglBase.release();
-            }
-            eglBase = xw9.b(context);
-        }
-    }
-
-    public static void setErrorCallback(MediaCodecVideoDecoderErrorCallback mediaCodecVideoDecoderErrorCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65564, null, mediaCodecVideoDecoderErrorCallback) == null) {
-            Logging.d(TAG, "Set error callback");
-            errorCallback = mediaCodecVideoDecoderErrorCallback;
-        }
-    }
-
-    public static void setVideoDecoderObserver(MediaCodecVideoDecoderObserver mediaCodecVideoDecoderObserver) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65565, null, mediaCodecVideoDecoderObserver) == null) {
-            Logging.d(TAG, "Set video decoder observer");
-            videoDecoderObserver = mediaCodecVideoDecoderObserver;
-        }
-    }
-
-    public static final String[] supportedH264HwCodecPrefixes() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65566, null)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add("OMX.qcom.");
-            arrayList.add(MediaCodecUtils.INTEL_PREFIX);
-            arrayList.add(supportedHisiH264HighProfileHwCodecPrefix);
-            arrayList.add("OMX.Exynos.");
-            if (PeerConnectionFactory.fieldTrialsFindFullName("BRTC.MTK.H264.Decode").equals(PeerConnectionFactory.TRIAL_ENABLED)) {
-                arrayList.add(supportedMediaTekH264HighProfileHwCodecPrefix);
-            }
-            arrayList.add("OMX.rk.");
-            arrayList.add("OMX.allwinner.");
-            arrayList.add(MediaCodecUtils.NVIDIA_PREFIX);
-            arrayList.add("OMX.IMG.");
-            arrayList.add("OMX.amlogic.");
-            arrayList.add("OMX.google.");
-            arrayList.add("OMX.sprd.");
-            return (String[]) arrayList.toArray(new String[arrayList.size()]);
-        }
-        return (String[]) invokeV.objValue;
-    }
-
-    public static final String[] supportedVp8HwCodecPrefixes() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65567, null)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add("OMX.qcom.");
-            arrayList.add(MediaCodecUtils.NVIDIA_PREFIX);
-            arrayList.add("OMX.Exynos.");
-            arrayList.add(MediaCodecUtils.INTEL_PREFIX);
-            if (PeerConnectionFactory.fieldTrialsFindFullName("WebRTC-MediaTekVP8").equals(PeerConnectionFactory.TRIAL_ENABLED) && Build.VERSION.SDK_INT >= 24) {
-                arrayList.add(supportedMediaTekH264HighProfileHwCodecPrefix);
-            }
-            return (String[]) arrayList.toArray(new String[arrayList.size()]);
-        }
-        return (String[]) invokeV.objValue;
-    }
-
-    public static boolean useSurface() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65568, null)) == null) ? eglBase != null : invokeV.booleanValue;
-    }
-
-    @CalledByNative
-    public int getColorFormat() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.colorFormat : invokeV.intValue;
-    }
-
-    @CalledByNative
-    public int getHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.height : invokeV.intValue;
-    }
-
-    @CalledByNative
-    public ByteBuffer[] getInputBuffers() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.inputBuffers : (ByteBuffer[]) invokeV.objValue;
-    }
-
-    @CalledByNative
-    public ByteBuffer[] getOutputBuffers() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.outputBuffers : (ByteBuffer[]) invokeV.objValue;
-    }
-
-    @CalledByNative
-    public int getSliceHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.sliceHeight : invokeV.intValue;
-    }
-
-    @CalledByNative
-    public int getStride() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.stride : invokeV.intValue;
-    }
-
-    @CalledByNative
-    public int getWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.width : invokeV.intValue;
     }
 }

@@ -1,9 +1,8 @@
 package com.baidu.tieba.hottopic.message;
 
-import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.b77;
+import com.baidu.tieba.j77;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +14,7 @@ import tbclient.TopicList.TopicListResIdl;
 public class ResponseSocketHotRanklistMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b77 ranklistData;
+    public j77 ranklistData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseSocketHotRanklistMessage() {
@@ -35,8 +34,25 @@ public class ResponseSocketHotRanklistMessage extends SocketResponsedMessage {
         }
     }
 
+    public j77 getHotRanklistData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.ranklistData;
+        }
+        return (j77) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.ResponsedMessage
+    public void afterDispatchInBackGround(int i, byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
+            super.afterDispatchInBackGround(i, (int) bArr);
+        }
+    }
+
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -48,27 +64,12 @@ public class ResponseSocketHotRanklistMessage extends SocketResponsedMessage {
                 if (getError() != 0) {
                     return topicListResIdl;
                 }
-                b77 b77Var = new b77();
-                this.ranklistData = b77Var;
-                b77Var.b(topicListResIdl.data);
+                j77 j77Var = new j77();
+                this.ranklistData = j77Var;
+                j77Var.b(topicListResIdl.data);
             }
             return topicListResIdl;
         }
         return invokeIL.objValue;
-    }
-
-    public b77 getHotRanklistData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.ranklistData : (b77) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void afterDispatchInBackGround(int i, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
-            super.afterDispatchInBackGround(i, (int) bArr);
-        }
     }
 }

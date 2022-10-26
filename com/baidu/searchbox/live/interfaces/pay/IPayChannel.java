@@ -11,7 +11,7 @@ public interface IPayChannel {
 
     void onPayResult(String str, String str2, String str3, Context context, boolean z);
 
-    void pay(Activity activity, HashMap<String, String> hashMap, IPayCallback iPayCallback);
+    void pay(Activity activity, HashMap hashMap, IPayCallback iPayCallback);
 
     void release();
 }

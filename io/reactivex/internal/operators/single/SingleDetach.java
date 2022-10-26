@@ -9,24 +9,22 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Single;
 import io.reactivex.SingleObserver;
 import io.reactivex.SingleSource;
-import io.reactivex.annotations.Experimental;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
-@Experimental
 /* loaded from: classes8.dex */
-public final class SingleDetach<T> extends Single<T> {
+public final class SingleDetach extends Single {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SingleSource<T> source;
+    public final SingleSource source;
 
     /* loaded from: classes8.dex */
-    public static final class DetachSingleObserver<T> implements SingleObserver<T>, Disposable {
+    public final class DetachSingleObserver implements SingleObserver, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public SingleObserver<? super T> actual;
+        public SingleObserver actual;
         public Disposable d;
 
-        public DetachSingleObserver(SingleObserver<? super T> singleObserver) {
+        public DetachSingleObserver(SingleObserver singleObserver) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -44,29 +42,12 @@ public final class SingleDetach<T> extends Single<T> {
             this.actual = singleObserver;
         }
 
-        @Override // io.reactivex.disposables.Disposable
-        public void dispose() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.actual = null;
-                this.d.dispose();
-                this.d = DisposableHelper.DISPOSED;
-            }
-        }
-
-        @Override // io.reactivex.disposables.Disposable
-        public boolean isDisposed() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d.isDisposed() : invokeV.booleanValue;
-        }
-
         @Override // io.reactivex.SingleObserver
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
                 this.d = DisposableHelper.DISPOSED;
-                SingleObserver<? super T> singleObserver = this.actual;
+                SingleObserver singleObserver = this.actual;
                 if (singleObserver != null) {
                     this.actual = null;
                     singleObserver.onError(th);
@@ -84,20 +65,40 @@ public final class SingleDetach<T> extends Single<T> {
         }
 
         @Override // io.reactivex.SingleObserver
-        public void onSuccess(T t) {
+        public void onSuccess(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
+            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
                 this.d = DisposableHelper.DISPOSED;
-                SingleObserver<? super T> singleObserver = this.actual;
+                SingleObserver singleObserver = this.actual;
                 if (singleObserver != null) {
                     this.actual = null;
-                    singleObserver.onSuccess(t);
+                    singleObserver.onSuccess(obj);
                 }
             }
         }
+
+        @Override // io.reactivex.disposables.Disposable
+        public void dispose() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.actual = null;
+                this.d.dispose();
+                this.d = DisposableHelper.DISPOSED;
+            }
+        }
+
+        @Override // io.reactivex.disposables.Disposable
+        public boolean isDisposed() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.d.isDisposed();
+            }
+            return invokeV.booleanValue;
+        }
     }
 
-    public SingleDetach(SingleSource<T> singleSource) {
+    public SingleDetach(SingleSource singleSource) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -116,7 +117,7 @@ public final class SingleDetach<T> extends Single<T> {
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver<? super T> singleObserver) {
+    public void subscribeActual(SingleObserver singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, singleObserver) == null) {
             this.source.subscribe(new DetachSingleObserver(singleObserver));

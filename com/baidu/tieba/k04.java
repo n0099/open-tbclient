@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -25,9 +25,18 @@ public class k04 implements b14 {
     }
 
     @Override // com.baidu.tieba.b14
-    public void a(mt2 mt2Var, Context context) {
+    public void a(a44 a44Var, z34 z34Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, mt2Var, context) == null) {
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, a44Var, z34Var) == null) && z34Var != null) {
+            z34Var.a(a44Var, "Method 'shareVideo' is not implemented.");
+        }
+    }
+
+    @Override // com.baidu.tieba.b14
+    public void b(r34 r34Var, q34 q34Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, r34Var, q34Var) == null) && q34Var != null) {
+            q34Var.a(r34Var, "Method 'clipVideo' is not implemented.");
         }
     }
 }

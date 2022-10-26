@@ -1,10 +1,8 @@
 package com.baidu.nadcore.requester;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.network.outback.EngineName;
-import com.baidu.tieba.mp0;
+import com.baidu.tieba.np0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,23 +20,25 @@ public class RequestParameters {
     public final int b;
     public final String c;
     public final String d;
-    @Nullable
-    public final mp0 e;
-    @NonNull
+    public final np0 e;
     public final RefreshType f;
     public final String g;
     public final String h;
     public final String i;
     public final SlotType j;
-    @Nullable
-    public final Map<String, String> k;
-    @Nullable
-    public final Map<String, String> l;
+    public final Map k;
+    public final Map l;
     public final boolean m;
+
+    /* loaded from: classes2.dex */
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class RefreshType {
+    public final class RefreshType {
         public static final /* synthetic */ RefreshType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final RefreshType NONE;
@@ -91,19 +91,25 @@ public class RequestParameters {
         public static RefreshType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (RefreshType) Enum.valueOf(RefreshType.class, str) : (RefreshType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (RefreshType) Enum.valueOf(RefreshType.class, str);
+            }
+            return (RefreshType) invokeL.objValue;
         }
 
         public static RefreshType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (RefreshType[]) $VALUES.clone() : (RefreshType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (RefreshType[]) $VALUES.clone();
+            }
+            return (RefreshType[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class SlotType {
+    public final class SlotType {
         public static final /* synthetic */ SlotType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final SlotType BANNER;
@@ -159,38 +165,38 @@ public class RequestParameters {
         public static SlotType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (SlotType) Enum.valueOf(SlotType.class, str) : (SlotType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (SlotType) Enum.valueOf(SlotType.class, str);
+            }
+            return (SlotType) invokeL.objValue;
         }
 
         public static SlotType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (SlotType[]) $VALUES.clone() : (SlotType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (SlotType[]) $VALUES.clone();
+            }
+            return (SlotType[]) invokeV.objValue;
         }
     }
 
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes2.dex */
-    public static class b {
+    public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
         public int b;
         public String c;
         public String d;
-        public mp0 e;
+        public np0 e;
         public RefreshType f;
         public String g;
         public SlotType h;
         public String i;
         public String j;
-        public Map<String, String> k;
-        public Map<String, String> l;
+        public Map k;
+        public Map l;
         public boolean m;
 
         public b() {
@@ -215,7 +221,10 @@ public class RequestParameters {
         public RequestParameters n() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new RequestParameters(this, null) : (RequestParameters) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new RequestParameters(this, null);
+            }
+            return (RequestParameters) invokeV.objValue;
         }
 
         public b o(int i) {
@@ -239,11 +248,7 @@ public class RequestParameters {
         }
     }
 
-    public /* synthetic */ RequestParameters(b bVar, a aVar) {
-        this(bVar);
-    }
-
-    public RequestParameters(@NonNull b bVar) {
+    public RequestParameters(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -271,5 +276,9 @@ public class RequestParameters {
         this.k = bVar.k;
         this.m = bVar.m;
         this.l = bVar.l;
+    }
+
+    public /* synthetic */ RequestParameters(b bVar, a aVar) {
+        this(bVar);
     }
 }

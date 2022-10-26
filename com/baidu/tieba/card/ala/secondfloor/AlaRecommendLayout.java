@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -28,9 +27,9 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.util.YYLiveUtil;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.l26;
-import com.baidu.tieba.m26;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.s26;
+import com.baidu.tieba.t26;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -49,7 +48,7 @@ public class AlaRecommendLayout extends RelativeLayout implements View.OnClickLi
     public TextView d;
     public BdRecyclerView e;
     public AlaRecommendListAdapter f;
-    public List<AlaLiveInfo> g;
+    public List g;
     public String h;
     public String i;
     public boolean j;
@@ -84,19 +83,18 @@ public class AlaRecommendLayout extends RelativeLayout implements View.OnClickLi
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            UpdateAttentionMessage.a data;
+        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+            UpdateAttentionMessage.a aVar;
             AlaUserInfo alaUserInfo;
             Long l;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || !(customResponsedMessage instanceof UpdateAttentionMessage) || (data = ((UpdateAttentionMessage) customResponsedMessage).getData()) == null || data.d || StringUtils.isNull(data.c) || this.a.g == null) {
-                return;
-            }
-            for (AlaLiveInfo alaLiveInfo : this.a.g) {
-                if (alaLiveInfo != null && (alaUserInfo = alaLiveInfo.user_info) != null && (l = alaUserInfo.user_id) != null && data.c.equals(l.toString())) {
-                    this.a.g.remove(alaLiveInfo);
-                    this.a.e();
-                    return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof UpdateAttentionMessage) && (aVar = (UpdateAttentionMessage.a) ((UpdateAttentionMessage) customResponsedMessage).getData()) != null && !aVar.d && !StringUtils.isNull(aVar.c) && this.a.g != null) {
+                for (AlaLiveInfo alaLiveInfo : this.a.g) {
+                    if (alaLiveInfo != null && (alaUserInfo = alaLiveInfo.user_info) != null && (l = alaUserInfo.user_id) != null && aVar.c.equals(l.toString())) {
+                        this.a.g.remove(alaLiveInfo);
+                        this.a.e();
+                        return;
+                    }
                 }
             }
         }
@@ -123,35 +121,30 @@ public class AlaRecommendLayout extends RelativeLayout implements View.OnClickLi
         }
     }
 
-    public final void b() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public AlaRecommendLayout(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0109, (ViewGroup) this, true);
-            setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09022a);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f090228);
-            this.c = findViewById;
-            findViewById.setOnClickListener(this);
-            this.e = (BdRecyclerView) findViewById(R.id.obfuscated_res_0x7f090226);
-            AlaRecommendListAdapter alaRecommendListAdapter = new AlaRecommendListAdapter(this.a);
-            this.f = alaRecommendListAdapter;
-            this.e.setAdapter(alaRecommendListAdapter);
-            this.e.setClipChildren(false);
-            this.e.setLayoutManager(new LinearLayoutManager(this.a, 0, false));
-            this.e.setItemAnimator(new DefaultItemAnimator());
-            int f = ej.f(this.a, R.dimen.M_W_X001);
-            this.e.addItemDecoration(new CommonSpaceItemDecoration(f, ej.f(this.a, R.dimen.M_W_X003), f));
-            BdRecyclerView bdRecyclerView = this.e;
-            bdRecyclerView.setPadding(bdRecyclerView.getPaddingLeft(), ej.f(this.e.getContext(), R.dimen.tbds27), this.e.getPaddingRight(), ej.f(this.e.getContext(), R.dimen.M_H_X005));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-    }
-
-    public final void c(YyExtData yyExtData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yyExtData) == null) && ViewHelper.checkUpIsLogin(this.a)) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveTabMyConcernActivityConfig(this.a, this.h)));
-            TiebaStatic.log(l26.d("c13624", l26.f(this.h), YYLiveUtil.calculateLiveType(yyExtData), TiebaStatic.YYValues.YY_LIVE, this.i));
-        }
+        this.b = 3;
+        this.i = "0";
+        this.k = new a(this, 2001115);
+        this.a = context;
+        b();
     }
 
     public void d(int i) {
@@ -167,38 +160,11 @@ public class AlaRecommendLayout extends RelativeLayout implements View.OnClickLi
         }
     }
 
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || ListUtils.isEmpty(this.g)) {
-            return;
-        }
-        this.f.o(this.g, this.h);
-        this.f.notifyDataSetChanged();
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void onAttachedToWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            MessageManager.getInstance().registerListener(this.k);
-            super.onAttachedToWindow();
-        }
-    }
-
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048581, this, view2) == null) && view2 != null && view2.getId() == R.id.obfuscated_res_0x7f090228) {
             c(null);
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void onDetachedFromWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.k);
-            super.onDetachedFromWindow();
         }
     }
 
@@ -223,14 +189,13 @@ public class AlaRecommendLayout extends RelativeLayout implements View.OnClickLi
         }
     }
 
-    public void setData(m26 m26Var) {
+    public void setData(t26 t26Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, m26Var) == null) || m26Var == null || ListUtils.isEmpty(m26Var.c())) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048585, this, t26Var) == null) && t26Var != null && !ListUtils.isEmpty(t26Var.c())) {
+            this.g = t26Var.c();
+            this.h = t26Var.f();
+            e();
         }
-        this.g = m26Var.c();
-        this.h = m26Var.f();
-        e();
     }
 
     public void setFid(String str) {
@@ -240,29 +205,61 @@ public class AlaRecommendLayout extends RelativeLayout implements View.OnClickLi
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AlaRecommendLayout(Context context, @Nullable AttributeSet attributeSet) {
-        super(context, attributeSet);
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0109, (ViewGroup) this, true);
+            setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09022a);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f090228);
+            this.c = findViewById;
+            findViewById.setOnClickListener(this);
+            this.e = (BdRecyclerView) findViewById(R.id.obfuscated_res_0x7f090226);
+            AlaRecommendListAdapter alaRecommendListAdapter = new AlaRecommendListAdapter(this.a);
+            this.f = alaRecommendListAdapter;
+            this.e.setAdapter(alaRecommendListAdapter);
+            this.e.setClipChildren(false);
+            this.e.setLayoutManager(new LinearLayoutManager(this.a, 0, false));
+            this.e.setItemAnimator(new DefaultItemAnimator());
+            int f = fj.f(this.a, R.dimen.M_W_X001);
+            this.e.addItemDecoration(new CommonSpaceItemDecoration(f, fj.f(this.a, R.dimen.M_W_X003), f));
+            BdRecyclerView bdRecyclerView = this.e;
+            bdRecyclerView.setPadding(bdRecyclerView.getPaddingLeft(), fj.f(this.e.getContext(), R.dimen.tbds27), this.e.getPaddingRight(), fj.f(this.e.getContext(), R.dimen.M_H_X005));
         }
-        this.b = 3;
-        this.i = "0";
-        this.k = new a(this, 2001115);
-        this.a = context;
-        b();
+    }
+
+    public final void c(YyExtData yyExtData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yyExtData) == null) && ViewHelper.checkUpIsLogin(this.a)) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveTabMyConcernActivityConfig(this.a, this.h)));
+            TiebaStatic.log(s26.d("c13624", s26.f(this.h), YYLiveUtil.calculateLiveType(yyExtData), TiebaStatic.YYValues.YY_LIVE, this.i));
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || ListUtils.isEmpty(this.g)) {
+            return;
+        }
+        this.f.o(this.g, this.h);
+        this.f.notifyDataSetChanged();
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void onAttachedToWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            MessageManager.getInstance().registerListener(this.k);
+            super.onAttachedToWindow();
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void onDetachedFromWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.k);
+            super.onDetachedFromWindow();
+        }
     }
 }

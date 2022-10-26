@@ -1,8 +1,6 @@
 package com.baidu.tieba.personPolymeric.mode;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
@@ -14,7 +12,6 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
@@ -26,16 +23,16 @@ import com.baidu.tbadk.core.util.PreLoadImageProvider;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TbImageHelper;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.Cdo;
 import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.e98;
+import com.baidu.tieba.eo;
+import com.baidu.tieba.f98;
+import com.baidu.tieba.fj;
 import com.baidu.tieba.personPolymeric.mode.message.UserPostPageHttpResponseMessage;
 import com.baidu.tieba.personPolymeric.mode.message.UserPostPageRequestMessage;
 import com.baidu.tieba.personPolymeric.mode.message.UserPostPageSocketResponsedMessage;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.rb;
-import com.baidu.tieba.u88;
-import com.baidu.tieba.v88;
+import com.baidu.tieba.sb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -57,7 +54,7 @@ import tbclient.UserPost.DataRes;
 import tbclient.UserPost.UserPostResIdl;
 import tbclient.Voice;
 /* loaded from: classes5.dex */
-public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implements Serializable {
+public class PersonPostModel extends BdBaseModel implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static int FROM_PERSON_POLYMERIC = 1;
     public static int FROM_PERSON_POST = 2;
@@ -66,25 +63,83 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     public static int mRecommentPn = 1;
     public static int mThreadPn;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public Map<String, Object> dataResMap;
+    public Map dataResMap;
     public int hide_post;
     public boolean isShowRecycleBinRedTip;
-    public u88 mCardNullPolymericData;
+    public e98 mCardNullPolymericData;
     public int mFrom;
     public boolean mIsHost;
     public boolean mIsReset;
     public int mLastChooseStyle;
     public d mOnResult;
-    public ResponsedMessage<?> mResponsedMessage;
+    public ResponsedMessage mResponsedMessage;
     public HttpMessageListener pageHttpListener;
-    public rb pageSocketListener;
-    public final ArrayList<Cdo> postList;
-    public final ArrayList<Cdo> threadList;
+    public sb pageSocketListener;
+    public final ArrayList postList;
+    public final ArrayList threadList;
     public int view_card_num;
 
     /* loaded from: classes5.dex */
-    public static class Abs extends OrmObject implements Serializable {
+    public interface c {
+        void i0(PersonPostModel personPostModel, boolean z);
+    }
+
+    /* loaded from: classes5.dex */
+    public interface d {
+        void q0(PersonPostModel personPostModel, boolean z);
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-574236311, "Lcom/baidu/tieba/personPolymeric/mode/PersonPostModel;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-574236311, "Lcom/baidu/tieba/personPolymeric/mode/PersonPostModel;");
+        }
+    }
+
+    public static int getNextShowViewIndex(int i, int i2, int i3) {
+        InterceptResult invokeIII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(65541, null, i, i2, i3)) == null) {
+            for (int i4 = 0; i4 < i && i4 < 3; i4++) {
+                if (i4 != i2 && i4 != i3) {
+                    return i4;
+                }
+            }
+            return -1;
+        }
+        return invokeIII.intValue;
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public class Abs extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String link;
@@ -115,7 +170,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
 
         public void parseProtobuf(Abstract r5) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, r5) == null) || r5 == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, r5) != null) || r5 == null) {
                 return;
             }
             this.type = r5.type.intValue();
@@ -127,7 +182,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     }
 
     /* loaded from: classes5.dex */
-    public static class AnchorInfo extends OrmObject implements Serializable {
+    public class AnchorInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long author_id;
@@ -174,7 +229,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
 
         public void parseProtobuf(tbclient.AnchorInfo anchorInfo) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, anchorInfo) == null) || anchorInfo == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, anchorInfo) != null) || anchorInfo == null) {
                 return;
             }
             this.portrait = anchorInfo.portrait;
@@ -194,7 +249,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     }
 
     /* loaded from: classes5.dex */
-    public static class LabelInfo extends OrmObject implements Serializable {
+    public class LabelInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String LabelId;
@@ -221,7 +276,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
 
         public void parseProtobuf(tbclient.LabelInfo labelInfo) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, labelInfo) == null) || labelInfo == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, labelInfo) != null) || labelInfo == null) {
                 return;
             }
             this.labelHot = labelInfo.labelHot.intValue();
@@ -231,7 +286,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     }
 
     /* loaded from: classes5.dex */
-    public static class LbsInfo implements Serializable {
+    public class LbsInfo implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String lat;
@@ -258,7 +313,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
 
         public void parseProtobuf(tbclient.LbsInfo lbsInfo) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, lbsInfo) == null) || lbsInfo == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, lbsInfo) != null) || lbsInfo == null) {
                 return;
             }
             this.lat = lbsInfo.lat;
@@ -268,7 +323,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     }
 
     /* loaded from: classes5.dex */
-    public static class Media extends OrmObject implements Serializable {
+    public class Media extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String big_pic;
@@ -297,7 +352,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
 
         public void parseProtobuf(tbclient.Media media) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, media) == null) || media == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, media) != null) || media == null) {
                 return;
             }
             this.type = media.type.intValue();
@@ -308,7 +363,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     }
 
     /* loaded from: classes5.dex */
-    public static class PostInfoContent extends OrmObject implements Serializable {
+    public class PostInfoContent extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long create_time;
@@ -339,7 +394,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
 
         public void parseProtobuf(tbclient.PostInfoContent postInfoContent) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, postInfoContent) == null) || postInfoContent == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, postInfoContent) != null) || postInfoContent == null) {
                 return;
             }
             this.create_time = postInfoContent.create_time.longValue();
@@ -359,7 +414,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     }
 
     /* loaded from: classes5.dex */
-    public static class PostInfoList extends OrmObject implements Serializable, PreLoadImageProvider, Cdo {
+    public class PostInfoList extends OrmObject implements Serializable, PreLoadImageProvider, eo {
         public static /* synthetic */ Interceptable $ic;
         public static final BdUniqueId POST_INFO;
         public transient /* synthetic */ FieldHolder $fh;
@@ -409,6 +464,16 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             POST_INFO = BdUniqueId.gen();
         }
 
+        @Override // com.baidu.tieba.eo
+        public BdUniqueId getType() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return POST_INFO;
+            }
+            return (BdUniqueId) invokeV.objValue;
+        }
+
         public PostInfoList() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -448,12 +513,12 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
 
         @Override // com.baidu.tbadk.core.util.PreLoadImageProvider
-        public ArrayList<PreLoadImageInfo> getImages() {
+        public ArrayList getImages() {
             InterceptResult invokeV;
             Media[] mediaArr;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                ArrayList<PreLoadImageInfo> arrayList = new ArrayList<>();
+                ArrayList arrayList = new ArrayList();
                 for (Media media : this.media) {
                     if (media.big_pic != null) {
                         PreLoadImageInfo preLoadImageInfo = new PreLoadImageInfo();
@@ -467,16 +532,9 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             return (ArrayList) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.Cdo
-        public BdUniqueId getType() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? POST_INFO : (BdUniqueId) invokeV.objValue;
-        }
-
         public void parseProtobuf(tbclient.PostInfoList postInfoList, int i) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, postInfoList, i) == null) || postInfoList == null) {
+            if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, postInfoList, i) != null) || postInfoList == null) {
                 return;
             }
             this.forum_id = postInfoList.forum_id.longValue();
@@ -529,7 +587,10 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             if (zhiBoInfoTW != null) {
                 this.twzhibo_info.parseProtobuf(zhiBoInfoTW, i);
             }
-            boolean z = postInfoList.is_share_thread.intValue() == 1;
+            boolean z = true;
+            if (postInfoList.is_share_thread.intValue() != 1) {
+                z = false;
+            }
             this.isShareThread = z;
             if (z) {
                 OriginalThreadInfo originalThreadInfo = new OriginalThreadInfo();
@@ -550,7 +611,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     }
 
     /* loaded from: classes5.dex */
-    public static class Quote extends OrmObject implements Serializable {
+    public class Quote extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String content;
@@ -581,7 +642,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
 
         public void parseProtobuf(tbclient.Quote quote) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, quote) == null) || quote == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, quote) != null) || quote == null) {
                 return;
             }
             this.post_id = quote.post_id.longValue();
@@ -593,7 +654,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     }
 
     /* loaded from: classes5.dex */
-    public static class UserInfo extends OrmObject implements Serializable {
+    public class UserInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long id;
@@ -620,7 +681,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
 
         public void parseProtobuf(User user) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, user) == null) || user == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, user) != null) || user == null) {
                 return;
             }
             this.portrait = user.portrait;
@@ -630,7 +691,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     }
 
     /* loaded from: classes5.dex */
-    public static class Zan extends OrmObject implements Serializable {
+    public class Zan extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int num;
@@ -653,7 +714,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
 
         public void parseProtobuf(tbclient.Zan zan) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, zan) == null) || zan == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, zan) != null) || zan == null) {
                 return;
             }
             this.num = zan.num.intValue();
@@ -661,7 +722,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     }
 
     /* loaded from: classes5.dex */
-    public static class ZhiBoInfoTW extends OrmObject implements Serializable {
+    public class ZhiBoInfoTW extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String content;
@@ -674,7 +735,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         public String livecover_src_bsize;
         public int post_num;
         public int reply_num;
-        public ArrayList<Integer> showExpressionViewIndex;
+        public ArrayList showExpressionViewIndex;
         public int showStyle;
         public long thread_id;
         public String title;
@@ -709,12 +770,12 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             this.labelList = new LabelInfo[0];
             this.showStyle = -1;
             this.isHeadLive = false;
-            this.showExpressionViewIndex = new ArrayList<>();
+            this.showExpressionViewIndex = new ArrayList();
         }
 
         public void parseProtobuf(tbclient.ZhiBoInfoTW zhiBoInfoTW, int i) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048576, this, zhiBoInfoTW, i) == null) || zhiBoInfoTW == null) {
+            if ((interceptable != null && interceptable.invokeLI(1048576, this, zhiBoInfoTW, i) != null) || zhiBoInfoTW == null) {
                 return;
             }
             this.post_num = zhiBoInfoTW.post_num.intValue();
@@ -729,7 +790,11 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             this.reply_num = zhiBoInfoTW.reply_num.intValue();
             this.showStyle = i;
             this.zan.parseProtobuf(zhiBoInfoTW.zan);
-            this.isHeadLive = zhiBoInfoTW.is_headline.intValue() == 1;
+            boolean z = true;
+            if (zhiBoInfoTW.is_headline.intValue() != 1) {
+                z = false;
+            }
+            this.isHeadLive = z;
             this.userInfo.parseProtobuf(zhiBoInfoTW.user);
             List<tbclient.LabelInfo> list = zhiBoInfoTW.labelInfo;
             if (list != null) {
@@ -750,7 +815,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     }
 
     /* loaded from: classes5.dex */
-    public class a extends rb {
+    public class a extends sb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonPostModel a;
@@ -780,12 +845,11 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) && (socketResponsedMessage instanceof UserPostPageSocketResponsedMessage)) {
-                UserPostPageSocketResponsedMessage userPostPageSocketResponsedMessage = (UserPostPageSocketResponsedMessage) socketResponsedMessage;
-                if (userPostPageSocketResponsedMessage.getOrginalMessage() == null || userPostPageSocketResponsedMessage.hasError()) {
-                    this.a.mOnResult.q0(null, this.a.mIsReset);
-                    return;
-                }
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) != null) || !(socketResponsedMessage instanceof UserPostPageSocketResponsedMessage)) {
+                return;
+            }
+            UserPostPageSocketResponsedMessage userPostPageSocketResponsedMessage = (UserPostPageSocketResponsedMessage) socketResponsedMessage;
+            if (userPostPageSocketResponsedMessage.getOrginalMessage() != null && !userPostPageSocketResponsedMessage.hasError()) {
                 if (userPostPageSocketResponsedMessage.getPersonPostModel() != null) {
                     userPostPageSocketResponsedMessage.getPersonPostModel().setResponsedMessage(userPostPageSocketResponsedMessage);
                 }
@@ -793,8 +857,11 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
                 c callback = userPostPageRequestMessage.getCallback();
                 if (callback != null) {
                     callback.i0(userPostPageSocketResponsedMessage.getPersonPostModel(), userPostPageRequestMessage.isReset());
+                    return;
                 }
+                return;
             }
+            this.a.mOnResult.q0(null, this.a.mIsReset);
         }
     }
 
@@ -829,12 +896,11 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof UserPostPageHttpResponseMessage)) {
-                UserPostPageHttpResponseMessage userPostPageHttpResponseMessage = (UserPostPageHttpResponseMessage) httpResponsedMessage;
-                if (userPostPageHttpResponseMessage.getOrginalMessage() == null || userPostPageHttpResponseMessage.hasError()) {
-                    this.a.mOnResult.q0(null, this.a.mIsReset);
-                    return;
-                }
+            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || !(httpResponsedMessage instanceof UserPostPageHttpResponseMessage)) {
+                return;
+            }
+            UserPostPageHttpResponseMessage userPostPageHttpResponseMessage = (UserPostPageHttpResponseMessage) httpResponsedMessage;
+            if (userPostPageHttpResponseMessage.getOrginalMessage() != null && !userPostPageHttpResponseMessage.hasError()) {
                 if (userPostPageHttpResponseMessage.getPersonPostModel() != null) {
                     userPostPageHttpResponseMessage.getPersonPostModel().setResponsedMessage(userPostPageHttpResponseMessage);
                 }
@@ -842,38 +908,48 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
                 c callback = userPostPageRequestMessage.getCallback();
                 if (callback != null) {
                     callback.i0(userPostPageHttpResponseMessage.getPersonPostModel(), userPostPageRequestMessage.isReset());
+                    return;
                 }
+                return;
             }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public interface c {
-        void i0(PersonPostModel personPostModel, boolean z);
-    }
-
-    /* loaded from: classes5.dex */
-    public interface d {
-        void q0(PersonPostModel personPostModel, boolean z);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-574236311, "Lcom/baidu/tieba/personPolymeric/mode/PersonPostModel;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-574236311, "Lcom/baidu/tieba/personPolymeric/mode/PersonPostModel;");
+            this.a.mOnResult.q0(null, this.a.mIsReset);
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PersonPostModel(TbPageContext<BaseFragmentActivity> tbPageContext, d dVar, boolean z, int i) {
+    public PersonPostModel(TbPageContext tbPageContext, BdUniqueId bdUniqueId, d dVar, boolean z, int i) {
+        super(tbPageContext);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId, dVar, Boolean.valueOf(z), Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((r9) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mFrom = -1;
+        this.threadList = new ArrayList();
+        this.postList = new ArrayList();
+        this.hide_post = 0;
+        this.mIsReset = false;
+        this.mLastChooseStyle = -1;
+        this.pageSocketListener = new a(this, 303002);
+        this.pageHttpListener = new b(this, CmdConfigHttp.USER_POST_HTTP_CMD);
+        this.mOnResult = dVar;
+        setUniqueId(bdUniqueId);
+        this.mIsHost = z;
+        this.mFrom = i;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public PersonPostModel(TbPageContext tbPageContext, d dVar, boolean z, int i) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -891,8 +967,8 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             }
         }
         this.mFrom = -1;
-        this.threadList = new ArrayList<>();
-        this.postList = new ArrayList<>();
+        this.threadList = new ArrayList();
+        this.postList = new ArrayList();
         this.hide_post = 0;
         this.mIsReset = false;
         this.mLastChooseStyle = -1;
@@ -904,18 +980,30 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         this.mFrom = i;
     }
 
-    public static int getNextShowViewIndex(int i, int i2, int i3) {
-        InterceptResult invokeIII;
+    public void setOnResult(d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(65541, null, i, i2, i3)) == null) {
-            for (int i4 = 0; i4 < i && i4 < 3; i4++) {
-                if (i4 != i2 && i4 != i3) {
-                    return i4;
-                }
-            }
-            return -1;
+        if (interceptable == null || interceptable.invokeL(1048587, this, dVar) == null) {
+            this.mOnResult = dVar;
         }
-        return invokeIII.intValue;
+    }
+
+    public void setResponsedMessage(ResponsedMessage responsedMessage) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, responsedMessage) == null) {
+            this.mResponsedMessage = responsedMessage;
+        }
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public void setUniqueId(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, bdUniqueId) == null) {
+            this.unique_id = bdUniqueId;
+            registerListener(this.pageSocketListener);
+            registerListener(this.pageHttpListener);
+            this.pageSocketListener.setSelfListener(true);
+            this.pageHttpListener.setSelfListener(true);
+        }
     }
 
     public static int getRandom(int i, int i2) {
@@ -923,23 +1011,26 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(65542, null, i, i2)) == null) {
             int nextInt = new Random().nextInt(i);
-            return nextInt == i2 ? (nextInt + 1) % i : nextInt;
+            if (nextInt == i2) {
+                return (nextInt + 1) % i;
+            }
+            return nextInt;
         }
         return invokeII.intValue;
     }
 
-    public static ArrayList<Cdo> mergeDynamicThreadByTime(ArrayList<Cdo> arrayList) {
+    public static ArrayList mergeDynamicThreadByTime(ArrayList arrayList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, arrayList)) == null) {
             String yearBytime = StringHelper.getYearBytime(System.currentTimeMillis());
-            Iterator<Cdo> it = arrayList.iterator();
+            Iterator it = arrayList.iterator();
             String str = "";
             String str2 = "";
             while (it.hasNext()) {
-                Cdo next = it.next();
-                if (next instanceof CardPersonDynamicThreadData) {
-                    CardPersonDynamicThreadData cardPersonDynamicThreadData = (CardPersonDynamicThreadData) next;
+                eo eoVar = (eo) it.next();
+                if (eoVar instanceof CardPersonDynamicThreadData) {
+                    CardPersonDynamicThreadData cardPersonDynamicThreadData = (CardPersonDynamicThreadData) eoVar;
                     cardPersonDynamicThreadData.D = true;
                     cardPersonDynamicThreadData.C = true;
                     long j = cardPersonDynamicThreadData.g * 1000;
@@ -963,24 +1054,24 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         return (ArrayList) invokeL.objValue;
     }
 
-    private void parseProtobufInternal(DataRes dataRes, int i, User user, @Nullable MetaData metaData) {
+    private void parseProtobufInternal(DataRes dataRes, int i, User user, MetaData metaData) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLILL(65544, this, dataRes, i, user, metaData) == null) || dataRes == null) {
+        if ((interceptable != null && interceptable.invokeLILL(65544, this, dataRes, i, user, metaData) != null) || dataRes == null) {
             return;
         }
         this.dataResMap = DataExt.toMap(dataRes);
         this.hide_post = dataRes.hide_post.intValue();
         if (this.mIsHost && ((2 == dataRes.mask_type.intValue() || 3 == dataRes.mask_type.intValue() || 4 == dataRes.mask_type.intValue()) && i == 1)) {
-            this.postList.add(new v88());
+            this.postList.add(new f98());
             z = false;
         } else {
             z = true;
         }
         if (ListUtils.isEmpty(dataRes.post_list) && z) {
-            u88 u88Var = new u88();
-            this.mCardNullPolymericData = u88Var;
-            this.postList.add(u88Var);
+            e98 e98Var = new e98();
+            this.mCardNullPolymericData = e98Var;
+            this.postList.add(e98Var);
             return;
         }
         for (tbclient.PostInfoList postInfoList : dataRes.post_list) {
@@ -1010,9 +1101,9 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    public static void setShowExpressionViewIndexList(LabelInfo[] labelInfoArr, ArrayList<Integer> arrayList) {
+    public static void setShowExpressionViewIndexList(LabelInfo[] labelInfoArr, ArrayList arrayList) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65545, null, labelInfoArr, arrayList) == null) || labelInfoArr == null) {
+        if ((interceptable != null && interceptable.invokeLL(65545, null, labelInfoArr, arrayList) != null) || labelInfoArr == null) {
             return;
         }
         int length = labelInfoArr.length;
@@ -1035,145 +1126,15 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void fetchPost(TbPageContext<BaseFragmentActivity> tbPageContext, c cVar, boolean z, String str, boolean z2, boolean z3, boolean z4, User user) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{tbPageContext, cVar, Boolean.valueOf(z), str, Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), user}) == null) {
-            fetchPost(tbPageContext, cVar, z, str, z2, 0, z3, z4, user, null, null, null, null, null, null);
-        }
-    }
-
-    public void fetchPostByBeginThreadId(@NonNull String str, @NonNull c cVar, @Nullable MetaData metaData, @NonNull Integer num, @NonNull Integer num2, @NonNull Integer num3, @NonNull Integer num4, @NonNull Long l, @NonNull Integer num5) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, cVar, metaData, num, num2, num3, num4, l, num5}) == null) {
-            UserPostPageRequestMessage userPostPageRequestMessage = new UserPostPageRequestMessage();
-            userPostPageRequestMessage.set_sub_type(num2.intValue());
-            userPostPageRequestMessage.setUid(str);
-            userPostPageRequestMessage.setPn(num5.intValue());
-            userPostPageRequestMessage.setRn(20);
-            userPostPageRequestMessage.setThread(true);
-            userPostPageRequestMessage.setHost(this.mIsHost);
-            userPostPageRequestMessage.setNeedContent(true);
-            userPostPageRequestMessage.setReset(false);
-            userPostPageRequestMessage.setFrom(this.mFrom);
-            int k = ej.k(TbadkCoreApplication.getInst().getApp());
-            int i = ej.i(TbadkCoreApplication.getInst().getApp());
-            float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
-            int i2 = TbImageHelper.getInstance().isShowBigImage() ? 2 : 1;
-            userPostPageRequestMessage.set_scr_w(k);
-            userPostPageRequestMessage.set_scr_h(i);
-            userPostPageRequestMessage.set_scr_dip(f);
-            userPostPageRequestMessage.set_q_type(i2);
-            userPostPageRequestMessage.setCallback(cVar);
-            userPostPageRequestMessage.setThreadAuthor(metaData);
-            userPostPageRequestMessage.set_is_view_card(0);
-            userPostPageRequestMessage.setWorkTabId(num);
-            userPostPageRequestMessage.setType(num3);
-            userPostPageRequestMessage.setFromType(num4);
-            userPostPageRequestMessage.setBeginThreadId(l);
-            sendMessage(userPostPageRequestMessage);
-        }
-    }
-
-    @Nullable
-    public Map<String, Object> getDataResMap() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.dataResMap : (Map) invokeV.objValue;
-    }
-
-    public ResponsedMessage<?> getResponsedMessage() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mResponsedMessage : (ResponsedMessage) invokeV.objValue;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean loadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public UserPostResIdl parseProtobuf(byte[] bArr, int i, User user, @Nullable MetaData metaData) {
-        InterceptResult invokeLILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(1048585, this, bArr, i, user, metaData)) == null) {
-            if (bArr == null) {
-                return null;
-            }
-            try {
-                UserPostResIdl userPostResIdl = (UserPostResIdl) new Wire(new Class[0]).parseFrom(bArr, UserPostResIdl.class);
-                parseProtobufInternal(userPostResIdl.data, i, user, metaData);
-                return userPostResIdl;
-            } catch (Throwable th) {
-                BdLog.detailException(th);
-                return null;
-            }
-        }
-        return (UserPostResIdl) invokeLILL.objValue;
-    }
-
-    public void resetThreadPn() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            mRecommentPn = 1;
-        }
-    }
-
-    public void setOnResult(d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, dVar) == null) {
-            this.mOnResult = dVar;
-        }
-    }
-
-    public void setResponsedMessage(ResponsedMessage<?> responsedMessage) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, responsedMessage) == null) {
-            this.mResponsedMessage = responsedMessage;
-        }
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public void setUniqueId(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, bdUniqueId) == null) {
-            this.unique_id = bdUniqueId;
-            registerListener(this.pageSocketListener);
-            registerListener(this.pageHttpListener);
-            this.pageSocketListener.setSelfListener(true);
-            this.pageHttpListener.setSelfListener(true);
-        }
-    }
-
-    public void fetchPost(TbPageContext<BaseFragmentActivity> tbPageContext, c cVar, boolean z, String str, boolean z2, int i, boolean z3, boolean z4, User user) {
+    public void fetchPost(TbPageContext tbPageContext, c cVar, boolean z, String str, boolean z2, int i, boolean z3, boolean z4, User user) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{tbPageContext, cVar, Boolean.valueOf(z), str, Boolean.valueOf(z2), Integer.valueOf(i), Boolean.valueOf(z3), Boolean.valueOf(z4), user}) == null) {
             fetchPost(tbPageContext, cVar, z, str, z2, i, z3, z4, user, null, null, null, null, null, null);
         }
     }
 
-    public void fetchPost(TbPageContext<BaseFragmentActivity> tbPageContext, c cVar, boolean z, String str, boolean z2, int i, boolean z3, boolean z4, User user, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{tbPageContext, cVar, Boolean.valueOf(z), str, Boolean.valueOf(z2), Integer.valueOf(i), Boolean.valueOf(z3), Boolean.valueOf(z4), user, str2}) == null) {
-            fetchPost(tbPageContext, cVar, z, str, z2, i, z3, z4, user, null, null, null, null, null, str2);
-        }
-    }
-
-    public void fetchPost(TbPageContext<BaseFragmentActivity> tbPageContext, c cVar, boolean z, String str, boolean z2, int i, boolean z3, boolean z4, @Nullable User user, @Nullable MetaData metaData, @Nullable Integer num, @Nullable Integer num2, @Nullable Integer num3, @Nullable Long l, @Nullable String str2) {
+    public void fetchPost(TbPageContext tbPageContext, c cVar, boolean z, String str, boolean z2, int i, boolean z3, boolean z4, User user, MetaData metaData, Integer num, Integer num2, Integer num3, Long l, String str2) {
+        int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{tbPageContext, cVar, Boolean.valueOf(z), str, Boolean.valueOf(z2), Integer.valueOf(i), Boolean.valueOf(z3), Boolean.valueOf(z4), user, metaData, num, num2, num3, l, str2}) == null) {
             this.mIsReset = z;
@@ -1212,14 +1173,18 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             userPostPageRequestMessage.setNeedContent(true);
             userPostPageRequestMessage.setReset(z);
             userPostPageRequestMessage.setFrom(this.mFrom);
-            int k = ej.k(TbadkCoreApplication.getInst().getApp());
-            int i2 = ej.i(TbadkCoreApplication.getInst().getApp());
+            int k = fj.k(TbadkCoreApplication.getInst().getApp());
+            int i3 = fj.i(TbadkCoreApplication.getInst().getApp());
             float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
-            int i3 = TbImageHelper.getInstance().isShowBigImage() ? 2 : 1;
+            if (TbImageHelper.getInstance().isShowBigImage()) {
+                i2 = 2;
+            } else {
+                i2 = 1;
+            }
             userPostPageRequestMessage.set_scr_w(k);
-            userPostPageRequestMessage.set_scr_h(i2);
+            userPostPageRequestMessage.set_scr_h(i3);
             userPostPageRequestMessage.set_scr_dip(f);
-            userPostPageRequestMessage.set_q_type(i3);
+            userPostPageRequestMessage.set_q_type(i2);
             userPostPageRequestMessage.setCallback(cVar);
             userPostPageRequestMessage.setThreadUser(user);
             userPostPageRequestMessage.setThreadAuthor(metaData);
@@ -1236,35 +1201,96 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PersonPostModel(TbPageContext<BaseFragmentActivity> tbPageContext, BdUniqueId bdUniqueId, d dVar, boolean z, int i) {
-        super(tbPageContext);
+    public void fetchPost(TbPageContext tbPageContext, c cVar, boolean z, String str, boolean z2, int i, boolean z3, boolean z4, User user, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, dVar, Boolean.valueOf(z), Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super((r9) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{tbPageContext, cVar, Boolean.valueOf(z), str, Boolean.valueOf(z2), Integer.valueOf(i), Boolean.valueOf(z3), Boolean.valueOf(z4), user, str2}) == null) {
+            fetchPost(tbPageContext, cVar, z, str, z2, i, z3, z4, user, null, null, null, null, null, str2);
+        }
+    }
+
+    public void fetchPost(TbPageContext tbPageContext, c cVar, boolean z, String str, boolean z2, boolean z3, boolean z4, User user) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{tbPageContext, cVar, Boolean.valueOf(z), str, Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), user}) == null) {
+            fetchPost(tbPageContext, cVar, z, str, z2, 0, z3, z4, user, null, null, null, null, null, null);
+        }
+    }
+
+    public void fetchPostByBeginThreadId(String str, c cVar, MetaData metaData, Integer num, Integer num2, Integer num3, Integer num4, Long l, Integer num5) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, cVar, metaData, num, num2, num3, num4, l, num5}) == null) {
+            UserPostPageRequestMessage userPostPageRequestMessage = new UserPostPageRequestMessage();
+            userPostPageRequestMessage.set_sub_type(num2.intValue());
+            userPostPageRequestMessage.setUid(str);
+            userPostPageRequestMessage.setPn(num5.intValue());
+            userPostPageRequestMessage.setRn(20);
+            int i = 1;
+            userPostPageRequestMessage.setThread(true);
+            userPostPageRequestMessage.setHost(this.mIsHost);
+            userPostPageRequestMessage.setNeedContent(true);
+            userPostPageRequestMessage.setReset(false);
+            userPostPageRequestMessage.setFrom(this.mFrom);
+            int k = fj.k(TbadkCoreApplication.getInst().getApp());
+            int i2 = fj.i(TbadkCoreApplication.getInst().getApp());
+            float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
+            if (TbImageHelper.getInstance().isShowBigImage()) {
+                i = 2;
+            }
+            userPostPageRequestMessage.set_scr_w(k);
+            userPostPageRequestMessage.set_scr_h(i2);
+            userPostPageRequestMessage.set_scr_dip(f);
+            userPostPageRequestMessage.set_q_type(i);
+            userPostPageRequestMessage.setCallback(cVar);
+            userPostPageRequestMessage.setThreadAuthor(metaData);
+            userPostPageRequestMessage.set_is_view_card(0);
+            userPostPageRequestMessage.setWorkTabId(num);
+            userPostPageRequestMessage.setType(num3);
+            userPostPageRequestMessage.setFromType(num4);
+            userPostPageRequestMessage.setBeginThreadId(l);
+            sendMessage(userPostPageRequestMessage);
+        }
+    }
+
+    public Map getDataResMap() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.dataResMap;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public ResponsedMessage getResponsedMessage() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mResponsedMessage;
+        }
+        return (ResponsedMessage) invokeV.objValue;
+    }
+
+    public void resetThreadPn() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            mRecommentPn = 1;
+        }
+    }
+
+    public UserPostResIdl parseProtobuf(byte[] bArr, int i, User user, MetaData metaData) {
+        InterceptResult invokeLILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(1048585, this, bArr, i, user, metaData)) == null) {
+            if (bArr == null) {
+                return null;
+            }
+            try {
+                UserPostResIdl userPostResIdl = (UserPostResIdl) new Wire(new Class[0]).parseFrom(bArr, UserPostResIdl.class);
+                parseProtobufInternal(userPostResIdl.data, i, user, metaData);
+                return userPostResIdl;
+            } catch (Throwable th) {
+                BdLog.detailException(th);
+                return null;
             }
         }
-        this.mFrom = -1;
-        this.threadList = new ArrayList<>();
-        this.postList = new ArrayList<>();
-        this.hide_post = 0;
-        this.mIsReset = false;
-        this.mLastChooseStyle = -1;
-        this.pageSocketListener = new a(this, 303002);
-        this.pageHttpListener = new b(this, CmdConfigHttp.USER_POST_HTTP_CMD);
-        this.mOnResult = dVar;
-        setUniqueId(bdUniqueId);
-        this.mIsHost = z;
-        this.mFrom = i;
+        return (UserPostResIdl) invokeLILL.objValue;
     }
 }

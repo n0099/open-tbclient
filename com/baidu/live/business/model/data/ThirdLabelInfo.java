@@ -15,7 +15,7 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class ThirdLabelInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<ThirdLabelInfo> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public String dot;
     public String endColor;
@@ -23,6 +23,16 @@ public class ThirdLabelInfo implements Parcelable {
     public String isShow;
     public String startColor;
     public String text;
+
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -37,7 +47,7 @@ public class ThirdLabelInfo implements Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<ThirdLabelInfo>() { // from class: com.baidu.live.business.model.data.ThirdLabelInfo.1
+        CREATOR = new Parcelable.Creator() { // from class: com.baidu.live.business.model.data.ThirdLabelInfo.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -56,21 +66,25 @@ public class ThirdLabelInfo implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public ThirdLabelInfo createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new ThirdLabelInfo(parcel) : (ThirdLabelInfo) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new ThirdLabelInfo(parcel);
+                }
+                return (ThirdLabelInfo) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public ThirdLabelInfo[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new ThirdLabelInfo[i] : (ThirdLabelInfo[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new ThirdLabelInfo[i];
+                }
+                return (ThirdLabelInfo[]) invokeI.objValue;
             }
         };
     }
@@ -92,43 +106,13 @@ public class ThirdLabelInfo implements Parcelable {
     public boolean canShowLabel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "1".equals(this.isShow) && !(TextUtils.isEmpty(this.text) && TextUtils.isEmpty(this.iconUrl)) : invokeV.booleanValue;
-    }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if ("1".equals(this.isShow) && (!TextUtils.isEmpty(this.text) || !TextUtils.isEmpty(this.iconUrl))) {
+                return true;
+            }
+            return false;
         }
-        return invokeV.intValue;
-    }
-
-    public void parserJson(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        this.text = jSONObject.optString("text");
-        this.iconUrl = jSONObject.optString("icon_url");
-        this.startColor = jSONObject.optString("start_color");
-        this.endColor = jSONObject.optString("end_color");
-        this.dot = jSONObject.optString("dot");
-        this.isShow = jSONObject.optString("is_show");
-    }
-
-    @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i) == null) {
-            parcel.writeString(this.text);
-            parcel.writeString(this.iconUrl);
-            parcel.writeString(this.startColor);
-            parcel.writeString(this.endColor);
-            parcel.writeString(this.dot);
-            parcel.writeString(this.isShow);
-        }
+        return invokeV.booleanValue;
     }
 
     public ThirdLabelInfo(Parcel parcel) {
@@ -152,5 +136,31 @@ public class ThirdLabelInfo implements Parcelable {
         this.endColor = parcel.readString();
         this.dot = parcel.readString();
         this.isShow = parcel.readString();
+    }
+
+    public void parserJson(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        this.text = jSONObject.optString("text");
+        this.iconUrl = jSONObject.optString("icon_url");
+        this.startColor = jSONObject.optString("start_color");
+        this.endColor = jSONObject.optString("end_color");
+        this.dot = jSONObject.optString("dot");
+        this.isShow = jSONObject.optString("is_show");
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i) == null) {
+            parcel.writeString(this.text);
+            parcel.writeString(this.iconUrl);
+            parcel.writeString(this.startColor);
+            parcel.writeString(this.endColor);
+            parcel.writeString(this.dot);
+            parcel.writeString(this.isShow);
+        }
     }
 }

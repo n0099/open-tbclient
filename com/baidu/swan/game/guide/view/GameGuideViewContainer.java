@@ -8,12 +8,10 @@ import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.FrameLayout;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ch3;
-import com.baidu.tieba.vg3;
+import com.baidu.tieba.dh3;
+import com.baidu.tieba.wg3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -68,7 +66,7 @@ public class GameGuideViewContainer extends FrameLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public GameGuideViewContainer(@NonNull Context context) {
+    public GameGuideViewContainer(Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -88,6 +86,68 @@ public class GameGuideViewContainer extends FrameLayout {
         }
     }
 
+    @Override // android.view.ViewGroup
+    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, motionEvent)) == null) {
+            int action = motionEvent.getAction();
+            if (action != 0) {
+                if (action == 2 && c(((int) motionEvent.getRawX()) - this.e, ((int) motionEvent.getRawY()) - this.f)) {
+                    return true;
+                }
+            } else {
+                this.e = (int) motionEvent.getRawX();
+                this.f = (int) motionEvent.getRawY();
+            }
+            return super.onInterceptTouchEvent(motionEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public GameGuideViewContainer(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, -1);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public GameGuideViewContainer(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        b();
+    }
+
     public final void a(int i) {
         int i2;
         int i3;
@@ -97,7 +157,7 @@ public class GameGuideViewContainer extends FrameLayout {
             int i5 = i4 / 2;
             if (i >= i5) {
                 i2 = (int) (((i4 - i) / i5) * 400.0f);
-                i3 = ch3.g(10.0f);
+                i3 = dh3.g(10.0f);
             } else {
                 i2 = (int) ((i / i5) * 400.0f);
                 i3 = i4 - this.a;
@@ -120,9 +180,9 @@ public class GameGuideViewContainer extends FrameLayout {
             this.d = getContext().getResources().getDisplayMetrics().widthPixels;
             this.c = getContext().getResources().getDisplayMetrics().heightPixels;
             if (2 == getContext().getResources().getConfiguration().orientation) {
-                this.d += vg3.c();
+                this.d += wg3.c();
             } else {
-                this.c += vg3.c();
+                this.c += wg3.c();
             }
             this.g = ViewConfiguration.get(getContext()).getScaledTouchSlop();
         }
@@ -131,50 +191,53 @@ public class GameGuideViewContainer extends FrameLayout {
     public final boolean c(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2)) == null) ? Math.sqrt((double) ((i * i) + (i2 * i2))) > ((double) this.g) : invokeII.booleanValue;
+        if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2)) == null) {
+            if (Math.sqrt((i * i) + (i2 * i2)) > this.g) {
+                return true;
+            }
+            return false;
+        }
+        return invokeII.booleanValue;
     }
 
     public final int d(int i) {
         InterceptResult invokeI;
+        int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            int g = i < ch3.g(10.0f) ? ch3.g(10.0f) : i;
-            int i2 = this.d;
-            int i3 = this.a;
-            return i > i2 - i3 ? i2 - i3 : g;
+            if (i < dh3.g(10.0f)) {
+                i2 = dh3.g(10.0f);
+            } else {
+                i2 = i;
+            }
+            int i3 = this.d;
+            int i4 = this.a;
+            if (i > i3 - i4) {
+                return i3 - i4;
+            }
+            return i2;
         }
         return invokeI.intValue;
     }
 
     public final int e(int i) {
         InterceptResult invokeI;
+        int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            int i2 = i < 0 ? 0 : i;
+            if (i < 0) {
+                i2 = 0;
+            } else {
+                i2 = i;
+            }
             int i3 = this.c;
             int i4 = this.b;
-            return i > i3 - i4 ? i3 - i4 : i2;
+            if (i > i3 - i4) {
+                return i3 - i4;
+            }
+            return i2;
         }
         return invokeI.intValue;
-    }
-
-    @Override // android.view.ViewGroup
-    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, motionEvent)) == null) {
-            int action = motionEvent.getAction();
-            if (action != 0) {
-                if (action == 2 && c(((int) motionEvent.getRawX()) - this.e, ((int) motionEvent.getRawY()) - this.f)) {
-                    return true;
-                }
-            } else {
-                this.e = (int) motionEvent.getRawX();
-                this.f = (int) motionEvent.getRawY();
-            }
-            return super.onInterceptTouchEvent(motionEvent);
-        }
-        return invokeL.booleanValue;
     }
 
     @Override // android.view.View
@@ -194,30 +257,34 @@ public class GameGuideViewContainer extends FrameLayout {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, motionEvent)) == null) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) getLayoutParams();
             int action = motionEvent.getAction();
-            if (action == 0) {
-                this.e = (int) motionEvent.getRawX();
-                this.f = (int) motionEvent.getRawY();
+            if (action != 0) {
+                if (action != 1) {
+                    if (action != 2) {
+                        if (action == 3) {
+                            a((int) motionEvent.getRawX());
+                        }
+                    } else {
+                        int rawX = (int) motionEvent.getRawX();
+                        int rawY = (int) motionEvent.getRawY();
+                        int i = rawX - this.e;
+                        int i2 = rawY - this.f;
+                        if (c(i, i2)) {
+                            marginLayoutParams.rightMargin = d(marginLayoutParams.rightMargin - i);
+                            marginLayoutParams.topMargin = e(marginLayoutParams.topMargin + i2);
+                            setLayoutParams(marginLayoutParams);
+                            this.e = rawX;
+                            this.f = rawY;
+                            return true;
+                        }
+                    }
+                } else {
+                    a((int) motionEvent.getRawX());
+                    performClick();
+                }
                 return true;
             }
-            if (action == 1) {
-                a((int) motionEvent.getRawX());
-                performClick();
-            } else if (action == 2) {
-                int rawX = (int) motionEvent.getRawX();
-                int rawY = (int) motionEvent.getRawY();
-                int i = rawX - this.e;
-                int i2 = rawY - this.f;
-                if (c(i, i2)) {
-                    marginLayoutParams.rightMargin = d(marginLayoutParams.rightMargin - i);
-                    marginLayoutParams.topMargin = e(marginLayoutParams.topMargin + i2);
-                    setLayoutParams(marginLayoutParams);
-                    this.e = rawX;
-                    this.f = rawY;
-                    return true;
-                }
-            } else if (action == 3) {
-                a((int) motionEvent.getRawX());
-            }
+            this.e = (int) motionEvent.getRawX();
+            this.f = (int) motionEvent.getRawY();
             return true;
         }
         return invokeL.booleanValue;
@@ -227,49 +294,9 @@ public class GameGuideViewContainer extends FrameLayout {
     public boolean performClick() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? super.performClick() : invokeV.booleanValue;
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public GameGuideViewContainer(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, -1);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return super.performClick();
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GameGuideViewContainer(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        b();
+        return invokeV.booleanValue;
     }
 }

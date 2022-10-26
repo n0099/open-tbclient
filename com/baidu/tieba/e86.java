@@ -1,6 +1,8 @@
 package com.baidu.tieba;
 
-import android.webkit.JsPromptResult;
+import android.content.Context;
+import android.view.MotionEvent;
+import android.view.ScaleGestureDetector;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,40 +10,130 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class e86 implements z76 {
+public class e86 extends d86 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ScaleGestureDetector h;
+    public b i;
 
-    public e86() {
+    /* loaded from: classes3.dex */
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes3.dex */
+    public interface b {
+        void a(boolean z);
+    }
+
+    /* loaded from: classes3.dex */
+    public final class c extends ScaleGestureDetector.SimpleOnScaleGestureListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+        public final /* synthetic */ e86 b;
+
+        public c(e86 e86Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {e86Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = e86Var;
+            this.a = false;
+        }
+
+        @Override // android.view.ScaleGestureDetector.SimpleOnScaleGestureListener, android.view.ScaleGestureDetector.OnScaleGestureListener
+        public final boolean onScaleBegin(ScaleGestureDetector scaleGestureDetector) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, scaleGestureDetector)) == null) {
+                this.a = false;
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // android.view.ScaleGestureDetector.SimpleOnScaleGestureListener, android.view.ScaleGestureDetector.OnScaleGestureListener
+        public final void onScaleEnd(ScaleGestureDetector scaleGestureDetector) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, scaleGestureDetector) == null) {
+                this.a = true;
+            }
+        }
+
+        public /* synthetic */ c(e86 e86Var, a aVar) {
+            this(e86Var);
+        }
+
+        @Override // android.view.ScaleGestureDetector.SimpleOnScaleGestureListener, android.view.ScaleGestureDetector.OnScaleGestureListener
+        public final boolean onScale(ScaleGestureDetector scaleGestureDetector) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, scaleGestureDetector)) == null) {
+                if (scaleGestureDetector != null && this.b.i != null) {
+                    float scaleFactor = scaleGestureDetector.getScaleFactor();
+                    if (!this.a && scaleFactor > 1.0f) {
+                        this.a = true;
+                        this.b.i.a(true);
+                    } else if (!this.a && scaleFactor > 0.0f && scaleFactor < 1.0f) {
+                        this.a = true;
+                        this.b.i.a(false);
+                    }
+                }
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+    }
+
+    public e86(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.h = new ScaleGestureDetector(context, new c(this, null));
     }
 
-    @Override // com.baidu.tieba.z76
-    public void a(String str, String str2, String str3, String str4, JsPromptResult jsPromptResult) {
+    @Override // com.baidu.tieba.d86
+    public boolean c(MotionEvent motionEvent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLLL(1048576, this, str, str2, str3, str4, jsPromptResult) == null) && b().equals(str)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
             try {
-                y76.f().h(str2);
-            } catch (Throwable unused) {
-                y76.f().e();
+                this.h.onTouchEvent(motionEvent);
+                return super.c(motionEvent);
+            } catch (Exception unused) {
+                return false;
             }
         }
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.z76
-    public String b() {
-        InterceptResult invokeV;
+    public void i(b bVar) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "showH5Dialog" : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+            this.i = bVar;
+        }
     }
 }

@@ -69,25 +69,37 @@ public final class HmacAlgorithms {
     public static HmacAlgorithms valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (HmacAlgorithms) Enum.valueOf(HmacAlgorithms.class, str) : (HmacAlgorithms) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (HmacAlgorithms) Enum.valueOf(HmacAlgorithms.class, str);
+        }
+        return (HmacAlgorithms) invokeL.objValue;
     }
 
     public static HmacAlgorithms[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (HmacAlgorithms[]) $VALUES.clone() : (HmacAlgorithms[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (HmacAlgorithms[]) $VALUES.clone();
+        }
+        return (HmacAlgorithms[]) invokeV.objValue;
     }
 
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.name : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.name;
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // java.lang.Enum
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.name : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.name;
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -1,241 +1,111 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.text.TextWatcher;
+import android.widget.EditText;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.AtListActivityConfig;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tbadk.core.data.VoiceData;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.view.spanGroup.SpanGroupManager;
-import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.tbadk.editortools.pb.PbNewInputContainer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class o75 extends j55 {
+public class o75 extends w55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public String b;
-    public boolean c;
+    public EditText t;
 
-    /* loaded from: classes5.dex */
-    public class a implements i55 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ n75 a;
-        public final /* synthetic */ EditorTools b;
-        public final /* synthetic */ o75 c;
-
-        public a(o75 o75Var, n75 n75Var, EditorTools editorTools) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {o75Var, n75Var, editorTools};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = o75Var;
-            this.a = n75Var;
-            this.b = editorTools;
-        }
-
-        @Override // com.baidu.tieba.i55
-        public void B(h55 h55Var) {
-            s55 n;
-            t55 t55Var;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, h55Var) == null) || h55Var == null) {
-                return;
-            }
-            int i = h55Var.a;
-            if (i == 4) {
-                Object obj = h55Var.c;
-                if (obj instanceof p75) {
-                    this.a.a0((p75) obj);
-                    this.a.Z(((p75) h55Var.c).c);
-                } else if (obj instanceof String) {
-                    this.a.T((String) obj);
-                } else if (obj instanceof SpanGroupManager) {
-                    this.a.T(obj.toString());
-                    this.a.Z((SpanGroupManager) h55Var.c);
-                }
-                this.c.a = false;
-            } else if (i == 16) {
-                if (this.c.a) {
-                    this.a.getContext().showToast((int) R.string.obfuscated_res_0x7f0f0d37);
-                }
-                if (this.c.h(this.a.getContext(), 11025)) {
-                    AtListActivityConfig atListActivityConfig = new AtListActivityConfig(this.a.getContext().getPageActivity(), 12005, true);
-                    if (this.a.v() != null) {
-                        atListActivityConfig.setSelectedAtList(this.a.v().w());
-                    }
-                    EditorTools editorTools = this.b;
-                    if (editorTools != null) {
-                        atListActivityConfig.setFromTid(editorTools.getTid());
-                        atListActivityConfig.setFromFid(String.valueOf(this.b.getFid()));
-                    }
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, atListActivityConfig));
-                    StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_AT_PANEL_SHOW);
-                    statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-                    EditorTools editorTools2 = this.b;
-                    if (editorTools2 != null) {
-                        statisticItem.addParam("tid", editorTools2.getTid());
-                        statisticItem.addParam("fid", this.b.getFid());
-                    }
-                    TiebaStatic.log(statisticItem);
-                }
-            } else if (i == 7) {
-                this.a.getContext().showToast((int) R.string.obfuscated_res_0x7f0f0d37);
-                this.c.a = true;
-            } else if (i == 8) {
-                if (this.c.h(this.a.getContext(), 11001)) {
-                    this.a.G();
-                    TiebaStatic.log(TbadkCoreStatisticKey.SUBPB_CLICK_SEND);
-                }
-            } else if (i == 10) {
-                Object obj2 = h55Var.c;
-                if (obj2 instanceof VoiceData.VoiceModel) {
-                    this.a.e0((VoiceData.VoiceModel) obj2);
-                    this.a.w(null);
-                }
-            } else if (i != 11) {
-            } else {
-                this.a.e0(null);
-                EditorTools editorTools3 = this.b;
-                if (editorTools3 == null || (n = editorTools3.n(6)) == null || (t55Var = n.m) == null) {
-                    return;
-                }
-                t55Var.B(new h55(52, 0, null));
-            }
-        }
-    }
-
-    public o75(boolean z) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public o75(Context context, boolean z, boolean z2, int i) {
+        super(context, (String) null, 27);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
+            Object[] objArr = {context, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = false;
-        this.c = false;
-        this.c = z;
+        this.o = false;
+        this.n = 3;
+        PbNewInputContainer pbNewInputContainer = new PbNewInputContainer(context);
+        this.m = pbNewInputContainer;
+        pbNewInputContainer.setTransLink(!z);
+        ((PbNewInputContainer) this.m).setmAtListRequestResponseCode(i);
+        this.t = ((PbNewInputContainer) this.m).getInputView();
+        ((PbNewInputContainer) this.m).setHint(context.getString(R.string.obfuscated_res_0x7f0f10c6));
+        ((PbNewInputContainer) this.m).L(z2);
+        this.p = new int[]{4, 17, 24, 3, 9, 6, 44, 12, 10, 13, 11, 28, 29, 39, 45};
     }
 
-    @Override // com.baidu.tieba.j55
-    public l55 b(Context context) {
-        InterceptResult invokeL;
+    public void g(TextWatcher textWatcher) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            EditorTools editorTools = new EditorTools(context);
-            editorTools.setIsFromPb(true);
-            editorTools.setBarMaxLauCount(5);
-            editorTools.setBackgroundColorId(0);
-            editorTools.setBarLauncherType(this.c ? 5 : 2);
-            editorTools.setBarBackgroundColorId(R.color.CAM_X0207);
-            editorTools.D(false);
-            n75 n75Var = new n75(editorTools);
-            n75Var.s = this.c;
-            return n75Var;
-        }
-        return (l55) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.j55
-    public void c(l55 l55Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l55Var) == null) || l55Var == null) {
-            return;
-        }
-        EditorTools a2 = l55Var.a();
-        a aVar = new a(this, (n75) l55Var, a2);
-        a2.setActionListener(4, aVar);
-        a2.setActionListener(7, aVar);
-        a2.setActionListener(16, aVar);
-        a2.setActionListener(8, aVar);
-        a2.setActionListener(10, aVar);
-        a2.setActionListener(11, aVar);
-    }
-
-    @Override // com.baidu.tieba.j55
-    public void d(l55 l55Var) {
-        CustomResponsedMessage runTask;
-        s55 s55Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, l55Var) == null) {
-            EditorTools a2 = l55Var.a();
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(5);
-            a2.h(arrayList);
-            s55 n = a2.n(5);
-            if (n != null) {
-                n.e(false);
-                n.f(false);
-                n.l = 1;
-            }
-            if (!this.c) {
-                if (cp8.a() && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, a2.getContext()), s55.class)) != null && (s55Var = (s55) runTask.getData()) != null) {
-                    s55Var.l = 2;
-                    a2.d(s55Var);
-                }
-                a2.d(new u55(a2.getContext(), 4));
-            }
-            k75 k75Var = new k75(a2.getContext(), this.c, false, 12005);
-            if (!dj.isEmpty(this.b)) {
-                k75Var.m(this.b);
-            }
-            a2.d(k75Var);
-            a2.f();
-            a2.A(new h55(35, 5, Boolean.FALSE));
-            a2.q();
+        if (interceptable == null || interceptable.invokeL(1048576, this, textWatcher) == null) {
+            this.t.addTextChangedListener(textWatcher);
         }
     }
 
-    public final boolean h(TbPageContext<?> tbPageContext, int i) {
-        InterceptResult invokeLI;
+    public void h(int i) {
+        x55 x55Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, tbPageContext, i)) == null) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (currentAccount == null || currentAccount.length() <= 0) {
-                TbadkCoreApplication.getInst().login(tbPageContext, new CustomMessage<>(2002001, new LoginActivityConfig(tbPageContext.getPageActivity(), true, i)));
-                return false;
-            }
-            return true;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (x55Var = this.m) != null) {
+            ((PbNewInputContainer) x55Var).x(i);
         }
-        return invokeLI.booleanValue;
     }
 
-    public void i(String str) {
+    public void k(TextWatcher textWatcher) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.b = str;
+        if (interceptable == null || interceptable.invokeL(1048580, this, textWatcher) == null) {
+            this.t.removeTextChangedListener(textWatcher);
+        }
+    }
+
+    public void l(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && this.m != null && !StringUtils.isNull(str)) {
+            ((PbNewInputContainer) this.m).setDefaultHint(str);
+        }
+    }
+
+    public void m(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && this.m != null && !StringUtils.isNull(str)) {
+            ((PbNewInputContainer) this.m).setHint(str);
+        }
+    }
+
+    public void n(int i) {
+        x55 x55Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048583, this, i) == null) && (x55Var = this.m) != null) {
+            ((PbNewInputContainer) x55Var).setType(i);
+        }
+    }
+
+    public EditText i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.t;
+        }
+        return (EditText) invokeV.objValue;
+    }
+
+    public void j() {
+        x55 x55Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (x55Var = this.m) != null) {
+            ((PbNewInputContainer) x55Var).H();
         }
     }
 }

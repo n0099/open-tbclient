@@ -25,8 +25,15 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
     public transient /* synthetic */ FieldHolder $fh;
     public BaseFragmentActivity a;
     public LayoutInflater b;
-    public List<ImageFileInfo> c;
-    public Map<Integer, Boolean> d;
+    public List c;
+    public Map d;
+
+    @Override // androidx.viewpager.widget.PagerAdapter
+    public boolean isViewFromObject(View view2, Object obj) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, view2, obj)) == null) ? view2 == obj : invokeLL.booleanValue;
+    }
 
     public AlbumImagePagerAdapter(BaseFragmentActivity baseFragmentActivity) {
         Interceptable interceptable = $ic;
@@ -51,7 +58,10 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
     public ImageFileInfo b(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? (ImageFileInfo) ListUtils.getItem(this.c, i) : (ImageFileInfo) invokeI.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return (ImageFileInfo) ListUtils.getItem(this.c, i);
+        }
+        return (ImageFileInfo) invokeI.objValue;
     }
 
     public boolean c(int i) {
@@ -61,12 +71,12 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
             if (this.d.get(Integer.valueOf(i)) == null) {
                 return false;
             }
-            return this.d.get(Integer.valueOf(i)).booleanValue();
+            return ((Boolean) this.d.get(Integer.valueOf(i))).booleanValue();
         }
         return invokeI.booleanValue;
     }
 
-    public void d(List<ImageFileInfo> list) {
+    public void d(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
             this.c = list;
@@ -86,7 +96,10 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? ListUtils.getCount(this.c) : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return ListUtils.getCount(this.c);
+        }
+        return invokeV.intValue;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -95,13 +108,13 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, viewGroup, i)) == null) {
             View inflate = this.b.inflate(R.layout.obfuscated_res_0x7f0d0115, (ViewGroup) null);
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09038f);
+            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09038e);
             tbImageView.setTag(null);
             tbImageView.setDefaultBgResource(0);
             tbImageView.setDefaultResource(0);
             tbImageView.setGifIconSupport(false);
             tbImageView.setLongIconSupport(false);
-            TbImageView tbImageView2 = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0921d1);
+            TbImageView tbImageView2 = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0921bb);
             tbImageView2.setTag(null);
             tbImageView2.setDefaultBgResource(0);
             tbImageView2.setDefaultResource(0);
@@ -109,8 +122,8 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
             tbImageView2.setLongIconSupport(false);
             ImageFileInfo b = b(i);
             if (b != null) {
-                tbImageView2.L(b.getFilePath(), 35, false, true);
-                tbImageView.K(b.getFilePath(), 36, false);
+                tbImageView2.M(b.getFilePath(), 35, false, true);
+                tbImageView.L(b.getFilePath(), 36, false);
                 this.d.put(Integer.valueOf(i), Boolean.TRUE);
             }
             viewGroup.addView(inflate, 0);
@@ -118,12 +131,5 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
             return inflate;
         }
         return invokeLI.objValue;
-    }
-
-    @Override // androidx.viewpager.widget.PagerAdapter
-    public boolean isViewFromObject(View view2, Object obj) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, view2, obj)) == null) ? view2 == obj : invokeLL.booleanValue;
     }
 }

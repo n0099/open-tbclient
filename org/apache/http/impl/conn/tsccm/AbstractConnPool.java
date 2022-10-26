@@ -23,10 +23,18 @@ public abstract class AbstractConnPool implements RefQueueHandler {
     public transient /* synthetic */ FieldHolder $fh;
     public IdleConnectionHandler idleConnHandler;
     public volatile boolean isShutDown;
-    public Set<BasicPoolEntryRef> issuedConnections;
+    public Set issuedConnections;
     public int numConnections;
     public final Lock poolLock;
-    public ReferenceQueue<Object> refQueue;
+    public ReferenceQueue refQueue;
+
+    public abstract void deleteClosedConnections();
+
+    public abstract void freeEntry(BasicPoolEntry basicPoolEntry, boolean z, long j, TimeUnit timeUnit);
+
+    public abstract void handleLostEntry(HttpRoute httpRoute);
+
+    public abstract PoolEntryRequest requestPoolEntry(HttpRoute httpRoute, Object obj);
 
     public AbstractConnPool() {
         Interceptable interceptable = $ic;
@@ -44,6 +52,27 @@ public abstract class AbstractConnPool implements RefQueueHandler {
         throw new RuntimeException("Stub!");
     }
 
+    public void closeExpiredConnections() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    public void enableConnectionGC() throws IllegalStateException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    public void shutdown() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
     public void closeConnection(OperatedClientConnection operatedClientConnection) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, operatedClientConnection) == null) {
@@ -51,9 +80,10 @@ public abstract class AbstractConnPool implements RefQueueHandler {
         }
     }
 
-    public void closeExpiredConnections() {
+    @Override // org.apache.http.impl.conn.tsccm.RefQueueHandler
+    public void handleReference(Reference reference) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, reference) == null) {
             throw new RuntimeException("Stub!");
         }
     }
@@ -65,17 +95,6 @@ public abstract class AbstractConnPool implements RefQueueHandler {
         }
     }
 
-    public abstract void deleteClosedConnections();
-
-    public void enableConnectionGC() throws IllegalStateException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
-    public abstract void freeEntry(BasicPoolEntry basicPoolEntry, boolean z, long j, TimeUnit timeUnit);
-
     public final BasicPoolEntry getEntry(HttpRoute httpRoute, Object obj, long j, TimeUnit timeUnit) throws ConnectionPoolTimeoutException, InterruptedException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -83,24 +102,5 @@ public abstract class AbstractConnPool implements RefQueueHandler {
             throw new RuntimeException("Stub!");
         }
         return (BasicPoolEntry) invokeCommon.objValue;
-    }
-
-    public abstract void handleLostEntry(HttpRoute httpRoute);
-
-    @Override // org.apache.http.impl.conn.tsccm.RefQueueHandler
-    public void handleReference(Reference reference) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, reference) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
-    public abstract PoolEntryRequest requestPoolEntry(HttpRoute httpRoute, Object obj);
-
-    public void shutdown() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            throw new RuntimeException("Stub!");
-        }
     }
 }

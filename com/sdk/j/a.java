@@ -1,6 +1,5 @@
 package com.sdk.j;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import androidx.core.view.InputDeviceCompat;
@@ -10,7 +9,6 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.sdk.f.g;
-@SuppressLint({"ApplySharedPref"})
 /* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;

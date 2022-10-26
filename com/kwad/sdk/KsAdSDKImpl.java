@@ -4,11 +4,6 @@ import android.content.Context;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.ColorInt;
-import androidx.annotation.Keep;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RawRes;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.ksad.annotation.invoker.ForInvoker;
 import com.kwad.components.ad.feed.FeedDownloadActivityProxy;
@@ -75,7 +70,6 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
 @KsAdSdkDynamicImpl(IKsAdSDK.class)
-@Keep
 /* loaded from: classes7.dex */
 public class KsAdSDKImpl implements IKsAdSDK {
     public static final String INVOKER_ID_INIT = "initForInvoker";
@@ -83,38 +77,32 @@ public class KsAdSDKImpl implements IKsAdSDK {
     public static final String INVOKER_ID_INIT_MODE_IMPL = "initModeImplForInvoker";
     public static final String TAG = "KsAdSDKImpl";
     public static boolean sHasReportAppList;
-    public static final Map<Class, Class> sModelImpl;
+    public static final Map sModelImpl;
     public boolean adxEnable;
     public boolean isExternal;
-    @Nullable
     public AdJumpProxy mAdJumpProxy;
-    @Nullable
     public AdRequestExtentParamsProxy mAdRequestExtentParamsProxy;
-    @Nullable
     public KsLoadManager mAdRequestManager;
     public int mApiVersionCode;
     public String mApiVersionName;
-    @Nullable
     public Context mAppContext;
     public String mAppId;
     public String mAppKey;
     public String mAppName;
     public String mAppWebKey;
     public boolean mEnableDebug;
-    @Nullable
     public AdHttpProxy mHttpProxy;
     public volatile boolean mIsSdkInit;
     public long mLaunchTime;
-    @Nullable
     public AdLocationProxy mLocationProxy;
     public SdkConfig mSdkConfig;
     public volatile boolean personalRecommend;
     public boolean programmaticRecommend;
-    public static final Map<Class, Class> sComponentProxy = new HashMap();
-    public static final Map<Class, Class> sRealComponent = new HashMap();
+    public static final Map sComponentProxy = new HashMap();
+    public static final Map sRealComponent = new HashMap();
 
     /* loaded from: classes7.dex */
-    public static class a {
+    public final class a {
         public static KsAdSDKImpl QU = new KsAdSDKImpl();
     }
 
@@ -157,13 +145,12 @@ public class KsAdSDKImpl implements IKsAdSDK {
     }
 
     @KsAdSdkDynamicImpl(IKsAdSDK.class)
-    @Keep
     public static KsAdSDKImpl get() {
         return a.QU;
     }
 
-    public static Class<?> getProxyRealClass(Class<?> cls) {
-        return sRealComponent.get(cls);
+    public static Class getProxyRealClass(Class cls) {
+        return (Class) sRealComponent.get(cls);
     }
 
     private void initApkClean(Context context) {
@@ -219,7 +206,7 @@ public class KsAdSDKImpl implements IKsAdSDK {
         try {
             com.kwad.components.core.k.e.a(this.mAppContext, new e.a() { // from class: com.kwad.sdk.KsAdSDKImpl.3
                 @Override // com.kwad.components.core.k.e.a
-                public final void a(@NonNull SdkConfigData sdkConfigData) {
+                public final void a(SdkConfigData sdkConfigData) {
                     com.kwad.sdk.core.e.b.i(KsAdSDKImpl.TAG, "onConfigRefresh()");
                     try {
                         KsAdSDKImpl.this.initOnConfigRefresh(sdkConfigData);
@@ -313,7 +300,7 @@ public class KsAdSDKImpl implements IKsAdSDK {
 
     private void initImageLoader(Context context) {
         try {
-            KSImageLoader.init(context, new OnRenderResultListener<AdTemplate>() { // from class: com.kwad.sdk.KsAdSDKImpl.5
+            KSImageLoader.init(context, new OnRenderResultListener() { // from class: com.kwad.sdk.KsAdSDKImpl.5
                 public static void a(boolean z, AdTemplate adTemplate, String str, String str2) {
                     com.kwad.components.core.j.a.og().a(adTemplate, str, str2);
                     if (z) {
@@ -322,10 +309,9 @@ public class KsAdSDKImpl implements IKsAdSDK {
                     com.kwad.components.core.j.a.og().e(adTemplate, 21007);
                 }
 
-                /* JADX DEBUG: Method arguments types fixed to match base method, original types: [boolean, java.lang.Object, java.lang.String, java.lang.String] */
                 @Override // com.kwad.sdk.core.imageloader.OnRenderResultListener
-                public final /* synthetic */ void onRenderResult(boolean z, AdTemplate adTemplate, String str, String str2) {
-                    a(z, adTemplate, str, str2);
+                public final /* synthetic */ void onRenderResult(boolean z, Object obj, String str, String str2) {
+                    a(z, (AdTemplate) obj, str, str2);
                 }
             }, com.kwad.sdk.core.threads.b.vi());
             ServiceProvider.put(g.class, ImageLoaderProxy.INSTANCE);
@@ -407,7 +393,7 @@ public class KsAdSDKImpl implements IKsAdSDK {
         at.init(this.mAppContext);
         f.a(this.mAppContext, 30000L, new h() { // from class: com.kwad.sdk.KsAdSDKImpl.4
             @Override // com.kwad.sdk.collector.h
-            public final void c(@NonNull JSONArray jSONArray) {
+            public final void c(JSONArray jSONArray) {
                 com.kwad.components.core.j.a.og().c(jSONArray);
             }
         });
@@ -508,7 +494,7 @@ public class KsAdSDKImpl implements IKsAdSDK {
     }
 
     @Override // com.kwad.sdk.api.core.IKsAdSDK
-    public void addHp(@NonNull Map<String, String> map) {
+    public void addHp(Map map) {
         com.kwad.sdk.core.a.d.c(map);
     }
 
@@ -546,7 +532,6 @@ public class KsAdSDKImpl implements IKsAdSDK {
     }
 
     @Override // com.kwad.sdk.api.core.IKsAdSDK
-    @NonNull
     public KsLoadManager getAdManager() {
         if (this.mAdRequestManager == null) {
             this.mAdRequestManager = new com.kwad.components.core.c();
@@ -575,7 +560,6 @@ public class KsAdSDKImpl implements IKsAdSDK {
     }
 
     @Override // com.kwad.sdk.api.core.IKsAdSDK
-    @Keep
     public JSONObject getAppInfo() {
         return com.kwad.sdk.core.request.model.a.uM();
     }
@@ -586,7 +570,6 @@ public class KsAdSDKImpl implements IKsAdSDK {
     }
 
     @Override // com.kwad.sdk.api.core.IKsAdSDK
-    @Nullable
     public Context getContext() {
         if (this.mAppContext == null) {
             String format = String.format(L.PREFIX_FORMAT, "KSAdSDK");
@@ -596,7 +579,6 @@ public class KsAdSDKImpl implements IKsAdSDK {
     }
 
     @Override // com.kwad.sdk.api.core.IKsAdSDK
-    @Keep
     public JSONObject getDeviceInfo() {
         return com.kwad.sdk.core.request.model.b.uO().toJson();
     }
@@ -611,17 +593,14 @@ public class KsAdSDKImpl implements IKsAdSDK {
     }
 
     @Override // com.kwad.sdk.api.core.IKsAdSDK
-    @Keep
     public JSONObject getNetworkInfo() {
         return com.kwad.sdk.core.request.model.d.uR().toJson();
     }
 
-    @Nullable
     public AdLocationProxy getProxyForAdLocation() {
         return this.mLocationProxy;
     }
 
-    @NonNull
     public AdHttpProxy getProxyForHttp() {
         AdHttpProxy adHttpProxy = this.mHttpProxy;
         return adHttpProxy != null ? adHttpProxy : com.kwad.components.core.b.le();
@@ -637,7 +616,6 @@ public class KsAdSDKImpl implements IKsAdSDK {
         return com.kwad.sdk.core.a.d.bM(str);
     }
 
-    @Nullable
     public AdRequestExtentParamsProxy getRequestExtentParamsProxy() {
         return this.mAdRequestExtentParamsProxy;
     }
@@ -657,7 +635,6 @@ public class KsAdSDKImpl implements IKsAdSDK {
         return BuildConfig.VERSION_CODE;
     }
 
-    @Nullable
     public SdkConfig getSdkConfig() {
         return this.mSdkConfig;
     }
@@ -743,20 +720,20 @@ public class KsAdSDKImpl implements IKsAdSDK {
     }
 
     @Override // com.kwad.sdk.api.core.IKsAdSDK
-    public <T extends IComponentProxy> T newComponentProxy(Class<?> cls, Object obj) {
-        Class cls2 = sComponentProxy.get(cls);
+    public IComponentProxy newComponentProxy(Class cls, Object obj) {
+        Class cls2 = (Class) sComponentProxy.get(cls);
         com.kwad.sdk.core.e.b.d(TAG, "componentClass :" + cls + StringUtil.ARRAY_ELEMENT_SEPARATOR + cls2);
         try {
-            return (T) cls2.newInstance();
+            return (IComponentProxy) cls2.newInstance();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
 
     @Override // com.kwad.sdk.api.core.IKsAdSDK
-    public <T> T newInstance(Class<T> cls) {
+    public Object newInstance(Class cls) {
         try {
-            return (T) sModelImpl.get(cls).newInstance();
+            return ((Class) sModelImpl.get(cls)).newInstance();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -779,7 +756,7 @@ public class KsAdSDKImpl implements IKsAdSDK {
     }
 
     @Override // com.kwad.sdk.api.core.IKsAdSDK
-    public void reportBatchEvent(int i, Map<String, Object> map) {
+    public void reportBatchEvent(int i, Map map) {
     }
 
     @Override // com.kwad.sdk.api.core.IKsAdSDK
@@ -788,7 +765,7 @@ public class KsAdSDKImpl implements IKsAdSDK {
     }
 
     @Override // com.kwad.sdk.api.core.IKsAdSDK
-    public void sR(String str, Map<String, String> map, String str2) {
+    public void sR(String str, Map map, String str2) {
         com.kwad.sdk.core.a.d.a(str, map, str2);
     }
 
@@ -823,12 +800,12 @@ public class KsAdSDKImpl implements IKsAdSDK {
     }
 
     @Override // com.kwad.sdk.api.core.IKsAdSDK
-    public void setLoadingLottieAnimation(boolean z, @RawRes int i) {
+    public void setLoadingLottieAnimation(boolean z, int i) {
         com.kwad.sdk.components.c.f(com.kwad.components.kwai.kwai.a.class);
     }
 
     @Override // com.kwad.sdk.api.core.IKsAdSDK
-    public void setLoadingLottieAnimationColor(boolean z, @ColorInt int i) {
+    public void setLoadingLottieAnimationColor(boolean z, int i) {
         com.kwad.sdk.components.c.f(com.kwad.components.kwai.kwai.a.class);
     }
 

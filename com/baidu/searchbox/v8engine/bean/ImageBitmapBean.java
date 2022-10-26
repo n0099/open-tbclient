@@ -50,25 +50,37 @@ public class ImageBitmapBean {
     public Bitmap getBitmap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mBitmap : (Bitmap) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mBitmap;
+        }
+        return (Bitmap) invokeV.objValue;
     }
 
     public int getBitmapByteCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.byteCount : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.byteCount;
+        }
+        return invokeV.intValue;
     }
 
     public int getRefCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mRefCount : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mRefCount;
+        }
+        return invokeV.intValue;
     }
 
     public String getSrc() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mSrc : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mSrc;
+        }
+        return (String) invokeV.objValue;
     }
 
     public void increaseRefCount() {
@@ -81,11 +93,10 @@ public class ImageBitmapBean {
     public void reset() {
         Bitmap bitmap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (bitmap = this.mBitmap) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (bitmap = this.mBitmap) != null) {
+            bitmap.recycle();
+            this.mBitmap = null;
         }
-        bitmap.recycle();
-        this.mBitmap = null;
     }
 
     public boolean resetIfNoUsed() {

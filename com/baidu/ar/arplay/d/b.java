@@ -49,7 +49,7 @@ public class b {
     public View.OnTouchListener gh;
     public View.OnTouchListener gi;
     public String gj;
-    public List<com.baidu.ar.arplay.d.a> gk;
+    public List gk;
     public ViewGroup gl;
     public WebView gm;
     public Handler gn;
@@ -159,7 +159,7 @@ public class b {
                             if (c0050a == null || (n = this.gq.n(c0050a.dM)) == null || (str = c0050a.ge) == null) {
                                 return;
                             }
-                            n.evaluateJavascript(str, new ValueCallback<String>(this, n) { // from class: com.baidu.ar.arplay.d.b.1.1
+                            n.evaluateJavascript(str, new ValueCallback(this, n) { // from class: com.baidu.ar.arplay.d.b.1.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
                                 public final /* synthetic */ com.baidu.ar.arplay.d.a gr;
@@ -332,7 +332,7 @@ public class b {
     public void a(int i, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(65541, this, i, aVar) == null) {
-            HashMap<String, Object> hashMap = new HashMap<>();
+            HashMap hashMap = new HashMap();
             hashMap.put("event_name", "webView_operation_load_failed");
             HashMap hashMap2 = new HashMap();
             hashMap2.put("texture_id", Integer.valueOf(i));
@@ -570,7 +570,7 @@ public class b {
     public void l(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65557, this, i) == null) {
-            HashMap<String, Object> hashMap = new HashMap<>();
+            HashMap hashMap = new HashMap();
             hashMap.put("event_name", "webView_operation_load_finish");
             HashMap hashMap2 = new HashMap();
             hashMap2.put("texture_id", Integer.valueOf(i));
@@ -583,7 +583,7 @@ public class b {
     public void m(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65558, this, i) == null) {
-            HashMap<String, Object> hashMap = new HashMap<>();
+            HashMap hashMap = new HashMap();
             hashMap.put("event_name", "webView_operation_update_finish");
             HashMap hashMap2 = new HashMap();
             hashMap2.put("texture_id", Integer.valueOf(i));

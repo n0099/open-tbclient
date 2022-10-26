@@ -1,22 +1,113 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.stats.BdStatisticsManager;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.searchbox.fluency.tracer.FpsTracer;
-import com.baidu.searchbox.fluency.utils.FpsConstants;
 import com.baidu.tbadk.performanceLog.PerformanceLoggerHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import java.util.HashMap;
-import java.util.Map;
-/* loaded from: classes5.dex */
-public class td5 extends rd5 {
+/* loaded from: classes6.dex */
+public class td5 extends ud5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long b;
+    public long c;
+    public long d;
+    public int e;
+    public long f;
+    public int g;
+    public b h;
+    public final Handler i;
+
+    /* loaded from: classes6.dex */
+    public class a extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ td5 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(td5 td5Var, Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {td5Var, looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = td5Var;
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                this.a.h = new b(this.a);
+                this.a.h.setSelfExecute(true);
+                this.a.h.execute(new String[0]);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b extends BdAsyncTask {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ td5 a;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(Boolean bool) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bool) == null) {
+            }
+        }
+
+        public b(td5 td5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {td5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = td5Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public Boolean doInBackground(String... strArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
+                this.a.g = PerformanceLoggerHelper.getInstance().getCpuUsageStatistic();
+                this.a.e();
+                return Boolean.TRUE;
+            }
+            return (Boolean) invokeL.objValue;
+        }
+    }
 
     public td5() {
         Interceptable interceptable = $ic;
@@ -28,142 +119,25 @@ public class td5 extends rd5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public void b(pd5 pd5Var) {
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, pd5Var) == null) && PerformanceLoggerHelper.getInstance().isSmallFlow()) {
-            lh a = rd5.a();
-            a.b("action", "time");
-            a.b("ishttp", pd5Var.s ? "1" : "0");
-            a.b("issuccess", pd5Var.b ? "1" : "0");
-            a.b(FpsTracer.UBC_KEY_NET_TYPE, PerformanceLoggerHelper.getInstance().getNetType());
-            a.b("wt", String.valueOf(pd5Var.p));
-            a.b("qt", String.valueOf(pd5Var.f));
-            a.b("connt", String.valueOf(pd5Var.g));
-            a.b("rwt", String.valueOf(pd5Var.h));
-            a.b("fbt", String.valueOf(pd5Var.i));
-            a.b("abt", String.valueOf(pd5Var.j));
-            a.b("dect", String.valueOf(pd5Var.k));
-            a.b("parset", String.valueOf(pd5Var.l));
-            a.b("tqt", String.valueOf(pd5Var.n));
-            a.b("rendert", String.valueOf(pd5Var.o));
-            a.b("ss", String.valueOf(pd5Var.q));
-            a.b("hs", String.valueOf(pd5Var.r));
-            if (pd5Var.s && (i = pd5Var.t) != 0) {
-                a.b("salno", String.valueOf(i));
-                long j = pd5Var.u;
-                if (j != 0) {
-                    a.b("scosttime", String.valueOf(j));
-                }
-            }
-            if (pd5Var.s) {
-                a.b("hrtn", String.valueOf(pd5Var.w));
-                a.b("hrtt", String.valueOf(pd5Var.x));
-            }
-            int i2 = pd5Var.v;
-            if (i2 != 0) {
-                a.c("errcode", Integer.valueOf(i2));
-            }
-            if (pd5Var.y) {
-                a.b(Config.PLATFORM_TYPE, "1");
-            } else {
-                a.b("sysct", String.valueOf(pd5Var.c));
-                a.b(Config.EXCEPTION_CRASH_TYPE, String.valueOf(pd5Var.e));
-                a.b(WebvttCueParser.ENTITY_LESS_THAN, String.valueOf(pd5Var.d));
-                a.b("df", String.valueOf(pd5Var.m));
-            }
-            if (pd5Var.s) {
-                a.b("c_logid", String.valueOf(pd5Var.A));
-                long j2 = pd5Var.z;
-                if (j2 != 0) {
-                    a.b("seq_id", String.valueOf(j2 & 4294967295L));
-                }
-            } else {
-                a.b("seq_id", String.valueOf(pd5Var.z & 4294967295L));
-            }
-            HashMap<String, String> hashMap = pd5Var.E;
-            if (hashMap != null && !hashMap.isEmpty()) {
-                for (Map.Entry<String, String> entry : pd5Var.E.entrySet()) {
-                    a.b(entry.getKey(), entry.getValue());
-                }
-            }
-            BdStatisticsManager.getInstance().performance(this.a, a);
-        }
-    }
-
-    public void c(pd5 pd5Var, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pd5Var, i) == null) && PerformanceLoggerHelper.getInstance().isSmallFlow() && pd5Var.D > 0) {
-            lh a = rd5.a();
-            a.b("action", "time");
-            a.b("pct", String.valueOf(pd5Var.D));
-            if (i == 0) {
-                a.b("pct_type", String.valueOf(100));
-            } else if (i != 40) {
                 return;
-            } else {
-                a.b("pct_type", String.valueOf(101));
             }
-            BdStatisticsManager.getInstance().performance(this.a, a);
+        }
+        this.h = null;
+        this.i = new a(this, Looper.getMainLooper());
+    }
+
+    public final void e() {
+        wd5 wd5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (wd5Var = (wd5) PerformanceLoggerHelper.getInstance().getLoggerWithType(this.a)) != null) {
+            wd5Var.c(this);
         }
     }
 
-    public void d(pd5 pd5Var, boolean z) {
-        int i;
+    public void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, pd5Var, z) == null) && PerformanceLoggerHelper.getInstance().isSmallFlow()) {
-            if (!z || pd5Var.B > 0) {
-                if (z || pd5Var.C > 0) {
-                    lh a = rd5.a();
-                    a.b("action", "time");
-                    if (z) {
-                        a.b("put", String.valueOf(pd5Var.B));
-                    } else {
-                        a.b("pdt", String.valueOf(pd5Var.C));
-                    }
-                    a.b("ishttp", pd5Var.s ? "1" : "0");
-                    a.b("issuccess", pd5Var.b ? "1" : "0");
-                    a.b(FpsTracer.UBC_KEY_NET_TYPE, PerformanceLoggerHelper.getInstance().getNetType());
-                    a.b("qt", String.valueOf(pd5Var.f));
-                    a.b("connt", String.valueOf(pd5Var.g));
-                    a.b("rwt", String.valueOf(pd5Var.h));
-                    a.b("dect", String.valueOf(pd5Var.k));
-                    a.b("parset", String.valueOf(pd5Var.l));
-                    a.b("rendert", String.valueOf(pd5Var.o));
-                    a.b("ss", String.valueOf(pd5Var.q));
-                    a.b("hs", String.valueOf(pd5Var.r));
-                    if (pd5Var.s && (i = pd5Var.t) != 0) {
-                        a.b("salno", String.valueOf(i));
-                        long j = pd5Var.u;
-                        if (j != 0) {
-                            a.b("scosttime", String.valueOf(j));
-                        }
-                    }
-                    int i2 = pd5Var.v;
-                    if (i2 != 0) {
-                        a.c("errcode", Integer.valueOf(i2));
-                    }
-                    BdStatisticsManager.getInstance().performance(this.a, a);
-                }
-            }
-        }
-    }
-
-    public void e(jd5 jd5Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, jd5Var) == null) && jd5Var != null && PerformanceLoggerHelper.getInstance().isSmallFlow()) {
-            lh a = rd5.a();
-            a.b("action", FpsTracer.UBC_KEY_FLUENCY);
-            a.b(FpsConstants.REPORT_FPS, String.valueOf(jd5Var.b()));
-            BdStatisticsManager.getInstance().performance(this.a, a);
-            lh a2 = rd5.a();
-            a2.b("action", "mem");
-            a2.b("memp", String.valueOf(PerformanceLoggerHelper.getInstance().getCurrentUsedMemory()));
-            BdStatisticsManager.getInstance().performance(this.a, a2);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.i.sendEmptyMessage(0);
         }
     }
 }

@@ -8,9 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import androidx.annotation.ColorRes;
-import androidx.annotation.DrawableRes;
-import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -18,8 +15,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.hv4;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.nv4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -42,13 +39,11 @@ public class NormalItemCell extends ConstraintLayout {
     public String g;
 
     /* loaded from: classes3.dex */
-    public static class a {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        @ColorRes
         public int a;
         public int b;
-        @DrawableRes
         public int c;
         public int d;
         public CharSequence e;
@@ -70,7 +65,7 @@ public class NormalItemCell extends ConstraintLayout {
             this.a = -1;
             this.b = 0;
             this.c = -1;
-            this.d = ej.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X007);
+            this.d = fj.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X007);
         }
     }
 
@@ -87,8 +82,8 @@ public class NormalItemCell extends ConstraintLayout {
                 return;
             }
         }
-        h = ej.f(TbadkCoreApplication.getInst(), R.dimen.T_X08);
-        i = ej.f(TbadkCoreApplication.getInst(), R.dimen.T_X09);
+        h = fj.f(TbadkCoreApplication.getInst(), R.dimen.T_X08);
+        i = fj.f(TbadkCoreApplication.getInst(), R.dimen.T_X09);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -110,6 +105,69 @@ public class NormalItemCell extends ConstraintLayout {
                 return;
             }
         }
+    }
+
+    public void setSubTitle(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.g = str;
+            this.d.setText(str);
+            CharSequence charSequence = "";
+            if (!TextUtils.isEmpty(str)) {
+                this.d.setHint("");
+            } else {
+                TextView textView = this.d;
+                a aVar = this.f;
+                if (aVar != null) {
+                    charSequence = aVar.f;
+                }
+                textView.setHint(charSequence);
+            }
+            d();
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public NormalItemCell(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public NormalItemCell(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        b(context);
     }
 
     private void setupDivider(int i2) {
@@ -135,14 +193,30 @@ public class NormalItemCell extends ConstraintLayout {
         }
     }
 
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.e.setVisibility(0);
+        }
+    }
+
+    public String getSubTitleContent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.g;
+        }
+        return (String) invokeV.objValue;
+    }
+
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0667, this);
-            this.a = findViewById(R.id.obfuscated_res_0x7f09081c);
-            this.b = findViewById(R.id.obfuscated_res_0x7f090803);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09148f);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091fa2);
+            this.a = findViewById(R.id.obfuscated_res_0x7f090825);
+            this.b = findViewById(R.id.obfuscated_res_0x7f09080c);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091481);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091fa1);
             this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902ba);
         }
     }
@@ -165,7 +239,7 @@ public class NormalItemCell extends ConstraintLayout {
             }
             a aVar2 = this.f;
             if (aVar2 != null && aVar2.a != -1) {
-                hv4 d = hv4.d(this.d);
+                nv4 d = nv4.d(this.d);
                 d.n(R.string.J_X06);
                 d.f(this.f.a);
             }
@@ -183,38 +257,34 @@ public class NormalItemCell extends ConstraintLayout {
                 return;
             }
             a aVar = this.f;
-            if (aVar == null || (i2 = aVar.c) == -1 || (pureDrawable = WebPManager.getPureDrawable(i2, SkinManager.getColor(R.color.CAM_X0107), null)) == null) {
-                return;
+            if (aVar != null && (i2 = aVar.c) != -1 && (pureDrawable = WebPManager.getPureDrawable(i2, SkinManager.getColor(R.color.CAM_X0107), null)) != null) {
+                int f = fj.f(getContext(), R.dimen.tbds32);
+                pureDrawable.setBounds(0, 0, f, f);
+                this.d.setCompoundDrawables(pureDrawable, null, null, null);
             }
-            int f = ej.f(getContext(), R.dimen.tbds32);
-            pureDrawable.setBounds(0, 0, f, f);
-            this.d.setCompoundDrawables(pureDrawable, null, null, null);
         }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.e.setVisibility(0);
-        }
-    }
-
-    public String getSubTitleContent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.g : (String) invokeV.objValue;
     }
 
     public void setConfig(a aVar) {
+        int i2;
+        int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
             this.f = aVar;
             if (aVar != null) {
-                int i2 = aVar.d;
-                setPadding(i2, 0, i2, 0);
-                int f = aVar.a != -1 ? ej.f(getContext(), R.dimen.M_W_X004) : 0;
-                int f2 = aVar.a != -1 ? ej.f(getContext(), R.dimen.tbds8) : 0;
-                this.d.setPadding(f, f2, f, f2);
+                int i4 = aVar.d;
+                setPadding(i4, 0, i4, 0);
+                if (aVar.a != -1) {
+                    i2 = fj.f(getContext(), R.dimen.M_W_X004);
+                } else {
+                    i2 = 0;
+                }
+                if (aVar.a != -1) {
+                    i3 = fj.f(getContext(), R.dimen.tbds8);
+                } else {
+                    i3 = 0;
+                }
+                this.d.setPadding(i2, i3, i2, i3);
                 if (aVar.a != -1) {
                     this.d.setTextSize(0, i);
                 } else {
@@ -225,64 +295,5 @@ public class NormalItemCell extends ConstraintLayout {
                 setupDivider(aVar.b);
             }
         }
-    }
-
-    public void setSubTitle(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.g = str;
-            this.d.setText(str);
-            if (!TextUtils.isEmpty(str)) {
-                this.d.setHint("");
-            } else {
-                TextView textView = this.d;
-                a aVar = this.f;
-                textView.setHint(aVar != null ? aVar.f : "");
-            }
-            d();
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public NormalItemCell(Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NormalItemCell(Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        b(context);
     }
 }

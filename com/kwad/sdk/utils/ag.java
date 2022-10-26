@@ -1,12 +1,10 @@
 package com.kwad.sdk.utils;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.os.Build;
 import android.view.Window;
-import androidx.annotation.Nullable;
 import com.kwad.sdk.api.core.ResContext;
 import com.kwad.sdk.api.loader.Wrapper;
 import com.kwad.sdk.service.ServiceProvider;
@@ -35,7 +33,6 @@ public final class ag {
         }
     }
 
-    @SuppressLint({"SourceLockedOrientationActivity"})
     public static void cA(Context context) {
         Activity cC = cC(context);
         if (cC != null) {
@@ -52,7 +49,6 @@ public final class ag {
         }
     }
 
-    @Nullable
     public static Activity cC(Context context) {
         HashSet hashSet = new HashSet();
         do {
@@ -85,7 +81,6 @@ public final class ag {
         }
     }
 
-    @SuppressLint({"SourceLockedOrientationActivity"})
     public static void cz(Context context) {
         Activity cC = cC(context);
         if (cC != null) {

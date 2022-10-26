@@ -32,6 +32,42 @@ public class a extends Tracer implements Handler.Callback {
     public HandlerThread l;
     public Handler m;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public a(int i, boolean z, g gVar, b bVar) {
+        super(i, z, gVar);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z), gVar, bVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), ((Boolean) objArr2[1]).booleanValue(), (g) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.k = false;
+        a(bVar);
+        this.g = new f();
+        this.h = new f();
+        this.i = this.g;
+        this.j = this.h;
+        this.f = new char[bVar.d()];
+        HandlerThread handlerThread = new HandlerThread(bVar.c(), bVar.f());
+        this.l = handlerThread;
+        if (handlerThread != null) {
+            handlerThread.start();
+        }
+        if (this.l.isAlive() && this.l.getLooper() != null) {
+            this.m = new Handler(this.l.getLooper(), this);
+        }
+    }
+
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public a(b bVar) {
         this(c.b, true, g.a, bVar);
@@ -53,21 +89,46 @@ public class a extends Tracer implements Handler.Callback {
         }
     }
 
+    private void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, this, str) == null) {
+            this.i.a(str);
+            if (this.i.a() >= c().d()) {
+                a();
+            }
+        }
+    }
+
+    @Override // android.os.Handler.Callback
+    public boolean handleMessage(Message message) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, message)) == null) {
+            if (message.what == 1024) {
+                f();
+                return true;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
     private void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && Thread.currentThread() == this.l && !this.k) {
-            this.k = true;
-            j();
+        if ((interceptable != null && interceptable.invokeV(65539, this) != null) || Thread.currentThread() != this.l || this.k) {
+            return;
+        }
+        this.k = true;
+        j();
+        try {
             try {
-                try {
-                    this.j.a(g(), this.f);
-                } catch (IOException e) {
-                    SLog.e("FileTracer", "flushBuffer exception", e);
-                }
-                this.k = false;
-            } finally {
-                this.j.b();
+                this.j.a(g(), this.f);
+            } catch (IOException e) {
+                SLog.e("FileTracer", "flushBuffer exception", e);
             }
+            this.k = false;
+        } finally {
+            this.j.b();
         }
     }
 
@@ -170,7 +231,17 @@ public class a extends Tracer implements Handler.Callback {
     public b c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (b) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return (b) invokeV.objValue;
+    }
+
+    public void a(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+            this.a = bVar;
+        }
     }
 
     @Override // com.tencent.open.log.Tracer
@@ -178,74 +249,6 @@ public class a extends Tracer implements Handler.Callback {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), thread, Long.valueOf(j), str, str2, th}) == null) {
             a(e().a(i, thread, j, str, str2, th));
-        }
-    }
-
-    @Override // android.os.Handler.Callback
-    public boolean handleMessage(Message message) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, message)) == null) {
-            if (message.what != 1024) {
-                return true;
-            }
-            f();
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a(int i, boolean z, g gVar, b bVar) {
-        super(i, z, gVar);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z), gVar, bVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(((Integer) objArr2[0]).intValue(), ((Boolean) objArr2[1]).booleanValue(), (g) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.k = false;
-        a(bVar);
-        this.g = new f();
-        this.h = new f();
-        this.i = this.g;
-        this.j = this.h;
-        this.f = new char[bVar.d()];
-        HandlerThread handlerThread = new HandlerThread(bVar.c(), bVar.f());
-        this.l = handlerThread;
-        if (handlerThread != null) {
-            handlerThread.start();
-        }
-        if (!this.l.isAlive() || this.l.getLooper() == null) {
-            return;
-        }
-        this.m = new Handler(this.l.getLooper(), this);
-    }
-
-    private void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, this, str) == null) {
-            this.i.a(str);
-            if (this.i.a() >= c().d()) {
-                a();
-            }
-        }
-    }
-
-    public void a(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.a = bVar;
         }
     }
 }

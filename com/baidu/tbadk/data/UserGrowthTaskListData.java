@@ -111,13 +111,19 @@ public class UserGrowthTaskListData implements Serializable {
             public long getCurrent() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.current : invokeV.longValue;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                    return this.current;
+                }
+                return invokeV.longValue;
             }
 
             public long getTotal() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.total : invokeV.longValue;
+                if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                    return this.total;
+                }
+                return invokeV.longValue;
             }
 
             public void setCurrent(long j) {
@@ -152,199 +158,298 @@ public class UserGrowthTaskListData implements Serializable {
         public String getActType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.actType : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.actType;
+            }
+            return (String) invokeV.objValue;
         }
 
         public String getActivateToken() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.activateToken : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.activateToken;
+            }
+            return (String) invokeV.objValue;
         }
 
         public String getBrief() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.brief : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.brief;
+            }
+            return (String) invokeV.objValue;
         }
 
         public int getClientType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.clientType : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.clientType;
+            }
+            return invokeV.intValue;
         }
 
         public String getComment() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.comment : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.comment;
+            }
+            return (String) invokeV.objValue;
         }
 
         public String getCompleteTime() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.completeTime : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return this.completeTime;
+            }
+            return (String) invokeV.objValue;
         }
 
         public long getCreateTime() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.createTime : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return this.createTime;
+            }
+            return invokeV.longValue;
         }
 
         public int getDotaskStatus() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.dotaskStatus : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                return this.dotaskStatus;
+            }
+            return invokeV.intValue;
         }
 
         public String getExt() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.ext : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                return this.ext;
+            }
+            return (String) invokeV.objValue;
         }
 
         public int getId() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.id : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+                return this.id;
+            }
+            return invokeV.intValue;
         }
 
         public int getIsContinuous() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.isContinuous : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+                return this.isContinuous;
+            }
+            return invokeV.intValue;
         }
 
         public int getIsNeedActive() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.isNeedActive : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+                return this.isNeedActive;
+            }
+            return invokeV.intValue;
         }
 
         public int getIsPlatTask() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.isPlatTask : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+                return this.isPlatTask;
+            }
+            return invokeV.intValue;
         }
 
         public int getMonth() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.month : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+                return this.month;
+            }
+            return invokeV.intValue;
         }
 
         public String getName() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.name : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+                return this.name;
+            }
+            return (String) invokeV.objValue;
         }
 
         public int getPlatActId() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.platActId : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+                return this.platActId;
+            }
+            return invokeV.intValue;
         }
 
         public String getPlatActToken() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.platActToken : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+                return this.platActToken;
+            }
+            return (String) invokeV.objValue;
         }
 
         public int getPlatPlatformTypeId() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.platPlatformTypeId : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+                return this.platPlatformTypeId;
+            }
+            return invokeV.intValue;
         }
 
         public int getPlatTaskId() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.platTaskId : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+                return this.platTaskId;
+            }
+            return invokeV.intValue;
         }
 
         public String getPlatTaskToken() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.platTaskToken : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+                return this.platTaskToken;
+            }
+            return (String) invokeV.objValue;
         }
 
         public String getSceneCallback() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.sceneCallback : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+                return this.sceneCallback;
+            }
+            return (String) invokeV.objValue;
         }
 
         public int getSceneId() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.sceneId : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+                return this.sceneId;
+            }
+            return invokeV.intValue;
         }
 
         public String getSceneTaskKey() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.sceneTaskKey : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+                return this.sceneTaskKey;
+            }
+            return (String) invokeV.objValue;
         }
 
         public long getStartTime() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.startTime : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+                return this.startTime;
+            }
+            return invokeV.longValue;
         }
 
         public int getStatus() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.status : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+                return this.status;
+            }
+            return invokeV.intValue;
         }
 
         public int getTargetNum() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.targetNum : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+                return this.targetNum;
+            }
+            return invokeV.intValue;
         }
 
         public String getTaskIconUrl() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.taskIconUrl : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+                return this.taskIconUrl;
+            }
+            return (String) invokeV.objValue;
         }
 
         public UserGrowthTaskProgressData getTaskProgress() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.taskProgress : (UserGrowthTaskProgressData) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+                return this.taskProgress;
+            }
+            return (UserGrowthTaskProgressData) invokeV.objValue;
         }
 
         public int getTaskType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.taskType : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+                return this.taskType;
+            }
+            return invokeV.intValue;
         }
 
         public long getTimeInterval() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.timeInterval : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+                return this.timeInterval;
+            }
+            return invokeV.longValue;
         }
 
         public long getUpdateTime() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.updateTime : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+                return this.updateTime;
+            }
+            return invokeV.longValue;
         }
 
         public int getWeek() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.week : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
+                return this.week;
+            }
+            return invokeV.intValue;
         }
 
         public int getWeight() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.weight : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
+                return this.weight;
+            }
+            return invokeV.intValue;
         }
 
         public void setActType(String str) {
@@ -596,25 +701,37 @@ public class UserGrowthTaskListData implements Serializable {
     public List<UserGrowthTaskData> getDailyTask() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.dailyTask : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.dailyTask;
+        }
+        return (List) invokeV.objValue;
     }
 
     public int getGrowthSwitch() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.growthSwitch : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.growthSwitch;
+        }
+        return invokeV.intValue;
     }
 
     public List<UserGrowthTaskData> getIconTask() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.iconTask : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.iconTask;
+        }
+        return (List) invokeV.objValue;
     }
 
     public List<UserGrowthTaskData> getNoviceTask() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.noviceTask : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.noviceTask;
+        }
+        return (List) invokeV.objValue;
     }
 
     public void setDailyTask(List<UserGrowthTaskData> list) {

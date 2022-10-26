@@ -32,18 +32,6 @@ public class WbResponse {
         this.responseBody = wbResponseBody;
     }
 
-    public WbResponseBody body() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.responseBody : (WbResponseBody) invokeV.objValue;
-    }
-
-    public boolean isSuccessful() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.resultCode == 200 : invokeV.booleanValue;
-    }
-
     public WbResponse(WbResponseBody wbResponseBody, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -62,5 +50,26 @@ public class WbResponse {
         this.resultCode = 200;
         this.responseBody = wbResponseBody;
         this.resultCode = i;
+    }
+
+    public WbResponseBody body() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.responseBody;
+        }
+        return (WbResponseBody) invokeV.objValue;
+    }
+
+    public boolean isSuccessful() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.resultCode == 200) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

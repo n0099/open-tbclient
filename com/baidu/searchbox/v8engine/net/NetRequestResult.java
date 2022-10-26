@@ -2,14 +2,12 @@ package com.baidu.searchbox.v8engine.net;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.NotProguard;
 import com.baidu.searchbox.v8engine.net.NetInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@NotProguard
 /* loaded from: classes2.dex */
 public class NetRequestResult {
     public static /* synthetic */ Interceptable $ic = null;
@@ -72,6 +70,20 @@ public class NetRequestResult {
     public NetInfo.SwanExtra mSwanExtra;
     public String mUrl;
 
+    private native int nativeGetFromType(long j);
+
+    private native String nativeGetNetInfo(long j);
+
+    private native int nativeGetStatusCode(long j);
+
+    private native String nativeGetStatusMsg(long j);
+
+    private native String nativeGetUrl(long j);
+
+    private native void nativeSetStatusCode(long j, int i);
+
+    private native void nativeSetStatusMsg(long j, String str);
+
     public NetRequestResult(long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -92,20 +104,6 @@ public class NetRequestResult {
         this.mNativePtr = j2;
     }
 
-    private native int nativeGetFromType(long j);
-
-    private native String nativeGetNetInfo(long j);
-
-    private native int nativeGetStatusCode(long j);
-
-    private native String nativeGetStatusMsg(long j);
-
-    private native String nativeGetUrl(long j);
-
-    private native void nativeSetStatusCode(long j, int i);
-
-    private native void nativeSetStatusMsg(long j, String str);
-
     private void setConnectTime(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(65544, this, j) == null) {
@@ -116,7 +114,10 @@ public class NetRequestResult {
     public long getCreatedTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mCreatedTime : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mCreatedTime;
+        }
+        return invokeV.longValue;
     }
 
     public int getFromType() {
@@ -135,7 +136,10 @@ public class NetRequestResult {
     public long getId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mId : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mId;
+        }
+        return invokeV.longValue;
     }
 
     public NetInfo getNetInfo() {

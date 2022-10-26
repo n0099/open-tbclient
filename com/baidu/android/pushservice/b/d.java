@@ -59,7 +59,7 @@ public class d extends b {
     public int q;
     public final String r;
     public final String s;
-    public Map<String, c> t;
+    public Map t;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -111,8 +111,8 @@ public class d extends b {
 
     private c a(String str) {
         InterceptResult invokeL;
-        c cVar;
-        Map<String, c> map;
+        Object obj;
+        Map map;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str)) == null) {
             if (TextUtils.isEmpty(str)) {
@@ -120,18 +120,18 @@ public class d extends b {
             }
             String upperCase = str.toUpperCase();
             if (!m.c(this.a, true).equalsIgnoreCase("unknown") || (map = this.t) == null) {
-                Map<String, c> map2 = this.t;
-                if (map2 != null && map2.containsKey(upperCase) && a(this.t.get(upperCase), upperCase)) {
-                    cVar = this.t.get(upperCase);
-                    return cVar;
+                Map map2 = this.t;
+                if (map2 != null && map2.containsKey(upperCase) && a((c) this.t.get(upperCase), upperCase)) {
+                    obj = this.t.get(upperCase);
+                    return (c) obj;
                 }
                 return null;
             }
-            for (Map.Entry<String, c> entry : map.entrySet()) {
-                String key = entry.getKey();
-                if (a(this.t.get(key), key)) {
-                    cVar = this.t.get(key);
-                    return cVar;
+            for (Map.Entry entry : map.entrySet()) {
+                String str2 = (String) entry.getKey();
+                if (a((c) this.t.get(str2), str2)) {
+                    obj = this.t.get(str2);
+                    return (c) obj;
                 }
             }
             return null;
@@ -156,11 +156,11 @@ public class d extends b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public HashMap<String, String> a(HashMap<String, String> hashMap) {
+    public HashMap a(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, hashMap)) == null) {
-            HashMap<String, String> hashMap2 = new HashMap<>();
+            HashMap hashMap2 = new HashMap();
             this.e = (g.f() ? g.a() : g.b()) + "/rest/3.0/clientfile/updateconf";
             int i2 = 2;
             do {
@@ -248,7 +248,7 @@ public class d extends b {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, this, cVar, str)) == null) {
             if (cVar != null && cVar.d() != null && cVar.d().size() > 0) {
                 for (int i4 = 0; i4 < cVar.d().size(); i4++) {
-                    e eVar = cVar.d().get(i4);
+                    e eVar = (e) cVar.d().get(i4);
                     try {
                         z = m.z(this.a);
                         a2 = eVar.a();
@@ -302,7 +302,7 @@ public class d extends b {
             }
             if (cVar != null && cVar.e() != null && cVar.e().size() > 0) {
                 for (int i5 = 0; i5 < cVar.e().size(); i5++) {
-                    f fVar = cVar.e().get(i5);
+                    f fVar = (f) cVar.e().get(i5);
                     try {
                         if (Build.VERSION.SDK_INT >= 28) {
                             str2 = SystemProperties.get(fVar.a());
@@ -490,7 +490,7 @@ public class d extends b {
         }
     }
 
-    public static List<String> j(Context context) {
+    public static List j(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65567, null, context)) == null) {

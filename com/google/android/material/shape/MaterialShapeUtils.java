@@ -2,7 +2,6 @@ package com.google.android.material.shape;
 
 import android.graphics.drawable.Drawable;
 import android.view.View;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -29,7 +28,24 @@ public class MaterialShapeUtils {
         }
     }
 
-    @NonNull
+    public static CornerTreatment createDefaultCornerTreatment() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new RoundedCornerTreatment();
+        }
+        return (CornerTreatment) invokeV.objValue;
+    }
+
+    public static EdgeTreatment createDefaultEdgeTreatment() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return new EdgeTreatment();
+        }
+        return (EdgeTreatment) invokeV.objValue;
+    }
+
     public static CornerTreatment createCornerTreatment(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -45,31 +61,7 @@ public class MaterialShapeUtils {
         return (CornerTreatment) invokeI.objValue;
     }
 
-    @NonNull
-    public static CornerTreatment createDefaultCornerTreatment() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new RoundedCornerTreatment() : (CornerTreatment) invokeV.objValue;
-    }
-
-    @NonNull
-    public static EdgeTreatment createDefaultEdgeTreatment() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new EdgeTreatment() : (EdgeTreatment) invokeV.objValue;
-    }
-
-    public static void setElevation(@NonNull View view2, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(InputDeviceCompat.SOURCE_TRACKBALL, null, view2, f) == null) {
-            Drawable background = view2.getBackground();
-            if (background instanceof MaterialShapeDrawable) {
-                ((MaterialShapeDrawable) background).setElevation(f);
-            }
-        }
-    }
-
-    public static void setParentAbsoluteElevation(@NonNull View view2) {
+    public static void setParentAbsoluteElevation(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, null, view2) == null) {
             Drawable background = view2.getBackground();
@@ -79,7 +71,17 @@ public class MaterialShapeUtils {
         }
     }
 
-    public static void setParentAbsoluteElevation(@NonNull View view2, @NonNull MaterialShapeDrawable materialShapeDrawable) {
+    public static void setElevation(View view2, float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLF(InputDeviceCompat.SOURCE_TRACKBALL, null, view2, f) == null) {
+            Drawable background = view2.getBackground();
+            if (background instanceof MaterialShapeDrawable) {
+                ((MaterialShapeDrawable) background).setElevation(f);
+            }
+        }
+    }
+
+    public static void setParentAbsoluteElevation(View view2, MaterialShapeDrawable materialShapeDrawable) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65542, null, view2, materialShapeDrawable) == null) && materialShapeDrawable.isElevationOverlayEnabled()) {
             materialShapeDrawable.setParentAbsoluteElevation(ViewUtils.getParentAbsoluteElevation(view2));

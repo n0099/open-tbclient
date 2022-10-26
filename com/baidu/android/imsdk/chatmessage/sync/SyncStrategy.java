@@ -9,7 +9,6 @@ import com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl;
 import com.baidu.android.imsdk.chatmessage.ChatSessionManagerImpl;
 import com.baidu.android.imsdk.chatmessage.IFetchMsgByIdListener;
 import com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager;
-import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.group.db.GroupMessageDAOImpl;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.Dispatcher;
@@ -72,6 +71,22 @@ public abstract class SyncStrategy {
         }
     }
 
+    public abstract boolean commitDeviceMaxNotifyMsgid();
+
+    public abstract int getJumpToRecent();
+
+    public abstract long getStartMsgid();
+
+    public void onComplete(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+        }
+    }
+
+    public abstract void updateData(Context context, long j);
+
+    public abstract boolean updateJumpToRecent();
+
     public SyncStrategy() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -99,7 +114,43 @@ public abstract class SyncStrategy {
     private boolean checkNeedSendSyncCompBroadcast() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? SyncGroupMessageService.getInstance().getState(this.mContext) == 1 && SyncAllMessage.getInstance(this.mContext).getState() == 1 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
+            if (SyncGroupMessageService.getInstance().getState(this.mContext) == 1 && SyncAllMessage.getInstance(this.mContext).getState() == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void sendMsgSyncCompBroadcast() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            Intent intent = new Intent();
+            intent.setAction(IMConstants.MSG_SYNC_COMPLETE);
+            this.mContext.sendBroadcast(intent);
+            LogUtils.i(TAG, "sendMsgSyncCompBroadcast sync done!");
+        }
+    }
+
+    public SyncStrategy setCategory(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            this.mCategory = i;
+            return this;
+        }
+        return (SyncStrategy) invokeI.objValue;
+    }
+
+    public SyncStrategy setContacter(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) {
+            this.mContacter = j;
+            return this;
+        }
+        return (SyncStrategy) invokeJ.objValue;
     }
 
     private void sync(Context context, boolean z, long j) {
@@ -119,12 +170,12 @@ public abstract class SyncStrategy {
                 this.mState = 2;
                 commitDeviceMaxNotifyMsgid();
             } else {
-                if (j == -1 || j >= startMsgid) {
-                    j2 = startMsgid + 1;
-                    j3 = Long.MAX_VALUE;
-                } else {
+                if (j != -1 && j < startMsgid) {
                     j2 = j;
                     j3 = j2;
+                } else {
+                    j2 = startMsgid + 1;
+                    j3 = Long.MAX_VALUE;
                 }
                 if (getJumpToRecent() == 1) {
                     this.mAmountEachFetch = 200;
@@ -156,7 +207,7 @@ public abstract class SyncStrategy {
                     }
 
                     @Override // com.baidu.android.imsdk.chatmessage.IFetchMsgByIdListener
-                    public void onFetchMsgByIdResult(int i, String str, String str2, int i2, long j4, long j5, long j6, int i3, int i4, long j7, ArrayList<ChatMsg> arrayList) {
+                    public void onFetchMsgByIdResult(int i, String str, String str2, int i2, long j4, long j5, long j6, int i3, int i4, long j7, ArrayList arrayList) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, str2, Integer.valueOf(i2), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j7), arrayList}) == null) {
                             String str3 = SyncStrategy.TAG;
@@ -169,9 +220,7 @@ public abstract class SyncStrategy {
         }
     }
 
-    public abstract boolean commitDeviceMaxNotifyMsgid();
-
-    public void deal(int i, int i2, int i3, long j, String str, ArrayList<ChatMsg> arrayList, int i4, long j2) {
+    public void deal(int i, int i2, int i3, long j, String str, ArrayList arrayList, int i4, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j), str, arrayList, Integer.valueOf(i4), Long.valueOf(j2)}) == null) {
             String str2 = TAG;
@@ -239,46 +288,6 @@ public abstract class SyncStrategy {
         }
     }
 
-    public abstract int getJumpToRecent();
-
-    public abstract long getStartMsgid();
-
-    public void onComplete(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-        }
-    }
-
-    public void sendMsgSyncCompBroadcast() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            Intent intent = new Intent();
-            intent.setAction(IMConstants.MSG_SYNC_COMPLETE);
-            this.mContext.sendBroadcast(intent);
-            LogUtils.i(TAG, "sendMsgSyncCompBroadcast sync done!");
-        }
-    }
-
-    public SyncStrategy setCategory(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            this.mCategory = i;
-            return this;
-        }
-        return (SyncStrategy) invokeI.objValue;
-    }
-
-    public SyncStrategy setContacter(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) {
-            this.mContacter = j;
-            return this;
-        }
-        return (SyncStrategy) invokeJ.objValue;
-    }
-
     public void start(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
@@ -299,30 +308,6 @@ public abstract class SyncStrategy {
         }
     }
 
-    public boolean syncNotifyMessageStopCondition(int i, int i2, int i3, ArrayList<ChatMsg> arrayList) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), arrayList})) == null) {
-            if (arrayList != null && i == 0) {
-                synchronized (this.mRetryTimesSync) {
-                    this.mReTryTimes = 0;
-                }
-                return i3 < i2;
-            }
-            if (this.mReTryTimes <= 2) {
-                synchronized (this.mRetryTimesSync) {
-                    this.mReTryTimes++;
-                }
-            }
-            return this.mReTryTimes > 2 || i == 1001 || i == 1004 || i == 6;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public abstract void updateData(Context context, long j);
-
-    public abstract boolean updateJumpToRecent();
-
     public void start(int i, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
@@ -341,5 +326,31 @@ public abstract class SyncStrategy {
             LogUtils.d(str2, "----start sync category:" + this.mCategory + " contacter:" + this.mContacter);
             sync(this.mContext, true, j);
         }
+    }
+
+    public boolean syncNotifyMessageStopCondition(int i, int i2, int i3, ArrayList arrayList) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), arrayList})) == null) {
+            if (arrayList != null && i == 0) {
+                synchronized (this.mRetryTimesSync) {
+                    this.mReTryTimes = 0;
+                }
+                if (i3 >= i2) {
+                    return false;
+                }
+                return true;
+            }
+            if (this.mReTryTimes <= 2) {
+                synchronized (this.mRetryTimesSync) {
+                    this.mReTryTimes++;
+                }
+            }
+            if (this.mReTryTimes <= 2 && i != 1001 && i != 1004 && i != 6) {
+                return false;
+            }
+            return true;
+        }
+        return invokeCommon.booleanValue;
     }
 }

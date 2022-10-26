@@ -36,6 +36,16 @@ public class CompositionShiftLeastGreatestAtom extends AbstractFullBox {
     public int greatestDisplayOffset;
     public int leastDisplayOffset;
 
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public long getContentSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return 24L;
+        }
+        return invokeV.longValue;
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -70,33 +80,6 @@ public class CompositionShiftLeastGreatestAtom extends AbstractFullBox {
         }
     }
 
-    public static /* synthetic */ void ajc$preClinit() {
-        Factory factory = new Factory("CompositionShiftLeastGreatestAtom.java", CompositionShiftLeastGreatestAtom.class);
-        ajc$tjp_0 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getCompositionOffsetToDisplayOffsetShift", "com.coremedia.iso.boxes.CompositionShiftLeastGreatestAtom", "", "", "", "int"), 66);
-        ajc$tjp_1 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setCompositionOffsetToDisplayOffsetShift", "com.coremedia.iso.boxes.CompositionShiftLeastGreatestAtom", "int", "compositionOffsetToDisplayOffsetShift", "", "void"), 70);
-        ajc$tjp_2 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getLeastDisplayOffset", "com.coremedia.iso.boxes.CompositionShiftLeastGreatestAtom", "", "", "", "int"), 74);
-        ajc$tjp_3 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setLeastDisplayOffset", "com.coremedia.iso.boxes.CompositionShiftLeastGreatestAtom", "int", "leastDisplayOffset", "", "void"), 78);
-        ajc$tjp_4 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getGreatestDisplayOffset", "com.coremedia.iso.boxes.CompositionShiftLeastGreatestAtom", "", "", "", "int"), 82);
-        ajc$tjp_5 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setGreatestDisplayOffset", "com.coremedia.iso.boxes.CompositionShiftLeastGreatestAtom", "int", "greatestDisplayOffset", "", "void"), 86);
-        ajc$tjp_6 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getDisplayStartTime", "com.coremedia.iso.boxes.CompositionShiftLeastGreatestAtom", "", "", "", "int"), 90);
-        ajc$tjp_7 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setDisplayStartTime", "com.coremedia.iso.boxes.CompositionShiftLeastGreatestAtom", "int", "displayStartTime", "", "void"), 94);
-        ajc$tjp_8 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getDisplayEndTime", "com.coremedia.iso.boxes.CompositionShiftLeastGreatestAtom", "", "", "", "int"), 98);
-        ajc$tjp_9 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setDisplayEndTime", "com.coremedia.iso.boxes.CompositionShiftLeastGreatestAtom", "int", "displayEndTime", "", "void"), 102);
-    }
-
-    @Override // com.googlecode.mp4parser.AbstractBox
-    public void _parseDetails(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, byteBuffer) == null) {
-            parseVersionAndFlags(byteBuffer);
-            this.compositionOffsetToDisplayOffsetShift = byteBuffer.getInt();
-            this.leastDisplayOffset = byteBuffer.getInt();
-            this.greatestDisplayOffset = byteBuffer.getInt();
-            this.displayStartTime = byteBuffer.getInt();
-            this.displayEndTime = byteBuffer.getInt();
-        }
-    }
-
     public int getCompositionOffsetToDisplayOffsetShift() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -105,29 +88,6 @@ public class CompositionShiftLeastGreatestAtom extends AbstractFullBox {
             return this.compositionOffsetToDisplayOffsetShift;
         }
         return invokeV.intValue;
-    }
-
-    @Override // com.googlecode.mp4parser.AbstractBox
-    public void getContent(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, byteBuffer) == null) {
-            writeVersionAndFlags(byteBuffer);
-            byteBuffer.putInt(this.compositionOffsetToDisplayOffsetShift);
-            byteBuffer.putInt(this.leastDisplayOffset);
-            byteBuffer.putInt(this.greatestDisplayOffset);
-            byteBuffer.putInt(this.displayStartTime);
-            byteBuffer.putInt(this.displayEndTime);
-        }
-    }
-
-    @Override // com.googlecode.mp4parser.AbstractBox
-    public long getContentSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return 24L;
-        }
-        return invokeV.longValue;
     }
 
     public int getDisplayEndTime() {
@@ -168,6 +128,46 @@ public class CompositionShiftLeastGreatestAtom extends AbstractFullBox {
             return this.leastDisplayOffset;
         }
         return invokeV.intValue;
+    }
+
+    public static /* synthetic */ void ajc$preClinit() {
+        Factory factory = new Factory("CompositionShiftLeastGreatestAtom.java", CompositionShiftLeastGreatestAtom.class);
+        ajc$tjp_0 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getCompositionOffsetToDisplayOffsetShift", "com.coremedia.iso.boxes.CompositionShiftLeastGreatestAtom", "", "", "", "int"), 66);
+        ajc$tjp_1 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setCompositionOffsetToDisplayOffsetShift", "com.coremedia.iso.boxes.CompositionShiftLeastGreatestAtom", "int", "compositionOffsetToDisplayOffsetShift", "", "void"), 70);
+        ajc$tjp_2 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getLeastDisplayOffset", "com.coremedia.iso.boxes.CompositionShiftLeastGreatestAtom", "", "", "", "int"), 74);
+        ajc$tjp_3 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setLeastDisplayOffset", "com.coremedia.iso.boxes.CompositionShiftLeastGreatestAtom", "int", "leastDisplayOffset", "", "void"), 78);
+        ajc$tjp_4 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getGreatestDisplayOffset", "com.coremedia.iso.boxes.CompositionShiftLeastGreatestAtom", "", "", "", "int"), 82);
+        ajc$tjp_5 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setGreatestDisplayOffset", "com.coremedia.iso.boxes.CompositionShiftLeastGreatestAtom", "int", "greatestDisplayOffset", "", "void"), 86);
+        ajc$tjp_6 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getDisplayStartTime", "com.coremedia.iso.boxes.CompositionShiftLeastGreatestAtom", "", "", "", "int"), 90);
+        ajc$tjp_7 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setDisplayStartTime", "com.coremedia.iso.boxes.CompositionShiftLeastGreatestAtom", "int", "displayStartTime", "", "void"), 94);
+        ajc$tjp_8 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getDisplayEndTime", "com.coremedia.iso.boxes.CompositionShiftLeastGreatestAtom", "", "", "", "int"), 98);
+        ajc$tjp_9 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setDisplayEndTime", "com.coremedia.iso.boxes.CompositionShiftLeastGreatestAtom", "int", "displayEndTime", "", "void"), 102);
+    }
+
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public void _parseDetails(ByteBuffer byteBuffer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, byteBuffer) == null) {
+            parseVersionAndFlags(byteBuffer);
+            this.compositionOffsetToDisplayOffsetShift = byteBuffer.getInt();
+            this.leastDisplayOffset = byteBuffer.getInt();
+            this.greatestDisplayOffset = byteBuffer.getInt();
+            this.displayStartTime = byteBuffer.getInt();
+            this.displayEndTime = byteBuffer.getInt();
+        }
+    }
+
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public void getContent(ByteBuffer byteBuffer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, byteBuffer) == null) {
+            writeVersionAndFlags(byteBuffer);
+            byteBuffer.putInt(this.compositionOffsetToDisplayOffsetShift);
+            byteBuffer.putInt(this.leastDisplayOffset);
+            byteBuffer.putInt(this.greatestDisplayOffset);
+            byteBuffer.putInt(this.displayStartTime);
+            byteBuffer.putInt(this.displayEndTime);
+        }
     }
 
     public void setCompositionOffsetToDisplayOffsetShift(int i) {

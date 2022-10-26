@@ -1,87 +1,88 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.UcCard;
-import tbclient.UcCardInfo;
 /* loaded from: classes4.dex */
 public class h48 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<a> a;
+    public View a;
+    public HeadImageView b;
+    public TextView c;
+    public TextView d;
+    public ImageView e;
 
-    /* loaded from: classes4.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public long b;
-        public boolean c;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public void a(UcCardInfo ucCardInfo) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, ucCardInfo) == null) || ucCardInfo == null) {
-                return;
-            }
-            this.a = ucCardInfo.title;
-            String str = ucCardInfo.pic;
-            String str2 = ucCardInfo.jmp;
-            String str3 = ucCardInfo.tip;
-            this.b = ucCardInfo.st.intValue();
-        }
-    }
-
-    public h48() {
+    public h48(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.e = null;
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0944, (ViewGroup) null);
+        this.a = inflate;
+        this.b = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0926de);
+        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0926e0);
+        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0926e1);
+        ImageView imageView = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0926df);
+        this.e = imageView;
+        imageView.setVisibility(0);
+        this.a.setTag(this);
     }
 
-    public void a(UcCard ucCard) {
+    public static h48 b(Context context, View view2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, ucCard) == null) || ucCard == null) {
-            return;
-        }
-        String str = ucCard.name;
-        String str2 = ucCard.icon;
-        String str3 = ucCard.doc;
-        String str4 = ucCard.jmp;
-        this.a = new ArrayList();
-        List<UcCardInfo> list = ucCard.uc_cards;
-        if (list != null) {
-            for (UcCardInfo ucCardInfo : list) {
-                if (ucCardInfo != null) {
-                    a aVar = new a();
-                    aVar.a(ucCardInfo);
-                    this.a.add(aVar);
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, view2)) == null) {
+            if (view2 != null && view2.getTag() != null && (view2.getTag() instanceof h48)) {
+                return (h48) view2.getTag();
             }
+            return new h48(context);
+        }
+        return (h48) invokeLL.objValue;
+    }
+
+    public View a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public void c(String str, String str2, long j, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Long.valueOf(j), Boolean.valueOf(z)}) == null) {
+            this.c.setText(str);
+            this.b.setImageDrawable(null);
+            this.d.setText(StringHelper.getFormatTime(j));
+            this.b.L(str2, 28, false);
         }
     }
 }

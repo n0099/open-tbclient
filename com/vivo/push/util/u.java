@@ -37,7 +37,10 @@ public final class u {
     public static String a(Key key) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, key)) == null) ? Base64.encodeToString(key.getEncoded(), 2) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, key)) == null) {
+            return Base64.encodeToString(key.getEncoded(), 2);
+        }
+        return (String) invokeL.objValue;
     }
 
     public static PublicKey a(String str) throws Exception {

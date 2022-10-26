@@ -20,6 +20,13 @@ public class ThreadStackImpl11 implements ThreadStack {
     public int change_count;
     public Hashtable stacks;
 
+    @Override // org.aspectj.runtime.internal.cflowstack.ThreadStack
+    public void removeThreadStack() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
     public ThreadStackImpl11() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -76,12 +83,5 @@ public class ThreadStackImpl11 implements ThreadStack {
             return stack;
         }
         return (Stack) invokeV.objValue;
-    }
-
-    @Override // org.aspectj.runtime.internal.cflowstack.ThreadStack
-    public void removeThreadStack() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
     }
 }

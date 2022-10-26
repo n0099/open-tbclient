@@ -6,12 +6,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ExecutorService;
-import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public class pm1 implements cp1 {
+public class pm1 implements xm1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.xm1
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "0" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.xm1
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
     public pm1() {
         Interceptable interceptable = $ic;
@@ -24,51 +39,6 @@ public class pm1 implements cp1 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.cp1
-    public ExecutorService d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (ExecutorService) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.cp1
-    public void e(String str, int i, JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i, jSONArray) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.cp1
-    public void f(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.cp1
-    public void g(String str, String str2, int i, String str3, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, Integer.valueOf(i), str3, Integer.valueOf(i2)}) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.cp1
-    public void i(String str, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048580, this, str, i, str2) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.cp1
-    public void n(String str, String str2, int i, String str3, long j, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, str2, Integer.valueOf(i), str3, Long.valueOf(j), Integer.valueOf(i2)}) == null) {
         }
     }
 }

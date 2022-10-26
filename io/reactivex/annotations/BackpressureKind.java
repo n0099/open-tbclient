@@ -66,12 +66,18 @@ public final class BackpressureKind {
     public static BackpressureKind valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (BackpressureKind) Enum.valueOf(BackpressureKind.class, str) : (BackpressureKind) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (BackpressureKind) Enum.valueOf(BackpressureKind.class, str);
+        }
+        return (BackpressureKind) invokeL.objValue;
     }
 
     public static BackpressureKind[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (BackpressureKind[]) $VALUES.clone() : (BackpressureKind[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (BackpressureKind[]) $VALUES.clone();
+        }
+        return (BackpressureKind[]) invokeV.objValue;
     }
 }

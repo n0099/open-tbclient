@@ -1,7 +1,6 @@
 package com.google.android.exoplayer2.offline;
 
 import android.net.Uri;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -49,7 +48,7 @@ public final class ProgressiveDownloader implements Downloader {
     }
 
     @Override // com.google.android.exoplayer2.offline.Downloader
-    public void download(@Nullable Downloader.ProgressListener progressListener) throws InterruptedException, IOException {
+    public void download(Downloader.ProgressListener progressListener) throws InterruptedException, IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, progressListener) == null) {
             this.priorityTaskManager.add(-1000);
@@ -82,7 +81,10 @@ public final class ProgressiveDownloader implements Downloader {
     public long getDownloadedBytes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.cachingCounters.totalCachedBytes() : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.cachingCounters.totalCachedBytes();
+        }
+        return invokeV.longValue;
     }
 
     @Override // com.google.android.exoplayer2.offline.Downloader

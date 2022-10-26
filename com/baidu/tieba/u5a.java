@@ -1,58 +1,32 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Dialog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collection;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import tv.athena.revenue.payui.view.dialog.PayDialogType;
 /* loaded from: classes6.dex */
-public final class u5a {
+public class u5a {
     public static /* synthetic */ Interceptable $ic;
-    public static final u5a a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948163368, "Lcom/baidu/tieba/u5a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948163368, "Lcom/baidu/tieba/u5a;");
-                return;
-            }
-        }
-        a = new u5a();
-    }
-
-    public u5a() {
+    public static void a(Dialog dialog, PayDialogType payDialogType) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeLL(65536, null, dialog, payDialogType) == null) {
+            RLog.info("DialogUtils", "onPayFlow closeDialogAndContinueFlow payDialogType:" + payDialogType);
+            if (dialog != null && dialog.isShowing()) {
+                dialog.dismiss();
             }
         }
     }
 
-    public final int a(Collection<?> collection) {
-        InterceptResult invokeL;
+    public static void b(Dialog dialog, PayDialogType payDialogType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, collection)) == null) {
-            if (collection != null) {
-                return collection.size();
+        if (interceptable == null || interceptable.invokeLL(65537, null, dialog, payDialogType) == null) {
+            RLog.info("DialogUtils", "onPayFlow closeDialogAndInterrupteFlow payDialogType:" + payDialogType);
+            if (dialog != null && dialog.isShowing()) {
+                dialog.cancel();
             }
-            return 0;
         }
-        return invokeL.intValue;
     }
 }

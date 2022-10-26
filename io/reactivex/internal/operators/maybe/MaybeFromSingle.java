@@ -14,19 +14,19 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.fuseable.HasUpstreamSingleSource;
 /* loaded from: classes8.dex */
-public final class MaybeFromSingle<T> extends Maybe<T> implements HasUpstreamSingleSource<T> {
+public final class MaybeFromSingle extends Maybe implements HasUpstreamSingleSource {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SingleSource<T> source;
+    public final SingleSource source;
 
     /* loaded from: classes8.dex */
-    public static final class FromSingleObserver<T> implements SingleObserver<T>, Disposable {
+    public final class FromSingleObserver implements SingleObserver, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final MaybeObserver<? super T> actual;
+        public final MaybeObserver actual;
         public Disposable d;
 
-        public FromSingleObserver(MaybeObserver<? super T> maybeObserver) {
+        public FromSingleObserver(MaybeObserver maybeObserver) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -42,22 +42,6 @@ public final class MaybeFromSingle<T> extends Maybe<T> implements HasUpstreamSin
                 }
             }
             this.actual = maybeObserver;
-        }
-
-        @Override // io.reactivex.disposables.Disposable
-        public void dispose() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.d.dispose();
-                this.d = DisposableHelper.DISPOSED;
-            }
-        }
-
-        @Override // io.reactivex.disposables.Disposable
-        public boolean isDisposed() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d.isDisposed() : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.SingleObserver
@@ -79,16 +63,35 @@ public final class MaybeFromSingle<T> extends Maybe<T> implements HasUpstreamSin
         }
 
         @Override // io.reactivex.SingleObserver
-        public void onSuccess(T t) {
+        public void onSuccess(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
+            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
                 this.d = DisposableHelper.DISPOSED;
-                this.actual.onSuccess(t);
+                this.actual.onSuccess(obj);
             }
+        }
+
+        @Override // io.reactivex.disposables.Disposable
+        public void dispose() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.d.dispose();
+                this.d = DisposableHelper.DISPOSED;
+            }
+        }
+
+        @Override // io.reactivex.disposables.Disposable
+        public boolean isDisposed() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.d.isDisposed();
+            }
+            return invokeV.booleanValue;
         }
     }
 
-    public MaybeFromSingle(SingleSource<T> singleSource) {
+    public MaybeFromSingle(SingleSource singleSource) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -106,18 +109,21 @@ public final class MaybeFromSingle<T> extends Maybe<T> implements HasUpstreamSin
         this.source = singleSource;
     }
 
-    @Override // io.reactivex.internal.fuseable.HasUpstreamSingleSource
-    public SingleSource<T> source() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.source : (SingleSource) invokeV.objValue;
-    }
-
     @Override // io.reactivex.Maybe
-    public void subscribeActual(MaybeObserver<? super T> maybeObserver) {
+    public void subscribeActual(MaybeObserver maybeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, maybeObserver) == null) {
             this.source.subscribe(new FromSingleObserver(maybeObserver));
         }
+    }
+
+    @Override // io.reactivex.internal.fuseable.HasUpstreamSingleSource
+    public SingleSource source() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.source;
+        }
+        return (SingleSource) invokeV.objValue;
     }
 }

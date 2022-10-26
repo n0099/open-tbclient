@@ -16,6 +16,27 @@ public class CriusUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static float convertFloatValue(double d, float f) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Double.valueOf(d), Float.valueOf(f)})) == null) {
+            return (float) (d * (d < 1.0d ? 10.0d : f));
+        }
+        return invokeCommon.floatValue;
+    }
+
+    public static float positive(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(65543, null, f)) == null) {
+            if (f >= 0.0f) {
+                return f;
+            }
+            return 0.0f;
+        }
+        return invokeF.floatValue;
+    }
+
     public CriusUtil() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -30,19 +51,16 @@ public class CriusUtil {
         }
     }
 
-    public static float convertFloatValue(double d, float f) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Double.valueOf(d), Float.valueOf(f)})) == null) {
-            return (float) (d * (d < 1.0d ? 10.0d : f));
-        }
-        return invokeCommon.floatValue;
-    }
-
     public static boolean equalsDouble(double d, double d2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Double.valueOf(d), Double.valueOf(d2)})) == null) ? Math.abs(d - d2) <= 0.001d : invokeCommon.booleanValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Double.valueOf(d), Double.valueOf(d2)})) == null) {
+            if (Math.abs(d - d2) <= 0.001d) {
+                return true;
+            }
+            return false;
+        }
+        return invokeCommon.booleanValue;
     }
 
     public static double getDoubleIfExist(JSONObject jSONObject, String str) {
@@ -69,7 +87,19 @@ public class CriusUtil {
         return invokeLL.intValue;
     }
 
-    public static Map<String, String> getMapIfExist(JSONObject jSONObject, String str) {
+    public static String getStringIfExist(JSONObject jSONObject, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, jSONObject, str)) == null) {
+            if (jSONObject == null || TextUtils.isEmpty(str) || !jSONObject.has(str)) {
+                return "";
+            }
+            return jSONObject.optString(str);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static Map getMapIfExist(JSONObject jSONObject, String str) {
         InterceptResult invokeLL;
         JSONObject optJSONObject;
         Interceptable interceptable = $ic;
@@ -89,23 +119,5 @@ public class CriusUtil {
             return hashMap;
         }
         return (Map) invokeLL.objValue;
-    }
-
-    public static String getStringIfExist(JSONObject jSONObject, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, jSONObject, str)) == null) ? (jSONObject == null || TextUtils.isEmpty(str) || !jSONObject.has(str)) ? "" : jSONObject.optString(str) : (String) invokeLL.objValue;
-    }
-
-    public static float positive(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65543, null, f)) == null) {
-            if (f >= 0.0f) {
-                return f;
-            }
-            return 0.0f;
-        }
-        return invokeF.floatValue;
     }
 }

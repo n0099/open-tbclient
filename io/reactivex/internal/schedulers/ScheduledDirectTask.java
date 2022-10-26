@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.Callable;
 /* loaded from: classes8.dex */
-public final class ScheduledDirectTask extends AbstractDirectTask implements Callable<Void> {
+public final class ScheduledDirectTask extends AbstractDirectTask implements Callable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1811839108042568751L;
     public transient /* synthetic */ FieldHolder $fh;

@@ -21,8 +21,8 @@ import java.util.Map;
 /* loaded from: classes7.dex */
 public class AudioSpecificConfig extends BaseDescriptor {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<Integer, String> audioObjectTypeMap;
-    public static Map<Integer, Integer> samplingFrequencyIndexMap;
+    public static Map audioObjectTypeMap;
+    public static Map samplingFrequencyIndexMap;
     public transient /* synthetic */ FieldHolder $fh;
     public int aacScalefactorDataResilienceFlag;
     public int aacSectionDataResilienceFlag;
@@ -67,6 +67,15 @@ public class AudioSpecificConfig extends BaseDescriptor {
     public int sbrPresentFlag;
     public int syncExtensionType;
     public int var_ScalableFlag;
+
+    private int gaSpecificConfigSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -152,11 +161,81 @@ public class AudioSpecificConfig extends BaseDescriptor {
         }
     }
 
-    private int gaSpecificConfigSize() {
+    public int getAudioObjectType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.audioObjectType;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getChannelConfiguration() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.channelConfiguration;
+        }
+        return invokeV.intValue;
+    }
+
+    public byte[] getConfigBytes() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.configBytes;
+        }
+        return (byte[]) invokeV.objValue;
+    }
+
+    public int getExtensionAudioObjectType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.extensionAudioObjectType;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getPsPresentFlag() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.psPresentFlag;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getSamplingFrequency() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            int i = this.samplingFrequencyIndex;
+            if (i == 15) {
+                return this.samplingFrequency;
+            }
+            return ((Integer) samplingFrequencyIndexMap.get(Integer.valueOf(i))).intValue();
+        }
+        return invokeV.intValue;
+    }
+
+    public int getSbrPresentFlag() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.sbrPresentFlag;
+        }
+        return invokeV.intValue;
+    }
+
+    public int serializedSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            if (this.audioObjectType == 2) {
+                return gaSpecificConfigSize() + 4;
+            }
+            throw new UnsupportedOperationException("can't serialize that yet");
         }
         return invokeV.intValue;
     }
@@ -166,9 +245,40 @@ public class AudioSpecificConfig extends BaseDescriptor {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, bitReaderBuffer)) == null) {
             int readBits = bitReaderBuffer.readBits(5);
-            return readBits == 31 ? bitReaderBuffer.readBits(6) + 32 : readBits;
+            if (readBits == 31) {
+                return bitReaderBuffer.readBits(6) + 32;
+            }
+            return readBits;
         }
         return invokeL.intValue;
+    }
+
+    public void setAudioObjectType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.audioObjectType = i;
+        }
+    }
+
+    public void setChannelConfiguration(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.channelConfiguration = i;
+        }
+    }
+
+    public void setSamplingFrequency(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.samplingFrequency = i;
+        }
+    }
+
+    public void setSamplingFrequencyIndex(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.samplingFrequencyIndex = i;
+        }
     }
 
     private void parseErHvxcConfig(int i, int i2, int i3, BitReaderBuffer bitReaderBuffer) throws IOException {
@@ -181,6 +291,33 @@ public class AudioSpecificConfig extends BaseDescriptor {
             if (readBits == 1) {
                 this.var_ScalableFlag = bitReaderBuffer.readBits(1);
             }
+        }
+    }
+
+    private void parseHilnConfig(int i, int i2, int i3, BitReaderBuffer bitReaderBuffer) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), bitReaderBuffer}) == null) {
+            this.hilnQuantMode = bitReaderBuffer.readBits(1);
+            this.hilnMaxNumLine = bitReaderBuffer.readBits(8);
+            this.hilnSampleRateCode = bitReaderBuffer.readBits(4);
+            this.hilnFrameLength = bitReaderBuffer.readBits(12);
+            this.hilnContMode = bitReaderBuffer.readBits(2);
+        }
+    }
+
+    private void parseParaConfig(int i, int i2, int i3, BitReaderBuffer bitReaderBuffer) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), bitReaderBuffer}) == null) {
+            int readBits = bitReaderBuffer.readBits(2);
+            this.paraMode = readBits;
+            if (readBits != 1) {
+                parseErHvxcConfig(i, i2, i3, bitReaderBuffer);
+            }
+            if (this.paraMode != 0) {
+                parseHilnConfig(i, i2, i3, bitReaderBuffer);
+            }
+            this.paraExtensionFlag = bitReaderBuffer.readBits(1);
+            this.parametricSpecificConfig = true;
         }
     }
 
@@ -217,17 +354,6 @@ public class AudioSpecificConfig extends BaseDescriptor {
         }
     }
 
-    private void parseHilnConfig(int i, int i2, int i3, BitReaderBuffer bitReaderBuffer) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), bitReaderBuffer}) == null) {
-            this.hilnQuantMode = bitReaderBuffer.readBits(1);
-            this.hilnMaxNumLine = bitReaderBuffer.readBits(8);
-            this.hilnSampleRateCode = bitReaderBuffer.readBits(4);
-            this.hilnFrameLength = bitReaderBuffer.readBits(12);
-            this.hilnContMode = bitReaderBuffer.readBits(2);
-        }
-    }
-
     private void parseHilnEnexConfig(int i, int i2, int i3, BitReaderBuffer bitReaderBuffer) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65543, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), bitReaderBuffer}) == null) {
@@ -236,22 +362,6 @@ public class AudioSpecificConfig extends BaseDescriptor {
             if (readBits == 1) {
                 this.hilnEnhaQuantMode = bitReaderBuffer.readBits(2);
             }
-        }
-    }
-
-    private void parseParaConfig(int i, int i2, int i3, BitReaderBuffer bitReaderBuffer) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), bitReaderBuffer}) == null) {
-            int readBits = bitReaderBuffer.readBits(2);
-            this.paraMode = readBits;
-            if (readBits != 1) {
-                parseErHvxcConfig(i, i2, i3, bitReaderBuffer);
-            }
-            if (this.paraMode != 0) {
-                parseHilnConfig(i, i2, i3, bitReaderBuffer);
-            }
-            this.paraExtensionFlag = bitReaderBuffer.readBits(1);
-            this.parametricSpecificConfig = true;
         }
     }
 
@@ -279,57 +389,26 @@ public class AudioSpecificConfig extends BaseDescriptor {
                 return false;
             }
             AudioSpecificConfig audioSpecificConfig = (AudioSpecificConfig) obj;
-            return this.aacScalefactorDataResilienceFlag == audioSpecificConfig.aacScalefactorDataResilienceFlag && this.aacSectionDataResilienceFlag == audioSpecificConfig.aacSectionDataResilienceFlag && this.aacSpectralDataResilienceFlag == audioSpecificConfig.aacSpectralDataResilienceFlag && this.audioObjectType == audioSpecificConfig.audioObjectType && this.channelConfiguration == audioSpecificConfig.channelConfiguration && this.coreCoderDelay == audioSpecificConfig.coreCoderDelay && this.dependsOnCoreCoder == audioSpecificConfig.dependsOnCoreCoder && this.directMapping == audioSpecificConfig.directMapping && this.epConfig == audioSpecificConfig.epConfig && this.erHvxcExtensionFlag == audioSpecificConfig.erHvxcExtensionFlag && this.extensionAudioObjectType == audioSpecificConfig.extensionAudioObjectType && this.extensionChannelConfiguration == audioSpecificConfig.extensionChannelConfiguration && this.extensionFlag == audioSpecificConfig.extensionFlag && this.extensionFlag3 == audioSpecificConfig.extensionFlag3 && this.extensionSamplingFrequency == audioSpecificConfig.extensionSamplingFrequency && this.extensionSamplingFrequencyIndex == audioSpecificConfig.extensionSamplingFrequencyIndex && this.fillBits == audioSpecificConfig.fillBits && this.frameLengthFlag == audioSpecificConfig.frameLengthFlag && this.gaSpecificConfig == audioSpecificConfig.gaSpecificConfig && this.hilnContMode == audioSpecificConfig.hilnContMode && this.hilnEnhaLayer == audioSpecificConfig.hilnEnhaLayer && this.hilnEnhaQuantMode == audioSpecificConfig.hilnEnhaQuantMode && this.hilnFrameLength == audioSpecificConfig.hilnFrameLength && this.hilnMaxNumLine == audioSpecificConfig.hilnMaxNumLine && this.hilnQuantMode == audioSpecificConfig.hilnQuantMode && this.hilnSampleRateCode == audioSpecificConfig.hilnSampleRateCode && this.hvxcRateMode == audioSpecificConfig.hvxcRateMode && this.hvxcVarMode == audioSpecificConfig.hvxcVarMode && this.isBaseLayer == audioSpecificConfig.isBaseLayer && this.layerNr == audioSpecificConfig.layerNr && this.layer_length == audioSpecificConfig.layer_length && this.numOfSubFrame == audioSpecificConfig.numOfSubFrame && this.paraExtensionFlag == audioSpecificConfig.paraExtensionFlag && this.paraMode == audioSpecificConfig.paraMode && this.parametricSpecificConfig == audioSpecificConfig.parametricSpecificConfig && this.psPresentFlag == audioSpecificConfig.psPresentFlag && this.sacPayloadEmbedding == audioSpecificConfig.sacPayloadEmbedding && this.samplingFrequency == audioSpecificConfig.samplingFrequency && this.samplingFrequencyIndex == audioSpecificConfig.samplingFrequencyIndex && this.sbrPresentFlag == audioSpecificConfig.sbrPresentFlag && this.syncExtensionType == audioSpecificConfig.syncExtensionType && this.var_ScalableFlag == audioSpecificConfig.var_ScalableFlag && Arrays.equals(this.configBytes, audioSpecificConfig.configBytes);
+            if (this.aacScalefactorDataResilienceFlag == audioSpecificConfig.aacScalefactorDataResilienceFlag && this.aacSectionDataResilienceFlag == audioSpecificConfig.aacSectionDataResilienceFlag && this.aacSpectralDataResilienceFlag == audioSpecificConfig.aacSpectralDataResilienceFlag && this.audioObjectType == audioSpecificConfig.audioObjectType && this.channelConfiguration == audioSpecificConfig.channelConfiguration && this.coreCoderDelay == audioSpecificConfig.coreCoderDelay && this.dependsOnCoreCoder == audioSpecificConfig.dependsOnCoreCoder && this.directMapping == audioSpecificConfig.directMapping && this.epConfig == audioSpecificConfig.epConfig && this.erHvxcExtensionFlag == audioSpecificConfig.erHvxcExtensionFlag && this.extensionAudioObjectType == audioSpecificConfig.extensionAudioObjectType && this.extensionChannelConfiguration == audioSpecificConfig.extensionChannelConfiguration && this.extensionFlag == audioSpecificConfig.extensionFlag && this.extensionFlag3 == audioSpecificConfig.extensionFlag3 && this.extensionSamplingFrequency == audioSpecificConfig.extensionSamplingFrequency && this.extensionSamplingFrequencyIndex == audioSpecificConfig.extensionSamplingFrequencyIndex && this.fillBits == audioSpecificConfig.fillBits && this.frameLengthFlag == audioSpecificConfig.frameLengthFlag && this.gaSpecificConfig == audioSpecificConfig.gaSpecificConfig && this.hilnContMode == audioSpecificConfig.hilnContMode && this.hilnEnhaLayer == audioSpecificConfig.hilnEnhaLayer && this.hilnEnhaQuantMode == audioSpecificConfig.hilnEnhaQuantMode && this.hilnFrameLength == audioSpecificConfig.hilnFrameLength && this.hilnMaxNumLine == audioSpecificConfig.hilnMaxNumLine && this.hilnQuantMode == audioSpecificConfig.hilnQuantMode && this.hilnSampleRateCode == audioSpecificConfig.hilnSampleRateCode && this.hvxcRateMode == audioSpecificConfig.hvxcRateMode && this.hvxcVarMode == audioSpecificConfig.hvxcVarMode && this.isBaseLayer == audioSpecificConfig.isBaseLayer && this.layerNr == audioSpecificConfig.layerNr && this.layer_length == audioSpecificConfig.layer_length && this.numOfSubFrame == audioSpecificConfig.numOfSubFrame && this.paraExtensionFlag == audioSpecificConfig.paraExtensionFlag && this.paraMode == audioSpecificConfig.paraMode && this.parametricSpecificConfig == audioSpecificConfig.parametricSpecificConfig && this.psPresentFlag == audioSpecificConfig.psPresentFlag && this.sacPayloadEmbedding == audioSpecificConfig.sacPayloadEmbedding && this.samplingFrequency == audioSpecificConfig.samplingFrequency && this.samplingFrequencyIndex == audioSpecificConfig.samplingFrequencyIndex && this.sbrPresentFlag == audioSpecificConfig.sbrPresentFlag && this.syncExtensionType == audioSpecificConfig.syncExtensionType && this.var_ScalableFlag == audioSpecificConfig.var_ScalableFlag && Arrays.equals(this.configBytes, audioSpecificConfig.configBytes)) {
+                return true;
+            }
+            return false;
         }
         return invokeL.booleanValue;
     }
 
-    public int getChannelConfiguration() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.channelConfiguration : invokeV.intValue;
-    }
-
-    public byte[] getConfigBytes() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.configBytes : (byte[]) invokeV.objValue;
-    }
-
-    public int getExtensionAudioObjectType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.extensionAudioObjectType : invokeV.intValue;
-    }
-
-    public int getPsPresentFlag() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.psPresentFlag : invokeV.intValue;
-    }
-
-    public int getSamplingFrequency() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            int i = this.samplingFrequencyIndex;
-            return i == 15 ? this.samplingFrequency : samplingFrequencyIndexMap.get(Integer.valueOf(i)).intValue();
-        }
-        return invokeV.intValue;
-    }
-
-    public int getSbrPresentFlag() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.sbrPresentFlag : invokeV.intValue;
-    }
-
     public int hashCode() {
         InterceptResult invokeV;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             byte[] bArr = this.configBytes;
-            return ((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((bArr != null ? Arrays.hashCode(bArr) : 0) * 31) + this.audioObjectType) * 31) + this.samplingFrequencyIndex) * 31) + this.samplingFrequency) * 31) + this.channelConfiguration) * 31) + this.extensionAudioObjectType) * 31) + this.sbrPresentFlag) * 31) + this.psPresentFlag) * 31) + this.extensionSamplingFrequencyIndex) * 31) + this.extensionSamplingFrequency) * 31) + this.extensionChannelConfiguration) * 31) + this.sacPayloadEmbedding) * 31) + this.fillBits) * 31) + this.epConfig) * 31) + this.directMapping) * 31) + this.syncExtensionType) * 31) + this.frameLengthFlag) * 31) + this.dependsOnCoreCoder) * 31) + this.coreCoderDelay) * 31) + this.extensionFlag) * 31) + this.layerNr) * 31) + this.numOfSubFrame) * 31) + this.layer_length) * 31) + this.aacSectionDataResilienceFlag) * 31) + this.aacScalefactorDataResilienceFlag) * 31) + this.aacSpectralDataResilienceFlag) * 31) + this.extensionFlag3) * 31) + (this.gaSpecificConfig ? 1 : 0)) * 31) + this.isBaseLayer) * 31) + this.paraMode) * 31) + this.paraExtensionFlag) * 31) + this.hvxcVarMode) * 31) + this.hvxcRateMode) * 31) + this.erHvxcExtensionFlag) * 31) + this.var_ScalableFlag) * 31) + this.hilnQuantMode) * 31) + this.hilnMaxNumLine) * 31) + this.hilnSampleRateCode) * 31) + this.hilnFrameLength) * 31) + this.hilnContMode) * 31) + this.hilnEnhaLayer) * 31) + this.hilnEnhaQuantMode) * 31) + (this.parametricSpecificConfig ? 1 : 0);
+            if (bArr != null) {
+                i = Arrays.hashCode(bArr);
+            } else {
+                i = 0;
+            }
+            return (((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((i * 31) + this.audioObjectType) * 31) + this.samplingFrequencyIndex) * 31) + this.samplingFrequency) * 31) + this.channelConfiguration) * 31) + this.extensionAudioObjectType) * 31) + this.sbrPresentFlag) * 31) + this.psPresentFlag) * 31) + this.extensionSamplingFrequencyIndex) * 31) + this.extensionSamplingFrequency) * 31) + this.extensionChannelConfiguration) * 31) + this.sacPayloadEmbedding) * 31) + this.fillBits) * 31) + this.epConfig) * 31) + this.directMapping) * 31) + this.syncExtensionType) * 31) + this.frameLengthFlag) * 31) + this.dependsOnCoreCoder) * 31) + this.coreCoderDelay) * 31) + this.extensionFlag) * 31) + this.layerNr) * 31) + this.numOfSubFrame) * 31) + this.layer_length) * 31) + this.aacSectionDataResilienceFlag) * 31) + this.aacScalefactorDataResilienceFlag) * 31) + this.aacSpectralDataResilienceFlag) * 31) + this.extensionFlag3) * 31) + (this.gaSpecificConfig ? 1 : 0)) * 31) + this.isBaseLayer) * 31) + this.paraMode) * 31) + this.paraExtensionFlag) * 31) + this.hvxcVarMode) * 31) + this.hvxcRateMode) * 31) + this.erHvxcExtensionFlag) * 31) + this.var_ScalableFlag) * 31) + this.hilnQuantMode) * 31) + this.hilnMaxNumLine) * 31) + this.hilnSampleRateCode) * 31) + this.hilnFrameLength) * 31) + this.hilnContMode) * 31) + this.hilnEnhaLayer) * 31) + this.hilnEnhaQuantMode) * 31) + (this.parametricSpecificConfig ? 1 : 0);
         }
         return invokeV.intValue;
     }
@@ -445,43 +524,43 @@ public class AudioSpecificConfig extends BaseDescriptor {
                     case 27:
                         break;
                     default:
-                        if (this.extensionAudioObjectType != 5 || bitReaderBuffer.remainingBits() < 16) {
-                            return;
-                        }
-                        int readBits3 = bitReaderBuffer.readBits(11);
-                        this.syncExtensionType = readBits3;
-                        if (readBits3 == 695) {
-                            int audioObjectType2 = getAudioObjectType(bitReaderBuffer);
-                            this.extensionAudioObjectType = audioObjectType2;
-                            if (audioObjectType2 == 5) {
-                                int readBits4 = bitReaderBuffer.readBits(1);
-                                this.sbrPresentFlag = readBits4;
-                                if (readBits4 == 1) {
-                                    int readBits5 = bitReaderBuffer.readBits(4);
-                                    this.extensionSamplingFrequencyIndex = readBits5;
-                                    if (readBits5 == 15) {
-                                        this.extensionSamplingFrequency = bitReaderBuffer.readBits(24);
-                                    }
-                                    if (bitReaderBuffer.remainingBits() >= 12) {
-                                        int readBits6 = bitReaderBuffer.readBits(11);
-                                        this.syncExtensionType = readBits6;
-                                        if (readBits6 == 1352) {
-                                            this.psPresentFlag = bitReaderBuffer.readBits(1);
+                        if (this.extensionAudioObjectType == 5 && bitReaderBuffer.remainingBits() >= 16) {
+                            int readBits3 = bitReaderBuffer.readBits(11);
+                            this.syncExtensionType = readBits3;
+                            if (readBits3 == 695) {
+                                int audioObjectType2 = getAudioObjectType(bitReaderBuffer);
+                                this.extensionAudioObjectType = audioObjectType2;
+                                if (audioObjectType2 == 5) {
+                                    int readBits4 = bitReaderBuffer.readBits(1);
+                                    this.sbrPresentFlag = readBits4;
+                                    if (readBits4 == 1) {
+                                        int readBits5 = bitReaderBuffer.readBits(4);
+                                        this.extensionSamplingFrequencyIndex = readBits5;
+                                        if (readBits5 == 15) {
+                                            this.extensionSamplingFrequency = bitReaderBuffer.readBits(24);
+                                        }
+                                        if (bitReaderBuffer.remainingBits() >= 12) {
+                                            int readBits6 = bitReaderBuffer.readBits(11);
+                                            this.syncExtensionType = readBits6;
+                                            if (readBits6 == 1352) {
+                                                this.psPresentFlag = bitReaderBuffer.readBits(1);
+                                            }
                                         }
                                     }
                                 }
-                            }
-                            if (this.extensionAudioObjectType == 22) {
-                                int readBits7 = bitReaderBuffer.readBits(1);
-                                this.sbrPresentFlag = readBits7;
-                                if (readBits7 == 1) {
-                                    int readBits8 = bitReaderBuffer.readBits(4);
-                                    this.extensionSamplingFrequencyIndex = readBits8;
-                                    if (readBits8 == 15) {
-                                        this.extensionSamplingFrequency = bitReaderBuffer.readBits(24);
+                                if (this.extensionAudioObjectType == 22) {
+                                    int readBits7 = bitReaderBuffer.readBits(1);
+                                    this.sbrPresentFlag = readBits7;
+                                    if (readBits7 == 1) {
+                                        int readBits8 = bitReaderBuffer.readBits(4);
+                                        this.extensionSamplingFrequencyIndex = readBits8;
+                                        if (readBits8 == 15) {
+                                            this.extensionSamplingFrequency = bitReaderBuffer.readBits(24);
+                                        }
                                     }
+                                    this.extensionChannelConfiguration = bitReaderBuffer.readBits(4);
+                                    return;
                                 }
-                                this.extensionChannelConfiguration = bitReaderBuffer.readBits(4);
                                 return;
                             }
                             return;
@@ -499,7 +578,7 @@ public class AudioSpecificConfig extends BaseDescriptor {
                         throw new RuntimeException("not implemented");
                     }
                 }
-                if (this.extensionAudioObjectType != 5) {
+                if (this.extensionAudioObjectType == 5) {
                     return;
                 }
                 return;
@@ -527,46 +606,6 @@ public class AudioSpecificConfig extends BaseDescriptor {
         return (ByteBuffer) invokeV.objValue;
     }
 
-    public int serializedSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            if (this.audioObjectType == 2) {
-                return gaSpecificConfigSize() + 4;
-            }
-            throw new UnsupportedOperationException("can't serialize that yet");
-        }
-        return invokeV.intValue;
-    }
-
-    public void setAudioObjectType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            this.audioObjectType = i;
-        }
-    }
-
-    public void setChannelConfiguration(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            this.channelConfiguration = i;
-        }
-    }
-
-    public void setSamplingFrequency(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.samplingFrequency = i;
-        }
-    }
-
-    public void setSamplingFrequencyIndex(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            this.samplingFrequencyIndex = i;
-        }
-    }
-
     @Override // com.googlecode.mp4parser.boxes.mp4.objectdescriptors.BaseDescriptor
     public String toString() {
         InterceptResult invokeV;
@@ -579,7 +618,7 @@ public class AudioSpecificConfig extends BaseDescriptor {
             sb.append(", audioObjectType=");
             sb.append(this.audioObjectType);
             sb.append(" (");
-            sb.append(audioObjectTypeMap.get(Integer.valueOf(this.audioObjectType)));
+            sb.append((String) audioObjectTypeMap.get(Integer.valueOf(this.audioObjectType)));
             sb.append(SmallTailInfo.EMOTION_SUFFIX);
             sb.append(", samplingFrequencyIndex=");
             sb.append(this.samplingFrequencyIndex);
@@ -594,7 +633,7 @@ public class AudioSpecificConfig extends BaseDescriptor {
                 sb.append(", extensionAudioObjectType=");
                 sb.append(this.extensionAudioObjectType);
                 sb.append(" (");
-                sb.append(audioObjectTypeMap.get(Integer.valueOf(this.extensionAudioObjectType)));
+                sb.append((String) audioObjectTypeMap.get(Integer.valueOf(this.extensionAudioObjectType)));
                 sb.append(SmallTailInfo.EMOTION_SUFFIX);
                 sb.append(", sbrPresentFlag=");
                 sb.append(this.sbrPresentFlag);
@@ -670,11 +709,5 @@ public class AudioSpecificConfig extends BaseDescriptor {
             return sb.toString();
         }
         return (String) invokeV.objValue;
-    }
-
-    public int getAudioObjectType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.audioObjectType : invokeV.intValue;
     }
 }

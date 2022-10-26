@@ -5,7 +5,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,7 +32,7 @@ public final class j extends a implements View.OnClickListener {
     public com.kwad.components.core.c.a.c mApkDownloadHelper;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public j(@NonNull Context context) {
+    public j(Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -74,14 +73,14 @@ public final class j extends a implements View.OnClickListener {
     public final void bg() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.de = (TextView) findViewById(R.id.obfuscated_res_0x7f091047);
-            ((RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f0910be)).setRatio(0.66f);
-            RoundAngleImageView roundAngleImageView = (RoundAngleImageView) findViewById(R.id.obfuscated_res_0x7f09104d);
+            this.de = (TextView) findViewById(R.id.obfuscated_res_0x7f09103b);
+            ((RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f0910b2)).setRatio(0.66f);
+            RoundAngleImageView roundAngleImageView = (RoundAngleImageView) findViewById(R.id.obfuscated_res_0x7f091041);
             this.dI = roundAngleImageView;
             roundAngleImageView.setRadius(com.kwad.sdk.b.kwai.a.a(getContext(), 3.0f));
-            this.dg = (ImageView) findViewById(R.id.obfuscated_res_0x7f091049);
-            this.dk = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f091060);
-            this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0910b4);
+            this.dg = (ImageView) findViewById(R.id.obfuscated_res_0x7f09103d);
+            this.dk = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f091054);
+            this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0910a8);
         }
     }
 
@@ -99,14 +98,14 @@ public final class j extends a implements View.OnClickListener {
     }
 
     @Override // com.kwad.components.core.widget.b
-    public final void c(@NonNull AdTemplate adTemplate) {
+    public final void c(AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adTemplate) == null) {
-            super.c((j) adTemplate);
+            super.c(adTemplate);
             this.de.setText(com.kwad.components.ad.feed.f.d(this.mAdTemplate));
-            List<String> aA = com.kwad.sdk.core.response.a.a.aA(this.mAdInfo);
+            List aA = com.kwad.sdk.core.response.a.a.aA(this.mAdInfo);
             if (aA.size() > 0) {
-                KSImageLoader.loadFeeImage(this.dI, aA.get(0), this.mAdTemplate);
+                KSImageLoader.loadFeeImage(this.dI, (String) aA.get(0), this.mAdTemplate);
             } else {
                 com.kwad.sdk.core.e.b.e("FeedTextLeftImageView", "getImageUrlList size less than one");
             }
@@ -127,7 +126,7 @@ public final class j extends a implements View.OnClickListener {
     public final int getLayoutId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? R.layout.obfuscated_res_0x7f0d0428 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? R.layout.obfuscated_res_0x7f0d0425 : invokeV.intValue;
     }
 
     @Override // android.view.View.OnClickListener
@@ -147,7 +146,7 @@ public final class j extends a implements View.OnClickListener {
                 i = 1;
             }
             g(false);
-            com.kwad.components.core.c.a.a.a(new a.C0570a(com.kwad.sdk.b.kwai.a.x(this)).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(view2 == this.dk ? 1 : 2).aj(view2 == this.dk).a(new a.b(this, i) { // from class: com.kwad.components.ad.feed.a.j.1
+            com.kwad.components.core.c.a.a.a(new a.C0566a(com.kwad.sdk.b.kwai.a.x(this)).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(view2 == this.dk ? 1 : 2).aj(view2 == this.dk).a(new a.b(this, i) { // from class: com.kwad.components.ad.feed.a.j.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ j dJ;

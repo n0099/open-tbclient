@@ -1,7 +1,5 @@
 package com.bumptech.glide.load.engine;
 
-import android.os.Looper;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,28 +10,28 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.Key;
 import com.bumptech.glide.util.Preconditions;
 /* loaded from: classes7.dex */
-public class EngineResource<Z> implements Resource<Z> {
+public class EngineResource implements Resource {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int acquired;
-    public final boolean isCacheable;
+    public final boolean isMemoryCacheable;
     public final boolean isRecyclable;
     public boolean isRecycled;
-    public Key key;
-    public ResourceListener listener;
-    public final Resource<Z> resource;
+    public final Key key;
+    public final ResourceListener listener;
+    public final Resource resource;
 
     /* loaded from: classes7.dex */
     public interface ResourceListener {
-        void onResourceReleased(Key key, EngineResource<?> engineResource);
+        void onResourceReleased(Key key, EngineResource engineResource);
     }
 
-    public EngineResource(Resource<Z> resource, boolean z, boolean z2) {
+    public EngineResource(Resource resource, boolean z, boolean z2, Key key, ResourceListener resourceListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {resource, Boolean.valueOf(z), Boolean.valueOf(z2)};
+            Object[] objArr = {resource, Boolean.valueOf(z), Boolean.valueOf(z2), key, resourceListener};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -44,110 +42,125 @@ public class EngineResource<Z> implements Resource<Z> {
             }
         }
         this.resource = (Resource) Preconditions.checkNotNull(resource);
-        this.isCacheable = z;
+        this.isMemoryCacheable = z;
         this.isRecyclable = z2;
+        this.key = key;
+        this.listener = (ResourceListener) Preconditions.checkNotNull(resourceListener);
     }
 
-    public void acquire() {
+    public synchronized void acquire() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (!this.isRecycled) {
-                if (Looper.getMainLooper().equals(Looper.myLooper())) {
+            synchronized (this) {
+                if (!this.isRecycled) {
                     this.acquired++;
-                    return;
+                } else {
+                    throw new IllegalStateException("Cannot acquire a recycled resource");
                 }
-                throw new IllegalThreadStateException("Must call acquire on the main thread");
             }
-            throw new IllegalStateException("Cannot acquire a recycled resource");
         }
     }
 
     @Override // com.bumptech.glide.load.engine.Resource
-    @NonNull
-    public Z get() {
+    public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.resource.get() : (Z) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.resource.get();
+        }
+        return invokeV.objValue;
     }
 
-    public Resource<Z> getResource() {
+    public Resource getResource() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.resource : (Resource) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.resource;
+        }
+        return (Resource) invokeV.objValue;
     }
 
     @Override // com.bumptech.glide.load.engine.Resource
-    @NonNull
-    public Class<Z> getResourceClass() {
+    public Class getResourceClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.resource.getResourceClass() : (Class) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.resource.getResourceClass();
+        }
+        return (Class) invokeV.objValue;
     }
 
     @Override // com.bumptech.glide.load.engine.Resource
     public int getSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.resource.getSize() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.resource.getSize();
+        }
+        return invokeV.intValue;
     }
 
-    public boolean isCacheable() {
+    public boolean isMemoryCacheable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.isCacheable : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.isMemoryCacheable;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.bumptech.glide.load.engine.Resource
-    public void recycle() {
+    public synchronized void recycle() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (this.acquired <= 0) {
-                if (!this.isRecycled) {
-                    this.isRecycled = true;
-                    if (this.isRecyclable) {
-                        this.resource.recycle();
-                        return;
+            synchronized (this) {
+                if (this.acquired <= 0) {
+                    if (!this.isRecycled) {
+                        this.isRecycled = true;
+                        if (this.isRecyclable) {
+                            this.resource.recycle();
+                        }
+                    } else {
+                        throw new IllegalStateException("Cannot recycle a resource that has already been recycled");
                     }
-                    return;
+                } else {
+                    throw new IllegalStateException("Cannot recycle a resource while it is still acquired");
                 }
-                throw new IllegalStateException("Cannot recycle a resource that has already been recycled");
             }
-            throw new IllegalStateException("Cannot recycle a resource while it is still acquired");
         }
     }
 
     public void release() {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            if (this.acquired > 0) {
-                if (Looper.getMainLooper().equals(Looper.myLooper())) {
+            synchronized (this) {
+                if (this.acquired > 0) {
+                    z = true;
                     int i = this.acquired - 1;
                     this.acquired = i;
-                    if (i == 0) {
-                        this.listener.onResourceReleased(this.key, this);
-                        return;
+                    if (i != 0) {
+                        z = false;
                     }
-                    return;
+                } else {
+                    throw new IllegalStateException("Cannot release a recycled or not yet acquired resource");
                 }
-                throw new IllegalThreadStateException("Must call release on the main thread");
             }
-            throw new IllegalStateException("Cannot release a recycled or not yet acquired resource");
+            if (z) {
+                this.listener.onResourceReleased(this.key, this);
+            }
         }
     }
 
-    public void setResourceListener(Key key, ResourceListener resourceListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, key, resourceListener) == null) {
-            this.key = key;
-            this.listener = resourceListener;
-        }
-    }
-
-    public String toString() {
+    public synchronized String toString() {
         InterceptResult invokeV;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return "EngineResource{isCacheable=" + this.isCacheable + ", listener=" + this.listener + ", key=" + this.key + ", acquired=" + this.acquired + ", isRecycled=" + this.isRecycled + ", resource=" + this.resource + '}';
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            synchronized (this) {
+                str = "EngineResource{isMemoryCacheable=" + this.isMemoryCacheable + ", listener=" + this.listener + ", key=" + this.key + ", acquired=" + this.acquired + ", isRecycled=" + this.isRecycled + ", resource=" + this.resource + '}';
+            }
+            return str;
         }
         return (String) invokeV.objValue;
     }

@@ -17,7 +17,7 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class PoiDetailInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<PoiDetailInfo> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public String address;
     public String area;
@@ -38,7 +38,7 @@ public class PoiDetailInfo implements Parcelable {
     public String name;
     public LatLng naviLocation;
     public double overallRating;
-    public List<PoiChildrenInfo> poiChildrenInfoList;
+    public List poiChildrenInfoList;
     public double price;
     public String province;
     public double serviceRating;
@@ -253,7 +253,7 @@ public class PoiDetailInfo implements Parcelable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.overallRating : invokeV.doubleValue;
     }
 
-    public List<PoiChildrenInfo> getPoiChildrenInfoList() {
+    public List getPoiChildrenInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.poiChildrenInfoList : (List) invokeV.objValue;
@@ -462,7 +462,7 @@ public class PoiDetailInfo implements Parcelable {
         }
     }
 
-    public void setPoiChildrenInfoList(List<PoiChildrenInfo> list) {
+    public void setPoiChildrenInfoList(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048627, this, list) == null) {
             this.poiChildrenInfoList = list;
@@ -619,13 +619,13 @@ public class PoiDetailInfo implements Parcelable {
             stringBuffer.append(this.favoriteNum);
             stringBuffer.append("; checkinNum = ");
             stringBuffer.append(this.checkinNum);
-            List<PoiChildrenInfo> list = this.poiChildrenInfoList;
+            List list = this.poiChildrenInfoList;
             if (list != null && !list.isEmpty()) {
                 for (int i = 0; i < this.poiChildrenInfoList.size(); i++) {
                     stringBuffer.append("; The ");
                     stringBuffer.append(i);
                     stringBuffer.append(" poiChildrenInfo is: ");
-                    PoiChildrenInfo poiChildrenInfo = this.poiChildrenInfoList.get(i);
+                    PoiChildrenInfo poiChildrenInfo = (PoiChildrenInfo) this.poiChildrenInfoList.get(i);
                     if (poiChildrenInfo != null) {
                         stringBuffer.append(poiChildrenInfo.toString());
                     } else {

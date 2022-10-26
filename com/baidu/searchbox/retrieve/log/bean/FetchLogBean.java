@@ -17,12 +17,12 @@ public class FetchLogBean {
     public String mJobId;
     public long mMaxSizeLimit;
     public String mNetwork;
-    public ArrayList<String> mSpace;
+    public ArrayList mSpace;
     public long mStartTime;
     public String mType;
     public String mVersion;
 
-    public FetchLogBean(String str, String str2, String str3, long j, long j2, long j3, long j4, ArrayList<String> arrayList, String str4) {
+    public FetchLogBean(String str, String str2, String str3, long j, long j2, long j3, long j4, ArrayList arrayList, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -51,55 +51,82 @@ public class FetchLogBean {
     public long getEndTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mEndTime : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mEndTime;
+        }
+        return invokeV.longValue;
     }
 
     public long getExpiredTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mExpiredTime : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mExpiredTime;
+        }
+        return invokeV.longValue;
     }
 
     public String getJobId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mJobId : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mJobId;
+        }
+        return (String) invokeV.objValue;
     }
 
     public long getMaxSizeLimit() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mMaxSizeLimit : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mMaxSizeLimit;
+        }
+        return invokeV.longValue;
     }
 
     public String getNetwork() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mNetwork : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mNetwork;
+        }
+        return (String) invokeV.objValue;
     }
 
-    public ArrayList<String> getSpace() {
+    public ArrayList getSpace() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mSpace : (ArrayList) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mSpace;
+        }
+        return (ArrayList) invokeV.objValue;
     }
 
     public long getStartTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mStartTime : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mStartTime;
+        }
+        return invokeV.longValue;
     }
 
     public String getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mType : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mType;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mVersion : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mVersion;
+        }
+        return (String) invokeV.objValue;
     }
 
     public void setEndTime(long j) {
@@ -137,7 +164,7 @@ public class FetchLogBean {
         }
     }
 
-    public void setSpace(ArrayList<String> arrayList) {
+    public void setSpace(ArrayList arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, arrayList) == null) {
             this.mSpace = arrayList;

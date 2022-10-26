@@ -59,7 +59,147 @@ public class Rectangle implements Serializable {
     public float area() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.width * this.height : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.width * this.height;
+        }
+        return invokeV.floatValue;
+    }
+
+    public float getAspectRatio() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            float f = this.height;
+            if (f == 0.0f) {
+                return Float.NaN;
+            }
+            return this.width / f;
+        }
+        return invokeV.floatValue;
+    }
+
+    public float getHeight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.height;
+        }
+        return invokeV.floatValue;
+    }
+
+    public float getWidth() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.width;
+        }
+        return invokeV.floatValue;
+    }
+
+    public float getX() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.x;
+        }
+        return invokeV.floatValue;
+    }
+
+    public float getY() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.y;
+        }
+        return invokeV.floatValue;
+    }
+
+    public float perimeter() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            return (this.width + this.height) * 2.0f;
+        }
+        return invokeV.floatValue;
+    }
+
+    public Rectangle(float f, float f2, float f3, float f4) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.x = f;
+        this.y = f2;
+        this.width = f3;
+        this.height = f4;
+    }
+
+    public Rectangle(Rectangle rectangle) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {rectangle};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.x = rectangle.x;
+        this.y = rectangle.y;
+        this.width = rectangle.width;
+        this.height = rectangle.height;
+    }
+
+    public boolean contains(Circle circle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, circle)) == null) {
+            float f = circle.x;
+            float f2 = circle.radius;
+            float f3 = this.x;
+            if (f - f2 >= f3 && f + f2 <= f3 + this.width) {
+                float f4 = circle.y;
+                float f5 = this.y;
+                if (f4 - f2 >= f5 && f4 + f2 <= f5 + this.height) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean overlaps(Rectangle rectangle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, rectangle)) == null) {
+            float f = this.x;
+            float f2 = rectangle.x;
+            if (f < rectangle.width + f2 && f + this.width > f2) {
+                float f3 = this.y;
+                float f4 = rectangle.y;
+                if (f3 < rectangle.height + f4 && f3 + this.height > f4) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     public boolean contains(float f, float f2) {
@@ -78,6 +218,42 @@ public class Rectangle implements Serializable {
         return invokeCommon.booleanValue;
     }
 
+    public Rectangle setCenter(float f, float f2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048602, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            setPosition(f - (this.width / 2.0f), f2 - (this.height / 2.0f));
+            return this;
+        }
+        return (Rectangle) invokeCommon.objValue;
+    }
+
+    public boolean contains(Rectangle rectangle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, rectangle)) == null) {
+            float f = rectangle.x;
+            float f2 = rectangle.width + f;
+            float f3 = rectangle.y;
+            float f4 = rectangle.height + f3;
+            float f5 = this.x;
+            if (f > f5) {
+                float f6 = this.width;
+                if (f < f5 + f6 && f2 > f5 && f2 < f5 + f6) {
+                    float f7 = this.y;
+                    if (f3 > f7) {
+                        float f8 = this.height;
+                        if (f3 < f7 + f8 && f4 > f7 && f4 < f7 + f8) {
+                            return true;
+                        }
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -85,9 +261,12 @@ public class Rectangle implements Serializable {
             if (this == obj) {
                 return true;
             }
-            if (obj != null && getClass() == obj.getClass()) {
-                Rectangle rectangle = (Rectangle) obj;
-                return u7.b(this.height) == u7.b(rectangle.height) && u7.b(this.width) == u7.b(rectangle.width) && u7.b(this.x) == u7.b(rectangle.x) && u7.b(this.y) == u7.b(rectangle.y);
+            if (obj == null || getClass() != obj.getClass()) {
+                return false;
+            }
+            Rectangle rectangle = (Rectangle) obj;
+            if (u7.b(this.height) == u7.b(rectangle.height) && u7.b(this.width) == u7.b(rectangle.width) && u7.b(this.x) == u7.b(rectangle.x) && u7.b(this.y) == u7.b(rectangle.y)) {
+                return true;
             }
             return false;
         }
@@ -130,92 +309,6 @@ public class Rectangle implements Serializable {
         return (Rectangle) invokeL.objValue;
     }
 
-    public Rectangle fromString(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            int indexOf = str.indexOf(44, 1);
-            int i = indexOf + 1;
-            int indexOf2 = str.indexOf(44, i);
-            int i2 = indexOf2 + 1;
-            int indexOf3 = str.indexOf(44, i2);
-            if (indexOf != -1 && indexOf2 != -1 && indexOf3 != -1 && str.charAt(0) == '[' && str.charAt(str.length() - 1) == ']') {
-                try {
-                    return set(Float.parseFloat(str.substring(1, indexOf)), Float.parseFloat(str.substring(i, indexOf2)), Float.parseFloat(str.substring(i2, indexOf3)), Float.parseFloat(str.substring(indexOf3 + 1, str.length() - 1)));
-                } catch (NumberFormatException unused) {
-                }
-            }
-            throw new GdxRuntimeException("Malformed Rectangle: " + str);
-        }
-        return (Rectangle) invokeL.objValue;
-    }
-
-    public float getAspectRatio() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            float f = this.height;
-            if (f == 0.0f) {
-                return Float.NaN;
-            }
-            return this.width / f;
-        }
-        return invokeV.floatValue;
-    }
-
-    public Vector2 getCenter(Vector2 vector2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, vector2)) == null) {
-            vector2.x = this.x + (this.width / 2.0f);
-            vector2.y = this.y + (this.height / 2.0f);
-            return vector2;
-        }
-        return (Vector2) invokeL.objValue;
-    }
-
-    public float getHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.height : invokeV.floatValue;
-    }
-
-    public Vector2 getPosition(Vector2 vector2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, vector2)) == null) ? vector2.set(this.x, this.y) : (Vector2) invokeL.objValue;
-    }
-
-    public Vector2 getSize(Vector2 vector2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, vector2)) == null) ? vector2.set(this.width, this.height) : (Vector2) invokeL.objValue;
-    }
-
-    public float getWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.width : invokeV.floatValue;
-    }
-
-    public float getX() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.x : invokeV.floatValue;
-    }
-
-    public float getY() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.y : invokeV.floatValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? ((((((u7.b(this.height) + 31) * 31) + u7.b(this.width)) * 31) + u7.b(this.x)) * 31) + u7.b(this.y) : invokeV.intValue;
-    }
-
     public Rectangle merge(Rectangle rectangle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -233,51 +326,74 @@ public class Rectangle implements Serializable {
         return (Rectangle) invokeL.objValue;
     }
 
-    public boolean overlaps(Rectangle rectangle) {
+    public boolean contains(Vector2 vector2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, rectangle)) == null) {
-            float f = this.x;
-            float f2 = rectangle.x;
-            if (f < rectangle.width + f2 && f + this.width > f2) {
-                float f3 = this.y;
-                float f4 = rectangle.y;
-                if (f3 < rectangle.height + f4 && f3 + this.height > f4) {
-                    return true;
-                }
-            }
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, vector2)) == null) {
+            return contains(vector2.x, vector2.y);
         }
         return invokeL.booleanValue;
     }
 
-    public float perimeter() {
-        InterceptResult invokeV;
+    public Vector2 getCenter(Vector2 vector2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? (this.width + this.height) * 2.0f : invokeV.floatValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, vector2)) == null) {
+            vector2.x = this.x + (this.width / 2.0f);
+            vector2.y = this.y + (this.height / 2.0f);
+            return vector2;
+        }
+        return (Vector2) invokeL.objValue;
     }
 
-    public Rectangle set(float f, float f2, float f3, float f4) {
-        InterceptResult invokeCommon;
+    public Vector2 getPosition(Vector2 vector2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048600, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
-            this.x = f;
-            this.y = f2;
-            this.width = f3;
-            this.height = f4;
-            return this;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, vector2)) == null) {
+            return vector2.set(this.x, this.y);
         }
-        return (Rectangle) invokeCommon.objValue;
+        return (Vector2) invokeL.objValue;
     }
 
-    public Rectangle setCenter(float f, float f2) {
-        InterceptResult invokeCommon;
+    public Vector2 getSize(Vector2 vector2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048602, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
-            setPosition(f - (this.width / 2.0f), f2 - (this.height / 2.0f));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, vector2)) == null) {
+            return vector2.set(this.width, this.height);
+        }
+        return (Vector2) invokeL.objValue;
+    }
+
+    public Rectangle merge(Vector2 vector2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, vector2)) == null) {
+            return merge(vector2.x, vector2.y);
+        }
+        return (Rectangle) invokeL.objValue;
+    }
+
+    public Rectangle set(Rectangle rectangle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, rectangle)) == null) {
+            this.x = rectangle.x;
+            this.y = rectangle.y;
+            this.width = rectangle.width;
+            this.height = rectangle.height;
             return this;
         }
-        return (Rectangle) invokeCommon.objValue;
+        return (Rectangle) invokeL.objValue;
+    }
+
+    public Rectangle setCenter(Vector2 vector2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, vector2)) == null) {
+            setPosition(vector2.x - (this.width / 2.0f), vector2.y - (this.height / 2.0f));
+            return this;
+        }
+        return (Rectangle) invokeL.objValue;
     }
 
     public Rectangle setHeight(float f) {
@@ -301,15 +417,15 @@ public class Rectangle implements Serializable {
         return (Rectangle) invokeL.objValue;
     }
 
-    public Rectangle setSize(float f, float f2) {
-        InterceptResult invokeCommon;
+    public Rectangle setSize(float f) {
+        InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048608, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048607, this, f)) == null) {
             this.width = f;
-            this.height = f2;
+            this.height = f;
             return this;
         }
-        return (Rectangle) invokeCommon.objValue;
+        return (Rectangle) invokeF.objValue;
     }
 
     public Rectangle setWidth(float f) {
@@ -342,6 +458,35 @@ public class Rectangle implements Serializable {
         return (Rectangle) invokeF.objValue;
     }
 
+    public Rectangle fromString(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            int indexOf = str.indexOf(44, 1);
+            int i = indexOf + 1;
+            int indexOf2 = str.indexOf(44, i);
+            int i2 = indexOf2 + 1;
+            int indexOf3 = str.indexOf(44, i2);
+            if (indexOf != -1 && indexOf2 != -1 && indexOf3 != -1 && str.charAt(0) == '[' && str.charAt(str.length() - 1) == ']') {
+                try {
+                    return set(Float.parseFloat(str.substring(1, indexOf)), Float.parseFloat(str.substring(i, indexOf2)), Float.parseFloat(str.substring(i2, indexOf3)), Float.parseFloat(str.substring(indexOf3 + 1, str.length() - 1)));
+                } catch (NumberFormatException unused) {
+                }
+            }
+            throw new GdxRuntimeException("Malformed Rectangle: " + str);
+        }
+        return (Rectangle) invokeL.objValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return ((((((u7.b(this.height) + 31) * 31) + u7.b(this.width)) * 31) + u7.b(this.x)) * 31) + u7.b(this.y);
+        }
+        return invokeV.intValue;
+    }
+
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -349,144 +494,6 @@ public class Rectangle implements Serializable {
             return PreferencesUtil.LEFT_MOUNT + this.x + "," + this.y + "," + this.width + "," + this.height + PreferencesUtil.RIGHT_MOUNT;
         }
         return (String) invokeV.objValue;
-    }
-
-    public Rectangle(float f, float f2, float f3, float f4) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.x = f;
-        this.y = f2;
-        this.width = f3;
-        this.height = f4;
-    }
-
-    public boolean contains(Vector2 vector2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, vector2)) == null) ? contains(vector2.x, vector2.y) : invokeL.booleanValue;
-    }
-
-    public Rectangle setCenter(Vector2 vector2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, vector2)) == null) {
-            setPosition(vector2.x - (this.width / 2.0f), vector2.y - (this.height / 2.0f));
-            return this;
-        }
-        return (Rectangle) invokeL.objValue;
-    }
-
-    public boolean contains(Circle circle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, circle)) == null) {
-            float f = circle.x;
-            float f2 = circle.radius;
-            float f3 = this.x;
-            if (f - f2 >= f3 && f + f2 <= f3 + this.width) {
-                float f4 = circle.y;
-                float f5 = this.y;
-                if (f4 - f2 >= f5 && f4 + f2 <= f5 + this.height) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public Rectangle setPosition(float f, float f2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048605, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
-            this.x = f;
-            this.y = f2;
-            return this;
-        }
-        return (Rectangle) invokeCommon.objValue;
-    }
-
-    public Rectangle setSize(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048607, this, f)) == null) {
-            this.width = f;
-            this.height = f;
-            return this;
-        }
-        return (Rectangle) invokeF.objValue;
-    }
-
-    public boolean contains(Rectangle rectangle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, rectangle)) == null) {
-            float f = rectangle.x;
-            float f2 = rectangle.width + f;
-            float f3 = rectangle.y;
-            float f4 = rectangle.height + f3;
-            float f5 = this.x;
-            if (f > f5) {
-                float f6 = this.width;
-                if (f < f5 + f6 && f2 > f5 && f2 < f5 + f6) {
-                    float f7 = this.y;
-                    if (f3 > f7) {
-                        float f8 = this.height;
-                        if (f3 < f7 + f8 && f4 > f7 && f4 < f7 + f8) {
-                            return true;
-                        }
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public Rectangle set(Rectangle rectangle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, rectangle)) == null) {
-            this.x = rectangle.x;
-            this.y = rectangle.y;
-            this.width = rectangle.width;
-            this.height = rectangle.height;
-            return this;
-        }
-        return (Rectangle) invokeL.objValue;
-    }
-
-    public Rectangle(Rectangle rectangle) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {rectangle};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        this.x = rectangle.x;
-        this.y = rectangle.y;
-        this.width = rectangle.width;
-        this.height = rectangle.height;
     }
 
     public Rectangle merge(float f, float f2) {
@@ -504,12 +511,6 @@ public class Rectangle implements Serializable {
             return this;
         }
         return (Rectangle) invokeCommon.objValue;
-    }
-
-    public Rectangle merge(Vector2 vector2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, vector2)) == null) ? merge(vector2.x, vector2.y) : (Rectangle) invokeL.objValue;
     }
 
     public Rectangle merge(Vector2[] vector2Arr) {
@@ -533,5 +534,40 @@ public class Rectangle implements Serializable {
             return this;
         }
         return (Rectangle) invokeL.objValue;
+    }
+
+    public Rectangle set(float f, float f2, float f3, float f4) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048600, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
+            this.x = f;
+            this.y = f2;
+            this.width = f3;
+            this.height = f4;
+            return this;
+        }
+        return (Rectangle) invokeCommon.objValue;
+    }
+
+    public Rectangle setPosition(float f, float f2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048605, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            this.x = f;
+            this.y = f2;
+            return this;
+        }
+        return (Rectangle) invokeCommon.objValue;
+    }
+
+    public Rectangle setSize(float f, float f2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048608, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            this.width = f;
+            this.height = f2;
+            return this;
+        }
+        return (Rectangle) invokeCommon.objValue;
     }
 }

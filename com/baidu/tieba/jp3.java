@@ -1,12 +1,12 @@
 package com.baidu.tieba;
 
-import android.app.Application;
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class jp3 implements lp3 {
+public class jp3 implements qo1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -24,10 +24,11 @@ public class jp3 implements lp3 {
         }
     }
 
-    @Override // com.baidu.tieba.lp3
-    public void a(Application application, boolean z, boolean z2) {
+    @Override // com.baidu.tieba.qo1
+    public void a(String str, nt2 nt2Var, Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{application, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, nt2Var, context) == null) {
+            vv2.e().a(str, nt2Var, context);
         }
     }
 }

@@ -43,9 +43,9 @@ public class ExceptionHandlerImpl implements ExceptionHandler {
     }
 
     @Override // com.baidu.searchbox.logsystem.exceptionhandler.api.ExceptionHandler
-    public void onException(Exception exc, String str, String str2, Map<String, String> map) {
+    public void onException(Exception exc, String str, String str2, Map map) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(1048576, this, exc, str, str2, map) == null) || exc == null) {
+        if ((interceptable != null && interceptable.invokeLLLL(1048576, this, exc, str, str2, map) != null) || exc == null) {
             return;
         }
         if (AppConfig.isDebug() && !this.mForce) {
@@ -71,6 +71,6 @@ public class ExceptionHandlerImpl implements ExceptionHandler {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        create.submitPerformanceData(UBC_ID, EXCEPTION_TYPE_JAVA, System.currentTimeMillis(), new ExceptionHandlerComponent().exceptionHandlerContext.get().getAppLaunchStartTimeStamp(), exc.getMessage(), str2, jSONObject.toString());
+        create.submitPerformanceData(UBC_ID, EXCEPTION_TYPE_JAVA, System.currentTimeMillis(), ((IExceptionHandlerContext) new ExceptionHandlerComponent().exceptionHandlerContext.get()).getAppLaunchStartTimeStamp(), exc.getMessage(), str2, jSONObject.toString());
     }
 }

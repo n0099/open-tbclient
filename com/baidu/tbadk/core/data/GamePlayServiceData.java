@@ -1,14 +1,13 @@
 package com.baidu.tbadk.core.data;
 
-import androidx.annotation.Keep;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-@Keep
 /* loaded from: classes3.dex */
 public class GamePlayServiceData {
     public static /* synthetic */ Interceptable $ic;
@@ -39,7 +38,7 @@ public class GamePlayServiceData {
         try {
             JSONObject jSONObject = new JSONObject(str);
             this.expires = jSONObject.optLong("expires");
-            this.gid = jSONObject.optString("gid");
+            this.gid = jSONObject.optString(TbEnum.ParamKey.GID);
             this.is_god = jSONObject.optBoolean("is_god", false);
             this.saveTime = jSONObject.optLong("saveTime");
         } catch (Exception e) {
@@ -50,25 +49,37 @@ public class GamePlayServiceData {
     public long getExpires() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.expires : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.expires;
+        }
+        return invokeV.longValue;
     }
 
     public String getGid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.gid : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.gid;
+        }
+        return (String) invokeV.objValue;
     }
 
     public long getSaveTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.saveTime : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.saveTime;
+        }
+        return invokeV.longValue;
     }
 
     public boolean isGod() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.is_god : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.is_god;
+        }
+        return invokeV.booleanValue;
     }
 
     public void setExpires(long j) {

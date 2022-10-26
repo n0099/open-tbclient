@@ -3,12 +3,6 @@ package com.google.android.material.resources;
 import android.content.Context;
 import android.util.TypedValue;
 import android.view.View;
-import androidx.annotation.AttrRes;
-import androidx.annotation.DimenRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.Px;
-import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +10,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes7.dex */
 public class MaterialAttributes {
     public static /* synthetic */ Interceptable $ic;
@@ -36,8 +29,7 @@ public class MaterialAttributes {
         }
     }
 
-    @Nullable
-    public static TypedValue resolve(@NonNull Context context, @AttrRes int i) {
+    public static TypedValue resolve(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
@@ -50,24 +42,32 @@ public class MaterialAttributes {
         return (TypedValue) invokeLI.objValue;
     }
 
-    public static boolean resolveBoolean(@NonNull Context context, @AttrRes int i, boolean z) {
+    public static int resolveOrThrow(View view2, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, view2, i)) == null) {
+            return resolveOrThrow(view2.getContext(), i, view2.getClass().getCanonicalName());
+        }
+        return invokeLI.intValue;
+    }
+
+    public static boolean resolveBoolean(Context context, int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
             TypedValue resolve = resolve(context, i);
-            return (resolve == null || resolve.type != 18) ? z : resolve.data != 0;
+            if (resolve != null && resolve.type == 18) {
+                if (resolve.data != 0) {
+                    return true;
+                }
+                return false;
+            }
+            return z;
         }
         return invokeCommon.booleanValue;
     }
 
-    public static boolean resolveBooleanOrThrow(@NonNull Context context, @AttrRes int i, @NonNull String str) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(65539, null, context, i, str)) == null) ? resolveOrThrow(context, i, str) != 0 : invokeLIL.booleanValue;
-    }
-
-    @Px
-    public static int resolveDimension(@NonNull Context context, @AttrRes int i, @DimenRes int i2) {
+    public static int resolveDimension(Context context, int i, int i2) {
         InterceptResult invokeLII;
         float dimension;
         Interceptable interceptable = $ic;
@@ -83,14 +83,7 @@ public class MaterialAttributes {
         return invokeLII.intValue;
     }
 
-    @Px
-    public static int resolveMinimumAccessibleTouchTarget(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? resolveDimension(context, R.attr.obfuscated_res_0x7f0404d2, R.dimen.obfuscated_res_0x7f0704b9) : invokeL.intValue;
-    }
-
-    public static int resolveOrThrow(@NonNull Context context, @AttrRes int i, @NonNull String str) {
+    public static int resolveOrThrow(Context context, int i, String str) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65542, null, context, i, str)) == null) {
@@ -103,9 +96,24 @@ public class MaterialAttributes {
         return invokeLIL.intValue;
     }
 
-    public static int resolveOrThrow(@NonNull View view2, @AttrRes int i) {
-        InterceptResult invokeLI;
+    public static boolean resolveBooleanOrThrow(Context context, int i, String str) {
+        InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, view2, i)) == null) ? resolveOrThrow(view2.getContext(), i, view2.getClass().getCanonicalName()) : invokeLI.intValue;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65539, null, context, i, str)) == null) {
+            if (resolveOrThrow(context, i, str) != 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLIL.booleanValue;
+    }
+
+    public static int resolveMinimumAccessibleTouchTarget(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            return resolveDimension(context, R.attr.obfuscated_res_0x7f0404d2, R.dimen.obfuscated_res_0x7f0704b9);
+        }
+        return invokeL.intValue;
     }
 }

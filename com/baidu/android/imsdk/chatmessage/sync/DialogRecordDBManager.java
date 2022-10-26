@@ -31,12 +31,27 @@ public class DialogRecordDBManager extends DBBase {
     public static DialogRecordDBManager mInstance;
     public transient /* synthetic */ FieldHolder $fh;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(439389330, "Lcom/baidu/android/imsdk/chatmessage/sync/DialogRecordDBManager;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(439389330, "Lcom/baidu/android/imsdk/chatmessage/sync/DialogRecordDBManager;");
+        }
+    }
+
     /* loaded from: classes.dex */
     public class Parse implements CursorParse {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int count;
-        public List<DialogRecord> result;
+        public List result;
         public final /* synthetic */ DialogRecordDBManager this$0;
 
         public Parse(DialogRecordDBManager dialogRecordDBManager, int i) {
@@ -63,46 +78,33 @@ public class DialogRecordDBManager extends DBBase {
         public Object getResult() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.result : invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.result;
+            }
+            return invokeV.objValue;
         }
 
         @Override // com.baidu.android.imsdk.db.CursorParse
         public void parseCursor(Cursor cursor) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cursor) == null) || (r1 = cursor) == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cursor) == null) && (r1 = cursor) != null) {
+                this.result = new ArrayList();
+                while (cursor.moveToNext()) {
+                    int i = r1.getInt(r1.getColumnIndex("category"));
+                    long j = r1.getLong(r1.getColumnIndex("contacter"));
+                    long j2 = r1.getLong(r1.getColumnIndex(TableDefine.DRColumns.COLUMN_MAXMSGID));
+                    long j3 = r1.getLong(r1.getColumnIndex(TableDefine.DRColumns.COLUMN_DAILOGUE_MSGID));
+                    int i2 = r1.getInt(r1.getColumnIndex("state"));
+                    long j4 = r1.getLong(r1.getColumnIndex("update_time"));
+                    int i3 = r1.getInt(r1.getColumnIndex(TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT));
+                    DialogRecord dialogRecord = new DialogRecord();
+                    String str = DialogRecordDBManager.TAG;
+                    LogUtils.i(str, "parseCursor dialogRecord : " + dialogRecord);
+                    dialogRecord.setCategory(i).setContacter(j).setState(i2).setJumpToRecent(i3).setMaxMsgid(j2).setUpdateTime(j4).setDialogueMsgid(j3);
+                    this.result.add(dialogRecord);
+                    Cursor cursor2 = cursor;
+                }
             }
-            this.result = new ArrayList();
-            while (cursor.moveToNext()) {
-                int i = r1.getInt(r1.getColumnIndex("category"));
-                long j = r1.getLong(r1.getColumnIndex("contacter"));
-                long j2 = r1.getLong(r1.getColumnIndex(TableDefine.DRColumns.COLUMN_MAXMSGID));
-                long j3 = r1.getLong(r1.getColumnIndex(TableDefine.DRColumns.COLUMN_DAILOGUE_MSGID));
-                int i2 = r1.getInt(r1.getColumnIndex("state"));
-                long j4 = r1.getLong(r1.getColumnIndex("update_time"));
-                int i3 = r1.getInt(r1.getColumnIndex(TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT));
-                DialogRecord dialogRecord = new DialogRecord();
-                String str = DialogRecordDBManager.TAG;
-                LogUtils.i(str, "parseCursor dialogRecord : " + dialogRecord);
-                dialogRecord.setCategory(i).setContacter(j).setState(i2).setJumpToRecent(i3).setMaxMsgid(j2).setUpdateTime(j4).setDialogueMsgid(j3);
-                this.result.add(dialogRecord);
-                Cursor cursor2 = cursor;
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(439389330, "Lcom/baidu/android/imsdk/chatmessage/sync/DialogRecordDBManager;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(439389330, "Lcom/baidu/android/imsdk/chatmessage/sync/DialogRecordDBManager;");
         }
     }
 
@@ -138,6 +140,20 @@ public class DialogRecordDBManager extends DBBase {
         return (DialogRecordDBManager) invokeL.objValue;
     }
 
+    public List getDialogRecord(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            if (i == 0) {
+                return null;
+            }
+            Parse parse = new Parse(this, i);
+            query(TableDefine.DB_TABLE_DIALOG_RECORD, null, "localmsgid < dialogueMsgid", null, null, null, "update_time desc", parse);
+            return (List) parse.getResult();
+        }
+        return (List) invokeI.objValue;
+    }
+
     public long add(DialogRecord dialogRecord) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -156,7 +172,7 @@ public class DialogRecordDBManager extends DBBase {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public long addBatch(List<DialogRecord> list) {
+    public long addBatch(List list) {
         InterceptResult invokeL;
         SQLiteDatabase sQLiteDatabase;
         Cursor cursor;
@@ -196,84 +212,85 @@ public class DialogRecordDBManager extends DBBase {
                 return -1L;
             }
             sQLiteDatabase.beginTransaction();
-            Iterator<DialogRecord> it = list.iterator();
+            Iterator it = list.iterator();
             Cursor cursor3 = null;
             while (true) {
                 try {
-                    if (!it.hasNext()) {
-                        cursor = cursor3;
-                        break;
-                    }
-                    DialogRecord next = it.next();
-                    String[] strArr = {String.valueOf(next.getCategory()), String.valueOf(next.getContacter())};
-                    Cursor query = sQLiteDatabase.query(TableDefine.DB_TABLE_DIALOG_RECORD, null, "category=? AND contacter=?", strArr, null, null, null);
-                    if (query == null) {
-                        if (query != null) {
-                            query.close();
-                        }
-                        if (sQLiteDatabase != null) {
-                            sQLiteDatabase.endTransaction();
-                        }
-                        return j;
-                    }
-                    try {
-                        ContentValues contentValues = new ContentValues();
-                        contentValues.put(TableDefine.DRColumns.COLUMN_MAXMSGID, Long.valueOf(next.getMaxMsgid()));
-                        contentValues.put("state", Integer.valueOf(next.getState()));
-                        contentValues.put("update_time", Long.valueOf(next.getUpdateTime()));
-                        contentValues.put(TableDefine.DRColumns.COLUMN_DAILOGUE_MSGID, Long.valueOf(next.getDialogueMsgid()));
-                        if (query.getCount() > 0) {
-                            contentValues.put(TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT, (Integer) 0);
-                            j = sQLiteDatabase.update(TableDefine.DB_TABLE_DIALOG_RECORD, contentValues, "category=? AND contacter=?", strArr);
-                        } else {
-                            contentValues.put(TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT, (Integer) 1);
-                            contentValues.put("category", Integer.valueOf(next.getCategory()));
-                            contentValues.put("contacter", Long.valueOf(next.getContacter()));
-                            j = sQLiteDatabase.insert(TableDefine.DB_TABLE_DIALOG_RECORD, null, contentValues);
-                        }
-                        if (query != null) {
-                            query.close();
-                            cursor3 = null;
-                        } else {
-                            cursor3 = query;
-                        }
-                        if (j < 0) {
-                            cursor = cursor3;
-                            j2 = 0;
-                            break;
-                        }
-                        j2 = 0;
-                    } catch (Exception e3) {
-                        e = e3;
-                        cursor2 = query;
-                        try {
-                            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                            LogUtils.e(TAG, "deleteCmdMsg:", e);
-                            if (cursor2 != null) {
-                                cursor2.close();
+                    if (it.hasNext()) {
+                        DialogRecord dialogRecord = (DialogRecord) it.next();
+                        String[] strArr = {String.valueOf(dialogRecord.getCategory()), String.valueOf(dialogRecord.getContacter())};
+                        Cursor query = sQLiteDatabase.query(TableDefine.DB_TABLE_DIALOG_RECORD, null, "category=? AND contacter=?", strArr, null, null, null);
+                        if (query == null) {
+                            if (query != null) {
+                                query.close();
                             }
                             if (sQLiteDatabase != null) {
                                 sQLiteDatabase.endTransaction();
                             }
                             return j;
-                        } catch (Throwable th3) {
-                            th = th3;
+                        }
+                        try {
+                            ContentValues contentValues = new ContentValues();
+                            contentValues.put(TableDefine.DRColumns.COLUMN_MAXMSGID, Long.valueOf(dialogRecord.getMaxMsgid()));
+                            contentValues.put("state", Integer.valueOf(dialogRecord.getState()));
+                            contentValues.put("update_time", Long.valueOf(dialogRecord.getUpdateTime()));
+                            contentValues.put(TableDefine.DRColumns.COLUMN_DAILOGUE_MSGID, Long.valueOf(dialogRecord.getDialogueMsgid()));
+                            if (query.getCount() > 0) {
+                                contentValues.put(TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT, (Integer) 0);
+                                j = sQLiteDatabase.update(TableDefine.DB_TABLE_DIALOG_RECORD, contentValues, "category=? AND contacter=?", strArr);
+                            } else {
+                                contentValues.put(TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT, (Integer) 1);
+                                contentValues.put("category", Integer.valueOf(dialogRecord.getCategory()));
+                                contentValues.put("contacter", Long.valueOf(dialogRecord.getContacter()));
+                                j = sQLiteDatabase.insert(TableDefine.DB_TABLE_DIALOG_RECORD, null, contentValues);
+                            }
+                            if (query != null) {
+                                query.close();
+                                cursor3 = null;
+                            } else {
+                                cursor3 = query;
+                            }
+                            if (j < 0) {
+                                cursor = cursor3;
+                                j2 = 0;
+                                break;
+                            }
+                            j2 = 0;
+                        } catch (Exception e3) {
+                            e = e3;
+                            cursor2 = query;
+                            try {
+                                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                                LogUtils.e(TAG, "deleteCmdMsg:", e);
+                                if (cursor2 != null) {
+                                    cursor2.close();
+                                }
+                                if (sQLiteDatabase != null) {
+                                    sQLiteDatabase.endTransaction();
+                                }
+                                return j;
+                            } catch (Throwable th3) {
+                                th = th3;
+                                if (cursor2 != null) {
+                                    cursor2.close();
+                                }
+                                if (sQLiteDatabase != null) {
+                                    sQLiteDatabase.endTransaction();
+                                }
+                                throw th;
+                            }
+                        } catch (Throwable th4) {
+                            th = th4;
+                            cursor2 = query;
                             if (cursor2 != null) {
-                                cursor2.close();
                             }
                             if (sQLiteDatabase != null) {
-                                sQLiteDatabase.endTransaction();
                             }
                             throw th;
                         }
-                    } catch (Throwable th4) {
-                        th = th4;
-                        cursor2 = query;
-                        if (cursor2 != null) {
-                        }
-                        if (sQLiteDatabase != null) {
-                        }
-                        throw th;
+                    } else {
+                        cursor = cursor3;
+                        break;
                     }
                 } catch (Exception e4) {
                     e = e4;
@@ -308,18 +325,19 @@ public class DialogRecordDBManager extends DBBase {
         return invokeCommon.intValue;
     }
 
-    public List<DialogRecord> getDialogRecord(int i) {
-        InterceptResult invokeI;
+    public DialogRecord getDialogRecord(int i, long j) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            if (i == 0) {
-                return null;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
+            Parse parse = new Parse(this, 1);
+            query(TableDefine.DB_TABLE_DIALOG_RECORD, null, "category=? AND contacter=?", new String[]{String.valueOf(i), String.valueOf(j)}, null, null, null, parse);
+            List list = (List) parse.getResult();
+            if (list != null && list.size() != 0) {
+                return (DialogRecord) list.get(0);
             }
-            Parse parse = new Parse(this, i);
-            query(TableDefine.DB_TABLE_DIALOG_RECORD, null, "localmsgid < dialogueMsgid", null, null, null, "update_time desc", parse);
-            return (List) parse.getResult();
+            return null;
         }
-        return (List) invokeI.objValue;
+        return (DialogRecord) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
@@ -335,37 +353,38 @@ public class DialogRecordDBManager extends DBBase {
     public long getMaxMsgid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(1048581, this)) != null) {
-            return invokeV.longValue;
-        }
-        Cursor cursor = null;
-        long j = -1;
-        try {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            Cursor cursor = null;
+            long j = -1;
             try {
-                SQLiteDatabase openDatabase = openDatabase();
-                if (openDatabase == null) {
-                    LogUtils.e(TAG, "getWritableDb fail!");
-                    return -1L;
-                }
-                cursor = openDatabase.rawQuery("select max(localmsgid) from dialog_record", null);
-                if (cursor != null) {
-                    j = 0;
-                    if (cursor.moveToNext()) {
-                        j = cursor.getLong(0);
+                try {
+                    SQLiteDatabase openDatabase = openDatabase();
+                    if (openDatabase == null) {
+                        LogUtils.e(TAG, "getWritableDb fail!");
+                        return -1L;
                     }
+                    cursor = openDatabase.rawQuery("select max(localmsgid) from dialog_record", null);
+                    if (cursor != null) {
+                        j = 0;
+                        if (cursor.moveToNext()) {
+                            j = cursor.getLong(0);
+                        }
+                    }
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(TAG, "maxMsgid:", e);
                 }
-            } catch (Exception e) {
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                LogUtils.e(TAG, "maxMsgid:", e);
+            } finally {
+                if (0 != 0) {
+                    cursor.close();
+                }
             }
-        } finally {
-            if (0 != 0) {
-                cursor.close();
-            }
+        } else {
+            return invokeV.longValue;
         }
     }
 
-    public List<DialogRecord> getUnCompleteDialogRecord() {
+    public List getUnCompleteDialogRecord() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -384,73 +403,59 @@ public class DialogRecordDBManager extends DBBase {
     public int getUnCompleteItemCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(1048583, this)) != null) {
-            return invokeV.intValue;
-        }
-        int i = 0;
-        Cursor cursor = null;
-        int i2 = -1;
-        try {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            int i = 0;
+            Cursor cursor = null;
+            int i2 = -1;
             try {
-                SQLiteDatabase openDatabase = openDatabase();
-                if (openDatabase == null) {
-                    LogUtils.e(TAG, "getWritableDb fail!");
-                    return -1;
-                }
-                cursor = openDatabase.rawQuery("select count(*) from dialog_record where localmsgid < dialogueMsgid", null);
-                if (cursor != null) {
-                    try {
-                        if (cursor.moveToNext()) {
-                            i = cursor.getInt(0);
+                try {
+                    SQLiteDatabase openDatabase = openDatabase();
+                    if (openDatabase == null) {
+                        LogUtils.e(TAG, "getWritableDb fail!");
+                        return -1;
+                    }
+                    cursor = openDatabase.rawQuery("select count(*) from dialog_record where localmsgid < dialogueMsgid", null);
+                    if (cursor != null) {
+                        try {
+                            if (cursor.moveToNext()) {
+                                i = cursor.getInt(0);
+                            }
+                        } catch (Exception e) {
+                            e = e;
+                            i2 = 0;
+                            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                            LogUtils.e(TAG, "getUnCompleteItemCount:", e);
+                            return i2;
                         }
-                    } catch (Exception e) {
-                        e = e;
-                        i2 = 0;
+                    } else {
+                        i = -1;
+                    }
+                    try {
+                        String str = TAG;
+                        LogUtils.i(str, "getUnCompleteItemCount : " + i);
+                        if (cursor != null) {
+                            cursor.close();
+                            return i;
+                        }
+                        return i;
+                    } catch (Exception e2) {
+                        i2 = i;
+                        e = e2;
                         new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                         LogUtils.e(TAG, "getUnCompleteItemCount:", e);
                         return i2;
                     }
-                } else {
-                    i = -1;
+                } catch (Exception e3) {
+                    e = e3;
                 }
-                try {
-                    String str = TAG;
-                    LogUtils.i(str, "getUnCompleteItemCount : " + i);
-                    if (cursor != null) {
-                        cursor.close();
-                        return i;
-                    }
-                    return i;
-                } catch (Exception e2) {
-                    i2 = i;
-                    e = e2;
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                    LogUtils.e(TAG, "getUnCompleteItemCount:", e);
-                    return i2;
+            } finally {
+                if (0 != 0) {
+                    cursor.close();
                 }
-            } catch (Exception e3) {
-                e = e3;
             }
-        } finally {
-            if (0 != 0) {
-                cursor.close();
-            }
+        } else {
+            return invokeV.intValue;
         }
-    }
-
-    public DialogRecord getDialogRecord(int i, long j) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
-            Parse parse = new Parse(this, 1);
-            query(TableDefine.DB_TABLE_DIALOG_RECORD, null, "category=? AND contacter=?", new String[]{String.valueOf(i), String.valueOf(j)}, null, null, null, parse);
-            List list = (List) parse.getResult();
-            if (list == null || list.size() == 0) {
-                return null;
-            }
-            return (DialogRecord) list.get(0);
-        }
-        return (DialogRecord) invokeCommon.objValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:25:0x0073, code lost:
@@ -465,42 +470,43 @@ public class DialogRecordDBManager extends DBBase {
     public int getUnCompleteItemCount(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j)) != null) {
-            return invokeJ.intValue;
-        }
-        int i = 0;
-        Cursor cursor = null;
-        try {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j)) == null) {
+            int i = 0;
+            Cursor cursor = null;
             try {
-                SQLiteDatabase openDatabase = openDatabase();
-                if (openDatabase == null) {
-                    LogUtils.e(TAG, "getWritableDb fail!");
-                    return -1;
-                }
-                cursor = openDatabase.rawQuery("select count(*) from dialog_record where localmsgid < dialogueMsgid AND contacter = " + j, null);
-                if (cursor != null) {
-                    try {
-                        if (cursor.moveToNext()) {
-                            i = cursor.getInt(0);
-                        }
-                    } catch (Exception e) {
-                        e = e;
-                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                        LogUtils.e(TAG, "getUnCompleteItemCount:", e);
+                try {
+                    SQLiteDatabase openDatabase = openDatabase();
+                    if (openDatabase == null) {
+                        LogUtils.e(TAG, "getWritableDb fail!");
+                        return -1;
                     }
-                } else {
-                    i = -1;
+                    cursor = openDatabase.rawQuery("select count(*) from dialog_record where localmsgid < dialogueMsgid AND contacter = " + j, null);
+                    if (cursor != null) {
+                        try {
+                            if (cursor.moveToNext()) {
+                                i = cursor.getInt(0);
+                            }
+                        } catch (Exception e) {
+                            e = e;
+                            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                            LogUtils.e(TAG, "getUnCompleteItemCount:", e);
+                        }
+                    } else {
+                        i = -1;
+                    }
+                    String str = TAG;
+                    LogUtils.i(str, "getUnCompleteItemCount : " + i);
+                } finally {
+                    if (0 != 0) {
+                        cursor.close();
+                    }
                 }
-                String str = TAG;
-                LogUtils.i(str, "getUnCompleteItemCount : " + i);
-            } finally {
-                if (0 != 0) {
-                    cursor.close();
-                }
+            } catch (Exception e2) {
+                e = e2;
+                i = -1;
             }
-        } catch (Exception e2) {
-            e = e2;
-            i = -1;
+        } else {
+            return invokeJ.intValue;
         }
     }
 }

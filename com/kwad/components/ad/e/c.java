@@ -9,8 +9,6 @@ import android.text.TextUtils;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
@@ -26,18 +24,17 @@ import com.kwad.components.core.widget.c;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.api.KsAdVideoPlayConfig;
 import com.kwad.sdk.api.KsAppDownloadListener;
-import com.kwad.sdk.api.KsImage;
 import com.kwad.sdk.api.KsNativeAd;
 import com.kwad.sdk.api.core.AbstractKsNativeAd;
 import com.kwad.sdk.api.loader.Wrapper;
 import com.kwad.sdk.api.model.AdExposureFailedReason;
-import com.kwad.sdk.api.model.AdSourceLogoType;
 import com.kwad.sdk.core.imageloader.KSImageLoader;
 import com.kwad.sdk.core.report.f;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.aa;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
@@ -45,17 +42,13 @@ import org.json.JSONObject;
 public final class c extends AbstractKsNativeAd implements DialogInterface.OnDismissListener, DialogInterface.OnShowListener, com.kwad.components.core.internal.api.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
     public KsNativeAd.VideoPlayListener jA;
     public KsNativeAd.VideoPlayListener jB;
     public a jC;
-    @Nullable
     public KsNativeAd.AdInteractionListener jy;
     public d jz;
     public AdInfo mAdInfo;
-    @NonNull
     public AdTemplate mAdTemplate;
-    @Nullable
     public com.kwad.components.core.c.a.c mApkDownloadHelper;
 
     /* loaded from: classes7.dex */
@@ -71,7 +64,7 @@ public final class c extends AbstractKsNativeAd implements DialogInterface.OnDis
         void onDownloadTipsDialogShow();
     }
 
-    public c(@NonNull AdTemplate adTemplate) {
+    public c(AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -304,13 +297,13 @@ public final class c extends AbstractKsNativeAd implements DialogInterface.OnDis
     /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r5v1, types: [android.content.Context] */
-    public void a(@Nullable Activity activity, View view2, aa.a aVar, int i, boolean z) {
+    public void a(Activity activity, View view2, aa.a aVar, int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{activity, view2, aVar, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
             if (activity == 0) {
                 activity = view2.getContext();
             }
-            com.kwad.components.core.c.a.a.a(new a.C0570a(Wrapper.wrapContextIfNeed(activity)).L(this.mAdTemplate).b(this.mApkDownloadHelper).af(i).aj(true).ap(z).a(new a.b(this, aVar, view2) { // from class: com.kwad.components.ad.e.c.4
+            com.kwad.components.core.c.a.a.a(new a.C0566a(Wrapper.wrapContextIfNeed(activity)).L(this.mAdTemplate).b(this.mApkDownloadHelper).af(i).aj(true).ap(z).a(new a.b(this, aVar, view2) { // from class: com.kwad.components.ad.e.c.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ c jD;
@@ -349,7 +342,7 @@ public final class c extends AbstractKsNativeAd implements DialogInterface.OnDis
         }
     }
 
-    private void a(Activity activity, @NonNull ViewGroup viewGroup, int i, View view2, boolean z) {
+    private void a(Activity activity, ViewGroup viewGroup, int i, View view2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{activity, viewGroup, Integer.valueOf(i), view2, Boolean.valueOf(z)}) == null) {
             aa.a aVar = new aa.a();
@@ -442,20 +435,21 @@ public final class c extends AbstractKsNativeAd implements DialogInterface.OnDis
         }
     }
 
-    private void a(@Nullable Activity activity, @NonNull ViewGroup viewGroup, @NonNull List<View> list) {
+    private void a(Activity activity, ViewGroup viewGroup, List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, activity, viewGroup, list) == null) {
-            for (View view2 : list) {
-                a(activity, viewGroup, 0, view2, false);
+            Iterator it = list.iterator();
+            while (it.hasNext()) {
+                a(activity, viewGroup, 0, (View) it.next(), false);
             }
         }
     }
 
-    private void a(@Nullable Activity activity, @NonNull ViewGroup viewGroup, @NonNull Map<View, Integer> map) {
+    private void a(Activity activity, ViewGroup viewGroup, Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65541, this, activity, viewGroup, map) == null) {
             for (View view2 : map.keySet()) {
-                a(activity, viewGroup, map.get(view2).intValue(), view2, true);
+                a(activity, viewGroup, ((Integer) map.get(view2)).intValue(), view2, true);
             }
         }
     }
@@ -467,7 +461,7 @@ public final class c extends AbstractKsNativeAd implements DialogInterface.OnDis
                 c(viewGroup);
                 com.kwad.components.core.widget.a aVar = new com.kwad.components.core.widget.a(viewGroup.getContext(), viewGroup);
                 viewGroup.addView(aVar);
-                aVar.setViewCallback(new a.InterfaceC0593a(this) { // from class: com.kwad.components.ad.e.c.5
+                aVar.setViewCallback(new a.InterfaceC0589a(this) { // from class: com.kwad.components.ad.e.c.5
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ c jD;
@@ -490,7 +484,7 @@ public final class c extends AbstractKsNativeAd implements DialogInterface.OnDis
                         this.jD = this;
                     }
 
-                    @Override // com.kwad.components.core.widget.a.InterfaceC0593a
+                    @Override // com.kwad.components.core.widget.a.InterfaceC0589a
                     public final void em() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
@@ -577,7 +571,6 @@ public final class c extends AbstractKsNativeAd implements DialogInterface.OnDis
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: private */
     @Override // com.kwad.sdk.api.KsNativeAd
-    @Nullable
     /* renamed from: el */
     public com.kwad.components.core.internal.api.b getVideoCoverImage() {
         InterceptResult invokeV;
@@ -593,7 +586,6 @@ public final class c extends AbstractKsNativeAd implements DialogInterface.OnDis
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
-    @Nullable
     public final String getActionDescription() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -601,7 +593,6 @@ public final class c extends AbstractKsNativeAd implements DialogInterface.OnDis
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
-    @Nullable
     public final String getAdDescription() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -609,7 +600,6 @@ public final class c extends AbstractKsNativeAd implements DialogInterface.OnDis
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
-    @Nullable
     public final String getAdSource() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -617,8 +607,7 @@ public final class c extends AbstractKsNativeAd implements DialogInterface.OnDis
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
-    @Nullable
-    public final String getAdSourceLogoUrl(@AdSourceLogoType int i) {
+    public final String getAdSourceLogoUrl(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
@@ -632,7 +621,6 @@ public final class c extends AbstractKsNativeAd implements DialogInterface.OnDis
     }
 
     @Override // com.kwad.components.core.internal.api.a
-    @NonNull
     public final AdTemplate getAdTemplate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -640,7 +628,6 @@ public final class c extends AbstractKsNativeAd implements DialogInterface.OnDis
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
-    @Nullable
     public final String getAppDownloadCountDes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -648,7 +635,6 @@ public final class c extends AbstractKsNativeAd implements DialogInterface.OnDis
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
-    @Nullable
     public final String getAppIconUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -663,7 +649,6 @@ public final class c extends AbstractKsNativeAd implements DialogInterface.OnDis
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
-    @Nullable
     public final String getAppPackageName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -678,7 +663,6 @@ public final class c extends AbstractKsNativeAd implements DialogInterface.OnDis
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
-    @Nullable
     public final String getAppPrivacyUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -693,7 +677,6 @@ public final class c extends AbstractKsNativeAd implements DialogInterface.OnDis
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
-    @Nullable
     public final String getAppVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -701,7 +684,6 @@ public final class c extends AbstractKsNativeAd implements DialogInterface.OnDis
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
-    @Nullable
     public final String getCorporationName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -716,8 +698,7 @@ public final class c extends AbstractKsNativeAd implements DialogInterface.OnDis
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
-    @Nullable
-    public final List<KsImage> getImageList() {
+    public final List getImageList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
@@ -751,7 +732,6 @@ public final class c extends AbstractKsNativeAd implements DialogInterface.OnDis
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
-    @Nullable
     public final String getPermissionInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -759,7 +739,6 @@ public final class c extends AbstractKsNativeAd implements DialogInterface.OnDis
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
-    @Nullable
     public final String getPermissionInfoUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -782,7 +761,7 @@ public final class c extends AbstractKsNativeAd implements DialogInterface.OnDis
             if (context == null) {
                 return null;
             }
-            return BitmapFactory.decodeResource(context.getResources(), R.drawable.obfuscated_res_0x7f080c75);
+            return BitmapFactory.decodeResource(context.getResources(), R.drawable.obfuscated_res_0x7f080c85);
         }
         return (Bitmap) invokeV.objValue;
     }
@@ -809,8 +788,7 @@ public final class c extends AbstractKsNativeAd implements DialogInterface.OnDis
     }
 
     @Override // com.kwad.sdk.api.core.AbstractKsNativeAd
-    @Nullable
-    public final View getVideoView2(Context context, @Nullable KsAdVideoPlayConfig ksAdVideoPlayConfig) {
+    public final View getVideoView2(Context context, KsAdVideoPlayConfig ksAdVideoPlayConfig) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048602, this, context, ksAdVideoPlayConfig)) == null) {
@@ -863,7 +841,7 @@ public final class c extends AbstractKsNativeAd implements DialogInterface.OnDis
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
-    public final void registerViewForInteraction(Activity activity, @NonNull ViewGroup viewGroup, @NonNull List<View> list, KsNativeAd.AdInteractionListener adInteractionListener) {
+    public final void registerViewForInteraction(Activity activity, ViewGroup viewGroup, List list, KsNativeAd.AdInteractionListener adInteractionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048607, this, activity, viewGroup, list, adInteractionListener) == null) {
             this.jy = adInteractionListener;
@@ -873,7 +851,7 @@ public final class c extends AbstractKsNativeAd implements DialogInterface.OnDis
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
-    public final void registerViewForInteraction(Activity activity, @NonNull ViewGroup viewGroup, @NonNull Map<View, Integer> map, KsNativeAd.AdInteractionListener adInteractionListener) {
+    public final void registerViewForInteraction(Activity activity, ViewGroup viewGroup, Map map, KsNativeAd.AdInteractionListener adInteractionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048608, this, activity, viewGroup, map, adInteractionListener) == null) {
             this.jy = adInteractionListener;
@@ -883,7 +861,7 @@ public final class c extends AbstractKsNativeAd implements DialogInterface.OnDis
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
-    public final void registerViewForInteraction(@NonNull ViewGroup viewGroup, @NonNull List<View> list, KsNativeAd.AdInteractionListener adInteractionListener) {
+    public final void registerViewForInteraction(ViewGroup viewGroup, List list, KsNativeAd.AdInteractionListener adInteractionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048609, this, viewGroup, list, adInteractionListener) == null) {
             registerViewForInteraction((Activity) null, viewGroup, list, adInteractionListener);

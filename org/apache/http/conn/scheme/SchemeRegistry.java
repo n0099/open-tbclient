@@ -31,6 +31,17 @@ public final class SchemeRegistry {
         throw new RuntimeException("Stub!");
     }
 
+    public final synchronized List getSchemeNames() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            synchronized (this) {
+                throw new RuntimeException("Stub!");
+            }
+        }
+        return (List) invokeV.objValue;
+    }
+
     public final synchronized Scheme get(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -53,17 +64,6 @@ public final class SchemeRegistry {
         return (Scheme) invokeL.objValue;
     }
 
-    public final synchronized List<String> getSchemeNames() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            synchronized (this) {
-                throw new RuntimeException("Stub!");
-            }
-        }
-        return (List) invokeV.objValue;
-    }
-
     public final synchronized Scheme register(Scheme scheme) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -75,7 +75,7 @@ public final class SchemeRegistry {
         return (Scheme) invokeL.objValue;
     }
 
-    public synchronized void setItems(Map<String, Scheme> map) {
+    public synchronized void setItems(Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, map) == null) {
             synchronized (this) {

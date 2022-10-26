@@ -17,14 +17,14 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class SuggestAddrInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<SuggestAddrInfo> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<PoiInfo> a;
-    public List<PoiInfo> b;
-    public List<List<PoiInfo>> c;
-    public List<CityInfo> d;
-    public List<CityInfo> e;
-    public List<List<CityInfo>> f;
+    public List a;
+    public List b;
+    public List c;
+    public List d;
+    public List e;
+    public List f;
 
     static {
         InterceptResult invokeClinit;
@@ -89,78 +89,78 @@ public class SuggestAddrInfo implements Parcelable {
         return invokeV.intValue;
     }
 
-    public List<CityInfo> getSuggestEndCity() {
+    public List getSuggestEndCity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : (List) invokeV.objValue;
     }
 
-    public List<PoiInfo> getSuggestEndNode() {
+    public List getSuggestEndNode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (List) invokeV.objValue;
     }
 
-    public List<CityInfo> getSuggestStartCity() {
+    public List getSuggestStartCity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : (List) invokeV.objValue;
     }
 
-    public List<PoiInfo> getSuggestStartNode() {
+    public List getSuggestStartNode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (List) invokeV.objValue;
     }
 
-    public List<List<CityInfo>> getSuggestWpCity() {
+    public List getSuggestWpCity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f : (List) invokeV.objValue;
     }
 
-    public List<List<PoiInfo>> getSuggestWpNode() {
+    public List getSuggestWpNode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.c : (List) invokeV.objValue;
     }
 
-    public void setSuggestEndCity(List<CityInfo> list) {
+    public void setSuggestEndCity(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
             this.e = list;
         }
     }
 
-    public void setSuggestEndNode(List<PoiInfo> list) {
+    public void setSuggestEndNode(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
             this.b = list;
         }
     }
 
-    public void setSuggestStartCity(List<CityInfo> list) {
+    public void setSuggestStartCity(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
             this.d = list;
         }
     }
 
-    public void setSuggestStartNode(List<PoiInfo> list) {
+    public void setSuggestStartNode(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, list) == null) {
             this.a = list;
         }
     }
 
-    public void setSuggestWpCity(List<List<CityInfo>> list) {
+    public void setSuggestWpCity(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, list) == null) {
             this.f = list;
         }
     }
 
-    public void setSuggestWpNode(List<List<PoiInfo>> list) {
+    public void setSuggestWpNode(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, list) == null) {
             this.c = list;

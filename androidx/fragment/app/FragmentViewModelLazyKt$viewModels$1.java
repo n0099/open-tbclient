@@ -37,11 +37,13 @@ public final class FragmentViewModelLazyKt$viewModels$1 extends Lambda implement
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
     @Override // kotlin.jvm.functions.Function0
     public final Fragment invoke() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.$this_viewModels : (Fragment) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.$this_viewModels;
+        }
+        return (Fragment) invokeV.objValue;
     }
 }

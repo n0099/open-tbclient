@@ -94,12 +94,18 @@ public final class ErrorCode {
     public static ErrorCode valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (ErrorCode) Enum.valueOf(ErrorCode.class, str) : (ErrorCode) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return (ErrorCode) Enum.valueOf(ErrorCode.class, str);
+        }
+        return (ErrorCode) invokeL.objValue;
     }
 
     public static ErrorCode[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (ErrorCode[]) $VALUES.clone() : (ErrorCode[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return (ErrorCode[]) $VALUES.clone();
+        }
+        return (ErrorCode[]) invokeV.objValue;
     }
 }

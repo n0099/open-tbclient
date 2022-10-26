@@ -42,7 +42,7 @@ public final class d implements Handler.Callback {
     public Handler handler;
 
     /* loaded from: classes8.dex */
-    public static class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean avu;

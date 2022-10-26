@@ -102,26 +102,6 @@ public class SampleTableBox extends AbstractContainerBox {
         return (SampleSizeBox) invokeV.objValue;
     }
 
-    public SampleToChunkBox getSampleToChunkBox() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            SampleToChunkBox sampleToChunkBox = this.sampleToChunkBox;
-            if (sampleToChunkBox != null) {
-                return sampleToChunkBox;
-            }
-            for (Box box : getBoxes()) {
-                if (box instanceof SampleToChunkBox) {
-                    SampleToChunkBox sampleToChunkBox2 = (SampleToChunkBox) box;
-                    this.sampleToChunkBox = sampleToChunkBox2;
-                    return sampleToChunkBox2;
-                }
-            }
-            return null;
-        }
-        return (SampleToChunkBox) invokeV.objValue;
-    }
-
     public SyncSampleBox getSyncSampleBox() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -148,5 +128,25 @@ public class SampleTableBox extends AbstractContainerBox {
             return null;
         }
         return (TimeToSampleBox) invokeV.objValue;
+    }
+
+    public SampleToChunkBox getSampleToChunkBox() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            SampleToChunkBox sampleToChunkBox = this.sampleToChunkBox;
+            if (sampleToChunkBox != null) {
+                return sampleToChunkBox;
+            }
+            for (Box box : getBoxes()) {
+                if (box instanceof SampleToChunkBox) {
+                    SampleToChunkBox sampleToChunkBox2 = (SampleToChunkBox) box;
+                    this.sampleToChunkBox = sampleToChunkBox2;
+                    return sampleToChunkBox2;
+                }
+            }
+            return null;
+        }
+        return (SampleToChunkBox) invokeV.objValue;
     }
 }

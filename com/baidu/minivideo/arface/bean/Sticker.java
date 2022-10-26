@@ -48,7 +48,10 @@ public class Sticker extends BaseBeautyItem {
         public File getFile() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mFile : (File) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.mFile;
+            }
+            return (File) invokeV.objValue;
         }
 
         public String getPath() {
@@ -89,50 +92,55 @@ public class Sticker extends BaseBeautyItem {
     public AbilityModel getAbilityModel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mAbilityModel : (AbilityModel) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mAbilityModel;
+        }
+        return (AbilityModel) invokeV.objValue;
     }
 
     public int getArType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mArType : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mArType;
+        }
+        return invokeV.intValue;
     }
 
     public File getFile() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mFile : (File) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mFile;
+        }
+        return (File) invokeV.objValue;
     }
 
     public String getId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mId : (String) invokeV.objValue;
-    }
-
-    public HashMap getLua(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            HashMap<String, HashMap> hashMap = this.mLua;
-            if (hashMap != null) {
-                return hashMap.get(str);
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mId;
         }
-        return (HashMap) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
     public int getMaxVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mMaxtVersion : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mMaxtVersion;
+        }
+        return invokeV.intValue;
     }
 
     public int getMiniVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mMinVersion : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mMinVersion;
+        }
+        return invokeV.intValue;
     }
 
     public String getPath() {
@@ -151,25 +159,53 @@ public class Sticker extends BaseBeautyItem {
     public List<AbilityModel> getSoFile() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mSoFileList : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mSoFileList;
+        }
+        return (List) invokeV.objValue;
     }
 
     public List<AbilityModel> getSoFileList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mSoFileList : (List) invokeV.objValue;
-    }
-
-    public boolean isSupport(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) ? i >= this.mMinVersion && i <= this.mMaxtVersion : invokeI.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mSoFileList;
+        }
+        return (List) invokeV.objValue;
     }
 
     public boolean isTouchAble() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mTouchAble : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.mTouchAble;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public HashMap getLua(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            HashMap<String, HashMap> hashMap = this.mLua;
+            if (hashMap != null) {
+                return hashMap.get(str);
+            }
+            return null;
+        }
+        return (HashMap) invokeL.objValue;
+    }
+
+    public boolean isSupport(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
+            if (i >= this.mMinVersion && i <= this.mMaxtVersion) {
+                return true;
+            }
+            return false;
+        }
+        return invokeI.booleanValue;
     }
 
     public void setAbility(AbilityModel abilityModel) {
@@ -200,16 +236,6 @@ public class Sticker extends BaseBeautyItem {
         }
     }
 
-    public void setLua(String str, HashMap hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048592, this, str, hashMap) == null) {
-            if (this.mLua == null) {
-                this.mLua = new HashMap<>();
-            }
-            this.mLua.put(str, hashMap);
-        }
-    }
-
     public void setMaxVersion(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
@@ -235,6 +261,16 @@ public class Sticker extends BaseBeautyItem {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
             this.mTouchAble = z;
+        }
+    }
+
+    public void setLua(String str, HashMap hashMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048592, this, str, hashMap) == null) {
+            if (this.mLua == null) {
+                this.mLua = new HashMap<>();
+            }
+            this.mLua.put(str, hashMap);
         }
     }
 }

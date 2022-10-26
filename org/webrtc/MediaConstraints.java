@@ -9,17 +9,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import javax.annotation.Nullable;
 /* loaded from: classes8.dex */
 public class MediaConstraints {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<KeyValuePair> mandatory;
-    public final List<KeyValuePair> optional;
+    public final List mandatory;
+    public final List optional;
 
     /* loaded from: classes8.dex */
-    public static class KeyValuePair {
+    public class KeyValuePair {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String key;
@@ -55,29 +56,39 @@ public class MediaConstraints {
                     return false;
                 }
                 KeyValuePair keyValuePair = (KeyValuePair) obj;
-                return this.key.equals(keyValuePair.key) && this.value.equals(keyValuePair.value);
+                if (this.key.equals(keyValuePair.key) && this.value.equals(keyValuePair.value)) {
+                    return true;
+                }
+                return false;
             }
             return invokeL.booleanValue;
         }
 
-        @CalledByNative("KeyValuePair")
         public String getKey() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.key : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.key;
+            }
+            return (String) invokeV.objValue;
         }
 
-        @CalledByNative("KeyValuePair")
         public String getValue() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.value : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.value;
+            }
+            return (String) invokeV.objValue;
         }
 
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.key.hashCode() + this.value.hashCode() : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.key.hashCode() + this.value.hashCode();
+            }
+            return invokeV.intValue;
         }
 
         public String toString() {
@@ -107,12 +118,32 @@ public class MediaConstraints {
         this.optional = new ArrayList();
     }
 
-    public static String stringifyKeyValuePairList(List<KeyValuePair> list) {
+    public List getMandatory() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mandatory;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public List getOptional() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.optional;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public static String stringifyKeyValuePairList(List list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
             StringBuilder sb = new StringBuilder(PreferencesUtil.LEFT_MOUNT);
-            for (KeyValuePair keyValuePair : list) {
+            Iterator it = list.iterator();
+            while (it.hasNext()) {
+                KeyValuePair keyValuePair = (KeyValuePair) it.next();
                 if (sb.length() > 1) {
                     sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                 }
@@ -122,20 +153,6 @@ public class MediaConstraints {
             return sb.toString();
         }
         return (String) invokeL.objValue;
-    }
-
-    @CalledByNative
-    public List<KeyValuePair> getMandatory() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mandatory : (List) invokeV.objValue;
-    }
-
-    @CalledByNative
-    public List<KeyValuePair> getOptional() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.optional : (List) invokeV.objValue;
     }
 
     public String toString() {

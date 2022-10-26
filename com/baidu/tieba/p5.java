@@ -8,9 +8,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public interface p5 {
+    Texture load(String str);
 
     /* loaded from: classes5.dex */
-    public static class a implements p5 {
+    public class a implements p5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final n1 a;
@@ -37,9 +38,10 @@ public interface p5 {
         public Texture load(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? (Texture) this.a.j(str, Texture.class) : (Texture) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                return (Texture) this.a.j(str, Texture.class);
+            }
+            return (Texture) invokeL.objValue;
         }
     }
-
-    Texture load(String str);
 }

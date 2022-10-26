@@ -1,134 +1,298 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.util.BdLog;
+import android.util.SparseIntArray;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.lego.card.exception.CardParseException;
+import com.baidu.tieba.lego.card.model.BigImgCard;
+import com.baidu.tieba.lego.card.model.ButtonCard;
+import com.baidu.tieba.lego.card.model.CardGroup;
+import com.baidu.tieba.lego.card.model.FocusListCard;
+import com.baidu.tieba.lego.card.model.HorRankCard;
+import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.tieba.lego.card.model.ImmersiveVideoCardEx;
+import com.baidu.tieba.lego.card.model.ImmersiveWebViewCard;
+import com.baidu.tieba.lego.card.model.LPBigImgCard;
+import com.baidu.tieba.lego.card.model.OnePicInfoCard;
+import com.baidu.tieba.lego.card.model.PlayPicInfoCard;
+import com.baidu.tieba.lego.card.model.RankDetailTrendCard;
+import com.baidu.tieba.lego.card.model.RankScoreCard;
+import com.baidu.tieba.lego.card.model.SingleLineCard;
+import com.baidu.tieba.lego.card.model.WebViewCard;
+import com.baidu.tieba.lego.card.view.BaseCardView;
+import com.baidu.tieba.lego.card.view.BigImgView;
+import com.baidu.tieba.lego.card.view.ButtonCardView;
+import com.baidu.tieba.lego.card.view.FocusListCardView;
+import com.baidu.tieba.lego.card.view.HorRankCardView;
+import com.baidu.tieba.lego.card.view.ImmersiveVideoCardViewEx;
+import com.baidu.tieba.lego.card.view.ImmersiveWebViewCardView;
+import com.baidu.tieba.lego.card.view.LPBigImgCardView;
+import com.baidu.tieba.lego.card.view.OnePicInfoCardView;
+import com.baidu.tieba.lego.card.view.PlayPicInfoCardView;
+import com.baidu.tieba.lego.card.view.RankDetailTrendCardView;
+import com.baidu.tieba.lego.card.view.RankScoreCardView;
+import com.baidu.tieba.lego.card.view.SingleLineCardView;
+import com.baidu.tieba.lego.card.view.WebViewCardView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class ah7 {
+public class ah7 extends bh7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static <T> void a(List<T> list, T t) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65536, null, list, t) == null) || h(list)) {
-            return;
-        }
-        try {
-            list.add(t);
-        } catch (Exception e) {
-            BdLog.e(e);
-            j(e);
-        }
+    /* loaded from: classes3.dex */
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    public static <T> void b(List<T> list, T t, int i) {
+    @Override // com.baidu.tieba.bh7
+    public String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(65537, null, list, t, i) == null) || h(list) || i < 0 || i > list.size()) {
-            return;
-        }
-        try {
-            list.add(i, t);
-        } catch (Exception e) {
-            BdLog.e(e);
-            j(e);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "lego_main" : (String) invokeV.objValue;
     }
 
-    public static void c(List list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, list) == null) || e(list)) {
-            return;
-        }
-        try {
-            list.clear();
-        } catch (Exception e) {
-            BdLog.e(e);
-            j(e);
-        }
-    }
+    /* loaded from: classes3.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final ah7 a;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public static <T> T d(List<T> list, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, list, i)) == null) {
-            if (!e(list) && g(list, i)) {
-                try {
-                    return list.get(i);
-                } catch (Exception e) {
-                    BdLog.e(e);
-                    j(e);
-                    return null;
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-947498085, "Lcom/baidu/tieba/ah7$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-947498085, "Lcom/baidu/tieba/ah7$b;");
+                    return;
                 }
             }
-            return null;
+            a = new ah7(null);
         }
-        return (T) invokeLI.objValue;
     }
 
-    public static boolean e(List list) {
-        InterceptResult invokeL;
+    public ah7() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list)) == null) {
-            if (h(list) || list.isEmpty()) {
-                BdLog.e("list is empty");
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return false;
         }
-        return invokeL.booleanValue;
     }
 
-    public static boolean f(Map map) {
-        InterceptResult invokeL;
+    public static ah7 f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, map)) == null) {
-            if (h(map) || map.isEmpty()) {
-                BdLog.e("map is empty");
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
         }
-        return invokeL.booleanValue;
+        return (ah7) invokeV.objValue;
     }
 
-    public static boolean g(List list, int i) {
+    public /* synthetic */ ah7(a aVar) {
+        this();
+    }
+
+    @Override // com.baidu.tieba.bh7
+    public ICardInfo b(JSONObject jSONObject, int i) throws CardParseException {
         InterceptResult invokeLI;
+        ICardInfo playPicInfoCard;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, list, i)) == null) ? !h(list) && i >= 0 && i < list.size() : invokeLI.booleanValue;
-    }
-
-    public static boolean h(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, obj)) == null) ? obj == null : invokeL.booleanValue;
-    }
-
-    public static int i(List list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, list)) == null) {
-            if (!h(list) && !list.isEmpty()) {
-                try {
-                    return list.size();
-                } catch (Exception e) {
-                    BdLog.e(e);
-                    j(e);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, i)) == null) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 5) {
+                            if (i != 6) {
+                                if (i != 7) {
+                                    if (i != 8) {
+                                        if (i != 11) {
+                                            if (i != 28) {
+                                                if (i != 18) {
+                                                    if (i != 19) {
+                                                        switch (i) {
+                                                            case 21:
+                                                                playPicInfoCard = new LPBigImgCard(jSONObject);
+                                                                break;
+                                                            case 22:
+                                                                playPicInfoCard = new ImmersiveVideoCardEx(jSONObject);
+                                                                break;
+                                                            case 23:
+                                                                playPicInfoCard = new ImmersiveWebViewCard(jSONObject);
+                                                                break;
+                                                            default:
+                                                                return null;
+                                                        }
+                                                    } else {
+                                                        playPicInfoCard = new BigImgCard(jSONObject);
+                                                    }
+                                                } else {
+                                                    playPicInfoCard = new WebViewCard(jSONObject);
+                                                }
+                                            } else {
+                                                playPicInfoCard = new ButtonCard(jSONObject);
+                                            }
+                                        } else {
+                                            playPicInfoCard = new CardGroup(jSONObject);
+                                        }
+                                    } else {
+                                        playPicInfoCard = new RankScoreCard(jSONObject);
+                                    }
+                                } else {
+                                    playPicInfoCard = new RankDetailTrendCard(jSONObject);
+                                }
+                            } else {
+                                playPicInfoCard = new HorRankCard(jSONObject);
+                            }
+                        } else {
+                            playPicInfoCard = new FocusListCard(jSONObject);
+                        }
+                    } else {
+                        playPicInfoCard = new OnePicInfoCard(jSONObject);
+                    }
+                } else {
+                    playPicInfoCard = new SingleLineCard(jSONObject);
                 }
+            } else {
+                playPicInfoCard = new PlayPicInfoCard(jSONObject);
             }
-            return 0;
+            return playPicInfoCard;
         }
-        return invokeL.intValue;
+        return (ICardInfo) invokeLI.objValue;
     }
 
-    public static void j(Exception exc) {
+    @Override // com.baidu.tieba.bh7
+    public void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65545, null, exc) == null) && BdBaseApplication.getInst().isDebugMode() && (exc instanceof RuntimeException)) {
-            throw ((RuntimeException) exc);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            SparseIntArray sparseIntArray = bh7.a;
+            sparseIntArray.put(1, sparseIntArray.size() + 1);
+            SparseIntArray sparseIntArray2 = bh7.a;
+            sparseIntArray2.put(2, sparseIntArray2.size() + 1);
+            SparseIntArray sparseIntArray3 = bh7.a;
+            sparseIntArray3.put(3, sparseIntArray3.size() + 1);
+            SparseIntArray sparseIntArray4 = bh7.a;
+            sparseIntArray4.put(5, sparseIntArray4.size() + 1);
+            SparseIntArray sparseIntArray5 = bh7.a;
+            sparseIntArray5.put(6, sparseIntArray5.size() + 1);
+            SparseIntArray sparseIntArray6 = bh7.a;
+            sparseIntArray6.put(7, sparseIntArray6.size() + 1);
+            SparseIntArray sparseIntArray7 = bh7.a;
+            sparseIntArray7.put(8, sparseIntArray7.size() + 1);
+            SparseIntArray sparseIntArray8 = bh7.a;
+            sparseIntArray8.put(18, sparseIntArray8.size() + 1);
+            SparseIntArray sparseIntArray9 = bh7.a;
+            sparseIntArray9.put(19, sparseIntArray9.size() + 1);
+            SparseIntArray sparseIntArray10 = bh7.a;
+            sparseIntArray10.put(21, sparseIntArray10.size() + 1);
+            SparseIntArray sparseIntArray11 = bh7.a;
+            sparseIntArray11.put(22, sparseIntArray11.size() + 1);
+            SparseIntArray sparseIntArray12 = bh7.a;
+            sparseIntArray12.put(23, sparseIntArray12.size() + 1);
+            SparseIntArray sparseIntArray13 = bh7.a;
+            sparseIntArray13.put(28, sparseIntArray13.size() + 1);
+            bh7.b.put(1, BdUniqueId.gen());
+            bh7.b.put(2, BdUniqueId.gen());
+            bh7.b.put(3, BdUniqueId.gen());
+            bh7.b.put(5, BdUniqueId.gen());
+            bh7.b.put(6, BdUniqueId.gen());
+            bh7.b.put(7, BdUniqueId.gen());
+            bh7.b.put(8, BdUniqueId.gen());
+            bh7.b.put(18, BdUniqueId.gen());
+            bh7.b.put(19, BdUniqueId.gen());
+            bh7.b.put(21, BdUniqueId.gen());
+            bh7.b.put(22, BdUniqueId.gen());
+            bh7.b.put(23, BdUniqueId.gen());
+            bh7.b.put(28, BdUniqueId.gen());
         }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bh7
+    /* renamed from: e */
+    public BaseCardView a(TbPageContext tbPageContext, ICardInfo iCardInfo, int i) {
+        InterceptResult invokeLLI;
+        int cardType;
+        BaseCardView playPicInfoCardView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, tbPageContext, iCardInfo, i)) == null) {
+            if (iCardInfo == null) {
+                cardType = -1;
+            } else {
+                cardType = iCardInfo.getCardType();
+            }
+            if (cardType != 1) {
+                if (cardType != 2) {
+                    if (cardType != 3) {
+                        if (cardType != 5) {
+                            if (cardType != 6) {
+                                if (cardType != 7) {
+                                    if (cardType != 8) {
+                                        if (cardType != 18) {
+                                            if (cardType != 19) {
+                                                if (cardType != 28) {
+                                                    switch (cardType) {
+                                                        case 21:
+                                                            playPicInfoCardView = new LPBigImgCardView(tbPageContext);
+                                                            break;
+                                                        case 22:
+                                                            playPicInfoCardView = new ImmersiveVideoCardViewEx(tbPageContext);
+                                                            break;
+                                                        case 23:
+                                                            playPicInfoCardView = new ImmersiveWebViewCardView(tbPageContext);
+                                                            break;
+                                                        default:
+                                                            return null;
+                                                    }
+                                                } else {
+                                                    playPicInfoCardView = new ButtonCardView(tbPageContext);
+                                                }
+                                            } else {
+                                                playPicInfoCardView = new BigImgView(tbPageContext);
+                                            }
+                                        } else {
+                                            playPicInfoCardView = new WebViewCardView(tbPageContext);
+                                        }
+                                    } else {
+                                        playPicInfoCardView = new RankScoreCardView(tbPageContext);
+                                    }
+                                } else {
+                                    playPicInfoCardView = new RankDetailTrendCardView(tbPageContext);
+                                }
+                            } else {
+                                playPicInfoCardView = new HorRankCardView(tbPageContext);
+                            }
+                        } else {
+                            playPicInfoCardView = new FocusListCardView(tbPageContext);
+                        }
+                    } else {
+                        playPicInfoCardView = new OnePicInfoCardView(tbPageContext);
+                    }
+                } else {
+                    playPicInfoCardView = new SingleLineCardView(tbPageContext);
+                }
+            } else {
+                playPicInfoCardView = new PlayPicInfoCardView(tbPageContext);
+            }
+            return playPicInfoCardView;
+        }
+        return (BaseCardView) invokeLLI.objValue;
     }
 }

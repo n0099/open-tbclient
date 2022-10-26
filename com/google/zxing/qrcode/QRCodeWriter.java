@@ -78,32 +78,35 @@ public final class QRCodeWriter implements Writer {
     public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2) throws WriterException {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048576, this, str, barcodeFormat, i, i2)) == null) ? encode(str, barcodeFormat, i, i2, null) : (BitMatrix) invokeLLII.objValue;
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048576, this, str, barcodeFormat, i, i2)) == null) {
+            return encode(str, barcodeFormat, i, i2, null);
+        }
+        return (BitMatrix) invokeLLII.objValue;
     }
 
     @Override // com.google.zxing.Writer
-    public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2, Map<EncodeHintType, ?> map) throws WriterException {
+    public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2, Map map) throws WriterException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, barcodeFormat, Integer.valueOf(i), Integer.valueOf(i2), map})) == null) {
             if (!str.isEmpty()) {
-                if (barcodeFormat != BarcodeFormat.QR_CODE) {
-                    throw new IllegalArgumentException("Can only encode QR_CODE, but got " + barcodeFormat);
-                } else if (i >= 0 && i2 >= 0) {
-                    ErrorCorrectionLevel errorCorrectionLevel = ErrorCorrectionLevel.L;
-                    int i3 = 4;
-                    if (map != null) {
-                        if (map.containsKey(EncodeHintType.ERROR_CORRECTION)) {
-                            errorCorrectionLevel = ErrorCorrectionLevel.valueOf(map.get(EncodeHintType.ERROR_CORRECTION).toString());
+                if (barcodeFormat == BarcodeFormat.QR_CODE) {
+                    if (i >= 0 && i2 >= 0) {
+                        ErrorCorrectionLevel errorCorrectionLevel = ErrorCorrectionLevel.L;
+                        int i3 = 4;
+                        if (map != null) {
+                            if (map.containsKey(EncodeHintType.ERROR_CORRECTION)) {
+                                errorCorrectionLevel = ErrorCorrectionLevel.valueOf(map.get(EncodeHintType.ERROR_CORRECTION).toString());
+                            }
+                            if (map.containsKey(EncodeHintType.MARGIN)) {
+                                i3 = Integer.parseInt(map.get(EncodeHintType.MARGIN).toString());
+                            }
                         }
-                        if (map.containsKey(EncodeHintType.MARGIN)) {
-                            i3 = Integer.parseInt(map.get(EncodeHintType.MARGIN).toString());
-                        }
+                        return renderResult(Encoder.encode(str, errorCorrectionLevel, map), i, i2, i3);
                     }
-                    return renderResult(Encoder.encode(str, errorCorrectionLevel, map), i, i2, i3);
-                } else {
                     throw new IllegalArgumentException("Requested dimensions are too small: " + i + 'x' + i2);
                 }
+                throw new IllegalArgumentException("Can only encode QR_CODE, but got " + barcodeFormat);
             }
             throw new IllegalArgumentException("Found empty contents");
         }

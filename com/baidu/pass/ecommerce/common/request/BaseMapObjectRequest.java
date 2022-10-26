@@ -30,10 +30,10 @@ public class BaseMapObjectRequest extends BaseRequest {
         }
         this.relativeUrl = str;
         if (mapObject != null) {
-            Iterator<String> keyIterator = mapObject.keyIterator();
+            Iterator keyIterator = mapObject.keyIterator();
             while (keyIterator.hasNext()) {
-                String next = keyIterator.next();
-                addParams(next, "" + mapObject.getObjValue(next));
+                String str2 = (String) keyIterator.next();
+                addParams(str2, "" + mapObject.getObjValue(str2));
             }
         }
     }
@@ -42,6 +42,9 @@ public class BaseMapObjectRequest extends BaseRequest {
     public String getRelativeUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.relativeUrl : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.relativeUrl;
+        }
+        return (String) invokeV.objValue;
     }
 }

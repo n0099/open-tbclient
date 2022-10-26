@@ -8,8 +8,6 @@ import android.support.v4.media.MediaBrowserCompat;
 import android.support.v4.media.session.MediaSessionCompat;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.GuardedBy;
-import androidx.annotation.NonNull;
 import androidx.core.util.ObjectsCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.media.MediaBrowserServiceCompat;
@@ -44,29 +42,15 @@ public class MediaLibraryServiceLegacyStub extends MediaSessionServiceLegacyStub
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public BaseBrowserLegacyCb() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
         @Override // androidx.media2.session.MediaSession.ControllerCb
-        public final void onAllowedCommandsChanged(int i, @NonNull SessionCommandGroup sessionCommandGroup) throws RemoteException {
+        public final void onAllowedCommandsChanged(int i, SessionCommandGroup sessionCommandGroup) throws RemoteException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i, sessionCommandGroup) == null) {
             }
         }
 
         @Override // androidx.media2.session.MediaSession.ControllerCb
-        public final void onBufferingStateChanged(int i, @NonNull MediaItem mediaItem, int i2, long j, long j2, long j3) throws RemoteException {
+        public final void onBufferingStateChanged(int i, MediaItem mediaItem, int i2, long j, long j2, long j3) throws RemoteException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), mediaItem, Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
             }
@@ -101,7 +85,7 @@ public class MediaLibraryServiceLegacyStub extends MediaSessionServiceLegacyStub
         }
 
         @Override // androidx.media2.session.MediaSession.ControllerCb
-        public final void onPlaybackInfoChanged(int i, @NonNull MediaController.PlaybackInfo playbackInfo) throws RemoteException {
+        public final void onPlaybackInfoChanged(int i, MediaController.PlaybackInfo playbackInfo) throws RemoteException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048582, this, i, playbackInfo) == null) {
             }
@@ -129,7 +113,7 @@ public class MediaLibraryServiceLegacyStub extends MediaSessionServiceLegacyStub
         }
 
         @Override // androidx.media2.session.MediaSession.ControllerCb
-        public final void onPlaylistChanged(int i, @NonNull List<MediaItem> list, MediaMetadata mediaMetadata, int i2, int i3, int i4) throws RemoteException {
+        public final void onPlaylistChanged(int i, List<MediaItem> list, MediaMetadata mediaMetadata, int i2, int i3, int i4) throws RemoteException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), list, mediaMetadata, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             }
@@ -171,7 +155,7 @@ public class MediaLibraryServiceLegacyStub extends MediaSessionServiceLegacyStub
         }
 
         @Override // androidx.media2.session.MediaSession.ControllerCb
-        public final void onSubtitleData(int i, @NonNull MediaItem mediaItem, @NonNull SessionPlayer.TrackInfo trackInfo, @NonNull SubtitleData subtitleData) {
+        public final void onSubtitleData(int i, MediaItem mediaItem, SessionPlayer.TrackInfo trackInfo, SubtitleData subtitleData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Integer.valueOf(i), mediaItem, trackInfo, subtitleData}) == null) {
             }
@@ -199,23 +183,37 @@ public class MediaLibraryServiceLegacyStub extends MediaSessionServiceLegacyStub
         }
 
         @Override // androidx.media2.session.MediaSession.ControllerCb
-        public void onVideoSizeChanged(int i, @NonNull VideoSize videoSize) throws RemoteException {
+        public void onVideoSizeChanged(int i, VideoSize videoSize) throws RemoteException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048596, this, i, videoSize) == null) {
             }
         }
 
         @Override // androidx.media2.session.MediaSession.ControllerCb
-        public final void sendCustomCommand(int i, @NonNull SessionCommand sessionCommand, Bundle bundle) throws RemoteException {
+        public final void sendCustomCommand(int i, SessionCommand sessionCommand, Bundle bundle) throws RemoteException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(1048597, this, i, sessionCommand, bundle) == null) {
             }
         }
 
         @Override // androidx.media2.session.MediaSession.ControllerCb
-        public final void setCustomLayout(int i, @NonNull List<MediaSession.CommandButton> list) throws RemoteException {
+        public final void setCustomLayout(int i, List<MediaSession.CommandButton> list) throws RemoteException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048598, this, i, list) == null) {
+            }
+        }
+
+        public BaseBrowserLegacyCb() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
     }
@@ -226,7 +224,6 @@ public class MediaLibraryServiceLegacyStub extends MediaSessionServiceLegacyStub
         public transient /* synthetic */ FieldHolder $fh;
         public final Object mLock;
         public final MediaSessionManager.RemoteUserInfo mRemoteUserInfo;
-        @GuardedBy("mLock")
         public final List<SearchRequest> mSearchRequests;
         public final /* synthetic */ MediaLibraryServiceLegacyStub this$0;
 
@@ -261,10 +258,10 @@ public class MediaLibraryServiceLegacyStub extends MediaSessionServiceLegacyStub
                 if (this == obj) {
                     return true;
                 }
-                if (obj instanceof BrowserLegacyCb) {
-                    return ObjectsCompat.equals(this.mRemoteUserInfo, ((BrowserLegacyCb) obj).mRemoteUserInfo);
+                if (!(obj instanceof BrowserLegacyCb)) {
+                    return false;
                 }
-                return false;
+                return ObjectsCompat.equals(this.mRemoteUserInfo, ((BrowserLegacyCb) obj).mRemoteUserInfo);
             }
             return invokeL.booleanValue;
         }
@@ -272,19 +269,28 @@ public class MediaLibraryServiceLegacyStub extends MediaSessionServiceLegacyStub
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ObjectsCompat.hash(this.mRemoteUserInfo) : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return ObjectsCompat.hash(this.mRemoteUserInfo);
+            }
+            return invokeV.intValue;
         }
 
         @Override // androidx.media2.session.MediaSession.ControllerCb
-        public void onChildrenChanged(int i, @NonNull String str, int i2, MediaLibraryService.LibraryParams libraryParams) throws RemoteException {
+        public void onChildrenChanged(int i, String str, int i2, MediaLibraryService.LibraryParams libraryParams) throws RemoteException {
+            Bundle bundle;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), libraryParams}) == null) {
-                this.this$0.notifyChildrenChanged(this.mRemoteUserInfo, str, libraryParams != null ? libraryParams.getExtras() : null);
+                if (libraryParams != null) {
+                    bundle = libraryParams.getExtras();
+                } else {
+                    bundle = null;
+                }
+                this.this$0.notifyChildrenChanged(this.mRemoteUserInfo, str, bundle);
             }
         }
 
         @Override // androidx.media2.session.MediaSession.ControllerCb
-        public void onSearchResultChanged(int i, @NonNull String str, int i2, MediaLibraryService.LibraryParams libraryParams) throws RemoteException {
+        public void onSearchResultChanged(int i, String str, int i2, MediaLibraryService.LibraryParams libraryParams) throws RemoteException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), libraryParams}) == null) {
                 ArrayList arrayList = new ArrayList();
@@ -348,12 +354,12 @@ public class MediaLibraryServiceLegacyStub extends MediaSessionServiceLegacyStub
                                         i3 = 0;
                                         i4 = Integer.MAX_VALUE;
                                     }
-                                    if (i3 < 0 || i4 < 1) {
-                                        i5 = 0;
-                                        i6 = Integer.MAX_VALUE;
-                                    } else {
+                                    if (i3 >= 0 && i4 >= 1) {
                                         i5 = i3;
                                         i6 = i4;
+                                    } else {
+                                        i5 = 0;
+                                        i6 = Integer.MAX_VALUE;
                                     }
                                     LibraryResult onGetSearchResult = this.this$1.this$0.mLibrarySessionImpl.getCallback().onGetSearchResult(this.this$1.this$0.mLibrarySessionImpl.getInstance(), searchRequest2.mController, searchRequest2.mQuery, i5, i6, MediaUtils.convertToLibraryParams(this.this$1.this$0.mLibrarySessionImpl.getContext(), searchRequest2.mExtras));
                                     if (onGetSearchResult != null && onGetSearchResult.getResultCode() == 0) {
@@ -385,6 +391,13 @@ public class MediaLibraryServiceLegacyStub extends MediaSessionServiceLegacyStub
         public transient /* synthetic */ FieldHolder $fh;
         public final MediaBrowserServiceCompat mService;
 
+        @Override // androidx.media2.session.MediaSession.ControllerCb
+        public void onSearchResultChanged(int i, String str, int i2, MediaLibraryService.LibraryParams libraryParams) throws RemoteException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), libraryParams}) == null) {
+            }
+        }
+
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public BrowserLegacyCbForBroadcast(MediaBrowserServiceCompat mediaBrowserServiceCompat) {
             super();
@@ -407,7 +420,7 @@ public class MediaLibraryServiceLegacyStub extends MediaSessionServiceLegacyStub
         }
 
         @Override // androidx.media2.session.MediaSession.ControllerCb
-        public void onChildrenChanged(int i, @NonNull String str, int i2, MediaLibraryService.LibraryParams libraryParams) throws RemoteException {
+        public void onChildrenChanged(int i, String str, int i2, MediaLibraryService.LibraryParams libraryParams) throws RemoteException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), libraryParams}) == null) {
                 if (libraryParams != null && libraryParams.getExtras() != null) {
@@ -415,13 +428,6 @@ public class MediaLibraryServiceLegacyStub extends MediaSessionServiceLegacyStub
                 } else {
                     this.mService.notifyChildrenChanged(str);
                 }
-            }
-        }
-
-        @Override // androidx.media2.session.MediaSession.ControllerCb
-        public void onSearchResultChanged(int i, @NonNull String str, int i2, MediaLibraryService.LibraryParams libraryParams) throws RemoteException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), libraryParams}) == null) {
             }
         }
     }
@@ -480,329 +486,6 @@ public class MediaLibraryServiceLegacyStub extends MediaSessionServiceLegacyStub
         }
         this.mLibrarySessionImpl = mediaLibrarySessionImpl;
         this.mBrowserLegacyCbForBroadcast = new BrowserLegacyCbForBroadcast(this);
-    }
-
-    private MediaSession.ControllerInfo getCurrentController() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? getConnectedControllersManager().getController(getCurrentBrowserInfo()) : (MediaSession.ControllerInfo) invokeV.objValue;
-    }
-
-    @Override // androidx.media2.session.MediaSessionServiceLegacyStub
-    public MediaSession.ControllerInfo createControllerInfo(MediaSessionManager.RemoteUserInfo remoteUserInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, remoteUserInfo)) == null) ? new MediaSession.ControllerInfo(remoteUserInfo, -1, this.mManager.isTrustedForMediaControl(remoteUserInfo), new BrowserLegacyCb(this, remoteUserInfo), null) : (MediaSession.ControllerInfo) invokeL.objValue;
-    }
-
-    public MediaSession.ControllerCb getBrowserLegacyCbForBroadcast() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mBrowserLegacyCbForBroadcast : (MediaSession.ControllerCb) invokeV.objValue;
-    }
-
-    @Override // androidx.media.MediaBrowserServiceCompat
-    public void onCustomAction(String str, Bundle bundle, MediaBrowserServiceCompat.Result<Bundle> result) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, bundle, result) == null) {
-            if (result != null) {
-                result.detach();
-            }
-            this.mLibrarySessionImpl.getCallbackExecutor().execute(new Runnable(this, str, getCurrentController(), result, bundle) { // from class: androidx.media2.session.MediaLibraryServiceLegacyStub.6
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MediaLibraryServiceLegacyStub this$0;
-                public final /* synthetic */ String val$action;
-                public final /* synthetic */ MediaSession.ControllerInfo val$controller;
-                public final /* synthetic */ Bundle val$extras;
-                public final /* synthetic */ MediaBrowserServiceCompat.Result val$result;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, str, r8, result, bundle};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$action = str;
-                    this.val$controller = r8;
-                    this.val$result = result;
-                    this.val$extras = bundle;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        SessionCommand sessionCommand = new SessionCommand(this.val$action, null);
-                        if (!this.this$0.getConnectedControllersManager().isAllowedCommand(this.val$controller, sessionCommand)) {
-                            MediaBrowserServiceCompat.Result result2 = this.val$result;
-                            if (result2 != null) {
-                                result2.sendError(null);
-                                return;
-                            }
-                            return;
-                        }
-                        SessionResult onCustomCommand = this.this$0.mLibrarySessionImpl.getCallback().onCustomCommand(this.this$0.mLibrarySessionImpl.getInstance(), this.val$controller, sessionCommand, this.val$extras);
-                        if (onCustomCommand != null) {
-                            this.val$result.sendResult(onCustomCommand.getCustomCommandResult());
-                        }
-                    }
-                }
-            });
-        }
-    }
-
-    @Override // androidx.media2.session.MediaSessionServiceLegacyStub, androidx.media.MediaBrowserServiceCompat
-    public MediaBrowserServiceCompat.BrowserRoot onGetRoot(String str, int i, Bundle bundle) {
-        InterceptResult invokeLIL;
-        MediaSession.ControllerInfo currentController;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048579, this, str, i, bundle)) == null) {
-            if (super.onGetRoot(str, i, bundle) == null || (currentController = getCurrentController()) == null) {
-                return null;
-            }
-            if (getConnectedControllersManager().isAllowedCommand(currentController, 50000)) {
-                LibraryResult onGetLibraryRoot = this.mLibrarySessionImpl.getCallback().onGetLibraryRoot(this.mLibrarySessionImpl.getInstance(), currentController, MediaUtils.convertToLibraryParams(this.mLibrarySessionImpl.getContext(), bundle));
-                if (onGetLibraryRoot != null && onGetLibraryRoot.getResultCode() == 0 && onGetLibraryRoot.getMediaItem() != null) {
-                    MediaMetadata metadata = onGetLibraryRoot.getMediaItem().getMetadata();
-                    return new MediaBrowserServiceCompat.BrowserRoot(metadata != null ? metadata.getString("android.media.metadata.MEDIA_ID") : "", MediaUtils.convertToRootHints(onGetLibraryRoot.getLibraryParams()));
-                }
-            }
-            return MediaUtils.sDefaultBrowserRoot;
-        }
-        return (MediaBrowserServiceCompat.BrowserRoot) invokeLIL.objValue;
-    }
-
-    @Override // androidx.media2.session.MediaSessionServiceLegacyStub, androidx.media.MediaBrowserServiceCompat
-    public void onLoadChildren(String str, MediaBrowserServiceCompat.Result<List<MediaBrowserCompat.MediaItem>> result) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, result) == null) {
-            onLoadChildren(str, result, null);
-        }
-    }
-
-    @Override // androidx.media.MediaBrowserServiceCompat
-    public void onLoadItem(String str, MediaBrowserServiceCompat.Result<MediaBrowserCompat.MediaItem> result) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, result) == null) {
-            MediaSession.ControllerInfo currentController = getCurrentController();
-            if (TextUtils.isEmpty(str)) {
-                Log.w(TAG, "Ignoring empty itemId from " + currentController);
-                result.sendError(null);
-                return;
-            }
-            result.detach();
-            this.mLibrarySessionImpl.getCallbackExecutor().execute(new Runnable(this, currentController, result, str) { // from class: androidx.media2.session.MediaLibraryServiceLegacyStub.4
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MediaLibraryServiceLegacyStub this$0;
-                public final /* synthetic */ MediaSession.ControllerInfo val$controller;
-                public final /* synthetic */ String val$itemId;
-                public final /* synthetic */ MediaBrowserServiceCompat.Result val$result;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, currentController, result, str};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$controller = currentController;
-                    this.val$result = result;
-                    this.val$itemId = str;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        if (!this.this$0.getConnectedControllersManager().isAllowedCommand(this.val$controller, (int) SessionCommand.COMMAND_CODE_LIBRARY_GET_ITEM)) {
-                            this.val$result.sendError(null);
-                            return;
-                        }
-                        LibraryResult onGetItem = this.this$0.mLibrarySessionImpl.getCallback().onGetItem(this.this$0.mLibrarySessionImpl.getInstance(), this.val$controller, this.val$itemId);
-                        if (onGetItem != null && onGetItem.getResultCode() == 0) {
-                            this.val$result.sendResult(MediaUtils.convertToMediaItem(onGetItem.getMediaItem()));
-                        } else {
-                            this.val$result.sendResult(null);
-                        }
-                    }
-                }
-            });
-        }
-    }
-
-    @Override // androidx.media.MediaBrowserServiceCompat
-    public void onSearch(String str, Bundle bundle, MediaBrowserServiceCompat.Result<List<MediaBrowserCompat.MediaItem>> result) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048583, this, str, bundle, result) == null) {
-            MediaSession.ControllerInfo currentController = getCurrentController();
-            if (TextUtils.isEmpty(str)) {
-                Log.w(TAG, "Ignoring empty query from " + currentController);
-                result.sendError(null);
-            } else if (currentController.getControllerCb() instanceof BrowserLegacyCb) {
-                result.detach();
-                this.mLibrarySessionImpl.getCallbackExecutor().execute(new Runnable(this, currentController, result, str, bundle) { // from class: androidx.media2.session.MediaLibraryServiceLegacyStub.5
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ MediaLibraryServiceLegacyStub this$0;
-                    public final /* synthetic */ MediaSession.ControllerInfo val$controller;
-                    public final /* synthetic */ Bundle val$extras;
-                    public final /* synthetic */ String val$query;
-                    public final /* synthetic */ MediaBrowserServiceCompat.Result val$result;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, currentController, result, str, bundle};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                        this.val$controller = currentController;
-                        this.val$result = result;
-                        this.val$query = str;
-                        this.val$extras = bundle;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            if (!this.this$0.getConnectedControllersManager().isAllowedCommand(this.val$controller, (int) SessionCommand.COMMAND_CODE_LIBRARY_SEARCH)) {
-                                this.val$result.sendError(null);
-                                return;
-                            }
-                            ((BrowserLegacyCb) this.val$controller.getControllerCb()).registerSearchRequest(this.val$controller, this.val$query, this.val$extras, this.val$result);
-                            this.this$0.mLibrarySessionImpl.getCallback().onSearch(this.this$0.mLibrarySessionImpl.getInstance(), this.val$controller, this.val$query, MediaUtils.convertToLibraryParams(this.this$0.mLibrarySessionImpl.getContext(), this.val$extras));
-                        }
-                    }
-                });
-            }
-        }
-    }
-
-    @Override // androidx.media.MediaBrowserServiceCompat
-    public void onSubscribe(String str, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, bundle) == null) {
-            MediaSession.ControllerInfo currentController = getCurrentController();
-            if (TextUtils.isEmpty(str)) {
-                Log.w(TAG, "onSubscribe(): Ignoring empty id from " + currentController);
-                return;
-            }
-            this.mLibrarySessionImpl.getCallbackExecutor().execute(new Runnable(this, currentController, bundle, str) { // from class: androidx.media2.session.MediaLibraryServiceLegacyStub.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MediaLibraryServiceLegacyStub this$0;
-                public final /* synthetic */ MediaSession.ControllerInfo val$controller;
-                public final /* synthetic */ String val$id;
-                public final /* synthetic */ Bundle val$option;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, currentController, bundle, str};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$controller = currentController;
-                    this.val$option = bundle;
-                    this.val$id = str;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.this$0.getConnectedControllersManager().isAllowedCommand(this.val$controller, (int) SessionCommand.COMMAND_CODE_LIBRARY_SUBSCRIBE)) {
-                        this.this$0.mLibrarySessionImpl.getCallback().onSubscribe(this.this$0.mLibrarySessionImpl.getInstance(), this.val$controller, this.val$id, MediaUtils.convertToLibraryParams(this.this$0.mLibrarySessionImpl.getContext(), this.val$option));
-                    }
-                }
-            });
-        }
-    }
-
-    @Override // androidx.media.MediaBrowserServiceCompat
-    public void onUnsubscribe(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            MediaSession.ControllerInfo currentController = getCurrentController();
-            if (TextUtils.isEmpty(str)) {
-                Log.w(TAG, "onUnsubscribe(): Ignoring empty id from " + currentController);
-                return;
-            }
-            this.mLibrarySessionImpl.getCallbackExecutor().execute(new Runnable(this, currentController, str) { // from class: androidx.media2.session.MediaLibraryServiceLegacyStub.2
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MediaLibraryServiceLegacyStub this$0;
-                public final /* synthetic */ MediaSession.ControllerInfo val$controller;
-                public final /* synthetic */ String val$id;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, currentController, str};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$controller = currentController;
-                    this.val$id = str;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.this$0.getConnectedControllersManager().isAllowedCommand(this.val$controller, (int) SessionCommand.COMMAND_CODE_LIBRARY_UNSUBSCRIBE)) {
-                        this.this$0.mLibrarySessionImpl.getCallback().onUnsubscribe(this.this$0.mLibrarySessionImpl.getInstance(), this.val$controller, this.val$id);
-                    }
-                }
-            });
-        }
     }
 
     @Override // androidx.media.MediaBrowserServiceCompat
@@ -880,6 +563,347 @@ public class MediaLibraryServiceLegacyStub extends MediaSessionServiceLegacyStub
                             this.val$result.sendResult(null);
                         }
                     }
+                }
+            });
+        }
+    }
+
+    @Override // androidx.media.MediaBrowserServiceCompat
+    public void onSearch(String str, Bundle bundle, MediaBrowserServiceCompat.Result<List<MediaBrowserCompat.MediaItem>> result) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048583, this, str, bundle, result) == null) {
+            MediaSession.ControllerInfo currentController = getCurrentController();
+            if (TextUtils.isEmpty(str)) {
+                Log.w(TAG, "Ignoring empty query from " + currentController);
+                result.sendError(null);
+            } else if (!(currentController.getControllerCb() instanceof BrowserLegacyCb)) {
+            } else {
+                result.detach();
+                this.mLibrarySessionImpl.getCallbackExecutor().execute(new Runnable(this, currentController, result, str, bundle) { // from class: androidx.media2.session.MediaLibraryServiceLegacyStub.5
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ MediaLibraryServiceLegacyStub this$0;
+                    public final /* synthetic */ MediaSession.ControllerInfo val$controller;
+                    public final /* synthetic */ Bundle val$extras;
+                    public final /* synthetic */ String val$query;
+                    public final /* synthetic */ MediaBrowserServiceCompat.Result val$result;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, currentController, result, str, bundle};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                        this.val$controller = currentController;
+                        this.val$result = result;
+                        this.val$query = str;
+                        this.val$extras = bundle;
+                    }
+
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            if (!this.this$0.getConnectedControllersManager().isAllowedCommand(this.val$controller, (int) SessionCommand.COMMAND_CODE_LIBRARY_SEARCH)) {
+                                this.val$result.sendError(null);
+                                return;
+                            }
+                            ((BrowserLegacyCb) this.val$controller.getControllerCb()).registerSearchRequest(this.val$controller, this.val$query, this.val$extras, this.val$result);
+                            this.this$0.mLibrarySessionImpl.getCallback().onSearch(this.this$0.mLibrarySessionImpl.getInstance(), this.val$controller, this.val$query, MediaUtils.convertToLibraryParams(this.this$0.mLibrarySessionImpl.getContext(), this.val$extras));
+                        }
+                    }
+                });
+            }
+        }
+    }
+
+    private MediaSession.ControllerInfo getCurrentController() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+            return getConnectedControllersManager().getController(getCurrentBrowserInfo());
+        }
+        return (MediaSession.ControllerInfo) invokeV.objValue;
+    }
+
+    public MediaSession.ControllerCb getBrowserLegacyCbForBroadcast() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mBrowserLegacyCbForBroadcast;
+        }
+        return (MediaSession.ControllerCb) invokeV.objValue;
+    }
+
+    @Override // androidx.media2.session.MediaSessionServiceLegacyStub
+    public MediaSession.ControllerInfo createControllerInfo(MediaSessionManager.RemoteUserInfo remoteUserInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, remoteUserInfo)) == null) {
+            return new MediaSession.ControllerInfo(remoteUserInfo, -1, this.mManager.isTrustedForMediaControl(remoteUserInfo), new BrowserLegacyCb(this, remoteUserInfo), null);
+        }
+        return (MediaSession.ControllerInfo) invokeL.objValue;
+    }
+
+    @Override // androidx.media.MediaBrowserServiceCompat
+    public void onCustomAction(String str, Bundle bundle, MediaBrowserServiceCompat.Result<Bundle> result) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, bundle, result) == null) {
+            if (result != null) {
+                result.detach();
+            }
+            this.mLibrarySessionImpl.getCallbackExecutor().execute(new Runnable(this, str, getCurrentController(), result, bundle) { // from class: androidx.media2.session.MediaLibraryServiceLegacyStub.6
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ MediaLibraryServiceLegacyStub this$0;
+                public final /* synthetic */ String val$action;
+                public final /* synthetic */ MediaSession.ControllerInfo val$controller;
+                public final /* synthetic */ Bundle val$extras;
+                public final /* synthetic */ MediaBrowserServiceCompat.Result val$result;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, str, r8, result, bundle};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$action = str;
+                    this.val$controller = r8;
+                    this.val$result = result;
+                    this.val$extras = bundle;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        SessionCommand sessionCommand = new SessionCommand(this.val$action, null);
+                        if (!this.this$0.getConnectedControllersManager().isAllowedCommand(this.val$controller, sessionCommand)) {
+                            MediaBrowserServiceCompat.Result result2 = this.val$result;
+                            if (result2 != null) {
+                                result2.sendError(null);
+                                return;
+                            }
+                            return;
+                        }
+                        SessionResult onCustomCommand = this.this$0.mLibrarySessionImpl.getCallback().onCustomCommand(this.this$0.mLibrarySessionImpl.getInstance(), this.val$controller, sessionCommand, this.val$extras);
+                        if (onCustomCommand != null) {
+                            this.val$result.sendResult(onCustomCommand.getCustomCommandResult());
+                        }
+                    }
+                }
+            });
+        }
+    }
+
+    @Override // androidx.media2.session.MediaSessionServiceLegacyStub, androidx.media.MediaBrowserServiceCompat
+    public MediaBrowserServiceCompat.BrowserRoot onGetRoot(String str, int i, Bundle bundle) {
+        InterceptResult invokeLIL;
+        MediaSession.ControllerInfo currentController;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048579, this, str, i, bundle)) == null) {
+            if (super.onGetRoot(str, i, bundle) == null || (currentController = getCurrentController()) == null) {
+                return null;
+            }
+            if (getConnectedControllersManager().isAllowedCommand(currentController, 50000)) {
+                LibraryResult onGetLibraryRoot = this.mLibrarySessionImpl.getCallback().onGetLibraryRoot(this.mLibrarySessionImpl.getInstance(), currentController, MediaUtils.convertToLibraryParams(this.mLibrarySessionImpl.getContext(), bundle));
+                if (onGetLibraryRoot != null && onGetLibraryRoot.getResultCode() == 0 && onGetLibraryRoot.getMediaItem() != null) {
+                    MediaMetadata metadata = onGetLibraryRoot.getMediaItem().getMetadata();
+                    if (metadata != null) {
+                        str2 = metadata.getString("android.media.metadata.MEDIA_ID");
+                    } else {
+                        str2 = "";
+                    }
+                    return new MediaBrowserServiceCompat.BrowserRoot(str2, MediaUtils.convertToRootHints(onGetLibraryRoot.getLibraryParams()));
+                }
+            }
+            return MediaUtils.sDefaultBrowserRoot;
+        }
+        return (MediaBrowserServiceCompat.BrowserRoot) invokeLIL.objValue;
+    }
+
+    @Override // androidx.media2.session.MediaSessionServiceLegacyStub, androidx.media.MediaBrowserServiceCompat
+    public void onLoadChildren(String str, MediaBrowserServiceCompat.Result<List<MediaBrowserCompat.MediaItem>> result) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, result) == null) {
+            onLoadChildren(str, result, null);
+        }
+    }
+
+    @Override // androidx.media.MediaBrowserServiceCompat
+    public void onLoadItem(String str, MediaBrowserServiceCompat.Result<MediaBrowserCompat.MediaItem> result) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, str, result) == null) {
+            MediaSession.ControllerInfo currentController = getCurrentController();
+            if (TextUtils.isEmpty(str)) {
+                Log.w(TAG, "Ignoring empty itemId from " + currentController);
+                result.sendError(null);
+                return;
+            }
+            result.detach();
+            this.mLibrarySessionImpl.getCallbackExecutor().execute(new Runnable(this, currentController, result, str) { // from class: androidx.media2.session.MediaLibraryServiceLegacyStub.4
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ MediaLibraryServiceLegacyStub this$0;
+                public final /* synthetic */ MediaSession.ControllerInfo val$controller;
+                public final /* synthetic */ String val$itemId;
+                public final /* synthetic */ MediaBrowserServiceCompat.Result val$result;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, currentController, result, str};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$controller = currentController;
+                    this.val$result = result;
+                    this.val$itemId = str;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        if (!this.this$0.getConnectedControllersManager().isAllowedCommand(this.val$controller, (int) SessionCommand.COMMAND_CODE_LIBRARY_GET_ITEM)) {
+                            this.val$result.sendError(null);
+                            return;
+                        }
+                        LibraryResult onGetItem = this.this$0.mLibrarySessionImpl.getCallback().onGetItem(this.this$0.mLibrarySessionImpl.getInstance(), this.val$controller, this.val$itemId);
+                        if (onGetItem != null && onGetItem.getResultCode() == 0) {
+                            this.val$result.sendResult(MediaUtils.convertToMediaItem(onGetItem.getMediaItem()));
+                        } else {
+                            this.val$result.sendResult(null);
+                        }
+                    }
+                }
+            });
+        }
+    }
+
+    @Override // androidx.media.MediaBrowserServiceCompat
+    public void onSubscribe(String str, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, bundle) == null) {
+            MediaSession.ControllerInfo currentController = getCurrentController();
+            if (TextUtils.isEmpty(str)) {
+                Log.w(TAG, "onSubscribe(): Ignoring empty id from " + currentController);
+                return;
+            }
+            this.mLibrarySessionImpl.getCallbackExecutor().execute(new Runnable(this, currentController, bundle, str) { // from class: androidx.media2.session.MediaLibraryServiceLegacyStub.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ MediaLibraryServiceLegacyStub this$0;
+                public final /* synthetic */ MediaSession.ControllerInfo val$controller;
+                public final /* synthetic */ String val$id;
+                public final /* synthetic */ Bundle val$option;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, currentController, bundle, str};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$controller = currentController;
+                    this.val$option = bundle;
+                    this.val$id = str;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if ((interceptable2 != null && interceptable2.invokeV(1048576, this) != null) || !this.this$0.getConnectedControllersManager().isAllowedCommand(this.val$controller, (int) SessionCommand.COMMAND_CODE_LIBRARY_SUBSCRIBE)) {
+                        return;
+                    }
+                    this.this$0.mLibrarySessionImpl.getCallback().onSubscribe(this.this$0.mLibrarySessionImpl.getInstance(), this.val$controller, this.val$id, MediaUtils.convertToLibraryParams(this.this$0.mLibrarySessionImpl.getContext(), this.val$option));
+                }
+            });
+        }
+    }
+
+    @Override // androidx.media.MediaBrowserServiceCompat
+    public void onUnsubscribe(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            MediaSession.ControllerInfo currentController = getCurrentController();
+            if (TextUtils.isEmpty(str)) {
+                Log.w(TAG, "onUnsubscribe(): Ignoring empty id from " + currentController);
+                return;
+            }
+            this.mLibrarySessionImpl.getCallbackExecutor().execute(new Runnable(this, currentController, str) { // from class: androidx.media2.session.MediaLibraryServiceLegacyStub.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ MediaLibraryServiceLegacyStub this$0;
+                public final /* synthetic */ MediaSession.ControllerInfo val$controller;
+                public final /* synthetic */ String val$id;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, currentController, str};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$controller = currentController;
+                    this.val$id = str;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if ((interceptable2 != null && interceptable2.invokeV(1048576, this) != null) || !this.this$0.getConnectedControllersManager().isAllowedCommand(this.val$controller, (int) SessionCommand.COMMAND_CODE_LIBRARY_UNSUBSCRIBE)) {
+                        return;
+                    }
+                    this.this$0.mLibrarySessionImpl.getCallback().onUnsubscribe(this.this$0.mLibrarySessionImpl.getInstance(), this.val$controller, this.val$id);
                 }
             });
         }

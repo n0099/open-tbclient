@@ -24,7 +24,7 @@ public class a {
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* renamed from: com.baidu.cyberplayer.sdk.config.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static final class EnumC0089a {
+    public final class EnumC0089a {
         public static /* synthetic */ Interceptable $ic;
         public static final EnumC0089a a;
         public static final EnumC0089a b;
@@ -87,7 +87,7 @@ public class a {
     }
 
     /* loaded from: classes2.dex */
-    public static class b {
+    public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String[] a;
@@ -258,7 +258,7 @@ public class a {
         return (Boolean) invokeLL.objValue;
     }
 
-    public static boolean a(String str, ArrayList<String> arrayList) {
+    public static boolean a(String str, ArrayList arrayList) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, arrayList)) == null) {
@@ -266,7 +266,7 @@ public class a {
                 return true;
             }
             for (int i = 0; i < arrayList.size(); i++) {
-                if (str.indexOf(arrayList.get(i)) > -1) {
+                if (str.indexOf((String) arrayList.get(i)) > -1) {
                     return true;
                 }
             }
@@ -275,19 +275,19 @@ public class a {
         return invokeLL.booleanValue;
     }
 
-    public static boolean a(ArrayList<String> arrayList, ArrayList<String> arrayList2) {
+    public static boolean a(ArrayList arrayList, ArrayList arrayList2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, arrayList, arrayList2)) == null) ? b(Build.DEVICE, arrayList) || b(Build.MODEL, arrayList2) : invokeLL.booleanValue;
     }
 
-    public static boolean b(String str, ArrayList<String> arrayList) {
+    public static boolean b(String str, ArrayList arrayList) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, arrayList)) == null) {
             if (!TextUtils.isEmpty(str) && arrayList != null) {
                 for (int i = 0; i < arrayList.size(); i++) {
-                    if (str.equalsIgnoreCase(arrayList.get(i))) {
+                    if (str.equalsIgnoreCase((String) arrayList.get(i))) {
                         return true;
                     }
                 }

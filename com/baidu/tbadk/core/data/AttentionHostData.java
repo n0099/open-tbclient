@@ -36,7 +36,7 @@ public class AttentionHostData implements Serializable {
 
     public void parserWithJsonString(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || StringUtils.isNull(str)) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || StringUtils.isNull(str)) {
             return;
         }
         try {
@@ -52,7 +52,7 @@ public class AttentionHostData implements Serializable {
 
     public void parserWithMetaData(MetaData metaData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, metaData) == null) || metaData == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, metaData) != null) || metaData == null) {
             return;
         }
         this.isAttention = metaData.hadConcerned();

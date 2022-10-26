@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.util;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dj;
+import com.baidu.tieba.ej;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,32 +33,44 @@ public class FieldBuilder {
         this.builder = null;
     }
 
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            StringBuilder sb = this.builder;
+            if (sb != null) {
+                return sb.toString();
+            }
+            return "";
+        }
+        return (String) invokeV.objValue;
+    }
+
     public void append(String str, Object obj) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, obj) == null) || dj.isEmpty(str) || obj == null) {
-            return;
-        }
-        try {
-            if (this.builder == null) {
-                StringBuilder sb = new StringBuilder();
-                this.builder = sb;
-                sb.append(str);
-                this.builder.append("=");
-                this.builder.append(obj.toString());
-            } else {
-                this.builder.append("|");
-                this.builder.append(str);
-                this.builder.append("=");
-                this.builder.append(obj.toString());
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, obj) == null) && !ej.isEmpty(str) && obj != null) {
+            try {
+                if (this.builder == null) {
+                    StringBuilder sb = new StringBuilder();
+                    this.builder = sb;
+                    sb.append(str);
+                    this.builder.append("=");
+                    this.builder.append(obj.toString());
+                } else {
+                    this.builder.append("|");
+                    this.builder.append(str);
+                    this.builder.append("=");
+                    this.builder.append(obj.toString());
+                }
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
         }
     }
 
     public void merge(FieldBuilder fieldBuilder) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fieldBuilder) == null) || fieldBuilder == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fieldBuilder) != null) || fieldBuilder == null) {
             return;
         }
         StringBuilder sb = this.builder;
@@ -70,15 +82,5 @@ public class FieldBuilder {
         }
         sb.append("|");
         this.builder.append(fieldBuilder.toString());
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            StringBuilder sb = this.builder;
-            return sb != null ? sb.toString() : "";
-        }
-        return (String) invokeV.objValue;
     }
 }

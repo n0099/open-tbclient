@@ -35,6 +35,24 @@ public class RequestQueue implements RequestFeeder {
         throw new RuntimeException("Stub!");
     }
 
+    public RequestQueue(Context context, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        throw new RuntimeException("Stub!");
+    }
+
     public synchronized void disablePlatformNotifications() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -74,44 +92,6 @@ public class RequestQueue implements RequestFeeder {
         return (Request) invokeV.objValue;
     }
 
-    @Override // android.net.http.RequestFeeder
-    public synchronized boolean haveRequest(HttpHost httpHost) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, httpHost)) == null) {
-            synchronized (this) {
-                throw new RuntimeException("Stub!");
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public RequestHandle queueRequest(String str, String str2, Map<String, String> map, EventHandler eventHandler, InputStream inputStream, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{str, str2, map, eventHandler, inputStream, Integer.valueOf(i)})) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (RequestHandle) invokeCommon.objValue;
-    }
-
-    public RequestHandle queueSynchronousRequest(String str, WebAddress webAddress, String str2, Map<String, String> map, EventHandler eventHandler, InputStream inputStream, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, webAddress, str2, map, eventHandler, inputStream, Integer.valueOf(i)})) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (RequestHandle) invokeCommon.objValue;
-    }
-
-    @Override // android.net.http.RequestFeeder
-    public void requeueRequest(Request request) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, request) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
     public void shutdown() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
@@ -133,24 +113,6 @@ public class RequestQueue implements RequestFeeder {
         }
     }
 
-    public RequestQueue(Context context, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        throw new RuntimeException("Stub!");
-    }
-
     @Override // android.net.http.RequestFeeder
     public synchronized Request getRequest(HttpHost httpHost) {
         InterceptResult invokeL;
@@ -163,10 +125,48 @@ public class RequestQueue implements RequestFeeder {
         return (Request) invokeL.objValue;
     }
 
-    public RequestHandle queueRequest(String str, WebAddress webAddress, String str2, Map<String, String> map, EventHandler eventHandler, InputStream inputStream, int i) {
+    @Override // android.net.http.RequestFeeder
+    public synchronized boolean haveRequest(HttpHost httpHost) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, httpHost)) == null) {
+            synchronized (this) {
+                throw new RuntimeException("Stub!");
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.net.http.RequestFeeder
+    public void requeueRequest(Request request) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, request) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    public RequestHandle queueRequest(String str, WebAddress webAddress, String str2, Map map, EventHandler eventHandler, InputStream inputStream, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, webAddress, str2, map, eventHandler, inputStream, Integer.valueOf(i)})) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (RequestHandle) invokeCommon.objValue;
+    }
+
+    public RequestHandle queueSynchronousRequest(String str, WebAddress webAddress, String str2, Map map, EventHandler eventHandler, InputStream inputStream, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, webAddress, str2, map, eventHandler, inputStream, Integer.valueOf(i)})) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (RequestHandle) invokeCommon.objValue;
+    }
+
+    public RequestHandle queueRequest(String str, String str2, Map map, EventHandler eventHandler, InputStream inputStream, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{str, str2, map, eventHandler, inputStream, Integer.valueOf(i)})) == null) {
             throw new RuntimeException("Stub!");
         }
         return (RequestHandle) invokeCommon.objValue;

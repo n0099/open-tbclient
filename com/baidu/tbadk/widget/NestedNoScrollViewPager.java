@@ -2,8 +2,6 @@ package com.baidu.tbadk.widget;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,7 +13,7 @@ public class NestedNoScrollViewPager extends ViewPager {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NestedNoScrollViewPager(@NonNull Context context) {
+    public NestedNoScrollViewPager(Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -34,19 +32,8 @@ public class NestedNoScrollViewPager extends ViewPager {
         }
     }
 
-    @Override // android.view.ViewGroup, android.view.ViewParent
-    public void requestDisallowInterceptTouchEvent(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            super.requestDisallowInterceptTouchEvent(true);
-            if (getParent() != null) {
-                getParent().requestDisallowInterceptTouchEvent(z);
-            }
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NestedNoScrollViewPager(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+    public NestedNoScrollViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -62,6 +49,17 @@ public class NestedNoScrollViewPager extends ViewPager {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
+            }
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.ViewParent
+    public void requestDisallowInterceptTouchEvent(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            super.requestDisallowInterceptTouchEvent(true);
+            if (getParent() != null) {
+                getParent().requestDisallowInterceptTouchEvent(z);
             }
         }
     }

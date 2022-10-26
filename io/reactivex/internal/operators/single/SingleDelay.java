@@ -13,20 +13,20 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.SequentialDisposable;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes8.dex */
-public final class SingleDelay<T> extends Single<T> {
+public final class SingleDelay extends Single {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean delayError;
     public final Scheduler scheduler;
-    public final SingleSource<? extends T> source;
+    public final SingleSource source;
     public final long time;
     public final TimeUnit unit;
 
     /* loaded from: classes8.dex */
-    public final class Delay implements SingleObserver<T> {
+    public final class Delay implements SingleObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SingleObserver<? super T> s;
+        public final SingleObserver s;
         public final SequentialDisposable sd;
         public final /* synthetic */ SingleDelay this$0;
 
@@ -70,14 +70,14 @@ public final class SingleDelay<T> extends Single<T> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Delay this$1;
-            public final T value;
+            public final Object value;
 
-            public OnSuccess(Delay delay, T t) {
+            public OnSuccess(Delay delay, Object obj) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {delay, t};
+                    Object[] objArr = {delay, obj};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -88,20 +88,19 @@ public final class SingleDelay<T> extends Single<T> {
                     }
                 }
                 this.this$1 = delay;
-                this.value = t;
+                this.value = obj;
             }
 
-            /* JADX DEBUG: Type inference failed for r1v0. Raw type applied. Possible types: T, ? super T */
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.this$1.s.onSuccess((T) this.value);
+                    this.this$1.s.onSuccess(this.value);
                 }
             }
         }
 
-        public Delay(SingleDelay singleDelay, SequentialDisposable sequentialDisposable, SingleObserver<? super T> singleObserver) {
+        public Delay(SingleDelay singleDelay, SequentialDisposable sequentialDisposable, SingleObserver singleObserver) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -123,13 +122,19 @@ public final class SingleDelay<T> extends Single<T> {
 
         @Override // io.reactivex.SingleObserver
         public void onError(Throwable th) {
+            long j;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
                 SequentialDisposable sequentialDisposable = this.sd;
                 Scheduler scheduler = this.this$0.scheduler;
                 OnError onError = new OnError(this, th);
                 SingleDelay singleDelay = this.this$0;
-                sequentialDisposable.replace(scheduler.scheduleDirect(onError, singleDelay.delayError ? singleDelay.time : 0L, this.this$0.unit));
+                if (singleDelay.delayError) {
+                    j = singleDelay.time;
+                } else {
+                    j = 0;
+                }
+                sequentialDisposable.replace(scheduler.scheduleDirect(onError, j, this.this$0.unit));
             }
         }
 
@@ -142,19 +147,19 @@ public final class SingleDelay<T> extends Single<T> {
         }
 
         @Override // io.reactivex.SingleObserver
-        public void onSuccess(T t) {
+        public void onSuccess(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
                 SequentialDisposable sequentialDisposable = this.sd;
                 Scheduler scheduler = this.this$0.scheduler;
-                OnSuccess onSuccess = new OnSuccess(this, t);
+                OnSuccess onSuccess = new OnSuccess(this, obj);
                 SingleDelay singleDelay = this.this$0;
                 sequentialDisposable.replace(scheduler.scheduleDirect(onSuccess, singleDelay.time, singleDelay.unit));
             }
         }
     }
 
-    public SingleDelay(SingleSource<? extends T> singleSource, long j, TimeUnit timeUnit, Scheduler scheduler, boolean z) {
+    public SingleDelay(SingleSource singleSource, long j, TimeUnit timeUnit, Scheduler scheduler, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -177,7 +182,7 @@ public final class SingleDelay<T> extends Single<T> {
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver<? super T> singleObserver) {
+    public void subscribeActual(SingleObserver singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, singleObserver) == null) {
             SequentialDisposable sequentialDisposable = new SequentialDisposable();

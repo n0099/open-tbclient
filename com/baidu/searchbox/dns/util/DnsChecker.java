@@ -10,6 +10,10 @@ public class DnsChecker {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static native boolean isIPv4Reachable();
+
+    public static native boolean isIPv6Reachable();
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -31,8 +35,4 @@ public class DnsChecker {
             }
         }
     }
-
-    public static native boolean isIPv4Reachable();
-
-    public static native boolean isIPv6Reachable();
 }

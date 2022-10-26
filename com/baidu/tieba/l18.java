@@ -1,45 +1,59 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.SparseArray;
 import android.view.View;
-import android.view.ViewGroup;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.DeleteThreadInfo;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.pb.pb.main.PbModel;
-import com.baidu.tieba.pb.videopb.fragment.DetailInfoAndReplyFragment;
-import com.baidu.tieba.tbadkCore.data.PostData;
+import com.baidu.tbadk.core.data.OriginalThreadInfo;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.hx;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 /* loaded from: classes4.dex */
-public class l18 {
+public class l18 extends e18 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ThreadData f;
+    public ar4 g;
+    public wx h;
+    public View i;
 
     /* loaded from: classes4.dex */
-    public static class a implements jk5 {
+    public class a extends ar4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ PbModel a;
-        public final /* synthetic */ DetailInfoAndReplyFragment b;
+        public final /* synthetic */ l18 a;
 
-        public a(PbModel pbModel, DetailInfoAndReplyFragment detailInfoAndReplyFragment) {
+        @Override // com.baidu.tieba.ar4
+        public xs4 getNegFeedBackData() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return null;
+            }
+            return (xs4) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.eo
+        public BdUniqueId getType() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return null;
+            }
+            return (BdUniqueId) invokeV.objValue;
+        }
+
+        public a(l18 l18Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {pbModel, detailInfoAndReplyFragment};
+                Object[] objArr = {l18Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -49,135 +63,156 @@ public class l18 {
                     return;
                 }
             }
-            this.a = pbModel;
-            this.b = detailInfoAndReplyFragment;
+            this.a = l18Var;
         }
 
-        @Override // com.baidu.tieba.jk5
-        public void a() {
+        @Override // com.baidu.tieba.ar4
+        public ThreadData getThreadData() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.l2(false);
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.a.f;
+            }
+            return (ThreadData) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ l18 a;
+
+        public b(l18 l18Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {l18Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = l18Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            l18 l18Var;
+            hx.a aVar;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (aVar = (l18Var = this.a).c) != null) {
+                aVar.a(l18Var.g);
             }
         }
+    }
 
-        @Override // com.baidu.tieba.jk5
-        public void b(List<String> list) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || this.a.S1() == null) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public l18(TbPageContext tbPageContext, int i) {
+        super(tbPageContext);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            ArrayList<PostData> F = this.a.S1().F();
-            if (ListUtils.isEmpty(F) || ListUtils.isEmpty(list)) {
-                return;
-            }
-            Iterator<PostData> it = F.iterator();
-            while (it.hasNext()) {
-                PostData next = it.next();
-                int i = 0;
-                while (true) {
-                    if (i >= list.size()) {
-                        break;
-                    } else if (TextUtils.equals(list.get(i), next.L())) {
-                        it.remove();
-                        if (this.a.S1().O() != null) {
-                            this.a.S1().O().setReply_num(this.a.S1().O().getReply_num() - 1);
-                        }
-                    } else {
-                        i++;
-                    }
-                }
-            }
-            this.b.T1();
         }
     }
 
-    public static void a() {
+    @Override // com.baidu.tieba.e18
+    public void c(OriginalThreadInfo originalThreadInfo) {
+        ThreadData b2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            ik5.b().a();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, originalThreadInfo) == null) {
+            this.d = originalThreadInfo;
+            if (originalThreadInfo == null) {
+                b2 = null;
+            } else {
+                b2 = originalThreadInfo.b();
+            }
+            this.f = b2;
+            a aVar = new a(this);
+            this.g = aVar;
+            wx wxVar = this.h;
+            if (wxVar != null) {
+                wxVar.a(aVar);
+            }
         }
     }
 
-    public static lk5 b(PbModel pbModel, DetailInfoAndReplyFragment detailInfoAndReplyFragment) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.e18
+    public void d(hx.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, pbModel, detailInfoAndReplyFragment)) == null) {
-            if (detailInfoAndReplyFragment == null || pbModel == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+            super.d(aVar);
+            wx wxVar = this.h;
+            if (wxVar != null) {
+                wxVar.E(aVar);
             }
-            lk5 lk5Var = new lk5();
-            if (pbModel.S1() != null && pbModel.S1().l() != null) {
-                if (pbModel.S1().l().getDeletedReasonInfo() != null) {
-                    lk5Var.p(pbModel.S1().l().getDeletedReasonInfo().is_grays_cale_forum.intValue());
-                    lk5Var.o(pbModel.S1().l().getDeletedReasonInfo().is_boomgrow.intValue());
-                }
-                lk5Var.l(pbModel.S1().l().getId());
-                lk5Var.m(pbModel.S1().l().getName());
-                lk5Var.k(pbModel.S1().l().getImage_url());
-                lk5Var.t(pbModel.S1().l().getUser_level());
+            View view2 = this.i;
+            if (view2 != null) {
+                view2.setOnClickListener(new b(this));
             }
-            if (pbModel.S1() != null && pbModel.S1().o() != null) {
-                lk5Var.n(pbModel.S1().o().has_forum_rule.intValue());
-            }
-            if (pbModel.S1() != null && pbModel.S1().V() != null) {
-                lk5Var.s(pbModel.S1().V());
-            }
-            lk5Var.q(new a(pbModel, detailInfoAndReplyFragment));
-            if (pbModel.S1() != null) {
-                AntiData d = pbModel.S1().d();
-                SparseArray<String> sparseArray = new SparseArray<>();
-                if (d != null && d.getDelThreadInfoList() != null) {
-                    List<DeleteThreadInfo> delThreadInfoList = d.getDelThreadInfoList();
-                    for (int i = 0; i < delThreadInfoList.size(); i++) {
-                        if (delThreadInfoList.get(i) != null && !TextUtils.isEmpty(delThreadInfoList.get(i).text_info)) {
-                            sparseArray.put(delThreadInfoList.get(i).text_id, delThreadInfoList.get(i).text_info);
-                        }
-                    }
-                }
-                lk5Var.r(sparseArray);
-            }
-            return lk5Var;
         }
-        return (lk5) invokeLL.objValue;
     }
 
-    public static boolean c(jv7 jv7Var, PostData postData) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.e18
+    public void e(p26 p26Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, jv7Var, postData)) == null) {
-            if (jv7Var == null || postData == null) {
-                return false;
+        if (interceptable == null || interceptable.invokeL(1048580, this, p26Var) == null) {
+            super.e(p26Var);
+            wx wxVar = this.h;
+            if (wxVar != null) {
+                wxVar.p(this.b);
             }
-            nk5 nk5Var = new nk5();
-            nk5Var.d(postData.H() + "");
-            if (jv7Var.O() != null) {
-                nk5Var.f(jv7Var.O().getId());
-            }
-            nk5Var.e(postData.L());
-            return ik5.b().c(nk5Var);
         }
-        return invokeLL.booleanValue;
     }
 
-    public static void d(TbPageContext<BaseFragmentActivity> tbPageContext, PbModel pbModel, DetailInfoAndReplyFragment detailInfoAndReplyFragment, View view2) {
+    @Override // com.baidu.tieba.e18
+    public View a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(65539, null, tbPageContext, pbModel, detailInfoAndReplyFragment, view2) == null) || tbPageContext == null || pbModel == null || detailInfoAndReplyFragment == null || detailInfoAndReplyFragment.getView() == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.h == null) {
+                wx wxVar = new wx(this.a.getPageActivity());
+                this.h = wxVar;
+                wxVar.r(Boolean.TRUE);
+                this.h.B("pb");
+                this.h.D(0);
+                this.h.I(this.a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007), this.a.getResources().getDimensionPixelOffset(R.dimen.M_H_X005), this.a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007), this.a.getResources().getDimensionPixelSize(R.dimen.M_H_X005));
+                this.h.J(false);
+                this.h.H(true);
+            }
+            View k = this.h.k();
+            this.i = k;
+            return k;
         }
-        ik5.b().e(tbPageContext, (ViewGroup) view2, b(pbModel, detailInfoAndReplyFragment));
-        ik5.b().d(2);
+        return (View) invokeV.objValue;
     }
 
-    public static boolean e(PostData postData) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.e18
+    public void b(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, postData)) == null) {
-            if (postData == null) {
-                return false;
+        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) && this.e != i) {
+            this.e = i;
+            SkinManager.setBackgroundColor(this.i, R.color.CAM_X0204);
+            wx wxVar = this.h;
+            if (wxVar != null) {
+                wxVar.onChangeSkinType(tbPageContext, i);
             }
-            return ik5.b().f(postData.L());
         }
-        return invokeL.booleanValue;
     }
 }

@@ -1,7 +1,6 @@
 package com.baidu.tieba.enterForum.home;
 
 import android.view.ViewGroup;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -9,7 +8,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tieba.enterForum.tabfeed.EnterForumTabFeedFragment;
-import com.baidu.tieba.nl5;
+import com.baidu.tieba.ul5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,17 +16,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements nl5 {
+public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements ul5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<a> a;
+    public List a;
     public int b;
     public BaseFragment c;
     public boolean d;
     public FragmentManager e;
 
     /* loaded from: classes3.dex */
-    public static class a {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Fragment a;
@@ -51,7 +50,7 @@ public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements n
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public EnterForumTabPagerAdapter(FragmentManager fragmentManager, List<a> list) {
+    public EnterForumTabPagerAdapter(FragmentManager fragmentManager, List list) {
         super(fragmentManager);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -73,18 +72,60 @@ public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements n
         this.a = list;
     }
 
-    @Override // com.baidu.tieba.nl5
+    @Override // com.baidu.tieba.ul5
     public boolean a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            List<a> list = this.a;
-            if (list == null || i < 0 || i >= list.size() || this.a.get(i) == null || !(this.a.get(i).a instanceof EnterForumTabFeedFragment)) {
-                return false;
+            List list = this.a;
+            if (list != null && i >= 0 && i < list.size() && this.a.get(i) != null && (((a) this.a.get(i)).a instanceof EnterForumTabFeedFragment)) {
+                return ((a) this.a.get(i)).c;
             }
-            return this.a.get(i).c;
+            return false;
         }
         return invokeI.booleanValue;
+    }
+
+    @Override // androidx.fragment.app.FragmentPagerAdapter
+    public Fragment getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            List list = this.a;
+            if (list != null && i >= 0 && i < list.size() && this.a.get(i) != null) {
+                return ((a) this.a.get(i)).a;
+            }
+            return null;
+        }
+        return (Fragment) invokeI.objValue;
+    }
+
+    @Override // androidx.fragment.app.FragmentPagerAdapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            List list = this.a;
+            if (list != null && i >= 0 && i < list.size() && this.a.get(i) != null) {
+                return ((a) this.a.get(i)).hashCode();
+            }
+            return super.getItemId(i);
+        }
+        return invokeI.longValue;
+    }
+
+    @Override // androidx.viewpager.widget.PagerAdapter
+    public CharSequence getPageTitle(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            List list = this.a;
+            if (list != null && i >= 0 && i < list.size() && this.a.get(i) != null) {
+                return ((a) this.a.get(i)).b;
+            }
+            return null;
+        }
+        return (CharSequence) invokeI.objValue;
     }
 
     public String b() {
@@ -100,19 +141,12 @@ public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements n
         return (String) invokeV.objValue;
     }
 
-    public void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.d = z;
-        }
-    }
-
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<a> list = this.a;
+            List list = this.a;
             if (list != null) {
                 return list.size();
             }
@@ -121,53 +155,24 @@ public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements n
         return invokeV.intValue;
     }
 
-    @Override // androidx.fragment.app.FragmentPagerAdapter
-    public Fragment getItem(int i) {
-        InterceptResult invokeI;
+    public void c(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            List<a> list = this.a;
-            if (list == null || i < 0 || i >= list.size() || this.a.get(i) == null) {
-                return null;
-            }
-            return this.a.get(i).a;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.d = z;
         }
-        return (Fragment) invokeI.objValue;
-    }
-
-    @Override // androidx.fragment.app.FragmentPagerAdapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            List<a> list = this.a;
-            if (list != null && i >= 0 && i < list.size() && this.a.get(i) != null) {
-                return this.a.get(i).hashCode();
-            }
-            return super.getItemId(i);
-        }
-        return invokeI.longValue;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
-    public int getItemPosition(@NonNull Object obj) {
+    public int getItemPosition(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) ? this.e.getFragments().contains(obj) ? -1 : -2 : invokeL.intValue;
-    }
-
-    @Override // androidx.viewpager.widget.PagerAdapter
-    public CharSequence getPageTitle(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            List<a> list = this.a;
-            if (list == null || i < 0 || i >= list.size() || this.a.get(i) == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
+            if (this.e.getFragments().contains(obj)) {
+                return -1;
             }
-            return this.a.get(i).b;
+            return -2;
         }
-        return (CharSequence) invokeI.objValue;
+        return invokeL.intValue;
     }
 
     @Override // androidx.fragment.app.FragmentPagerAdapter, androidx.viewpager.widget.PagerAdapter
@@ -176,17 +181,16 @@ public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements n
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup, i, obj) == null) {
             super.setPrimaryItem(viewGroup, i, obj);
-            if (!this.d || (i2 = this.b) == i) {
-                return;
-            }
-            if (i2 != -1) {
-                ((BaseFragment) getItem(i2)).setPrimary(false);
-            }
-            this.b = i;
-            if (obj instanceof BaseFragment) {
-                BaseFragment baseFragment = (BaseFragment) obj;
-                baseFragment.setPrimary(true);
-                this.c = baseFragment;
+            if (this.d && (i2 = this.b) != i) {
+                if (i2 != -1) {
+                    ((BaseFragment) getItem(i2)).setPrimary(false);
+                }
+                this.b = i;
+                if (obj instanceof BaseFragment) {
+                    BaseFragment baseFragment = (BaseFragment) obj;
+                    baseFragment.setPrimary(true);
+                    this.c = baseFragment;
+                }
             }
         }
     }

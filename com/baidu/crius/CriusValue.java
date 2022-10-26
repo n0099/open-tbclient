@@ -1,7 +1,6 @@
 package com.baidu.crius;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.crius.annotations.DoNotStrip;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
-@DoNotStrip
 /* loaded from: classes.dex */
 public class CriusValue {
     public static /* synthetic */ Interceptable $ic;
@@ -23,7 +21,7 @@ public class CriusValue {
 
     /* renamed from: com.baidu.crius.CriusValue$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$crius$CriusUnit;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -80,6 +78,27 @@ public class CriusValue {
         AUTO = new CriusValue(Float.NaN, CriusUnit.AUTO);
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public CriusValue(float f, int i) {
+        this(f, CriusUnit.fromInt(i));
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Float.valueOf(f), Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this(((Float) objArr2[0]).floatValue(), (CriusUnit) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
     public CriusValue(float f, CriusUnit criusUnit) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -124,15 +143,18 @@ public class CriusValue {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (obj instanceof CriusValue) {
-                CriusValue criusValue = (CriusValue) obj;
-                CriusUnit criusUnit = this.unit;
-                if (criusUnit == criusValue.unit) {
-                    return criusUnit == CriusUnit.UNDEFINED || Float.compare(this.value, criusValue.value) == 0;
-                }
+            if (!(obj instanceof CriusValue)) {
                 return false;
             }
-            return false;
+            CriusValue criusValue = (CriusValue) obj;
+            CriusUnit criusUnit = this.unit;
+            if (criusUnit != criusValue.unit) {
+                return false;
+            }
+            if (criusUnit != CriusUnit.UNDEFINED && Float.compare(this.value, criusValue.value) != 0) {
+                return false;
+            }
+            return true;
         }
         return invokeL.booleanValue;
     }
@@ -140,7 +162,10 @@ public class CriusValue {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Float.floatToIntBits(this.value) + this.unit.intValue() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return Float.floatToIntBits(this.value) + this.unit.intValue();
+        }
+        return invokeV.intValue;
     }
 
     public String toString() {
@@ -148,45 +173,23 @@ public class CriusValue {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             int i = AnonymousClass1.$SwitchMap$com$baidu$crius$CriusUnit[this.unit.ordinal()];
-            if (i != 1) {
-                if (i != 2) {
-                    if (i == 3) {
-                        return this.value + "%";
-                    } else if (i != 4) {
-                        if (CriusConstants.DEBUG) {
-                            throw new IllegalStateException();
-                        }
-                        return SessionMonitorEngine.PUBLIC_DATA_UNDIFNED;
-                    } else {
-                        return "auto";
-                    }
-                }
-                return Float.toString(this.value);
+            if (i == 1) {
+                return SessionMonitorEngine.PUBLIC_DATA_UNDIFNED;
             }
-            return SessionMonitorEngine.PUBLIC_DATA_UNDIFNED;
+            if (i != 2) {
+                if (i != 3) {
+                    if (i != 4) {
+                        if (!CriusConstants.DEBUG) {
+                            return SessionMonitorEngine.PUBLIC_DATA_UNDIFNED;
+                        }
+                        throw new IllegalStateException();
+                    }
+                    return "auto";
+                }
+                return this.value + "%";
+            }
+            return Float.toString(this.value);
         }
         return (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    @DoNotStrip
-    public CriusValue(float f, int i) {
-        this(f, CriusUnit.fromInt(i));
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f), Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this(((Float) objArr2[0]).floatValue(), (CriusUnit) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
     }
 }

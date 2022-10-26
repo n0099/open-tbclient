@@ -1,134 +1,117 @@
 package com.baidu.tieba;
 
-import android.text.SpannableStringBuilder;
-import android.text.style.ForegroundColorSpan;
-import android.view.View;
-import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Collection;
+import org.json.JSONArray;
+import org.json.JSONException;
 /* loaded from: classes5.dex */
-public class sg6 extends i16<ng6> {
+public class sg6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BarImageView i;
-    public TextView j;
-    public TextView k;
-    public TextView l;
-    public int m;
-    public ng6 n;
-    public View.OnClickListener o;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sg6(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            ux4.k().y(ux4.o("search_forum_history"), "");
         }
-        this.m = 3;
-        this.i = (BarImageView) h().findViewById(R.id.obfuscated_res_0x7f090a4b);
-        this.j = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090a8e);
-        this.k = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090a49);
-        this.l = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090ab6);
-        h().setOnClickListener(this);
-        j(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // com.baidu.tieba.i16
-    public int d() {
+    public static void b(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65537, null, str) != null) || StringUtils.isNull(str)) {
+            return;
+        }
+        String q = ux4.k().q(ux4.o("search_forum_history"), "");
+        if (!StringUtils.isNull(q)) {
+            try {
+                JSONArray jSONArray = new JSONArray(q);
+                if (jSONArray.length() <= 0) {
+                    return;
+                }
+                ArrayList arrayList = new ArrayList();
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    Object obj = jSONArray.get(i);
+                    if (!str.equals(obj)) {
+                        arrayList.add((String) obj);
+                    }
+                }
+                ux4.k().y(ux4.o("search_forum_history"), new JSONArray((Collection) arrayList).toString());
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void d(String str) {
+        JSONArray jSONArray;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65539, null, str) != null) || StringUtils.isNull(str)) {
+            return;
+        }
+        String q = ux4.k().q(ux4.o("search_forum_history"), "");
+        try {
+            if (StringUtils.isNull(q)) {
+                jSONArray = new JSONArray();
+            } else {
+                jSONArray = new JSONArray(q);
+            }
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(str);
+            int i = 1;
+            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                Object obj = jSONArray.get(i2);
+                if ((obj instanceof String) && !str.equals(obj)) {
+                    arrayList.add((String) obj);
+                    i++;
+                }
+                if (i == 6) {
+                    break;
+                }
+            }
+            ux4.k().y(ux4.o("search_forum_history"), new JSONArray((Collection) arrayList).toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static ArrayList c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d02cb : invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.i16
-    public void j(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) || this.m == i) {
-            return;
-        }
-        SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0105);
-        SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0109);
-        SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0109);
-        SkinManager.setBackgroundResource(h(), R.drawable.square_search_item_bg);
-        this.m = i;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, view2) == null) || this.n == null) {
-            return;
-        }
-        TiebaStatic.log("c12261");
-        lg6.d(this.n.r());
-        view2.setTag(this.n);
-        View.OnClickListener onClickListener = this.o;
-        if (onClickListener != null) {
-            onClickListener.onClick(view2);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.i16
-    /* renamed from: r */
-    public void i(ng6 ng6Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, ng6Var) == null) || ng6Var == null) {
-            return;
-        }
-        this.n = ng6Var;
-        this.i.K(ng6Var.c(), 10, false);
-        this.j.setText(s(ng6Var.j(), ng6Var.r()));
-        this.k.setText(String.format(this.b.getString(R.string.obfuscated_res_0x7f0f0429), ng6Var.f()));
-        this.l.setText(String.format(this.b.getString(R.string.obfuscated_res_0x7f0f10d7), ng6Var.n()));
-        j(this.b, TbadkCoreApplication.getInst().getSkinType());
-    }
-
-    public SpannableStringBuilder s(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
-            if (StringUtils.isNull(str) || StringUtils.isNull(str2)) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            String q = ux4.k().q(ux4.o("search_forum_history"), "");
+            ArrayList arrayList = null;
+            if (StringUtils.isNull(q)) {
                 return null;
             }
-            String trim = str2.trim();
-            ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0301));
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-            int indexOf = str.indexOf(trim);
-            if (indexOf != -1) {
-                spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, trim.length() + indexOf, 33);
+            try {
+                JSONArray jSONArray = new JSONArray(q);
+                if (jSONArray.length() <= 0) {
+                    return null;
+                }
+                ArrayList arrayList2 = new ArrayList();
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    try {
+                        Object obj = jSONArray.get(i);
+                        if (obj instanceof String) {
+                            arrayList2.add((String) obj);
+                        }
+                    } catch (JSONException e) {
+                        e = e;
+                        arrayList = arrayList2;
+                        e.printStackTrace();
+                        return arrayList;
+                    }
+                }
+                return arrayList2;
+            } catch (JSONException e2) {
+                e = e2;
             }
-            return spannableStringBuilder;
-        }
-        return (SpannableStringBuilder) invokeLL.objValue;
-    }
-
-    public void t(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, onClickListener) == null) {
-            this.o = onClickListener;
+        } else {
+            return (ArrayList) invokeV.objValue;
         }
     }
 }

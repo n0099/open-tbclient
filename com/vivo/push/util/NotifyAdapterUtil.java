@@ -76,6 +76,29 @@ public class NotifyAdapterUtil {
         }
     }
 
+    public static void cancelNotify(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
+            cancelNotify(context, sNotifyId);
+        }
+    }
+
+    public static boolean isZh(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            return context.getResources().getConfiguration().locale.getLanguage().endsWith("zh");
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void setNotifyId(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65546, null, i) == null) {
+            sNotifyId = i;
+        }
+    }
+
     public static boolean cancelNotify(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
@@ -92,6 +115,7 @@ public class NotifyAdapterUtil {
     }
 
     public static synchronized void initAdapter(Context context) {
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
             synchronized (NotifyAdapterUtil.class) {
@@ -106,7 +130,12 @@ public class NotifyAdapterUtil {
                             sNotificationManager.deleteNotificationChannel("default");
                         }
                     }
-                    NotificationChannel notificationChannel2 = new NotificationChannel(PRIMARY_CHANNEL, isZh(context) ? PUSH_ZH : PUSH_EN, 4);
+                    if (isZh(context)) {
+                        str = PUSH_ZH;
+                    } else {
+                        str = PUSH_EN;
+                    }
+                    NotificationChannel notificationChannel2 = new NotificationChannel(PRIMARY_CHANNEL, str, 4);
                     notificationChannel2.setLightColor(DebugControllerOverlayDrawable.TEXT_COLOR_IMAGE_OK);
                     notificationChannel2.enableVibration(true);
                     notificationChannel2.setLockscreenVisibility(1);
@@ -116,13 +145,7 @@ public class NotifyAdapterUtil {
         }
     }
 
-    public static boolean isZh(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? context.getResources().getConfiguration().locale.getLanguage().endsWith("zh") : invokeL.booleanValue;
-    }
-
-    public static void pushNotification(Context context, List<Bitmap> list, InsideNotificationItem insideNotificationItem, long j, int i, r.a aVar) {
+    public static void pushNotification(Context context, List list, InsideNotificationItem insideNotificationItem, long j, int i, r.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{context, list, insideNotificationItem, Long.valueOf(j), Integer.valueOf(i), aVar}) == null) {
             p.d(TAG, "pushNotification");
@@ -139,7 +162,7 @@ public class NotifyAdapterUtil {
         }
     }
 
-    public static void pushNotificationByCustom(Context context, List<Bitmap> list, InsideNotificationItem insideNotificationItem, long j, r.a aVar) {
+    public static void pushNotificationByCustom(Context context, List list, InsideNotificationItem insideNotificationItem, long j, r.a aVar) {
         Notification notification;
         int i;
         Bitmap bitmap;
@@ -189,7 +212,7 @@ public class NotifyAdapterUtil {
             }
             int suitIconId = NotifyUtil.getNotifyLayoutAdapter(context).getSuitIconId();
             remoteViews.setViewVisibility(suitIconId, i);
-            if (list != null && !list.isEmpty() && (bitmap = list.get(i)) != null) {
+            if (list != null && !list.isEmpty() && (bitmap = (Bitmap) list.get(i)) != null) {
                 remoteViews.setImageViewBitmap(suitIconId, bitmap);
             } else {
                 if (defaultNotifyIcon <= 0) {
@@ -199,7 +222,7 @@ public class NotifyAdapterUtil {
             }
             Bitmap bitmap2 = null;
             if (list != null && list.size() > 1) {
-                bitmap2 = list.get(1);
+                bitmap2 = (Bitmap) list.get(1);
             }
             if (bitmap2 != null) {
                 if (!TextUtils.isEmpty(insideNotificationItem.getPurePicUrl())) {
@@ -282,10 +305,11 @@ public class NotifyAdapterUtil {
         }
     }
 
-    public static void pushNotificationBySystem(Context context, List<Bitmap> list, InsideNotificationItem insideNotificationItem, long j, int i, r.a aVar) {
+    public static void pushNotificationBySystem(Context context, List list, InsideNotificationItem insideNotificationItem, long j, int i, r.a aVar) {
         String str;
         Bitmap bitmap;
         Notification.Builder builder;
+        long j2;
         int i2;
         Bitmap bitmap2;
         Bitmap decodeResource;
@@ -298,20 +322,20 @@ public class NotifyAdapterUtil {
             boolean isShowTime = insideNotificationItem.isShowTime();
             AudioManager audioManager = (AudioManager) context.getSystemService("audio");
             int defaultNotifyIcon = NotifyUtil.getNotifyDataAdapter(context).getDefaultNotifyIcon();
-            if (list == null || list.isEmpty()) {
-                str = packageName;
-                bitmap = null;
-            } else {
-                bitmap = list.get(0);
-                if (bitmap == null || defaultNotifyIcon <= 0 || (decodeResource = BitmapFactory.decodeResource(context.getResources(), defaultNotifyIcon)) == null) {
-                    str = packageName;
-                } else {
+            if (list != null && !list.isEmpty()) {
+                bitmap = (Bitmap) list.get(0);
+                if (bitmap != null && defaultNotifyIcon > 0 && (decodeResource = BitmapFactory.decodeResource(context.getResources(), defaultNotifyIcon)) != null) {
                     int width = decodeResource.getWidth();
                     str = packageName;
                     int height = decodeResource.getHeight();
                     decodeResource.recycle();
                     bitmap = c.a(bitmap, width, height);
+                } else {
+                    str = packageName;
                 }
+            } else {
+                str = packageName;
+                bitmap = null;
             }
             Bundle bundle = new Bundle();
             if (Build.VERSION.SDK_INT >= 26) {
@@ -344,7 +368,12 @@ public class NotifyAdapterUtil {
             }
             builder.setPriority(2);
             builder.setContentText(content);
-            builder.setWhen(isShowTime ? System.currentTimeMillis() : 0L);
+            if (isShowTime) {
+                j2 = System.currentTimeMillis();
+            } else {
+                j2 = 0;
+            }
+            builder.setWhen(j2);
             builder.setShowWhen(isShowTime);
             builder.setTicker(title);
             int ringerMode = audioManager.getRingerMode();
@@ -367,12 +396,12 @@ public class NotifyAdapterUtil {
             } else if (ringerMode == 2) {
                 builder.setDefaults(1);
             }
-            if (list == null || list.size() <= 1) {
+            if (list != null && list.size() > 1) {
+                bitmap2 = (Bitmap) list.get(1);
+                i2 = i;
+            } else {
                 i2 = i;
                 bitmap2 = null;
-            } else {
-                bitmap2 = list.get(1);
-                i2 = i;
             }
             if (i2 != 1) {
                 Notification.BigTextStyle bigTextStyle = new Notification.BigTextStyle();
@@ -436,37 +465,23 @@ public class NotifyAdapterUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65545, null, context, j)) == null) {
             int k = com.vivo.push.e.a().k();
-            if (k != 0) {
-                if (k == 1) {
-                    return cancelNotify(context, (int) j);
+            if (k == 0) {
+                long b = w.b().b("com.vivo.push.notify_key", -1L);
+                if (b == j) {
+                    p.d(TAG, "undo showed message ".concat(String.valueOf(j)));
+                    p.a(context, "回收已展示的通知： ".concat(String.valueOf(j)));
+                    return cancelNotify(context, sNotifyId);
                 }
+                p.d(TAG, "current showing message id " + b + " not match " + j);
+                p.a(context, "与已展示的通知" + b + "与待回收的通知" + j + "不匹配");
+                return false;
+            } else if (k == 1) {
+                return cancelNotify(context, (int) j);
+            } else {
                 p.a(TAG, "unknow cancle notify style ".concat(String.valueOf(k)));
                 return false;
             }
-            long b = w.b().b("com.vivo.push.notify_key", -1L);
-            if (b == j) {
-                p.d(TAG, "undo showed message ".concat(String.valueOf(j)));
-                p.a(context, "回收已展示的通知： ".concat(String.valueOf(j)));
-                return cancelNotify(context, sNotifyId);
-            }
-            p.d(TAG, "current showing message id " + b + " not match " + j);
-            p.a(context, "与已展示的通知" + b + "与待回收的通知" + j + "不匹配");
-            return false;
         }
         return invokeLJ.booleanValue;
-    }
-
-    public static void setNotifyId(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65546, null, i) == null) {
-            sNotifyId = i;
-        }
-    }
-
-    public static void cancelNotify(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
-            cancelNotify(context, sNotifyId);
-        }
     }
 }

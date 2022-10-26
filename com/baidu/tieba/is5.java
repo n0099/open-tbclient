@@ -1,241 +1,170 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.Uri;
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.adp.lib.util.StringUtils;
+import android.app.Activity;
+import android.os.Bundle;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.SchemeConfig;
-import com.baidu.searchbox.unitedscheme.SchemeRouter;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidubce.AbstractBceClient;
-import okhttp3.MediaType;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
-import org.json.JSONObject;
+import java.util.Map;
 /* loaded from: classes4.dex */
-public class is5 extends i53 {
+public class is5 extends ActivityDelegation implements yj1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public BdUniqueId a;
+    public ls5 b;
+    public Activity c;
+    public Map d;
+    public CustomMessageListener e;
 
     /* loaded from: classes4.dex */
-    public class a extends ResponseCallback {
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ CallbackHandler b;
-        public final /* synthetic */ l33 c;
-        public final /* synthetic */ is5 d;
+        public final /* synthetic */ is5 a;
 
-        public a(is5 is5Var, String str, CallbackHandler callbackHandler, l33 l33Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(is5 is5Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {is5Var, str, callbackHandler, l33Var};
+                Object[] objArr = {is5Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.d = is5Var;
-            this.a = str;
-            this.b = callbackHandler;
-            this.c = l33Var;
+            this.a = is5Var;
         }
 
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                this.b.handleSchemeDispatchCallback(this.a, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null) {
+                Object data = customResponsedMessage.getData();
+                if (!(data instanceof kd5)) {
+                    return;
+                }
+                kd5 kd5Var = (kd5) data;
+                if (getTag() != kd5Var.a && !kd5Var.g) {
+                    return;
+                }
+                this.a.mResult.putInt("result_code", kd5Var.b);
+                this.a.mResult.putString("result_msg", kd5Var.c);
+                if (this.a.b != null) {
+                    this.a.b.a(this.a.mResult);
+                }
+                this.a.finish();
             }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(Object obj, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i) == null) {
-            }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public Object parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i)) == null) {
-                this.d.n(response, this.a, this.b, this.c);
-                return response;
-            }
-            return invokeLI.objValue;
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public is5(i43 i43Var) {
-        super(i43Var, "/swanAPI/navigateToProgram");
+    public is5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {i43Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = BdUniqueId.gen();
+        this.e = new a(this, 2921393);
     }
 
-    @Override // com.baidu.tieba.i53
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, l33 l33Var) {
-        InterceptResult invokeLLLL;
+    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
+    public void finish() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, l33Var)) == null) {
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
-            } else if (l33Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b = null;
+            MessageManager.getInstance().unRegisterListener(this.e);
+            super.finish();
+        }
+    }
+
+    public void d(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
+            this.c = activity;
+        }
+    }
+
+    public void e(ls5 ls5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ls5Var) == null) {
+            this.b = ls5Var;
+        }
+    }
+
+    @Override // com.baidu.tieba.yj1
+    public void onResult(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.mResult.putInt("result_code", i);
+            this.mResult.putString("result_msg", "");
+            finish();
+        }
+    }
+
+    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
+    public boolean onExec() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            this.e.setTag(this.a);
+            MessageManager.getInstance().registerListener(this.e);
+            int i = this.mParams.getInt("type");
+            String string = this.mParams.getString("orderInfo");
+            kd5 kd5Var = new kd5();
+            kd5Var.a = this.a;
+            kd5Var.b = i;
+            kd5Var.c = string;
+            kd5Var.e = (Map) this.mParams.getSerializable("params");
+            kd5Var.f = this.d;
+            if (getAgent() != null) {
+                kd5Var.d = (Activity) getAgent();
             } else {
-                String g0 = l33.g0();
-                if (!TextUtils.isEmpty(g0) && !TextUtils.isEmpty(g0.trim())) {
-                    String optString = optParamsAsJo.optString("cb");
-                    if (TextUtils.isEmpty(optString)) {
-                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                        return false;
-                    }
-                    String optString2 = optParamsAsJo.optString("path");
-                    if (!StringUtils.isNull(optString2) && optString2.contains("/pages/frshistory/frshistory?")) {
-                        ps5.j(context, unitedSchemeEntity.getParam("params"));
-                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                        return true;
-                    }
-                    Request l = l(g0, optParamsAsJo);
-                    if (l == null) {
-                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                        return false;
-                    }
-                    m(l.body(), unitedSchemeEntity, optString, callbackHandler, l33Var);
-                    return true;
-                }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
-            }
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    public final Uri k(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            Uri.Builder buildUpon = Uri.parse(str).buildUpon();
-            String schemeHead = SchemeConfig.getSchemeHead();
-            if (TextUtils.isEmpty(schemeHead)) {
-                schemeHead = "baiduboxapp";
-            }
-            buildUpon.scheme(schemeHead);
-            if (i53.b) {
-                Log.i("NavigateToSmartProgram", buildUpon.build().toString());
-            }
-            return buildUpon.build();
-        }
-        return (Uri) invokeL.objValue;
-    }
-
-    public final Request l(String str, JSONObject jSONObject) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, jSONObject)) == null) {
-            if (jSONObject != null && !TextUtils.isEmpty(str)) {
-                String b = lt2.b(fh3.n());
-                JSONObject jSONObject2 = new JSONObject();
-                try {
-                    jSONObject2.put(GameGuideConfigInfo.KEY_APP_KEY, str);
-                    jSONObject2.put("srcAppPage", b);
-                    jSONObject2.put("params", jSONObject);
-                    Request build = new Request.Builder().url(sm2.o().I()).post(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject2.toString())).build();
-                    if (i53.b) {
-                        Log.i("NavigateToSmartProgram", "appId :" + str + "\nrequest params" + jSONObject2.toString());
-                    }
-                    return build;
-                } catch (Exception e) {
-                    if (i53.b) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-            return null;
-        }
-        return (Request) invokeLL.objValue;
-    }
-
-    public final void m(RequestBody requestBody, UnitedSchemeEntity unitedSchemeEntity, String str, CallbackHandler callbackHandler, l33 l33Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048579, this, requestBody, unitedSchemeEntity, str, callbackHandler, l33Var) == null) {
-            oa4 oa4Var = new oa4(sm2.o().I(), requestBody, new a(this, str, callbackHandler, l33Var));
-            oa4Var.f = true;
-            oa4Var.g = false;
-            oa4Var.h = true;
-            pa4.g().e(oa4Var);
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-        }
-    }
-
-    public final void n(Response response, String str, CallbackHandler callbackHandler, l33 l33Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048580, this, response, str, callbackHandler, l33Var) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject(response.body().string());
-                if (!TextUtils.equals(jSONObject.optString("errno"), "0")) {
-                    callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(402).toString());
-                    return;
-                }
-                JSONObject optJSONObject = jSONObject.optJSONObject("data");
-                if (optJSONObject == null) {
-                    callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(402).toString());
-                    return;
-                }
-                Uri k = k(optJSONObject.optString("scheme"));
-                if (k == null) {
-                    callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(402).toString());
+                Activity activity = this.c;
+                if (activity != null) {
+                    kd5Var.d = activity;
                 } else {
-                    callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(SchemeRouter.invokeScheme(l33Var.getApplicationContext(), k, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE) ? 0 : 1001).toString());
+                    kd5Var.d = TbadkCoreApplication.getInst().getCurrentActivity();
                 }
-            } catch (Exception e) {
-                if (i53.b) {
-                    Log.d("NavigateToSmartProgram", e.getMessage());
-                }
-                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(201, e.getMessage()).toString());
             }
+            CustomMessage customMessage = new CustomMessage(2921393, kd5Var);
+            customMessage.setTag(this.a);
+            boolean sendMessage = MessageManager.getInstance().sendMessage(customMessage);
+            Bundle bundle = this.mResult;
+            int i2 = 1;
+            if (sendMessage) {
+                i2 = 0;
+            }
+            bundle.putInt("result_code", i2);
+            Bundle bundle2 = this.mResult;
+            bundle2.putString("result_msg", "" + sendMessage);
+            return false;
         }
+        return invokeV.booleanValue;
     }
 }

@@ -35,24 +35,6 @@ public class TopicDetailActivityConfig extends IntentConfig {
         }
     }
 
-    public void setIsFromYunPush(boolean z) {
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (intent = getIntent()) == null) {
-            return;
-        }
-        intent.putExtra(KEY_IS_FROM_YUN_PUSH, z);
-    }
-
-    public void setUri(Uri uri) {
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri) == null) || (intent = getIntent()) == null) {
-            return;
-        }
-        intent.putExtra(IntentConfig.KEY_URI, uri);
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TopicDetailActivityConfig(Context context, long j) {
         super(context);
@@ -72,5 +54,21 @@ public class TopicDetailActivityConfig extends IntentConfig {
             }
         }
         getIntent().putExtra("topic_id", j);
+    }
+
+    public void setIsFromYunPush(boolean z) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && (intent = getIntent()) != null) {
+            intent.putExtra(KEY_IS_FROM_YUN_PUSH, z);
+        }
+    }
+
+    public void setUri(Uri uri) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri) == null) && (intent = getIntent()) != null) {
+            intent.putExtra(IntentConfig.KEY_URI, uri);
+        }
     }
 }

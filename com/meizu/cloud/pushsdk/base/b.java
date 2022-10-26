@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Process;
 import android.util.Log;
+import androidx.exifinterface.media.ExifInterface;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -16,7 +17,7 @@ public class b implements g {
     public int e = 10;
     public boolean i = false;
     public SimpleDateFormat a = new SimpleDateFormat("MM-dd HH:mm:ss");
-    public List<a> b = Collections.synchronizedList(new ArrayList());
+    public List b = Collections.synchronizedList(new ArrayList());
     public Handler c = new Handler(Looper.getMainLooper());
     public String g = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/pushSdk/defaultLog";
     public e f = new e();
@@ -92,7 +93,7 @@ public class b implements g {
         }
         synchronized (this.b) {
             b();
-            a(new a("E", str, str2 + "\n" + Log.getStackTraceString(th)));
+            a(new a(ExifInterface.LONGITUDE_EAST, str, str2 + "\n" + Log.getStackTraceString(th)));
             c();
         }
     }
@@ -167,7 +168,7 @@ public class b implements g {
         }
         synchronized (this.b) {
             b();
-            a(new a("W", str, str2));
+            a(new a(ExifInterface.LONGITUDE_WEST, str, str2));
             c();
         }
     }
@@ -179,7 +180,7 @@ public class b implements g {
         }
         synchronized (this.b) {
             b();
-            a(new a("E", str, str2));
+            a(new a(ExifInterface.LONGITUDE_EAST, str, str2));
             c();
         }
     }

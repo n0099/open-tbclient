@@ -24,6 +24,19 @@ public final class ScaleFloatViewAnimator implements FloatViewAnimator {
     public transient /* synthetic */ FieldHolder $fh;
     public final long mDuration;
 
+    @Override // com.baidu.searchbox.floating.animator.FloatViewAnimator
+    public Animator exitAnim(WeakReference viewRef, WindowManager.LayoutParams params, WindowManager windowManager) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewRef, params, windowManager)) == null) {
+            Intrinsics.checkNotNullParameter(viewRef, "viewRef");
+            Intrinsics.checkNotNullParameter(params, "params");
+            Intrinsics.checkNotNullParameter(windowManager, "windowManager");
+            return null;
+        }
+        return (Animator) invokeLLL.objValue;
+    }
+
     public ScaleFloatViewAnimator() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -43,7 +56,10 @@ public final class ScaleFloatViewAnimator implements FloatViewAnimator {
     private final RectEvaluator.ViewRect endValue(View view2, WindowManager.LayoutParams layoutParams, WindowManager windowManager) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, this, view2, layoutParams, windowManager)) == null) ? new RectEvaluator.ViewRect(layoutParams.x, layoutParams.y, view2.getLayoutParams().width, view2.getLayoutParams().height) : (RectEvaluator.ViewRect) invokeLLL.objValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, this, view2, layoutParams, windowManager)) == null) {
+            return new RectEvaluator.ViewRect(layoutParams.x, layoutParams.y, view2.getLayoutParams().width, view2.getLayoutParams().height);
+        }
+        return (RectEvaluator.ViewRect) invokeLLL.objValue;
     }
 
     private final RectEvaluator.ViewRect startValue(View view2, WindowManager.LayoutParams layoutParams, WindowManager windowManager) {
@@ -59,14 +75,14 @@ public final class ScaleFloatViewAnimator implements FloatViewAnimator {
     }
 
     @Override // com.baidu.searchbox.floating.animator.FloatViewAnimator
-    public Animator enterAnim(final WeakReference<View> viewRef, final WindowManager.LayoutParams params, final WindowManager windowManager) {
+    public Animator enterAnim(final WeakReference viewRef, final WindowManager.LayoutParams params, final WindowManager windowManager) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, viewRef, params, windowManager)) == null) {
             Intrinsics.checkNotNullParameter(viewRef, "viewRef");
             Intrinsics.checkNotNullParameter(params, "params");
             Intrinsics.checkNotNullParameter(windowManager, "windowManager");
-            View view2 = viewRef.get();
+            View view2 = (View) viewRef.get();
             if (view2 != null) {
                 Intrinsics.checkNotNullExpressionValue(view2, "viewRef.get() ?: return null");
                 ValueAnimator duration = ValueAnimator.ofObject(new RectEvaluator(), startValue(view2, params, windowManager), endValue(view2, params, windowManager)).setDuration(this.mDuration);
@@ -122,19 +138,6 @@ public final class ScaleFloatViewAnimator implements FloatViewAnimator {
                 });
                 return duration;
             }
-            return null;
-        }
-        return (Animator) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.searchbox.floating.animator.FloatViewAnimator
-    public Animator exitAnim(WeakReference<View> viewRef, WindowManager.LayoutParams params, WindowManager windowManager) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewRef, params, windowManager)) == null) {
-            Intrinsics.checkNotNullParameter(viewRef, "viewRef");
-            Intrinsics.checkNotNullParameter(params, "params");
-            Intrinsics.checkNotNullParameter(windowManager, "windowManager");
             return null;
         }
         return (Animator) invokeLLL.objValue;

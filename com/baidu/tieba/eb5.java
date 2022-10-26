@@ -2,14 +2,14 @@ package com.baidu.tieba;
 
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.mutiprocess.push.PushRecevierEvent;
+import com.baidu.tbadk.mutiprocess.live.LiveRemindDataEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class eb5 implements ha5<PushRecevierEvent> {
+public class eb5 implements la5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,16 +28,17 @@ public class eb5 implements ha5<PushRecevierEvent> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ha5
+    @Override // com.baidu.tieba.la5
     /* renamed from: a */
-    public boolean onEvent(PushRecevierEvent pushRecevierEvent) {
+    public boolean onEvent(LiveRemindDataEvent liveRemindDataEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pushRecevierEvent)) == null) {
-            if (pushRecevierEvent == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, liveRemindDataEvent)) == null) {
+            if (liveRemindDataEvent == null) {
                 return false;
             }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921711, pushRecevierEvent.generalData));
+            hx4.a().d(liveRemindDataEvent.liveRemindData);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921733));
             return true;
         }
         return invokeL.booleanValue;

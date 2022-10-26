@@ -30,7 +30,7 @@ public final class Address {
     }
 
     /* loaded from: classes2.dex */
-    public static class Builder {
+    public class Builder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String BEI_JING = "北京";
         public static final String CHONG_QIN = "重庆";

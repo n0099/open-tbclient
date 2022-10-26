@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.sh5;
+import com.baidu.tieba.yh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -45,7 +45,7 @@ public class CategoryGiftListRequest extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.category_id = Integer.valueOf(this.categoryId);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                sh5.a(builder, true);
+                yh5.a(builder, true);
             }
             GetGiftListByCategoryIdReqIdl.Builder builder2 = new GetGiftListByCategoryIdReqIdl.Builder();
             builder2.data = builder.build(false);
@@ -57,7 +57,10 @@ public class CategoryGiftListRequest extends NetMessage {
     public int getCategoryId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.categoryId : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.categoryId;
+        }
+        return invokeV.intValue;
     }
 
     public void setCategoryId(int i) {

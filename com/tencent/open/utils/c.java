@@ -31,7 +31,7 @@ public class c {
     public d b;
     public long d;
     public Handler e;
-    public WeakReference<Activity> f;
+    public WeakReference f;
     public Runnable g;
 
     public c(Activity activity) {
@@ -82,7 +82,11 @@ public class c {
                     String str2 = c.c + str;
                     File file = new File(str2);
                     Message obtainMessage = this.a.e.obtainMessage();
-                    if (!file.exists()) {
+                    if (file.exists()) {
+                        obtainMessage.arg1 = 0;
+                        obtainMessage.obj = str2;
+                        SLog.v("AsynLoadImg", "file exists: time:" + (System.currentTimeMillis() - this.a.d));
+                    } else {
                         Bitmap a = c.a(this.a.a);
                         if (a != null) {
                             z = this.a.a(a, str);
@@ -97,16 +101,12 @@ public class c {
                             obtainMessage.arg1 = 1;
                         }
                         SLog.v("AsynLoadImg", "file not exists: download time:" + (System.currentTimeMillis() - this.a.d));
-                    } else {
-                        obtainMessage.arg1 = 0;
-                        obtainMessage.obj = str2;
-                        SLog.v("AsynLoadImg", "file exists: time:" + (System.currentTimeMillis() - this.a.d));
                     }
                     this.a.e.sendMessage(obtainMessage);
                 }
             }
         };
-        this.f = new WeakReference<>(activity);
+        this.f = new WeakReference(activity);
         this.e = new Handler(this, activity.getMainLooper()) { // from class: com.tencent.open.utils.c.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -148,7 +148,35 @@ public class c {
         };
     }
 
+    public static Bitmap a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            SLog.v("AsynLoadImg", "getbitmap:" + str);
+            try {
+                HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
+                httpURLConnection.setDoInput(true);
+                httpURLConnection.connect();
+                InputStream inputStream = httpURLConnection.getInputStream();
+                Bitmap decodeStream = BitmapFactory.decodeStream(inputStream);
+                inputStream.close();
+                SLog.v("AsynLoadImg", "image download finished." + str);
+                return decodeStream;
+            } catch (IOException e) {
+                e.printStackTrace();
+                SLog.v("AsynLoadImg", "getbitmap bmp fail---");
+                return null;
+            } catch (OutOfMemoryError e2) {
+                e2.printStackTrace();
+                SLog.v("AsynLoadImg", "getbitmap bmp fail---");
+                return null;
+            }
+        }
+        return (Bitmap) invokeL.objValue;
+    }
+
     public void a(String str, d dVar) {
+        String absolutePath;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, dVar) == null) {
             SLog.v("AsynLoadImg", "--save---");
@@ -158,7 +186,7 @@ public class c {
                     return;
                 }
                 if (this.f.get() != null) {
-                    Activity activity = this.f.get();
+                    Activity activity = (Activity) this.f.get();
                     File h = l.h(activity, "Images");
                     File externalStorageDirectory = Environment.getExternalStorageDirectory();
                     if (h == null) {
@@ -167,7 +195,12 @@ public class c {
                         return;
                     }
                     StringBuilder sb = new StringBuilder();
-                    sb.append(i.c(activity) ? h.getAbsolutePath() : externalStorageDirectory.getAbsolutePath());
+                    if (i.c(activity)) {
+                        absolutePath = h.getAbsolutePath();
+                    } else {
+                        absolutePath = externalStorageDirectory.getAbsolutePath();
+                    }
+                    sb.append(absolutePath);
                     sb.append("/tmp/");
                     c = sb.toString();
                 }
@@ -239,32 +272,5 @@ public class c {
             }
         }
         return invokeLL.booleanValue;
-    }
-
-    public static Bitmap a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            SLog.v("AsynLoadImg", "getbitmap:" + str);
-            try {
-                HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
-                httpURLConnection.setDoInput(true);
-                httpURLConnection.connect();
-                InputStream inputStream = httpURLConnection.getInputStream();
-                Bitmap decodeStream = BitmapFactory.decodeStream(inputStream);
-                inputStream.close();
-                SLog.v("AsynLoadImg", "image download finished." + str);
-                return decodeStream;
-            } catch (IOException e) {
-                e.printStackTrace();
-                SLog.v("AsynLoadImg", "getbitmap bmp fail---");
-                return null;
-            } catch (OutOfMemoryError e2) {
-                e2.printStackTrace();
-                SLog.v("AsynLoadImg", "getbitmap bmp fail---");
-                return null;
-            }
-        }
-        return (Bitmap) invokeL.objValue;
     }
 }

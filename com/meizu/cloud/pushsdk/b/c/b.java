@@ -6,13 +6,13 @@ import java.util.List;
 /* loaded from: classes8.dex */
 public class b extends j {
     public static final g a = g.a("application/x-www-form-urlencoded");
-    public final List<String> b;
-    public final List<String> c;
+    public final List b;
+    public final List c;
 
     /* loaded from: classes8.dex */
-    public static final class a {
-        public final List<String> a = new ArrayList();
-        public final List<String> b = new ArrayList();
+    public final class a {
+        public final List a = new ArrayList();
+        public final List b = new ArrayList();
 
         public a a(String str, String str2) {
             this.a.add(f.a(str, " \"':;<=>@[]^`{}|/\\?#&!$(),~", false, false, true, true));
@@ -31,7 +31,7 @@ public class b extends j {
         }
     }
 
-    public b(List<String> list, List<String> list2) {
+    public b(List list, List list2) {
         this.b = m.a(list);
         this.c = m.a(list2);
     }
@@ -43,9 +43,9 @@ public class b extends j {
             if (i > 0) {
                 bVar.b(38);
             }
-            bVar.b(this.b.get(i));
+            bVar.b((String) this.b.get(i));
             bVar.b(61);
-            bVar.b(this.c.get(i));
+            bVar.b((String) this.c.get(i));
         }
         if (z) {
             long a2 = bVar.a();

@@ -6,7 +6,6 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.devices.DeviceUtils;
 import com.baidu.android.util.devices.IDevices;
@@ -33,7 +32,7 @@ public class DeviceUtil implements IDevices {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
-    public static class BrandInfo {
+    public class BrandInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -54,49 +53,73 @@ public class DeviceUtil implements IDevices {
         public static String getDeviceBrand() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? RomUtils.getDeviceBrand() : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+                return RomUtils.getDeviceBrand();
+            }
+            return (String) invokeV.objValue;
         }
 
         public static String getDeviceModel() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? RomUtils.getDeviceModel() : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+                return RomUtils.getDeviceModel();
+            }
+            return (String) invokeV.objValue;
         }
 
         public static String getDeviceName() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? RomUtils.getDeviceName() : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return RomUtils.getDeviceName();
+            }
+            return (String) invokeV.objValue;
         }
 
         public static String getManufacturer() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? RomUtils.getManufacturer() : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+                return RomUtils.getManufacturer();
+            }
+            return (String) invokeV.objValue;
         }
 
         public static boolean isMagicBoxDevice() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? RomUtils.isMagicBoxDevice() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+                return RomUtils.isMagicBoxDevice();
+            }
+            return invokeV.booleanValue;
         }
 
         public static boolean isMiBox2Device() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? RomUtils.isMiBox2Device() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+                return RomUtils.isMiBox2Device();
+            }
+            return invokeV.booleanValue;
         }
 
         @Deprecated
         public static boolean isProblemBoxDevice() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? isMiBox2Device() || isMagicBoxDevice() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+                if (!isMiBox2Device() && !isMagicBoxDevice()) {
+                    return false;
+                }
+                return true;
+            }
+            return invokeV.booleanValue;
         }
     }
 
     /* loaded from: classes.dex */
-    public static final class CPUInfo {
+    public final class CPUInfo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String FEATURE_COMMON = "common";
         public static final String FEATURE_NEON = "neon";
@@ -149,7 +172,10 @@ public class DeviceUtil implements IDevices {
         public static String getCpuArchInfo() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? DeviceUtils.CPUInfo.getCpuArchInfo() : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+                return DeviceUtils.CPUInfo.getCpuArchInfo();
+            }
+            return (String) invokeV.objValue;
         }
 
         public static synchronized IDevices.ARCH getMyCpuArch() {
@@ -168,7 +194,86 @@ public class DeviceUtil implements IDevices {
         public static String getPreferredABI() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? DeviceUtils.CPUInfo.getPreferredABI() : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+                return DeviceUtils.CPUInfo.getPreferredABI();
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @Deprecated
+        public static String get_CPU_ABI() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+                return Build.CPU_ABI;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @Deprecated
+        public static String get_CPU_ABI2() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+                try {
+                    Field declaredField = Build.class.getDeclaredField("CPU_ABI2");
+                    if (declaredField == null) {
+                        return null;
+                    }
+                    Object obj = declaredField.get(null);
+                    if (!(obj instanceof String)) {
+                        return null;
+                    }
+                    return (String) obj;
+                } catch (Exception unused) {
+                    return null;
+                }
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public static boolean isARMSimulatedByX86() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+                IDevices.ARCH myCpuArch = getMyCpuArch();
+                if (!supportX86() && IDevices.ARCH.X86.equals(myCpuArch)) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public static boolean isRealX86Arch() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+                IDevices.ARCH myCpuArch = getMyCpuArch();
+                if (!supportABI("x86") && !IDevices.ARCH.X86.equals(myCpuArch)) {
+                    return false;
+                }
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public static boolean supportMips() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+                return supportABI(IDevices.ABI_MIPS);
+            }
+            return invokeV.booleanValue;
+        }
+
+        public static boolean supportX86() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
+                return supportABI("x86");
+            }
+            return invokeV.booleanValue;
         }
 
         public static CPUInfo getSystemCPUInfo() {
@@ -213,58 +318,15 @@ public class DeviceUtil implements IDevices {
             return (CPUInfo) invokeV.objValue;
         }
 
-        @Deprecated
-        public static String get_CPU_ABI() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? Build.CPU_ABI : (String) invokeV.objValue;
-        }
-
-        @Deprecated
-        public static String get_CPU_ABI2() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-                try {
-                    Field declaredField = Build.class.getDeclaredField("CPU_ABI2");
-                    if (declaredField == null) {
-                        return null;
-                    }
-                    Object obj = declaredField.get(null);
-                    if (obj instanceof String) {
-                        return (String) obj;
-                    }
-                    return null;
-                } catch (Exception unused) {
-                    return null;
-                }
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public static boolean isARMSimulatedByX86() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-                return !supportX86() && IDevices.ARCH.X86.equals(getMyCpuArch());
-            }
-            return invokeV.booleanValue;
-        }
-
         public static boolean isRealARMArch() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-                return (supportABI(PassBiometricUtil.CPU_TYPE_ARMEABI_V7A) || supportABI("armeabi")) && IDevices.ARCH.ARM.equals(getMyCpuArch());
-            }
-            return invokeV.booleanValue;
-        }
-
-        public static boolean isRealX86Arch() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-                return supportABI("x86") || IDevices.ARCH.X86.equals(getMyCpuArch());
+                IDevices.ARCH myCpuArch = getMyCpuArch();
+                if ((supportABI(PassBiometricUtil.CPU_TYPE_ARMEABI_V7A) || supportABI("armeabi")) && IDevices.ARCH.ARM.equals(myCpuArch)) {
+                    return true;
+                }
+                return false;
             }
             return invokeV.booleanValue;
         }
@@ -274,29 +336,20 @@ public class DeviceUtil implements IDevices {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
                 String _cpu_abi = get_CPU_ABI();
-                if (TextUtils.isEmpty(_cpu_abi) || !_cpu_abi.equalsIgnoreCase(str)) {
-                    return !TextUtils.isEmpty(get_CPU_ABI2()) && _cpu_abi.equalsIgnoreCase(str);
+                if (!TextUtils.isEmpty(_cpu_abi) && _cpu_abi.equalsIgnoreCase(str)) {
+                    return true;
                 }
-                return true;
+                if (!TextUtils.isEmpty(get_CPU_ABI2()) && _cpu_abi.equalsIgnoreCase(str)) {
+                    return true;
+                }
+                return false;
             }
             return invokeL.booleanValue;
-        }
-
-        public static boolean supportMips() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? supportABI(IDevices.ABI_MIPS) : invokeV.booleanValue;
-        }
-
-        public static boolean supportX86() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? supportABI("x86") : invokeV.booleanValue;
         }
     }
 
     /* loaded from: classes.dex */
-    public static class OSInfo {
+    public class OSInfo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int KITKAT = 19;
         public static final int LOLLIPOP = 21;
@@ -305,6 +358,12 @@ public class DeviceUtil implements IDevices {
         public static final int Nougat = 24;
         public static final int NougatPlus = 25;
         public transient /* synthetic */ FieldHolder $fh;
+
+        public static String getOS() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? "Android" : (String) invokeV.objValue;
+        }
 
         public OSInfo() {
             Interceptable interceptable = $ic;
@@ -320,147 +379,207 @@ public class DeviceUtil implements IDevices {
             }
         }
 
-        public static String getOS() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? "Android" : (String) invokeV.objValue;
-        }
-
         public static String getOsVersion() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? DeviceUtils.OSInfo.getOsVersion() : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+                return DeviceUtils.OSInfo.getOsVersion();
+            }
+            return (String) invokeV.objValue;
         }
 
         public static int getSDKLevel() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? DeviceUtils.OSInfo.getSDKLevel() : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return DeviceUtils.OSInfo.getSDKLevel();
+            }
+            return invokeV.intValue;
         }
 
         public static boolean hasFroyo() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? DeviceUtils.OSInfo.hasFroyo() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+                return DeviceUtils.OSInfo.hasFroyo();
+            }
+            return invokeV.booleanValue;
         }
 
         public static boolean hasGingerbread() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? DeviceUtils.OSInfo.hasGingerbread() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+                return DeviceUtils.OSInfo.hasGingerbread();
+            }
+            return invokeV.booleanValue;
         }
 
         public static boolean hasHoneycomb() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? DeviceUtils.OSInfo.hasHoneycomb() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+                return DeviceUtils.OSInfo.hasHoneycomb();
+            }
+            return invokeV.booleanValue;
         }
 
         public static boolean hasHoneycombMR1() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? DeviceUtils.OSInfo.hasHoneycombMR1() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+                return DeviceUtils.OSInfo.hasHoneycombMR1();
+            }
+            return invokeV.booleanValue;
         }
 
         public static boolean hasICS() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? DeviceUtils.OSInfo.hasICS() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+                return DeviceUtils.OSInfo.hasICS();
+            }
+            return invokeV.booleanValue;
         }
 
         public static boolean hasICSMR1() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? DeviceUtils.OSInfo.hasICSMR1() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+                return DeviceUtils.OSInfo.hasICSMR1();
+            }
+            return invokeV.booleanValue;
         }
 
         public static boolean hasJellyBean() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? DeviceUtils.OSInfo.hasJellyBean() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+                return DeviceUtils.OSInfo.hasJellyBean();
+            }
+            return invokeV.booleanValue;
         }
 
         public static boolean hasJellyBeanMR1() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? DeviceUtils.OSInfo.hasJellyBeanMR1() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+                return DeviceUtils.OSInfo.hasJellyBeanMR1();
+            }
+            return invokeV.booleanValue;
         }
 
         public static boolean hasJellyBeanMR2() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? DeviceUtils.OSInfo.hasJellyBeanMR2() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+                return DeviceUtils.OSInfo.hasJellyBeanMR2();
+            }
+            return invokeV.booleanValue;
         }
 
         public static boolean hasKitKat() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? DeviceUtils.OSInfo.hasKitKat() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
+                return DeviceUtils.OSInfo.hasKitKat();
+            }
+            return invokeV.booleanValue;
         }
 
         public static boolean hasLollipop() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? DeviceUtils.OSInfo.hasLollipop() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
+                return DeviceUtils.OSInfo.hasLollipop();
+            }
+            return invokeV.booleanValue;
         }
 
         public static boolean hasLollipopMR1() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) ? DeviceUtils.OSInfo.hasLollipopMR1() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
+                return DeviceUtils.OSInfo.hasLollipopMR1();
+            }
+            return invokeV.booleanValue;
         }
 
         public static boolean hasMarshMallow() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) ? DeviceUtils.OSInfo.hasMarshMallow() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) {
+                return DeviceUtils.OSInfo.hasMarshMallow();
+            }
+            return invokeV.booleanValue;
         }
 
         public static boolean hasNougat() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) ? DeviceUtils.OSInfo.hasNougat() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) {
+                return DeviceUtils.OSInfo.hasNougat();
+            }
+            return invokeV.booleanValue;
         }
 
         public static boolean hasNougatMR1() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) ? DeviceUtils.OSInfo.hasNougatMR1() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
+                return DeviceUtils.OSInfo.hasNougatMR1();
+            }
+            return invokeV.booleanValue;
         }
 
         public static boolean hasOreo() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) ? DeviceUtils.OSInfo.hasOreo() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
+                return DeviceUtils.OSInfo.hasOreo();
+            }
+            return invokeV.booleanValue;
         }
 
         public static boolean isGingerbread() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) ? DeviceUtils.OSInfo.isGingerbread() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) {
+                return DeviceUtils.OSInfo.isGingerbread();
+            }
+            return invokeV.booleanValue;
         }
 
         public static boolean isGingerbreadmr1() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) ? DeviceUtils.OSInfo.isGingerbreadmr1() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) {
+                return DeviceUtils.OSInfo.isGingerbreadmr1();
+            }
+            return invokeV.booleanValue;
         }
 
         public static boolean isKitKat() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) ? DeviceUtils.OSInfo.isKitKat() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) {
+                return DeviceUtils.OSInfo.isKitKat();
+            }
+            return invokeV.booleanValue;
         }
 
         public static final boolean isLollipop() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) ? DeviceUtils.OSInfo.isLollipop() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) {
+                return DeviceUtils.OSInfo.isLollipop();
+            }
+            return invokeV.booleanValue;
         }
     }
 
     /* loaded from: classes.dex */
-    public static class ScreenInfo {
+    public class ScreenInfo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int STANDARD_STATUSBAR_HEIGHT = 50;
         public static int originDensityDip;
@@ -496,19 +615,79 @@ public class DeviceUtil implements IDevices {
             }
         }
 
-        public static int dp2px(@Nullable Context context, float f) {
-            InterceptResult invokeLF;
+        public static int getNavigationBarHeight() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLF = interceptable.invokeLF(65538, null, context, f)) == null) ? (int) ((f * AppRuntime.getAppContext().getResources().getDisplayMetrics().density) + 0.5f) : invokeLF.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+                return DeviceUtils.ScreenInfo.getNavigationBarHeight();
+            }
+            return invokeV.intValue;
         }
 
-        public static float dp2pxf(@Nullable Context context, float f) {
-            InterceptResult invokeLF;
+        public static int getScreenOriginDensityDip() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLF = interceptable.invokeLF(65539, null, context, f)) == null) ? f * getDensity(AppRuntime.getAppContext()) : invokeLF.floatValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+                return DeviceUtils.ScreenInfo.getScreenOriginDensityDip();
+            }
+            return invokeV.intValue;
         }
 
-        public static float getDensity(@Nullable Context context) {
+        public static int getStatusBarHeight() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
+                return DeviceUtils.ScreenInfo.getStatusBarHeight();
+            }
+            return invokeV.intValue;
+        }
+
+        public static boolean isScreenLand() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) {
+                return DeviceUtils.ScreenInfo.isScreenLand();
+            }
+            return invokeV.booleanValue;
+        }
+
+        public static boolean isScreenPortrait() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) {
+                return DeviceUtils.ScreenInfo.isScreenPortrait();
+            }
+            return invokeV.booleanValue;
+        }
+
+        public static int dp2px(Context context, float f) {
+            InterceptResult invokeLF;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLF = interceptable.invokeLF(65538, null, context, f)) == null) {
+                return (int) ((f * AppRuntime.getAppContext().getResources().getDisplayMetrics().density) + 0.5f);
+            }
+            return invokeLF.intValue;
+        }
+
+        public static float dp2pxf(Context context, float f) {
+            InterceptResult invokeLF;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLF = interceptable.invokeLF(65539, null, context, f)) == null) {
+                return f * getDensity(AppRuntime.getAppContext());
+            }
+            return invokeLF.floatValue;
+        }
+
+        public static int px2dp(Context context, float f) {
+            InterceptResult invokeLF;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLF = interceptable.invokeLF(65554, null, context, f)) == null) {
+                return (int) ((f / AppRuntime.getAppContext().getResources().getDisplayMetrics().density) + 0.5f);
+            }
+            return invokeLF.intValue;
+        }
+
+        public static float getDensity(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
@@ -522,7 +701,7 @@ public class DeviceUtil implements IDevices {
             return invokeL.floatValue;
         }
 
-        public static int getDensityDpi(@Nullable Context context) {
+        public static int getDensityDpi(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
@@ -536,7 +715,7 @@ public class DeviceUtil implements IDevices {
             return invokeL.intValue;
         }
 
-        public static int getDisplayHeight(@Nullable Context context) {
+        public static int getDisplayHeight(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
@@ -562,7 +741,7 @@ public class DeviceUtil implements IDevices {
             return (DisplayMetrics) invokeL.objValue;
         }
 
-        public static int getDisplayWidth(@Nullable Context context) {
+        public static int getDisplayWidth(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
@@ -573,57 +752,6 @@ public class DeviceUtil implements IDevices {
                 return 0;
             }
             return invokeL.intValue;
-        }
-
-        public static int getNavigationBarHeight() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? DeviceUtils.ScreenInfo.getNavigationBarHeight() : invokeV.intValue;
-        }
-
-        public static int getRealScreenHeight(@Nullable Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
-                WindowManager windowManager = (WindowManager) AppRuntime.getAppContext().getSystemService("window");
-                if (windowManager != null) {
-                    DisplayMetrics displayMetrics = new DisplayMetrics();
-                    if (OSInfo.hasJellyBeanMR1()) {
-                        windowManager.getDefaultDisplay().getRealMetrics(displayMetrics);
-                        return displayMetrics.heightPixels;
-                    }
-                    return getDisplayHeight(context);
-                }
-                return -1;
-            }
-            return invokeL.intValue;
-        }
-
-        @Deprecated
-        public static String getRealScreenSize(@Nullable Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
-                int displayWidth = getDisplayWidth(context);
-                int realScreenHeight = getRealScreenHeight(context);
-                if (displayWidth <= 0 || realScreenHeight <= 0) {
-                    return "";
-                }
-                return displayWidth + "_" + realScreenHeight;
-            }
-            return (String) invokeL.objValue;
-        }
-
-        public static int getScreenOriginDensityDip() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? DeviceUtils.ScreenInfo.getScreenOriginDensityDip() : invokeV.intValue;
-        }
-
-        public static int getStatusBarHeight() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? DeviceUtils.ScreenInfo.getStatusBarHeight() : invokeV.intValue;
         }
 
         public static void initDisplayMetrics(Context context) {
@@ -645,32 +773,53 @@ public class DeviceUtil implements IDevices {
         public static boolean isDensityTooLarge(Activity activity) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65551, null, activity)) == null) ? DeviceUtils.ScreenInfo.isDensityTooLarge(activity) : invokeL.booleanValue;
-        }
-
-        public static boolean isScreenLand() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) ? DeviceUtils.ScreenInfo.isScreenLand() : invokeV.booleanValue;
-        }
-
-        public static boolean isScreenPortrait() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) ? DeviceUtils.ScreenInfo.isScreenPortrait() : invokeV.booleanValue;
-        }
-
-        public static int px2dp(@Nullable Context context, float f) {
-            InterceptResult invokeLF;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLF = interceptable.invokeLF(65554, null, context, f)) == null) ? (int) ((f / AppRuntime.getAppContext().getResources().getDisplayMetrics().density) + 0.5f) : invokeLF.intValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, activity)) == null) {
+                return DeviceUtils.ScreenInfo.isDensityTooLarge(activity);
+            }
+            return invokeL.booleanValue;
         }
 
         @Deprecated
         public static float px2dpFloat(float f) {
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeF = interceptable.invokeF(65555, null, f)) == null) ? f / getDensity(AppRuntime.getAppContext()) : invokeF.floatValue;
+            if (interceptable == null || (invokeF = interceptable.invokeF(65555, null, f)) == null) {
+                return f / getDensity(AppRuntime.getAppContext());
+            }
+            return invokeF.floatValue;
+        }
+
+        public static int getRealScreenHeight(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
+                WindowManager windowManager = (WindowManager) AppRuntime.getAppContext().getSystemService("window");
+                if (windowManager != null) {
+                    DisplayMetrics displayMetrics = new DisplayMetrics();
+                    if (OSInfo.hasJellyBeanMR1()) {
+                        windowManager.getDefaultDisplay().getRealMetrics(displayMetrics);
+                        return displayMetrics.heightPixels;
+                    }
+                    return getDisplayHeight(context);
+                }
+                return -1;
+            }
+            return invokeL.intValue;
+        }
+
+        @Deprecated
+        public static String getRealScreenSize(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
+                int displayWidth = getDisplayWidth(context);
+                int realScreenHeight = getRealScreenHeight(context);
+                if (displayWidth > 0 && realScreenHeight > 0) {
+                    return displayWidth + "_" + realScreenHeight;
+                }
+                return "";
+            }
+            return (String) invokeL.objValue;
         }
     }
 
@@ -688,6 +837,18 @@ public class DeviceUtil implements IDevices {
         }
     }
 
+    public static boolean isHwFoldableDevice() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if ("HUAWEI".equalsIgnoreCase(Build.MANUFACTURER) && AppRuntime.getAppContext().getPackageManager().hasSystemFeature("com.huawei.hardware.sensor.posture")) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     public static boolean isHonorFoldableDevice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -703,29 +864,13 @@ public class DeviceUtil implements IDevices {
     public static boolean isHonorSpecifiedDevice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? "HONOR".equalsIgnoreCase(Build.MANUFACTURER) && "HNMGI".equalsIgnoreCase(Build.DEVICE) && ("DIA-AN00".equalsIgnoreCase(Build.MODEL) || "MGI-AN00".equalsIgnoreCase(Build.MODEL)) : invokeV.booleanValue;
-    }
-
-    public static boolean isHwFoldableDevice() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? "HUAWEI".equalsIgnoreCase(Build.MANUFACTURER) && AppRuntime.getAppContext().getPackageManager().hasSystemFeature("com.huawei.hardware.sensor.posture") : invokeV.booleanValue;
-    }
-
-    public static boolean isInMagicWindow(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            if (context == null) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if ("HONOR".equalsIgnoreCase(Build.MANUFACTURER) && "HNMGI".equalsIgnoreCase(Build.DEVICE) && ("DIA-AN00".equalsIgnoreCase(Build.MODEL) || "MGI-AN00".equalsIgnoreCase(Build.MODEL))) {
+                return true;
             }
-            String configuration = context.getResources().getConfiguration().toString();
-            if (TextUtils.isEmpty(configuration)) {
-                return false;
-            }
-            return configuration.contains("hw-magic-windows");
+            return false;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
     }
 
     public static boolean isMateX() {
@@ -749,9 +894,58 @@ public class DeviceUtil implements IDevices {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return AppRuntime.getAppContext().getPackageManager().hasSystemFeature("oplus.feature.largescreen") || AppRuntime.getAppContext().getPackageManager().hasSystemFeature("oplus.feature.largescreen.land");
+            boolean hasSystemFeature = AppRuntime.getAppContext().getPackageManager().hasSystemFeature("oplus.feature.largescreen");
+            boolean hasSystemFeature2 = AppRuntime.getAppContext().getPackageManager().hasSystemFeature("oplus.feature.largescreen.land");
+            if (!hasSystemFeature && !hasSystemFeature2) {
+                return false;
+            }
+            return true;
         }
         return invokeV.booleanValue;
+    }
+
+    public static boolean isSupportFoldable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            if (isMateX() || isHwFoldableDevice() || isSamSungFolded() || isHonorFoldableDevice() || isOppoFoldableDevice() || isVIVOFoldableDevice()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isVIVOFoldableDevice() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            if (!"VIVO".equalsIgnoreCase(RomUtils.getManufacturer())) {
+                return false;
+            }
+            try {
+                return TextUtils.equals("foldable", (String) Class.forName("android.util.FtDeviceInfo").getMethod("getDeviceType", new Class[0]).invoke(null, new Object[0]));
+            } catch (Exception unused) {
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isInMagicWindow(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            if (context == null) {
+                return false;
+            }
+            String configuration = context.getResources().getConfiguration().toString();
+            if (TextUtils.isEmpty(configuration)) {
+                return false;
+            }
+            return configuration.contains("hw-magic-windows");
+        }
+        return invokeL.booleanValue;
     }
 
     public static boolean isSamSungFolded() {
@@ -770,28 +964,6 @@ public class DeviceUtil implements IDevices {
                 }
                 if (Build.MODEL.startsWith("SM-F") || Build.MODEL.startsWith("SM-W")) {
                     return true;
-                }
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean isSupportFoldable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? isMateX() || isHwFoldableDevice() || isSamSungFolded() || isHonorFoldableDevice() || isOppoFoldableDevice() || isVIVOFoldableDevice() : invokeV.booleanValue;
-    }
-
-    public static boolean isVIVOFoldableDevice() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            if ("VIVO".equalsIgnoreCase(RomUtils.getManufacturer())) {
-                try {
-                    return TextUtils.equals("foldable", (String) Class.forName("android.util.FtDeviceInfo").getMethod("getDeviceType", new Class[0]).invoke(null, new Object[0]));
-                } catch (Exception unused) {
-                    return false;
                 }
             }
             return false;

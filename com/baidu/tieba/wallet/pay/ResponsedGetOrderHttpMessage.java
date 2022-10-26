@@ -37,12 +37,6 @@ public class ResponsedGetOrderHttpMessage extends HttpResponsedMessage {
         }
     }
 
-    public DataRes getData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (DataRes) invokeV.objValue;
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
@@ -60,5 +54,14 @@ public class ResponsedGetOrderHttpMessage extends HttpResponsedMessage {
             }
             this.mData = dataRes;
         }
+    }
+
+    public DataRes getData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mData;
+        }
+        return (DataRes) invokeV.objValue;
     }
 }

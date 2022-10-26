@@ -20,6 +20,18 @@ public final class RepeatModeUtil {
     public @interface RepeatToggleModes {
     }
 
+    public static boolean isRepeatModeEnabled(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i, i2)) == null) {
+            if (i != 0) {
+                return i != 1 ? i == 2 && (i2 & 2) != 0 : (i2 & 1) != 0;
+            }
+            return true;
+        }
+        return invokeII.booleanValue;
+    }
+
     public RepeatModeUtil() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -47,17 +59,5 @@ public final class RepeatModeUtil {
             return i;
         }
         return invokeII.intValue;
-    }
-
-    public static boolean isRepeatModeEnabled(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i, i2)) == null) {
-            if (i != 0) {
-                return i != 1 ? i == 2 && (i2 & 2) != 0 : (i2 & 1) != 0;
-            }
-            return true;
-        }
-        return invokeII.booleanValue;
     }
 }

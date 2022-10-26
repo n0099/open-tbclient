@@ -31,7 +31,22 @@ public final class WalletStaticAutoGenerateUrlCollectorImpl implements ICmdRoute
     }
 
     @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
-    public Map<String, String> getCmdRouterMap() {
+    public Map getConfigRouterMap() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            HashMap hashMap = new HashMap();
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(UrlSchemaHelper.SCHEMA_TYPE_FINANCIAL_FRS_SDK_TAB);
+            arrayList.add(UrlSchemaHelper.SCHEMA_TYPE_GOTO_WALLET_SDK_ICACH);
+            hashMap.put("com.baidu.tieba.wallet.WalletStatic", arrayList);
+            return hashMap;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
+    public Map getCmdRouterMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -49,21 +64,6 @@ public final class WalletStaticAutoGenerateUrlCollectorImpl implements ICmdRoute
             hashMap.put("2001387", "com.baidu.tieba.wallet.WalletStatic");
             hashMap.put("3001000", "com.baidu.tieba.wallet.WalletStatic");
             hashMap.put("2921539", "com.baidu.tieba.wallet.WalletStatic");
-            return hashMap;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
-    public Map<String, ArrayList<String>> getConfigRouterMap() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            HashMap hashMap = new HashMap();
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(UrlSchemaHelper.SCHEMA_TYPE_FINANCIAL_FRS_SDK_TAB);
-            arrayList.add(UrlSchemaHelper.SCHEMA_TYPE_GOTO_WALLET_SDK_ICACH);
-            hashMap.put("com.baidu.tieba.wallet.WalletStatic", arrayList);
             return hashMap;
         }
         return (Map) invokeV.objValue;

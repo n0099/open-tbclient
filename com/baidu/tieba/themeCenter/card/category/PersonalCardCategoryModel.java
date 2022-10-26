@@ -6,11 +6,11 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.kt8;
-import com.baidu.tieba.ns8;
-import com.baidu.tieba.pb;
-import com.baidu.tieba.sm8;
-import com.baidu.tieba.st8;
+import com.baidu.tieba.cu8;
+import com.baidu.tieba.qb;
+import com.baidu.tieba.ut8;
+import com.baidu.tieba.xs8;
+import com.baidu.tieba.zm8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,18 +19,33 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryModel> {
+public class PersonalCardCategoryModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public st8 a;
-    public List<kt8> b;
+    public cu8 a;
+    public List b;
     public int c;
     public boolean d;
     public b e;
-    public pb f;
+    public qb f;
 
     /* loaded from: classes6.dex */
-    public class a extends pb {
+    public interface b {
+        void a(int i, String str, cu8 cu8Var, List list, boolean z);
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public class a extends qb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonalCardCategoryModel a;
@@ -57,53 +72,49 @@ public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryM
             this.a = personalCardCategoryModel;
         }
 
-        @Override // com.baidu.tieba.pb
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
+        @Override // com.baidu.tieba.qb
+        public void onMessage(ResponsedMessage responsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
                 return;
             }
             boolean z = responsedMessage instanceof PersonalCardCategorySocktResponse;
-            if (z || (responsedMessage instanceof PersonalCardCategoryHttpResponse)) {
-                if (responsedMessage.getError() == 0) {
-                    if (z) {
-                        PersonalCardCategorySocktResponse personalCardCategorySocktResponse = (PersonalCardCategorySocktResponse) responsedMessage;
-                        if (this.a.b == null) {
-                            this.a.b = new ArrayList();
-                        }
-                        if (personalCardCategorySocktResponse.getCardCategoryList() != null) {
-                            this.a.b.addAll(personalCardCategorySocktResponse.getCardCategoryList());
-                        }
-                        this.a.a = personalCardCategorySocktResponse.getRecommand();
-                        this.a.d = personalCardCategorySocktResponse.isHasMore();
-                    } else if (responsedMessage instanceof PersonalCardCategoryHttpResponse) {
-                        PersonalCardCategoryHttpResponse personalCardCategoryHttpResponse = (PersonalCardCategoryHttpResponse) responsedMessage;
-                        if (this.a.b == null) {
-                            this.a.b = new ArrayList();
-                        }
-                        if (personalCardCategoryHttpResponse.getCardCategoryList() != null) {
-                            this.a.b.addAll(personalCardCategoryHttpResponse.getCardCategoryList());
-                        }
-                        this.a.a = personalCardCategoryHttpResponse.getRecommand();
-                        this.a.d = personalCardCategoryHttpResponse.isHasMore();
-                    }
-                    if (this.a.e != null) {
-                        this.a.e.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.a, this.a.b, this.a.d);
-                        return;
-                    }
-                    return;
-                }
+            if (!z && !(responsedMessage instanceof PersonalCardCategoryHttpResponse)) {
+                return;
+            }
+            if (responsedMessage.getError() != 0) {
                 PersonalCardCategoryModel.z(this.a);
                 if (this.a.e != null) {
                     this.a.e.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.a, this.a.b, this.a.d);
+                    return;
                 }
+                return;
+            }
+            if (z) {
+                PersonalCardCategorySocktResponse personalCardCategorySocktResponse = (PersonalCardCategorySocktResponse) responsedMessage;
+                if (this.a.b == null) {
+                    this.a.b = new ArrayList();
+                }
+                if (personalCardCategorySocktResponse.getCardCategoryList() != null) {
+                    this.a.b.addAll(personalCardCategorySocktResponse.getCardCategoryList());
+                }
+                this.a.a = personalCardCategorySocktResponse.getRecommand();
+                this.a.d = personalCardCategorySocktResponse.isHasMore();
+            } else if (responsedMessage instanceof PersonalCardCategoryHttpResponse) {
+                PersonalCardCategoryHttpResponse personalCardCategoryHttpResponse = (PersonalCardCategoryHttpResponse) responsedMessage;
+                if (this.a.b == null) {
+                    this.a.b = new ArrayList();
+                }
+                if (personalCardCategoryHttpResponse.getCardCategoryList() != null) {
+                    this.a.b.addAll(personalCardCategoryHttpResponse.getCardCategoryList());
+                }
+                this.a.a = personalCardCategoryHttpResponse.getRecommand();
+                this.a.d = personalCardCategoryHttpResponse.isHasMore();
+            }
+            if (this.a.e != null) {
+                this.a.e.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.a, this.a.b, this.a.d);
             }
         }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(int i, String str, st8 st8Var, List<kt8> list, boolean z);
     }
 
     public PersonalCardCategoryModel(PersonalCardCategoryActivity personalCardCategoryActivity) {
@@ -124,8 +135,8 @@ public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryM
         this.c = 1;
         this.d = true;
         this.f = new a(this, CmdConfigHttp.CMD_GET_CARD_BY_CATEGORY, 309331);
-        sm8.h(309331, PersonalCardCategorySocktResponse.class, false, false);
-        sm8.c(309331, CmdConfigHttp.CMD_GET_CARD_BY_CATEGORY, TbConfig.GET_PERSONAL_CARD_BY_CATEGORY, PersonalCardCategoryHttpResponse.class, false, false, false, false);
+        zm8.h(309331, PersonalCardCategorySocktResponse.class, false, false);
+        zm8.c(309331, CmdConfigHttp.CMD_GET_CARD_BY_CATEGORY, TbConfig.GET_PERSONAL_CARD_BY_CATEGORY, PersonalCardCategoryHttpResponse.class, false, false, false, false);
         registerListener(this.f);
     }
 
@@ -135,54 +146,6 @@ public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryM
         return i;
     }
 
-    public void H() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.d) {
-            this.c++;
-            PersonalCardCategoryRequest personalCardCategoryRequest = new PersonalCardCategoryRequest();
-            personalCardCategoryRequest.setPn(this.c);
-            sendMessage(personalCardCategoryRequest);
-        }
-    }
-
-    public void I(long j, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) {
-            J(j, i);
-            b bVar = this.e;
-            if (bVar != null) {
-                bVar.a(0, null, this.a, this.b, this.d);
-            }
-        }
-    }
-
-    public void J(long j, int i) {
-        List<kt8> list;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) || (list = this.b) == null || list.size() <= 0) {
-            return;
-        }
-        for (kt8 kt8Var : list) {
-            if (kt8Var != null && kt8Var.a() != null && kt8Var.a().size() > 0) {
-                for (ns8 ns8Var : kt8Var.a()) {
-                    if (ns8Var != null) {
-                        if (ns8Var.a() == j) {
-                            if (i == 1) {
-                                ns8Var.s(1);
-                            } else {
-                                ns8Var.s(0);
-                            }
-                        } else if (i == 1) {
-                            ns8Var.s(0);
-                        } else if (ns8Var.a() == ns8.k) {
-                            ns8Var.s(1);
-                        }
-                    }
-                }
-            }
-        }
-    }
-
     public void K(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
@@ -190,14 +153,15 @@ public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryM
         }
     }
 
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        InterceptResult invokeV;
+    public void H() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return false;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !this.d) {
+            return;
         }
-        return invokeV.booleanValue;
+        this.c++;
+        PersonalCardCategoryRequest personalCardCategoryRequest = new PersonalCardCategoryRequest();
+        personalCardCategoryRequest.setPn(this.c);
+        sendMessage(personalCardCategoryRequest);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -218,6 +182,43 @@ public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryM
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             MessageManager.getInstance().unRegisterListener(this.f);
+        }
+    }
+
+    public void I(long j, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) {
+            J(j, i);
+            b bVar = this.e;
+            if (bVar != null) {
+                bVar.a(0, null, this.a, this.b, this.d);
+            }
+        }
+    }
+
+    public void J(long j, int i) {
+        List<ut8> list;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) && (list = this.b) != null && list.size() > 0) {
+            for (ut8 ut8Var : list) {
+                if (ut8Var != null && ut8Var.a() != null && ut8Var.a().size() > 0) {
+                    for (xs8 xs8Var : ut8Var.a()) {
+                        if (xs8Var != null) {
+                            if (xs8Var.a() == j) {
+                                if (i == 1) {
+                                    xs8Var.s(1);
+                                } else {
+                                    xs8Var.s(0);
+                                }
+                            } else if (i == 1) {
+                                xs8Var.s(0);
+                            } else if (xs8Var.a() == xs8.k) {
+                                xs8Var.s(1);
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

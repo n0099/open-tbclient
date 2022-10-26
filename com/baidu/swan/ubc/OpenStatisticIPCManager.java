@@ -6,7 +6,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.multiprocess.IPCServiceManager;
 import com.baidu.swan.ubc.IRemoteUBCService;
-import com.baidu.tieba.ri4;
+import com.baidu.tieba.si4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,80 +43,24 @@ public class OpenStatisticIPCManager {
                 @Override // com.baidu.swan.ubc.IRemoteUBCService
                 public void flowAddEvent(Flow flow, String str, String str2) throws RemoteException {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeLLL(1048576, this, flow, str, str2) == null) || flow == null) {
-                        return;
+                    if ((interceptable2 == null || interceptable2.invokeLLL(1048576, this, flow, str, str2) == null) && flow != null) {
+                        flow.addEvent(str, str2);
                     }
-                    flow.addEvent(str, str2);
-                }
-
-                @Override // com.baidu.swan.ubc.IRemoteUBCService
-                public void flowAddEventWithTime(Flow flow, String str, String str2, long j) {
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{flow, str, str2, Long.valueOf(j)}) == null) || flow == null) {
-                        return;
-                    }
-                    flow.addEvent(str, str2, j);
-                }
-
-                @Override // com.baidu.swan.ubc.IRemoteUBCService
-                public void flowCancel(Flow flow) throws RemoteException {
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, flow) == null) || flow == null) {
-                        return;
-                    }
-                    flow.cancel();
-                }
-
-                @Override // com.baidu.swan.ubc.IRemoteUBCService
-                public void flowEnd(Flow flow) throws RemoteException {
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048579, this, flow) == null) || flow == null) {
-                        return;
-                    }
-                    flow.end();
-                }
-
-                @Override // com.baidu.swan.ubc.IRemoteUBCService
-                public void flowEndSlot(Flow flow, String str) throws RemoteException {
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeLL(1048580, this, flow, str) == null) || flow == null) {
-                        return;
-                    }
-                    flow.endSlot(str);
-                }
-
-                @Override // com.baidu.swan.ubc.IRemoteUBCService
-                public void flowSetValue(Flow flow, String str) throws RemoteException {
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeLL(1048581, this, flow, str) == null) || flow == null) {
-                        return;
-                    }
-                    flow.setValue(str);
-                }
-
-                @Override // com.baidu.swan.ubc.IRemoteUBCService
-                public void flowSetValueWithDuration(Flow flow, String str) throws RemoteException {
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeLL(1048582, this, flow, str) == null) || flow == null) {
-                        return;
-                    }
-                    flow.setValueWithDuration(str);
                 }
 
                 @Override // com.baidu.swan.ubc.IRemoteUBCService
                 public void flowStartSlot(Flow flow, String str, String str2) throws RemoteException {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeLLL(1048583, this, flow, str, str2) == null) || flow == null) {
-                        return;
-                    }
-                    if (TextUtils.isEmpty(str2)) {
-                        flow.startSlot(str, null);
-                        return;
-                    }
-                    try {
-                        flow.startSlot(str, new JSONObject(str2));
-                    } catch (JSONException e) {
-                        e.printStackTrace();
+                    if ((interceptable2 == null || interceptable2.invokeLLL(1048583, this, flow, str, str2) == null) && flow != null) {
+                        if (TextUtils.isEmpty(str2)) {
+                            flow.startSlot(str, null);
+                            return;
+                        }
+                        try {
+                            flow.startSlot(str, new JSONObject(str2));
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
 
@@ -124,14 +68,65 @@ public class OpenStatisticIPCManager {
                 public Flow ubcBeginFlow(String str, String str2, int i) throws RemoteException {
                     InterceptResult invokeLLI;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeLLI = interceptable2.invokeLLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, i)) == null) ? ri4.e(str, str2, i) : (Flow) invokeLLI.objValue;
+                    if (interceptable2 == null || (invokeLLI = interceptable2.invokeLLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, i)) == null) {
+                        return si4.e(str, str2, i);
+                    }
+                    return (Flow) invokeLLI.objValue;
                 }
 
                 @Override // com.baidu.swan.ubc.IRemoteUBCService
                 public void ubcOnEvent(String str, String str2, int i) throws RemoteException {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLLI(1048585, this, str, str2, i) == null) {
-                        ri4.i(str, str2, i);
+                        si4.i(str, str2, i);
+                    }
+                }
+
+                @Override // com.baidu.swan.ubc.IRemoteUBCService
+                public void flowAddEventWithTime(Flow flow, String str, String str2, long j) {
+                    Interceptable interceptable2 = $ic;
+                    if ((interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{flow, str, str2, Long.valueOf(j)}) == null) && flow != null) {
+                        flow.addEvent(str, str2, j);
+                    }
+                }
+
+                @Override // com.baidu.swan.ubc.IRemoteUBCService
+                public void flowCancel(Flow flow) throws RemoteException {
+                    Interceptable interceptable2 = $ic;
+                    if ((interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, flow) == null) && flow != null) {
+                        flow.cancel();
+                    }
+                }
+
+                @Override // com.baidu.swan.ubc.IRemoteUBCService
+                public void flowEnd(Flow flow) throws RemoteException {
+                    Interceptable interceptable2 = $ic;
+                    if ((interceptable2 == null || interceptable2.invokeL(1048579, this, flow) == null) && flow != null) {
+                        flow.end();
+                    }
+                }
+
+                @Override // com.baidu.swan.ubc.IRemoteUBCService
+                public void flowEndSlot(Flow flow, String str) throws RemoteException {
+                    Interceptable interceptable2 = $ic;
+                    if ((interceptable2 == null || interceptable2.invokeLL(1048580, this, flow, str) == null) && flow != null) {
+                        flow.endSlot(str);
+                    }
+                }
+
+                @Override // com.baidu.swan.ubc.IRemoteUBCService
+                public void flowSetValue(Flow flow, String str) throws RemoteException {
+                    Interceptable interceptable2 = $ic;
+                    if ((interceptable2 == null || interceptable2.invokeLL(1048581, this, flow, str) == null) && flow != null) {
+                        flow.setValue(str);
+                    }
+                }
+
+                @Override // com.baidu.swan.ubc.IRemoteUBCService
+                public void flowSetValueWithDuration(Flow flow, String str) throws RemoteException {
+                    Interceptable interceptable2 = $ic;
+                    if ((interceptable2 == null || interceptable2.invokeLL(1048582, this, flow, str) == null) && flow != null) {
+                        flow.setValueWithDuration(str);
                     }
                 }
             }, false);

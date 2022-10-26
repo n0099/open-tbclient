@@ -85,16 +85,89 @@ public class YYProtocolActivity extends Activity implements NoProguard {
         }
     }
 
+    @Override // android.app.Activity
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.onDestroy();
+            WebView webView = this.b;
+            if (webView != null) {
+                webView.destroy();
+                this.b = null;
+            }
+        }
+    }
+
+    public static boolean a(Activity activity, boolean z) {
+        InterceptResult invokeLZ;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, activity, z)) == null) {
+            try {
+                WindowManager.LayoutParams attributes = activity.getWindow().getAttributes();
+                Field declaredField = WindowManager.LayoutParams.class.getDeclaredField("MEIZU_FLAG_DARK_STATUS_BAR_ICON");
+                Field declaredField2 = WindowManager.LayoutParams.class.getDeclaredField("meizuFlags");
+                declaredField.setAccessible(true);
+                declaredField2.setAccessible(true);
+                int i2 = declaredField.getInt(null);
+                int i3 = declaredField2.getInt(attributes);
+                if (z) {
+                    i = i3 | i2;
+                } else {
+                    i = (~i2) & i3;
+                }
+                declaredField2.setInt(attributes, i);
+                activity.getWindow().setAttributes(attributes);
+                return true;
+            } catch (Throwable unused) {
+                return false;
+            }
+        }
+        return invokeLZ.booleanValue;
+    }
+
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             this.a = (ImageView) findViewById(R.id.iv_back);
-            WebView webView = (WebView) findViewById(R.id.obfuscated_res_0x7f092654);
+            WebView webView = (WebView) findViewById(R.id.obfuscated_res_0x7f09263c);
             this.b = webView;
             webView.setWebChromeClient(new WebChromeClient());
             this.b.setWebViewClient(new WebViewClient());
             this.b.loadUrl(PassBioEnv.YY_PERSONAL_INFO_PROTOCOL);
         }
+    }
+
+    public static boolean b(Activity activity, boolean z) {
+        InterceptResult invokeLZ;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, z)) == null) {
+            Window window = activity.getWindow();
+            window.addFlags(Integer.MIN_VALUE);
+            window.clearFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
+            window.getDecorView().setSystemUiVisibility(8192);
+            Class<?> cls = activity.getWindow().getClass();
+            try {
+                Class<?> cls2 = Class.forName("android.view.MiuiWindowManager$LayoutParams");
+                int i2 = cls2.getField("EXTRA_FLAG_STATUS_BAR_DARK_MODE").getInt(cls2);
+                Method method = cls.getMethod("setExtraFlags", Integer.TYPE, Integer.TYPE);
+                Window window2 = activity.getWindow();
+                Object[] objArr = new Object[2];
+                if (z) {
+                    i = i2;
+                } else {
+                    i = 0;
+                }
+                objArr[0] = Integer.valueOf(i);
+                objArr[1] = Integer.valueOf(i2);
+                method.invoke(window2, objArr);
+                return true;
+            } catch (Throwable unused) {
+                return false;
+            }
+        }
+        return invokeLZ.booleanValue;
     }
 
     public static void newLoginStatusBarTint(Activity activity) {
@@ -111,26 +184,31 @@ public class YYProtocolActivity extends Activity implements NoProguard {
     public static void setRootViewFitsSystemWindows(Activity activity, boolean z) {
         ViewGroup viewGroup;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(65542, null, activity, z) == null) || Build.VERSION.SDK_INT < 19) {
-            return;
+        if ((interceptable == null || interceptable.invokeLZ(65542, null, activity, z) == null) && Build.VERSION.SDK_INT >= 19) {
+            ViewGroup viewGroup2 = (ViewGroup) activity.findViewById(16908290);
+            if (viewGroup2.getChildCount() > 0 && (viewGroup = (ViewGroup) viewGroup2.getChildAt(0)) != null) {
+                viewGroup.setFitsSystemWindows(z);
+            }
         }
-        ViewGroup viewGroup2 = (ViewGroup) activity.findViewById(16908290);
-        if (viewGroup2.getChildCount() <= 0 || (viewGroup = (ViewGroup) viewGroup2.getChildAt(0)) == null) {
-            return;
-        }
-        viewGroup.setFitsSystemWindows(z);
     }
 
     public static void setTranslucentStatus(Activity activity) {
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, null, activity) == null) {
-            int i = Build.VERSION.SDK_INT;
-            if (i >= 21) {
+            int i2 = Build.VERSION.SDK_INT;
+            if (i2 >= 21) {
                 Window window = activity.getWindow();
-                window.getDecorView().setSystemUiVisibility(Build.VERSION.SDK_INT >= 23 ? 9472 : 1280);
+                View decorView = window.getDecorView();
+                if (Build.VERSION.SDK_INT >= 23) {
+                    i = 9472;
+                } else {
+                    i = 1280;
+                }
+                decorView.setSystemUiVisibility(i);
                 window.addFlags(Integer.MIN_VALUE);
                 window.setStatusBarColor(0);
-            } else if (i >= 19) {
+            } else if (i2 >= 19) {
                 Window window2 = activity.getWindow();
                 WindowManager.LayoutParams attributes = window2.getAttributes();
                 attributes.flags |= CodedInputStream.DEFAULT_SIZE_LIMIT;
@@ -154,66 +232,5 @@ public class YYProtocolActivity extends Activity implements NoProguard {
             a();
             newLoginStatusBarTint(this);
         }
-    }
-
-    @Override // android.app.Activity
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.onDestroy();
-            WebView webView = this.b;
-            if (webView != null) {
-                webView.destroy();
-                this.b = null;
-            }
-        }
-    }
-
-    public static boolean a(Activity activity, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, activity, z)) == null) {
-            try {
-                WindowManager.LayoutParams attributes = activity.getWindow().getAttributes();
-                Field declaredField = WindowManager.LayoutParams.class.getDeclaredField("MEIZU_FLAG_DARK_STATUS_BAR_ICON");
-                Field declaredField2 = WindowManager.LayoutParams.class.getDeclaredField("meizuFlags");
-                declaredField.setAccessible(true);
-                declaredField2.setAccessible(true);
-                int i = declaredField.getInt(null);
-                int i2 = declaredField2.getInt(attributes);
-                declaredField2.setInt(attributes, z ? i2 | i : (~i) & i2);
-                activity.getWindow().setAttributes(attributes);
-                return true;
-            } catch (Throwable unused) {
-                return false;
-            }
-        }
-        return invokeLZ.booleanValue;
-    }
-
-    public static boolean b(Activity activity, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, z)) == null) {
-            Window window = activity.getWindow();
-            window.addFlags(Integer.MIN_VALUE);
-            window.clearFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
-            window.getDecorView().setSystemUiVisibility(8192);
-            Class<?> cls = activity.getWindow().getClass();
-            try {
-                Class<?> cls2 = Class.forName("android.view.MiuiWindowManager$LayoutParams");
-                int i = cls2.getField("EXTRA_FLAG_STATUS_BAR_DARK_MODE").getInt(cls2);
-                Method method = cls.getMethod("setExtraFlags", Integer.TYPE, Integer.TYPE);
-                Window window2 = activity.getWindow();
-                Object[] objArr = new Object[2];
-                objArr[0] = Integer.valueOf(z ? i : 0);
-                objArr[1] = Integer.valueOf(i);
-                method.invoke(window2, objArr);
-                return true;
-            } catch (Throwable unused) {
-                return false;
-            }
-        }
-        return invokeLZ.booleanValue;
     }
 }

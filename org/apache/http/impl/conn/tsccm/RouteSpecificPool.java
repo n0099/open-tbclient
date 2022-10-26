@@ -15,11 +15,11 @@ import org.apache.http.conn.routing.HttpRoute;
 public class RouteSpecificPool {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final LinkedList<BasicPoolEntry> freeEntries;
+    public final LinkedList freeEntries;
     public final int maxEntries;
     public int numEntries;
     public final HttpRoute route;
-    public final Queue<WaitingThread> waitingThreads;
+    public final Queue waitingThreads;
 
     public RouteSpecificPool(HttpRoute httpRoute, int i) {
         Interceptable interceptable = $ic;
@@ -64,16 +64,30 @@ public class RouteSpecificPool {
         return invokeL.booleanValue;
     }
 
-    public void dropEntry() {
+    public void freeEntry(BasicPoolEntry basicPoolEntry) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, basicPoolEntry) == null) {
             throw new RuntimeException("Stub!");
         }
     }
 
-    public void freeEntry(BasicPoolEntry basicPoolEntry) {
+    public void queueThread(WaitingThread waitingThread) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, basicPoolEntry) == null) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, waitingThread) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    public void removeThread(WaitingThread waitingThread) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, waitingThread) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    public void dropEntry() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             throw new RuntimeException("Stub!");
         }
     }
@@ -139,19 +153,5 @@ public class RouteSpecificPool {
             throw new RuntimeException("Stub!");
         }
         return (WaitingThread) invokeV.objValue;
-    }
-
-    public void queueThread(WaitingThread waitingThread) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, waitingThread) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
-    public void removeThread(WaitingThread waitingThread) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, waitingThread) == null) {
-            throw new RuntimeException("Stub!");
-        }
     }
 }

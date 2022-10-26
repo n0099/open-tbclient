@@ -5,10 +5,8 @@ import android.graphics.Rect;
 import android.os.Build;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.annotation.DimenRes;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -47,7 +45,7 @@ public class ViewCommonUtil {
                     iArr[1] = iArr[1] - findViewById.getHeight();
                 }
             }
-            int[] q = ej.q(activity);
+            int[] q = fj.q(activity);
             if (iArr[0] == 0 || iArr[1] == 0) {
                 iArr[0] = q[0];
                 iArr[1] = q[1];
@@ -59,26 +57,34 @@ public class ViewCommonUtil {
 
     public static Rect getVisibilityRegion(Activity activity) {
         InterceptResult invokeL;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) {
             Rect rect = new Rect();
             View decorView = activity.getWindow().getDecorView();
             int windowVisibility = decorView.getWindowVisibility();
             decorView.getWindowVisibleDisplayFrame(rect);
+            int i2 = 0;
             if (windowVisibility != 8) {
                 rect.top = 0;
             }
-            int s = ej.s(activity);
-            int d = MenuKeyUtils.hasSmartBar() ? ej.d(activity, 48.0f) : 0;
-            int i = UtilHelper.canUseStyleImmersiveSticky() ? 0 : s;
-            rect.bottom -= d;
-            rect.top += i;
+            int s = fj.s(activity);
+            if (MenuKeyUtils.hasSmartBar()) {
+                i = fj.d(activity, 48.0f);
+            } else {
+                i = 0;
+            }
+            if (!UtilHelper.canUseStyleImmersiveSticky()) {
+                i2 = s;
+            }
+            rect.bottom -= i;
+            rect.top += i2;
             return rect;
         }
         return (Rect) invokeL.objValue;
     }
 
-    public static void setViewMargin(@NonNull View view2, int i, int i2, int i3, int i4) {
+    public static void setViewMargin(View view2, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
@@ -100,7 +106,7 @@ public class ViewCommonUtil {
         }
     }
 
-    public static void setViewMarginByDimen(@NonNull View view2, @DimenRes int i, @DimenRes int i2, @DimenRes int i3, @DimenRes int i4) {
+    public static void setViewMarginByDimen(View view2, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             if (i != -1) {
@@ -119,7 +125,7 @@ public class ViewCommonUtil {
         }
     }
 
-    public static void setViewPadding(@NonNull View view2, int i, int i2, int i3, int i4) {
+    public static void setViewPadding(View view2, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             if (i == -1) {
@@ -138,7 +144,7 @@ public class ViewCommonUtil {
         }
     }
 
-    public static void setViewWidthHeight(@NonNull View view2, int i, int i2) {
+    public static void setViewWidthHeight(View view2, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(65542, null, view2, i, i2) == null) {
             ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();

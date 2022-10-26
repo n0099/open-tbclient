@@ -2,7 +2,6 @@ package com.baidu.minivideo.effect.core.vlogedit;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -42,8 +41,18 @@ public class MediaTrackConfig implements Parcelable, Cloneable {
     public List<String> transitionResourceList;
     public float videoRatio;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     /* loaded from: classes2.dex */
-    public static class a implements Parcelable.Creator<MediaTrackConfig> {
+    public final class a implements Parcelable.Creator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -67,7 +76,10 @@ public class MediaTrackConfig implements Parcelable, Cloneable {
         public MediaTrackConfig createFromParcel(Parcel parcel) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new MediaTrackConfig(parcel) : (MediaTrackConfig) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+                return new MediaTrackConfig(parcel);
+            }
+            return (MediaTrackConfig) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -76,7 +88,10 @@ public class MediaTrackConfig implements Parcelable, Cloneable {
         public MediaTrackConfig[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new MediaTrackConfig[i] : (MediaTrackConfig[]) invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                return new MediaTrackConfig[i];
+            }
+            return (MediaTrackConfig[]) invokeI.objValue;
         }
     }
 
@@ -113,55 +128,7 @@ public class MediaTrackConfig implements Parcelable, Cloneable {
         this.templateType = "normal";
     }
 
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i) == null) {
-            parcel.writeString(this.id);
-            parcel.writeString(this.name);
-            parcel.writeLong(this.maxVideoDuration);
-            parcel.writeString(this.importType);
-            parcel.writeString(this.templateType);
-            parcel.writeTypedList(this.mediaTracks);
-            parcel.writeInt(this.effectConfigMap.size());
-            for (Map.Entry<String, MediaAEffect> entry : this.effectConfigMap.entrySet()) {
-                parcel.writeString(entry.getKey());
-                parcel.writeParcelable(entry.getValue(), i);
-            }
-            parcel.writeInt(this.effectResourceMap.size());
-            for (Map.Entry<String, String> entry2 : this.effectResourceMap.entrySet()) {
-                parcel.writeString(entry2.getKey());
-                parcel.writeString(entry2.getValue());
-            }
-            parcel.writeTypedList(this.transitionConfigs);
-            parcel.writeStringList(this.transitionResourceList);
-            parcel.writeInt(this.shaderResourceMap.size());
-            for (Map.Entry<String, String> entry3 : this.shaderResourceMap.entrySet()) {
-                parcel.writeString(entry3.getKey());
-                parcel.writeString(entry3.getValue());
-            }
-            parcel.writeInt(this.shaderConfigMapDebug.size());
-            for (Map.Entry<String, ShaderConfig> entry4 : this.shaderConfigMapDebug.entrySet()) {
-                parcel.writeString(entry4.getKey());
-                parcel.writeParcelable(entry4.getValue(), i);
-            }
-            parcel.writeString(this.bgRes);
-            parcel.writeFloat(this.videoRatio);
-        }
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
-    @NonNull
     /* renamed from: clone */
     public MediaTrackConfig m34clone() {
         InterceptResult invokeV;
@@ -226,5 +193,42 @@ public class MediaTrackConfig implements Parcelable, Cloneable {
         }
         this.bgRes = parcel.readString();
         this.videoRatio = parcel.readFloat();
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i) == null) {
+            parcel.writeString(this.id);
+            parcel.writeString(this.name);
+            parcel.writeLong(this.maxVideoDuration);
+            parcel.writeString(this.importType);
+            parcel.writeString(this.templateType);
+            parcel.writeTypedList(this.mediaTracks);
+            parcel.writeInt(this.effectConfigMap.size());
+            for (Map.Entry<String, MediaAEffect> entry : this.effectConfigMap.entrySet()) {
+                parcel.writeString(entry.getKey());
+                parcel.writeParcelable(entry.getValue(), i);
+            }
+            parcel.writeInt(this.effectResourceMap.size());
+            for (Map.Entry<String, String> entry2 : this.effectResourceMap.entrySet()) {
+                parcel.writeString(entry2.getKey());
+                parcel.writeString(entry2.getValue());
+            }
+            parcel.writeTypedList(this.transitionConfigs);
+            parcel.writeStringList(this.transitionResourceList);
+            parcel.writeInt(this.shaderResourceMap.size());
+            for (Map.Entry<String, String> entry3 : this.shaderResourceMap.entrySet()) {
+                parcel.writeString(entry3.getKey());
+                parcel.writeString(entry3.getValue());
+            }
+            parcel.writeInt(this.shaderConfigMapDebug.size());
+            for (Map.Entry<String, ShaderConfig> entry4 : this.shaderConfigMapDebug.entrySet()) {
+                parcel.writeString(entry4.getKey());
+                parcel.writeParcelable(entry4.getValue(), i);
+            }
+            parcel.writeString(this.bgRes);
+            parcel.writeFloat(this.videoRatio);
+        }
     }
 }

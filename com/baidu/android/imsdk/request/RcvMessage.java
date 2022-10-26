@@ -9,6 +9,13 @@ public class RcvMessage extends Message {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.android.imsdk.request.Message
+    public void buildBody() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
     public RcvMessage(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -25,12 +32,5 @@ public class RcvMessage extends Message {
             }
         }
         this.mBody = str;
-    }
-
-    @Override // com.baidu.android.imsdk.request.Message
-    public void buildBody() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
     }
 }

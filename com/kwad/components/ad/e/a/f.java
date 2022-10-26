@@ -4,7 +4,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +26,6 @@ public final class f extends com.kwad.components.ad.e.kwai.a implements View.OnC
     public KsAppDownloadListener ka;
     public AdInfo mAdInfo;
     public AdTemplate mAdTemplate;
-    @Nullable
     public com.kwad.components.core.c.a.c mApkDownloadHelper;
 
     public f() {
@@ -110,7 +108,7 @@ public final class f extends com.kwad.components.ad.e.kwai.a implements View.OnC
     private void G(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65537, this, i) == null) {
-            com.kwad.components.core.c.a.a.a(new a.C0570a(this.jY.getContext()).L(this.mAdTemplate).ae(i).b(this.mApkDownloadHelper).a(new a.b(this) { // from class: com.kwad.components.ad.e.a.f.3
+            com.kwad.components.core.c.a.a.a(new a.C0566a(this.jY.getContext()).L(this.mAdTemplate).ae(i).b(this.mApkDownloadHelper).a(new a.b(this) { // from class: com.kwad.components.ad.e.a.f.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ f kb;
@@ -237,10 +235,10 @@ public final class f extends com.kwad.components.ad.e.kwai.a implements View.OnC
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onCreate();
-            this.jY = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091212);
-            this.cw = (ImageView) findViewById(R.id.obfuscated_res_0x7f091062);
-            this.cx = (TextView) findViewById(R.id.obfuscated_res_0x7f091064);
-            this.jZ = (TextView) findViewById(R.id.obfuscated_res_0x7f09105f);
+            this.jY = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091206);
+            this.cw = (ImageView) findViewById(R.id.obfuscated_res_0x7f091056);
+            this.cx = (TextView) findViewById(R.id.obfuscated_res_0x7f091058);
+            this.jZ = (TextView) findViewById(R.id.obfuscated_res_0x7f091053);
         }
     }
 

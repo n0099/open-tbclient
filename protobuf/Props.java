@@ -60,7 +60,13 @@ public final class Props extends Message {
     public final String usedStatus;
 
     /* loaded from: classes9.dex */
-    public static final class Builder extends Message.Builder<Props> {
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes9.dex */
+    public final class Builder extends Message.Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String endTime;
@@ -70,7 +76,7 @@ public final class Props extends Message {
         public String notice;
         public Integer num;
         public String openStatus;
-        public List<String> pattern;
+        public List pattern;
         public String propsCategory;
         public Integer propsId;
         public String propsType;
@@ -134,14 +140,11 @@ public final class Props extends Message {
         public Props build(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) ? new Props(this, z, null) : (Props) invokeZ.objValue;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+                return new Props(this, z, null);
+            }
+            return (Props) invokeZ.objValue;
         }
-    }
-
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
     }
 
     static {
@@ -162,10 +165,6 @@ public final class Props extends Message {
         DEFAULT_NUM = 0;
         DEFAULT_UPDATETIME = 0;
         DEFAULT_PATTERN = Collections.emptyList();
-    }
-
-    public /* synthetic */ Props(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -265,7 +264,7 @@ public final class Props extends Message {
             } else {
                 this.title = str9;
             }
-            List<String> list = builder.pattern;
+            List list = builder.pattern;
             if (list == null) {
                 this.pattern = DEFAULT_PATTERN;
                 return;
@@ -288,5 +287,9 @@ public final class Props extends Message {
         this.expiredNotify = builder.expiredNotify;
         this.title = builder.title;
         this.pattern = Message.immutableCopyOf(builder.pattern);
+    }
+
+    public /* synthetic */ Props(Builder builder, boolean z, a aVar) {
+        this(builder, z);
     }
 }

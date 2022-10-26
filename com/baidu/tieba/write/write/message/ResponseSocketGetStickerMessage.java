@@ -1,6 +1,5 @@
 package com.baidu.tieba.write.write.message;
 
-import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +15,7 @@ import tbclient.GetSticker.GetStickerResIdl;
 public class ResponseSocketGetStickerMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<String> mUrlList;
+    public List mUrlList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseSocketGetStickerMessage() {
@@ -36,8 +35,16 @@ public class ResponseSocketGetStickerMessage extends SocketResponsedMessage {
         }
     }
 
+    public List getUrlList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mUrlList;
+        }
+        return (List) invokeV.objValue;
+    }
+
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         DataRes dataRes;
@@ -55,11 +62,5 @@ public class ResponseSocketGetStickerMessage extends SocketResponsedMessage {
             return getStickerResIdl;
         }
         return invokeIL.objValue;
-    }
-
-    public List<String> getUrlList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mUrlList : (List) invokeV.objValue;
     }
 }

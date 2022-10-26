@@ -10,35 +10,40 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 /* loaded from: classes.dex */
-public class ShapeDataParser implements ValueParser<ShapeData> {
+public class ShapeDataParser implements ValueParser {
     public static final ShapeDataParser INSTANCE = new ShapeDataParser();
     public static final JsonReader.Options NAMES = JsonReader.Options.of("c", "v", "i", "o");
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.airbnb.lottie.parser.ValueParser
     public ShapeData parse(JsonReader jsonReader, float f) throws IOException {
         if (jsonReader.peek() == JsonReader.Token.BEGIN_ARRAY) {
             jsonReader.beginArray();
         }
         jsonReader.beginObject();
-        List<PointF> list = null;
-        List<PointF> list2 = null;
-        List<PointF> list3 = null;
+        List list = null;
+        List list2 = null;
+        List list3 = null;
         boolean z = false;
         while (jsonReader.hasNext()) {
             int selectName = jsonReader.selectName(NAMES);
-            if (selectName == 0) {
-                z = jsonReader.nextBoolean();
-            } else if (selectName == 1) {
-                list = JsonUtils.jsonToPoints(jsonReader, f);
-            } else if (selectName == 2) {
-                list2 = JsonUtils.jsonToPoints(jsonReader, f);
-            } else if (selectName != 3) {
-                jsonReader.skipName();
-                jsonReader.skipValue();
+            if (selectName != 0) {
+                if (selectName != 1) {
+                    if (selectName != 2) {
+                        if (selectName != 3) {
+                            jsonReader.skipName();
+                            jsonReader.skipValue();
+                        } else {
+                            list3 = JsonUtils.jsonToPoints(jsonReader, f);
+                        }
+                    } else {
+                        list2 = JsonUtils.jsonToPoints(jsonReader, f);
+                    }
+                } else {
+                    list = JsonUtils.jsonToPoints(jsonReader, f);
+                }
             } else {
-                list3 = JsonUtils.jsonToPoints(jsonReader, f);
+                z = jsonReader.nextBoolean();
             }
         }
         jsonReader.endObject();
@@ -50,17 +55,17 @@ public class ShapeDataParser implements ValueParser<ShapeData> {
                 return new ShapeData(new PointF(), false, Collections.emptyList());
             }
             int size = list.size();
-            PointF pointF = list.get(0);
+            PointF pointF = (PointF) list.get(0);
             ArrayList arrayList = new ArrayList(size);
             for (int i = 1; i < size; i++) {
-                PointF pointF2 = list.get(i);
+                PointF pointF2 = (PointF) list.get(i);
                 int i2 = i - 1;
-                arrayList.add(new CubicCurveData(MiscUtils.addPoints(list.get(i2), list3.get(i2)), MiscUtils.addPoints(pointF2, list2.get(i)), pointF2));
+                arrayList.add(new CubicCurveData(MiscUtils.addPoints((PointF) list.get(i2), (PointF) list3.get(i2)), MiscUtils.addPoints(pointF2, (PointF) list2.get(i)), pointF2));
             }
             if (z) {
-                PointF pointF3 = list.get(0);
+                PointF pointF3 = (PointF) list.get(0);
                 int i3 = size - 1;
-                arrayList.add(new CubicCurveData(MiscUtils.addPoints(list.get(i3), list3.get(i3)), MiscUtils.addPoints(pointF3, list2.get(0)), pointF3));
+                arrayList.add(new CubicCurveData(MiscUtils.addPoints((PointF) list.get(i3), (PointF) list3.get(i3)), MiscUtils.addPoints(pointF3, (PointF) list2.get(0)), pointF3));
             }
             return new ShapeData(pointF, z, arrayList);
         }

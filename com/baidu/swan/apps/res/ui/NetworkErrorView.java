@@ -13,13 +13,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class NetworkErrorView extends CommonEmptyView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
-    public static class a {
+    /* loaded from: classes3.dex */
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Object a;
@@ -60,79 +60,6 @@ public class NetworkErrorView extends CommonEmptyView {
             }
         }
         b();
-    }
-
-    public static void c(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, view2) == null) {
-            a aVar = new a(1);
-            aVar.a = view2;
-            BdEventBus.Companion.getDefault().post(aVar);
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e.setVisibility(0);
-            setTitle(getContext().getString(R.string.obfuscated_res_0x7f0f132c));
-            setIcon(R.drawable.obfuscated_res_0x7f0811a2);
-        }
-    }
-
-    public void setBottomLayout(View.OnClickListener onClickListener, View view2, RelativeLayout.LayoutParams layoutParams) {
-        FrameLayout frameLayout;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener, view2, layoutParams) == null) || (frameLayout = this.f) == null || view2 == null) {
-            return;
-        }
-        frameLayout.setVisibility(0);
-        this.f.addView(view2);
-        if (layoutParams != null) {
-            this.f.setLayoutParams(layoutParams);
-        }
-        this.f.setOnClickListener(onClickListener);
-    }
-
-    public void setEmptyButtonVisiblity(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.e.setVisibility(i);
-        }
-    }
-
-    public void setEmptyViewVisiblity(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.a.setVisibility(i);
-        }
-    }
-
-    public void setNetworkButtonShow(boolean z) {
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048580, this, z) == null) || (textView = this.d) == null) {
-            return;
-        }
-        textView.setVisibility(z ? 0 : 4);
-    }
-
-    public void setReloadClickListener(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, onClickListener) == null) {
-            setTextButtonClickListener(onClickListener);
-        }
-    }
-
-    @Override // android.view.View
-    public void setVisibility(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            if (i == 0) {
-                c(this);
-            }
-            super.setVisibility(i);
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -177,5 +104,82 @@ public class NetworkErrorView extends CommonEmptyView {
             }
         }
         b();
+    }
+
+    public static void c(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, view2) == null) {
+            a aVar = new a(1);
+            aVar.a = view2;
+            BdEventBus.Companion.getDefault().post(aVar);
+        }
+    }
+
+    public void setEmptyButtonVisiblity(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.e.setVisibility(i);
+        }
+    }
+
+    public void setEmptyViewVisiblity(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.a.setVisibility(i);
+        }
+    }
+
+    public void setNetworkButtonShow(boolean z) {
+        TextView textView;
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048580, this, z) == null) && (textView = this.d) != null) {
+            if (z) {
+                i = 0;
+            } else {
+                i = 4;
+            }
+            textView.setVisibility(i);
+        }
+    }
+
+    public void setReloadClickListener(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, onClickListener) == null) {
+            setTextButtonClickListener(onClickListener);
+        }
+    }
+
+    @Override // android.view.View
+    public void setVisibility(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            if (i == 0) {
+                c(this);
+            }
+            super.setVisibility(i);
+        }
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.e.setVisibility(0);
+            setTitle(getContext().getString(R.string.obfuscated_res_0x7f0f1340));
+            setIcon(R.drawable.obfuscated_res_0x7f0811b3);
+        }
+    }
+
+    public void setBottomLayout(View.OnClickListener onClickListener, View view2, RelativeLayout.LayoutParams layoutParams) {
+        FrameLayout frameLayout;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener, view2, layoutParams) == null) && (frameLayout = this.f) != null && view2 != null) {
+            frameLayout.setVisibility(0);
+            this.f.addView(view2);
+            if (layoutParams != null) {
+                this.f.setLayoutParams(layoutParams);
+            }
+            this.f.setOnClickListener(onClickListener);
+        }
     }
 }

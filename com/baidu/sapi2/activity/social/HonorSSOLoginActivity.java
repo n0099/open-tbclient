@@ -72,13 +72,13 @@ public class HonorSSOLoginActivity extends BaseSSOLoginActivity {
                 String str2 = HonorSSOLoginActivity.o;
                 Log.i(str2, "silentSignIn onFail :" + exc.getMessage());
                 HonorSSOLoginActivity honorSSOLoginActivity = this.a;
-                honorSSOLoginActivity.a(-202, honorSSOLoginActivity.getString(R.string.obfuscated_res_0x7f0f1082));
+                honorSSOLoginActivity.a(-202, honorSSOLoginActivity.getString(R.string.obfuscated_res_0x7f0f1094));
             }
         }
     }
 
     /* loaded from: classes2.dex */
-    public class b implements OnSuccessListener<SignInAccountInfo> {
+    public class b implements OnSuccessListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HonorSSOLoginActivity a;
@@ -148,12 +148,55 @@ public class HonorSSOLoginActivity extends BaseSSOLoginActivity {
         }
     }
 
+    @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
+    public void setupViews() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.setupViews();
+            setTitleText(R.string.obfuscated_res_0x7f0f10a8);
+            try {
+                e();
+            } catch (Exception e) {
+                e.printStackTrace();
+                finish();
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65538, this, i, str) == null) {
+            if (((BaseSSOLoginActivity) this).g == 2001) {
+                Intent intent = new Intent();
+                intent.putExtra("result_code", i);
+                intent.putExtra("result_msg", str);
+                setResult(1002, intent);
+            } else if (CoreViewRouter.getInstance().getWebAuthListener() != null) {
+                ((BaseSSOLoginActivity) this).h.setResultCode(i);
+                ((BaseSSOLoginActivity) this).h.setResultMsg(str);
+                CoreViewRouter.getInstance().getWebAuthListener().onFailure(((BaseSSOLoginActivity) this).h);
+                CoreViewRouter.getInstance().release();
+            }
+            finish();
+        }
+    }
+
+    @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.social.SocialLoginBase, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            super.onCreate(bundle);
+            setupViews();
+        }
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, this, str) == null) {
             if (TextUtils.isEmpty(str)) {
-                a(-204, getString(R.string.obfuscated_res_0x7f0f108e));
+                a(-204, getString(R.string.obfuscated_res_0x7f0f10a0));
             } else if (this.sapiWebView == null) {
             } else {
                 SapiConfiguration confignation = SapiAccountManager.getInstance().getConfignation();
@@ -172,7 +215,7 @@ public class HonorSSOLoginActivity extends BaseSSOLoginActivity {
                 String str = o;
                 Log.i(str, "doFrontLogin Exception: " + e.getMessage());
                 e.printStackTrace();
-                a(-202, getString(R.string.obfuscated_res_0x7f0f1082));
+                a(-202, getString(R.string.obfuscated_res_0x7f0f1094));
             }
         }
     }
@@ -211,55 +254,12 @@ public class HonorSSOLoginActivity extends BaseSSOLoginActivity {
                     b(signInAccountInfo.getAuthorizationCode());
                     return;
                 }
-                a(-202, getString(R.string.obfuscated_res_0x7f0f1082));
+                a(-202, getString(R.string.obfuscated_res_0x7f0f1094));
                 String str3 = o;
                 Log.i(str3, "signIn failed: " + parseAuthResultFromIntent.getException().getStatusCode());
                 return;
             }
-            a(-202, getString(R.string.obfuscated_res_0x7f0f108e));
-        }
-    }
-
-    @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.social.SocialLoginBase, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            super.onCreate(bundle);
-            setupViews();
-        }
-    }
-
-    @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
-    public void setupViews() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.setupViews();
-            setTitleText(R.string.obfuscated_res_0x7f0f1096);
-            try {
-                e();
-            } catch (Exception e) {
-                e.printStackTrace();
-                finish();
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65538, this, i, str) == null) {
-            if (((BaseSSOLoginActivity) this).g == 2001) {
-                Intent intent = new Intent();
-                intent.putExtra("result_code", i);
-                intent.putExtra("result_msg", str);
-                setResult(1002, intent);
-            } else if (CoreViewRouter.getInstance().getWebAuthListener() != null) {
-                ((BaseSSOLoginActivity) this).h.setResultCode(i);
-                ((BaseSSOLoginActivity) this).h.setResultMsg(str);
-                CoreViewRouter.getInstance().getWebAuthListener().onFailure(((BaseSSOLoginActivity) this).h);
-                CoreViewRouter.getInstance().release();
-            }
-            finish();
+            a(-202, getString(R.string.obfuscated_res_0x7f0f10a0));
         }
     }
 }

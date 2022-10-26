@@ -20,7 +20,7 @@ public class PushConfiguration {
     public PushChannelRegion mRegion;
 
     /* loaded from: classes8.dex */
-    public static class PushConfigurationBuilder {
+    public class PushConfigurationBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean mGeoEnable;

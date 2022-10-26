@@ -1,6 +1,5 @@
 package com.bumptech.glide.load.resource.file;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,9 +11,20 @@ import com.bumptech.glide.load.ResourceDecoder;
 import com.bumptech.glide.load.engine.Resource;
 import java.io.File;
 /* loaded from: classes7.dex */
-public class FileDecoder implements ResourceDecoder<File, File> {
+public class FileDecoder implements ResourceDecoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.bumptech.glide.load.ResourceDecoder
+    public boolean handles(File file, Options options) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, file, options)) == null) {
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
 
     public FileDecoder() {
         Interceptable interceptable = $ic;
@@ -32,20 +42,12 @@ public class FileDecoder implements ResourceDecoder<File, File> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.ResourceDecoder
-    public boolean handles(@NonNull File file, @NonNull Options options) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, file, options)) == null) {
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.bumptech.glide.load.ResourceDecoder
-    public Resource<File> decode(@NonNull File file, int i, int i2, @NonNull Options options) {
+    public Resource decode(File file, int i, int i2, Options options) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{file, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) ? new FileResource(file) : (Resource) invokeCommon.objValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{file, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) {
+            return new FileResource(file);
+        }
+        return (Resource) invokeCommon.objValue;
     }
 }

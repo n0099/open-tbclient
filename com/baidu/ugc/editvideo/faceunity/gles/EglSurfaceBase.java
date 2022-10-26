@@ -6,7 +6,7 @@ import android.opengl.EGLSurface;
 import android.opengl.GLES20;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.qg9;
+import com.baidu.tieba.ih9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -74,12 +74,29 @@ public class EglSurfaceBase {
         }
     }
 
+    public void makeCurrentReadFrom(EglSurfaceBase eglSurfaceBase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, eglSurfaceBase) == null) {
+            this.mEglCore.makeCurrent(this.mEGLSurface, eglSurfaceBase.mEGLSurface);
+        }
+    }
+
+    public void setPresentationTime(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+            this.mEglCore.setPresentationTime(this.mEGLSurface, j);
+        }
+    }
+
     public int getHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             int i = this.mHeight;
-            return i < 0 ? this.mEglCore.querySurface(this.mEGLSurface, 12374) : i;
+            if (i < 0) {
+                return this.mEglCore.querySurface(this.mEGLSurface, 12374);
+            }
+            return i;
         }
         return invokeV.intValue;
     }
@@ -89,7 +106,10 @@ public class EglSurfaceBase {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             int i = this.mWidth;
-            return i < 0 ? this.mEglCore.querySurface(this.mEGLSurface, 12375) : i;
+            if (i < 0) {
+                return this.mEglCore.querySurface(this.mEGLSurface, 12375);
+            }
+            return i;
         }
         return invokeV.intValue;
     }
@@ -98,13 +118,6 @@ public class EglSurfaceBase {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.mEglCore.makeCurrent(this.mEGLSurface);
-        }
-    }
-
-    public void makeCurrentReadFrom(EglSurfaceBase eglSurfaceBase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, eglSurfaceBase) == null) {
-            this.mEglCore.makeCurrent(this.mEGLSurface, eglSurfaceBase.mEGLSurface);
         }
     }
 
@@ -118,63 +131,55 @@ public class EglSurfaceBase {
         }
     }
 
-    public void saveFrame(File file) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeL(1048583, this, file) != null) {
-            return;
-        }
-        if (this.mEglCore.isCurrent(this.mEGLSurface)) {
-            String file2 = file.toString();
-            int width = getWidth();
-            int height = getHeight();
-            ByteBuffer allocateDirect = ByteBuffer.allocateDirect(width * height * 4);
-            allocateDirect.order(ByteOrder.LITTLE_ENDIAN);
-            GLES20.glReadPixels(0, 0, width, height, GeneratedTexture.FORMAT, 5121, allocateDirect);
-            GlUtil.checkGlError("glReadPixels");
-            allocateDirect.rewind();
-            BufferedOutputStream bufferedOutputStream = null;
-            try {
-                BufferedOutputStream bufferedOutputStream2 = new BufferedOutputStream(new FileOutputStream(file2));
-                try {
-                    Bitmap createBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
-                    createBitmap.copyPixelsFromBuffer(allocateDirect);
-                    createBitmap.compress(Bitmap.CompressFormat.PNG, 90, bufferedOutputStream2);
-                    createBitmap.recycle();
-                    bufferedOutputStream2.close();
-                    qg9.c("Grafika", "Saved " + width + "x" + height + " frame as '" + file2 + "'");
-                } catch (Throwable th) {
-                    th = th;
-                    bufferedOutputStream = bufferedOutputStream2;
-                    if (bufferedOutputStream != null) {
-                        bufferedOutputStream.close();
-                    }
-                    throw th;
-                }
-            } catch (Throwable th2) {
-                th = th2;
-            }
-        } else {
-            throw new RuntimeException("Expected EGL context/surface is not current");
-        }
-    }
-
-    public void setPresentationTime(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
-            this.mEglCore.setPresentationTime(this.mEGLSurface, j);
-        }
-    }
-
     public boolean swapBuffers() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             boolean swapBuffers = this.mEglCore.swapBuffers(this.mEGLSurface);
             if (!swapBuffers) {
-                qg9.c("Grafika", "WARNING: swapBuffers() failed");
+                ih9.c("Grafika", "WARNING: swapBuffers() failed");
             }
             return swapBuffers;
         }
         return invokeV.booleanValue;
+    }
+
+    public void saveFrame(File file) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, file) == null) {
+            if (this.mEglCore.isCurrent(this.mEGLSurface)) {
+                String file2 = file.toString();
+                int width = getWidth();
+                int height = getHeight();
+                ByteBuffer allocateDirect = ByteBuffer.allocateDirect(width * height * 4);
+                allocateDirect.order(ByteOrder.LITTLE_ENDIAN);
+                GLES20.glReadPixels(0, 0, width, height, GeneratedTexture.FORMAT, 5121, allocateDirect);
+                GlUtil.checkGlError("glReadPixels");
+                allocateDirect.rewind();
+                BufferedOutputStream bufferedOutputStream = null;
+                try {
+                    BufferedOutputStream bufferedOutputStream2 = new BufferedOutputStream(new FileOutputStream(file2));
+                    try {
+                        Bitmap createBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+                        createBitmap.copyPixelsFromBuffer(allocateDirect);
+                        createBitmap.compress(Bitmap.CompressFormat.PNG, 90, bufferedOutputStream2);
+                        createBitmap.recycle();
+                        bufferedOutputStream2.close();
+                        ih9.c("Grafika", "Saved " + width + "x" + height + " frame as '" + file2 + "'");
+                    } catch (Throwable th) {
+                        th = th;
+                        bufferedOutputStream = bufferedOutputStream2;
+                        if (bufferedOutputStream != null) {
+                            bufferedOutputStream.close();
+                        }
+                        throw th;
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                }
+            } else {
+                throw new RuntimeException("Expected EGL context/surface is not current");
+            }
+        }
     }
 }

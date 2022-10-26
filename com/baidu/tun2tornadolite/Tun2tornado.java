@@ -54,6 +54,21 @@ public final class Tun2tornado {
         INSTANCE = new Tun2tornado();
     }
 
+    public final void setNetworkAvailable(long j, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
+        }
+    }
+
+    public final long setNetworkSwitchTo(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) {
+            return 0L;
+        }
+        return invokeJ.longValue;
+    }
+
     public Tun2tornado() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -75,6 +90,13 @@ public final class Tun2tornado {
         }
     }
 
+    public final void stop() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            Engine.INSTANCE.stop();
+        }
+    }
+
     public final void onEvent(long j, String tag, String msg) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), tag, msg}) == null) {
@@ -90,7 +112,7 @@ public final class Tun2tornado {
         }
     }
 
-    public final boolean prepare(List<String> sClientList) {
+    public final boolean prepare(List sClientList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sClientList)) == null) {
@@ -104,6 +126,21 @@ public final class Tun2tornado {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             TornadoLiteRuntime.INSTANCE.setDebug(z);
+        }
+    }
+
+    public final void setLog(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            LogTo.INSTANCE.setDebug(z);
+        }
+    }
+
+    public final void setOperationInterface(AndroidOperationInterface ai) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ai) == null) {
+            Intrinsics.checkNotNullParameter(ai, "ai");
+            Engine.INSTANCE.setAi(ai);
         }
     }
 
@@ -151,36 +188,6 @@ public final class Tun2tornado {
         return invokeLL.booleanValue;
     }
 
-    public final void setLog(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            LogTo.INSTANCE.setDebug(z);
-        }
-    }
-
-    public final void setNetworkAvailable(long j, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
-        }
-    }
-
-    public final long setNetworkSwitchTo(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) {
-            return 0L;
-        }
-        return invokeJ.longValue;
-    }
-
-    public final void setOperationInterface(AndroidOperationInterface ai) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ai) == null) {
-            Intrinsics.checkNotNullParameter(ai, "ai");
-            Engine.INSTANCE.setAi(ai);
-        }
-    }
-
     public final void start(int i, String region, String gameID, String gamePackageName) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), region, gameID, gamePackageName}) == null) {
@@ -188,13 +195,6 @@ public final class Tun2tornado {
             Intrinsics.checkNotNullParameter(gameID, "gameID");
             Intrinsics.checkNotNullParameter(gamePackageName, "gamePackageName");
             Engine.INSTANCE.start(i, region, gameID, gamePackageName);
-        }
-    }
-
-    public final void stop() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            Engine.INSTANCE.stop();
         }
     }
 }

@@ -25,7 +25,13 @@ public final class IconInfo extends Message {
     public final Integer weight;
 
     /* loaded from: classes9.dex */
-    public static final class Builder extends Message.Builder<IconInfo> {
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes9.dex */
+    public final class Builder extends Message.Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String iconUrl;
@@ -77,14 +83,11 @@ public final class IconInfo extends Message {
         public IconInfo build(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) ? new IconInfo(this, z, null) : (IconInfo) invokeZ.objValue;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+                return new IconInfo(this, z, null);
+            }
+            return (IconInfo) invokeZ.objValue;
         }
-    }
-
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
     }
 
     static {
@@ -101,10 +104,6 @@ public final class IconInfo extends Message {
             }
         }
         DEFAULT_WEIGHT = 0;
-    }
-
-    public /* synthetic */ IconInfo(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -150,5 +149,9 @@ public final class IconInfo extends Message {
         this.name = builder.name;
         this.weight = builder.weight;
         this.iconUrl = builder.iconUrl;
+    }
+
+    public /* synthetic */ IconInfo(Builder builder, boolean z, a aVar) {
+        this(builder, z);
     }
 }

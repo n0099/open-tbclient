@@ -5,8 +5,6 @@ import android.content.res.Resources;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -22,7 +20,7 @@ public final class WrappedDrawableState extends Drawable.ConstantState {
     public ColorStateList mTint;
     public PorterDuff.Mode mTintMode;
 
-    public WrappedDrawableState(@Nullable WrappedDrawableState wrappedDrawableState) {
+    public WrappedDrawableState(WrappedDrawableState wrappedDrawableState) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -50,32 +48,45 @@ public final class WrappedDrawableState extends Drawable.ConstantState {
     public boolean canConstantState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mDrawableState != null : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.mDrawableState != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // android.graphics.drawable.Drawable.ConstantState
     public int getChangingConfigurations() {
         InterceptResult invokeV;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int i = this.mChangingConfigurations;
+            int i2 = this.mChangingConfigurations;
             Drawable.ConstantState constantState = this.mDrawableState;
-            return i | (constantState != null ? constantState.getChangingConfigurations() : 0);
+            if (constantState != null) {
+                i = constantState.getChangingConfigurations();
+            } else {
+                i = 0;
+            }
+            return i2 | i;
         }
         return invokeV.intValue;
     }
 
     @Override // android.graphics.drawable.Drawable.ConstantState
-    @NonNull
     public Drawable newDrawable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? newDrawable(null) : (Drawable) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return newDrawable(null);
+        }
+        return (Drawable) invokeV.objValue;
     }
 
     @Override // android.graphics.drawable.Drawable.ConstantState
-    @NonNull
-    public Drawable newDrawable(@Nullable Resources resources) {
+    public Drawable newDrawable(Resources resources) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, resources)) == null) {

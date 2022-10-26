@@ -15,13 +15,13 @@ public final class CryptoOptions {
 
     /* renamed from: org.webrtc.CryptoOptions$1  reason: invalid class name */
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes8.dex */
-    public static class Builder {
+    public class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean enableAes128Sha1_32CryptoCipher;
@@ -29,14 +29,31 @@ public final class CryptoOptions {
         public boolean enableGcmCryptoSuites;
         public boolean requireFrameEncryption;
 
-        public /* synthetic */ Builder(AnonymousClass1 anonymousClass1) {
-            this();
+        public Builder() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
 
         public CryptoOptions createCryptoOptions() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new CryptoOptions(this.enableGcmCryptoSuites, this.enableAes128Sha1_32CryptoCipher, this.enableEncryptedRtpHeaderExtensions, this.requireFrameEncryption, null) : (CryptoOptions) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new CryptoOptions(this.enableGcmCryptoSuites, this.enableAes128Sha1_32CryptoCipher, this.enableEncryptedRtpHeaderExtensions, this.requireFrameEncryption, null);
+            }
+            return (CryptoOptions) invokeV.objValue;
+        }
+
+        public /* synthetic */ Builder(AnonymousClass1 anonymousClass1) {
+            this();
         }
 
         public Builder setEnableAes128Sha1_32CryptoCipher(boolean z) {
@@ -78,20 +95,6 @@ public final class CryptoOptions {
             }
             return (Builder) invokeZ.objValue;
         }
-
-        public Builder() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
     }
 
     /* loaded from: classes8.dex */
@@ -100,17 +103,6 @@ public final class CryptoOptions {
         public transient /* synthetic */ FieldHolder $fh;
         public final boolean requireFrameEncryption;
         public final /* synthetic */ CryptoOptions this$0;
-
-        public /* synthetic */ SFrame(CryptoOptions cryptoOptions, boolean z, AnonymousClass1 anonymousClass1) {
-            this(cryptoOptions, z);
-        }
-
-        @CalledByNative("SFrame")
-        public boolean getRequireFrameEncryption() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.requireFrameEncryption : invokeV.booleanValue;
-        }
 
         public SFrame(CryptoOptions cryptoOptions, boolean z) {
             Interceptable interceptable = $ic;
@@ -130,6 +122,19 @@ public final class CryptoOptions {
             this.this$0 = cryptoOptions;
             this.requireFrameEncryption = z;
         }
+
+        public /* synthetic */ SFrame(CryptoOptions cryptoOptions, boolean z, AnonymousClass1 anonymousClass1) {
+            this(cryptoOptions, z);
+        }
+
+        public boolean getRequireFrameEncryption() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.requireFrameEncryption;
+            }
+            return invokeV.booleanValue;
+        }
     }
 
     /* loaded from: classes8.dex */
@@ -140,31 +145,6 @@ public final class CryptoOptions {
         public final boolean enableEncryptedRtpHeaderExtensions;
         public final boolean enableGcmCryptoSuites;
         public final /* synthetic */ CryptoOptions this$0;
-
-        public /* synthetic */ Srtp(CryptoOptions cryptoOptions, boolean z, boolean z2, boolean z3, AnonymousClass1 anonymousClass1) {
-            this(cryptoOptions, z, z2, z3);
-        }
-
-        @CalledByNative("Srtp")
-        public boolean getEnableAes128Sha1_32CryptoCipher() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.enableAes128Sha1_32CryptoCipher : invokeV.booleanValue;
-        }
-
-        @CalledByNative("Srtp")
-        public boolean getEnableEncryptedRtpHeaderExtensions() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.enableEncryptedRtpHeaderExtensions : invokeV.booleanValue;
-        }
-
-        @CalledByNative("Srtp")
-        public boolean getEnableGcmCryptoSuites() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.enableGcmCryptoSuites : invokeV.booleanValue;
-        }
 
         public Srtp(CryptoOptions cryptoOptions, boolean z, boolean z2, boolean z3) {
             Interceptable interceptable = $ic;
@@ -186,30 +166,37 @@ public final class CryptoOptions {
             this.enableAes128Sha1_32CryptoCipher = z2;
             this.enableEncryptedRtpHeaderExtensions = z3;
         }
-    }
 
-    public /* synthetic */ CryptoOptions(boolean z, boolean z2, boolean z3, boolean z4, AnonymousClass1 anonymousClass1) {
-        this(z, z2, z3, z4);
-    }
+        public /* synthetic */ Srtp(CryptoOptions cryptoOptions, boolean z, boolean z2, boolean z3, AnonymousClass1 anonymousClass1) {
+            this(cryptoOptions, z, z2, z3);
+        }
 
-    public static Builder builder() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new Builder(null) : (Builder) invokeV.objValue;
-    }
+        public boolean getEnableAes128Sha1_32CryptoCipher() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.enableAes128Sha1_32CryptoCipher;
+            }
+            return invokeV.booleanValue;
+        }
 
-    @CalledByNative
-    public SFrame getSFrame() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.sframe : (SFrame) invokeV.objValue;
-    }
+        public boolean getEnableEncryptedRtpHeaderExtensions() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.enableEncryptedRtpHeaderExtensions;
+            }
+            return invokeV.booleanValue;
+        }
 
-    @CalledByNative
-    public Srtp getSrtp() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.srtp : (Srtp) invokeV.objValue;
+        public boolean getEnableGcmCryptoSuites() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.enableGcmCryptoSuites;
+            }
+            return invokeV.booleanValue;
+        }
     }
 
     public CryptoOptions(boolean z, boolean z2, boolean z3, boolean z4) {
@@ -229,5 +216,36 @@ public final class CryptoOptions {
         }
         this.srtp = new Srtp(this, z, z2, z3, null);
         this.sframe = new SFrame(this, z4, null);
+    }
+
+    public /* synthetic */ CryptoOptions(boolean z, boolean z2, boolean z3, boolean z4, AnonymousClass1 anonymousClass1) {
+        this(z, z2, z3, z4);
+    }
+
+    public static Builder builder() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new Builder(null);
+        }
+        return (Builder) invokeV.objValue;
+    }
+
+    public SFrame getSFrame() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.sframe;
+        }
+        return (SFrame) invokeV.objValue;
+    }
+
+    public Srtp getSrtp() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.srtp;
+        }
+        return (Srtp) invokeV.objValue;
     }
 }

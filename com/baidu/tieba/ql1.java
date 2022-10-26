@@ -1,11 +1,13 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
 /* loaded from: classes5.dex */
 public class ql1 implements un1 {
     public static /* synthetic */ Interceptable $ic;
@@ -26,19 +28,28 @@ public class ql1 implements un1 {
     }
 
     @Override // com.baidu.tieba.un1
-    public float a() {
-        InterceptResult invokeV;
+    public long a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0.0f;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            return h02.b().a;
         }
-        return invokeV.floatValue;
+        return invokeL.longValue;
     }
 
     @Override // com.baidu.tieba.un1
-    public String processUrl(String str) {
-        InterceptResult invokeL;
+    public void b(Context context, String str, fi3 fi3Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? h02.w(str, true) : (String) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, fi3Var) == null) {
+            mq1.d(str, fi3Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.un1
+    public void c(Context context, JSONArray jSONArray, fi3 fi3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, jSONArray, fi3Var) == null) {
+            mq1.e(jSONArray, fi3Var);
+        }
     }
 }

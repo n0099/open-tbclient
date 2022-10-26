@@ -1,13 +1,12 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.player.event.StatisticsEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class rt0 extends ot0 {
+public class rt0 extends vt0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,78 +24,28 @@ public class rt0 extends ot0 {
         }
     }
 
-    public void d(int i, int i2, Object obj) {
+    public static vt0 w(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, obj) == null) {
-            ut0 w = qt0.w(StatisticsEvent.ACTION_PLAYER_ERROR);
-            w.n(2, String.valueOf(obj));
-            w.n(4, Integer.valueOf(i2));
-            c(w);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            vt0 m = vt0.m(str, 6);
+            m.u(1);
+            m.s(1);
+            return m;
         }
+        return (vt0) invokeL.objValue;
     }
 
-    public void e(int i, int i2, Object obj) {
-        ut0 w;
+    @Override // com.baidu.tieba.vt0
+    public boolean b(wu0 wu0Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, obj) == null) {
-            if (i == 701) {
-                w = qt0.w(StatisticsEvent.ACTION_BUFFER_START);
-            } else if (i == 702) {
-                w = qt0.w(StatisticsEvent.ACTION_BUFFER_END);
-            } else if (i == 904 || i == 956) {
-                w = qt0.w(StatisticsEvent.ACTION_PLAYER_FIRST_FRAME_DISPLAY);
-                w.n(2, String.valueOf(obj));
-            } else if (i == 10009) {
-                w = qt0.w("statistics_player_carlton");
-                w.n(2, String.valueOf(obj));
-            } else if (i != 11004) {
-                w = i != 11005 ? null : qt0.w(StatisticsEvent.ACTION_ERROR_RETRY_END);
-            } else {
-                w = qt0.w(StatisticsEvent.ACTION_ERROR_RETRY_START);
-                w.n(4, Integer.valueOf(i2));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, wu0Var)) == null) {
+            if (1 != wu0Var.getType()) {
+                return true;
             }
-            if (w != null) {
-                c(w);
-            }
+            return false;
         }
-    }
-
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            ut0 w = qt0.w(StatisticsEvent.ACTION_PLAYER_COMPLETE);
-            w.n(1, Integer.valueOf(i));
-            c(w);
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            c(qt0.w(StatisticsEvent.ACTION_PLAYER_PAUSE));
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            c(qt0.w(StatisticsEvent.ACTION_PLAYER_RESUME));
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            c(qt0.w(StatisticsEvent.ACTION_PLAYER_START));
-        }
-    }
-
-    public void j(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            ut0 w = qt0.w(StatisticsEvent.ACTION_PLAYER_STOP);
-            w.n(1, Integer.valueOf(i));
-            c(w);
-        }
+        return invokeL.booleanValue;
     }
 }

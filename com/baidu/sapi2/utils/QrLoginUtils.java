@@ -38,27 +38,29 @@ public class QrLoginUtils implements NoProguard {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return SapiContext.getInstance().getCurrentAccount() == null ? "-1" : String.format(SapiContext.getInstance().getJoinQrLoginPrompt(), URLDecoder.decode(SapiUtils.urlParamsToMap(str).get("appName")));
+            if (SapiContext.getInstance().getCurrentAccount() == null) {
+                return "-1";
+            }
+            return String.format(SapiContext.getInstance().getJoinQrLoginPrompt(), URLDecoder.decode((String) SapiUtils.urlParamsToMap(str).get("appName")));
         }
         return (String) invokeL.objValue;
     }
 
     public static boolean isJoinQrLoginSchema(String str) {
         InterceptResult invokeL;
-        String url;
-        StringBuilder sb;
+        URL url;
+        String url2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             try {
-                URL url2 = new URL(str);
-                url = ServiceManager.getInstance().getIsAccountManager().getConfignation().getEnvironment().getURL(true);
-                sb = new StringBuilder();
-                sb.append(url2.getProtocol());
-                sb.append("://");
-                sb.append(url2.getHost());
+                url = new URL(str);
+                url2 = ServiceManager.getInstance().getIsAccountManager().getConfignation().getEnvironment().getURL(true);
             } catch (MalformedURLException unused) {
             }
-            return url.equals(sb.toString()) && !TextUtils.isEmpty(str) && str.contains("sign") && str.contains("/v2/api/qrcode") && str.contains("appName");
+            if (!url2.equals(url.getProtocol() + "://" + url.getHost()) || TextUtils.isEmpty(str) || !str.contains("sign") || !str.contains("/v2/api/qrcode") || !str.contains("appName")) {
+                return false;
+            }
+            return true;
         }
         return invokeL.booleanValue;
     }

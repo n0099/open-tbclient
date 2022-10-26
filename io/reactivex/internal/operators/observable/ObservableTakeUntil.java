@@ -13,20 +13,20 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.observers.SerializedObserver;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes8.dex */
-public final class ObservableTakeUntil<T, U> extends AbstractObservableWithUpstream<T, T> {
+public final class ObservableTakeUntil extends AbstractObservableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ObservableSource<? extends U> other;
+    public final ObservableSource other;
 
     /* loaded from: classes8.dex */
-    public final class TakeUntil implements Observer<U> {
+    public final class TakeUntil implements Observer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ArrayCompositeDisposable frc;
-        public final SerializedObserver<T> serial;
+        public final SerializedObserver serial;
         public final /* synthetic */ ObservableTakeUntil this$0;
 
-        public TakeUntil(ObservableTakeUntil observableTakeUntil, ArrayCompositeDisposable arrayCompositeDisposable, SerializedObserver<T> serializedObserver) {
+        public TakeUntil(ObservableTakeUntil observableTakeUntil, ArrayCompositeDisposable arrayCompositeDisposable, SerializedObserver serializedObserver) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -65,9 +65,9 @@ public final class ObservableTakeUntil<T, U> extends AbstractObservableWithUpstr
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(U u) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, u) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
                 this.frc.dispose();
                 this.serial.onComplete();
             }
@@ -83,15 +83,15 @@ public final class ObservableTakeUntil<T, U> extends AbstractObservableWithUpstr
     }
 
     /* loaded from: classes8.dex */
-    public static final class TakeUntilObserver<T> extends AtomicBoolean implements Observer<T> {
+    public final class TakeUntilObserver extends AtomicBoolean implements Observer {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3451719290311127173L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer<? super T> actual;
+        public final Observer actual;
         public final ArrayCompositeDisposable frc;
         public Disposable s;
 
-        public TakeUntilObserver(Observer<? super T> observer, ArrayCompositeDisposable arrayCompositeDisposable) {
+        public TakeUntilObserver(Observer observer, ArrayCompositeDisposable arrayCompositeDisposable) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -129,10 +129,10 @@ public final class ObservableTakeUntil<T, U> extends AbstractObservableWithUpstr
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-                this.actual.onNext(t);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+                this.actual.onNext(obj);
             }
         }
 
@@ -147,7 +147,7 @@ public final class ObservableTakeUntil<T, U> extends AbstractObservableWithUpstr
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableTakeUntil(ObservableSource<T> observableSource, ObservableSource<? extends U> observableSource2) {
+    public ObservableTakeUntil(ObservableSource observableSource, ObservableSource observableSource2) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -168,7 +168,7 @@ public final class ObservableTakeUntil<T, U> extends AbstractObservableWithUpstr
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer<? super T> observer) {
+    public void subscribeActual(Observer observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             SerializedObserver serializedObserver = new SerializedObserver(observer);

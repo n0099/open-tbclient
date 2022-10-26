@@ -1,6 +1,5 @@
 package com.baidu.tieba.frs.itemtab.card;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Point;
@@ -17,8 +16,6 @@ import android.view.ViewParent;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.adp.framework.MessageManager;
@@ -42,14 +39,14 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.switchs.WorkIntroSwitch;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.hv4;
-import com.baidu.tieba.op6;
-import com.baidu.tieba.tx4;
+import com.baidu.tieba.bz4;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.nv4;
 import com.baidu.tieba.video.VideoItemData;
+import com.baidu.tieba.vp6;
 import com.baidu.tieba.w9;
-import com.baidu.tieba.wy4;
-import com.baidu.tieba.xx;
+import com.baidu.tieba.yx;
+import com.baidu.tieba.zx4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -58,99 +55,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class CardItemHotVideoLayout extends LinearLayout implements xx {
+public class CardItemHotVideoLayout extends LinearLayout implements yx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public EMTextView a;
     public BdRecyclerView b;
     public c c;
-    public List<ThreadData> d;
+    public List d;
     public final Point e;
 
     /* loaded from: classes4.dex */
-    public class a extends RecyclerView.ItemDecoration {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CardItemHotVideoLayout a;
-
-        public a(CardItemHotVideoLayout cardItemHotVideoLayout) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cardItemHotVideoLayout};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = cardItemHotVideoLayout;
-        }
-
-        @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
-        public void getItemOffsets(@NonNull Rect rect, int i, @NonNull RecyclerView recyclerView) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, rect, i, recyclerView) == null) {
-                if (i != 0) {
-                    if (i == this.a.d.size() - 1) {
-                        rect.set(0, 0, ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds19), 0);
-                        return;
-                    } else {
-                        rect.set(0, 0, ej.f(this.a.getContext(), R.dimen.M_W_X005), 0);
-                        return;
-                    }
-                }
-                rect.set(ej.f(this.a.getContext(), R.dimen.M_W_X005), 0, ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds19), 0);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b implements BdRecyclerView.i {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CardItemHotVideoLayout a;
-
-        public b(CardItemHotVideoLayout cardItemHotVideoLayout) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cardItemHotVideoLayout};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = cardItemHotVideoLayout;
-        }
-
-        @Override // com.baidu.adp.widget.ListView.BdRecyclerView.i
-        public void b(ViewGroup viewGroup, View view2, Object obj, int i, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{viewGroup, view2, obj, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                VideoItemData videoItemData = new VideoItemData();
-                videoItemData.buildWithThreadData((ThreadData) this.a.d.get(i));
-                VideoPlayActivityConfig videoPlayActivityConfig = new VideoPlayActivityConfig(this.a.getContext(), Arrays.asList(videoItemData), 0, null, "frs");
-                videoPlayActivityConfig.setVideoShowIndex(i);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, videoPlayActivityConfig));
-                wy4 wy4Var = new wy4(12, i + 1);
-                wy4Var.p(videoItemData.post_id);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, wy4Var));
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class c extends RecyclerView.Adapter<d> {
+    public class c extends RecyclerView.Adapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CardItemHotVideoLayout a;
@@ -190,9 +105,9 @@ public class CardItemHotVideoLayout extends LinearLayout implements xx {
                     VideoPlayActivityConfig videoPlayActivityConfig = new VideoPlayActivityConfig(this.b.a.getContext(), Arrays.asList(videoItemData), 0, null, "frs");
                     videoPlayActivityConfig.setVideoShowIndex(this.a);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, videoPlayActivityConfig));
-                    wy4 wy4Var = new wy4(12, this.a + 1);
-                    wy4Var.p(videoItemData.post_id);
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, wy4Var));
+                    bz4 bz4Var = new bz4(12, this.a + 1);
+                    bz4Var.p(videoItemData.post_id);
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, bz4Var));
                 }
             }
         }
@@ -218,27 +133,25 @@ public class CardItemHotVideoLayout extends LinearLayout implements xx {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         /* renamed from: d */
-        public void onBindViewHolder(@NonNull d dVar, int i) {
+        public void onBindViewHolder(d dVar, int i) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048576, this, dVar, i) == null) || ListUtils.getItem(this.a.d, i) == null) {
-                return;
-            }
-            dVar.a((ThreadData) ListUtils.getItem(this.a.d, i), i);
-            dVar.itemView.setOnClickListener(new a(this, i));
-            if (TbSingleton.getInstance().isItemTabVisible) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new wy4(11, i + 1)));
+            if ((interceptable == null || interceptable.invokeLI(1048576, this, dVar, i) == null) && ListUtils.getItem(this.a.d, i) != null) {
+                dVar.a((ThreadData) ListUtils.getItem(this.a.d, i), i);
+                dVar.itemView.setOnClickListener(new a(this, i));
+                if (TbSingleton.getInstance().isItemTabVisible) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new bz4(11, i + 1)));
+                }
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-        @NonNull
         /* renamed from: e */
-        public d onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        public d onCreateViewHolder(ViewGroup viewGroup, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i)) == null) {
-                d dVar = new d(this.a, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d032c, (ViewGroup) null));
+                d dVar = new d(this.a, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d032b, (ViewGroup) null));
                 dVar.b(TbadkCoreApplication.getInst().getSkinType());
                 return dVar;
             }
@@ -307,9 +220,9 @@ public class CardItemHotVideoLayout extends LinearLayout implements xx {
                     VideoPlayActivityConfig videoPlayActivityConfig = new VideoPlayActivityConfig(this.b.h.getContext(), Arrays.asList(videoItemData), 0, null, "frs");
                     videoPlayActivityConfig.setVideoShowIndex(this.a);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, videoPlayActivityConfig));
-                    wy4 wy4Var = new wy4(12, this.a + 1);
-                    wy4Var.p(videoItemData.post_id);
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, wy4Var));
+                    bz4 bz4Var = new bz4(12, this.a + 1);
+                    bz4Var.p(videoItemData.post_id);
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, bz4Var));
                 }
             }
         }
@@ -346,22 +259,22 @@ public class CardItemHotVideoLayout extends LinearLayout implements xx {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
                     TextView textView = (TextView) view2;
-                    if (motionEvent.getAction() != 1) {
-                        return CardItemHotVideoLayout.super.onTouchEvent(motionEvent);
+                    if (motionEvent.getAction() == 1) {
+                        int x = ((int) motionEvent.getX()) - textView.getTotalPaddingLeft();
+                        int y = ((int) motionEvent.getY()) - textView.getTotalPaddingTop();
+                        int scrollX = x + textView.getScrollX();
+                        int scrollY = y + textView.getScrollY();
+                        Layout layout = textView.getLayout();
+                        int offsetForHorizontal = layout.getOffsetForHorizontal(layout.getLineForVertical(scrollY), scrollX);
+                        ClickableSpan[] clickableSpanArr = (ClickableSpan[]) this.a.getSpans(offsetForHorizontal, offsetForHorizontal, ClickableSpan.class);
+                        if (clickableSpanArr.length != 0) {
+                            clickableSpanArr[0].onClick(textView);
+                            return true;
+                        }
+                        this.b.h.performClick();
+                        return false;
                     }
-                    int x = ((int) motionEvent.getX()) - textView.getTotalPaddingLeft();
-                    int y = ((int) motionEvent.getY()) - textView.getTotalPaddingTop();
-                    int scrollX = x + textView.getScrollX();
-                    int scrollY = y + textView.getScrollY();
-                    Layout layout = textView.getLayout();
-                    int offsetForHorizontal = layout.getOffsetForHorizontal(layout.getLineForVertical(scrollY), scrollX);
-                    ClickableSpan[] clickableSpanArr = (ClickableSpan[]) this.a.getSpans(offsetForHorizontal, offsetForHorizontal, ClickableSpan.class);
-                    if (clickableSpanArr.length != 0) {
-                        clickableSpanArr[0].onClick(textView);
-                        return true;
-                    }
-                    this.b.h.performClick();
-                    return false;
+                    return CardItemHotVideoLayout.super.onTouchEvent(motionEvent);
                 }
                 return invokeLL.booleanValue;
             }
@@ -389,19 +302,19 @@ public class CardItemHotVideoLayout extends LinearLayout implements xx {
             }
 
             @Override // android.text.style.ClickableSpan
-            public void onClick(@NonNull View view2) {
+            public void onClick(View view2) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                     Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
                     if (currentActivity instanceof TbPageContextSupport) {
-                        UrlManager.getInstance().dealOneLink((TbPageContext<?>) ((TbPageContextSupport) currentActivity).getPageContext(), new String[]{TbConfig.URL_WORKS_INFO}, true);
+                        UrlManager.getInstance().dealOneLink(((TbPageContextSupport) currentActivity).getPageContext(), new String[]{TbConfig.URL_WORKS_INFO}, true);
                     }
                 }
             }
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(@NonNull CardItemHotVideoLayout cardItemHotVideoLayout, View view2) {
+        public d(CardItemHotVideoLayout cardItemHotVideoLayout, View view2) {
             super(view2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -419,28 +332,27 @@ public class CardItemHotVideoLayout extends LinearLayout implements xx {
                 }
             }
             this.h = cardItemHotVideoLayout;
-            TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090b70);
+            TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090b7a);
             this.a = tbImageView;
             tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             this.a.setConrers(15);
             this.a.setRadiusById(R.string.J_X05);
             this.a.setDrawCorner(true);
             this.a.setPageId(w9.a(view2.getContext()).getUniqueId());
-            this.g = view2.findViewById(R.id.obfuscated_res_0x7f090b71);
-            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090b72);
-            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090b73);
-            this.d = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090b74);
-            this.e = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090b6f);
-            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b75);
+            this.g = view2.findViewById(R.id.obfuscated_res_0x7f090b7b);
+            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090b7c);
+            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090b7d);
+            this.d = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090b7e);
+            this.e = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090b79);
+            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b7f);
         }
 
-        @SuppressLint({"ClickableViewAccessibility"})
         public void a(ThreadData threadData, int i) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048576, this, threadData, i) == null) || threadData == null) {
+            if ((interceptable != null && interceptable.invokeLI(1048576, this, threadData, i) != null) || threadData == null) {
                 return;
             }
-            this.a.K(threadData.getThreadVideoInfo().thumbnail_url, 10, false);
+            this.a.L(threadData.getThreadVideoInfo().thumbnail_url, 10, false);
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(threadData.getTitleText());
             if (threadData.isDisplayHighQualityPrefix()) {
                 c(spannableStringBuilder);
@@ -456,15 +368,15 @@ public class CardItemHotVideoLayout extends LinearLayout implements xx {
         public void b(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                SkinManager.setImageResource(this.b, R.drawable.obfuscated_res_0x7f080b07);
-                SkinManager.setBackgroundResource(this.c, R.drawable.obfuscated_res_0x7f080812);
-                hv4 d = hv4.d(this.f);
+                SkinManager.setImageResource(this.b, R.drawable.obfuscated_res_0x7f080b16);
+                SkinManager.setBackgroundResource(this.c, R.drawable.obfuscated_res_0x7f080819);
+                nv4 d = nv4.d(this.f);
                 d.z(R.dimen.T_X12);
                 d.v(R.color.CAM_X0105);
-                hv4 d2 = hv4.d(this.e);
+                nv4 d2 = nv4.d(this.e);
                 d2.z(R.dimen.T_X09);
                 d2.v(R.color.CAM_X0101);
-                hv4 d3 = hv4.d(this.d);
+                nv4 d3 = nv4.d(this.d);
                 d3.z(R.dimen.T_X09);
                 d3.v(R.color.CAM_X0101);
                 SkinManager.setBackgroundResource(this.g, R.drawable.obfuscated_res_0x7f08028f);
@@ -473,24 +385,103 @@ public class CardItemHotVideoLayout extends LinearLayout implements xx {
 
         public void c(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, spannableStringBuilder) == null) || spannableStringBuilder == null) {
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, spannableStringBuilder) != null) || spannableStringBuilder == null) {
                 return;
             }
-            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0729);
+            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0735);
             spannableStringBuilder.insert(0, (CharSequence) string);
-            int f = ej.f(TbadkCoreApplication.getInst(), R.dimen.L_X01);
-            int f2 = ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds10);
-            int f3 = ej.f(TbadkCoreApplication.getInst(), R.dimen.T_X10);
-            int f4 = ej.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
-            int f5 = ej.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
-            tx4 tx4Var = new tx4(f, -1, R.color.CAM_X0319, f3, R.color.CAM_X0101, f4, ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds40));
-            tx4Var.b(f2);
-            tx4Var.i(f5);
-            tx4Var.f(true);
+            int f = fj.f(TbadkCoreApplication.getInst(), R.dimen.L_X01);
+            int f2 = fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds10);
+            int f3 = fj.f(TbadkCoreApplication.getInst(), R.dimen.T_X10);
+            int f4 = fj.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
+            int f5 = fj.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
+            zx4 zx4Var = new zx4(f, -1, R.color.CAM_X0319, f3, R.color.CAM_X0101, f4, fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds40));
+            zx4Var.b(f2);
+            zx4Var.i(f5);
+            zx4Var.f(true);
             if (WorkIntroSwitch.isOn()) {
                 spannableStringBuilder.setSpan(new c(this), 0, string.length(), 33);
             }
-            spannableStringBuilder.setSpan(tx4Var, 0, string.length(), 33);
+            spannableStringBuilder.setSpan(zx4Var, 0, string.length(), 33);
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class a extends RecyclerView.ItemDecoration {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CardItemHotVideoLayout a;
+
+        public a(CardItemHotVideoLayout cardItemHotVideoLayout) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cardItemHotVideoLayout};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = cardItemHotVideoLayout;
+        }
+
+        @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
+        public void getItemOffsets(Rect rect, int i, RecyclerView recyclerView) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, rect, i, recyclerView) == null) {
+                if (i == 0) {
+                    rect.set(fj.f(this.a.getContext(), R.dimen.M_W_X005), 0, fj.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds19), 0);
+                } else if (i == this.a.d.size() - 1) {
+                    rect.set(0, 0, fj.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds19), 0);
+                } else {
+                    rect.set(0, 0, fj.f(this.a.getContext(), R.dimen.M_W_X005), 0);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements BdRecyclerView.i {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CardItemHotVideoLayout a;
+
+        public b(CardItemHotVideoLayout cardItemHotVideoLayout) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cardItemHotVideoLayout};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = cardItemHotVideoLayout;
+        }
+
+        @Override // com.baidu.adp.widget.ListView.BdRecyclerView.i
+        public void b(ViewGroup viewGroup, View view2, Object obj, int i, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{viewGroup, view2, obj, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                VideoItemData videoItemData = new VideoItemData();
+                videoItemData.buildWithThreadData((ThreadData) this.a.d.get(i));
+                VideoPlayActivityConfig videoPlayActivityConfig = new VideoPlayActivityConfig(this.a.getContext(), Arrays.asList(videoItemData), 0, null, "frs");
+                videoPlayActivityConfig.setVideoShowIndex(i);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, videoPlayActivityConfig));
+                bz4 bz4Var = new bz4(12, i + 1);
+                bz4Var.p(videoItemData.post_id);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, bz4Var));
+            }
         }
     }
 
@@ -516,86 +507,8 @@ public class CardItemHotVideoLayout extends LinearLayout implements xx {
         c();
     }
 
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            setOrientation(1);
-            EMTextView eMTextView = new EMTextView(getContext());
-            this.a = eMTextView;
-            eMTextView.setGravity(16);
-            this.a.setText(R.string.obfuscated_res_0x7f0f072a);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-            layoutParams.setMargins(ej.f(getContext(), R.dimen.M_W_X005), ej.f(getContext(), R.dimen.tbds32), 0, 0);
-            hv4 d2 = hv4.d(this.a);
-            d2.A(R.string.F_X02);
-            d2.z(R.dimen.T_X07);
-            addView(this.a, layoutParams);
-            BdRecyclerView bdRecyclerView = new BdRecyclerView(getContext());
-            this.b = bdRecyclerView;
-            bdRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
-            this.b.addItemDecoration(new a(this));
-            this.b.setOnItemClickListener(new b(this));
-            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, -2);
-            layoutParams2.setMargins(0, ej.f(getContext(), R.dimen.tbds36), 0, 0);
-            addView(this.b, layoutParams2);
-            c cVar = new c(this);
-            this.c = cVar;
-            this.b.setAdapter(cVar);
-        }
-    }
-
-    @Override // com.baidu.tieba.xx
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
-            this.c.notifyDataSetChanged();
-            hv4.d(this.a).v(R.color.CAM_X0105);
-            hv4 d2 = hv4.d(this);
-            d2.n(R.string.J_X06);
-            d2.f(R.color.CAM_X0205);
-        }
-    }
-
-    @Override // android.view.ViewGroup
-    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
-            if (motionEvent != null) {
-                if (motionEvent.getAction() == 0) {
-                    this.e.set((int) motionEvent.getX(), (int) motionEvent.getY());
-                    if (this.b.getFirstCompletelyVisiblePosition() != 0 && (getContext() instanceof BaseFragmentActivity) && ((BaseFragmentActivity) getContext()).isSwipeBackEnabled()) {
-                        ((BaseFragmentActivity) getContext()).disableSwipeJustOnce();
-                    }
-                } else {
-                    boolean z = false;
-                    if (motionEvent.getAction() == 2) {
-                        boolean z2 = (getContext() instanceof BaseFragmentActivity) && ((BaseFragmentActivity) getContext()).isSwipeBackEnabled();
-                        ViewParent parent = getParent();
-                        if (!z2 && Math.abs(this.e.x - motionEvent.getX()) > Math.abs(this.e.y - motionEvent.getY())) {
-                            z = true;
-                        }
-                        parent.requestDisallowInterceptTouchEvent(z);
-                    } else {
-                        getParent().requestDisallowInterceptTouchEvent(false);
-                    }
-                }
-            }
-            return super.onInterceptTouchEvent(motionEvent);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void setData(op6 op6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, op6Var) == null) {
-            this.d = op6Var.c();
-            this.c.notifyDataSetChanged();
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CardItemHotVideoLayout(Context context, @Nullable AttributeSet attributeSet) {
+    public CardItemHotVideoLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -618,7 +531,7 @@ public class CardItemHotVideoLayout extends LinearLayout implements xx {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CardItemHotVideoLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public CardItemHotVideoLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -638,5 +551,88 @@ public class CardItemHotVideoLayout extends LinearLayout implements xx {
         }
         this.e = new Point();
         c();
+    }
+
+    public void setData(vp6 vp6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, vp6Var) == null) {
+            this.d = vp6Var.c();
+            this.c.notifyDataSetChanged();
+        }
+    }
+
+    @Override // com.baidu.tieba.yx
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
+            this.c.notifyDataSetChanged();
+            nv4.d(this.a).v(R.color.CAM_X0105);
+            nv4 d2 = nv4.d(this);
+            d2.n(R.string.J_X06);
+            d2.f(R.color.CAM_X0205);
+        }
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            setOrientation(1);
+            EMTextView eMTextView = new EMTextView(getContext());
+            this.a = eMTextView;
+            eMTextView.setGravity(16);
+            this.a.setText(R.string.obfuscated_res_0x7f0f0736);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
+            layoutParams.setMargins(fj.f(getContext(), R.dimen.M_W_X005), fj.f(getContext(), R.dimen.tbds32), 0, 0);
+            nv4 d2 = nv4.d(this.a);
+            d2.A(R.string.F_X02);
+            d2.z(R.dimen.T_X07);
+            addView(this.a, layoutParams);
+            BdRecyclerView bdRecyclerView = new BdRecyclerView(getContext());
+            this.b = bdRecyclerView;
+            bdRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
+            this.b.addItemDecoration(new a(this));
+            this.b.setOnItemClickListener(new b(this));
+            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, -2);
+            layoutParams2.setMargins(0, fj.f(getContext(), R.dimen.tbds36), 0, 0);
+            addView(this.b, layoutParams2);
+            c cVar = new c(this);
+            this.c = cVar;
+            this.b.setAdapter(cVar);
+        }
+    }
+
+    @Override // android.view.ViewGroup
+    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
+            if (motionEvent != null) {
+                if (motionEvent.getAction() == 0) {
+                    this.e.set((int) motionEvent.getX(), (int) motionEvent.getY());
+                    if (this.b.getFirstCompletelyVisiblePosition() != 0 && (getContext() instanceof BaseFragmentActivity) && ((BaseFragmentActivity) getContext()).isSwipeBackEnabled()) {
+                        ((BaseFragmentActivity) getContext()).disableSwipeJustOnce();
+                    }
+                } else {
+                    boolean z2 = false;
+                    if (motionEvent.getAction() == 2) {
+                        if ((getContext() instanceof BaseFragmentActivity) && ((BaseFragmentActivity) getContext()).isSwipeBackEnabled()) {
+                            z = true;
+                        } else {
+                            z = false;
+                        }
+                        ViewParent parent = getParent();
+                        if (!z && Math.abs(this.e.x - motionEvent.getX()) > Math.abs(this.e.y - motionEvent.getY())) {
+                            z2 = true;
+                        }
+                        parent.requestDisallowInterceptTouchEvent(z2);
+                    } else {
+                        getParent().requestDisallowInterceptTouchEvent(false);
+                    }
+                }
+            }
+            return super.onInterceptTouchEvent(motionEvent);
+        }
+        return invokeL.booleanValue;
     }
 }

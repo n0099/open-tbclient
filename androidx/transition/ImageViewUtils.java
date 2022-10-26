@@ -1,13 +1,9 @@
 package androidx.transition;
 
-import android.annotation.SuppressLint;
 import android.graphics.Matrix;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.widget.ImageView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -54,7 +50,20 @@ public class ImageViewUtils {
         }
     }
 
-    public static void animateTransform(@NonNull ImageView imageView, @Nullable Matrix matrix) {
+    public static void fetchDrawMatrixField() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65539, null) == null) && !sDrawMatrixFieldFetched) {
+            try {
+                Field declaredField = ImageView.class.getDeclaredField("mDrawMatrix");
+                sDrawMatrixField = declaredField;
+                declaredField.setAccessible(true);
+            } catch (NoSuchFieldException unused) {
+            }
+            sDrawMatrixFieldFetched = true;
+        }
+    }
+
+    public static void animateTransform(ImageView imageView, Matrix matrix) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, imageView, matrix) == null) {
             int i = Build.VERSION.SDK_INT;
@@ -98,23 +107,7 @@ public class ImageViewUtils {
         }
     }
 
-    public static void fetchDrawMatrixField() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65539, null) == null) || sDrawMatrixFieldFetched) {
-            return;
-        }
-        try {
-            Field declaredField = ImageView.class.getDeclaredField("mDrawMatrix");
-            sDrawMatrixField = declaredField;
-            declaredField.setAccessible(true);
-        } catch (NoSuchFieldException unused) {
-        }
-        sDrawMatrixFieldFetched = true;
-    }
-
-    @RequiresApi(21)
-    @SuppressLint({"NewApi"})
-    public static void hiddenAnimateTransform(@NonNull ImageView imageView, @Nullable Matrix matrix) {
+    public static void hiddenAnimateTransform(ImageView imageView, Matrix matrix) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, imageView, matrix) == null) && sTryHiddenAnimateTransform) {
             try {

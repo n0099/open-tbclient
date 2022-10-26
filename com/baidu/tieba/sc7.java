@@ -1,28 +1,62 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.im.message.GroupsByUidLocalMessage;
+import com.baidu.tieba.im.message.ResponseGroupsByUidLocalMessage;
+import com.baidu.tieba.im.message.ResponseGroupsByUidMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class sc7 {
+public class sc7 implements CustomMessageTask.CustomRunnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static long a(long j) {
-        InterceptResult invokeJ;
+    public sc7() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65536, null, j)) == null) ? j * 100 : invokeJ.longValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
-    public static long b(long j) {
-        InterceptResult invokeJ;
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage run(CustomMessage customMessage) {
+        InterceptResult invokeL;
+        String str;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j)) == null) ? j + 1 : invokeJ.longValue;
-    }
-
-    public static long c(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) ? j / 100 : invokeJ.longValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            if (customMessage != null && (customMessage instanceof GroupsByUidLocalMessage)) {
+                if (TbadkCoreApplication.getCurrentAccountObj() != null) {
+                    str = TbadkCoreApplication.getCurrentAccountObj().getID();
+                } else {
+                    str = "";
+                }
+                ou4.f();
+                byte[] bArr = (byte[]) ou4.d("tb.im_entergroup").get(ResponseGroupsByUidMessage.CACHE_KEY_PREFIX + str);
+                ResponseGroupsByUidLocalMessage responseGroupsByUidLocalMessage = new ResponseGroupsByUidLocalMessage();
+                if (bArr != null) {
+                    try {
+                        responseGroupsByUidLocalMessage.decodeInBackGround(2001106, bArr);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+                return responseGroupsByUidLocalMessage;
+            }
+            return null;
+        }
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

@@ -14,11 +14,11 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class StyleTemplatesConfig extends BaseOfflineCompoJsonParse<StyleTemplatesConfig> implements Serializable {
+public class StyleTemplatesConfig extends BaseOfflineCompoJsonParse implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -6279192768068169498L;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<StyleTemplate> styleTemplates;
+    public List styleTemplates;
 
     public StyleTemplatesConfig() {
         Interceptable interceptable = $ic;

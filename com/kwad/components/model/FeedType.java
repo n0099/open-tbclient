@@ -1,6 +1,5 @@
 package com.kwad.components.model;
 
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -80,7 +79,7 @@ public final class FeedType {
         this.type = i2;
     }
 
-    public static boolean checkTypeValid(@NonNull AdTemplate adTemplate) {
+    public static boolean checkTypeValid(AdTemplate adTemplate) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, adTemplate)) == null) {
@@ -95,7 +94,6 @@ public final class FeedType {
         return invokeL.booleanValue;
     }
 
-    @NonNull
     public static FeedType fromInt(int i) {
         InterceptResult invokeI;
         FeedType[] values;

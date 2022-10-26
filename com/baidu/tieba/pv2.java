@@ -1,10 +1,9 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,53 +11,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
+import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public class pv2 implements ei3<HybridUbcFlow> {
+public class pv2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean e;
+    public static final pv2 f;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes5.dex */
-    public class a implements nv2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ UbcFlowEvent a;
-        public final /* synthetic */ UbcFlowEvent b;
-        public final /* synthetic */ pv2 c;
-
-        public a(pv2 pv2Var, UbcFlowEvent ubcFlowEvent, UbcFlowEvent ubcFlowEvent2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pv2Var, ubcFlowEvent, ubcFlowEvent2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = pv2Var;
-            this.a = ubcFlowEvent;
-            this.b = ubcFlowEvent2;
-        }
-
-        @Override // com.baidu.tieba.nv2
-        public boolean a(qv2 qv2Var) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, qv2Var)) == null) {
-                if (qv2Var == null) {
-                    return false;
-                }
-                return this.c.c(qv2Var, this.a, this.b);
-            }
-            return invokeL.booleanValue;
-        }
-    }
+    public final List a;
+    public final Map b;
+    public boolean c;
+    public ov2 d;
 
     static {
         InterceptResult invokeClinit;
@@ -73,7 +41,45 @@ public class pv2 implements ei3<HybridUbcFlow> {
                 return;
             }
         }
-        a = vj1.a;
+        e = wj1.a;
+        f = new pv2();
+    }
+
+    public static pv2 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return f;
+        }
+        return (pv2) invokeV.objValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.c = true;
+            synchronized (this.a) {
+                this.a.clear();
+                this.b.clear();
+            }
+            if (e) {
+                Log.d("MaUpdateRecorder", "done");
+            }
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.c = false;
+            synchronized (this.a) {
+                this.a.clear();
+                this.b.clear();
+            }
+            if (e) {
+                Log.d("MaUpdateRecorder", "reset");
+            }
+        }
     }
 
     public pv2() {
@@ -89,54 +95,107 @@ public class pv2 implements ei3<HybridUbcFlow> {
                 return;
             }
         }
-        ov2.f().g();
-        if (a) {
-            Log.d("MaUpdateReporter", "MaUpdateReporter init - " + System.currentTimeMillis());
-        }
+        this.a = new ArrayList();
+        this.b = new HashMap();
+        this.c = false;
     }
 
-    public final boolean c(@NonNull qv2 qv2Var, @NonNull UbcFlowEvent ubcFlowEvent, @NonNull UbcFlowEvent ubcFlowEvent2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qv2Var, ubcFlowEvent, ubcFlowEvent2)) == null) {
-            long b = qv2Var.b();
-            return b >= ubcFlowEvent.g() && b <= ubcFlowEvent2.g();
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ei3
-    /* renamed from: d */
     public void a(HybridUbcFlow hybridUbcFlow) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hybridUbcFlow) == null) {
-            if (a) {
-                Log.i("MaUpdateReporter", "report: flow=" + hybridUbcFlow);
-            }
-            if (hybridUbcFlow == null) {
-                return;
-            }
-            UbcFlowEvent g = hybridUbcFlow.g("naStart");
-            UbcFlowEvent g2 = hybridUbcFlow.g("na_first_meaningful_paint");
-            if (g != null && g2 != null) {
-                ov2.f().h(new a(this, g, g2));
-                ov2.f().a(hybridUbcFlow);
-                if (a) {
-                    Log.d("MaUpdateReporter", "na_start ts - " + g.g());
-                    Log.d("MaUpdateReporter", "fmp_end ts - " + g2.g());
-                    return;
-                }
-                return;
-            }
-            if (a) {
-                if (g == null) {
-                    Log.w("MaUpdateReporter", "MaUpdateReporter: na_start = null !!!");
-                } else {
-                    Log.w("MaUpdateReporter", "MaUpdateReporter: na_first_meaningful_paint = null !!!");
-                }
-            }
-            ov2.f().c();
+        if ((interceptable != null && interceptable.invokeL(1048576, this, hybridUbcFlow) != null) || hybridUbcFlow == null) {
+            return;
         }
+        JSONArray e2 = e();
+        if (e2 != null && e2.length() > 0) {
+            hybridUbcFlow.D("ma_update_recorder", e2.toString());
+        }
+        c();
+    }
+
+    public void h(ov2 ov2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, ov2Var) == null) {
+            this.d = ov2Var;
+        }
+    }
+
+    public String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (this.c) {
+                return null;
+            }
+            if (e) {
+                Log.d("MaUpdateRecorder", "begin update scope id - " + str);
+            }
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            long currentTimeMillis = System.currentTimeMillis();
+            String str2 = Thread.currentThread().getName() + "-" + UUID.randomUUID().toString();
+            rv2 rv2Var = new rv2(str);
+            rv2Var.a(currentTimeMillis);
+            synchronized (this.a) {
+                this.b.put(str2, rv2Var);
+            }
+            if (e) {
+                Log.d("MaUpdateRecorder", "begin update uni tag - " + str2);
+                Log.d("MaUpdateRecorder", "begin update ts - " + currentTimeMillis);
+            }
+            return str2;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, str) != null) || this.c) {
+            return;
+        }
+        if (e) {
+            Log.d("MaUpdateRecorder", "end update uni tag - " + str);
+        }
+        if (TextUtils.isEmpty(str)) {
+            return;
+        }
+        long currentTimeMillis = System.currentTimeMillis();
+        synchronized (this.a) {
+            rv2 rv2Var = (rv2) this.b.get(str);
+            if (rv2Var != null) {
+                rv2Var.c(currentTimeMillis);
+                this.a.add(rv2Var);
+                this.b.remove(str);
+            }
+        }
+        if (e) {
+            Log.d("MaUpdateRecorder", "end update ts - " + currentTimeMillis);
+        }
+    }
+
+    public final JSONArray e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            JSONArray jSONArray = new JSONArray();
+            synchronized (this.a) {
+                try {
+                    for (rv2 rv2Var : this.a) {
+                        if (rv2Var != null && (this.d == null || this.d.a(rv2Var))) {
+                            jSONArray.put(rv2Var.d());
+                        }
+                    }
+                } catch (Exception e2) {
+                    if (e) {
+                        e2.printStackTrace();
+                    }
+                }
+            }
+            if (e) {
+                Log.d("MaUpdateRecorder", jSONArray.toString());
+            }
+            return jSONArray;
+        }
+        return (JSONArray) invokeV.objValue;
     }
 }

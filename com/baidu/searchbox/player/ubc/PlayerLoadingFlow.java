@@ -1,7 +1,5 @@
 package com.baidu.searchbox.player.ubc;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,6 +16,27 @@ public class PlayerLoadingFlow implements IUbcFlow {
     public transient /* synthetic */ FieldHolder $fh;
     public Flow mFlow;
     public final UBCManager mUBCManager;
+
+    @Override // com.baidu.searchbox.player.ubc.IUbcFlow
+    public void endSlot(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.ubc.IUbcFlow
+    public String getFlowType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? IUbcFlow.TYPE_LOADING_FLOW : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.player.ubc.IUbcFlow
+    public void startSlot(String str, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, str, jSONObject) == null) {
+        }
+    }
 
     public PlayerLoadingFlow() {
         Interceptable interceptable = $ic;
@@ -39,11 +58,10 @@ public class PlayerLoadingFlow implements IUbcFlow {
     public void cancelFlow() {
         Flow flow;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (flow = this.mFlow) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (flow = this.mFlow) != null) {
+            this.mUBCManager.flowCancel(flow);
+            this.mFlow = null;
         }
-        this.mUBCManager.flowCancel(flow);
-        this.mFlow = null;
     }
 
     @Override // com.baidu.searchbox.player.ubc.IUbcFlow
@@ -55,47 +73,27 @@ public class PlayerLoadingFlow implements IUbcFlow {
     }
 
     @Override // com.baidu.searchbox.player.ubc.IUbcFlow
-    public void endSlot(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.ubc.IUbcFlow
-    @Nullable
     public Flow getFlow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mFlow : (Flow) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.player.ubc.IUbcFlow
-    public String getFlowType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? IUbcFlow.TYPE_LOADING_FLOW : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mFlow;
+        }
+        return (Flow) invokeV.objValue;
     }
 
     @Override // com.baidu.searchbox.player.ubc.IUbcFlow
     public void resetFlow() {
         Flow flow;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (flow = this.mFlow) == null) {
-            return;
-        }
-        this.mUBCManager.flowEnd(flow);
-        this.mFlow = null;
-    }
-
-    @Override // com.baidu.searchbox.player.ubc.IUbcFlow
-    public void startSlot(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, jSONObject) == null) {
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (flow = this.mFlow) != null) {
+            this.mUBCManager.flowEnd(flow);
+            this.mFlow = null;
         }
     }
 
     @Override // com.baidu.searchbox.player.ubc.IUbcFlow
-    public void uploadFlow(@NonNull BDVideoPlayerUbcContent bDVideoPlayerUbcContent, @Nullable JSONObject jSONObject, @Nullable JSONObject jSONObject2) {
+    public void uploadFlow(BDVideoPlayerUbcContent bDVideoPlayerUbcContent, JSONObject jSONObject, JSONObject jSONObject2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048583, this, bDVideoPlayerUbcContent, jSONObject, jSONObject2) == null) {
             try {

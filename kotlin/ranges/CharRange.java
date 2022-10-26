@@ -27,14 +27,48 @@ public final class CharRange extends CharProgression implements ClosedRange<Char
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // kotlin.ranges.ClosedRange
+    public Character getEndInclusive() {
+        return Character.valueOf(getLast());
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // kotlin.ranges.ClosedRange
+    public Character getStart() {
+        return Character.valueOf(getFirst());
+    }
+
+    @Override // kotlin.ranges.CharProgression
+    public int hashCode() {
+        if (isEmpty()) {
+            return -1;
+        }
+        return (getFirst() * 31) + getLast();
+    }
+
+    @Override // kotlin.ranges.CharProgression, kotlin.ranges.ClosedRange
+    public boolean isEmpty() {
+        if (Intrinsics.compare((int) getFirst(), (int) getLast()) > 0) {
+            return true;
+        }
+        return false;
+    }
+
+    @Override // kotlin.ranges.CharProgression
+    public String toString() {
+        return getFirst() + IStringUtil.TOP_PATH + getLast();
+    }
+
     public CharRange(char c, char c2) {
         super(c, c2, 1);
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Comparable] */
-    @Override // kotlin.ranges.ClosedRange
-    public /* bridge */ /* synthetic */ boolean contains(Character ch) {
-        return contains(ch.charValue());
+    public boolean contains(char c) {
+        if (Intrinsics.compare((int) getFirst(), (int) c) <= 0 && Intrinsics.compare((int) c, (int) getLast()) <= 0) {
+            return true;
+        }
+        return false;
     }
 
     @Override // kotlin.ranges.CharProgression
@@ -50,39 +84,8 @@ public final class CharRange extends CharProgression implements ClosedRange<Char
         return false;
     }
 
-    @Override // kotlin.ranges.CharProgression
-    public int hashCode() {
-        if (isEmpty()) {
-            return -1;
-        }
-        return (getFirst() * 31) + getLast();
-    }
-
-    @Override // kotlin.ranges.CharProgression, kotlin.ranges.ClosedRange
-    public boolean isEmpty() {
-        return Intrinsics.compare((int) getFirst(), (int) getLast()) > 0;
-    }
-
-    @Override // kotlin.ranges.CharProgression
-    public String toString() {
-        return getFirst() + IStringUtil.TOP_PATH + getLast();
-    }
-
-    public boolean contains(char c) {
-        return Intrinsics.compare((int) getFirst(), (int) c) <= 0 && Intrinsics.compare((int) c, (int) getLast()) <= 0;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
     @Override // kotlin.ranges.ClosedRange
-    public Character getEndInclusive() {
-        return Character.valueOf(getLast());
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
-    @Override // kotlin.ranges.ClosedRange
-    public Character getStart() {
-        return Character.valueOf(getFirst());
+    public /* bridge */ /* synthetic */ boolean contains(Comparable comparable) {
+        return contains(((Character) comparable).charValue());
     }
 }

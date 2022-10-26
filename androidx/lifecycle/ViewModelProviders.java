@@ -1,9 +1,6 @@
 package androidx.lifecycle;
 
 import android.app.Application;
-import androidx.annotation.MainThread;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
@@ -27,7 +24,7 @@ public class ViewModelProviders {
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         @Deprecated
-        public DefaultFactory(@NonNull Application application) {
+        public DefaultFactory(Application application) {
             super(application);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -62,28 +59,18 @@ public class ViewModelProviders {
         }
     }
 
-    @NonNull
-    @MainThread
     @Deprecated
-    public static ViewModelProvider of(@NonNull Fragment fragment) {
+    public static ViewModelProvider of(Fragment fragment) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, fragment)) == null) ? new ViewModelProvider(fragment) : (ViewModelProvider) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, fragment)) == null) {
+            return new ViewModelProvider(fragment);
+        }
+        return (ViewModelProvider) invokeL.objValue;
     }
 
-    @NonNull
-    @MainThread
     @Deprecated
-    public static ViewModelProvider of(@NonNull FragmentActivity fragmentActivity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, fragmentActivity)) == null) ? new ViewModelProvider(fragmentActivity) : (ViewModelProvider) invokeL.objValue;
-    }
-
-    @NonNull
-    @MainThread
-    @Deprecated
-    public static ViewModelProvider of(@NonNull Fragment fragment, @Nullable ViewModelProvider.Factory factory) {
+    public static ViewModelProvider of(Fragment fragment, ViewModelProvider.Factory factory) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, fragment, factory)) == null) {
@@ -95,10 +82,18 @@ public class ViewModelProviders {
         return (ViewModelProvider) invokeLL.objValue;
     }
 
-    @NonNull
-    @MainThread
     @Deprecated
-    public static ViewModelProvider of(@NonNull FragmentActivity fragmentActivity, @Nullable ViewModelProvider.Factory factory) {
+    public static ViewModelProvider of(FragmentActivity fragmentActivity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, fragmentActivity)) == null) {
+            return new ViewModelProvider(fragmentActivity);
+        }
+        return (ViewModelProvider) invokeL.objValue;
+    }
+
+    @Deprecated
+    public static ViewModelProvider of(FragmentActivity fragmentActivity, ViewModelProvider.Factory factory) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, fragmentActivity, factory)) == null) {

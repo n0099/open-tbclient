@@ -11,9 +11,9 @@ import com.baidu.tbadk.core.atomData.HotSelectActivityConfig;
 import com.baidu.tbadk.core.util.CustomToast;
 import com.baidu.tbadk.core.view.spanGroup.SpanGroupEditText;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e15;
-import com.baidu.tieba.mc6;
-import com.baidu.tieba.nc6;
+import com.baidu.tieba.j15;
+import com.baidu.tieba.tc6;
+import com.baidu.tieba.uc6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -24,7 +24,7 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public class a implements nc6.h {
+    public class a implements uc6.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PbFullScreenEditorInputView a;
@@ -47,7 +47,7 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
             this.a = pbFullScreenEditorInputView;
         }
 
-        @Override // com.baidu.tieba.nc6.h
+        @Override // com.baidu.tieba.uc6.h
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
@@ -59,7 +59,7 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
     }
 
     /* loaded from: classes5.dex */
-    public class b implements nc6.h {
+    public class b implements uc6.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PbFullScreenEditorInputView a;
@@ -82,7 +82,7 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
             this.a = pbFullScreenEditorInputView;
         }
 
-        @Override // com.baidu.tieba.nc6.h
+        @Override // com.baidu.tieba.uc6.h
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
@@ -92,7 +92,7 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
     }
 
     /* loaded from: classes5.dex */
-    public class c implements nc6.h {
+    public class c implements uc6.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PbFullScreenEditorInputView a;
@@ -115,7 +115,7 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
             this.a = pbFullScreenEditorInputView;
         }
 
-        @Override // com.baidu.tieba.nc6.h
+        @Override // com.baidu.tieba.uc6.h
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
@@ -147,53 +147,6 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
         k();
     }
 
-    public void j(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || StringUtils.isNull(str)) {
-            return;
-        }
-        getText().insert(getSelectionStart(), HotSelectActivityConfig.HOT_TOPIC_SING + str);
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            setFilters(new InputFilter[]{new InputFilter.LengthFilter(2000)});
-        }
-    }
-
-    public void l(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        nc6.f(getContext(), str, new a(this));
-    }
-
-    public void m(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                nc6.f(getContext(), str, new b(this));
-            }
-            if (TextUtils.isEmpty(str2)) {
-                return;
-            }
-            nc6.f(getContext(), str2, new c(this));
-        }
-    }
-
-    public void n(e15 e15Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, e15Var) == null) {
-            if (mc6.a(getText().toString()) >= 10) {
-                CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1457);
-            } else {
-                nc6.b(getContext(), e15Var, this);
-            }
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbFullScreenEditorInputView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -216,6 +169,18 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
         k();
     }
 
+    public void m(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                uc6.f(getContext(), str, new b(this));
+            }
+            if (!TextUtils.isEmpty(str2)) {
+                uc6.f(getContext(), str2, new c(this));
+            }
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbFullScreenEditorInputView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
@@ -236,5 +201,38 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
             }
         }
         k();
+    }
+
+    public void j(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || StringUtils.isNull(str)) {
+            return;
+        }
+        getText().insert(getSelectionStart(), HotSelectActivityConfig.HOT_TOPIC_SING + str);
+    }
+
+    public void l(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && !TextUtils.isEmpty(str)) {
+            uc6.f(getContext(), str, new a(this));
+        }
+    }
+
+    public void n(j15 j15Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, j15Var) == null) {
+            if (tc6.a(getText().toString()) >= 10) {
+                CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1470);
+            } else {
+                uc6.b(getContext(), j15Var, this);
+            }
+        }
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            setFilters(new InputFilter[]{new InputFilter.LengthFilter(2000)});
+        }
     }
 }

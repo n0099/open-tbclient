@@ -48,49 +48,89 @@ public class DiyEmotionData extends EmotionData {
     public String getBackup() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.backup : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.backup;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.height : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.height;
+        }
+        return invokeV.intValue;
     }
 
     public String getPicUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.picUrl : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.picUrl;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getPid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.pid : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.pid;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getPkgId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.pkgId : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.pkgId;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getThumbnail() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.thumbnail : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.thumbnail;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getUid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.uid : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.uid;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.width : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.width;
+        }
+        return invokeV.intValue;
+    }
+
+    public JSONObject toJSON() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put(EmotionDetailActivityConfig.EMOTION_PIC_ID_KEY, this.pid);
+                return jSONObject;
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return null;
+            }
+        }
+        return (JSONObject) invokeV.objValue;
     }
 
     public void setBackup(String str) {
@@ -147,21 +187,5 @@ public class DiyEmotionData extends EmotionData {
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
             this.width = i;
         }
-    }
-
-    public JSONObject toJSON() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put(EmotionDetailActivityConfig.EMOTION_PIC_ID_KEY, this.pid);
-                return jSONObject;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return null;
-            }
-        }
-        return (JSONObject) invokeV.objValue;
     }
 }

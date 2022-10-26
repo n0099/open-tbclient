@@ -1,6 +1,5 @@
 package com.baidu.tieba.tbadkCore.location;
 
-import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -35,8 +34,16 @@ public class LocationSocketResponsedMessage extends SocketResponsedMessage {
         }
     }
 
+    public LocationData getLocationData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mLocationData;
+        }
+        return (LocationData) invokeV.objValue;
+    }
+
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -54,12 +61,6 @@ public class LocationSocketResponsedMessage extends SocketResponsedMessage {
             return getPoisByLocationResIdl;
         }
         return invokeIL.objValue;
-    }
-
-    public LocationData getLocationData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mLocationData : (LocationData) invokeV.objValue;
     }
 
     public void setLocationData(LocationData locationData) {

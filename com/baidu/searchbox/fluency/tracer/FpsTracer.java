@@ -67,14 +67,30 @@ public final class FpsTracer extends Tracer {
     public final BdTracesConfig config;
     public int droppedSum;
     public long durationSum;
-    public final HashMap<String, FpsCollector> fpsCollectorCache;
+    public final HashMap fpsCollectorCache;
     public final long frameIntervalNs;
-    public final HashSet<FrameRateListener> listeners;
+    public final HashSet listeners;
     public int timeSliceMs;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1694677708, "Lcom/baidu/searchbox/fluency/tracer/FpsTracer;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1694677708, "Lcom/baidu/searchbox/fluency/tracer/FpsTracer;");
+                return;
+            }
+        }
+        Companion = new Companion(null);
+    }
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\r\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\f\u0010\rR\u0016\u0010\u0002\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003R\u0016\u0010\u0004\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0004\u0010\u0003R\u0016\u0010\u0005\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0005\u0010\u0003R\u0016\u0010\u0006\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0006\u0010\u0003R\u0016\u0010\u0007\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0007\u0010\u0003R\u0016\u0010\b\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\b\u0010\u0003R\u0016\u0010\t\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\t\u0010\u0003R\u0016\u0010\n\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\n\u0010\u0003R\u0016\u0010\u000b\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u000b\u0010\u0003¨\u0006\u000e"}, d2 = {"Lcom/baidu/searchbox/fluency/tracer/FpsTracer$Companion;", "", "CSV_PATH_DEFAULT", "Ljava/lang/String;", "TAG", "UBC_KEY_EXT", "UBC_KEY_FLUENCY", "UBC_KEY_FROM", "UBC_KEY_NET_TYPE", "UBC_KEY_PAGE", "UBC_KEY_TOP_VIEW", "UBC_KEY_TYPE", "<init>", "()V", "lib-fps_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public static final class Companion {
+    public final class Companion {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -102,7 +118,7 @@ public final class FpsTracer extends Tracer {
     public final class FpsCollector extends FrameRateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final HashMap<String, FrameCollectItem> collectMap;
+        public final HashMap collectMap;
         public final Executor fpsExecutor;
         public final Handler frameHandler;
         public String from;
@@ -111,7 +127,16 @@ public final class FpsTracer extends Tracer {
         public final /* synthetic */ FpsTracer this$0;
         public String type;
 
-        /* JADX DEBUG: Incorrect args count in method signature: ()V */
+        @Override // com.baidu.searchbox.fluency.listener.FrameRateListener
+        public int getIntervalFrameReplay() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return 200;
+            }
+            return invokeV.intValue;
+        }
+
         public FpsCollector(FpsTracer fpsTracer) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -132,7 +157,7 @@ public final class FpsTracer extends Tracer {
             this.page = "";
             this.type = "";
             this.scene = "";
-            this.collectMap = new HashMap<>();
+            this.collectMap = new HashMap();
             this.frameHandler = new Handler(FpsHandlerThread.INSTANCE.getDefaultHandlerThread().getLooper());
             this.fpsExecutor = new Executor(this) { // from class: com.baidu.searchbox.fluency.tracer.FpsTracer$FpsCollector$fpsExecutor$1
                 public static /* synthetic */ Interceptable $ic;
@@ -161,47 +186,51 @@ public final class FpsTracer extends Tracer {
                 public final void execute(Runnable runnable) {
                     Handler handler;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, runnable) == null) {
-                        handler = this.this$0.frameHandler;
-                        handler.post(runnable);
+                    if (interceptable2 != null && interceptable2.invokeL(1048576, this, runnable) != null) {
+                        return;
                     }
+                    handler = this.this$0.frameHandler;
+                    handler.post(runnable);
                 }
             };
+        }
+
+        @Override // com.baidu.searchbox.fluency.listener.FrameRateListener
+        public void doReplay(List frameList) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, frameList) == null) {
+                Intrinsics.checkNotNullParameter(frameList, "frameList");
+                super.doReplay(frameList);
+                Iterator it = frameList.iterator();
+                while (it.hasNext()) {
+                    FrameRateListener.FrameReplay frameReplay = (FrameRateListener.FrameReplay) it.next();
+                    doReplayInner(frameReplay.getTopPage(), frameReplay.getStartNs(), frameReplay.getEndNs(), frameReplay.getDropFrame(), frameReplay.isVsyncFrame(), frameReplay.getInputCostNs(), frameReplay.getAnimationCostNs(), frameReplay.getTraversalCostNs());
+                }
+            }
         }
 
         /* JADX WARN: Type inference failed for: r8v2, types: [com.baidu.searchbox.fluency.tracer.FpsTracer$FrameCollectItem, T] */
         /* JADX WARN: Type inference failed for: r8v9, types: [com.baidu.searchbox.fluency.tracer.FpsTracer$FrameCollectItem, T] */
         private final void doReplayInner(String str, long j, long j2, int i, boolean z, long j3, long j4, long j5) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Boolean.valueOf(z), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5)}) == null) && !TextUtils.isEmpty(str) && z) {
-                Ref.ObjectRef objectRef = new Ref.ObjectRef();
-                FrameCollectItem frameCollectItem = this.collectMap.get(this.scene);
-                objectRef.element = frameCollectItem;
-                if (frameCollectItem == null) {
-                    ?? frameCollectItem2 = new FrameCollectItem(this.this$0, this.from, this.page, this.type, this.scene, str);
-                    objectRef.element = frameCollectItem2;
-                    this.collectMap.put(this.scene, (FrameCollectItem) frameCollectItem2);
-                }
-                ((FrameCollectItem) objectRef.element).collect(i);
-                if (((FrameCollectItem) objectRef.element).getSumFrameCost() >= this.this$0.timeSliceMs) {
-                    this.collectMap.remove(this.scene);
-                    if (AppConfig.isDebug()) {
-                        BuildersKt__Builders_commonKt.launch$default(GlobalScope.INSTANCE, null, null, new FpsTracer$FpsCollector$doReplayInner$1(objectRef, null), 3, null);
-                    } else {
-                        ((FrameCollectItem) objectRef.element).report();
-                    }
-                }
+            if ((interceptable != null && interceptable.invokeCommon(65538, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Boolean.valueOf(z), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5)}) != null) || TextUtils.isEmpty(str) || !z) {
+                return;
             }
-        }
-
-        @Override // com.baidu.searchbox.fluency.listener.FrameRateListener
-        public void doReplay(List<FrameRateListener.FrameReplay> frameList) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, frameList) == null) {
-                Intrinsics.checkNotNullParameter(frameList, "frameList");
-                super.doReplay(frameList);
-                for (FrameRateListener.FrameReplay frameReplay : frameList) {
-                    doReplayInner(frameReplay.getTopPage(), frameReplay.getStartNs(), frameReplay.getEndNs(), frameReplay.getDropFrame(), frameReplay.isVsyncFrame(), frameReplay.getInputCostNs(), frameReplay.getAnimationCostNs(), frameReplay.getTraversalCostNs());
+            Ref.ObjectRef objectRef = new Ref.ObjectRef();
+            ?? r8 = (FrameCollectItem) this.collectMap.get(this.scene);
+            objectRef.element = r8;
+            if (((FrameCollectItem) r8) == null) {
+                ?? frameCollectItem = new FrameCollectItem(this.this$0, this.from, this.page, this.type, this.scene, str);
+                objectRef.element = frameCollectItem;
+                this.collectMap.put(this.scene, (FrameCollectItem) frameCollectItem);
+            }
+            ((FrameCollectItem) objectRef.element).collect(i);
+            if (((FrameCollectItem) objectRef.element).getSumFrameCost() >= this.this$0.timeSliceMs) {
+                this.collectMap.remove(this.scene);
+                if (AppConfig.isDebug()) {
+                    BuildersKt__Builders_commonKt.launch$default(GlobalScope.INSTANCE, null, null, new FpsTracer$FpsCollector$doReplayInner$1(objectRef, null), 3, null);
+                } else {
+                    ((FrameCollectItem) objectRef.element).report();
                 }
             }
         }
@@ -210,17 +239,10 @@ public final class FpsTracer extends Tracer {
         public Executor getExecutor() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.fpsExecutor : (Executor) invokeV.objValue;
-        }
-
-        @Override // com.baidu.searchbox.fluency.listener.FrameRateListener
-        public int getIntervalFrameReplay() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return 200;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.fpsExecutor;
             }
-            return invokeV.intValue;
+            return (Executor) invokeV.objValue;
         }
 
         public final void setStatParams(String from, String page, String type) {
@@ -285,6 +307,26 @@ public final class FpsTracer extends Tracer {
             this.frameIntervalCost = 16.666668f;
         }
 
+        public final Object saveCsv(Continuation continuation) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, continuation)) == null) {
+                Object withContext = BuildersKt.withContext(Dispatchers.getIO(), new FpsTracer$FrameCollectItem$saveCsv$2(this, null), continuation);
+                if (withContext == IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED()) {
+                    return withContext;
+                }
+                return Unit.INSTANCE;
+            }
+            return invokeL.objValue;
+        }
+
+        public final void setSumFrameCost(float f) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeF(1048580, this, f) == null) {
+                this.sumFrameCost = f;
+            }
+        }
+
         private final Float getDeviceScore() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -296,6 +338,15 @@ public final class FpsTracer extends Tracer {
                 return null;
             }
             return (Float) invokeV.objValue;
+        }
+
+        public final float getSumFrameCost() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.sumFrameCost;
+            }
+            return invokeV.floatValue;
         }
 
         private final void ubcEvent(String str, String str2, String str3, String str4, JSONObject jSONObject) {
@@ -375,12 +426,6 @@ public final class FpsTracer extends Tracer {
             }
         }
 
-        public final float getSumFrameCost() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.sumFrameCost : invokeV.floatValue;
-        }
-
         public final void report() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -417,23 +462,6 @@ public final class FpsTracer extends Tracer {
             }
         }
 
-        public final Object saveCsv(Continuation<? super Unit> continuation) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, continuation)) == null) {
-                Object withContext = BuildersKt.withContext(Dispatchers.getIO(), new FpsTracer$FrameCollectItem$saveCsv$2(this, null), continuation);
-                return withContext == IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED() ? withContext : Unit.INSTANCE;
-            }
-            return invokeL.objValue;
-        }
-
-        public final void setSumFrameCost(float f) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeF(1048580, this, f) == null) {
-                this.sumFrameCost = f;
-            }
-        }
-
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -458,22 +486,6 @@ public final class FpsTracer extends Tracer {
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1694677708, "Lcom/baidu/searchbox/fluency/tracer/FpsTracer;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1694677708, "Lcom/baidu/searchbox/fluency/tracer/FpsTracer;");
-                return;
-            }
-        }
-        Companion = new Companion(null);
-    }
-
     public FpsTracer(BdTracesConfig config) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -491,13 +503,55 @@ public final class FpsTracer extends Tracer {
         }
         Intrinsics.checkNotNullParameter(config, "config");
         this.config = config;
-        this.listeners = new HashSet<>();
+        this.listeners = new HashSet();
         this.frameIntervalNs = FpsConstants.DEFAULT_FRAME_DURATION;
         this.timeSliceMs = this.config.getTimeSliceMs();
         if (AppConfig.isDebug()) {
             deleteCsvFileIfExist();
         }
-        this.fpsCollectorCache = new HashMap<>();
+        this.fpsCollectorCache = new HashMap();
+    }
+
+    public final void addListener(FrameRateListener listener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, listener) == null) {
+            Intrinsics.checkNotNullParameter(listener, "listener");
+            if (!isAlive()) {
+                onStartTrace();
+            }
+            synchronized (this.listeners) {
+                this.listeners.add(listener);
+            }
+        }
+    }
+
+    public final void endFpsCollect(Object obj) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, obj) != null) || obj == null) {
+            return;
+        }
+        if (!this.config.isFpsEnable()) {
+            Logcat.INSTANCE.d(TAG, "[endFpsCollect] FPS disable!");
+            return;
+        }
+        FpsCollector fpsCollector = (FpsCollector) this.fpsCollectorCache.get(obj);
+        if (fpsCollector != null) {
+            removeListener(fpsCollector);
+        }
+    }
+
+    public final void removeListener(FrameRateListener listener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, listener) == null) {
+            Intrinsics.checkNotNullParameter(listener, "listener");
+            synchronized (this.listeners) {
+                this.listeners.remove(listener);
+                if (this.listeners.isEmpty()) {
+                    onCloseTrace();
+                }
+                Unit unit = Unit.INSTANCE;
+            }
+        }
     }
 
     private final void deleteCsvFileIfExist() {
@@ -510,6 +564,20 @@ public final class FpsTracer extends Tracer {
                 logcat.d(TAG, "delete file: " + csvFile.getAbsolutePath());
             }
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public final File getCsvFile() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
+            File file = new File(AppRuntime.getAppContext().getExternalFilesDir(null), CSV_PATH_DEFAULT);
+            if (!file.exists()) {
+                file.mkdir();
+            }
+            return new File(file, "fps_feed.csv");
+        }
+        return (File) invokeV.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -531,181 +599,152 @@ public final class FpsTracer extends Tracer {
         return (String) invokeLLL.objValue;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public final File getCsvFile() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
-            File file = new File(AppRuntime.getAppContext().getExternalFilesDir(null), CSV_PATH_DEFAULT);
-            if (!file.exists()) {
-                file.mkdir();
-            }
-            return new File(file, "fps_feed.csv");
-        }
-        return (File) invokeV.objValue;
-    }
-
     private final void notifyListener(final String str, final long j, final long j2, final boolean z, final long j3, final long j4, final long j5) {
         FpsTracer fpsTracer;
         long currentTimeMillis;
-        HashSet<FrameRateListener> hashSet;
-        Iterator<FrameRateListener> it;
+        HashSet hashSet;
+        Iterator it;
         final int i;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeCommon(65545, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5)}) != null) {
-            return;
-        }
-        FpsTracer fpsTracer2 = this;
-        long currentTimeMillis2 = System.currentTimeMillis();
-        long j6 = j2 - j;
-        try {
-            int i2 = (int) (j6 / fpsTracer2.frameIntervalNs);
-            fpsTracer2.droppedSum += i2;
-            fpsTracer2.durationSum += Math.max(j6, fpsTracer2.frameIntervalNs);
-            HashSet<FrameRateListener> hashSet2 = fpsTracer2.listeners;
-            synchronized (hashSet2) {
-                try {
-                    Iterator<FrameRateListener> it2 = fpsTracer2.listeners.iterator();
-                    while (it2.hasNext()) {
-                        try {
-                            final FrameRateListener next = it2.next();
-                            if (next.getExecutor() != null) {
-                                if (next.getIntervalFrameReplay() > 0) {
-                                    i = i2;
-                                    hashSet = hashSet2;
-                                    try {
-                                        next.collect(str, j, j2, i2, z, j3, j4, j5);
-                                        it = it2;
-                                    } catch (Throwable th) {
-                                        th = th;
-                                        fpsTracer = fpsTracer2;
+        if (interceptable == null || interceptable.invokeCommon(65545, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5)}) == null) {
+            FpsTracer fpsTracer2 = this;
+            long currentTimeMillis2 = System.currentTimeMillis();
+            long j6 = j2 - j;
+            try {
+                int i2 = (int) (j6 / fpsTracer2.frameIntervalNs);
+                fpsTracer2.droppedSum += i2;
+                fpsTracer2.durationSum += Math.max(j6, fpsTracer2.frameIntervalNs);
+                HashSet hashSet2 = fpsTracer2.listeners;
+                synchronized (hashSet2) {
+                    try {
+                        Iterator it2 = fpsTracer2.listeners.iterator();
+                        while (it2.hasNext()) {
+                            try {
+                                final FrameRateListener frameRateListener = (FrameRateListener) it2.next();
+                                if (frameRateListener.getExecutor() != null) {
+                                    if (frameRateListener.getIntervalFrameReplay() > 0) {
+                                        i = i2;
+                                        hashSet = hashSet2;
                                         try {
-                                            throw th;
-                                        } catch (Throwable th2) {
-                                            th = th2;
-                                            currentTimeMillis = System.currentTimeMillis() - currentTimeMillis2;
-                                            if (fpsTracer.config.isDebug() && currentTimeMillis > fpsTracer.frameIntervalNs) {
-                                                Logcat.INSTANCE.e(TAG, "[notifyListener] too heavy, cost " + currentTimeMillis + ", size of listeners: " + fpsTracer.listeners.size());
+                                            frameRateListener.collect(str, j, j2, i2, z, j3, j4, j5);
+                                            it = it2;
+                                        } catch (Throwable th) {
+                                            th = th;
+                                            fpsTracer = fpsTracer2;
+                                            try {
+                                                throw th;
+                                            } catch (Throwable th2) {
+                                                th = th2;
+                                                currentTimeMillis = System.currentTimeMillis() - currentTimeMillis2;
+                                                if (fpsTracer.config.isDebug() && currentTimeMillis > fpsTracer.frameIntervalNs) {
+                                                    Logcat.INSTANCE.e(TAG, "[notifyListener] too heavy, cost " + currentTimeMillis + ", size of listeners: " + fpsTracer.listeners.size());
+                                                }
+                                                throw th;
                                             }
+                                        }
+                                    } else {
+                                        i = i2;
+                                        hashSet = hashSet2;
+                                        try {
+                                            Executor executor = frameRateListener.getExecutor();
+                                            Intrinsics.checkNotNull(executor);
+                                            it = it2;
+                                            executor.execute(new Runnable(frameRateListener, this, str, j, j2, i, z, j3, j4, j5) { // from class: com.baidu.searchbox.fluency.tracer.FpsTracer$notifyListener$$inlined$synchronized$lambda$1
+                                                public static /* synthetic */ Interceptable $ic;
+                                                public final /* synthetic */ long $animationCostNs$inlined;
+                                                public final /* synthetic */ int $dropFrame$inlined;
+                                                public final /* synthetic */ long $endNs$inlined;
+                                                public transient /* synthetic */ FieldHolder $fh;
+                                                public final /* synthetic */ long $inputCostNs$inlined;
+                                                public final /* synthetic */ boolean $isVsyncFrame$inlined;
+                                                public final /* synthetic */ FrameRateListener $listener;
+                                                public final /* synthetic */ String $scene$inlined;
+                                                public final /* synthetic */ long $startNs$inlined;
+                                                public final /* synthetic */ long $traversalCostNs$inlined;
+                                                public final /* synthetic */ FpsTracer this$0;
+
+                                                {
+                                                    Interceptable interceptable2 = $ic;
+                                                    if (interceptable2 != null) {
+                                                        InitContext newInitContext = TitanRuntime.newInitContext();
+                                                        newInitContext.initArgs = r4;
+                                                        Object[] objArr = {frameRateListener, this, str, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Boolean.valueOf(z), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5)};
+                                                        interceptable2.invokeUnInit(65536, newInitContext);
+                                                        int i3 = newInitContext.flag;
+                                                        if ((i3 & 1) != 0) {
+                                                            int i4 = i3 & 2;
+                                                            newInitContext.thisArg = this;
+                                                            interceptable2.invokeInitBody(65536, newInitContext);
+                                                            return;
+                                                        }
+                                                    }
+                                                    this.$listener = frameRateListener;
+                                                    this.this$0 = this;
+                                                    this.$scene$inlined = str;
+                                                    this.$startNs$inlined = j;
+                                                    this.$endNs$inlined = j2;
+                                                    this.$dropFrame$inlined = i;
+                                                    this.$isVsyncFrame$inlined = z;
+                                                    this.$inputCostNs$inlined = j3;
+                                                    this.$animationCostNs$inlined = j4;
+                                                    this.$traversalCostNs$inlined = j5;
+                                                }
+
+                                                @Override // java.lang.Runnable
+                                                public final void run() {
+                                                    Interceptable interceptable2 = $ic;
+                                                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                                        this.$listener.doFrameAsync(this.$scene$inlined, this.$startNs$inlined, this.$endNs$inlined, this.$dropFrame$inlined, this.$isVsyncFrame$inlined, this.$inputCostNs$inlined, this.$animationCostNs$inlined, this.$traversalCostNs$inlined);
+                                                    }
+                                                }
+                                            });
+                                        } catch (Throwable th3) {
+                                            th = th3;
+                                            fpsTracer = this;
                                             throw th;
                                         }
                                     }
                                 } else {
+                                    it = it2;
                                     i = i2;
                                     hashSet = hashSet2;
-                                    try {
-                                        Executor executor = next.getExecutor();
-                                        Intrinsics.checkNotNull(executor);
-                                        it = it2;
-                                        executor.execute(new Runnable(next, this, str, j, j2, i, z, j3, j4, j5) { // from class: com.baidu.searchbox.fluency.tracer.FpsTracer$notifyListener$$inlined$synchronized$lambda$1
-                                            public static /* synthetic */ Interceptable $ic;
-                                            public final /* synthetic */ long $animationCostNs$inlined;
-                                            public final /* synthetic */ int $dropFrame$inlined;
-                                            public final /* synthetic */ long $endNs$inlined;
-                                            public transient /* synthetic */ FieldHolder $fh;
-                                            public final /* synthetic */ long $inputCostNs$inlined;
-                                            public final /* synthetic */ boolean $isVsyncFrame$inlined;
-                                            public final /* synthetic */ FrameRateListener $listener;
-                                            public final /* synthetic */ String $scene$inlined;
-                                            public final /* synthetic */ long $startNs$inlined;
-                                            public final /* synthetic */ long $traversalCostNs$inlined;
-                                            public final /* synthetic */ FpsTracer this$0;
-
-                                            {
-                                                Interceptable interceptable2 = $ic;
-                                                if (interceptable2 != null) {
-                                                    InitContext newInitContext = TitanRuntime.newInitContext();
-                                                    newInitContext.initArgs = r4;
-                                                    Object[] objArr = {next, this, str, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Boolean.valueOf(z), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5)};
-                                                    interceptable2.invokeUnInit(65536, newInitContext);
-                                                    int i3 = newInitContext.flag;
-                                                    if ((i3 & 1) != 0) {
-                                                        int i4 = i3 & 2;
-                                                        newInitContext.thisArg = this;
-                                                        interceptable2.invokeInitBody(65536, newInitContext);
-                                                        return;
-                                                    }
-                                                }
-                                                this.$listener = next;
-                                                this.this$0 = this;
-                                                this.$scene$inlined = str;
-                                                this.$startNs$inlined = j;
-                                                this.$endNs$inlined = j2;
-                                                this.$dropFrame$inlined = i;
-                                                this.$isVsyncFrame$inlined = z;
-                                                this.$inputCostNs$inlined = j3;
-                                                this.$animationCostNs$inlined = j4;
-                                                this.$traversalCostNs$inlined = j5;
-                                            }
-
-                                            @Override // java.lang.Runnable
-                                            public final void run() {
-                                                Interceptable interceptable2 = $ic;
-                                                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                                    this.$listener.doFrameAsync(this.$scene$inlined, this.$startNs$inlined, this.$endNs$inlined, this.$dropFrame$inlined, this.$isVsyncFrame$inlined, this.$inputCostNs$inlined, this.$animationCostNs$inlined, this.$traversalCostNs$inlined);
-                                                }
-                                            }
-                                        });
-                                    } catch (Throwable th3) {
-                                        th = th3;
-                                        fpsTracer = this;
-                                        throw th;
-                                    }
+                                    frameRateListener.doFrameSync(str, j, j2, i, z, j3, j4, j5);
                                 }
-                            } else {
-                                it = it2;
-                                i = i2;
+                                fpsTracer2 = this;
+                                i2 = i;
+                                hashSet2 = hashSet;
+                                it2 = it;
+                            } catch (Throwable th4) {
+                                th = th4;
                                 hashSet = hashSet2;
-                                next.doFrameSync(str, j, j2, i, z, j3, j4, j5);
+                                fpsTracer = this;
+                                throw th;
                             }
-                            fpsTracer2 = this;
-                            i2 = i;
-                            hashSet2 = hashSet;
-                            it2 = it;
-                        } catch (Throwable th4) {
-                            th = th4;
-                            hashSet = hashSet2;
+                        }
+                        hashSet = hashSet2;
+                        Unit unit = Unit.INSTANCE;
+                        try {
+                            long currentTimeMillis3 = System.currentTimeMillis() - currentTimeMillis2;
+                            if (this.config.isDebug() && currentTimeMillis3 > this.frameIntervalNs) {
+                                Logcat.INSTANCE.e(TAG, "[notifyListener] too heavy, cost " + currentTimeMillis3 + ", size of listeners: " + this.listeners.size());
+                            }
+                        } catch (Throwable th5) {
+                            th = th5;
                             fpsTracer = this;
+                            currentTimeMillis = System.currentTimeMillis() - currentTimeMillis2;
+                            if (fpsTracer.config.isDebug()) {
+                                Logcat.INSTANCE.e(TAG, "[notifyListener] too heavy, cost " + currentTimeMillis + ", size of listeners: " + fpsTracer.listeners.size());
+                            }
                             throw th;
                         }
+                    } catch (Throwable th6) {
+                        th = th6;
+                        hashSet = hashSet2;
                     }
-                    hashSet = hashSet2;
-                    Unit unit = Unit.INSTANCE;
-                    try {
-                        long currentTimeMillis3 = System.currentTimeMillis() - currentTimeMillis2;
-                        if (!this.config.isDebug() || currentTimeMillis3 <= this.frameIntervalNs) {
-                            return;
-                        }
-                        Logcat.INSTANCE.e(TAG, "[notifyListener] too heavy, cost " + currentTimeMillis3 + ", size of listeners: " + this.listeners.size());
-                    } catch (Throwable th5) {
-                        th = th5;
-                        fpsTracer = this;
-                        currentTimeMillis = System.currentTimeMillis() - currentTimeMillis2;
-                        if (fpsTracer.config.isDebug()) {
-                            Logcat.INSTANCE.e(TAG, "[notifyListener] too heavy, cost " + currentTimeMillis + ", size of listeners: " + fpsTracer.listeners.size());
-                        }
-                        throw th;
-                    }
-                } catch (Throwable th6) {
-                    th = th6;
-                    hashSet = hashSet2;
                 }
-            }
-        } catch (Throwable th7) {
-            th = th7;
-            fpsTracer = fpsTracer2;
-        }
-    }
-
-    public final void addListener(FrameRateListener listener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, listener) == null) {
-            Intrinsics.checkNotNullParameter(listener, "listener");
-            if (!isAlive()) {
-                onStartTrace();
-            }
-            synchronized (this.listeners) {
-                this.listeners.add(listener);
+            } catch (Throwable th7) {
+                th = th7;
+                fpsTracer = fpsTracer2;
             }
         }
     }
@@ -722,7 +761,7 @@ public final class FpsTracer extends Tracer {
                 Logcat.INSTANCE.d(TAG, "[beginFpsCollect] FPS disable!");
                 return generateCollectorKey;
             }
-            FpsCollector fpsCollector = this.fpsCollectorCache.get(generateCollectorKey);
+            FpsCollector fpsCollector = (FpsCollector) this.fpsCollectorCache.get(generateCollectorKey);
             if (fpsCollector == null) {
                 fpsCollector = new FpsCollector(this);
                 fpsCollector.setStatParams(from, page, type);
@@ -745,21 +784,6 @@ public final class FpsTracer extends Tracer {
         }
     }
 
-    public final void endFpsCollect(Object obj) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, obj) == null) || obj == null) {
-            return;
-        }
-        if (!this.config.isFpsEnable()) {
-            Logcat.INSTANCE.d(TAG, "[endFpsCollect] FPS disable!");
-            return;
-        }
-        FpsCollector fpsCollector = this.fpsCollectorCache.get(obj);
-        if (fpsCollector != null) {
-            removeListener(fpsCollector);
-        }
-    }
-
     @Override // com.baidu.searchbox.fluency.tracer.Tracer
     public void onAlive() {
         Interceptable interceptable = $ic;
@@ -775,20 +799,6 @@ public final class FpsTracer extends Tracer {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDead();
             FrameRefreshMonitor.INSTANCE.removeFrameRefreshObserver(this);
-        }
-    }
-
-    public final void removeListener(FrameRateListener listener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, listener) == null) {
-            Intrinsics.checkNotNullParameter(listener, "listener");
-            synchronized (this.listeners) {
-                this.listeners.remove(listener);
-                if (this.listeners.isEmpty()) {
-                    onCloseTrace();
-                }
-                Unit unit = Unit.INSTANCE;
-            }
         }
     }
 }

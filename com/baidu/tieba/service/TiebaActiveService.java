@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.gj;
-import com.baidu.tieba.ox4;
+import com.baidu.tieba.hj;
+import com.baidu.tieba.ux4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,6 +34,16 @@ public class TiebaActiveService extends BdBaseService {
     public Handler mHandler;
     public int mHaveRetry;
     public Runnable mRunnable;
+
+    @Override // android.app.Service
+    public IBinder onBind(Intent intent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
+            return null;
+        }
+        return (IBinder) invokeL.objValue;
+    }
 
     /* loaded from: classes5.dex */
     public class a implements Runnable {
@@ -69,7 +79,7 @@ public class TiebaActiveService extends BdBaseService {
     }
 
     /* loaded from: classes5.dex */
-    public class b extends BdAsyncTask<String, Integer, String> {
+    public class b extends BdAsyncTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
@@ -92,6 +102,10 @@ public class TiebaActiveService extends BdBaseService {
             }
             this.b = tiebaActiveService;
             this.a = null;
+        }
+
+        public /* synthetic */ b(TiebaActiveService tiebaActiveService, a aVar) {
+            this(tiebaActiveService);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -118,7 +132,7 @@ public class TiebaActiveService extends BdBaseService {
                     this.a = netWork;
                     netWork.addPostData("apk", TbadkCoreApplication.getInst().getApp().getPackageName());
                     this.a.addPostData("imei", TbadkCoreApplication.getInst().getImei());
-                    this.a.addPostData("model", gj.g());
+                    this.a.addPostData("model", hj.g());
                     this.a.addPostData("edition", TbConfig.getVersion());
                     this.a.addPostData("system", Build.VERSION.SDK);
                     this.a.getNetContext().getRequest().mIsBaiduServer = false;
@@ -128,7 +142,7 @@ public class TiebaActiveService extends BdBaseService {
                     }
                     return null;
                 } catch (Exception e) {
-                    ox4.k().w("active", 1);
+                    ux4.k().w("active", 1);
                     BdLog.e(e.getMessage());
                     return null;
                 }
@@ -149,17 +163,13 @@ public class TiebaActiveService extends BdBaseService {
                         this.b.mHandler.removeCallbacks(this.b.mRunnable);
                         this.b.mHandler.postDelayed(this.b.mRunnable, 60000L);
                     } else {
-                        ox4.k().w("active", 1);
+                        ux4.k().w("active", 1);
                         this.b.stopSelf();
                     }
                 }
-                ox4.k().w("active", 2);
+                ux4.k().w("active", 2);
                 this.b.stopSelf();
             }
-        }
-
-        public /* synthetic */ b(TiebaActiveService tiebaActiveService, a aVar) {
-            this(tiebaActiveService);
         }
     }
 
@@ -182,18 +192,6 @@ public class TiebaActiveService extends BdBaseService {
         this.mRunnable = new a(this);
     }
 
-    public static /* synthetic */ int access$308(TiebaActiveService tiebaActiveService) {
-        int i = tiebaActiveService.mHaveRetry;
-        tiebaActiveService.mHaveRetry = i + 1;
-        return i;
-    }
-
-    private String getChannelByShare() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) ? ox4.k().q("channel_id", null) : (String) invokeV.objValue;
-    }
-
     private String getChannelyFile() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -201,13 +199,13 @@ public class TiebaActiveService extends BdBaseService {
             String str = null;
             try {
                 File GetFile = FileHelper.GetFile(TbConfig.CHANNEL_FILE);
-                if (GetFile != null) {
-                    BufferedReader bufferedReader = new BufferedReader(new FileReader(GetFile));
-                    str = bufferedReader.readLine();
-                    bufferedReader.close();
-                    return str;
+                if (GetFile == null) {
+                    return null;
                 }
-                return null;
+                BufferedReader bufferedReader = new BufferedReader(new FileReader(GetFile));
+                str = bufferedReader.readLine();
+                bufferedReader.close();
+                return str;
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
                 TiebaStatic.file(e, "TiebaActiveService.getChannelyFile");
@@ -243,31 +241,39 @@ public class TiebaActiveService extends BdBaseService {
         return invokeV.booleanValue;
     }
 
-    private void saveChannelToFile(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65546, this, str) == null) || str == null || str.length() <= 0) {
-            return;
-        }
-        try {
-            File CreateFile = FileHelper.CreateFile(TbConfig.CHANNEL_FILE);
-            if (CreateFile != null) {
-                FileWriter fileWriter = new FileWriter(CreateFile);
-                fileWriter.append((CharSequence) str);
-                fileWriter.flush();
-                fileWriter.close();
-            }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-            TiebaStatic.file(e, "TiebaActiveService.saveChannelToFile");
-        }
+    public static /* synthetic */ int access$308(TiebaActiveService tiebaActiveService) {
+        int i = tiebaActiveService.mHaveRetry;
+        tiebaActiveService.mHaveRetry = i + 1;
+        return i;
     }
 
     private void saveChannelToShare(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65547, this, str) == null) || str == null || str.length() <= 0) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(65547, this, str) == null) && str != null && str.length() > 0) {
+            ux4.k().y("channel_id", str);
         }
-        ox4.k().y("channel_id", str);
+    }
+
+    @Override // android.app.Service
+    public void onStart(Intent intent, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, intent, i) == null) {
+            super.onStart(intent, i);
+            if (isActived() && ux4.k().l("active", 2) != 1) {
+                stopSelf();
+            } else {
+                sendActive();
+            }
+        }
+    }
+
+    private String getChannelByShare() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
+            return ux4.k().q("channel_id", null);
+        }
+        return (String) invokeV.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -285,16 +291,6 @@ public class TiebaActiveService extends BdBaseService {
     }
 
     @Override // android.app.Service
-    public IBinder onBind(Intent intent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
-            return null;
-        }
-        return (IBinder) invokeL.objValue;
-    }
-
-    @Override // android.app.Service
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -308,15 +304,20 @@ public class TiebaActiveService extends BdBaseService {
         }
     }
 
-    @Override // android.app.Service
-    public void onStart(Intent intent, int i) {
+    private void saveChannelToFile(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, intent, i) == null) {
-            super.onStart(intent, i);
-            if (isActived() && ox4.k().l("active", 2) != 1) {
-                stopSelf();
-            } else {
-                sendActive();
+        if ((interceptable == null || interceptable.invokeL(65546, this, str) == null) && str != null && str.length() > 0) {
+            try {
+                File CreateFile = FileHelper.CreateFile(TbConfig.CHANNEL_FILE);
+                if (CreateFile != null) {
+                    FileWriter fileWriter = new FileWriter(CreateFile);
+                    fileWriter.append((CharSequence) str);
+                    fileWriter.flush();
+                    fileWriter.close();
+                }
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                TiebaStatic.file(e, "TiebaActiveService.saveChannelToFile");
             }
         }
     }

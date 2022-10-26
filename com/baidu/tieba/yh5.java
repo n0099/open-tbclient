@@ -1,66 +1,134 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Build;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.searchbox.launch.ScheduleStrategy;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.TiebaIMConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.Field;
+import tbclient.CommonReq;
 /* loaded from: classes6.dex */
-public class yh5 extends Thread {
+public class yh5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public String c;
 
-    public yh5(int i, int i2) {
+    public static void a(Object obj, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = 0;
-        this.b = 0;
-        this.c = null;
-        this.a = i;
-        this.b = i2;
-    }
-
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.c = str;
+        if (interceptable == null || interceptable.invokeLZ(65536, null, obj, z) == null) {
+            b(obj, z, false);
         }
     }
 
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
+    public static void b(Object obj, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.run();
-            if (TbadkCoreApplication.getInst().checkInterrupt()) {
-                return;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{obj, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            c(obj, z, z2, false);
+        }
+    }
+
+    public static void c(Object obj, boolean z, boolean z2, boolean z3) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65538, null, new Object[]{obj, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) != null) || obj == null) {
+            return;
+        }
+        try {
+            Field field = obj.getClass().getField("common");
+            int i = 1;
+            if (!field.isAccessible()) {
+                field.setAccessible(true);
             }
-            NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.LOAD_REG_PV_ADDRESS);
-            netWork.addPostData("img_num", String.valueOf(this.a));
-            netWork.addPostData("img_total", String.valueOf(this.b));
-            String str = this.c;
-            if (str != null) {
-                netWork.addPostData("img_type", str);
+            CommonReq.Builder builder = new CommonReq.Builder();
+            builder._client_type = 2;
+            builder._client_version = TbConfig.getVersion();
+            builder._client_id = TbadkCoreApplication.getClientId();
+            if (!TextUtils.isEmpty(TbConfig.getSubappType())) {
+                builder.subapp_type = TbConfig.getSubappType();
             }
-            netWork.postNetData();
+            if (!TbadkCoreApplication.getInst().isOfficial()) {
+                builder.apid = TbConfig.SW_APID;
+            }
+            builder._phone_imei = TbadkCoreApplication.getInst().getImei();
+            builder.from = TbadkCoreApplication.getFrom();
+            builder.cuid = TbadkCoreApplication.getInst().getCuid();
+            builder.cuid_galaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
+            builder.c3_aid = TbadkCoreApplication.getInst().getCuidGalaxy3();
+            builder.cuid_gid = TbadkCoreApplication.getInst().getCuidGid();
+            builder._timestamp = Long.valueOf(System.currentTimeMillis());
+            builder.model = hj.g();
+            builder._os_version = hj.k();
+            builder.brand = Build.BRAND;
+            builder.user_agent = yi5.b();
+            if (z) {
+                if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
+                    builder.BDUSS = pa5.b();
+                    if (!StringUtils.isNull(pa5.e())) {
+                        builder.stoken = pa5.e();
+                    }
+                } else {
+                    AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
+                    if (currentAccountInfo != null) {
+                        builder.BDUSS = currentAccountInfo.getBDUSS();
+                        String a = pq4.a(currentAccountInfo);
+                        if (!StringUtils.isNull(a)) {
+                            builder.stoken = a;
+                        }
+                    }
+                }
+            }
+            if (z2) {
+                if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
+                    builder.tbs = pa5.f();
+                } else {
+                    builder.tbs = TbadkCoreApplication.getInst().getTbs();
+                }
+            }
+            if (z3) {
+                builder.applist = TbadkCoreApplication.getInst().getInstalledAppIds();
+            }
+            builder.pversion = TiebaIMConfig.PROTOBUF_VERSION;
+            builder.lego_lib_version = TbConfig.getLegoLibVersion();
+            if (ux4.k().l("android_safe_sdk_open", 0) == 1) {
+                builder.z_id = TbadkCoreApplication.getInst().getZid();
+            }
+            builder.net_type = Integer.valueOf(BdNetTypeUtil.netType());
+            builder.oaid = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
+            builder.sample_id = TbSingleton.getInstance().getSampleId();
+            builder.is_teenager = 0;
+            builder.sdk_ver = TbadkCoreApplication.getInst().getSdk_ver();
+            builder.framework_ver = TbadkCoreApplication.getInst().getFramework_ver();
+            builder.swan_game_ver = TbadkCoreApplication.getInst().getSwan_game_ver();
+            builder.q_type = Integer.valueOf(jq4.c().e());
+            builder.scr_h = Integer.valueOf(fj.i(TbadkCoreApplication.getInst()));
+            builder.scr_w = Integer.valueOf(fj.k(TbadkCoreApplication.getInst()));
+            builder.scr_dip = Double.valueOf(fj.h(TbadkCoreApplication.getInst()));
+            builder.active_timestamp = Long.valueOf(TbSingleton.getInstance().getActiveTimeStamp());
+            builder.first_install_time = Long.valueOf(TbSingleton.getInstance().getAppFirstInstallTime());
+            builder.last_update_time = Long.valueOf(TbSingleton.getInstance().getAppLastUpdateTime());
+            builder.event_day = TbSingleton.getInstance().getData();
+            builder.android_id = TbadkCoreApplication.getInst().getAndroidId();
+            if (!PermissionUtil.isAgreePrivacyPolicy()) {
+                i = 2;
+            }
+            builder.cmode = Integer.valueOf(i);
+            builder.start_type = Integer.valueOf(cw4.f);
+            builder.start_scheme = cw4.e();
+            builder.extra = ux4.k().q("key_sync_extra_field", "");
+            builder.personalized_rec_switch = Integer.valueOf(TbSingleton.getInstance().getPersonalizedRecSwitch());
+            builder.device_score = String.valueOf(ScheduleStrategy.getDeviceScore());
+            field.set(obj, builder.build(false));
+        } catch (Throwable th) {
+            if (BdLog.isDebugMode()) {
+                th.printStackTrace();
+            }
         }
     }
 }

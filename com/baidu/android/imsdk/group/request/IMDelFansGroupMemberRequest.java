@@ -30,9 +30,26 @@ public class IMDelFansGroupMemberRequest extends FansGroupBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMDelFansGroupMemberRequest";
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<String> mBuids;
+    public ArrayList mBuids;
     public String mGroupId;
     public String mKey;
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getContentType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "application/x-www-form-urlencoded" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public boolean shouldAbort() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
     /* loaded from: classes.dex */
     public class Mytask extends TaskManager.Task {
@@ -86,9 +103,9 @@ public class IMDelFansGroupMemberRequest extends FansGroupBaseHttpRequest {
                         if (delGroupMember > 0) {
                             ArrayList arrayList2 = new ArrayList();
                             arrayList2.add(this.this$0.mGroupId);
-                            ArrayList<GroupInfo> groupInfo = GroupInfoDAOImpl.getGroupInfo(this.this$0.mContext, arrayList2);
+                            ArrayList groupInfo = GroupInfoDAOImpl.getGroupInfo(this.this$0.mContext, arrayList2);
                             if (groupInfo != null && groupInfo.size() > 0) {
-                                GroupInfoDAOImpl.modifyGroupMemberNumber(this.this$0.mContext, this.this$0.mGroupId, groupInfo.get(0).getNum() - delGroupMember);
+                                GroupInfoDAOImpl.modifyGroupMemberNumber(this.this$0.mContext, this.this$0.mGroupId, ((GroupInfo) groupInfo.get(0)).getNum() - delGroupMember);
                             }
                         }
                     }
@@ -106,7 +123,7 @@ public class IMDelFansGroupMemberRequest extends FansGroupBaseHttpRequest {
         }
     }
 
-    public IMDelFansGroupMemberRequest(Context context, String str, ArrayList<String> arrayList, String str2) {
+    public IMDelFansGroupMemberRequest(Context context, String str, ArrayList arrayList, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -127,13 +144,6 @@ public class IMDelFansGroupMemberRequest extends FansGroupBaseHttpRequest {
         this.mBuids = arrayList;
     }
 
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public String getContentType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "application/x-www-form-urlencoded" : (String) invokeV.objValue;
-    }
-
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public byte[] getRequestParameter() throws NoSuchAlgorithmException {
         InterceptResult invokeV;
@@ -144,9 +154,9 @@ public class IMDelFansGroupMemberRequest extends FansGroupBaseHttpRequest {
             sb.append("&group_id=");
             sb.append(this.mGroupId);
             JSONArray jSONArray = new JSONArray();
-            Iterator<String> it = this.mBuids.iterator();
+            Iterator it = this.mBuids.iterator();
             while (it.hasNext()) {
-                jSONArray.put(Utility.transBDUID(it.next()));
+                jSONArray.put(Utility.transBDUID((String) it.next()));
             }
             sb.append("&members=");
             sb.append(jSONArray.toString());
@@ -160,7 +170,7 @@ public class IMDelFansGroupMemberRequest extends FansGroupBaseHttpRequest {
     public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, bArr, th) == null) {
-            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
+            Pair transErrorCode = transErrorCode(i, bArr, th);
             IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
             if (removeListener instanceof BIMValueCallBack) {
                 ((BIMValueCallBack) removeListener).onResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, null);
@@ -176,15 +186,5 @@ public class IMDelFansGroupMemberRequest extends FansGroupBaseHttpRequest {
             LogUtils.d(TAG, "json is " + str);
             TaskManager.getInstance(this.mContext).submitForNetWork(new Mytask(this, this.mKey, str));
         }
-    }
-
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public boolean shouldAbort() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

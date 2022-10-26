@@ -13,12 +13,21 @@ public final class SubSequence$iterator$1 implements Iterator<T>, KMappedMarker 
     public int position;
     public final /* synthetic */ SubSequence this$0;
 
+    @Override // java.util.Iterator
+    public void remove() {
+        throw new UnsupportedOperationException("Operation is not supported for read-only collection");
+    }
+
     /* JADX DEBUG: Incorrect args count in method signature: ()V */
     public SubSequence$iterator$1(SubSequence subSequence) {
         Sequence sequence;
         this.this$0 = subSequence;
         sequence = subSequence.sequence;
         this.iterator = sequence.iterator();
+    }
+
+    public final void setPosition(int i) {
+        this.position = i;
     }
 
     /* JADX WARN: Incorrect condition in loop: B:3:0x0008 */
@@ -47,7 +56,10 @@ public final class SubSequence$iterator$1 implements Iterator<T>, KMappedMarker 
         drop();
         int i2 = this.position;
         i = this.this$0.endIndex;
-        return i2 < i && this.iterator.hasNext();
+        if (i2 < i && this.iterator.hasNext()) {
+            return true;
+        }
+        return false;
     }
 
     /* JADX WARN: Type inference failed for: r0v5, types: [T, java.lang.Object] */
@@ -62,14 +74,5 @@ public final class SubSequence$iterator$1 implements Iterator<T>, KMappedMarker 
             return this.iterator.next();
         }
         throw new NoSuchElementException();
-    }
-
-    @Override // java.util.Iterator
-    public void remove() {
-        throw new UnsupportedOperationException("Operation is not supported for read-only collection");
-    }
-
-    public final void setPosition(int i) {
-        this.position = i;
     }
 }

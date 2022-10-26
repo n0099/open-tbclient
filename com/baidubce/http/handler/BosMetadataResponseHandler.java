@@ -41,8 +41,8 @@ public class BosMetadataResponseHandler implements HttpResponseHandler {
                 if (bceHttpResponse.getHeader(Headers.BCE_NEXT_APPEND_OFFSET) != null) {
                     bosResponseMetadata.setNextAppendOffset(Long.valueOf(Long.parseLong(bceHttpResponse.getHeader(Headers.BCE_NEXT_APPEND_OFFSET))));
                 }
-                if (bceHttpResponse.getHeader(Headers.LOCATION) != null) {
-                    metadata.setLocation(bceHttpResponse.getHeader(Headers.LOCATION));
+                if (bceHttpResponse.getHeader("Location") != null) {
+                    metadata.setLocation(bceHttpResponse.getHeader("Location"));
                     return false;
                 }
                 return false;

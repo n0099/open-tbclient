@@ -2,15 +2,15 @@ package com.baidu.tbadk.core.util.resourceLoaderProc;
 
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.kc;
-import com.baidu.tieba.xg;
+import com.baidu.tieba.lc;
+import com.baidu.tieba.yg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class DiskCancelWorker implements xg.a {
+public class DiskCancelWorker implements yg.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public DiskFileOperate operate;
@@ -31,19 +31,21 @@ public class DiskCancelWorker implements xg.a {
         this.operate = null;
     }
 
-    @Override // com.baidu.tieba.xg.a
+    @Override // com.baidu.tieba.yg.a
     public void cancel() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.operate == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.operate != null) {
+            lc.f().d(this.operate);
         }
-        kc.f().d(this.operate);
     }
 
     public DiskFileOperate getOperate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.operate : (DiskFileOperate) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.operate;
+        }
+        return (DiskFileOperate) invokeV.objValue;
     }
 
     public void setOperate(DiskFileOperate diskFileOperate) {

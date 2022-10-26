@@ -1,6 +1,5 @@
 package com.tencent.open;
 
-import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Build;
@@ -19,8 +18,9 @@ public abstract class b extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
-    @SuppressLint({"NewApi"})
     public final WebChromeClient b;
+
+    public abstract void a(String str);
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(Context context, int i) {
@@ -65,24 +65,6 @@ public abstract class b extends Dialog {
             }
 
             @Override // android.webkit.WebChromeClient
-            public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
-                InterceptResult invokeL;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, consoleMessage)) == null) {
-                    if (consoleMessage == null) {
-                        return false;
-                    }
-                    SLog.i("openSDK_LOG.JsDialog", "WebChromeClient onConsoleMessage" + consoleMessage.message() + " -- From  111 line " + consoleMessage.lineNumber() + " of " + consoleMessage.sourceId());
-                    if (Build.VERSION.SDK_INT > 7) {
-                        this.a.a(consoleMessage == null ? "" : consoleMessage.message());
-                        return true;
-                    }
-                    return true;
-                }
-                return invokeL.booleanValue;
-            }
-
-            @Override // android.webkit.WebChromeClient
             public void onConsoleMessage(String str, int i4, String str2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, str, i4, str2) == null) {
@@ -92,10 +74,33 @@ public abstract class b extends Dialog {
                     }
                 }
             }
+
+            @Override // android.webkit.WebChromeClient
+            public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
+                InterceptResult invokeL;
+                String message;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, consoleMessage)) == null) {
+                    if (consoleMessage == null) {
+                        return false;
+                    }
+                    SLog.i("openSDK_LOG.JsDialog", "WebChromeClient onConsoleMessage" + consoleMessage.message() + " -- From  111 line " + consoleMessage.lineNumber() + " of " + consoleMessage.sourceId());
+                    if (Build.VERSION.SDK_INT > 7) {
+                        b bVar = this.a;
+                        if (consoleMessage == null) {
+                            message = "";
+                        } else {
+                            message = consoleMessage.message();
+                        }
+                        bVar.a(message);
+                        return true;
+                    }
+                    return true;
+                }
+                return invokeL.booleanValue;
+            }
         };
     }
-
-    public abstract void a(String str);
 
     @Override // android.app.Dialog
     public void onCreate(Bundle bundle) {

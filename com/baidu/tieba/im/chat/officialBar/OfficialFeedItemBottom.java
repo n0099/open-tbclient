@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qa7;
+import com.baidu.tieba.ya7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -44,49 +44,6 @@ public class OfficialFeedItemBottom extends LinearLayout {
         }
     }
 
-    public void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.c.getLayoutParams();
-            layoutParams.topMargin = i;
-            this.c.setLayoutParams(layoutParams);
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            setOrientation(1);
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0685, (ViewGroup) this, true);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091524);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091520);
-            c();
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0107);
-            SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
-        }
-    }
-
-    public void setData(qa7.a aVar, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048579, this, aVar, z) == null) {
-            int i = TextUtils.isEmpty(aVar.b) ? 8 : 0;
-            this.b.setText(aVar.a);
-            this.c.setText(aVar.b);
-            this.c.setVisibility(i);
-            if (z) {
-                this.b.setVisibility(8);
-            } else {
-                this.b.setVisibility(0);
-            }
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public OfficialFeedItemBottom(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -108,5 +65,53 @@ public class OfficialFeedItemBottom extends LinearLayout {
         }
         this.a = context;
         b();
+    }
+
+    public void setData(ya7.a aVar, boolean z) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048579, this, aVar, z) == null) {
+            if (TextUtils.isEmpty(aVar.b)) {
+                i = 8;
+            } else {
+                i = 0;
+            }
+            this.b.setText(aVar.a);
+            this.c.setText(aVar.b);
+            this.c.setVisibility(i);
+            if (z) {
+                this.b.setVisibility(8);
+            } else {
+                this.b.setVisibility(0);
+            }
+        }
+    }
+
+    public void a(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.c.getLayoutParams();
+            layoutParams.topMargin = i;
+            this.c.setLayoutParams(layoutParams);
+        }
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            setOrientation(1);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0685, (ViewGroup) this, true);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091516);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091512);
+            c();
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
+        }
     }
 }

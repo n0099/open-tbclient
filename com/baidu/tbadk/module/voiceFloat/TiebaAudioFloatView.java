@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.module.voiceFloat.TiebaAudioFloatView;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hv4;
+import com.baidu.tieba.nv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -65,107 +65,44 @@ public final class TiebaAudioFloatView extends RelativeLayout implements View.On
         b();
     }
 
-    public static final void d(TiebaAudioFloatView this$0) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, this$0) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            ImageView imageView = this$0.d;
-            if (imageView == null) {
-                return;
-            }
-            imageView.setVisibility(8);
-        }
-    }
-
-    public final int a(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) ? (int) TypedValue.applyDimension(1, f, getResources().getDisplayMetrics()) : invokeF.intValue;
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            RelativeLayout relativeLayout = this.b;
-            if (relativeLayout != null) {
-                relativeLayout.setOnClickListener(this);
-            }
-            ImageView imageView = this.d;
-            if (imageView == null) {
-                return;
-            }
-            imageView.setOnClickListener(this);
-        }
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            setLayoutParams(new RelativeLayout.LayoutParams(-2, a(50.0f)));
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f092489);
-            this.b = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0902e8);
-            this.c = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0909f8);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f09065d);
-            this.d = imageView;
-            if (imageView != null) {
-                imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a4c, SkinManager.getColor(0, (int) R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
-            }
-            ImageView imageView2 = this.a;
-            if (imageView2 != null) {
-                imageView2.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080b3e, false));
-            }
-            SkinManager.setLottieAnimation(this.c, R.raw.obfuscated_res_0x7f110062);
-            TBLottieAnimationView tBLottieAnimationView = this.c;
-            if (tBLottieAnimationView != null) {
-                tBLottieAnimationView.setRepeatCount(Integer.MAX_VALUE);
-            }
-            TBLottieAnimationView tBLottieAnimationView2 = this.c;
-            if (tBLottieAnimationView2 != null) {
-                tBLottieAnimationView2.setRepeatMode(1);
-            }
-            TBLottieAnimationView tBLottieAnimationView3 = this.c;
-            if (tBLottieAnimationView3 != null) {
-                tBLottieAnimationView3.playAnimation();
-            }
-            hv4 d = hv4.d(this);
-            d.n(R.string.J_X01);
-            d.g(SkinManager.getColor(0, (int) R.color.CAM_X0201));
-        }
-    }
-
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
             if (Intrinsics.areEqual(view2, this.d)) {
                 a aVar = this.e;
-                if (aVar == null) {
-                    return;
+                if (aVar != null) {
+                    aVar.closeFloatView();
                 }
-                aVar.closeFloatView();
             } else if (Intrinsics.areEqual(view2, this.b)) {
                 ImageView imageView = this.d;
-                if (imageView != null && imageView.getVisibility() == 8) {
+                if (imageView == null || imageView.getVisibility() != 8) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                if (z) {
                     ImageView imageView2 = this.d;
                     if (imageView2 != null) {
                         imageView2.setVisibility(0);
                     }
                     ImageView imageView3 = this.d;
-                    if (imageView3 == null) {
+                    if (imageView3 != null) {
+                        imageView3.postDelayed(new Runnable() { // from class: com.baidu.tieba.ha5
+                            public static /* synthetic */ Interceptable $ic;
+                            public transient /* synthetic */ FieldHolder $fh;
+
+                            @Override // java.lang.Runnable
+                            public final void run() {
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                    TiebaAudioFloatView.d(TiebaAudioFloatView.this);
+                                }
+                            }
+                        }, 2000L);
                         return;
                     }
-                    imageView3.postDelayed(new Runnable() { // from class: com.baidu.tieba.da5
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-
-                        @Override // java.lang.Runnable
-                        public final void run() {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                TiebaAudioFloatView.d(TiebaAudioFloatView.this);
-                            }
-                        }
-                    }, 2000L);
                     return;
                 }
                 ImageView imageView4 = this.d;
@@ -173,19 +110,10 @@ public final class TiebaAudioFloatView extends RelativeLayout implements View.On
                     imageView4.setVisibility(8);
                 }
                 a aVar2 = this.e;
-                if (aVar2 == null) {
-                    return;
+                if (aVar2 != null) {
+                    aVar2.switchToFrontRoom();
                 }
-                aVar2.switchToFrontRoom();
             }
-        }
-    }
-
-    public final void setListener(a listener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, listener) == null) {
-            Intrinsics.checkNotNullParameter(listener, "listener");
-            this.e = listener;
         }
     }
 
@@ -239,5 +167,82 @@ public final class TiebaAudioFloatView extends RelativeLayout implements View.On
         LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d055d, (ViewGroup) this, true);
         c();
         b();
+    }
+
+    public static final void d(TiebaAudioFloatView this$0) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, this$0) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            ImageView imageView = this$0.d;
+            if (imageView != null) {
+                imageView.setVisibility(8);
+            }
+        }
+    }
+
+    public final int a(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
+            return (int) TypedValue.applyDimension(1, f, getResources().getDisplayMetrics());
+        }
+        return invokeF.intValue;
+    }
+
+    public final void setListener(a listener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, listener) == null) {
+            Intrinsics.checkNotNullParameter(listener, "listener");
+            this.e = listener;
+        }
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            RelativeLayout relativeLayout = this.b;
+            if (relativeLayout != null) {
+                relativeLayout.setOnClickListener(this);
+            }
+            ImageView imageView = this.d;
+            if (imageView != null) {
+                imageView.setOnClickListener(this);
+            }
+        }
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            setLayoutParams(new RelativeLayout.LayoutParams(-2, a(50.0f)));
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f092473);
+            this.b = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0902e8);
+            this.c = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f090a02);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090666);
+            this.d = imageView;
+            if (imageView != null) {
+                imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a4e, SkinManager.getColor(0, (int) R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
+            }
+            ImageView imageView2 = this.a;
+            if (imageView2 != null) {
+                imageView2.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080b4e, false));
+            }
+            SkinManager.setLottieAnimation(this.c, R.raw.obfuscated_res_0x7f110065);
+            TBLottieAnimationView tBLottieAnimationView = this.c;
+            if (tBLottieAnimationView != null) {
+                tBLottieAnimationView.setRepeatCount(Integer.MAX_VALUE);
+            }
+            TBLottieAnimationView tBLottieAnimationView2 = this.c;
+            if (tBLottieAnimationView2 != null) {
+                tBLottieAnimationView2.setRepeatMode(1);
+            }
+            TBLottieAnimationView tBLottieAnimationView3 = this.c;
+            if (tBLottieAnimationView3 != null) {
+                tBLottieAnimationView3.playAnimation();
+            }
+            nv4 d = nv4.d(this);
+            d.n(R.string.J_X01);
+            d.g(SkinManager.getColor(0, (int) R.color.CAM_X0201));
+        }
     }
 }

@@ -13,7 +13,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class JSONObjectAdapter extends TypeAdapter<JSONObject> {
+public class JSONObjectAdapter extends TypeAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 

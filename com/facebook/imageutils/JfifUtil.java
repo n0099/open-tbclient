@@ -28,32 +28,6 @@ public class JfifUtil {
     public static final int MARKER_TEM = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public JfifUtil() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static int getAutoRotateAngleFromOrientation(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? TiffUtil.getAutoRotateAngleFromOrientation(i) : invokeI.intValue;
-    }
-
-    public static int getOrientation(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) ? getOrientation(new ByteArrayInputStream(bArr)) : invokeL.intValue;
-    }
-
     public static boolean isSOFn(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -81,6 +55,55 @@ public class JfifUtil {
             }
         }
         return invokeI.booleanValue;
+    }
+
+    public JfifUtil() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public static int getAutoRotateAngleFromOrientation(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            return TiffUtil.getAutoRotateAngleFromOrientation(i);
+        }
+        return invokeI.intValue;
+    }
+
+    public static int getOrientation(InputStream inputStream) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, inputStream)) == null) {
+            try {
+                int moveToAPP1EXIF = moveToAPP1EXIF(inputStream);
+                if (moveToAPP1EXIF == 0) {
+                    return 0;
+                }
+                return TiffUtil.readOrientationFromTIFF(inputStream, moveToAPP1EXIF);
+            } catch (IOException unused) {
+                return 0;
+            }
+        }
+        return invokeL.intValue;
+    }
+
+    public static int getOrientation(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
+            return getOrientation(new ByteArrayInputStream(bArr));
+        }
+        return invokeL.intValue;
     }
 
     public static int moveToAPP1EXIF(InputStream inputStream) throws IOException {
@@ -111,36 +134,18 @@ public class JfifUtil {
                 while (i2 == 255) {
                     i2 = StreamProcessor.readPackedInt(inputStream, 1, false);
                 }
-                if ((i != 192 || !isSOFn(i2)) && i2 != i) {
-                    if (i2 != 216 && i2 != 1) {
-                        if (i2 == 217 || i2 == 218) {
-                            break;
-                        }
-                        inputStream.skip(StreamProcessor.readPackedInt(inputStream, 2, false) - 2);
-                    }
-                } else {
+                if ((i == 192 && isSOFn(i2)) || i2 == i) {
                     return true;
+                }
+                if (i2 != 216 && i2 != 1) {
+                    if (i2 == 217 || i2 == 218) {
+                        break;
+                    }
+                    inputStream.skip(StreamProcessor.readPackedInt(inputStream, 2, false) - 2);
                 }
             }
             return false;
         }
         return invokeLI.booleanValue;
-    }
-
-    public static int getOrientation(InputStream inputStream) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, inputStream)) == null) {
-            try {
-                int moveToAPP1EXIF = moveToAPP1EXIF(inputStream);
-                if (moveToAPP1EXIF == 0) {
-                    return 0;
-                }
-                return TiffUtil.readOrientationFromTIFF(inputStream, moveToAPP1EXIF);
-            } catch (IOException unused) {
-                return 0;
-            }
-        }
-        return invokeL.intValue;
     }
 }

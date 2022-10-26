@@ -1,9 +1,8 @@
 package com.baidu.ugc.bean;
 
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ce9;
+import com.baidu.tieba.ue9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -74,73 +73,6 @@ public class LocalAlbumInfo extends LocalEntity implements Cloneable, Comparable
         this.isOverSupportSize = false;
     }
 
-    public static boolean checkOverSupportSize(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65537, null, i, i2)) == null) ? Math.max(i, i2) > 3000 : invokeII.booleanValue;
-    }
-
-    public static String toJSONList(List<LocalAlbumInfo> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
-            if (list == null) {
-                return null;
-            }
-            try {
-                return new ce9().a(list);
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String toJsonString(LocalAlbumInfo localAlbumInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, localAlbumInfo)) == null) {
-            if (localAlbumInfo == null) {
-                return null;
-            }
-            try {
-                return new ce9().a(localAlbumInfo);
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
-            if (obj == null) {
-                return false;
-            }
-            if (obj == this) {
-                return true;
-            }
-            if (obj instanceof LocalAlbumInfo) {
-                LocalAlbumInfo localAlbumInfo = (LocalAlbumInfo) obj;
-                String str = localAlbumInfo.uri;
-                if (str == null) {
-                    str = "";
-                }
-                localAlbumInfo.uri = str;
-                String str2 = this.uri;
-                String str3 = str2 != null ? str2 : "";
-                this.uri = str3;
-                return str3.equals(localAlbumInfo.uri) && this.mediaType == localAlbumInfo.mediaType;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
     public float getCurrentSpeed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -161,58 +93,72 @@ public class LocalAlbumInfo extends LocalEntity implements Cloneable, Comparable
         return invokeV.floatValue;
     }
 
-    public long getDuration() {
-        InterceptResult invokeV;
+    public static boolean checkOverSupportSize(int i, int i2) {
+        InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.duration : invokeV.longValue;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65537, null, i, i2)) == null) {
+            if (Math.max(i, i2) > 3000) {
+                return true;
+            }
+            return false;
+        }
+        return invokeII.booleanValue;
     }
 
-    public long getDurationWithSpeed() {
-        InterceptResult invokeV;
+    public static String toJSONList(List<LocalAlbumInfo> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? ((float) (this.endTime - this.startTime)) / getCurrentSpeed() : invokeV.longValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
+            if (list == null) {
+                return null;
+            }
+            try {
+                return new ue9().a(list);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        return (String) invokeL.objValue;
     }
 
-    public long getEndTimeMSWithSpeed() {
-        InterceptResult invokeV;
+    public static String toJsonString(LocalAlbumInfo localAlbumInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? ((float) this.endTime) / getCurrentSpeed() : invokeV.longValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, localAlbumInfo)) == null) {
+            if (localAlbumInfo == null) {
+                return null;
+            }
+            try {
+                return new ue9().a(localAlbumInfo);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        return (String) invokeL.objValue;
     }
 
-    public String getPath() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    public int compareTo(LocalAlbumInfo localAlbumInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.path : (String) invokeV.objValue;
-    }
-
-    public long getSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.size : invokeV.longValue;
-    }
-
-    public long getStartTimeMSWithSpeed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? ((float) this.startTime) / getCurrentSpeed() : invokeV.longValue;
-    }
-
-    public String getUri() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.uri : (String) invokeV.objValue;
-    }
-
-    public boolean isOverSupportSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.isOverSupportSize : invokeV.booleanValue;
-    }
-
-    public boolean isShowSpeedChanger() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mIsShowSpeedChanger : invokeV.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, localAlbumInfo)) == null) {
+            if (localAlbumInfo == null) {
+                return -1;
+            }
+            long j = this.date;
+            long j2 = localAlbumInfo.date;
+            if (j > j2) {
+                return -1;
+            }
+            if (j < j2) {
+                return 1;
+            }
+            return 0;
+        }
+        return invokeL.intValue;
     }
 
     public void setDuration(long j) {
@@ -288,22 +234,117 @@ public class LocalAlbumInfo extends LocalEntity implements Cloneable, Comparable
         return (LocalAlbumInfo) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    public int compareTo(@NonNull LocalAlbumInfo localAlbumInfo) {
+    public long getDuration() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.duration;
+        }
+        return invokeV.longValue;
+    }
+
+    public long getDurationWithSpeed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return ((float) (this.endTime - this.startTime)) / getCurrentSpeed();
+        }
+        return invokeV.longValue;
+    }
+
+    public long getEndTimeMSWithSpeed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return ((float) this.endTime) / getCurrentSpeed();
+        }
+        return invokeV.longValue;
+    }
+
+    public String getPath() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.path;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long getSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.size;
+        }
+        return invokeV.longValue;
+    }
+
+    public long getStartTimeMSWithSpeed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return ((float) this.startTime) / getCurrentSpeed();
+        }
+        return invokeV.longValue;
+    }
+
+    public String getUri() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.uri;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean isOverSupportSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.isOverSupportSize;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isShowSpeedChanger() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.mIsShowSpeedChanger;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, localAlbumInfo)) == null) {
-            if (localAlbumInfo == null) {
-                return -1;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
+            if (obj == null) {
+                return false;
             }
-            long j = this.date;
-            long j2 = localAlbumInfo.date;
-            if (j > j2) {
-                return -1;
+            if (obj == this) {
+                return true;
             }
-            return j < j2 ? 1 : 0;
+            if (!(obj instanceof LocalAlbumInfo)) {
+                return false;
+            }
+            LocalAlbumInfo localAlbumInfo = (LocalAlbumInfo) obj;
+            String str = localAlbumInfo.uri;
+            String str2 = "";
+            if (str == null) {
+                str = "";
+            }
+            localAlbumInfo.uri = str;
+            String str3 = this.uri;
+            if (str3 != null) {
+                str2 = str3;
+            }
+            this.uri = str2;
+            if (!str2.equals(localAlbumInfo.uri) || this.mediaType != localAlbumInfo.mediaType) {
+                return false;
+            }
+            return true;
         }
-        return invokeL.intValue;
+        return invokeL.booleanValue;
     }
 }

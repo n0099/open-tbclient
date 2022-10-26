@@ -1,9 +1,6 @@
 package com.baidu.searchbox.player.utils;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
-import androidx.annotation.Nullable;
-import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -27,28 +24,22 @@ public class BdActivityUtils {
         }
     }
 
-    @PublicMethod
-    @SuppressLint({"SourceLockedOrientationActivity"})
-    public static void requestLandscape(@Nullable Activity activity, boolean z) {
+    public static void requestLandscape(Activity activity, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(65537, null, activity, z) == null) || activity == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLZ(65537, null, activity, z) == null) && activity != null) {
+            if (z) {
+                activity.setRequestedOrientation(8);
+            } else {
+                activity.setRequestedOrientation(0);
+            }
+            activity.getWindow().setFlags(1024, 1024);
         }
-        if (z) {
-            activity.setRequestedOrientation(8);
-        } else {
-            activity.setRequestedOrientation(0);
-        }
-        activity.getWindow().setFlags(1024, 1024);
     }
 
-    @PublicMethod
-    @SuppressLint({"SourceLockedOrientationActivity"})
-    public static void requestPortrait(@Nullable Activity activity) {
+    public static void requestPortrait(Activity activity) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, activity) == null) || activity == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(65538, null, activity) == null) && activity != null) {
+            activity.setRequestedOrientation(1);
         }
-        activity.setRequestedOrientation(1);
     }
 }

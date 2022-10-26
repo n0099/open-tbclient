@@ -1,5 +1,7 @@
 package com.baidu.tieba;
+
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public interface gn1 {
-    void a(String str, k03 k03Var);
+    String a(String str, JSONObject jSONObject);
 }

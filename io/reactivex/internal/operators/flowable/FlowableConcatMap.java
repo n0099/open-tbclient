@@ -27,16 +27,25 @@ import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableConcatMap<T, R> extends AbstractFlowableWithUpstream<T, R> {
+public final class FlowableConcatMap extends AbstractFlowableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ErrorMode errorMode;
-    public final Function<? super T, ? extends Publisher<? extends R>> mapper;
+    public final Function mapper;
     public final int prefetch;
+
+    /* loaded from: classes8.dex */
+    public interface ConcatMapSupport {
+        void innerComplete();
+
+        void innerError(Throwable th);
+
+        void innerNext(Object obj);
+    }
 
     /* renamed from: io.reactivex.internal.operators.flowable.FlowableConcatMap$1  reason: invalid class name */
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$io$reactivex$internal$util$ErrorMode;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -68,7 +77,7 @@ public final class FlowableConcatMap<T, R> extends AbstractFlowableWithUpstream<
     }
 
     /* loaded from: classes8.dex */
-    public static abstract class BaseConcatMapSubscriber<T, R> extends AtomicInteger implements FlowableSubscriber<T>, ConcatMapSupport<R>, Subscription {
+    public abstract class BaseConcatMapSubscriber extends AtomicInteger implements FlowableSubscriber, ConcatMapSupport, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3511336836796789179L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,15 +86,19 @@ public final class FlowableConcatMap<T, R> extends AbstractFlowableWithUpstream<
         public int consumed;
         public volatile boolean done;
         public final AtomicThrowable errors;
-        public final ConcatMapInner<R> inner;
+        public final ConcatMapInner inner;
         public final int limit;
-        public final Function<? super T, ? extends Publisher<? extends R>> mapper;
+        public final Function mapper;
         public final int prefetch;
-        public SimpleQueue<T> queue;
+        public SimpleQueue queue;
         public Subscription s;
         public int sourceMode;
 
-        public BaseConcatMapSubscriber(Function<? super T, ? extends Publisher<? extends R>> function, int i) {
+        public abstract void drain();
+
+        public abstract void subscribeActual();
+
+        public BaseConcatMapSubscriber(Function function, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,11 +116,9 @@ public final class FlowableConcatMap<T, R> extends AbstractFlowableWithUpstream<
             this.mapper = function;
             this.prefetch = i;
             this.limit = i - (i >> 2);
-            this.inner = new ConcatMapInner<>(this);
+            this.inner = new ConcatMapInner(this);
             this.errors = new AtomicThrowable();
         }
-
-        public abstract void drain();
 
         @Override // io.reactivex.internal.operators.flowable.FlowableConcatMap.ConcatMapSupport
         public final void innerComplete() {
@@ -128,10 +139,10 @@ public final class FlowableConcatMap<T, R> extends AbstractFlowableWithUpstream<
         }
 
         @Override // org.reactivestreams.Subscriber
-        public final void onNext(T t) {
+        public final void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
-                if (this.sourceMode != 2 && !this.queue.offer(t)) {
+            if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
+                if (this.sourceMode != 2 && !this.queue.offer(obj)) {
                     this.s.cancel();
                     onError(new IllegalStateException("Queue full?!"));
                     return;
@@ -168,20 +179,18 @@ public final class FlowableConcatMap<T, R> extends AbstractFlowableWithUpstream<
                 subscription.request(this.prefetch);
             }
         }
-
-        public abstract void subscribeActual();
     }
 
     /* loaded from: classes8.dex */
-    public static final class ConcatMapDelayed<T, R> extends BaseConcatMapSubscriber<T, R> {
+    public final class ConcatMapDelayed extends BaseConcatMapSubscriber {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -2945777694260521066L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber<? super R> actual;
+        public final Subscriber actual;
         public final boolean veryEnd;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ConcatMapDelayed(Subscriber<? super R> subscriber, Function<? super T, ? extends Publisher<? extends R>> function, int i, boolean z) {
+        public ConcatMapDelayed(Subscriber subscriber, Function function, int i, boolean z) {
             super(function, i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -206,29 +215,41 @@ public final class FlowableConcatMap<T, R> extends AbstractFlowableWithUpstream<
         @Override // org.reactivestreams.Subscription
         public void cancel() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.cancelled) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.cancelled) {
+                this.cancelled = true;
+                this.inner.cancel();
+                this.s.cancel();
             }
-            this.cancelled = true;
-            this.inner.cancel();
-            this.s.cancel();
+        }
+
+        @Override // io.reactivex.internal.operators.flowable.FlowableConcatMap.BaseConcatMapSubscriber
+        public void subscribeActual() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+                this.actual.onSubscribe(this);
+            }
         }
 
         @Override // io.reactivex.internal.operators.flowable.FlowableConcatMap.BaseConcatMapSubscriber
         public void drain() {
+            boolean z;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && getAndIncrement() == 0) {
                 while (!this.cancelled) {
                     if (!this.active) {
-                        boolean z = this.done;
-                        if (z && !this.veryEnd && this.errors.get() != null) {
+                        boolean z2 = this.done;
+                        if (z2 && !this.veryEnd && ((Throwable) this.errors.get()) != null) {
                             this.actual.onError(this.errors.terminate());
                             return;
                         }
                         try {
-                            T poll = this.queue.poll();
-                            boolean z2 = poll == null;
-                            if (z && z2) {
+                            Object poll = this.queue.poll();
+                            if (poll == null) {
+                                z = true;
+                            } else {
+                                z = false;
+                            }
+                            if (z2 && z) {
                                 Throwable terminate = this.errors.terminate();
                                 if (terminate != null) {
                                     this.actual.onError(terminate);
@@ -237,7 +258,7 @@ public final class FlowableConcatMap<T, R> extends AbstractFlowableWithUpstream<
                                     this.actual.onComplete();
                                     return;
                                 }
-                            } else if (!z2) {
+                            } else if (!z) {
                                 try {
                                     Publisher publisher = (Publisher) ObjectHelper.requireNonNull(this.mapper.apply(poll), "The mapper returned a null Publisher");
                                     if (this.sourceMode != 1) {
@@ -258,7 +279,7 @@ public final class FlowableConcatMap<T, R> extends AbstractFlowableWithUpstream<
                                                 this.actual.onNext(call);
                                             } else {
                                                 this.active = true;
-                                                ConcatMapInner<R> concatMapInner = this.inner;
+                                                ConcatMapInner concatMapInner = this.inner;
                                                 concatMapInner.setSubscription(new WeakScalarSubscription(call, concatMapInner));
                                             }
                                         } catch (Throwable th) {
@@ -313,10 +334,10 @@ public final class FlowableConcatMap<T, R> extends AbstractFlowableWithUpstream<
         }
 
         @Override // io.reactivex.internal.operators.flowable.FlowableConcatMap.ConcatMapSupport
-        public void innerNext(R r) {
+        public void innerNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, r) == null) {
-                this.actual.onNext(r);
+            if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
+                this.actual.onNext(obj);
             }
         }
 
@@ -340,26 +361,18 @@ public final class FlowableConcatMap<T, R> extends AbstractFlowableWithUpstream<
                 this.inner.request(j);
             }
         }
-
-        @Override // io.reactivex.internal.operators.flowable.FlowableConcatMap.BaseConcatMapSubscriber
-        public void subscribeActual() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-                this.actual.onSubscribe(this);
-            }
-        }
     }
 
     /* loaded from: classes8.dex */
-    public static final class ConcatMapImmediate<T, R> extends BaseConcatMapSubscriber<T, R> {
+    public final class ConcatMapImmediate extends BaseConcatMapSubscriber {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 7898995095634264146L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber<? super R> actual;
+        public final Subscriber actual;
         public final AtomicInteger wip;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ConcatMapImmediate(Subscriber<? super R> subscriber, Function<? super T, ? extends Publisher<? extends R>> function, int i) {
+        public ConcatMapImmediate(Subscriber subscriber, Function function, int i) {
             super(function, i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -384,28 +397,40 @@ public final class FlowableConcatMap<T, R> extends AbstractFlowableWithUpstream<
         @Override // org.reactivestreams.Subscription
         public void cancel() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.cancelled) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.cancelled) {
+                this.cancelled = true;
+                this.inner.cancel();
+                this.s.cancel();
             }
-            this.cancelled = true;
-            this.inner.cancel();
-            this.s.cancel();
+        }
+
+        @Override // io.reactivex.internal.operators.flowable.FlowableConcatMap.BaseConcatMapSubscriber
+        public void subscribeActual() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+                this.actual.onSubscribe(this);
+            }
         }
 
         @Override // io.reactivex.internal.operators.flowable.FlowableConcatMap.BaseConcatMapSubscriber
         public void drain() {
+            boolean z;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.wip.getAndIncrement() == 0) {
                 while (!this.cancelled) {
                     if (!this.active) {
-                        boolean z = this.done;
+                        boolean z2 = this.done;
                         try {
-                            T poll = this.queue.poll();
-                            boolean z2 = poll == null;
-                            if (z && z2) {
+                            Object poll = this.queue.poll();
+                            if (poll == null) {
+                                z = true;
+                            } else {
+                                z = false;
+                            }
+                            if (z2 && z) {
                                 this.actual.onComplete();
                                 return;
-                            } else if (!z2) {
+                            } else if (!z) {
                                 try {
                                     Publisher publisher = (Publisher) ObjectHelper.requireNonNull(this.mapper.apply(poll), "The mapper returned a null Publisher");
                                     if (this.sourceMode != 1) {
@@ -432,7 +457,7 @@ public final class FlowableConcatMap<T, R> extends AbstractFlowableWithUpstream<
                                                 }
                                             } else {
                                                 this.active = true;
-                                                ConcatMapInner<R> concatMapInner = this.inner;
+                                                ConcatMapInner concatMapInner = this.inner;
                                                 concatMapInner.setSubscription(new WeakScalarSubscription(call, concatMapInner));
                                             }
                                         } catch (Throwable th) {
@@ -485,18 +510,6 @@ public final class FlowableConcatMap<T, R> extends AbstractFlowableWithUpstream<
             }
         }
 
-        @Override // io.reactivex.internal.operators.flowable.FlowableConcatMap.ConcatMapSupport
-        public void innerNext(R r) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048579, this, r) == null) && get() == 0 && compareAndSet(0, 1)) {
-                this.actual.onNext(r);
-                if (compareAndSet(1, 0)) {
-                    return;
-                }
-                this.actual.onError(this.errors.terminate());
-            }
-        }
-
         @Override // org.reactivestreams.Subscriber
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
@@ -521,24 +534,28 @@ public final class FlowableConcatMap<T, R> extends AbstractFlowableWithUpstream<
             }
         }
 
-        @Override // io.reactivex.internal.operators.flowable.FlowableConcatMap.BaseConcatMapSubscriber
-        public void subscribeActual() {
+        @Override // io.reactivex.internal.operators.flowable.FlowableConcatMap.ConcatMapSupport
+        public void innerNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-                this.actual.onSubscribe(this);
+            if ((interceptable == null || interceptable.invokeL(1048579, this, obj) == null) && get() == 0 && compareAndSet(0, 1)) {
+                this.actual.onNext(obj);
+                if (compareAndSet(1, 0)) {
+                    return;
+                }
+                this.actual.onError(this.errors.terminate());
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public static final class ConcatMapInner<R> extends SubscriptionArbiter implements FlowableSubscriber<R> {
+    public final class ConcatMapInner extends SubscriptionArbiter implements FlowableSubscriber {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 897683679971470653L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final ConcatMapSupport<R> parent;
+        public final ConcatMapSupport parent;
         public long produced;
 
-        public ConcatMapInner(ConcatMapSupport<R> concatMapSupport) {
+        public ConcatMapInner(ConcatMapSupport concatMapSupport) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -557,19 +574,6 @@ public final class FlowableConcatMap<T, R> extends AbstractFlowableWithUpstream<
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onComplete() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                long j = this.produced;
-                if (j != 0) {
-                    this.produced = 0L;
-                    produced(j);
-                }
-                this.parent.innerComplete();
-            }
-        }
-
-        @Override // org.reactivestreams.Subscriber
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
@@ -583,11 +587,11 @@ public final class FlowableConcatMap<T, R> extends AbstractFlowableWithUpstream<
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(R r) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, r) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
                 this.produced++;
-                this.parent.innerNext(r);
+                this.parent.innerNext(obj);
             }
         }
 
@@ -598,31 +602,42 @@ public final class FlowableConcatMap<T, R> extends AbstractFlowableWithUpstream<
                 setSubscription(subscription);
             }
         }
+
+        @Override // org.reactivestreams.Subscriber
+        public void onComplete() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                long j = this.produced;
+                if (j != 0) {
+                    this.produced = 0L;
+                    produced(j);
+                }
+                this.parent.innerComplete();
+            }
+        }
     }
 
     /* loaded from: classes8.dex */
-    public interface ConcatMapSupport<T> {
-        void innerComplete();
-
-        void innerError(Throwable th);
-
-        void innerNext(T t);
-    }
-
-    /* loaded from: classes8.dex */
-    public static final class WeakScalarSubscription<T> implements Subscription {
+    public final class WeakScalarSubscription implements Subscription {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber<? super T> actual;
+        public final Subscriber actual;
         public boolean once;
-        public final T value;
+        public final Object value;
 
-        public WeakScalarSubscription(T t, Subscriber<? super T> subscriber) {
+        @Override // org.reactivestreams.Subscription
+        public void cancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            }
+        }
+
+        public WeakScalarSubscription(Object obj, Subscriber subscriber) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {t, subscriber};
+                Object[] objArr = {obj, subscriber};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -632,33 +647,24 @@ public final class FlowableConcatMap<T, R> extends AbstractFlowableWithUpstream<
                     return;
                 }
             }
-            this.value = t;
+            this.value = obj;
             this.actual = subscriber;
         }
 
         @Override // org.reactivestreams.Subscription
-        public void cancel() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            }
-        }
-
-        /* JADX DEBUG: Type inference failed for r6v0. Raw type applied. Possible types: T, ? super T */
-        @Override // org.reactivestreams.Subscription
         public void request(long j) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) || j <= 0 || this.once) {
-                return;
+            if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) && j > 0 && !this.once) {
+                this.once = true;
+                Subscriber subscriber = this.actual;
+                subscriber.onNext(this.value);
+                subscriber.onComplete();
             }
-            this.once = true;
-            Subscriber<? super T> subscriber = this.actual;
-            subscriber.onNext((T) this.value);
-            subscriber.onComplete();
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableConcatMap(Flowable<T> flowable, Function<? super T, ? extends Publisher<? extends R>> function, int i, ErrorMode errorMode) {
+    public FlowableConcatMap(Flowable flowable, Function function, int i, ErrorMode errorMode) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -680,7 +686,7 @@ public final class FlowableConcatMap<T, R> extends AbstractFlowableWithUpstream<
         this.errorMode = errorMode;
     }
 
-    public static <T, R> Subscriber<T> subscribe(Subscriber<? super R> subscriber, Function<? super T, ? extends Publisher<? extends R>> function, int i, ErrorMode errorMode) {
+    public static Subscriber subscribe(Subscriber subscriber, Function function, int i, ErrorMode errorMode) {
         InterceptResult invokeLLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(65537, null, subscriber, function, i, errorMode)) == null) {
@@ -697,9 +703,9 @@ public final class FlowableConcatMap<T, R> extends AbstractFlowableWithUpstream<
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber<? super R> subscriber) {
+    public void subscribeActual(Subscriber subscriber) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) || FlowableScalarXMap.tryScalarXMapSubscribe(this.source, subscriber, this.mapper)) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, subscriber) != null) || FlowableScalarXMap.tryScalarXMapSubscribe(this.source, subscriber, this.mapper)) {
             return;
         }
         this.source.subscribe(subscribe(subscriber, this.mapper, this.prefetch, this.errorMode));

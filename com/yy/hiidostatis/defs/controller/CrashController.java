@@ -52,6 +52,21 @@ public class CrashController {
         void handler(JSONObject jSONObject);
     }
 
+    private boolean report(JSONObject jSONObject) throws Exception {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, this, jSONObject)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void flushCache() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
     public CrashController(Context context, IStatisAPI iStatisAPI, IOnStatisListener iOnStatisListener, OnCrashListener onCrashListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -92,15 +107,57 @@ public class CrashController {
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, str)) == null) {
             try {
                 File file = new File(str);
-                if (file.exists()) {
-                    return file.delete();
+                if (!file.exists()) {
+                    return false;
                 }
-                return false;
+                if (!file.delete()) {
+                    return false;
+                }
+                return true;
             } catch (Throwable unused) {
                 return false;
             }
         }
         return invokeL.booleanValue;
+    }
+
+    private String parseCrashId(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, this, str)) == null) {
+            return new File(str).getName().replaceAll(".dmp", "");
+        }
+        return (String) invokeL.objValue;
+    }
+
+    private String parseJsonFilePath(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, this, str)) == null) {
+            return str.replaceAll(".dmp", ".json");
+        }
+        return (String) invokeL.objValue;
+    }
+
+    private String parseZipFilePath(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, this, str)) == null) {
+            return str.replaceAll(".dmp", ".zip");
+        }
+        return (String) invokeL.objValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void saveInfo(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65552, this, jSONObject) == null) {
+            try {
+                this.mPreference.setPrefString(this.mContext, jSONObject.getString("crashid"), jSONObject.toString());
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     private boolean doExpire(JSONObject jSONObject) {
@@ -125,6 +182,7 @@ public class CrashController {
     }
 
     private synchronized void doFlushCache() {
+        int size;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
             synchronized (this) {
@@ -132,23 +190,28 @@ public class CrashController {
                     this.mIsSpecialDo = true;
                     doSpecial();
                 }
-                Map<String, ?> all = getAll();
+                Map all = getAll();
                 Object[] objArr = new Object[1];
-                objArr[0] = Integer.valueOf(all == null ? 0 : all.size());
+                if (all == null) {
+                    size = 0;
+                } else {
+                    size = all.size();
+                }
+                objArr[0] = Integer.valueOf(size);
                 L.brief("all crash size = %d", objArr);
                 if (all != null && all.size() > 0) {
-                    for (Map.Entry<String, ?> entry : all.entrySet()) {
-                        String key = entry.getKey();
+                    for (Map.Entry entry : all.entrySet()) {
+                        String str = (String) entry.getKey();
                         JSONObject jSONObject = new JSONObject((String) entry.getValue());
-                        L.brief("get crashid = %s", key);
+                        L.brief("get crashid = %s", str);
                         if (!doExpire(jSONObject)) {
                             if (!report(jSONObject)) {
                                 break;
                             }
-                            clearInfo(key);
+                            clearInfo(str);
                             delFile(jSONObject.getString("dpath"));
                             delFile(jSONObject.getString("lpath"));
-                            L.brief("del crashid = %s", key);
+                            L.brief("del crashid = %s", str);
                         }
                     }
                 }
@@ -156,7 +219,7 @@ public class CrashController {
         }
     }
 
-    private boolean doReport(String str, Map<String, String> map, Map<String, String> map2, int i) {
+    private boolean doReport(String str, Map map, Map map2, int i) {
         InterceptResult invokeLLLI;
         HttpUtil.HttpResp postFileByUrlConn;
         Interceptable interceptable = $ic;
@@ -228,7 +291,13 @@ public class CrashController {
                     public boolean accept(File file2, String str) {
                         InterceptResult invokeLL;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, file2, str)) == null) ? (str == null || str.startsWith("J-") || !str.endsWith(".dmp")) ? false : true : invokeLL.booleanValue;
+                        if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, file2, str)) == null) {
+                            if (str != null && !str.startsWith("J-") && str.endsWith(".dmp")) {
+                                return true;
+                            }
+                            return false;
+                        }
+                        return invokeLL.booleanValue;
                     }
                 })) {
                     String absolutePath = file.getAbsolutePath();
@@ -249,6 +318,7 @@ public class CrashController {
     /* JADX INFO: Access modifiers changed from: private */
     public JSONObject fillInfo(int i, String str, String str2, String str3) {
         InterceptResult invokeCommon;
+        int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, this, new Object[]{Integer.valueOf(i), str, str2, str3})) == null) {
             JSONObject jSONObject = new JSONObject();
@@ -283,7 +353,12 @@ public class CrashController {
             jSONObject.put(BaseStatisContent.NTM, ArdUtil.getNtm(this.mContext));
             jSONObject.put("net", ArdUtil.getNetworkTypeNew(this.mContext));
             jSONObject.put(BaseStatisContent.SR, ArdUtil.getScreenResolution(this.mContext));
-            jSONObject.put("rot", ArdUtil.isRoot() ? 1 : 0);
+            if (ArdUtil.isRoot()) {
+                i2 = 1;
+            } else {
+                i2 = 0;
+            }
+            jSONObject.put("rot", i2);
             jSONObject.put("tram", ArdUtil.getTotalMemory(this.mContext));
             jSONObject.put("trom", ArdUtil.getTotalInternalStorgeSize());
             jSONObject.put("tsd", 0);
@@ -310,55 +385,13 @@ public class CrashController {
         return (JSONObject) invokeCommon.objValue;
     }
 
-    private Map<String, ?> getAll() {
+    private Map getAll() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) ? this.mPreference.getAll(this.mContext) : (Map) invokeV.objValue;
-    }
-
-    private String parseCrashId(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65548, this, str)) == null) ? new File(str).getName().replaceAll(".dmp", "") : (String) invokeL.objValue;
-    }
-
-    private String parseJsonFilePath(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65549, this, str)) == null) ? str.replaceAll(".dmp", ".json") : (String) invokeL.objValue;
-    }
-
-    private String parseZipFilePath(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65550, this, str)) == null) ? str.replaceAll(".dmp", ".zip") : (String) invokeL.objValue;
-    }
-
-    private boolean report(JSONObject jSONObject) throws Exception {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, this, jSONObject)) == null) {
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
+            return this.mPreference.getAll(this.mContext);
         }
-        return invokeL.booleanValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void saveInfo(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65552, this, jSONObject) == null) {
-            try {
-                this.mPreference.setPrefString(this.mContext, jSONObject.getString("crashid"), jSONObject.toString());
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public void flushCache() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
+        return (Map) invokeV.objValue;
     }
 
     public void startCrashMonitor() {

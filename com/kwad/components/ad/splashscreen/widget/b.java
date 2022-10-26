@@ -5,9 +5,6 @@ import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
-import androidx.annotation.MainThread;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -22,7 +19,7 @@ public abstract class b extends KSFrameLayout {
     public boolean Ah;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public b(@NonNull Context context) {
+    public b(Context context) {
         this(context, null, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -43,7 +40,7 @@ public abstract class b extends KSFrameLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public b(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+    public b(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -64,7 +61,7 @@ public abstract class b extends KSFrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+    public b(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -87,7 +84,7 @@ public abstract class b extends KSFrameLayout {
         kp();
     }
 
-    public void a(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+    public void a(Context context, AttributeSet attributeSet, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048576, this, context, attributeSet, i) == null) {
         }
@@ -124,7 +121,6 @@ public abstract class b extends KSFrameLayout {
         }
     }
 
-    @MainThread
     public final void kk() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {

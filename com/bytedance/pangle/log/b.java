@@ -44,20 +44,19 @@ public final class b {
     public static b a(String str, String str2, String str3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, str3)) == null) ? new b(str, str2, str3) : (b) invokeLLL.objValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, str3)) == null) {
+            return new b(str, str2, str3);
+        }
+        return (b) invokeLLL.objValue;
     }
 
-    public final long b(String str) {
-        InterceptResult invokeL;
+    public final long a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            long currentTimeMillis = System.currentTimeMillis() - this.e;
-            long currentTimeMillis2 = System.currentTimeMillis() - this.d;
-            String str2 = this.a;
-            ZeusLogger.i(str2, this.b + String.format(" watcher[%s]-%s cost=%s, total=%s", this.c, str, Long.valueOf(currentTimeMillis), Long.valueOf(currentTimeMillis2)));
-            return currentTimeMillis2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return System.currentTimeMillis() - this.d;
         }
-        return invokeL.longValue;
+        return invokeV.longValue;
     }
 
     public final long a(String str) {
@@ -73,9 +72,16 @@ public final class b {
         return invokeL.longValue;
     }
 
-    public final long a() {
-        InterceptResult invokeV;
+    public final long b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? System.currentTimeMillis() - this.d : invokeV.longValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            long currentTimeMillis = System.currentTimeMillis() - this.e;
+            long currentTimeMillis2 = System.currentTimeMillis() - this.d;
+            String str2 = this.a;
+            ZeusLogger.i(str2, this.b + String.format(" watcher[%s]-%s cost=%s, total=%s", this.c, str, Long.valueOf(currentTimeMillis), Long.valueOf(currentTimeMillis2)));
+            return currentTimeMillis2;
+        }
+        return invokeL.longValue;
     }
 }

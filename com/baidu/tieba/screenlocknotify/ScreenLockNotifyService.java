@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.IBinder;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dg8;
+import com.baidu.tieba.ng8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ScreenLockNotifyService extends Service {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public dg8 mLockReceiver;
+    public ng8 mLockReceiver;
+
+    @Override // android.app.Service
+    public IBinder onBind(Intent intent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
+            return null;
+        }
+        return (IBinder) invokeL.objValue;
+    }
 
     public ScreenLockNotifyService() {
         Interceptable interceptable = $ic;
@@ -34,13 +44,12 @@ public class ScreenLockNotifyService extends Service {
     }
 
     @Override // android.app.Service
-    public IBinder onBind(Intent intent) {
-        InterceptResult invokeL;
+    public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
-            return null;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.onDestroy();
+            unregisterReceiver(this.mLockReceiver);
         }
-        return (IBinder) invokeL.objValue;
     }
 
     @Override // android.app.Service
@@ -48,7 +57,7 @@ public class ScreenLockNotifyService extends Service {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onCreate();
-            this.mLockReceiver = new dg8();
+            this.mLockReceiver = new ng8();
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.intent.action.SCREEN_ON");
             intentFilter.addAction("android.intent.action.SCREEN_OFF");
@@ -57,15 +66,6 @@ public class ScreenLockNotifyService extends Service {
                 registerReceiver(this.mLockReceiver, intentFilter);
             } catch (Exception unused) {
             }
-        }
-    }
-
-    @Override // android.app.Service
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.onDestroy();
-            unregisterReceiver(this.mLockReceiver);
         }
     }
 

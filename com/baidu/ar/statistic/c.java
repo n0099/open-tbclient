@@ -19,7 +19,7 @@ public class c extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b wx;
-    public Map<String, String> wy;
+    public Map wy;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(Looper looper, b bVar) {
@@ -51,7 +51,7 @@ public class c extends Handler {
                 if (!TextUtils.isEmpty(ARConfig.getARKey())) {
                     aVar.b("ar_key", ARConfig.getARKey());
                 }
-                aVar.b("ar_id", ARConfig.getARId());
+                aVar.b(ARConfigKey.AR_ID, ARConfig.getARId());
                 aVar.b(ARConfigKey.AR_FROM, ARConfig.getArFrom());
                 aVar.b("ar_type", String.valueOf(ARConfig.getARType()));
                 if (!this.wy.isEmpty()) {
@@ -126,7 +126,7 @@ public class c extends Handler {
         }
     }
 
-    public void setPubParams(Map<String, String> map) {
+    public void setPubParams(Map map) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048579, this, map) == null) || map == null) {
             return;

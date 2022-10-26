@@ -11,7 +11,7 @@ public class DelegateClassLoader extends DexClassLoader {
     }
 
     @Override // dalvik.system.BaseDexClassLoader, java.lang.ClassLoader
-    public Class<?> findClass(String str) throws ClassNotFoundException {
+    public Class findClass(String str) throws ClassNotFoundException {
         try {
             return super.findClass(str);
         } catch (ClassNotFoundException unused) {

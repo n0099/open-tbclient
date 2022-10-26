@@ -15,6 +15,23 @@ public class ByteBufferByteChannel implements ByteChannel {
     public transient /* synthetic */ FieldHolder $fh;
     public ByteBuffer byteBuffer;
 
+    @Override // java.nio.channels.Channel, java.io.Closeable, java.lang.AutoCloseable
+    public void close() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
+    @Override // java.nio.channels.Channel
+    public boolean isOpen() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
     public ByteBufferByteChannel(ByteBuffer byteBuffer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -33,21 +50,16 @@ public class ByteBufferByteChannel implements ByteChannel {
         this.byteBuffer = byteBuffer;
     }
 
-    @Override // java.nio.channels.Channel, java.io.Closeable, java.lang.AutoCloseable
-    public void close() throws IOException {
+    @Override // java.nio.channels.WritableByteChannel
+    public int write(ByteBuffer byteBuffer) throws IOException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, byteBuffer)) == null) {
+            int remaining = byteBuffer.remaining();
+            this.byteBuffer.put(byteBuffer);
+            return remaining;
         }
-    }
-
-    @Override // java.nio.channels.Channel
-    public boolean isOpen() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
+        return invokeL.intValue;
     }
 
     @Override // java.nio.channels.ReadableByteChannel
@@ -62,18 +74,6 @@ public class ByteBufferByteChannel implements ByteChannel {
             byteBuffer.put((ByteBuffer) this.byteBuffer.duplicate().limit(this.byteBuffer.position() + byteBuffer.remaining()));
             ByteBuffer byteBuffer2 = this.byteBuffer;
             byteBuffer2.position(byteBuffer2.position() + remaining);
-            return remaining;
-        }
-        return invokeL.intValue;
-    }
-
-    @Override // java.nio.channels.WritableByteChannel
-    public int write(ByteBuffer byteBuffer) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, byteBuffer)) == null) {
-            int remaining = byteBuffer.remaining();
-            this.byteBuffer.put(byteBuffer);
             return remaining;
         }
         return invokeL.intValue;

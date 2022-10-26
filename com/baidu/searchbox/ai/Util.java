@@ -15,7 +15,7 @@ public class Util {
 
     /* renamed from: com.baidu.searchbox.ai.Util$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$ai$DataType;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -76,6 +76,42 @@ public class Util {
         }
     }
 
+    public static byte[] concat(byte[] bArr, byte[] bArr2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bArr, bArr2)) == null) {
+            byte[] bArr3 = new byte[bArr.length + bArr2.length];
+            System.arraycopy(bArr, 0, bArr3, 0, bArr.length);
+            System.arraycopy(bArr2, 0, bArr3, bArr.length, bArr2.length);
+            return bArr3;
+        }
+        return (byte[]) invokeLL.objValue;
+    }
+
+    public static double[] concat(double[] dArr, double[] dArr2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, dArr, dArr2)) == null) {
+            double[] dArr3 = new double[dArr.length + dArr2.length];
+            System.arraycopy(dArr, 0, dArr3, 0, dArr.length);
+            System.arraycopy(dArr2, 0, dArr3, dArr.length, dArr2.length);
+            return dArr3;
+        }
+        return (double[]) invokeLL.objValue;
+    }
+
+    public static float[] concat(float[] fArr, float[] fArr2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, fArr, fArr2)) == null) {
+            float[] fArr3 = new float[fArr.length + fArr2.length];
+            System.arraycopy(fArr, 0, fArr3, 0, fArr.length);
+            System.arraycopy(fArr2, 0, fArr3, fArr.length, fArr2.length);
+            return fArr3;
+        }
+        return (float[]) invokeLL.objValue;
+    }
+
     public static int[] concat(int[] iArr, int[] iArr2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -86,6 +122,30 @@ public class Util {
             return iArr3;
         }
         return (int[]) invokeLL.objValue;
+    }
+
+    public static long[] concat(long[] jArr, long[] jArr2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, jArr, jArr2)) == null) {
+            long[] jArr3 = new long[jArr.length + jArr2.length];
+            System.arraycopy(jArr, 0, jArr3, 0, jArr.length);
+            System.arraycopy(jArr2, 0, jArr3, jArr.length, jArr2.length);
+            return jArr3;
+        }
+        return (long[]) invokeLL.objValue;
+    }
+
+    public static String[] concat(String[] strArr, String[] strArr2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, strArr, strArr2)) == null) {
+            String[] strArr3 = new String[strArr.length + strArr2.length];
+            System.arraycopy(strArr, 0, strArr3, 0, strArr.length);
+            System.arraycopy(strArr2, 0, strArr3, strArr.length, strArr2.length);
+            return strArr3;
+        }
+        return (String[]) invokeLL.objValue;
     }
 
     public static Object createArray(DataType dataType, int i, Object obj) {
@@ -248,65 +308,5 @@ public class Util {
             return strArr;
         }
         return (String[]) invokeLI.objValue;
-    }
-
-    public static float[] concat(float[] fArr, float[] fArr2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, fArr, fArr2)) == null) {
-            float[] fArr3 = new float[fArr.length + fArr2.length];
-            System.arraycopy(fArr, 0, fArr3, 0, fArr.length);
-            System.arraycopy(fArr2, 0, fArr3, fArr.length, fArr2.length);
-            return fArr3;
-        }
-        return (float[]) invokeLL.objValue;
-    }
-
-    public static double[] concat(double[] dArr, double[] dArr2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, dArr, dArr2)) == null) {
-            double[] dArr3 = new double[dArr.length + dArr2.length];
-            System.arraycopy(dArr, 0, dArr3, 0, dArr.length);
-            System.arraycopy(dArr2, 0, dArr3, dArr.length, dArr2.length);
-            return dArr3;
-        }
-        return (double[]) invokeLL.objValue;
-    }
-
-    public static long[] concat(long[] jArr, long[] jArr2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, jArr, jArr2)) == null) {
-            long[] jArr3 = new long[jArr.length + jArr2.length];
-            System.arraycopy(jArr, 0, jArr3, 0, jArr.length);
-            System.arraycopy(jArr2, 0, jArr3, jArr.length, jArr2.length);
-            return jArr3;
-        }
-        return (long[]) invokeLL.objValue;
-    }
-
-    public static String[] concat(String[] strArr, String[] strArr2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, strArr, strArr2)) == null) {
-            String[] strArr3 = new String[strArr.length + strArr2.length];
-            System.arraycopy(strArr, 0, strArr3, 0, strArr.length);
-            System.arraycopy(strArr2, 0, strArr3, strArr.length, strArr2.length);
-            return strArr3;
-        }
-        return (String[]) invokeLL.objValue;
-    }
-
-    public static byte[] concat(byte[] bArr, byte[] bArr2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bArr, bArr2)) == null) {
-            byte[] bArr3 = new byte[bArr.length + bArr2.length];
-            System.arraycopy(bArr, 0, bArr3, 0, bArr.length);
-            System.arraycopy(bArr2, 0, bArr3, bArr.length, bArr2.length);
-            return bArr3;
-        }
-        return (byte[]) invokeLL.objValue;
     }
 }

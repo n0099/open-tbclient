@@ -28,6 +28,28 @@ public class JsonFieldConverter {
         }
     }
 
+    public static void putInt(String str, int i, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(65537, null, str, i, jSONObject) == null) {
+            try {
+                jSONObject.put(str, i);
+            } catch (JSONException e) {
+                Log.e(TAG, "put int field key=" + str + " value=" + i + " is error " + e.getMessage());
+            }
+        }
+    }
+
+    public static void putStr(String str, String str2, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65541, null, str, str2, jSONObject) == null) {
+            try {
+                jSONObject.put(str, str2);
+            } catch (JSONException e) {
+                Log.e(TAG, "put String field key=" + str + " value=" + str2 + " is error " + e.getMessage());
+            }
+        }
+    }
+
     public static void putInt(String str, MapObject mapObject, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65538, null, str, mapObject, jSONObject) == null) {
@@ -57,28 +79,6 @@ public class JsonFieldConverter {
                 jSONObject.put(str, mapObject.getStrValue(str));
             } catch (JSONException e) {
                 Log.e(TAG, "put String field " + str + " is error " + e.getMessage());
-            }
-        }
-    }
-
-    public static void putInt(String str, int i, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65537, null, str, i, jSONObject) == null) {
-            try {
-                jSONObject.put(str, i);
-            } catch (JSONException e) {
-                Log.e(TAG, "put int field key=" + str + " value=" + i + " is error " + e.getMessage());
-            }
-        }
-    }
-
-    public static void putStr(String str, String str2, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65541, null, str, str2, jSONObject) == null) {
-            try {
-                jSONObject.put(str, str2);
-            } catch (JSONException e) {
-                Log.e(TAG, "put String field key=" + str + " value=" + str2 + " is error " + e.getMessage());
             }
         }
     }

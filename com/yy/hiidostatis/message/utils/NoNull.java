@@ -16,6 +16,12 @@ public class NoNull {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static String noNull(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? str == null ? "" : str : (String) invokeL.objValue;
+    }
+
     public NoNull() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -33,36 +39,60 @@ public class NoNull {
     public static boolean isEmpty(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? str == null || str.isEmpty() : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (str != null && !str.isEmpty()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
-    public static String noNull(String str) {
+    public static List noNull(List list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? str == null ? "" : str : (String) invokeL.objValue;
-    }
-
-    public static <T> List<T> noNull(List<T> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, list)) == null) ? list == null ? new ArrayList() : list : (List) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, list)) == null) {
+            if (list == null) {
+                return new ArrayList();
+            }
+            return list;
+        }
+        return (List) invokeL.objValue;
     }
 
     public static boolean isEmpty(Collection collection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, collection)) == null) ? collection == null || collection.isEmpty() : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, collection)) == null) {
+            if (collection != null && !collection.isEmpty()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
-    public static <K, V> Map<K, V> noNull(Map<K, V> map) {
+    public static Map noNull(Map map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, map)) == null) ? map == null ? new HashMap() : map : (Map) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, map)) == null) {
+            if (map == null) {
+                return new HashMap();
+            }
+            return map;
+        }
+        return (Map) invokeL.objValue;
     }
 
     public static boolean isEmpty(Map map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, map)) == null) ? map == null || map.isEmpty() : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, map)) == null) {
+            if (map != null && !map.isEmpty()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

@@ -25,8 +25,15 @@ public class IMGetSubscriptionRequest extends IMSubscriptionBaseRequest {
     public static final String TAG = "IMGetSubscriptionRequest";
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.android.imsdk.shield.request.IMSubscriptionBaseRequest
+    public String getHostUrlParam() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "subscribe_state" : (String) invokeV.objValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public IMGetSubscriptionRequest(Context context, long j, List<Long> list, List<String> list2, String str, String str2) {
+    public IMGetSubscriptionRequest(Context context, long j, List list, List list2, String str, String str2) {
         super(context, j, list, list2, str2, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -64,27 +71,19 @@ public class IMGetSubscriptionRequest extends IMSubscriptionBaseRequest {
         return (GetSubscriptionResult.SubscriptionInfo) invokeL.objValue;
     }
 
-    @Override // com.baidu.android.imsdk.shield.request.IMSubscriptionBaseRequest
-    public String getHostUrlParam() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "subscribe_state" : (String) invokeV.objValue;
-    }
-
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr, th) == null) {
-            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
+            Pair transErrorCode = transErrorCode(i, bArr, th);
             LogUtils.d(TAG, "IMGetSubscriptionRequest onFailure :" + transErrorCode.first + " errmsg = " + ((String) transErrorCode.second));
             IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
-            if (removeListener == null || !(removeListener instanceof IGetSubscriptionListener)) {
-                return;
+            if (removeListener != null && (removeListener instanceof IGetSubscriptionListener)) {
+                GetSubscriptionResult getSubscriptionResult = new GetSubscriptionResult();
+                getSubscriptionResult.setErrorCode(((Integer) transErrorCode.first).intValue());
+                getSubscriptionResult.setErrorMsg((String) transErrorCode.second);
+                ((IGetSubscriptionListener) removeListener).onResult(getSubscriptionResult);
             }
-            GetSubscriptionResult getSubscriptionResult = new GetSubscriptionResult();
-            getSubscriptionResult.setErrorCode(((Integer) transErrorCode.first).intValue());
-            getSubscriptionResult.setErrorMsg((String) transErrorCode.second);
-            ((IGetSubscriptionListener) removeListener).onResult(getSubscriptionResult);
         }
     }
 
@@ -107,7 +106,10 @@ public class IMGetSubscriptionRequest extends IMSubscriptionBaseRequest {
             try {
                 JSONObject jSONObject = new JSONObject(str5);
                 i2 = jSONObject.optInt("error_code");
-                if (i2 == 0) {
+                if (i2 != 0) {
+                    str3 = "";
+                    str2 = str3;
+                } else {
                     String optString = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
                     j2 = jSONObject.optLong("pa_uid");
                     str2 = jSONObject.optString("pa_avatar");
@@ -140,9 +142,6 @@ public class IMGetSubscriptionRequest extends IMSubscriptionBaseRequest {
                         }
                         return;
                     }
-                } else {
-                    str3 = "";
-                    str2 = str3;
                 }
             } catch (Exception e2) {
                 j = j2;

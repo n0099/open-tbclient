@@ -1,41 +1,19 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetToken.DataRes;
-import tbclient.GetToken.ToastInfo;
+import org.json.JSONArray;
 /* loaded from: classes5.dex */
 public class om4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public a c;
-
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
+    public long a;
+    public long b;
 
     public om4() {
         Interceptable interceptable = $ic;
@@ -51,43 +29,29 @@ public class om4 {
         }
     }
 
-    public String a() {
+    public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public a b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (a) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public void d(DataRes dataRes) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, dataRes) == null) || dataRes == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b + UtilHelper.getTimesMorning();
         }
-        this.a = dataRes.title;
-        String str = dataRes.img;
-        String str2 = dataRes.tips;
-        this.b = dataRes.url;
-        String str3 = dataRes.btn_sure;
-        String str4 = dataRes.btn_cancel;
-        if (dataRes.activity_done != null) {
-            a aVar = new a();
-            this.c = aVar;
-            ToastInfo toastInfo = dataRes.activity_done;
-            String str5 = toastInfo.url;
-            aVar.a = toastInfo.btntext;
-            String str6 = toastInfo.message;
-            String str7 = toastInfo.sharetoken;
+        return invokeV.longValue;
+    }
+
+    public long b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a + UtilHelper.getTimesMorning();
+        }
+        return invokeV.longValue;
+    }
+
+    public void c(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray) == null) && jSONArray != null && jSONArray.length() == 2) {
+            this.a = jSONArray.optLong(0, 0L) * 1000;
+            this.b = jSONArray.optLong(1, 0L) * 1000;
         }
     }
 }

@@ -24,10 +24,10 @@ public class q {
     public String j;
     public b k;
     public String l;
-    public List<a> m;
+    public List m;
 
     /* loaded from: classes7.dex */
-    public static class a {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -89,7 +89,7 @@ public class q {
     }
 
     /* loaded from: classes7.dex */
-    public static class b {
+    public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -150,7 +150,7 @@ public class q {
         }
     }
 
-    public List<a> a() {
+    public List a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.m : (List) invokeV.objValue;
@@ -177,7 +177,7 @@ public class q {
         }
     }
 
-    public void a(List<a> list) {
+    public void a(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
             this.m = list;

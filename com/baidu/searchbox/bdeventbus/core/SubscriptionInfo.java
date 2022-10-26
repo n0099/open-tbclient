@@ -17,12 +17,15 @@ import kotlin.jvm.internal.Intrinsics;
 public final class SubscriptionInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Action<Object> action;
-    public Class<?> eventType;
+    public Action action;
+    public Class eventType;
     public final Object subscriber;
     public int threadMode;
 
-    public SubscriptionInfo(Object subscriber, Class<?> eventType, int i, Action<Object> action) {
+    public static /* synthetic */ void getThreadMode$annotations() {
+    }
+
+    public SubscriptionInfo(Object subscriber, Class eventType, int i, Action action) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -46,53 +49,68 @@ public final class SubscriptionInfo {
         this.action = action;
     }
 
-    public static /* synthetic */ void getThreadMode$annotations() {
-    }
-
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (obj instanceof SubscriptionInfo) {
-                SubscriptionInfo subscriptionInfo = (SubscriptionInfo) obj;
-                return Intrinsics.areEqual(this.subscriber, subscriptionInfo.subscriber) && Intrinsics.areEqual(this.eventType.getClass(), subscriptionInfo.eventType.getClass());
+            if (!(obj instanceof SubscriptionInfo)) {
+                return false;
             }
-            return false;
+            SubscriptionInfo subscriptionInfo = (SubscriptionInfo) obj;
+            if (!Intrinsics.areEqual(this.subscriber, subscriptionInfo.subscriber) || !Intrinsics.areEqual(this.eventType.getClass(), subscriptionInfo.eventType.getClass())) {
+                return false;
+            }
+            return true;
         }
         return invokeL.booleanValue;
     }
 
-    public final Action<Object> getAction() {
+    public final Action getAction() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.action : (Action) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.action;
+        }
+        return (Action) invokeV.objValue;
     }
 
-    public final Class<?> getEventType() {
+    public final Class getEventType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.eventType : (Class) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.eventType;
+        }
+        return (Class) invokeV.objValue;
     }
 
     public final Object getSubscriber() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.subscriber : invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.subscriber;
+        }
+        return invokeV.objValue;
     }
 
     public final int getThreadMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.threadMode : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.threadMode;
+        }
+        return invokeV.intValue;
     }
 
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.subscriber.hashCode() + this.eventType.getClass().hashCode() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.subscriber.hashCode() + this.eventType.getClass().hashCode();
+        }
+        return invokeV.intValue;
     }
 
-    public final void setAction(Action<Object> action) {
+    public final void setAction(Action action) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, action) == null) {
             Intrinsics.checkNotNullParameter(action, "<set-?>");
@@ -100,7 +118,7 @@ public final class SubscriptionInfo {
         }
     }
 
-    public final void setEventType(Class<?> cls) {
+    public final void setEventType(Class cls) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, cls) == null) {
             Intrinsics.checkNotNullParameter(cls, "<set-?>");

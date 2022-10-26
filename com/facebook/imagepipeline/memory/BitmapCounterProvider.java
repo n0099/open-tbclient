@@ -8,7 +8,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.infer.annotation.ThreadSafe;
 /* loaded from: classes7.dex */
 public class BitmapCounterProvider {
     public static /* synthetic */ Interceptable $ic = null;
@@ -50,7 +49,6 @@ public class BitmapCounterProvider {
         }
     }
 
-    @ThreadSafe
     public static BitmapCounter get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

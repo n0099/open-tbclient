@@ -1,9 +1,6 @@
 package androidx.webkit.internal;
 
-import android.annotation.SuppressLint;
 import android.webkit.SafeBrowsingResponse;
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.webkit.SafeBrowsingResponseCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +19,25 @@ public class SafeBrowsingResponseImpl extends SafeBrowsingResponseCompat {
     public SafeBrowsingResponseBoundaryInterface mBoundaryInterface;
     public SafeBrowsingResponse mFrameworksImpl;
 
-    public SafeBrowsingResponseImpl(@NonNull InvocationHandler invocationHandler) {
+    public SafeBrowsingResponseImpl(SafeBrowsingResponse safeBrowsingResponse) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {safeBrowsingResponse};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mFrameworksImpl = safeBrowsingResponse;
+    }
+
+    public SafeBrowsingResponseImpl(InvocationHandler invocationHandler) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -40,33 +55,7 @@ public class SafeBrowsingResponseImpl extends SafeBrowsingResponseCompat {
         this.mBoundaryInterface = (SafeBrowsingResponseBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(SafeBrowsingResponseBoundaryInterface.class, invocationHandler);
     }
 
-    private SafeBrowsingResponseBoundaryInterface getBoundaryInterface() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            if (this.mBoundaryInterface == null) {
-                this.mBoundaryInterface = (SafeBrowsingResponseBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(SafeBrowsingResponseBoundaryInterface.class, WebViewGlueCommunicator.getCompatConverter().convertSafeBrowsingResponse(this.mFrameworksImpl));
-            }
-            return this.mBoundaryInterface;
-        }
-        return (SafeBrowsingResponseBoundaryInterface) invokeV.objValue;
-    }
-
-    @RequiresApi(27)
-    private SafeBrowsingResponse getFrameworksImpl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            if (this.mFrameworksImpl == null) {
-                this.mFrameworksImpl = WebViewGlueCommunicator.getCompatConverter().convertSafeBrowsingResponse(Proxy.getInvocationHandler(this.mBoundaryInterface));
-            }
-            return this.mFrameworksImpl;
-        }
-        return (SafeBrowsingResponse) invokeV.objValue;
-    }
-
     @Override // androidx.webkit.SafeBrowsingResponseCompat
-    @SuppressLint({"NewApi"})
     public void backToSafety(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -82,7 +71,6 @@ public class SafeBrowsingResponseImpl extends SafeBrowsingResponseCompat {
     }
 
     @Override // androidx.webkit.SafeBrowsingResponseCompat
-    @SuppressLint({"NewApi"})
     public void proceed(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
@@ -98,7 +86,6 @@ public class SafeBrowsingResponseImpl extends SafeBrowsingResponseCompat {
     }
 
     @Override // androidx.webkit.SafeBrowsingResponseCompat
-    @SuppressLint({"NewApi"})
     public void showInterstitial(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
@@ -113,21 +100,27 @@ public class SafeBrowsingResponseImpl extends SafeBrowsingResponseCompat {
         }
     }
 
-    public SafeBrowsingResponseImpl(@NonNull SafeBrowsingResponse safeBrowsingResponse) {
+    private SafeBrowsingResponseBoundaryInterface getBoundaryInterface() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {safeBrowsingResponse};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+            if (this.mBoundaryInterface == null) {
+                this.mBoundaryInterface = (SafeBrowsingResponseBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(SafeBrowsingResponseBoundaryInterface.class, WebViewGlueCommunicator.getCompatConverter().convertSafeBrowsingResponse(this.mFrameworksImpl));
             }
+            return this.mBoundaryInterface;
         }
-        this.mFrameworksImpl = safeBrowsingResponse;
+        return (SafeBrowsingResponseBoundaryInterface) invokeV.objValue;
+    }
+
+    private SafeBrowsingResponse getFrameworksImpl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+            if (this.mFrameworksImpl == null) {
+                this.mFrameworksImpl = WebViewGlueCommunicator.getCompatConverter().convertSafeBrowsingResponse(Proxy.getInvocationHandler(this.mBoundaryInterface));
+            }
+            return this.mFrameworksImpl;
+        }
+        return (SafeBrowsingResponse) invokeV.objValue;
     }
 }

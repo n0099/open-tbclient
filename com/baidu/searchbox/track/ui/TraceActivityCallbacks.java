@@ -34,28 +34,37 @@ public class TraceActivityCallbacks extends SimpleActivityLifeCycle {
 
     @Override // com.baidu.searchbox.appframework.SimpleActivityLifeCycle, com.baidu.searchbox.appframework.BdBoxActivityLifecycle.IActivityLifecycle
     public void onActivityCreated(Activity activity, Bundle bundle) {
+        String str;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) && this.mTraceManager.isRegistered()) {
-            this.mTraceFragmentCallbackWrapper.register(activity);
-            this.mTraceManager.saveTraceInfo(activity, (!TraceManager.checkAPSActivity(activity) || bundle == null) ? null : bundle.getString("ActivityName"), null, "onCreated");
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, activity, bundle) != null) || !this.mTraceManager.isRegistered()) {
+            return;
         }
+        this.mTraceFragmentCallbackWrapper.register(activity);
+        if (TraceManager.checkAPSActivity(activity) && bundle != null) {
+            str = bundle.getString("ActivityName");
+        } else {
+            str = null;
+        }
+        this.mTraceManager.saveTraceInfo(activity, str, null, "onCreated");
     }
 
     @Override // com.baidu.searchbox.appframework.SimpleActivityLifeCycle, com.baidu.searchbox.appframework.BdBoxActivityLifecycle.IActivityLifecycle
     public void onActivityDestroyed(Activity activity) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) && this.mTraceManager.isRegistered()) {
-            this.mTraceFragmentCallbackWrapper.unregister(activity);
-            this.mTraceManager.saveTraceInfo(activity, null, null, "onDestroyed");
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) != null) || !this.mTraceManager.isRegistered()) {
+            return;
         }
+        this.mTraceFragmentCallbackWrapper.unregister(activity);
+        this.mTraceManager.saveTraceInfo(activity, null, null, "onDestroyed");
     }
 
     @Override // com.baidu.searchbox.appframework.SimpleActivityLifeCycle, com.baidu.searchbox.appframework.BdBoxActivityLifecycle.IActivityLifecycle
     public void onActivityResumed(Activity activity) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) && this.mTraceManager.isRegistered()) {
-            this.mTraceManager.saveTraceInfo(activity, null, null, "onResumed");
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) != null) || !this.mTraceManager.isRegistered()) {
+            return;
         }
+        this.mTraceManager.saveTraceInfo(activity, null, null, "onResumed");
     }
 
     @Override // com.baidu.searchbox.appframework.SimpleActivityLifeCycle, com.baidu.searchbox.appframework.BdBoxActivityLifecycle.IActivityLifecycle

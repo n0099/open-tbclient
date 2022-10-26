@@ -22,36 +22,36 @@ import java.util.concurrent.atomic.AtomicLong;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableScanSeed<T, R> extends AbstractFlowableWithUpstream<T, R> {
+public final class FlowableScanSeed extends AbstractFlowableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BiFunction<R, ? super T, R> accumulator;
-    public final Callable<R> seedSupplier;
+    public final BiFunction accumulator;
+    public final Callable seedSupplier;
 
     /* loaded from: classes8.dex */
-    public static final class ScanSeedSubscriber<T, R> extends AtomicInteger implements FlowableSubscriber<T>, Subscription {
+    public final class ScanSeedSubscriber extends AtomicInteger implements FlowableSubscriber, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -1776795561228106469L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final BiFunction<R, ? super T, R> accumulator;
-        public final Subscriber<? super R> actual;
+        public final BiFunction accumulator;
+        public final Subscriber actual;
         public volatile boolean cancelled;
         public int consumed;
         public volatile boolean done;
         public Throwable error;
         public final int limit;
         public final int prefetch;
-        public final SimplePlainQueue<R> queue;
+        public final SimplePlainQueue queue;
         public final AtomicLong requested;
         public Subscription s;
-        public R value;
+        public Object value;
 
-        public ScanSeedSubscriber(Subscriber<? super R> subscriber, BiFunction<R, ? super T, R> biFunction, R r, int i) {
+        public ScanSeedSubscriber(Subscriber subscriber, BiFunction biFunction, Object obj, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subscriber, biFunction, r, Integer.valueOf(i)};
+                Object[] objArr = {subscriber, biFunction, obj, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -63,12 +63,12 @@ public final class FlowableScanSeed<T, R> extends AbstractFlowableWithUpstream<T
             }
             this.actual = subscriber;
             this.accumulator = biFunction;
-            this.value = r;
+            this.value = obj;
             this.prefetch = i;
             this.limit = i - (i >> 2);
             SpscArrayQueue spscArrayQueue = new SpscArrayQueue(i);
             this.queue = spscArrayQueue;
-            spscArrayQueue.offer(r);
+            spscArrayQueue.offer(obj);
             this.requested = new AtomicLong();
         }
 
@@ -82,6 +82,16 @@ public final class FlowableScanSeed<T, R> extends AbstractFlowableWithUpstream<T
                     this.queue.clear();
                 }
             }
+        }
+
+        @Override // org.reactivestreams.Subscriber
+        public void onComplete() {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.done) {
+                return;
+            }
+            this.done = true;
+            drain();
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:34:0x0065, code lost:
@@ -126,61 +136,57 @@ public final class FlowableScanSeed<T, R> extends AbstractFlowableWithUpstream<T
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public void drain() {
+            boolean z;
             Throwable th;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && getAndIncrement() == 0) {
-                Subscriber<? super R> subscriber = this.actual;
-                SimplePlainQueue<R> simplePlainQueue = this.queue;
-                int i = this.limit;
-                int i2 = this.consumed;
-                int i3 = 1;
-                do {
-                    long j = this.requested.get();
-                    long j2 = 0;
-                    while (true) {
-                        int i4 = (j2 > j ? 1 : (j2 == j ? 0 : -1));
-                        if (i4 == 0) {
-                            break;
-                        } else if (this.cancelled) {
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || getAndIncrement() != 0) {
+                return;
+            }
+            Subscriber subscriber = this.actual;
+            SimplePlainQueue simplePlainQueue = this.queue;
+            int i = this.limit;
+            int i2 = this.consumed;
+            int i3 = 1;
+            do {
+                long j = this.requested.get();
+                long j2 = 0;
+                while (true) {
+                    int i4 = (j2 > j ? 1 : (j2 == j ? 0 : -1));
+                    if (i4 == 0) {
+                        break;
+                    } else if (this.cancelled) {
+                        simplePlainQueue.clear();
+                        return;
+                    } else {
+                        boolean z2 = this.done;
+                        if (z2 && (th = this.error) != null) {
                             simplePlainQueue.clear();
+                            subscriber.onError(th);
                             return;
+                        }
+                        Object poll = simplePlainQueue.poll();
+                        if (poll == null) {
+                            z = true;
                         } else {
-                            boolean z = this.done;
-                            if (z && (th = this.error) != null) {
-                                simplePlainQueue.clear();
-                                subscriber.onError(th);
-                                return;
-                            }
-                            Object obj = (R) simplePlainQueue.poll();
-                            boolean z2 = obj == null;
-                            if (z && z2) {
-                                subscriber.onComplete();
-                                return;
-                            } else if (z2) {
-                                break;
-                            } else {
-                                subscriber.onNext(obj);
-                                j2++;
-                                i2++;
-                                if (i2 == i) {
-                                    this.s.request(i);
-                                    i2 = 0;
-                                }
+                            z = false;
+                        }
+                        if (z2 && z) {
+                            subscriber.onComplete();
+                            return;
+                        } else if (z) {
+                            break;
+                        } else {
+                            subscriber.onNext(poll);
+                            j2++;
+                            i2++;
+                            if (i2 == i) {
+                                this.s.request(i);
+                                i2 = 0;
                             }
                         }
                     }
-                } while (i3 != 0);
-            }
-        }
-
-        @Override // org.reactivestreams.Subscriber
-        public void onComplete() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.done) {
-                return;
-            }
-            this.done = true;
-            drain();
+                }
+            } while (i3 != 0);
         }
 
         @Override // org.reactivestreams.Subscriber
@@ -194,24 +200,6 @@ public final class FlowableScanSeed<T, R> extends AbstractFlowableWithUpstream<T
                 this.error = th;
                 this.done = true;
                 drain();
-            }
-        }
-
-        @Override // org.reactivestreams.Subscriber
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048580, this, t) == null) || this.done) {
-                return;
-            }
-            try {
-                R r = (R) ObjectHelper.requireNonNull(this.accumulator.apply(this.value, t), "The accumulator returned a null value");
-                this.value = r;
-                this.queue.offer(r);
-                drain();
-            } catch (Throwable th) {
-                Exceptions.throwIfFatal(th);
-                this.s.cancel();
-                onError(th);
             }
         }
 
@@ -233,10 +221,28 @@ public final class FlowableScanSeed<T, R> extends AbstractFlowableWithUpstream<T
                 drain();
             }
         }
+
+        @Override // org.reactivestreams.Subscriber
+        public void onNext(Object obj) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048580, this, obj) != null) || this.done) {
+                return;
+            }
+            try {
+                Object requireNonNull = ObjectHelper.requireNonNull(this.accumulator.apply(this.value, obj), "The accumulator returned a null value");
+                this.value = requireNonNull;
+                this.queue.offer(requireNonNull);
+                drain();
+            } catch (Throwable th) {
+                Exceptions.throwIfFatal(th);
+                this.s.cancel();
+                onError(th);
+            }
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableScanSeed(Flowable<T> flowable, Callable<R> callable, BiFunction<R, ? super T, R> biFunction) {
+    public FlowableScanSeed(Flowable flowable, Callable callable, BiFunction biFunction) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -258,7 +264,7 @@ public final class FlowableScanSeed<T, R> extends AbstractFlowableWithUpstream<T
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber<? super R> subscriber) {
+    public void subscribeActual(Subscriber subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             try {

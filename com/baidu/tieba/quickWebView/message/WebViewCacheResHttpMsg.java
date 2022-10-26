@@ -5,7 +5,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.dd8;
+import com.baidu.tieba.nd8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ import tbclient.GetWebviewCacheInfo.Offpack;
 public class WebViewCacheResHttpMsg extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, dd8> mModuleInfos;
+    public Map mModuleInfos;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public WebViewCacheResHttpMsg() {
@@ -40,10 +40,13 @@ public class WebViewCacheResHttpMsg extends TbHttpResponsedMessage {
         }
     }
 
-    public Map<String, dd8> getModuleInfos() {
+    public Map getModuleInfos() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mModuleInfos : (Map) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mModuleInfos;
+        }
+        return (Map) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -57,15 +60,14 @@ public class WebViewCacheResHttpMsg extends TbHttpResponsedMessage {
             if (this.mModuleInfos == null) {
                 this.mModuleInfos = new HashMap();
             }
-            if (getError() != 0 || ListUtils.isEmpty(getWebviewCacheInfoResIdl.data.offpack_list)) {
-                return;
-            }
-            this.mModuleInfos.clear();
-            for (Offpack offpack : getWebviewCacheInfoResIdl.data.offpack_list) {
-                if (offpack != null && !TextUtils.isEmpty(offpack.mod_name)) {
-                    dd8 dd8Var = new dd8();
-                    dd8Var.e(offpack);
-                    this.mModuleInfos.put(offpack.mod_name, dd8Var);
+            if (getError() == 0 && !ListUtils.isEmpty(getWebviewCacheInfoResIdl.data.offpack_list)) {
+                this.mModuleInfos.clear();
+                for (Offpack offpack : getWebviewCacheInfoResIdl.data.offpack_list) {
+                    if (offpack != null && !TextUtils.isEmpty(offpack.mod_name)) {
+                        nd8 nd8Var = new nd8();
+                        nd8Var.e(offpack);
+                        this.mModuleInfos.put(offpack.mod_name, nd8Var);
+                    }
                 }
             }
         }

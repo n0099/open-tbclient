@@ -1,6 +1,5 @@
 package com.baidu.poly.widget;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -22,7 +21,7 @@ import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.xb1;
+import com.baidu.tieba.yb1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -70,128 +69,6 @@ public class PayWebActivity extends Activity {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.a.setResult(0);
                 this.a.finish();
-            }
-        }
-    }
-
-    public PayWebActivity() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public final boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return true;
-            }
-            if (str.startsWith("cashier://closewindow")) {
-                xb1.g(119102, "3", "BAIDU-SUPER-WECHAT-WISE", "-105", "调起微信H5支付失败");
-                setResult(0);
-                finish();
-                return true;
-            } else if (URLUtil.isNetworkUrl(str)) {
-                return false;
-            } else {
-                this.c = str.contains("weixin://");
-                Intent intent = new Intent("android.intent.action.VIEW");
-                intent.setData(Uri.parse(str));
-                startActivity(intent);
-                return true;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void c() {
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (intent = getIntent()) == null) {
-            return;
-        }
-        this.d = intent.getStringExtra("load_url");
-        this.e = intent.getBundleExtra("launch_payment_data");
-    }
-
-    @SuppressLint({"SetJavaScriptEnabled"})
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f09101d);
-            this.b = imageView;
-            imageView.setOnClickListener(new a(this));
-            WebView webView = (WebView) findViewById(R.id.obfuscated_res_0x7f092654);
-            this.a = webView;
-            webView.setVerticalScrollBarEnabled(false);
-            this.a.setHorizontalScrollBarEnabled(false);
-            this.a.getSettings().setJavaScriptEnabled(true);
-            this.a.setWebViewClient(new b(this));
-            if (TextUtils.isEmpty(this.d)) {
-                return;
-            }
-            this.a.loadUrl(this.d);
-        }
-    }
-
-    @Override // android.app.Activity
-    public void onBackPressed() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            xb1.g(119103, "4", "BAIDU-SUPER-WECHAT-WISE", "-106", "取消微信H5支付");
-            setResult(0);
-            finish();
-            super.onBackPressed();
-        }
-    }
-
-    @Override // android.app.Activity
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
-            super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0048);
-            this.c = false;
-            c();
-            d();
-        }
-    }
-
-    @Override // android.app.Activity
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            WebView webView = this.a;
-            if (webView != null) {
-                webView.loadDataWithBaseURL(null, "", SapiWebView.DATA_MIME_TYPE, IMAudioTransRequest.CHARSET, null);
-                this.a.clearHistory();
-                ((ViewGroup) this.a.getParent()).removeView(this.a);
-                this.a.destroy();
-                this.a = null;
-            }
-            super.onDestroy();
-        }
-    }
-
-    @Override // android.app.Activity
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            super.onResume();
-            if (this.c) {
-                Intent intent = new Intent();
-                intent.putExtras(this.e);
-                setResult(-1, intent);
-                finish();
             }
         }
     }
@@ -249,21 +126,6 @@ public class PayWebActivity extends Activity {
         }
 
         @Override // android.webkit.WebViewClient
-        public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) {
-                try {
-                    str = URLDecoder.decode(str, "UTF-8");
-                } catch (UnsupportedEncodingException e) {
-                    e.printStackTrace();
-                }
-                return this.a.b(str);
-            }
-            return invokeLL.booleanValue;
-        }
-
-        @Override // android.webkit.WebViewClient
         public boolean shouldOverrideUrlLoading(WebView webView, WebResourceRequest webResourceRequest) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -280,6 +142,140 @@ public class PayWebActivity extends Activity {
                 return true;
             }
             return invokeLL.booleanValue;
+        }
+
+        @Override // android.webkit.WebViewClient
+        public boolean shouldOverrideUrlLoading(WebView webView, String str) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) {
+                try {
+                    str = URLDecoder.decode(str, "UTF-8");
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
+                return this.a.b(str);
+            }
+            return invokeLL.booleanValue;
+        }
+    }
+
+    public PayWebActivity() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public final void c() {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (intent = getIntent()) != null) {
+            this.d = intent.getStringExtra("load_url");
+            this.e = intent.getBundleExtra("launch_payment_data");
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onBackPressed() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            yb1.g(119103, "4", "BAIDU-SUPER-WECHAT-WISE", "-106", "取消微信H5支付");
+            setResult(0);
+            finish();
+            super.onBackPressed();
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            super.onResume();
+            if (this.c) {
+                Intent intent = new Intent();
+                intent.putExtras(this.e);
+                setResult(-1, intent);
+                finish();
+            }
+        }
+    }
+
+    public final boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return true;
+            }
+            if (str.startsWith("cashier://closewindow")) {
+                yb1.g(119102, "3", "BAIDU-SUPER-WECHAT-WISE", "-105", "调起微信H5支付失败");
+                setResult(0);
+                finish();
+                return true;
+            } else if (URLUtil.isNetworkUrl(str)) {
+                return false;
+            } else {
+                this.c = str.contains("weixin://");
+                Intent intent = new Intent("android.intent.action.VIEW");
+                intent.setData(Uri.parse(str));
+                startActivity(intent);
+                return true;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091011);
+            this.b = imageView;
+            imageView.setOnClickListener(new a(this));
+            WebView webView = (WebView) findViewById(R.id.obfuscated_res_0x7f09263c);
+            this.a = webView;
+            webView.setVerticalScrollBarEnabled(false);
+            this.a.setHorizontalScrollBarEnabled(false);
+            this.a.getSettings().setJavaScriptEnabled(true);
+            this.a.setWebViewClient(new b(this));
+            if (!TextUtils.isEmpty(this.d)) {
+                this.a.loadUrl(this.d);
+            }
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
+            super.onCreate(bundle);
+            setContentView(R.layout.obfuscated_res_0x7f0d0048);
+            this.c = false;
+            c();
+            d();
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            WebView webView = this.a;
+            if (webView != null) {
+                webView.loadDataWithBaseURL(null, "", SapiWebView.DATA_MIME_TYPE, IMAudioTransRequest.CHARSET, null);
+                this.a.clearHistory();
+                ((ViewGroup) this.a.getParent()).removeView(this.a);
+                this.a.destroy();
+                this.a = null;
+            }
+            super.onDestroy();
         }
     }
 }

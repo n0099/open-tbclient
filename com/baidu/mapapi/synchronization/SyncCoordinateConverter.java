@@ -20,7 +20,7 @@ public class SyncCoordinateConverter {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class CoordType {
+    public final class CoordType {
         public static /* synthetic */ Interceptable $ic;
         public static final CoordType BD09LL;
         public static final CoordType COMMON;

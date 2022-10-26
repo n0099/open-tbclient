@@ -1,6 +1,5 @@
 package com.bumptech.glide.request.transition;
 
-import android.graphics.drawable.Drawable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.DataSource;
 /* loaded from: classes7.dex */
-public class DrawableCrossFadeFactory implements TransitionFactory<Drawable> {
+public class DrawableCrossFadeFactory implements TransitionFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int duration;
@@ -17,7 +16,7 @@ public class DrawableCrossFadeFactory implements TransitionFactory<Drawable> {
     public DrawableCrossFadeTransition resourceTransition;
 
     /* loaded from: classes7.dex */
-    public static class Builder {
+    public class Builder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int DEFAULT_DURATION_MS = 300;
         public transient /* synthetic */ FieldHolder $fh;
@@ -45,17 +44,10 @@ public class DrawableCrossFadeFactory implements TransitionFactory<Drawable> {
         public DrawableCrossFadeFactory build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new DrawableCrossFadeFactory(this.durationMillis, this.isCrossFadeEnabled) : (DrawableCrossFadeFactory) invokeV.objValue;
-        }
-
-        public Builder setCrossFadeEnabled(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-                this.isCrossFadeEnabled = z;
-                return this;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new DrawableCrossFadeFactory(this.durationMillis, this.isCrossFadeEnabled);
             }
-            return (Builder) invokeZ.objValue;
+            return (DrawableCrossFadeFactory) invokeV.objValue;
         }
 
         public Builder(int i) {
@@ -74,6 +66,16 @@ public class DrawableCrossFadeFactory implements TransitionFactory<Drawable> {
                 }
             }
             this.durationMillis = i;
+        }
+
+        public Builder setCrossFadeEnabled(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+                this.isCrossFadeEnabled = z;
+                return this;
+            }
+            return (Builder) invokeZ.objValue;
         }
     }
 
@@ -96,7 +98,7 @@ public class DrawableCrossFadeFactory implements TransitionFactory<Drawable> {
         this.isCrossFadeEnabled = z;
     }
 
-    private Transition<Drawable> getResourceTransition() {
+    private Transition getResourceTransition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
@@ -109,9 +111,15 @@ public class DrawableCrossFadeFactory implements TransitionFactory<Drawable> {
     }
 
     @Override // com.bumptech.glide.request.transition.TransitionFactory
-    public Transition<Drawable> build(DataSource dataSource, boolean z) {
+    public Transition build(DataSource dataSource, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, dataSource, z)) == null) ? dataSource == DataSource.MEMORY_CACHE ? NoTransition.get() : getResourceTransition() : (Transition) invokeLZ.objValue;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, dataSource, z)) == null) {
+            if (dataSource == DataSource.MEMORY_CACHE) {
+                return NoTransition.get();
+            }
+            return getResourceTransition();
+        }
+        return (Transition) invokeLZ.objValue;
     }
 }

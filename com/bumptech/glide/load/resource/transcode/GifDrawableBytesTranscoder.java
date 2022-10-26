@@ -1,7 +1,5 @@
 package com.bumptech.glide.load.resource.transcode;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +11,7 @@ import com.bumptech.glide.load.resource.bytes.BytesResource;
 import com.bumptech.glide.load.resource.gif.GifDrawable;
 import com.bumptech.glide.util.ByteBufferUtil;
 /* loaded from: classes7.dex */
-public class GifDrawableBytesTranscoder implements ResourceTranscoder<GifDrawable, byte[]> {
+public class GifDrawableBytesTranscoder implements ResourceTranscoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -32,10 +30,12 @@ public class GifDrawableBytesTranscoder implements ResourceTranscoder<GifDrawabl
     }
 
     @Override // com.bumptech.glide.load.resource.transcode.ResourceTranscoder
-    @Nullable
-    public Resource<byte[]> transcode(@NonNull Resource<GifDrawable> resource, @NonNull Options options) {
+    public Resource transcode(Resource resource, Options options) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, resource, options)) == null) ? new BytesResource(ByteBufferUtil.toBytes(resource.get().getBuffer())) : (Resource) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, resource, options)) == null) {
+            return new BytesResource(ByteBufferUtil.toBytes(((GifDrawable) resource.get()).getBuffer()));
+        }
+        return (Resource) invokeLL.objValue;
     }
 }

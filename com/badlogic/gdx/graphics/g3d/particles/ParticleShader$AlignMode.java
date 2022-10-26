@@ -57,12 +57,18 @@ public final class ParticleShader$AlignMode {
     public static ParticleShader$AlignMode valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (ParticleShader$AlignMode) Enum.valueOf(ParticleShader$AlignMode.class, str) : (ParticleShader$AlignMode) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (ParticleShader$AlignMode) Enum.valueOf(ParticleShader$AlignMode.class, str);
+        }
+        return (ParticleShader$AlignMode) invokeL.objValue;
     }
 
     public static ParticleShader$AlignMode[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ParticleShader$AlignMode[]) $VALUES.clone() : (ParticleShader$AlignMode[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (ParticleShader$AlignMode[]) $VALUES.clone();
+        }
+        return (ParticleShader$AlignMode[]) invokeV.objValue;
     }
 }

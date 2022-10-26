@@ -16,11 +16,11 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jv8;
-import com.baidu.tieba.pw8;
-import com.baidu.tieba.qw8;
+import com.baidu.tieba.ax8;
 import com.baidu.tieba.r9;
+import com.baidu.tieba.tv8;
 import com.baidu.tieba.video.editvideo.data.MusicData;
+import com.baidu.tieba.zw8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,15 +34,25 @@ import org.json.JSONObject;
 public class SelectMusicModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public jv8 a;
+    public tv8 a;
     public TbPageContext b;
     public final HttpMessageListener c;
 
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     /* loaded from: classes6.dex */
-    public static class VideoSugMusicResponseMessage extends JsonHttpResponsedMessage {
+    public class VideoSugMusicResponseMessage extends JsonHttpResponsedMessage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<MusicData> musicDatas;
+        public List musicDatas;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public VideoSugMusicResponseMessage(int i) {
@@ -72,19 +82,17 @@ public class SelectMusicModel extends BdBaseModel {
                 int error = getError();
                 if (statusCode == 200 && error == 0 && jSONObject != null) {
                     String optString = jSONObject.optString("data");
-                    if (TextUtils.isEmpty(optString)) {
-                        return;
-                    }
-                    String optString2 = new JSONObject(optString).optString("music_list");
-                    if (TextUtils.isEmpty(optString2)) {
-                        return;
-                    }
-                    JSONArray jSONArray = new JSONArray(optString2);
-                    this.musicDatas = new ArrayList();
-                    for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                        MusicData musicData = (MusicData) OrmObject.objectWithJsonStr(jSONArray.optString(i2), MusicData.class);
-                        if (musicData != null) {
-                            this.musicDatas.add(musicData);
+                    if (!TextUtils.isEmpty(optString)) {
+                        String optString2 = new JSONObject(optString).optString("music_list");
+                        if (!TextUtils.isEmpty(optString2)) {
+                            JSONArray jSONArray = new JSONArray(optString2);
+                            this.musicDatas = new ArrayList();
+                            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                                MusicData musicData = (MusicData) OrmObject.objectWithJsonStr(jSONArray.optString(i2), MusicData.class);
+                                if (musicData != null) {
+                                    this.musicDatas.add(musicData);
+                                }
+                            }
                         }
                     }
                 }
@@ -93,7 +101,7 @@ public class SelectMusicModel extends BdBaseModel {
     }
 
     /* loaded from: classes6.dex */
-    public class a extends BdAsyncTask<Void, Integer, qw8> {
+    public class a extends BdAsyncTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -127,29 +135,29 @@ public class SelectMusicModel extends BdBaseModel {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public qw8 doInBackground(Void... voidArr) {
+        public ax8 doInBackground(Void... voidArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
                 if (TextUtils.isEmpty(this.a) && !this.b) {
-                    return pw8.e().g(this.c, this.d);
+                    return zw8.e().g(this.c, this.d);
                 }
-                return pw8.e().h(this.c, this.a, this.d, this.b);
+                return zw8.e().h(this.c, this.a, this.d, this.b);
             }
-            return (qw8) invokeL.objValue;
+            return (ax8) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(qw8 qw8Var) {
+        public void onPostExecute(ax8 ax8Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qw8Var) == null) {
-                super.onPostExecute(qw8Var);
-                if (qw8Var == null || qw8Var.a != 0) {
-                    this.e.a.q1(null, qw8Var.a, qw8Var.b);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ax8Var) == null) {
+                super.onPostExecute(ax8Var);
+                if (ax8Var != null && ax8Var.a == 0) {
+                    this.e.a.p1(this.d, -4399, "");
                 } else {
-                    this.e.a.q1(this.d, -4399, "");
+                    this.e.a.p1(null, ax8Var.a, ax8Var.b);
                 }
             }
         }
@@ -197,13 +205,13 @@ public class SelectMusicModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SelectMusicModel(TbPageContext tbPageContext, jv8 jv8Var) {
+    public SelectMusicModel(TbPageContext tbPageContext, tv8 tv8Var) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, jv8Var};
+            Object[] objArr = {tbPageContext, tv8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -216,7 +224,7 @@ public class SelectMusicModel extends BdBaseModel {
         }
         this.c = new b(this, CmdConfigHttp.CMD_VIDEO_SUG_MUSIC);
         this.b = tbPageContext;
-        this.a = jv8Var;
+        this.a = tv8Var;
         B();
         this.c.setTag(getUniqueId());
         this.c.setSelfListener(true);
@@ -227,29 +235,10 @@ public class SelectMusicModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                this.b.showToast(R.string.obfuscated_res_0x7f0f0c91);
+                this.b.showToast(R.string.obfuscated_res_0x7f0f0ca2);
             } else {
                 sendMessage(new HttpMessage(CmdConfigHttp.CMD_VIDEO_SUG_MUSIC));
             }
-        }
-    }
-
-    public final void B() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_VIDEO_SUG_MUSIC, TbConfig.SERVER_ADDRESS + "c/f/video/music");
-            tbHttpMessageTask.setResponsedClass(VideoSugMusicResponseMessage.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        }
-    }
-
-    public void C(String str, String str2, String str3, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, str3, Boolean.valueOf(z)}) == null) {
-            if ((z && TextUtils.isEmpty(str2)) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str3)) {
-                return;
-            }
-            new a(this, str2, z, str, str3).execute(new Void[0]);
         }
     }
 
@@ -264,13 +253,21 @@ public class SelectMusicModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean loadData() {
-        InterceptResult invokeV;
+    public final void B() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return false;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_VIDEO_SUG_MUSIC, TbConfig.SERVER_ADDRESS + "c/f/video/music");
+            tbHttpMessageTask.setResponsedClass(VideoSugMusicResponseMessage.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
-        return invokeV.booleanValue;
+    }
+
+    public void C(String str, String str2, String str3, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, str3, Boolean.valueOf(z)}) == null) {
+            if ((!z || !TextUtils.isEmpty(str2)) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str3)) {
+                new a(this, str2, z, str, str3).execute(new Void[0]);
+            }
+        }
     }
 }

@@ -1,183 +1,155 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
-import android.view.ViewGroup;
+import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.view.NavigationBarCoverTip;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tieba.l25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
+import java.util.Map;
 /* loaded from: classes4.dex */
 public class m25 {
     public static /* synthetic */ Interceptable $ic;
-    public static m25 c;
+    public static boolean a;
+    public static WeakReference b;
     public transient /* synthetic */ FieldHolder $fh;
-    public h25 a;
-    public String b;
 
-    public m25() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes4.dex */
+    public final class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ l25 a;
+
+        public a(l25 l25Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {l25Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = l25Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.A();
+                boolean unused = m25.a = true;
             }
         }
-        this.a = b();
     }
 
-    public static m25 c() {
+    /* loaded from: classes4.dex */
+    public final class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ l25 a;
+
+        public b(l25 l25Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {l25Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = l25Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.t();
+            }
+        }
+    }
+
+    public static l25 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (m25.class) {
-                    if (c == null) {
-                        c = new m25();
-                    }
-                }
-            }
-            return c;
-        }
-        return (m25) invokeV.objValue;
-    }
-
-    public void a(int i, TbPageContext tbPageContext, ViewGroup viewGroup, boolean z) {
-        h25 h25Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), tbPageContext, viewGroup, Boolean.valueOf(z)}) == null) || (h25Var = this.a) == null) {
-            return;
-        }
-        h25Var.f(i, tbPageContext, viewGroup, z);
-    }
-
-    public final h25 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2156675, h25.class);
-            if (runTask != null) {
-                return (h25) runTask.getData();
+            WeakReference weakReference = b;
+            if (weakReference != null) {
+                return (l25) weakReference.get();
             }
             return null;
         }
-        return (h25) invokeV.objValue;
+        return (l25) invokeV.objValue;
     }
 
-    public int d() {
+    public static boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            h25 h25Var = this.a;
-            if (h25Var != null) {
-                return h25Var.g();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            h25 h25Var = this.a;
-            if (h25Var != null) {
-                return h25Var.b();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            h25 h25Var = this.a;
-            if (h25Var != null) {
-                return h25Var.a();
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a;
         }
         return invokeV.booleanValue;
     }
 
-    public void h(boolean z, int i, int i2) {
-        h25 h25Var;
+    public static void e() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)}) == null) || (h25Var = this.a) == null) {
-            return;
-        }
-        h25Var.i(z, i, i2);
-    }
-
-    public void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.b = str;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            ux4.k().x("key_live_remind_float_view", System.currentTimeMillis());
         }
     }
 
-    public NavigationBarCoverTip j(Activity activity, ViewGroup viewGroup) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity, viewGroup)) == null) {
-            h25 h25Var = this.a;
-            if (h25Var != null) {
-                return h25Var.e(activity, viewGroup);
-            }
-            return null;
-        }
-        return (NavigationBarCoverTip) invokeLL.objValue;
-    }
-
-    public Dialog k(int i, TbPageContext tbPageContext, am5 am5Var, boolean z) {
+    public static l25 d(View view2, TbPageContext tbPageContext, Map map, long j, long j2, l25.h hVar) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), tbPageContext, am5Var, Boolean.valueOf(z)})) == null) {
-            h25 h25Var = this.a;
-            if (h25Var != null) {
-                return h25Var.d(i, tbPageContext, am5Var, z);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{view2, tbPageContext, map, Long.valueOf(j), Long.valueOf(j2), hVar})) == null) {
+            l25 l25Var = new l25(tbPageContext, map);
+            if (hVar != null) {
+                l25Var.x(hVar);
+            }
+            if (view2 != null) {
+                l25Var.y(view2);
+            }
+            if (j <= 0) {
+                l25Var.A();
+                a = true;
+            } else {
+                hh.a().postDelayed(new a(l25Var), j);
+            }
+            if (j2 > 0) {
+                hh.a().postDelayed(new b(l25Var), j2);
+            }
+            b = new WeakReference(l25Var);
+            return l25Var;
+        }
+        return (l25) invokeCommon.objValue;
+    }
+
+    public static l25 f(View view2, TbPageContext tbPageContext, Map map, long j, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{view2, tbPageContext, map, Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            if (tbPageContext != null && !MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW && !m35.d()) {
+                return d(view2, tbPageContext, map, j, j2, null);
             }
             return null;
         }
-        return (Dialog) invokeCommon.objValue;
-    }
-
-    public void l() {
-        h25 h25Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (h25Var = this.a) == null) {
-            return;
-        }
-        h25Var.c();
-    }
-
-    public void m(boolean z, long j) {
-        h25 h25Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) || (h25Var = this.a) == null) {
-            return;
-        }
-        h25Var.h(z, j);
+        return (l25) invokeCommon.objValue;
     }
 }

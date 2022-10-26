@@ -16,6 +16,27 @@ public class StatResponse {
     public Response realResponse;
     public NetworkStatRecord statRecord;
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public StatResponse(NetworkStatRecord networkStatRecord) {
+        this(null, networkStatRecord);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {networkStatRecord};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Response) objArr2[0], (NetworkStatRecord) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
     public StatResponse(Response response, NetworkStatRecord networkStatRecord) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -51,33 +72,18 @@ public class StatResponse {
     public Response getResponse() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.realResponse : (Response) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.realResponse;
+        }
+        return (Response) invokeV.objValue;
     }
 
     public NetworkStatRecord getStatRecord() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.statRecord : (NetworkStatRecord) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public StatResponse(NetworkStatRecord networkStatRecord) {
-        this(null, networkStatRecord);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {networkStatRecord};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Response) objArr2[0], (NetworkStatRecord) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.statRecord;
         }
+        return (NetworkStatRecord) invokeV.objValue;
     }
 }

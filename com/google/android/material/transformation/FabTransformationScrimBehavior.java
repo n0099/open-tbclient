@@ -8,7 +8,6 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
-import androidx.annotation.NonNull;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -50,11 +49,39 @@ public class FabTransformationScrimBehavior extends ExpandableTransformationBeha
         this.collapseTiming = new MotionTiming(0L, 150L);
     }
 
-    private void createScrimAnimation(@NonNull View view2, boolean z, boolean z2, @NonNull List<Animator> list, List<Animator.AnimatorListener> list2) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public FabTransformationScrimBehavior(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.expandTiming = new MotionTiming(75L, 150L);
+        this.collapseTiming = new MotionTiming(0L, 150L);
+    }
+
+    private void createScrimAnimation(View view2, boolean z, boolean z2, List list, List list2) {
+        MotionTiming motionTiming;
         ObjectAnimator ofFloat;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{view2, Boolean.valueOf(z), Boolean.valueOf(z2), list, list2}) == null) {
-            MotionTiming motionTiming = z ? this.expandTiming : this.collapseTiming;
+            if (z) {
+                motionTiming = this.expandTiming;
+            } else {
+                motionTiming = this.collapseTiming;
+            }
             if (z) {
                 if (!z2) {
                     view2.setAlpha(0.0f);
@@ -72,12 +99,24 @@ public class FabTransformationScrimBehavior extends ExpandableTransformationBeha
     public boolean layoutDependsOn(CoordinatorLayout coordinatorLayout, View view2, View view3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, coordinatorLayout, view2, view3)) == null) ? view3 instanceof FloatingActionButton : invokeLLL.booleanValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, coordinatorLayout, view2, view3)) == null) {
+            return view3 instanceof FloatingActionButton;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
+    public boolean onTouchEvent(CoordinatorLayout coordinatorLayout, View view2, MotionEvent motionEvent) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, coordinatorLayout, view2, motionEvent)) == null) {
+            return super.onTouchEvent(coordinatorLayout, view2, motionEvent);
+        }
+        return invokeLLL.booleanValue;
     }
 
     @Override // com.google.android.material.transformation.ExpandableTransformationBehavior
-    @NonNull
-    public AnimatorSet onCreateExpandedStateChangeAnimation(@NonNull View view2, @NonNull View view3, boolean z, boolean z2) {
+    public AnimatorSet onCreateExpandedStateChangeAnimation(View view2, View view3, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, view3, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
@@ -115,10 +154,9 @@ public class FabTransformationScrimBehavior extends ExpandableTransformationBeha
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, animator) == null) || this.val$expanded) {
-                        return;
+                    if ((interceptable2 == null || interceptable2.invokeL(1048576, this, animator) == null) && !this.val$expanded) {
+                        this.val$child.setVisibility(4);
                     }
-                    this.val$child.setVisibility(4);
                 }
 
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -132,35 +170,5 @@ public class FabTransformationScrimBehavior extends ExpandableTransformationBeha
             return animatorSet;
         }
         return (AnimatorSet) invokeCommon.objValue;
-    }
-
-    @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-    public boolean onTouchEvent(@NonNull CoordinatorLayout coordinatorLayout, @NonNull View view2, @NonNull MotionEvent motionEvent) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, coordinatorLayout, view2, motionEvent)) == null) ? super.onTouchEvent(coordinatorLayout, view2, motionEvent) : invokeLLL.booleanValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FabTransformationScrimBehavior(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.expandTiming = new MotionTiming(75L, 150L);
-        this.collapseTiming = new MotionTiming(0L, 150L);
     }
 }

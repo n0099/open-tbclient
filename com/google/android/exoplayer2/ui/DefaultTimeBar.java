@@ -1,6 +1,5 @@
 package com.google.android.exoplayer2.ui;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -17,7 +16,6 @@ import android.view.View;
 import android.view.ViewParent;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -64,7 +62,7 @@ public class DefaultTimeBar extends View implements TimeBar {
     public int keyCountIncrement;
     public long keyTimeIncrement;
     public int lastCoarseScrubXPosition;
-    public final CopyOnWriteArraySet<TimeBar.OnScrubListener> listeners;
+    public final CopyOnWriteArraySet listeners;
     public int[] locationOnScreen;
     public boolean[] playedAdGroups;
     public final Paint playedAdMarkerPaint;
@@ -85,6 +83,30 @@ public class DefaultTimeBar extends View implements TimeBar {
     public Point touchPosition;
     public final int touchTargetHeight;
     public final Paint unplayedPaint;
+
+    public static int getDefaultBufferedColor(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) ? (i & 16777215) | (-872415232) : invokeI.intValue;
+    }
+
+    public static int getDefaultPlayedAdMarkerColor(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) ? (i & 16777215) | 855638016 : invokeI.intValue;
+    }
+
+    public static int getDefaultScrubberColor(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) ? i | (-16777216) : invokeI.intValue;
+    }
+
+    public static int getDefaultUnplayedColor(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i)) == null) ? (i & 16777215) | 855638016 : invokeI.intValue;
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DefaultTimeBar(Context context, AttributeSet attributeSet) {
@@ -117,7 +139,7 @@ public class DefaultTimeBar extends View implements TimeBar {
         Paint paint = new Paint();
         this.scrubberPaint = paint;
         paint.setAntiAlias(true);
-        this.listeners = new CopyOnWriteArraySet<>();
+        this.listeners = new CopyOnWriteArraySet();
         DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
         this.fineScrubYThreshold = dpToPx(displayMetrics, -50);
         int dpToPx = dpToPx(displayMetrics, 4);
@@ -221,13 +243,53 @@ public class DefaultTimeBar extends View implements TimeBar {
     public static int dpToPx(DisplayMetrics displayMetrics, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, displayMetrics, i)) == null) ? (int) ((i * displayMetrics.density) + 0.5f) : invokeLI.intValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, displayMetrics, i)) == null) {
+            return (int) ((i * displayMetrics.density) + 0.5f);
+        }
+        return invokeLI.intValue;
+    }
+
+    private boolean isInSeekBar(float f, float f2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            return this.seekBounds.contains((int) f, (int) f2);
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public static boolean setDrawableLayoutDirection(Drawable drawable, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65553, null, drawable, i)) == null) {
+            if (Util.SDK_INT >= 23 && drawable.setLayoutDirection(i)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    @Override // android.view.View
+    public void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2) == null) {
+            int mode = View.MeasureSpec.getMode(i2);
+            int size = View.MeasureSpec.getSize(i2);
+            if (mode == 0) {
+                size = this.touchTargetHeight;
+            } else if (mode != 1073741824) {
+                size = Math.min(this.touchTargetHeight, size);
+            }
+            setMeasuredDimension(View.MeasureSpec.getSize(i), size);
+            updateDrawableState();
+        }
     }
 
     private void drawPlayhead(Canvas canvas) {
         int i;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, this, canvas) == null) || this.duration <= 0) {
+        if ((interceptable != null && interceptable.invokeL(65539, this, canvas) != null) || this.duration <= 0) {
             return;
         }
         Rect rect = this.scrubberBar;
@@ -236,20 +298,26 @@ public class DefaultTimeBar extends View implements TimeBar {
         Drawable drawable = this.scrubberDrawable;
         if (drawable == null) {
             if (!this.scrubbing && !isFocused()) {
-                i = isEnabled() ? this.scrubberEnabledSize : this.scrubberDisabledSize;
+                if (isEnabled()) {
+                    i = this.scrubberEnabledSize;
+                } else {
+                    i = this.scrubberDisabledSize;
+                }
             } else {
                 i = this.scrubberDraggedSize;
             }
             canvas.drawCircle(constrainValue, centerY, i / 2, this.scrubberPaint);
             return;
         }
-        int intrinsicWidth = drawable.getIntrinsicWidth() / 2;
+        int intrinsicWidth = drawable.getIntrinsicWidth();
+        int i2 = intrinsicWidth / 2;
         int intrinsicHeight = this.scrubberDrawable.getIntrinsicHeight() / 2;
-        this.scrubberDrawable.setBounds(constrainValue - intrinsicWidth, centerY - intrinsicHeight, constrainValue + intrinsicWidth, centerY + intrinsicHeight);
+        this.scrubberDrawable.setBounds(constrainValue - i2, centerY - intrinsicHeight, constrainValue + i2, centerY + intrinsicHeight);
         this.scrubberDrawable.draw(canvas);
     }
 
     private void drawTimeBar(Canvas canvas) {
+        Paint paint;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, canvas) == null) {
             int height = this.progressBar.height();
@@ -281,33 +349,14 @@ public class DefaultTimeBar extends View implements TimeBar {
                 long constrainValue = Util.constrainValue(this.adGroupTimesMs[i6], 0L, this.duration);
                 Rect rect4 = this.progressBar;
                 int min = rect4.left + Math.min(rect4.width() - this.adMarkerWidth, Math.max(0, ((int) ((this.progressBar.width() * constrainValue) / this.duration)) - i5));
-                canvas.drawRect(min, centerY, min + this.adMarkerWidth, i, this.playedAdGroups[i6] ? this.playedAdMarkerPaint : this.adMarkerPaint);
+                if (this.playedAdGroups[i6]) {
+                    paint = this.playedAdMarkerPaint;
+                } else {
+                    paint = this.adMarkerPaint;
+                }
+                canvas.drawRect(min, centerY, min + this.adMarkerWidth, i, paint);
             }
         }
-    }
-
-    public static int getDefaultBufferedColor(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) ? (i & 16777215) | (-872415232) : invokeI.intValue;
-    }
-
-    public static int getDefaultPlayedAdMarkerColor(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) ? (i & 16777215) | 855638016 : invokeI.intValue;
-    }
-
-    public static int getDefaultScrubberColor(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) ? i | (-16777216) : invokeI.intValue;
-    }
-
-    public static int getDefaultUnplayedColor(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i)) == null) ? (i & 16777215) | 855638016 : invokeI.intValue;
     }
 
     private long getPositionIncrement() {
@@ -330,147 +379,16 @@ public class DefaultTimeBar extends View implements TimeBar {
     private String getProgressText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) ? Util.getStringForTime(this.formatBuilder, this.formatter, this.position) : (String) invokeV.objValue;
-    }
-
-    private long getScrubberPosition() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
-            if (this.progressBar.width() <= 0 || this.duration == C.TIME_UNSET) {
-                return 0L;
-            }
-            return (this.scrubberBar.width() * this.duration) / this.progressBar.width();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
+            return Util.getStringForTime(this.formatBuilder, this.formatter, this.position);
         }
-        return invokeV.longValue;
+        return (String) invokeV.objValue;
     }
 
-    private boolean isInSeekBar(float f, float f2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) ? this.seekBounds.contains((int) f, (int) f2) : invokeCommon.booleanValue;
-    }
-
-    @TargetApi(16)
     private void maybeSetImportantForAccessibilityV16() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65549, this) == null) && getImportantForAccessibility() == 0) {
             setImportantForAccessibility(1);
-        }
-    }
-
-    private void positionScrubber(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(65550, this, f) == null) {
-            Rect rect = this.scrubberBar;
-            Rect rect2 = this.progressBar;
-            rect.right = Util.constrainValue((int) f, rect2.left, rect2.right);
-        }
-    }
-
-    private Point resolveRelativeTouchPosition(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, this, motionEvent)) == null) {
-            if (this.locationOnScreen == null) {
-                this.locationOnScreen = new int[2];
-                this.touchPosition = new Point();
-            }
-            getLocationOnScreen(this.locationOnScreen);
-            this.touchPosition.set(((int) motionEvent.getRawX()) - this.locationOnScreen[0], ((int) motionEvent.getRawY()) - this.locationOnScreen[1]);
-            return this.touchPosition;
-        }
-        return (Point) invokeL.objValue;
-    }
-
-    private boolean scrubIncrementally(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65552, this, j)) == null) {
-            if (this.duration <= 0) {
-                return false;
-            }
-            long scrubberPosition = getScrubberPosition();
-            long constrainValue = Util.constrainValue(scrubberPosition + j, 0L, this.duration);
-            this.scrubPosition = constrainValue;
-            if (constrainValue == scrubberPosition) {
-                return false;
-            }
-            if (!this.scrubbing) {
-                startScrubbing();
-            }
-            Iterator<TimeBar.OnScrubListener> it = this.listeners.iterator();
-            while (it.hasNext()) {
-                it.next().onScrubMove(this, this.scrubPosition);
-            }
-            update();
-            return true;
-        }
-        return invokeJ.booleanValue;
-    }
-
-    public static boolean setDrawableLayoutDirection(Drawable drawable, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65553, null, drawable, i)) == null) ? Util.SDK_INT >= 23 && drawable.setLayoutDirection(i) : invokeLI.booleanValue;
-    }
-
-    private void startScrubbing() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65554, this) == null) {
-            this.scrubbing = true;
-            setPressed(true);
-            ViewParent parent = getParent();
-            if (parent != null) {
-                parent.requestDisallowInterceptTouchEvent(true);
-            }
-            Iterator<TimeBar.OnScrubListener> it = this.listeners.iterator();
-            while (it.hasNext()) {
-                it.next().onScrubStart(this, getScrubberPosition());
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void stopScrubbing(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65555, this, z) == null) {
-            this.scrubbing = false;
-            setPressed(false);
-            ViewParent parent = getParent();
-            if (parent != null) {
-                parent.requestDisallowInterceptTouchEvent(false);
-            }
-            invalidate();
-            Iterator<TimeBar.OnScrubListener> it = this.listeners.iterator();
-            while (it.hasNext()) {
-                it.next().onScrubStop(this, getScrubberPosition(), z);
-            }
-        }
-    }
-
-    private void update() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65556, this) == null) {
-            this.bufferedBar.set(this.progressBar);
-            this.scrubberBar.set(this.progressBar);
-            long j = this.scrubbing ? this.scrubPosition : this.position;
-            if (this.duration > 0) {
-                int width = (int) ((this.progressBar.width() * this.bufferedPosition) / this.duration);
-                Rect rect = this.bufferedBar;
-                Rect rect2 = this.progressBar;
-                rect.right = Math.min(rect2.left + width, rect2.right);
-                int width2 = (int) ((this.progressBar.width() * j) / this.duration);
-                Rect rect3 = this.scrubberBar;
-                Rect rect4 = this.progressBar;
-                rect3.right = Math.min(rect4.left + width2, rect4.right);
-            } else {
-                Rect rect5 = this.bufferedBar;
-                int i = this.progressBar.left;
-                rect5.right = i;
-                this.scrubberBar.right = i;
-            }
-            invalidate(this.seekBounds);
         }
     }
 
@@ -479,14 +397,6 @@ public class DefaultTimeBar extends View implements TimeBar {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65557, this) == null) && (drawable = this.scrubberDrawable) != null && drawable.isStateful() && this.scrubberDrawable.setState(getDrawableState())) {
             invalidate();
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.ui.TimeBar
-    public void addListener(TimeBar.OnScrubListener onScrubListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, onScrubListener) == null) {
-            this.listeners.add(onScrubListener);
         }
     }
 
@@ -508,6 +418,51 @@ public class DefaultTimeBar extends View implements TimeBar {
             if (drawable != null) {
                 drawable.jumpToCurrentState();
             }
+        }
+    }
+
+    private long getScrubberPosition() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
+            if (this.progressBar.width() > 0 && this.duration != C.TIME_UNSET) {
+                return (this.scrubberBar.width() * this.duration) / this.progressBar.width();
+            }
+            return 0L;
+        }
+        return invokeV.longValue;
+    }
+
+    private void startScrubbing() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65554, this) == null) {
+            this.scrubbing = true;
+            setPressed(true);
+            ViewParent parent = getParent();
+            if (parent != null) {
+                parent.requestDisallowInterceptTouchEvent(true);
+            }
+            Iterator it = this.listeners.iterator();
+            while (it.hasNext()) {
+                ((TimeBar.OnScrubListener) it.next()).onScrubStart(this, getScrubberPosition());
+            }
+        }
+    }
+
+    private void positionScrubber(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(65550, this, f) == null) {
+            Rect rect = this.scrubberBar;
+            Rect rect2 = this.progressBar;
+            rect.right = Util.constrainValue((int) f, rect2.left, rect2.right);
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.ui.TimeBar
+    public void addListener(TimeBar.OnScrubListener onScrubListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, onScrubListener) == null) {
+            this.listeners.add(onScrubListener);
         }
     }
 
@@ -535,7 +490,156 @@ public class DefaultTimeBar extends View implements TimeBar {
     }
 
     @Override // android.view.View
-    @TargetApi(21)
+    public void onRtlPropertiesChanged(int i) {
+        Drawable drawable;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048585, this, i) == null) && (drawable = this.scrubberDrawable) != null && setDrawableLayoutDirection(drawable, i)) {
+            invalidate();
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.ui.TimeBar
+    public void removeListener(TimeBar.OnScrubListener onScrubListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, onScrubListener) == null) {
+            this.listeners.remove(onScrubListener);
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.ui.TimeBar
+    public void setBufferedPosition(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
+            this.bufferedPosition = j;
+            update();
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.ui.TimeBar
+    public void setDuration(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
+            this.duration = j;
+            if (this.scrubbing && j == C.TIME_UNSET) {
+                stopScrubbing(true);
+            }
+            update();
+        }
+    }
+
+    @Override // android.view.View, com.google.android.exoplayer2.ui.TimeBar
+    public void setEnabled(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
+            super.setEnabled(z);
+            if (this.scrubbing && !z) {
+                stopScrubbing(true);
+            }
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.ui.TimeBar
+    public void setKeyCountIncrement(int i) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            if (i > 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Assertions.checkArgument(z);
+            this.keyCountIncrement = i;
+            this.keyTimeIncrement = C.TIME_UNSET;
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.ui.TimeBar
+    public void setKeyTimeIncrement(long j) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048594, this, j) == null) {
+            if (j > 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Assertions.checkArgument(z);
+            this.keyCountIncrement = -1;
+            this.keyTimeIncrement = j;
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.ui.TimeBar
+    public void setPosition(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048595, this, j) == null) {
+            this.position = j;
+            setContentDescription(getProgressText());
+            update();
+        }
+    }
+
+    private Point resolveRelativeTouchPosition(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, this, motionEvent)) == null) {
+            if (this.locationOnScreen == null) {
+                this.locationOnScreen = new int[2];
+                this.touchPosition = new Point();
+            }
+            getLocationOnScreen(this.locationOnScreen);
+            this.touchPosition.set(((int) motionEvent.getRawX()) - this.locationOnScreen[0], ((int) motionEvent.getRawY()) - this.locationOnScreen[1]);
+            return this.touchPosition;
+        }
+        return (Point) invokeL.objValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void stopScrubbing(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65555, this, z) == null) {
+            this.scrubbing = false;
+            setPressed(false);
+            ViewParent parent = getParent();
+            if (parent != null) {
+                parent.requestDisallowInterceptTouchEvent(false);
+            }
+            invalidate();
+            Iterator it = this.listeners.iterator();
+            while (it.hasNext()) {
+                ((TimeBar.OnScrubListener) it.next()).onScrubStop(this, getScrubberPosition(), z);
+            }
+        }
+    }
+
+    private boolean scrubIncrementally(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65552, this, j)) == null) {
+            if (this.duration <= 0) {
+                return false;
+            }
+            long scrubberPosition = getScrubberPosition();
+            long constrainValue = Util.constrainValue(scrubberPosition + j, 0L, this.duration);
+            this.scrubPosition = constrainValue;
+            if (constrainValue == scrubberPosition) {
+                return false;
+            }
+            if (!this.scrubbing) {
+                startScrubbing();
+            }
+            Iterator it = this.listeners.iterator();
+            while (it.hasNext()) {
+                ((TimeBar.OnScrubListener) it.next()).onScrubMove(this, this.scrubPosition);
+            }
+            update();
+            return true;
+        }
+        return invokeJ.booleanValue;
+    }
+
+    @Override // android.view.View
     public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo accessibilityNodeInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, accessibilityNodeInfo) == null) {
@@ -553,6 +657,36 @@ public class DefaultTimeBar extends View implements TimeBar {
                 accessibilityNodeInfo.addAction(4096);
                 accessibilityNodeInfo.addAction(8192);
             }
+        }
+    }
+
+    private void update() {
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65556, this) == null) {
+            this.bufferedBar.set(this.progressBar);
+            this.scrubberBar.set(this.progressBar);
+            if (this.scrubbing) {
+                j = this.scrubPosition;
+            } else {
+                j = this.position;
+            }
+            if (this.duration > 0) {
+                int width = (int) ((this.progressBar.width() * this.bufferedPosition) / this.duration);
+                Rect rect = this.bufferedBar;
+                Rect rect2 = this.progressBar;
+                rect.right = Math.min(rect2.left + width, rect2.right);
+                int width2 = (int) ((this.progressBar.width() * j) / this.duration);
+                Rect rect3 = this.scrubberBar;
+                Rect rect4 = this.progressBar;
+                rect3.right = Math.min(rect4.left + width2, rect4.right);
+            } else {
+                Rect rect5 = this.bufferedBar;
+                int i = this.progressBar.left;
+                rect5.right = i;
+                this.scrubberBar.right = i;
+            }
+            invalidate(this.seekBounds);
         }
     }
 
@@ -595,110 +729,6 @@ public class DefaultTimeBar extends View implements TimeBar {
     }
 
     @Override // android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            int i5 = ((i4 - i2) - this.touchTargetHeight) / 2;
-            int paddingLeft = getPaddingLeft();
-            int paddingRight = (i3 - i) - getPaddingRight();
-            int i6 = this.touchTargetHeight;
-            int i7 = ((i6 - this.barHeight) / 2) + i5;
-            this.seekBounds.set(paddingLeft, i5, paddingRight, i6 + i5);
-            Rect rect = this.progressBar;
-            Rect rect2 = this.seekBounds;
-            int i8 = rect2.left;
-            int i9 = this.scrubberPadding;
-            rect.set(i8 + i9, i7, rect2.right - i9, this.barHeight + i7);
-            update();
-        }
-    }
-
-    @Override // android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2) == null) {
-            int mode = View.MeasureSpec.getMode(i2);
-            int size = View.MeasureSpec.getSize(i2);
-            if (mode == 0) {
-                size = this.touchTargetHeight;
-            } else if (mode != 1073741824) {
-                size = Math.min(this.touchTargetHeight, size);
-            }
-            setMeasuredDimension(View.MeasureSpec.getSize(i), size);
-            updateDrawableState();
-        }
-    }
-
-    @Override // android.view.View
-    public void onRtlPropertiesChanged(int i) {
-        Drawable drawable;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048585, this, i) == null) && (drawable = this.scrubberDrawable) != null && setDrawableLayoutDirection(drawable, i)) {
-            invalidate();
-        }
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:15:0x002a, code lost:
-        if (r3 != 3) goto L39;
-     */
-    @Override // android.view.View
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, motionEvent)) == null) {
-            if (isEnabled() && this.duration > 0) {
-                Point resolveRelativeTouchPosition = resolveRelativeTouchPosition(motionEvent);
-                int i = resolveRelativeTouchPosition.x;
-                int i2 = resolveRelativeTouchPosition.y;
-                int action = motionEvent.getAction();
-                if (action != 0) {
-                    if (action != 1) {
-                        if (action == 2) {
-                            if (this.scrubbing) {
-                                if (i2 < this.fineScrubYThreshold) {
-                                    int i3 = this.lastCoarseScrubXPosition;
-                                    positionScrubber(i3 + ((i - i3) / 3));
-                                } else {
-                                    this.lastCoarseScrubXPosition = i;
-                                    positionScrubber(i);
-                                }
-                                this.scrubPosition = getScrubberPosition();
-                                Iterator<TimeBar.OnScrubListener> it = this.listeners.iterator();
-                                while (it.hasNext()) {
-                                    it.next().onScrubMove(this, this.scrubPosition);
-                                }
-                                update();
-                                invalidate();
-                                return true;
-                            }
-                        }
-                    }
-                    if (this.scrubbing) {
-                        stopScrubbing(motionEvent.getAction() == 3);
-                        return true;
-                    }
-                } else {
-                    float f = i;
-                    if (isInSeekBar(f, i2)) {
-                        startScrubbing();
-                        positionScrubber(f);
-                        this.scrubPosition = getScrubberPosition();
-                        update();
-                        invalidate();
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // android.view.View
-    @TargetApi(16)
     public boolean performAccessibilityAction(int i, Bundle bundle) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -726,85 +756,102 @@ public class DefaultTimeBar extends View implements TimeBar {
         return invokeIL.booleanValue;
     }
 
-    @Override // com.google.android.exoplayer2.ui.TimeBar
-    public void removeListener(TimeBar.OnScrubListener onScrubListener) {
+    @Override // android.view.View
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, onScrubListener) == null) {
-            this.listeners.remove(onScrubListener);
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            int i5 = ((i4 - i2) - this.touchTargetHeight) / 2;
+            int paddingLeft = getPaddingLeft();
+            int paddingRight = (i3 - i) - getPaddingRight();
+            int i6 = this.touchTargetHeight;
+            int i7 = ((i6 - this.barHeight) / 2) + i5;
+            this.seekBounds.set(paddingLeft, i5, paddingRight, i6 + i5);
+            Rect rect = this.progressBar;
+            Rect rect2 = this.seekBounds;
+            int i8 = rect2.left;
+            int i9 = this.scrubberPadding;
+            rect.set(i8 + i9, i7, rect2.right - i9, this.barHeight + i7);
+            update();
         }
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:15:0x002a, code lost:
+        if (r3 != 3) goto L39;
+     */
+    @Override // android.view.View
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, motionEvent)) == null) {
+            boolean z = false;
+            if (isEnabled() && this.duration > 0) {
+                Point resolveRelativeTouchPosition = resolveRelativeTouchPosition(motionEvent);
+                int i = resolveRelativeTouchPosition.x;
+                int i2 = resolveRelativeTouchPosition.y;
+                int action = motionEvent.getAction();
+                if (action != 0) {
+                    if (action != 1) {
+                        if (action == 2) {
+                            if (this.scrubbing) {
+                                if (i2 < this.fineScrubYThreshold) {
+                                    int i3 = this.lastCoarseScrubXPosition;
+                                    positionScrubber(i3 + ((i - i3) / 3));
+                                } else {
+                                    this.lastCoarseScrubXPosition = i;
+                                    positionScrubber(i);
+                                }
+                                this.scrubPosition = getScrubberPosition();
+                                Iterator it = this.listeners.iterator();
+                                while (it.hasNext()) {
+                                    ((TimeBar.OnScrubListener) it.next()).onScrubMove(this, this.scrubPosition);
+                                }
+                                update();
+                                invalidate();
+                                return true;
+                            }
+                        }
+                    }
+                    if (this.scrubbing) {
+                        if (motionEvent.getAction() == 3) {
+                            z = true;
+                        }
+                        stopScrubbing(z);
+                        return true;
+                    }
+                } else {
+                    float f = i;
+                    if (isInSeekBar(f, i2)) {
+                        startScrubbing();
+                        positionScrubber(f);
+                        this.scrubPosition = getScrubberPosition();
+                        update();
+                        invalidate();
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
     @Override // com.google.android.exoplayer2.ui.TimeBar
-    public void setAdGroupTimesMs(@Nullable long[] jArr, @Nullable boolean[] zArr, int i) {
+    public void setAdGroupTimesMs(long[] jArr, boolean[] zArr, int i) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048589, this, jArr, zArr, i) == null) {
-            Assertions.checkArgument(i == 0 || !(jArr == null || zArr == null));
+            if (i != 0 && (jArr == null || zArr == null)) {
+                z = false;
+            } else {
+                z = true;
+            }
+            Assertions.checkArgument(z);
             this.adGroupCount = i;
             this.adGroupTimesMs = jArr;
             this.playedAdGroups = zArr;
-            update();
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.ui.TimeBar
-    public void setBufferedPosition(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
-            this.bufferedPosition = j;
-            update();
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.ui.TimeBar
-    public void setDuration(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
-            this.duration = j;
-            if (this.scrubbing && j == C.TIME_UNSET) {
-                stopScrubbing(true);
-            }
-            update();
-        }
-    }
-
-    @Override // android.view.View, com.google.android.exoplayer2.ui.TimeBar
-    public void setEnabled(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
-            super.setEnabled(z);
-            if (!this.scrubbing || z) {
-                return;
-            }
-            stopScrubbing(true);
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.ui.TimeBar
-    public void setKeyCountIncrement(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
-            Assertions.checkArgument(i > 0);
-            this.keyCountIncrement = i;
-            this.keyTimeIncrement = C.TIME_UNSET;
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.ui.TimeBar
-    public void setKeyTimeIncrement(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048594, this, j) == null) {
-            Assertions.checkArgument(j > 0);
-            this.keyCountIncrement = -1;
-            this.keyTimeIncrement = j;
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.ui.TimeBar
-    public void setPosition(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048595, this, j) == null) {
-            this.position = j;
-            setContentDescription(getProgressText());
             update();
         }
     }

@@ -53,7 +53,10 @@ public class ContainerMediaChunk extends BaseMediaChunk {
     public final long bytesLoaded() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.bytesLoaded : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.bytesLoaded;
+        }
+        return invokeV.longValue;
     }
 
     @Override // com.google.android.exoplayer2.upstream.Loader.Loadable
@@ -68,21 +71,30 @@ public class ContainerMediaChunk extends BaseMediaChunk {
     public int getNextChunkIndex() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.chunkIndex + this.chunkCount : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.chunkIndex + this.chunkCount;
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.google.android.exoplayer2.upstream.Loader.Loadable
     public final boolean isLoadCanceled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.loadCanceled : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.loadCanceled;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.google.android.exoplayer2.source.chunk.MediaChunk
     public boolean isLoadCompleted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.loadCompleted : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.loadCompleted;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.google.android.exoplayer2.upstream.Loader.Loadable
@@ -98,11 +110,15 @@ public class ContainerMediaChunk extends BaseMediaChunk {
                     this.extractorWrapper.init(output);
                 }
                 Extractor extractor = this.extractorWrapper.extractor;
+                boolean z = false;
                 int i = 0;
                 while (i == 0 && !this.loadCanceled) {
                     i = extractor.read(defaultExtractorInput, null);
                 }
-                Assertions.checkState(i != 1);
+                if (i != 1) {
+                    z = true;
+                }
+                Assertions.checkState(z);
                 this.bytesLoaded = (int) (defaultExtractorInput.getPosition() - this.dataSpec.absoluteStreamPosition);
                 Util.closeQuietly(this.dataSource);
                 this.loadCompleted = true;

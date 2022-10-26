@@ -28,9 +28,43 @@ public class IMMediaDeleteMsgHttpRequest extends IMMediaBaseHttpRequest {
     public int mContactorType;
     public String mListenerKey;
     public long mMaxId;
-    public List<Long> mMsgIds;
+    public List mMsgIds;
 
-    public IMMediaDeleteMsgHttpRequest(Context context, long j, long j2, List<Long> list, String str) {
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getContentType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "application/json" : (String) invokeV.objValue;
+    }
+
+    public IMMediaDeleteMsgHttpRequest(Context context, long j, int i, long j2, String str, long j3, List list, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r3;
+            Object[] objArr = {context, Long.valueOf(j), Integer.valueOf(i), Long.valueOf(j2), str, Long.valueOf(j3), list, str2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mContactorType = -1;
+        this.mContactorPauid = -1L;
+        this.mContext = context;
+        this.mContactor = j;
+        this.mMaxId = j3;
+        this.mMsgIds = list;
+        this.mListenerKey = str2;
+        this.mContactorType = i;
+        this.mContactorPauid = j2;
+        this.mContactorThirdid = str;
+    }
+
+    public IMMediaDeleteMsgHttpRequest(Context context, long j, long j2, List list, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -54,13 +88,6 @@ public class IMMediaDeleteMsgHttpRequest extends IMMediaBaseHttpRequest {
         this.mListenerKey = str;
     }
 
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public String getContentType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "application/json" : (String) invokeV.objValue;
-    }
-
     @Override // com.baidu.android.imsdk.chatmessage.request.IMMediaBaseHttpRequest, com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public /* bridge */ /* synthetic */ Map getHeaders() {
         return super.getHeaders();
@@ -79,6 +106,11 @@ public class IMMediaDeleteMsgHttpRequest extends IMMediaBaseHttpRequest {
     @Override // com.baidu.android.imsdk.chatmessage.request.IMMediaBaseHttpRequest, com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public /* bridge */ /* synthetic */ String getMethod() {
         return super.getMethod();
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.request.IMMediaBaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
+    public /* bridge */ /* synthetic */ boolean shouldAbort() {
+        return super.shouldAbort();
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -130,7 +162,7 @@ public class IMMediaDeleteMsgHttpRequest extends IMMediaBaseHttpRequest {
     public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048581, this, i, bArr, th) == null) {
-            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
+            Pair transErrorCode = transErrorCode(i, bArr, th);
             ChatMsgManagerImpl.getInstance(this.mContext).onMediaDeleteChatMsgResult(this.mListenerKey, ((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second);
         }
     }
@@ -155,37 +187,5 @@ public class IMMediaDeleteMsgHttpRequest extends IMMediaBaseHttpRequest {
             }
             ChatMsgManagerImpl.getInstance(this.mContext).onMediaDeleteChatMsgResult(this.mListenerKey, i, "success!");
         }
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.request.IMMediaBaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
-    public /* bridge */ /* synthetic */ boolean shouldAbort() {
-        return super.shouldAbort();
-    }
-
-    public IMMediaDeleteMsgHttpRequest(Context context, long j, int i, long j2, String str, long j3, List<Long> list, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r3;
-            Object[] objArr = {context, Long.valueOf(j), Integer.valueOf(i), Long.valueOf(j2), str, Long.valueOf(j3), list, str2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.mContactorType = -1;
-        this.mContactorPauid = -1L;
-        this.mContext = context;
-        this.mContactor = j;
-        this.mMaxId = j3;
-        this.mMsgIds = list;
-        this.mListenerKey = str2;
-        this.mContactorType = i;
-        this.mContactorPauid = j2;
-        this.mContactorThirdid = str;
     }
 }

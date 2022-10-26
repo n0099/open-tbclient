@@ -1,10 +1,9 @@
 package com.kwad.sdk.utils;
 
-import android.annotation.SuppressLint;
 import java.io.IOException;
 /* loaded from: classes8.dex */
 public final class ay {
-    public static Class<?> aou;
+    public static Class aou;
 
     public static String dV(String str) {
         try {
@@ -16,7 +15,6 @@ public final class ay {
         }
     }
 
-    @SuppressLint({"PrivateApi"})
     public static Object f(String str, Object... objArr) {
         try {
             if (aou == null) {

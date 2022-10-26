@@ -9,10 +9,10 @@ public class ff {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public String b;
-    public int c;
-    public String d;
-    public int e;
+    public Object b;
+    public String c;
+    public long d;
+    public long e;
     public long f;
 
     public ff() {

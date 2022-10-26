@@ -42,10 +42,10 @@ public class ConscryptPlatform extends Platform {
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             try {
                 Class.forName("org.conscrypt.ConscryptEngineSocket");
-                if (Conscrypt.isAvailable()) {
-                    return new ConscryptPlatform();
+                if (!Conscrypt.isAvailable()) {
+                    return null;
                 }
-                return null;
+                return new ConscryptPlatform();
             } catch (ClassNotFoundException unused) {
                 return null;
             }
@@ -56,31 +56,10 @@ public class ConscryptPlatform extends Platform {
     private Provider getProvider() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? new OpenSSLProvider() : (Provider) invokeV.objValue;
-    }
-
-    @Override // okhttp3.internal.platform.Platform
-    public void configureSslSocketFactory(SSLSocketFactory sSLSocketFactory) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, sSLSocketFactory) == null) && Conscrypt.isConscrypt(sSLSocketFactory)) {
-            Conscrypt.setUseEngineSocket(sSLSocketFactory, true);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+            return new OpenSSLProvider();
         }
-    }
-
-    @Override // okhttp3.internal.platform.Platform
-    public void configureTlsExtensions(SSLSocket sSLSocket, String str, List<Protocol> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sSLSocket, str, list) == null) {
-            if (Conscrypt.isConscrypt(sSLSocket)) {
-                if (str != null) {
-                    Conscrypt.setUseSessionTickets(sSLSocket, true);
-                    Conscrypt.setHostname(sSLSocket, str);
-                }
-                Conscrypt.setApplicationProtocols(sSLSocket, (String[]) Platform.alpnProtocolNames(list).toArray(new String[0]));
-                return;
-            }
-            super.configureTlsExtensions(sSLSocket, str, list);
-        }
+        return (Provider) invokeV.objValue;
     }
 
     @Override // okhttp3.internal.platform.Platform
@@ -98,6 +77,14 @@ public class ConscryptPlatform extends Platform {
     }
 
     @Override // okhttp3.internal.platform.Platform
+    public void configureSslSocketFactory(SSLSocketFactory sSLSocketFactory) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, sSLSocketFactory) == null) && Conscrypt.isConscrypt(sSLSocketFactory)) {
+            Conscrypt.setUseEngineSocket(sSLSocketFactory, true);
+        }
+    }
+
+    @Override // okhttp3.internal.platform.Platform
     @Nullable
     public String getSelectedProtocol(SSLSocket sSLSocket) {
         InterceptResult invokeL;
@@ -109,6 +96,22 @@ public class ConscryptPlatform extends Platform {
             return super.getSelectedProtocol(sSLSocket);
         }
         return (String) invokeL.objValue;
+    }
+
+    @Override // okhttp3.internal.platform.Platform
+    public void configureTlsExtensions(SSLSocket sSLSocket, String str, List<Protocol> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sSLSocket, str, list) == null) {
+            if (Conscrypt.isConscrypt(sSLSocket)) {
+                if (str != null) {
+                    Conscrypt.setUseSessionTickets(sSLSocket, true);
+                    Conscrypt.setHostname(sSLSocket, str);
+                }
+                Conscrypt.setApplicationProtocols(sSLSocket, (String[]) Platform.alpnProtocolNames(list).toArray(new String[0]));
+                return;
+            }
+            super.configureTlsExtensions(sSLSocket, str, list);
+        }
     }
 
     @Override // okhttp3.internal.platform.Platform

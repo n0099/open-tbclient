@@ -1,17 +1,12 @@
 package androidx.media;
 
 import android.media.AudioAttributes;
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import androidx.annotation.RestrictTo;
 import androidx.media.AudioAttributesImplApi21;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@RequiresApi(26)
-@RestrictTo({RestrictTo.Scope.LIBRARY})
 /* loaded from: classes.dex */
 public class AudioAttributesImplApi26 extends AudioAttributesImplApi21 {
     public static /* synthetic */ Interceptable $ic = null;
@@ -38,11 +33,13 @@ public class AudioAttributesImplApi26 extends AudioAttributesImplApi21 {
         }
 
         @Override // androidx.media.AudioAttributesImplApi21.Builder, androidx.media.AudioAttributesImpl.Builder
-        @NonNull
         public AudioAttributesImpl build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new AudioAttributesImplApi26(this.mFwkBuilder.build()) : (AudioAttributesImpl) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new AudioAttributesImplApi26(this.mFwkBuilder.build());
+            }
+            return (AudioAttributesImpl) invokeV.objValue;
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -67,7 +64,6 @@ public class AudioAttributesImplApi26 extends AudioAttributesImplApi21 {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.media.AudioAttributesImplApi21.Builder, androidx.media.AudioAttributesImpl.Builder
-        @NonNull
         public Builder setUsage(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
@@ -79,7 +75,6 @@ public class AudioAttributesImplApi26 extends AudioAttributesImplApi21 {
         }
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public AudioAttributesImplApi26() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -98,7 +93,10 @@ public class AudioAttributesImplApi26 extends AudioAttributesImplApi21 {
     public int getVolumeControlStream() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mAudioAttributes.getVolumeControlStream() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mAudioAttributes.getVolumeControlStream();
+        }
+        return invokeV.intValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

@@ -49,37 +49,6 @@ public final class LogPrinter {
         }
     }
 
-    public static void a(Throwable th, int i, String str, Object... objArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLILL(65538, null, th, i, str, objArr) == null) && FunAdSdk.isLogEnabled()) {
-            try {
-                StackTraceElement[] stackTrace = new Throwable().getStackTrace();
-                StackTraceElement stackTraceElement = stackTrace[2];
-                if (str == null) {
-                    str = stackTraceElement.getMethodName();
-                } else if (objArr != null && objArr.length != 0) {
-                    str = String.format(str, objArr);
-                }
-                String className = stackTrace[2].getClassName();
-                Matcher matcher = a.matcher(className);
-                String str2 = "";
-                if (matcher.find()) {
-                    className = matcher.replaceAll("");
-                }
-                Object[] objArr2 = new Object[3];
-                objArr2[0] = className.substring(className.lastIndexOf(46) + 1);
-                objArr2[1] = str;
-                if (th != null) {
-                    str2 = "\n" + Log.getStackTraceString(th);
-                }
-                objArr2[2] = str2;
-                Log.println(i, TAG, String.format("[%s] %s%s", objArr2));
-            } catch (Exception e) {
-                e(e);
-            }
-        }
-    }
-
     public static void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
@@ -126,6 +95,37 @@ public final class LogPrinter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65545, null, str, objArr) == null) {
             a(null, 2, str, objArr);
+        }
+    }
+
+    public static void a(Throwable th, int i, String str, Object... objArr) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLILL(65538, null, th, i, str, objArr) == null) && FunAdSdk.isLogEnabled()) {
+            try {
+                StackTraceElement[] stackTrace = new Throwable().getStackTrace();
+                StackTraceElement stackTraceElement = stackTrace[2];
+                if (str == null) {
+                    str = stackTraceElement.getMethodName();
+                } else if (objArr != null && objArr.length != 0) {
+                    str = String.format(str, objArr);
+                }
+                String className = stackTrace[2].getClassName();
+                Matcher matcher = a.matcher(className);
+                String str2 = "";
+                if (matcher.find()) {
+                    className = matcher.replaceAll("");
+                }
+                Object[] objArr2 = new Object[3];
+                objArr2[0] = className.substring(className.lastIndexOf(46) + 1);
+                objArr2[1] = str;
+                if (th != null) {
+                    str2 = "\n" + Log.getStackTraceString(th);
+                }
+                objArr2[2] = str2;
+                Log.println(i, TAG, String.format("[%s] %s%s", objArr2));
+            } catch (Exception e) {
+                e(e);
+            }
         }
     }
 }

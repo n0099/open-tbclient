@@ -5,17 +5,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class t4<T> {
+public class t4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final T a;
+    public final Object a;
 
-    public t4(float f, T t) {
+    public t4(float f, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f), t};
+            Object[] objArr = {Float.valueOf(f), obj};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -25,6 +25,6 @@ public class t4<T> {
                 return;
             }
         }
-        this.a = t;
+        this.a = obj;
     }
 }

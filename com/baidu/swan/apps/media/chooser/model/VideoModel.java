@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class VideoModel extends MediaModel {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<MediaModel> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public long duration;
     public int height;
@@ -25,7 +25,7 @@ public class VideoModel extends MediaModel {
     public int width;
 
     /* loaded from: classes2.dex */
-    public static class a implements Parcelable.Creator<MediaModel> {
+    public final class a implements Parcelable.Creator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -49,7 +49,10 @@ public class VideoModel extends MediaModel {
         public MediaModel createFromParcel(Parcel parcel) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new VideoModel(parcel, null) : (MediaModel) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+                return new VideoModel(parcel, null);
+            }
+            return (MediaModel) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -58,7 +61,10 @@ public class VideoModel extends MediaModel {
         public MediaModel[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new MediaModel[i] : (MediaModel[]) invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                return new MediaModel[i];
+            }
+            return (MediaModel[]) invokeI.objValue;
         }
     }
 
@@ -78,44 +84,121 @@ public class VideoModel extends MediaModel {
         CREATOR = new a();
     }
 
-    public /* synthetic */ VideoModel(Parcel parcel, a aVar) {
-        this(parcel);
-    }
-
     public long getDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.duration : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.duration;
+        }
+        return invokeV.longValue;
     }
 
     public int getHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.height : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.height;
+        }
+        return invokeV.intValue;
     }
 
     public int getRotation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.rotation : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.rotation;
+        }
+        return invokeV.intValue;
     }
 
     public Bitmap getThumbnailBitmap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.thumbnailBitmap : (Bitmap) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.thumbnailBitmap;
+        }
+        return (Bitmap) invokeV.objValue;
     }
 
     public String getUri() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.uri : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.uri;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.width : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.width;
+        }
+        return invokeV.intValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public VideoModel(Parcel parcel) {
+        super(parcel);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Parcel) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.uri = parcel.readString();
+        this.duration = parcel.readLong();
+        this.width = parcel.readInt();
+        this.height = parcel.readInt();
+        this.rotation = parcel.readInt();
+    }
+
+    public /* synthetic */ VideoModel(Parcel parcel, a aVar) {
+        this(parcel);
+    }
+
+    @Override // com.baidu.swan.apps.media.chooser.model.MediaModel, android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048588, this, parcel, i) == null) {
+            super.writeToParcel(parcel, i);
+            parcel.writeString(this.uri);
+            parcel.writeLong(this.duration);
+            parcel.writeInt(this.width);
+            parcel.writeInt(this.height);
+            parcel.writeInt(this.rotation);
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public VideoModel(String str) {
+        super(str);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        setType("video");
     }
 
     public void setDuration(long j) {
@@ -158,64 +241,5 @@ public class VideoModel extends MediaModel {
         if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
             this.width = i;
         }
-    }
-
-    @Override // com.baidu.swan.apps.media.chooser.model.MediaModel, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048588, this, parcel, i) == null) {
-            super.writeToParcel(parcel, i);
-            parcel.writeString(this.uri);
-            parcel.writeLong(this.duration);
-            parcel.writeInt(this.width);
-            parcel.writeInt(this.height);
-            parcel.writeInt(this.rotation);
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VideoModel(String str) {
-        super(str);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        setType("video");
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VideoModel(Parcel parcel) {
-        super(parcel);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Parcel) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.uri = parcel.readString();
-        this.duration = parcel.readLong();
-        this.width = parcel.readInt();
-        this.height = parcel.readInt();
-        this.rotation = parcel.readInt();
     }
 }

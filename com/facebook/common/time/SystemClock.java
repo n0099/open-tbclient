@@ -46,13 +46,19 @@ public class SystemClock implements Clock {
     public static SystemClock get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? INSTANCE : (SystemClock) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return INSTANCE;
+        }
+        return (SystemClock) invokeV.objValue;
     }
 
     @Override // com.facebook.common.time.Clock
     public long now() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? System.currentTimeMillis() : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return System.currentTimeMillis();
+        }
+        return invokeV.longValue;
     }
 }

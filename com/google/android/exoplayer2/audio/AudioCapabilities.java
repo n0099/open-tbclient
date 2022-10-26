@@ -1,7 +1,5 @@
 package com.google.android.exoplayer2.audio;
 
-import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -15,7 +13,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
-@TargetApi(21)
 /* loaded from: classes7.dex */
 public final class AudioCapabilities {
     public static /* synthetic */ Interceptable $ic;
@@ -38,6 +35,24 @@ public final class AudioCapabilities {
             }
         }
         DEFAULT_AUDIO_CAPABILITIES = new AudioCapabilities(new int[]{2}, 2);
+    }
+
+    public int getMaxChannelCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.maxChannelCount;
+        }
+        return invokeV.intValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.maxChannelCount + (Arrays.hashCode(this.supportedEncodings) * 31);
+        }
+        return invokeV.intValue;
     }
 
     public AudioCapabilities(int[] iArr, int i) {
@@ -68,7 +83,10 @@ public final class AudioCapabilities {
     public static AudioCapabilities getCapabilities(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? getCapabilities(context.registerReceiver(null, new IntentFilter("android.media.action.HDMI_AUDIO_PLUG"))) : (AudioCapabilities) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            return getCapabilities(context.registerReceiver(null, new IntentFilter("android.media.action.HDMI_AUDIO_PLUG")));
+        }
+        return (AudioCapabilities) invokeL.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -78,43 +96,30 @@ public final class AudioCapabilities {
             if (this == obj) {
                 return true;
             }
-            if (obj instanceof AudioCapabilities) {
-                AudioCapabilities audioCapabilities = (AudioCapabilities) obj;
-                return Arrays.equals(this.supportedEncodings, audioCapabilities.supportedEncodings) && this.maxChannelCount == audioCapabilities.maxChannelCount;
+            if (!(obj instanceof AudioCapabilities)) {
+                return false;
+            }
+            AudioCapabilities audioCapabilities = (AudioCapabilities) obj;
+            if (Arrays.equals(this.supportedEncodings, audioCapabilities.supportedEncodings) && this.maxChannelCount == audioCapabilities.maxChannelCount) {
+                return true;
             }
             return false;
         }
         return invokeL.booleanValue;
     }
 
-    public int getMaxChannelCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.maxChannelCount : invokeV.intValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.maxChannelCount + (Arrays.hashCode(this.supportedEncodings) * 31) : invokeV.intValue;
-    }
-
     public boolean supportsEncoding(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? Arrays.binarySearch(this.supportedEncodings, i) >= 0 : invokeI.booleanValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "AudioCapabilities[maxChannelCount=" + this.maxChannelCount + ", supportedEncodings=" + Arrays.toString(this.supportedEncodings) + PreferencesUtil.RIGHT_MOUNT;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            if (Arrays.binarySearch(this.supportedEncodings, i) >= 0) {
+                return true;
+            }
+            return false;
         }
-        return (String) invokeV.objValue;
+        return invokeI.booleanValue;
     }
 
-    @SuppressLint({"InlinedApi"})
     public static AudioCapabilities getCapabilities(Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -125,5 +130,14 @@ public final class AudioCapabilities {
             return DEFAULT_AUDIO_CAPABILITIES;
         }
         return (AudioCapabilities) invokeL.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return "AudioCapabilities[maxChannelCount=" + this.maxChannelCount + ", supportedEncodings=" + Arrays.toString(this.supportedEncodings) + PreferencesUtil.RIGHT_MOUNT;
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -24,7 +24,7 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes7.dex */
 public final class dd {
-    public static Map<Class<? extends com.kwad.sdk.core.response.kwai.a>, com.kwad.sdk.core.d> XD;
+    public static Map XD;
 
     static {
         HashMap hashMap = new HashMap();
@@ -126,8 +126,8 @@ public final class dd {
         tl();
     }
 
-    public static com.kwad.sdk.core.d getHolder(Class<? extends com.kwad.sdk.core.response.kwai.a> cls) {
-        return XD.get(cls);
+    public static com.kwad.sdk.core.d getHolder(Class cls) {
+        return (com.kwad.sdk.core.d) XD.get(cls);
     }
 
     @ForInvoker(methodId = "registerHolder")
@@ -145,7 +145,7 @@ public final class dd {
         ce.tl();
     }
 
-    public static Map<Class<? extends com.kwad.sdk.core.response.kwai.a>, com.kwad.sdk.core.d> tm() {
+    public static Map tm() {
         return XD;
     }
 }

@@ -40,31 +40,6 @@ public class AlbumVideoCompressingDialogView extends FrameLayout {
         a(context);
     }
 
-    public final void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d020d, this);
-            this.a = (AlbumCompressProgressView) findViewById(R.id.obfuscated_res_0x7f0925ae);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092438);
-        }
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? getParent() != null : invokeV.booleanValue;
-    }
-
-    public void setPercent(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || i < 0 || i > 100) {
-            return;
-        }
-        this.a.setProgress(i);
-        TextView textView = this.b;
-        textView.setText(i + "%");
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlbumVideoCompressingDialogView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -107,5 +82,35 @@ public class AlbumVideoCompressingDialogView extends FrameLayout {
             }
         }
         a(context);
+    }
+
+    public final void a(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d020c, this);
+            this.a = (AlbumCompressProgressView) findViewById(R.id.obfuscated_res_0x7f092596);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092422);
+        }
+    }
+
+    public void setPercent(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && i >= 0 && i <= 100) {
+            this.a.setProgress(i);
+            TextView textView = this.b;
+            textView.setText(i + "%");
+        }
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (getParent() != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

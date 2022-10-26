@@ -12,7 +12,6 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
@@ -44,10 +43,10 @@ public class BDEmotionBagLayout extends LinearLayout {
     public static final int NIGHT_COLOR_EMOTION_BAG = -14540254;
     public static final String TAG = "BDEmotionBagLayout";
     public transient /* synthetic */ FieldHolder $fh;
-    public List<String> mEmotionList;
+    public List mEmotionList;
     public int mGridViewVerticalSpace;
     public CircleIndicator mIndicator;
-    public List<GridView> mPageList;
+    public List mPageList;
     public PagerAdapter mPagerAdapter;
     public ViewPager mViewPager;
 
@@ -57,10 +56,27 @@ public class BDEmotionBagLayout extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
         public Context mContext;
         public LayoutInflater mInflater;
-        public List<String> mList;
+        public List mList;
         public final /* synthetic */ BDEmotionBagLayout this$0;
 
-        public EmotionGridViewAdapter(BDEmotionBagLayout bDEmotionBagLayout, Context context, List<String> list) {
+        @Override // android.widget.Adapter
+        public int getCount() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return 21;
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // android.widget.Adapter
+        public long getItemId(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? i : invokeI.longValue;
+        }
+
+        public EmotionGridViewAdapter(BDEmotionBagLayout bDEmotionBagLayout, Context context, List list) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -81,21 +97,18 @@ public class BDEmotionBagLayout extends LinearLayout {
             this.mContext = context;
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // android.widget.Adapter
-        public int getCount() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return 21;
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // android.widget.Adapter
-        public long getItemId(int i) {
+        public String getItem(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? i : invokeI.longValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                if (i < this.mList.size()) {
+                    return (String) this.mList.get(i);
+                }
+                return null;
+            }
+            return (String) invokeI.objValue;
         }
 
         @Override // android.widget.Adapter
@@ -116,26 +129,12 @@ public class BDEmotionBagLayout extends LinearLayout {
                 ImageView imageView = (ImageView) linearLayout.findViewById(R.id.img_item);
                 if (i == getCount() - 1) {
                     imageView.setImageResource(R.drawable.face_delete);
-                } else if (i < this.mList.size() && (emotionBitmapByName = EmotionUtils.getInstance().getEmotionBitmapByName(EmotionType.EMOTION_CLASSIC_TYPE, this.mList.get(i))) != null) {
+                } else if (i < this.mList.size() && (emotionBitmapByName = EmotionUtils.getInstance().getEmotionBitmapByName(EmotionType.EMOTION_CLASSIC_TYPE, (String) this.mList.get(i))) != null) {
                     imageView.setImageBitmap(emotionBitmapByName);
                 }
                 return linearLayout;
             }
             return (View) invokeILL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.widget.Adapter
-        public String getItem(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-                if (i < this.mList.size()) {
-                    return this.mList.get(i);
-                }
-                return null;
-            }
-            return (String) invokeI.objValue;
         }
     }
 
@@ -143,10 +142,17 @@ public class BDEmotionBagLayout extends LinearLayout {
     public class EmotionPagerAdapter extends PagerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<GridView> mList;
+        public List mList;
         public final /* synthetic */ BDEmotionBagLayout this$0;
 
-        public EmotionPagerAdapter(BDEmotionBagLayout bDEmotionBagLayout, List<GridView> list) {
+        @Override // androidx.viewpager.widget.PagerAdapter
+        public boolean isViewFromObject(View view2, Object obj) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, view2, obj)) == null) ? view2 == obj : invokeLL.booleanValue;
+        }
+
+        public EmotionPagerAdapter(BDEmotionBagLayout bDEmotionBagLayout, List list) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -169,7 +175,7 @@ public class BDEmotionBagLayout extends LinearLayout {
         public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, viewGroup, i, obj) == null) {
-                viewGroup.removeView(this.mList.get(i));
+                viewGroup.removeView((View) this.mList.get(i));
             }
         }
 
@@ -177,7 +183,10 @@ public class BDEmotionBagLayout extends LinearLayout {
         public int getCount() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mList.size() : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.mList.size();
+            }
+            return invokeV.intValue;
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
@@ -185,17 +194,10 @@ public class BDEmotionBagLayout extends LinearLayout {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) {
-                viewGroup.addView(this.mList.get(i));
+                viewGroup.addView((View) this.mList.get(i));
                 return this.mList.get(i);
             }
             return invokeLI.objValue;
-        }
-
-        @Override // androidx.viewpager.widget.PagerAdapter
-        public boolean isViewFromObject(View view2, Object obj) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, view2, obj)) == null) ? view2 == obj : invokeLL.booleanValue;
         }
     }
 
@@ -220,7 +222,7 @@ public class BDEmotionBagLayout extends LinearLayout {
         }
     }
 
-    private List<String> getEmotionListForPage(int i) {
+    private List getEmotionListForPage(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65539, this, i)) == null) {
@@ -234,6 +236,50 @@ public class BDEmotionBagLayout extends LinearLayout {
             return arrayList;
         }
         return (List) invokeI.objValue;
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public BDEmotionBagLayout(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public BDEmotionBagLayout(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.mPageList = new ArrayList();
+        init(context);
     }
 
     private void init(Context context) {
@@ -259,12 +305,46 @@ public class BDEmotionBagLayout extends LinearLayout {
         }
     }
 
+    public void setEmotionList(List list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            this.mEmotionList = list;
+            if (list != null && list.size() > 0) {
+                int size = this.mEmotionList.size();
+                int i = size % 20;
+                int i2 = size / 20;
+                if (i != 0) {
+                    i2++;
+                }
+                for (int i3 = 0; i3 < i2; i3++) {
+                    NoScrollGridView noScrollGridView = new NoScrollGridView(getContext());
+                    noScrollGridView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+                    noScrollGridView.setNumColumns(7);
+                    noScrollGridView.setStretchMode(2);
+                    noScrollGridView.setVerticalScrollBarEnabled(false);
+                    noScrollGridView.setOverScrollMode(2);
+                    GlobalOnItemClickListenerManager globalOnItemClickListenerManager = GlobalOnItemClickListenerManager.getInstance();
+                    noScrollGridView.setOnItemClickListener(globalOnItemClickListenerManager.getOnItemClickListener(EmotionType.EMOTION_CLASSIC_TYPE, i3));
+                    noScrollGridView.setOnItemLongClickListener(globalOnItemClickListenerManager.getOnItemLongClickListener(EmotionType.EMOTION_CLASSIC_TYPE));
+                    noScrollGridView.setOnTouchListener(globalOnItemClickListenerManager.getOnTouchListener(EmotionType.EMOTION_CLASSIC_TYPE));
+                    noScrollGridView.setSelector(new ColorDrawable(0));
+                    this.mPageList.add(noScrollGridView);
+                }
+                prepareContentForAllGridView();
+                EmotionPagerAdapter emotionPagerAdapter = new EmotionPagerAdapter(this, this.mPageList);
+                this.mPagerAdapter = emotionPagerAdapter;
+                this.mViewPager.setAdapter(emotionPagerAdapter);
+                this.mIndicator.setViewPager(this.mViewPager);
+            }
+        }
+    }
+
     private void prepareContentForAllGridView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             int size = this.mPageList.size();
             for (int i = 0; i < size; i++) {
-                this.mPageList.get(i).setAdapter((ListAdapter) new EmotionGridViewAdapter(this, getContext(), getEmotionListForPage(i)));
+                ((GridView) this.mPageList.get(i)).setAdapter((ListAdapter) new EmotionGridViewAdapter(this, getContext(), getEmotionListForPage(i)));
             }
         }
     }
@@ -280,7 +360,7 @@ public class BDEmotionBagLayout extends LinearLayout {
             this.mGridViewVerticalSpace = (measuredHeight - (dp2px * 2)) / 2;
             int size = this.mPageList.size();
             for (int i5 = 0; i5 < size; i5++) {
-                GridView gridView = this.mPageList.get(i5);
+                GridView gridView = (GridView) this.mPageList.get(i5);
                 int dp2px2 = (int) UIUtils.dp2px(getContext(), 10.0f);
                 gridView.setPadding(dp2px2, dp2px, dp2px2, dp2px);
                 gridView.setVerticalSpacing(this.mGridViewVerticalSpace);
@@ -323,84 +403,5 @@ public class BDEmotionBagLayout extends LinearLayout {
                 }
             }
         }
-    }
-
-    public void setEmotionList(List<String> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.mEmotionList = list;
-            if (list == null || list.size() <= 0) {
-                return;
-            }
-            int size = this.mEmotionList.size();
-            int i = size % 20;
-            int i2 = size / 20;
-            if (i != 0) {
-                i2++;
-            }
-            for (int i3 = 0; i3 < i2; i3++) {
-                NoScrollGridView noScrollGridView = new NoScrollGridView(getContext());
-                noScrollGridView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-                noScrollGridView.setNumColumns(7);
-                noScrollGridView.setStretchMode(2);
-                noScrollGridView.setVerticalScrollBarEnabled(false);
-                noScrollGridView.setOverScrollMode(2);
-                GlobalOnItemClickListenerManager globalOnItemClickListenerManager = GlobalOnItemClickListenerManager.getInstance();
-                noScrollGridView.setOnItemClickListener(globalOnItemClickListenerManager.getOnItemClickListener(EmotionType.EMOTION_CLASSIC_TYPE, i3));
-                noScrollGridView.setOnItemLongClickListener(globalOnItemClickListenerManager.getOnItemLongClickListener(EmotionType.EMOTION_CLASSIC_TYPE));
-                noScrollGridView.setOnTouchListener(globalOnItemClickListenerManager.getOnTouchListener(EmotionType.EMOTION_CLASSIC_TYPE));
-                noScrollGridView.setSelector(new ColorDrawable(0));
-                this.mPageList.add(noScrollGridView);
-            }
-            prepareContentForAllGridView();
-            EmotionPagerAdapter emotionPagerAdapter = new EmotionPagerAdapter(this, this.mPageList);
-            this.mPagerAdapter = emotionPagerAdapter;
-            this.mViewPager.setAdapter(emotionPagerAdapter);
-            this.mIndicator.setViewPager(this.mViewPager);
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public BDEmotionBagLayout(Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BDEmotionBagLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.mPageList = new ArrayList();
-        init(context);
     }
 }

@@ -10,20 +10,6 @@ public abstract class TaskObserver implements TaskObserverInterface {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public TaskObserver() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     public abstract void onDownloadCancel(String str, long j, long j2, long j3, String str2);
 
     public abstract void onDownloadFail(String str, long j, long j2, String str2, String str3, int i, DownDetail downDetail);
@@ -39,6 +25,22 @@ public abstract class TaskObserver implements TaskObserverInterface {
     public abstract void onDownloadWait(String str, long j);
 
     public abstract void onDownloading(String str, long j, long j2, long j3, long j4, String str2);
+
+    public abstract void onWriteFinish(String str, long j, long j2, long j3, DownDetail downDetail);
+
+    public TaskObserver() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
     @Override // com.baidu.down.common.TaskObserverInterface
     public void onUpdate(Object obj) {
@@ -79,6 +81,4 @@ public abstract class TaskObserver implements TaskObserverInterface {
             }
         }
     }
-
-    public abstract void onWriteFinish(String str, long j, long j2, long j3, DownDetail downDetail);
 }

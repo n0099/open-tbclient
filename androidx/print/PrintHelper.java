@@ -1,6 +1,5 @@
 package androidx.print;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -24,9 +23,6 @@ import android.print.PrintDocumentInfo;
 import android.print.PrintManager;
 import android.print.pdf.PrintedPdfDocument;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -43,9 +39,7 @@ import java.io.InputStream;
 /* loaded from: classes.dex */
 public final class PrintHelper {
     public static /* synthetic */ Interceptable $ic = null;
-    @SuppressLint({"InlinedApi"})
     public static final int COLOR_MODE_COLOR = 2;
-    @SuppressLint({"InlinedApi"})
     public static final int COLOR_MODE_MONOCHROME = 1;
     public static final boolean IS_MIN_MARGINS_HANDLING_CORRECT;
     public static final String LOG_TAG = "PrintHelper";
@@ -68,7 +62,6 @@ public final class PrintHelper {
         void onFinish();
     }
 
-    @RequiresApi(19)
     /* loaded from: classes.dex */
     public class PrintBitmapAdapter extends PrintDocumentAdapter {
         public static /* synthetic */ Interceptable $ic;
@@ -106,10 +99,9 @@ public final class PrintHelper {
         public void onFinish() {
             OnPrintFinishCallback onPrintFinishCallback;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (onPrintFinishCallback = this.mCallback) == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (onPrintFinishCallback = this.mCallback) != null) {
+                onPrintFinishCallback.onFinish();
             }
-            onPrintFinishCallback.onFinish();
         }
 
         @Override // android.print.PrintDocumentAdapter
@@ -130,7 +122,6 @@ public final class PrintHelper {
         }
     }
 
-    @RequiresApi(19)
     /* loaded from: classes.dex */
     public class PrintUriAdapter extends PrintDocumentAdapter {
         public static /* synthetic */ Interceptable $ic;
@@ -165,42 +156,6 @@ public final class PrintHelper {
             this.mCallback = onPrintFinishCallback;
             this.mFittingMode = i;
             this.mBitmap = null;
-        }
-
-        public void cancelLoad() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (this.this$0.mLock) {
-                    if (this.this$0.mDecodeOptions != null) {
-                        if (Build.VERSION.SDK_INT < 24) {
-                            this.this$0.mDecodeOptions.requestCancelDecode();
-                        }
-                        this.this$0.mDecodeOptions = null;
-                    }
-                }
-            }
-        }
-
-        @Override // android.print.PrintDocumentAdapter
-        public void onFinish() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                super.onFinish();
-                cancelLoad();
-                AsyncTask<Uri, Boolean, Bitmap> asyncTask = this.mLoadBitmap;
-                if (asyncTask != null) {
-                    asyncTask.cancel(true);
-                }
-                OnPrintFinishCallback onPrintFinishCallback = this.mCallback;
-                if (onPrintFinishCallback != null) {
-                    onPrintFinishCallback.onFinish();
-                }
-                Bitmap bitmap = this.mBitmap;
-                if (bitmap != null) {
-                    bitmap.recycle();
-                    this.mBitmap = null;
-                }
-            }
         }
 
         @Override // android.print.PrintDocumentAdapter
@@ -244,45 +199,6 @@ public final class PrintHelper {
                             this.val$newPrintAttributes = printAttributes2;
                             this.val$oldPrintAttributes = printAttributes;
                             this.val$layoutResultCallback = layoutResultCallback;
-                        }
-
-                        @Override // android.os.AsyncTask
-                        public void onPreExecute() {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeV(1048582, this) == null) {
-                                this.val$cancellationSignal.setOnCancelListener(new CancellationSignal.OnCancelListener(this) { // from class: androidx.print.PrintHelper.PrintUriAdapter.1.1
-                                    public static /* synthetic */ Interceptable $ic;
-                                    public transient /* synthetic */ FieldHolder $fh;
-                                    public final /* synthetic */ AnonymousClass1 this$2;
-
-                                    {
-                                        Interceptable interceptable3 = $ic;
-                                        if (interceptable3 != null) {
-                                            InitContext newInitContext = TitanRuntime.newInitContext();
-                                            newInitContext.initArgs = r2;
-                                            Object[] objArr = {this};
-                                            interceptable3.invokeUnInit(65536, newInitContext);
-                                            int i = newInitContext.flag;
-                                            if ((i & 1) != 0) {
-                                                int i2 = i & 2;
-                                                newInitContext.thisArg = this;
-                                                interceptable3.invokeInitBody(65536, newInitContext);
-                                                return;
-                                            }
-                                        }
-                                        this.this$2 = this;
-                                    }
-
-                                    @Override // android.os.CancellationSignal.OnCancelListener
-                                    public void onCancel() {
-                                        Interceptable interceptable3 = $ic;
-                                        if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                            this.this$2.this$1.cancelLoad();
-                                            cancel(false);
-                                        }
-                                    }
-                                });
-                            }
                         }
 
                         /* JADX DEBUG: Method merged with bridge method */
@@ -336,7 +252,82 @@ public final class PrintHelper {
                                 this.this$1.mLoadBitmap = null;
                             }
                         }
+
+                        @Override // android.os.AsyncTask
+                        public void onPreExecute() {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeV(1048582, this) == null) {
+                                this.val$cancellationSignal.setOnCancelListener(new CancellationSignal.OnCancelListener(this) { // from class: androidx.print.PrintHelper.PrintUriAdapter.1.1
+                                    public static /* synthetic */ Interceptable $ic;
+                                    public transient /* synthetic */ FieldHolder $fh;
+                                    public final /* synthetic */ AnonymousClass1 this$2;
+
+                                    {
+                                        Interceptable interceptable3 = $ic;
+                                        if (interceptable3 != null) {
+                                            InitContext newInitContext = TitanRuntime.newInitContext();
+                                            newInitContext.initArgs = r2;
+                                            Object[] objArr = {this};
+                                            interceptable3.invokeUnInit(65536, newInitContext);
+                                            int i = newInitContext.flag;
+                                            if ((i & 1) != 0) {
+                                                int i2 = i & 2;
+                                                newInitContext.thisArg = this;
+                                                interceptable3.invokeInitBody(65536, newInitContext);
+                                                return;
+                                            }
+                                        }
+                                        this.this$2 = this;
+                                    }
+
+                                    @Override // android.os.CancellationSignal.OnCancelListener
+                                    public void onCancel() {
+                                        Interceptable interceptable3 = $ic;
+                                        if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
+                                            this.this$2.this$1.cancelLoad();
+                                            cancel(false);
+                                        }
+                                    }
+                                });
+                            }
+                        }
                     }.execute(new Uri[0]);
+                }
+            }
+        }
+
+        public void cancelLoad() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                synchronized (this.this$0.mLock) {
+                    if (this.this$0.mDecodeOptions != null) {
+                        if (Build.VERSION.SDK_INT < 24) {
+                            this.this$0.mDecodeOptions.requestCancelDecode();
+                        }
+                        this.this$0.mDecodeOptions = null;
+                    }
+                }
+            }
+        }
+
+        @Override // android.print.PrintDocumentAdapter
+        public void onFinish() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                super.onFinish();
+                cancelLoad();
+                AsyncTask<Uri, Boolean, Bitmap> asyncTask = this.mLoadBitmap;
+                if (asyncTask != null) {
+                    asyncTask.cancel(true);
+                }
+                OnPrintFinishCallback onPrintFinishCallback = this.mCallback;
+                if (onPrintFinishCallback != null) {
+                    onPrintFinishCallback.onFinish();
+                }
+                Bitmap bitmap = this.mBitmap;
+                if (bitmap != null) {
+                    bitmap.recycle();
+                    this.mBitmap = null;
                 }
             }
         }
@@ -352,6 +343,7 @@ public final class PrintHelper {
 
     static {
         InterceptResult invokeClinit;
+        boolean z;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
         if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-398296260, "Landroidx/print/PrintHelper;")) != null) {
             Interceptable interceptable = invokeClinit.interceptor;
@@ -364,11 +356,20 @@ public final class PrintHelper {
             }
         }
         int i = Build.VERSION.SDK_INT;
-        PRINT_ACTIVITY_RESPECTS_ORIENTATION = i < 20 || i > 23;
-        IS_MIN_MARGINS_HANDLING_CORRECT = Build.VERSION.SDK_INT != 23;
+        boolean z2 = false;
+        if (i >= 20 && i <= 23) {
+            z = false;
+        } else {
+            z = true;
+        }
+        PRINT_ACTIVITY_RESPECTS_ORIENTATION = z;
+        if (Build.VERSION.SDK_INT != 23) {
+            z2 = true;
+        }
+        IS_MIN_MARGINS_HANDLING_CORRECT = z2;
     }
 
-    public PrintHelper(@NonNull Context context) {
+    public PrintHelper(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -411,7 +412,48 @@ public final class PrintHelper {
         return (Bitmap) invokeLI.objValue;
     }
 
-    @RequiresApi(19)
+    private Bitmap loadBitmap(Uri uri, BitmapFactory.Options options) throws FileNotFoundException {
+        InterceptResult invokeLL;
+        Context context;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, this, uri, options)) == null) {
+            if (uri != null && (context = this.mContext) != null) {
+                InputStream inputStream = null;
+                try {
+                    InputStream openInputStream = context.getContentResolver().openInputStream(uri);
+                    try {
+                        Bitmap decodeStream = BitmapFactory.decodeStream(openInputStream, null, options);
+                        if (openInputStream != null) {
+                            try {
+                                openInputStream.close();
+                            } catch (IOException e) {
+                                Log.w(LOG_TAG, "close fail ", e);
+                            }
+                        }
+                        return decodeStream;
+                    } catch (Throwable th) {
+                        th = th;
+                        inputStream = openInputStream;
+                        if (inputStream != null) {
+                            try {
+                                inputStream.close();
+                            } catch (IOException e2) {
+                                Log.w(LOG_TAG, "close fail ", e2);
+                            }
+                        }
+                        throw th;
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                }
+            } else {
+                throw new IllegalArgumentException("bad argument to loadBitmap");
+            }
+        } else {
+            return (Bitmap) invokeLL.objValue;
+        }
+    }
+
     public static PrintAttributes.Builder copyAttributes(PrintAttributes printAttributes) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -451,70 +493,65 @@ public final class PrintHelper {
     public static boolean isPortrait(Bitmap bitmap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bitmap)) == null) ? bitmap.getWidth() <= bitmap.getHeight() : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bitmap)) == null) {
+            if (bitmap.getWidth() <= bitmap.getHeight()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
-    private Bitmap loadBitmap(Uri uri, BitmapFactory.Options options) throws FileNotFoundException {
-        InterceptResult invokeLL;
-        Context context;
+    public void setColorMode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(65542, this, uri, options)) != null) {
-            return (Bitmap) invokeLL.objValue;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.mColorMode = i;
         }
-        if (uri != null && (context = this.mContext) != null) {
-            InputStream inputStream = null;
-            try {
-                InputStream openInputStream = context.getContentResolver().openInputStream(uri);
-                try {
-                    Bitmap decodeStream = BitmapFactory.decodeStream(openInputStream, null, options);
-                    if (openInputStream != null) {
-                        try {
-                            openInputStream.close();
-                        } catch (IOException e) {
-                            Log.w(LOG_TAG, "close fail ", e);
-                        }
-                    }
-                    return decodeStream;
-                } catch (Throwable th) {
-                    th = th;
-                    inputStream = openInputStream;
-                    if (inputStream != null) {
-                        try {
-                            inputStream.close();
-                        } catch (IOException e2) {
-                            Log.w(LOG_TAG, "close fail ", e2);
-                        }
-                    }
-                    throw th;
-                }
-            } catch (Throwable th2) {
-                th = th2;
-            }
-        } else {
-            throw new IllegalArgumentException("bad argument to loadBitmap");
+    }
+
+    public void setOrientation(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.mOrientation = i;
+        }
+    }
+
+    public void setScaleMode(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.mScaleMode = i;
         }
     }
 
     public static boolean systemSupportsPrint() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? Build.VERSION.SDK_INT >= 19 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (Build.VERSION.SDK_INT >= 19) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public int getColorMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mColorMode : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mColorMode;
+        }
+        return invokeV.intValue;
     }
 
     public int getOrientation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (Build.VERSION.SDK_INT < 19 || this.mOrientation != 0) {
-                return this.mOrientation;
+            if (Build.VERSION.SDK_INT >= 19 && this.mOrientation == 0) {
+                return 1;
             }
-            return 1;
+            return this.mOrientation;
         }
         return invokeV.intValue;
     }
@@ -522,7 +559,10 @@ public final class PrintHelper {
     public int getScaleMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mScaleMode : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mScaleMode;
+        }
+        return invokeV.intValue;
     }
 
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
@@ -572,39 +612,64 @@ public final class PrintHelper {
         return (Bitmap) invokeL.objValue;
     }
 
-    public void printBitmap(@NonNull String str, @NonNull Bitmap bitmap) {
+    public void printBitmap(String str, Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, str, bitmap) == null) {
             printBitmap(str, bitmap, (OnPrintFinishCallback) null);
         }
     }
 
-    public void setColorMode(int i) {
+    public void printBitmap(String str, Bitmap bitmap, OnPrintFinishCallback onPrintFinishCallback) {
+        PrintAttributes.MediaSize mediaSize;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.mColorMode = i;
+        if ((interceptable == null || interceptable.invokeLLL(1048581, this, str, bitmap, onPrintFinishCallback) == null) && Build.VERSION.SDK_INT >= 19 && bitmap != null) {
+            PrintManager printManager = (PrintManager) this.mContext.getSystemService("print");
+            if (isPortrait(bitmap)) {
+                mediaSize = PrintAttributes.MediaSize.UNKNOWN_PORTRAIT;
+            } else {
+                mediaSize = PrintAttributes.MediaSize.UNKNOWN_LANDSCAPE;
+            }
+            printManager.print(str, new PrintBitmapAdapter(this, str, this.mScaleMode, bitmap, onPrintFinishCallback), new PrintAttributes.Builder().setMediaSize(mediaSize).setColorMode(this.mColorMode).build());
         }
     }
 
-    public void setOrientation(int i) {
+    public void printBitmap(String str, Uri uri) throws FileNotFoundException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.mOrientation = i;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, str, uri) == null) {
+            printBitmap(str, uri, (OnPrintFinishCallback) null);
         }
     }
 
-    public void setScaleMode(int i) {
+    public void printBitmap(String str, Uri uri, OnPrintFinishCallback onPrintFinishCallback) throws FileNotFoundException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.mScaleMode = i;
+        if ((interceptable != null && interceptable.invokeLLL(1048583, this, str, uri, onPrintFinishCallback) != null) || Build.VERSION.SDK_INT < 19) {
+            return;
         }
+        PrintUriAdapter printUriAdapter = new PrintUriAdapter(this, str, uri, onPrintFinishCallback, this.mScaleMode);
+        PrintManager printManager = (PrintManager) this.mContext.getSystemService("print");
+        PrintAttributes.Builder builder = new PrintAttributes.Builder();
+        builder.setColorMode(this.mColorMode);
+        int i = this.mOrientation;
+        if (i != 1 && i != 0) {
+            if (i == 2) {
+                builder.setMediaSize(PrintAttributes.MediaSize.UNKNOWN_PORTRAIT);
+            }
+        } else {
+            builder.setMediaSize(PrintAttributes.MediaSize.UNKNOWN_LANDSCAPE);
+        }
+        printManager.print(str, printUriAdapter, builder.build());
     }
 
-    @RequiresApi(19)
     public void writeBitmap(PrintAttributes printAttributes, int i, Bitmap bitmap, ParcelFileDescriptor parcelFileDescriptor, CancellationSignal cancellationSignal, PrintDocumentAdapter.WriteResultCallback writeResultCallback) {
+        PrintAttributes build;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{printAttributes, Integer.valueOf(i), bitmap, parcelFileDescriptor, cancellationSignal, writeResultCallback}) == null) {
-            new AsyncTask<Void, Void, Throwable>(this, cancellationSignal, IS_MIN_MARGINS_HANDLING_CORRECT ? printAttributes : copyAttributes(printAttributes).setMinMargins(new PrintAttributes.Margins(0, 0, 0, 0)).build(), bitmap, printAttributes, i, parcelFileDescriptor, writeResultCallback) { // from class: androidx.print.PrintHelper.1
+            if (IS_MIN_MARGINS_HANDLING_CORRECT) {
+                build = printAttributes;
+            } else {
+                build = copyAttributes(printAttributes).setMinMargins(new PrintAttributes.Margins(0, 0, 0, 0)).build();
+            }
+            new AsyncTask<Void, Void, Throwable>(this, cancellationSignal, build, bitmap, printAttributes, i, parcelFileDescriptor, writeResultCallback) { // from class: androidx.print.PrintHelper.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ PrintHelper this$0;
@@ -621,7 +686,7 @@ public final class PrintHelper {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, cancellationSignal, r8, bitmap, printAttributes, Integer.valueOf(i), parcelFileDescriptor, writeResultCallback};
+                        Object[] objArr = {this, cancellationSignal, build, bitmap, printAttributes, Integer.valueOf(i), parcelFileDescriptor, writeResultCallback};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -633,7 +698,7 @@ public final class PrintHelper {
                     }
                     this.this$0 = this;
                     this.val$cancellationSignal = cancellationSignal;
-                    this.val$pdfAttributes = r8;
+                    this.val$pdfAttributes = build;
                     this.val$bitmap = bitmap;
                     this.val$attributes = printAttributes;
                     this.val$fittingMode = i;
@@ -724,45 +789,5 @@ public final class PrintHelper {
                 }
             }.execute(new Void[0]);
         }
-    }
-
-    public void printBitmap(@NonNull String str, @NonNull Bitmap bitmap, @Nullable OnPrintFinishCallback onPrintFinishCallback) {
-        PrintAttributes.MediaSize mediaSize;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048581, this, str, bitmap, onPrintFinishCallback) == null) || Build.VERSION.SDK_INT < 19 || bitmap == null) {
-            return;
-        }
-        PrintManager printManager = (PrintManager) this.mContext.getSystemService("print");
-        if (isPortrait(bitmap)) {
-            mediaSize = PrintAttributes.MediaSize.UNKNOWN_PORTRAIT;
-        } else {
-            mediaSize = PrintAttributes.MediaSize.UNKNOWN_LANDSCAPE;
-        }
-        printManager.print(str, new PrintBitmapAdapter(this, str, this.mScaleMode, bitmap, onPrintFinishCallback), new PrintAttributes.Builder().setMediaSize(mediaSize).setColorMode(this.mColorMode).build());
-    }
-
-    public void printBitmap(@NonNull String str, @NonNull Uri uri) throws FileNotFoundException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, uri) == null) {
-            printBitmap(str, uri, (OnPrintFinishCallback) null);
-        }
-    }
-
-    public void printBitmap(@NonNull String str, @NonNull Uri uri, @Nullable OnPrintFinishCallback onPrintFinishCallback) throws FileNotFoundException {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048583, this, str, uri, onPrintFinishCallback) == null) || Build.VERSION.SDK_INT < 19) {
-            return;
-        }
-        PrintUriAdapter printUriAdapter = new PrintUriAdapter(this, str, uri, onPrintFinishCallback, this.mScaleMode);
-        PrintManager printManager = (PrintManager) this.mContext.getSystemService("print");
-        PrintAttributes.Builder builder = new PrintAttributes.Builder();
-        builder.setColorMode(this.mColorMode);
-        int i = this.mOrientation;
-        if (i == 1 || i == 0) {
-            builder.setMediaSize(PrintAttributes.MediaSize.UNKNOWN_LANDSCAPE);
-        } else if (i == 2) {
-            builder.setMediaSize(PrintAttributes.MediaSize.UNKNOWN_PORTRAIT);
-        }
-        printManager.print(str, printUriAdapter, builder.build());
     }
 }

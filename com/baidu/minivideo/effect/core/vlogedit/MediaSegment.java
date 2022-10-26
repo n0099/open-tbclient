@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ce9;
+import com.baidu.tieba.ue9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -42,8 +42,18 @@ public class MediaSegment implements Parcelable, Cloneable {
     public String type;
     public float[] vertexMtx;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     /* loaded from: classes2.dex */
-    public static class a implements Parcelable.Creator<MediaSegment> {
+    public final class a implements Parcelable.Creator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -67,7 +77,10 @@ public class MediaSegment implements Parcelable, Cloneable {
         public MediaSegment createFromParcel(Parcel parcel) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new MediaSegment(parcel) : (MediaSegment) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+                return new MediaSegment(parcel);
+            }
+            return (MediaSegment) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -76,7 +89,10 @@ public class MediaSegment implements Parcelable, Cloneable {
         public MediaSegment[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new MediaSegment[i] : (MediaSegment[]) invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                return new MediaSegment[i];
+            }
+            return (MediaSegment[]) invokeI.objValue;
         }
     }
 
@@ -130,51 +146,24 @@ public class MediaSegment implements Parcelable, Cloneable {
         }
     }
 
-    public static List<MediaSegment> parseArrayList(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            new ArrayList();
-            try {
-                return (List) new ce9().c(str, new b().getType());
-            } catch (Exception unused) {
-                return null;
-            }
-        }
-        return (List) invokeL.objValue;
-    }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: clone */
+    public MediaSegment m33clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                MediaSegment mediaSegment = (MediaSegment) super.clone();
+                if (this.mediaAEffect != null) {
+                    mediaSegment.mediaAEffect = this.mediaAEffect.m31clone();
+                }
+                return mediaSegment;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return new MediaSegment();
+            }
         }
-        return invokeV.intValue;
-    }
-
-    @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i) == null) {
-            parcel.writeString(this.superpositionType);
-            parcel.writeString(this.scaleType);
-            parcel.writeString(this.type);
-            parcel.writeLong(this.start);
-            parcel.writeLong(this.end);
-            parcel.writeString(this.shaderConfigKey);
-            parcel.writeString(this.effectConfigKey);
-            parcel.writeString(this.lutConfigKey);
-            parcel.writeParcelable(this.mediaAEffect, i);
-            parcel.writeLong(this.effectStart);
-            parcel.writeLong(this.effectEnd);
-            parcel.writeFloatArray(this.textureMtx);
-            parcel.writeFloatArray(this.vertexMtx);
-        }
+        return (MediaSegment) invokeV.objValue;
     }
 
     public MediaSegment(Parcel parcel) {
@@ -207,23 +196,40 @@ public class MediaSegment implements Parcelable, Cloneable {
         this.vertexMtx = parcel.createFloatArray();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: clone */
-    public MediaSegment m33clone() {
-        InterceptResult invokeV;
+    public static List<MediaSegment> parseArrayList(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            new ArrayList();
             try {
-                MediaSegment mediaSegment = (MediaSegment) super.clone();
-                if (this.mediaAEffect != null) {
-                    mediaSegment.mediaAEffect = this.mediaAEffect.m31clone();
-                }
-                return mediaSegment;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return new MediaSegment();
+                return (List) new ue9().c(str, new b().getType());
+            } catch (Exception unused) {
+                return null;
             }
         }
-        return (MediaSegment) invokeV.objValue;
+        return (List) invokeL.objValue;
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i) == null) {
+            parcel.writeString(this.superpositionType);
+            parcel.writeString(this.scaleType);
+            parcel.writeString(this.type);
+            parcel.writeLong(this.start);
+            parcel.writeLong(this.end);
+            parcel.writeString(this.shaderConfigKey);
+            parcel.writeString(this.effectConfigKey);
+            parcel.writeString(this.lutConfigKey);
+            parcel.writeParcelable(this.mediaAEffect, i);
+            parcel.writeLong(this.effectStart);
+            parcel.writeLong(this.effectEnd);
+            parcel.writeFloatArray(this.textureMtx);
+            parcel.writeFloatArray(this.vertexMtx);
+        }
     }
 }

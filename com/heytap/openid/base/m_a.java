@@ -1,22 +1,17 @@
 package com.heytap.openid.base;
 
 import android.content.Context;
-import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-@Keep
 /* loaded from: classes7.dex */
 public class m_a implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Keep
     public final /* synthetic */ Context m_a;
-    @Keep
     public final /* synthetic */ List m_b;
-    @Keep
     public final /* synthetic */ m_b m_c;
 
     public m_a(m_b m_bVar, Context context, List list) {
@@ -40,6 +35,5 @@ public class m_a implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    @Keep
     public native void run();
 }

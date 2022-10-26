@@ -5,8 +5,6 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.widget.ImageView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -32,8 +30,7 @@ public class ImageViewCompat {
         }
     }
 
-    @Nullable
-    public static ColorStateList getImageTintList(@NonNull ImageView imageView) {
+    public static ColorStateList getImageTintList(ImageView imageView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, imageView)) == null) {
@@ -48,8 +45,7 @@ public class ImageViewCompat {
         return (ColorStateList) invokeL.objValue;
     }
 
-    @Nullable
-    public static PorterDuff.Mode getImageTintMode(@NonNull ImageView imageView) {
+    public static PorterDuff.Mode getImageTintMode(ImageView imageView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, imageView)) == null) {
@@ -64,38 +60,36 @@ public class ImageViewCompat {
         return (PorterDuff.Mode) invokeL.objValue;
     }
 
-    public static void setImageTintList(@NonNull ImageView imageView, @Nullable ColorStateList colorStateList) {
+    public static void setImageTintList(ImageView imageView, ColorStateList colorStateList) {
         Drawable drawable;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, imageView, colorStateList) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
                 imageView.setImageTintList(colorStateList);
-                if (Build.VERSION.SDK_INT != 21 || (drawable = imageView.getDrawable()) == null || imageView.getImageTintList() == null) {
-                    return;
+                if (Build.VERSION.SDK_INT == 21 && (drawable = imageView.getDrawable()) != null && imageView.getImageTintList() != null) {
+                    if (drawable.isStateful()) {
+                        drawable.setState(imageView.getDrawableState());
+                    }
+                    imageView.setImageDrawable(drawable);
                 }
-                if (drawable.isStateful()) {
-                    drawable.setState(imageView.getDrawableState());
-                }
-                imageView.setImageDrawable(drawable);
             } else if (imageView instanceof TintableImageSourceView) {
                 ((TintableImageSourceView) imageView).setSupportImageTintList(colorStateList);
             }
         }
     }
 
-    public static void setImageTintMode(@NonNull ImageView imageView, @Nullable PorterDuff.Mode mode) {
+    public static void setImageTintMode(ImageView imageView, PorterDuff.Mode mode) {
         Drawable drawable;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, imageView, mode) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
                 imageView.setImageTintMode(mode);
-                if (Build.VERSION.SDK_INT != 21 || (drawable = imageView.getDrawable()) == null || imageView.getImageTintList() == null) {
-                    return;
+                if (Build.VERSION.SDK_INT == 21 && (drawable = imageView.getDrawable()) != null && imageView.getImageTintList() != null) {
+                    if (drawable.isStateful()) {
+                        drawable.setState(imageView.getDrawableState());
+                    }
+                    imageView.setImageDrawable(drawable);
                 }
-                if (drawable.isStateful()) {
-                    drawable.setState(imageView.getDrawableState());
-                }
-                imageView.setImageDrawable(drawable);
             } else if (imageView instanceof TintableImageSourceView) {
                 ((TintableImageSourceView) imageView).setSupportImageTintMode(mode);
             }

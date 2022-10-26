@@ -10,12 +10,40 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 /* loaded from: classes2.dex */
-public class HeadRequest extends HttpRequest<HeadRequestBuilder> {
+public class HeadRequest extends HttpRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.searchbox.http.request.HttpRequest
+    public RequestBody buildOkRequestBody() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
+        }
+        return (RequestBody) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.http.request.HttpRequest
+    public long getContentLength() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 0L;
+        }
+        return invokeV.longValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.http.request.HttpRequest
+    public void initExtraHttpRequest(HeadRequestBuilder headRequestBuilder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, headRequestBuilder) == null) {
+        }
+    }
+
     /* loaded from: classes2.dex */
-    public static class HeadRequestBuilder extends HttpRequestBuilder<HeadRequestBuilder> {
+    public class HeadRequestBuilder extends HttpRequestBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -60,14 +88,6 @@ public class HeadRequest extends HttpRequest<HeadRequestBuilder> {
             }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.request.HttpRequestBuilder
-        public HeadRequest build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new HeadRequest(this) : (HeadRequest) invokeV.objValue;
-        }
-
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public HeadRequestBuilder(HeadRequest headRequest, AbstractHttpManager abstractHttpManager) {
             super(headRequest, abstractHttpManager);
@@ -87,6 +107,17 @@ public class HeadRequest extends HttpRequest<HeadRequestBuilder> {
                     return;
                 }
             }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.request.HttpRequestBuilder
+        public HeadRequest build() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new HeadRequest(this);
+            }
+            return (HeadRequest) invokeV.objValue;
         }
     }
 
@@ -114,52 +145,31 @@ public class HeadRequest extends HttpRequest<HeadRequestBuilder> {
     public Request buildOkRequest(RequestBody requestBody) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, requestBody)) == null) ? this.okRequestBuilder.head().build() : (Request) invokeL.objValue;
-    }
-
-    @Override // com.baidu.searchbox.http.request.HttpRequest
-    public RequestBody buildOkRequestBody() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, requestBody)) == null) {
+            return this.okRequestBuilder.head().build();
         }
-        return (RequestBody) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.http.request.HttpRequest
-    public long getContentLength() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 0L;
-        }
-        return invokeV.longValue;
+        return (Request) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.searchbox.http.request.HttpRequest
-    public void initExtraHttpRequest(HeadRequestBuilder headRequestBuilder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, headRequestBuilder) == null) {
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.searchbox.http.request.HttpRequest
-    public HeadRequestBuilder newBuilder() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? new HeadRequestBuilder(this) : (HeadRequestBuilder) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.baidu.searchbox.http.request.HttpRequest
     public HeadRequestBuilder newBuilder(AbstractHttpManager abstractHttpManager) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, abstractHttpManager)) == null) ? new HeadRequestBuilder(this, abstractHttpManager) : (HeadRequestBuilder) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, abstractHttpManager)) == null) {
+            return new HeadRequestBuilder(this, abstractHttpManager);
+        }
+        return (HeadRequestBuilder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.http.request.HttpRequest
+    public HeadRequestBuilder newBuilder() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return new HeadRequestBuilder(this);
+        }
+        return (HeadRequestBuilder) invokeV.objValue;
     }
 }

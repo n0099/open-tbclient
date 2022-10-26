@@ -1,6 +1,5 @@
 package com.baidu.searchbox.v8engine.net.io;
 
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -47,7 +46,6 @@ public final class e {
         return (e) invokeV.objValue;
     }
 
-    @Nullable
     public e b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -64,19 +62,6 @@ public final class e {
             return eVar;
         }
         return (e) invokeV.objValue;
-    }
-
-    public e a(e eVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar)) == null) {
-            eVar.g = this;
-            eVar.f = this.f;
-            this.f.g = eVar;
-            this.f = eVar;
-            return eVar;
-        }
-        return (e) invokeL.objValue;
     }
 
     public e(byte[] bArr, int i, int i2, boolean z, boolean z2) {
@@ -99,5 +84,18 @@ public final class e {
         this.c = i2;
         this.d = z;
         this.e = z2;
+    }
+
+    public e a(e eVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar)) == null) {
+            eVar.g = this;
+            eVar.f = this.f;
+            this.f.g = eVar;
+            this.f = eVar;
+            return eVar;
+        }
+        return (e) invokeL.objValue;
     }
 }

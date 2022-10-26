@@ -1,6 +1,5 @@
 package androidx.lifecycle;
 
-import androidx.annotation.RestrictTo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -8,7 +7,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class MethodCallsLogger {
     public static /* synthetic */ Interceptable $ic;
@@ -31,15 +29,22 @@ public class MethodCallsLogger {
         this.mCalledMethods = new HashMap();
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public boolean approveCall(String str, int i) {
         InterceptResult invokeLI;
+        int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
             Integer num = this.mCalledMethods.get(str);
-            int intValue = num != null ? num.intValue() : 0;
-            boolean z = (intValue & i) != 0;
-            this.mCalledMethods.put(str, Integer.valueOf(i | intValue));
+            boolean z = false;
+            if (num != null) {
+                i2 = num.intValue();
+            } else {
+                i2 = 0;
+            }
+            if ((i2 & i) != 0) {
+                z = true;
+            }
+            this.mCalledMethods.put(str, Integer.valueOf(i | i2));
             return !z;
         }
         return invokeLI.booleanValue;

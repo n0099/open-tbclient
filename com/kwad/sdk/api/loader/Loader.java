@@ -4,8 +4,6 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.MainThread;
-import androidx.annotation.NonNull;
 import com.kwad.components.offline.api.BuildConfig;
 import com.kwad.sdk.api.KsAdSDK;
 import com.kwad.sdk.api.SdkConfig;
@@ -25,7 +23,7 @@ public class Loader {
     public volatile Context b;
 
     /* loaded from: classes7.dex */
-    public static class a {
+    public final class a {
         public static final Loader RN = new Loader((byte) 0);
     }
 
@@ -40,8 +38,6 @@ public class Loader {
         this();
     }
 
-    @NonNull
-    @MainThread
     public static synchronized IKsAdSDK a(ClassLoader classLoader) {
         IKsAdSDK iKsAdSDK;
         synchronized (Loader.class) {
@@ -102,7 +98,6 @@ public class Loader {
         return this.b;
     }
 
-    @MainThread
     public ClassLoader getExternalClassLoader() {
         l lVar = this.RK;
         if (lVar != null) {
@@ -111,7 +106,6 @@ public class Loader {
         return null;
     }
 
-    @MainThread
     public Resources getExternalResource() {
         l lVar = this.RK;
         if (lVar != null) {
@@ -120,7 +114,6 @@ public class Loader {
         return null;
     }
 
-    @MainThread
     public IKsAdSDK getKsAdSDKImpl() {
         l lVar = this.RK;
         if (lVar != null) {
@@ -143,7 +136,6 @@ public class Loader {
     /* JADX WARN: Code restructure failed: missing block: B:26:0x0086, code lost:
         if (android.text.TextUtils.isEmpty(r0) == false) goto L15;
      */
-    @MainThread
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -209,24 +201,21 @@ public class Loader {
         return this.RK != null;
     }
 
-    @MainThread
-    public <T extends IComponentProxy> T newComponentProxy(Context context, Class<?> cls, Object obj) {
+    public IComponentProxy newComponentProxy(Context context, Class cls, Object obj) {
         if (!this.RL.get()) {
             KsAdSDK.init(context, SdkConfig.create(t.a(context, "sdkconfig")));
         }
-        return (T) getKsAdSDKImpl().newComponentProxy(cls, obj);
+        return getKsAdSDKImpl().newComponentProxy(cls, obj);
     }
 
-    @MainThread
-    public <T extends IComponentProxy> T newComponentProxyNewProcess(Context context, Class<?> cls, Object obj) {
+    public IComponentProxy newComponentProxyNewProcess(Context context, Class cls, Object obj) {
         if (!this.RL.get()) {
             KsAdSDK.init(context, SdkConfig.create(t.a(context, "sdkconfig")));
         }
-        return (T) getKsAdSDKImpl().newComponentProxy(cls, obj);
+        return getKsAdSDKImpl().newComponentProxy(cls, obj);
     }
 
-    @MainThread
-    public <T> T newInstance(Class<T> cls) {
-        return (T) getKsAdSDKImpl().newInstance(cls);
+    public Object newInstance(Class cls) {
+        return getKsAdSDKImpl().newInstance(cls);
     }
 }

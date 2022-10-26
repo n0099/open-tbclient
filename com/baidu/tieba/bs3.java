@@ -1,20 +1,15 @@
 package com.baidu.tieba;
-
-import android.view.View;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public interface bs3 {
-    void a(String str, JSONObject jSONObject);
+    void onCompletion();
 
-    boolean b();
+    boolean onError();
 
-    boolean c(View view2);
+    void onPause();
 
-    boolean d(View view2, vq3 vq3Var);
+    void onPrepared();
 
-    void e();
+    void onResume();
 
-    boolean f(View view2, vq3 vq3Var);
-
-    boolean removeView(View view2);
+    void onStart();
 }

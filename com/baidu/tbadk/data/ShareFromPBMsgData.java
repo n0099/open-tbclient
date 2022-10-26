@@ -44,55 +44,82 @@ public class ShareFromPBMsgData extends ShareBaseMsgData {
     public String getContent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.content : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.content;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getForumName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.forumName : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.forumName;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getImageUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.imageUrl : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.imageUrl;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getPostId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.postId : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.postId;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getShareSourceUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.shareSourceUrl : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.shareSourceUrl;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getTheNewThemeId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.theNewThemeId : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.theNewThemeId;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getThreadId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.threadId : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.threadId;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getThreadType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.threadType : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.threadType;
+        }
+        return invokeV.intValue;
     }
 
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.title : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.title;
+        }
+        return (String) invokeV.objValue;
     }
 
     public void setContent(String str) {
@@ -160,6 +187,7 @@ public class ShareFromPBMsgData extends ShareBaseMsgData {
 
     @Override // com.baidu.tbadk.data.ShareBaseMsgData
     public String toChatMessageContent() {
+        String str;
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
@@ -169,7 +197,12 @@ public class ShareFromPBMsgData extends ShareBaseMsgData {
                 jSONObject.put("postID", this.postId);
                 jSONObject.put("themeContent", this.content);
                 jSONObject.put("themeID", this.threadId);
-                jSONObject.put("themeImageUrl", this.imageUrl == null ? "" : this.imageUrl);
+                if (this.imageUrl == null) {
+                    str = "";
+                } else {
+                    str = this.imageUrl;
+                }
+                jSONObject.put("themeImageUrl", str);
                 jSONObject.put("themeTitle", this.title);
                 jSONObject.put("theNewThemeID", this.theNewThemeId);
                 jSONObject.put("threadType", this.threadType);

@@ -40,7 +40,10 @@ public final class CustomItemInfo extends DebugItemInfo {
     public final ViewFetcher getViewFetcher() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.viewFetcher : (ViewFetcher) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.viewFetcher;
+        }
+        return (ViewFetcher) invokeV.objValue;
     }
 
     public final void setViewFetcher(ViewFetcher viewFetcher) {

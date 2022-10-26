@@ -12,7 +12,7 @@ import java.util.List;
 public class d implements c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<a<?, ?>> tL;
+    public List tL;
 
     public d(a aVar) {
         Interceptable interceptable = $ic;
@@ -33,11 +33,11 @@ public class d implements c {
         d(aVar);
     }
 
-    public static <InT, OutT> c b(a<InT, OutT> aVar, InT r5) {
+    public static c b(a aVar, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, aVar, r5)) == null) {
-            aVar.h(r5);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, aVar, obj)) == null) {
+            aVar.h(obj);
             return new d(aVar);
         }
         return (c) invokeLL.objValue;
@@ -47,20 +47,20 @@ public class d implements c {
     public void cancel() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            for (a<?, ?> aVar : this.tL) {
+            for (a aVar : this.tL) {
                 aVar.cancel();
             }
         }
     }
 
     @Override // com.baidu.ar.e.c
-    public c d(a<?, ?> aVar) {
+    public c d(a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
             if (!this.tL.isEmpty()) {
-                List<a<?, ?>> list = this.tL;
-                list.get(list.size() - 1).a(aVar);
+                List list = this.tL;
+                ((a) list.get(list.size() - 1)).a(aVar);
             }
             this.tL.add(aVar);
             return this;

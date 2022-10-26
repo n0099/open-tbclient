@@ -12,13 +12,18 @@ import com.facebook.common.internal.Preconditions;
 import com.facebook.common.memory.ByteArrayPool;
 import com.facebook.common.memory.MemoryTrimmableRegistry;
 import com.facebook.imagepipeline.memory.BasePool;
-import javax.annotation.concurrent.ThreadSafe;
-@ThreadSafe
 /* loaded from: classes7.dex */
-public class GenericByteArrayPool extends BasePool<byte[]> implements ByteArrayPool {
+public class GenericByteArrayPool extends BasePool implements ByteArrayPool {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int[] mBucketSizes;
+
+    @Override // com.facebook.imagepipeline.memory.BasePool
+    public int getSizeInBytes(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) ? i : invokeI.intValue;
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GenericByteArrayPool(MemoryTrimmableRegistry memoryTrimmableRegistry, PoolParams poolParams, PoolStatsTracker poolStatsTracker) {
@@ -66,25 +71,15 @@ public class GenericByteArrayPool extends BasePool<byte[]> implements ByteArrayP
         return invokeI.intValue;
     }
 
-    public int getMinBufferSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mBucketSizes[0] : invokeV.intValue;
-    }
-
-    @Override // com.facebook.imagepipeline.memory.BasePool
-    public int getSizeInBytes(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) ? i : invokeI.intValue;
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.imagepipeline.memory.BasePool
     public byte[] alloc(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new byte[i] : (byte[]) invokeI.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return new byte[i];
+        }
+        return (byte[]) invokeI.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -106,5 +101,14 @@ public class GenericByteArrayPool extends BasePool<byte[]> implements ByteArrayP
             return bArr.length;
         }
         return invokeL.intValue;
+    }
+
+    public int getMinBufferSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mBucketSizes[0];
+        }
+        return invokeV.intValue;
     }
 }

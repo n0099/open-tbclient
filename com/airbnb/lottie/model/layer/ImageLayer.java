@@ -7,8 +7,6 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.airbnb.lottie.LottieDrawable;
 import com.airbnb.lottie.LottieProperty;
 import com.airbnb.lottie.animation.LPaint;
@@ -18,8 +16,7 @@ import com.airbnb.lottie.utils.Utils;
 import com.airbnb.lottie.value.LottieValueCallback;
 /* loaded from: classes.dex */
 public class ImageLayer extends BaseLayer {
-    @Nullable
-    public BaseKeyframeAnimation<ColorFilter, ColorFilter> colorFilterAnimation;
+    public BaseKeyframeAnimation colorFilterAnimation;
     public final Rect dst;
     public final Paint paint;
     public final Rect src;
@@ -31,15 +28,10 @@ public class ImageLayer extends BaseLayer {
         this.dst = new Rect();
     }
 
-    @Nullable
-    private Bitmap getBitmap() {
-        return this.lottieDrawable.getImageAsset(this.layerModel.getRefId());
-    }
-
     @Override // com.airbnb.lottie.model.layer.BaseLayer, com.airbnb.lottie.model.KeyPathElement
-    public <T> void addValueCallback(T t, @Nullable LottieValueCallback<T> lottieValueCallback) {
-        super.addValueCallback(t, lottieValueCallback);
-        if (t == LottieProperty.COLOR_FILTER) {
+    public void addValueCallback(Object obj, LottieValueCallback lottieValueCallback) {
+        super.addValueCallback(obj, lottieValueCallback);
+        if (obj == LottieProperty.COLOR_FILTER) {
             if (lottieValueCallback == null) {
                 this.colorFilterAnimation = null;
             } else {
@@ -48,24 +40,27 @@ public class ImageLayer extends BaseLayer {
         }
     }
 
+    private Bitmap getBitmap() {
+        return this.lottieDrawable.getImageAsset(this.layerModel.getRefId());
+    }
+
     @Override // com.airbnb.lottie.model.layer.BaseLayer
-    public void drawLayer(@NonNull Canvas canvas, Matrix matrix, int i) {
+    public void drawLayer(Canvas canvas, Matrix matrix, int i) {
         Bitmap bitmap = getBitmap();
-        if (bitmap == null || bitmap.isRecycled()) {
-            return;
+        if (bitmap != null && !bitmap.isRecycled()) {
+            float dpScale = Utils.dpScale();
+            this.paint.setAlpha(i);
+            BaseKeyframeAnimation baseKeyframeAnimation = this.colorFilterAnimation;
+            if (baseKeyframeAnimation != null) {
+                this.paint.setColorFilter((ColorFilter) baseKeyframeAnimation.getValue());
+            }
+            canvas.save();
+            canvas.concat(matrix);
+            this.src.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
+            this.dst.set(0, 0, (int) (bitmap.getWidth() * dpScale), (int) (bitmap.getHeight() * dpScale));
+            canvas.drawBitmap(bitmap, this.src, this.dst, this.paint);
+            canvas.restore();
         }
-        float dpScale = Utils.dpScale();
-        this.paint.setAlpha(i);
-        BaseKeyframeAnimation<ColorFilter, ColorFilter> baseKeyframeAnimation = this.colorFilterAnimation;
-        if (baseKeyframeAnimation != null) {
-            this.paint.setColorFilter(baseKeyframeAnimation.getValue());
-        }
-        canvas.save();
-        canvas.concat(matrix);
-        this.src.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
-        this.dst.set(0, 0, (int) (bitmap.getWidth() * dpScale), (int) (bitmap.getHeight() * dpScale));
-        canvas.drawBitmap(bitmap, this.src, this.dst, this.paint);
-        canvas.restore();
     }
 
     @Override // com.airbnb.lottie.model.layer.BaseLayer, com.airbnb.lottie.animation.content.DrawingContent

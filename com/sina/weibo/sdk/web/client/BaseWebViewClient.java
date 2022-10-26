@@ -1,6 +1,5 @@
 package com.sina.weibo.sdk.web.client;
 
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.net.http.SslError;
 import android.webkit.SslErrorHandler;
@@ -21,25 +20,6 @@ public abstract class BaseWebViewClient extends WebViewClient {
     public transient /* synthetic */ FieldHolder $fh;
     public BaseWebViewRequestParam param;
     public WebViewRequestCallback requestCallback;
-
-    public BaseWebViewClient(WebViewRequestCallback webViewRequestCallback, BaseWebViewRequestParam baseWebViewRequestParam) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {webViewRequestCallback, baseWebViewRequestParam};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.requestCallback = webViewRequestCallback;
-        this.param = baseWebViewRequestParam;
-    }
 
     public void closeWeb() {
         Interceptable interceptable = $ic;
@@ -62,6 +42,25 @@ public abstract class BaseWebViewClient extends WebViewClient {
         return invokeV.booleanValue;
     }
 
+    public BaseWebViewClient(WebViewRequestCallback webViewRequestCallback, BaseWebViewRequestParam baseWebViewRequestParam) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {webViewRequestCallback, baseWebViewRequestParam};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.requestCallback = webViewRequestCallback;
+        this.param = baseWebViewRequestParam;
+    }
+
     @Override // android.webkit.WebViewClient
     public void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
         Interceptable interceptable = $ic;
@@ -76,7 +75,6 @@ public abstract class BaseWebViewClient extends WebViewClient {
     }
 
     @Override // android.webkit.WebViewClient
-    @TargetApi(24)
     public boolean shouldOverrideUrlLoading(WebView webView, WebResourceRequest webResourceRequest) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;

@@ -7,8 +7,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.sh5;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.yh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -56,14 +56,14 @@ public class LegoPageRequest extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                sh5.a(builder, true);
+                yh5.a(builder, true);
             }
             builder.page_type = Integer.valueOf(this.pageType);
             builder.pn = Integer.valueOf(this.pn);
             builder.rn = Integer.valueOf(this.rn);
-            builder.scr_w = Integer.valueOf(ej.k(TbadkCoreApplication.getInst()));
-            builder.scr_h = Integer.valueOf(ej.i(TbadkCoreApplication.getInst()));
-            builder.scr_dip = Double.valueOf(ej.h(TbadkCoreApplication.getInst()));
+            builder.scr_w = Integer.valueOf(fj.k(TbadkCoreApplication.getInst()));
+            builder.scr_h = Integer.valueOf(fj.i(TbadkCoreApplication.getInst()));
+            builder.scr_dip = Double.valueOf(fj.h(TbadkCoreApplication.getInst()));
             if (!TextUtils.isEmpty(this.params)) {
                 builder.params = this.params;
             }
@@ -85,31 +85,46 @@ public class LegoPageRequest extends NetMessage {
     public String getItemId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.itemId : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.itemId;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getPageType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.pageType : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.pageType;
+        }
+        return invokeV.intValue;
     }
 
     public String getParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.params : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.params;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getPn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.pn : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.pn;
+        }
+        return invokeV.intValue;
     }
 
     public long getTagCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.tagCode : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.tagCode;
+        }
+        return invokeV.longValue;
     }
 
     public void setItemId(String str) {

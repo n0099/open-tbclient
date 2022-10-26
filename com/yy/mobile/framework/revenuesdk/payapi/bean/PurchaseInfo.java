@@ -13,10 +13,20 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class PurchaseInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<PurchaseInfo> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public final String data;
     public final String signature;
+
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -31,7 +41,7 @@ public class PurchaseInfo implements Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<PurchaseInfo>() { // from class: com.yy.mobile.framework.revenuesdk.payapi.bean.PurchaseInfo.1
+        CREATOR = new Parcelable.Creator() { // from class: com.yy.mobile.framework.revenuesdk.payapi.bean.PurchaseInfo.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -50,21 +60,25 @@ public class PurchaseInfo implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public PurchaseInfo createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new PurchaseInfo(parcel) : (PurchaseInfo) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new PurchaseInfo(parcel);
+                }
+                return (PurchaseInfo) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public PurchaseInfo[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new PurchaseInfo[i] : (PurchaseInfo[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new PurchaseInfo[i];
+                }
+                return (PurchaseInfo[]) invokeI.objValue;
             }
         };
     }
@@ -88,16 +102,6 @@ public class PurchaseInfo implements Parcelable {
         }
     }
 
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -107,13 +111,23 @@ public class PurchaseInfo implements Parcelable {
         return (String) invokeV.objValue;
     }
 
-    @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public PurchaseInfo(Parcel parcel) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i) == null) {
-            parcel.writeString(this.data);
-            parcel.writeString(this.signature);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
         }
+        this.data = parcel.readString();
+        this.signature = parcel.readString();
     }
 
     public PurchaseInfo(String str, String str2) {
@@ -135,22 +149,12 @@ public class PurchaseInfo implements Parcelable {
         this.signature = str2;
     }
 
-    public PurchaseInfo(Parcel parcel) {
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i) == null) {
+            parcel.writeString(this.data);
+            parcel.writeString(this.signature);
         }
-        this.data = parcel.readString();
-        this.signature = parcel.readString();
     }
 }

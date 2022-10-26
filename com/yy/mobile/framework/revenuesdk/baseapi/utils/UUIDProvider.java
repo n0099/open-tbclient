@@ -28,6 +28,9 @@ public class UUIDProvider {
     public static String getUUID() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? UUID.randomUUID().toString().replaceAll("-", "") : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return UUID.randomUUID().toString().replaceAll("-", "");
+        }
+        return (String) invokeV.objValue;
     }
 }

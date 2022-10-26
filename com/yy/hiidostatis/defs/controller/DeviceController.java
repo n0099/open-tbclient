@@ -13,6 +13,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
 import com.baidu.tbadk.core.util.ApiReplaceUtil;
+import com.baidu.tbadk.mutiprocess.live.YyLiveRoomConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -66,6 +67,18 @@ public class DeviceController {
         return (String) invokeI.objValue;
     }
 
+    public static boolean isFilterName(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            if (str.startsWith("/system/")) {
+                return true;
+            }
+            return FILTER_PROC_NAMES.contains("|" + str + "|");
+        }
+        return invokeL.booleanValue;
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Removed duplicated region for block: B:21:0x0085  */
     /* JADX WARN: Removed duplicated region for block: B:22:0x0087  */
@@ -82,10 +95,16 @@ public class DeviceController {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void doReport(Context context, long j) {
-        boolean z;
-        boolean z2;
         int i;
+        boolean z;
+        int intExtra;
+        boolean z2;
+        boolean z3;
+        int i2;
+        int i3;
+        int i4;
         String[] wifiInfo;
+        int i5;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(65539, this, context, j) == null) {
             try {
@@ -93,28 +112,51 @@ public class DeviceController {
                 WifiInfo wifiInfo2 = ArdUtil.getWifiInfo(context);
                 if (wifiInfo2 != null) {
                     statisContent.put("bssid", wifiInfo2.getBSSID());
-                    statisContent.put("ssid", wifiInfo2.getSSID());
+                    statisContent.put(YyLiveRoomConfig.KEY_SSID, wifiInfo2.getSSID());
                     statisContent.put("rssi", wifiInfo2.getRssi());
                 }
                 statisContent.put("sysuptm", SystemClock.elapsedRealtime() / 1000);
                 statisContent.put("srbr", ArdUtil.getScreenBrightness(context));
-                statisContent.put("debug", ArdUtil.isDebugEnable(context) ? 1 : 0);
+                if (ArdUtil.isDebugEnable(context)) {
+                    i = 1;
+                } else {
+                    i = 0;
+                }
+                statisContent.put("debug", i);
                 Intent registerReceiver = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
-                int intExtra = registerReceiver.getIntExtra("status", -1);
-                if (intExtra != 2 && intExtra != 5) {
+                int intExtra2 = registerReceiver.getIntExtra("status", -1);
+                if (intExtra2 != 2 && intExtra2 != 5) {
                     z = false;
-                    float intExtra2 = (registerReceiver.getIntExtra(PollingModel.LEVEL, -1) * 100) / registerReceiver.getIntExtra("scale", -1);
-                    int intExtra3 = registerReceiver.getIntExtra("plugged", -1);
-                    z2 = intExtra3 != 2;
-                    boolean z3 = intExtra3 != 1;
+                    float intExtra3 = (registerReceiver.getIntExtra(PollingModel.LEVEL, -1) * 100) / registerReceiver.getIntExtra("scale", -1);
+                    intExtra = registerReceiver.getIntExtra("plugged", -1);
+                    if (intExtra != 2) {
+                        z2 = true;
+                    } else {
+                        z2 = false;
+                    }
+                    if (intExtra != 1) {
+                        z3 = true;
+                    } else {
+                        z3 = false;
+                    }
                     if (!z2 && !z3) {
-                        i = 0;
-                        statisContent.put("plug", i);
-                        statisContent.put("charging", !z ? 1 : 0);
-                        statisContent.put(SensorController.KEY_BATLV, String.format("%.2f", Float.valueOf(intExtra2)));
+                        i2 = 0;
+                        statisContent.put("plug", i2);
+                        if (!z) {
+                            i3 = 1;
+                        } else {
+                            i3 = 0;
+                        }
+                        statisContent.put("charging", i3);
+                        statisContent.put(SensorController.KEY_BATLV, String.format("%.2f", Float.valueOf(intExtra3)));
                         statisContent.put("cpunuma", ArdUtil.getAvailableProcessors());
                         statisContent.put("cpuarc", ArdUtil.getCpuAbi());
-                        statisContent.put("headph", !ArdUtil.isHeadphone(context) ? 1 : 0);
+                        if (!ArdUtil.isHeadphone(context)) {
+                            i4 = 1;
+                        } else {
+                            i4 = 0;
+                        }
+                        statisContent.put("headph", i4);
                         statisContent.put("devori", ArdUtil.getDeviceOrientation(context));
                         statisContent.put("tz", ArdUtil.getTimeZone());
                         statisContent.put("cip", ArdUtil.getCellIp());
@@ -134,17 +176,26 @@ public class DeviceController {
                         statisContent.put("scene", ArdUtil.getSceneMode(context));
                         statisContent.put("manutime", Build.TIME);
                         statisContent.put("manuid", Build.ID);
-                        statisContent.put("emu", !FindEmulator.isEmulator(context) ? 1 : 0);
+                        if (!FindEmulator.isEmulator(context)) {
+                            i5 = 1;
+                        } else {
+                            i5 = 0;
+                        }
+                        statisContent.put("emu", i5);
                         statisContent.put("emurs", FindEmulator.checkEmu(context));
                         this.statisAPI.reportDevice(j, statisContent);
                     }
-                    i = 1;
-                    statisContent.put("plug", i);
-                    statisContent.put("charging", !z ? 1 : 0);
-                    statisContent.put(SensorController.KEY_BATLV, String.format("%.2f", Float.valueOf(intExtra2)));
+                    i2 = 1;
+                    statisContent.put("plug", i2);
+                    if (!z) {
+                    }
+                    statisContent.put("charging", i3);
+                    statisContent.put(SensorController.KEY_BATLV, String.format("%.2f", Float.valueOf(intExtra3)));
                     statisContent.put("cpunuma", ArdUtil.getAvailableProcessors());
                     statisContent.put("cpuarc", ArdUtil.getCpuAbi());
-                    statisContent.put("headph", !ArdUtil.isHeadphone(context) ? 1 : 0);
+                    if (!ArdUtil.isHeadphone(context)) {
+                    }
+                    statisContent.put("headph", i4);
                     statisContent.put("devori", ArdUtil.getDeviceOrientation(context));
                     statisContent.put("tz", ArdUtil.getTimeZone());
                     statisContent.put("cip", ArdUtil.getCellIp());
@@ -164,25 +215,31 @@ public class DeviceController {
                     statisContent.put("scene", ArdUtil.getSceneMode(context));
                     statisContent.put("manutime", Build.TIME);
                     statisContent.put("manuid", Build.ID);
-                    statisContent.put("emu", !FindEmulator.isEmulator(context) ? 1 : 0);
+                    if (!FindEmulator.isEmulator(context)) {
+                    }
+                    statisContent.put("emu", i5);
                     statisContent.put("emurs", FindEmulator.checkEmu(context));
                     this.statisAPI.reportDevice(j, statisContent);
                 }
                 z = true;
-                float intExtra22 = (registerReceiver.getIntExtra(PollingModel.LEVEL, -1) * 100) / registerReceiver.getIntExtra("scale", -1);
-                int intExtra32 = registerReceiver.getIntExtra("plugged", -1);
-                if (intExtra32 != 2) {
+                float intExtra32 = (registerReceiver.getIntExtra(PollingModel.LEVEL, -1) * 100) / registerReceiver.getIntExtra("scale", -1);
+                intExtra = registerReceiver.getIntExtra("plugged", -1);
+                if (intExtra != 2) {
                 }
-                if (intExtra32 != 1) {
+                if (intExtra != 1) {
                 }
                 if (!z2) {
-                    i = 0;
-                    statisContent.put("plug", i);
-                    statisContent.put("charging", !z ? 1 : 0);
-                    statisContent.put(SensorController.KEY_BATLV, String.format("%.2f", Float.valueOf(intExtra22)));
+                    i2 = 0;
+                    statisContent.put("plug", i2);
+                    if (!z) {
+                    }
+                    statisContent.put("charging", i3);
+                    statisContent.put(SensorController.KEY_BATLV, String.format("%.2f", Float.valueOf(intExtra32)));
                     statisContent.put("cpunuma", ArdUtil.getAvailableProcessors());
                     statisContent.put("cpuarc", ArdUtil.getCpuAbi());
-                    statisContent.put("headph", !ArdUtil.isHeadphone(context) ? 1 : 0);
+                    if (!ArdUtil.isHeadphone(context)) {
+                    }
+                    statisContent.put("headph", i4);
                     statisContent.put("devori", ArdUtil.getDeviceOrientation(context));
                     statisContent.put("tz", ArdUtil.getTimeZone());
                     statisContent.put("cip", ArdUtil.getCellIp());
@@ -199,17 +256,23 @@ public class DeviceController {
                     statisContent.put("scene", ArdUtil.getSceneMode(context));
                     statisContent.put("manutime", Build.TIME);
                     statisContent.put("manuid", Build.ID);
-                    statisContent.put("emu", !FindEmulator.isEmulator(context) ? 1 : 0);
+                    if (!FindEmulator.isEmulator(context)) {
+                    }
+                    statisContent.put("emu", i5);
                     statisContent.put("emurs", FindEmulator.checkEmu(context));
                     this.statisAPI.reportDevice(j, statisContent);
                 }
-                i = 1;
-                statisContent.put("plug", i);
-                statisContent.put("charging", !z ? 1 : 0);
-                statisContent.put(SensorController.KEY_BATLV, String.format("%.2f", Float.valueOf(intExtra22)));
+                i2 = 1;
+                statisContent.put("plug", i2);
+                if (!z) {
+                }
+                statisContent.put("charging", i3);
+                statisContent.put(SensorController.KEY_BATLV, String.format("%.2f", Float.valueOf(intExtra32)));
                 statisContent.put("cpunuma", ArdUtil.getAvailableProcessors());
                 statisContent.put("cpuarc", ArdUtil.getCpuAbi());
-                statisContent.put("headph", !ArdUtil.isHeadphone(context) ? 1 : 0);
+                if (!ArdUtil.isHeadphone(context)) {
+                }
+                statisContent.put("headph", i4);
                 statisContent.put("devori", ArdUtil.getDeviceOrientation(context));
                 statisContent.put("tz", ArdUtil.getTimeZone());
                 statisContent.put("cip", ArdUtil.getCellIp());
@@ -226,7 +289,9 @@ public class DeviceController {
                 statisContent.put("scene", ArdUtil.getSceneMode(context));
                 statisContent.put("manutime", Build.TIME);
                 statisContent.put("manuid", Build.ID);
-                statisContent.put("emu", !FindEmulator.isEmulator(context) ? 1 : 0);
+                if (!FindEmulator.isEmulator(context)) {
+                }
+                statisContent.put("emu", i5);
                 statisContent.put("emurs", FindEmulator.checkEmu(context));
                 this.statisAPI.reportDevice(j, statisContent);
             } catch (Throwable th) {
@@ -261,7 +326,10 @@ public class DeviceController {
             } catch (Throwable th) {
                 L.debug("DeviceController", "getRunningProcess exception = %s", th);
             }
-            return stringBuffer.length() > 0 ? stringBuffer.toString().substring(0, stringBuffer.length() - 1) : stringBuffer.toString();
+            if (stringBuffer.length() > 0) {
+                return stringBuffer.toString().substring(0, stringBuffer.length() - 1);
+            }
+            return stringBuffer.toString();
         }
         return (String) invokeL.objValue;
     }
@@ -292,18 +360,6 @@ public class DeviceController {
         return (String[]) invokeL.objValue;
     }
 
-    public static boolean isFilterName(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            if (str.startsWith("/system/")) {
-                return true;
-            }
-            return FILTER_PROC_NAMES.contains("|" + str + "|");
-        }
-        return invokeL.booleanValue;
-    }
-
     /* JADX WARN: Removed duplicated region for block: B:23:0x0055  */
     /* JADX WARN: Removed duplicated region for block: B:32:? A[RETURN, SYNTHETIC] */
     /*
@@ -315,77 +371,76 @@ public class DeviceController {
         boolean z;
         String prefString;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLJ(1048576, this, context, j) != null) {
-            return;
-        }
-        if (context == null) {
-            L.debug("DeviceController", "Null context when reporting to hiido, cancelled.", new Object[0]);
-            return;
-        }
-        try {
-            str = Util.formatDate("yyyyMMdd", System.currentTimeMillis());
-            try {
-                prefString = DefaultPreference.getPreference().getPrefString(context, PREF_KEY_DEVICE_REPORT_DATE, "");
-            } catch (Throwable th2) {
-                th = th2;
-                L.debug(this, "reportDevice exception=%s", th);
-                z = false;
-                L.brief("reportDevice:isReport:%b", Boolean.valueOf(z));
-                if (z) {
-                }
-            }
-        } catch (Throwable th3) {
-            str = "";
-            th = th3;
-        }
-        if (!Util.empty(prefString)) {
-            if (prefString.equals(str)) {
-                z = true;
-                L.brief("reportDevice:isReport:%b", Boolean.valueOf(z));
-                if (z) {
-                    return;
-                }
-                this.statisAPI.reportDevice(j, null, new IStatisAPI.ReportResult(this, context, str) { // from class: com.yy.hiidostatis.defs.controller.DeviceController.1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ DeviceController this$0;
-                    public final /* synthetic */ Context val$context;
-                    public final /* synthetic */ String val$finalNowDate;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, context, str};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                        this.val$context = context;
-                        this.val$finalNowDate = str;
-                    }
-
-                    @Override // com.yy.hiidostatis.defs.interf.IStatisAPI.ReportResult
-                    public void onReportResult(boolean z2) {
-                        Interceptable interceptable2 = $ic;
-                        if ((interceptable2 == null || interceptable2.invokeZ(1048576, this, z2) == null) && z2) {
-                            DefaultPreference.getPreference().setPrefString(this.val$context, DeviceController.PREF_KEY_DEVICE_REPORT_DATE, this.val$finalNowDate);
-                        }
-                    }
-                });
+        if (interceptable == null || interceptable.invokeLJ(1048576, this, context, j) == null) {
+            if (context == null) {
+                L.debug("DeviceController", "Null context when reporting to hiido, cancelled.", new Object[0]);
                 return;
             }
-        }
-        z = false;
-        L.brief("reportDevice:isReport:%b", Boolean.valueOf(z));
-        if (z) {
+            try {
+                str = Util.formatDate("yyyyMMdd", System.currentTimeMillis());
+                try {
+                    prefString = DefaultPreference.getPreference().getPrefString(context, PREF_KEY_DEVICE_REPORT_DATE, "");
+                } catch (Throwable th2) {
+                    th = th2;
+                    L.debug(this, "reportDevice exception=%s", th);
+                    z = false;
+                    L.brief("reportDevice:isReport:%b", Boolean.valueOf(z));
+                    if (!z) {
+                    }
+                }
+            } catch (Throwable th3) {
+                str = "";
+                th = th3;
+            }
+            if (!Util.empty(prefString)) {
+                if (prefString.equals(str)) {
+                    z = true;
+                    L.brief("reportDevice:isReport:%b", Boolean.valueOf(z));
+                    if (!z) {
+                        this.statisAPI.reportDevice(j, null, new IStatisAPI.ReportResult(this, context, str) { // from class: com.yy.hiidostatis.defs.controller.DeviceController.1
+                            public static /* synthetic */ Interceptable $ic;
+                            public transient /* synthetic */ FieldHolder $fh;
+                            public final /* synthetic */ DeviceController this$0;
+                            public final /* synthetic */ Context val$context;
+                            public final /* synthetic */ String val$finalNowDate;
+
+                            {
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 != null) {
+                                    InitContext newInitContext = TitanRuntime.newInitContext();
+                                    newInitContext.initArgs = r2;
+                                    Object[] objArr = {this, context, str};
+                                    interceptable2.invokeUnInit(65536, newInitContext);
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
+                                        newInitContext.thisArg = this;
+                                        interceptable2.invokeInitBody(65536, newInitContext);
+                                        return;
+                                    }
+                                }
+                                this.this$0 = this;
+                                this.val$context = context;
+                                this.val$finalNowDate = str;
+                            }
+
+                            @Override // com.yy.hiidostatis.defs.interf.IStatisAPI.ReportResult
+                            public void onReportResult(boolean z2) {
+                                Interceptable interceptable2 = $ic;
+                                if ((interceptable2 == null || interceptable2.invokeZ(1048576, this, z2) == null) && z2) {
+                                    DefaultPreference.getPreference().setPrefString(this.val$context, DeviceController.PREF_KEY_DEVICE_REPORT_DATE, this.val$finalNowDate);
+                                }
+                            }
+                        });
+                        return;
+                    }
+                    return;
+                }
+            }
+            z = false;
+            L.brief("reportDevice:isReport:%b", Boolean.valueOf(z));
+            if (!z) {
+            }
         }
     }
 
@@ -425,9 +480,10 @@ public class DeviceController {
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.this$0.doReport(this.val$context, this.val$uid);
+                        if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
+                            return;
                         }
+                        this.this$0.doReport(this.val$context, this.val$uid);
                     }
                 }, 14000L);
             }

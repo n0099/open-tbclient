@@ -1,6 +1,5 @@
 package com.baidu.tbadk.widget.richText;
 
-import androidx.annotation.Nullable;
 import androidx.core.util.Pair;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
@@ -12,10 +11,10 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.module.hottopic.HotTopicStat;
 import com.baidu.tbadk.util.TiePlusHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hl5;
-import com.baidu.tieba.pl5;
+import com.baidu.tieba.ca5;
+import com.baidu.tieba.ol5;
 import com.baidu.tieba.tbadkCore.data.PostData;
-import com.baidu.tieba.y95;
+import com.baidu.tieba.wl5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,6 +41,80 @@ public class TbRichText extends OrmObject {
     public boolean hasAppendTime;
     public boolean isChanged;
 
+    public void I(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+        }
+    }
+
+    public TbRichText(ArrayList<TbRichTextData> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {arrayList};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = -1L;
+        this.b = null;
+        this.c = null;
+        this.h = "";
+        this.isChanged = false;
+        this.c = arrayList;
+        E();
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public TbRichText(List<PbContent> list, String str, boolean z) {
+        this(list, str, z, null, null, -1);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list, str, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((List) objArr2[0], (String) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), (PostData) objArr2[3], (ThreadData) objArr2[4], ((Integer) objArr2[5]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public TbRichText(List<PbContent> list, String str, boolean z, PostData postData, ThreadData threadData, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list, str, Boolean.valueOf(z), postData, threadData, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.a = -1L;
+        this.b = null;
+        this.c = null;
+        this.h = "";
+        this.isChanged = false;
+        z(list, -1, z, str, postData, threadData, i);
+    }
+
     public TbRichText(JSONArray jSONArray, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -65,9 +138,32 @@ public class TbRichText extends OrmObject {
         A(jSONArray, i, false);
     }
 
+    public TbRichText(JSONArray jSONArray, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONArray, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+                return;
+            }
+        }
+        this.a = -1L;
+        this.b = null;
+        this.c = null;
+        this.h = "";
+        this.isChanged = false;
+        A(jSONArray, -1, z);
+    }
+
     public final void A(JSONArray jSONArray, int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{jSONArray, Integer.valueOf(i), Boolean.valueOf(z)}) == null) || jSONArray == null) {
+        if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{jSONArray, Integer.valueOf(i), Boolean.valueOf(z)}) != null) || jSONArray == null) {
             return;
         }
         this.b = new ArrayList<>();
@@ -86,7 +182,10 @@ public class TbRichText extends OrmObject {
     public ArrayList<TbRichTextData> B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (ArrayList) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (ArrayList) invokeV.objValue;
     }
 
     public int C() {
@@ -105,25 +204,45 @@ public class TbRichText extends OrmObject {
     public ArrayList<TbRichTextImageInfo> D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : (ArrayList) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public String getAuthorId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.h;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long getPostId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.a;
+        }
+        return invokeV.longValue;
     }
 
     public final void E() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.e = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0e9a);
-            this.f = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f159e);
-            this.g = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f155e);
+            this.e = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0eac);
+            this.f = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f15b8);
+            this.g = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1578);
         }
     }
 
     public final void F(TbRichTextItem tbRichTextItem) {
         TbRichTextTiebaPlusInfo T;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, tbRichTextItem) == null) || tbRichTextItem == null || tbRichTextItem.getType() != 36 || !UbsABTestHelper.isTiebaPlusCardModelABTestB() || (T = tbRichTextItem.T()) == null || T.B() == null || T.B().plugin_user == null || T.B().plugin_user.is_download_card_whiteuser.intValue() != 1) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, tbRichTextItem) == null) && tbRichTextItem != null && tbRichTextItem.getType() == 36 && UbsABTestHelper.isTiebaPlusCardModelABTestB() && (T = tbRichTextItem.T()) != null && T.B() != null && T.B().plugin_user != null && T.B().plugin_user.is_download_card_whiteuser.intValue() == 1) {
+            tbRichTextItem.setType(35);
         }
-        tbRichTextItem.setType(35);
     }
 
     public final void G(boolean z, String str) {
@@ -133,13 +252,13 @@ public class TbRichText extends OrmObject {
         }
     }
 
-    public final void H(boolean z, String str, @Nullable PostData postData, @Nullable ThreadData threadData, int i) {
+    public final void H(boolean z, String str, PostData postData, ThreadData threadData, int i) {
         TbRichTextData tbRichTextData;
         CharSequence charSequence;
         TbRichTextCommInfo F;
-        Pair<CharSequence, pl5> p;
+        Pair p;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), str, postData, threadData, Integer.valueOf(i)}) == null) || this.b == null) {
+        if ((interceptable != null && interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), str, postData, threadData, Integer.valueOf(i)}) != null) || this.b == null) {
             return;
         }
         this.c = new ArrayList<>();
@@ -243,23 +362,23 @@ public class TbRichText extends OrmObject {
                         if (type == 18 || type == 2 || type == 39 || type == 1282) {
                             tbRichTextData.U(true);
                         }
-                        if (type == 35 && TiePlusHelper.l(next.T()) && (p = hl5.p(type, threadData, next.U())) != null) {
-                            charSequence = p.first;
-                            pl5 pl5Var = p.second;
-                            pl5Var.a(postData);
-                            pl5Var.b(i);
+                        if (type == 35 && TiePlusHelper.l(next.T()) && (p = ol5.p(type, threadData, next.U())) != null) {
+                            charSequence = (CharSequence) p.first;
+                            wl5 wl5Var = (wl5) p.second;
+                            wl5Var.a(postData);
+                            wl5Var.b(i);
                             tbRichTextData.U(true);
-                            tbRichTextData.z(pl5Var);
+                            tbRichTextData.z(wl5Var);
                         } else {
                             charSequence = null;
                         }
                         if (charSequence == null && type == 18 && (F = next.F()) != null) {
                             PbContent C = F.C();
                             if (threadData != null && C != null) {
-                                y95 f = y95.f(threadData, C);
+                                ca5 f = ca5.f(threadData, C);
                                 f.c(postData);
                                 f.b(HotTopicStat.Locate.VIDEO_MIDDLE_COMMENT);
-                                charSequence = hl5.o(f);
+                                charSequence = ol5.o(f);
                             }
                         }
                         if (charSequence == null && tbRichTextData != null) {
@@ -279,29 +398,11 @@ public class TbRichText extends OrmObject {
         this.b = null;
     }
 
-    public void I(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-        }
-    }
-
     public void J(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
             this.a = j;
         }
-    }
-
-    public String getAuthorId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.h : (String) invokeV.objValue;
-    }
-
-    public long getPostId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.a : invokeV.longValue;
     }
 
     public void setAuthorId(String str) {
@@ -348,9 +449,9 @@ public class TbRichText extends OrmObject {
         return (String) invokeV.objValue;
     }
 
-    public final void z(List<PbContent> list, int i, boolean z, String str, @Nullable PostData postData, @Nullable ThreadData threadData, int i2) {
+    public final void z(List<PbContent> list, int i, boolean z, String str, PostData postData, ThreadData threadData, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{list, Integer.valueOf(i), Boolean.valueOf(z), str, postData, threadData, Integer.valueOf(i2)}) == null) || list == null) {
+        if ((interceptable != null && interceptable.invokeCommon(1048590, this, new Object[]{list, Integer.valueOf(i), Boolean.valueOf(z), str, postData, threadData, Integer.valueOf(i2)}) != null) || list == null) {
             return;
         }
         this.b = new ArrayList<>();
@@ -359,6 +460,9 @@ public class TbRichText extends OrmObject {
             PbContent pbContent = list.get(i3);
             if (pbContent != null) {
                 TbRichTextItem tbRichTextItem = new TbRichTextItem();
+                if (postData != null) {
+                    tbRichTextItem.c0(postData.D());
+                }
                 tbRichTextItem.a0(pbContent);
                 if ((tbRichTextItem.getType() & i) != 0) {
                     this.b.add(tbRichTextItem);
@@ -366,97 +470,6 @@ public class TbRichText extends OrmObject {
             }
         }
         H(z, str, postData, threadData, i2);
-        E();
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public TbRichText(List<PbContent> list, String str, boolean z) {
-        this(list, str, z, null, null, -1);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list, str, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((List) objArr2[0], (String) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), (PostData) objArr2[3], (ThreadData) objArr2[4], ((Integer) objArr2[5]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public TbRichText(List<PbContent> list, String str, boolean z, @Nullable PostData postData, @Nullable ThreadData threadData, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list, str, Boolean.valueOf(z), postData, threadData, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.a = -1L;
-        this.b = null;
-        this.c = null;
-        this.h = "";
-        this.isChanged = false;
-        z(list, -1, z, str, postData, threadData, i);
-    }
-
-    public TbRichText(JSONArray jSONArray, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONArray, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-                return;
-            }
-        }
-        this.a = -1L;
-        this.b = null;
-        this.c = null;
-        this.h = "";
-        this.isChanged = false;
-        A(jSONArray, -1, z);
-    }
-
-    public TbRichText(ArrayList<TbRichTextData> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {arrayList};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = -1L;
-        this.b = null;
-        this.c = null;
-        this.h = "";
-        this.isChanged = false;
-        this.c = arrayList;
         E();
     }
 }

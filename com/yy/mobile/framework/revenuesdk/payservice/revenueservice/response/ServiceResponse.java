@@ -46,61 +46,91 @@ public final class ServiceResponse implements IResponse {
     public final int getCommand() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.command : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.command;
+        }
+        return invokeV.intValue;
     }
 
     public final Object getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.data : invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.data;
+        }
+        return invokeV.objValue;
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payservice.revenueservice.response.IResponse
     public String getMessage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.msg : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.msg;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final IRequest getReq() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.req : (IRequest) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.req;
+        }
+        return (IRequest) invokeV.objValue;
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payservice.revenueservice.response.IResponse
     public IRequest getRequest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.req : (IRequest) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.req;
+        }
+        return (IRequest) invokeV.objValue;
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payservice.revenueservice.response.IResponse
     public int getResponseCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.result : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.result;
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payservice.revenueservice.response.IResponse
     public Object getResponseData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.data : invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.data;
+        }
+        return invokeV.objValue;
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payservice.revenueservice.response.IResponse
     public String getSeq() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.seq : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.seq;
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payservice.revenueservice.response.IResponse
     public boolean isSuccess() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.result == 1 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (this.result == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public final void setData(Object obj) {

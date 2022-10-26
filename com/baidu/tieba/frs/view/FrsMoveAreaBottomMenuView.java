@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.tg6;
+import com.baidu.tieba.ah6;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -54,107 +54,14 @@ public class FrsMoveAreaBottomMenuView extends RelativeLayout implements View.On
         }
     }
 
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d033a, this);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090bb3);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090bba);
-            this.d = findViewById(R.id.obfuscated_res_0x7f090bbb);
-            this.b.setOnClickListener(this);
-            this.c.setOnClickListener(this);
-            c();
-            setClickable(true);
-        }
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            FrsMoveAreaChooseView frsMoveAreaChooseView = this.e;
-            return frsMoveAreaChooseView != null && frsMoveAreaChooseView.getVisibility() == 0;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
-            SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
-            SkinManager.setBackgroundResource(this.b, R.drawable.bg_bottom_up_list_dialog_item);
-            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0302);
-            SkinManager.setBackgroundResource(this.c, R.drawable.bg_bottom_up_list_dialog_item);
-            SkinManager.setBackgroundColor(this.d, R.color.CAM_X0204);
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.e.getParent() == null) {
-            return;
-        }
-        ((ViewGroup) this.e.getParent()).removeView(this.e);
-        this.e = null;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            if (view2.getTag() instanceof String) {
-                d();
-            } else if (view2 == this.b) {
-                this.e = null;
-                tg6.h().n();
-            } else if (view2 == this.c) {
-                if (this.a != null && this.e == null && !ListUtils.isEmpty(tg6.h().i())) {
-                    FrsMoveAreaChooseView frsMoveAreaChooseView = new FrsMoveAreaChooseView(this.a);
-                    this.e = frsMoveAreaChooseView;
-                    frsMoveAreaChooseView.setOnClickListener(this);
-                    ((ViewGroup) getParent()).addView(this.e, -1, -1);
-                } else if (this.e != null || getContext() == null) {
-                } else {
-                    BdTopToast bdTopToast = new BdTopToast(getContext());
-                    bdTopToast.h(false);
-                    bdTopToast.g(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0735));
-                    bdTopToast.i((ViewGroup) getParent());
-                }
-            } else {
-                FrsMoveAreaChooseView frsMoveAreaChooseView2 = this.e;
-                if (frsMoveAreaChooseView2 == null || view2 != frsMoveAreaChooseView2) {
-                    return;
-                }
-                d();
-            }
-        }
-    }
-
     public void setMoveNumber(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            String string = getContext().getString(R.string.obfuscated_res_0x7f0f0737);
+            String string = getContext().getString(R.string.obfuscated_res_0x7f0f0743);
             if (i > 0) {
                 string = string + String.format(Locale.CHINA, "(%d)", Integer.valueOf(i));
             }
             this.c.setText(string);
-        }
-    }
-
-    public void setPageContext(TbPageContext tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, tbPageContext) == null) {
-            this.a = tbPageContext;
-        }
-    }
-
-    @Override // android.view.View
-    public void setVisibility(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921401, Integer.valueOf(i == 0 ? 0 : 1)));
-            super.setVisibility(i);
         }
     }
 
@@ -199,5 +106,105 @@ public class FrsMoveAreaBottomMenuView extends RelativeLayout implements View.On
             }
         }
         a();
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0339, this);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090bbd);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090bc4);
+            this.d = findViewById(R.id.obfuscated_res_0x7f090bc5);
+            this.b.setOnClickListener(this);
+            this.c.setOnClickListener(this);
+            c();
+            setClickable(true);
+        }
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            FrsMoveAreaChooseView frsMoveAreaChooseView = this.e;
+            if (frsMoveAreaChooseView != null && frsMoveAreaChooseView.getVisibility() == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.e.getParent() != null) {
+            ((ViewGroup) this.e.getParent()).removeView(this.e);
+            this.e = null;
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
+            SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
+            SkinManager.setBackgroundResource(this.b, R.drawable.bg_bottom_up_list_dialog_item);
+            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0302);
+            SkinManager.setBackgroundResource(this.c, R.drawable.bg_bottom_up_list_dialog_item);
+            SkinManager.setBackgroundColor(this.d, R.color.CAM_X0204);
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
+            if (view2.getTag() instanceof String) {
+                d();
+            } else if (view2 == this.b) {
+                this.e = null;
+                ah6.h().n();
+            } else if (view2 == this.c) {
+                if (this.a != null && this.e == null && !ListUtils.isEmpty(ah6.h().i())) {
+                    FrsMoveAreaChooseView frsMoveAreaChooseView = new FrsMoveAreaChooseView(this.a);
+                    this.e = frsMoveAreaChooseView;
+                    frsMoveAreaChooseView.setOnClickListener(this);
+                    ((ViewGroup) getParent()).addView(this.e, -1, -1);
+                } else if (this.e == null && getContext() != null) {
+                    BdTopToast bdTopToast = new BdTopToast(getContext());
+                    bdTopToast.h(false);
+                    bdTopToast.g(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0741));
+                    bdTopToast.i((ViewGroup) getParent());
+                }
+            } else {
+                FrsMoveAreaChooseView frsMoveAreaChooseView2 = this.e;
+                if (frsMoveAreaChooseView2 != null && view2 == frsMoveAreaChooseView2) {
+                    d();
+                }
+            }
+        }
+    }
+
+    public void setPageContext(TbPageContext tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, tbPageContext) == null) {
+            this.a = tbPageContext;
+        }
+    }
+
+    @Override // android.view.View
+    public void setVisibility(int i) {
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            MessageManager messageManager = MessageManager.getInstance();
+            if (i == 0) {
+                i2 = 0;
+            } else {
+                i2 = 1;
+            }
+            messageManager.dispatchResponsedMessage(new CustomResponsedMessage(2921401, Integer.valueOf(i2)));
+            super.setVisibility(i);
+        }
     }
 }

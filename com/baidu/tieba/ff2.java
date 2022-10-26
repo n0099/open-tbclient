@@ -3,7 +3,7 @@ package com.baidu.tieba;
 public interface ff2 {
     void a();
 
-    void b();
+    void b(boolean z);
 
-    void c(boolean z);
+    void c();
 }

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Locale;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class SessionDescription {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,8 +18,8 @@ public class SessionDescription {
     public final Type type;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
-    public static final class Type {
+    /* loaded from: classes8.dex */
+    public final class Type {
         public static final /* synthetic */ Type[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Type ANSWER;
@@ -66,33 +66,43 @@ public class SessionDescription {
             }
         }
 
-        @CalledByNative("Type")
         public static Type fromCanonicalForm(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Type) Enum.valueOf(Type.class, str.toUpperCase(Locale.US)) : (Type) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (Type) Enum.valueOf(Type.class, str.toUpperCase(Locale.US));
+            }
+            return (Type) invokeL.objValue;
         }
 
         public static Type valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (Type) Enum.valueOf(Type.class, str) : (Type) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+                return (Type) Enum.valueOf(Type.class, str);
+            }
+            return (Type) invokeL.objValue;
         }
 
         public static Type[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (Type[]) $VALUES.clone() : (Type[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+                return (Type[]) $VALUES.clone();
+            }
+            return (Type[]) invokeV.objValue;
         }
 
         public String canonicalForm() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? name().toLowerCase(Locale.US) : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return name().toLowerCase(Locale.US);
+            }
+            return (String) invokeV.objValue;
         }
     }
 
-    @CalledByNative
     public SessionDescription(Type type, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -112,17 +122,21 @@ public class SessionDescription {
         this.description = str;
     }
 
-    @CalledByNative
     public String getDescription() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.description : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.description;
+        }
+        return (String) invokeV.objValue;
     }
 
-    @CalledByNative
     public String getTypeInCanonicalForm() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.type.canonicalForm() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.type.canonicalForm();
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -20,7 +20,7 @@ public class RoundedBitmapDisplayer implements BitmapDisplayer {
     public final int margin;
 
     /* loaded from: classes7.dex */
-    public static class RoundedDrawable extends Drawable {
+    public class RoundedDrawable extends Drawable {
         public final BitmapShader bitmapShader;
         public final float cornerRadius;
         public final RectF mBitmapRect;

@@ -1,71 +1,60 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.database.Cursor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class u01 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final HashMap<Class<? extends a11>, a11> a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface u01 {
+    a a(b11 b11Var, s01... s01VarArr);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948157075, "Lcom/baidu/tieba/u01;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    void beginTransaction();
+
+    int delete(b11 b11Var, s01... s01VarArr);
+
+    void endTransaction();
+
+    Cursor query(g11 g11Var);
+
+    void setTransactionSuccessful();
+
+    int update(b11 b11Var, s01... s01VarArr);
+
+    /* loaded from: classes6.dex */
+    public class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final long a;
+        public final int b;
+
+        public a(long j, int i) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948157075, "Lcom/baidu/tieba/u01;");
-                return;
-            }
-        }
-        a = new HashMap<>();
-    }
-
-    public u01() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static <T extends a11> T a(Class<T> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, cls)) == null) {
-            T t = (T) a.get(cls);
-            if (t == null) {
-                synchronized (u01.class) {
-                    t = (T) a.get(cls);
-                    if (t == null) {
-                        t = (T) v01.a(cls);
-                        a.put(cls, t);
-                    }
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Long.valueOf(j), Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return t;
+            this.a = j;
+            this.b = i;
         }
-        return (T) invokeL.objValue;
-    }
 
-    public static <T extends a11> z01 b(Class<T> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cls)) == null) ? a(cls).b() : (z01) invokeL.objValue;
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return "Res{rowId=" + this.a + ", updateCount=" + this.b + '}';
+            }
+            return (String) invokeV.objValue;
+        }
     }
 }

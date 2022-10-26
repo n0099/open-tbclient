@@ -10,7 +10,7 @@ public class CreateResultInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String groupid;
-    public ArrayList<GroupMember> memberlist;
+    public ArrayList memberlist;
 
     public CreateResultInfo() {
         Interceptable interceptable = $ic;
@@ -26,6 +26,6 @@ public class CreateResultInfo {
             }
         }
         this.groupid = "0";
-        this.memberlist = new ArrayList<>();
+        this.memberlist = new ArrayList();
     }
 }

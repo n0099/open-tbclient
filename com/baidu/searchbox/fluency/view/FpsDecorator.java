@@ -78,7 +78,7 @@ public final class FpsDecorator extends FrameRateListener {
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\"\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010\u0000\n\u0002\b\u0005\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u000e\u0010\u000fJ\u0015\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\u0004\u0010\u0005R\u0018\u0010\u0006\u001a\u0004\u0018\u00010\u00038\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u0006\u0010\u0007R\u0016\u0010\t\u001a\u00020\b8\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\t\u0010\nR\u0016\u0010\f\u001a\u00020\u000b8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\f\u0010\r¨\u0006\u0010"}, d2 = {"Lcom/baidu/searchbox/fluency/view/FpsDecorator$Companion;", "Landroid/content/Context;", "context", "Lcom/baidu/searchbox/fluency/view/FpsDecorator;", "getInstance", "(Landroid/content/Context;)Lcom/baidu/searchbox/fluency/view/FpsDecorator;", "INSTANCE", "Lcom/baidu/searchbox/fluency/view/FpsDecorator;", "", "TAG", "Ljava/lang/String;", "", "lock", "Ljava/lang/Object;", "<init>", "()V", "lib-fps_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public static final class Companion {
+    public final class Companion {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -94,6 +94,10 @@ public final class FpsDecorator extends FrameRateListener {
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
+        }
+
+        public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
         }
 
         public final FpsDecorator getInstance(Context context) {
@@ -115,10 +119,6 @@ public final class FpsDecorator extends FrameRateListener {
             }
             return (FpsDecorator) invokeL.objValue;
         }
-
-        public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
     }
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000*\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\t\n\u0002\u0010\u0007\n\u0002\b\f\b\u0086\u0004\u0018\u00002\u00020\u0001B\u0007¢\u0006\u0004\b\u001d\u0010\u001eJ#\u0010\u0007\u001a\u00020\u00062\b\u0010\u0003\u001a\u0004\u0018\u00010\u00022\b\u0010\u0005\u001a\u0004\u0018\u00010\u0004H\u0016¢\u0006\u0004\b\u0007\u0010\bR\"\u0010\n\u001a\u00020\t8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\n\u0010\u000b\u001a\u0004\b\f\u0010\r\"\u0004\b\u000e\u0010\u000fR\"\u0010\u0010\u001a\u00020\t8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0010\u0010\u000b\u001a\u0004\b\u0011\u0010\r\"\u0004\b\u0012\u0010\u000fR\"\u0010\u0014\u001a\u00020\u00138\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0014\u0010\u0015\u001a\u0004\b\u0016\u0010\u0017\"\u0004\b\u0018\u0010\u0019R\"\u0010\u001a\u001a\u00020\u00138\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u001a\u0010\u0015\u001a\u0004\b\u001b\u0010\u0017\"\u0004\b\u001c\u0010\u0019¨\u0006\u001f"}, d2 = {"Lcom/baidu/searchbox/fluency/view/FpsDecorator$FloatOnTouchListener;", "android/view/View$OnTouchListener", "Landroid/view/View;", "v", "Landroid/view/MotionEvent;", "event", "", MissionEvent.MESSAGE_TOUCH, "(Landroid/view/View;Landroid/view/MotionEvent;)Z", "", "downOffsetX", "I", "getDownOffsetX", "()I", "setDownOffsetX", "(I)V", "downOffsetY", "getDownOffsetY", "setDownOffsetY", "", "downX", "F", "getDownX", "()F", "setDownX", "(F)V", "downY", "getDownY", "setDownY", "<init>", "(Lcom/baidu/searchbox/fluency/view/FpsDecorator;)V", "lib-fps_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
@@ -132,7 +132,6 @@ public final class FpsDecorator extends FrameRateListener {
         public float downY;
         public final /* synthetic */ FpsDecorator this$0;
 
-        /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public FloatOnTouchListener(FpsDecorator fpsDecorator) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -149,123 +148,6 @@ public final class FpsDecorator extends FrameRateListener {
                 }
             }
             this.this$0 = fpsDecorator;
-        }
-
-        public final int getDownOffsetX() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.downOffsetX : invokeV.intValue;
-        }
-
-        public final int getDownOffsetY() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.downOffsetY : invokeV.intValue;
-        }
-
-        public final float getDownX() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.downX : invokeV.floatValue;
-        }
-
-        public final float getDownY() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.downY : invokeV.floatValue;
-        }
-
-        @Override // android.view.View.OnTouchListener
-        public boolean onTouch(final View view2, MotionEvent motionEvent) {
-            InterceptResult invokeLL;
-            int i;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, view2, motionEvent)) == null) {
-                Integer valueOf = motionEvent != null ? Integer.valueOf(motionEvent.getAction()) : null;
-                if (valueOf != null && valueOf.intValue() == 0) {
-                    this.downX = motionEvent.getX();
-                    this.downY = motionEvent.getY();
-                    this.downOffsetX = FpsDecorator.access$getWindowLp$p(this.this$0).x;
-                    this.downOffsetY = FpsDecorator.access$getWindowLp$p(this.this$0).y;
-                } else {
-                    if (valueOf != null && valueOf.intValue() == 2) {
-                        float x = motionEvent.getX();
-                        float y = motionEvent.getY();
-                        float f = 3;
-                        FpsDecorator.access$getWindowLp$p(this.this$0).x += (int) ((x - this.downX) / f);
-                        FpsDecorator.access$getWindowLp$p(this.this$0).y += (int) ((y - this.downY) / f);
-                        FpsDecorator.access$getWindowLp$p(this.this$0).y = FpsDecorator.access$getWindowLp$p(this.this$0).y < 0 ? 0 : FpsDecorator.access$getWindowLp$p(this.this$0).y;
-                        FpsDecorator.access$getWindowLp$p(this.this$0).x = FpsDecorator.access$getWindowLp$p(this.this$0).x >= 0 ? FpsDecorator.access$getWindowLp$p(this.this$0).x : 0;
-                        int i2 = this.this$0.displayMetrics.widthPixels;
-                        Intrinsics.checkNotNull(view2);
-                        int width = i2 - view2.getWidth();
-                        WindowManager.LayoutParams access$getWindowLp$p = FpsDecorator.access$getWindowLp$p(this.this$0);
-                        if (FpsDecorator.access$getWindowLp$p(this.this$0).x <= width) {
-                            width = FpsDecorator.access$getWindowLp$p(this.this$0).x;
-                        }
-                        access$getWindowLp$p.x = width;
-                        FpsDecorator.access$getWindowManager$p(this.this$0).updateViewLayout(view2, FpsDecorator.access$getWindowLp$p(this.this$0));
-                    } else if (valueOf != null && valueOf.intValue() == 1) {
-                        int i3 = FpsDecorator.access$getWindowLp$p(this.this$0).x;
-                        if (FpsDecorator.access$getWindowLp$p(this.this$0).x > this.this$0.displayMetrics.widthPixels / 2) {
-                            int i4 = this.this$0.displayMetrics.widthPixels;
-                            Intrinsics.checkNotNull(view2);
-                            i = i4 - view2.getWidth();
-                        } else {
-                            i = 0;
-                        }
-                        ValueAnimator animator = ValueAnimator.ofPropertyValuesHolder(PropertyValuesHolder.ofInt("trans", i3, i));
-                        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this, view2) { // from class: com.baidu.searchbox.fluency.view.FpsDecorator$FloatOnTouchListener$onTouch$1
-                            public static /* synthetic */ Interceptable $ic;
-                            public transient /* synthetic */ FieldHolder $fh;
-                            public final /* synthetic */ View $v;
-                            public final /* synthetic */ FpsDecorator.FloatOnTouchListener this$0;
-
-                            {
-                                Interceptable interceptable2 = $ic;
-                                if (interceptable2 != null) {
-                                    InitContext newInitContext = TitanRuntime.newInitContext();
-                                    newInitContext.initArgs = r2;
-                                    Object[] objArr = {this, view2};
-                                    interceptable2.invokeUnInit(65536, newInitContext);
-                                    int i5 = newInitContext.flag;
-                                    if ((i5 & 1) != 0) {
-                                        int i6 = i5 & 2;
-                                        newInitContext.thisArg = this;
-                                        interceptable2.invokeInitBody(65536, newInitContext);
-                                        return;
-                                    }
-                                }
-                                this.this$0 = this;
-                                this.$v = view2;
-                            }
-
-                            @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-                            public final void onAnimationUpdate(ValueAnimator valueAnimator) {
-                                boolean z;
-                                Interceptable interceptable2 = $ic;
-                                if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator) == null) {
-                                    z = this.this$0.this$0.isShowing;
-                                    if (z) {
-                                        Object animatedValue = valueAnimator.getAnimatedValue("trans");
-                                        if (animatedValue != null) {
-                                            FpsDecorator.access$getWindowLp$p(this.this$0.this$0).x = ((Integer) animatedValue).intValue();
-                                            FpsDecorator.access$getWindowManager$p(this.this$0.this$0).updateViewLayout(this.$v, FpsDecorator.access$getWindowLp$p(this.this$0.this$0));
-                                            return;
-                                        }
-                                        throw new NullPointerException("null cannot be cast to non-null type kotlin.Int");
-                                    }
-                                }
-                            }
-                        });
-                        Intrinsics.checkNotNullExpressionValue(animator, "animator");
-                        animator.setInterpolator(new AccelerateInterpolator());
-                        animator.setDuration(180L).start();
-                    }
-                }
-                return true;
-            }
-            return invokeLL.booleanValue;
         }
 
         public final void setDownOffsetX(int i) {
@@ -295,6 +177,154 @@ public final class FpsDecorator extends FrameRateListener {
                 this.downY = f;
             }
         }
+
+        public final int getDownOffsetX() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.downOffsetX;
+            }
+            return invokeV.intValue;
+        }
+
+        public final int getDownOffsetY() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.downOffsetY;
+            }
+            return invokeV.intValue;
+        }
+
+        public final float getDownX() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.downX;
+            }
+            return invokeV.floatValue;
+        }
+
+        public final float getDownY() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.downY;
+            }
+            return invokeV.floatValue;
+        }
+
+        @Override // android.view.View.OnTouchListener
+        public boolean onTouch(final View view2, MotionEvent motionEvent) {
+            InterceptResult invokeLL;
+            Integer num;
+            int i;
+            int i2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, view2, motionEvent)) == null) {
+                if (motionEvent != null) {
+                    num = Integer.valueOf(motionEvent.getAction());
+                } else {
+                    num = null;
+                }
+                if (num != null && num.intValue() == 0) {
+                    this.downX = motionEvent.getX();
+                    this.downY = motionEvent.getY();
+                    this.downOffsetX = FpsDecorator.access$getWindowLp$p(this.this$0).x;
+                    this.downOffsetY = FpsDecorator.access$getWindowLp$p(this.this$0).y;
+                } else {
+                    int i3 = 0;
+                    if (num != null && num.intValue() == 2) {
+                        float x = motionEvent.getX();
+                        float y = motionEvent.getY();
+                        float f = 3;
+                        FpsDecorator.access$getWindowLp$p(this.this$0).x += (int) ((x - this.downX) / f);
+                        FpsDecorator.access$getWindowLp$p(this.this$0).y += (int) ((y - this.downY) / f);
+                        WindowManager.LayoutParams access$getWindowLp$p = FpsDecorator.access$getWindowLp$p(this.this$0);
+                        if (FpsDecorator.access$getWindowLp$p(this.this$0).y < 0) {
+                            i2 = 0;
+                        } else {
+                            i2 = FpsDecorator.access$getWindowLp$p(this.this$0).y;
+                        }
+                        access$getWindowLp$p.y = i2;
+                        WindowManager.LayoutParams access$getWindowLp$p2 = FpsDecorator.access$getWindowLp$p(this.this$0);
+                        if (FpsDecorator.access$getWindowLp$p(this.this$0).x >= 0) {
+                            i3 = FpsDecorator.access$getWindowLp$p(this.this$0).x;
+                        }
+                        access$getWindowLp$p2.x = i3;
+                        int i4 = this.this$0.displayMetrics.widthPixels;
+                        Intrinsics.checkNotNull(view2);
+                        int width = i4 - view2.getWidth();
+                        WindowManager.LayoutParams access$getWindowLp$p3 = FpsDecorator.access$getWindowLp$p(this.this$0);
+                        if (FpsDecorator.access$getWindowLp$p(this.this$0).x <= width) {
+                            width = FpsDecorator.access$getWindowLp$p(this.this$0).x;
+                        }
+                        access$getWindowLp$p3.x = width;
+                        FpsDecorator.access$getWindowManager$p(this.this$0).updateViewLayout(view2, FpsDecorator.access$getWindowLp$p(this.this$0));
+                    } else if (num != null && num.intValue() == 1) {
+                        int i5 = FpsDecorator.access$getWindowLp$p(this.this$0).x;
+                        if (FpsDecorator.access$getWindowLp$p(this.this$0).x > this.this$0.displayMetrics.widthPixels / 2) {
+                            int i6 = this.this$0.displayMetrics.widthPixels;
+                            Intrinsics.checkNotNull(view2);
+                            i = i6 - view2.getWidth();
+                        } else {
+                            i = 0;
+                        }
+                        ValueAnimator animator = ValueAnimator.ofPropertyValuesHolder(PropertyValuesHolder.ofInt("trans", i5, i));
+                        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this, view2) { // from class: com.baidu.searchbox.fluency.view.FpsDecorator$FloatOnTouchListener$onTouch$1
+                            public static /* synthetic */ Interceptable $ic;
+                            public transient /* synthetic */ FieldHolder $fh;
+                            public final /* synthetic */ View $v;
+                            public final /* synthetic */ FpsDecorator.FloatOnTouchListener this$0;
+
+                            {
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 != null) {
+                                    InitContext newInitContext = TitanRuntime.newInitContext();
+                                    newInitContext.initArgs = r2;
+                                    Object[] objArr = {this, view2};
+                                    interceptable2.invokeUnInit(65536, newInitContext);
+                                    int i7 = newInitContext.flag;
+                                    if ((i7 & 1) != 0) {
+                                        int i8 = i7 & 2;
+                                        newInitContext.thisArg = this;
+                                        interceptable2.invokeInitBody(65536, newInitContext);
+                                        return;
+                                    }
+                                }
+                                this.this$0 = this;
+                                this.$v = view2;
+                            }
+
+                            @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+                            public final void onAnimationUpdate(ValueAnimator valueAnimator) {
+                                boolean z;
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 != null && interceptable2.invokeL(1048576, this, valueAnimator) != null) {
+                                    return;
+                                }
+                                z = this.this$0.this$0.isShowing;
+                                if (!z) {
+                                    return;
+                                }
+                                Object animatedValue = valueAnimator.getAnimatedValue("trans");
+                                if (animatedValue != null) {
+                                    FpsDecorator.access$getWindowLp$p(this.this$0.this$0).x = ((Integer) animatedValue).intValue();
+                                    FpsDecorator.access$getWindowManager$p(this.this$0.this$0).updateViewLayout(this.$v, FpsDecorator.access$getWindowLp$p(this.this$0.this$0));
+                                    return;
+                                }
+                                throw new NullPointerException("null cannot be cast to non-null type kotlin.Int");
+                            }
+                        });
+                        Intrinsics.checkNotNullExpressionValue(animator, "animator");
+                        animator.setInterpolator(new AccelerateInterpolator());
+                        animator.setDuration(180L).start();
+                    }
+                }
+                return true;
+            }
+            return invokeLL.booleanValue;
+        }
     }
 
     static {
@@ -312,6 +342,130 @@ public final class FpsDecorator extends FrameRateListener {
         }
         Companion = new Companion(null);
         lock = new Object();
+    }
+
+    public final void dismiss() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !this.isEnable) {
+            return;
+        }
+        this.mainHandler.post(new Runnable(this) { // from class: com.baidu.searchbox.fluency.view.FpsDecorator$dismiss$1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ FpsDecorator this$0;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
+            @Override // java.lang.Runnable
+            public final void run() {
+                boolean z;
+                FpsFloatView fpsFloatView;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
+                    return;
+                }
+                z = this.this$0.isShowing;
+                if (!z) {
+                    return;
+                }
+                this.this$0.isShowing = false;
+                WindowManager access$getWindowManager$p = FpsDecorator.access$getWindowManager$p(this.this$0);
+                fpsFloatView = this.this$0.floatView;
+                access$getWindowManager$p.removeView(fpsFloatView);
+            }
+        });
+    }
+
+    @Override // com.baidu.searchbox.fluency.listener.FrameRateListener
+    public Executor getExecutor() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.executor;
+        }
+        return (Executor) invokeV.objValue;
+    }
+
+    public final boolean isEnable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.isEnable;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean isShowing() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.isShowing;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void show() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || !this.isEnable) {
+            return;
+        }
+        this.mainHandler.post(new Runnable(this) { // from class: com.baidu.searchbox.fluency.view.FpsDecorator$show$1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ FpsDecorator this$0;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
+            @Override // java.lang.Runnable
+            public final void run() {
+                boolean z;
+                FpsFloatView fpsFloatView;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
+                    return;
+                }
+                z = this.this$0.isShowing;
+                if (z) {
+                    return;
+                }
+                this.this$0.isShowing = true;
+                WindowManager access$getWindowManager$p = FpsDecorator.access$getWindowManager$p(this.this$0);
+                fpsFloatView = this.this$0.floatView;
+                access$getWindowManager$p.addView(fpsFloatView, FpsDecorator.access$getWindowLp$p(this.this$0));
+            }
+        });
     }
 
     public FpsDecorator(Context context, FpsFloatView floatView) {
@@ -373,10 +527,11 @@ public final class FpsDecorator extends FrameRateListener {
             public final void execute(Runnable runnable) {
                 Handler handler;
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, runnable) == null) {
-                    handler = this.this$0.getHandler();
-                    handler.post(runnable);
+                if (interceptable2 != null && interceptable2.invokeL(1048576, this, runnable) != null) {
+                    return;
                 }
+                handler = this.this$0.getHandler();
+                handler.post(runnable);
             }
         };
         TextView fpsView = this.floatView.getFpsView();
@@ -464,6 +619,13 @@ public final class FpsDecorator extends FrameRateListener {
             return this.frozenColor;
         }
         return invokeI.intValue;
+    }
+
+    public final void setEnable(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.isEnable = z;
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -577,20 +739,58 @@ public final class FpsDecorator extends FrameRateListener {
     }
 
     private final void updateView(final FpsFloatView fpsFloatView, final int i, final String str, final int i2, final int i3, final int i4, final int i5) {
+        float f;
+        float f2;
+        float f3;
+        float f4;
+        float f5;
+        float f6;
+        float f7;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65556, this, new Object[]{fpsFloatView, Integer.valueOf(i), str, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             int i6 = i2 + i3 + i4 + i5;
-            float f = i6 <= 0 ? 0.0f : ((i5 * 1.0f) / i6) * 60;
-            float f2 = i6 <= 0 ? 0.0f : ((i4 * 1.0f) / i6) * 30;
-            float f3 = i6 <= 0 ? 0.0f : ((i3 * 1.0f) / i6) * 15;
-            float f4 = i6 <= 0 ? 0.0f : ((i2 * 1.0f) / i6) * 5;
+            float f8 = 0.0f;
+            if (i6 <= 0) {
+                f = 0.0f;
+            } else {
+                f = ((i5 * 1.0f) / i6) * 60;
+            }
+            if (i6 <= 0) {
+                f2 = 0.0f;
+            } else {
+                f2 = ((i4 * 1.0f) / i6) * 30;
+            }
+            if (i6 <= 0) {
+                f3 = 0.0f;
+            } else {
+                f3 = ((i3 * 1.0f) / i6) * 15;
+            }
+            if (i6 <= 0) {
+                f4 = 0.0f;
+            } else {
+                f4 = ((i2 * 1.0f) / i6) * 5;
+            }
             StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
             final String format = String.format("平均丢帧: %.1f", Arrays.copyOf(new Object[]{Float.valueOf(f + f2 + f3 + f4)}, 1));
             Intrinsics.checkNotNullExpressionValue(format, "java.lang.String.format(format, *args)");
-            float f5 = i6 <= 0 ? 0.0f : (i5 * 1.0f) / i6;
-            float f6 = i6 <= 0 ? 0.0f : (i4 * 1.0f) / i6;
-            float f7 = i6 <= 0 ? 0.0f : (i3 * 1.0f) / i6;
-            float f8 = i6 > 0 ? (i2 * 1.0f) / i6 : 0.0f;
+            if (i6 <= 0) {
+                f5 = 0.0f;
+            } else {
+                f5 = (i5 * 1.0f) / i6;
+            }
+            if (i6 <= 0) {
+                f6 = 0.0f;
+            } else {
+                f6 = (i4 * 1.0f) / i6;
+            }
+            if (i6 <= 0) {
+                f7 = 0.0f;
+            } else {
+                f7 = (i3 * 1.0f) / i6;
+            }
+            if (i6 > 0) {
+                f8 = (i2 * 1.0f) / i6;
+            }
             StringCompanionObject stringCompanionObject2 = StringCompanionObject.INSTANCE;
             final String format2 = String.format("%.2f", Arrays.copyOf(new Object[]{Float.valueOf(f5)}, 1));
             Intrinsics.checkNotNullExpressionValue(format2, "java.lang.String.format(format, *args)");
@@ -682,51 +882,6 @@ public final class FpsDecorator extends FrameRateListener {
         }
     }
 
-    public final void dismiss() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.isEnable) {
-            this.mainHandler.post(new Runnable(this) { // from class: com.baidu.searchbox.fluency.view.FpsDecorator$dismiss$1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ FpsDecorator this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    boolean z;
-                    FpsFloatView fpsFloatView;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        z = this.this$0.isShowing;
-                        if (z) {
-                            this.this$0.isShowing = false;
-                            WindowManager access$getWindowManager$p = FpsDecorator.access$getWindowManager$p(this.this$0);
-                            fpsFloatView = this.this$0.floatView;
-                            access$getWindowManager$p.removeView(fpsFloatView);
-                        }
-                    }
-                }
-            });
-        }
-    }
-
     @Override // com.baidu.searchbox.fluency.listener.FrameRateListener
     public void doFrameAsync(String topPage, long j, long j2, int i, boolean z, long j3, long j4, long j5) {
         Interceptable interceptable = $ic;
@@ -769,78 +924,6 @@ public final class FpsDecorator extends FrameRateListener {
                 this.lastCost = this.sumFrameCost;
                 this.lastFrames = this.sumFrames;
             }
-        }
-    }
-
-    @Override // com.baidu.searchbox.fluency.listener.FrameRateListener
-    public Executor getExecutor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.executor : (Executor) invokeV.objValue;
-    }
-
-    public final boolean isEnable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.isEnable : invokeV.booleanValue;
-    }
-
-    public final boolean isShowing() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.isShowing : invokeV.booleanValue;
-    }
-
-    public final void setEnable(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.isEnable = z;
-        }
-    }
-
-    public final void show() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.isEnable) {
-            this.mainHandler.post(new Runnable(this) { // from class: com.baidu.searchbox.fluency.view.FpsDecorator$show$1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ FpsDecorator this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    boolean z;
-                    FpsFloatView fpsFloatView;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        z = this.this$0.isShowing;
-                        if (z) {
-                            return;
-                        }
-                        this.this$0.isShowing = true;
-                        WindowManager access$getWindowManager$p = FpsDecorator.access$getWindowManager$p(this.this$0);
-                        fpsFloatView = this.this$0.floatView;
-                        access$getWindowManager$p.addView(fpsFloatView, FpsDecorator.access$getWindowLp$p(this.this$0));
-                    }
-                }
-            });
         }
     }
 }

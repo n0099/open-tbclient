@@ -40,28 +40,6 @@ public class SmoothProgressBar extends RotateProgressBar {
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SmoothProgressBar(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        a();
-    }
-
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
@@ -69,27 +47,25 @@ public class SmoothProgressBar extends RotateProgressBar {
         }
     }
 
-    @Override // com.baidu.swan.apps.res.ui.RotateProgressBar, android.widget.ProgressBar, android.view.View
-    public synchronized void onDraw(Canvas canvas) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public SmoothProgressBar(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            synchronized (this) {
-                Drawable drawable = this.b;
-                if (drawable != null) {
-                    drawable.draw(canvas);
-                    if (SystemClock.uptimeMillis() - this.c >= this.d) {
-                        this.c = SystemClock.uptimeMillis();
-                        int i = this.a + (10000 / e);
-                        this.a = i;
-                        if (i >= 10000) {
-                            this.a = i - 10000;
-                        }
-                        drawable.setLevel(this.a);
-                        postInvalidateDelayed(this.d);
-                    }
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        a();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -115,23 +91,47 @@ public class SmoothProgressBar extends RotateProgressBar {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SmoothProgressBar(Context context) {
-        super(context);
+    public SmoothProgressBar(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65539, newInitContext);
                 return;
             }
         }
         a();
+    }
+
+    @Override // com.baidu.swan.apps.res.ui.RotateProgressBar, android.widget.ProgressBar, android.view.View
+    public synchronized void onDraw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
+            synchronized (this) {
+                Drawable drawable = this.b;
+                if (drawable != null) {
+                    drawable.draw(canvas);
+                    if (SystemClock.uptimeMillis() - this.c >= this.d) {
+                        this.c = SystemClock.uptimeMillis();
+                        int i = this.a + (10000 / e);
+                        this.a = i;
+                        if (i >= 10000) {
+                            this.a = i - 10000;
+                        }
+                        drawable.setLevel(this.a);
+                        postInvalidateDelayed(this.d);
+                    }
+                }
+            }
+        }
     }
 }

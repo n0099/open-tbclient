@@ -49,8 +49,14 @@ public class CpuMonitor {
     public final MovingAverage totalCpuUsage;
     public final MovingAverage userCpuUsage;
 
+    private int doubleToPercent(double d) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{Double.valueOf(d)})) == null) ? (int) ((d * 100.0d) + 0.5d) : invokeCommon.intValue;
+    }
+
     /* loaded from: classes2.dex */
-    public static class MovingAverage {
+    public class MovingAverage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public double[] circBuffer;
@@ -104,13 +110,19 @@ public class CpuMonitor {
         public double getAverage() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.sum / this.size : invokeV.doubleValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.sum / this.size;
+            }
+            return invokeV.doubleValue;
         }
 
         public double getCurrent() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.currentValue : invokeV.doubleValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.currentValue;
+            }
+            return invokeV.doubleValue;
         }
 
         public void reset() {
@@ -125,7 +137,7 @@ public class CpuMonitor {
     }
 
     /* loaded from: classes2.dex */
-    public static class ProcStat {
+    public class ProcStat {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long idleTime;
@@ -178,6 +190,36 @@ public class CpuMonitor {
         scheduleCpuUtilizationTask();
     }
 
+    public static long parseLong(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            try {
+                return Long.parseLong(str);
+            } catch (NumberFormatException e) {
+                Log.e(TAG, "parseLong error.", e);
+                return 0L;
+            }
+        }
+        return invokeL.longValue;
+    }
+
+    private long readFreqFromFile(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, str)) == null) {
+            long j = 0;
+            try {
+                BufferedReader bufferedReader = new BufferedReader(new FileReader(str));
+                j = parseLong(bufferedReader.readLine());
+                bufferedReader.close();
+            } catch (FileNotFoundException | IOException unused) {
+            }
+            return j;
+        }
+        return invokeL.longValue;
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public void cpuUtilizationTask() {
         Interceptable interceptable = $ic;
@@ -187,10 +229,105 @@ public class CpuMonitor {
         }
     }
 
-    private int doubleToPercent(double d) {
-        InterceptResult invokeCommon;
+    private synchronized void resetStat() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{Double.valueOf(d)})) == null) ? (int) ((d * 100.0d) + 0.5d) : invokeCommon.intValue;
+        if (interceptable == null || interceptable.invokeV(65546, this) == null) {
+            synchronized (this) {
+                this.userCpuUsage.reset();
+                this.systemCpuUsage.reset();
+                this.totalCpuUsage.reset();
+                this.frequencyScale.reset();
+                this.lastStatLogTimeMs = SystemClock.elapsedRealtime();
+            }
+        }
+    }
+
+    private void scheduleCpuUtilizationTask() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65548, this) == null) {
+            ScheduledExecutorService scheduledExecutorService = this.executor;
+            if (scheduledExecutorService != null) {
+                scheduledExecutorService.shutdownNow();
+                this.executor = null;
+            }
+            ScheduledExecutorService newSingleThreadScheduledExecutor = Executors.newSingleThreadScheduledExecutor();
+            this.executor = newSingleThreadScheduledExecutor;
+            newSingleThreadScheduledExecutor.scheduleAtFixedRate(new Runnable(this) { // from class: com.baidu.rtc.logreport.CpuMonitor.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ CpuMonitor this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        this.this$0.cpuUtilizationTask();
+                    }
+                }
+            }, 0L, 2000L, TimeUnit.MILLISECONDS);
+        }
+    }
+
+    public synchronized int getFrequencyScaleAverage() {
+        InterceptResult invokeV;
+        int doubleToPercent;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this) {
+                doubleToPercent = doubleToPercent(this.frequencyScale.getAverage());
+            }
+            return doubleToPercent;
+        }
+        return invokeV.intValue;
+    }
+
+    public void pause() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.executor != null) {
+            Log.d(TAG, "pause");
+            this.executor.shutdownNow();
+            this.executor = null;
+        }
+    }
+
+    public synchronized void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (this) {
+                if (this.executor != null) {
+                    Log.d(TAG, "reset");
+                    resetStat();
+                    this.cpuOveruse = false;
+                }
+            }
+        }
+    }
+
+    public void resume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            Log.d(TAG, "resume");
+            resetStat();
+            scheduleCpuUtilizationTask();
+        }
     }
 
     private int getBatteryLevel() {
@@ -199,10 +336,38 @@ public class CpuMonitor {
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             Intent registerReceiver = this.appContext.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
             int intExtra = registerReceiver.getIntExtra("scale", 100);
-            if (intExtra > 0) {
-                return (int) ((registerReceiver.getIntExtra(PollingModel.LEVEL, 0) * 100.0f) / intExtra);
+            if (intExtra <= 0) {
+                return 0;
             }
-            return 0;
+            return (int) ((registerReceiver.getIntExtra(PollingModel.LEVEL, 0) * 100.0f) / intExtra);
+        }
+        return invokeV.intValue;
+    }
+
+    public synchronized int getCpuUsageAverage() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                if (Build.VERSION.SDK_INT >= 19 && Build.VERSION.SDK_INT <= 24) {
+                    return doubleToPercent(this.userCpuUsage.getAverage() + this.systemCpuUsage.getAverage());
+                }
+                return -1;
+            }
+        }
+        return invokeV.intValue;
+    }
+
+    public synchronized int getCpuUsageCurrent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            synchronized (this) {
+                if (Build.VERSION.SDK_INT >= 19 && Build.VERSION.SDK_INT <= 24) {
+                    return doubleToPercent(this.userCpuUsage.getCurrent() + this.systemCpuUsage.getCurrent());
+                }
+                return -1;
+            }
         }
         return invokeV.intValue;
     }
@@ -290,36 +455,6 @@ public class CpuMonitor {
         }
     }
 
-    public static long parseLong(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            try {
-                return Long.parseLong(str);
-            } catch (NumberFormatException e) {
-                Log.e(TAG, "parseLong error.", e);
-                return 0L;
-            }
-        }
-        return invokeL.longValue;
-    }
-
-    private long readFreqFromFile(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, str)) == null) {
-            long j = 0;
-            try {
-                BufferedReader bufferedReader = new BufferedReader(new FileReader(str));
-                j = parseLong(bufferedReader.readLine());
-                bufferedReader.close();
-            } catch (FileNotFoundException | IOException unused) {
-            }
-            return j;
-        }
-        return invokeL.longValue;
-    }
-
     private ProcStat readProcStat() {
         InterceptResult invokeV;
         long j;
@@ -360,19 +495,6 @@ public class CpuMonitor {
             }
         }
         return (ProcStat) invokeV.objValue;
-    }
-
-    private synchronized void resetStat() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            synchronized (this) {
-                this.userCpuUsage.reset();
-                this.systemCpuUsage.reset();
-                this.totalCpuUsage.reset();
-                this.frequencyScale.reset();
-                this.lastStatLogTimeMs = SystemClock.elapsedRealtime();
-            }
-        }
     }
 
     private synchronized boolean sampleCpuUtilization() {
@@ -449,122 +571,5 @@ public class CpuMonitor {
             }
         }
         return invokeV.booleanValue;
-    }
-
-    private void scheduleCpuUtilizationTask() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65548, this) == null) {
-            ScheduledExecutorService scheduledExecutorService = this.executor;
-            if (scheduledExecutorService != null) {
-                scheduledExecutorService.shutdownNow();
-                this.executor = null;
-            }
-            ScheduledExecutorService newSingleThreadScheduledExecutor = Executors.newSingleThreadScheduledExecutor();
-            this.executor = newSingleThreadScheduledExecutor;
-            newSingleThreadScheduledExecutor.scheduleAtFixedRate(new Runnable(this) { // from class: com.baidu.rtc.logreport.CpuMonitor.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ CpuMonitor this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.this$0.cpuUtilizationTask();
-                    }
-                }
-            }, 0L, 2000L, TimeUnit.MILLISECONDS);
-        }
-    }
-
-    public synchronized int getCpuUsageAverage() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this) {
-                if (Build.VERSION.SDK_INT >= 19 && Build.VERSION.SDK_INT <= 24) {
-                    return doubleToPercent(this.userCpuUsage.getAverage() + this.systemCpuUsage.getAverage());
-                }
-                return -1;
-            }
-        }
-        return invokeV.intValue;
-    }
-
-    public synchronized int getCpuUsageCurrent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            synchronized (this) {
-                if (Build.VERSION.SDK_INT >= 19 && Build.VERSION.SDK_INT <= 24) {
-                    return doubleToPercent(this.userCpuUsage.getCurrent() + this.systemCpuUsage.getCurrent());
-                }
-                return -1;
-            }
-        }
-        return invokeV.intValue;
-    }
-
-    public synchronized int getFrequencyScaleAverage() {
-        InterceptResult invokeV;
-        int doubleToPercent;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this) {
-                doubleToPercent = doubleToPercent(this.frequencyScale.getAverage());
-            }
-            return doubleToPercent;
-        }
-        return invokeV.intValue;
-    }
-
-    public void pause() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.executor == null) {
-            return;
-        }
-        Log.d(TAG, "pause");
-        this.executor.shutdownNow();
-        this.executor = null;
-    }
-
-    public synchronized void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this) {
-                if (this.executor != null) {
-                    Log.d(TAG, "reset");
-                    resetStat();
-                    this.cpuOveruse = false;
-                }
-            }
-        }
-    }
-
-    public void resume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            Log.d(TAG, "resume");
-            resetStat();
-            scheduleCpuUtilizationTask();
-        }
     }
 }

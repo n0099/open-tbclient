@@ -4,8 +4,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -110,8 +108,7 @@ public final class BundleCompat {
         }
     }
 
-    @Nullable
-    public static IBinder getBinder(@NonNull Bundle bundle, @Nullable String str) {
+    public static IBinder getBinder(Bundle bundle, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bundle, str)) == null) {
@@ -123,7 +120,7 @@ public final class BundleCompat {
         return (IBinder) invokeLL.objValue;
     }
 
-    public static void putBinder(@NonNull Bundle bundle, @Nullable String str, @Nullable IBinder iBinder) {
+    public static void putBinder(Bundle bundle, String str, IBinder iBinder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65538, null, bundle, str, iBinder) == null) {
             if (Build.VERSION.SDK_INT >= 18) {

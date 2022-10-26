@@ -82,7 +82,7 @@ public class c {
         return (c) invokeV.objValue;
     }
 
-    private String a(String str, String str2, HashMap<String, String> hashMap) {
+    private String a(String str, String str2, HashMap hashMap) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, str, str2, hashMap)) == null) {
@@ -91,7 +91,7 @@ public class c {
             for (String str3 : treeSet) {
                 sb.append(str3);
                 sb.append("=");
-                sb.append(hashMap.get(str3));
+                sb.append((String) hashMap.get(str3));
             }
             return f.a((str + str2 + sb.toString()).getBytes(), false);
         }
@@ -99,11 +99,11 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public HashMap<String, String> a(Context context, String str, String str2) {
+    public HashMap a(Context context, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, this, context, str, str2)) == null) {
-            HashMap<String, String> hashMap = new HashMap<>();
+            HashMap hashMap = new HashMap();
             hashMap.put(TableDefine.ZhiDaColumns.COLUMN_APIKEY, i.a(context, "com.baidu.android.pushservice.PushManager.LONGIN_VALUE"));
             long currentTimeMillis = System.currentTimeMillis() / 1000;
             hashMap.put("timestamp", currentTimeMillis + "");
@@ -118,10 +118,10 @@ public class c {
             }
             hashMap.put("sign", a("POST", str2, hashMap));
             StringBuilder sb = new StringBuilder();
-            for (Map.Entry<String, String> entry : hashMap.entrySet()) {
-                sb.append((Object) entry.getKey());
+            for (Map.Entry entry : hashMap.entrySet()) {
+                sb.append(entry.getKey());
                 sb.append("=");
-                sb.append((Object) entry.getValue());
+                sb.append(entry.getValue());
                 sb.append(" ");
             }
             return hashMap;

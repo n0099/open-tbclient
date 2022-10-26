@@ -44,18 +44,19 @@ public class RestartableNonResettableInputStream extends RestartableInputStream 
         this.input = inputStream;
         while (true) {
             int i4 = this.length;
-            if (i4 >= i) {
-                return;
-            }
-            try {
-                int read = this.input.read(this.buffer, i4, i - i4);
-                if (read < 0) {
-                    this.eof = true;
-                    return;
+            if (i4 < i) {
+                try {
+                    int read = this.input.read(this.buffer, i4, i - i4);
+                    if (read < 0) {
+                        this.eof = true;
+                        return;
+                    }
+                    this.length += read;
+                } catch (IOException e) {
+                    throw new BceClientException("Fail to read data from input.", e);
                 }
-                this.length += read;
-            } catch (IOException e) {
-                throw new BceClientException("Fail to read data from input.", e);
+            } else {
+                return;
             }
         }
     }
@@ -66,43 +67,6 @@ public class RestartableNonResettableInputStream extends RestartableInputStream 
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.input.close();
         }
-    }
-
-    @Override // java.io.InputStream
-    public int read(byte[] bArr, int i, int i2) throws IOException {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i, i2)) == null) {
-            CheckUtils.isNotNull(bArr, "b should not be null.");
-            if (i < 0 || i2 < 0 || i2 > bArr.length - i) {
-                throw new IndexOutOfBoundsException();
-            }
-            if (i2 == 0) {
-                return 0;
-            }
-            int i3 = this.offset;
-            int i4 = this.length;
-            if (i3 < i4) {
-                int i5 = i4 - i3;
-                if (i5 <= i2) {
-                    i2 = i5;
-                }
-                System.arraycopy(this.buffer, this.offset, bArr, i, i2);
-                this.offset += i2;
-                return i2;
-            } else if (this.eof) {
-                return -1;
-            } else {
-                int read = this.input.read(bArr, i, i2);
-                if (read < 0) {
-                    this.eof = true;
-                    return -1;
-                }
-                this.buffer = null;
-                return read;
-            }
-        }
-        return invokeLII.intValue;
     }
 
     @Override // com.baidubce.internal.RestartableInputStream
@@ -140,5 +104,42 @@ public class RestartableNonResettableInputStream extends RestartableInputStream 
             }
         }
         return invokeV.intValue;
+    }
+
+    @Override // java.io.InputStream
+    public int read(byte[] bArr, int i, int i2) throws IOException {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i, i2)) == null) {
+            CheckUtils.isNotNull(bArr, "b should not be null.");
+            if (i >= 0 && i2 >= 0 && i2 <= bArr.length - i) {
+                if (i2 == 0) {
+                    return 0;
+                }
+                int i3 = this.offset;
+                int i4 = this.length;
+                if (i3 < i4) {
+                    int i5 = i4 - i3;
+                    if (i5 <= i2) {
+                        i2 = i5;
+                    }
+                    System.arraycopy(this.buffer, this.offset, bArr, i, i2);
+                    this.offset += i2;
+                    return i2;
+                } else if (this.eof) {
+                    return -1;
+                } else {
+                    int read = this.input.read(bArr, i, i2);
+                    if (read < 0) {
+                        this.eof = true;
+                        return -1;
+                    }
+                    this.buffer = null;
+                    return read;
+                }
+            }
+            throw new IndexOutOfBoundsException();
+        }
+        return invokeLII.intValue;
     }
 }

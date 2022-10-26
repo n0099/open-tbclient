@@ -1,7 +1,6 @@
 package com.kwad.components.ad.fullscreen.b.b;
 
 import android.widget.FrameLayout;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
@@ -71,7 +70,7 @@ public final class a extends com.kwad.components.ad.reward.presenter.c.a impleme
     }
 
     @Override // com.kwad.components.ad.reward.d.f
-    public final void a(PlayableSource playableSource, @Nullable j jVar) {
+    public final void a(PlayableSource playableSource, j jVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, playableSource, jVar) == null) {
         }
@@ -155,7 +154,7 @@ public final class a extends com.kwad.components.ad.reward.presenter.c.a impleme
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onCreate();
-            this.fl = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0910e6);
+            this.fl = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0910da);
         }
     }
 

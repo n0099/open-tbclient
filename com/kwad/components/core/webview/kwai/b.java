@@ -2,7 +2,6 @@ package com.kwad.components.core.webview.kwai;
 
 import android.graphics.Bitmap;
 import android.webkit.WebChromeClient;
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,7 +27,6 @@ public class b extends WebChromeClient {
     }
 
     @Override // android.webkit.WebChromeClient
-    @Nullable
     public Bitmap getDefaultVideoPoster() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

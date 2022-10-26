@@ -37,6 +37,34 @@ public abstract class LiveBaseItemView extends RelativeLayout {
         void b(int i);
     }
 
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    public abstract void setData(LiveRoomEntity liveRoomEntity, int i);
+
+    public abstract void setIsCurViewing(boolean z);
+
+    public void setUiMode(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LiveBaseItemView(Context context) {
         super(context);
@@ -58,94 +86,6 @@ public abstract class LiveBaseItemView extends RelativeLayout {
         this.a = false;
         this.b = 1.0f;
         this.c = LiveFeedPageSdk.HOST_LIVE_TAB;
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    @Override // android.widget.RelativeLayout, android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
-            if (this.a) {
-                i2 = View.MeasureSpec.makeMeasureSpec((int) (View.MeasureSpec.getSize(i) * this.b), 1073741824);
-            }
-            super.onMeasure(i, i2);
-        }
-    }
-
-    public void setAspectRatio(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048580, this, f) == null) {
-            this.b = f;
-        }
-    }
-
-    public void setBannerClickListener(Live4Ratio5BannerItemView.c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
-            this.e = cVar;
-        }
-    }
-
-    public abstract void setData(LiveRoomEntity liveRoomEntity, int i);
-
-    public void setFeedConfig(LiveFeedConfig liveFeedConfig) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, liveFeedConfig) == null) {
-            this.d = liveFeedConfig;
-        }
-    }
-
-    public abstract void setIsCurViewing(boolean z);
-
-    public void setNeedRatio(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.a = z;
-        }
-    }
-
-    public void setOnLabelClickListener(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, aVar) == null) {
-            this.f = aVar;
-        }
-    }
-
-    public void setOnTopicItemClickListener(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, bVar) == null) {
-            this.g = bVar;
-        }
-    }
-
-    public void setScene(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            this.c = str;
-        }
-    }
-
-    public void setUiMode(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -194,5 +134,65 @@ public abstract class LiveBaseItemView extends RelativeLayout {
         this.a = false;
         this.b = 1.0f;
         this.c = LiveFeedPageSdk.HOST_LIVE_TAB;
+    }
+
+    @Override // android.widget.RelativeLayout, android.view.View
+    public void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            if (this.a) {
+                i2 = View.MeasureSpec.makeMeasureSpec((int) (View.MeasureSpec.getSize(i) * this.b), 1073741824);
+            }
+            super.onMeasure(i, i2);
+        }
+    }
+
+    public void setAspectRatio(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048580, this, f) == null) {
+            this.b = f;
+        }
+    }
+
+    public void setBannerClickListener(Live4Ratio5BannerItemView.c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
+            this.e = cVar;
+        }
+    }
+
+    public void setFeedConfig(LiveFeedConfig liveFeedConfig) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, liveFeedConfig) == null) {
+            this.d = liveFeedConfig;
+        }
+    }
+
+    public void setNeedRatio(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.a = z;
+        }
+    }
+
+    public void setOnLabelClickListener(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, aVar) == null) {
+            this.f = aVar;
+        }
+    }
+
+    public void setOnTopicItemClickListener(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, bVar) == null) {
+            this.g = bVar;
+        }
+    }
+
+    public void setScene(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+            this.c = str;
+        }
     }
 }

@@ -60,12 +60,18 @@ public final class PrimitiveSpawnShapeValue$SpawnSide {
     public static PrimitiveSpawnShapeValue$SpawnSide valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (PrimitiveSpawnShapeValue$SpawnSide) Enum.valueOf(PrimitiveSpawnShapeValue$SpawnSide.class, str) : (PrimitiveSpawnShapeValue$SpawnSide) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (PrimitiveSpawnShapeValue$SpawnSide) Enum.valueOf(PrimitiveSpawnShapeValue$SpawnSide.class, str);
+        }
+        return (PrimitiveSpawnShapeValue$SpawnSide) invokeL.objValue;
     }
 
     public static PrimitiveSpawnShapeValue$SpawnSide[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PrimitiveSpawnShapeValue$SpawnSide[]) $VALUES.clone() : (PrimitiveSpawnShapeValue$SpawnSide[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (PrimitiveSpawnShapeValue$SpawnSide[]) $VALUES.clone();
+        }
+        return (PrimitiveSpawnShapeValue$SpawnSide[]) invokeV.objValue;
     }
 }

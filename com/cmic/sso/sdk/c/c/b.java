@@ -39,20 +39,19 @@ public class b extends c {
 
     public void a(com.cmic.sso.sdk.a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || this.c) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) && !this.c) {
+            com.cmic.sso.sdk.c.b.a c = this.b.c();
+            if (!aVar.b("isCloseIpv4", false)) {
+                c.q(p.a(true));
+            }
+            if (!aVar.b("isCloseIpv6", false)) {
+                c.r(p.b(true));
+            }
+            c.n(c.u(aVar.b("appkey")));
+            this.b.a(c);
+            this.b.a(true);
+            this.a = this.b.b().toString();
+            this.c = true;
         }
-        com.cmic.sso.sdk.c.b.a c = this.b.c();
-        if (!aVar.b("isCloseIpv4", false)) {
-            c.q(p.a(true));
-        }
-        if (!aVar.b("isCloseIpv6", false)) {
-            c.r(p.b(true));
-        }
-        c.n(c.u(aVar.b("appkey")));
-        this.b.a(c);
-        this.b.a(true);
-        this.a = this.b.b().toString();
-        this.c = true;
     }
 }

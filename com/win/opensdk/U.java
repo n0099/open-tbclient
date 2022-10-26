@@ -38,6 +38,7 @@ public class U {
     }
 
     public void a() {
+        String string;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             new Handler(Looper.getMainLooper()).post(new T(this));
@@ -45,7 +46,12 @@ public class U {
             e1.a(this.b.getApplicationContext()).b(new f1(this.a), 2).a();
             Info info = this.a;
             WDownLoadService wDownLoadService = this.b;
-            wDownLoadService.a(info, info != null ? info.getDl_name() : wDownLoadService.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f15d1), this.b.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f15d2), 0);
+            if (info != null) {
+                string = info.getDl_name();
+            } else {
+                string = wDownLoadService.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f15eb);
+            }
+            wDownLoadService.a(info, string, this.b.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f15ec), 0);
             try {
                 WDownLoadService.a(this.b);
             } catch (Exception e) {
@@ -84,26 +90,38 @@ public class U {
         }
     }
 
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            N.d.c = false;
-            Info info = this.a;
-            WDownLoadService wDownLoadService = this.b;
-            wDownLoadService.a(info, info != null ? info.getDl_name() : wDownLoadService.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f15d1), this.b.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f15d2), 0);
-            WDownLoadService.a(this.b);
-            this.b.stopSelf();
-            e1.a(this.b.getApplicationContext()).b(new f1(this.a), 1).a();
-        }
-    }
-
     public void a(int i) {
+        String string;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             N.d.c = true;
             Info info = this.a;
             WDownLoadService wDownLoadService = this.b;
-            wDownLoadService.a(info, info != null ? info.getDl_name() : wDownLoadService.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f15d5), this.b.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f15d5), i);
+            if (info != null) {
+                string = info.getDl_name();
+            } else {
+                string = wDownLoadService.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f15ef);
+            }
+            wDownLoadService.a(info, string, this.b.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f15ef), i);
+        }
+    }
+
+    public void c() {
+        String string;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            N.d.c = false;
+            Info info = this.a;
+            WDownLoadService wDownLoadService = this.b;
+            if (info != null) {
+                string = info.getDl_name();
+            } else {
+                string = wDownLoadService.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f15eb);
+            }
+            wDownLoadService.a(info, string, this.b.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f15ec), 0);
+            WDownLoadService.a(this.b);
+            this.b.stopSelf();
+            e1.a(this.b.getApplicationContext()).b(new f1(this.a), 1).a();
         }
     }
 }

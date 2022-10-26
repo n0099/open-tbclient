@@ -35,12 +35,11 @@ public class NotificationReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || intent == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && intent != null) {
+            String stringExtra = intent.getStringExtra("thread_id");
+            String stringExtra2 = intent.getStringExtra("task_id");
+            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(TbadkCoreApplication.getInst().getContext()).createNormalCfg(stringExtra, null, null)));
+            TiebaStatic.log(new StatisticItem("c11236").param("obj_id", stringExtra2));
         }
-        String stringExtra = intent.getStringExtra("thread_id");
-        String stringExtra2 = intent.getStringExtra("task_id");
-        MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(TbadkCoreApplication.getInst().getContext()).createNormalCfg(stringExtra, null, null)));
-        TiebaStatic.log(new StatisticItem("c11236").param("obj_id", stringExtra2));
     }
 }

@@ -35,9 +35,20 @@ public class RecommendForumData implements Serializable {
         }
     }
 
+    public void parserJson(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            try {
+                parserJson(new JSONObject(str));
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         this.mForumName = jSONObject.optString("name");
@@ -50,7 +61,7 @@ public class RecommendForumData implements Serializable {
 
     public void parserProtobuf(RecommendForum recommendForum) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, recommendForum) == null) || recommendForum == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, recommendForum) != null) || recommendForum == null) {
             return;
         }
         this.mForumName = recommendForum.name;
@@ -59,16 +70,5 @@ public class RecommendForumData implements Serializable {
         this.mParam = recommendForum.st_param;
         this.mMemberNum = recommendForum.member_num.intValue();
         this.mThreadNum = recommendForum.thread_num.intValue();
-    }
-
-    public void parserJson(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            try {
-                parserJson(new JSONObject(str));
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-        }
     }
 }

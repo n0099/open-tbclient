@@ -3,8 +3,6 @@ package com.google.android.material.snackbar;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,13 +19,9 @@ public class SnackbarManager {
     public static final int SHORT_DURATION_MS = 1500;
     public static SnackbarManager snackbarManager;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
     public SnackbarRecord currentSnackbar;
-    @NonNull
     public final Handler handler;
-    @NonNull
     public final Object lock;
-    @Nullable
     public SnackbarRecord nextSnackbar;
 
     /* loaded from: classes7.dex */
@@ -38,11 +32,10 @@ public class SnackbarManager {
     }
 
     /* loaded from: classes7.dex */
-    public static class SnackbarRecord {
+    public class SnackbarRecord {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        @NonNull
-        public final WeakReference<Callback> callback;
+        public final WeakReference callback;
         public int duration;
         public boolean paused;
 
@@ -61,14 +54,20 @@ public class SnackbarManager {
                     return;
                 }
             }
-            this.callback = new WeakReference<>(callback);
+            this.callback = new WeakReference(callback);
             this.duration = i;
         }
 
-        public boolean isSnackbar(@Nullable Callback callback) {
+        public boolean isSnackbar(Callback callback) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, callback)) == null) ? callback != null && this.callback.get() == callback : invokeL.booleanValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, callback)) == null) {
+                if (callback != null && this.callback.get() == callback) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
         }
     }
 
@@ -110,7 +109,7 @@ public class SnackbarManager {
             }
 
             @Override // android.os.Handler.Callback
-            public boolean handleMessage(@NonNull Message message) {
+            public boolean handleMessage(Message message) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, message)) == null) {
@@ -125,11 +124,11 @@ public class SnackbarManager {
         });
     }
 
-    private boolean cancelSnackbarLocked(@NonNull SnackbarRecord snackbarRecord, int i) {
+    private boolean cancelSnackbarLocked(SnackbarRecord snackbarRecord, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, this, snackbarRecord, i)) == null) {
-            Callback callback = snackbarRecord.callback.get();
+            Callback callback = (Callback) snackbarRecord.callback.get();
             if (callback != null) {
                 this.handler.removeCallbacksAndMessages(snackbarRecord);
                 callback.dismiss(i);
@@ -138,68 +137,6 @@ public class SnackbarManager {
             return false;
         }
         return invokeLI.booleanValue;
-    }
-
-    public static SnackbarManager getInstance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (snackbarManager == null) {
-                snackbarManager = new SnackbarManager();
-            }
-            return snackbarManager;
-        }
-        return (SnackbarManager) invokeV.objValue;
-    }
-
-    private boolean isCurrentSnackbarLocked(Callback callback) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, callback)) == null) {
-            SnackbarRecord snackbarRecord = this.currentSnackbar;
-            return snackbarRecord != null && snackbarRecord.isSnackbar(callback);
-        }
-        return invokeL.booleanValue;
-    }
-
-    private boolean isNextSnackbarLocked(Callback callback) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, callback)) == null) {
-            SnackbarRecord snackbarRecord = this.nextSnackbar;
-            return snackbarRecord != null && snackbarRecord.isSnackbar(callback);
-        }
-        return invokeL.booleanValue;
-    }
-
-    private void scheduleTimeoutLocked(@NonNull SnackbarRecord snackbarRecord) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65541, this, snackbarRecord) == null) || (i = snackbarRecord.duration) == -2) {
-            return;
-        }
-        if (i <= 0) {
-            i = i == -1 ? 1500 : LONG_DURATION_MS;
-        }
-        this.handler.removeCallbacksAndMessages(snackbarRecord);
-        Handler handler = this.handler;
-        handler.sendMessageDelayed(Message.obtain(handler, 0, snackbarRecord), i);
-    }
-
-    private void showNextSnackbarLocked() {
-        SnackbarRecord snackbarRecord;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65542, this) == null) || (snackbarRecord = this.nextSnackbar) == null) {
-            return;
-        }
-        this.currentSnackbar = snackbarRecord;
-        this.nextSnackbar = null;
-        Callback callback = snackbarRecord.callback.get();
-        if (callback != null) {
-            callback.show();
-        } else {
-            this.currentSnackbar = null;
-        }
     }
 
     public void dismiss(Callback callback, int i) {
@@ -215,7 +152,60 @@ public class SnackbarManager {
         }
     }
 
-    public void handleTimeout(@NonNull SnackbarRecord snackbarRecord) {
+    public static SnackbarManager getInstance() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (snackbarManager == null) {
+                snackbarManager = new SnackbarManager();
+            }
+            return snackbarManager;
+        }
+        return (SnackbarManager) invokeV.objValue;
+    }
+
+    private void showNextSnackbarLocked() {
+        SnackbarRecord snackbarRecord;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65542, this) == null) && (snackbarRecord = this.nextSnackbar) != null) {
+            this.currentSnackbar = snackbarRecord;
+            this.nextSnackbar = null;
+            Callback callback = (Callback) snackbarRecord.callback.get();
+            if (callback != null) {
+                callback.show();
+            } else {
+                this.currentSnackbar = null;
+            }
+        }
+    }
+
+    private boolean isCurrentSnackbarLocked(Callback callback) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, callback)) == null) {
+            SnackbarRecord snackbarRecord = this.currentSnackbar;
+            if (snackbarRecord != null && snackbarRecord.isSnackbar(callback)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    private boolean isNextSnackbarLocked(Callback callback) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, callback)) == null) {
+            SnackbarRecord snackbarRecord = this.nextSnackbar;
+            if (snackbarRecord != null && snackbarRecord.isSnackbar(callback)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void handleTimeout(SnackbarRecord snackbarRecord) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, snackbarRecord) == null) {
             synchronized (this.lock) {
@@ -245,7 +235,10 @@ public class SnackbarManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, callback)) == null) {
             synchronized (this.lock) {
-                z = isCurrentSnackbarLocked(callback) || isNextSnackbarLocked(callback);
+                if (!isCurrentSnackbarLocked(callback) && !isNextSnackbarLocked(callback)) {
+                    z = false;
+                }
+                z = true;
             }
             return z;
         }
@@ -301,6 +294,24 @@ public class SnackbarManager {
         }
     }
 
+    private void scheduleTimeoutLocked(SnackbarRecord snackbarRecord) {
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65541, this, snackbarRecord) != null) || (i = snackbarRecord.duration) == -2) {
+            return;
+        }
+        if (i <= 0) {
+            if (i == -1) {
+                i = 1500;
+            } else {
+                i = LONG_DURATION_MS;
+            }
+        }
+        this.handler.removeCallbacksAndMessages(snackbarRecord);
+        Handler handler = this.handler;
+        handler.sendMessageDelayed(Message.obtain(handler, 0, snackbarRecord), i);
+    }
+
     public void show(int i, Callback callback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, callback) == null) {
@@ -316,10 +327,11 @@ public class SnackbarManager {
                 } else {
                     this.nextSnackbar = new SnackbarRecord(i, callback);
                 }
-                if (this.currentSnackbar == null || !cancelSnackbarLocked(this.currentSnackbar, 4)) {
-                    this.currentSnackbar = null;
-                    showNextSnackbarLocked();
+                if (this.currentSnackbar != null && cancelSnackbarLocked(this.currentSnackbar, 4)) {
+                    return;
                 }
+                this.currentSnackbar = null;
+                showNextSnackbarLocked();
             }
         }
     }

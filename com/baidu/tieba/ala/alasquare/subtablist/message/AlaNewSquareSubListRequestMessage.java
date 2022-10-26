@@ -8,7 +8,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ej;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.fj;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -51,51 +52,16 @@ public class AlaNewSquareSubListRequestMessage extends HttpMessage {
     public int getPn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.pn : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.pn;
+        }
+        return invokeV.intValue;
     }
 
     public void setEntryName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             this.entryName = str;
-        }
-    }
-
-    public void setHttpParams() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            int k = ej.k(TbadkCoreApplication.getInst());
-            int i = ej.i(TbadkCoreApplication.getInst());
-            float h = ej.h(TbadkCoreApplication.getInst());
-            addParam("entry_name", this.entryName);
-            addParam("pn", this.pn);
-            addParam("ps", this.ps);
-            addParam("scr_w", k);
-            addParam("scr_h", i);
-            addParam("q_type", 0);
-            addParam("scr_dip", String.valueOf(h));
-            addParam("label_name", this.lableName);
-            addParam("sort_type", this.sortType);
-            addParam(SuggestAddrField.KEY_LAT, this.lat);
-            addParam(SuggestAddrField.KEY_LNG, this.lng);
-            String str = "N";
-            if (BdNetTypeUtil.isNetWorkAvailable()) {
-                if (BdNetTypeUtil.isWifiNet()) {
-                    str = "1_0";
-                } else if (BdNetTypeUtil.is4GNet()) {
-                    str = "0_13";
-                } else if (BdNetTypeUtil.is3GNet()) {
-                    str = "0_3";
-                } else if (BdNetTypeUtil.is2GNet()) {
-                    str = "0_2";
-                }
-            }
-            addParam("network", str);
-            addParam("ua_str", k + "_" + i + "_android_" + TbConfig.getVersion());
-            addParam("tab_id", this.tabId);
-            addParam("refresh_type", this.refreshType);
-            addParam("session_id", this.sessionId);
-            addParam("big_refresh_count", this.refreshCount);
         }
     }
 
@@ -138,6 +104,44 @@ public class AlaNewSquareSubListRequestMessage extends HttpMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
             this.sortType = str;
+        }
+    }
+
+    public void setHttpParams() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            int k = fj.k(TbadkCoreApplication.getInst());
+            int i = fj.i(TbadkCoreApplication.getInst());
+            float h = fj.h(TbadkCoreApplication.getInst());
+            addParam("entry_name", this.entryName);
+            addParam("pn", this.pn);
+            addParam("ps", this.ps);
+            addParam("scr_w", k);
+            addParam("scr_h", i);
+            addParam("q_type", 0);
+            addParam("scr_dip", String.valueOf(h));
+            addParam("label_name", this.lableName);
+            addParam("sort_type", this.sortType);
+            addParam(SuggestAddrField.KEY_LAT, this.lat);
+            addParam(SuggestAddrField.KEY_LNG, this.lng);
+            String str = "N";
+            if (BdNetTypeUtil.isNetWorkAvailable()) {
+                if (BdNetTypeUtil.isWifiNet()) {
+                    str = "1_0";
+                } else if (BdNetTypeUtil.is4GNet()) {
+                    str = "0_13";
+                } else if (BdNetTypeUtil.is3GNet()) {
+                    str = "0_3";
+                } else if (BdNetTypeUtil.is2GNet()) {
+                    str = "0_2";
+                }
+            }
+            addParam("network", str);
+            addParam("ua_str", k + "_" + i + "_android_" + TbConfig.getVersion());
+            addParam(TiebaStatic.Params.TAB_ID, this.tabId);
+            addParam("refresh_type", this.refreshType);
+            addParam("session_id", this.sessionId);
+            addParam("big_refresh_count", this.refreshCount);
         }
     }
 }

@@ -9,8 +9,8 @@ import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qj4;
-import com.baidu.tieba.t94;
+import com.baidu.tieba.rj4;
+import com.baidu.tieba.u94;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,16 +19,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class MenuContentAdapter extends RecyclerView.Adapter<a> {
+public class MenuContentAdapter extends RecyclerView.Adapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<t94> a;
-    public List<t94> b;
+    public List a;
+    public List b;
     public int c;
     public Context d;
 
     /* loaded from: classes3.dex */
-    public static class a extends RecyclerView.ViewHolder {
+    public class a extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public SwanAppMenuItemView a;
@@ -52,8 +52,8 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
                     return;
                 }
             }
-            this.a = (SwanAppMenuItemView) view2.findViewById(R.id.obfuscated_res_0x7f0909cc);
-            this.b = (SwanAppMenuItemView) view2.findViewById(R.id.obfuscated_res_0x7f091e28);
+            this.a = (SwanAppMenuItemView) view2.findViewById(R.id.obfuscated_res_0x7f0909d6);
+            this.b = (SwanAppMenuItemView) view2.findViewById(R.id.obfuscated_res_0x7f091e24);
         }
     }
 
@@ -80,39 +80,57 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
     public final boolean d(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) ? z || this.a.size() > 5 || this.b.size() > 5 : invokeZ.booleanValue;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+            if (!z && this.a.size() <= 5 && this.b.size() <= 5) {
+                return false;
+            }
+            return true;
+        }
+        return invokeZ.booleanValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: e */
     public void onBindViewHolder(a aVar, int i) {
+        int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, i) == null) {
             ViewGroup.LayoutParams layoutParams = aVar.itemView.getLayoutParams();
             if (layoutParams != null) {
-                int i2 = layoutParams.width;
-                int i3 = this.c;
-                if (i2 != i3) {
-                    layoutParams.width = i3;
+                int i3 = layoutParams.width;
+                int i4 = this.c;
+                if (i3 != i4) {
+                    layoutParams.width = i4;
                     aVar.itemView.setLayoutParams(layoutParams);
                 }
             }
+            int i5 = 8;
             if (i < this.a.size()) {
                 aVar.a.setVisibility(0);
-                aVar.a.h(this.a.get(i), this.c);
+                aVar.a.h((u94) this.a.get(i), this.c);
                 aVar.a.setOnClickListener(null);
             } else {
-                aVar.a.setVisibility(this.a.size() == 0 ? 8 : 4);
+                SwanAppMenuItemView swanAppMenuItemView = aVar.a;
+                if (this.a.size() == 0) {
+                    i2 = 8;
+                } else {
+                    i2 = 4;
+                }
+                swanAppMenuItemView.setVisibility(i2);
                 aVar.a.setOnClickListener(null);
             }
             if (i < this.b.size()) {
                 aVar.b.setVisibility(0);
-                aVar.b.h(this.b.get(i), this.c);
+                aVar.b.h((u94) this.b.get(i), this.c);
                 aVar.b.setOnClickListener(null);
                 return;
             }
-            aVar.b.setVisibility(this.b.size() != 0 ? 4 : 8);
+            SwanAppMenuItemView swanAppMenuItemView2 = aVar.b;
+            if (this.b.size() != 0) {
+                i5 = 4;
+            }
+            swanAppMenuItemView2.setVisibility(i5);
             aVar.b.setOnClickListener(null);
         }
     }
@@ -124,7 +142,7 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) {
-            View inflate = LayoutInflater.from(this.d).inflate(R.layout.obfuscated_res_0x7f0d0814, viewGroup, false);
+            View inflate = LayoutInflater.from(this.d).inflate(R.layout.obfuscated_res_0x7f0d0815, viewGroup, false);
             ViewGroup.LayoutParams layoutParams = inflate.getLayoutParams();
             if (layoutParams == null) {
                 layoutParams = new ViewGroup.LayoutParams(this.c, -2);
@@ -137,10 +155,11 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
         return (a) invokeLI.objValue;
     }
 
-    public void g(List<List<t94>> list, boolean z, int i) {
+    public void g(List list, boolean z, int i) {
         int max;
-        List<t94> list2;
-        List<t94> list3;
+        float f;
+        List list2;
+        List list3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{list, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
             this.a.clear();
@@ -148,10 +167,10 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
             if (list == null) {
                 return;
             }
-            if (list.size() > 0 && (list3 = list.get(0)) != null) {
+            if (list.size() > 0 && (list3 = (List) list.get(0)) != null) {
                 this.a.addAll(list3);
             }
-            if (list.size() > 1 && (list2 = list.get(1)) != null) {
+            if (list.size() > 1 && (list2 = (List) list.get(1)) != null) {
                 this.b.addAll(list2);
             }
             DisplayMetrics displayMetrics = this.d.getResources().getDisplayMetrics();
@@ -160,11 +179,15 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
             } else {
                 max = Math.max(displayMetrics.widthPixels, displayMetrics.heightPixels);
             }
-            float f = d(z) ? 5.5f : 5.0f;
-            if (qj4.d()) {
+            if (d(z)) {
+                f = 5.5f;
+            } else {
+                f = 5.0f;
+            }
+            if (rj4.d()) {
                 Context context = this.d;
-                if ((context instanceof Activity) && qj4.e((Activity) context)) {
-                    max = qj4.a((Activity) this.d);
+                if ((context instanceof Activity) && rj4.e((Activity) context)) {
+                    max = rj4.a((Activity) this.d);
                 }
             }
             this.c = (int) (max / f);
@@ -176,6 +199,9 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
     public int getItemCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? Math.max(this.a.size(), this.b.size()) : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return Math.max(this.a.size(), this.b.size());
+        }
+        return invokeV.intValue;
     }
 }

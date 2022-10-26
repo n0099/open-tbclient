@@ -53,6 +53,26 @@ public class AmendedDeviceScoreManager implements IAmendedDeviceScoreManager {
         amendedDeviceScoreCache = -1.0f;
     }
 
+    @Override // com.baidu.searchbox.aideviceperformance.amendeddevicescore.IAmendedDeviceScoreManager
+    public long getModelVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            try {
+                InferenceWrapper inferenceWrapper = new InferenceWrapper();
+                DevicePerformanceModelInfo devicePerformanceModelInfo = ModelManager.getDevicePerformanceModelInfo(ModelInfoDataProvider.DevicePerformanceModelInfoType.AmendedDeviceScore);
+                boolean innerCheck = inferenceWrapper.innerCheck(AlgorithmType.GLM_REGRESSOR, devicePerformanceModelInfo);
+                if (devicePerformanceModelInfo == null || !innerCheck) {
+                    return -1L;
+                }
+                return devicePerformanceModelInfo.versionCode;
+            } catch (ModelLoadException unused) {
+                return -1L;
+            }
+        }
+        return invokeV.longValue;
+    }
+
     public AmendedDeviceScoreManager(IAmendedDeviceScoreModelProvider iAmendedDeviceScoreModelProvider) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -104,9 +124,10 @@ public class AmendedDeviceScoreManager implements IAmendedDeviceScoreManager {
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.this$0.updateAmendedDeviceScore(this.val$cx);
+                    if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
+                        return;
                     }
+                    this.this$0.updateAmendedDeviceScore(this.val$cx);
                 }
             }, "postCheckAmendedDeviceScoreStore", 3, 5000L);
         }
@@ -312,36 +333,16 @@ public class AmendedDeviceScoreManager implements IAmendedDeviceScoreManager {
                 this.mModelManager.checkAndUpdatePresetModel();
             }
             float predictByLRModel = predictByLRModel(context);
-            if (predictByLRModel >= 0.0f) {
-                if (DEBUG) {
-                    Log.d(TAG, "get amended device score from model : " + predictByLRModel);
-                }
-                amendedDeviceScoreCache = predictByLRModel;
-                postStaticScoreStore(predictByLRModel);
-                return predictByLRModel;
+            if (predictByLRModel < 0.0f) {
+                return -1.0f;
             }
-            return -1.0f;
+            if (DEBUG) {
+                Log.d(TAG, "get amended device score from model : " + predictByLRModel);
+            }
+            amendedDeviceScoreCache = predictByLRModel;
+            postStaticScoreStore(predictByLRModel);
+            return predictByLRModel;
         }
         return invokeL.floatValue;
-    }
-
-    @Override // com.baidu.searchbox.aideviceperformance.amendeddevicescore.IAmendedDeviceScoreManager
-    public long getModelVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            try {
-                InferenceWrapper inferenceWrapper = new InferenceWrapper();
-                DevicePerformanceModelInfo devicePerformanceModelInfo = ModelManager.getDevicePerformanceModelInfo(ModelInfoDataProvider.DevicePerformanceModelInfoType.AmendedDeviceScore);
-                boolean innerCheck = inferenceWrapper.innerCheck(AlgorithmType.GLM_REGRESSOR, devicePerformanceModelInfo);
-                if (devicePerformanceModelInfo == null || !innerCheck) {
-                    return -1L;
-                }
-                return devicePerformanceModelInfo.versionCode;
-            } catch (ModelLoadException unused) {
-                return -1L;
-            }
-        }
-        return invokeV.longValue;
     }
 }

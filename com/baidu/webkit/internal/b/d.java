@@ -1,6 +1,5 @@
 package com.baidu.webkit.internal.b;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -40,7 +39,6 @@ public final class d extends g {
     /* JADX WARN: Removed duplicated region for block: B:23:0x0049  */
     /* JADX WARN: Removed duplicated region for block: B:37:0x0078  */
     /* JADX WARN: Removed duplicated region for block: B:38:0x007e  */
-    @SuppressLint({"NewApi"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

@@ -14,6 +14,8 @@ public class DeviceId implements IDeviceId {
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
 
+    private native String getDeviceIdNative(Context context, String str, String str2, String str3);
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -28,6 +30,17 @@ public class DeviceId implements IDeviceId {
             }
         }
         System.loadLibrary("weibosdkcore");
+    }
+
+    @Override // com.sina.deviceidjnisdk.IDeviceId
+    public String getDeviceId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            Context context = this.mContext;
+            return getDeviceIdNative(context, DeviceInfo.getImei(context), DeviceInfo.getImsi(this.mContext), DeviceInfo.getMacAddress(this.mContext));
+        }
+        return (String) invokeV.objValue;
     }
 
     public DeviceId(Context context) {
@@ -55,18 +68,5 @@ public class DeviceId implements IDeviceId {
             return str + str2 + str3;
         }
         return (String) invokeLLL.objValue;
-    }
-
-    private native String getDeviceIdNative(Context context, String str, String str2, String str3);
-
-    @Override // com.sina.deviceidjnisdk.IDeviceId
-    public String getDeviceId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Context context = this.mContext;
-            return getDeviceIdNative(context, DeviceInfo.getImei(context), DeviceInfo.getImsi(this.mContext), DeviceInfo.getMacAddress(this.mContext));
-        }
-        return (String) invokeV.objValue;
     }
 }

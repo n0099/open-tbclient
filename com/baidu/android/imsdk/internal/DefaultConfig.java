@@ -22,39 +22,6 @@ public class DefaultConfig implements IIMConfig {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean mRootComplete;
 
-    public DefaultConfig() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.mRootComplete = true;
-    }
-
-    public static String[] getTokens(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
-            String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
-            return (split == null || split.length != i) ? new String[0] : split;
-        }
-        return (String[]) invokeLI.objValue;
-    }
-
-    @Override // com.baidu.android.imsdk.internal.IIMConfig
-    public String getBduss(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? AccountManagerImpl.getInstance(context).getToken() : (String) invokeL.objValue;
-    }
-
     @Override // com.baidu.android.imsdk.internal.IIMConfig
     public int getHeartBeatType() {
         InterceptResult invokeV;
@@ -66,7 +33,7 @@ public class DefaultConfig implements IIMConfig {
     }
 
     @Override // com.baidu.android.imsdk.internal.IIMConfig
-    public Map<String, Object> getOtherParameters(Context context, ChatMsg chatMsg) {
+    public Map getOtherParameters(Context context, ChatMsg chatMsg) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, chatMsg)) == null) {
@@ -90,13 +57,6 @@ public class DefaultConfig implements IIMConfig {
     }
 
     @Override // com.baidu.android.imsdk.internal.IIMConfig
-    public boolean getRootComplete() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mRootComplete : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.android.imsdk.internal.IIMConfig
     public String getSubscribeRefApp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -108,19 +68,6 @@ public class DefaultConfig implements IIMConfig {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? "" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.android.imsdk.internal.IIMConfig
-    public String getToken(ChatObject chatObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, chatObject)) == null) {
-            if (chatObject == null) {
-                return null;
-            }
-            return chatObject.getCategory() + "." + chatObject.getContacter() + "." + chatObject.getType();
-        }
-        return (String) invokeL.objValue;
     }
 
     @Override // com.baidu.android.imsdk.internal.IIMConfig
@@ -153,24 +100,53 @@ public class DefaultConfig implements IIMConfig {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.android.imsdk.internal.IIMConfig
-    public ChatObject parseTokenToChatObject(Context context, String str) {
-        InterceptResult invokeLL;
+    public DefaultConfig() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, context, str)) == null) {
-            String[] tokens = getTokens(str, 3);
-            try {
-                if (tokens.length == 3) {
-                    return new ChatObject(context, Integer.parseInt(tokens[0]), Long.parseLong(tokens[1]), -1L, Integer.parseInt(tokens[2]));
-                }
-                return null;
-            } catch (Exception e) {
-                new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();
-                LogUtils.e("CRMConfig", "parseTokenToChatObject", e);
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (ChatObject) invokeLL.objValue;
+        this.mRootComplete = true;
+    }
+
+    @Override // com.baidu.android.imsdk.internal.IIMConfig
+    public boolean getRootComplete() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mRootComplete;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static String[] getTokens(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
+            String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+            if (split != null && split.length == i) {
+                return split;
+            }
+            return new String[0];
+        }
+        return (String[]) invokeLI.objValue;
+    }
+
+    @Override // com.baidu.android.imsdk.internal.IIMConfig
+    public String getBduss(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            return AccountManagerImpl.getInstance(context).getToken();
+        }
+        return (String) invokeL.objValue;
     }
 
     @Override // com.baidu.android.imsdk.internal.IIMConfig
@@ -179,5 +155,38 @@ public class DefaultConfig implements IIMConfig {
         if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
             this.mRootComplete = z;
         }
+    }
+
+    @Override // com.baidu.android.imsdk.internal.IIMConfig
+    public String getToken(ChatObject chatObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, chatObject)) == null) {
+            if (chatObject == null) {
+                return null;
+            }
+            return chatObject.getCategory() + "." + chatObject.getContacter() + "." + chatObject.getType();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.android.imsdk.internal.IIMConfig
+    public ChatObject parseTokenToChatObject(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, context, str)) == null) {
+            String[] tokens = getTokens(str, 3);
+            try {
+                if (tokens.length != 3) {
+                    return null;
+                }
+                return new ChatObject(context, Integer.parseInt(tokens[0]), Long.parseLong(tokens[1]), -1L, Integer.parseInt(tokens[2]));
+            } catch (Exception e) {
+                new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();
+                LogUtils.e("CRMConfig", "parseTokenToChatObject", e);
+                return null;
+            }
+        }
+        return (ChatObject) invokeLL.objValue;
     }
 }

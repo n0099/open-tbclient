@@ -2,7 +2,6 @@ package com.baidu.minivideo.plugin.capture.download.utils;
 
 import android.content.Context;
 import android.os.Environment;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -30,6 +29,15 @@ public class FileUtils {
         }
     }
 
+    public static boolean isSDMounted() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return Environment.getExternalStorageState().equals("mounted");
+        }
+        return invokeV.booleanValue;
+    }
+
     public static final File getDefaultDownloadDir(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -45,24 +53,27 @@ public class FileUtils {
     public static final String getFileFullName(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? str.substring(str.lastIndexOf("/") + 1, str.length()) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return str.substring(str.lastIndexOf("/") + 1, str.length());
+        }
+        return (String) invokeL.objValue;
     }
 
-    public static final String getPrefix(@NonNull String str) {
+    public static final String getPrefix(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? str.substring(0, str.lastIndexOf(".")) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return str.substring(0, str.lastIndexOf("."));
+        }
+        return (String) invokeL.objValue;
     }
 
-    public static final String getSuffix(@NonNull String str) {
+    public static final String getSuffix(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? str.substring(str.lastIndexOf(".") + 1) : (String) invokeL.objValue;
-    }
-
-    public static boolean isSDMounted() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? Environment.getExternalStorageState().equals("mounted") : invokeV.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            return str.substring(str.lastIndexOf(".") + 1);
+        }
+        return (String) invokeL.objValue;
     }
 }

@@ -20,7 +20,7 @@ public class hg {
     public final Context f466a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Map<String, hh> f467a;
+    public Map f467a;
 
     public hg(Context context) {
         Interceptable interceptable = $ic;
@@ -82,11 +82,11 @@ public class hg {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            hh hhVar = this.f467a.get("UPLOADER_PUSH_CHANNEL");
+            hh hhVar = (hh) this.f467a.get("UPLOADER_PUSH_CHANNEL");
             if (hhVar != null) {
                 return hhVar;
             }
-            hh hhVar2 = this.f467a.get("UPLOADER_HTTP");
+            hh hhVar2 = (hh) this.f467a.get("UPLOADER_HTTP");
             if (hhVar2 != null) {
                 return hhVar2;
             }
@@ -96,7 +96,7 @@ public class hg {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public Map<String, hh> m396a() {
+    public Map m395a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f467a : (Map) invokeV.objValue;
@@ -110,7 +110,7 @@ public class hg {
             } else if (TextUtils.isEmpty(str)) {
                 com.xiaomi.channel.commonutils.logger.b.d("[TinyDataManager]: can not add a provider from unkown resource.");
             } else {
-                m396a().put(str, hhVar);
+                m395a().put(str, hhVar);
             }
         }
     }
@@ -120,7 +120,7 @@ public class hg {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, hnVar, str)) == null) {
             if (TextUtils.isEmpty(str)) {
-                com.xiaomi.channel.commonutils.logger.b.m90a("pkgName is null or empty, upload ClientUploadDataItem failed.");
+                com.xiaomi.channel.commonutils.logger.b.m89a("pkgName is null or empty, upload ClientUploadDataItem failed.");
                 return false;
             } else if (com.xiaomi.push.service.bz.a(hnVar, false)) {
                 return false;

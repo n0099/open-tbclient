@@ -7,9 +7,27 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.annotation.Nonnull;
 /* loaded from: classes7.dex */
-public abstract class BaseDataSubscriber<T> implements DataSubscriber<T> {
+public abstract class BaseDataSubscriber implements DataSubscriber {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.facebook.datasource.DataSubscriber
+    public void onCancellation(@Nonnull DataSource dataSource) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, dataSource) == null) {
+        }
+    }
+
+    public abstract void onFailureImpl(@Nonnull DataSource dataSource);
+
+    public abstract void onNewResultImpl(@Nonnull DataSource dataSource);
+
+    @Override // com.facebook.datasource.DataSubscriber
+    public void onProgressUpdate(@Nonnull DataSource dataSource) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, dataSource) == null) {
+        }
+    }
 
     public BaseDataSubscriber() {
         Interceptable interceptable = $ic;
@@ -26,14 +44,7 @@ public abstract class BaseDataSubscriber<T> implements DataSubscriber<T> {
     }
 
     @Override // com.facebook.datasource.DataSubscriber
-    public void onCancellation(@Nonnull DataSource<T> dataSource) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, dataSource) == null) {
-        }
-    }
-
-    @Override // com.facebook.datasource.DataSubscriber
-    public void onFailure(@Nonnull DataSource<T> dataSource) {
+    public void onFailure(@Nonnull DataSource dataSource) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataSource) == null) {
             try {
@@ -44,10 +55,8 @@ public abstract class BaseDataSubscriber<T> implements DataSubscriber<T> {
         }
     }
 
-    public abstract void onFailureImpl(@Nonnull DataSource<T> dataSource);
-
     @Override // com.facebook.datasource.DataSubscriber
-    public void onNewResult(@Nonnull DataSource<T> dataSource) {
+    public void onNewResult(@Nonnull DataSource dataSource) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, dataSource) == null) {
             boolean isFinished = dataSource.isFinished();
@@ -58,15 +67,6 @@ public abstract class BaseDataSubscriber<T> implements DataSubscriber<T> {
                     dataSource.close();
                 }
             }
-        }
-    }
-
-    public abstract void onNewResultImpl(@Nonnull DataSource<T> dataSource);
-
-    @Override // com.facebook.datasource.DataSubscriber
-    public void onProgressUpdate(@Nonnull DataSource<T> dataSource) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, dataSource) == null) {
         }
     }
 }

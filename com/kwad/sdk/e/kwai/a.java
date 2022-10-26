@@ -1,10 +1,8 @@
 package com.kwad.sdk.e.kwai;
 
-import com.ksad.json.annotation.KsJson;
 import java.util.List;
-@KsJson
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a extends com.kwad.sdk.core.response.kwai.a {
-    public List<b> ais;
+    public List ais;
     public String sceneId;
 }

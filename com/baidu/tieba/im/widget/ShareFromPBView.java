@@ -23,6 +23,27 @@ public final class ShareFromPBView extends LinearLayout {
     public ShareFromPBMsgData d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ShareFromPBView(Context context) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        a();
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ShareFromPBView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
@@ -47,11 +68,11 @@ public final class ShareFromPBView extends LinearLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d07c0, this);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d07c1, this);
             setOrientation(1);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09060c);
-            this.b = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090602);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090601);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090615);
+            this.b = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f09060b);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09060a);
         }
     }
 
@@ -61,7 +82,7 @@ public final class ShareFromPBView extends LinearLayout {
             this.a.setText(this.d.getTitle());
             this.b.setPlaceHolder(1);
             this.b.setAutoChangeStyle(false);
-            this.b.K(this.d.getImageUrl(), 10, false);
+            this.b.L(this.d.getImageUrl(), 10, false);
             this.c.setText(this.d.getContent());
         }
     }
@@ -85,26 +106,5 @@ public final class ShareFromPBView extends LinearLayout {
             this.a.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
             this.c.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ShareFromPBView(Context context) {
-        super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        a();
     }
 }

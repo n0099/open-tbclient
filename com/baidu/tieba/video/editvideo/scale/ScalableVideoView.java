@@ -13,9 +13,9 @@ import android.view.TextureView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ho5;
-import com.baidu.tieba.yv8;
-import com.baidu.tieba.zv8;
+import com.baidu.tieba.iw8;
+import com.baidu.tieba.jw8;
+import com.baidu.tieba.oo5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,6 +30,30 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
     public transient /* synthetic */ FieldHolder $fh;
     public MediaPlayer a;
     public ScalableType b;
+
+    @Override // android.view.TextureView.SurfaceTextureListener
+    public boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, surfaceTexture)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.view.TextureView.SurfaceTextureListener
+    public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048593, this, surfaceTexture, i, i2) == null) {
+        }
+    }
+
+    @Override // android.view.TextureView.SurfaceTextureListener
+    public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, surfaceTexture) == null) {
+        }
+    }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ScalableVideoView(Context context) {
@@ -52,11 +76,138 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
         }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public ScalableVideoView(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ScalableVideoView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        TypedArray obtainStyledAttributes;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.b = ScalableType.NONE;
+        if (attributeSet == null || (obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, oo5.videoScaleStyle, 0, 0)) == null) {
+            return;
+        }
+        int i4 = obtainStyledAttributes.getInt(0, ScalableType.NONE.ordinal());
+        obtainStyledAttributes.recycle();
+        this.b = ScalableType.values()[i4];
+    }
+
     private void setDataSource(AssetFileDescriptor assetFileDescriptor) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, assetFileDescriptor) == null) {
             setDataSource(assetFileDescriptor.getFileDescriptor(), assetFileDescriptor.getStartOffset(), assetFileDescriptor.getLength());
             assetFileDescriptor.close();
+        }
+    }
+
+    public void d(MediaPlayer.OnPreparedListener onPreparedListener) throws IOException, IllegalStateException {
+        MediaPlayer mediaPlayer;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, onPreparedListener) != null) || (mediaPlayer = this.a) == null) {
+            return;
+        }
+        mediaPlayer.setOnPreparedListener(onPreparedListener);
+        this.a.prepare();
+    }
+
+    public void h(int i) {
+        MediaPlayer mediaPlayer;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048587, this, i) != null) || (mediaPlayer = this.a) == null) {
+            return;
+        }
+        mediaPlayer.seekTo(i);
+    }
+
+    public void setAssetData(String str) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
+            setDataSource(TbadkCoreApplication.getInst().getResources().getAssets().openFd(str));
+        }
+    }
+
+    public void setLooping(boolean z) {
+        MediaPlayer mediaPlayer;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(1048602, this, z) != null) || (mediaPlayer = this.a) == null) {
+            return;
+        }
+        mediaPlayer.setLooping(z);
+    }
+
+    public void setOnCompletionListener(MediaPlayer.OnCompletionListener onCompletionListener) {
+        MediaPlayer mediaPlayer;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048603, this, onCompletionListener) != null) || (mediaPlayer = this.a) == null) {
+            return;
+        }
+        mediaPlayer.setOnCompletionListener(onCompletionListener);
+    }
+
+    public void setOnErrorListener(MediaPlayer.OnErrorListener onErrorListener) {
+        MediaPlayer mediaPlayer;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048604, this, onErrorListener) != null) || (mediaPlayer = this.a) == null) {
+            return;
+        }
+        mediaPlayer.setOnErrorListener(onErrorListener);
+    }
+
+    public void setOnInfoListener(MediaPlayer.OnInfoListener onInfoListener) {
+        MediaPlayer mediaPlayer;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048605, this, onInfoListener) != null) || (mediaPlayer = this.a) == null) {
+            return;
+        }
+        mediaPlayer.setOnInfoListener(onInfoListener);
+    }
+
+    public void setRawData(int i) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048606, this, i) == null) {
+            setDataSource(getResources().openRawResourceFd(i));
+        }
+    }
+
+    public void setScalableType(ScalableType scalableType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048607, this, scalableType) == null) {
+            this.b = scalableType;
+            g(getVideoWidth(), getVideoHeight());
         }
     }
 
@@ -90,20 +241,10 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
     public void c() {
         MediaPlayer mediaPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (mediaPlayer = this.a) == null) {
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || (mediaPlayer = this.a) == null) {
             return;
         }
         mediaPlayer.pause();
-    }
-
-    public void d(MediaPlayer.OnPreparedListener onPreparedListener) throws IOException, IllegalStateException {
-        MediaPlayer mediaPlayer;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, onPreparedListener) == null) || (mediaPlayer = this.a) == null) {
-            return;
-        }
-        mediaPlayer.setOnPreparedListener(onPreparedListener);
-        this.a.prepare();
     }
 
     public void e() {
@@ -121,19 +262,9 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
     public void f() {
         MediaPlayer mediaPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (mediaPlayer = this.a) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (mediaPlayer = this.a) != null) {
+            mediaPlayer.reset();
         }
-        mediaPlayer.reset();
-    }
-
-    public final void g(int i, int i2) {
-        Matrix m;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048582, this, i, i2) == null) || i == 0 || i2 == 0 || (m = new yv8(new zv8(getWidth(), getHeight()), new zv8(i, i2)).m(this.b)) == null) {
-            return;
-        }
-        setTransform(m);
     }
 
     public int getCurrentPosition() {
@@ -188,19 +319,10 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
         return invokeV.intValue;
     }
 
-    public void h(int i) {
-        MediaPlayer mediaPlayer;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048587, this, i) == null) || (mediaPlayer = this.a) == null) {
-            return;
-        }
-        mediaPlayer.seekTo(i);
-    }
-
     public void i() {
         MediaPlayer mediaPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (mediaPlayer = this.a) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048588, this) != null) || (mediaPlayer = this.a) == null) {
             return;
         }
         mediaPlayer.start();
@@ -209,7 +331,7 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
     public void j() {
         MediaPlayer mediaPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (mediaPlayer = this.a) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048589, this) != null) || (mediaPlayer = this.a) == null) {
             return;
         }
         mediaPlayer.stop();
@@ -230,6 +352,14 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
         }
     }
 
+    public final void g(int i, int i2) {
+        Matrix m;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeII(1048582, this, i, i2) == null) && i != 0 && i2 != 0 && (m = new iw8(new jw8(getWidth(), getHeight()), new jw8(i, i2)).m(this.b)) != null) {
+            setTransform(m);
+        }
+    }
+
     @Override // android.view.TextureView.SurfaceTextureListener
     public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
         Interceptable interceptable = $ic;
@@ -245,30 +375,6 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
         }
     }
 
-    @Override // android.view.TextureView.SurfaceTextureListener
-    public boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, surfaceTexture)) == null) {
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // android.view.TextureView.SurfaceTextureListener
-    public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048593, this, surfaceTexture, i, i2) == null) {
-        }
-    }
-
-    @Override // android.view.TextureView.SurfaceTextureListener
-    public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, surfaceTexture) == null) {
-        }
-    }
-
     @Override // android.media.MediaPlayer.OnVideoSizeChangedListener
     public void onVideoSizeChanged(MediaPlayer mediaPlayer, int i, int i2) {
         Interceptable interceptable = $ic;
@@ -277,132 +383,7 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
         }
     }
 
-    public void setAssetData(String str) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
-            setDataSource(TbadkCoreApplication.getInst().getResources().getAssets().openFd(str));
-        }
-    }
-
-    public void setLooping(boolean z) {
-        MediaPlayer mediaPlayer;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048602, this, z) == null) || (mediaPlayer = this.a) == null) {
-            return;
-        }
-        mediaPlayer.setLooping(z);
-    }
-
-    public void setOnCompletionListener(MediaPlayer.OnCompletionListener onCompletionListener) {
-        MediaPlayer mediaPlayer;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048603, this, onCompletionListener) == null) || (mediaPlayer = this.a) == null) {
-            return;
-        }
-        mediaPlayer.setOnCompletionListener(onCompletionListener);
-    }
-
-    public void setOnErrorListener(MediaPlayer.OnErrorListener onErrorListener) {
-        MediaPlayer mediaPlayer;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048604, this, onErrorListener) == null) || (mediaPlayer = this.a) == null) {
-            return;
-        }
-        mediaPlayer.setOnErrorListener(onErrorListener);
-    }
-
-    public void setOnInfoListener(MediaPlayer.OnInfoListener onInfoListener) {
-        MediaPlayer mediaPlayer;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048605, this, onInfoListener) == null) || (mediaPlayer = this.a) == null) {
-            return;
-        }
-        mediaPlayer.setOnInfoListener(onInfoListener);
-    }
-
-    public void setRawData(int i) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048606, this, i) == null) {
-            setDataSource(getResources().openRawResourceFd(i));
-        }
-    }
-
-    public void setScalableType(ScalableType scalableType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048607, this, scalableType) == null) {
-            this.b = scalableType;
-            g(getVideoWidth(), getVideoHeight());
-        }
-    }
-
-    public void setVolume(float f, float f2) {
-        MediaPlayer mediaPlayer;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048608, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) || (mediaPlayer = this.a) == null) {
-            return;
-        }
-        mediaPlayer.setVolume(f, f2);
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ScalableVideoView(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ScalableVideoView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        TypedArray obtainStyledAttributes;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.b = ScalableType.NONE;
-        if (attributeSet == null || (obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ho5.videoScaleStyle, 0, 0)) == null) {
-            return;
-        }
-        int i4 = obtainStyledAttributes.getInt(0, ScalableType.NONE.ordinal());
-        obtainStyledAttributes.recycle();
-        this.b = ScalableType.values()[i4];
-    }
-
-    public void setDataSource(String str) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, str) == null) {
-            a();
-            this.a.setDataSource(str);
-        }
-    }
-
-    public void setDataSource(Context context, Uri uri, Map<String, String> map) throws IOException {
+    public void setDataSource(Context context, Uri uri, Map map) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048598, this, context, uri, map) == null) {
             a();
@@ -418,6 +399,23 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
         }
     }
 
+    public void setVolume(float f, float f2) {
+        MediaPlayer mediaPlayer;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(1048608, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) != null) || (mediaPlayer = this.a) == null) {
+            return;
+        }
+        mediaPlayer.setVolume(f, f2);
+    }
+
+    public void setDataSource(FileDescriptor fileDescriptor) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048599, this, fileDescriptor) == null) {
+            a();
+            this.a.setDataSource(fileDescriptor);
+        }
+    }
+
     public void setDataSource(FileDescriptor fileDescriptor, long j, long j2) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{fileDescriptor, Long.valueOf(j), Long.valueOf(j2)}) == null) {
@@ -426,11 +424,11 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
         }
     }
 
-    public void setDataSource(FileDescriptor fileDescriptor) throws IOException {
+    public void setDataSource(String str) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, fileDescriptor) == null) {
+        if (interceptable == null || interceptable.invokeL(1048601, this, str) == null) {
             a();
-            this.a.setDataSource(fileDescriptor);
+            this.a.setDataSource(str);
         }
     }
 }

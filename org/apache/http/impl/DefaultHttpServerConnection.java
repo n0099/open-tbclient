@@ -31,14 +31,6 @@ public class DefaultHttpServerConnection extends SocketHttpServerConnection {
         throw new RuntimeException("Stub!");
     }
 
-    @Override // org.apache.http.impl.SocketHttpServerConnection
-    public void bind(Socket socket, HttpParams httpParams) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, socket, httpParams) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -46,5 +38,13 @@ public class DefaultHttpServerConnection extends SocketHttpServerConnection {
             throw new RuntimeException("Stub!");
         }
         return (String) invokeV.objValue;
+    }
+
+    @Override // org.apache.http.impl.SocketHttpServerConnection
+    public void bind(Socket socket, HttpParams httpParams) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, socket, httpParams) == null) {
+            throw new RuntimeException("Stub!");
+        }
     }
 }

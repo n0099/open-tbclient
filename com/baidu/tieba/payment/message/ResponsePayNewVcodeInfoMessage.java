@@ -40,15 +40,17 @@ public class ResponsePayNewVcodeInfoMessage extends JsonHttpResponsedMessage {
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) || getStatusCode() != 200 || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) && getStatusCode() == 200 && jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
+            this.payNewVcodeInfoData = (PayVcodeInfoData) OrmObject.objectWithJson(optJSONObject, PayVcodeInfoData.class);
         }
-        this.payNewVcodeInfoData = (PayVcodeInfoData) OrmObject.objectWithJson(optJSONObject, PayVcodeInfoData.class);
     }
 
     public PayVcodeInfoData getPayNewVcodeInfoData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.payNewVcodeInfoData : (PayVcodeInfoData) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.payNewVcodeInfoData;
+        }
+        return (PayVcodeInfoData) invokeV.objValue;
     }
 }

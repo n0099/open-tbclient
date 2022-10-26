@@ -1,7 +1,5 @@
 package com.tencent.connect.auth;
 
-import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -83,16 +81,16 @@ public class a extends Dialog {
     public String q;
     public long r;
     public long s;
-    public HashMap<String, Runnable> t;
+    public HashMap t;
 
     /* renamed from: com.tencent.connect.auth.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C0700a extends WebViewClient {
+    public class C0696a extends WebViewClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C0700a(a aVar) {
+        public C0696a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -120,10 +118,9 @@ public class a extends Dialog {
                 if (this.a.k != null) {
                     this.a.k.setVisibility(0);
                 }
-                if (TextUtils.isEmpty(str)) {
-                    return;
+                if (!TextUtils.isEmpty(str)) {
+                    this.a.d.removeCallbacks((Runnable) this.a.t.remove(str));
                 }
-                this.a.d.removeCallbacks((Runnable) this.a.t.remove(str));
             }
         }
 
@@ -147,61 +144,6 @@ public class a extends Dialog {
         }
 
         @Override // android.webkit.WebViewClient
-        public void onReceivedError(WebView webView, int i, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, webView, i, str, str2) == null) {
-                super.onReceivedError(webView, i, str, str2);
-                SLog.i("openSDK_LOG.AuthDialog", "-->onReceivedError, errorCode: " + i + " | description: " + str);
-                if (!l.b(this.a.l)) {
-                    this.a.b.onError(new UiError(9001, "当前网络不可用，请稍后重试！", str2));
-                    this.a.dismiss();
-                } else if (!this.a.p.startsWith("https://login.imgcache.qq.com/ptlogin/static/qzsjump.html?")) {
-                    long elapsedRealtime = SystemClock.elapsedRealtime() - this.a.r;
-                    if (this.a.o >= 1 || elapsedRealtime >= this.a.s) {
-                        this.a.k.loadUrl(this.a.a());
-                        return;
-                    }
-                    a.m(this.a);
-                    this.a.d.postDelayed(new Runnable(this) { // from class: com.tencent.connect.auth.a.a.1
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ C0700a a;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.a = this;
-                        }
-
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                this.a.a.k.loadUrl(this.a.a.p);
-                            }
-                        }
-                    }, 500L);
-                } else {
-                    this.a.b.onError(new UiError(i, str, str2));
-                    this.a.dismiss();
-                }
-            }
-        }
-
-        @Override // android.webkit.WebViewClient
-        @TargetApi(8)
         public void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
             String str;
             String str2;
@@ -224,7 +166,7 @@ public class a extends Dialog {
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ SslErrorHandler a;
-                    public final /* synthetic */ C0700a b;
+                    public final /* synthetic */ C0696a b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -257,7 +199,7 @@ public class a extends Dialog {
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ SslErrorHandler a;
-                    public final /* synthetic */ C0700a b;
+                    public final /* synthetic */ C0696a b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -292,6 +234,60 @@ public class a extends Dialog {
         }
 
         @Override // android.webkit.WebViewClient
+        public void onReceivedError(WebView webView, int i, String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, webView, i, str, str2) == null) {
+                super.onReceivedError(webView, i, str, str2);
+                SLog.i("openSDK_LOG.AuthDialog", "-->onReceivedError, errorCode: " + i + " | description: " + str);
+                if (!l.b(this.a.l)) {
+                    this.a.b.onError(new UiError(9001, "当前网络不可用，请稍后重试！", str2));
+                    this.a.dismiss();
+                } else if (!this.a.p.startsWith("https://login.imgcache.qq.com/ptlogin/static/qzsjump.html?")) {
+                    long elapsedRealtime = SystemClock.elapsedRealtime() - this.a.r;
+                    if (this.a.o < 1 && elapsedRealtime < this.a.s) {
+                        a.m(this.a);
+                        this.a.d.postDelayed(new Runnable(this) { // from class: com.tencent.connect.auth.a.a.1
+                            public static /* synthetic */ Interceptable $ic;
+                            public transient /* synthetic */ FieldHolder $fh;
+                            public final /* synthetic */ C0696a a;
+
+                            {
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 != null) {
+                                    InitContext newInitContext = TitanRuntime.newInitContext();
+                                    newInitContext.initArgs = r2;
+                                    Object[] objArr = {this};
+                                    interceptable2.invokeUnInit(65536, newInitContext);
+                                    int i2 = newInitContext.flag;
+                                    if ((i2 & 1) != 0) {
+                                        int i3 = i2 & 2;
+                                        newInitContext.thisArg = this;
+                                        interceptable2.invokeInitBody(65536, newInitContext);
+                                        return;
+                                    }
+                                }
+                                this.a = this;
+                            }
+
+                            @Override // java.lang.Runnable
+                            public void run() {
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                    this.a.a.k.loadUrl(this.a.a.p);
+                                }
+                            }
+                        }, 500L);
+                        return;
+                    }
+                    this.a.k.loadUrl(this.a.a());
+                } else {
+                    this.a.b.onError(new UiError(i, str, str2));
+                    this.a.dismiss();
+                }
+            }
+        }
+
+        @Override // android.webkit.WebViewClient
         public boolean shouldOverrideUrlLoading(WebView webView, String str) {
             InterceptResult invokeLL;
             Uri parse;
@@ -310,7 +306,11 @@ public class a extends Dialog {
                             a aVar2 = this.a;
                             StringBuilder sb = new StringBuilder();
                             sb.append(this.a.a);
-                            sb.append(this.a.a.indexOf("?") > -1 ? "&" : "?");
+                            String str2 = "?";
+                            if (this.a.a.indexOf("?") > -1) {
+                                str2 = "&";
+                            }
+                            sb.append(str2);
                             aVar2.a = sb.toString();
                             a aVar3 = this.a;
                             aVar3.a = this.a.a + "browser_error=1";
@@ -351,13 +351,7 @@ public class a extends Dialog {
                             this.a.g.setVisibility(0);
                         }
                         return true;
-                    } else if (!str.startsWith("auth://onLoginSubmit")) {
-                        if (this.a.m.a(this.a.k, str)) {
-                            return true;
-                        }
-                        SLog.i("openSDK_LOG.AuthDialog", "-->Redirect URL: return false");
-                        return false;
-                    } else {
+                    } else if (str.startsWith("auth://onLoginSubmit")) {
                         try {
                             List<String> pathSegments2 = Uri.parse(str).getPathSegments();
                             if (!pathSegments2.isEmpty()) {
@@ -366,6 +360,11 @@ public class a extends Dialog {
                         } catch (Exception unused2) {
                         }
                         return true;
+                    } else if (this.a.m.a(this.a.k, str)) {
+                        return true;
+                    } else {
+                        SLog.i("openSDK_LOG.AuthDialog", "-->Redirect URL: return false");
+                        return false;
                     }
                 } else {
                     try {
@@ -419,15 +418,27 @@ public class a extends Dialog {
             this.e = iUiListener;
         }
 
+        /* JADX INFO: Access modifiers changed from: private */
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(65538, this, str) == null) {
+                try {
+                    onComplete(l.d(str));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    onError(new UiError(-4, com.tencent.connect.common.Constants.MSG_JSON_ERROR, str));
+                }
+            }
+        }
+
         @Override // com.tencent.tauth.DefaultUiListener, com.tencent.tauth.IUiListener
         public void onCancel() {
             IUiListener iUiListener;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (iUiListener = this.e) == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (iUiListener = this.e) != null) {
+                iUiListener.onCancel();
+                this.e = null;
             }
-            iUiListener.onCancel();
-            this.e = null;
         }
 
         @Override // com.tencent.tauth.DefaultUiListener, com.tencent.tauth.IUiListener
@@ -461,19 +472,6 @@ public class a extends Dialog {
                 if (iUiListener != null) {
                     iUiListener.onError(uiError);
                     this.e = null;
-                }
-            }
-        }
-
-        /* JADX INFO: Access modifiers changed from: private */
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(65538, this, str) == null) {
-                try {
-                    onComplete(l.d(str));
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    onError(new UiError(-4, com.tencent.connect.common.Constants.MSG_JSON_ERROR, str));
                 }
             }
         }
@@ -515,11 +513,13 @@ public class a extends Dialog {
                 int i = message.what;
                 if (i == 1) {
                     this.b.a((String) message.obj);
-                } else if (i == 2) {
-                    this.b.onCancel();
-                } else if (i != 3) {
-                } else {
+                } else if (i != 2) {
+                    if (i != 3) {
+                        return;
+                    }
                     a.b(this.a.l, (String) message.obj);
+                } else {
+                    this.b.onCancel();
                 }
             }
         }
@@ -603,37 +603,47 @@ public class a extends Dialog {
         return i;
     }
 
-    @Override // android.app.Dialog, android.content.DialogInterface
-    public void dismiss() {
+    /* JADX INFO: Access modifiers changed from: private */
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.t.clear();
-            this.d.removeCallbacksAndMessages(null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+            String str = this.a;
+            String str2 = "https://login.imgcache.qq.com/ptlogin/static/qzsjump.html?" + str.substring(str.indexOf("?") + 1);
+            SLog.i("openSDK_LOG.AuthDialog", "-->generateDownloadUrl, url: https://login.imgcache.qq.com/ptlogin/static/qzsjump.html?");
+            return str2;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void b(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65546, null, context, str) == null) {
             try {
-                if ((this.l instanceof Activity) && !((Activity) this.l).isFinishing() && isShowing()) {
-                    super.dismiss();
-                    SLog.i("openSDK_LOG.AuthDialog", "-->dismiss dialog");
-                }
-            } catch (Exception e) {
-                SLog.e("openSDK_LOG.AuthDialog", "-->dismiss dialog exception:", e);
-            }
-            com.tencent.open.b.c cVar = this.k;
-            if (cVar != null) {
-                cVar.destroy();
-                this.k = null;
+                JSONObject d2 = l.d(str);
+                int i = d2.getInt("type");
+                Toast.makeText(context.getApplicationContext(), d2.getString("msg"), i).show();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
     }
 
-    @Override // android.app.Dialog
-    public void onBackPressed() {
+    /* JADX INFO: Access modifiers changed from: private */
+    public String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (!this.n) {
-                this.b.onCancel();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, str)) == null) {
+            StringBuilder sb = new StringBuilder(str);
+            if (!TextUtils.isEmpty(this.q) && this.q.length() >= 4) {
+                String str2 = this.q;
+                String substring = str2.substring(str2.length() - 4);
+                sb.append("_u_");
+                sb.append(substring);
             }
-            super.onBackPressed();
+            return sb.toString();
         }
+        return (String) invokeL.objValue;
     }
 
     @Override // android.app.Dialog
@@ -654,29 +664,72 @@ public class a extends Dialog {
             }
             b();
             e();
-            this.t = new HashMap<>();
+            this.t = new HashMap();
         }
     }
 
-    @Override // android.app.Dialog
-    public void onStop() {
+    private void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.onStop();
+        if (interceptable == null || interceptable.invokeV(65545, this) == null) {
+            d();
+            c();
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
+            com.tencent.open.b.c cVar = new com.tencent.open.b.c(this.l);
+            this.k = cVar;
+            if (Build.VERSION.SDK_INT >= 11) {
+                cVar.setLayerType(1, null);
+            }
+            this.k.setLayoutParams(layoutParams);
+            FrameLayout frameLayout = new FrameLayout(this.l);
+            this.e = frameLayout;
+            layoutParams.gravity = 17;
+            frameLayout.setLayoutParams(layoutParams);
+            this.e.addView(this.k);
+            this.e.addView(this.g);
+            String string = l.b(this.a).getString("style");
+            if (string != null && "qr".equals(string)) {
+                this.e.addView(this.i);
+            }
+            setContentView(this.e);
         }
     }
 
-    @SuppressLint({"SetJavaScriptEnabled"})
-    private void e() {
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65555, this) == null) {
-            this.k.setVerticalScrollBarEnabled(false);
-            this.k.setHorizontalScrollBarEnabled(false);
-            this.k.setWebViewClient(new C0700a());
-            this.k.setWebChromeClient(new WebChromeClient());
-            this.k.clearFormData();
-            this.k.clearSslPreferences();
-            this.k.setOnLongClickListener(new View.OnLongClickListener(this) { // from class: com.tencent.connect.auth.a.2
+        if (interceptable == null || (invokeV = interceptable.invokeV(65557, this)) == null) {
+            com.tencent.connect.auth.b a = com.tencent.connect.auth.b.a();
+            String c2 = a.c();
+            b.a aVar = new b.a();
+            aVar.a = this.c;
+            aVar.b = this;
+            aVar.c = c2;
+            String a2 = a.a(aVar);
+            String str = this.a;
+            String substring = str.substring(0, str.indexOf("?"));
+            Bundle b2 = l.b(this.a);
+            b2.putString("token_key", c2);
+            b2.putString("serial", a2);
+            b2.putString("browser", "1");
+            String str2 = substring + "?" + HttpUtils.encodeUrl(b2);
+            this.a = str2;
+            return l.a(this.l, str2);
+        }
+        return invokeV.booleanValue;
+    }
+
+    private void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65549, this) == null) {
+            Button button = new Button(this.l);
+            this.i = button;
+            button.setBackgroundDrawable(l.a("h5_qr_back.png", this.l));
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
+            layoutParams.leftMargin = com.tencent.connect.avatar.a.a(this.l, 20.0f);
+            layoutParams.topMargin = com.tencent.connect.avatar.a.a(this.l, 10.0f);
+            this.i.setLayoutParams(layoutParams);
+            this.i.setOnClickListener(new View.OnClickListener(this) { // from class: com.tencent.connect.auth.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
@@ -699,6 +752,95 @@ public class a extends Dialog {
                     this.a = this;
                 }
 
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
+                        this.a.dismiss();
+                        if (!this.a.n && this.a.b != null) {
+                            this.a.b.onCancel();
+                        }
+                    }
+                }
+            });
+        }
+    }
+
+    @Override // android.app.Dialog, android.content.DialogInterface
+    public void dismiss() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.t.clear();
+            this.d.removeCallbacksAndMessages(null);
+            try {
+                if ((this.l instanceof Activity) && !((Activity) this.l).isFinishing() && isShowing()) {
+                    super.dismiss();
+                    SLog.i("openSDK_LOG.AuthDialog", "-->dismiss dialog");
+                }
+            } catch (Exception e) {
+                SLog.e("openSDK_LOG.AuthDialog", "-->dismiss dialog exception:", e);
+            }
+            com.tencent.open.b.c cVar = this.k;
+            if (cVar != null) {
+                cVar.destroy();
+                this.k = null;
+            }
+        }
+    }
+
+    private void d() {
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65553, this) == null) {
+            this.h = new ProgressBar(this.l);
+            this.h.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
+            this.f = new LinearLayout(this.l);
+            if (this.j.equals("action_login")) {
+                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
+                layoutParams.gravity = 16;
+                layoutParams.leftMargin = 5;
+                textView = new TextView(this.l);
+                if (Locale.getDefault().getLanguage().equals("zh")) {
+                    textView.setText("登录中...");
+                } else {
+                    textView.setText("Logging in...");
+                }
+                textView.setTextColor(Color.rgb(255, 255, 255));
+                textView.setTextSize(18.0f);
+                textView.setLayoutParams(layoutParams);
+            } else {
+                textView = null;
+            }
+            FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-2, -2);
+            layoutParams2.gravity = 17;
+            this.f.setLayoutParams(layoutParams2);
+            this.f.addView(this.h);
+            if (textView != null) {
+                this.f.addView(textView);
+            }
+            this.g = new FrameLayout(this.l);
+            FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(-1, -1);
+            layoutParams3.gravity = 17;
+            this.g.setLayoutParams(layoutParams3);
+            this.g.setBackgroundColor(Color.parseColor("#B3000000"));
+            this.g.addView(this.f);
+        }
+    }
+
+    private void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65555, this) == null) {
+            this.k.setVerticalScrollBarEnabled(false);
+            this.k.setHorizontalScrollBarEnabled(false);
+            this.k.setWebViewClient(new C0696a());
+            this.k.setWebChromeClient(new WebChromeClient());
+            this.k.clearFormData();
+            this.k.clearSslPreferences();
+            this.k.setOnLongClickListener(new View.OnLongClickListener(this) { // from class: com.tencent.connect.auth.a.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ a a;
+
                 @Override // android.view.View.OnLongClickListener
                 public boolean onLongClick(View view2) {
                     InterceptResult invokeL;
@@ -707,6 +849,24 @@ public class a extends Dialog {
                         return true;
                     }
                     return invokeL.booleanValue;
+                }
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.a = this;
                 }
             });
             this.k.setOnTouchListener(new View.OnTouchListener(this) { // from class: com.tencent.connect.auth.a.3
@@ -806,174 +966,6 @@ public class a extends Dialog {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65557, this)) == null) {
-            com.tencent.connect.auth.b a = com.tencent.connect.auth.b.a();
-            String c2 = a.c();
-            b.a aVar = new b.a();
-            aVar.a = this.c;
-            aVar.b = this;
-            aVar.c = c2;
-            String a2 = a.a(aVar);
-            String str = this.a;
-            String substring = str.substring(0, str.indexOf("?"));
-            Bundle b2 = l.b(this.a);
-            b2.putString("token_key", c2);
-            b2.putString("serial", a2);
-            b2.putString("browser", "1");
-            String str2 = substring + "?" + HttpUtils.encodeUrl(b2);
-            this.a = str2;
-            return l.a(this.l, str2);
-        }
-        return invokeV.booleanValue;
-    }
-
-    private void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65545, this) == null) {
-            d();
-            c();
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-            com.tencent.open.b.c cVar = new com.tencent.open.b.c(this.l);
-            this.k = cVar;
-            if (Build.VERSION.SDK_INT >= 11) {
-                cVar.setLayerType(1, null);
-            }
-            this.k.setLayoutParams(layoutParams);
-            FrameLayout frameLayout = new FrameLayout(this.l);
-            this.e = frameLayout;
-            layoutParams.gravity = 17;
-            frameLayout.setLayoutParams(layoutParams);
-            this.e.addView(this.k);
-            this.e.addView(this.g);
-            String string = l.b(this.a).getString("style");
-            if (string != null && "qr".equals(string)) {
-                this.e.addView(this.i);
-            }
-            setContentView(this.e);
-        }
-    }
-
-    private void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65549, this) == null) {
-            Button button = new Button(this.l);
-            this.i = button;
-            button.setBackgroundDrawable(l.a("h5_qr_back.png", this.l));
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
-            layoutParams.leftMargin = com.tencent.connect.avatar.a.a(this.l, 20.0f);
-            layoutParams.topMargin = com.tencent.connect.avatar.a.a(this.l, 10.0f);
-            this.i.setLayoutParams(layoutParams);
-            this.i.setOnClickListener(new View.OnClickListener(this) { // from class: com.tencent.connect.auth.a.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ a a;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.a = this;
-                }
-
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        this.a.dismiss();
-                        if (this.a.n || this.a.b == null) {
-                            return;
-                        }
-                        this.a.b.onCancel();
-                    }
-                }
-            });
-        }
-    }
-
-    private void d() {
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65553, this) == null) {
-            this.h = new ProgressBar(this.l);
-            this.h.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-            this.f = new LinearLayout(this.l);
-            if (this.j.equals("action_login")) {
-                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-                layoutParams.gravity = 16;
-                layoutParams.leftMargin = 5;
-                textView = new TextView(this.l);
-                if (Locale.getDefault().getLanguage().equals("zh")) {
-                    textView.setText("登录中...");
-                } else {
-                    textView.setText("Logging in...");
-                }
-                textView.setTextColor(Color.rgb(255, 255, 255));
-                textView.setTextSize(18.0f);
-                textView.setLayoutParams(layoutParams);
-            } else {
-                textView = null;
-            }
-            FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-2, -2);
-            layoutParams2.gravity = 17;
-            this.f.setLayoutParams(layoutParams2);
-            this.f.addView(this.h);
-            if (textView != null) {
-                this.f.addView(textView);
-            }
-            this.g = new FrameLayout(this.l);
-            FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(-1, -1);
-            layoutParams3.gravity = 17;
-            this.g.setLayoutParams(layoutParams3);
-            this.g.setBackgroundColor(Color.parseColor("#B3000000"));
-            this.g.addView(this.f);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, str)) == null) {
-            StringBuilder sb = new StringBuilder(str);
-            if (!TextUtils.isEmpty(this.q) && this.q.length() >= 4) {
-                String str2 = this.q;
-                String substring = str2.substring(str2.length() - 4);
-                sb.append("_u_");
-                sb.append(substring);
-            }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            String str = this.a;
-            String str2 = "https://login.imgcache.qq.com/ptlogin/static/qzsjump.html?" + str.substring(str.indexOf("?") + 1);
-            SLog.i("openSDK_LOG.AuthDialog", "-->generateDownloadUrl, url: https://login.imgcache.qq.com/ptlogin/static/qzsjump.html?");
-            return str2;
-        }
-        return (String) invokeV.objValue;
-    }
-
     public void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
@@ -981,16 +973,22 @@ public class a extends Dialog {
         }
     }
 
-    public static void b(Context context, String str) {
+    @Override // android.app.Dialog
+    public void onBackPressed() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65546, null, context, str) == null) {
-            try {
-                JSONObject d2 = l.d(str);
-                int i = d2.getInt("type");
-                Toast.makeText(context.getApplicationContext(), d2.getString("msg"), i).show();
-            } catch (JSONException e) {
-                e.printStackTrace();
+        if (interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (!this.n) {
+                this.b.onCancel();
             }
+            super.onBackPressed();
+        }
+    }
+
+    @Override // android.app.Dialog
+    public void onStop() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.onStop();
         }
     }
 }

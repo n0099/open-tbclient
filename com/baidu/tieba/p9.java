@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class p9<T> {
+public class p9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public r9<T> mContext;
+    public r9 mContext;
     public InputMethodManager mInputManager;
 
-    public p9(r9<T> r9Var) {
+    public p9(r9 r9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -63,6 +63,13 @@ public class p9<T> {
         }
     }
 
+    public void setInputMethodManager(InputMethodManager inputMethodManager) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, inputMethodManager) == null) {
+            this.mInputManager = inputMethodManager;
+        }
+    }
+
     public InputMethodManager getInputMethodManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -75,16 +82,12 @@ public class p9<T> {
         return (InputMethodManager) invokeV.objValue;
     }
 
-    public r9<T> getPageContext() {
+    public r9 getPageContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mContext : (r9) invokeV.objValue;
-    }
-
-    public void setInputMethodManager(InputMethodManager inputMethodManager) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, inputMethodManager) == null) {
-            this.mInputManager = inputMethodManager;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mContext;
         }
+        return (r9) invokeV.objValue;
     }
 }

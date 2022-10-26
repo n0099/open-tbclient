@@ -2,15 +2,15 @@ package rx.schedulers;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bz9;
-import com.baidu.tieba.cz9;
-import com.baidu.tieba.dz9;
-import com.baidu.tieba.gz9;
-import com.baidu.tieba.ix9;
-import com.baidu.tieba.iz9;
-import com.baidu.tieba.m1a;
-import com.baidu.tieba.p1a;
-import com.baidu.tieba.q1a;
+import com.baidu.tieba.a0a;
+import com.baidu.tieba.ay9;
+import com.baidu.tieba.e2a;
+import com.baidu.tieba.h2a;
+import com.baidu.tieba.i2a;
+import com.baidu.tieba.tz9;
+import com.baidu.tieba.uz9;
+import com.baidu.tieba.vz9;
+import com.baidu.tieba.yz9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,11 +23,11 @@ import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes9.dex */
 public final class Schedulers {
     public static /* synthetic */ Interceptable $ic;
-    public static final AtomicReference<Schedulers> d;
+    public static final AtomicReference d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ix9 a;
-    public final ix9 b;
-    public final ix9 c;
+    public final ay9 a;
+    public final ay9 b;
+    public final ay9 c;
 
     static {
         InterceptResult invokeClinit;
@@ -42,7 +42,91 @@ public final class Schedulers {
                 return;
             }
         }
-        d = new AtomicReference<>();
+        d = new AtomicReference();
+    }
+
+    public static ay9 computation() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return e2a.f(a().a);
+        }
+        return (ay9) invokeV.objValue;
+    }
+
+    public static ay9 immediate() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return vz9.a;
+        }
+        return (ay9) invokeV.objValue;
+    }
+
+    public static ay9 io() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return e2a.k(a().b);
+        }
+        return (ay9) invokeV.objValue;
+    }
+
+    public static ay9 newThread() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return e2a.l(a().c);
+        }
+        return (ay9) invokeV.objValue;
+    }
+
+    public static void reset() {
+        Schedulers schedulers;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65544, null) == null) && (schedulers = (Schedulers) d.getAndSet(null)) != null) {
+            schedulers.b();
+        }
+    }
+
+    public static void shutdown() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65545, null) == null) {
+            Schedulers a = a();
+            a.b();
+            synchronized (a) {
+                uz9.d.shutdown();
+            }
+        }
+    }
+
+    public static void start() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65546, null) == null) {
+            Schedulers a = a();
+            a.c();
+            synchronized (a) {
+                uz9.d.start();
+            }
+        }
+    }
+
+    public static TestScheduler test() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            return new TestScheduler();
+        }
+        return (TestScheduler) invokeV.objValue;
+    }
+
+    public static ay9 trampoline() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            return a0a.a;
+        }
+        return (ay9) invokeV.objValue;
     }
 
     public Schedulers() {
@@ -58,24 +142,24 @@ public final class Schedulers {
                 return;
             }
         }
-        q1a f = p1a.c().f();
-        ix9 g = f.g();
+        i2a f = h2a.c().f();
+        ay9 g = f.g();
         if (g != null) {
             this.a = g;
         } else {
-            this.a = q1a.a();
+            this.a = i2a.a();
         }
-        ix9 i3 = f.i();
+        ay9 i3 = f.i();
         if (i3 != null) {
             this.b = i3;
         } else {
-            this.b = q1a.c();
+            this.b = i2a.c();
         }
-        ix9 j = f.j();
+        ay9 j = f.j();
         if (j != null) {
             this.c = j;
         } else {
-            this.c = q1a.e();
+            this.c = i2a.e();
         }
     }
 
@@ -86,7 +170,7 @@ public final class Schedulers {
             return (Schedulers) invokeV.objValue;
         }
         while (true) {
-            Schedulers schedulers = d.get();
+            Schedulers schedulers = (Schedulers) d.get();
             if (schedulers != null) {
                 return schedulers;
             }
@@ -98,91 +182,18 @@ public final class Schedulers {
         }
     }
 
-    public static ix9 computation() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? m1a.f(a().a) : (ix9) invokeV.objValue;
-    }
-
-    public static ix9 from(Executor executor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, executor)) == null) ? new bz9(executor) : (ix9) invokeL.objValue;
-    }
-
-    public static ix9 immediate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? dz9.a : (ix9) invokeV.objValue;
-    }
-
-    public static ix9 io() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? m1a.k(a().b) : (ix9) invokeV.objValue;
-    }
-
-    public static ix9 newThread() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? m1a.l(a().c) : (ix9) invokeV.objValue;
-    }
-
-    public static void reset() {
-        Schedulers andSet;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65544, null) == null) || (andSet = d.getAndSet(null)) == null) {
-            return;
-        }
-        andSet.b();
-    }
-
-    public static void shutdown() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65545, null) == null) {
-            Schedulers a = a();
-            a.b();
-            synchronized (a) {
-                cz9.d.shutdown();
-            }
-        }
-    }
-
-    public static void start() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65546, null) == null) {
-            Schedulers a = a();
-            a.c();
-            synchronized (a) {
-                cz9.d.start();
-            }
-        }
-    }
-
-    public static TestScheduler test() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? new TestScheduler() : (TestScheduler) invokeV.objValue;
-    }
-
-    public static ix9 trampoline() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? iz9.a : (ix9) invokeV.objValue;
-    }
-
     public synchronized void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             synchronized (this) {
-                if (this.a instanceof gz9) {
-                    ((gz9) this.a).shutdown();
+                if (this.a instanceof yz9) {
+                    ((yz9) this.a).shutdown();
                 }
-                if (this.b instanceof gz9) {
-                    ((gz9) this.b).shutdown();
+                if (this.b instanceof yz9) {
+                    ((yz9) this.b).shutdown();
                 }
-                if (this.c instanceof gz9) {
-                    ((gz9) this.c).shutdown();
+                if (this.c instanceof yz9) {
+                    ((yz9) this.c).shutdown();
                 }
             }
         }
@@ -192,16 +203,25 @@ public final class Schedulers {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             synchronized (this) {
-                if (this.a instanceof gz9) {
-                    ((gz9) this.a).start();
+                if (this.a instanceof yz9) {
+                    ((yz9) this.a).start();
                 }
-                if (this.b instanceof gz9) {
-                    ((gz9) this.b).start();
+                if (this.b instanceof yz9) {
+                    ((yz9) this.b).start();
                 }
-                if (this.c instanceof gz9) {
-                    ((gz9) this.c).start();
+                if (this.c instanceof yz9) {
+                    ((yz9) this.c).start();
                 }
             }
         }
+    }
+
+    public static ay9 from(Executor executor) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, executor)) == null) {
+            return new tz9(executor);
+        }
+        return (ay9) invokeL.objValue;
     }
 }

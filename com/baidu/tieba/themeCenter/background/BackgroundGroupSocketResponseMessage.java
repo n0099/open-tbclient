@@ -1,11 +1,10 @@
 package com.baidu.tieba.themeCenter.background;
 
-import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.st8;
-import com.baidu.tieba.vs8;
+import com.baidu.tieba.cu8;
+import com.baidu.tieba.ft8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,8 +21,8 @@ import tbclient.GetBgByCategory.ThemeBgInMain;
 public class BackgroundGroupSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<vs8> mBackgroundGroupList;
-    public st8 mRecommand;
+    public List mBackgroundGroupList;
+    public cu8 mRecommand;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BackgroundGroupSocketResponseMessage() {
@@ -43,8 +42,25 @@ public class BackgroundGroupSocketResponseMessage extends SocketResponsedMessage
         }
     }
 
+    public List getGroupList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mBackgroundGroupList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public cu8 getRecommand() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mRecommand;
+        }
+        return (cu8) invokeV.objValue;
+    }
+
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -61,17 +77,17 @@ public class BackgroundGroupSocketResponseMessage extends SocketResponsedMessage
             DataRes dataRes = getBgByCategoryResIdl.data;
             if (dataRes != null) {
                 if (dataRes.recommend != null) {
-                    st8 st8Var = new st8();
-                    this.mRecommand = st8Var;
-                    st8Var.d(getBgByCategoryResIdl.data.recommend);
+                    cu8 cu8Var = new cu8();
+                    this.mRecommand = cu8Var;
+                    cu8Var.d(getBgByCategoryResIdl.data.recommend);
                 }
                 if (getBgByCategoryResIdl.data.bgs != null) {
                     this.mBackgroundGroupList = new ArrayList();
                     for (ThemeBgInMain themeBgInMain : getBgByCategoryResIdl.data.bgs) {
                         if (themeBgInMain != null && !StringUtils.isNull(themeBgInMain.bg_category)) {
-                            vs8 vs8Var = new vs8();
-                            vs8Var.c(themeBgInMain);
-                            this.mBackgroundGroupList.add(vs8Var);
+                            ft8 ft8Var = new ft8();
+                            ft8Var.c(themeBgInMain);
+                            this.mBackgroundGroupList.add(ft8Var);
                         }
                     }
                 }
@@ -79,17 +95,5 @@ public class BackgroundGroupSocketResponseMessage extends SocketResponsedMessage
             return getBgByCategoryResIdl;
         }
         return invokeIL.objValue;
-    }
-
-    public List<vs8> getGroupList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mBackgroundGroupList : (List) invokeV.objValue;
-    }
-
-    public st8 getRecommand() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mRecommand : (st8) invokeV.objValue;
     }
 }

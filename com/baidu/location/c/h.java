@@ -1,6 +1,5 @@
 package com.baidu.location.c;
 
-import android.annotation.SuppressLint;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiInfo;
 import android.os.Build;
@@ -24,13 +23,13 @@ import java.util.regex.Pattern;
 public class h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ScanResult> a;
+    public List a;
     public long b;
     public long c;
     public boolean d;
     public boolean e;
 
-    public h(List<ScanResult> list, long j) {
+    public h(List list, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -81,7 +80,7 @@ public class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            List<ScanResult> list = this.a;
+            List list = this.a;
             if (list == null) {
                 return 0;
             }
@@ -107,7 +106,7 @@ public class h {
             if (r0 >= r1) goto Lc
             return
         Lc:
-            java.util.List<android.net.wifi.ScanResult> r0 = r7.a
+            java.util.List r0 = r7.a
             int r0 = r0.size()
             int r0 = r0 - r1
             r2 = 1
@@ -118,29 +117,29 @@ public class h {
             r3 = 0
         L1a:
             if (r2 >= r0) goto L5e
-            java.util.List<android.net.wifi.ScanResult> r4 = r7.a
+            java.util.List r4 = r7.a
             java.lang.Object r4 = r4.get(r2)
             if (r4 == 0) goto L5b
-            java.util.List<android.net.wifi.ScanResult> r4 = r7.a
+            java.util.List r4 = r7.a
             int r5 = r2 + 1
             java.lang.Object r4 = r4.get(r5)
             if (r4 == 0) goto L5b
-            java.util.List<android.net.wifi.ScanResult> r4 = r7.a
+            java.util.List r4 = r7.a
             java.lang.Object r4 = r4.get(r2)
             android.net.wifi.ScanResult r4 = (android.net.wifi.ScanResult) r4
             int r4 = r4.level
-            java.util.List<android.net.wifi.ScanResult> r6 = r7.a
+            java.util.List r6 = r7.a
             java.lang.Object r6 = r6.get(r5)
             android.net.wifi.ScanResult r6 = (android.net.wifi.ScanResult) r6
             int r6 = r6.level
             if (r4 >= r6) goto L5b
-            java.util.List<android.net.wifi.ScanResult> r3 = r7.a
+            java.util.List r3 = r7.a
             java.lang.Object r3 = r3.get(r5)
             android.net.wifi.ScanResult r3 = (android.net.wifi.ScanResult) r3
-            java.util.List<android.net.wifi.ScanResult> r4 = r7.a
+            java.util.List r4 = r7.a
             java.lang.Object r6 = r4.get(r2)
             r4.set(r5, r6)
-            java.util.List<android.net.wifi.ScanResult> r4 = r7.a
+            java.util.List r4 = r7.a
             r4.set(r2, r3)
             r3 = 1
         L5b:
@@ -166,7 +165,7 @@ public class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<ScanResult> list = this.a;
+            List list = this.a;
             if (list == null) {
                 return 0;
             }
@@ -194,7 +193,6 @@ public class h {
     /* JADX WARN: Removed duplicated region for block: B:65:0x0106 A[Catch: Exception -> 0x0060, Error -> 0x0315, TryCatch #0 {Exception -> 0x0060, blocks: (B:19:0x0057, B:33:0x0079, B:40:0x0095, B:42:0x009d, B:52:0x00c9, B:56:0x00db, B:58:0x00e1, B:61:0x00f1, B:62:0x00f6, B:64:0x00fe, B:66:0x0109, B:68:0x0115, B:71:0x0129, B:73:0x0146, B:75:0x014e, B:105:0x0208, B:101:0x01e3, B:65:0x0106, B:108:0x0217, B:110:0x022f, B:114:0x0240, B:117:0x025a, B:119:0x0260, B:121:0x0271, B:122:0x0289, B:124:0x028f, B:126:0x0297, B:130:0x02c3, B:127:0x02a2, B:129:0x02b1, B:131:0x02c7, B:133:0x02d0, B:135:0x02f0, B:139:0x02ff, B:141:0x0304, B:142:0x030e), top: B:157:0x0057 }] */
     /* JADX WARN: Removed duplicated region for block: B:68:0x0115 A[Catch: Exception -> 0x0060, Error -> 0x0315, TryCatch #0 {Exception -> 0x0060, blocks: (B:19:0x0057, B:33:0x0079, B:40:0x0095, B:42:0x009d, B:52:0x00c9, B:56:0x00db, B:58:0x00e1, B:61:0x00f1, B:62:0x00f6, B:64:0x00fe, B:66:0x0109, B:68:0x0115, B:71:0x0129, B:73:0x0146, B:75:0x014e, B:105:0x0208, B:101:0x01e3, B:65:0x0106, B:108:0x0217, B:110:0x022f, B:114:0x0240, B:117:0x025a, B:119:0x0260, B:121:0x0271, B:122:0x0289, B:124:0x028f, B:126:0x0297, B:130:0x02c3, B:127:0x02a2, B:129:0x02b1, B:131:0x02c7, B:133:0x02d0, B:135:0x02f0, B:139:0x02ff, B:141:0x0304, B:142:0x030e), top: B:157:0x0057 }] */
     /* JADX WARN: Removed duplicated region for block: B:80:0x0167  */
-    @SuppressLint({"NewApi"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -269,7 +267,7 @@ public class h {
                         int i5 = 0;
                         char c2 = 0;
                         while (i3 < size) {
-                            if (this.a.get(i3) == null || this.a.get(i3).level == 0) {
+                            if (this.a.get(i3) == null || ((ScanResult) this.a.get(i3)).level == 0) {
                                 str3 = str7;
                                 str4 = str2;
                                 j2 = j;
@@ -280,7 +278,7 @@ public class h {
                                         str5 = str;
                                         str4 = str2;
                                         try {
-                                            j3 = (j - this.a.get(i3).timestamp) / 1000000;
+                                            j3 = (j - ((ScanResult) this.a.get(i3)).timestamp) / 1000000;
                                         } catch (Exception unused3) {
                                             j3 = 0;
                                             arrayList.add(Long.valueOf(j3));
@@ -294,7 +292,7 @@ public class h {
                                             }
                                             if (z4) {
                                             }
-                                            str6 = this.a.get(i3).BSSID;
+                                            str6 = ((ScanResult) this.a.get(i3)).BSSID;
                                             if (str6 == null) {
                                             }
                                             i3++;
@@ -314,7 +312,7 @@ public class h {
                                     str5 = str;
                                     str4 = str2;
                                 }
-                                if (Build.VERSION.SDK_INT >= 23 && this.a.get(i3).is80211mcResponder()) {
+                                if (Build.VERSION.SDK_INT >= 23 && ((ScanResult) this.a.get(i3)).is80211mcResponder()) {
                                     if (stringBuffer2 == null) {
                                         stringBuffer2 = new StringBuffer();
                                     }
@@ -327,11 +325,11 @@ public class h {
                                     stringBuffer.append("&wf=");
                                     z4 = false;
                                 }
-                                str6 = this.a.get(i3).BSSID;
+                                str6 = ((ScanResult) this.a.get(i3)).BSSID;
                                 if (str6 == null) {
                                     String replace = str6.replace(str7, "");
                                     stringBuffer.append(replace);
-                                    int i6 = this.a.get(i3).level;
+                                    int i6 = ((ScanResult) this.a.get(i3)).level;
                                     if (i6 < 0) {
                                         i6 = -i6;
                                     }
@@ -342,26 +340,26 @@ public class h {
                                     if (str5 != null) {
                                         str = str5;
                                         if (str.equals(replace)) {
-                                            this.e = a(this.a.get(i3).capabilities);
+                                            this.e = a(((ScanResult) this.a.get(i3)).capabilities);
                                             i4 = i5;
                                             z5 = true;
                                             if (z5) {
                                                 c = c2;
                                                 if (c == 0) {
                                                     try {
-                                                        if (random.nextInt(10) == 2 && this.a.get(i3).SSID != null && this.a.get(i3).SSID.length() < 30) {
-                                                            stringBuffer.append(b(this.a.get(i3).SSID));
+                                                        if (random.nextInt(10) == 2 && ((ScanResult) this.a.get(i3)).SSID != null && ((ScanResult) this.a.get(i3)).SSID.length() < 30) {
+                                                            stringBuffer.append(b(((ScanResult) this.a.get(i3)).SSID));
                                                             c2 = 1;
                                                         }
                                                     } catch (Exception unused5) {
                                                     }
-                                                } else if (c == 1 && random.nextInt(20) == 1 && this.a.get(i3).SSID != null && this.a.get(i3).SSID.length() < 30) {
-                                                    stringBuffer.append(b(this.a.get(i3).SSID));
+                                                } else if (c == 1 && random.nextInt(20) == 1 && ((ScanResult) this.a.get(i3)).SSID != null && ((ScanResult) this.a.get(i3)).SSID.length() < 30) {
+                                                    stringBuffer.append(b(((ScanResult) this.a.get(i3)).SSID));
                                                     c2 = 2;
                                                 }
                                             } else {
                                                 c = c2;
-                                                stringBuffer.append(b(this.a.get(i3).SSID));
+                                                stringBuffer.append(b(((ScanResult) this.a.get(i3)).SSID));
                                             }
                                         }
                                     } else {
@@ -478,7 +476,7 @@ public class h {
         InterceptResult invokeJ;
         long j2;
         boolean z;
-        List<ScanResult> list;
+        List list;
         int size;
         int i;
         long j3;
@@ -504,9 +502,9 @@ public class h {
                 long j4 = 0;
                 long j5 = 0;
                 for (i = 0; i < size; i++) {
-                    if (this.a.get(i) != null && this.a.get(i).level != 0 && z) {
+                    if (this.a.get(i) != null && ((ScanResult) this.a.get(i)).level != 0 && z) {
                         try {
-                            j3 = (j2 - this.a.get(i).timestamp) / 1000000;
+                            j3 = (j2 - ((ScanResult) this.a.get(i)).timestamp) / 1000000;
                         } catch (Error | Exception unused2) {
                             j3 = 0;
                         }
@@ -540,13 +538,13 @@ public class h {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, hVar)) == null) {
-            List<ScanResult> list = this.a;
+            List list = this.a;
             if (list == null || hVar == null || hVar.a == null) {
                 return false;
             }
             int size = (list.size() < hVar.a.size() ? this.a : hVar.a).size();
             for (int i = 0; i < size; i++) {
-                if (this.a.get(i) != null && !this.a.get(i).BSSID.equals(hVar.a.get(i).BSSID)) {
+                if (this.a.get(i) != null && !((ScanResult) this.a.get(i)).BSSID.equals(((ScanResult) hVar.a.get(i)).BSSID)) {
                     return false;
                 }
             }
@@ -586,11 +584,11 @@ public class h {
                 int i4 = 0;
                 for (int i5 = 0; i5 < size; i5++) {
                     if (this.a.get(i5) != null) {
-                        if ((i2 & i) != 0 && this.a.get(i5).BSSID != null) {
+                        if ((i2 & i) != 0 && ((ScanResult) this.a.get(i5)).BSSID != null) {
                             stringBuffer.append(i4 == 0 ? "&ssid=" : "|");
-                            stringBuffer.append(this.a.get(i5).BSSID.replace(":", ""));
+                            stringBuffer.append(((ScanResult) this.a.get(i5)).BSSID.replace(":", ""));
                             stringBuffer.append(ParamableElem.DIVIDE_PARAM);
-                            stringBuffer.append(b(this.a.get(i5).SSID));
+                            stringBuffer.append(b(((ScanResult) this.a.get(i5)).SSID));
                             i4++;
                         }
                         i2 <<= 1;
@@ -607,17 +605,17 @@ public class h {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, hVar)) == null) {
-            List<ScanResult> list = this.a;
+            List list = this.a;
             if (list == null || hVar == null || hVar.a == null) {
                 return false;
             }
             int size = (list.size() < hVar.a.size() ? this.a : hVar.a).size();
             for (int i = 0; i < size; i++) {
                 if (this.a.get(i) != null) {
-                    String str = this.a.get(i).BSSID;
-                    int i2 = this.a.get(i).level;
-                    String str2 = hVar.a.get(i).BSSID;
-                    int i3 = hVar.a.get(i).level;
+                    String str = ((ScanResult) this.a.get(i)).BSSID;
+                    int i2 = ((ScanResult) this.a.get(i)).level;
+                    String str2 = ((ScanResult) hVar.a.get(i)).BSSID;
+                    int i3 = ((ScanResult) hVar.a.get(i)).level;
                     if (!str.equals(str2) || i2 != i3) {
                         return false;
                     }
@@ -668,7 +666,6 @@ public class h {
 
     /* JADX WARN: Removed duplicated region for block: B:20:0x002f A[RETURN] */
     /* JADX WARN: Removed duplicated region for block: B:21:0x0030  */
-    @SuppressLint({"NewApi"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -681,7 +678,7 @@ public class h {
         if (interceptable != null && (invokeV = interceptable.invokeV(1048588, this)) != null) {
             return invokeV.longValue;
         }
-        List<ScanResult> list = this.a;
+        List list = this.a;
         if (list == null || list.size() == 0) {
             return 0L;
         }
@@ -702,9 +699,9 @@ public class h {
                     size = 16;
                 }
                 for (int i = 0; i < size; i++) {
-                    if (this.a.get(i) != null && this.a.get(i).level != 0 && z) {
+                    if (this.a.get(i) != null && ((ScanResult) this.a.get(i)).level != 0 && z) {
                         try {
-                            j2 = (j - this.a.get(i).timestamp) / 1000000;
+                            j2 = (j - ((ScanResult) this.a.get(i)).timestamp) / 1000000;
                         } catch (Error | Exception unused2) {
                             j2 = 0;
                         }
@@ -731,7 +728,6 @@ public class h {
 
     /* JADX WARN: Removed duplicated region for block: B:20:0x002e A[RETURN] */
     /* JADX WARN: Removed duplicated region for block: B:21:0x002f  */
-    @SuppressLint({"NewApi"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -744,7 +740,7 @@ public class h {
         if (interceptable != null && (invokeV = interceptable.invokeV(1048589, this)) != null) {
             return invokeV.longValue;
         }
-        List<ScanResult> list = this.a;
+        List list = this.a;
         if (list == null || list.size() == 0) {
             return 0L;
         }
@@ -767,9 +763,9 @@ public class h {
                 long j4 = 0;
                 long j5 = 0;
                 for (int i = 0; i < size; i++) {
-                    if (this.a.get(i) != null && this.a.get(i).level != 0 && z) {
+                    if (this.a.get(i) != null && ((ScanResult) this.a.get(i)).level != 0 && z) {
                         try {
-                            j2 = (j - this.a.get(i).timestamp) / 1000000;
+                            j2 = (j - ((ScanResult) this.a.get(i)).timestamp) / 1000000;
                         } catch (Error | Exception unused2) {
                             j2 = 0;
                         }
@@ -796,7 +792,7 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             for (int i2 = 0; i2 < a(); i2++) {
-                if (this.a.get(i2) != null && (i = -this.a.get(i2).level) > 0) {
+                if (this.a.get(i2) != null && (i = -((ScanResult) this.a.get(i2)).level) > 0) {
                     return i;
                 }
             }

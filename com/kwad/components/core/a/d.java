@@ -1,9 +1,6 @@
 package com.kwad.components.core.a;
 
 import android.util.SparseArray;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.WorkerThread;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,11 +25,10 @@ public class d implements com.kwad.components.core.a.c {
     public static /* synthetic */ Interceptable $ic;
     public static volatile d CY;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public SparseArray<com.kwad.components.core.a.c> CX;
+    public SparseArray CX;
 
     /* loaded from: classes7.dex */
-    public static class a implements Comparator<AdTemplate> {
+    public final class a implements Comparator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -70,15 +66,14 @@ public class d implements com.kwad.components.core.a.c {
             return invokeLL.intValue;
         }
 
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
         @Override // java.util.Comparator
-        public final /* synthetic */ int compare(AdTemplate adTemplate, AdTemplate adTemplate2) {
-            return a(adTemplate, adTemplate2);
+        public final /* synthetic */ int compare(Object obj, Object obj2) {
+            return a((AdTemplate) obj, (AdTemplate) obj2);
         }
     }
 
     /* loaded from: classes7.dex */
-    public static class b extends n<com.kwad.components.core.k.a, AdResultData> {
+    public class b extends n {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public com.kwad.components.core.k.kwai.a Dd;
@@ -105,7 +100,7 @@ public class d implements com.kwad.components.core.a.c {
         /* JADX INFO: Access modifiers changed from: private */
         @Override // com.kwad.sdk.core.network.n, com.kwad.sdk.core.network.h
         /* renamed from: a */
-        public void onSuccess(@NonNull com.kwad.components.core.k.a aVar, @NonNull AdResultData adResultData) {
+        public void onSuccess(com.kwad.components.core.k.a aVar, AdResultData adResultData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(65538, this, aVar, adResultData) == null) {
                 super.onSuccess(aVar, adResultData);
@@ -150,11 +145,10 @@ public class d implements com.kwad.components.core.a.c {
             }
         }
 
-        @WorkerThread
         public static void c(AdResultData adResultData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65539, null, adResultData) == null) {
-                List<AdTemplate> proceedTemplateList = adResultData.getProceedTemplateList();
+                List proceedTemplateList = adResultData.getProceedTemplateList();
                 com.kwad.components.core.a.a lP = com.kwad.components.core.a.a.lP();
                 if (lP == null || proceedTemplateList.size() <= 0) {
                     return;
@@ -162,14 +156,14 @@ public class d implements com.kwad.components.core.a.c {
                 com.kwad.components.core.a.e k = com.kwad.components.core.a.e.k(adResultData.getPosId());
                 lP.lQ();
                 lP.h(g.a(k, adResultData));
-                lP.a(com.kwad.components.core.a.e.H(proceedTemplateList.get(0)));
+                lP.a(com.kwad.components.core.a.e.H((AdTemplate) proceedTemplateList.get(0)));
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.kwad.sdk.core.network.n, com.kwad.sdk.core.network.h
         /* renamed from: a */
-        public void onError(@NonNull com.kwad.components.core.k.a aVar, int i, String str) {
+        public void onError(com.kwad.components.core.k.a aVar, int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, aVar, i, str) == null) {
                 super.onError(aVar, i, str);
@@ -194,11 +188,11 @@ public class d implements com.kwad.components.core.a.c {
 
     /* renamed from: com.kwad.components.core.a.d$d  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C0564d implements com.kwad.components.core.a.c {
+    public final class C0560d implements com.kwad.components.core.a.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0564d() {
+        public C0560d() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -222,7 +216,7 @@ public class d implements com.kwad.components.core.a.c {
     }
 
     /* loaded from: classes7.dex */
-    public static class e implements com.kwad.components.core.a.c {
+    public final class e implements com.kwad.components.core.a.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -288,13 +282,13 @@ public class d implements com.kwad.components.core.a.c {
     }
 
     /* loaded from: classes7.dex */
-    public static class f implements com.kwad.components.core.a.c {
+    public final class f implements com.kwad.components.core.a.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.kwad.components.core.a.d$f$1  reason: invalid class name */
         /* loaded from: classes7.dex */
-        public class AnonymousClass1 extends b {
+        public final class AnonymousClass1 extends b {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ f Dh;
@@ -323,8 +317,7 @@ public class d implements com.kwad.components.core.a.c {
             }
 
             /* JADX INFO: Access modifiers changed from: private */
-            @WorkerThread
-            public void a(SceneImpl sceneImpl, @Nullable AdResultData adResultData, int i, c cVar) {
+            public void a(SceneImpl sceneImpl, AdResultData adResultData, int i, c cVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLLIL(65538, this, sceneImpl, adResultData, i, cVar) == null) {
                     AdResultData d = d.d(this.aB);
@@ -349,7 +342,7 @@ public class d implements com.kwad.components.core.a.c {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.components.core.a.d.b, com.kwad.sdk.core.network.n, com.kwad.sdk.core.network.h
             /* renamed from: a */
-            public final void onError(@NonNull com.kwad.components.core.k.a aVar, int i, String str) {
+            public final void onError(com.kwad.components.core.k.a aVar, int i, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLIL(1048576, this, aVar, i, str) == null) {
                     com.kwad.sdk.utils.g.runOnDefaultExecutor(new Runnable(this, aVar, i, str) { // from class: com.kwad.components.core.a.d.f.1.2
@@ -470,7 +463,7 @@ public class d implements com.kwad.components.core.a.c {
                                     this.Dk.a(this.Di, this.fx, this.Dj, new c(this) { // from class: com.kwad.components.core.a.d.f.1.1.1
                                         public static /* synthetic */ Interceptable $ic;
                                         public transient /* synthetic */ FieldHolder $fh;
-                                        public final /* synthetic */ RunnableC05651 Dl;
+                                        public final /* synthetic */ RunnableC05611 Dl;
 
                                         {
                                             Interceptable interceptable3 = $ic;
@@ -494,8 +487,8 @@ public class d implements com.kwad.components.core.a.c {
                                         public final void lV() {
                                             Interceptable interceptable3 = $ic;
                                             if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                                RunnableC05651 runnableC05651 = this.Dl;
-                                                com.kwad.components.core.k.kwai.a.a(runnableC05651.aB, runnableC05651.fx, false);
+                                                RunnableC05611 runnableC05611 = this.Dl;
+                                                com.kwad.components.core.k.kwai.a.a(runnableC05611.aB, runnableC05611.fx, false);
                                             }
                                         }
                                     });
@@ -554,20 +547,20 @@ public class d implements com.kwad.components.core.a.c {
                 return;
             }
         }
-        SparseArray<com.kwad.components.core.a.c> sparseArray = new SparseArray<>();
+        SparseArray sparseArray = new SparseArray();
         this.CX = sparseArray;
         sparseArray.append(1, new f());
         this.CX.append(2, new e());
-        this.CX.append(0, new C0564d());
+        this.CX.append(0, new C0560d());
     }
 
-    public static <T extends com.kwad.components.core.k.a> T a(com.kwad.sdk.d.b<T> bVar) {
+    public static com.kwad.components.core.k.a a(com.kwad.sdk.d.b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bVar)) == null) ? bVar.get() : (T) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bVar)) == null) ? (com.kwad.components.core.k.a) bVar.get() : (com.kwad.components.core.k.a) invokeL.objValue;
     }
 
-    public static List<AdTemplate> a(List<AdTemplate>... listArr) {
+    public static List a(List... listArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, listArr)) == null) {
@@ -575,7 +568,7 @@ public class d implements com.kwad.components.core.a.c {
                 return null;
             }
             ArrayList<AdTemplate> arrayList = new ArrayList();
-            for (List<AdTemplate> list : listArr) {
+            for (List list : listArr) {
                 arrayList.addAll(list);
             }
             Collections.sort(arrayList, new a((byte) 0));
@@ -593,7 +586,7 @@ public class d implements com.kwad.components.core.a.c {
         return (List) invokeL.objValue;
     }
 
-    public static void a(com.kwad.components.core.k.kwai.a aVar, @NonNull n<com.kwad.components.core.k.a, AdResultData> nVar) {
+    public static void a(com.kwad.components.core.k.kwai.a aVar, n nVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, aVar, nVar) == null) {
             new com.kwad.components.core.h.a(aVar.EI, aVar) { // from class: com.kwad.components.core.a.d.1
@@ -624,7 +617,6 @@ public class d implements com.kwad.components.core.a.c {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.kwad.components.core.h.a, com.kwad.sdk.core.network.m
-                @NonNull
                 /* renamed from: ah */
                 public final AdResultData parseData(String str) {
                     InterceptResult invokeL;
@@ -634,12 +626,11 @@ public class d implements com.kwad.components.core.a.c {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.kwad.components.core.h.a, com.kwad.sdk.core.network.a
-                @NonNull
                 /* renamed from: fe */
                 public final com.kwad.components.core.k.a createRequest() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? d.a(new com.kwad.sdk.d.b<com.kwad.components.core.k.a>(this) { // from class: com.kwad.components.core.a.d.1.1
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? d.a(new com.kwad.sdk.d.b(this) { // from class: com.kwad.components.core.a.d.1.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ AnonymousClass1 CZ;
@@ -683,8 +674,6 @@ public class d implements com.kwad.components.core.a.c {
         }
     }
 
-    @Nullable
-    @WorkerThread
     public static AdResultData d(com.kwad.components.core.k.kwai.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -694,7 +683,7 @@ public class d implements com.kwad.components.core.a.c {
                 return null;
             }
             int adNum = aVar.getAdNum();
-            List<g> a2 = lP.a(String.valueOf(aVar.getPosId()), System.currentTimeMillis() / 1000, com.kwad.components.core.a.e.k(aVar.getPosId()).lY());
+            List a2 = lP.a(String.valueOf(aVar.getPosId()), System.currentTimeMillis() / 1000, com.kwad.components.core.a.e.k(aVar.getPosId()).lY());
             if (com.kwad.sdk.core.config.d.sw()) {
                 i(a2);
             }
@@ -707,16 +696,16 @@ public class d implements com.kwad.components.core.a.c {
         return (AdResultData) invokeL.objValue;
     }
 
-    public static void i(List<g> list) {
+    public static void i(List list) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(65547, null, list) == null) || list == null) {
             return;
         }
-        Iterator<g> it = list.iterator();
+        Iterator it = list.iterator();
         while (it.hasNext()) {
-            g next = it.next();
-            if (com.kwad.components.core.a.f.mb().a(next)) {
-                com.kwad.sdk.core.e.b.d("AdCacheFetcherHolder", "filterByMemCached contain: " + next.mi());
+            g gVar = (g) it.next();
+            if (com.kwad.components.core.a.f.mb().a(gVar)) {
+                com.kwad.sdk.core.e.b.d("AdCacheFetcherHolder", "filterByMemCached contain: " + gVar.mi());
                 it.remove();
             }
         }
@@ -742,7 +731,7 @@ public class d implements com.kwad.components.core.a.c {
     public com.kwad.components.core.a.c lT() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65549, this)) == null) ? this.CX.get(0) : (com.kwad.components.core.a.c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65549, this)) == null) ? (com.kwad.components.core.a.c) this.CX.get(0) : (com.kwad.components.core.a.c) invokeV.objValue;
     }
 
     @Override // com.kwad.components.core.a.c

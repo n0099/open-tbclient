@@ -1,10 +1,6 @@
 package androidx.savedstate;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
-import androidx.annotation.MainThread;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.arch.core.internal.SafeIterableMap;
 import androidx.lifecycle.GenericLifecycleObserver;
 import androidx.lifecycle.Lifecycle;
@@ -17,7 +13,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-@SuppressLint({"RestrictedApi"})
 /* loaded from: classes.dex */
 public final class SavedStateRegistry {
     public static /* synthetic */ Interceptable $ic = null;
@@ -27,17 +22,15 @@ public final class SavedStateRegistry {
     public SafeIterableMap<String, SavedStateProvider> mComponents;
     public Recreator.SavedStateProvider mRecreatorProvider;
     public boolean mRestored;
-    @Nullable
     public Bundle mRestoredState;
 
     /* loaded from: classes.dex */
     public interface AutoRecreated {
-        void onRecreated(@NonNull SavedStateRegistryOwner savedStateRegistryOwner);
+        void onRecreated(SavedStateRegistryOwner savedStateRegistryOwner);
     }
 
     /* loaded from: classes.dex */
     public interface SavedStateProvider {
-        @NonNull
         Bundle saveState();
     }
 
@@ -58,38 +51,37 @@ public final class SavedStateRegistry {
         this.mAllowingSavingState = true;
     }
 
-    @Nullable
-    @MainThread
-    public Bundle consumeRestoredStateForKey(@NonNull String str) {
+    public boolean isRestored() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mRestored;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public Bundle consumeRestoredStateForKey(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             if (this.mRestored) {
                 Bundle bundle = this.mRestoredState;
-                if (bundle != null) {
-                    Bundle bundle2 = bundle.getBundle(str);
-                    this.mRestoredState.remove(str);
-                    if (this.mRestoredState.isEmpty()) {
-                        this.mRestoredState = null;
-                    }
-                    return bundle2;
+                if (bundle == null) {
+                    return null;
                 }
-                return null;
+                Bundle bundle2 = bundle.getBundle(str);
+                this.mRestoredState.remove(str);
+                if (this.mRestoredState.isEmpty()) {
+                    this.mRestoredState = null;
+                }
+                return bundle2;
             }
             throw new IllegalStateException("You can consumeRestoredStateForKey only after super.onCreate of corresponding component");
         }
         return (Bundle) invokeL.objValue;
     }
 
-    @MainThread
-    public boolean isRestored() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mRestored : invokeV.booleanValue;
-    }
-
-    @MainThread
-    public void performRestore(@NonNull Lifecycle lifecycle, @Nullable Bundle bundle) {
+    public void performRestore(Lifecycle lifecycle, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, lifecycle, bundle) == null) {
             if (!this.mRestored) {
@@ -138,8 +130,15 @@ public final class SavedStateRegistry {
         }
     }
 
-    @MainThread
-    public void performSave(@NonNull Bundle bundle) {
+    public void registerSavedStateProvider(String str, SavedStateProvider savedStateProvider) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048580, this, str, savedStateProvider) != null) || this.mComponents.putIfAbsent(str, savedStateProvider) == null) {
+            return;
+        }
+        throw new IllegalArgumentException("SavedStateProvider with the given key is already registered");
+    }
+
+    public void performSave(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             Bundle bundle2 = new Bundle();
@@ -156,16 +155,7 @@ public final class SavedStateRegistry {
         }
     }
 
-    @MainThread
-    public void registerSavedStateProvider(@NonNull String str, @NonNull SavedStateProvider savedStateProvider) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, str, savedStateProvider) == null) && this.mComponents.putIfAbsent(str, savedStateProvider) != null) {
-            throw new IllegalArgumentException("SavedStateProvider with the given key is already registered");
-        }
-    }
-
-    @MainThread
-    public void runOnNextRecreation(@NonNull Class<? extends AutoRecreated> cls) {
+    public void runOnNextRecreation(Class<? extends AutoRecreated> cls) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, cls) == null) {
             if (this.mAllowingSavingState) {
@@ -184,8 +174,7 @@ public final class SavedStateRegistry {
         }
     }
 
-    @MainThread
-    public void unregisterSavedStateProvider(@NonNull String str) {
+    public void unregisterSavedStateProvider(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
             this.mComponents.remove(str);

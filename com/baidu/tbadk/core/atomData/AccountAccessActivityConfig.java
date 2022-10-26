@@ -36,10 +36,9 @@ public class AccountAccessActivityConfig extends IntentConfig {
         }
         setRequestCode(i);
         setIntentAction(IntentAction.ActivityForResult);
-        if (accessState == null || writeData == null) {
-            return;
+        if (accessState != null && writeData != null) {
+            getIntent().putExtra(KEY_WRITE_DATA, writeData);
+            getIntent().putExtra(KEY_ACCESS_STATE, accessState);
         }
-        getIntent().putExtra(KEY_WRITE_DATA, writeData);
-        getIntent().putExtra(KEY_ACCESS_STATE, accessState);
     }
 }

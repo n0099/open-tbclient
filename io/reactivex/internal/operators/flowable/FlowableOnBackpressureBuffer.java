@@ -9,7 +9,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Flowable;
 import io.reactivex.FlowableSubscriber;
-import io.reactivex.annotations.Nullable;
 import io.reactivex.exceptions.Exceptions;
 import io.reactivex.exceptions.MissingBackpressureException;
 import io.reactivex.functions.Action;
@@ -23,7 +22,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableOnBackpressureBuffer<T> extends AbstractFlowableWithUpstream<T, T> {
+public final class FlowableOnBackpressureBuffer extends AbstractFlowableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int bufferSize;
@@ -32,23 +31,23 @@ public final class FlowableOnBackpressureBuffer<T> extends AbstractFlowableWithU
     public final boolean unbounded;
 
     /* loaded from: classes8.dex */
-    public static final class BackpressureBufferSubscriber<T> extends BasicIntQueueSubscription<T> implements FlowableSubscriber<T> {
+    public final class BackpressureBufferSubscriber extends BasicIntQueueSubscription implements FlowableSubscriber {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -2514538129242366402L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber<? super T> actual;
+        public final Subscriber actual;
         public volatile boolean cancelled;
         public final boolean delayError;
         public volatile boolean done;
         public Throwable error;
         public final Action onOverflow;
         public boolean outputFused;
-        public final SimplePlainQueue<T> queue;
+        public final SimplePlainQueue queue;
         public final AtomicLong requested;
         public Subscription s;
 
-        public BackpressureBufferSubscriber(Subscriber<? super T> subscriber, int i, boolean z, boolean z2, Action action) {
-            SimplePlainQueue<T> spscArrayQueue;
+        public BackpressureBufferSubscriber(Subscriber subscriber, int i, boolean z, boolean z2, Action action) {
+            SimplePlainQueue spscArrayQueue;
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -68,9 +67,9 @@ public final class FlowableOnBackpressureBuffer<T> extends AbstractFlowableWithU
             this.onOverflow = action;
             this.delayError = z2;
             if (z) {
-                spscArrayQueue = new SpscLinkedArrayQueue<>(i);
+                spscArrayQueue = new SpscLinkedArrayQueue(i);
             } else {
-                spscArrayQueue = new SpscArrayQueue<>(i);
+                spscArrayQueue = new SpscArrayQueue(i);
             }
             this.queue = spscArrayQueue;
         }
@@ -78,17 +77,57 @@ public final class FlowableOnBackpressureBuffer<T> extends AbstractFlowableWithU
         @Override // org.reactivestreams.Subscription
         public void cancel() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.cancelled) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.cancelled) {
+                this.cancelled = true;
+                this.s.cancel();
+                if (getAndIncrement() == 0) {
+                    this.queue.clear();
+                }
             }
-            this.cancelled = true;
-            this.s.cancel();
-            if (getAndIncrement() == 0) {
+        }
+
+        @Override // io.reactivex.internal.fuseable.SimpleQueue
+        public void clear() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 this.queue.clear();
             }
         }
 
-        public boolean checkTerminated(boolean z, boolean z2, Subscriber<? super T> subscriber) {
+        @Override // io.reactivex.internal.fuseable.SimpleQueue
+        public boolean isEmpty() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.queue.isEmpty();
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // org.reactivestreams.Subscriber
+        public void onComplete() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+                this.done = true;
+                if (this.outputFused) {
+                    this.actual.onComplete();
+                } else {
+                    drain();
+                }
+            }
+        }
+
+        @Override // io.reactivex.internal.fuseable.SimpleQueue
+        public Object poll() throws Exception {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+                return this.queue.poll();
+            }
+            return invokeV.objValue;
+        }
+
+        public boolean checkTerminated(boolean z, boolean z2, Subscriber subscriber) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), subscriber})) == null) {
@@ -126,20 +165,13 @@ public final class FlowableOnBackpressureBuffer<T> extends AbstractFlowableWithU
             return invokeCommon.booleanValue;
         }
 
-        @Override // io.reactivex.internal.fuseable.SimpleQueue
-        public void clear() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.queue.clear();
-            }
-        }
-
         public void drain() {
             int i;
+            boolean z;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && getAndIncrement() == 0) {
-                SimplePlainQueue<T> simplePlainQueue = this.queue;
-                Subscriber<? super T> subscriber = this.actual;
+                SimplePlainQueue simplePlainQueue = this.queue;
+                Subscriber subscriber = this.actual;
                 int i2 = 1;
                 while (!checkTerminated(this.done, simplePlainQueue.isEmpty(), subscriber)) {
                     long j = this.requested.get();
@@ -149,16 +181,20 @@ public final class FlowableOnBackpressureBuffer<T> extends AbstractFlowableWithU
                         if (i == 0) {
                             break;
                         }
-                        boolean z = this.done;
-                        Object obj = (T) simplePlainQueue.poll();
-                        boolean z2 = obj == null;
-                        if (checkTerminated(z, z2, subscriber)) {
+                        boolean z2 = this.done;
+                        Object poll = simplePlainQueue.poll();
+                        if (poll == null) {
+                            z = true;
+                        } else {
+                            z = false;
+                        }
+                        if (checkTerminated(z2, z, subscriber)) {
                             return;
                         }
-                        if (z2) {
+                        if (z) {
                             break;
                         }
-                        subscriber.onNext(obj);
+                        subscriber.onNext(poll);
                         j2++;
                     }
                     if (i == 0 && checkTerminated(this.done, simplePlainQueue.isEmpty(), subscriber)) {
@@ -171,26 +207,6 @@ public final class FlowableOnBackpressureBuffer<T> extends AbstractFlowableWithU
                     if (i2 == 0) {
                         return;
                     }
-                }
-            }
-        }
-
-        @Override // io.reactivex.internal.fuseable.SimpleQueue
-        public boolean isEmpty() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.queue.isEmpty() : invokeV.booleanValue;
-        }
-
-        @Override // org.reactivestreams.Subscriber
-        public void onComplete() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                this.done = true;
-                if (this.outputFused) {
-                    this.actual.onComplete();
-                } else {
-                    drain();
                 }
             }
         }
@@ -209,28 +225,6 @@ public final class FlowableOnBackpressureBuffer<T> extends AbstractFlowableWithU
             }
         }
 
-        @Override // org.reactivestreams.Subscriber
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, t) == null) {
-                if (!this.queue.offer(t)) {
-                    this.s.cancel();
-                    MissingBackpressureException missingBackpressureException = new MissingBackpressureException("Buffer is full");
-                    try {
-                        this.onOverflow.run();
-                    } catch (Throwable th) {
-                        Exceptions.throwIfFatal(th);
-                        missingBackpressureException.initCause(th);
-                    }
-                    onError(missingBackpressureException);
-                } else if (this.outputFused) {
-                    this.actual.onNext(null);
-                } else {
-                    drain();
-                }
-            }
-        }
-
         @Override // io.reactivex.FlowableSubscriber, org.reactivestreams.Subscriber
         public void onSubscribe(Subscription subscription) {
             Interceptable interceptable = $ic;
@@ -239,14 +233,6 @@ public final class FlowableOnBackpressureBuffer<T> extends AbstractFlowableWithU
                 this.actual.onSubscribe(this);
                 subscription.request(Long.MAX_VALUE);
             }
-        }
-
-        @Override // io.reactivex.internal.fuseable.SimpleQueue
-        @Nullable
-        public T poll() throws Exception {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.queue.poll() : (T) invokeV.objValue;
         }
 
         @Override // org.reactivestreams.Subscription
@@ -271,10 +257,32 @@ public final class FlowableOnBackpressureBuffer<T> extends AbstractFlowableWithU
             }
             return invokeI.intValue;
         }
+
+        @Override // org.reactivestreams.Subscriber
+        public void onNext(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048583, this, obj) == null) {
+                if (!this.queue.offer(obj)) {
+                    this.s.cancel();
+                    MissingBackpressureException missingBackpressureException = new MissingBackpressureException("Buffer is full");
+                    try {
+                        this.onOverflow.run();
+                    } catch (Throwable th) {
+                        Exceptions.throwIfFatal(th);
+                        missingBackpressureException.initCause(th);
+                    }
+                    onError(missingBackpressureException);
+                } else if (this.outputFused) {
+                    this.actual.onNext(null);
+                } else {
+                    drain();
+                }
+            }
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableOnBackpressureBuffer(Flowable<T> flowable, int i, boolean z, boolean z2, Action action) {
+    public FlowableOnBackpressureBuffer(Flowable flowable, int i, boolean z, boolean z2, Action action) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -298,7 +306,7 @@ public final class FlowableOnBackpressureBuffer<T> extends AbstractFlowableWithU
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber<? super T> subscriber) {
+    public void subscribeActual(Subscriber subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             this.source.subscribe((FlowableSubscriber) new BackpressureBufferSubscriber(subscriber, this.bufferSize, this.unbounded, this.delayError, this.onOverflow));

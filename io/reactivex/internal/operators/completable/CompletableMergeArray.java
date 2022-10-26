@@ -20,7 +20,7 @@ public final class CompletableMergeArray extends Completable {
     public final CompletableSource[] sources;
 
     /* loaded from: classes8.dex */
-    public static final class InnerCompletableObserver extends AtomicInteger implements CompletableObserver {
+    public final class InnerCompletableObserver extends AtomicInteger implements CompletableObserver {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -8360547806504310570L;
         public transient /* synthetic */ FieldHolder $fh;

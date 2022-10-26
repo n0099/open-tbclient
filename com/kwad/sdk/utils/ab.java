@@ -1,6 +1,5 @@
 package com.kwad.sdk.utils;
 
-import androidx.annotation.NonNull;
 import java.io.File;
 import java.io.FileInputStream;
 import java.security.MessageDigest;
@@ -51,7 +50,6 @@ public final class ab {
         }
     }
 
-    @NonNull
     public static String dI(String str) {
         return l(str.getBytes());
     }

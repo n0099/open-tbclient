@@ -13,6 +13,18 @@ public class f {
     public com.sdk.r.a b;
     public final String c;
 
+    public static f a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                a = new f();
+            }
+            return a;
+        }
+        return (f) invokeV.objValue;
+    }
+
     public f() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -31,17 +43,5 @@ public class f {
         if (i3 == 0) {
             this.b = new com.sdk.r.a();
         }
-    }
-
-    public static f a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                a = new f();
-            }
-            return a;
-        }
-        return (f) invokeV.objValue;
     }
 }

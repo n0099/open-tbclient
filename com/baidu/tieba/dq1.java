@@ -1,129 +1,162 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class dq1 extends i53 {
+public class dq1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public long b;
+    public volatile long c;
+    public long d;
+    public long e;
+    public long f;
+    public String g;
 
-    /* loaded from: classes3.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ UnitedSchemeEntity a;
-        public final /* synthetic */ lt2 b;
-        public final /* synthetic */ dq1 c;
-
-        public a(dq1 dq1Var, UnitedSchemeEntity unitedSchemeEntity, lt2 lt2Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947713093, "Lcom/baidu/tieba/dq1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dq1Var, unitedSchemeEntity, lt2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.c = dq1Var;
-            this.a = unitedSchemeEntity;
-            this.b = lt2Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.c.k(this.a, this.b);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dq1(i43 i43Var) {
-        super(i43Var, "/swanAPI/openAdWebPage");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {i43Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947713093, "Lcom/baidu/tieba/dq1;");
                 return;
             }
         }
+        boolean z = wj1.a;
     }
 
-    @Override // com.baidu.tieba.i53
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, l33 l33Var) {
-        InterceptResult invokeLLLL;
+    public dq1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, l33Var)) == null) {
-            if (i53.b) {
-                Log.d("AdLandingAction", "handle entity: " + unitedSchemeEntity.toString());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            String o = u63.o(unitedSchemeEntity, "params");
-            String n = u63.n(unitedSchemeEntity, "params", PrefetchEvent.EVENT_DATA_EXTRA_DATA);
-            if (TextUtils.isEmpty(o)) {
-                l02.c("AdLanding", "adLanding: url is empty");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                return false;
-            } else if (yo2.U().V() == null) {
-                l02.i("AdLandingAction", "open page failed");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                return false;
-            } else {
-                lt2 d = lt2.d(o, o);
-                d.b = n;
-                if (cu1.e().g()) {
-                    l(unitedSchemeEntity, d);
-                } else {
-                    k(unitedSchemeEntity, d);
+        }
+        this.g = "1";
+    }
+
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    public String a() {
+        InterceptResult invokeV;
+        char c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String str = this.g;
+            switch (str.hashCode()) {
+                case 48:
+                    if (str.equals("0")) {
+                        c = 0;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 49:
+                    if (str.equals("1")) {
+                        c = 1;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 50:
+                    if (str.equals("2")) {
+                        c = 2;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 51:
+                    if (str.equals("3")) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    c = 65535;
+                    break;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    if (c != 2) {
+                        if (c != 3) {
+                            return "unknown";
+                        }
+                        return "fip";
+                    }
+                    return "ftp";
                 }
-                l02.i("AdLanding", "open adLanding page finish");
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                return true;
+                return "fcp";
             }
+            return "fmp";
         }
-        return invokeLLLL.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public final void k(UnitedSchemeEntity unitedSchemeEntity, lt2 lt2Var) {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity, lt2Var) == null) || z22.d3("adLanding", lt2Var)) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return "WebViewPaintTiming{fp=" + this.a + ", fcp=" + this.b + ", fmp=" + this.c + ", ftp=" + this.d + ", fip=" + this.e + ", mMinCache=" + this.f + ", fmpType='" + this.g + "', fmpTypeName='" + a() + "'}";
         }
-        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+        return (String) invokeV.objValue;
     }
 
-    public final void l(UnitedSchemeEntity unitedSchemeEntity, lt2 lt2Var) {
+    public long b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, unitedSchemeEntity, lt2Var) == null) {
-            cu1.e().i();
-            fh3.b0(new a(this, unitedSchemeEntity, lt2Var), 200L);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            long j = this.f;
+            if (j > 0) {
+                return j;
+            }
+            long[] jArr = {this.d, this.e, this.b};
+            long j2 = Long.MAX_VALUE;
+            for (int i = 0; i < 3; i++) {
+                long j3 = jArr[i];
+                if (j3 > 0 && j3 < j2) {
+                    j2 = j3;
+                }
+            }
+            if (j2 != Long.MAX_VALUE) {
+                this.f = j2;
+            }
+            return this.f;
         }
+        return invokeV.longValue;
+    }
+
+    public String c(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
+            if (j == this.d) {
+                return "2";
+            }
+            if (j == this.e) {
+                return "3";
+            }
+            if (j == this.b || j != this.c) {
+                return "1";
+            }
+            return "0";
+        }
+        return (String) invokeJ.objValue;
     }
 }

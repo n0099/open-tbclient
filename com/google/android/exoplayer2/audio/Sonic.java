@@ -84,7 +84,7 @@ public final class Sonic {
         int i2;
         int i3;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{Float.valueOf(f), Integer.valueOf(i)}) == null) || this.numOutputSamples == i) {
+        if ((interceptable != null && interceptable.invokeCommon(65537, this, new Object[]{Float.valueOf(f), Integer.valueOf(i)}) != null) || this.numOutputSamples == i) {
             return;
         }
         int i4 = this.inputSampleRateHz;
@@ -100,6 +100,7 @@ public final class Sonic {
         int i6 = 0;
         while (true) {
             int i7 = this.numPitchSamples;
+            boolean z = true;
             if (i6 < i7 - 1) {
                 while (true) {
                     i2 = this.oldRatePosition;
@@ -124,7 +125,10 @@ public final class Sonic {
                 this.oldRatePosition = i11;
                 if (i11 == i4) {
                     this.oldRatePosition = 0;
-                    Assertions.checkState(i3 == i5);
+                    if (i3 != i5) {
+                        z = false;
+                    }
+                    Assertions.checkState(z);
                     this.newRatePosition = 0;
                 }
                 i6++;
@@ -139,7 +143,7 @@ public final class Sonic {
         int i;
         int insertPitchPeriod;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(65538, this, f) == null) || (i = this.numInputSamples) < this.maxRequired) {
+        if ((interceptable != null && interceptable.invokeF(65538, this, f) != null) || (i = this.numInputSamples) < this.maxRequired) {
             return;
         }
         int i2 = 0;
@@ -171,6 +175,54 @@ public final class Sonic {
         return invokeI.intValue;
     }
 
+    private void enlargeInputBufferIfNeeded(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65542, this, i) == null) {
+            int i2 = this.numInputSamples + i;
+            int i3 = this.inputBufferSize;
+            if (i2 > i3) {
+                int i4 = i3 + (i3 / 2) + i;
+                this.inputBufferSize = i4;
+                this.inputBuffer = Arrays.copyOf(this.inputBuffer, i4 * this.numChannels);
+            }
+        }
+    }
+
+    private void enlargeOutputBufferIfNeeded(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65543, this, i) == null) {
+            int i2 = this.numOutputSamples + i;
+            int i3 = this.outputBufferSize;
+            if (i2 > i3) {
+                int i4 = i3 + (i3 / 2) + i;
+                this.outputBufferSize = i4;
+                this.outputBuffer = Arrays.copyOf(this.outputBuffer, i4 * this.numChannels);
+            }
+        }
+    }
+
+    private void removePitchSamples(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(65552, this, i) != null) || i == 0) {
+            return;
+        }
+        short[] sArr = this.pitchBuffer;
+        int i2 = this.numChannels;
+        System.arraycopy(sArr, i * i2, sArr, 0, (this.numPitchSamples - i) * i2);
+        this.numPitchSamples -= i;
+    }
+
+    private void removeProcessedInputSamples(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65553, this, i) == null) {
+            int i2 = this.numInputSamples - i;
+            short[] sArr = this.inputBuffer;
+            int i3 = this.numChannels;
+            System.arraycopy(sArr, i * i3, sArr, 0, i3 * i2);
+            this.numInputSamples = i2;
+        }
+    }
+
     private void copyToOutput(short[] sArr, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, this, sArr, i, i2) == null) {
@@ -198,71 +250,55 @@ public final class Sonic {
         }
     }
 
-    private void enlargeInputBufferIfNeeded(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65542, this, i) == null) {
-            int i2 = this.numInputSamples + i;
-            int i3 = this.inputBufferSize;
-            if (i2 > i3) {
-                int i4 = i3 + (i3 / 2) + i;
-                this.inputBufferSize = i4;
-                this.inputBuffer = Arrays.copyOf(this.inputBuffer, i4 * this.numChannels);
-            }
-        }
-    }
-
-    private void enlargeOutputBufferIfNeeded(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65543, this, i) == null) {
-            int i2 = this.numOutputSamples + i;
-            int i3 = this.outputBufferSize;
-            if (i2 > i3) {
-                int i4 = i3 + (i3 / 2) + i;
-                this.outputBufferSize = i4;
-                this.outputBuffer = Arrays.copyOf(this.outputBuffer, i4 * this.numChannels);
-            }
-        }
-    }
-
     private int findPitchPeriod(short[] sArr, int i, boolean z) {
         InterceptResult invokeCommon;
         int i2;
+        int i3;
+        int i4;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, this, new Object[]{sArr, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            int i3 = this.inputSampleRateHz;
-            int i4 = i3 > 4000 ? i3 / 4000 : 1;
-            if (this.numChannels == 1 && i4 == 1) {
-                i2 = findPitchPeriodInRange(sArr, i, this.minPeriod, this.maxPeriod);
+            int i5 = this.inputSampleRateHz;
+            if (i5 > 4000) {
+                i2 = i5 / 4000;
             } else {
-                downSampleInput(sArr, i, i4);
-                int findPitchPeriodInRange = findPitchPeriodInRange(this.downSampleBuffer, 0, this.minPeriod / i4, this.maxPeriod / i4);
-                if (i4 != 1) {
-                    int i5 = findPitchPeriodInRange * i4;
-                    int i6 = i4 * 4;
-                    int i7 = i5 - i6;
-                    int i8 = i5 + i6;
-                    int i9 = this.minPeriod;
-                    if (i7 < i9) {
-                        i7 = i9;
-                    }
-                    int i10 = this.maxPeriod;
-                    if (i8 > i10) {
+                i2 = 1;
+            }
+            if (this.numChannels == 1 && i2 == 1) {
+                i3 = findPitchPeriodInRange(sArr, i, this.minPeriod, this.maxPeriod);
+            } else {
+                downSampleInput(sArr, i, i2);
+                int findPitchPeriodInRange = findPitchPeriodInRange(this.downSampleBuffer, 0, this.minPeriod / i2, this.maxPeriod / i2);
+                if (i2 != 1) {
+                    int i6 = findPitchPeriodInRange * i2;
+                    int i7 = i2 * 4;
+                    int i8 = i6 - i7;
+                    int i9 = i6 + i7;
+                    int i10 = this.minPeriod;
+                    if (i8 < i10) {
                         i8 = i10;
                     }
+                    int i11 = this.maxPeriod;
+                    if (i9 > i11) {
+                        i9 = i11;
+                    }
                     if (this.numChannels == 1) {
-                        i2 = findPitchPeriodInRange(sArr, i, i7, i8);
+                        i3 = findPitchPeriodInRange(sArr, i, i8, i9);
                     } else {
                         downSampleInput(sArr, i, 1);
-                        i2 = findPitchPeriodInRange(this.downSampleBuffer, 0, i7, i8);
+                        i3 = findPitchPeriodInRange(this.downSampleBuffer, 0, i8, i9);
                     }
                 } else {
-                    i2 = findPitchPeriodInRange;
+                    i3 = findPitchPeriodInRange;
                 }
             }
-            int i11 = previousPeriodBetter(this.minDiff, this.maxDiff, z) ? this.prevPeriod : i2;
+            if (previousPeriodBetter(this.minDiff, this.maxDiff, z)) {
+                i4 = this.prevPeriod;
+            } else {
+                i4 = i3;
+            }
             this.prevMinDiff = this.minDiff;
-            this.prevPeriod = i2;
-            return i11;
+            this.prevPeriod = i3;
+            return i4;
         }
         return invokeCommon.intValue;
     }
@@ -296,6 +332,25 @@ public final class Sonic {
             return i7;
         }
         return invokeLIII.intValue;
+    }
+
+    private int skipPitchPeriod(short[] sArr, int i, float f, int i2) {
+        InterceptResult invokeCommon;
+        int i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65554, this, new Object[]{sArr, Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)})) == null) {
+            if (f >= 2.0f) {
+                i3 = (int) (i2 / (f - 1.0f));
+            } else {
+                this.remainingInputToCopy = (int) ((i2 * (2.0f - f)) / (f - 1.0f));
+                i3 = i2;
+            }
+            enlargeOutputBufferIfNeeded(i3);
+            overlapAdd(i3, this.numChannels, this.outputBuffer, this.numOutputSamples, sArr, i, sArr, i + i2);
+            this.numOutputSamples += i3;
+            return i3;
+        }
+        return invokeCommon.intValue;
     }
 
     private int insertPitchPeriod(short[] sArr, int i, float f, int i2) {
@@ -356,6 +411,32 @@ public final class Sonic {
         }
     }
 
+    public void getOutput(ShortBuffer shortBuffer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, shortBuffer) == null) {
+            int min = Math.min(shortBuffer.remaining() / this.numChannels, this.numOutputSamples);
+            shortBuffer.put(this.outputBuffer, 0, this.numChannels * min);
+            int i = this.numOutputSamples - min;
+            this.numOutputSamples = i;
+            short[] sArr = this.outputBuffer;
+            int i2 = this.numChannels;
+            System.arraycopy(sArr, min * i2, sArr, 0, i * i2);
+        }
+    }
+
+    public void queueInput(ShortBuffer shortBuffer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, shortBuffer) == null) {
+            int remaining = shortBuffer.remaining();
+            int i = this.numChannels;
+            int i2 = remaining / i;
+            enlargeInputBufferIfNeeded(i2);
+            shortBuffer.get(this.inputBuffer, this.numInputSamples * this.numChannels, ((i * i2) * 2) / 2);
+            this.numInputSamples += i2;
+            processStreamInput();
+        }
+    }
+
     public static void overlapAdd(int i, int i2, short[] sArr, int i3, short[] sArr2, int i4, short[] sArr3, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65549, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), sArr, Integer.valueOf(i3), sArr2, Integer.valueOf(i4), sArr3, Integer.valueOf(i5)}) == null) {
@@ -380,7 +461,16 @@ public final class Sonic {
             if (i == 0 || this.prevPeriod == 0) {
                 return false;
             }
-            return z ? i2 <= i * 3 && i * 2 > this.prevMinDiff * 3 : i > this.prevMinDiff;
+            if (z) {
+                if (i2 > i * 3 || i * 2 <= this.prevMinDiff * 3) {
+                    return false;
+                }
+                return true;
+            } else if (i <= this.prevMinDiff) {
+                return false;
+            } else {
+                return true;
+            }
         }
         return invokeCommon.booleanValue;
     }
@@ -406,64 +496,13 @@ public final class Sonic {
         }
     }
 
-    private void removePitchSamples(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65552, this, i) == null) || i == 0) {
-            return;
-        }
-        short[] sArr = this.pitchBuffer;
-        int i2 = this.numChannels;
-        System.arraycopy(sArr, i * i2, sArr, 0, (this.numPitchSamples - i) * i2);
-        this.numPitchSamples -= i;
-    }
-
-    private void removeProcessedInputSamples(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65553, this, i) == null) {
-            int i2 = this.numInputSamples - i;
-            short[] sArr = this.inputBuffer;
-            int i3 = this.numChannels;
-            System.arraycopy(sArr, i * i3, sArr, 0, i3 * i2);
-            this.numInputSamples = i2;
-        }
-    }
-
-    private int skipPitchPeriod(short[] sArr, int i, float f, int i2) {
-        InterceptResult invokeCommon;
-        int i3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65554, this, new Object[]{sArr, Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)})) == null) {
-            if (f >= 2.0f) {
-                i3 = (int) (i2 / (f - 1.0f));
-            } else {
-                this.remainingInputToCopy = (int) ((i2 * (2.0f - f)) / (f - 1.0f));
-                i3 = i2;
-            }
-            enlargeOutputBufferIfNeeded(i3);
-            overlapAdd(i3, this.numChannels, this.outputBuffer, this.numOutputSamples, sArr, i, sArr, i + i2);
-            this.numOutputSamples += i3;
-            return i3;
-        }
-        return invokeCommon.intValue;
-    }
-
-    public void getOutput(ShortBuffer shortBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, shortBuffer) == null) {
-            int min = Math.min(shortBuffer.remaining() / this.numChannels, this.numOutputSamples);
-            shortBuffer.put(this.outputBuffer, 0, this.numChannels * min);
-            int i = this.numOutputSamples - min;
-            this.numOutputSamples = i;
-            short[] sArr = this.outputBuffer;
-            int i2 = this.numChannels;
-            System.arraycopy(sArr, min * i2, sArr, 0, i * i2);
-        }
-    }
-
     public int getSamplesAvailable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.numOutputSamples : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.numOutputSamples;
+        }
+        return invokeV.intValue;
     }
 
     public void queueEndOfStream() {
@@ -493,19 +532,6 @@ public final class Sonic {
             this.numInputSamples = 0;
             this.remainingInputToCopy = 0;
             this.numPitchSamples = 0;
-        }
-    }
-
-    public void queueInput(ShortBuffer shortBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, shortBuffer) == null) {
-            int remaining = shortBuffer.remaining();
-            int i = this.numChannels;
-            int i2 = remaining / i;
-            enlargeInputBufferIfNeeded(i2);
-            shortBuffer.get(this.inputBuffer, this.numInputSamples * this.numChannels, ((i * i2) * 2) / 2);
-            this.numInputSamples += i2;
-            processStreamInput();
         }
     }
 }

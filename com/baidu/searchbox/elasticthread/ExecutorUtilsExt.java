@@ -2,7 +2,6 @@ package com.baidu.searchbox.elasticthread;
 
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.elasticthread.scheduler.ElasticTaskScheduler;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,7 +38,7 @@ public class ExecutorUtilsExt {
         }
     }
 
-    public static void delayPostOnElastic(@NonNull Runnable runnable, @NonNull String str, int i, long j) {
+    public static void delayPostOnElastic(Runnable runnable, String str, int i, long j) {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{runnable, str, Integer.valueOf(i), Long.valueOf(j)}) == null) {
@@ -47,11 +46,11 @@ public class ExecutorUtilsExt {
                 Log.w(TAG, "received a null task ");
                 return;
             }
-            if (i == 0 || i == 1 || i == 2 || i == 3) {
-                i2 = i;
-            } else {
+            if (i != 0 && i != 1 && i != 2 && i != 3) {
                 Log.w(TAG, "illegal priority " + i);
                 i2 = 3;
+            } else {
+                i2 = i;
             }
             ElasticConfig.updateConfig();
             if (ElasticConfig.elasticExecutorDisabled()) {
@@ -62,7 +61,7 @@ public class ExecutorUtilsExt {
         }
     }
 
-    public static void delayPostOnSerial(@NonNull Runnable runnable, @NonNull String str, long j) {
+    public static void delayPostOnSerial(Runnable runnable, String str, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{runnable, str, Long.valueOf(j)}) == null) {
             if (runnable == null) {
@@ -92,7 +91,22 @@ public class ExecutorUtilsExt {
     }
 
     @Deprecated
-    public static Executor getImmediateExecutor(@NonNull String str) {
+    public static void postOnImmediate(Runnable runnable, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65544, null, runnable, str) == null) {
+            postOnElastic(runnable, str, 0);
+        }
+    }
+
+    public static void postOnSerial(Runnable runnable, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65545, null, runnable, str) == null) {
+            delayPostOnSerial(runnable, str, 0L);
+        }
+    }
+
+    @Deprecated
+    public static Executor getImmediateExecutor(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
@@ -105,7 +119,7 @@ public class ExecutorUtilsExt {
     }
 
     @Deprecated
-    public static Executor getSerialExecutor(@NonNull String str) {
+    public static Executor getSerialExecutor(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
@@ -117,7 +131,7 @@ public class ExecutorUtilsExt {
         return (Executor) invokeL.objValue;
     }
 
-    public static String getStandardTaskName(@NonNull String str, @NonNull String str2) {
+    public static String getStandardTaskName(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
@@ -126,30 +140,18 @@ public class ExecutorUtilsExt {
                 str = "default";
             }
             String str3 = str2 + str;
-            return str3.length() > 256 ? str3.substring(0, 255) : str3;
+            if (str3.length() > 256) {
+                return str3.substring(0, 255);
+            }
+            return str3;
         }
         return (String) invokeLL.objValue;
     }
 
-    public static void postOnElastic(@NonNull Runnable runnable, @NonNull String str, int i) {
+    public static void postOnElastic(Runnable runnable, String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65543, null, runnable, str, i) == null) {
             delayPostOnElastic(runnable, str, i, 0L);
-        }
-    }
-
-    @Deprecated
-    public static void postOnImmediate(@NonNull Runnable runnable, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, null, runnable, str) == null) {
-            postOnElastic(runnable, str, 0);
-        }
-    }
-
-    public static void postOnSerial(@NonNull Runnable runnable, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65545, null, runnable, str) == null) {
-            delayPostOnSerial(runnable, str, 0L);
         }
     }
 }

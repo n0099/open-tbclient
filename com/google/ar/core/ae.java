@@ -1,6 +1,6 @@
 package com.google.ar.core;
 
-import com.baidu.tieba.mr9;
+import com.baidu.tieba.es9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,6 +11,16 @@ import com.google.ar.core.Session;
 public enum ae extends Session.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.google.ar.core.Session.c
+    public final es9 a(long j, Session session) {
+        InterceptResult invokeJL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, session)) == null) {
+            return null;
+        }
+        return (es9) invokeJL.objValue;
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ae(String str, int i, int i2, Class cls) {
@@ -31,15 +41,5 @@ public enum ae extends Session.c {
                 return;
             }
         }
-    }
-
-    @Override // com.google.ar.core.Session.c
-    public final mr9 a(long j, Session session) {
-        InterceptResult invokeJL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, session)) == null) {
-            return null;
-        }
-        return (mr9) invokeJL.objValue;
     }
 }

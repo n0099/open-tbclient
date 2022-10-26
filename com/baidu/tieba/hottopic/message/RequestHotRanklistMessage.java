@@ -5,7 +5,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.sh5;
+import com.baidu.tieba.yh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -58,7 +58,7 @@ public class RequestHotRanklistMessage extends NetMessage {
                 builder.need_tab_list = getNeedTabList();
                 builder.fid = Long.valueOf(this.fid);
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    sh5.a(builder, true);
+                    yh5.a(builder, true);
                 }
                 TopicListReqIdl.Builder builder2 = new TopicListReqIdl.Builder();
                 builder2.data = builder.build(false);
@@ -73,25 +73,37 @@ public class RequestHotRanklistMessage extends NetMessage {
     public String getCallFrom() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.call_from : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.call_from;
+        }
+        return (String) invokeV.objValue;
     }
 
     public CommonReq getCommon() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f1050common : (CommonReq) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.f1050common;
+        }
+        return (CommonReq) invokeV.objValue;
     }
 
     public String getListType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.list_type : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.list_type;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getNeedTabList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.need_tab_list : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.need_tab_list;
+        }
+        return (String) invokeV.objValue;
     }
 
     public void setCallFrom(String str) {

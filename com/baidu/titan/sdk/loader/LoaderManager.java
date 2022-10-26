@@ -43,12 +43,44 @@ public class LoaderManager {
     public static final String TAG = "LoaderManager";
     public static LoaderManager sInstance;
     public final Context mContext;
-    public volatile Future<Integer> mLoadFuture;
+    public volatile Future mLoadFuture;
     public volatile int mLoadState = -1;
     public PatchInstallInfo mPatchInstallInfo;
 
     public LoaderManager(Context context) {
         this.mContext = context;
+    }
+
+    public String getCurrentApkId(Context context) {
+        BufferedReader bufferedReader;
+        BufferedReader bufferedReader2 = null;
+        try {
+            bufferedReader = new BufferedReader(new InputStreamReader(context.getAssets().open(TitanConstant.APKID_ASSETS_PATH)));
+        } catch (Exception unused) {
+            bufferedReader = null;
+        } catch (Throwable th) {
+            th = th;
+        }
+        try {
+            String readLine = bufferedReader.readLine();
+            Closes.closeQuiet((Reader) bufferedReader);
+            return readLine;
+        } catch (Exception unused2) {
+            Closes.closeQuiet((Reader) bufferedReader);
+            return null;
+        } catch (Throwable th2) {
+            th = th2;
+            bufferedReader2 = bufferedReader;
+            Closes.closeQuiet((Reader) bufferedReader2);
+            throw th;
+        }
+    }
+
+    private SignatureVerifier getSignatureVerifier(Context context, PatchInstallInfo patchInstallInfo) {
+        if (Build.VERSION.SDK_INT <= 19) {
+            return new SignatureVerifierKITKAT(context, patchInstallInfo);
+        }
+        return new SignatureVerifier(context, patchInstallInfo.getPatchFile());
     }
 
     public static LoaderManager getInstance() {
@@ -62,65 +94,118 @@ public class LoaderManager {
         return loaderManager;
     }
 
-    private SignatureVerifier getSignatureVerifier(Context context, PatchInstallInfo patchInstallInfo) {
-        if (Build.VERSION.SDK_INT <= 19) {
-            return new SignatureVerifierKITKAT(context, patchInstallInfo);
+    /* JADX INFO: Access modifiers changed from: private */
+    public void waitLoad() {
+        if (this.mLoadFuture == null) {
+            return;
         }
-        return new SignatureVerifier(context, patchInstallInfo.getPatchFile());
+        synchronized (this) {
+            if (this.mLoadFuture != null) {
+                try {
+                    this.mLoadFuture.get();
+                    this.mLoadFuture = null;
+                } catch (Exception unused) {
+                }
+            }
+        }
+    }
+
+    public String getCurrentApkId() {
+        BufferedReader bufferedReader;
+        Throwable th;
+        try {
+            bufferedReader = new BufferedReader(new InputStreamReader(this.mContext.getAssets().open(TitanConstant.APKID_ASSETS_PATH)));
+        } catch (Exception unused) {
+            bufferedReader = null;
+        } catch (Throwable th2) {
+            bufferedReader = null;
+            th = th2;
+        }
+        try {
+            String readLine = bufferedReader.readLine();
+            Closes.closeQuiet((Reader) bufferedReader);
+            return readLine;
+        } catch (Exception unused2) {
+            Closes.closeQuiet((Reader) bufferedReader);
+            return null;
+        } catch (Throwable th3) {
+            th = th3;
+            Closes.closeQuiet((Reader) bufferedReader);
+            throw th;
+        }
+    }
+
+    public PatchInstallInfo getCurrentPatchInfo() {
+        return this.mPatchInstallInfo;
+    }
+
+    public int getLoadState() {
+        return this.mLoadState;
+    }
+
+    public int load() {
+        int loadInternal = loadInternal(false);
+        this.mLoadState = loadInternal;
+        return loadInternal;
+    }
+
+    public int loadInTime() {
+        int loadInternal = loadInternal(true);
+        this.mLoadState = loadInternal;
+        return loadInternal;
     }
 
     private int loadInternal(boolean z) {
         File headFile = TitanPaths.getHeadFile();
-        if (headFile.exists()) {
-            LoaderTimeStat loaderTimeStat = LoaderTimeStat.getInstance();
-            long currentTimeMillis = System.currentTimeMillis();
-            String fileStringContent = Files.getFileStringContent(headFile);
-            long currentTimeMillis2 = System.currentTimeMillis();
-            loaderTimeStat.readHeadContent = currentTimeMillis2 - currentTimeMillis;
-            LoaderHead createFromJson = LoaderHead.createFromJson(fileStringContent);
-            long currentTimeMillis3 = System.currentTimeMillis();
-            loaderTimeStat.createLoaderHead = currentTimeMillis3 - currentTimeMillis2;
-            if (createFromJson == null || TextUtils.isEmpty(createFromJson.targetId) || TextUtils.isEmpty(createFromJson.patchHash)) {
-                return -2;
-            }
+        if (!headFile.exists()) {
+            return -1;
+        }
+        LoaderTimeStat loaderTimeStat = LoaderTimeStat.getInstance();
+        long currentTimeMillis = System.currentTimeMillis();
+        String fileStringContent = Files.getFileStringContent(headFile);
+        long currentTimeMillis2 = System.currentTimeMillis();
+        loaderTimeStat.readHeadContent = currentTimeMillis2 - currentTimeMillis;
+        LoaderHead createFromJson = LoaderHead.createFromJson(fileStringContent);
+        long currentTimeMillis3 = System.currentTimeMillis();
+        loaderTimeStat.createLoaderHead = currentTimeMillis3 - currentTimeMillis2;
+        if (createFromJson != null && !TextUtils.isEmpty(createFromJson.targetId) && !TextUtils.isEmpty(createFromJson.patchHash)) {
             String currentApkId = getCurrentApkId();
             long currentTimeMillis4 = System.currentTimeMillis();
             loaderTimeStat.getApkId = currentTimeMillis4 - currentTimeMillis3;
-            if (createFromJson.targetId.equals(currentApkId)) {
-                File patchDir = TitanPaths.getPatchDir(createFromJson.patchHash);
-                long currentTimeMillis5 = System.currentTimeMillis();
-                loaderTimeStat.getPatchDir = currentTimeMillis5 - currentTimeMillis4;
-                final PatchInstallInfo patchInstallInfo = new PatchInstallInfo(patchDir);
-                if (patchInstallInfo.exist() && patchInstallInfo.finished()) {
-                    System.currentTimeMillis();
-                    patchInstallInfo.shareLock();
-                    System.currentTimeMillis();
-                    loaderTimeStat.lock = System.currentTimeMillis() - currentTimeMillis5;
-                    this.mPatchInstallInfo = patchInstallInfo;
-                    PatchMetaInfo createFromPatch = PatchMetaInfo.createFromPatch(patchInstallInfo.getPatchFile());
-                    if (!z && createFromPatch.bootLoadSyncPolicy != 0) {
-                        setInterceptorDelegate(PatchClassInfo.createFromPatch(patchInstallInfo.getPatchFile()));
-                        ExecutorService newSingleThreadExecutor = Executors.newSingleThreadExecutor();
-                        this.mLoadFuture = newSingleThreadExecutor.submit(new Callable<Integer>() { // from class: com.baidu.titan.sdk.loader.LoaderManager.1
-                            /* JADX DEBUG: Method merged with bridge method */
-                            /* JADX WARN: Can't rename method to resolve collision */
-                            @Override // java.util.concurrent.Callable
-                            public Integer call() throws Exception {
-                                int loadPatch = LoaderManager.this.loadPatch(false, patchInstallInfo);
-                                LoaderManager.this.mLoadState = loadPatch;
-                                return Integer.valueOf(loadPatch);
-                            }
-                        });
-                        newSingleThreadExecutor.shutdown();
-                        return -7;
-                    }
-                    return loadPatch(z, patchInstallInfo);
-                }
-                return -3;
+            if (!createFromJson.targetId.equals(currentApkId)) {
+                return -4;
             }
-            return -4;
+            File patchDir = TitanPaths.getPatchDir(createFromJson.patchHash);
+            long currentTimeMillis5 = System.currentTimeMillis();
+            loaderTimeStat.getPatchDir = currentTimeMillis5 - currentTimeMillis4;
+            final PatchInstallInfo patchInstallInfo = new PatchInstallInfo(patchDir);
+            if (patchInstallInfo.exist() && patchInstallInfo.finished()) {
+                System.currentTimeMillis();
+                patchInstallInfo.shareLock();
+                System.currentTimeMillis();
+                loaderTimeStat.lock = System.currentTimeMillis() - currentTimeMillis5;
+                this.mPatchInstallInfo = patchInstallInfo;
+                PatchMetaInfo createFromPatch = PatchMetaInfo.createFromPatch(patchInstallInfo.getPatchFile());
+                if (!z && createFromPatch.bootLoadSyncPolicy != 0) {
+                    setInterceptorDelegate(PatchClassInfo.createFromPatch(patchInstallInfo.getPatchFile()));
+                    ExecutorService newSingleThreadExecutor = Executors.newSingleThreadExecutor();
+                    this.mLoadFuture = newSingleThreadExecutor.submit(new Callable() { // from class: com.baidu.titan.sdk.loader.LoaderManager.1
+                        /* JADX DEBUG: Method merged with bridge method */
+                        @Override // java.util.concurrent.Callable
+                        public Integer call() throws Exception {
+                            int loadPatch = LoaderManager.this.loadPatch(false, patchInstallInfo);
+                            LoaderManager.this.mLoadState = loadPatch;
+                            return Integer.valueOf(loadPatch);
+                        }
+                    });
+                    newSingleThreadExecutor.shutdown();
+                    return -7;
+                }
+                return loadPatch(z, patchInstallInfo);
+            }
+            return -3;
         }
-        return -1;
+        return -2;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -172,9 +257,9 @@ public class LoaderManager {
                 return false;
             }
         };
-        Iterator<String> it = patchClassInfo.instantClassNames.iterator();
+        Iterator it = patchClassInfo.instantClassNames.iterator();
         while (it.hasNext()) {
-            String next = it.next();
+            String str = (String) it.next();
             InterceptableDelegate interceptableDelegate = new InterceptableDelegate() { // from class: com.baidu.titan.sdk.loader.LoaderManager.3
                 @Override // com.baidu.titan.sdk.runtime.InterceptableDelegate
                 public boolean waitLoad() {
@@ -183,7 +268,7 @@ public class LoaderManager {
                 }
             };
             try {
-                Field declaredField = Class.forName(next).getDeclaredField("$ic");
+                Field declaredField = Class.forName(str).getDeclaredField("$ic");
                 declaredField.setAccessible(true);
                 declaredField.set(null, interceptableDelegate);
             } catch (ClassNotFoundException e) {
@@ -193,92 +278,6 @@ public class LoaderManager {
             } catch (NoSuchFieldException e3) {
                 e3.printStackTrace();
             }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void waitLoad() {
-        if (this.mLoadFuture == null) {
-            return;
-        }
-        synchronized (this) {
-            if (this.mLoadFuture != null) {
-                try {
-                    this.mLoadFuture.get();
-                    this.mLoadFuture = null;
-                } catch (Exception unused) {
-                }
-            }
-        }
-    }
-
-    public String getCurrentApkId(Context context) {
-        BufferedReader bufferedReader;
-        BufferedReader bufferedReader2 = null;
-        try {
-            bufferedReader = new BufferedReader(new InputStreamReader(context.getAssets().open(TitanConstant.APKID_ASSETS_PATH)));
-        } catch (Exception unused) {
-            bufferedReader = null;
-        } catch (Throwable th) {
-            th = th;
-        }
-        try {
-            String readLine = bufferedReader.readLine();
-            Closes.closeQuiet((Reader) bufferedReader);
-            return readLine;
-        } catch (Exception unused2) {
-            Closes.closeQuiet((Reader) bufferedReader);
-            return null;
-        } catch (Throwable th2) {
-            th = th2;
-            bufferedReader2 = bufferedReader;
-            Closes.closeQuiet((Reader) bufferedReader2);
-            throw th;
-        }
-    }
-
-    public PatchInstallInfo getCurrentPatchInfo() {
-        return this.mPatchInstallInfo;
-    }
-
-    public int getLoadState() {
-        return this.mLoadState;
-    }
-
-    public int load() {
-        int loadInternal = loadInternal(false);
-        this.mLoadState = loadInternal;
-        return loadInternal;
-    }
-
-    public int loadInTime() {
-        int loadInternal = loadInternal(true);
-        this.mLoadState = loadInternal;
-        return loadInternal;
-    }
-
-    public String getCurrentApkId() {
-        BufferedReader bufferedReader;
-        Throwable th;
-        try {
-            bufferedReader = new BufferedReader(new InputStreamReader(this.mContext.getAssets().open(TitanConstant.APKID_ASSETS_PATH)));
-        } catch (Exception unused) {
-            bufferedReader = null;
-        } catch (Throwable th2) {
-            bufferedReader = null;
-            th = th2;
-        }
-        try {
-            String readLine = bufferedReader.readLine();
-            Closes.closeQuiet((Reader) bufferedReader);
-            return readLine;
-        } catch (Exception unused2) {
-            Closes.closeQuiet((Reader) bufferedReader);
-            return null;
-        } catch (Throwable th3) {
-            th = th3;
-            Closes.closeQuiet((Reader) bufferedReader);
-            throw th;
         }
     }
 }

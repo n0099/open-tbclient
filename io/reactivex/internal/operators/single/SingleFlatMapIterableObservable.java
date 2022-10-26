@@ -11,7 +11,6 @@ import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.SingleObserver;
 import io.reactivex.SingleSource;
-import io.reactivex.annotations.Nullable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.exceptions.Exceptions;
 import io.reactivex.functions.Function;
@@ -20,25 +19,25 @@ import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.internal.observers.BasicIntQueueDisposable;
 import java.util.Iterator;
 /* loaded from: classes8.dex */
-public final class SingleFlatMapIterableObservable<T, R> extends Observable<R> {
+public final class SingleFlatMapIterableObservable extends Observable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Function<? super T, ? extends Iterable<? extends R>> mapper;
-    public final SingleSource<T> source;
+    public final Function mapper;
+    public final SingleSource source;
 
     /* loaded from: classes8.dex */
-    public static final class FlatMapIterableObserver<T, R> extends BasicIntQueueDisposable<R> implements SingleObserver<T> {
+    public final class FlatMapIterableObserver extends BasicIntQueueDisposable implements SingleObserver {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -8938804753851907758L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer<? super R> actual;
+        public final Observer actual;
         public volatile boolean cancelled;
         public Disposable d;
-        public volatile Iterator<? extends R> it;
-        public final Function<? super T, ? extends Iterable<? extends R>> mapper;
+        public volatile Iterator it;
+        public final Function mapper;
         public boolean outputFused;
 
-        public FlatMapIterableObserver(Observer<? super R> observer, Function<? super T, ? extends Iterable<? extends R>> function) {
+        public FlatMapIterableObserver(Observer observer, Function function) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -79,14 +78,41 @@ public final class SingleFlatMapIterableObservable<T, R> extends Observable<R> {
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.cancelled : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.cancelled;
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.internal.fuseable.SimpleQueue
         public boolean isEmpty() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.it == null : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                if (this.it == null) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // io.reactivex.internal.fuseable.SimpleQueue
+        public Object poll() throws Exception {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                Iterator it = this.it;
+                if (it == null) {
+                    return null;
+                }
+                Object requireNonNull = ObjectHelper.requireNonNull(it.next(), "The iterator returned a null value");
+                if (!it.hasNext()) {
+                    this.it = null;
+                }
+                return requireNonNull;
+            }
+            return invokeV.objValue;
         }
 
         @Override // io.reactivex.SingleObserver
@@ -107,14 +133,27 @@ public final class SingleFlatMapIterableObservable<T, R> extends Observable<R> {
             }
         }
 
-        /* JADX DEBUG: Type inference failed for r1v4. Raw type applied. Possible types: R, ? super R */
-        @Override // io.reactivex.SingleObserver
-        public void onSuccess(T t) {
+        @Override // io.reactivex.internal.fuseable.QueueFuseable
+        public int requestFusion(int i) {
+            InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
-                Observer<? super R> observer = this.actual;
+            if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+                if ((i & 2) != 0) {
+                    this.outputFused = true;
+                    return 2;
+                }
+                return 0;
+            }
+            return invokeI.intValue;
+        }
+
+        @Override // io.reactivex.SingleObserver
+        public void onSuccess(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, obj) == null) {
+                Observer observer = this.actual;
                 try {
-                    Iterator<? extends R> it = this.mapper.apply(t).iterator();
+                    Iterator it = ((Iterable) this.mapper.apply(obj)).iterator();
                     if (!it.hasNext()) {
                         observer.onComplete();
                     } else if (this.outputFused) {
@@ -124,7 +163,7 @@ public final class SingleFlatMapIterableObservable<T, R> extends Observable<R> {
                     } else {
                         while (!this.cancelled) {
                             try {
-                                observer.onNext((R) it.next());
+                                observer.onNext(it.next());
                                 if (this.cancelled) {
                                     return;
                                 }
@@ -151,42 +190,9 @@ public final class SingleFlatMapIterableObservable<T, R> extends Observable<R> {
                 }
             }
         }
-
-        @Override // io.reactivex.internal.fuseable.SimpleQueue
-        @Nullable
-        public R poll() throws Exception {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                Iterator<? extends R> it = this.it;
-                if (it != null) {
-                    R r = (R) ObjectHelper.requireNonNull(it.next(), "The iterator returned a null value");
-                    if (!it.hasNext()) {
-                        this.it = null;
-                    }
-                    return r;
-                }
-                return null;
-            }
-            return (R) invokeV.objValue;
-        }
-
-        @Override // io.reactivex.internal.fuseable.QueueFuseable
-        public int requestFusion(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-                if ((i & 2) != 0) {
-                    this.outputFused = true;
-                    return 2;
-                }
-                return 0;
-            }
-            return invokeI.intValue;
-        }
     }
 
-    public SingleFlatMapIterableObservable(SingleSource<T> singleSource, Function<? super T, ? extends Iterable<? extends R>> function) {
+    public SingleFlatMapIterableObservable(SingleSource singleSource, Function function) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -206,7 +212,7 @@ public final class SingleFlatMapIterableObservable<T, R> extends Observable<R> {
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer<? super R> observer) {
+    public void subscribeActual(Observer observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             this.source.subscribe(new FlatMapIterableObserver(observer, this.mapper));

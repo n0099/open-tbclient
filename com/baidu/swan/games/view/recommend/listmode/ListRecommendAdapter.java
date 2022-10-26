@@ -4,12 +4,11 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.games.view.recommend.model.RecommendItemModel;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a74;
+import com.baidu.tieba.b74;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,19 +16,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class ListRecommendAdapter extends RecyclerView.Adapter<ListRecommendViewHolder> implements View.OnClickListener {
+public class ListRecommendAdapter extends RecyclerView.Adapter implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LayoutInflater a;
     public a b;
-    public a74 c;
+    public b74 c;
 
     /* loaded from: classes3.dex */
     public interface a {
         void a(int i);
     }
 
-    public ListRecommendAdapter(@NonNull Context context) {
+    public ListRecommendAdapter(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -53,17 +52,16 @@ public class ListRecommendAdapter extends RecyclerView.Adapter<ListRecommendView
     public void onBindViewHolder(ListRecommendViewHolder listRecommendViewHolder, int i) {
         RecommendItemModel recommendItemModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048576, this, listRecommendViewHolder, i) == null) || (recommendItemModel = this.c.b.get(i)) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLI(1048576, this, listRecommendViewHolder, i) == null) && (recommendItemModel = (RecommendItemModel) this.c.b.get(i)) != null) {
+            listRecommendViewHolder.a.setImageURI(recommendItemModel.iconUrl);
+            listRecommendViewHolder.b.setText(recommendItemModel.appName);
+            listRecommendViewHolder.c.setText(recommendItemModel.desc);
+            listRecommendViewHolder.d.setText(recommendItemModel.buttonText);
+            listRecommendViewHolder.itemView.setTag(Integer.valueOf(i));
+            listRecommendViewHolder.d.setTag(Integer.valueOf(i));
+            listRecommendViewHolder.itemView.setOnClickListener(this);
+            listRecommendViewHolder.d.setOnClickListener(this);
         }
-        listRecommendViewHolder.a.setImageURI(recommendItemModel.iconUrl);
-        listRecommendViewHolder.b.setText(recommendItemModel.appName);
-        listRecommendViewHolder.c.setText(recommendItemModel.desc);
-        listRecommendViewHolder.d.setText(recommendItemModel.buttonText);
-        listRecommendViewHolder.itemView.setTag(Integer.valueOf(i));
-        listRecommendViewHolder.d.setTag(Integer.valueOf(i));
-        listRecommendViewHolder.itemView.setOnClickListener(this);
-        listRecommendViewHolder.d.setOnClickListener(this);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -72,7 +70,10 @@ public class ListRecommendAdapter extends RecyclerView.Adapter<ListRecommendView
     public ListRecommendViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i)) == null) ? new ListRecommendViewHolder(this.a.inflate(R.layout.obfuscated_res_0x7f0d0840, viewGroup, false)) : (ListRecommendViewHolder) invokeLI.objValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i)) == null) {
+            return new ListRecommendViewHolder(this.a.inflate(R.layout.obfuscated_res_0x7f0d0841, viewGroup, false));
+        }
+        return (ListRecommendViewHolder) invokeLI.objValue;
     }
 
     public void f(a aVar) {
@@ -82,35 +83,34 @@ public class ListRecommendAdapter extends RecyclerView.Adapter<ListRecommendView
         }
     }
 
-    public void g(a74 a74Var) {
+    public void g(b74 b74Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, a74Var) == null) {
-            this.c = a74Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, b74Var) == null) {
+            this.c = b74Var;
             notifyDataSetChanged();
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, view2) == null) && this.b != null && view2 != null && (view2.getTag() instanceof Integer)) {
+            this.b.a(((Integer) view2.getTag()).intValue());
         }
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
         InterceptResult invokeV;
-        List<RecommendItemModel> list;
+        List list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            a74 a74Var = this.c;
-            if (a74Var == null || (list = a74Var.b) == null) {
-                return 0;
+            b74 b74Var = this.c;
+            if (b74Var != null && (list = b74Var.b) != null) {
+                return list.size();
             }
-            return list.size();
+            return 0;
         }
         return invokeV.intValue;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, view2) == null) || this.b == null || view2 == null || !(view2.getTag() instanceof Integer)) {
-            return;
-        }
-        this.b.a(((Integer) view2.getTag()).intValue());
     }
 }

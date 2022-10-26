@@ -7,7 +7,6 @@ import android.graphics.PointF;
 import android.graphics.RadialGradient;
 import android.graphics.RectF;
 import android.graphics.Shader;
-import androidx.annotation.Nullable;
 import androidx.collection.LongSparseArray;
 import com.airbnb.lottie.LottieDrawable;
 import com.airbnb.lottie.LottieProperty;
@@ -23,35 +22,34 @@ public class GradientStrokeContent extends BaseStrokeContent {
     public static final int CACHE_STEPS_MS = 32;
     public final RectF boundsRect;
     public final int cacheSteps;
-    public final BaseKeyframeAnimation<GradientColor, GradientColor> colorAnimation;
-    @Nullable
+    public final BaseKeyframeAnimation colorAnimation;
     public ValueCallbackKeyframeAnimation colorCallbackAnimation;
-    public final BaseKeyframeAnimation<PointF, PointF> endPointAnimation;
+    public final BaseKeyframeAnimation endPointAnimation;
     public final boolean hidden;
-    public final LongSparseArray<LinearGradient> linearGradientCache;
+    public final LongSparseArray linearGradientCache;
     public final String name;
-    public final LongSparseArray<RadialGradient> radialGradientCache;
-    public final BaseKeyframeAnimation<PointF, PointF> startPointAnimation;
+    public final LongSparseArray radialGradientCache;
+    public final BaseKeyframeAnimation startPointAnimation;
     public final GradientType type;
 
     public GradientStrokeContent(LottieDrawable lottieDrawable, BaseLayer baseLayer, GradientStroke gradientStroke) {
         super(lottieDrawable, baseLayer, gradientStroke.getCapType().toPaintCap(), gradientStroke.getJoinType().toPaintJoin(), gradientStroke.getMiterLimit(), gradientStroke.getOpacity(), gradientStroke.getWidth(), gradientStroke.getLineDashPattern(), gradientStroke.getDashOffset());
-        this.linearGradientCache = new LongSparseArray<>();
-        this.radialGradientCache = new LongSparseArray<>();
+        this.linearGradientCache = new LongSparseArray();
+        this.radialGradientCache = new LongSparseArray();
         this.boundsRect = new RectF();
         this.name = gradientStroke.getName();
         this.type = gradientStroke.getGradientType();
         this.hidden = gradientStroke.isHidden();
         this.cacheSteps = (int) (lottieDrawable.getComposition().getDuration() / 32.0f);
-        BaseKeyframeAnimation<GradientColor, GradientColor> createAnimation = gradientStroke.getGradientColor().createAnimation();
+        BaseKeyframeAnimation createAnimation = gradientStroke.getGradientColor().createAnimation();
         this.colorAnimation = createAnimation;
         createAnimation.addUpdateListener(this);
         baseLayer.addAnimation(this.colorAnimation);
-        BaseKeyframeAnimation<PointF, PointF> createAnimation2 = gradientStroke.getStartPoint().createAnimation();
+        BaseKeyframeAnimation createAnimation2 = gradientStroke.getStartPoint().createAnimation();
         this.startPointAnimation = createAnimation2;
         createAnimation2.addUpdateListener(this);
         baseLayer.addAnimation(this.startPointAnimation);
-        BaseKeyframeAnimation<PointF, PointF> createAnimation3 = gradientStroke.getEndPoint().createAnimation();
+        BaseKeyframeAnimation createAnimation3 = gradientStroke.getEndPoint().createAnimation();
         this.endPointAnimation = createAnimation3;
         createAnimation3.addUpdateListener(this);
         baseLayer.addAnimation(this.endPointAnimation);
@@ -79,26 +77,34 @@ public class GradientStrokeContent extends BaseStrokeContent {
     }
 
     private int getGradientHash() {
+        int i;
         int round = Math.round(this.startPointAnimation.getProgress() * this.cacheSteps);
         int round2 = Math.round(this.endPointAnimation.getProgress() * this.cacheSteps);
         int round3 = Math.round(this.colorAnimation.getProgress() * this.cacheSteps);
-        int i = round != 0 ? 527 * round : 17;
+        if (round != 0) {
+            i = 527 * round;
+        } else {
+            i = 17;
+        }
         if (round2 != 0) {
             i = i * 31 * round2;
         }
-        return round3 != 0 ? i * 31 * round3 : i;
+        if (round3 != 0) {
+            return i * 31 * round3;
+        }
+        return i;
     }
 
     private LinearGradient getLinearGradient() {
         long gradientHash = getGradientHash();
-        LinearGradient linearGradient = this.linearGradientCache.get(gradientHash);
+        LinearGradient linearGradient = (LinearGradient) this.linearGradientCache.get(gradientHash);
         if (linearGradient != null) {
             return linearGradient;
         }
-        PointF value = this.startPointAnimation.getValue();
-        PointF value2 = this.endPointAnimation.getValue();
-        GradientColor value3 = this.colorAnimation.getValue();
-        LinearGradient linearGradient2 = new LinearGradient(value.x, value.y, value2.x, value2.y, applyDynamicColorsIfNeeded(value3.getColors()), value3.getPositions(), Shader.TileMode.CLAMP);
+        PointF pointF = (PointF) this.startPointAnimation.getValue();
+        PointF pointF2 = (PointF) this.endPointAnimation.getValue();
+        GradientColor gradientColor = (GradientColor) this.colorAnimation.getValue();
+        LinearGradient linearGradient2 = new LinearGradient(pointF.x, pointF.y, pointF2.x, pointF2.y, applyDynamicColorsIfNeeded(gradientColor.getColors()), gradientColor.getPositions(), Shader.TileMode.CLAMP);
         this.linearGradientCache.put(gradientHash, linearGradient2);
         return linearGradient2;
     }
@@ -107,26 +113,24 @@ public class GradientStrokeContent extends BaseStrokeContent {
         float f;
         float f2;
         long gradientHash = getGradientHash();
-        RadialGradient radialGradient = this.radialGradientCache.get(gradientHash);
+        RadialGradient radialGradient = (RadialGradient) this.radialGradientCache.get(gradientHash);
         if (radialGradient != null) {
             return radialGradient;
         }
-        PointF value = this.startPointAnimation.getValue();
-        PointF value2 = this.endPointAnimation.getValue();
-        GradientColor value3 = this.colorAnimation.getValue();
-        int[] applyDynamicColorsIfNeeded = applyDynamicColorsIfNeeded(value3.getColors());
-        float[] positions = value3.getPositions();
-        RadialGradient radialGradient2 = new RadialGradient(value.x, value.y, (float) Math.hypot(value2.x - f, value2.y - f2), applyDynamicColorsIfNeeded, positions, Shader.TileMode.CLAMP);
+        PointF pointF = (PointF) this.startPointAnimation.getValue();
+        PointF pointF2 = (PointF) this.endPointAnimation.getValue();
+        GradientColor gradientColor = (GradientColor) this.colorAnimation.getValue();
+        int[] applyDynamicColorsIfNeeded = applyDynamicColorsIfNeeded(gradientColor.getColors());
+        float[] positions = gradientColor.getPositions();
+        RadialGradient radialGradient2 = new RadialGradient(pointF.x, pointF.y, (float) Math.hypot(pointF2.x - f, pointF2.y - f2), applyDynamicColorsIfNeeded, positions, Shader.TileMode.CLAMP);
         this.radialGradientCache.put(gradientHash, radialGradient2);
         return radialGradient2;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: java.lang.Integer[] */
-    /* JADX WARN: Multi-variable type inference failed */
     @Override // com.airbnb.lottie.animation.content.BaseStrokeContent, com.airbnb.lottie.model.KeyPathElement
-    public <T> void addValueCallback(T t, @Nullable LottieValueCallback<T> lottieValueCallback) {
-        super.addValueCallback(t, lottieValueCallback);
-        if (t == LottieProperty.GRADIENT_COLOR) {
+    public void addValueCallback(Object obj, LottieValueCallback lottieValueCallback) {
+        super.addValueCallback(obj, lottieValueCallback);
+        if (obj == LottieProperty.GRADIENT_COLOR) {
             ValueCallbackKeyframeAnimation valueCallbackKeyframeAnimation = this.colorCallbackAnimation;
             if (valueCallbackKeyframeAnimation != null) {
                 this.layer.removeAnimation(valueCallbackKeyframeAnimation);

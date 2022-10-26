@@ -36,6 +36,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -66,8 +67,8 @@ public class BaiduMap {
     public HeatMap H;
     public Lock I;
     public Lock J;
-    public Map<String, InfoWindow> K;
-    public Map<InfoWindow, Marker> L;
+    public Map K;
+    public Map L;
     public Marker M;
     public MyLocationData N;
     public MyLocationConfiguration O;
@@ -85,10 +86,10 @@ public class BaiduMap {
     public com.baidu.mapsdkplatform.comapi.map.j h;
     public com.baidu.mapsdkplatform.comapi.map.e i;
     public ac j;
-    public List<Overlay> k;
-    public List<Marker> l;
-    public List<Marker> m;
-    public List<InfoWindow> n;
+    public List k;
+    public List l;
+    public List m;
+    public List n;
     public Overlay.a o;
     public InfoWindow.a p;
     public OnMapStatusChangeListener q;
@@ -98,8 +99,8 @@ public class BaiduMap {
     public OnMapRenderCallback u;
     public OnMapDoubleClickListener v;
     public OnMapLongClickListener w;
-    public CopyOnWriteArrayList<OnMarkerClickListener> x;
-    public CopyOnWriteArrayList<OnPolylineClickListener> y;
+    public CopyOnWriteArrayList x;
+    public CopyOnWriteArrayList y;
     public OnMarkerDragListener z;
 
     /* loaded from: classes2.dex */
@@ -231,8 +232,8 @@ public class BaiduMap {
                 return;
             }
         }
-        this.x = new CopyOnWriteArrayList<>();
-        this.y = new CopyOnWriteArrayList<>();
+        this.x = new CopyOnWriteArrayList();
+        this.y = new CopyOnWriteArrayList();
         this.I = new ReentrantLock();
         this.J = new ReentrantLock();
         this.j = acVar;
@@ -256,8 +257,8 @@ public class BaiduMap {
                 return;
             }
         }
-        this.x = new CopyOnWriteArrayList<>();
-        this.y = new CopyOnWriteArrayList<>();
+        this.x = new CopyOnWriteArrayList();
+        this.y = new CopyOnWriteArrayList();
         this.I = new ReentrantLock();
         this.J = new ReentrantLock();
         this.h = jVar;
@@ -369,7 +370,7 @@ public class BaiduMap {
         if (!(interceptable == null || interceptable.invokeL(65548, this, infoWindow) == null) || infoWindow == null) {
             return;
         }
-        Set<InfoWindow> keySet = this.L.keySet();
+        Set keySet = this.L.keySet();
         if (keySet.isEmpty() || !keySet.contains(infoWindow)) {
             showInfoWindow(infoWindow, false);
             return;
@@ -392,7 +393,7 @@ public class BaiduMap {
             if (infoWindow.i) {
                 z = false;
                 BitmapDescriptor b = b(infoWindow);
-                marker = this.L.get(infoWindow);
+                marker = (Marker) this.L.get(infoWindow);
                 if (marker == null) {
                     Bundle bundle = new Bundle();
                     if (infoWindow.a != null) {
@@ -418,7 +419,7 @@ public class BaiduMap {
         }
         z = true;
         BitmapDescriptor b2 = b(infoWindow);
-        marker = this.L.get(infoWindow);
+        marker = (Marker) this.L.get(infoWindow);
         if (marker == null) {
         }
     }
@@ -676,7 +677,7 @@ public class BaiduMap {
             if (a instanceof Marker) {
                 Marker marker = (Marker) a;
                 marker.w = this.p;
-                ArrayList<BitmapDescriptor> arrayList = marker.o;
+                ArrayList arrayList = marker.o;
                 if (arrayList != null && arrayList.size() != 0) {
                     this.l.add(marker);
                     com.baidu.mapsdkplatform.comapi.map.e eVar = this.i;
@@ -702,7 +703,7 @@ public class BaiduMap {
         return (Overlay) invokeL.objValue;
     }
 
-    public final List<Overlay> addOverlays(List<OverlayOptions> list) {
+    public final List addOverlays(List list) {
         InterceptResult invokeL;
         int i;
         Interceptable interceptable = $ic;
@@ -713,8 +714,10 @@ public class BaiduMap {
             ArrayList arrayList = new ArrayList();
             int size = list.size();
             Bundle[] bundleArr = new Bundle[size];
+            Iterator it = list.iterator();
             int i2 = 0;
-            for (OverlayOptions overlayOptions : list) {
+            while (it.hasNext()) {
+                OverlayOptions overlayOptions = (OverlayOptions) it.next();
                 if (overlayOptions != null) {
                     Bundle bundle = new Bundle();
                     Overlay a = overlayOptions.a();
@@ -722,7 +725,7 @@ public class BaiduMap {
                     if (a instanceof Marker) {
                         Marker marker = (Marker) a;
                         marker.w = this.p;
-                        ArrayList<BitmapDescriptor> arrayList2 = marker.o;
+                        ArrayList arrayList2 = marker.o;
                         if (arrayList2 != null && arrayList2.size() != 0) {
                             this.l.add(marker);
                             com.baidu.mapsdkplatform.comapi.map.e eVar = this.i;
@@ -840,7 +843,7 @@ public class BaiduMap {
         }
     }
 
-    public List<InfoWindow> getAllInfoWindows() {
+    public List getAllInfoWindows() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.n : (List) invokeV.objValue;
@@ -925,7 +928,7 @@ public class BaiduMap {
         return invokeV.intValue;
     }
 
-    public List<Marker> getMarkersInBounds(LatLngBounds latLngBounds) {
+    public List getMarkersInBounds(LatLngBounds latLngBounds) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, latLngBounds)) == null) {
@@ -1051,7 +1054,7 @@ public class BaiduMap {
                 }
             }
             for (Overlay overlay : this.k) {
-                Set<String> keySet = this.K.keySet();
+                Set keySet = this.K.keySet();
                 String str = overlay.y;
                 if ((overlay instanceof Marker) && !keySet.isEmpty() && keySet.contains(str)) {
                     overlay.remove();
@@ -1067,7 +1070,7 @@ public class BaiduMap {
         MapView mapView;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048607, this, infoWindow) == null) {
-            Set<InfoWindow> keySet = this.L.keySet();
+            Set keySet = this.L.keySet();
             if (infoWindow == null || keySet.isEmpty() || !keySet.contains(infoWindow)) {
                 return;
             }
@@ -1083,7 +1086,7 @@ public class BaiduMap {
                     mapView.removeView(view2);
                 }
             }
-            Marker marker = this.L.get(infoWindow);
+            Marker marker = (Marker) this.L.get(infoWindow);
             if (marker != null) {
                 marker.remove();
                 this.K.remove(marker.y);
@@ -1591,7 +1594,7 @@ public class BaiduMap {
         com.baidu.mapsdkplatform.comapi.map.e eVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048652, this, infoWindow, z) == null) {
-            Set<InfoWindow> keySet = this.L.keySet();
+            Set keySet = this.L.keySet();
             if (infoWindow == null || keySet.contains(infoWindow)) {
                 return;
             }
@@ -1657,13 +1660,14 @@ public class BaiduMap {
         }
     }
 
-    public void showInfoWindows(List<InfoWindow> list) {
+    public void showInfoWindows(List list) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048653, this, list) == null) || list == null || list.isEmpty()) {
             return;
         }
-        for (InfoWindow infoWindow : list) {
-            showInfoWindow(infoWindow, false);
+        Iterator it = list.iterator();
+        while (it.hasNext()) {
+            showInfoWindow((InfoWindow) it.next(), false);
         }
     }
 
@@ -1746,7 +1750,7 @@ public class BaiduMap {
                 return MapBaseIndoorMapInfo.SwitchFloorError.SWITCH_ERROR;
             }
             if (str2.equals(focusedBaseIndoorMapInfo.a)) {
-                ArrayList<String> floors = focusedBaseIndoorMapInfo.getFloors();
+                ArrayList floors = focusedBaseIndoorMapInfo.getFloors();
                 return (floors == null || !floors.contains(str)) ? MapBaseIndoorMapInfo.SwitchFloorError.FLOOR_OVERLFLOW : this.i.a(str, str2) ? MapBaseIndoorMapInfo.SwitchFloorError.SWITCH_OK : MapBaseIndoorMapInfo.SwitchFloorError.SWITCH_ERROR;
             }
             return MapBaseIndoorMapInfo.SwitchFloorError.FOCUSED_ID_ERROR;

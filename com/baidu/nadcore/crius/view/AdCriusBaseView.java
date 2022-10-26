@@ -7,26 +7,38 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.crius.parser.CriusData;
 import com.baidu.searchbox.crius.render.CriusRender;
-import com.baidu.tieba.q71;
+import com.baidu.tieba.r71;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 /* loaded from: classes2.dex */
-public abstract class AdCriusBaseView<T extends CriusData> extends RelativeLayout {
+public abstract class AdCriusBaseView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewGroup a;
     public LinearLayout b;
     public ViewGroup c;
-    @NonNull
     public CriusRender d;
+
+    public abstract int d();
+
+    public void e(CriusData criusData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, criusData) == null) {
+        }
+    }
+
+    public abstract void f(View view2, String str, Map map);
+
+    public abstract int h();
+
+    public abstract int j();
 
     /* loaded from: classes2.dex */
     public class a implements CriusRender.IHrefClick {
@@ -53,7 +65,7 @@ public abstract class AdCriusBaseView<T extends CriusData> extends RelativeLayou
         }
 
         @Override // com.baidu.searchbox.crius.render.CriusRender.IHrefClick
-        public void onClick(View view2, String str, Map<String, String> map) {
+        public void onClick(View view2, String str, Map map) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, view2, str, map) == null) {
                 this.a.f(view2, str, map);
@@ -82,53 +94,12 @@ public abstract class AdCriusBaseView<T extends CriusData> extends RelativeLayou
         }
     }
 
-    public abstract int d();
-
-    public void e(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-        }
-    }
-
-    public abstract void f(View view2, String str, Map<String, String> map);
-
     public void g(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             LayoutInflater.from(context).inflate(h(), this);
             this.a = (ViewGroup) findViewById(j());
             this.b = (LinearLayout) findViewById(d());
-        }
-    }
-
-    public abstract int h();
-
-    public void i(T t, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048581, this, t, z) == null) || this.d == null) {
-            return;
-        }
-        this.b.removeAllViews();
-        q71 q71Var = (q71) ServiceManager.getService(q71.a);
-        if (q71Var != null) {
-            this.c = this.d.initCriusView(getContext(), t, q71Var.b(), z, q71Var.a());
-        } else {
-            this.c = this.d.initCriusView(getContext(), t, false, z, -1);
-        }
-        this.b.addView(this.c);
-        e(t);
-    }
-
-    public abstract int j();
-
-    public void k(T t, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048583, this, t, z) == null) {
-            if (t != null) {
-                i(t, z);
-            } else {
-                setVisibility(8);
-            }
         }
     }
 
@@ -151,6 +122,22 @@ public abstract class AdCriusBaseView<T extends CriusData> extends RelativeLayou
                 return;
             }
         }
+    }
+
+    public void i(CriusData criusData, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLZ(1048581, this, criusData, z) != null) || this.d == null) {
+            return;
+        }
+        this.b.removeAllViews();
+        r71 r71Var = (r71) ServiceManager.getService(r71.a);
+        if (r71Var != null) {
+            this.c = this.d.initCriusView(getContext(), criusData, r71Var.b(), z, r71Var.a());
+        } else {
+            this.c = this.d.initCriusView(getContext(), criusData, false, z, -1);
+        }
+        this.b.addView(this.c);
+        e(criusData);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -176,5 +163,16 @@ public abstract class AdCriusBaseView<T extends CriusData> extends RelativeLayou
         CriusRender criusRender = new CriusRender();
         this.d = criusRender;
         criusRender.setHrefClick(new a(this));
+    }
+
+    public void k(CriusData criusData, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048583, this, criusData, z) == null) {
+            if (criusData != null) {
+                i(criusData, z);
+            } else {
+                setVisibility(8);
+            }
+        }
     }
 }

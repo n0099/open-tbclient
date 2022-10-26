@@ -53,6 +53,23 @@ public class IMPaGetInfoRequest extends PaBaseHttpRequest {
         }
     }
 
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getContentType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "application/x-www-form-urlencoded" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public boolean shouldAbort() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     public IMPaGetInfoRequest(Context context, String str, long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -74,28 +91,30 @@ public class IMPaGetInfoRequest extends PaBaseHttpRequest {
         this.mUk = j2;
     }
 
-    private void localSyncSubscribedPaList(Context context, List<PaInfo> list) {
+    private void localSyncSubscribedPaList(Context context, List list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, this, context, list) == null) || list == null) {
+        if ((interceptable != null && interceptable.invokeLL(65538, this, context, list) != null) || list == null) {
             return;
         }
         if (list.size() == 0) {
             PaInfoDBManager.getInstance(context).deleteAllSubscribedPa();
             return;
         }
-        List<PaInfo> querySubscribedPaList = PaInfoDBManager.getInstance(context).querySubscribedPaList();
+        List querySubscribedPaList = PaInfoDBManager.getInstance(context).querySubscribedPaList();
         ArrayList arrayList = new ArrayList();
-        for (PaInfo paInfo : list) {
+        Iterator it = list.iterator();
+        while (it.hasNext()) {
+            PaInfo paInfo = (PaInfo) it.next();
             boolean z = false;
             if (querySubscribedPaList != null) {
-                Iterator<PaInfo> it = querySubscribedPaList.iterator();
+                Iterator it2 = querySubscribedPaList.iterator();
                 while (true) {
-                    if (!it.hasNext()) {
+                    if (!it2.hasNext()) {
                         break;
                     }
-                    PaInfo next = it.next();
-                    if (paInfo.getPaId() == next.getPaId()) {
-                        querySubscribedPaList.remove(next);
+                    PaInfo paInfo2 = (PaInfo) it2.next();
+                    if (paInfo.getPaId() == paInfo2.getPaId()) {
+                        querySubscribedPaList.remove(paInfo2);
                         PaInfoDBManager.getInstance(context).acceptPaPush(paInfo.getPaId(), paInfo.isAcceptPush());
                         z = true;
                         break;
@@ -106,20 +125,13 @@ public class IMPaGetInfoRequest extends PaBaseHttpRequest {
                 arrayList.add(paInfo);
             }
         }
-        Iterator it2 = arrayList.iterator();
-        while (it2.hasNext()) {
-            PaInfo paInfo2 = (PaInfo) it2.next();
+        Iterator it3 = arrayList.iterator();
+        while (it3.hasNext()) {
+            PaInfo paInfo3 = (PaInfo) it3.next();
             String str = TAG;
-            LogUtils.d(str, "FXF  add to db " + paInfo2.toString());
-            PaInfoDBManager.getInstance(context).subscribePa(paInfo2);
+            LogUtils.d(str, "FXF  add to db " + paInfo3.toString());
+            PaInfoDBManager.getInstance(context).subscribePa(paInfo3);
         }
-    }
-
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public String getContentType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "application/x-www-form-urlencoded" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -158,7 +170,7 @@ public class IMPaGetInfoRequest extends PaBaseHttpRequest {
     public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, bArr, th) == null) {
-            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
+            Pair transErrorCode = transErrorCode(i, bArr, th);
             PaManagerImpl.getInstance(this.mContext).onQueryScribedPaListResult(this.mKey, ((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, null);
         }
     }
@@ -237,15 +249,5 @@ public class IMPaGetInfoRequest extends PaBaseHttpRequest {
             }
             PaManagerImpl.getInstance(this.mContext).onQueryScribedPaListResult(this.mKey, i2, str, arrayList);
         }
-    }
-
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public boolean shouldAbort() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

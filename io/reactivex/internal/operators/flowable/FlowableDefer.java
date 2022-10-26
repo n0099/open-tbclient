@@ -12,12 +12,12 @@ import java.util.concurrent.Callable;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 /* loaded from: classes8.dex */
-public final class FlowableDefer<T> extends Flowable<T> {
+public final class FlowableDefer extends Flowable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Callable<? extends Publisher<? extends T>> supplier;
+    public final Callable supplier;
 
-    public FlowableDefer(Callable<? extends Publisher<? extends T>> callable) {
+    public FlowableDefer(Callable callable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -36,7 +36,7 @@ public final class FlowableDefer<T> extends Flowable<T> {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber<? super T> subscriber) {
+    public void subscribeActual(Subscriber subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             try {

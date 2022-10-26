@@ -1,9 +1,9 @@
 package rx.internal.operators;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.mx9;
-import com.baidu.tieba.sx9;
-import com.baidu.tieba.tx9;
+import com.baidu.tieba.ey9;
+import com.baidu.tieba.ky9;
+import com.baidu.tieba.ly9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,19 +11,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes9.dex */
-public final class OnSubscribeUsing$DisposeAction<Resource> extends AtomicBoolean implements sx9, mx9 {
+public final class OnSubscribeUsing$DisposeAction extends AtomicBoolean implements ky9, ey9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 4262875056400218316L;
     public transient /* synthetic */ FieldHolder $fh;
-    public tx9<? super Resource> dispose;
-    public Resource resource;
+    public ly9 dispose;
+    public Object resource;
 
-    public OnSubscribeUsing$DisposeAction(tx9<? super Resource> tx9Var, Resource resource) {
+    public OnSubscribeUsing$DisposeAction(ly9 ly9Var, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tx9Var, resource};
+            Object[] objArr = {ly9Var, obj};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,20 +33,17 @@ public final class OnSubscribeUsing$DisposeAction<Resource> extends AtomicBoolea
                 return;
             }
         }
-        this.dispose = tx9Var;
-        this.resource = resource;
+        this.dispose = ly9Var;
+        this.resource = obj;
         lazySet(false);
     }
 
-    /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: Resource, ? super Resource */
-    /* JADX WARN: Type inference failed for: r0v4, types: [com.baidu.tieba.tx9<? super Resource>, Resource] */
-    @Override // com.baidu.tieba.sx9
+    @Override // com.baidu.tieba.ky9
     public void call() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && compareAndSet(false, true)) {
-            ?? r0 = (Resource) false;
             try {
-                this.dispose.call((Resource) this.resource);
+                this.dispose.call(this.resource);
             } finally {
                 this.resource = null;
                 this.dispose = null;
@@ -54,14 +51,17 @@ public final class OnSubscribeUsing$DisposeAction<Resource> extends AtomicBoolea
         }
     }
 
-    @Override // com.baidu.tieba.mx9
+    @Override // com.baidu.tieba.ey9
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? get() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return get();
+        }
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.mx9
+    @Override // com.baidu.tieba.ey9
     public void unsubscribe() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {

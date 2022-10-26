@@ -1,7 +1,6 @@
 package androidx.webkit.internal;
 
 import android.os.Build;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import androidx.webkit.WebViewFeature;
 import com.baidu.android.imsdk.internal.Constants;
@@ -162,7 +161,7 @@ public final class WebViewFeatureInternal {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public WebViewFeatureInternal(@NonNull String str, @NonNull int i, String str2, String str3) {
+    public WebViewFeatureInternal(String str, int i, String str2, String str3) {
         this(str, i, str2, str3, -1);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -182,62 +181,7 @@ public final class WebViewFeatureInternal {
         }
     }
 
-    public static WebViewFeatureInternal getFeature(@NonNull String str) {
-        InterceptResult invokeL;
-        WebViewFeatureInternal[] values;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            for (WebViewFeatureInternal webViewFeatureInternal : values()) {
-                if (webViewFeatureInternal.mPublicFeatureValue.equals(str)) {
-                    return webViewFeatureInternal;
-                }
-            }
-            throw new RuntimeException("Unknown feature " + str);
-        }
-        return (WebViewFeatureInternal) invokeL.objValue;
-    }
-
-    public static UnsupportedOperationException getUnsupportedOperationException() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? new UnsupportedOperationException("This method is not supported by the current version of the framework and the current WebView APK") : (UnsupportedOperationException) invokeV.objValue;
-    }
-
-    public static Set<String> getWebViewApkFeaturesForTesting() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? LAZY_HOLDER.WEBVIEW_APK_FEATURES : (Set) invokeV.objValue;
-    }
-
-    public static WebViewFeatureInternal valueOf(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? (WebViewFeatureInternal) Enum.valueOf(WebViewFeatureInternal.class, str) : (WebViewFeatureInternal) invokeL.objValue;
-    }
-
-    public static WebViewFeatureInternal[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? (WebViewFeatureInternal[]) $VALUES.clone() : (WebViewFeatureInternal[]) invokeV.objValue;
-    }
-
-    public boolean isSupportedByFramework() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i = this.mOsVersion;
-            return i != -1 && Build.VERSION.SDK_INT >= i;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean isSupportedByWebView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? BoundaryInterfaceReflectionUtil.containsFeature(LAZY_HOLDER.WEBVIEW_APK_FEATURES, this.mInternalFeatureValue) : invokeV.booleanValue;
-    }
-
-    public WebViewFeatureInternal(@NonNull String str, @NonNull int i, String str2, String str3, int i2) {
+    public WebViewFeatureInternal(String str, int i, String str2, String str3, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -258,5 +202,78 @@ public final class WebViewFeatureInternal {
         this.mPublicFeatureValue = str2;
         this.mInternalFeatureValue = str3;
         this.mOsVersion = i2;
+    }
+
+    public static WebViewFeatureInternal getFeature(String str) {
+        InterceptResult invokeL;
+        WebViewFeatureInternal[] values;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            for (WebViewFeatureInternal webViewFeatureInternal : values()) {
+                if (webViewFeatureInternal.mPublicFeatureValue.equals(str)) {
+                    return webViewFeatureInternal;
+                }
+            }
+            throw new RuntimeException("Unknown feature " + str);
+        }
+        return (WebViewFeatureInternal) invokeL.objValue;
+    }
+
+    public static UnsupportedOperationException getUnsupportedOperationException() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return new UnsupportedOperationException("This method is not supported by the current version of the framework and the current WebView APK");
+        }
+        return (UnsupportedOperationException) invokeV.objValue;
+    }
+
+    public static Set<String> getWebViewApkFeaturesForTesting() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return LAZY_HOLDER.WEBVIEW_APK_FEATURES;
+        }
+        return (Set) invokeV.objValue;
+    }
+
+    public static WebViewFeatureInternal[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return (WebViewFeatureInternal[]) $VALUES.clone();
+        }
+        return (WebViewFeatureInternal[]) invokeV.objValue;
+    }
+
+    public boolean isSupportedByFramework() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            int i = this.mOsVersion;
+            if (i == -1 || Build.VERSION.SDK_INT < i) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isSupportedByWebView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return BoundaryInterfaceReflectionUtil.containsFeature(LAZY_HOLDER.WEBVIEW_APK_FEATURES, this.mInternalFeatureValue);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static WebViewFeatureInternal valueOf(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            return (WebViewFeatureInternal) Enum.valueOf(WebViewFeatureInternal.class, str);
+        }
+        return (WebViewFeatureInternal) invokeL.objValue;
     }
 }

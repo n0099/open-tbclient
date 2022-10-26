@@ -1,7 +1,5 @@
 package com.bumptech.glide.provider;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,16 +13,16 @@ import java.util.List;
 public class EncoderRegistry {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<Entry<?>> encoders;
+    public final List encoders;
 
     /* loaded from: classes7.dex */
-    public static final class Entry<T> {
+    public final class Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Class<T> dataClass;
-        public final Encoder<T> encoder;
+        public final Class dataClass;
+        public final Encoder encoder;
 
-        public Entry(@NonNull Class<T> cls, @NonNull Encoder<T> encoder) {
+        public Entry(Class cls, Encoder encoder) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -43,10 +41,13 @@ public class EncoderRegistry {
             this.encoder = encoder;
         }
 
-        public boolean handles(@NonNull Class<?> cls) {
+        public boolean handles(Class cls) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) ? this.dataClass.isAssignableFrom(cls) : invokeL.booleanValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
+                return this.dataClass.isAssignableFrom(cls);
+            }
+            return invokeL.booleanValue;
         }
     }
 
@@ -66,38 +67,37 @@ public class EncoderRegistry {
         this.encoders = new ArrayList();
     }
 
-    public synchronized <T> void append(@NonNull Class<T> cls, @NonNull Encoder<T> encoder) {
+    public synchronized void append(Class cls, Encoder encoder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, cls, encoder) == null) {
             synchronized (this) {
-                this.encoders.add(new Entry<>(cls, encoder));
+                this.encoders.add(new Entry(cls, encoder));
             }
         }
     }
 
-    @Nullable
-    public synchronized <T> Encoder<T> getEncoder(@NonNull Class<T> cls) {
+    public synchronized void prepend(Class cls, Encoder encoder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cls, encoder) == null) {
+            synchronized (this) {
+                this.encoders.add(0, new Entry(cls, encoder));
+            }
+        }
+    }
+
+    public synchronized Encoder getEncoder(Class cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls)) == null) {
             synchronized (this) {
-                for (Entry<?> entry : this.encoders) {
+                for (Entry entry : this.encoders) {
                     if (entry.handles(cls)) {
-                        return (Encoder<T>) entry.encoder;
+                        return entry.encoder;
                     }
                 }
                 return null;
             }
         }
         return (Encoder) invokeL.objValue;
-    }
-
-    public synchronized <T> void prepend(@NonNull Class<T> cls, @NonNull Encoder<T> encoder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cls, encoder) == null) {
-            synchronized (this) {
-                this.encoders.add(0, new Entry<>(cls, encoder));
-            }
-        }
     }
 }

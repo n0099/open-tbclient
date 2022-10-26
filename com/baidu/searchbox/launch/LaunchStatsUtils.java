@@ -66,37 +66,61 @@ public class LaunchStatsUtils {
     public static long getAppCreateTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? sAppCreateTimeStamp : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return sAppCreateTimeStamp;
+        }
+        return invokeV.longValue;
     }
 
     public static long getHomePageFirstRenderEndTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? sHomePageFirstRenderEndTimeStamp : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return sHomePageFirstRenderEndTimeStamp;
+        }
+        return invokeV.longValue;
     }
 
     public static int getLaunchType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? sLaunchType : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return sLaunchType;
+        }
+        return invokeV.intValue;
     }
 
     public static String getLaunchTypeDetail() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? sLaunchTypeDetail : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return sLaunchTypeDetail;
+        }
+        return (String) invokeV.objValue;
     }
 
     public static boolean isAppCreateTimeValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? sAppCreateTimeStamp != -1 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (sAppCreateTimeStamp != -1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public static boolean isHomePageFirstRenderEndTimeValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? sHomePageFirstRenderEndTimeStamp != -1 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (sHomePageFirstRenderEndTimeStamp != -1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public static void setAppCreateTime(long j) {
@@ -125,12 +149,16 @@ public class LaunchStatsUtils {
         if (interceptable == null || interceptable.invokeCommon(65547, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
             if (!z) {
                 sLaunchTypeDetail = EXTERNAL_LAUNCH;
-            } else if (i == 0) {
+            } else if (i != 0) {
+                if (i != 1) {
+                    if (i == 2) {
+                        sLaunchTypeDetail = NEW_INSTALL_LAUNCH;
+                    }
+                } else {
+                    sLaunchTypeDetail = "upgrade";
+                }
+            } else {
                 sLaunchTypeDetail = "normal";
-            } else if (i == 1) {
-                sLaunchTypeDetail = "upgrade";
-            } else if (i == 2) {
-                sLaunchTypeDetail = NEW_INSTALL_LAUNCH;
             }
             if (z2) {
                 sLaunchTypeDetail += "_skin";

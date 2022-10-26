@@ -13,6 +13,7 @@ import com.xiaomi.clientreport.data.EventClientReport;
 import com.xiaomi.clientreport.data.PerfClientReport;
 import com.xiaomi.clientreport.manager.ClientReportClient;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes8.dex */
@@ -21,7 +22,7 @@ public class en {
     public static a a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static Map<String, ht> f312a;
+    public static Map f312a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
@@ -162,7 +163,7 @@ public class en {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static ht m309a(String str) {
+    public static ht m308a(String str) {
         InterceptResult invokeL;
         ht[] values;
         Interceptable interceptable = $ic;
@@ -177,21 +178,21 @@ public class en {
                     }
                 }
             }
-            ht htVar2 = f312a.get(str.toLowerCase());
+            ht htVar2 = (ht) f312a.get(str.toLowerCase());
             return htVar2 != null ? htVar2 : ht.a;
         }
         return (ht) invokeL.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m310a(int i) {
+    public static String m309a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i)) == null) ? i == 1000 ? "E100000" : i == 3000 ? "E100002" : i == 2000 ? "E100001" : i == 6000 ? "E100003" : "" : (String) invokeI.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m311a(Context context) {
+    public static void m310a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65547, null, context) == null) {
             ClientReportClient.updateConfig(context, a(context));
@@ -208,7 +209,7 @@ public class en {
     public static void a(Context context, hn hnVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65549, null, context, hnVar) == null) {
-            if (m312a(context.getApplicationContext())) {
+            if (m311a(context.getApplicationContext())) {
                 com.xiaomi.push.service.ca.a(context.getApplicationContext(), hnVar);
                 return;
             }
@@ -219,14 +220,15 @@ public class en {
         }
     }
 
-    public static void a(Context context, List<String> list) {
+    public static void a(Context context, List list) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(65550, null, context, list) == null) || list == null) {
             return;
         }
         try {
-            for (String str : list) {
-                hn a2 = a(context, str);
+            Iterator it = list.iterator();
+            while (it.hasNext()) {
+                hn a2 = a(context, (String) it.next());
                 if (!com.xiaomi.push.service.bz.a(a2, false)) {
                     a(context, a2);
                 }
@@ -244,7 +246,7 @@ public class en {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m312a(Context context) {
+    public static boolean m311a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, context)) == null) ? (context == null || TextUtils.isEmpty(context.getPackageName()) || !"com.xiaomi.xmsf".equals(context.getPackageName())) ? false : true : invokeL.booleanValue;

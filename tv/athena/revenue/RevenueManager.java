@@ -1,9 +1,8 @@
 package tv.athena.revenue;
 
-import androidx.annotation.Keep;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.d2a;
-import com.baidu.tieba.h6a;
+import com.baidu.tieba.v2a;
+import com.baidu.tieba.z6a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,22 +16,21 @@ import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import java.util.List;
 import tv.athena.revenue.api.IMiddleRevenue;
 import tv.athena.revenue.api.MiddleRevenueConfig;
-@Keep
 /* loaded from: classes9.dex */
-public class RevenueManager implements d2a {
+public class RevenueManager implements v2a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String TAG;
-    public d2a revenueService;
+    public v2a revenueService;
 
     /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
+    public /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes9.dex */
-    public static class b {
+    public class b {
         public static /* synthetic */ Interceptable $ic;
         public static final RevenueManager a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -54,82 +52,6 @@ public class RevenueManager implements d2a {
         }
     }
 
-    public /* synthetic */ RevenueManager(a aVar) {
-        this();
-    }
-
-    public static RevenueManager instance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (RevenueManager) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.d2a
-    public void addLogDelegate(IRLogDelegate iRLogDelegate) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, iRLogDelegate) == null) {
-            RLog.info("RevenueManager", "addLogDelegate");
-            this.revenueService.addLogDelegate(iRLogDelegate);
-        }
-    }
-
-    @Override // com.baidu.tieba.d2a
-    public void addRevenueConfig(MiddleRevenueConfig middleRevenueConfig) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, middleRevenueConfig) == null) {
-            String middleRevenueConfig2 = middleRevenueConfig != null ? middleRevenueConfig.toString() : "config null";
-            RLog.info("RevenueManager", "addRevenueConfig config:" + middleRevenueConfig2);
-            this.revenueService.addRevenueConfig(middleRevenueConfig);
-        }
-    }
-
-    @Override // com.baidu.tieba.d2a
-    public List<IRevenue> getAllRevenue() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            RLog.debug("RevenueManager", "getAllRevenue");
-            return this.revenueService.getAllRevenue();
-        }
-        return (List) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.d2a
-    public IMiddleRevenue getMiddleRevenue(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048579, this, i, i2)) == null) {
-            RLog.debug("RevenueManager", "getMiddleRevenue");
-            return this.revenueService.getMiddleRevenue(i, i2);
-        }
-        return (IMiddleRevenue) invokeII.objValue;
-    }
-
-    @Override // com.baidu.tieba.d2a
-    public IRevenue getRevenue(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(1048580, this, i, i2)) == null) ? this.revenueService.getRevenue(i, i2) : (IRevenue) invokeII.objValue;
-    }
-
-    @Override // com.baidu.tieba.d2a
-    public void removeRevenueConfig(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
-            RLog.info("RevenueManager", "removeRevenueConfig appId=" + i + " useChannel=" + i2);
-            this.revenueService.removeRevenueConfig(i, i2);
-        }
-    }
-
-    @Override // com.baidu.tieba.d2a
-    public void updateMiddleRevenueConfig(int i, int i2, Long l, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), l, str}) == null) {
-            RLog.info("RevenueManager", "updateMiddleRevenueConfig");
-            this.revenueService.updateMiddleRevenueConfig(i, i2, l, str);
-        }
-    }
-
     public RevenueManager() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -145,6 +67,93 @@ public class RevenueManager implements d2a {
         }
         this.TAG = "RevenueManager";
         RLog.info("RevenueManager", "create RevenueManager");
-        this.revenueService = new h6a();
+        this.revenueService = new z6a();
+    }
+
+    public static RevenueManager instance() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
+        }
+        return (RevenueManager) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.v2a
+    public List getAllRevenue() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            RLog.debug("RevenueManager", "getAllRevenue");
+            return this.revenueService.getAllRevenue();
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public /* synthetic */ RevenueManager(a aVar) {
+        this();
+    }
+
+    @Override // com.baidu.tieba.v2a
+    public void addLogDelegate(IRLogDelegate iRLogDelegate) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, iRLogDelegate) == null) {
+            RLog.info("RevenueManager", "addLogDelegate");
+            this.revenueService.addLogDelegate(iRLogDelegate);
+        }
+    }
+
+    @Override // com.baidu.tieba.v2a
+    public void addRevenueConfig(MiddleRevenueConfig middleRevenueConfig) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, middleRevenueConfig) == null) {
+            if (middleRevenueConfig != null) {
+                str = middleRevenueConfig.toString();
+            } else {
+                str = "config null";
+            }
+            RLog.info("RevenueManager", "addRevenueConfig config:" + str);
+            this.revenueService.addRevenueConfig(middleRevenueConfig);
+        }
+    }
+
+    @Override // com.baidu.tieba.v2a
+    public IMiddleRevenue getMiddleRevenue(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048579, this, i, i2)) == null) {
+            RLog.debug("RevenueManager", "getMiddleRevenue");
+            return this.revenueService.getMiddleRevenue(i, i2);
+        }
+        return (IMiddleRevenue) invokeII.objValue;
+    }
+
+    @Override // com.baidu.tieba.v2a
+    public IRevenue getRevenue(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048580, this, i, i2)) == null) {
+            return this.revenueService.getRevenue(i, i2);
+        }
+        return (IRevenue) invokeII.objValue;
+    }
+
+    @Override // com.baidu.tieba.v2a
+    public void removeRevenueConfig(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
+            RLog.info("RevenueManager", "removeRevenueConfig appId=" + i + " useChannel=" + i2);
+            this.revenueService.removeRevenueConfig(i, i2);
+        }
+    }
+
+    @Override // com.baidu.tieba.v2a
+    public void updateMiddleRevenueConfig(int i, int i2, Long l, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), l, str}) == null) {
+            RLog.info("RevenueManager", "updateMiddleRevenueConfig");
+            this.revenueService.updateMiddleRevenueConfig(i, i2, l, str);
+        }
     }
 }

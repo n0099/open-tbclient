@@ -12,8 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.annotation.RestrictTo;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
 import com.baidu.tbadk.core.elementsMaven.EMABTest;
@@ -23,7 +21,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class TooltipPopup {
     public static /* synthetic */ Interceptable $ic = null;
@@ -37,7 +34,7 @@ public class TooltipPopup {
     public final int[] mTmpAppPos;
     public final Rect mTmpDisplayFrame;
 
-    public TooltipPopup(@NonNull Context context) {
+    public TooltipPopup(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -59,7 +56,7 @@ public class TooltipPopup {
         this.mContext = context;
         View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d001b, (ViewGroup) null);
         this.mContentView = inflate;
-        this.mMessageView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091515);
+        this.mMessageView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091507);
         this.mLayoutParams.setTitle(TooltipPopup.class.getSimpleName());
         this.mLayoutParams.packageName = this.mContext.getPackageName();
         WindowManager.LayoutParams layoutParams = this.mLayoutParams;
@@ -74,6 +71,8 @@ public class TooltipPopup {
     private void computePosition(View view2, int i, int i2, boolean z, WindowManager.LayoutParams layoutParams) {
         int height;
         int i3;
+        int i4;
+        int i5;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), layoutParams}) == null) {
             layoutParams.token = view2.getApplicationWindowToken();
@@ -90,7 +89,13 @@ public class TooltipPopup {
                 i3 = 0;
             }
             layoutParams.gravity = 49;
-            int dimensionPixelOffset3 = this.mContext.getResources().getDimensionPixelOffset(z ? R.dimen.obfuscated_res_0x7f0709a0 : R.dimen.obfuscated_res_0x7f07099f);
+            Resources resources = this.mContext.getResources();
+            if (z) {
+                i4 = R.dimen.obfuscated_res_0x7f0709a0;
+            } else {
+                i4 = R.dimen.obfuscated_res_0x7f07099f;
+            }
+            int dimensionPixelOffset3 = resources.getDimensionPixelOffset(i4);
             View appRootView = getAppRootView(view2);
             if (appRootView == null) {
                 Log.e(TAG, "Cannot find app view");
@@ -99,36 +104,40 @@ public class TooltipPopup {
             appRootView.getWindowVisibleDisplayFrame(this.mTmpDisplayFrame);
             Rect rect = this.mTmpDisplayFrame;
             if (rect.left < 0 && rect.top < 0) {
-                Resources resources = this.mContext.getResources();
-                int identifier = resources.getIdentifier(SapiSystemBarTintManager.SystemBarConfig.g, EMABTest.TYPE_DIMEN, "android");
-                int dimensionPixelSize = identifier != 0 ? resources.getDimensionPixelSize(identifier) : 0;
-                DisplayMetrics displayMetrics = resources.getDisplayMetrics();
-                this.mTmpDisplayFrame.set(0, dimensionPixelSize, displayMetrics.widthPixels, displayMetrics.heightPixels);
+                Resources resources2 = this.mContext.getResources();
+                int identifier = resources2.getIdentifier(SapiSystemBarTintManager.SystemBarConfig.g, EMABTest.TYPE_DIMEN, "android");
+                if (identifier != 0) {
+                    i5 = resources2.getDimensionPixelSize(identifier);
+                } else {
+                    i5 = 0;
+                }
+                DisplayMetrics displayMetrics = resources2.getDisplayMetrics();
+                this.mTmpDisplayFrame.set(0, i5, displayMetrics.widthPixels, displayMetrics.heightPixels);
             }
             appRootView.getLocationOnScreen(this.mTmpAppPos);
             view2.getLocationOnScreen(this.mTmpAnchorPos);
             int[] iArr = this.mTmpAnchorPos;
-            int i4 = iArr[0];
+            int i6 = iArr[0];
             int[] iArr2 = this.mTmpAppPos;
-            iArr[0] = i4 - iArr2[0];
+            iArr[0] = i6 - iArr2[0];
             iArr[1] = iArr[1] - iArr2[1];
             layoutParams.x = (iArr[0] + i) - (appRootView.getWidth() / 2);
             int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
             this.mContentView.measure(makeMeasureSpec, makeMeasureSpec);
             int measuredHeight = this.mContentView.getMeasuredHeight();
             int[] iArr3 = this.mTmpAnchorPos;
-            int i5 = ((iArr3[1] + i3) - dimensionPixelOffset3) - measuredHeight;
-            int i6 = iArr3[1] + height + dimensionPixelOffset3;
+            int i7 = ((iArr3[1] + i3) - dimensionPixelOffset3) - measuredHeight;
+            int i8 = iArr3[1] + height + dimensionPixelOffset3;
             if (z) {
-                if (i5 >= 0) {
-                    layoutParams.y = i5;
+                if (i7 >= 0) {
+                    layoutParams.y = i7;
                 } else {
-                    layoutParams.y = i6;
+                    layoutParams.y = i8;
                 }
-            } else if (measuredHeight + i6 <= this.mTmpDisplayFrame.height()) {
-                layoutParams.y = i6;
+            } else if (measuredHeight + i8 <= this.mTmpDisplayFrame.height()) {
+                layoutParams.y = i8;
             } else {
-                layoutParams.y = i5;
+                layoutParams.y = i7;
             }
         }
     }
@@ -154,15 +163,22 @@ public class TooltipPopup {
 
     public void hide() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && isShowing()) {
-            ((WindowManager) this.mContext.getSystemService("window")).removeView(this.mContentView);
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !isShowing()) {
+            return;
         }
+        ((WindowManager) this.mContext.getSystemService("window")).removeView(this.mContentView);
     }
 
     public boolean isShowing() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mContentView.getParent() != null : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.mContentView.getParent() != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public void show(View view2, int i, int i2, boolean z, CharSequence charSequence) {

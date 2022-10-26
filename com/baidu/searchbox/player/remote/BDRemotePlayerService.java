@@ -33,14 +33,20 @@ public class BDRemotePlayerService extends RemotePlayerService {
     public long getKernelNetHandle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? BDPlayerServiceProxyWrapper.Impl.get().getNetHandle() : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return BDPlayerServiceProxyWrapper.Impl.get().getNetHandle();
+        }
+        return invokeV.longValue;
     }
 
     @Override // com.baidu.cyberplayer.sdk.remote.RemotePlayerService
     public long getPCDNNetHandle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? BDPlayerServiceProxyWrapper.Impl.get().getNetHandle() : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return BDPlayerServiceProxyWrapper.Impl.get().getNetHandle();
+        }
+        return invokeV.longValue;
     }
 
     @Override // com.baidu.cyberplayer.sdk.remote.RemotePlayerService, android.app.Service

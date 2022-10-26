@@ -39,7 +39,10 @@ public class UserMuteCheckHttpResponsedMessage extends HttpResponsedMessage {
     public DataRes getResult() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mResult : (DataRes) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mResult;
+        }
+        return (DataRes) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

@@ -17,12 +17,12 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b3a;
-import com.baidu.tieba.k5a;
-import com.baidu.tieba.l4a;
-import com.baidu.tieba.n4a;
-import com.baidu.tieba.o4a;
-import com.baidu.tieba.t4a;
+import com.baidu.tieba.c6a;
+import com.baidu.tieba.d5a;
+import com.baidu.tieba.f5a;
+import com.baidu.tieba.g5a;
+import com.baidu.tieba.l5a;
+import com.baidu.tieba.t3a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -58,11 +58,25 @@ public class YYPayResultView extends LinearLayout implements IYYPayResultView {
     public IYYPayResultView.a h;
     public IYYPayResultView.b i;
     public PayUIKitConfig j;
-    public l4a k;
+    public d5a k;
     public int l;
-    public List<BannerConfigItem.BannerInfo> m;
+    public List m;
     public IYYPayResultView.c n;
     public Window o;
+
+    @Override // com.baidu.tieba.f6a
+    public View getContentView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this : (View) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.f6a
+    public void refreshView() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        }
+    }
 
     /* loaded from: classes9.dex */
     public class a implements View.OnClickListener {
@@ -128,7 +142,7 @@ public class YYPayResultView extends LinearLayout implements IYYPayResultView {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                t4a.b(this.a.b, this.a.c, PayUIEventType.failpagecallnum);
+                l5a.b(this.a.b, this.a.c, PayUIEventType.failpagecallnum);
             }
         }
     }
@@ -158,17 +172,16 @@ public class YYPayResultView extends LinearLayout implements IYYPayResultView {
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
+        public void onItemClick(AdapterView adapterView, View view2, int i, long j) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) || i < 0 || i >= this.a.m.size()) {
-                return;
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) && i >= 0 && i < this.a.m.size()) {
+                BannerConfigItem.BannerInfo bannerInfo = (BannerConfigItem.BannerInfo) this.a.m.get(i);
+                RLog.info("YYPayResultView", "onItemClick: click=" + bannerInfo);
+                if (this.a.n != null && this.a.n.b != null) {
+                    this.a.n.b.onBannerClick(bannerInfo);
+                }
+                l5a.d(this.a.b, this.a.c, "23", "", "", bannerInfo.id);
             }
-            BannerConfigItem.BannerInfo bannerInfo = (BannerConfigItem.BannerInfo) this.a.m.get(i);
-            RLog.info("YYPayResultView", "onItemClick: click=" + bannerInfo);
-            if (this.a.n != null && this.a.n.b != null) {
-                this.a.n.b.onBannerClick(bannerInfo);
-            }
-            t4a.d(this.a.b, this.a.c, "23", "", "", bannerInfo.id);
         }
     }
 
@@ -199,17 +212,16 @@ public class YYPayResultView extends LinearLayout implements IYYPayResultView {
         @Override // tv.athena.revenue.payui.model.BannerItemSelectListener
         public void onItemSelected(int i) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || i < 0 || i >= this.a.m.size()) {
-                return;
+            if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && i >= 0 && i < this.a.m.size()) {
+                BannerConfigItem.BannerInfo bannerInfo = (BannerConfigItem.BannerInfo) this.a.m.get(i);
+                RLog.debug("YYPayResultView", "onItemSelected: item=" + bannerInfo);
+                l5a.d(this.a.b, this.a.c, "22", "", "", bannerInfo.id);
             }
-            BannerConfigItem.BannerInfo bannerInfo = (BannerConfigItem.BannerInfo) this.a.m.get(i);
-            RLog.debug("YYPayResultView", "onItemSelected: item=" + bannerInfo);
-            t4a.d(this.a.b, this.a.c, "22", "", "", bannerInfo.id);
         }
     }
 
     /* loaded from: classes9.dex */
-    public class e implements IResult<BannerConfigResult> {
+    public class e implements IResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ YYPayResultView a;
@@ -236,23 +248,22 @@ public class YYPayResultView extends LinearLayout implements IYYPayResultView {
         @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
         /* renamed from: a */
         public void onSuccess(BannerConfigResult bannerConfigResult, PayCallBackBean payCallBackBean) {
-            List<BannerConfigItem.BannerInfo> list;
+            List list;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, bannerConfigResult, payCallBackBean) == null) {
                 RLog.info("YYPayResultView", "queryBannerConfig onSuccess:" + bannerConfigResult);
                 this.a.m.clear();
-                if (bannerConfigResult.getBannerConfigItemList() == null || bannerConfigResult.getBannerConfigItemList().size() <= 0) {
-                    list = null;
-                } else {
-                    BannerConfigItem bannerConfigItem = bannerConfigResult.getBannerConfigItemList().get(0);
+                if (bannerConfigResult.getBannerConfigItemList() != null && bannerConfigResult.getBannerConfigItemList().size() > 0) {
+                    BannerConfigItem bannerConfigItem = (BannerConfigItem) bannerConfigResult.getBannerConfigItemList().get(0);
                     list = bannerConfigItem.bannerInfoList;
                     this.a.l = bannerConfigItem.autoPlayTime;
+                } else {
+                    list = null;
                 }
-                if (list == null || list.size() <= 0) {
-                    return;
+                if (list != null && list.size() > 0) {
+                    this.a.m.addAll(list);
+                    this.a.l();
                 }
-                this.a.m.addAll(list);
-                this.a.l();
             }
         }
 
@@ -266,13 +277,14 @@ public class YYPayResultView extends LinearLayout implements IYYPayResultView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public YYPayResultView(Activity activity, PayUIKitConfig payUIKitConfig, l4a l4aVar, int i, int i2, IYYPayResultView.c cVar, b3a b3aVar) {
+    public YYPayResultView(Activity activity, PayUIKitConfig payUIKitConfig, d5a d5aVar, int i, int i2, IYYPayResultView.c cVar, t3a t3aVar) {
         super(activity);
+        IYYPayResultView.b bVar;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity, payUIKitConfig, l4aVar, Integer.valueOf(i), Integer.valueOf(i2), cVar, b3aVar};
+            Object[] objArr = {activity, payUIKitConfig, d5aVar, Integer.valueOf(i), Integer.valueOf(i2), cVar, t3aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -288,17 +300,22 @@ public class YYPayResultView extends LinearLayout implements IYYPayResultView {
             RLog.error("YYPayResultView", "YYPayResultView construct error viewParams null", new Object[0]);
         }
         this.j = payUIKitConfig;
-        LayoutInflater.from(new ContextThemeWrapper(activity, k5a.a.a(payUIKitConfig))).inflate(R.layout.obfuscated_res_0x7f0d06ae, (ViewGroup) this, true);
+        LayoutInflater.from(new ContextThemeWrapper(activity, c6a.a.a(payUIKitConfig))).inflate(R.layout.obfuscated_res_0x7f0d06ae, (ViewGroup) this, true);
         this.a = activity;
         this.n = cVar;
-        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0923fe);
-        Button button = (Button) findViewById(R.id.obfuscated_res_0x7f090430);
+        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0923e9);
+        Button button = (Button) findViewById(R.id.obfuscated_res_0x7f090439);
         this.b = i;
         this.c = i2;
-        this.k = l4aVar;
-        this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f01);
-        this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0923af);
-        m(cVar != null ? cVar.a : null);
+        this.k = d5aVar;
+        this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ef5);
+        this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f09239a);
+        if (cVar != null) {
+            bVar = cVar.a;
+        } else {
+            bVar = null;
+        }
+        m(bVar);
         button.setOnClickListener(new a(this));
         this.f.setOnClickListener(new b(this));
         PluginCenterTopBanner pluginCenterTopBanner = (PluginCenterTopBanner) findViewById(R.id.obfuscated_res_0x7f09031c);
@@ -310,7 +327,7 @@ public class YYPayResultView extends LinearLayout implements IYYPayResultView {
         i();
     }
 
-    @Override // com.baidu.tieba.n5a
+    @Override // com.baidu.tieba.f6a
     public void attachWindow(Window window) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, window) == null) {
@@ -323,11 +340,14 @@ public class YYPayResultView extends LinearLayout implements IYYPayResultView {
         }
     }
 
-    @Override // com.baidu.tieba.n5a
-    public View getContentView() {
-        InterceptResult invokeV;
+    @Override // tv.athena.revenue.payui.view.IYYPayResultView
+    public void setCallback(IYYPayResultView.a aVar) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this : (View) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(1048585, this, aVar) == null) {
+            RLog.info("YYPayResultView", "setCallback");
+            this.h = aVar;
+            j();
+        }
     }
 
     public final void i() {
@@ -339,32 +359,37 @@ public class YYPayResultView extends LinearLayout implements IYYPayResultView {
                 return;
             }
             a2.setTypes(new int[]{2});
-            n4a.a(a2, new e(this));
-        }
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            IYYPayResultView.a aVar = this.h;
-            boolean b2 = aVar != null ? aVar.b() : false;
-            RLog.info("YYPayResultView", "showPayGiftDialog:" + b2);
+            f5a.a(a2, new e(this));
         }
     }
 
     public final void k() {
         IYYPayResultView.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (bVar = this.i) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || (bVar = this.i) == null) {
             return;
         }
         IYYPayResultView.Result result = bVar.a;
         if (result == IYYPayResultView.Result.PAY_SUUCESS) {
-            t4a.b(this.b, this.c, PayUIEventType.successpageclose);
+            l5a.b(this.b, this.c, PayUIEventType.successpageclose);
             RLog.info("YYPayResultView", PayUIEventType.successpageclose);
         } else if (result == IYYPayResultView.Result.PAY_FAIL) {
-            t4a.b(this.b, this.c, PayUIEventType.failpageclose);
+            l5a.b(this.b, this.c, PayUIEventType.failpageclose);
             RLog.info("YYPayResultView", PayUIEventType.failpageclose);
+        }
+    }
+
+    public final void j() {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            IYYPayResultView.a aVar = this.h;
+            if (aVar != null) {
+                z = aVar.b();
+            } else {
+                z = false;
+            }
+            RLog.info("YYPayResultView", "showPayGiftDialog:" + z);
         }
     }
 
@@ -390,8 +415,10 @@ public class YYPayResultView extends LinearLayout implements IYYPayResultView {
     public final void m(IYYPayResultView.b bVar) {
         String str;
         String str2;
+        String str3;
+        String str4;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) || bVar == null) {
+        if ((interceptable != null && interceptable.invokeL(1048582, this, bVar) != null) || bVar == null) {
             return;
         }
         this.i = bVar;
@@ -400,77 +427,76 @@ public class YYPayResultView extends LinearLayout implements IYYPayResultView {
             this.d.setText("支付中");
         } else if (result == IYYPayResultView.Result.PAY_SUUCESS) {
             CurrencyChargeMessage currencyChargeMessage = bVar.b;
-            String str3 = null;
+            String str5 = null;
             if (currencyChargeMessage != null && currencyChargeMessage.currencyAmount > 0) {
-                str3 = new DecimalFormat("#.##").format(currencyChargeMessage.currencyAmount / 100.0d);
+                str5 = new DecimalFormat("#.##").format(currencyChargeMessage.currencyAmount / 100.0d);
             }
-            String str4 = "";
-            if (str3 != null) {
-                str2 = "成功充值" + str3 + (currencyChargeMessage.currencyType == 4 ? "Y币" : "");
+            String str6 = "";
+            if (str5 != null) {
+                if (currencyChargeMessage.currencyType != 4) {
+                    str4 = "";
+                } else {
+                    str4 = "Y币";
+                }
+                str3 = "成功充值" + str5 + str4;
             } else {
-                str2 = "充值成功";
+                str3 = "充值成功";
             }
-            this.d.setText(str2);
-            if (o4a.d() != null && o4a.d().successMsg != null) {
-                str4 = o4a.d().successMsg;
+            this.d.setText(str3);
+            if (g5a.d() != null && g5a.d().successMsg != null) {
+                str6 = g5a.d().successMsg;
             }
-            this.f.setText(str4);
-            this.e.setImageResource(R.drawable.obfuscated_res_0x7f080ed7);
-            t4a.b(this.b, this.c, PayUIEventType.successpageshow);
+            this.f.setText(str6);
+            this.e.setImageResource(R.drawable.obfuscated_res_0x7f080ee8);
+            l5a.b(this.b, this.c, PayUIEventType.successpageshow);
             RLog.info("YYPayResultView", PayUIEventType.successpageshow);
         } else if (result == IYYPayResultView.Result.PAY_FAIL) {
+            String str7 = "充值失败";
             CurrencyChargeMessage currencyChargeMessage2 = bVar.b;
             if (currencyChargeMessage2 == null) {
-                String str5 = bVar.d;
-                str = (str5 != null ? str5 : "充值失败") + "(" + bVar.c + SmallTailInfo.EMOTION_SUFFIX;
+                String str8 = bVar.d;
+                if (str8 != null) {
+                    str7 = str8;
+                }
+                str = str7 + "(" + bVar.c + SmallTailInfo.EMOTION_SUFFIX;
             } else {
-                String str6 = currencyChargeMessage2.message;
-                str = (str6 != null ? str6 : "充值失败") + "(" + bVar.b.status + SmallTailInfo.EMOTION_SUFFIX;
+                String str9 = currencyChargeMessage2.message;
+                if (str9 != null) {
+                    str7 = str9;
+                }
+                str = str7 + "(" + bVar.b.status + SmallTailInfo.EMOTION_SUFFIX;
             }
             this.d.setText(str);
-            this.f.setText((o4a.d() == null || o4a.d().customerServiceMsg == null || o4a.d().customerServiceMsg.isEmpty()) ? "如有问题可以联系客服 " : o4a.d().customerServiceMsg);
-            this.e.setImageResource(R.drawable.obfuscated_res_0x7f080ed4);
+            if (g5a.d() != null && g5a.d().customerServiceMsg != null && !g5a.d().customerServiceMsg.isEmpty()) {
+                str2 = g5a.d().customerServiceMsg;
+            } else {
+                str2 = "如有问题可以联系客服 ";
+            }
+            this.f.setText(str2);
+            this.e.setImageResource(R.drawable.obfuscated_res_0x7f080ee5);
             RLog.info("YYPayResultView", PayUIEventType.failpageshow);
-            t4a.b(this.b, this.c, PayUIEventType.failpageshow);
+            l5a.b(this.b, this.c, PayUIEventType.failpageshow);
         }
     }
 
-    @Override // com.baidu.tieba.n5a
-    public void refreshView() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.n5a
+    @Override // com.baidu.tieba.f6a
     public void refreshWindow(WindowParams windowParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, windowParams) == null) {
             RLog.debug("YYPayResultView", "refreshWindow params:" + windowParams + " mWindow:" + this.o);
-            if (this.o == null || windowParams == null) {
-                return;
+            if (this.o != null && windowParams != null) {
+                IYYPayResultView.c cVar = this.n;
+                if (cVar != null) {
+                    cVar.c = windowParams;
+                }
+                WindowManager.LayoutParams attributes = this.o.getAttributes();
+                attributes.dimAmount = windowParams.dimAmount;
+                try {
+                    this.o.setAttributes(attributes);
+                } catch (Exception e2) {
+                    RLog.error("YYPayResultView", "refreshWindow e:" + e2, new Object[0]);
+                }
             }
-            IYYPayResultView.c cVar = this.n;
-            if (cVar != null) {
-                cVar.c = windowParams;
-            }
-            WindowManager.LayoutParams attributes = this.o.getAttributes();
-            attributes.dimAmount = windowParams.dimAmount;
-            try {
-                this.o.setAttributes(attributes);
-            } catch (Exception e2) {
-                RLog.error("YYPayResultView", "refreshWindow e:" + e2, new Object[0]);
-            }
-        }
-    }
-
-    @Override // tv.athena.revenue.payui.view.IYYPayResultView
-    public void setCallback(IYYPayResultView.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, aVar) == null) {
-            RLog.info("YYPayResultView", "setCallback");
-            this.h = aVar;
-            j();
         }
     }
 }

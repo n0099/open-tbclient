@@ -2,9 +2,11 @@ package com.baidu.mobstat;
 
 import android.content.Context;
 import android.os.Build;
+import android.os.Handler;
 import android.text.TextUtils;
-import android.util.Pair;
-import com.baidu.mobstat.bt;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.util.devices.RomUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,392 +14,383 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tencent.connect.common.Constants;
-import dalvik.system.DexClassLoader;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.jar.JarFile;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class x {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile DexClassLoader a;
-    public static volatile boolean b;
+    public static final x a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes2.dex */
-    public static class a extends Thread {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Context a;
-        public com.baidu.mobstat.a b;
-
-        public a(Context context, com.baidu.mobstat.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = context;
-            this.b = aVar;
-        }
-
-        private void a(Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(65538, this, context) == null) {
-                this.b.a(context, System.currentTimeMillis());
-            }
-        }
-
-        /* JADX WARN: Code restructure failed: missing block: B:11:0x0041, code lost:
-            if (android.text.TextUtils.isEmpty(r1) == false) goto L11;
-         */
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        private String b(Context context) {
-            InterceptResult invokeL;
-            String str;
-            File fileStreamPath;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, context)) == null) {
-                File fileStreamPath2 = context.getFileStreamPath(".remote.jar");
-                if (fileStreamPath2 != null && fileStreamPath2.exists() && (fileStreamPath = context.getFileStreamPath(".remote.jar")) != null) {
-                    str = x.b(fileStreamPath.getAbsolutePath());
-                    bb c = bb.c();
-                    c.a("startDownload remote jar file version = " + str);
-                }
-                str = "24";
-                ArrayList<Pair> arrayList = new ArrayList();
-                arrayList.add(new Pair("dynamicVersion", "" + str));
-                arrayList.add(new Pair("packageName", bw.t(context)));
-                arrayList.add(new Pair("appVersion", bw.g(context)));
-                arrayList.add(new Pair("cuid", bw.a(context)));
-                arrayList.add(new Pair(Constants.PARAM_PLATFORM, "Android"));
-                arrayList.add(new Pair("m", android.os.Build.MODEL));
-                arrayList.add(new Pair("s", Build.VERSION.SDK_INT + ""));
-                arrayList.add(new Pair("o", Build.VERSION.RELEASE));
-                arrayList.add(new Pair("i", "24"));
-                StringBuilder sb = new StringBuilder();
-                for (Pair pair : arrayList) {
-                    try {
-                        String encode = URLEncoder.encode(((String) pair.first).toString(), "UTF-8");
-                        String encode2 = URLEncoder.encode(((String) pair.second).toString(), "UTF-8");
-                        if (TextUtils.isEmpty(sb.toString())) {
-                            sb.append(encode + "=" + encode2);
-                        } else {
-                            sb.append("&" + encode + "=" + encode2);
-                        }
-                    } catch (Exception unused) {
-                    }
-                }
-                return aa.c + "?" + sb.toString();
-            }
-            return (String) invokeL.objValue;
-        }
-
-        @Override // java.lang.Thread, java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    int i = aa.a ? 3 : 10;
-                    bb c = bb.c();
-                    c.a("start version check in " + i + "s");
-                    Thread.sleep((long) (i * 1000));
-                    a();
-                    a(this.a);
-                } catch (Exception e) {
-                    bb.c().a(e);
-                }
-                boolean unused = x.b = false;
-            }
-        }
-
-        /* JADX WARN: Removed duplicated region for block: B:30:0x00f2 A[Catch: all -> 0x010c, TryCatch #1 {, blocks: (B:5:0x0005, B:34:0x00fe, B:6:0x0034, B:14:0x00ce, B:26:0x00e2, B:27:0x00e5, B:28:0x00e6, B:30:0x00f2, B:31:0x00f5, B:33:0x00fb), top: B:46:0x0005 }] */
-        /* JADX WARN: Removed duplicated region for block: B:33:0x00fb A[Catch: all -> 0x010c, TRY_LEAVE, TryCatch #1 {, blocks: (B:5:0x0005, B:34:0x00fe, B:6:0x0034, B:14:0x00ce, B:26:0x00e2, B:27:0x00e5, B:28:0x00e6, B:30:0x00f2, B:31:0x00f5, B:33:0x00fb), top: B:46:0x0005 }] */
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        private synchronized void a() throws Exception {
-            FileOutputStream fileOutputStream;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-                synchronized (this) {
-                    bb.c().a("start get config and download jar");
-                    Context context = this.a;
-                    com.baidu.mobstat.a aVar = this.b;
-                    String b = b(context);
-                    bb.c().c("update req url is:" + b);
-                    HttpURLConnection d = bo.d(context, b);
-                    d.connect();
-                    String headerField = d.getHeaderField("X-CONFIG");
-                    bb.c().a("config is: " + headerField);
-                    String headerField2 = d.getHeaderField("X-SIGN");
-                    bb.c().a("sign is: " + headerField2);
-                    int responseCode = d.getResponseCode();
-                    bb.c().a("update response code is: " + responseCode);
-                    int contentLength = d.getContentLength();
-                    bb.c().a("update response content length is: " + contentLength);
-                    FileOutputStream fileOutputStream2 = null;
-                    if (responseCode == 200 && contentLength > 0) {
-                        try {
-                            fileOutputStream = context.openFileOutput(".remote.jar", 0);
-                        } catch (IOException e) {
-                            e = e;
-                            fileOutputStream = null;
-                        } catch (Throwable th) {
-                            th = th;
-                            bu.a(fileOutputStream2);
-                            throw th;
-                        }
-                        try {
-                            try {
-                                if (bu.a(d.getInputStream(), fileOutputStream)) {
-                                    bb.c().a("save remote jar success");
-                                }
-                            } catch (IOException e2) {
-                                e = e2;
-                                bb.c().b(e);
-                                bu.a(fileOutputStream);
-                                DexClassLoader unused = x.a = null;
-                                u.a();
-                                if (!TextUtils.isEmpty(headerField)) {
-                                }
-                                if (!TextUtils.isEmpty(headerField2)) {
-                                }
-                                d.disconnect();
-                                bb.c().a("finish get config and download jar");
-                            }
-                            bu.a(fileOutputStream);
-                        } catch (Throwable th2) {
-                            th = th2;
-                            fileOutputStream2 = fileOutputStream;
-                            bu.a(fileOutputStream2);
-                            throw th;
-                        }
-                    }
-                    DexClassLoader unused2 = x.a = null;
-                    u.a();
-                    if (!TextUtils.isEmpty(headerField)) {
-                        aVar.a(context, headerField);
-                    }
-                    if (!TextUtils.isEmpty(headerField2)) {
-                        aVar.b(context, headerField2);
-                    }
-                    d.disconnect();
-                    bb.c().a("finish get config and download jar");
-                }
-            }
-        }
-    }
+    public Handler b;
+    public boolean c;
+    public int d;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1366709524, "Lcom/baidu/mobstat/x;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1366709524, "Lcom/baidu/mobstat/x;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1366709524, "Lcom/baidu/mobstat/x;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
+        a = new x();
+    }
+
+    public x() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-1366709524, "Lcom/baidu/mobstat/x;");
+        this.b = new Handler();
+        this.c = false;
+        this.d = 0;
+    }
+
+    private void a(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, this, jSONObject) == null) {
+            aa aaVar = new aa(jSONObject);
+            z.b = aaVar.a;
+            z.c = aaVar.b;
+            z.d = aaVar.c;
         }
     }
 
-    public static boolean b(Context context, String str) {
-        InterceptResult invokeLL;
+    public boolean b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
+            if (w.a(context).a() && !a(context)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    private void b(Context context, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, this, context, jSONObject) == null) {
+            JSONObject jSONObject2 = new JSONObject();
+            int i = 0;
+            try {
+                jSONObject.put("detector_count", this.d);
+                jSONObject2.put(Config.HEADER_PART, jSONObject);
+                i = 0 + jSONObject.toString().length();
+            } catch (JSONException e) {
+                ba.c().a(e);
+            }
+            ba.c().a("APP_MEM");
+            if (!w.a(context).b()) {
+                String v = bw.v(context);
+                JSONArray jSONArray = new JSONArray();
+                ba.c().a(v);
+                jSONArray.put(v);
+                if (jSONArray.length() > 0) {
+                    try {
+                        jSONObject2.put("app_mem3", jSONArray);
+                        i += jSONArray.toString().length();
+                    } catch (JSONException e2) {
+                        ba.c().a(e2);
+                    }
+                }
+            }
+            ba.c().a("APP_APK");
+            List<String> a2 = k.e.a(context, 20480);
+            JSONArray jSONArray2 = new JSONArray();
+            for (String str : a2) {
+                ba.c().a(str);
+                jSONArray2.put(str);
+            }
+            if (jSONArray2.length() > 0) {
+                try {
+                    jSONObject2.put("app_apk3", jSONArray2);
+                    i += jSONArray2.toString().length();
+                } catch (JSONException e3) {
+                    ba.c().a(e3);
+                }
+            }
+            ba.c().a("APP_CHANGE");
+            List<String> a3 = k.d.a(context, 10240);
+            JSONArray jSONArray3 = new JSONArray();
+            for (String str2 : a3) {
+                ba.c().a(str2);
+                jSONArray3.put(str2);
+            }
+            if (jSONArray3.length() > 0) {
+                try {
+                    jSONObject2.put("app_change3", jSONArray3);
+                    i += jSONArray3.toString().length();
+                } catch (JSONException e4) {
+                    ba.c().a(e4);
+                }
+            }
+            ba.c().a("APP_TRACE");
+            List<String> a4 = k.c.a(context, 15360);
+            JSONArray jSONArray4 = new JSONArray();
+            for (String str3 : a4) {
+                ba.c().a(str3);
+                jSONArray4.put(str3);
+            }
+            if (jSONArray4.length() > 0) {
+                try {
+                    jSONObject2.put("app_trace3", jSONArray4);
+                    i += jSONArray4.toString().length();
+                } catch (JSONException e5) {
+                    ba.c().a(e5);
+                }
+            }
+            ba.c().a("APP_LIST");
+            List<String> a5 = k.b.a(context, 46080);
+            JSONArray jSONArray5 = new JSONArray();
+            for (String str4 : a5) {
+                ba.c().a(str4);
+                jSONArray5.put(str4);
+            }
+            if (jSONArray5.length() > 0) {
+                try {
+                    jSONObject2.put("app_list3", jSONArray5);
+                    i += jSONArray5.toString().length();
+                } catch (JSONException e6) {
+                    ba.c().a(e6);
+                }
+            }
+            ba.c().a("AP_LIST");
+            List<String> a6 = k.a.a(context, 184320 - i);
+            JSONArray jSONArray6 = new JSONArray();
+            for (String str5 : a6) {
+                ba.c().a(str5);
+                jSONArray6.put(str5);
+            }
+            if (jSONArray6.length() > 0) {
+                try {
+                    jSONObject2.put("ap_list3", jSONArray6);
+                    i += jSONArray6.toString().length();
+                } catch (JSONException e7) {
+                    ba.c().a(e7);
+                }
+            }
+            ba c = ba.c();
+            c.a("log in bytes is almost :" + i);
+            JSONArray jSONArray7 = new JSONArray();
+            jSONArray7.put(jSONObject2);
+            JSONObject jSONObject3 = new JSONObject();
+            try {
+                jSONObject3.put("payload", jSONArray7);
+                r.a().a(context, jSONObject3.toString());
+            } catch (Exception e8) {
+                ba.c().a(e8);
+            }
+        }
+    }
+
+    private void c(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) {
+            ba.c().a("collectAPWithStretegy 1");
+            w a2 = w.a(context);
+            long a3 = a2.a(g.a);
+            long currentTimeMillis = System.currentTimeMillis();
+            long e = a2.e();
+            ba c = ba.c();
+            c.a("now time: " + currentTimeMillis + ": last time: " + a3 + "; time interval: " + e);
+            if (a3 == 0 || currentTimeMillis - a3 > e) {
+                ba.c().a("collectAPWithStretegy 2");
+                c.a(context);
+            }
+        }
+    }
+
+    private void f(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, this, context) == null) {
+            ba.c().a("collectAPKWithStretegy 1");
+            long currentTimeMillis = System.currentTimeMillis();
+            w a2 = w.a(context);
+            long a3 = a2.a(g.g);
+            long h = a2.h();
+            ba c = ba.c();
+            c.a("now time: " + currentTimeMillis + ": last time: " + a3 + "; interval : " + h);
+            if (a3 == 0 || currentTimeMillis - a3 > h) {
+                ba.c().a("collectAPKWithStretegy 2");
+                c.b(context);
+            }
+        }
+    }
+
+    public boolean a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+            if (!bw.c().booleanValue()) {
+                return false;
+            }
+            w a2 = w.a(context);
+            long a3 = a2.a(g.i);
+            long c = a2.c();
+            long currentTimeMillis = System.currentTimeMillis();
+            if (currentTimeMillis - a3 > c) {
+                ba c2 = ba.c();
+                c2.a("need to update, checkWithLastUpdateTime lastUpdateTime =" + a3 + "nowTime=" + currentTimeMillis + ";timeInteveral=" + c);
+                return true;
+            }
+            ba c3 = ba.c();
+            c3.a("no need to update, checkWithLastUpdateTime lastUpdateTime =" + a3 + "nowTime=" + currentTimeMillis + ";timeInteveral=" + c);
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    private void d(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, this, context) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            w a2 = w.a(context);
+            long a3 = a2.a(g.b);
+            long f = a2.f();
+            ba c = ba.c();
+            c.a("now time: " + currentTimeMillis + ": last time: " + a3 + "; userInterval : " + f);
+            if (a3 == 0 || currentTimeMillis - a3 > f || !a2.a(a3)) {
+                ba.c().a("collectUserAPPListWithStretegy 1");
+                c.a(context, false);
+            }
+            long a4 = a2.a(g.c);
+            long g = a2.g();
+            ba c2 = ba.c();
+            c2.a("now time: " + currentTimeMillis + ": last time: " + a4 + "; sysInterval : " + g);
+            if (a4 == 0 || currentTimeMillis - a4 > g) {
+                ba.c().a("collectSysAPPListWithStretegy 2");
+                c.a(context, true);
+            }
+        }
+    }
+
+    private void e(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, this, context) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            w a2 = w.a(context);
+            long a3 = a2.a(g.e);
+            long i = a2.i();
+            ba c = ba.c();
+            c.a("now time: " + currentTimeMillis + ": last time: " + a3 + "; time interval: " + i);
+            if (a3 == 0 || currentTimeMillis - a3 > i) {
+                ba.c().a("collectAPPTraceWithStretegy 2");
+                c.b(context, false);
+            }
+        }
+    }
+
+    private void g(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, this, context) == null) {
+            w.a(context).a(g.h, System.currentTimeMillis());
+            JSONObject a2 = h.a(context);
+            ba c = ba.c();
+            c.a("header: " + a2);
+            int i = 0;
+            while (h(context)) {
+                int i2 = i + 1;
+                if (i > 0) {
+                    h.c(a2);
+                }
+                b(context, a2);
+                i = i2;
+            }
+        }
+    }
+
+    private boolean h(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, this, context)) == null) {
+            if (!k.a.b(context) || !k.b.b(context) || !k.c.b(context) || !k.d.b(context) || !k.e.b(context)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void a(Context context, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048576, this, context, j) == null) {
+            w.a(context).a(g.i, j);
+        }
+    }
+
+    public void b(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, context, str) == null) {
+            w.a(context).b(str);
+        }
+    }
+
+    public void a(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str) == null) {
+            w.a(context).a(str);
+        }
+    }
+
+    public void a(Context context, JSONObject jSONObject) {
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, context, str)) == null) {
-            String b2 = b(str);
-            if (TextUtils.isEmpty(b2)) {
-                return false;
-            }
-            try {
-                i = Integer.valueOf(b2).intValue();
-            } catch (Exception e) {
-                bb.c().b(e);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, jSONObject) == null) {
+            boolean z = true;
+            if (bp.a().y(context) != 0) {
+                i = bp.a().y(context) + 1;
+            } else {
                 i = 0;
             }
-            return i >= 4;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean c(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, context, str)) == null) {
-            String a2 = bt.b.a(new File(str));
-            bb c = bb.c();
-            c.a("remote.jar local file digest value digest = " + a2);
-            if (TextUtils.isEmpty(a2)) {
-                bb.c().a("remote.jar local file digest value fail");
-                return false;
-            }
-            String b2 = b(str);
-            bb c2 = bb.c();
-            c2.a("remote.jar local file digest value version = " + b2);
-            if (TextUtils.isEmpty(b2)) {
-                return false;
-            }
-            String d = d(context, b2);
-            bb c3 = bb.c();
-            c3.a("remote.jar config digest value remoteJarMd5 = " + d);
-            if (TextUtils.isEmpty(d)) {
-                bb.c().a("remote.jar config digest value lost");
-                return false;
-            }
-            return a2.equals(d);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static String d(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, context, str)) == null) ? y.a(context).c(str) : (String) invokeLL.objValue;
-    }
-
-    public static Class<?> a(Context context, String str) throws ClassNotFoundException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
-            DexClassLoader a2 = a(context);
-            if (a2 == null) {
-                return null;
-            }
-            return a2.loadClass(str);
-        }
-        return (Class) invokeLL.objValue;
-    }
-
-    public static String b(String str) {
-        InterceptResult invokeL;
-        JarFile jarFile;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            JarFile jarFile2 = null;
-            try {
-                try {
-                    File file = new File(str);
-                    if (file.exists()) {
-                        bb c = bb.c();
-                        c.b("file size: " + file.length());
-                    }
-                    jarFile = new JarFile(str);
-                } catch (Exception e) {
-                    e = e;
+            this.d = i;
+            ba.c().a("startDataAnynalyzed start");
+            a(jSONObject);
+            w a2 = w.a(context);
+            boolean a3 = a2.a();
+            ba c = ba.c();
+            c.a("is data collect closed:" + a3);
+            if (!a3) {
+                if (!k.a.b(context, 10000)) {
+                    c(context);
                 }
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                String value = jarFile.getManifest().getMainAttributes().getValue("Plugin-Version");
-                try {
-                    jarFile.close();
-                } catch (Exception unused) {
+                String str = android.os.Build.MANUFACTURER;
+                z = (TextUtils.isEmpty(str) || !RomUtils.MANUFACTURER_HUAWEI.equals(str.trim().toLowerCase()) || Build.VERSION.SDK_INT < 28) ? false : false;
+                if (!k.b.b(context, 10000) && !z) {
+                    d(context);
                 }
-                return value;
-            } catch (Exception e2) {
-                e = e2;
-                jarFile2 = jarFile;
-                bb.c().a(e);
-                bb c2 = bb.c();
-                c2.a("baidu remote sdk is not ready" + str);
-                if (jarFile2 != null) {
-                    try {
-                        jarFile2.close();
-                        return "";
-                    } catch (Exception unused2) {
-                        return "";
-                    }
+                if (!k.c.b(context, 10000) && !z) {
+                    e(context);
                 }
-                return "";
-            } catch (Throwable th2) {
-                th = th2;
-                jarFile2 = jarFile;
-                if (jarFile2 != null) {
-                    try {
-                        jarFile2.close();
-                    } catch (Exception unused3) {
-                    }
+                if (z.e && !k.e.b(context, 10000) && !z) {
+                    f(context);
                 }
-                throw th;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static synchronized DexClassLoader a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            synchronized (x.class) {
-                if (a != null) {
-                    return a;
-                }
-                File fileStreamPath = context.getFileStreamPath(".remote.jar");
-                if (fileStreamPath == null || fileStreamPath.isFile()) {
-                    if (!b(context, fileStreamPath.getAbsolutePath())) {
-                        bb.c().a("remote jar version lower than min limit, need delete");
-                        if (fileStreamPath.isFile()) {
-                            fileStreamPath.delete();
-                        }
-                        return null;
-                    } else if (!c(context, fileStreamPath.getAbsolutePath())) {
-                        bb.c().a("remote jar md5 is not right, need delete");
-                        if (fileStreamPath.isFile()) {
-                            fileStreamPath.delete();
-                        }
-                        return null;
-                    } else {
-                        try {
-                            a = new DexClassLoader(fileStreamPath.getAbsolutePath(), context.getDir("outdex", 0).getAbsolutePath(), null, context.getClassLoader());
-                        } catch (Exception e) {
-                            bb.c().a(e);
-                        }
-                        return a;
-                    }
-                }
-                return null;
-            }
-        }
-        return (DexClassLoader) invokeL.objValue;
-    }
-
-    public static synchronized void a(Context context, com.baidu.mobstat.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, context, aVar) == null) {
-            synchronized (x.class) {
-                if (b) {
-                    return;
-                }
-                if (!bw.q(context)) {
-                    bb.c().a("isWifiAvailable = false, will not to update");
-                } else if (!aVar.a(context)) {
-                    bb.c().a("check time, will not to update");
+                boolean o = bw.o(context);
+                if (o && a2.l()) {
+                    ba.c().a("sendLog");
+                    g(context);
+                } else if (!o) {
+                    ba.c().a("isWifiAvailable = false, will not sendLog");
                 } else {
-                    bb.c().a("can start update config");
-                    new a(context, aVar).start();
-                    b = true;
+                    ba.c().a("can not sendLog due to time stratergy");
                 }
             }
+            ba.c().a("startDataAnynalyzed finished");
         }
     }
 }

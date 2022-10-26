@@ -1,6 +1,5 @@
 package com.google.android.exoplayer2;
 
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,24 +24,119 @@ public interface Player {
     public static final int STATE_IDLE = 1;
     public static final int STATE_READY = 3;
 
+    @Retention(RetentionPolicy.SOURCE)
     /* loaded from: classes7.dex */
-    public static abstract class DefaultEventListener implements EventListener {
+    public @interface DiscontinuityReason {
+    }
+
+    /* loaded from: classes7.dex */
+    public interface EventListener {
+        void onLoadingChanged(boolean z);
+
+        void onPlaybackParametersChanged(PlaybackParameters playbackParameters);
+
+        void onPlayerError(ExoPlaybackException exoPlaybackException);
+
+        void onPlayerStateChanged(boolean z, int i);
+
+        void onPositionDiscontinuity(int i);
+
+        void onRepeatModeChanged(int i);
+
+        void onSeekProcessed();
+
+        void onShuffleModeEnabledChanged(boolean z);
+
+        void onTimelineChanged(Timeline timeline, Object obj);
+
+        void onTracksChanged(TrackGroupArray trackGroupArray, TrackSelectionArray trackSelectionArray);
+    }
+
+    @Retention(RetentionPolicy.SOURCE)
+    /* loaded from: classes7.dex */
+    public @interface RepeatMode {
+    }
+
+    void addListener(EventListener eventListener);
+
+    int getBufferedPercentage();
+
+    long getBufferedPosition();
+
+    long getContentPosition();
+
+    int getCurrentAdGroupIndex();
+
+    int getCurrentAdIndexInAdGroup();
+
+    Object getCurrentManifest();
+
+    int getCurrentPeriodIndex();
+
+    long getCurrentPosition();
+
+    Timeline getCurrentTimeline();
+
+    TrackGroupArray getCurrentTrackGroups();
+
+    TrackSelectionArray getCurrentTrackSelections();
+
+    int getCurrentWindowIndex();
+
+    long getDuration();
+
+    int getNextWindowIndex();
+
+    boolean getPlayWhenReady();
+
+    PlaybackParameters getPlaybackParameters();
+
+    int getPlaybackState();
+
+    int getPreviousWindowIndex();
+
+    int getRendererCount();
+
+    int getRendererType(int i);
+
+    int getRepeatMode();
+
+    boolean getShuffleModeEnabled();
+
+    boolean isCurrentWindowDynamic();
+
+    boolean isCurrentWindowSeekable();
+
+    boolean isLoading();
+
+    boolean isPlayingAd();
+
+    void release();
+
+    void removeListener(EventListener eventListener);
+
+    void seekTo(int i, long j);
+
+    void seekTo(long j);
+
+    void seekToDefaultPosition();
+
+    void seekToDefaultPosition(int i);
+
+    void setPlayWhenReady(boolean z);
+
+    void setPlaybackParameters(PlaybackParameters playbackParameters);
+
+    void setRepeatMode(int i);
+
+    void setShuffleModeEnabled(boolean z);
+
+    void stop();
+
+    /* loaded from: classes7.dex */
+    public abstract class DefaultEventListener implements EventListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        public DefaultEventListener() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
 
         @Override // com.google.android.exoplayer2.Player.EventListener
         public void onLoadingChanged(boolean z) {
@@ -113,115 +207,19 @@ public interface Player {
             if (interceptable == null || interceptable.invokeLL(1048585, this, trackGroupArray, trackSelectionArray) == null) {
             }
         }
+
+        public DefaultEventListener() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
-
-    @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
-    public @interface DiscontinuityReason {
-    }
-
-    /* loaded from: classes7.dex */
-    public interface EventListener {
-        void onLoadingChanged(boolean z);
-
-        void onPlaybackParametersChanged(PlaybackParameters playbackParameters);
-
-        void onPlayerError(ExoPlaybackException exoPlaybackException);
-
-        void onPlayerStateChanged(boolean z, int i);
-
-        void onPositionDiscontinuity(int i);
-
-        void onRepeatModeChanged(int i);
-
-        void onSeekProcessed();
-
-        void onShuffleModeEnabledChanged(boolean z);
-
-        void onTimelineChanged(Timeline timeline, Object obj);
-
-        void onTracksChanged(TrackGroupArray trackGroupArray, TrackSelectionArray trackSelectionArray);
-    }
-
-    @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
-    public @interface RepeatMode {
-    }
-
-    void addListener(EventListener eventListener);
-
-    int getBufferedPercentage();
-
-    long getBufferedPosition();
-
-    long getContentPosition();
-
-    int getCurrentAdGroupIndex();
-
-    int getCurrentAdIndexInAdGroup();
-
-    @Nullable
-    Object getCurrentManifest();
-
-    int getCurrentPeriodIndex();
-
-    long getCurrentPosition();
-
-    Timeline getCurrentTimeline();
-
-    TrackGroupArray getCurrentTrackGroups();
-
-    TrackSelectionArray getCurrentTrackSelections();
-
-    int getCurrentWindowIndex();
-
-    long getDuration();
-
-    int getNextWindowIndex();
-
-    boolean getPlayWhenReady();
-
-    PlaybackParameters getPlaybackParameters();
-
-    int getPlaybackState();
-
-    int getPreviousWindowIndex();
-
-    int getRendererCount();
-
-    int getRendererType(int i);
-
-    int getRepeatMode();
-
-    boolean getShuffleModeEnabled();
-
-    boolean isCurrentWindowDynamic();
-
-    boolean isCurrentWindowSeekable();
-
-    boolean isLoading();
-
-    boolean isPlayingAd();
-
-    void release();
-
-    void removeListener(EventListener eventListener);
-
-    void seekTo(int i, long j);
-
-    void seekTo(long j);
-
-    void seekToDefaultPosition();
-
-    void seekToDefaultPosition(int i);
-
-    void setPlayWhenReady(boolean z);
-
-    void setPlaybackParameters(@Nullable PlaybackParameters playbackParameters);
-
-    void setRepeatMode(int i);
-
-    void setShuffleModeEnabled(boolean z);
-
-    void stop();
 }

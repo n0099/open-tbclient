@@ -22,11 +22,11 @@ public class SignatureVerifier {
     public Context mContext;
     public File mPatchFile;
     public SignaturePolicy mSignaturePolicy = SignaturePolicy.V2_ONLY;
-    public final HashSet<String> mAllowedSigs = new HashSet<>();
+    public final HashSet mAllowedSigs = new HashSet();
 
     /* renamed from: com.baidu.titan.sdk.verifier.SignatureVerifier$1  reason: invalid class name */
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$titan$sdk$verifier$SignaturePolicy;
 
         static {
@@ -62,35 +62,14 @@ public class SignatureVerifier {
         for (Certificate certificate : certificateArr) {
             hashSet.add(EncodeUtils.bytesToHex(EncodeUtils.sha1(new Signature(certificate.getEncoded()).toByteArray())));
         }
-        return this.mAllowedSigs.equals(hashSet);
+        if (!this.mAllowedSigs.equals(hashSet)) {
+            return false;
+        }
+        return true;
     }
 
     private boolean hasSignatureSchemeV2() throws IOException {
         return ApkSignatureSchemeV2Verifier.hasSignature(this.mPatchFile);
-    }
-
-    private void initSignatures() {
-        String assetFileContent = Files.getAssetFileContent(this.mContext, TitanConstant.VERIFY_CONFIG_ASSETS_PATH);
-        if (TextUtils.isEmpty(assetFileContent)) {
-            Log.e("SigVerifier", "cannot find sig-config");
-            return;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject(assetFileContent);
-            try {
-                this.mSignaturePolicy = SignaturePolicy.valueOf(jSONObject.getString("signaturePolicy"));
-            } catch (Exception unused) {
-                this.mSignaturePolicy = SignaturePolicy.V2_ONLY;
-            }
-            if (this.mSignaturePolicy != SignaturePolicy.NO_SIGNATURE) {
-                JSONArray jSONArray = jSONObject.getJSONArray("sigs");
-                int length = jSONArray.length();
-                for (int i = 0; i < length; i++) {
-                    this.mAllowedSigs.add(jSONArray.getString(i));
-                }
-            }
-        } catch (Exception unused2) {
-        }
     }
 
     private boolean verifySignatureSchemeV1() {
@@ -98,7 +77,10 @@ public class SignatureVerifier {
         try {
             Certificate[] verify = ApkSignatureSchemeV1Verifier.verify(this.mPatchFile);
             if (verify != null) {
-                return compareSignature(verify);
+                if (compareSignature(verify)) {
+                    return true;
+                }
+                return false;
             }
             return false;
         } catch (CertificateEncodingException e) {
@@ -128,10 +110,49 @@ public class SignatureVerifier {
         return false;
     }
 
+    private void initSignatures() {
+        String assetFileContent = Files.getAssetFileContent(this.mContext, TitanConstant.VERIFY_CONFIG_ASSETS_PATH);
+        if (TextUtils.isEmpty(assetFileContent)) {
+            Log.e("SigVerifier", "cannot find sig-config");
+            return;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject(assetFileContent);
+            try {
+                this.mSignaturePolicy = SignaturePolicy.valueOf(jSONObject.getString("signaturePolicy"));
+            } catch (Exception unused) {
+                this.mSignaturePolicy = SignaturePolicy.V2_ONLY;
+            }
+            if (this.mSignaturePolicy != SignaturePolicy.NO_SIGNATURE) {
+                JSONArray jSONArray = jSONObject.getJSONArray("sigs");
+                int length = jSONArray.length();
+                for (int i = 0; i < length; i++) {
+                    this.mAllowedSigs.add(jSONArray.getString(i));
+                }
+            }
+        } catch (Exception unused2) {
+        }
+    }
+
     public int verifySignature() {
         int i = AnonymousClass1.$SwitchMap$com$baidu$titan$sdk$verifier$SignaturePolicy[this.mSignaturePolicy.ordinal()];
         if (i != 1) {
-            return i != 2 ? i != 3 ? i != 4 ? -5 : 0 : !verifySignatureSchemeV1() ? -5 : 0 : !verifySignatureSchemeV2() ? -5 : 0;
+            if (i != 2) {
+                if (i != 3) {
+                    if (i != 4) {
+                        return -5;
+                    }
+                    return 0;
+                } else if (!verifySignatureSchemeV1()) {
+                    return -5;
+                } else {
+                    return 0;
+                }
+            } else if (!verifySignatureSchemeV2()) {
+                return -5;
+            } else {
+                return 0;
+            }
         }
         try {
             if (hasSignatureSchemeV2()) {

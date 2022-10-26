@@ -1,7 +1,5 @@
 package com.baidu.searchbox.bddownload.core.download;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bddownload.BdDownload;
@@ -24,14 +22,18 @@ public class BreakpointRemoteCheck {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean acceptRange;
     public ResumeFailedCause failedCause;
-    @NonNull
     public final BreakpointInfo info;
     public long instanceLength;
     public boolean resumable;
-    @NonNull
     public final DownloadTask task;
 
-    public BreakpointRemoteCheck(@NonNull DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo) {
+    public boolean isTrialSpecialPass(int i, long j, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Boolean.valueOf(z)})) == null) ? i == 416 && j >= 0 && z : invokeCommon.booleanValue;
+    }
+
+    public BreakpointRemoteCheck(DownloadTask downloadTask, BreakpointInfo breakpointInfo) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -51,6 +53,8 @@ public class BreakpointRemoteCheck {
     }
 
     public void check() throws IOException {
+        boolean z;
+        boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (!Util.isInvalidUrl(this.task.getUrl())) {
@@ -69,17 +73,30 @@ public class BreakpointRemoteCheck {
                 this.info.setEtag(responseEtag);
                 this.info.setMimeType(responseContentType);
                 if (!BdDownload.with().downloadDispatcher().isFileConflictAfterRun(this.task)) {
-                    ResumeFailedCause preconditionFailedCause = downloadStrategy.getPreconditionFailedCause(responseCode, this.info.getTotalOffset() != 0, this.info, responseEtag);
-                    boolean z = preconditionFailedCause == null;
-                    this.resumable = z;
+                    boolean z3 = true;
+                    if (this.info.getTotalOffset() != 0) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    ResumeFailedCause preconditionFailedCause = downloadStrategy.getPreconditionFailedCause(responseCode, z, this.info, responseEtag);
+                    if (preconditionFailedCause == null) {
+                        z2 = true;
+                    } else {
+                        z2 = false;
+                    }
+                    this.resumable = z2;
                     this.failedCause = preconditionFailedCause;
                     this.instanceLength = instanceLength;
                     this.acceptRange = isAcceptRange;
-                    if (isTrialSpecialPass(responseCode, instanceLength, z)) {
+                    if (!isTrialSpecialPass(responseCode, instanceLength, z2)) {
+                        if (this.info.getTotalOffset() == 0) {
+                            z3 = false;
+                        }
+                        if (downloadStrategy.isServerCanceled(responseCode, z3)) {
+                            throw new ServerCanceledException(responseCode, this.info.getTotalOffset());
+                        }
                         return;
-                    }
-                    if (downloadStrategy.isServerCanceled(responseCode, this.info.getTotalOffset() != 0)) {
-                        throw new ServerCanceledException(responseCode, this.info.getTotalOffset());
                     }
                     return;
                 }
@@ -92,17 +109,21 @@ public class BreakpointRemoteCheck {
     public ConnectTrial createConnectTrial() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new ConnectTrial(this.task, this.info) : (ConnectTrial) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return new ConnectTrial(this.task, this.info);
+        }
+        return (ConnectTrial) invokeV.objValue;
     }
 
-    @Nullable
     public ResumeFailedCause getCause() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.failedCause : (ResumeFailedCause) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.failedCause;
+        }
+        return (ResumeFailedCause) invokeV.objValue;
     }
 
-    @NonNull
     public ResumeFailedCause getCauseOrThrow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -119,25 +140,28 @@ public class BreakpointRemoteCheck {
     public long getInstanceLength() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.instanceLength : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.instanceLength;
+        }
+        return invokeV.longValue;
     }
 
     public boolean isAcceptRange() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.acceptRange : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.acceptRange;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isResumable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.resumable : invokeV.booleanValue;
-    }
-
-    public boolean isTrialSpecialPass(int i, long j, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Boolean.valueOf(z)})) == null) ? i == 416 && j >= 0 && z : invokeCommon.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.resumable;
+        }
+        return invokeV.booleanValue;
     }
 
     public String toString() {

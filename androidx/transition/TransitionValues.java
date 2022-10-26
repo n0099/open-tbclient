@@ -1,7 +1,6 @@
 package androidx.transition;
 
 import android.view.View;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -39,39 +38,16 @@ public class TransitionValues {
         this.mTargetedTransitions = new ArrayList<>();
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (obj instanceof TransitionValues) {
-                TransitionValues transitionValues = (TransitionValues) obj;
-                return this.f1028view == transitionValues.f1028view && this.values.equals(transitionValues.values);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (this.f1028view.hashCode() * 31) + this.values.hashCode() : invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String str = (("TransitionValues@" + Integer.toHexString(hashCode()) + ":\n") + "    view = " + this.f1028view + "\n") + "    values:";
-            for (String str2 : this.values.keySet()) {
-                str = str + "    " + str2 + ": " + this.values.get(str2) + "\n";
-            }
-            return str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return (this.f1028view.hashCode() * 31) + this.values.hashCode();
         }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public TransitionValues(@NonNull View view2) {
+    public TransitionValues(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -89,5 +65,34 @@ public class TransitionValues {
         this.values = new HashMap();
         this.mTargetedTransitions = new ArrayList<>();
         this.f1028view = view2;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (obj instanceof TransitionValues) {
+                TransitionValues transitionValues = (TransitionValues) obj;
+                if (this.f1028view == transitionValues.f1028view && this.values.equals(transitionValues.values)) {
+                    return true;
+                }
+                return false;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            String str = (("TransitionValues@" + Integer.toHexString(hashCode()) + ":\n") + "    view = " + this.f1028view + "\n") + "    values:";
+            for (String str2 : this.values.keySet()) {
+                str = str + "    " + str2 + ": " + this.values.get(str2) + "\n";
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
     }
 }

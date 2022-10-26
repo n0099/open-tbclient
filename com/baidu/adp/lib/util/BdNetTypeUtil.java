@@ -7,14 +7,13 @@ import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Proxy;
-import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.service.AsyncService;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dj;
-import com.baidu.tieba.gj;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.hj;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +22,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.regex.Pattern;
-@Keep
 /* loaded from: classes.dex */
 public class BdNetTypeUtil {
     public static /* synthetic */ Interceptable $ic = null;
@@ -79,253 +77,6 @@ public class BdNetTypeUtil {
     public int mProxyPort;
     public int operatorType;
 
-    /* loaded from: classes.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(BdNetTypeUtil bdNetTypeUtil) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bdNetTypeUtil};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    int netType = BdNetTypeUtil.netType();
-                    long netChangedTime = BdNetTypeUtil.getNetChangedTime();
-                    BdNetTypeUtil.curNetState();
-                    if (BdNetTypeUtil.isOpenNetChangedMsg()) {
-                        NetworkState networkState = new NetworkState();
-                        networkState.mLastNetState = netType;
-                        networkState.mCurNetState = BdNetTypeUtil.netType();
-                        networkState.mlastChangedTime = netChangedTime;
-                        long currentTimeMillis = System.currentTimeMillis();
-                        networkState.mCurChangedTime = currentTimeMillis;
-                        BdNetTypeUtil.setNetWorkChangedTime(currentTimeMillis);
-                        MessageManager.getInstance().dispatchResponsedMessage(new NetWorkChangedMessage(networkState));
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public static class b extends BroadcastReceiver {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
-                AsyncService.INSTANCE.sendRunnable(BdNetTypeUtil.getInstance().mNetChangeRunnable);
-            }
-        }
-
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1895436873, "Lcom/baidu/adp/lib/util/BdNetTypeUtil;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1895436873, "Lcom/baidu/adp/lib/util/BdNetTypeUtil;");
-                return;
-            }
-        }
-        mPattern = Pattern.compile("^[0]{0,1}10\\.[0]{1,3}\\.[0]{1,3}\\.(172|200)$", 8);
-        mSupportWap = true;
-        try {
-            b bVar = new b(null);
-            IntentFilter intentFilter = new IntentFilter();
-            intentFilter.setPriority(1000);
-            intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-            BdBaseApplication.getInst().getApp().registerReceiver(bVar, intentFilter);
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
-        mInstance = null;
-    }
-
-    public BdNetTypeUtil() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.curNetworkInfo = null;
-        this.isWifi = true;
-        this.isMobile = false;
-        this.isNetAvailable = true;
-        this.curMobileNetDetailType = 0;
-        this.curMobileNetClassify = 0;
-        this.operatorType = -1;
-        this.mProxyHost = null;
-        this.mProxyPort = -1;
-        this.isOpenNetChangedMessage = true;
-        this.mNetChangeRunnable = new a(this);
-    }
-
-    public static String curMobileProxyHost() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? getInstance().getProxyHost() : (String) invokeV.objValue;
-    }
-
-    public static int curMobileProxyPort() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? getInstance().getProxyPort() : invokeV.intValue;
-    }
-
-    public static void curNetState() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            getInstance().getCurNetState();
-        }
-    }
-
-    public static int curOperatorType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? getInstance().getOperatorType() : invokeV.intValue;
-    }
-
-    private long geNetworkChangedTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) ? this.mNetChangedTime : invokeV.longValue;
-    }
-
-    private NetworkInfo getActiveNetworkInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
-            try {
-                return ((ConnectivityManager) BdBaseApplication.getInst().getContext().getSystemService("connectivity")).getActiveNetworkInfo();
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return (NetworkInfo) invokeV.objValue;
-    }
-
-    private void getCurNetState() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            NetworkInfo activeNetworkInfo = getActiveNetworkInfo();
-            this.curNetworkInfo = activeNetworkInfo;
-            if (activeNetworkInfo != null) {
-                if (activeNetworkInfo.getType() == 1) {
-                    this.isWifi = true;
-                    this.isMobile = false;
-                } else if (activeNetworkInfo.getType() == 0) {
-                    this.isWifi = false;
-                    this.isMobile = true;
-                } else {
-                    this.isWifi = false;
-                    this.isMobile = false;
-                }
-                this.isNetAvailable = true;
-                int subtype = activeNetworkInfo.getSubtype();
-                this.curMobileNetDetailType = subtype;
-                if (this.isMobile) {
-                    this.curMobileNetClassify = getNetworkClass(subtype);
-                } else {
-                    this.curMobileNetClassify = 0;
-                }
-            } else {
-                this.isWifi = false;
-                this.isMobile = false;
-                this.isNetAvailable = false;
-                this.curMobileNetDetailType = 0;
-                this.curMobileNetDetailType = 0;
-            }
-            this.operatorType = readNetworkOperatorType();
-            this.mProxyHost = Proxy.getDefaultHost();
-            this.mProxyPort = Proxy.getDefaultPort();
-        }
-    }
-
-    public static int getCurrentMobileNetType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? getInstance().getCurMobileNetDetailType() : invokeV.intValue;
-    }
-
-    public static synchronized BdNetTypeUtil getInstance() {
-        InterceptResult invokeV;
-        BdNetTypeUtil bdNetTypeUtil;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            synchronized (BdNetTypeUtil.class) {
-                if (mInstance == null) {
-                    mInstance = new BdNetTypeUtil();
-                }
-                bdNetTypeUtil = mInstance;
-            }
-            return bdNetTypeUtil;
-        }
-        return (BdNetTypeUtil) invokeV.objValue;
-    }
-
-    public static long getNetChangedTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? getInstance().geNetworkChangedTime() : invokeV.longValue;
-    }
-
-    public static String getNetType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? !isNetWorkAvailable() ? "N" : isWifiNet() ? "WIFI" : is4GNet() ? "4G" : is3GNet() ? "3G" : is2GNet() ? "2G" : "N" : (String) invokeV.objValue;
-    }
-
     public static int getNetworkClass(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -356,130 +107,110 @@ public class BdNetTypeUtil {
         return invokeI.intValue;
     }
 
-    public static void init() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65552, null) == null) {
-            init(true);
-        }
-    }
+    /* loaded from: classes.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean is2GNet() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) ? 1 == getInstance().getCurMobileNetClassify() : invokeV.booleanValue;
-    }
-
-    public static boolean is3GNet() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) ? 2 == getInstance().getCurMobileNetClassify() : invokeV.booleanValue;
-    }
-
-    public static boolean is4GNet() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) ? 3 == getInstance().getCurMobileNetClassify() : invokeV.booleanValue;
-    }
-
-    public static boolean isMobileNet() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) ? getInstance().isMobile() : invokeV.booleanValue;
-    }
-
-    public static boolean isNetWorkAvailable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) ? getInstance().isNetAvailable() : invokeV.booleanValue;
-    }
-
-    public static boolean isNetworkAvailableForImmediately() {
-        InterceptResult invokeV;
-        NetworkInfo[] allNetworkInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) {
-            try {
-                ConnectivityManager connectivityManager = (ConnectivityManager) BdBaseApplication.getInst().getContext().getSystemService("connectivity");
-                if (connectivityManager != null && (allNetworkInfo = connectivityManager.getAllNetworkInfo()) != null && allNetworkInfo.length > 0) {
-                    for (NetworkInfo networkInfo : allNetworkInfo) {
-                        if (networkInfo.getState() == NetworkInfo.State.CONNECTED) {
-                            return true;
-                        }
-                    }
+        public a(BdNetTypeUtil bdNetTypeUtil) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bdNetTypeUtil};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-            } catch (Exception unused) {
             }
-            return false;
         }
-        return invokeV.booleanValue;
-    }
 
-    public static boolean isOpenNetChangedMsg() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) ? getInstance().isOpenNetChangedMessage() : invokeV.booleanValue;
-    }
-
-    public static boolean isPorxyUsed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65561, null)) == null) ? (getInstance().isWifi || readNetworkOperatorType() == 1 || dj.isEmptyStringAfterTrim(Proxy.getDefaultHost())) ? false : true : invokeV.booleanValue;
-    }
-
-    public static boolean isSupportWap() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65562, null)) == null) ? mSupportWap : invokeV.booleanValue;
-    }
-
-    public static boolean isWap(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65564, null, str)) == null) ? mPattern.matcher(str).find() : invokeL.booleanValue;
-    }
-
-    public static boolean isWifiNet() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65565, null)) == null) ? getInstance().isWifi() : invokeV.booleanValue;
-    }
-
-    public static int netType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65566, null)) == null) {
-            if (isWifiNet()) {
-                return 1;
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    int netType = BdNetTypeUtil.netType();
+                    long netChangedTime = BdNetTypeUtil.getNetChangedTime();
+                    BdNetTypeUtil.curNetState();
+                    if (!BdNetTypeUtil.isOpenNetChangedMsg()) {
+                        return;
+                    }
+                    NetworkState networkState = new NetworkState();
+                    networkState.mLastNetState = netType;
+                    networkState.mCurNetState = BdNetTypeUtil.netType();
+                    networkState.mlastChangedTime = netChangedTime;
+                    long currentTimeMillis = System.currentTimeMillis();
+                    networkState.mCurChangedTime = currentTimeMillis;
+                    BdNetTypeUtil.setNetWorkChangedTime(currentTimeMillis);
+                    MessageManager.getInstance().dispatchResponsedMessage(new NetWorkChangedMessage(networkState));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
-            if (is2GNet()) {
-                return 2;
-            }
-            if (is3GNet()) {
-                return 3;
-            }
-            return (is4GNet() || isNetWorkAvailable()) ? 4 : 0;
         }
-        return invokeV.intValue;
     }
 
-    public static String netTypeNameInLowerCase() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65567, null)) == null) {
-            int netType = netType();
-            return netType != 1 ? netType != 2 ? netType != 3 ? netType != 4 ? NET_TYPENAME_UNAVAILABLE : "4g" : "3g" : "2g" : "wifi";
+    /* loaded from: classes.dex */
+    public class b extends BroadcastReceiver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
-        return (String) invokeV.objValue;
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
+                AsyncService.INSTANCE.sendRunnable(BdNetTypeUtil.getInstance().mNetChangeRunnable);
+            }
+        }
     }
 
-    public static String netTypeNameInUpperCase() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65568, null)) == null) {
-            String netTypeNameInLowerCase = netTypeNameInLowerCase();
-            return netTypeNameInLowerCase != null ? netTypeNameInLowerCase.toUpperCase() : netTypeNameInLowerCase;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1895436873, "Lcom/baidu/adp/lib/util/BdNetTypeUtil;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1895436873, "Lcom/baidu/adp/lib/util/BdNetTypeUtil;");
+                return;
+            }
         }
-        return (String) invokeV.objValue;
+        mPattern = Pattern.compile("^[0]{0,1}10\\.[0]{1,3}\\.[0]{1,3}\\.(172|200)$", 8);
+        mSupportWap = true;
+        try {
+            b bVar = new b(null);
+            IntentFilter intentFilter = new IntentFilter();
+            intentFilter.setPriority(1000);
+            intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
+            BdBaseApplication.getInst().getApp().registerReceiver(bVar, intentFilter);
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
+        mInstance = null;
     }
 
     public static int readNetworkOperatorType() {
@@ -488,8 +219,8 @@ public class BdNetTypeUtil {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65569, null)) == null) {
-            String j = gj.j();
-            if (j.length() < 4 || dj.isEmptyStringAfterTrim(j) || (substring = j.substring(0, 3)) == null || !substring.equals(NATION_CODE)) {
+            String j = hj.j();
+            if (j.length() < 4 || ej.isEmptyStringAfterTrim(j) || (substring = j.substring(0, 3)) == null || !substring.equals(NATION_CODE)) {
                 return 0;
             }
             try {
@@ -519,25 +250,335 @@ public class BdNetTypeUtil {
         return invokeV.intValue;
     }
 
-    private void setNetChangedTime(long j) {
+    public BdNetTypeUtil() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65570, this, j) == null) {
-            this.mNetChangedTime = j;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.curNetworkInfo = null;
+        this.isWifi = true;
+        this.isMobile = false;
+        this.isNetAvailable = true;
+        this.curMobileNetDetailType = 0;
+        this.curMobileNetClassify = 0;
+        this.operatorType = -1;
+        this.mProxyHost = null;
+        this.mProxyPort = -1;
+        this.isOpenNetChangedMessage = true;
+        this.mNetChangeRunnable = new a(this);
+    }
+
+    public static String getNetType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
+            if (!isNetWorkAvailable()) {
+                return "N";
+            }
+            if (isWifiNet()) {
+                return "WIFI";
+            }
+            if (is4GNet()) {
+                return "4G";
+            }
+            if (is3GNet()) {
+                return "3G";
+            }
+            if (!is2GNet()) {
+                return "N";
+            }
+            return "2G";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean isNetworkAvailableForImmediately() {
+        InterceptResult invokeV;
+        NetworkInfo[] allNetworkInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) {
+            try {
+                ConnectivityManager connectivityManager = (ConnectivityManager) BdBaseApplication.getInst().getContext().getSystemService("connectivity");
+                if (connectivityManager != null && (allNetworkInfo = connectivityManager.getAllNetworkInfo()) != null && allNetworkInfo.length > 0) {
+                    for (NetworkInfo networkInfo : allNetworkInfo) {
+                        if (networkInfo.getState() == NetworkInfo.State.CONNECTED) {
+                            return true;
+                        }
+                    }
+                }
+            } catch (Exception unused) {
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isWap() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65563, null)) == null) {
+            NetworkInfo activeNetworkInfo = getInstance().getActiveNetworkInfo();
+            if (activeNetworkInfo == null || activeNetworkInfo.getExtraInfo() == null || !activeNetworkInfo.getExtraInfo().contains("wap")) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static int netType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65566, null)) == null) {
+            if (isWifiNet()) {
+                return 1;
+            }
+            if (is2GNet()) {
+                return 2;
+            }
+            if (is3GNet()) {
+                return 3;
+            }
+            if (is4GNet() || isNetWorkAvailable()) {
+                return 4;
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public static String netTypeNameInLowerCase() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65567, null)) == null) {
+            int netType = netType();
+            if (netType != 1) {
+                if (netType != 2) {
+                    if (netType != 3) {
+                        if (netType != 4) {
+                            return NET_TYPENAME_UNAVAILABLE;
+                        }
+                        return "4g";
+                    }
+                    return "3g";
+                }
+                return "2g";
+            }
+            return "wifi";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String curMobileProxyHost() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return getInstance().getProxyHost();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static int curMobileProxyPort() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return getInstance().getProxyPort();
+        }
+        return invokeV.intValue;
+    }
+
+    public static void curNetState() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
+            getInstance().getCurNetState();
         }
     }
 
-    public static void setNetWorkChangedTime(long j) {
+    public static int curOperatorType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65571, null, j) == null) {
-            getInstance().setNetChangedTime(j);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return getInstance().getOperatorType();
+        }
+        return invokeV.intValue;
+    }
+
+    private long geNetworkChangedTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
+            return this.mNetChangedTime;
+        }
+        return invokeV.longValue;
+    }
+
+    private NetworkInfo getActiveNetworkInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
+            try {
+                return ((ConnectivityManager) BdBaseApplication.getInst().getContext().getSystemService("connectivity")).getActiveNetworkInfo();
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        return (NetworkInfo) invokeV.objValue;
+    }
+
+    public static int getCurrentMobileNetType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            return getInstance().getCurMobileNetDetailType();
+        }
+        return invokeV.intValue;
+    }
+
+    public static synchronized BdNetTypeUtil getInstance() {
+        InterceptResult invokeV;
+        BdNetTypeUtil bdNetTypeUtil;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            synchronized (BdNetTypeUtil.class) {
+                if (mInstance == null) {
+                    mInstance = new BdNetTypeUtil();
+                }
+                bdNetTypeUtil = mInstance;
+            }
+            return bdNetTypeUtil;
+        }
+        return (BdNetTypeUtil) invokeV.objValue;
+    }
+
+    public static long getNetChangedTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
+            return getInstance().geNetworkChangedTime();
+        }
+        return invokeV.longValue;
+    }
+
+    public static void init() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65552, null) == null) {
+            init(true);
         }
     }
 
-    public static void setSupportWap(boolean z) {
+    public static boolean is2GNet() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65572, null, z) == null) {
-            mSupportWap = z;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
+            if (1 == getInstance().getCurMobileNetClassify()) {
+                return true;
+            }
+            return false;
         }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean is3GNet() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
+            if (2 == getInstance().getCurMobileNetClassify()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean is4GNet() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) {
+            if (3 == getInstance().getCurMobileNetClassify()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isMobileNet() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) {
+            return getInstance().isMobile();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isNetWorkAvailable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) {
+            return getInstance().isNetAvailable();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isOpenNetChangedMsg() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) {
+            return getInstance().isOpenNetChangedMessage();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isPorxyUsed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65561, null)) == null) {
+            if (getInstance().isWifi || readNetworkOperatorType() == 1 || ej.isEmptyStringAfterTrim(Proxy.getDefaultHost())) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isSupportWap() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65562, null)) == null) {
+            return mSupportWap;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isWifiNet() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65565, null)) == null) {
+            return getInstance().isWifi();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static String netTypeNameInUpperCase() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65568, null)) == null) {
+            String netTypeNameInLowerCase = netTypeNameInLowerCase();
+            if (netTypeNameInLowerCase != null) {
+                return netTypeNameInLowerCase.toUpperCase();
+            }
+            return netTypeNameInLowerCase;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getCurMobileNetClassify() {
@@ -643,7 +684,10 @@ public class BdNetTypeUtil {
     public boolean isOpenNetChangedMessage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.isOpenNetChangedMessage : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.isOpenNetChangedMessage;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isWifi() {
@@ -658,13 +702,6 @@ public class BdNetTypeUtil {
         return invokeV.booleanValue;
     }
 
-    public void setOpenNetChangedMessage(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.isOpenNetChangedMessage = z;
-        }
-    }
-
     public static void init(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65553, null, z) == null) {
@@ -673,13 +710,77 @@ public class BdNetTypeUtil {
         }
     }
 
-    public static boolean isWap() {
-        InterceptResult invokeV;
+    public static boolean isWap(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65563, null)) == null) {
-            NetworkInfo activeNetworkInfo = getInstance().getActiveNetworkInfo();
-            return (activeNetworkInfo == null || activeNetworkInfo.getExtraInfo() == null || !activeNetworkInfo.getExtraInfo().contains("wap")) ? false : true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, str)) == null) {
+            return mPattern.matcher(str).find();
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
+    }
+
+    private void setNetChangedTime(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(65570, this, j) == null) {
+            this.mNetChangedTime = j;
+        }
+    }
+
+    public static void setNetWorkChangedTime(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(65571, null, j) == null) {
+            getInstance().setNetChangedTime(j);
+        }
+    }
+
+    public static void setSupportWap(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65572, null, z) == null) {
+            mSupportWap = z;
+        }
+    }
+
+    public void setOpenNetChangedMessage(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.isOpenNetChangedMessage = z;
+        }
+    }
+
+    private void getCurNetState() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65546, this) == null) {
+            NetworkInfo activeNetworkInfo = getActiveNetworkInfo();
+            this.curNetworkInfo = activeNetworkInfo;
+            if (activeNetworkInfo != null) {
+                if (activeNetworkInfo.getType() == 1) {
+                    this.isWifi = true;
+                    this.isMobile = false;
+                } else if (activeNetworkInfo.getType() == 0) {
+                    this.isWifi = false;
+                    this.isMobile = true;
+                } else {
+                    this.isWifi = false;
+                    this.isMobile = false;
+                }
+                this.isNetAvailable = true;
+                int subtype = activeNetworkInfo.getSubtype();
+                this.curMobileNetDetailType = subtype;
+                if (this.isMobile) {
+                    this.curMobileNetClassify = getNetworkClass(subtype);
+                } else {
+                    this.curMobileNetClassify = 0;
+                }
+            } else {
+                this.isWifi = false;
+                this.isMobile = false;
+                this.isNetAvailable = false;
+                this.curMobileNetDetailType = 0;
+                this.curMobileNetDetailType = 0;
+            }
+            this.operatorType = readNetworkOperatorType();
+            this.mProxyHost = Proxy.getDefaultHost();
+            this.mProxyPort = Proxy.getDefaultPort();
+        }
     }
 }

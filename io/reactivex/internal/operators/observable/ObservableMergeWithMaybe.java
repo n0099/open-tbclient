@@ -21,36 +21,36 @@ import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class ObservableMergeWithMaybe<T> extends AbstractObservableWithUpstream<T, T> {
+public final class ObservableMergeWithMaybe extends AbstractObservableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MaybeSource<? extends T> other;
+    public final MaybeSource other;
 
     /* loaded from: classes8.dex */
-    public static final class MergeWithObserver<T> extends AtomicInteger implements Observer<T>, Disposable {
+    public final class MergeWithObserver extends AtomicInteger implements Observer, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int OTHER_STATE_CONSUMED_OR_EMPTY = 2;
         public static final int OTHER_STATE_HAS_VALUE = 1;
         public static final long serialVersionUID = -4592979584110982903L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer<? super T> actual;
+        public final Observer actual;
         public volatile boolean disposed;
         public final AtomicThrowable error;
-        public final AtomicReference<Disposable> mainDisposable;
+        public final AtomicReference mainDisposable;
         public volatile boolean mainDone;
-        public final OtherObserver<T> otherObserver;
+        public final OtherObserver otherObserver;
         public volatile int otherState;
-        public volatile SimplePlainQueue<T> queue;
-        public T singleItem;
+        public volatile SimplePlainQueue queue;
+        public Object singleItem;
 
         /* loaded from: classes8.dex */
-        public static final class OtherObserver<T> extends AtomicReference<Disposable> implements MaybeObserver<T> {
+        public final class OtherObserver extends AtomicReference implements MaybeObserver {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -2935427570954647017L;
             public transient /* synthetic */ FieldHolder $fh;
-            public final MergeWithObserver<T> parent;
+            public final MergeWithObserver parent;
 
-            public OtherObserver(MergeWithObserver<T> mergeWithObserver) {
+            public OtherObserver(MergeWithObserver mergeWithObserver) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -66,14 +66,6 @@ public final class ObservableMergeWithMaybe<T> extends AbstractObservableWithUps
                     }
                 }
                 this.parent = mergeWithObserver;
-            }
-
-            @Override // io.reactivex.MaybeObserver
-            public void onComplete() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.parent.otherComplete();
-                }
             }
 
             @Override // io.reactivex.MaybeObserver
@@ -93,15 +85,23 @@ public final class ObservableMergeWithMaybe<T> extends AbstractObservableWithUps
             }
 
             @Override // io.reactivex.MaybeObserver
-            public void onSuccess(T t) {
+            public void onSuccess(Object obj) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
-                    this.parent.otherSuccess(t);
+                if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
+                    this.parent.otherSuccess(obj);
+                }
+            }
+
+            @Override // io.reactivex.MaybeObserver
+            public void onComplete() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.parent.otherComplete();
                 }
             }
         }
 
-        public MergeWithObserver(Observer<? super T> observer) {
+        public MergeWithObserver(Observer observer) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -117,9 +117,28 @@ public final class ObservableMergeWithMaybe<T> extends AbstractObservableWithUps
                 }
             }
             this.actual = observer;
-            this.mainDisposable = new AtomicReference<>();
-            this.otherObserver = new OtherObserver<>(this);
+            this.mainDisposable = new AtomicReference();
+            this.otherObserver = new OtherObserver(this);
             this.error = new AtomicThrowable();
+        }
+
+        @Override // io.reactivex.Observer
+        public void onNext(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048583, this, obj) == null) {
+                if (compareAndSet(0, 1)) {
+                    this.actual.onNext(obj);
+                    if (decrementAndGet() == 0) {
+                        return;
+                    }
+                } else {
+                    getOrCreateQueue().offer(obj);
+                    if (getAndIncrement() != 0) {
+                        return;
+                    }
+                }
+                drainLoop();
+            }
         }
 
         @Override // io.reactivex.disposables.Disposable
@@ -143,53 +162,11 @@ public final class ObservableMergeWithMaybe<T> extends AbstractObservableWithUps
             }
         }
 
-        /* JADX DEBUG: Type inference failed for r3v5. Raw type applied. Possible types: T, ? super T */
-        public void drainLoop() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                Observer<? super T> observer = this.actual;
-                int i = 1;
-                while (!this.disposed) {
-                    if (this.error.get() != null) {
-                        this.singleItem = null;
-                        this.queue = null;
-                        observer.onError(this.error.terminate());
-                        return;
-                    }
-                    int i2 = this.otherState;
-                    if (i2 == 1) {
-                        this.singleItem = null;
-                        this.otherState = 2;
-                        observer.onNext((T) this.singleItem);
-                        i2 = 2;
-                    }
-                    boolean z = this.mainDone;
-                    SimplePlainQueue<T> simplePlainQueue = this.queue;
-                    T poll = simplePlainQueue != null ? simplePlainQueue.poll() : (Object) null;
-                    boolean z2 = poll == null;
-                    if (z && z2 && i2 == 2) {
-                        this.queue = null;
-                        observer.onComplete();
-                        return;
-                    } else if (z2) {
-                        i = addAndGet(-i);
-                        if (i == 0) {
-                            return;
-                        }
-                    } else {
-                        observer.onNext(poll);
-                    }
-                }
-                this.singleItem = null;
-                this.queue = null;
-            }
-        }
-
-        public SimplePlainQueue<T> getOrCreateQueue() {
+        public SimplePlainQueue getOrCreateQueue() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                SimplePlainQueue<T> simplePlainQueue = this.queue;
+                SimplePlainQueue simplePlainQueue = this.queue;
                 if (simplePlainQueue == null) {
                     SpscLinkedArrayQueue spscLinkedArrayQueue = new SpscLinkedArrayQueue(Observable.bufferSize());
                     this.queue = spscLinkedArrayQueue;
@@ -204,7 +181,10 @@ public final class ObservableMergeWithMaybe<T> extends AbstractObservableWithUps
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? DisposableHelper.isDisposed(this.mainDisposable.get()) : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return DisposableHelper.isDisposed((Disposable) this.mainDisposable.get());
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.Observer
@@ -213,6 +193,66 @@ public final class ObservableMergeWithMaybe<T> extends AbstractObservableWithUps
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
                 this.mainDone = true;
                 drain();
+            }
+        }
+
+        public void otherComplete() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+                this.otherState = 2;
+                drain();
+            }
+        }
+
+        public void drainLoop() {
+            Object obj;
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                Observer observer = this.actual;
+                int i = 1;
+                while (!this.disposed) {
+                    if (this.error.get() != null) {
+                        this.singleItem = null;
+                        this.queue = null;
+                        observer.onError(this.error.terminate());
+                        return;
+                    }
+                    int i2 = this.otherState;
+                    if (i2 == 1) {
+                        Object obj2 = this.singleItem;
+                        this.singleItem = null;
+                        this.otherState = 2;
+                        observer.onNext(obj2);
+                        i2 = 2;
+                    }
+                    boolean z2 = this.mainDone;
+                    SimplePlainQueue simplePlainQueue = this.queue;
+                    if (simplePlainQueue != null) {
+                        obj = simplePlainQueue.poll();
+                    } else {
+                        obj = null;
+                    }
+                    if (obj == null) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    if (z2 && z && i2 == 2) {
+                        this.queue = null;
+                        observer.onComplete();
+                        return;
+                    } else if (z) {
+                        i = addAndGet(-i);
+                        if (i == 0) {
+                            return;
+                        }
+                    } else {
+                        observer.onNext(obj);
+                    }
+                }
+                this.singleItem = null;
+                this.queue = null;
             }
         }
 
@@ -230,37 +270,10 @@ public final class ObservableMergeWithMaybe<T> extends AbstractObservableWithUps
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, t) == null) {
-                if (compareAndSet(0, 1)) {
-                    this.actual.onNext(t);
-                    if (decrementAndGet() == 0) {
-                        return;
-                    }
-                } else {
-                    getOrCreateQueue().offer(t);
-                    if (getAndIncrement() != 0) {
-                        return;
-                    }
-                }
-                drainLoop();
-            }
-        }
-
-        @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, disposable) == null) {
                 DisposableHelper.setOnce(this.mainDisposable, disposable);
-            }
-        }
-
-        public void otherComplete() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-                this.otherState = 2;
-                drain();
             }
         }
 
@@ -276,14 +289,14 @@ public final class ObservableMergeWithMaybe<T> extends AbstractObservableWithUps
             }
         }
 
-        public void otherSuccess(T t) {
+        public void otherSuccess(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048587, this, t) == null) {
+            if (interceptable == null || interceptable.invokeL(1048587, this, obj) == null) {
                 if (compareAndSet(0, 1)) {
-                    this.actual.onNext(t);
+                    this.actual.onNext(obj);
                     this.otherState = 2;
                 } else {
-                    this.singleItem = t;
+                    this.singleItem = obj;
                     this.otherState = 1;
                     if (getAndIncrement() != 0) {
                         return;
@@ -295,7 +308,7 @@ public final class ObservableMergeWithMaybe<T> extends AbstractObservableWithUps
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableMergeWithMaybe(Observable<T> observable, MaybeSource<? extends T> maybeSource) {
+    public ObservableMergeWithMaybe(Observable observable, MaybeSource maybeSource) {
         super(observable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -316,7 +329,7 @@ public final class ObservableMergeWithMaybe<T> extends AbstractObservableWithUps
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer<? super T> observer) {
+    public void subscribeActual(Observer observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             MergeWithObserver mergeWithObserver = new MergeWithObserver(observer);

@@ -11,6 +11,11 @@ public final class TransformingSequence$iterator$1 implements Iterator<R>, KMapp
     public final Iterator<T> iterator;
     public final /* synthetic */ TransformingSequence this$0;
 
+    @Override // java.util.Iterator
+    public void remove() {
+        throw new UnsupportedOperationException("Operation is not supported for read-only collection");
+    }
+
     /* JADX DEBUG: Incorrect args count in method signature: ()V */
     public TransformingSequence$iterator$1(TransformingSequence transformingSequence) {
         Sequence sequence;
@@ -34,10 +39,5 @@ public final class TransformingSequence$iterator$1 implements Iterator<R>, KMapp
         Function1 function1;
         function1 = this.this$0.transformer;
         return function1.invoke(this.iterator.next());
-    }
-
-    @Override // java.util.Iterator
-    public void remove() {
-        throw new UnsupportedOperationException("Operation is not supported for read-only collection");
     }
 }

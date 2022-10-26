@@ -7,7 +7,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -53,7 +52,7 @@ public class KSNativeAdSingleImgH5OpenView extends x {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public KSNativeAdSingleImgH5OpenView(Context context, @Nullable AttributeSet attributeSet) {
+    public KSNativeAdSingleImgH5OpenView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -74,7 +73,7 @@ public class KSNativeAdSingleImgH5OpenView extends x {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public KSNativeAdSingleImgH5OpenView(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public KSNativeAdSingleImgH5OpenView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -93,36 +92,6 @@ public class KSNativeAdSingleImgH5OpenView extends x {
             }
         }
         this.g = 1.78f;
-    }
-
-    @Override // com.fun.module.ks.x
-    public void a(KsNativeAd ksNativeAd) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ksNativeAd) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(this);
-            arrayList.add(this.f);
-            this.a.clear();
-            this.a.addAll(arrayList);
-            LogPrinter.e("KSNativeAd Single getImageList: " + ksNativeAd.getImageList(), new Object[0]);
-            if (ksNativeAd.getImageList() != null && !ksNativeAd.getImageList().isEmpty()) {
-                KsImage ksImage = ksNativeAd.getImageList().get(0);
-                LogPrinter.e("KSNativeAd Single img: " + ksImage, new Object[0]);
-                if (ksImage != null && ksImage.isValid()) {
-                    this.g = (ksImage.getWidth() * 1.0f) / (ksImage.getHeight() * 1.0f);
-                    LogPrinter.e("KSNativeAd Single img width: " + ksImage.getWidth() + ", height: " + ksImage.getHeight(), new Object[0]);
-                    GlideHelper.get().load(this, ksImage.getImageUrl(), this.c);
-                }
-            }
-            this.d.setImageBitmap(getSdkLogo());
-            this.b.setText(ksNativeAd.getAdDescription());
-            String adSource = ksNativeAd.getAdSource();
-            if (TextUtils.isEmpty(adSource)) {
-                adSource = "快手广告";
-            }
-            this.e.setText(adSource);
-            this.f.setText(ksNativeAd.getActionDescription());
-        }
     }
 
     @Override // android.view.View
@@ -150,6 +119,36 @@ public class KSNativeAdSingleImgH5OpenView extends x {
             layoutParams.height = (int) (((float) i5) / this.g);
             LogPrinter.e("KSNativeAd onSizeChanged adView width: " + layoutParams.width + ", height: " + layoutParams.height, new Object[0]);
             this.c.setLayoutParams(layoutParams);
+        }
+    }
+
+    @Override // com.fun.module.ks.x
+    public void a(KsNativeAd ksNativeAd) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, ksNativeAd) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(this);
+            arrayList.add(this.f);
+            this.a.clear();
+            this.a.addAll(arrayList);
+            LogPrinter.e("KSNativeAd Single getImageList: " + ksNativeAd.getImageList(), new Object[0]);
+            if (ksNativeAd.getImageList() != null && !ksNativeAd.getImageList().isEmpty()) {
+                KsImage ksImage = (KsImage) ksNativeAd.getImageList().get(0);
+                LogPrinter.e("KSNativeAd Single img: " + ksImage, new Object[0]);
+                if (ksImage != null && ksImage.isValid()) {
+                    this.g = (ksImage.getWidth() * 1.0f) / (ksImage.getHeight() * 1.0f);
+                    LogPrinter.e("KSNativeAd Single img width: " + ksImage.getWidth() + ", height: " + ksImage.getHeight(), new Object[0]);
+                    GlideHelper.get().load(this, ksImage.getImageUrl(), this.c);
+                }
+            }
+            this.d.setImageBitmap(getSdkLogo());
+            this.b.setText(ksNativeAd.getAdDescription());
+            String adSource = ksNativeAd.getAdSource();
+            if (TextUtils.isEmpty(adSource)) {
+                adSource = "快手广告";
+            }
+            this.e.setText(adSource);
+            this.f.setText(ksNativeAd.getActionDescription());
         }
     }
 }

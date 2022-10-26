@@ -4,8 +4,6 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.kwad.sdk.core.NetworkMonitor;
 import com.kwad.sdk.core.response.model.HttpDnsInfo;
 import com.kwad.sdk.service.ServiceProvider;
@@ -17,19 +15,19 @@ import java.util.List;
 import java.util.Random;
 import java.util.concurrent.PriorityBlockingQueue;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class a {
     public static int aiD = -1;
     public static volatile boolean aiE;
     public static c aiM;
     public static HandlerThread aiN;
     public static Handler aiO;
-    public static List<HttpDnsInfo.IpInfo> aiF = new ArrayList();
-    public static List<HttpDnsInfo.IpInfo> aiG = new ArrayList();
-    public static List<HttpDnsInfo.IpInfo> aiH = new ArrayList();
-    public static List<c> aiI = new ArrayList();
-    public static List<c> aiJ = new ArrayList();
-    public static PriorityBlockingQueue<c> aiK = new PriorityBlockingQueue<>();
+    public static List aiF = new ArrayList();
+    public static List aiG = new ArrayList();
+    public static List aiH = new ArrayList();
+    public static List aiI = new ArrayList();
+    public static List aiJ = new ArrayList();
+    public static PriorityBlockingQueue aiK = new PriorityBlockingQueue();
     public static AtomicInteger aiL = new AtomicInteger(0);
     public static volatile boolean aiP = false;
     public static float aiQ = -1.0f;
@@ -71,7 +69,7 @@ public final class a {
         com.kwad.sdk.core.e.b.d("IpDirect_Helper", "isEnable:" + lK);
         if (lK) {
             com.kwad.sdk.core.e.b.d("IpDirect_Helper", httpDnsInfo.toString());
-            List<HttpDnsInfo.IpInfo> list = httpDnsInfo.recommendList;
+            List list = httpDnsInfo.recommendList;
             aiF = list;
             aiG = httpDnsInfo.backUpList;
             aiH = httpDnsInfo.otherList;
@@ -90,11 +88,13 @@ public final class a {
         aiK.clear();
     }
 
-    public static void d(List<HttpDnsInfo.IpInfo> list, List<c> list2) {
+    public static void d(List list, List list2) {
         if (list == null) {
             return;
         }
-        for (HttpDnsInfo.IpInfo ipInfo : list) {
+        Iterator it = list.iterator();
+        while (it.hasNext()) {
+            HttpDnsInfo.IpInfo ipInfo = (HttpDnsInfo.IpInfo) it.next();
             if (ipInfo != null && !TextUtils.isEmpty(ipInfo.ip)) {
                 com.kwad.sdk.core.e.b.d("IpDirect_Helper", ipInfo.toString());
                 c d = b.d(ipInfo.ip, aiD);
@@ -106,7 +106,6 @@ public final class a {
         }
     }
 
-    @Nullable
     public static String dj(String str) {
         String str2;
         if (!aiE) {
@@ -145,7 +144,7 @@ public final class a {
         handlerThread.start();
         aiO = new Handler(aiN.getLooper()) { // from class: com.kwad.sdk.ip.direct.a.2
             @Override // android.os.Handler
-            public final void handleMessage(@NonNull Message message) {
+            public final void handleMessage(Message message) {
                 int i = message.what;
                 if (i == 1) {
                     a.xw();
@@ -162,7 +161,7 @@ public final class a {
         }
     }
 
-    public static void v(List<HttpDnsInfo.IpInfo> list) {
+    public static void v(List list) {
         d(list, aiI);
         if (aiI.isEmpty()) {
             return;
@@ -174,7 +173,7 @@ public final class a {
         aiQ = f / aiI.size();
     }
 
-    public static void w(List<HttpDnsInfo.IpInfo> list) {
+    public static void w(List list) {
         d(list, aiJ);
         if (aiJ.isEmpty()) {
             return;
@@ -194,9 +193,9 @@ public final class a {
         if (aiK.isEmpty()) {
             return;
         }
-        c peek = aiK.peek();
-        if (peek.xO() < aiD) {
-            aiM = peek;
+        c cVar = (c) aiK.peek();
+        if (cVar.xO() < aiD) {
+            aiM = cVar;
             com.kwad.sdk.core.e.b.d("IpDirect_Helper", "set from Other:" + aiM);
             aiT = 3;
         }
@@ -254,14 +253,14 @@ public final class a {
         if (TextUtils.isEmpty(ip)) {
             return;
         }
-        Iterator<HttpDnsInfo.IpInfo> it = aiF.iterator();
+        Iterator it = aiF.iterator();
         while (true) {
             ipInfo = null;
             if (!it.hasNext()) {
                 ipInfo2 = null;
                 break;
             }
-            ipInfo2 = it.next();
+            ipInfo2 = (HttpDnsInfo.IpInfo) it.next();
             if (ipInfo2 != null && TextUtils.equals(ip, ipInfo2.ip)) {
                 break;
             }
@@ -270,14 +269,14 @@ public final class a {
             aiF.remove(ipInfo2);
             ipInfo2 = null;
         }
-        Iterator<HttpDnsInfo.IpInfo> it2 = aiG.iterator();
+        Iterator it2 = aiG.iterator();
         while (true) {
             if (!it2.hasNext()) {
                 break;
             }
-            HttpDnsInfo.IpInfo next = it2.next();
-            if (next != null && TextUtils.equals(ip, next.ip)) {
-                ipInfo2 = next;
+            HttpDnsInfo.IpInfo ipInfo3 = (HttpDnsInfo.IpInfo) it2.next();
+            if (ipInfo3 != null && TextUtils.equals(ip, ipInfo3.ip)) {
+                ipInfo2 = ipInfo3;
                 break;
             }
         }
@@ -286,14 +285,14 @@ public final class a {
         } else {
             ipInfo = ipInfo2;
         }
-        Iterator<HttpDnsInfo.IpInfo> it3 = aiH.iterator();
+        Iterator it3 = aiH.iterator();
         while (true) {
             if (!it3.hasNext()) {
                 break;
             }
-            HttpDnsInfo.IpInfo next2 = it3.next();
-            if (next2 != null && TextUtils.equals(ip, next2.ip)) {
-                ipInfo = next2;
+            HttpDnsInfo.IpInfo ipInfo4 = (HttpDnsInfo.IpInfo) it3.next();
+            if (ipInfo4 != null && TextUtils.equals(ip, ipInfo4.ip)) {
+                ipInfo = ipInfo4;
                 break;
             }
         }
@@ -307,24 +306,24 @@ public final class a {
         if (aiM == null) {
             return;
         }
-        List<c> list = aiI;
+        List list = aiI;
         if (list != null && !list.isEmpty() && aiI.contains(aiM)) {
             aiI.remove(aiM);
             com.kwad.sdk.core.e.b.d("IpDirect_Helper", "sRecommendEntityList remove:" + aiM);
         }
-        List<c> list2 = aiJ;
+        List list2 = aiJ;
         if (list2 != null && !list2.isEmpty()) {
             if (aiJ.contains(aiM)) {
                 aiJ.remove(aiM);
                 com.kwad.sdk.core.e.b.d("IpDirect_Helper", "sBackUpIpEntityList remove:" + aiM);
             }
-            Iterator<c> it = aiJ.iterator();
+            Iterator it = aiJ.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     cVar = null;
                     break;
                 }
-                cVar = it.next();
+                cVar = (c) it.next();
                 if (cVar != null && TextUtils.equals(cVar.getIp(), aiM.getIp())) {
                     com.kwad.sdk.core.e.b.d("IpDirect_Helper", "set removeEntity:" + cVar.getIp());
                     break;
@@ -335,8 +334,8 @@ public final class a {
                 com.kwad.sdk.core.e.b.d("IpDirect_Helper", "sBackUpIpEntityList remove removeEntity:" + cVar);
             }
         }
-        c peek = aiK.peek();
-        if (peek != null && peek == aiM) {
+        c cVar2 = (c) aiK.peek();
+        if (cVar2 != null && cVar2 == aiM) {
             aiK.poll();
         }
         aiM = null;
@@ -369,8 +368,8 @@ public final class a {
 
     public static void xw() {
         xB();
-        List<HttpDnsInfo.IpInfo> list = aiF;
-        List<HttpDnsInfo.IpInfo> list2 = aiG;
+        List list = aiF;
+        List list2 = aiG;
         clear();
         if (aiP) {
             com.kwad.sdk.core.e.b.d("IpDirect_Helper", "is picking return");
@@ -405,10 +404,10 @@ public final class a {
     }
 
     public static boolean xy() {
-        List<c> list = aiI;
+        List list = aiI;
         List<c> list2 = aiJ;
         if (!list.isEmpty()) {
-            aiM = list.get(new Random().nextInt(list.size()));
+            aiM = (c) list.get(new Random().nextInt(list.size()));
             com.kwad.sdk.core.e.b.d("IpDirect_Helper", "set from recommend:" + aiM);
             aiT = 1;
             return true;
@@ -428,14 +427,14 @@ public final class a {
             if (i3 >= list2.size()) {
                 break;
             }
-            nextInt -= list2.get(i3).getWeight();
+            nextInt -= ((c) list2.get(i3)).getWeight();
             if (nextInt < 0) {
                 i = i3;
                 break;
             }
             i3++;
         }
-        aiM = list2.get(i);
+        aiM = (c) list2.get(i);
         com.kwad.sdk.core.e.b.d("IpDirect_Helper", "set from backUp:" + aiM);
         aiT = 2;
         return true;
@@ -454,9 +453,9 @@ public final class a {
                 }
             }
         }
-        c peek = aiK.peek();
-        if (peek != null) {
-            aiS = peek.xO();
+        c cVar = (c) aiK.peek();
+        if (cVar != null) {
+            aiS = cVar.xO();
         }
     }
 }

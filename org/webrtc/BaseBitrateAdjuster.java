@@ -13,6 +13,13 @@ public class BaseBitrateAdjuster implements BitrateAdjuster {
     public int targetBitrateBps;
     public int targetFps;
 
+    @Override // org.webrtc.BitrateAdjuster
+    public void reportEncodedFrame(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+        }
+    }
+
     public BaseBitrateAdjuster() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -31,21 +38,20 @@ public class BaseBitrateAdjuster implements BitrateAdjuster {
     public int getAdjustedBitrateBps() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.targetBitrateBps : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.targetBitrateBps;
+        }
+        return invokeV.intValue;
     }
 
     @Override // org.webrtc.BitrateAdjuster
     public int getCodecConfigFramerate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.targetFps : invokeV.intValue;
-    }
-
-    @Override // org.webrtc.BitrateAdjuster
-    public void reportEncodedFrame(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.targetFps;
         }
+        return invokeV.intValue;
     }
 
     @Override // org.webrtc.BitrateAdjuster

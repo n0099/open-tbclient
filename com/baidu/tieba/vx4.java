@@ -1,39 +1,32 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.graphics.Rect;
-import android.view.View;
+import android.graphics.drawable.BitmapDrawable;
+import android.text.TextUtils;
+import android.util.Pair;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
-import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.tabHost.FragmentTabHost;
+import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
 import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.widget.CustomViewPager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@SuppressLint({"ResourceAsColor"})
 /* loaded from: classes6.dex */
 public class vx4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public View b;
-    public int c;
-    public ViewGroup.LayoutParams d;
-    public int e;
-    public Runnable f;
-    public FrameLayout g;
-    public int h;
-    public boolean i;
-    public ViewTreeObserver.OnGlobalLayoutListener j;
-    public int k;
+    public FragmentTabHost b;
+    public final zg c;
 
     /* loaded from: classes6.dex */
-    public class a implements ViewTreeObserver.OnGlobalLayoutListener {
+    public class a extends zg {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ vx4 a;
@@ -56,252 +49,101 @@ public class vx4 {
             this.a = vx4Var;
         }
 
-        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-        public void onGlobalLayout() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.zg
+        public void onLoaded(pn pnVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.k();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vx4 a;
-
-        public b(vx4 vx4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vx4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, pnVar, str, i) == null) {
+                super.onLoaded((a) pnVar, str, i);
+                if (this.a.b == null || pnVar == null || !pnVar.w()) {
+                    this.a.f();
                     return;
                 }
-            }
-            this.a = vx4Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.l();
+                FragmentTabWidget fragmentTabWidget = this.a.b.getFragmentTabWidget();
+                CustomViewPager fragmentViewPager = this.a.b.getFragmentViewPager();
+                ViewGroup tabWrapper = this.a.b.getTabWrapper();
+                if (fragmentTabWidget != null && fragmentViewPager != null) {
+                    this.a.b.setNeedShowThemeStyle(false);
+                    fragmentTabWidget.setBackGroundDrawableResId(R.color.black_alpha0);
+                    SkinManager.setBackgroundColor(tabWrapper, R.color.black_alpha0);
+                    SkinManager.setBackgroundColor(fragmentTabWidget, R.color.black_alpha0);
+                    RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) fragmentViewPager.getLayoutParams();
+                    layoutParams.bottomMargin = fj.f(this.a.b.getContext(), R.dimen.tbds100);
+                    fragmentViewPager.setLayoutParams(layoutParams);
+                    fragmentTabWidget.setBackgroundDrawable(new BitmapDrawable(pnVar.p()));
+                }
             }
         }
     }
 
-    public vx4(Activity activity) {
+    public vx4(FragmentTabHost fragmentTabHost, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
+            Object[] objArr = {fragmentTabHost, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 3;
-        this.h = R.color.CAM_X0201;
-        this.i = false;
-        this.j = null;
-        this.k = 0;
-        h(activity, R.color.CAM_X0201, true);
+        this.a = 0;
+        this.c = new a(this);
+        this.b = fragmentTabHost;
+        this.a = i;
     }
 
-    public static vx4 c(Activity activity) {
-        InterceptResult invokeL;
+    public final void d(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, activity)) == null) ? new vx4(activity) : (vx4) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            ah.h().m(str, 10, this.c, c());
+        }
     }
 
-    public static vx4 d(Activity activity, int i, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{activity, Integer.valueOf(i), Boolean.valueOf(z)})) == null) ? new vx4(activity, i, z) : (vx4) invokeCommon.objValue;
-    }
-
-    public static vx4 e(Activity activity, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(65543, null, activity, z)) == null) ? new vx4(activity, z) : (vx4) invokeLZ.objValue;
-    }
-
-    public final int f() {
+    public final BdUniqueId c() {
         InterceptResult invokeV;
+        r9 a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Rect rect = new Rect();
-            this.b.getWindowVisibleDisplayFrame(rect);
-            return rect.bottom;
-        }
-        return invokeV.intValue;
-    }
-
-    public final void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            if (this.f != null) {
-                gh.a().removeCallbacks(this.f);
-                this.f = null;
+            FragmentTabHost fragmentTabHost = this.b;
+            if (fragmentTabHost != null && fragmentTabHost.getContext() != null && (a2 = w9.a(this.b.getContext())) != null) {
+                return a2.getUniqueId();
             }
-            this.f = new b(this);
-            gh.a().postDelayed(this.f, i);
+            return null;
         }
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    public final void h(Activity activity, int i, boolean z) {
+    public void e(Pair pair) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            this.h = i;
-            this.i = z;
-            FrameLayout frameLayout = (FrameLayout) activity.findViewById(16908290);
-            this.g = frameLayout;
-            if (z) {
-                SkinManager.setBackgroundColor(frameLayout, i);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pair) == null) && pair != null) {
+            String str = (String) pair.first;
+            String str2 = (String) pair.second;
+            boolean z = true;
+            if (TbadkCoreApplication.getInst().getSkinType() != 1) {
+                z = false;
+            }
+            if (z && !TextUtils.isEmpty(str2)) {
+                d(str2);
+            } else if (!TextUtils.isEmpty(str)) {
+                d(str);
             } else {
-                SkinManager.setBackgroundColor(frameLayout, i, 0);
+                f();
             }
-            View childAt = this.g.getChildAt(0);
-            this.b = childAt;
-            if (childAt == null) {
-                return;
-            }
-            this.j = new a(this);
-            this.b.getViewTreeObserver().addOnGlobalLayoutListener(this.j);
-            this.d = this.b.getLayoutParams();
         }
     }
 
-    public void i() {
+    public final void f() {
+        FragmentTabHost fragmentTabHost;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.f != null) {
-                gh.a().removeCallbacks(this.f);
-                this.f = null;
-            }
-            View view2 = this.b;
-            if (view2 != null) {
-                view2.getViewTreeObserver().removeGlobalOnLayoutListener(this.j);
-                this.j = null;
-            }
-            this.b = null;
-            this.g = null;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (fragmentTabHost = this.b) != null && fragmentTabHost.getFragmentTabWidget() != null) {
+            this.b.getFragmentTabWidget().setBackGroundDrawableResId(this.a);
+            SkinManager.setBackgroundColor(this.b.getFragmentTabWidget(), this.a);
+            SkinManager.setBackgroundColor(this.b.getTabWrapper(), this.a);
         }
-    }
-
-    public void j(int i) {
-        FrameLayout frameLayout;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048580, this, i) == null) && this.i) {
-            if (i != this.a && (frameLayout = this.g) != null) {
-                SkinManager.setBackgroundColor(frameLayout, this.h);
-            }
-            this.a = i;
-        }
-    }
-
-    public final void k() {
-        View view2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (view2 = this.b) == null) {
-            return;
-        }
-        int height = view2.getHeight();
-        if (height > this.e) {
-            this.e = height;
-        }
-        int f = f();
-        int i = this.k;
-        if (i > 0 && i <= this.d.height) {
-            f -= i;
-        }
-        if (f != this.c) {
-            int i2 = this.e;
-            int i3 = i2 - f;
-            if (i3 == 0) {
-                this.d.height = i2;
-                l();
-            } else if (i3 > 200) {
-                this.d.height = i2 - i3;
-                g(200);
-                if (TbadkCoreApplication.getInst().isKeyboardHeightCanSet(i3) && i3 < (this.e * 2) / 3 && TbadkCoreApplication.getInst().getKeyboardHeight() != i3) {
-                    TbadkCoreApplication.getInst().setKeyboardHeight(i3);
-                }
-            }
-            this.c = f;
-        }
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.b.requestLayout();
-        }
-    }
-
-    public void m(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.k = i;
-        }
-    }
-
-    public vx4(Activity activity, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.a = 3;
-        this.h = R.color.CAM_X0201;
-        this.i = false;
-        this.j = null;
-        this.k = 0;
-        h(activity, R.color.CAM_X0201, z);
-    }
-
-    public vx4(Activity activity, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity, Integer.valueOf(i), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = 3;
-        this.h = R.color.CAM_X0201;
-        this.i = false;
-        this.j = null;
-        this.k = 0;
-        h(activity, i, z);
     }
 }

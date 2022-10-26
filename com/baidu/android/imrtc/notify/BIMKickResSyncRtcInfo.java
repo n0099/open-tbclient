@@ -1,6 +1,5 @@
 package com.baidu.android.imrtc.notify;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imrtc.utils.LogUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,7 +34,10 @@ public class BIMKickResSyncRtcInfo extends BIMKickReqSyncRtcInfo {
     public int getBIMKickedStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mKickedStatus : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mKickedStatus;
+        }
+        return invokeV.intValue;
     }
 
     public void setBIMKickedStatus(int i) {
@@ -46,7 +48,6 @@ public class BIMKickResSyncRtcInfo extends BIMKickReqSyncRtcInfo {
     }
 
     @Override // com.baidu.android.imrtc.notify.BIMKickReqSyncRtcInfo, com.baidu.android.imrtc.notify.BIMSyncRtcInfo, com.baidu.android.imrtc.BIMRtcInfo
-    @NonNull
     public String toRtcInfoString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

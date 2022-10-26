@@ -2,9 +2,6 @@ package com.kwad.components.core.widget.kwai;
 
 import android.os.Message;
 import android.view.View;
-import androidx.annotation.CallSuper;
-import androidx.annotation.MainThread;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -23,11 +20,11 @@ public abstract class a implements com.kwad.sdk.core.h.a, bg.a {
     public transient /* synthetic */ FieldHolder $fh;
     public final bg Ks;
     public final AtomicBoolean PG;
-    public Set<com.kwad.sdk.core.h.b> PH;
+    public Set PH;
     public final int PI;
     public final View mRootView;
 
-    public a(@NonNull View view2, int i) {
+    public a(View view2, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -94,7 +91,6 @@ public abstract class a implements com.kwad.sdk.core.h.a, bg.a {
     }
 
     @Override // com.kwad.sdk.core.h.a
-    @MainThread
     public final void a(com.kwad.sdk.core.h.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
@@ -115,9 +111,8 @@ public abstract class a implements com.kwad.sdk.core.h.a, bg.a {
     }
 
     @Override // com.kwad.sdk.core.h.a
-    @MainThread
     public final void b(com.kwad.sdk.core.h.b bVar) {
-        Set<com.kwad.sdk.core.h.b> set;
+        Set set;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
             af.checkUiThread();
@@ -146,19 +141,17 @@ public abstract class a implements com.kwad.sdk.core.h.a, bg.a {
     }
 
     @Override // com.kwad.sdk.core.h.a
-    @MainThread
     public final boolean qm() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.PG.get() : invokeV.booleanValue;
     }
 
-    @CallSuper
     public final void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             qj();
-            Set<com.kwad.sdk.core.h.b> set = this.PH;
+            Set set = this.PH;
             if (set != null) {
                 set.clear();
             }

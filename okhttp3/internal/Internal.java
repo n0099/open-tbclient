@@ -25,27 +25,6 @@ public abstract class Internal {
     public static Internal instance;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public Internal() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static void initializeInstanceForTests() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            new OkHttpClient();
-        }
-    }
-
     public abstract void addLenient(Headers.Builder builder, String str);
 
     public abstract void addLenient(Headers.Builder builder, String str, String str2);
@@ -73,4 +52,25 @@ public abstract class Internal {
     public abstract void setCache(OkHttpClient.Builder builder, InternalCache internalCache);
 
     public abstract StreamAllocation streamAllocation(Call call);
+
+    public Internal() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public static void initializeInstanceForTests() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            new OkHttpClient();
+        }
+    }
 }

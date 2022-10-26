@@ -44,6 +44,8 @@ public class camera implements Camera.PreviewCallback, SurfaceTexture.OnFrameAva
         }
     }
 
+    public static native void sendresult(int i, byte[] bArr, int i2, int i3);
+
     public camera() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -81,41 +83,56 @@ public class camera implements Camera.PreviewCallback, SurfaceTexture.OnFrameAva
         return invokeV.intValue;
     }
 
-    public static final void scan_cameras() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) && cam_scanned == 0) {
-            cam_scanned = 1;
-            int numberOfCameras = Camera.getNumberOfCameras();
-            for (int i = 0; i < numberOfCameras; i++) {
-                Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
-                Camera.getCameraInfo(i, cameraInfo);
-                if (front_id < 0 && cameraInfo.facing == 1) {
-                    front_id = i;
-                }
-                if (back_id < 0 && cameraInfo.facing == 0) {
-                    back_id = i;
-                }
-            }
-        }
-    }
-
-    public static native void sendresult(int i, byte[] bArr, int i2, int i3);
-
     public int callUpdateTexImage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.mNeedUp > 0) {
-                try {
-                    this.mSurfaceTexture.updateTexImage();
-                } catch (Exception unused) {
-                }
-                this.mNeedUp = 0;
-                return 1;
+            if (this.mNeedUp <= 0) {
+                return 0;
             }
-            return 0;
+            try {
+                this.mSurfaceTexture.updateTexImage();
+            } catch (Exception unused) {
+            }
+            this.mNeedUp = 0;
+            return 1;
         }
         return invokeV.intValue;
+    }
+
+    public int turn_off() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            Camera camera = this.mMyCamera;
+            if (camera == null) {
+                return 0;
+            }
+            camera.stopPreview();
+            this.mMyCamera.release();
+            this.mMyCamera = null;
+            return 1;
+        }
+        return invokeV.intValue;
+    }
+
+    public static final void scan_cameras() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) != null) || cam_scanned != 0) {
+            return;
+        }
+        cam_scanned = 1;
+        int numberOfCameras = Camera.getNumberOfCameras();
+        for (int i = 0; i < numberOfCameras; i++) {
+            Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
+            Camera.getCameraInfo(i, cameraInfo);
+            if (front_id < 0 && cameraInfo.facing == 1) {
+                front_id = i;
+            }
+            if (back_id < 0 && cameraInfo.facing == 0) {
+                back_id = i;
+            }
+        }
     }
 
     @Override // android.graphics.SurfaceTexture.OnFrameAvailableListener
@@ -165,22 +182,6 @@ public class camera implements Camera.PreviewCallback, SurfaceTexture.OnFrameAva
             return exposureCompensation;
         }
         return invokeCommon.intValue;
-    }
-
-    public int turn_off() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            Camera camera = this.mMyCamera;
-            if (camera == null) {
-                return 0;
-            }
-            camera.stopPreview();
-            this.mMyCamera.release();
-            this.mMyCamera = null;
-            return 1;
-        }
-        return invokeV.intValue;
     }
 
     public int turn_on(int i, int i2, int i3, int i4, int i5, int i6) {

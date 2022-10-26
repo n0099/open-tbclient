@@ -51,7 +51,7 @@ public class LBSAuthManager {
     public static Context a;
     public static m d;
     public static int e;
-    public static Hashtable<String, LBSAuthManagerListener> f;
+    public static Hashtable f;
     public static LBSAuthManager g;
     public transient /* synthetic */ FieldHolder $fh;
     public c b;
@@ -72,7 +72,7 @@ public class LBSAuthManager {
                 return;
             }
         }
-        f = new Hashtable<>();
+        f = new Hashtable();
     }
 
     public LBSAuthManager(Context context) {
@@ -292,7 +292,7 @@ public class LBSAuthManager {
             try {
                 ApplicationInfo applicationInfo = context.getPackageManager().getApplicationInfo(context.getPackageName(), 128);
                 if (applicationInfo.metaData == null) {
-                    LBSAuthManagerListener lBSAuthManagerListener = f.get(str);
+                    LBSAuthManagerListener lBSAuthManagerListener = (LBSAuthManagerListener) f.get(str);
                     if (lBSAuthManagerListener != null) {
                         lBSAuthManagerListener.onAuthResult(101, ErrorMessage.a(101, "AndroidManifest.xml的application中没有meta-data标签"));
                     }
@@ -302,14 +302,14 @@ public class LBSAuthManager {
                         try {
                         } catch (PackageManager.NameNotFoundException unused) {
                             str2 = string;
-                            LBSAuthManagerListener lBSAuthManagerListener2 = f.get(str);
+                            LBSAuthManagerListener lBSAuthManagerListener2 = (LBSAuthManagerListener) f.get(str);
                             if (lBSAuthManagerListener2 != null) {
                                 lBSAuthManagerListener2.onAuthResult(101, ErrorMessage.a(101, "无法在AndroidManifest.xml中获取com.baidu.android.lbs.API_KEY的值"));
                             }
                             return str2;
                         }
                     }
-                    LBSAuthManagerListener lBSAuthManagerListener3 = f.get(str);
+                    LBSAuthManagerListener lBSAuthManagerListener3 = (LBSAuthManagerListener) f.get(str);
                     if (lBSAuthManagerListener3 != null) {
                         lBSAuthManagerListener3.onAuthResult(101, ErrorMessage.a(101, "无法在AndroidManifest.xml中获取com.baidu.android.lbs.API_KEY的值"));
                     }
@@ -374,7 +374,7 @@ public class LBSAuthManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(boolean z, String str, Hashtable<String, String> hashtable, String str2) {
+    public void a(boolean z, String str, Hashtable hashtable, String str2) {
         String a2;
         String str3;
         String str4;
@@ -382,7 +382,7 @@ public class LBSAuthManager {
         if (!(interceptable == null || interceptable.invokeCommon(65547, this, new Object[]{Boolean.valueOf(z), str, hashtable, str2}) == null) || (a2 = a(a, str2)) == null || a2.equals("")) {
             return;
         }
-        HashMap<String, String> hashMap = new HashMap<>();
+        HashMap hashMap = new HashMap();
         hashMap.put("url", "https://api.map.baidu.com/sdkcs/verify");
         a.a("url:https://api.map.baidu.com/sdkcs/verify");
         hashMap.put("output", "json");
@@ -391,11 +391,11 @@ public class LBSAuthManager {
         hashMap.put("mcode", b.a(a));
         hashMap.put("from", "lbs_yunsdk");
         if (hashtable != null && hashtable.size() > 0) {
-            for (Map.Entry<String, String> entry : hashtable.entrySet()) {
-                String key = entry.getKey();
-                String value = entry.getValue();
-                if (!TextUtils.isEmpty(key) && !TextUtils.isEmpty(value)) {
-                    hashMap.put(key, value);
+            for (Map.Entry entry : hashtable.entrySet()) {
+                String str5 = (String) entry.getKey();
+                String str6 = (String) entry.getValue();
+                if (!TextUtils.isEmpty(str5) && !TextUtils.isEmpty(str6)) {
+                    hashMap.put(str5, str6);
                 }
             }
         }
@@ -439,7 +439,7 @@ public class LBSAuthManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(boolean z, String str, Hashtable<String, String> hashtable, String[] strArr, String str2) {
+    public void a(boolean z, String str, Hashtable hashtable, String[] strArr, String str2) {
         String a2;
         String str3;
         String str4;
@@ -447,17 +447,17 @@ public class LBSAuthManager {
         if (!(interceptable == null || interceptable.invokeCommon(65548, this, new Object[]{Boolean.valueOf(z), str, hashtable, strArr, str2}) == null) || (a2 = a(a, str2)) == null || a2.equals("")) {
             return;
         }
-        HashMap<String, String> hashMap = new HashMap<>();
+        HashMap hashMap = new HashMap();
         hashMap.put("url", "https://api.map.baidu.com/sdkcs/verify");
         hashMap.put("output", "json");
         hashMap.put(ContentUtil.RESULT_KEY_AK, a2);
         hashMap.put("from", "lbs_yunsdk");
         if (hashtable != null && hashtable.size() > 0) {
-            for (Map.Entry<String, String> entry : hashtable.entrySet()) {
-                String key = entry.getKey();
-                String value = entry.getValue();
-                if (!TextUtils.isEmpty(key) && !TextUtils.isEmpty(value)) {
-                    hashMap.put(key, value);
+            for (Map.Entry entry : hashtable.entrySet()) {
+                String str5 = (String) entry.getKey();
+                String str6 = (String) entry.getValue();
+                if (!TextUtils.isEmpty(str5) && !TextUtils.isEmpty(str6)) {
+                    hashMap.put(str5, str6);
                 }
             }
         }
@@ -580,14 +580,14 @@ public class LBSAuthManager {
         return (LBSAuthManager) invokeL.objValue;
     }
 
-    public int authenticate(boolean z, String str, Hashtable<String, String> hashtable, LBSAuthManagerListener lBSAuthManagerListener) {
+    public int authenticate(boolean z, String str, Hashtable hashtable, LBSAuthManagerListener lBSAuthManagerListener) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, hashtable, lBSAuthManagerListener})) == null) {
             synchronized (LBSAuthManager.class) {
                 boolean z2 = false;
                 if (hashtable != null) {
-                    String str2 = hashtable.get("zero_auth");
+                    String str2 = (String) hashtable.get("zero_auth");
                     if (str2 != null && Integer.valueOf(str2).intValue() == 1) {
                         z2 = true;
                     }

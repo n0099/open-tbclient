@@ -1,6 +1,5 @@
 package com.huawei.hms.ads.identifier;
 
-import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,11 +8,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-@Keep
 /* loaded from: classes7.dex */
 public abstract class c {
     public static /* synthetic */ Interceptable $ic;
-    @Keep
     public static final ThreadPoolExecutor a;
     public transient /* synthetic */ FieldHolder $fh;
 

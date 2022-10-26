@@ -1,14 +1,23 @@
 package com.baidu.tieba;
 
-import android.view.KeyEvent;
-import android.view.MotionEvent;
+import android.webkit.ValueCallback;
 /* loaded from: classes4.dex */
 public interface k22 {
-    boolean dispatchTouchEvent(MotionEvent motionEvent);
+    void addJavascriptInterface(Object obj, String str);
 
-    boolean onKeyDown(int i, KeyEvent keyEvent);
+    void continueTimer();
 
-    void onScrollChanged(int i, int i2, int i3, int i4);
+    void evaluateJavascript(String str, ValueCallback valueCallback);
 
-    boolean onTouchEvent(MotionEvent motionEvent);
+    String getContainerId();
+
+    String getUrl();
+
+    boolean isDestroyed();
+
+    boolean isWebView();
+
+    void onJSLoaded();
+
+    void suspendTimer();
 }

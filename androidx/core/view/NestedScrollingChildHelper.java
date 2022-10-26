@@ -2,8 +2,6 @@ package androidx.core.view;
 
 import android.view.View;
 import android.view.ViewParent;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -20,7 +18,7 @@ public class NestedScrollingChildHelper {
     public int[] mTempNestedScrollConsumed;
     public final View mView;
 
-    public NestedScrollingChildHelper(@NonNull View view2) {
+    public NestedScrollingChildHelper(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -38,7 +36,69 @@ public class NestedScrollingChildHelper {
         this.mView = view2;
     }
 
-    private boolean dispatchNestedScrollInternal(int i, int i2, int i3, int i4, @Nullable int[] iArr, int i5, @Nullable int[] iArr2) {
+    private ViewParent getNestedScrollingParentForType(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i)) == null) {
+            if (i != 0) {
+                if (i != 1) {
+                    return null;
+                }
+                return this.mNestedScrollingParentNonTouch;
+            }
+            return this.mNestedScrollingParentTouch;
+        }
+        return (ViewParent) invokeI.objValue;
+    }
+
+    public boolean hasNestedScrollingParent(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+            if (getNestedScrollingParentForType(i) != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public void onStopNestedScroll(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, view2) == null) {
+            ViewCompat.stopNestedScroll(this.mView);
+        }
+    }
+
+    public void setNestedScrollingEnabled(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+            if (this.mIsNestedScrollingEnabled) {
+                ViewCompat.stopNestedScroll(this.mView);
+            }
+            this.mIsNestedScrollingEnabled = z;
+        }
+    }
+
+    public boolean startNestedScroll(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
+            return startNestedScroll(i, 0);
+        }
+        return invokeI.booleanValue;
+    }
+
+    public void stopNestedScroll(int i) {
+        ViewParent nestedScrollingParentForType;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048592, this, i) == null) && (nestedScrollingParentForType = getNestedScrollingParentForType(i)) != null) {
+            ViewParentCompat.onStopNestedScroll(nestedScrollingParentForType, this.mView, i);
+            setNestedScrollingParentForType(i, null);
+        }
+    }
+
+    private boolean dispatchNestedScrollInternal(int i, int i2, int i3, int i4, int[] iArr, int i5, int[] iArr2) {
         InterceptResult invokeCommon;
         ViewParent nestedScrollingParentForType;
         int i6;
@@ -83,21 +143,6 @@ public class NestedScrollingChildHelper {
         return invokeCommon.booleanValue;
     }
 
-    private ViewParent getNestedScrollingParentForType(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i)) == null) {
-            if (i != 0) {
-                if (i != 1) {
-                    return null;
-                }
-                return this.mNestedScrollingParentNonTouch;
-            }
-            return this.mNestedScrollingParentTouch;
-        }
-        return (ViewParent) invokeI.objValue;
-    }
-
     private int[] getTempNestedScrollConsumed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -110,15 +155,49 @@ public class NestedScrollingChildHelper {
         return (int[]) invokeV.objValue;
     }
 
+    public boolean hasNestedScrollingParent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return hasNestedScrollingParent(0);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isNestedScrollingEnabled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mIsNestedScrollingEnabled;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void onDetachedFromWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            ViewCompat.stopNestedScroll(this.mView);
+        }
+    }
+
+    public void stopNestedScroll() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            stopNestedScroll(0);
+        }
+    }
+
     private void setNestedScrollingParentForType(int i, ViewParent viewParent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, this, i, viewParent) == null) {
-            if (i == 0) {
-                this.mNestedScrollingParentTouch = viewParent;
-            } else if (i != 1) {
-            } else {
-                this.mNestedScrollingParentNonTouch = viewParent;
+            if (i != 0) {
+                if (i == 1) {
+                    this.mNestedScrollingParentNonTouch = viewParent;
+                    return;
+                }
+                return;
             }
+            this.mNestedScrollingParentTouch = viewParent;
         }
     }
 
@@ -148,68 +227,16 @@ public class NestedScrollingChildHelper {
         return invokeCommon.booleanValue;
     }
 
-    public boolean dispatchNestedPreScroll(int i, int i2, @Nullable int[] iArr, @Nullable int[] iArr2) {
+    public boolean dispatchNestedPreScroll(int i, int i2, int[] iArr, int[] iArr2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), iArr, iArr2})) == null) ? dispatchNestedPreScroll(i, i2, iArr, iArr2, 0) : invokeCommon.booleanValue;
-    }
-
-    public boolean dispatchNestedScroll(int i, int i2, int i3, int i4, @Nullable int[] iArr) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), iArr})) == null) ? dispatchNestedScrollInternal(i, i2, i3, i4, iArr, 0, null) : invokeCommon.booleanValue;
-    }
-
-    public boolean hasNestedScrollingParent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? hasNestedScrollingParent(0) : invokeV.booleanValue;
-    }
-
-    public boolean isNestedScrollingEnabled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mIsNestedScrollingEnabled : invokeV.booleanValue;
-    }
-
-    public void onDetachedFromWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            ViewCompat.stopNestedScroll(this.mView);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), iArr, iArr2})) == null) {
+            return dispatchNestedPreScroll(i, i2, iArr, iArr2, 0);
         }
+        return invokeCommon.booleanValue;
     }
 
-    public void onStopNestedScroll(@NonNull View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, view2) == null) {
-            ViewCompat.stopNestedScroll(this.mView);
-        }
-    }
-
-    public void setNestedScrollingEnabled(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            if (this.mIsNestedScrollingEnabled) {
-                ViewCompat.stopNestedScroll(this.mView);
-            }
-            this.mIsNestedScrollingEnabled = z;
-        }
-    }
-
-    public boolean startNestedScroll(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) ? startNestedScroll(i, 0) : invokeI.booleanValue;
-    }
-
-    public void stopNestedScroll() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            stopNestedScroll(0);
-        }
-    }
-
-    public boolean dispatchNestedPreScroll(int i, int i2, @Nullable int[] iArr, @Nullable int[] iArr2, int i3) {
+    public boolean dispatchNestedPreScroll(int i, int i2, int[] iArr, int[] iArr2, int i3) {
         InterceptResult invokeCommon;
         ViewParent nestedScrollingParentForType;
         int i4;
@@ -220,11 +247,11 @@ public class NestedScrollingChildHelper {
                 return false;
             }
             if (i == 0 && i2 == 0) {
-                if (iArr2 != null) {
-                    iArr2[0] = 0;
-                    iArr2[1] = 0;
+                if (iArr2 == null) {
                     return false;
                 }
+                iArr2[0] = 0;
+                iArr2[1] = 0;
                 return false;
             }
             if (iArr2 != null) {
@@ -246,21 +273,37 @@ public class NestedScrollingChildHelper {
                 iArr2[0] = iArr2[0] - i4;
                 iArr2[1] = iArr2[1] - i5;
             }
-            return (iArr[0] == 0 && iArr[1] == 0) ? false : true;
+            if (iArr[0] == 0 && iArr[1] == 0) {
+                return false;
+            }
+            return true;
         }
         return invokeCommon.booleanValue;
     }
 
-    public boolean dispatchNestedScroll(int i, int i2, int i3, int i4, @Nullable int[] iArr, int i5) {
-        InterceptResult invokeCommon;
+    public void dispatchNestedScroll(int i, int i2, int i3, int i4, int[] iArr, int i5, int[] iArr2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), iArr, Integer.valueOf(i5)})) == null) ? dispatchNestedScrollInternal(i, i2, i3, i4, iArr, i5, null) : invokeCommon.booleanValue;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), iArr, Integer.valueOf(i5), iArr2}) == null) {
+            dispatchNestedScrollInternal(i, i2, i3, i4, iArr, i5, iArr2);
+        }
     }
 
-    public boolean hasNestedScrollingParent(int i) {
-        InterceptResult invokeI;
+    public boolean dispatchNestedScroll(int i, int i2, int i3, int i4, int[] iArr) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) ? getNestedScrollingParentForType(i) != null : invokeI.booleanValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), iArr})) == null) {
+            return dispatchNestedScrollInternal(i, i2, i3, i4, iArr, 0, null);
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public boolean dispatchNestedScroll(int i, int i2, int i3, int i4, int[] iArr, int i5) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), iArr, Integer.valueOf(i5)})) == null) {
+            return dispatchNestedScrollInternal(i, i2, i3, i4, iArr, i5, null);
+        }
+        return invokeCommon.booleanValue;
     }
 
     public boolean startNestedScroll(int i, int i2) {
@@ -287,22 +330,5 @@ public class NestedScrollingChildHelper {
             return false;
         }
         return invokeII.booleanValue;
-    }
-
-    public void stopNestedScroll(int i) {
-        ViewParent nestedScrollingParentForType;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048592, this, i) == null) || (nestedScrollingParentForType = getNestedScrollingParentForType(i)) == null) {
-            return;
-        }
-        ViewParentCompat.onStopNestedScroll(nestedScrollingParentForType, this.mView, i);
-        setNestedScrollingParentForType(i, null);
-    }
-
-    public void dispatchNestedScroll(int i, int i2, int i3, int i4, @Nullable int[] iArr, int i5, @Nullable int[] iArr2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), iArr, Integer.valueOf(i5), iArr2}) == null) {
-            dispatchNestedScrollInternal(i, i2, i3, i4, iArr, i5, iArr2);
-        }
     }
 }

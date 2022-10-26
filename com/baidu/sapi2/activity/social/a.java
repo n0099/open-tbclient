@@ -33,14 +33,14 @@ public class a {
 
     /* renamed from: com.baidu.sapi2.activity.social.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0129a extends HttpHandlerWrap {
+    public class C0130a extends HttpHandlerWrap {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ThirdLoginCallback a;
         public final /* synthetic */ a b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0129a(a aVar, Looper looper, ThirdLoginCallback thirdLoginCallback) {
+        public C0130a(a aVar, Looper looper, ThirdLoginCallback thirdLoginCallback) {
             super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -64,17 +64,16 @@ public class a {
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onFailure(Throwable th, int i, String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) || this.a == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) && this.a != null) {
+                WebAuthResult webAuthResult = new WebAuthResult();
+                webAuthResult.setResultCode(i);
+                webAuthResult.setResultMsg(str);
+                this.a.onFailure(webAuthResult);
             }
-            WebAuthResult webAuthResult = new WebAuthResult();
-            webAuthResult.setResultCode(i);
-            webAuthResult.setResultMsg(str);
-            this.a.onFailure(webAuthResult);
         }
 
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-        public void onSuccess(int i, String str, HashMap<String, String> hashMap) {
+        public void onSuccess(int i, String str, HashMap hashMap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, hashMap) == null) {
                 this.b.b(str, this.a);
@@ -94,6 +93,18 @@ public class a {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    public static a a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                a = new a();
+            }
+            return a;
+        }
+        return (a) invokeV.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -140,18 +151,6 @@ public class a {
         }
     }
 
-    public static a a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                a = new a();
-            }
-            return a;
-        }
-        return (a) invokeV.objValue;
-    }
-
     public void a(String str, ThirdLoginCallback thirdLoginCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, thirdLoginCallback) == null) {
@@ -165,7 +164,7 @@ public class a {
             }
             hashMap.put("json", "1");
             String addExtras = ParamsUtil.addExtras(str, hashMap);
-            new HttpClientWrap().get(addExtras, ReqPriority.IMMEDIATE, ParamsUtil.buildNaCookie(addExtras, SapiAccountManager.getInstance().getConfignation()), new C0129a(this, Looper.getMainLooper(), thirdLoginCallback));
+            new HttpClientWrap().get(addExtras, ReqPriority.IMMEDIATE, ParamsUtil.buildNaCookie(addExtras, SapiAccountManager.getInstance().getConfignation()), new C0130a(this, Looper.getMainLooper(), thirdLoginCallback));
         }
     }
 }

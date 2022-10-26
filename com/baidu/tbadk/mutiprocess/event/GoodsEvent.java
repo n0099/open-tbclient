@@ -32,22 +32,28 @@ public class GoodsEvent extends SerializableEvent {
         this.goodsList = str;
     }
 
-    public boolean getDispose() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.dispose : invokeV.booleanValue;
-    }
-
-    public String getGoodsList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.goodsList : (String) invokeV.objValue;
-    }
-
     public void setDispost(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             this.dispose = z;
         }
+    }
+
+    public boolean getDispose() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.dispose;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String getGoodsList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.goodsList;
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -16,7 +16,13 @@ import kotlin.jvm.internal.Intrinsics;
 public final class DebugItemManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, ArrayList<DebugDataGroupProvider>> itemListMap;
+    public final HashMap itemListMap;
+
+    public final void collectDebugProvider() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
 
     public DebugItemManager() {
         Interceptable interceptable = $ic;
@@ -31,41 +37,38 @@ public final class DebugItemManager {
                 return;
             }
         }
-        this.itemListMap = new HashMap<>();
+        this.itemListMap = new HashMap();
         collectDebugProvider();
+    }
+
+    public final HashMap getItemListMap() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.itemListMap;
+        }
+        return (HashMap) invokeV.objValue;
     }
 
     public final void addDebugInfo(String str, DebugDataGroupProvider debugDataGroupProvider) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, debugDataGroupProvider) == null) {
-            ArrayList<DebugDataGroupProvider> arrayList = this.itemListMap.get(str);
+            ArrayList arrayList = (ArrayList) this.itemListMap.get(str);
             if (arrayList == null) {
-                arrayList = new ArrayList<>();
+                arrayList = new ArrayList();
                 this.itemListMap.put(str, arrayList);
             }
             arrayList.add(debugDataGroupProvider);
         }
     }
 
-    public final void collectDebugProvider() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
-
-    public final HashMap<String, ArrayList<DebugDataGroupProvider>> getItemListMap() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.itemListMap : (HashMap) invokeV.objValue;
-    }
-
-    public final ArrayList<DebugDataGroupProvider> getProviderList(String str) {
+    public final ArrayList getProviderList(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            ArrayList<DebugDataGroupProvider> arrayList = this.itemListMap.get(str);
+            ArrayList arrayList = (ArrayList) this.itemListMap.get(str);
             if (arrayList == null) {
-                arrayList = new ArrayList<>();
+                arrayList = new ArrayList();
             }
             Intrinsics.checkExpressionValueIsNotNull(arrayList, "itemListMap.get(type) ?: ArrayList()");
             return arrayList;

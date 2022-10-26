@@ -14,7 +14,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Lambda;
 @Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00060\u0001R\u00020\u0002H\n"}, d2 = {"<anonymous>", "Lcom/baidu/tieba/danmu/ui/DanmakuPlayer$ActionHandler;", "Lcom/baidu/tieba/danmu/ui/DanmakuPlayer;"}, k = 3, mv = {1, 5, 1}, xi = 48)
 /* loaded from: classes3.dex */
-public final class DanmakuPlayer$actionHandler$2 extends Lambda implements Function0<DanmakuPlayer.a> {
+public final class DanmakuPlayer$actionHandler$2 extends Lambda implements Function0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ DanmakuPlayer this$0;
@@ -41,7 +41,6 @@ public final class DanmakuPlayer$actionHandler$2 extends Lambda implements Funct
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
     @Override // kotlin.jvm.functions.Function0
     public final DanmakuPlayer.a invoke() {
         InterceptResult invokeV;

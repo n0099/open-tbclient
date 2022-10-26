@@ -1,7 +1,6 @@
 package com.baidu.android.imrtc;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imrtc.msg.BIMRtcListener;
 import com.baidu.android.imrtc.request.BIMRtcAnswerAbilityListener;
@@ -39,104 +38,70 @@ public class BIMRtcClient {
         }
     }
 
-    public static void answer(@NonNull Context context, @NonNull BIMAnswerRtcInfo bIMAnswerRtcInfo, IStatusListener iStatusListener) {
+    public static void answer(Context context, BIMAnswerRtcInfo bIMAnswerRtcInfo, IStatusListener iStatusListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65537, null, context, bIMAnswerRtcInfo, iStatusListener) == null) {
             BIMRtcManager.getInstance(context).answer(bIMAnswerRtcInfo, iStatusListener);
         }
     }
 
-    public static void cancelCall(@NonNull Context context, @NonNull BIMCancelRtcInfo bIMCancelRtcInfo, IStatusListener iStatusListener) {
+    public static void cancelCall(Context context, BIMCancelRtcInfo bIMCancelRtcInfo, IStatusListener iStatusListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65538, null, context, bIMCancelRtcInfo, iStatusListener) == null) {
             BIMRtcManager.getInstance(context).cancelCall(bIMCancelRtcInfo, iStatusListener);
         }
     }
 
-    public static void checkAnswerAbility(@NonNull Context context, String str, String str2, @NonNull BIMRtcAnswerAbilityListener bIMRtcAnswerAbilityListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65539, null, context, str, str2, bIMRtcAnswerAbilityListener) == null) {
-            BIMRtcManager.getInstance(context).checkAnswerAbility(str, str2, bIMRtcAnswerAbilityListener);
-        }
-    }
-
-    public static void clientReport(@NonNull Context context, @NonNull BIMClientReportInfo bIMClientReportInfo, IStatusListener iStatusListener) {
+    public static void clientReport(Context context, BIMClientReportInfo bIMClientReportInfo, IStatusListener iStatusListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, bIMClientReportInfo, iStatusListener) == null) {
             BIMRtcManager.getInstance(context).clientReport(bIMClientReportInfo, iStatusListener);
         }
     }
 
-    public static void closeRoom(@NonNull Context context, @NonNull BIMCloseRoomRtcInfo bIMCloseRoomRtcInfo, IStatusListener iStatusListener) {
+    public static void closeRoom(Context context, BIMCloseRoomRtcInfo bIMCloseRoomRtcInfo, IStatusListener iStatusListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65541, null, context, bIMCloseRoomRtcInfo, iStatusListener) == null) {
             BIMRtcManager.getInstance(context).closeRoom(bIMCloseRoomRtcInfo, iStatusListener);
         }
     }
 
-    public static void createRoom(@NonNull Context context, String str, @NonNull BIMRtcTokenListener bIMRtcTokenListener) {
+    public static void createRoom(Context context, String str, BIMRtcTokenListener bIMRtcTokenListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65542, null, context, str, bIMRtcTokenListener) == null) {
             BIMRtcManager.getInstance(context).createRoom(str, bIMRtcTokenListener);
         }
     }
 
-    public static void generateToken(@NonNull Context context, String str, String str2, long j, @NonNull BIMRtcTokenListener bIMRtcTokenListener) {
+    public static void hangout(Context context, BIMRtcInfo bIMRtcInfo, IStatusListener iStatusListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{context, str, str2, Long.valueOf(j), bIMRtcTokenListener}) == null) {
-            BIMRtcManager.getInstance(context).generateToken(str, str2, j, bIMRtcTokenListener);
+        if (interceptable == null || interceptable.invokeLLL(65545, null, context, bIMRtcInfo, iStatusListener) == null) {
+            BIMRtcManager.getInstance(context).hangout(bIMRtcInfo, iStatusListener);
         }
     }
 
-    public static void hangout(@NonNull Context context, @NonNull String str, IStatusListener iStatusListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65546, null, context, str, iStatusListener) == null) {
-            BIMRtcManager.getInstance(context).hangout(str, iStatusListener);
-        }
-    }
-
-    public static void invite(@NonNull Context context, @NonNull BIMInviteRtcInfo bIMInviteRtcInfo, IStatusListener iStatusListener) {
+    public static void invite(Context context, BIMInviteRtcInfo bIMInviteRtcInfo, IStatusListener iStatusListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65547, null, context, bIMInviteRtcInfo, iStatusListener) == null) {
             BIMRtcManager.getInstance(context).invite(bIMInviteRtcInfo, iStatusListener);
         }
     }
 
-    public static void join(@NonNull Context context, @NonNull String str, IStatusListener iStatusListener) {
+    public static void join(Context context, String str, IStatusListener iStatusListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65548, null, context, str, iStatusListener) == null) {
             BIMRtcManager.getInstance(context).join(str, iStatusListener);
         }
     }
 
-    public static void kickoff(Context context, @NonNull BIMKickRequestRtcInfo bIMKickRequestRtcInfo, IStatusListener iStatusListener) {
+    public static void kickoff(Context context, BIMKickRequestRtcInfo bIMKickRequestRtcInfo, IStatusListener iStatusListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65549, null, context, bIMKickRequestRtcInfo, iStatusListener) == null) {
             BIMRtcManager.getInstance(context).kickoff(bIMKickRequestRtcInfo, iStatusListener);
         }
     }
 
-    public static void registerRtcListener(@NonNull Context context, @NonNull BIMRtcListener bIMRtcListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65550, null, context, bIMRtcListener) == null) {
-            BIMRtcManager.getInstance(context).registerRtcListener(bIMRtcListener);
-        }
-    }
-
-    public static String report(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65551, null, context)) == null) ? BIMRtcManager.getInstance(context).report() : (String) invokeL.objValue;
-    }
-
-    public static void setAppStatus(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65552, null, z) == null) {
-            RtcUtility.setAppState(z);
-        }
-    }
-
-    public static void setRtcDebugAndLogEnable(@NonNull Context context, boolean z, boolean z2) {
+    public static void setRtcDebugAndLogEnable(Context context, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65553, null, new Object[]{context, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             BIMRtcManager.getInstance(context).setRtcDebugEnv(context, z);
@@ -144,24 +109,61 @@ public class BIMRtcClient {
         }
     }
 
-    public static void unRegisterRtcListener(@NonNull Context context, @NonNull BIMRtcListener bIMRtcListener) {
+    public static void checkAnswerAbility(Context context, String str, String str2, BIMRtcAnswerAbilityListener bIMRtcAnswerAbilityListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65554, null, context, bIMRtcListener) == null) {
-            BIMRtcManager.getInstance(context).unRegisterRtcListener(bIMRtcListener);
+        if (interceptable == null || interceptable.invokeLLLL(65539, null, context, str, str2, bIMRtcAnswerAbilityListener) == null) {
+            BIMRtcManager.getInstance(context).checkAnswerAbility(str, str2, bIMRtcAnswerAbilityListener);
         }
     }
 
-    public static void createRoom(@NonNull Context context, String str, String str2, @NonNull BIMRtcTokenListener bIMRtcTokenListener) {
+    public static void createRoom(Context context, String str, String str2, BIMRtcTokenListener bIMRtcTokenListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65543, null, context, str, str2, bIMRtcTokenListener) == null) {
             BIMRtcManager.getInstance(context).createRoom(str, str2, bIMRtcTokenListener);
         }
     }
 
-    public static void hangout(@NonNull Context context, @NonNull BIMRtcInfo bIMRtcInfo, IStatusListener iStatusListener) {
+    public static void generateToken(Context context, String str, String str2, long j, BIMRtcTokenListener bIMRtcTokenListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65545, null, context, bIMRtcInfo, iStatusListener) == null) {
-            BIMRtcManager.getInstance(context).hangout(bIMRtcInfo, iStatusListener);
+        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{context, str, str2, Long.valueOf(j), bIMRtcTokenListener}) == null) {
+            BIMRtcManager.getInstance(context).generateToken(str, str2, j, bIMRtcTokenListener);
+        }
+    }
+
+    public static void hangout(Context context, String str, IStatusListener iStatusListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65546, null, context, str, iStatusListener) == null) {
+            BIMRtcManager.getInstance(context).hangout(str, iStatusListener);
+        }
+    }
+
+    public static void registerRtcListener(Context context, BIMRtcListener bIMRtcListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65550, null, context, bIMRtcListener) == null) {
+            BIMRtcManager.getInstance(context).registerRtcListener(bIMRtcListener);
+        }
+    }
+
+    public static void unRegisterRtcListener(Context context, BIMRtcListener bIMRtcListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65554, null, context, bIMRtcListener) == null) {
+            BIMRtcManager.getInstance(context).unRegisterRtcListener(bIMRtcListener);
+        }
+    }
+
+    public static String report(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, context)) == null) {
+            return BIMRtcManager.getInstance(context).report();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void setAppStatus(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65552, null, z) == null) {
+            RtcUtility.setAppState(z);
         }
     }
 }

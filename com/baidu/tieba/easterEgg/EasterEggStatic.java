@@ -1,6 +1,8 @@
 package com.baidu.tieba.easterEgg;
 
 import android.content.Intent;
+import android.os.Looper;
+import android.os.MessageQueue;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -8,7 +10,6 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.gh;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,17 +23,17 @@ public class EasterEggStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public static class a extends CustomMessageListener {
+    public final class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.baidu.tieba.easterEgg.EasterEggStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0235a implements Runnable {
+        public class C0221a implements MessageQueue.IdleHandler {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC0235a(a aVar) {
+            public C0221a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -48,15 +49,19 @@ public class EasterEggStatic {
                 }
             }
 
-            @Override // java.lang.Runnable
-            public void run() {
+            @Override // android.os.MessageQueue.IdleHandler
+            public boolean queueIdle() {
+                InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                     try {
                         TbadkCoreApplication.getInst().startService(new Intent(TbadkCoreApplication.getInst(), EasterEggH5Service.class));
+                        return false;
                     } catch (Exception unused) {
+                        return false;
                     }
                 }
+                return invokeV.booleanValue;
             }
         }
 
@@ -82,10 +87,10 @@ public class EasterEggStatic {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                gh.a().postDelayed(new RunnableC0235a(this), 10000L);
+                Looper.myQueue().addIdleHandler(new C0221a(this));
             }
         }
     }
@@ -121,19 +126,19 @@ public class EasterEggStatic {
         }
     }
 
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            MessageManager.getInstance().registerListener(new a(2001371));
+        }
+    }
+
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_RN_SYNC, TbConfig.SERVER_ADDRESS + TbConfig.GET_RN_SYNC_ADDRESS);
             tbHttpMessageTask.setResponsedClass(RnSyncResponseMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        }
-    }
-
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            MessageManager.getInstance().registerListener(new a(2001371));
         }
     }
 }

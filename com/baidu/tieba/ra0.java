@@ -1,27 +1,43 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import com.baidu.live.feed.search.LiveFeedSearchActivity;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ra0 {
+public class ra0 implements mb0 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile qa0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized qa0 a() {
-        InterceptResult invokeV;
-        qa0 qa0Var;
+    public ra0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (ra0.class) {
-                if (a == null) {
-                    a = new qa0();
-                }
-                qa0Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return qa0Var;
         }
-        return (qa0) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.mb0
+    public void a(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, context, str) == null) && context != null) {
+            Intent intent = new Intent(context, LiveFeedSearchActivity.class);
+            intent.putExtra("source", str);
+            if (!(context instanceof Activity)) {
+                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+            }
+            context.startActivity(intent);
+        }
     }
 }

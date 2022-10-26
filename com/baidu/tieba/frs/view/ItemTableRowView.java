@@ -7,13 +7,12 @@ import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -65,13 +64,13 @@ public class ItemTableRowView extends View {
                 return;
             }
         }
-        t = ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds16);
-        u = ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X001);
-        v = ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds644);
-        w = ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
-        x = ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds2);
-        y = ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X003);
-        z = ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds6);
+        t = fj.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds16);
+        u = fj.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X001);
+        v = fj.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds644);
+        w = fj.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
+        x = fj.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds2);
+        y = fj.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X003);
+        z = fj.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds6);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -95,25 +94,59 @@ public class ItemTableRowView extends View {
         }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public ItemTableRowView(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ItemTableRowView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.b = 5;
+        this.g = R.drawable.icon_pure_evaluation_star24_n;
+        this.h = 17170445;
+        this.i = R.color.CAM_X0109;
+        this.q = R.color.CAM_X0210;
+        this.r = R.color.CAM_X0305;
+        b();
+    }
+
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.c = 0.0f;
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.e = t;
-            this.d = u;
-            this.n = v;
-            this.o = w;
-            this.p = x;
-            this.s = y;
-            d();
-            this.l = new RectF();
-            this.m = new Paint(1);
         }
     }
 
@@ -133,52 +166,66 @@ public class ItemTableRowView extends View {
         }
     }
 
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.e = t;
+            this.d = u;
+            this.n = v;
+            this.o = w;
+            this.p = x;
+            this.s = y;
+            d();
+            this.l = new RectF();
+            this.m = new Paint(1);
+        }
+    }
+
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
             super.onDraw(canvas);
-            if (this.j == null || this.k == null) {
-                return;
-            }
-            int paddingLeft = getPaddingLeft();
-            int i2 = 0;
-            while (true) {
-                i = this.a;
-                if (i2 >= i) {
-                    break;
+            if (this.j != null && this.k != null) {
+                int paddingLeft = getPaddingLeft();
+                int i2 = 0;
+                while (true) {
+                    i = this.a;
+                    if (i2 >= i) {
+                        break;
+                    }
+                    Drawable drawable = this.j;
+                    int paddingTop = getPaddingTop();
+                    int i3 = this.e;
+                    drawable.setBounds(paddingLeft, paddingTop, paddingLeft + i3, i3 + getPaddingTop());
+                    this.j.draw(canvas);
+                    paddingLeft += this.d + this.e;
+                    i2++;
                 }
-                Drawable drawable = this.j;
-                int paddingTop = getPaddingTop();
-                int i3 = this.e;
-                drawable.setBounds(paddingLeft, paddingTop, paddingLeft + i3, i3 + getPaddingTop());
-                this.j.draw(canvas);
-                paddingLeft += this.d + this.e;
-                i2++;
+                while (i < this.b) {
+                    Drawable drawable2 = this.k;
+                    int paddingTop2 = getPaddingTop();
+                    int i4 = this.e;
+                    drawable2.setBounds(paddingLeft, paddingTop2, paddingLeft + i4, i4 + getPaddingTop());
+                    this.k.draw(canvas);
+                    paddingLeft += this.d + this.e;
+                    i++;
+                }
+                int i5 = (paddingLeft - this.d) + this.s;
+                float measuredHeight = (((getMeasuredHeight() - getPaddingBottom()) - getPaddingTop()) - this.o) / 2;
+                float f = i5;
+                this.l.set(f, measuredHeight, getMeasuredWidth(), this.o + measuredHeight);
+                this.m.setColor(SkinManager.getColor(this.q));
+                RectF rectF = this.l;
+                int i6 = this.p;
+                canvas.drawRoundRect(rectF, i6, i6, this.m);
+                this.m.setColor(SkinManager.getColor(this.r));
+                this.l.set(f, measuredHeight, ((getMeasuredWidth() - i5) * this.c) + f, this.o + measuredHeight);
+                RectF rectF2 = this.l;
+                int i7 = this.p;
+                canvas.drawRoundRect(rectF2, i7, i7, this.m);
             }
-            while (i < this.b) {
-                Drawable drawable2 = this.k;
-                int paddingTop2 = getPaddingTop();
-                int i4 = this.e;
-                drawable2.setBounds(paddingLeft, paddingTop2, paddingLeft + i4, i4 + getPaddingTop());
-                this.k.draw(canvas);
-                paddingLeft += this.d + this.e;
-                i++;
-            }
-            int i5 = (paddingLeft - this.d) + this.s;
-            float measuredHeight = (((getMeasuredHeight() - getPaddingBottom()) - getPaddingTop()) - this.o) / 2;
-            float f = i5;
-            this.l.set(f, measuredHeight, getMeasuredWidth(), this.o + measuredHeight);
-            this.m.setColor(SkinManager.getColor(this.q));
-            RectF rectF = this.l;
-            int i6 = this.p;
-            canvas.drawRoundRect(rectF, i6, i6, this.m);
-            this.m.setColor(SkinManager.getColor(this.r));
-            this.l.set(f, measuredHeight, ((getMeasuredWidth() - i5) * this.c) + f, this.o + measuredHeight);
-            RectF rectF2 = this.l;
-            int i7 = this.p;
-            canvas.drawRoundRect(rectF2, i7, i7, this.m);
         }
     }
 
@@ -223,54 +270,5 @@ public class ItemTableRowView extends View {
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             this.a = i;
         }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ItemTableRowView(Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ItemTableRowView(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        this.b = 5;
-        this.g = R.drawable.icon_pure_evaluation_star24_n;
-        this.h = 17170445;
-        this.i = R.color.CAM_X0109;
-        this.q = R.color.CAM_X0210;
-        this.r = R.color.CAM_X0305;
-        b();
     }
 }

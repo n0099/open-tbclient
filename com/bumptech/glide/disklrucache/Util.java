@@ -54,14 +54,13 @@ public final class Util {
 
     public static void closeQuietly(Closeable closeable) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, closeable) == null) || closeable == null) {
-            return;
-        }
-        try {
-            closeable.close();
-        } catch (RuntimeException e) {
-            throw e;
-        } catch (Exception unused) {
+        if ((interceptable == null || interceptable.invokeL(65538, null, closeable) == null) && closeable != null) {
+            try {
+                closeable.close();
+            } catch (RuntimeException e) {
+                throw e;
+            } catch (Exception unused) {
+            }
         }
     }
 
@@ -87,22 +86,23 @@ public final class Util {
     public static String readFully(Reader reader) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, reader)) != null) {
-            return (String) invokeL.objValue;
-        }
-        try {
-            StringWriter stringWriter = new StringWriter();
-            char[] cArr = new char[1024];
-            while (true) {
-                int read = reader.read(cArr);
-                if (read != -1) {
-                    stringWriter.write(cArr, 0, read);
-                } else {
-                    return stringWriter.toString();
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, reader)) == null) {
+            try {
+                StringWriter stringWriter = new StringWriter();
+                char[] cArr = new char[1024];
+                while (true) {
+                    int read = reader.read(cArr);
+                    if (read != -1) {
+                        stringWriter.write(cArr, 0, read);
+                    } else {
+                        return stringWriter.toString();
+                    }
                 }
+            } finally {
+                reader.close();
             }
-        } finally {
-            reader.close();
+        } else {
+            return (String) invokeL.objValue;
         }
     }
 }

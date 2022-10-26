@@ -1,6 +1,5 @@
 package androidx.media2.session;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -18,9 +17,6 @@ import android.support.v4.media.session.MediaSessionCompat;
 import android.support.v4.media.session.PlaybackStateCompat;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import androidx.media.AudioAttributesCompat;
 import androidx.media.MediaBrowserServiceCompat;
@@ -48,7 +44,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Executor;
-@RestrictTo({RestrictTo.Scope.LIBRARY})
 /* loaded from: classes.dex */
 public class MediaUtils {
     public static /* synthetic */ Interceptable $ic = null;
@@ -62,6 +57,36 @@ public class MediaUtils {
     public static final int VERSION_UNKNOWN = -1;
     public static final MediaBrowserServiceCompat.BrowserRoot sDefaultBrowserRoot;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public static int convertToPlaybackStateCompatState(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65554, null, i, i2)) == null) {
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        return 7;
+                    }
+                    return i2 != 2 ? 3 : 6;
+                }
+                return 2;
+            }
+            return 0;
+        }
+        return invokeII.intValue;
+    }
+
+    public static int toBufferingState(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65567, null, i)) == null) {
+            if (i != 3) {
+                return i != 6 ? 0 : 2;
+            }
+            return 3;
+        }
+        return invokeI.intValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -221,8 +246,171 @@ public class MediaUtils {
         return (List) invokeL.objValue;
     }
 
-    @NonNull
-    public static List<MediaSession.CommandButton> convertToCustomLayout(@Nullable PlaybackStateCompat playbackStateCompat) {
+    public static MediaItem convertToMediaItem(MediaBrowserCompat.MediaItem mediaItem) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, mediaItem)) == null) {
+            if (mediaItem == null) {
+                return null;
+            }
+            return new MediaItem.Builder().setMetadata(convertToMediaMetadata(mediaItem.getDescription(), mediaItem.isBrowsable(), mediaItem.isPlayable())).build();
+        }
+        return (MediaItem) invokeL.objValue;
+    }
+
+    public static List<MediaBrowserCompat.MediaItem> convertToMediaItemList(List<MediaItem> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, list)) == null) {
+            if (list == null) {
+                return null;
+            }
+            ArrayList arrayList = new ArrayList();
+            for (int i = 0; i < list.size(); i++) {
+                arrayList.add(convertToMediaItem(list.get(i)));
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public static MediaMetadata convertToMediaMetadata(CharSequence charSequence) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, charSequence)) == null) {
+            if (charSequence == null) {
+                return null;
+            }
+            return new MediaMetadata.Builder().putString("android.media.metadata.TITLE", charSequence.toString()).putLong(MediaMetadata.METADATA_KEY_BROWSABLE, 0L).putLong(MediaMetadata.METADATA_KEY_PLAYABLE, 1L).build();
+        }
+        return (MediaMetadata) invokeL.objValue;
+    }
+
+    public static int convertToPlayerState(PlaybackStateCompat playbackStateCompat) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, playbackStateCompat)) == null) {
+            if (playbackStateCompat == null) {
+                return 0;
+            }
+            switch (playbackStateCompat.getState()) {
+                case 0:
+                    return 0;
+                case 1:
+                case 2:
+                case 6:
+                    return 1;
+                case 3:
+                case 4:
+                case 5:
+                case 8:
+                case 9:
+                case 10:
+                case 11:
+                    return 2;
+                case 7:
+                default:
+                    return 3;
+            }
+        }
+        return invokeL.intValue;
+    }
+
+    public static boolean doesBundleHaveCustomParcelable(Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65562, null, bundle)) == null) {
+            Parcel obtain = Parcel.obtain();
+            try {
+                obtain.writeBundle(bundle);
+                obtain.setDataPosition(0);
+                Bundle readBundle = obtain.readBundle(null);
+                if (readBundle != null) {
+                    readBundle.isEmpty();
+                }
+                return false;
+            } catch (BadParcelableException e) {
+                Log.d(TAG, "Custom parcelables are not allowed", e);
+                return true;
+            } finally {
+                obtain.recycle();
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static int getRatingCompatStyle(Rating rating) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, rating)) == null) {
+            if (rating instanceof HeartRating) {
+                return 1;
+            }
+            if (rating instanceof ThumbRating) {
+                return 2;
+            }
+            if (rating instanceof StarRating) {
+                int maxStars = ((StarRating) rating).getMaxStars();
+                int i = 3;
+                if (maxStars != 3) {
+                    i = 4;
+                    if (maxStars != 4) {
+                        i = 5;
+                        if (maxStars != 5) {
+                            return 0;
+                        }
+                    }
+                }
+                return i;
+            } else if (rating instanceof PercentageRating) {
+                return 6;
+            } else {
+                return 0;
+            }
+        }
+        return invokeL.intValue;
+    }
+
+    public static <T> List<T> removeNullElements(List<T> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, list)) == null) {
+            if (list == null) {
+                return null;
+            }
+            ArrayList arrayList = new ArrayList();
+            for (T t : list) {
+                if (t != null) {
+                    arrayList.add(t);
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public static MediaController.PlaybackInfo toPlaybackInfo2(MediaControllerCompat.PlaybackInfo playbackInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65568, null, playbackInfo)) == null) {
+            return MediaController.PlaybackInfo.createPlaybackInfo(playbackInfo.getPlaybackType(), new AudioAttributesCompat.Builder().setLegacyStreamType(playbackInfo.getAudioAttributes().getLegacyStreamType()).build(), playbackInfo.getVolumeControl(), playbackInfo.getMaxVolume(), playbackInfo.getCurrentVolume());
+        }
+        return (MediaController.PlaybackInfo) invokeL.objValue;
+    }
+
+    public static MediaItem upcastForPreparceling(MediaItem mediaItem) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65570, null, mediaItem)) == null) {
+            if (mediaItem != null && mediaItem.getClass() != MediaItem.class) {
+                return new MediaItem.Builder().setStartPosition(mediaItem.getStartPosition()).setEndPosition(mediaItem.getEndPosition()).setMetadata(mediaItem.getMetadata()).build();
+            }
+            return mediaItem;
+        }
+        return (MediaItem) invokeL.objValue;
+    }
+
+    public static List<MediaSession.CommandButton> convertToCustomLayout(PlaybackStateCompat playbackStateCompat) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, playbackStateCompat)) == null) {
@@ -238,8 +426,70 @@ public class MediaUtils {
         return (List) invokeL.objValue;
     }
 
-    @Nullable
-    public static MediaLibraryService.LibraryParams convertToLibraryParams(@NonNull Context context, @Nullable Bundle bundle) {
+    public static MediaMetadataCompat convertToMediaMetadataCompat(MediaMetadata mediaMetadata) {
+        InterceptResult invokeL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, mediaMetadata)) == null) {
+            if (mediaMetadata == null) {
+                return null;
+            }
+            MediaMetadataCompat.Builder builder = new MediaMetadataCompat.Builder();
+            for (String str2 : mediaMetadata.keySet()) {
+                if (METADATA_KEY_TO_METADATA_COMPAT_KEY.containsKey(str2)) {
+                    str = METADATA_KEY_TO_METADATA_COMPAT_KEY.get(str2);
+                } else {
+                    str = str2;
+                }
+                Object object = mediaMetadata.getObject(str2);
+                if (object instanceof CharSequence) {
+                    builder.putText(str, (CharSequence) object);
+                } else if (object instanceof Bitmap) {
+                    builder.putBitmap(str, (Bitmap) object);
+                } else if (object instanceof Long) {
+                    builder.putLong(str, ((Long) object).longValue());
+                } else if ((object instanceof Bundle) && !TextUtils.equals(str2, MediaMetadata.METADATA_KEY_EXTRAS)) {
+                    try {
+                        builder.putRating(str, convertToRatingCompat(mediaMetadata.getRating(str2)));
+                    } catch (Exception unused) {
+                    }
+                }
+            }
+            return builder.build();
+        }
+        return (MediaMetadataCompat) invokeL.objValue;
+    }
+
+    public static RatingCompat convertToRatingCompat(Rating rating) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, rating)) == null) {
+            if (rating == null) {
+                return null;
+            }
+            int ratingCompatStyle = getRatingCompatStyle(rating);
+            if (!rating.isRated()) {
+                return RatingCompat.newUnratedRating(ratingCompatStyle);
+            }
+            switch (ratingCompatStyle) {
+                case 1:
+                    return RatingCompat.newHeartRating(((HeartRating) rating).hasHeart());
+                case 2:
+                    return RatingCompat.newThumbRating(((ThumbRating) rating).isThumbUp());
+                case 3:
+                case 4:
+                case 5:
+                    return RatingCompat.newStarRating(ratingCompatStyle, ((StarRating) rating).getStarRating());
+                case 6:
+                    return RatingCompat.newPercentageRating(((PercentageRating) rating).getPercentRating());
+                default:
+                    return null;
+            }
+        }
+        return (RatingCompat) invokeL.objValue;
+    }
+
+    public static MediaLibraryService.LibraryParams convertToLibraryParams(Context context, Bundle bundle) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, context, bundle)) == null) {
@@ -256,16 +506,43 @@ public class MediaUtils {
         return (MediaLibraryService.LibraryParams) invokeLL.objValue;
     }
 
-    @Nullable
-    public static MediaBrowserCompat.MediaItem convertToMediaItem(@Nullable MediaItem mediaItem) {
+    public static <T extends Parcelable> List<T> truncateListBySize(List<T> list, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65569, null, list, i)) == null) {
+            if (list == null) {
+                return null;
+            }
+            ArrayList arrayList = new ArrayList();
+            Parcel obtain = Parcel.obtain();
+            for (int i2 = 0; i2 < list.size(); i2++) {
+                try {
+                    T t = list.get(i2);
+                    obtain.writeParcelable(t, 0);
+                    if (obtain.dataSize() >= i) {
+                        break;
+                    }
+                    arrayList.add(t);
+                } finally {
+                    obtain.recycle();
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeLI.objValue;
+    }
+
+    public static MediaBrowserCompat.MediaItem convertToMediaItem(MediaItem mediaItem) {
         InterceptResult invokeL;
         MediaDescriptionCompat build;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, mediaItem)) == null) {
             if (mediaItem == null) {
                 return null;
             }
             MediaMetadata metadata = mediaItem.getMetadata();
+            int i2 = 0;
             if (metadata == null) {
                 build = new MediaDescriptionCompat.Builder().setMediaId(mediaItem.getMediaId()).build();
             } else {
@@ -285,28 +562,181 @@ public class MediaUtils {
                     extras.setMediaUri(Uri.parse(string3));
                 }
                 build = extras.build();
-                r1 = (metadata.getLong(MediaMetadata.METADATA_KEY_PLAYABLE) != 0 ? 2 : 0) | ((!metadata.containsKey(MediaMetadata.METADATA_KEY_BROWSABLE) || metadata.getLong(MediaMetadata.METADATA_KEY_BROWSABLE) == -1) ? 0 : 1);
+                boolean z = true;
+                if (metadata.containsKey(MediaMetadata.METADATA_KEY_BROWSABLE) && metadata.getLong(MediaMetadata.METADATA_KEY_BROWSABLE) != -1) {
+                    i = 1;
+                } else {
+                    i = 0;
+                }
+                if (metadata.getLong(MediaMetadata.METADATA_KEY_PLAYABLE) == 0) {
+                    z = false;
+                }
+                if (z) {
+                    i2 = 2;
+                }
+                i2 |= i;
             }
-            return new MediaBrowserCompat.MediaItem(build, r1);
+            return new MediaBrowserCompat.MediaItem(build, i2);
         }
         return (MediaBrowserCompat.MediaItem) invokeL.objValue;
     }
 
-    @Nullable
-    public static List<MediaBrowserCompat.MediaItem> convertToMediaItemList(@Nullable List<MediaItem> list) {
+    public static MediaItem convertToMediaItem(MediaDescriptionCompat mediaDescriptionCompat) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, list)) == null) {
-            if (list == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, mediaDescriptionCompat)) == null) {
+            MediaMetadata convertToMediaMetadata = convertToMediaMetadata(mediaDescriptionCompat, false, true);
+            if (convertToMediaMetadata == null) {
                 return null;
             }
-            ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < list.size(); i++) {
-                arrayList.add(convertToMediaItem(list.get(i)));
-            }
-            return arrayList;
+            return new MediaItem.Builder().setMetadata(convertToMediaMetadata).build();
         }
-        return (List) invokeL.objValue;
+        return (MediaItem) invokeL.objValue;
+    }
+
+    public static MediaDescriptionCompat createMediaDescriptionCompat(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            return new MediaDescriptionCompat.Builder().setMediaId(str).build();
+        }
+        return (MediaDescriptionCompat) invokeL.objValue;
+    }
+
+    public static boolean isUnparcelableBundle(Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, bundle)) == null) {
+            if (bundle == null) {
+                return false;
+            }
+            bundle.setClassLoader(MediaUtils.class.getClassLoader());
+            try {
+                bundle.size();
+                return false;
+            } catch (Exception unused) {
+                return true;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void keepUnparcelableBundlesOnly(List<Bundle> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65565, null, list) != null) || list == null) {
+            return;
+        }
+        for (int size = list.size() - 1; size >= 0; size--) {
+            if (isUnparcelableBundle(list.get(size))) {
+                list.remove(size);
+            }
+        }
+    }
+
+    public static VideoSize upcastForPreparceling(VideoSize videoSize) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65572, null, videoSize)) == null) {
+            if (videoSize != null && videoSize.getClass() != VideoSize.class) {
+                return new VideoSize(videoSize.getWidth(), videoSize.getHeight());
+            }
+            return videoSize;
+        }
+        return (VideoSize) invokeL.objValue;
+    }
+
+    public static MediaItem convertToMediaItem(MediaMetadataCompat mediaMetadataCompat) {
+        InterceptResult invokeL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, mediaMetadataCompat)) == null) {
+            if (mediaMetadataCompat == null) {
+                return null;
+            }
+            MediaMetadata.Builder putLong = new MediaMetadata.Builder().putLong(MediaMetadata.METADATA_KEY_PLAYABLE, 1L);
+            for (String str2 : mediaMetadataCompat.keySet()) {
+                Object obj = mediaMetadataCompat.getBundle().get(str2);
+                if (METADATA_COMPAT_KEY_TO_METADATA_KEY.containsKey(str2)) {
+                    str = METADATA_COMPAT_KEY_TO_METADATA_KEY.get(str2);
+                } else {
+                    str = str2;
+                }
+                if (obj instanceof CharSequence) {
+                    putLong.putText(str, (CharSequence) obj);
+                } else if (obj instanceof Bitmap) {
+                    putLong.putBitmap(str, (Bitmap) obj);
+                } else if (obj instanceof Long) {
+                    putLong.putLong(str, ((Long) obj).longValue());
+                } else if ((obj instanceof RatingCompat) || (Build.VERSION.SDK_INT >= 19 && (obj instanceof android.media.Rating))) {
+                    try {
+                        putLong.putRating(str, convertToRating(mediaMetadataCompat.getRating(str2)));
+                    } catch (Exception unused) {
+                    }
+                }
+            }
+            return new MediaItem.Builder().setMetadata(putLong.build()).build();
+        }
+        return (MediaItem) invokeL.objValue;
+    }
+
+    public static Rating convertToRating(RatingCompat ratingCompat) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, ratingCompat)) == null) {
+            if (ratingCompat == null) {
+                return null;
+            }
+            switch (ratingCompat.getRatingStyle()) {
+                case 1:
+                    if (ratingCompat.isRated()) {
+                        return new HeartRating(ratingCompat.hasHeart());
+                    }
+                    return new HeartRating();
+                case 2:
+                    if (ratingCompat.isRated()) {
+                        return new ThumbRating(ratingCompat.isThumbUp());
+                    }
+                    return new ThumbRating();
+                case 3:
+                    if (ratingCompat.isRated()) {
+                        return new StarRating(3, ratingCompat.getStarRating());
+                    }
+                    return new StarRating(3);
+                case 4:
+                    if (ratingCompat.isRated()) {
+                        return new StarRating(4, ratingCompat.getStarRating());
+                    }
+                    return new StarRating(4);
+                case 5:
+                    if (ratingCompat.isRated()) {
+                        return new StarRating(5, ratingCompat.getStarRating());
+                    }
+                    return new StarRating(5);
+                case 6:
+                    if (ratingCompat.isRated()) {
+                        return new PercentageRating(ratingCompat.getPercentRating());
+                    }
+                    return new PercentageRating();
+                default:
+                    return null;
+            }
+        }
+        return (Rating) invokeL.objValue;
+    }
+
+    public static MediaItem convertToMediaItem(MediaSessionCompat.QueueItem queueItem) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, queueItem)) == null) {
+            if (queueItem == null) {
+                return null;
+            }
+            return new MediaItem.Builder().setMetadata(convertToMediaMetadata(queueItem.getDescription(), false, true)).build();
+        }
+        return (MediaItem) invokeL.objValue;
     }
 
     public static MediaMetadata convertToMediaMetadata(MediaDescriptionCompat mediaDescriptionCompat, boolean z, boolean z2) {
@@ -345,6 +775,7 @@ public class MediaUtils {
             if (mediaUri != null) {
                 builder.putText("android.media.metadata.MEDIA_URI", mediaUri.toString());
             }
+            long j = 0;
             if (extras != null && extras.containsKey(MediaDescriptionCompat.EXTRA_BT_FOLDER_TYPE)) {
                 builder.putLong(MediaMetadata.METADATA_KEY_BROWSABLE, extras.getLong(MediaDescriptionCompat.EXTRA_BT_FOLDER_TYPE));
             } else if (z) {
@@ -352,87 +783,13 @@ public class MediaUtils {
             } else {
                 builder.putLong(MediaMetadata.METADATA_KEY_BROWSABLE, -1L);
             }
-            builder.putLong(MediaMetadata.METADATA_KEY_PLAYABLE, z2 ? 1L : 0L);
+            if (z2) {
+                j = 1;
+            }
+            builder.putLong(MediaMetadata.METADATA_KEY_PLAYABLE, j);
             return builder.build();
         }
         return (MediaMetadata) invokeCommon.objValue;
-    }
-
-    public static MediaMetadataCompat convertToMediaMetadataCompat(MediaMetadata mediaMetadata) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, mediaMetadata)) == null) {
-            if (mediaMetadata == null) {
-                return null;
-            }
-            MediaMetadataCompat.Builder builder = new MediaMetadataCompat.Builder();
-            for (String str : mediaMetadata.keySet()) {
-                String str2 = METADATA_KEY_TO_METADATA_COMPAT_KEY.containsKey(str) ? METADATA_KEY_TO_METADATA_COMPAT_KEY.get(str) : str;
-                Object object = mediaMetadata.getObject(str);
-                if (object instanceof CharSequence) {
-                    builder.putText(str2, (CharSequence) object);
-                } else if (object instanceof Bitmap) {
-                    builder.putBitmap(str2, (Bitmap) object);
-                } else if (object instanceof Long) {
-                    builder.putLong(str2, ((Long) object).longValue());
-                } else if ((object instanceof Bundle) && !TextUtils.equals(str, MediaMetadata.METADATA_KEY_EXTRAS)) {
-                    try {
-                        builder.putRating(str2, convertToRatingCompat(mediaMetadata.getRating(str)));
-                    } catch (Exception unused) {
-                    }
-                }
-            }
-            return builder.build();
-        }
-        return (MediaMetadataCompat) invokeL.objValue;
-    }
-
-    public static int convertToPlaybackStateCompatState(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65554, null, i, i2)) == null) {
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2) {
-                        return 7;
-                    }
-                    return i2 != 2 ? 3 : 6;
-                }
-                return 2;
-            }
-            return 0;
-        }
-        return invokeII.intValue;
-    }
-
-    public static int convertToPlayerState(PlaybackStateCompat playbackStateCompat) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, playbackStateCompat)) == null) {
-            if (playbackStateCompat == null) {
-                return 0;
-            }
-            switch (playbackStateCompat.getState()) {
-                case 0:
-                    return 0;
-                case 1:
-                case 2:
-                case 6:
-                    return 1;
-                case 3:
-                case 4:
-                case 5:
-                case 8:
-                case 9:
-                case 10:
-                case 11:
-                    return 2;
-                case 7:
-                default:
-                    return 3;
-            }
-        }
-        return invokeL.intValue;
     }
 
     public static List<MediaSessionCompat.QueueItem> convertToQueueItemList(List<MediaItem> list) {
@@ -458,75 +815,19 @@ public class MediaUtils {
         return (List) invokeL.objValue;
     }
 
-    public static Rating convertToRating(RatingCompat ratingCompat) {
+    public static Bundle convertToRootHints(MediaLibraryService.LibraryParams libraryParams) {
         InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, ratingCompat)) == null) {
-            if (ratingCompat == null) {
-                return null;
-            }
-            switch (ratingCompat.getRatingStyle()) {
-                case 1:
-                    return ratingCompat.isRated() ? new HeartRating(ratingCompat.hasHeart()) : new HeartRating();
-                case 2:
-                    return ratingCompat.isRated() ? new ThumbRating(ratingCompat.isThumbUp()) : new ThumbRating();
-                case 3:
-                    return ratingCompat.isRated() ? new StarRating(3, ratingCompat.getStarRating()) : new StarRating(3);
-                case 4:
-                    return ratingCompat.isRated() ? new StarRating(4, ratingCompat.getStarRating()) : new StarRating(4);
-                case 5:
-                    return ratingCompat.isRated() ? new StarRating(5, ratingCompat.getStarRating()) : new StarRating(5);
-                case 6:
-                    if (ratingCompat.isRated()) {
-                        return new PercentageRating(ratingCompat.getPercentRating());
-                    }
-                    return new PercentageRating();
-                default:
-                    return null;
-            }
-        }
-        return (Rating) invokeL.objValue;
-    }
-
-    @SuppressLint({"WrongConstant"})
-    public static RatingCompat convertToRatingCompat(Rating rating) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, rating)) == null) {
-            if (rating == null) {
-                return null;
-            }
-            int ratingCompatStyle = getRatingCompatStyle(rating);
-            if (!rating.isRated()) {
-                return RatingCompat.newUnratedRating(ratingCompatStyle);
-            }
-            switch (ratingCompatStyle) {
-                case 1:
-                    return RatingCompat.newHeartRating(((HeartRating) rating).hasHeart());
-                case 2:
-                    return RatingCompat.newThumbRating(((ThumbRating) rating).isThumbUp());
-                case 3:
-                case 4:
-                case 5:
-                    return RatingCompat.newStarRating(ratingCompatStyle, ((StarRating) rating).getStarRating());
-                case 6:
-                    return RatingCompat.newPercentageRating(((PercentageRating) rating).getPercentRating());
-                default:
-                    return null;
-            }
-        }
-        return (RatingCompat) invokeL.objValue;
-    }
-
-    @Nullable
-    public static Bundle convertToRootHints(@Nullable MediaLibraryService.LibraryParams libraryParams) {
-        InterceptResult invokeL;
+        Bundle bundle;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, libraryParams)) == null) {
             if (libraryParams == null) {
                 return null;
             }
-            Bundle bundle = libraryParams.getExtras() == null ? new Bundle() : new Bundle(libraryParams.getExtras());
+            if (libraryParams.getExtras() == null) {
+                bundle = new Bundle();
+            } else {
+                bundle = new Bundle(libraryParams.getExtras());
+            }
             bundle.putBoolean(MediaBrowserServiceCompat.BrowserRoot.EXTRA_RECENT, libraryParams.isRecent());
             bundle.putBoolean(MediaBrowserServiceCompat.BrowserRoot.EXTRA_OFFLINE, libraryParams.isOffline());
             bundle.putBoolean(MediaBrowserServiceCompat.BrowserRoot.EXTRA_SUGGESTED, libraryParams.isSuggested());
@@ -535,14 +836,19 @@ public class MediaUtils {
         return (Bundle) invokeL.objValue;
     }
 
-    @NonNull
-    public static SessionCommandGroup convertToSessionCommandGroup(long j, @Nullable PlaybackStateCompat playbackStateCompat) {
+    public static SessionCommandGroup convertToSessionCommandGroup(long j, PlaybackStateCompat playbackStateCompat) {
         InterceptResult invokeJL;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJL = interceptable.invokeJL(65560, null, j, playbackStateCompat)) == null) {
             SessionCommandGroup.Builder builder = new SessionCommandGroup.Builder();
             builder.addAllPlayerBasicCommands(1);
             if ((j & 4) != 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
                 builder.addAllPlayerPlaylistCommands(1);
             }
             builder.addAllVolumeCommands(1);
@@ -561,186 +867,19 @@ public class MediaUtils {
         return (SessionCommandGroup) invokeJL.objValue;
     }
 
-    public static MediaDescriptionCompat createMediaDescriptionCompat(String str) {
+    public static SessionPlayer.TrackInfo upcastForPreparceling(SessionPlayer.TrackInfo trackInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65571, null, trackInfo)) == null) {
+            if (trackInfo != null && trackInfo.getClass() != SessionPlayer.TrackInfo.class) {
+                return new SessionPlayer.TrackInfo(trackInfo.getId(), trackInfo.getTrackType(), trackInfo.getFormat(), trackInfo.isSelectable());
             }
-            return new MediaDescriptionCompat.Builder().setMediaId(str).build();
+            return trackInfo;
         }
-        return (MediaDescriptionCompat) invokeL.objValue;
+        return (SessionPlayer.TrackInfo) invokeL.objValue;
     }
 
-    public static boolean doesBundleHaveCustomParcelable(@NonNull Bundle bundle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65562, null, bundle)) == null) {
-            Parcel obtain = Parcel.obtain();
-            try {
-                obtain.writeBundle(bundle);
-                obtain.setDataPosition(0);
-                Bundle readBundle = obtain.readBundle(null);
-                if (readBundle != null) {
-                    readBundle.isEmpty();
-                }
-                return false;
-            } catch (BadParcelableException e) {
-                Log.d(TAG, "Custom parcelables are not allowed", e);
-                return true;
-            } finally {
-                obtain.recycle();
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static int getRatingCompatStyle(Rating rating) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, rating)) == null) {
-            if (rating instanceof HeartRating) {
-                return 1;
-            }
-            if (rating instanceof ThumbRating) {
-                return 2;
-            }
-            if (!(rating instanceof StarRating)) {
-                return rating instanceof PercentageRating ? 6 : 0;
-            }
-            int maxStars = ((StarRating) rating).getMaxStars();
-            int i = 3;
-            if (maxStars != 3) {
-                i = 4;
-                if (maxStars != 4) {
-                    i = 5;
-                    if (maxStars != 5) {
-                        return 0;
-                    }
-                }
-            }
-            return i;
-        }
-        return invokeL.intValue;
-    }
-
-    public static boolean isUnparcelableBundle(Bundle bundle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, bundle)) == null) {
-            if (bundle == null) {
-                return false;
-            }
-            bundle.setClassLoader(MediaUtils.class.getClassLoader());
-            try {
-                bundle.size();
-                return false;
-            } catch (Exception unused) {
-                return true;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void keepUnparcelableBundlesOnly(List<Bundle> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65565, null, list) == null) || list == null) {
-            return;
-        }
-        for (int size = list.size() - 1; size >= 0; size--) {
-            if (isUnparcelableBundle(list.get(size))) {
-                list.remove(size);
-            }
-        }
-    }
-
-    @Nullable
-    public static <T> List<T> removeNullElements(@Nullable List<T> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, list)) == null) {
-            if (list == null) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList();
-            for (T t : list) {
-                if (t != null) {
-                    arrayList.add(t);
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public static int toBufferingState(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65567, null, i)) == null) {
-            if (i != 3) {
-                return i != 6 ? 0 : 2;
-            }
-            return 3;
-        }
-        return invokeI.intValue;
-    }
-
-    public static MediaController.PlaybackInfo toPlaybackInfo2(MediaControllerCompat.PlaybackInfo playbackInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65568, null, playbackInfo)) == null) ? MediaController.PlaybackInfo.createPlaybackInfo(playbackInfo.getPlaybackType(), new AudioAttributesCompat.Builder().setLegacyStreamType(playbackInfo.getAudioAttributes().getLegacyStreamType()).build(), playbackInfo.getVolumeControl(), playbackInfo.getMaxVolume(), playbackInfo.getCurrentVolume()) : (MediaController.PlaybackInfo) invokeL.objValue;
-    }
-
-    public static <T extends Parcelable> List<T> truncateListBySize(List<T> list, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65569, null, list, i)) == null) {
-            if (list == null) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList();
-            Parcel obtain = Parcel.obtain();
-            for (int i2 = 0; i2 < list.size(); i2++) {
-                try {
-                    T t = list.get(i2);
-                    obtain.writeParcelable(t, 0);
-                    if (obtain.dataSize() >= i) {
-                        break;
-                    }
-                    arrayList.add(t);
-                } finally {
-                    obtain.recycle();
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeLI.objValue;
-    }
-
-    @Nullable
-    public static MediaItem upcastForPreparceling(@Nullable MediaItem mediaItem) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65570, null, mediaItem)) == null) ? (mediaItem == null || mediaItem.getClass() == MediaItem.class) ? mediaItem : new MediaItem.Builder().setStartPosition(mediaItem.getStartPosition()).setEndPosition(mediaItem.getEndPosition()).setMetadata(mediaItem.getMetadata()).build() : (MediaItem) invokeL.objValue;
-    }
-
-    @Nullable
-    public static VideoSize upcastForPreparceling(@Nullable VideoSize videoSize) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65572, null, videoSize)) == null) ? (videoSize == null || videoSize.getClass() == VideoSize.class) ? videoSize : new VideoSize(videoSize.getWidth(), videoSize.getHeight()) : (VideoSize) invokeL.objValue;
-    }
-
-    @Nullable
-    public static SessionPlayer.TrackInfo upcastForPreparceling(@Nullable SessionPlayer.TrackInfo trackInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65571, null, trackInfo)) == null) ? (trackInfo == null || trackInfo.getClass() == SessionPlayer.TrackInfo.class) ? trackInfo : new SessionPlayer.TrackInfo(trackInfo.getId(), trackInfo.getTrackType(), trackInfo.getFormat(), trackInfo.isSelectable()) : (SessionPlayer.TrackInfo) invokeL.objValue;
-    }
-
-    @Nullable
-    public static List<SessionPlayer.TrackInfo> upcastForPreparceling(@Nullable List<SessionPlayer.TrackInfo> list) {
+    public static List<SessionPlayer.TrackInfo> upcastForPreparceling(List<SessionPlayer.TrackInfo> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65573, null, list)) == null) {
@@ -754,83 +893,5 @@ public class MediaUtils {
             return arrayList;
         }
         return (List) invokeL.objValue;
-    }
-
-    public static MediaItem convertToMediaItem(MediaBrowserCompat.MediaItem mediaItem) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, mediaItem)) == null) {
-            if (mediaItem == null) {
-                return null;
-            }
-            return new MediaItem.Builder().setMetadata(convertToMediaMetadata(mediaItem.getDescription(), mediaItem.isBrowsable(), mediaItem.isPlayable())).build();
-        }
-        return (MediaItem) invokeL.objValue;
-    }
-
-    public static MediaMetadata convertToMediaMetadata(CharSequence charSequence) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, charSequence)) == null) {
-            if (charSequence == null) {
-                return null;
-            }
-            return new MediaMetadata.Builder().putString("android.media.metadata.TITLE", charSequence.toString()).putLong(MediaMetadata.METADATA_KEY_BROWSABLE, 0L).putLong(MediaMetadata.METADATA_KEY_PLAYABLE, 1L).build();
-        }
-        return (MediaMetadata) invokeL.objValue;
-    }
-
-    public static MediaItem convertToMediaItem(MediaSessionCompat.QueueItem queueItem) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, queueItem)) == null) {
-            if (queueItem == null) {
-                return null;
-            }
-            return new MediaItem.Builder().setMetadata(convertToMediaMetadata(queueItem.getDescription(), false, true)).build();
-        }
-        return (MediaItem) invokeL.objValue;
-    }
-
-    public static MediaItem convertToMediaItem(MediaMetadataCompat mediaMetadataCompat) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, mediaMetadataCompat)) == null) {
-            if (mediaMetadataCompat == null) {
-                return null;
-            }
-            MediaMetadata.Builder putLong = new MediaMetadata.Builder().putLong(MediaMetadata.METADATA_KEY_PLAYABLE, 1L);
-            for (String str : mediaMetadataCompat.keySet()) {
-                Object obj = mediaMetadataCompat.getBundle().get(str);
-                String str2 = METADATA_COMPAT_KEY_TO_METADATA_KEY.containsKey(str) ? METADATA_COMPAT_KEY_TO_METADATA_KEY.get(str) : str;
-                if (obj instanceof CharSequence) {
-                    putLong.putText(str2, (CharSequence) obj);
-                } else if (obj instanceof Bitmap) {
-                    putLong.putBitmap(str2, (Bitmap) obj);
-                } else if (obj instanceof Long) {
-                    putLong.putLong(str2, ((Long) obj).longValue());
-                } else if ((obj instanceof RatingCompat) || (Build.VERSION.SDK_INT >= 19 && (obj instanceof android.media.Rating))) {
-                    try {
-                        putLong.putRating(str2, convertToRating(mediaMetadataCompat.getRating(str)));
-                    } catch (Exception unused) {
-                    }
-                }
-            }
-            return new MediaItem.Builder().setMetadata(putLong.build()).build();
-        }
-        return (MediaItem) invokeL.objValue;
-    }
-
-    public static MediaItem convertToMediaItem(MediaDescriptionCompat mediaDescriptionCompat) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, mediaDescriptionCompat)) == null) {
-            MediaMetadata convertToMediaMetadata = convertToMediaMetadata(mediaDescriptionCompat, false, true);
-            if (convertToMediaMetadata == null) {
-                return null;
-            }
-            return new MediaItem.Builder().setMetadata(convertToMediaMetadata).build();
-        }
-        return (MediaItem) invokeL.objValue;
     }
 }

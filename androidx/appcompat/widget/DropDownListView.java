@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import androidx.annotation.NonNull;
 import androidx.appcompat.graphics.drawable.DrawableWrapper;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.view.InputDeviceCompat;
@@ -90,22 +89,6 @@ public class DropDownListView extends ListView {
         }
 
         @Override // androidx.appcompat.graphics.drawable.DrawableWrapper, android.graphics.drawable.Drawable
-        public void setHotspot(float f, float f2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) && this.mEnabled) {
-                super.setHotspot(f, f2);
-            }
-        }
-
-        @Override // androidx.appcompat.graphics.drawable.DrawableWrapper, android.graphics.drawable.Drawable
-        public void setHotspotBounds(int i, int i2, int i3, int i4) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeIIII(1048579, this, i, i2, i3, i4) == null) && this.mEnabled) {
-                super.setHotspotBounds(i, i2, i3, i4);
-            }
-        }
-
-        @Override // androidx.appcompat.graphics.drawable.DrawableWrapper, android.graphics.drawable.Drawable
         public boolean setState(int[] iArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -119,6 +102,14 @@ public class DropDownListView extends ListView {
         }
 
         @Override // androidx.appcompat.graphics.drawable.DrawableWrapper, android.graphics.drawable.Drawable
+        public void setHotspot(float f, float f2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) && this.mEnabled) {
+                super.setHotspot(f, f2);
+            }
+        }
+
+        @Override // androidx.appcompat.graphics.drawable.DrawableWrapper, android.graphics.drawable.Drawable
         public boolean setVisible(boolean z, boolean z2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
@@ -129,6 +120,14 @@ public class DropDownListView extends ListView {
                 return false;
             }
             return invokeCommon.booleanValue;
+        }
+
+        @Override // androidx.appcompat.graphics.drawable.DrawableWrapper, android.graphics.drawable.Drawable
+        public void setHotspotBounds(int i, int i2, int i3, int i4) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeIIII(1048579, this, i, i2, i3, i4) == null) && this.mEnabled) {
+                super.setHotspotBounds(i, i2, i3, i4);
+            }
         }
     }
 
@@ -184,7 +183,7 @@ public class DropDownListView extends ListView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DropDownListView(@NonNull Context context, boolean z) {
+    public DropDownListView(Context context, boolean z) {
         super(context, null, R.attr.obfuscated_res_0x7f040264);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -218,42 +217,8 @@ public class DropDownListView extends ListView {
         }
     }
 
-    private void clearPressedItem() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            this.mDrawsInPressedState = false;
-            setPressed(false);
-            drawableStateChanged();
-            View childAt = getChildAt(this.mMotionPosition - getFirstVisiblePosition());
-            if (childAt != null) {
-                childAt.setPressed(false);
-            }
-            ViewPropertyAnimatorCompat viewPropertyAnimatorCompat = this.mClickAnimation;
-            if (viewPropertyAnimatorCompat != null) {
-                viewPropertyAnimatorCompat.cancel();
-                this.mClickAnimation = null;
-            }
-        }
-    }
-
-    private void clickPressedItem(View view2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65538, this, view2, i) == null) {
-            performItemClick(view2, i, getItemIdAtPosition(i));
-        }
-    }
-
-    private void drawSelectorCompat(Canvas canvas) {
-        Drawable selector;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, this, canvas) == null) || this.mSelectorRect.isEmpty() || (selector = getSelector()) == null) {
-            return;
-        }
-        selector.setBounds(this.mSelectorRect);
-        selector.draw(canvas);
-    }
-
     private void positionSelectorCompat(int i, View view2) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, this, i, view2) == null) {
             Rect rect = this.mSelectorRect;
@@ -263,9 +228,15 @@ public class DropDownListView extends ListView {
             rect.right += this.mSelectionRightPadding;
             rect.bottom += this.mSelectionBottomPadding;
             try {
-                boolean z = this.mIsChildViewEnabled.getBoolean(this);
-                if (view2.isEnabled() != z) {
-                    this.mIsChildViewEnabled.set(this, Boolean.valueOf(!z));
+                boolean z2 = this.mIsChildViewEnabled.getBoolean(this);
+                if (view2.isEnabled() != z2) {
+                    Field field = this.mIsChildViewEnabled;
+                    if (!z2) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    field.set(this, Boolean.valueOf(z));
                     if (i != -1) {
                         refreshDrawableState();
                     }
@@ -274,138 +245,6 @@ public class DropDownListView extends ListView {
                 e.printStackTrace();
             }
         }
-    }
-
-    private void positionSelectorLikeFocusCompat(int i, View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65541, this, i, view2) == null) {
-            Drawable selector = getSelector();
-            boolean z = (selector == null || i == -1) ? false : true;
-            if (z) {
-                selector.setVisible(false, false);
-            }
-            positionSelectorCompat(i, view2);
-            if (z) {
-                Rect rect = this.mSelectorRect;
-                float exactCenterX = rect.exactCenterX();
-                float exactCenterY = rect.exactCenterY();
-                selector.setVisible(getVisibility() == 0, false);
-                DrawableCompat.setHotspot(selector, exactCenterX, exactCenterY);
-            }
-        }
-    }
-
-    private void positionSelectorLikeTouchCompat(int i, View view2, float f, float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{Integer.valueOf(i), view2, Float.valueOf(f), Float.valueOf(f2)}) == null) {
-            positionSelectorLikeFocusCompat(i, view2);
-            Drawable selector = getSelector();
-            if (selector == null || i == -1) {
-                return;
-            }
-            DrawableCompat.setHotspot(selector, f, f2);
-        }
-    }
-
-    private void setPressedItem(View view2, int i, float f, float f2) {
-        View childAt;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, this, new Object[]{view2, Integer.valueOf(i), Float.valueOf(f), Float.valueOf(f2)}) == null) {
-            this.mDrawsInPressedState = true;
-            if (Build.VERSION.SDK_INT >= 21) {
-                drawableHotspotChanged(f, f2);
-            }
-            if (!isPressed()) {
-                setPressed(true);
-            }
-            layoutChildren();
-            int i2 = this.mMotionPosition;
-            if (i2 != -1 && (childAt = getChildAt(i2 - getFirstVisiblePosition())) != null && childAt != view2 && childAt.isPressed()) {
-                childAt.setPressed(false);
-            }
-            this.mMotionPosition = i;
-            float left = f - view2.getLeft();
-            float top = f2 - view2.getTop();
-            if (Build.VERSION.SDK_INT >= 21) {
-                view2.drawableHotspotChanged(left, top);
-            }
-            if (!view2.isPressed()) {
-                view2.setPressed(true);
-            }
-            positionSelectorLikeTouchCompat(i, view2, f, f2);
-            setSelectorEnabled(false);
-            refreshDrawableState();
-        }
-    }
-
-    private void setSelectorEnabled(boolean z) {
-        GateKeeperDrawable gateKeeperDrawable;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(65544, this, z) == null) || (gateKeeperDrawable = this.mSelector) == null) {
-            return;
-        }
-        gateKeeperDrawable.setEnabled(z);
-    }
-
-    private boolean touchModeDrawsInPressedStateCompat() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) ? this.mDrawsInPressedState : invokeV.booleanValue;
-    }
-
-    private void updateSelectorStateCompat() {
-        Drawable selector;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65546, this) == null) && (selector = getSelector()) != null && touchModeDrawsInPressedStateCompat() && isPressed()) {
-            selector.setState(getDrawableState());
-        }
-    }
-
-    @Override // android.widget.ListView, android.widget.AbsListView, android.view.ViewGroup, android.view.View
-    public void dispatchDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            drawSelectorCompat(canvas);
-            super.dispatchDraw(canvas);
-        }
-    }
-
-    @Override // android.widget.AbsListView, android.view.ViewGroup, android.view.View
-    public void drawableStateChanged() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.mResolveHoverRunnable == null) {
-            super.drawableStateChanged();
-            setSelectorEnabled(true);
-            updateSelectorStateCompat();
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public boolean hasFocus() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mHijackFocus || super.hasFocus() : invokeV.booleanValue;
-    }
-
-    @Override // android.view.View
-    public boolean hasWindowFocus() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mHijackFocus || super.hasWindowFocus() : invokeV.booleanValue;
-    }
-
-    @Override // android.view.View
-    public boolean isFocused() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mHijackFocus || super.isFocused() : invokeV.booleanValue;
-    }
-
-    @Override // android.view.View
-    public boolean isInTouchMode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (this.mHijackFocus && this.mListSelectionHidden) || super.isInTouchMode() : invokeV.booleanValue;
     }
 
     public int lookForSelectablePosition(int i, boolean z) {
@@ -441,6 +280,296 @@ public class DropDownListView extends ListView {
         return invokeCommon.intValue;
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:9:0x0010, code lost:
+        if (r0 != 3) goto L9;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:24:0x004c A[ADDED_TO_REGION] */
+    /* JADX WARN: Removed duplicated region for block: B:27:0x0053  */
+    /* JADX WARN: Removed duplicated region for block: B:31:0x0069  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public boolean onForwardedEvent(MotionEvent motionEvent, int i) {
+        InterceptResult invokeLI;
+        boolean z;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, motionEvent, i)) == null) {
+            int actionMasked = motionEvent.getActionMasked();
+            if (actionMasked != 1) {
+                if (actionMasked == 2) {
+                    z = true;
+                }
+            } else {
+                z = false;
+            }
+            int findPointerIndex = motionEvent.findPointerIndex(i);
+            if (findPointerIndex >= 0) {
+                int x = (int) motionEvent.getX(findPointerIndex);
+                int y = (int) motionEvent.getY(findPointerIndex);
+                int pointToPosition = pointToPosition(x, y);
+                if (pointToPosition == -1) {
+                    z2 = true;
+                    if (z || z2) {
+                        clearPressedItem();
+                    }
+                    if (z) {
+                        if (this.mScrollHelper == null) {
+                            this.mScrollHelper = new ListViewAutoScrollHelper(this);
+                        }
+                        this.mScrollHelper.setEnabled(true);
+                        this.mScrollHelper.onTouch(this, motionEvent);
+                    } else {
+                        ListViewAutoScrollHelper listViewAutoScrollHelper = this.mScrollHelper;
+                        if (listViewAutoScrollHelper != null) {
+                            listViewAutoScrollHelper.setEnabled(false);
+                        }
+                    }
+                    return z;
+                }
+                View childAt = getChildAt(pointToPosition - getFirstVisiblePosition());
+                setPressedItem(childAt, pointToPosition, x, y);
+                if (actionMasked == 1) {
+                    clickPressedItem(childAt, pointToPosition);
+                }
+                z2 = false;
+                z = true;
+                if (z) {
+                }
+                clearPressedItem();
+                if (z) {
+                }
+                return z;
+            }
+            z2 = false;
+            z = false;
+            if (z) {
+            }
+            clearPressedItem();
+            if (z) {
+            }
+            return z;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    private void clearPressedItem() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, this) == null) {
+            this.mDrawsInPressedState = false;
+            setPressed(false);
+            drawableStateChanged();
+            View childAt = getChildAt(this.mMotionPosition - getFirstVisiblePosition());
+            if (childAt != null) {
+                childAt.setPressed(false);
+            }
+            ViewPropertyAnimatorCompat viewPropertyAnimatorCompat = this.mClickAnimation;
+            if (viewPropertyAnimatorCompat != null) {
+                viewPropertyAnimatorCompat.cancel();
+                this.mClickAnimation = null;
+            }
+        }
+    }
+
+    private void clickPressedItem(View view2, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65538, this, view2, i) == null) {
+            performItemClick(view2, i, getItemIdAtPosition(i));
+        }
+    }
+
+    private void drawSelectorCompat(Canvas canvas) {
+        Drawable selector;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65539, this, canvas) == null) && !this.mSelectorRect.isEmpty() && (selector = getSelector()) != null) {
+            selector.setBounds(this.mSelectorRect);
+            selector.draw(canvas);
+        }
+    }
+
+    private void setSelectorEnabled(boolean z) {
+        GateKeeperDrawable gateKeeperDrawable;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(65544, this, z) == null) && (gateKeeperDrawable = this.mSelector) != null) {
+            gateKeeperDrawable.setEnabled(z);
+        }
+    }
+
+    @Override // android.widget.ListView, android.widget.AbsListView, android.view.ViewGroup, android.view.View
+    public void dispatchDraw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
+            drawSelectorCompat(canvas);
+            super.dispatchDraw(canvas);
+        }
+    }
+
+    public void setListSelectionHidden(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+            this.mListSelectionHidden = z;
+        }
+    }
+
+    private void positionSelectorLikeFocusCompat(int i, View view2) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65541, this, i, view2) == null) {
+            Drawable selector = getSelector();
+            boolean z2 = true;
+            if (selector != null && i != -1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
+                selector.setVisible(false, false);
+            }
+            positionSelectorCompat(i, view2);
+            if (z) {
+                Rect rect = this.mSelectorRect;
+                float exactCenterX = rect.exactCenterX();
+                float exactCenterY = rect.exactCenterY();
+                if (getVisibility() != 0) {
+                    z2 = false;
+                }
+                selector.setVisible(z2, false);
+                DrawableCompat.setHotspot(selector, exactCenterX, exactCenterY);
+            }
+        }
+    }
+
+    private void positionSelectorLikeTouchCompat(int i, View view2, float f, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{Integer.valueOf(i), view2, Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            positionSelectorLikeFocusCompat(i, view2);
+            Drawable selector = getSelector();
+            if (selector != null && i != -1) {
+                DrawableCompat.setHotspot(selector, f, f2);
+            }
+        }
+    }
+
+    private void setPressedItem(View view2, int i, float f, float f2) {
+        View childAt;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65543, this, new Object[]{view2, Integer.valueOf(i), Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            this.mDrawsInPressedState = true;
+            if (Build.VERSION.SDK_INT >= 21) {
+                drawableHotspotChanged(f, f2);
+            }
+            if (!isPressed()) {
+                setPressed(true);
+            }
+            layoutChildren();
+            int i2 = this.mMotionPosition;
+            if (i2 != -1 && (childAt = getChildAt(i2 - getFirstVisiblePosition())) != null && childAt != view2 && childAt.isPressed()) {
+                childAt.setPressed(false);
+            }
+            this.mMotionPosition = i;
+            float left = f - view2.getLeft();
+            float top = f2 - view2.getTop();
+            if (Build.VERSION.SDK_INT >= 21) {
+                view2.drawableHotspotChanged(left, top);
+            }
+            if (!view2.isPressed()) {
+                view2.setPressed(true);
+            }
+            positionSelectorLikeTouchCompat(i, view2, f, f2);
+            setSelectorEnabled(false);
+            refreshDrawableState();
+        }
+    }
+
+    private boolean touchModeDrawsInPressedStateCompat() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
+            return this.mDrawsInPressedState;
+        }
+        return invokeV.booleanValue;
+    }
+
+    private void updateSelectorStateCompat() {
+        Drawable selector;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65546, this) == null) && (selector = getSelector()) != null && touchModeDrawsInPressedStateCompat() && isPressed()) {
+            selector.setState(getDrawableState());
+        }
+    }
+
+    @Override // android.widget.AbsListView, android.view.ViewGroup, android.view.View
+    public void drawableStateChanged() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.mResolveHoverRunnable != null) {
+            return;
+        }
+        super.drawableStateChanged();
+        setSelectorEnabled(true);
+        updateSelectorStateCompat();
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public boolean hasFocus() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (!this.mHijackFocus && !super.hasFocus()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.view.View
+    public boolean hasWindowFocus() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (!this.mHijackFocus && !super.hasWindowFocus()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.view.View
+    public boolean isFocused() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (!this.mHijackFocus && !super.isFocused()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.view.View
+    public boolean isInTouchMode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if ((this.mHijackFocus && this.mListSelectionHidden) || super.isInTouchMode()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.widget.ListView, android.widget.AbsListView, android.widget.AdapterView, android.view.ViewGroup, android.view.View
+    public void onDetachedFromWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.mResolveHoverRunnable = null;
+            super.onDetachedFromWindow();
+        }
+    }
+
     public int measureHeightOfChildrenCompat(int i, int i2, int i3, int i4, int i5) {
         InterceptResult invokeCommon;
         int makeMeasureSpec;
@@ -460,14 +589,13 @@ public class DropDownListView extends ListView {
             View view2 = null;
             int i7 = 0;
             int i8 = 0;
-            int i9 = 0;
-            while (i7 < count) {
-                int itemViewType = adapter.getItemViewType(i7);
-                if (itemViewType != i8) {
+            for (int i9 = 0; i9 < count; i9++) {
+                int itemViewType = adapter.getItemViewType(i9);
+                if (itemViewType != i7) {
                     view2 = null;
-                    i8 = itemViewType;
+                    i7 = itemViewType;
                 }
-                view2 = adapter.getView(i7, view2, this);
+                view2 = adapter.getView(i9, view2, this);
                 ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
                 if (layoutParams == null) {
                     layoutParams = generateDefaultLayoutParams();
@@ -481,105 +609,27 @@ public class DropDownListView extends ListView {
                 }
                 view2.measure(i, makeMeasureSpec);
                 view2.forceLayout();
-                if (i7 > 0) {
+                if (i9 > 0) {
                     i6 += dividerHeight;
                 }
                 i6 += view2.getMeasuredHeight();
                 if (i6 >= i4) {
-                    return (i5 < 0 || i7 <= i5 || i9 <= 0 || i6 == i4) ? i4 : i9;
+                    if (i5 >= 0 && i9 > i5 && i8 > 0 && i6 != i4) {
+                        return i8;
+                    }
+                    return i4;
                 }
-                if (i5 >= 0 && i7 >= i5) {
-                    i9 = i6;
+                if (i5 >= 0 && i9 >= i5) {
+                    i8 = i6;
                 }
-                i7++;
             }
             return i6;
         }
         return invokeCommon.intValue;
     }
 
-    @Override // android.widget.ListView, android.widget.AbsListView, android.widget.AdapterView, android.view.ViewGroup, android.view.View
-    public void onDetachedFromWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.mResolveHoverRunnable = null;
-            super.onDetachedFromWindow();
-        }
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:9:0x0010, code lost:
-        if (r0 != 3) goto L9;
-     */
-    /* JADX WARN: Removed duplicated region for block: B:24:0x004c A[ADDED_TO_REGION] */
-    /* JADX WARN: Removed duplicated region for block: B:27:0x0053  */
-    /* JADX WARN: Removed duplicated region for block: B:31:0x0069  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public boolean onForwardedEvent(MotionEvent motionEvent, int i) {
-        InterceptResult invokeLI;
-        boolean z;
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, motionEvent, i)) == null) {
-            int actionMasked = motionEvent.getActionMasked();
-            if (actionMasked == 1) {
-                z = false;
-            } else if (actionMasked == 2) {
-                z = true;
-            }
-            int findPointerIndex = motionEvent.findPointerIndex(i);
-            if (findPointerIndex >= 0) {
-                int x = (int) motionEvent.getX(findPointerIndex);
-                int y = (int) motionEvent.getY(findPointerIndex);
-                int pointToPosition = pointToPosition(x, y);
-                if (pointToPosition != -1) {
-                    View childAt = getChildAt(pointToPosition - getFirstVisiblePosition());
-                    setPressedItem(childAt, pointToPosition, x, y);
-                    if (actionMasked == 1) {
-                        clickPressedItem(childAt, pointToPosition);
-                    }
-                    z2 = false;
-                    z = true;
-                    if (z) {
-                    }
-                    clearPressedItem();
-                    if (z) {
-                    }
-                    return z;
-                }
-                z2 = true;
-                if (z || z2) {
-                    clearPressedItem();
-                }
-                if (z) {
-                    if (this.mScrollHelper == null) {
-                        this.mScrollHelper = new ListViewAutoScrollHelper(this);
-                    }
-                    this.mScrollHelper.setEnabled(true);
-                    this.mScrollHelper.onTouch(this, motionEvent);
-                } else {
-                    ListViewAutoScrollHelper listViewAutoScrollHelper = this.mScrollHelper;
-                    if (listViewAutoScrollHelper != null) {
-                        listViewAutoScrollHelper.setEnabled(false);
-                    }
-                }
-                return z;
-            }
-            z2 = false;
-            z = false;
-            if (z) {
-            }
-            clearPressedItem();
-            if (z) {
-            }
-            return z;
-        }
-        return invokeLI.booleanValue;
-    }
-
     @Override // android.view.View
-    public boolean onHoverEvent(@NonNull MotionEvent motionEvent) {
+    public boolean onHoverEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, motionEvent)) == null) {
@@ -627,18 +677,16 @@ public class DropDownListView extends ListView {
         return invokeL.booleanValue;
     }
 
-    public void setListSelectionHidden(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.mListSelectionHidden = z;
-        }
-    }
-
     @Override // android.widget.AbsListView
     public void setSelector(Drawable drawable) {
+        GateKeeperDrawable gateKeeperDrawable;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, drawable) == null) {
-            GateKeeperDrawable gateKeeperDrawable = drawable != null ? new GateKeeperDrawable(drawable) : null;
+            if (drawable != null) {
+                gateKeeperDrawable = new GateKeeperDrawable(drawable);
+            } else {
+                gateKeeperDrawable = null;
+            }
             this.mSelector = gateKeeperDrawable;
             super.setSelector(gateKeeperDrawable);
             Rect rect = new Rect();

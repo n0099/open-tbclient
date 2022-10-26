@@ -1,50 +1,110 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.ViewGroup;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tieba.view.BdTopToast;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class z45 {
+public class z45 implements eo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public boolean c;
 
-    public static void a(DownloadData downloadData) {
-        Activity currentActivity;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65536, null, downloadData) == null) || (currentActivity = TbadkApplication.getInst().getCurrentActivity()) == null || currentActivity.isDestroyed()) {
-            return;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948309998, "Lcom/baidu/tieba/z45;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948309998, "Lcom/baidu/tieba/z45;");
+                return;
+            }
         }
-        BdTopToast bdTopToast = new BdTopToast(currentActivity, 2000);
-        bdTopToast.h(false);
-        bdTopToast.g(currentActivity.getString(R.string.obfuscated_res_0x7f0f099c));
-        bdTopToast.i((ViewGroup) currentActivity.findViewById(16908290));
+        d = BdUniqueId.gen();
     }
 
-    public static void b(DownloadData downloadData) {
-        Activity currentActivity;
+    public z45() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, downloadData) == null) || (currentActivity = TbadkApplication.getInst().getCurrentActivity()) == null || currentActivity.isDestroyed()) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        BdTopToast bdTopToast = new BdTopToast(currentActivity, 2000);
-        bdTopToast.h(false);
-        bdTopToast.g(currentActivity.getString(R.string.obfuscated_res_0x7f0f099e));
-        bdTopToast.i((ViewGroup) currentActivity.findViewById(16908290));
+        this.c = false;
     }
 
-    public static void c(DownloadData downloadData) {
-        Activity currentActivity;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, downloadData) == null) || (currentActivity = TbadkApplication.getInst().getCurrentActivity()) == null || currentActivity.isDestroyed()) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        BdTopToast bdTopToast = new BdTopToast(currentActivity, 2000);
-        bdTopToast.h(true);
-        bdTopToast.g(currentActivity.getString(R.string.obfuscated_res_0x7f0f09a3));
-        bdTopToast.i((ViewGroup) currentActivity.findViewById(16908290));
+        return (String) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.eo
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return d;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.a = str;
+        }
+    }
+
+    public void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.c = z;
+        }
+    }
+
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.b = str;
+        }
     }
 }

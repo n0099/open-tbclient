@@ -16,6 +16,28 @@ public abstract class LuminanceSource {
     public final int height;
     public final int width;
 
+    public abstract byte[] getMatrix();
+
+    public abstract byte[] getRow(int i, byte[] bArr);
+
+    public boolean isCropSupported() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isRotateSupported() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     public LuminanceSource(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -47,41 +69,28 @@ public abstract class LuminanceSource {
     public final int getHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.height : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.height;
+        }
+        return invokeV.intValue;
     }
-
-    public abstract byte[] getMatrix();
-
-    public abstract byte[] getRow(int i, byte[] bArr);
 
     public final int getWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.width : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.width;
+        }
+        return invokeV.intValue;
     }
 
     public LuminanceSource invert() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? new InvertedLuminanceSource(this) : (LuminanceSource) invokeV.objValue;
-    }
-
-    public boolean isCropSupported() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return new InvertedLuminanceSource(this);
         }
-        return invokeV.booleanValue;
-    }
-
-    public boolean isRotateSupported() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
+        return (LuminanceSource) invokeV.objValue;
     }
 
     public LuminanceSource rotateCounterClockwise() {
@@ -104,6 +113,7 @@ public abstract class LuminanceSource {
 
     public final String toString() {
         InterceptResult invokeV;
+        char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             int i = this.width;
@@ -113,7 +123,16 @@ public abstract class LuminanceSource {
                 bArr = getRow(i2, bArr);
                 for (int i3 = 0; i3 < this.width; i3++) {
                     int i4 = bArr[i3] & 255;
-                    sb.append(i4 < 64 ? '#' : i4 < 128 ? '+' : i4 < 192 ? IStringUtil.EXTENSION_SEPARATOR : WebvttCueParser.CHAR_SPACE);
+                    if (i4 < 64) {
+                        c = '#';
+                    } else if (i4 < 128) {
+                        c = '+';
+                    } else if (i4 < 192) {
+                        c = IStringUtil.EXTENSION_SEPARATOR;
+                    } else {
+                        c = WebvttCueParser.CHAR_SPACE;
+                    }
+                    sb.append(c);
                 }
                 sb.append('\n');
             }

@@ -1,7 +1,5 @@
 package androidx.webkit;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.RestrictTo;
 import androidx.webkit.internal.WebViewFeatureInternal;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,12 +15,10 @@ public class WebViewFeature {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CREATE_WEB_MESSAGE_CHANNEL = "CREATE_WEB_MESSAGE_CHANNEL";
     public static final String DISABLED_ACTION_MODE_MENU_ITEMS = "DISABLED_ACTION_MODE_MENU_ITEMS";
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public static final String FORCE_DARK = "FORCE_DARK";
     public static final String GET_WEB_CHROME_CLIENT = "GET_WEB_CHROME_CLIENT";
     public static final String GET_WEB_VIEW_CLIENT = "GET_WEB_VIEW_CLIENT";
     public static final String GET_WEB_VIEW_RENDERER = "GET_WEB_VIEW_RENDERER";
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public static final String MULTI_PROCESS_QUERY = "MULTI_PROCESS_QUERY";
     public static final String OFF_SCREEN_PRERASTER = "OFF_SCREEN_PRERASTER";
     public static final String POST_WEB_MESSAGE = "POST_WEB_MESSAGE";
@@ -44,7 +40,6 @@ public class WebViewFeature {
     public static final String SERVICE_WORKER_SHOULD_INTERCEPT_REQUEST = "SERVICE_WORKER_SHOULD_INTERCEPT_REQUEST";
     public static final String SHOULD_OVERRIDE_WITH_REDIRECTS = "SHOULD_OVERRIDE_WITH_REDIRECTS";
     public static final String START_SAFE_BROWSING = "START_SAFE_BROWSING";
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public static final String SUPPRESS_ERROR_PAGE = "SUPPRESS_ERROR_PAGE";
     public static final String TRACING_CONTROLLER_BASIC_USAGE = "TRACING_CONTROLLER_BASIC_USAGE";
     public static final String VISUAL_STATE_CALLBACK = "VISUAL_STATE_CALLBACK";
@@ -61,7 +56,6 @@ public class WebViewFeature {
 
     @Target({ElementType.PARAMETER, ElementType.METHOD})
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public @interface WebViewSupportFeature {
     }
@@ -80,12 +74,15 @@ public class WebViewFeature {
         }
     }
 
-    public static boolean isFeatureSupported(@NonNull String str) {
+    public static boolean isFeatureSupported(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
             WebViewFeatureInternal feature = WebViewFeatureInternal.getFeature(str);
-            return feature.isSupportedByFramework() || feature.isSupportedByWebView();
+            if (!feature.isSupportedByFramework() && !feature.isSupportedByWebView()) {
+                return false;
+            }
+            return true;
         }
         return invokeL.booleanValue;
     }

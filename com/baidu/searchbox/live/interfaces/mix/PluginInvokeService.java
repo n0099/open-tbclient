@@ -20,9 +20,45 @@ import kotlin.Metadata;
 public interface PluginInvokeService {
     public static final Companion Companion = Companion.$$INSTANCE;
 
+    Object createYYMixLiveImpl();
+
+    Object createYYMixLiveSingletonManagerImpl();
+
+    IMixActivityInterface genFakeActivityImpl();
+
+    int getLiveNpsPluginWillLoadVersion();
+
+    Map getMediaLivePlayConfig(String str, Map map);
+
+    AssetManager getPluginAssets(String str);
+
+    ClassLoader getPluginClassLoader(String str);
+
+    Resources getPluginResource(String str);
+
+    int getPluginVersionCode(String str);
+
+    boolean isPluginLoaded(String str);
+
+    boolean isPluginLoaded(String str, Map map);
+
+    void jumpToOuterWebView(Context context, String str);
+
+    void loadPlugin(Context context, String str, String str2, PluginLoadCallback pluginLoadCallback, boolean z);
+
+    void loadPlugin(Context context, String str, String str2, boolean z, boolean z2, PluginLoadCallback pluginLoadCallback);
+
+    void loadPlugin(Context context, String str, String str2, boolean z, boolean z2, Map map, PluginLoadCallback pluginLoadCallback);
+
+    void loadPlugin(String str, String str2, PluginLoadCallback pluginLoadCallback, boolean z);
+
+    void realJumpYY(Context context, String str);
+
+    void updateStatInfo(YYStatInfo yYStatInfo);
+
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0006\u0010\u0007R\u0019\u0010\u0002\u001a\u00020\u00018\u0006@\u0006¢\u0006\f\n\u0004\b\u0002\u0010\u0003\u001a\u0004\b\u0004\u0010\u0005¨\u0006\b"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/mix/PluginInvokeService$Companion;", "Lcom/baidu/pyramid/runtime/service/ServiceReference;", "SERVICE_REFERENCE", "Lcom/baidu/pyramid/runtime/service/ServiceReference;", "getSERVICE_REFERENCE", "()Lcom/baidu/pyramid/runtime/service/ServiceReference;", "<init>", "()V", "lib-live-interfaces_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public static final class Companion {
+    public final class Companion {
         public static final /* synthetic */ Companion $$INSTANCE;
         public static /* synthetic */ Interceptable $ic;
         public static final ServiceReference SERVICE_REFERENCE;
@@ -62,51 +98,72 @@ public interface PluginInvokeService {
         public final ServiceReference getSERVICE_REFERENCE() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? SERVICE_REFERENCE : (ServiceReference) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return SERVICE_REFERENCE;
+            }
+            return (ServiceReference) invokeV.objValue;
         }
     }
 
-    Object createYYMixLiveImpl();
-
-    Object createYYMixLiveSingletonManagerImpl();
-
-    IMixActivityInterface genFakeActivityImpl();
-
-    int getLiveNpsPluginWillLoadVersion();
-
-    Map<String, Object> getMediaLivePlayConfig(String str, Map<String, ? extends Object> map);
-
-    AssetManager getPluginAssets(String str);
-
-    ClassLoader getPluginClassLoader(String str);
-
-    Resources getPluginResource(String str);
-
-    int getPluginVersionCode(String str);
-
-    boolean isPluginLoaded(String str);
-
-    boolean isPluginLoaded(String str, Map<String, String> map);
-
-    void jumpToOuterWebView(Context context, String str);
-
-    void loadPlugin(Context context, String str, String str2, PluginLoadCallback pluginLoadCallback, boolean z);
-
-    void loadPlugin(Context context, String str, String str2, boolean z, boolean z2, PluginLoadCallback pluginLoadCallback);
-
-    void loadPlugin(Context context, String str, String str2, boolean z, boolean z2, Map<String, String> map, PluginLoadCallback pluginLoadCallback);
-
-    void loadPlugin(String str, String str2, PluginLoadCallback pluginLoadCallback, boolean z);
-
-    void realJumpYY(Context context, String str);
-
-    void updateStatInfo(YYStatInfo yYStatInfo);
-
     @Metadata(bv = {1, 0, 3}, d1 = {}, d2 = {}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public static final class DefaultImpls {
+    public final class DefaultImpls {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        public static /* synthetic */ void loadPlugin$default(PluginInvokeService pluginInvokeService, Context context, String str, String str2, PluginLoadCallback pluginLoadCallback, boolean z, int i, Object obj) {
+            boolean z2;
+            if (obj == null) {
+                if ((i & 16) != 0) {
+                    z2 = true;
+                } else {
+                    z2 = z;
+                }
+                pluginInvokeService.loadPlugin(context, str, str2, pluginLoadCallback, z2);
+                return;
+            }
+            throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: loadPlugin");
+        }
+
+        public static /* synthetic */ void loadPlugin$default(PluginInvokeService pluginInvokeService, Context context, String str, String str2, boolean z, boolean z2, PluginLoadCallback pluginLoadCallback, int i, Object obj) {
+            boolean z3;
+            boolean z4;
+            if (obj == null) {
+                if ((i & 8) != 0) {
+                    z3 = true;
+                } else {
+                    z3 = z;
+                }
+                if ((i & 16) != 0) {
+                    z4 = false;
+                } else {
+                    z4 = z2;
+                }
+                pluginInvokeService.loadPlugin(context, str, str2, z3, z4, pluginLoadCallback);
+                return;
+            }
+            throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: loadPlugin");
+        }
+
+        public static /* synthetic */ void loadPlugin$default(PluginInvokeService pluginInvokeService, Context context, String str, String str2, boolean z, boolean z2, Map map, PluginLoadCallback pluginLoadCallback, int i, Object obj) {
+            boolean z3;
+            boolean z4;
+            if (obj == null) {
+                if ((i & 8) != 0) {
+                    z3 = true;
+                } else {
+                    z3 = z;
+                }
+                if ((i & 16) != 0) {
+                    z4 = false;
+                } else {
+                    z4 = z2;
+                }
+                pluginInvokeService.loadPlugin(context, str, str2, z3, z4, map, pluginLoadCallback);
+                return;
+            }
+            throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: loadPlugin");
+        }
 
         public static /* synthetic */ void loadPlugin$default(PluginInvokeService pluginInvokeService, String str, String str2, PluginLoadCallback pluginLoadCallback, boolean z, int i, Object obj) {
             if (obj == null) {
@@ -114,30 +171,6 @@ public interface PluginInvokeService {
                     z = true;
                 }
                 pluginInvokeService.loadPlugin(str, str2, pluginLoadCallback, z);
-                return;
-            }
-            throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: loadPlugin");
-        }
-
-        public static /* synthetic */ void loadPlugin$default(PluginInvokeService pluginInvokeService, Context context, String str, String str2, PluginLoadCallback pluginLoadCallback, boolean z, int i, Object obj) {
-            if (obj == null) {
-                pluginInvokeService.loadPlugin(context, str, str2, pluginLoadCallback, (i & 16) != 0 ? true : z);
-                return;
-            }
-            throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: loadPlugin");
-        }
-
-        public static /* synthetic */ void loadPlugin$default(PluginInvokeService pluginInvokeService, Context context, String str, String str2, boolean z, boolean z2, PluginLoadCallback pluginLoadCallback, int i, Object obj) {
-            if (obj == null) {
-                pluginInvokeService.loadPlugin(context, str, str2, (i & 8) != 0 ? true : z, (i & 16) != 0 ? false : z2, pluginLoadCallback);
-                return;
-            }
-            throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: loadPlugin");
-        }
-
-        public static /* synthetic */ void loadPlugin$default(PluginInvokeService pluginInvokeService, Context context, String str, String str2, boolean z, boolean z2, Map map, PluginLoadCallback pluginLoadCallback, int i, Object obj) {
-            if (obj == null) {
-                pluginInvokeService.loadPlugin(context, str, str2, (i & 8) != 0 ? true : z, (i & 16) != 0 ? false : z2, map, pluginLoadCallback);
                 return;
             }
             throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: loadPlugin");

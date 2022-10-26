@@ -7,8 +7,8 @@ import android.os.IBinder;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
-import com.baidu.tieba.gr3;
-import com.baidu.tieba.pr3;
+import com.baidu.tieba.hr3;
+import com.baidu.tieba.qr3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +19,7 @@ public class AdDownloadService extends Service {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a mBinder;
-    public pr3 mDownloadManager;
+    public qr3 mDownloadManager;
 
     /* loaded from: classes3.dex */
     public class a extends Binder {
@@ -47,10 +47,9 @@ public class AdDownloadService extends Service {
 
         public void a(DownloadInfo downloadInfo) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, downloadInfo) == null) || downloadInfo == null || this.a.mDownloadManager == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, downloadInfo) == null) && downloadInfo != null && this.a.mDownloadManager != null) {
+                this.a.mDownloadManager.b(downloadInfo);
             }
-            this.a.mDownloadManager.b(downloadInfo);
         }
 
         public DownloadInfo b(String str) {
@@ -67,26 +66,23 @@ public class AdDownloadService extends Service {
 
         public void c(DownloadInfo downloadInfo) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadInfo) == null) || downloadInfo == null || this.a.mDownloadManager == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadInfo) == null) && downloadInfo != null && this.a.mDownloadManager != null) {
+                this.a.mDownloadManager.d(downloadInfo);
             }
-            this.a.mDownloadManager.d(downloadInfo);
         }
 
         public void d(DownloadInfo downloadInfo) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, downloadInfo) == null) || downloadInfo == null || this.a.mDownloadManager == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048579, this, downloadInfo) == null) && downloadInfo != null && this.a.mDownloadManager != null) {
+                this.a.mDownloadManager.a(downloadInfo);
             }
-            this.a.mDownloadManager.a(downloadInfo);
         }
 
         public void e(DownloadInfo downloadInfo) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048580, this, downloadInfo) == null) || downloadInfo == null || this.a.mDownloadManager == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048580, this, downloadInfo) == null) && downloadInfo != null && this.a.mDownloadManager != null) {
+                this.a.mDownloadManager.c(downloadInfo);
             }
-            this.a.mDownloadManager.c(downloadInfo);
         }
     }
 
@@ -107,17 +103,10 @@ public class AdDownloadService extends Service {
     }
 
     @Override // android.app.Service
-    public IBinder onBind(Intent intent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) ? this.mBinder : (IBinder) invokeL.objValue;
-    }
-
-    @Override // android.app.Service
     public void onCreate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.mDownloadManager = gr3.m(AppRuntime.getAppContext(), null);
+            this.mDownloadManager = hr3.m(AppRuntime.getAppContext(), null);
             super.onCreate();
         }
     }
@@ -126,12 +115,22 @@ public class AdDownloadService extends Service {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            pr3 pr3Var = this.mDownloadManager;
-            if (pr3Var != null) {
-                pr3Var.destroy();
+            qr3 qr3Var = this.mDownloadManager;
+            if (qr3Var != null) {
+                qr3Var.destroy();
                 this.mDownloadManager = null;
             }
             super.onDestroy();
         }
+    }
+
+    @Override // android.app.Service
+    public IBinder onBind(Intent intent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
+            return this.mBinder;
+        }
+        return (IBinder) invokeL.objValue;
     }
 }

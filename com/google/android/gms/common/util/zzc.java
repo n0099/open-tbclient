@@ -8,7 +8,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-@VisibleForTesting
 /* loaded from: classes7.dex */
 public final class zzc {
     public static /* synthetic */ Interceptable $ic;
@@ -35,22 +34,22 @@ public final class zzc {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
-            }
-            Matcher matcher = zza.matcher(str);
-            StringBuffer stringBuffer = null;
-            while (matcher.find()) {
-                if (stringBuffer == null) {
-                    stringBuffer = new StringBuffer();
+            if (!TextUtils.isEmpty(str)) {
+                Matcher matcher = zza.matcher(str);
+                StringBuffer stringBuffer = null;
+                while (matcher.find()) {
+                    if (stringBuffer == null) {
+                        stringBuffer = new StringBuffer();
+                    }
+                    matcher.appendReplacement(stringBuffer, new String(Character.toChars(Integer.parseInt(matcher.group().substring(2), 16))));
                 }
-                matcher.appendReplacement(stringBuffer, new String(Character.toChars(Integer.parseInt(matcher.group().substring(2), 16))));
+                if (stringBuffer == null) {
+                    return str;
+                }
+                matcher.appendTail(stringBuffer);
+                return stringBuffer.toString();
             }
-            if (stringBuffer == null) {
-                return str;
-            }
-            matcher.appendTail(stringBuffer);
-            return stringBuffer.toString();
+            return str;
         }
         return (String) invokeL.objValue;
     }

@@ -9,7 +9,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
 import com.baidu.tieba.r9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class FacePackageDownloadModel extends BdBaseModel<FacePackageDetailActivity> {
+public class FacePackageDownloadModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
@@ -26,8 +26,18 @@ public class FacePackageDownloadModel extends BdBaseModel<FacePackageDetailActiv
     public int d;
     public float e;
 
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     /* loaded from: classes4.dex */
-    public class a extends BdAsyncTask<Object, FacePackageDownloadData, FacePackageDownloadData> {
+    public class a extends BdAsyncTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
@@ -128,8 +138,8 @@ public class FacePackageDownloadModel extends BdBaseModel<FacePackageDetailActiv
         this.d = 0;
         this.a = null;
         TbadkApplication inst = TbadkApplication.getInst();
-        this.c = ej.k(inst);
-        this.d = ej.i(inst);
+        this.c = fj.k(inst);
+        this.d = fj.i(inst);
         this.e = inst.getResources().getDisplayMetrics().density;
     }
 
@@ -153,16 +163,6 @@ public class FacePackageDownloadModel extends BdBaseModel<FacePackageDetailActiv
                 aVar.cancel();
                 return false;
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean loadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;

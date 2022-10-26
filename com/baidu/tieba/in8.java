@@ -1,8 +1,9 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.util.SparseIntArray;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tbadkCore.data.AgreeData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,150 +12,106 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class in8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int[] c;
+    public static final int[] d;
+    public static final int[] e;
+    public static final int[] f;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public boolean c;
-    public boolean d;
-    public String e;
-    public Object f;
-    public AgreeData g;
-    public int h;
-    public int i;
+    public SparseIntArray a;
+    public final int[] b;
 
-    public in8() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947859382, "Lcom/baidu/tieba/in8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947859382, "Lcom/baidu/tieba/in8;");
+                return;
+            }
+        }
+        c = new int[]{3, 8, 13};
+        d = new int[]{2, 12};
+        e = new int[]{20};
+        f = new int[]{3, 13, 23};
+    }
+
+    public in8(String str, int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, iArr};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.c = false;
-        this.d = false;
-        this.e = "";
-        this.i = 0;
+        this.b = iArr;
+        this.a = new SparseIntArray();
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public void a(int i, int i2) {
+        SparseIntArray sparseIntArray;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.h : invokeV.intValue;
-    }
-
-    public AgreeData b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.g : (AgreeData) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public Object e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f : invokeV.objValue;
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.i : invokeV.intValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.c : invokeV.booleanValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.d : invokeV.booleanValue;
-    }
-
-    public void j(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.h = i;
+        if ((interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) && i >= 0 && i2 >= 0 && (sparseIntArray = this.a) != null) {
+            sparseIntArray.append(i2, i);
         }
     }
 
-    public void k(AgreeData agreeData) {
+    public int b(int i) {
+        InterceptResult invokeI;
+        SparseIntArray sparseIntArray;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, agreeData) == null) {
-            this.g = agreeData;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            if (i < 0 || (sparseIntArray = this.a) == null) {
+                return -1;
+            }
+            return sparseIntArray.get(i, -1);
+        }
+        return invokeI.intValue;
+    }
+
+    public void c(int i) {
+        SparseIntArray sparseIntArray;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && (sparseIntArray = this.a) != null) {
+            sparseIntArray.delete(i);
         }
     }
 
-    public void l(String str) {
+    public void e(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.e = str;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            if (i < 0) {
+                i = 0;
+            }
+            SparseIntArray sparseIntArray = this.a;
+            if (sparseIntArray != null) {
+                sparseIntArray.clear();
+                int[] iArr = this.b;
+                if (iArr != null) {
+                    for (int i2 : iArr) {
+                        if (i2 >= 0) {
+                            this.a.append(i2 + i, i2);
+                        }
+                    }
+                }
+            }
         }
     }
 
-    public void m(String str) {
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public void n(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            this.c = z;
-        }
-    }
-
-    public void o(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, obj) == null) {
-            this.f = obj;
-        }
-    }
-
-    public void p(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            this.d = z;
-        }
-    }
-
-    public void q(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.i = i;
-        }
-    }
-
-    public void r(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
-            this.a = str;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            e(0);
         }
     }
 }

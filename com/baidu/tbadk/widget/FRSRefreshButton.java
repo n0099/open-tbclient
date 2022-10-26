@@ -54,120 +54,6 @@ public class FRSRefreshButton extends ImageView {
         }
     }
 
-    public final void a(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            this.c.setXfermode(this.e);
-            canvas.drawPaint(this.c);
-            this.c.setXfermode(this.f);
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.i) {
-            AlphaAnimation alphaAnimation = this.j;
-            if (alphaAnimation != null) {
-                alphaAnimation.cancel();
-            }
-            AlphaAnimation alphaAnimation2 = new AlphaAnimation(1.0f, 0.0f);
-            this.j = alphaAnimation2;
-            alphaAnimation2.setDuration(300L);
-            this.j.setFillAfter(true);
-            startAnimation(this.j);
-            setClickable(false);
-            this.i = false;
-        }
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            Paint paint = new Paint();
-            this.c = paint;
-            paint.setAntiAlias(true);
-            this.c.setStyle(Paint.Style.FILL);
-            this.c.setAntiAlias(true);
-            this.g = SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f0809dc, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL);
-            setLayerType(1, null);
-        }
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || this.h == i) {
-            return;
-        }
-        this.h = i;
-        this.g = SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f0809dc, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL);
-        invalidate();
-    }
-
-    public final void e(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) || this.g == null) {
-            return;
-        }
-        canvas.save();
-        canvas.rotate(-45.0f, canvas.getWidth() / 2, canvas.getHeight() / 2);
-        int width = (getWidth() / 2) - (this.g.getIntrinsicWidth() / 2);
-        int height = (getHeight() / 2) - (this.g.getIntrinsicHeight() / 2);
-        int height2 = (getHeight() / 2) + (this.g.getIntrinsicHeight() / 2);
-        this.g.setBounds(width + 3, height + 3, ((getWidth() / 2) + (this.g.getIntrinsicWidth() / 2)) - 3, height2 - 3);
-        this.g.draw(canvas);
-        canvas.restore();
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.i) {
-            return;
-        }
-        setVisibility(0);
-        AlphaAnimation alphaAnimation = this.k;
-        if (alphaAnimation != null) {
-            alphaAnimation.cancel();
-        }
-        AlphaAnimation alphaAnimation2 = new AlphaAnimation(0.0f, 1.0f);
-        this.k = alphaAnimation2;
-        alphaAnimation2.setDuration(300L);
-        this.k.setFillAfter(true);
-        startAnimation(this.k);
-        setClickable(true);
-        this.i = true;
-    }
-
-    @Override // android.widget.ImageView, android.view.View
-    public void onDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, canvas) == null) || this.a <= 0 || this.b <= 0) {
-            return;
-        }
-        int saveCount = canvas.getSaveCount();
-        canvas.save();
-        a(canvas);
-        canvas.rotate(45.0f, this.a / 2, this.b / 2);
-        this.c.setShadowLayer(16.0f, 5.0f, 5.0f, SkinManager.getColor(R.color.CAM_X0804));
-        this.c.setColor(SkinManager.getColor(this.d));
-        int i = this.a;
-        canvas.drawCircle(i / 2, this.b / 2, (i / 2) - 20, this.c);
-        e(canvas);
-        if (saveCount < 1 || saveCount > canvas.getSaveCount()) {
-            return;
-        }
-        canvas.restoreToCount(saveCount);
-    }
-
-    @Override // android.widget.ImageView, android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048583, this, i, i2) == null) {
-            super.onMeasure(i, i2);
-            this.a = getMeasuredWidth();
-            this.b = getMeasuredHeight();
-        }
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public FRSRefreshButton(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
@@ -216,5 +102,118 @@ public class FRSRefreshButton extends ImageView {
         this.j = null;
         this.k = null;
         c();
+    }
+
+    public final void a(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
+            this.c.setXfermode(this.e);
+            canvas.drawPaint(this.c);
+            this.c.setXfermode(this.f);
+        }
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048579, this, i) != null) || this.h == i) {
+            return;
+        }
+        this.h = i;
+        this.g = SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f0809dc, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL);
+        invalidate();
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || !this.i) {
+            return;
+        }
+        AlphaAnimation alphaAnimation = this.j;
+        if (alphaAnimation != null) {
+            alphaAnimation.cancel();
+        }
+        AlphaAnimation alphaAnimation2 = new AlphaAnimation(1.0f, 0.0f);
+        this.j = alphaAnimation2;
+        alphaAnimation2.setDuration(300L);
+        this.j.setFillAfter(true);
+        startAnimation(this.j);
+        setClickable(false);
+        this.i = false;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            Paint paint = new Paint();
+            this.c = paint;
+            paint.setAntiAlias(true);
+            this.c.setStyle(Paint.Style.FILL);
+            this.c.setAntiAlias(true);
+            this.g = SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f0809dc, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL);
+            setLayerType(1, null);
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || this.i) {
+            return;
+        }
+        setVisibility(0);
+        AlphaAnimation alphaAnimation = this.k;
+        if (alphaAnimation != null) {
+            alphaAnimation.cancel();
+        }
+        AlphaAnimation alphaAnimation2 = new AlphaAnimation(0.0f, 1.0f);
+        this.k = alphaAnimation2;
+        alphaAnimation2.setDuration(300L);
+        this.k.setFillAfter(true);
+        startAnimation(this.k);
+        setClickable(true);
+        this.i = true;
+    }
+
+    public final void e(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, canvas) != null) || this.g == null) {
+            return;
+        }
+        canvas.save();
+        canvas.rotate(-45.0f, canvas.getWidth() / 2, canvas.getHeight() / 2);
+        int width = (getWidth() / 2) - (this.g.getIntrinsicWidth() / 2);
+        int height = (getHeight() / 2) - (this.g.getIntrinsicHeight() / 2);
+        int height2 = (getHeight() / 2) + (this.g.getIntrinsicHeight() / 2);
+        this.g.setBounds(width + 3, height + 3, ((getWidth() / 2) + (this.g.getIntrinsicWidth() / 2)) - 3, height2 - 3);
+        this.g.draw(canvas);
+        canvas.restore();
+    }
+
+    @Override // android.widget.ImageView, android.view.View
+    public void onDraw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, canvas) == null) && this.a > 0 && this.b > 0) {
+            int saveCount = canvas.getSaveCount();
+            canvas.save();
+            a(canvas);
+            canvas.rotate(45.0f, this.a / 2, this.b / 2);
+            this.c.setShadowLayer(16.0f, 5.0f, 5.0f, SkinManager.getColor(R.color.CAM_X0804));
+            this.c.setColor(SkinManager.getColor(this.d));
+            int i = this.a;
+            canvas.drawCircle(i / 2, this.b / 2, (i / 2) - 20, this.c);
+            e(canvas);
+            if (saveCount >= 1 && saveCount <= canvas.getSaveCount()) {
+                canvas.restoreToCount(saveCount);
+            }
+        }
+    }
+
+    @Override // android.widget.ImageView, android.view.View
+    public void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048583, this, i, i2) == null) {
+            super.onMeasure(i, i2);
+            this.a = getMeasuredWidth();
+            this.b = getMeasuredHeight();
+        }
     }
 }

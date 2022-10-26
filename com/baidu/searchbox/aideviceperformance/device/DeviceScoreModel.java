@@ -41,6 +41,18 @@ public class DeviceScoreModel {
     public transient /* synthetic */ FieldHolder $fh;
     public ModelManager mModelManager;
 
+    public static float roundUpRom(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(InputDeviceCompat.SOURCE_TRACKBALL, null, f)) == null) {
+            int i = 1;
+            while (f > i * 1.5d && (i = i << 1) <= 268435456) {
+            }
+            return i;
+        }
+        return invokeF.floatValue;
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -57,107 +69,12 @@ public class DeviceScoreModel {
         DEBUG = Config.isDebug();
     }
 
-    public DeviceScoreModel(IDeviceInfoModelProvider iDeviceInfoModelProvider) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {iDeviceInfoModelProvider};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        ModelManager modelManager = new ModelManager();
-        this.mModelManager = modelManager;
-        modelManager.setModelInfoProvider(iDeviceInfoModelProvider, ModelInfoDataProvider.DevicePerformanceModelInfoType.DeviceInfoGBDT);
-        this.mModelManager.setModelInfoProvider(iDeviceInfoModelProvider, ModelInfoDataProvider.DevicePerformanceModelInfoType.DeviceInfoLR);
-        this.mModelManager.setModelInfoProvider(iDeviceInfoModelProvider, ModelInfoDataProvider.DevicePerformanceModelInfoType.DeviceInfoMapper);
-    }
-
-    public static float mergeScore(float f, float f2) {
-        InterceptResult invokeCommon;
-        float f3;
-        float f4;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
-            float abs = Math.abs(f - f2);
-            if (abs < 0.05f) {
-                f3 = f * 0.8f;
-                f4 = f2 * 0.2f;
-            } else if (abs < 0.1f) {
-                f3 = f * 0.6f;
-                f4 = f2 * 0.4f;
-            } else if (abs < 0.15f) {
-                f3 = f * 0.4f;
-                f4 = f2 * 0.6f;
-            } else if (abs >= 0.2f) {
-                return f2;
-            } else {
-                f3 = f * 0.2f;
-                f4 = f2 * 0.8f;
-            }
-            return f3 + f4;
-        }
-        return invokeCommon.floatValue;
-    }
-
-    public static float predictByLRInline() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            float numCores = HardwareInfoUtils.getNumCores();
-            float aveCpuFrequency = HardwareInfoUtils.getAveCpuFrequency();
-            float totalMemory = HardwareInfoUtils.getTotalMemory();
-            float totalSDCardSize = HardwareInfoUtils.getTotalSDCardSize();
-            if (numCores <= 0.0f) {
-                numCores = 6.9822063f;
-            }
-            if (aveCpuFrequency <= 0.0f) {
-                aveCpuFrequency = 1.7859616f;
-            }
-            if (totalMemory <= 0.0f) {
-                totalMemory = 3.5425532f;
-            }
-            if (totalSDCardSize < 0.0f) {
-                totalSDCardSize = 51.957294f;
-            }
-            float round = (((Math.round(totalMemory) * 0.0572301f) + (roundUpRom(totalSDCardSize) * 4.1613E-4f)) + ((Math.round(numCores) * aveCpuFrequency) * 0.01155649f)) - (-0.0231852f);
-            if (DEBUG) {
-                Log.d(TAG, "predictByLRInline Result: " + round);
-            }
-            float f = round >= 0.0f ? round : 0.0f;
-            if (f > 1.0f) {
-                return 1.0f;
-            }
-            return f;
-        }
-        return invokeV.floatValue;
-    }
-
-    public static float roundUpRom(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(InputDeviceCompat.SOURCE_TRACKBALL, null, f)) == null) {
-            int i = 1;
-            while (f > i * 1.5d && (i = i << 1) <= 268435456) {
-            }
-            return i;
-        }
-        return invokeF.floatValue;
-    }
-
     public void checkAndUpdatePresetModel() {
         ModelManager modelManager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (modelManager = this.mModelManager) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (modelManager = this.mModelManager) != null) {
+            modelManager.checkAndUpdatePresetModel();
         }
-        modelManager.checkAndUpdatePresetModel();
     }
 
     public long getGBDTVersion() {
@@ -215,6 +132,91 @@ public class DeviceScoreModel {
             }
         }
         return invokeV.longValue;
+    }
+
+    public DeviceScoreModel(IDeviceInfoModelProvider iDeviceInfoModelProvider) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {iDeviceInfoModelProvider};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        ModelManager modelManager = new ModelManager();
+        this.mModelManager = modelManager;
+        modelManager.setModelInfoProvider(iDeviceInfoModelProvider, ModelInfoDataProvider.DevicePerformanceModelInfoType.DeviceInfoGBDT);
+        this.mModelManager.setModelInfoProvider(iDeviceInfoModelProvider, ModelInfoDataProvider.DevicePerformanceModelInfoType.DeviceInfoLR);
+        this.mModelManager.setModelInfoProvider(iDeviceInfoModelProvider, ModelInfoDataProvider.DevicePerformanceModelInfoType.DeviceInfoMapper);
+    }
+
+    public static float mergeScore(float f, float f2) {
+        InterceptResult invokeCommon;
+        float f3;
+        float f4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            float abs = Math.abs(f - f2);
+            if (abs < 0.05f) {
+                f3 = f * 0.8f;
+                f4 = f2 * 0.2f;
+            } else if (abs < 0.1f) {
+                f3 = f * 0.6f;
+                f4 = f2 * 0.4f;
+            } else if (abs < 0.15f) {
+                f3 = f * 0.4f;
+                f4 = f2 * 0.6f;
+            } else if (abs < 0.2f) {
+                f3 = f * 0.2f;
+                f4 = f2 * 0.8f;
+            } else {
+                return f2;
+            }
+            return f3 + f4;
+        }
+        return invokeCommon.floatValue;
+    }
+
+    public static float predictByLRInline() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            float numCores = HardwareInfoUtils.getNumCores();
+            float aveCpuFrequency = HardwareInfoUtils.getAveCpuFrequency();
+            float totalMemory = HardwareInfoUtils.getTotalMemory();
+            float totalSDCardSize = HardwareInfoUtils.getTotalSDCardSize();
+            float f = 0.0f;
+            if (numCores <= 0.0f) {
+                numCores = 6.9822063f;
+            }
+            if (aveCpuFrequency <= 0.0f) {
+                aveCpuFrequency = 1.7859616f;
+            }
+            if (totalMemory <= 0.0f) {
+                totalMemory = 3.5425532f;
+            }
+            if (totalSDCardSize < 0.0f) {
+                totalSDCardSize = 51.957294f;
+            }
+            float round = (((Math.round(totalMemory) * 0.0572301f) + (roundUpRom(totalSDCardSize) * 4.1613E-4f)) + ((Math.round(numCores) * aveCpuFrequency) * 0.01155649f)) - (-0.0231852f);
+            if (DEBUG) {
+                Log.d(TAG, "predictByLRInline Result: " + round);
+            }
+            if (round >= 0.0f) {
+                f = round;
+            }
+            if (f > 1.0f) {
+                return 1.0f;
+            }
+            return f;
+        }
+        return invokeV.floatValue;
     }
 
     public float mapStaticScore(float f) {
@@ -320,6 +322,60 @@ public class DeviceScoreModel {
         return invokeF.floatValue;
     }
 
+    public float predictByModel(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) {
+            float numCores = HardwareInfoUtils.getNumCores();
+            float aveCpuFrequency = HardwareInfoUtils.getAveCpuFrequency();
+            float totalMemory = HardwareInfoUtils.getTotalMemory();
+            float totalSDCardSize = HardwareInfoUtils.getTotalSDCardSize();
+            float screenResolution = (float) HardwareInfoUtils.getScreenResolution(context);
+            float screenDensity = HardwareInfoUtils.getScreenDensity(context);
+            if (DEBUG) {
+                Log.d(TAG, "cpuNumber:" + numCores + "; cpuFrequency:" + aveCpuFrequency + "; memSize:" + totalMemory + "; romSize:" + totalSDCardSize + "; screenResolution:" + screenResolution + "; screenDensity:" + screenDensity);
+            }
+            if (numCores <= 0.0f) {
+                numCores = 6.9822063f;
+            }
+            if (aveCpuFrequency <= 0.0f) {
+                aveCpuFrequency = 1.7859616f;
+            }
+            if (totalMemory <= 0.0f) {
+                totalMemory = 3.5425532f;
+            }
+            if (totalSDCardSize < 0.0f) {
+                totalSDCardSize = 51.957294f;
+            }
+            if (screenResolution <= 0.0f) {
+                screenResolution = 1904175.1f;
+            }
+            if (screenDensity <= 0.0f) {
+                screenDensity = 375.48398f;
+            }
+            float round = Math.round(numCores);
+            float ceil = (float) Math.ceil(totalMemory);
+            float roundUpRom = roundUpRom(totalSDCardSize);
+            float round2 = Math.round(screenResolution);
+            float round3 = Math.round(screenDensity);
+            float f = round * aveCpuFrequency;
+            float predictByGBDTModel = predictByGBDTModel(round, aveCpuFrequency, ceil, roundUpRom, round2, round3, f);
+            float predictByLRModel = predictByLRModel(aveCpuFrequency, ceil, roundUpRom, round2, f);
+            int i = (predictByLRModel > 0.0f ? 1 : (predictByLRModel == 0.0f ? 0 : -1));
+            if (i < 0 && predictByGBDTModel < 0.0f) {
+                return -1.0f;
+            }
+            if (i < 0) {
+                return predictByGBDTModel;
+            }
+            if (predictByGBDTModel < 0.0f) {
+                return predictByLRModel;
+            }
+            return mergeScore(predictByGBDTModel, predictByLRModel);
+        }
+        return invokeL.floatValue;
+    }
+
     public float predictByGBDTModel(float f, float f2, float f3, float f4, float f5, float f6, float f7) {
         InterceptResult invokeCommon;
         InferenceWrapper inferenceWrapper;
@@ -419,143 +475,96 @@ public class DeviceScoreModel {
     public float predictByLRModel(float f, float f2, float f3, float f4, float f5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) != null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) == null) {
+            InferenceWrapper inferenceWrapper = null;
+            try {
+                InferenceWrapper inferenceWrapper2 = new InferenceWrapper();
+                try {
+                    long currentTimeMillis = System.currentTimeMillis();
+                    inferenceWrapper2.init(AlgorithmType.GLM_REGRESSOR, ModelManager.getDevicePerformanceModelInfo(ModelInfoDataProvider.DevicePerformanceModelInfoType.DeviceInfoLR));
+                    if (DEBUG) {
+                        Log.d(TAG, "MODEL_DEVICE_SCORE_LR Load Time: " + (System.currentTimeMillis() - currentTimeMillis));
+                    }
+                    Tensor createInstance = Tensor.createInstance(new long[]{5}, FloatBuffer.wrap(new float[]{f, f2, f3, f4, f5}));
+                    long currentTimeMillis2 = System.currentTimeMillis();
+                    Float f6 = (Float) inferenceWrapper2.predictForRegressorTarget(createInstance, 0.5f, Float.class);
+                    if (DEBUG) {
+                        Log.d(TAG, "MODEL_DEVICE_SCORE_LR predict Time: " + (System.currentTimeMillis() - currentTimeMillis2));
+                        Log.d(TAG, "MODEL_DEVICE_SCORE_LR Result: " + f6);
+                    }
+                    if (f6.floatValue() < 0.0f) {
+                        f6 = Float.valueOf(0.0f);
+                    }
+                    if (f6.floatValue() > 1.0f) {
+                        f6 = Float.valueOf(1.0f);
+                    }
+                    float floatValue = f6.floatValue();
+                    try {
+                        inferenceWrapper2.close();
+                    } catch (Exception e) {
+                        if (DEBUG) {
+                            e.printStackTrace();
+                        }
+                    }
+                    return floatValue;
+                } catch (InferenceException unused) {
+                    inferenceWrapper = inferenceWrapper2;
+                    if (inferenceWrapper != null) {
+                        try {
+                            inferenceWrapper.close();
+                        } catch (Exception e2) {
+                            if (DEBUG) {
+                                e2.printStackTrace();
+                            }
+                        }
+                    }
+                    return -1.0f;
+                } catch (ModelLoadException unused2) {
+                    inferenceWrapper = inferenceWrapper2;
+                    if (inferenceWrapper != null) {
+                        try {
+                            inferenceWrapper.close();
+                        } catch (Exception e3) {
+                            if (DEBUG) {
+                                e3.printStackTrace();
+                            }
+                        }
+                    }
+                    return -1.0f;
+                } catch (IllegalStateException unused3) {
+                    inferenceWrapper = inferenceWrapper2;
+                    if (inferenceWrapper != null) {
+                        try {
+                            inferenceWrapper.close();
+                        } catch (Exception e4) {
+                            if (DEBUG) {
+                                e4.printStackTrace();
+                            }
+                        }
+                    }
+                    return -1.0f;
+                } catch (Throwable th) {
+                    th = th;
+                    inferenceWrapper = inferenceWrapper2;
+                    if (inferenceWrapper != null) {
+                        try {
+                            inferenceWrapper.close();
+                        } catch (Exception e5) {
+                            if (DEBUG) {
+                                e5.printStackTrace();
+                            }
+                        }
+                    }
+                    throw th;
+                }
+            } catch (InferenceException unused4) {
+            } catch (ModelLoadException unused5) {
+            } catch (IllegalStateException unused6) {
+            } catch (Throwable th2) {
+                th = th2;
+            }
+        } else {
             return invokeCommon.floatValue;
         }
-        InferenceWrapper inferenceWrapper = null;
-        try {
-            InferenceWrapper inferenceWrapper2 = new InferenceWrapper();
-            try {
-                long currentTimeMillis = System.currentTimeMillis();
-                inferenceWrapper2.init(AlgorithmType.GLM_REGRESSOR, ModelManager.getDevicePerformanceModelInfo(ModelInfoDataProvider.DevicePerformanceModelInfoType.DeviceInfoLR));
-                if (DEBUG) {
-                    Log.d(TAG, "MODEL_DEVICE_SCORE_LR Load Time: " + (System.currentTimeMillis() - currentTimeMillis));
-                }
-                Tensor createInstance = Tensor.createInstance(new long[]{5}, FloatBuffer.wrap(new float[]{f, f2, f3, f4, f5}));
-                long currentTimeMillis2 = System.currentTimeMillis();
-                Float f6 = (Float) inferenceWrapper2.predictForRegressorTarget(createInstance, 0.5f, Float.class);
-                if (DEBUG) {
-                    Log.d(TAG, "MODEL_DEVICE_SCORE_LR predict Time: " + (System.currentTimeMillis() - currentTimeMillis2));
-                    Log.d(TAG, "MODEL_DEVICE_SCORE_LR Result: " + f6);
-                }
-                if (f6.floatValue() < 0.0f) {
-                    f6 = Float.valueOf(0.0f);
-                }
-                if (f6.floatValue() > 1.0f) {
-                    f6 = Float.valueOf(1.0f);
-                }
-                float floatValue = f6.floatValue();
-                try {
-                    inferenceWrapper2.close();
-                } catch (Exception e) {
-                    if (DEBUG) {
-                        e.printStackTrace();
-                    }
-                }
-                return floatValue;
-            } catch (InferenceException unused) {
-                inferenceWrapper = inferenceWrapper2;
-                if (inferenceWrapper != null) {
-                    try {
-                        inferenceWrapper.close();
-                    } catch (Exception e2) {
-                        if (DEBUG) {
-                            e2.printStackTrace();
-                        }
-                    }
-                }
-                return -1.0f;
-            } catch (ModelLoadException unused2) {
-                inferenceWrapper = inferenceWrapper2;
-                if (inferenceWrapper != null) {
-                    try {
-                        inferenceWrapper.close();
-                    } catch (Exception e3) {
-                        if (DEBUG) {
-                            e3.printStackTrace();
-                        }
-                    }
-                }
-                return -1.0f;
-            } catch (IllegalStateException unused3) {
-                inferenceWrapper = inferenceWrapper2;
-                if (inferenceWrapper != null) {
-                    try {
-                        inferenceWrapper.close();
-                    } catch (Exception e4) {
-                        if (DEBUG) {
-                            e4.printStackTrace();
-                        }
-                    }
-                }
-                return -1.0f;
-            } catch (Throwable th) {
-                th = th;
-                inferenceWrapper = inferenceWrapper2;
-                if (inferenceWrapper != null) {
-                    try {
-                        inferenceWrapper.close();
-                    } catch (Exception e5) {
-                        if (DEBUG) {
-                            e5.printStackTrace();
-                        }
-                    }
-                }
-                throw th;
-            }
-        } catch (InferenceException unused4) {
-        } catch (ModelLoadException unused5) {
-        } catch (IllegalStateException unused6) {
-        } catch (Throwable th2) {
-            th = th2;
-        }
-    }
-
-    public float predictByModel(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) {
-            float numCores = HardwareInfoUtils.getNumCores();
-            float aveCpuFrequency = HardwareInfoUtils.getAveCpuFrequency();
-            float totalMemory = HardwareInfoUtils.getTotalMemory();
-            float totalSDCardSize = HardwareInfoUtils.getTotalSDCardSize();
-            float screenResolution = (float) HardwareInfoUtils.getScreenResolution(context);
-            float screenDensity = HardwareInfoUtils.getScreenDensity(context);
-            if (DEBUG) {
-                Log.d(TAG, "cpuNumber:" + numCores + "; cpuFrequency:" + aveCpuFrequency + "; memSize:" + totalMemory + "; romSize:" + totalSDCardSize + "; screenResolution:" + screenResolution + "; screenDensity:" + screenDensity);
-            }
-            if (numCores <= 0.0f) {
-                numCores = 6.9822063f;
-            }
-            if (aveCpuFrequency <= 0.0f) {
-                aveCpuFrequency = 1.7859616f;
-            }
-            if (totalMemory <= 0.0f) {
-                totalMemory = 3.5425532f;
-            }
-            if (totalSDCardSize < 0.0f) {
-                totalSDCardSize = 51.957294f;
-            }
-            if (screenResolution <= 0.0f) {
-                screenResolution = 1904175.1f;
-            }
-            if (screenDensity <= 0.0f) {
-                screenDensity = 375.48398f;
-            }
-            float round = Math.round(numCores);
-            float ceil = (float) Math.ceil(totalMemory);
-            float roundUpRom = roundUpRom(totalSDCardSize);
-            float round2 = Math.round(screenResolution);
-            float round3 = Math.round(screenDensity);
-            float f = round * aveCpuFrequency;
-            float predictByGBDTModel = predictByGBDTModel(round, aveCpuFrequency, ceil, roundUpRom, round2, round3, f);
-            float predictByLRModel = predictByLRModel(aveCpuFrequency, ceil, roundUpRom, round2, f);
-            int i = (predictByLRModel > 0.0f ? 1 : (predictByLRModel == 0.0f ? 0 : -1));
-            if (i >= 0 || predictByGBDTModel >= 0.0f) {
-                return i < 0 ? predictByGBDTModel : predictByGBDTModel < 0.0f ? predictByLRModel : mergeScore(predictByGBDTModel, predictByLRModel);
-            }
-            return -1.0f;
-        }
-        return invokeL.floatValue;
     }
 }

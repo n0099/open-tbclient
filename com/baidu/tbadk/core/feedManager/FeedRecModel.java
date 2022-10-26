@@ -9,12 +9,11 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.me5;
-import com.baidu.tieba.pb;
-import com.baidu.tieba.sm8;
+import com.baidu.tieba.qb;
+import com.baidu.tieba.se5;
+import com.baidu.tieba.zm8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,15 +21,22 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.Personalized.DataRes;
 /* loaded from: classes3.dex */
-public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
+public class FeedRecModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
     public int b;
-    public pb c;
+    public qb c;
 
     /* loaded from: classes3.dex */
-    public class a extends pb {
+    public interface b {
+        void a(DataRes dataRes, boolean z, boolean z2);
+
+        void onLoadError(int i, String str);
+    }
+
+    /* loaded from: classes3.dex */
+    public class a extends qb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FeedRecModel a;
@@ -59,49 +65,50 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
 
         /* JADX WARN: Removed duplicated region for block: B:23:0x0040  */
         /* JADX WARN: Removed duplicated region for block: B:24:0x0052  */
-        @Override // com.baidu.tieba.pb
+        @Override // com.baidu.tieba.qb
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
+        public void onMessage(ResponsedMessage responsedMessage) {
             boolean z;
+            boolean z2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null || this.a.a == null) {
-                return;
-            }
-            if (responsedMessage.getOrginalMessage() != null) {
-                Object extra = responsedMessage.getOrginalMessage().getExtra();
-                if (extra instanceof FeedRecRequest) {
-                    FeedRecRequest feedRecRequest = (FeedRecRequest) extra;
-                    boolean z2 = feedRecRequest.getLoadType() == 1;
-                    z = feedRecRequest.getNeedForumlist() == 1;
-                    r1 = z2;
-                    if (responsedMessage.getError() == 0) {
-                        this.a.a.onLoadError(responsedMessage.getError(), responsedMessage.getErrorString());
+            if ((interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) && responsedMessage != null && this.a.a != null) {
+                boolean z3 = false;
+                if (responsedMessage.getOrginalMessage() != null) {
+                    Object extra = responsedMessage.getOrginalMessage().getExtra();
+                    if (extra instanceof FeedRecRequest) {
+                        FeedRecRequest feedRecRequest = (FeedRecRequest) extra;
+                        if (feedRecRequest.getLoadType() == 1) {
+                            z2 = true;
+                        } else {
+                            z2 = false;
+                        }
+                        if (feedRecRequest.getNeedForumlist() == 1) {
+                            z3 = true;
+                        }
+                        z = z3;
+                        z3 = z2;
+                        if (responsedMessage.getError() == 0) {
+                            this.a.a.onLoadError(responsedMessage.getError(), responsedMessage.getErrorString());
+                            return;
+                        }
+                        DataRes dataRes = null;
+                        if (responsedMessage instanceof RecPersonalizeSocketResponse) {
+                            dataRes = ((RecPersonalizeSocketResponse) responsedMessage).getResultData();
+                        } else if (responsedMessage instanceof RecPersonalizeHttpResponse) {
+                            dataRes = ((RecPersonalizeHttpResponse) responsedMessage).getResultData();
+                        }
+                        BdLog.e("FeedRecManager.getInstance().getRecFeedData() :" + dataRes);
+                        this.a.a.a(dataRes, z3, z);
                         return;
                     }
-                    DataRes dataRes = null;
-                    if (responsedMessage instanceof RecPersonalizeSocketResponse) {
-                        dataRes = ((RecPersonalizeSocketResponse) responsedMessage).getResultData();
-                    } else if (responsedMessage instanceof RecPersonalizeHttpResponse) {
-                        dataRes = ((RecPersonalizeHttpResponse) responsedMessage).getResultData();
-                    }
-                    BdLog.e("FeedRecManager.getInstance().getRecFeedData() :" + dataRes);
-                    this.a.a.a(dataRes, r1, z);
-                    return;
+                }
+                z = false;
+                if (responsedMessage.getError() == 0) {
                 }
             }
-            z = false;
-            if (responsedMessage.getError() == 0) {
-            }
         }
-    }
-
-    /* loaded from: classes3.dex */
-    public interface b {
-        void a(DataRes dataRes, boolean z, boolean z2);
-
-        void onLoadError(int i, String str);
     }
 
     public FeedRecModel() {
@@ -125,35 +132,6 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
         registerListener(this.c);
     }
 
-    public final void A() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            me5 me5Var = new me5(309264);
-            me5Var.setResponsedClass(RecPersonalizeSocketResponse.class);
-            me5Var.g(true);
-            me5Var.setPriority(4);
-            MessageManager.getInstance().registerTask(me5Var);
-        }
-    }
-
-    public void B(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.a = bVar;
-        }
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            cancelMessage();
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean loadData() {
         InterceptResult invokeV;
@@ -174,11 +152,40 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
     public final void registerHttpTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, sm8.a(TbConfig.RECOMMEND_HOME_PAGE_ADDRESS, 309264));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, zm8.a(TbConfig.RECOMMEND_HOME_PAGE_ADDRESS, 309264));
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             tbHttpMessageTask.setResponsedClass(RecPersonalizeHttpResponse.class);
             tbHttpMessageTask.setPriority(4);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
+    }
+
+    public void B(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+            this.a = bVar;
+        }
+    }
+
+    public final void A() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            se5 se5Var = new se5(309264);
+            se5Var.setResponsedClass(RecPersonalizeSocketResponse.class);
+            se5Var.g(true);
+            se5Var.setPriority(4);
+            MessageManager.getInstance().registerTask(se5Var);
+        }
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            cancelMessage();
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

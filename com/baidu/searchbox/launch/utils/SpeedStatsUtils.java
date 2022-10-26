@@ -85,7 +85,7 @@ public class SpeedStatsUtils {
         }
     }
 
-    public static JSONObject getJsonData(long j, Map<String, String> map) {
+    public static JSONObject getJsonData(long j, Map map) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJL = interceptable.invokeJL(65537, null, j, map)) == null) {
@@ -94,10 +94,10 @@ public class SpeedStatsUtils {
                 jSONObject.put("duration", j);
                 if (map != null && map.size() > 0) {
                     JSONArray jSONArray = new JSONArray();
-                    for (Map.Entry<String, String> entry : map.entrySet()) {
-                        if (!TextUtils.isEmpty(entry.getKey()) && !TextUtils.isEmpty(entry.getValue())) {
+                    for (Map.Entry entry : map.entrySet()) {
+                        if (!TextUtils.isEmpty((CharSequence) entry.getKey()) && !TextUtils.isEmpty((CharSequence) entry.getValue())) {
                             JSONObject jSONObject2 = new JSONObject();
-                            jSONObject2.put(entry.getKey(), entry.getValue());
+                            jSONObject2.put((String) entry.getKey(), entry.getValue());
                             jSONArray.put(jSONObject2);
                         }
                     }
@@ -118,6 +118,12 @@ public class SpeedStatsUtils {
     public static boolean hasPermission(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) ? context.checkCallingOrSelfPermission(str) == 0 : invokeLL.booleanValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
+            if (context.checkCallingOrSelfPermission(str) == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
     }
 }

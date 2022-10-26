@@ -28,6 +28,12 @@ public class Dimension {
     public float mRatio;
     public int mValue;
 
+    public Dimension ratio(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeF = interceptable.invokeF(1048586, this, f)) == null) ? this : (Dimension) invokeF.objValue;
+    }
+
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
     public static final class Type {
@@ -82,13 +88,19 @@ public class Dimension {
         public static Type valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Type) Enum.valueOf(Type.class, str) : (Type) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (Type) Enum.valueOf(Type.class, str);
+            }
+            return (Type) invokeL.objValue;
         }
 
         public static Type[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Type[]) $VALUES.clone() : (Type[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (Type[]) $VALUES.clone();
+            }
+            return (Type[]) invokeV.objValue;
         }
     }
 
@@ -135,6 +147,32 @@ public class Dimension {
         this.mIsSuggested = false;
     }
 
+    public Dimension(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {obj};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.WRAP_CONTENT = -2;
+        this.mMin = 0;
+        this.mMax = Integer.MAX_VALUE;
+        this.mPercent = 1.0f;
+        this.mValue = 0;
+        this.mRatio = 1.0f;
+        this.mInitialValue = WRAP_DIMENSION;
+        this.mIsSuggested = false;
+        this.mInitialValue = obj;
+    }
+
     public static Dimension Fixed(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -144,29 +182,6 @@ public class Dimension {
             return dimension;
         }
         return (Dimension) invokeI.objValue;
-    }
-
-    public static Dimension Parent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? new Dimension(PARENT_DIMENSION) : (Dimension) invokeV.objValue;
-    }
-
-    public static Dimension Percent(Object obj, float f) {
-        InterceptResult invokeLF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65542, null, obj, f)) == null) {
-            Dimension dimension = new Dimension(PERCENT_DIMENSION);
-            dimension.percent(obj, f);
-            return dimension;
-        }
-        return (Dimension) invokeLF.objValue;
-    }
-
-    public static Dimension Spread() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? new Dimension(SPREAD_DIMENSION) : (Dimension) invokeV.objValue;
     }
 
     public static Dimension Suggested(int i) {
@@ -180,10 +195,204 @@ public class Dimension {
         return (Dimension) invokeI.objValue;
     }
 
+    public Dimension fixed(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            this.mInitialValue = null;
+            this.mValue = i;
+            return this;
+        }
+        return (Dimension) invokeI.objValue;
+    }
+
+    public Dimension max(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            if (this.mMax >= 0) {
+                this.mMax = i;
+            }
+            return this;
+        }
+        return (Dimension) invokeI.objValue;
+    }
+
+    public Dimension min(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            if (i >= 0) {
+                this.mMin = i;
+            }
+            return this;
+        }
+        return (Dimension) invokeI.objValue;
+    }
+
+    public void setRatio(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048587, this, f) == null) {
+            this.mRatio = f;
+        }
+    }
+
+    public void setValue(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.mIsSuggested = false;
+            this.mInitialValue = null;
+            this.mValue = i;
+        }
+    }
+
+    public Dimension suggested(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
+            this.mIsSuggested = true;
+            return this;
+        }
+        return (Dimension) invokeI.objValue;
+    }
+
+    public static Dimension Fixed(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj)) == null) {
+            Dimension dimension = new Dimension(FIXED_DIMENSION);
+            dimension.fixed(obj);
+            return dimension;
+        }
+        return (Dimension) invokeL.objValue;
+    }
+
+    public static Dimension Suggested(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, obj)) == null) {
+            Dimension dimension = new Dimension();
+            dimension.suggested(obj);
+            return dimension;
+        }
+        return (Dimension) invokeL.objValue;
+    }
+
+    public Dimension fixed(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            this.mInitialValue = obj;
+            if (obj instanceof Integer) {
+                this.mValue = ((Integer) obj).intValue();
+                this.mInitialValue = null;
+            }
+            return this;
+        }
+        return (Dimension) invokeL.objValue;
+    }
+
+    public Dimension max(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
+            Object obj2 = WRAP_DIMENSION;
+            if (obj == obj2 && this.mIsSuggested) {
+                this.mInitialValue = obj2;
+                this.mMax = Integer.MAX_VALUE;
+            }
+            return this;
+        }
+        return (Dimension) invokeL.objValue;
+    }
+
+    public Dimension min(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj)) == null) {
+            if (obj == WRAP_DIMENSION) {
+                this.mMin = -2;
+            }
+            return this;
+        }
+        return (Dimension) invokeL.objValue;
+    }
+
+    public Dimension suggested(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, obj)) == null) {
+            this.mInitialValue = obj;
+            this.mIsSuggested = true;
+            return this;
+        }
+        return (Dimension) invokeL.objValue;
+    }
+
+    public static Dimension Parent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return new Dimension(PARENT_DIMENSION);
+        }
+        return (Dimension) invokeV.objValue;
+    }
+
+    public static Dimension Spread() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return new Dimension(SPREAD_DIMENSION);
+        }
+        return (Dimension) invokeV.objValue;
+    }
+
     public static Dimension Wrap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? new Dimension(WRAP_DIMENSION) : (Dimension) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            return new Dimension(WRAP_DIMENSION);
+        }
+        return (Dimension) invokeV.objValue;
+    }
+
+    public float getRatio() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mRatio;
+        }
+        return invokeV.floatValue;
+    }
+
+    public int getValue() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mValue;
+        }
+        return invokeV.intValue;
+    }
+
+    public static Dimension Percent(Object obj, float f) {
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65542, null, obj, f)) == null) {
+            Dimension dimension = new Dimension(PERCENT_DIMENSION);
+            dimension.percent(obj, f);
+            return dimension;
+        }
+        return (Dimension) invokeLF.objValue;
+    }
+
+    public Dimension percent(Object obj, float f) {
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048585, this, obj, f)) == null) {
+            this.mPercent = f;
+            return this;
+        }
+        return (Dimension) invokeLF.objValue;
     }
 
     public void apply(State state, ConstraintWidget constraintWidget, int i) {
@@ -248,193 +457,5 @@ public class Dimension {
                 }
             }
         }
-    }
-
-    public Dimension fixed(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            this.mInitialValue = obj;
-            if (obj instanceof Integer) {
-                this.mValue = ((Integer) obj).intValue();
-                this.mInitialValue = null;
-            }
-            return this;
-        }
-        return (Dimension) invokeL.objValue;
-    }
-
-    public float getRatio() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mRatio : invokeV.floatValue;
-    }
-
-    public int getValue() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mValue : invokeV.intValue;
-    }
-
-    public Dimension max(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            if (this.mMax >= 0) {
-                this.mMax = i;
-            }
-            return this;
-        }
-        return (Dimension) invokeI.objValue;
-    }
-
-    public Dimension min(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            if (i >= 0) {
-                this.mMin = i;
-            }
-            return this;
-        }
-        return (Dimension) invokeI.objValue;
-    }
-
-    public Dimension percent(Object obj, float f) {
-        InterceptResult invokeLF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048585, this, obj, f)) == null) {
-            this.mPercent = f;
-            return this;
-        }
-        return (Dimension) invokeLF.objValue;
-    }
-
-    public Dimension ratio(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(1048586, this, f)) == null) ? this : (Dimension) invokeF.objValue;
-    }
-
-    public void setRatio(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048587, this, f) == null) {
-            this.mRatio = f;
-        }
-    }
-
-    public void setValue(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            this.mIsSuggested = false;
-            this.mInitialValue = null;
-            this.mValue = i;
-        }
-    }
-
-    public Dimension suggested(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
-            this.mIsSuggested = true;
-            return this;
-        }
-        return (Dimension) invokeI.objValue;
-    }
-
-    public Dimension min(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj)) == null) {
-            if (obj == WRAP_DIMENSION) {
-                this.mMin = -2;
-            }
-            return this;
-        }
-        return (Dimension) invokeL.objValue;
-    }
-
-    public Dimension suggested(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, obj)) == null) {
-            this.mInitialValue = obj;
-            this.mIsSuggested = true;
-            return this;
-        }
-        return (Dimension) invokeL.objValue;
-    }
-
-    public static Dimension Fixed(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj)) == null) {
-            Dimension dimension = new Dimension(FIXED_DIMENSION);
-            dimension.fixed(obj);
-            return dimension;
-        }
-        return (Dimension) invokeL.objValue;
-    }
-
-    public static Dimension Suggested(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, obj)) == null) {
-            Dimension dimension = new Dimension();
-            dimension.suggested(obj);
-            return dimension;
-        }
-        return (Dimension) invokeL.objValue;
-    }
-
-    public Dimension max(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
-            Object obj2 = WRAP_DIMENSION;
-            if (obj == obj2 && this.mIsSuggested) {
-                this.mInitialValue = obj2;
-                this.mMax = Integer.MAX_VALUE;
-            }
-            return this;
-        }
-        return (Dimension) invokeL.objValue;
-    }
-
-    public Dimension fixed(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            this.mInitialValue = null;
-            this.mValue = i;
-            return this;
-        }
-        return (Dimension) invokeI.objValue;
-    }
-
-    public Dimension(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {obj};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.WRAP_CONTENT = -2;
-        this.mMin = 0;
-        this.mMax = Integer.MAX_VALUE;
-        this.mPercent = 1.0f;
-        this.mValue = 0;
-        this.mRatio = 1.0f;
-        this.mInitialValue = WRAP_DIMENSION;
-        this.mIsSuggested = false;
-        this.mInitialValue = obj;
     }
 }

@@ -1,8 +1,5 @@
 package com.baidu.searchbox.bddownload.core.download;
 
-import androidx.annotation.IntRange;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bddownload.BdDownload;
@@ -21,7 +18,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -33,18 +29,12 @@ public class ConnectTrial {
     public static final String TAG = "ConnectTrial";
     public transient /* synthetic */ FieldHolder $fh;
     public boolean acceptRange;
-    @NonNull
     public final BreakpointInfo info;
-    @IntRange(from = -1)
     public long instanceLength;
     public int responseCode;
-    @Nullable
     public String responseEtag;
-    @Nullable
     public String responseFileType;
-    @Nullable
     public String responseFilename;
-    @NonNull
     public final DownloadTask task;
 
     static {
@@ -64,7 +54,85 @@ public class ConnectTrial {
         CONTENT_DISPOSITION_NON_QUOTED_PATTERN = Pattern.compile("attachment;\\s*filename\\s*=\\s*(.*)");
     }
 
-    public ConnectTrial(@NonNull DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo) {
+    public long getInstanceLength() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.instanceLength;
+        }
+        return invokeV.longValue;
+    }
+
+    public int getResponseCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.responseCode;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getResponseContentType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.responseFileType;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getResponseEtag() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.responseEtag;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getResponseFilename() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.responseFilename;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean isAcceptRange() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.acceptRange;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isChunked() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (this.instanceLength == -1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isEtagOverdue() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (this.info.getEtag() != null && !this.info.getEtag().equals(this.responseEtag)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public ConnectTrial(DownloadTask downloadTask, BreakpointInfo breakpointInfo) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -83,25 +151,55 @@ public class ConnectTrial {
         this.info = breakpointInfo;
     }
 
-    @Nullable
     public static String findContentType(DownloadConnection.Connected connected) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, connected)) == null) ? connected.getResponseHeaderField(Util.CONTENT_TYPE) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, connected)) == null) {
+            return connected.getResponseHeaderField(Util.CONTENT_TYPE);
+        }
+        return (String) invokeL.objValue;
     }
 
-    @Nullable
     public static String findEtag(DownloadConnection.Connected connected) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, connected)) == null) ? connected.getResponseHeaderField(Util.ETAG) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, connected)) == null) {
+            return connected.getResponseHeaderField(Util.ETAG);
+        }
+        return (String) invokeL.objValue;
     }
 
-    @Nullable
     public static String findFilename(DownloadConnection.Connected connected) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, connected)) == null) ? parseContentDisposition(connected.getResponseHeaderField("Content-Disposition")) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, connected)) == null) {
+            return parseContentDisposition(connected.getResponseHeaderField("Content-Disposition"));
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean isAcceptRange(DownloadConnection.Connected connected) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, connected)) == null) {
+            if (connected.getResponseCode() == 206) {
+                return true;
+            }
+            return "bytes".equals(connected.getResponseHeaderField(Util.ACCEPT_RANGES));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean parseTransferEncoding(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
+            if (str != null && str.equals("chunked")) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     public static long findInstanceLength(DownloadConnection.Connected connected) {
@@ -120,35 +218,7 @@ public class ConnectTrial {
         return invokeL.longValue;
     }
 
-    @Nullable
-    public static String parseContentDisposition(String str) throws IOException {
-        InterceptResult invokeL;
-        String group;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            if (str == null) {
-                return null;
-            }
-            try {
-                Matcher matcher = CONTENT_DISPOSITION_QUOTED_PATTERN.matcher(str);
-                if (matcher.find()) {
-                    group = matcher.group(1);
-                } else {
-                    Matcher matcher2 = CONTENT_DISPOSITION_NON_QUOTED_PATTERN.matcher(str);
-                    group = matcher2.find() ? matcher2.group(1) : null;
-                }
-                if (group != null && group.contains("../")) {
-                    throw new DownloadSecurityException("The filename [" + group + "] from the response is not allowable, because it contains '../', which can raise the directory traversal vulnerability");
-                }
-                return group;
-            } catch (IllegalStateException unused) {
-                return null;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static long parseContentRangeFoInstanceLength(@Nullable String str) {
+    public static long parseContentRangeFoInstanceLength(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
@@ -168,10 +238,35 @@ public class ConnectTrial {
         return invokeL.longValue;
     }
 
-    public static boolean parseTransferEncoding(@Nullable String str) {
+    public static String parseContentDisposition(String str) throws IOException {
         InterceptResult invokeL;
+        String str2;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) ? str != null && str.equals("chunked") : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            if (str == null) {
+                return null;
+            }
+            try {
+                Matcher matcher = CONTENT_DISPOSITION_QUOTED_PATTERN.matcher(str);
+                if (matcher.find()) {
+                    str2 = matcher.group(1);
+                } else {
+                    Matcher matcher2 = CONTENT_DISPOSITION_NON_QUOTED_PATTERN.matcher(str);
+                    if (matcher2.find()) {
+                        str2 = matcher2.group(1);
+                    } else {
+                        str2 = null;
+                    }
+                }
+                if (str2 != null && str2.contains("../")) {
+                    throw new DownloadSecurityException("The filename [" + str2 + "] from the response is not allowable, because it contains '../', which can raise the directory traversal vulnerability");
+                }
+                return str2;
+            } catch (IllegalStateException unused) {
+                return null;
+            }
+        }
+        return (String) invokeL.objValue;
     }
 
     public void executeTrial() throws IOException {
@@ -185,7 +280,7 @@ public class ConnectTrial {
                     create.addHeader(Util.IF_MATCH, this.info.getEtag());
                 }
                 create.addHeader("Range", "bytes=0-0");
-                Map<String, List<String>> headerMapFields = this.task.getHeaderMapFields();
+                Map headerMapFields = this.task.getHeaderMapFields();
                 if (headerMapFields != null) {
                     Util.addUserRequestHeaderField(headerMapFields, create);
                 }
@@ -200,9 +295,9 @@ public class ConnectTrial {
                 this.responseEtag = findEtag(execute);
                 this.responseFilename = findFilename(execute);
                 this.responseFileType = findContentType(execute);
-                Map<String, List<String>> responseHeaderFields = execute.getResponseHeaderFields();
+                Map responseHeaderFields = execute.getResponseHeaderFields();
                 if (responseHeaderFields == null) {
-                    responseHeaderFields = new HashMap<>();
+                    responseHeaderFields = new HashMap();
                 }
                 dispatch.connectTrialEnd(this.task, this.responseCode, responseHeaderFields);
                 if (isNeedTrialHeadMethodForInstanceLength(this.instanceLength, execute)) {
@@ -214,58 +309,7 @@ public class ConnectTrial {
         }
     }
 
-    public long getInstanceLength() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.instanceLength : invokeV.longValue;
-    }
-
-    public int getResponseCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.responseCode : invokeV.intValue;
-    }
-
-    @Nullable
-    public String getResponseContentType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.responseFileType : (String) invokeV.objValue;
-    }
-
-    @Nullable
-    public String getResponseEtag() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.responseEtag : (String) invokeV.objValue;
-    }
-
-    @Nullable
-    public String getResponseFilename() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.responseFilename : (String) invokeV.objValue;
-    }
-
-    public boolean isAcceptRange() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.acceptRange : invokeV.booleanValue;
-    }
-
-    public boolean isChunked() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.instanceLength == -1 : invokeV.booleanValue;
-    }
-
-    public boolean isEtagOverdue() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (this.info.getEtag() == null || this.info.getEtag().equals(this.responseEtag)) ? false : true : invokeV.booleanValue;
-    }
-
-    public boolean isNeedTrialHeadMethodForInstanceLength(long j, @NonNull DownloadConnection.Connected connected) {
+    public boolean isNeedTrialHeadMethodForInstanceLength(long j, DownloadConnection.Connected connected) {
         InterceptResult invokeJL;
         String responseHeaderField;
         Interceptable interceptable = $ic;
@@ -274,7 +318,10 @@ public class ConnectTrial {
                 return false;
             }
             String responseHeaderField2 = connected.getResponseHeaderField("Content-Range");
-            return (responseHeaderField2 == null || responseHeaderField2.length() <= 0) && !parseTransferEncoding(connected.getResponseHeaderField("Transfer-Encoding")) && (responseHeaderField = connected.getResponseHeaderField("Content-Length")) != null && responseHeaderField.length() > 0;
+            if ((responseHeaderField2 != null && responseHeaderField2.length() > 0) || parseTransferEncoding(connected.getResponseHeaderField("Transfer-Encoding")) || (responseHeaderField = connected.getResponseHeaderField("Content-Length")) == null || responseHeaderField.length() <= 0) {
+                return false;
+            }
+            return true;
         }
         return invokeJL.booleanValue;
     }
@@ -286,7 +333,7 @@ public class ConnectTrial {
             DownloadListener dispatch = BdDownload.with().callbackDispatcher().dispatch();
             try {
                 create.setRequestMethod("HEAD");
-                Map<String, List<String>> headerMapFields = this.task.getHeaderMapFields();
+                Map headerMapFields = this.task.getHeaderMapFields();
                 if (headerMapFields != null) {
                     Util.addUserRequestHeaderField(headerMapFields, create);
                 }
@@ -298,17 +345,5 @@ public class ConnectTrial {
                 create.release();
             }
         }
-    }
-
-    public static boolean isAcceptRange(@NonNull DownloadConnection.Connected connected) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, connected)) == null) {
-            if (connected.getResponseCode() == 206) {
-                return true;
-            }
-            return "bytes".equals(connected.getResponseHeaderField(Util.ACCEPT_RANGES));
-        }
-        return invokeL.booleanValue;
     }
 }

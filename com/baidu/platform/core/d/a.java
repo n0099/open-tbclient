@@ -82,7 +82,7 @@ public class a extends com.baidu.platform.base.d {
         return (RouteNode) invokeLLL.objValue;
     }
 
-    private List<BikingRouteLine.BikingStep> a(JSONArray jSONArray) {
+    private List a(JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, jSONArray)) == null) {
@@ -217,7 +217,7 @@ public class a extends com.baidu.platform.base.d {
         return (SuggestAddrInfo) invokeL.objValue;
     }
 
-    private List<PoiInfo> b(JSONObject jSONObject, String str, String str2) {
+    private List b(JSONObject jSONObject, String str, String str2) {
         InterceptResult invokeLLL;
         JSONArray optJSONArray;
         Interceptable interceptable = $ic;
@@ -286,7 +286,7 @@ public class a extends com.baidu.platform.base.d {
         return (SearchResult) invokeL.objValue;
     }
 
-    public List<CityInfo> a(JSONObject jSONObject, String str) {
+    public List a(JSONObject jSONObject, String str) {
         InterceptResult invokeLL;
         JSONArray optJSONArray;
         Interceptable interceptable = $ic;

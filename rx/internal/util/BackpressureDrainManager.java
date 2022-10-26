@@ -1,7 +1,7 @@
 package rx.internal.util;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hx9;
+import com.baidu.tieba.zx9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes9.dex */
-public final class BackpressureDrainManager extends AtomicLong implements hx9 {
+public final class BackpressureDrainManager extends AtomicLong implements zx9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 2826241102729529449L;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,6 +45,23 @@ public final class BackpressureDrainManager extends AtomicLong implements hx9 {
             }
         }
         this.actual = aVar;
+    }
+
+    public void terminate(Throwable th) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, th) == null) && !this.terminated) {
+            this.exception = th;
+            this.terminated = true;
+        }
+    }
+
+    public void terminateAndDrain(Throwable th) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, th) == null) && !this.terminated) {
+            this.exception = th;
+            this.terminated = true;
+            drain();
+        }
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:24:0x0031, code lost:
@@ -127,59 +144,58 @@ public final class BackpressureDrainManager extends AtomicLong implements hx9 {
     */
     public void drain() {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-            return;
-        }
-        synchronized (this) {
-            if (this.emitting) {
-                return;
-            }
-            boolean z = true;
-            this.emitting = true;
-            boolean z2 = this.terminated;
-            long j = get();
-            try {
-                a aVar = this.actual;
-                while (true) {
-                    int i = 0;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this) {
+                if (this.emitting) {
+                    return;
+                }
+                boolean z = true;
+                this.emitting = true;
+                boolean z2 = this.terminated;
+                long j = get();
+                try {
+                    a aVar = this.actual;
                     while (true) {
-                        int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-                        try {
-                            if (i2 > 0 || z2) {
-                                if (z2) {
-                                    if (aVar.peek() == null) {
-                                        aVar.a(this.exception);
-                                        return;
-                                    }
-                                }
-                                Object poll = aVar.poll();
-                                if (poll != null) {
-                                    if (aVar.accept(poll)) {
-                                        return;
-                                    }
-                                    j--;
-                                    i++;
-                                }
-                            }
+                        int i = 0;
+                        while (true) {
+                            int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
                             try {
-                                break;
-                            } catch (Throwable th) {
-                                th = th;
-                            }
-                        } catch (Throwable th2) {
-                            th = th2;
-                            if (!z) {
-                                synchronized (this) {
-                                    this.emitting = false;
+                                if (i2 > 0 || z2) {
+                                    if (z2) {
+                                        if (aVar.peek() == null) {
+                                            aVar.a(this.exception);
+                                            return;
+                                        }
+                                    }
+                                    Object poll = aVar.poll();
+                                    if (poll != null) {
+                                        if (aVar.accept(poll)) {
+                                            return;
+                                        }
+                                        j--;
+                                        i++;
+                                    }
                                 }
+                                try {
+                                    break;
+                                } catch (Throwable th) {
+                                    th = th;
+                                }
+                            } catch (Throwable th2) {
+                                th = th2;
+                                if (!z) {
+                                    synchronized (this) {
+                                        this.emitting = false;
+                                    }
+                                }
+                                throw th;
                             }
-                            throw th;
                         }
                     }
+                } catch (Throwable th3) {
+                    th = th3;
+                    z = false;
                 }
-            } catch (Throwable th3) {
-                th = th3;
-                z = false;
             }
         }
     }
@@ -187,38 +203,10 @@ public final class BackpressureDrainManager extends AtomicLong implements hx9 {
     public boolean isTerminated() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.terminated : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.hx9
-    public void request(long j) {
-        boolean z;
-        long j2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) || j == 0) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.terminated;
         }
-        while (true) {
-            long j3 = get();
-            boolean z2 = true;
-            z = j3 == 0;
-            if (j3 == Long.MAX_VALUE) {
-                break;
-            }
-            if (j == Long.MAX_VALUE) {
-                j2 = j;
-            } else {
-                j2 = j3 <= Long.MAX_VALUE - j ? j3 + j : Long.MAX_VALUE;
-                z2 = z;
-            }
-            if (compareAndSet(j3, j2)) {
-                z = z2;
-                break;
-            }
-        }
-        if (z) {
-            drain();
-        }
+        return invokeV.booleanValue;
     }
 
     public void terminate() {
@@ -236,22 +224,40 @@ public final class BackpressureDrainManager extends AtomicLong implements hx9 {
         }
     }
 
-    public void terminate(Throwable th) {
+    @Override // com.baidu.tieba.zx9
+    public void request(long j) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, th) == null) || this.terminated) {
+        if ((interceptable != null && interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) != null) || j == 0) {
             return;
         }
-        this.exception = th;
-        this.terminated = true;
-    }
-
-    public void terminateAndDrain(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, th) == null) || this.terminated) {
-            return;
+        while (true) {
+            long j2 = get();
+            boolean z2 = true;
+            if (j2 == 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            long j3 = Long.MAX_VALUE;
+            if (j2 == Long.MAX_VALUE) {
+                break;
+            }
+            if (j == Long.MAX_VALUE) {
+                j3 = j;
+            } else {
+                if (j2 <= Long.MAX_VALUE - j) {
+                    j3 = j2 + j;
+                }
+                z2 = z;
+            }
+            if (compareAndSet(j2, j3)) {
+                z = z2;
+                break;
+            }
         }
-        this.exception = th;
-        this.terminated = true;
-        drain();
+        if (z) {
+            drain();
+        }
     }
 }

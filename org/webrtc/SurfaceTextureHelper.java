@@ -1,6 +1,5 @@
 package org.webrtc;
 
-import android.annotation.TargetApi;
 import android.graphics.SurfaceTexture;
 import android.opengl.GLES20;
 import android.os.Build;
@@ -8,7 +7,7 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.xw9;
+import com.baidu.tieba.px9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +18,7 @@ import javax.annotation.Nullable;
 import org.webrtc.EglBase;
 import org.webrtc.SurfaceTextureHelper;
 import org.webrtc.VideoFrame;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class SurfaceTextureHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "SurfaceTextureHelper";
@@ -43,6 +42,163 @@ public class SurfaceTextureHelper {
     public final TimestampAligner timestampAligner;
     public final YuvConverter yuvConverter;
 
+    public SurfaceTextureHelper(EglBase.Context context, Handler handler, boolean z) {
+        TimestampAligner timestampAligner;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, handler, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.yuvConverter = new YuvConverter();
+        this.setListenerRunnable = new Runnable(this) { // from class: org.webrtc.SurfaceTextureHelper.2
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ SurfaceTextureHelper this$0;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr2 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    Logging.d(SurfaceTextureHelper.TAG, "Setting listener to " + this.this$0.pendingListener);
+                    SurfaceTextureHelper surfaceTextureHelper = this.this$0;
+                    surfaceTextureHelper.listener = surfaceTextureHelper.pendingListener;
+                    this.this$0.pendingListener = null;
+                    if (!this.this$0.hasPendingTexture) {
+                        return;
+                    }
+                    this.this$0.updateTexImage();
+                    this.this$0.hasPendingTexture = false;
+                }
+            }
+        };
+        if (handler.getLooper().getThread() == Thread.currentThread()) {
+            this.handler = handler;
+            if (z) {
+                timestampAligner = new TimestampAligner();
+            } else {
+                timestampAligner = null;
+            }
+            this.timestampAligner = timestampAligner;
+            EglBase c = px9.c(context, EglBase.CONFIG_PIXEL_BUFFER);
+            this.eglBase = c;
+            try {
+                c.createDummyPbufferSurface();
+                this.eglBase.makeCurrent();
+                this.oesTextureId = GlUtil.generateTexture(36197);
+                SurfaceTexture surfaceTexture = new SurfaceTexture(this.oesTextureId);
+                this.surfaceTexture = surfaceTexture;
+                setOnFrameAvailableListener(surfaceTexture, new SurfaceTexture.OnFrameAvailableListener() { // from class: com.baidu.tieba.ww9
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // android.graphics.SurfaceTexture.OnFrameAvailableListener
+                    public final void onFrameAvailable(SurfaceTexture surfaceTexture2) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, surfaceTexture2) == null) {
+                            SurfaceTextureHelper.this.c(surfaceTexture2);
+                        }
+                    }
+                }, handler);
+                return;
+            } catch (RuntimeException e) {
+                this.eglBase.release();
+                handler.getLooper().quit();
+                throw e;
+            }
+        }
+        throw new IllegalStateException("SurfaceTextureHelper must be created on the handler thread");
+    }
+
+    public /* synthetic */ void c(SurfaceTexture surfaceTexture) {
+        this.hasPendingTexture = true;
+        tryDeliverTextureFrame();
+    }
+
+    public /* synthetic */ void e(int i) {
+        this.frameRotation = i;
+    }
+
+    public void setFrameRotation(final int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.handler.post(new Runnable() { // from class: com.baidu.tieba.xw9
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        SurfaceTextureHelper.this.e(i);
+                    }
+                }
+            });
+        }
+    }
+
+    public void startListening(VideoSink videoSink) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, videoSink) == null) {
+            if (this.listener == null && this.pendingListener == null) {
+                this.pendingListener = videoSink;
+                this.handler.post(this.setListenerRunnable);
+                return;
+            }
+            throw new IllegalStateException("SurfaceTextureHelper listener has already been set.");
+        }
+    }
+
+    @Deprecated
+    public VideoFrame.I420Buffer textureToYuv(VideoFrame.TextureBuffer textureBuffer) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, textureBuffer)) == null) {
+            return textureBuffer.toI420();
+        }
+        return (VideoFrame.I420Buffer) invokeL.objValue;
+    }
+
+    public static SurfaceTextureHelper create(String str, EglBase.Context context) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, str, context)) == null) {
+            return create(str, context, false);
+        }
+        return (SurfaceTextureHelper) invokeLL.objValue;
+    }
+
+    public /* synthetic */ void f(int i, int i2) {
+        this.textureWidth = i;
+        this.textureHeight = i2;
+    }
+
     public static SurfaceTextureHelper create(String str, EglBase.Context context, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
@@ -50,7 +206,7 @@ public class SurfaceTextureHelper {
             HandlerThread handlerThread = new HandlerThread(str);
             handlerThread.start();
             Handler handler = new Handler(handlerThread.getLooper());
-            return (SurfaceTextureHelper) ThreadUtils.invokeAtFrontUninterruptibly(handler, new Callable<SurfaceTextureHelper>(context, handler, z, str) { // from class: org.webrtc.SurfaceTextureHelper.1
+            return (SurfaceTextureHelper) ThreadUtils.invokeAtFrontUninterruptibly(handler, new Callable(context, handler, z, str) { // from class: org.webrtc.SurfaceTextureHelper.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ boolean val$alignTimestamps;
@@ -100,6 +256,17 @@ public class SurfaceTextureHelper {
         return (SurfaceTextureHelper) invokeLLZ.objValue;
     }
 
+    public static void setOnFrameAvailableListener(SurfaceTexture surfaceTexture, SurfaceTexture.OnFrameAvailableListener onFrameAvailableListener, Handler handler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65549, null, surfaceTexture, onFrameAvailableListener, handler) == null) {
+            if (Build.VERSION.SDK_INT >= 21) {
+                surfaceTexture.setOnFrameAvailableListener(onFrameAvailableListener, handler);
+            } else {
+                surfaceTexture.setOnFrameAvailableListener(onFrameAvailableListener);
+            }
+        }
+    }
+
     private void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
@@ -127,7 +294,7 @@ public class SurfaceTextureHelper {
     public void returnTextureFrame() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65548, this) == null) {
-            this.handler.post(new Runnable() { // from class: com.baidu.tieba.jw9
+            this.handler.post(new Runnable() { // from class: com.baidu.tieba.bx9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -139,60 +306,6 @@ public class SurfaceTextureHelper {
                     }
                 }
             });
-        }
-    }
-
-    @TargetApi(21)
-    public static void setOnFrameAvailableListener(SurfaceTexture surfaceTexture, SurfaceTexture.OnFrameAvailableListener onFrameAvailableListener, Handler handler) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65549, null, surfaceTexture, onFrameAvailableListener, handler) == null) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                surfaceTexture.setOnFrameAvailableListener(onFrameAvailableListener, handler);
-            } else {
-                surfaceTexture.setOnFrameAvailableListener(onFrameAvailableListener);
-            }
-        }
-    }
-
-    private void tryDeliverTextureFrame() {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65550, this) == null) {
-            if (this.handler.getLooper().getThread() == Thread.currentThread()) {
-                if (this.isQuitting || !this.hasPendingTexture || this.isTextureInUse || this.listener == null) {
-                    return;
-                }
-                this.isTextureInUse = true;
-                this.hasPendingTexture = false;
-                updateTexImage();
-                float[] fArr = new float[16];
-                this.surfaceTexture.getTransformMatrix(fArr);
-                long timestamp = this.surfaceTexture.getTimestamp();
-                TimestampAligner timestampAligner = this.timestampAligner;
-                if (timestampAligner != null) {
-                    timestamp = timestampAligner.translateTimestamp(timestamp);
-                }
-                int i2 = this.textureWidth;
-                if (i2 != 0 && (i = this.textureHeight) != 0) {
-                    VideoFrame videoFrame = new VideoFrame(new TextureBufferImpl(i2, i, VideoFrame.TextureBuffer.Type.OES, this.oesTextureId, RendererCommon.convertMatrixToAndroidGraphicsMatrix(fArr), this.handler, this.yuvConverter, new Runnable() { // from class: com.baidu.tieba.iw9
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-
-                        @Override // java.lang.Runnable
-                        public final void run() {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                SurfaceTextureHelper.this.returnTextureFrame();
-                            }
-                        }
-                    }), this.frameRotation, timestamp);
-                    this.listener.onFrame(videoFrame);
-                    videoFrame.release();
-                    return;
-                }
-                throw new RuntimeException("Texture size has not been set.");
-            }
-            throw new IllegalStateException("Wrong thread.");
         }
     }
 
@@ -208,15 +321,9 @@ public class SurfaceTextureHelper {
 
     public /* synthetic */ void a() {
         this.isQuitting = true;
-        if (this.isTextureInUse) {
-            return;
+        if (!this.isTextureInUse) {
+            release();
         }
-        release();
-    }
-
-    public /* synthetic */ void c(SurfaceTexture surfaceTexture) {
-        this.hasPendingTexture = true;
-        tryDeliverTextureFrame();
     }
 
     public /* synthetic */ void d() {
@@ -232,7 +339,7 @@ public class SurfaceTextureHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             Logging.d(TAG, "dispose()");
-            ThreadUtils.invokeAtFrontUninterruptibly(this.handler, new Runnable() { // from class: com.baidu.tieba.hw9
+            ThreadUtils.invokeAtFrontUninterruptibly(this.handler, new Runnable() { // from class: com.baidu.tieba.zw9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -247,15 +354,6 @@ public class SurfaceTextureHelper {
         }
     }
 
-    public /* synthetic */ void e(int i) {
-        this.frameRotation = i;
-    }
-
-    public /* synthetic */ void f(int i, int i2) {
-        this.textureWidth = i;
-        this.textureHeight = i2;
-    }
-
     public /* synthetic */ void g() {
         this.listener = null;
         this.pendingListener = null;
@@ -264,74 +362,28 @@ public class SurfaceTextureHelper {
     public Handler getHandler() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.handler : (Handler) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.handler;
+        }
+        return (Handler) invokeV.objValue;
     }
 
     public SurfaceTexture getSurfaceTexture() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.surfaceTexture : (SurfaceTexture) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.surfaceTexture;
+        }
+        return (SurfaceTexture) invokeV.objValue;
     }
 
     public boolean isTextureInUse() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.isTextureInUse : invokeV.booleanValue;
-    }
-
-    public void setFrameRotation(final int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.handler.post(new Runnable() { // from class: com.baidu.tieba.fw9
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        SurfaceTextureHelper.this.e(i);
-                    }
-                }
-            });
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.isTextureInUse;
         }
-    }
-
-    public void setTextureSize(final int i, final int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048587, this, i, i2) == null) {
-            if (i <= 0) {
-                throw new IllegalArgumentException("Texture width must be positive, but was " + i);
-            } else if (i2 > 0) {
-                this.surfaceTexture.setDefaultBufferSize(i, i2);
-                this.handler.post(new Runnable() { // from class: com.baidu.tieba.kw9
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // java.lang.Runnable
-                    public final void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            SurfaceTextureHelper.this.f(i, i2);
-                        }
-                    }
-                });
-            } else {
-                throw new IllegalArgumentException("Texture height must be positive, but was " + i2);
-            }
-        }
-    }
-
-    public void startListening(VideoSink videoSink) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, videoSink) == null) {
-            if (this.listener == null && this.pendingListener == null) {
-                this.pendingListener = videoSink;
-                this.handler.post(this.setListenerRunnable);
-                return;
-            }
-            throw new IllegalStateException("SurfaceTextureHelper listener has already been set.");
-        }
+        return invokeV.booleanValue;
     }
 
     public void stopListening() {
@@ -339,7 +391,7 @@ public class SurfaceTextureHelper {
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             Logging.d(TAG, "stopListening()");
             this.handler.removeCallbacks(this.setListenerRunnable);
-            ThreadUtils.invokeAtFrontUninterruptibly(this.handler, new Runnable() { // from class: com.baidu.tieba.gw9
+            ThreadUtils.invokeAtFrontUninterruptibly(this.handler, new Runnable() { // from class: com.baidu.tieba.yw9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -354,103 +406,71 @@ public class SurfaceTextureHelper {
         }
     }
 
-    @Deprecated
-    public VideoFrame.I420Buffer textureToYuv(VideoFrame.TextureBuffer textureBuffer) {
-        InterceptResult invokeL;
+    private void tryDeliverTextureFrame() {
+        int i;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, textureBuffer)) == null) ? textureBuffer.toI420() : (VideoFrame.I420Buffer) invokeL.objValue;
-    }
+        if (interceptable == null || interceptable.invokeV(65550, this) == null) {
+            if (this.handler.getLooper().getThread() == Thread.currentThread()) {
+                if (!this.isQuitting && this.hasPendingTexture && !this.isTextureInUse && this.listener != null) {
+                    this.isTextureInUse = true;
+                    this.hasPendingTexture = false;
+                    updateTexImage();
+                    float[] fArr = new float[16];
+                    this.surfaceTexture.getTransformMatrix(fArr);
+                    long timestamp = this.surfaceTexture.getTimestamp();
+                    TimestampAligner timestampAligner = this.timestampAligner;
+                    if (timestampAligner != null) {
+                        timestamp = timestampAligner.translateTimestamp(timestamp);
+                    }
+                    int i2 = this.textureWidth;
+                    if (i2 != 0 && (i = this.textureHeight) != 0) {
+                        VideoFrame videoFrame = new VideoFrame(new TextureBufferImpl(i2, i, VideoFrame.TextureBuffer.Type.OES, this.oesTextureId, RendererCommon.convertMatrixToAndroidGraphicsMatrix(fArr), this.handler, this.yuvConverter, new Runnable() { // from class: com.baidu.tieba.ax9
+                            public static /* synthetic */ Interceptable $ic;
+                            public transient /* synthetic */ FieldHolder $fh;
 
-    public SurfaceTextureHelper(EglBase.Context context, Handler handler, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, handler, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.yuvConverter = new YuvConverter();
-        this.setListenerRunnable = new Runnable(this) { // from class: org.webrtc.SurfaceTextureHelper.2
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ SurfaceTextureHelper this$0;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = r2;
-                    Object[] objArr2 = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i3 = newInitContext2.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
+                            @Override // java.lang.Runnable
+                            public final void run() {
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                    SurfaceTextureHelper.this.returnTextureFrame();
+                                }
+                            }
+                        }), this.frameRotation, timestamp);
+                        this.listener.onFrame(videoFrame);
+                        videoFrame.release();
                         return;
                     }
+                    throw new RuntimeException("Texture size has not been set.");
                 }
-                this.this$0 = this;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    Logging.d(SurfaceTextureHelper.TAG, "Setting listener to " + this.this$0.pendingListener);
-                    SurfaceTextureHelper surfaceTextureHelper = this.this$0;
-                    surfaceTextureHelper.listener = surfaceTextureHelper.pendingListener;
-                    this.this$0.pendingListener = null;
-                    if (this.this$0.hasPendingTexture) {
-                        this.this$0.updateTexImage();
-                        this.this$0.hasPendingTexture = false;
-                    }
-                }
-            }
-        };
-        if (handler.getLooper().getThread() == Thread.currentThread()) {
-            this.handler = handler;
-            this.timestampAligner = z ? new TimestampAligner() : null;
-            EglBase c = xw9.c(context, EglBase.CONFIG_PIXEL_BUFFER);
-            this.eglBase = c;
-            try {
-                c.createDummyPbufferSurface();
-                this.eglBase.makeCurrent();
-                this.oesTextureId = GlUtil.generateTexture(36197);
-                SurfaceTexture surfaceTexture = new SurfaceTexture(this.oesTextureId);
-                this.surfaceTexture = surfaceTexture;
-                setOnFrameAvailableListener(surfaceTexture, new SurfaceTexture.OnFrameAvailableListener() { // from class: com.baidu.tieba.ew9
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // android.graphics.SurfaceTexture.OnFrameAvailableListener
-                    public final void onFrameAvailable(SurfaceTexture surfaceTexture2) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, surfaceTexture2) == null) {
-                            SurfaceTextureHelper.this.c(surfaceTexture2);
-                        }
-                    }
-                }, handler);
                 return;
-            } catch (RuntimeException e) {
-                this.eglBase.release();
-                handler.getLooper().quit();
-                throw e;
             }
+            throw new IllegalStateException("Wrong thread.");
         }
-        throw new IllegalStateException("SurfaceTextureHelper must be created on the handler thread");
     }
 
-    public static SurfaceTextureHelper create(String str, EglBase.Context context) {
-        InterceptResult invokeLL;
+    public void setTextureSize(final int i, final int i2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, str, context)) == null) ? create(str, context, false) : (SurfaceTextureHelper) invokeLL.objValue;
+        if (interceptable == null || interceptable.invokeII(1048587, this, i, i2) == null) {
+            if (i > 0) {
+                if (i2 > 0) {
+                    this.surfaceTexture.setDefaultBufferSize(i, i2);
+                    this.handler.post(new Runnable() { // from class: com.baidu.tieba.cx9
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+
+                        @Override // java.lang.Runnable
+                        public final void run() {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                SurfaceTextureHelper.this.f(i, i2);
+                            }
+                        }
+                    });
+                    return;
+                }
+                throw new IllegalArgumentException("Texture height must be positive, but was " + i2);
+            }
+            throw new IllegalArgumentException("Texture width must be positive, but was " + i);
+        }
     }
 }

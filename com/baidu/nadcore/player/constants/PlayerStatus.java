@@ -70,18 +70,30 @@ public final class PlayerStatus {
     public static boolean isActiveStatus(PlayerStatus playerStatus) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, playerStatus)) == null) ? playerStatus == PREPARING || playerStatus == PREPARED || playerStatus == PAUSE || playerStatus == PLAYING : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, playerStatus)) == null) {
+            if (playerStatus != PREPARING && playerStatus != PREPARED && playerStatus != PAUSE && playerStatus != PLAYING) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
     public static PlayerStatus valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (PlayerStatus) Enum.valueOf(PlayerStatus.class, str) : (PlayerStatus) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return (PlayerStatus) Enum.valueOf(PlayerStatus.class, str);
+        }
+        return (PlayerStatus) invokeL.objValue;
     }
 
     public static PlayerStatus[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (PlayerStatus[]) $VALUES.clone() : (PlayerStatus[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return (PlayerStatus[]) $VALUES.clone();
+        }
+        return (PlayerStatus[]) invokeV.objValue;
     }
 }

@@ -24,7 +24,7 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
     public boolean mNightMode;
     public SlideInterceptor mSlideInterceptor;
     public double mSlideRegionFactor;
-    public WeakReference<Activity> mTopActivity;
+    public WeakReference mTopActivity;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CustomSlidingPanelLayout(Context context) {
@@ -53,128 +53,12 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
     @Override // com.baidu.searchbox.widget.SlidingPaneLayout
     public void attachActivity(Activity activity) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, activity) == null) || Build.VERSION.SDK_INT < 21 || activity == null || activity.getWindow() == null || activity.getWindow().getDecorView() == null) {
-            return;
-        }
-        this.mTopActivity = new WeakReference<>(activity);
-        activity.getWindow().getDecorView().setBackgroundColor(0);
-        if (this.mForceActivityTransparent) {
-            return;
-        }
-        convertActivityFromTranslucent();
-    }
-
-    @Override // com.baidu.searchbox.widget.SlidingPaneLayout
-    public void convertActivityFromTranslucent() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            WeakReference<Activity> weakReference = this.mTopActivity;
-            if (weakReference != null && weakReference.get() != null) {
-                SlideUtil.convertFromTranslucent(this.mTopActivity.get(), new OnTranslucentListener(this) { // from class: com.baidu.searchbox.widget.CustomSlidingPanelLayout.2
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ CustomSlidingPanelLayout this$0;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                    }
-
-                    @Override // com.baidu.searchbox.widget.OnTranslucentListener
-                    public void onTranslucent(boolean z) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeZ(1048576, this, z) == null) {
-                            this.this$0.setActivityIsTranslucent(z);
-                            if (this.this$0.mListener != null) {
-                                this.this$0.mListener.onTranslucent(z);
-                            }
-                        }
-                    }
-                });
-                return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, activity) == null) && Build.VERSION.SDK_INT >= 21 && activity != null && activity.getWindow() != null && activity.getWindow().getDecorView() != null) {
+            this.mTopActivity = new WeakReference(activity);
+            activity.getWindow().getDecorView().setBackgroundColor(0);
+            if (!this.mForceActivityTransparent) {
+                convertActivityFromTranslucent();
             }
-            OnTranslucentListener onTranslucentListener = this.mListener;
-            if (onTranslucentListener != null) {
-                onTranslucentListener.onTranslucent(true);
-            }
-        }
-    }
-
-    @Override // com.baidu.searchbox.widget.SlidingPaneLayout
-    public void convertActivityToTranslucent() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            WeakReference<Activity> weakReference = this.mTopActivity;
-            if (weakReference != null && weakReference.get() != null) {
-                SlideUtil.convertToTranslucent(this.mTopActivity.get(), new OnTranslucentListener(this) { // from class: com.baidu.searchbox.widget.CustomSlidingPanelLayout.1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ CustomSlidingPanelLayout this$0;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                    }
-
-                    @Override // com.baidu.searchbox.widget.OnTranslucentListener
-                    public void onTranslucent(boolean z) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeZ(1048576, this, z) == null) {
-                            this.this$0.setActivityIsTranslucent(z);
-                            if (this.this$0.mListener != null) {
-                                this.this$0.mListener.onTranslucent(z);
-                            }
-                        }
-                    }
-                });
-                return;
-            }
-            OnTranslucentListener onTranslucentListener = this.mListener;
-            if (onTranslucentListener != null) {
-                onTranslucentListener.onTranslucent(false);
-            }
-        }
-    }
-
-    @Override // com.baidu.searchbox.widget.SlidingPaneLayout
-    public void forceActivityTransparent(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.mForceActivityTransparent = z;
-        }
-    }
-
-    public void init() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            setCanSlideRegionFactor(this.mSlideRegionFactor);
-            setActivityIsTranslucent(true);
         }
     }
 
@@ -203,34 +87,6 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
             return super.onInterceptTouchEvent(motionEvent);
         }
         return invokeL.booleanValue;
-    }
-
-    public void setCanSlidable(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.mCanSlide = z;
-        }
-    }
-
-    public void setNightMode(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.mNightMode = z;
-        }
-    }
-
-    public void setOnTransparentListener(OnTranslucentListener onTranslucentListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onTranslucentListener) == null) {
-            this.mListener = onTranslucentListener;
-        }
-    }
-
-    public void setSlideInterceptor(SlideInterceptor slideInterceptor) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, slideInterceptor) == null) {
-            this.mSlideInterceptor = slideInterceptor;
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -281,5 +137,147 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
         this.mForceActivityTransparent = false;
         this.mSlideRegionFactor = 1.0d;
         init();
+    }
+
+    @Override // com.baidu.searchbox.widget.SlidingPaneLayout
+    public void forceActivityTransparent(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.mForceActivityTransparent = z;
+        }
+    }
+
+    public void setCanSlidable(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.mCanSlide = z;
+        }
+    }
+
+    public void setNightMode(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.mNightMode = z;
+        }
+    }
+
+    public void setOnTransparentListener(OnTranslucentListener onTranslucentListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onTranslucentListener) == null) {
+            this.mListener = onTranslucentListener;
+        }
+    }
+
+    public void setSlideInterceptor(SlideInterceptor slideInterceptor) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, slideInterceptor) == null) {
+            this.mSlideInterceptor = slideInterceptor;
+        }
+    }
+
+    @Override // com.baidu.searchbox.widget.SlidingPaneLayout
+    public void convertActivityFromTranslucent() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            WeakReference weakReference = this.mTopActivity;
+            if (weakReference != null && weakReference.get() != null) {
+                SlideUtil.convertFromTranslucent((Activity) this.mTopActivity.get(), new OnTranslucentListener(this) { // from class: com.baidu.searchbox.widget.CustomSlidingPanelLayout.2
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ CustomSlidingPanelLayout this$0;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                    }
+
+                    @Override // com.baidu.searchbox.widget.OnTranslucentListener
+                    public void onTranslucent(boolean z) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeZ(1048576, this, z) == null) {
+                            this.this$0.setActivityIsTranslucent(z);
+                            if (this.this$0.mListener != null) {
+                                this.this$0.mListener.onTranslucent(z);
+                            }
+                        }
+                    }
+                });
+                return;
+            }
+            OnTranslucentListener onTranslucentListener = this.mListener;
+            if (onTranslucentListener != null) {
+                onTranslucentListener.onTranslucent(true);
+            }
+        }
+    }
+
+    @Override // com.baidu.searchbox.widget.SlidingPaneLayout
+    public void convertActivityToTranslucent() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            WeakReference weakReference = this.mTopActivity;
+            if (weakReference != null && weakReference.get() != null) {
+                SlideUtil.convertToTranslucent((Activity) this.mTopActivity.get(), new OnTranslucentListener(this) { // from class: com.baidu.searchbox.widget.CustomSlidingPanelLayout.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ CustomSlidingPanelLayout this$0;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                    }
+
+                    @Override // com.baidu.searchbox.widget.OnTranslucentListener
+                    public void onTranslucent(boolean z) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeZ(1048576, this, z) == null) {
+                            this.this$0.setActivityIsTranslucent(z);
+                            if (this.this$0.mListener != null) {
+                                this.this$0.mListener.onTranslucent(z);
+                            }
+                        }
+                    }
+                });
+                return;
+            }
+            OnTranslucentListener onTranslucentListener = this.mListener;
+            if (onTranslucentListener != null) {
+                onTranslucentListener.onTranslucent(false);
+            }
+        }
+    }
+
+    public void init() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            setCanSlideRegionFactor(this.mSlideRegionFactor);
+            setActivityIsTranslucent(true);
+        }
     }
 }

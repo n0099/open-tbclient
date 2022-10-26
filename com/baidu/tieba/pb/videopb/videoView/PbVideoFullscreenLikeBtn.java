@@ -35,26 +35,6 @@ public class PbVideoFullscreenLikeBtn extends PbFirstFloorUserLikeButton {
         }
     }
 
-    @Override // com.baidu.tieba.pb.view.PbFirstFloorUserLikeButton, com.baidu.tieba.qz4
-    public void a(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            setText(this.o);
-            setClickable(false);
-            View.OnClickListener onClickListener = this.v;
-            if (onClickListener != null) {
-                onClickListener.onClick(view2);
-            }
-        }
-    }
-
-    public void setOnclickEvent(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
-            this.v = onClickListener;
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbVideoFullscreenLikeBtn(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -94,6 +74,26 @@ public class PbVideoFullscreenLikeBtn extends PbFirstFloorUserLikeButton {
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
+        }
+    }
+
+    @Override // com.baidu.tieba.pb.view.PbFirstFloorUserLikeButton, com.baidu.tieba.vz4
+    public void a(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            setText(this.o);
+            setClickable(false);
+            View.OnClickListener onClickListener = this.v;
+            if (onClickListener != null) {
+                onClickListener.onClick(view2);
+            }
+        }
+    }
+
+    public void setOnclickEvent(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
+            this.v = onClickListener;
         }
     }
 }

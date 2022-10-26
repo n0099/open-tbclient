@@ -17,11 +17,11 @@ import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes8.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
-    public static List<a> a;
+    public static List a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public static class a {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int a;
@@ -77,7 +77,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
             for (int size = a.size() - 1; size >= 0; size--) {
-                a aVar = a.get(size);
+                a aVar = (a) a.get(size);
                 if (SystemClock.elapsedRealtime() - aVar.f977a > 5000) {
                     a.remove(aVar);
                 }
@@ -90,10 +90,10 @@ public class d {
 
     public static void a(Context context, StatusBarNotification statusBarNotification, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(65538, null, context, statusBarNotification, i) == null) || !com.xiaomi.push.m.m562a(context) || i <= 0 || statusBarNotification == null || Build.VERSION.SDK_INT < 20) {
+        if (!(interceptable == null || interceptable.invokeLLI(65538, null, context, statusBarNotification, i) == null) || !com.xiaomi.push.m.m561a(context) || i <= 0 || statusBarNotification == null || Build.VERSION.SDK_INT < 20) {
             return;
         }
-        a(new a(statusBarNotification.getKey(), SystemClock.elapsedRealtime(), i, ay.m635a(statusBarNotification.getNotification())));
+        a(new a(statusBarNotification.getKey(), SystemClock.elapsedRealtime(), i, ay.m634a(statusBarNotification.getNotification())));
     }
 
     public static void a(a aVar) {

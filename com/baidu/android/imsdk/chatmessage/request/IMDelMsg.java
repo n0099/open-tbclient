@@ -85,6 +85,7 @@ public class IMDelMsg extends Message {
 
     public static IMDelMsg newInstance(Context context, Intent intent) {
         InterceptResult invokeLL;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, intent)) == null) {
             if (intent.hasExtra("contacter") && intent.hasExtra("category")) {
@@ -94,10 +95,14 @@ public class IMDelMsg extends Message {
                 long longExtra2 = intent.getLongExtra(Constants.EXTRA_CLIENT_MAX_MSGID, -1L);
                 boolean booleanExtra = intent.getBooleanExtra(Constants.EXTRA_CONTACTER_IS_ZHIDA, false);
                 int intExtra2 = intent.getIntExtra("chat_type", 0);
-                long longExtra3 = IMConfigInternal.getInstance().getIMConfig(context).isNeedPaid() ? intent.getLongExtra(Constants.EXTRA_PA_ID, -1L) : -1L;
+                if (IMConfigInternal.getInstance().getIMConfig(context).isNeedPaid()) {
+                    j = intent.getLongExtra(Constants.EXTRA_PA_ID, -1L);
+                } else {
+                    j = -1;
+                }
                 if (-1 != longExtra && -1 != intExtra) {
                     IMDelMsg iMDelMsg = new IMDelMsg(context, longExtra, intExtra, longArrayExtra, longExtra2, booleanExtra);
-                    iMDelMsg.setPaid(longExtra3);
+                    iMDelMsg.setPaid(j);
                     iMDelMsg.setChatType(intExtra2);
                     Message.saveCmdMessage(context, iMDelMsg, null, iMDelMsg.getPriority());
                     return iMDelMsg;
@@ -163,13 +168,19 @@ public class IMDelMsg extends Message {
     public int getCategory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mCategory : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mCategory;
+        }
+        return invokeV.intValue;
     }
 
     public long getToUser() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mToId : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mToId;
+        }
+        return invokeV.longValue;
     }
 
     @Override // com.baidu.android.imsdk.request.Message

@@ -11,17 +11,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 /* loaded from: classes9.dex */
-public final class Notification<T> {
+public final class Notification {
     public static /* synthetic */ Interceptable $ic;
-    public static final Notification<Void> d;
+    public static final Notification d;
     public transient /* synthetic */ FieldHolder $fh;
     public final Kind a;
     public final Throwable b;
-    public final T c;
+    public final Object c;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes9.dex */
-    public static final class Kind {
+    public final class Kind {
         public static final /* synthetic */ Kind[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Kind OnCompleted;
@@ -71,13 +71,19 @@ public final class Notification<T> {
         public static Kind valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Kind) Enum.valueOf(Kind.class, str) : (Kind) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (Kind) Enum.valueOf(Kind.class, str);
+            }
+            return (Kind) invokeL.objValue;
         }
 
         public static Kind[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Kind[]) $VALUES.clone() : (Kind[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (Kind[]) $VALUES.clone();
+            }
+            return (Kind[]) invokeV.objValue;
         }
     }
 
@@ -94,15 +100,111 @@ public final class Notification<T> {
                 return;
             }
         }
-        d = new Notification<>(Kind.OnCompleted, null, null);
+        d = new Notification(Kind.OnCompleted, null, null);
     }
 
-    public Notification(Kind kind, T t, Throwable th) {
+    public static Notification a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return d;
+        }
+        return (Notification) invokeV.objValue;
+    }
+
+    public Kind d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (Kind) invokeV.objValue;
+    }
+
+    public Throwable e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (Throwable) invokeV.objValue;
+    }
+
+    public Object f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return invokeV.objValue;
+    }
+
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (j() && this.b != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (k() && this.c != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (d() == Kind.OnCompleted) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (d() == Kind.OnError) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            if (d() == Kind.OnNext) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public Notification(Kind kind, Object obj, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {kind, t, th};
+            Object[] objArr = {kind, obj, th};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -112,39 +214,27 @@ public final class Notification<T> {
                 return;
             }
         }
-        this.c = t;
+        this.c = obj;
         this.b = th;
         this.a = kind;
     }
 
-    public static <T> Notification<T> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? (Notification<T>) d : (Notification) invokeV.objValue;
-    }
-
-    public static <T> Notification<T> b(Throwable th) {
+    public static Notification b(Throwable th) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, th)) == null) ? new Notification<>(Kind.OnError, null, th) : (Notification) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, th)) == null) {
+            return new Notification(Kind.OnError, null, th);
+        }
+        return (Notification) invokeL.objValue;
     }
 
-    public static <T> Notification<T> c(T t) {
+    public static Notification c(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, t)) == null) ? new Notification<>(Kind.OnNext, t, null) : (Notification) invokeL.objValue;
-    }
-
-    public Kind d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (Kind) invokeV.objValue;
-    }
-
-    public Throwable e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (Throwable) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj)) == null) {
+            return new Notification(Kind.OnNext, obj, null);
+        }
+        return (Notification) invokeL.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -161,37 +251,22 @@ public final class Notification<T> {
                 return false;
             }
             Notification notification = (Notification) obj;
-            if (notification.d() == d()) {
-                T t = this.c;
-                T t2 = notification.c;
-                if (t == t2 || (t != null && t.equals(t2))) {
-                    Throwable th = this.b;
-                    Throwable th2 = notification.b;
-                    return th == th2 || (th != null && th.equals(th2));
-                }
+            if (notification.d() != d()) {
                 return false;
             }
-            return false;
+            Object obj2 = this.c;
+            Object obj3 = notification.c;
+            if (obj2 != obj3 && (obj2 == null || !obj2.equals(obj3))) {
+                return false;
+            }
+            Throwable th = this.b;
+            Throwable th2 = notification.b;
+            if (th != th2 && (th == null || !th.equals(th2))) {
+                return false;
+            }
+            return true;
         }
         return invokeL.booleanValue;
-    }
-
-    public T f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : (T) invokeV.objValue;
-    }
-
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? j() && this.b != null : invokeV.booleanValue;
-    }
-
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? k() && this.c != null : invokeV.booleanValue;
     }
 
     public int hashCode() {
@@ -202,27 +277,12 @@ public final class Notification<T> {
             if (h()) {
                 hashCode = (hashCode * 31) + f().hashCode();
             }
-            return g() ? (hashCode * 31) + e().hashCode() : hashCode;
+            if (g()) {
+                return (hashCode * 31) + e().hashCode();
+            }
+            return hashCode;
         }
         return invokeV.intValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? d() == Kind.OnCompleted : invokeV.booleanValue;
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? d() == Kind.OnError : invokeV.booleanValue;
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? d() == Kind.OnNext : invokeV.booleanValue;
     }
 
     public String toString() {

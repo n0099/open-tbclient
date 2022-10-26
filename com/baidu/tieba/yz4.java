@@ -1,23 +1,45 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class yz4 {
+public abstract class yz4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public int c;
-    public String d;
+    public Context a;
+    public a b;
+    public BdUniqueId c;
 
-    public yz4() {
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a(BdBaseViewPagerAdapter.a aVar, eo eoVar);
+    }
+
+    public abstract BdBaseViewPagerAdapter.a b(ViewGroup viewGroup);
+
+    public void c(BdBaseViewPagerAdapter.a aVar, eo eoVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, aVar, eoVar) == null) {
+        }
+    }
+
+    public abstract View d(ViewGroup viewGroup, BdBaseViewPagerAdapter.a aVar, eo eoVar);
+
+    public yz4(Context context, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,35 +49,32 @@ public class yz4 {
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.c = 0;
-        this.d = null;
+        this.a = context;
+        this.c = bdUniqueId;
     }
 
-    public static String a(int i) {
-        InterceptResult invokeI;
+    public a a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            switch (i) {
-                case 1:
-                    return wj.a(R.string.obfuscated_res_0x7f0f157e);
-                case 2:
-                    return wj.a(R.string.obfuscated_res_0x7f0f1583);
-                case 3:
-                    return wj.a(R.string.obfuscated_res_0x7f0f0c59);
-                case 4:
-                    return wj.a(R.string.obfuscated_res_0x7f0f1581);
-                case 5:
-                    return wj.a(R.string.obfuscated_res_0x7f0f157f);
-                case 6:
-                    return wj.a(R.string.obfuscated_res_0x7f0f1582);
-                case 7:
-                    return wj.a(R.string.obfuscated_res_0x7f0f1580);
-                default:
-                    return "";
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return (String) invokeI.objValue;
+        return (a) invokeV.objValue;
+    }
+
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.c;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void e(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
+            this.b = aVar;
+        }
     }
 }

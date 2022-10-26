@@ -1,27 +1,23 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.v8engine.V8Engine;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@SuppressLint({"SwanDebugLog"})
 /* loaded from: classes4.dex */
-public class fb2 implements V8Engine.V8EngineConsole {
+public class fb2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ta2 a;
-    public boolean b;
+    public V8Engine a;
 
-    public fb2(ta2 ta2Var) {
+    public fb2(V8Engine v8Engine) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ta2Var};
+            Object[] objArr = {v8Engine};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,73 +27,27 @@ public class fb2 implements V8Engine.V8EngineConsole {
                 return;
             }
         }
-        this.b = true;
-        this.a = ta2Var;
+        this.a = v8Engine;
     }
 
-    @Override // com.baidu.searchbox.v8engine.V8Engine.V8EngineConsole
-    public void onDebugConsole(String str) {
+    public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            if (this.b) {
-                Log.d("V8Console", this.a.m0() + str);
-            }
-            tm2.h().e(2, str);
+            c(4, str);
         }
     }
 
-    @Override // com.baidu.searchbox.v8engine.V8Engine.V8EngineConsole
-    public void onErrorConsole(String str) {
+    public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            tm2.h().e(4, str);
-            Log.e("V8Console", this.a.m0() + str);
-            ko1 p0 = sm2.p0();
-            p0.e("V8Console", this.a.m0() + str);
+            c(1, str);
         }
     }
 
-    @Override // com.baidu.searchbox.v8engine.V8Engine.V8EngineConsole
-    public void onInfoConsole(String str) {
+    public final void c(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (this.b) {
-                Log.i("V8Console", this.a.m0() + str);
-            }
-            tm2.h().e(3, str);
-        }
-    }
-
-    @Override // com.baidu.searchbox.v8engine.V8Engine.V8EngineConsole
-    public void onLogConsole(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            if (this.b) {
-                Log.v("V8Console", this.a.m0() + str);
-            }
-            tm2.h().e(1, str);
-        }
-    }
-
-    @Override // com.baidu.searchbox.v8engine.V8Engine.V8EngineConsole
-    public void onTraceConsole(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            if (this.b) {
-                Log.d("V8Console", this.a.m0() + str);
-            }
-            tm2.h().e(6, str);
-        }
-    }
-
-    @Override // com.baidu.searchbox.v8engine.V8Engine.V8EngineConsole
-    public void onWarnConsole(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            tm2.h().e(5, str);
-            Log.w("V8Console", this.a.m0() + str);
-            ko1 p0 = sm2.p0();
-            p0.w("V8Console", this.a.m0() + str);
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
+            this.a.onConsoleCallBack(i, str);
         }
     }
 }

@@ -1,66 +1,81 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.util.PriorityOrganizer;
+import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Message;
-import org.json.JSONObject;
-import tbclient.Error;
-import tbclient.ZoneRight.DataRes;
-import tbclient.ZoneRight.Toast;
-import tbclient.ZoneRight.ZoneRightResIdl;
 /* loaded from: classes6.dex */
-public class xq6 implements tb5 {
+public class xq6 extends PriorityOrganizer.Task {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
-    public String c;
-    public int d;
-    public String e;
+    public FrsFragment m;
+    public FrsActivity n;
+    public boolean o;
 
-    public xq6() {
+    public xq6(FrsActivity frsActivity, FrsFragment frsFragment) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {frsActivity, frsFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.n = frsActivity;
+        this.m = frsFragment;
+    }
+
+    public void F(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.o = z;
         }
     }
 
-    @Override // com.baidu.tieba.tb5
-    public void initByJson(JSONObject jSONObject) {
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public boolean u() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            FrsFragment frsFragment = this.m;
+            if (frsFragment != null && !frsFragment.u3() && TbSingleton.getInstance().getFrsResponseData() != null) {
+                return true;
+            }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.tb5
-    public void initByProtobuf(Message message) {
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public boolean w() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) && (message instanceof ZoneRightResIdl)) {
-            ZoneRightResIdl zoneRightResIdl = (ZoneRightResIdl) message;
-            Error error = zoneRightResIdl.error;
-            if (error != null) {
-                this.b = error.errorno.intValue();
-                this.c = zoneRightResIdl.error.usermsg;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.o && gt6.d(TbSingleton.getInstance().getFrsResponseData(), this.m)) {
+                return true;
             }
-            DataRes dataRes = zoneRightResIdl.data;
-            if (dataRes != null) {
-                this.a = dataRes.has_right.intValue() == 1;
-                Toast toast = zoneRightResIdl.data.toast;
-                if (toast != null) {
-                    this.d = toast.type.intValue();
-                    this.e = zoneRightResIdl.data.toast.content;
-                }
-            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public void z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            t();
         }
     }
 }

@@ -3,9 +3,6 @@ package androidx.core.content;
 import android.content.Context;
 import android.os.Binder;
 import android.os.Process;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
 import androidx.core.app.AppOpsManagerCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +21,6 @@ public final class PermissionChecker {
     public transient /* synthetic */ FieldHolder $fh;
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public @interface PermissionResult {
     }
@@ -43,16 +39,31 @@ public final class PermissionChecker {
         }
     }
 
-    public static int checkCallingOrSelfPermission(@NonNull Context context, @NonNull String str) {
+    public static int checkCallingOrSelfPermission(Context context, String str) {
         InterceptResult invokeLL;
+        String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
-            return checkPermission(context, str, Binder.getCallingPid(), Binder.getCallingUid(), Binder.getCallingPid() == Process.myPid() ? context.getPackageName() : null);
+            if (Binder.getCallingPid() == Process.myPid()) {
+                str2 = context.getPackageName();
+            } else {
+                str2 = null;
+            }
+            return checkPermission(context, str, Binder.getCallingPid(), Binder.getCallingUid(), str2);
         }
         return invokeLL.intValue;
     }
 
-    public static int checkCallingPermission(@NonNull Context context, @NonNull String str, @Nullable String str2) {
+    public static int checkSelfPermission(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
+            return checkPermission(context, str, Process.myPid(), Process.myUid(), context.getPackageName());
+        }
+        return invokeLL.intValue;
+    }
+
+    public static int checkCallingPermission(Context context, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, str, str2)) == null) {
@@ -64,7 +75,7 @@ public final class PermissionChecker {
         return invokeLLL.intValue;
     }
 
-    public static int checkPermission(@NonNull Context context, @NonNull String str, int i, int i2, @Nullable String str2) {
+    public static int checkPermission(Context context, String str, int i, int i2, String str2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{context, str, Integer.valueOf(i), Integer.valueOf(i2), str2})) == null) {
@@ -82,14 +93,11 @@ public final class PermissionChecker {
                 }
                 str2 = packagesForUid[0];
             }
-            return AppOpsManagerCompat.noteProxyOpNoThrow(context, permissionToOp, str2) != 0 ? -2 : 0;
+            if (AppOpsManagerCompat.noteProxyOpNoThrow(context, permissionToOp, str2) == 0) {
+                return 0;
+            }
+            return -2;
         }
         return invokeCommon.intValue;
-    }
-
-    public static int checkSelfPermission(@NonNull Context context, @NonNull String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) ? checkPermission(context, str, Process.myPid(), Process.myUid(), context.getPackageName()) : invokeLL.intValue;
     }
 }

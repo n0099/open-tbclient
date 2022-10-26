@@ -1,105 +1,64 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.widget.LinearLayout;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes3.dex */
-public class c69 extends d69 {
+public class c69 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final EditorTools a;
+    public final Map b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c69(@NonNull TbPageContext<?> tbPageContext, @NonNull NavigationBar navigationBar, @NonNull LinearLayout linearLayout, @NonNull EditorTools editorTools, @NonNull r49 r49Var, boolean z) {
-        super(tbPageContext, navigationBar, linearLayout, editorTools, r49Var, z);
+    public c69(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, navigationBar, linearLayout, editorTools, r49Var, Boolean.valueOf(z)};
+            Object[] objArr = {editorTools};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (NavigationBar) objArr2[1], (LinearLayout) objArr2[2], (EditorTools) objArr2[3], (r49) objArr2[4], ((Boolean) objArr2[5]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.b = new HashMap();
+        this.a = editorTools;
     }
 
-    @Override // com.baidu.tieba.d69, com.baidu.tieba.a69
-    public void M(@NonNull List<s49<?>> list) {
+    public void b(int[] iArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            list.add(p59.h(this.a));
-            super.M(list);
-        }
-    }
-
-    @Override // com.baidu.tieba.d69, com.baidu.tieba.z59, com.baidu.tieba.a69
-    public void O(@NonNull EditorTools editorTools) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editorTools) == null) {
-            super.O(editorTools);
-            s55 n = editorTools.n(15);
-            if (n instanceof n29) {
-                ((n29) n).n(false);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iArr) == null) {
+            for (int i : iArr) {
+                if (this.b.containsKey(Integer.valueOf(i))) {
+                    this.a.setToolEnabled(((e69) this.b.get(Integer.valueOf(i))).a(i), i);
+                }
             }
         }
     }
 
-    @Override // com.baidu.tieba.d69, com.baidu.tieba.z59, com.baidu.tieba.a69
-    public void P(@NonNull NavigationBar navigationBar) {
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, navigationBar) == null) {
-            super.P(navigationBar);
-            navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f0efe));
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            for (Map.Entry entry : this.b.entrySet()) {
+                this.a.setToolEnabled(((e69) entry.getValue()).a(((Integer) entry.getKey()).intValue()), ((Integer) entry.getKey()).intValue());
+            }
         }
     }
 
-    @Override // com.baidu.tieba.z59, com.baidu.tieba.a69
-    public void U(Bundle bundle) {
+    public void c(int i, e69 e69Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
-            super.U(bundle);
-            this.K.B(true);
+        if ((interceptable != null && interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, e69Var) != null) || this.b.containsKey(Integer.valueOf(i))) {
+            return;
         }
-    }
-
-    @Override // com.baidu.tieba.z59, com.baidu.tieba.a69
-    public void Y() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            nm8.l(this);
-        }
-    }
-
-    @Override // com.baidu.tieba.z59, com.baidu.tieba.a69
-    public void c0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            super.c0();
-            nm8.v(this.p);
-        }
-    }
-
-    @Override // com.baidu.tieba.z59, com.baidu.tieba.a69, com.baidu.tieba.u49
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            super.i();
-            nm8.v(null);
-        }
+        this.b.put(Integer.valueOf(i), e69Var);
     }
 }

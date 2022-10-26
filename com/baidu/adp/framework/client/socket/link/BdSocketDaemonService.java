@@ -11,9 +11,9 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bb;
-import com.baidu.tieba.hh;
-import com.baidu.tieba.lh;
+import com.baidu.tieba.cb;
+import com.baidu.tieba.ih;
+import com.baidu.tieba.mh;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,16 +22,33 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class BdSocketDaemonService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic;
-    public static bb sCallBack;
+    public static cb sCallBack;
     public transient /* synthetic */ FieldHolder $fh;
     public ServiceConnection conn;
     public b myBinder;
+
+    @Override // com.baidu.adp.base.BdBaseService, android.app.Service
+    public int onStartCommand(Intent intent, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, intent, i, i2)) == null) {
+            return 1;
+        }
+        return invokeLII.intValue;
+    }
 
     /* loaded from: classes.dex */
     public class a implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BdSocketDaemonService a;
+
+        @Override // android.content.ServiceConnection
+        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
+            }
+        }
 
         public a(BdSocketDaemonService bdSocketDaemonService) {
             Interceptable interceptable = $ic;
@@ -52,20 +69,13 @@ public class BdSocketDaemonService extends BdBaseService {
         }
 
         @Override // android.content.ServiceConnection
-        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
-            }
-        }
-
-        @Override // android.content.ServiceConnection
         public void onServiceDisconnected(ComponentName componentName) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-                if (BdSocketDaemonService.sCallBack != null) {
-                    BdSocketDaemonService.sCallBack.onLinkServiceDisconnect();
-                } else {
+                if (BdSocketDaemonService.sCallBack == null) {
                     BdSocketLinkService.startService(false, "restart");
+                } else {
+                    BdSocketDaemonService.sCallBack.onLinkServiceDisconnect();
                 }
             }
         }
@@ -113,24 +123,24 @@ public class BdSocketDaemonService extends BdBaseService {
         this.conn = new a(this);
     }
 
-    public static void setLinkServiceDisconnectCallBack(bb bbVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, bbVar) == null) {
-            sCallBack = bbVar;
-        }
-    }
-
     public static void startService() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            hh.startService(BdBaseApplication.getInst().getApp(), new Intent(BdBaseApplication.getInst().getApp(), BdSocketDaemonService.class));
+            ih.startService(BdBaseApplication.getInst().getApp(), new Intent(BdBaseApplication.getInst().getApp(), BdSocketDaemonService.class));
         }
     }
 
     public void bindServiceInternal() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            hh.bindService(this, new Intent(this, BdSocketLinkService.class), this.conn, 1);
+            ih.bindService(this, new Intent(this, BdSocketLinkService.class), this.conn, 1);
+        }
+    }
+
+    public static void setLinkServiceDisconnectCallBack(cb cbVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, cbVar) == null) {
+            sCallBack = cbVar;
         }
     }
 
@@ -138,7 +148,10 @@ public class BdSocketDaemonService extends BdBaseService {
     public IBinder onBind(Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent)) == null) ? this.myBinder : (IBinder) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent)) == null) {
+            return this.myBinder;
+        }
+        return (IBinder) invokeL.objValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseService, android.app.Service
@@ -150,7 +163,7 @@ public class BdSocketDaemonService extends BdBaseService {
                 try {
                     startForeground(2147483646, new Notification());
                 } catch (Exception unused) {
-                    lh statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
+                    mh statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
                     statsItem.b("loc", BdSocketDaemonService.class.getName() + "-onCreate-startForeground");
                     BdStatisticsManager.getInstance().debug("PARCEL_NULLPOINT", statsItem);
                 }
@@ -167,7 +180,7 @@ public class BdSocketDaemonService extends BdBaseService {
             try {
                 unbindService(this.conn);
             } catch (Exception unused) {
-                lh statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
+                mh statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
                 statsItem.b("loc", BdSocketDaemonService.class.getName() + "-onDestroy-unbindService");
                 BdStatisticsManager.getInstance().debug("PARCEL_NULLPOINT", statsItem);
             }
@@ -176,20 +189,10 @@ public class BdSocketDaemonService extends BdBaseService {
             try {
                 startService(intent);
             } catch (Exception unused2) {
-                lh statsItem2 = BdStatisticsManager.getInstance().getStatsItem("dbg");
+                mh statsItem2 = BdStatisticsManager.getInstance().getStatsItem("dbg");
                 statsItem2.b("loc", BdSocketDaemonService.class.getName() + "-onDestroy-startService");
                 BdStatisticsManager.getInstance().debug("PARCEL_NULLPOINT", statsItem2);
             }
         }
-    }
-
-    @Override // com.baidu.adp.base.BdBaseService, android.app.Service
-    public int onStartCommand(Intent intent, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, intent, i, i2)) == null) {
-            return 1;
-        }
-        return invokeLII.intValue;
     }
 }

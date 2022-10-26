@@ -3,7 +3,6 @@ package androidx.core.os;
 import android.content.Context;
 import android.os.Build;
 import android.os.UserManager;
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,7 +27,7 @@ public class UserManagerCompat {
         }
     }
 
-    public static boolean isUserUnlocked(@NonNull Context context) {
+    public static boolean isUserUnlocked(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {

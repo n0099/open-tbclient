@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.oh6;
+import com.baidu.tieba.vh6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -46,6 +46,16 @@ public class ReadProgressViewHolder extends TypeAdapter.ViewHolder {
         e = UtilHelper.getDimenPixelSize(R.dimen.M_H_X005);
     }
 
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0304);
+            Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080935, SkinManager.getColor(R.color.CAM_X0304), WebPManager.ResourceStateType.NORMAL);
+            pureDrawable.setBounds(0, 0, UtilHelper.getDimenPixelSize(R.dimen.tbds42), UtilHelper.getDimenPixelSize(R.dimen.tbds42));
+            this.b.setCompoundDrawables(pureDrawable, null, null, null);
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ReadProgressViewHolder(View view2, Context context) {
         super(view2);
@@ -65,29 +75,19 @@ public class ReadProgressViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.a = view2;
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925ba);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925a2);
         this.b = textView;
         int i3 = e;
         textView.setPadding(0, i3, 0, i3 - d);
         this.c = context;
     }
 
-    public void a() {
+    public void b(vh6 vh6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0304);
-            Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080936, SkinManager.getColor(R.color.CAM_X0304), WebPManager.ResourceStateType.NORMAL);
-            pureDrawable.setBounds(0, 0, UtilHelper.getDimenPixelSize(R.dimen.tbds42), UtilHelper.getDimenPixelSize(R.dimen.tbds42));
-            this.b.setCompoundDrawables(pureDrawable, null, null, null);
-        }
-    }
-
-    public void b(oh6 oh6Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, oh6Var) == null) || oh6Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vh6Var) != null) || vh6Var == null) {
             return;
         }
-        this.b.setText(R.string.obfuscated_res_0x7f0f0f9f);
+        this.b.setText(R.string.obfuscated_res_0x7f0f0fb1);
         a();
     }
 }

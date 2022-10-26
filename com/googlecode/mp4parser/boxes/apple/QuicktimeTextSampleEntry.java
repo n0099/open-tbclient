@@ -62,178 +62,36 @@ public class QuicktimeTextSampleEntry extends AbstractSampleEntry {
         this.fontName = "";
     }
 
+    @Override // com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
+    public long getSize() {
+        InterceptResult invokeV;
+        int i;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            long containerSize = getContainerSize() + 52;
+            String str = this.fontName;
+            if (str != null) {
+                i = str.length();
+            } else {
+                i = 0;
+            }
+            long j = containerSize + i;
+            if (!this.largeBox && 8 + j < 4294967296L) {
+                i2 = 8;
+            } else {
+                i2 = 16;
+            }
+            return j + i2;
+        }
+        return invokeV.longValue;
+    }
+
     @Override // com.googlecode.mp4parser.BasicContainer
     public void addBox(Box box) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, box) == null) {
             throw new RuntimeException("QuicktimeTextSampleEntries may not have child boxes");
-        }
-    }
-
-    public int getBackgroundB() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.backgroundB : invokeV.intValue;
-    }
-
-    public int getBackgroundG() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.backgroundG : invokeV.intValue;
-    }
-
-    public int getBackgroundR() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.backgroundR : invokeV.intValue;
-    }
-
-    @Override // com.coremedia.iso.boxes.sampleentry.AbstractSampleEntry, com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
-    public void getBox(WritableByteChannel writableByteChannel) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, writableByteChannel) == null) {
-            writableByteChannel.write(getHeader());
-            String str = this.fontName;
-            ByteBuffer allocate = ByteBuffer.allocate((str != null ? str.length() : 0) + 52);
-            allocate.position(6);
-            IsoTypeWriter.writeUInt16(allocate, this.dataReferenceIndex);
-            allocate.putInt(this.displayFlags);
-            allocate.putInt(this.textJustification);
-            IsoTypeWriter.writeUInt16(allocate, this.backgroundR);
-            IsoTypeWriter.writeUInt16(allocate, this.backgroundG);
-            IsoTypeWriter.writeUInt16(allocate, this.backgroundB);
-            IsoTypeWriter.writeUInt64(allocate, this.defaultTextBox);
-            IsoTypeWriter.writeUInt64(allocate, this.reserved1);
-            allocate.putShort(this.fontNumber);
-            allocate.putShort(this.fontFace);
-            allocate.put(this.reserved2);
-            allocate.putShort(this.reserved3);
-            IsoTypeWriter.writeUInt16(allocate, this.foregroundR);
-            IsoTypeWriter.writeUInt16(allocate, this.foregroundG);
-            IsoTypeWriter.writeUInt16(allocate, this.foregroundB);
-            String str2 = this.fontName;
-            if (str2 != null) {
-                IsoTypeWriter.writeUInt8(allocate, str2.length());
-                allocate.put(this.fontName.getBytes());
-            }
-            writableByteChannel.write((ByteBuffer) allocate.rewind());
-        }
-    }
-
-    public long getDefaultTextBox() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.defaultTextBox : invokeV.longValue;
-    }
-
-    public int getDisplayFlags() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.displayFlags : invokeV.intValue;
-    }
-
-    public short getFontFace() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.fontFace : invokeV.shortValue;
-    }
-
-    public String getFontName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.fontName : (String) invokeV.objValue;
-    }
-
-    public short getFontNumber() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.fontNumber : invokeV.shortValue;
-    }
-
-    public int getForegroundB() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.foregroundB : invokeV.intValue;
-    }
-
-    public int getForegroundG() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.foregroundG : invokeV.intValue;
-    }
-
-    public int getForegroundR() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.foregroundR : invokeV.intValue;
-    }
-
-    public long getReserved1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.reserved1 : invokeV.longValue;
-    }
-
-    public byte getReserved2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.reserved2 : invokeV.byteValue;
-    }
-
-    public short getReserved3() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.reserved3 : invokeV.shortValue;
-    }
-
-    @Override // com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
-    public long getSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            long containerSize = getContainerSize() + 52;
-            String str = this.fontName;
-            long length = containerSize + (str != null ? str.length() : 0);
-            return length + ((this.largeBox || 8 + length >= 4294967296L) ? 16 : 8);
-        }
-        return invokeV.longValue;
-    }
-
-    public int getTextJustification() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.textJustification : invokeV.intValue;
-    }
-
-    @Override // com.coremedia.iso.boxes.sampleentry.AbstractSampleEntry, com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
-    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j, BoxParser boxParser) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j), boxParser}) == null) {
-            ByteBuffer allocate = ByteBuffer.allocate(CastUtils.l2i(j));
-            dataSource.read(allocate);
-            allocate.position(6);
-            this.dataReferenceIndex = IsoTypeReader.readUInt16(allocate);
-            this.displayFlags = allocate.getInt();
-            this.textJustification = allocate.getInt();
-            this.backgroundR = IsoTypeReader.readUInt16(allocate);
-            this.backgroundG = IsoTypeReader.readUInt16(allocate);
-            this.backgroundB = IsoTypeReader.readUInt16(allocate);
-            this.defaultTextBox = IsoTypeReader.readUInt64(allocate);
-            this.reserved1 = IsoTypeReader.readUInt64(allocate);
-            this.fontNumber = allocate.getShort();
-            this.fontFace = allocate.getShort();
-            this.reserved2 = allocate.get();
-            this.reserved3 = allocate.getShort();
-            this.foregroundR = IsoTypeReader.readUInt16(allocate);
-            this.foregroundG = IsoTypeReader.readUInt16(allocate);
-            this.foregroundB = IsoTypeReader.readUInt16(allocate);
-            if (allocate.remaining() > 0) {
-                byte[] bArr = new byte[IsoTypeReader.readUInt8(allocate)];
-                allocate.get(bArr);
-                this.fontName = new String(bArr);
-                return;
-            }
-            this.fontName = null;
         }
     }
 
@@ -259,7 +117,7 @@ public class QuicktimeTextSampleEntry extends AbstractSampleEntry {
     }
 
     @Override // com.googlecode.mp4parser.BasicContainer, com.coremedia.iso.boxes.Container
-    public void setBoxes(List<Box> list) {
+    public void setBoxes(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, list) == null) {
             throw new RuntimeException("QuicktimeTextSampleEntries may not have child boxes");
@@ -347,6 +205,211 @@ public class QuicktimeTextSampleEntry extends AbstractSampleEntry {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048610, this, i) == null) {
             this.textJustification = i;
+        }
+    }
+
+    public int getBackgroundB() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.backgroundB;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getBackgroundG() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.backgroundG;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getBackgroundR() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.backgroundR;
+        }
+        return invokeV.intValue;
+    }
+
+    public long getDefaultTextBox() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.defaultTextBox;
+        }
+        return invokeV.longValue;
+    }
+
+    public int getDisplayFlags() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.displayFlags;
+        }
+        return invokeV.intValue;
+    }
+
+    public short getFontFace() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.fontFace;
+        }
+        return invokeV.shortValue;
+    }
+
+    public String getFontName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.fontName;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public short getFontNumber() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.fontNumber;
+        }
+        return invokeV.shortValue;
+    }
+
+    public int getForegroundB() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.foregroundB;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getForegroundG() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.foregroundG;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getForegroundR() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.foregroundR;
+        }
+        return invokeV.intValue;
+    }
+
+    public long getReserved1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.reserved1;
+        }
+        return invokeV.longValue;
+    }
+
+    public byte getReserved2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.reserved2;
+        }
+        return invokeV.byteValue;
+    }
+
+    public short getReserved3() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.reserved3;
+        }
+        return invokeV.shortValue;
+    }
+
+    public int getTextJustification() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.textJustification;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.coremedia.iso.boxes.sampleentry.AbstractSampleEntry, com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
+    public void getBox(WritableByteChannel writableByteChannel) throws IOException {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, writableByteChannel) == null) {
+            writableByteChannel.write(getHeader());
+            String str = this.fontName;
+            if (str != null) {
+                i = str.length();
+            } else {
+                i = 0;
+            }
+            ByteBuffer allocate = ByteBuffer.allocate(i + 52);
+            allocate.position(6);
+            IsoTypeWriter.writeUInt16(allocate, this.dataReferenceIndex);
+            allocate.putInt(this.displayFlags);
+            allocate.putInt(this.textJustification);
+            IsoTypeWriter.writeUInt16(allocate, this.backgroundR);
+            IsoTypeWriter.writeUInt16(allocate, this.backgroundG);
+            IsoTypeWriter.writeUInt16(allocate, this.backgroundB);
+            IsoTypeWriter.writeUInt64(allocate, this.defaultTextBox);
+            IsoTypeWriter.writeUInt64(allocate, this.reserved1);
+            allocate.putShort(this.fontNumber);
+            allocate.putShort(this.fontFace);
+            allocate.put(this.reserved2);
+            allocate.putShort(this.reserved3);
+            IsoTypeWriter.writeUInt16(allocate, this.foregroundR);
+            IsoTypeWriter.writeUInt16(allocate, this.foregroundG);
+            IsoTypeWriter.writeUInt16(allocate, this.foregroundB);
+            String str2 = this.fontName;
+            if (str2 != null) {
+                IsoTypeWriter.writeUInt8(allocate, str2.length());
+                allocate.put(this.fontName.getBytes());
+            }
+            writableByteChannel.write((ByteBuffer) allocate.rewind());
+        }
+    }
+
+    @Override // com.coremedia.iso.boxes.sampleentry.AbstractSampleEntry, com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
+    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j, BoxParser boxParser) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j), boxParser}) == null) {
+            ByteBuffer allocate = ByteBuffer.allocate(CastUtils.l2i(j));
+            dataSource.read(allocate);
+            allocate.position(6);
+            this.dataReferenceIndex = IsoTypeReader.readUInt16(allocate);
+            this.displayFlags = allocate.getInt();
+            this.textJustification = allocate.getInt();
+            this.backgroundR = IsoTypeReader.readUInt16(allocate);
+            this.backgroundG = IsoTypeReader.readUInt16(allocate);
+            this.backgroundB = IsoTypeReader.readUInt16(allocate);
+            this.defaultTextBox = IsoTypeReader.readUInt64(allocate);
+            this.reserved1 = IsoTypeReader.readUInt64(allocate);
+            this.fontNumber = allocate.getShort();
+            this.fontFace = allocate.getShort();
+            this.reserved2 = allocate.get();
+            this.reserved3 = allocate.getShort();
+            this.foregroundR = IsoTypeReader.readUInt16(allocate);
+            this.foregroundG = IsoTypeReader.readUInt16(allocate);
+            this.foregroundB = IsoTypeReader.readUInt16(allocate);
+            if (allocate.remaining() > 0) {
+                byte[] bArr = new byte[IsoTypeReader.readUInt8(allocate)];
+                allocate.get(bArr);
+                this.fontName = new String(bArr);
+                return;
+            }
+            this.fontName = null;
         }
     }
 }

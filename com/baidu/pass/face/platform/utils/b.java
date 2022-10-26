@@ -1,6 +1,5 @@
 package com.baidu.pass.face.platform.utils;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.media.SoundPool;
 import android.util.SparseIntArray;
@@ -77,7 +76,6 @@ public final class b {
         }
     }
 
-    @SuppressLint({"NewApi"})
     public static void a(Context context, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i) == null) {

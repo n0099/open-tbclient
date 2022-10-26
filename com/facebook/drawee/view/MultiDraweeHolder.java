@@ -11,16 +11,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
-import com.facebook.common.internal.VisibleForTesting;
-import com.facebook.drawee.interfaces.DraweeHierarchy;
 import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public class MultiDraweeHolder<DH extends DraweeHierarchy> {
+public class MultiDraweeHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @VisibleForTesting
-    public ArrayList<DraweeHolder<DH>> mHolders;
-    @VisibleForTesting
+    public ArrayList mHolders;
     public boolean mIsAttached;
 
     public MultiDraweeHolder() {
@@ -37,14 +33,7 @@ public class MultiDraweeHolder<DH extends DraweeHierarchy> {
             }
         }
         this.mIsAttached = false;
-        this.mHolders = new ArrayList<>();
-    }
-
-    public void add(DraweeHolder<DH> draweeHolder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, draweeHolder) == null) {
-            add(this.mHolders.size(), draweeHolder);
-        }
+        this.mHolders = new ArrayList();
     }
 
     public void clear() {
@@ -52,10 +41,60 @@ public class MultiDraweeHolder<DH extends DraweeHierarchy> {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (this.mIsAttached) {
                 for (int i = 0; i < this.mHolders.size(); i++) {
-                    this.mHolders.get(i).onDetach();
+                    ((DraweeHolder) this.mHolders.get(i)).onDetach();
                 }
             }
             this.mHolders.clear();
+        }
+    }
+
+    public void onAttach() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || this.mIsAttached) {
+            return;
+        }
+        this.mIsAttached = true;
+        for (int i = 0; i < this.mHolders.size(); i++) {
+            ((DraweeHolder) this.mHolders.get(i)).onAttach();
+        }
+    }
+
+    public void onDetach() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || !this.mIsAttached) {
+            return;
+        }
+        this.mIsAttached = false;
+        for (int i = 0; i < this.mHolders.size(); i++) {
+            ((DraweeHolder) this.mHolders.get(i)).onDetach();
+        }
+    }
+
+    public int size() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mHolders.size();
+        }
+        return invokeV.intValue;
+    }
+
+    public void add(int i, DraweeHolder draweeHolder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, draweeHolder) == null) {
+            Preconditions.checkNotNull(draweeHolder);
+            Preconditions.checkElementIndex(i, this.mHolders.size() + 1);
+            this.mHolders.add(i, draweeHolder);
+            if (this.mIsAttached) {
+                draweeHolder.onAttach();
+            }
+        }
+    }
+
+    public void add(DraweeHolder draweeHolder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, draweeHolder) == null) {
+            add(this.mHolders.size(), draweeHolder);
         }
     }
 
@@ -71,31 +110,13 @@ public class MultiDraweeHolder<DH extends DraweeHierarchy> {
         }
     }
 
-    public DraweeHolder<DH> get(int i) {
+    public DraweeHolder get(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? this.mHolders.get(i) : (DraweeHolder) invokeI.objValue;
-    }
-
-    public void onAttach() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.mIsAttached) {
-            return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            return (DraweeHolder) this.mHolders.get(i);
         }
-        this.mIsAttached = true;
-        for (int i = 0; i < this.mHolders.size(); i++) {
-            this.mHolders.get(i).onAttach();
-        }
-    }
-
-    public void onDetach() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.mIsAttached) {
-            this.mIsAttached = false;
-            for (int i = 0; i < this.mHolders.size(); i++) {
-                this.mHolders.get(i).onDetach();
-            }
-        }
+        return (DraweeHolder) invokeI.objValue;
     }
 
     public boolean onTouchEvent(MotionEvent motionEvent) {
@@ -103,7 +124,7 @@ public class MultiDraweeHolder<DH extends DraweeHierarchy> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, motionEvent)) == null) {
             for (int i = 0; i < this.mHolders.size(); i++) {
-                if (this.mHolders.get(i).onTouchEvent(motionEvent)) {
+                if (((DraweeHolder) this.mHolders.get(i)).onTouchEvent(motionEvent)) {
                     return true;
                 }
             }
@@ -115,18 +136,12 @@ public class MultiDraweeHolder<DH extends DraweeHierarchy> {
     public void remove(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            DraweeHolder<DH> draweeHolder = this.mHolders.get(i);
+            DraweeHolder draweeHolder = (DraweeHolder) this.mHolders.get(i);
             if (this.mIsAttached) {
                 draweeHolder.onDetach();
             }
             this.mHolders.remove(i);
         }
-    }
-
-    public int size() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mHolders.size() : invokeV.intValue;
     }
 
     public boolean verifyDrawable(Drawable drawable) {
@@ -141,17 +156,5 @@ public class MultiDraweeHolder<DH extends DraweeHierarchy> {
             return false;
         }
         return invokeL.booleanValue;
-    }
-
-    public void add(int i, DraweeHolder<DH> draweeHolder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, draweeHolder) == null) {
-            Preconditions.checkNotNull(draweeHolder);
-            Preconditions.checkElementIndex(i, this.mHolders.size() + 1);
-            this.mHolders.add(i, draweeHolder);
-            if (this.mIsAttached) {
-                draweeHolder.onAttach();
-            }
-        }
     }
 }

@@ -1,6 +1,5 @@
 package kotlin.jvm.internal;
 
-import kotlin.SinceKotlin;
 import kotlin.reflect.KCallable;
 import kotlin.reflect.KMutableProperty0;
 import kotlin.reflect.KProperty0;
@@ -15,7 +14,6 @@ public abstract class MutablePropertyReference0 extends MutablePropertyReference
     }
 
     @Override // kotlin.reflect.KProperty0
-    @SinceKotlin(version = "1.1")
     public Object getDelegate() {
         return ((KMutableProperty0) getReflected()).getDelegate();
     }
@@ -25,9 +23,12 @@ public abstract class MutablePropertyReference0 extends MutablePropertyReference
         return get();
     }
 
-    @SinceKotlin(version = "1.1")
     public MutablePropertyReference0(Object obj) {
         super(obj);
+    }
+
+    public MutablePropertyReference0(Object obj, Class cls, String str, String str2, int i) {
+        super(obj, cls, str, str2, i);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -40,10 +41,5 @@ public abstract class MutablePropertyReference0 extends MutablePropertyReference
     @Override // kotlin.reflect.KMutableProperty, kotlin.reflect.KMutableProperty0
     public KMutableProperty0.Setter getSetter() {
         return ((KMutableProperty0) getReflected()).getSetter();
-    }
-
-    @SinceKotlin(version = "1.4")
-    public MutablePropertyReference0(Object obj, Class cls, String str, String str2, int i) {
-        super(obj, cls, str, str2, i);
     }
 }

@@ -11,7 +11,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.extractor.mkv.MatroskaExtractor;
 import com.google.zxing.BarcodeFormat;
-import com.google.zxing.EncodeHintType;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import java.util.ArrayList;
@@ -36,7 +35,7 @@ public final class Code128Writer extends OneDimensionalCodeWriter {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public static final class CType {
+    public final class CType {
         public static final /* synthetic */ CType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final CType FNC_1;
@@ -88,13 +87,19 @@ public final class Code128Writer extends OneDimensionalCodeWriter {
         public static CType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (CType) Enum.valueOf(CType.class, str) : (CType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (CType) Enum.valueOf(CType.class, str);
+            }
+            return (CType) invokeL.objValue;
         }
 
         public static CType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (CType[]) $VALUES.clone() : (CType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (CType[]) $VALUES.clone();
+            }
+            return (CType[]) invokeV.objValue;
         }
     }
 
@@ -115,35 +120,44 @@ public final class Code128Writer extends OneDimensionalCodeWriter {
     public static int chooseCode(CharSequence charSequence, int i, int i2) {
         InterceptResult invokeLII;
         CType findCType;
-        CType findCType2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, charSequence, i, i2)) == null) {
-            CType findCType3 = findCType(charSequence, i);
-            if (findCType3 != CType.UNCODABLE && findCType3 != CType.ONE_DIGIT) {
+            CType findCType2 = findCType(charSequence, i);
+            if (findCType2 != CType.UNCODABLE && findCType2 != CType.ONE_DIGIT) {
                 if (i2 == 99) {
                     return i2;
                 }
                 if (i2 == 100) {
-                    if (findCType3 == CType.FNC_1 || (findCType = findCType(charSequence, i + 2)) == CType.UNCODABLE || findCType == CType.ONE_DIGIT) {
+                    if (findCType2 == CType.FNC_1) {
                         return i2;
                     }
-                    if (findCType == CType.FNC_1) {
-                        return findCType(charSequence, i + 3) == CType.TWO_DIGITS ? 99 : 100;
-                    }
-                    int i3 = i + 4;
-                    while (true) {
-                        findCType2 = findCType(charSequence, i3);
-                        if (findCType2 != CType.TWO_DIGITS) {
-                            break;
+                    CType findCType3 = findCType(charSequence, i + 2);
+                    if (findCType3 != CType.UNCODABLE && findCType3 != CType.ONE_DIGIT) {
+                        if (findCType3 == CType.FNC_1) {
+                            if (findCType(charSequence, i + 3) != CType.TWO_DIGITS) {
+                                return 100;
+                            }
+                            return 99;
                         }
-                        i3 += 2;
+                        int i3 = i + 4;
+                        while (true) {
+                            findCType = findCType(charSequence, i3);
+                            if (findCType != CType.TWO_DIGITS) {
+                                break;
+                            }
+                            i3 += 2;
+                        }
+                        if (findCType == CType.ONE_DIGIT) {
+                            return 100;
+                        }
+                        return 99;
                     }
-                    return findCType2 == CType.ONE_DIGIT ? 100 : 99;
+                    return i2;
                 }
-                if (findCType3 == CType.FNC_1) {
-                    findCType3 = findCType(charSequence, i + 1);
+                if (findCType2 == CType.FNC_1) {
+                    findCType2 = findCType(charSequence, i + 1);
                 }
-                if (findCType3 == CType.TWO_DIGITS) {
+                if (findCType2 == CType.TWO_DIGITS) {
                     return 99;
                 }
             }
@@ -164,24 +178,24 @@ public final class Code128Writer extends OneDimensionalCodeWriter {
             if (charAt == 241) {
                 return CType.FNC_1;
             }
-            if (charAt < '0' || charAt > '9') {
-                return CType.UNCODABLE;
-            }
-            int i2 = i + 1;
-            if (i2 >= length) {
+            if (charAt >= '0' && charAt <= '9') {
+                int i2 = i + 1;
+                if (i2 >= length) {
+                    return CType.ONE_DIGIT;
+                }
+                char charAt2 = charSequence.charAt(i2);
+                if (charAt2 >= '0' && charAt2 <= '9') {
+                    return CType.TWO_DIGITS;
+                }
                 return CType.ONE_DIGIT;
             }
-            char charAt2 = charSequence.charAt(i2);
-            if (charAt2 >= '0' && charAt2 <= '9') {
-                return CType.TWO_DIGITS;
-            }
-            return CType.ONE_DIGIT;
+            return CType.UNCODABLE;
         }
         return (CType) invokeLI.objValue;
     }
 
     @Override // com.google.zxing.oned.OneDimensionalCodeWriter, com.google.zxing.Writer
-    public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2, Map<EncodeHintType, ?> map) throws WriterException {
+    public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2, Map map) throws WriterException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, barcodeFormat, Integer.valueOf(i), Integer.valueOf(i2), map})) == null) {
@@ -248,7 +262,15 @@ public final class Code128Writer extends OneDimensionalCodeWriter {
                         }
                         i3++;
                     } else {
-                        i7 = i5 == 0 ? chooseCode == 100 ? 104 : 105 : chooseCode;
+                        if (i5 == 0) {
+                            if (chooseCode == 100) {
+                                i7 = 104;
+                            } else {
+                                i7 = 105;
+                            }
+                        } else {
+                            i7 = chooseCode;
+                        }
                         i5 = chooseCode;
                     }
                     arrayList.add(Code128Reader.CODE_PATTERNS[i7]);

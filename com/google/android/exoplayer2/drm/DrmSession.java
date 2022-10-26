@@ -1,25 +1,37 @@
 package com.google.android.exoplayer2.drm;
 
-import android.annotation.TargetApi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.drm.ExoMediaCrypto;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.Map;
-@TargetApi(16)
 /* loaded from: classes7.dex */
-public interface DrmSession<T extends ExoMediaCrypto> {
+public interface DrmSession {
     public static final int STATE_ERROR = 1;
     public static final int STATE_OPENED = 3;
     public static final int STATE_OPENED_WITH_KEYS = 4;
     public static final int STATE_OPENING = 2;
     public static final int STATE_RELEASED = 0;
 
+    @Retention(RetentionPolicy.SOURCE)
     /* loaded from: classes7.dex */
-    public static class DrmSessionException extends Exception {
+    public @interface State {
+    }
+
+    DrmSessionException getError();
+
+    ExoMediaCrypto getMediaCrypto();
+
+    byte[] getOfflineLicenseKeySetId();
+
+    int getState();
+
+    Map queryKeyStatus();
+
+    /* loaded from: classes7.dex */
+    public class DrmSessionException extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -43,19 +55,4 @@ public interface DrmSession<T extends ExoMediaCrypto> {
             }
         }
     }
-
-    @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
-    public @interface State {
-    }
-
-    DrmSessionException getError();
-
-    T getMediaCrypto();
-
-    byte[] getOfflineLicenseKeySetId();
-
-    int getState();
-
-    Map<String, String> queryKeyStatus();
 }

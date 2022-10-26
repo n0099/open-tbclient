@@ -11,13 +11,13 @@ import io.reactivex.exceptions.Exceptions;
 import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 /* loaded from: classes8.dex */
-public final class ObservableLift<R, T> extends AbstractObservableWithUpstream<T, R> {
+public final class ObservableLift extends AbstractObservableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ObservableOperator<? extends R, ? super T> operator;
+    public final ObservableOperator operator;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableLift(ObservableSource<T> observableSource, ObservableOperator<? extends R, ? super T> observableOperator) {
+    public ObservableLift(ObservableSource observableSource, ObservableOperator observableOperator) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -38,11 +38,11 @@ public final class ObservableLift<R, T> extends AbstractObservableWithUpstream<T
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer<? super R> observer) {
+    public void subscribeActual(Observer observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             try {
-                Observer<? super Object> apply = this.operator.apply(observer);
+                Observer apply = this.operator.apply(observer);
                 this.source.subscribe((Observer) ObjectHelper.requireNonNull(apply, "Operator " + this.operator + " returned a null Observer"));
             } catch (NullPointerException e) {
                 throw e;

@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,10 +7,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+import java.util.ArrayList;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class xh2 extends fh2<th2> {
+public class xh2 extends gh2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.gh2
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "extractMediaMetadata" : (String) invokeV.objValue;
+    }
 
     public xh2() {
         Interceptable interceptable = $ic;
@@ -27,21 +35,24 @@ public class xh2 extends fh2<th2> {
         }
     }
 
-    @Override // com.baidu.tieba.fh2
-    @NonNull
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "release" : (String) invokeV.objValue;
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.fh2
+    @Override // com.baidu.tieba.gh2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull th2 th2Var) {
+    public void a(ZeusPlugin.Command command, uh2 uh2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, th2Var) == null) {
-            th2Var.release();
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, uh2Var) == null) {
+            Object obj = command.obj;
+            if (obj instanceof ArrayList) {
+                ArrayList arrayList = (ArrayList) obj;
+                if (arrayList.size() < 4) {
+                    return;
+                }
+                HashMap hashMap = new HashMap();
+                hashMap.put("Cookie", (String) arrayList.get(1));
+                hashMap.put("User-Agent", (String) arrayList.get(2));
+                hashMap.put("Referer", (String) arrayList.get(3));
+                uh2Var.k((String) arrayList.get(0), hashMap);
+            }
         }
     }
 }

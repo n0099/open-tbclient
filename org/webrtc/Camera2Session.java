@@ -1,6 +1,5 @@
 package org.webrtc;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraCaptureSession;
@@ -13,7 +12,7 @@ import android.os.Handler;
 import android.util.Range;
 import android.view.Surface;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.vw9;
+import com.baidu.tieba.nx9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,7 +29,6 @@ import org.webrtc.Camera2Session;
 import org.webrtc.CameraEnumerationAndroid;
 import org.webrtc.CameraSession;
 import org.webrtc.VideoFrame;
-@TargetApi(21)
 /* loaded from: classes8.dex */
 public class Camera2Session implements CameraSession {
     public static /* synthetic */ Interceptable $ic = null;
@@ -66,13 +64,13 @@ public class Camera2Session implements CameraSession {
 
     /* renamed from: org.webrtc.Camera2Session$1  reason: invalid class name */
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes8.dex */
-    public static class CameraCaptureCallback extends CameraCaptureSession.CaptureCallback {
+    public class CameraCaptureCallback extends CameraCaptureSession.CaptureCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -90,16 +88,16 @@ public class Camera2Session implements CameraSession {
             }
         }
 
+        public /* synthetic */ CameraCaptureCallback(AnonymousClass1 anonymousClass1) {
+            this();
+        }
+
         @Override // android.hardware.camera2.CameraCaptureSession.CaptureCallback
         public void onCaptureFailed(CameraCaptureSession cameraCaptureSession, CaptureRequest captureRequest, CaptureFailure captureFailure) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, cameraCaptureSession, captureRequest, captureFailure) == null) {
                 Logging.d(Camera2Session.TAG, "Capture failed: " + captureFailure);
             }
-        }
-
-        public /* synthetic */ CameraCaptureCallback(AnonymousClass1 anonymousClass1) {
-            this();
         }
     }
 
@@ -127,6 +125,31 @@ public class Camera2Session implements CameraSession {
             this.this$0 = camera2Session;
         }
 
+        @Override // android.hardware.camera2.CameraDevice.StateCallback
+        public void onClosed(CameraDevice cameraDevice) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(1048576, this, cameraDevice) != null) {
+                return;
+            }
+            this.this$0.checkIsOnCameraThread();
+            Logging.d(Camera2Session.TAG, "Camera device closed.");
+            this.this$0.events.onCameraClosed(this.this$0);
+        }
+
+        public /* synthetic */ CameraStateCallback(Camera2Session camera2Session, AnonymousClass1 anonymousClass1) {
+            this(camera2Session);
+        }
+
+        @Override // android.hardware.camera2.CameraDevice.StateCallback
+        public void onError(CameraDevice cameraDevice, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, cameraDevice, i) != null) {
+                return;
+            }
+            this.this$0.checkIsOnCameraThread();
+            this.this$0.reportError(getErrorDescription(i));
+        }
+
         private String getErrorDescription(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
@@ -152,21 +175,16 @@ public class Camera2Session implements CameraSession {
         }
 
         @Override // android.hardware.camera2.CameraDevice.StateCallback
-        public void onClosed(CameraDevice cameraDevice) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cameraDevice) == null) {
-                this.this$0.checkIsOnCameraThread();
-                Logging.d(Camera2Session.TAG, "Camera device closed.");
-                this.this$0.events.onCameraClosed(this.this$0);
-            }
-        }
-
-        @Override // android.hardware.camera2.CameraDevice.StateCallback
         public void onDisconnected(CameraDevice cameraDevice) {
+            boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cameraDevice) == null) {
                 this.this$0.checkIsOnCameraThread();
-                boolean z = this.this$0.captureSession == null && this.this$0.state != SessionState.STOPPED;
+                if (this.this$0.captureSession == null && this.this$0.state != SessionState.STOPPED) {
+                    z = true;
+                } else {
+                    z = false;
+                }
                 this.this$0.state = SessionState.STOPPED;
                 this.this$0.stopInternal();
                 if (z) {
@@ -174,15 +192,6 @@ public class Camera2Session implements CameraSession {
                 } else {
                     this.this$0.events.onCameraDisconnected(this.this$0);
                 }
-            }
-        }
-
-        @Override // android.hardware.camera2.CameraDevice.StateCallback
-        public void onError(CameraDevice cameraDevice, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, cameraDevice, i) == null) {
-                this.this$0.checkIsOnCameraThread();
-                this.this$0.reportError(getErrorDescription(i));
             }
         }
 
@@ -202,10 +211,6 @@ public class Camera2Session implements CameraSession {
                     camera2Session.reportError("Failed to create capture session. " + e);
                 }
             }
-        }
-
-        public /* synthetic */ CameraStateCallback(Camera2Session camera2Session, AnonymousClass1 anonymousClass1) {
-            this(camera2Session);
         }
     }
 
@@ -231,6 +236,21 @@ public class Camera2Session implements CameraSession {
                 }
             }
             this.this$0 = camera2Session;
+        }
+
+        @Override // android.hardware.camera2.CameraCaptureSession.StateCallback
+        public void onConfigureFailed(CameraCaptureSession cameraCaptureSession) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cameraCaptureSession) != null) {
+                return;
+            }
+            this.this$0.checkIsOnCameraThread();
+            cameraCaptureSession.close();
+            this.this$0.reportError("Failed to configure capture session.");
+        }
+
+        public /* synthetic */ CaptureSessionCallback(Camera2Session camera2Session, AnonymousClass1 anonymousClass1) {
+            this(camera2Session);
         }
 
         private void chooseFocusMode(CaptureRequest.Builder builder) {
@@ -275,27 +295,17 @@ public class Camera2Session implements CameraSession {
 
         public /* synthetic */ void a(VideoFrame videoFrame) {
             this.this$0.checkIsOnCameraThread();
-            if (this.this$0.state == SessionState.RUNNING) {
-                if (!this.this$0.firstFrameReported) {
-                    this.this$0.firstFrameReported = true;
-                    Camera2Session.camera2StartTimeMsHistogram.addSample((int) TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - this.this$0.constructionTimeNs));
-                }
-                VideoFrame videoFrame2 = new VideoFrame(vw9.a((TextureBufferImpl) videoFrame.getBuffer(), this.this$0.isCameraFrontFacing, -this.this$0.cameraOrientation), this.this$0.getFrameOrientation(), videoFrame.getTimestampNs());
-                this.this$0.events.onFrameCaptured(this.this$0, videoFrame2);
-                videoFrame2.release();
+            if (this.this$0.state != SessionState.RUNNING) {
+                Logging.d(Camera2Session.TAG, "Texture frame captured but camera is no longer running.");
                 return;
             }
-            Logging.d(Camera2Session.TAG, "Texture frame captured but camera is no longer running.");
-        }
-
-        @Override // android.hardware.camera2.CameraCaptureSession.StateCallback
-        public void onConfigureFailed(CameraCaptureSession cameraCaptureSession) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cameraCaptureSession) == null) {
-                this.this$0.checkIsOnCameraThread();
-                cameraCaptureSession.close();
-                this.this$0.reportError("Failed to configure capture session.");
+            if (!this.this$0.firstFrameReported) {
+                this.this$0.firstFrameReported = true;
+                Camera2Session.camera2StartTimeMsHistogram.addSample((int) TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - this.this$0.constructionTimeNs));
             }
+            VideoFrame videoFrame2 = new VideoFrame(nx9.a((TextureBufferImpl) videoFrame.getBuffer(), this.this$0.isCameraFrontFacing, -this.this$0.cameraOrientation), this.this$0.getFrameOrientation(), videoFrame.getTimestampNs());
+            this.this$0.events.onFrameCaptured(this.this$0, videoFrame2);
+            videoFrame2.release();
         }
 
         @Override // android.hardware.camera2.CameraCaptureSession.StateCallback
@@ -314,7 +324,7 @@ public class Camera2Session implements CameraSession {
                     chooseFocusMode(createCaptureRequest);
                     createCaptureRequest.addTarget(this.this$0.surface);
                     cameraCaptureSession.setRepeatingRequest(createCaptureRequest.build(), new CameraCaptureCallback(null), this.this$0.cameraThreadHandler);
-                    this.this$0.surfaceTextureHelper.startListening(new VideoSink() { // from class: com.baidu.tieba.uv9
+                    this.this$0.surfaceTextureHelper.startListening(new VideoSink() { // from class: com.baidu.tieba.mw9
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -334,15 +344,11 @@ public class Camera2Session implements CameraSession {
                 }
             }
         }
-
-        public /* synthetic */ CaptureSessionCallback(Camera2Session camera2Session, AnonymousClass1 anonymousClass1) {
-            this(camera2Session);
-        }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public static final class SessionState {
+    public final class SessionState {
         public static final /* synthetic */ SessionState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final SessionState RUNNING;
@@ -390,13 +396,19 @@ public class Camera2Session implements CameraSession {
         public static SessionState valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (SessionState) Enum.valueOf(SessionState.class, str) : (SessionState) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (SessionState) Enum.valueOf(SessionState.class, str);
+            }
+            return (SessionState) invokeL.objValue;
         }
 
         public static SessionState[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (SessionState[]) $VALUES.clone() : (SessionState[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (SessionState[]) $VALUES.clone();
+            }
+            return (SessionState[]) invokeV.objValue;
         }
     }
 
@@ -416,6 +428,32 @@ public class Camera2Session implements CameraSession {
         camera2StartTimeMsHistogram = Histogram.createCounts("WebRTC.Android.Camera2.StartTimeMs", 1, 10000, 50);
         camera2StopTimeMsHistogram = Histogram.createCounts("WebRTC.Android.Camera2.StopTimeMs", 1, 10000, 50);
         camera2ResolutionHistogram = Histogram.createEnumeration("WebRTC.Android.Camera2.Resolution", CameraEnumerationAndroid.COMMON_RESOLUTIONS.size());
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void stopInternal() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65570, this) == null) {
+            Logging.d(TAG, "Stop internal");
+            checkIsOnCameraThread();
+            this.surfaceTextureHelper.stopListening();
+            CameraCaptureSession cameraCaptureSession = this.captureSession;
+            if (cameraCaptureSession != null) {
+                cameraCaptureSession.close();
+                this.captureSession = null;
+            }
+            Surface surface = this.surface;
+            if (surface != null) {
+                surface.release();
+                this.surface = null;
+            }
+            CameraDevice cameraDevice = this.cameraDevice;
+            if (cameraDevice != null) {
+                cameraDevice.close();
+                this.cameraDevice = null;
+            }
+            Logging.d(TAG, "Stop done");
+        }
     }
 
     public Camera2Session(CameraSession.CreateSessionCallback createSessionCallback, CameraSession.Events events, Context context, CameraManager cameraManager, SurfaceTextureHelper surfaceTextureHelper, String str, int i, int i2, int i3) {
@@ -452,9 +490,24 @@ public class Camera2Session implements CameraSession {
     /* JADX INFO: Access modifiers changed from: private */
     public void checkIsOnCameraThread() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65563, this) == null) && Thread.currentThread() != this.cameraThreadHandler.getLooper().getThread()) {
-            throw new IllegalStateException("Wrong thread");
+        if ((interceptable != null && interceptable.invokeV(65563, this) != null) || Thread.currentThread() == this.cameraThreadHandler.getLooper().getThread()) {
+            return;
         }
+        throw new IllegalStateException("Wrong thread");
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public int getFrameOrientation() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65566, this)) == null) {
+            int b = nx9.b(this.applicationContext);
+            if (!this.isCameraFrontFacing) {
+                b = 360 - b;
+            }
+            return (this.cameraOrientation + b) % 360;
+        }
+        return invokeV.intValue;
     }
 
     public static void create(CameraSession.CreateSessionCallback createSessionCallback, CameraSession.Events events, Context context, CameraManager cameraManager, SurfaceTextureHelper surfaceTextureHelper, String str, int i, int i2, int i3) {
@@ -471,8 +524,8 @@ public class Camera2Session implements CameraSession {
             Range[] rangeArr = (Range[]) this.cameraCharacteristics.get(CameraCharacteristics.CONTROL_AE_AVAILABLE_TARGET_FPS_RANGES);
             int fpsUnitFactor = Camera2Enumerator.getFpsUnitFactor(rangeArr);
             this.fpsUnitFactor = fpsUnitFactor;
-            List<CameraEnumerationAndroid.CaptureFormat.FramerateRange> convertFramerates = Camera2Enumerator.convertFramerates(rangeArr, fpsUnitFactor);
-            List<Size> supportedSizes = Camera2Enumerator.getSupportedSizes(this.cameraCharacteristics);
+            List convertFramerates = Camera2Enumerator.convertFramerates(rangeArr, fpsUnitFactor);
+            List supportedSizes = Camera2Enumerator.getSupportedSizes(this.cameraCharacteristics);
             Logging.d(TAG, "Available preview sizes: " + supportedSizes);
             Logging.d(TAG, "Available fps ranges: " + convertFramerates);
             if (!convertFramerates.isEmpty() && !supportedSizes.isEmpty()) {
@@ -485,20 +538,6 @@ public class Camera2Session implements CameraSession {
             }
             reportError("No supported capture formats.");
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public int getFrameOrientation() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65566, this)) == null) {
-            int b = vw9.b(this.applicationContext);
-            if (!this.isCameraFrontFacing) {
-                b = 360 - b;
-            }
-            return (this.cameraOrientation + b) % 360;
-        }
-        return invokeV.intValue;
     }
 
     private void openCamera() {
@@ -515,67 +554,6 @@ public class Camera2Session implements CameraSession {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void reportError(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65568, this, str) == null) {
-            checkIsOnCameraThread();
-            Logging.e(TAG, "Error: " + str);
-            boolean z = this.captureSession == null && this.state != SessionState.STOPPED;
-            this.state = SessionState.STOPPED;
-            stopInternal();
-            if (z) {
-                this.callback.onFailure(CameraSession.FailureType.ERROR, str);
-            } else {
-                this.events.onCameraError(this, str);
-            }
-        }
-    }
-
-    private void start() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65569, this) == null) {
-            checkIsOnCameraThread();
-            Logging.d(TAG, "start");
-            try {
-                CameraCharacteristics cameraCharacteristics = this.cameraManager.getCameraCharacteristics(this.cameraId);
-                this.cameraCharacteristics = cameraCharacteristics;
-                this.cameraOrientation = ((Integer) cameraCharacteristics.get(CameraCharacteristics.SENSOR_ORIENTATION)).intValue();
-                this.isCameraFrontFacing = ((Integer) this.cameraCharacteristics.get(CameraCharacteristics.LENS_FACING)).intValue() == 0;
-                findCaptureFormat();
-                openCamera();
-            } catch (CameraAccessException e) {
-                reportError("getCameraCharacteristics(): " + e.getMessage());
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void stopInternal() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65570, this) == null) {
-            Logging.d(TAG, "Stop internal");
-            checkIsOnCameraThread();
-            this.surfaceTextureHelper.stopListening();
-            CameraCaptureSession cameraCaptureSession = this.captureSession;
-            if (cameraCaptureSession != null) {
-                cameraCaptureSession.close();
-                this.captureSession = null;
-            }
-            Surface surface = this.surface;
-            if (surface != null) {
-                surface.release();
-                this.surface = null;
-            }
-            CameraDevice cameraDevice = this.cameraDevice;
-            if (cameraDevice != null) {
-                cameraDevice.close();
-                this.cameraDevice = null;
-            }
-            Logging.d(TAG, "Stop done");
-        }
-    }
-
     @Override // org.webrtc.CameraSession
     public void stop() {
         Interceptable interceptable = $ic;
@@ -587,6 +565,52 @@ public class Camera2Session implements CameraSession {
                 this.state = SessionState.STOPPED;
                 stopInternal();
                 camera2StopTimeMsHistogram.addSample((int) TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - nanoTime));
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void reportError(String str) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65568, this, str) == null) {
+            checkIsOnCameraThread();
+            Logging.e(TAG, "Error: " + str);
+            if (this.captureSession == null && this.state != SessionState.STOPPED) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.state = SessionState.STOPPED;
+            stopInternal();
+            if (z) {
+                this.callback.onFailure(CameraSession.FailureType.ERROR, str);
+            } else {
+                this.events.onCameraError(this, str);
+            }
+        }
+    }
+
+    private void start() {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65569, this) == null) {
+            checkIsOnCameraThread();
+            Logging.d(TAG, "start");
+            try {
+                CameraCharacteristics cameraCharacteristics = this.cameraManager.getCameraCharacteristics(this.cameraId);
+                this.cameraCharacteristics = cameraCharacteristics;
+                this.cameraOrientation = ((Integer) cameraCharacteristics.get(CameraCharacteristics.SENSOR_ORIENTATION)).intValue();
+                if (((Integer) this.cameraCharacteristics.get(CameraCharacteristics.LENS_FACING)).intValue() == 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                this.isCameraFrontFacing = z;
+                findCaptureFormat();
+                openCamera();
+            } catch (CameraAccessException e) {
+                reportError("getCameraCharacteristics(): " + e.getMessage());
             }
         }
     }

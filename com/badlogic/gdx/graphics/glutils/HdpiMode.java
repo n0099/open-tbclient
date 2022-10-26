@@ -57,12 +57,18 @@ public final class HdpiMode {
     public static HdpiMode valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (HdpiMode) Enum.valueOf(HdpiMode.class, str) : (HdpiMode) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (HdpiMode) Enum.valueOf(HdpiMode.class, str);
+        }
+        return (HdpiMode) invokeL.objValue;
     }
 
     public static HdpiMode[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (HdpiMode[]) $VALUES.clone() : (HdpiMode[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (HdpiMode[]) $VALUES.clone();
+        }
+        return (HdpiMode[]) invokeV.objValue;
     }
 }

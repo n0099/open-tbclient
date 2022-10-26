@@ -41,15 +41,22 @@ public class LocationFooterViewHolder extends RecyclerView.ViewHolder {
     public final void a(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091420);
-            this.b = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f09141d);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091412);
+            this.b = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f09140f);
         }
     }
 
     public void b(boolean z) {
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.itemView.setVisibility(z ? 0 : 4);
+            View view2 = this.itemView;
+            if (z) {
+                i = 0;
+            } else {
+                i = 4;
+            }
+            view2.setVisibility(i);
         }
     }
 }

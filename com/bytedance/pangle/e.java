@@ -6,7 +6,6 @@ import android.content.res.Resources;
 import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.view.ContextThemeWrapper;
-import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,6 +29,15 @@ public class e extends ContextThemeWrapper {
     public File mObbDir;
     public final Object mSync;
 
+    public String getPluginPkg() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
     public e() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -40,6 +48,68 @@ public class e extends ContextThemeWrapper {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mSync = new Object();
+    }
+
+    public File getHostDataDir() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return super.getFilesDir().getParentFile();
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public String getPluginDirName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return ZeusConstants.BASE_LIB_NAME + "_" + getPluginPkg();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public e(Context context, int i) {
+        super(context, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mSync = new Object();
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public e(Context context, Resources.Theme theme) {
+        super(context, theme);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, theme};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (Resources.Theme) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
@@ -58,6 +128,90 @@ public class e extends ContextThemeWrapper {
         return (File) invokeL.objValue;
     }
 
+    private String makeSubName(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, str)) == null) {
+            return getPluginDirName() + "_" + str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public boolean deleteDatabase(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (getPluginDirName() == null) {
+                return super.deleteDatabase(str);
+            }
+            return super.deleteDatabase(makeSubName(str));
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public boolean deleteFile(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return makeFilename(getFilesDir(), str).delete();
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public boolean deleteSharedPreferences(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (getPluginDirName() == null) {
+                return super.deleteSharedPreferences(str);
+            }
+            return super.deleteSharedPreferences(makeSubName(str));
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public File getDatabasePath(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            if (getPluginDirName() == null) {
+                return super.getDatabasePath(str);
+            }
+            return super.getDatabasePath(makeSubName(str));
+        }
+        return (File) invokeL.objValue;
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public File getExternalFilesDir(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
+            if (getPluginDirName() == null) {
+                return super.getExternalFilesDir(str);
+            }
+            return ensurePrivateDirExists(new File(super.getExternalFilesDir(str), getPluginDirName()));
+        }
+        return (File) invokeL.objValue;
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public FileInputStream openFileInput(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, str)) == null) {
+            if (getPluginDirName() == null) {
+                return super.openFileInput(str);
+            }
+            return new FileInputStream(makeFilename(getFilesDir(), str));
+        }
+        return (FileInputStream) invokeL.objValue;
+    }
+
     public static File makeFilename(File file, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -70,13 +224,17 @@ public class e extends ContextThemeWrapper {
         return (File) invokeLL.objValue;
     }
 
-    private String makeSubName(String str) {
-        InterceptResult invokeL;
+    @Override // android.content.ContextWrapper, android.content.Context
+    public File getDir(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, str)) == null) {
-            return getPluginDirName() + "_" + str;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, i)) == null) {
+            if (i == 0 && getPluginDirName() != null) {
+                return ensurePrivateDirExists(new File(super.getDir(str, i), getPluginDirName()));
+            }
+            return super.getDir(str, i);
         }
-        return (String) invokeL.objValue;
+        return (File) invokeLI.objValue;
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -110,39 +268,6 @@ public class e extends ContextThemeWrapper {
             return strArr;
         }
         return (String[]) invokeV.objValue;
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
-    public boolean deleteDatabase(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (getPluginDirName() == null) {
-                return super.deleteDatabase(str);
-            }
-            return super.deleteDatabase(makeSubName(str));
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
-    public boolean deleteFile(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? makeFilename(getFilesDir(), str).delete() : invokeL.booleanValue;
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
-    public boolean deleteSharedPreferences(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (getPluginDirName() == null) {
-                return super.deleteSharedPreferences(str);
-            }
-            return super.deleteSharedPreferences(makeSubName(str));
-        }
-        return invokeL.booleanValue;
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -206,32 +331,6 @@ public class e extends ContextThemeWrapper {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public File getDatabasePath(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            if (getPluginDirName() == null) {
-                return super.getDatabasePath(str);
-            }
-            return super.getDatabasePath(makeSubName(str));
-        }
-        return (File) invokeL.objValue;
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
-    public File getDir(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, i)) == null) {
-            if (i == 0 && getPluginDirName() != null) {
-                return ensurePrivateDirExists(new File(super.getDir(str, i), getPluginDirName()));
-            }
-            return super.getDir(str, i);
-        }
-        return (File) invokeLI.objValue;
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
     public File getExternalCacheDir() {
         InterceptResult invokeV;
         File ensurePrivateDirExists;
@@ -270,37 +369,6 @@ public class e extends ContextThemeWrapper {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public File getExternalFilesDir(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            if (getPluginDirName() == null) {
-                return super.getExternalFilesDir(str);
-            }
-            return ensurePrivateDirExists(new File(super.getExternalFilesDir(str), getPluginDirName()));
-        }
-        return (File) invokeL.objValue;
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
-    public File[] getExternalFilesDirs(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-            if (getPluginDirName() == null) {
-                return super.getExternalFilesDirs(str);
-            }
-            File[] externalFilesDirs = super.getExternalFilesDirs(str);
-            File[] fileArr = new File[externalFilesDirs.length];
-            for (int i = 0; i < externalFilesDirs.length; i++) {
-                fileArr[i] = ensurePrivateDirExists(new File(externalFilesDirs[i], getPluginDirName()));
-            }
-            return fileArr;
-        }
-        return (File[]) invokeL.objValue;
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
     public File[] getExternalMediaDirs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -336,12 +404,6 @@ public class e extends ContextThemeWrapper {
             return ensurePrivateDirExists;
         }
         return (File) invokeV.objValue;
-    }
-
-    public File getHostDataDir() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? super.getFilesDir().getParentFile() : (File) invokeV.objValue;
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -402,22 +464,22 @@ public class e extends ContextThemeWrapper {
         return (File[]) invokeV.objValue;
     }
 
-    public String getPluginDirName() {
-        InterceptResult invokeV;
+    @Override // android.content.ContextWrapper, android.content.Context
+    public File[] getExternalFilesDirs(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            return ZeusConstants.BASE_LIB_NAME + "_" + getPluginPkg();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
+            if (getPluginDirName() == null) {
+                return super.getExternalFilesDirs(str);
+            }
+            File[] externalFilesDirs = super.getExternalFilesDirs(str);
+            File[] fileArr = new File[externalFilesDirs.length];
+            for (int i = 0; i < externalFilesDirs.length; i++) {
+                fileArr[i] = ensurePrivateDirExists(new File(externalFilesDirs[i], getPluginDirName()));
+            }
+            return fileArr;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public String getPluginPkg() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
+        return (File[]) invokeL.objValue;
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -447,19 +509,6 @@ public class e extends ContextThemeWrapper {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public FileInputStream openFileInput(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, str)) == null) {
-            if (getPluginDirName() == null) {
-                return super.openFileInput(str);
-            }
-            return new FileInputStream(makeFilename(getFilesDir(), str));
-        }
-        return (FileInputStream) invokeL.objValue;
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
     public FileOutputStream openFileOutput(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
@@ -485,28 +534,6 @@ public class e extends ContextThemeWrapper {
         return (SQLiteDatabase) invokeLIL.objValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e(Context context, int i) {
-        super(context, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mSync = new Object();
-    }
-
     @Override // android.content.ContextWrapper, android.content.Context
     public SQLiteDatabase openOrCreateDatabase(String str, int i, SQLiteDatabase.CursorFactory cursorFactory, DatabaseErrorHandler databaseErrorHandler) {
         InterceptResult invokeLILL;
@@ -518,28 +545,5 @@ public class e extends ContextThemeWrapper {
             return super.openOrCreateDatabase(str, i, cursorFactory, databaseErrorHandler);
         }
         return (SQLiteDatabase) invokeLILL.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    @RequiresApi(api = 23)
-    public e(Context context, Resources.Theme theme) {
-        super(context, theme);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, theme};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (Resources.Theme) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.mSync = new Object();
     }
 }

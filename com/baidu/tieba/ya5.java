@@ -1,14 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.data.HotEventData;
-import com.baidu.tbadk.mutiprocess.hotevent.HotEvent;
+import com.baidu.tbadk.core.util.CurrentPageTypeHelper;
+import com.baidu.tbadk.mutiprocess.currentpagetype.CurrentPageTypeEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ya5 implements ha5<HotEvent> {
+public class ya5 implements la5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,17 +27,16 @@ public class ya5 implements ha5<HotEvent> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ha5
+    @Override // com.baidu.tieba.la5
     /* renamed from: a */
-    public boolean onEvent(HotEvent hotEvent) {
+    public boolean onEvent(CurrentPageTypeEvent currentPageTypeEvent) {
         InterceptResult invokeL;
-        HotEventData hotEventData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hotEvent)) == null) {
-            if (hotEvent == null || (hotEventData = hotEvent.hotEventData) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, currentPageTypeEvent)) == null) {
+            if (currentPageTypeEvent == null) {
                 return false;
             }
-            g35.g(hotEventData);
+            CurrentPageTypeHelper.currentPageType = currentPageTypeEvent.currentPageType;
             return true;
         }
         return invokeL.booleanValue;

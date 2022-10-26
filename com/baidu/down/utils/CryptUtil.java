@@ -16,6 +16,10 @@ public class CryptUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static native byte[] decrypt(Context context, byte[] bArr);
+
+    public static native byte[] encrypt(Context context, byte[] bArr);
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -46,8 +50,6 @@ public class CryptUtil {
         }
     }
 
-    public static native byte[] decrypt(Context context, byte[] bArr);
-
     public static String decryptCdnData(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -65,8 +67,9 @@ public class CryptUtil {
     public static byte[] decryptData(Context context, byte[] bArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, bArr)) == null) ? decrypt(context, bArr) : (byte[]) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, bArr)) == null) {
+            return decrypt(context, bArr);
+        }
+        return (byte[]) invokeLL.objValue;
     }
-
-    public static native byte[] encrypt(Context context, byte[] bArr);
 }

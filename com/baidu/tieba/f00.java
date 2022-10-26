@@ -1,52 +1,61 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.cea.Cea608Decoder;
-import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
-import javax.crypto.BadPaddingException;
-import javax.crypto.IllegalBlockSizeException;
 /* loaded from: classes3.dex */
-public class f00 {
+public abstract class f00 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile byte[] a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final b00 a;
+    public final int b;
+    public byte[] c;
 
-    public f00() {
+    public f00(b00 b00Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {b00Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = b00Var;
+        this.b = b00Var.a();
+    }
+
+    public abstract void a(boolean z, String str, byte[] bArr, byte[] bArr2) throws InvalidKeyException;
+
+    public abstract void b(byte[] bArr, int i, int i2, byte[] bArr2, int i3);
+
+    public void c(byte[] bArr, int i, int i2, byte[] bArr2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), bArr2, Integer.valueOf(i3)}) == null) {
+            b(bArr, i, i2, bArr2, i3);
         }
     }
 
-    public static byte[] a() throws InvalidAlgorithmParameterException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException {
-        InterceptResult invokeV;
+    public abstract void d(byte[] bArr, int i, int i2, byte[] bArr2, int i3);
+
+    public void e(byte[] bArr, int i, int i2, byte[] bArr2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (f00.class) {
-                    if (a == null) {
-                        byte[] bArr = new byte[16];
-                        System.arraycopy(m00.a(), 0, bArr, 0, 16);
-                        b00 b00Var = new b00();
-                        b00Var.a(2, bArr, bArr);
-                        a = b00Var.b(new byte[]{-71, -100, -115, 26, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, -124, 14, 14, -31, -46, -56, 1, 25, -127, -99, -107, -54, 51, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, 14, 68, -68, -19, 28, 66, 19, -113, 5, 25, -11, -123, 50});
-                    }
-                }
-            }
-            return a;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), bArr2, Integer.valueOf(i3)}) == null) {
+            d(bArr, i, i2, bArr2, i3);
         }
-        return (byte[]) invokeV.objValue;
     }
+
+    public abstract void f();
+
+    public abstract void g();
+
+    public abstract void h();
 }

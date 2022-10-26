@@ -1,6 +1,5 @@
 package com.baidu.live.arch.utils;
 
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.Application;
 import android.app.Dialog;
@@ -34,7 +33,7 @@ public class StatusBarUtils {
     public Window window;
 
     /* loaded from: classes2.dex */
-    public static final class Builder {
+    public final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public View actionBarView;
@@ -59,21 +58,24 @@ public class StatusBarUtils {
             this.transparentStatusbar = false;
         }
 
-        /* JADX INFO: Access modifiers changed from: private */
-        public Builder setWindow(Window window) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, window)) == null) {
-                this.window = window;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
-        }
-
         public boolean process() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new StatusBarUtils(this.window, this.lightStatusBar, this.transparentStatusbar, this.actionBarView).process() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new StatusBarUtils(this.window, this.lightStatusBar, this.transparentStatusbar, this.actionBarView).process();
+            }
+            return invokeV.booleanValue;
+        }
+
+        /* JADX INFO: Access modifiers changed from: private */
+        public Builder setWindow(Activity activity) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, activity)) == null) {
+                this.window = activity.getWindow();
+                return this;
+            }
+            return (Builder) invokeL.objValue;
         }
 
         public Builder setActionbarView(View view2) {
@@ -107,22 +109,22 @@ public class StatusBarUtils {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public Builder setWindow(Activity activity) {
+        public Builder setWindow(Dialog dialog) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, activity)) == null) {
-                this.window = activity.getWindow();
+            if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, dialog)) == null) {
+                this.window = dialog.getWindow();
                 return this;
             }
             return (Builder) invokeL.objValue;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public Builder setWindow(Dialog dialog) {
+        public Builder setWindow(Window window) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, dialog)) == null) {
-                this.window = dialog.getWindow();
+            if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, window)) == null) {
+                this.window = window;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -153,7 +155,69 @@ public class StatusBarUtils {
     public static Builder from(Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) ? new Builder().setWindow(activity) : (Builder) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
+            return new Builder().setWindow(activity);
+        }
+        return (Builder) invokeL.objValue;
+    }
+
+    public void processActionBar(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) && view2 != null && this.transparentStatusBar && !isLessKitkat()) {
+            view2.post(new Runnable(this, view2) { // from class: com.baidu.live.arch.utils.StatusBarUtils.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ StatusBarUtils this$0;
+                public final /* synthetic */ View val$v;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, view2};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$v = view2;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        View view3 = this.val$v;
+                        view3.setPadding(view3.getPaddingLeft(), this.val$v.getPaddingTop() + StatusBarUtils.getStatusBarOffsetPx(this.val$v.getContext()), this.val$v.getPaddingRight(), this.val$v.getPaddingBottom());
+                        this.val$v.getLayoutParams().height += StatusBarUtils.getStatusBarOffsetPx(this.val$v.getContext());
+                    }
+                }
+            });
+        }
+    }
+
+    public static Builder from(Dialog dialog) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, dialog)) == null) {
+            return new Builder().setWindow(dialog);
+        }
+        return (Builder) invokeL.objValue;
+    }
+
+    public static Builder from(Window window) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, window)) == null) {
+            return new Builder().setWindow(window);
+        }
+        return (Builder) invokeL.objValue;
     }
 
     public static int getStatusBarOffsetPx(Context context) {
@@ -167,34 +231,16 @@ public class StatusBarUtils {
             Application application = appInfoService.getApplication();
             try {
                 int identifier = application.getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.g, EMABTest.TYPE_DIMEN, "android");
-                if (identifier > 0) {
-                    return application.getResources().getDimensionPixelSize(identifier);
+                if (identifier <= 0) {
+                    return 0;
                 }
-                return 0;
+                return application.getResources().getDimensionPixelSize(identifier);
             } catch (Resources.NotFoundException e) {
                 e.printStackTrace();
                 return 0;
             }
         }
         return invokeL.intValue;
-    }
-
-    public static boolean isKitkat() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? Build.VERSION.SDK_INT == 19 : invokeV.booleanValue;
-    }
-
-    public static boolean isLessKitkat() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? Build.VERSION.SDK_INT < 19 : invokeV.booleanValue;
-    }
-
-    public static boolean isMoreLollipop() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? Build.VERSION.SDK_INT >= 21 : invokeV.booleanValue;
     }
 
     private boolean processFlyMe(boolean z) {
@@ -221,7 +267,112 @@ public class StatusBarUtils {
         return invokeZ.booleanValue;
     }
 
-    @TargetApi(21)
+    private boolean processMIUI(boolean z) {
+        InterceptResult invokeZ;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65546, this, z)) == null) {
+            Class<?> cls = this.window.getClass();
+            try {
+                Class<?> cls2 = Class.forName("android.view.MiuiWindowManager$LayoutParams");
+                int i2 = cls2.getField("EXTRA_FLAG_STATUS_BAR_DARK_MODE").getInt(cls2);
+                Method method = cls.getMethod("setExtraFlags", Integer.TYPE, Integer.TYPE);
+                Window window = this.window;
+                Object[] objArr = new Object[2];
+                if (z) {
+                    i = i2;
+                } else {
+                    i = 0;
+                }
+                objArr[0] = Integer.valueOf(i);
+                objArr[1] = Integer.valueOf(i2);
+                method.invoke(window, objArr);
+                return true;
+            } catch (Exception unused) {
+                return false;
+            }
+        }
+        return invokeZ.booleanValue;
+    }
+
+    public static boolean isKitkat() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (Build.VERSION.SDK_INT == 19) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isLessKitkat() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (Build.VERSION.SDK_INT < 19) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isMoreLollipop() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (Build.VERSION.SDK_INT >= 21) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean process() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            int i = Build.VERSION.SDK_INT;
+            if (!processPrivateAPI() && !processLollipopAbove()) {
+                return false;
+            }
+            if (i == 19) {
+                processKitkat();
+            }
+            processActionBar(this.actionBarView);
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void processKitkat() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            WindowManager.LayoutParams attributes = this.window.getAttributes();
+            if (this.transparentStatusBar) {
+                attributes.flags |= CodedInputStream.DEFAULT_SIZE_LIMIT;
+            } else {
+                attributes.flags &= -67108865;
+            }
+            this.window.setAttributes(attributes);
+        }
+    }
+
+    public boolean processPrivateAPI() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (!processFlyMe(this.lightStatusBar) && !processMIUI(this.lightStatusBar)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
     private boolean processLollipopAbove() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -243,28 +394,6 @@ public class StatusBarUtils {
         return invokeV.booleanValue;
     }
 
-    private boolean processMIUI(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65546, this, z)) == null) {
-            Class<?> cls = this.window.getClass();
-            try {
-                Class<?> cls2 = Class.forName("android.view.MiuiWindowManager$LayoutParams");
-                int i = cls2.getField("EXTRA_FLAG_STATUS_BAR_DARK_MODE").getInt(cls2);
-                Method method = cls.getMethod("setExtraFlags", Integer.TYPE, Integer.TYPE);
-                Window window = this.window;
-                Object[] objArr = new Object[2];
-                objArr[0] = Integer.valueOf(z ? i : 0);
-                objArr[1] = Integer.valueOf(i);
-                method.invoke(window, objArr);
-                return true;
-            } catch (Exception unused) {
-                return false;
-            }
-        }
-        return invokeZ.booleanValue;
-    }
-
     public static void setStatusBarVisible(Activity activity, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65547, null, activity, z) == null) {
@@ -274,96 +403,5 @@ public class StatusBarUtils {
                 activity.getWindow().addFlags(1024);
             }
         }
-    }
-
-    public boolean process() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i = Build.VERSION.SDK_INT;
-            if (processPrivateAPI() || processLollipopAbove()) {
-                if (i == 19) {
-                    processKitkat();
-                }
-                processActionBar(this.actionBarView);
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void processActionBar(View view2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) || view2 == null || !this.transparentStatusBar || isLessKitkat()) {
-            return;
-        }
-        view2.post(new Runnable(this, view2) { // from class: com.baidu.live.arch.utils.StatusBarUtils.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ StatusBarUtils this$0;
-            public final /* synthetic */ View val$v;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this, view2};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-                this.val$v = view2;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    View view3 = this.val$v;
-                    view3.setPadding(view3.getPaddingLeft(), this.val$v.getPaddingTop() + StatusBarUtils.getStatusBarOffsetPx(this.val$v.getContext()), this.val$v.getPaddingRight(), this.val$v.getPaddingBottom());
-                    this.val$v.getLayoutParams().height += StatusBarUtils.getStatusBarOffsetPx(this.val$v.getContext());
-                }
-            }
-        });
-    }
-
-    @TargetApi(19)
-    public void processKitkat() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            WindowManager.LayoutParams attributes = this.window.getAttributes();
-            if (this.transparentStatusBar) {
-                attributes.flags |= CodedInputStream.DEFAULT_SIZE_LIMIT;
-            } else {
-                attributes.flags &= -67108865;
-            }
-            this.window.setAttributes(attributes);
-        }
-    }
-
-    public boolean processPrivateAPI() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? processFlyMe(this.lightStatusBar) || processMIUI(this.lightStatusBar) : invokeV.booleanValue;
-    }
-
-    public static Builder from(Dialog dialog) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, dialog)) == null) ? new Builder().setWindow(dialog) : (Builder) invokeL.objValue;
-    }
-
-    public static Builder from(Window window) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, window)) == null) ? new Builder().setWindow(window) : (Builder) invokeL.objValue;
     }
 }

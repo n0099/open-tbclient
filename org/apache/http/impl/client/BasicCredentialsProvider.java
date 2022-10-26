@@ -41,6 +41,15 @@ public class BasicCredentialsProvider implements CredentialsProvider {
         }
     }
 
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (String) invokeV.objValue;
+    }
+
     @Override // org.apache.http.client.CredentialsProvider
     public synchronized Credentials getCredentials(AuthScope authScope) {
         InterceptResult invokeL;
@@ -61,14 +70,5 @@ public class BasicCredentialsProvider implements CredentialsProvider {
                 throw new RuntimeException("Stub!");
             }
         }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (String) invokeV.objValue;
     }
 }

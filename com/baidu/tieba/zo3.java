@@ -1,38 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
 /* loaded from: classes6.dex */
-public class zo3 implements bn1 {
+public class zo3 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile yo3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public zo3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.bn1
-    public boolean a() {
+    public static synchronized yo3 a() {
         InterceptResult invokeV;
+        yo3 yo3Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (zo3.class) {
+                if (a == null) {
+                    a = new yo3();
+                }
+                yo3Var = a;
+            }
+            return yo3Var;
         }
-        return invokeV.booleanValue;
+        return (yo3) invokeV.objValue;
     }
 }

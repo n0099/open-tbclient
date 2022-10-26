@@ -6,8 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
@@ -20,6 +18,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public abstract class BaseDialogFragment extends DialogFragment implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract int getLayoutResId();
 
     public BaseDialogFragment() {
         Interceptable interceptable = $ic;
@@ -35,10 +35,8 @@ public abstract class BaseDialogFragment extends DialogFragment implements View.
         }
     }
 
-    public abstract int getLayoutResId();
-
     @Override // androidx.fragment.app.DialogFragment, androidx.fragment.app.Fragment
-    public void onActivityCreated(@Nullable Bundle bundle) {
+    public void onActivityCreated(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             Window window = getDialog().getWindow();
@@ -54,7 +52,7 @@ public abstract class BaseDialogFragment extends DialogFragment implements View.
     }
 
     @Override // androidx.fragment.app.DialogFragment, androidx.fragment.app.Fragment
-    public void onCreate(@Nullable Bundle bundle) {
+    public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
@@ -63,13 +61,12 @@ public abstract class BaseDialogFragment extends DialogFragment implements View.
     }
 
     @Override // androidx.fragment.app.Fragment
-    @Nullable
-    public View onCreateView(@NonNull LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
+    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, layoutInflater, viewGroup, bundle)) == null) {
             View inflate = layoutInflater.inflate(getLayoutResId(), viewGroup);
-            getDialog().getWindow().getAttributes().windowAnimations = R.style.obfuscated_res_0x7f1003e6;
+            getDialog().getWindow().getAttributes().windowAnimations = R.style.obfuscated_res_0x7f1003e7;
             return inflate;
         }
         return (View) invokeLLL.objValue;

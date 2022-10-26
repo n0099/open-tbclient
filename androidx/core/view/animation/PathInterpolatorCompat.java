@@ -28,18 +28,6 @@ public final class PathInterpolatorCompat {
         }
     }
 
-    public static Interpolator create(Path path) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, path)) == null) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                return new PathInterpolator(path);
-            }
-            return new PathInterpolatorApi14(path);
-        }
-        return (Interpolator) invokeL.objValue;
-    }
-
     public static Interpolator create(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -62,5 +50,17 @@ public final class PathInterpolatorCompat {
             return new PathInterpolatorApi14(f, f2, f3, f4);
         }
         return (Interpolator) invokeCommon.objValue;
+    }
+
+    public static Interpolator create(Path path) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, path)) == null) {
+            if (Build.VERSION.SDK_INT >= 21) {
+                return new PathInterpolator(path);
+            }
+            return new PathInterpolatorApi14(path);
+        }
+        return (Interpolator) invokeL.objValue;
     }
 }

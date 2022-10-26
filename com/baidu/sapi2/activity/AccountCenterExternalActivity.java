@@ -59,10 +59,45 @@ public class AccountCenterExternalActivity extends AccountCenterActivity {
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
+            this.sapiWebView.loadUrl(SapiWebView.FN_SWITCH_VIEW);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
+            Intent intent = new Intent(this, AccountCenterActivity.class);
+            intent.setFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
+            intent.putExtra("action", SlideActiviy.SLIDE_ACTION_QUIT);
+            startActivity(intent);
+        }
+    }
+
     public void finishActivity() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.finish();
+        }
+    }
+
+    @Override // com.baidu.sapi2.activity.AccountCenterActivity, com.baidu.sapi2.activity.TitleActivity
+    public void onBottomBackBtnClick() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            a();
+        }
+    }
+
+    @Override // com.baidu.sapi2.activity.AccountCenterActivity, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
+    public void onLeftBtnClick() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            a();
         }
     }
 
@@ -85,14 +120,6 @@ public class AccountCenterExternalActivity extends AccountCenterActivity {
                 b();
                 this.loginStatusChange = true;
             }
-        }
-    }
-
-    @Override // com.baidu.sapi2.activity.AccountCenterActivity, com.baidu.sapi2.activity.TitleActivity
-    public void onBottomBackBtnClick() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            a();
         }
     }
 
@@ -305,33 +332,6 @@ public class AccountCenterExternalActivity extends AccountCenterActivity {
                     }
                 }
             });
-        }
-    }
-
-    @Override // com.baidu.sapi2.activity.AccountCenterActivity, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
-    public void onLeftBtnClick() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            a();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.sapiWebView.loadUrl(SapiWebView.FN_SWITCH_VIEW);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            Intent intent = new Intent(this, AccountCenterActivity.class);
-            intent.setFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
-            intent.putExtra("action", SlideActiviy.SLIDE_ACTION_QUIT);
-            startActivity(intent);
         }
     }
 }

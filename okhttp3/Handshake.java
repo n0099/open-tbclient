@@ -47,6 +47,21 @@ public final class Handshake {
         this.localCertificates = list2;
     }
 
+    public static Handshake get(TlsVersion tlsVersion, CipherSuite cipherSuite, List<Certificate> list, List<Certificate> list2) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, tlsVersion, cipherSuite, list, list2)) == null) {
+            if (tlsVersion != null) {
+                if (cipherSuite != null) {
+                    return new Handshake(tlsVersion, cipherSuite, Util.immutableList(list), Util.immutableList(list2));
+                }
+                throw new NullPointerException("cipherSuite == null");
+            }
+            throw new NullPointerException("tlsVersion == null");
+        }
+        return (Handshake) invokeLLLL.objValue;
+    }
+
     public static Handshake get(SSLSession sSLSession) throws IOException {
         InterceptResult invokeL;
         Certificate[] certificateArr;
@@ -94,32 +109,19 @@ public final class Handshake {
     public CipherSuite cipherSuite() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.cipherSuite : (CipherSuite) invokeV.objValue;
-    }
-
-    public boolean equals(@Nullable Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            if (obj instanceof Handshake) {
-                Handshake handshake = (Handshake) obj;
-                return this.tlsVersion.equals(handshake.tlsVersion) && this.cipherSuite.equals(handshake.cipherSuite) && this.peerCertificates.equals(handshake.peerCertificates) && this.localCertificates.equals(handshake.localCertificates);
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.cipherSuite;
         }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ((((((527 + this.tlsVersion.hashCode()) * 31) + this.cipherSuite.hashCode()) * 31) + this.peerCertificates.hashCode()) * 31) + this.localCertificates.hashCode() : invokeV.intValue;
+        return (CipherSuite) invokeV.objValue;
     }
 
     public List<Certificate> localCertificates() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.localCertificates : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.localCertificates;
+        }
+        return (List) invokeV.objValue;
     }
 
     @Nullable
@@ -127,10 +129,10 @@ public final class Handshake {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.localCertificates.isEmpty()) {
-                return null;
+            if (!this.localCertificates.isEmpty()) {
+                return ((X509Certificate) this.localCertificates.get(0)).getSubjectX500Principal();
             }
-            return ((X509Certificate) this.localCertificates.get(0)).getSubjectX500Principal();
+            return null;
         }
         return (Principal) invokeV.objValue;
     }
@@ -138,7 +140,10 @@ public final class Handshake {
     public List<Certificate> peerCertificates() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.peerCertificates : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.peerCertificates;
+        }
+        return (List) invokeV.objValue;
     }
 
     @Nullable
@@ -146,10 +151,10 @@ public final class Handshake {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.peerCertificates.isEmpty()) {
-                return null;
+            if (!this.peerCertificates.isEmpty()) {
+                return ((X509Certificate) this.peerCertificates.get(0)).getSubjectX500Principal();
             }
-            return ((X509Certificate) this.peerCertificates.get(0)).getSubjectX500Principal();
+            return null;
         }
         return (Principal) invokeV.objValue;
     }
@@ -157,21 +162,34 @@ public final class Handshake {
     public TlsVersion tlsVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.tlsVersion : (TlsVersion) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.tlsVersion;
+        }
+        return (TlsVersion) invokeV.objValue;
     }
 
-    public static Handshake get(TlsVersion tlsVersion, CipherSuite cipherSuite, List<Certificate> list, List<Certificate> list2) {
-        InterceptResult invokeLLLL;
+    public boolean equals(@Nullable Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, tlsVersion, cipherSuite, list, list2)) == null) {
-            if (tlsVersion != null) {
-                if (cipherSuite != null) {
-                    return new Handshake(tlsVersion, cipherSuite, Util.immutableList(list), Util.immutableList(list2));
-                }
-                throw new NullPointerException("cipherSuite == null");
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (!(obj instanceof Handshake)) {
+                return false;
             }
-            throw new NullPointerException("tlsVersion == null");
+            Handshake handshake = (Handshake) obj;
+            if (!this.tlsVersion.equals(handshake.tlsVersion) || !this.cipherSuite.equals(handshake.cipherSuite) || !this.peerCertificates.equals(handshake.peerCertificates) || !this.localCertificates.equals(handshake.localCertificates)) {
+                return false;
+            }
+            return true;
         }
-        return (Handshake) invokeLLLL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return ((((((527 + this.tlsVersion.hashCode()) * 31) + this.cipherSuite.hashCode()) * 31) + this.peerCertificates.hashCode()) * 31) + this.localCertificates.hashCode();
+        }
+        return invokeV.intValue;
     }
 }

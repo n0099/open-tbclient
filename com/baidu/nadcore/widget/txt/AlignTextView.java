@@ -1,6 +1,5 @@
 package com.baidu.nadcore.widget.txt;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
@@ -9,7 +8,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.wz0;
+import com.baidu.tieba.xz0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +18,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-@SuppressLint({"AppCompatCustomView"})
 /* loaded from: classes2.dex */
 public class AlignTextView extends TextView {
     public static /* synthetic */ Interceptable $ic;
@@ -31,8 +29,8 @@ public class AlignTextView extends TextView {
     public float a;
     public float b;
     public int c;
-    public List<String> d;
-    public List<Integer> e;
+    public List d;
+    public List e;
     public Align f;
     public boolean g;
     public float h;
@@ -57,7 +55,7 @@ public class AlignTextView extends TextView {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class Align {
+    public final class Align {
         public static final /* synthetic */ Align[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Align ALIGN_CENTER;
@@ -107,13 +105,19 @@ public class AlignTextView extends TextView {
         public static Align valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Align) Enum.valueOf(Align.class, str) : (Align) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (Align) Enum.valueOf(Align.class, str);
+            }
+            return (Align) invokeL.objValue;
         }
 
         public static Align[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Align[]) $VALUES.clone() : (Align[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (Align[]) $VALUES.clone();
+            }
+            return (Align[]) invokeV.objValue;
         }
     }
 
@@ -149,11 +153,47 @@ public class AlignTextView extends TextView {
         setTextIsSelectable(false);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public AlignTextView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = 0.0f;
+        this.d = new ArrayList();
+        this.e = new ArrayList();
+        this.f = Align.ALIGN_LEFT;
+        this.g = true;
+        this.h = 1.0f;
+        this.i = 0.0f;
+        this.j = 0;
+        this.k = 0;
+        this.l = 0;
+        this.m = false;
+        setTextIsSelectable(false);
+        this.h = attributeSet.getAttributeFloatValue("http://schemas.android.com/apk/res/android", "mLineSpacingMultiplier", 1.0f);
+        this.i = context.obtainStyledAttributes(attributeSet, new int[]{16843287}).getDimensionPixelSize(0, 0);
+        this.l = getPaddingBottom();
+    }
+
     public final void a(Paint paint, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, paint, str) == null) {
             if (str.length() == 0) {
-                wz0.b(this.d, "\n");
+                xz0.b(this.d, "\n");
                 return;
             }
             this.s = 0;
@@ -169,7 +209,7 @@ public class AlignTextView extends TextView {
                     break;
                 } else if (paint.measureText(str.substring(this.s, i2 + 1)) > this.c) {
                     this.s = i2;
-                    wz0.b(this.d, this.r.toString());
+                    xz0.b(this.d, this.r.toString());
                     this.r = new StringBuilder();
                     int length = str.length();
                     int i3 = this.s;
@@ -179,7 +219,7 @@ public class AlignTextView extends TextView {
                         this.r.append(str.substring(i3, i5 + i3));
                         i2 = (i2 + this.u) - 1;
                     } else {
-                        wz0.b(this.d, str.substring(i3));
+                        xz0.b(this.d, str.substring(i3));
                         break;
                     }
                 } else {
@@ -187,9 +227,9 @@ public class AlignTextView extends TextView {
                 }
             }
             if (this.r.length() > 0) {
-                wz0.b(this.d, this.r.toString());
+                xz0.b(this.d, this.r.toString());
             }
-            wz0.b(this.e, Integer.valueOf(this.d.size() - 1));
+            xz0.b(this.e, Integer.valueOf(this.d.size() - 1));
         }
     }
 
@@ -227,7 +267,7 @@ public class AlignTextView extends TextView {
             for (int i = 0; i < this.d.size(); i++) {
                 float f2 = i;
                 this.y = (this.a * f2) + this.x;
-                this.z = (String) wz0.d(this.d, i);
+                this.z = (String) xz0.d(this.d, i);
                 this.A = getPaddingLeft();
                 float measureText = this.c - this.n.measureText(this.z);
                 this.B = measureText;
@@ -308,41 +348,5 @@ public class AlignTextView extends TextView {
             this.g = true;
             super.setText(charSequence, bufferType);
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AlignTextView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.b = 0.0f;
-        this.d = new ArrayList();
-        this.e = new ArrayList();
-        this.f = Align.ALIGN_LEFT;
-        this.g = true;
-        this.h = 1.0f;
-        this.i = 0.0f;
-        this.j = 0;
-        this.k = 0;
-        this.l = 0;
-        this.m = false;
-        setTextIsSelectable(false);
-        this.h = attributeSet.getAttributeFloatValue("http://schemas.android.com/apk/res/android", "mLineSpacingMultiplier", 1.0f);
-        this.i = context.obtainStyledAttributes(attributeSet, new int[]{16843287}).getDimensionPixelSize(0, 0);
-        this.l = getPaddingBottom();
     }
 }

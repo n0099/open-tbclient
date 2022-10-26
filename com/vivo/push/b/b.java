@@ -16,24 +16,33 @@ public final class b extends c {
     public String d;
     public boolean e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public b(boolean z, String str) {
-        super(z ? 2006 : 2007, str);
+        super(r8, str);
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {Boolean.valueOf(z), str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
+        }
+        if (z) {
+            i = 2006;
+        } else {
+            i = 2007;
         }
         this.e = false;
     }
@@ -48,6 +57,18 @@ public final class b extends c {
             aVar.a("BaseAppCommand.EXTRA_APPID", this.c);
             aVar.a("BaseAppCommand.EXTRA_APPKEY", this.b);
             aVar.a("PUSH_REGID", this.d);
+        }
+    }
+
+    @Override // com.vivo.push.b.c, com.vivo.push.o
+    public final void d(com.vivo.push.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            super.d(aVar);
+            this.a = aVar.a("sdk_clients");
+            this.c = aVar.a("BaseAppCommand.EXTRA_APPID");
+            this.b = aVar.a("BaseAppCommand.EXTRA_APPKEY");
+            this.d = aVar.a("PUSH_REGID");
         }
     }
 
@@ -73,17 +94,5 @@ public final class b extends c {
             return "AppCommand:" + b();
         }
         return (String) invokeV.objValue;
-    }
-
-    @Override // com.vivo.push.b.c, com.vivo.push.o
-    public final void d(com.vivo.push.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            super.d(aVar);
-            this.a = aVar.a("sdk_clients");
-            this.c = aVar.a("BaseAppCommand.EXTRA_APPID");
-            this.b = aVar.a("BaseAppCommand.EXTRA_APPKEY");
-            this.d = aVar.a("PUSH_REGID");
-        }
     }
 }

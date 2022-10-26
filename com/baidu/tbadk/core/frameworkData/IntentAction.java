@@ -61,12 +61,18 @@ public final class IntentAction {
     public static IntentAction valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (IntentAction) Enum.valueOf(IntentAction.class, str) : (IntentAction) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (IntentAction) Enum.valueOf(IntentAction.class, str);
+        }
+        return (IntentAction) invokeL.objValue;
     }
 
     public static IntentAction[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (IntentAction[]) $VALUES.clone() : (IntentAction[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (IntentAction[]) $VALUES.clone();
+        }
+        return (IntentAction[]) invokeV.objValue;
     }
 }

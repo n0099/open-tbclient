@@ -1,6 +1,5 @@
 package com.facebook.drawee.drawable;
 
-import android.annotation.TargetApi;
 import android.graphics.Canvas;
 import android.graphics.ColorFilter;
 import android.graphics.Matrix;
@@ -43,36 +42,6 @@ public class ForwardingDrawable extends Drawable implements Drawable.Callback, T
         sTempTransform = new Matrix();
     }
 
-    public ForwardingDrawable(@Nullable Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {drawable};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mDrawableProperties = new DrawableProperties();
-        this.mCurrentDelegate = drawable;
-        DrawableUtils.setCallbacks(drawable, this, this);
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void draw(Canvas canvas) {
-        Drawable drawable;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) || (drawable = this.mCurrentDelegate) == null) {
-            return;
-        }
-        drawable.draw(canvas);
-    }
-
     @Override // android.graphics.drawable.Drawable
     @Nullable
     public Drawable.ConstantState getConstantState() {
@@ -93,7 +62,10 @@ public class ForwardingDrawable extends Drawable implements Drawable.Callback, T
     public Drawable getCurrent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mCurrentDelegate : (Drawable) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mCurrentDelegate;
+        }
+        return (Drawable) invokeV.objValue;
     }
 
     @Override // com.facebook.drawee.drawable.DrawableParent
@@ -101,7 +73,10 @@ public class ForwardingDrawable extends Drawable implements Drawable.Callback, T
     public Drawable getDrawable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? getCurrent() : (Drawable) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return getCurrent();
+        }
+        return (Drawable) invokeV.objValue;
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -144,6 +119,63 @@ public class ForwardingDrawable extends Drawable implements Drawable.Callback, T
             return drawable.getOpacity();
         }
         return invokeV.intValue;
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public boolean isStateful() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            Drawable drawable = this.mCurrentDelegate;
+            if (drawable == null) {
+                return false;
+            }
+            return drawable.isStateful();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public Drawable mutate() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            Drawable drawable = this.mCurrentDelegate;
+            if (drawable != null) {
+                drawable.mutate();
+            }
+            return this;
+        }
+        return (Drawable) invokeV.objValue;
+    }
+
+    public ForwardingDrawable(@Nullable Drawable drawable) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {drawable};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mDrawableProperties = new DrawableProperties();
+        this.mCurrentDelegate = drawable;
+        DrawableUtils.setCallbacks(drawable, this, this);
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public void draw(Canvas canvas) {
+        Drawable drawable;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) && (drawable = this.mCurrentDelegate) != null) {
+            drawable.draw(canvas);
+        }
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -211,41 +243,12 @@ public class ForwardingDrawable extends Drawable implements Drawable.Callback, T
     }
 
     @Override // android.graphics.drawable.Drawable
-    public boolean isStateful() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            Drawable drawable = this.mCurrentDelegate;
-            if (drawable == null) {
-                return false;
-            }
-            return drawable.isStateful();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public Drawable mutate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            Drawable drawable = this.mCurrentDelegate;
-            if (drawable != null) {
-                drawable.mutate();
-            }
-            return this;
-        }
-        return (Drawable) invokeV.objValue;
-    }
-
-    @Override // android.graphics.drawable.Drawable
     public void onBoundsChange(Rect rect) {
         Drawable drawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048591, this, rect) == null) || (drawable = this.mCurrentDelegate) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048591, this, rect) == null) && (drawable = this.mCurrentDelegate) != null) {
+            drawable.setBounds(rect);
         }
-        drawable.setBounds(rect);
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -274,14 +277,6 @@ public class ForwardingDrawable extends Drawable implements Drawable.Callback, T
             return drawable.setState(iArr);
         }
         return invokeL.booleanValue;
-    }
-
-    @Override // android.graphics.drawable.Drawable.Callback
-    public void scheduleDrawable(Drawable drawable, Runnable runnable, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{drawable, runnable, Long.valueOf(j)}) == null) {
-            scheduleSelf(runnable, j);
-        }
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -353,7 +348,10 @@ public class ForwardingDrawable extends Drawable implements Drawable.Callback, T
     public Drawable setDrawable(@Nullable Drawable drawable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, drawable)) == null) ? setCurrent(drawable) : (Drawable) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, drawable)) == null) {
+            return setCurrent(drawable);
+        }
+        return (Drawable) invokeL.objValue;
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -368,22 +366,36 @@ public class ForwardingDrawable extends Drawable implements Drawable.Callback, T
         }
     }
 
-    @Override // android.graphics.drawable.Drawable
-    @TargetApi(21)
-    public void setHotspot(float f, float f2) {
-        Drawable drawable;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048602, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) || (drawable = this.mCurrentDelegate) == null) {
-            return;
-        }
-        drawable.setHotspot(f, f2);
-    }
-
     @Override // com.facebook.drawee.drawable.TransformAwareDrawable
     public void setTransformCallback(TransformCallback transformCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048603, this, transformCallback) == null) {
             this.mTransformCallback = transformCallback;
+        }
+    }
+
+    @Override // android.graphics.drawable.Drawable.Callback
+    public void scheduleDrawable(Drawable drawable, Runnable runnable, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{drawable, runnable, Long.valueOf(j)}) == null) {
+            scheduleSelf(runnable, j);
+        }
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public void setHotspot(float f, float f2) {
+        Drawable drawable;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048602, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) && (drawable = this.mCurrentDelegate) != null) {
+            drawable.setHotspot(f, f2);
+        }
+    }
+
+    @Override // android.graphics.drawable.Drawable.Callback
+    public void unscheduleDrawable(Drawable drawable, Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048605, this, drawable, runnable) == null) {
+            unscheduleSelf(runnable);
         }
     }
 
@@ -394,16 +406,11 @@ public class ForwardingDrawable extends Drawable implements Drawable.Callback, T
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048604, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             boolean visible = super.setVisible(z, z2);
             Drawable drawable = this.mCurrentDelegate;
-            return drawable == null ? visible : drawable.setVisible(z, z2);
+            if (drawable == null) {
+                return visible;
+            }
+            return drawable.setVisible(z, z2);
         }
         return invokeCommon.booleanValue;
-    }
-
-    @Override // android.graphics.drawable.Drawable.Callback
-    public void unscheduleDrawable(Drawable drawable, Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048605, this, drawable, runnable) == null) {
-            unscheduleSelf(runnable);
-        }
     }
 }

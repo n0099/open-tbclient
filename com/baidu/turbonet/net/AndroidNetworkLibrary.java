@@ -15,8 +15,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.base.annotations.CalledByNative;
-import com.baidu.turbonet.base.annotations.CalledByNativeUnchecked;
 import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.net.URLConnection;
@@ -43,15 +41,6 @@ public class AndroidNetworkLibrary {
         }
     }
 
-    @CalledByNativeUnchecked
-    public static void addTestRootCertificate(byte[] bArr) throws CertificateException, KeyStoreException, NoSuchAlgorithmException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, bArr) == null) {
-            X509Util.b(bArr);
-        }
-    }
-
-    @CalledByNativeUnchecked
     public static void clearTestRootCertificates() throws NoSuchAlgorithmException, CertificateException, KeyStoreException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
@@ -59,7 +48,13 @@ public class AndroidNetworkLibrary {
         }
     }
 
-    @CalledByNative
+    public static void addTestRootCertificate(byte[] bArr) throws CertificateException, KeyStoreException, NoSuchAlgorithmException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, bArr) == null) {
+            X509Util.b(bArr);
+        }
+    }
+
     public static boolean getIsRoaming(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -73,7 +68,6 @@ public class AndroidNetworkLibrary {
         return invokeL.booleanValue;
     }
 
-    @CalledByNative
     public static String getMimeTypeFromExtension(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -83,40 +77,45 @@ public class AndroidNetworkLibrary {
         return (String) invokeL.objValue;
     }
 
-    @CalledByNative
     public static String getNetworkCountryIso(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-            return telephonyManager == null ? "" : telephonyManager.getNetworkCountryIso();
+            if (telephonyManager == null) {
+                return "";
+            }
+            return telephonyManager.getNetworkCountryIso();
         }
         return (String) invokeL.objValue;
     }
 
-    @CalledByNative
     public static String getNetworkOperator(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
             TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-            return telephonyManager == null ? "" : telephonyManager.getNetworkOperator();
+            if (telephonyManager == null) {
+                return "";
+            }
+            return telephonyManager.getNetworkOperator();
         }
         return (String) invokeL.objValue;
     }
 
-    @CalledByNative
     public static String getSimOperator(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
             TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-            return telephonyManager == null ? "" : telephonyManager.getSimOperator();
+            if (telephonyManager == null) {
+                return "";
+            }
+            return telephonyManager.getSimOperator();
         }
         return (String) invokeL.objValue;
     }
 
-    @CalledByNative
     public static boolean haveOnlyLoopbackAddresses() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -144,7 +143,6 @@ public class AndroidNetworkLibrary {
         return invokeV.booleanValue;
     }
 
-    @CalledByNative
     public static boolean storeCertificate(Context context, int i, byte[] bArr) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
@@ -152,13 +150,14 @@ public class AndroidNetworkLibrary {
             try {
                 Intent createInstallIntent = KeyChain.createInstallIntent();
                 createInstallIntent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-                if (i == 1 || i == 2) {
-                    createInstallIntent.putExtra("CERT", bArr);
-                } else if (i != 3) {
-                    Log.w("AndroidNetworkLibrary", "invalid certificate type: " + i);
-                    return false;
-                } else {
+                if (i != 1 && i != 2) {
+                    if (i != 3) {
+                        Log.w("AndroidNetworkLibrary", "invalid certificate type: " + i);
+                        return false;
+                    }
                     createInstallIntent.putExtra("PKCS12", bArr);
+                } else {
+                    createInstallIntent.putExtra("CERT", bArr);
                 }
                 context.startActivity(createInstallIntent);
                 return true;
@@ -170,7 +169,6 @@ public class AndroidNetworkLibrary {
         return invokeLIL.booleanValue;
     }
 
-    @CalledByNative
     public static boolean storeKeyPair(Context context, byte[] bArr, byte[] bArr2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
@@ -190,7 +188,6 @@ public class AndroidNetworkLibrary {
         return invokeLLL.booleanValue;
     }
 
-    @CalledByNative
     public static AndroidCertVerifyResult verifyServerCertificates(byte[][] bArr, String str, String str2, int i) {
         InterceptResult invokeLLLI;
         Interceptable interceptable = $ic;

@@ -19,6 +19,12 @@ public abstract class NotificationCompatSideChannelService extends Service {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract void cancel(String str, int i, String str2);
+
+    public abstract void cancelAll(String str);
+
+    public abstract void notify(String str, int i, String str2, Notification notification);
+
     /* loaded from: classes.dex */
     public class NotificationSideChannelStub extends INotificationSideChannel.Stub {
         public static /* synthetic */ Interceptable $ic;
@@ -44,20 +50,6 @@ public abstract class NotificationCompatSideChannelService extends Service {
         }
 
         @Override // android.support.v4.app.INotificationSideChannel
-        public void cancel(String str, int i, String str2) throws RemoteException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i, str2) == null) {
-                this.this$0.checkPermission(Binder.getCallingUid(), str);
-                long clearCallingIdentity = Binder.clearCallingIdentity();
-                try {
-                    this.this$0.cancel(str, i, str2);
-                } finally {
-                    Binder.restoreCallingIdentity(clearCallingIdentity);
-                }
-            }
-        }
-
-        @Override // android.support.v4.app.INotificationSideChannel
         public void cancelAll(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -65,6 +57,20 @@ public abstract class NotificationCompatSideChannelService extends Service {
                 long clearCallingIdentity = Binder.clearCallingIdentity();
                 try {
                     this.this$0.cancelAll(str);
+                } finally {
+                    Binder.restoreCallingIdentity(clearCallingIdentity);
+                }
+            }
+        }
+
+        @Override // android.support.v4.app.INotificationSideChannel
+        public void cancel(String str, int i, String str2) throws RemoteException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i, str2) == null) {
+                this.this$0.checkPermission(Binder.getCallingUid(), str);
+                long clearCallingIdentity = Binder.clearCallingIdentity();
+                try {
+                    this.this$0.cancel(str, i, str2);
                 } finally {
                     Binder.restoreCallingIdentity(clearCallingIdentity);
                 }
@@ -100,10 +106,6 @@ public abstract class NotificationCompatSideChannelService extends Service {
         }
     }
 
-    public abstract void cancel(String str, int i, String str2);
-
-    public abstract void cancelAll(String str);
-
     public void checkPermission(int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
@@ -115,8 +117,6 @@ public abstract class NotificationCompatSideChannelService extends Service {
             throw new SecurityException("NotificationSideChannelService: Uid " + i + " is not authorized for package " + str);
         }
     }
-
-    public abstract void notify(String str, int i, String str2, Notification notification);
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {

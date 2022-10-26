@@ -44,14 +44,21 @@ public final class u extends z {
         }
     }
 
-    public static Intent b(Intent intent, Map<String, String> map) {
+    private void a(UPSNotificationMessage uPSNotificationMessage) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, this, uPSNotificationMessage) == null) {
+            com.vivo.push.m.c(new w(this, uPSNotificationMessage));
+        }
+    }
+
+    public static Intent b(Intent intent, Map map) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, intent, map)) == null) {
             if (map != null && map.entrySet() != null) {
-                for (Map.Entry<String, String> entry : map.entrySet()) {
+                for (Map.Entry entry : map.entrySet()) {
                     if (entry != null && entry.getKey() != null) {
-                        intent.putExtra(entry.getKey(), entry.getValue());
+                        intent.putExtra((String) entry.getKey(), (String) entry.getValue());
                     }
                 }
             }
@@ -64,6 +71,7 @@ public final class u extends z {
     public final void a(com.vivo.push.o oVar) {
         Intent parseUri;
         String str;
+        String packageName;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, oVar) == null) {
             com.vivo.push.b.p pVar = (com.vivo.push.b.p) oVar;
@@ -79,7 +87,7 @@ public final class u extends z {
             }
             if (equals) {
                 com.vivo.push.b.x xVar = new com.vivo.push.b.x(1030L);
-                HashMap<String, String> hashMap = new HashMap<>();
+                HashMap hashMap = new HashMap();
                 hashMap.put("type", "2");
                 hashMap.put("messageID", String.valueOf(pVar.e()));
                 hashMap.put(Constants.PARAM_PLATFORM, this.a.getPackageName());
@@ -93,17 +101,55 @@ public final class u extends z {
                 com.vivo.push.util.p.d("OnNotificationClickTask", "notification is clicked by skip type[" + a.getSkipType() + PreferencesUtil.RIGHT_MOUNT);
                 int skipType = a.getSkipType();
                 boolean z = true;
-                if (skipType == 1) {
-                    new Thread(new v(this, this.a, a.getParams())).start();
-                    a(a);
-                    return;
-                } else if (skipType == 2) {
-                    String skipContent = a.getSkipContent();
-                    if (!skipContent.startsWith("http://") && !skipContent.startsWith("https://")) {
+                if (skipType != 1) {
+                    if (skipType != 2) {
+                        if (skipType != 3) {
+                            if (skipType != 4) {
+                                com.vivo.push.util.p.a("OnNotificationClickTask", "illegitmacy skip type error : " + a.getSkipType());
+                                return;
+                            }
+                            String skipContent = a.getSkipContent();
+                            try {
+                                parseUri = Intent.parseUri(skipContent, 1);
+                                str = parseUri.getPackage();
+                            } catch (Exception e) {
+                                com.vivo.push.util.p.a("OnNotificationClickTask", "open activity error : ".concat(String.valueOf(skipContent)), e);
+                            }
+                            if (!TextUtils.isEmpty(str) && !this.a.getPackageName().equals(str)) {
+                                com.vivo.push.util.p.a("OnNotificationClickTask", "open activity error : local pkgName is " + this.a.getPackageName() + "; but remote pkgName is " + parseUri.getPackage());
+                                return;
+                            }
+                            if (parseUri.getComponent() == null) {
+                                packageName = null;
+                            } else {
+                                packageName = parseUri.getComponent().getPackageName();
+                            }
+                            if (!TextUtils.isEmpty(packageName) && !this.a.getPackageName().equals(packageName)) {
+                                com.vivo.push.util.p.a("OnNotificationClickTask", "open activity component error : local pkgName is " + this.a.getPackageName() + "; but remote pkgName is " + parseUri.getPackage());
+                                return;
+                            }
+                            parseUri.setSelector(null);
+                            parseUri.setPackage(this.a.getPackageName());
+                            parseUri.addFlags(335544320);
+                            b(parseUri, a.getParams());
+                            ActivityInfo resolveActivityInfo = parseUri.resolveActivityInfo(this.a.getPackageManager(), 65536);
+                            if (resolveActivityInfo != null && !resolveActivityInfo.exported) {
+                                com.vivo.push.util.p.a("OnNotificationClickTask", "activity is not exported : " + resolveActivityInfo.toString());
+                                return;
+                            }
+                            this.a.startActivity(parseUri);
+                            a(a);
+                            return;
+                        }
+                        a(a);
+                        return;
+                    }
+                    String skipContent2 = a.getSkipContent();
+                    if (!skipContent2.startsWith("http://") && !skipContent2.startsWith("https://")) {
                         z = false;
                     }
                     if (z) {
-                        Uri parse = Uri.parse(skipContent);
+                        Uri parse = Uri.parse(skipContent2);
                         Intent intent = new Intent("android.intent.action.VIEW", parse);
                         intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
                         b(intent, a.getParams());
@@ -117,51 +163,12 @@ public final class u extends z {
                     }
                     a(a);
                     return;
-                } else if (skipType == 3) {
-                    a(a);
-                    return;
-                } else if (skipType != 4) {
-                    com.vivo.push.util.p.a("OnNotificationClickTask", "illegitmacy skip type error : " + a.getSkipType());
-                    return;
-                } else {
-                    String skipContent2 = a.getSkipContent();
-                    try {
-                        parseUri = Intent.parseUri(skipContent2, 1);
-                        str = parseUri.getPackage();
-                    } catch (Exception e) {
-                        com.vivo.push.util.p.a("OnNotificationClickTask", "open activity error : ".concat(String.valueOf(skipContent2)), e);
-                    }
-                    if (!TextUtils.isEmpty(str) && !this.a.getPackageName().equals(str)) {
-                        com.vivo.push.util.p.a("OnNotificationClickTask", "open activity error : local pkgName is " + this.a.getPackageName() + "; but remote pkgName is " + parseUri.getPackage());
-                        return;
-                    }
-                    String packageName = parseUri.getComponent() == null ? null : parseUri.getComponent().getPackageName();
-                    if (!TextUtils.isEmpty(packageName) && !this.a.getPackageName().equals(packageName)) {
-                        com.vivo.push.util.p.a("OnNotificationClickTask", "open activity component error : local pkgName is " + this.a.getPackageName() + "; but remote pkgName is " + parseUri.getPackage());
-                        return;
-                    }
-                    parseUri.setSelector(null);
-                    parseUri.setPackage(this.a.getPackageName());
-                    parseUri.addFlags(335544320);
-                    b(parseUri, a.getParams());
-                    ActivityInfo resolveActivityInfo = parseUri.resolveActivityInfo(this.a.getPackageManager(), 65536);
-                    if (resolveActivityInfo != null && !resolveActivityInfo.exported) {
-                        com.vivo.push.util.p.a("OnNotificationClickTask", "activity is not exported : " + resolveActivityInfo.toString());
-                        return;
-                    }
-                    this.a.startActivity(parseUri);
-                    a(a);
-                    return;
                 }
+                new Thread(new v(this, this.a, a.getParams())).start();
+                a(a);
+                return;
             }
             com.vivo.push.util.p.a("OnNotificationClickTask", "notify is " + a + " ; isMatch is " + equals);
-        }
-    }
-
-    private void a(UPSNotificationMessage uPSNotificationMessage) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, this, uPSNotificationMessage) == null) {
-            com.vivo.push.m.c(new w(this, uPSNotificationMessage));
         }
     }
 }

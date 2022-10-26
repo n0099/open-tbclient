@@ -1,7 +1,6 @@
 package com.baidu.searchbox.pms.init.response;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.cloudcontrol.ICloudControlUBCCallBack;
@@ -39,9 +38,9 @@ import org.json.JSONObject;
 public class ResponseDataProcess {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<RequestParams.Channel> mChannelList;
-    public Map<String, PackageInfo> mLocalMap;
-    public List<PackageInfo> mRemoteList;
+    public List mChannelList;
+    public Map mLocalMap;
+    public List mRemoteList;
     public CloudControlResponseInfo mResponseInfo;
 
     public ResponseDataProcess() {
@@ -58,20 +57,38 @@ public class ResponseDataProcess {
         }
     }
 
-    private boolean checkFilterAndRemove(String str, String str2, List<PackageInfo> list) {
+    public Map getLocalMap() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mLocalMap;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public List getRemoteList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mRemoteList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    private boolean checkFilterAndRemove(String str, String str2, List list) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, this, str, str2, list)) == null) {
             String key = RequestDataUtils.getKey(str, str2);
             if (list != null) {
-                Iterator<PackageInfo> it = list.iterator();
+                Iterator it = list.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
-                    PackageInfo next = it.next();
-                    if (TextUtils.equals(key, RequestDataUtils.getKey(next.channelId, next.packageName))) {
-                        if (next.errNo == 0) {
+                    PackageInfo packageInfo = (PackageInfo) it.next();
+                    if (TextUtils.equals(key, RequestDataUtils.getKey(packageInfo.channelId, packageInfo.packageName))) {
+                        if (packageInfo.errNo == 0) {
                             return false;
                         }
                         it.remove();
@@ -83,13 +100,14 @@ public class ResponseDataProcess {
         return invokeLLL.booleanValue;
     }
 
-    @NonNull
-    private Map<String, List<PackageInfo>> convertMap(List<PackageInfo> list) {
+    private Map convertMap(List list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, list)) == null) {
             HashMap hashMap = new HashMap();
-            for (PackageInfo packageInfo : list) {
+            Iterator it = list.iterator();
+            while (it.hasNext()) {
+                PackageInfo packageInfo = (PackageInfo) it.next();
                 List list2 = (List) hashMap.get(packageInfo.channelId);
                 if (list2 == null) {
                     list2 = new ArrayList();
@@ -102,83 +120,82 @@ public class ResponseDataProcess {
         return (Map) invokeL.objValue;
     }
 
-    private void dispatchChannelCallbacks(@NonNull RequestParams.Channel channel, @NonNull List<PackageInfo> list, @NonNull Map<String, PackageInfo> map) {
+    private void dispatchChannelCallbacks(RequestParams.Channel channel, List list, Map map) {
         PackageCallback packageCallback;
-        List<PackageInfo> list2;
+        List list2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65539, this, channel, list, map) == null) {
             String channelId = channel.getChannelId();
             PackageCallback callback = channel.getCallback();
-            if (TextUtils.isEmpty(channelId) || callback == null) {
-                return;
-            }
-            List<PackageInfo> filteredAndRemove = getFilteredAndRemove(channel, list, map);
-            ArrayList arrayList = new ArrayList();
-            ArrayList arrayList2 = new ArrayList();
-            ArrayList arrayList3 = new ArrayList();
-            ArrayList arrayList4 = new ArrayList();
-            Iterator<PackageInfo> it = list.iterator();
-            while (true) {
-                boolean z = true;
-                if (!it.hasNext()) {
-                    break;
-                }
-                PackageInfo next = it.next();
-                PackageInfo packageInfo = map.get(next.packageName);
-                z = (packageInfo == null || !ABIUtils.checkLocalABIIsValid(packageInfo.abi, next.abi)) ? false : false;
-                if (next.isValid() && ABIUtils.checkABIIsValid(next.abi)) {
-                    if (packageInfo != null) {
-                        packageCallback = callback;
-                        list2 = filteredAndRemove;
-                        if (packageInfo.updateVersion > next.updateVersion && z) {
-                            arrayList.add(next);
+            if (!TextUtils.isEmpty(channelId) && callback != null) {
+                List filteredAndRemove = getFilteredAndRemove(channel, list, map);
+                ArrayList arrayList = new ArrayList();
+                ArrayList arrayList2 = new ArrayList();
+                ArrayList arrayList3 = new ArrayList();
+                ArrayList arrayList4 = new ArrayList();
+                Iterator it = list.iterator();
+                while (true) {
+                    boolean z = true;
+                    if (!it.hasNext()) {
+                        break;
+                    }
+                    PackageInfo packageInfo = (PackageInfo) it.next();
+                    PackageInfo packageInfo2 = (PackageInfo) map.get(packageInfo.packageName);
+                    z = (packageInfo2 == null || !ABIUtils.checkLocalABIIsValid(packageInfo2.abi, packageInfo.abi)) ? false : false;
+                    if (packageInfo.isValid() && ABIUtils.checkABIIsValid(packageInfo.abi)) {
+                        if (packageInfo2 != null) {
+                            packageCallback = callback;
+                            list2 = filteredAndRemove;
+                            if (packageInfo2.updateVersion > packageInfo.updateVersion && z) {
+                                arrayList.add(packageInfo);
+                            }
+                        } else {
+                            packageCallback = callback;
+                            list2 = filteredAndRemove;
+                        }
+                        if (packageInfo2 == null) {
+                            arrayList2.add(packageInfo);
+                        } else if (!packageInfo2.isOlderThan(packageInfo) && (packageInfo2.version != packageInfo.version || z)) {
+                            try {
+                                PackageInfo packageInfo3 = (PackageInfo) packageInfo2.clone();
+                                packageInfo.copyTo(packageInfo3);
+                                PackageControl.getInstance().addOrUpdate(packageInfo3);
+                            } catch (CloneNotSupportedException e) {
+                                DebugUtils.printStackTrace(e);
+                            }
+                            arrayList4.add(packageInfo);
+                        } else {
+                            arrayList3.add(packageInfo);
                         }
                     } else {
                         packageCallback = callback;
                         list2 = filteredAndRemove;
+                        arrayList.add(packageInfo);
                     }
-                    if (packageInfo == null) {
-                        arrayList2.add(next);
-                    } else if (!packageInfo.isOlderThan(next) && (packageInfo.version != next.version || z)) {
-                        try {
-                            PackageInfo packageInfo2 = (PackageInfo) packageInfo.clone();
-                            next.copyTo(packageInfo2);
-                            PackageControl.getInstance().addOrUpdate(packageInfo2);
-                        } catch (CloneNotSupportedException e) {
-                            DebugUtils.printStackTrace(e);
-                        }
-                        arrayList4.add(next);
-                    } else {
-                        arrayList3.add(next);
+                    callback = packageCallback;
+                    filteredAndRemove = list2;
+                }
+                PackageCallback packageCallback2 = callback;
+                List list3 = filteredAndRemove;
+                if (AppConfig.isDebug()) {
+                    Iterator it2 = arrayList.iterator();
+                    while (it2.hasNext()) {
+                        DebugUtils.logE("【无效资源】channelId:", channelId, (PackageInfo) it2.next());
                     }
-                } else {
-                    packageCallback = callback;
-                    list2 = filteredAndRemove;
-                    arrayList.add(next);
                 }
-                callback = packageCallback;
-                filteredAndRemove = list2;
-            }
-            PackageCallback packageCallback2 = callback;
-            List<PackageInfo> list3 = filteredAndRemove;
-            if (AppConfig.isDebug()) {
-                Iterator<PackageInfo> it2 = arrayList.iterator();
-                while (it2.hasNext()) {
-                    DebugUtils.logE("【无效资源】channelId:", channelId, it2.next());
+                if (list.size() > 0 && list.size() == arrayList.size()) {
+                    dispatchInvalidCallback(channel, arrayList);
+                    return;
                 }
+                ResultData resultData = new ResultData();
+                resultData.addList = arrayList2;
+                resultData.updateList = arrayList3;
+                resultData.configChangeList = arrayList4;
+                resultData.filterList = list3;
+                resultData.invalidList = arrayList;
+                DebugUtils.log("【响应结果】channelId:", channelId, resultData);
+                packageCallback2.onResultData(resultData);
             }
-            if (list.size() > 0 && list.size() == arrayList.size()) {
-                dispatchInvalidCallback(channel, arrayList);
-                return;
-            }
-            ResultData resultData = new ResultData();
-            resultData.addList = arrayList2;
-            resultData.updateList = arrayList3;
-            resultData.configChangeList = arrayList4;
-            resultData.filterList = list3;
-            resultData.invalidList = arrayList;
-            DebugUtils.log("【响应结果】channelId:", channelId, resultData);
-            packageCallback2.onResultData(resultData);
         }
     }
 
@@ -189,48 +206,121 @@ public class ResponseDataProcess {
         }
     }
 
-    private void dispatchFetchResult(List<PackageInfo> list) {
+    public static void dispatchFetchError(ErrorInfo errorInfo, List list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65542, this, list) == null) || this.mChannelList == null) {
+        if ((interceptable == null || interceptable.invokeLL(65541, null, errorInfo, list) == null) && list != null && errorInfo != null) {
+            StringBuilder sb = new StringBuilder();
+            Iterator it = list.iterator();
+            while (it.hasNext()) {
+                RequestParams.Channel channel = (RequestParams.Channel) it.next();
+                if (channel != null) {
+                    DebugUtils.log("【响应结果】 channelId:", channel.getChannelId(), errorInfo.toString());
+                    PackageCallback callback = channel.getCallback();
+                    if (callback != null) {
+                        callback.onFetchError(errorInfo);
+                        sb.append(channel.getChannelId());
+                        sb.append(",");
+                    }
+                }
+            }
+            PackageFileStatisticManager.getInstance().addFetchStatistic2(errorInfo.code, errorInfo.errorMsg, sb.toString(), null);
+        }
+    }
+
+    private void dispatchFetchResult(List list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65542, this, list) != null) || this.mChannelList == null) {
             return;
         }
-        Map<String, List<PackageInfo>> convertMap = convertMap(list);
+        Map convertMap = convertMap(list);
         this.mLocalMap = new HashMap();
         for (RequestParams.Channel channel : this.mChannelList) {
             if (channel != null) {
                 String channelId = channel.getChannelId();
                 PackageCallback callback = channel.getCallback();
-                if (TextUtils.isEmpty(channelId) || callback == null) {
+                if (!TextUtils.isEmpty(channelId) && callback != null) {
+                    Map map = null;
+                    if (channel.isUsePmsVersionData()) {
+                        map = PackageManager.getFinishedPackageInfo(channelId, null);
+                    }
+                    if (!CommonUtils.isEmpty(map)) {
+                        this.mLocalMap.putAll(map);
+                    }
+                    if (map == null) {
+                        map = new HashMap();
+                    }
+                    List list2 = (List) convertMap.get(channelId);
+                    if (list2 == null) {
+                        list2 = new ArrayList(0);
+                    }
+                    dispatchChannelCallbacks(channel, list2, map);
+                } else {
                     return;
                 }
-                Map<String, PackageInfo> finishedPackageInfo = channel.isUsePmsVersionData() ? PackageManager.getFinishedPackageInfo(channelId, null) : null;
-                if (!CommonUtils.isEmpty(finishedPackageInfo)) {
-                    this.mLocalMap.putAll(finishedPackageInfo);
-                }
-                if (finishedPackageInfo == null) {
-                    finishedPackageInfo = new HashMap<>();
-                }
-                List<PackageInfo> list2 = convertMap.get(channelId);
-                if (list2 == null) {
-                    list2 = new ArrayList<>(0);
-                }
-                dispatchChannelCallbacks(channel, list2, finishedPackageInfo);
             }
         }
     }
 
-    private void dispatchInterceptorAndRemove(List<RequestParams.Channel> list, JSONObject jSONObject, CloudControlErrorBean cloudControlErrorBean) {
+    public void process(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && this.mResponseInfo != null && !CommonUtils.isEmpty(this.mChannelList)) {
+            JSONObject serviceData = this.mResponseInfo.getServiceData();
+            CloudControlErrorBean cloudControlErrorBean = this.mResponseInfo.getCloudControlErrorBean();
+            dispatchInterceptorAndRemove(this.mChannelList, serviceData, cloudControlErrorBean);
+            int i = 2108;
+            if (cloudControlErrorBean == null) {
+                dispatchFetchError(new ErrorInfo(2108, "errorBean is null"), this.mChannelList);
+                return;
+            }
+            int errorCode = cloudControlErrorBean.getErrorCode();
+            if (errorCode == 0) {
+                List parseItems = ParseUtils.parseItems(str, serviceData);
+                this.mRemoteList = parseItems;
+                if (parseItems == null) {
+                    this.mRemoteList = new ArrayList();
+                }
+                dispatchFetchResult(this.mRemoteList);
+                return;
+            }
+            if (errorCode == 1) {
+                i = 2101;
+            } else if (errorCode == 2) {
+                i = 2105;
+            } else if (errorCode == 3) {
+                i = 2103;
+            }
+            dispatchFetchError(new ErrorInfo(i, "server errCode:" + errorCode), this.mChannelList);
+        }
+    }
+
+    private void dispatchInterceptorAndRemove(List list, JSONObject jSONObject, CloudControlErrorBean cloudControlErrorBean) {
+        JSONObject jSONObject2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65543, this, list, jSONObject, cloudControlErrorBean) == null) {
-            Iterator<RequestParams.Channel> it = list.iterator();
+            Iterator it = list.iterator();
             while (it.hasNext()) {
-                RequestParams.Channel next = it.next();
-                if (next == null) {
+                RequestParams.Channel channel = (RequestParams.Channel) it.next();
+                if (channel == null) {
                     it.remove();
                 } else {
-                    IDataInterceptor dataInterceptor = next.getDataInterceptor();
+                    IDataInterceptor dataInterceptor = channel.getDataInterceptor();
                     if (dataInterceptor != null) {
-                        dataInterceptor.onReceiveData(jSONObject != null ? jSONObject.optJSONObject(next.getChannelId()) : null, cloudControlErrorBean != null ? cloudControlErrorBean.getErrorCode() : -1, cloudControlErrorBean != null ? cloudControlErrorBean.getSubErrorCode() : -1, null);
+                        if (jSONObject != null) {
+                            jSONObject2 = jSONObject.optJSONObject(channel.getChannelId());
+                        } else {
+                            jSONObject2 = null;
+                        }
+                        int i2 = -1;
+                        if (cloudControlErrorBean != null) {
+                            i = cloudControlErrorBean.getErrorCode();
+                        } else {
+                            i = -1;
+                        }
+                        if (cloudControlErrorBean != null) {
+                            i2 = cloudControlErrorBean.getSubErrorCode();
+                        }
+                        dataInterceptor.onReceiveData(jSONObject2, i, i2, null);
                         it.remove();
                     }
                 }
@@ -238,17 +328,7 @@ public class ResponseDataProcess {
         }
     }
 
-    private void dispatchInvalidCallback(@NonNull RequestParams.Channel channel, @NonNull List<PackageInfo> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65544, this, channel, list) == null) || CommonUtils.isEmpty(list)) {
-            return;
-        }
-        PackageInfo packageInfo = list.get(0);
-        String packageInfo2 = packageInfo == null ? "" : packageInfo.toString();
-        dispatchFetchError(new ErrorInfo(2103, "all PackageInfo is invalid ,such as:" + packageInfo2), channel);
-    }
-
-    private List<PackageInfo> getFilteredAndRemove(RequestParams.Channel channel, List<PackageInfo> list, Map<String, PackageInfo> map) {
+    private List getFilteredAndRemove(RequestParams.Channel channel, List list, Map map) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, this, channel, list, map)) == null) {
@@ -262,7 +342,7 @@ public class ResponseDataProcess {
             if (!TextUtils.isEmpty(channelId) && packageNames != null && callback != null) {
                 for (String str : packageNames) {
                     if (checkFilterAndRemove(channelId, str, list)) {
-                        PackageInfo packageInfo = map.get(str);
+                        PackageInfo packageInfo = (PackageInfo) map.get(str);
                         if (packageInfo == null) {
                             packageInfo = RequestDataUtils.createPackageFile(str);
                         }
@@ -275,8 +355,22 @@ public class ResponseDataProcess {
         return (List) invokeLLL.objValue;
     }
 
+    private void dispatchInvalidCallback(RequestParams.Channel channel, List list) {
+        String packageInfo;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65544, this, channel, list) == null) && !CommonUtils.isEmpty(list)) {
+            PackageInfo packageInfo2 = (PackageInfo) list.get(0);
+            if (packageInfo2 == null) {
+                packageInfo = "";
+            } else {
+                packageInfo = packageInfo2.toString();
+            }
+            dispatchFetchError(new ErrorInfo(2103, "all PackageInfo is invalid ,such as:" + packageInfo), channel);
+        }
+    }
+
     public static void sendCloudControlUBCData(ICloudControlUBCCallBack iCloudControlUBCCallBack, ResponseDataProcess responseDataProcess) {
-        Map<String, PackageInfo> map;
+        Map map;
         int i;
         int i2;
         String str;
@@ -295,16 +389,13 @@ public class ResponseDataProcess {
             }
             int size = list.size();
             JSONArray jSONArray = new JSONArray();
-            if (CommonUtils.isEmpty(list)) {
-                i = 0;
-                i2 = 0;
-            } else {
+            if (!CommonUtils.isEmpty(list)) {
                 i = 0;
                 i2 = 0;
                 for (PackageInfo packageInfo2 : list) {
                     if (packageInfo2 != null) {
                         try {
-                            if (!CommonUtils.isEmpty(map) && (packageInfo = map.get(packageInfo2.packageName)) != null) {
+                            if (!CommonUtils.isEmpty(map) && (packageInfo = (PackageInfo) map.get(packageInfo2.packageName)) != null) {
                                 if (packageInfo2.updateVersion <= packageInfo.updateVersion) {
                                     i++;
                                     str = "2";
@@ -329,6 +420,9 @@ public class ResponseDataProcess {
                         JSONObject jSONObject2 = new JSONObject();
                     }
                 }
+            } else {
+                i = 0;
+                i2 = 0;
             }
             int i3 = (size - i) - i2;
             JSONObject jSONObject3 = new JSONObject();
@@ -345,57 +439,11 @@ public class ResponseDataProcess {
         }
     }
 
-    public Map<String, PackageInfo> getLocalMap() {
-        InterceptResult invokeV;
+    public void setChannelList(List list) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mLocalMap : (Map) invokeV.objValue;
-    }
-
-    public List<PackageInfo> getRemoteList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mRemoteList : (List) invokeV.objValue;
-    }
-
-    public void process(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || this.mResponseInfo == null || CommonUtils.isEmpty(this.mChannelList)) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, list) == null) && list != null) {
+            this.mChannelList = new ArrayList(list);
         }
-        JSONObject serviceData = this.mResponseInfo.getServiceData();
-        CloudControlErrorBean cloudControlErrorBean = this.mResponseInfo.getCloudControlErrorBean();
-        dispatchInterceptorAndRemove(this.mChannelList, serviceData, cloudControlErrorBean);
-        int i = 2108;
-        if (cloudControlErrorBean == null) {
-            dispatchFetchError(new ErrorInfo(2108, "errorBean is null"), this.mChannelList);
-            return;
-        }
-        int errorCode = cloudControlErrorBean.getErrorCode();
-        if (errorCode == 0) {
-            List<PackageInfo> parseItems = ParseUtils.parseItems(str, serviceData);
-            this.mRemoteList = parseItems;
-            if (parseItems == null) {
-                this.mRemoteList = new ArrayList();
-            }
-            dispatchFetchResult(this.mRemoteList);
-            return;
-        }
-        if (errorCode == 1) {
-            i = 2101;
-        } else if (errorCode == 2) {
-            i = 2105;
-        } else if (errorCode == 3) {
-            i = 2103;
-        }
-        dispatchFetchError(new ErrorInfo(i, "server errCode:" + errorCode), this.mChannelList);
-    }
-
-    public void setChannelList(List<RequestParams.Channel> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, list) == null) || list == null) {
-            return;
-        }
-        this.mChannelList = new ArrayList(list);
     }
 
     public void setResponseInfo(CloudControlResponseInfo cloudControlResponseInfo) {
@@ -403,25 +451,5 @@ public class ResponseDataProcess {
         if (interceptable == null || interceptable.invokeL(1048580, this, cloudControlResponseInfo) == null) {
             this.mResponseInfo = cloudControlResponseInfo;
         }
-    }
-
-    public static void dispatchFetchError(ErrorInfo errorInfo, List<RequestParams.Channel> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65541, null, errorInfo, list) == null) || list == null || errorInfo == null) {
-            return;
-        }
-        StringBuilder sb = new StringBuilder();
-        for (RequestParams.Channel channel : list) {
-            if (channel != null) {
-                DebugUtils.log("【响应结果】 channelId:", channel.getChannelId(), errorInfo.toString());
-                PackageCallback callback = channel.getCallback();
-                if (callback != null) {
-                    callback.onFetchError(errorInfo);
-                    sb.append(channel.getChannelId());
-                    sb.append(",");
-                }
-            }
-        }
-        PackageFileStatisticManager.getInstance().addFetchStatistic2(errorInfo.code, errorInfo.errorMsg, sb.toString(), null);
     }
 }

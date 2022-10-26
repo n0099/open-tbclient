@@ -28,7 +28,7 @@ public final class ReflectionUtils {
         }
     }
 
-    public static boolean invokeDeclaredMethod(Object obj, String str, Class<?>[] clsArr, Object[] objArr) {
+    public static boolean invokeDeclaredMethod(Object obj, String str, Class[] clsArr, Object[] objArr) {
         InterceptResult invokeLLLL;
         Class<?> cls;
         Interceptable interceptable = $ic;
@@ -50,7 +50,7 @@ public final class ReflectionUtils {
         return invokeLLLL.booleanValue;
     }
 
-    public static Object invokeDeclaredMethodForObject(Object obj, String str, Class<?>[] clsArr, Object[] objArr) {
+    public static Object invokeDeclaredMethodForObject(Object obj, String str, Class[] clsArr, Object[] objArr) {
         Class<?> cls;
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -71,7 +71,7 @@ public final class ReflectionUtils {
         return invokeLLLL.objValue;
     }
 
-    public static boolean invokeHideMethod(Object obj, String str, Class<?>[] clsArr, Object[] objArr) {
+    public static boolean invokeHideMethod(Object obj, String str, Class[] clsArr, Object[] objArr) {
         Class<?> cls;
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -91,7 +91,7 @@ public final class ReflectionUtils {
         return invokeLLLL.booleanValue;
     }
 
-    public static Object invokeHideMethodForObject(Object obj, String str, Class<?>[] clsArr, Object[] objArr) {
+    public static Object invokeHideMethodForObject(Object obj, String str, Class[] clsArr, Object[] objArr) {
         Class<?> cls;
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;

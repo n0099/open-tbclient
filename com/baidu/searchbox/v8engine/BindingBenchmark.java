@@ -15,8 +15,43 @@ public class BindingBenchmark {
     public transient /* synthetic */ FieldHolder $fh;
     public final V8Engine mEngine;
 
+    @JavascriptInterface
+    public void testArrayBuffer(JsArrayBuffer jsArrayBuffer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, jsArrayBuffer) == null) {
+        }
+    }
+
+    @JavascriptInterface
+    public void testDouble(double d) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Double.valueOf(d)}) == null) {
+        }
+    }
+
+    @JavascriptInterface
+    public void testInt(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+        }
+    }
+
+    @JavascriptInterface
+    public void testString(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+        }
+    }
+
+    @JavascriptInterface
+    public void testVoid() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+        }
+    }
+
     /* loaded from: classes2.dex */
-    public static class JavaObject {
+    public class JavaObject {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         @V8JavascriptField
@@ -29,6 +64,13 @@ public class BindingBenchmark {
         public Object mObject;
         @V8JavascriptField
         public String mString;
+
+        @JavascriptInterface
+        public void function(int i, double d, String str, Object obj, JSEvent jSEvent) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Double.valueOf(d), str, obj, jSEvent}) == null) {
+            }
+        }
 
         public JavaObject(int i) {
             Interceptable interceptable = $ic;
@@ -51,13 +93,6 @@ public class BindingBenchmark {
             this.mJSEvent = new JSEvent("test");
             this.mInt = i;
         }
-
-        @JavascriptInterface
-        public void function(int i, double d, String str, Object obj, JSEvent jSEvent) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Double.valueOf(d), str, obj, jSEvent}) == null) {
-            }
-        }
     }
 
     public BindingBenchmark(V8Engine v8Engine) {
@@ -79,22 +114,58 @@ public class BindingBenchmark {
     }
 
     @JavascriptInterface
+    public void testFunction(JsFunction jsFunction) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, jsFunction) == null) {
+            jsFunction.release();
+        }
+    }
+
+    @JavascriptInterface
+    public void testObject(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, jsObject) == null) {
+            jsObject.release();
+        }
+    }
+
+    @JavascriptInterface
     public long invokeAddJavascriptInterface(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            if (j > 0) {
-                long currentTimeMillis = System.currentTimeMillis();
-                for (long j2 = 0; j2 < j; j2++) {
-                    this.mEngine.addJavascriptInterface(new JavaObject((int) j2), "jsi_" + j2);
-                }
-                long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
-                for (long j3 = 0; j3 < j; j3++) {
-                    this.mEngine.removeJavascriptInterface("jsi_" + j3);
-                }
-                return currentTimeMillis2;
+            if (j <= 0) {
+                return 0L;
             }
-            return 0L;
+            long currentTimeMillis = System.currentTimeMillis();
+            for (long j2 = 0; j2 < j; j2++) {
+                this.mEngine.addJavascriptInterface(new JavaObject((int) j2), "jsi_" + j2);
+            }
+            long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
+            for (long j3 = 0; j3 < j; j3++) {
+                this.mEngine.removeJavascriptInterface("jsi_" + j3);
+            }
+            return currentTimeMillis2;
+        }
+        return invokeJ.longValue;
+    }
+
+    @JavascriptInterface
+    public long invokeRemoveJavascriptInterface(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
+            if (j <= 0) {
+                return 0L;
+            }
+            for (long j2 = 0; j2 < j; j2++) {
+                this.mEngine.addJavascriptInterface(new JavaObject((int) j2), "jsi_" + j2);
+            }
+            long currentTimeMillis = System.currentTimeMillis();
+            for (long j3 = 0; j3 < j; j3++) {
+                this.mEngine.removeJavascriptInterface("jsi_" + j3);
+            }
+            return System.currentTimeMillis() - currentTimeMillis;
         }
         return invokeJ.longValue;
     }
@@ -118,26 +189,6 @@ public class BindingBenchmark {
             long currentTimeMillis = System.currentTimeMillis();
             for (long j2 = 0; j2 < j; j2++) {
                 jsFunction.call(objArr[(int) (j % 1000)]);
-            }
-            long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
-            jsFunction.release();
-            return currentTimeMillis2;
-        }
-        return invokeLJ.longValue;
-    }
-
-    @JavascriptInterface
-    public long invokeJsFunctionInt(JsFunction jsFunction, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, jsFunction, j)) == null) {
-            if (jsFunction == null || j <= 0) {
-                return 0L;
-            }
-            jsFunction.setReleaseMode(false);
-            long currentTimeMillis = System.currentTimeMillis();
-            for (long j2 = 0; j2 < j; j2++) {
-                jsFunction.call(j);
             }
             long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
             jsFunction.release();
@@ -195,6 +246,26 @@ public class BindingBenchmark {
     }
 
     @JavascriptInterface
+    public long invokeJsFunctionInt(JsFunction jsFunction, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, jsFunction, j)) == null) {
+            if (jsFunction == null || j <= 0) {
+                return 0L;
+            }
+            jsFunction.setReleaseMode(false);
+            long currentTimeMillis = System.currentTimeMillis();
+            for (long j2 = 0; j2 < j; j2++) {
+                jsFunction.call(j);
+            }
+            long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
+            jsFunction.release();
+            return currentTimeMillis2;
+        }
+        return invokeLJ.longValue;
+    }
+
+    @JavascriptInterface
     public long invokeJsFunctionVoid(JsFunction jsFunction, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
@@ -212,76 +283,5 @@ public class BindingBenchmark {
             return currentTimeMillis2;
         }
         return invokeLJ.longValue;
-    }
-
-    @JavascriptInterface
-    public long invokeRemoveJavascriptInterface(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
-            if (j > 0) {
-                for (long j2 = 0; j2 < j; j2++) {
-                    this.mEngine.addJavascriptInterface(new JavaObject((int) j2), "jsi_" + j2);
-                }
-                long currentTimeMillis = System.currentTimeMillis();
-                for (long j3 = 0; j3 < j; j3++) {
-                    this.mEngine.removeJavascriptInterface("jsi_" + j3);
-                }
-                return System.currentTimeMillis() - currentTimeMillis;
-            }
-            return 0L;
-        }
-        return invokeJ.longValue;
-    }
-
-    @JavascriptInterface
-    public void testArrayBuffer(JsArrayBuffer jsArrayBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, jsArrayBuffer) == null) {
-        }
-    }
-
-    @JavascriptInterface
-    public void testDouble(double d) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Double.valueOf(d)}) == null) {
-        }
-    }
-
-    @JavascriptInterface
-    public void testFunction(JsFunction jsFunction) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, jsFunction) == null) {
-            jsFunction.release();
-        }
-    }
-
-    @JavascriptInterface
-    public void testInt(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-        }
-    }
-
-    @JavascriptInterface
-    public void testObject(JsObject jsObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, jsObject) == null) {
-            jsObject.release();
-        }
-    }
-
-    @JavascriptInterface
-    public void testString(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-        }
-    }
-
-    @JavascriptInterface
-    public void testVoid() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-        }
     }
 }

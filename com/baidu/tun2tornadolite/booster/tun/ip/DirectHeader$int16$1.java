@@ -12,7 +12,7 @@ import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Lambda;
 @Metadata(d1 = {"\u0000\b\n\u0000\n\u0002\u0010\b\n\u0000\u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u0001H\n"}, d2 = {"<anonymous>", "", "index"}, k = 3, mv = {1, 5, 1}, xi = 48)
 /* loaded from: classes6.dex */
-public final class DirectHeader$int16$1 extends Lambda implements Function1<Integer, Integer> {
+public final class DirectHeader$int16$1 extends Lambda implements Function1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ DirectHeader this$0;
@@ -38,16 +38,17 @@ public final class DirectHeader$int16$1 extends Lambda implements Function1<Inte
         this.this$0 = directHeader;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // kotlin.jvm.functions.Function1
-    public /* bridge */ /* synthetic */ Integer invoke(Integer num) {
-        return invoke(num.intValue());
-    }
-
     public final Integer invoke(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? Integer.valueOf(UShort.m977constructorimpl((short) ((UByte.m717constructorimpl(this.this$0.getBuffer()[i + 1]) & 255 & 255) | (((UByte.m717constructorimpl(this.this$0.getBuffer()[i]) & 255) & 255) << 8))) & UShort.MAX_VALUE) : (Integer) invokeI.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return Integer.valueOf(UShort.m976constructorimpl((short) ((UByte.m716constructorimpl(this.this$0.getBuffer()[i + 1]) & 255 & 255) | (((UByte.m716constructorimpl(this.this$0.getBuffer()[i]) & 255) & 255) << 8))) & UShort.MAX_VALUE);
+        }
+        return (Integer) invokeI.objValue;
+    }
+
+    @Override // kotlin.jvm.functions.Function1
+    public /* bridge */ /* synthetic */ Object invoke(Object obj) {
+        return invoke(((Number) obj).intValue());
     }
 }

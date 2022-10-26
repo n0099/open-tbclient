@@ -36,6 +36,8 @@ public abstract class BaseDescriptor {
         }
     }
 
+    public abstract void parseDetail(ByteBuffer byteBuffer) throws IOException;
+
     public BaseDescriptor() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -53,25 +55,37 @@ public abstract class BaseDescriptor {
     public int getSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.sizeOfInstance + 1 + this.sizeBytes : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.sizeOfInstance + 1 + this.sizeBytes;
+        }
+        return invokeV.intValue;
     }
 
     public int getSizeBytes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.sizeBytes : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.sizeBytes;
+        }
+        return invokeV.intValue;
     }
 
     public int getSizeOfInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.sizeOfInstance : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.sizeOfInstance;
+        }
+        return invokeV.intValue;
     }
 
     public int getTag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.tag : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.tag;
+        }
+        return invokeV.intValue;
     }
 
     public final void parse(int i, ByteBuffer byteBuffer) throws IOException {
@@ -93,8 +107,6 @@ public abstract class BaseDescriptor {
             byteBuffer.position(byteBuffer.position() + this.sizeOfInstance);
         }
     }
-
-    public abstract void parseDetail(ByteBuffer byteBuffer) throws IOException;
 
     public String toString() {
         InterceptResult invokeV;

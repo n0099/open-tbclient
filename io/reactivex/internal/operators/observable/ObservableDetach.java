@@ -12,18 +12,18 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.util.EmptyComponent;
 /* loaded from: classes8.dex */
-public final class ObservableDetach<T> extends AbstractObservableWithUpstream<T, T> {
+public final class ObservableDetach extends AbstractObservableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public static final class DetachObserver<T> implements Observer<T>, Disposable {
+    public final class DetachObserver implements Observer, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Observer<? super T> actual;
+        public Observer actual;
         public Disposable s;
 
-        public DetachObserver(Observer<? super T> observer) {
+        public DetachObserver(Observer observer) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -41,6 +41,34 @@ public final class ObservableDetach<T> extends AbstractObservableWithUpstream<T,
             this.actual = observer;
         }
 
+        @Override // io.reactivex.Observer
+        public void onError(Throwable th) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
+                Observer observer = this.actual;
+                this.s = EmptyComponent.INSTANCE;
+                this.actual = EmptyComponent.asObserver();
+                observer.onError(th);
+            }
+        }
+
+        @Override // io.reactivex.Observer
+        public void onNext(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+                this.actual.onNext(obj);
+            }
+        }
+
+        @Override // io.reactivex.Observer
+        public void onSubscribe(Disposable disposable) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048581, this, disposable) == null) && DisposableHelper.validate(this.s, disposable)) {
+                this.s = disposable;
+                this.actual.onSubscribe(this);
+            }
+        }
+
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
             Interceptable interceptable = $ic;
@@ -56,51 +84,26 @@ public final class ObservableDetach<T> extends AbstractObservableWithUpstream<T,
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.s.isDisposed() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.s.isDisposed();
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.Observer
         public void onComplete() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                Observer<? super T> observer = this.actual;
+                Observer observer = this.actual;
                 this.s = EmptyComponent.INSTANCE;
                 this.actual = EmptyComponent.asObserver();
                 observer.onComplete();
             }
         }
-
-        @Override // io.reactivex.Observer
-        public void onError(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
-                Observer<? super T> observer = this.actual;
-                this.s = EmptyComponent.INSTANCE;
-                this.actual = EmptyComponent.asObserver();
-                observer.onError(th);
-            }
-        }
-
-        @Override // io.reactivex.Observer
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
-                this.actual.onNext(t);
-            }
-        }
-
-        @Override // io.reactivex.Observer
-        public void onSubscribe(Disposable disposable) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048581, this, disposable) == null) && DisposableHelper.validate(this.s, disposable)) {
-                this.s = disposable;
-                this.actual.onSubscribe(this);
-            }
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableDetach(ObservableSource<T> observableSource) {
+    public ObservableDetach(ObservableSource observableSource) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -120,7 +123,7 @@ public final class ObservableDetach<T> extends AbstractObservableWithUpstream<T,
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer<? super T> observer) {
+    public void subscribeActual(Observer observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             this.source.subscribe(new DetachObserver(observer));

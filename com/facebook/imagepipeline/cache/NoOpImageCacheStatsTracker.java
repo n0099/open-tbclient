@@ -31,36 +31,6 @@ public class NoOpImageCacheStatsTracker implements ImageCacheStatsTracker {
         }
     }
 
-    public NoOpImageCacheStatsTracker() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static synchronized NoOpImageCacheStatsTracker getInstance() {
-        InterceptResult invokeV;
-        NoOpImageCacheStatsTracker noOpImageCacheStatsTracker;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (NoOpImageCacheStatsTracker.class) {
-                if (sInstance == null) {
-                    sInstance = new NoOpImageCacheStatsTracker();
-                }
-                noOpImageCacheStatsTracker = sInstance;
-            }
-            return noOpImageCacheStatsTracker;
-        }
-        return (NoOpImageCacheStatsTracker) invokeV.objValue;
-    }
-
     @Override // com.facebook.imagepipeline.cache.ImageCacheStatsTracker
     public void onBitmapCacheHit(CacheKey cacheKey) {
         Interceptable interceptable = $ic;
@@ -146,16 +116,46 @@ public class NoOpImageCacheStatsTracker implements ImageCacheStatsTracker {
     }
 
     @Override // com.facebook.imagepipeline.cache.ImageCacheStatsTracker
-    public void registerBitmapMemoryCache(MemoryCache<?, ?> memoryCache) {
+    public void registerBitmapMemoryCache(MemoryCache memoryCache) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, memoryCache) == null) {
         }
     }
 
     @Override // com.facebook.imagepipeline.cache.ImageCacheStatsTracker
-    public void registerEncodedMemoryCache(MemoryCache<?, ?> memoryCache) {
+    public void registerEncodedMemoryCache(MemoryCache memoryCache) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, memoryCache) == null) {
         }
+    }
+
+    public NoOpImageCacheStatsTracker() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static synchronized NoOpImageCacheStatsTracker getInstance() {
+        InterceptResult invokeV;
+        NoOpImageCacheStatsTracker noOpImageCacheStatsTracker;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (NoOpImageCacheStatsTracker.class) {
+                if (sInstance == null) {
+                    sInstance = new NoOpImageCacheStatsTracker();
+                }
+                noOpImageCacheStatsTracker = sInstance;
+            }
+            return noOpImageCacheStatsTracker;
+        }
+        return (NoOpImageCacheStatsTracker) invokeV.objValue;
     }
 }

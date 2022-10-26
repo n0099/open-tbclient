@@ -9,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.cea.Cea608Decoder;
 import java.io.UnsupportedEncodingException;
 import org.apache.commons.codec.binary4util.BaseNCodec;
 /* loaded from: classes8.dex */
@@ -32,7 +31,7 @@ public final class Base64 {
                 return;
             }
         }
-        MAP = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, Cea608Decoder.CTRL_END_OF_CAPTION};
+        MAP = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
         URL_MAP = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 45, 95};
     }
 
@@ -73,14 +72,16 @@ public final class Base64 {
                     i = charAt2 - 'G';
                 } else if (charAt2 >= '0' && charAt2 <= '9') {
                     i = charAt2 + 4;
-                } else if (charAt2 == '+' || charAt2 == '-') {
-                    i = 62;
-                } else if (charAt2 == '/' || charAt2 == '_') {
-                    i = 63;
-                } else {
-                    if (charAt2 != '\n' && charAt2 != '\r' && charAt2 != ' ' && charAt2 != '\t') {
-                        return null;
+                } else if (charAt2 != '+' && charAt2 != '-') {
+                    if (charAt2 != '/' && charAt2 != '_') {
+                        if (charAt2 != '\n' && charAt2 != '\r' && charAt2 != ' ' && charAt2 != '\t') {
+                            return null;
+                        }
+                    } else {
+                        i = 63;
                     }
+                } else {
+                    i = 62;
                 }
                 i4 = (i4 << 6) | ((byte) i);
                 i3++;
@@ -120,13 +121,19 @@ public final class Base64 {
     public static String encode(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) ? encode(bArr, MAP) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
+            return encode(bArr, MAP);
+        }
+        return (String) invokeL.objValue;
     }
 
     public static String encodeUrl(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) ? encode(bArr, URL_MAP) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) {
+            return encode(bArr, URL_MAP);
+        }
+        return (String) invokeL.objValue;
     }
 
     public static String encode(byte[] bArr, byte[] bArr2) {
@@ -149,21 +156,23 @@ public final class Base64 {
                 bArr3[i6] = bArr2[bArr[i7] & 63];
             }
             int length2 = bArr.length % 3;
-            if (length2 == 1) {
-                int i8 = i + 1;
+            if (length2 != 1) {
+                if (length2 == 2) {
+                    int i8 = i + 1;
+                    bArr3[i] = bArr2[(bArr[length] & 255) >> 2];
+                    int i9 = i8 + 1;
+                    int i10 = length + 1;
+                    bArr3[i8] = bArr2[((bArr[i10] & 255) >> 4) | ((bArr[length] & 3) << 4)];
+                    bArr3[i9] = bArr2[(bArr[i10] & 15) << 2];
+                    bArr3[i9 + 1] = BaseNCodec.PAD_DEFAULT;
+                }
+            } else {
+                int i11 = i + 1;
                 bArr3[i] = bArr2[(bArr[length] & 255) >> 2];
-                int i9 = i8 + 1;
-                bArr3[i8] = bArr2[(bArr[length] & 3) << 4];
-                bArr3[i9] = BaseNCodec.PAD_DEFAULT;
-                bArr3[i9 + 1] = BaseNCodec.PAD_DEFAULT;
-            } else if (length2 == 2) {
-                int i10 = i + 1;
-                bArr3[i] = bArr2[(bArr[length] & 255) >> 2];
-                int i11 = i10 + 1;
-                int i12 = length + 1;
-                bArr3[i10] = bArr2[((bArr[i12] & 255) >> 4) | ((bArr[length] & 3) << 4)];
-                bArr3[i11] = bArr2[(bArr[i12] & 15) << 2];
-                bArr3[i11 + 1] = BaseNCodec.PAD_DEFAULT;
+                int i12 = i11 + 1;
+                bArr3[i11] = bArr2[(bArr[length] & 3) << 4];
+                bArr3[i12] = BaseNCodec.PAD_DEFAULT;
+                bArr3[i12 + 1] = BaseNCodec.PAD_DEFAULT;
             }
             try {
                 return new String(bArr3, "US-ASCII");

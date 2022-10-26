@@ -133,7 +133,7 @@ public class h {
                 } else if (this.d) {
                     this.a.f();
                 }
-                Map<String, Object> map = this.k;
+                Map map = this.k;
                 if (map != null) {
                     map.clear();
                 }

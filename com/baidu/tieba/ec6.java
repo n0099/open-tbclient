@@ -1,45 +1,33 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Matrix;
+import android.graphics.Paint;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.TbMd5;
-import com.baidu.tbadk.data.QmFilterItem;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tieba.view.widget.recordeffect.VideoControllerLayout;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.minivideo.arface.utils.ThreadPool;
+import com.baidu.tieba.pf9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.zip.ZipException;
+import com.baidu.ugc.editvideo.data.MultiMediaData;
+import com.baidu.ugc.editvideo.record.RecordConstants;
 /* loaded from: classes3.dex */
-public class ec6 implements fc6 {
+public abstract class ec6 implements hc6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String i;
     public transient /* synthetic */ FieldHolder $fh;
-    public VideoControllerLayout a;
-    public i46 b;
-    public c46 c;
-    public HashMap<String, String> d;
-    public List<DownloadData> e;
-    public b f;
-    public QmFilterItem g;
-    public c55 h;
+    public kc6 a;
+    public ic6 b;
+    public Thread c;
+    public boolean d;
+
+    public abstract void f();
 
     /* loaded from: classes3.dex */
-    public class a implements c55 {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ec6 a;
@@ -62,372 +50,180 @@ public class ec6 implements fc6 {
             this.a = ec6Var;
         }
 
-        @Override // com.baidu.tieba.c55
-        public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) {
-                File file = new File(downloadData.getPath());
-                if (file.exists()) {
-                    file.delete();
-                }
-                this.a.o(downloadData);
-                if (this.a.f == null || this.a.g == null || this.a.g.fileUrl == null || !this.a.g.fileUrl.equals(downloadData.getUrl())) {
-                    return;
-                }
-                this.a.f.a(str);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.f();
             }
-        }
-
-        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:39:0x0089 */
-        @Override // com.baidu.tieba.c55
-        public void onFileDownloadSucceed(DownloadData downloadData) {
-            File file;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) || downloadData == null || StringUtils.isNull(downloadData.getPath()) || StringUtils.isNull(ec6.i)) {
-                return;
-            }
-            this.a.o(downloadData);
-            if (this.a.f == null || this.a.g == null || this.a.g.fileUrl == null || !this.a.g.fileUrl.equals(downloadData.getUrl()) || !downloadData.getPath().endsWith(".zip")) {
-                return;
-            }
-            String substring = downloadData.getPath().substring(ec6.i.length() + 1, downloadData.getPath().lastIndexOf("."));
-            String str = ec6.i + "/" + substring;
-            try {
-                try {
-                    tw4.c(new File(downloadData.getPath()), str);
-                    this.a.d.put(substring, str);
-                    this.a.g.localPath = str;
-                    this.a.f.c(this.a.g);
-                    String path = downloadData.getPath();
-                    file = new File(path);
-                    downloadData = path;
-                } catch (ZipException e) {
-                    this.a.f.a("解压失败，请点击重试");
-                    FileHelper.deleteFileOrDir(new File(str));
-                    BdLog.e(e);
-                    String path2 = downloadData.getPath();
-                    file = new File(path2);
-                    downloadData = path2;
-                } catch (IOException e2) {
-                    this.a.f.a("解压失败，请点击重试");
-                    FileHelper.deleteFileOrDir(new File(str));
-                    BdLog.e(e2);
-                    String path3 = downloadData.getPath();
-                    file = new File(path3);
-                    downloadData = path3;
-                }
-                FileHelper.deleteFileOrDir(file);
-            } catch (Throwable th) {
-                FileHelper.deleteFileOrDir(new File(downloadData.getPath()));
-                throw th;
-            }
-        }
-
-        @Override // com.baidu.tieba.c55
-        public boolean onFileDownloaded(DownloadData downloadData) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadData)) == null) {
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.c55
-        public void onFileUpdateProgress(DownloadData downloadData) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) && downloadData.getStatus() == 4) {
-                File file = new File(downloadData.getPath());
-                if (file.exists()) {
-                    file.delete();
-                }
-                this.a.o(downloadData);
-                if (this.a.f == null || this.a.g == null || this.a.g.fileUrl == null || !this.a.g.fileUrl.equals(downloadData.getUrl())) {
-                    return;
-                }
-                this.a.f.b();
-            }
-        }
-
-        @Override // com.baidu.tieba.c55
-        public boolean onPreDownload(DownloadData downloadData) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, downloadData)) == null) {
-                return true;
-            }
-            return invokeL.booleanValue;
         }
     }
 
-    /* loaded from: classes3.dex */
-    public interface b {
-        void a(String str);
-
-        void b();
-
-        void c(QmFilterItem qmFilterItem);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947729585, "Lcom/baidu/tieba/ec6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947729585, "Lcom/baidu/tieba/ec6;");
-                return;
-            }
-        }
-        i = FileHelper.CreateFileIfNotFound(".filters") != null ? FileHelper.CreateFileIfNotFound(".filters").getAbsolutePath() : "";
-    }
-
-    public ec6(i46 i46Var, c46 c46Var, VideoControllerLayout videoControllerLayout) {
+    public ec6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {i46Var, c46Var, videoControllerLayout};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.g = new QmFilterItem();
-        this.h = new a(this);
-        this.b = i46Var;
-        this.c = c46Var;
-        this.a = videoControllerLayout;
-        m();
+        this.d = false;
     }
 
-    @Override // com.baidu.tieba.fc6
-    public boolean a(QmFilterItem qmFilterItem) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.hc6
+    public void a(kc6 kc6Var, ic6 ic6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, qmFilterItem)) == null) {
-            p(qmFilterItem);
-            if (qmFilterItem == null) {
-                reset();
-                return true;
-            } else if (!StringUtils.isNull(qmFilterItem.localPath)) {
-                i46 i46Var = this.b;
-                if (i46Var != null) {
-                    i46Var.a(qmFilterItem);
-                    return true;
-                }
-                c46 c46Var = this.c;
-                if (c46Var != null) {
-                    c46Var.a(qmFilterItem);
-                }
-                return true;
-            } else {
-                reset();
-                return false;
-            }
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, kc6Var, ic6Var) != null) || ic6Var == null) {
+            return;
         }
-        return invokeL.booleanValue;
+        this.b = ic6Var;
+        if (kc6Var == null) {
+            ic6Var.onError(StringUtil.NULL_STRING, "cover config is null !!");
+            return;
+        }
+        this.a = kc6Var;
+        this.c = new Thread(new a(this));
+        ThreadPool.b().e(this.c);
     }
 
-    @Override // com.baidu.tieba.fc6
-    public QmFilterItem b() {
+    public int[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.g : (QmFilterItem) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.fc6
-    public void c(QmFilterItem qmFilterItem) {
-        QmFilterItem qmFilterItem2;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qmFilterItem) == null) {
-            p(qmFilterItem);
-            if (qmFilterItem == null) {
-                return;
-            }
-            if (!TextUtils.isEmpty(qmFilterItem.fileUrl) && !StringUtils.isNull(i)) {
-                String nameMd5FromUrl = TbMd5.getNameMd5FromUrl(qmFilterItem.fileUrl);
-                if (nameMd5FromUrl == null) {
-                    return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            kc6 kc6Var = this.a;
+            int[] iArr = {kc6Var.a, kc6Var.b};
+            if (!kc6Var.g && !kc6Var.e) {
+                float f = kc6Var.d;
+                if (f != 0.0f) {
+                    pf9.a e = pf9.e(f, RecordConstants.VIDEO_CONSTANT_WIDTH);
+                    iArr[0] = e.b();
+                    iArr[1] = e.a();
                 }
-                File file = new File(i);
-                if (!file.exists()) {
-                    file.mkdirs();
+            } else {
+                pf9.a e2 = e();
+                float f2 = this.a.d;
+                if (f2 != 0.0f) {
+                    pf9.a f3 = pf9.f(f2, e2.b(), e2.a());
+                    iArr[0] = f3.b();
+                    iArr[1] = f3.a();
                 }
-                StringBuilder sb = new StringBuilder();
-                sb.append(".");
-                String str2 = qmFilterItem.fileUrl;
-                sb.append(str2.substring(str2.lastIndexOf(".") + 1));
-                String sb2 = sb.toString();
-                if (this.e == null) {
-                    this.e = new ArrayList();
+                pf9.a d = pf9.d(iArr[0], iArr[1]);
+                iArr[0] = d.b();
+                iArr[1] = d.a();
+            }
+            return iArr;
+        }
+        return (int[]) invokeV.objValue;
+    }
+
+    public Bitmap c(Bitmap bitmap, float f, MultiMediaData multiMediaData) {
+        InterceptResult invokeCommon;
+        Bitmap bitmap2;
+        int i;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{bitmap, Float.valueOf(f), multiMediaData})) == null) {
+            if (multiMediaData != null && ((i2 = 360 - (((int) multiMediaData.angle) % 360)) == 90 || i2 == 270)) {
+                Matrix matrix = new Matrix();
+                matrix.setRotate(i2);
+                bitmap2 = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+            } else {
+                bitmap2 = null;
+            }
+            if (bitmap2 != null) {
+                bitmap = bitmap2;
+            }
+            int width = bitmap.getWidth();
+            int height = bitmap.getHeight();
+            if (bitmap.getHeight() / bitmap.getWidth() > f) {
+                width = (int) (bitmap.getHeight() * f);
+            } else {
+                height = (int) (bitmap.getWidth() * f);
+            }
+            Bitmap createBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
+            Canvas canvas = new Canvas(createBitmap);
+            canvas.save();
+            int i3 = 0;
+            if (height != bitmap.getHeight()) {
+                i = Math.abs(height - bitmap.getHeight()) / 2;
+            } else {
+                i = 0;
+            }
+            if (width != bitmap.getWidth()) {
+                i3 = Math.abs(width - bitmap.getWidth()) / 2;
+            }
+            canvas.drawBitmap(bitmap, i3, i, (Paint) null);
+            canvas.restore();
+            bitmap.recycle();
+            return createBitmap;
+        }
+        return (Bitmap) invokeCommon.objValue;
+    }
+
+    public String d(int i, int i2, Bitmap bitmap, boolean z) {
+        InterceptResult invokeCommon;
+        String a2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), bitmap, Boolean.valueOf(z)})) == null) {
+            if (i != 0 && i2 != 0) {
+                Bitmap h = jh9.h(bitmap, i, i2, z);
+                if (this.d) {
+                    a2 = m19.b();
+                } else {
+                    a2 = m19.a();
                 }
-                if (n(qmFilterItem.fileUrl)) {
-                    return;
+                String c = m19.c(a2, h, System.currentTimeMillis() + ".jpg");
+                if (h != null) {
+                    h.recycle();
+                    return c;
                 }
-                DownloadData downloadData = new DownloadData();
-                downloadData.setType(10);
-                downloadData.setUrl(qmFilterItem.fileUrl);
-                downloadData.setPath(i + "/" + nameMd5FromUrl + sb2);
-                downloadData.setCallback(this.h);
-                this.e.add(downloadData);
-                d55.k().l(downloadData);
-                return;
+                return c;
             }
-            a(null);
-            if (this.f == null || (qmFilterItem2 = this.g) == null || (str = qmFilterItem2.fileUrl) == null || !str.equals(qmFilterItem.fileUrl)) {
-                return;
-            }
-            this.f.b();
+            return "";
         }
+        return (String) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.fc6
-    public void d(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            this.f = bVar;
-        }
-    }
-
-    @Override // com.baidu.tieba.fc6
-    public void e() {
-        VideoControllerLayout videoControllerLayout;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (videoControllerLayout = this.a) == null) {
-            return;
-        }
-        videoControllerLayout.setSelectedToRightIndex();
-    }
-
-    @Override // com.baidu.tieba.fc6
-    public String f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            String nameMd5FromUrl = TbMd5.getNameMd5FromUrl(str);
-            if (nameMd5FromUrl == null) {
-                return null;
-            }
-            if (this.d == null) {
-                this.d = new HashMap<>();
-                h();
-            }
-            return this.d.get(nameMd5FromUrl);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.fc6
-    public void g() {
-        VideoControllerLayout videoControllerLayout;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (videoControllerLayout = this.a) == null) {
-            return;
-        }
-        videoControllerLayout.setSelectedToLeftIndex();
-    }
-
-    @Override // com.baidu.tieba.fc6
-    public void h() {
-        File[] listFiles;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || StringUtils.isNull(i)) {
-            return;
-        }
-        HashMap<String, String> hashMap = this.d;
-        if (hashMap == null) {
-            this.d = new HashMap<>();
-        } else {
-            hashMap.clear();
-        }
-        File file = new File(i);
-        if (file.exists()) {
-            for (File file2 : file.listFiles()) {
-                if (file2.isDirectory()) {
-                    this.d.put(file2.getName(), file2.getAbsolutePath());
-                }
-            }
-        }
-    }
-
-    public boolean m() {
+    public pf9.a e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean n(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            if (!ListUtils.isEmpty(this.e) && str != null) {
-                for (DownloadData downloadData : this.e) {
-                    if (downloadData != null && str.equals(downloadData.getUrl())) {
-                        return true;
-                    }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            MultiMediaData multiMediaData = this.a.c;
+            int i = RecordConstants.VIDEO_CONSTANT_WIDTH;
+            int i2 = RecordConstants.VIDEO_CONSTANT_HEIGHT;
+            if (multiMediaData == null) {
+                return new pf9.a(i, i2);
+            }
+            if (multiMediaData.type == 1) {
+                float f = multiMediaData.angle;
+                float f2 = multiMediaData.rotation;
+                if ((f + f2) % 360.0f != 90.0f && (f + f2) % 360.0f != 270.0f) {
+                    i = multiMediaData.width;
+                    i2 = multiMediaData.height;
+                } else {
+                    i = multiMediaData.height;
+                    i2 = multiMediaData.width;
                 }
             }
-            return false;
+            return new pf9.a(i, i2);
         }
-        return invokeL.booleanValue;
+        return (pf9.a) invokeV.objValue;
     }
 
-    public final void o(DownloadData downloadData) {
+    public void g(jc6 jc6Var, Bitmap bitmap) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, downloadData) == null) || ListUtils.isEmpty(this.e) || downloadData == null) {
-            return;
-        }
-        int i2 = -1;
-        int i3 = 0;
-        while (true) {
-            if (i3 < this.e.size()) {
-                if (this.e.get(i3) != null && this.e.get(i3).getUrl() != null && this.e.get(i3).getUrl().equals(downloadData.getUrl())) {
-                    i2 = i3;
-                    break;
-                }
-                i3++;
-            } else {
-                break;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, jc6Var, bitmap) == null) {
+            if (jc6Var == null) {
+                jc6Var = new jc6();
             }
-        }
-        this.e.remove(i2);
-    }
-
-    public void p(QmFilterItem qmFilterItem) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, qmFilterItem) == null) {
-            if (qmFilterItem == null) {
-                this.g = new QmFilterItem();
-            } else {
-                this.g = qmFilterItem;
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.fc6
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            i46 i46Var = this.b;
-            if (i46Var != null) {
-                i46Var.a(null);
-            }
-            c46 c46Var = this.c;
-            if (c46Var != null) {
-                c46Var.a(null);
-            }
+            int[] b = b();
+            jc6Var.a = d(b[0], b[1], bitmap, true);
+            this.b.a(this.a.f, jc6Var);
         }
     }
 }

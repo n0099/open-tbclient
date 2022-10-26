@@ -68,6 +68,65 @@ public final class ProcessUtils {
         }
     }
 
+    public static String getCurProcessName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return sProcessName;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String getMainProcessName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return sMainProcessName;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean is64Bit() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 23) {
+                return Process.is64Bit();
+            }
+            if (i < 21) {
+                return false;
+            }
+            String[] strArr = Build.SUPPORTED_64_BIT_ABIS;
+            if (strArr.length <= 0) {
+                return false;
+            }
+            return Build.CPU_ABI.equals(strArr[0]);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isMainProcess() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return sIsMainProcess;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isSwanProcess() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            if (!TextUtils.isEmpty(sProcessName) && sProcessName.contains(":swan")) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     public static boolean checkIsMainProcess(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -75,21 +134,12 @@ public final class ProcessUtils {
             if (TextUtils.equals(str, sMainProcessName)) {
                 return true;
             }
-            return str.startsWith(sMainProcessName) && !str.contains(":");
+            if (str.startsWith(sMainProcessName) && !str.contains(":")) {
+                return true;
+            }
+            return false;
         }
         return invokeL.booleanValue;
-    }
-
-    public static String getCurProcessName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? sProcessName : (String) invokeV.objValue;
-    }
-
-    public static String getMainProcessName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? sMainProcessName : (String) invokeV.objValue;
     }
 
     public static String getProcessNameFromAm(Context context) {
@@ -155,37 +205,5 @@ public final class ProcessUtils {
             return str;
         }
         return (String) invokeV.objValue;
-    }
-
-    public static boolean is64Bit() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            int i = Build.VERSION.SDK_INT;
-            if (i >= 23) {
-                return Process.is64Bit();
-            }
-            if (i >= 21) {
-                String[] strArr = Build.SUPPORTED_64_BIT_ABIS;
-                if (strArr.length > 0) {
-                    return Build.CPU_ABI.equals(strArr[0]);
-                }
-                return false;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean isMainProcess() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? sIsMainProcess : invokeV.booleanValue;
-    }
-
-    public static boolean isSwanProcess() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? !TextUtils.isEmpty(sProcessName) && sProcessName.contains(":swan") : invokeV.booleanValue;
     }
 }

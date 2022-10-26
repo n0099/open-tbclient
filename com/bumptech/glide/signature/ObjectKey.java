@@ -1,6 +1,5 @@
 package com.bumptech.glide.signature;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,7 +15,7 @@ public final class ObjectKey implements Key {
     public transient /* synthetic */ FieldHolder $fh;
     public final Object object;
 
-    public ObjectKey(@NonNull Object obj) {
+    public ObjectKey(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -48,10 +47,21 @@ public final class ObjectKey implements Key {
     }
 
     @Override // com.bumptech.glide.load.Key
+    public void updateDiskCacheKey(MessageDigest messageDigest) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, messageDigest) == null) {
+            messageDigest.update(this.object.toString().getBytes(Key.CHARSET));
+        }
+    }
+
+    @Override // com.bumptech.glide.load.Key
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.object.hashCode() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.object.hashCode();
+        }
+        return invokeV.intValue;
     }
 
     public String toString() {
@@ -61,13 +71,5 @@ public final class ObjectKey implements Key {
             return "ObjectKey{object=" + this.object + '}';
         }
         return (String) invokeV.objValue;
-    }
-
-    @Override // com.bumptech.glide.load.Key
-    public void updateDiskCacheKey(@NonNull MessageDigest messageDigest) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, messageDigest) == null) {
-            messageDigest.update(this.object.toString().getBytes(Key.CHARSET));
-        }
     }
 }

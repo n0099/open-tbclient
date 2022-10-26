@@ -4,8 +4,8 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.la5;
-import com.baidu.tieba.sh5;
+import com.baidu.tieba.pa5;
+import com.baidu.tieba.yh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -49,12 +49,12 @@ public class SetLikeForumRequestMessage extends NetMessage {
                 builder.original_like_list = this.originalLikeList;
                 builder.new_like_list = this.moveList;
                 if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
-                    builder.tbs = la5.f();
+                    builder.tbs = pa5.f();
                 } else {
                     builder.tbs = TbadkCoreApplication.getInst().getTbs();
                 }
                 if (z) {
-                    sh5.c(builder, true, true, false);
+                    yh5.c(builder, true, true, false);
                 }
                 SetLikeForumSortReqIdl.Builder builder2 = new SetLikeForumSortReqIdl.Builder();
                 builder2.data = builder.build(false);
@@ -69,13 +69,19 @@ public class SetLikeForumRequestMessage extends NetMessage {
     public String getMoveList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.moveList : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.moveList;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getOriginalLikeList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.originalLikeList : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.originalLikeList;
+        }
+        return (String) invokeV.objValue;
     }
 
     public void setMoveList(String str) {

@@ -50,21 +50,27 @@ public final class ImShareThreadInfo extends Message {
     public final List<Voice> voiceInfo;
 
     /* loaded from: classes9.dex */
-    public static final class Builder extends Message.Builder<ImShareThreadInfo> {
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes9.dex */
+    public final class Builder extends Message.Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public User author;
         public SimpleForum forumInfo;
         public Long id;
         public Integer isShareThread;
-        public List<Media> media;
+        public List media;
         public OriginThreadInfo originThreadInfo;
-        public List<PbContent> richAbstract;
-        public List<PbContent> richTitle;
+        public List richAbstract;
+        public List richTitle;
         public Integer threadType;
         public String title;
         public VideoInfo videoInfo;
-        public List<Voice> voiceInfo;
+        public List voiceInfo;
 
         public Builder() {
             Interceptable interceptable = $ic;
@@ -120,14 +126,11 @@ public final class ImShareThreadInfo extends Message {
         public ImShareThreadInfo build(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) ? new ImShareThreadInfo(this, z, null) : (ImShareThreadInfo) invokeZ.objValue;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+                return new ImShareThreadInfo(this, z, null);
+            }
+            return (ImShareThreadInfo) invokeZ.objValue;
         }
-    }
-
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
     }
 
     static {
@@ -150,10 +153,6 @@ public final class ImShareThreadInfo extends Message {
         DEFAULT_ISSHARETHREAD = 0;
         DEFAULT_VOICEINFO = Collections.emptyList();
         DEFAULT_MEDIA = Collections.emptyList();
-    }
-
-    public /* synthetic */ ImShareThreadInfo(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -194,13 +193,13 @@ public final class ImShareThreadInfo extends Message {
             } else {
                 this.title = str;
             }
-            List<PbContent> list = builder.richTitle;
+            List list = builder.richTitle;
             if (list == null) {
                 this.richTitle = DEFAULT_RICHTITLE;
             } else {
                 this.richTitle = Message.immutableCopyOf(list);
             }
-            List<PbContent> list2 = builder.richAbstract;
+            List list2 = builder.richAbstract;
             if (list2 == null) {
                 this.richAbstract = DEFAULT_RICHABSTRACT;
             } else {
@@ -215,13 +214,13 @@ public final class ImShareThreadInfo extends Message {
             }
             this.originThreadInfo = builder.originThreadInfo;
             this.videoInfo = builder.videoInfo;
-            List<Voice> list3 = builder.voiceInfo;
+            List list3 = builder.voiceInfo;
             if (list3 == null) {
                 this.voiceInfo = DEFAULT_VOICEINFO;
             } else {
                 this.voiceInfo = Message.immutableCopyOf(list3);
             }
-            List<Media> list4 = builder.media;
+            List list4 = builder.media;
             if (list4 == null) {
                 this.media = DEFAULT_MEDIA;
                 return;
@@ -242,5 +241,9 @@ public final class ImShareThreadInfo extends Message {
         this.videoInfo = builder.videoInfo;
         this.voiceInfo = Message.immutableCopyOf(builder.voiceInfo);
         this.media = Message.immutableCopyOf(builder.media);
+    }
+
+    public /* synthetic */ ImShareThreadInfo(Builder builder, boolean z, a aVar) {
+        this(builder, z);
     }
 }

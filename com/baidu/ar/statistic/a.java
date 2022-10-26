@@ -168,13 +168,13 @@ public final class a implements Cloneable {
         }
     }
 
-    public JSONObject a(Collection<String> collection) {
+    public JSONObject a(Collection collection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, collection)) == null) ? a(null, collection) : (JSONObject) invokeL.objValue;
     }
 
-    public JSONObject a(JSONObject jSONObject, Collection<String> collection) {
+    public JSONObject a(JSONObject jSONObject, Collection collection) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, collection)) == null) {
@@ -197,14 +197,14 @@ public final class a implements Cloneable {
         return (JSONObject) invokeLL.objValue;
     }
 
-    public void a(Map<String, String> map) {
+    public void a(Map map) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map) == null) || map == null || map.isEmpty()) {
             return;
         }
         try {
-            for (Map.Entry<String, String> entry : map.entrySet()) {
-                this.wi.putOpt(entry.getKey(), entry.getValue());
+            for (Map.Entry entry : map.entrySet()) {
+                this.wi.putOpt((String) entry.getKey(), entry.getValue());
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -319,7 +319,7 @@ public final class a implements Cloneable {
         return (a) invokeV.objValue;
     }
 
-    public Iterator<String> keys() {
+    public Iterator keys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.wi.keys() : (Iterator) invokeV.objValue;

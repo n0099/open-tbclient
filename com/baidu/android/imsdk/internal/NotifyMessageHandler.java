@@ -4,7 +4,6 @@ import android.content.Context;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl;
-import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.chatmessage.request.Type;
 import com.baidu.android.imsdk.chatmessage.sync.Generator;
 import com.baidu.android.imsdk.chatmessage.sync.SyncGroupMessageService;
@@ -42,9 +41,8 @@ public abstract class NotifyMessageHandler {
         }
     }
 
-    /* JADX WARN: Type inference failed for: r2v5, types: [T, java.lang.Long] */
     public static void handleConfigMessage(Context context, JSONObject jSONObject) throws JSONException {
-        ArrayList<ChatMsg> arrayList;
+        ArrayList arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, context, jSONObject) == null) {
             LogUtils.i(TAG, "handleMessage Config:" + jSONObject.toString());
@@ -69,6 +67,46 @@ public abstract class NotifyMessageHandler {
         }
     }
 
+    public static void handleRtcNotifyMessage(Context context, JSONObject jSONObject) {
+        String jSONObject2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, context, jSONObject) == null) {
+            if (jSONObject == null) {
+                jSONObject2 = "msgobj == null";
+            } else {
+                jSONObject2 = jSONObject.toString();
+            }
+            handleRtcReport("notify", jSONObject2);
+            if (context != null && jSONObject != null) {
+                try {
+                    LogUtils.i(TAG, "handleRtcNotifyMessage context ！= null && msgobj ！= null ");
+                    Class<?> cls = Class.forName("com.baidu.android.imrtc.BIMRtcManager");
+                    cls.getMethod("notifyParse", JSONObject.class).invoke(cls, jSONObject);
+                    return;
+                } catch (Throwable th) {
+                    LogUtils.e(TAG, "handleRtcNotifyMessage ClassNotFoundException BIMRtcManager...", th);
+                    handleRtcReport("notify", "exception :" + th.getMessage());
+                    return;
+                }
+            }
+            LogUtils.i(TAG, "handleRtcNotifyMessage context == null || msgobj == null ");
+        }
+    }
+
+    public static void handleRtcReport(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) {
+            try {
+                LogUtils.i(TAG, "handleRtcReport " + str + ", ext :" + str2);
+                Class<?> cls = Class.forName("com.baidu.android.imrtc.BIMRtcManager");
+                Method method = cls.getMethod("imRtcReport", String.class, String.class);
+                method.invoke(cls, "im rtc_report " + str, str2);
+            } catch (Throwable th) {
+                LogUtils.e(TAG, "handleRtcReport ClassNotFoundException BIMRtcManager...", th);
+            }
+        }
+    }
+
     /* JADX WARN: Removed duplicated region for block: B:23:0x0098  */
     /* JADX WARN: Removed duplicated region for block: B:35:? A[RETURN, SYNTHETIC] */
     /*
@@ -78,18 +116,27 @@ public abstract class NotifyMessageHandler {
         long j;
         SyncStrategy generate;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLL(65538, null, context, jSONObject) != null) {
-            return;
-        }
-        LogUtils.i(TAG, "handleMessage Deliver:" + jSONObject.toString());
-        int i = jSONObject.getInt("category");
-        if (i == 0 && jSONObject.has("msgid")) {
-            try {
-                j = jSONObject.getLong("msgid");
-            } catch (JSONException e) {
-                LogUtils.i(TAG, "JSONException:" + e.getMessage());
-            }
-            if (i != 0 || i == 2) {
+        if (interceptable == null || interceptable.invokeLL(65538, null, context, jSONObject) == null) {
+            LogUtils.i(TAG, "handleMessage Deliver:" + jSONObject.toString());
+            int i = jSONObject.getInt("category");
+            if (i == 0 && jSONObject.has("msgid")) {
+                try {
+                    j = jSONObject.getLong("msgid");
+                } catch (JSONException e) {
+                    LogUtils.i(TAG, "JSONException:" + e.getMessage());
+                }
+                if (i == 0 && i != 2) {
+                    if (i == 1) {
+                        long j2 = jSONObject.getLong("contacter");
+                        long j3 = jSONObject.getLong("msgid");
+                        LogUtils.i(TAG, "msgid : " + j3);
+                        SyncGroupMessageService.getInstance().execute(context, i, j2, j3, 2);
+                        Utility.transformGroupMediaNotify(context, i, j2, 2, -1L);
+                        return;
+                    }
+                    LogUtils.e(TAG, "handleDeliverMessage category error!!");
+                    return;
+                }
                 generate = Generator.generate(context, 5);
                 if (generate == null) {
                     if (j != -1) {
@@ -101,23 +148,13 @@ public abstract class NotifyMessageHandler {
                     }
                 }
                 return;
-            } else if (i == 1) {
-                long j2 = jSONObject.getLong("contacter");
-                long j3 = jSONObject.getLong("msgid");
-                LogUtils.i(TAG, "msgid : " + j3);
-                SyncGroupMessageService.getInstance().execute(context, i, j2, j3, 2);
-                Utility.transformGroupMediaNotify(context, i, j2, 2, -1L);
-                return;
-            } else {
-                LogUtils.e(TAG, "handleDeliverMessage category error!!");
-                return;
             }
-        }
-        j = -1;
-        if (i != 0) {
-        }
-        generate = Generator.generate(context, 5);
-        if (generate == null) {
+            j = -1;
+            if (i == 0) {
+            }
+            generate = Generator.generate(context, 5);
+            if (generate == null) {
+            }
         }
     }
 
@@ -170,40 +207,6 @@ public abstract class NotifyMessageHandler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, jSONObject) == null) {
             ChatMsgManagerImpl.getInstance(context).handleMediaNotifyMessage(jSONObject);
-        }
-    }
-
-    public static void handleRtcNotifyMessage(Context context, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, context, jSONObject) == null) {
-            handleRtcReport("notify", jSONObject == null ? "msgobj == null" : jSONObject.toString());
-            if (context != null && jSONObject != null) {
-                try {
-                    LogUtils.i(TAG, "handleRtcNotifyMessage context ！= null && msgobj ！= null ");
-                    Class<?> cls = Class.forName("com.baidu.android.imrtc.BIMRtcManager");
-                    cls.getMethod("notifyParse", JSONObject.class).invoke(cls, jSONObject);
-                    return;
-                } catch (Throwable th) {
-                    LogUtils.e(TAG, "handleRtcNotifyMessage ClassNotFoundException BIMRtcManager...", th);
-                    handleRtcReport("notify", "exception :" + th.getMessage());
-                    return;
-                }
-            }
-            LogUtils.i(TAG, "handleRtcNotifyMessage context == null || msgobj == null ");
-        }
-    }
-
-    public static void handleRtcReport(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) {
-            try {
-                LogUtils.i(TAG, "handleRtcReport " + str + ", ext :" + str2);
-                Class<?> cls = Class.forName("com.baidu.android.imrtc.BIMRtcManager");
-                Method method = cls.getMethod("imRtcReport", String.class, String.class);
-                method.invoke(cls, "im rtc_report " + str, str2);
-            } catch (Throwable th) {
-                LogUtils.e(TAG, "handleRtcReport ClassNotFoundException BIMRtcManager...", th);
-            }
         }
     }
 }

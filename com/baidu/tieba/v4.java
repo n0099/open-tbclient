@@ -9,7 +9,7 @@ public class v4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public b7<a5> b;
+    public b7 b;
 
     public v4() {
         Interceptable interceptable = $ic;
@@ -24,6 +24,6 @@ public class v4 {
                 return;
             }
         }
-        this.b = new b7<>();
+        this.b = new b7();
     }
 }

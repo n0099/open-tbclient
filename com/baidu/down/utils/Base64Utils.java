@@ -29,6 +29,12 @@ public class Base64Utils {
     public static String encode(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) ? (bArr == null || bArr.length <= 0) ? "" : new String(Base64.encode(bArr, 0), Charset.forName("UTF-8")) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
+            if (bArr != null && bArr.length > 0) {
+                return new String(Base64.encode(bArr, 0), Charset.forName("UTF-8"));
+            }
+            return "";
+        }
+        return (String) invokeL.objValue;
     }
 }

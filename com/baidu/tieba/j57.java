@@ -1,50 +1,68 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.widget.EditText;
-import com.baidu.tieba.homepage.topic.topicdetail.view.TopicDetaiInputContainer;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.NewHottopic.PkModule;
+import tbclient.NewHottopic.TimeLine;
+import tbclient.NewHottopic.TopicDetail;
 /* loaded from: classes4.dex */
-public class j57 extends s55 {
+public class j57 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public EditText t;
+    public long a;
+    public String b;
+    public String c;
+    public String d;
+    public y57 e;
+    public n57 f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public j57(Context context) {
-        super(context, (String) null, 29);
+    public j57() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.o = false;
-        this.n = 3;
-        TopicDetaiInputContainer topicDetaiInputContainer = new TopicDetaiInputContainer(context);
-        this.m = topicDetaiInputContainer;
-        this.t = topicDetaiInputContainer.getInputView();
-        ((TopicDetaiInputContainer) this.m).setHint(context.getString(R.string.obfuscated_res_0x7f0f10b4));
-        this.p = new int[]{4, 13, 24, 3, 9, 6, 12};
     }
 
-    public EditText g() {
-        InterceptResult invokeV;
+    public void a(TopicDetail topicDetail) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.t : (EditText) invokeV.objValue;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, topicDetail) != null) || topicDetail == null) {
+            return;
+        }
+        this.a = topicDetail.topic_id.longValue();
+        this.b = topicDetail.topic_desc;
+        topicDetail.discuss_num.longValue();
+        this.c = topicDetail.topic_image;
+        this.d = topicDetail.bg_image;
+    }
+
+    public void b(PkModule pkModule) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pkModule) == null) && pkModule != null && pkModule.agree != null && pkModule.disagree != null) {
+            y57 y57Var = new y57();
+            this.e = y57Var;
+            y57Var.a = this.a;
+            y57Var.f = 2;
+            y57Var.a(pkModule);
+        }
+    }
+
+    public void c(TimeLine timeLine) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, timeLine) != null) || timeLine == null) {
+            return;
+        }
+        n57 n57Var = new n57();
+        this.f = n57Var;
+        n57Var.a(this.a, timeLine);
     }
 }

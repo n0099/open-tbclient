@@ -12,16 +12,16 @@ import com.baidu.swan.apps.scheme.actions.forbidden.ForbiddenInfo;
 import com.baidu.swan.support.v4.app.FragmentActivity;
 import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkItem;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a93;
-import com.baidu.tieba.fh3;
-import com.baidu.tieba.io2;
-import com.baidu.tieba.jh4;
-import com.baidu.tieba.k03;
-import com.baidu.tieba.m03;
-import com.baidu.tieba.s22;
-import com.baidu.tieba.sm2;
-import com.baidu.tieba.v53;
-import com.baidu.tieba.vj1;
+import com.baidu.tieba.b93;
+import com.baidu.tieba.gh3;
+import com.baidu.tieba.jo2;
+import com.baidu.tieba.kh4;
+import com.baidu.tieba.l03;
+import com.baidu.tieba.n03;
+import com.baidu.tieba.t22;
+import com.baidu.tieba.tm2;
+import com.baidu.tieba.w53;
+import com.baidu.tieba.wj1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,10 +34,10 @@ public class SwanAppErrorActivity extends FragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean u;
     public transient /* synthetic */ FieldHolder $fh;
-    public io2 j;
+    public jo2 j;
     public ForbiddenInfo k;
     public String l;
-    public a93 m;
+    public b93 m;
     public int n;
     public int o;
     public int p;
@@ -59,7 +59,7 @@ public class SwanAppErrorActivity extends FragmentActivity {
                 return;
             }
         }
-        u = vj1.a;
+        u = wj1.a;
     }
 
     public SwanAppErrorActivity() {
@@ -81,13 +81,67 @@ public class SwanAppErrorActivity extends FragmentActivity {
         this.r = "";
     }
 
+    public final void C() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (this.n != 0 || this.o != 0) {
+                overridePendingTransition(this.n, this.o);
+                this.n = 0;
+                this.o = 0;
+            }
+        }
+    }
+
+    public void D() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            z(tm2.M().a());
+        }
+    }
+
+    @Override // android.app.Activity
+    public void finish() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.finish();
+            C();
+        }
+    }
+
+    @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            super.onResume();
+            D();
+        }
+    }
+
+    public ForbiddenInfo w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.k;
+        }
+        return (ForbiddenInfo) invokeV.objValue;
+    }
+
+    public jo2 x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.j;
+        }
+        return (jo2) invokeV.objValue;
+    }
+
     public final void A(Intent intent) {
         ForbiddenInfo forbiddenInfo;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, intent) == null) || intent == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, intent) != null) || intent == null) {
             return;
         }
-        this.j = io2.d1(intent);
+        this.j = jo2.d1(intent);
         this.k = (ForbiddenInfo) intent.getParcelableExtra("swan_error_forbidden_info");
         this.p = intent.getIntExtra("swan_error_menu_notice_count", 0);
         this.q = intent.getIntExtra("swan_error_menu_privacy_count", 0);
@@ -108,109 +162,17 @@ public class SwanAppErrorActivity extends FragmentActivity {
         }
     }
 
-    public final void C() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (this.n == 0 && this.o == 0) {
-                return;
-            }
-            overridePendingTransition(this.n, this.o);
-            this.n = 0;
-            this.o = 0;
-        }
-    }
-
-    public void D() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            z(sm2.M().a());
-        }
-    }
-
-    @Override // android.app.Activity
-    public void finish() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.finish();
-            C();
-        }
-    }
-
-    @Override // com.baidu.swan.support.v4.app.FragmentActivity, com.baidu.tieba.bh4, android.app.Activity
+    @Override // com.baidu.swan.support.v4.app.FragmentActivity, com.baidu.tieba.ch4, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             B(R.anim.obfuscated_res_0x7f01001c, R.anim.obfuscated_res_0x7f010023);
-            int c0 = fh3.c0(this);
+            int c0 = gh3.c0(this);
             super.onCreate(bundle);
-            fh3.g(this, c0);
+            gh3.g(this, c0);
             setContentView(R.layout.obfuscated_res_0x7f0d00a1);
             A(getIntent());
             y();
-        }
-    }
-
-    @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity
-    public void onNewIntent(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, intent) == null) {
-            super.onNewIntent(intent);
-            A(intent);
-            y();
-        }
-    }
-
-    @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            super.onResume();
-            D();
-        }
-    }
-
-    @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity
-    public void onStart() {
-        k03 i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            super.onStart();
-            if (TextUtils.equals(this.l, "type_app_forbidden") && (i = m03.k().i(this.k.appId)) != null && i.E()) {
-                v53.K(this.k.appId);
-            }
-        }
-    }
-
-    public ForbiddenInfo w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.k : (ForbiddenInfo) invokeV.objValue;
-    }
-
-    public io2 x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.j : (io2) invokeV.objValue;
-    }
-
-    public final void y() {
-        s22 s22Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            jh4 a = l().a();
-            if (getIntent() != null) {
-                s22Var = s22.f3(this.r, this.l, this.s, this.t, this.k, this.p, this.q);
-            } else if (this.j == null) {
-                if (u) {
-                    Log.e("SwanAppErrorActivity", "launchInfo is null,error");
-                    return;
-                }
-                return;
-            } else {
-                s22Var = new s22();
-            }
-            a.a(R.id.obfuscated_res_0x7f090179, s22Var);
-            a.e();
         }
     }
 
@@ -226,7 +188,7 @@ public class SwanAppErrorActivity extends FragmentActivity {
                 return;
             }
             if (this.m == null) {
-                this.m = new a93();
+                this.m = new b93();
             }
             ViewGroup viewGroup = (ViewGroup) window.getDecorView();
             if (z) {
@@ -234,6 +196,49 @@ public class SwanAppErrorActivity extends FragmentActivity {
             } else {
                 this.m.b(viewGroup);
             }
+        }
+    }
+
+    @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity
+    public void onNewIntent(Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, intent) == null) {
+            super.onNewIntent(intent);
+            A(intent);
+            y();
+        }
+    }
+
+    @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity
+    public void onStart() {
+        l03 i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            super.onStart();
+            if (TextUtils.equals(this.l, "type_app_forbidden") && (i = n03.k().i(this.k.appId)) != null && i.E()) {
+                w53.K(this.k.appId);
+            }
+        }
+    }
+
+    public final void y() {
+        t22 t22Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            kh4 a = l().a();
+            if (getIntent() != null) {
+                t22Var = t22.f3(this.r, this.l, this.s, this.t, this.k, this.p, this.q);
+            } else if (this.j == null) {
+                if (u) {
+                    Log.e("SwanAppErrorActivity", "launchInfo is null,error");
+                    return;
+                }
+                return;
+            } else {
+                t22Var = new t22();
+            }
+            a.a(R.id.obfuscated_res_0x7f090179, t22Var);
+            a.e();
         }
     }
 }

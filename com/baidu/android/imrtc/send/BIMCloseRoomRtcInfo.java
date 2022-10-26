@@ -1,6 +1,5 @@
 package com.baidu.android.imrtc.send;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imrtc.BIMRtcInfo;
 import com.baidu.android.imrtc.utils.LogUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -16,6 +15,29 @@ public class BIMCloseRoomRtcInfo extends BIMRtcInfo {
     public static final String TAG = "IMCloseRoomRtcInfo";
     public transient /* synthetic */ FieldHolder $fh;
     public long mRoomDuration;
+
+    public BIMCloseRoomRtcInfo() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public long getRoomDuration() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mRoomDuration;
+        }
+        return invokeV.longValue;
+    }
 
     public BIMCloseRoomRtcInfo(BIMRtcInfo bIMRtcInfo) {
         Interceptable interceptable = $ic;
@@ -38,12 +60,6 @@ public class BIMCloseRoomRtcInfo extends BIMRtcInfo {
         setRtcDeviceId(bIMRtcInfo.getRtcDeviceId());
     }
 
-    public long getRoomDuration() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mRoomDuration : invokeV.longValue;
-    }
-
     public void setRoomDuration(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
@@ -52,7 +68,6 @@ public class BIMCloseRoomRtcInfo extends BIMRtcInfo {
     }
 
     @Override // com.baidu.android.imrtc.BIMRtcInfo
-    @NonNull
     public BIMRtcInfo toRtcInfo(int i, String str, String str2) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
@@ -69,7 +84,6 @@ public class BIMCloseRoomRtcInfo extends BIMRtcInfo {
     }
 
     @Override // com.baidu.android.imrtc.BIMRtcInfo
-    @NonNull
     public String toRtcInfoString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -94,19 +108,5 @@ public class BIMCloseRoomRtcInfo extends BIMRtcInfo {
             return "BIMCloseRoomRtcInfo{" + super.toString() + "mRoomDuration=" + this.mRoomDuration + '}';
         }
         return (String) invokeV.objValue;
-    }
-
-    public BIMCloseRoomRtcInfo() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
     }
 }

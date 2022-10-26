@@ -13,6 +13,12 @@ public class Base64Encoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static final native byte[] nativeB64Decode(byte[] bArr, int i);
+
+    public static final native byte[] nativeB64Encode(byte[] bArr, int i);
+
+    public static final native int nativeB64GetVersion();
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -46,6 +52,32 @@ public class Base64Encoder {
         }
     }
 
+    public static final int B64GetVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            try {
+                return nativeB64GetVersion();
+            } catch (Error | Exception unused) {
+                return 0;
+            }
+        }
+        return invokeV.intValue;
+    }
+
+    public static final int b64GetVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            try {
+                return nativeB64GetVersion();
+            } catch (Error | Exception unused) {
+                return 0;
+            }
+        }
+        return invokeV.intValue;
+    }
+
     public static final byte[] B64Decode(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -70,19 +102,6 @@ public class Base64Encoder {
             }
         }
         return (byte[]) invokeL.objValue;
-    }
-
-    public static final int B64GetVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            try {
-                return nativeB64GetVersion();
-            } catch (Error | Exception unused) {
-                return 0;
-            }
-        }
-        return invokeV.intValue;
     }
 
     public static final byte[] b64Decode(byte[] bArr) {
@@ -110,25 +129,6 @@ public class Base64Encoder {
         }
         return (byte[]) invokeL.objValue;
     }
-
-    public static final int b64GetVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            try {
-                return nativeB64GetVersion();
-            } catch (Error | Exception unused) {
-                return 0;
-            }
-        }
-        return invokeV.intValue;
-    }
-
-    public static final native byte[] nativeB64Decode(byte[] bArr, int i);
-
-    public static final native byte[] nativeB64Encode(byte[] bArr, int i);
-
-    public static final native int nativeB64GetVersion();
 
     public static final byte[] b64Decode(byte[] bArr, int i) {
         InterceptResult invokeLI;

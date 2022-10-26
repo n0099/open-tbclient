@@ -12,10 +12,52 @@ import com.facebook.fresco.ui.common.ControllerListener2;
 import javax.annotation.Nullable;
 @Deprecated
 /* loaded from: classes7.dex */
-public class BaseControllerListener2<INFO> implements ControllerListener2<INFO> {
+public class BaseControllerListener2 implements ControllerListener2 {
     public static /* synthetic */ Interceptable $ic;
     public static final ControllerListener2 NO_OP_LISTENER;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.facebook.fresco.ui.common.ControllerListener2
+    public void onFailure(String str, Throwable th, ControllerListener2.Extras extras) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, th, extras) == null) {
+        }
+    }
+
+    @Override // com.facebook.fresco.ui.common.ControllerListener2
+    public void onFinalImageSet(String str, @Nullable Object obj, ControllerListener2.Extras extras) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj, extras) == null) {
+        }
+    }
+
+    @Override // com.facebook.fresco.ui.common.ControllerListener2
+    public void onIntermediateImageFailed(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+        }
+    }
+
+    @Override // com.facebook.fresco.ui.common.ControllerListener2
+    public void onIntermediateImageSet(String str, @Nullable Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, obj) == null) {
+        }
+    }
+
+    @Override // com.facebook.fresco.ui.common.ControllerListener2
+    public void onRelease(String str, ControllerListener2.Extras extras) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, extras) == null) {
+        }
+    }
+
+    @Override // com.facebook.fresco.ui.common.ControllerListener2
+    public void onSubmit(String str, Object obj, @Nullable ControllerListener2.Extras extras) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048581, this, str, obj, extras) == null) {
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -47,51 +89,12 @@ public class BaseControllerListener2<INFO> implements ControllerListener2<INFO> 
         }
     }
 
-    public static <I> ControllerListener2<I> getNoOpListener() {
+    public static ControllerListener2 getNoOpListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? NO_OP_LISTENER : (ControllerListener2) invokeV.objValue;
-    }
-
-    @Override // com.facebook.fresco.ui.common.ControllerListener2
-    public void onFailure(String str, Throwable th, ControllerListener2.Extras extras) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, th, extras) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return NO_OP_LISTENER;
         }
-    }
-
-    @Override // com.facebook.fresco.ui.common.ControllerListener2
-    public void onFinalImageSet(String str, @Nullable INFO info, ControllerListener2.Extras extras) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, info, extras) == null) {
-        }
-    }
-
-    @Override // com.facebook.fresco.ui.common.ControllerListener2
-    public void onIntermediateImageFailed(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-        }
-    }
-
-    @Override // com.facebook.fresco.ui.common.ControllerListener2
-    public void onIntermediateImageSet(String str, @Nullable INFO info) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, info) == null) {
-        }
-    }
-
-    @Override // com.facebook.fresco.ui.common.ControllerListener2
-    public void onRelease(String str, ControllerListener2.Extras extras) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, extras) == null) {
-        }
-    }
-
-    @Override // com.facebook.fresco.ui.common.ControllerListener2
-    public void onSubmit(String str, Object obj, @Nullable ControllerListener2.Extras extras) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048581, this, str, obj, extras) == null) {
-        }
+        return (ControllerListener2) invokeV.objValue;
     }
 }

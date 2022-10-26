@@ -35,141 +35,26 @@ public class h {
         }
     }
 
-    public static boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            if (TextUtils.isEmpty(a)) {
-                return !TextUtils.isEmpty(k.b("phonescripcache", "")) && a(k.a("phonescripstarttime", 0L));
-            }
-            c.b("PhoneScripUtils", b + " " + c);
-            return a(c);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void a(boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            k.a a2 = k.a();
-            a2.a("phonescripstarttime");
-            a2.a("phonescripcache");
-            a2.a("pre_sim_key");
-            if (z2) {
-                a2.a();
-            } else {
-                a2.b();
-            }
-            if (z) {
-                a = null;
-                b = null;
-                c = 0L;
-            }
-        }
-    }
-
-    public static void b(Context context, String str, long j, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{context, str, Long.valueOf(j), str2}) == null) {
-            String a2 = b.a(context, str);
-            if (TextUtils.isEmpty(a2)) {
-                return;
-            }
-            k.a a3 = k.a();
-            a3.a("phonescripcache", a2);
-            a3.a("phonescripstarttime", j);
-            a3.a("phonescripversion", 2);
-            a3.a("pre_sim_key", str2);
-            a3.b();
-        }
-    }
-
-    public static void a(Context context, String str, long j, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{context, str, Long.valueOf(j), str2, str3}) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || j <= 0) {
-            return;
-        }
-        c.b("PhoneScripUtils", "save phone scrip simKey = " + str2);
-        a = str;
-        long j2 = j * 1000;
-        c = System.currentTimeMillis() + j2;
-        c.b("sLifeTime", c + "");
-        b = str2;
-        if (!"operator".equals(str3)) {
-            n.a(new n.a(context, str, str2) { // from class: com.cmic.sso.sdk.e.h.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ Context a;
-                public final /* synthetic */ String b;
-                public final /* synthetic */ String c;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {context, str, str2};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.a = context;
-                    this.b = str;
-                    this.c = str2;
-                }
-
-                @Override // com.cmic.sso.sdk.e.n.a
-                public void a() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        c.b("PhoneScripUtils", "start save scrip to sp in sub thread");
-                        h.b(this.a, this.b, h.c, this.c);
-                    }
-                }
-            });
-        } else if (j2 > 3600000) {
-            c = System.currentTimeMillis() + 3600000;
-        } else {
-            c = System.currentTimeMillis() + j2;
-        }
-    }
-
-    public static String a(Context context) {
+    public static int a(String str) {
         InterceptResult invokeL;
+        String b2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (TextUtils.isEmpty(a)) {
-                String b2 = k.b("phonescripcache", "");
-                if (TextUtils.isEmpty(b2)) {
-                    c.a("PhoneScripUtils", StringUtil.NULL_STRING);
-                    return null;
-                }
-                c = k.a("phonescripstarttime", 0L);
-                b = k.b("pre_sim_key", "");
-                String b3 = b.b(context, b2);
-                a = b3;
-                return b3;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (!TextUtils.isEmpty(b)) {
+                b2 = b;
+            } else {
+                b2 = k.b("pre_sim_key", "");
+                b = b2;
             }
-            return a;
+            if (TextUtils.isEmpty(b2)) {
+                return 0;
+            }
+            if (b2.equals(str)) {
+                return 1;
+            }
+            return 2;
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean a(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65543, null, j)) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            c.b("PhoneScripUtils", j + "");
-            c.b("PhoneScripUtils", currentTimeMillis + "");
-            return j - currentTimeMillis > 10000;
-        }
-        return invokeJ.booleanValue;
+        return invokeL.intValue;
     }
 
     public static long a() {
@@ -196,23 +81,132 @@ public class h {
         return invokeV.longValue;
     }
 
-    public static int a(String str) {
-        InterceptResult invokeL;
-        String b2;
+    public static boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (!TextUtils.isEmpty(b)) {
-                b2 = b;
-            } else {
-                b2 = k.b("pre_sim_key", "");
-                b = b2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            if (!TextUtils.isEmpty(a)) {
+                c.b("PhoneScripUtils", b + " " + c);
+                return a(c);
             }
-            if (TextUtils.isEmpty(b2)) {
-                return 0;
+            String b2 = k.b("phonescripcache", "");
+            long a2 = k.a("phonescripstarttime", 0L);
+            if (!TextUtils.isEmpty(b2) && a(a2)) {
+                return true;
             }
-            return b2.equals(str) ? 1 : 2;
+            return false;
         }
-        return invokeL.intValue;
+        return invokeV.booleanValue;
+    }
+
+    public static String a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            if (TextUtils.isEmpty(a)) {
+                String b2 = k.b("phonescripcache", "");
+                if (TextUtils.isEmpty(b2)) {
+                    c.a("PhoneScripUtils", StringUtil.NULL_STRING);
+                    return null;
+                }
+                c = k.a("phonescripstarttime", 0L);
+                b = k.b("pre_sim_key", "");
+                String b3 = b.b(context, b2);
+                a = b3;
+                return b3;
+            }
+            return a;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void a(Context context, String str, long j, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{context, str, Long.valueOf(j), str2, str3}) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && j > 0) {
+            c.b("PhoneScripUtils", "save phone scrip simKey = " + str2);
+            a = str;
+            long j2 = j * 1000;
+            c = System.currentTimeMillis() + j2;
+            c.b("sLifeTime", c + "");
+            b = str2;
+            if (!"operator".equals(str3)) {
+                n.a(new n.a(context, str, str2) { // from class: com.cmic.sso.sdk.e.h.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ Context a;
+                    public final /* synthetic */ String b;
+                    public final /* synthetic */ String c;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {context, str, str2};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.a = context;
+                        this.b = str;
+                        this.c = str2;
+                    }
+
+                    @Override // com.cmic.sso.sdk.e.n.a
+                    public void a() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            c.b("PhoneScripUtils", "start save scrip to sp in sub thread");
+                            h.b(this.a, this.b, h.c, this.c);
+                        }
+                    }
+                });
+            } else if (j2 > 3600000) {
+                c = System.currentTimeMillis() + 3600000;
+            } else {
+                c = System.currentTimeMillis() + j2;
+            }
+        }
+    }
+
+    public static void a(boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            k.a a2 = k.a();
+            a2.a("phonescripstarttime");
+            a2.a("phonescripcache");
+            a2.a("pre_sim_key");
+            if (z2) {
+                a2.a();
+            } else {
+                a2.b();
+            }
+            if (z) {
+                a = null;
+                b = null;
+                c = 0L;
+            }
+        }
+    }
+
+    public static boolean a(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65543, null, j)) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            c.b("PhoneScripUtils", j + "");
+            c.b("PhoneScripUtils", currentTimeMillis + "");
+            if (j - currentTimeMillis > 10000) {
+                return true;
+            }
+            return false;
+        }
+        return invokeJ.booleanValue;
     }
 
     public static boolean a(com.cmic.sso.sdk.a aVar) {
@@ -237,5 +231,20 @@ public class h {
             }
         }
         return invokeL.booleanValue;
+    }
+
+    public static void b(Context context, String str, long j, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{context, str, Long.valueOf(j), str2}) == null) {
+            String a2 = b.a(context, str);
+            if (!TextUtils.isEmpty(a2)) {
+                k.a a3 = k.a();
+                a3.a("phonescripcache", a2);
+                a3.a("phonescripstarttime", j);
+                a3.a("phonescripversion", 2);
+                a3.a("pre_sim_key", str2);
+                a3.b();
+            }
+        }
     }
 }

@@ -2,34 +2,51 @@ package com.baidu.tieba;
 
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class cv5 extends i16<yt5> {
+public class cv5 extends p16 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public pt5 i;
-    public pt5 j;
-    public ViewGroup k;
+    public TextView i;
+    public TextView j;
+    public HeadImageView k;
+    public TextView l;
+    public View m;
+    public tu5 n;
+    public RelativeLayout o;
+
+    @Override // com.baidu.tieba.p16
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0851 : invokeV.intValue;
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cv5(TbPageContext<?> tbPageContext, ViewGroup viewGroup, int i, boolean z) {
+    public cv5(TbPageContext tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, viewGroup, Integer.valueOf(i), Boolean.valueOf(z)};
+            Object[] objArr = {tbPageContext, viewGroup};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((TbPageContext) objArr2[0], (ViewGroup) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -37,73 +54,73 @@ public class cv5 extends i16<yt5> {
                 return;
             }
         }
-        if (z) {
-            this.i = new ev5(tbPageContext, i);
-            this.j = new ev5(tbPageContext, i);
-            s();
-            return;
-        }
-        this.i = new dv5(tbPageContext, i);
-        this.j = new dv5(tbPageContext, i);
-        r();
-    }
-
-    @Override // com.baidu.tieba.i16
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d084b : invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.i16
-    public void j(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            this.i.onChangeSkinType(tbPageContext, i);
-            this.j.onChangeSkinType(tbPageContext, i);
-        }
+        this.m = k();
+        this.o = (RelativeLayout) k().findViewById(R.id.obfuscated_res_0x7f090e53);
+        this.i = (TextView) k().findViewById(R.id.obfuscated_res_0x7f090e51);
+        this.j = (TextView) k().findViewById(R.id.obfuscated_res_0x7f090e50);
+        HeadImageView headImageView = (HeadImageView) k().findViewById(R.id.obfuscated_res_0x7f090e4f);
+        this.k = headImageView;
+        headImageView.setAutoChangeStyle(true);
+        this.k.setIsRound(true);
+        this.k.setDrawBorder(true);
+        this.k.setPlaceHolder(1);
+        this.k.setBorderWidth(fj.f(tbPageContext.getPageActivity(), R.dimen.tbds1));
+        this.k.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.l = (TextView) k().findViewById(R.id.obfuscated_res_0x7f090e52);
+        this.o.setOnClickListener(this);
+        m(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && e() != null) {
+            e().a(view2, this.n);
         }
     }
 
-    public final void r() {
+    @Override // com.baidu.tieba.p16
+    public void m(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.k = (ViewGroup) h();
-            View view2 = new View(getContext());
-            this.k.setPadding(g().getResources().getDimensionPixelSize(R.dimen.tbds44), g().getResources().getDimensionPixelSize(R.dimen.tbds12), g().getResources().getDimensionPixelSize(R.dimen.tbds44), 0);
-            this.k.addView(this.i.getView());
-            this.k.addView(view2, new LinearLayout.LayoutParams(g().getResources().getDimensionPixelSize(R.dimen.tbds12), -1));
-            this.k.addView(this.j.getView());
-        }
-    }
-
-    public final void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.k = (ViewGroup) h();
-            View view2 = new View(getContext());
-            this.k.setPadding(g().getResources().getDimensionPixelSize(R.dimen.tbds34), g().getResources().getDimensionPixelSize(R.dimen.tbds21), g().getResources().getDimensionPixelSize(R.dimen.tbds34), 0);
-            this.k.addView(this.i.getView());
-            this.k.addView(view2, new LinearLayout.LayoutParams(g().getResources().getDimensionPixelSize(R.dimen.tbds20), -1));
-            this.k.addView(this.j.getView());
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            SkinManager.setBackgroundResource(this.m, R.color.CAM_X0201);
+            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0108);
+            SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0108);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.i16
-    /* renamed from: t */
-    public void i(yt5 yt5Var) {
+    @Override // com.baidu.tieba.p16
+    /* renamed from: r */
+    public void l(tu5 tu5Var) {
+        String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, yt5Var) == null) || yt5Var == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, tu5Var) == null) && tu5Var != null) {
+            this.n = tu5Var;
+            String str2 = tu5Var.c;
+            String str3 = "";
+            if (StringUtils.isNull(str2)) {
+                if (StringUtils.isNull(tu5Var.b)) {
+                    str2 = "";
+                } else {
+                    str2 = tu5Var.b;
+                }
+            }
+            this.i.setText(str2);
+            TextView textView = this.j;
+            if (StringUtils.isNull(tu5Var.e)) {
+                str = "";
+            } else {
+                str = tu5Var.e;
+            }
+            textView.setText(str);
+            this.k.L(tu5Var.d, 10, false);
+            TextView textView2 = this.l;
+            if (!StringUtils.isNull(tu5Var.f)) {
+                str3 = tu5Var.f;
+            }
+            textView2.setText(str3);
         }
-        this.i.a(yt5Var.a);
-        this.j.a(yt5Var.b);
     }
 }

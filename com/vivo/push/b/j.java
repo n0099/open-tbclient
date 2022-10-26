@@ -13,6 +13,13 @@ public final class j extends s {
     public int a;
     public int b;
 
+    @Override // com.vivo.push.b.s, com.vivo.push.o
+    public final String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "OnChangePushStatusCommand" : (String) invokeV.objValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j() {
         super(12);
@@ -43,25 +50,6 @@ public final class j extends s {
         }
     }
 
-    public final int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public final int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    @Override // com.vivo.push.b.s, com.vivo.push.o
-    public final String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "OnChangePushStatusCommand" : (String) invokeV.objValue;
-    }
-
     @Override // com.vivo.push.b.s, com.vivo.push.o
     public final void d(com.vivo.push.a aVar) {
         Interceptable interceptable = $ic;
@@ -70,5 +58,23 @@ public final class j extends s {
             this.a = aVar.b("OnChangePushStatus.EXTRA_REQ_SERVICE_STATUS", this.a);
             this.b = aVar.b("OnChangePushStatus.EXTRA_REQ_RECEIVER_STATUS", this.b);
         }
+    }
+
+    public final int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public final int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
     }
 }

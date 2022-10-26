@@ -1,103 +1,39 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
-import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Date;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public abstract class bk8 {
+public class bk8 implements xj8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
+    public final wj8 a;
 
-    public bk8() {
+    public bk8(wj8 wj8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {wj8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = wj8Var;
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.xj8
+    public void a() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a != null : invokeV.booleanValue;
-    }
-
-    public abstract void d(JSONObject jSONObject) throws Exception;
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            try {
-                f(new JSONObject(str));
-            } catch (Exception e) {
-                g("网络不给力呀");
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public void f(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) {
-            try {
-                int optInt = jSONObject.optInt("error_code", 0);
-                this.b = optInt;
-                if (optInt != 0) {
-                    g(jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "网络不给力呀"));
-                    return;
-                }
-                JSONObject optJSONObject = jSONObject.optJSONObject("error");
-                if (optJSONObject != null) {
-                    int optInt2 = optJSONObject.optInt("errno", 0);
-                    this.b = optInt2;
-                    if (optInt2 != 0) {
-                        g(optJSONObject.optString(VideoFinishResult.KEY_ERROR_USER_MSG, "网络不给力呀"));
-                        return;
-                    }
-                }
-                long optLong = jSONObject.optLong("ctime", 0L);
-                if (optLong > 0) {
-                    new Date(optLong * 1000);
-                }
-                d(jSONObject);
-            } catch (Exception e) {
-                g("网络不给力呀");
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.a = str;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            yd5.b().l(System.currentTimeMillis());
+            ck8.g(this.a).b();
         }
     }
 }

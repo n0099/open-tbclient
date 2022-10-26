@@ -38,7 +38,10 @@ public final class LocalMediaDrmCallback implements MediaDrmCallback {
     public byte[] executeKeyRequest(UUID uuid, ExoMediaDrm.KeyRequest keyRequest) throws Exception {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, uuid, keyRequest)) == null) ? this.keyResponse : (byte[]) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, uuid, keyRequest)) == null) {
+            return this.keyResponse;
+        }
+        return (byte[]) invokeLL.objValue;
     }
 
     @Override // com.google.android.exoplayer2.drm.MediaDrmCallback

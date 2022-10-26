@@ -1,7 +1,6 @@
 package com.kwad.components.ad;
 
 import android.os.SystemClock;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -24,7 +23,7 @@ public final class KsAdLoadManager {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public static final class Holder {
+    public final class Holder {
         public static final /* synthetic */ Holder[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Holder INSTANCE;
@@ -101,7 +100,7 @@ public final class KsAdLoadManager {
         this();
     }
 
-    public static void a(@NonNull com.kwad.components.core.k.kwai.a aVar) {
+    public static void a(com.kwad.components.core.k.kwai.a aVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(65538, null, aVar) == null) || c.b(aVar)) {
             return;
@@ -114,7 +113,7 @@ public final class KsAdLoadManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(65539, null, adResultData, j) == null) {
             long elapsedRealtime = SystemClock.elapsedRealtime();
-            if (adResultData.getAdTemplateList().size() <= 0 || (adTemplate = adResultData.getAdTemplateList().get(0)) == null) {
+            if (adResultData.getAdTemplateList().size() <= 0 || (adTemplate = (AdTemplate) adResultData.getAdTemplateList().get(0)) == null) {
                 return;
             }
             com.kwad.components.core.j.a.og().c(adTemplate, elapsedRealtime - j);
@@ -127,21 +126,21 @@ public final class KsAdLoadManager {
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? Holder.INSTANCE.mInstance : (KsAdLoadManager) invokeV.objValue;
     }
 
-    public final synchronized <T> void a(T t) {
+    public final synchronized void a(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, t) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
             synchronized (this) {
-                f.mb().add(t);
+                f.mb().add(obj);
             }
         }
     }
 
-    public final synchronized <T> void b(List<T> list) {
+    public final synchronized void b(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
             synchronized (this) {
-                for (T t : list) {
-                    f.mb().add(t);
+                for (Object obj : list) {
+                    f.mb().add(obj);
                 }
             }
         }

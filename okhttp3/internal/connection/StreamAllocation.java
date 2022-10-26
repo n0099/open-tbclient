@@ -47,6 +47,21 @@ public final class StreamAllocation {
     public RouteSelector.Selection routeSelection;
     public final RouteSelector routeSelector;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1384512048, "Lokhttp3/internal/connection/StreamAllocation;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1384512048, "Lokhttp3/internal/connection/StreamAllocation;");
+        }
+    }
+
     /* loaded from: classes8.dex */
     public static final class StreamAllocationReference extends WeakReference<StreamAllocation> {
         public static /* synthetic */ Interceptable $ic;
@@ -72,21 +87,6 @@ public final class StreamAllocation {
                 }
             }
             this.callStackTrace = obj;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1384512048, "Lokhttp3/internal/connection/StreamAllocation;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1384512048, "Lokhttp3/internal/connection/StreamAllocation;");
         }
     }
 
@@ -125,30 +125,30 @@ public final class StreamAllocation {
                 this.released = true;
             }
             RealConnection realConnection = this.connection;
-            if (realConnection != null) {
-                if (z) {
-                    realConnection.noNewStreams = true;
-                }
-                if (this.codec == null) {
-                    if (this.released || this.connection.noNewStreams) {
-                        release(this.connection);
-                        if (this.connection.allocations.isEmpty()) {
-                            this.connection.idleAtNanos = System.nanoTime();
-                            if (Internal.instance.connectionBecameIdle(this.connectionPool, this.connection)) {
-                                socket = this.connection.socket();
-                                this.connection = null;
-                                return socket;
-                            }
-                        }
-                        socket = null;
-                        this.connection = null;
-                        return socket;
-                    }
-                    return null;
-                }
+            if (realConnection == null) {
                 return null;
             }
-            return null;
+            if (z) {
+                realConnection.noNewStreams = true;
+            }
+            if (this.codec != null) {
+                return null;
+            }
+            if (!this.released && !this.connection.noNewStreams) {
+                return null;
+            }
+            release(this.connection);
+            if (this.connection.allocations.isEmpty()) {
+                this.connection.idleAtNanos = System.nanoTime();
+                if (Internal.instance.connectionBecameIdle(this.connectionPool, this.connection)) {
+                    socket = this.connection.socket();
+                    this.connection = null;
+                    return socket;
+                }
+            }
+            socket = null;
+            this.connection = null;
+            return socket;
         }
         return (Socket) invokeCommon.objValue;
     }
@@ -215,43 +215,44 @@ public final class StreamAllocation {
             if (realConnection2 != null) {
                 return realConnection2;
             }
-            if (route != null || ((selection = this.routeSelection) != null && selection.hasNext())) {
-                z3 = false;
-            } else {
+            if (route == null && ((selection = this.routeSelection) == null || !selection.hasNext())) {
                 this.routeSelection = this.routeSelector.next();
                 z3 = true;
+            } else {
+                z3 = false;
             }
             synchronized (this.connectionPool) {
-                if (this.canceled) {
+                if (!this.canceled) {
+                    if (z3) {
+                        List<Route> all = this.routeSelection.getAll();
+                        int size = all.size();
+                        int i5 = 0;
+                        while (true) {
+                            if (i5 >= size) {
+                                break;
+                            }
+                            Route route2 = all.get(i5);
+                            Internal.instance.get(this.connectionPool, this.address, this, route2);
+                            if (this.connection != null) {
+                                realConnection2 = this.connection;
+                                this.route = route2;
+                                z2 = true;
+                                break;
+                            }
+                            i5++;
+                        }
+                    }
+                    if (!z2) {
+                        if (route == null) {
+                            route = this.routeSelection.next();
+                        }
+                        this.route = route;
+                        this.refusedStreamCount = 0;
+                        realConnection2 = new RealConnection(this.connectionPool, route);
+                        acquire(realConnection2, false);
+                    }
+                } else {
                     throw new IOException("Canceled");
-                }
-                if (z3) {
-                    List<Route> all = this.routeSelection.getAll();
-                    int size = all.size();
-                    int i5 = 0;
-                    while (true) {
-                        if (i5 >= size) {
-                            break;
-                        }
-                        Route route2 = all.get(i5);
-                        Internal.instance.get(this.connectionPool, this.address, this, route2);
-                        if (this.connection != null) {
-                            realConnection2 = this.connection;
-                            this.route = route2;
-                            z2 = true;
-                            break;
-                        }
-                        i5++;
-                    }
-                }
-                if (!z2) {
-                    if (route == null) {
-                        route = this.routeSelection.next();
-                    }
-                    this.route = route;
-                    this.refusedStreamCount = 0;
-                    realConnection2 = new RealConnection(this.connectionPool, route);
-                    acquire(realConnection2, false);
                 }
             }
             if (z2) {
@@ -287,12 +288,42 @@ public final class StreamAllocation {
                 if (findConnection.successCount == 0) {
                     return findConnection;
                 }
-                if (findConnection.isHealthy(z2)) {
+                if (!findConnection.isHealthy(z2)) {
+                    noNewStreams();
+                } else {
                     return findConnection;
                 }
-                noNewStreams();
             }
         }
+    }
+
+    private void release(RealConnection realConnection) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, this, realConnection) == null) {
+            int size = realConnection.allocations.size();
+            for (int i = 0; i < size; i++) {
+                if (realConnection.allocations.get(i).get() == this) {
+                    realConnection.allocations.remove(i);
+                    return;
+                }
+            }
+            throw new IllegalStateException();
+        }
+    }
+
+    public Socket releaseAndAcquire(RealConnection realConnection) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, realConnection)) == null) {
+            if (this.codec == null && this.connection.allocations.size() == 1) {
+                Socket deallocate = deallocate(true, false, false);
+                this.connection = realConnection;
+                realConnection.allocations.add(this.connection.allocations.get(0));
+                return deallocate;
+            }
+            throw new IllegalStateException();
+        }
+        return (Socket) invokeL.objValue;
     }
 
     private Socket releaseIfNoNewStreams() {
@@ -300,10 +331,10 @@ public final class StreamAllocation {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
             RealConnection realConnection = this.connection;
-            if (realConnection == null || !realConnection.noNewStreams) {
-                return null;
+            if (realConnection != null && realConnection.noNewStreams) {
+                return deallocate(false, false, true);
             }
-            return deallocate(false, false, true);
+            return null;
         }
         return (Socket) invokeV.objValue;
     }
@@ -311,20 +342,10 @@ public final class StreamAllocation {
     private RouteDatabase routeDatabase() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) ? Internal.instance.routeDatabase(this.connectionPool) : (RouteDatabase) invokeV.objValue;
-    }
-
-    public void acquire(RealConnection realConnection, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048576, this, realConnection, z) == null) {
-            if (this.connection == null) {
-                this.connection = realConnection;
-                this.reportedAcquired = z;
-                realConnection.allocations.add(new StreamAllocationReference(this, this.callStackTrace));
-                return;
-            }
-            throw new IllegalStateException();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
+            return Internal.instance.routeDatabase(this.connectionPool);
         }
+        return (RouteDatabase) invokeV.objValue;
     }
 
     public void cancel() {
@@ -375,24 +396,13 @@ public final class StreamAllocation {
         InterceptResult invokeV;
         RouteSelector.Selection selection;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.route != null || ((selection = this.routeSelection) != null && selection.hasNext()) || this.routeSelector.hasNext() : invokeV.booleanValue;
-    }
-
-    public HttpCodec newStream(OkHttpClient okHttpClient, Interceptor.Chain chain, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048581, this, okHttpClient, chain, z)) == null) {
-            try {
-                HttpCodec newCodec = findHealthyConnection(chain.connectTimeoutMillis(), chain.readTimeoutMillis(), chain.writeTimeoutMillis(), okHttpClient.pingIntervalMillis(), okHttpClient.retryOnConnectionFailure(), z).newCodec(okHttpClient, chain, this);
-                synchronized (this.connectionPool) {
-                    this.codec = newCodec;
-                }
-                return newCodec;
-            } catch (IOException e) {
-                throw new RouteException(e);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.route == null && (((selection = this.routeSelection) == null || !selection.hasNext()) && !this.routeSelector.hasNext())) {
+                return false;
             }
+            return true;
         }
-        return (HttpCodec) invokeLLZ.objValue;
+        return invokeV.booleanValue;
     }
 
     public void noNewStreams() {
@@ -414,6 +424,58 @@ public final class StreamAllocation {
         }
     }
 
+    public Route route() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.route;
+        }
+        return (Route) invokeV.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            RealConnection connection = connection();
+            if (connection != null) {
+                return connection.toString();
+            }
+            return this.address.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void acquire(RealConnection realConnection, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048576, this, realConnection, z) == null) {
+            if (this.connection == null) {
+                this.connection = realConnection;
+                this.reportedAcquired = z;
+                realConnection.allocations.add(new StreamAllocationReference(this, this.callStackTrace));
+                return;
+            }
+            throw new IllegalStateException();
+        }
+    }
+
+    public HttpCodec newStream(OkHttpClient okHttpClient, Interceptor.Chain chain, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048581, this, okHttpClient, chain, z)) == null) {
+            try {
+                HttpCodec newCodec = findHealthyConnection(chain.connectTimeoutMillis(), chain.readTimeoutMillis(), chain.writeTimeoutMillis(), okHttpClient.pingIntervalMillis(), okHttpClient.retryOnConnectionFailure(), z).newCodec(okHttpClient, chain, this);
+                synchronized (this.connectionPool) {
+                    this.codec = newCodec;
+                }
+                return newCodec;
+            } catch (IOException e) {
+                throw new RouteException(e);
+            }
+        }
+        return (HttpCodec) invokeLLZ.objValue;
+    }
+
     public void release() {
         RealConnection realConnection;
         Socket deallocate;
@@ -432,27 +494,6 @@ public final class StreamAllocation {
                 this.eventListener.callEnd(this.call);
             }
         }
-    }
-
-    public Socket releaseAndAcquire(RealConnection realConnection) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, realConnection)) == null) {
-            if (this.codec == null && this.connection.allocations.size() == 1) {
-                Socket deallocate = deallocate(true, false, false);
-                this.connection = realConnection;
-                realConnection.allocations.add(this.connection.allocations.get(0));
-                return deallocate;
-            }
-            throw new IllegalStateException();
-        }
-        return (Socket) invokeL.objValue;
-    }
-
-    public Route route() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.route : (Route) invokeV.objValue;
     }
 
     public void streamFailed(IOException iOException) {
@@ -537,30 +578,6 @@ public final class StreamAllocation {
             } else if (z2) {
                 this.eventListener.callEnd(this.call);
             }
-        }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            RealConnection connection = connection();
-            return connection != null ? connection.toString() : this.address.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    private void release(RealConnection realConnection) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, this, realConnection) == null) {
-            int size = realConnection.allocations.size();
-            for (int i = 0; i < size; i++) {
-                if (realConnection.allocations.get(i).get() == this) {
-                    realConnection.allocations.remove(i);
-                    return;
-                }
-            }
-            throw new IllegalStateException();
         }
     }
 }

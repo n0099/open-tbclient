@@ -49,7 +49,10 @@ public final class FileLocker implements Closeable {
     public static FileLocker lock(File file) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) ? new FileLocker(file) : (FileLocker) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
+            return new FileLocker(file);
+        }
+        return (FileLocker) invokeL.objValue;
     }
 
     @Override // java.io.Closeable, java.lang.AutoCloseable

@@ -39,25 +39,6 @@ public class LocalVideoCompressingDialogView extends FrameLayout {
         a(context);
     }
 
-    public final void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0566, this);
-            this.a = (CompressProgressView) findViewById(R.id.obfuscated_res_0x7f0906b3);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0906b2);
-        }
-    }
-
-    public void setPercent(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || i < 0 || i > 100) {
-            return;
-        }
-        this.a.setProgress(i);
-        TextView textView = this.b;
-        textView.setText(i + "%");
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LocalVideoCompressingDialogView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -100,5 +81,23 @@ public class LocalVideoCompressingDialogView extends FrameLayout {
             }
         }
         a(context);
+    }
+
+    public final void a(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0566, this);
+            this.a = (CompressProgressView) findViewById(R.id.obfuscated_res_0x7f0906bc);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0906bb);
+        }
+    }
+
+    public void setPercent(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && i >= 0 && i <= 100) {
+            this.a.setProgress(i);
+            TextView textView = this.b;
+            textView.setText(i + "%");
+        }
     }
 }

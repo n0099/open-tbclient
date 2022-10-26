@@ -1,6 +1,5 @@
 package com.baidu.searchbox.network.support.okhttp.converters;
 
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,22 +27,13 @@ public class ConverterUtils {
     public static RuntimeException methodError(String str, String str2, Object... objArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, objArr)) == null) ? methodError(str, null, str2, objArr) : (RuntimeException) invokeLLL.objValue;
-    }
-
-    public static <T> T requireNonNull(T t, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, t, str)) == null) {
-            if (t != null) {
-                return t;
-            }
-            throw new NullPointerException(str);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, objArr)) == null) {
+            return methodError(str, null, str2, objArr);
         }
-        return (T) invokeLL.objValue;
+        return (RuntimeException) invokeLLL.objValue;
     }
 
-    public static RuntimeException methodError(String str, @Nullable Throwable th, String str2, Object... objArr) {
+    public static RuntimeException methodError(String str, Throwable th, String str2, Object... objArr) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, str, th, str2, objArr)) == null) {
@@ -51,5 +41,17 @@ public class ConverterUtils {
             return new IllegalArgumentException(format + "\n    for method " + str + "." + th);
         }
         return (RuntimeException) invokeLLLL.objValue;
+    }
+
+    public static Object requireNonNull(Object obj, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, obj, str)) == null) {
+            if (obj != null) {
+                return obj;
+            }
+            throw new NullPointerException(str);
+        }
+        return invokeLL.objValue;
     }
 }

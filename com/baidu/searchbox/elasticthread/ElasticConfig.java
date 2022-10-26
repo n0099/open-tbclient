@@ -124,12 +124,53 @@ public final class ElasticConfig {
         }
     }
 
+    public static boolean elasticExecutorDisabled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return disableElasticExecutor.get();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static Object getElasticConfigMutex() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return elasticConfigMutex;
+        }
+        return invokeV.objValue;
+    }
+
+    public static void updateConfig() {
+        Context appContext;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(65545, null) != null) || (appContext = AppContextHolder.getAppContext()) == null) {
+            return;
+        }
+        synchronized (elasticConfigMutex) {
+            if (elasticThreadInitiated) {
+                return;
+            }
+            if (elasticConfigUpdated) {
+                return;
+            }
+            updateFromConfigFile(appContext);
+            elasticConfigUpdated = true;
+        }
+    }
+
     public static boolean checkConfigDataVersion(Context context, JSONObject jSONObject) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, jSONObject)) == null) {
-            long versionCode = getVersionCode(context);
-            return versionCode >= ((long) jSONObject.optInt("min_version", 0)) && versionCode <= ((long) jSONObject.optInt("max_version", Integer.MAX_VALUE));
+            int versionCode = getVersionCode(context);
+            long optInt = jSONObject.optInt("max_version", Integer.MAX_VALUE);
+            long j = versionCode;
+            if (j < jSONObject.optInt("min_version", 0) || j > optInt) {
+                return false;
+            }
+            return true;
         }
         return invokeLL.booleanValue;
     }
@@ -139,18 +180,6 @@ public final class ElasticConfig {
         if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
             new File(context.getFilesDir().getAbsolutePath() + File.separator + ELASTIC_CONFIG_FILE_DIR + File.separator + ELASTIC_CONFIG_FILE_NAME).delete();
         }
-    }
-
-    public static boolean elasticExecutorDisabled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? disableElasticExecutor.get() : invokeV.booleanValue;
-    }
-
-    public static Object getElasticConfigMutex() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? elasticConfigMutex : invokeV.objValue;
     }
 
     public static int getVersionCode(Context context) {
@@ -164,6 +193,22 @@ public final class ElasticConfig {
             }
         }
         return invokeL.intValue;
+    }
+
+    public static void setElasticThreadInitiated(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65544, null, z) == null) {
+            synchronized (elasticConfigMutex) {
+                elasticThreadInitiated = z;
+            }
+        }
+    }
+
+    public static void updateElasticCloudSwitch(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65546, null, z) == null) {
+            disableElasticExecutor.set(z);
+        }
     }
 
     public static void saveConfigFile(String str) {
@@ -220,40 +265,6 @@ public final class ElasticConfig {
         }
     }
 
-    public static void setElasticThreadInitiated(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65544, null, z) == null) {
-            synchronized (elasticConfigMutex) {
-                elasticThreadInitiated = z;
-            }
-        }
-    }
-
-    public static void updateConfig() {
-        Context appContext;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65545, null) == null) || (appContext = AppContextHolder.getAppContext()) == null) {
-            return;
-        }
-        synchronized (elasticConfigMutex) {
-            if (elasticThreadInitiated) {
-                return;
-            }
-            if (elasticConfigUpdated) {
-                return;
-            }
-            updateFromConfigFile(appContext);
-            elasticConfigUpdated = true;
-        }
-    }
-
-    public static void updateElasticCloudSwitch(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65546, null, z) == null) {
-            disableElasticExecutor.set(z);
-        }
-    }
-
     public static void updateElasticConfig(Context context, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65547, null, context, jSONObject) == null) {
@@ -297,59 +308,58 @@ public final class ElasticConfig {
 
     public static void updateFromConfigFile(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeL(65548, null, context) != null) {
-            return;
-        }
-        File file = new File(context.getFilesDir().getAbsolutePath() + File.separator + ELASTIC_CONFIG_FILE_DIR + File.separator + ELASTIC_CONFIG_FILE_NAME);
-        if (!file.exists()) {
-            return;
-        }
-        StringBuilder sb = new StringBuilder();
-        BufferedReader bufferedReader = null;
-        try {
-            BufferedReader bufferedReader2 = new BufferedReader(new FileReader(file));
-            while (true) {
-                try {
-                    String readLine = bufferedReader2.readLine();
-                    if (readLine != null) {
-                        sb.append(readLine);
-                    } else {
-                        try {
-                            break;
-                        } catch (IOException unused) {
-                        }
-                    }
-                } catch (IOException unused2) {
-                    bufferedReader = bufferedReader2;
-                    if (bufferedReader != null) {
-                        try {
-                            bufferedReader.close();
-                            return;
-                        } catch (IOException unused3) {
-                            return;
-                        }
-                    }
-                    return;
-                } catch (Throwable th) {
-                    th = th;
-                    bufferedReader = bufferedReader2;
-                    if (bufferedReader != null) {
-                        try {
-                            bufferedReader.close();
-                        } catch (IOException unused4) {
-                        }
-                    }
-                    throw th;
-                }
+        if (interceptable == null || interceptable.invokeL(65548, null, context) == null) {
+            File file = new File(context.getFilesDir().getAbsolutePath() + File.separator + ELASTIC_CONFIG_FILE_DIR + File.separator + ELASTIC_CONFIG_FILE_NAME);
+            if (!file.exists()) {
+                return;
             }
-            bufferedReader2.close();
+            StringBuilder sb = new StringBuilder();
+            BufferedReader bufferedReader = null;
             try {
-                updateElasticConfig(context, new JSONObject(sb.toString()));
-            } catch (JSONException unused5) {
+                BufferedReader bufferedReader2 = new BufferedReader(new FileReader(file));
+                while (true) {
+                    try {
+                        String readLine = bufferedReader2.readLine();
+                        if (readLine != null) {
+                            sb.append(readLine);
+                        } else {
+                            try {
+                                break;
+                            } catch (IOException unused) {
+                            }
+                        }
+                    } catch (IOException unused2) {
+                        bufferedReader = bufferedReader2;
+                        if (bufferedReader != null) {
+                            try {
+                                bufferedReader.close();
+                                return;
+                            } catch (IOException unused3) {
+                                return;
+                            }
+                        }
+                        return;
+                    } catch (Throwable th) {
+                        th = th;
+                        bufferedReader = bufferedReader2;
+                        if (bufferedReader != null) {
+                            try {
+                                bufferedReader.close();
+                            } catch (IOException unused4) {
+                            }
+                        }
+                        throw th;
+                    }
+                }
+                bufferedReader2.close();
+                try {
+                    updateElasticConfig(context, new JSONObject(sb.toString()));
+                } catch (JSONException unused5) {
+                }
+            } catch (IOException unused6) {
+            } catch (Throwable th2) {
+                th = th2;
             }
-        } catch (IOException unused6) {
-        } catch (Throwable th2) {
-            th = th2;
         }
     }
 }

@@ -1,7 +1,5 @@
 package com.baidu.nadcore.webview.container;
 
-import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -26,8 +24,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.appframework.BaseActivity;
@@ -37,32 +33,32 @@ import com.baidu.nadcore.webview.BrowserStateView;
 import com.baidu.nadcore.webview.container.base.AbsContainer;
 import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteKey;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a21;
-import com.baidu.tieba.a61;
-import com.baidu.tieba.b51;
+import com.baidu.tieba.a51;
+import com.baidu.tieba.aj0;
+import com.baidu.tieba.b21;
+import com.baidu.tieba.b61;
 import com.baidu.tieba.c51;
-import com.baidu.tieba.d61;
-import com.baidu.tieba.e51;
+import com.baidu.tieba.d51;
 import com.baidu.tieba.e61;
-import com.baidu.tieba.g51;
-import com.baidu.tieba.gi0;
-import com.baidu.tieba.ii0;
-import com.baidu.tieba.k41;
-import com.baidu.tieba.m51;
-import com.baidu.tieba.n31;
-import com.baidu.tieba.n41;
-import com.baidu.tieba.nj0;
-import com.baidu.tieba.q41;
-import com.baidu.tieba.r51;
-import com.baidu.tieba.ri0;
-import com.baidu.tieba.t21;
-import com.baidu.tieba.v21;
-import com.baidu.tieba.wi0;
-import com.baidu.tieba.xz0;
-import com.baidu.tieba.y21;
-import com.baidu.tieba.y41;
+import com.baidu.tieba.f51;
+import com.baidu.tieba.f61;
+import com.baidu.tieba.h51;
+import com.baidu.tieba.hi0;
+import com.baidu.tieba.ji0;
+import com.baidu.tieba.l41;
+import com.baidu.tieba.n51;
+import com.baidu.tieba.o31;
+import com.baidu.tieba.o41;
+import com.baidu.tieba.oj0;
+import com.baidu.tieba.r41;
+import com.baidu.tieba.s51;
+import com.baidu.tieba.si0;
+import com.baidu.tieba.u21;
+import com.baidu.tieba.w21;
+import com.baidu.tieba.xi0;
+import com.baidu.tieba.yz0;
+import com.baidu.tieba.z21;
 import com.baidu.tieba.z41;
-import com.baidu.tieba.zi0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -76,13 +72,13 @@ import org.json.JSONObject;
 public class BaseNativeBrowserContainer extends AbsContainer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public z41 d;
+    public a51 d;
     public FrameLayout e;
     public LinearLayout f;
     public WebView g;
     public String h;
     public String i;
-    public r51 j;
+    public s51 j;
     public String k;
     public RelativeLayout l;
     public BrowserStateView m;
@@ -90,6 +86,25 @@ public class BaseNativeBrowserContainer extends AbsContainer {
     public boolean o;
     public boolean p;
     public View.OnClickListener q;
+
+    public boolean T(int i, KeyEvent keyEvent) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048589, this, i, keyEvent)) == null) {
+            return false;
+        }
+        return invokeIL.booleanValue;
+    }
+
+    @Override // com.baidu.nadcore.webview.container.base.AbsContainer
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
 
     /* loaded from: classes2.dex */
     public class a implements NadLongPressView.b {
@@ -119,7 +134,7 @@ public class BaseNativeBrowserContainer extends AbsContainer {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                n31 a = n31.a(this.a.getActivity());
+                o31 a = o31.a(this.a.getActivity());
                 a.b("老架构，url = " + this.a.h);
             }
         }
@@ -152,14 +167,15 @@ public class BaseNativeBrowserContainer extends AbsContainer {
         @Override // android.webkit.DownloadListener
         public void onDownloadStart(String str, String str2, String str3, String str4, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, Long.valueOf(j)}) == null) {
-                this.a.S(str, str2, str3, str4, j);
+            if (interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, Long.valueOf(j)}) != null) {
+                return;
             }
+            this.a.S(str, str2, str3, str4, j);
         }
     }
 
     /* loaded from: classes2.dex */
-    public class c implements ri0 {
+    public class c implements si0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BaseNativeBrowserContainer a;
@@ -182,62 +198,66 @@ public class BaseNativeBrowserContainer extends AbsContainer {
             this.a = baseNativeBrowserContainer;
         }
 
-        @Override // com.baidu.tieba.ri0
-        public void a(boolean z, @Nullable Map<String, String> map) {
+        @Override // com.baidu.tieba.si0
+        public void a(boolean z, Map map) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZL(1048576, this, z, map) == null) {
-                String p = wi0.p(map);
-                if (TextUtils.isEmpty(p)) {
-                    return;
+                String p = xi0.p(map);
+                if (!TextUtils.isEmpty(p)) {
+                    this.a.n(p);
                 }
-                this.a.n(p);
             }
         }
     }
 
     /* loaded from: classes2.dex */
-    public class d extends e61 {
+    public class d extends f61 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ri0 c;
+        public final /* synthetic */ si0 c;
         public final /* synthetic */ BaseNativeBrowserContainer d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(BaseNativeBrowserContainer baseNativeBrowserContainer, WebView webView, WebViewClient webViewClient, ri0 ri0Var, ri0 ri0Var2) {
-            super(webView, webViewClient, ri0Var);
+        public d(BaseNativeBrowserContainer baseNativeBrowserContainer, WebView webView, WebViewClient webViewClient, si0 si0Var, si0 si0Var2) {
+            super(webView, webViewClient, si0Var);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {baseNativeBrowserContainer, webView, webViewClient, ri0Var, ri0Var2};
+                Object[] objArr = {baseNativeBrowserContainer, webView, webViewClient, si0Var, si0Var2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
-                    super((WebView) objArr2[0], (WebViewClient) objArr2[1], (ri0) objArr2[2]);
+                    super((WebView) objArr2[0], (WebViewClient) objArr2[1], (si0) objArr2[2]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.d = baseNativeBrowserContainer;
-            this.c = ri0Var2;
+            this.c = si0Var2;
         }
 
-        @Override // com.baidu.tieba.e61, android.webkit.WebViewClient
+        @Override // com.baidu.tieba.f61, android.webkit.WebViewClient
         public void onPageFinished(WebView webView, String str) {
+            int intValue;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
                 super.onPageFinished(webView, str);
                 this.d.u0(webView.getTitle());
-                Object tag = webView.getTag(R.id.obfuscated_res_0x7f09161f);
-                int intValue = tag == null ? 0 : ((Integer) tag).intValue();
+                Object tag = webView.getTag(R.id.obfuscated_res_0x7f091611);
+                if (tag == null) {
+                    intValue = 0;
+                } else {
+                    intValue = ((Integer) tag).intValue();
+                }
                 if (TextUtils.equals(str, this.d.h) || TextUtils.equals(webView.getOriginalUrl(), this.d.h) || (str != null && str.contains(this.d.h))) {
-                    if (intValue != 0 && intValue != -1) {
-                        this.d.r0(intValue);
-                    } else {
+                    if (intValue == 0 || intValue == -1) {
                         this.d.j0();
+                    } else {
+                        this.d.r0(intValue);
                     }
                 }
                 this.d.V();
@@ -245,13 +265,13 @@ public class BaseNativeBrowserContainer extends AbsContainer {
             }
         }
 
-        @Override // com.baidu.tieba.e61, android.webkit.WebViewClient
+        @Override // com.baidu.tieba.f61, android.webkit.WebViewClient
         public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, bitmap) == null) {
                 super.onPageStarted(webView, str, bitmap);
                 if (this.d.o) {
-                    webView.setTag(R.id.obfuscated_res_0x7f09161f, 0);
+                    webView.setTag(R.id.obfuscated_res_0x7f091611, 0);
                 }
                 this.d.o = false;
                 WebView webView2 = this.d.g;
@@ -267,20 +287,20 @@ public class BaseNativeBrowserContainer extends AbsContainer {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, webView, i, str, str2) == null) {
                 super.onReceivedError(webView, i, str, str2);
-                webView.setTag(R.id.obfuscated_res_0x7f09161f, Integer.valueOf(i));
+                webView.setTag(R.id.obfuscated_res_0x7f091611, Integer.valueOf(i));
                 this.d.j.A(webView, i, str, str2);
             }
         }
 
-        @Override // com.baidu.tieba.e61, android.webkit.WebViewClient
+        @Override // com.baidu.tieba.f61, android.webkit.WebViewClient
         public boolean shouldOverrideUrlLoading(WebView webView, String str) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, webView, str)) == null) {
-                String d = a61.d(str);
-                if (TextUtils.isEmpty(d) || !(d.startsWith("http://") || d.startsWith("https://") || d.startsWith("ftp://") || d.startsWith("sftp://") || d.startsWith("ftps://"))) {
+                String d = b61.d(str);
+                if (TextUtils.isEmpty(d) || (!d.startsWith("http://") && !d.startsWith("https://") && !d.startsWith("ftp://") && !d.startsWith("sftp://") && !d.startsWith("ftps://"))) {
                     this.d.o = true;
-                    if (this.d.j.G(webView, this.d.P(), str) || gi0.b(this.d.getActivity(), str, false) || k41.b.a().a(this.d.getActivity(), str, webView.getUrl(), this.c) || ii0.c(str, this.d.getActivity())) {
+                    if (this.d.j.G(webView, this.d.P(), str) || hi0.b(this.d.getActivity(), str, false) || l41.b.a().a(this.d.getActivity(), str, webView.getUrl(), this.c) || ji0.c(str, this.d.getActivity())) {
                         return true;
                     }
                     this.d.s0();
@@ -293,7 +313,7 @@ public class BaseNativeBrowserContainer extends AbsContainer {
     }
 
     /* loaded from: classes2.dex */
-    public class e extends d61 {
+    public class e extends e61 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BaseNativeBrowserContainer c;
@@ -438,26 +458,27 @@ public class BaseNativeBrowserContainer extends AbsContainer {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && NetUtil.a(zi0.b())) {
-                this.a.k0();
-                this.a.s0();
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || !NetUtil.a(aj0.b())) {
+                return;
             }
+            this.a.k0();
+            this.a.s0();
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BaseNativeBrowserContainer(y41 y41Var, z41 z41Var) {
-        super(y41Var);
+    public BaseNativeBrowserContainer(z41 z41Var, a51 a51Var) {
+        super(z41Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {y41Var, z41Var};
+            Object[] objArr = {z41Var, a51Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((y41) newInitContext.callArgs[0]);
+                super((z41) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -467,21 +488,240 @@ public class BaseNativeBrowserContainer extends AbsContainer {
         this.o = false;
         this.p = true;
         this.q = new h(this);
-        this.d = z41Var;
+        this.d = a51Var;
         d0();
+    }
+
+    public void a0(WebView webView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, webView) == null) {
+            try {
+                webView.removeJavascriptInterface("searchBoxJavaBridge_");
+                webView.removeJavascriptInterface("accessibility");
+                webView.removeJavascriptInterface("accessibilityTraversal");
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+            webView.loadUrl("javascript:(function(){try{if(performance&&performance.timing){var performanceResult={};for(var key in performance.timing){if(typeof performance.timing[key]!==\"function\"){performanceResult[key]=performance.timing[key];}}var strJson=JSON.stringify(performanceResult);NadJsControl.getPerformanceTiming(strJson);}}catch(e){}})();");
+            this.j.q(getActivity(), webView);
+        }
+    }
+
+    @Override // com.baidu.nadcore.webview.container.base.AbsContainer
+    public boolean c(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, motionEvent)) == null) {
+            if (this.g != null && this.p) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void i0(Map map) {
+        WebView webView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048609, this, map) == null) && (webView = this.g) != null) {
+            webView.loadUrl(this.h, map);
+        }
+    }
+
+    public final void m0(boolean z) {
+        CookieManager cookieManager;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048615, this, z) == null) {
+            try {
+                CookieSyncManager.createInstance(getActivity());
+                cookieManager = CookieManager.getInstance();
+            } catch (Throwable th) {
+                th.printStackTrace();
+                cookieManager = null;
+            }
+            if (cookieManager != null && Build.VERSION.SDK_INT >= 21) {
+                cookieManager.setAcceptThirdPartyCookies(this.g, z);
+            }
+        }
+    }
+
+    @Override // com.baidu.nadcore.webview.container.base.AbsContainer
+    public void n(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048616, this, str) == null) {
+            oj0.b(new g(this, str));
+        }
+    }
+
+    public void n0(RelativeLayout relativeLayout) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048617, this, relativeLayout) == null) {
+            this.l = relativeLayout;
+        }
+    }
+
+    public final void o0(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048619, this, i) == null) {
+            getActivity().setRequestedOrientation(i);
+        }
+    }
+
+    @Override // com.baidu.nadcore.webview.container.base.AbsContainer, android.content.ComponentCallbacks
+    public void onConfigurationChanged(Configuration configuration) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048620, this, configuration) == null) {
+            super.onConfigurationChanged(configuration);
+        }
+    }
+
+    public void p0(boolean z) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048625, this, z) == null) {
+            this.n = z;
+            BrowserStateView browserStateView = this.m;
+            if (browserStateView != null) {
+                if (z) {
+                    i = 0;
+                } else {
+                    i = 8;
+                }
+                browserStateView.setVisibility(i);
+            }
+        }
+    }
+
+    public void q0(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048627, this, str) == null) {
+            this.k = str;
+        }
+    }
+
+    public final void r0(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048629, this, i) == null) {
+            if (i == 0) {
+                U();
+                return;
+            }
+            if (this.n) {
+                this.m.setVisibility(0);
+            }
+            this.m.e(BrowserStateView.ViewState.ERROR);
+            this.m.a(BrowserStateView.ViewState.LOADING);
+        }
+    }
+
+    public void u0(String str) {
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048634, this, str) == null) && (textView = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f092405)) != null) {
+            textView.setText(str);
+        }
+    }
+
+    @Override // com.baidu.nadcore.webview.container.base.AbsContainer
+    public void x(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048636, this, view2) == null) {
+            super.x(view2);
+            this.e = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c81);
+            this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092644);
+        }
+    }
+
+    @Override // com.baidu.nadcore.webview.container.base.AbsContainer
+    public void y(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048637, this, str) == null) {
+            this.i = str;
+        }
+    }
+
+    public void I(Object obj, String str) {
+        WebView webView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, obj, str) == null) && (webView = this.g) != null) {
+            webView.addJavascriptInterface(obj, str);
+        }
     }
 
     @Override // com.baidu.nadcore.webview.container.base.AbsContainer
     public void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            y21.a(h(), l().getDecorView().getWindowToken());
+            z21.a(h(), l().getDecorView().getWindowToken());
             if (this.g.canGoBack()) {
                 this.g.goBack();
             } else if (H()) {
             } else {
-                g51.b.a().a(getActivity());
+                h51.b.a().a(getActivity());
             }
+        }
+    }
+
+    public final void X() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            this.f.addView(W(), new LinearLayout.LayoutParams(-1, -1));
+            g0(this.g);
+            a0(this.g);
+            if (this.b) {
+                b0();
+            } else {
+                this.e.findViewById(R.id.obfuscated_res_0x7f092239).setVisibility(8);
+            }
+        }
+    }
+
+    public final void e0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
+            Intent j = j();
+            c0(j);
+            Z(j);
+            p0(!"true".equals(j().getStringExtra("hide_state_view")));
+            h0();
+            this.j.u(getActivity(), this.e, this.g);
+        }
+    }
+
+    @Override // com.baidu.nadcore.webview.container.base.AbsContainer
+    public boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
+            if (j().getExtras() != null && !TextUtils.isEmpty(j().getExtras().getString("other_app_back_url"))) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.nadcore.webview.container.base.AbsContainer
+    public void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048624, this) == null) {
+            this.j.v();
+            r41.c().d(getActivity());
+            super.p();
+            x(View.inflate(getActivity(), R.layout.obfuscated_res_0x7f0d05f8, null));
+            Y();
+            f0();
+            e0();
+        }
+    }
+
+    public void t0() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048632, this) != null) || !u21.b.d()) {
+            return;
+        }
+        if (getActivity().checkSelfPermission(PermissionRequest.RESOURCE_AUDIO_CAPTURE) != 0 || getActivity().checkSelfPermission(PermissionRequest.RESOURCE_VIDEO_CAPTURE) != 0) {
+            b21.a().a(getActivity(), R.string.obfuscated_res_0x7f0f0918);
         }
     }
 
@@ -489,23 +729,13 @@ public class BaseNativeBrowserContainer extends AbsContainer {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (j().getExtras() == null || !m()) {
-                return false;
+            if (j().getExtras() != null && m()) {
+                j().removeExtra("other_app_back_url");
+                return true;
             }
-            j().removeExtra("other_app_back_url");
-            return true;
+            return false;
         }
         return invokeV.booleanValue;
-    }
-
-    @SuppressLint({"JavascriptInterface"})
-    public void I(Object obj, String str) {
-        WebView webView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, obj, str) == null) || (webView = this.g) == null) {
-            return;
-        }
-        webView.addJavascriptInterface(obj, str);
     }
 
     public final void J() {
@@ -515,46 +745,40 @@ public class BaseNativeBrowserContainer extends AbsContainer {
         }
     }
 
-    public final void K(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, context) == null) && Build.VERSION.SDK_INT == 17 && context != null) {
-            try {
-                AccessibilityManager accessibilityManager = (AccessibilityManager) context.getSystemService("accessibility");
-                if (accessibilityManager.isEnabled()) {
-                    Method declaredMethod = accessibilityManager.getClass().getDeclaredMethod("setState", Integer.TYPE);
-                    declaredMethod.setAccessible(true);
-                    declaredMethod.invoke(accessibilityManager, 0);
-                }
-            } catch (Error e2) {
-                e2.printStackTrace();
-            } catch (Exception e3) {
-                e3.printStackTrace();
-            }
-        }
-    }
-
     public String L() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.j.l() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.j.l();
+        }
+        return (String) invokeV.objValue;
     }
 
     public String M() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.i : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.i;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final int N() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? getActivity().getRequestedOrientation() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return getActivity().getRequestedOrientation();
+        }
+        return invokeV.intValue;
     }
 
     public FrameLayout O() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.e : (FrameLayout) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.e;
+        }
+        return (FrameLayout) invokeV.objValue;
     }
 
     public String P() {
@@ -566,7 +790,13 @@ public class BaseNativeBrowserContainer extends AbsContainer {
                 return "";
             }
             String url = webView.getUrl();
-            return !TextUtils.isEmpty(url) ? url : !TextUtils.isEmpty(this.h) ? this.h : "";
+            if (!TextUtils.isEmpty(url)) {
+                return url;
+            }
+            if (TextUtils.isEmpty(this.h)) {
+                return "";
+            }
+            return this.h;
         }
         return (String) invokeV.objValue;
     }
@@ -574,40 +804,10 @@ public class BaseNativeBrowserContainer extends AbsContainer {
     public LinearLayout Q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f : (LinearLayout) invokeV.objValue;
-    }
-
-    public final String R(@NonNull Intent intent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, intent)) == null) {
-            String stringExtra = intent.getStringExtra("url");
-            if (TextUtils.isEmpty(stringExtra) && !TextUtils.isEmpty(L())) {
-                stringExtra = L();
-            }
-            String d2 = a61.d(stringExtra);
-            return (TextUtils.isEmpty(d2) || !a61.g(a61.b(d2))) ? "" : d2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.f;
         }
-        return (String) invokeL.objValue;
-    }
-
-    public final void S(String str, String str2, String str3, String str4, long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{str, str2, str3, str4, Long.valueOf(j)}) == null) && v21.b(v21.c(v21.e(str, str3, str4)), str4) == 3) {
-            JSONObject c2 = xz0.c(this.k);
-            xz0.f(c2, "url", str);
-            xz0.e(c2, BreakpointSQLiteKey.CONTENT_LENGTH, j);
-            n41.a().b(getActivity(), this.l, c2.toString());
-        }
-    }
-
-    public boolean T(int i, KeyEvent keyEvent) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048589, this, i, keyEvent)) == null) {
-            return false;
-        }
-        return invokeIL.booleanValue;
+        return (LinearLayout) invokeV.objValue;
     }
 
     public final void U() {
@@ -624,37 +824,6 @@ public class BaseNativeBrowserContainer extends AbsContainer {
         }
     }
 
-    public FrameLayout W() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            FrameLayout frameLayout = new FrameLayout(getActivity());
-            BrowserStateView browserStateView = new BrowserStateView(getActivity());
-            this.m = browserStateView;
-            browserStateView.setErrorViewClickListener(this.q);
-            WebView a2 = b51.a().a(getActivity());
-            this.g = a2;
-            frameLayout.addView(a2, new FrameLayout.LayoutParams(-1, -1));
-            frameLayout.addView(this.m, new FrameLayout.LayoutParams(-1, -1));
-            return frameLayout;
-        }
-        return (FrameLayout) invokeV.objValue;
-    }
-
-    public final void X() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            this.f.addView(W(), new LinearLayout.LayoutParams(-1, -1));
-            g0(this.g);
-            a0(this.g);
-            if (this.b) {
-                b0();
-            } else {
-                this.e.findViewById(R.id.obfuscated_res_0x7f09224f).setVisibility(8);
-            }
-        }
-    }
-
     public void Y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
@@ -662,7 +831,206 @@ public class BaseNativeBrowserContainer extends AbsContainer {
         }
     }
 
-    public final void Z(@NonNull Intent intent) {
+    public final void d0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
+            this.j = new s51(this);
+        }
+    }
+
+    @Override // com.baidu.nadcore.webview.container.base.AbsContainer
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
+            super.e();
+        }
+    }
+
+    public final void f0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
+            X();
+        }
+    }
+
+    @Override // com.baidu.nadcore.webview.container.base.AbsContainer
+    public n51 g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+            return this.j.i();
+        }
+        return (n51) invokeV.objValue;
+    }
+
+    public void h0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
+            a51 a51Var = this.d;
+            if (a51Var != null && a51Var.C0()) {
+                return;
+            }
+            s51 s51Var = this.j;
+            if (s51Var != null && s51Var.m()) {
+                return;
+            }
+            this.o = true;
+            WebView webView = this.g;
+            if (webView != null) {
+                webView.loadUrl(this.h);
+            }
+        }
+    }
+
+    @Override // com.baidu.nadcore.webview.container.base.AbsContainer
+    public View i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
+            return this.e;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public void j0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
+            V();
+            U();
+        }
+    }
+
+    @Override // com.baidu.nadcore.webview.container.base.AbsContainer
+    public int k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
+            WebView webView = this.g;
+            if (webView != null) {
+                return webView.getScrollY();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public void k0() {
+        WebView webView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048612, this) == null) && (webView = this.g) != null) {
+            webView.reload();
+            this.o = true;
+        }
+    }
+
+    @Override // com.baidu.nadcore.webview.container.base.AbsContainer, android.content.ComponentCallbacks
+    public void onLowMemory() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048622, this) == null) {
+            this.g.freeMemory();
+            super.onLowMemory();
+        }
+    }
+
+    @Override // com.baidu.nadcore.webview.container.base.AbsContainer
+    public void q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048626, this) == null) {
+            this.j.w();
+            r41.c().f(getActivity());
+            l0();
+            super.q();
+        }
+    }
+
+    @Override // com.baidu.nadcore.webview.container.base.AbsContainer
+    public void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048628, this) == null) {
+            this.j.z();
+            this.g.onPause();
+            z21.a(h(), l().getDecorView().getWindowToken());
+            super.r();
+        }
+    }
+
+    public void s0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048630, this) == null) {
+            if (this.n) {
+                this.m.setVisibility(0);
+            }
+            this.m.e(BrowserStateView.ViewState.LOADING);
+            this.m.a(BrowserStateView.ViewState.ERROR);
+        }
+    }
+
+    @Override // com.baidu.nadcore.webview.container.base.AbsContainer
+    public void t() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048631, this) == null) {
+            this.j.C();
+            super.t();
+            this.g.onResume();
+            this.g.resumeTimers();
+        }
+    }
+
+    @Override // com.baidu.nadcore.webview.container.base.AbsContainer
+    public void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048633, this) == null) {
+            this.j.D();
+            super.u();
+        }
+    }
+
+    @Override // com.baidu.nadcore.webview.container.base.AbsContainer
+    public void v() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048635, this) == null) {
+            this.j.E();
+            super.v();
+        }
+    }
+
+    public final void K(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, context) == null) && Build.VERSION.SDK_INT == 17 && context != null) {
+            try {
+                AccessibilityManager accessibilityManager = (AccessibilityManager) context.getSystemService("accessibility");
+                if (!accessibilityManager.isEnabled()) {
+                    return;
+                }
+                Method declaredMethod = accessibilityManager.getClass().getDeclaredMethod("setState", Integer.TYPE);
+                declaredMethod.setAccessible(true);
+                declaredMethod.invoke(accessibilityManager, 0);
+            } catch (Error e2) {
+                e2.printStackTrace();
+            } catch (Exception e3) {
+                e3.printStackTrace();
+            }
+        }
+    }
+
+    public final String R(Intent intent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, intent)) == null) {
+            String stringExtra = intent.getStringExtra("url");
+            if (TextUtils.isEmpty(stringExtra) && !TextUtils.isEmpty(L())) {
+                stringExtra = L();
+            }
+            String d2 = b61.d(stringExtra);
+            if (!TextUtils.isEmpty(d2) && b61.g(b61.b(d2))) {
+                return d2;
+            }
+            return "";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final void Z(Intent intent) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048595, this, intent) == null) && TextUtils.equals(intent.getStringExtra("layoutfullscreen"), "1") && Build.VERSION.SDK_INT >= 23) {
             l().getDecorView().setSystemUiVisibility(l().getDecorView().getSystemUiVisibility() | 1024 | 8192);
@@ -671,18 +1039,50 @@ public class BaseNativeBrowserContainer extends AbsContainer {
         }
     }
 
-    public void a0(@NonNull WebView webView) {
+    public final void S(String str, String str2, String str3, String str4, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, webView) == null) {
-            try {
-                webView.removeJavascriptInterface("searchBoxJavaBridge_");
-                webView.removeJavascriptInterface("accessibility");
-                webView.removeJavascriptInterface("accessibilityTraversal");
-            } catch (Exception e2) {
-                e2.printStackTrace();
+        if ((interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{str, str2, str3, str4, Long.valueOf(j)}) == null) && w21.b(w21.c(w21.e(str, str3, str4)), str4) == 3) {
+            JSONObject c2 = yz0.c(this.k);
+            yz0.f(c2, "url", str);
+            yz0.e(c2, BreakpointSQLiteKey.CONTENT_LENGTH, j);
+            o41.a().b(getActivity(), this.l, c2.toString());
+        }
+    }
+
+    public FrameLayout W() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            FrameLayout frameLayout = new FrameLayout(getActivity());
+            BrowserStateView browserStateView = new BrowserStateView(getActivity());
+            this.m = browserStateView;
+            browserStateView.setErrorViewClickListener(this.q);
+            WebView a2 = c51.a().a(getActivity());
+            this.g = a2;
+            frameLayout.addView(a2, new FrameLayout.LayoutParams(-1, -1));
+            frameLayout.addView(this.m, new FrameLayout.LayoutParams(-1, -1));
+            return frameLayout;
+        }
+        return (FrameLayout) invokeV.objValue;
+    }
+
+    public final void l0() {
+        WebView webView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048613, this) == null) && (webView = this.g) != null) {
+            if (webView.getParent() instanceof ViewGroup) {
+                ((ViewGroup) this.g.getParent()).removeView(this.g);
             }
-            webView.loadUrl("javascript:(function(){try{if(performance&&performance.timing){var performanceResult={};for(var key in performance.timing){if(typeof performance.timing[key]!==\"function\"){performanceResult[key]=performance.timing[key];}}var strJson=JSON.stringify(performanceResult);NadJsControl.getPerformanceTiming(strJson);}}catch(e){}})();");
-            this.j.q(getActivity(), webView);
+            WebView webView2 = this.g;
+            if (!u21.b.c()) {
+                new Handler().postDelayed(new f(this, webView2), 1500L);
+            } else {
+                try {
+                    webView2.destroy();
+                } catch (Exception unused) {
+                }
+            }
+            this.g = null;
         }
     }
 
@@ -691,37 +1091,29 @@ public class BaseNativeBrowserContainer extends AbsContainer {
         int[] c2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            this.e.findViewById(R.id.obfuscated_res_0x7f09224f).setVisibility(0);
-            LinearLayout linearLayout = (LinearLayout) this.e.findViewById(R.id.obfuscated_res_0x7f092254);
-            for (int i : c51.h().b()) {
+            this.e.findViewById(R.id.obfuscated_res_0x7f092239).setVisibility(0);
+            LinearLayout linearLayout = (LinearLayout) this.e.findViewById(R.id.obfuscated_res_0x7f09223e);
+            for (int i : d51.h().b()) {
                 ImageView imageView = new ImageView(new ContextThemeWrapper(getActivity(), (int) R.style.obfuscated_res_0x7f100137), null, R.style.obfuscated_res_0x7f100137);
                 imageView.setImageResource(i);
                 imageView.setTag(Integer.valueOf(i));
-                c51.h().a(imageView, this);
+                d51.h().a(imageView, this);
                 linearLayout.addView(imageView);
             }
-            LinearLayout linearLayout2 = (LinearLayout) this.e.findViewById(R.id.obfuscated_res_0x7f09225c);
-            for (int i2 : c51.h().c()) {
+            LinearLayout linearLayout2 = (LinearLayout) this.e.findViewById(R.id.obfuscated_res_0x7f092246);
+            for (int i2 : d51.h().c()) {
                 NadLongPressView nadLongPressView = new NadLongPressView(new ContextThemeWrapper(getActivity(), (int) R.style.obfuscated_res_0x7f100137), null, R.style.obfuscated_res_0x7f100137);
                 nadLongPressView.setImageResource(i2);
                 nadLongPressView.setTag(Integer.valueOf(i2));
-                c51.h().a(nadLongPressView, this);
+                d51.h().a(nadLongPressView, this);
                 nadLongPressView.setHandler(new a(this));
                 linearLayout2.addView(nadLongPressView);
             }
         }
     }
 
-    @Override // com.baidu.nadcore.webview.container.base.AbsContainer
-    public boolean c(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, motionEvent)) == null) ? this.g != null && this.p : invokeL.booleanValue;
-    }
-
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    @SuppressLint({"SourceLockedOrientationActivity"})
-    public final void c0(@NonNull Intent intent) {
+    public final void c0(Intent intent) {
         char c2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, intent) == null) {
@@ -758,73 +1150,21 @@ public class BaseNativeBrowserContainer extends AbsContainer {
                     c2 = 65535;
                     break;
             }
-            if (c2 == 0) {
-                if (N() != -1) {
-                    o0(-1);
+            if (c2 != 0) {
+                if (c2 != 1) {
+                    if (c2 == 2 && N() != 0) {
+                        o0(0);
+                    }
+                } else if (N() != 1) {
+                    o0(1);
                 }
-            } else if (c2 != 1) {
-                if (c2 == 2 && N() != 0) {
-                    o0(0);
-                }
-            } else if (N() != 1) {
-                o0(1);
+            } else if (N() != -1) {
+                o0(-1);
             }
         }
     }
 
-    @Override // com.baidu.nadcore.webview.container.base.AbsContainer
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void d0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-            this.j = new r51(this);
-        }
-    }
-
-    @Override // com.baidu.nadcore.webview.container.base.AbsContainer
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
-            super.e();
-        }
-    }
-
-    public final void e0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
-            Intent j = j();
-            c0(j);
-            Z(j);
-            p0(!"true".equals(j().getStringExtra("hide_state_view")));
-            h0();
-            this.j.u(getActivity(), this.e, this.g);
-        }
-    }
-
-    public final void f0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
-            X();
-        }
-    }
-
-    @Override // com.baidu.nadcore.webview.container.base.AbsContainer
-    public m51 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.j.i() : (m51) invokeV.objValue;
-    }
-
-    @SuppressLint({"SetJavaScriptEnabled"})
-    public final void g0(@NonNull WebView webView) {
+    public final void g0(WebView webView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048606, this, webView) == null) {
             K(getActivity());
@@ -832,7 +1172,7 @@ public class BaseNativeBrowserContainer extends AbsContainer {
             webView.setVerticalScrollBarEnabled(true);
             webView.setHorizontalScrollBarEnabled(false);
             webView.getSettings().setLightTouchEnabled(false);
-            webView.getSettings().setUserAgentString(zi0.e());
+            webView.getSettings().setUserAgentString(aj0.e());
             webView.getSettings().setDefaultTextEncodingName("UTF-8");
             webView.getSettings().setSupportZoom(true);
             webView.getSettings().setJavaScriptEnabled(true);
@@ -861,153 +1201,20 @@ public class BaseNativeBrowserContainer extends AbsContainer {
         }
     }
 
-    public void h0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
-            z41 z41Var = this.d;
-            if (z41Var == null || !z41Var.D0()) {
-                r51 r51Var = this.j;
-                if (r51Var == null || !r51Var.m()) {
-                    this.o = true;
-                    WebView webView = this.g;
-                    if (webView != null) {
-                        webView.loadUrl(this.h);
-                    }
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.nadcore.webview.container.base.AbsContainer
-    public View i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.e : (View) invokeV.objValue;
-    }
-
-    public void i0(Map<String, String> map) {
-        WebView webView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048609, this, map) == null) || (webView = this.g) == null) {
-            return;
-        }
-        webView.loadUrl(this.h, map);
-    }
-
-    public void j0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
-            V();
-            U();
-        }
-    }
-
-    @Override // com.baidu.nadcore.webview.container.base.AbsContainer
-    public int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
-            WebView webView = this.g;
-            if (webView != null) {
-                return webView.getScrollY();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public void k0() {
-        WebView webView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048612, this) == null) || (webView = this.g) == null) {
-            return;
-        }
-        webView.reload();
-        this.o = true;
-    }
-
-    public final void l0() {
-        WebView webView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048613, this) == null) || (webView = this.g) == null) {
-            return;
-        }
-        if (webView.getParent() instanceof ViewGroup) {
-            ((ViewGroup) this.g.getParent()).removeView(this.g);
-        }
-        WebView webView2 = this.g;
-        if (!t21.b.c()) {
-            new Handler().postDelayed(new f(this, webView2), 1500L);
-        } else {
-            try {
-                webView2.destroy();
-            } catch (Exception unused) {
-            }
-        }
-        this.g = null;
-    }
-
-    @Override // com.baidu.nadcore.webview.container.base.AbsContainer
-    public boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) ? (j().getExtras() == null || TextUtils.isEmpty(j().getExtras().getString("other_app_back_url"))) ? false : true : invokeV.booleanValue;
-    }
-
-    public final void m0(boolean z) {
-        CookieManager cookieManager;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048615, this, z) == null) {
-            try {
-                CookieSyncManager.createInstance(getActivity());
-                cookieManager = CookieManager.getInstance();
-            } catch (Throwable th) {
-                th.printStackTrace();
-                cookieManager = null;
-            }
-            if (cookieManager == null || Build.VERSION.SDK_INT < 21) {
-                return;
-            }
-            cookieManager.setAcceptThirdPartyCookies(this.g, z);
-        }
-    }
-
-    @Override // com.baidu.nadcore.webview.container.base.AbsContainer
-    public void n(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048616, this, str) == null) {
-            nj0.b(new g(this, str));
-        }
-    }
-
-    public void n0(RelativeLayout relativeLayout) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048617, this, relativeLayout) == null) {
-            this.l = relativeLayout;
-        }
-    }
-
     @Override // com.baidu.nadcore.webview.container.base.AbsContainer
     public void o(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048618, this, i, i2, intent) == null) {
-            q41.c().g(getActivity(), i, i2, intent);
+            r41.c().g(getActivity(), i, i2, intent);
             super.o(i, i2, intent);
         }
     }
 
-    public final void o0(int i) {
+    @Override // com.baidu.nadcore.webview.container.base.AbsContainer, androidx.core.app.ActivityCompat.OnRequestPermissionsResultCallback
+    public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048619, this, i) == null) {
-            getActivity().setRequestedOrientation(i);
-        }
-    }
-
-    @Override // com.baidu.nadcore.webview.container.base.AbsContainer, android.content.ComponentCallbacks
-    public void onConfigurationChanged(Configuration configuration) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048620, this, configuration) == null) {
-            super.onConfigurationChanged(configuration);
+        if (interceptable == null || interceptable.invokeILL(1048623, this, i, strArr, iArr) == null) {
+            super.onRequestPermissionsResult(i, strArr, iArr);
         }
     }
 
@@ -1016,7 +1223,7 @@ public class BaseNativeBrowserContainer extends AbsContainer {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048621, this, i, keyEvent)) == null) {
-            if (e51.b.a().a(i) || T(i, keyEvent)) {
+            if (f51.b.a().a(i) || T(i, keyEvent)) {
                 return true;
             }
             if (i == 4) {
@@ -1029,169 +1236,5 @@ public class BaseNativeBrowserContainer extends AbsContainer {
             }
         }
         return invokeIL.booleanValue;
-    }
-
-    @Override // com.baidu.nadcore.webview.container.base.AbsContainer, android.content.ComponentCallbacks
-    public void onLowMemory() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048622, this) == null) {
-            this.g.freeMemory();
-            super.onLowMemory();
-        }
-    }
-
-    @Override // com.baidu.nadcore.webview.container.base.AbsContainer, androidx.core.app.ActivityCompat.OnRequestPermissionsResultCallback
-    public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048623, this, i, strArr, iArr) == null) {
-            super.onRequestPermissionsResult(i, strArr, iArr);
-        }
-    }
-
-    @Override // com.baidu.nadcore.webview.container.base.AbsContainer
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048624, this) == null) {
-            this.j.v();
-            q41.c().d(getActivity());
-            super.p();
-            x(View.inflate(getActivity(), R.layout.obfuscated_res_0x7f0d05f8, null));
-            Y();
-            f0();
-            e0();
-        }
-    }
-
-    public void p0(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048625, this, z) == null) {
-            this.n = z;
-            BrowserStateView browserStateView = this.m;
-            if (browserStateView != null) {
-                browserStateView.setVisibility(z ? 0 : 8);
-            }
-        }
-    }
-
-    @Override // com.baidu.nadcore.webview.container.base.AbsContainer
-    public void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048626, this) == null) {
-            this.j.w();
-            q41.c().f(getActivity());
-            l0();
-            super.q();
-        }
-    }
-
-    public void q0(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048627, this, str) == null) {
-            this.k = str;
-        }
-    }
-
-    @Override // com.baidu.nadcore.webview.container.base.AbsContainer
-    public void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048628, this) == null) {
-            this.j.z();
-            this.g.onPause();
-            y21.a(h(), l().getDecorView().getWindowToken());
-            super.r();
-        }
-    }
-
-    public final void r0(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048629, this, i) == null) {
-            if (i == 0) {
-                U();
-                return;
-            }
-            if (this.n) {
-                this.m.setVisibility(0);
-            }
-            this.m.e(BrowserStateView.ViewState.ERROR);
-            this.m.a(BrowserStateView.ViewState.LOADING);
-        }
-    }
-
-    public void s0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048630, this) == null) {
-            if (this.n) {
-                this.m.setVisibility(0);
-            }
-            this.m.e(BrowserStateView.ViewState.LOADING);
-            this.m.a(BrowserStateView.ViewState.ERROR);
-        }
-    }
-
-    @Override // com.baidu.nadcore.webview.container.base.AbsContainer
-    public void t() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048631, this) == null) {
-            this.j.C();
-            super.t();
-            this.g.onResume();
-            this.g.resumeTimers();
-        }
-    }
-
-    @TargetApi(23)
-    public void t0() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048632, this) == null) && t21.b.d()) {
-            if (getActivity().checkSelfPermission(PermissionRequest.RESOURCE_AUDIO_CAPTURE) == 0 && getActivity().checkSelfPermission(PermissionRequest.RESOURCE_VIDEO_CAPTURE) == 0) {
-                return;
-            }
-            a21.a().a(getActivity(), R.string.obfuscated_res_0x7f0f090b);
-        }
-    }
-
-    @Override // com.baidu.nadcore.webview.container.base.AbsContainer
-    public void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048633, this) == null) {
-            this.j.D();
-            super.u();
-        }
-    }
-
-    public void u0(String str) {
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048634, this, str) == null) || (textView = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f09241a)) == null) {
-            return;
-        }
-        textView.setText(str);
-    }
-
-    @Override // com.baidu.nadcore.webview.container.base.AbsContainer
-    public void v() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048635, this) == null) {
-            this.j.E();
-            super.v();
-        }
-    }
-
-    @Override // com.baidu.nadcore.webview.container.base.AbsContainer
-    public void x(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048636, this, view2) == null) {
-            super.x(view2);
-            this.e = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c85);
-            this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09265c);
-        }
-    }
-
-    @Override // com.baidu.nadcore.webview.container.base.AbsContainer
-    public void y(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048637, this, str) == null) {
-            this.i = str;
-        }
     }
 }

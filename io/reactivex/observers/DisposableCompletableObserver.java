@@ -7,7 +7,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.CompletableObserver;
-import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.util.EndConsumerHelper;
@@ -16,7 +15,13 @@ import java.util.concurrent.atomic.AtomicReference;
 public abstract class DisposableCompletableObserver implements CompletableObserver, Disposable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicReference<Disposable> s;
+    public final AtomicReference s;
+
+    public void onStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
 
     public DisposableCompletableObserver() {
         Interceptable interceptable = $ic;
@@ -31,7 +36,7 @@ public abstract class DisposableCompletableObserver implements CompletableObserv
                 return;
             }
         }
-        this.s = new AtomicReference<>();
+        this.s = new AtomicReference();
     }
 
     @Override // io.reactivex.disposables.Disposable
@@ -46,17 +51,17 @@ public abstract class DisposableCompletableObserver implements CompletableObserv
     public final boolean isDisposed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.s.get() == DisposableHelper.DISPOSED : invokeV.booleanValue;
-    }
-
-    public void onStart() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.s.get() == DisposableHelper.DISPOSED) {
+                return true;
+            }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
     @Override // io.reactivex.CompletableObserver
-    public final void onSubscribe(@NonNull Disposable disposable) {
+    public final void onSubscribe(Disposable disposable) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, disposable) == null) && EndConsumerHelper.setOnce(this.s, disposable, DisposableCompletableObserver.class)) {
             onStart();

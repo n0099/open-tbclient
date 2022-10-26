@@ -1,6 +1,5 @@
 package com.baidu.searchbox.track.ui;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,11 +8,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
 /* loaded from: classes2.dex */
-public final class EvictingDeque<E> {
+public final class EvictingDeque {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int mCapacity;
-    public final LinkedList<E> mDelegate;
+    public final LinkedList mDelegate;
 
     public EvictingDeque(int i) {
         Interceptable interceptable = $ic;
@@ -30,46 +29,22 @@ public final class EvictingDeque<E> {
                 return;
             }
         }
-        this.mDelegate = new LinkedList<>();
+        this.mDelegate = new LinkedList();
         this.mCapacity = i;
     }
 
-    public static <E> EvictingDeque<E> create(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            if (i >= 0) {
-                return new EvictingDeque<>(i);
-            }
-            throw new IllegalArgumentException("capacity should not < 0");
-        }
-        return (EvictingDeque) invokeI.objValue;
-    }
-
-    public int getCapacity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mCapacity : invokeV.intValue;
-    }
-
-    public LinkedList<E> getElements() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mDelegate : (LinkedList) invokeV.objValue;
-    }
-
-    public boolean offerLast(@NonNull E e) {
+    public boolean offerLast(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, e)) == null) {
-            if (e != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (obj != null) {
                 while (this.mDelegate.size() > 0 && this.mDelegate.size() >= this.mCapacity) {
                     this.mDelegate.pollFirst();
                 }
                 if (this.mCapacity == 0) {
                     return true;
                 }
-                this.mDelegate.offerLast(e);
+                this.mDelegate.offerLast(obj);
                 return true;
             }
             throw new NullPointerException("element should not be null");
@@ -77,10 +52,16 @@ public final class EvictingDeque<E> {
         return invokeL.booleanValue;
     }
 
-    public E peekLast() {
-        InterceptResult invokeV;
+    public static EvictingDeque create(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mDelegate.peekLast() : (E) invokeV.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            if (i >= 0) {
+                return new EvictingDeque(i);
+            }
+            throw new IllegalArgumentException("capacity should not < 0");
+        }
+        return (EvictingDeque) invokeI.objValue;
     }
 
     public void setCapacity(int i) {
@@ -94,9 +75,39 @@ public final class EvictingDeque<E> {
         }
     }
 
+    public int getCapacity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mCapacity;
+        }
+        return invokeV.intValue;
+    }
+
+    public LinkedList getElements() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mDelegate;
+        }
+        return (LinkedList) invokeV.objValue;
+    }
+
+    public Object peekLast() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mDelegate.peekLast();
+        }
+        return invokeV.objValue;
+    }
+
     public int size() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mDelegate.size() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mDelegate.size();
+        }
+        return invokeV.intValue;
     }
 }

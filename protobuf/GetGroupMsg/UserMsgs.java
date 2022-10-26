@@ -22,10 +22,16 @@ public final class UserMsgs extends Message {
     public final List<MsgInfo> msgs;
 
     /* loaded from: classes9.dex */
-    public static final class Builder extends Message.Builder<UserMsgs> {
+    public /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<MsgInfo> msgs;
+    }
+
+    /* loaded from: classes9.dex */
+    public final class Builder extends Message.Builder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public List msgs;
 
         public Builder() {
             Interceptable interceptable = $ic;
@@ -70,14 +76,11 @@ public final class UserMsgs extends Message {
         public UserMsgs build(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) ? new UserMsgs(this, z, null) : (UserMsgs) invokeZ.objValue;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+                return new UserMsgs(this, z, null);
+            }
+            return (UserMsgs) invokeZ.objValue;
         }
-    }
-
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
     }
 
     static {
@@ -94,10 +97,6 @@ public final class UserMsgs extends Message {
             }
         }
         DEFAULT_MSGS = Collections.emptyList();
-    }
-
-    public /* synthetic */ UserMsgs(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -119,7 +118,7 @@ public final class UserMsgs extends Message {
             }
         }
         if (z) {
-            List<MsgInfo> list = builder.msgs;
+            List list = builder.msgs;
             if (list == null) {
                 this.msgs = DEFAULT_MSGS;
                 return;
@@ -129,5 +128,9 @@ public final class UserMsgs extends Message {
             }
         }
         this.msgs = Message.immutableCopyOf(builder.msgs);
+    }
+
+    public /* synthetic */ UserMsgs(Builder builder, boolean z, a aVar) {
+        this(builder, z);
     }
 }

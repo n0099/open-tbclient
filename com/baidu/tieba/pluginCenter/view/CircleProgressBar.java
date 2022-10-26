@@ -43,6 +43,29 @@ public class CircleProgressBar extends View {
         a();
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public CircleProgressBar(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.c = 5.0f;
+        a();
+    }
+
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -67,17 +90,16 @@ public class CircleProgressBar extends View {
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) || this.d < 0) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) && this.d >= 0) {
+            RectF rectF = this.e;
+            float f = this.c;
+            rectF.left = f;
+            rectF.top = f;
+            rectF.right = getWidth() - this.c;
+            this.e.bottom = getHeight() - this.c;
+            canvas.drawArc(this.e, 0.0f, 360.0f, false, this.b);
+            canvas.drawArc(this.e, -90.0f, (this.d / 100) * 360.0f, false, this.a);
         }
-        RectF rectF = this.e;
-        float f = this.c;
-        rectF.left = f;
-        rectF.top = f;
-        rectF.right = getWidth() - this.c;
-        this.e.bottom = getHeight() - this.c;
-        canvas.drawArc(this.e, 0.0f, 360.0f, false, this.b);
-        canvas.drawArc(this.e, -90.0f, (this.d / 100) * 360.0f, false, this.a);
     }
 
     public void setCircleBackgroundColor(int i) {
@@ -113,28 +135,5 @@ public class CircleProgressBar extends View {
             this.a.setStrokeWidth(f);
             postInvalidate();
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CircleProgressBar(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.c = 5.0f;
-        a();
     }
 }

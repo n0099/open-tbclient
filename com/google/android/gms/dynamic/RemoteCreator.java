@@ -2,7 +2,6 @@ package com.google.android.gms.dynamic;
 
 import android.content.Context;
 import android.os.IBinder;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,25 +9,41 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.common.GooglePlayServicesUtilLight;
-import com.google.android.gms.common.annotation.KeepForSdk;
 import com.google.android.gms.common.internal.Preconditions;
-@KeepForSdk
 /* loaded from: classes7.dex */
-public abstract class RemoteCreator<T> {
+public abstract class RemoteCreator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String zza;
-    public T zzb;
+    public Object zzb;
 
-    @KeepForSdk
+    public RemoteCreator(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.zza = str;
+    }
+
+    public abstract Object getRemoteCreator(IBinder iBinder);
+
     /* loaded from: classes7.dex */
-    public static class RemoteCreatorException extends Exception {
+    public class RemoteCreatorException extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        @KeepForSdk
-        public RemoteCreatorException(@NonNull String str) {
+        public RemoteCreatorException(String str) {
             super(str);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -48,8 +63,7 @@ public abstract class RemoteCreator<T> {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        @KeepForSdk
-        public RemoteCreatorException(@NonNull String str, @NonNull Throwable th) {
+        public RemoteCreatorException(String str, Throwable th) {
             super(str, th);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -70,32 +84,7 @@ public abstract class RemoteCreator<T> {
         }
     }
 
-    @KeepForSdk
-    public RemoteCreator(@NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.zza = str;
-    }
-
-    @NonNull
-    @KeepForSdk
-    public abstract T getRemoteCreator(@NonNull IBinder iBinder);
-
-    @NonNull
-    @KeepForSdk
-    public final T getRemoteCreatorInstance(@NonNull Context context) throws RemoteCreatorException {
+    public final Object getRemoteCreatorInstance(Context context) throws RemoteCreatorException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
@@ -118,6 +107,6 @@ public abstract class RemoteCreator<T> {
             }
             return this.zzb;
         }
-        return (T) invokeL.objValue;
+        return invokeL.objValue;
     }
 }

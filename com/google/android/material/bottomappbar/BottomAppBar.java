@@ -14,11 +14,6 @@ import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.annotation.Dimension;
-import androidx.annotation.MenuRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.Px;
 import androidx.appcompat.widget.ActionMenuView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.motion.widget.Key;
@@ -66,23 +61,19 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
     public static final int FAB_ANIMATION_MODE_SLIDE = 1;
     public transient /* synthetic */ FieldHolder $fh;
     public int animatingModeChangeCounter;
-    public ArrayList<AnimationListener> animationListeners;
+    public ArrayList animationListeners;
     public Behavior behavior;
     public int bottomInset;
     public int fabAlignmentMode;
-    @NonNull
     public AnimatorListenerAdapter fabAnimationListener;
     public int fabAnimationMode;
     public boolean fabAttached;
     public final int fabOffsetEndMode;
-    @NonNull
-    public TransformationCallback<FloatingActionButton> fabTransformationCallback;
+    public TransformationCallback fabTransformationCallback;
     public boolean hideOnScroll;
     public int leftInset;
     public final MaterialShapeDrawable materialShapeDrawable;
-    @Nullable
     public Animator menuAnimator;
-    @Nullable
     public Animator modeAnimator;
     public final boolean paddingBottomSystemWindowInsets;
     public final boolean paddingLeftSystemWindowInsets;
@@ -96,15 +87,53 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
         void onAnimationStart(BottomAppBar bottomAppBar);
     }
 
+    @Retention(RetentionPolicy.SOURCE)
     /* loaded from: classes7.dex */
-    public static class Behavior extends HideBottomViewOnScrollBehavior<BottomAppBar> {
+    public @interface FabAlignmentMode {
+    }
+
+    @Retention(RetentionPolicy.SOURCE)
+    /* loaded from: classes7.dex */
+    public @interface FabAnimationMode {
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1516241096, "Lcom/google/android/material/bottomappbar/BottomAppBar;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1516241096, "Lcom/google/android/material/bottomappbar/BottomAppBar;");
+        }
+    }
+
+    @Override // androidx.appcompat.widget.Toolbar
+    public void setSubtitle(CharSequence charSequence) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048605, this, charSequence) == null) {
+        }
+    }
+
+    @Override // androidx.appcompat.widget.Toolbar
+    public void setTitle(CharSequence charSequence) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048606, this, charSequence) == null) {
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class Behavior extends HideBottomViewOnScrollBehavior {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        @NonNull
         public final Rect fabContentRect;
         public final View.OnLayoutChangeListener fabLayoutListener;
         public int originalBottomMargin;
-        public WeakReference<BottomAppBar> viewRef;
+        public WeakReference viewRef;
 
         public Behavior() {
             Interceptable interceptable = $ic;
@@ -172,39 +201,6 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
                 }
             };
             this.fabContentRect = new Rect();
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.android.material.behavior.HideBottomViewOnScrollBehavior, androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-        public boolean onLayoutChild(@NonNull CoordinatorLayout coordinatorLayout, @NonNull BottomAppBar bottomAppBar, int i) {
-            InterceptResult invokeLLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, coordinatorLayout, bottomAppBar, i)) == null) {
-                this.viewRef = new WeakReference<>(bottomAppBar);
-                View findDependentView = bottomAppBar.findDependentView();
-                if (findDependentView != null && !ViewCompat.isLaidOut(findDependentView)) {
-                    CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) findDependentView.getLayoutParams();
-                    layoutParams.anchorGravity = 49;
-                    this.originalBottomMargin = ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin;
-                    if (findDependentView instanceof FloatingActionButton) {
-                        FloatingActionButton floatingActionButton = (FloatingActionButton) findDependentView;
-                        floatingActionButton.addOnLayoutChangeListener(this.fabLayoutListener);
-                        bottomAppBar.addFabAnimationListeners(floatingActionButton);
-                    }
-                    bottomAppBar.setCutoutState();
-                }
-                coordinatorLayout.onLayoutChild(bottomAppBar, i);
-                return super.onLayoutChild(coordinatorLayout, (CoordinatorLayout) bottomAppBar, i);
-            }
-            return invokeLLI.booleanValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.android.material.behavior.HideBottomViewOnScrollBehavior, androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-        public boolean onStartNestedScroll(@NonNull CoordinatorLayout coordinatorLayout, @NonNull BottomAppBar bottomAppBar, @NonNull View view2, @NonNull View view3, int i, int i2) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{coordinatorLayout, bottomAppBar, view2, view3, Integer.valueOf(i), Integer.valueOf(i2)})) == null) ? bottomAppBar.getHideOnScroll() && super.onStartNestedScroll(coordinatorLayout, (CoordinatorLayout) bottomAppBar, view2, view3, i, i2) : invokeCommon.booleanValue;
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -280,22 +276,51 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
             };
             this.fabContentRect = new Rect();
         }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.android.material.behavior.HideBottomViewOnScrollBehavior, androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
+        public boolean onLayoutChild(CoordinatorLayout coordinatorLayout, BottomAppBar bottomAppBar, int i) {
+            InterceptResult invokeLLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, coordinatorLayout, bottomAppBar, i)) == null) {
+                this.viewRef = new WeakReference(bottomAppBar);
+                View findDependentView = bottomAppBar.findDependentView();
+                if (findDependentView != null && !ViewCompat.isLaidOut(findDependentView)) {
+                    CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) findDependentView.getLayoutParams();
+                    layoutParams.anchorGravity = 49;
+                    this.originalBottomMargin = ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin;
+                    if (findDependentView instanceof FloatingActionButton) {
+                        FloatingActionButton floatingActionButton = (FloatingActionButton) findDependentView;
+                        floatingActionButton.addOnLayoutChangeListener(this.fabLayoutListener);
+                        bottomAppBar.addFabAnimationListeners(floatingActionButton);
+                    }
+                    bottomAppBar.setCutoutState();
+                }
+                coordinatorLayout.onLayoutChild(bottomAppBar, i);
+                return super.onLayoutChild(coordinatorLayout, (View) bottomAppBar, i);
+            }
+            return invokeLLI.booleanValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.android.material.behavior.HideBottomViewOnScrollBehavior, androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
+        public boolean onStartNestedScroll(CoordinatorLayout coordinatorLayout, BottomAppBar bottomAppBar, View view2, View view3, int i, int i2) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{coordinatorLayout, bottomAppBar, view2, view3, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+                if (bottomAppBar.getHideOnScroll() && super.onStartNestedScroll(coordinatorLayout, (View) bottomAppBar, view2, view3, i, i2)) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeCommon.booleanValue;
+        }
     }
 
-    @Retention(RetentionPolicy.SOURCE)
     /* loaded from: classes7.dex */
-    public @interface FabAlignmentMode {
-    }
-
-    @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
-    public @interface FabAnimationMode {
-    }
-
-    /* loaded from: classes7.dex */
-    public static class SavedState extends AbsSavedState {
+    public class SavedState extends AbsSavedState {
         public static /* synthetic */ Interceptable $ic;
-        public static final Parcelable.Creator<SavedState> CREATOR;
+        public static final Parcelable.Creator CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
         public int fabAlignmentMode;
         public boolean fabAttached;
@@ -313,7 +338,7 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
                     return;
                 }
             }
-            CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: com.google.android.material.bottomappbar.BottomAppBar.SavedState.1
+            CREATOR = new Parcelable.ClassLoaderCreator() { // from class: com.google.android.material.bottomappbar.BottomAppBar.SavedState.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -333,32 +358,66 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // android.os.Parcelable.Creator
-                @NonNull
-                public SavedState[] newArray(int i) {
-                    InterceptResult invokeI;
+                public SavedState createFromParcel(Parcel parcel) {
+                    InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(1048580, this, i)) == null) ? new SavedState[i] : (SavedState[]) invokeI.objValue;
-                }
-
-                /* JADX DEBUG: Method merged with bridge method */
-                /* JADX WARN: Can't rename method to resolve collision */
-                @Override // android.os.Parcelable.ClassLoaderCreator
-                @NonNull
-                public SavedState createFromParcel(@NonNull Parcel parcel, ClassLoader classLoader) {
-                    InterceptResult invokeLL;
-                    Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, classLoader)) == null) ? new SavedState(parcel, classLoader) : (SavedState) invokeLL.objValue;
+                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                        return new SavedState(parcel, null);
+                    }
+                    return (SavedState) invokeL.objValue;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // android.os.Parcelable.Creator
-                @Nullable
-                public SavedState createFromParcel(@NonNull Parcel parcel) {
-                    InterceptResult invokeL;
+                public SavedState[] newArray(int i) {
+                    InterceptResult invokeI;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new SavedState(parcel, null) : (SavedState) invokeL.objValue;
+                    if (interceptable2 == null || (invokeI = interceptable2.invokeI(1048580, this, i)) == null) {
+                        return new SavedState[i];
+                    }
+                    return (SavedState[]) invokeI.objValue;
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // android.os.Parcelable.ClassLoaderCreator
+                public SavedState createFromParcel(Parcel parcel, ClassLoader classLoader) {
+                    InterceptResult invokeLL;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, classLoader)) == null) {
+                        return new SavedState(parcel, classLoader);
+                    }
+                    return (SavedState) invokeLL.objValue;
                 }
             };
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SavedState(Parcel parcel, ClassLoader classLoader) {
+            super(parcel, classLoader);
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {parcel, classLoader};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((Parcel) objArr2[0], (ClassLoader) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.fabAlignmentMode = parcel.readInt();
+            if (parcel.readInt() != 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.fabAttached = z;
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -382,7 +441,7 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
         }
 
         @Override // androidx.customview.view.AbsSavedState, android.os.Parcelable
-        public void writeToParcel(@NonNull Parcel parcel, int i) {
+        public void writeToParcel(Parcel parcel, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, parcel, i) == null) {
                 super.writeToParcel(parcel, i);
@@ -390,48 +449,10 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
                 parcel.writeInt(this.fabAttached ? 1 : 0);
             }
         }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public SavedState(@NonNull Parcel parcel, ClassLoader classLoader) {
-            super(parcel, classLoader);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {parcel, classLoader};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((Parcel) objArr2[0], (ClassLoader) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.fabAlignmentMode = parcel.readInt();
-            this.fabAttached = parcel.readInt() != 0;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1516241096, "Lcom/google/android/material/bottomappbar/BottomAppBar;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-1516241096, "Lcom/google/android/material/bottomappbar/BottomAppBar;");
-        }
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public BottomAppBar(@NonNull Context context) {
+    public BottomAppBar(Context context) {
         this(context, null, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -448,349 +469,6 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void addFabAnimationListeners(@NonNull FloatingActionButton floatingActionButton) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65569, this, floatingActionButton) == null) {
-            floatingActionButton.addOnHideAnimationListener(this.fabAnimationListener);
-            floatingActionButton.addOnShowAnimationListener(new AnimatorListenerAdapter(this) { // from class: com.google.android.material.bottomappbar.BottomAppBar.8
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ BottomAppBar this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-                public void onAnimationStart(Animator animator) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, animator) == null) {
-                        this.this$0.fabAnimationListener.onAnimationStart(animator);
-                        FloatingActionButton findDependentFab = this.this$0.findDependentFab();
-                        if (findDependentFab != null) {
-                            findDependentFab.setTranslationX(this.this$0.getFabTranslationX());
-                        }
-                    }
-                }
-            });
-            floatingActionButton.addTransformationCallback(this.fabTransformationCallback);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void cancelAnimations() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65570, this) == null) {
-            Animator animator = this.menuAnimator;
-            if (animator != null) {
-                animator.cancel();
-            }
-            Animator animator2 = this.modeAnimator;
-            if (animator2 != null) {
-                animator2.cancel();
-            }
-        }
-    }
-
-    private void createFabTranslationXAnimation(int i, @NonNull List<Animator> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65571, this, i, list) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(findDependentFab(), Key.TRANSLATION_X, getFabTranslationX(i));
-            ofFloat.setDuration(300L);
-            list.add(ofFloat);
-        }
-    }
-
-    private void createMenuViewTranslationAnimation(int i, boolean z, @NonNull List<Animator> list) {
-        ActionMenuView actionMenuView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65572, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), list}) == null) || (actionMenuView = getActionMenuView()) == null) {
-            return;
-        }
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(actionMenuView, Key.ALPHA, 1.0f);
-        if (Math.abs(actionMenuView.getTranslationX() - getActionMenuViewTranslationX(actionMenuView, i, z)) > 1.0f) {
-            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(actionMenuView, Key.ALPHA, 0.0f);
-            ofFloat2.addListener(new AnimatorListenerAdapter(this, actionMenuView, i, z) { // from class: com.google.android.material.bottomappbar.BottomAppBar.7
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public boolean cancelled;
-                public final /* synthetic */ BottomAppBar this$0;
-                public final /* synthetic */ ActionMenuView val$actionMenuView;
-                public final /* synthetic */ boolean val$targetAttached;
-                public final /* synthetic */ int val$targetMode;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, actionMenuView, Integer.valueOf(i), Boolean.valueOf(z)};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$actionMenuView = actionMenuView;
-                    this.val$targetMode = i;
-                    this.val$targetAttached = z;
-                }
-
-                @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-                public void onAnimationCancel(Animator animator) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, animator) == null) {
-                        this.cancelled = true;
-                    }
-                }
-
-                @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-                public void onAnimationEnd(Animator animator) {
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) || this.cancelled) {
-                        return;
-                    }
-                    this.this$0.translateActionMenuView(this.val$actionMenuView, this.val$targetMode, this.val$targetAttached);
-                }
-            });
-            AnimatorSet animatorSet = new AnimatorSet();
-            animatorSet.setDuration(150L);
-            animatorSet.playSequentially(ofFloat2, ofFloat);
-            list.add(animatorSet);
-        } else if (actionMenuView.getAlpha() < 1.0f) {
-            list.add(ofFloat);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void dispatchAnimationEnd() {
-        ArrayList<AnimationListener> arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65573, this) == null) {
-            int i = this.animatingModeChangeCounter - 1;
-            this.animatingModeChangeCounter = i;
-            if (i != 0 || (arrayList = this.animationListeners) == null) {
-                return;
-            }
-            Iterator<AnimationListener> it = arrayList.iterator();
-            while (it.hasNext()) {
-                it.next().onAnimationEnd(this);
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void dispatchAnimationStart() {
-        ArrayList<AnimationListener> arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65574, this) == null) {
-            int i = this.animatingModeChangeCounter;
-            this.animatingModeChangeCounter = i + 1;
-            if (i != 0 || (arrayList = this.animationListeners) == null) {
-                return;
-            }
-            Iterator<AnimationListener> it = arrayList.iterator();
-            while (it.hasNext()) {
-                it.next().onAnimationStart(this);
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    @Nullable
-    public FloatingActionButton findDependentFab() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65575, this)) == null) {
-            View findDependentView = findDependentView();
-            if (findDependentView instanceof FloatingActionButton) {
-                return (FloatingActionButton) findDependentView;
-            }
-            return null;
-        }
-        return (FloatingActionButton) invokeV.objValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Removed duplicated region for block: B:10:0x0022  */
-    @Nullable
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public View findDependentView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65576, this)) == null) {
-            if (getParent() instanceof CoordinatorLayout) {
-                for (View view2 : ((CoordinatorLayout) getParent()).getDependents(this)) {
-                    if ((view2 instanceof FloatingActionButton) || (view2 instanceof ExtendedFloatingActionButton)) {
-                        return view2;
-                    }
-                    while (r0.hasNext()) {
-                    }
-                }
-                return null;
-            }
-            return null;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    @Nullable
-    private ActionMenuView getActionMenuView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65577, this)) == null) {
-            for (int i = 0; i < getChildCount(); i++) {
-                View childAt = getChildAt(i);
-                if (childAt instanceof ActionMenuView) {
-                    return (ActionMenuView) childAt;
-                }
-            }
-            return null;
-        }
-        return (ActionMenuView) invokeV.objValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public int getBottomInset() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65578, this)) == null) ? this.bottomInset : invokeV.intValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public float getFabTranslationX(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65580, this, i)) == null) {
-            boolean isLayoutRtl = ViewUtils.isLayoutRtl(this);
-            if (i == 1) {
-                return ((getMeasuredWidth() / 2) - (this.fabOffsetEndMode + (isLayoutRtl ? this.leftInset : this.rightInset))) * (isLayoutRtl ? -1 : 1);
-            }
-            return 0.0f;
-        }
-        return invokeI.floatValue;
-    }
-
-    private float getFabTranslationY() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65581, this)) == null) ? -getTopEdgeTreatment().getCradleVerticalOffset() : invokeV.floatValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public int getLeftInset() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65582, this)) == null) ? this.leftInset : invokeV.intValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public int getRightInset() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65583, this)) == null) ? this.rightInset : invokeV.intValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    @NonNull
-    public BottomAppBarTopEdgeTreatment getTopEdgeTreatment() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65584, this)) == null) ? (BottomAppBarTopEdgeTreatment) this.materialShapeDrawable.getShapeAppearanceModel().getTopEdge() : (BottomAppBarTopEdgeTreatment) invokeV.objValue;
-    }
-
-    private boolean isFabVisibleOrWillBeShown() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65585, this)) == null) {
-            FloatingActionButton findDependentFab = findDependentFab();
-            return findDependentFab != null && findDependentFab.isOrWillBeShown();
-        }
-        return invokeV.booleanValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void maybeAnimateMenuView(int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65586, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) && ViewCompat.isLaidOut(this)) {
-            Animator animator = this.menuAnimator;
-            if (animator != null) {
-                animator.cancel();
-            }
-            ArrayList arrayList = new ArrayList();
-            if (!isFabVisibleOrWillBeShown()) {
-                i = 0;
-                z = false;
-            }
-            createMenuViewTranslationAnimation(i, z, arrayList);
-            AnimatorSet animatorSet = new AnimatorSet();
-            animatorSet.playTogether(arrayList);
-            this.menuAnimator = animatorSet;
-            animatorSet.addListener(new AnimatorListenerAdapter(this) { // from class: com.google.android.material.bottomappbar.BottomAppBar.6
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ BottomAppBar this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-                public void onAnimationEnd(Animator animator2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, animator2) == null) {
-                        this.this$0.dispatchAnimationEnd();
-                        this.this$0.menuAnimator = null;
-                    }
-                }
-
-                @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-                public void onAnimationStart(Animator animator2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator2) == null) {
-                        this.this$0.dispatchAnimationStart();
-                    }
-                }
-            });
-            this.menuAnimator.start();
         }
     }
 
@@ -836,395 +514,27 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, animator2) == null) {
-                        this.this$0.dispatchAnimationEnd();
+                    if (interceptable2 != null && interceptable2.invokeL(1048576, this, animator2) != null) {
+                        return;
                     }
+                    this.this$0.dispatchAnimationEnd();
                 }
 
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationStart(Animator animator2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator2) == null) {
-                        this.this$0.dispatchAnimationStart();
+                    if (interceptable2 != null && interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator2) != null) {
+                        return;
                     }
+                    this.this$0.dispatchAnimationStart();
                 }
             });
             this.modeAnimator.start();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void setActionMenuViewPosition() {
-        ActionMenuView actionMenuView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65588, this) == null) || (actionMenuView = getActionMenuView()) == null) {
-            return;
-        }
-        actionMenuView.setAlpha(1.0f);
-        if (!isFabVisibleOrWillBeShown()) {
-            translateActionMenuView(actionMenuView, 0, false);
-        } else {
-            translateActionMenuView(actionMenuView, this.fabAlignmentMode, this.fabAttached);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void setCutoutState() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65589, this) == null) {
-            getTopEdgeTreatment().setHorizontalOffset(getFabTranslationX());
-            View findDependentView = findDependentView();
-            this.materialShapeDrawable.setInterpolation((this.fabAttached && isFabVisibleOrWillBeShown()) ? 1.0f : 0.0f);
-            if (findDependentView != null) {
-                findDependentView.setTranslationY(getFabTranslationY());
-                findDependentView.setTranslationX(getFabTranslationX());
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void translateActionMenuView(@NonNull ActionMenuView actionMenuView, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65590, this, new Object[]{actionMenuView, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            actionMenuView.setTranslationX(getActionMenuViewTranslationX(actionMenuView, i, z));
-        }
-    }
-
-    public void addAnimationListener(@NonNull AnimationListener animationListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, animationListener) == null) {
-            if (this.animationListeners == null) {
-                this.animationListeners = new ArrayList<>();
-            }
-            this.animationListeners.add(animationListener);
-        }
-    }
-
-    public void createFabDefaultXAnimation(int i, List<Animator> list) {
-        FloatingActionButton findDependentFab;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, list) == null) || (findDependentFab = findDependentFab()) == null || findDependentFab.isOrWillBeHidden()) {
-            return;
-        }
-        dispatchAnimationStart();
-        findDependentFab.hide(new FloatingActionButton.OnVisibilityChangedListener(this, i) { // from class: com.google.android.material.bottomappbar.BottomAppBar.5
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ BottomAppBar this$0;
-            public final /* synthetic */ int val$targetMode;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this, Integer.valueOf(i)};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-                this.val$targetMode = i;
-            }
-
-            @Override // com.google.android.material.floatingactionbutton.FloatingActionButton.OnVisibilityChangedListener
-            public void onHidden(@NonNull FloatingActionButton floatingActionButton) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, floatingActionButton) == null) {
-                    floatingActionButton.setTranslationX(this.this$0.getFabTranslationX(this.val$targetMode));
-                    floatingActionButton.show(new FloatingActionButton.OnVisibilityChangedListener(this) { // from class: com.google.android.material.bottomappbar.BottomAppBar.5.1
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ AnonymousClass5 this$1;
-
-                        {
-                            Interceptable interceptable3 = $ic;
-                            if (interceptable3 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this};
-                                interceptable3.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable3.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.this$1 = this;
-                        }
-
-                        @Override // com.google.android.material.floatingactionbutton.FloatingActionButton.OnVisibilityChangedListener
-                        public void onShown(FloatingActionButton floatingActionButton2) {
-                            Interceptable interceptable3 = $ic;
-                            if (interceptable3 == null || interceptable3.invokeL(1048576, this, floatingActionButton2) == null) {
-                                this.this$1.this$0.dispatchAnimationEnd();
-                            }
-                        }
-                    });
-                }
-            }
-        });
-    }
-
-    public int getActionMenuViewTranslationX(@NonNull ActionMenuView actionMenuView, int i, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{actionMenuView, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            if (i == 1 && z) {
-                boolean isLayoutRtl = ViewUtils.isLayoutRtl(this);
-                int measuredWidth = isLayoutRtl ? getMeasuredWidth() : 0;
-                for (int i2 = 0; i2 < getChildCount(); i2++) {
-                    View childAt = getChildAt(i2);
-                    if ((childAt.getLayoutParams() instanceof Toolbar.LayoutParams) && (((Toolbar.LayoutParams) childAt.getLayoutParams()).gravity & GravityCompat.RELATIVE_HORIZONTAL_GRAVITY_MASK) == 8388611) {
-                        if (isLayoutRtl) {
-                            measuredWidth = Math.min(measuredWidth, childAt.getLeft());
-                        } else {
-                            measuredWidth = Math.max(measuredWidth, childAt.getRight());
-                        }
-                    }
-                }
-                return measuredWidth - ((isLayoutRtl ? actionMenuView.getRight() : actionMenuView.getLeft()) + (isLayoutRtl ? this.rightInset : -this.leftInset));
-            }
-            return 0;
-        }
-        return invokeCommon.intValue;
-    }
-
-    @Nullable
-    public ColorStateList getBackgroundTint() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.materialShapeDrawable.getTintList() : (ColorStateList) invokeV.objValue;
-    }
-
-    @Dimension
-    public float getCradleVerticalOffset() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? getTopEdgeTreatment().getCradleVerticalOffset() : invokeV.floatValue;
-    }
-
-    public int getFabAlignmentMode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.fabAlignmentMode : invokeV.intValue;
-    }
-
-    public int getFabAnimationMode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.fabAnimationMode : invokeV.intValue;
-    }
-
-    public float getFabCradleMargin() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? getTopEdgeTreatment().getFabCradleMargin() : invokeV.floatValue;
-    }
-
-    @Dimension
-    public float getFabCradleRoundedCornerRadius() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? getTopEdgeTreatment().getFabCradleRoundedCornerRadius() : invokeV.floatValue;
-    }
-
-    public boolean getHideOnScroll() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.hideOnScroll : invokeV.booleanValue;
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void onAttachedToWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            super.onAttachedToWindow();
-            MaterialShapeUtils.setParentAbsoluteElevation(this, this.materialShapeDrawable);
-            if (getParent() instanceof ViewGroup) {
-                ((ViewGroup) getParent()).setClipChildren(false);
-            }
-        }
-    }
-
-    @Override // androidx.appcompat.widget.Toolbar, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            super.onLayout(z, i, i2, i3, i4);
-            if (z) {
-                cancelAnimations();
-                setCutoutState();
-            }
-            setActionMenuViewPosition();
-        }
-    }
-
-    @Override // androidx.appcompat.widget.Toolbar, android.view.View
-    public void onRestoreInstanceState(Parcelable parcelable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, parcelable) == null) {
-            if (!(parcelable instanceof SavedState)) {
-                super.onRestoreInstanceState(parcelable);
-                return;
-            }
-            SavedState savedState = (SavedState) parcelable;
-            super.onRestoreInstanceState(savedState.getSuperState());
-            this.fabAlignmentMode = savedState.fabAlignmentMode;
-            this.fabAttached = savedState.fabAttached;
-        }
-    }
-
-    @Override // androidx.appcompat.widget.Toolbar, android.view.View
-    @NonNull
-    public Parcelable onSaveInstanceState() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            SavedState savedState = new SavedState(super.onSaveInstanceState());
-            savedState.fabAlignmentMode = this.fabAlignmentMode;
-            savedState.fabAttached = this.fabAttached;
-            return savedState;
-        }
-        return (Parcelable) invokeV.objValue;
-    }
-
-    public void performHide() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            getBehavior().slideDown(this);
-        }
-    }
-
-    public void performShow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            getBehavior().slideUp(this);
-        }
-    }
-
-    public void removeAnimationListener(@NonNull AnimationListener animationListener) {
-        ArrayList<AnimationListener> arrayList;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048594, this, animationListener) == null) || (arrayList = this.animationListeners) == null) {
-            return;
-        }
-        arrayList.remove(animationListener);
-    }
-
-    public void replaceMenu(@MenuRes int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
-            getMenu().clear();
-            inflateMenu(i);
-        }
-    }
-
-    public void setBackgroundTint(@Nullable ColorStateList colorStateList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, colorStateList) == null) {
-            DrawableCompat.setTintList(this.materialShapeDrawable, colorStateList);
-        }
-    }
-
-    public void setCradleVerticalOffset(@Dimension float f) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048597, this, f) == null) || f == getCradleVerticalOffset()) {
-            return;
-        }
-        getTopEdgeTreatment().setCradleVerticalOffset(f);
-        this.materialShapeDrawable.invalidateSelf();
-        setCutoutState();
-    }
-
-    @Override // android.view.View
-    public void setElevation(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048598, this, f) == null) {
-            this.materialShapeDrawable.setElevation(f);
-            getBehavior().setAdditionalHiddenOffsetY(this, this.materialShapeDrawable.getShadowRadius() - this.materialShapeDrawable.getShadowOffsetY());
-        }
-    }
-
-    public void setFabAlignmentMode(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
-            maybeAnimateModeChange(i);
-            maybeAnimateMenuView(i, this.fabAttached);
-            this.fabAlignmentMode = i;
-        }
-    }
-
-    public void setFabAnimationMode(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
-            this.fabAnimationMode = i;
-        }
-    }
-
-    public void setFabCradleMargin(@Dimension float f) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048601, this, f) == null) || f == getFabCradleMargin()) {
-            return;
-        }
-        getTopEdgeTreatment().setFabCradleMargin(f);
-        this.materialShapeDrawable.invalidateSelf();
-    }
-
-    public void setFabCradleRoundedCornerRadius(@Dimension float f) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048602, this, f) == null) || f == getFabCradleRoundedCornerRadius()) {
-            return;
-        }
-        getTopEdgeTreatment().setFabCradleRoundedCornerRadius(f);
-        this.materialShapeDrawable.invalidateSelf();
-    }
-
-    public boolean setFabDiameter(@Px int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048603, this, i)) == null) {
-            float f = i;
-            if (f != getTopEdgeTreatment().getFabDiameter()) {
-                getTopEdgeTreatment().setFabDiameter(f);
-                this.materialShapeDrawable.invalidateSelf();
-                return true;
-            }
-            return false;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public void setHideOnScroll(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048604, this, z) == null) {
-            this.hideOnScroll = z;
-        }
-    }
-
-    @Override // androidx.appcompat.widget.Toolbar
-    public void setSubtitle(CharSequence charSequence) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048605, this, charSequence) == null) {
-        }
-    }
-
-    @Override // androidx.appcompat.widget.Toolbar
-    public void setTitle(CharSequence charSequence) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048606, this, charSequence) == null) {
-        }
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public BottomAppBar(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+    public BottomAppBar(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, R.attr.obfuscated_res_0x7f0400f1);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -1244,23 +554,72 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.AttachedBehavior
-    @NonNull
-    public Behavior getBehavior() {
-        InterceptResult invokeV;
+    /* JADX INFO: Access modifiers changed from: private */
+    public void maybeAnimateMenuView(int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.behavior == null) {
-                this.behavior = new Behavior();
-            }
-            return this.behavior;
+        if ((interceptable != null && interceptable.invokeCommon(65586, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) != null) || !ViewCompat.isLaidOut(this)) {
+            return;
         }
-        return (Behavior) invokeV.objValue;
+        Animator animator = this.menuAnimator;
+        if (animator != null) {
+            animator.cancel();
+        }
+        ArrayList arrayList = new ArrayList();
+        if (!isFabVisibleOrWillBeShown()) {
+            i = 0;
+            z = false;
+        }
+        createMenuViewTranslationAnimation(i, z, arrayList);
+        AnimatorSet animatorSet = new AnimatorSet();
+        animatorSet.playTogether(arrayList);
+        this.menuAnimator = animatorSet;
+        animatorSet.addListener(new AnimatorListenerAdapter(this) { // from class: com.google.android.material.bottomappbar.BottomAppBar.6
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ BottomAppBar this$0;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
+            @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+            public void onAnimationEnd(Animator animator2) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null && interceptable2.invokeL(1048576, this, animator2) != null) {
+                    return;
+                }
+                this.this$0.dispatchAnimationEnd();
+                this.this$0.menuAnimator = null;
+            }
+
+            @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+            public void onAnimationStart(Animator animator2) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null && interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator2) != null) {
+                    return;
+                }
+                this.this$0.dispatchAnimationStart();
+            }
+        });
+        this.menuAnimator.start();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BottomAppBar(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+    public BottomAppBar(Context context, AttributeSet attributeSet, int i) {
         super(MaterialThemeOverlay.wrap(context, attributeSet, i, DEF_STYLE_RES), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -1313,7 +672,7 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
                 }
             }
         };
-        this.fabTransformationCallback = new TransformationCallback<FloatingActionButton>(this) { // from class: com.google.android.material.bottomappbar.BottomAppBar.2
+        this.fabTransformationCallback = new TransformationCallback(this) { // from class: com.google.android.material.bottomappbar.BottomAppBar.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ BottomAppBar this$0;
@@ -1338,16 +697,24 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.android.material.animation.TransformationCallback
-            public void onScaleChanged(@NonNull FloatingActionButton floatingActionButton) {
+            public void onScaleChanged(FloatingActionButton floatingActionButton) {
+                float f;
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, floatingActionButton) == null) {
-                    this.this$0.materialShapeDrawable.setInterpolation(floatingActionButton.getVisibility() == 0 ? floatingActionButton.getScaleY() : 0.0f);
+                if (interceptable2 != null && interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, floatingActionButton) != null) {
+                    return;
                 }
+                MaterialShapeDrawable materialShapeDrawable = this.this$0.materialShapeDrawable;
+                if (floatingActionButton.getVisibility() == 0) {
+                    f = floatingActionButton.getScaleY();
+                } else {
+                    f = 0.0f;
+                }
+                materialShapeDrawable.setInterpolation(f);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.android.material.animation.TransformationCallback
-            public void onTranslationChanged(@NonNull FloatingActionButton floatingActionButton) {
+            public void onTranslationChanged(FloatingActionButton floatingActionButton) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048579, this, floatingActionButton) == null) {
                     float translationX = floatingActionButton.getTranslationX();
@@ -1355,12 +722,17 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
                         this.this$0.getTopEdgeTreatment().setHorizontalOffset(translationX);
                         this.this$0.materialShapeDrawable.invalidateSelf();
                     }
+                    float f = 0.0f;
                     float max = Math.max(0.0f, -floatingActionButton.getTranslationY());
                     if (this.this$0.getTopEdgeTreatment().getCradleVerticalOffset() != max) {
                         this.this$0.getTopEdgeTreatment().setCradleVerticalOffset(max);
                         this.this$0.materialShapeDrawable.invalidateSelf();
                     }
-                    this.this$0.materialShapeDrawable.setInterpolation(floatingActionButton.getVisibility() == 0 ? floatingActionButton.getScaleY() : 0.0f);
+                    MaterialShapeDrawable materialShapeDrawable = this.this$0.materialShapeDrawable;
+                    if (floatingActionButton.getVisibility() == 0) {
+                        f = floatingActionButton.getScaleY();
+                    }
+                    materialShapeDrawable.setInterpolation(f);
                 }
             }
         };
@@ -1407,8 +779,7 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
             }
 
             @Override // com.google.android.material.internal.ViewUtils.OnApplyWindowInsetsListener
-            @NonNull
-            public WindowInsetsCompat onApplyWindowInsets(View view2, @NonNull WindowInsetsCompat windowInsetsCompat, @NonNull ViewUtils.RelativePadding relativePadding) {
+            public WindowInsetsCompat onApplyWindowInsets(View view2, WindowInsetsCompat windowInsetsCompat, ViewUtils.RelativePadding relativePadding) {
                 InterceptResult invokeLLL;
                 boolean z;
                 Interceptable interceptable2 = $ic;
@@ -1416,19 +787,26 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
                     if (this.this$0.paddingBottomSystemWindowInsets) {
                         this.this$0.bottomInset = windowInsetsCompat.getSystemWindowInsetBottom();
                     }
-                    boolean z2 = false;
+                    boolean z2 = true;
+                    boolean z3 = false;
                     if (this.this$0.paddingLeftSystemWindowInsets) {
-                        z = this.this$0.leftInset != windowInsetsCompat.getSystemWindowInsetLeft();
+                        if (this.this$0.leftInset != windowInsetsCompat.getSystemWindowInsetLeft()) {
+                            z = true;
+                        } else {
+                            z = false;
+                        }
                         this.this$0.leftInset = windowInsetsCompat.getSystemWindowInsetLeft();
                     } else {
                         z = false;
                     }
                     if (this.this$0.paddingRightSystemWindowInsets) {
-                        boolean z3 = this.this$0.rightInset != windowInsetsCompat.getSystemWindowInsetRight();
+                        if (this.this$0.rightInset == windowInsetsCompat.getSystemWindowInsetRight()) {
+                            z2 = false;
+                        }
                         this.this$0.rightInset = windowInsetsCompat.getSystemWindowInsetRight();
-                        z2 = z3;
+                        z3 = z2;
                     }
-                    if (z || z2) {
+                    if (z || z3) {
                         this.this$0.cancelAnimations();
                         this.this$0.setCutoutState();
                         this.this$0.setActionMenuViewPosition();
@@ -1441,9 +819,730 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
     }
 
     /* JADX INFO: Access modifiers changed from: private */
+    public void addFabAnimationListeners(FloatingActionButton floatingActionButton) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65569, this, floatingActionButton) == null) {
+            floatingActionButton.addOnHideAnimationListener(this.fabAnimationListener);
+            floatingActionButton.addOnShowAnimationListener(new AnimatorListenerAdapter(this) { // from class: com.google.android.material.bottomappbar.BottomAppBar.8
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ BottomAppBar this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
+                @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+                public void onAnimationStart(Animator animator) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, animator) == null) {
+                        this.this$0.fabAnimationListener.onAnimationStart(animator);
+                        FloatingActionButton findDependentFab = this.this$0.findDependentFab();
+                        if (findDependentFab != null) {
+                            findDependentFab.setTranslationX(this.this$0.getFabTranslationX());
+                        }
+                    }
+                }
+            });
+            floatingActionButton.addTransformationCallback(this.fabTransformationCallback);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public float getFabTranslationX(int i) {
+        InterceptResult invokeI;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65580, this, i)) == null) {
+            boolean isLayoutRtl = ViewUtils.isLayoutRtl(this);
+            int i3 = 1;
+            if (i == 1) {
+                if (isLayoutRtl) {
+                    i2 = this.leftInset;
+                } else {
+                    i2 = this.rightInset;
+                }
+                int measuredWidth = (getMeasuredWidth() / 2) - (this.fabOffsetEndMode + i2);
+                if (isLayoutRtl) {
+                    i3 = -1;
+                }
+                return measuredWidth * i3;
+            }
+            return 0.0f;
+        }
+        return invokeI.floatValue;
+    }
+
+    public void addAnimationListener(AnimationListener animationListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, animationListener) == null) {
+            if (this.animationListeners == null) {
+                this.animationListeners = new ArrayList();
+            }
+            this.animationListeners.add(animationListener);
+        }
+    }
+
+    @Override // androidx.appcompat.widget.Toolbar, android.view.View
+    public void onRestoreInstanceState(Parcelable parcelable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, parcelable) == null) {
+            if (!(parcelable instanceof SavedState)) {
+                super.onRestoreInstanceState(parcelable);
+                return;
+            }
+            SavedState savedState = (SavedState) parcelable;
+            super.onRestoreInstanceState(savedState.getSuperState());
+            this.fabAlignmentMode = savedState.fabAlignmentMode;
+            this.fabAttached = savedState.fabAttached;
+        }
+    }
+
+    public void removeAnimationListener(AnimationListener animationListener) {
+        ArrayList arrayList;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048594, this, animationListener) != null) || (arrayList = this.animationListeners) == null) {
+            return;
+        }
+        arrayList.remove(animationListener);
+    }
+
+    public void replaceMenu(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+            getMenu().clear();
+            inflateMenu(i);
+        }
+    }
+
+    public void setBackgroundTint(ColorStateList colorStateList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, colorStateList) == null) {
+            DrawableCompat.setTintList(this.materialShapeDrawable, colorStateList);
+        }
+    }
+
+    public void setCradleVerticalOffset(float f) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeF(1048597, this, f) == null) && f != getCradleVerticalOffset()) {
+            getTopEdgeTreatment().setCradleVerticalOffset(f);
+            this.materialShapeDrawable.invalidateSelf();
+            setCutoutState();
+        }
+    }
+
+    @Override // android.view.View
+    public void setElevation(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048598, this, f) == null) {
+            this.materialShapeDrawable.setElevation(f);
+            getBehavior().setAdditionalHiddenOffsetY(this, this.materialShapeDrawable.getShadowRadius() - this.materialShapeDrawable.getShadowOffsetY());
+        }
+    }
+
+    public void setFabAlignmentMode(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
+            maybeAnimateModeChange(i);
+            maybeAnimateMenuView(i, this.fabAttached);
+            this.fabAlignmentMode = i;
+        }
+    }
+
+    public void setFabAnimationMode(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
+            this.fabAnimationMode = i;
+        }
+    }
+
+    public void setFabCradleMargin(float f) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeF(1048601, this, f) == null) && f != getFabCradleMargin()) {
+            getTopEdgeTreatment().setFabCradleMargin(f);
+            this.materialShapeDrawable.invalidateSelf();
+        }
+    }
+
+    public void setFabCradleRoundedCornerRadius(float f) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeF(1048602, this, f) == null) && f != getFabCradleRoundedCornerRadius()) {
+            getTopEdgeTreatment().setFabCradleRoundedCornerRadius(f);
+            this.materialShapeDrawable.invalidateSelf();
+        }
+    }
+
+    public boolean setFabDiameter(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048603, this, i)) == null) {
+            float f = i;
+            if (f != getTopEdgeTreatment().getFabDiameter()) {
+                getTopEdgeTreatment().setFabDiameter(f);
+                this.materialShapeDrawable.invalidateSelf();
+                return true;
+            }
+            return false;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public void setHideOnScroll(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048604, this, z) == null) {
+            this.hideOnScroll = z;
+        }
+    }
+
+    private void createFabTranslationXAnimation(int i, List list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65571, this, i, list) == null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(findDependentFab(), Key.TRANSLATION_X, getFabTranslationX(i));
+            ofFloat.setDuration(300L);
+            list.add(ofFloat);
+        }
+    }
+
+    public void createFabDefaultXAnimation(int i, List list) {
+        FloatingActionButton findDependentFab;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, list) == null) && (findDependentFab = findDependentFab()) != null && !findDependentFab.isOrWillBeHidden()) {
+            dispatchAnimationStart();
+            findDependentFab.hide(new FloatingActionButton.OnVisibilityChangedListener(this, i) { // from class: com.google.android.material.bottomappbar.BottomAppBar.5
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ BottomAppBar this$0;
+                public final /* synthetic */ int val$targetMode;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, Integer.valueOf(i)};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$targetMode = i;
+                }
+
+                @Override // com.google.android.material.floatingactionbutton.FloatingActionButton.OnVisibilityChangedListener
+                public void onHidden(FloatingActionButton floatingActionButton) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, floatingActionButton) == null) {
+                        floatingActionButton.setTranslationX(this.this$0.getFabTranslationX(this.val$targetMode));
+                        floatingActionButton.show(new FloatingActionButton.OnVisibilityChangedListener(this) { // from class: com.google.android.material.bottomappbar.BottomAppBar.5.1
+                            public static /* synthetic */ Interceptable $ic;
+                            public transient /* synthetic */ FieldHolder $fh;
+                            public final /* synthetic */ AnonymousClass5 this$1;
+
+                            {
+                                Interceptable interceptable3 = $ic;
+                                if (interceptable3 != null) {
+                                    InitContext newInitContext = TitanRuntime.newInitContext();
+                                    newInitContext.initArgs = r2;
+                                    Object[] objArr = {this};
+                                    interceptable3.invokeUnInit(65536, newInitContext);
+                                    int i2 = newInitContext.flag;
+                                    if ((i2 & 1) != 0) {
+                                        int i3 = i2 & 2;
+                                        newInitContext.thisArg = this;
+                                        interceptable3.invokeInitBody(65536, newInitContext);
+                                        return;
+                                    }
+                                }
+                                this.this$1 = this;
+                            }
+
+                            @Override // com.google.android.material.floatingactionbutton.FloatingActionButton.OnVisibilityChangedListener
+                            public void onShown(FloatingActionButton floatingActionButton2) {
+                                Interceptable interceptable3 = $ic;
+                                if (interceptable3 != null && interceptable3.invokeL(1048576, this, floatingActionButton2) != null) {
+                                    return;
+                                }
+                                this.this$1.this$0.dispatchAnimationEnd();
+                            }
+                        });
+                    }
+                }
+            });
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void translateActionMenuView(ActionMenuView actionMenuView, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65590, this, new Object[]{actionMenuView, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            actionMenuView.setTranslationX(getActionMenuViewTranslationX(actionMenuView, i, z));
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void cancelAnimations() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65570, this) == null) {
+            Animator animator = this.menuAnimator;
+            if (animator != null) {
+                animator.cancel();
+            }
+            Animator animator2 = this.modeAnimator;
+            if (animator2 != null) {
+                animator2.cancel();
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void dispatchAnimationEnd() {
+        ArrayList arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65573, this) == null) {
+            int i = this.animatingModeChangeCounter - 1;
+            this.animatingModeChangeCounter = i;
+            if (i == 0 && (arrayList = this.animationListeners) != null) {
+                Iterator it = arrayList.iterator();
+                while (it.hasNext()) {
+                    ((AnimationListener) it.next()).onAnimationEnd(this);
+                }
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void dispatchAnimationStart() {
+        ArrayList arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65574, this) == null) {
+            int i = this.animatingModeChangeCounter;
+            this.animatingModeChangeCounter = i + 1;
+            if (i == 0 && (arrayList = this.animationListeners) != null) {
+                Iterator it = arrayList.iterator();
+                while (it.hasNext()) {
+                    ((AnimationListener) it.next()).onAnimationStart(this);
+                }
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public FloatingActionButton findDependentFab() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65575, this)) == null) {
+            View findDependentView = findDependentView();
+            if (findDependentView instanceof FloatingActionButton) {
+                return (FloatingActionButton) findDependentView;
+            }
+            return null;
+        }
+        return (FloatingActionButton) invokeV.objValue;
+    }
+
+    private ActionMenuView getActionMenuView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65577, this)) == null) {
+            for (int i = 0; i < getChildCount(); i++) {
+                View childAt = getChildAt(i);
+                if (childAt instanceof ActionMenuView) {
+                    return (ActionMenuView) childAt;
+                }
+            }
+            return null;
+        }
+        return (ActionMenuView) invokeV.objValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public int getBottomInset() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65578, this)) == null) {
+            return this.bottomInset;
+        }
+        return invokeV.intValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
     public float getFabTranslationX() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65579, this)) == null) ? getFabTranslationX(this.fabAlignmentMode) : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65579, this)) == null) {
+            return getFabTranslationX(this.fabAlignmentMode);
+        }
+        return invokeV.floatValue;
+    }
+
+    private float getFabTranslationY() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65581, this)) == null) {
+            return -getTopEdgeTreatment().getCradleVerticalOffset();
+        }
+        return invokeV.floatValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public int getLeftInset() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65582, this)) == null) {
+            return this.leftInset;
+        }
+        return invokeV.intValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public int getRightInset() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65583, this)) == null) {
+            return this.rightInset;
+        }
+        return invokeV.intValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public BottomAppBarTopEdgeTreatment getTopEdgeTreatment() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65584, this)) == null) {
+            return (BottomAppBarTopEdgeTreatment) this.materialShapeDrawable.getShapeAppearanceModel().getTopEdge();
+        }
+        return (BottomAppBarTopEdgeTreatment) invokeV.objValue;
+    }
+
+    private boolean isFabVisibleOrWillBeShown() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65585, this)) == null) {
+            FloatingActionButton findDependentFab = findDependentFab();
+            if (findDependentFab != null && findDependentFab.isOrWillBeShown()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void setActionMenuViewPosition() {
+        ActionMenuView actionMenuView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65588, this) == null) && (actionMenuView = getActionMenuView()) != null) {
+            actionMenuView.setAlpha(1.0f);
+            if (!isFabVisibleOrWillBeShown()) {
+                translateActionMenuView(actionMenuView, 0, false);
+            } else {
+                translateActionMenuView(actionMenuView, this.fabAlignmentMode, this.fabAttached);
+            }
+        }
+    }
+
+    public ColorStateList getBackgroundTint() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.materialShapeDrawable.getTintList();
+        }
+        return (ColorStateList) invokeV.objValue;
+    }
+
+    public float getCradleVerticalOffset() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return getTopEdgeTreatment().getCradleVerticalOffset();
+        }
+        return invokeV.floatValue;
+    }
+
+    public int getFabAlignmentMode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.fabAlignmentMode;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getFabAnimationMode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.fabAnimationMode;
+        }
+        return invokeV.intValue;
+    }
+
+    public float getFabCradleMargin() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return getTopEdgeTreatment().getFabCradleMargin();
+        }
+        return invokeV.floatValue;
+    }
+
+    public float getFabCradleRoundedCornerRadius() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return getTopEdgeTreatment().getFabCradleRoundedCornerRadius();
+        }
+        return invokeV.floatValue;
+    }
+
+    public boolean getHideOnScroll() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.hideOnScroll;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void onAttachedToWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            super.onAttachedToWindow();
+            MaterialShapeUtils.setParentAbsoluteElevation(this, this.materialShapeDrawable);
+            if (getParent() instanceof ViewGroup) {
+                ((ViewGroup) getParent()).setClipChildren(false);
+            }
+        }
+    }
+
+    @Override // androidx.appcompat.widget.Toolbar, android.view.View
+    public Parcelable onSaveInstanceState() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            SavedState savedState = new SavedState(super.onSaveInstanceState());
+            savedState.fabAlignmentMode = this.fabAlignmentMode;
+            savedState.fabAttached = this.fabAttached;
+            return savedState;
+        }
+        return (Parcelable) invokeV.objValue;
+    }
+
+    public void performHide() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            getBehavior().slideDown(this);
+        }
+    }
+
+    public void performShow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            getBehavior().slideUp(this);
+        }
+    }
+
+    private void createMenuViewTranslationAnimation(int i, boolean z, List list) {
+        ActionMenuView actionMenuView;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65572, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), list}) != null) || (actionMenuView = getActionMenuView()) == null) {
+            return;
+        }
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(actionMenuView, Key.ALPHA, 1.0f);
+        if (Math.abs(actionMenuView.getTranslationX() - getActionMenuViewTranslationX(actionMenuView, i, z)) > 1.0f) {
+            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(actionMenuView, Key.ALPHA, 0.0f);
+            ofFloat2.addListener(new AnimatorListenerAdapter(this, actionMenuView, i, z) { // from class: com.google.android.material.bottomappbar.BottomAppBar.7
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public boolean cancelled;
+                public final /* synthetic */ BottomAppBar this$0;
+                public final /* synthetic */ ActionMenuView val$actionMenuView;
+                public final /* synthetic */ boolean val$targetAttached;
+                public final /* synthetic */ int val$targetMode;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, actionMenuView, Integer.valueOf(i), Boolean.valueOf(z)};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$actionMenuView = actionMenuView;
+                    this.val$targetMode = i;
+                    this.val$targetAttached = z;
+                }
+
+                @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+                public void onAnimationCancel(Animator animator) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, animator) == null) {
+                        this.cancelled = true;
+                    }
+                }
+
+                @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+                public void onAnimationEnd(Animator animator) {
+                    Interceptable interceptable2 = $ic;
+                    if ((interceptable2 != null && interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) != null) || this.cancelled) {
+                        return;
+                    }
+                    this.this$0.translateActionMenuView(this.val$actionMenuView, this.val$targetMode, this.val$targetAttached);
+                }
+            });
+            AnimatorSet animatorSet = new AnimatorSet();
+            animatorSet.setDuration(150L);
+            animatorSet.playSequentially(ofFloat2, ofFloat);
+            list.add(animatorSet);
+        } else if (actionMenuView.getAlpha() < 1.0f) {
+            list.add(ofFloat);
+        }
+    }
+
+    public int getActionMenuViewTranslationX(ActionMenuView actionMenuView, int i, boolean z) {
+        InterceptResult invokeCommon;
+        int i2;
+        int left;
+        int i3;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{actionMenuView, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            if (i != 1 || !z) {
+                return 0;
+            }
+            boolean isLayoutRtl = ViewUtils.isLayoutRtl(this);
+            if (isLayoutRtl) {
+                i2 = getMeasuredWidth();
+            } else {
+                i2 = 0;
+            }
+            for (int i4 = 0; i4 < getChildCount(); i4++) {
+                View childAt = getChildAt(i4);
+                if ((childAt.getLayoutParams() instanceof Toolbar.LayoutParams) && (((Toolbar.LayoutParams) childAt.getLayoutParams()).gravity & GravityCompat.RELATIVE_HORIZONTAL_GRAVITY_MASK) == 8388611) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                if (z2) {
+                    if (isLayoutRtl) {
+                        i2 = Math.min(i2, childAt.getLeft());
+                    } else {
+                        i2 = Math.max(i2, childAt.getRight());
+                    }
+                }
+            }
+            if (isLayoutRtl) {
+                left = actionMenuView.getRight();
+            } else {
+                left = actionMenuView.getLeft();
+            }
+            if (isLayoutRtl) {
+                i3 = this.rightInset;
+            } else {
+                i3 = -this.leftInset;
+            }
+            return i2 - (left + i3);
+        }
+        return invokeCommon.intValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    /* JADX WARN: Removed duplicated region for block: B:10:0x0022  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public View findDependentView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65576, this)) == null) {
+            if (!(getParent() instanceof CoordinatorLayout)) {
+                return null;
+            }
+            for (View view2 : ((CoordinatorLayout) getParent()).getDependents(this)) {
+                if ((view2 instanceof FloatingActionButton) || (view2 instanceof ExtendedFloatingActionButton)) {
+                    return view2;
+                }
+                while (r0.hasNext()) {
+                }
+            }
+            return null;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void setCutoutState() {
+        float f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65589, this) == null) {
+            getTopEdgeTreatment().setHorizontalOffset(getFabTranslationX());
+            View findDependentView = findDependentView();
+            MaterialShapeDrawable materialShapeDrawable = this.materialShapeDrawable;
+            if (this.fabAttached && isFabVisibleOrWillBeShown()) {
+                f = 1.0f;
+            } else {
+                f = 0.0f;
+            }
+            materialShapeDrawable.setInterpolation(f);
+            if (findDependentView != null) {
+                findDependentView.setTranslationY(getFabTranslationY());
+                findDependentView.setTranslationX(getFabTranslationX());
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.AttachedBehavior
+    public Behavior getBehavior() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.behavior == null) {
+                this.behavior = new Behavior();
+            }
+            return this.behavior;
+        }
+        return (Behavior) invokeV.objValue;
+    }
+
+    @Override // androidx.appcompat.widget.Toolbar, android.view.ViewGroup, android.view.View
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            super.onLayout(z, i, i2, i3, i4);
+            if (z) {
+                cancelAnimations();
+                setCutoutState();
+            }
+            setActionMenuViewPosition();
+        }
     }
 }

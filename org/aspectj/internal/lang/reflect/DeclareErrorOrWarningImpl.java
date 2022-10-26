@@ -44,37 +44,55 @@ public class DeclareErrorOrWarningImpl implements DeclareErrorOrWarning {
     public AjType getDeclaringType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.declaringType : (AjType) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.declaringType;
+        }
+        return (AjType) invokeV.objValue;
     }
 
     @Override // org.aspectj.lang.reflect.DeclareErrorOrWarning
     public String getMessage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.msg : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.msg;
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // org.aspectj.lang.reflect.DeclareErrorOrWarning
     public PointcutExpression getPointcutExpression() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.pc : (PointcutExpression) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.pc;
+        }
+        return (PointcutExpression) invokeV.objValue;
     }
 
     @Override // org.aspectj.lang.reflect.DeclareErrorOrWarning
     public boolean isError() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.isError : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.isError;
+        }
+        return invokeV.booleanValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             StringBuffer stringBuffer = new StringBuffer();
             stringBuffer.append("declare ");
-            stringBuffer.append(isError() ? "error : " : "warning : ");
+            if (isError()) {
+                str = "error : ";
+            } else {
+                str = "warning : ";
+            }
+            stringBuffer.append(str);
             stringBuffer.append(getPointcutExpression().asString());
             stringBuffer.append(ZeusCrashHandler.NAME_SEPERATOR);
             stringBuffer.append("\"");

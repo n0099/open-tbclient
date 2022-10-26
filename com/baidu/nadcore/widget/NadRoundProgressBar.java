@@ -1,6 +1,5 @@
 package com.baidu.nadcore.widget;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -12,8 +11,8 @@ import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.p61;
-import com.baidu.tieba.t21;
+import com.baidu.tieba.q61;
+import com.baidu.tieba.u21;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -61,6 +60,61 @@ public class NadRoundProgressBar extends View {
                 return;
             }
         }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public NadRoundProgressBar(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public NadRoundProgressBar(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.a = new Paint();
+        this.l = new RectF();
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, q61.NadRoundProgressBar);
+        this.b = obtainStyledAttributes.getColor(3, getResources().getColor(R.color.obfuscated_res_0x7f06085e));
+        this.c = obtainStyledAttributes.getColor(7, getResources().getColor(R.color.obfuscated_res_0x7f06085f));
+        this.d = obtainStyledAttributes.getColor(8, getResources().getColor(R.color.obfuscated_res_0x7f060860));
+        this.e = obtainStyledAttributes.getDimension(9, u21.c.a(getContext(), 11.0f));
+        this.f = obtainStyledAttributes.getDimension(4, u21.c.a(getContext(), 8.0f));
+        this.g = obtainStyledAttributes.getDimension(10, 5.0f);
+        this.h = obtainStyledAttributes.getInteger(5, 100);
+        this.j = obtainStyledAttributes.getBoolean(12, true);
+        this.k = obtainStyledAttributes.getInt(1, 0);
+        obtainStyledAttributes.recycle();
     }
 
     public synchronized int getMax() {
@@ -127,17 +181,20 @@ public class NadRoundProgressBar extends View {
             this.l.set(f2, f2, f3, f3);
             this.a.setStrokeCap(Paint.Cap.ROUND);
             int i3 = this.k;
-            if (i3 == 0) {
-                this.a.setStyle(Paint.Style.STROKE);
-                canvas.drawArc(this.l, -90.0f, (this.i * 360.0f) / this.h, false, this.a);
-            } else if (i3 != 1) {
-            } else {
-                this.a.setStyle(Paint.Style.FILL_AND_STROKE);
-                int i4 = this.i;
-                if (i4 != 0) {
-                    canvas.drawArc(this.l, -90.0f, (i4 * 360.0f) / this.h, true, this.a);
+            if (i3 != 0) {
+                if (i3 == 1) {
+                    this.a.setStyle(Paint.Style.FILL_AND_STROKE);
+                    int i4 = this.i;
+                    if (i4 != 0) {
+                        canvas.drawArc(this.l, -90.0f, (i4 * 360.0f) / this.h, true, this.a);
+                        return;
+                    }
+                    return;
                 }
+                return;
             }
+            this.a.setStyle(Paint.Style.STROKE);
+            canvas.drawArc(this.l, -90.0f, (this.i * 360.0f) / this.h, false, this.a);
         }
     }
 
@@ -201,61 +258,5 @@ public class NadRoundProgressBar extends View {
         if (interceptable == null || interceptable.invokeF(1048585, this, f) == null) {
             this.g = f;
         }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public NadRoundProgressBar(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    @SuppressLint({"PrivateResource"})
-    public NadRoundProgressBar(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.a = new Paint();
-        this.l = new RectF();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, p61.NadRoundProgressBar);
-        this.b = obtainStyledAttributes.getColor(3, getResources().getColor(R.color.obfuscated_res_0x7f06085e));
-        this.c = obtainStyledAttributes.getColor(7, getResources().getColor(R.color.obfuscated_res_0x7f06085f));
-        this.d = obtainStyledAttributes.getColor(8, getResources().getColor(R.color.obfuscated_res_0x7f060860));
-        this.e = obtainStyledAttributes.getDimension(9, t21.c.a(getContext(), 11.0f));
-        this.f = obtainStyledAttributes.getDimension(4, t21.c.a(getContext(), 8.0f));
-        this.g = obtainStyledAttributes.getDimension(10, 5.0f);
-        this.h = obtainStyledAttributes.getInteger(5, 100);
-        this.j = obtainStyledAttributes.getBoolean(12, true);
-        this.k = obtainStyledAttributes.getInt(1, 0);
-        obtainStyledAttributes.recycle();
     }
 }

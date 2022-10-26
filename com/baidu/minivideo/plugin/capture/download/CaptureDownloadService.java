@@ -31,8 +31,18 @@ public class CaptureDownloadService extends Service {
     public transient /* synthetic */ FieldHolder $fh;
     public DownloadManager mDownloadManager;
 
+    @Override // android.app.Service
+    public IBinder onBind(Intent intent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
+            return null;
+        }
+        return (IBinder) invokeL.objValue;
+    }
+
     /* loaded from: classes2.dex */
-    public static class ProgressCallback extends DownloadCallback {
+    public class ProgressCallback extends DownloadCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public RequestTask mAppInfo;
@@ -66,12 +76,12 @@ public class CaptureDownloadService extends Service {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i)) == null) {
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - this.mLastTime <= 300 || i == this.mLastProgress) {
-                    return false;
+                if (currentTimeMillis - this.mLastTime > 300 && i != this.mLastProgress) {
+                    this.mLastTime = currentTimeMillis;
+                    this.mLastProgress = i;
+                    return true;
                 }
-                this.mLastTime = currentTimeMillis;
-                this.mLastProgress = i;
-                return true;
+                return false;
             }
             return invokeI.booleanValue;
         }
@@ -99,6 +109,16 @@ public class CaptureDownloadService extends Service {
         }
 
         @Override // com.baidu.minivideo.plugin.capture.download.base.DownloadCallback
+        public void onFailed(DownloadException downloadException) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, downloadException) == null) {
+                downloadException.printStackTrace();
+                this.mAppInfo.setStatus(5);
+                sendBroadCast(this.mAppInfo);
+            }
+        }
+
+        @Override // com.baidu.minivideo.plugin.capture.download.base.DownloadCallback
         public void onDownloadCanceled() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -114,16 +134,6 @@ public class CaptureDownloadService extends Service {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this) == null) {
                 this.mAppInfo.setStatus(4);
-                sendBroadCast(this.mAppInfo);
-            }
-        }
-
-        @Override // com.baidu.minivideo.plugin.capture.download.base.DownloadCallback
-        public void onFailed(DownloadException downloadException) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, downloadException) == null) {
-                downloadException.printStackTrace();
-                this.mAppInfo.setStatus(5);
                 sendBroadCast(this.mAppInfo);
             }
         }
@@ -159,6 +169,38 @@ public class CaptureDownloadService extends Service {
         }
     }
 
+    private void cancelAll() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+            this.mDownloadManager.cancelAll();
+        }
+    }
+
+    private void pauseAll() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65545, this) == null) {
+            this.mDownloadManager.pauseAll();
+        }
+    }
+
+    @Override // android.app.Service
+    public void onCreate() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.onCreate();
+            this.mDownloadManager = DownloadManager.getInstance();
+        }
+    }
+
+    @Override // android.app.Service
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.onDestroy();
+            this.mDownloadManager.pauseAll();
+        }
+    }
+
     public static void cancel(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, context, str) == null) {
@@ -166,6 +208,23 @@ public class CaptureDownloadService extends Service {
             intent.setAction("com.baidu.ugc.download.ACTION_CANCEL");
             intent.putExtra("extra_tag", str);
             context.startService(intent);
+        }
+    }
+
+    public static void pause(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65543, null, context, str) == null) {
+            Intent intent = new Intent(context, CaptureDownloadService.class);
+            intent.setAction("com.baidu.ugc.download.ACTION_PAUSE");
+            intent.putExtra("extra_tag", str);
+            context.startService(intent);
+        }
+    }
+
+    private void cancel(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, this, str) == null) {
+            this.mDownloadManager.cancel(str);
         }
     }
 
@@ -185,20 +244,10 @@ public class CaptureDownloadService extends Service {
         }
     }
 
-    private void download(int i, RequestTask requestTask, String str) {
+    private void pause(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(65542, this, i, requestTask, str) == null) {
-            this.mDownloadManager.download(new DownloadRequest.Builder().setUri(requestTask.getUrl()).build(), str, new ProgressCallback(i, requestTask, getApplicationContext()));
-        }
-    }
-
-    public static void pause(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, null, context, str) == null) {
-            Intent intent = new Intent(context, CaptureDownloadService.class);
-            intent.setAction("com.baidu.ugc.download.ACTION_PAUSE");
-            intent.putExtra("extra_tag", str);
-            context.startService(intent);
+        if (interceptable == null || interceptable.invokeL(65544, this, str) == null) {
+            this.mDownloadManager.pause(str);
         }
     }
 
@@ -211,6 +260,13 @@ public class CaptureDownloadService extends Service {
         }
     }
 
+    private void download(int i, RequestTask requestTask, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(65542, this, i, requestTask, str) == null) {
+            this.mDownloadManager.download(new DownloadRequest.Builder().setUri(requestTask.getUrl()).build(), str, new ProgressCallback(i, requestTask, getApplicationContext()));
+        }
+    }
+
     public static void start(Context context, String str, RequestTask requestTask) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65548, null, context, str, requestTask) == null) {
@@ -218,31 +274,15 @@ public class CaptureDownloadService extends Service {
         }
     }
 
-    @Override // android.app.Service
-    public IBinder onBind(Intent intent) {
-        InterceptResult invokeL;
+    public static void start(Context context, int i, String str, RequestTask requestTask) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
-            return null;
-        }
-        return (IBinder) invokeL.objValue;
-    }
-
-    @Override // android.app.Service
-    public void onCreate() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.onCreate();
-            this.mDownloadManager = DownloadManager.getInstance();
-        }
-    }
-
-    @Override // android.app.Service
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.onDestroy();
-            this.mDownloadManager.pauseAll();
+        if (interceptable == null || interceptable.invokeLILL(65547, null, context, i, str, requestTask) == null) {
+            Intent intent = new Intent(context, CaptureDownloadService.class);
+            intent.setAction("com.baidu.ugc.download.ACTION_DOWNLOAD");
+            intent.putExtra("extra_position", i);
+            intent.putExtra("extra_tag", str);
+            intent.putExtra("extra_file_info", requestTask);
+            context.startService(intent);
         }
     }
 
@@ -299,60 +339,28 @@ public class CaptureDownloadService extends Service {
                         c = 65535;
                         break;
                 }
-                if (c == 0) {
+                if (c != 0) {
+                    if (c != 1) {
+                        if (c != 2) {
+                            if (c != 3) {
+                                if (c == 4) {
+                                    cancelAll();
+                                }
+                            } else {
+                                pauseAll();
+                            }
+                        } else {
+                            cancel(stringExtra);
+                        }
+                    } else {
+                        pause(stringExtra);
+                    }
+                } else {
                     download(intExtra, requestTask, stringExtra);
-                } else if (c == 1) {
-                    pause(stringExtra);
-                } else if (c == 2) {
-                    cancel(stringExtra);
-                } else if (c == 3) {
-                    pauseAll();
-                } else if (c == 4) {
-                    cancelAll();
                 }
             }
             return super.onStartCommand(intent, i, i2);
         }
         return invokeLII.intValue;
-    }
-
-    public static void start(Context context, int i, String str, RequestTask requestTask) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(65547, null, context, i, str, requestTask) == null) {
-            Intent intent = new Intent(context, CaptureDownloadService.class);
-            intent.setAction("com.baidu.ugc.download.ACTION_DOWNLOAD");
-            intent.putExtra("extra_position", i);
-            intent.putExtra("extra_tag", str);
-            intent.putExtra("extra_file_info", requestTask);
-            context.startService(intent);
-        }
-    }
-
-    private void cancelAll() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.mDownloadManager.cancelAll();
-        }
-    }
-
-    private void pauseAll() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65545, this) == null) {
-            this.mDownloadManager.pauseAll();
-        }
-    }
-
-    private void cancel(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, this, str) == null) {
-            this.mDownloadManager.cancel(str);
-        }
-    }
-
-    private void pause(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, this, str) == null) {
-            this.mDownloadManager.pause(str);
-        }
     }
 }

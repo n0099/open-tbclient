@@ -1,71 +1,145 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
 import androidx.core.view.InputDeviceCompat;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.xiaomi.mipush.sdk.MiPushClient;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payservice.impl.H5PayConstant;
-import tv.athena.revenue.payui.view.AbsPayMessageReceiver;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.PaysSettingInfo;
+import tv.athena.revenue.payui.model.PayUIKitConfig;
+import tv.athena.revenue.payui.model.ThemeColorConfig;
 /* loaded from: classes4.dex */
 public class g5a {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static PaysSettingInfo a = null;
+    public static String b = "https://web.yy.com/yy_wallet/pay-protocol.html?";
+    public static String c = "https://web.yy.com/yy_wallet/wallet.html?";
+    public static String d = "https://web.yy.com/yy_wallet/pay-success.html?&orderId=${orderId}";
+    public static String e = "https://web.yy.com/yy_wallet/help-faq.html?";
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, context) == null) {
-            long nanoTime = System.nanoTime();
-            Intent intent = new Intent("tv.athena.revenue.payui.release_all_pay_flow_ui_action");
-            intent.putExtra(H5PayConstant.EXTRA_PAY_FLOW_VIEW_RELEASE_NANO_TIME, nanoTime);
-            RLog.info("PayMessageHelper", "notifyReleaseAllPayFlowView releaseNanoTime:" + nanoTime);
-            LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947746294, "Lcom/baidu/tieba/g5a;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947746294, "Lcom/baidu/tieba/g5a;");
         }
     }
 
-    public static void b(Context context) {
+    public static String a(String str, PayUIKitConfig payUIKitConfig) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
-            long nanoTime = System.nanoTime();
-            Intent intent = new Intent("tv.athena.revenue.payui.release_all_pay_dialog_flow_ui_action");
-            intent.putExtra(H5PayConstant.EXTRA_PAY_FLOW_VIEW_RELEASE_NANO_TIME, nanoTime);
-            RLog.info("PayMessageHelper", "notifyReleaseDialogPayFlowView releaseNanoTime:" + nanoTime);
-            LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, payUIKitConfig)) == null) {
+            if (payUIKitConfig != null && payUIKitConfig.revenueConfig != null) {
+                StringBuilder sb = new StringBuilder(str);
+                sb.append("&uid=" + payUIKitConfig.revenueConfig.getUid());
+                sb.append("&hostId=" + payUIKitConfig.revenueConfig.getHostId());
+                sb.append("&appid=" + payUIKitConfig.revenueConfig.getAppId());
+                sb.append("&usedChannel=" + payUIKitConfig.revenueConfig.getUseChannel());
+                sb.append("&authType=" + payUIKitConfig.revenueConfig.getAuthType());
+                sb.append("&clientVersion=" + payUIKitConfig.revenueConfig.getVersion());
+                sb.append("&sdkVersion=4.3.30-bdpay-fix.2-SNAPSHOT");
+                int i = 0;
+                ThemeColorConfig themeColorConfig = payUIKitConfig.themeColorConfig;
+                if (themeColorConfig != null && themeColorConfig.getThemeResId().intValue() == R.style.obfuscated_res_0x7f100154) {
+                    i = 1;
+                }
+                sb.append("&theme=" + i);
+                return sb.toString();
+            }
+            return str;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String b(PayUIKitConfig payUIKitConfig) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, payUIKitConfig)) == null) {
+            if (payUIKitConfig != null && payUIKitConfig.revenueConfig != null) {
+                return a(d, payUIKitConfig);
+            }
+            return d;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(PayUIKitConfig payUIKitConfig) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, payUIKitConfig)) == null) {
+            if (payUIKitConfig != null && payUIKitConfig.revenueConfig != null) {
+                return a(e, payUIKitConfig);
+            }
+            return e;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String e(PayUIKitConfig payUIKitConfig) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, payUIKitConfig)) == null) {
+            if (payUIKitConfig != null && payUIKitConfig.revenueConfig != null) {
+                return a(c, payUIKitConfig);
+            }
+            return c;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String f(PayUIKitConfig payUIKitConfig) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, payUIKitConfig)) == null) {
+            if (payUIKitConfig == null && payUIKitConfig.revenueConfig == null) {
+                return b;
+            }
+            return a(b, payUIKitConfig);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static PaysSettingInfo d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return a;
+        }
+        return (PaysSettingInfo) invokeV.objValue;
+    }
+
+    public static void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65543, null, z) == null) {
+            if (z) {
+                b = "https://webtest.yy.com/yy_wallet/pay-protocol.html?";
+                c = "https://webtest.yy.com/yy_wallet/wallet.html?";
+                d = "https://webtest.yy.com/yy_wallet/pay-success.html?&orderId=${orderId}";
+                e = "https://webtest.yy.com/yy_wallet/help-faq.html?";
+                return;
+            }
+            b = "https://web.yy.com/yy_wallet/pay-protocol.html?";
+            c = "https://web.yy.com/yy_wallet/wallet.html?";
+            d = "https://web.yy.com/yy_wallet/pay-success.html?&orderId=${orderId}";
+            e = "https://web.yy.com/yy_wallet/help-faq.html?";
         }
     }
 
-    public static void c(Context context) {
+    public static void h(PaysSettingInfo paysSettingInfo, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
-            long nanoTime = System.nanoTime();
-            Intent intent = new Intent("tv.athena.revenue.payui.release_all_pay_wallet_flow_ui_action");
-            intent.putExtra(H5PayConstant.EXTRA_PAY_FLOW_VIEW_RELEASE_NANO_TIME, nanoTime);
-            RLog.info("PayMessageHelper", "notifyReleaseWalletPayFlowView releaseNanoTime:" + nanoTime);
-            LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
-        }
-    }
-
-    public static void d(Context context, AbsPayMessageReceiver absPayMessageReceiver) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, context, absPayMessageReceiver) == null) {
-            RLog.info("PayMessageHelper", MiPushClient.COMMAND_REGISTER);
-            IntentFilter intentFilter = new IntentFilter();
-            intentFilter.addAction("tv.athena.revenue.payui.release_all_pay_flow_ui_action");
-            intentFilter.addAction("tv.athena.revenue.payui.release_all_pay_dialog_flow_ui_action");
-            intentFilter.addAction("tv.athena.revenue.payui.release_all_pay_wallet_flow_ui_action");
-            LocalBroadcastManager.getInstance(context).registerReceiver(absPayMessageReceiver, intentFilter);
-        }
-    }
-
-    public static void e(Context context, AbsPayMessageReceiver absPayMessageReceiver) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, absPayMessageReceiver) == null) {
-            RLog.info("PayMessageHelper", MiPushClient.COMMAND_UNREGISTER);
-            LocalBroadcastManager.getInstance(context).unregisterReceiver(absPayMessageReceiver);
+        if (interceptable == null || interceptable.invokeLL(65544, null, paysSettingInfo, str) == null) {
+            RLog.info("PaySettingConfig", "setPaysSettingInfo info:" + paysSettingInfo + " from:" + str);
+            a = paysSettingInfo;
         }
     }
 }

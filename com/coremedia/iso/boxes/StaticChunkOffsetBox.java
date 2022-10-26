@@ -59,6 +59,27 @@ public class StaticChunkOffsetBox extends ChunkOffsetBox {
         this.chunkOffsets = new long[0];
     }
 
+    @Override // com.coremedia.iso.boxes.ChunkOffsetBox
+    public long[] getChunkOffsets() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
+            return this.chunkOffsets;
+        }
+        return (long[]) invokeV.objValue;
+    }
+
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public long getContentSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return (this.chunkOffsets.length * 4) + 8;
+        }
+        return invokeV.longValue;
+    }
+
     public static /* synthetic */ void ajc$preClinit() {
         Factory factory = new Factory("StaticChunkOffsetBox.java", StaticChunkOffsetBox.class);
         ajc$tjp_0 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getChunkOffsets", "com.coremedia.iso.boxes.StaticChunkOffsetBox", "", "", "", "[J"), 39);
@@ -78,17 +99,6 @@ public class StaticChunkOffsetBox extends ChunkOffsetBox {
         }
     }
 
-    @Override // com.coremedia.iso.boxes.ChunkOffsetBox
-    public long[] getChunkOffsets() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
-            return this.chunkOffsets;
-        }
-        return (long[]) invokeV.objValue;
-    }
-
     @Override // com.googlecode.mp4parser.AbstractBox
     public void getContent(ByteBuffer byteBuffer) {
         Interceptable interceptable = $ic;
@@ -99,13 +109,6 @@ public class StaticChunkOffsetBox extends ChunkOffsetBox {
                 IsoTypeWriter.writeUInt32(byteBuffer, j);
             }
         }
-    }
-
-    @Override // com.googlecode.mp4parser.AbstractBox
-    public long getContentSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.chunkOffsets.length * 4) + 8 : invokeV.longValue;
     }
 
     public void setChunkOffsets(long[] jArr) {

@@ -17,6 +17,17 @@ public abstract class OneDimensionalCodeWriter implements Writer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract boolean[] encode(String str);
+
+    public int getDefaultMargin() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return 10;
+        }
+        return invokeV.intValue;
+    }
+
     public OneDimensionalCodeWriter() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -79,36 +90,28 @@ public abstract class OneDimensionalCodeWriter implements Writer {
     public final BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2) throws WriterException {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048576, this, str, barcodeFormat, i, i2)) == null) ? encode(str, barcodeFormat, i, i2, null) : (BitMatrix) invokeLLII.objValue;
-    }
-
-    public abstract boolean[] encode(String str);
-
-    public int getDefaultMargin() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return 10;
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048576, this, str, barcodeFormat, i, i2)) == null) {
+            return encode(str, barcodeFormat, i, i2, null);
         }
-        return invokeV.intValue;
+        return (BitMatrix) invokeLLII.objValue;
     }
 
     @Override // com.google.zxing.Writer
-    public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2, Map<EncodeHintType, ?> map) throws WriterException {
+    public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2, Map map) throws WriterException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, barcodeFormat, Integer.valueOf(i), Integer.valueOf(i2), map})) == null) {
-            if (str.isEmpty()) {
-                throw new IllegalArgumentException("Found empty contents");
-            }
-            if (i >= 0 && i2 >= 0) {
-                int defaultMargin = getDefaultMargin();
-                if (map != null && map.containsKey(EncodeHintType.MARGIN)) {
-                    defaultMargin = Integer.parseInt(map.get(EncodeHintType.MARGIN).toString());
+            if (!str.isEmpty()) {
+                if (i >= 0 && i2 >= 0) {
+                    int defaultMargin = getDefaultMargin();
+                    if (map != null && map.containsKey(EncodeHintType.MARGIN)) {
+                        defaultMargin = Integer.parseInt(map.get(EncodeHintType.MARGIN).toString());
+                    }
+                    return renderResult(encode(str), i, i2, defaultMargin);
                 }
-                return renderResult(encode(str), i, i2, defaultMargin);
+                throw new IllegalArgumentException("Negative size is not allowed. Input: " + i + 'x' + i2);
             }
-            throw new IllegalArgumentException("Negative size is not allowed. Input: " + i + 'x' + i2);
+            throw new IllegalArgumentException("Found empty contents");
         }
         return (BitMatrix) invokeCommon.objValue;
     }

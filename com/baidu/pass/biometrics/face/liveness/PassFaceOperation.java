@@ -16,7 +16,7 @@ public class PassFaceOperation implements PassBiometricOperation {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class OperationType {
+    public final class OperationType {
         public static /* synthetic */ Interceptable $ic;
         public static final OperationType RECOGNIZE;
         public static final /* synthetic */ OperationType[] a;
@@ -39,6 +39,15 @@ public class PassFaceOperation implements PassBiometricOperation {
             OperationType operationType = new OperationType("RECOGNIZE", 0, "RECOGNIZE");
             RECOGNIZE = operationType;
             a = new OperationType[]{operationType};
+        }
+
+        public static OperationType[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (OperationType[]) a.clone();
+            }
+            return (OperationType[]) invokeV.objValue;
         }
 
         public OperationType(String str, int i, String str2) {
@@ -65,13 +74,10 @@ public class PassFaceOperation implements PassBiometricOperation {
         public static OperationType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (OperationType) Enum.valueOf(OperationType.class, str) : (OperationType) invokeL.objValue;
-        }
-
-        public static OperationType[] values() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (OperationType[]) a.clone() : (OperationType[]) invokeV.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (OperationType) Enum.valueOf(OperationType.class, str);
+            }
+            return (OperationType) invokeL.objValue;
         }
     }
 

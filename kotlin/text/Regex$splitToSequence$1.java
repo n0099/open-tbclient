@@ -40,10 +40,9 @@ public final class Regex$splitToSequence$1 extends RestrictedSuspendLambda imple
         return regex$splitToSequence$1;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
     @Override // kotlin.jvm.functions.Function2
-    public final Object invoke(SequenceScope<? super String> sequenceScope, Continuation<? super Unit> continuation) {
-        return ((Regex$splitToSequence$1) create(sequenceScope, continuation)).invokeSuspend(Unit.INSTANCE);
+    public final Object invoke(Object obj, Object obj2) {
+        return ((Regex$splitToSequence$1) create(obj, (Continuation) obj2)).invokeSuspend(Unit.INSTANCE);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:20:0x0072 A[RETURN] */
@@ -64,7 +63,56 @@ public final class Regex$splitToSequence$1 extends RestrictedSuspendLambda imple
         String obj3;
         Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
         int i2 = this.label;
-        if (i2 == 0) {
+        if (i2 != 0) {
+            if (i2 != 1) {
+                if (i2 != 2) {
+                    if (i2 == 3) {
+                        ResultKt.throwOnFailure(obj);
+                        return Unit.INSTANCE;
+                    }
+                    throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
+                }
+                i = this.I$0;
+                matcher = (Matcher) this.L$1;
+                sequenceScope = (SequenceScope) this.L$0;
+                ResultKt.throwOnFailure(obj);
+                regex$splitToSequence$1 = this;
+                r11 = matcher.end();
+                i++;
+                if (i != regex$splitToSequence$1.$limit - 1 || !matcher.find()) {
+                    CharSequence charSequence = regex$splitToSequence$1.$input;
+                    obj3 = charSequence.subSequence(r11, charSequence.length()).toString();
+                    regex$splitToSequence$1.L$0 = null;
+                    regex$splitToSequence$1.L$1 = null;
+                    regex$splitToSequence$1.label = 3;
+                    if (sequenceScope.yield(obj3, regex$splitToSequence$1) == coroutine_suspended) {
+                        return coroutine_suspended;
+                    }
+                    return Unit.INSTANCE;
+                }
+                obj2 = regex$splitToSequence$1.$input.subSequence(r11, matcher.start()).toString();
+                regex$splitToSequence$1.L$0 = sequenceScope;
+                regex$splitToSequence$1.L$1 = matcher;
+                regex$splitToSequence$1.I$0 = i;
+                regex$splitToSequence$1.label = 2;
+                if (sequenceScope.yield(obj2, regex$splitToSequence$1) == coroutine_suspended) {
+                    return coroutine_suspended;
+                }
+                r11 = matcher.end();
+                i++;
+                if (i != regex$splitToSequence$1.$limit - 1) {
+                }
+                CharSequence charSequence2 = regex$splitToSequence$1.$input;
+                obj3 = charSequence2.subSequence(r11, charSequence2.length()).toString();
+                regex$splitToSequence$1.L$0 = null;
+                regex$splitToSequence$1.L$1 = null;
+                regex$splitToSequence$1.label = 3;
+                if (sequenceScope.yield(obj3, regex$splitToSequence$1) == coroutine_suspended) {
+                }
+                return Unit.INSTANCE;
+            }
+            ResultKt.throwOnFailure(obj);
+        } else {
             ResultKt.throwOnFailure(obj);
             SequenceScope sequenceScope2 = (SequenceScope) this.L$0;
             pattern = this.this$0.nativePattern;
@@ -86,8 +134,8 @@ public final class Regex$splitToSequence$1 extends RestrictedSuspendLambda imple
                 i++;
                 if (i != regex$splitToSequence$1.$limit - 1) {
                 }
-                CharSequence charSequence = regex$splitToSequence$1.$input;
-                obj3 = charSequence.subSequence(i3, charSequence.length()).toString();
+                CharSequence charSequence22 = regex$splitToSequence$1.$input;
+                obj3 = charSequence22.subSequence(i3, charSequence22.length()).toString();
                 regex$splitToSequence$1.L$0 = null;
                 regex$splitToSequence$1.L$1 = null;
                 regex$splitToSequence$1.label = 3;
@@ -100,54 +148,6 @@ public final class Regex$splitToSequence$1 extends RestrictedSuspendLambda imple
             if (sequenceScope2.yield(obj4, this) == coroutine_suspended) {
                 return coroutine_suspended;
             }
-        } else if (i2 != 1) {
-            if (i2 != 2) {
-                if (i2 != 3) {
-                    throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
-                }
-                ResultKt.throwOnFailure(obj);
-                return Unit.INSTANCE;
-            }
-            i = this.I$0;
-            matcher = (Matcher) this.L$1;
-            sequenceScope = (SequenceScope) this.L$0;
-            ResultKt.throwOnFailure(obj);
-            regex$splitToSequence$1 = this;
-            i3 = matcher.end();
-            i++;
-            if (i != regex$splitToSequence$1.$limit - 1 || !matcher.find()) {
-                CharSequence charSequence2 = regex$splitToSequence$1.$input;
-                obj3 = charSequence2.subSequence(i3, charSequence2.length()).toString();
-                regex$splitToSequence$1.L$0 = null;
-                regex$splitToSequence$1.L$1 = null;
-                regex$splitToSequence$1.label = 3;
-                if (sequenceScope.yield(obj3, regex$splitToSequence$1) == coroutine_suspended) {
-                    return coroutine_suspended;
-                }
-                return Unit.INSTANCE;
-            }
-            obj2 = regex$splitToSequence$1.$input.subSequence(i3, matcher.start()).toString();
-            regex$splitToSequence$1.L$0 = sequenceScope;
-            regex$splitToSequence$1.L$1 = matcher;
-            regex$splitToSequence$1.I$0 = i;
-            regex$splitToSequence$1.label = 2;
-            if (sequenceScope.yield(obj2, regex$splitToSequence$1) == coroutine_suspended) {
-                return coroutine_suspended;
-            }
-            i3 = matcher.end();
-            i++;
-            if (i != regex$splitToSequence$1.$limit - 1) {
-            }
-            CharSequence charSequence22 = regex$splitToSequence$1.$input;
-            obj3 = charSequence22.subSequence(i3, charSequence22.length()).toString();
-            regex$splitToSequence$1.L$0 = null;
-            regex$splitToSequence$1.L$1 = null;
-            regex$splitToSequence$1.label = 3;
-            if (sequenceScope.yield(obj3, regex$splitToSequence$1) == coroutine_suspended) {
-            }
-            return Unit.INSTANCE;
-        } else {
-            ResultKt.throwOnFailure(obj);
         }
         return Unit.INSTANCE;
     }

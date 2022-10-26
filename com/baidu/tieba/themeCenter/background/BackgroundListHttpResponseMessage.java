@@ -3,7 +3,7 @@ package com.baidu.tieba.themeCenter.background;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.st8;
+import com.baidu.tieba.cu8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,9 +21,9 @@ public class BackgroundListHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean hasMore;
-    public List<DressItemData> mBackgroundList;
+    public List mBackgroundList;
     public int mIsDefault;
-    public st8 mRecommand;
+    public cu8 mRecommand;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BackgroundListHttpResponseMessage(int i) {
@@ -47,42 +47,12 @@ public class BackgroundListHttpResponseMessage extends TbHttpResponsedMessage {
         this.mIsDefault = 0;
     }
 
-    public List<DressItemData> getBackgroundList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mBackgroundList : (List) invokeV.objValue;
-    }
-
-    public boolean getIsDefault() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mIsDefault == 1 : invokeV.booleanValue;
-    }
-
-    public st8 getRecommand() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mRecommand : (st8) invokeV.objValue;
-    }
-
-    public boolean hasMore() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.hasMore : invokeV.booleanValue;
-    }
-
-    public void setIsDefault(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.mIsDefault = z ? 1 : 0;
-        }
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
+            boolean z = false;
             GetBgListResIdl getBgListResIdl = (GetBgListResIdl) new Wire(new Class[0]).parseFrom(bArr, GetBgListResIdl.class);
             if (getBgListResIdl == null) {
                 return;
@@ -95,9 +65,9 @@ public class BackgroundListHttpResponseMessage extends TbHttpResponsedMessage {
             DataRes dataRes = getBgListResIdl.data;
             if (dataRes != null) {
                 if (dataRes.recommend != null) {
-                    st8 st8Var = new st8();
-                    this.mRecommand = st8Var;
-                    st8Var.d(getBgListResIdl.data.recommend);
+                    cu8 cu8Var = new cu8();
+                    this.mRecommand = cu8Var;
+                    cu8Var.d(getBgListResIdl.data.recommend);
                 }
                 this.mIsDefault = getBgListResIdl.data.is_default.intValue();
                 if (getBgListResIdl.data.bgs != null) {
@@ -108,8 +78,57 @@ public class BackgroundListHttpResponseMessage extends TbHttpResponsedMessage {
                         }
                     }
                 }
-                this.hasMore = getBgListResIdl.data.hasmore.intValue() == 1;
+                if (getBgListResIdl.data.hasmore.intValue() == 1) {
+                    z = true;
+                }
+                this.hasMore = z;
             }
+        }
+    }
+
+    public List getBackgroundList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mBackgroundList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public boolean getIsDefault() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.mIsDefault == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public cu8 getRecommand() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mRecommand;
+        }
+        return (cu8) invokeV.objValue;
+    }
+
+    public boolean hasMore() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.hasMore;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void setIsDefault(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.mIsDefault = z ? 1 : 0;
         }
     }
 }

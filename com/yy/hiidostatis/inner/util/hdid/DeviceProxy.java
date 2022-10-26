@@ -30,55 +30,82 @@ public class DeviceProxy {
     public static String getAndroidId(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? getDevice(context).arid : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            return getDevice(context).arid;
+        }
+        return (String) invokeL.objValue;
     }
 
     public static long getCreateTime(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? getDevice(context).crtTime : invokeL.longValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            return getDevice(context).crtTime;
+        }
+        return invokeL.longValue;
     }
 
     public static Device getDevice(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? DeviceManagerV2.instance.getDevice(context) : (Device) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            return DeviceManagerV2.instance.getDevice(context);
+        }
+        return (Device) invokeL.objValue;
     }
 
     public static int getHFrom(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? getDevice(context).hFrom : invokeL.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            return getDevice(context).hFrom;
+        }
+        return invokeL.intValue;
     }
 
     public static String getHdid(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? getDevice(context).hdid : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            return getDevice(context).hdid;
+        }
+        return (String) invokeL.objValue;
     }
 
     public static String getImei(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) ? getDevice(context).imei : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
+            return getDevice(context).imei;
+        }
+        return (String) invokeL.objValue;
     }
 
     public static String getMac(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) ? getDevice(context).mac : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+            return getDevice(context).mac;
+        }
+        return (String) invokeL.objValue;
     }
 
     public static String getSdPermission(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) ? getDevice(context).sdPermission : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
+            return getDevice(context).sdPermission;
+        }
+        return (String) invokeL.objValue;
     }
 
     public static String getType(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) ? getDevice(context).type : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
+            return getDevice(context).type;
+        }
+        return (String) invokeL.objValue;
     }
 
     public static void test(Context context) {

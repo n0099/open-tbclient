@@ -9,59 +9,47 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
-import androidx.annotation.Keep;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.kwad.sdk.api.core.KsAdSdkDynamicApi;
 @KsAdSdkDynamicApi
-@Keep
 /* loaded from: classes7.dex */
 public abstract class IActivityProxy implements IComponentProxy {
     public Activity mActivity;
 
     @KsAdSdkDynamicApi
-    @Keep
-    public <T extends View> T findViewById(int i) {
-        return (T) this.mActivity.findViewById(i);
+    public View findViewById(int i) {
+        return this.mActivity.findViewById(i);
     }
 
     @KsAdSdkDynamicApi
-    @Keep
     public void finish() {
         this.mActivity.finish();
     }
 
     @KsAdSdkDynamicApi
-    @Keep
     @Deprecated
     public Activity getActivity() {
         return this.mActivity;
     }
 
     @KsAdSdkDynamicApi
-    @Keep
     public Intent getIntent() {
         return this.mActivity.getIntent();
     }
 
     @KsAdSdkDynamicApi
-    @Keep
     public Window getWindow() {
         return this.mActivity.getWindow();
     }
 
     @KsAdSdkDynamicApi
-    @Keep
     public void onActivityResult(int i, int i2, Intent intent) {
     }
 
     @KsAdSdkDynamicApi
-    @Keep
     public void onApplyThemeResource(Resources.Theme theme, int i, boolean z) {
     }
 
     @KsAdSdkDynamicApi
-    @Keep
     public void onBackPressed() {
         Activity activity = this.mActivity;
         if (activity instanceof BaseProxyActivity) {
@@ -80,27 +68,22 @@ public abstract class IActivityProxy implements IComponentProxy {
     }
 
     @KsAdSdkDynamicApi
-    @Keep
     public void onChildTitleChanged(Activity activity, CharSequence charSequence) {
     }
 
     @KsAdSdkDynamicApi
-    @Keep
     public void onConfigurationChanged(Configuration configuration) {
     }
 
     @KsAdSdkDynamicApi
-    @Keep
-    public void onCreate(@Nullable Bundle bundle) {
+    public void onCreate(Bundle bundle) {
     }
 
     @KsAdSdkDynamicApi
-    @Keep
     public void onDestroy() {
     }
 
     @KsAdSdkDynamicApi
-    @Keep
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         Activity activity = this.mActivity;
         if (activity instanceof BaseProxyActivity) {
@@ -113,7 +96,6 @@ public abstract class IActivityProxy implements IComponentProxy {
     }
 
     @KsAdSdkDynamicApi
-    @Keep
     public boolean onKeyLongPress(int i, KeyEvent keyEvent) {
         Activity activity = this.mActivity;
         if (activity instanceof BaseProxyActivity) {
@@ -126,7 +108,6 @@ public abstract class IActivityProxy implements IComponentProxy {
     }
 
     @KsAdSdkDynamicApi
-    @Keep
     public boolean onKeyUp(int i, KeyEvent keyEvent) {
         Activity activity = this.mActivity;
         if (activity instanceof BaseProxyActivity) {
@@ -139,102 +120,82 @@ public abstract class IActivityProxy implements IComponentProxy {
     }
 
     @KsAdSdkDynamicApi
-    @Keep
     public void onNewIntent(Intent intent) {
     }
 
     @KsAdSdkDynamicApi
-    @Keep
     public void onPause() {
     }
 
     @KsAdSdkDynamicApi
-    @Keep
-    public void onPostCreate(@Nullable Bundle bundle) {
+    public void onPostCreate(Bundle bundle) {
     }
 
     @KsAdSdkDynamicApi
-    @Keep
     public void onPostResume() {
     }
 
     @KsAdSdkDynamicApi
-    @Keep
-    public void onPreCreate(@Nullable Bundle bundle) {
+    public void onPreCreate(Bundle bundle) {
     }
 
     @KsAdSdkDynamicApi
-    @Keep
     public void onPreDestroy() {
     }
 
     @KsAdSdkDynamicApi
-    @Keep
     public void onPrePause() {
     }
 
     @KsAdSdkDynamicApi
-    @Keep
     public void onPreResume() {
     }
 
     @KsAdSdkDynamicApi
-    @Keep
-    public void onPreSaveInstanceState(@NonNull Bundle bundle) {
+    public void onPreSaveInstanceState(Bundle bundle) {
     }
 
     @KsAdSdkDynamicApi
-    @Keep
     public void onPreStart() {
     }
 
     @KsAdSdkDynamicApi
-    @Keep
     public void onPreStop() {
     }
 
     @KsAdSdkDynamicApi
-    @Keep
     public void onRestart() {
     }
 
     @KsAdSdkDynamicApi
-    @Keep
     public void onRestoreInstanceState(Bundle bundle) {
     }
 
     @KsAdSdkDynamicApi
-    @Keep
     public void onResume() {
     }
 
     @KsAdSdkDynamicApi
-    @Keep
     public void onSaveInstanceState(Bundle bundle) {
     }
 
     @KsAdSdkDynamicApi
-    @Keep
     public void onStart() {
     }
 
     @KsAdSdkDynamicApi
-    @Keep
     public void onStop() {
     }
 
     @KsAdSdkDynamicApi
-    @Keep
     public void onTitleChanged(CharSequence charSequence, int i) {
     }
 
     @KsAdSdkDynamicApi
-    @Keep
     public void onUserLeaveHint() {
     }
 
     @KsAdSdkDynamicApi
-    @Keep
     public void overridePendingTransition(int i, int i2) {
         this.mActivity.overridePendingTransition(i, i2);
     }
@@ -244,19 +205,16 @@ public abstract class IActivityProxy implements IComponentProxy {
     }
 
     @KsAdSdkDynamicApi
-    @Keep
     public void setContentView(int i) {
         this.mActivity.setContentView(i);
     }
 
     @KsAdSdkDynamicApi
-    @Keep
     public void setContentView(View view2) {
         this.mActivity.setContentView(view2);
     }
 
     @KsAdSdkDynamicApi
-    @Keep
     public void setContentView(View view2, ViewGroup.LayoutParams layoutParams) {
         this.mActivity.setContentView(view2, layoutParams);
     }

@@ -3,8 +3,6 @@ package androidx.vectordrawable.graphics.drawable;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Animatable2;
 import android.graphics.drawable.Drawable;
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,12 +11,29 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public interface Animatable2Compat extends Animatable {
+    void clearAnimationCallbacks();
+
+    void registerAnimationCallback(AnimationCallback animationCallback);
+
+    boolean unregisterAnimationCallback(AnimationCallback animationCallback);
 
     /* loaded from: classes.dex */
     public static abstract class AnimationCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Animatable2.AnimationCallback mPlatformCallback;
+
+        public void onAnimationEnd(Drawable drawable) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, drawable) == null) {
+            }
+        }
+
+        public void onAnimationStart(Drawable drawable) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, drawable) == null) {
+            }
+        }
 
         public AnimationCallback() {
             Interceptable interceptable = $ic;
@@ -34,7 +49,6 @@ public interface Animatable2Compat extends Animatable {
             }
         }
 
-        @RequiresApi(23)
         public Animatable2.AnimationCallback getPlatformCallback() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -84,23 +98,5 @@ public interface Animatable2Compat extends Animatable {
             }
             return (Animatable2.AnimationCallback) invokeV.objValue;
         }
-
-        public void onAnimationEnd(Drawable drawable) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, drawable) == null) {
-            }
-        }
-
-        public void onAnimationStart(Drawable drawable) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, drawable) == null) {
-            }
-        }
     }
-
-    void clearAnimationCallbacks();
-
-    void registerAnimationCallback(@NonNull AnimationCallback animationCallback);
-
-    boolean unregisterAnimationCallback(@NonNull AnimationCallback animationCallback);
 }

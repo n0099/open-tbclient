@@ -1,6 +1,5 @@
 package com.ss.android.socialbase.downloader.f;
 
-import androidx.annotation.NonNull;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class n {
@@ -11,20 +10,47 @@ public class n {
         this.a = jSONObject;
     }
 
+    public static n a(JSONObject jSONObject) {
+        return new n(jSONObject);
+    }
+
+    private int b(int i) {
+        int optInt = this.a.optInt("thread_count", 4);
+        if (optInt > 16) {
+            optInt = 16;
+        }
+        if (optInt <= 0) {
+            if (p() <= 0) {
+                return 1;
+            }
+            return i;
+        } else if (p() == 1) {
+            return Math.min(optInt, i);
+        } else {
+            return optInt;
+        }
+    }
+
     private int p() {
         return this.a.optInt("url_balance", 2);
     }
 
-    public void a(int i) {
-        this.b = b(i);
+    public int a() {
+        return this.b;
     }
 
     public boolean b() {
-        return p() > 0;
+        if (p() > 0) {
+            return true;
+        }
+        return false;
     }
 
     public boolean c() {
-        return p() == 1;
+        if (p() == 1) {
+            return true;
+        }
+        return false;
     }
 
     public int d() {
@@ -36,7 +62,10 @@ public class n {
     }
 
     public boolean f() {
-        return this.a.optInt("segment_mode", 1) == 0;
+        if (this.a.optInt("segment_mode", 1) == 0) {
+            return true;
+        }
+        return false;
     }
 
     public long g() {
@@ -95,26 +124,7 @@ public class n {
         return Math.min(Math.max(0.0f, (float) this.a.optDouble("poor_speed_ratio", 0.0d)), 1.0f);
     }
 
-    private int b(int i) {
-        int optInt = this.a.optInt("thread_count", 4);
-        if (optInt > 16) {
-            optInt = 16;
-        }
-        if (optInt > 0) {
-            return p() == 1 ? Math.min(optInt, i) : optInt;
-        } else if (p() > 0) {
-            return i;
-        } else {
-            return 1;
-        }
-    }
-
-    public int a() {
-        return this.b;
-    }
-
-    @NonNull
-    public static n a(@NonNull JSONObject jSONObject) {
-        return new n(jSONObject);
+    public void a(int i) {
+        this.b = b(i);
     }
 }

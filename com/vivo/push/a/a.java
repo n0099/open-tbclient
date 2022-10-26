@@ -21,36 +21,6 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Context context, String str, o oVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, context, str, oVar) == null) {
-            boolean c = oVar.c();
-            b a = b.a(context, c ? "com.vivo.vms.upstageservice" : "com.vivo.vms.aidlservice");
-            boolean a2 = a.a();
-            if (TextUtils.isEmpty(oVar.a())) {
-                oVar.a(context.getPackageName());
-            }
-            if (a2 && !"com.vivo.pushservice".equals(context.getPackageName())) {
-                com.vivo.push.a aVar = new com.vivo.push.a(oVar.a(), str, new Bundle());
-                oVar.a(aVar);
-                if (a.a(aVar.b())) {
-                    return;
-                }
-                p.b("CommandBridge", "send command error by aidl");
-                p.c(context, "send command error by aidl");
-            }
-            Intent intent = new Intent("com.vivo.pushservice.action.METHOD");
-            intent.setPackage(str);
-            intent.setClassName(str, c ? "com.vivo.push.sdk.service.UpstageService" : "com.vivo.push.sdk.service.PushService");
-            oVar.a(intent);
-            try {
-                a(context, intent);
-            } catch (Exception e) {
-                p.a("CommandBridge", "CommandBridge startService exception: ", e);
-            }
-        }
-    }
-
     public static void a(Context context, Intent intent) throws Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65536, null, context, intent) == null) {
@@ -71,11 +41,17 @@ public final class a {
     }
 
     public static void a(Context context, o oVar, String str) {
+        String str2;
+        String str3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65537, null, context, oVar, str) == null) {
             try {
                 boolean d = t.d(context, str);
-                String str2 = d ? "com.vivo.pushservice.action.RECEIVE" : "com.vivo.pushclient.action.RECEIVE";
+                if (d) {
+                    str2 = "com.vivo.pushservice.action.RECEIVE";
+                } else {
+                    str2 = "com.vivo.pushclient.action.RECEIVE";
+                }
                 if (!TextUtils.isEmpty(str)) {
                     if (d || a(context, str2, str)) {
                         if (TextUtils.isEmpty(oVar.a())) {
@@ -87,7 +63,12 @@ public final class a {
                             intent.setAction(str2);
                         }
                         intent.setPackage(str);
-                        intent.setClassName(str, d ? "com.vivo.push.sdk.service.CommandService" : "com.vivo.push.sdk.service.CommandClientService");
+                        if (d) {
+                            str3 = "com.vivo.push.sdk.service.CommandService";
+                        } else {
+                            str3 = "com.vivo.push.sdk.service.CommandClientService";
+                        }
+                        intent.setClassName(str, str3);
                         intent.putExtra("security_avoid_pull", com.vivo.push.util.a.a(context).a("com.vivo.pushservice"));
                         oVar.b(intent);
                         intent.putExtra("command_type", "reflect_receiver");
@@ -104,6 +85,48 @@ public final class a {
                 throw new Exception("消息接受者包名为空！");
             } catch (Exception e) {
                 p.a("CommandBridge", "CommandBridge sendCommandToClient exception", e);
+            }
+        }
+    }
+
+    public static void a(Context context, String str, o oVar) {
+        String str2;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65538, null, context, str, oVar) == null) {
+            boolean c = oVar.c();
+            if (c) {
+                str2 = "com.vivo.vms.upstageservice";
+            } else {
+                str2 = "com.vivo.vms.aidlservice";
+            }
+            b a = b.a(context, str2);
+            boolean a2 = a.a();
+            if (TextUtils.isEmpty(oVar.a())) {
+                oVar.a(context.getPackageName());
+            }
+            if (a2 && !"com.vivo.pushservice".equals(context.getPackageName())) {
+                com.vivo.push.a aVar = new com.vivo.push.a(oVar.a(), str, new Bundle());
+                oVar.a(aVar);
+                if (a.a(aVar.b())) {
+                    return;
+                }
+                p.b("CommandBridge", "send command error by aidl");
+                p.c(context, "send command error by aidl");
+            }
+            Intent intent = new Intent("com.vivo.pushservice.action.METHOD");
+            intent.setPackage(str);
+            if (c) {
+                str3 = "com.vivo.push.sdk.service.UpstageService";
+            } else {
+                str3 = "com.vivo.push.sdk.service.PushService";
+            }
+            intent.setClassName(str, str3);
+            oVar.a(intent);
+            try {
+                a(context, intent);
+            } catch (Exception e) {
+                p.a("CommandBridge", "CommandBridge startService exception: ", e);
             }
         }
     }

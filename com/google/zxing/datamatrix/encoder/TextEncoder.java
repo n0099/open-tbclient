@@ -11,6 +11,16 @@ public final class TextEncoder extends C40Encoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.google.zxing.datamatrix.encoder.C40Encoder, com.google.zxing.datamatrix.encoder.Encoder
+    public int getEncodingMode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 2;
+        }
+        return invokeV.intValue;
+    }
+
     public TextEncoder() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -76,15 +86,5 @@ public final class TextEncoder extends C40Encoder {
             }
         }
         return invokeCommon.intValue;
-    }
-
-    @Override // com.google.zxing.datamatrix.encoder.C40Encoder, com.google.zxing.datamatrix.encoder.Encoder
-    public int getEncodingMode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 2;
-        }
-        return invokeV.intValue;
     }
 }

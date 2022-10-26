@@ -1,6 +1,5 @@
 package com.baidu.android.imsdk.internal;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -23,7 +22,7 @@ public class MessageFactory {
     public static final String TAG = "MessageFactory";
     public static MessageFactory mInstance;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<Integer, Class<?>> classMap;
+    public Map classMap;
 
     static {
         InterceptResult invokeClinit;
@@ -40,7 +39,6 @@ public class MessageFactory {
         }
     }
 
-    @SuppressLint({"UseSparseArrays"})
     public MessageFactory() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -70,9 +68,7 @@ public class MessageFactory {
         return (MessageFactory) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r7v3, resolved type: java.lang.reflect.Method */
-    /* JADX WARN: Multi-variable type inference failed */
-    private Message invokeMethod(Context context, String str, int i, Class<?>[] clsArr, Object[] objArr, Intent intent) {
+    private Message invokeMethod(Context context, String str, int i, Class[] clsArr, Object[] objArr, Intent intent) {
         InterceptResult invokeCommon;
         Message message;
         Interceptable interceptable = $ic;
@@ -82,14 +78,14 @@ public class MessageFactory {
                 if (this.classMap.isEmpty()) {
                     return null;
                 }
-                Class<?> cls = this.classMap.get(Integer.valueOf(i));
+                Class cls = (Class) this.classMap.get(Integer.valueOf(i));
                 if (cls == null) {
                     LogUtils.d(TAG, ": don't hava class ,type=" + i);
                     return null;
                 }
                 try {
                     Method method = cls.getMethod(str, clsArr);
-                    if (method != 0) {
+                    if (method != null) {
                         try {
                             message2 = (Message) method.invoke(cls, objArr);
                         } catch (Exception e) {
@@ -116,7 +112,7 @@ public class MessageFactory {
         return (Message) invokeCommon.objValue;
     }
 
-    public void addType(int i, Class<?> cls) {
+    public void addType(int i, Class cls) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, cls) == null) {
             synchronized (mInstance) {
@@ -132,12 +128,18 @@ public class MessageFactory {
     public Message createNewMessage(Context context, int i, Intent intent) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i, intent)) == null) ? invokeMethod(context, "newInstance", i, new Class[]{Context.class, Intent.class}, new Object[]{context, intent}, intent) : (Message) invokeLIL.objValue;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i, intent)) == null) {
+            return invokeMethod(context, "newInstance", i, new Class[]{Context.class, Intent.class}, new Object[]{context, intent}, intent);
+        }
+        return (Message) invokeLIL.objValue;
     }
 
     public Message parseMessage(Context context, int i, String str, String str2, String str3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, Integer.valueOf(i), str, str2, str3})) == null) ? invokeMethod(context, "parseBody", i, new Class[]{Context.class, String.class, String.class, String.class}, new Object[]{context, str, str2, str3}, null) : (Message) invokeCommon.objValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, Integer.valueOf(i), str, str2, str3})) == null) {
+            return invokeMethod(context, "parseBody", i, new Class[]{Context.class, String.class, String.class, String.class}, new Object[]{context, str, str2, str3}, null);
+        }
+        return (Message) invokeCommon.objValue;
     }
 }

@@ -1,6 +1,5 @@
 package com.airbnb.lottie.model.content;
 
-import android.graphics.PointF;
 import com.airbnb.lottie.LottieDrawable;
 import com.airbnb.lottie.animation.content.Content;
 import com.airbnb.lottie.animation.content.RectangleContent;
@@ -13,10 +12,10 @@ public class RectangleShape implements ContentModel {
     public final AnimatableFloatValue cornerRadius;
     public final boolean hidden;
     public final String name;
-    public final AnimatableValue<PointF, PointF> position;
+    public final AnimatableValue position;
     public final AnimatablePointValue size;
 
-    public RectangleShape(String str, AnimatableValue<PointF, PointF> animatableValue, AnimatablePointValue animatablePointValue, AnimatableFloatValue animatableFloatValue, boolean z) {
+    public RectangleShape(String str, AnimatableValue animatableValue, AnimatablePointValue animatablePointValue, AnimatableFloatValue animatableFloatValue, boolean z) {
         this.name = str;
         this.position = animatableValue;
         this.size = animatablePointValue;
@@ -32,7 +31,7 @@ public class RectangleShape implements ContentModel {
         return this.name;
     }
 
-    public AnimatableValue<PointF, PointF> getPosition() {
+    public AnimatableValue getPosition() {
         return this.position;
     }
 
@@ -44,12 +43,12 @@ public class RectangleShape implements ContentModel {
         return this.hidden;
     }
 
+    public String toString() {
+        return "RectangleShape{position=" + this.position + ", size=" + this.size + '}';
+    }
+
     @Override // com.airbnb.lottie.model.content.ContentModel
     public Content toContent(LottieDrawable lottieDrawable, BaseLayer baseLayer) {
         return new RectangleContent(lottieDrawable, baseLayer, this);
-    }
-
-    public String toString() {
-        return "RectangleShape{position=" + this.position + ", size=" + this.size + '}';
     }
 }

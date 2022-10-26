@@ -3,7 +3,7 @@ package com.baidu.searchbox.task.sync.appcreate;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.switchs.ImgUaSwitch;
-import com.baidu.tieba.si5;
+import com.baidu.tieba.yi5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,6 +13,23 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class InitUaTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
+    public String getName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "Ignore_InitUaTask" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
+    public int getProcess() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return -1;
+        }
+        return invokeV.intValue;
+    }
 
     public InitUaTask() {
         Interceptable interceptable = $ic;
@@ -31,25 +48,9 @@ public class InitUaTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public void execute() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && ImgUaSwitch.isOn()) {
-            System.setProperty("http.agent", si5.b());
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !ImgUaSwitch.isOn()) {
+            return;
         }
-    }
-
-    @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
-    public String getName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "Ignore_InitUaTask" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
-    public int getProcess() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return -1;
-        }
-        return invokeV.intValue;
+        System.setProperty("http.agent", yi5.b());
     }
 }

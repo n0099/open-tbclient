@@ -14,8 +14,8 @@ import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dj;
 import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,6 +24,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class WebViewActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final String PAGE_TYPE = "page=";
     public static final String TAG_AD_DEEPLINK_URL = "tag_ad_deeplink_url";
     public static final String TAG_AD_EXT_INFO = "tag_ad_ext_info";
     public static final String TAG_BUNDLE = "tag_bundle";
@@ -35,6 +36,7 @@ public class WebViewActivityConfig extends IntentConfig {
     public static final String TAG_LOAD_BY_WEB_CLIENT = "tag_load_by_web_client";
     public static final String TAG_NAV_BAR = "tag_navigation_bar";
     public static final String TAG_NEED_STYLE_IMMERSIVE_STICKY = "tag_style_immersive_sticky";
+    public static final String TAG_NEW_GOD_INVITE = "god-invite";
     public static final String TAG_NO_CLOSE = "tag_no_close";
     public static final String TAG_NO_HELP = "tag_nohelp";
     public static final String TAG_NO_MENU = "tag_nomenu";
@@ -63,139 +65,6 @@ public class WebViewActivityConfig extends IntentConfig {
                 return;
             }
         }
-    }
-
-    public void addPageIdParams(Context context) {
-        BdUniqueId uniqueId;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || getIntent() == null || !(context instanceof TbPageContextSupport) || (uniqueId = ((TbPageContextSupport) context).getPageContext().getUniqueId()) == null) {
-            return;
-        }
-        getIntent().putExtra(IntentConfig.PRE_PAGE_ID, uniqueId.getId());
-    }
-
-    public String addTiebaParams(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (dj.isEmpty(str)) {
-                return str;
-            }
-            if (str.indexOf("_client_version=") < 0) {
-                if (dj.isEmpty(Uri.parse(str).getQuery())) {
-                    str = str + "?_client_version=" + TbConfig.getVersion();
-                } else {
-                    str = str + "&_client_version=" + TbConfig.getVersion();
-                }
-            }
-            if (str.indexOf("nohead=1") < 0) {
-                return str + "&nohead=1";
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tbadk.core.frameworkData.IntentConfig
-    public boolean isValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (UtilHelper.webViewIsProbablyCorrupt(getContext())) {
-                ej.N(getContext(), getContext().getString(R.string.obfuscated_res_0x7f0f15bc));
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void setBundle(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) || getIntent() == null) {
-            return;
-        }
-        getIntent().putExtra(TAG_BUNDLE, bundle);
-    }
-
-    public void setCustomMoreHelp(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048580, this, z) == null) || getIntent() == null) {
-            return;
-        }
-        getIntent().putExtra(TAG_CUSTOM_MORE_JUMP, z);
-    }
-
-    public void setFixTitle(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || getIntent() == null) {
-            return;
-        }
-        getIntent().putExtra(TAG_FIX_TITLE, z);
-    }
-
-    public void setLoadType(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || getIntent() == null) {
-            return;
-        }
-        getIntent().putExtra(TAG_LOAD_BY_WEB_CLIENT, z);
-    }
-
-    public void setNeedImmerSiveSticky(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048583, this, z) == null) || getIntent() == null) {
-            return;
-        }
-        getIntent().putExtra(TAG_NEED_STYLE_IMMERSIVE_STICKY, z);
-    }
-
-    public void setNoClose(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) || getIntent() == null) {
-            return;
-        }
-        getIntent().putExtra(TAG_NO_CLOSE, z);
-    }
-
-    public void setNoHelp(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048585, this, z) == null) || getIntent() == null) {
-            return;
-        }
-        getIntent().putExtra(TAG_NO_HELP, z);
-    }
-
-    public void setNoMenu(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048586, this, z) == null) || getIntent() == null) {
-            return;
-        }
-        getIntent().putExtra(TAG_NO_MENU, z);
-    }
-
-    public void setNoShare(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048587, this, z) == null) || getIntent() == null) {
-            return;
-        }
-        getIntent().putExtra(TAG_NO_SHARE, z);
-    }
-
-    public void setPageTranslucent(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048588, this, str) == null) || getIntent() == null) {
-            return;
-        }
-        getIntent().putExtra(TAG_PAGE_TRANSLUCENT, str);
-    }
-
-    public void setTextAutoSize(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048589, this, z) == null) || getIntent() == null) {
-            return;
-        }
-        getIntent().putExtra(TAG_TEXT_AUTO_SIZE, z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -258,5 +127,126 @@ public class WebViewActivityConfig extends IntentConfig {
             getIntent().addFlags(LaunchTaskConstants.OTHER_PROCESS);
         }
         setIntentAction(IntentAction.Activity);
+    }
+
+    public void addPageIdParams(Context context) {
+        BdUniqueId uniqueId;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, context) == null) && getIntent() != null && (context instanceof TbPageContextSupport) && (uniqueId = ((TbPageContextSupport) context).getPageContext().getUniqueId()) != null) {
+            getIntent().putExtra(IntentConfig.PRE_PAGE_ID, uniqueId.getId());
+        }
+    }
+
+    public void setBundle(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) && getIntent() != null) {
+            getIntent().putExtra(TAG_BUNDLE, bundle);
+        }
+    }
+
+    public void setCustomMoreHelp(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048580, this, z) == null) && getIntent() != null) {
+            getIntent().putExtra(TAG_CUSTOM_MORE_JUMP, z);
+        }
+    }
+
+    public void setFixTitle(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && getIntent() != null) {
+            getIntent().putExtra(TAG_FIX_TITLE, z);
+        }
+    }
+
+    public void setLoadType(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048582, this, z) == null) && getIntent() != null) {
+            getIntent().putExtra(TAG_LOAD_BY_WEB_CLIENT, z);
+        }
+    }
+
+    public void setNeedImmerSiveSticky(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048583, this, z) == null) && getIntent() != null) {
+            getIntent().putExtra(TAG_NEED_STYLE_IMMERSIVE_STICKY, z);
+        }
+    }
+
+    public void setNoClose(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) && getIntent() != null) {
+            getIntent().putExtra(TAG_NO_CLOSE, z);
+        }
+    }
+
+    public void setNoHelp(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048585, this, z) == null) && getIntent() != null) {
+            getIntent().putExtra(TAG_NO_HELP, z);
+        }
+    }
+
+    public void setNoMenu(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048586, this, z) == null) && getIntent() != null) {
+            getIntent().putExtra(TAG_NO_MENU, z);
+        }
+    }
+
+    public void setNoShare(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048587, this, z) == null) && getIntent() != null) {
+            getIntent().putExtra(TAG_NO_SHARE, z);
+        }
+    }
+
+    public void setPageTranslucent(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048588, this, str) == null) && getIntent() != null) {
+            getIntent().putExtra(TAG_PAGE_TRANSLUCENT, str);
+        }
+    }
+
+    public void setTextAutoSize(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048589, this, z) == null) && getIntent() != null) {
+            getIntent().putExtra(TAG_TEXT_AUTO_SIZE, z);
+        }
+    }
+
+    public String addTiebaParams(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (!ej.isEmpty(str)) {
+                if (str.indexOf("_client_version=") < 0) {
+                    if (ej.isEmpty(Uri.parse(str).getQuery())) {
+                        str = str + "?_client_version=" + TbConfig.getVersion();
+                    } else {
+                        str = str + "&_client_version=" + TbConfig.getVersion();
+                    }
+                }
+                if (str.indexOf("nohead=1") < 0) {
+                    return str + "&nohead=1";
+                }
+                return str;
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.frameworkData.IntentConfig
+    public boolean isValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (UtilHelper.webViewIsProbablyCorrupt(getContext())) {
+                fj.N(getContext(), getContext().getString(R.string.obfuscated_res_0x7f0f15d6));
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 }

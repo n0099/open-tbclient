@@ -8,7 +8,7 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nu4;
+import com.baidu.tieba.pu4;
 import com.baidu.tieba.r9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.PermissionRequest;
 import com.kuaishou.weapon.p0.h;
 /* loaded from: classes3.dex */
-public class PermissionRequestDialog extends nu4 {
+public class PermissionRequestDialog extends pu4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView mCloseView;
@@ -61,17 +61,31 @@ public class PermissionRequestDialog extends nu4 {
         setAutoNight(false);
     }
 
+    public void setOnClickCallback(OnClickCallback onClickCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickCallback) == null) {
+            this.mOnClickCallback = onClickCallback;
+        }
+    }
+
+    public void setRequestPermission(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.mRequestPermission = str;
+        }
+    }
+
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mActivity).inflate(R.layout.obfuscated_res_0x7f0d022e, (ViewGroup) null);
+            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mActivity).inflate(R.layout.obfuscated_res_0x7f0d022d, (ViewGroup) null);
             this.mRootView = viewGroup;
-            this.mTitleView = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0923e8);
-            this.mDetailView = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0923e7);
-            TextView textView = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0923e5);
+            this.mTitleView = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0923d3);
+            this.mDetailView = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0923d2);
+            TextView textView = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0923d0);
             this.mCloseView = textView;
-            textView.setText(R.string.obfuscated_res_0x7f0f03f8);
-            TextView textView2 = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0923e6);
+            textView.setText(R.string.obfuscated_res_0x7f0f03ff);
+            TextView textView2 = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0923d1);
             this.mContinueView = textView2;
             textView2.setText(R.string.obfuscated_res_0x7f0f026a);
             onChangeSkinType();
@@ -79,8 +93,8 @@ public class PermissionRequestDialog extends nu4 {
         }
     }
 
-    @Override // com.baidu.tieba.nu4
-    public nu4 create(r9<?> r9Var) {
+    @Override // com.baidu.tieba.pu4
+    public pu4 create(r9<?> r9Var) {
         InterceptResult invokeL;
         char c;
         String string;
@@ -89,34 +103,40 @@ public class PermissionRequestDialog extends nu4 {
             super.create(r9Var);
             String str = this.mRequestPermission;
             int hashCode = str.hashCode();
-            if (hashCode == -63024214) {
+            if (hashCode != -63024214) {
+                if (hashCode != 463403621) {
+                    if (hashCode == 1831139720 && str.equals(PermissionRequest.RESOURCE_AUDIO_CAPTURE)) {
+                        c = 1;
+                    }
+                    c = 65535;
+                } else {
+                    if (str.equals(PermissionRequest.RESOURCE_VIDEO_CAPTURE)) {
+                        c = 0;
+                    }
+                    c = 65535;
+                }
+            } else {
                 if (str.equals(h.h)) {
                     c = 2;
                 }
                 c = 65535;
-            } else if (hashCode != 463403621) {
-                if (hashCode == 1831139720 && str.equals(PermissionRequest.RESOURCE_AUDIO_CAPTURE)) {
-                    c = 1;
-                }
-                c = 65535;
-            } else {
-                if (str.equals(PermissionRequest.RESOURCE_VIDEO_CAPTURE)) {
-                    c = 0;
-                }
-                c = 65535;
             }
             String str2 = null;
-            if (c == 0) {
-                str2 = r9Var.getString(R.string.obfuscated_res_0x7f0f1025);
-                string = r9Var.getString(R.string.obfuscated_res_0x7f0f101f);
-            } else if (c == 1) {
-                str2 = r9Var.getString(R.string.obfuscated_res_0x7f0f1027);
-                string = r9Var.getString(R.string.obfuscated_res_0x7f0f1021);
-            } else if (c != 2) {
-                string = null;
+            if (c != 0) {
+                if (c != 1) {
+                    if (c != 2) {
+                        string = null;
+                    } else {
+                        str2 = r9Var.getString(R.string.obfuscated_res_0x7f0f1038);
+                        string = r9Var.getString(R.string.obfuscated_res_0x7f0f1032);
+                    }
+                } else {
+                    str2 = r9Var.getString(R.string.obfuscated_res_0x7f0f1039);
+                    string = r9Var.getString(R.string.obfuscated_res_0x7f0f1033);
+                }
             } else {
-                str2 = r9Var.getString(R.string.obfuscated_res_0x7f0f1026);
-                string = r9Var.getString(R.string.obfuscated_res_0x7f0f1020);
+                str2 = r9Var.getString(R.string.obfuscated_res_0x7f0f1037);
+                string = r9Var.getString(R.string.obfuscated_res_0x7f0f1031);
             }
             this.mTitleView.setText(str2);
             this.mDetailView.setText(string);
@@ -146,10 +166,9 @@ public class PermissionRequestDialog extends nu4 {
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) || this.this$0.mOnClickCallback == null) {
-                        return;
+                    if ((interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) && this.this$0.mOnClickCallback != null) {
+                        this.this$0.mOnClickCallback.onClickClose(this.this$0.mActivity, this.this$0.mRequestPermission);
                     }
-                    this.this$0.mOnClickCallback.onClickClose(this.this$0.mActivity, this.this$0.mRequestPermission);
                 }
             });
             this.mContinueView.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.tbadk.core.util.permission.PermissionRequestDialog.2
@@ -178,15 +197,14 @@ public class PermissionRequestDialog extends nu4 {
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) || this.this$0.mOnClickCallback == null) {
-                        return;
+                    if ((interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) && this.this$0.mOnClickCallback != null) {
+                        this.this$0.mOnClickCallback.onClickContinue(this.this$0.mActivity, this.this$0.mRequestPermission);
                     }
-                    this.this$0.mOnClickCallback.onClickContinue(this.this$0.mActivity, this.this$0.mRequestPermission);
                 }
             });
             return this;
         }
-        return (nu4) invokeL.objValue;
+        return (pu4) invokeL.objValue;
     }
 
     public void onChangeSkinType() {
@@ -197,20 +215,6 @@ public class PermissionRequestDialog extends nu4 {
             SkinManager.setViewTextColor(this.mDetailView, (int) R.color.CAM_X0107);
             SkinManager.setViewTextColorSelector(this.mCloseView, R.color.CAM_X0105, R.color.cp_cont_b_alpha50);
             SkinManager.setViewTextColorSelector(this.mContinueView, R.color.CAM_X0302, R.color.cp_link_tip_a_alpha50);
-        }
-    }
-
-    public void setOnClickCallback(OnClickCallback onClickCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickCallback) == null) {
-            this.mOnClickCallback = onClickCallback;
-        }
-    }
-
-    public void setRequestPermission(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.mRequestPermission = str;
         }
     }
 }

@@ -1,9 +1,6 @@
 package androidx.savedstate;
 
 import android.os.Bundle;
-import androidx.annotation.MainThread;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.lifecycle.Lifecycle;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,22 +34,7 @@ public final class SavedStateRegistryController {
         this.mRegistry = new SavedStateRegistry();
     }
 
-    @NonNull
-    public static SavedStateRegistryController create(@NonNull SavedStateRegistryOwner savedStateRegistryOwner) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, savedStateRegistryOwner)) == null) ? new SavedStateRegistryController(savedStateRegistryOwner) : (SavedStateRegistryController) invokeL.objValue;
-    }
-
-    @NonNull
-    public SavedStateRegistry getSavedStateRegistry() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mRegistry : (SavedStateRegistry) invokeV.objValue;
-    }
-
-    @MainThread
-    public void performRestore(@Nullable Bundle bundle) {
+    public void performRestore(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             Lifecycle lifecycle = this.mOwner.getLifecycle();
@@ -65,11 +47,28 @@ public final class SavedStateRegistryController {
         }
     }
 
-    @MainThread
-    public void performSave(@NonNull Bundle bundle) {
+    public static SavedStateRegistryController create(SavedStateRegistryOwner savedStateRegistryOwner) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, savedStateRegistryOwner)) == null) {
+            return new SavedStateRegistryController(savedStateRegistryOwner);
+        }
+        return (SavedStateRegistryController) invokeL.objValue;
+    }
+
+    public void performSave(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             this.mRegistry.performSave(bundle);
         }
+    }
+
+    public SavedStateRegistry getSavedStateRegistry() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mRegistry;
+        }
+        return (SavedStateRegistry) invokeV.objValue;
     }
 }

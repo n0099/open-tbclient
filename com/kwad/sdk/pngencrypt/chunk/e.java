@@ -5,14 +5,14 @@ import java.util.List;
 /* loaded from: classes8.dex */
 public class e {
     public final com.kwad.sdk.pngencrypt.k ajL;
-    public List<PngChunk> alF = new ArrayList();
+    public List alF = new ArrayList();
     public boolean alG = false;
 
     public e(com.kwad.sdk.pngencrypt.k kVar) {
         this.ajL = kVar;
     }
 
-    public static List<PngChunk> a(List<PngChunk> list, final String str, final String str2) {
+    public static List a(List list, final String str, final String str2) {
         return str2 == null ? b.a(list, new c() { // from class: com.kwad.sdk.pngencrypt.chunk.e.1
             @Override // com.kwad.sdk.pngencrypt.chunk.c
             public final boolean a(PngChunk pngChunk) {
@@ -32,7 +32,7 @@ public class e {
         });
     }
 
-    public final List<? extends PngChunk> M(String str, String str2) {
+    public final List M(String str, String str2) {
         return a(this.alF, str, str2);
     }
 
@@ -48,7 +48,7 @@ public class e {
         return "ChunkList: read: " + this.alF.size();
     }
 
-    public final List<PngChunk> yH() {
+    public final List yH() {
         return this.alF;
     }
 }

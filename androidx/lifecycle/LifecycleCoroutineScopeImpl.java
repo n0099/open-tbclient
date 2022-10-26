@@ -39,39 +39,45 @@ public final class LifecycleCoroutineScopeImpl extends LifecycleCoroutineScope i
         }
         this.lifecycle = lifecycle;
         this.coroutineContext = coroutineContext;
-        if (getLifecycle$lifecycle_runtime_ktx_release().getCurrentState() == Lifecycle.State.DESTROYED) {
-            JobKt__JobKt.cancel$default(getCoroutineContext(), (CancellationException) null, 1, (Object) null);
+        if (getLifecycle$lifecycle_runtime_ktx_release().getCurrentState() != Lifecycle.State.DESTROYED) {
+            return;
         }
+        JobKt__JobKt.cancel$default(getCoroutineContext(), (CancellationException) null, 1, (Object) null);
     }
 
     @Override // kotlinx.coroutines.CoroutineScope
     public CoroutineContext getCoroutineContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.coroutineContext : (CoroutineContext) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.coroutineContext;
+        }
+        return (CoroutineContext) invokeV.objValue;
     }
 
     @Override // androidx.lifecycle.LifecycleCoroutineScope
     public Lifecycle getLifecycle$lifecycle_runtime_ktx_release() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.lifecycle : (Lifecycle) invokeV.objValue;
-    }
-
-    @Override // androidx.lifecycle.LifecycleEventObserver
-    public void onStateChanged(LifecycleOwner lifecycleOwner, Lifecycle.Event event) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, lifecycleOwner, event) == null) || getLifecycle$lifecycle_runtime_ktx_release().getCurrentState().compareTo(Lifecycle.State.DESTROYED) > 0) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.lifecycle;
         }
-        getLifecycle$lifecycle_runtime_ktx_release().removeObserver(this);
-        JobKt__JobKt.cancel$default(getCoroutineContext(), (CancellationException) null, 1, (Object) null);
+        return (Lifecycle) invokeV.objValue;
     }
 
     public final void register() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             BuildersKt__Builders_commonKt.launch$default(this, Dispatchers.getMain().getImmediate(), null, new LifecycleCoroutineScopeImpl$register$1(this, null), 2, null);
+        }
+    }
+
+    @Override // androidx.lifecycle.LifecycleEventObserver
+    public void onStateChanged(LifecycleOwner lifecycleOwner, Lifecycle.Event event) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, lifecycleOwner, event) == null) && getLifecycle$lifecycle_runtime_ktx_release().getCurrentState().compareTo(Lifecycle.State.DESTROYED) <= 0) {
+            getLifecycle$lifecycle_runtime_ktx_release().removeObserver(this);
+            JobKt__JobKt.cancel$default(getCoroutineContext(), (CancellationException) null, 1, (Object) null);
         }
     }
 }

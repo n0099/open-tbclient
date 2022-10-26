@@ -60,7 +60,13 @@ public class q4 {
     public boolean a(q4 q4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, q4Var)) == null) ? q4Var == this || (q4Var != null && q4Var.e == this.e && q4Var.b == this.b && q4Var.c == this.c && q4Var.d == this.d) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, q4Var)) == null) {
+            if (q4Var != this && (q4Var == null || q4Var.e != this.e || q4Var.b != this.b || q4Var.c != this.c || q4Var.d != this.d)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
     public boolean equals(Object obj) {
@@ -73,10 +79,10 @@ public class q4 {
             if (obj == this) {
                 return true;
             }
-            if (obj instanceof q4) {
-                return a((q4) obj);
+            if (!(obj instanceof q4)) {
+                return false;
             }
-            return false;
+            return a((q4) obj);
         }
         return invokeL.booleanValue;
     }

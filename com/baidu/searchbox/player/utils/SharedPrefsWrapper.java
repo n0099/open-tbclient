@@ -13,6 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 /* loaded from: classes2.dex */
@@ -38,6 +39,26 @@ public class SharedPrefsWrapper implements SharedPreferences {
         DEBUG = BDPlayerConfig.isDebug();
     }
 
+    @Override // android.content.SharedPreferences
+    public SharedPreferences.Editor edit() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mSp.edit();
+        }
+        return (SharedPreferences.Editor) invokeV.objValue;
+    }
+
+    @Override // android.content.SharedPreferences
+    public Map getAll() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mSp.getAll();
+        }
+        return (Map) invokeV.objValue;
+    }
+
     public SharedPrefsWrapper(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -60,84 +81,74 @@ public class SharedPrefsWrapper implements SharedPreferences {
         }
     }
 
-    private void verifyAllLength(String str, Set<String> set) {
+    private void verifyAllLength(String str, Set set) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, this, str, set) == null) || set == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(65538, this, str, set) == null) && set != null) {
+            Iterator it = set.iterator();
+            while (it.hasNext()) {
+                verifyLength(str, (String) it.next());
+            }
         }
-        for (String str2 : set) {
-            verifyLength(str, str2);
-        }
-    }
-
-    private void verifyLength(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65539, this, str, str2) == null) && str2 != null && str2.length() > 256 && DEBUG) {
-            throw new IllegalArgumentException(String.format("the value of %s is %d, over the limit of %d!", str, Integer.valueOf(str2.length()), 256));
-        }
-    }
-
-    @Override // android.content.SharedPreferences
-    public boolean contains(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.mSp.contains(str) : invokeL.booleanValue;
-    }
-
-    @Override // android.content.SharedPreferences
-    public SharedPreferences.Editor edit() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mSp.edit() : (SharedPreferences.Editor) invokeV.objValue;
-    }
-
-    @Override // android.content.SharedPreferences
-    public Map<String, ?> getAll() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mSp.getAll() : (Map) invokeV.objValue;
     }
 
     @Override // android.content.SharedPreferences
     public boolean getBoolean(String str, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, str, z)) == null) ? this.mSp.getBoolean(str, z) : invokeLZ.booleanValue;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, str, z)) == null) {
+            return this.mSp.getBoolean(str, z);
+        }
+        return invokeLZ.booleanValue;
     }
 
     @Override // android.content.SharedPreferences
     public float getFloat(String str, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLF = interceptable.invokeLF(1048580, this, str, f)) == null) ? this.mSp.getFloat(str, f) : invokeLF.floatValue;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048580, this, str, f)) == null) {
+            return this.mSp.getFloat(str, f);
+        }
+        return invokeLF.floatValue;
     }
 
     @Override // android.content.SharedPreferences
     public int getInt(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, str, i)) == null) ? this.mSp.getInt(str, i) : invokeLI.intValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, str, i)) == null) {
+            return this.mSp.getInt(str, i);
+        }
+        return invokeLI.intValue;
     }
 
     @Override // android.content.SharedPreferences
     public long getLong(String str, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048582, this, str, j)) == null) ? this.mSp.getLong(str, j) : invokeLJ.longValue;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048582, this, str, j)) == null) {
+            return this.mSp.getLong(str, j);
+        }
+        return invokeLJ.longValue;
     }
 
     @Override // android.content.SharedPreferences
     public String getString(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, str2)) == null) ? this.mSp.getString(str, str2) : (String) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, str2)) == null) {
+            return this.mSp.getString(str, str2);
+        }
+        return (String) invokeLL.objValue;
     }
 
     @Override // android.content.SharedPreferences
-    public Set<String> getStringSet(String str, Set<String> set) {
+    public Set getStringSet(String str, Set set) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, set)) == null) ? this.mSp.getStringSet(str, set) : (Set) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, set)) == null) {
+            return this.mSp.getStringSet(str, set);
+        }
+        return (Set) invokeLL.objValue;
     }
 
     public void putBoolean(String str, boolean z) {
@@ -176,12 +187,29 @@ public class SharedPrefsWrapper implements SharedPreferences {
         }
     }
 
-    public void putStringSet(String str, Set<String> set) {
+    public void putStringSet(String str, Set set) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048590, this, str, set) == null) {
             verifyAllLength(str, set);
             this.mSp.edit().putStringSet(str, set).apply();
         }
+    }
+
+    private void verifyLength(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65539, this, str, str2) == null) && str2 != null && str2.length() > 256 && DEBUG) {
+            throw new IllegalArgumentException(String.format("the value of %s is %d, over the limit of %d!", str, Integer.valueOf(str2.length()), 256));
+        }
+    }
+
+    @Override // android.content.SharedPreferences
+    public boolean contains(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return this.mSp.contains(str);
+        }
+        return invokeL.booleanValue;
     }
 
     @Override // android.content.SharedPreferences

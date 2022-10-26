@@ -27,7 +27,7 @@ public abstract class UnitedSchemeBaseDispatcher implements UnitedSchemeAbsDispa
     public static final String DISPATCHER_NOT_FIRST_LEVEL = "dispatcher_not_first_level";
     public static final String TAG;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, UnitedSchemeBaseAction> schemeActionMap;
+    public final Map schemeActionMap;
 
     /* loaded from: classes2.dex */
     public interface ConfirmDialogCallback {
@@ -35,6 +35,27 @@ public abstract class UnitedSchemeBaseDispatcher implements UnitedSchemeAbsDispa
 
         void onConfirm();
     }
+
+    private boolean needConfirm(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, context, unitedSchemeEntity, callbackHandler)) == null) {
+            return false;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public void addRedirectScheme(HashMap hashMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) {
+        }
+    }
+
+    public abstract String getDispatcherName();
+
+    public abstract Class getSubDispatcher(String str);
+
+    public abstract boolean invoke(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler);
 
     static {
         InterceptResult invokeClinit;
@@ -72,83 +93,10 @@ public abstract class UnitedSchemeBaseDispatcher implements UnitedSchemeAbsDispa
     private boolean checkConfirm(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, this, context, unitedSchemeEntity, callbackHandler)) == null) ? SchemeSecurity.needShowConfirmWindow(context, unitedSchemeEntity, callbackHandler) : invokeLLL.booleanValue;
-    }
-
-    private boolean needConfirm(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, context, unitedSchemeEntity, callbackHandler)) == null) {
-            return false;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, this, context, unitedSchemeEntity, callbackHandler)) == null) {
+            return SchemeSecurity.needShowConfirmWindow(context, unitedSchemeEntity, callbackHandler);
         }
         return invokeLLL.booleanValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean onDispatcher(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        InterceptResult invokeLLL;
-        char c;
-        boolean invoke;
-        JSONObject jSONObject;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, this, context, unitedSchemeEntity, callbackHandler)) == null) {
-            String path = unitedSchemeEntity.getPath(true);
-            if (!TextUtils.isEmpty(path)) {
-                Class<? extends UnitedSchemeAbsDispatcher> subDispatcher = getSubDispatcher(path);
-                if (subDispatcher != null) {
-                    try {
-                        return subDispatcher.newInstance().dispatch(context, unitedSchemeEntity, callbackHandler);
-                    } catch (IllegalAccessException e) {
-                        e.printStackTrace();
-                    } catch (InstantiationException e2) {
-                        e2.printStackTrace();
-                    }
-                } else if (!unitedSchemeEntity.isAction()) {
-                    c = 301;
-                    invoke = invoke(context, unitedSchemeEntity, callbackHandler);
-                    if (!invoke && (jSONObject = unitedSchemeEntity.result) != null && jSONObject.optInt("status", -1) == 302 && c == 301) {
-                        try {
-                            unitedSchemeEntity.result.put("status", String.valueOf(301));
-                        } catch (JSONException e3) {
-                            e3.printStackTrace();
-                        }
-                    }
-                    return invoke;
-                }
-            }
-            c = 0;
-            invoke = invoke(context, unitedSchemeEntity, callbackHandler);
-            if (!invoke) {
-                unitedSchemeEntity.result.put("status", String.valueOf(301));
-            }
-            return invoke;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public void addRedirectScheme(HashMap<String, String> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) {
-        }
-    }
-
-    public boolean checkPermission(Context context, UnitedSchemeEntity unitedSchemeEntity) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity)) == null) {
-            if (unitedSchemeEntity == null || unitedSchemeEntity.getUri() == null) {
-                return false;
-            }
-            if (TextUtils.equals(unitedSchemeEntity.getSource(), UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE) || TextUtils.equals(unitedSchemeEntity.getSource(), UnitedSchemeConstants.SCHEME_INVOKE_TYPE_OUTSIDE)) {
-                return true;
-            }
-            if (DEBUG) {
-                Log.d(TAG, "invoke from outside");
-                return true;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
     }
 
     public void confirm(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
@@ -202,27 +150,75 @@ public abstract class UnitedSchemeBaseDispatcher implements UnitedSchemeAbsDispa
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean onDispatcher(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        InterceptResult invokeLLL;
+        char c;
+        boolean invoke;
+        JSONObject jSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, this, context, unitedSchemeEntity, callbackHandler)) == null) {
+            String path = unitedSchemeEntity.getPath(true);
+            if (!TextUtils.isEmpty(path)) {
+                Class subDispatcher = getSubDispatcher(path);
+                if (subDispatcher != null) {
+                    try {
+                        return ((UnitedSchemeAbsDispatcher) subDispatcher.newInstance()).dispatch(context, unitedSchemeEntity, callbackHandler);
+                    } catch (IllegalAccessException e) {
+                        e.printStackTrace();
+                    } catch (InstantiationException e2) {
+                        e2.printStackTrace();
+                    }
+                } else if (!unitedSchemeEntity.isAction()) {
+                    c = 301;
+                    invoke = invoke(context, unitedSchemeEntity, callbackHandler);
+                    if (!invoke && (jSONObject = unitedSchemeEntity.result) != null && jSONObject.optInt("status", -1) == 302 && c == 301) {
+                        try {
+                            unitedSchemeEntity.result.put("status", String.valueOf(301));
+                        } catch (JSONException e3) {
+                            e3.printStackTrace();
+                        }
+                    }
+                    return invoke;
+                }
+            }
+            c = 0;
+            invoke = invoke(context, unitedSchemeEntity, callbackHandler);
+            if (!invoke) {
+                unitedSchemeEntity.result.put("status", String.valueOf(301));
+            }
+            return invoke;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public boolean checkPermission(Context context, UnitedSchemeEntity unitedSchemeEntity) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity)) == null) {
+            if (unitedSchemeEntity == null || unitedSchemeEntity.getUri() == null) {
+                return false;
+            }
+            if (TextUtils.equals(unitedSchemeEntity.getSource(), UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE) || TextUtils.equals(unitedSchemeEntity.getSource(), UnitedSchemeConstants.SCHEME_INVOKE_TYPE_OUTSIDE)) {
+                return true;
+            }
+            if (!DEBUG) {
+                return false;
+            }
+            Log.d(TAG, "invoke from outside");
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
     @Override // com.baidu.searchbox.unitedscheme.UnitedSchemeAbsDispatcher
     public boolean dispatch(Context context, UnitedSchemeEntity unitedSchemeEntity) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, unitedSchemeEntity)) == null) ? dispatch(context, unitedSchemeEntity, null) : invokeLL.booleanValue;
-    }
-
-    public abstract String getDispatcherName();
-
-    public abstract Class<? extends UnitedSchemeAbsDispatcher> getSubDispatcher(String str);
-
-    public abstract boolean invoke(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler);
-
-    public void regAction(UnitedSchemeBaseAction unitedSchemeBaseAction) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, unitedSchemeBaseAction) == null) {
-            if (DEBUG && this.schemeActionMap.containsKey(unitedSchemeBaseAction.getActionName())) {
-                throw new IllegalArgumentException("duplicate action: " + unitedSchemeBaseAction);
-            }
-            this.schemeActionMap.put(unitedSchemeBaseAction.getActionName(), unitedSchemeBaseAction);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, unitedSchemeEntity)) == null) {
+            return dispatch(context, unitedSchemeEntity, null);
         }
+        return invokeLL.booleanValue;
     }
 
     @Override // com.baidu.searchbox.unitedscheme.UnitedSchemeAbsDispatcher
@@ -241,5 +237,15 @@ public abstract class UnitedSchemeBaseDispatcher implements UnitedSchemeAbsDispa
             }
         }
         return invokeLLL.booleanValue;
+    }
+
+    public void regAction(UnitedSchemeBaseAction unitedSchemeBaseAction) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, unitedSchemeBaseAction) == null) {
+            if (DEBUG && this.schemeActionMap.containsKey(unitedSchemeBaseAction.getActionName())) {
+                throw new IllegalArgumentException("duplicate action: " + unitedSchemeBaseAction);
+            }
+            this.schemeActionMap.put(unitedSchemeBaseAction.getActionName(), unitedSchemeBaseAction);
+        }
     }
 }

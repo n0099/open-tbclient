@@ -4,7 +4,6 @@ import android.net.Uri;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
 import com.baidu.down.retry.HttpRetryStatistic;
 import com.kwad.sdk.core.network.j;
 import com.kwad.sdk.core.network.k;
@@ -56,7 +55,7 @@ public final class d implements b {
         return jVar;
     }
 
-    public static boolean a(@NonNull j jVar) {
+    public static boolean a(j jVar) {
         if (TextUtils.isEmpty(jVar.url)) {
             return true;
         }

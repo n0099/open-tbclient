@@ -2,12 +2,11 @@ package com.baidu.searchbox.block.impl;
 
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.block.ioc.IBlockRegister;
 import com.baidu.searchbox.block.ioc.IBlockRegister_BlockRuntime_ListProvider;
 import com.baidu.searchbox.config.AppConfig;
-import com.baidu.tieba.re1;
-import com.baidu.tieba.te1;
+import com.baidu.tieba.se1;
+import com.baidu.tieba.ue1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,8 +17,16 @@ public class BlockRuntime {
     public static /* synthetic */ Interceptable $ic;
     public static volatile BlockRuntime sInstance;
     public transient /* synthetic */ FieldHolder $fh;
-    @Inject
-    public te1<IBlockRegister> mIBlockMonitorList;
+    public ue1 mIBlockMonitorList;
+
+    public void initmIBlockMonitorList() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            se1 b = se1.b();
+            this.mIBlockMonitorList = b;
+            b.a(new IBlockRegister_BlockRuntime_ListProvider());
+        }
+    }
 
     public BlockRuntime() {
         Interceptable interceptable = $ic;
@@ -53,40 +60,34 @@ public class BlockRuntime {
         return (BlockRuntime) invokeV.objValue;
     }
 
+    public ue1 getIBlockUploadList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mIBlockMonitorList;
+        }
+        return (ue1) invokeV.objValue;
+    }
+
     public boolean enableBlock() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            te1<IBlockRegister> te1Var = this.mIBlockMonitorList;
-            if (te1Var == null || te1Var.getList() == null) {
-                return false;
-            }
-            for (IBlockRegister iBlockRegister : this.mIBlockMonitorList.getList()) {
-                if (iBlockRegister != null && iBlockRegister.checkEnable()) {
-                    if (AppConfig.isDebug()) {
-                        Log.d(BlockMonitor.TAG, "enableBlock = true");
+            ue1 ue1Var = this.mIBlockMonitorList;
+            if (ue1Var != null && ue1Var.getList() != null) {
+                for (IBlockRegister iBlockRegister : this.mIBlockMonitorList.getList()) {
+                    if (iBlockRegister != null && iBlockRegister.checkEnable()) {
+                        if (AppConfig.isDebug()) {
+                            Log.d(BlockMonitor.TAG, "enableBlock = true");
+                            return true;
+                        }
                         return true;
                     }
-                    return true;
                 }
+                return false;
             }
             return false;
         }
         return invokeV.booleanValue;
-    }
-
-    public te1<IBlockRegister> getIBlockUploadList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mIBlockMonitorList : (te1) invokeV.objValue;
-    }
-
-    public void initmIBlockMonitorList() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            re1 b = re1.b();
-            this.mIBlockMonitorList = b;
-            b.a(new IBlockRegister_BlockRuntime_ListProvider());
-        }
     }
 }

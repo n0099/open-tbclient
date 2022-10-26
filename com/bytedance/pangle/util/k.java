@@ -66,9 +66,15 @@ public class k {
     }
 
     public static void a(Runnable runnable) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, runnable) == null) {
             if (a().getLooper() == Looper.myLooper()) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
                 runnable.run();
             } else {
                 a().post(runnable);

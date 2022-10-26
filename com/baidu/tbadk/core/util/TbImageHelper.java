@@ -4,8 +4,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tieba.ec;
-import com.baidu.tieba.hq4;
+import com.baidu.tieba.fc;
+import com.baidu.tieba.jq4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -38,6 +38,12 @@ public class TbImageHelper {
         }
     }
 
+    public int getPostImageHeightLimit() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TbConfig.POST_IMAGE_HIGHT_LIMIT : invokeV.intValue;
+    }
+
     public TbImageHelper() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -59,6 +65,44 @@ public class TbImageHelper {
         updateAll();
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:15:0x0027, code lost:
+        if (getIsWifi() != false) goto L15;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void updatePostImageSize() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            int d = jq4.c().d();
+            int i = 1300;
+            if (d != 0) {
+                if (d != 1) {
+                    if (d == 2 || d != 3) {
+                        i = 1800;
+                    }
+                }
+                i = 2000;
+            }
+            this.mPostImageSize = i;
+        }
+    }
+
+    public void updateUrlQuality() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            String valueOf = String.valueOf(45);
+            if (jq4.c().e() == 0) {
+                if (getIsWifi()) {
+                    valueOf = String.valueOf(80);
+                }
+            } else if (jq4.c().e() == 1) {
+                valueOf = String.valueOf(80);
+            }
+            this.mUrlQuality = valueOf;
+        }
+    }
+
     public static TbImageHelper getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -78,7 +122,13 @@ public class TbImageHelper {
     public static boolean isSupportGifEmotions() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? FileHelper.checkSD() && ec.c() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (!FileHelper.checkSD() || !fc.c()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     private void updateAll() {
@@ -100,13 +150,10 @@ public class TbImageHelper {
     public boolean getIsWifi() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mIsWifiCache : invokeV.booleanValue;
-    }
-
-    public int getPostImageHeightLimit() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TbConfig.POST_IMAGE_HIGHT_LIMIT : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mIsWifiCache;
+        }
+        return invokeV.booleanValue;
     }
 
     public int getPostImageSize() {
@@ -122,13 +169,30 @@ public class TbImageHelper {
     public String getUrlQuality() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mUrlQuality : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mUrlQuality;
+        }
+        return (String) invokeV.objValue;
     }
 
     public boolean isShowBigImage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mShowBigImage : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mShowBigImage;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void updateFrsShowBigImage() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            boolean z = true;
+            if (jq4.c().e() != 0 ? jq4.c().e() != 1 : !this.mIsWifiCache) {
+                z = false;
+            }
+            setShowBigImage(z);
+        }
     }
 
     public void setNetworkIsWifi(boolean z) {
@@ -143,55 +207,6 @@ public class TbImageHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             this.mShowBigImage = z;
-        }
-    }
-
-    public void updateFrsShowBigImage() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            boolean z = true;
-            if (hq4.c().e() != 0 ? hq4.c().e() != 1 : !this.mIsWifiCache) {
-                z = false;
-            }
-            setShowBigImage(z);
-        }
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:15:0x0027, code lost:
-        if (getIsWifi() != false) goto L15;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void updatePostImageSize() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            int d = hq4.c().d();
-            int i = 1300;
-            if (d != 0) {
-                if (d != 1) {
-                    if (d == 2 || d != 3) {
-                        i = 1800;
-                    }
-                }
-                i = 2000;
-            }
-            this.mPostImageSize = i;
-        }
-    }
-
-    public void updateUrlQuality() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            String valueOf = String.valueOf(45);
-            if (hq4.c().e() == 0) {
-                if (getIsWifi()) {
-                    valueOf = String.valueOf(80);
-                }
-            } else if (hq4.c().e() == 1) {
-                valueOf = String.valueOf(80);
-            }
-            this.mUrlQuality = valueOf;
         }
     }
 }

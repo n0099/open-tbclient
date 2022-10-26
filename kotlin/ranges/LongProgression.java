@@ -24,26 +24,26 @@ public class LongProgression implements Iterable<Long>, KMappedMarker {
         public Companion() {
         }
 
-        public final LongProgression fromClosedRange(long j, long j2, long j3) {
-            return new LongProgression(j, j2, j3);
-        }
-
         public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
             this();
+        }
+
+        public final LongProgression fromClosedRange(long j, long j2, long j3) {
+            return new LongProgression(j, j2, j3);
         }
     }
 
     public LongProgression(long j, long j2, long j3) {
-        if (j3 == 0) {
-            throw new IllegalArgumentException("Step must be non-zero.");
+        if (j3 != 0) {
+            if (j3 != Long.MIN_VALUE) {
+                this.first = j;
+                this.last = ProgressionUtilKt.getProgressionLastElement(j, j2, j3);
+                this.step = j3;
+                return;
+            }
+            throw new IllegalArgumentException("Step must be greater than Long.MIN_VALUE to avoid overflow on negation.");
         }
-        if (j3 != Long.MIN_VALUE) {
-            this.first = j;
-            this.last = ProgressionUtilKt.getProgressionLastElement(j, j2, j3);
-            this.step = j3;
-            return;
-        }
-        throw new IllegalArgumentException("Step must be greater than Long.MIN_VALUE to avoid overflow on negation.");
+        throw new IllegalArgumentException("Step must be non-zero.");
     }
 
     public boolean equals(Object obj) {
@@ -96,6 +96,13 @@ public class LongProgression implements Iterable<Long>, KMappedMarker {
         return false;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Return type fixed from 'kotlin.collections.LongIterator' to match base method */
+    @Override // java.lang.Iterable
+    public Iterator<Long> iterator() {
+        return new LongProgressionIterator(this.first, this.last, this.step);
+    }
+
     public String toString() {
         StringBuilder sb;
         long j;
@@ -116,12 +123,5 @@ public class LongProgression implements Iterable<Long>, KMappedMarker {
         }
         sb.append(j);
         return sb.toString();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX DEBUG: Return type fixed from 'kotlin.collections.LongIterator' to match base method */
-    @Override // java.lang.Iterable
-    public Iterator<Long> iterator() {
-        return new LongProgressionIterator(this.first, this.last, this.step);
     }
 }

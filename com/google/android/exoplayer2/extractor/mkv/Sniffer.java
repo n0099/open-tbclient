@@ -66,47 +66,52 @@ public final class Sniffer {
         long readUint;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, extractorInput)) != null) {
-            return invokeL.booleanValue;
-        }
-        long length = extractorInput.getLength();
-        long j = 1024;
-        int i2 = (length > (-1L) ? 1 : (length == (-1L) ? 0 : -1));
-        if (i2 != 0 && length <= 1024) {
-            j = length;
-        }
-        int i3 = (int) j;
-        extractorInput.peekFully(this.scratch.data, 0, 4);
-        long readUnsignedInt = this.scratch.readUnsignedInt();
-        this.peekLength = 4;
-        while (readUnsignedInt != 440786851) {
-            int i4 = this.peekLength + 1;
-            this.peekLength = i4;
-            if (i4 == i3) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, extractorInput)) == null) {
+            long length = extractorInput.getLength();
+            long j = 1024;
+            int i2 = (length > (-1L) ? 1 : (length == (-1L) ? 0 : -1));
+            if (i2 != 0 && length <= 1024) {
+                j = length;
+            }
+            int i3 = (int) j;
+            extractorInput.peekFully(this.scratch.data, 0, 4);
+            long readUnsignedInt = this.scratch.readUnsignedInt();
+            this.peekLength = 4;
+            while (readUnsignedInt != 440786851) {
+                int i4 = this.peekLength + 1;
+                this.peekLength = i4;
+                if (i4 == i3) {
+                    return false;
+                }
+                extractorInput.peekFully(this.scratch.data, 0, 1);
+                readUnsignedInt = ((readUnsignedInt << 8) & (-256)) | (this.scratch.data[0] & 255);
+            }
+            long readUint2 = readUint(extractorInput);
+            long j2 = this.peekLength;
+            if (readUint2 == Long.MIN_VALUE) {
                 return false;
             }
-            extractorInput.peekFully(this.scratch.data, 0, 1);
-            readUnsignedInt = ((readUnsignedInt << 8) & (-256)) | (this.scratch.data[0] & 255);
-        }
-        long readUint2 = readUint(extractorInput);
-        long j2 = this.peekLength;
-        if (readUint2 == Long.MIN_VALUE) {
-            return false;
-        }
-        if (i2 != 0 && j2 + readUint2 >= length) {
-            return false;
-        }
-        while (true) {
-            int i5 = this.peekLength;
-            long j3 = j2 + readUint2;
-            if (i5 >= j3) {
-                return ((long) i5) == j3;
-            } else if (readUint(extractorInput) != Long.MIN_VALUE && (readUint(extractorInput)) >= 0 && readUint <= 2147483647L) {
-                if (i != 0) {
-                    extractorInput.advancePeekPosition((int) readUint);
-                    this.peekLength = (int) (this.peekLength + readUint);
+            if (i2 != 0 && j2 + readUint2 >= length) {
+                return false;
+            }
+            while (true) {
+                int i5 = this.peekLength;
+                long j3 = j2 + readUint2;
+                if (i5 < j3) {
+                    if (readUint(extractorInput) != Long.MIN_VALUE && (readUint(extractorInput)) >= 0 && readUint <= 2147483647L) {
+                        if (i != 0) {
+                            extractorInput.advancePeekPosition((int) readUint);
+                            this.peekLength = (int) (this.peekLength + readUint);
+                        }
+                    }
+                } else if (i5 != j3) {
+                    return false;
+                } else {
+                    return true;
                 }
             }
+        } else {
+            return invokeL.booleanValue;
         }
     }
 }

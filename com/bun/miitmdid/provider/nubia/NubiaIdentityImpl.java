@@ -5,8 +5,6 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import androidx.annotation.Keep;
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,13 +13,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bun.miitmdid.f0;
-@Keep
 /* loaded from: classes7.dex */
 public class NubiaIdentityImpl {
     public static /* synthetic */ Interceptable $ic = null;
-    @Keep
     public static final String TAG = "NubiaIdentityImpl";
-    @Keep
     public static Uri uri;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -55,7 +50,7 @@ public class NubiaIdentityImpl {
         }
     }
 
-    public static Object generalMethod(Context context, String str, @Nullable String str2, String str3, Class<?> cls) {
+    public static Object generalMethod(Context context, String str, String str2, String str3, Class cls) {
         InterceptResult invokeLLLLL;
         Bundle call;
         Interceptable interceptable = $ic;
@@ -102,15 +97,11 @@ public class NubiaIdentityImpl {
         return invokeLLLLL.objValue;
     }
 
-    @Keep
     public static native String getAAID(Context context, String str);
 
-    @Keep
     public static native String getOAID(Context context);
 
-    @Keep
     public static native String getVAID(Context context, String str);
 
-    @Keep
     public static native boolean isSupported(Context context);
 }

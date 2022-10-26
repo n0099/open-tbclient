@@ -14,7 +14,7 @@ import org.aspectj.lang.reflect.TypePattern;
 public class DeclareParentsImpl implements DeclareParents {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AjType<?> declaringType;
+    public AjType declaringType;
     public String firstMissingTypeName;
     public boolean isExtends;
     public Type[] parents;
@@ -22,7 +22,7 @@ public class DeclareParentsImpl implements DeclareParents {
     public String parentsString;
     public TypePattern targetTypesPattern;
 
-    public DeclareParentsImpl(String str, String str2, boolean z, AjType<?> ajType) {
+    public DeclareParentsImpl(String str, String str2, boolean z, AjType ajType) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -54,7 +54,10 @@ public class DeclareParentsImpl implements DeclareParents {
     public AjType getDeclaringType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.declaringType : (AjType) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.declaringType;
+        }
+        return (AjType) invokeV.objValue;
     }
 
     @Override // org.aspectj.lang.reflect.DeclareParents
@@ -74,31 +77,46 @@ public class DeclareParentsImpl implements DeclareParents {
     public TypePattern getTargetTypesPattern() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.targetTypesPattern : (TypePattern) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.targetTypesPattern;
+        }
+        return (TypePattern) invokeV.objValue;
     }
 
     @Override // org.aspectj.lang.reflect.DeclareParents
     public boolean isExtends() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.isExtends : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.isExtends;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // org.aspectj.lang.reflect.DeclareParents
     public boolean isImplements() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? !this.isExtends : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return !this.isExtends;
+        }
+        return invokeV.booleanValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             StringBuffer stringBuffer = new StringBuffer();
             stringBuffer.append("declare parents : ");
             stringBuffer.append(getTargetTypesPattern().asString());
-            stringBuffer.append(isExtends() ? " extends " : " implements ");
+            if (isExtends()) {
+                str = " extends ";
+            } else {
+                str = " implements ";
+            }
+            stringBuffer.append(str);
             stringBuffer.append(this.parentsString);
             return stringBuffer.toString();
         }

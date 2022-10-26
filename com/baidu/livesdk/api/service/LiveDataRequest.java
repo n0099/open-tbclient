@@ -11,7 +11,16 @@ import java.util.List;
 public interface LiveDataRequest {
 
     /* loaded from: classes2.dex */
-    public static class LiveData {
+    public interface PageDataReceiver {
+        void onReceiver(PageData pageData);
+    }
+
+    void queryPageData(String str, Integer num, Integer num2, PageDataReceiver pageDataReceiver);
+
+    void release();
+
+    /* loaded from: classes2.dex */
+    public class LiveData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String content;
@@ -39,13 +48,19 @@ public interface LiveDataRequest {
         public String getContent() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.content : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.content;
+            }
+            return (String) invokeV.objValue;
         }
 
         public String getRoomId() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.roomId : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.roomId;
+            }
+            return (String) invokeV.objValue;
         }
 
         public void setContent(String str) {
@@ -64,12 +79,120 @@ public interface LiveDataRequest {
     }
 
     /* loaded from: classes2.dex */
-    public interface PageDataReceiver {
-        void onReceiver(PageData pageData);
+    public class PageData {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String errno;
+        public List liveDatas;
+        public String message;
+        public PageInfo pageInfo;
+
+        public PageData(String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.errno = str;
+            this.message = str2;
+        }
+
+        public PageData(String str, List list, PageInfo pageInfo) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, list, pageInfo};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.errno = str;
+            this.liveDatas = list;
+            this.pageInfo = pageInfo;
+        }
+
+        public String getErrno() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.errno;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public List getLiveDatas() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.liveDatas;
+            }
+            return (List) invokeV.objValue;
+        }
+
+        public String getMessage() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.message;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public PageInfo getPageInfo() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.pageInfo;
+            }
+            return (PageInfo) invokeV.objValue;
+        }
+
+        public void setErrno(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+                this.errno = str;
+            }
+        }
+
+        public void setLiveDatas(List list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
+                this.liveDatas = list;
+            }
+        }
+
+        public void setMessage(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+                this.message = str;
+            }
+        }
+
+        public void setPageInfo(PageInfo pageInfo) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048583, this, pageInfo) == null) {
+                this.pageInfo = pageInfo;
+            }
+        }
     }
 
     /* loaded from: classes2.dex */
-    public static class PageInfo {
+    public class PageInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int page;
@@ -97,13 +220,19 @@ public interface LiveDataRequest {
         public int getPage() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.page : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.page;
+            }
+            return invokeV.intValue;
         }
 
         public int getPageSize() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.pageSize : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.pageSize;
+            }
+            return invokeV.intValue;
         }
 
         public void setPage(int i) {
@@ -118,111 +247,6 @@ public interface LiveDataRequest {
             if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
                 this.pageSize = i;
             }
-        }
-    }
-
-    void queryPageData(String str, Integer num, Integer num2, PageDataReceiver pageDataReceiver);
-
-    void release();
-
-    /* loaded from: classes2.dex */
-    public static class PageData {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String errno;
-        public List<LiveData> liveDatas;
-        public String message;
-        public PageInfo pageInfo;
-
-        public PageData(String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.errno = str;
-            this.message = str2;
-        }
-
-        public String getErrno() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.errno : (String) invokeV.objValue;
-        }
-
-        public List<LiveData> getLiveDatas() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.liveDatas : (List) invokeV.objValue;
-        }
-
-        public String getMessage() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.message : (String) invokeV.objValue;
-        }
-
-        public PageInfo getPageInfo() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.pageInfo : (PageInfo) invokeV.objValue;
-        }
-
-        public void setErrno(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                this.errno = str;
-            }
-        }
-
-        public void setLiveDatas(List<LiveData> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-                this.liveDatas = list;
-            }
-        }
-
-        public void setMessage(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-                this.message = str;
-            }
-        }
-
-        public void setPageInfo(PageInfo pageInfo) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, pageInfo) == null) {
-                this.pageInfo = pageInfo;
-            }
-        }
-
-        public PageData(String str, List<LiveData> list, PageInfo pageInfo) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, list, pageInfo};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.errno = str;
-            this.liveDatas = list;
-            this.pageInfo = pageInfo;
         }
     }
 }

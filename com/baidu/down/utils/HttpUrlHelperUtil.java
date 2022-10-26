@@ -19,6 +19,25 @@ public class HttpUrlHelperUtil {
     public static final byte[] DIGITS;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static int decodeHexDigit(char c) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Character.valueOf(c)})) == null) {
+            if (c < '0' || c > '9') {
+                char c2 = 'a';
+                if (c < 'a' || c > 'f') {
+                    c2 = 'A';
+                    if (c < 'A' || c > 'F') {
+                        return -1;
+                    }
+                }
+                return (c - c2) + 10;
+            }
+            return c - '0';
+        }
+        return invokeCommon.intValue;
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -64,21 +83,17 @@ public class HttpUrlHelperUtil {
         return invokeL.booleanValue;
     }
 
-    public static int decodeHexDigit(char c) {
+    public static int delimiterOffset(String str, int i, int i2, char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Character.valueOf(c)})) == null) {
-            if (c < '0' || c > '9') {
-                char c2 = 'a';
-                if (c < 'a' || c > 'f') {
-                    c2 = 'A';
-                    if (c < 'A' || c > 'F') {
-                        return -1;
-                    }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), Character.valueOf(c)})) == null) {
+            while (i < i2) {
+                if (str.charAt(i) == c) {
+                    return i;
                 }
-                return (c - c2) + 10;
+                i++;
             }
-            return c - '0';
+            return i2;
         }
         return invokeCommon.intValue;
     }
@@ -118,6 +133,15 @@ public class HttpUrlHelperUtil {
         return (String) invokeL.objValue;
     }
 
+    public static String writeByte(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65545, null, i)) == null) {
+            return new String(new byte[]{(byte) i});
+        }
+        return (String) invokeI.objValue;
+    }
+
     public static int skipLeadingAsciiWhitespace(String str, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
@@ -147,12 +171,6 @@ public class HttpUrlHelperUtil {
             return i;
         }
         return invokeLII.intValue;
-    }
-
-    public static String writeByte(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65545, null, i)) == null) ? new String(new byte[]{(byte) i}) : (String) invokeI.objValue;
     }
 
     public static String writeHexadecimalUnsignedLong(long j) {
@@ -229,20 +247,5 @@ public class HttpUrlHelperUtil {
             return bArr;
         }
         return (byte[]) invokeI.objValue;
-    }
-
-    public static int delimiterOffset(String str, int i, int i2, char c) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), Character.valueOf(c)})) == null) {
-            while (i < i2) {
-                if (str.charAt(i) == c) {
-                    return i;
-                }
-                i++;
-            }
-            return i2;
-        }
-        return invokeCommon.intValue;
     }
 }

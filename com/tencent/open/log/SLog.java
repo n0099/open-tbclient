@@ -4,6 +4,7 @@ import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +12,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tencent.connect.common.Constants;
 import com.tencent.open.log.d;
 import java.io.File;
 /* loaded from: classes8.dex */
@@ -55,6 +55,53 @@ public class SLog implements TraceLevel {
         this.a = new a(new b(a(), c.m, c.g, c.h, c.c, c.i, 10, c.e, c.n));
     }
 
+    public static File a() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            String str = c.d;
+            try {
+                d.c b = d.b.b();
+                if (b != null && b.c() > c.f) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (z) {
+                    return new File(Environment.getExternalStorageDirectory(), str);
+                }
+                return new File(com.tencent.open.utils.f.c(), str);
+            } catch (Throwable th) {
+                e(TAG, "getLogFilePath:", th);
+                return null;
+            }
+        }
+        return (File) invokeV.objValue;
+    }
+
+    private String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
+            }
+            if (d.a(str)) {
+                return "xxxxxx";
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void setCustomLogger(Tracer tracer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, tracer) == null) {
+            this.b = tracer;
+        }
+    }
+
     public static final void d(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
@@ -69,46 +116,10 @@ public class SLog implements TraceLevel {
         }
     }
 
-    public static void flushLogs() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
-            getInstance().c();
-        }
-    }
-
-    public static SLog getInstance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            if (instance == null) {
-                synchronized (SLog.class) {
-                    if (instance == null) {
-                        instance = new SLog();
-                        c = true;
-                    }
-                }
-            }
-            return instance;
-        }
-        return (SLog) invokeV.objValue;
-    }
-
     public static final void i(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65546, null, str, str2) == null) {
             getInstance().a(4, str, str2, null);
-        }
-    }
-
-    public static void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65548, null) == null) {
-            synchronized (SLog.class) {
-                getInstance().b();
-                if (instance != null) {
-                    instance = null;
-                }
-            }
         }
     }
 
@@ -130,67 +141,6 @@ public class SLog implements TraceLevel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65553, null, str, str2) == null) {
             getInstance().a(8, str, str2, null);
-        }
-    }
-
-    public void a(int i, String str, String str2, Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, str2, th}) == null) {
-            if (c) {
-                String b = com.tencent.open.utils.f.b();
-                if (!TextUtils.isEmpty(b)) {
-                    String str3 = b + " SDK_VERSION:" + Constants.SDK_VERSION;
-                    if (this.a == null) {
-                        return;
-                    }
-                    e.a.a(32, Thread.currentThread(), System.currentTimeMillis(), TAG, str3, null);
-                    this.a.a(32, Thread.currentThread(), System.currentTimeMillis(), TAG, str3, null);
-                    c = false;
-                }
-            }
-            e.a.a(i, Thread.currentThread(), System.currentTimeMillis(), str, str2, th);
-            if (d.a.a(c.b, i)) {
-                a aVar = this.a;
-                if (aVar == null) {
-                    return;
-                }
-                aVar.a(i, Thread.currentThread(), System.currentTimeMillis(), str, str2, th);
-            }
-            Tracer tracer = this.b;
-            if (tracer != null) {
-                try {
-                    tracer.a(i, Thread.currentThread(), System.currentTimeMillis(), str, a(str2), th);
-                } catch (Exception e) {
-                    Log.e(str, "Exception", e);
-                }
-            }
-        }
-    }
-
-    public void b() {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (aVar = this.a) == null) {
-            return;
-        }
-        aVar.a();
-        this.a.b();
-        this.a = null;
-    }
-
-    public void c() {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this) == null) || (aVar = this.a) == null) {
-            return;
-        }
-        aVar.a();
-    }
-
-    public void setCustomLogger(Tracer tracer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, tracer) == null) {
-            this.b = tracer;
         }
     }
 
@@ -236,28 +186,91 @@ public class SLog implements TraceLevel {
         }
     }
 
-    private String a(String str) {
-        InterceptResult invokeL;
+    public static void flushLogs() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, this, str)) == null) ? TextUtils.isEmpty(str) ? "" : d.a(str) ? "xxxxxx" : str : (String) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
+            getInstance().c();
+        }
     }
 
-    public static File a() {
+    public static SLog getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            String str = c.d;
-            try {
-                d.c b = d.b.b();
-                if (b != null && b.c() > c.f) {
-                    return new File(Environment.getExternalStorageDirectory(), str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            if (instance == null) {
+                synchronized (SLog.class) {
+                    if (instance == null) {
+                        instance = new SLog();
+                        c = true;
+                    }
                 }
-                return new File(com.tencent.open.utils.f.c(), str);
-            } catch (Throwable th) {
-                e(TAG, "getLogFilePath:", th);
-                return null;
+            }
+            return instance;
+        }
+        return (SLog) invokeV.objValue;
+    }
+
+    public static void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65548, null) == null) {
+            synchronized (SLog.class) {
+                getInstance().b();
+                if (instance != null) {
+                    instance = null;
+                }
             }
         }
-        return (File) invokeV.objValue;
+    }
+
+    public void b() {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (aVar = this.a) != null) {
+            aVar.a();
+            this.a.b();
+            this.a = null;
+        }
+    }
+
+    public void c() {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (aVar = this.a) != null) {
+            aVar.a();
+        }
+    }
+
+    public void a(int i, String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, str2, th}) == null) {
+            if (c) {
+                String b = com.tencent.open.utils.f.b();
+                if (!TextUtils.isEmpty(b)) {
+                    String str3 = b + " SDK_VERSION:" + com.tencent.connect.common.Constants.SDK_VERSION;
+                    if (this.a == null) {
+                        return;
+                    }
+                    e.a.a(32, Thread.currentThread(), System.currentTimeMillis(), TAG, str3, null);
+                    this.a.a(32, Thread.currentThread(), System.currentTimeMillis(), TAG, str3, null);
+                    c = false;
+                }
+            }
+            e.a.a(i, Thread.currentThread(), System.currentTimeMillis(), str, str2, th);
+            if (d.a.a(c.b, i)) {
+                a aVar = this.a;
+                if (aVar == null) {
+                    return;
+                }
+                aVar.a(i, Thread.currentThread(), System.currentTimeMillis(), str, str2, th);
+            }
+            Tracer tracer = this.b;
+            if (tracer != null) {
+                try {
+                    tracer.a(i, Thread.currentThread(), System.currentTimeMillis(), str, a(str2), th);
+                } catch (Exception e) {
+                    Log.e(str, "Exception", e);
+                }
+            }
+        }
     }
 }

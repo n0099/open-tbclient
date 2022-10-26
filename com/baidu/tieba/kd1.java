@@ -1,9 +1,44 @@
 package com.baidu.tieba;
 
-import java.util.concurrent.atomic.AtomicReference;
+import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
-public interface kd1 {
-    public static final AtomicReference<kd1> a = new AtomicReference<>();
+public class kd1 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "https://afd.baidu.com/afd/entry";
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean a();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947909137, "Lcom/baidu/tieba/kd1;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947909137, "Lcom/baidu/tieba/kd1;");
+        }
+    }
+
+    public static String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (og0.a && !TextUtils.isEmpty(aj0.d().i())) {
+                return aj0.d().i();
+            }
+            if (TextUtils.isEmpty(a)) {
+                return "https://afd.baidu.com/afd/entry";
+            }
+            return a;
+        }
+        return (String) invokeV.objValue;
+    }
 }

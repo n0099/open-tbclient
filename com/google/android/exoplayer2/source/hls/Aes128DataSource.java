@@ -63,7 +63,10 @@ public final class Aes128DataSource implements DataSource {
     public Uri getUri() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.upstream.getUri() : (Uri) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.upstream.getUri();
+        }
+        return (Uri) invokeV.objValue;
     }
 
     @Override // com.google.android.exoplayer2.upstream.DataSource
@@ -90,9 +93,15 @@ public final class Aes128DataSource implements DataSource {
     @Override // com.google.android.exoplayer2.upstream.DataSource
     public int read(byte[] bArr, int i, int i2) throws IOException {
         InterceptResult invokeLII;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, bArr, i, i2)) == null) {
-            Assertions.checkState(this.cipherInputStream != null);
+            if (this.cipherInputStream != null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Assertions.checkState(z);
             int read = this.cipherInputStream.read(bArr, i, i2);
             if (read < 0) {
                 return -1;

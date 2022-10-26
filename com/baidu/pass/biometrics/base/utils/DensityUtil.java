@@ -32,24 +32,36 @@ public class DensityUtil {
     public static int dp2px(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(65537, null, f)) == null) ? (int) ((f * Resources.getSystem().getDisplayMetrics().density) + 0.5f) : invokeF.intValue;
+        if (interceptable == null || (invokeF = interceptable.invokeF(65537, null, f)) == null) {
+            return (int) ((f * Resources.getSystem().getDisplayMetrics().density) + 0.5f);
+        }
+        return invokeF.intValue;
     }
 
     public static float px2dp(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(65538, null, f)) == null) ? f / Resources.getSystem().getDisplayMetrics().density : invokeF.floatValue;
+        if (interceptable == null || (invokeF = interceptable.invokeF(65538, null, f)) == null) {
+            return f / Resources.getSystem().getDisplayMetrics().density;
+        }
+        return invokeF.floatValue;
     }
 
     public int dip2px(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) ? (int) ((f * this.a) + 0.5f) : invokeF.intValue;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
+            return (int) ((f * this.a) + 0.5f);
+        }
+        return invokeF.intValue;
     }
 
     public float px2dip(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f)) == null) ? f / this.a : invokeF.floatValue;
+        if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f)) == null) {
+            return f / this.a;
+        }
+        return invokeF.floatValue;
     }
 }

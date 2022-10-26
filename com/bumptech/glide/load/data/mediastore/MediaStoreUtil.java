@@ -14,6 +14,12 @@ public final class MediaStoreUtil {
     public static final int MINI_THUMB_WIDTH = 512;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static boolean isThumbnailSize(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i, i2)) == null) ? i != Integer.MIN_VALUE && i2 != Integer.MIN_VALUE && i <= 512 && i2 <= 384 : invokeII.booleanValue;
+    }
+
     public MediaStoreUtil() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -31,30 +37,45 @@ public final class MediaStoreUtil {
     public static boolean isMediaStoreImageUri(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, uri)) == null) ? isMediaStoreUri(uri) && !isVideoUri(uri) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, uri)) == null) {
+            if (isMediaStoreUri(uri) && !isVideoUri(uri)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     public static boolean isMediaStoreUri(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, uri)) == null) ? uri != null && "content".equals(uri.getScheme()) && "media".equals(uri.getAuthority()) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, uri)) == null) {
+            if (uri != null && "content".equals(uri.getScheme()) && "media".equals(uri.getAuthority())) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     public static boolean isMediaStoreVideoUri(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, uri)) == null) ? isMediaStoreUri(uri) && isVideoUri(uri) : invokeL.booleanValue;
-    }
-
-    public static boolean isThumbnailSize(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i, i2)) == null) ? i != Integer.MIN_VALUE && i2 != Integer.MIN_VALUE && i <= 512 && i2 <= 384 : invokeII.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, uri)) == null) {
+            if (isMediaStoreUri(uri) && isVideoUri(uri)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     public static boolean isVideoUri(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, uri)) == null) ? uri.getPathSegments().contains("video") : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, uri)) == null) {
+            return uri.getPathSegments().contains("video");
+        }
+        return invokeL.booleanValue;
     }
 }

@@ -51,15 +51,59 @@ public class ApplicationSoSource extends SoSource {
     public static File getNativeLibDirFromContext(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? new File(context.getApplicationInfo().nativeLibraryDir) : (File) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            return new File(context.getApplicationInfo().nativeLibraryDir);
+        }
+        return (File) invokeL.objValue;
     }
 
     @Override // com.facebook.soloader.SoSource
-    public void addToLdLibraryPath(Collection<String> collection) {
+    public void addToLdLibraryPath(Collection collection) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, collection) == null) {
             this.soSource.addToLdLibraryPath(collection);
         }
+    }
+
+    @Override // com.facebook.soloader.SoSource
+    @Nullable
+    public String[] getLibraryDependencies(String str) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return this.soSource.getLibraryDependencies(str);
+        }
+        return (String[]) invokeL.objValue;
+    }
+
+    @Override // com.facebook.soloader.SoSource
+    @Nullable
+    public String getLibraryPath(String str) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return this.soSource.getLibraryPath(str);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.facebook.soloader.SoSource
+    public void prepare(int i) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.soSource.prepare(i);
+        }
+    }
+
+    @Override // com.facebook.soloader.SoSource
+    @Nullable
+    public File unpackLibrary(String str) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            return this.soSource.unpackLibrary(str);
+        }
+        return (File) invokeL.objValue;
     }
 
     public boolean checkAndMaybeUpdate() throws IOException {
@@ -69,35 +113,19 @@ public class ApplicationSoSource extends SoSource {
             File file = this.soSource.soDirectory;
             Context updatedContext = getUpdatedContext();
             File nativeLibDirFromContext = getNativeLibDirFromContext(updatedContext);
-            if (file.equals(nativeLibDirFromContext)) {
-                return false;
+            if (!file.equals(nativeLibDirFromContext)) {
+                Log.d("SoLoader", "Native library directory updated from " + file + " to " + nativeLibDirFromContext);
+                int i = this.flags | 1;
+                this.flags = i;
+                DirectorySoSource directorySoSource = new DirectorySoSource(nativeLibDirFromContext, i);
+                this.soSource = directorySoSource;
+                directorySoSource.prepare(this.flags);
+                this.applicationContext = updatedContext;
+                return true;
             }
-            Log.d("SoLoader", "Native library directory updated from " + file + " to " + nativeLibDirFromContext);
-            int i = this.flags | 1;
-            this.flags = i;
-            DirectorySoSource directorySoSource = new DirectorySoSource(nativeLibDirFromContext, i);
-            this.soSource = directorySoSource;
-            directorySoSource.prepare(this.flags);
-            this.applicationContext = updatedContext;
-            return true;
+            return false;
         }
         return invokeV.booleanValue;
-    }
-
-    @Override // com.facebook.soloader.SoSource
-    @Nullable
-    public String[] getLibraryDependencies(String str) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.soSource.getLibraryDependencies(str) : (String[]) invokeL.objValue;
-    }
-
-    @Override // com.facebook.soloader.SoSource
-    @Nullable
-    public String getLibraryPath(String str) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? this.soSource.getLibraryPath(str) : (String) invokeL.objValue;
     }
 
     public Context getUpdatedContext() {
@@ -114,32 +142,22 @@ public class ApplicationSoSource extends SoSource {
     }
 
     @Override // com.facebook.soloader.SoSource
-    public int loadLibrary(String str, int i, StrictMode.ThreadPolicy threadPolicy) throws IOException {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048581, this, str, i, threadPolicy)) == null) ? this.soSource.loadLibrary(str, i, threadPolicy) : invokeLIL.intValue;
-    }
-
-    @Override // com.facebook.soloader.SoSource
-    public void prepare(int i) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.soSource.prepare(i);
-        }
-    }
-
-    @Override // com.facebook.soloader.SoSource
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.soSource.toString() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.soSource.toString();
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // com.facebook.soloader.SoSource
-    @Nullable
-    public File unpackLibrary(String str) throws IOException {
-        InterceptResult invokeL;
+    public int loadLibrary(String str, int i, StrictMode.ThreadPolicy threadPolicy) throws IOException {
+        InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) ? this.soSource.unpackLibrary(str) : (File) invokeL.objValue;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048581, this, str, i, threadPolicy)) == null) {
+            return this.soSource.loadLibrary(str, i, threadPolicy);
+        }
+        return invokeLIL.intValue;
     }
 }

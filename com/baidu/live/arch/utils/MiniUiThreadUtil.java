@@ -26,6 +26,17 @@ public final class MiniUiThreadUtil {
     public static final Lazy sMainHandler$delegate;
     public transient /* synthetic */ FieldHolder $fh;
 
+    private final Handler getSMainHandler() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+            Lazy lazy = sMainHandler$delegate;
+            KProperty kProperty = $$delegatedProperties[0];
+            return (Handler) lazy.getValue();
+        }
+        return (Handler) invokeV.objValue;
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -58,17 +69,6 @@ public final class MiniUiThreadUtil {
         }
     }
 
-    private final Handler getSMainHandler() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            Lazy lazy = sMainHandler$delegate;
-            KProperty kProperty = $$delegatedProperties[0];
-            return (Handler) lazy.getValue();
-        }
-        return (Handler) invokeV.objValue;
-    }
-
     public static /* synthetic */ void runOnUiThread$default(MiniUiThreadUtil miniUiThreadUtil, Runnable runnable, boolean z, int i, Object obj) {
         if ((i & 2) != 0) {
             z = false;
@@ -89,13 +89,16 @@ public final class MiniUiThreadUtil {
             Thread currentThread = Thread.currentThread();
             Looper mainLooper = Looper.getMainLooper();
             Intrinsics.checkExpressionValueIsNotNull(mainLooper, "Looper.getMainLooper()");
-            if (currentThread == mainLooper.getThread()) {
-                runnable.run();
-            } else if (z) {
-                getSMainHandler().postAtFrontOfQueue(runnable);
-            } else {
-                getSMainHandler().post(runnable);
+            if (currentThread != mainLooper.getThread()) {
+                if (z) {
+                    getSMainHandler().postAtFrontOfQueue(runnable);
+                    return;
+                } else {
+                    getSMainHandler().post(runnable);
+                    return;
+                }
             }
+            runnable.run();
         }
     }
 }

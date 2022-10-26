@@ -12,39 +12,10 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 /* loaded from: classes8.dex */
-public final class DisposeOnCancel implements Future<Object> {
+public final class DisposeOnCancel implements Future {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Disposable d;
-
-    public DisposeOnCancel(Disposable disposable) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {disposable};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.d = disposable;
-    }
-
-    @Override // java.util.concurrent.Future
-    public boolean cancel(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-            this.d.dispose();
-            return false;
-        }
-        return invokeZ.booleanValue;
-    }
 
     @Override // java.util.concurrent.Future
     public Object get() throws InterruptedException, ExecutionException {
@@ -84,5 +55,34 @@ public final class DisposeOnCancel implements Future<Object> {
             return false;
         }
         return invokeV.booleanValue;
+    }
+
+    public DisposeOnCancel(Disposable disposable) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {disposable};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.d = disposable;
+    }
+
+    @Override // java.util.concurrent.Future
+    public boolean cancel(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+            this.d.dispose();
+            return false;
+        }
+        return invokeZ.booleanValue;
     }
 }

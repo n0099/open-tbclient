@@ -13,9 +13,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class MediaModel implements Parcelable, Comparable<Object> {
+public class MediaModel implements Parcelable, Comparable {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator<MediaModel> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public static final String TYPE_IMAGE = "image";
     public static final String TYPE_VIDEO = "video";
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,8 +25,18 @@ public class MediaModel implements Parcelable, Comparable<Object> {
     public String tempPath;
     public String type;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     /* loaded from: classes2.dex */
-    public static class a implements Parcelable.Creator<MediaModel> {
+    public final class a implements Parcelable.Creator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -50,7 +60,10 @@ public class MediaModel implements Parcelable, Comparable<Object> {
         public MediaModel createFromParcel(Parcel parcel) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new MediaModel(parcel) : (MediaModel) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+                return new MediaModel(parcel);
+            }
+            return (MediaModel) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -59,7 +72,10 @@ public class MediaModel implements Parcelable, Comparable<Object> {
         public MediaModel[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new MediaModel[i] : (MediaModel[]) invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                return new MediaModel[i];
+            }
+            return (MediaModel[]) invokeI.objValue;
         }
     }
 
@@ -77,6 +93,73 @@ public class MediaModel implements Parcelable, Comparable<Object> {
             }
         }
         CREATOR = new a();
+    }
+
+    public long getAddDate() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.addDate;
+        }
+        return invokeV.longValue;
+    }
+
+    public String getPath() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.path;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long getSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.size;
+        }
+        return invokeV.longValue;
+    }
+
+    public String getTempPath() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.tempPath;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.type;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public MediaModel(Parcel parcel) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.path = parcel.readString();
+        this.tempPath = parcel.readString();
+        this.addDate = parcel.readLong();
+        this.type = parcel.readString();
+        this.size = parcel.readLong();
     }
 
     public MediaModel(String str) {
@@ -101,17 +184,10 @@ public class MediaModel implements Parcelable, Comparable<Object> {
     public int compareTo(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? Long.valueOf(((MediaModel) obj).getAddDate()).compareTo(Long.valueOf(this.addDate)) : invokeL.intValue;
-    }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            return Long.valueOf(((MediaModel) obj).getAddDate()).compareTo(Long.valueOf(this.addDate));
         }
-        return invokeV.intValue;
+        return invokeL.intValue;
     }
 
     public boolean equals(Object obj) {
@@ -124,36 +200,6 @@ public class MediaModel implements Parcelable, Comparable<Object> {
             return false;
         }
         return invokeL.booleanValue;
-    }
-
-    public long getAddDate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.addDate : invokeV.longValue;
-    }
-
-    public String getPath() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.path : (String) invokeV.objValue;
-    }
-
-    public long getSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.size : invokeV.longValue;
-    }
-
-    public String getTempPath() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.tempPath : (String) invokeV.objValue;
-    }
-
-    public String getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.type : (String) invokeV.objValue;
     }
 
     public void setAddDate(long j) {
@@ -201,27 +247,5 @@ public class MediaModel implements Parcelable, Comparable<Object> {
             parcel.writeString(this.type);
             parcel.writeLong(this.size);
         }
-    }
-
-    public MediaModel(Parcel parcel) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.path = parcel.readString();
-        this.tempPath = parcel.readString();
-        this.addDate = parcel.readLong();
-        this.type = parcel.readString();
-        this.size = parcel.readLong();
     }
 }

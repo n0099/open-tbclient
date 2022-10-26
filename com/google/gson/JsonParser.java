@@ -32,10 +32,25 @@ public final class JsonParser {
         }
     }
 
-    public JsonElement parse(String str) throws JsonSyntaxException {
+    public JsonElement parse(JsonReader jsonReader) throws JsonIOException, JsonSyntaxException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? parse(new StringReader(str)) : (JsonElement) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jsonReader)) == null) {
+            boolean isLenient = jsonReader.isLenient();
+            jsonReader.setLenient(true);
+            try {
+                try {
+                    return Streams.parse(jsonReader);
+                } catch (OutOfMemoryError e) {
+                    throw new JsonParseException("Failed parsing JSON source: " + jsonReader + " to Json", e);
+                } catch (StackOverflowError e2) {
+                    throw new JsonParseException("Failed parsing JSON source: " + jsonReader + " to Json", e2);
+                }
+            } finally {
+                jsonReader.setLenient(isLenient);
+            }
+        }
+        return (JsonElement) invokeL.objValue;
     }
 
     public JsonElement parse(Reader reader) throws JsonIOException, JsonSyntaxException {
@@ -60,23 +75,11 @@ public final class JsonParser {
         return (JsonElement) invokeL.objValue;
     }
 
-    public JsonElement parse(JsonReader jsonReader) throws JsonIOException, JsonSyntaxException {
+    public JsonElement parse(String str) throws JsonSyntaxException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jsonReader)) == null) {
-            boolean isLenient = jsonReader.isLenient();
-            jsonReader.setLenient(true);
-            try {
-                try {
-                    return Streams.parse(jsonReader);
-                } catch (OutOfMemoryError e) {
-                    throw new JsonParseException("Failed parsing JSON source: " + jsonReader + " to Json", e);
-                } catch (StackOverflowError e2) {
-                    throw new JsonParseException("Failed parsing JSON source: " + jsonReader + " to Json", e2);
-                }
-            } finally {
-                jsonReader.setLenient(isLenient);
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return parse(new StringReader(str));
         }
         return (JsonElement) invokeL.objValue;
     }

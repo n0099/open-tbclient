@@ -29,9 +29,9 @@ import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ad.AbsDataRecorder;
-import com.baidu.tieba.hv4;
-import com.baidu.tieba.pp8;
-import com.baidu.tieba.yo5;
+import com.baidu.tieba.fp5;
+import com.baidu.tieba.nv4;
+import com.baidu.tieba.wp8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -68,7 +68,7 @@ public class VipAdFreeGuideLayout extends FrameLayout implements View.OnClickLis
     public boolean n;
 
     /* loaded from: classes3.dex */
-    public static /* synthetic */ class a {
+    public /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -152,253 +152,6 @@ public class VipAdFreeGuideLayout extends FrameLayout implements View.OnClickLis
         }
     }
 
-    private int getFromScene() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            int i = a.a[this.k.ordinal()];
-            if (i != 1) {
-                if (i == 2 || i == 3) {
-                    return 100015;
-                }
-                return i != 4 ? 0 : 100017;
-            }
-            return 100013;
-        }
-        return invokeV.intValue;
-    }
-
-    private String getReferPageAndClickZone() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
-            int i = a.a[this.k.ordinal()];
-            return i != 1 ? (i == 2 || i == 3) ? MemberPayActivityConfig.AUTOPAY_FROM_LOW_INCOME_FRS : i != 4 ? "" : MemberPayActivityConfig.AUTOPAY_FROM_LOW_INCOME_PB : MemberPayActivityConfig.AUTOPAY_FROM_LOW_INCOME_HOME;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            e(CommonStatisticKey.KEY_VIP_AD_FREE_GUID_TIP_CLICK);
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ImageView imageView = (ImageView) this.d.findViewById(R.id.obfuscated_res_0x7f0925e7);
-            this.f = imageView;
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) imageView.getLayoutParams();
-            if (layoutParams == null) {
-                int i = this.h;
-                layoutParams = new LinearLayout.LayoutParams(i, i);
-            }
-            int i2 = this.h;
-            layoutParams.width = i2;
-            layoutParams.height = i2;
-            this.f.setLayoutParams(layoutParams);
-        }
-    }
-
-    public final void c(Context context, AttributeSet attributeSet) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, pp8.VipAdFreeGuideLayout);
-            this.g = obtainStyledAttributes.getBoolean(1, false);
-            this.h = obtainStyledAttributes.getDimensionPixelOffset(0, u);
-            obtainStyledAttributes.recycle();
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            setClipToPadding(false);
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0902, (ViewGroup) null);
-            this.d = linearLayout;
-            this.e = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0925e6);
-            b();
-            if (this.g) {
-                this.c = t;
-                this.a = r;
-                this.b = s;
-            }
-            int i = this.c;
-            setPadding(i, this.a, i, this.b);
-            addView(this.d);
-            f();
-        }
-    }
-
-    public final void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            int i = a.a[this.k.ordinal()];
-            int i2 = 3;
-            if (i == 1) {
-                i2 = 1;
-            } else if (i == 2 || i == 3) {
-                i2 = 2;
-            } else if (i != 4) {
-                i2 = 0;
-            }
-            statisticItem.addParam("obj_source", i2);
-            statisticItem.addParam("fid", this.l);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            if (TbadkCoreApplication.getInst().getSkinType() != 1 && TbadkCoreApplication.getInst().getSkinType() != 4) {
-                this.j = "#4DFFE1C0";
-            } else {
-                this.j = "#1AFFE1C0";
-            }
-            String[] strArr = this.g ? new String[]{this.j, this.i} : new String[]{this.i, this.j};
-            if (this.n) {
-                TBSelector.makeDrawableSelector().setShape(0).defaultColor(this.j).radius(v).into(this);
-            } else {
-                TBSelector.makeDrawableSelector().setShape(0).gradientLinear(DrawableSelector.TOP_BOTTOM, strArr).blRadius(this.m ? v : 0.0f).brRadius(this.m ? v : 0.0f).into(this);
-            }
-            hv4 d = hv4.d(this.e);
-            d.z(R.dimen.T_X07);
-            d.v(R.color.CAM_X0311);
-            if (this.g) {
-                WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f080a4b, R.color.CAM_X0626, null);
-            } else {
-                WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f080a4a, R.color.CAM_X0311, null);
-            }
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (this.g) {
-                this.f.setOnClickListener(this);
-            } else {
-                setOnClickListener(this);
-            }
-        }
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            e(CommonStatisticKey.KEY_VIP_AD_FREE_GUID_TIP_SHOW);
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void onAttachedToWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            super.onAttachedToWindow();
-            setGuideContent(yo5.e().h(), yo5.e().g());
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, view2) == null) {
-            if (this.g) {
-                view2.getId();
-                this.f.getId();
-                return;
-            }
-            MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(getContext(), TbadkCoreApplication.getCurrentMemberType(), "", 27, true);
-            memberPayActivityConfig.setFid(this.l);
-            memberPayActivityConfig.setFromScence(getFromScene());
-            String referPageAndClickZone = getReferPageAndClickZone();
-            memberPayActivityConfig.setReferPageClickZone(referPageAndClickZone, referPageAndClickZone);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
-            a();
-        }
-    }
-
-    public void setAllCornerRound(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.n = z;
-            if (z) {
-                int i = this.c;
-                int i2 = w;
-                setPadding(i, i2, i, i2);
-            }
-        }
-    }
-
-    public void setBottomCornerRound(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.m = z;
-        }
-    }
-
-    public void setCloseClickListener(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, onClickListener) == null) {
-            this.f.setOnClickListener(onClickListener);
-        }
-    }
-
-    public void setGuideContent(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048589, this, str, str2) == null) || StringUtils.isNull(str) || this.e == null) {
-            return;
-        }
-        if (!StringUtils.isNull(str2)) {
-            int indexOf = str.indexOf(str2);
-            SpannableString spannableString = new SpannableString(str);
-            spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0301)), indexOf, str2.length() + indexOf, 33);
-            this.e.setText(spannableString);
-            return;
-        }
-        this.e.setText(str);
-    }
-
-    public void setInfo(AbsDataRecorder.Scene scene, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048590, this, scene, str) == null) {
-            this.k = scene;
-            this.l = str;
-            if (this.g) {
-                return;
-            }
-            h();
-        }
-    }
-
-    public void setLayoutPadding(int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(1048591, this, i, i2, i3) == null) {
-            if (i < 0) {
-                this.a = o;
-            } else {
-                this.a = i;
-            }
-            if (i2 < 0) {
-                this.b = p;
-            } else {
-                this.b = i2;
-            }
-            if (i3 < 0) {
-                this.c = q;
-            } else {
-                this.c = i3;
-            }
-            int i4 = this.c;
-            setPadding(i4, this.a, i4, this.b);
-        }
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public VipAdFreeGuideLayout(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
@@ -417,6 +170,20 @@ public class VipAdFreeGuideLayout extends FrameLayout implements View.OnClickLis
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
+        }
+    }
+
+    public void setGuideContent(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048589, this, str, str2) == null) && !StringUtils.isNull(str) && this.e != null) {
+            if (!StringUtils.isNull(str2)) {
+                int indexOf = str.indexOf(str2);
+                SpannableString spannableString = new SpannableString(str);
+                spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0301)), indexOf, str2.length() + indexOf, 33);
+                this.e.setText(spannableString);
+                return;
+            }
+            this.e.setText(str);
         }
     }
 
@@ -447,5 +214,264 @@ public class VipAdFreeGuideLayout extends FrameLayout implements View.OnClickLis
         c(context, attributeSet);
         d();
         g();
+    }
+
+    private int getFromScene() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
+            int i = a.a[this.k.ordinal()];
+            if (i != 1) {
+                if (i != 2 && i != 3) {
+                    if (i != 4) {
+                        return 0;
+                    }
+                    return 100017;
+                }
+                return 100015;
+            }
+            return 100013;
+        }
+        return invokeV.intValue;
+    }
+
+    private String getReferPageAndClickZone() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
+            int i = a.a[this.k.ordinal()];
+            if (i != 1) {
+                if (i != 2 && i != 3) {
+                    if (i != 4) {
+                        return "";
+                    }
+                    return MemberPayActivityConfig.AUTOPAY_FROM_LOW_INCOME_PB;
+                }
+                return MemberPayActivityConfig.AUTOPAY_FROM_LOW_INCOME_FRS;
+            }
+            return MemberPayActivityConfig.AUTOPAY_FROM_LOW_INCOME_HOME;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ImageView imageView = (ImageView) this.d.findViewById(R.id.obfuscated_res_0x7f0925cf);
+            this.f = imageView;
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) imageView.getLayoutParams();
+            if (layoutParams == null) {
+                int i = this.h;
+                layoutParams = new LinearLayout.LayoutParams(i, i);
+            }
+            int i2 = this.h;
+            layoutParams.width = i2;
+            layoutParams.height = i2;
+            this.f.setLayoutParams(layoutParams);
+        }
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            e(CommonStatisticKey.KEY_VIP_AD_FREE_GUID_TIP_CLICK);
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            if (this.g) {
+                this.f.setOnClickListener(this);
+            } else {
+                setOnClickListener(this);
+            }
+        }
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            e(CommonStatisticKey.KEY_VIP_AD_FREE_GUID_TIP_SHOW);
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void onAttachedToWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            super.onAttachedToWindow();
+            setGuideContent(fp5.e().h(), fp5.e().g());
+        }
+    }
+
+    public final void c(Context context, AttributeSet attributeSet) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, attributeSet) == null) {
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, wp8.VipAdFreeGuideLayout);
+            this.g = obtainStyledAttributes.getBoolean(1, false);
+            this.h = obtainStyledAttributes.getDimensionPixelOffset(0, u);
+            obtainStyledAttributes.recycle();
+        }
+    }
+
+    public void setInfo(AbsDataRecorder.Scene scene, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048590, this, scene, str) == null) {
+            this.k = scene;
+            this.l = str;
+            if (!this.g) {
+                h();
+            }
+        }
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            setClipToPadding(false);
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0903, (ViewGroup) null);
+            this.d = linearLayout;
+            this.e = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0925ce);
+            b();
+            if (this.g) {
+                this.c = t;
+                this.a = r;
+                this.b = s;
+            }
+            int i = this.c;
+            setPadding(i, this.a, i, this.b);
+            addView(this.d);
+            f();
+        }
+    }
+
+    public final void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            int i = a.a[this.k.ordinal()];
+            int i2 = 3;
+            if (i != 1) {
+                if (i != 2 && i != 3) {
+                    if (i != 4) {
+                        i2 = 0;
+                    }
+                } else {
+                    i2 = 2;
+                }
+            } else {
+                i2 = 1;
+            }
+            statisticItem.addParam("obj_source", i2);
+            statisticItem.addParam("fid", this.l);
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, view2) == null) {
+            if (this.g) {
+                view2.getId();
+                this.f.getId();
+                return;
+            }
+            MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(getContext(), TbadkCoreApplication.getCurrentMemberType(), "", 27, true);
+            memberPayActivityConfig.setFid(this.l);
+            memberPayActivityConfig.setFromScence(getFromScene());
+            String referPageAndClickZone = getReferPageAndClickZone();
+            memberPayActivityConfig.setReferPageClickZone(referPageAndClickZone, referPageAndClickZone);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
+            a();
+        }
+    }
+
+    public void f() {
+        float f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            if (TbadkCoreApplication.getInst().getSkinType() != 1 && TbadkCoreApplication.getInst().getSkinType() != 4) {
+                this.j = "#4DFFE1C0";
+            } else {
+                this.j = "#1AFFE1C0";
+            }
+            String[] strArr = this.g ? new String[]{this.j, this.i} : new String[]{this.i, this.j};
+            if (this.n) {
+                TBSelector.makeDrawableSelector().setShape(0).defaultColor(this.j).radius(v).into(this);
+            } else {
+                DrawableSelector gradientLinear = TBSelector.makeDrawableSelector().setShape(0).gradientLinear(DrawableSelector.TOP_BOTTOM, strArr);
+                float f2 = 0.0f;
+                if (this.m) {
+                    f = v;
+                } else {
+                    f = 0.0f;
+                }
+                DrawableSelector blRadius = gradientLinear.blRadius(f);
+                if (this.m) {
+                    f2 = v;
+                }
+                blRadius.brRadius(f2).into(this);
+            }
+            nv4 d = nv4.d(this.e);
+            d.z(R.dimen.T_X07);
+            d.v(R.color.CAM_X0311);
+            if (this.g) {
+                WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f080a4c, R.color.CAM_X0626, null);
+            } else {
+                WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f080a4b, R.color.CAM_X0311, null);
+            }
+        }
+    }
+
+    public void setAllCornerRound(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.n = z;
+            if (z) {
+                int i = this.c;
+                int i2 = w;
+                setPadding(i, i2, i, i2);
+            }
+        }
+    }
+
+    public void setBottomCornerRound(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.m = z;
+        }
+    }
+
+    public void setCloseClickListener(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, onClickListener) == null) {
+            this.f.setOnClickListener(onClickListener);
+        }
+    }
+
+    public void setLayoutPadding(int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIII(1048591, this, i, i2, i3) == null) {
+            if (i < 0) {
+                this.a = o;
+            } else {
+                this.a = i;
+            }
+            if (i2 < 0) {
+                this.b = p;
+            } else {
+                this.b = i2;
+            }
+            if (i3 < 0) {
+                this.c = q;
+            } else {
+                this.c = i3;
+            }
+            int i4 = this.c;
+            setPadding(i4, this.a, i4, this.b);
+        }
     }
 }

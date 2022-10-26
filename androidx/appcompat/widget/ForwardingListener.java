@@ -5,7 +5,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewParent;
-import androidx.annotation.RestrictTo;
 import androidx.appcompat.view.menu.ShowableListMenu;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -14,7 +13,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public abstract class ForwardingListener implements View.OnTouchListener, View.OnAttachStateChangeListener {
     public static /* synthetic */ Interceptable $ic;
@@ -28,6 +26,15 @@ public abstract class ForwardingListener implements View.OnTouchListener, View.O
     public final int mTapTimeout;
     public final int[] mTmpLocation;
     public Runnable mTriggerLongPress;
+
+    public abstract ShowableListMenu getPopup();
+
+    @Override // android.view.View.OnAttachStateChangeListener
+    public void onViewAttachedToWindow(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, view2) == null) {
+        }
+    }
 
     /* loaded from: classes.dex */
     public class DisallowIntercept implements Runnable {
@@ -57,10 +64,9 @@ public abstract class ForwardingListener implements View.OnTouchListener, View.O
         public void run() {
             ViewParent parent;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (parent = this.this$0.mSrc.getParent()) == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (parent = this.this$0.mSrc.getParent()) != null) {
+                parent.requestDisallowInterceptTouchEvent(true);
             }
-            parent.requestDisallowInterceptTouchEvent(true);
         }
     }
 
@@ -122,6 +128,36 @@ public abstract class ForwardingListener implements View.OnTouchListener, View.O
         this.mLongPressTimeout = (tapTimeout + ViewConfiguration.getLongPressTimeout()) / 2;
     }
 
+    private boolean onTouchForwarded(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        DropDownListView dropDownListView;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, motionEvent)) == null) {
+            View view2 = this.mSrc;
+            ShowableListMenu popup = getPopup();
+            if (popup == null || !popup.isShowing() || (dropDownListView = (DropDownListView) popup.getListView()) == null || !dropDownListView.isShown()) {
+                return false;
+            }
+            MotionEvent obtainNoHistory = MotionEvent.obtainNoHistory(motionEvent);
+            toGlobalMotionEvent(view2, obtainNoHistory);
+            toLocalMotionEvent(dropDownListView, obtainNoHistory);
+            boolean onForwardedEvent = dropDownListView.onForwardedEvent(obtainNoHistory, this.mActivePointerId);
+            obtainNoHistory.recycle();
+            int actionMasked = motionEvent.getActionMasked();
+            if (actionMasked != 1 && actionMasked != 3) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (!onForwardedEvent || !z) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
     private void clearCallbacks() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
@@ -136,25 +172,32 @@ public abstract class ForwardingListener implements View.OnTouchListener, View.O
         }
     }
 
-    private boolean onTouchForwarded(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        DropDownListView dropDownListView;
+    public boolean onForwardingStarted() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, motionEvent)) == null) {
-            View view2 = this.mSrc;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ShowableListMenu popup = getPopup();
-            if (popup == null || !popup.isShowing() || (dropDownListView = (DropDownListView) popup.getListView()) == null || !dropDownListView.isShown()) {
-                return false;
+            if (popup != null && !popup.isShowing()) {
+                popup.show();
+                return true;
             }
-            MotionEvent obtainNoHistory = MotionEvent.obtainNoHistory(motionEvent);
-            toGlobalMotionEvent(view2, obtainNoHistory);
-            toLocalMotionEvent(dropDownListView, obtainNoHistory);
-            boolean onForwardedEvent = dropDownListView.onForwardedEvent(obtainNoHistory, this.mActivePointerId);
-            obtainNoHistory.recycle();
-            int actionMasked = motionEvent.getActionMasked();
-            return onForwardedEvent && (actionMasked != 1 && actionMasked != 3);
+            return true;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
+    }
+
+    public boolean onForwardingStopped() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            ShowableListMenu popup = getPopup();
+            if (popup != null && popup.isShowing()) {
+                popup.dismiss();
+                return true;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:14:0x001b, code lost:
@@ -168,32 +211,32 @@ public abstract class ForwardingListener implements View.OnTouchListener, View.O
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, motionEvent)) == null) {
             View view2 = this.mSrc;
-            if (view2.isEnabled()) {
-                int actionMasked = motionEvent.getActionMasked();
-                if (actionMasked != 0) {
-                    if (actionMasked != 1) {
-                        if (actionMasked == 2) {
-                            int findPointerIndex = motionEvent.findPointerIndex(this.mActivePointerId);
-                            if (findPointerIndex >= 0 && !pointInView(view2, motionEvent.getX(findPointerIndex), motionEvent.getY(findPointerIndex), this.mScaledTouchSlop)) {
-                                clearCallbacks();
-                                view2.getParent().requestDisallowInterceptTouchEvent(true);
-                                return true;
-                            }
+            if (!view2.isEnabled()) {
+                return false;
+            }
+            int actionMasked = motionEvent.getActionMasked();
+            if (actionMasked != 0) {
+                if (actionMasked != 1) {
+                    if (actionMasked == 2) {
+                        int findPointerIndex = motionEvent.findPointerIndex(this.mActivePointerId);
+                        if (findPointerIndex >= 0 && !pointInView(view2, motionEvent.getX(findPointerIndex), motionEvent.getY(findPointerIndex), this.mScaledTouchSlop)) {
+                            clearCallbacks();
+                            view2.getParent().requestDisallowInterceptTouchEvent(true);
+                            return true;
                         }
                     }
-                    clearCallbacks();
-                } else {
-                    this.mActivePointerId = motionEvent.getPointerId(0);
-                    if (this.mDisallowIntercept == null) {
-                        this.mDisallowIntercept = new DisallowIntercept(this);
-                    }
-                    view2.postDelayed(this.mDisallowIntercept, this.mTapTimeout);
-                    if (this.mTriggerLongPress == null) {
-                        this.mTriggerLongPress = new TriggerLongPress(this);
-                    }
-                    view2.postDelayed(this.mTriggerLongPress, this.mLongPressTimeout);
                 }
-                return false;
+                clearCallbacks();
+            } else {
+                this.mActivePointerId = motionEvent.getPointerId(0);
+                if (this.mDisallowIntercept == null) {
+                    this.mDisallowIntercept = new DisallowIntercept(this);
+                }
+                view2.postDelayed(this.mDisallowIntercept, this.mTapTimeout);
+                if (this.mTriggerLongPress == null) {
+                    this.mTriggerLongPress = new TriggerLongPress(this);
+                }
+                view2.postDelayed(this.mTriggerLongPress, this.mLongPressTimeout);
             }
             return false;
         }
@@ -205,7 +248,10 @@ public abstract class ForwardingListener implements View.OnTouchListener, View.O
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
             float f4 = -f3;
-            return f >= f4 && f2 >= f4 && f < ((float) (view2.getRight() - view2.getLeft())) + f3 && f2 < ((float) (view2.getBottom() - view2.getTop())) + f3;
+            if (f >= f4 && f2 >= f4 && f < (view2.getRight() - view2.getLeft()) + f3 && f2 < (view2.getBottom() - view2.getTop()) + f3) {
+                return true;
+            }
+            return false;
         }
         return invokeCommon.booleanValue;
     }
@@ -234,49 +280,20 @@ public abstract class ForwardingListener implements View.OnTouchListener, View.O
         return invokeLL.booleanValue;
     }
 
-    public abstract ShowableListMenu getPopup();
-
-    public boolean onForwardingStarted() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ShowableListMenu popup = getPopup();
-            if (popup == null || popup.isShowing()) {
-                return true;
-            }
-            popup.show();
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean onForwardingStopped() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ShowableListMenu popup = getPopup();
-            if (popup == null || !popup.isShowing()) {
-                return true;
-            }
-            popup.dismiss();
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
     public void onLongPress() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             clearCallbacks();
             View view2 = this.mSrc;
-            if (view2.isEnabled() && !view2.isLongClickable() && onForwardingStarted()) {
-                view2.getParent().requestDisallowInterceptTouchEvent(true);
-                long uptimeMillis = SystemClock.uptimeMillis();
-                MotionEvent obtain = MotionEvent.obtain(uptimeMillis, uptimeMillis, 3, 0.0f, 0.0f, 0);
-                view2.onTouchEvent(obtain);
-                obtain.recycle();
-                this.mForwarding = true;
+            if (!view2.isEnabled() || view2.isLongClickable() || !onForwardingStarted()) {
+                return;
             }
+            view2.getParent().requestDisallowInterceptTouchEvent(true);
+            long uptimeMillis = SystemClock.uptimeMillis();
+            MotionEvent obtain = MotionEvent.obtain(uptimeMillis, uptimeMillis, 3, 0.0f, 0.0f, 0);
+            view2.onTouchEvent(obtain);
+            obtain.recycle();
+            this.mForwarding = true;
         }
     }
 
@@ -288,9 +305,17 @@ public abstract class ForwardingListener implements View.OnTouchListener, View.O
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, view2, motionEvent)) == null) {
             boolean z2 = this.mForwarding;
             if (z2) {
-                z = onTouchForwarded(motionEvent) || !onForwardingStopped();
+                if (!onTouchForwarded(motionEvent) && onForwardingStopped()) {
+                    z = false;
+                } else {
+                    z = true;
+                }
             } else {
-                z = onTouchObserved(motionEvent) && onForwardingStarted();
+                if (onTouchObserved(motionEvent) && onForwardingStarted()) {
+                    z = true;
+                } else {
+                    z = false;
+                }
                 if (z) {
                     long uptimeMillis = SystemClock.uptimeMillis();
                     MotionEvent obtain = MotionEvent.obtain(uptimeMillis, uptimeMillis, 3, 0.0f, 0.0f, 0);
@@ -299,16 +324,12 @@ public abstract class ForwardingListener implements View.OnTouchListener, View.O
                 }
             }
             this.mForwarding = z;
-            return z || z2;
+            if (z || z2) {
+                return true;
+            }
+            return false;
         }
         return invokeLL.booleanValue;
-    }
-
-    @Override // android.view.View.OnAttachStateChangeListener
-    public void onViewAttachedToWindow(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, view2) == null) {
-        }
     }
 
     @Override // android.view.View.OnAttachStateChangeListener

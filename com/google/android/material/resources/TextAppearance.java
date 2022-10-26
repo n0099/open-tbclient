@@ -7,12 +7,6 @@ import android.content.res.TypedArray;
 import android.graphics.Typeface;
 import android.text.TextPaint;
 import android.util.Log;
-import androidx.annotation.FontRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
-import androidx.annotation.StyleRes;
-import androidx.annotation.VisibleForTesting;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -22,7 +16,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.R;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes7.dex */
 public class TextAppearance {
     public static /* synthetic */ Interceptable $ic = null;
@@ -32,28 +25,22 @@ public class TextAppearance {
     public static final int TYPEFACE_SERIF = 2;
     public transient /* synthetic */ FieldHolder $fh;
     public Typeface font;
-    @Nullable
     public final String fontFamily;
-    @FontRes
     public final int fontFamilyResourceId;
     public boolean fontResolved;
-    @Nullable
     public final ColorStateList shadowColor;
     public final float shadowDx;
     public final float shadowDy;
     public final float shadowRadius;
     public final boolean textAllCaps;
-    @Nullable
     public final ColorStateList textColor;
-    @Nullable
     public final ColorStateList textColorHint;
-    @Nullable
     public final ColorStateList textColorLink;
     public final float textSize;
     public final int textStyle;
     public final int typeface;
 
-    public TextAppearance(@NonNull Context context, @StyleRes int i) {
+    public TextAppearance(Context context, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -96,14 +83,18 @@ public class TextAppearance {
             }
             if (this.font == null) {
                 int i = this.typeface;
-                if (i == 1) {
-                    this.font = Typeface.SANS_SERIF;
-                } else if (i == 2) {
-                    this.font = Typeface.SERIF;
-                } else if (i != 3) {
-                    this.font = Typeface.DEFAULT;
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i != 3) {
+                            this.font = Typeface.DEFAULT;
+                        } else {
+                            this.font = Typeface.MONOSPACE;
+                        }
+                    } else {
+                        this.font = Typeface.SERIF;
+                    }
                 } else {
-                    this.font = Typeface.MONOSPACE;
+                    this.font = Typeface.SANS_SERIF;
                 }
                 this.font = Typeface.create(this.font, this.textStyle);
             }
@@ -120,9 +111,7 @@ public class TextAppearance {
         return (Typeface) invokeV.objValue;
     }
 
-    @NonNull
-    @VisibleForTesting
-    public Typeface getFont(@NonNull Context context) {
+    public Typeface getFont(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
@@ -148,7 +137,69 @@ public class TextAppearance {
         return (Typeface) invokeL.objValue;
     }
 
-    public void getFontAsync(@NonNull Context context, @NonNull TextAppearanceFontCallback textAppearanceFontCallback) {
+    public void getFontAsync(Context context, TextPaint textPaint, TextAppearanceFontCallback textAppearanceFontCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, textPaint, textAppearanceFontCallback) == null) {
+            updateTextPaintMeasureState(textPaint, getFallbackFont());
+            getFontAsync(context, new TextAppearanceFontCallback(this, textPaint, textAppearanceFontCallback) { // from class: com.google.android.material.resources.TextAppearance.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ TextAppearance this$0;
+                public final /* synthetic */ TextAppearanceFontCallback val$callback;
+                public final /* synthetic */ TextPaint val$textPaint;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, textPaint, textAppearanceFontCallback};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$textPaint = textPaint;
+                    this.val$callback = textAppearanceFontCallback;
+                }
+
+                @Override // com.google.android.material.resources.TextAppearanceFontCallback
+                public void onFontRetrievalFailed(int i) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeI(1048576, this, i) == null) {
+                        this.val$callback.onFontRetrievalFailed(i);
+                    }
+                }
+
+                @Override // com.google.android.material.resources.TextAppearanceFontCallback
+                public void onFontRetrieved(Typeface typeface, boolean z) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, typeface, z) == null) {
+                        this.this$0.updateTextPaintMeasureState(this.val$textPaint, typeface);
+                        this.val$callback.onFontRetrieved(typeface, z);
+                    }
+                }
+            });
+        }
+    }
+
+    public void updateMeasureState(Context context, TextPaint textPaint, TextAppearanceFontCallback textAppearanceFontCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048581, this, context, textPaint, textAppearanceFontCallback) == null) {
+            if (TextAppearanceConfig.shouldLoadFontSynchronously()) {
+                updateTextPaintMeasureState(textPaint, getFont(context));
+            } else {
+                getFontAsync(context, textPaint, textAppearanceFontCallback);
+            }
+        }
+    }
+
+    public void getFontAsync(Context context, TextAppearanceFontCallback textAppearanceFontCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, context, textAppearanceFontCallback) == null) {
             if (TextAppearanceConfig.shouldLoadFontSynchronously()) {
@@ -192,14 +243,15 @@ public class TextAppearance {
                     @Override // androidx.core.content.res.ResourcesCompat.FontCallback
                     public void onFontRetrievalFailed(int i) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeI(1048576, this, i) == null) {
-                            this.this$0.fontResolved = true;
-                            this.val$callback.onFontRetrievalFailed(i);
+                        if (interceptable2 != null && interceptable2.invokeI(1048576, this, i) != null) {
+                            return;
                         }
+                        this.this$0.fontResolved = true;
+                        this.val$callback.onFontRetrievalFailed(i);
                     }
 
                     @Override // androidx.core.content.res.ResourcesCompat.FontCallback
-                    public void onFontRetrieved(@NonNull Typeface typeface) {
+                    public void onFontRetrieved(Typeface typeface) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, typeface) == null) {
                             TextAppearance textAppearance = this.this$0;
@@ -220,90 +272,52 @@ public class TextAppearance {
         }
     }
 
-    public void updateDrawState(@NonNull Context context, @NonNull TextPaint textPaint, @NonNull TextAppearanceFontCallback textAppearanceFontCallback) {
+    public void updateDrawState(Context context, TextPaint textPaint, TextAppearanceFontCallback textAppearanceFontCallback) {
+        int i;
+        int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048580, this, context, textPaint, textAppearanceFontCallback) == null) {
             updateMeasureState(context, textPaint, textAppearanceFontCallback);
             ColorStateList colorStateList = this.textColor;
-            textPaint.setColor(colorStateList != null ? colorStateList.getColorForState(textPaint.drawableState, colorStateList.getDefaultColor()) : -16777216);
+            if (colorStateList != null) {
+                i = colorStateList.getColorForState(textPaint.drawableState, colorStateList.getDefaultColor());
+            } else {
+                i = -16777216;
+            }
+            textPaint.setColor(i);
             float f = this.shadowRadius;
             float f2 = this.shadowDx;
             float f3 = this.shadowDy;
             ColorStateList colorStateList2 = this.shadowColor;
-            textPaint.setShadowLayer(f, f2, f3, colorStateList2 != null ? colorStateList2.getColorForState(textPaint.drawableState, colorStateList2.getDefaultColor()) : 0);
-        }
-    }
-
-    public void updateMeasureState(@NonNull Context context, @NonNull TextPaint textPaint, @NonNull TextAppearanceFontCallback textAppearanceFontCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048581, this, context, textPaint, textAppearanceFontCallback) == null) {
-            if (TextAppearanceConfig.shouldLoadFontSynchronously()) {
-                updateTextPaintMeasureState(textPaint, getFont(context));
+            if (colorStateList2 != null) {
+                i2 = colorStateList2.getColorForState(textPaint.drawableState, colorStateList2.getDefaultColor());
             } else {
-                getFontAsync(context, textPaint, textAppearanceFontCallback);
+                i2 = 0;
             }
+            textPaint.setShadowLayer(f, f2, f3, i2);
         }
     }
 
-    public void updateTextPaintMeasureState(@NonNull TextPaint textPaint, @NonNull Typeface typeface) {
+    public void updateTextPaintMeasureState(TextPaint textPaint, Typeface typeface) {
+        boolean z;
+        float f;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, textPaint, typeface) == null) {
             textPaint.setTypeface(typeface);
             int i = (~typeface.getStyle()) & this.textStyle;
-            textPaint.setFakeBoldText((i & 1) != 0);
-            textPaint.setTextSkewX((i & 2) != 0 ? -0.25f : 0.0f);
+            if ((i & 1) != 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            textPaint.setFakeBoldText(z);
+            if ((i & 2) != 0) {
+                f = -0.25f;
+            } else {
+                f = 0.0f;
+            }
+            textPaint.setTextSkewX(f);
             textPaint.setTextSize(this.textSize);
-        }
-    }
-
-    public void getFontAsync(@NonNull Context context, @NonNull TextPaint textPaint, @NonNull TextAppearanceFontCallback textAppearanceFontCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, textPaint, textAppearanceFontCallback) == null) {
-            updateTextPaintMeasureState(textPaint, getFallbackFont());
-            getFontAsync(context, new TextAppearanceFontCallback(this, textPaint, textAppearanceFontCallback) { // from class: com.google.android.material.resources.TextAppearance.2
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ TextAppearance this$0;
-                public final /* synthetic */ TextAppearanceFontCallback val$callback;
-                public final /* synthetic */ TextPaint val$textPaint;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, textPaint, textAppearanceFontCallback};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$textPaint = textPaint;
-                    this.val$callback = textAppearanceFontCallback;
-                }
-
-                @Override // com.google.android.material.resources.TextAppearanceFontCallback
-                public void onFontRetrievalFailed(int i) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeI(1048576, this, i) == null) {
-                        this.val$callback.onFontRetrievalFailed(i);
-                    }
-                }
-
-                @Override // com.google.android.material.resources.TextAppearanceFontCallback
-                public void onFontRetrieved(@NonNull Typeface typeface, boolean z) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, typeface, z) == null) {
-                        this.this$0.updateTextPaintMeasureState(this.val$textPaint, typeface);
-                        this.val$callback.onFontRetrieved(typeface, z);
-                    }
-                }
-            });
         }
     }
 }

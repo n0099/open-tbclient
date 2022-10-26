@@ -1,31 +1,68 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.fun.ad.sdk.FunAdSdk;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.openadsdk.TTNativeAd;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes3.dex */
-public class en9 {
+public class en9 implements TTNativeAd.AdInteractionListener {
     public static /* synthetic */ Interceptable $ic;
-    public static final SharedPreferences a;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public boolean b;
+    public final /* synthetic */ hn9 c;
+    public final /* synthetic */ bn9 d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947740249, "Lcom/baidu/tieba/en9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947740249, "Lcom/baidu/tieba/en9;");
+    public en9(bn9 bn9Var, hn9 hn9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bn9Var, hn9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = FunAdSdk.getAppContext().getSharedPreferences("fun_ad_sdk_req_id", 0);
+        this.d = bn9Var;
+        this.c = hn9Var;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
+    public void onAdClicked(View view2, TTNativeAd tTNativeAd) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, tTNativeAd) == null) {
+            LogPrinter.d();
+            this.d.onAdClicked(this.c, this.b, new String[0]);
+            this.b = true;
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
+    public void onAdCreativeClick(View view2, TTNativeAd tTNativeAd) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, tTNativeAd) == null) {
+            LogPrinter.d();
+            this.d.onAdClicked(this.c, this.b, new String[0]);
+            this.b = true;
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
+    public void onAdShow(TTNativeAd tTNativeAd) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tTNativeAd) == null) {
+            LogPrinter.d();
+            this.d.onAdShow(this.c, this.a, new String[0]);
+            this.a = true;
+        }
     }
 }

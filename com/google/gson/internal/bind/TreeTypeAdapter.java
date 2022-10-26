@@ -37,7 +37,7 @@ public final class TreeTypeAdapter<T> extends TypeAdapter<T> {
 
     /* renamed from: com.google.gson.internal.bind.TreeTypeAdapter$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -66,29 +66,38 @@ public final class TreeTypeAdapter<T> extends TypeAdapter<T> {
             this.this$0 = treeTypeAdapter;
         }
 
-        @Override // com.google.gson.JsonDeserializationContext
-        public <R> R deserialize(JsonElement jsonElement, Type type) throws JsonParseException {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jsonElement, type)) == null) ? (R) this.this$0.gson.fromJson(jsonElement, type) : (R) invokeLL.objValue;
-        }
-
         @Override // com.google.gson.JsonSerializationContext
         public JsonElement serialize(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? this.this$0.gson.toJsonTree(obj) : (JsonElement) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+                return this.this$0.gson.toJsonTree(obj);
+            }
+            return (JsonElement) invokeL.objValue;
         }
 
         public /* synthetic */ GsonContextImpl(TreeTypeAdapter treeTypeAdapter, AnonymousClass1 anonymousClass1) {
             this(treeTypeAdapter);
         }
 
+        @Override // com.google.gson.JsonDeserializationContext
+        public <R> R deserialize(JsonElement jsonElement, Type type) throws JsonParseException {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jsonElement, type)) == null) {
+                return (R) this.this$0.gson.fromJson(jsonElement, type);
+            }
+            return (R) invokeLL.objValue;
+        }
+
         @Override // com.google.gson.JsonSerializationContext
         public JsonElement serialize(Object obj, Type type) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, obj, type)) == null) ? this.this$0.gson.toJsonTree(obj, type) : (JsonElement) invokeLL.objValue;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, obj, type)) == null) {
+                return this.this$0.gson.toJsonTree(obj, type);
+            }
+            return (JsonElement) invokeLL.objValue;
         }
     }
 
@@ -103,6 +112,8 @@ public final class TreeTypeAdapter<T> extends TypeAdapter<T> {
         public final JsonSerializer<?> serializer;
 
         public SingleTypeFactory(Object obj, TypeToken<?> typeToken, boolean z, Class<?> cls) {
+            JsonSerializer<?> jsonSerializer;
+            boolean z2;
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -117,10 +128,20 @@ public final class TreeTypeAdapter<T> extends TypeAdapter<T> {
                     return;
                 }
             }
-            this.serializer = obj instanceof JsonSerializer ? (JsonSerializer) obj : null;
+            if (obj instanceof JsonSerializer) {
+                jsonSerializer = (JsonSerializer) obj;
+            } else {
+                jsonSerializer = null;
+            }
+            this.serializer = jsonSerializer;
             JsonDeserializer<?> jsonDeserializer = obj instanceof JsonDeserializer ? (JsonDeserializer) obj : null;
             this.deserializer = jsonDeserializer;
-            C$Gson$Preconditions.checkArgument((this.serializer == null && jsonDeserializer == null) ? false : true);
+            if (this.serializer == null && jsonDeserializer == null) {
+                z2 = false;
+            } else {
+                z2 = true;
+            }
+            C$Gson$Preconditions.checkArgument(z2);
             this.exactType = typeToken;
             this.matchRawType = z;
             this.hierarchyType = cls;
@@ -134,7 +155,11 @@ public final class TreeTypeAdapter<T> extends TypeAdapter<T> {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, gson, typeToken)) == null) {
                 TypeToken<?> typeToken2 = this.exactType;
                 if (typeToken2 != null) {
-                    isAssignableFrom = typeToken2.equals(typeToken) || (this.matchRawType && this.exactType.getType() == typeToken.getRawType());
+                    if (!typeToken2.equals(typeToken) && (!this.matchRawType || this.exactType.getType() != typeToken.getRawType())) {
+                        isAssignableFrom = false;
+                    } else {
+                        isAssignableFrom = true;
+                    }
                 } else {
                     isAssignableFrom = this.hierarchyType.isAssignableFrom(typeToken.getRawType());
                 }
@@ -175,12 +200,12 @@ public final class TreeTypeAdapter<T> extends TypeAdapter<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
             TypeAdapter<T> typeAdapter = this.delegate;
-            if (typeAdapter != null) {
-                return typeAdapter;
+            if (typeAdapter == null) {
+                TypeAdapter<T> delegateAdapter = this.gson.getDelegateAdapter(this.skipPast, this.typeToken);
+                this.delegate = delegateAdapter;
+                return delegateAdapter;
             }
-            TypeAdapter<T> delegateAdapter = this.gson.getDelegateAdapter(this.skipPast, this.typeToken);
-            this.delegate = delegateAdapter;
-            return delegateAdapter;
+            return typeAdapter;
         }
         return (TypeAdapter) invokeV.objValue;
     }
@@ -188,14 +213,23 @@ public final class TreeTypeAdapter<T> extends TypeAdapter<T> {
     public static TypeAdapterFactory newFactory(TypeToken<?> typeToken, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, typeToken, obj)) == null) ? new SingleTypeFactory(obj, typeToken, false, null) : (TypeAdapterFactory) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, typeToken, obj)) == null) {
+            return new SingleTypeFactory(obj, typeToken, false, null);
+        }
+        return (TypeAdapterFactory) invokeLL.objValue;
     }
 
     public static TypeAdapterFactory newFactoryWithMatchRawType(TypeToken<?> typeToken, Object obj) {
         InterceptResult invokeLL;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, typeToken, obj)) == null) {
-            return new SingleTypeFactory(obj, typeToken, typeToken.getType() == typeToken.getRawType(), null);
+            if (typeToken.getType() == typeToken.getRawType()) {
+                z = true;
+            } else {
+                z = false;
+            }
+            return new SingleTypeFactory(obj, typeToken, z, null);
         }
         return (TypeAdapterFactory) invokeLL.objValue;
     }
@@ -203,24 +237,10 @@ public final class TreeTypeAdapter<T> extends TypeAdapter<T> {
     public static TypeAdapterFactory newTypeHierarchyFactory(Class<?> cls, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, cls, obj)) == null) ? new SingleTypeFactory(obj, null, false, cls) : (TypeAdapterFactory) invokeLL.objValue;
-    }
-
-    @Override // com.google.gson.TypeAdapter
-    public T read(JsonReader jsonReader) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jsonReader)) == null) {
-            if (this.deserializer == null) {
-                return delegate().read(jsonReader);
-            }
-            JsonElement parse = Streams.parse(jsonReader);
-            if (parse.isJsonNull()) {
-                return null;
-            }
-            return this.deserializer.deserialize(parse, this.typeToken.getType(), this.context);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, cls, obj)) == null) {
+            return new SingleTypeFactory(obj, null, false, cls);
         }
-        return (T) invokeL.objValue;
+        return (TypeAdapterFactory) invokeLL.objValue;
     }
 
     @Override // com.google.gson.TypeAdapter
@@ -236,5 +256,22 @@ public final class TreeTypeAdapter<T> extends TypeAdapter<T> {
                 Streams.write(jsonSerializer.serialize(t, this.typeToken.getType(), this.context), jsonWriter);
             }
         }
+    }
+
+    @Override // com.google.gson.TypeAdapter
+    public T read(JsonReader jsonReader) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jsonReader)) == null) {
+            if (this.deserializer == null) {
+                return delegate().read(jsonReader);
+            }
+            JsonElement parse = Streams.parse(jsonReader);
+            if (parse.isJsonNull()) {
+                return null;
+            }
+            return (T) this.deserializer.deserialize(parse, this.typeToken.getType(), this.context);
+        }
+        return (T) invokeL.objValue;
     }
 }

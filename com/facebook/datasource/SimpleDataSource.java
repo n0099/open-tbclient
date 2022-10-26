@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
 import java.util.Map;
 /* loaded from: classes7.dex */
-public class SimpleDataSource<T> extends AbstractDataSource<T> {
+public class SimpleDataSource extends AbstractDataSource {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,40 +27,51 @@ public class SimpleDataSource<T> extends AbstractDataSource<T> {
         }
     }
 
-    public static <T> SimpleDataSource<T> create() {
+    public static SimpleDataSource create() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new SimpleDataSource<>() : (SimpleDataSource) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new SimpleDataSource();
+        }
+        return (SimpleDataSource) invokeV.objValue;
     }
 
     @Override // com.facebook.datasource.AbstractDataSource
     public boolean setFailure(Throwable th) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, th)) == null) ? super.setFailure((Throwable) Preconditions.checkNotNull(th)) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, th)) == null) {
+            return super.setFailure((Throwable) Preconditions.checkNotNull(th));
+        }
+        return invokeL.booleanValue;
     }
 
     @Override // com.facebook.datasource.AbstractDataSource
     public boolean setProgress(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f)) == null) ? super.setProgress(f) : invokeF.booleanValue;
+        if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f)) == null) {
+            return super.setProgress(f);
+        }
+        return invokeF.booleanValue;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: com.facebook.datasource.SimpleDataSource<T> */
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.facebook.datasource.AbstractDataSource
-    public boolean setResult(T t, boolean z, Map<String, Object> map) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{t, Boolean.valueOf(z), map})) == null) ? super.setResult(Preconditions.checkNotNull(t), z, map) : invokeCommon.booleanValue;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: com.facebook.datasource.SimpleDataSource<T> */
-    /* JADX WARN: Multi-variable type inference failed */
-    public boolean setResult(T t) {
+    public boolean setResult(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t)) == null) ? super.setResult(Preconditions.checkNotNull(t), true, null) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            return super.setResult(Preconditions.checkNotNull(obj), true, null);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.facebook.datasource.AbstractDataSource
+    public boolean setResult(Object obj, boolean z, Map map) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{obj, Boolean.valueOf(z), map})) == null) {
+            return super.setResult(Preconditions.checkNotNull(obj), z, map);
+        }
+        return invokeCommon.booleanValue;
     }
 }

@@ -17,6 +17,7 @@ public final class zzy {
         int length;
         int length2;
         int indexOf;
+        String str2;
         String sb;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, objArr)) == null) {
@@ -41,7 +42,14 @@ public final class zzy {
                         sb2.append('@');
                         sb2.append(hexString);
                         String sb3 = sb2.toString();
-                        Logger.getLogger("com.google.common.base.Strings").logp(Level.WARNING, "com.google.common.base.Strings", "lenientToString", sb3.length() != 0 ? "Exception during lenientFormat for ".concat(sb3) : new String("Exception during lenientFormat for "), (Throwable) e);
+                        Logger logger = Logger.getLogger("com.google.common.base.Strings");
+                        Level level = Level.WARNING;
+                        if (sb3.length() != 0) {
+                            str2 = "Exception during lenientFormat for ".concat(sb3);
+                        } else {
+                            str2 = new String("Exception during lenientFormat for ");
+                        }
+                        logger.logp(level, "com.google.common.base.Strings", "lenientToString", str2, (Throwable) e);
                         String name2 = e.getClass().getName();
                         StringBuilder sb4 = new StringBuilder(sb3.length() + 9 + String.valueOf(name2).length());
                         sb4.append("<");

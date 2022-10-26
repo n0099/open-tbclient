@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class CallArgs implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<CallArgs> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public int b;
@@ -22,8 +22,18 @@ public class CallArgs implements Parcelable {
     public Object[] e;
     public Object f;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     /* loaded from: classes2.dex */
-    public static class a implements Parcelable.Creator<CallArgs> {
+    public final class a implements Parcelable.Creator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -41,22 +51,24 @@ public class CallArgs implements Parcelable {
             }
         }
 
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        /* JADX WARN: Type inference failed for: r1v0, types: [com.baidu.sofire.core.CallArgs, java.lang.Object] */
         @Override // android.os.Parcelable.Creator
-        public CallArgs createFromParcel(Parcel parcel) {
+        public Object createFromParcel(Parcel parcel) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new CallArgs(parcel) : invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+                return new CallArgs(parcel);
+            }
+            return invokeL.objValue;
         }
 
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object[]' to match base method */
-        /* JADX WARN: Type inference failed for: r1v1, types: [com.baidu.sofire.core.CallArgs[], java.lang.Object[]] */
         @Override // android.os.Parcelable.Creator
-        public CallArgs[] newArray(int i) {
+        public Object[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new CallArgs[i] : (Object[]) invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                return new CallArgs[i];
+            }
+            return (Object[]) invokeI.objValue;
         }
     }
 
@@ -90,41 +102,6 @@ public class CallArgs implements Parcelable {
         }
     }
 
-    public void a(Parcel parcel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, parcel) == null) {
-            this.a = parcel.readInt();
-            this.b = parcel.readInt();
-            this.c = parcel.readString();
-            this.e = parcel.readArray(CallArgs.class.getClassLoader());
-            this.d = parcel.readArray(CallArgs.class.getClassLoader());
-            this.f = parcel.readValue(CallArgs.class.getClassLoader());
-        }
-    }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i) == null) {
-            parcel.writeInt(this.a);
-            parcel.writeInt(this.b);
-            parcel.writeString(this.c);
-            parcel.writeArray(this.e);
-            parcel.writeArray(this.d);
-            parcel.writeValue(this.f);
-        }
-    }
-
     public CallArgs(Parcel parcel) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -141,5 +118,30 @@ public class CallArgs implements Parcelable {
             }
         }
         a(parcel);
+    }
+
+    public void a(Parcel parcel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, parcel) == null) {
+            this.a = parcel.readInt();
+            this.b = parcel.readInt();
+            this.c = parcel.readString();
+            this.e = parcel.readArray(CallArgs.class.getClassLoader());
+            this.d = parcel.readArray(CallArgs.class.getClassLoader());
+            this.f = parcel.readValue(CallArgs.class.getClassLoader());
+        }
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i) == null) {
+            parcel.writeInt(this.a);
+            parcel.writeInt(this.b);
+            parcel.writeString(this.c);
+            parcel.writeArray(this.e);
+            parcel.writeArray(this.d);
+            parcel.writeValue(this.f);
+        }
     }
 }

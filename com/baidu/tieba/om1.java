@@ -6,10 +6,31 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes5.dex */
-public class om1 implements wm1 {
+public class om1 implements cp1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.cp1
+    public String[] a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
+        }
+        return (String[]) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.cp1
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
 
     public om1() {
         Interceptable interceptable = $ic;
@@ -25,20 +46,19 @@ public class om1 implements wm1 {
         }
     }
 
-    @Override // com.baidu.tieba.wm1
+    @Override // com.baidu.tieba.cp1
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "0" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.wm1
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (!tm2.w0().d()) {
+                if (m92.b()) {
+                    return m92.b + File.separator + "libcom.baidu.zeus.so";
+                }
+                return m92.d + File.separator + "libcom.baidu.zeus.so";
+            }
+            return null;
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 }

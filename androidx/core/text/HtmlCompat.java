@@ -1,17 +1,13 @@
 package androidx.core.text;
 
-import android.annotation.SuppressLint;
 import android.os.Build;
 import android.text.Html;
 import android.text.Spanned;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@SuppressLint({"InlinedApi"})
 /* loaded from: classes.dex */
 public final class HtmlCompat {
     public static /* synthetic */ Interceptable $ic = null;
@@ -42,8 +38,7 @@ public final class HtmlCompat {
         }
     }
 
-    @NonNull
-    public static Spanned fromHtml(@NonNull String str, int i) {
+    public static Spanned fromHtml(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
@@ -55,8 +50,7 @@ public final class HtmlCompat {
         return (Spanned) invokeLI.objValue;
     }
 
-    @NonNull
-    public static String toHtml(@NonNull Spanned spanned, int i) {
+    public static String toHtml(Spanned spanned, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, spanned, i)) == null) {
@@ -68,8 +62,7 @@ public final class HtmlCompat {
         return (String) invokeLI.objValue;
     }
 
-    @NonNull
-    public static Spanned fromHtml(@NonNull String str, int i, @Nullable Html.ImageGetter imageGetter, @Nullable Html.TagHandler tagHandler) {
+    public static Spanned fromHtml(String str, int i, Html.ImageGetter imageGetter, Html.TagHandler tagHandler) {
         InterceptResult invokeLILL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLILL = interceptable.invokeLILL(65538, null, str, i, imageGetter, tagHandler)) == null) {

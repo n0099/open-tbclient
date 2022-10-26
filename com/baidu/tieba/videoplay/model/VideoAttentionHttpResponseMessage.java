@@ -21,8 +21,8 @@ public class VideoAttentionHttpResponseMessage extends JsonHttpResponsedMessage 
     public long mFeedId;
     public int mHasMore;
     public String mShowWord;
-    public ArrayList<VideoAttentionPersonListData> mVideoAttentionPersonListData;
-    public ArrayList<VideoItemData> mVideoItemDatasVideo;
+    public ArrayList mVideoAttentionPersonListData;
+    public ArrayList mVideoItemDatasVideo;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VideoAttentionHttpResponseMessage() {
@@ -40,8 +40,8 @@ public class VideoAttentionHttpResponseMessage extends JsonHttpResponsedMessage 
                 return;
             }
         }
-        this.mVideoItemDatasVideo = new ArrayList<>();
-        this.mVideoAttentionPersonListData = new ArrayList<>();
+        this.mVideoItemDatasVideo = new ArrayList();
+        this.mVideoAttentionPersonListData = new ArrayList();
         this.mShowWord = "";
     }
 
@@ -66,13 +66,12 @@ public class VideoAttentionHttpResponseMessage extends JsonHttpResponsedMessage 
                     this.mVideoItemDatasVideo.add(videoItemData);
                 }
             }
-            if (jSONArray == null || jSONArray.length() <= 0) {
-                return;
-            }
-            for (int i3 = 0; i3 < jSONArray.length(); i3++) {
-                VideoAttentionPersonListData videoAttentionPersonListData = new VideoAttentionPersonListData();
-                videoAttentionPersonListData.parseJson(jSONArray.getJSONObject(i3).getJSONArray("thread_list"), jSONArray.getJSONObject(i3).getJSONObject("user_info"));
-                this.mVideoAttentionPersonListData.add(videoAttentionPersonListData);
+            if (jSONArray != null && jSONArray.length() > 0) {
+                for (int i3 = 0; i3 < jSONArray.length(); i3++) {
+                    VideoAttentionPersonListData videoAttentionPersonListData = new VideoAttentionPersonListData();
+                    videoAttentionPersonListData.parseJson(jSONArray.getJSONObject(i3).getJSONArray("thread_list"), jSONArray.getJSONObject(i3).getJSONObject("user_info"));
+                    this.mVideoAttentionPersonListData.add(videoAttentionPersonListData);
+                }
             }
         }
     }
@@ -80,30 +79,45 @@ public class VideoAttentionHttpResponseMessage extends JsonHttpResponsedMessage 
     public long getFeedId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mFeedId : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mFeedId;
+        }
+        return invokeV.longValue;
     }
 
     public int getHasMore() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mHasMore : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mHasMore;
+        }
+        return invokeV.intValue;
     }
 
     public String getShowWord() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mShowWord : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mShowWord;
+        }
+        return (String) invokeV.objValue;
     }
 
-    public List<VideoAttentionPersonListData> getVideoAttentionPersonListData() {
+    public List getVideoAttentionPersonListData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mVideoAttentionPersonListData : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mVideoAttentionPersonListData;
+        }
+        return (List) invokeV.objValue;
     }
 
-    public List<VideoItemData> getVideoItemDatas() {
+    public List getVideoItemDatas() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mVideoItemDatasVideo : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mVideoItemDatasVideo;
+        }
+        return (List) invokeV.objValue;
     }
 }

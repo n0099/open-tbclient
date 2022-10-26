@@ -96,34 +96,11 @@ public class GifImageView extends ImageView implements Runnable {
         }
     }
 
-    public void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            n0 n0Var = this.a;
-            if (n0Var.n == i || !n0Var.a(i - 1) || this.d) {
-                return;
-            }
-            this.e = true;
-            c();
-        }
-    }
-
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.d = true;
             c();
-        }
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if ((this.d || this.e) && this.a != null && this.g == null) {
-                Thread thread = new Thread(this);
-                this.g = thread;
-                thread.start();
-            }
         }
     }
 
@@ -139,28 +116,10 @@ public class GifImageView extends ImageView implements Runnable {
         }
     }
 
-    public int getFrameCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.p.c : invokeV.intValue;
-    }
-
     public long getFramesDisplayDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.h : invokeV.longValue;
-    }
-
-    public int getGifHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a.p.g : invokeV.intValue;
-    }
-
-    public int getGifWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.a.p.f : invokeV.intValue;
     }
 
     public u0 getOnAnimationStop() {
@@ -187,86 +146,6 @@ public class GifImageView extends ImageView implements Runnable {
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onDetachedFromWindow();
             a();
-        }
-    }
-
-    /* JADX WARN: Can't wrap try/catch for region: R(11:18|(4:20|(1:22)|23|(8:27|28|29|30|32|33|34|(1:60)(7:37|38|(4:(1:45)|46|(3:48|(1:50)(1:52)|51)|53)|56|46|(0)|53)))|65|28|29|30|32|33|34|(1:59)(1:61)|60) */
-    /* JADX WARN: Code restructure failed: missing block: B:26:0x005c, code lost:
-        r7 = 0;
-     */
-    /* JADX WARN: Removed duplicated region for block: B:42:0x0088 A[Catch: InterruptedException -> 0x0096, TryCatch #0 {InterruptedException -> 0x0096, blocks: (B:31:0x0066, B:33:0x006e, B:38:0x0077, B:40:0x0083, B:42:0x0088, B:44:0x008e, B:46:0x0092, B:45:0x0091), top: B:61:0x0066 }] */
-    @Override // java.lang.Runnable
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void run() {
-        n0 n0Var;
-        p0 p0Var;
-        int i;
-        int i2;
-        int i3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            do {
-                if (!this.d && !this.e) {
-                    break;
-                }
-                n0 n0Var2 = this.a;
-                int i4 = n0Var2.p.c;
-                int i5 = -1;
-                boolean z = true;
-                if (i4 > 0) {
-                    if (n0Var2.n == i4 - 1) {
-                        n0Var2.o++;
-                    }
-                    int i6 = n0Var2.p.m;
-                    if (i6 == -1 || n0Var2.o <= i6) {
-                        n0Var2.n = (n0Var2.n + 1) % n0Var2.p.c;
-                        long nanoTime = System.nanoTime();
-                        this.b = this.a.b();
-                        long j = (System.nanoTime() - nanoTime) / 1000000;
-                        this.c.post(this.i);
-                        this.e = false;
-                        if (this.d || !z) {
-                            this.d = false;
-                            break;
-                        }
-                        try {
-                            n0Var = this.a;
-                            p0Var = n0Var.p;
-                            i = p0Var.c;
-                        } catch (InterruptedException unused) {
-                        }
-                        if (i > 0 && (i3 = n0Var.n) >= 0) {
-                            if (i3 >= 0 && i3 < i) {
-                                i5 = ((o0) p0Var.e.get(i3)).i;
-                            }
-                            i2 = (int) (i5 - j);
-                            if (i2 > 0) {
-                                Thread.sleep(this.h > 0 ? this.h : i2);
-                            }
-                        }
-                        i5 = 0;
-                        i2 = (int) (i5 - j);
-                        if (i2 > 0) {
-                        }
-                    }
-                }
-                z = false;
-                long nanoTime2 = System.nanoTime();
-                this.b = this.a.b();
-                long j2 = (System.nanoTime() - nanoTime2) / 1000000;
-                this.c.post(this.i);
-                this.e = false;
-                if (this.d) {
-                }
-                this.d = false;
-                break;
-            } while (this.d);
-            if (this.f) {
-                this.c.post(this.j);
-            }
-            this.g = null;
         }
     }
 
@@ -310,6 +189,148 @@ public class GifImageView extends ImageView implements Runnable {
     public void setOnFrameAvailable(v0 v0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, v0Var) == null) {
+        }
+    }
+
+    public void a(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            n0 n0Var = this.a;
+            if (n0Var.n != i && n0Var.a(i - 1) && !this.d) {
+                this.e = true;
+                c();
+            }
+        }
+    }
+
+    public final void c() {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if ((this.d || this.e) && this.a != null && this.g == null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
+                Thread thread = new Thread(this);
+                this.g = thread;
+                thread.start();
+            }
+        }
+    }
+
+    public int getFrameCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.a.p.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getGifHeight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.a.p.g;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getGifWidth() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.a.p.f;
+        }
+        return invokeV.intValue;
+    }
+
+    /* JADX WARN: Can't wrap try/catch for region: R(11:18|(4:20|(1:22)|23|(8:27|28|29|30|32|33|34|(1:60)(7:37|38|(4:(1:45)|46|(3:48|(1:50)(1:52)|51)|53)|56|46|(0)|53)))|65|28|29|30|32|33|34|(1:59)(1:61)|60) */
+    /* JADX WARN: Code restructure failed: missing block: B:26:0x005c, code lost:
+        r7 = 0;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:42:0x0088 A[Catch: InterruptedException -> 0x0096, TryCatch #0 {InterruptedException -> 0x0096, blocks: (B:31:0x0066, B:33:0x006e, B:38:0x0077, B:40:0x0083, B:42:0x0088, B:44:0x008e, B:46:0x0092, B:45:0x0091), top: B:61:0x0066 }] */
+    @Override // java.lang.Runnable
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void run() {
+        n0 n0Var;
+        p0 p0Var;
+        int i;
+        int i2;
+        long j;
+        int i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            do {
+                if (!this.d && !this.e) {
+                    break;
+                }
+                n0 n0Var2 = this.a;
+                int i4 = n0Var2.p.c;
+                int i5 = -1;
+                boolean z = true;
+                if (i4 > 0) {
+                    if (n0Var2.n == i4 - 1) {
+                        n0Var2.o++;
+                    }
+                    int i6 = n0Var2.p.m;
+                    if (i6 == -1 || n0Var2.o <= i6) {
+                        n0Var2.n = (n0Var2.n + 1) % n0Var2.p.c;
+                        long nanoTime = System.nanoTime();
+                        this.b = this.a.b();
+                        long j2 = (System.nanoTime() - nanoTime) / 1000000;
+                        this.c.post(this.i);
+                        this.e = false;
+                        if (!this.d && z) {
+                            try {
+                                n0Var = this.a;
+                                p0Var = n0Var.p;
+                                i = p0Var.c;
+                            } catch (InterruptedException unused) {
+                            }
+                            if (i > 0 && (i3 = n0Var.n) >= 0) {
+                                if (i3 >= 0 && i3 < i) {
+                                    i5 = ((o0) p0Var.e.get(i3)).i;
+                                }
+                                i2 = (int) (i5 - j2);
+                                if (i2 > 0) {
+                                    if (this.h > 0) {
+                                        j = this.h;
+                                    } else {
+                                        j = i2;
+                                    }
+                                    Thread.sleep(j);
+                                }
+                            }
+                            i5 = 0;
+                            i2 = (int) (i5 - j2);
+                            if (i2 > 0) {
+                            }
+                        } else {
+                            this.d = false;
+                            break;
+                        }
+                    }
+                }
+                z = false;
+                long nanoTime2 = System.nanoTime();
+                this.b = this.a.b();
+                long j22 = (System.nanoTime() - nanoTime2) / 1000000;
+                this.c.post(this.i);
+                this.e = false;
+                if (!this.d) {
+                }
+                this.d = false;
+                break;
+            } while (this.d);
+            if (this.f) {
+                this.c.post(this.j);
+            }
+            this.g = null;
         }
     }
 }

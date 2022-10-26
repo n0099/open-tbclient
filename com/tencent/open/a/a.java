@@ -20,6 +20,12 @@ public class a {
     public static final Uri a;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static String b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? "" : (String) invokeL.objValue;
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -75,15 +81,12 @@ public class a {
                 return ConectivityUtils.APN_3GWAP;
             }
             String b = b(context);
-            return (b == null || b.length() == 0) ? "none" : b;
+            if (b != null && b.length() != 0) {
+                return b;
+            }
+            return "none";
         }
         return (String) invokeL.objValue;
-    }
-
-    public static String b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? "" : (String) invokeL.objValue;
     }
 
     public static String c(Context context) {
@@ -183,7 +186,10 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-            return (connectivityManager == null || (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) == null) ? "MOBILE" : activeNetworkInfo.getTypeName();
+            if (connectivityManager == null || (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) == null) {
+                return "MOBILE";
+            }
+            return activeNetworkInfo.getTypeName();
         }
         return (String) invokeL.objValue;
     }

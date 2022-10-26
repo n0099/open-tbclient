@@ -1,11 +1,11 @@
 package rx.internal.operators;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.by9;
-import com.baidu.tieba.hx9;
-import com.baidu.tieba.lx9;
-import com.baidu.tieba.mx9;
-import com.baidu.tieba.rx9;
+import com.baidu.tieba.dy9;
+import com.baidu.tieba.ey9;
+import com.baidu.tieba.jy9;
+import com.baidu.tieba.ty9;
+import com.baidu.tieba.zx9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,24 +14,24 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.exceptions.OnErrorThrowable;
 /* loaded from: classes9.dex */
-public final class CachedObservable$ReplayProducer<T> extends AtomicLong implements hx9, mx9 {
+public final class CachedObservable$ReplayProducer extends AtomicLong implements zx9, ey9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -2557562030197141021L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final lx9<? super T> child;
+    public final dy9 child;
     public Object[] currentBuffer;
     public int currentIndexInBuffer;
     public boolean emitting;
     public int index;
     public boolean missed;
-    public final by9<T> state;
+    public final ty9 state;
 
-    public CachedObservable$ReplayProducer(lx9<? super T> lx9Var, by9<T> by9Var) {
+    public CachedObservable$ReplayProducer(dy9 dy9Var, ty9 ty9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {lx9Var, by9Var};
+            Object[] objArr = {dy9Var, ty9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -41,164 +41,41 @@ public final class CachedObservable$ReplayProducer<T> extends AtomicLong impleme
                 return;
             }
         }
-        this.child = lx9Var;
-        this.state = by9Var;
+        this.child = dy9Var;
+        this.state = ty9Var;
     }
 
-    @Override // com.baidu.tieba.mx9
+    @Override // com.baidu.tieba.ey9
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? get() < 0 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (get() < 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ey9
+    public void unsubscribe() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && get() >= 0 && getAndSet(-1L) >= 0) {
+            this.state.e(this);
+        }
     }
 
     public long produced(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) ? addAndGet(-j) : invokeJ.longValue;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+            return addAndGet(-j);
+        }
+        return invokeJ.longValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:89:0x00df  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void replay() {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) {
-            return;
-        }
-        synchronized (this) {
-            boolean z2 = true;
-            if (this.emitting) {
-                this.missed = true;
-                return;
-            }
-            this.emitting = true;
-            try {
-                lx9<? super T> lx9Var = this.child;
-                while (true) {
-                    long j = get();
-                    int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-                    if (i < 0) {
-                        return;
-                    }
-                    int b = this.state.b();
-                    if (b != 0) {
-                        Object[] objArr = this.currentBuffer;
-                        if (objArr == null) {
-                            objArr = this.state.a();
-                            this.currentBuffer = objArr;
-                        }
-                        int length = objArr.length - 1;
-                        int i2 = this.index;
-                        int i3 = this.currentIndexInBuffer;
-                        try {
-                            if (i == 0) {
-                                Object obj = objArr[i3];
-                                if (NotificationLite.f(obj)) {
-                                    lx9Var.onCompleted();
-                                    unsubscribe();
-                                    return;
-                                } else if (NotificationLite.g(obj)) {
-                                    lx9Var.onError(NotificationLite.d(obj));
-                                    unsubscribe();
-                                    return;
-                                }
-                            } else if (i > 0) {
-                                int i4 = 0;
-                                while (i2 < b && j > 0) {
-                                    if (lx9Var.isUnsubscribed()) {
-                                        return;
-                                    }
-                                    if (i3 == length) {
-                                        objArr = (Object[]) objArr[length];
-                                        i3 = 0;
-                                    }
-                                    Object obj2 = objArr[i3];
-                                    try {
-                                        if (NotificationLite.a(lx9Var, obj2)) {
-                                            try {
-                                                unsubscribe();
-                                                return;
-                                            } catch (Throwable th) {
-                                                th = th;
-                                                z = true;
-                                                try {
-                                                    rx9.e(th);
-                                                    unsubscribe();
-                                                    if (NotificationLite.g(obj2) || NotificationLite.f(obj2)) {
-                                                        return;
-                                                    }
-                                                    lx9Var.onError(OnErrorThrowable.addValueAsLastCause(th, NotificationLite.e(obj2)));
-                                                    return;
-                                                } catch (Throwable th2) {
-                                                    th = th2;
-                                                    if (!z) {
-                                                        synchronized (this) {
-                                                            this.emitting = false;
-                                                        }
-                                                    }
-                                                    throw th;
-                                                }
-                                            }
-                                        }
-                                        i3++;
-                                        i2++;
-                                        j--;
-                                        i4++;
-                                    } catch (Throwable th3) {
-                                        th = th3;
-                                        z = false;
-                                    }
-                                }
-                                if (lx9Var.isUnsubscribed()) {
-                                    return;
-                                }
-                                this.index = i2;
-                                this.currentIndexInBuffer = i3;
-                                this.currentBuffer = objArr;
-                                produced(i4);
-                            }
-                        } catch (Throwable th4) {
-                            th = th4;
-                            z = true;
-                        }
-                    }
-                    try {
-                        synchronized (this) {
-                            try {
-                                if (!this.missed) {
-                                    this.emitting = false;
-                                    return;
-                                }
-                                this.missed = false;
-                            } catch (Throwable th5) {
-                                th = th5;
-                                z2 = false;
-                            }
-                        }
-                    } catch (Throwable th6) {
-                        th = th6;
-                    }
-                    try {
-                        throw th;
-                    } catch (Throwable th7) {
-                        z = z2;
-                        th = th7;
-                        if (!z) {
-                        }
-                        throw th;
-                    }
-                }
-            } catch (Throwable th8) {
-                th = th8;
-                z = false;
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.hx9
+    @Override // com.baidu.tieba.zx9
     public void request(long j) {
         long j2;
         long j3;
@@ -218,12 +95,142 @@ public final class CachedObservable$ReplayProducer<T> extends AtomicLong impleme
         }
     }
 
-    @Override // com.baidu.tieba.mx9
-    public void unsubscribe() {
+    /* JADX WARN: Removed duplicated region for block: B:89:0x00df  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void replay() {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || get() < 0 || getAndSet(-1L) < 0) {
-            return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                boolean z2 = true;
+                if (this.emitting) {
+                    this.missed = true;
+                    return;
+                }
+                this.emitting = true;
+                try {
+                    dy9 dy9Var = this.child;
+                    while (true) {
+                        long j = get();
+                        int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+                        if (i < 0) {
+                            return;
+                        }
+                        int b = this.state.b();
+                        if (b != 0) {
+                            Object[] objArr = this.currentBuffer;
+                            if (objArr == null) {
+                                objArr = this.state.a();
+                                this.currentBuffer = objArr;
+                            }
+                            int length = objArr.length - 1;
+                            int i2 = this.index;
+                            int i3 = this.currentIndexInBuffer;
+                            try {
+                                if (i == 0) {
+                                    Object obj = objArr[i3];
+                                    if (NotificationLite.f(obj)) {
+                                        dy9Var.onCompleted();
+                                        unsubscribe();
+                                        return;
+                                    } else if (NotificationLite.g(obj)) {
+                                        dy9Var.onError(NotificationLite.d(obj));
+                                        unsubscribe();
+                                        return;
+                                    }
+                                } else if (i > 0) {
+                                    int i4 = 0;
+                                    while (i2 < b && j > 0) {
+                                        if (dy9Var.isUnsubscribed()) {
+                                            return;
+                                        }
+                                        if (i3 == length) {
+                                            objArr = (Object[]) objArr[length];
+                                            i3 = 0;
+                                        }
+                                        Object obj2 = objArr[i3];
+                                        try {
+                                            if (NotificationLite.a(dy9Var, obj2)) {
+                                                try {
+                                                    unsubscribe();
+                                                    return;
+                                                } catch (Throwable th) {
+                                                    th = th;
+                                                    z = true;
+                                                    try {
+                                                        jy9.e(th);
+                                                        unsubscribe();
+                                                        if (!NotificationLite.g(obj2) && !NotificationLite.f(obj2)) {
+                                                            dy9Var.onError(OnErrorThrowable.addValueAsLastCause(th, NotificationLite.e(obj2)));
+                                                            return;
+                                                        }
+                                                        return;
+                                                    } catch (Throwable th2) {
+                                                        th = th2;
+                                                        if (!z) {
+                                                            synchronized (this) {
+                                                                this.emitting = false;
+                                                            }
+                                                        }
+                                                        throw th;
+                                                    }
+                                                }
+                                            }
+                                            i3++;
+                                            i2++;
+                                            j--;
+                                            i4++;
+                                        } catch (Throwable th3) {
+                                            th = th3;
+                                            z = false;
+                                        }
+                                    }
+                                    if (dy9Var.isUnsubscribed()) {
+                                        return;
+                                    }
+                                    this.index = i2;
+                                    this.currentIndexInBuffer = i3;
+                                    this.currentBuffer = objArr;
+                                    produced(i4);
+                                }
+                            } catch (Throwable th4) {
+                                th = th4;
+                                z = true;
+                            }
+                        }
+                        try {
+                            synchronized (this) {
+                                try {
+                                    if (!this.missed) {
+                                        this.emitting = false;
+                                        return;
+                                    }
+                                    this.missed = false;
+                                } catch (Throwable th5) {
+                                    th = th5;
+                                    z2 = false;
+                                }
+                            }
+                        } catch (Throwable th6) {
+                            th = th6;
+                        }
+                        try {
+                            throw th;
+                        } catch (Throwable th7) {
+                            z = z2;
+                            th = th7;
+                            if (!z) {
+                            }
+                            throw th;
+                        }
+                    }
+                } catch (Throwable th8) {
+                    th = th8;
+                    z = false;
+                }
+            }
         }
-        this.state.e(this);
     }
 }

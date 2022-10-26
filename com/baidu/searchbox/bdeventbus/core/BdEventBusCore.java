@@ -31,62 +31,9 @@ public final class BdEventBusCore {
     public final String TAG;
     public final Lazy asyncPoster$delegate;
     public final Lazy backgroundPoster$delegate;
-    public ConcurrentHashMap<Object, CopyOnWriteArrayList<Object>> eventBySubscriber;
+    public ConcurrentHashMap eventBySubscriber;
     public final Lazy mainHandlerPoster$delegate;
-    public ConcurrentHashMap<Object, CopyOnWriteArrayList<SubscriptionInfo>> subscriptionsInfoByEventType;
-
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0010\n\u0002\u0018\u0002\n\u0002\u0010!\n\u0002\u0010\u0000\n\u0002\b\u0007\b\u0000\u0018\u0000B\u0007¢\u0006\u0004\b\u0007\u0010\bR\u001f\u0010\u0003\u001a\b\u0012\u0004\u0012\u00020\u00020\u00018\u0006@\u0006¢\u0006\f\n\u0004\b\u0003\u0010\u0004\u001a\u0004\b\u0005\u0010\u0006¨\u0006\t"}, d2 = {"Lcom/baidu/searchbox/bdeventbus/core/BdEventBusCore$PostingThreadState;", "", "", "eventQueue", "Ljava/util/List;", "getEventQueue", "()Ljava/util/List;", "<init>", "()V", "lib-bd-event-bus_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-    /* loaded from: classes2.dex */
-    public static final class PostingThreadState {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final List<Object> eventQueue;
-
-        public PostingThreadState() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.eventQueue = new ArrayList();
-        }
-
-        public final List<Object> getEventQueue() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.eventQueue : (List) invokeV.objValue;
-        }
-    }
-
-    public BdEventBusCore() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.LAZY_SUBSCRIBE_MSG = 1;
-        this.TAG = "BdEventBusCore";
-        this.subscriptionsInfoByEventType = new ConcurrentHashMap<>();
-        this.eventBySubscriber = new ConcurrentHashMap<>();
-        this.DEFAULT_EXECUTOR_SERVICE$delegate = LazyKt__LazyJVMKt.lazy(BdEventBusCore$DEFAULT_EXECUTOR_SERVICE$2.INSTANCE);
-        this.mainHandlerPoster$delegate = LazyKt__LazyJVMKt.lazy(BdEventBusCore$mainHandlerPoster$2.INSTANCE);
-        this.backgroundPoster$delegate = LazyKt__LazyJVMKt.lazy(new BdEventBusCore$backgroundPoster$2(this));
-        this.asyncPoster$delegate = LazyKt__LazyJVMKt.lazy(new BdEventBusCore$asyncPoster$2(this));
-    }
+    public ConcurrentHashMap subscriptionsInfoByEventType;
 
     private final AsyncPoster getAsyncPoster() {
         InterceptResult invokeV;
@@ -112,42 +59,101 @@ public final class BdEventBusCore {
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? (MainHandlerPoster) this.mainHandlerPoster$delegate.getValue() : (MainHandlerPoster) invokeV.objValue;
     }
 
-    private final void postSingleEvent(Object obj) {
-        CopyOnWriteArrayList<SubscriptionInfo> copyOnWriteArrayList;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65541, this, obj) == null) || (copyOnWriteArrayList = this.subscriptionsInfoByEventType.get(obj.getClass())) == null || copyOnWriteArrayList.isEmpty()) {
-            return;
+    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0010\n\u0002\u0018\u0002\n\u0002\u0010!\n\u0002\u0010\u0000\n\u0002\b\u0007\b\u0000\u0018\u0000B\u0007¢\u0006\u0004\b\u0007\u0010\bR\u001f\u0010\u0003\u001a\b\u0012\u0004\u0012\u00020\u00020\u00018\u0006@\u0006¢\u0006\f\n\u0004\b\u0003\u0010\u0004\u001a\u0004\b\u0005\u0010\u0006¨\u0006\t"}, d2 = {"Lcom/baidu/searchbox/bdeventbus/core/BdEventBusCore$PostingThreadState;", "", "", "eventQueue", "Ljava/util/List;", "getEventQueue", "()Ljava/util/List;", "<init>", "()V", "lib-bd-event-bus_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    /* loaded from: classes2.dex */
+    public final class PostingThreadState {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final List eventQueue;
+
+        public PostingThreadState() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.eventQueue = new ArrayList();
         }
-        Iterator<SubscriptionInfo> it = copyOnWriteArrayList.iterator();
-        while (it.hasNext()) {
-            SubscriptionInfo subscription = it.next();
-            int threadMode = subscription.getThreadMode();
-            if (threadMode == 0) {
-                subscription.getAction().call(obj);
-            } else if (threadMode != 1) {
-                if (threadMode != 2) {
-                    if (threadMode == 3) {
-                        AsyncPoster asyncPoster = getAsyncPoster();
+
+        public final List getEventQueue() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.eventQueue;
+            }
+            return (List) invokeV.objValue;
+        }
+    }
+
+    public BdEventBusCore() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.LAZY_SUBSCRIBE_MSG = 1;
+        this.TAG = "BdEventBusCore";
+        this.subscriptionsInfoByEventType = new ConcurrentHashMap();
+        this.eventBySubscriber = new ConcurrentHashMap();
+        this.DEFAULT_EXECUTOR_SERVICE$delegate = LazyKt__LazyJVMKt.lazy(BdEventBusCore$DEFAULT_EXECUTOR_SERVICE$2.INSTANCE);
+        this.mainHandlerPoster$delegate = LazyKt__LazyJVMKt.lazy(BdEventBusCore$mainHandlerPoster$2.INSTANCE);
+        this.backgroundPoster$delegate = LazyKt__LazyJVMKt.lazy(new BdEventBusCore$backgroundPoster$2(this));
+        this.asyncPoster$delegate = LazyKt__LazyJVMKt.lazy(new BdEventBusCore$asyncPoster$2(this));
+    }
+
+    private final void postSingleEvent(Object obj) {
+        CopyOnWriteArrayList copyOnWriteArrayList;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65541, this, obj) == null) && (copyOnWriteArrayList = (CopyOnWriteArrayList) this.subscriptionsInfoByEventType.get(obj.getClass())) != null && !copyOnWriteArrayList.isEmpty()) {
+            Iterator it = copyOnWriteArrayList.iterator();
+            while (it.hasNext()) {
+                SubscriptionInfo subscription = (SubscriptionInfo) it.next();
+                int threadMode = subscription.getThreadMode();
+                if (threadMode != 0) {
+                    if (threadMode != 1) {
+                        if (threadMode != 2) {
+                            if (threadMode != 3) {
+                                if (threadMode == 4) {
+                                    MainHandlerPoster mainHandlerPoster = getMainHandlerPoster();
+                                    Intrinsics.checkNotNullExpressionValue(subscription, "subscription");
+                                    mainHandlerPoster.enqueue(obj, subscription);
+                                }
+                            } else {
+                                AsyncPoster asyncPoster = getAsyncPoster();
+                                Intrinsics.checkNotNullExpressionValue(subscription, "subscription");
+                                asyncPoster.enqueue(obj, subscription);
+                            }
+                        } else if (UiThreadUtils.isOnUiThread()) {
+                            BackgroundPoster backgroundPoster = getBackgroundPoster();
+                            Intrinsics.checkNotNullExpressionValue(subscription, "subscription");
+                            backgroundPoster.enqueue(obj, subscription);
+                        } else {
+                            subscription.getAction().call(obj);
+                        }
+                    } else if (UiThreadUtils.isOnUiThread()) {
+                        subscription.getAction().call(obj);
+                    } else {
+                        MainHandlerPoster mainHandlerPoster2 = getMainHandlerPoster();
                         Intrinsics.checkNotNullExpressionValue(subscription, "subscription");
-                        asyncPoster.enqueue(obj, subscription);
-                    } else if (threadMode == 4) {
-                        MainHandlerPoster mainHandlerPoster = getMainHandlerPoster();
-                        Intrinsics.checkNotNullExpressionValue(subscription, "subscription");
-                        mainHandlerPoster.enqueue(obj, subscription);
+                        mainHandlerPoster2.enqueue(obj, subscription);
                     }
-                } else if (UiThreadUtils.isOnUiThread()) {
-                    BackgroundPoster backgroundPoster = getBackgroundPoster();
-                    Intrinsics.checkNotNullExpressionValue(subscription, "subscription");
-                    backgroundPoster.enqueue(obj, subscription);
                 } else {
                     subscription.getAction().call(obj);
                 }
-            } else if (UiThreadUtils.isOnUiThread()) {
-                subscription.getAction().call(obj);
-            } else {
-                MainHandlerPoster mainHandlerPoster2 = getMainHandlerPoster();
-                Intrinsics.checkNotNullExpressionValue(subscription, "subscription");
-                mainHandlerPoster2.enqueue(obj, subscription);
             }
         }
     }
@@ -155,25 +161,25 @@ public final class BdEventBusCore {
     private final void subscribe(SubscriptionInfo subscriptionInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, this, subscriptionInfo) == null) {
-            CopyOnWriteArrayList<SubscriptionInfo> copyOnWriteArrayList = this.subscriptionsInfoByEventType.get(subscriptionInfo.getEventType());
+            CopyOnWriteArrayList copyOnWriteArrayList = (CopyOnWriteArrayList) this.subscriptionsInfoByEventType.get(subscriptionInfo.getEventType());
             if (copyOnWriteArrayList != null) {
                 if (!copyOnWriteArrayList.contains(subscriptionInfo)) {
                     copyOnWriteArrayList.add(subscriptionInfo);
                 }
             } else {
-                CopyOnWriteArrayList<SubscriptionInfo> copyOnWriteArrayList2 = new CopyOnWriteArrayList<>();
+                CopyOnWriteArrayList copyOnWriteArrayList2 = new CopyOnWriteArrayList();
                 copyOnWriteArrayList2.add(subscriptionInfo);
                 this.subscriptionsInfoByEventType.put(subscriptionInfo.getEventType(), copyOnWriteArrayList2);
             }
-            CopyOnWriteArrayList<Object> copyOnWriteArrayList3 = this.eventBySubscriber.get(subscriptionInfo.getSubscriber());
+            CopyOnWriteArrayList copyOnWriteArrayList3 = (CopyOnWriteArrayList) this.eventBySubscriber.get(subscriptionInfo.getSubscriber());
             if (copyOnWriteArrayList3 != null) {
-                if (copyOnWriteArrayList3.contains(subscriptionInfo.getEventType())) {
+                if (!copyOnWriteArrayList3.contains(subscriptionInfo.getEventType())) {
+                    copyOnWriteArrayList3.add(subscriptionInfo.getEventType());
                     return;
                 }
-                copyOnWriteArrayList3.add(subscriptionInfo.getEventType());
                 return;
             }
-            CopyOnWriteArrayList<Object> copyOnWriteArrayList4 = new CopyOnWriteArrayList<>();
+            CopyOnWriteArrayList copyOnWriteArrayList4 = new CopyOnWriteArrayList();
             copyOnWriteArrayList4.add(subscriptionInfo.getEventType());
             this.eventBySubscriber.put(subscriptionInfo.getSubscriber(), copyOnWriteArrayList4);
         }
@@ -182,7 +188,10 @@ public final class BdEventBusCore {
     public final ExecutorService getExecutorService$lib_bd_event_bus_release() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? getDEFAULT_EXECUTOR_SERVICE() : (ExecutorService) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return getDEFAULT_EXECUTOR_SERVICE();
+        }
+        return (ExecutorService) invokeV.objValue;
     }
 
     public final void post$lib_bd_event_bus_release(Object event) {
@@ -193,7 +202,7 @@ public final class BdEventBusCore {
         }
     }
 
-    public final void subscribe$lib_bd_event_bus_release(Object subscriber, Class<?> eventType, int i, Action<Object> action) {
+    public final void subscribe$lib_bd_event_bus_release(Object subscriber, Class eventType, int i, Action action) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(Constants.METHOD_SEND_USER_MSG, this, subscriber, eventType, i, action) == null) {
             Intrinsics.checkNotNullParameter(subscriber, "subscriber");
@@ -208,11 +217,11 @@ public final class BdEventBusCore {
         if (interceptable == null || interceptable.invokeL(1048579, this, subscriber) == null) {
             synchronized (this) {
                 Intrinsics.checkNotNullParameter(subscriber, "subscriber");
-                CopyOnWriteArrayList<Object> copyOnWriteArrayList = this.eventBySubscriber.get(subscriber);
+                CopyOnWriteArrayList copyOnWriteArrayList = (CopyOnWriteArrayList) this.eventBySubscriber.get(subscriber);
                 if (copyOnWriteArrayList != null) {
-                    Iterator<Object> it = copyOnWriteArrayList.iterator();
+                    Iterator it = copyOnWriteArrayList.iterator();
                     while (it.hasNext()) {
-                        CopyOnWriteArrayList<SubscriptionInfo> copyOnWriteArrayList2 = this.subscriptionsInfoByEventType.get(it.next());
+                        CopyOnWriteArrayList<SubscriptionInfo> copyOnWriteArrayList2 = (CopyOnWriteArrayList) this.subscriptionsInfoByEventType.get(it.next());
                         if (copyOnWriteArrayList2 != null) {
                             for (SubscriptionInfo subscriptionInfo : copyOnWriteArrayList2) {
                                 if (Intrinsics.areEqual(subscriptionInfo.getSubscriber(), subscriber)) {

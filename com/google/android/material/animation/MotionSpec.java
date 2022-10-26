@@ -9,10 +9,6 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.Log;
 import android.util.Property;
-import androidx.annotation.AnimatorRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.StyleableRes;
 import androidx.collection.SimpleArrayMap;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -28,8 +24,8 @@ public class MotionSpec {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MotionSpec";
     public transient /* synthetic */ FieldHolder $fh;
-    public final SimpleArrayMap<String, PropertyValuesHolder[]> propertyValues;
-    public final SimpleArrayMap<String, MotionTiming> timings;
+    public final SimpleArrayMap propertyValues;
+    public final SimpleArrayMap timings;
 
     public MotionSpec() {
         Interceptable interceptable = $ic;
@@ -44,11 +40,20 @@ public class MotionSpec {
                 return;
             }
         }
-        this.timings = new SimpleArrayMap<>();
-        this.propertyValues = new SimpleArrayMap<>();
+        this.timings = new SimpleArrayMap();
+        this.propertyValues = new SimpleArrayMap();
     }
 
-    public static void addInfoFromAnimator(@NonNull MotionSpec motionSpec, Animator animator) {
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.timings.hashCode();
+        }
+        return invokeV.intValue;
+    }
+
+    public static void addInfoFromAnimator(MotionSpec motionSpec, Animator animator) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, motionSpec, animator) == null) {
             if (animator instanceof ObjectAnimator) {
@@ -61,8 +66,7 @@ public class MotionSpec {
         }
     }
 
-    @NonNull
-    private PropertyValuesHolder[] clonePropertyValuesHolder(@NonNull PropertyValuesHolder[] propertyValuesHolderArr) {
+    private PropertyValuesHolder[] clonePropertyValuesHolder(PropertyValuesHolder[] propertyValuesHolderArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, propertyValuesHolderArr)) == null) {
@@ -75,53 +79,14 @@ public class MotionSpec {
         return (PropertyValuesHolder[]) invokeL.objValue;
     }
 
-    @Nullable
-    public static MotionSpec createFromAttribute(@NonNull Context context, @NonNull TypedArray typedArray, @StyleableRes int i) {
-        InterceptResult invokeLLI;
-        int resourceId;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, context, typedArray, i)) == null) {
-            if (!typedArray.hasValue(i) || (resourceId = typedArray.getResourceId(i, 0)) == 0) {
-                return null;
-            }
-            return createFromResource(context, resourceId);
-        }
-        return (MotionSpec) invokeLLI.objValue;
-    }
-
-    @Nullable
-    public static MotionSpec createFromResource(@NonNull Context context, @AnimatorRes int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i)) == null) {
-            try {
-                Animator loadAnimator = AnimatorInflater.loadAnimator(context, i);
-                if (loadAnimator instanceof AnimatorSet) {
-                    return createSpecFromAnimators(((AnimatorSet) loadAnimator).getChildAnimations());
-                }
-                if (loadAnimator != null) {
-                    ArrayList arrayList = new ArrayList();
-                    arrayList.add(loadAnimator);
-                    return createSpecFromAnimators(arrayList);
-                }
-                return null;
-            } catch (Exception e) {
-                Log.w(TAG, "Can't load animation resource ID #0x" + Integer.toHexString(i), e);
-                return null;
-            }
-        }
-        return (MotionSpec) invokeLI.objValue;
-    }
-
-    @NonNull
-    public static MotionSpec createSpecFromAnimators(@NonNull List<Animator> list) {
+    public static MotionSpec createSpecFromAnimators(List list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, list)) == null) {
             MotionSpec motionSpec = new MotionSpec();
             int size = list.size();
             for (int i = 0; i < size; i++) {
-                addInfoFromAnimator(motionSpec, list.get(i));
+                addInfoFromAnimator(motionSpec, (Animator) list.get(i));
             }
             return motionSpec;
         }
@@ -135,34 +100,20 @@ public class MotionSpec {
             if (this == obj) {
                 return true;
             }
-            if (obj instanceof MotionSpec) {
-                return this.timings.equals(((MotionSpec) obj).timings);
+            if (!(obj instanceof MotionSpec)) {
+                return false;
             }
-            return false;
+            return this.timings.equals(((MotionSpec) obj).timings);
         }
         return invokeL.booleanValue;
     }
 
-    @NonNull
-    public <T> ObjectAnimator getAnimator(@NonNull String str, @NonNull T t, @NonNull Property<T, ?> property) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, t, property)) == null) {
-            ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(t, getPropertyValues(str));
-            ofPropertyValuesHolder.setProperty(property);
-            getTiming(str).apply(ofPropertyValuesHolder);
-            return ofPropertyValuesHolder;
-        }
-        return (ObjectAnimator) invokeLLL.objValue;
-    }
-
-    @NonNull
     public PropertyValuesHolder[] getPropertyValues(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
             if (hasPropertyValues(str)) {
-                return clonePropertyValuesHolder(this.propertyValues.get(str));
+                return clonePropertyValuesHolder((PropertyValuesHolder[]) this.propertyValues.get(str));
             }
             throw new IllegalArgumentException();
         }
@@ -174,11 +125,83 @@ public class MotionSpec {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             if (hasTiming(str)) {
-                return this.timings.get(str);
+                return (MotionTiming) this.timings.get(str);
             }
             throw new IllegalArgumentException();
         }
         return (MotionTiming) invokeL.objValue;
+    }
+
+    public boolean hasPropertyValues(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            if (this.propertyValues.get(str) != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean hasTiming(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            if (this.timings.get(str) != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static MotionSpec createFromAttribute(Context context, TypedArray typedArray, int i) {
+        InterceptResult invokeLLI;
+        int resourceId;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, context, typedArray, i)) == null) {
+            if (typedArray.hasValue(i) && (resourceId = typedArray.getResourceId(i, 0)) != 0) {
+                return createFromResource(context, resourceId);
+            }
+            return null;
+        }
+        return (MotionSpec) invokeLLI.objValue;
+    }
+
+    public ObjectAnimator getAnimator(String str, Object obj, Property property) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj, property)) == null) {
+            ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(obj, getPropertyValues(str));
+            ofPropertyValuesHolder.setProperty(property);
+            getTiming(str).apply(ofPropertyValuesHolder);
+            return ofPropertyValuesHolder;
+        }
+        return (ObjectAnimator) invokeLLL.objValue;
+    }
+
+    public static MotionSpec createFromResource(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i)) == null) {
+            try {
+                Animator loadAnimator = AnimatorInflater.loadAnimator(context, i);
+                if (loadAnimator instanceof AnimatorSet) {
+                    return createSpecFromAnimators(((AnimatorSet) loadAnimator).getChildAnimations());
+                }
+                if (loadAnimator == null) {
+                    return null;
+                }
+                ArrayList arrayList = new ArrayList();
+                arrayList.add(loadAnimator);
+                return createSpecFromAnimators(arrayList);
+            } catch (Exception e) {
+                Log.w(TAG, "Can't load animation resource ID #0x" + Integer.toHexString(i), e);
+                return null;
+            }
+        }
+        return (MotionSpec) invokeLI.objValue;
     }
 
     public long getTotalDuration() {
@@ -188,30 +211,12 @@ public class MotionSpec {
             int size = this.timings.size();
             long j = 0;
             for (int i = 0; i < size; i++) {
-                MotionTiming valueAt = this.timings.valueAt(i);
-                j = Math.max(j, valueAt.getDelay() + valueAt.getDuration());
+                MotionTiming motionTiming = (MotionTiming) this.timings.valueAt(i);
+                j = Math.max(j, motionTiming.getDelay() + motionTiming.getDuration());
             }
             return j;
         }
         return invokeV.longValue;
-    }
-
-    public boolean hasPropertyValues(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? this.propertyValues.get(str) != null : invokeL.booleanValue;
-    }
-
-    public boolean hasTiming(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) ? this.timings.get(str) != null : invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.timings.hashCode() : invokeV.intValue;
     }
 
     public void setPropertyValues(String str, PropertyValuesHolder[] propertyValuesHolderArr) {
@@ -221,14 +226,13 @@ public class MotionSpec {
         }
     }
 
-    public void setTiming(String str, @Nullable MotionTiming motionTiming) {
+    public void setTiming(String str, MotionTiming motionTiming) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, str, motionTiming) == null) {
             this.timings.put(str, motionTiming);
         }
     }
 
-    @NonNull
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

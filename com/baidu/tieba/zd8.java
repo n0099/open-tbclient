@@ -1,36 +1,33 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
-import java.util.HashMap;
-import java.util.List;
+import android.os.Bundle;
+import java.util.Map;
 /* loaded from: classes6.dex */
 public interface zd8 {
-    qn<?, ?> a(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId);
 
-    ud8 b();
+    /* loaded from: classes6.dex */
+    public interface a {
+        int a(Context context, String[] strArr);
+    }
 
-    pd8 c();
+    /* loaded from: classes6.dex */
+    public interface b {
+        int a(Context context, Map map);
+    }
 
-    qn<?, ?> d(yd8 yd8Var, BdUniqueId bdUniqueId);
+    /* loaded from: classes6.dex */
+    public interface c {
+        int a(Context context, String str, String str2, boolean z, d dVar, boolean z2, Bundle bundle);
+    }
 
-    void e();
+    /* loaded from: classes6.dex */
+    public interface d {
+    }
 
-    List<AdvertAppInfo> f();
+    boolean a(String str);
 
-    qn<?, ?> g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, String str);
+    void b(Context context, String[] strArr, boolean z, Bundle bundle);
 
-    IAdBaseAsyncController h(@NonNull IAdBaseAsyncController.Type type, @Nullable IAdBaseAsyncController.a aVar);
-
-    wd8 i();
-
-    void j(AdvertAppInfo advertAppInfo);
-
-    void k(HashMap<String, String> hashMap, Context context);
+    boolean c(Context context, String[] strArr, Bundle bundle);
 }

@@ -13,9 +13,6 @@ import android.graphics.drawable.LayerDrawable;
 import android.graphics.drawable.RippleDrawable;
 import android.os.Build;
 import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.content.ContextCompat;
 import androidx.core.util.Preconditions;
@@ -32,16 +29,49 @@ import com.google.android.material.shadow.ShadowViewDelegate;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import java.util.ArrayList;
-@RequiresApi(21)
 /* loaded from: classes7.dex */
 public class FloatingActionButtonImplLollipop extends FloatingActionButtonImpl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.google.android.material.floatingactionbutton.FloatingActionButtonImpl
+    public void jumpDrawableToCurrentState() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        }
+    }
+
+    @Override // com.google.android.material.floatingactionbutton.FloatingActionButtonImpl
+    public boolean requirePreDrawListener() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.google.android.material.floatingactionbutton.FloatingActionButtonImpl
+    public void updateFromViewRotation() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+        }
+    }
+
     /* loaded from: classes7.dex */
-    public static class AlwaysStatefulMaterialShapeDrawable extends MaterialShapeDrawable {
+    public class AlwaysStatefulMaterialShapeDrawable extends MaterialShapeDrawable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.google.android.material.shape.MaterialShapeDrawable, android.graphics.drawable.Drawable
+        public boolean isStateful() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public AlwaysStatefulMaterialShapeDrawable(ShapeAppearanceModel shapeAppearanceModel) {
@@ -61,16 +91,6 @@ public class FloatingActionButtonImplLollipop extends FloatingActionButtonImpl {
                     return;
                 }
             }
-        }
-
-        @Override // com.google.android.material.shape.MaterialShapeDrawable, android.graphics.drawable.Drawable
-        public boolean isStateful() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return true;
-            }
-            return invokeV.booleanValue;
         }
     }
 
@@ -95,7 +115,6 @@ public class FloatingActionButtonImplLollipop extends FloatingActionButtonImpl {
         }
     }
 
-    @NonNull
     private Animator createElevationAnimator(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -108,7 +127,6 @@ public class FloatingActionButtonImplLollipop extends FloatingActionButtonImpl {
         return (Animator) invokeCommon.objValue;
     }
 
-    @NonNull
     public BorderDrawable createBorderDrawable(int i, ColorStateList colorStateList) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -124,22 +142,48 @@ public class FloatingActionButtonImplLollipop extends FloatingActionButtonImpl {
     }
 
     @Override // com.google.android.material.floatingactionbutton.FloatingActionButtonImpl
-    @NonNull
     public MaterialShapeDrawable createShapeDrawable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new AlwaysStatefulMaterialShapeDrawable((ShapeAppearanceModel) Preconditions.checkNotNull(this.shapeAppearance)) : (MaterialShapeDrawable) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return new AlwaysStatefulMaterialShapeDrawable((ShapeAppearanceModel) Preconditions.checkNotNull(this.shapeAppearance));
+        }
+        return (MaterialShapeDrawable) invokeV.objValue;
     }
 
     @Override // com.google.android.material.floatingactionbutton.FloatingActionButtonImpl
     public float getElevation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f1073view.getElevation() : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.f1073view.getElevation();
+        }
+        return invokeV.floatValue;
     }
 
     @Override // com.google.android.material.floatingactionbutton.FloatingActionButtonImpl
-    public void getPadding(@NonNull Rect rect) {
+    public void onCompatShadowChanged() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            updatePadding();
+        }
+    }
+
+    @Override // com.google.android.material.floatingactionbutton.FloatingActionButtonImpl
+    public boolean shouldAddPadding() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            if (!this.shadowViewDelegate.isCompatPaddingEnabled() && shouldExpandBoundsForA11y()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.google.android.material.floatingactionbutton.FloatingActionButtonImpl
+    public void getPadding(Rect rect) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, rect) == null) {
             if (this.shadowViewDelegate.isCompatPaddingEnabled()) {
@@ -154,7 +198,7 @@ public class FloatingActionButtonImplLollipop extends FloatingActionButtonImpl {
     }
 
     @Override // com.google.android.material.floatingactionbutton.FloatingActionButtonImpl
-    public void initializeBackgroundDrawable(ColorStateList colorStateList, @Nullable PorterDuff.Mode mode, ColorStateList colorStateList2, int i) {
+    public void initializeBackgroundDrawable(ColorStateList colorStateList, PorterDuff.Mode mode, ColorStateList colorStateList2, int i) {
         Drawable drawable;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLI(1048580, this, colorStateList, mode, colorStateList2, i) == null) {
@@ -175,21 +219,6 @@ public class FloatingActionButtonImplLollipop extends FloatingActionButtonImpl {
             RippleDrawable rippleDrawable = new RippleDrawable(RippleUtils.sanitizeRippleDrawableColor(colorStateList2), drawable, null);
             this.rippleDrawable = rippleDrawable;
             this.contentBackground = rippleDrawable;
-        }
-    }
-
-    @Override // com.google.android.material.floatingactionbutton.FloatingActionButtonImpl
-    public void jumpDrawableToCurrentState() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-        }
-    }
-
-    @Override // com.google.android.material.floatingactionbutton.FloatingActionButtonImpl
-    public void onCompatShadowChanged() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            updatePadding();
         }
     }
 
@@ -249,17 +278,7 @@ public class FloatingActionButtonImplLollipop extends FloatingActionButtonImpl {
     }
 
     @Override // com.google.android.material.floatingactionbutton.FloatingActionButtonImpl
-    public boolean requirePreDrawListener() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.google.android.material.floatingactionbutton.FloatingActionButtonImpl
-    public void setRippleColor(@Nullable ColorStateList colorStateList) {
+    public void setRippleColor(ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, colorStateList) == null) {
             Drawable drawable = this.rippleDrawable;
@@ -268,20 +287,6 @@ public class FloatingActionButtonImplLollipop extends FloatingActionButtonImpl {
             } else {
                 super.setRippleColor(colorStateList);
             }
-        }
-    }
-
-    @Override // com.google.android.material.floatingactionbutton.FloatingActionButtonImpl
-    public boolean shouldAddPadding() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.shadowViewDelegate.isCompatPaddingEnabled() || !shouldExpandBoundsForA11y() : invokeV.booleanValue;
-    }
-
-    @Override // com.google.android.material.floatingactionbutton.FloatingActionButtonImpl
-    public void updateFromViewRotation() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
         }
     }
 }

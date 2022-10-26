@@ -1,30 +1,11 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.opengl.EGLContext;
 /* loaded from: classes3.dex */
-public class eh9 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface eh9 {
+    void a(EGLContext eGLContext);
 
-    public static boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? b() : invokeV.booleanValue;
-    }
+    void b(int i, int i2, int i3);
 
-    public static boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            String str = Build.MODEL;
-            if (kh9.a(str)) {
-                return false;
-            }
-            return str.equalsIgnoreCase("OPPO R9sk");
-        }
-        return invokeV.booleanValue;
-    }
+    void release();
 }

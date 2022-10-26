@@ -101,7 +101,12 @@ public class V0 extends Thread {
                                 httpURLConnection.setReadTimeout(3000);
                                 httpURLConnection.connect();
                                 long contentLength = httpURLConnection.getContentLength();
-                                if (contentLength > 0) {
+                                if (contentLength <= 0) {
+                                    if (this.c != null) {
+                                        this.e = true;
+                                        this.c.a(950, str);
+                                    }
+                                } else {
                                     W0.a(this.d).a(str, contentLength);
                                     FileOutputStream fileOutputStream2 = new FileOutputStream(file);
                                     try {
@@ -164,9 +169,6 @@ public class V0 extends Thread {
                                         }
                                         throw th;
                                     }
-                                } else if (this.c != null) {
-                                    this.e = true;
-                                    this.c.a(950, str);
                                 }
                             } catch (Exception e4) {
                                 e = e4;
@@ -215,10 +217,9 @@ public class V0 extends Thread {
             }
             long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
             X0 x0 = this.c;
-            if (x0 == null || this.e) {
-                return;
+            if (x0 != null && !this.e) {
+                e1.a(x0.a).a(new f1(x0.b), 200).a("dr", currentTimeMillis2).a();
             }
-            e1.a(x0.a).a(new f1(x0.b), 200).a("dr", currentTimeMillis2).a();
         }
     }
 }

@@ -99,12 +99,17 @@ public class DesignTool implements ProxyInterface {
     public static void Connect(int i, ConstraintSet constraintSet, View view2, HashMap<String, String> hashMap, int i2, int i3) {
         String str;
         String str2;
+        int i4;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), constraintSet, view2, hashMap, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) || (str2 = hashMap.get((str = allAttributes.get(Pair.create(Integer.valueOf(i2), Integer.valueOf(i3)))))) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), constraintSet, view2, hashMap, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) && (str2 = hashMap.get((str = allAttributes.get(Pair.create(Integer.valueOf(i2), Integer.valueOf(i3)))))) != null) {
+            String str3 = allMargins.get(str);
+            if (str3 != null) {
+                i4 = GetPxFromDp(i, hashMap.get(str3));
+            } else {
+                i4 = 0;
+            }
+            constraintSet.connect(view2.getId(), i2, Integer.parseInt(str2), i3, i4);
         }
-        String str3 = allMargins.get(str);
-        constraintSet.connect(view2.getId(), i2, Integer.parseInt(str2), i3, str3 != null ? GetPxFromDp(i, hashMap.get(str3)) : 0);
     }
 
     public static int GetPxFromDp(int i, String str) {
@@ -118,6 +123,23 @@ public class DesignTool implements ProxyInterface {
             return (int) ((Integer.valueOf(str.substring(0, indexOf)).intValue() * i) / 160.0f);
         }
         return invokeIL.intValue;
+    }
+
+    public void setTransition(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048601, this, str, str2) == null) {
+            MotionLayout motionLayout = this.mMotionLayout;
+            if (motionLayout.mScene == null) {
+                motionLayout.mScene = this.mSceneCache;
+            }
+            int lookUpConstraintId = this.mMotionLayout.lookUpConstraintId(str);
+            int lookUpConstraintId2 = this.mMotionLayout.lookUpConstraintId(str2);
+            this.mMotionLayout.setTransition(lookUpConstraintId, lookUpConstraintId2);
+            this.mLastStartStateId = lookUpConstraintId;
+            this.mLastEndStateId = lookUpConstraintId2;
+            this.mLastStartState = str;
+            this.mLastEndState = str2;
+        }
     }
 
     public static void SetAbsolutePositions(int i, ConstraintSet constraintSet, View view2, HashMap<String, String> hashMap) {
@@ -135,29 +157,54 @@ public class DesignTool implements ProxyInterface {
     }
 
     public static void SetBias(ConstraintSet constraintSet, View view2, HashMap<String, String> hashMap, int i) {
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLI(65541, null, constraintSet, view2, hashMap, i) == null) {
-            String str = hashMap.get(i == 1 ? "layout_constraintVertical_bias" : "layout_constraintHorizontal_bias");
-            if (str != null) {
+            if (i == 1) {
+                str = "layout_constraintVertical_bias";
+            } else {
+                str = "layout_constraintHorizontal_bias";
+            }
+            String str2 = hashMap.get(str);
+            if (str2 != null) {
                 if (i == 0) {
-                    constraintSet.setHorizontalBias(view2.getId(), Float.parseFloat(str));
+                    constraintSet.setHorizontalBias(view2.getId(), Float.parseFloat(str2));
                 } else if (i == 1) {
-                    constraintSet.setVerticalBias(view2.getId(), Float.parseFloat(str));
+                    constraintSet.setVerticalBias(view2.getId(), Float.parseFloat(str2));
                 }
             }
         }
     }
 
+    @Override // androidx.constraintlayout.motion.widget.ProxyInterface
+    public float getKeyFramePosition(Object obj, int i, float f, float f2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{obj, Integer.valueOf(i), Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            return this.mMotionLayout.mFrameArrayList.get((View) obj).getKeyFrameParameter(i, f, f2);
+        }
+        return invokeCommon.floatValue;
+    }
+
     public static void SetDimensions(int i, ConstraintSet constraintSet, View view2, HashMap<String, String> hashMap, int i2) {
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{Integer.valueOf(i), constraintSet, view2, hashMap, Integer.valueOf(i2)}) == null) {
-            String str = hashMap.get(i2 == 1 ? "layout_height" : "layout_width");
-            if (str != null) {
-                int GetPxFromDp = str.equalsIgnoreCase("wrap_content") ? -2 : GetPxFromDp(i, str);
+            if (i2 == 1) {
+                str = "layout_height";
+            } else {
+                str = "layout_width";
+            }
+            String str2 = hashMap.get(str);
+            if (str2 != null) {
+                int i3 = -2;
+                if (!str2.equalsIgnoreCase("wrap_content")) {
+                    i3 = GetPxFromDp(i, str2);
+                }
                 if (i2 == 0) {
-                    constraintSet.constrainWidth(view2.getId(), GetPxFromDp);
+                    constraintSet.constrainWidth(view2.getId(), i3);
                 } else {
-                    constraintSet.constrainHeight(view2.getId(), GetPxFromDp);
+                    constraintSet.constrainHeight(view2.getId(), i3);
                 }
             }
         }
@@ -178,23 +225,24 @@ public class DesignTool implements ProxyInterface {
             } else {
                 motionController = null;
             }
-            if (i != 0) {
-                if (i == 1) {
+            if (i == 0) {
+                return 1;
+            }
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        return -1;
+                    }
                     int duration = this.mMotionLayout.mScene.getDuration() / 16;
-                    motionController.buildPath(fArr2, duration);
-                    return duration;
-                } else if (i == 2) {
-                    int duration2 = this.mMotionLayout.mScene.getDuration() / 16;
-                    motionController.buildKeyFrames(fArr2, null);
-                    return duration2;
-                } else if (i != 3) {
-                    return -1;
-                } else {
-                    int duration3 = this.mMotionLayout.mScene.getDuration() / 16;
                     return motionController.getAttributeValues(str, fArr2, i3);
                 }
+                int duration2 = this.mMotionLayout.mScene.getDuration() / 16;
+                motionController.buildKeyFrames(fArr2, null);
+                return duration2;
             }
-            return 1;
+            int duration3 = this.mMotionLayout.mScene.getDuration() / 16;
+            motionController.buildPath(fArr2, duration3);
+            return duration3;
         }
         return invokeCommon.intValue;
     }
@@ -203,6 +251,21 @@ public class DesignTool implements ProxyInterface {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
             this.mMotionLayout.disableAutoTransition(z);
+        }
+    }
+
+    @Override // androidx.constraintlayout.motion.widget.ProxyInterface
+    public void setToolPosition(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048600, this, f) == null) {
+            MotionLayout motionLayout = this.mMotionLayout;
+            if (motionLayout.mScene == null) {
+                motionLayout.mScene = this.mSceneCache;
+            }
+            this.mMotionLayout.setProgress(f);
+            this.mMotionLayout.evaluate(true);
+            this.mMotionLayout.requestLayout();
+            this.mMotionLayout.invalidate();
         }
     }
 
@@ -243,6 +306,29 @@ public class DesignTool implements ProxyInterface {
         return invokeLL.intValue;
     }
 
+    public void getAnimationRectangles(Object obj, float[] fArr) {
+        MotionScene motionScene;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048581, this, obj, fArr) != null) || (motionScene = this.mMotionLayout.mScene) == null) {
+            return;
+        }
+        int duration = motionScene.getDuration() / 16;
+        MotionController motionController = this.mMotionLayout.mFrameArrayList.get(obj);
+        if (motionController == null) {
+            return;
+        }
+        motionController.buildRectangles(fArr, duration);
+    }
+
+    public void setViewDebug(Object obj, int i) {
+        MotionController motionController;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(1048602, this, obj, i) == null) && (motionController = this.mMotionLayout.mFrameArrayList.get(obj)) != null) {
+            motionController.setDrawPath(i);
+            this.mMotionLayout.invalidate();
+        }
+    }
+
     public int getAnimationPath(Object obj, float[] fArr, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
@@ -261,38 +347,6 @@ public class DesignTool implements ProxyInterface {
         return invokeLLI.intValue;
     }
 
-    public void getAnimationRectangles(Object obj, float[] fArr) {
-        MotionScene motionScene;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048581, this, obj, fArr) == null) || (motionScene = this.mMotionLayout.mScene) == null) {
-            return;
-        }
-        int duration = motionScene.getDuration() / 16;
-        MotionController motionController = this.mMotionLayout.mFrameArrayList.get(obj);
-        if (motionController == null) {
-            return;
-        }
-        motionController.buildRectangles(fArr, duration);
-    }
-
-    public String getEndState() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            int endState = this.mMotionLayout.getEndState();
-            if (this.mLastEndStateId == endState) {
-                return this.mLastEndState;
-            }
-            String constraintSetNames = this.mMotionLayout.getConstraintSetNames(endState);
-            if (constraintSetNames != null) {
-                this.mLastEndState = constraintSetNames;
-                this.mLastEndStateId = endState;
-            }
-            return constraintSetNames;
-        }
-        return (String) invokeV.objValue;
-    }
-
     public int getKeyFrameInfo(Object obj, int i, int[] iArr) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
@@ -304,13 +358,6 @@ public class DesignTool implements ProxyInterface {
             return motionController.getKeyFrameInfo(i, iArr);
         }
         return invokeLIL.intValue;
-    }
-
-    @Override // androidx.constraintlayout.motion.widget.ProxyInterface
-    public float getKeyFramePosition(Object obj, int i, float f, float f2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{obj, Integer.valueOf(i), Float.valueOf(f), Float.valueOf(f2)})) == null) ? this.mMotionLayout.mFrameArrayList.get((View) obj).getKeyFrameParameter(i, f, f2) : invokeCommon.floatValue;
     }
 
     public int getKeyFramePositions(Object obj, int[] iArr, float[] fArr) {
@@ -338,6 +385,78 @@ public class DesignTool implements ProxyInterface {
             return motionScene.getKeyFrame(motionLayout.getContext(), i, i2, i3);
         }
         return invokeIII.objValue;
+    }
+
+    public void setKeyframe(Object obj, String str, Object obj2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(1048598, this, obj, str, obj2) == null) && (obj instanceof Key)) {
+            ((Key) obj).setValue(str, obj2);
+            this.mMotionLayout.rebuildScene();
+            this.mMotionLayout.mInTransition = true;
+        }
+    }
+
+    public String getEndState() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            int endState = this.mMotionLayout.getEndState();
+            if (this.mLastEndStateId == endState) {
+                return this.mLastEndState;
+            }
+            String constraintSetNames = this.mMotionLayout.getConstraintSetNames(endState);
+            if (constraintSetNames != null) {
+                this.mLastEndState = constraintSetNames;
+                this.mLastEndStateId = endState;
+            }
+            return constraintSetNames;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public float getProgress() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.mMotionLayout.getProgress();
+        }
+        return invokeV.floatValue;
+    }
+
+    @Override // androidx.constraintlayout.motion.widget.ProxyInterface
+    public long getTransitionTimeMs() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.mMotionLayout.getTransitionTimeMs();
+        }
+        return invokeV.longValue;
+    }
+
+    public boolean isInTransition() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            if (this.mLastStartState != null && this.mLastEndState != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public Object getKeyframe(Object obj, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048587, this, obj, i, i2)) == null) {
+            if (this.mMotionLayout.mScene == null) {
+                return null;
+            }
+            int id = ((View) obj).getId();
+            MotionLayout motionLayout = this.mMotionLayout;
+            return motionLayout.mScene.getKeyFrame(motionLayout.getContext(), i, id, i2);
+        }
+        return invokeLII.objValue;
     }
 
     @Override // androidx.constraintlayout.motion.widget.ProxyInterface
@@ -377,12 +496,6 @@ public class DesignTool implements ProxyInterface {
         return (Boolean) invokeCommon.objValue;
     }
 
-    public float getProgress() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mMotionLayout.getProgress() : invokeV.floatValue;
-    }
-
     public String getStartState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -417,19 +530,6 @@ public class DesignTool implements ProxyInterface {
             return this.mLastStartState;
         }
         return (String) invokeV.objValue;
-    }
-
-    @Override // androidx.constraintlayout.motion.widget.ProxyInterface
-    public long getTransitionTimeMs() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.mMotionLayout.getTransitionTimeMs() : invokeV.longValue;
-    }
-
-    public boolean isInTransition() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? (this.mLastStartState == null || this.mLastEndState == null) ? false : true : invokeV.booleanValue;
     }
 
     @Override // androidx.constraintlayout.motion.widget.ProxyInterface
@@ -471,15 +571,14 @@ public class DesignTool implements ProxyInterface {
     public void setKeyFrame(Object obj, int i, String str, Object obj2) {
         MotionScene motionScene;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLILL(1048596, this, obj, i, str, obj2) == null) || (motionScene = this.mMotionLayout.mScene) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLILL(1048596, this, obj, i, str, obj2) == null) && (motionScene = this.mMotionLayout.mScene) != null) {
+            motionScene.setKeyframe((View) obj, i, str, obj2);
+            MotionLayout motionLayout = this.mMotionLayout;
+            motionLayout.mTransitionGoalPosition = i / 100.0f;
+            motionLayout.mTransitionLastPosition = 0.0f;
+            motionLayout.rebuildScene();
+            this.mMotionLayout.evaluate(true);
         }
-        motionScene.setKeyframe((View) obj, i, str, obj2);
-        MotionLayout motionLayout = this.mMotionLayout;
-        motionLayout.mTransitionGoalPosition = i / 100.0f;
-        motionLayout.mTransitionLastPosition = 0.0f;
-        motionLayout.rebuildScene();
-        this.mMotionLayout.evaluate(true);
     }
 
     @Override // androidx.constraintlayout.motion.widget.ProxyInterface
@@ -513,16 +612,8 @@ public class DesignTool implements ProxyInterface {
         return invokeCommon.booleanValue;
     }
 
-    public void setKeyframe(Object obj, String str, Object obj2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048598, this, obj, str, obj2) == null) && (obj instanceof Key)) {
-            ((Key) obj).setValue(str, obj2);
-            this.mMotionLayout.rebuildScene();
-            this.mMotionLayout.mInTransition = true;
-        }
-    }
-
     public void setState(String str) {
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
             if (str == null) {
@@ -537,75 +628,23 @@ public class DesignTool implements ProxyInterface {
             if (motionLayout.mScene == null) {
                 motionLayout.mScene = this.mSceneCache;
             }
-            int lookUpConstraintId = str != null ? this.mMotionLayout.lookUpConstraintId(str) : R.id.motion_base;
-            this.mLastStartStateId = lookUpConstraintId;
-            if (lookUpConstraintId != 0) {
-                if (lookUpConstraintId == this.mMotionLayout.getStartState()) {
+            if (str != null) {
+                i = this.mMotionLayout.lookUpConstraintId(str);
+            } else {
+                i = R.id.motion_base;
+            }
+            this.mLastStartStateId = i;
+            if (i != 0) {
+                if (i == this.mMotionLayout.getStartState()) {
                     this.mMotionLayout.setProgress(0.0f);
-                } else if (lookUpConstraintId == this.mMotionLayout.getEndState()) {
+                } else if (i == this.mMotionLayout.getEndState()) {
                     this.mMotionLayout.setProgress(1.0f);
                 } else {
-                    this.mMotionLayout.transitionToState(lookUpConstraintId);
+                    this.mMotionLayout.transitionToState(i);
                     this.mMotionLayout.setProgress(1.0f);
                 }
             }
             this.mMotionLayout.requestLayout();
         }
-    }
-
-    @Override // androidx.constraintlayout.motion.widget.ProxyInterface
-    public void setToolPosition(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048600, this, f) == null) {
-            MotionLayout motionLayout = this.mMotionLayout;
-            if (motionLayout.mScene == null) {
-                motionLayout.mScene = this.mSceneCache;
-            }
-            this.mMotionLayout.setProgress(f);
-            this.mMotionLayout.evaluate(true);
-            this.mMotionLayout.requestLayout();
-            this.mMotionLayout.invalidate();
-        }
-    }
-
-    public void setTransition(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048601, this, str, str2) == null) {
-            MotionLayout motionLayout = this.mMotionLayout;
-            if (motionLayout.mScene == null) {
-                motionLayout.mScene = this.mSceneCache;
-            }
-            int lookUpConstraintId = this.mMotionLayout.lookUpConstraintId(str);
-            int lookUpConstraintId2 = this.mMotionLayout.lookUpConstraintId(str2);
-            this.mMotionLayout.setTransition(lookUpConstraintId, lookUpConstraintId2);
-            this.mLastStartStateId = lookUpConstraintId;
-            this.mLastEndStateId = lookUpConstraintId2;
-            this.mLastStartState = str;
-            this.mLastEndState = str2;
-        }
-    }
-
-    public void setViewDebug(Object obj, int i) {
-        MotionController motionController;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048602, this, obj, i) == null) || (motionController = this.mMotionLayout.mFrameArrayList.get(obj)) == null) {
-            return;
-        }
-        motionController.setDrawPath(i);
-        this.mMotionLayout.invalidate();
-    }
-
-    public Object getKeyframe(Object obj, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048587, this, obj, i, i2)) == null) {
-            if (this.mMotionLayout.mScene == null) {
-                return null;
-            }
-            int id = ((View) obj).getId();
-            MotionLayout motionLayout = this.mMotionLayout;
-            return motionLayout.mScene.getKeyFrame(motionLayout.getContext(), i, id, i2);
-        }
-        return invokeLII.objValue;
     }
 }

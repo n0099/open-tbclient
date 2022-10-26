@@ -8,18 +8,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.airbnb.lottie.LottieAnimationView;
 import com.airbnb.lottie.LottieComposition;
 import com.airbnb.lottie.LottieCompositionFactory;
 import com.airbnb.lottie.LottieListener;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.af8;
-import com.baidu.tieba.dp5;
-import com.baidu.tieba.ho5;
-import com.baidu.tieba.td8;
+import com.baidu.tieba.de8;
+import com.baidu.tieba.kf8;
+import com.baidu.tieba.kp5;
+import com.baidu.tieba.oo5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -31,10 +29,10 @@ public class AdLottieButtonView extends FrameLayout {
     public LottieAnimationView a;
     public TextView b;
     public int c;
-    public td8 d;
+    public de8 d;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AdLottieButtonView(@NonNull Context context) {
+    public AdLottieButtonView(Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -54,22 +52,74 @@ public class AdLottieButtonView extends FrameLayout {
         }
     }
 
-    private void setLayoutByAttrs(@Nullable AttributeSet attributeSet) {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public AdLottieButtonView(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65541, this, attributeSet) == null) || attributeSet == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public AdLottieButtonView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.c = R.layout.obfuscated_res_0x7f0d006a;
+        setLayoutByAttrs(attributeSet);
+        c();
+    }
+
+    private void setLayoutByAttrs(AttributeSet attributeSet) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65541, this, attributeSet) != null) || attributeSet == null) {
             return;
         }
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, ho5.AdLottieButtonView);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, oo5.AdLottieButtonView);
         this.c = obtainStyledAttributes.getResourceId(0, this.c);
         obtainStyledAttributes.recycle();
+    }
+
+    public void setClickListener(de8 de8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, de8Var) == null) {
+            this.d = de8Var;
+        }
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LayoutInflater.from(getContext()).inflate(this.c, this);
-            this.a = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f09145a);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09213e);
+            this.a = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f09144c);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09213d);
         }
     }
 
@@ -91,17 +141,12 @@ public class AdLottieButtonView extends FrameLayout {
         }
     }
 
-    public void setClickListener(td8 td8Var) {
+    public void setData(kf8 kf8Var) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, td8Var) == null) {
-            this.d = td8Var;
-        }
-    }
-
-    public void setData(@Nullable af8 af8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, af8Var) == null) {
-            if (af8Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, kf8Var) == null) {
+            int i2 = 8;
+            if (kf8Var == null) {
                 setVisibility(8);
                 this.a.cancelAnimation();
                 this.a.clearAnimation();
@@ -109,11 +154,17 @@ public class AdLottieButtonView extends FrameLayout {
                 return;
             }
             setVisibility(0);
-            this.a.setVisibility(TextUtils.isEmpty(af8Var.a) ? 8 : 0);
-            LottieCompositionFactory.fromUrl(getContext(), af8Var.a).addListener(new LottieListener<LottieComposition>(this, af8Var) { // from class: com.baidu.tieba.recapp.view.AdLottieButtonView.2
+            LottieAnimationView lottieAnimationView = this.a;
+            if (TextUtils.isEmpty(kf8Var.a)) {
+                i = 8;
+            } else {
+                i = 0;
+            }
+            lottieAnimationView.setVisibility(i);
+            LottieCompositionFactory.fromUrl(getContext(), kf8Var.a).addListener(new LottieListener(this, kf8Var) { // from class: com.baidu.tieba.recapp.view.AdLottieButtonView.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ af8 a;
+                public final /* synthetic */ kf8 a;
                 public final /* synthetic */ AdLottieButtonView b;
 
                 {
@@ -121,18 +172,18 @@ public class AdLottieButtonView extends FrameLayout {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, af8Var};
+                        Object[] objArr = {this, kf8Var};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
+                        int i3 = newInitContext.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
                     this.b = this;
-                    this.a = af8Var;
+                    this.a = kf8Var;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -146,7 +197,7 @@ public class AdLottieButtonView extends FrameLayout {
                         this.b.a.playAnimation();
                     }
                 }
-            }).addFailureListener(new LottieListener<Throwable>(this) { // from class: com.baidu.tieba.recapp.view.AdLottieButtonView.1
+            }).addFailureListener(new LottieListener(this) { // from class: com.baidu.tieba.recapp.view.AdLottieButtonView.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ AdLottieButtonView a;
@@ -158,9 +209,9 @@ public class AdLottieButtonView extends FrameLayout {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
+                        int i3 = newInitContext.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -178,12 +229,16 @@ public class AdLottieButtonView extends FrameLayout {
                     }
                 }
             });
-            this.b.setVisibility(TextUtils.isEmpty(af8Var.b) ? 8 : 0);
-            this.b.setText(af8Var.b);
-            setOnClickListener(new View.OnClickListener(this, af8Var) { // from class: com.baidu.tieba.recapp.view.AdLottieButtonView.3
+            TextView textView = this.b;
+            if (!TextUtils.isEmpty(kf8Var.b)) {
+                i2 = 0;
+            }
+            textView.setVisibility(i2);
+            this.b.setText(kf8Var.b);
+            setOnClickListener(new View.OnClickListener(this, kf8Var) { // from class: com.baidu.tieba.recapp.view.AdLottieButtonView.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ af8 a;
+                public final /* synthetic */ kf8 a;
                 public final /* synthetic */ AdLottieButtonView b;
 
                 {
@@ -191,18 +246,18 @@ public class AdLottieButtonView extends FrameLayout {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, af8Var};
+                        Object[] objArr = {this, kf8Var};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
+                        int i3 = newInitContext.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
                     this.b = this;
-                    this.a = af8Var;
+                    this.a = kf8Var;
                 }
 
                 @Override // android.view.View.OnClickListener
@@ -210,56 +265,11 @@ public class AdLottieButtonView extends FrameLayout {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
                         if (this.b.d == null || !this.b.d.a()) {
-                            dp5.a(this.a.c);
+                            kp5.a(this.a.c);
                         }
                     }
                 }
             });
         }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AdLottieButtonView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AdLottieButtonView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.c = R.layout.obfuscated_res_0x7f0d006a;
-        setLayoutByAttrs(attributeSet);
-        c();
     }
 }

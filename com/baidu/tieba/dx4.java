@@ -1,35 +1,74 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import android.net.Uri;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.ShareDialogConfig;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class dx4 {
+public class dx4 extends vw4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public tw4 c;
 
-    public static void a(String str, long j, int i, String str2, int i2, String str3, Object... objArr) {
+    @Override // com.baidu.tieba.vw4
+    public String f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, Long.valueOf(j), Integer.valueOf(i), str2, Integer.valueOf(i2), str3, objArr}) == null) {
-            lh lhVar = new lh();
-            lhVar.c("cmd", Integer.valueOf(i));
-            if (!TextUtils.isEmpty(str2)) {
-                lhVar.b("action", str2);
-            }
-            lhVar.b("errNo", String.valueOf(i2));
-            if (!TextUtils.isEmpty(str3) && i2 != 0) {
-                lhVar.b(StatConstants.KEY_EXT_ERR_MSG, str3);
-            }
-            if (objArr != null && objArr.length > 0) {
-                lhVar.c(objArr);
-            }
-            if (i2 == 0) {
-                BdStatisticsManager.getInstance().debug(str, j, null, lhVar);
-            } else {
-                BdStatisticsManager.getInstance().error(str, j, (String) null, lhVar);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TBHY_COMMON_SHOW_SHARE_DIALOG" : (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dx4(tw4 tw4Var) {
+        super(tw4Var);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tw4Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((tw4) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.c = tw4Var;
+    }
+
+    @ww4(isAsync = false, value = "showShareDialog")
+    public void showShareDialog(JSONObject jSONObject) throws JSONException {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        String optString = jSONObject.optString("title");
+        String optString2 = jSONObject.optString("content");
+        String optString3 = jSONObject.optString("imgUrl");
+        String optString4 = jSONObject.optString("shareUrl");
+        ShareItem shareItem = new ShareItem();
+        shareItem.v = optString;
+        shareItem.w = optString2;
+        if (optString3 == null) {
+            shareItem.z = null;
+        } else {
+            shareItem.z = Uri.parse(optString3);
+        }
+        shareItem.x = optString4;
+        ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.c.getContext(), shareItem, true);
+        shareDialogConfig.setIsSupportNightMode(true);
+        shareDialogConfig.setIsCopyLink(true);
+        MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
     }
 }

@@ -9,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
 /* loaded from: classes6.dex */
 public class WebStorage {
     public static /* synthetic */ Interceptable $ic;
@@ -17,7 +16,7 @@ public class WebStorage {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public static class Origin {
+    public class Origin {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String mOrigin;
@@ -126,21 +125,21 @@ public class WebStorage {
         }
     }
 
-    public void getOrigins(ValueCallback<Map> valueCallback) {
+    public void getOrigins(ValueCallback valueCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, valueCallback) == null) {
             WebViewFactory.getProvider().getWebStorage().getOrigins(valueCallback);
         }
     }
 
-    public void getQuotaForOrigin(String str, ValueCallback<Long> valueCallback) {
+    public void getQuotaForOrigin(String str, ValueCallback valueCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, str, valueCallback) == null) {
             WebViewFactory.getProvider().getWebStorage().getQuotaForOrigin(str, valueCallback);
         }
     }
 
-    public void getUsageForOrigin(String str, ValueCallback<Long> valueCallback) {
+    public void getUsageForOrigin(String str, ValueCallback valueCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, str, valueCallback) == null) {
             WebViewFactory.getProvider().getWebStorage().getUsageForOrigin(str, valueCallback);

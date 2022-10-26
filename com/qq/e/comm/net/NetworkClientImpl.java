@@ -32,11 +32,11 @@ public class NetworkClientImpl implements NetworkClient {
     public static final NetworkClient c;
     public transient /* synthetic */ FieldHolder $fh;
     public final ExecutorService a;
-    public PriorityBlockingQueue<Runnable> b;
+    public PriorityBlockingQueue b;
 
     /* renamed from: com.qq.e.comm.net.NetworkClientImpl$1  reason: invalid class name */
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -68,13 +68,13 @@ public class NetworkClientImpl implements NetworkClient {
     }
 
     /* loaded from: classes8.dex */
-    public static class NetFutureTask<T> extends FutureTask<T> implements Comparable<NetFutureTask<T>> {
+    public class NetFutureTask extends FutureTask implements Comparable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final NetworkClient.Priority a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public NetFutureTask(Callable<T> callable, NetworkClient.Priority priority) {
+        public NetFutureTask(Callable callable, NetworkClient.Priority priority) {
             super(callable);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -94,7 +94,9 @@ public class NetworkClientImpl implements NetworkClient {
             this.a = priority;
         }
 
-        public int compareTo(NetFutureTask<T> netFutureTask) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.lang.Comparable
+        public int compareTo(NetFutureTask netFutureTask) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, netFutureTask)) == null) {
@@ -106,150 +108,16 @@ public class NetworkClientImpl implements NetworkClient {
             return invokeL.intValue;
         }
 
-        @Override // java.lang.Comparable
-        public /* bridge */ /* synthetic */ int compareTo(Object obj) {
-            return compareTo((NetFutureTask) ((NetFutureTask) obj));
-        }
-
         public boolean equals(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) ? obj != null && obj.getClass() == NetFutureTask.class && compareTo((NetFutureTask) ((NetFutureTask) obj)) == 0 : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) ? obj != null && obj.getClass() == NetFutureTask.class && compareTo((NetFutureTask) obj) == 0 : invokeL.booleanValue;
         }
 
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.value() : invokeV.intValue;
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class TaskCallable implements Callable<Response> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final Request a;
-        public final NetworkCallBack b;
-
-        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public TaskCallable(Request request) {
-            this(request, null);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {request};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    this((Request) objArr2[0], (NetworkCallBack) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        public TaskCallable(Request request, NetworkCallBack networkCallBack) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {request, networkCallBack};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.a = request;
-            this.b = networkCallBack;
-        }
-
-        private Response a() throws Exception {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-                HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(this.a.getUrlWithParas()).openConnection();
-                for (Map.Entry<String, String> entry : this.a.getHeaders().entrySet()) {
-                    httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
-                }
-                httpURLConnection.setRequestProperty("User-Agent", "GDTADNetClient-[" + System.getProperty("http.agent") + PreferencesUtil.RIGHT_MOUNT);
-                if (this.a.getConnectionTimeOut() > 0) {
-                    httpURLConnection.setConnectTimeout(this.a.getConnectionTimeOut());
-                } else {
-                    httpURLConnection.setConnectTimeout(30000);
-                }
-                if (this.a.getSocketTimeOut() > 0) {
-                    httpURLConnection.setReadTimeout(this.a.getSocketTimeOut());
-                } else {
-                    httpURLConnection.setReadTimeout(30000);
-                }
-                if (this.a.getMethod().ordinal() == 1) {
-                    httpURLConnection.setDoOutput(true);
-                    httpURLConnection.setChunkedStreamingMode(0);
-                    byte[] postData = this.a.getPostData();
-                    if (postData != null && postData.length > 0) {
-                        BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(httpURLConnection.getOutputStream());
-                        try {
-                            bufferedOutputStream.write(postData);
-                            bufferedOutputStream.flush();
-                        } finally {
-                            bufferedOutputStream.close();
-                        }
-                    }
-                }
-                return this.a.initResponse(NetworkClientImpl.followRedirect(httpURLConnection));
-            }
-            return (Response) invokeV.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
-        /* JADX WARN: Code restructure failed: missing block: B:14:0x001f, code lost:
-            if (r4.a.isAutoClose() != false) goto L14;
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:19:0x0030, code lost:
-            if (r1 != null) goto L14;
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:20:0x0032, code lost:
-            r1.close();
-         */
-        @Override // java.util.concurrent.Callable
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public Response call() throws Exception {
-            InterceptResult invokeV;
-            Response response;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                Exception exc = null;
-                try {
-                    response = a();
-                } catch (Exception e) {
-                    response = null;
-                    exc = e;
-                }
-                if (exc == null) {
-                    NetworkCallBack networkCallBack = this.b;
-                    if (networkCallBack != null) {
-                        networkCallBack.onResponse(this.a, response);
-                    }
-                } else if (this.b == null) {
-                    throw exc;
-                } else {
-                    GDTLogger.w("网络异常", exc);
-                    this.b.onException(exc);
-                }
-                return response;
-            }
-            return (Response) invokeV.objValue;
         }
     }
 
@@ -282,7 +150,7 @@ public class NetworkClientImpl implements NetworkClient {
                 return;
             }
         }
-        this.b = new PriorityBlockingQueue<>(15);
+        this.b = new PriorityBlockingQueue(15);
         this.a = new ThreadPoolExecutor(5, 10, 180L, TimeUnit.SECONDS, this.b);
     }
 
@@ -332,14 +200,14 @@ public class NetworkClientImpl implements NetworkClient {
     }
 
     @Override // com.qq.e.comm.net.NetworkClient
-    public Future<Response> submit(Request request) {
+    public Future submit(Request request) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, request)) == null) ? submit(request, NetworkClient.Priority.Mid) : (Future) invokeL.objValue;
     }
 
     @Override // com.qq.e.comm.net.NetworkClient
-    public Future<Response> submit(Request request, NetworkClient.Priority priority) {
+    public Future submit(Request request, NetworkClient.Priority priority) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, request, priority)) == null) {
@@ -379,6 +247,134 @@ public class NetworkClientImpl implements NetworkClient {
                 str = "QueueSize:" + this.b.size();
             }
             GDTLogger.d(str);
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class TaskCallable implements Callable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final Request a;
+        public final NetworkCallBack b;
+
+        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+        public TaskCallable(Request request) {
+            this(request, null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {request};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    this((Request) objArr2[0], (NetworkCallBack) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        public TaskCallable(Request request, NetworkCallBack networkCallBack) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {request, networkCallBack};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.a = request;
+            this.b = networkCallBack;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Code restructure failed: missing block: B:14:0x001f, code lost:
+            if (r4.a.isAutoClose() != false) goto L14;
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:19:0x0030, code lost:
+            if (r1 != null) goto L14;
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:20:0x0032, code lost:
+            r1.close();
+         */
+        @Override // java.util.concurrent.Callable
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public Response call() throws Exception {
+            InterceptResult invokeV;
+            Response response;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                Exception exc = null;
+                try {
+                    response = a();
+                } catch (Exception e) {
+                    response = null;
+                    exc = e;
+                }
+                if (exc == null) {
+                    NetworkCallBack networkCallBack = this.b;
+                    if (networkCallBack != null) {
+                        networkCallBack.onResponse(this.a, response);
+                    }
+                } else if (this.b == null) {
+                    throw exc;
+                } else {
+                    GDTLogger.w("网络异常", exc);
+                    this.b.onException(exc);
+                }
+                return response;
+            }
+            return (Response) invokeV.objValue;
+        }
+
+        private Response a() throws Exception {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+                HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(this.a.getUrlWithParas()).openConnection();
+                for (Map.Entry entry : this.a.getHeaders().entrySet()) {
+                    httpURLConnection.setRequestProperty((String) entry.getKey(), (String) entry.getValue());
+                }
+                httpURLConnection.setRequestProperty("User-Agent", "GDTADNetClient-[" + System.getProperty("http.agent") + PreferencesUtil.RIGHT_MOUNT);
+                if (this.a.getConnectionTimeOut() > 0) {
+                    httpURLConnection.setConnectTimeout(this.a.getConnectionTimeOut());
+                } else {
+                    httpURLConnection.setConnectTimeout(30000);
+                }
+                if (this.a.getSocketTimeOut() > 0) {
+                    httpURLConnection.setReadTimeout(this.a.getSocketTimeOut());
+                } else {
+                    httpURLConnection.setReadTimeout(30000);
+                }
+                if (this.a.getMethod().ordinal() == 1) {
+                    httpURLConnection.setDoOutput(true);
+                    httpURLConnection.setChunkedStreamingMode(0);
+                    byte[] postData = this.a.getPostData();
+                    if (postData != null && postData.length > 0) {
+                        BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(httpURLConnection.getOutputStream());
+                        try {
+                            bufferedOutputStream.write(postData);
+                            bufferedOutputStream.flush();
+                        } finally {
+                            bufferedOutputStream.close();
+                        }
+                    }
+                }
+                return this.a.initResponse(NetworkClientImpl.followRedirect(httpURLConnection));
+            }
+            return (Response) invokeV.objValue;
         }
     }
 }

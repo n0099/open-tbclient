@@ -18,6 +18,13 @@ public final class SingleBtnDialog extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.bdtask.ui.components.dialog.a
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0797 : invokeV.intValue;
+    }
+
     public SingleBtnDialog() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -33,21 +40,14 @@ public final class SingleBtnDialog extends a {
     }
 
     @Override // com.baidu.bdtask.ui.components.dialog.a
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0796 : invokeV.intValue;
-    }
-
-    @Override // com.baidu.bdtask.ui.components.dialog.a
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.f();
             TaskDialogViewData a = a();
             if (a != null) {
-                TextView btn = (TextView) findViewById(R.id.obfuscated_res_0x7f0907ce);
-                ImageView btnImage = (ImageView) findViewById(R.id.obfuscated_res_0x7f0907cf);
+                TextView btn = (TextView) findViewById(R.id.obfuscated_res_0x7f0907d7);
+                ImageView btnImage = (ImageView) findViewById(R.id.obfuscated_res_0x7f0907d8);
                 Intrinsics.checkExpressionValueIsNotNull(btn, "btn");
                 Intrinsics.checkExpressionValueIsNotNull(btnImage, "btnImage");
                 b(btn, btnImage, a.getBackBtnTxt(), a.getBackBtnTxtColor(), a.getBackBtnBgUrl(), new SingleBtnDialog$initExtraView$1(this, a));

@@ -40,6 +40,80 @@ public class a6 implements b6 {
         g = BufferUtils.d(1);
     }
 
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            g.clear();
+            f1.g.v(1, g);
+            this.f = g.get();
+        }
+    }
+
+    @Override // com.baidu.tieba.b6
+    public u3 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (u3) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.b6
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return (this.b.limit() * 4) / this.a.b;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.b6, com.baidu.tieba.i7
+    public void dispose() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            o3 o3Var = f1.g;
+            o3Var.E(34962, 0);
+            o3Var.b(this.e);
+            this.e = 0;
+            if (this.d) {
+                BufferUtils.b(this.c);
+            }
+            f();
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f != -1) {
+            g.clear();
+            g.put(this.f);
+            g.flip();
+            f1.g.A(1, g);
+            this.f = -1;
+        }
+    }
+
+    @Override // com.baidu.tieba.b6
+    public FloatBuffer getBuffer() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.b;
+        }
+        return (FloatBuffer) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.b6
+    public void invalidate() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.e = f1.g.n();
+            a();
+        }
+    }
+
     public a6(boolean z, int i, u3 u3Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -67,71 +141,5 @@ public class a6 implements b6 {
         this.c.flip();
         this.e = f1.f.n();
         a();
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            g.clear();
-            f1.g.v(1, g);
-            this.f = g.get();
-        }
-    }
-
-    @Override // com.baidu.tieba.b6
-    public u3 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (u3) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.b6
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (this.b.limit() * 4) / this.a.b : invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.b6, com.baidu.tieba.i7
-    public void dispose() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            o3 o3Var = f1.g;
-            o3Var.E(34962, 0);
-            o3Var.b(this.e);
-            this.e = 0;
-            if (this.d) {
-                BufferUtils.b(this.c);
-            }
-            f();
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f == -1) {
-            return;
-        }
-        g.clear();
-        g.put(this.f);
-        g.flip();
-        f1.g.A(1, g);
-        this.f = -1;
-    }
-
-    @Override // com.baidu.tieba.b6
-    public FloatBuffer getBuffer() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : (FloatBuffer) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.b6
-    public void invalidate() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.e = f1.g.n();
-            a();
-        }
     }
 }

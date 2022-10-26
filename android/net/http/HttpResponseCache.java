@@ -14,7 +14,6 @@ import java.net.CacheResponse;
 import java.net.ResponseCache;
 import java.net.URI;
 import java.net.URLConnection;
-import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public final class HttpResponseCache extends ResponseCache {
@@ -46,17 +45,6 @@ public final class HttpResponseCache extends ResponseCache {
         return (HttpResponseCache) invokeV.objValue;
     }
 
-    public static synchronized HttpResponseCache install(File file, long j) throws IOException {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, file, j)) == null) {
-            synchronized (HttpResponseCache.class) {
-                throw new RuntimeException("Stub!");
-            }
-        }
-        return (HttpResponseCache) invokeLJ.objValue;
-    }
-
     public void close() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -76,16 +64,6 @@ public final class HttpResponseCache extends ResponseCache {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             throw new RuntimeException("Stub!");
         }
-    }
-
-    @Override // java.net.ResponseCache
-    public CacheResponse get(URI uri, String str, Map<String, List<String>> map) throws IOException {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, uri, str, map)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (CacheResponse) invokeLLL.objValue;
     }
 
     public int getHitCount() {
@@ -124,6 +102,26 @@ public final class HttpResponseCache extends ResponseCache {
         return invokeV.longValue;
     }
 
+    public long size() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeV.longValue;
+    }
+
+    public static synchronized HttpResponseCache install(File file, long j) throws IOException {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, file, j)) == null) {
+            synchronized (HttpResponseCache.class) {
+                throw new RuntimeException("Stub!");
+            }
+        }
+        return (HttpResponseCache) invokeLJ.objValue;
+    }
+
     @Override // java.net.ResponseCache
     public CacheRequest put(URI uri, URLConnection uRLConnection) throws IOException {
         InterceptResult invokeLL;
@@ -134,12 +132,13 @@ public final class HttpResponseCache extends ResponseCache {
         return (CacheRequest) invokeLL.objValue;
     }
 
-    public long size() {
-        InterceptResult invokeV;
+    @Override // java.net.ResponseCache
+    public CacheResponse get(URI uri, String str, Map map) throws IOException {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, uri, str, map)) == null) {
             throw new RuntimeException("Stub!");
         }
-        return invokeV.longValue;
+        return (CacheResponse) invokeLLL.objValue;
     }
 }

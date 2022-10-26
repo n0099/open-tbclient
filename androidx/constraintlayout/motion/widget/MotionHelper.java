@@ -25,68 +25,6 @@ public class MotionHelper extends ConstraintHelper implements Animatable, Motion
     public boolean mUseOnShow;
     public View[] views;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MotionHelper(Context context) {
-        super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.mUseOnShow = false;
-        this.mUseOnHide = false;
-    }
-
-    @Override // androidx.constraintlayout.motion.widget.Animatable
-    public float getProgress() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mProgress : invokeV.floatValue;
-    }
-
-    @Override // androidx.constraintlayout.widget.ConstraintHelper
-    public void init(AttributeSet attributeSet) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, attributeSet) == null) {
-            super.init(attributeSet);
-            if (attributeSet != null) {
-                TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.MotionHelper);
-                int indexCount = obtainStyledAttributes.getIndexCount();
-                for (int i = 0; i < indexCount; i++) {
-                    int index = obtainStyledAttributes.getIndex(i);
-                    if (index == 1) {
-                        this.mUseOnShow = obtainStyledAttributes.getBoolean(index, this.mUseOnShow);
-                    } else if (index == 0) {
-                        this.mUseOnHide = obtainStyledAttributes.getBoolean(index, this.mUseOnHide);
-                    }
-                }
-                obtainStyledAttributes.recycle();
-            }
-        }
-    }
-
-    public boolean isUseOnHide() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mUseOnHide : invokeV.booleanValue;
-    }
-
-    public boolean isUsedOnShow() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mUseOnShow : invokeV.booleanValue;
-    }
-
     @Override // androidx.constraintlayout.motion.widget.MotionLayout.TransitionListener
     public void onTransitionChange(MotionLayout motionLayout, int i, int i2, float f) {
         Interceptable interceptable = $ic;
@@ -115,35 +53,52 @@ public class MotionHelper extends ConstraintHelper implements Animatable, Motion
         }
     }
 
-    @Override // androidx.constraintlayout.motion.widget.Animatable
-    public void setProgress(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f) == null) {
-            this.mProgress = f;
-            int i = 0;
-            if (this.mCount > 0) {
-                this.views = getViews((ConstraintLayout) getParent());
-                while (i < this.mCount) {
-                    setProgress(this.views[i], f);
-                    i++;
-                }
-                return;
-            }
-            ViewGroup viewGroup = (ViewGroup) getParent();
-            int childCount = viewGroup.getChildCount();
-            while (i < childCount) {
-                View childAt = viewGroup.getChildAt(i);
-                if (!(childAt instanceof MotionHelper)) {
-                    setProgress(childAt, f);
-                }
-                i++;
-            }
-        }
-    }
-
     public void setProgress(View view2, float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLF(1048585, this, view2, f) == null) {
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public MotionHelper(Context context) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mUseOnShow = false;
+        this.mUseOnHide = false;
+    }
+
+    @Override // androidx.constraintlayout.widget.ConstraintHelper
+    public void init(AttributeSet attributeSet) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, attributeSet) == null) {
+            super.init(attributeSet);
+            if (attributeSet != null) {
+                TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.MotionHelper);
+                int indexCount = obtainStyledAttributes.getIndexCount();
+                for (int i = 0; i < indexCount; i++) {
+                    int index = obtainStyledAttributes.getIndex(i);
+                    if (index == 1) {
+                        this.mUseOnShow = obtainStyledAttributes.getBoolean(index, this.mUseOnShow);
+                    } else if (index == 0) {
+                        this.mUseOnHide = obtainStyledAttributes.getBoolean(index, this.mUseOnHide);
+                    }
+                }
+                obtainStyledAttributes.recycle();
+            }
         }
     }
 
@@ -193,5 +148,59 @@ public class MotionHelper extends ConstraintHelper implements Animatable, Motion
         this.mUseOnShow = false;
         this.mUseOnHide = false;
         init(attributeSet);
+    }
+
+    @Override // androidx.constraintlayout.motion.widget.Animatable
+    public float getProgress() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mProgress;
+        }
+        return invokeV.floatValue;
+    }
+
+    public boolean isUseOnHide() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mUseOnHide;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isUsedOnShow() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mUseOnShow;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // androidx.constraintlayout.motion.widget.Animatable
+    public void setProgress(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f) == null) {
+            this.mProgress = f;
+            int i = 0;
+            if (this.mCount > 0) {
+                this.views = getViews((ConstraintLayout) getParent());
+                while (i < this.mCount) {
+                    setProgress(this.views[i], f);
+                    i++;
+                }
+                return;
+            }
+            ViewGroup viewGroup = (ViewGroup) getParent();
+            int childCount = viewGroup.getChildCount();
+            while (i < childCount) {
+                View childAt = viewGroup.getChildAt(i);
+                if (!(childAt instanceof MotionHelper)) {
+                    setProgress(childAt, f);
+                }
+                i++;
+            }
+        }
     }
 }

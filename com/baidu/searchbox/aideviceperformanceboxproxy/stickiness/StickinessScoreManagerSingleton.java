@@ -58,7 +58,10 @@ public class StickinessScoreManagerSingleton extends StickinessScoreManager {
             public UserStickinessSQLiteOpenHelper getUserStickinessSQLiteOpenHelper(Context context) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? UserStickinessSQLiteOpenSingleton.getInstance(context) : (UserStickinessSQLiteOpenHelper) invokeL.objValue;
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+                    return UserStickinessSQLiteOpenSingleton.getInstance(context);
+                }
+                return (UserStickinessSQLiteOpenHelper) invokeL.objValue;
             }
         });
         Interceptable interceptable = $ic;
@@ -79,6 +82,9 @@ public class StickinessScoreManagerSingleton extends StickinessScoreManager {
     public static StickinessScoreManagerSingleton getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? sInstance : (StickinessScoreManagerSingleton) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return sInstance;
+        }
+        return (StickinessScoreManagerSingleton) invokeV.objValue;
     }
 }

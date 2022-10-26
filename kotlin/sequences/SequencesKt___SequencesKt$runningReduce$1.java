@@ -1,5 +1,6 @@
 package kotlin.sequences;
 
+import androidx.exifinterface.media.ExifInterface;
 import java.util.Iterator;
 import kotlin.Metadata;
 import kotlin.ResultKt;
@@ -10,7 +11,7 @@ import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.coroutines.jvm.internal.RestrictedSuspendLambda;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(d1 = {"\u0000\u0012\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\b\b\u0001\u0010\u0003*\u0002H\u0002*\b\u0012\u0004\u0012\u0002H\u00020\u0004H\u008a@¢\u0006\u0004\b\u0005\u0010\u0006"}, d2 = {"<anonymous>", "", "S", "T", "Lkotlin/sequences/SequenceScope;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 5, 1})
+@Metadata(d1 = {"\u0000\u0012\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\b\b\u0001\u0010\u0003*\u0002H\u0002*\b\u0012\u0004\u0012\u0002H\u00020\u0004H\u008a@¢\u0006\u0004\b\u0005\u0010\u0006"}, d2 = {"<anonymous>", "", ExifInterface.LATITUDE_SOUTH, ExifInterface.GPS_DIRECTION_TRUE, "Lkotlin/sequences/SequenceScope;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 5, 1})
 @DebugMetadata(c = "kotlin.sequences.SequencesKt___SequencesKt$runningReduce$1", f = "_Sequences.kt", i = {0, 0, 0, 1, 1}, l = {2173, 2176}, m = "invokeSuspend", n = {"$this$sequence", "iterator", "accumulator", "$this$sequence", "iterator"}, s = {"L$0", "L$1", "L$2", "L$0", "L$1"})
 /* loaded from: classes8.dex */
 public final class SequencesKt___SequencesKt$runningReduce$1 extends RestrictedSuspendLambda implements Function2<SequenceScope<? super S>, Continuation<? super Unit>, Object> {
@@ -36,10 +37,9 @@ public final class SequencesKt___SequencesKt$runningReduce$1 extends RestrictedS
         return sequencesKt___SequencesKt$runningReduce$1;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
     @Override // kotlin.jvm.functions.Function2
-    public final Object invoke(Object obj, Continuation<? super Unit> continuation) {
-        return ((SequencesKt___SequencesKt$runningReduce$1) create(obj, continuation)).invokeSuspend(Unit.INSTANCE);
+    public final Object invoke(Object obj, Object obj2) {
+        return ((SequencesKt___SequencesKt$runningReduce$1) create(obj, (Continuation) obj2)).invokeSuspend(Unit.INSTANCE);
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
@@ -49,7 +49,16 @@ public final class SequencesKt___SequencesKt$runningReduce$1 extends RestrictedS
         Iterator it;
         Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
         int i = this.label;
-        if (i == 0) {
+        if (i != 0) {
+            if (i == 1 || i == 2) {
+                next = this.L$2;
+                it = (Iterator) this.L$1;
+                sequenceScope = (SequenceScope) this.L$0;
+                ResultKt.throwOnFailure(obj);
+            } else {
+                throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
+            }
+        } else {
             ResultKt.throwOnFailure(obj);
             sequenceScope = (SequenceScope) this.L$0;
             Iterator it2 = this.$this_runningReduce.iterator();
@@ -65,13 +74,6 @@ public final class SequencesKt___SequencesKt$runningReduce$1 extends RestrictedS
                 it = it2;
             }
             return Unit.INSTANCE;
-        } else if (i != 1 && i != 2) {
-            throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
-        } else {
-            next = this.L$2;
-            it = (Iterator) this.L$1;
-            sequenceScope = (SequenceScope) this.L$0;
-            ResultKt.throwOnFailure(obj);
         }
         while (it.hasNext()) {
             next = this.$operation.invoke(next, it.next());

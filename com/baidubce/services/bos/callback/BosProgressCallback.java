@@ -8,9 +8,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.callback.BceProgressCallback;
 import com.baidubce.model.AbstractBceRequest;
 /* loaded from: classes7.dex */
-public abstract class BosProgressCallback<T extends AbstractBceRequest> implements BceProgressCallback<T> {
+public abstract class BosProgressCallback implements BceProgressCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Deprecated
+    public void onProgress(long j, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+        }
+    }
 
     public BosProgressCallback() {
         Interceptable interceptable = $ic;
@@ -26,17 +33,10 @@ public abstract class BosProgressCallback<T extends AbstractBceRequest> implemen
         }
     }
 
-    @Deprecated
-    public void onProgress(long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-        }
-    }
-
     @Override // com.baidubce.callback.BceProgressCallback
-    public void onProgress(T t, long j, long j2) {
+    public void onProgress(AbstractBceRequest abstractBceRequest, long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{t, Long.valueOf(j), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{abstractBceRequest, Long.valueOf(j), Long.valueOf(j2)}) == null) {
             onProgress(j, j2);
         }
     }

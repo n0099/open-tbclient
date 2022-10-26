@@ -1,11 +1,8 @@
 package com.baidu.swan.pms.utils;
 
-import android.annotation.SuppressLint;
 import android.content.pm.ApplicationInfo;
 import android.os.Build;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
@@ -36,9 +33,9 @@ public final class AbiType {
     public static final AbiType X86;
     public static final AbiType X86_64;
     public static AbiType sCurrent;
-    public static Map<String, AbiType> sIndex;
+    public static Map sIndex;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<AbiType> compatible;
+    public final List compatible;
     public final String id;
 
     static {
@@ -92,7 +89,6 @@ public final class AbiType {
         this.compatible.addAll(Arrays.asList(abiTypeArr));
     }
 
-    @NonNull
     public static AbiType currentAbi() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -105,13 +101,81 @@ public final class AbiType {
         return (AbiType) invokeV.objValue;
     }
 
+    public static AbiType[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return (AbiType[]) $VALUES.clone();
+        }
+        return (AbiType[]) invokeV.objValue;
+    }
+
+    public List getCompatible() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return new ArrayList(this.compatible);
+        }
+        return (List) invokeV.objValue;
+    }
+
     public static AbiType findById(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? findById(str, null) : (AbiType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return findById(str, null);
+        }
+        return (AbiType) invokeL.objValue;
     }
 
-    @SuppressLint({"ObsoleteSdkInt"})
+    public static AbiType valueOf(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            return (AbiType) Enum.valueOf(AbiType.class, str);
+        }
+        return (AbiType) invokeL.objValue;
+    }
+
+    public boolean compat(AbiType abiType) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, abiType)) == null) {
+            return this.compatible.contains(abiType);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean compatBy(AbiType abiType) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, abiType)) == null) {
+            return abiType.compat(this);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static AbiType findById(String str, AbiType abiType) {
+        InterceptResult invokeLL;
+        AbiType[] values;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, abiType)) == null) {
+            if (sIndex.isEmpty()) {
+                for (AbiType abiType2 : values()) {
+                    if (abiType2 != null && !TextUtils.isEmpty(abiType2.id)) {
+                        sIndex.put(abiType2.id, abiType2);
+                    }
+                }
+            }
+            AbiType abiType3 = (AbiType) sIndex.get(str);
+            if (abiType3 != null) {
+                return abiType3;
+            }
+            return abiType;
+        }
+        return (AbiType) invokeLL.objValue;
+    }
+
     public static String getRuntimeAbiTypeStr() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -131,22 +195,13 @@ public final class AbiType {
         return (String) invokeV.objValue;
     }
 
-    public static AbiType valueOf(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? (AbiType) Enum.valueOf(AbiType.class, str) : (AbiType) invokeL.objValue;
-    }
-
-    public static AbiType[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? (AbiType[]) $VALUES.clone() : (AbiType[]) invokeV.objValue;
-    }
-
     public boolean compat(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? compat(findById(str)) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return compat(findById(str));
+        }
+        return invokeL.booleanValue;
     }
 
     public boolean compatBy(String str) {
@@ -154,19 +209,15 @@ public final class AbiType {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             AbiType findById = findById(str);
-            return findById != null && compatBy(findById);
+            if (findById != null && compatBy(findById)) {
+                return true;
+            }
+            return false;
         }
         return invokeL.booleanValue;
     }
 
-    public List<AbiType> getCompatible() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? new ArrayList(this.compatible) : (List) invokeV.objValue;
-    }
-
     @Override // java.lang.Enum
-    @NonNull
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -183,35 +234,5 @@ public final class AbiType {
             return String.format("%s[%s]", super.toString(), this.id, sb);
         }
         return (String) invokeV.objValue;
-    }
-
-    public static AbiType findById(String str, @Nullable AbiType abiType) {
-        InterceptResult invokeLL;
-        AbiType[] values;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, abiType)) == null) {
-            if (sIndex.isEmpty()) {
-                for (AbiType abiType2 : values()) {
-                    if (abiType2 != null && !TextUtils.isEmpty(abiType2.id)) {
-                        sIndex.put(abiType2.id, abiType2);
-                    }
-                }
-            }
-            AbiType abiType3 = sIndex.get(str);
-            return abiType3 == null ? abiType : abiType3;
-        }
-        return (AbiType) invokeLL.objValue;
-    }
-
-    public boolean compat(AbiType abiType) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, abiType)) == null) ? this.compatible.contains(abiType) : invokeL.booleanValue;
-    }
-
-    public boolean compatBy(AbiType abiType) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, abiType)) == null) ? abiType.compat(this) : invokeL.booleanValue;
     }
 }

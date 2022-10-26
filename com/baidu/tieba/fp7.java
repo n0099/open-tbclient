@@ -1,167 +1,110 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.FileHelper;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.text.SpannableStringBuilder;
+import android.text.style.ImageSpan;
+import android.widget.EditText;
+import android.widget.Toast;
+import com.baidu.adp.base.BdBaseActivity;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import org.json.JSONArray;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class fp7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65536, null, str) == null) || StringUtils.isNull(str)) {
-            return;
-        }
-        File file = new File(str);
-        if (file.exists()) {
-            return;
-        }
-        file.mkdirs();
-    }
+    /* loaded from: classes4.dex */
+    public class a extends zg {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ EditText a;
+        public final /* synthetic */ SpannableStringBuilder b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ EmotionGroupType d;
+        public final /* synthetic */ fp7 e;
 
-    public static void b(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, str) == null) || StringUtils.isNull(str)) {
-            return;
-        }
-        FileHelper.deleteFileOrDir(new File(hp7.e + hp7.a + str));
-    }
-
-    public static void c(String str, JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, null, str, jSONArray) == null) || StringUtils.isNull(str) || jSONArray == null) {
-            return;
-        }
-        try {
-            JSONArray jSONArray2 = new JSONArray(str);
-            for (int i = 0; i < jSONArray2.length(); i++) {
-                jSONArray.put(jSONArray2.optJSONObject(i));
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static JSONArray d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            JSONArray jSONArray = new JSONArray();
-            if (StringUtils.isNull(str)) {
-                return jSONArray;
-            }
-            File file = new File(str);
-            if (file.exists()) {
-                String e = e(file);
-                String[] split = e.split("\n");
-                if (split.length > 0) {
-                    for (String str2 : split) {
-                        c(str2, jSONArray);
-                    }
-                } else {
-                    c(e, jSONArray);
+        public a(fp7 fp7Var, EditText editText, SpannableStringBuilder spannableStringBuilder, int i, EmotionGroupType emotionGroupType) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fp7Var, editText, spannableStringBuilder, Integer.valueOf(i), emotionGroupType};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                FileHelper.deleteFile(file);
-                return jSONArray;
             }
-            return jSONArray;
+            this.e = fp7Var;
+            this.a = editText;
+            this.b = spannableStringBuilder;
+            this.c = i;
+            this.d = emotionGroupType;
         }
-        return (JSONArray) invokeL.objValue;
-    }
 
-    public static String e(File file) {
-        InterceptResult invokeL;
-        FileInputStream fileInputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file)) == null) {
-            StringBuilder sb = new StringBuilder();
-            FileInputStream fileInputStream2 = null;
-            try {
-                try {
-                    fileInputStream = new FileInputStream(file);
-                } catch (Exception e) {
-                    e = e;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.zg
+        public void onLoaded(pn pnVar, String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, pnVar, str, i) == null) {
+                super.onLoaded((a) pnVar, str, i);
+                if (pnVar != null) {
+                    this.e.c(this.a, this.b, this.c, pnVar, this.d);
                 }
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                byte[] bArr = new byte[1024];
-                while (true) {
-                    int read = fileInputStream.read(bArr);
-                    if (read == -1) {
-                        break;
-                    }
-                    sb.append(new String(bArr, 0, read));
-                }
-                ch.c(fileInputStream);
-            } catch (Exception e2) {
-                e = e2;
-                fileInputStream2 = fileInputStream;
-                e.printStackTrace();
-                ch.c(fileInputStream2);
-                return sb.toString();
-            } catch (Throwable th2) {
-                th = th2;
-                fileInputStream2 = fileInputStream;
-                ch.c(fileInputStream2);
-                throw th;
-            }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean f(File file, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, file, str)) == null) ? g(file, str, true) : invokeLL.booleanValue;
-    }
-
-    public static boolean g(File file, String str, boolean z) {
-        InterceptResult invokeLLZ;
-        FileOutputStream fileOutputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65542, null, file, str, z)) == null) {
-            FileOutputStream fileOutputStream2 = null;
-            try {
-                try {
-                    if (!file.exists()) {
-                        file.createNewFile();
-                    }
-                    fileOutputStream = new FileOutputStream(file, z);
-                } catch (Exception e) {
-                    e = e;
-                }
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                fileOutputStream.write(str.getBytes());
-                fileOutputStream.flush();
-                ch.d(fileOutputStream);
-                return true;
-            } catch (Exception e2) {
-                e = e2;
-                fileOutputStream2 = fileOutputStream;
-                e.printStackTrace();
-                ch.d(fileOutputStream2);
-                return false;
-            } catch (Throwable th2) {
-                th = th2;
-                fileOutputStream2 = fileOutputStream;
-                ch.d(fileOutputStream2);
-                throw th;
             }
         }
-        return invokeLLZ.booleanValue;
+    }
+
+    public fp7() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public void b(BdBaseActivity bdBaseActivity, EditText editText, j15 j15Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, bdBaseActivity, editText, j15Var) == null) {
+            if (((ImageSpan[]) editText.getText().getSpans(0, editText.getText().length(), ImageSpan.class)).length >= 10) {
+                Toast.makeText(bdBaseActivity.getPageContext().getPageActivity(), (int) R.string.obfuscated_res_0x7f0f1470, 0).show();
+                return;
+            }
+            String d = j15Var.d();
+            EmotionGroupType type = j15Var.getType();
+            if (d != null) {
+                ah.h().k(d, 20, new a(this, editText, new SpannableStringBuilder(d), editText.getSelectionStart(), type), 0, 0, bdBaseActivity.getUniqueId(), null, d, Boolean.FALSE, null);
+            }
+        }
+    }
+
+    public final void c(EditText editText, SpannableStringBuilder spannableStringBuilder, int i, pn pnVar, EmotionGroupType emotionGroupType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{editText, spannableStringBuilder, Integer.valueOf(i), pnVar, emotionGroupType}) == null) {
+            Bitmap p = pnVar.p();
+            BitmapDrawable bitmapDrawable = new BitmapDrawable(p);
+            int width = p.getWidth();
+            if (emotionGroupType == EmotionGroupType.LOCAL) {
+                width = (int) (width * 0.5d);
+            }
+            bitmapDrawable.setBounds(0, 0, width, width);
+            bitmapDrawable.setGravity(119);
+            spannableStringBuilder.setSpan(new ImageSpan(bitmapDrawable, 0), 0, spannableStringBuilder.length(), 33);
+            editText.getText().insert(i, spannableStringBuilder);
+        }
     }
 }

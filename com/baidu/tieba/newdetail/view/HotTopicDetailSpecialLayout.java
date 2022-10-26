@@ -2,13 +2,12 @@ package com.baidu.tieba.newdetail.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.pq7;
-import com.baidu.tieba.qq7;
+import com.baidu.tieba.ar7;
+import com.baidu.tieba.br7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -42,35 +41,8 @@ public class HotTopicDetailSpecialLayout extends BdTypeRecyclerView {
         G();
     }
 
-    public void F(TbPageContext tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new pq7(tbPageContext));
-            arrayList.add(new qq7(tbPageContext));
-            a(arrayList);
-        }
-    }
-
-    public final void G() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            setLayoutManager(new LinearLayoutManager(getContext()));
-            setOverScrollMode(2);
-        }
-    }
-
-    public void H(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || this.z == i) {
-            return;
-        }
-        getListAdapter().notifyDataSetChanged();
-        this.z = i;
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HotTopicDetailSpecialLayout(Context context, @Nullable AttributeSet attributeSet) {
+    public HotTopicDetailSpecialLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -93,7 +65,7 @@ public class HotTopicDetailSpecialLayout extends BdTypeRecyclerView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HotTopicDetailSpecialLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public HotTopicDetailSpecialLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -113,5 +85,31 @@ public class HotTopicDetailSpecialLayout extends BdTypeRecyclerView {
         }
         this.z = 3;
         G();
+    }
+
+    public void F(TbPageContext tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new ar7(tbPageContext));
+            arrayList.add(new br7(tbPageContext));
+            a(arrayList);
+        }
+    }
+
+    public void H(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && this.z != i) {
+            getListAdapter().notifyDataSetChanged();
+            this.z = i;
+        }
+    }
+
+    public final void G() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            setLayoutManager(new LinearLayoutManager(getContext()));
+            setOverScrollMode(2);
+        }
     }
 }

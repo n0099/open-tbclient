@@ -1,8 +1,6 @@
 package com.google.android.material.shape;
 
 import android.graphics.RectF;
-import androidx.annotation.NonNull;
-import androidx.annotation.RestrictTo;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,7 +8,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes7.dex */
 public final class AdjustedCornerSize implements CornerSize {
     public static /* synthetic */ Interceptable $ic;
@@ -18,7 +15,7 @@ public final class AdjustedCornerSize implements CornerSize {
     public final float adjustment;
     public final CornerSize other;
 
-    public AdjustedCornerSize(float f, @NonNull CornerSize cornerSize) {
+    public AdjustedCornerSize(float f, CornerSize cornerSize) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -48,9 +45,12 @@ public final class AdjustedCornerSize implements CornerSize {
             if (this == obj) {
                 return true;
             }
-            if (obj instanceof AdjustedCornerSize) {
-                AdjustedCornerSize adjustedCornerSize = (AdjustedCornerSize) obj;
-                return this.other.equals(adjustedCornerSize.other) && this.adjustment == adjustedCornerSize.adjustment;
+            if (!(obj instanceof AdjustedCornerSize)) {
+                return false;
+            }
+            AdjustedCornerSize adjustedCornerSize = (AdjustedCornerSize) obj;
+            if (this.other.equals(adjustedCornerSize.other) && this.adjustment == adjustedCornerSize.adjustment) {
+                return true;
             }
             return false;
         }
@@ -58,15 +58,21 @@ public final class AdjustedCornerSize implements CornerSize {
     }
 
     @Override // com.google.android.material.shape.CornerSize
-    public float getCornerSize(@NonNull RectF rectF) {
+    public float getCornerSize(RectF rectF) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rectF)) == null) ? Math.max(0.0f, this.other.getCornerSize(rectF) + this.adjustment) : invokeL.floatValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rectF)) == null) {
+            return Math.max(0.0f, this.other.getCornerSize(rectF) + this.adjustment);
+        }
+        return invokeL.floatValue;
     }
 
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Arrays.hashCode(new Object[]{this.other, Float.valueOf(this.adjustment)}) : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return Arrays.hashCode(new Object[]{this.other, Float.valueOf(this.adjustment)});
+        }
+        return invokeV.intValue;
     }
 }

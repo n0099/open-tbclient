@@ -7,9 +7,9 @@ import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.fr5;
-import com.baidu.tieba.jr5;
-import com.baidu.tieba.qq5;
+import com.baidu.tieba.mr5;
+import com.baidu.tieba.qr5;
+import com.baidu.tieba.xq5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -45,51 +45,53 @@ public class SplashHttpResponse extends JsonHttpResponsedMessage {
         this.errno = -1;
     }
 
-    private void dealVideoAd() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && FileHelper.checkSD()) {
-            qq5 b = qq5.b(jr5.f());
-            if (!this.adInfo.shouldDownloadVideo()) {
-                AdInfo adInfo = this.adInfo;
-                adInfo.videoLocalPath = b.d;
-                jr5.i(adInfo);
-            } else if (BdNetTypeUtil.isNetWorkAvailable() && BdNetTypeUtil.isWifiNet()) {
-                fr5 searchTask = searchTask(this.adInfo.adVideoUrl);
-                if (searchTask == null || searchTask.getStatus() == BdAsyncTask.BdAsyncTaskStatus.FINISHED) {
-                    jr5.i(this.adInfo);
-                    fr5 fr5Var = new fr5();
-                    fr5Var.c(this.adInfo);
-                    fr5Var.setKey(this.adInfo.adVideoUrl);
-                    fr5Var.execute(new Void[0]);
-                }
-            } else {
-                jr5.i(this.adInfo);
-            }
-        }
-    }
-
-    private fr5 searchTask(String str) {
+    private mr5 searchTask(String str) {
         InterceptResult invokeL;
         BdAsyncTask<?, ?, ?> searchTask;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
-            if (TextUtils.isEmpty(str) || (searchTask = BdAsyncTask.searchTask(str)) == null || !(searchTask instanceof fr5)) {
+            if (TextUtils.isEmpty(str) || (searchTask = BdAsyncTask.searchTask(str)) == null || !(searchTask instanceof mr5)) {
                 return null;
             }
             try {
-                return (fr5) searchTask;
+                return (mr5) searchTask;
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
                 return null;
             }
         }
-        return (fr5) invokeL.objValue;
+        return (mr5) invokeL.objValue;
+    }
+
+    private void dealVideoAd() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(65537, this) != null) || !FileHelper.checkSD()) {
+            return;
+        }
+        xq5 b = xq5.b(qr5.f());
+        if (!this.adInfo.shouldDownloadVideo()) {
+            AdInfo adInfo = this.adInfo;
+            adInfo.videoLocalPath = b.d;
+            qr5.i(adInfo);
+        } else if (BdNetTypeUtil.isNetWorkAvailable() && BdNetTypeUtil.isWifiNet()) {
+            mr5 searchTask = searchTask(this.adInfo.adVideoUrl);
+            if (searchTask != null && searchTask.getStatus() != BdAsyncTask.BdAsyncTaskStatus.FINISHED) {
+                return;
+            }
+            qr5.i(this.adInfo);
+            mr5 mr5Var = new mr5();
+            mr5Var.c(this.adInfo);
+            mr5Var.setKey(this.adInfo.adVideoUrl);
+            mr5Var.execute(new Void[0]);
+        } else {
+            qr5.i(this.adInfo);
+        }
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeIL(1048576, this, i, jSONObject) != null) || jSONObject == null) {
             return;
         }
         super.decodeLogicInBackGround(i, jSONObject);
@@ -108,18 +110,24 @@ public class SplashHttpResponse extends JsonHttpResponsedMessage {
         }
         AdInfo adInfo2 = this.adInfo;
         adInfo2.videoLocalPath = "";
-        jr5.i(adInfo2);
+        qr5.i(adInfo2);
     }
 
     public int getErrno() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.errno : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.errno;
+        }
+        return invokeV.intValue;
     }
 
     public String getResultMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mResultMessage : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mResultMessage;
+        }
+        return (String) invokeV.objValue;
     }
 }

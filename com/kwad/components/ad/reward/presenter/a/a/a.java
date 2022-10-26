@@ -3,8 +3,6 @@ package com.kwad.components.ad.reward.presenter.a.a;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
@@ -19,11 +17,8 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 public final class a extends com.kwad.components.ad.reward.presenter.a implements View.OnClickListener, c, com.kwad.components.core.webview.b.d.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
     public com.kwad.components.ad.reward.d.a mAdOpenInteractionListener;
-    @NonNull
     public AdTemplate mAdTemplate;
-    @Nullable
     public com.kwad.components.core.c.a.c mApkDownloadHelper;
     public TextView sH;
     public TextView sI;
@@ -126,7 +121,7 @@ public final class a extends com.kwad.components.ad.reward.presenter.a implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
             if (view2 == this.sH || view2 == this.sI) {
-                com.kwad.components.core.c.a.a.a(new a.C0570a(view2.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(false).ae(1).a(new a.b(this) { // from class: com.kwad.components.ad.reward.presenter.a.a.a.1
+                com.kwad.components.core.c.a.a.a(new a.C0566a(view2.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(false).ae(1).a(new a.b(this) { // from class: com.kwad.components.ad.reward.presenter.a.a.a.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ a sJ;
@@ -167,8 +162,8 @@ public final class a extends com.kwad.components.ad.reward.presenter.a implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onCreate();
-            this.sH = (TextView) findViewById(R.id.obfuscated_res_0x7f0910ab);
-            this.sI = (TextView) findViewById(R.id.obfuscated_res_0x7f0910ae);
+            this.sH = (TextView) findViewById(R.id.obfuscated_res_0x7f09109f);
+            this.sI = (TextView) findViewById(R.id.obfuscated_res_0x7f0910a2);
         }
     }
 

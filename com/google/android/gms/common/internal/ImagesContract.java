@@ -1,20 +1,13 @@
 package com.google.android.gms.common.internal;
 
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.gms.common.annotation.KeepForSdk;
-@KeepForSdk
 /* loaded from: classes7.dex */
 public final class ImagesContract {
     public static /* synthetic */ Interceptable $ic = null;
-    @NonNull
-    @KeepForSdk
     public static final String LOCAL = "local";
-    @NonNull
-    @KeepForSdk
     public static final String URL = "url";
     public transient /* synthetic */ FieldHolder $fh;
 

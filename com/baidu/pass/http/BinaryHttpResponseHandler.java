@@ -13,6 +13,12 @@ public class BinaryHttpResponseHandler extends HttpResponseHandler implements co
     public transient /* synthetic */ FieldHolder $fh;
     public String[] a;
 
+    public void onSuccess(int i, byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, bArr) == null) {
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BinaryHttpResponseHandler(Looper looper) {
         super(looper);
@@ -32,56 +38,6 @@ public class BinaryHttpResponseHandler extends HttpResponseHandler implements co
             }
         }
         this.a = new String[]{"image/png", "image/jpeg", "image/jpg", "image/gif"};
-    }
-
-    @Override // com.baidu.pass.http.HttpResponseHandler
-    public void a(int i, HashMap<String, String> hashMap, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048576, this, i, hashMap, bArr) == null) {
-            if (hashMap != null && hashMap.get("Content-Type") != null) {
-                String str = hashMap.get("Content-Type");
-                String[] strArr = this.a;
-                int length = strArr.length;
-                boolean z = false;
-                int i2 = 0;
-                while (true) {
-                    if (i2 >= length) {
-                        break;
-                    } else if (strArr[i2].equalsIgnoreCase(str)) {
-                        z = true;
-                        break;
-                    } else {
-                        i2++;
-                    }
-                }
-                if (!z) {
-                    b(new HttpErrorException(i, "Content-Type not allowed!"), null);
-                    return;
-                } else {
-                    onSuccess(i, bArr);
-                    return;
-                }
-            }
-            b(new HttpErrorException(i, "None or more than one Content-Type Header found!"), null);
-        }
-    }
-
-    @Override // com.baidu.pass.http.HttpResponseHandler
-    public void c(int i, HashMap<String, String> hashMap, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, hashMap, bArr) == null) {
-            if (this.executCallbackInChildThread) {
-                a(i, hashMap, bArr);
-            } else {
-                sendMessage(obtainMessage(0, new Object[]{Integer.valueOf(i), hashMap, bArr}));
-            }
-        }
-    }
-
-    public void onSuccess(int i, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, bArr) == null) {
-        }
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -126,5 +82,49 @@ public class BinaryHttpResponseHandler extends HttpResponseHandler implements co
         this.a = new String[]{"image/png", "image/jpeg", "image/jpg", "image/gif"};
         this.a = strArr;
         this.executCallbackInChildThread = z;
+    }
+
+    @Override // com.baidu.pass.http.HttpResponseHandler
+    public void a(int i, HashMap hashMap, byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(1048576, this, i, hashMap, bArr) == null) {
+            if (hashMap != null && hashMap.get("Content-Type") != null) {
+                String str = (String) hashMap.get("Content-Type");
+                String[] strArr = this.a;
+                int length = strArr.length;
+                boolean z = false;
+                int i2 = 0;
+                while (true) {
+                    if (i2 >= length) {
+                        break;
+                    } else if (strArr[i2].equalsIgnoreCase(str)) {
+                        z = true;
+                        break;
+                    } else {
+                        i2++;
+                    }
+                }
+                if (!z) {
+                    b(new HttpErrorException(i, "Content-Type not allowed!"), null);
+                    return;
+                } else {
+                    onSuccess(i, bArr);
+                    return;
+                }
+            }
+            b(new HttpErrorException(i, "None or more than one Content-Type Header found!"), null);
+        }
+    }
+
+    @Override // com.baidu.pass.http.HttpResponseHandler
+    public void c(int i, HashMap hashMap, byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, hashMap, bArr) == null) {
+            if (this.executCallbackInChildThread) {
+                a(i, hashMap, bArr);
+            } else {
+                sendMessage(obtainMessage(0, new Object[]{Integer.valueOf(i), hashMap, bArr}));
+            }
+        }
     }
 }

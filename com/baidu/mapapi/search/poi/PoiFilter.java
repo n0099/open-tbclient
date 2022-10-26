@@ -18,8 +18,8 @@ import java.util.Map;
 /* loaded from: classes2.dex */
 public final class PoiFilter implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<PoiFilter> CREATOR;
-    public static Map<SortName, String> f;
+    public static final Parcelable.Creator CREATOR;
+    public static Map f;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
@@ -28,7 +28,7 @@ public final class PoiFilter implements Parcelable {
     public String e;
 
     /* loaded from: classes2.dex */
-    public static final class Builder {
+    public final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -131,7 +131,7 @@ public final class PoiFilter implements Parcelable {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class IndustryType {
+    public final class IndustryType {
         public static /* synthetic */ Interceptable $ic;
         public static final IndustryType CATER;
         public static final IndustryType HOTEL;
@@ -196,7 +196,7 @@ public final class PoiFilter implements Parcelable {
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
         /* loaded from: classes2.dex */
-        public static final class CaterSortName implements SortName {
+        public final class CaterSortName implements SortName {
             public static /* synthetic */ Interceptable $ic;
             public static final CaterSortName CATER_DISTANCE;
             public static final CaterSortName CATER_OVERALL_RATING;
@@ -264,7 +264,7 @@ public final class PoiFilter implements Parcelable {
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
         /* loaded from: classes2.dex */
-        public static final class HotelSortName implements SortName {
+        public final class HotelSortName implements SortName {
             public static /* synthetic */ Interceptable $ic;
             public static final HotelSortName DEFAULT;
             public static final HotelSortName HOTEL_DISTANCE;
@@ -332,7 +332,7 @@ public final class PoiFilter implements Parcelable {
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
         /* loaded from: classes2.dex */
-        public static final class LifeSortName implements SortName {
+        public final class LifeSortName implements SortName {
             public static /* synthetic */ Interceptable $ic;
             public static final LifeSortName DEFAULT;
             public static final LifeSortName DISTANCE;

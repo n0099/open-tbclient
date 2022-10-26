@@ -1,77 +1,142 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.graphics.drawable.Drawable;
+import android.content.Intent;
+import android.net.Uri;
+import android.net.http.Headers;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
-import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.appcompat.view.SupportMenuInflater;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.payment.PaymentManager;
-import com.baidu.searchbox.aop.annotation.DebugTrace;
-import com.baidu.swan.apps.core.SwanAppWebViewManager;
-import com.baidu.swan.apps.core.container.PullToRefreshBaseWebView;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.sapi2.activity.BaseActivity;
+import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
+import com.baidu.swan.apps.SwanAppClearCacheErrorActivity;
+import com.baidu.swan.apps.SwanAppErrorActivity;
+import com.baidu.swan.apps.env.launch.SwanLauncher;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.swan.apps.scheme.actions.forbidden.ForbiddenInfo;
 import com.baidu.swan.apps.view.SwanAppActionBar;
-import com.baidu.swan.apps.view.menu.SwanAppMenuHeaderView;
+import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.swan.support.v4.app.FragmentActivity;
-import com.baidu.tieba.q92;
-import com.baidu.tieba.s23;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkItem;
+import com.baidu.tieba.a32;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.TreeMap;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class t22 extends r22 implements s23.a {
+public class t22 extends s22 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean V0;
-    public static final int W0;
-    public static String X0;
-    public static lt2 Y0;
-    public static String Z0;
-    public static String a1;
     public transient /* synthetic */ FieldHolder $fh;
-    public r93 F0;
-    public lt2 G0;
-    public lt2 H0;
-    public Map<String, rp1> I0;
-    public FrameLayout J0;
-    public rp1 K0;
-    public xe3 L0;
-    public s23 M0;
-    public View N0;
-    public a43 O0;
-    public int P0;
-    public y42 Q0;
-    public po1 R0;
-    public boolean S0;
-    public boolean T0;
-    public boolean U0;
+    public String F0;
+    public String G0;
+    public ForbiddenInfo H0;
+    public int I0;
+    public int J0;
+    public String K0;
+    public String L0;
+    public String M0;
+    public int N0;
+
+    @Override // com.baidu.tieba.s22
+    public boolean I() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.s22
+    public boolean c2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.s22
+    public boolean e2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
     /* loaded from: classes5.dex */
-    public class a implements Runnable {
+    public class j {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* loaded from: classes5.dex */
+        public final class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ oa3 a;
+
+            public a(oa3 oa3Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {oa3Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = oa3Var;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    t93.i("934", "85", this.a.f());
+                }
+            }
+        }
+
+        public static void a(String str, jo2 jo2Var, ForbiddenInfo forbiddenInfo) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(65536, null, str, jo2Var, forbiddenInfo) == null) {
+                oa3 oa3Var = new oa3();
+                oa3Var.f = forbiddenInfo.appId;
+                oa3Var.g = "errormenu";
+                oa3Var.b = "click";
+                oa3Var.e = str;
+                oa3Var.c = forbiddenInfo.launchSource;
+                oa3Var.b(fa3.k(jo2Var.W()));
+                oa3Var.d(jo2Var.s0().getString(UBCCloudControlProcessor.UBC_KEY));
+                gg3.j(new a(oa3Var), "SwanAppFuncClickUBC");
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ t22 a;
@@ -94,30 +159,29 @@ public class t22 extends r22 implements s23.a {
             this.a = t22Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Activity activity;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.R0 = sm2.Q();
-                po1 po1Var = this.a.R0;
-                t22 t22Var = this.a;
-                po1Var.a(t22Var.b0, t22Var.d0, t22Var.getContext());
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (activity = this.a.c0) != null) {
+                activity.finish();
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements SwanAppActionBar.c {
+    public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ t22 a;
+        public final /* synthetic */ jo2 a;
+        public final /* synthetic */ t22 b;
 
-        public b(t22 t22Var) {
+        public b(t22 t22Var, jo2 jo2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {t22Var};
+                Object[] objArr = {t22Var, jo2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -127,34 +191,36 @@ public class t22 extends r22 implements s23.a {
                     return;
                 }
             }
-            this.a = t22Var;
+            this.b = t22Var;
+            this.a = jo2Var;
         }
 
-        /* JADX WARN: Type inference failed for: r1v1, types: [org.json.JSONObject, T] */
-        @Override // com.baidu.swan.apps.view.SwanAppActionBar.c
-        public void a(View view2) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Activity activity;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                String a = this.a.K0.a();
-                rd2 rd2Var = new rd2();
-                rd2Var.c = si3.a(a, "scrollViewBackToTop");
-                yo2.U().m(a, rd2Var);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (activity = this.b.c0) != null && SwanAppNetworkUtils.i(activity)) {
+                Bundle bundle = new Bundle();
+                bundle.putBoolean("property_web_mode_degrade", true);
+                SwanLauncher.j().n(this.a, bundle);
+                this.b.c0.finishAndRemoveTask();
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class c implements Runnable {
+    public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ t22 a;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ t22 b;
 
-        public c(t22 t22Var) {
+        public c(t22 t22Var, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {t22Var};
+                Object[] objArr = {t22Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -164,35 +230,32 @@ public class t22 extends r22 implements s23.a {
                     return;
                 }
             }
-            this.a = t22Var;
+            this.b = t22Var;
+            this.a = str;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.j3();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.b.H0 != null && !TextUtils.isEmpty(this.b.H0.forbiddenDetail)) {
+                tm2.u().b(this.b.getActivity(), this.a, this.b.H0.appTitle, this.b.H0.forbiddenDetail);
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class d implements q92.f {
+    public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ q92.e a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ String e;
-        public final /* synthetic */ t22 f;
+        public final /* synthetic */ jo2 a;
+        public final /* synthetic */ t22 b;
 
-        public d(t22 t22Var, q92.e eVar, String str, String str2, String str3, String str4) {
+        public d(t22 t22Var, jo2 jo2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {t22Var, eVar, str, str2, str3, str4};
+                Object[] objArr = {t22Var, jo2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -202,105 +265,26 @@ public class t22 extends r22 implements s23.a {
                     return;
                 }
             }
-            this.f = t22Var;
-            this.a = eVar;
-            this.b = str;
-            this.c = str2;
-            this.d = str3;
-            this.e = str4;
+            this.b = t22Var;
+            this.a = jo2Var;
         }
 
-        /* JADX WARN: Type inference failed for: r1v19, types: [com.baidu.tieba.sp1] */
-        @Override // com.baidu.tieba.q92.f
-        public void onReady() {
-            String str;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Activity activity;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ca2 ca2Var = new ca2();
-                ca2Var.i = this.a.a.K();
-                if (!TextUtils.isEmpty(this.b)) {
-                    rw2.e(this.a, this.b);
-                }
-                String b = d73.b(this.c);
-                ca2Var.a = this.d;
-                if (TextUtils.isEmpty(this.e)) {
-                    str = this.c;
-                } else {
-                    str = this.c + "?" + this.e;
-                }
-                ca2Var.b = str;
-                if (l33.b0() != null) {
-                    ca2Var.c = l33.b0().d0(b);
-                    ca2Var.f = l33.b0().X(b);
-                }
-                ca2Var.k = z92.c(l33.M(), ca2Var.b);
-                ca2Var.d = yo2.U().f(b).g;
-                ca2Var.e = String.valueOf(i02.a());
-                ca2Var.g = t22.V0 || yo2.U().N();
-                if (kz2.H()) {
-                    ca2Var.j = o02.d();
-                }
-                if (!TextUtils.isEmpty(this.b)) {
-                    String str2 = this.b;
-                    ca2Var.h = str2;
-                    qw2.q("route", str2).F(new UbcFlowEvent("slave_dispatch_start"));
-                }
-                sg3.d();
-                this.a.a.r().setDefaultViewSize(Integer.MIN_VALUE, Integer.MIN_VALUE, this.c);
-                this.a.a.R(ca2Var.b);
-                yo2.U().m(this.a.a.a(), ca2.a(ca2Var));
-                if (da2.b()) {
-                    da2 da2Var = new da2();
-                    da2Var.a = this.a.a.a();
-                    yo2.U().u(da2.a(da2Var));
-                }
-                v93.F(this.a.a.a(), ca2Var.b);
-                if (t22.V0) {
-                    Log.d("SwanAppFragment", "createSlaveAndLoad onReady. pageEvent: " + ca2Var.toString());
-                }
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (activity = this.b.c0) != null && SwanAppNetworkUtils.i(activity)) {
+                SwanLauncher.j().n(this.a, null);
+                this.b.c0.finish();
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class e implements ei3<l83> {
+    public class e implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ t22 a;
-
-        /* loaded from: classes5.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ e a;
-
-            public a(e eVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {eVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = eVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.a.T0 = false;
-                    this.a.a.B2(true, false);
-                }
-            }
-        }
 
         public e(t22 t22Var) {
             Interceptable interceptable = $ic;
@@ -320,20 +304,23 @@ public class t22 extends r22 implements s23.a {
             this.a = t22Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ei3
-        /* renamed from: b */
-        public void a(l83 l83Var) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l83Var) == null) || l83Var == null || l83Var.d || l83Var.j != 1) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && !TextUtils.isEmpty(this.a.L0)) {
+                Activity activity = this.a.c0;
+                if (activity instanceof FragmentActivity) {
+                    ih4 l = ((FragmentActivity) activity).l();
+                    a32.d b3 = a32.b3(this.a.L0);
+                    b3.a(false);
+                    b3.c(l);
+                }
             }
-            fh3.e0(new a(this));
         }
     }
 
     /* loaded from: classes5.dex */
-    public class f implements y42 {
+    public class f implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ t22 a;
@@ -356,17 +343,29 @@ public class t22 extends r22 implements s23.a {
             this.a = t22Var;
         }
 
-        @Override // com.baidu.tieba.y42
-        public void onScrollChanged(int i, int i2, int i3, int i4) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIIII(1048576, this, i, i2, i3, i4) == null) {
-                this.a.Y3(i2);
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                FragmentActivity activity = this.a.getActivity();
+                if (!(activity instanceof SwanAppClearCacheErrorActivity)) {
+                    if (!s22.E0) {
+                        return;
+                    }
+                    throw new IllegalStateException("非SwanAppClearCacheErrorActivity");
+                }
+                ((SwanAppClearCacheErrorActivity) activity).E();
+                try {
+                    this.a.startActivity(new Intent("android.intent.action.VIEW", Uri.parse("baiduboxapp://v16/ucenter/cleanCache")));
+                } catch (Exception e) {
+                    m02.l("SwanAppErrorFragment", "打开清理缓存界面失败", e);
+                }
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class g implements a52 {
+    public class g implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ t22 a;
@@ -389,40 +388,28 @@ public class t22 extends r22 implements s23.a {
             this.a = t22Var;
         }
 
-        @Override // com.baidu.tieba.a52
-        public void a(up1 up1Var) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, up1Var) == null) || up1Var == null) {
-                return;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.P1();
             }
-            up1Var.t(this.a.Q0);
-            up1Var.Y(this.a.y3());
-            zt2.e().a(up1Var);
-        }
-
-        @Override // com.baidu.tieba.a52
-        public void b(up1 up1Var) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, up1Var) == null) || up1Var == null) {
-                return;
-            }
-            up1Var.U(this.a.Q0);
-            zt2.e().b(up1Var);
         }
     }
 
     /* loaded from: classes5.dex */
-    public class h extends w42 {
+    public class h implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ t22 c;
+        public final /* synthetic */ jo2 a;
+        public final /* synthetic */ t22 b;
 
-        public h(t22 t22Var) {
+        public h(t22 t22Var, jo2 jo2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {t22Var};
+                Object[] objArr = {t22Var, jo2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -432,1347 +419,889 @@ public class t22 extends r22 implements s23.a {
                     return;
                 }
             }
-            this.c = t22Var;
+            this.b = t22Var;
+            this.a = jo2Var;
         }
 
-        @Override // com.baidu.tieba.w42, com.baidu.tieba.z42
-        public void d(String str) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Activity activity;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.c.v2(str);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (activity = this.b.c0) != null && SwanAppNetworkUtils.i(activity)) {
+                SwanLauncher.j().n(this.a, null);
+                this.b.c0.finish();
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public static class i {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static int a = -1;
+    public class i implements r94 {
+        public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Activity a;
+        public final /* synthetic */ t22 b;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-453563088, "Lcom/baidu/tieba/t22$i;")) == null) {
-                return;
-            }
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-453563088, "Lcom/baidu/tieba/t22$i;");
-            }
-        }
-
-        public static int a() {
-            InterceptResult invokeV;
+        public i(t22 t22Var, Activity activity) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-                if (a < 0) {
-                    sm2.g0().getSwitch("swan_app_fragment_destroy_switch", 1);
-                    a = 1;
-                }
-                if (t22.V0) {
-                    Log.d("SwanAppFragment", "getFragmentDestroySwitch:" + a);
-                }
-                return a;
-            }
-            return invokeV.intValue;
-        }
-
-        public static boolean b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a() > 0 : invokeV.booleanValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948129237, "Lcom/baidu/tieba/t22;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {t22Var, activity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948129237, "Lcom/baidu/tieba/t22;");
-                return;
-            }
+            this.b = t22Var;
+            this.a = activity;
         }
-        V0 = vj1.a;
-        W0 = ch3.g(149.0f);
-        X0 = "-1";
-        Z0 = "-1";
+
+        @Override // com.baidu.tieba.r94
+        public boolean b(View view2, u94 u94Var) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, u94Var)) == null) {
+                int c = u94Var.c();
+                if (c != 5) {
+                    if (c != 9) {
+                        if (c != 39) {
+                            if (c != 46) {
+                                if (c == 47) {
+                                    this.b.i3(u94Var, this.a);
+                                }
+                            } else {
+                                this.b.h3(u94Var, this.a);
+                            }
+                        } else {
+                            this.b.k3(this.a);
+                        }
+                    } else {
+                        this.b.g3(this.a);
+                        return true;
+                    }
+                } else {
+                    this.b.j3(this.a);
+                }
+                return true;
+            }
+            return invokeLL.booleanValue;
+        }
     }
 
     public t22() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.G0 = new lt2();
-        this.I0 = new TreeMap();
-        this.P0 = 0;
-        this.S0 = false;
-        this.T0 = false;
-        this.U0 = false;
     }
 
-    public static t22 M3(mt2 mt2Var) {
-        InterceptResult invokeL;
+    public final boolean W2() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, mt2Var)) == null) {
-            t22 t22Var = new t22();
-            if (mt2Var != null) {
-                Bundle bundle = new Bundle();
-                bundle.putString("ai_apps_param", mt2Var.m());
-                t22Var.j1(bundle);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            ForbiddenInfo forbiddenInfo = this.H0;
+            if (forbiddenInfo == null) {
+                return false;
             }
-            return t22Var;
+            return forbiddenInfo.enableSliding();
         }
-        return (t22) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static void S3(lt2 lt2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, lt2Var) == null) {
-            try {
-                if (V0) {
-                    Log.d("SwanAppFragment", "setLastPageParams =" + lt2Var);
-                }
-                if (lt2Var == null) {
-                    Y0 = null;
-                } else {
-                    Y0 = (lt2) lt2Var.clone();
-                }
-            } catch (Exception e2) {
-                if (V0) {
-                    e2.printStackTrace();
-                }
-            }
-        }
-    }
-
-    public static void U3(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
-            a1 = str;
-        }
-    }
-
-    private void b1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65548, this) == null) {
-            if (U()) {
-                pause();
-            }
-            if (V0) {
-                Log.d("SwanAppFragment", Log.getStackTraceString(new Exception("performPause() wvID: " + this.K0.a())));
-            }
-        }
-    }
-
-    private void e1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65551, this) == null) {
-            if (U()) {
-                resume();
-            }
-            s94 s94Var = this.g0;
-            if (s94Var != null && s94Var.i()) {
-                this.g0.B(sm2.M().a());
-            }
-            if (V0) {
-                Log.d("SwanAppFragment", Log.getStackTraceString(new Exception("performResume() wvID: " + this.K0.a())));
-            }
-        }
-    }
-
-    @Override // com.baidu.swan.support.v4.app.Fragment
-    public void A0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.A0();
-            Map<String, rp1> map = this.I0;
-            if (map != null && !map.isEmpty()) {
-                for (rp1 rp1Var : this.I0.values()) {
-                    if (rp1Var != null) {
-                        rp1Var.e0();
-                    }
-                }
-            } else {
-                rp1 rp1Var2 = this.K0;
-                if (rp1Var2 != null) {
-                    rp1Var2.e0();
-                }
-            }
-            A3();
-        }
-    }
-
-    public final void A3() {
-        ok2 F0;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            rp1 o3 = o3();
-            if (!(o3 instanceof SwanAppWebViewManager) || (F0 = ((SwanAppWebViewManager) o3).F0()) == null) {
-                return;
-            }
-            F0.d();
-        }
-    }
-
-    @Override // com.baidu.tieba.r22, com.baidu.swan.support.v4.app.Fragment
-    public void B0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.B0();
-        }
-    }
-
-    public final void B3(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || G3()) {
-            return;
-        }
-        yo2 U = yo2.U();
-        if (TextUtils.isEmpty(str)) {
-            str = "";
-        }
-        if (U.f(str).h && this.Q0 == null) {
-            this.Q0 = new f(this);
-        }
-    }
-
-    @DebugTrace
-    public void C3() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            FragmentActivity activity = getActivity();
-            if (this.h0 == null) {
-                this.h0 = new SwanAppMenuHeaderView(getContext());
-            }
-            if (activity == null || this.g0 != null) {
-                return;
-            }
-            this.g0 = new s94(activity, this.f0, p3(), sm2.K(), new ui3());
-            new bt2(this.g0, this, this.h0).z();
-            if (ht2.e()) {
-                this.g0.l(50);
-            }
-        }
-    }
-
-    public boolean D3() {
+    public final jo2 Z2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            xe3 xe3Var = this.L0;
-            if (xe3Var == null) {
-                return false;
+            if (getActivity() != null && (getActivity() instanceof SwanAppErrorActivity)) {
+                return ((SwanAppErrorActivity) getActivity()).x();
             }
-            return xe3Var.p();
+            return null;
         }
-        return invokeV.booleanValue;
+        return (jo2) invokeV.objValue;
     }
 
-    public final boolean E3() {
+    public final boolean d3() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            SwanAppConfigData s = yo2.U().s();
-            boolean z = false;
-            if (s == null) {
-                return false;
-            }
-            return !((TextUtils.equals(s.f(), this.G0.a) || s.r(this.G0.a)) ? true : true);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean F3() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            a43 a43Var = this.O0;
-            return a43Var != null && a43Var.h;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.r22
-    public a43 G1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.O0 : (a43) invokeV.objValue;
-    }
-
-    public boolean G3() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            a43 a43Var = this.O0;
-            if (a43Var != null) {
-                return TextUtils.equals(a43Var.j, "custom");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            ArrayList a2 = uf4.b().a();
+            if (a2 != null && a2.contains(this.G0)) {
+                return true;
             }
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    public final boolean H3(u22 u22Var, SwanAppConfigData swanAppConfigData) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, u22Var, swanAppConfigData)) == null) {
-            r22 j = u22Var.j(0);
-            if (j == null || !(j instanceof t22)) {
-                return false;
-            }
-            String e2 = ((t22) j).m3().e();
-            return swanAppConfigData.r(e2) || TextUtils.equals(swanAppConfigData.f(), e2);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.r22
-    public boolean I() {
+    public final boolean e3() {
         InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            if (d() != null && d().e() && d().f()) {
-                return true;
-            }
-            if ((d() == null || !d().c()) && !PaymentManager.k()) {
-                rp1 rp1Var = this.K0;
-                if (rp1Var != null) {
-                    if (kq2.g(rp1Var.a())) {
-                        return true;
-                    }
-                    return this.K0.I();
-                }
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean I3() {
-        InterceptResult invokeV;
-        SwanAppConfigData s;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            u22 M1 = M1();
-            if (M1 == null) {
-                return false;
+            ForbiddenInfo forbiddenInfo = this.H0;
+            if (forbiddenInfo != null && gh3.I(forbiddenInfo.launchPath)) {
+                return true;
             }
-            a43 a43Var = this.O0;
-            if ((a43Var != null && a43Var.k) || (s = yo2.U().s()) == null) {
-                return false;
-            }
-            return !H3(M1, s);
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    public final boolean J3() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.s22
+    public void j2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            SwanAppConfigData s = yo2.U().s();
-            return (s == null || TextUtils.equals(s.f(), this.G0.e())) ? false : true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean K3(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) ? (this.I0.isEmpty() || this.I0.get(str) == null) ? false : true : invokeL.booleanValue;
-    }
-
-    public void L3(pa3 pa3Var) {
-        r93 r93Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048591, this, pa3Var) == null) || (r93Var = this.F0) == null) {
-            return;
-        }
-        ea3.i(r93Var, pa3Var);
-        this.F0 = null;
-    }
-
-    @Override // com.baidu.tieba.r22
-    public void M2() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            if (this.K0 == null) {
-                if (V0) {
-                    Log.e("SwanAppFragment", Log.getStackTraceString(new Exception("mCurWebViewManager is null.")));
-                    return;
-                }
-                return;
-            }
-            HashMap hashMap = new HashMap();
-            hashMap.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, this.K0.a());
-            up1 k = this.K0.k();
-            if (k != null) {
-                hashMap.put("webViewUrl", k.getCurrentPageUrl());
-            }
-            yo2.U().u(new md2("sharebtn", hashMap));
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            b3();
+            n3();
+            q3();
+            o3();
         }
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v12, resolved type: T */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:30:0x005f  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final void N3() {
-        int i2;
-        a43 a43Var;
-        sp1 sp1Var;
-        TextView centerTitleView;
+    public final void n3() {
+        t94 t94Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || this.f0 == null) {
-            return;
-        }
-        int i3 = 1;
-        boolean z = false;
-        if (G3()) {
-            B2(true, this.T0);
-            i2 = 0;
-        } else if (F3()) {
-            B2(false, false);
-            rp1 rp1Var = this.K0;
-            if (rp1Var != null) {
-                if (rp1Var.k() != null) {
-                    sp1Var = this.K0.k().r();
-                } else {
-                    sp1Var = this.K0.r();
-                }
-                if (sp1Var != null) {
-                    i2 = sp1Var.getWebViewScrollY();
-                    a43Var = this.O0;
-                    if (a43Var != null && a43Var.i) {
-                        i3 = 0;
-                    }
-                }
-            }
-            i2 = 0;
-            a43Var = this.O0;
-            if (a43Var != null) {
-                i3 = 0;
-            }
-        } else {
-            B2(false, false);
-            i2 = W0 + this.P0;
-            centerTitleView = this.f0.getCenterTitleView();
-            if (centerTitleView != null) {
-                centerTitleView.setAlpha(i3);
-            }
-            Y3(i2);
-            a4(z);
-        }
-        z = true;
-        centerTitleView = this.f0.getCenterTitleView();
-        if (centerTitleView != null) {
-        }
-        Y3(i2);
-        a4(z);
-    }
-
-    public final void O3() {
-        Bundle p;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048594, this) == null) || (p = p()) == null) {
-            return;
-        }
-        this.H0 = Y0;
-        if (V0) {
-            Log.d("SwanAppFragment", "restoreArguments sPrePageParams=" + this.H0);
-        }
-        mt2 g2 = mt2.g(p.getString("ai_apps_param"));
-        this.d0 = g2;
-        if (g2 == null) {
-            lt2 lt2Var = this.G0;
-            lt2Var.a = "";
-            lt2Var.b = "";
-            lt2Var.e = "";
-            lt2Var.f = "";
-        } else {
-            this.G0.a = g2.i();
-            this.G0.b = this.d0.j();
-            this.G0.e = this.d0.l();
-            this.G0.f = this.d0.k();
-        }
-        lt2 lt2Var2 = this.G0;
-        lt2Var2.d = d73.b(lt2Var2.e());
-        a43 f2 = yo2.U().f(this.G0.g());
-        this.O0 = f2;
-        if (f2.p) {
-            this.O0 = yo2.U().j(this.G0.e());
-        }
-        if (this.D0) {
-            a43 a43Var = this.O0;
-            a43Var.f = false;
-            a43Var.h = true;
-            a43Var.p = true;
-        }
-        this.P0 = J1().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070159);
-    }
-
-    public final void P3(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("lcType", str);
-            hashMap.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, this.K0.a());
-            nd2 nd2Var = new nd2(hashMap);
-            if (V0) {
-                Log.d("SwanAppFragment", "sendLifecycleMessage type: " + str + " wvID: " + this.K0.a());
-            }
-            yo2.U().u(nd2Var);
+        if ((interceptable == null || interceptable.invokeV(1048598, this) == null) && (t94Var = this.g0) != null) {
+            t94Var.s(tm2.M().a());
         }
     }
 
-    public final void Q3() {
+    public final void o3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            if (!TextUtils.equals(Z0, this.K0.a()) || TextUtils.equals(a1, "switchTab")) {
-                int o = this.L0.o(m3().g());
-                pd2 pd2Var = new pd2();
-                pd2Var.c = Z0;
-                pd2Var.d = this.K0.a();
-                pd2Var.e = a1;
-                pd2Var.f = this.G0.a;
-                pd2Var.g = String.valueOf(o);
-                a1 = "";
-                if (V0) {
-                    Log.d("SwanAppFragment", "sendRouteMessage fromId: " + pd2Var.c + " ,toId: " + pd2Var.d + " ,RouteType: " + pd2Var.e + " page:" + pd2Var.f + ",TabIndex: " + pd2Var.g);
-                }
-                yo2.U().u(pd2Var);
-                Z0 = this.K0.a();
-            }
+        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
+            j.a(SupportMenuInflater.XML_MENU, Z2(), this.H0);
         }
     }
 
-    public void R3(boolean z) {
+    public void g3(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
-            this.U0 = z;
+        if (interceptable == null || interceptable.invokeL(1048589, this, activity) == null) {
+            tm2.K().h(activity, Y2(activity));
+            j.a("feedback", Z2(), this.H0);
         }
     }
 
-    public final void T3() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            if (V0) {
-                Log.d("SwanAppFragment", "setting immersive portrait fullscreen video");
-            }
-            sf3.h();
-            if (this.c0.getWindow() != null) {
-                this.c0.getWindow().getDecorView().setSystemUiVisibility(5376);
-            }
-            View b2 = h23.b();
-            if (b2 != null) {
-                b2.setVisibility(0);
-                b2.findViewById(R.id.obfuscated_res_0x7f092241).setVisibility(8);
-            }
-            SwanAppActionBar K1 = K1();
-            if (K1 != null) {
-                K1.setRightMenuStyle();
-                K1.setRightZoneImmersiveStyle();
-                K1.setBackgroundColor(0);
-            }
-            View V = V();
-            if (V != null) {
-                V.findViewById(R.id.obfuscated_res_0x7f090f19).setBackgroundColor(0);
-                FrameLayout frameLayout = (FrameLayout) V.findViewById(R.id.obfuscated_res_0x7f09017d);
-                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) frameLayout.getLayoutParams();
-                layoutParams.topMargin = 0;
-                frameLayout.setLayoutParams(layoutParams);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.r22
-    public void U1(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, view2) == null) {
-            super.U1(view2);
-            boolean z = false;
-            x2(Z1() || E3());
-            if (I3()) {
-                f2();
-            }
-            N3();
-            this.f0.setOnDoubleClickListener(new b(this));
-            if (!v93.i()) {
-                v93.d(k33.K().q().W());
-            }
-            if (G3() && E3()) {
-                z = true;
-            }
-            this.T0 = z;
-            if (z) {
-                f3();
-            }
-        }
-    }
-
-    public void V3(lt2 lt2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, lt2Var) == null) {
-            if (V0) {
-                Log.d("SwanAppFragment", "switchTab pageParam: " + lt2Var);
-            }
-            if (this.L0.o(m3().g()) == this.L0.o(lt2Var.g())) {
-                lt2 lt2Var2 = this.G0;
-                lt2Var2.e = lt2Var.e;
-                lt2Var2.f = lt2Var.f;
-                return;
-            }
-            this.L0.E(lt2Var.g());
-            onPause();
-            l3(lt2Var, "");
-        }
-    }
-
-    public final void W3(String str, lt2 lt2Var) {
-        rp1 rp1Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048601, this, str, lt2Var) == null) || this.K0 == (rp1Var = this.I0.get(str)) || rp1Var == null) {
-            return;
-        }
-        a43 f2 = yo2.U().f(str);
-        rp1Var.z(this.J0, f2);
-        if (!rp1Var.c()) {
-            rp1Var.O(this.J0, f2);
-        }
-        rp1Var.C(0);
-        rp1 rp1Var2 = this.K0;
-        if (rp1Var2 != null) {
-            rp1Var2.C(8);
-        }
-        this.K0 = rp1Var;
-        lt2 lt2Var2 = this.G0;
-        lt2Var2.e = lt2Var.e;
-        lt2Var2.f = lt2Var.f;
-        rp1Var.h(lt2Var2);
-    }
-
-    public final void X3(rp1 rp1Var) {
-        y42 y42Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048602, this, rp1Var) == null) || (y42Var = this.Q0) == null || rp1Var == null) {
-            return;
-        }
-        rp1Var.U(y42Var);
-        if (rp1Var.k() != null) {
-            rp1Var.U(this.Q0);
-        }
-    }
-
-    public final void Y3(int i2) {
-        TextView centerTitleView;
-        View e2;
-        Drawable background;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048603, this, i2) == null) {
-            float f2 = 1.0f;
-            float f3 = (i2 - W0) * 1.0f;
-            int i3 = this.P0;
-            if (i3 == 0) {
-                i3 = 1;
-            }
-            float f4 = f3 / i3;
-            if (f4 <= 0.0f) {
-                f2 = 0.0f;
-            } else if (f4 < 1.0f) {
-                f2 = f4;
-            }
-            int i4 = (int) (255.0f * f2);
-            if (V0 && i4 != 0 && i4 != 255) {
-                Log.d("SwanAppFragment", "update bar transparent degree: " + f2 + ZeusCrashHandler.NAME_SEPERATOR + i4);
-            }
-            mi3 mi3Var = this.t0;
-            if (mi3Var != null && mi3Var.i() && (e2 = this.t0.e()) != null && (background = e2.getBackground()) != null) {
-                background.setAlpha(i4);
-            }
-            Drawable background2 = this.f0.getBackground();
-            if (background2 != null) {
-                background2.setAlpha(i4);
-            }
-            a43 a43Var = this.O0;
-            if (a43Var != null && a43Var.i && (centerTitleView = this.f0.getCenterTitleView()) != null) {
-                centerTitleView.setAlpha(f2);
-            }
-            Drawable background3 = this.i0.getBackground();
-            if (background3 != null) {
-                background3.setAlpha(i4);
-            }
-        }
-    }
-
-    public void Z3() {
-        mt2 mt2Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048604, this) == null) || (mt2Var = this.d0) == null) {
-            return;
-        }
-        mt2Var.n();
-    }
-
-    public final void a4(boolean z) {
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048605, this, z) == null) {
-            int i3 = 0;
-            if (z) {
-                mi3 mi3Var = this.t0;
-                if (mi3Var != null && mi3Var.i()) {
-                    i2 = ch3.t();
-                    FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.J0.getLayoutParams();
-                    layoutParams.topMargin = i3;
-                    this.J0.setLayoutParams(layoutParams);
-                    FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.e0.getLayoutParams();
-                    layoutParams2.topMargin = i2;
-                    this.e0.setLayoutParams(layoutParams2);
-                }
-            } else {
-                i3 = J1().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070159);
-            }
-            i2 = 0;
-            FrameLayout.LayoutParams layoutParams3 = (FrameLayout.LayoutParams) this.J0.getLayoutParams();
-            layoutParams3.topMargin = i3;
-            this.J0.setLayoutParams(layoutParams3);
-            FrameLayout.LayoutParams layoutParams22 = (FrameLayout.LayoutParams) this.e0.getLayoutParams();
-            layoutParams22.topMargin = i2;
-            this.e0.setLayoutParams(layoutParams22);
-        }
-    }
-
-    @Override // com.baidu.tieba.r22
-    public boolean c2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.s23.a
-    public s23 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
-            if (this.M0 == null) {
-                if (this.N0 == null) {
-                    return null;
-                }
-                this.M0 = new s23(this, (LinearLayout) this.N0.findViewById(R.id.obfuscated_res_0x7f09017c), J1().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070159));
-            }
-            return this.M0;
-        }
-        return (s23) invokeV.objValue;
-    }
-
-    public final void d3(rp1 rp1Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048608, this, rp1Var) == null) || rp1Var == null) {
-            return;
-        }
-        y42 y42Var = this.Q0;
-        if (y42Var != null) {
-            rp1Var.t(y42Var);
-        }
-        rp1Var.a0(z3());
-    }
-
-    @Override // com.baidu.tieba.r22
-    public boolean e2() {
-        InterceptResult invokeV;
-        SwanAppConfigData s;
-        mt2 mt2Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
-            yo2 U = yo2.U();
-            if (U == null || (s = U.s()) == null || !s.n() || (mt2Var = this.d0) == null) {
-                return false;
-            }
-            return s.r(mt2Var.i());
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void e3() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
-            this.F0 = ea3.c("805");
-        }
-    }
-
-    public final void f3() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
-            k33.K().q().e0().e("mapp_i_custom_navigation_bar", new e(this));
-        }
-    }
-
-    public final rp1 g3(String str, String str2, String str3, String str4) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048612, this, str, str2, str3, str4)) == null) {
-            if (V0) {
-                Log.d("SwanAppFragment", "createSlaveAndLoad start.");
-            }
-            q92.e f2 = q92.f(getActivity(), v92.c(str2));
-            if (!TextUtils.isEmpty(str4)) {
-                HybridUbcFlow q = qw2.q("route", str4);
-                q.F(new UbcFlowEvent("na_pre_load_slave_check"));
-                q.D("preload", f2.b ? "1" : "0");
-            }
-            if (V0) {
-                Log.d("SwanAppFragment", "createSlaveAndLoad preloadManager: " + f2);
-            }
-            q92.q(f2, new d(this, f2, str4, str2, str, str3));
-            if (V0) {
-                Log.d("SwanAppFragment", "createSlaveAndLoad end.");
-            }
-            return f2.a;
-        }
-        return (rp1) invokeLLLL.objValue;
-    }
-
-    public PullToRefreshBaseWebView h0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
-            rp1 rp1Var = this.K0;
-            if (rp1Var != null) {
-                return rp1Var.h0();
-            }
-            return null;
-        }
-        return (PullToRefreshBaseWebView) invokeV.objValue;
-    }
-
-    public final void h3(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048614, this, view2) == null) {
-            pw2.a("route", "createSlaveWebView start.");
-            String h2 = this.d0.h();
-            String j = this.d0.j();
-            String i2 = this.d0.i();
-            String a2 = fh3.a(h2, i2, j);
-            this.K0 = q92.h(a2);
-            if (V0) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("pageUrl: ");
-                sb.append(a2);
-                sb.append(" is load: ");
-                sb.append(this.K0 != null);
-                Log.d("SwanAppFragment", sb.toString());
-            }
-            if (this.K0 == null) {
-                if (V0) {
-                    Log.e("SwanAppFragment", Log.getStackTraceString(new Exception("createSlaveWebView failed.")));
-                }
-                this.K0 = g3(h2, i2, j, "");
-            }
-            this.K0.h(this.G0);
-            a43 f2 = yo2.U().f(i2);
-            this.K0.z(this.J0, f2);
-            this.K0.O(this.J0, f2);
-            B3(i2);
-            d3(this.K0);
-            if (e2()) {
-                this.I0.put(i2, this.K0);
-                this.L0.f(view2, getContext(), i2);
-            }
-            pw2.a("route", "createSlaveWebView end.");
-            e3();
-        }
-    }
-
-    @Override // com.baidu.tieba.r22
-    public void i2() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048615, this) == null) {
-            P1();
-            oa3 oa3Var = new oa3();
-            oa3Var.e = "gohome";
-            oa3Var.c = "bar";
-            t22 H = yo2.U().H();
-            mt2 N1 = H == null ? null : H.N1();
-            if (N1 != null && !TextUtils.isEmpty(N1.i())) {
-                oa3Var.a("page", N1.i());
-            }
-            A1(oa3Var);
-        }
-    }
-
-    public final void i3(lt2 lt2Var, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048616, this, lt2Var, str) == null) && this.I0.get(lt2Var.d) == null) {
-            String a2 = fh3.a(lt2Var.c, lt2Var.a, lt2Var.b);
-            rp1 h2 = q92.h(a2);
-            if (h2 != null) {
-                if (V0) {
-                    Log.d("SwanAppFragment", "createTabSlaveWebView loaded manager pageUrl: " + a2);
-                }
-                this.I0.put(lt2Var.a, h2);
-            } else {
-                if (V0) {
-                    Log.d("SwanAppFragment", "createTabSlaveWebView createNew.");
-                }
-                h2 = g3(lt2Var.c, lt2Var.a, lt2Var.b, str);
-                this.I0.put(lt2Var.a, h2);
-            }
-            B3(lt2Var.a);
-            d3(h2);
-        }
-    }
-
-    @Override // com.baidu.tieba.r22, com.baidu.searchbox.widget.SlideInterceptor
+    @Override // com.baidu.tieba.s22, com.baidu.searchbox.widget.SlideInterceptor
     public boolean isSlidable(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048617, this, motionEvent)) == null) ? Z1() && this.K0.isSlidable(motionEvent) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, motionEvent)) == null) {
+            return W2();
+        }
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.r22
-    public void j2() {
+    public void j3(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048618, this) == null) {
-            rp1 rp1Var = this.K0;
-            if (rp1Var != null) {
-                rp1Var.T();
-            }
-            C3();
-            q3(true);
-            SwanAppMenuHeaderView swanAppMenuHeaderView = this.h0;
-            if (swanAppMenuHeaderView != null) {
-                swanAppMenuHeaderView.setAttentionBtnStates(ja2.n(k33.K().getAppId()));
-            }
-            this.g0.u(sm2.M().a(), H1(), this.h0, false);
+        if (interceptable == null || interceptable.invokeL(1048594, this, activity) == null) {
+            ct2.j(activity);
+            j.a("daynightmode", Z2(), this.H0);
         }
     }
 
-    public final void j3() {
+    public void k3(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048619, this) == null) {
-            Map<String, rp1> map = this.I0;
-            if (map != null && !map.isEmpty()) {
-                for (rp1 rp1Var : this.I0.values()) {
-                    if (rp1Var != null) {
-                        X3(rp1Var);
-                        rp1Var.destroy();
+        if (interceptable == null || interceptable.invokeL(1048595, this, activity) == null) {
+            if (activity instanceof SwanAppErrorActivity) {
+                ct2.t(activity);
+            }
+            j.a(Headers.REFRESH, Z2(), this.H0);
+        }
+    }
+
+    public static t22 f3(String str, String str2, String str3, int i2, ForbiddenInfo forbiddenInfo, int i3, int i4) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{str, str2, str3, Integer.valueOf(i2), forbiddenInfo, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
+            t22 t22Var = new t22();
+            Bundle bundle = new Bundle();
+            bundle.putString("swan_error_type", str2);
+            bundle.putString("swan_error_code", str);
+            bundle.putString(DeepLinkItem.DEEPLINK_WEBURL_KEY, str3);
+            bundle.putInt("webPermit", i2);
+            bundle.putParcelable("key_forbidden_info", forbiddenInfo);
+            bundle.putInt("key_show_menu_notice", i3);
+            bundle.putInt("key_show_menu_privacy", i4);
+            t22Var.j1(bundle);
+            return t22Var;
+        }
+        return (t22) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.tieba.s22
+    public void U1(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            super.U1(view2);
+            V1(view2);
+            t2(-1);
+            C2(-16777216);
+            x2(false);
+            J2(true);
+            this.f0.setRightExitOnClickListener(new a(this));
+            ForbiddenInfo forbiddenInfo = this.H0;
+            if (forbiddenInfo != null && !TextUtils.isEmpty(forbiddenInfo.appTitle)) {
+                v2(this.H0.appTitle);
+            }
+        }
+    }
+
+    public final CharSequence X2(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
+            }
+            Map g2 = of4.f().g();
+            ForbiddenInfo forbiddenInfo = this.H0;
+            if (forbiddenInfo != null) {
+                String str2 = forbiddenInfo.forbiddenDetail;
+                if (str2.length() > 4) {
+                    String m = of4.m(g2, str2.substring(str2.length() - 4));
+                    if (!TextUtils.isEmpty(m)) {
+                        return m;
                     }
                 }
-                this.I0.clear();
-            } else {
-                rp1 rp1Var2 = this.K0;
-                if (rp1Var2 != null) {
-                    X3(rp1Var2);
-                    this.K0.destroy();
+            }
+            char c2 = 65535;
+            switch (str.hashCode()) {
+                case -1242268664:
+                    if (str.equals("type_need_update_sdk")) {
+                        c2 = 2;
+                        break;
+                    }
+                    break;
+                case -429452284:
+                    if (str.equals("type_path_forbidden")) {
+                        c2 = 3;
+                        break;
+                    }
+                    break;
+                case 38398066:
+                    if (str.equals("type_network_error")) {
+                        c2 = 0;
+                        break;
+                    }
+                    break;
+                case 517286506:
+                    if (str.equals("type_0049")) {
+                        c2 = 4;
+                        break;
+                    }
+                    break;
+                case 517347882:
+                    if (str.equals("type_2205")) {
+                        c2 = 5;
+                        break;
+                    }
+                    break;
+                case 731215244:
+                    if (str.equals("type_normal")) {
+                        c2 = 1;
+                        break;
+                    }
+                    break;
+            }
+            if (c2 != 0) {
+                if (c2 != 1) {
+                    if (c2 != 2) {
+                        if (c2 != 3) {
+                            if (c2 != 4) {
+                                if (c2 != 5) {
+                                    return "";
+                                }
+                                String m2 = of4.m(g2, "2205");
+                                if (TextUtils.isEmpty(m2)) {
+                                    return S(R.string.obfuscated_res_0x7f0f12e1);
+                                }
+                                return m2;
+                            }
+                            String m3 = of4.m(g2, "0049");
+                            if (TextUtils.isEmpty(m3)) {
+                                return S(R.string.obfuscated_res_0x7f0f12e3);
+                            }
+                            return m3;
+                        }
+                        String m4 = of4.m(g2, "app_page_banned");
+                        if (TextUtils.isEmpty(m4)) {
+                            return S(R.string.obfuscated_res_0x7f0f12e2);
+                        }
+                        return m4;
+                    }
+                    String m5 = of4.m(g2, "app_need_upgrade");
+                    if (TextUtils.isEmpty(m5)) {
+                        return S(R.string.obfuscated_res_0x7f0f12e3);
+                    }
+                    return m5;
                 }
-            }
-            this.K0 = null;
-            if (V0) {
-                Log.d("SwanAppFragment", "onDestroy() obj: " + this);
-            }
-            if (this.S0) {
-                return;
-            }
-            q92.n(yo2.U().getActivity());
-        }
-    }
-
-    public void k3() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048620, this) == null) {
-            this.O0.j = "default";
-            v1();
-            N3();
-        }
-    }
-
-    public void l3(lt2 lt2Var, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048621, this, lt2Var, str) == null) {
-            S3(this.G0);
-            this.H0 = Y0;
-            if (V0) {
-                Log.d("SwanAppFragment", "doSwitchTab mPrePageParams=" + this.H0);
-            }
-            String str2 = lt2Var.a;
-            String str3 = lt2Var.d;
-            a43 f2 = yo2.U().f(TextUtils.isEmpty(str3) ? "" : str3);
-            lt2 lt2Var2 = this.G0;
-            lt2Var2.a = str2;
-            lt2Var2.b = lt2Var != null ? lt2Var.f() : "";
-            this.G0.d = str3;
-            this.O0 = f2;
-            boolean z = !K3(str3);
-            if (!TextUtils.isEmpty(str)) {
-                if (z) {
-                    rw2.c(7, str);
-                } else {
-                    rw2.c(6, str);
+                String m6 = of4.m(g2, "app_open_failed");
+                if (TextUtils.isEmpty(m6)) {
+                    return S(R.string.obfuscated_res_0x7f0f12e3);
                 }
+                return m6;
             }
-            if (!z) {
-                W3(str3, lt2Var);
-            } else {
-                i3(lt2Var, str);
-                W3(str2, lt2Var);
+            String m7 = of4.m(g2, "net_conn_failed");
+            if (TextUtils.isEmpty(m7)) {
+                return S(R.string.obfuscated_res_0x7f0f12e3);
             }
-            if (!TextUtils.isEmpty(str)) {
-                qw2.q("route", str).F(new UbcFlowEvent("na_push_page_end"));
-                rw2.a(str, lt2Var);
-            }
-            v2(f2.b);
-            C2(SwanAppConfigData.t(f2.c));
-            t2(f2.a);
-            N3();
-            Z3();
-            l02.i("SwanAppFragment", "switch tab title: " + f2.b + " page:" + str2);
+            return m7;
         }
+        return (CharSequence) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.r22, com.baidu.swan.support.v4.app.Fragment
-    public void m1(boolean z) {
+    public final JSONObject Y2(Activity activity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048622, this, z) == null) && k0()) {
-            super.m1(z);
-            if (V0) {
-                Log.d("SwanAppFragment", "setUserVisibleHint isVisibleToUser: " + z);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, activity)) == null) {
+            if (activity instanceof SwanAppErrorActivity) {
+                ForbiddenInfo w = ((SwanAppErrorActivity) activity).w();
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("title", w.appTitle);
+                    jSONObject.put("url", w.launchPath);
+                    jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, w.appId);
+                    jSONObject.put("errorPath", w.launchPath);
+                    jSONObject.put("errorDes", w.forbiddenReason);
+                } catch (JSONException e2) {
+                    if (s22.E0) {
+                        e2.printStackTrace();
+                    }
+                }
+                return jSONObject;
             }
-            if (z) {
-                resume();
-                s3(false);
-                return;
-            }
-            pause();
+            return null;
         }
-    }
-
-    @NonNull
-    public lt2 m3() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) ? this.G0 : (lt2) invokeV.objValue;
-    }
-
-    /* JADX WARN: Type inference failed for: r0v3, types: [com.baidu.tieba.sp1] */
-    @NonNull
-    public Pair<Integer, Integer> n3() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
-            rp1 rp1Var = this.K0;
-            if (rp1Var == null) {
-                return new Pair<>(0, 0);
-            }
-            View currentWebView = rp1Var.r().getCurrentWebView();
-            return currentWebView == null ? new Pair<>(0, 0) : new Pair<>(Integer.valueOf(currentWebView.getWidth()), Integer.valueOf(currentWebView.getHeight()));
-        }
-        return (Pair) invokeV.objValue;
-    }
-
-    public rp1 o3() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) ? this.K0 : (rp1) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.r22, com.baidu.swan.support.v4.app.Fragment
-    public void onPause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048626, this) == null) {
-            super.onPause();
-            b1();
-        }
-    }
-
-    @Override // com.baidu.tieba.r22, com.baidu.swan.support.v4.app.Fragment
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048627, this) == null) {
-            super.onResume();
-            e1();
-            s3(false);
-        }
-    }
-
-    @Override // com.baidu.tieba.r22
-    public void p2() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048628, this) == null) {
-            super.p2();
-            N3();
-            if (this.U0) {
-                T3();
-            }
-        }
-    }
-
-    public final int p3() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) ? d2() ? J3() ? 18 : 17 : J3() ? 12 : 15 : invokeV.intValue;
-    }
-
-    public void pause() {
-        PullToRefreshBaseWebView h0;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048630, this) == null) {
-            boolean z = this.K0 == null;
-            String a2 = z ? "" : this.K0.a();
-            if (V0) {
-                Log.d("SwanAppFragment", "pause() wvID: " + a2);
-            }
-            if (!z) {
-                this.K0.onPause();
-                P3("onHide");
-                zt2.e().i(false);
-            }
-            if (d() != null && !d().c() && (!d().f() || d().j())) {
-                d().g();
-            }
-            l02.i("SwanApp", "onHide");
-            kq2.i(a2, false);
-            if (!z && (h0 = this.K0.h0()) != null) {
-                h0.w(false);
-            }
-            sm2.H().f(l33.b0() != null ? l33.b0().O() : "");
-        }
-    }
-
-    public final void q3(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048631, this, z) == null) && sm2.K().k(z, 2)) {
-            jt2.l(getContext(), this.g0, this.f0, l33.b0().W().f0().paNumber);
-        }
-    }
-
-    @Override // com.baidu.swan.support.v4.app.Fragment
-    public void r0(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048632, this, activity) == null) {
-            super.r0(activity);
-            if (V0) {
-                Log.d("SwanAppFragment", "onAttach() obj: " + this);
-            }
-        }
-    }
-
-    @Nullable
-    public lt2 r3() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048633, this)) == null) ? this.H0 : (lt2) invokeV.objValue;
-    }
-
-    public void resume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048634, this) == null) {
-            boolean z = false;
-            boolean z2 = this.K0 == null;
-            String a2 = z2 ? "" : this.K0.a();
-            if (V0) {
-                Log.d("SwanAppFragment", "resume() wvID: " + a2);
-            }
-            if (!z2) {
-                x2((Z1() || E3()) ? true : true);
-                this.K0.onResume();
-                Q3();
-                P3("onShow");
-                zt2.e().i(true);
-            }
-            l02.i("SwanApp", "onShow");
-            kq2.i(a2, true);
-            if (l02.f()) {
-                g22.b();
-            }
-            sm2.H().e(l33.b0() != null ? l33.b0().O() : "");
-        }
-    }
-
-    public final void s3(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048635, this, z) == null) {
-            if (sm2.K().k(z, 1)) {
-                jt2.k(getContext(), this.f0, l33.b0().W().f0().paNumber);
-            } else if (l33.b0() == null) {
-            } else {
-                jt2.o(this.f0, l33.b0().U().d("key_unread_counts_message", 0).intValue());
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.r22
-    public boolean t2(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048636, this, i2)) == null) {
-            boolean t2 = super.t2(i2);
-            N3();
-            return t2;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public String t3() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048637, this)) == null) {
-            rp1 rp1Var = this.K0;
-            return rp1Var != null ? rp1Var.a() : "";
-        }
-        return (String) invokeV.objValue;
+        return (JSONObject) invokeL.objValue;
     }
 
     @Override // com.baidu.swan.support.v4.app.Fragment
     public void u0(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048638, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048603, this, bundle) == null) {
             super.u0(bundle);
-            O3();
-            if (V0) {
-                Log.d("SwanAppFragment", "onCreate() obj: " + this);
+            Bundle p = p();
+            if (p == null) {
+                return;
             }
-            fg3.j(new a(this), "SwanAppPageHistory");
-            pw2.a("route", "fragment create.");
+            this.F0 = p.getString("swan_error_type");
+            this.G0 = p.getString("swan_error_code");
+            this.M0 = p.getString(DeepLinkItem.DEEPLINK_WEBURL_KEY);
+            this.N0 = p.getInt("webPermit");
+            this.H0 = (ForbiddenInfo) p.getParcelable("key_forbidden_info");
+            this.I0 = p.getInt("key_show_menu_notice");
+            this.J0 = p.getInt("key_show_menu_privacy");
         }
     }
 
-    public List<String> u3() {
-        InterceptResult invokeV;
+    public final String a3(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048639, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            Map<String, rp1> map = this.I0;
-            if (map != null && !map.isEmpty()) {
-                for (Map.Entry<String, rp1> entry : this.I0.entrySet()) {
-                    if (entry != null) {
-                        arrayList.add(entry.getValue().a());
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, str2)) == null) {
+            String str3 = "";
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                char c2 = 65535;
+                switch (str.hashCode()) {
+                    case -1242268664:
+                        if (str.equals("type_need_update_sdk")) {
+                            c2 = 2;
+                            break;
+                        }
+                        break;
+                    case -429452284:
+                        if (str.equals("type_path_forbidden")) {
+                            c2 = 3;
+                            break;
+                        }
+                        break;
+                    case 38398066:
+                        if (str.equals("type_network_error")) {
+                            c2 = 0;
+                            break;
+                        }
+                        break;
+                    case 517286506:
+                        if (str.equals("type_0049")) {
+                            c2 = 4;
+                            break;
+                        }
+                        break;
+                    case 517347882:
+                        if (str.equals("type_2205")) {
+                            c2 = 5;
+                            break;
+                        }
+                        break;
+                    case 731215244:
+                        if (str.equals("type_normal")) {
+                            c2 = 1;
+                            break;
+                        }
+                        break;
+                }
+                if (c2 != 0) {
+                    if (c2 != 1) {
+                        if (c2 != 2) {
+                            if (c2 != 3) {
+                                if (c2 != 4) {
+                                    if (c2 == 5) {
+                                        str3 = getContext().getString(R.string.obfuscated_res_0x7f0f12e4);
+                                    }
+                                } else {
+                                    str3 = getContext().getString(R.string.obfuscated_res_0x7f0f12e7);
+                                }
+                            } else {
+                                str3 = getContext().getString(R.string.obfuscated_res_0x7f0f12eb);
+                            }
+                        } else {
+                            str3 = getContext().getString(R.string.obfuscated_res_0x7f0f12e8);
+                        }
+                    } else {
+                        str3 = getContext().getString(R.string.obfuscated_res_0x7f0f12ea);
+                    }
+                } else {
+                    str3 = getContext().getString(R.string.obfuscated_res_0x7f0f1340);
+                }
+                Map g2 = of4.f().g();
+                if (g2 != null) {
+                    ForbiddenInfo forbiddenInfo = this.H0;
+                    if (forbiddenInfo != null) {
+                        String str4 = forbiddenInfo.forbiddenDetail;
+                        if (str4.length() > 4) {
+                            String o = of4.o(g2, str4.substring(str4.length() - 4));
+                            if (!TextUtils.isEmpty(o)) {
+                                return o;
+                            }
+                        }
+                    }
+                    String o2 = of4.o(g2, str2);
+                    if (!TextUtils.isEmpty(o2)) {
+                        return o2;
                     }
                 }
             }
-            rp1 rp1Var = this.K0;
-            if (rp1Var != null) {
-                String a2 = rp1Var.a();
-                if (!arrayList.contains(a2)) {
-                    arrayList.add(a2);
-                }
-            }
-            return arrayList;
+            return str3;
         }
-        return (List) invokeV.objValue;
+        return (String) invokeLL.objValue;
     }
 
-    @Nullable
-    public xe3 v3() {
+    public void b3() {
+        FragmentActivity activity;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (activity = getActivity()) != null && this.g0 == null) {
+            t94 t94Var = new t94(activity, this.f0, 19, tm2.K(), new vi3());
+            this.g0 = t94Var;
+            t94Var.n(new i(this, activity));
+            q3();
+        }
+    }
+
+    @Override // com.baidu.tieba.s22, com.baidu.swan.support.v4.app.Fragment
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
+            super.onResume();
+            t94 t94Var = this.g0;
+            if (t94Var != null && t94Var.i()) {
+                this.g0.B(tm2.M().a());
+            }
+            SwanAppActionBar swanAppActionBar = this.f0;
+            if (swanAppActionBar != null) {
+                kt2.o(swanAppActionBar, this.J0 + this.I0);
+            }
+        }
+    }
+
+    public final String p3() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048640, this)) == null) ? this.L0 : (xe3) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            String string = getContext().getString(R.string.obfuscated_res_0x7f0f12df);
+            ForbiddenInfo forbiddenInfo = this.H0;
+            if (forbiddenInfo == null) {
+                return string;
+            }
+            String str = forbiddenInfo.appId;
+            if (TextUtils.isEmpty(str)) {
+                return string;
+            }
+            PMSAppInfo u = jb4.i().u(str);
+            if (u != null && !TextUtils.isEmpty(u.statusDesc)) {
+                return u.statusDesc;
+            }
+            return string;
+        }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.r22
-    public void w1(int i2) {
+    public final void q3() {
+        t94 t94Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048641, this, i2) == null) {
-            if (!a43.f(this.O0)) {
-                super.w1(i2);
+        if ((interceptable != null && interceptable.invokeV(1048602, this) != null) || (t94Var = this.g0) == null) {
+            return;
+        }
+        u94 h2 = t94Var.h(46);
+        u94 h3 = this.g0.h(47);
+        if (h2 != null && this.I0 > 0) {
+            h3.o(1);
+            h3.n(this.I0);
+        }
+        if (h3 != null && this.J0 > 0) {
+            h3.o(1);
+            h3.n(this.J0);
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:83:0x024c  */
+    /* JADX WARN: Removed duplicated region for block: B:86:0x0260  */
+    /* JADX WARN: Removed duplicated region for block: B:87:0x0267  */
+    /* JADX WARN: Removed duplicated region for block: B:90:0x026e  */
+    /* JADX WARN: Removed duplicated region for block: B:91:0x0273  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void c3(View view2) {
+        String str;
+        Activity activity;
+        jo2 jo2Var;
+        String str2;
+        ForbiddenInfo forbiddenInfo;
+        String p3;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048585, this, view2) != null) || view2 == null) {
+            return;
+        }
+        ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090178);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090175);
+        TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090183);
+        TextView textView3 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09017b);
+        TextView textView4 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090177);
+        TextView textView5 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090176);
+        String str3 = this.F0;
+        boolean z = true;
+        if (str3 != null) {
+            char c2 = 65535;
+            switch (str3.hashCode()) {
+                case -1869797338:
+                    if (str3.equals("type_load_v8_failed")) {
+                        c2 = 7;
+                        break;
+                    }
+                    break;
+                case -1242268664:
+                    if (str3.equals("type_need_update_sdk")) {
+                        c2 = 4;
+                        break;
+                    }
+                    break;
+                case -429452284:
+                    if (str3.equals("type_path_forbidden")) {
+                        c2 = 1;
+                        break;
+                    }
+                    break;
+                case 38398066:
+                    if (str3.equals("type_network_error")) {
+                        c2 = 2;
+                        break;
+                    }
+                    break;
+                case 157273878:
+                    if (str3.equals("type_app_forbidden")) {
+                        c2 = 0;
+                        break;
+                    }
+                    break;
+                case 517286506:
+                    if (str3.equals("type_0049")) {
+                        c2 = 5;
+                        break;
+                    }
+                    break;
+                case 517347882:
+                    if (str3.equals("type_2205")) {
+                        c2 = 6;
+                        break;
+                    }
+                    break;
+                case 731215244:
+                    if (str3.equals("type_normal")) {
+                        c2 = 3;
+                        break;
+                    }
+                    break;
+            }
+            switch (c2) {
+                case 0:
+                    fa3.w(this.H0, "offline");
+                    p3 = p3();
+                    imageView.setImageDrawable(getContext().getDrawable(R.drawable.obfuscated_res_0x7f0811b4));
+                    textView.setVisibility(8);
+                    str = p3;
+                    break;
+                case 1:
+                    fa3.w(this.H0, "pageblock");
+                    if (TextUtils.isEmpty(this.H0.forbiddenInformation)) {
+                        p3 = getContext().getString(R.string.obfuscated_res_0x7f0f12eb);
+                    } else {
+                        p3 = this.H0.forbiddenInformation;
+                    }
+                    imageView.setImageDrawable(getContext().getDrawable(R.drawable.obfuscated_res_0x7f0811b1));
+                    if (m3(this.F0, "app_page_banned")) {
+                        textView.setVisibility(0);
+                        textView.setText(X2(this.F0));
+                    } else {
+                        textView.setVisibility(8);
+                    }
+                    if (e3()) {
+                        textView.setVisibility(8);
+                    }
+                    str = p3;
+                    break;
+                case 2:
+                    fa3.w(this.H0, "neterror");
+                    p3 = a3(this.F0, "net_conn_failed");
+                    imageView.setImageDrawable(getContext().getDrawable(R.drawable.obfuscated_res_0x7f0811b3));
+                    if (m3(this.F0, "net_conn_failed")) {
+                        textView.setVisibility(0);
+                        textView.setText(X2(this.F0));
+                    } else {
+                        textView.setVisibility(8);
+                    }
+                    textView3.setVisibility(8);
+                    str = p3;
+                    break;
+                case 3:
+                    fa3.w(this.H0, "commonerror");
+                    p3 = a3(this.F0, "app_open_failed");
+                    imageView.setImageDrawable(getContext().getDrawable(R.drawable.obfuscated_res_0x7f0811b2));
+                    if (m3(this.F0, "app_open_failed")) {
+                        textView.setVisibility(0);
+                        textView.setText(X2(this.F0));
+                    } else {
+                        textView.setVisibility(8);
+                    }
+                    str = p3;
+                    break;
+                case 4:
+                    fa3.w(this.H0, "update");
+                    str = a3(this.F0, "app_need_upgrade");
+                    if (m3(this.F0, "app_need_upgrade")) {
+                        textView.setVisibility(0);
+                        textView.setText(X2(this.F0));
+                        break;
+                    } else {
+                        textView.setVisibility(8);
+                        break;
+                    }
+                case 5:
+                    fa3.w(this.H0, "lackresources");
+                    String a3 = a3(this.F0, "0049");
+                    imageView.setImageDrawable(getContext().getDrawable(R.drawable.obfuscated_res_0x7f0811b0));
+                    if (m3(this.F0, "0049")) {
+                        textView.setVisibility(0);
+                        textView.setText(X2(this.F0));
+                    } else {
+                        textView.setVisibility(8);
+                    }
+                    str = a3;
+                    break;
+                case 6:
+                    fa3.w(this.H0, "outdisk");
+                    String a32 = a3(this.F0, "2205");
+                    imageView.setImageDrawable(getContext().getDrawable(R.drawable.obfuscated_res_0x7f0811b0));
+                    if (gh3.G()) {
+                        textView.setVisibility(0);
+                    } else {
+                        textView.setVisibility(8);
+                    }
+                    if (m3(this.F0, "2205")) {
+                        textView.setVisibility(0);
+                        textView.setText(X2(this.F0));
+                    } else {
+                        textView.setVisibility(8);
+                    }
+                    str = a32;
+                    break;
+                case 7:
+                    str = getContext().getString(R.string.obfuscated_res_0x7f0f017f);
+                    textView.setVisibility(8);
+                    break;
+            }
+            TextView textView6 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09017a);
+            if (TextUtils.isEmpty(str)) {
+                str = getContext().getString(R.string.obfuscated_res_0x7f0f12ea);
+            }
+            textView6.setText(str);
+            activity = this.c0;
+            if (!(activity instanceof SwanAppErrorActivity)) {
+                jo2Var = ((SwanAppErrorActivity) activity).x();
+            } else {
+                jo2Var = null;
+            }
+            m33 b0 = m33.b0();
+            if (jo2Var == null) {
+                str2 = jo2Var.H();
+            } else if (b0 != null) {
+                str2 = b0.O();
+            } else {
+                str2 = null;
+            }
+            forbiddenInfo = this.H0;
+            if (forbiddenInfo != null && !TextUtils.isEmpty(forbiddenInfo.forbiddenDetail)) {
+                textView3.setText("(" + this.H0.forbiddenDetail + SmallTailInfo.EMOTION_SUFFIX);
+                textView3.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0603bb));
+            }
+            l3(textView, jo2Var);
+            textView2.setOnClickListener(new b(this, jo2Var));
+            if (gh3.G() && !TextUtils.equals(this.F0, "type_network_error")) {
+                textView4.setVisibility(0);
+                textView4.setOnClickListener(new c(this, str2));
+            }
+            z = (this.N0 == 1 || TextUtils.isEmpty(this.M0)) ? false : false;
+            if (!d3() && z && uf4.d()) {
+                textView5.setVisibility(0);
+                textView2.setVisibility(0);
+                textView4.setVisibility(8);
                 return;
             }
-            x1(i2, G3() ? true : true ^ ug3.h(this.c0));
-            N3();
+            textView5.setVisibility(8);
+            textView2.setVisibility(8);
+            textView4.setVisibility(0);
+        }
+        str = null;
+        TextView textView62 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09017a);
+        if (TextUtils.isEmpty(str)) {
+        }
+        textView62.setText(str);
+        activity = this.c0;
+        if (!(activity instanceof SwanAppErrorActivity)) {
+        }
+        m33 b02 = m33.b0();
+        if (jo2Var == null) {
+        }
+        forbiddenInfo = this.H0;
+        if (forbiddenInfo != null) {
+            textView3.setText("(" + this.H0.forbiddenDetail + SmallTailInfo.EMOTION_SUFFIX);
+            textView3.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0603bb));
+        }
+        l3(textView, jo2Var);
+        textView2.setOnClickListener(new b(this, jo2Var));
+        if (gh3.G()) {
+            textView4.setVisibility(0);
+            textView4.setOnClickListener(new c(this, str2));
+        }
+        if (this.N0 == 1) {
+        }
+        if (!d3()) {
+        }
+        textView5.setVisibility(8);
+        textView2.setVisibility(8);
+        textView4.setVisibility(0);
+    }
+
+    public void h3(u94 u94Var, Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048590, this, u94Var, activity) == null) {
+            tm2.K().g(activity, u94Var);
+            j.a("notice", Z2(), this.H0);
         }
     }
 
-    public String w3(String str) {
-        InterceptResult invokeL;
+    public void i3(u94 u94Var, Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048642, this, str)) == null) {
-            if (this.I0.containsKey(str)) {
-                return this.I0.get(str).a();
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeLL(1048591, this, u94Var, activity) == null) {
+            tm2.K().b(activity, u94Var);
+            j.a("notice", Z2(), this.H0);
         }
-        return (String) invokeL.objValue;
+    }
+
+    public final void l3(TextView textView, jo2 jo2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048596, this, textView, jo2Var) == null) {
+            if (TextUtils.equals(this.K0, "1")) {
+                textView.setOnClickListener(new d(this, jo2Var));
+            } else if (TextUtils.equals(this.K0, "2")) {
+                textView.setOnClickListener(new e(this));
+            } else if (TextUtils.equals(this.K0, "3")) {
+                textView.setOnClickListener(new f(this));
+            } else if (TextUtils.equals(this.K0, "4")) {
+                if (e3()) {
+                    textView.setVisibility(8);
+                } else {
+                    textView.setOnClickListener(new g(this));
+                }
+            } else {
+                textView.setText(R.string.obfuscated_res_0x7f0f12e3);
+                textView.setOnClickListener(new h(this, jo2Var));
+            }
+        }
+    }
+
+    public final boolean m3(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048597, this, str, str2)) == null) {
+            if (TextUtils.isEmpty(str2)) {
+                return false;
+            }
+            Map g2 = of4.f().g();
+            ForbiddenInfo forbiddenInfo = this.H0;
+            if (forbiddenInfo != null) {
+                String str3 = forbiddenInfo.forbiddenDetail;
+                if (str3.length() > 4) {
+                    String substring = str3.substring(str3.length() - 4);
+                    if (!TextUtils.isEmpty(of4.l(g2, substring))) {
+                        this.K0 = of4.l(g2, substring);
+                        this.L0 = of4.n(g2, substring);
+                        return !TextUtils.equals(this.K0, "0");
+                    }
+                }
+            }
+            String l = of4.l(g2, str2);
+            this.K0 = l;
+            if (TextUtils.isEmpty(l)) {
+                if (TextUtils.equals(str, "type_path_forbidden")) {
+                    this.K0 = "4";
+                } else if (TextUtils.equals(str, "type_2205")) {
+                    this.K0 = "3";
+                } else if (TextUtils.equals(str, "type_app_forbidden")) {
+                    this.K0 = "0";
+                } else if (TextUtils.equals(str, "type_load_v8_failed")) {
+                    this.K0 = "0";
+                } else {
+                    this.K0 = "1";
+                }
+            }
+            this.L0 = of4.n(g2, str2);
+            return !TextUtils.equals(this.K0, "0");
+        }
+        return invokeLL.booleanValue;
     }
 
     @Override // com.baidu.swan.support.v4.app.Fragment
-    @DebugTrace
     public View x0(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048643, this, layoutInflater, viewGroup, bundle)) == null) {
-            pw2.a("route", "fragment onCreateView.");
-            View b2 = vx2.a().b(R.layout.obfuscated_res_0x7f0d00a6, viewGroup, false);
-            this.J0 = (FrameLayout) b2.findViewById(R.id.obfuscated_res_0x7f09017d);
-            U1(b2);
-            T2(b2);
-            this.L0 = new xe3(this);
-            h3(b2);
-            if (!ht2.e() && !ht2.f()) {
-                gt2.b(this.K0.a(), String.valueOf(ht2.d()), String.valueOf(ht2.a(ht2.b())));
-            }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048604, this, layoutInflater, viewGroup, bundle)) == null) {
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d00a2, viewGroup, false);
+            c3(inflate);
+            U1(inflate);
             if (T1()) {
-                b2 = W1(b2);
+                return W1(inflate);
             }
-            this.N0 = D1(b2, this);
-            G2(this.K0.A());
-            zt2.e().m();
-            return this.N0;
+            return inflate;
         }
         return (View) invokeLLL.objValue;
-    }
-
-    public FrameLayout x3() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048644, this)) == null) ? this.J0 : (FrameLayout) invokeV.objValue;
-    }
-
-    @Override // com.baidu.swan.support.v4.app.Fragment
-    public void y0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048645, this) == null) {
-            super.y0();
-            this.B0.a();
-            if (i.b()) {
-                fh3.q().postAtFrontOfQueue(new c(this));
-            } else {
-                j3();
-            }
-        }
-    }
-
-    public final w42 y3() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048646, this)) == null) ? new h(this) : (w42) invokeV.objValue;
-    }
-
-    public final a52 z3() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048647, this)) == null) ? new g(this) : (a52) invokeV.objValue;
     }
 }

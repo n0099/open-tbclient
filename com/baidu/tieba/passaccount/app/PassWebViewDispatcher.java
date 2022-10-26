@@ -1,15 +1,15 @@
 package com.baidu.tieba.passaccount.app;
 
 import android.content.Context;
-import com.baidu.tieba.yo4;
-import com.baidu.tieba.zf8;
+import com.baidu.tieba.jg8;
+import com.baidu.tieba.zo4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class PassWebViewDispatcher implements zf8 {
+public class PassWebViewDispatcher implements jg8 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_URL = "url";
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,12 +28,11 @@ public class PassWebViewDispatcher implements zf8 {
         }
     }
 
-    @Override // com.baidu.tieba.zf8
+    @Override // com.baidu.tieba.jg8
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) || jSONObject == null || context == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) && jSONObject != null && context != null) {
+            zo4.o(context, jSONObject.optString("url"));
         }
-        yo4.o(context, jSONObject.optString("url"));
     }
 }

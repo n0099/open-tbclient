@@ -4,7 +4,6 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.ServiceConnection;
 import android.os.IBinder;
-import androidx.annotation.Keep;
 import com.asus.msa.SupplementaryDID.IDidAidlInterface;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,24 +12,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Keep
 /* loaded from: classes.dex */
 public class SupplementaryDIDManager {
     public static /* synthetic */ Interceptable $ic = null;
-    @Keep
     public static boolean DEBUG = false;
-    @Keep
     public static final String TAG = "SupplementaryDIDManager";
     public transient /* synthetic */ FieldHolder $fh;
-    @Keep
     public boolean isBinded;
-    @Keep
     public Context mContext;
-    @Keep
     public IDidAidlInterface mDidService;
-    @Keep
     public IDIDBinderStatusListener mListener;
-    @Keep
     public ServiceConnection mServiceConnection;
 
     static {
@@ -67,7 +58,6 @@ public class SupplementaryDIDManager {
         this.mServiceConnection = new ServiceConnection(this) { // from class: com.asus.msa.sdid.SupplementaryDIDManager.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            @Keep
             public final /* synthetic */ SupplementaryDIDManager this$0;
 
             {
@@ -89,26 +79,20 @@ public class SupplementaryDIDManager {
             }
 
             @Override // android.content.ServiceConnection
-            @Keep
             public native void onServiceConnected(ComponentName componentName, IBinder iBinder);
 
             @Override // android.content.ServiceConnection
-            @Keep
             public native void onServiceDisconnected(ComponentName componentName);
         };
         this.mContext = context;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    @Keep
     public native void notifyAllListeners(boolean z);
 
-    @Keep
     public native void deInit();
 
-    @Keep
     public native void init(IDIDBinderStatusListener iDIDBinderStatusListener);
 
-    @Keep
     public native void showLog(boolean z);
 }

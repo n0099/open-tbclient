@@ -1,7 +1,6 @@
 package androidx.core.util;
 
 import android.util.Half;
-import androidx.annotation.RequiresApi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -13,19 +12,17 @@ public final class HalfKt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @RequiresApi(26)
-    public static final Half toHalf(short s) {
+    public static final Half toHalf(double d) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Short.valueOf(s)})) == null) {
-            Half valueOf = Half.valueOf(s);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Double.valueOf(d)})) == null) {
+            Half valueOf = Half.valueOf((float) d);
             Intrinsics.checkExpressionValueIsNotNull(valueOf, "Half.valueOf(this)");
             return valueOf;
         }
         return (Half) invokeCommon.objValue;
     }
 
-    @RequiresApi(26)
     public static final Half toHalf(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
@@ -37,7 +34,6 @@ public final class HalfKt {
         return (Half) invokeF.objValue;
     }
 
-    @RequiresApi(26)
     public static final Half toHalf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -49,12 +45,11 @@ public final class HalfKt {
         return (Half) invokeL.objValue;
     }
 
-    @RequiresApi(26)
-    public static final Half toHalf(double d) {
+    public static final Half toHalf(short s) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Double.valueOf(d)})) == null) {
-            Half valueOf = Half.valueOf((float) d);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Short.valueOf(s)})) == null) {
+            Half valueOf = Half.valueOf(s);
             Intrinsics.checkExpressionValueIsNotNull(valueOf, "Half.valueOf(this)");
             return valueOf;
         }

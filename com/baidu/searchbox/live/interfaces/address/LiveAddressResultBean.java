@@ -22,50 +22,118 @@ public final class LiveAddressResultBean {
     public String name;
     public String tag;
 
+    public LiveAddressResultBean(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3, str4, str5, str6, str7};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.addrId = "";
+        this.name = "";
+        this.mobile = "";
+        this.addrRegion = "";
+        this.addrInfo = "";
+        this.tag = "";
+        this.isDefault = "";
+        this.addrId = str;
+        this.name = str2;
+        this.mobile = str3;
+        this.addrRegion = str4;
+        this.addrInfo = str5;
+        this.tag = str6;
+        this.isDefault = str7;
+    }
+
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public /* synthetic */ LiveAddressResultBean(String str, String str2, String str3, String str4, String str5, String str6, String str7, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(str, str2, str3, str4, str5, (i & 32) != 0 ? "" : str6, (i & 64) != 0 ? "" : str7);
+        this(str, str2, str3, str4, str5, r8, r9);
+        String str8;
+        String str9;
+        if ((i & 32) != 0) {
+            str8 = "";
+        } else {
+            str8 = str6;
+        }
+        if ((i & 64) != 0) {
+            str9 = "";
+        } else {
+            str9 = str7;
+        }
     }
 
     public final String getAddrId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.addrId : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.addrId;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String getAddrInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.addrInfo : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.addrInfo;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String getAddrRegion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.addrRegion : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.addrRegion;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String getMobile() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mobile : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mobile;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.name : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.name;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String getTag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.tag : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.tag;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String isDefault() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.isDefault : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.isDefault;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final void setAddrId(String str) {
@@ -115,36 +183,5 @@ public final class LiveAddressResultBean {
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
             this.tag = str;
         }
-    }
-
-    public LiveAddressResultBean(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, str4, str5, str6, str7};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.addrId = "";
-        this.name = "";
-        this.mobile = "";
-        this.addrRegion = "";
-        this.addrInfo = "";
-        this.tag = "";
-        this.isDefault = "";
-        this.addrId = str;
-        this.name = str2;
-        this.mobile = str3;
-        this.addrRegion = str4;
-        this.addrInfo = str5;
-        this.tag = str6;
-        this.isDefault = str7;
     }
 }

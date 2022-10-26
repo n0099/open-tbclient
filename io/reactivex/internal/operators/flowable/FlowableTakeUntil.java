@@ -17,24 +17,24 @@ import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableTakeUntil<T, U> extends AbstractFlowableWithUpstream<T, T> {
+public final class FlowableTakeUntil extends AbstractFlowableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Publisher<? extends U> other;
+    public final Publisher other;
 
     /* loaded from: classes8.dex */
-    public static final class TakeUntilMainSubscriber<T> extends AtomicInteger implements FlowableSubscriber<T>, Subscription {
+    public final class TakeUntilMainSubscriber extends AtomicInteger implements FlowableSubscriber, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4945480365982832967L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber<? super T> actual;
+        public final Subscriber actual;
         public final AtomicThrowable error;
-        public final TakeUntilMainSubscriber<T>.OtherSubscriber other;
+        public final OtherSubscriber other;
         public final AtomicLong requested;
-        public final AtomicReference<Subscription> s;
+        public final AtomicReference s;
 
         /* loaded from: classes8.dex */
-        public final class OtherSubscriber extends AtomicReference<Subscription> implements FlowableSubscriber<Object> {
+        public final class OtherSubscriber extends AtomicReference implements FlowableSubscriber {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -3592821756711087922L;
             public transient /* synthetic */ FieldHolder $fh;
@@ -56,16 +56,6 @@ public final class FlowableTakeUntil<T, U> extends AbstractFlowableWithUpstream<
                     }
                 }
                 this.this$0 = takeUntilMainSubscriber;
-            }
-
-            @Override // org.reactivestreams.Subscriber
-            public void onComplete() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    SubscriptionHelper.cancel(this.this$0.s);
-                    TakeUntilMainSubscriber takeUntilMainSubscriber = this.this$0;
-                    HalfSerializer.onComplete(takeUntilMainSubscriber.actual, takeUntilMainSubscriber, takeUntilMainSubscriber.error);
-                }
             }
 
             @Override // org.reactivestreams.Subscriber
@@ -94,9 +84,19 @@ public final class FlowableTakeUntil<T, U> extends AbstractFlowableWithUpstream<
                     SubscriptionHelper.setOnce(this, subscription, Long.MAX_VALUE);
                 }
             }
+
+            @Override // org.reactivestreams.Subscriber
+            public void onComplete() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    SubscriptionHelper.cancel(this.this$0.s);
+                    TakeUntilMainSubscriber takeUntilMainSubscriber = this.this$0;
+                    HalfSerializer.onComplete(takeUntilMainSubscriber.actual, takeUntilMainSubscriber, takeUntilMainSubscriber.error);
+                }
+            }
         }
 
-        public TakeUntilMainSubscriber(Subscriber<? super T> subscriber) {
+        public TakeUntilMainSubscriber(Subscriber subscriber) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -113,7 +113,7 @@ public final class FlowableTakeUntil<T, U> extends AbstractFlowableWithUpstream<
             }
             this.actual = subscriber;
             this.requested = new AtomicLong();
-            this.s = new AtomicReference<>();
+            this.s = new AtomicReference();
             this.other = new OtherSubscriber(this);
             this.error = new AtomicThrowable();
         }
@@ -146,10 +146,10 @@ public final class FlowableTakeUntil<T, U> extends AbstractFlowableWithUpstream<
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
-                HalfSerializer.onNext(this.actual, t, this, this.error);
+            if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
+                HalfSerializer.onNext(this.actual, obj, this, this.error);
             }
         }
 
@@ -171,7 +171,7 @@ public final class FlowableTakeUntil<T, U> extends AbstractFlowableWithUpstream<
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableTakeUntil(Flowable<T> flowable, Publisher<? extends U> publisher) {
+    public FlowableTakeUntil(Flowable flowable, Publisher publisher) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -192,7 +192,7 @@ public final class FlowableTakeUntil<T, U> extends AbstractFlowableWithUpstream<
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber<? super T> subscriber) {
+    public void subscribeActual(Subscriber subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             TakeUntilMainSubscriber takeUntilMainSubscriber = new TakeUntilMainSubscriber(subscriber);

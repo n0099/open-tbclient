@@ -14,130 +14,34 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public interface IAudioListener extends IInterface {
+    void onCanPlay() throws RemoteException;
+
+    void onChangeSrc(String str) throws RemoteException;
+
+    void onDownloadProgress(int i) throws RemoteException;
+
+    void onEnded() throws RemoteException;
+
+    void onError(int i) throws RemoteException;
+
+    void onNext() throws RemoteException;
+
+    void onPause() throws RemoteException;
+
+    void onPlay() throws RemoteException;
+
+    void onPrev() throws RemoteException;
+
+    void onSeekEnd() throws RemoteException;
+
+    void onSeeking() throws RemoteException;
+
+    void onStop() throws RemoteException;
+
+    void onTimeUpdate(int i, int i2) throws RemoteException;
 
     /* loaded from: classes2.dex */
-    public static class Default implements IAudioListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public Default() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // android.os.IInterface
-        public IBinder asBinder() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return null;
-            }
-            return (IBinder) invokeV.objValue;
-        }
-
-        @Override // com.baidu.swan.apps.IAudioListener
-        public void onCanPlay() throws RemoteException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.swan.apps.IAudioListener
-        public void onChangeSrc(String str) throws RemoteException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            }
-        }
-
-        @Override // com.baidu.swan.apps.IAudioListener
-        public void onDownloadProgress(int i) throws RemoteException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            }
-        }
-
-        @Override // com.baidu.swan.apps.IAudioListener
-        public void onEnded() throws RemoteException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.swan.apps.IAudioListener
-        public void onError(int i) throws RemoteException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            }
-        }
-
-        @Override // com.baidu.swan.apps.IAudioListener
-        public void onNext() throws RemoteException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.swan.apps.IAudioListener
-        public void onPause() throws RemoteException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.swan.apps.IAudioListener
-        public void onPlay() throws RemoteException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.swan.apps.IAudioListener
-        public void onPrev() throws RemoteException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.swan.apps.IAudioListener
-        public void onSeekEnd() throws RemoteException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.swan.apps.IAudioListener
-        public void onSeeking() throws RemoteException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.swan.apps.IAudioListener
-        public void onStop() throws RemoteException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.swan.apps.IAudioListener
-        public void onTimeUpdate(int i, int i2) throws RemoteException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(1048589, this, i, i2) == null) {
-            }
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public static abstract class Stub extends Binder implements IAudioListener {
+    public abstract class Stub extends Binder implements IAudioListener {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DESCRIPTOR = "com.baidu.swan.apps.IAudioListener";
         public static final int TRANSACTION_onCanPlay = 1;
@@ -155,12 +59,25 @@ public interface IAudioListener extends IInterface {
         public static final int TRANSACTION_onTimeUpdate = 7;
         public transient /* synthetic */ FieldHolder $fh;
 
+        @Override // android.os.IInterface
+        public IBinder asBinder() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (IBinder) invokeV.objValue;
+        }
+
         /* loaded from: classes2.dex */
-        public static class Proxy implements IAudioListener {
+        public class Proxy implements IAudioListener {
             public static /* synthetic */ Interceptable $ic;
             public static IAudioListener sDefaultImpl;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder mRemote;
+
+            public String getInterfaceDescriptor() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Stub.DESCRIPTOR : (String) invokeV.objValue;
+            }
 
             public Proxy(IBinder iBinder) {
                 Interceptable interceptable = $ic;
@@ -184,13 +101,10 @@ public interface IAudioListener extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mRemote : (IBinder) invokeV.objValue;
-            }
-
-            public String getInterfaceDescriptor() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Stub.DESCRIPTOR : (String) invokeV.objValue;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                    return this.mRemote;
+                }
+                return (IBinder) invokeV.objValue;
             }
 
             @Override // com.baidu.swan.apps.IAudioListener
@@ -214,48 +128,6 @@ public interface IAudioListener extends IInterface {
             }
 
             @Override // com.baidu.swan.apps.IAudioListener
-            public void onChangeSrc(String str) throws RemoteException {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-                    Parcel obtain = Parcel.obtain();
-                    Parcel obtain2 = Parcel.obtain();
-                    try {
-                        obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                        obtain.writeString(str);
-                        if (!this.mRemote.transact(6, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
-                            Stub.getDefaultImpl().onChangeSrc(str);
-                        } else {
-                            obtain2.readException();
-                        }
-                    } finally {
-                        obtain2.recycle();
-                        obtain.recycle();
-                    }
-                }
-            }
-
-            @Override // com.baidu.swan.apps.IAudioListener
-            public void onDownloadProgress(int i) throws RemoteException {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-                    Parcel obtain = Parcel.obtain();
-                    Parcel obtain2 = Parcel.obtain();
-                    try {
-                        obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                        obtain.writeInt(i);
-                        if (!this.mRemote.transact(9, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
-                            Stub.getDefaultImpl().onDownloadProgress(i);
-                        } else {
-                            obtain2.readException();
-                        }
-                    } finally {
-                        obtain2.recycle();
-                        obtain.recycle();
-                    }
-                }
-            }
-
-            @Override // com.baidu.swan.apps.IAudioListener
             public void onEnded() throws RemoteException {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -265,27 +137,6 @@ public interface IAudioListener extends IInterface {
                         obtain.writeInterfaceToken(Stub.DESCRIPTOR);
                         if (!this.mRemote.transact(5, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                             Stub.getDefaultImpl().onEnded();
-                        } else {
-                            obtain2.readException();
-                        }
-                    } finally {
-                        obtain2.recycle();
-                        obtain.recycle();
-                    }
-                }
-            }
-
-            @Override // com.baidu.swan.apps.IAudioListener
-            public void onError(int i) throws RemoteException {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-                    Parcel obtain = Parcel.obtain();
-                    Parcel obtain2 = Parcel.obtain();
-                    try {
-                        obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                        obtain.writeInt(i);
-                        if (!this.mRemote.transact(8, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
-                            Stub.getDefaultImpl().onError(i);
                         } else {
                             obtain2.readException();
                         }
@@ -437,6 +288,69 @@ public interface IAudioListener extends IInterface {
             }
 
             @Override // com.baidu.swan.apps.IAudioListener
+            public void onChangeSrc(String str) throws RemoteException {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+                    Parcel obtain = Parcel.obtain();
+                    Parcel obtain2 = Parcel.obtain();
+                    try {
+                        obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                        obtain.writeString(str);
+                        if (!this.mRemote.transact(6, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                            Stub.getDefaultImpl().onChangeSrc(str);
+                        } else {
+                            obtain2.readException();
+                        }
+                    } finally {
+                        obtain2.recycle();
+                        obtain.recycle();
+                    }
+                }
+            }
+
+            @Override // com.baidu.swan.apps.IAudioListener
+            public void onDownloadProgress(int i) throws RemoteException {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+                    Parcel obtain = Parcel.obtain();
+                    Parcel obtain2 = Parcel.obtain();
+                    try {
+                        obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                        obtain.writeInt(i);
+                        if (!this.mRemote.transact(9, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                            Stub.getDefaultImpl().onDownloadProgress(i);
+                        } else {
+                            obtain2.readException();
+                        }
+                    } finally {
+                        obtain2.recycle();
+                        obtain.recycle();
+                    }
+                }
+            }
+
+            @Override // com.baidu.swan.apps.IAudioListener
+            public void onError(int i) throws RemoteException {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+                    Parcel obtain = Parcel.obtain();
+                    Parcel obtain2 = Parcel.obtain();
+                    try {
+                        obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                        obtain.writeInt(i);
+                        if (!this.mRemote.transact(8, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                            Stub.getDefaultImpl().onError(i);
+                        } else {
+                            obtain2.readException();
+                        }
+                    } finally {
+                        obtain2.recycle();
+                        obtain.recycle();
+                    }
+                }
+            }
+
+            @Override // com.baidu.swan.apps.IAudioListener
             public void onTimeUpdate(int i, int i2) throws RemoteException {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeII(1048590, this, i, i2) == null) {
@@ -475,6 +389,15 @@ public interface IAudioListener extends IInterface {
             attachInterface(this, DESCRIPTOR);
         }
 
+        public static IAudioListener getDefaultImpl() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+                return Proxy.sDefaultImpl;
+            }
+            return (IAudioListener) invokeV.objValue;
+        }
+
         public static IAudioListener asInterface(IBinder iBinder) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -491,30 +414,17 @@ public interface IAudioListener extends IInterface {
             return (IAudioListener) invokeL.objValue;
         }
 
-        public static IAudioListener getDefaultImpl() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Proxy.sDefaultImpl : (IAudioListener) invokeV.objValue;
-        }
-
         public static boolean setDefaultImpl(IAudioListener iAudioListener) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, iAudioListener)) == null) {
-                if (Proxy.sDefaultImpl != null || iAudioListener == null) {
-                    return false;
+                if (Proxy.sDefaultImpl == null && iAudioListener != null) {
+                    Proxy.sDefaultImpl = iAudioListener;
+                    return true;
                 }
-                Proxy.sDefaultImpl = iAudioListener;
-                return true;
+                return false;
             }
             return invokeL.booleanValue;
-        }
-
-        @Override // android.os.IInterface
-        public IBinder asBinder() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (IBinder) invokeV.objValue;
         }
 
         @Override // android.os.Binder
@@ -600,29 +510,124 @@ public interface IAudioListener extends IInterface {
         }
     }
 
-    void onCanPlay() throws RemoteException;
+    /* loaded from: classes2.dex */
+    public class Default implements IAudioListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    void onChangeSrc(String str) throws RemoteException;
+        @Override // android.os.IInterface
+        public IBinder asBinder() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return null;
+            }
+            return (IBinder) invokeV.objValue;
+        }
 
-    void onDownloadProgress(int i) throws RemoteException;
+        @Override // com.baidu.swan.apps.IAudioListener
+        public void onCanPlay() throws RemoteException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
+        }
 
-    void onEnded() throws RemoteException;
+        @Override // com.baidu.swan.apps.IAudioListener
+        public void onChangeSrc(String str) throws RemoteException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            }
+        }
 
-    void onError(int i) throws RemoteException;
+        @Override // com.baidu.swan.apps.IAudioListener
+        public void onDownloadProgress(int i) throws RemoteException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            }
+        }
 
-    void onNext() throws RemoteException;
+        @Override // com.baidu.swan.apps.IAudioListener
+        public void onEnded() throws RemoteException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            }
+        }
 
-    void onPause() throws RemoteException;
+        @Override // com.baidu.swan.apps.IAudioListener
+        public void onError(int i) throws RemoteException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            }
+        }
 
-    void onPlay() throws RemoteException;
+        @Override // com.baidu.swan.apps.IAudioListener
+        public void onNext() throws RemoteException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            }
+        }
 
-    void onPrev() throws RemoteException;
+        @Override // com.baidu.swan.apps.IAudioListener
+        public void onPause() throws RemoteException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            }
+        }
 
-    void onSeekEnd() throws RemoteException;
+        @Override // com.baidu.swan.apps.IAudioListener
+        public void onPlay() throws RemoteException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            }
+        }
 
-    void onSeeking() throws RemoteException;
+        @Override // com.baidu.swan.apps.IAudioListener
+        public void onPrev() throws RemoteException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            }
+        }
 
-    void onStop() throws RemoteException;
+        @Override // com.baidu.swan.apps.IAudioListener
+        public void onSeekEnd() throws RemoteException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            }
+        }
 
-    void onTimeUpdate(int i, int i2) throws RemoteException;
+        @Override // com.baidu.swan.apps.IAudioListener
+        public void onSeeking() throws RemoteException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.swan.apps.IAudioListener
+        public void onStop() throws RemoteException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.swan.apps.IAudioListener
+        public void onTimeUpdate(int i, int i2) throws RemoteException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(1048589, this, i, i2) == null) {
+            }
+        }
+
+        public Default() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
 }

@@ -10,6 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.tun2tornadolite.booster.data.TornadoLiteRuntime;
 /* loaded from: classes5.dex */
 public interface OnStatusChangedListener {
+    void onStatusChange(VideoStatus videoStatus);
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes5.dex */
@@ -79,15 +80,19 @@ public interface OnStatusChangedListener {
         public static VideoStatus valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (VideoStatus) Enum.valueOf(VideoStatus.class, str) : (VideoStatus) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (VideoStatus) Enum.valueOf(VideoStatus.class, str);
+            }
+            return (VideoStatus) invokeL.objValue;
         }
 
         public static VideoStatus[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (VideoStatus[]) $VALUES.clone() : (VideoStatus[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (VideoStatus[]) $VALUES.clone();
+            }
+            return (VideoStatus[]) invokeV.objValue;
         }
     }
-
-    void onStatusChange(VideoStatus videoStatus);
 }

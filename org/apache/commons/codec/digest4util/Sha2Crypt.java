@@ -1,6 +1,5 @@
 package org.apache.commons.codec.digest4util;
 
-import android.annotation.SuppressLint;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -61,10 +60,45 @@ public class Sha2Crypt {
     public static String sha256Crypt(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) ? sha256Crypt(bArr, null) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
+            return sha256Crypt(bArr, null);
+        }
+        return (String) invokeL.objValue;
     }
 
-    @SuppressLint({"BDThrowableCheck"})
+    public static String sha512Crypt(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) {
+            return sha512Crypt(bArr, null);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String sha256Crypt(byte[] bArr, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, bArr, str)) == null) {
+            if (str == null) {
+                str = SHA256_PREFIX + B64.getRandomSalt(8);
+            }
+            return sha2Crypt(bArr, str, SHA256_PREFIX, 32, "SHA-256");
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String sha512Crypt(byte[] bArr, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, bArr, str)) == null) {
+            if (str == null) {
+                str = SHA512_PREFIX + B64.getRandomSalt(8);
+            }
+            return sha2Crypt(bArr, str, SHA512_PREFIX, 64, "SHA-512");
+        }
+        return (String) invokeLL.objValue;
+    }
+
     public static String sha2Crypt(byte[] bArr, String str, String str2, int i, String str3) {
         InterceptResult invokeCommon;
         int i2;
@@ -224,35 +258,5 @@ public class Sha2Crypt {
             throw new IllegalArgumentException("Salt must not be null");
         }
         return (String) invokeCommon.objValue;
-    }
-
-    public static String sha512Crypt(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) ? sha512Crypt(bArr, null) : (String) invokeL.objValue;
-    }
-
-    public static String sha256Crypt(byte[] bArr, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, bArr, str)) == null) {
-            if (str == null) {
-                str = SHA256_PREFIX + B64.getRandomSalt(8);
-            }
-            return sha2Crypt(bArr, str, SHA256_PREFIX, 32, "SHA-256");
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String sha512Crypt(byte[] bArr, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, bArr, str)) == null) {
-            if (str == null) {
-                str = SHA512_PREFIX + B64.getRandomSalt(8);
-            }
-            return sha2Crypt(bArr, str, SHA512_PREFIX, 64, "SHA-512");
-        }
-        return (String) invokeLL.objValue;
     }
 }

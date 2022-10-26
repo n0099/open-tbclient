@@ -21,7 +21,7 @@ public class a {
 
     /* renamed from: com.baidu.pass.common.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0120a {
+    public class C0121a {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String a = "UTF-8";
         public static final String b = "AES/CBC/NoPadding";
@@ -32,7 +32,7 @@ public class a {
         public String f;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public C0120a() {
+        public C0121a() {
             this("AES", "AES/CBC/NoPadding", "UTF-8");
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -48,6 +48,29 @@ public class a {
                     return;
                 }
             }
+        }
+
+        public C0121a(String str, String str2, String str3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, str2, str3};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.d = "UTF-8";
+            this.e = "AES/CBC/NoPadding";
+            this.f = "AES";
+            this.f = str;
+            this.e = str2;
+            this.d = str3;
         }
 
         public byte[] a(String str, String str2, String str3) throws Exception {
@@ -74,27 +97,17 @@ public class a {
             return (byte[]) invokeLLL.objValue;
         }
 
-        public C0120a(String str, String str2, String str3) {
+        private String a(String str) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2, str3};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
+                int length = 16 - (str.getBytes().length % 16);
+                for (int i = 0; i < length; i++) {
+                    str = str + WebvttCueParser.CHAR_SPACE;
                 }
+                return str;
             }
-            this.d = "UTF-8";
-            this.e = "AES/CBC/NoPadding";
-            this.f = "AES";
-            this.f = str;
-            this.e = str2;
-            this.d = str3;
+            return (String) invokeL.objValue;
         }
 
         public byte[] a(byte[] bArr, String str, String str2) throws Exception {
@@ -118,19 +131,6 @@ public class a {
             }
             return (byte[]) invokeLLL.objValue;
         }
-
-        private String a(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
-                int length = 16 - (str.getBytes().length % 16);
-                for (int i = 0; i < length; i++) {
-                    str = str + WebvttCueParser.CHAR_SPACE;
-                }
-                return str;
-            }
-            return (String) invokeL.objValue;
-        }
     }
 
     public a() {
@@ -145,22 +145,6 @@ public class a {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    public String a(byte[] bArr, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, z)) == null) {
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.reset();
-                messageDigest.update(bArr);
-                return a(messageDigest.digest(), "", z);
-            } catch (NoSuchAlgorithmException e) {
-                throw new RuntimeException(e);
-            }
-        }
-        return (String) invokeLZ.objValue;
     }
 
     private String a(byte[] bArr, String str, boolean z) {
@@ -193,51 +177,67 @@ public class a {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
-            if (bArr == null || bArr.length == 0) {
-                return "";
-            }
-            StringBuilder sb = new StringBuilder();
-            int length = bArr.length * 8;
-            int i2 = 0;
-            int i3 = 6;
-            int i4 = 0;
-            int i5 = 0;
-            byte b = 0;
-            do {
-                if (i2 > 0 && i3 > 0) {
-                    if (i4 >= 0 && i4 < bArr.length - 1) {
-                        b = (byte) (((bArr[i4] & 255) << i3) | ((bArr[i4 + 1] & 255) >> (8 - i3)));
+            if (bArr != null && bArr.length != 0) {
+                StringBuilder sb = new StringBuilder();
+                int length = bArr.length * 8;
+                int i2 = 0;
+                int i3 = 6;
+                int i4 = 0;
+                int i5 = 0;
+                byte b = 0;
+                do {
+                    if (i2 > 0 && i3 > 0) {
+                        if (i4 >= 0 && i4 < bArr.length - 1) {
+                            b = (byte) (((bArr[i4] & 255) << i3) | ((bArr[i4 + 1] & 255) >> (8 - i3)));
+                        }
+                        b = (byte) (b & 63);
+                        i2 = 8 - i3;
+                        i3 = 6 - i2;
+                    } else if (i2 == 0) {
+                        if (i4 >= 0 && i4 < bArr.length) {
+                            b = (byte) ((bArr[i4] & 255) >> (8 - i3));
+                        }
+                        i2 = 2;
+                        i3 = 4;
+                    } else if (i3 == 0) {
+                        if (i4 >= 0 && i4 < bArr.length) {
+                            b = (byte) (bArr[i4] & 63);
+                        }
+                        i2 = 0;
+                        i3 = 6;
                     }
-                    b = (byte) (b & 63);
-                    i2 = 8 - i3;
-                    i3 = 6 - i2;
-                } else if (i2 == 0) {
-                    if (i4 >= 0 && i4 < bArr.length) {
-                        b = (byte) ((bArr[i4] & 255) >> (8 - i3));
-                    }
-                    i2 = 2;
-                    i3 = 4;
-                } else if (i3 == 0) {
-                    if (i4 >= 0 && i4 < bArr.length) {
-                        b = (byte) (bArr[i4] & 63);
-                    }
-                    i2 = 0;
-                    i3 = 6;
+                    sb.append("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".charAt(b));
+                    i5 += 6;
+                    i4 = i5 / 8;
+                    i = length - i5;
+                } while (i >= 6);
+                if (i > 0) {
+                    sb.append("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".charAt((byte) ((bArr[bArr.length - 1] << (6 - i)) & 63)));
                 }
-                sb.append("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".charAt(b));
-                i5 += 6;
-                i4 = i5 / 8;
-                i = length - i5;
-            } while (i >= 6);
-            if (i > 0) {
-                sb.append("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".charAt((byte) ((bArr[bArr.length - 1] << (6 - i)) & 63)));
+                int i6 = length % 3;
+                for (int i7 = 0; i7 < i6; i7++) {
+                    sb.append("=");
+                }
+                return sb.toString();
             }
-            int i6 = length % 3;
-            for (int i7 = 0; i7 < i6; i7++) {
-                sb.append("=");
-            }
-            return sb.toString();
+            return "";
         }
         return (String) invokeL.objValue;
+    }
+
+    public String a(byte[] bArr, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, z)) == null) {
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.reset();
+                messageDigest.update(bArr);
+                return a(messageDigest.digest(), "", z);
+            } catch (NoSuchAlgorithmException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return (String) invokeLZ.objValue;
     }
 }

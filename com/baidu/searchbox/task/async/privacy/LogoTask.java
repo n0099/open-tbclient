@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.da;
-import com.baidu.tieba.ox4;
-import com.baidu.tieba.sd5;
+import com.baidu.tieba.ux4;
+import com.baidu.tieba.yd5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,6 +26,23 @@ public class LogoTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean mIsFirstUse;
+
+    @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
+    public String getName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "LogoTask" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
+    public int getProcess() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 1;
+        }
+        return invokeV.intValue;
+    }
 
     public LogoTask() {
         Interceptable interceptable = $ic;
@@ -76,29 +93,12 @@ public class LogoTask extends LaunchTask {
             if (this.mIsFirstUse) {
                 TbadkSettings.getInst().saveBoolean("first_sync_image_quality", true);
                 TbadkCoreApplication.getInst().setIsAbstractOn(0);
-                ox4.k().u("frs_first_in", true);
+                ux4.k().u("frs_first_in", true);
             }
             if (TbSingleton.getInstance().isAuditPackageSwitchOn()) {
                 NASLib.onAppStart(TbadkCoreApplication.getInst());
             }
-            sd5.b().z(this.mIsFirstUse);
+            yd5.b().z(this.mIsFirstUse);
         }
-    }
-
-    @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
-    public String getName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "LogoTask" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
-    public int getProcess() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 1;
-        }
-        return invokeV.intValue;
     }
 }

@@ -63,7 +63,10 @@ public class VideoBlockUploadResult extends OrmObject implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             Error error = this.error;
-            return error != null && error.errno == 0;
+            if (error != null && error.errno == 0) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }

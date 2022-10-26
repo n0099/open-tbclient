@@ -27,50 +27,58 @@ public final class Utf8 {
     public static long size(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? size(str, 0, str.length()) : invokeL.longValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return size(str, 0, str.length());
+        }
+        return invokeL.longValue;
     }
 
     public static long size(String str, int i, int i2) {
         InterceptResult invokeLII;
         long j;
+        char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65538, null, str, i, i2)) == null) {
             if (str != null) {
-                if (i < 0) {
-                    throw new IllegalArgumentException("beginIndex < 0: " + i);
-                } else if (i2 >= i) {
-                    if (i2 > str.length()) {
+                if (i >= 0) {
+                    if (i2 >= i) {
+                        if (i2 <= str.length()) {
+                            long j2 = 0;
+                            while (i < i2) {
+                                char charAt = str.charAt(i);
+                                if (charAt < 128) {
+                                    j2++;
+                                } else {
+                                    if (charAt < 2048) {
+                                        j = 2;
+                                    } else if (charAt >= 55296 && charAt <= 57343) {
+                                        int i3 = i + 1;
+                                        if (i3 < i2) {
+                                            c = str.charAt(i3);
+                                        } else {
+                                            c = 0;
+                                        }
+                                        if (charAt <= 56319 && c >= 56320 && c <= 57343) {
+                                            j2 += 4;
+                                            i += 2;
+                                        } else {
+                                            j2++;
+                                            i = i3;
+                                        }
+                                    } else {
+                                        j = 3;
+                                    }
+                                    j2 += j;
+                                }
+                                i++;
+                            }
+                            return j2;
+                        }
                         throw new IllegalArgumentException("endIndex > string.length: " + i2 + " > " + str.length());
                     }
-                    long j2 = 0;
-                    while (i < i2) {
-                        char charAt = str.charAt(i);
-                        if (charAt < 128) {
-                            j2++;
-                        } else {
-                            if (charAt < 2048) {
-                                j = 2;
-                            } else if (charAt < 55296 || charAt > 57343) {
-                                j = 3;
-                            } else {
-                                int i3 = i + 1;
-                                char charAt2 = i3 < i2 ? str.charAt(i3) : (char) 0;
-                                if (charAt > 56319 || charAt2 < 56320 || charAt2 > 57343) {
-                                    j2++;
-                                    i = i3;
-                                } else {
-                                    j2 += 4;
-                                    i += 2;
-                                }
-                            }
-                            j2 += j;
-                        }
-                        i++;
-                    }
-                    return j2;
-                } else {
                     throw new IllegalArgumentException("endIndex < beginIndex: " + i2 + " < " + i);
                 }
+                throw new IllegalArgumentException("beginIndex < 0: " + i);
             }
             throw new IllegalArgumentException("string == null");
         }

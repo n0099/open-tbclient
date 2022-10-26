@@ -9,10 +9,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.references.CloseableReference;
 import com.facebook.datasource.AbstractDataSource;
 import javax.annotation.Nullable;
-import javax.annotation.concurrent.ThreadSafe;
-@ThreadSafe
 /* loaded from: classes7.dex */
-public final class SettableDataSource<T> extends AbstractDataSource<CloseableReference<T>> {
+public final class SettableDataSource extends AbstractDataSource {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,49 +28,61 @@ public final class SettableDataSource<T> extends AbstractDataSource<CloseableRef
         }
     }
 
-    public static <V> SettableDataSource<V> create() {
+    public static SettableDataSource create() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new SettableDataSource<>() : (SettableDataSource) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new SettableDataSource();
+        }
+        return (SettableDataSource) invokeV.objValue;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.DataSource
+    @Nullable
+    public CloseableReference getResult() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return CloseableReference.cloneOrNull((CloseableReference) super.getResult());
+        }
+        return (CloseableReference) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.datasource.AbstractDataSource
-    public /* bridge */ /* synthetic */ void closeResult(@Nullable Object obj) {
-        closeResult((CloseableReference) ((CloseableReference) obj));
+    public void closeResult(@Nullable CloseableReference closeableReference) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, closeableReference) == null) {
+            CloseableReference.closeSafely(closeableReference);
+        }
     }
 
-    public boolean set(@Nullable CloseableReference<T> closeableReference) {
+    public boolean set(@Nullable CloseableReference closeableReference) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, closeableReference)) == null) ? super.setResult(CloseableReference.cloneOrNull(closeableReference), true, null) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, closeableReference)) == null) {
+            return super.setResult(CloseableReference.cloneOrNull(closeableReference), true, null);
+        }
+        return invokeL.booleanValue;
     }
 
     public boolean setException(Throwable th) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, th)) == null) ? super.setFailure(th) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, th)) == null) {
+            return super.setFailure(th);
+        }
+        return invokeL.booleanValue;
     }
 
     @Override // com.facebook.datasource.AbstractDataSource
     public boolean setProgress(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(1048582, this, f)) == null) ? super.setProgress(f) : invokeF.booleanValue;
-    }
-
-    public void closeResult(@Nullable CloseableReference<T> closeableReference) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, closeableReference) == null) {
-            CloseableReference.closeSafely((CloseableReference<?>) closeableReference);
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048582, this, f)) == null) {
+            return super.setProgress(f);
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.DataSource
-    @Nullable
-    public CloseableReference<T> getResult() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? CloseableReference.cloneOrNull((CloseableReference) super.getResult()) : (CloseableReference) invokeV.objValue;
+        return invokeF.booleanValue;
     }
 }

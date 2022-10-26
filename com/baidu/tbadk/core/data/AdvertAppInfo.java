@@ -1,7 +1,6 @@
 package com.baidu.tbadk.core.data;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
@@ -9,18 +8,18 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.RecommendDetailActivityConfig;
 import com.baidu.tbadk.core.util.TiebaMainDatabaseHelper;
 import com.baidu.tbadk.switchs.AppLegoSwitch;
-import com.baidu.tieba.ah7;
-import com.baidu.tieba.ar4;
-import com.baidu.tieba.ce8;
-import com.baidu.tieba.ci0;
-import com.baidu.tieba.dh;
-import com.baidu.tieba.dr4;
-import com.baidu.tieba.hq4;
+import com.baidu.tieba.cr4;
+import com.baidu.tieba.di0;
+import com.baidu.tieba.eh;
+import com.baidu.tieba.fr4;
+import com.baidu.tieba.jq4;
 import com.baidu.tieba.lego.card.exception.CardParseException;
 import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.tieba.lh7;
 import com.baidu.tieba.me8;
-import com.baidu.tieba.ms4;
-import com.baidu.tieba.og7;
+import com.baidu.tieba.os4;
+import com.baidu.tieba.we8;
+import com.baidu.tieba.zg7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,7 +33,7 @@ import org.json.JSONObject;
 import tbclient.App;
 import tbclient.GoodsInfo;
 /* loaded from: classes3.dex */
-public class AdvertAppInfo extends ThreadData implements ms4, me8 {
+public class AdvertAppInfo extends ThreadData implements os4, we8 {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId A;
     public static final BdUniqueId B;
@@ -59,7 +58,7 @@ public class AdvertAppInfo extends ThreadData implements ms4, me8 {
     public String f;
     public String g;
     public ILegoAdvert h;
-    public dr4 i;
+    public fr4 i;
     public String j;
     public int k;
     public String l;
@@ -68,7 +67,7 @@ public class AdvertAppInfo extends ThreadData implements ms4, me8 {
     public String o;
     public String p;
     public String q;
-    public ci0 r;
+    public di0 r;
     public int s;
     public String t;
     public int u;
@@ -81,9 +80,8 @@ public class AdvertAppInfo extends ThreadData implements ms4, me8 {
 
         AdvertAppInfo getAdvertAppInfo();
 
-        ar4 getAppInfoModel();
+        cr4 getAppInfoModel();
 
-        @NonNull
         String getDownloadId();
 
         String getDownloadKey();
@@ -92,12 +90,19 @@ public class AdvertAppInfo extends ThreadData implements ms4, me8 {
 
         int getGoodsStyle();
 
-        @Override // com.baidu.tieba.lego.card.model.ICardInfo, com.baidu.tieba.Cdo
+        @Override // com.baidu.tieba.lego.card.model.ICardInfo, com.baidu.tieba.eo
         /* synthetic */ BdUniqueId getType();
 
         boolean isNoPicAd();
 
         void setAdvertAppInfo(AdvertAppInfo advertAppInfo);
+    }
+
+    @Override // com.baidu.tieba.os4
+    public AdvertAppInfo p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this : (AdvertAppInfo) invokeV.objValue;
     }
 
     static {
@@ -154,8 +159,116 @@ public class AdvertAppInfo extends ThreadData implements ms4, me8 {
         this.s = 0;
     }
 
-    @NonNull
-    public static AdvertAppInfo t(@NonNull JSONObject jSONObject) {
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.g;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.os4
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String getDownloadId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (h()) {
+                return this.h.getDownloadId();
+            }
+            return "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        ILegoAdvert iLegoAdvert;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (this.c != 1001 && this.m == 3 && (iLegoAdvert = this.h) != null) {
+                return iLegoAdvert.checkIsAppAdvert();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            String str = this.a;
+            int i2 = 0;
+            if (str != null) {
+                i = str.hashCode();
+            } else {
+                i = 0;
+            }
+            String str2 = this.g;
+            if (str2 != null) {
+                i2 = str2.hashCode();
+            }
+            return i + i2;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.os4
+    public int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.position;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            ILegoAdvert iLegoAdvert = this.h;
+            if (iLegoAdvert == null) {
+                return false;
+            }
+            int goodsStyle = iLegoAdvert.getGoodsStyle();
+            if (goodsStyle != 2 && goodsStyle != 8) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            ILegoAdvert iLegoAdvert = this.h;
+            if (iLegoAdvert == null) {
+                return false;
+            }
+            int goodsStyle = iLegoAdvert.getGoodsStyle();
+            if (goodsStyle != 7 && goodsStyle != 14) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static AdvertAppInfo t(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
@@ -168,7 +281,7 @@ public class AdvertAppInfo extends ThreadData implements ms4, me8 {
         return (AdvertAppInfo) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.me8
+    @Override // com.baidu.tieba.we8
     public void a(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
@@ -176,45 +289,66 @@ public class AdvertAppInfo extends ThreadData implements ms4, me8 {
         }
     }
 
-    @Override // com.baidu.tieba.me8
+    @Override // com.baidu.tieba.os4
+    public void setPosition(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            this.position = i;
+            this.e = true;
+        }
+    }
+
+    @Override // com.baidu.tieba.we8
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c == 1001 || getType() == w || getType() == x || getType() == y : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.c != 1001 && getType() != w && getType() != x && getType() != y) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
-    public String c() {
+    public boolean l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.g : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ms4
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            int i = this.c;
+            if (i == 1001 || i == -1001) {
+                return true;
+            }
+            if (this.m == 1 && !TextUtils.isEmpty(this.n) && !TextUtils.isEmpty(this.n.trim())) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
-            if (obj != null && (obj instanceof AdvertAppInfo)) {
-                AdvertAppInfo advertAppInfo = (AdvertAppInfo) obj;
-                return TextUtils.equals(advertAppInfo.a, this.a) && TextUtils.equals(advertAppInfo.g, this.g);
+            if (obj == null || !(obj instanceof AdvertAppInfo)) {
+                return false;
             }
-            return false;
+            AdvertAppInfo advertAppInfo = (AdvertAppInfo) obj;
+            if (!TextUtils.equals(advertAppInfo.a, this.a) || !TextUtils.equals(advertAppInfo.g, this.g)) {
+                return false;
+            }
+            return true;
         }
         return invokeL.booleanValue;
     }
 
-    public void f(@NonNull JSONObject jSONObject) {
+    public void f(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) {
             try {
                 jSONObject.putOpt("card_type", Integer.valueOf(this.b));
-                ICardInfo j = og7.j(jSONObject);
+                ICardInfo j = zg7.j(jSONObject);
                 if (j instanceof ILegoAdvert) {
                     ILegoAdvert iLegoAdvert = (ILegoAdvert) j;
                     this.h = iLegoAdvert;
@@ -231,14 +365,7 @@ public class AdvertAppInfo extends ThreadData implements ms4, me8 {
         }
     }
 
-    @NonNull
-    public String getDownloadId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? h() ? this.h.getDownloadId() : "" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tbadk.core.data.ThreadData, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.Cdo
+    @Override // com.baidu.tbadk.core.data.ThreadData, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.eo
     public BdUniqueId getType() {
         InterceptResult invokeV;
         ILegoAdvert iLegoAdvert;
@@ -246,7 +373,7 @@ public class AdvertAppInfo extends ThreadData implements ms4, me8 {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             int i = this.c;
             if (i != 1001 && i != -1001) {
-                if (!hq4.c().g() && (iLegoAdvert = this.h) != null && iLegoAdvert.isNoPicAd()) {
+                if (!jq4.c().g() && (iLegoAdvert = this.h) != null && iLegoAdvert.isNoPicAd()) {
                     return w;
                 }
                 ILegoAdvert iLegoAdvert2 = this.h;
@@ -255,13 +382,14 @@ public class AdvertAppInfo extends ThreadData implements ms4, me8 {
                     int goodsStyle = iLegoAdvert2.getGoodsStyle();
                     if (goodsStyle != 2) {
                         if (goodsStyle != 14) {
-                            if (goodsStyle == 6) {
-                                return B;
-                            }
-                            if (goodsStyle != 7) {
-                                if (goodsStyle != 8) {
-                                    return bdUniqueId;
+                            if (goodsStyle != 6) {
+                                if (goodsStyle != 7) {
+                                    if (goodsStyle != 8) {
+                                        return bdUniqueId;
+                                    }
                                 }
+                            } else {
+                                return B;
                             }
                         }
                         return C;
@@ -275,77 +403,20 @@ public class AdvertAppInfo extends ThreadData implements ms4, me8 {
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public boolean h() {
-        InterceptResult invokeV;
-        ILegoAdvert iLegoAdvert;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (this.c == 1001 || this.m != 3 || (iLegoAdvert = this.h) == null) {
-                return false;
-            }
-            return iLegoAdvert.checkIsAppAdvert();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            String str = this.a;
-            int hashCode = str != null ? str.hashCode() : 0;
-            String str2 = this.g;
-            return hashCode + (str2 != null ? str2.hashCode() : 0);
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.ms4
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.position : invokeV.intValue;
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            ILegoAdvert iLegoAdvert = this.h;
-            if (iLegoAdvert == null) {
-                return false;
-            }
-            int goodsStyle = iLegoAdvert.getGoodsStyle();
-            return goodsStyle == 2 || goodsStyle == 8;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            int i = this.c;
-            if (i == 1001 || i == -1001) {
-                return true;
-            }
-            return (this.m != 1 || TextUtils.isEmpty(this.n) || TextUtils.isEmpty(this.n.trim())) ? false : true;
-        }
-        return invokeV.booleanValue;
-    }
-
     public int n() {
         InterceptResult invokeV;
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             if (!ThreadData.isRecAppLoaded.get()) {
-                ce8.n();
+                me8.n();
                 return 31;
             } else if (!v.get()) {
-                ce8.n();
+                me8.n();
                 return 31;
-            } else if (TextUtils.equals("PB_BANNER", this.j) || TextUtils.equals("PIC_PAGE_BANNER", this.j) || !TextUtils.isEmpty(this.f)) {
+            } else if (!TextUtils.equals("PB_BANNER", this.j) && !TextUtils.equals("PIC_PAGE_BANNER", this.j) && TextUtils.isEmpty(this.f)) {
+                return 23;
+            } else {
                 if (SwitchManager.getInstance().findType(AppLegoSwitch.APP_LEGO_KEY) == 0) {
                     return 28;
                 }
@@ -356,104 +427,74 @@ public class AdvertAppInfo extends ThreadData implements ms4, me8 {
                 if (i2 == 11 || (i = this.b) == 31) {
                     return 12;
                 }
-                if (i == 25 || i == 10 || i == 9) {
-                    return 37;
-                }
-                if (i == 99) {
-                    return 41;
-                }
-                if (i == 26) {
-                    return 45;
-                }
-                if (this.h == null) {
-                    return this.k;
-                }
-                if (TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.a.trim())) {
+                if (i != 25 && i != 10 && i != 9) {
+                    if (i == 99) {
+                        return 41;
+                    }
+                    if (i == 26) {
+                        return 45;
+                    }
+                    if (this.h == null) {
+                        return this.k;
+                    }
+                    if (!TextUtils.isEmpty(this.a) && !TextUtils.isEmpty(this.a.trim())) {
+                        if (this.h.getAppInfoModel() != null && !cr4.c(this.h.getAppInfoModel())) {
+                            return 42;
+                        }
+                        if (!jq4.c().g() && !this.h.isNoPicAd()) {
+                            return 34;
+                        }
+                        int i3 = this.m;
+                        if (i3 != 3 && i3 != 1) {
+                            return 21;
+                        }
+                        if (this.m == 3) {
+                            if (!h()) {
+                                return 26;
+                            }
+                            try {
+                                JSONObject optJSONObject = new JSONObject(this.d).optJSONObject(TiebaMainDatabaseHelper.TABLE_NAME_DOWNLOAD_INFO);
+                                if (optJSONObject != null) {
+                                    if (optJSONObject.optBoolean("direcrt_download")) {
+                                        return 43;
+                                    }
+                                }
+                            } catch (JSONException unused) {
+                            }
+                        }
+                        if (this.m != 1 || l()) {
+                            return 0;
+                        }
+                        return 27;
+                    }
                     return 24;
                 }
-                if (this.h.getAppInfoModel() == null || ar4.c(this.h.getAppInfoModel())) {
-                    if (hq4.c().g() || this.h.isNoPicAd()) {
-                        int i3 = this.m;
-                        if (i3 == 3 || i3 == 1) {
-                            if (this.m == 3) {
-                                if (!h()) {
-                                    return 26;
-                                }
-                                try {
-                                    JSONObject optJSONObject = new JSONObject(this.d).optJSONObject(TiebaMainDatabaseHelper.TABLE_NAME_DOWNLOAD_INFO);
-                                    if (optJSONObject != null) {
-                                        if (optJSONObject.optBoolean("direcrt_download")) {
-                                            return 43;
-                                        }
-                                    }
-                                } catch (JSONException unused) {
-                                }
-                            }
-                            return (this.m != 1 || l()) ? 0 : 27;
-                        }
-                        return 21;
-                    }
-                    return 34;
-                }
-                return 42;
-            } else {
-                return 23;
+                return 37;
             }
         }
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ms4
-    public AdvertAppInfo p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this : (AdvertAppInfo) invokeV.objValue;
-    }
-
-    public boolean r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            ILegoAdvert iLegoAdvert = this.h;
-            if (iLegoAdvert == null) {
-                return false;
-            }
-            int goodsStyle = iLegoAdvert.getGoodsStyle();
-            return goodsStyle == 7 || goodsStyle == 14;
-        }
-        return invokeV.booleanValue;
-    }
-
     public void s(App app) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048592, this, app) == null) || app == null || SwitchManager.getInstance().findType(AppLegoSwitch.APP_LEGO_KEY) != 1 || ah7.e(app.goods_info)) {
-            return;
-        }
-        for (GoodsInfo goodsInfo : app.goods_info) {
-            if (goodsInfo != null) {
-                this.c = goodsInfo.goods_style.intValue();
-                try {
-                    this.d = goodsInfo.lego_card;
-                    w(new JSONObject(this.d));
-                    return;
-                } catch (JSONException unused) {
-                    this.k = 38;
-                    return;
+        if ((interceptable == null || interceptable.invokeL(1048592, this, app) == null) && app != null && SwitchManager.getInstance().findType(AppLegoSwitch.APP_LEGO_KEY) == 1 && !lh7.e(app.goods_info)) {
+            for (GoodsInfo goodsInfo : app.goods_info) {
+                if (goodsInfo != null) {
+                    this.c = goodsInfo.goods_style.intValue();
+                    try {
+                        this.d = goodsInfo.lego_card;
+                        w(new JSONObject(this.d));
+                        return;
+                    } catch (JSONException unused) {
+                        this.k = 38;
+                        return;
+                    }
                 }
             }
         }
     }
 
-    @Override // com.baidu.tieba.ms4
-    public void setPosition(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
-            this.position = i;
-            this.e = true;
-        }
-    }
-
-    public final void w(@NonNull JSONObject jSONObject) {
+    public final void w(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, jSONObject) == null) {
             JSONObject optJSONObject = jSONObject.optJSONObject("ad_common");
@@ -467,7 +508,7 @@ public class AdvertAppInfo extends ThreadData implements ms4, me8 {
                 this.l = optJSONObject.optString("user_name");
                 String optString = optJSONObject.optString("pos", "");
                 this.f = optString;
-                this.position = dh.e(optString.trim(), -1);
+                this.position = eh.e(optString.trim(), -1);
                 optJSONObject.optString(RecommendDetailActivityConfig.USER_PORTRAIT);
                 this.q = optJSONObject.optString("cmd_scheme");
                 optJSONObject.optString("play_cmd_scheme");

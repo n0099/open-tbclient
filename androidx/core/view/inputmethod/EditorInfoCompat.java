@@ -3,8 +3,6 @@ package androidx.core.view.inputmethod;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.inputmethod.EditorInfo;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -54,14 +52,16 @@ public final class EditorInfoCompat {
         }
     }
 
-    @NonNull
     public static String[] getContentMimeTypes(EditorInfo editorInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, editorInfo)) == null) {
             if (Build.VERSION.SDK_INT >= 25) {
                 String[] strArr = editorInfo.contentMimeTypes;
-                return strArr != null ? strArr : EMPTY_STRING_ARRAY;
+                if (strArr == null) {
+                    return EMPTY_STRING_ARRAY;
+                }
+                return strArr;
             }
             Bundle bundle = editorInfo.extras;
             if (bundle == null) {
@@ -71,7 +71,10 @@ public final class EditorInfoCompat {
             if (stringArray == null) {
                 stringArray = editorInfo.extras.getStringArray(CONTENT_MIME_TYPES_INTEROP_KEY);
             }
-            return stringArray != null ? stringArray : EMPTY_STRING_ARRAY;
+            if (stringArray == null) {
+                return EMPTY_STRING_ARRAY;
+            }
+            return stringArray;
         }
         return (String[]) invokeL.objValue;
     }
@@ -95,12 +98,15 @@ public final class EditorInfoCompat {
             if (containsKey) {
                 return 3;
             }
-            return containsKey2 ? 2 : 0;
+            if (!containsKey2) {
+                return 0;
+            }
+            return 2;
         }
         return invokeL.intValue;
     }
 
-    public static void setContentMimeTypes(@NonNull EditorInfo editorInfo, @Nullable String[] strArr) {
+    public static void setContentMimeTypes(EditorInfo editorInfo, String[] strArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, editorInfo, strArr) == null) {
             if (Build.VERSION.SDK_INT >= 25) {

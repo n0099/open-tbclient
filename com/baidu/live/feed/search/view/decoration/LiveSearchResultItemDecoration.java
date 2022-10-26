@@ -55,6 +55,10 @@ public final class LiveSearchResultItemDecoration extends RecyclerView.ItemDecor
         this.a = i;
     }
 
+    public /* synthetic */ LiveSearchResultItemDecoration(int i, int i2, DefaultConstructorMarker defaultConstructorMarker) {
+        this((i2 & 1) != 0 ? 0 : i);
+    }
+
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
     public void getItemOffsets(Rect rect, View view2, RecyclerView recyclerView, RecyclerView.State state) {
         Interceptable interceptable = $ic;
@@ -68,9 +72,5 @@ public final class LiveSearchResultItemDecoration extends RecyclerView.ItemDecor
                 rect.bottom = i / 2;
             }
         }
-    }
-
-    public /* synthetic */ LiveSearchResultItemDecoration(int i, int i2, DefaultConstructorMarker defaultConstructorMarker) {
-        this((i2 & 1) != 0 ? 0 : i);
     }
 }

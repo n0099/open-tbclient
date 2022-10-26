@@ -88,11 +88,6 @@ public final class MapTypeAdapterFactory implements TypeAdapterFactory {
             return (String) invokeL.objValue;
         }
 
-        @Override // com.google.gson.TypeAdapter
-        public /* bridge */ /* synthetic */ void write(JsonWriter jsonWriter, Object obj) throws IOException {
-            write(jsonWriter, (Map) ((Map) obj));
-        }
-
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.TypeAdapter
         public Map<K, V> read(JsonReader jsonReader) throws IOException {
@@ -104,13 +99,13 @@ public final class MapTypeAdapterFactory implements TypeAdapterFactory {
                     jsonReader.nextNull();
                     return null;
                 }
-                Map<K, V> construct = this.constructor.construct();
+                Map<K, V> map = (Map) this.constructor.construct();
                 if (peek == JsonToken.BEGIN_ARRAY) {
                     jsonReader.beginArray();
                     while (jsonReader.hasNext()) {
                         jsonReader.beginArray();
                         K read = this.keyTypeAdapter.read(jsonReader);
-                        if (construct.put(read, this.valueTypeAdapter.read(jsonReader)) == null) {
+                        if (map.put(read, this.valueTypeAdapter.read(jsonReader)) == null) {
                             jsonReader.endArray();
                         } else {
                             throw new JsonSyntaxException("duplicate key: " + read);
@@ -122,21 +117,27 @@ public final class MapTypeAdapterFactory implements TypeAdapterFactory {
                     while (jsonReader.hasNext()) {
                         JsonReaderInternalAccess.INSTANCE.promoteNameToValue(jsonReader);
                         K read2 = this.keyTypeAdapter.read(jsonReader);
-                        if (construct.put(read2, this.valueTypeAdapter.read(jsonReader)) != null) {
+                        if (map.put(read2, this.valueTypeAdapter.read(jsonReader)) != null) {
                             throw new JsonSyntaxException("duplicate key: " + read2);
                         }
                     }
                     jsonReader.endObject();
                 }
-                return construct;
+                return map;
             }
             return (Map) invokeL.objValue;
+        }
+
+        @Override // com.google.gson.TypeAdapter
+        public /* bridge */ /* synthetic */ void write(JsonWriter jsonWriter, Object obj) throws IOException {
+            write(jsonWriter, (Map) ((Map) obj));
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r3v5, resolved type: com.google.gson.TypeAdapter<V> */
         /* JADX DEBUG: Multi-variable search result rejected for r3v8, resolved type: com.google.gson.TypeAdapter<V> */
         /* JADX WARN: Multi-variable type inference failed */
         public void write(JsonWriter jsonWriter, Map<K, V> map) throws IOException {
+            boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048579, this, jsonWriter, map) == null) {
                 if (map == null) {
@@ -152,14 +153,19 @@ public final class MapTypeAdapterFactory implements TypeAdapterFactory {
                     ArrayList arrayList = new ArrayList(map.size());
                     ArrayList arrayList2 = new ArrayList(map.size());
                     int i = 0;
-                    boolean z = false;
+                    boolean z2 = false;
                     for (Map.Entry<K, V> entry2 : map.entrySet()) {
                         JsonElement jsonTree = this.keyTypeAdapter.toJsonTree(entry2.getKey());
                         arrayList.add(jsonTree);
                         arrayList2.add(entry2.getValue());
-                        z |= jsonTree.isJsonArray() || jsonTree.isJsonObject();
+                        if (!jsonTree.isJsonArray() && !jsonTree.isJsonObject()) {
+                            z = false;
+                        } else {
+                            z = true;
+                        }
+                        z2 |= z;
                     }
-                    if (z) {
+                    if (z2) {
                         jsonWriter.beginArray();
                         int size = arrayList.size();
                         while (i < size) {
@@ -222,11 +228,11 @@ public final class MapTypeAdapterFactory implements TypeAdapterFactory {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, gson, typeToken)) == null) {
             Type type = typeToken.getType();
-            if (Map.class.isAssignableFrom(typeToken.getRawType())) {
-                Type[] mapKeyAndValueTypes = C$Gson$Types.getMapKeyAndValueTypes(type, C$Gson$Types.getRawType(type));
-                return new Adapter(this, gson, mapKeyAndValueTypes[0], getKeyAdapter(gson, mapKeyAndValueTypes[0]), mapKeyAndValueTypes[1], gson.getAdapter(TypeToken.get(mapKeyAndValueTypes[1])), this.constructorConstructor.get(typeToken));
+            if (!Map.class.isAssignableFrom(typeToken.getRawType())) {
+                return null;
             }
-            return null;
+            Type[] mapKeyAndValueTypes = C$Gson$Types.getMapKeyAndValueTypes(type, C$Gson$Types.getRawType(type));
+            return new Adapter(this, gson, mapKeyAndValueTypes[0], getKeyAdapter(gson, mapKeyAndValueTypes[0]), mapKeyAndValueTypes[1], gson.getAdapter(TypeToken.get(mapKeyAndValueTypes[1])), this.constructorConstructor.get(typeToken));
         }
         return (TypeAdapter) invokeLL.objValue;
     }

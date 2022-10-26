@@ -29,7 +29,7 @@ public abstract class AbstractHttpManager {
     public static final String TAG = "Outback";
     public transient /* synthetic */ FieldHolder $fh;
     public CallFactory callFactory;
-    public Map<String, CallFactory> callFactoryMap;
+    public Map callFactoryMap;
     public CallFactoryParams callFactoryParams;
     public Context context;
     public CallFactory defaultCallFactory;
@@ -67,20 +67,6 @@ public abstract class AbstractHttpManager {
         }
     }
 
-    private void checkHasInitEngineCallApi() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && !OutbackComponent.getInstance().isCallFactoryProducerAvailable()) {
-            throw new RuntimeException("need init EngineCallRuntime setEngineCallApi before here ");
-        }
-    }
-
-    private void setBackUpEngine() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.callFactoryMap.put(EngineName.BACK_UP_ENGINE, OutbackComponent.getInstance().getBackupCallFactory(this.callFactoryParams));
-        }
-    }
-
     public void chooseEngine(String str, CallFactoryParams callFactoryParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, callFactoryParams) == null) {
@@ -90,34 +76,116 @@ public abstract class AbstractHttpManager {
         }
     }
 
-    public Map<String, CallFactory> getCallFactoryMap() {
+    private void checkHasInitEngineCallApi() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(65538, this) != null) || OutbackComponent.getInstance().isCallFactoryProducerAvailable()) {
+            return;
+        }
+        throw new RuntimeException("need init EngineCallRuntime setEngineCallApi before here ");
+    }
+
+    private void setBackUpEngine() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+            this.callFactoryMap.put(EngineName.BACK_UP_ENGINE, OutbackComponent.getInstance().getBackupCallFactory(this.callFactoryParams));
+        }
+    }
+
+    public Map getCallFactoryMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.callFactoryMap : (Map) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.callFactoryMap;
+        }
+        return (Map) invokeV.objValue;
     }
 
     public Handler getDeliver() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.deliver : (Handler) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.deliver;
+        }
+        return (Handler) invokeV.objValue;
     }
 
     public String getNetworkInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? ConnectManager.getNetworkInfo(this.context) : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return ConnectManager.getNetworkInfo(this.context);
+        }
+        return (String) invokeV.objValue;
     }
 
     public GetRequest.GetRequestBuilder getRequest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? new GetRequest.GetRequestBuilder(this.callFactoryMap) : (GetRequest.GetRequestBuilder) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return new GetRequest.GetRequestBuilder(this.callFactoryMap);
+        }
+        return (GetRequest.GetRequestBuilder) invokeV.objValue;
     }
 
     public RequestHandler getRequestHandler() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.requestHandler : (RequestHandler) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.requestHandler;
+        }
+        return (RequestHandler) invokeV.objValue;
+    }
+
+    public boolean isNetWorkConnected() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return ConnectManager.isNetworkConnected(this.context);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isWifi() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return ConnectManager.isWifi(this.context);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public PostByteRequest.PostByteRequestBuilder postByteRequest() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return new PostByteRequest.PostByteRequestBuilder(this.callFactoryMap);
+        }
+        return (PostByteRequest.PostByteRequestBuilder) invokeV.objValue;
+    }
+
+    public PostFormRequest.PostFormRequestBuilder postFormRequest() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return new PostFormRequest.PostFormRequestBuilder(this.callFactoryMap);
+        }
+        return (PostFormRequest.PostFormRequestBuilder) invokeV.objValue;
+    }
+
+    public PostStringRequest.PostStringRequestBuilder postStringRequest() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return new PostStringRequest.PostStringRequestBuilder(this.callFactoryMap);
+        }
+        return (PostStringRequest.PostStringRequestBuilder) invokeV.objValue;
+    }
+
+    public void chooseEngine(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            chooseEngine(str, this.callFactoryParams);
+        }
     }
 
     public void initCallFactory(CallFactoryParams callFactoryParams) {
@@ -130,47 +198,10 @@ public abstract class AbstractHttpManager {
         }
     }
 
-    public boolean isNetWorkConnected() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? ConnectManager.isNetworkConnected(this.context) : invokeV.booleanValue;
-    }
-
-    public boolean isWifi() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? ConnectManager.isWifi(this.context) : invokeV.booleanValue;
-    }
-
-    public PostByteRequest.PostByteRequestBuilder postByteRequest() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? new PostByteRequest.PostByteRequestBuilder(this.callFactoryMap) : (PostByteRequest.PostByteRequestBuilder) invokeV.objValue;
-    }
-
-    public PostFormRequest.PostFormRequestBuilder postFormRequest() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? new PostFormRequest.PostFormRequestBuilder(this.callFactoryMap) : (PostFormRequest.PostFormRequestBuilder) invokeV.objValue;
-    }
-
-    public PostStringRequest.PostStringRequestBuilder postStringRequest() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? new PostStringRequest.PostStringRequestBuilder(this.callFactoryMap) : (PostStringRequest.PostStringRequestBuilder) invokeV.objValue;
-    }
-
     public void setRequestHandler(RequestHandler requestHandler) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, requestHandler) == null) {
             this.requestHandler = requestHandler;
-        }
-    }
-
-    public void chooseEngine(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            chooseEngine(str, this.callFactoryParams);
         }
     }
 }

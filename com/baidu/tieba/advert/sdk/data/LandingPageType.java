@@ -64,18 +64,27 @@ public final class LandingPageType {
     public static LandingPageType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (LandingPageType) Enum.valueOf(LandingPageType.class, str) : (LandingPageType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (LandingPageType) Enum.valueOf(LandingPageType.class, str);
+        }
+        return (LandingPageType) invokeL.objValue;
     }
 
     public static LandingPageType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (LandingPageType[]) $VALUES.clone() : (LandingPageType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (LandingPageType[]) $VALUES.clone();
+        }
+        return (LandingPageType[]) invokeV.objValue;
     }
 
     public int getValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.value : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.value;
+        }
+        return invokeV.intValue;
     }
 }

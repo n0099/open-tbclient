@@ -5,8 +5,8 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobstat.bm;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.bl;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -56,95 +56,6 @@ public class e {
         }
     }
 
-    private void b(Context context, boolean z) {
-        PackageManager packageManager;
-        String str;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, this, context, z) == null) || (packageManager = context.getPackageManager()) == null) {
-            return;
-        }
-        List<PackageInfo> arrayList = new ArrayList<>(1);
-        try {
-            arrayList = packageManager.getInstalledPackages(0);
-        } catch (Exception e) {
-            bb.c().b(e);
-        }
-        JSONArray jSONArray = new JSONArray();
-        for (PackageInfo packageInfo : arrayList) {
-            ApplicationInfo applicationInfo = packageInfo.applicationInfo;
-            if (applicationInfo != null) {
-                boolean z2 = (applicationInfo.flags & 1) != 0;
-                String charSequence = applicationInfo.loadLabel(packageManager).toString();
-                String str2 = applicationInfo.sourceDir;
-                if (z == z2) {
-                    a(z, charSequence, str2, packageInfo, jSONArray);
-                }
-            }
-        }
-        if (jSONArray.length() == 0) {
-            return;
-        }
-        StringBuilder sb = new StringBuilder();
-        sb.append(System.currentTimeMillis() + "|");
-        sb.append(z ? 1 : 0);
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("app_list", jSONArray);
-            jSONObject.put("meta-data", sb.toString());
-            str = bm.a.a(jSONObject.toString().getBytes());
-        } catch (Exception unused) {
-            str = "";
-        }
-        if (TextUtils.isEmpty(str)) {
-            return;
-        }
-        k.b.a(System.currentTimeMillis(), str);
-    }
-
-    public synchronized void a(Context context, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048576, this, context, z) == null) {
-            synchronized (this) {
-                b(context, z);
-            }
-        }
-    }
-
-    private void a(boolean z, String str, String str2, PackageInfo packageInfo, JSONArray jSONArray) {
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Boolean.valueOf(z), str, str2, packageInfo, jSONArray}) == null) {
-            if (z && packageInfo.packageName.startsWith("com.android.")) {
-                return;
-            }
-            long j2 = 0;
-            try {
-                j = packageInfo.firstInstallTime;
-            } catch (Throwable th) {
-                bb.c().b(th);
-                j = 0;
-            }
-            try {
-                j2 = packageInfo.lastUpdateTime;
-            } catch (Throwable th2) {
-                bb.c().b(th2);
-            }
-            long a2 = a(str2);
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("n", packageInfo.packageName);
-                jSONObject.put("a", str);
-                jSONObject.put("v", String.valueOf(packageInfo.versionName));
-                jSONObject.put("f", j);
-                jSONObject.put("l", j2);
-                jSONObject.put("m", a2);
-                jSONArray.put(jSONObject);
-            } catch (JSONException e) {
-                bb.c().b(e);
-            }
-        }
-    }
-
     private long a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -158,5 +69,97 @@ public class e {
             return 0L;
         }
         return invokeL.longValue;
+    }
+
+    private void b(Context context, boolean z) {
+        PackageManager packageManager;
+        String str;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLZ(65539, this, context, z) != null) || (packageManager = context.getPackageManager()) == null) {
+            return;
+        }
+        List<PackageInfo> arrayList = new ArrayList<>(1);
+        try {
+            arrayList = packageManager.getInstalledPackages(0);
+        } catch (Exception e) {
+            ba.c().b(e);
+        }
+        JSONArray jSONArray = new JSONArray();
+        for (PackageInfo packageInfo : arrayList) {
+            ApplicationInfo applicationInfo = packageInfo.applicationInfo;
+            if (applicationInfo != null) {
+                if ((applicationInfo.flags & 1) != 0) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                String str2 = applicationInfo.sourceDir;
+                if (z == z2) {
+                    a(z, "", str2, packageInfo, jSONArray, true);
+                }
+            }
+        }
+        if (jSONArray.length() == 0) {
+            return;
+        }
+        StringBuilder sb = new StringBuilder();
+        sb.append(System.currentTimeMillis() + "|");
+        sb.append(z ? 1 : 0);
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("app_list", jSONArray);
+            jSONObject.put("meta-data", sb.toString());
+            str = bl.a.a(jSONObject.toString().getBytes());
+        } catch (Exception unused) {
+            str = "";
+        }
+        if (!TextUtils.isEmpty(str)) {
+            k.b.a(context, System.currentTimeMillis(), str);
+        }
+    }
+
+    public synchronized void a(Context context, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048576, this, context, z) == null) {
+            synchronized (this) {
+                b(context, z);
+            }
+        }
+    }
+
+    public void a(boolean z, String str, String str2, PackageInfo packageInfo, JSONArray jSONArray, boolean z2) {
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), str, str2, packageInfo, jSONArray, Boolean.valueOf(z2)}) == null) {
+            if (z && packageInfo.packageName.startsWith("com.android.")) {
+                return;
+            }
+            long j2 = 0;
+            try {
+                j = packageInfo.firstInstallTime;
+            } catch (Throwable th) {
+                ba.c().b(th);
+                j = 0;
+            }
+            try {
+                j2 = packageInfo.lastUpdateTime;
+            } catch (Throwable th2) {
+                ba.c().b(th2);
+            }
+            long a2 = a(str2);
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("n", packageInfo.packageName);
+                jSONObject.put("a", str);
+                jSONObject.put("v", String.valueOf(packageInfo.versionName));
+                jSONObject.put("f", j);
+                jSONObject.put("l", j2);
+                jSONObject.put("m", a2);
+                jSONArray.put(jSONObject);
+            } catch (JSONException e) {
+                ba.c().b(e);
+            }
+        }
     }
 }

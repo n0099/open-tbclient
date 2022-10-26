@@ -15,25 +15,6 @@ public class BasicNameValuePair implements NameValuePair, Cloneable {
     public final String mName;
     public final String mValue;
 
-    public BasicNameValuePair(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.mName = "";
-        this.mValue = "";
-    }
-
     private boolean equals(Object obj, Object obj2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -59,12 +40,6 @@ public class BasicNameValuePair implements NameValuePair, Cloneable {
             return 0;
         }
         return invokeIL.intValue;
-    }
-
-    public Object clone() throws CloneNotSupportedException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? super.clone() : invokeV.objValue;
     }
 
     @Override // com.baidu.down.common.NameValuePair
@@ -94,5 +69,33 @@ public class BasicNameValuePair implements NameValuePair, Cloneable {
             return 0;
         }
         return invokeV.intValue;
+    }
+
+    public BasicNameValuePair(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mName = "";
+        this.mValue = "";
+    }
+
+    public Object clone() throws CloneNotSupportedException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return super.clone();
+        }
+        return invokeV.objValue;
     }
 }

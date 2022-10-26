@@ -1,21 +1,18 @@
 package com.google.android.gms.common.api;
 
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.common.Feature;
-import com.google.android.gms.common.annotation.KeepForSdk;
 /* loaded from: classes7.dex */
 public final class UnsupportedApiCallException extends UnsupportedOperationException {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Feature zza;
 
-    @KeepForSdk
-    public UnsupportedApiCallException(@NonNull Feature feature) {
+    public UnsupportedApiCallException(Feature feature) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -34,7 +31,6 @@ public final class UnsupportedApiCallException extends UnsupportedOperationExcep
     }
 
     @Override // java.lang.Throwable
-    @NonNull
     public String getMessage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

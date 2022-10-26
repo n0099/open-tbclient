@@ -30,52 +30,54 @@ public class BuildPackageInfo {
     public static String getBranchNameFromFile(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65537, null, context)) != null) {
-            return (String) invokeL.objValue;
-        }
-        try {
-            InputStreamReader inputStreamReader = new InputStreamReader(context.getResources().openRawResource(context.getResources().getIdentifier("branch", "raw", context.getPackageName())));
-            CharArrayWriter charArrayWriter = new CharArrayWriter();
-            char[] cArr = new char[2048];
-            while (true) {
-                int read = inputStreamReader.read(cArr);
-                if (read > 0) {
-                    charArrayWriter.write(cArr, 0, read);
-                } else {
-                    String charArrayWriter2 = charArrayWriter.toString();
-                    inputStreamReader.close();
-                    return charArrayWriter2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            try {
+                InputStreamReader inputStreamReader = new InputStreamReader(context.getResources().openRawResource(context.getResources().getIdentifier("branch", "raw", context.getPackageName())));
+                CharArrayWriter charArrayWriter = new CharArrayWriter();
+                char[] cArr = new char[2048];
+                while (true) {
+                    int read = inputStreamReader.read(cArr);
+                    if (read > 0) {
+                        charArrayWriter.write(cArr, 0, read);
+                    } else {
+                        String charArrayWriter2 = charArrayWriter.toString();
+                        inputStreamReader.close();
+                        return charArrayWriter2;
+                    }
                 }
+            } catch (Exception e) {
+                e.printStackTrace();
+                return "get branch error";
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "get branch error";
+        } else {
+            return (String) invokeL.objValue;
         }
     }
 
     public static String getCommitIdFromFile(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65538, null, context)) != null) {
-            return (String) invokeL.objValue;
-        }
-        try {
-            InputStreamReader inputStreamReader = new InputStreamReader(context.getResources().openRawResource(context.getResources().getIdentifier("commitid", "raw", context.getPackageName())));
-            CharArrayWriter charArrayWriter = new CharArrayWriter();
-            char[] cArr = new char[2048];
-            while (true) {
-                int read = inputStreamReader.read(cArr);
-                if (read > 0) {
-                    charArrayWriter.write(cArr, 0, read);
-                } else {
-                    String charArrayWriter2 = charArrayWriter.toString();
-                    inputStreamReader.close();
-                    return charArrayWriter2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            try {
+                InputStreamReader inputStreamReader = new InputStreamReader(context.getResources().openRawResource(context.getResources().getIdentifier("commitid", "raw", context.getPackageName())));
+                CharArrayWriter charArrayWriter = new CharArrayWriter();
+                char[] cArr = new char[2048];
+                while (true) {
+                    int read = inputStreamReader.read(cArr);
+                    if (read > 0) {
+                        charArrayWriter.write(cArr, 0, read);
+                    } else {
+                        String charArrayWriter2 = charArrayWriter.toString();
+                        inputStreamReader.close();
+                        return charArrayWriter2;
+                    }
                 }
+            } catch (Exception e) {
+                e.printStackTrace();
+                return "get commitid error";
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "get commitid error";
+        } else {
+            return (String) invokeL.objValue;
         }
     }
 }

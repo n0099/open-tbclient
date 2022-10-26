@@ -7,12 +7,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class w1 extends b2<y3, a> {
+public class w1 extends b2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public static class a extends l1<y3> {
+    public class a extends l1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String b;
@@ -57,16 +57,16 @@ public class w1 extends b2<y3, a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.o1
     /* renamed from: d */
-    public b7<j1> a(String str, k3 k3Var, a aVar) {
+    public b7 a(String str, k3 k3Var, a aVar) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, k3Var, aVar)) == null) {
-            if (aVar == null || aVar.b == null) {
-                return null;
+            if (aVar != null && aVar.b != null) {
+                b7 b7Var = new b7();
+                b7Var.a(new j1(aVar.b, c4.class));
+                return b7Var;
             }
-            b7<j1> b7Var = new b7<>();
-            b7Var.a(new j1(aVar.b, c4.class));
-            return b7Var;
+            return null;
         }
         return (b7) invokeLLL.objValue;
     }

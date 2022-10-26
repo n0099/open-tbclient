@@ -16,7 +16,7 @@ public interface ZeusPlugin {
     }
 
     /* loaded from: classes6.dex */
-    public static class Command {
+    public class Command {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MAX_POOL_SIZE = 50;
         public static Command sPool;

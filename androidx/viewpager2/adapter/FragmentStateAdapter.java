@@ -8,9 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.widget.FrameLayout;
-import androidx.annotation.CallSuper;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.collection.ArraySet;
 import androidx.collection.LongSparseArray;
 import androidx.core.util.Preconditions;
@@ -47,10 +44,33 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
     public final Lifecycle mLifecycle;
     public final LongSparseArray<Fragment.SavedState> mSavedStates;
 
+    public abstract Fragment createFragment(int i);
+
+    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? i : invokeI.longValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
+    public final boolean onFailedToRecycleView(FragmentViewHolder fragmentViewHolder) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, fragmentViewHolder)) == null) {
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
     /* loaded from: classes.dex */
     public static abstract class DataSetChangeObserver extends RecyclerView.AdapterDataObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // androidx.recyclerview.widget.RecyclerView.AdapterDataObserver
+        public abstract void onChanged();
 
         public DataSetChangeObserver() {
             Interceptable interceptable = $ic;
@@ -65,9 +85,6 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
                 }
             }
         }
-
-        @Override // androidx.recyclerview.widget.RecyclerView.AdapterDataObserver
-        public abstract void onChanged();
 
         @Override // androidx.recyclerview.widget.RecyclerView.AdapterDataObserver
         public final void onItemRangeChanged(int i, int i2) {
@@ -86,14 +103,6 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.AdapterDataObserver
-        public final void onItemRangeMoved(int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIII(1048580, this, i, i2, i3) == null) {
-                onChanged();
-            }
-        }
-
-        @Override // androidx.recyclerview.widget.RecyclerView.AdapterDataObserver
         public final void onItemRangeRemoved(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
@@ -102,9 +111,17 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.AdapterDataObserver
-        public final void onItemRangeChanged(int i, int i2, @Nullable Object obj) {
+        public final void onItemRangeChanged(int i, int i2, Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, obj) == null) {
+                onChanged();
+            }
+        }
+
+        @Override // androidx.recyclerview.widget.RecyclerView.AdapterDataObserver
+        public final void onItemRangeMoved(int i, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIII(1048580, this, i, i2, i3) == null) {
                 onChanged();
             }
         }
@@ -140,8 +157,7 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
             this.mPrimaryItemId = -1L;
         }
 
-        @NonNull
-        private ViewPager2 inferViewPager(@NonNull RecyclerView recyclerView) {
+        private ViewPager2 inferViewPager(RecyclerView recyclerView) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, recyclerView)) == null) {
@@ -154,7 +170,7 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
             return (ViewPager2) invokeL.objValue;
         }
 
-        public void register(@NonNull RecyclerView recyclerView) {
+        public void register(RecyclerView recyclerView) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, recyclerView) == null) {
                 this.mViewPager = inferViewPager(recyclerView);
@@ -257,7 +273,7 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
                     }
 
                     @Override // androidx.lifecycle.LifecycleEventObserver
-                    public void onStateChanged(@NonNull LifecycleOwner lifecycleOwner, @NonNull Lifecycle.Event event) {
+                    public void onStateChanged(LifecycleOwner lifecycleOwner, Lifecycle.Event event) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLL(1048576, this, lifecycleOwner, event) == null) {
                             this.this$1.updateFragmentMaxLifecycle(false);
@@ -269,7 +285,7 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
             }
         }
 
-        public void unregister(@NonNull RecyclerView recyclerView) {
+        public void unregister(RecyclerView recyclerView) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recyclerView) == null) {
                 inferViewPager(recyclerView).unregisterOnPageChangeCallback(this.mPageChangeCallback);
@@ -282,8 +298,9 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
         public void updateFragmentMaxLifecycle(boolean z) {
             int currentItem;
             Fragment fragment;
+            boolean z2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || this.this$0.shouldDelayFragmentTransactions() || this.mViewPager.getScrollState() != 0 || this.this$0.mFragments.isEmpty() || this.this$0.getItemCount() == 0 || (currentItem = this.mViewPager.getCurrentItem()) >= this.this$0.getItemCount()) {
+            if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) != null) || this.this$0.shouldDelayFragmentTransactions() || this.mViewPager.getScrollState() != 0 || this.this$0.mFragments.isEmpty() || this.this$0.getItemCount() == 0 || (currentItem = this.mViewPager.getCurrentItem()) >= this.this$0.getItemCount()) {
                 return;
             }
             long itemId = this.this$0.getItemId(currentItem);
@@ -300,61 +317,42 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
                         } else {
                             fragment2 = valueAt;
                         }
-                        valueAt.setMenuVisibility(keyAt == this.mPrimaryItemId);
+                        if (keyAt == this.mPrimaryItemId) {
+                            z2 = true;
+                        } else {
+                            z2 = false;
+                        }
+                        valueAt.setMenuVisibility(z2);
                     }
                 }
                 if (fragment2 != null) {
                     beginTransaction.setMaxLifecycle(fragment2, Lifecycle.State.RESUMED);
                 }
-                if (beginTransaction.isEmpty()) {
-                    return;
+                if (!beginTransaction.isEmpty()) {
+                    beginTransaction.commitNow();
                 }
-                beginTransaction.commitNow();
             }
         }
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public FragmentStateAdapter(@NonNull FragmentActivity fragmentActivity) {
-        this(fragmentActivity.getSupportFragmentManager(), fragmentActivity.getLifecycle());
+    public FragmentStateAdapter(Fragment fragment) {
+        this(fragment.getChildFragmentManager(), fragment.getLifecycle());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {fragmentActivity};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {fragment};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((FragmentManager) objArr2[0], (Lifecycle) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-        }
-    }
-
-    @NonNull
-    public static String createKey(@NonNull String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65539, null, str, j)) == null) {
-            return str + j;
-        }
-        return (String) invokeLJ.objValue;
-    }
-
-    private void ensureFragment(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i) == null) {
-            long itemId = getItemId(i);
-            if (this.mFragments.containsKey(itemId)) {
-                return;
-            }
-            Fragment createFragment = createFragment(i);
-            createFragment.setInitialSavedState(this.mSavedStates.get(itemId));
-            this.mFragments.put(itemId, createFragment);
         }
     }
 
@@ -367,15 +365,12 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
                 return true;
             }
             Fragment fragment = this.mFragments.get(j);
-            return (fragment == null || (view2 = fragment.getView()) == null || view2.getParent() == null) ? false : true;
+            if (fragment != null && (view2 = fragment.getView()) != null && view2.getParent() != null) {
+                return true;
+            }
+            return false;
         }
         return invokeJ.booleanValue;
-    }
-
-    public static boolean isValidKey(@NonNull String str, @NonNull String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) ? str.startsWith(str2) && str.length() > str2.length() : invokeLL.booleanValue;
     }
 
     private Long itemForViewHolder(int i) {
@@ -397,17 +392,187 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
         return (Long) invokeI.objValue;
     }
 
-    public static long parseIdFromKey(@NonNull String str, @NonNull String str2) {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public FragmentStateAdapter(FragmentActivity fragmentActivity) {
+        this(fragmentActivity.getSupportFragmentManager(), fragmentActivity.getLifecycle());
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {fragmentActivity};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((FragmentManager) objArr2[0], (Lifecycle) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public FragmentStateAdapter(FragmentManager fragmentManager, Lifecycle lifecycle) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {fragmentManager, lifecycle};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.mFragments = new LongSparseArray<>();
+        this.mSavedStates = new LongSparseArray<>();
+        this.mItemIdToViewHolder = new LongSparseArray<>();
+        this.mIsInGracePeriod = false;
+        this.mHasStaleFragments = false;
+        this.mFragmentManager = fragmentManager;
+        this.mLifecycle = lifecycle;
+        super.setHasStableIds(true);
+    }
+
+    public static String createKey(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65539, null, str, j)) == null) {
+            return str + j;
+        }
+        return (String) invokeLJ.objValue;
+    }
+
+    public static boolean isValidKey(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, str2)) == null) ? Long.parseLong(str.substring(str2.length())) : invokeLL.longValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
+            if (str.startsWith(str2) && str.length() > str2.length()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static long parseIdFromKey(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, str2)) == null) {
+            return Long.parseLong(str.substring(str2.length()));
+        }
+        return invokeLL.longValue;
+    }
+
+    private void scheduleViewAttach(Fragment fragment, FrameLayout frameLayout) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65547, this, fragment, frameLayout) == null) {
+            this.mFragmentManager.registerFragmentLifecycleCallbacks(new FragmentManager.FragmentLifecycleCallbacks(this, fragment, frameLayout) { // from class: androidx.viewpager2.adapter.FragmentStateAdapter.3
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ FragmentStateAdapter this$0;
+                public final /* synthetic */ FrameLayout val$container;
+                public final /* synthetic */ Fragment val$fragment;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, fragment, frameLayout};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$fragment = fragment;
+                    this.val$container = frameLayout;
+                }
+
+                @Override // androidx.fragment.app.FragmentManager.FragmentLifecycleCallbacks
+                public void onFragmentViewCreated(FragmentManager fragmentManager, Fragment fragment2, View view2, Bundle bundle) {
+                    Interceptable interceptable2 = $ic;
+                    if ((interceptable2 == null || interceptable2.invokeLLLL(1048576, this, fragmentManager, fragment2, view2, bundle) == null) && fragment2 == this.val$fragment) {
+                        fragmentManager.unregisterFragmentLifecycleCallbacks(this);
+                        this.this$0.addViewToContainer(view2, this.val$container);
+                    }
+                }
+            }, false);
+        }
+    }
+
+    private void ensureFragment(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i) == null) {
+            long itemId = getItemId(i);
+            if (!this.mFragments.containsKey(itemId)) {
+                Fragment createFragment = createFragment(i);
+                createFragment.setInitialSavedState(this.mSavedStates.get(itemId));
+                this.mFragments.put(itemId, createFragment);
+            }
+        }
+    }
+
+    public boolean containsItem(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+            if (j >= 0 && j < getItemCount()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeJ.booleanValue;
+    }
+
+    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
+    public void onAttachedToRecyclerView(RecyclerView recyclerView) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, recyclerView) == null) {
+            if (this.mFragmentMaxLifecycleEnforcer == null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Preconditions.checkArgument(z);
+            FragmentMaxLifecycleEnforcer fragmentMaxLifecycleEnforcer = new FragmentMaxLifecycleEnforcer(this);
+            this.mFragmentMaxLifecycleEnforcer = fragmentMaxLifecycleEnforcer;
+            fragmentMaxLifecycleEnforcer.register(recyclerView);
+        }
+    }
+
+    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
+    public void onDetachedFromRecyclerView(RecyclerView recyclerView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, recyclerView) == null) {
+            this.mFragmentMaxLifecycleEnforcer.unregister(recyclerView);
+            this.mFragmentMaxLifecycleEnforcer = null;
+        }
+    }
+
+    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
+    public final void setHasStableIds(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
+            throw new UnsupportedOperationException("Stable Ids are required for the adapter to function properly, and the adapter takes care of setting the flag.");
+        }
     }
 
     private void removeFragment(long j) {
         Fragment fragment;
         ViewParent parent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(65545, this, j) == null) || (fragment = this.mFragments.get(j)) == null) {
+        if ((interceptable != null && interceptable.invokeJ(65545, this, j) != null) || (fragment = this.mFragments.get(j)) == null) {
             return;
         }
         if (fragment.getView() != null && (parent = fragment.getView().getParent()) != null) {
@@ -494,7 +659,7 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
                 }
 
                 @Override // androidx.lifecycle.LifecycleEventObserver
-                public void onStateChanged(@NonNull LifecycleOwner lifecycleOwner, @NonNull Lifecycle.Event event) {
+                public void onStateChanged(LifecycleOwner lifecycleOwner, Lifecycle.Event event) {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 == null || interceptable2.invokeLL(1048576, this, lifecycleOwner, event) == null) && event == Lifecycle.Event.ON_DESTROY) {
                         this.val$handler.removeCallbacks(this.val$runnable);
@@ -506,49 +671,16 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
         }
     }
 
-    private void scheduleViewAttach(Fragment fragment, @NonNull FrameLayout frameLayout) {
+    public boolean shouldDelayFragmentTransactions() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65547, this, fragment, frameLayout) == null) {
-            this.mFragmentManager.registerFragmentLifecycleCallbacks(new FragmentManager.FragmentLifecycleCallbacks(this, fragment, frameLayout) { // from class: androidx.viewpager2.adapter.FragmentStateAdapter.3
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ FragmentStateAdapter this$0;
-                public final /* synthetic */ FrameLayout val$container;
-                public final /* synthetic */ Fragment val$fragment;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, fragment, frameLayout};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$fragment = fragment;
-                    this.val$container = frameLayout;
-                }
-
-                @Override // androidx.fragment.app.FragmentManager.FragmentLifecycleCallbacks
-                public void onFragmentViewCreated(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment2, @NonNull View view2, @Nullable Bundle bundle) {
-                    Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeLLLL(1048576, this, fragmentManager, fragment2, view2, bundle) == null) && fragment2 == this.val$fragment) {
-                        fragmentManager.unregisterFragmentLifecycleCallbacks(this);
-                        this.this$0.addViewToContainer(view2, this.val$container);
-                    }
-                }
-            }, false);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return this.mFragmentManager.isStateSaved();
         }
+        return invokeV.booleanValue;
     }
 
-    public void addViewToContainer(@NonNull View view2, @NonNull FrameLayout frameLayout) {
+    public void addViewToContainer(View view2, FrameLayout frameLayout) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, view2, frameLayout) == null) {
             if (frameLayout.getChildCount() <= 1) {
@@ -567,15 +699,6 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
             throw new IllegalStateException("Design assumption violated.");
         }
     }
-
-    public boolean containsItem(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) ? j >= 0 && j < ((long) getItemCount()) : invokeJ.booleanValue;
-    }
-
-    @NonNull
-    public abstract Fragment createFragment(int i);
 
     public void gcFragments() {
         Interceptable interceptable = $ic;
@@ -603,47 +726,124 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
         }
     }
 
-    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
+    @Override // androidx.viewpager2.adapter.StatefulAdapter
+    public final Parcelable saveState() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? i : invokeI.longValue;
-    }
-
-    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    @CallSuper
-    public void onAttachedToRecyclerView(@NonNull RecyclerView recyclerView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, recyclerView) == null) {
-            Preconditions.checkArgument(this.mFragmentMaxLifecycleEnforcer == null);
-            FragmentMaxLifecycleEnforcer fragmentMaxLifecycleEnforcer = new FragmentMaxLifecycleEnforcer(this);
-            this.mFragmentMaxLifecycleEnforcer = fragmentMaxLifecycleEnforcer;
-            fragmentMaxLifecycleEnforcer.register(recyclerView);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            Bundle bundle = new Bundle(this.mFragments.size() + this.mSavedStates.size());
+            for (int i = 0; i < this.mFragments.size(); i++) {
+                long keyAt = this.mFragments.keyAt(i);
+                Fragment fragment = this.mFragments.get(keyAt);
+                if (fragment != null && fragment.isAdded()) {
+                    this.mFragmentManager.putFragment(bundle, createKey(KEY_PREFIX_FRAGMENT, keyAt), fragment);
+                }
+            }
+            for (int i2 = 0; i2 < this.mSavedStates.size(); i2++) {
+                long keyAt2 = this.mSavedStates.keyAt(i2);
+                if (containsItem(keyAt2)) {
+                    bundle.putParcelable(createKey(KEY_PREFIX_STATE, keyAt2), this.mSavedStates.get(keyAt2));
+                }
+            }
+            return bundle;
         }
+        return (Parcelable) invokeV.objValue;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    @CallSuper
-    public void onDetachedFromRecyclerView(@NonNull RecyclerView recyclerView) {
+    public final void onBindViewHolder(FragmentViewHolder fragmentViewHolder, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, recyclerView) == null) {
-            this.mFragmentMaxLifecycleEnforcer.unregister(recyclerView);
-            this.mFragmentMaxLifecycleEnforcer = null;
+        if (interceptable == null || interceptable.invokeLI(1048583, this, fragmentViewHolder, i) == null) {
+            long itemId = fragmentViewHolder.getItemId();
+            int id = fragmentViewHolder.getContainer().getId();
+            Long itemForViewHolder = itemForViewHolder(id);
+            if (itemForViewHolder != null && itemForViewHolder.longValue() != itemId) {
+                removeFragment(itemForViewHolder.longValue());
+                this.mItemIdToViewHolder.remove(itemForViewHolder.longValue());
+            }
+            this.mItemIdToViewHolder.put(itemId, Integer.valueOf(id));
+            ensureFragment(i);
+            FrameLayout container = fragmentViewHolder.getContainer();
+            if (ViewCompat.isAttachedToWindow(container)) {
+                if (container.getParent() == null) {
+                    container.addOnLayoutChangeListener(new View.OnLayoutChangeListener(this, container, fragmentViewHolder) { // from class: androidx.viewpager2.adapter.FragmentStateAdapter.1
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+                        public final /* synthetic */ FragmentStateAdapter this$0;
+                        public final /* synthetic */ FrameLayout val$container;
+                        public final /* synthetic */ FragmentViewHolder val$holder;
+
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {this, container, fragmentViewHolder};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.this$0 = this;
+                            this.val$container = container;
+                            this.val$holder = fragmentViewHolder;
+                        }
+
+                        @Override // android.view.View.OnLayoutChangeListener
+                        public void onLayoutChange(View view2, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9) {
+                            Interceptable interceptable2 = $ic;
+                            if ((interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9)}) == null) && this.val$container.getParent() != null) {
+                                this.val$container.removeOnLayoutChangeListener(this);
+                                this.this$0.placeFragmentInViewHolder(this.val$holder);
+                            }
+                        }
+                    });
+                } else {
+                    throw new IllegalStateException("Design assumption violated.");
+                }
+            }
+            gcFragments();
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public final boolean onFailedToRecycleView(@NonNull FragmentViewHolder fragmentViewHolder) {
-        InterceptResult invokeL;
+    public final FragmentViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, fragmentViewHolder)) == null) {
-            return true;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, viewGroup, i)) == null) {
+            return FragmentViewHolder.create(viewGroup);
         }
-        return invokeL.booleanValue;
+        return (FragmentViewHolder) invokeLI.objValue;
     }
 
-    public void placeFragmentInViewHolder(@NonNull FragmentViewHolder fragmentViewHolder) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
+    public final void onViewAttachedToWindow(FragmentViewHolder fragmentViewHolder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, fragmentViewHolder) == null) {
+            placeFragmentInViewHolder(fragmentViewHolder);
+            gcFragments();
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
+    public final void onViewRecycled(FragmentViewHolder fragmentViewHolder) {
+        Long itemForViewHolder;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048592, this, fragmentViewHolder) == null) && (itemForViewHolder = itemForViewHolder(fragmentViewHolder.getContainer().getId())) != null) {
+            removeFragment(itemForViewHolder.longValue());
+            this.mItemIdToViewHolder.remove(itemForViewHolder.longValue());
+        }
+    }
+
+    public void placeFragmentInViewHolder(FragmentViewHolder fragmentViewHolder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, fragmentViewHolder) == null) {
             Fragment fragment = this.mFragments.get(fragmentViewHolder.getItemId());
@@ -700,9 +900,9 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
                         }
 
                         @Override // androidx.lifecycle.LifecycleEventObserver
-                        public void onStateChanged(@NonNull LifecycleOwner lifecycleOwner, @NonNull Lifecycle.Event event) {
+                        public void onStateChanged(LifecycleOwner lifecycleOwner, Lifecycle.Event event) {
                             Interceptable interceptable2 = $ic;
-                            if (!(interceptable2 == null || interceptable2.invokeLL(1048576, this, lifecycleOwner, event) == null) || this.this$0.shouldDelayFragmentTransactions()) {
+                            if ((interceptable2 != null && interceptable2.invokeLL(1048576, this, lifecycleOwner, event) != null) || this.this$0.shouldDelayFragmentTransactions()) {
                                 return;
                             }
                             lifecycleOwner.getLifecycle().removeObserver(this);
@@ -719,7 +919,7 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
     }
 
     @Override // androidx.viewpager2.adapter.StatefulAdapter
-    public final void restoreState(@NonNull Parcelable parcelable) {
+    public final void restoreState(Parcelable parcelable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, parcelable) == null) {
             if (this.mSavedStates.isEmpty() && this.mFragments.isEmpty()) {
@@ -740,194 +940,16 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
                         throw new IllegalArgumentException("Unexpected key in savedState: " + str);
                     }
                 }
-                if (this.mFragments.isEmpty()) {
+                if (!this.mFragments.isEmpty()) {
+                    this.mHasStaleFragments = true;
+                    this.mIsInGracePeriod = true;
+                    gcFragments();
+                    scheduleGracePeriodEnd();
                     return;
                 }
-                this.mHasStaleFragments = true;
-                this.mIsInGracePeriod = true;
-                gcFragments();
-                scheduleGracePeriodEnd();
                 return;
             }
             throw new IllegalStateException("Expected the adapter to be 'fresh' while restoring state.");
         }
-    }
-
-    @Override // androidx.viewpager2.adapter.StatefulAdapter
-    @NonNull
-    public final Parcelable saveState() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            Bundle bundle = new Bundle(this.mFragments.size() + this.mSavedStates.size());
-            for (int i = 0; i < this.mFragments.size(); i++) {
-                long keyAt = this.mFragments.keyAt(i);
-                Fragment fragment = this.mFragments.get(keyAt);
-                if (fragment != null && fragment.isAdded()) {
-                    this.mFragmentManager.putFragment(bundle, createKey(KEY_PREFIX_FRAGMENT, keyAt), fragment);
-                }
-            }
-            for (int i2 = 0; i2 < this.mSavedStates.size(); i2++) {
-                long keyAt2 = this.mSavedStates.keyAt(i2);
-                if (containsItem(keyAt2)) {
-                    bundle.putParcelable(createKey(KEY_PREFIX_STATE, keyAt2), this.mSavedStates.get(keyAt2));
-                }
-            }
-            return bundle;
-        }
-        return (Parcelable) invokeV.objValue;
-    }
-
-    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public final void setHasStableIds(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
-            throw new UnsupportedOperationException("Stable Ids are required for the adapter to function properly, and the adapter takes care of setting the flag.");
-        }
-    }
-
-    public boolean shouldDelayFragmentTransactions() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.mFragmentManager.isStateSaved() : invokeV.booleanValue;
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public FragmentStateAdapter(@NonNull Fragment fragment) {
-        this(fragment.getChildFragmentManager(), fragment.getLifecycle());
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {fragment};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((FragmentManager) objArr2[0], (Lifecycle) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public final void onBindViewHolder(@NonNull FragmentViewHolder fragmentViewHolder, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048583, this, fragmentViewHolder, i) == null) {
-            long itemId = fragmentViewHolder.getItemId();
-            int id = fragmentViewHolder.getContainer().getId();
-            Long itemForViewHolder = itemForViewHolder(id);
-            if (itemForViewHolder != null && itemForViewHolder.longValue() != itemId) {
-                removeFragment(itemForViewHolder.longValue());
-                this.mItemIdToViewHolder.remove(itemForViewHolder.longValue());
-            }
-            this.mItemIdToViewHolder.put(itemId, Integer.valueOf(id));
-            ensureFragment(i);
-            FrameLayout container = fragmentViewHolder.getContainer();
-            if (ViewCompat.isAttachedToWindow(container)) {
-                if (container.getParent() == null) {
-                    container.addOnLayoutChangeListener(new View.OnLayoutChangeListener(this, container, fragmentViewHolder) { // from class: androidx.viewpager2.adapter.FragmentStateAdapter.1
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ FragmentStateAdapter this$0;
-                        public final /* synthetic */ FrameLayout val$container;
-                        public final /* synthetic */ FragmentViewHolder val$holder;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this, container, fragmentViewHolder};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.this$0 = this;
-                            this.val$container = container;
-                            this.val$holder = fragmentViewHolder;
-                        }
-
-                        @Override // android.view.View.OnLayoutChangeListener
-                        public void onLayoutChange(View view2, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9) {
-                            Interceptable interceptable2 = $ic;
-                            if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9)}) == null) || this.val$container.getParent() == null) {
-                                return;
-                            }
-                            this.val$container.removeOnLayoutChangeListener(this);
-                            this.this$0.placeFragmentInViewHolder(this.val$holder);
-                        }
-                    });
-                } else {
-                    throw new IllegalStateException("Design assumption violated.");
-                }
-            }
-            gcFragments();
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    @NonNull
-    public final FragmentViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, viewGroup, i)) == null) ? FragmentViewHolder.create(viewGroup) : (FragmentViewHolder) invokeLI.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public final void onViewAttachedToWindow(@NonNull FragmentViewHolder fragmentViewHolder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, fragmentViewHolder) == null) {
-            placeFragmentInViewHolder(fragmentViewHolder);
-            gcFragments();
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public final void onViewRecycled(@NonNull FragmentViewHolder fragmentViewHolder) {
-        Long itemForViewHolder;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048592, this, fragmentViewHolder) == null) || (itemForViewHolder = itemForViewHolder(fragmentViewHolder.getContainer().getId())) == null) {
-            return;
-        }
-        removeFragment(itemForViewHolder.longValue());
-        this.mItemIdToViewHolder.remove(itemForViewHolder.longValue());
-    }
-
-    public FragmentStateAdapter(@NonNull FragmentManager fragmentManager, @NonNull Lifecycle lifecycle) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {fragmentManager, lifecycle};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.mFragments = new LongSparseArray<>();
-        this.mSavedStates = new LongSparseArray<>();
-        this.mItemIdToViewHolder = new LongSparseArray<>();
-        this.mIsInGracePeriod = false;
-        this.mHasStaleFragments = false;
-        this.mFragmentManager = fragmentManager;
-        this.mLifecycle = lifecycle;
-        super.setHasStableIds(true);
     }
 }

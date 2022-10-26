@@ -7,7 +7,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.BarcodeFormat;
-import com.google.zxing.EncodeHintType;
 import com.google.zxing.Writer;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
@@ -36,15 +35,22 @@ public final class UPCAWriter implements Writer {
 
     public static String preencode(String str) {
         InterceptResult invokeL;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
             int length = str.length();
             if (length == 11) {
-                int i = 0;
-                for (int i2 = 0; i2 < 11; i2++) {
-                    i += (str.charAt(i2) - '0') * (i2 % 2 == 0 ? 3 : 1);
+                int i2 = 0;
+                for (int i3 = 0; i3 < 11; i3++) {
+                    int charAt = str.charAt(i3) - '0';
+                    if (i3 % 2 == 0) {
+                        i = 3;
+                    } else {
+                        i = 1;
+                    }
+                    i2 += charAt * i;
                 }
-                str = str + ((1000 - i) % 10);
+                str = str + ((1000 - i2) % 10);
             } else if (length != 12) {
                 throw new IllegalArgumentException("Requested contents should be 11 or 12 digits long, but got " + str.length());
             }
@@ -57,11 +63,14 @@ public final class UPCAWriter implements Writer {
     public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2) throws WriterException {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048576, this, str, barcodeFormat, i, i2)) == null) ? encode(str, barcodeFormat, i, i2, null) : (BitMatrix) invokeLLII.objValue;
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048576, this, str, barcodeFormat, i, i2)) == null) {
+            return encode(str, barcodeFormat, i, i2, null);
+        }
+        return (BitMatrix) invokeLLII.objValue;
     }
 
     @Override // com.google.zxing.Writer
-    public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2, Map<EncodeHintType, ?> map) throws WriterException {
+    public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2, Map map) throws WriterException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, barcodeFormat, Integer.valueOf(i), Integer.valueOf(i2), map})) == null) {

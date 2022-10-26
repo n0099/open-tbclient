@@ -10,8 +10,8 @@ import com.baidu.tieba.im.message.RequestAddMsgRecordMessage;
 import com.baidu.tieba.im.message.ResponseClearTaskIdMessage;
 import com.baidu.tieba.im.model.AddMsgRecordHttpProtoResponse;
 import com.baidu.tieba.im.model.AddMsgRecordSocketResponse;
-import com.baidu.tieba.pb;
-import com.baidu.tieba.sm8;
+import com.baidu.tieba.qb;
+import com.baidu.tieba.zm8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +25,7 @@ public class AddMsgRecordStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public static class a extends pb {
+    public final class a extends qb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -51,44 +51,49 @@ public class AddMsgRecordStatic {
         }
 
         /* JADX WARN: Removed duplicated region for block: B:19:0x002d  */
-        @Override // com.baidu.tieba.pb
+        @Override // com.baidu.tieba.qb
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
+        public void onMessage(ResponsedMessage responsedMessage) {
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 boolean z2 = responsedMessage instanceof AddMsgRecordHttpProtoResponse;
-                if (z2 || (responsedMessage instanceof AddMsgRecordSocketResponse)) {
-                    if (z2) {
-                        AddMsgRecordHttpProtoResponse addMsgRecordHttpProtoResponse = (AddMsgRecordHttpProtoResponse) responsedMessage;
-                        if (addMsgRecordHttpProtoResponse.getData() != null && addMsgRecordHttpProtoResponse.getData().status.intValue() == 1) {
-                            z = true;
-                            if (responsedMessage instanceof AddMsgRecordSocketResponse) {
-                                AddMsgRecordSocketResponse addMsgRecordSocketResponse = (AddMsgRecordSocketResponse) responsedMessage;
-                                if (addMsgRecordSocketResponse.getData() != null) {
-                                    z = addMsgRecordSocketResponse.getData().status.intValue() == 1;
+                if (!z2 && !(responsedMessage instanceof AddMsgRecordSocketResponse)) {
+                    return;
+                }
+                boolean z3 = false;
+                if (z2) {
+                    AddMsgRecordHttpProtoResponse addMsgRecordHttpProtoResponse = (AddMsgRecordHttpProtoResponse) responsedMessage;
+                    if (addMsgRecordHttpProtoResponse.getData() != null && addMsgRecordHttpProtoResponse.getData().status.intValue() == 1) {
+                        z = true;
+                        if (responsedMessage instanceof AddMsgRecordSocketResponse) {
+                            AddMsgRecordSocketResponse addMsgRecordSocketResponse = (AddMsgRecordSocketResponse) responsedMessage;
+                            if (addMsgRecordSocketResponse.getData() != null) {
+                                if (addMsgRecordSocketResponse.getData().status.intValue() == 1) {
+                                    z3 = true;
                                 }
+                                z = z3;
                             }
-                            BdLog.e("success " + z);
-                            if (responsedMessage.getOrginalMessage() == null && (responsedMessage.getOrginalMessage().getExtra() instanceof RequestAddMsgRecordMessage) && ((RequestAddMsgRecordMessage) responsedMessage.getOrginalMessage().getExtra()).isList()) {
-                                BdLog.e("isList");
-                                if (z) {
-                                    MessageManager.getInstance().dispatchResponsedMessage(new ResponseClearTaskIdMessage());
-                                    return;
-                                }
+                        }
+                        BdLog.e("success " + z);
+                        if (responsedMessage.getOrginalMessage() == null && (responsedMessage.getOrginalMessage().getExtra() instanceof RequestAddMsgRecordMessage) && ((RequestAddMsgRecordMessage) responsedMessage.getOrginalMessage().getExtra()).isList()) {
+                            BdLog.e("isList");
+                            if (z) {
+                                MessageManager.getInstance().dispatchResponsedMessage(new ResponseClearTaskIdMessage());
                                 return;
                             }
                             return;
                         }
+                        return;
                     }
-                    z = false;
-                    if (responsedMessage instanceof AddMsgRecordSocketResponse) {
-                    }
-                    BdLog.e("success " + z);
-                    if (responsedMessage.getOrginalMessage() == null) {
-                    }
+                }
+                z = false;
+                if (responsedMessage instanceof AddMsgRecordSocketResponse) {
+                }
+                BdLog.e("success " + z);
+                if (responsedMessage.getOrginalMessage() == null) {
                 }
             }
         }
@@ -107,8 +112,8 @@ public class AddMsgRecordStatic {
                 return;
             }
         }
-        sm8.f(309265, AddMsgRecordSocketResponse.class, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ADD_MSG_RECORD, sm8.a(TbConfig.ADD_MSG_RECORD, 309265));
+        zm8.f(309265, AddMsgRecordSocketResponse.class, false);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ADD_MSG_RECORD, zm8.a(TbConfig.ADD_MSG_RECORD, 309265));
         tbHttpMessageTask.setResponsedClass(AddMsgRecordHttpProtoResponse.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
         MessageManager.getInstance().registerListener(new a(CmdConfigHttp.CMD_ADD_MSG_RECORD, 309265));

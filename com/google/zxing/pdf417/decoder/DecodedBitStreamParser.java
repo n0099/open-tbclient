@@ -48,7 +48,7 @@ public final class DecodedBitStreamParser {
 
     /* renamed from: com.google.zxing.pdf417.decoder.DecodedBitStreamParser$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$google$zxing$pdf417$decoder$DecodedBitStreamParser$Mode;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -97,7 +97,7 @@ public final class DecodedBitStreamParser {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public static final class Mode {
+    public final class Mode {
         public static final /* synthetic */ Mode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Mode ALPHA;
@@ -153,13 +153,19 @@ public final class DecodedBitStreamParser {
         public static Mode valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Mode) Enum.valueOf(Mode.class, str) : (Mode) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (Mode) Enum.valueOf(Mode.class, str);
+            }
+            return (Mode) invokeL.objValue;
         }
 
         public static Mode[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Mode[]) $VALUES.clone() : (Mode[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (Mode[]) $VALUES.clone();
+            }
+            return (Mode[]) invokeV.objValue;
         }
     }
 
@@ -187,11 +193,12 @@ public final class DecodedBitStreamParser {
         int i = 2;
         while (true) {
             BigInteger[] bigIntegerArr2 = EXP900;
-            if (i >= bigIntegerArr2.length) {
+            if (i < bigIntegerArr2.length) {
+                bigIntegerArr2[i] = bigIntegerArr2[i - 1].multiply(valueOf);
+                i++;
+            } else {
                 return;
             }
-            bigIntegerArr2[i] = bigIntegerArr2[i - 1].multiply(valueOf);
-            i++;
         }
     }
 
@@ -236,37 +243,39 @@ public final class DecodedBitStreamParser {
                         j2 = (j2 * j) + i10;
                         int i12 = i3 + 1;
                         i10 = iArr[i3];
-                        if (i10 == 900 || i10 == 901 || i10 == 902 || i10 == 924 || i10 == 928 || i10 == i7 || i10 == i6) {
+                        if (i10 != 900 && i10 != 901 && i10 != 902 && i10 != 924 && i10 != 928 && i10 != i7 && i10 != i6) {
+                            if (i11 % 5 == 0 && i11 > 0) {
+                                int i13 = 0;
+                                while (i13 < 6) {
+                                    byteArrayOutputStream.write((byte) (j2 >> ((5 - i13) * 8)));
+                                    i13++;
+                                    i6 = 922;
+                                    i7 = 923;
+                                }
+                                i3 = i12;
+                                j = 900;
+                            } else {
+                                i3 = i12;
+                                i4 = i11;
+                                i6 = 922;
+                                i7 = 923;
+                                j = 900;
+                            }
+                        } else {
                             i3 = i12 - 1;
                             i4 = i11;
                             i6 = 922;
                             i7 = 923;
                             j = 900;
                             z = true;
-                        } else if (i11 % 5 != 0 || i11 <= 0) {
-                            i3 = i12;
-                            i4 = i11;
-                            i6 = 922;
-                            i7 = 923;
-                            j = 900;
-                        } else {
-                            int i13 = 0;
-                            while (i13 < 6) {
-                                byteArrayOutputStream.write((byte) (j2 >> ((5 - i13) * 8)));
-                                i13++;
-                                i6 = 922;
-                                i7 = 923;
-                            }
-                            i3 = i12;
-                            j = 900;
                         }
                     }
                 }
-                if (i3 != iArr[0] || i10 >= 900) {
-                    i5 = i4;
-                } else {
+                if (i3 == iArr[0] && i10 < 900) {
                     i5 = i4 + 1;
                     iArr2[i4] = i10;
+                } else {
+                    i5 = i4;
                 }
                 for (int i14 = 0; i14 < i5; i14++) {
                     byteArrayOutputStream.write((byte) iArr2[i14]);
@@ -452,6 +461,52 @@ public final class DecodedBitStreamParser {
         return invokeLIL.intValue;
     }
 
+    public static int textCompaction(int[] iArr, int i, StringBuilder sb) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65544, null, iArr, i, sb)) == null) {
+            int[] iArr2 = new int[(iArr[0] - i) << 1];
+            int[] iArr3 = new int[(iArr[0] - i) << 1];
+            boolean z = false;
+            int i2 = 0;
+            while (i < iArr[0] && !z) {
+                int i3 = i + 1;
+                int i4 = iArr[i];
+                if (i4 < 900) {
+                    iArr2[i2] = i4 / 30;
+                    iArr2[i2 + 1] = i4 % 30;
+                    i2 += 2;
+                } else if (i4 != 913) {
+                    if (i4 != 928) {
+                        switch (i4) {
+                            case 900:
+                                iArr2[i2] = 900;
+                                i2++;
+                                break;
+                            case 901:
+                            case 902:
+                                break;
+                            default:
+                                switch (i4) {
+                                }
+                        }
+                    }
+                    i = i3 - 1;
+                    z = true;
+                } else {
+                    iArr2[i2] = 913;
+                    i = i3 + 1;
+                    iArr3[i2] = iArr[i3];
+                    i2++;
+                }
+                i = i3;
+            }
+            decodeTextCompaction(iArr2, iArr3, i2, sb);
+            return i;
+        }
+        return invokeLIL.intValue;
+    }
+
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     public static void decodeTextCompaction(int[] iArr, int[] iArr2, int i, StringBuilder sb) {
         Mode mode;
@@ -497,7 +552,9 @@ public final class DecodedBitStreamParser {
                             c = (char) i2;
                             break;
                         } else if (i4 != 26) {
-                            if (i4 != 27) {
+                            if (i4 == 27) {
+                                mode = Mode.ALPHA_SHIFT;
+                            } else {
                                 if (i4 == 28) {
                                     mode2 = Mode.MIXED;
                                 } else if (i4 == 29) {
@@ -509,8 +566,6 @@ public final class DecodedBitStreamParser {
                                 }
                                 c = 0;
                                 break;
-                            } else {
-                                mode = Mode.ALPHA_SHIFT;
                             }
                             c = 0;
                             Mode mode42 = mode;
@@ -633,52 +688,6 @@ public final class DecodedBitStreamParser {
                 }
                 i = i3;
             }
-            return i;
-        }
-        return invokeLIL.intValue;
-    }
-
-    public static int textCompaction(int[] iArr, int i, StringBuilder sb) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65544, null, iArr, i, sb)) == null) {
-            int[] iArr2 = new int[(iArr[0] - i) << 1];
-            int[] iArr3 = new int[(iArr[0] - i) << 1];
-            boolean z = false;
-            int i2 = 0;
-            while (i < iArr[0] && !z) {
-                int i3 = i + 1;
-                int i4 = iArr[i];
-                if (i4 < 900) {
-                    iArr2[i2] = i4 / 30;
-                    iArr2[i2 + 1] = i4 % 30;
-                    i2 += 2;
-                } else if (i4 != 913) {
-                    if (i4 != 928) {
-                        switch (i4) {
-                            case 900:
-                                iArr2[i2] = 900;
-                                i2++;
-                                break;
-                            case 901:
-                            case 902:
-                                break;
-                            default:
-                                switch (i4) {
-                                }
-                        }
-                    }
-                    i = i3 - 1;
-                    z = true;
-                } else {
-                    iArr2[i2] = 913;
-                    i = i3 + 1;
-                    iArr3[i2] = iArr[i3];
-                    i2++;
-                }
-                i = i3;
-            }
-            decodeTextCompaction(iArr2, iArr3, i2, sb);
             return i;
         }
         return invokeLIL.intValue;

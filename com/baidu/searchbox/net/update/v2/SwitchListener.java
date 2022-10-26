@@ -18,6 +18,8 @@ public abstract class SwitchListener extends AbstractCommandListener<SwitchData>
     public static final String VERSION_POSTFIX = "_version";
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract String getKey(String str, String str2);
+
     public SwitchListener() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -35,7 +37,13 @@ public abstract class SwitchListener extends AbstractCommandListener<SwitchData>
     public static boolean getSwitchValue(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? TextUtils.equals(str, "1") || !TextUtils.equals(str, "0") : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.equals(str, "1") || !TextUtils.equals(str, "0")) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     @Override // com.baidu.searchbox.net.update.v2.AbstractCommandListener
@@ -43,10 +51,9 @@ public abstract class SwitchListener extends AbstractCommandListener<SwitchData>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048576, this, context, str, str2, commandPostData) == null) {
             String localVersion = getLocalVersion(context, str, str2);
-            if (commandPostData == null || commandPostData.getVersion() == null) {
-                return;
+            if (commandPostData != null && commandPostData.getVersion() != null) {
+                commandPostData.getVersion().put(str2, localVersion);
             }
-            commandPostData.getVersion().put(str2, localVersion);
         }
     }
 
@@ -57,13 +64,13 @@ public abstract class SwitchListener extends AbstractCommandListener<SwitchData>
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, actionData)) == null) {
             String key = getKey(str, str2);
             if (key == null) {
-                if (AppConfig.isDebug()) {
-                    throw new IllegalArgumentException("getKey should be implemented correctly to return preference key");
+                if (!AppConfig.isDebug()) {
+                    return false;
                 }
-                return false;
+                throw new IllegalArgumentException("getKey should be implemented correctly to return preference key");
             }
-            SwitchData switchData = actionData.data;
-            if (switchData == null || switchData.auth == null || !handleData(context, str, str2, key, getSwitchValue(switchData.auth))) {
+            Object obj = actionData.data;
+            if (obj == null || ((SwitchData) obj).auth == null || !handleData(context, str, str2, key, getSwitchValue(((SwitchData) obj).auth))) {
                 return false;
             }
             DefaultSharedPrefsWrapper defaultSharedPrefsWrapper = DefaultSharedPrefsWrapper.getInstance();
@@ -72,8 +79,6 @@ public abstract class SwitchListener extends AbstractCommandListener<SwitchData>
         }
         return invokeLLLL.booleanValue;
     }
-
-    public abstract String getKey(String str, String str2);
 
     @Override // com.baidu.searchbox.net.update.v2.AbstractCommandListener
     public String getLocalVersion(Context context, String str, String str2) {

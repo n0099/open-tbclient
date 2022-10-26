@@ -53,7 +53,10 @@ public class TiebaDatabase {
     public static TiebaDatabase getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? _instance : (TiebaDatabase) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return _instance;
+        }
+        return (TiebaDatabase) invokeV.objValue;
     }
 
     public y9 getMainDBDatabaseManager() {

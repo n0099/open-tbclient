@@ -2,7 +2,6 @@ package com.baidu.tbadk.core.view.spanGroup;
 
 import android.os.Parcel;
 import android.text.style.ForegroundColorSpan;
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -33,7 +32,7 @@ public class SpanGroupForegroundColorSpan extends ForegroundColorSpan {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SpanGroupForegroundColorSpan(@NonNull Parcel parcel) {
+    public SpanGroupForegroundColorSpan(Parcel parcel) {
         super(parcel);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

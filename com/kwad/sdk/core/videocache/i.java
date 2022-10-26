@@ -10,7 +10,7 @@ import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes7.dex */
 public final class i extends ProxySelector {
-    public static final List<Proxy> aeJ = Arrays.asList(Proxy.NO_PROXY);
+    public static final List aeJ = Arrays.asList(Proxy.NO_PROXY);
     public final ProxySelector aeK;
     public final String aeL;
     public final int aeM;
@@ -31,7 +31,7 @@ public final class i extends ProxySelector {
     }
 
     @Override // java.net.ProxySelector
-    public final List<Proxy> select(URI uri) {
+    public final List select(URI uri) {
         return this.aeL.equals(uri.getHost()) && this.aeM == uri.getPort() ? aeJ : this.aeK.select(uri);
     }
 }

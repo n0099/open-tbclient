@@ -2,12 +2,10 @@ package androidx.appcompat.widget;
 
 import android.content.res.ColorStateList;
 import android.graphics.PorterDuff;
-import androidx.annotation.RestrictTo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class TintInfo {
     public static /* synthetic */ Interceptable $ic;

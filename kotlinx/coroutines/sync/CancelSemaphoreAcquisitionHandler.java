@@ -17,23 +17,21 @@ public final class CancelSemaphoreAcquisitionHandler extends CancelHandler {
         this.index = i;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // kotlin.jvm.functions.Function1
-    public /* bridge */ /* synthetic */ Unit invoke(Throwable th) {
-        invoke2(th);
+    public /* bridge */ /* synthetic */ Object invoke(Object obj) {
+        invoke((Throwable) obj);
         return Unit.INSTANCE;
+    }
+
+    @Override // kotlinx.coroutines.CancelHandlerBase
+    public void invoke(Throwable th) {
+        if (this.semaphore.incPermits() >= 0 || this.segment.cancel(this.index)) {
+            return;
+        }
+        this.semaphore.resumeNextFromQueue$kotlinx_coroutines_core();
     }
 
     public String toString() {
         return "CancelSemaphoreAcquisitionHandler[" + this.semaphore + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.segment + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.index + ']';
-    }
-
-    @Override // kotlinx.coroutines.CancelHandlerBase
-    /* renamed from: invoke  reason: avoid collision after fix types in other method */
-    public void invoke2(Throwable th) {
-        if (this.semaphore.incPermits() < 0 && !this.segment.cancel(this.index)) {
-            this.semaphore.resumeNextFromQueue$kotlinx_coroutines_core();
-        }
     }
 }

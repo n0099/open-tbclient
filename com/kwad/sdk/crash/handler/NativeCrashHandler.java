@@ -1,9 +1,6 @@
 package com.kwad.sdk.crash.handler;
 
 import android.os.Build;
-import androidx.annotation.Keep;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.kwad.sdk.crash.model.message.ExceptionMessage;
 import com.kwad.sdk.crash.model.message.NativeExceptionMessage;
 import com.kwad.sdk.crash.report.e;
@@ -11,16 +8,15 @@ import com.kwad.sdk.crash.report.g;
 import com.kwad.sdk.crash.utils.f;
 import java.io.File;
 import java.util.concurrent.CountDownLatch;
-@Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class NativeCrashHandler extends b {
     public static final String NATIVE_CRASH_HAPPENED_BEGIN = "------ Native Crash Happened Begin ------\n";
     public static final String TAG = "NativeCrashHandler";
     public static ExceptionMessage mMessage = new NativeExceptionMessage();
     public File mMessageFile;
 
-    /* loaded from: classes8.dex */
-    public static class a {
+    /* loaded from: classes7.dex */
+    public final class a {
         public static final NativeCrashHandler ahq = new NativeCrashHandler();
     }
 
@@ -33,10 +29,9 @@ public final class NativeCrashHandler extends b {
         return a.ahq;
     }
 
-    public static native void install(@NonNull String str, boolean z, @NonNull String str2, int i);
+    public static native void install(String str, boolean z, String str2, int i);
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, IF, INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, INVOKE, INVOKE, IGET, INVOKE, INVOKE, INVOKE, INVOKE, INVOKE, IF, INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, INVOKE, INVOKE, IGET, INVOKE, INVOKE, INVOKE, INVOKE, SGET, INVOKE, INVOKE, INVOKE, INVOKE, IF, INVOKE, MOVE_EXCEPTION] complete} */
-    @Keep
     public static void onCallFromNative() {
         com.kwad.sdk.core.e.b.d(TAG, "onCallFromNative NativeCrashHandler.doCrash()");
         File file = getInstance().mLogDir;
@@ -133,7 +128,7 @@ public final class NativeCrashHandler extends b {
         return 4;
     }
 
-    public final void init(@NonNull File file, boolean z, @NonNull String str, com.kwad.sdk.crash.report.c cVar) {
+    public final void init(File file, boolean z, String str, com.kwad.sdk.crash.report.c cVar) {
         super.init(file, null, cVar);
         if (com.kwad.sdk.crash.a.wl()) {
             this.mLogDir = file;
@@ -154,7 +149,7 @@ public final class NativeCrashHandler extends b {
     }
 
     @Override // com.kwad.sdk.crash.handler.b
-    public final void reportException(@NonNull File[] fileArr, @Nullable CountDownLatch countDownLatch) {
+    public final void reportException(File[] fileArr, CountDownLatch countDownLatch) {
         g gVar = new g();
         gVar.a(getUploader());
         for (File file : fileArr) {

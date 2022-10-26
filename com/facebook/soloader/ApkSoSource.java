@@ -95,6 +95,28 @@ public class ApkSoSource extends ExtractFromZipSoSource {
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ApkSoSource(Context context, File file, String str, int i) {
+        super(context, str, file, "^lib/([^/]+)/([^/]+\\.so)$");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, file, str, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], (File) objArr2[2], (String) objArr2[3]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mFlags = i;
+    }
+
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ApkSoSource(Context context, String str, int i) {
         this(context, new File(context.getApplicationInfo().sourceDir), str, i);
@@ -157,28 +179,9 @@ public class ApkSoSource extends ExtractFromZipSoSource {
     public UnpackingSoSource.Unpacker makeUnpacker() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new ApkUnpacker(this, this) : (UnpackingSoSource.Unpacker) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ApkSoSource(Context context, File file, String str, int i) {
-        super(context, str, file, "^lib/([^/]+)/([^/]+\\.so)$");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, file, str, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], (File) objArr2[2], (String) objArr2[3]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return new ApkUnpacker(this, this);
         }
-        this.mFlags = i;
+        return (UnpackingSoSource.Unpacker) invokeV.objValue;
     }
 }

@@ -1,6 +1,5 @@
 package androidx.appcompat.widget;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -13,8 +12,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.view.ActionBarPolicy;
 import androidx.appcompat.view.menu.ActionMenuItemView;
 import androidx.appcompat.view.menu.BaseMenuPresenter;
@@ -197,6 +194,26 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ActionMenuPresenter this$0;
 
+        @Override // androidx.appcompat.widget.ActionMenuView.ActionMenuChildView
+        public boolean needsDividerAfter() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // androidx.appcompat.widget.ActionMenuView.ActionMenuChildView
+        public boolean needsDividerBefore() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public OverflowMenuButton(ActionMenuPresenter actionMenuPresenter, Context context) {
             super(context, null, R.attr.obfuscated_res_0x7f040069);
@@ -290,26 +307,6 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
                     return invokeV.booleanValue;
                 }
             });
-        }
-
-        @Override // androidx.appcompat.widget.ActionMenuView.ActionMenuChildView
-        public boolean needsDividerAfter() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // androidx.appcompat.widget.ActionMenuView.ActionMenuChildView
-        public boolean needsDividerBefore() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return false;
-            }
-            return invokeV.booleanValue;
         }
 
         @Override // android.view.View
@@ -417,7 +414,7 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
         }
 
         @Override // androidx.appcompat.view.menu.MenuPresenter.Callback
-        public void onCloseMenu(@NonNull MenuBuilder menuBuilder, boolean z) {
+        public void onCloseMenu(MenuBuilder menuBuilder, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, menuBuilder, z) == null) {
                 if (menuBuilder instanceof SubMenuBuilder) {
@@ -431,7 +428,7 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
         }
 
         @Override // androidx.appcompat.view.menu.MenuPresenter.Callback
-        public boolean onOpenSubMenu(@NonNull MenuBuilder menuBuilder) {
+        public boolean onOpenSubMenu(MenuBuilder menuBuilder) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, menuBuilder)) == null) {
@@ -440,22 +437,31 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
                 }
                 this.this$0.mOpenSubMenuId = ((SubMenuBuilder) menuBuilder).getItem().getItemId();
                 MenuPresenter.Callback callback = this.this$0.getCallback();
-                if (callback != null) {
-                    return callback.onOpenSubMenu(menuBuilder);
+                if (callback == null) {
+                    return false;
                 }
-                return false;
+                return callback.onOpenSubMenu(menuBuilder);
             }
             return invokeL.booleanValue;
         }
     }
 
-    @SuppressLint({"BanParcelableUsage"})
     /* loaded from: classes.dex */
     public static class SavedState implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<SavedState> CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
         public int openSubMenuId;
+
+        @Override // android.os.Parcelable
+        public int describeContents() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return 0;
+            }
+            return invokeV.intValue;
+        }
 
         static {
             InterceptResult invokeClinit;
@@ -494,7 +500,10 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
                 public SavedState createFromParcel(Parcel parcel) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new SavedState(parcel) : (SavedState) invokeL.objValue;
+                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                        return new SavedState(parcel);
+                    }
+                    return (SavedState) invokeL.objValue;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -503,7 +512,10 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
                 public SavedState[] newArray(int i) {
                     InterceptResult invokeI;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new SavedState[i] : (SavedState[]) invokeI.objValue;
+                    if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                        return new SavedState[i];
+                    }
+                    return (SavedState[]) invokeI.objValue;
                 }
             };
         }
@@ -519,24 +531,6 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
-            }
-        }
-
-        @Override // android.os.Parcelable
-        public int describeContents() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return 0;
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // android.os.Parcelable
-        public void writeToParcel(Parcel parcel, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i) == null) {
-                parcel.writeInt(this.openSubMenuId);
             }
         }
 
@@ -556,6 +550,14 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
                 }
             }
             this.openSubMenuId = parcel.readInt();
+        }
+
+        @Override // android.os.Parcelable
+        public void writeToParcel(Parcel parcel, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i) == null) {
+                parcel.writeInt(this.openSubMenuId);
+            }
         }
     }
 
@@ -582,219 +584,6 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
         this.mPopupPresenterCallback = new PopupPresenterCallback(this);
     }
 
-    private View findViewForItem(MenuItem menuItem) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, menuItem)) == null) {
-            ViewGroup viewGroup = (ViewGroup) this.mMenuView;
-            if (viewGroup == null) {
-                return null;
-            }
-            int childCount = viewGroup.getChildCount();
-            for (int i = 0; i < childCount; i++) {
-                View childAt = viewGroup.getChildAt(i);
-                if ((childAt instanceof MenuView.ItemView) && ((MenuView.ItemView) childAt).getItemData() == menuItem) {
-                    return childAt;
-                }
-            }
-            return null;
-        }
-        return (View) invokeL.objValue;
-    }
-
-    @Override // androidx.appcompat.view.menu.BaseMenuPresenter
-    public void bindItemView(MenuItemImpl menuItemImpl, MenuView.ItemView itemView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, menuItemImpl, itemView) == null) {
-            itemView.initialize(menuItemImpl, 0);
-            ActionMenuItemView actionMenuItemView = (ActionMenuItemView) itemView;
-            actionMenuItemView.setItemInvoker((ActionMenuView) this.mMenuView);
-            if (this.mPopupCallback == null) {
-                this.mPopupCallback = new ActionMenuPopupCallback(this);
-            }
-            actionMenuItemView.setPopupCallback(this.mPopupCallback);
-        }
-    }
-
-    public boolean dismissPopupMenus() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? hideOverflowMenu() | hideSubMenus() : invokeV.booleanValue;
-    }
-
-    @Override // androidx.appcompat.view.menu.BaseMenuPresenter
-    public boolean filterLeftoverView(ViewGroup viewGroup, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) {
-            if (viewGroup.getChildAt(i) == this.mOverflowButton) {
-                return false;
-            }
-            return super.filterLeftoverView(viewGroup, i);
-        }
-        return invokeLI.booleanValue;
-    }
-
-    @Override // androidx.appcompat.view.menu.BaseMenuPresenter, androidx.appcompat.view.menu.MenuPresenter
-    public boolean flagActionItems() {
-        InterceptResult invokeV;
-        ArrayList<MenuItemImpl> arrayList;
-        int i;
-        int i2;
-        int i3;
-        int i4;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ActionMenuPresenter actionMenuPresenter = this;
-            MenuBuilder menuBuilder = actionMenuPresenter.mMenu;
-            View view2 = null;
-            int i5 = 0;
-            if (menuBuilder != null) {
-                arrayList = menuBuilder.getVisibleItems();
-                i = arrayList.size();
-            } else {
-                arrayList = null;
-                i = 0;
-            }
-            int i6 = actionMenuPresenter.mMaxItems;
-            int i7 = actionMenuPresenter.mActionItemWidthLimit;
-            int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
-            ViewGroup viewGroup = (ViewGroup) actionMenuPresenter.mMenuView;
-            boolean z = false;
-            int i8 = 0;
-            int i9 = 0;
-            for (int i10 = 0; i10 < i; i10++) {
-                MenuItemImpl menuItemImpl = arrayList.get(i10);
-                if (menuItemImpl.requiresActionButton()) {
-                    i8++;
-                } else if (menuItemImpl.requestsActionButton()) {
-                    i9++;
-                } else {
-                    z = true;
-                }
-                if (actionMenuPresenter.mExpandedActionViewsExclusive && menuItemImpl.isActionViewExpanded()) {
-                    i6 = 0;
-                }
-            }
-            if (actionMenuPresenter.mReserveOverflow && (z || i9 + i8 > i6)) {
-                i6--;
-            }
-            int i11 = i6 - i8;
-            SparseBooleanArray sparseBooleanArray = actionMenuPresenter.mActionButtonGroups;
-            sparseBooleanArray.clear();
-            if (actionMenuPresenter.mStrictWidthLimit) {
-                int i12 = actionMenuPresenter.mMinCellSize;
-                i3 = i7 / i12;
-                i2 = i12 + ((i7 % i12) / i3);
-            } else {
-                i2 = 0;
-                i3 = 0;
-            }
-            int i13 = 0;
-            int i14 = 0;
-            while (i13 < i) {
-                MenuItemImpl menuItemImpl2 = arrayList.get(i13);
-                if (menuItemImpl2.requiresActionButton()) {
-                    View itemView = actionMenuPresenter.getItemView(menuItemImpl2, view2, viewGroup);
-                    if (actionMenuPresenter.mStrictWidthLimit) {
-                        i3 -= ActionMenuView.measureChildForCells(itemView, i2, i3, makeMeasureSpec, i5);
-                    } else {
-                        itemView.measure(makeMeasureSpec, makeMeasureSpec);
-                    }
-                    int measuredWidth = itemView.getMeasuredWidth();
-                    i7 -= measuredWidth;
-                    if (i14 == 0) {
-                        i14 = measuredWidth;
-                    }
-                    int groupId = menuItemImpl2.getGroupId();
-                    if (groupId != 0) {
-                        sparseBooleanArray.put(groupId, true);
-                    }
-                    menuItemImpl2.setIsActionButton(true);
-                    i4 = i;
-                } else if (menuItemImpl2.requestsActionButton()) {
-                    int groupId2 = menuItemImpl2.getGroupId();
-                    boolean z2 = sparseBooleanArray.get(groupId2);
-                    boolean z3 = (i11 > 0 || z2) && i7 > 0 && (!actionMenuPresenter.mStrictWidthLimit || i3 > 0);
-                    boolean z4 = z3;
-                    i4 = i;
-                    if (z3) {
-                        View itemView2 = actionMenuPresenter.getItemView(menuItemImpl2, null, viewGroup);
-                        if (actionMenuPresenter.mStrictWidthLimit) {
-                            int measureChildForCells = ActionMenuView.measureChildForCells(itemView2, i2, i3, makeMeasureSpec, 0);
-                            i3 -= measureChildForCells;
-                            if (measureChildForCells == 0) {
-                                z4 = false;
-                            }
-                        } else {
-                            itemView2.measure(makeMeasureSpec, makeMeasureSpec);
-                        }
-                        boolean z5 = z4;
-                        int measuredWidth2 = itemView2.getMeasuredWidth();
-                        i7 -= measuredWidth2;
-                        if (i14 == 0) {
-                            i14 = measuredWidth2;
-                        }
-                        z3 = z5 & (!actionMenuPresenter.mStrictWidthLimit ? i7 + i14 <= 0 : i7 < 0);
-                    }
-                    if (z3 && groupId2 != 0) {
-                        sparseBooleanArray.put(groupId2, true);
-                    } else if (z2) {
-                        sparseBooleanArray.put(groupId2, false);
-                        for (int i15 = 0; i15 < i13; i15++) {
-                            MenuItemImpl menuItemImpl3 = arrayList.get(i15);
-                            if (menuItemImpl3.getGroupId() == groupId2) {
-                                if (menuItemImpl3.isActionButton()) {
-                                    i11++;
-                                }
-                                menuItemImpl3.setIsActionButton(false);
-                            }
-                        }
-                    }
-                    if (z3) {
-                        i11--;
-                    }
-                    menuItemImpl2.setIsActionButton(z3);
-                } else {
-                    i4 = i;
-                    menuItemImpl2.setIsActionButton(false);
-                    i13++;
-                    view2 = null;
-                    actionMenuPresenter = this;
-                    i = i4;
-                    i5 = 0;
-                }
-                i13++;
-                view2 = null;
-                actionMenuPresenter = this;
-                i = i4;
-                i5 = 0;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // androidx.appcompat.view.menu.BaseMenuPresenter
-    public View getItemView(MenuItemImpl menuItemImpl, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, menuItemImpl, view2, viewGroup)) == null) {
-            View actionView = menuItemImpl.getActionView();
-            if (actionView == null || menuItemImpl.hasCollapsibleActionView()) {
-                actionView = super.getItemView(menuItemImpl, view2, viewGroup);
-            }
-            actionView.setVisibility(menuItemImpl.isActionViewExpanded() ? 8 : 0);
-            ActionMenuView actionMenuView = (ActionMenuView) viewGroup;
-            ViewGroup.LayoutParams layoutParams = actionView.getLayoutParams();
-            if (!actionMenuView.checkLayoutParams(layoutParams)) {
-                actionView.setLayoutParams(actionMenuView.generateLayoutParams(layoutParams));
-            }
-            return actionView;
-        }
-        return (View) invokeLLL.objValue;
-    }
-
     @Override // androidx.appcompat.view.menu.BaseMenuPresenter, androidx.appcompat.view.menu.MenuPresenter
     public MenuView getMenuView(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -808,126 +597,6 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
             return menuView2;
         }
         return (MenuView) invokeL.objValue;
-    }
-
-    public Drawable getOverflowIcon() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            OverflowMenuButton overflowMenuButton = this.mOverflowButton;
-            if (overflowMenuButton != null) {
-                return overflowMenuButton.getDrawable();
-            }
-            if (this.mPendingOverflowIconSet) {
-                return this.mPendingOverflowIcon;
-            }
-            return null;
-        }
-        return (Drawable) invokeV.objValue;
-    }
-
-    public boolean hideOverflowMenu() {
-        InterceptResult invokeV;
-        MenuView menuView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            OpenOverflowRunnable openOverflowRunnable = this.mPostedOpenRunnable;
-            if (openOverflowRunnable != null && (menuView = this.mMenuView) != null) {
-                ((View) menuView).removeCallbacks(openOverflowRunnable);
-                this.mPostedOpenRunnable = null;
-                return true;
-            }
-            OverflowPopup overflowPopup = this.mOverflowPopup;
-            if (overflowPopup != null) {
-                overflowPopup.dismiss();
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean hideSubMenus() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            ActionButtonSubmenu actionButtonSubmenu = this.mActionButtonPopup;
-            if (actionButtonSubmenu != null) {
-                actionButtonSubmenu.dismiss();
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // androidx.appcompat.view.menu.BaseMenuPresenter, androidx.appcompat.view.menu.MenuPresenter
-    public void initForMenu(@NonNull Context context, @Nullable MenuBuilder menuBuilder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, context, menuBuilder) == null) {
-            super.initForMenu(context, menuBuilder);
-            Resources resources = context.getResources();
-            ActionBarPolicy actionBarPolicy = ActionBarPolicy.get(context);
-            if (!this.mReserveOverflowSet) {
-                this.mReserveOverflow = actionBarPolicy.showsOverflowMenuButton();
-            }
-            if (!this.mWidthLimitSet) {
-                this.mWidthLimit = actionBarPolicy.getEmbeddedMenuWidthLimit();
-            }
-            if (!this.mMaxItemsSet) {
-                this.mMaxItems = actionBarPolicy.getMaxActionButtons();
-            }
-            int i = this.mWidthLimit;
-            if (this.mReserveOverflow) {
-                if (this.mOverflowButton == null) {
-                    OverflowMenuButton overflowMenuButton = new OverflowMenuButton(this, this.mSystemContext);
-                    this.mOverflowButton = overflowMenuButton;
-                    if (this.mPendingOverflowIconSet) {
-                        overflowMenuButton.setImageDrawable(this.mPendingOverflowIcon);
-                        this.mPendingOverflowIcon = null;
-                        this.mPendingOverflowIconSet = false;
-                    }
-                    int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
-                    this.mOverflowButton.measure(makeMeasureSpec, makeMeasureSpec);
-                }
-                i -= this.mOverflowButton.getMeasuredWidth();
-            } else {
-                this.mOverflowButton = null;
-            }
-            this.mActionItemWidthLimit = i;
-            this.mMinCellSize = (int) (resources.getDisplayMetrics().density * 56.0f);
-        }
-    }
-
-    public boolean isOverflowMenuShowPending() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mPostedOpenRunnable != null || isOverflowMenuShowing() : invokeV.booleanValue;
-    }
-
-    public boolean isOverflowMenuShowing() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            OverflowPopup overflowPopup = this.mOverflowPopup;
-            return overflowPopup != null && overflowPopup.isShowing();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean isOverflowReserved() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mReserveOverflow : invokeV.booleanValue;
-    }
-
-    @Override // androidx.appcompat.view.menu.BaseMenuPresenter, androidx.appcompat.view.menu.MenuPresenter
-    public void onCloseMenu(MenuBuilder menuBuilder, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048589, this, menuBuilder, z) == null) {
-            dismissPopupMenus();
-            super.onCloseMenu(menuBuilder, z);
-        }
     }
 
     public void onConfigurationChanged(Configuration configuration) {
@@ -948,63 +617,9 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
         int i;
         MenuItem findItem;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048591, this, parcelable) == null) || !(parcelable instanceof SavedState) || (i = ((SavedState) parcelable).openSubMenuId) <= 0 || (findItem = this.mMenu.findItem(i)) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048591, this, parcelable) == null) && (parcelable instanceof SavedState) && (i = ((SavedState) parcelable).openSubMenuId) > 0 && (findItem = this.mMenu.findItem(i)) != null) {
+            onSubMenuSelected((SubMenuBuilder) findItem.getSubMenu());
         }
-        onSubMenuSelected((SubMenuBuilder) findItem.getSubMenu());
-    }
-
-    @Override // androidx.appcompat.view.menu.MenuPresenter
-    public Parcelable onSaveInstanceState() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            SavedState savedState = new SavedState();
-            savedState.openSubMenuId = this.mOpenSubMenuId;
-            return savedState;
-        }
-        return (Parcelable) invokeV.objValue;
-    }
-
-    @Override // androidx.appcompat.view.menu.BaseMenuPresenter, androidx.appcompat.view.menu.MenuPresenter
-    public boolean onSubMenuSelected(SubMenuBuilder subMenuBuilder) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, subMenuBuilder)) == null) {
-            boolean z = false;
-            if (subMenuBuilder.hasVisibleItems()) {
-                SubMenuBuilder subMenuBuilder2 = subMenuBuilder;
-                while (subMenuBuilder2.getParentMenu() != this.mMenu) {
-                    subMenuBuilder2 = (SubMenuBuilder) subMenuBuilder2.getParentMenu();
-                }
-                View findViewForItem = findViewForItem(subMenuBuilder2.getItem());
-                if (findViewForItem == null) {
-                    return false;
-                }
-                this.mOpenSubMenuId = subMenuBuilder.getItem().getItemId();
-                int size = subMenuBuilder.size();
-                int i = 0;
-                while (true) {
-                    if (i >= size) {
-                        break;
-                    }
-                    MenuItem item = subMenuBuilder.getItem(i);
-                    if (item.isVisible() && item.getIcon() != null) {
-                        z = true;
-                        break;
-                    }
-                    i++;
-                }
-                ActionButtonSubmenu actionButtonSubmenu = new ActionButtonSubmenu(this, this.mContext, subMenuBuilder, findViewForItem);
-                this.mActionButtonPopup = actionButtonSubmenu;
-                actionButtonSubmenu.setForceShowIcon(z);
-                this.mActionButtonPopup.show();
-                super.onSubMenuSelected(subMenuBuilder);
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
     }
 
     @Override // androidx.core.view.ActionProvider.SubUiVisibilityListener
@@ -1066,6 +681,62 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
         }
     }
 
+    private View findViewForItem(MenuItem menuItem) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, menuItem)) == null) {
+            ViewGroup viewGroup = (ViewGroup) this.mMenuView;
+            if (viewGroup == null) {
+                return null;
+            }
+            int childCount = viewGroup.getChildCount();
+            for (int i = 0; i < childCount; i++) {
+                View childAt = viewGroup.getChildAt(i);
+                if ((childAt instanceof MenuView.ItemView) && ((MenuView.ItemView) childAt).getItemData() == menuItem) {
+                    return childAt;
+                }
+            }
+            return null;
+        }
+        return (View) invokeL.objValue;
+    }
+
+    @Override // androidx.appcompat.view.menu.BaseMenuPresenter
+    public void bindItemView(MenuItemImpl menuItemImpl, MenuView.ItemView itemView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, menuItemImpl, itemView) == null) {
+            itemView.initialize(menuItemImpl, 0);
+            ActionMenuItemView actionMenuItemView = (ActionMenuItemView) itemView;
+            actionMenuItemView.setItemInvoker((ActionMenuView) this.mMenuView);
+            if (this.mPopupCallback == null) {
+                this.mPopupCallback = new ActionMenuPopupCallback(this);
+            }
+            actionMenuItemView.setPopupCallback(this.mPopupCallback);
+        }
+    }
+
+    @Override // androidx.appcompat.view.menu.BaseMenuPresenter
+    public boolean filterLeftoverView(ViewGroup viewGroup, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) {
+            if (viewGroup.getChildAt(i) == this.mOverflowButton) {
+                return false;
+            }
+            return super.filterLeftoverView(viewGroup, i);
+        }
+        return invokeLI.booleanValue;
+    }
+
+    @Override // androidx.appcompat.view.menu.BaseMenuPresenter, androidx.appcompat.view.menu.MenuPresenter
+    public void onCloseMenu(MenuBuilder menuBuilder, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048589, this, menuBuilder, z) == null) {
+            dismissPopupMenus();
+            super.onCloseMenu(menuBuilder, z);
+        }
+    }
+
     public void setWidthLimit(int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
@@ -1079,7 +750,372 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
     public boolean shouldIncludeItem(int i, MenuItemImpl menuItemImpl) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048601, this, i, menuItemImpl)) == null) ? menuItemImpl.isActionButton() : invokeIL.booleanValue;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048601, this, i, menuItemImpl)) == null) {
+            return menuItemImpl.isActionButton();
+        }
+        return invokeIL.booleanValue;
+    }
+
+    public boolean dismissPopupMenus() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return hideOverflowMenu() | hideSubMenus();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public Drawable getOverflowIcon() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            OverflowMenuButton overflowMenuButton = this.mOverflowButton;
+            if (overflowMenuButton != null) {
+                return overflowMenuButton.getDrawable();
+            }
+            if (this.mPendingOverflowIconSet) {
+                return this.mPendingOverflowIcon;
+            }
+            return null;
+        }
+        return (Drawable) invokeV.objValue;
+    }
+
+    public boolean hideOverflowMenu() {
+        InterceptResult invokeV;
+        MenuView menuView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            OpenOverflowRunnable openOverflowRunnable = this.mPostedOpenRunnable;
+            if (openOverflowRunnable != null && (menuView = this.mMenuView) != null) {
+                ((View) menuView).removeCallbacks(openOverflowRunnable);
+                this.mPostedOpenRunnable = null;
+                return true;
+            }
+            OverflowPopup overflowPopup = this.mOverflowPopup;
+            if (overflowPopup != null) {
+                overflowPopup.dismiss();
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean hideSubMenus() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            ActionButtonSubmenu actionButtonSubmenu = this.mActionButtonPopup;
+            if (actionButtonSubmenu != null) {
+                actionButtonSubmenu.dismiss();
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isOverflowMenuShowPending() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            if (this.mPostedOpenRunnable == null && !isOverflowMenuShowing()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isOverflowMenuShowing() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            OverflowPopup overflowPopup = this.mOverflowPopup;
+            if (overflowPopup != null && overflowPopup.isShowing()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isOverflowReserved() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.mReserveOverflow;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // androidx.appcompat.view.menu.MenuPresenter
+    public Parcelable onSaveInstanceState() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            SavedState savedState = new SavedState();
+            savedState.openSubMenuId = this.mOpenSubMenuId;
+            return savedState;
+        }
+        return (Parcelable) invokeV.objValue;
+    }
+
+    @Override // androidx.appcompat.view.menu.BaseMenuPresenter, androidx.appcompat.view.menu.MenuPresenter
+    public boolean flagActionItems() {
+        InterceptResult invokeV;
+        ArrayList<MenuItemImpl> arrayList;
+        int i;
+        int i2;
+        int i3;
+        int i4;
+        boolean z;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ActionMenuPresenter actionMenuPresenter = this;
+            MenuBuilder menuBuilder = actionMenuPresenter.mMenu;
+            View view2 = null;
+            int i5 = 0;
+            if (menuBuilder != null) {
+                arrayList = menuBuilder.getVisibleItems();
+                i = arrayList.size();
+            } else {
+                arrayList = null;
+                i = 0;
+            }
+            int i6 = actionMenuPresenter.mMaxItems;
+            int i7 = actionMenuPresenter.mActionItemWidthLimit;
+            int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
+            ViewGroup viewGroup = (ViewGroup) actionMenuPresenter.mMenuView;
+            boolean z3 = false;
+            int i8 = 0;
+            int i9 = 0;
+            for (int i10 = 0; i10 < i; i10++) {
+                MenuItemImpl menuItemImpl = arrayList.get(i10);
+                if (menuItemImpl.requiresActionButton()) {
+                    i8++;
+                } else if (menuItemImpl.requestsActionButton()) {
+                    i9++;
+                } else {
+                    z3 = true;
+                }
+                if (actionMenuPresenter.mExpandedActionViewsExclusive && menuItemImpl.isActionViewExpanded()) {
+                    i6 = 0;
+                }
+            }
+            if (actionMenuPresenter.mReserveOverflow && (z3 || i9 + i8 > i6)) {
+                i6--;
+            }
+            int i11 = i6 - i8;
+            SparseBooleanArray sparseBooleanArray = actionMenuPresenter.mActionButtonGroups;
+            sparseBooleanArray.clear();
+            if (actionMenuPresenter.mStrictWidthLimit) {
+                int i12 = actionMenuPresenter.mMinCellSize;
+                i3 = i7 / i12;
+                i2 = i12 + ((i7 % i12) / i3);
+            } else {
+                i2 = 0;
+                i3 = 0;
+            }
+            int i13 = 0;
+            int i14 = 0;
+            while (i13 < i) {
+                MenuItemImpl menuItemImpl2 = arrayList.get(i13);
+                if (menuItemImpl2.requiresActionButton()) {
+                    View itemView = actionMenuPresenter.getItemView(menuItemImpl2, view2, viewGroup);
+                    if (actionMenuPresenter.mStrictWidthLimit) {
+                        i3 -= ActionMenuView.measureChildForCells(itemView, i2, i3, makeMeasureSpec, i5);
+                    } else {
+                        itemView.measure(makeMeasureSpec, makeMeasureSpec);
+                    }
+                    int measuredWidth = itemView.getMeasuredWidth();
+                    i7 -= measuredWidth;
+                    if (i14 == 0) {
+                        i14 = measuredWidth;
+                    }
+                    int groupId = menuItemImpl2.getGroupId();
+                    if (groupId != 0) {
+                        sparseBooleanArray.put(groupId, true);
+                    }
+                    menuItemImpl2.setIsActionButton(true);
+                    i4 = i;
+                } else if (menuItemImpl2.requestsActionButton()) {
+                    int groupId2 = menuItemImpl2.getGroupId();
+                    boolean z4 = sparseBooleanArray.get(groupId2);
+                    if ((i11 > 0 || z4) && i7 > 0 && (!actionMenuPresenter.mStrictWidthLimit || i3 > 0)) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    boolean z5 = z;
+                    i4 = i;
+                    if (z) {
+                        View itemView2 = actionMenuPresenter.getItemView(menuItemImpl2, null, viewGroup);
+                        if (actionMenuPresenter.mStrictWidthLimit) {
+                            int measureChildForCells = ActionMenuView.measureChildForCells(itemView2, i2, i3, makeMeasureSpec, 0);
+                            i3 -= measureChildForCells;
+                            if (measureChildForCells == 0) {
+                                z5 = false;
+                            }
+                        } else {
+                            itemView2.measure(makeMeasureSpec, makeMeasureSpec);
+                        }
+                        boolean z6 = z5;
+                        int measuredWidth2 = itemView2.getMeasuredWidth();
+                        i7 -= measuredWidth2;
+                        if (i14 == 0) {
+                            i14 = measuredWidth2;
+                        }
+                        if (!actionMenuPresenter.mStrictWidthLimit ? i7 + i14 > 0 : i7 >= 0) {
+                            z2 = true;
+                        } else {
+                            z2 = false;
+                        }
+                        z = z6 & z2;
+                    }
+                    if (z && groupId2 != 0) {
+                        sparseBooleanArray.put(groupId2, true);
+                    } else if (z4) {
+                        sparseBooleanArray.put(groupId2, false);
+                        for (int i15 = 0; i15 < i13; i15++) {
+                            MenuItemImpl menuItemImpl3 = arrayList.get(i15);
+                            if (menuItemImpl3.getGroupId() == groupId2) {
+                                if (menuItemImpl3.isActionButton()) {
+                                    i11++;
+                                }
+                                menuItemImpl3.setIsActionButton(false);
+                            }
+                        }
+                    }
+                    if (z) {
+                        i11--;
+                    }
+                    menuItemImpl2.setIsActionButton(z);
+                } else {
+                    i4 = i;
+                    menuItemImpl2.setIsActionButton(false);
+                    i13++;
+                    view2 = null;
+                    actionMenuPresenter = this;
+                    i = i4;
+                    i5 = 0;
+                }
+                i13++;
+                view2 = null;
+                actionMenuPresenter = this;
+                i = i4;
+                i5 = 0;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // androidx.appcompat.view.menu.BaseMenuPresenter
+    public View getItemView(MenuItemImpl menuItemImpl, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeLLL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, menuItemImpl, view2, viewGroup)) == null) {
+            View actionView = menuItemImpl.getActionView();
+            if (actionView == null || menuItemImpl.hasCollapsibleActionView()) {
+                actionView = super.getItemView(menuItemImpl, view2, viewGroup);
+            }
+            if (menuItemImpl.isActionViewExpanded()) {
+                i = 8;
+            } else {
+                i = 0;
+            }
+            actionView.setVisibility(i);
+            ActionMenuView actionMenuView = (ActionMenuView) viewGroup;
+            ViewGroup.LayoutParams layoutParams = actionView.getLayoutParams();
+            if (!actionMenuView.checkLayoutParams(layoutParams)) {
+                actionView.setLayoutParams(actionMenuView.generateLayoutParams(layoutParams));
+            }
+            return actionView;
+        }
+        return (View) invokeLLL.objValue;
+    }
+
+    @Override // androidx.appcompat.view.menu.BaseMenuPresenter, androidx.appcompat.view.menu.MenuPresenter
+    public void initForMenu(Context context, MenuBuilder menuBuilder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, context, menuBuilder) == null) {
+            super.initForMenu(context, menuBuilder);
+            Resources resources = context.getResources();
+            ActionBarPolicy actionBarPolicy = ActionBarPolicy.get(context);
+            if (!this.mReserveOverflowSet) {
+                this.mReserveOverflow = actionBarPolicy.showsOverflowMenuButton();
+            }
+            if (!this.mWidthLimitSet) {
+                this.mWidthLimit = actionBarPolicy.getEmbeddedMenuWidthLimit();
+            }
+            if (!this.mMaxItemsSet) {
+                this.mMaxItems = actionBarPolicy.getMaxActionButtons();
+            }
+            int i = this.mWidthLimit;
+            if (this.mReserveOverflow) {
+                if (this.mOverflowButton == null) {
+                    OverflowMenuButton overflowMenuButton = new OverflowMenuButton(this, this.mSystemContext);
+                    this.mOverflowButton = overflowMenuButton;
+                    if (this.mPendingOverflowIconSet) {
+                        overflowMenuButton.setImageDrawable(this.mPendingOverflowIcon);
+                        this.mPendingOverflowIcon = null;
+                        this.mPendingOverflowIconSet = false;
+                    }
+                    int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
+                    this.mOverflowButton.measure(makeMeasureSpec, makeMeasureSpec);
+                }
+                i -= this.mOverflowButton.getMeasuredWidth();
+            } else {
+                this.mOverflowButton = null;
+            }
+            this.mActionItemWidthLimit = i;
+            this.mMinCellSize = (int) (resources.getDisplayMetrics().density * 56.0f);
+        }
+    }
+
+    @Override // androidx.appcompat.view.menu.BaseMenuPresenter, androidx.appcompat.view.menu.MenuPresenter
+    public boolean onSubMenuSelected(SubMenuBuilder subMenuBuilder) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, subMenuBuilder)) == null) {
+            boolean z = false;
+            if (!subMenuBuilder.hasVisibleItems()) {
+                return false;
+            }
+            SubMenuBuilder subMenuBuilder2 = subMenuBuilder;
+            while (subMenuBuilder2.getParentMenu() != this.mMenu) {
+                subMenuBuilder2 = (SubMenuBuilder) subMenuBuilder2.getParentMenu();
+            }
+            View findViewForItem = findViewForItem(subMenuBuilder2.getItem());
+            if (findViewForItem == null) {
+                return false;
+            }
+            this.mOpenSubMenuId = subMenuBuilder.getItem().getItemId();
+            int size = subMenuBuilder.size();
+            int i = 0;
+            while (true) {
+                if (i >= size) {
+                    break;
+                }
+                MenuItem item = subMenuBuilder.getItem(i);
+                if (item.isVisible() && item.getIcon() != null) {
+                    z = true;
+                    break;
+                }
+                i++;
+            }
+            ActionButtonSubmenu actionButtonSubmenu = new ActionButtonSubmenu(this, this.mContext, subMenuBuilder, findViewForItem);
+            this.mActionButtonPopup = actionButtonSubmenu;
+            actionButtonSubmenu.setForceShowIcon(z);
+            this.mActionButtonPopup.show();
+            super.onSubMenuSelected(subMenuBuilder);
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
     public boolean showOverflowMenu() {
@@ -1087,19 +1123,20 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
         MenuBuilder menuBuilder;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            if (!this.mReserveOverflow || isOverflowMenuShowing() || (menuBuilder = this.mMenu) == null || this.mMenuView == null || this.mPostedOpenRunnable != null || menuBuilder.getNonActionItems().isEmpty()) {
-                return false;
+            if (this.mReserveOverflow && !isOverflowMenuShowing() && (menuBuilder = this.mMenu) != null && this.mMenuView != null && this.mPostedOpenRunnable == null && !menuBuilder.getNonActionItems().isEmpty()) {
+                OpenOverflowRunnable openOverflowRunnable = new OpenOverflowRunnable(this, new OverflowPopup(this, this.mContext, this.mMenu, this.mOverflowButton, true));
+                this.mPostedOpenRunnable = openOverflowRunnable;
+                ((View) this.mMenuView).post(openOverflowRunnable);
+                return true;
             }
-            OpenOverflowRunnable openOverflowRunnable = new OpenOverflowRunnable(this, new OverflowPopup(this, this.mContext, this.mMenu, this.mOverflowButton, true));
-            this.mPostedOpenRunnable = openOverflowRunnable;
-            ((View) this.mMenuView).post(openOverflowRunnable);
-            return true;
+            return false;
         }
         return invokeV.booleanValue;
     }
 
     @Override // androidx.appcompat.view.menu.BaseMenuPresenter, androidx.appcompat.view.menu.MenuPresenter
     public void updateMenuView(boolean z) {
+        ArrayList<MenuItemImpl> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048603, this, z) == null) {
             super.updateMenuView(z);
@@ -1117,11 +1154,15 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
                 }
             }
             MenuBuilder menuBuilder2 = this.mMenu;
-            ArrayList<MenuItemImpl> nonActionItems = menuBuilder2 != null ? menuBuilder2.getNonActionItems() : null;
-            if (this.mReserveOverflow && nonActionItems != null) {
-                int size2 = nonActionItems.size();
+            if (menuBuilder2 != null) {
+                arrayList = menuBuilder2.getNonActionItems();
+            } else {
+                arrayList = null;
+            }
+            if (this.mReserveOverflow && arrayList != null) {
+                int size2 = arrayList.size();
                 if (size2 == 1) {
-                    z2 = !nonActionItems.get(0).isActionViewExpanded();
+                    z2 = !arrayList.get(0).isActionViewExpanded();
                 } else if (size2 > 0) {
                     z2 = true;
                 }

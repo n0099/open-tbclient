@@ -50,6 +50,46 @@ public class y9 {
         this.c = x9Var;
     }
 
+    public final void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            synchronized (y9.class) {
+                if (this.a != null && this.a.isOpen()) {
+                    return;
+                }
+                try {
+                    this.c.setOnCreateCallback(this.b);
+                    this.a = this.c.getWritableDatabase();
+                } catch (RuntimeException e) {
+                    if (z) {
+                        i(e, "ensureDatabaseReady");
+                    } else {
+                        throw e;
+                    }
+                }
+            }
+        }
+    }
+
+    public boolean d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            SQLiteDatabase f = f();
+            if (f == null) {
+                return false;
+            }
+            try {
+                f.execSQL(str);
+                return true;
+            } catch (Throwable th) {
+                i(th, "execSQLNoException:" + str);
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -84,60 +124,21 @@ public class y9 {
         return invokeV.booleanValue;
     }
 
-    public final void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            synchronized (y9.class) {
-                if (this.a == null || !this.a.isOpen()) {
-                    try {
-                        this.c.setOnCreateCallback(this.b);
-                        this.a = this.c.getWritableDatabase();
-                    } catch (RuntimeException e) {
-                        if (z) {
-                            i(e, "ensureDatabaseReady");
-                        } else {
-                            throw e;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    public boolean d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            SQLiteDatabase f = f();
-            if (f != null) {
-                try {
-                    f.execSQL(str);
-                    return true;
-                } catch (Throwable th) {
-                    i(th, "execSQLNoException:" + str);
-                    return false;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
     public boolean e(String str, Object[] objArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, objArr)) == null) {
             SQLiteDatabase f = f();
-            if (f != null) {
-                try {
-                    f.execSQL(str, objArr);
-                    return true;
-                } catch (Throwable th) {
-                    i(th, "execSQLNoException:" + str);
-                    return false;
-                }
+            if (f == null) {
+                return false;
             }
-            return false;
+            try {
+                f.execSQL(str, objArr);
+                return true;
+            } catch (Throwable th) {
+                i(th, "execSQLNoException:" + str);
+                return false;
+            }
         }
         return invokeLL.booleanValue;
     }
@@ -145,7 +146,10 @@ public class y9 {
     public SQLiteDatabase f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? g(true) : (SQLiteDatabase) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return g(true);
+        }
+        return (SQLiteDatabase) invokeV.objValue;
     }
 
     public SQLiteDatabase g(boolean z) {
@@ -156,6 +160,13 @@ public class y9 {
             return this.a;
         }
         return (SQLiteDatabase) invokeZ.objValue;
+    }
+
+    public void k(x9.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, aVar) == null) {
+            this.b = aVar;
+        }
     }
 
     public void h(String str, int i, String str2, Object... objArr) {
@@ -171,35 +182,36 @@ public class y9 {
 
     public void i(Throwable th, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, th, str) == null) && th != null && (th instanceof SQLiteException)) {
-            int i = -17;
-            if (((SQLiteException) th) instanceof SQLiteDatabaseCorruptException) {
-                BdLog.w("database corrupted. recreate!");
-                try {
-                    b();
-                } catch (Throwable th2) {
-                    BdLog.detailException("failed to drop database. msg:", th2);
-                }
-                i = -14;
-                this.a = null;
-            } else if (th instanceof SQLiteAbortException) {
-                i = -11;
-            } else if (th instanceof SQLiteConstraintException) {
-                i = -12;
-            } else if (th instanceof SQLiteDiskIOException) {
-                i = -15;
-                this.a = null;
-            } else if (th instanceof SQLiteFullException) {
-                i = -16;
-                this.a = null;
-            } else if (th instanceof SQLiteDoneException) {
-                i = -19;
-                this.a = null;
-            } else if (!(th instanceof SQLiteMisuseException)) {
-                this.a = null;
-            }
-            h(str, i, th.getMessage(), new Object[0]);
+        if ((interceptable != null && interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, th, str) != null) || th == null || !(th instanceof SQLiteException)) {
+            return;
         }
+        int i = -17;
+        if (((SQLiteException) th) instanceof SQLiteDatabaseCorruptException) {
+            BdLog.w("database corrupted. recreate!");
+            try {
+                b();
+            } catch (Throwable th2) {
+                BdLog.detailException("failed to drop database. msg:", th2);
+            }
+            i = -14;
+            this.a = null;
+        } else if (th instanceof SQLiteAbortException) {
+            i = -11;
+        } else if (th instanceof SQLiteConstraintException) {
+            i = -12;
+        } else if (th instanceof SQLiteDiskIOException) {
+            i = -15;
+            this.a = null;
+        } else if (th instanceof SQLiteFullException) {
+            i = -16;
+            this.a = null;
+        } else if (th instanceof SQLiteDoneException) {
+            i = -19;
+            this.a = null;
+        } else if (!(th instanceof SQLiteMisuseException)) {
+            this.a = null;
+        }
+        h(str, i, th.getMessage(), new Object[0]);
     }
 
     public Cursor j(String str, String[] strArr) throws Exception {
@@ -213,12 +225,5 @@ public class y9 {
             throw new SQLException("unable to open database.");
         }
         return (Cursor) invokeLL.objValue;
-    }
-
-    public void k(x9.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, aVar) == null) {
-            this.b = aVar;
-        }
     }
 }

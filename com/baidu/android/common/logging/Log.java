@@ -59,6 +59,19 @@ public final class Log {
         }
     }
 
+    public static String getLogFileName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            String processNameForPid = getProcessNameForPid(Process.myPid());
+            if (TextUtils.isEmpty(processNameForPid)) {
+                processNameForPid = "BaiduFileLog";
+            }
+            return processNameForPid.replace(':', '_');
+        }
+        return (String) invokeV.objValue;
+    }
+
     public static void d(String str, String str2) {
         Logger logger;
         Interceptable interceptable = $ic;
@@ -85,17 +98,85 @@ public final class Log {
         }
     }
 
-    public static String getLogFileName() {
-        InterceptResult invokeV;
+    public static void i(String str, String str2) {
+        Logger logger;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            String processNameForPid = getProcessNameForPid(Process.myPid());
-            if (TextUtils.isEmpty(processNameForPid)) {
-                processNameForPid = "BaiduFileLog";
+        if ((interceptable == null || interceptable.invokeLL(65546, null, str, str2) == null) && sLogEnabled) {
+            if (sLog2File && (logger = sFilelogger) != null) {
+                Level level = Level.INFO;
+                logger.log(level, str + ": " + str2);
+                return;
             }
-            return processNameForPid.replace(':', '_');
+            android.util.Log.i(str, str2);
         }
-        return (String) invokeV.objValue;
+    }
+
+    public static void v(String str, String str2) {
+        Logger logger;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65550, null, str, str2) == null) && sLogEnabled) {
+            if (sLog2File && (logger = sFilelogger) != null) {
+                Level level = Level.INFO;
+                logger.log(level, str + ": " + str2);
+                return;
+            }
+            android.util.Log.v(str, str2);
+        }
+    }
+
+    public static void w(String str, String str2) {
+        Logger logger;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65552, null, str, str2) == null) && sLogEnabled) {
+            if (sLog2File && (logger = sFilelogger) != null) {
+                Level level = Level.WARNING;
+                logger.log(level, str + ": " + str2);
+                return;
+            }
+            android.util.Log.w(str, str2);
+        }
+    }
+
+    public static void d(String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, th) == null) {
+            d(str, str2 + '\n' + getStackTraceString(th));
+        }
+    }
+
+    public static void e(String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65541, null, str, str2, th) == null) {
+            e(str, str2 + '\n' + getStackTraceString(th));
+        }
+    }
+
+    public static void i(String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65547, null, str, str2, th) == null) {
+            i(str, str2 + '\n' + getStackTraceString(th));
+        }
+    }
+
+    public static void v(String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65551, null, str, str2, th) == null) {
+            v(str, str2 + '\n' + getStackTraceString(th));
+        }
+    }
+
+    public static void w(String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65553, null, str, str2, th) == null) {
+            w(str, str2 + '\n' + getStackTraceString(th));
+        }
+    }
+
+    public static void e(String str, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65542, null, str, th) == null) {
+            e(str, getStackTraceString(th));
+        }
     }
 
     public static String getProcessNameForPid(int i) {
@@ -150,16 +231,10 @@ public final class Log {
         return (String) invokeL.objValue;
     }
 
-    public static void i(String str, String str2) {
-        Logger logger;
+    public static void setLogEnabled(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65546, null, str, str2) == null) && sLogEnabled) {
-            if (sLog2File && (logger = sFilelogger) != null) {
-                Level level = Level.INFO;
-                logger.log(level, str + ": " + str2);
-                return;
-            }
-            android.util.Log.i(str, str2);
+        if (interceptable == null || interceptable.invokeZ(65549, null, z) == null) {
+            sLogEnabled = z;
         }
     }
 
@@ -183,81 +258,6 @@ public final class Log {
                     e2.printStackTrace();
                 }
             }
-        }
-    }
-
-    public static void setLogEnabled(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65549, null, z) == null) {
-            sLogEnabled = z;
-        }
-    }
-
-    public static void v(String str, String str2) {
-        Logger logger;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65550, null, str, str2) == null) && sLogEnabled) {
-            if (sLog2File && (logger = sFilelogger) != null) {
-                Level level = Level.INFO;
-                logger.log(level, str + ": " + str2);
-                return;
-            }
-            android.util.Log.v(str, str2);
-        }
-    }
-
-    public static void w(String str, String str2) {
-        Logger logger;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65552, null, str, str2) == null) && sLogEnabled) {
-            if (sLog2File && (logger = sFilelogger) != null) {
-                Level level = Level.WARNING;
-                logger.log(level, str + ": " + str2);
-                return;
-            }
-            android.util.Log.w(str, str2);
-        }
-    }
-
-    public static void d(String str, String str2, Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, th) == null) {
-            d(str, str2 + '\n' + getStackTraceString(th));
-        }
-    }
-
-    public static void e(String str, Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, str, th) == null) {
-            e(str, getStackTraceString(th));
-        }
-    }
-
-    public static void i(String str, String str2, Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65547, null, str, str2, th) == null) {
-            i(str, str2 + '\n' + getStackTraceString(th));
-        }
-    }
-
-    public static void v(String str, String str2, Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65551, null, str, str2, th) == null) {
-            v(str, str2 + '\n' + getStackTraceString(th));
-        }
-    }
-
-    public static void w(String str, String str2, Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65553, null, str, str2, th) == null) {
-            w(str, str2 + '\n' + getStackTraceString(th));
-        }
-    }
-
-    public static void e(String str, String str2, Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65541, null, str, str2, th) == null) {
-            e(str, str2 + '\n' + getStackTraceString(th));
         }
     }
 }

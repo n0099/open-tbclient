@@ -88,8 +88,7 @@ public final class d0 implements Runnable {
                 if (fileOutputStream2 != null) {
                     fileOutputStream2.close();
                 }
-                if (kVar != null) {
-                    return;
+                if (kVar == null) {
                 }
                 return;
             } catch (Throwable th2) {
@@ -104,10 +103,9 @@ public final class d0 implements Runnable {
                 }
                 throw th;
             }
-            if (kVar != null || (handler2 = kVar.a.c.l) == null) {
-                return;
+            if (kVar == null && (handler2 = kVar.a.c.l) != null) {
+                handler2.post(new i(kVar));
             }
-            handler2.post(new i(kVar));
         }
     }
 }

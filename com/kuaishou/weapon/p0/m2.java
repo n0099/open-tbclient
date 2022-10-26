@@ -129,8 +129,8 @@ public class m2 {
                 jSONObject.put("96", f0Var.a());
                 jSONObject.put("134", f0Var.b());
                 p0 p0Var = new p0();
-                Set<String> f = p0Var.f();
-                Set<String> g = p0Var.g();
+                Set f = p0Var.f();
+                Set g = p0Var.g();
                 if (g != null) {
                     jSONObject.put("30", 1);
                     jSONObject.put("32", new JSONArray((Collection) g));

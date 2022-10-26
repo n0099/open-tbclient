@@ -43,13 +43,13 @@ public class PayUIEventContentImpl implements PayEventStatistics.IPayUIEventCont
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             PayUiEventContent build = new PayUiEventContent.UiEventContentBuilder().setAbstractHiidoContent(this.mBaseHiidoContent).setEvent(str).build();
             String act = build.getAct();
-            Map<String, String> mapContent = build.getMapContent();
+            Map mapContent = build.getMapContent();
             if (act == null) {
                 return;
             }
             StatisContent statisContent = new StatisContent();
-            for (Map.Entry<String, String> entry : mapContent.entrySet()) {
-                statisContent.put(entry.getKey(), entry.getValue());
+            for (Map.Entry entry : mapContent.entrySet()) {
+                statisContent.put((String) entry.getKey(), (String) entry.getValue());
             }
             RLog.debug("PayUIEventContentImpl", "reportUIEvent statisContent:" + statisContent.toString());
             HiidoSDKApi.reportStatisticContent(act, statisContent);
@@ -61,13 +61,13 @@ public class PayUIEventContentImpl implements PayEventStatistics.IPayUIEventCont
         PayUiEventContent build;
         String act;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) || (act = (build = new PayUiEventContent.UiEventContentBuilder().setAbstractHiidoContent(this.mBaseHiidoContent).setEvent(str).setAmount(str2).build()).getAct()) == null) {
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) != null) || (act = (build = new PayUiEventContent.UiEventContentBuilder().setAbstractHiidoContent(this.mBaseHiidoContent).setEvent(str).setAmount(str2).build()).getAct()) == null) {
             return;
         }
-        Map<String, String> mapContent = build.getMapContent();
+        Map mapContent = build.getMapContent();
         StatisContent statisContent = new StatisContent();
-        for (Map.Entry<String, String> entry : mapContent.entrySet()) {
-            statisContent.put(entry.getKey(), entry.getValue());
+        for (Map.Entry entry : mapContent.entrySet()) {
+            statisContent.put((String) entry.getKey(), (String) entry.getValue());
         }
         RLog.debug("PayUIEventContentImpl", "reportUIEvent statisContent:" + statisContent.toString());
         HiidoSDKApi.reportStatisticContent(act, statisContent);

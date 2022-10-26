@@ -47,7 +47,13 @@ public class InstrumentedDrawable extends ForwardingDrawable {
     private String getScaleType(Drawable drawable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, this, drawable)) == null) ? drawable instanceof ScaleTypeDrawable ? ((ScaleTypeDrawable) drawable).getScaleType().toString() : "none" : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, drawable)) == null) {
+            if (drawable instanceof ScaleTypeDrawable) {
+                return ((ScaleTypeDrawable) drawable).getScaleType().toString();
+            }
+            return "none";
+        }
+        return (String) invokeL.objValue;
     }
 
     @Override // com.facebook.drawee.drawable.ForwardingDrawable, android.graphics.drawable.Drawable

@@ -59,12 +59,18 @@ public final class LoadType {
     public static LoadType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (LoadType) Enum.valueOf(LoadType.class, str) : (LoadType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (LoadType) Enum.valueOf(LoadType.class, str);
+        }
+        return (LoadType) invokeL.objValue;
     }
 
     public static LoadType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (LoadType[]) $VALUES.clone() : (LoadType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (LoadType[]) $VALUES.clone();
+        }
+        return (LoadType[]) invokeV.objValue;
     }
 }

@@ -4,6 +4,14 @@ public class MeanCalculator {
     public int n;
     public float sum;
 
+    public float getMean() {
+        int i = this.n;
+        if (i == 0) {
+            return 0.0f;
+        }
+        return this.sum / i;
+    }
+
     public void add(float f) {
         float f2 = this.sum + f;
         this.sum = f2;
@@ -13,13 +21,5 @@ public class MeanCalculator {
             this.sum = f2 / 2.0f;
             this.n = i / 2;
         }
-    }
-
-    public float getMean() {
-        int i = this.n;
-        if (i == 0) {
-            return 0.0f;
-        }
-        return this.sum / i;
     }
 }

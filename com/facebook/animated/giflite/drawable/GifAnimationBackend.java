@@ -29,6 +29,37 @@ public class GifAnimationBackend implements AnimationBackend {
     public float mMidY;
     public final Movie mMovie;
 
+    @Override // com.facebook.fresco.animation.backend.AnimationBackend
+    public void clear() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
+    @Override // com.facebook.fresco.animation.backend.AnimationBackend
+    public int getSizeInBytes() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.facebook.fresco.animation.backend.AnimationBackend
+    public void setAlpha(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+        }
+    }
+
+    @Override // com.facebook.fresco.animation.backend.AnimationBackend
+    public void setColorFilter(ColorFilter colorFilter) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, colorFilter) == null) {
+        }
+    }
+
     public GifAnimationBackend(GifMetadataDecoder gifMetadataDecoder, Movie movie) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -51,7 +82,7 @@ public class GifAnimationBackend implements AnimationBackend {
 
     public static void closeSilently(@Nullable Closeable closeable) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, closeable) == null) || closeable == null) {
+        if ((interceptable != null && interceptable.invokeL(65537, null, closeable) != null) || closeable == null) {
             return;
         }
         try {
@@ -60,30 +91,49 @@ public class GifAnimationBackend implements AnimationBackend {
         }
     }
 
+    @Override // com.facebook.fresco.animation.backend.AnimationInformation
+    public int getFrameDurationMs(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            return this.mGifDecoder.getFrameDurationMs(i);
+        }
+        return invokeI.intValue;
+    }
+
+    @Override // com.facebook.fresco.animation.backend.AnimationBackend
+    public void setBounds(Rect rect) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, rect) == null) {
+            scale(rect.right - rect.left, rect.bottom - rect.top, this.mMovie.width(), this.mMovie.height());
+        }
+    }
+
     public static GifAnimationBackend create(String str) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65538, null, str)) != null) {
-            return (GifAnimationBackend) invokeL.objValue;
-        }
-        BufferedInputStream bufferedInputStream = null;
-        try {
-            BufferedInputStream bufferedInputStream2 = new BufferedInputStream(new FileInputStream(str));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            BufferedInputStream bufferedInputStream = null;
             try {
-                bufferedInputStream2.mark(Integer.MAX_VALUE);
-                GifMetadataDecoder create = GifMetadataDecoder.create(bufferedInputStream2, null);
-                bufferedInputStream2.reset();
-                GifAnimationBackend gifAnimationBackend = new GifAnimationBackend(create, Movie.decodeStream(bufferedInputStream2));
-                closeSilently(bufferedInputStream2);
-                return gifAnimationBackend;
-            } catch (Throwable th) {
-                th = th;
-                bufferedInputStream = bufferedInputStream2;
-                closeSilently(bufferedInputStream);
-                throw th;
+                BufferedInputStream bufferedInputStream2 = new BufferedInputStream(new FileInputStream(str));
+                try {
+                    bufferedInputStream2.mark(Integer.MAX_VALUE);
+                    GifMetadataDecoder create = GifMetadataDecoder.create(bufferedInputStream2, null);
+                    bufferedInputStream2.reset();
+                    GifAnimationBackend gifAnimationBackend = new GifAnimationBackend(create, Movie.decodeStream(bufferedInputStream2));
+                    closeSilently(bufferedInputStream2);
+                    return gifAnimationBackend;
+                } catch (Throwable th) {
+                    th = th;
+                    bufferedInputStream = bufferedInputStream2;
+                    closeSilently(bufferedInputStream);
+                    throw th;
+                }
+            } catch (Throwable th2) {
+                th = th2;
             }
-        } catch (Throwable th2) {
-            th = th2;
+        } else {
+            return (GifAnimationBackend) invokeL.objValue;
         }
     }
 
@@ -138,13 +188,6 @@ public class GifAnimationBackend implements AnimationBackend {
     }
 
     @Override // com.facebook.fresco.animation.backend.AnimationBackend
-    public void clear() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
-
-    @Override // com.facebook.fresco.animation.backend.AnimationBackend
     public boolean drawFrame(Drawable drawable, Canvas canvas, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
@@ -160,66 +203,39 @@ public class GifAnimationBackend implements AnimationBackend {
     public int getFrameCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mGifDecoder.getFrameCount() : invokeV.intValue;
-    }
-
-    @Override // com.facebook.fresco.animation.backend.AnimationInformation
-    public int getFrameDurationMs(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? this.mGifDecoder.getFrameDurationMs(i) : invokeI.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mGifDecoder.getFrameCount();
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.facebook.fresco.animation.backend.AnimationBackend
     public int getIntrinsicHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mMovie.height() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mMovie.height();
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.facebook.fresco.animation.backend.AnimationBackend
     public int getIntrinsicWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mMovie.width() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mMovie.width();
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.facebook.fresco.animation.backend.AnimationInformation
     public int getLoopCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mGifDecoder.getLoopCount() : invokeV.intValue;
-    }
-
-    @Override // com.facebook.fresco.animation.backend.AnimationBackend
-    public int getSizeInBytes() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mGifDecoder.getLoopCount();
         }
         return invokeV.intValue;
-    }
-
-    @Override // com.facebook.fresco.animation.backend.AnimationBackend
-    public void setAlpha(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-        }
-    }
-
-    @Override // com.facebook.fresco.animation.backend.AnimationBackend
-    public void setBounds(Rect rect) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, rect) == null) {
-            scale(rect.right - rect.left, rect.bottom - rect.top, this.mMovie.width(), this.mMovie.height());
-        }
-    }
-
-    @Override // com.facebook.fresco.animation.backend.AnimationBackend
-    public void setColorFilter(ColorFilter colorFilter) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, colorFilter) == null) {
-        }
     }
 }

@@ -22,8 +22,23 @@ public class SelectorImageView extends BdBaseImageView {
     public static int c = 255;
     public transient /* synthetic */ FieldHolder $fh;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-2026389849, "Lcom/baidu/swan/bdprivate/widget/SelectorImageView;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-2026389849, "Lcom/baidu/swan/bdprivate/widget/SelectorImageView;");
+        }
+    }
+
     /* loaded from: classes3.dex */
-    public static class a implements View.OnTouchListener {
+    public final class a implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -47,40 +62,25 @@ public class SelectorImageView extends BdBaseImageView {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
                 int action = motionEvent.getAction();
-                if (action == 0) {
-                    Log.d("ACTION_DOWN", "ACTION_DOWN");
-                    if (view2 instanceof ImageView) {
-                        ((ImageView) view2).setImageAlpha(76);
+                if (action != 0) {
+                    if (action == 1 || action == 3) {
+                        Log.d("ACTION_UP", "ACTION_UP");
+                        if (view2 instanceof ImageView) {
+                            ((ImageView) view2).setImageAlpha(255);
+                            return false;
+                        }
                         return false;
                     }
-                    return false;
-                } else if (action == 1 || action == 3) {
-                    Log.d("ACTION_UP", "ACTION_UP");
-                    if (view2 instanceof ImageView) {
-                        ((ImageView) view2).setImageAlpha(255);
-                        return false;
-                    }
-                    return false;
-                } else {
                     return false;
                 }
+                Log.d("ACTION_DOWN", "ACTION_DOWN");
+                if (view2 instanceof ImageView) {
+                    ((ImageView) view2).setImageAlpha(76);
+                    return false;
+                }
+                return false;
             }
             return invokeLL.booleanValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-2026389849, "Lcom/baidu/swan/bdprivate/widget/SelectorImageView;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-2026389849, "Lcom/baidu/swan/bdprivate/widget/SelectorImageView;");
         }
     }
 
@@ -104,12 +104,6 @@ public class SelectorImageView extends BdBaseImageView {
         }
     }
 
-    public static View.OnTouchListener getStaticOnTouchListener() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? new a() : (View.OnTouchListener) invokeV.objValue;
-    }
-
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
@@ -117,31 +111,19 @@ public class SelectorImageView extends BdBaseImageView {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
             if (isEnabled()) {
                 int action = motionEvent.getAction();
-                if (action == 0) {
+                if (action != 0) {
+                    if (action == 1 || action == 3) {
+                        Log.d("ACTION_UP", "ACTION_UP");
+                        setImageAlpha(c);
+                    }
+                } else {
                     Log.d("ACTION_DOWN", "ACTION_DOWN");
                     setImageAlpha(76);
-                } else if (action == 1 || action == 3) {
-                    Log.d("ACTION_UP", "ACTION_UP");
-                    setImageAlpha(c);
                 }
             }
             return super.onTouchEvent(motionEvent);
         }
         return invokeL.booleanValue;
-    }
-
-    @Override // android.view.View
-    @Deprecated
-    public void setEnabled(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            super.setEnabled(z);
-            if (!z) {
-                setImageAlpha(255);
-            } else {
-                setImageAlpha(c);
-            }
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -182,6 +164,29 @@ public class SelectorImageView extends BdBaseImageView {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
+            }
+        }
+    }
+
+    public static View.OnTouchListener getStaticOnTouchListener() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return new a();
+        }
+        return (View.OnTouchListener) invokeV.objValue;
+    }
+
+    @Override // android.view.View
+    @Deprecated
+    public void setEnabled(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            super.setEnabled(z);
+            if (!z) {
+                setImageAlpha(255);
+            } else {
+                setImageAlpha(c);
             }
         }
     }

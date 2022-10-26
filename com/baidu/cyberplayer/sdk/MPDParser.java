@@ -11,15 +11,13 @@ import java.net.URLDecoder;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-@Keep
 /* loaded from: classes2.dex */
 public class MPDParser {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Keep
     /* loaded from: classes2.dex */
-    public static class MPDInfo {
+    public class MPDInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int mpdAuto;
@@ -55,7 +53,6 @@ public class MPDParser {
         }
     }
 
-    @Keep
     public static Uri getDefaultUrlFromMPD(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -70,7 +67,6 @@ public class MPDParser {
      */
     /* JADX WARN: Removed duplicated region for block: B:31:0x00bd  */
     /* JADX WARN: Removed duplicated region for block: B:45:? A[RETURN, SYNTHETIC] */
-    @Keep
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -127,14 +123,12 @@ public class MPDParser {
         return (Uri) invokeL.objValue;
     }
 
-    @Keep
     public static String getDefaultUrlStringFromMPD(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? !isMPD(str) ? str : getDefaultUrlStringFromMPDStr(str) : (String) invokeL.objValue;
     }
 
-    @Keep
     public static String getDefaultUrlStringFromMPDStr(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -149,7 +143,6 @@ public class MPDParser {
         return (String) invokeL.objValue;
     }
 
-    @Keep
     public static MPDInfo getMPDInfoFromMPDStr(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -182,7 +175,6 @@ public class MPDParser {
         return (MPDInfo) invokeL.objValue;
     }
 
-    @Keep
     public static boolean isMPD(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -195,7 +187,6 @@ public class MPDParser {
         return invokeL.booleanValue;
     }
 
-    @Keep
     public static boolean isMPD(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

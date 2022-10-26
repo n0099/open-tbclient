@@ -26,9 +26,16 @@ public class AnimatedImageCompositor {
     public final Callback mCallback;
     public final Paint mTransparentFillPaint;
 
+    /* loaded from: classes7.dex */
+    public interface Callback {
+        CloseableReference getCachedBitmap(int i);
+
+        void onIntermediateResult(int i, Bitmap bitmap);
+    }
+
     /* renamed from: com.facebook.imagepipeline.animated.impl.AnimatedImageCompositor$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$facebook$imagepipeline$animated$impl$AnimatedImageCompositor$FrameNeededResult;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -67,16 +74,9 @@ public class AnimatedImageCompositor {
         }
     }
 
-    /* loaded from: classes7.dex */
-    public interface Callback {
-        CloseableReference<Bitmap> getCachedBitmap(int i);
-
-        void onIntermediateResult(int i, Bitmap bitmap);
-    }
-
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public static final class FrameNeededResult {
+    public final class FrameNeededResult {
         public static final /* synthetic */ FrameNeededResult[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final FrameNeededResult ABORT;
@@ -128,13 +128,19 @@ public class AnimatedImageCompositor {
         public static FrameNeededResult valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (FrameNeededResult) Enum.valueOf(FrameNeededResult.class, str) : (FrameNeededResult) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (FrameNeededResult) Enum.valueOf(FrameNeededResult.class, str);
+            }
+            return (FrameNeededResult) invokeL.objValue;
         }
 
         public static FrameNeededResult[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (FrameNeededResult[]) $VALUES.clone() : (FrameNeededResult[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (FrameNeededResult[]) $VALUES.clone();
+            }
+            return (FrameNeededResult[]) invokeV.objValue;
         }
     }
 
@@ -160,6 +166,44 @@ public class AnimatedImageCompositor {
         paint.setColor(0);
         this.mTransparentFillPaint.setStyle(Paint.Style.FILL);
         this.mTransparentFillPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC));
+    }
+
+    private int prepareCanvasWithClosestCachedFrame(int i, Canvas canvas) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65542, this, i, canvas)) == null) {
+            while (i >= 0) {
+                int i2 = AnonymousClass1.$SwitchMap$com$facebook$imagepipeline$animated$impl$AnimatedImageCompositor$FrameNeededResult[isFrameNeededForRendering(i).ordinal()];
+                if (i2 != 1) {
+                    if (i2 != 2) {
+                        if (i2 == 3) {
+                            return i;
+                        }
+                    } else {
+                        return i + 1;
+                    }
+                } else {
+                    AnimatedDrawableFrameInfo frameInfo = this.mAnimatedDrawableBackend.getFrameInfo(i);
+                    CloseableReference cachedBitmap = this.mCallback.getCachedBitmap(i);
+                    if (cachedBitmap != null) {
+                        try {
+                            canvas.drawBitmap((Bitmap) cachedBitmap.get(), 0.0f, 0.0f, (Paint) null);
+                            if (frameInfo.disposalMethod == AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_BACKGROUND) {
+                                disposeToBackground(canvas, frameInfo);
+                            }
+                            return i + 1;
+                        } finally {
+                            cachedBitmap.close();
+                        }
+                    } else if (isKeyFrame(i)) {
+                        return i;
+                    }
+                }
+                i--;
+            }
+            return 0;
+        }
+        return invokeIL.intValue;
     }
 
     private void disposeToBackground(Canvas canvas, AnimatedDrawableFrameInfo animatedDrawableFrameInfo) {
@@ -194,12 +238,6 @@ public class AnimatedImageCompositor {
         return (FrameNeededResult) invokeI.objValue;
     }
 
-    private boolean isFullFrame(AnimatedDrawableFrameInfo animatedDrawableFrameInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, this, animatedDrawableFrameInfo)) == null) ? animatedDrawableFrameInfo.xOffset == 0 && animatedDrawableFrameInfo.yOffset == 0 && animatedDrawableFrameInfo.width == this.mAnimatedDrawableBackend.getRenderedWidth() && animatedDrawableFrameInfo.height == this.mAnimatedDrawableBackend.getRenderedHeight() : invokeL.booleanValue;
-    }
-
     private boolean isKeyFrame(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -212,75 +250,61 @@ public class AnimatedImageCompositor {
             if (frameInfo.blendOperation == AnimatedDrawableFrameInfo.BlendOperation.NO_BLEND && isFullFrame(frameInfo)) {
                 return true;
             }
-            return frameInfo2.disposalMethod == AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_BACKGROUND && isFullFrame(frameInfo2);
+            if (frameInfo2.disposalMethod == AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_BACKGROUND && isFullFrame(frameInfo2)) {
+                return true;
+            }
+            return false;
         }
         return invokeI.booleanValue;
+    }
+
+    private boolean isFullFrame(AnimatedDrawableFrameInfo animatedDrawableFrameInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, animatedDrawableFrameInfo)) == null) {
+            if (animatedDrawableFrameInfo.xOffset == 0 && animatedDrawableFrameInfo.yOffset == 0 && animatedDrawableFrameInfo.width == this.mAnimatedDrawableBackend.getRenderedWidth() && animatedDrawableFrameInfo.height == this.mAnimatedDrawableBackend.getRenderedHeight()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     private void maybeApplyTransformation(Bitmap bitmap) {
         AnimatedImageResult animatedImageResult;
         BitmapTransformation bitmapTransformation;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65541, this, bitmap) == null) || (animatedImageResult = this.mAnimatedDrawableBackend.getAnimatedImageResult()) == null || (bitmapTransformation = animatedImageResult.getBitmapTransformation()) == null) {
+        if ((interceptable != null && interceptable.invokeL(65541, this, bitmap) != null) || (animatedImageResult = this.mAnimatedDrawableBackend.getAnimatedImageResult()) == null || (bitmapTransformation = animatedImageResult.getBitmapTransformation()) == null) {
             return;
         }
         bitmapTransformation.transform(bitmap);
     }
 
-    private int prepareCanvasWithClosestCachedFrame(int i, Canvas canvas) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65542, this, i, canvas)) == null) {
-            while (i >= 0) {
-                int i2 = AnonymousClass1.$SwitchMap$com$facebook$imagepipeline$animated$impl$AnimatedImageCompositor$FrameNeededResult[isFrameNeededForRendering(i).ordinal()];
-                if (i2 == 1) {
-                    AnimatedDrawableFrameInfo frameInfo = this.mAnimatedDrawableBackend.getFrameInfo(i);
-                    CloseableReference<Bitmap> cachedBitmap = this.mCallback.getCachedBitmap(i);
-                    if (cachedBitmap != null) {
-                        try {
-                            canvas.drawBitmap(cachedBitmap.get(), 0.0f, 0.0f, (Paint) null);
-                            if (frameInfo.disposalMethod == AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_BACKGROUND) {
-                                disposeToBackground(canvas, frameInfo);
-                            }
-                            return i + 1;
-                        } finally {
-                            cachedBitmap.close();
-                        }
-                    } else if (isKeyFrame(i)) {
-                        return i;
-                    }
-                } else if (i2 == 2) {
-                    return i + 1;
-                } else {
-                    if (i2 == 3) {
-                        return i;
-                    }
-                }
-                i--;
-            }
-            return 0;
-        }
-        return invokeIL.intValue;
-    }
-
     public void renderFrame(int i, Bitmap bitmap) {
+        int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, bitmap) == null) {
             Canvas canvas = new Canvas(bitmap);
             canvas.drawColor(0, PorterDuff.Mode.SRC);
-            for (int prepareCanvasWithClosestCachedFrame = !isKeyFrame(i) ? prepareCanvasWithClosestCachedFrame(i - 1, canvas) : i; prepareCanvasWithClosestCachedFrame < i; prepareCanvasWithClosestCachedFrame++) {
-                AnimatedDrawableFrameInfo frameInfo = this.mAnimatedDrawableBackend.getFrameInfo(prepareCanvasWithClosestCachedFrame);
+            if (!isKeyFrame(i)) {
+                i2 = prepareCanvasWithClosestCachedFrame(i - 1, canvas);
+            } else {
+                i2 = i;
+            }
+            while (i2 < i) {
+                AnimatedDrawableFrameInfo frameInfo = this.mAnimatedDrawableBackend.getFrameInfo(i2);
                 AnimatedDrawableFrameInfo.DisposalMethod disposalMethod = frameInfo.disposalMethod;
                 if (disposalMethod != AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_PREVIOUS) {
                     if (frameInfo.blendOperation == AnimatedDrawableFrameInfo.BlendOperation.NO_BLEND) {
                         disposeToBackground(canvas, frameInfo);
                     }
-                    this.mAnimatedDrawableBackend.renderFrame(prepareCanvasWithClosestCachedFrame, canvas);
-                    this.mCallback.onIntermediateResult(prepareCanvasWithClosestCachedFrame, bitmap);
+                    this.mAnimatedDrawableBackend.renderFrame(i2, canvas);
+                    this.mCallback.onIntermediateResult(i2, bitmap);
                     if (disposalMethod == AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_BACKGROUND) {
                         disposeToBackground(canvas, frameInfo);
                     }
                 }
+                i2++;
             }
             AnimatedDrawableFrameInfo frameInfo2 = this.mAnimatedDrawableBackend.getFrameInfo(i);
             if (frameInfo2.blendOperation == AnimatedDrawableFrameInfo.BlendOperation.NO_BLEND) {

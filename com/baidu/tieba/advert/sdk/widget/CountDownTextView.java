@@ -24,7 +24,7 @@ public class CountDownTextView extends TextView {
     public boolean g;
 
     /* loaded from: classes3.dex */
-    public static /* synthetic */ class a {
+    public /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -35,24 +35,15 @@ public class CountDownTextView extends TextView {
     }
 
     /* loaded from: classes3.dex */
-    public static class c implements Runnable {
+    public interface d {
+        void onTimeout(View view2);
+    }
+
+    /* loaded from: classes3.dex */
+    public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final WeakReference<CountDownTextView> a;
-
-        public /* synthetic */ c(CountDownTextView countDownTextView, a aVar) {
-            this(countDownTextView);
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            CountDownTextView countDownTextView;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (countDownTextView = this.a.get()) == null) {
-                return;
-            }
-            countDownTextView.b(1);
-        }
+        public final WeakReference a;
 
         public c(CountDownTextView countDownTextView) {
             Interceptable interceptable = $ic;
@@ -69,13 +60,21 @@ public class CountDownTextView extends TextView {
                     return;
                 }
             }
-            this.a = new WeakReference<>(countDownTextView);
+            this.a = new WeakReference(countDownTextView);
         }
-    }
 
-    /* loaded from: classes3.dex */
-    public interface d {
-        void onTimeout(View view2);
+        public /* synthetic */ c(CountDownTextView countDownTextView, a aVar) {
+            this(countDownTextView);
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            CountDownTextView countDownTextView;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (countDownTextView = (CountDownTextView) this.a.get()) != null) {
+                countDownTextView.b(1);
+            }
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -103,6 +102,16 @@ public class CountDownTextView extends TextView {
         this.e = new Handler();
         this.g = false;
         this.f = new c(this, null);
+    }
+
+    public void d(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
+            this.b = str;
+            if (i > 0) {
+                this.a = i;
+            }
+        }
     }
 
     public final void b(int i) {
@@ -139,16 +148,6 @@ public class CountDownTextView extends TextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.e.removeCallbacksAndMessages(null);
-        }
-    }
-
-    public void d(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
-            this.b = str;
-            if (i > 0) {
-                this.a = i;
-            }
         }
     }
 

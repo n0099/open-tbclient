@@ -37,7 +37,26 @@ public final class StandaloneMediaClock implements MediaClock {
     public PlaybackParameters getPlaybackParameters() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.playbackParameters : (PlaybackParameters) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.playbackParameters;
+        }
+        return (PlaybackParameters) invokeV.objValue;
+    }
+
+    public void start() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && !this.started) {
+            this.baseElapsedMs = android.os.SystemClock.elapsedRealtime();
+            this.started = true;
+        }
+    }
+
+    public void stop() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.started) {
+            setPositionUs(getPositionUs());
+            this.started = false;
+        }
     }
 
     @Override // com.google.android.exoplayer2.util.MediaClock
@@ -83,23 +102,6 @@ public final class StandaloneMediaClock implements MediaClock {
             if (this.started) {
                 this.baseElapsedMs = android.os.SystemClock.elapsedRealtime();
             }
-        }
-    }
-
-    public void start() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.started) {
-            return;
-        }
-        this.baseElapsedMs = android.os.SystemClock.elapsedRealtime();
-        this.started = true;
-    }
-
-    public void stop() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.started) {
-            setPositionUs(getPositionUs());
-            this.started = false;
         }
     }
 }

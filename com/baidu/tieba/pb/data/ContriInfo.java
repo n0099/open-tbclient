@@ -1,7 +1,7 @@
 package com.baidu.tieba.pb.data;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dj;
+import com.baidu.tieba.ej;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,43 +37,61 @@ public class ContriInfo implements Serializable {
     public String getAfterMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.afterMsg : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.afterMsg;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getColorMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.colorMsg : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.colorMsg;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getPreColorMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mPreColorMsg : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mPreColorMsg;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getToastBackImage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mToastBackImage : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mToastBackImage;
+        }
+        return (String) invokeV.objValue;
     }
 
     public boolean isShowToast() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (dj.isEmpty(this.colorMsg) || dj.isEmpty(this.afterMsg)) ? false : true : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (!ej.isEmpty(this.colorMsg) && !ej.isEmpty(this.afterMsg)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public void parseJson(JSONObject jSONObject) {
         int indexOf;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(1048581, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         this.colorMsg = jSONObject.optString("color_msg");
         String optString = jSONObject.optString("after_msg");
         this.afterMsg = optString;
-        if (!dj.isEmpty(optString) && (indexOf = this.afterMsg.indexOf("，")) >= 0) {
+        if (!ej.isEmpty(optString) && (indexOf = this.afterMsg.indexOf("，")) >= 0) {
             StringBuilder sb = new StringBuilder();
             sb.append(this.afterMsg.substring(0, indexOf));
             sb.append("\n");

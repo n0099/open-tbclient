@@ -1,83 +1,146 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdLog;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.horizonalList.widget.ItemViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.TopicList.TopicList;
-import tbclient.TopicList.TopicListModule;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class u67 implements Cdo {
+public class u67 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
+    public LayoutInflater a;
+    public int b;
+    public ItemViewHolder c;
+    public List d;
+    public final ArrayList e;
+    public View.OnClickListener f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948163027, "Lcom/baidu/tieba/u67;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948163027, "Lcom/baidu/tieba/u67;");
-                return;
-            }
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public boolean hasStableIds() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return true;
         }
-        a = BdUniqueId.gen();
+        return invokeV.booleanValue;
     }
 
-    public u67() {
+    public u67(Context context, int i, ItemViewHolder itemViewHolder) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i), itemViewHolder};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.e = new ArrayList();
+        this.a = LayoutInflater.from(context);
+        this.b = i;
+        this.c = itemViewHolder;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                view2 = this.a.inflate(this.b, viewGroup, false);
+                ItemViewHolder b = this.c.b(view2);
+                b.d(this.f);
+                view2.setTag(b);
+                this.e.add(b);
+            }
+            ItemViewHolder itemViewHolder = (ItemViewHolder) view2.getTag();
+            if (ListUtils.getItem(this.d, i) != null) {
+                a(itemViewHolder, (v67) this.d.get(i));
+            }
+            return itemViewHolder.getView();
+        }
+        return (View) invokeILL.objValue;
+    }
+
+    public final void a(ItemViewHolder itemViewHolder, v67 v67Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, itemViewHolder, v67Var) == null) && v67Var != null && itemViewHolder != null) {
+            itemViewHolder.a(v67Var);
+        }
+    }
+
+    public void b(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && ListUtils.getCount(this.e) > 0) {
+            Iterator it = this.e.iterator();
+            while (it.hasNext()) {
+                ((ItemViewHolder) it.next()).c(i);
             }
         }
     }
 
-    public void a(TopicList topicList) {
+    public void c(List list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, topicList) == null) || topicList == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.d = list;
         }
-        topicList.topic_id.longValue();
-        String str = topicList.topic_name;
-        topicList.tag.intValue();
-        topicList.discuss_num.longValue();
-        String str2 = topicList.topic_desc;
-        String str3 = topicList.topic_pic;
     }
 
-    public void b(TopicListModule topicListModule) {
+    public void d(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, topicListModule) == null) {
-            try {
-                String str = topicListModule.module_title;
-                String str2 = topicListModule.tips;
-                String str3 = topicListModule.rule_jump_url;
-            } catch (Exception e) {
-                BdLog.e(e.toString());
+        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
+            this.f = onClickListener;
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            return ListUtils.getItem(this.d, i);
+        }
+        return invokeI.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            if (ListUtils.getItem(this.d, i) == null) {
+                return -1L;
             }
+            return ((v67) ListUtils.getItem(this.d, i)).hashCode();
         }
+        return invokeI.longValue;
     }
 
-    @Override // com.baidu.tieba.Cdo
-    public BdUniqueId getType() {
+    @Override // android.widget.Adapter
+    public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? a : (BdUniqueId) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return ListUtils.getCount(this.d);
+        }
+        return invokeV.intValue;
     }
 }

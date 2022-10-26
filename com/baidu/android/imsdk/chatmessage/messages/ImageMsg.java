@@ -19,11 +19,18 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ImageMsg extends RichMediaMsg implements Parcelable, NoProGuard {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<ImageMsg> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public int mHeight;
     public String mThumbUrl;
     public int mWidth;
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
+    public String getRecommendDescription() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "[图片]" : (String) invokeV.objValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -38,7 +45,7 @@ public class ImageMsg extends RichMediaMsg implements Parcelable, NoProGuard {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<ImageMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.ImageMsg.1
+        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.ImageMsg.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -57,21 +64,25 @@ public class ImageMsg extends RichMediaMsg implements Parcelable, NoProGuard {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public ImageMsg createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new ImageMsg(parcel) : (ImageMsg) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new ImageMsg(parcel);
+                }
+                return (ImageMsg) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public ImageMsg[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new ImageMsg[i] : (ImageMsg[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new ImageMsg[i];
+                }
+                return (ImageMsg[]) invokeI.objValue;
             }
         };
     }
@@ -95,118 +106,81 @@ public class ImageMsg extends RichMediaMsg implements Parcelable, NoProGuard {
         setMsgType(1);
     }
 
-    private String getImgContent(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
-            }
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("url", str);
-                jSONObject.put("thumbnail", this.mThumbUrl);
-                if (this.mWidth > 0 && this.mHeight > 0) {
-                    jSONObject.put("w", this.mWidth);
-                    jSONObject.put("h", this.mHeight);
-                }
-                return jSONObject.toString();
-            } catch (JSONException e) {
-                LogUtils.e(LogUtils.TAG, "getImgContent JSONObject", e);
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
     public int getHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mHeight : invokeV.intValue;
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
-    public String getRecommendDescription() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "[图片]" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mHeight;
+        }
+        return invokeV.intValue;
     }
 
     public String getThumbUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mThumbUrl : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mThumbUrl;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mWidth : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mWidth;
+        }
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
-    public boolean parseJsonString() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ImageMsg(Parcel parcel) {
+        super(parcel);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (TextUtils.isEmpty(this.mjsonContent)) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Parcel) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
             }
-            try {
-                JSONObject jSONObject = new JSONObject(this.mjsonContent);
-                this.mRemoteUrl = jSONObject.optString("url");
-                this.mThumbUrl = jSONObject.optString("thumbnail");
-                this.mWidth = jSONObject.optInt("w", 0);
-                this.mHeight = jSONObject.optInt("h", 0);
-                return true;
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return false;
+        }
+        this.mThumbUrl = null;
+        this.mWidth = 0;
+        this.mHeight = 0;
+        this.mHeight = parcel.readInt();
+        this.mWidth = parcel.readInt();
+        this.mThumbUrl = parcel.readString();
+    }
+
+    private String getImgContent(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, str)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                try {
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("url", str);
+                    jSONObject.put("thumbnail", this.mThumbUrl);
+                    if (this.mWidth > 0 && this.mHeight > 0) {
+                        jSONObject.put("w", this.mWidth);
+                        jSONObject.put("h", this.mHeight);
+                    }
+                    return jSONObject.toString();
+                } catch (JSONException e) {
+                    LogUtils.e(LogUtils.TAG, "getImgContent JSONObject", e);
+                    return "";
+                }
             }
+            return "";
         }
-        return invokeV.booleanValue;
-    }
-
-    public void setContent(String str, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048582, this, str, i, i2) == null) {
-            this.mWidth = i;
-            this.mHeight = i2;
-            setMsgContent(getImgContent(str));
-        }
-    }
-
-    public void setImgWH(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048583, this, i, i2) == null) {
-            this.mWidth = i;
-            this.mHeight = i2;
-        }
-    }
-
-    public void setThumbUrl(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.mThumbUrl = str;
-        }
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.messages.RichMediaMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048585, this, parcel, i) == null) {
-            super.writeToParcel(parcel, i);
-            parcel.writeInt(this.mHeight);
-            parcel.writeInt(this.mWidth);
-            parcel.writeString(this.mThumbUrl);
-        }
-    }
-
-    public void setContent(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            setMsgContent(getImgContent(str));
-        }
+        return (String) invokeL.objValue;
     }
 
     public ImageMsg(String str) {
@@ -255,29 +229,68 @@ public class ImageMsg extends RichMediaMsg implements Parcelable, NoProGuard {
         this.mHeight = i2;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ImageMsg(Parcel parcel) {
-        super(parcel);
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
+    public boolean parseJsonString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Parcel) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (TextUtils.isEmpty(this.mjsonContent)) {
+                return false;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(this.mjsonContent);
+                this.mRemoteUrl = jSONObject.optString("url");
+                this.mThumbUrl = jSONObject.optString("thumbnail");
+                this.mWidth = jSONObject.optInt("w", 0);
+                this.mHeight = jSONObject.optInt("h", 0);
+                return true;
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return false;
             }
         }
-        this.mThumbUrl = null;
-        this.mWidth = 0;
-        this.mHeight = 0;
-        this.mHeight = parcel.readInt();
-        this.mWidth = parcel.readInt();
-        this.mThumbUrl = parcel.readString();
+        return invokeV.booleanValue;
+    }
+
+    public void setContent(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            setMsgContent(getImgContent(str));
+        }
+    }
+
+    public void setThumbUrl(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.mThumbUrl = str;
+        }
+    }
+
+    public void setContent(String str, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048582, this, str, i, i2) == null) {
+            this.mWidth = i;
+            this.mHeight = i2;
+            setMsgContent(getImgContent(str));
+        }
+    }
+
+    public void setImgWH(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048583, this, i, i2) == null) {
+            this.mWidth = i;
+            this.mHeight = i2;
+        }
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.RichMediaMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048585, this, parcel, i) == null) {
+            super.writeToParcel(parcel, i);
+            parcel.writeInt(this.mHeight);
+            parcel.writeInt(this.mWidth);
+            parcel.writeString(this.mThumbUrl);
+        }
     }
 }

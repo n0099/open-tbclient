@@ -1,14 +1,14 @@
 package com.baidu.searchbox.devicescore;
 
 import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.tieba.ff1;
+import com.baidu.tieba.gf1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class DeviceScoreCollectFetcher extends ff1<IScoreMetaDataCollect> {
+public class DeviceScoreCollectFetcher extends gf1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,11 +27,13 @@ public class DeviceScoreCollectFetcher extends ff1<IScoreMetaDataCollect> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.ff1
+    @Override // com.baidu.tieba.gf1
     public IScoreMetaDataCollect createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? DeviceScoreManager.getInstance() : (IScoreMetaDataCollect) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return DeviceScoreManager.getInstance();
+        }
+        return (IScoreMetaDataCollect) invokeV.objValue;
     }
 }

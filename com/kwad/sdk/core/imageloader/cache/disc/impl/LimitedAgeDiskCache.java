@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes7.dex */
 public class LimitedAgeDiskCache extends BaseDiskCache {
-    public final Map<File, Long> loadingDates;
+    public final Map loadingDates;
     public final long maxFileAge;
 
     public LimitedAgeDiskCache(File file, long j) {
@@ -46,7 +46,7 @@ public class LimitedAgeDiskCache extends BaseDiskCache {
         boolean z;
         File file = super.get(str);
         if (file != null && file.exists()) {
-            Long l = this.loadingDates.get(file);
+            Long l = (Long) this.loadingDates.get(file);
             if (l == null) {
                 l = Long.valueOf(file.lastModified());
                 z = false;

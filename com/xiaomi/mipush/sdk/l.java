@@ -13,11 +13,11 @@ import java.util.HashMap;
 /* loaded from: classes8.dex */
 public class l {
     public static /* synthetic */ Interceptable $ic;
-    public static HashMap<e, a> a;
+    public static HashMap a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public static class a {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -56,7 +56,7 @@ public class l {
                 return;
             }
         }
-        a = new HashMap<>();
+        a = new HashMap();
         a(e.a, new a("com.xiaomi.assemble.control.HmsPushManager", "newInstance"));
         a(e.b, new a("com.xiaomi.assemble.control.FCMPushManager", "newInstance"));
         a(e.c, new a("com.xiaomi.assemble.control.COSPushManager", "newInstance"));
@@ -86,14 +86,14 @@ public class l {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static a m158a(e eVar) {
+    public static a m157a(e eVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, eVar)) == null) ? a.get(eVar) : (a) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, eVar)) == null) ? (a) a.get(eVar) : (a) invokeL.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static ho m159a(e eVar) {
+    public static ho m158a(e eVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, eVar)) == null) ? ho.ao : (ho) invokeL.objValue;

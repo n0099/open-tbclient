@@ -17,9 +17,16 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class GroupStarAlertMsg extends NotifyMsg implements Parcelable, NoProGuard {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<GroupStarAlertMsg> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public long groupid;
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.NotifyMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg
+    public String getRecommendDescription() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "你收到了一条系统消息" : (String) invokeV.objValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -34,7 +41,7 @@ public class GroupStarAlertMsg extends NotifyMsg implements Parcelable, NoProGua
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<GroupStarAlertMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.GroupStarAlertMsg.1
+        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.GroupStarAlertMsg.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -53,21 +60,25 @@ public class GroupStarAlertMsg extends NotifyMsg implements Parcelable, NoProGua
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public GroupStarAlertMsg createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new GroupStarAlertMsg(parcel) : (GroupStarAlertMsg) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new GroupStarAlertMsg(parcel);
+                }
+                return (GroupStarAlertMsg) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public GroupStarAlertMsg[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new GroupStarAlertMsg[i] : (GroupStarAlertMsg[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new GroupStarAlertMsg[i];
+                }
+                return (GroupStarAlertMsg[]) invokeI.objValue;
             }
         };
     }
@@ -91,14 +102,10 @@ public class GroupStarAlertMsg extends NotifyMsg implements Parcelable, NoProGua
     public long getGroupid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.groupid : invokeV.longValue;
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.messages.NotifyMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg
-    public String getRecommendDescription() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "你收到了一条系统消息" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.groupid;
+        }
+        return invokeV.longValue;
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
@@ -115,15 +122,6 @@ public class GroupStarAlertMsg extends NotifyMsg implements Parcelable, NoProGua
             }
         }
         return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.messages.NotifyMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i) == null) {
-            super.writeToParcel(parcel, i);
-            parcel.writeLong(this.groupid);
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -145,5 +143,14 @@ public class GroupStarAlertMsg extends NotifyMsg implements Parcelable, NoProGua
             }
         }
         this.groupid = parcel.readLong();
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.NotifyMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i) == null) {
+            super.writeToParcel(parcel, i);
+            parcel.writeLong(this.groupid);
+        }
     }
 }

@@ -2,7 +2,6 @@ package com.baidu.searchbox.pms.bean;
 
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.bdutil.cuid.sdk.AppCuidManager;
 import com.baidu.android.imsdk.internal.Constants;
@@ -36,7 +35,7 @@ public class PackageInfo implements NoProGuard, Cloneable {
     public long createTime;
     public long currentSize;
     public String dependInfo;
-    public HashMap<String, String> dependencies;
+    public HashMap dependencies;
     public String dependenciesString;
     public int disable;
     public int downloadOption;
@@ -93,168 +92,29 @@ public class PackageInfo implements NoProGuard, Cloneable {
         }
     }
 
-    private void addDependencies(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, this, str, str2) == null) {
-            if (this.dependencies == null) {
-                this.dependencies = new HashMap<>();
-            }
-            this.dependencies.put(str, str2);
-        }
-    }
-
-    private void appendTrafficParam(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, this, str) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(this.downloadUrl);
-            if (this.downloadUrl.indexOf("?") > 0) {
-                sb.append("&");
-            } else {
-                sb.append("?");
-            }
-            sb.append("sle=1&split=100&sl=");
-            sb.append(str);
-            this.trafficUrl = sb.toString();
-        }
-    }
-
-    private boolean checkTrafficLimitTime(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, jSONObject)) == null) {
-            String optString = jSONObject.optString(FetchLog.START_TIME);
-            String optString2 = jSONObject.optString(FetchLog.END_TIME);
-            if (TextUtils.isEmpty(optString) || TextUtils.isEmpty(optString2)) {
-                return false;
-            }
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            try {
-                Date parse = simpleDateFormat.parse(optString);
-                Date parse2 = simpleDateFormat.parse(optString2);
-                long currentTimeMillis = System.currentTimeMillis();
-                if (parse == null || parse2 == null || parse.getTime() >= currentTimeMillis) {
-                    return false;
-                }
-                return parse2.getTime() > currentTimeMillis;
-            } catch (Exception e) {
-                if (PmsConstant.DEBUG) {
-                    Log.d(TAG, "checkTrafficLimitTime fail, exception = " + e.toString());
-                    return false;
-                }
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    private boolean checkTrafficRatio(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65541, this, str, j)) == null) {
-            CRC32 crc32 = new CRC32();
-            crc32.update(str.getBytes());
-            boolean z = crc32.getValue() % 100 < j;
-            this.isHitTrafficLimit = z;
-            return z;
-        }
-        return invokeLJ.booleanValue;
-    }
-
     public Object clone() throws CloneNotSupportedException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? super.clone() : invokeV.objValue;
-    }
-
-    public void copyDownloadInfo(PackageInfo packageInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, packageInfo) == null) {
-            packageInfo.errNo = this.errNo;
-            packageInfo.type = this.type;
-            packageInfo.filePath = this.filePath;
-            packageInfo.totalSize = this.totalSize;
-            packageInfo.currentSize = this.currentSize;
-            packageInfo.createTime = this.createTime;
-            packageInfo.updateTime = this.updateTime;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return super.clone();
         }
+        return invokeV.objValue;
     }
 
-    public void copyTo(PackageInfo packageInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, packageInfo) == null) {
-            packageInfo.name = this.name;
-            packageInfo.extraLocal = this.extraLocal;
-            packageInfo.downloadOption = this.downloadOption;
-            packageInfo.channelId = this.channelId;
-            packageInfo.version = this.version;
-            packageInfo.updateVersion = this.updateVersion;
-            packageInfo.minHostVersion = this.minHostVersion;
-            packageInfo.maxHostVersion = this.maxHostVersion;
-            packageInfo.extraServer = this.extraServer;
-            packageInfo.downloadUrl = this.downloadUrl;
-            packageInfo.packageName = this.packageName;
-            packageInfo.disable = this.disable;
-            packageInfo.wifi = this.wifi;
-            packageInfo.isSilence = this.isSilence;
-            packageInfo.isSilentUpgrade = this.isSilentUpgrade;
-            packageInfo.sign = this.sign;
-            packageInfo.abi = this.abi;
-        }
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            if (obj != null && (obj instanceof PackageInfo)) {
-                return TextUtils.equals(getKey(), ((PackageInfo) obj).getKey());
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Nullable
-    public Map<String, String> getDependencies() {
+    public Map getDependencies() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.dependencies : (Map) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.dependencies;
+        }
+        return (Map) invokeV.objValue;
     }
 
-    @Nullable
     public String getDependenciesString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.dependenciesString : (String) invokeV.objValue;
-    }
-
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (TextUtils.isEmpty(this.key) && !TextUtils.isEmpty(this.channelId) && !TextUtils.isEmpty(this.packageName) && !TextUtils.isEmpty(this.md5)) {
-                this.key = this.channelId + "_" + this.packageName + "_" + this.md5;
-            }
-            return this.key;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String getNetWorkStrategyUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            String str = TextUtils.isEmpty(this.trafficUrl) ? this.downloadUrl : this.trafficUrl;
-            StringBuilder sb = new StringBuilder();
-            sb.append(str);
-            if (str.indexOf("?") > 0) {
-                sb.append("&");
-            } else {
-                sb.append("?");
-            }
-            sb.append(this.netWorkStrategy);
-            return sb.toString();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.dependenciesString;
         }
         return (String) invokeV.objValue;
     }
@@ -262,134 +122,97 @@ public class PackageInfo implements NoProGuard, Cloneable {
     public String getTrafficUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? TextUtils.isEmpty(this.trafficUrl) ? this.downloadUrl : this.trafficUrl : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (TextUtils.isEmpty(this.trafficUrl)) {
+                return this.downloadUrl;
+            }
+            return this.trafficUrl;
+        }
+        return (String) invokeV.objValue;
     }
 
     public boolean isAllowSilence() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.isSilence == 1 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            if (this.isSilence == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isAllowSilenceUpdate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.isSilentUpgrade == 1 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            if (this.isSilentUpgrade == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isDisable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.disable == 1 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            if (this.disable == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isHitNetWorkStrategy() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.enableXCDN : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.enableXCDN;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isHitTrafficLimit() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.isHitTrafficLimit : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.isHitTrafficLimit;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isMainEntrance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.isMainEntrance : invokeV.booleanValue;
-    }
-
-    public boolean isOlderThan(PackageInfo packageInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, packageInfo)) == null) ? this.version < packageInfo.version : invokeL.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.isMainEntrance;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isOnlyWifi() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.wifi == 1 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            if (this.wifi == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isTrafficForbid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.isTrafficForbid : invokeV.booleanValue;
-    }
-
-    public boolean isValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? (this.errNo != 0 || TextUtils.isEmpty(this.channelId) || TextUtils.isEmpty(this.packageName) || TextUtils.isEmpty(this.md5) || TextUtils.isEmpty(this.downloadUrl) || this.updateVersion < 0) ? false : true : invokeV.booleanValue;
-    }
-
-    public void parseTrafficLimit() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048595, this) == null) || TextUtils.isEmpty(this.extraServer)) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.isTrafficForbid;
         }
-        try {
-            JSONObject jSONObject = new JSONObject(this.extraServer);
-            if (checkTrafficLimitTime(jSONObject)) {
-                if (jSONObject.optInt("limitEnable") == 1) {
-                    String optString = jSONObject.optString("speed");
-                    if (Long.parseLong(optString) == 0) {
-                        return;
-                    }
-                    long optLong = jSONObject.optLong("ratio");
-                    if (optLong == 0) {
-                        return;
-                    }
-                    String cuid = AppCuidManager.getInstance().getCuid();
-                    if (TextUtils.isEmpty(cuid)) {
-                        return;
-                    }
-                    if (!checkTrafficRatio(cuid, optLong)) {
-                        this.isTrafficForbid = true;
-                    } else {
-                        appendTrafficParam(optString);
-                    }
-                }
-            }
-        } catch (Exception e) {
-            if (PmsConstant.DEBUG) {
-                Log.d(TAG, "parseTrafficLimit fail, exception = " + e.toString());
-            }
-        }
-    }
-
-    public void setDependenciesString(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048596, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        Iterator<String> keys = jSONObject.keys();
-        while (keys.hasNext()) {
-            String next = keys.next();
-            String optString = jSONObject.optString(next);
-            if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(next)) {
-                addDependencies(next, optString);
-            }
-        }
-        this.dependenciesString = jSONObject.toString();
-    }
-
-    public void setXCDNEnable(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
-            this.enableXCDN = z;
-        }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            return "channelId=" + this.channelId + ",packageName=" + this.packageName + ",version=" + this.version + ",updateVersion=" + this.updateVersion + ",name=" + this.name + ",md5=" + this.md5 + ",type=" + this.type + ",downloadUrl=" + this.downloadUrl + ",extraServer=" + this.extraServer;
-        }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
     public PackageInfo(boolean z) {
@@ -424,5 +247,263 @@ public class PackageInfo implements NoProGuard, Cloneable {
         this.isTrafficForbid = false;
         this.isHitTrafficLimit = false;
         this.isMainEntrance = z;
+    }
+
+    private boolean checkTrafficLimitTime(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, jSONObject)) == null) {
+            String optString = jSONObject.optString(FetchLog.START_TIME);
+            String optString2 = jSONObject.optString(FetchLog.END_TIME);
+            if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                try {
+                    Date parse = simpleDateFormat.parse(optString);
+                    Date parse2 = simpleDateFormat.parse(optString2);
+                    long currentTimeMillis = System.currentTimeMillis();
+                    if (parse != null && parse2 != null && parse.getTime() < currentTimeMillis) {
+                        if (parse2.getTime() > currentTimeMillis) {
+                            return true;
+                        }
+                        return false;
+                    }
+                    return false;
+                } catch (Exception e) {
+                    if (PmsConstant.DEBUG) {
+                        Log.d(TAG, "checkTrafficLimitTime fail, exception = " + e.toString());
+                        return false;
+                    }
+                    return false;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    private void addDependencies(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, this, str, str2) == null) {
+            if (this.dependencies == null) {
+                this.dependencies = new HashMap();
+            }
+            this.dependencies.put(str, str2);
+        }
+    }
+
+    private boolean checkTrafficRatio(String str, long j) {
+        InterceptResult invokeLJ;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65541, this, str, j)) == null) {
+            CRC32 crc32 = new CRC32();
+            crc32.update(str.getBytes());
+            if (crc32.getValue() % 100 < j) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.isHitTrafficLimit = z;
+            return z;
+        }
+        return invokeLJ.booleanValue;
+    }
+
+    private void appendTrafficParam(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, this, str) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(this.downloadUrl);
+            if (this.downloadUrl.indexOf("?") > 0) {
+                sb.append("&");
+            } else {
+                sb.append("?");
+            }
+            sb.append("sle=1&split=100&sl=");
+            sb.append(str);
+            this.trafficUrl = sb.toString();
+        }
+    }
+
+    public void setDependenciesString(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048596, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        Iterator<String> keys = jSONObject.keys();
+        while (keys.hasNext()) {
+            String next = keys.next();
+            String optString = jSONObject.optString(next);
+            if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(next)) {
+                addDependencies(next, optString);
+            }
+        }
+        this.dependenciesString = jSONObject.toString();
+    }
+
+    public void copyDownloadInfo(PackageInfo packageInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, packageInfo) == null) {
+            packageInfo.errNo = this.errNo;
+            packageInfo.type = this.type;
+            packageInfo.filePath = this.filePath;
+            packageInfo.totalSize = this.totalSize;
+            packageInfo.currentSize = this.currentSize;
+            packageInfo.createTime = this.createTime;
+            packageInfo.updateTime = this.updateTime;
+        }
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            if (obj == null || !(obj instanceof PackageInfo)) {
+                return false;
+            }
+            return TextUtils.equals(getKey(), ((PackageInfo) obj).getKey());
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean isOlderThan(PackageInfo packageInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, packageInfo)) == null) {
+            if (this.version < packageInfo.version) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void setXCDNEnable(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
+            this.enableXCDN = z;
+        }
+    }
+
+    public void copyTo(PackageInfo packageInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, packageInfo) == null) {
+            packageInfo.name = this.name;
+            packageInfo.extraLocal = this.extraLocal;
+            packageInfo.downloadOption = this.downloadOption;
+            packageInfo.channelId = this.channelId;
+            packageInfo.version = this.version;
+            packageInfo.updateVersion = this.updateVersion;
+            packageInfo.minHostVersion = this.minHostVersion;
+            packageInfo.maxHostVersion = this.maxHostVersion;
+            packageInfo.extraServer = this.extraServer;
+            packageInfo.downloadUrl = this.downloadUrl;
+            packageInfo.packageName = this.packageName;
+            packageInfo.disable = this.disable;
+            packageInfo.wifi = this.wifi;
+            packageInfo.isSilence = this.isSilence;
+            packageInfo.isSilentUpgrade = this.isSilentUpgrade;
+            packageInfo.sign = this.sign;
+            packageInfo.abi = this.abi;
+        }
+    }
+
+    public String getKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (TextUtils.isEmpty(this.key) && !TextUtils.isEmpty(this.channelId) && !TextUtils.isEmpty(this.packageName) && !TextUtils.isEmpty(this.md5)) {
+                this.key = this.channelId + "_" + this.packageName + "_" + this.md5;
+            }
+            return this.key;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getNetWorkStrategyUrl() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (TextUtils.isEmpty(this.trafficUrl)) {
+                str = this.downloadUrl;
+            } else {
+                str = this.trafficUrl;
+            }
+            StringBuilder sb = new StringBuilder();
+            sb.append(str);
+            if (str.indexOf("?") > 0) {
+                sb.append("&");
+            } else {
+                sb.append("?");
+            }
+            sb.append(this.netWorkStrategy);
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean isValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            if (this.errNo == 0 && !TextUtils.isEmpty(this.channelId) && !TextUtils.isEmpty(this.packageName) && !TextUtils.isEmpty(this.md5) && !TextUtils.isEmpty(this.downloadUrl) && this.updateVersion >= 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void parseTrafficLimit() {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048595, this) != null) || TextUtils.isEmpty(this.extraServer)) {
+            return;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject(this.extraServer);
+            if (!checkTrafficLimitTime(jSONObject)) {
+                return;
+            }
+            if (jSONObject.optInt("limitEnable") == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (!z) {
+                return;
+            }
+            String optString = jSONObject.optString("speed");
+            if (Long.parseLong(optString) == 0) {
+                return;
+            }
+            long optLong = jSONObject.optLong("ratio");
+            if (optLong == 0) {
+                return;
+            }
+            String cuid = AppCuidManager.getInstance().getCuid();
+            if (TextUtils.isEmpty(cuid)) {
+                return;
+            }
+            if (!checkTrafficRatio(cuid, optLong)) {
+                this.isTrafficForbid = true;
+            } else {
+                appendTrafficParam(optString);
+            }
+        } catch (Exception e) {
+            if (PmsConstant.DEBUG) {
+                Log.d(TAG, "parseTrafficLimit fail, exception = " + e.toString());
+            }
+        }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return "channelId=" + this.channelId + ",packageName=" + this.packageName + ",version=" + this.version + ",updateVersion=" + this.updateVersion + ",name=" + this.name + ",md5=" + this.md5 + ",type=" + this.type + ",downloadUrl=" + this.downloadUrl + ",extraServer=" + this.extraServer;
+        }
+        return (String) invokeV.objValue;
     }
 }

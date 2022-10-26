@@ -80,62 +80,6 @@ public class NativeExpressADDataAdapter implements NativeExpressADData2, Downloa
         }
     }
 
-    public static void a(NativeExpressADDataAdapter nativeExpressADDataAdapter, ADEvent aDEvent) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, nativeExpressADDataAdapter, aDEvent) == null) || nativeExpressADDataAdapter.c == null) {
-            return;
-        }
-        switch (aDEvent.getType()) {
-            case 101:
-                nativeExpressADDataAdapter.c.onClick();
-                return;
-            case 102:
-                nativeExpressADDataAdapter.c.onExposed();
-                return;
-            case 103:
-                nativeExpressADDataAdapter.c.onRenderSuccess();
-                return;
-            case 104:
-                nativeExpressADDataAdapter.c.onRenderFail();
-                return;
-            case 105:
-                nativeExpressADDataAdapter.c.onAdClosed();
-                return;
-            default:
-                return;
-        }
-    }
-
-    public static void b(NativeExpressADDataAdapter nativeExpressADDataAdapter, ADEvent aDEvent) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, null, nativeExpressADDataAdapter, aDEvent) == null) || nativeExpressADDataAdapter.b == null) {
-            return;
-        }
-        switch (aDEvent.getType()) {
-            case 201:
-                nativeExpressADDataAdapter.b.onVideoCache();
-                return;
-            case 202:
-                nativeExpressADDataAdapter.b.onVideoStart();
-                return;
-            case 203:
-                nativeExpressADDataAdapter.b.onVideoResume();
-                return;
-            case 204:
-            case 205:
-                nativeExpressADDataAdapter.b.onVideoPause();
-                return;
-            case 206:
-                nativeExpressADDataAdapter.b.onVideoComplete();
-                return;
-            case 207:
-                nativeExpressADDataAdapter.b.onVideoError();
-                return;
-            default:
-                return;
-        }
-    }
-
     @Override // com.qq.e.ads.nativ.express2.NativeExpressADData2
     public void destroy() {
         Interceptable interceptable = $ic;
@@ -180,7 +124,7 @@ public class NativeExpressADDataAdapter implements NativeExpressADData2, Downloa
     }
 
     @Override // com.qq.e.ads.nativ.express2.NativeExpressADData2
-    public Map<String, Object> getExtraInfo() {
+    public Map getExtraInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.getExtraInfo() : (Map) invokeV.objValue;
@@ -267,6 +211,60 @@ public class NativeExpressADDataAdapter implements NativeExpressADData2, Downloa
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, mediaEventListener) == null) {
             this.b = mediaEventListener;
+        }
+    }
+
+    public static void a(NativeExpressADDataAdapter nativeExpressADDataAdapter, ADEvent aDEvent) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65537, null, nativeExpressADDataAdapter, aDEvent) == null) && nativeExpressADDataAdapter.c != null) {
+            switch (aDEvent.getType()) {
+                case 101:
+                    nativeExpressADDataAdapter.c.onClick();
+                    return;
+                case 102:
+                    nativeExpressADDataAdapter.c.onExposed();
+                    return;
+                case 103:
+                    nativeExpressADDataAdapter.c.onRenderSuccess();
+                    return;
+                case 104:
+                    nativeExpressADDataAdapter.c.onRenderFail();
+                    return;
+                case 105:
+                    nativeExpressADDataAdapter.c.onAdClosed();
+                    return;
+                default:
+                    return;
+            }
+        }
+    }
+
+    public static void b(NativeExpressADDataAdapter nativeExpressADDataAdapter, ADEvent aDEvent) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65538, null, nativeExpressADDataAdapter, aDEvent) == null) && nativeExpressADDataAdapter.b != null) {
+            switch (aDEvent.getType()) {
+                case 201:
+                    nativeExpressADDataAdapter.b.onVideoCache();
+                    return;
+                case 202:
+                    nativeExpressADDataAdapter.b.onVideoStart();
+                    return;
+                case 203:
+                    nativeExpressADDataAdapter.b.onVideoResume();
+                    return;
+                case 204:
+                case 205:
+                    nativeExpressADDataAdapter.b.onVideoPause();
+                    return;
+                case 206:
+                    nativeExpressADDataAdapter.b.onVideoComplete();
+                    return;
+                case 207:
+                    nativeExpressADDataAdapter.b.onVideoError();
+                    return;
+                default:
+                    return;
+            }
         }
     }
 }

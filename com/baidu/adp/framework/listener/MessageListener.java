@@ -10,12 +10,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public abstract class MessageListener<T extends ResponsedMessage<?>> extends ja {
+public abstract class MessageListener extends ja {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int mCmd;
     public boolean mSelfListener;
     public BdUniqueId mTag;
+
+    public abstract void onMessage(ResponsedMessage responsedMessage);
 
     public MessageListener(int i) {
         Interceptable interceptable = $ic;
@@ -38,40 +40,6 @@ public abstract class MessageListener<T extends ResponsedMessage<?>> extends ja 
         this.mCmd = i;
     }
 
-    public int getCmd() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mCmd : invokeV.intValue;
-    }
-
-    public BdUniqueId getTag() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mTag : (BdUniqueId) invokeV.objValue;
-    }
-
-    public boolean isSelfListener() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mSelfListener : invokeV.booleanValue;
-    }
-
-    public abstract void onMessage(T t);
-
-    public void setSelfListener(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.mSelfListener = z;
-        }
-    }
-
-    public void setTag(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) {
-            this.mTag = bdUniqueId;
-        }
-    }
-
     public MessageListener(int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -92,5 +60,46 @@ public abstract class MessageListener<T extends ResponsedMessage<?>> extends ja 
         this.mSelfListener = false;
         this.mCmd = i;
         this.mSelfListener = z;
+    }
+
+    public int getCmd() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mCmd;
+        }
+        return invokeV.intValue;
+    }
+
+    public BdUniqueId getTag() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mTag;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public boolean isSelfListener() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mSelfListener;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void setSelfListener(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.mSelfListener = z;
+        }
+    }
+
+    public void setTag(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) {
+            this.mTag = bdUniqueId;
+        }
     }
 }

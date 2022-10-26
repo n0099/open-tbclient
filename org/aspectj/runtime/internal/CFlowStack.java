@@ -55,76 +55,49 @@ public class CFlowStack {
         this.stackProxy = tsFactory.getNewThreadStack();
     }
 
-    public static String getSystemPropertyWithoutSecurityException(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            try {
-                return System.getProperty(str, str2);
-            } catch (SecurityException unused) {
-                return str2;
-            }
-        }
-        return (String) invokeLL.objValue;
-    }
-
     public static ThreadStackFactory getThreadLocalStackFactory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new ThreadStackFactoryImpl() : (ThreadStackFactory) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return new ThreadStackFactoryImpl();
+        }
+        return (ThreadStackFactory) invokeV.objValue;
     }
 
     public static ThreadStackFactory getThreadLocalStackFactoryFor11() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? new ThreadStackFactoryImpl11() : (ThreadStackFactory) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return new ThreadStackFactoryImpl11();
+        }
+        return (ThreadStackFactory) invokeV.objValue;
     }
 
     private Stack getThreadStack() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) ? this.stackProxy.getThreadStack() : (Stack) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
+            return this.stackProxy.getThreadStack();
+        }
+        return (Stack) invokeV.objValue;
     }
 
     public static String getThreadStackFactoryClassName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? tsFactory.getClass().getName() : (String) invokeV.objValue;
-    }
-
-    public static void selectFactoryForVMVersion() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            String systemPropertyWithoutSecurityException = getSystemPropertyWithoutSecurityException("aspectj.runtime.cflowstack.usethreadlocal", "unspecified");
-            boolean z = false;
-            if (!systemPropertyWithoutSecurityException.equals("unspecified") ? systemPropertyWithoutSecurityException.equals("yes") || systemPropertyWithoutSecurityException.equals("true") : System.getProperty("java.class.version", "0.0").compareTo("46.0") >= 0) {
-                z = true;
-            }
-            if (z) {
-                tsFactory = getThreadLocalStackFactory();
-            } else {
-                tsFactory = getThreadLocalStackFactoryFor11();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return tsFactory.getClass().getName();
         }
-    }
-
-    public Object get(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            CFlow peekCFlow = peekCFlow();
-            if (peekCFlow == null) {
-                return null;
-            }
-            return peekCFlow.get(i);
-        }
-        return invokeI.objValue;
+        return (String) invokeV.objValue;
     }
 
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? !getThreadStack().isEmpty() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return !getThreadStack().isEmpty();
+        }
+        return invokeV.booleanValue;
     }
 
     public Object peek() {
@@ -188,6 +161,48 @@ public class CFlowStack {
                 this.stackProxy.removeThreadStack();
             }
         }
+    }
+
+    public static String getSystemPropertyWithoutSecurityException(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            try {
+                return System.getProperty(str, str2);
+            } catch (SecurityException unused) {
+                return str2;
+            }
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static void selectFactoryForVMVersion() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65543, null) == null) {
+            String systemPropertyWithoutSecurityException = getSystemPropertyWithoutSecurityException("aspectj.runtime.cflowstack.usethreadlocal", "unspecified");
+            boolean z = false;
+            if (!systemPropertyWithoutSecurityException.equals("unspecified") ? systemPropertyWithoutSecurityException.equals("yes") || systemPropertyWithoutSecurityException.equals("true") : System.getProperty("java.class.version", "0.0").compareTo("46.0") >= 0) {
+                z = true;
+            }
+            if (z) {
+                tsFactory = getThreadLocalStackFactory();
+            } else {
+                tsFactory = getThreadLocalStackFactoryFor11();
+            }
+        }
+    }
+
+    public Object get(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            CFlow peekCFlow = peekCFlow();
+            if (peekCFlow == null) {
+                return null;
+            }
+            return peekCFlow.get(i);
+        }
+        return invokeI.objValue;
     }
 
     public void push(Object obj) {

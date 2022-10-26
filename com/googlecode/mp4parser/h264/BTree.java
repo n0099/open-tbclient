@@ -28,6 +28,15 @@ public class BTree {
         }
     }
 
+    public Object getValue() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.value;
+        }
+        return invokeV.objValue;
+    }
+
     public void addString(String str, Object obj) {
         BTree bTree;
         Interceptable interceptable = $ic;
@@ -61,11 +70,5 @@ public class BTree {
             return this.one;
         }
         return (BTree) invokeI.objValue;
-    }
-
-    public Object getValue() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.value : invokeV.objValue;
     }
 }

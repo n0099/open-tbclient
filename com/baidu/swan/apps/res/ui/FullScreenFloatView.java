@@ -16,8 +16,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
 import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ch3;
-import com.baidu.tieba.vj1;
+import com.baidu.tieba.dh3;
+import com.baidu.tieba.wj1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FullScreenFloatView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean n;
@@ -44,13 +44,20 @@ public class FullScreenFloatView extends FrameLayout {
     public b l;
     public c m;
 
-    /* loaded from: classes2.dex */
-    public static /* synthetic */ class a {
+    /* loaded from: classes3.dex */
+    public /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
+    public interface c {
+        void a();
+
+        void onClick();
+    }
+
+    /* loaded from: classes3.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -74,6 +81,10 @@ public class FullScreenFloatView extends FrameLayout {
             this.a = fullScreenFloatView;
         }
 
+        public /* synthetic */ b(FullScreenFloatView fullScreenFloatView, a aVar) {
+            this(fullScreenFloatView);
+        }
+
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
@@ -84,17 +95,6 @@ public class FullScreenFloatView extends FrameLayout {
                 }
             }
         }
-
-        public /* synthetic */ b(FullScreenFloatView fullScreenFloatView, a aVar) {
-            this(fullScreenFloatView);
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public interface c {
-        void a();
-
-        void onClick();
     }
 
     static {
@@ -110,7 +110,51 @@ public class FullScreenFloatView extends FrameLayout {
                 return;
             }
         }
-        n = vj1.a;
+        n = wj1.a;
+    }
+
+    public c getDragImageListener() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.m;
+        }
+        return (c) invokeV.objValue;
+    }
+
+    public void setStatusBarHeight() {
+        int identifier;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (identifier = getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.g, EMABTest.TYPE_DIMEN, "android")) > 0) {
+            this.f = getResources().getDimensionPixelSize(identifier);
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public FullScreenFloatView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f = 66;
+        this.g = false;
+        this.h = false;
+        this.i = true;
+        this.l = new b(this, null);
+        setStatusBarHeight();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -159,23 +203,45 @@ public class FullScreenFloatView extends FrameLayout {
 
     public int c(float f, float f2) {
         InterceptResult invokeCommon;
+        boolean z;
+        boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
             if (n) {
                 Log.e("FullScreenFloatView", "minDIstance---> x = " + f + ", y = " + f2);
             }
-            boolean z = f <= ((float) this.d) - f;
-            boolean z2 = f2 <= ((float) this.e) - f2;
+            if (f <= this.d - f) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (f2 <= this.e - f2) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
             if (z && z2) {
-                return f <= f2 ? 1 : 3;
+                if (f <= f2) {
+                    return 1;
+                }
+                return 3;
             } else if (z && !z2) {
-                return f <= ((float) this.e) - f2 ? 1 : 4;
+                if (f <= this.e - f2) {
+                    return 1;
+                }
+                return 4;
             } else if (!z && z2) {
-                return ((float) this.d) - f <= f2 ? 2 : 3;
+                if (this.d - f > f2) {
+                    return 3;
+                }
+                return 2;
             } else if (z || z2) {
                 return 0;
             } else {
-                return ((float) this.d) - f <= ((float) this.e) - f2 ? 2 : 4;
+                if (this.d - f > this.e - f2) {
+                    return 4;
+                }
+                return 2;
             }
         }
         return invokeCommon.intValue;
@@ -183,7 +249,7 @@ public class FullScreenFloatView extends FrameLayout {
 
     public final void d(float f, float f2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) || this.a == null) {
+        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) != null) || this.a == null) {
             return;
         }
         if (n) {
@@ -219,18 +285,11 @@ public class FullScreenFloatView extends FrameLayout {
 
     public void e() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.a == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.a != null) {
+            int dimensionPixelOffset = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070658);
+            int dimensionPixelOffset2 = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070659);
+            this.a.animate().x((dh3.o(getContext()) - dimensionPixelOffset) - this.b).y((dh3.n(getContext()) - dimensionPixelOffset2) - this.c).setInterpolator(new AccelerateInterpolator()).setDuration(300L).start();
         }
-        int dimensionPixelOffset = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070658);
-        int dimensionPixelOffset2 = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070659);
-        this.a.animate().x((ch3.o(getContext()) - dimensionPixelOffset) - this.b).y((ch3.n(getContext()) - dimensionPixelOffset2) - this.c).setInterpolator(new AccelerateInterpolator()).setDuration(300L).start();
-    }
-
-    public c getDragImageListener() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.m : (c) invokeV.objValue;
     }
 
     @Override // android.view.View
@@ -252,23 +311,23 @@ public class FullScreenFloatView extends FrameLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, motionEvent)) == null) {
-            if (motionEvent.getAction() != 0) {
+            if (motionEvent.getAction() == 0) {
+                float x = motionEvent.getX();
+                float y = motionEvent.getY();
+                Rect rect = new Rect();
+                if (this.a == null) {
+                    View findViewById = findViewById(R.id.obfuscated_res_0x7f0909fa);
+                    this.a = findViewById;
+                    b(findViewById);
+                }
+                this.a.getHitRect(rect);
+                if (rect.contains((int) x, (int) y)) {
+                    this.h = true;
+                    this.j = x;
+                    this.k = y;
+                    return true;
+                }
                 return false;
-            }
-            float x = motionEvent.getX();
-            float y = motionEvent.getY();
-            Rect rect = new Rect();
-            if (this.a == null) {
-                View findViewById = findViewById(R.id.obfuscated_res_0x7f0909f0);
-                this.a = findViewById;
-                b(findViewById);
-            }
-            this.a.getHitRect(rect);
-            if (rect.contains((int) x, (int) y)) {
-                this.h = true;
-                this.j = x;
-                this.k = y;
-                return true;
             }
             return false;
         }
@@ -295,7 +354,77 @@ public class FullScreenFloatView extends FrameLayout {
             float y = motionEvent.getY();
             Rect rect = new Rect();
             int action = motionEvent.getAction();
-            if (action == 0) {
+            if (action != 0) {
+                if (action != 1) {
+                    if (action != 2) {
+                        if (action != 3) {
+                            if (action == 4) {
+                                this.g = false;
+                                this.h = false;
+                            }
+                        } else {
+                            this.g = false;
+                            this.h = false;
+                        }
+                    } else {
+                        float abs = Math.abs(x - this.j);
+                        float abs2 = Math.abs(y - this.k);
+                        if (Math.sqrt((abs2 * abs2) + (abs * abs)) > 10.0d) {
+                            this.g = false;
+                        }
+                        d(x, y);
+                    }
+                } else {
+                    if (this.g) {
+                        c cVar2 = this.m;
+                        if (cVar2 != null) {
+                            cVar2.onClick();
+                        }
+                        removeCallbacks(this.l);
+                    } else if (this.h && (cVar = this.m) != null) {
+                        cVar.a();
+                    }
+                    if (n) {
+                        Log.e("FullScreenFloatView", "ACTION_UP--> x = " + x + ", y = " + y + ",mIsClickDrag = " + this.g);
+                    }
+                    if (this.i && !this.g) {
+                        int i = this.b;
+                        if (x > i / 2 && x < this.d - (i / 2)) {
+                            int i2 = this.c;
+                            if (y > i2 / 2 && y < this.e - (i2 / 2)) {
+                                int c2 = c(x, y);
+                                if (n) {
+                                    Log.e("FullScreenFloatView", "mScreenHeight = " + this.e + ", mintype = " + c2);
+                                }
+                                if (c2 != 1) {
+                                    if (c2 != 2) {
+                                        if (c2 != 3) {
+                                            if (c2 == 4) {
+                                                y = this.e - this.c;
+                                            }
+                                        } else {
+                                            y = 0.0f;
+                                        }
+                                    } else {
+                                        x = this.d - this.b;
+                                    }
+                                } else {
+                                    x = 0.0f;
+                                }
+                                if (c2 != 1 && c2 != 2) {
+                                    if (c2 == 3 || c2 == 4) {
+                                        this.a.animate().y(y).setInterpolator(new AccelerateInterpolator()).setDuration(300L).start();
+                                    }
+                                } else {
+                                    this.a.animate().x(x).setInterpolator(new AccelerateInterpolator()).setDuration(300L).start();
+                                }
+                            }
+                        }
+                    }
+                    this.g = false;
+                    this.h = false;
+                }
+            } else {
                 this.a.getHitRect(rect);
                 if (rect.contains((int) x, (int) y)) {
                     this.j = x;
@@ -304,62 +433,11 @@ public class FullScreenFloatView extends FrameLayout {
                     this.g = true;
                     postDelayed(this.l, ViewConfiguration.getTapTimeout());
                 }
-            } else if (action == 1) {
-                if (this.g) {
-                    c cVar2 = this.m;
-                    if (cVar2 != null) {
-                        cVar2.onClick();
-                    }
-                    removeCallbacks(this.l);
-                } else if (this.h && (cVar = this.m) != null) {
-                    cVar.a();
-                }
-                if (n) {
-                    Log.e("FullScreenFloatView", "ACTION_UP--> x = " + x + ", y = " + y + ",mIsClickDrag = " + this.g);
-                }
-                if (this.i && !this.g) {
-                    int i = this.b;
-                    if (x > i / 2 && x < this.d - (i / 2)) {
-                        int i2 = this.c;
-                        if (y > i2 / 2 && y < this.e - (i2 / 2)) {
-                            int c2 = c(x, y);
-                            if (n) {
-                                Log.e("FullScreenFloatView", "mScreenHeight = " + this.e + ", mintype = " + c2);
-                            }
-                            if (c2 == 1) {
-                                x = 0.0f;
-                            } else if (c2 == 2) {
-                                x = this.d - this.b;
-                            } else if (c2 == 3) {
-                                y = 0.0f;
-                            } else if (c2 == 4) {
-                                y = this.e - this.c;
-                            }
-                            if (c2 == 1 || c2 == 2) {
-                                this.a.animate().x(x).setInterpolator(new AccelerateInterpolator()).setDuration(300L).start();
-                            } else if (c2 == 3 || c2 == 4) {
-                                this.a.animate().y(y).setInterpolator(new AccelerateInterpolator()).setDuration(300L).start();
-                            }
-                        }
-                    }
-                }
-                this.g = false;
-                this.h = false;
-            } else if (action == 2) {
-                float abs = Math.abs(x - this.j);
-                float abs2 = Math.abs(y - this.k);
-                if (Math.sqrt((abs2 * abs2) + (abs * abs)) > 10.0d) {
-                    this.g = false;
-                }
-                d(x, y);
-            } else if (action == 3) {
-                this.g = false;
-                this.h = false;
-            } else if (action == 4) {
-                this.g = false;
-                this.h = false;
             }
-            return this.g || this.h;
+            if (this.g || this.h) {
+                return true;
+            }
+            return false;
         }
         return invokeL.booleanValue;
     }
@@ -381,7 +459,7 @@ public class FullScreenFloatView extends FrameLayout {
     public void setFloatButtonText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f0909f0);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f0909fa);
             if (findViewById instanceof Button) {
                 ((Button) findViewById).setText(str);
             }
@@ -391,45 +469,8 @@ public class FullScreenFloatView extends FrameLayout {
     public void setFloatImageBackground(int i) {
         View findViewById;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048588, this, i) == null) || (findViewById = findViewById(R.id.obfuscated_res_0x7f0909f0)) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeI(1048588, this, i) == null) && (findViewById = findViewById(R.id.obfuscated_res_0x7f0909fa)) != null) {
+            findViewById.setBackgroundResource(i);
         }
-        findViewById.setBackgroundResource(i);
-    }
-
-    public void setStatusBarHeight() {
-        int identifier;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (identifier = getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.g, EMABTest.TYPE_DIMEN, "android")) <= 0) {
-            return;
-        }
-        this.f = getResources().getDimensionPixelSize(identifier);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FullScreenFloatView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.f = 66;
-        this.g = false;
-        this.h = false;
-        this.i = true;
-        this.l = new b(this, null);
-        setStatusBarHeight();
     }
 }

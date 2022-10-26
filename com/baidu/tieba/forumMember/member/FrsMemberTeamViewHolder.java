@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.NoPressedLinearLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -54,73 +54,106 @@ public class FrsMemberTeamViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        int f = ej.f(BdBaseApplication.getInst().getApp(), R.dimen.obfuscated_res_0x7f070198);
+        int f = fj.f(BdBaseApplication.getInst().getApp(), R.dimen.obfuscated_res_0x7f070198);
         int color = SkinManager.getColor(R.color.black_alpha10);
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092246);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092230);
         this.a = textView;
         textView.setOnClickListener(onClickListener);
-        this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0914e0);
-        this.f = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090eb8);
-        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09215e);
+        this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0914d2);
+        this.f = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090eac);
+        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09215d);
         this.f.setIsRound(true);
         this.f.setBorderColor(color);
         this.f.setBorderWidth(f);
         this.f.setOnClickListener(onClickListener);
-        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0914e1);
-        this.g = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090eb9);
-        this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09215f);
+        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0914d3);
+        this.g = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ead);
+        this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09215e);
         this.g.setIsRound(true);
         this.g.setBorderColor(color);
         this.g.setBorderWidth(f);
         this.g.setOnClickListener(onClickListener);
-        this.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0914e2);
-        this.h = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090eba);
-        this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092160);
+        this.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0914d4);
+        this.h = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090eae);
+        this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09215f);
         this.h.setIsRound(true);
         this.h.setBorderColor(color);
         this.h.setBorderWidth(f);
         this.h.setOnClickListener(onClickListener);
-        this.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0914e3);
-        this.i = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ebb);
-        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092161);
+        this.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0914d5);
+        this.i = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090eaf);
+        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092160);
         this.i.setIsRound(true);
         this.i.setBorderColor(color);
         this.i.setBorderWidth(f);
         this.i.setOnClickListener(onClickListener);
-        this.n = (NoPressedLinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090a8d);
+        this.n = (NoPressedLinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090a97);
     }
 
     public void a(BawuRoleInfoPub bawuRoleInfoPub, int i) {
+        String str;
+        String str2;
+        String str3;
+        String str4;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048576, this, bawuRoleInfoPub, i) == null) || bawuRoleInfoPub == null || i < 0 || i > 3) {
-            return;
-        }
-        String str = bawuRoleInfoPub.portrait;
-        if (i == 0) {
-            this.f.K(str, 12, false);
+        if ((interceptable == null || interceptable.invokeLI(1048576, this, bawuRoleInfoPub, i) == null) && bawuRoleInfoPub != null && i >= 0 && i <= 3) {
+            String str5 = bawuRoleInfoPub.portrait;
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i == 3) {
+                            this.i.L(str5, 12, false);
+                            this.i.setTag(bawuRoleInfoPub);
+                            this.i.setContentDescription(bawuRoleInfoPub.user_name);
+                            TextView textView = this.m;
+                            if (StringUtils.isNull(bawuRoleInfoPub.name_show)) {
+                                str4 = bawuRoleInfoPub.user_name;
+                            } else {
+                                str4 = bawuRoleInfoPub.name_show;
+                            }
+                            textView.setText(str4);
+                            this.e.setVisibility(0);
+                            return;
+                        }
+                        return;
+                    }
+                    this.h.L(str5, 12, false);
+                    this.h.setTag(bawuRoleInfoPub);
+                    this.h.setContentDescription(bawuRoleInfoPub.user_name);
+                    TextView textView2 = this.l;
+                    if (StringUtils.isNull(bawuRoleInfoPub.name_show)) {
+                        str3 = bawuRoleInfoPub.user_name;
+                    } else {
+                        str3 = bawuRoleInfoPub.name_show;
+                    }
+                    textView2.setText(str3);
+                    this.d.setVisibility(0);
+                    return;
+                }
+                this.g.L(str5, 12, false);
+                this.g.setTag(bawuRoleInfoPub);
+                this.g.setContentDescription(bawuRoleInfoPub.user_name);
+                TextView textView3 = this.k;
+                if (StringUtils.isNull(bawuRoleInfoPub.name_show)) {
+                    str2 = bawuRoleInfoPub.user_name;
+                } else {
+                    str2 = bawuRoleInfoPub.name_show;
+                }
+                textView3.setText(str2);
+                this.c.setVisibility(0);
+                return;
+            }
+            this.f.L(str5, 12, false);
             this.f.setTag(bawuRoleInfoPub);
             this.f.setContentDescription(bawuRoleInfoPub.user_name);
-            this.j.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
+            TextView textView4 = this.j;
+            if (StringUtils.isNull(bawuRoleInfoPub.name_show)) {
+                str = bawuRoleInfoPub.user_name;
+            } else {
+                str = bawuRoleInfoPub.name_show;
+            }
+            textView4.setText(str);
             this.b.setVisibility(0);
-        } else if (i == 1) {
-            this.g.K(str, 12, false);
-            this.g.setTag(bawuRoleInfoPub);
-            this.g.setContentDescription(bawuRoleInfoPub.user_name);
-            this.k.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
-            this.c.setVisibility(0);
-        } else if (i == 2) {
-            this.h.K(str, 12, false);
-            this.h.setTag(bawuRoleInfoPub);
-            this.h.setContentDescription(bawuRoleInfoPub.user_name);
-            this.l.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
-            this.d.setVisibility(0);
-        } else if (i != 3) {
-        } else {
-            this.i.K(str, 12, false);
-            this.i.setTag(bawuRoleInfoPub);
-            this.i.setContentDescription(bawuRoleInfoPub.user_name);
-            this.m.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
-            this.e.setVisibility(0);
         }
     }
 

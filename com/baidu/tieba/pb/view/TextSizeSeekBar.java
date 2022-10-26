@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kw7;
+import com.baidu.tieba.vw7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,7 +40,7 @@ public class TextSizeSeekBar extends View {
     public int m;
     public int n;
     public int o;
-    public ArrayList<Rect> p;
+    public ArrayList p;
     public int q;
     public int r;
     public int s;
@@ -64,7 +64,83 @@ public class TextSizeSeekBar extends View {
             }
         }
         this.j = 1;
-        this.p = new ArrayList<>(4);
+        this.p = new ArrayList(4);
+        this.q = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070298);
+        this.r = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07023b);
+        this.s = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds58);
+        d(context);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public TextSizeSeekBar(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.j = 1;
+        this.p = new ArrayList(4);
+        this.q = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070298);
+        this.r = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07023b);
+        this.s = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds58);
+        d(context);
+    }
+
+    @Override // android.view.View
+    public void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2) == null) {
+            super.onMeasure(i, i2);
+            if (this.a == 0 || this.b == 0) {
+                this.a = View.MeasureSpec.getSize(i);
+                int dimensionPixelSize = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07025d);
+                this.b = dimensionPixelSize;
+                this.c = (this.a - this.d) / 3;
+                this.f = dimensionPixelSize / 2;
+                for (int i3 = 0; i3 < 4; i3++) {
+                    int i4 = this.c;
+                    int i5 = this.f;
+                    int i6 = this.e;
+                    this.p.add(new Rect(i4 * i3, i5 - (i6 / 2), (i4 * i3) + this.d, i5 + (i6 / 2)));
+                }
+            }
+            setMeasuredDimension(this.a, this.b);
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public TextSizeSeekBar(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.j = 1;
+        this.p = new ArrayList(4);
         this.q = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070298);
         this.r = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07023b);
         this.s = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds58);
@@ -75,11 +151,21 @@ public class TextSizeSeekBar extends View {
         Rect rect;
         Drawable drawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) || (rect = (Rect) ListUtils.getItem(this.p, this.j)) == null || (drawable = this.i) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) && (rect = (Rect) ListUtils.getItem(this.p, this.j)) != null && (drawable = this.i) != null) {
+            drawable.setBounds(rect.left, rect.top, rect.right, rect.bottom);
+            this.i.draw(canvas);
         }
-        drawable.setBounds(rect.left, rect.top, rect.right, rect.bottom);
-        this.i.draw(canvas);
+    }
+
+    @Override // android.view.View
+    public void onDraw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, canvas) == null) {
+            super.onDraw(canvas);
+            c(canvas);
+            b(canvas);
+            a(canvas);
+        }
     }
 
     public final void b(Canvas canvas) {
@@ -114,6 +200,32 @@ public class TextSizeSeekBar extends View {
         }
     }
 
+    @Override // android.view.View
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, motionEvent)) == null) {
+            int action = motionEvent.getAction();
+            if (action == 1 || action == 2) {
+                int i = 0;
+                while (true) {
+                    if (i > 3) {
+                        break;
+                    } else if (((Rect) this.p.get(i)).contains((int) motionEvent.getX(), (int) motionEvent.getY())) {
+                        this.j = i;
+                        vw7.a(Math.abs(i - 3));
+                        invalidate();
+                        break;
+                    } else {
+                        i++;
+                    }
+                }
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
     public final void d(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
@@ -127,7 +239,7 @@ public class TextSizeSeekBar extends View {
             this.d = dimensionPixelSize;
             this.e = dimensionPixelSize;
             this.h = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.T_X09);
-            this.k = new String[]{context.getString(R.string.obfuscated_res_0x7f0f065e), context.getString(R.string.obfuscated_res_0x7f0f065d), context.getString(R.string.obfuscated_res_0x7f0f065c), context.getString(R.string.obfuscated_res_0x7f0f065f)};
+            this.k = new String[]{context.getString(R.string.obfuscated_res_0x7f0f0667), context.getString(R.string.obfuscated_res_0x7f0f0666), context.getString(R.string.obfuscated_res_0x7f0f0665), context.getString(R.string.obfuscated_res_0x7f0f0668)};
             this.l = SkinManager.getColor(R.color.CAM_X0105);
             this.m = SkinManager.getColor(R.color.CAM_X0109);
             this.n = SkinManager.getColor(R.color.CAM_X0111);
@@ -138,17 +250,16 @@ public class TextSizeSeekBar extends View {
 
     public void e() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.o == TbadkCoreApplication.getInst().getSkinType()) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.o != TbadkCoreApplication.getInst().getSkinType()) {
+            this.o = TbadkCoreApplication.getInst().getSkinType();
+            if (this.i != null) {
+                this.i = SkinManager.getDrawable(R.drawable.pic_wordsize_n);
+            }
+            this.l = SkinManager.getColor(R.color.CAM_X0105);
+            this.m = SkinManager.getColor(R.color.CAM_X0109);
+            this.n = SkinManager.getColor(R.color.CAM_X0111);
+            invalidate();
         }
-        this.o = TbadkCoreApplication.getInst().getSkinType();
-        if (this.i != null) {
-            this.i = SkinManager.getDrawable(R.drawable.pic_wordsize_n);
-        }
-        this.l = SkinManager.getColor(R.color.CAM_X0105);
-        this.m = SkinManager.getColor(R.color.CAM_X0109);
-        this.n = SkinManager.getColor(R.color.CAM_X0111);
-        invalidate();
     }
 
     @Override // android.view.View
@@ -172,118 +283,5 @@ public class TextSizeSeekBar extends View {
                 this.i = null;
             }
         }
-    }
-
-    @Override // android.view.View
-    public void onDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, canvas) == null) {
-            super.onDraw(canvas);
-            c(canvas);
-            b(canvas);
-            a(canvas);
-        }
-    }
-
-    @Override // android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2) == null) {
-            super.onMeasure(i, i2);
-            if (this.a == 0 || this.b == 0) {
-                this.a = View.MeasureSpec.getSize(i);
-                int dimensionPixelSize = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07025d);
-                this.b = dimensionPixelSize;
-                this.c = (this.a - this.d) / 3;
-                this.f = dimensionPixelSize / 2;
-                for (int i3 = 0; i3 < 4; i3++) {
-                    int i4 = this.c;
-                    int i5 = this.f;
-                    int i6 = this.e;
-                    this.p.add(new Rect(i4 * i3, i5 - (i6 / 2), (i4 * i3) + this.d, i5 + (i6 / 2)));
-                }
-            }
-            setMeasuredDimension(this.a, this.b);
-        }
-    }
-
-    @Override // android.view.View
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, motionEvent)) == null) {
-            int action = motionEvent.getAction();
-            if (action == 1 || action == 2) {
-                int i = 0;
-                while (true) {
-                    if (i > 3) {
-                        break;
-                    } else if (this.p.get(i).contains((int) motionEvent.getX(), (int) motionEvent.getY())) {
-                        this.j = i;
-                        kw7.a(Math.abs(i - 3));
-                        invalidate();
-                        break;
-                    } else {
-                        i++;
-                    }
-                }
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TextSizeSeekBar(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.j = 1;
-        this.p = new ArrayList<>(4);
-        this.q = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070298);
-        this.r = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07023b);
-        this.s = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds58);
-        d(context);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TextSizeSeekBar(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.j = 1;
-        this.p = new ArrayList<>(4);
-        this.q = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070298);
-        this.r = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07023b);
-        this.s = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds58);
-        d(context);
     }
 }

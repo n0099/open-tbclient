@@ -1,7 +1,6 @@
 package com.bumptech.glide.load.data;
 
 import android.content.res.AssetManager;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes7.dex */
-public class StreamAssetPathFetcher extends AssetPathFetcher<InputStream> {
+public class StreamAssetPathFetcher extends AssetPathFetcher {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -36,14 +35,6 @@ public class StreamAssetPathFetcher extends AssetPathFetcher<InputStream> {
         }
     }
 
-    @Override // com.bumptech.glide.load.data.DataFetcher
-    @NonNull
-    public Class<InputStream> getDataClass() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? InputStream.class : (Class) invokeV.objValue;
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.data.AssetPathFetcher
     public void close(InputStream inputStream) throws IOException {
@@ -53,12 +44,24 @@ public class StreamAssetPathFetcher extends AssetPathFetcher<InputStream> {
         }
     }
 
+    @Override // com.bumptech.glide.load.data.DataFetcher
+    public Class getDataClass() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return InputStream.class;
+        }
+        return (Class) invokeV.objValue;
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.bumptech.glide.load.data.AssetPathFetcher
     public InputStream loadResource(AssetManager assetManager, String str) throws IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, assetManager, str)) == null) ? assetManager.open(str) : (InputStream) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, assetManager, str)) == null) {
+            return assetManager.open(str);
+        }
+        return (InputStream) invokeLL.objValue;
     }
 }

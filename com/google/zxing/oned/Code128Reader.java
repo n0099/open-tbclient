@@ -161,14 +161,19 @@ public final class Code128Reader extends OneDReader {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public Result decodeRow(int i, BitArray bitArray, Map<DecodeHintType, ?> map) throws NotFoundException, FormatException, ChecksumException {
+    public Result decodeRow(int i, BitArray bitArray, Map map) throws NotFoundException, FormatException, ChecksumException {
         InterceptResult invokeILL;
-        char c;
         boolean z;
+        char c;
+        boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i, bitArray, map)) == null) {
-            boolean z2 = false;
-            boolean z3 = map != null && map.containsKey(DecodeHintType.ASSUME_GS1);
+            boolean z3 = false;
+            if (map != null && map.containsKey(DecodeHintType.ASSUME_GS1)) {
+                z = true;
+            } else {
+                z = false;
+            }
             int[] findStartPattern = findStartPattern(bitArray);
             int i2 = findStartPattern[2];
             ArrayList arrayList = new ArrayList(20);
@@ -222,22 +227,27 @@ public final class Code128Reader extends OneDReader {
                     default:
                         switch (c3) {
                             case 'c':
-                                if (decodeCode >= 100) {
+                                if (decodeCode < 100) {
+                                    if (decodeCode < 10) {
+                                        sb.append('0');
+                                    }
+                                    sb.append(decodeCode);
+                                } else {
                                     if (decodeCode != 106) {
                                         z6 = false;
                                     }
                                     if (decodeCode != 106) {
                                         switch (decodeCode) {
                                             case 100:
-                                                z = false;
+                                                z2 = false;
                                                 c3 = 'd';
                                                 break;
                                             case 101:
-                                                z = false;
+                                                z2 = false;
                                                 c3 = 'e';
                                                 break;
                                             case 102:
-                                                if (z3) {
+                                                if (z) {
                                                     if (sb.length() == 0) {
                                                         sb.append("]C1");
                                                     } else {
@@ -245,29 +255,24 @@ public final class Code128Reader extends OneDReader {
                                                     }
                                                 }
                                             default:
-                                                z = false;
+                                                z2 = false;
                                                 break;
                                         }
                                     } else {
-                                        z = false;
+                                        z2 = false;
                                         z5 = true;
                                         break;
                                     }
-                                } else {
-                                    if (decodeCode < 10) {
-                                        sb.append('0');
-                                    }
-                                    sb.append(decodeCode);
                                 }
-                                z = false;
+                                z2 = false;
                             case 'd':
                                 if (decodeCode < 96) {
-                                    if (z4 == z2) {
+                                    if (z4 == z3) {
                                         sb.append((char) (decodeCode + 32));
                                     } else {
                                         sb.append((char) (decodeCode + 32 + 128));
                                     }
-                                    z = false;
+                                    z2 = false;
                                     z4 = false;
                                     break;
                                 } else {
@@ -279,109 +284,115 @@ public final class Code128Reader extends OneDReader {
                                             case 96:
                                             case 97:
                                             default:
-                                                z = false;
+                                                z2 = false;
                                                 break;
                                             case 98:
-                                                z = true;
+                                                z2 = true;
                                                 c3 = 'e';
                                                 break;
                                             case 99:
-                                                z = false;
+                                                z2 = false;
                                                 c3 = 'c';
                                                 break;
                                             case 100:
-                                                if (z2 || !z4) {
-                                                    if (z2) {
+                                                if (z3 || !z4) {
+                                                    if (z3) {
                                                     }
-                                                    z = false;
+                                                    z2 = false;
                                                     z4 = true;
                                                     break;
                                                 }
-                                                z2 = true;
-                                                z = false;
+                                                z3 = true;
+                                                z2 = false;
                                                 z4 = false;
                                                 break;
                                             case 101:
-                                                z = false;
+                                                z2 = false;
                                                 c3 = 'e';
                                                 break;
                                             case 102:
-                                                if (z3) {
+                                                if (z) {
                                                     if (sb.length() == 0) {
                                                         sb.append("]C1");
                                                     } else {
                                                         sb.append(DecodedBitStreamParser.GS);
                                                     }
                                                 }
-                                                z = false;
+                                                z2 = false;
                                                 break;
                                         }
                                     }
                                     z5 = true;
-                                    z = false;
+                                    z2 = false;
                                 }
                                 break;
                             case 'e':
                                 if (decodeCode < 64) {
-                                    if (z4 == z2) {
+                                    if (z4 == z3) {
                                         sb.append((char) (decodeCode + 32));
                                     } else {
                                         sb.append((char) (decodeCode + 32 + 128));
                                     }
-                                } else if (decodeCode >= 96) {
+                                } else if (decodeCode < 96) {
+                                    if (z4 == z3) {
+                                        sb.append((char) (decodeCode - 64));
+                                    } else {
+                                        sb.append((char) (decodeCode + 64));
+                                    }
+                                } else {
                                     if (decodeCode != 106) {
                                         z6 = false;
                                     }
                                     if (decodeCode != 106) {
                                         switch (decodeCode) {
                                             case 98:
-                                                z = true;
+                                                z2 = true;
                                                 c3 = 'd';
                                                 break;
                                             case 100:
-                                                z = false;
+                                                z2 = false;
                                                 c3 = 'd';
                                                 break;
                                             case 101:
-                                                if (z2 || !z4) {
-                                                    if (z2) {
+                                                if (z3 || !z4) {
+                                                    if (z3) {
                                                     }
-                                                    z = false;
+                                                    z2 = false;
                                                     z4 = true;
                                                     break;
                                                 }
-                                                z2 = true;
+                                                z3 = true;
                                                 break;
                                             case 102:
-                                                if (z3) {
+                                                if (z) {
                                                     if (sb.length() == 0) {
                                                         sb.append("]C1");
                                                     } else {
                                                         sb.append(DecodedBitStreamParser.GS);
                                                     }
                                                 }
-                                                z = false;
+                                                z2 = false;
                                                 break;
                                         }
                                     }
                                     z5 = true;
-                                    z = false;
-                                } else if (z4 == z2) {
-                                    sb.append((char) (decodeCode - 64));
-                                } else {
-                                    sb.append((char) (decodeCode + 64));
+                                    z2 = false;
                                 }
-                                z = false;
+                                z2 = false;
                                 z4 = false;
                                 break;
                             default:
-                                z = false;
+                                z2 = false;
                                 break;
                         }
                         if (z7) {
-                            c3 = c3 == 'e' ? 'd' : 'e';
+                            if (c3 == 'e') {
+                                c3 = 'd';
+                            } else {
+                                c3 = 'e';
+                            }
                         }
-                        z7 = z;
+                        z7 = z2;
                         i3 = 6;
                         i7 = i8;
                         i8 = i9;

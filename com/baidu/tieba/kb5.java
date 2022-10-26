@@ -1,18 +1,17 @@
 package com.baidu.tieba;
 
-import androidx.lifecycle.Lifecycle;
+import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.mutiprocess.thirdpartylifecycle.ThirdPartyActivityLifecycleEvent;
+import com.baidu.tbadk.mutiprocess.share.ShareEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class kb5 implements ha5<ThirdPartyActivityLifecycleEvent> {
+public class kb5 implements la5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -31,21 +30,28 @@ public class kb5 implements ha5<ThirdPartyActivityLifecycleEvent> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ha5
+    @Override // com.baidu.tieba.la5
     /* renamed from: a */
-    public boolean onEvent(ThirdPartyActivityLifecycleEvent thirdPartyActivityLifecycleEvent) {
+    public boolean onEvent(ShareEvent shareEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, thirdPartyActivityLifecycleEvent)) == null) {
-            if (thirdPartyActivityLifecycleEvent == null || thirdPartyActivityLifecycleEvent.event == null || !TbadkCoreApplication.getInst().isMainProcess(false) || !UbsABTestHelper.isFixHotSplashRule()) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, shareEvent)) == null) {
+            if (!TbadkCoreApplication.getInst().isMainProcess(true)) {
+                return false;
             }
-            if (thirdPartyActivityLifecycleEvent.event.equals(Lifecycle.Event.ON_PAUSE)) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016521, TbadkCoreApplication.getInst()));
-            } else if (thirdPartyActivityLifecycleEvent.event.equals(Lifecycle.Event.ON_RESUME) && TbadkCoreApplication.getInst().canSendForegroundMessage()) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016520, TbadkCoreApplication.getInst()));
+            int i = shareEvent.status;
+            if (shareEvent.from == 1) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921696, Integer.valueOf(i)));
             }
-            return true;
+            if (i == 1) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921406, shareEvent));
+                String str = shareEvent.tid;
+                if (!TextUtils.isEmpty(str)) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921417, str));
+                    return true;
+                }
+            }
+            return false;
         }
         return invokeL.booleanValue;
     }

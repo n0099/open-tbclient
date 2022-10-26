@@ -16,7 +16,7 @@ public class CencSampleAuxiliaryDataFormat {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public byte[] iv;
-    public List<Pair> pairs;
+    public List pairs;
 
     /* loaded from: classes7.dex */
     public class Pair {
@@ -57,7 +57,10 @@ public class CencSampleAuxiliaryDataFormat {
                     return false;
                 }
                 Pair pair = (Pair) obj;
-                return this.clear == pair.clear && this.encrypted == pair.encrypted;
+                if (this.clear == pair.clear && this.encrypted == pair.encrypted) {
+                    return true;
+                }
+                return false;
             }
             return invokeL.booleanValue;
         }
@@ -98,10 +101,49 @@ public class CencSampleAuxiliaryDataFormat {
         this.pairs = new LinkedList();
     }
 
+    public int getSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            int length = this.iv.length;
+            List list = this.pairs;
+            if (list != null && list.size() > 0) {
+                return length + 2 + (this.pairs.size() * 6);
+            }
+            return length;
+        }
+        return invokeV.intValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            byte[] bArr = this.iv;
+            int i2 = 0;
+            if (bArr != null) {
+                i = Arrays.hashCode(bArr);
+            } else {
+                i = 0;
+            }
+            int i3 = i * 31;
+            List list = this.pairs;
+            if (list != null) {
+                i2 = list.hashCode();
+            }
+            return i3 + i2;
+        }
+        return invokeV.intValue;
+    }
+
     public Pair createPair(int i, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) ? new Pair(this, i, j) : (Pair) invokeCommon.objValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
+            return new Pair(this, i, j);
+        }
+        return (Pair) invokeCommon.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -115,37 +157,17 @@ public class CencSampleAuxiliaryDataFormat {
                 return false;
             }
             CencSampleAuxiliaryDataFormat cencSampleAuxiliaryDataFormat = (CencSampleAuxiliaryDataFormat) obj;
-            if (new BigInteger(this.iv).equals(new BigInteger(cencSampleAuxiliaryDataFormat.iv))) {
-                List<Pair> list = this.pairs;
-                List<Pair> list2 = cencSampleAuxiliaryDataFormat.pairs;
-                return list == null ? list2 == null : list.equals(list2);
+            if (!new BigInteger(this.iv).equals(new BigInteger(cencSampleAuxiliaryDataFormat.iv))) {
+                return false;
+            }
+            List list = this.pairs;
+            List list2 = cencSampleAuxiliaryDataFormat.pairs;
+            if (list == null ? list2 == null : list.equals(list2)) {
+                return true;
             }
             return false;
         }
         return invokeL.booleanValue;
-    }
-
-    public int getSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int length = this.iv.length;
-            List<Pair> list = this.pairs;
-            return (list == null || list.size() <= 0) ? length : length + 2 + (this.pairs.size() * 6);
-        }
-        return invokeV.intValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            byte[] bArr = this.iv;
-            int hashCode = (bArr != null ? Arrays.hashCode(bArr) : 0) * 31;
-            List<Pair> list = this.pairs;
-            return hashCode + (list != null ? list.hashCode() : 0);
-        }
-        return invokeV.intValue;
     }
 
     public String toString() {

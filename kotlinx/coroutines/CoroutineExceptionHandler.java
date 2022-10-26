@@ -10,16 +10,16 @@ public interface CoroutineExceptionHandler extends CoroutineContext.Element {
 
     @Metadata(bv = {1, 0, 3}, d1 = {}, d2 = {}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
     /* loaded from: classes8.dex */
-    public static final class DefaultImpls {
-        public static <R> R fold(CoroutineExceptionHandler coroutineExceptionHandler, R r, Function2<? super R, ? super CoroutineContext.Element, ? extends R> function2) {
-            return (R) CoroutineContext.Element.DefaultImpls.fold(coroutineExceptionHandler, r, function2);
+    public final class DefaultImpls {
+        public static Object fold(CoroutineExceptionHandler coroutineExceptionHandler, Object obj, Function2 function2) {
+            return CoroutineContext.Element.DefaultImpls.fold(coroutineExceptionHandler, obj, function2);
         }
 
-        public static <E extends CoroutineContext.Element> E get(CoroutineExceptionHandler coroutineExceptionHandler, CoroutineContext.Key<E> key) {
-            return (E) CoroutineContext.Element.DefaultImpls.get(coroutineExceptionHandler, key);
+        public static CoroutineContext.Element get(CoroutineExceptionHandler coroutineExceptionHandler, CoroutineContext.Key key) {
+            return CoroutineContext.Element.DefaultImpls.get(coroutineExceptionHandler, key);
         }
 
-        public static CoroutineContext minusKey(CoroutineExceptionHandler coroutineExceptionHandler, CoroutineContext.Key<?> key) {
+        public static CoroutineContext minusKey(CoroutineExceptionHandler coroutineExceptionHandler, CoroutineContext.Key key) {
             return CoroutineContext.Element.DefaultImpls.minusKey(coroutineExceptionHandler, key);
         }
 
@@ -30,7 +30,7 @@ public interface CoroutineExceptionHandler extends CoroutineContext.Element {
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\b\n\u0002\u0018\u0002\n\u0002\b\u0004\b\u0086\u0003\u0018\u00002\u00020\u0001B\t\b\u0002¢\u0006\u0004\b\u0002\u0010\u0003¨\u0006\u0004"}, d2 = {"Lkotlinx/coroutines/CoroutineExceptionHandler$Key;", "kotlin/coroutines/CoroutineContext$Key", "<init>", "()V", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes8.dex */
-    public static final class Key implements CoroutineContext.Key<CoroutineExceptionHandler> {
+    public final class Key implements CoroutineContext.Key {
         public static final /* synthetic */ Key $$INSTANCE = new Key();
     }
 

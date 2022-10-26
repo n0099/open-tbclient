@@ -41,14 +41,14 @@ public class SegmentIndexBox extends AbstractFullBox {
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_9 = null;
     public transient /* synthetic */ FieldHolder $fh;
     public long earliestPresentationTime;
-    public List<Entry> entries;
+    public List entries;
     public long firstOffset;
     public long referenceId;
     public int reserved;
     public long timeScale;
 
     /* loaded from: classes7.dex */
-    public static class Entry {
+    public class Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public byte referenceType;
@@ -72,6 +72,83 @@ public class SegmentIndexBox extends AbstractFullBox {
             }
         }
 
+        public byte getReferenceType() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.referenceType;
+            }
+            return invokeV.byteValue;
+        }
+
+        public int getReferencedSize() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.referencedSize;
+            }
+            return invokeV.intValue;
+        }
+
+        public int getSapDeltaTime() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.sapDeltaTime;
+            }
+            return invokeV.intValue;
+        }
+
+        public byte getSapType() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.sapType;
+            }
+            return invokeV.byteValue;
+        }
+
+        public byte getStartsWithSap() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return this.startsWithSap;
+            }
+            return invokeV.byteValue;
+        }
+
+        public long getSubsegmentDuration() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return this.subsegmentDuration;
+            }
+            return invokeV.longValue;
+        }
+
+        public Entry(byte b, int i, long j, byte b2, byte b3, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Byte.valueOf(b), Integer.valueOf(i), Long.valueOf(j), Byte.valueOf(b2), Byte.valueOf(b3), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.referenceType = b;
+            this.referencedSize = i;
+            this.subsegmentDuration = j;
+            this.startsWithSap = b2;
+            this.sapType = b3;
+            this.sapDeltaTime = i2;
+        }
+
         public boolean equals(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -83,45 +160,12 @@ public class SegmentIndexBox extends AbstractFullBox {
                     return false;
                 }
                 Entry entry = (Entry) obj;
-                return this.referenceType == entry.referenceType && this.referencedSize == entry.referencedSize && this.sapDeltaTime == entry.sapDeltaTime && this.sapType == entry.sapType && this.startsWithSap == entry.startsWithSap && this.subsegmentDuration == entry.subsegmentDuration;
+                if (this.referenceType == entry.referenceType && this.referencedSize == entry.referencedSize && this.sapDeltaTime == entry.sapDeltaTime && this.sapType == entry.sapType && this.startsWithSap == entry.startsWithSap && this.subsegmentDuration == entry.subsegmentDuration) {
+                    return true;
+                }
+                return false;
             }
             return invokeL.booleanValue;
-        }
-
-        public byte getReferenceType() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.referenceType : invokeV.byteValue;
-        }
-
-        public int getReferencedSize() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.referencedSize : invokeV.intValue;
-        }
-
-        public int getSapDeltaTime() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.sapDeltaTime : invokeV.intValue;
-        }
-
-        public byte getSapType() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.sapType : invokeV.byteValue;
-        }
-
-        public byte getStartsWithSap() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.startsWithSap : invokeV.byteValue;
-        }
-
-        public long getSubsegmentDuration() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.subsegmentDuration : invokeV.longValue;
         }
 
         public int hashCode() {
@@ -184,29 +228,6 @@ public class SegmentIndexBox extends AbstractFullBox {
             }
             return (String) invokeV.objValue;
         }
-
-        public Entry(byte b, int i, long j, byte b2, byte b3, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Byte.valueOf(b), Integer.valueOf(i), Long.valueOf(j), Byte.valueOf(b2), Byte.valueOf(b3), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.referenceType = b;
-            this.referencedSize = i;
-            this.subsegmentDuration = j;
-            this.startsWithSap = b2;
-            this.sapType = b3;
-            this.sapDeltaTime = i2;
-        }
     }
 
     static {
@@ -223,6 +244,82 @@ public class SegmentIndexBox extends AbstractFullBox {
             }
         }
         ajc$preClinit();
+    }
+
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public long getContentSize() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (getVersion() == 0) {
+                i = 8;
+            } else {
+                i = 16;
+            }
+            return 12 + i + 2 + 2 + (this.entries.size() * 12);
+        }
+        return invokeV.longValue;
+    }
+
+    public long getEarliestPresentationTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_6, this, this));
+            return this.earliestPresentationTime;
+        }
+        return invokeV.longValue;
+    }
+
+    public List getEntries() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
+            return this.entries;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public long getFirstOffset() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_8, this, this));
+            return this.firstOffset;
+        }
+        return invokeV.longValue;
+    }
+
+    public long getReferenceId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
+            return this.referenceId;
+        }
+        return invokeV.longValue;
+    }
+
+    public int getReserved() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_10, this, this));
+            return this.reserved;
+        }
+        return invokeV.intValue;
+    }
+
+    public long getTimeScale() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_4, this, this));
+            return this.timeScale;
+        }
+        return invokeV.longValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -320,76 +417,6 @@ public class SegmentIndexBox extends AbstractFullBox {
         }
     }
 
-    @Override // com.googlecode.mp4parser.AbstractBox
-    public long getContentSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 12 + (getVersion() == 0 ? 8 : 16) + 2 + 2 + (this.entries.size() * 12);
-        }
-        return invokeV.longValue;
-    }
-
-    public long getEarliestPresentationTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_6, this, this));
-            return this.earliestPresentationTime;
-        }
-        return invokeV.longValue;
-    }
-
-    public List<Entry> getEntries() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
-            return this.entries;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public long getFirstOffset() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_8, this, this));
-            return this.firstOffset;
-        }
-        return invokeV.longValue;
-    }
-
-    public long getReferenceId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
-            return this.referenceId;
-        }
-        return invokeV.longValue;
-    }
-
-    public int getReserved() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_10, this, this));
-            return this.reserved;
-        }
-        return invokeV.intValue;
-    }
-
-    public long getTimeScale() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_4, this, this));
-            return this.timeScale;
-        }
-        return invokeV.longValue;
-    }
-
     public void setEarliestPresentationTime(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
@@ -398,7 +425,7 @@ public class SegmentIndexBox extends AbstractFullBox {
         }
     }
 
-    public void setEntries(List<Entry> list) {
+    public void setEntries(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, list) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, list));

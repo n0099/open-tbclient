@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public final class MapStatus implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<MapStatus> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public ab a;
     public double b;
@@ -34,7 +34,7 @@ public final class MapStatus implements Parcelable {
     public final float zoom;
 
     /* loaded from: classes2.dex */
-    public static final class Builder {
+    public final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public float a;

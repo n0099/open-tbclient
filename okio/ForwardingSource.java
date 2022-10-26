@@ -47,21 +47,30 @@ public abstract class ForwardingSource implements Source {
     public final Source delegate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.delegate : (Source) invokeV.objValue;
-    }
-
-    @Override // okio.Source
-    public long read(Buffer buffer, long j) throws IOException {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, buffer, j)) == null) ? this.delegate.read(buffer, j) : invokeLJ.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.delegate;
+        }
+        return (Source) invokeV.objValue;
     }
 
     @Override // okio.Source
     public Timeout timeout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.delegate.timeout() : (Timeout) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.delegate.timeout();
+        }
+        return (Timeout) invokeV.objValue;
+    }
+
+    @Override // okio.Source
+    public long read(Buffer buffer, long j) throws IOException {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, buffer, j)) == null) {
+            return this.delegate.read(buffer, j);
+        }
+        return invokeLJ.longValue;
     }
 
     public String toString() {

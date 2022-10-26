@@ -16,12 +16,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes4.dex */
-public class la extends ka<CustomMessage<?>, CustomMessageTask> {
+public class la extends ka {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public class a extends BdAsyncTask<String, String, CustomResponsedMessage<?>> {
+    public class a extends BdAsyncTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public CustomMessage a;
@@ -88,13 +88,16 @@ public class la extends ka<CustomMessage<?>, CustomMessageTask> {
         public CustomMessage c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (CustomMessage) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.a;
+            }
+            return (CustomMessage) invokeV.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: d */
-        public void onPostExecute(CustomResponsedMessage<?> customResponsedMessage) {
+        public void onPostExecute(CustomResponsedMessage customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, customResponsedMessage) == null) {
                 if (customResponsedMessage != null) {
@@ -128,12 +131,18 @@ public class la extends ka<CustomMessage<?>, CustomMessageTask> {
     }
 
     @Override // com.baidu.tieba.ha
-    public LinkedList<CustomMessage<?>> e(int i, BdUniqueId bdUniqueId) {
+    public LinkedList e(int i, BdUniqueId bdUniqueId) {
         InterceptResult invokeIL;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bdUniqueId)) == null) {
-            LinkedList<BdAsyncTask<?, ?, ?>> searchAllTask = BdAsyncTask.searchAllTask(bdUniqueId, i != 0 ? String.valueOf(i) : null);
-            LinkedList<CustomMessage<?>> linkedList = new LinkedList<>();
+            if (i != 0) {
+                str = String.valueOf(i);
+            } else {
+                str = null;
+            }
+            LinkedList<BdAsyncTask<?, ?, ?>> searchAllTask = BdAsyncTask.searchAllTask(bdUniqueId, str);
+            LinkedList linkedList = new LinkedList();
             Iterator<BdAsyncTask<?, ?, ?>> it = searchAllTask.iterator();
             while (it.hasNext()) {
                 BdAsyncTask<?, ?, ?> next = it.next();
@@ -146,18 +155,53 @@ public class la extends ka<CustomMessage<?>, CustomMessageTask> {
         return (LinkedList) invokeIL.objValue;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ha
-    public void h(int i, BdUniqueId bdUniqueId) {
+    /* renamed from: l */
+    public void f(CustomMessage customMessage, CustomMessageTask customMessageTask) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, bdUniqueId) == null) {
-            BdAsyncTask.removeAllTask(bdUniqueId, i != 0 ? String.valueOf(i) : null);
+        if ((interceptable == null || interceptable.invokeLL(1048582, this, customMessage, customMessageTask) == null) && customMessage != null && customMessageTask != null) {
+            if (customMessageTask.getType() == CustomMessageTask.TASK_TYPE.SYNCHRONIZED) {
+                CustomResponsedMessage customResponsedMessage = null;
+                try {
+                    customResponsedMessage = customMessageTask.getRunnable().run(customMessage);
+                    if (customResponsedMessage != null) {
+                        customResponsedMessage.setOrginalMessage(customMessage);
+                    }
+                } catch (Exception e) {
+                    BdLog.detailException(e);
+                }
+                if (customResponsedMessage != null) {
+                    this.a.dispatchResponsedMessage(customResponsedMessage);
+                    return;
+                }
+                return;
+            }
+            new a(this, customMessage, customMessageTask).execute(new String[0]);
         }
     }
 
-    public LinkedList<CustomMessage<?>> i(BdUniqueId bdUniqueId) {
+    @Override // com.baidu.tieba.ha
+    public void h(int i, BdUniqueId bdUniqueId) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, bdUniqueId) == null) {
+            if (i != 0) {
+                str = String.valueOf(i);
+            } else {
+                str = null;
+            }
+            BdAsyncTask.removeAllTask(bdUniqueId, str);
+        }
+    }
+
+    public LinkedList i(BdUniqueId bdUniqueId) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bdUniqueId)) == null) ? e(0, bdUniqueId) : (LinkedList) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bdUniqueId)) == null) {
+            return e(0, bdUniqueId);
+        }
+        return (LinkedList) invokeL.objValue;
     }
 
     public void j(BdUniqueId bdUniqueId) {
@@ -167,17 +211,17 @@ public class la extends ka<CustomMessage<?>, CustomMessageTask> {
         }
     }
 
-    public <T> CustomResponsedMessage<T> k(CustomMessage customMessage, CustomMessageTask customMessageTask, Class<T> cls) {
+    public CustomResponsedMessage k(CustomMessage customMessage, CustomMessageTask customMessageTask, Class cls) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, customMessage, customMessageTask, cls)) == null) {
-            CustomResponsedMessage<T> customResponsedMessage = null;
+            CustomResponsedMessage customResponsedMessage = null;
             if (customMessageTask == null) {
                 return null;
             }
             if (customMessageTask.getType() == CustomMessageTask.TASK_TYPE.SYNCHRONIZED) {
                 try {
-                    customResponsedMessage = (CustomResponsedMessage<T>) customMessageTask.getRunnable().run(customMessage);
+                    customResponsedMessage = customMessageTask.getRunnable().run(customMessage);
                 } catch (Exception e) {
                     BdLog.detailException(e);
                 }
@@ -190,32 +234,5 @@ public class la extends ka<CustomMessage<?>, CustomMessageTask> {
             return customResponsedMessage;
         }
         return (CustomResponsedMessage) invokeLLL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ha
-    /* renamed from: l */
-    public void f(CustomMessage customMessage, CustomMessageTask customMessageTask) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048582, this, customMessage, customMessageTask) == null) || customMessage == null || customMessageTask == null) {
-            return;
-        }
-        if (customMessageTask.getType() == CustomMessageTask.TASK_TYPE.SYNCHRONIZED) {
-            CustomResponsedMessage<?> customResponsedMessage = null;
-            try {
-                customResponsedMessage = customMessageTask.getRunnable().run(customMessage);
-                if (customResponsedMessage != null) {
-                    customResponsedMessage.setOrginalMessage(customMessage);
-                }
-            } catch (Exception e) {
-                BdLog.detailException(e);
-            }
-            if (customResponsedMessage != null) {
-                this.a.dispatchResponsedMessage(customResponsedMessage);
-                return;
-            }
-            return;
-        }
-        new a(this, customMessage, customMessageTask).execute(new String[0]);
     }
 }

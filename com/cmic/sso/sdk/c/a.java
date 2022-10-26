@@ -8,7 +8,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidubce.http.Headers;
 import com.cmic.sso.sdk.c.b.d;
 import com.cmic.sso.sdk.c.b.g;
 import com.cmic.sso.sdk.c.c.c;
@@ -37,22 +36,44 @@ public class a {
         }
     }
 
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    private c a(String str, String str2, String str3, g gVar) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, this, str, str2, str3, gVar)) == null) {
+            c cVar = new c(str, gVar, str3, str2);
+            if (str3.equals("GET")) {
+                cVar.a("Content-Type", "application/x-www-form-urlencoded");
+            }
+            return cVar;
+        }
+        return (c) invokeLLLL.objValue;
+    }
+
     public c a(c cVar, com.cmic.sso.sdk.c.d.b bVar, com.cmic.sso.sdk.a aVar) {
         InterceptResult invokeLLL;
-        List<String> list;
+        List list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, cVar, bVar, aVar)) == null) {
-            Map<String, List<String>> b = bVar.b();
-            if (TextUtils.isEmpty(this.a) && (list = b.get("pplocation")) != null && list.size() > 0) {
-                this.a = list.get(0);
+            Map b = bVar.b();
+            if (TextUtils.isEmpty(this.a) && (list = (List) b.get("pplocation")) != null && list.size() > 0) {
+                this.a = (String) list.get(0);
             }
             q.b(aVar, String.valueOf(bVar.a()));
-            List<String> list2 = b.get(Headers.LOCATION);
+            List list2 = (List) b.get("Location");
             if (list2 == null || list2.isEmpty()) {
-                list2 = b.get(Headers.LOCATION.toLowerCase());
+                list2 = (List) b.get("Location".toLowerCase());
             }
             if (list2 != null && list2.size() > 0) {
-                String str = list2.get(0);
+                String str = (String) list2.get(0);
                 this.b = str;
                 if (!TextUtils.isEmpty(str)) {
                     String b2 = aVar.b("operatortype", "0");
@@ -65,7 +86,7 @@ public class a {
                     }
                 }
             }
-            Log.d(Headers.LOCATION, this.b);
+            Log.d("Location", this.b);
             c a = a(this.b, cVar.f(), "GET", new com.cmic.sso.sdk.c.b.c(cVar.k().a()));
             a.a(cVar.h());
             return a;
@@ -99,24 +120,5 @@ public class a {
             return a;
         }
         return (c) invokeLLL.objValue;
-    }
-
-    private c a(String str, String str2, String str3, g gVar) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, this, str, str2, str3, gVar)) == null) {
-            c cVar = new c(str, gVar, str3, str2);
-            if (str3.equals("GET")) {
-                cVar.a("Content-Type", "application/x-www-form-urlencoded");
-            }
-            return cVar;
-        }
-        return (c) invokeLLLL.objValue;
-    }
-
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 }

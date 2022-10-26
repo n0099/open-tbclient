@@ -1,6 +1,5 @@
 package com.yy.mobile.framework.revenuesdk.baseapi;
 
-import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.RomUtils;
@@ -13,7 +12,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventAlias;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-@Keep
 /* loaded from: classes8.dex */
 public final class PurchaseStatus {
     public static final /* synthetic */ PurchaseStatus[] $VALUES;
@@ -77,30 +75,6 @@ public final class PurchaseStatus {
         this.msg = str2;
     }
 
-    public static PurchaseStatus valueOf(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (PurchaseStatus) Enum.valueOf(PurchaseStatus.class, str) : (PurchaseStatus) invokeL.objValue;
-    }
-
-    public static PurchaseStatus[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (PurchaseStatus[]) $VALUES.clone() : (PurchaseStatus[]) invokeV.objValue;
-    }
-
-    public int getCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.code : invokeV.intValue;
-    }
-
-    public String getMessage() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.msg : (String) invokeV.objValue;
-    }
-
     public static PurchaseStatus valueOf(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -128,5 +102,41 @@ public final class PurchaseStatus {
             }
         }
         return (PurchaseStatus) invokeI.objValue;
+    }
+
+    public static PurchaseStatus valueOf(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return (PurchaseStatus) Enum.valueOf(PurchaseStatus.class, str);
+        }
+        return (PurchaseStatus) invokeL.objValue;
+    }
+
+    public static PurchaseStatus[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return (PurchaseStatus[]) $VALUES.clone();
+        }
+        return (PurchaseStatus[]) invokeV.objValue;
+    }
+
+    public int getCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.code;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getMessage() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.msg;
+        }
+        return (String) invokeV.objValue;
     }
 }

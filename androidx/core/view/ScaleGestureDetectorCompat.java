@@ -26,21 +26,6 @@ public final class ScaleGestureDetectorCompat {
         }
     }
 
-    @Deprecated
-    public static boolean isQuickScaleEnabled(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, obj)) == null) ? isQuickScaleEnabled((ScaleGestureDetector) obj) : invokeL.booleanValue;
-    }
-
-    @Deprecated
-    public static void setQuickScaleEnabled(Object obj, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, z) == null) {
-            setQuickScaleEnabled((ScaleGestureDetector) obj, z);
-        }
-    }
-
     public static boolean isQuickScaleEnabled(ScaleGestureDetector scaleGestureDetector) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -53,11 +38,28 @@ public final class ScaleGestureDetectorCompat {
         return invokeL.booleanValue;
     }
 
+    @Deprecated
+    public static boolean isQuickScaleEnabled(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, obj)) == null) {
+            return isQuickScaleEnabled((ScaleGestureDetector) obj);
+        }
+        return invokeL.booleanValue;
+    }
+
     public static void setQuickScaleEnabled(ScaleGestureDetector scaleGestureDetector, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(65539, null, scaleGestureDetector, z) == null) || Build.VERSION.SDK_INT < 19) {
-            return;
+        if ((interceptable == null || interceptable.invokeLZ(65539, null, scaleGestureDetector, z) == null) && Build.VERSION.SDK_INT >= 19) {
+            scaleGestureDetector.setQuickScaleEnabled(z);
         }
-        scaleGestureDetector.setQuickScaleEnabled(z);
+    }
+
+    @Deprecated
+    public static void setQuickScaleEnabled(Object obj, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, z) == null) {
+            setQuickScaleEnabled((ScaleGestureDetector) obj, z);
+        }
     }
 }

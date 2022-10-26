@@ -33,7 +33,7 @@ public final class h implements com.kwai.filedownloader.kwai.b {
     public Response ap;
 
     /* loaded from: classes7.dex */
-    public static class a implements c.b {
+    public class a implements c.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public volatile OkHttpClient am;
@@ -173,7 +173,7 @@ public final class h implements com.kwai.filedownloader.kwai.b {
     }
 
     @Override // com.kwai.filedownloader.kwai.b
-    public final Map<String, List<String>> U() {
+    public final Map U() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -186,7 +186,7 @@ public final class h implements com.kwai.filedownloader.kwai.b {
     }
 
     @Override // com.kwai.filedownloader.kwai.b
-    public final Map<String, List<String>> V() {
+    public final Map V() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

@@ -1,20 +1,17 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.adlanding.SwanAppAdLandingFragment;
-import com.baidu.swan.apps.core.slave.SwanAppWebViewWidget;
-import com.baidu.swan.apps.view.SwanAppActionBar;
-import com.baidu.tieba.u22;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.swan.apps.view.menu.SwanAppMenuHeaderView;
+import com.baidu.swan.support.v4.app.FragmentActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,72 +19,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.net.URI;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class z22 extends r22 {
+public class z22 extends a32 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean L0;
+    public static final boolean O0;
     public transient /* synthetic */ FieldHolder $fh;
-    public up1 F0;
-    public sp1 G0;
-    public String H0;
-    public String I0;
-    public String J0;
-    public boolean K0;
+    public int M0;
+    public FrameLayout N0;
 
     /* loaded from: classes6.dex */
-    public class a extends SwanAppWebViewWidget {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ z22 b0;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(z22 z22Var, Context context) {
-            super(context);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {z22Var, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Context) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b0 = z22Var;
-        }
-
-        @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget
-        public boolean U1() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b0.K0 : invokeV.booleanValue;
-        }
-
-        @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget
-        public boolean V1() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b extends w42 {
+    public class a extends x42 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ z22 c;
 
-        public b(z22 z22Var) {
+        public a(z22 z22Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -105,118 +53,29 @@ public class z22 extends r22 {
             this.c = z22Var;
         }
 
-        @Override // com.baidu.tieba.w42, com.baidu.tieba.z42
-        public void d(String str) {
+        @Override // com.baidu.tieba.x42, com.baidu.tieba.a52
+        public boolean b(String str) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                if (this.c.X2(str) && this.c.J0 != null) {
-                    z22 z22Var = this.c;
-                    z22Var.f0.setTitle(z22Var.J0);
-                    return;
-                }
-                this.c.f0.setTitle(str);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                return super.b(str);
             }
+            return invokeL.booleanValue;
         }
     }
 
     /* loaded from: classes6.dex */
-    public class c implements View.OnClickListener {
+    public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ z22 a;
 
-        public c(z22 z22Var) {
+        public static boolean a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {z22Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+            if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+                return ac3.a().getBoolean("SP_SwanAppWebModeFragment_DEBUG", false);
             }
-            this.a = z22Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (this.a.G0.canGoBack()) {
-                    this.a.G0.goBack();
-                } else {
-                    this.a.h2();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public lt2 a;
-        public JSONObject b;
-
-        public d(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = new JSONObject();
-            this.a = lt2.d(str, str);
-        }
-
-        public d a(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-                try {
-                    this.b.put("should_check_domain", z);
-                } catch (JSONException e) {
-                    if (z22.L0) {
-                        e.printStackTrace();
-                    }
-                }
-                return this;
-            }
-            return (d) invokeZ.objValue;
-        }
-
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.b = this.b.toString();
-                z22.d3("default_webview", this.a);
-            }
-        }
-
-        public void c(hh4 hh4Var) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hh4Var) == null) || hh4Var == null) {
-                return;
-            }
-            this.a.b = this.b.toString();
-            z22 c3 = z22.c3(this.a, "default_webview");
-            jh4 a = hh4Var.a();
-            a.a(R.id.obfuscated_res_0x7f090179, c3);
-            a.d(null);
-            a.e();
+            return invokeV.booleanValue;
         }
     }
 
@@ -233,7 +92,7 @@ public class z22 extends r22 {
                 return;
             }
         }
-        L0 = vj1.a;
+        O0 = wj1.a;
     }
 
     public z22() {
@@ -249,338 +108,209 @@ public class z22 extends r22 {
                 return;
             }
         }
-        this.K0 = true;
+        this.M0 = 20;
     }
 
-    public static boolean Y2() {
+    @Override // com.baidu.tieba.a32
+    public a52 Z2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            u22 V = yo2.U().V();
-            if (V == null) {
-                l02.i("SwanAppWebViewFragment", "close page failed");
-                return false;
-            }
-            l02.i("SwanAppWebViewFragment", "page closed! ");
-            u22.b h = V.h();
-            h.n(u22.i, u22.h);
-            h.g();
-            h.a();
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return new a(this);
         }
-        return invokeV.booleanValue;
+        return (a52) invokeV.objValue;
     }
 
-    public static d b3(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? new d(str) : (d) invokeL.objValue;
-    }
-
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public static z22 c3(lt2 lt2Var, String str) {
-        InterceptResult invokeLL;
-        char c2;
-        z22 fw2Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, lt2Var, str)) == null) {
-            switch (str.hashCode()) {
-                case -1750679182:
-                    if (str.equals("allianceLogin")) {
-                        c2 = 3;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case -718660690:
-                    if (str.equals("web_mode")) {
-                        c2 = 6;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case -130826522:
-                    if (str.equals("allianceChooseAddress")) {
-                        c2 = 4;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 113553927:
-                    if (str.equals("wxPay")) {
-                        c2 = 0;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 570452084:
-                    if (str.equals("adLanding")) {
-                        c2 = 1;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 1221126139:
-                    if (str.equals("default_webview")) {
-                        c2 = 2;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 1339472410:
-                    if (str.equals("qrCodePay")) {
-                        c2 = 5;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                default:
-                    c2 = 65535;
-                    break;
-            }
-            switch (c2) {
-                case 0:
-                    fw2Var = new fw2();
-                    break;
-                case 1:
-                    fw2Var = new SwanAppAdLandingFragment();
-                    break;
-                case 2:
-                    fw2Var = new z22();
-                    break;
-                case 3:
-                    fw2Var = new xq1();
-                    break;
-                case 4:
-                    fw2Var = new fr1();
-                    break;
-                case 5:
-                    fw2Var = new bw2();
-                    break;
-                case 6:
-                    fw2Var = new y22();
-                    break;
-                default:
-                    if (L0) {
-                        Log.e("SwanAppWebViewFragment", "error type of SwanAppWebViewFragment!");
-                    }
-                    fw2Var = null;
-                    break;
-            }
-            if (fw2Var != null) {
-                fw2Var.f3(lt2Var);
-            }
-            return fw2Var;
-        }
-        return (z22) invokeLL.objValue;
-    }
-
-    public static boolean d3(String str, lt2 lt2Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, lt2Var)) == null) {
-            u22 V = yo2.U().V();
-            if (V == null) {
-                l02.i("SwanAppWebViewFragment", "open page failed");
-                return false;
-            }
-            l02.i("SwanAppWebViewFragment", "open page url=" + lt2Var.c);
-            u22.b h = V.h();
-            h.n(u22.g, u22.i);
-            h.k(str, lt2Var).b();
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.r22
-    public boolean I() {
+    public URI g3() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            sp1 sp1Var = this.G0;
-            if (sp1Var == null || !sp1Var.canGoBack()) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            try {
+                return new URI(ej3.c().a().e());
+            } catch (Exception e) {
+                if (O0) {
+                    e.printStackTrace();
+                }
+                return null;
             }
-            this.G0.goBack();
-            return true;
         }
-        return invokeV.booleanValue;
+        return (URI) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.r22
+    @Override // com.baidu.tieba.s22
+    public void h2() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.h2();
+            hj3.a().j();
+        }
+    }
+
+    public URI h3() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            try {
+                return new URI(ej3.c().e());
+            } catch (Exception e) {
+                if (O0) {
+                    e.printStackTrace();
+                }
+                return null;
+            }
+        }
+        return (URI) invokeV.objValue;
+    }
+
+    public final int i3() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (d2()) {
+                return 19;
+            }
+            return this.M0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.a32
+    public vp1 k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return ga2.U().f0().a(getContext());
+        }
+        return (vp1) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.s22
+    public void M2() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (this.F0 == null) {
+                if (O0) {
+                    Log.e("SwanAppWebModeFragment", Log.getStackTraceString(new Exception("mCurWebViewManager is null.")));
+                    return;
+                }
+                return;
+            }
+            HashMap hashMap = new HashMap();
+            String a2 = this.F0.a();
+            hashMap.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, a2);
+            tp1 tp1Var = this.G0;
+            if (tp1Var != null) {
+                hashMap.put("webViewUrl", tp1Var.getUrl());
+            }
+            nd2 nd2Var = new nd2("sharebtn", hashMap);
+            zo2.U().m(a2, nd2Var);
+            m02.i("SwanAppWebModeFragment", "share msg: " + nd2Var.s().toString());
+        }
+    }
+
+    @Override // com.baidu.tieba.a32, com.baidu.tieba.s22
     public void U1(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
             super.U1(view2);
-            t2(-1);
-            C2(-16777216);
-            SwanAppActionBar swanAppActionBar = this.f0;
-            String str = this.J0;
-            if (str == null) {
-                str = "";
-            }
-            swanAppActionBar.setTitle(str);
-            this.f0.setRightZoneVisibility(false);
-            x2(true);
-            this.f0.setLeftBackViewClickListener(new c(this));
+            this.f0.setRightMenuStyle();
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f0.getLayoutParams();
+            layoutParams.topMargin = dh3.t();
+            this.f0.setLayoutParams(layoutParams);
         }
     }
 
-    public void W2(FrameLayout frameLayout) {
+    public void j3(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, frameLayout) == null) {
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.M0 = i;
         }
     }
 
-    public final boolean X2(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? TextUtils.equals(this.H0, str) || TextUtils.equals(this.H0.replace("http://", "").replace("https://", ""), str) : invokeL.booleanValue;
-    }
-
-    public z42 Z2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? new b(this) : (z42) invokeV.objValue;
-    }
-
+    @Override // com.baidu.tieba.a32
     public void a3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.r22
-    public boolean c2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.r22
-    public boolean e2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void e3() {
-        Bundle p;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (p = p()) == null) {
-            return;
-        }
-        this.H0 = p.getString("url");
-        String string = p.getString("params");
-        this.I0 = string;
-        if (TextUtils.isEmpty(string)) {
-            return;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject(this.I0);
-            this.J0 = jSONObject.optString("fallback_title", null);
-            this.K0 = jSONObject.optBoolean("should_check_domain", true);
-        } catch (JSONException e) {
-            if (L0) {
-                e.printStackTrace();
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            FragmentActivity activity = getActivity();
+            if (this.h0 == null) {
+                this.h0 = new SwanAppMenuHeaderView(getContext());
+            }
+            if (activity != null && this.g0 == null) {
+                this.g0 = new t94(activity, this.f0, i3(), tm2.K(), new vi3());
+                new ct2(this.g0, this, this.h0).z();
             }
         }
     }
 
-    public void f3(lt2 lt2Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, lt2Var) == null) || lt2Var == null) {
-            return;
-        }
-        Bundle bundle = new Bundle();
-        bundle.putString("url", lt2Var.c);
-        bundle.putString("params", lt2Var.b);
-        j1(bundle);
-    }
-
-    @Override // com.baidu.tieba.r22, com.baidu.searchbox.widget.SlideInterceptor
-    public boolean isSlidable(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, motionEvent)) == null) {
-            up1 up1Var = this.F0;
-            if (up1Var != null) {
-                return up1Var.isSlidable(motionEvent);
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.r22
+    @Override // com.baidu.tieba.a32, com.baidu.tieba.s22
     public void j2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.F0.T();
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             a3();
-            this.g0.t(sm2.M().a(), H1());
+            SwanAppMenuHeaderView swanAppMenuHeaderView = this.h0;
+            if (swanAppMenuHeaderView != null) {
+                swanAppMenuHeaderView.setAttentionBtnStates(ka2.n(l33.K().getAppId()));
+            }
+            this.g0.u(tm2.M().a(), H1(), this.h0, false);
         }
     }
 
-    public up1 k() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.s22, com.baidu.swan.support.v4.app.Fragment
+    public void onResume() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? new a(this, getContext()) : (up1) invokeV.objValue;
-    }
-
-    @Override // com.baidu.swan.support.v4.app.Fragment
-    public void u0(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, bundle) == null) {
-            super.u0(bundle);
-            e3();
-            if (L0) {
-                Log.d("SwanAppWebViewFragment", "onCreate() : " + this);
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            super.onResume();
+            URI h3 = h3();
+            URI g3 = g3();
+            if (h3 != null && g3 != null) {
+                if (!TextUtils.equals(h3.getPath(), g3.getPath()) && !TextUtils.equals(h3.getQuery(), g3.getQuery())) {
+                    this.F0.loadUrl(g3.toString());
+                    if (O0) {
+                        Log.i("SwanAppWebModeFragment", "onResume: refresh url " + g3.toString());
+                    }
+                    ej3.c().m("3");
+                    hj3.b("3");
+                    hj3.a().m();
+                    if (O0) {
+                        Log.i("SwanAppWebModeFragment", "onResume: reset statistic for warm refresh.");
+                        return;
+                    }
+                    return;
+                }
+                w93.s(l33.K().q().W());
+                if (O0) {
+                    Log.i("SwanAppWebModeFragment", "onResume: warm without refresh.");
+                }
             }
         }
     }
 
-    /* JADX WARN: Type inference failed for: r6v3, types: [com.baidu.tieba.sp1] */
-    @Override // com.baidu.swan.support.v4.app.Fragment
+    @Override // com.baidu.tieba.a32, com.baidu.swan.support.v4.app.Fragment
     public View x0(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048590, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d00de, viewGroup, false);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048588, this, layoutInflater, viewGroup, bundle)) == null) {
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d00dd, viewGroup, false);
             U1(inflate);
-            up1 k = k();
+            vp1 k = k();
             this.F0 = k;
             k.Y(Z2());
             this.G0 = this.F0.r();
+            hj3.a().i(this.H0);
+            ej3.c().m("0");
             this.F0.loadUrl(this.H0);
             FrameLayout frameLayout = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0901ad);
+            this.N0 = frameLayout;
             this.F0.j(frameLayout, this.G0.covertToView());
-            W2(frameLayout);
+            W2(this.N0);
             if (T1()) {
                 inflate = W1(inflate);
+                x1(0, true);
             }
-            return D1(inflate, this);
+            dh3.Q(getActivity());
+            ej3.c().p(this.F0.a());
+            return inflate;
         }
         return (View) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.swan.support.v4.app.Fragment
-    public void y0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            up1 up1Var = this.F0;
-            if (up1Var != null) {
-                up1Var.destroy();
-                this.F0 = null;
-            }
-            super.y0();
-        }
     }
 }

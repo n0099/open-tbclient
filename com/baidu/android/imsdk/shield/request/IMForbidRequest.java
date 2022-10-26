@@ -28,6 +28,20 @@ public class IMForbidRequest extends IMSettingBaseHttpRequest {
     public int type;
     public long uid;
 
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getContentType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "application/json" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.android.imsdk.shield.request.IMSettingBaseHttpRequest
+    public String getHostUrlParam() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "chat_report" : (String) invokeV.objValue;
+    }
+
     public IMForbidRequest(Context context, long j, long j2, int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -79,13 +93,6 @@ public class IMForbidRequest extends IMSettingBaseHttpRequest {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public String getContentType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "application/json" : (String) invokeV.objValue;
-    }
-
     @Override // com.baidu.android.imsdk.shield.request.IMSettingBaseHttpRequest
     public String getHostUrl() {
         InterceptResult invokeV;
@@ -107,13 +114,6 @@ public class IMForbidRequest extends IMSettingBaseHttpRequest {
             return "https://pim.baidu.com/";
         }
         return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.android.imsdk.shield.request.IMSettingBaseHttpRequest
-    public String getHostUrlParam() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "chat_report" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -159,7 +159,7 @@ public class IMForbidRequest extends IMSettingBaseHttpRequest {
     public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048580, this, i, bArr, th) == null) {
-            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
+            Pair transErrorCode = transErrorCode(i, bArr, th);
             ShieldAndTopManager.getInstance(this.mContext).onForbidResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, true, "", this.key);
         }
     }
@@ -172,15 +172,19 @@ public class IMForbidRequest extends IMSettingBaseHttpRequest {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048581, this, i, bArr) == null) {
-            String str3 = new String(bArr);
-            LogUtils.e(TAG, "IMForbidRequest onSuccess :" + str3);
+            String str3 = "";
+            String str4 = new String(bArr);
+            LogUtils.e(TAG, "IMForbidRequest onSuccess :" + str4);
             boolean z2 = true;
             try {
-                JSONObject jSONObject = new JSONObject(str3);
+                JSONObject jSONObject = new JSONObject(str4);
                 int optInt = jSONObject.optInt("error_code");
                 String optString = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
                 z2 = jSONObject.optBoolean("display_toast", false);
-                str = z2 ? jSONObject.optString(DI.TOAST_NAME, "") : "";
+                if (z2) {
+                    str3 = jSONObject.optString(DI.TOAST_NAME, "");
+                }
+                str = str3;
                 z = z2;
                 i2 = optInt;
                 str2 = optString;

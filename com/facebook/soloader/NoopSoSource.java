@@ -13,6 +13,16 @@ public class NoopSoSource extends SoSource {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.facebook.soloader.SoSource
+    public int loadLibrary(String str, int i, StrictMode.ThreadPolicy threadPolicy) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, str, i, threadPolicy)) == null) {
+            return 1;
+        }
+        return invokeLIL.intValue;
+    }
+
     public NoopSoSource() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -25,16 +35,6 @@ public class NoopSoSource extends SoSource {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    @Override // com.facebook.soloader.SoSource
-    public int loadLibrary(String str, int i, StrictMode.ThreadPolicy threadPolicy) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, str, i, threadPolicy)) == null) {
-            return 1;
-        }
-        return invokeLIL.intValue;
     }
 
     @Override // com.facebook.soloader.SoSource

@@ -2,43 +2,41 @@ package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import com.yy.mobile.framework.revenuesdk.payservice.IH5PayActivityVisit;
+import tv.athena.revenue.payui.model.PayFlowType;
 /* loaded from: classes5.dex */
-public class r4a {
+public class r4a implements IH5PayActivityVisit {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
 
-    public r4a(String str, String str2, String str3) {
+    public r4a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = str;
-        this.b = str2;
-        this.c = str3;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    @Override // com.yy.mobile.framework.revenuesdk.payservice.IH5PayActivityVisit
+    public void notifyPayFlowActivityVisit(String str, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "TopUiParams{title='" + this.a + "', rightTitle='" + this.b + "', rightUrl='" + l5a.a(this.c) + "'}";
+        if (interceptable == null || interceptable.invokeLIII(1048576, this, str, i, i2, i3) == null) {
+            RLog.info("H5PayActivityVisitImpl", "notifyPayFlowActivityVisit mAppId:" + i + " mUserChannel:" + i2 + " name:" + str);
+            PayFlowType a = w5a.a(i3);
+            if (a == null) {
+                RLog.error("H5PayActivityVisitImpl", "notifyPayFlowActivityVisit mAppId:" + i + " mUserChannel:" + i2 + " name:" + str + " payFlowType null", new Object[0]);
+                return;
+            }
+            y4a.b(str, i, i2, a);
         }
-        return (String) invokeV.objValue;
     }
 }

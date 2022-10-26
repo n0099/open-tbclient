@@ -12,22 +12,22 @@ import io.reactivex.internal.disposables.ArrayCompositeDisposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.observers.SerializedObserver;
 /* loaded from: classes8.dex */
-public final class ObservableSkipUntil<T, U> extends AbstractObservableWithUpstream<T, T> {
+public final class ObservableSkipUntil extends AbstractObservableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ObservableSource<U> other;
+    public final ObservableSource other;
 
     /* loaded from: classes8.dex */
-    public final class SkipUntil implements Observer<U> {
+    public final class SkipUntil implements Observer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ArrayCompositeDisposable frc;
         public Disposable s;
-        public final SerializedObserver<T> serial;
-        public final SkipUntilObserver<T> sus;
+        public final SerializedObserver serial;
+        public final SkipUntilObserver sus;
         public final /* synthetic */ ObservableSkipUntil this$0;
 
-        public SkipUntil(ObservableSkipUntil observableSkipUntil, ArrayCompositeDisposable arrayCompositeDisposable, SkipUntilObserver<T> skipUntilObserver, SerializedObserver<T> serializedObserver) {
+        public SkipUntil(ObservableSkipUntil observableSkipUntil, ArrayCompositeDisposable arrayCompositeDisposable, SkipUntilObserver skipUntilObserver, SerializedObserver serializedObserver) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -66,9 +66,9 @@ public final class ObservableSkipUntil<T, U> extends AbstractObservableWithUpstr
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(U u) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, u) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
                 this.s.dispose();
                 this.sus.notSkipping = true;
             }
@@ -85,16 +85,16 @@ public final class ObservableSkipUntil<T, U> extends AbstractObservableWithUpstr
     }
 
     /* loaded from: classes8.dex */
-    public static final class SkipUntilObserver<T> implements Observer<T> {
+    public final class SkipUntilObserver implements Observer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer<? super T> actual;
+        public final Observer actual;
         public final ArrayCompositeDisposable frc;
         public volatile boolean notSkipping;
         public boolean notSkippingLocal;
         public Disposable s;
 
-        public SkipUntilObserver(Observer<? super T> observer, ArrayCompositeDisposable arrayCompositeDisposable) {
+        public SkipUntilObserver(Observer observer, ArrayCompositeDisposable arrayCompositeDisposable) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -132,14 +132,14 @@ public final class ObservableSkipUntil<T, U> extends AbstractObservableWithUpstr
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
                 if (this.notSkippingLocal) {
-                    this.actual.onNext(t);
+                    this.actual.onNext(obj);
                 } else if (this.notSkipping) {
                     this.notSkippingLocal = true;
-                    this.actual.onNext(t);
+                    this.actual.onNext(obj);
                 }
             }
         }
@@ -155,7 +155,7 @@ public final class ObservableSkipUntil<T, U> extends AbstractObservableWithUpstr
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableSkipUntil(ObservableSource<T> observableSource, ObservableSource<U> observableSource2) {
+    public ObservableSkipUntil(ObservableSource observableSource, ObservableSource observableSource2) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -176,7 +176,7 @@ public final class ObservableSkipUntil<T, U> extends AbstractObservableWithUpstr
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer<? super T> observer) {
+    public void subscribeActual(Observer observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             SerializedObserver serializedObserver = new SerializedObserver(observer);

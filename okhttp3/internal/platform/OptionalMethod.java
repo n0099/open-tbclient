@@ -42,16 +42,28 @@ public class OptionalMethod<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, cls)) == null) {
             String str = this.methodName;
-            if (str != null) {
-                Method publicMethod = getPublicMethod(cls, str, this.methodParams);
-                if (publicMethod == null || (cls2 = this.returnType) == null || cls2.isAssignableFrom(publicMethod.getReturnType())) {
-                    return publicMethod;
-                }
+            if (str == null) {
                 return null;
             }
-            return null;
+            Method publicMethod = getPublicMethod(cls, str, this.methodParams);
+            if (publicMethod != null && (cls2 = this.returnType) != null && !cls2.isAssignableFrom(publicMethod.getReturnType())) {
+                return null;
+            }
+            return publicMethod;
         }
         return (Method) invokeL.objValue;
+    }
+
+    public boolean isSupported(T t) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, t)) == null) {
+            if (getMethod(t.getClass()) != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     public static Method getPublicMethod(Class<?> cls, String str, Class[] clsArr) {
@@ -146,11 +158,5 @@ public class OptionalMethod<T> {
             }
         }
         return invokeLL.objValue;
-    }
-
-    public boolean isSupported(T t) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, t)) == null) ? getMethod(t.getClass()) != null : invokeL.booleanValue;
     }
 }

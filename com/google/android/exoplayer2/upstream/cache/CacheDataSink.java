@@ -32,7 +32,7 @@ public final class CacheDataSink implements DataSink {
     public FileOutputStream underlyingFileOutputStream;
 
     /* loaded from: classes7.dex */
-    public static class CacheDataSinkException extends Cache.CacheException {
+    public class CacheDataSinkException extends Cache.CacheException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -78,10 +78,55 @@ public final class CacheDataSink implements DataSink {
         }
     }
 
+    public CacheDataSink(Cache cache, long j, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cache, Long.valueOf(j), Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.cache = (Cache) Assertions.checkNotNull(cache);
+        this.maxCacheFileSize = j;
+        this.bufferSize = i;
+    }
+
+    @Override // com.google.android.exoplayer2.upstream.DataSink
+    public void write(byte[] bArr, int i, int i2) throws CacheDataSinkException {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i, i2) != null) || this.dataSpec == null) {
+            return;
+        }
+        int i3 = 0;
+        while (i3 < i2) {
+            try {
+                if (this.outputStreamBytesWritten == this.maxCacheFileSize) {
+                    closeCurrentOutputStream();
+                    openNextOutputStream();
+                }
+                int min = (int) Math.min(i2 - i3, this.maxCacheFileSize - this.outputStreamBytesWritten);
+                this.outputStream.write(bArr, i + i3, min);
+                i3 += min;
+                long j = min;
+                this.outputStreamBytesWritten += j;
+                this.dataSpecBytesWritten += j;
+            } catch (IOException e) {
+                throw new CacheDataSinkException(e);
+            }
+        }
+    }
+
     private void closeCurrentOutputStream() throws IOException {
         OutputStream outputStream;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || (outputStream = this.outputStream) == null) {
+        if ((interceptable != null && interceptable.invokeV(65538, this) != null) || (outputStream = this.outputStream) == null) {
             return;
         }
         try {
@@ -103,13 +148,19 @@ public final class CacheDataSink implements DataSink {
     }
 
     private void openNextOutputStream() throws IOException {
+        long min;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             long j = this.dataSpec.length;
-            long min = j == -1 ? this.maxCacheFileSize : Math.min(j - this.dataSpecBytesWritten, this.maxCacheFileSize);
+            if (j == -1) {
+                min = this.maxCacheFileSize;
+            } else {
+                min = Math.min(j - this.dataSpecBytesWritten, this.maxCacheFileSize);
+            }
+            long j2 = min;
             Cache cache = this.cache;
             DataSpec dataSpec = this.dataSpec;
-            this.file = cache.startFile(dataSpec.key, this.dataSpecBytesWritten + dataSpec.absoluteStreamPosition, min);
+            this.file = cache.startFile(dataSpec.key, this.dataSpecBytesWritten + dataSpec.absoluteStreamPosition, j2);
             FileOutputStream fileOutputStream = new FileOutputStream(this.file);
             this.underlyingFileOutputStream = fileOutputStream;
             if (this.bufferSize > 0) {
@@ -130,7 +181,7 @@ public final class CacheDataSink implements DataSink {
     @Override // com.google.android.exoplayer2.upstream.DataSink
     public void close() throws CacheDataSinkException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.dataSpec == null) {
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.dataSpec == null) {
             return;
         }
         try {
@@ -156,50 +207,5 @@ public final class CacheDataSink implements DataSink {
                 throw new CacheDataSinkException(e);
             }
         }
-    }
-
-    @Override // com.google.android.exoplayer2.upstream.DataSink
-    public void write(byte[] bArr, int i, int i2) throws CacheDataSinkException {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i, i2) == null) || this.dataSpec == null) {
-            return;
-        }
-        int i3 = 0;
-        while (i3 < i2) {
-            try {
-                if (this.outputStreamBytesWritten == this.maxCacheFileSize) {
-                    closeCurrentOutputStream();
-                    openNextOutputStream();
-                }
-                int min = (int) Math.min(i2 - i3, this.maxCacheFileSize - this.outputStreamBytesWritten);
-                this.outputStream.write(bArr, i + i3, min);
-                i3 += min;
-                long j = min;
-                this.outputStreamBytesWritten += j;
-                this.dataSpecBytesWritten += j;
-            } catch (IOException e) {
-                throw new CacheDataSinkException(e);
-            }
-        }
-    }
-
-    public CacheDataSink(Cache cache, long j, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {cache, Long.valueOf(j), Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.cache = (Cache) Assertions.checkNotNull(cache);
-        this.maxCacheFileSize = j;
-        this.bufferSize = i;
     }
 }

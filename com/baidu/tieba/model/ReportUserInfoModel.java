@@ -31,6 +31,33 @@ public class ReportUserInfoModel extends BdBaseModel {
     public long timeInterval;
 
     /* loaded from: classes5.dex */
+    public interface b {
+        void onError(int i, String str);
+
+        void onSuccess(int i);
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -72,13 +99,6 @@ public class ReportUserInfoModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void onError(int i, String str);
-
-        void onSuccess(int i);
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ReportUserInfoModel(Context context) {
         super(null);
@@ -101,10 +121,44 @@ public class ReportUserInfoModel extends BdBaseModel {
         this.b = new a(this, CmdConfigHttp.REPORT_USER_INFO);
     }
 
+    public void E(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+            this.timeInterval = j;
+        }
+    }
+
+    public void F(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
+            this.a = bVar;
+        }
+    }
+
     public boolean A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Math.abs(System.currentTimeMillis() - TbadkCoreApplication.getInst().getReporyUserInfoLastTime()) >= this.timeInterval : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (Math.abs(System.currentTimeMillis() - TbadkCoreApplication.getInst().getReporyUserInfoLastTime()) >= this.timeInterval) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void D() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            TbadkCoreApplication.getInst().setReporyUserInfoCurrentTime();
+        }
+    }
+
+    public void unRegisterListener() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.b);
+        }
     }
 
     public void B() {
@@ -126,54 +180,6 @@ public class ReportUserInfoModel extends BdBaseModel {
             httpMessage.addParam(SuggestAddrField.KEY_LNG, String.valueOf(f));
             httpMessage.addParam(SuggestAddrField.KEY_LAT, String.valueOf(f2));
             MessageManager.getInstance().sendMessage(httpMessage);
-        }
-    }
-
-    public void D() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            TbadkCoreApplication.getInst().setReporyUserInfoCurrentTime();
-        }
-    }
-
-    public void E(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            this.timeInterval = j;
-        }
-    }
-
-    public void F(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            this.a = bVar;
-        }
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean loadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void unRegisterListener() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.b);
         }
     }
 }

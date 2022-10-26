@@ -68,14 +68,14 @@ public final class ManifestParser {
         return (GlideModule) invokeL.objValue;
     }
 
-    public static void throwInstantiateGlideModuleException(Class<?> cls, Exception exc) {
+    public static void throwInstantiateGlideModuleException(Class cls, Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, cls, exc) == null) {
             throw new RuntimeException("Unable to instantiate GlideModule implementation for " + cls, exc);
         }
     }
 
-    public List<GlideModule> parse() {
+    public List parse() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

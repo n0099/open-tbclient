@@ -3,8 +3,7 @@ package com.baidu.tieba.ala.livecard.models;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.Cdo;
-import com.baidu.tieba.yi6;
+import com.baidu.tieba.fj6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -19,9 +18,9 @@ public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
     public int alaLiveCount;
     public int errCode;
     public String errMsg;
-    public ArrayList<Cdo> mAltList;
-    public ArrayList<Cdo> mThreadList;
-    public yi6 pageInfo;
+    public ArrayList mAltList;
+    public ArrayList mThreadList;
+    public fj6 pageInfo;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FrsPageAlaTabResponseMessage(int i) {
@@ -49,42 +48,45 @@ public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
             int statusCode = getStatusCode();
             int error = getError();
-            if (statusCode != 200 || error < 0 || jSONObject == null) {
-                return;
-            }
-            this.errCode = jSONObject.optInt("error_code");
-            this.errMsg = jSONObject.optString("errmsg");
-            this.alaLiveCount = jSONObject.optInt("ala_live_count");
-            JSONObject optJSONObject = jSONObject.optJSONObject("page");
-            yi6 yi6Var = new yi6();
-            this.pageInfo = yi6Var;
-            yi6Var.g = optJSONObject.optInt("has_more") == 1;
-            this.pageInfo.c = optJSONObject.optInt("pn");
-            if (getOrginalMessage() instanceof FrsPageAlaTabRequestMessage) {
-                FrsPageAlaTabRequestMessage frsPageAlaTabRequestMessage = (FrsPageAlaTabRequestMessage) getOrginalMessage();
-                this.pageInfo.a = frsPageAlaTabRequestMessage.getForumName();
-                this.pageInfo.b = frsPageAlaTabRequestMessage.getForumId();
-            }
-            JSONArray optJSONArray = jSONObject.optJSONArray("thread_list");
-            if (optJSONArray.length() > 0) {
-                this.mThreadList = new ArrayList<>();
-                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                    JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
-                    ThreadData threadData = new ThreadData();
-                    threadData.setFromType(AlaLiveRoomActivityConfig.FROM_TYPE_FRS_LIVE_PLAY);
-                    threadData.parserJson(jSONObject2);
-                    this.mThreadList.add(threadData);
+            if (statusCode == 200 && error >= 0 && jSONObject != null) {
+                this.errCode = jSONObject.optInt("error_code");
+                this.errMsg = jSONObject.optString("errmsg");
+                this.alaLiveCount = jSONObject.optInt("ala_live_count");
+                JSONObject optJSONObject = jSONObject.optJSONObject("page");
+                fj6 fj6Var = new fj6();
+                this.pageInfo = fj6Var;
+                boolean z = true;
+                if (optJSONObject.optInt("has_more") != 1) {
+                    z = false;
                 }
-            }
-            JSONArray optJSONArray2 = jSONObject.optJSONArray("alt_list");
-            if (optJSONArray2.length() > 0) {
-                this.mAltList = new ArrayList<>();
-                for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
-                    JSONObject jSONObject3 = optJSONArray2.getJSONObject(i3);
-                    ThreadData threadData2 = new ThreadData();
-                    threadData2.setFromType(AlaLiveRoomActivityConfig.FROM_TYPE_FRS_LIVE_PLAY);
-                    threadData2.parserJson(jSONObject3);
-                    this.mAltList.add(threadData2);
+                fj6Var.g = z;
+                this.pageInfo.c = optJSONObject.optInt("pn");
+                if (getOrginalMessage() instanceof FrsPageAlaTabRequestMessage) {
+                    FrsPageAlaTabRequestMessage frsPageAlaTabRequestMessage = (FrsPageAlaTabRequestMessage) getOrginalMessage();
+                    this.pageInfo.a = frsPageAlaTabRequestMessage.getForumName();
+                    this.pageInfo.b = frsPageAlaTabRequestMessage.getForumId();
+                }
+                JSONArray optJSONArray = jSONObject.optJSONArray("thread_list");
+                if (optJSONArray.length() > 0) {
+                    this.mThreadList = new ArrayList();
+                    for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                        JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
+                        ThreadData threadData = new ThreadData();
+                        threadData.setFromType(AlaLiveRoomActivityConfig.FROM_TYPE_FRS_LIVE_PLAY);
+                        threadData.parserJson(jSONObject2);
+                        this.mThreadList.add(threadData);
+                    }
+                }
+                JSONArray optJSONArray2 = jSONObject.optJSONArray("alt_list");
+                if (optJSONArray2.length() > 0) {
+                    this.mAltList = new ArrayList();
+                    for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
+                        JSONObject jSONObject3 = optJSONArray2.getJSONObject(i3);
+                        ThreadData threadData2 = new ThreadData();
+                        threadData2.setFromType(AlaLiveRoomActivityConfig.FROM_TYPE_FRS_LIVE_PLAY);
+                        threadData2.parserJson(jSONObject3);
+                        this.mAltList.add(threadData2);
+                    }
                 }
             }
         }

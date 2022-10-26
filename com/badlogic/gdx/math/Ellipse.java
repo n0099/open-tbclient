@@ -36,7 +36,116 @@ public class Ellipse implements Serializable {
     public float area() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ((this.width * this.height) * 3.1415927f) / 4.0f : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return ((this.width * this.height) * 3.1415927f) / 4.0f;
+        }
+        return invokeV.floatValue;
+    }
+
+    public Ellipse(float f, float f2, float f3, float f4) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.x = f;
+        this.y = f2;
+        this.width = f3;
+        this.height = f4;
+    }
+
+    public Ellipse(Circle circle) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {circle};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.x = circle.x;
+        this.y = circle.y;
+        float f = circle.radius;
+        this.width = f * 2.0f;
+        this.height = f * 2.0f;
+    }
+
+    public Ellipse(Ellipse ellipse) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ellipse};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.x = ellipse.x;
+        this.y = ellipse.y;
+        this.width = ellipse.width;
+        this.height = ellipse.height;
+    }
+
+    public Ellipse(Vector2 vector2, float f, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vector2, Float.valueOf(f), Float.valueOf(f2)};
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+                return;
+            }
+        }
+        this.x = vector2.x;
+        this.y = vector2.y;
+        this.width = f;
+        this.height = f2;
+    }
+
+    public Ellipse(Vector2 vector2, Vector2 vector22) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vector2, vector22};
+            interceptable.invokeUnInit(65541, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65541, newInitContext);
+                return;
+            }
+        }
+        this.x = vector2.x;
+        this.y = vector2.y;
+        this.width = vector22.x;
+        this.height = vector22.y;
     }
 
     public float circumference() {
@@ -62,40 +171,31 @@ public class Ellipse implements Serializable {
             float f4 = f2 - this.y;
             float f5 = this.width;
             float f6 = this.height;
-            return ((f3 * f3) / (((f5 * 0.5f) * f5) * 0.5f)) + ((f4 * f4) / (((f6 * 0.5f) * f6) * 0.5f)) <= 1.0f;
+            if (((f3 * f3) / (((f5 * 0.5f) * f5) * 0.5f)) + ((f4 * f4) / (((f6 * 0.5f) * f6) * 0.5f)) <= 1.0f) {
+                return true;
+            }
+            return false;
         }
         return invokeCommon.booleanValue;
     }
 
-    public boolean equals(Object obj) {
+    public boolean contains(Vector2 vector2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
-            if (obj == this) {
-                return true;
-            }
-            if (obj == null || obj.getClass() != Ellipse.class) {
-                return false;
-            }
-            Ellipse ellipse = (Ellipse) obj;
-            return this.x == ellipse.x && this.y == ellipse.y && this.width == ellipse.width && this.height == ellipse.height;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, vector2)) == null) {
+            return contains(vector2.x, vector2.y);
         }
         return invokeL.booleanValue;
     }
 
-    public int hashCode() {
-        InterceptResult invokeV;
+    public void set(Circle circle) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? ((((((u7.b(this.height) + 53) * 53) + u7.b(this.width)) * 53) + u7.b(this.x)) * 53) + u7.b(this.y) : invokeV.intValue;
-    }
-
-    public void set(float f, float f2, float f3, float f4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
-            this.x = f;
-            this.y = f2;
-            this.width = f3;
-            this.height = f4;
+        if (interceptable == null || interceptable.invokeL(1048583, this, circle) == null) {
+            this.x = circle.x;
+            this.y = circle.y;
+            float f = circle.radius;
+            this.width = f * 2.0f;
+            this.height = f * 2.0f;
         }
     }
 
@@ -110,36 +210,62 @@ public class Ellipse implements Serializable {
         return (Ellipse) invokeL.objValue;
     }
 
-    public Ellipse setSize(float f, float f2) {
-        InterceptResult invokeCommon;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
-            this.width = f;
-            this.height = f2;
-            return this;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
+            if (obj == this) {
+                return true;
+            }
+            if (obj == null || obj.getClass() != Ellipse.class) {
+                return false;
+            }
+            Ellipse ellipse = (Ellipse) obj;
+            if (this.x == ellipse.x && this.y == ellipse.y && this.width == ellipse.width && this.height == ellipse.height) {
+                return true;
+            }
+            return false;
         }
-        return (Ellipse) invokeCommon.objValue;
+        return invokeL.booleanValue;
     }
 
-    public Ellipse(Ellipse ellipse) {
+    public int hashCode() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ellipse};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return ((((((u7.b(this.height) + 53) * 53) + u7.b(this.width)) * 53) + u7.b(this.x)) * 53) + u7.b(this.y);
         }
-        this.x = ellipse.x;
-        this.y = ellipse.y;
-        this.width = ellipse.width;
-        this.height = ellipse.height;
+        return invokeV.intValue;
+    }
+
+    public void set(float f, float f2, float f3, float f4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
+            this.x = f;
+            this.y = f2;
+            this.width = f3;
+            this.height = f4;
+        }
+    }
+
+    public void set(Ellipse ellipse) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ellipse) == null) {
+            this.x = ellipse.x;
+            this.y = ellipse.y;
+            this.width = ellipse.width;
+            this.height = ellipse.height;
+        }
+    }
+
+    public void set(Vector2 vector2, Vector2 vector22) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, vector2, vector22) == null) {
+            this.x = vector2.x;
+            this.y = vector2.y;
+            this.width = vector22.x;
+            this.height = vector22.y;
+        }
     }
 
     public Ellipse setPosition(float f, float f2) {
@@ -153,125 +279,14 @@ public class Ellipse implements Serializable {
         return (Ellipse) invokeCommon.objValue;
     }
 
-    public boolean contains(Vector2 vector2) {
-        InterceptResult invokeL;
+    public Ellipse setSize(float f, float f2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, vector2)) == null) ? contains(vector2.x, vector2.y) : invokeL.booleanValue;
-    }
-
-    public void set(Ellipse ellipse) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ellipse) == null) {
-            this.x = ellipse.x;
-            this.y = ellipse.y;
-            this.width = ellipse.width;
-            this.height = ellipse.height;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            this.width = f;
+            this.height = f2;
+            return this;
         }
-    }
-
-    public Ellipse(float f, float f2, float f3, float f4) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.x = f;
-        this.y = f2;
-        this.width = f3;
-        this.height = f4;
-    }
-
-    public void set(Circle circle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, circle) == null) {
-            this.x = circle.x;
-            this.y = circle.y;
-            float f = circle.radius;
-            this.width = f * 2.0f;
-            this.height = f * 2.0f;
-        }
-    }
-
-    public Ellipse(Vector2 vector2, float f, float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vector2, Float.valueOf(f), Float.valueOf(f2)};
-            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-                return;
-            }
-        }
-        this.x = vector2.x;
-        this.y = vector2.y;
-        this.width = f;
-        this.height = f2;
-    }
-
-    public void set(Vector2 vector2, Vector2 vector22) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, vector2, vector22) == null) {
-            this.x = vector2.x;
-            this.y = vector2.y;
-            this.width = vector22.x;
-            this.height = vector22.y;
-        }
-    }
-
-    public Ellipse(Vector2 vector2, Vector2 vector22) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vector2, vector22};
-            interceptable.invokeUnInit(65541, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65541, newInitContext);
-                return;
-            }
-        }
-        this.x = vector2.x;
-        this.y = vector2.y;
-        this.width = vector22.x;
-        this.height = vector22.y;
-    }
-
-    public Ellipse(Circle circle) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {circle};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.x = circle.x;
-        this.y = circle.y;
-        float f = circle.radius;
-        this.width = f * 2.0f;
-        this.height = f * 2.0f;
+        return (Ellipse) invokeCommon.objValue;
     }
 }

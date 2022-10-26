@@ -22,7 +22,7 @@ public abstract class cz {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public static class a extends cy {
+    public class a extends cy {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -45,7 +45,7 @@ public abstract class cz {
         }
 
         @Override // com.xiaomi.push.cy
-        public String a(Context context, String str, List<bi> list) {
+        public String a(Context context, String str, List list) {
             InterceptResult invokeLLL;
             URL url;
             Interceptable interceptable = $ic;
@@ -54,7 +54,9 @@ public abstract class cz {
                     url = new URL(str);
                 } else {
                     Uri.Builder buildUpon = Uri.parse(str).buildUpon();
-                    for (bi biVar : list) {
+                    Iterator it = list.iterator();
+                    while (it.hasNext()) {
+                        bi biVar = (bi) it.next();
                         buildUpon.appendQueryParameter(biVar.a(), biVar.b());
                     }
                     url = new URL(buildUpon.toString());
@@ -77,7 +79,7 @@ public abstract class cz {
         return (interceptable == null || (invokeIII = interceptable.invokeIII(65537, null, i, i2, i3)) == null) ? (((i2 + 200) / 1448) * 132) + 1011 + i2 + i + i3 : invokeIII.intValue;
     }
 
-    public static int a(cy cyVar, String str, List<bi> list, String str2) {
+    public static int a(cy cyVar, String str, List list, String str2) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, cyVar, str, list, str2)) == null) {
@@ -108,12 +110,14 @@ public abstract class cz {
         return invokeL.intValue;
     }
 
-    public static int a(List<bi> list) {
+    public static int a(List list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list)) == null) {
+            Iterator it = list.iterator();
             int i = 0;
-            for (bi biVar : list) {
+            while (it.hasNext()) {
+                bi biVar = (bi) it.next();
                 if (!TextUtils.isEmpty(biVar.a())) {
                     i += biVar.a().length();
                 }
@@ -126,7 +130,7 @@ public abstract class cz {
         return invokeL.intValue;
     }
 
-    public static String a(Context context, String str, List<bi> list) {
+    public static String a(Context context, String str, List list) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, context, str, list)) == null) ? a(context, str, list, new a(), true) : (String) invokeLLL.objValue;
@@ -136,7 +140,7 @@ public abstract class cz {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static String a(Context context, String str, List<bi> list, cy cyVar, boolean z) {
+    public static String a(Context context, String str, List list, cy cyVar, boolean z) {
         InterceptResult invokeCommon;
         cr crVar;
         IOException iOException;
@@ -146,23 +150,23 @@ public abstract class cz {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{context, str, list, cyVar, Boolean.valueOf(z)})) == null) {
             if (bj.b(context)) {
                 try {
-                    ArrayList<String> arrayList = new ArrayList<>();
+                    ArrayList arrayList = new ArrayList();
                     if (z) {
-                        cr m253a = cv.a().m253a(str);
-                        if (m253a != null) {
-                            arrayList = m253a.a(str);
+                        cr m252a = cv.a().m252a(str);
+                        if (m252a != null) {
+                            arrayList = m252a.a(str);
                         }
-                        crVar = m253a;
+                        crVar = m252a;
                     } else {
                         crVar = null;
                     }
                     if (!arrayList.contains(str)) {
                         arrayList.add(str);
                     }
-                    Iterator<String> it = arrayList.iterator();
+                    Iterator it = arrayList.iterator();
                     String str4 = null;
                     while (it.hasNext()) {
-                        String next = it.next();
+                        String str5 = (String) it.next();
                         ArrayList arrayList2 = list != null ? new ArrayList(list) : null;
                         long currentTimeMillis = System.currentTimeMillis();
                         try {
@@ -170,10 +174,10 @@ public abstract class cz {
                             iOException = e;
                             str2 = str4;
                         }
-                        if (!cyVar.m262a(context, next, (List<bi>) arrayList2)) {
+                        if (!cyVar.m261a(context, str5, (List) arrayList2)) {
                             return str4;
                         }
-                        String a2 = cyVar.a(context, next, (List<bi>) arrayList2);
+                        String a2 = cyVar.a(context, str5, (List) arrayList2);
                         try {
                         } catch (IOException e2) {
                             e = e2;
@@ -182,12 +186,12 @@ public abstract class cz {
                         if (!TextUtils.isEmpty(a2)) {
                             if (crVar != null) {
                                 try {
-                                    crVar.a(next, System.currentTimeMillis() - currentTimeMillis, a(cyVar, next, arrayList2, a2));
+                                    crVar.a(str5, System.currentTimeMillis() - currentTimeMillis, a(cyVar, str5, arrayList2, a2));
                                 } catch (IOException e3) {
                                     iOException = e3;
                                     str2 = a2;
                                     if (crVar != null) {
-                                        crVar.a(next, System.currentTimeMillis() - currentTimeMillis, a(cyVar, next, arrayList2, str2), iOException);
+                                        crVar.a(str5, System.currentTimeMillis() - currentTimeMillis, a(cyVar, str5, arrayList2, str2), iOException);
                                     }
                                     iOException.printStackTrace();
                                     str4 = str2;
@@ -198,12 +202,12 @@ public abstract class cz {
                         if (crVar != null) {
                             str3 = a2;
                             try {
-                                crVar.a(next, System.currentTimeMillis() - currentTimeMillis, a(cyVar, next, arrayList2, a2), null);
+                                crVar.a(str5, System.currentTimeMillis() - currentTimeMillis, a(cyVar, str5, arrayList2, a2), null);
                             } catch (IOException e4) {
                                 e = e4;
-                                String str5 = str3;
+                                String str6 = str3;
                                 iOException = e;
-                                str2 = str5;
+                                str2 = str6;
                                 if (crVar != null) {
                                 }
                                 iOException.printStackTrace();

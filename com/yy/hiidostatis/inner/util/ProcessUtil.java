@@ -81,20 +81,6 @@ public final class ProcessUtil {
         return (String) invokeL.objValue;
     }
 
-    public static String getFileNameBindProcess(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
-            try {
-                return !isMainProcess(context) ? String.format("%s_%s", str, Integer.valueOf(Coder.encryptMD5(getCurProcessName(context)).hashCode())) : str;
-            } catch (Throwable th) {
-                L.debug("ProcessUtil", "fileName[%s] instead of it,exception on getFileNameBindProcess: %s ", str, th);
-                return str;
-            }
-        }
-        return (String) invokeLL.objValue;
-    }
-
     public static boolean isBackground(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -104,7 +90,10 @@ public final class ProcessUtil {
                 String packageName = context.getPackageName();
                 for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
                     if (runningAppProcessInfo.processName.equals(packageName)) {
-                        return runningAppProcessInfo.importance == 400;
+                        if (runningAppProcessInfo.importance == 400) {
+                            return true;
+                        }
+                        return false;
                     }
                 }
                 return false;
@@ -114,6 +103,23 @@ public final class ProcessUtil {
             }
         }
         return invokeL.booleanValue;
+    }
+
+    public static String getFileNameBindProcess(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
+            try {
+                if (!isMainProcess(context)) {
+                    return String.format("%s_%s", str, Integer.valueOf(Coder.encryptMD5(getCurProcessName(context)).hashCode()));
+                }
+                return str;
+            } catch (Throwable th) {
+                L.debug("ProcessUtil", "fileName[%s] instead of it,exception on getFileNameBindProcess: %s ", str, th);
+                return str;
+            }
+        }
+        return (String) invokeLL.objValue;
     }
 
     public static boolean isMainProcess(Context context) {

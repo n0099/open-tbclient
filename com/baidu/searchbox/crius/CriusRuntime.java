@@ -49,6 +49,9 @@ public class CriusRuntime {
     public static Context context() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? AppRuntime.getAppContext() : (Context) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return AppRuntime.getAppContext();
+        }
+        return (Context) invokeV.objValue;
     }
 }

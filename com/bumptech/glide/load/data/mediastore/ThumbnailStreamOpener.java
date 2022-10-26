@@ -5,8 +5,6 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -17,7 +15,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.LoadErrorCode;
-import com.bumptech.glide.load.ImageHeaderParser;
 import com.bumptech.glide.load.ImageHeaderParserUtils;
 import com.bumptech.glide.load.engine.bitmap_recycle.ArrayPool;
 import java.io.File;
@@ -33,7 +30,7 @@ public class ThumbnailStreamOpener {
     public transient /* synthetic */ FieldHolder $fh;
     public final ArrayPool byteArrayPool;
     public final ContentResolver contentResolver;
-    public final List<ImageHeaderParser> parsers;
+    public final List parsers;
     public final ThumbnailQuery query;
     public final FileService service;
 
@@ -53,8 +50,30 @@ public class ThumbnailStreamOpener {
         DEFAULT_SERVICE = new FileService();
     }
 
+    public ThumbnailStreamOpener(List list, FileService fileService, ThumbnailQuery thumbnailQuery, ArrayPool arrayPool, ContentResolver contentResolver) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list, fileService, thumbnailQuery, arrayPool, contentResolver};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.service = fileService;
+        this.query = thumbnailQuery;
+        this.byteArrayPool = arrayPool;
+        this.contentResolver = contentResolver;
+        this.parsers = list;
+    }
+
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ThumbnailStreamOpener(List<ImageHeaderParser> list, ThumbnailQuery thumbnailQuery, ArrayPool arrayPool, ContentResolver contentResolver) {
+    public ThumbnailStreamOpener(List list, ThumbnailQuery thumbnailQuery, ArrayPool arrayPool, ContentResolver contentResolver) {
         this(list, DEFAULT_SERVICE, thumbnailQuery, arrayPool, contentResolver);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -74,36 +93,65 @@ public class ThumbnailStreamOpener {
         }
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
-    @Nullable
-    private String getPath(@NonNull Uri uri) {
+    /* JADX WARN: Not initialized variable reg: 2, insn: 0x004e: MOVE  (r1 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:30:0x004e */
+    /* JADX WARN: Removed duplicated region for block: B:32:0x0051  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    private String getPath(Uri uri) {
         InterceptResult invokeL;
+        Cursor cursor;
+        Cursor cursor2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, uri)) == null) {
-            Cursor query = this.query.query(uri);
-            if (query != null) {
+            Cursor cursor3 = null;
+            try {
                 try {
-                    if (query.moveToFirst()) {
-                        return query.getString(0);
+                    cursor = this.query.query(uri);
+                    if (cursor != null) {
+                        try {
+                            if (cursor.moveToFirst()) {
+                                String string = cursor.getString(0);
+                                if (cursor != null) {
+                                    cursor.close();
+                                }
+                                return string;
+                            }
+                        } catch (SecurityException e) {
+                            e = e;
+                            if (Log.isLoggable(TAG, 3)) {
+                                Log.d(TAG, "Failed to query for thumbnail for Uri: " + uri, e);
+                            }
+                            if (cursor != null) {
+                                cursor.close();
+                            }
+                            return null;
+                        }
                     }
-                } finally {
-                    if (query != null) {
-                        query.close();
+                    if (cursor != null) {
+                        cursor.close();
                     }
+                    return null;
+                } catch (Throwable th) {
+                    th = th;
+                    cursor3 = cursor2;
+                    if (cursor3 != null) {
+                        cursor3.close();
+                    }
+                    throw th;
                 }
+            } catch (SecurityException e2) {
+                e = e2;
+                cursor = null;
+            } catch (Throwable th2) {
+                th = th2;
+                if (cursor3 != null) {
+                }
+                throw th;
             }
-            if (query != null) {
-                query.close();
-            }
-            return null;
+        } else {
+            return (String) invokeL.objValue;
         }
-        return (String) invokeL.objValue;
-    }
-
-    private boolean isValid(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, file)) == null) ? this.service.exists(file) && 0 < this.service.length(file) : invokeL.booleanValue;
     }
 
     public int getOrientation(Uri uri) {
@@ -158,38 +206,28 @@ public class ThumbnailStreamOpener {
                 return null;
             }
             File file = this.service.get(path);
-            if (isValid(file)) {
-                Uri fromFile = Uri.fromFile(file);
-                try {
-                    return this.contentResolver.openInputStream(fromFile);
-                } catch (NullPointerException e) {
-                    throw ((FileNotFoundException) new FileNotFoundException("NPE opening uri: " + uri + LoadErrorCode.TOKEN_NEXT + fromFile).initCause(e));
-                }
+            if (!isValid(file)) {
+                return null;
             }
-            return null;
+            Uri fromFile = Uri.fromFile(file);
+            try {
+                return this.contentResolver.openInputStream(fromFile);
+            } catch (NullPointerException e) {
+                throw ((FileNotFoundException) new FileNotFoundException("NPE opening uri: " + uri + LoadErrorCode.TOKEN_NEXT + fromFile).initCause(e));
+            }
         }
         return (InputStream) invokeL.objValue;
     }
 
-    public ThumbnailStreamOpener(List<ImageHeaderParser> list, FileService fileService, ThumbnailQuery thumbnailQuery, ArrayPool arrayPool, ContentResolver contentResolver) {
+    private boolean isValid(File file) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list, fileService, thumbnailQuery, arrayPool, contentResolver};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, file)) == null) {
+            if (this.service.exists(file) && 0 < this.service.length(file)) {
+                return true;
             }
+            return false;
         }
-        this.service = fileService;
-        this.query = thumbnailQuery;
-        this.byteArrayPool = arrayPool;
-        this.contentResolver = contentResolver;
-        this.parsers = list;
+        return invokeL.booleanValue;
     }
 }

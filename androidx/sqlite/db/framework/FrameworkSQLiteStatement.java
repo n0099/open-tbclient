@@ -48,27 +48,39 @@ public class FrameworkSQLiteStatement extends FrameworkSQLiteProgram implements 
     public long executeInsert() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mDelegate.executeInsert() : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mDelegate.executeInsert();
+        }
+        return invokeV.longValue;
     }
 
     @Override // androidx.sqlite.db.SupportSQLiteStatement
     public int executeUpdateDelete() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mDelegate.executeUpdateDelete() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mDelegate.executeUpdateDelete();
+        }
+        return invokeV.intValue;
     }
 
     @Override // androidx.sqlite.db.SupportSQLiteStatement
     public long simpleQueryForLong() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mDelegate.simpleQueryForLong() : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mDelegate.simpleQueryForLong();
+        }
+        return invokeV.longValue;
     }
 
     @Override // androidx.sqlite.db.SupportSQLiteStatement
     public String simpleQueryForString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mDelegate.simpleQueryForString() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mDelegate.simpleQueryForString();
+        }
+        return (String) invokeV.objValue;
     }
 }

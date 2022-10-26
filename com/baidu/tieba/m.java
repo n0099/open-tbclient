@@ -15,6 +15,40 @@ public class m extends p {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.tieba.p
+    public Map b(l lVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lVar)) == null) {
+            return null;
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.p
+    public int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 200;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.p
+    public void j(l lVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, lVar) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.p
+    public void l(l lVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, lVar) == null) {
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public m(j jVar, l lVar, f.a aVar) {
         super(jVar, lVar, aVar);
@@ -49,43 +83,12 @@ public class m extends p {
     }
 
     @Override // com.baidu.tieba.p
-    public Map<String, String> b(l lVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lVar)) == null) {
-            return null;
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.p
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 200;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.p
-    public void j(l lVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, lVar) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.p
     public String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? m.class.getSimpleName() : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.p
-    public void l(l lVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, lVar) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return m.class.getSimpleName();
         }
+        return (String) invokeV.objValue;
     }
 }

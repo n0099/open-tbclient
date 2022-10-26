@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class PayChannelExtInfoEntity implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<InstallmentEntity> mInstallmentEntities;
+    public ArrayList mInstallmentEntities;
     public String mInstallmentTotal;
 
     public PayChannelExtInfoEntity() {
@@ -28,22 +28,28 @@ public class PayChannelExtInfoEntity implements Serializable {
                 return;
             }
         }
-        this.mInstallmentEntities = new ArrayList<>();
+        this.mInstallmentEntities = new ArrayList();
     }
 
-    public ArrayList<InstallmentEntity> getInstallmentEntities() {
+    public ArrayList getInstallmentEntities() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mInstallmentEntities : (ArrayList) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mInstallmentEntities;
+        }
+        return (ArrayList) invokeV.objValue;
     }
 
     public String getInstallmentTotal() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mInstallmentTotal : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mInstallmentTotal;
+        }
+        return (String) invokeV.objValue;
     }
 
-    public void setInstallmentEntities(ArrayList<InstallmentEntity> arrayList) {
+    public void setInstallmentEntities(ArrayList arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
             this.mInstallmentEntities = arrayList;

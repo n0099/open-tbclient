@@ -14,9 +14,9 @@ import java.util.Map;
 /* loaded from: classes7.dex */
 public class MimeTypeMapWrapper {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, String> sExtensionToMimeTypeMap;
+    public static final Map sExtensionToMimeTypeMap;
     public static final MimeTypeMap sMimeTypeMap;
-    public static final Map<String, String> sMimeTypeToExtensionMap;
+    public static final Map sMimeTypeToExtensionMap;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -55,8 +55,11 @@ public class MimeTypeMapWrapper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            String str2 = sMimeTypeToExtensionMap.get(str);
-            return str2 != null ? str2 : sMimeTypeMap.getExtensionFromMimeType(str);
+            String str2 = (String) sMimeTypeToExtensionMap.get(str);
+            if (str2 != null) {
+                return str2;
+            }
+            return sMimeTypeMap.getExtensionFromMimeType(str);
         }
         return (String) invokeL.objValue;
     }
@@ -65,8 +68,11 @@ public class MimeTypeMapWrapper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            String str2 = sExtensionToMimeTypeMap.get(str);
-            return str2 != null ? str2 : sMimeTypeMap.getMimeTypeFromExtension(str);
+            String str2 = (String) sExtensionToMimeTypeMap.get(str);
+            if (str2 != null) {
+                return str2;
+            }
+            return sMimeTypeMap.getMimeTypeFromExtension(str);
         }
         return (String) invokeL.objValue;
     }
@@ -74,12 +80,24 @@ public class MimeTypeMapWrapper {
     public static boolean hasExtension(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? sExtensionToMimeTypeMap.containsKey(str) || sMimeTypeMap.hasExtension(str) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (!sExtensionToMimeTypeMap.containsKey(str) && !sMimeTypeMap.hasExtension(str)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
     public static boolean hasMimeType(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? sMimeTypeToExtensionMap.containsKey(str) || sMimeTypeMap.hasMimeType(str) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (!sMimeTypeToExtensionMap.containsKey(str) && !sMimeTypeMap.hasMimeType(str)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

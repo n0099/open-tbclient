@@ -5,9 +5,6 @@ import android.content.res.ColorStateList;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
@@ -45,7 +42,7 @@ public class MaterialToolbar extends Toolbar {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MaterialToolbar(@NonNull Context context) {
+    public MaterialToolbar(Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -66,40 +63,28 @@ public class MaterialToolbar extends Toolbar {
     }
 
     private void initBackground(Context context) {
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) {
             Drawable background = getBackground();
-            if (background == null || (background instanceof ColorDrawable)) {
-                MaterialShapeDrawable materialShapeDrawable = new MaterialShapeDrawable();
-                materialShapeDrawable.setFillColor(ColorStateList.valueOf(background != null ? ((ColorDrawable) background).getColor() : 0));
-                materialShapeDrawable.initializeElevationOverlay(context);
-                materialShapeDrawable.setElevation(ViewCompat.getElevation(this));
-                ViewCompat.setBackground(this, materialShapeDrawable);
+            if (background != null && !(background instanceof ColorDrawable)) {
+                return;
             }
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void onAttachedToWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.onAttachedToWindow();
-            MaterialShapeUtils.setParentAbsoluteElevation(this);
-        }
-    }
-
-    @Override // android.view.View
-    @RequiresApi(21)
-    public void setElevation(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) {
-            super.setElevation(f);
-            MaterialShapeUtils.setElevation(this, f);
+            MaterialShapeDrawable materialShapeDrawable = new MaterialShapeDrawable();
+            if (background != null) {
+                i = ((ColorDrawable) background).getColor();
+            } else {
+                i = 0;
+            }
+            materialShapeDrawable.setFillColor(ColorStateList.valueOf(i));
+            materialShapeDrawable.initializeElevationOverlay(context);
+            materialShapeDrawable.setElevation(ViewCompat.getElevation(this));
+            ViewCompat.setBackground(this, materialShapeDrawable);
         }
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MaterialToolbar(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+    public MaterialToolbar(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, R.attr.obfuscated_res_0x7f040727);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -120,7 +105,7 @@ public class MaterialToolbar extends Toolbar {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MaterialToolbar(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+    public MaterialToolbar(Context context, AttributeSet attributeSet, int i) {
         super(MaterialThemeOverlay.wrap(context, attributeSet, i, DEF_STYLE_RES), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -139,5 +124,23 @@ public class MaterialToolbar extends Toolbar {
             }
         }
         initBackground(getContext());
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void onAttachedToWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.onAttachedToWindow();
+            MaterialShapeUtils.setParentAbsoluteElevation(this);
+        }
+    }
+
+    @Override // android.view.View
+    public void setElevation(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) {
+            super.setElevation(f);
+            MaterialShapeUtils.setElevation(this, f);
+        }
     }
 }

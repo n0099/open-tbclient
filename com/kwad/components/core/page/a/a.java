@@ -1,8 +1,6 @@
 package com.kwad.components.core.page.a;
 
 import android.content.Context;
-import androidx.annotation.MainThread;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -38,10 +36,10 @@ public final class a implements com.kwad.components.core.g.kwai.a {
     public VideoPlayerStatus mVideoPlayerStatus;
     public String uf;
     public boolean uh;
-    public final List<h.a> uj;
+    public final List uj;
     public h.a uk;
 
-    public a(@NonNull AdTemplate adTemplate, @NonNull DetailVideoView detailVideoView, KsVideoPlayConfig ksVideoPlayConfig) {
+    public a(AdTemplate adTemplate, DetailVideoView detailVideoView, KsVideoPlayConfig ksVideoPlayConfig) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -316,7 +314,6 @@ public final class a implements com.kwad.components.core.g.kwai.a {
         }
     }
 
-    @MainThread
     public final void a(g gVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, gVar) == null) || gVar == null) {
@@ -325,7 +322,6 @@ public final class a implements com.kwad.components.core.g.kwai.a {
         this.BL.c(gVar);
     }
 
-    @MainThread
     public final void b(g gVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gVar) == null) || gVar == null) {
@@ -374,7 +370,6 @@ public final class a implements com.kwad.components.core.g.kwai.a {
         }
     }
 
-    @MainThread
     public final void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {

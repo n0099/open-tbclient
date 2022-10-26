@@ -46,14 +46,17 @@ public class c9 {
     public e9 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (e9) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (e9) invokeV.objValue;
     }
 
-    public HashMap<String, a9> b(String str) {
+    public HashMap b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            HashMap<String, a9> hashMap = new HashMap<>();
+            HashMap hashMap = new HashMap();
             if (!TextUtils.isEmpty(str)) {
                 try {
                     JSONArray jSONArray = new JSONObject(str).getJSONArray("exps");
@@ -81,7 +84,7 @@ public class c9 {
         return (HashMap) invokeL.objValue;
     }
 
-    public List<i9> c(int i) {
+    public List c(int i) {
         InterceptResult invokeI;
         JSONObject jSONObject;
         Interceptable interceptable = $ic;
@@ -99,7 +102,7 @@ public class c9 {
                                 Iterator<String> keys = jSONObject.keys();
                                 while (keys.hasNext()) {
                                     String next = keys.next();
-                                    if (q20.a(next, this.c) == i) {
+                                    if (r20.a(next, this.c) == i) {
                                         arrayList.add(new i9(next, jSONObject.get(next)));
                                     }
                                 }
@@ -126,7 +129,7 @@ public class c9 {
                     try {
                         jSONObject.put("version", e);
                         jSONObject.put("data", new JSONObject(d));
-                        h20.i(jSONObject);
+                        i20.i(jSONObject);
                     } catch (JSONException e2) {
                         e2.printStackTrace();
                     }

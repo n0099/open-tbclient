@@ -14,7 +14,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -24,13 +23,13 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e15;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.h55;
-import com.baidu.tieba.mc6;
-import com.baidu.tieba.nc6;
-import com.baidu.tieba.t55;
-import com.baidu.tieba.y19;
+import com.baidu.tieba.e29;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.j15;
+import com.baidu.tieba.l55;
+import com.baidu.tieba.tc6;
+import com.baidu.tieba.uc6;
+import com.baidu.tieba.x55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,7 +37,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.regex.Matcher;
 /* loaded from: classes6.dex */
-public class VideoPlayInputContainer extends LinearLayout implements t55 {
+public class VideoPlayInputContainer extends LinearLayout implements x55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public EditorTools a;
@@ -54,6 +53,13 @@ public class VideoPlayInputContainer extends LinearLayout implements t55 {
     public boolean k;
     public int l;
     public int m;
+
+    @Override // com.baidu.tieba.x55
+    public void init() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        }
+    }
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
@@ -82,10 +88,11 @@ public class VideoPlayInputContainer extends LinearLayout implements t55 {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.f = true;
-                this.a.K(new h55(1, 5, null));
+            if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
+                return;
             }
+            this.a.f = true;
+            this.a.K(new l55(1, 5, null));
         }
     }
 
@@ -94,6 +101,13 @@ public class VideoPlayInputContainer extends LinearLayout implements t55 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoPlayInputContainer a;
+
+        @Override // android.text.TextWatcher
+        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2, i3) == null) {
+            }
+        }
 
         public b(VideoPlayInputContainer videoPlayInputContainer) {
             Interceptable interceptable = $ic;
@@ -115,28 +129,28 @@ public class VideoPlayInputContainer extends LinearLayout implements t55 {
 
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
+            boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
                 if (editable != null && editable.toString().trim() != null) {
                     VideoPlayInputContainer videoPlayInputContainer = this.a;
-                    videoPlayInputContainer.K(new h55(4, -1, videoPlayInputContainer.b.getText().toString()));
+                    videoPlayInputContainer.K(new l55(4, -1, videoPlayInputContainer.b.getText().toString()));
                 }
-                this.a.c.setEnabled((editable == null || StringUtils.isNull(editable.toString().trim())) ? false : true);
+                TextView textView = this.a.c;
+                if (editable != null && !StringUtils.isNull(editable.toString().trim())) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                textView.setEnabled(z);
                 this.a.i();
-            }
-        }
-
-        @Override // android.text.TextWatcher
-        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2, i3) == null) {
             }
         }
 
         @Override // android.text.TextWatcher
         public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i, i2, i3) == null) || this.a.k) {
+            if ((interceptable != null && interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i, i2, i3) != null) || this.a.k) {
                 return;
             }
             this.a.k = true;
@@ -177,7 +191,7 @@ public class VideoPlayInputContainer extends LinearLayout implements t55 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
                 if (motionEvent.getAction() == 1) {
-                    this.a.K(new h55(5, -1, null));
+                    this.a.K(new l55(5, -1, null));
                     this.a.b.requestFocus();
                 }
                 return false;
@@ -214,13 +228,13 @@ public class VideoPlayInputContainer extends LinearLayout implements t55 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.K(new h55(8, -1, null));
+                this.a.K(new l55(8, -1, null));
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class e implements nc6.h {
+    public class e implements uc6.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoPlayInputContainer a;
@@ -243,13 +257,13 @@ public class VideoPlayInputContainer extends LinearLayout implements t55 {
             this.a = videoPlayInputContainer;
         }
 
-        @Override // com.baidu.tieba.nc6.h
+        @Override // com.baidu.tieba.uc6.h
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
                 this.a.b.setText(spannableStringBuilder);
                 this.a.b.setSelection(this.a.b.getText().length());
-                this.a.K(new h55(5, -1, null));
+                this.a.K(new l55(5, -1, null));
                 this.a.requestFocus();
             }
         }
@@ -276,247 +290,8 @@ public class VideoPlayInputContainer extends LinearLayout implements t55 {
         }
     }
 
-    @Override // com.baidu.tieba.i55
-    public void B(h55 h55Var) {
-        Object obj;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, h55Var) == null) || h55Var == null) {
-            return;
-        }
-        int i = h55Var.a;
-        if (i == 3) {
-            if (this.b.getSelectionStart() > 0) {
-                String substring = this.b.getText().toString().substring(0, this.b.getSelectionStart());
-                Matcher matcher = mc6.b.matcher(substring);
-                if (matcher.find()) {
-                    this.b.getText().delete(this.b.getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), this.b.getSelectionStart());
-                } else {
-                    this.b.getText().delete(this.b.getSelectionStart() - 1, this.b.getSelectionStart());
-                }
-            }
-        } else if (i == 6) {
-            Object obj2 = h55Var.c;
-            if (obj2 == null) {
-                this.b.setText((CharSequence) null);
-            } else if (obj2 instanceof String) {
-                if (TextUtils.isEmpty((String) obj2)) {
-                    this.b.setText((CharSequence) null);
-                } else {
-                    nc6.f(getContext(), (String) h55Var.c, new e(this));
-                }
-            }
-        } else if (i == 9) {
-            if (((Boolean) h55Var.c).booleanValue()) {
-                this.b.setText((CharSequence) null);
-            }
-            this.c.setEnabled(false);
-            i();
-        } else if (i == 24 && (obj = h55Var.c) != null && (obj instanceof e15)) {
-            e15 e15Var = (e15) obj;
-            if (e15Var.getType() == EmotionGroupType.NET_SUG) {
-                o(e15Var);
-            } else {
-                n(e15Var);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.t55
-    public void K(h55 h55Var) {
-        EditorTools editorTools;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h55Var) == null) || (editorTools = this.a) == null) {
-            return;
-        }
-        editorTools.A(h55Var);
-    }
-
-    @Override // com.baidu.tieba.t55
-    public void display() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            EditText editText = this.b;
-            if (editText != null) {
-                editText.setFocusable(true);
-                this.b.setFocusableInTouchMode(true);
-                this.b.requestFocus();
-                ej.L(getContext(), this.b);
-            }
-            setVisibility(0);
-        }
-    }
-
-    public EditText getInputView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (EditText) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.t55
-    public int getToolId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.i : invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.t55
-    public void hide() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            setVisibility(8);
-        }
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (this.c.isEnabled()) {
-                SkinManager.setViewTextColor(this.c, R.color.CAM_X0302, 1, this.m);
-            } else {
-                SkinManager.setViewTextColor(this.c, R.color.CAM_X0107, 1);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.t55
-    public void init() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-        }
-    }
-
-    public final void j(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context) == null) {
-            ImageView imageView = new ImageView(context);
-            this.d = imageView;
-            imageView.setEnabled(true);
-            this.d.setPadding(0, 0, ej.f(context, R.dimen.tbds30), ej.f(context, R.dimen.tbds24));
-            this.d.setOnClickListener(new a(this));
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-            layoutParams.gravity = 80;
-            this.g.addView(this.d, layoutParams);
-        }
-    }
-
-    public final void k(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, context) == null) {
-            EditText editText = new EditText(context);
-            this.b = editText;
-            editText.setMinHeight(context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070207));
-            this.b.setMaxLines(4);
-            this.b.setGravity(16);
-            this.b.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070207));
-            this.b.setBackgroundResource(R.color.common_color_10022);
-            y19.l(this.b, R.drawable.obfuscated_res_0x7f0804c2);
-            this.b.setPadding(0, ej.f(context, R.dimen.obfuscated_res_0x7f0701e8), ej.f(context, R.dimen.obfuscated_res_0x7f0702da), ej.f(context, R.dimen.obfuscated_res_0x7f0701e8));
-            this.b.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2000)});
-            this.b.addTextChangedListener(new b(this));
-            this.b.setHint(context.getString(R.string.obfuscated_res_0x7f0f100a));
-            this.b.setOnTouchListener(new c(this));
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -2);
-            layoutParams.weight = 1.0f;
-            this.g.addView(this.b, layoutParams);
-        }
-    }
-
-    public final void l(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, context) == null) {
-            TextView textView = new TextView(context);
-            this.c = textView;
-            textView.setGravity(17);
-            this.c.setIncludeFontPadding(false);
-            this.c.setEnabled(false);
-            this.c.setTextSize(0, context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b7));
-            this.c.setText(R.string.obfuscated_res_0x7f0f112e);
-            this.c.setOnClickListener(new d(this));
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-            layoutParams.setMargins(0, 0, 0, ej.f(context, R.dimen.tbds18));
-            layoutParams.gravity = 80;
-            this.g.addView(this.c, layoutParams);
-        }
-    }
-
-    public boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f : invokeV.booleanValue;
-    }
-
-    public final void n(e15 e15Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, e15Var) == null) {
-            if (!this.e || e15Var.getType() == EmotionGroupType.LOCAL) {
-                String obj = this.b.getText().toString();
-                if (this.j && mc6.a(obj) >= 10 && getContext() != null) {
-                    CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1457);
-                } else {
-                    nc6.b(getContext(), e15Var, this.b);
-                }
-            }
-        }
-    }
-
-    public final void o(e15 e15Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, e15Var) == null) || e15Var == null || TextUtils.isEmpty(e15Var.d()) || TextUtils.isEmpty(e15Var.g())) {
-            return;
-        }
-        String obj = this.b.getText().toString();
-        if (this.j && mc6.a(obj) >= 10 && getContext() != null) {
-            CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1457);
-        } else {
-            nc6.c(getContext(), e15Var, this.b);
-        }
-    }
-
-    @Override // com.baidu.tieba.t55
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.m = i;
-            SkinManager.setBackgroundColor(this.h, R.color.CAM_X0204, i);
-            SkinManager.setViewTextColor(this.b, R.color.CAM_X0106, 2, i);
-            SkinManager.setBackgroundColor(this, R.color.CAM_X0207, i);
-            if (i == 0) {
-                y19.l(this.b, R.drawable.obfuscated_res_0x7f0804c2);
-                this.b.setHintTextColor(getContext().getResources().getColor(R.color.CAM_X0109));
-            } else {
-                y19.l(this.b, R.drawable.obfuscated_res_0x7f0804c3);
-                this.b.setHintTextColor(SkinManager.getColor(i, (int) R.color.CAM_X0109));
-            }
-            i();
-            SkinManager.setImageResource(this.d, R.drawable.pbeditor_face_button);
-        }
-    }
-
-    @Override // com.baidu.tieba.t55
-    public void setEditorTools(EditorTools editorTools) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, editorTools) == null) {
-            this.a = editorTools;
-        }
-    }
-
-    public void setEmotionClick(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
-            this.f = z;
-        }
-    }
-
-    @Override // com.baidu.tieba.t55
-    public void setToolId(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
-            this.i = i;
-        }
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public VideoPlayInputContainer(Context context, @Nullable AttributeSet attributeSet) {
+    public VideoPlayInputContainer(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -537,7 +312,7 @@ public class VideoPlayInputContainer extends LinearLayout implements t55 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VideoPlayInputContainer(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public VideoPlayInputContainer(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -568,14 +343,260 @@ public class VideoPlayInputContainer extends LinearLayout implements t55 {
         LinearLayout linearLayout = new LinearLayout(getContext());
         this.g = linearLayout;
         linearLayout.setOrientation(0);
-        this.g.setMinimumHeight(ej.f(context, R.dimen.obfuscated_res_0x7f070308));
+        this.g.setMinimumHeight(fj.f(context, R.dimen.obfuscated_res_0x7f070308));
         addView(this.g, new LinearLayout.LayoutParams(-1, -2));
         j(context);
         k(context);
         l(context);
         this.h = new View(getContext());
-        this.h.setLayoutParams(new LinearLayout.LayoutParams(-1, ej.f(getContext(), R.dimen.obfuscated_res_0x7f070198)));
+        this.h.setLayoutParams(new LinearLayout.LayoutParams(-1, fj.f(getContext(), R.dimen.obfuscated_res_0x7f070198)));
         addView(this.h);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    @Override // com.baidu.tieba.x55
+    public void K(l55 l55Var) {
+        EditorTools editorTools;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l55Var) == null) && (editorTools = this.a) != null) {
+            editorTools.A(l55Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.x55
+    public void setEditorTools(EditorTools editorTools) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, editorTools) == null) {
+            this.a = editorTools;
+        }
+    }
+
+    public void setEmotionClick(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
+            this.f = z;
+        }
+    }
+
+    @Override // com.baidu.tieba.x55
+    public void setToolId(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            this.i = i;
+        }
+    }
+
+    @Override // com.baidu.tieba.m55
+    public void B(l55 l55Var) {
+        Object obj;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, l55Var) != null) || l55Var == null) {
+            return;
+        }
+        int i = l55Var.a;
+        if (i != 3) {
+            if (i != 6) {
+                if (i != 9) {
+                    if (i == 24 && (obj = l55Var.c) != null && (obj instanceof j15)) {
+                        j15 j15Var = (j15) obj;
+                        if (j15Var.getType() == EmotionGroupType.NET_SUG) {
+                            o(j15Var);
+                            return;
+                        } else {
+                            n(j15Var);
+                            return;
+                        }
+                    }
+                    return;
+                }
+                if (((Boolean) l55Var.c).booleanValue()) {
+                    this.b.setText((CharSequence) null);
+                }
+                this.c.setEnabled(false);
+                i();
+                return;
+            }
+            Object obj2 = l55Var.c;
+            if (obj2 == null) {
+                this.b.setText((CharSequence) null);
+            } else if (obj2 instanceof String) {
+                if (TextUtils.isEmpty((String) obj2)) {
+                    this.b.setText((CharSequence) null);
+                } else {
+                    uc6.f(getContext(), (String) l55Var.c, new e(this));
+                }
+            }
+        } else if (this.b.getSelectionStart() > 0) {
+            String substring = this.b.getText().toString().substring(0, this.b.getSelectionStart());
+            Matcher matcher = tc6.b.matcher(substring);
+            if (matcher.find()) {
+                this.b.getText().delete(this.b.getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), this.b.getSelectionStart());
+            } else {
+                this.b.getText().delete(this.b.getSelectionStart() - 1, this.b.getSelectionStart());
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.x55
+    public void display() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            EditText editText = this.b;
+            if (editText != null) {
+                editText.setFocusable(true);
+                this.b.setFocusableInTouchMode(true);
+                this.b.requestFocus();
+                fj.L(getContext(), this.b);
+            }
+            setVisibility(0);
+        }
+    }
+
+    public EditText getInputView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return (EditText) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.x55
+    public int getToolId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.i;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.x55
+    public void hide() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            setVisibility(8);
+        }
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            if (this.c.isEnabled()) {
+                SkinManager.setViewTextColor(this.c, R.color.CAM_X0302, 1, this.m);
+            } else {
+                SkinManager.setViewTextColor(this.c, R.color.CAM_X0107, 1);
+            }
+        }
+    }
+
+    public boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.f;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void j(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context) == null) {
+            ImageView imageView = new ImageView(context);
+            this.d = imageView;
+            imageView.setEnabled(true);
+            this.d.setPadding(0, 0, fj.f(context, R.dimen.tbds30), fj.f(context, R.dimen.tbds24));
+            this.d.setOnClickListener(new a(this));
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
+            layoutParams.gravity = 80;
+            this.g.addView(this.d, layoutParams);
+        }
+    }
+
+    public final void n(j15 j15Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, j15Var) == null) {
+            if (this.e && j15Var.getType() != EmotionGroupType.LOCAL) {
+                return;
+            }
+            String obj = this.b.getText().toString();
+            if (this.j && tc6.a(obj) >= 10 && getContext() != null) {
+                CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1470);
+            } else {
+                uc6.b(getContext(), j15Var, this.b);
+            }
+        }
+    }
+
+    public final void o(j15 j15Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048589, this, j15Var) == null) && j15Var != null && !TextUtils.isEmpty(j15Var.d()) && !TextUtils.isEmpty(j15Var.g())) {
+            String obj = this.b.getText().toString();
+            if (this.j && tc6.a(obj) >= 10 && getContext() != null) {
+                CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1470);
+            } else {
+                uc6.c(getContext(), j15Var, this.b);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.x55
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.m = i;
+            SkinManager.setBackgroundColor(this.h, R.color.CAM_X0204, i);
+            SkinManager.setViewTextColor(this.b, R.color.CAM_X0106, 2, i);
+            SkinManager.setBackgroundColor(this, R.color.CAM_X0207, i);
+            if (i == 0) {
+                e29.l(this.b, R.drawable.obfuscated_res_0x7f0804c2);
+                this.b.setHintTextColor(getContext().getResources().getColor(R.color.CAM_X0109));
+            } else {
+                e29.l(this.b, R.drawable.obfuscated_res_0x7f0804c3);
+                this.b.setHintTextColor(SkinManager.getColor(i, (int) R.color.CAM_X0109));
+            }
+            i();
+            SkinManager.setImageResource(this.d, R.drawable.pbeditor_face_button);
+        }
+    }
+
+    public final void k(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, context) == null) {
+            EditText editText = new EditText(context);
+            this.b = editText;
+            editText.setMinHeight(context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070207));
+            this.b.setMaxLines(4);
+            this.b.setGravity(16);
+            this.b.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070207));
+            this.b.setBackgroundResource(R.color.common_color_10022);
+            e29.l(this.b, R.drawable.obfuscated_res_0x7f0804c2);
+            this.b.setPadding(0, fj.f(context, R.dimen.obfuscated_res_0x7f0701e8), fj.f(context, R.dimen.obfuscated_res_0x7f0702da), fj.f(context, R.dimen.obfuscated_res_0x7f0701e8));
+            this.b.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2000)});
+            this.b.addTextChangedListener(new b(this));
+            this.b.setHint(context.getString(R.string.obfuscated_res_0x7f0f101c));
+            this.b.setOnTouchListener(new c(this));
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -2);
+            layoutParams.weight = 1.0f;
+            this.g.addView(this.b, layoutParams);
+        }
+    }
+
+    public final void l(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, context) == null) {
+            TextView textView = new TextView(context);
+            this.c = textView;
+            textView.setGravity(17);
+            this.c.setIncludeFontPadding(false);
+            this.c.setEnabled(false);
+            this.c.setTextSize(0, context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b7));
+            this.c.setText(R.string.obfuscated_res_0x7f0f1140);
+            this.c.setOnClickListener(new d(this));
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
+            layoutParams.setMargins(0, 0, 0, fj.f(context, R.dimen.tbds18));
+            layoutParams.gravity = 80;
+            this.g.addView(this.c, layoutParams);
+        }
     }
 }

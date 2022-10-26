@@ -1,6 +1,5 @@
 package com.baidu.searchbox.common.security;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
 import android.telephony.TelephonyManager;
@@ -65,7 +64,16 @@ public class DeviceInfoProxy {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             int i = Build.VERSION.SDK_INT;
-            return (i < 23 || i >= 29) ? Build.VERSION.SDK_INT < 29 : context.checkSelfPermission(h.c) == 0;
+            if (i >= 23 && i < 29) {
+                if (context.checkSelfPermission(h.c) != 0) {
+                    return false;
+                }
+                return true;
+            } else if (Build.VERSION.SDK_INT >= 29) {
+                return false;
+            } else {
+                return true;
+            }
         }
         return invokeL.booleanValue;
     }
@@ -73,22 +81,30 @@ public class DeviceInfoProxy {
     public static DeviceIdBag getImei(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? getImei(context, false) : (DeviceIdBag) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            return getImei(context, false);
+        }
+        return (DeviceIdBag) invokeL.objValue;
     }
 
     public static DeviceIdBag getImsi(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) ? getImsi(context, false) : (DeviceIdBag) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
+            return getImsi(context, false);
+        }
+        return (DeviceIdBag) invokeL.objValue;
     }
 
     public static int getPhoneType(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) ? ((TelephonyManager) context.getSystemService("phone")).getPhoneType() : invokeL.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
+            return ((TelephonyManager) context.getSystemService("phone")).getPhoneType();
+        }
+        return invokeL.intValue;
     }
 
-    @SuppressLint({"MissingPermission", "HardwareIds"})
     public static String realImei(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -106,7 +122,6 @@ public class DeviceInfoProxy {
         return (String) invokeL.objValue;
     }
 
-    @SuppressLint({"HardwareIds"})
     public static String realImsi(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -123,39 +138,8 @@ public class DeviceInfoProxy {
     public static DeviceIdBag getImei(Context context, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, context, z)) == null) ? getImei(context, z, false) : (DeviceIdBag) invokeLZ.objValue;
-    }
-
-    public static DeviceIdBag getImsi(Context context, boolean z) {
-        InterceptResult invokeLZ;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65543, null, context, z)) == null) {
-            DeviceIdBag deviceIdBag = new DeviceIdBag();
-            if (!HostAbilityRuntime.getHostAbility().hasAgreedPrivacyPolicy()) {
-                deviceIdBag.errorCode = -3;
-                return deviceIdBag;
-            }
-            String str = null;
-            if (!z && !HostAbilityRuntime.getHostAbility().isForeground()) {
-                i = -1;
-            } else if (checkPermisson(context)) {
-                str = realImsi(context);
-                i = 0;
-            } else {
-                i = -2;
-            }
-            if (TextUtils.isEmpty(str)) {
-                str = lastImsi;
-                if (!TextUtils.isEmpty(str)) {
-                    i = 1;
-                }
-            } else {
-                lastImsi = str;
-            }
-            deviceIdBag.deviceId = str;
-            deviceIdBag.errorCode = i;
-            return deviceIdBag;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, context, z)) == null) {
+            return getImei(context, z, false);
         }
         return (DeviceIdBag) invokeLZ.objValue;
     }
@@ -190,6 +174,40 @@ public class DeviceInfoProxy {
             return deviceIdBag;
         }
         return (DeviceIdBag) invokeCommon.objValue;
+    }
+
+    public static DeviceIdBag getImsi(Context context, boolean z) {
+        InterceptResult invokeLZ;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65543, null, context, z)) == null) {
+            DeviceIdBag deviceIdBag = new DeviceIdBag();
+            if (!HostAbilityRuntime.getHostAbility().hasAgreedPrivacyPolicy()) {
+                deviceIdBag.errorCode = -3;
+                return deviceIdBag;
+            }
+            String str = null;
+            if (!z && !HostAbilityRuntime.getHostAbility().isForeground()) {
+                i = -1;
+            } else if (checkPermisson(context)) {
+                str = realImsi(context);
+                i = 0;
+            } else {
+                i = -2;
+            }
+            if (TextUtils.isEmpty(str)) {
+                str = lastImsi;
+                if (!TextUtils.isEmpty(str)) {
+                    i = 1;
+                }
+            } else {
+                lastImsi = str;
+            }
+            deviceIdBag.deviceId = str;
+            deviceIdBag.errorCode = i;
+            return deviceIdBag;
+        }
+        return (DeviceIdBag) invokeLZ.objValue;
     }
 
     public static String realImei(Context context, int i) {

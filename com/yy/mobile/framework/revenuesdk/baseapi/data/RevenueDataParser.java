@@ -22,7 +22,7 @@ public final class RevenueDataParser implements IRevenueDataParser {
     public static final RevenueDataParser INSTANCE;
     public static final String TAG = "RevenueDataParser";
     public transient /* synthetic */ FieldHolder $fh;
-    public List<IRevenueDataReceiver> revenueDataReceivers;
+    public List revenueDataReceivers;
 
     static {
         InterceptResult invokeClinit;
@@ -40,6 +40,15 @@ public final class RevenueDataParser implements IRevenueDataParser {
         RevenueDataParser revenueDataParser = new RevenueDataParser("INSTANCE", 0);
         INSTANCE = revenueDataParser;
         $VALUES = new RevenueDataParser[]{revenueDataParser};
+    }
+
+    public static RevenueDataParser[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return (RevenueDataParser[]) $VALUES.clone();
+        }
+        return (RevenueDataParser[]) invokeV.objValue;
     }
 
     public RevenueDataParser(String str, int i) {
@@ -66,13 +75,17 @@ public final class RevenueDataParser implements IRevenueDataParser {
     public static RevenueDataParser valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (RevenueDataParser) Enum.valueOf(RevenueDataParser.class, str) : (RevenueDataParser) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return (RevenueDataParser) Enum.valueOf(RevenueDataParser.class, str);
+        }
+        return (RevenueDataParser) invokeL.objValue;
     }
 
-    public static RevenueDataParser[] values() {
-        InterceptResult invokeV;
+    public void registerDataReceivers(IRevenueDataReceiver iRevenueDataReceiver) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (RevenueDataParser[]) $VALUES.clone() : (RevenueDataParser[]) invokeV.objValue;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iRevenueDataReceiver) == null) && !this.revenueDataReceivers.contains(iRevenueDataReceiver)) {
+            this.revenueDataReceivers.add(iRevenueDataReceiver);
+        }
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.baseapi.data.IRevenueDataParser
@@ -174,13 +187,5 @@ public final class RevenueDataParser implements IRevenueDataParser {
                 }
             });
         }
-    }
-
-    public void registerDataReceivers(IRevenueDataReceiver iRevenueDataReceiver) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iRevenueDataReceiver) == null) || this.revenueDataReceivers.contains(iRevenueDataReceiver)) {
-            return;
-        }
-        this.revenueDataReceivers.add(iRevenueDataReceiver);
     }
 }

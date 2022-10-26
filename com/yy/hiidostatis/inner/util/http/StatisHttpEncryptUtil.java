@@ -27,6 +27,13 @@ public class StatisHttpEncryptUtil extends AbstractStatisHttpUtil {
     public Object rsaLock;
     public String urlParams;
 
+    @Override // com.yy.hiidostatis.inner.util.http.AbstractStatisHttpUtil
+    public String getUrlFormat() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "http://%s/c.gif" : (String) invokeV.objValue;
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -60,6 +67,54 @@ public class StatisHttpEncryptUtil extends AbstractStatisHttpUtil {
         this.rsaLock = new Object();
     }
 
+    @Override // com.yy.hiidostatis.inner.util.http.IStatisHttpUtil
+    public String getHost() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return HiidoSDK.getHiidoHost();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getLastHost() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mLastHost;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getLastSmkData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mLastSmkData;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.yy.hiidostatis.inner.util.http.AbstractStatisHttpUtil
+    public String[] getUrlAddress() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return HiidoSDK.getHiidoIps();
+        }
+        return (String[]) invokeV.objValue;
+    }
+
+    @Override // com.yy.hiidostatis.inner.util.http.AbstractStatisHttpUtil
+    public String getUrlService() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return String.format("http://%s/c.gif", HiidoSDK.getHiidoHost());
+        }
+        return (String) invokeV.objValue;
+    }
+
     private RsaCipher getRsaCipher() throws Exception {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -80,46 +135,6 @@ public class StatisHttpEncryptUtil extends AbstractStatisHttpUtil {
             }
         }
         return (RsaCipher) invokeV.objValue;
-    }
-
-    @Override // com.yy.hiidostatis.inner.util.http.IStatisHttpUtil
-    public String getHost() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? HiidoSDK.getHiidoHost() : (String) invokeV.objValue;
-    }
-
-    public String getLastHost() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mLastHost : (String) invokeV.objValue;
-    }
-
-    public String getLastSmkData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mLastSmkData : (String) invokeV.objValue;
-    }
-
-    @Override // com.yy.hiidostatis.inner.util.http.AbstractStatisHttpUtil
-    public String[] getUrlAddress() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? HiidoSDK.getHiidoIps() : (String[]) invokeV.objValue;
-    }
-
-    @Override // com.yy.hiidostatis.inner.util.http.AbstractStatisHttpUtil
-    public String getUrlFormat() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "http://%s/c.gif" : (String) invokeV.objValue;
-    }
-
-    @Override // com.yy.hiidostatis.inner.util.http.AbstractStatisHttpUtil
-    public String getUrlService() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? String.format("http://%s/c.gif", HiidoSDK.getHiidoHost()) : (String) invokeV.objValue;
     }
 
     /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor

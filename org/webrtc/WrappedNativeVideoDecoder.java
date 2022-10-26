@@ -12,6 +12,9 @@ public abstract class WrappedNativeVideoDecoder implements VideoDecoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // org.webrtc.VideoDecoder
+    public abstract long createNativeVideoDecoder();
+
     public WrappedNativeVideoDecoder() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -24,19 +27,6 @@ public abstract class WrappedNativeVideoDecoder implements VideoDecoder {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    @Override // org.webrtc.VideoDecoder
-    public abstract long createNativeVideoDecoder();
-
-    @Override // org.webrtc.VideoDecoder
-    public VideoCodecStatus decode(EncodedImage encodedImage, VideoDecoder.DecodeInfo decodeInfo) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, encodedImage, decodeInfo)) == null) {
-            throw new UnsupportedOperationException("Not implemented.");
-        }
-        return (VideoCodecStatus) invokeLL.objValue;
     }
 
     @Override // org.webrtc.VideoDecoder
@@ -60,16 +50,6 @@ public abstract class WrappedNativeVideoDecoder implements VideoDecoder {
     }
 
     @Override // org.webrtc.VideoDecoder
-    public VideoCodecStatus initDecode(VideoDecoder.Settings settings, VideoDecoder.Callback callback) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, settings, callback)) == null) {
-            throw new UnsupportedOperationException("Not implemented.");
-        }
-        return (VideoCodecStatus) invokeLL.objValue;
-    }
-
-    @Override // org.webrtc.VideoDecoder
     public VideoCodecStatus release() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -77,5 +57,25 @@ public abstract class WrappedNativeVideoDecoder implements VideoDecoder {
             throw new UnsupportedOperationException("Not implemented.");
         }
         return (VideoCodecStatus) invokeV.objValue;
+    }
+
+    @Override // org.webrtc.VideoDecoder
+    public VideoCodecStatus decode(EncodedImage encodedImage, VideoDecoder.DecodeInfo decodeInfo) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, encodedImage, decodeInfo)) == null) {
+            throw new UnsupportedOperationException("Not implemented.");
+        }
+        return (VideoCodecStatus) invokeLL.objValue;
+    }
+
+    @Override // org.webrtc.VideoDecoder
+    public VideoCodecStatus initDecode(VideoDecoder.Settings settings, VideoDecoder.Callback callback) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, settings, callback)) == null) {
+            throw new UnsupportedOperationException("Not implemented.");
+        }
+        return (VideoCodecStatus) invokeLL.objValue;
     }
 }

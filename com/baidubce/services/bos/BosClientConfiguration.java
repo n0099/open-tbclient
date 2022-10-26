@@ -41,13 +41,19 @@ public class BosClientConfiguration extends BceClientConfiguration {
     public int getStreamBufferSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.streamBufferSize : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.streamBufferSize;
+        }
+        return invokeV.intValue;
     }
 
     public Boolean isCnameEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.cnameEnabled : (Boolean) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.cnameEnabled;
+        }
+        return (Boolean) invokeV.objValue;
     }
 
     public void setCnameEnabled(Boolean bool) {
@@ -58,9 +64,15 @@ public class BosClientConfiguration extends BceClientConfiguration {
     }
 
     public void setStreamBufferSize(int i) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            CheckUtils.checkArgument(i > 0, "streamBufferSize should be positive.");
+            if (i > 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            CheckUtils.checkArgument(z, "streamBufferSize should be positive.");
             this.streamBufferSize = i;
         }
     }

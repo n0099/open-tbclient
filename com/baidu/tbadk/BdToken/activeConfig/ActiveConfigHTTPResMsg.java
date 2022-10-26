@@ -3,7 +3,7 @@ package com.baidu.tbadk.BdToken.activeConfig;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.qm4;
+import com.baidu.tieba.rm4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import tbclient.Error;
 public class ActiveConfigHTTPResMsg extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public qm4 mData;
+    public rm4 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ActiveConfigHTTPResMsg() {
@@ -36,10 +36,13 @@ public class ActiveConfigHTTPResMsg extends HttpResponsedMessage {
         }
     }
 
-    public qm4 getData() {
+    public rm4 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (qm4) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mData;
+        }
+        return (rm4) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -47,18 +50,17 @@ public class ActiveConfigHTTPResMsg extends HttpResponsedMessage {
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         ActiveConfigResIdl activeConfigResIdl;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (activeConfigResIdl = (ActiveConfigResIdl) new Wire(new Class[0]).parseFrom(bArr, ActiveConfigResIdl.class)) == null) {
-            return;
-        }
-        Error error = activeConfigResIdl.error;
-        if (error != null) {
-            setError(error.errorno.intValue());
-            setErrorString(activeConfigResIdl.error.usermsg);
-        }
-        if (activeConfigResIdl.data != null) {
-            qm4 qm4Var = new qm4();
-            this.mData = qm4Var;
-            qm4Var.c(activeConfigResIdl.data);
+        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) && (activeConfigResIdl = (ActiveConfigResIdl) new Wire(new Class[0]).parseFrom(bArr, ActiveConfigResIdl.class)) != null) {
+            Error error = activeConfigResIdl.error;
+            if (error != null) {
+                setError(error.errorno.intValue());
+                setErrorString(activeConfigResIdl.error.usermsg);
+            }
+            if (activeConfigResIdl.data != null) {
+                rm4 rm4Var = new rm4();
+                this.mData = rm4Var;
+                rm4Var.c(activeConfigResIdl.data);
+            }
         }
     }
 }

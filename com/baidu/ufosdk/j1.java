@@ -64,7 +64,7 @@ public class j1 extends Dialog {
     }
 
     /* loaded from: classes6.dex */
-    public static class b extends ClickableSpan {
+    public class b extends ClickableSpan {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Context a;
@@ -104,7 +104,7 @@ public class j1 extends Dialog {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j1(Context context, boolean z) {
-        super(context, com.baidu.tieba.R.style.obfuscated_res_0x7f100421);
+        super(context, com.baidu.tieba.R.style.obfuscated_res_0x7f100422);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -126,6 +126,10 @@ public class j1 extends Dialog {
     }
 
     public final void a(Context context, boolean z) {
+        int i;
+        int i2;
+        int i3;
+        int i4;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048576, this, context, z) == null) {
             this.f = context;
@@ -135,29 +139,54 @@ public class j1 extends Dialog {
             setContentView(com.baidu.tieba.R.layout.ufo_report_tort_dialog);
             LinearLayout linearLayout = (LinearLayout) findViewById(com.baidu.tieba.R.id.report_tort_layout);
             this.a = linearLayout;
-            linearLayout.setBackgroundResource(z ? com.baidu.tieba.R.drawable.dialog_report_tort_backgroud_dark : com.baidu.tieba.R.drawable.dialog_report_tort_backgroud);
+            if (z) {
+                i = com.baidu.tieba.R.drawable.dialog_report_tort_backgroud_dark;
+            } else {
+                i = com.baidu.tieba.R.drawable.dialog_report_tort_backgroud;
+            }
+            linearLayout.setBackgroundResource(i);
             TextView textView = (TextView) findViewById(com.baidu.tieba.R.id.report_tort_title);
             this.b = textView;
-            textView.setTextColor(z ? -11711155 : -13421773);
+            int i5 = -13421773;
+            if (z) {
+                i2 = -11711155;
+            } else {
+                i2 = -13421773;
+            }
+            textView.setTextColor(i2);
             TextView textView2 = (TextView) findViewById(com.baidu.tieba.R.id.report_tort_content);
             this.c = textView2;
             SpannableString spannableString = new SpannableString(this.f.getString(com.baidu.tieba.R.string.dialog_tort_content));
             spannableString.setSpan(new ForegroundColorSpan(-16776961), 51, 64, 33);
             spannableString.setSpan(new b(this.f, this.g), 51, 64, 33);
             textView2.setText(spannableString);
-            this.c.setTextColor(z ? -11711155 : -6710887);
-            this.c.setMovementMethod(LinkMovementMethod.getInstance());
             TextView textView3 = this.c;
-            CharSequence text = textView3.getText();
+            if (z) {
+                i3 = -11711155;
+            } else {
+                i3 = -6710887;
+            }
+            textView3.setTextColor(i3);
+            this.c.setMovementMethod(LinkMovementMethod.getInstance());
+            TextView textView4 = this.c;
+            CharSequence text = textView4.getText();
             if (text instanceof Spannable) {
-                ((Spannable) textView3.getText()).setSpan(new NoUnderlineSpan(), 0, text.length(), 17);
+                ((Spannable) textView4.getText()).setSpan(new NoUnderlineSpan(), 0, text.length(), 17);
             }
             View findViewById = findViewById(com.baidu.tieba.R.id.divider_line);
             this.d = findViewById;
-            findViewById.setBackgroundColor(z ? -13619152 : BdThumbSeekBarView.BUFFERING_PAINT_COLOR);
-            TextView textView4 = (TextView) findViewById(com.baidu.tieba.R.id.know_btn);
-            this.e = textView4;
-            textView4.setTextColor(z ? -11711155 : -13421773);
+            if (z) {
+                i4 = -13619152;
+            } else {
+                i4 = BdThumbSeekBarView.BUFFERING_PAINT_COLOR;
+            }
+            findViewById.setBackgroundColor(i4);
+            TextView textView5 = (TextView) findViewById(com.baidu.tieba.R.id.know_btn);
+            this.e = textView5;
+            if (z) {
+                i5 = -11711155;
+            }
+            textView5.setTextColor(i5);
             this.e.setOnClickListener(new a(this));
         }
     }

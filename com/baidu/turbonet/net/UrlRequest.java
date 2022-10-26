@@ -21,9 +21,42 @@ import java.util.Iterator;
 import java.util.concurrent.Executor;
 /* loaded from: classes6.dex */
 public interface UrlRequest {
+    void a(int i);
+
+    void addHeader(String str, String str2);
+
+    void b(int i);
+
+    void c(int i);
+
+    void cancel();
+
+    void d();
+
+    void e(String str);
+
+    void f(Object obj);
+
+    void g();
+
+    Object getTag();
+
+    void h();
+
+    void i(UploadDataProvider uploadDataProvider, Executor executor);
+
+    void j(String str);
+
+    void k(String str);
+
+    void l(int i);
+
+    void read(ByteBuffer byteBuffer);
+
+    void start();
 
     /* loaded from: classes6.dex */
-    public static final class Builder {
+    public final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final TurbonetEngine a;
@@ -31,11 +64,11 @@ public interface UrlRequest {
         public final Callback c;
         public final Executor d;
         public String e;
-        public final ArrayList<Pair<String, String>> f;
+        public final ArrayList f;
         public boolean g;
         public boolean h;
         public int i;
-        public Collection<Object> j;
+        public Collection j;
         public UploadDataProvider k;
         public Executor l;
         public boolean m;
@@ -69,35 +102,35 @@ public interface UrlRequest {
                     return;
                 }
             }
-            this.f = new ArrayList<>();
+            this.f = new ArrayList();
             this.i = 3;
             this.j = Collections.emptyList();
-            if (str == null) {
-                throw new NullPointerException("URL is required.");
-            }
-            if (callback == null) {
+            if (str != null) {
+                if (callback != null) {
+                    if (executor != null) {
+                        if (turbonetEngine != null) {
+                            this.b = str;
+                            this.c = callback;
+                            this.d = executor;
+                            this.a = turbonetEngine;
+                            this.m = false;
+                            this.o = false;
+                            this.p = 0;
+                            this.q = 0;
+                            this.r = 0;
+                            this.s = 0;
+                            this.t = null;
+                            this.u = null;
+                            this.v = null;
+                            return;
+                        }
+                        throw new NullPointerException("TurbonetEngine is required.");
+                    }
+                    throw new NullPointerException("Executor is required.");
+                }
                 throw new NullPointerException("Callback is required.");
             }
-            if (executor == null) {
-                throw new NullPointerException("Executor is required.");
-            }
-            if (turbonetEngine != null) {
-                this.b = str;
-                this.c = callback;
-                this.d = executor;
-                this.a = turbonetEngine;
-                this.m = false;
-                this.o = false;
-                this.p = 0;
-                this.q = 0;
-                this.r = 0;
-                this.s = 0;
-                this.t = null;
-                this.u = null;
-                this.v = null;
-                return;
-            }
-            throw new NullPointerException("TurbonetEngine is required.");
+            throw new NullPointerException("URL is required.");
         }
 
         public Builder a(String str, String str2) {
@@ -119,6 +152,26 @@ public interface UrlRequest {
             return (Builder) invokeLL.objValue;
         }
 
+        public Builder k(UploadDataProvider uploadDataProvider, Executor executor) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, uploadDataProvider, executor)) == null) {
+                if (uploadDataProvider != null) {
+                    if (executor != null) {
+                        if (this.e == null) {
+                            this.e = "POST";
+                        }
+                        this.k = uploadDataProvider;
+                        this.l = executor;
+                        return this;
+                    }
+                    throw new NullPointerException("Invalid UploadDataProvider Executor.");
+                }
+                throw new NullPointerException("Invalid UploadDataProvider.");
+            }
+            return (Builder) invokeLL.objValue;
+        }
+
         public UrlRequest b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -128,10 +181,10 @@ public interface UrlRequest {
                 if (str != null) {
                     b.e(str);
                 }
-                Iterator<Pair<String, String>> it = this.f.iterator();
+                Iterator it = this.f.iterator();
                 while (it.hasNext()) {
-                    Pair<String, String> next = it.next();
-                    b.addHeader((String) next.first, (String) next.second);
+                    Pair pair = (Pair) it.next();
+                    b.addHeader((String) pair.first, (String) pair.second);
                 }
                 UploadDataProvider uploadDataProvider = this.k;
                 if (uploadDataProvider != null) {
@@ -189,6 +242,16 @@ public interface UrlRequest {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
                 this.m = true;
+                return this;
+            }
+            return (Builder) invokeV.objValue;
+        }
+
+        public Builder l() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+                this.n = true;
                 return this;
             }
             return (Builder) invokeV.objValue;
@@ -256,56 +319,12 @@ public interface UrlRequest {
             }
             return (Builder) invokeI.objValue;
         }
-
-        public Builder k(UploadDataProvider uploadDataProvider, Executor executor) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, uploadDataProvider, executor)) == null) {
-                if (uploadDataProvider != null) {
-                    if (executor != null) {
-                        if (this.e == null) {
-                            this.e = "POST";
-                        }
-                        this.k = uploadDataProvider;
-                        this.l = executor;
-                        return this;
-                    }
-                    throw new NullPointerException("Invalid UploadDataProvider Executor.");
-                }
-                throw new NullPointerException("Invalid UploadDataProvider.");
-            }
-            return (Builder) invokeLL.objValue;
-        }
-
-        public Builder l() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-                this.n = true;
-                return this;
-            }
-            return (Builder) invokeV.objValue;
-        }
     }
 
     /* loaded from: classes6.dex */
-    public static abstract class Callback {
+    public abstract class Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        public Callback() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
 
         public void a(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo) {
             Interceptable interceptable = $ic;
@@ -322,10 +341,24 @@ public interface UrlRequest {
         public abstract void e(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo) throws Exception;
 
         public abstract void f(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo);
+
+        public Callback() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
     /* loaded from: classes6.dex */
-    public static class Status {
+    public class Status {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -408,9 +441,11 @@ public interface UrlRequest {
     }
 
     /* loaded from: classes6.dex */
-    public static abstract class StatusListener {
+    public abstract class StatusListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        public abstract void a(int i);
 
         public StatusListener() {
             Interceptable interceptable = $ic;
@@ -425,41 +460,5 @@ public interface UrlRequest {
                 }
             }
         }
-
-        public abstract void a(int i);
     }
-
-    void a(int i);
-
-    void addHeader(String str, String str2);
-
-    void b(int i);
-
-    void c(int i);
-
-    void cancel();
-
-    void d();
-
-    void e(String str);
-
-    void f(Object obj);
-
-    void g();
-
-    Object getTag();
-
-    void h();
-
-    void i(UploadDataProvider uploadDataProvider, Executor executor);
-
-    void j(String str);
-
-    void k(String str);
-
-    void l(int i);
-
-    void read(ByteBuffer byteBuffer);
-
-    void start();
 }

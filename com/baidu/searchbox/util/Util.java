@@ -46,12 +46,18 @@ public class Util {
     public static String toHexString(byte[] bArr, String str, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, bArr, str, z)) == null) ? MD5Util.toHexString(bArr, str, z) : (String) invokeLLZ.objValue;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, bArr, str, z)) == null) {
+            return MD5Util.toHexString(bArr, str, z);
+        }
+        return (String) invokeLLZ.objValue;
     }
 
     public static String toMd5(byte[] bArr, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, bArr, z)) == null) ? MD5Util.toMd5(bArr, z) : (String) invokeLZ.objValue;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, bArr, z)) == null) {
+            return MD5Util.toMd5(bArr, z);
+        }
+        return (String) invokeLZ.objValue;
     }
 }

@@ -6,14 +6,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.infer.annotation.Nullsafe;
 import java.io.ByteArrayOutputStream;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Arrays;
-@Nullsafe(Nullsafe.Mode.STRICT)
 /* loaded from: classes7.dex */
 public final class ByteStreams {
     public static /* synthetic */ Interceptable $ic = null;
@@ -22,13 +20,13 @@ public final class ByteStreams {
 
     /* renamed from: com.facebook.common.internal.ByteStreams$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes7.dex */
-    public static final class FastByteArrayOutputStream extends ByteArrayOutputStream {
+    public final class FastByteArrayOutputStream extends ByteArrayOutputStream {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -46,15 +44,15 @@ public final class ByteStreams {
             }
         }
 
+        public /* synthetic */ FastByteArrayOutputStream(AnonymousClass1 anonymousClass1) {
+            this();
+        }
+
         public void writeTo(byte[] bArr, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, bArr, i) == null) {
                 System.arraycopy(((ByteArrayOutputStream) this).buf, 0, bArr, i, ((ByteArrayOutputStream) this).count);
             }
-        }
-
-        public /* synthetic */ FastByteArrayOutputStream(AnonymousClass1 anonymousClass1) {
-            this();
         }
     }
 
@@ -75,20 +73,21 @@ public final class ByteStreams {
     public static long copy(InputStream inputStream, OutputStream outputStream) throws IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(65537, null, inputStream, outputStream)) != null) {
-            return invokeLL.longValue;
-        }
-        Preconditions.checkNotNull(inputStream);
-        Preconditions.checkNotNull(outputStream);
-        byte[] bArr = new byte[4096];
-        long j = 0;
-        while (true) {
-            int read = inputStream.read(bArr);
-            if (read == -1) {
-                return j;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, inputStream, outputStream)) == null) {
+            Preconditions.checkNotNull(inputStream);
+            Preconditions.checkNotNull(outputStream);
+            byte[] bArr = new byte[4096];
+            long j = 0;
+            while (true) {
+                int read = inputStream.read(bArr);
+                if (read == -1) {
+                    return j;
+                }
+                outputStream.write(bArr, 0, read);
+                j += read;
             }
-            outputStream.write(bArr, 0, read);
-            j += read;
+        } else {
+            return invokeLL.longValue;
         }
     }
 
@@ -117,7 +116,7 @@ public final class ByteStreams {
     public static void readFully(InputStream inputStream, byte[] bArr, int i, int i2) throws IOException {
         int read;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLII(65539, null, inputStream, bArr, i, i2) == null) || (read = read(inputStream, bArr, i, i2)) == i2) {
+        if ((interceptable != null && interceptable.invokeLLII(65539, null, inputStream, bArr, i, i2) != null) || (read = read(inputStream, bArr, i, i2)) == i2) {
             return;
         }
         throw new EOFException("reached end of stream after reading " + read + " bytes; " + i2 + " bytes expected");

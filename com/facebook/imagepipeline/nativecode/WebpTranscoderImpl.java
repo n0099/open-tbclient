@@ -7,7 +7,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.common.internal.DoNotStrip;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.webp.WebpSupportStatus;
 import com.facebook.imageformat.DefaultImageFormats;
@@ -15,11 +14,14 @@ import com.facebook.imageformat.ImageFormat;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-@DoNotStrip
 /* loaded from: classes7.dex */
 public class WebpTranscoderImpl implements WebpTranscoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public static native void nativeTranscodeWebpToJpeg(InputStream inputStream, OutputStream outputStream, int i) throws IOException;
+
+    public static native void nativeTranscodeWebpToPng(InputStream inputStream, OutputStream outputStream) throws IOException;
 
     public WebpTranscoderImpl() {
         Interceptable interceptable = $ic;
@@ -35,19 +37,16 @@ public class WebpTranscoderImpl implements WebpTranscoder {
         }
     }
 
-    @DoNotStrip
-    public static native void nativeTranscodeWebpToJpeg(InputStream inputStream, OutputStream outputStream, int i) throws IOException;
-
-    @DoNotStrip
-    public static native void nativeTranscodeWebpToPng(InputStream inputStream, OutputStream outputStream) throws IOException;
-
     @Override // com.facebook.imagepipeline.nativecode.WebpTranscoder
     public boolean isWebpNativelySupported(ImageFormat imageFormat) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, imageFormat)) == null) {
             if (imageFormat == DefaultImageFormats.WEBP_SIMPLE) {
-                return Build.VERSION.SDK_INT >= 14;
+                if (Build.VERSION.SDK_INT < 14) {
+                    return false;
+                }
+                return true;
             } else if (imageFormat != DefaultImageFormats.WEBP_LOSSLESS && imageFormat != DefaultImageFormats.WEBP_EXTENDED && imageFormat != DefaultImageFormats.WEBP_EXTENDED_WITH_ALPHA) {
                 if (imageFormat == DefaultImageFormats.WEBP_ANIMATED) {
                     return false;

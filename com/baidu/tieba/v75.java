@@ -1,36 +1,23 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.tbselector.TBSelector;
+import com.baidu.tbadk.editortools.RawLayout;
+import com.baidu.tbadk.editortools.sendtool.SendView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class v75 implements x75 {
+public class v75 extends w55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public ImageView b;
-    public ImageView c;
-    public TextView d;
-    public LinearLayout e;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public v75(Context context) {
+        super(context, (String) null, 4);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -40,49 +27,27 @@ public class v75 implements x75 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        View inflate = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d0296, (ViewGroup) null);
-        this.a = inflate;
-        this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090a07);
-        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090a09);
-        this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090a05);
-        this.e = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090a08);
-        this.d.setText(R.string.obfuscated_res_0x7f0f06f4);
-        b();
+        this.o = false;
+        this.n = 2;
+        this.p = new int[]{4, 12, 10, 13, 11, 28, 29, 39, 9};
+        this.m = new SendView(context);
+        RawLayout.LayoutParams layoutParams = new RawLayout.LayoutParams(-2, -2);
+        ((LinearLayout.LayoutParams) layoutParams).gravity = 80;
+        ((View) this.m).setLayoutParams(layoutParams);
     }
 
-    @Override // com.baidu.tieba.x75
-    public void b() {
+    public void g(int i) {
+        x55 x55Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a == null) {
-            return;
-        }
-        SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
-        SkinManager.setImageResource(this.b, R.drawable.obfuscated_res_0x7f080f36);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f0805ff, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
-        TBSelector.makeDrawableSelector().defaultColor(R.color.CAM_X0305).setShape(0).setAlpha(211).tlRadius(ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds52)).blRadius(ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds52)).into(this.e);
-    }
-
-    @Override // com.baidu.tieba.x75
-    public View getView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            View view2 = this.a;
-            return view2 != null ? view2 : LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d0296, (ViewGroup) null);
-        }
-        return (View) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.x75
-    public void onClick() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FRS_FORUM_FLOAT_CLICK).param("uid", TbadkCoreApplication.getCurrentAccountId()));
+        if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && (x55Var = this.m) != null && (x55Var instanceof TextView)) {
+            ((TextView) x55Var).setText(i);
         }
     }
 }

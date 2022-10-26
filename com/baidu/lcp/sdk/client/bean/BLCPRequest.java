@@ -19,7 +19,7 @@ public class BLCPRequest {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class SendTimeoutSecond {
+    public final class SendTimeoutSecond {
         public static final /* synthetic */ SendTimeoutSecond[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final SendTimeoutSecond TIMEOUT_120s;
@@ -71,13 +71,19 @@ public class BLCPRequest {
         public static SendTimeoutSecond valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (SendTimeoutSecond) Enum.valueOf(SendTimeoutSecond.class, str) : (SendTimeoutSecond) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (SendTimeoutSecond) Enum.valueOf(SendTimeoutSecond.class, str);
+            }
+            return (SendTimeoutSecond) invokeL.objValue;
         }
 
         public static SendTimeoutSecond[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (SendTimeoutSecond[]) $VALUES.clone() : (SendTimeoutSecond[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (SendTimeoutSecond[]) $VALUES.clone();
+            }
+            return (SendTimeoutSecond[]) invokeV.objValue;
         }
     }
 

@@ -43,42 +43,6 @@ public class PackageDetailListView extends BdListView {
         this.H = false;
     }
 
-    @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AbsListView, android.view.ViewGroup
-    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-            if (this.H) {
-                a aVar = this.G;
-                if (aVar != null) {
-                    aVar.onInterceptTouchEvent(motionEvent);
-                    return false;
-                }
-                return false;
-            }
-            a aVar2 = this.G;
-            if (aVar2 == null || !aVar2.onInterceptTouchEvent(motionEvent)) {
-                return super.onInterceptTouchEvent(motionEvent);
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void setDisableListViewTouchIntercept(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.H = z;
-        }
-    }
-
-    public void setTouchEventInterceptHandler(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.G = aVar;
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PackageDetailListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -121,5 +85,41 @@ public class PackageDetailListView extends BdListView {
             }
         }
         this.H = false;
+    }
+
+    @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AbsListView, android.view.ViewGroup
+    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
+            if (this.H) {
+                a aVar = this.G;
+                if (aVar != null) {
+                    aVar.onInterceptTouchEvent(motionEvent);
+                    return false;
+                }
+                return false;
+            }
+            a aVar2 = this.G;
+            if (aVar2 != null && aVar2.onInterceptTouchEvent(motionEvent)) {
+                return true;
+            }
+            return super.onInterceptTouchEvent(motionEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void setDisableListViewTouchIntercept(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.H = z;
+        }
+    }
+
+    public void setTouchEventInterceptHandler(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            this.G = aVar;
+        }
     }
 }

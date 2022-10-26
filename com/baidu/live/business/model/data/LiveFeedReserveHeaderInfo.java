@@ -14,9 +14,19 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class LiveFeedReserveHeaderInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<LiveFeedReserveHeaderInfo> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public String tip;
+
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -31,7 +41,7 @@ public class LiveFeedReserveHeaderInfo implements Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<LiveFeedReserveHeaderInfo>() { // from class: com.baidu.live.business.model.data.LiveFeedReserveHeaderInfo.1
+        CREATOR = new Parcelable.Creator() { // from class: com.baidu.live.business.model.data.LiveFeedReserveHeaderInfo.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -50,21 +60,25 @@ public class LiveFeedReserveHeaderInfo implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public LiveFeedReserveHeaderInfo createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new LiveFeedReserveHeaderInfo(parcel) : (LiveFeedReserveHeaderInfo) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new LiveFeedReserveHeaderInfo(parcel);
+                }
+                return (LiveFeedReserveHeaderInfo) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public LiveFeedReserveHeaderInfo[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new LiveFeedReserveHeaderInfo[i] : (LiveFeedReserveHeaderInfo[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new LiveFeedReserveHeaderInfo[i];
+                }
+                return (LiveFeedReserveHeaderInfo[]) invokeI.objValue;
             }
         };
     }
@@ -80,38 +94,6 @@ public class LiveFeedReserveHeaderInfo implements Parcelable {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
-        }
-    }
-
-    public static LiveFeedReserveHeaderInfo parseJson(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            LiveFeedReserveHeaderInfo liveFeedReserveHeaderInfo = new LiveFeedReserveHeaderInfo();
-            liveFeedReserveHeaderInfo.tip = jSONObject.optString("show_msg");
-            return liveFeedReserveHeaderInfo;
-        }
-        return (LiveFeedReserveHeaderInfo) invokeL.objValue;
-    }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i) == null) {
-            parcel.writeString(this.tip);
         }
     }
 
@@ -131,5 +113,27 @@ public class LiveFeedReserveHeaderInfo implements Parcelable {
             }
         }
         this.tip = parcel.readString();
+    }
+
+    public static LiveFeedReserveHeaderInfo parseJson(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            LiveFeedReserveHeaderInfo liveFeedReserveHeaderInfo = new LiveFeedReserveHeaderInfo();
+            liveFeedReserveHeaderInfo.tip = jSONObject.optString("show_msg");
+            return liveFeedReserveHeaderInfo;
+        }
+        return (LiveFeedReserveHeaderInfo) invokeL.objValue;
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i) == null) {
+            parcel.writeString(this.tip);
+        }
     }
 }

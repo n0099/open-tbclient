@@ -64,6 +64,192 @@ public class RomUtils {
         }
     }
 
+    public static String getDeviceBrand() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return Build.BRAND;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String getDeviceModel() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return Build.MODEL;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String getDeviceName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return Build.PRODUCT;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String getIncrementalVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return getProp(PROP_RO_BUILD_VERSION_INCREMENTAL);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String getManufacturer() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return Build.MANUFACTURER;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String getName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            String str = sRomName;
+            if (str == null) {
+                return check();
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String getVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            if (sRomVersion == null) {
+                check();
+            }
+            return sRomVersion;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean is360() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            if (!check("QIKU") && !check("360")) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isEmui() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
+            return check("EMUI");
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isFlyme() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
+            return check("FLYME");
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isFlymeQuickly() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
+            String str = Build.DISPLAY;
+            if (!TextUtils.isEmpty(str) && str.toUpperCase(Locale.getDefault()).contains("FLYME")) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isMagicBoxDevice() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) {
+            String str = Build.MANUFACTURER;
+            String str2 = Build.PRODUCT;
+            if (str.equalsIgnoreCase("MagicBox") && str2.equalsIgnoreCase("MagicBox")) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isMiBox2Device() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) {
+            String str = Build.MANUFACTURER;
+            String str2 = Build.PRODUCT;
+            if (str.equalsIgnoreCase("Xiaomi") && str2.equalsIgnoreCase("dredd")) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isMiui() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
+            return check("MIUI");
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isNubia() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
+            return check(ROM_NUBIA);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isOppo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) {
+            return check("OPPO");
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isSmartisan() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) {
+            return check("SMARTISAN");
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isVivo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) {
+            return check("VIVO");
+        }
+        return invokeV.booleanValue;
+    }
+
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     public static String check() {
         InterceptResult invokeV;
@@ -202,212 +388,6 @@ public class RomUtils {
         return (String) invokeV.objValue;
     }
 
-    public static String getDeviceBrand() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? Build.BRAND : (String) invokeV.objValue;
-    }
-
-    public static String getDeviceModel() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? Build.MODEL : (String) invokeV.objValue;
-    }
-
-    public static String getDeviceName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? Build.PRODUCT : (String) invokeV.objValue;
-    }
-
-    public static String getIncrementalVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? getProp(PROP_RO_BUILD_VERSION_INCREMENTAL) : (String) invokeV.objValue;
-    }
-
-    public static String getManufacturer() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? Build.MANUFACTURER : (String) invokeV.objValue;
-    }
-
-    public static String getName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            String str = sRomName;
-            return str == null ? check() : str;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String getOtherRomName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            String str = Build.DISPLAY;
-            sRomVersion = str;
-            if (str.toUpperCase(Locale.getDefault()).contains("FLYME")) {
-                sRomName = "FLYME";
-            } else {
-                sRomVersion = "unknown";
-                sRomName = Build.MANUFACTURER.toUpperCase(Locale.getDefault());
-            }
-            return sRomName;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: Not initialized variable reg: 2, insn: 0x0064: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:26:0x0064 */
-    /* JADX WARN: Removed duplicated region for block: B:42:0x0067 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static String getProp(String str) {
-        InterceptResult invokeL;
-        BufferedReader bufferedReader;
-        BufferedReader bufferedReader2;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65546, null, str)) != null) {
-            return (String) invokeL.objValue;
-        }
-        BufferedReader bufferedReader3 = null;
-        try {
-            try {
-                bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("getprop " + str).getInputStream()));
-                try {
-                    String readLine = bufferedReader.readLine();
-                    bufferedReader.close();
-                    try {
-                        bufferedReader.close();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    return readLine;
-                } catch (IOException e2) {
-                    e = e2;
-                    Log.e("Rom", "Unable to read prop " + str, e);
-                    if (bufferedReader != null) {
-                        try {
-                            bufferedReader.close();
-                        } catch (IOException e3) {
-                            e3.printStackTrace();
-                        }
-                    }
-                    return null;
-                }
-            } catch (Throwable th) {
-                th = th;
-                bufferedReader3 = bufferedReader2;
-                if (bufferedReader3 != null) {
-                    try {
-                        bufferedReader3.close();
-                    } catch (IOException e4) {
-                        e4.printStackTrace();
-                    }
-                }
-                throw th;
-            }
-        } catch (IOException e5) {
-            e = e5;
-            bufferedReader = null;
-        } catch (Throwable th2) {
-            th = th2;
-            if (bufferedReader3 != null) {
-            }
-            throw th;
-        }
-    }
-
-    public static String getVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            if (sRomVersion == null) {
-                check();
-            }
-            return sRomVersion;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean is360() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? check("QIKU") || check("360") : invokeV.booleanValue;
-    }
-
-    public static boolean isEmui() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? check("EMUI") : invokeV.booleanValue;
-    }
-
-    public static boolean isFlyme() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? check("FLYME") : invokeV.booleanValue;
-    }
-
-    public static boolean isFlymeQuickly() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
-            String str = Build.DISPLAY;
-            return !TextUtils.isEmpty(str) && str.toUpperCase(Locale.getDefault()).contains("FLYME");
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean isMagicBoxDevice() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) {
-            return Build.MANUFACTURER.equalsIgnoreCase("MagicBox") && Build.PRODUCT.equalsIgnoreCase("MagicBox");
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean isMiBox2Device() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) {
-            return Build.MANUFACTURER.equalsIgnoreCase("Xiaomi") && Build.PRODUCT.equalsIgnoreCase("dredd");
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean isMiui() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) ? check("MIUI") : invokeV.booleanValue;
-    }
-
-    public static boolean isNubia() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) ? check(ROM_NUBIA) : invokeV.booleanValue;
-    }
-
-    public static boolean isOppo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) ? check("OPPO") : invokeV.booleanValue;
-    }
-
-    public static boolean isSmartisan() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) ? check("SMARTISAN") : invokeV.booleanValue;
-    }
-
-    public static boolean isVivo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) ? check("VIVO") : invokeV.booleanValue;
-    }
-
     public static boolean check(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -469,5 +449,84 @@ public class RomUtils {
             return sRomName.equals(str);
         }
         return invokeL.booleanValue;
+    }
+
+    public static String getOtherRomName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            String str = Build.DISPLAY;
+            sRomVersion = str;
+            if (str.toUpperCase(Locale.getDefault()).contains("FLYME")) {
+                sRomName = "FLYME";
+            } else {
+                sRomVersion = "unknown";
+                sRomName = Build.MANUFACTURER.toUpperCase(Locale.getDefault());
+            }
+            return sRomName;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: Not initialized variable reg: 2, insn: 0x0064: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:26:0x0064 */
+    /* JADX WARN: Removed duplicated region for block: B:42:0x0067 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static String getProp(String str) {
+        InterceptResult invokeL;
+        BufferedReader bufferedReader;
+        BufferedReader bufferedReader2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
+            BufferedReader bufferedReader3 = null;
+            try {
+                try {
+                    bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("getprop " + str).getInputStream()));
+                    try {
+                        String readLine = bufferedReader.readLine();
+                        bufferedReader.close();
+                        try {
+                            bufferedReader.close();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        return readLine;
+                    } catch (IOException e2) {
+                        e = e2;
+                        Log.e("Rom", "Unable to read prop " + str, e);
+                        if (bufferedReader != null) {
+                            try {
+                                bufferedReader.close();
+                            } catch (IOException e3) {
+                                e3.printStackTrace();
+                            }
+                        }
+                        return null;
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    bufferedReader3 = bufferedReader2;
+                    if (bufferedReader3 != null) {
+                        try {
+                            bufferedReader3.close();
+                        } catch (IOException e4) {
+                            e4.printStackTrace();
+                        }
+                    }
+                    throw th;
+                }
+            } catch (IOException e5) {
+                e = e5;
+                bufferedReader = null;
+            } catch (Throwable th2) {
+                th = th2;
+                if (bufferedReader3 != null) {
+                }
+                throw th;
+            }
+        } else {
+            return (String) invokeL.objValue;
+        }
     }
 }

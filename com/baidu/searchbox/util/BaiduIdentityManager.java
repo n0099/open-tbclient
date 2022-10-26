@@ -1,6 +1,5 @@
 package com.baidu.searchbox.util;
 
-import android.annotation.SuppressLint;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -31,14 +30,14 @@ import com.baidu.searchbox.abtest.AbTestManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.tieba.a20;
 import com.baidu.tieba.a9;
 import com.baidu.tieba.b20;
-import com.baidu.tieba.r10;
+import com.baidu.tieba.c20;
 import com.baidu.tieba.s10;
-import com.baidu.tieba.s20;
 import com.baidu.tieba.t10;
-import com.baidu.tieba.x10;
+import com.baidu.tieba.t20;
+import com.baidu.tieba.u10;
+import com.baidu.tieba.y10;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -118,32 +117,38 @@ public final class BaiduIdentityManager {
     public static final String PARAM_ZID = "zid";
     public static final String PREFS_NAME = "identity";
     public static final int PRIVACY_VERSION_V1 = 1;
-    public static final Set<String> SEARCHBOX_CUSTOM_PARAMS;
+    public static final Set SEARCHBOX_CUSTOM_PARAMS;
     public static final int SUGGESTION_VERSION = 3;
     public static final String TAG = "BaiduIdentityManager";
     public static final String VALUE_OSNAME = "baiduboxapp";
     public static BaiduIdentityManager sIdentityManager;
     public transient /* synthetic */ FieldHolder $fh;
-    public s10 customOSParam;
+    public t10 customOSParam;
     public String mAndroidId;
     public volatile String mC3Aid;
     public CT mCT;
-    @SuppressLint({"StaticFieldLeak"})
     public Context mContext;
-    public t10 mDeviceInfoParam;
+    public u10 mDeviceInfoParam;
     public String mEnAndroidId;
     public String mEnUa;
     public IBaiduIdentityContext mIdentityContextImpl;
     public String mLastTn;
-    public HashMap<String, String> mProcessedUa;
+    public HashMap mProcessedUa;
     public SharedPreferences mSettings;
     public String mTn;
     public String mUa;
     public String mVersionName;
 
+    @Deprecated
+    public String getImsiInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? "" : (String) invokeV.objValue;
+    }
+
     /* renamed from: com.baidu.searchbox.util.BaiduIdentityManager$3  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass3 {
+    public /* synthetic */ class AnonymousClass3 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$browser$BrowserType;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -229,6 +234,63 @@ public final class BaiduIdentityManager {
         SEARCHBOX_CUSTOM_PARAMS.add(PARAM_PU);
     }
 
+    public void checkTnTrace() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+            Context context = this.mContext;
+            if (DEBUG) {
+                Log.e(TAG, "mLastTn: " + getLastTn());
+                Log.e(TAG, "TnTrace: " + getTnTrace());
+            }
+            if (this.mIdentityContextImpl.isSelfUpdateInstalled(context)) {
+                return;
+            }
+            this.mLastTn = getLastTn(context);
+            if (DEBUG) {
+                Log.e(TAG, "update mLastTn: " + this.mLastTn);
+                Log.e(TAG, "update TnTrace: " + getTnTrace());
+            }
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:13:0x002b, code lost:
+        r0 = r3.getHostAddress().toString();
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public String getIpInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
+            String str = null;
+            try {
+                Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
+                loop0: while (true) {
+                    if (!networkInterfaces.hasMoreElements()) {
+                        break;
+                    }
+                    Enumeration<InetAddress> inetAddresses = networkInterfaces.nextElement().getInetAddresses();
+                    while (inetAddresses.hasMoreElements()) {
+                        InetAddress nextElement = inetAddresses.nextElement();
+                        if (!nextElement.isLoopbackAddress()) {
+                            break loop0;
+                        }
+                    }
+                }
+            } catch (Exception e) {
+                if (DEBUG) {
+                    Log.e(TAG, "getIpInfo fail!" + e.toString());
+                }
+            }
+            if (TextUtils.isEmpty(str)) {
+                return "";
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
     public BaiduIdentityManager(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -246,14 +308,262 @@ public final class BaiduIdentityManager {
         }
         this.mEnAndroidId = null;
         this.mC3Aid = null;
-        this.mProcessedUa = new HashMap<>(2);
+        this.mProcessedUa = new HashMap(2);
         init(context);
+    }
+
+    private void addTnTrace(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, this, str) == null) {
+            String string = this.mSettings.getString(KEY_TN_TRACE, "");
+            if (!TextUtils.isEmpty(string)) {
+                str = string + "_" + str;
+            }
+            SharedPreferences.Editor edit = this.mSettings.edit();
+            edit.putString(KEY_TN_TRACE, str);
+            edit.commit();
+        }
+    }
+
+    private String getApkTn(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, this, context)) == null) {
+            String tn = this.mIdentityContextImpl.getTn(context);
+            if (DEBUG) {
+                Log.d(TAG, "load tn from R.raw.tnconfig, tn = " + tn);
+            }
+            if (TextUtils.isEmpty(tn)) {
+                return "757b";
+            }
+            return tn;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public String getVersionCode(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048625, this, context)) == null) {
+            try {
+                PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
+                return packageInfo.versionCode + "";
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
+                return "-1";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public String processAppSearchUrl(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048631, this, str)) == null) {
+            String addFromParam = addFromParam(str);
+            if (DEBUG) {
+                Log.d(TAG, "url: " + addFromParam);
+            }
+            return addFromParam;
+        }
+        return (String) invokeL.objValue;
     }
 
     private String addFromParam(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) ? addParam(str, "from", getTn()) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
+            return addParam(str, "from", getTn());
+        }
+        return (String) invokeL.objValue;
+    }
+
+    private String addPackageNameParam(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str)) == null) {
+            return addParam(str, "pkgname", this.mIdentityContextImpl.getPkgName());
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String clearCustomParams(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
+            return UrlUtil.deleteParam(str, SEARCHBOX_CUSTOM_PARAMS);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    private String generateUID(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, this, context)) == null) {
+            return CommonParam.getCUID(context);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Deprecated
+    public static synchronized BaiduIdentityManager getInstance(Context context) {
+        InterceptResult invokeL;
+        BaiduIdentityManager baiduIdentityManager;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, context)) == null) {
+            synchronized (BaiduIdentityManager.class) {
+                baiduIdentityManager = getInstance();
+            }
+            return baiduIdentityManager;
+        }
+        return (BaiduIdentityManager) invokeL.objValue;
+    }
+
+    private String getVersionName(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65558, this, context)) == null) {
+            try {
+                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
+                return "0.8";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    private String reverseString(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65562, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
+            }
+            StringBuilder sb = new StringBuilder(str);
+            sb.reverse();
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public String addBDVC(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            String bDVCInfo = this.mIdentityContextImpl.getBDVCInfo();
+            if (TextUtils.isEmpty(bDVCInfo)) {
+                return str;
+            }
+            return addParam(str, "bdvc", bDVCInfo);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public String addCfromParam(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return addParam(str, "cfrom", getLastTn());
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public String addLightAppFrameworkParam(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return addParam(str, PARAM_BD_FRAMEWORK, "1");
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public String addLocStringIfJoinUserExperience(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            if (this.mIdentityContextImpl.getJoinUserExperiencePreference(this.mContext)) {
+                return addLocString(str, true);
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public String addTsParam(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
+            return addParam(str, "ts", getLightAppTsParam());
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public String addVipLightAppParam(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
+            return addParam(str, PARAM_BD_VIP, "1");
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public String addZid(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) {
+            String zid = this.mIdentityContextImpl.getZid();
+            if (TextUtils.isEmpty(zid)) {
+                return str;
+            }
+            return addParam(str, "zid", b20.a(zid));
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public String getApInfo(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048601, this, z)) == null) {
+            return getApInfo(z, 6);
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public String processTypeSuggestionUrl(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048632, this, str)) == null) {
+            return addParam(str, "v", Integer.toString(3));
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public String processUrl(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048633, this, str)) == null) {
+            return processUrl(str, true, true, 0);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public String processUrlWithoutNetwork(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048636, this, str)) == null) {
+            return processUrl(str, false, true, 0);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public String processUrlWithoutSid(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048637, this, str)) == null) {
+            return processUrl(str, true, false, 0);
+        }
+        return (String) invokeL.objValue;
     }
 
     private String addKey2Cen(String str, String str2) {
@@ -266,32 +576,6 @@ public final class BaiduIdentityManager {
             return str + "_" + str2.replace("_", "-");
         }
         return (String) invokeLL.objValue;
-    }
-
-    private String addPackageNameParam(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str)) == null) ? addParam(str, "pkgname", this.mIdentityContextImpl.getPkgName()) : (String) invokeL.objValue;
-    }
-
-    private String addParamByEncode(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, this, str, str2, str3)) == null) ? TextUtils.isEmpty(str3) ? str : UrlUtil.addParam(str, str2, a20.a(str3)) : (String) invokeLLL.objValue;
-    }
-
-    @SuppressLint({"ApplySharedPref"})
-    private void addTnTrace(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, this, str) == null) {
-            String string = this.mSettings.getString(KEY_TN_TRACE, "");
-            if (!TextUtils.isEmpty(string)) {
-                str = string + "_" + str;
-            }
-            SharedPreferences.Editor edit = this.mSettings.edit();
-            edit.putString(KEY_TN_TRACE, str);
-            edit.commit();
-        }
     }
 
     private String addUAParamNoEncode(String str, String str2) {
@@ -309,6 +593,89 @@ public final class BaiduIdentityManager {
         return (String) invokeLL.objValue;
     }
 
+    public String addParams(HashMap hashMap, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, hashMap, str)) == null) {
+            if (hashMap != null) {
+                for (String str2 : hashMap.keySet()) {
+                    str = addParam(str, str2, (String) hashMap.get(str2));
+                }
+            }
+            return str;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public String processUserAgent(String str, BrowserType browserType) {
+        InterceptResult invokeLL;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048638, this, str, browserType)) == null) {
+            int i = AnonymousClass3.$SwitchMap$com$baidu$browser$BrowserType[browserType.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            str2 = null;
+                        } else {
+                            str2 = "rabbit/1.0_lite";
+                        }
+                    } else {
+                        str2 = "rabbit/1.0";
+                    }
+                } else {
+                    str2 = "search/1.0";
+                }
+            } else {
+                str2 = "light/1.0";
+            }
+            return c20.f().c(str, str2);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    private String addParamByEncode(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, this, str, str2, str3)) == null) {
+            if (TextUtils.isEmpty(str3)) {
+                return str;
+            }
+            return UrlUtil.addParam(str, str2, b20.a(str3));
+        }
+        return (String) invokeLLL.objValue;
+    }
+
+    public String addParam(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, str3)) == null) {
+            return UrlUtil.addParam(str, str2, str3);
+        }
+        return (String) invokeLLL.objValue;
+    }
+
+    public String addParamWithUrlEncode(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, str, str2, str3)) == null) {
+            return UrlUtil.addParam(str, str2, b20.a(str3));
+        }
+        return (String) invokeLLL.objValue;
+    }
+
+    public String replaceParam(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048642, this, str, str2, str3)) == null) {
+            HashSet hashSet = new HashSet();
+            hashSet.add(str2);
+            return addParam(UrlUtil.deleteParam(str, hashSet), str2, str3);
+        }
+        return (String) invokeLLL.objValue;
+    }
+
     private String addUserAgentParam(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -323,65 +690,468 @@ public final class BaiduIdentityManager {
         return (String) invokeLL.objValue;
     }
 
-    public static String clearCustomParams(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) ? UrlUtil.deleteParam(str, SEARCHBOX_CUSTOM_PARAMS) : (String) invokeL.objValue;
-    }
-
     private String crcSign(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65546, this, str, str2)) == null) ? CommonUrlParamManager.crcSign(str, str2) : (String) invokeLL.objValue;
-    }
-
-    private String generateUID(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65547, this, context)) == null) ? CommonParam.getCUID(context) : (String) invokeL.objValue;
-    }
-
-    private String getApkTn(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, this, context)) == null) {
-            String tn = this.mIdentityContextImpl.getTn(context);
-            if (DEBUG) {
-                Log.d(TAG, "load tn from R.raw.tnconfig, tn = " + tn);
-            }
-            return TextUtils.isEmpty(tn) ? "757b" : tn;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, this, str, str2)) == null) {
+            return CommonUrlParamManager.crcSign(str, str2);
         }
-        return (String) invokeL.objValue;
+        return (String) invokeLL.objValue;
     }
 
-    private t10 getDeviceInfoParam() {
+    public String addDebugParam(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+            return addParam(str, "debug", str2);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public String addLocString(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048581, this, str, z)) == null) {
+            return addLocString(str, z, 6);
+        }
+        return (String) invokeLZ.objValue;
+    }
+
+    public String addSearchSourceParam(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, str, str2)) == null) {
+            return addPuParam(str, CSRC, str2);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public String addServiceParam(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, str, str2)) == null) {
+            return addParam(str, "service", str2);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public String appendParam(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048594, this, str, i)) == null) {
+            if (s10.b().h()) {
+                return urlAppendParam(str, i);
+            }
+            return processUrl(str);
+        }
+        return (String) invokeLI.objValue;
+    }
+
+    public String deleteParams(String str, Set set) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048597, this, str, set)) == null) {
+            return UrlUtil.deleteParam(str, set);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public String getApInfo(boolean z, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048602, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
+            return getApInfo(z, i, "UTF-8");
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    public String processWebSearchUrl(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048640, this, str, z)) == null) {
+            return processWebSearchUrl(str, 0, z);
+        }
+        return (String) invokeLZ.objValue;
+    }
+
+    public String processWidgetUrl(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048641, this, str, str2)) == null) {
+            return processUrl(addParam(str, "widget", str2));
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public String urlAppendParam(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048645, this, str, i)) == null) {
+            return processUrl(str, true, true, i);
+        }
+        return (String) invokeLI.objValue;
+    }
+
+    private u10 getDeviceInfoParam() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65549, this)) == null) {
             if (this.mDeviceInfoParam == null) {
                 synchronized (this) {
                     if (this.mDeviceInfoParam == null) {
-                        this.mDeviceInfoParam = new t10();
+                        this.mDeviceInfoParam = new u10();
                     }
                 }
             }
             return this.mDeviceInfoParam;
         }
-        return (t10) invokeV.objValue;
+        return (u10) invokeV.objValue;
     }
 
-    @Deprecated
-    public static synchronized BaiduIdentityManager getInstance(Context context) {
-        InterceptResult invokeL;
+    public static synchronized BaiduIdentityManager getInstance() {
+        InterceptResult invokeV;
         BaiduIdentityManager baiduIdentityManager;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, context)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
             synchronized (BaiduIdentityManager.class) {
-                baiduIdentityManager = getInstance();
+                if (sIdentityManager == null) {
+                    sIdentityManager = new BaiduIdentityManager(AppRuntime.getAppContext());
+                }
+                baiduIdentityManager = sIdentityManager;
             }
             return baiduIdentityManager;
         }
-        return (BaiduIdentityManager) invokeL.objValue;
+        return (BaiduIdentityManager) invokeV.objValue;
+    }
+
+    @Deprecated
+    public long getActiveSuccTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return BaiduActiveManager.getInstance().getActiveSuccTime();
+        }
+        return invokeV.longValue;
+    }
+
+    @Deprecated
+    public String getActiveTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            return BaiduActiveManager.getInstance().getActiveTime();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getAndroidId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            String string = ApiReplaceUtil.Overload.getString(this.mContext.getContentResolver(), HttpRequest.ANDROID_ID);
+            if (TextUtils.isEmpty(string)) {
+                return "0";
+            }
+            return string;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Deprecated
+    public String getCurrentNetTypeId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+            return new y10().a();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getDeviceInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+            return getDeviceInfoParam().a();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public synchronized String getEnUA() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
+            synchronized (this) {
+                str = this.mEnUa;
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getEnUid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
+            return AppCuidManager.getInstance().getEnCuid();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getLastTn() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
+            if (this.mLastTn == null) {
+                this.mLastTn = getLastTn(this.mContext);
+            }
+            return this.mLastTn;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getLocationInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
+            String locationInfo = this.mIdentityContextImpl.getLocationInfo(this.mContext);
+            if (TextUtils.isEmpty(locationInfo)) {
+                return "0.000000,0.000000,---";
+            }
+            return locationInfo;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getManufacturer() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
+            return getDeviceInfoParam().c();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getModel() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
+            return getDeviceInfoParam().d();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getOSVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
+            return getDeviceInfoParam().e();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getOriginUserAgent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
+            return c20.f().g();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getOsBranch() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
+            return this.mIdentityContextImpl.getOsBranch();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getSwanNativeVersionGroup() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) {
+            if (SwanDataRuntime.getISwanData() != null) {
+                return SwanDataRuntime.getISwanData().getSwanNativeVersionGroup();
+            }
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getTn() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) {
+            if (this.mTn == null) {
+                this.mTn = getTn(this.mContext);
+            }
+            return this.mTn;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getTnTrace() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) {
+            String string = this.mSettings.getString(KEY_TN_TRACE, "");
+            if (TextUtils.isEmpty(string)) {
+                return getLastTn();
+            }
+            return string;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public synchronized String getUA() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) {
+            synchronized (this) {
+                str = this.mUa;
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getUid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
+            return AppCuidManager.getInstance().getCuid();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getVersionName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) {
+            return this.mVersionName;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getZid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) {
+            return this.mIdentityContextImpl.getZid();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public synchronized void initUAS() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048629, this) == null) {
+            synchronized (this) {
+                this.mUa = getUA(this.mContext);
+                this.mEnUa = new String(Base64Encoder.B64Encode(this.mUa.getBytes()));
+            }
+        }
+    }
+
+    @Deprecated
+    public boolean isActiveSucc() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) {
+            return BaiduActiveManager.getInstance().isActiveSucc();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Deprecated
+    public void setCUIDCookie() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048643, this) == null) {
+            new CuidCookieSync().setCUIDCookie();
+        }
+    }
+
+    private String getLastTn(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, this, context)) == null) {
+            String string = this.mSettings.getString(KEY_LAST_TN, "");
+            String apkTn = getApkTn(context);
+            if (!(!TextUtils.equals(string, apkTn)) && !TextUtils.isEmpty(string)) {
+                if (DEBUG) {
+                    Log.d(TAG, "load tn from local, lastTn = " + string);
+                    return string;
+                }
+                return string;
+            }
+            SharedPreferences.Editor edit = this.mSettings.edit();
+            edit.putString(KEY_LAST_TN, apkTn);
+            edit.commit();
+            addTnTrace(apkTn);
+            if (DEBUG) {
+                Log.d(TAG, "load tn from apk, lastTn = " + apkTn);
+            }
+            return apkTn;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    private String getUA(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65557, this, context)) == null) {
+            int displayWidth = DeviceUtil.ScreenInfo.getDisplayWidth(context);
+            int displayHeight = DeviceUtil.ScreenInfo.getDisplayHeight(context);
+            int densityDpi = DeviceUtil.ScreenInfo.getDensityDpi(context);
+            StringBuffer stringBuffer = new StringBuffer();
+            stringBuffer.append(displayWidth);
+            stringBuffer.append("_");
+            stringBuffer.append(displayHeight);
+            stringBuffer.append("_");
+            stringBuffer.append("android");
+            stringBuffer.append("_");
+            stringBuffer.append(this.mVersionName);
+            stringBuffer.append("_");
+            stringBuffer.append(densityDpi);
+            String stringBuffer2 = stringBuffer.toString();
+            if (DEBUG) {
+                Log.d(TAG, "ua = " + stringBuffer2);
+            }
+            return stringBuffer2;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public String addLocParam(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
+            }
+            if (!this.mIdentityContextImpl.getPrivacySwitch(this.mContext)) {
+                return str;
+            }
+            String apInfo = getApInfo(false, 6);
+            if (!TextUtils.isEmpty(apInfo)) {
+                HashSet hashSet = new HashSet();
+                hashSet.add(LOCINFO_STRING);
+                String deleteParam = UrlUtil.deleteParam(str, hashSet);
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("time", System.currentTimeMillis());
+                    jSONObject.put("apinfo", apInfo);
+                    return addParam(deleteParam, LOCINFO_STRING, b20.a(jSONObject.toString()));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    return deleteParam;
+                }
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
     }
 
     private String getLightAppTsParam() {
@@ -444,10 +1214,16 @@ public final class BaiduIdentityManager {
                         public boolean accept(File file) {
                             InterceptResult invokeL;
                             Interceptable interceptable2 = $ic;
-                            return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, file)) == null) ? (file == null || TextUtils.isEmpty(file.getName())) ? false : true : invokeL.booleanValue;
+                            if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, file)) == null) {
+                                if (file != null && !TextUtils.isEmpty(file.getName())) {
+                                    return true;
+                                }
+                                return false;
+                            }
+                            return invokeL.booleanValue;
                         }
                     });
-                    Arrays.sort(listFiles, new Comparator<File>(this) { // from class: com.baidu.searchbox.util.BaiduIdentityManager.2
+                    Arrays.sort(listFiles, new Comparator(this) { // from class: com.baidu.searchbox.util.BaiduIdentityManager.2
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ BaiduIdentityManager this$0;
@@ -475,7 +1251,10 @@ public final class BaiduIdentityManager {
                         public int compare(File file, File file2) {
                             InterceptResult invokeLL;
                             Interceptable interceptable2 = $ic;
-                            return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, file, file2)) == null) ? (int) (file.lastModified() - file2.lastModified()) : invokeLL.intValue;
+                            if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, file, file2)) == null) {
+                                return (int) (file.lastModified() - file2.lastModified());
+                            }
+                            return invokeLL.intValue;
                         }
                     });
                     byteArrayOutputStream = new ByteArrayOutputStream(1024);
@@ -525,7 +1304,10 @@ public final class BaiduIdentityManager {
             }
             Closeables.closeSafely(dataOutputStream);
             Closeables.closeSafely(byteArrayOutputStream);
-            return !TextUtils.isEmpty(str) ? "" : str;
+            if (!TextUtils.isEmpty(str)) {
+                return "";
+            }
+            return str;
         }
         return (String) invokeV.objValue;
     }
@@ -623,45 +1405,46 @@ public final class BaiduIdentityManager {
                 cursor = null;
                 int i = 0;
                 while (true) {
-                    if (i >= 2) {
+                    if (i < 2) {
+                        try {
+                            int i2 = i;
+                            Cursor query = contentResolver.query(uriArr[i], strArr, null, null, "date_modified DESC LIMIT 10");
+                            if (query != null) {
+                                try {
+                                    if (query.moveToFirst()) {
+                                        break;
+                                    }
+                                } catch (Exception e) {
+                                    e = e;
+                                    byteArrayOutputStream = null;
+                                    dataOutputStream = null;
+                                } catch (Throwable th) {
+                                    th = th;
+                                    byteArrayOutputStream = null;
+                                    dataOutputStream = null;
+                                }
+                            }
+                            Closeables.closeSafely(query);
+                            i = i2 + 1;
+                            cursor = query;
+                        } catch (Exception e2) {
+                            e = e2;
+                            byteArrayOutputStream = null;
+                            dataOutputStream = null;
+                        } catch (Throwable th2) {
+                            th = th2;
+                            byteArrayOutputStream = null;
+                            dataOutputStream = null;
+                            cursor2 = cursor;
+                            Closeables.closeSafely(cursor2);
+                            Closeables.closeSafely(dataOutputStream);
+                            Closeables.closeSafely(byteArrayOutputStream);
+                            throw th;
+                        }
+                    } else {
                         str = null;
                         byteArrayOutputStream = null;
                         break;
-                    }
-                    try {
-                        int i2 = i;
-                        Cursor query = contentResolver.query(uriArr[i], strArr, null, null, "date_modified DESC LIMIT 10");
-                        if (query != null) {
-                            try {
-                                if (query.moveToFirst()) {
-                                    break;
-                                }
-                            } catch (Exception e) {
-                                e = e;
-                                byteArrayOutputStream = null;
-                                dataOutputStream = null;
-                            } catch (Throwable th) {
-                                th = th;
-                                byteArrayOutputStream = null;
-                                dataOutputStream = null;
-                            }
-                        }
-                        Closeables.closeSafely(query);
-                        i = i2 + 1;
-                        cursor = query;
-                    } catch (Exception e2) {
-                        e = e2;
-                        byteArrayOutputStream = null;
-                        dataOutputStream = null;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        byteArrayOutputStream = null;
-                        dataOutputStream = null;
-                        cursor2 = cursor;
-                        Closeables.closeSafely(cursor2);
-                        Closeables.closeSafely(dataOutputStream);
-                        Closeables.closeSafely(byteArrayOutputStream);
-                        throw th;
                     }
                 }
                 Closeables.closeSafely(cursor);
@@ -678,12 +1461,14 @@ public final class BaiduIdentityManager {
                 byteArrayOutputStream = null;
                 dataOutputStream = null;
             }
-            return !TextUtils.isEmpty(str2) ? "" : str2;
+            if (!TextUtils.isEmpty(str2)) {
+                return "";
+            }
+            return str2;
         }
         return (String) invokeV.objValue;
     }
 
-    @SuppressLint({"ApplySharedPref"})
     private String getTn(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -698,52 +1483,14 @@ public final class BaiduIdentityManager {
             } else {
                 string = loadTn("tnconfig", string, isEmpty, isNeedReloadTN);
             }
-            return TextUtils.isEmpty(string) ? "757b" : string;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    private String getUA(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65557, this, context)) == null) {
-            int displayWidth = DeviceUtil.ScreenInfo.getDisplayWidth(context);
-            int displayHeight = DeviceUtil.ScreenInfo.getDisplayHeight(context);
-            int densityDpi = DeviceUtil.ScreenInfo.getDensityDpi(context);
-            StringBuffer stringBuffer = new StringBuffer();
-            stringBuffer.append(displayWidth);
-            stringBuffer.append("_");
-            stringBuffer.append(displayHeight);
-            stringBuffer.append("_");
-            stringBuffer.append("android");
-            stringBuffer.append("_");
-            stringBuffer.append(this.mVersionName);
-            stringBuffer.append("_");
-            stringBuffer.append(densityDpi);
-            String stringBuffer2 = stringBuffer.toString();
-            if (DEBUG) {
-                Log.d(TAG, "ua = " + stringBuffer2);
+            if (TextUtils.isEmpty(string)) {
+                return "757b";
             }
-            return stringBuffer2;
+            return string;
         }
         return (String) invokeL.objValue;
     }
 
-    private String getVersionName(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65558, this, context)) == null) {
-            try {
-                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-            } catch (PackageManager.NameNotFoundException e) {
-                e.printStackTrace();
-                return "0.8";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
     private void init(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65559, this, context) == null) {
@@ -752,13 +1499,61 @@ public final class BaiduIdentityManager {
             this.mVersionName = getVersionName(context);
             initUAS();
             this.mCT = new CT();
-            this.customOSParam = new s10();
+            this.customOSParam = new t10();
             IBaiduIdentityContext baiduIdentityContext = BaiduIdentityRuntime.getBaiduIdentityContext();
             this.mIdentityContextImpl = baiduIdentityContext;
             if (DEBUG && baiduIdentityContext == null) {
                 throw new RuntimeException("BaiduIdentityContext obtain Failed !!");
             }
         }
+    }
+
+    public String addSid(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
+            ArrayList<a9> experimentInfoList = AbTestManager.getInstance().getExperimentInfoList();
+            if (experimentInfoList != null && !experimentInfoList.isEmpty()) {
+                StringBuilder sb = new StringBuilder();
+                for (a9 a9Var : experimentInfoList) {
+                    sb.append(a9Var.c());
+                    sb.append("_");
+                    sb.append(a9Var.b());
+                    sb.append("-");
+                }
+                return addParam(str, "sid", sb.substring(0, sb.length() - 1));
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public String processUrlInJson(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048634, this, str)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    String string = jSONObject.getString("mode");
+                    String string2 = jSONObject.getString("url");
+                    if (!TextUtils.isEmpty(string) && !TextUtils.isEmpty(string2)) {
+                        if (string.equals("search")) {
+                            return processWebSearchUrl(string2, true);
+                        }
+                        if (!string.equals(FileUtils.SEARCHBOX_FOLDER)) {
+                            return null;
+                        }
+                        return processUrl(string2);
+                    }
+                    return null;
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
     }
 
     private String loadTn(String str, String str2, boolean z, boolean z2) {
@@ -796,21 +1591,21 @@ public final class BaiduIdentityManager {
         String str7;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65561, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i)})) == null) {
-            String a = a20.a(getEnUA());
+            String a = b20.a(getEnUA());
             String str8 = null;
             String addKey2Cen = addKey2Cen(null, "ua");
-            t10 deviceInfoParam = getDeviceInfoParam();
+            u10 deviceInfoParam = getDeviceInfoParam();
             String addServiceParam = addServiceParam(str, PARAM_SERVICE);
             if (this.mIdentityContextImpl.isAgreePrivacy()) {
-                String a2 = a20.a(getEnUid());
+                String a2 = b20.a(getEnUid());
                 addKey2Cen = addKey2Cen(addKey2Cen, "uid");
                 addServiceParam = addParam(addServiceParam, "uid", a2);
             }
             String addFromParam = addFromParam(addServiceParam);
             String appName = AppIdentityManager.getInstance().getAppName();
-            x10 x10Var = new x10();
+            y10 y10Var = new y10();
             boolean z3 = true;
-            x10Var.g(true);
+            y10Var.g(true);
             if (i == 1) {
                 boolean z4 = false;
                 if (deviceInfoParam.j()) {
@@ -823,27 +1618,27 @@ public final class BaiduIdentityManager {
                     f = deviceInfoParam.f();
                     z4 = true;
                 }
-                if (x10Var.e()) {
+                if (y10Var.e()) {
                     str4 = null;
                     boolean z5 = z4;
-                    c = x10Var.c();
+                    c = y10Var.c();
                     z3 = z5;
                 } else {
-                    str4 = String.valueOf(x10Var.d());
+                    str4 = String.valueOf(y10Var.d());
                     c = null;
                 }
                 if (z3) {
                     if (TextUtils.isEmpty(b)) {
-                        str2 = crcSign(deviceInfoParam.a(), x10Var.b());
+                        str2 = crcSign(deviceInfoParam.a(), y10Var.b());
                     } else {
-                        str2 = crcSign(deviceInfoParam.b(), x10Var.c());
+                        str2 = crcSign(deviceInfoParam.b(), y10Var.c());
                     }
                     str7 = String.valueOf(i);
                 } else {
                     str2 = null;
                     str7 = null;
                 }
-                if (r10.b().e()) {
+                if (s10.b().e()) {
                     if (this.customOSParam.b()) {
                         str7 = String.valueOf(i);
                     } else {
@@ -857,9 +1652,9 @@ public final class BaiduIdentityManager {
                 str8 = f;
             } else {
                 b = deviceInfoParam.b();
-                c = x10Var.c();
+                c = y10Var.c();
                 String addKey2Cen2 = addKey2Cen(addKey2Cen, "ut");
-                if (r10.b().e()) {
+                if (s10.b().e()) {
                     str4 = null;
                     str5 = addKey2Cen2;
                     str3 = this.customOSParam.a();
@@ -881,7 +1676,7 @@ public final class BaiduIdentityManager {
             if (this.mIdentityContextImpl.isAgreePrivacy()) {
                 String passUid = this.mIdentityContextImpl.getPassUid(this.mContext);
                 if (!TextUtils.isEmpty(passUid)) {
-                    addParam2 = addParam(addParam2, PARAM_PASSUID, a20.a(new String(Base64Encoder.B64Encode(passUid.getBytes()))));
+                    addParam2 = addParam(addParam2, PARAM_PASSUID, b20.a(new String(Base64Encoder.B64Encode(passUid.getBytes()))));
                 }
             }
             if (z2) {
@@ -893,7 +1688,7 @@ public final class BaiduIdentityManager {
                     this.mC3Aid = getC3Aid();
                 }
                 if (!TextUtils.isEmpty(this.mC3Aid)) {
-                    addBDVC = addParam(addBDVC, "c3_aid", a20.a(this.mC3Aid));
+                    addBDVC = addParam(addBDVC, "c3_aid", b20.a(this.mC3Aid));
                 }
                 addParamByEncode = addZid(addBDVC);
             } else {
@@ -907,20 +1702,6 @@ public final class BaiduIdentityManager {
             return this.mIdentityContextImpl.processUrlExternal(addParamByEncode(addParam3, "bdos", str3), z);
         }
         return (String) invokeCommon.objValue;
-    }
-
-    private String reverseString(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65562, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
-            }
-            StringBuilder sb = new StringBuilder(str);
-            sb.reverse();
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
     }
 
     private void saveApinfoToFileForDebug(String str) {
@@ -985,97 +1766,23 @@ public final class BaiduIdentityManager {
         }
     }
 
-    public String addBDVC(String str) {
-        InterceptResult invokeL;
+    public String addLocString(String str, boolean z, int i) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            String bDVCInfo = this.mIdentityContextImpl.getBDVCInfo();
-            return TextUtils.isEmpty(bDVCInfo) ? str : addParam(str, "bdvc", bDVCInfo);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public String addCfromParam(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? addParam(str, "cfrom", getLastTn()) : (String) invokeL.objValue;
-    }
-
-    public String addDebugParam(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) ? addParam(str, "debug", str2) : (String) invokeLL.objValue;
-    }
-
-    public String addLightAppFrameworkParam(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? addParam(str, PARAM_BD_FRAMEWORK, "1") : (String) invokeL.objValue;
-    }
-
-    public String addLocParam(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (!TextUtils.isEmpty(str) && this.mIdentityContextImpl.getPrivacySwitch(this.mContext)) {
-                String apInfo = getApInfo(false, 6);
-                if (TextUtils.isEmpty(apInfo)) {
-                    return str;
-                }
-                HashSet hashSet = new HashSet();
-                hashSet.add(LOCINFO_STRING);
-                String deleteParam = UrlUtil.deleteParam(str, hashSet);
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("time", System.currentTimeMillis());
-                    jSONObject.put("apinfo", apInfo);
-                    return addParam(deleteParam, LOCINFO_STRING, a20.a(jSONObject.toString()));
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    return deleteParam;
-                }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
+            }
+            if (!this.mIdentityContextImpl.getPrivacySwitch(this.mContext)) {
+                return str;
+            }
+            String apInfo = getApInfo(z, i);
+            if (!TextUtils.isEmpty(apInfo)) {
+                return addParam(str, "apinfo", apInfo);
             }
             return str;
         }
-        return (String) invokeL.objValue;
-    }
-
-    public String addLocString(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048581, this, str, z)) == null) ? addLocString(str, z, 6) : (String) invokeLZ.objValue;
-    }
-
-    public String addLocStringIfJoinUserExperience(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) ? this.mIdentityContextImpl.getJoinUserExperiencePreference(this.mContext) ? addLocString(str, true) : str : (String) invokeL.objValue;
-    }
-
-    public String addParam(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, str3)) == null) ? UrlUtil.addParam(str, str2, str3) : (String) invokeLLL.objValue;
-    }
-
-    public String addParamWithUrlEncode(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, str, str2, str3)) == null) ? UrlUtil.addParam(str, str2, a20.a(str3)) : (String) invokeLLL.objValue;
-    }
-
-    public String addParams(HashMap<String, String> hashMap, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, hashMap, str)) == null) {
-            if (hashMap != null) {
-                for (String str2 : hashMap.keySet()) {
-                    str = addParam(str, str2, hashMap.get(str2));
-                }
-            }
-            return str;
-        }
-        return (String) invokeLL.objValue;
+        return (String) invokeCommon.objValue;
     }
 
     public String addPuParam(String str, String str2, String str3) {
@@ -1087,135 +1794,59 @@ public final class BaiduIdentityManager {
                 return addParam(str, PARAM_PU, Uri.encode(str2 + "@" + str3));
             }
             String str4 = str2 + "@";
-            if (urlField.indexOf(Uri.encode(str4)) >= 0 || urlField.indexOf(str4) >= 0) {
-                return str;
+            if (urlField.indexOf(Uri.encode(str4)) < 0 && urlField.indexOf(str4) < 0) {
+                String str5 = "," + str4 + str3;
+                return str.replace("pu=" + urlField, "pu=" + urlField + Uri.encode(str5));
             }
-            String str5 = "," + str4 + str3;
-            return str.replace("pu=" + urlField, "pu=" + urlField + Uri.encode(str5));
+            return str;
         }
         return (String) invokeLLL.objValue;
     }
 
-    public String addSearchSourceParam(String str, String str2) {
-        InterceptResult invokeLL;
+    public String appendParam(String str, int i, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, str, str2)) == null) ? addPuParam(str, CSRC, str2) : (String) invokeLL.objValue;
-    }
-
-    public String addServiceParam(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, str, str2)) == null) ? addParam(str, "service", str2) : (String) invokeLL.objValue;
-    }
-
-    public String addSid(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
-            ArrayList<a9> experimentInfoList = AbTestManager.getInstance().getExperimentInfoList();
-            if (experimentInfoList == null || experimentInfoList.isEmpty()) {
-                return str;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048595, this, new Object[]{str, Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            if (s10.b().h()) {
+                return processUrl(str, z, z2, i);
             }
-            StringBuilder sb = new StringBuilder();
-            for (a9 a9Var : experimentInfoList) {
-                sb.append(a9Var.c());
-                sb.append("_");
-                sb.append(a9Var.b());
-                sb.append("-");
+            return processUrl(str, z, z2, 0);
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    public String getApInfo(boolean z, int i, String str) {
+        InterceptResult invokeCommon;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048603, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), str})) == null) {
+            if (!this.mIdentityContextImpl.isDataFlowPopDialog(this.mContext)) {
+                if (i < 6) {
+                    i = 6;
+                } else if (i > 15) {
+                    i = 15;
+                }
+                str2 = this.mIdentityContextImpl.getLocString(this.mContext, i);
+            } else {
+                str2 = null;
             }
-            return addParam(str, "sid", sb.substring(0, sb.length() - 1));
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public String addTsParam(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) ? addParam(str, "ts", getLightAppTsParam()) : (String) invokeL.objValue;
-    }
-
-    public String addVipLightAppParam(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) ? addParam(str, PARAM_BD_VIP, "1") : (String) invokeL.objValue;
-    }
-
-    public String addZid(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) {
-            String zid = this.mIdentityContextImpl.getZid();
-            return TextUtils.isEmpty(zid) ? str : addParam(str, "zid", a20.a(zid));
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public String appendParam(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048594, this, str, i)) == null) {
-            if (r10.b().h()) {
-                return urlAppendParam(str, i);
+            if (TextUtils.isEmpty(str2)) {
+                if (z) {
+                    return "0";
+                }
+            } else if (!TextUtils.isEmpty(str)) {
+                try {
+                    str2 = URLEncoder.encode(str2, str);
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
             }
-            return processUrl(str);
-        }
-        return (String) invokeLI.objValue;
-    }
-
-    public void checkTnTrace() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            Context context = this.mContext;
             if (DEBUG) {
-                Log.e(TAG, "mLastTn: " + getLastTn());
-                Log.e(TAG, "TnTrace: " + getTnTrace());
+                saveApinfoToFileForDebug(str2);
             }
-            if (this.mIdentityContextImpl.isSelfUpdateInstalled(context)) {
-                return;
-            }
-            this.mLastTn = getLastTn(context);
-            if (DEBUG) {
-                Log.e(TAG, "update mLastTn: " + this.mLastTn);
-                Log.e(TAG, "update TnTrace: " + getTnTrace());
-            }
+            return str2;
         }
-    }
-
-    public String deleteParams(String str, Set<String> set) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048597, this, str, set)) == null) ? UrlUtil.deleteParam(str, set) : (String) invokeLL.objValue;
-    }
-
-    @Deprecated
-    public long getActiveSuccTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? BaiduActiveManager.getInstance().getActiveSuccTime() : invokeV.longValue;
-    }
-
-    @Deprecated
-    public String getActiveTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? BaiduActiveManager.getInstance().getActiveTime() : (String) invokeV.objValue;
-    }
-
-    @SuppressLint({"BDThrowableCheck", "HardwareIds"})
-    public String getAndroidId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            String string = ApiReplaceUtil.Overload.getString(this.mContext.getContentResolver(), HttpRequest.ANDROID_ID);
-            return TextUtils.isEmpty(string) ? "0" : string;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String getApInfo(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048601, this, z)) == null) ? getApInfo(z, 6) : (String) invokeZ.objValue;
+        return (String) invokeCommon.objValue;
     }
 
     public String getC3Aid() {
@@ -1225,7 +1856,7 @@ public final class BaiduIdentityManager {
             if (this.mContext != null && TextUtils.isEmpty(this.mC3Aid)) {
                 this.mC3Aid = BlcSharedPrefsWrapper.getInstance().getString("cthreekey", "");
                 if (TextUtils.isEmpty(this.mC3Aid)) {
-                    this.mC3Aid = s20.e(this.mContext.getApplicationContext()).b();
+                    this.mC3Aid = t20.f(this.mContext.getApplicationContext()).c();
                     if (!TextUtils.isEmpty(this.mC3Aid)) {
                         BlcSharedPrefsWrapper.getInstance().putString("cthreekey", this.mC3Aid);
                     }
@@ -1236,20 +1867,6 @@ public final class BaiduIdentityManager {
         return (String) invokeV.objValue;
     }
 
-    @Deprecated
-    public String getCurrentNetTypeId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? new x10().a() : (String) invokeV.objValue;
-    }
-
-    public String getDeviceInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? getDeviceInfoParam().a() : (String) invokeV.objValue;
-    }
-
-    @SuppressLint({"HardwareIds"})
     public String getEnAndroidId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1271,184 +1888,26 @@ public final class BaiduIdentityManager {
         return (String) invokeV.objValue;
     }
 
-    public synchronized String getEnUA() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
-            synchronized (this) {
-                str = this.mEnUa;
-            }
-            return str;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String getEnUid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? AppCuidManager.getInstance().getEnCuid() : (String) invokeV.objValue;
-    }
-
-    @SuppressLint({"HardwareIds"})
-    @Deprecated
-    public String getImsiInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? "" : (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:13:0x002b, code lost:
-        r0 = r3.getHostAddress().toString();
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public String getIpInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
-            String str = null;
-            try {
-                Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
-                loop0: while (true) {
-                    if (!networkInterfaces.hasMoreElements()) {
-                        break;
-                    }
-                    Enumeration<InetAddress> inetAddresses = networkInterfaces.nextElement().getInetAddresses();
-                    while (inetAddresses.hasMoreElements()) {
-                        InetAddress nextElement = inetAddresses.nextElement();
-                        if (!nextElement.isLoopbackAddress()) {
-                            break loop0;
-                        }
-                    }
-                }
-            } catch (Exception e) {
-                if (DEBUG) {
-                    Log.e(TAG, "getIpInfo fail!" + e.toString());
-                }
-            }
-            return TextUtils.isEmpty(str) ? "" : str;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String getLastTn() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
-            if (this.mLastTn == null) {
-                this.mLastTn = getLastTn(this.mContext);
-            }
-            return this.mLastTn;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String getLocationInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
-            String locationInfo = this.mIdentityContextImpl.getLocationInfo(this.mContext);
-            return TextUtils.isEmpty(locationInfo) ? "0.000000,0.000000,---" : locationInfo;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String getManufacturer() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) ? getDeviceInfoParam().c() : (String) invokeV.objValue;
-    }
-
-    public String getModel() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? getDeviceInfoParam().d() : (String) invokeV.objValue;
-    }
-
-    public String getOSVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? getDeviceInfoParam().e() : (String) invokeV.objValue;
-    }
-
-    public String getOriginUserAgent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) ? b20.f().g() : (String) invokeV.objValue;
-    }
-
-    public String getOsBranch() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) ? this.mIdentityContextImpl.getOsBranch() : (String) invokeV.objValue;
-    }
-
     public String getSid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) {
             ArrayList<a9> experimentInfoList = AbTestManager.getInstance().getExperimentInfoList();
-            if (experimentInfoList == null || experimentInfoList.isEmpty()) {
-                return "";
+            if (experimentInfoList != null && !experimentInfoList.isEmpty()) {
+                StringBuilder sb = new StringBuilder();
+                for (a9 a9Var : experimentInfoList) {
+                    sb.append(a9Var.c());
+                    sb.append("_");
+                    sb.append(a9Var.b());
+                    sb.append("-");
+                }
+                return sb.substring(0, sb.length() - 1);
             }
-            StringBuilder sb = new StringBuilder();
-            for (a9 a9Var : experimentInfoList) {
-                sb.append(a9Var.c());
-                sb.append("_");
-                sb.append(a9Var.b());
-                sb.append("-");
-            }
-            return sb.substring(0, sb.length() - 1);
+            return "";
         }
         return (String) invokeV.objValue;
     }
 
-    public String getSwanNativeVersionGroup() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) {
-            if (SwanDataRuntime.getISwanData() != null) {
-                return SwanDataRuntime.getISwanData().getSwanNativeVersionGroup();
-            }
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String getTnTrace() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) {
-            String string = this.mSettings.getString(KEY_TN_TRACE, "");
-            return TextUtils.isEmpty(string) ? getLastTn() : string;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String getUid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) ? AppCuidManager.getInstance().getCuid() : (String) invokeV.objValue;
-    }
-
-    public String getVersionCode(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048625, this, context)) == null) {
-            try {
-                PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
-                return packageInfo.versionCode + "";
-            } catch (PackageManager.NameNotFoundException e) {
-                e.printStackTrace();
-                return "-1";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @SuppressLint({"WifiManagerPotentialLeak", "HardwareIds"})
     @Deprecated
     public String getWifiInfo() {
         String str;
@@ -1463,90 +1922,23 @@ public final class BaiduIdentityManager {
                 }
                 str = null;
             }
-            return TextUtils.isEmpty(str) ? "" : str;
+            if (TextUtils.isEmpty(str)) {
+                return "";
+            }
+            return str;
         }
         return (String) invokeV.objValue;
     }
 
-    public String getZid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) ? this.mIdentityContextImpl.getZid() : (String) invokeV.objValue;
-    }
-
-    public synchronized void initUAS() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048629, this) == null) {
-            synchronized (this) {
-                this.mUa = getUA(this.mContext);
-                this.mEnUa = new String(Base64Encoder.B64Encode(this.mUa.getBytes()));
-            }
-        }
-    }
-
-    @Deprecated
-    public boolean isActiveSucc() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) ? BaiduActiveManager.getInstance().isActiveSucc() : invokeV.booleanValue;
-    }
-
-    public String processAppSearchUrl(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048631, this, str)) == null) {
-            String addFromParam = addFromParam(str);
-            if (DEBUG) {
-                Log.d(TAG, "url: " + addFromParam);
-            }
-            return addFromParam;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public String processTypeSuggestionUrl(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048632, this, str)) == null) ? addParam(str, "v", Integer.toString(3)) : (String) invokeL.objValue;
-    }
-
-    public String processUrlInJson(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048634, this, str)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                try {
-                    JSONObject jSONObject = new JSONObject(str);
-                    String string = jSONObject.getString("mode");
-                    String string2 = jSONObject.getString("url");
-                    if (!TextUtils.isEmpty(string) && !TextUtils.isEmpty(string2)) {
-                        if (string.equals("search")) {
-                            return processWebSearchUrl(string2, true);
-                        }
-                        if (string.equals(FileUtils.SEARCHBOX_FOLDER)) {
-                            return processUrl(string2);
-                        }
-                        return null;
-                    }
-                    return null;
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public String processUrlWithParams(String str, Map<String, String> map) {
+    public String processUrlWithParams(String str, Map map) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048635, this, str, map)) == null) {
             String processUrl = processUrl(str, true, true, 0);
             if (map != null) {
                 for (String str2 : map.keySet()) {
-                    if (!TextUtils.isEmpty(map.get(str2))) {
-                        processUrl = addParam(processUrl, str2, map.get(str2));
+                    if (!TextUtils.isEmpty((CharSequence) map.get(str2))) {
+                        processUrl = addParam(processUrl, str2, (String) map.get(str2));
                     }
                 }
             }
@@ -1555,112 +1947,9 @@ public final class BaiduIdentityManager {
         return (String) invokeLL.objValue;
     }
 
-    public String processUrlWithoutNetwork(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048636, this, str)) == null) ? processUrl(str, false, true, 0) : (String) invokeL.objValue;
-    }
-
-    public String processUrlWithoutSid(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048637, this, str)) == null) ? processUrl(str, true, false, 0) : (String) invokeL.objValue;
-    }
-
-    public String processUserAgent(String str, BrowserType browserType) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048638, this, str, browserType)) == null) {
-            int i = AnonymousClass3.$SwitchMap$com$baidu$browser$BrowserType[browserType.ordinal()];
-            return b20.f().c(str, i != 1 ? i != 2 ? i != 3 ? i != 4 ? null : "rabbit/1.0_lite" : "rabbit/1.0" : "search/1.0" : "light/1.0");
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public String processWebSearchUrl(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048640, this, str, z)) == null) ? processWebSearchUrl(str, 0, z) : (String) invokeLZ.objValue;
-    }
-
-    public String processWidgetUrl(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048641, this, str, str2)) == null) ? processUrl(addParam(str, "widget", str2)) : (String) invokeLL.objValue;
-    }
-
-    public String replaceParam(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048642, this, str, str2, str3)) == null) {
-            HashSet hashSet = new HashSet();
-            hashSet.add(str2);
-            return addParam(UrlUtil.deleteParam(str, hashSet), str2, str3);
-        }
-        return (String) invokeLLL.objValue;
-    }
-
-    @Deprecated
-    public void setCUIDCookie() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048643, this) == null) {
-            new CuidCookieSync().setCUIDCookie();
-        }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048644, this)) == null) {
-            return "BaiduIdentityManager [mUid=" + AppCuidManager.getInstance().getCuid() + ", mEnUid=" + AppCuidManager.getInstance().getEnCuid() + ", mUa=" + this.mUa + ", mEnUa=" + this.mEnUa + ", mTn=" + getTn() + ", mLastTn=" + getLastTn() + ", mModel=" + getDeviceInfoParam().d() + ", mManufacturer=" + getDeviceInfoParam().c() + ", mOSVersion=" + getDeviceInfoParam().e() + ", mDeviceInfo=" + getDeviceInfoParam().a() + ", mEnDeviceInfo=" + getDeviceInfoParam().b() + ", mSettings=" + this.mSettings + ", mVersionName=" + this.mVersionName + ", mCtv=" + this.mCT.getVersion() + ", mProcessedUa=" + this.mProcessedUa + PreferencesUtil.RIGHT_MOUNT;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String urlAppendParam(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048645, this, str, i)) == null) ? processUrl(str, true, true, i) : (String) invokeLI.objValue;
-    }
-
-    public static synchronized BaiduIdentityManager getInstance() {
-        InterceptResult invokeV;
-        BaiduIdentityManager baiduIdentityManager;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
-            synchronized (BaiduIdentityManager.class) {
-                if (sIdentityManager == null) {
-                    sIdentityManager = new BaiduIdentityManager(AppRuntime.getAppContext());
-                }
-                baiduIdentityManager = sIdentityManager;
-            }
-            return baiduIdentityManager;
-        }
-        return (BaiduIdentityManager) invokeV.objValue;
-    }
-
-    public String addLocString(String str, boolean z, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
-            if (!TextUtils.isEmpty(str) && this.mIdentityContextImpl.getPrivacySwitch(this.mContext)) {
-                String apInfo = getApInfo(z, i);
-                return !TextUtils.isEmpty(apInfo) ? addParam(str, "apinfo", apInfo) : str;
-            }
-            return str;
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    public String getApInfo(boolean z, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048602, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)})) == null) ? getApInfo(z, i, "UTF-8") : (String) invokeCommon.objValue;
-    }
-
     public String processWebSearchUrl(String str, int i, boolean z) {
         InterceptResult invokeCommon;
-        x10 x10Var;
+        y10 y10Var;
         String a;
         String str2;
         String str3;
@@ -1672,22 +1961,23 @@ public final class BaiduIdentityManager {
         String str7;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048639, this, new Object[]{str, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            String a2 = a20.a(getEnUid());
+            String a2 = b20.a(getEnUid());
+            String str8 = null;
             String addKey2Cen = addKey2Cen(null, "cuid");
-            String a3 = a20.a(getEnUA());
+            String a3 = b20.a(getEnUA());
             String addKey2Cen2 = addKey2Cen(addKey2Cen, PARAM_CUA);
             String appName = AppIdentityManager.getInstance().getAppName();
             boolean z3 = true;
             if (z) {
-                x10Var = new x10();
-                x10Var.g(true);
+                y10Var = new y10();
+                y10Var.g(true);
             } else {
-                x10Var = null;
+                y10Var = null;
             }
-            t10 deviceInfoParam = getDeviceInfoParam();
+            u10 deviceInfoParam = getDeviceInfoParam();
             if (i == 1) {
                 if (deviceInfoParam.j()) {
-                    a = a20.a(deviceInfoParam.b());
+                    a = b20.a(deviceInfoParam.b());
                     addKey2Cen2 = addKey2Cen(addKey2Cen2, PARAM_CUT);
                     f = null;
                     z2 = false;
@@ -1696,29 +1986,33 @@ public final class BaiduIdentityManager {
                     z2 = true;
                     a = null;
                 }
-                if (x10Var == null) {
-                    str7 = null;
-                    z3 = z2;
-                    str4 = null;
-                } else if (x10Var.e()) {
-                    str7 = x10Var.c();
-                    z3 = z2;
-                    str4 = null;
+                if (y10Var != null) {
+                    if (y10Var.e()) {
+                        str7 = y10Var.c();
+                        z3 = z2;
+                        str4 = null;
+                    } else {
+                        str4 = String.valueOf(y10Var.d());
+                        str7 = null;
+                    }
                 } else {
-                    str4 = String.valueOf(x10Var.d());
                     str7 = null;
+                    z3 = z2;
+                    str4 = null;
                 }
-                r3 = z3 ? String.valueOf(i) : null;
+                if (z3) {
+                    str8 = String.valueOf(i);
+                }
                 str2 = str;
                 str3 = str7;
                 str5 = addKey2Cen2;
-                str6 = r3;
-                r3 = f;
+                str6 = str8;
+                str8 = f;
             } else {
-                a = a20.a(deviceInfoParam.b());
+                a = b20.a(deviceInfoParam.b());
                 String addKey2Cen3 = addKey2Cen(addKey2Cen2, PARAM_CUT);
-                if (x10Var != null) {
-                    str3 = x10Var.c();
+                if (y10Var != null) {
+                    str3 = y10Var.c();
                     str2 = str;
                     str4 = null;
                 } else {
@@ -1741,9 +2035,9 @@ public final class BaiduIdentityManager {
                 this.mC3Aid = getC3Aid();
             }
             if (!TextUtils.isEmpty(this.mC3Aid)) {
-                addPackageNameParam = addPuParam(addPackageNameParam, "c3_aid", a20.a(this.mC3Aid));
+                addPackageNameParam = addPuParam(addPackageNameParam, "c3_aid", b20.a(this.mC3Aid));
             }
-            String processUrlExternal = this.mIdentityContextImpl.processUrlExternal(addParamByEncode(addParamByEncode(addParamByEncode(addParamByEncode(addParamByEncode(addPackageNameParam, "p_sv", r3), "mpv", str6), "p_nw", str4), "network", str3), PARAM_BRNACH_NAME, appName), z);
+            String processUrlExternal = this.mIdentityContextImpl.processUrlExternal(addParamByEncode(addParamByEncode(addParamByEncode(addParamByEncode(addParamByEncode(addPackageNameParam, "p_sv", str8), "mpv", str6), "p_nw", str4), "network", str3), PARAM_BRNACH_NAME, appName), z);
             if (DEBUG) {
                 Log.d(TAG, "url: " + processUrlExternal);
             }
@@ -1752,112 +2046,12 @@ public final class BaiduIdentityManager {
         return (String) invokeCommon.objValue;
     }
 
-    public String getApInfo(boolean z, int i, String str) {
-        InterceptResult invokeCommon;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048603, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), str})) == null) {
-            if (this.mIdentityContextImpl.isDataFlowPopDialog(this.mContext)) {
-                str2 = null;
-            } else {
-                if (i < 6) {
-                    i = 6;
-                } else if (i > 15) {
-                    i = 15;
-                }
-                str2 = this.mIdentityContextImpl.getLocString(this.mContext, i);
-            }
-            if (TextUtils.isEmpty(str2)) {
-                if (z) {
-                    return "0";
-                }
-            } else if (!TextUtils.isEmpty(str)) {
-                try {
-                    str2 = URLEncoder.encode(str2, str);
-                } catch (UnsupportedEncodingException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (DEBUG) {
-                saveApinfoToFileForDebug(str2);
-            }
-            return str2;
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    @SuppressLint({"ApplySharedPref"})
-    private String getLastTn(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65552, this, context)) == null) {
-            String string = this.mSettings.getString(KEY_LAST_TN, "");
-            String apkTn = getApkTn(context);
-            if (!(!TextUtils.equals(string, apkTn)) && !TextUtils.isEmpty(string)) {
-                if (DEBUG) {
-                    Log.d(TAG, "load tn from local, lastTn = " + string);
-                    return string;
-                }
-                return string;
-            }
-            SharedPreferences.Editor edit = this.mSettings.edit();
-            edit.putString(KEY_LAST_TN, apkTn);
-            edit.commit();
-            addTnTrace(apkTn);
-            if (DEBUG) {
-                Log.d(TAG, "load tn from apk, lastTn = " + apkTn);
-            }
-            return apkTn;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public String appendParam(String str, int i, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048595, this, new Object[]{str, Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            if (r10.b().h()) {
-                return processUrl(str, z, z2, i);
-            }
-            return processUrl(str, z, z2, 0);
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    public String getVersionName() {
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) ? this.mVersionName : (String) invokeV.objValue;
-    }
-
-    public String getTn() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) {
-            if (this.mTn == null) {
-                this.mTn = getTn(this.mContext);
-            }
-            return this.mTn;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048644, this)) == null) {
+            return "BaiduIdentityManager [mUid=" + AppCuidManager.getInstance().getCuid() + ", mEnUid=" + AppCuidManager.getInstance().getEnCuid() + ", mUa=" + this.mUa + ", mEnUa=" + this.mEnUa + ", mTn=" + getTn() + ", mLastTn=" + getLastTn() + ", mModel=" + getDeviceInfoParam().d() + ", mManufacturer=" + getDeviceInfoParam().c() + ", mOSVersion=" + getDeviceInfoParam().e() + ", mDeviceInfo=" + getDeviceInfoParam().a() + ", mEnDeviceInfo=" + getDeviceInfoParam().b() + ", mSettings=" + this.mSettings + ", mVersionName=" + this.mVersionName + ", mCtv=" + this.mCT.getVersion() + ", mProcessedUa=" + this.mProcessedUa + PreferencesUtil.RIGHT_MOUNT;
         }
         return (String) invokeV.objValue;
-    }
-
-    public synchronized String getUA() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) {
-            synchronized (this) {
-                str = this.mUa;
-            }
-            return str;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String processUrl(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048633, this, str)) == null) ? processUrl(str, true, true, 0) : (String) invokeL.objValue;
     }
 }

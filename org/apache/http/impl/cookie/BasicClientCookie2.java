@@ -67,16 +67,6 @@ public class BasicClientCookie2 extends BasicClientCookie implements SetCookie2 
     }
 
     @Override // org.apache.http.impl.cookie.BasicClientCookie, org.apache.http.cookie.Cookie
-    public boolean isExpired(Date date) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, date)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // org.apache.http.impl.cookie.BasicClientCookie, org.apache.http.cookie.Cookie
     public boolean isPersistent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -84,6 +74,16 @@ public class BasicClientCookie2 extends BasicClientCookie implements SetCookie2 
             throw new RuntimeException("Stub!");
         }
         return invokeV.booleanValue;
+    }
+
+    @Override // org.apache.http.impl.cookie.BasicClientCookie, org.apache.http.cookie.Cookie
+    public boolean isExpired(Date date) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, date)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeL.booleanValue;
     }
 
     @Override // org.apache.http.cookie.SetCookie2

@@ -23,35 +23,6 @@ public final class TornadoNetSetting {
     public String proxyIP;
     public String proxyPort;
 
-    public TornadoNetSetting(String proxyIP, String proxyPort, String consoleIP, String gateway, String dns, String mask) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {proxyIP, proxyPort, consoleIP, gateway, dns, mask};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        Intrinsics.checkNotNullParameter(proxyIP, "proxyIP");
-        Intrinsics.checkNotNullParameter(proxyPort, "proxyPort");
-        Intrinsics.checkNotNullParameter(consoleIP, "consoleIP");
-        Intrinsics.checkNotNullParameter(gateway, "gateway");
-        Intrinsics.checkNotNullParameter(dns, "dns");
-        Intrinsics.checkNotNullParameter(mask, "mask");
-        this.proxyIP = proxyIP;
-        this.proxyPort = proxyPort;
-        this.consoleIP = consoleIP;
-        this.gateway = gateway;
-        this.dns = dns;
-        this.mask = mask;
-    }
-
     public static /* synthetic */ TornadoNetSetting copy$default(TornadoNetSetting tornadoNetSetting, String str, String str2, String str3, String str4, String str5, String str6, int i, Object obj) {
         if ((i & 1) != 0) {
             str = tornadoNetSetting.proxyIP;
@@ -145,46 +116,102 @@ public final class TornadoNetSetting {
         return invokeL.booleanValue;
     }
 
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? (((((((((this.proxyIP.hashCode() * 31) + this.proxyPort.hashCode()) * 31) + this.consoleIP.hashCode()) * 31) + this.gateway.hashCode()) * 31) + this.dns.hashCode()) * 31) + this.mask.hashCode() : invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return "TornadoNetSetting(proxyIP=" + this.proxyIP + ", proxyPort=" + this.proxyPort + ", consoleIP=" + this.consoleIP + ", gateway=" + this.gateway + ", dns=" + this.dns + ", mask=" + this.mask + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public TornadoNetSetting(String proxyIP, String proxyPort, String consoleIP, String gateway, String dns, String mask) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {proxyIP, proxyPort, consoleIP, gateway, dns, mask};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(proxyIP, "proxyIP");
+        Intrinsics.checkNotNullParameter(proxyPort, "proxyPort");
+        Intrinsics.checkNotNullParameter(consoleIP, "consoleIP");
+        Intrinsics.checkNotNullParameter(gateway, "gateway");
+        Intrinsics.checkNotNullParameter(dns, "dns");
+        Intrinsics.checkNotNullParameter(mask, "mask");
+        this.proxyIP = proxyIP;
+        this.proxyPort = proxyPort;
+        this.consoleIP = consoleIP;
+        this.gateway = gateway;
+        this.dns = dns;
+        this.mask = mask;
+    }
+
     public final String getConsoleIP() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.consoleIP : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.consoleIP;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String getDns() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.dns : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.dns;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String getGateway() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.gateway : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.gateway;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String getMask() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mask : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.mask;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String getProxyIP() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.proxyIP : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.proxyIP;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String getProxyPort() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.proxyPort : (String) invokeV.objValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? (((((((((this.proxyIP.hashCode() * 31) + this.proxyPort.hashCode()) * 31) + this.consoleIP.hashCode()) * 31) + this.gateway.hashCode()) * 31) + this.dns.hashCode()) * 31) + this.mask.hashCode() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.proxyPort;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final void setConsoleIP(String str) {
@@ -233,14 +260,5 @@ public final class TornadoNetSetting {
             Intrinsics.checkNotNullParameter(str, "<set-?>");
             this.proxyPort = str;
         }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            return "TornadoNetSetting(proxyIP=" + this.proxyIP + ", proxyPort=" + this.proxyPort + ", consoleIP=" + this.consoleIP + ", gateway=" + this.gateway + ", dns=" + this.dns + ", mask=" + this.mask + ')';
-        }
-        return (String) invokeV.objValue;
     }
 }

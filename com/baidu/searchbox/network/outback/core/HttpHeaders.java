@@ -26,23 +26,13 @@ public final class HttpHeaders {
         }
     }
 
-    public static long contentLength(Response response) {
+    public static long contentLength(Headers headers) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, response)) == null) ? contentLength(response.headers()) : invokeL.longValue;
-    }
-
-    public static boolean hasBody(Response response) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, response)) == null) {
-            if (response.request().method().equals("HEAD")) {
-                return false;
-            }
-            int code = response.code();
-            return (((code >= 100 && code < 200) || code == 204 || code == 304) && contentLength(response) == -1 && !"chunked".equalsIgnoreCase(response.header("Transfer-Encoding"))) ? false : true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, headers)) == null) {
+            return stringToLong(headers.get("Content-Length"));
         }
-        return invokeL.booleanValue;
+        return invokeL.longValue;
     }
 
     public static long stringToLong(String str) {
@@ -61,9 +51,28 @@ public final class HttpHeaders {
         return invokeL.longValue;
     }
 
-    public static long contentLength(Headers headers) {
+    public static long contentLength(Response response) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, headers)) == null) ? stringToLong(headers.get("Content-Length")) : invokeL.longValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, response)) == null) {
+            return contentLength(response.headers());
+        }
+        return invokeL.longValue;
+    }
+
+    public static boolean hasBody(Response response) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, response)) == null) {
+            if (response.request().method().equals("HEAD")) {
+                return false;
+            }
+            int code = response.code();
+            if (((code >= 100 && code < 200) || code == 204 || code == 304) && contentLength(response) == -1 && !"chunked".equalsIgnoreCase(response.header("Transfer-Encoding"))) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

@@ -27,10 +27,10 @@ public class StatisticInfo {
     public int netType;
     public String network;
     public String requestId;
-    public List<String> rsIp;
-    public List<String> rsIpV4;
-    public List<String> rsIpV6;
-    public List<String> srvIp;
+    public List rsIp;
+    public List rsIpV4;
+    public List rsIpV6;
+    public List srvIp;
     public int ts;
     public String uip;
 
@@ -65,20 +65,19 @@ public class StatisticInfo {
         this.network = "";
     }
 
-    public void setSrvIp(List<String> list) {
+    public void setSrvIp(List list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, list) == null) || list == null || list.isEmpty()) {
-            return;
-        }
-        if (this.srvIp == null) {
-            this.srvIp = new LinkedList();
-        }
-        synchronized (this.srvIp) {
-            this.srvIp.addAll(list);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, list) == null) && list != null && !list.isEmpty()) {
+            if (this.srvIp == null) {
+                this.srvIp = new LinkedList();
+            }
+            synchronized (this.srvIp) {
+                this.srvIp.addAll(list);
+            }
         }
     }
 
-    public Map<String, String> toMap() {
+    public Map toMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

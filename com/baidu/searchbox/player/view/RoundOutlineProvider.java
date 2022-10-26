@@ -3,12 +3,10 @@ package com.baidu.searchbox.player.view;
 import android.graphics.Outline;
 import android.view.View;
 import android.view.ViewOutlineProvider;
-import androidx.annotation.RequiresApi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@RequiresApi(api = 21)
 /* loaded from: classes2.dex */
 public class RoundOutlineProvider extends ViewOutlineProvider {
     public static /* synthetic */ Interceptable $ic;

@@ -20,7 +20,9 @@ public abstract class AbstractBoxParser implements BoxParser {
     public static /* synthetic */ Interceptable $ic;
     public static Logger LOG;
     public transient /* synthetic */ FieldHolder $fh;
-    public ThreadLocal<ByteBuffer> header;
+    public ThreadLocal header;
+
+    public abstract Box createBox(String str, byte[] bArr, String str2);
 
     static {
         InterceptResult invokeClinit;
@@ -51,7 +53,7 @@ public abstract class AbstractBoxParser implements BoxParser {
                 return;
             }
         }
-        this.header = new ThreadLocal<ByteBuffer>(this) { // from class: com.coremedia.iso.AbstractBoxParser.1
+        this.header = new ThreadLocal(this) { // from class: com.coremedia.iso.AbstractBoxParser.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ AbstractBoxParser this$0;
@@ -79,67 +81,80 @@ public abstract class AbstractBoxParser implements BoxParser {
             public ByteBuffer initialValue() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ByteBuffer.allocate(32) : (ByteBuffer) invokeV.objValue;
+                if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                    return ByteBuffer.allocate(32);
+                }
+                return (ByteBuffer) invokeV.objValue;
             }
         };
     }
-
-    public abstract Box createBox(String str, byte[] bArr, String str2);
 
     @Override // com.coremedia.iso.BoxParser
     public Box parseBox(DataSource dataSource, Container container) throws IOException {
         InterceptResult invokeLL;
         long j;
+        String str;
         long j2;
+        String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataSource, container)) == null) {
-            this.header.get().rewind().limit(8);
+            ((ByteBuffer) this.header.get()).rewind().limit(8);
             int i = 0;
             do {
-                i += dataSource.read(this.header.get());
+                i += dataSource.read((ByteBuffer) this.header.get());
                 if (i == 8) {
-                    this.header.get().rewind();
-                    long readUInt32 = IsoTypeReader.readUInt32(this.header.get());
+                    ((ByteBuffer) this.header.get()).rewind();
+                    long readUInt32 = IsoTypeReader.readUInt32((ByteBuffer) this.header.get());
                     byte[] bArr = null;
                     if (readUInt32 < 8 && readUInt32 > 1) {
                         Logger logger = LOG;
                         logger.severe("Plausibility check failed: size < 8 (size = " + readUInt32 + "). Stop parsing!");
                         return null;
                     }
-                    String read4cc = IsoTypeReader.read4cc(this.header.get());
+                    String read4cc = IsoTypeReader.read4cc((ByteBuffer) this.header.get());
                     if (readUInt32 == 1) {
-                        this.header.get().limit(16);
-                        dataSource.read(this.header.get());
-                        this.header.get().position(8);
-                        j = IsoTypeReader.readUInt64(this.header.get()) - 16;
+                        ((ByteBuffer) this.header.get()).limit(16);
+                        dataSource.read((ByteBuffer) this.header.get());
+                        ((ByteBuffer) this.header.get()).position(8);
+                        j = IsoTypeReader.readUInt64((ByteBuffer) this.header.get()) - 16;
                     } else if (readUInt32 == 0) {
                         dataSource.size();
                         dataSource.position();
                         StringBuilder sb = new StringBuilder("'");
                         sb.append(read4cc);
                         sb.append("' with '");
-                        sb.append(container instanceof Box ? ((Box) container).getType() : "IsoFile");
+                        if (container instanceof Box) {
+                            str = ((Box) container).getType();
+                        } else {
+                            str = "IsoFile";
+                        }
+                        sb.append(str);
                         sb.append("' as parent has length == 0. That's not supported");
                         throw new RuntimeException(sb.toString());
                     } else {
                         j = readUInt32 - 8;
                     }
                     if ("uuid".equals(read4cc)) {
-                        this.header.get().limit(this.header.get().limit() + 16);
-                        dataSource.read(this.header.get());
+                        ((ByteBuffer) this.header.get()).limit(((ByteBuffer) this.header.get()).limit() + 16);
+                        dataSource.read((ByteBuffer) this.header.get());
                         byte[] bArr2 = new byte[16];
-                        for (int position = this.header.get().position() - 16; position < this.header.get().position(); position++) {
-                            bArr2[position - (this.header.get().position() - 16)] = this.header.get().get(position);
+                        for (int position = ((ByteBuffer) this.header.get()).position() - 16; position < ((ByteBuffer) this.header.get()).position(); position++) {
+                            bArr2[position - (((ByteBuffer) this.header.get()).position() - 16)] = ((ByteBuffer) this.header.get()).get(position);
                         }
                         j2 = j - 16;
                         bArr = bArr2;
                     } else {
                         j2 = j;
                     }
-                    Box createBox = createBox(read4cc, bArr, container instanceof Box ? ((Box) container).getType() : "");
+                    if (container instanceof Box) {
+                        str2 = ((Box) container).getType();
+                    } else {
+                        str2 = "";
+                    }
+                    Box createBox = createBox(read4cc, bArr, str2);
                     createBox.setParent(container);
-                    this.header.get().rewind();
-                    createBox.parse(dataSource, this.header.get(), j2, this);
+                    ((ByteBuffer) this.header.get()).rewind();
+                    createBox.parse(dataSource, (ByteBuffer) this.header.get(), j2, this);
                     return createBox;
                 }
             } while (i >= 0);

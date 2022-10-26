@@ -47,6 +47,17 @@ public final class TrackFragment {
         }
     }
 
+    public void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.trunCount = 0;
+            this.nextFragmentDecodeTime = 0L;
+            this.definesEncryptionData = false;
+            this.sampleEncryptionDataNeedsFill = false;
+            this.trackEncryptionBox = null;
+        }
+    }
+
     public void fillEncryptionData(ExtractorInput extractorInput) throws IOException, InterruptedException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, extractorInput) == null) {
@@ -59,7 +70,10 @@ public final class TrackFragment {
     public long getSamplePresentationTime(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? this.sampleDecodingTimeTable[i] + this.sampleCompositionTimeOffsetTable[i] : invokeI.longValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            return this.sampleDecodingTimeTable[i] + this.sampleCompositionTimeOffsetTable[i];
+        }
+        return invokeI.longValue;
     }
 
     public void initEncryptionData(int i) {
@@ -72,6 +86,15 @@ public final class TrackFragment {
             this.sampleEncryptionDataLength = i;
             this.definesEncryptionData = true;
             this.sampleEncryptionDataNeedsFill = true;
+        }
+    }
+
+    public void fillEncryptionData(ParsableByteArray parsableByteArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parsableByteArray) == null) {
+            parsableByteArray.readBytes(this.sampleEncryptionData.data, 0, this.sampleEncryptionDataLength);
+            this.sampleEncryptionData.setPosition(0);
+            this.sampleEncryptionDataNeedsFill = false;
         }
     }
 
@@ -94,26 +117,6 @@ public final class TrackFragment {
                 this.sampleIsSyncFrameTable = new boolean[i3];
                 this.sampleHasSubsampleEncryptionTable = new boolean[i3];
             }
-        }
-    }
-
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.trunCount = 0;
-            this.nextFragmentDecodeTime = 0L;
-            this.definesEncryptionData = false;
-            this.sampleEncryptionDataNeedsFill = false;
-            this.trackEncryptionBox = null;
-        }
-    }
-
-    public void fillEncryptionData(ParsableByteArray parsableByteArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parsableByteArray) == null) {
-            parsableByteArray.readBytes(this.sampleEncryptionData.data, 0, this.sampleEncryptionDataLength);
-            this.sampleEncryptionData.setPosition(0);
-            this.sampleEncryptionDataNeedsFill = false;
         }
     }
 }

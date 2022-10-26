@@ -10,20 +10,6 @@ public class BaseAnimationListener implements AnimationListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public BaseAnimationListener() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     @Override // com.facebook.fresco.animation.drawable.AnimationListener
     public void onAnimationFrame(AnimatedDrawable2 animatedDrawable2, int i) {
         Interceptable interceptable = $ic;
@@ -56,6 +42,20 @@ public class BaseAnimationListener implements AnimationListener {
     public void onAnimationStop(AnimatedDrawable2 animatedDrawable2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, animatedDrawable2) == null) {
+        }
+    }
+
+    public BaseAnimationListener() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 }

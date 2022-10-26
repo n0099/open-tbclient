@@ -41,34 +41,6 @@ public class c {
         return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? "" : (String) invokeV.objValue;
     }
 
-    public static String a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (TextUtils.isEmpty(a)) {
-                if (context == null) {
-                    return "";
-                }
-                a = "";
-                WindowManager windowManager = (WindowManager) context.getSystemService("window");
-                if (windowManager != null) {
-                    int width = windowManager.getDefaultDisplay().getWidth();
-                    int height = windowManager.getDefaultDisplay().getHeight();
-                    a = width + "x" + height;
-                }
-                return a;
-            }
-            return a;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? Locale.getDefault().getLanguage() : (String) invokeV.objValue;
-    }
-
     public static String b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -87,7 +59,39 @@ public class c {
         return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) ? "" : (String) invokeL.objValue;
     }
 
+    public static String a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            if (!TextUtils.isEmpty(a)) {
+                return a;
+            }
+            if (context == null) {
+                return "";
+            }
+            a = "";
+            WindowManager windowManager = (WindowManager) context.getSystemService("window");
+            if (windowManager != null) {
+                int width = windowManager.getDefaultDisplay().getWidth();
+                int height = windowManager.getDefaultDisplay().getHeight();
+                a = width + "x" + height;
+            }
+            return a;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return Locale.getDefault().getLanguage();
+        }
+        return (String) invokeV.objValue;
+    }
+
     public static String e(Context context) {
+        int i;
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
@@ -116,7 +120,12 @@ public class c {
                     sb.append(b2);
                     sb.append('&');
                     sb.append("sdcard=");
-                    sb.append(Environment.getExternalStorageState().equals("mounted") ? 1 : 0);
+                    if (Environment.getExternalStorageState().equals("mounted")) {
+                        i = 1;
+                    } else {
+                        i = 0;
+                    }
+                    sb.append(i);
                     sb.append('&');
                     sb.append("display=");
                     sb.append(displayMetrics.widthPixels);

@@ -7,10 +7,10 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ej6;
+import com.baidu.tieba.bz4;
 import com.baidu.tieba.frs.itemtab.view.FrsItemAcceleratorView;
-import com.baidu.tieba.kp6;
-import com.baidu.tieba.wy4;
+import com.baidu.tieba.lj6;
+import com.baidu.tieba.rp6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -49,10 +49,11 @@ public class FrsItemAcceleratorHolder extends TypeAdapter.ViewHolder {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.f(2);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new wy4(19)));
+            if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
+                return;
             }
+            this.a.f(2);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new bz4(19)));
         }
     }
 
@@ -83,10 +84,11 @@ public class FrsItemAcceleratorHolder extends TypeAdapter.ViewHolder {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.f(1);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new wy4(18)));
+            if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
+                return;
             }
+            this.a.f(1);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new bz4(18)));
         }
     }
 
@@ -114,52 +116,48 @@ public class FrsItemAcceleratorHolder extends TypeAdapter.ViewHolder {
         this.b = bdUniqueId;
     }
 
-    public void b(kp6 kp6Var) {
+    public void b(rp6 rp6Var) {
         FrsItemAcceleratorView frsItemAcceleratorView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, kp6Var) == null) || (frsItemAcceleratorView = this.a) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, rp6Var) == null) && (frsItemAcceleratorView = this.a) != null) {
+            frsItemAcceleratorView.setBtnColor(rp6Var.b());
+            this.a.setBtnImgClickListener(new a(this));
+            this.a.setBtnDescClickListener(new b(this));
         }
-        frsItemAcceleratorView.setBtnColor(kp6Var.b());
-        this.a.setBtnImgClickListener(new a(this));
-        this.a.setBtnDescClickListener(new b(this));
-    }
-
-    public void c() {
-        FrsItemAcceleratorView frsItemAcceleratorView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (frsItemAcceleratorView = this.a) == null) {
-            return;
-        }
-        frsItemAcceleratorView.a();
-    }
-
-    public void d() {
-        FrsItemAcceleratorView frsItemAcceleratorView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (frsItemAcceleratorView = this.a) == null) {
-            return;
-        }
-        frsItemAcceleratorView.b();
-    }
-
-    public void e() {
-        FrsItemAcceleratorView frsItemAcceleratorView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (frsItemAcceleratorView = this.a) == null) {
-            return;
-        }
-        frsItemAcceleratorView.c();
     }
 
     public final void f(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921662, new ej6(i));
+            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921662, new lj6(i));
             CustomMessage customMessage = new CustomMessage(2921662);
             customMessage.setTag(this.b);
             customResponsedMessage.setOrginalMessage(customMessage);
             MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
+        }
+    }
+
+    public void c() {
+        FrsItemAcceleratorView frsItemAcceleratorView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (frsItemAcceleratorView = this.a) != null) {
+            frsItemAcceleratorView.a();
+        }
+    }
+
+    public void d() {
+        FrsItemAcceleratorView frsItemAcceleratorView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (frsItemAcceleratorView = this.a) != null) {
+            frsItemAcceleratorView.b();
+        }
+    }
+
+    public void e() {
+        FrsItemAcceleratorView frsItemAcceleratorView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (frsItemAcceleratorView = this.a) != null) {
+            frsItemAcceleratorView.c();
         }
     }
 }

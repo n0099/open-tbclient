@@ -44,26 +44,10 @@ public class LogUtil {
         }
     }
 
-    public static void d(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) && sIsLogEnable) {
-            StackTraceElement stackTraceElement = Thread.currentThread().getStackTrace()[3];
-            Log.d(str, (stackTraceElement.getFileName() + "(" + stackTraceElement.getLineNumber() + ") " + stackTraceElement.getMethodName()) + ": " + str2);
-        }
-    }
-
     public static void disableLog() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
             sIsLogEnable = false;
-        }
-    }
-
-    public static void e(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && sIsLogEnable) {
-            StackTraceElement stackTraceElement = Thread.currentThread().getStackTrace()[3];
-            Log.e(str, (stackTraceElement.getFileName() + "(" + stackTraceElement.getLineNumber() + ") " + stackTraceElement.getMethodName()) + ": " + str2);
         }
     }
 
@@ -74,14 +58,20 @@ public class LogUtil {
         }
     }
 
-    public static String getStackTraceMsg() {
-        InterceptResult invokeV;
+    public static void d(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+        if ((interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) && sIsLogEnable) {
             StackTraceElement stackTraceElement = Thread.currentThread().getStackTrace()[3];
-            return stackTraceElement.getFileName() + "(" + stackTraceElement.getLineNumber() + ") " + stackTraceElement.getMethodName();
+            Log.d(str, (stackTraceElement.getFileName() + "(" + stackTraceElement.getLineNumber() + ") " + stackTraceElement.getMethodName()) + ": " + str2);
         }
-        return (String) invokeV.objValue;
+    }
+
+    public static void e(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && sIsLogEnable) {
+            StackTraceElement stackTraceElement = Thread.currentThread().getStackTrace()[3];
+            Log.e(str, (stackTraceElement.getFileName() + "(" + stackTraceElement.getLineNumber() + ") " + stackTraceElement.getMethodName()) + ": " + str2);
+        }
     }
 
     public static void i(String str, String str2) {
@@ -106,5 +96,15 @@ public class LogUtil {
             StackTraceElement stackTraceElement = Thread.currentThread().getStackTrace()[3];
             Log.w(str, (stackTraceElement.getFileName() + "(" + stackTraceElement.getLineNumber() + ") " + stackTraceElement.getMethodName()) + ": " + str2);
         }
+    }
+
+    public static String getStackTraceMsg() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            StackTraceElement stackTraceElement = Thread.currentThread().getStackTrace()[3];
+            return stackTraceElement.getFileName() + "(" + stackTraceElement.getLineNumber() + ") " + stackTraceElement.getMethodName();
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -40,13 +40,17 @@ public abstract class StreamReader {
 
     /* renamed from: com.google.android.exoplayer2.extractor.ogg.StreamReader$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
+    public abstract long preparePayload(ParsableByteArray parsableByteArray);
+
+    public abstract boolean readHeaders(ParsableByteArray parsableByteArray, long j, SetupData setupData) throws IOException, InterruptedException;
+
     /* loaded from: classes7.dex */
-    public static class SetupData {
+    public class SetupData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Format format;
@@ -68,30 +72,9 @@ public abstract class StreamReader {
     }
 
     /* loaded from: classes7.dex */
-    public static final class UnseekableOggSeeker implements OggSeeker {
+    public final class UnseekableOggSeeker implements OggSeeker {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        public UnseekableOggSeeker() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.google.android.exoplayer2.extractor.ogg.OggSeeker
-        public SeekMap createSeekMap() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new SeekMap.Unseekable(C.TIME_UNSET) : (SeekMap) invokeV.objValue;
-        }
 
         @Override // com.google.android.exoplayer2.extractor.ogg.OggSeeker
         public long read(ExtractorInput extractorInput) throws IOException, InterruptedException {
@@ -111,6 +94,30 @@ public abstract class StreamReader {
                 return 0L;
             }
             return invokeJ.longValue;
+        }
+
+        public UnseekableOggSeeker() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.google.android.exoplayer2.extractor.ogg.OggSeeker
+        public SeekMap createSeekMap() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new SeekMap.Unseekable(C.TIME_UNSET);
+            }
+            return (SeekMap) invokeV.objValue;
         }
 
         public /* synthetic */ UnseekableOggSeeker(AnonymousClass1 anonymousClass1) {
@@ -214,13 +221,41 @@ public abstract class StreamReader {
     public long convertGranuleToTime(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) ? (j * 1000000) / this.sampleRate : invokeJ.longValue;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+            return (j * 1000000) / this.sampleRate;
+        }
+        return invokeJ.longValue;
     }
 
     public long convertTimeToGranule(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) ? (this.sampleRate * j) / 1000000 : invokeJ.longValue;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+            return (this.sampleRate * j) / 1000000;
+        }
+        return invokeJ.longValue;
+    }
+
+    public void onSeekEnd(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            this.currentGranule = j;
+        }
+    }
+
+    public void reset(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            if (z) {
+                this.setupData = new SetupData();
+                this.payloadStartPosition = 0L;
+                this.state = 0;
+            } else {
+                this.state = 1;
+            }
+            this.targetGranule = -1L;
+            this.currentGranule = 0L;
+        }
     }
 
     public void init(ExtractorOutput extractorOutput, TrackOutput trackOutput) {
@@ -231,15 +266,6 @@ public abstract class StreamReader {
             reset(true);
         }
     }
-
-    public void onSeekEnd(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            this.currentGranule = j;
-        }
-    }
-
-    public abstract long preparePayload(ParsableByteArray parsableByteArray);
 
     public final int read(ExtractorInput extractorInput, PositionHolder positionHolder) throws IOException, InterruptedException {
         InterceptResult invokeLL;
@@ -260,23 +286,6 @@ public abstract class StreamReader {
             return readHeaders(extractorInput);
         }
         return invokeLL.intValue;
-    }
-
-    public abstract boolean readHeaders(ParsableByteArray parsableByteArray, long j, SetupData setupData) throws IOException, InterruptedException;
-
-    public void reset(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            if (z) {
-                this.setupData = new SetupData();
-                this.payloadStartPosition = 0L;
-                this.state = 0;
-            } else {
-                this.state = 1;
-            }
-            this.targetGranule = -1L;
-            this.currentGranule = 0L;
-        }
     }
 
     public final void seek(long j, long j2) {

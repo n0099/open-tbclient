@@ -14,7 +14,7 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\n\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\n \u0002*\u0004\u0018\u00010\u00010\u0001H\n¢\u0006\u0002\b\u0003"}, d2 = {"<anonymous>", "Lcom/baidu/searchbox/live/interfaces/service/AppInfoService;", "kotlin.jvm.PlatformType", "invoke"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
-public final class LivePreStartPlayServiceImpl$appService$2 extends Lambda implements Function0<AppInfoService> {
+public final class LivePreStartPlayServiceImpl$appService$2 extends Lambda implements Function0 {
     public static /* synthetic */ Interceptable $ic;
     public static final LivePreStartPlayServiceImpl$appService$2 INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,11 +54,13 @@ public final class LivePreStartPlayServiceImpl$appService$2 extends Lambda imple
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
     @Override // kotlin.jvm.functions.Function0
     public final AppInfoService invoke() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (AppInfoService) ServiceManager.getService(AppInfoService.Companion.getSERVICE_REFERENCE()) : (AppInfoService) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return (AppInfoService) ServiceManager.getService(AppInfoService.Companion.getSERVICE_REFERENCE());
+        }
+        return (AppInfoService) invokeV.objValue;
     }
 }

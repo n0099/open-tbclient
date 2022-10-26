@@ -11,7 +11,7 @@ import android.text.TextPaint;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.qg9;
+import com.baidu.tieba.ih9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,16 +42,16 @@ public class SubTitleCreater {
     public int mMinRightPadding;
     public int mShadowColor;
     public SubTitleConfig mSubTitleConfig;
-    public List<SubTitleUnit> mSubTitleUnits;
+    public List mSubTitleUnits;
     public int mSubTitleX;
     public int mSubTitleY;
-    public volatile HashMap<String, Bitmap> mSubtitleCache;
+    public volatile HashMap mSubtitleCache;
     public TextWordsEntity.TextColorEntity mTextColor;
     public int mVideoHeight;
     public int mVideoWidth;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SubTitleCreater(List<SubTitleUnit> list) {
+    public SubTitleCreater(List list) {
         this(list, false);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -71,7 +71,7 @@ public class SubTitleCreater {
         }
     }
 
-    public SubTitleCreater(List<SubTitleUnit> list, boolean z) {
+    public SubTitleCreater(List list, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -88,7 +88,7 @@ public class SubTitleCreater {
         }
         this.mIsSync = z;
         this.mSubTitleUnits = list;
-        this.mSubtitleCache = new HashMap<>();
+        this.mSubtitleCache = new HashMap();
         this.mBottomPadding = 5;
         this.mLinePadding = 5;
         this.mMinRightPadding = 5;
@@ -105,7 +105,7 @@ public class SubTitleCreater {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, subTitleUnit)) == null) {
             if (this.mVideoWidth <= 0 || this.mSubTitleY <= 0 || TextUtils.isEmpty(subTitleUnit.line)) {
-                qg9.e("SubTitleCreater", "mVideoWidth:" + this.mVideoWidth + ",mSubTitleY:" + this.mSubTitleY + "title:" + subTitleUnit.line);
+                ih9.e("SubTitleCreater", "mVideoWidth:" + this.mVideoWidth + ",mSubTitleY:" + this.mSubTitleY + "title:" + subTitleUnit.line);
                 return null;
             }
             Bitmap createBitmap = Bitmap.createBitmap(this.mVideoWidth, this.mSubTitleY, Bitmap.Config.ARGB_8888);
@@ -251,7 +251,7 @@ public class SubTitleCreater {
             for (SubTitleUnit subTitleUnit : list) {
                 if (j >= subTitleUnit.startTime && j <= subTitleUnit.endTime) {
                     synchronized (this.mSubtitleCache) {
-                        Bitmap bitmap = this.mSubtitleCache.get(getCacheKey(subTitleUnit));
+                        Bitmap bitmap = (Bitmap) this.mSubtitleCache.get(getCacheKey(subTitleUnit));
                         if (bitmap != null && !bitmap.isRecycled()) {
                             SubTitleUnit subTitleUnit2 = new SubTitleUnit();
                             subTitleUnit2.line = subTitleUnit.line;
@@ -260,9 +260,9 @@ public class SubTitleCreater {
                         }
                         if (!this.mSubtitleCache.isEmpty()) {
                             ArrayList<String> arrayList = new ArrayList();
-                            for (Map.Entry<String, Bitmap> entry : this.mSubtitleCache.entrySet()) {
-                                entry.getValue().recycle();
-                                arrayList.add(entry.getKey());
+                            for (Map.Entry entry : this.mSubtitleCache.entrySet()) {
+                                ((Bitmap) entry.getValue()).recycle();
+                                arrayList.add((String) entry.getKey());
                             }
                             for (String str : arrayList) {
                                 this.mSubtitleCache.remove(str);
@@ -305,7 +305,7 @@ public class SubTitleCreater {
                                         return;
                                     }
                                     synchronized (this.this$0.mSubtitleCache) {
-                                        qg9.e("subcreater", this.val$subTitleUnit.line + "," + this.val$subTitleUnit.engLine + "," + this.val$time);
+                                        ih9.e("subcreater", this.val$subTitleUnit.line + "," + this.val$subTitleUnit.engLine + "," + this.val$time);
                                         this.this$0.mSubtitleCache.put(this.this$0.getCacheKey(this.val$subTitleUnit), createSubtitleBitmap);
                                     }
                                 }
@@ -315,7 +315,7 @@ public class SubTitleCreater {
                         Bitmap createSubtitleBitmap = createSubtitleBitmap(subTitleUnit);
                         if (createSubtitleBitmap != null && !createSubtitleBitmap.isRecycled()) {
                             this.mSubtitleCache.put(getCacheKey(subTitleUnit), createSubtitleBitmap);
-                            qg9.e("subcreater", subTitleUnit.line + "," + subTitleUnit.engLine + "," + j);
+                            ih9.e("subcreater", subTitleUnit.line + "," + subTitleUnit.engLine + "," + j);
                         }
                         SubTitleUnit subTitleUnit3 = new SubTitleUnit();
                         subTitleUnit3.line = subTitleUnit.line;
@@ -368,13 +368,13 @@ public class SubTitleCreater {
             }
             for (SubTitleUnit subTitleUnit2 : list) {
                 if (j >= subTitleUnit2.startTime && j <= subTitleUnit2.endTime) {
-                    Bitmap bitmap = this.mSubtitleCache.get(getCacheKey(subTitleUnit2));
+                    Bitmap bitmap = (Bitmap) this.mSubtitleCache.get(getCacheKey(subTitleUnit2));
                     if (bitmap == null || bitmap.isRecycled()) {
                         if (!this.mSubtitleCache.isEmpty()) {
                             ArrayList<String> arrayList = new ArrayList();
-                            for (Map.Entry<String, Bitmap> entry : this.mSubtitleCache.entrySet()) {
-                                entry.getValue().recycle();
-                                arrayList.add(entry.getKey());
+                            for (Map.Entry entry : this.mSubtitleCache.entrySet()) {
+                                ((Bitmap) entry.getValue()).recycle();
+                                arrayList.add((String) entry.getKey());
                             }
                             for (String str : arrayList) {
                                 this.mSubtitleCache.remove(str);
@@ -384,7 +384,7 @@ public class SubTitleCreater {
                         bitmap = createSubtitleBitmap(subTitleUnit2);
                         if (bitmap != null && !bitmap.isRecycled()) {
                             this.mSubtitleCache.put(getCacheKey(subTitleUnit2), bitmap);
-                            qg9.e("subcreater", subTitleUnit2.line + "," + subTitleUnit2.engLine + "," + j);
+                            ih9.e("subcreater", subTitleUnit2.line + "," + subTitleUnit2.engLine + "," + j);
                         }
                         subTitleUnit = new SubTitleUnit();
                     } else {
@@ -400,7 +400,7 @@ public class SubTitleCreater {
         return (SubTitleUnit) invokeJ.objValue;
     }
 
-    public List<SubTitleUnit> getSubTitleUnits() {
+    public List getSubTitleUnits() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mSubTitleUnits : (List) invokeV.objValue;
@@ -554,7 +554,7 @@ public class SubTitleCreater {
         }
     }
 
-    public void setSubTitleUnits(List<SubTitleUnit> list) {
+    public void setSubTitleUnits(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, list) == null) {
             this.mSubTitleUnits = list;

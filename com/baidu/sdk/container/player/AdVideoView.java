@@ -17,14 +17,14 @@ import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sdk.container.player.BaseMediaPlayer;
-import com.baidu.tieba.m31;
-import com.baidu.tieba.ng1;
-import com.baidu.tieba.o21;
+import com.baidu.tieba.n31;
 import com.baidu.tieba.og1;
+import com.baidu.tieba.p21;
 import com.baidu.tieba.pg1;
 import com.baidu.tieba.qg1;
 import com.baidu.tieba.rg1;
-import com.baidu.tieba.t21;
+import com.baidu.tieba.sg1;
+import com.baidu.tieba.u21;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,13 +36,13 @@ import java.lang.ref.SoftReference;
 public class AdVideoView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public qg1 A;
+    public rg1 A;
     public SurfaceHolder B;
-    public og1 C;
+    public pg1 C;
     public BaseMediaPlayer a;
-    public ng1 b;
-    public ng1.a c;
-    public ng1.b d;
+    public og1 b;
+    public og1.a c;
+    public og1.b d;
     public Context e;
     public AdVideoProgressBar f;
     public int g;
@@ -50,7 +50,7 @@ public class AdVideoView extends RelativeLayout {
     public boolean i;
     public int j;
     public e k;
-    public pg1 l;
+    public qg1 l;
     public View m;
     public boolean n;
     public String o;
@@ -66,8 +66,21 @@ public class AdVideoView extends RelativeLayout {
     public boolean y;
     public Surface z;
 
+    public final void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        }
+    }
+
+    @Override // android.view.View
+    public void onConfigurationChanged(Configuration configuration) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, configuration) == null) {
+        }
+    }
+
     /* loaded from: classes2.dex */
-    public class a implements rg1 {
+    public class a implements sg1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdVideoView a;
@@ -90,17 +103,18 @@ public class AdVideoView extends RelativeLayout {
             this.a = adVideoView;
         }
 
-        @Override // com.baidu.tieba.rg1
+        @Override // com.baidu.tieba.sg1
         public void a(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                this.a.k(i);
+            if (interceptable != null && interceptable.invokeI(1048576, this, i) != null) {
+                return;
             }
+            this.a.k(i);
         }
     }
 
     /* loaded from: classes2.dex */
-    public class b implements qg1 {
+    public class b implements rg1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdVideoView a;
@@ -123,7 +137,18 @@ public class AdVideoView extends RelativeLayout {
             this.a = adVideoView;
         }
 
-        @Override // com.baidu.tieba.qg1
+        @Override // com.baidu.tieba.rg1
+        public void b(Surface surface) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, surface) != null) {
+                return;
+            }
+            this.a.z = surface;
+            this.a.r = true;
+            this.a.w();
+        }
+
+        @Override // com.baidu.tieba.rg1
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -135,20 +160,10 @@ public class AdVideoView extends RelativeLayout {
                 this.a.B();
             }
         }
-
-        @Override // com.baidu.tieba.qg1
-        public void b(Surface surface) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, surface) == null) {
-                this.a.z = surface;
-                this.a.r = true;
-                this.a.w();
-            }
-        }
     }
 
     /* loaded from: classes2.dex */
-    public class c implements og1 {
+    public class c implements pg1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdVideoView a;
@@ -171,7 +186,18 @@ public class AdVideoView extends RelativeLayout {
             this.a = adVideoView;
         }
 
-        @Override // com.baidu.tieba.og1
+        @Override // com.baidu.tieba.pg1
+        public void surfaceCreated(SurfaceHolder surfaceHolder) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, surfaceHolder) != null) {
+                return;
+            }
+            this.a.B = surfaceHolder;
+            this.a.r = true;
+            this.a.w();
+        }
+
+        @Override // com.baidu.tieba.pg1
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -181,16 +207,6 @@ public class AdVideoView extends RelativeLayout {
                 this.a.q = false;
                 this.a.r = false;
                 this.a.B();
-            }
-        }
-
-        @Override // com.baidu.tieba.og1
-        public void surfaceCreated(SurfaceHolder surfaceHolder) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, surfaceHolder) == null) {
-                this.a.B = surfaceHolder;
-                this.a.r = true;
-                this.a.w();
             }
         }
     }
@@ -219,6 +235,10 @@ public class AdVideoView extends RelativeLayout {
             this.this$0 = adVideoView;
         }
 
+        public /* synthetic */ d(AdVideoView adVideoView, a aVar) {
+            this(adVideoView);
+        }
+
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             Interceptable interceptable = $ic;
@@ -226,28 +246,25 @@ public class AdVideoView extends RelativeLayout {
                 String action = intent.getAction();
                 if ("android.intent.action.SCREEN_OFF".equals(action)) {
                     Context context2 = this.this$0.e;
-                    if (o21.d(context2, context2.getPackageName())) {
+                    if (p21.d(context2, context2.getPackageName())) {
                         return;
                     }
                     this.this$0.s = true;
                     this.this$0.B();
-                } else if ("android.intent.action.USER_PRESENT".equals(action)) {
+                } else if (!"android.intent.action.USER_PRESENT".equals(action)) {
+                } else {
                     this.this$0.s = false;
                     this.this$0.w();
                 }
             }
         }
-
-        public /* synthetic */ d(AdVideoView adVideoView, a aVar) {
-            this(adVideoView);
-        }
     }
 
     /* loaded from: classes2.dex */
-    public static class e implements Runnable {
+    public class e implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public SoftReference<AdVideoView> a;
+        public SoftReference a;
         public boolean b;
 
         public e(AdVideoView adVideoView) {
@@ -266,7 +283,7 @@ public class AdVideoView extends RelativeLayout {
                 }
             }
             this.b = false;
-            this.a = new SoftReference<>(adVideoView);
+            this.a = new SoftReference(adVideoView);
         }
 
         public void a(boolean z) {
@@ -278,19 +295,18 @@ public class AdVideoView extends RelativeLayout {
 
         @Override // java.lang.Runnable
         public void run() {
-            SoftReference<AdVideoView> softReference;
+            SoftReference softReference;
             AdVideoView adVideoView;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (softReference = this.a) == null || (adVideoView = softReference.get()) == null) {
-                return;
-            }
-            int currentPosition = adVideoView.getCurrentPosition();
-            int duration = adVideoView.getDuration();
-            if (adVideoView.f != null && duration > 0) {
-                adVideoView.f.setProgress(currentPosition / duration);
-            }
-            if (this.b) {
-                adVideoView.postDelayed(this, 200L);
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (softReference = this.a) != null && (adVideoView = (AdVideoView) softReference.get()) != null) {
+                int currentPosition = adVideoView.getCurrentPosition();
+                int duration = adVideoView.getDuration();
+                if (adVideoView.f != null && duration > 0) {
+                    adVideoView.f.setProgress(currentPosition / duration);
+                }
+                if (this.b) {
+                    adVideoView.postDelayed(this, 200L);
+                }
             }
         }
     }
@@ -328,464 +344,6 @@ public class AdVideoView extends RelativeLayout {
         this.C = new c(this);
         this.e = context;
         m();
-    }
-
-    public void A(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.v = 0;
-            this.o = str;
-            this.q = true;
-            this.w = true;
-            w();
-        }
-    }
-
-    public void B() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.a == null) {
-            return;
-        }
-        x();
-        this.u = true;
-        this.t = false;
-        this.a.m(null);
-        this.a.t();
-        this.a.j();
-        this.a.i();
-        this.a = null;
-        e eVar = this.k;
-        if (eVar != null) {
-            eVar.a(false);
-        }
-    }
-
-    public final void C() {
-        Context context;
-        d dVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (context = this.e) == null || (dVar = this.p) == null) {
-            return;
-        }
-        try {
-            context.unregisterReceiver(dVar);
-            this.p = null;
-        } catch (Throwable unused) {
-            this.p = null;
-        }
-    }
-
-    public int getCurrentPosition() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            BaseMediaPlayer baseMediaPlayer = this.a;
-            if (baseMediaPlayer != null) {
-                return baseMediaPlayer.a();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public int getDuration() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            BaseMediaPlayer baseMediaPlayer = this.a;
-            if (baseMediaPlayer != null) {
-                return baseMediaPlayer.b();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public int getLastPosition() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.v : invokeV.intValue;
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            removeAllViews();
-            this.w = false;
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
-            layoutParams.addRule(13);
-            setBackgroundColor(Color.parseColor("#000000"));
-            addView((View) this.l, layoutParams);
-        }
-    }
-
-    public final void k(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            switch (i) {
-                case 256:
-                    this.v = 0;
-                    this.w = false;
-                    l();
-                    ng1 ng1Var = this.b;
-                    if (ng1Var != null) {
-                        ng1Var.d();
-                        return;
-                    }
-                    return;
-                case 257:
-                    this.w = false;
-                    this.v = 0;
-                    u();
-                    return;
-                case ApkSignatureSchemeV2Verifier.SIGNATURE_RSA_PSS_WITH_SHA512 /* 258 */:
-                    ng1.b bVar = this.d;
-                    if (bVar != null) {
-                        bVar.onPrepared();
-                    }
-                    int i2 = this.v;
-                    if (i2 > 0) {
-                        this.a.k(i2);
-                    }
-                    setVideoMute(this.n);
-                    pg1 pg1Var = this.l;
-                    if (pg1Var != null) {
-                        pg1Var.onVideoSizeChanged(this.a.d(), this.a.c());
-                    }
-                    AdVideoProgressBar adVideoProgressBar = this.f;
-                    if (adVideoProgressBar != null) {
-                        adVideoProgressBar.setProgress(this.v / getDuration());
-                        e eVar = this.k;
-                        if (eVar != null) {
-                            removeCallbacks(eVar);
-                            this.k.a(true);
-                            postDelayed(this.k, 200L);
-                        }
-                    }
-                    if (this.q && m31.c(this)) {
-                        t();
-                        return;
-                    }
-                    return;
-                case ApkSignatureSchemeV2Verifier.SIGNATURE_RSA_PKCS1_V1_5_WITH_SHA256 /* 259 */:
-                default:
-                    return;
-                case 260:
-                    this.w = true;
-                    l();
-                    ng1 ng1Var2 = this.b;
-                    if (ng1Var2 != null) {
-                        ng1Var2.e();
-                        return;
-                    }
-                    return;
-                case 261:
-                    z();
-                    return;
-                case 262:
-                    l();
-                    return;
-            }
-        }
-    }
-
-    public final void l() {
-        View view2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (view2 = this.m) == null) {
-            return;
-        }
-        view2.setVisibility(8);
-    }
-
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-        }
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            o();
-            q(false);
-            j();
-            p();
-        }
-    }
-
-    public final void o() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.a == null) {
-            this.u = false;
-            BaseMediaPlayer baseMediaPlayer = new BaseMediaPlayer(this.e);
-            this.a = baseMediaPlayer;
-            baseMediaPlayer.m(new a(this));
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void onAttachedToWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            super.onAttachedToWindow();
-            v();
-        }
-    }
-
-    @Override // android.view.View
-    public void onConfigurationChanged(Configuration configuration) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, configuration) == null) {
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void onDetachedFromWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            super.onDetachedFromWindow();
-            C();
-            B();
-        }
-    }
-
-    public final void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            if (this.i) {
-                AdVideoProgressBar adVideoProgressBar = new AdVideoProgressBar(this.e);
-                this.f = adVideoProgressBar;
-                adVideoProgressBar.setProgressColor(this.g);
-                this.f.setProgressBackgroundColor(this.h);
-                this.f.setProgressHeight(this.j);
-                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.j);
-                layoutParams.addRule(12);
-                addView(this.f, layoutParams);
-                this.f.setProgress(0.0f);
-                this.f.setVisibility(4);
-                this.k = new e(this);
-                return;
-            }
-            AdVideoProgressBar adVideoProgressBar2 = this.f;
-            if (adVideoProgressBar2 != null) {
-                adVideoProgressBar2.setVisibility(8);
-            }
-        }
-    }
-
-    public final void q(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
-            if (z) {
-                this.y = true;
-                this.l = new BaseSurfaceView(this.e, this.C);
-            } else if (Build.VERSION.SDK_INT >= 14) {
-                this.y = false;
-                this.l = new BaseTextureView(this.e, this.A);
-            } else {
-                this.y = true;
-                this.l = new BaseSurfaceView(this.e, this.C);
-            }
-            this.l.setDisplayMode(this.x);
-        }
-    }
-
-    public void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            this.q = false;
-            BaseMediaPlayer baseMediaPlayer = this.a;
-            if (baseMediaPlayer == null || baseMediaPlayer.e == BaseMediaPlayer.State.PLAYBACKCOMPLETED) {
-                return;
-            }
-            baseMediaPlayer.g();
-            ng1 ng1Var = this.b;
-            if (ng1Var != null) {
-                ng1Var.b();
-            }
-            x();
-        }
-    }
-
-    public void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            this.q = true;
-            w();
-        }
-    }
-
-    public void setAdVideoViewListener(ng1 ng1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, ng1Var) == null) {
-            this.b = ng1Var;
-        }
-    }
-
-    public void setDestroyedListener(ng1.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, aVar) == null) {
-            this.c = aVar;
-        }
-    }
-
-    public void setDisplayMode(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
-            this.x = i;
-        }
-    }
-
-    public void setPreparedListener(ng1.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, bVar) == null) {
-            this.d = bVar;
-        }
-    }
-
-    public void setProgressBar(boolean z, int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
-            this.i = z;
-            this.h = i;
-            this.g = i2;
-            this.j = t21.c.a(getContext(), i3);
-        }
-    }
-
-    public void setProgressBarVisibility(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048600, this, i) == null) && this.i) {
-            this.f.setVisibility(i);
-        }
-    }
-
-    public void setVideoMute(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
-            this.n = z;
-            if (z) {
-                y(0.0f, 0.0f);
-            } else {
-                y(1.0f, 1.0f);
-            }
-        }
-    }
-
-    public void setVideoUrl(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
-            this.o = str;
-            if (TextUtils.isEmpty(str)) {
-                u();
-                return;
-            }
-            BaseMediaPlayer baseMediaPlayer = this.a;
-            if (baseMediaPlayer != null) {
-                baseMediaPlayer.p(str);
-            }
-        }
-    }
-
-    public final void t() {
-        BaseMediaPlayer baseMediaPlayer;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048603, this) == null) || (baseMediaPlayer = this.a) == null) {
-            return;
-        }
-        if (this.y) {
-            baseMediaPlayer.l(this.B);
-            this.a.n(true);
-        } else {
-            baseMediaPlayer.o(this.z);
-            this.a.r(this.e, 10);
-        }
-        this.a.s();
-    }
-
-    public final void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
-            ng1 ng1Var = this.b;
-            if (ng1Var != null) {
-                ng1Var.a();
-            }
-            l();
-            B();
-        }
-    }
-
-    public final void v() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
-            IntentFilter intentFilter = new IntentFilter();
-            intentFilter.addAction("android.intent.action.SCREEN_OFF");
-            intentFilter.addAction("android.intent.action.USER_PRESENT");
-            if (this.e == null || this.p != null) {
-                return;
-            }
-            d dVar = new d(this, null);
-            this.p = dVar;
-            this.e.registerReceiver(dVar, intentFilter);
-        }
-    }
-
-    public final void w() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048606, this) == null) && !TextUtils.isEmpty(this.o) && this.q && this.r) {
-            Context context = this.e;
-            if ((o21.d(context, context.getPackageName()) || !this.s) && this.w) {
-                ng1 ng1Var = this.b;
-                if (ng1Var != null) {
-                    ng1Var.c();
-                }
-                if (!this.u) {
-                    t();
-                } else if (this.t) {
-                } else {
-                    B();
-                    this.t = true;
-                    o();
-                    setVideoUrl(this.o);
-                    t();
-                }
-            }
-        }
-    }
-
-    public final void x() {
-        BaseMediaPlayer baseMediaPlayer;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048607, this) == null) || (baseMediaPlayer = this.a) == null) {
-            return;
-        }
-        this.v = baseMediaPlayer.a();
-    }
-
-    public final void y(float f, float f2) {
-        BaseMediaPlayer baseMediaPlayer;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048608, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) || (baseMediaPlayer = this.a) == null) {
-            return;
-        }
-        baseMediaPlayer.q(f, f2);
-    }
-
-    public final void z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
-            View view2 = this.m;
-            if (view2 == null) {
-                this.m = new ProgressBar(this.e);
-                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-                layoutParams.addRule(13);
-                this.m.setLayoutParams(layoutParams);
-                addView(this.m);
-                return;
-            }
-            view2.setVisibility(0);
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -858,5 +416,445 @@ public class AdVideoView extends RelativeLayout {
         this.C = new c(this);
         this.e = context;
         m();
+    }
+
+    public final void y(float f, float f2) {
+        BaseMediaPlayer baseMediaPlayer;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048608, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) && (baseMediaPlayer = this.a) != null) {
+            baseMediaPlayer.q(f, f2);
+        }
+    }
+
+    public void A(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.v = 0;
+            this.o = str;
+            this.q = true;
+            this.w = true;
+            w();
+        }
+    }
+
+    public void setAdVideoViewListener(og1 og1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, og1Var) == null) {
+            this.b = og1Var;
+        }
+    }
+
+    public void setDestroyedListener(og1.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, aVar) == null) {
+            this.c = aVar;
+        }
+    }
+
+    public void setDisplayMode(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
+            this.x = i;
+        }
+    }
+
+    public void setPreparedListener(og1.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048598, this, bVar) == null) {
+            this.d = bVar;
+        }
+    }
+
+    public void setProgressBarVisibility(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048600, this, i) == null) && this.i) {
+            this.f.setVisibility(i);
+        }
+    }
+
+    public void setVideoMute(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
+            this.n = z;
+            if (z) {
+                y(0.0f, 0.0f);
+            } else {
+                y(1.0f, 1.0f);
+            }
+        }
+    }
+
+    public void setVideoUrl(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
+            this.o = str;
+            if (TextUtils.isEmpty(str)) {
+                u();
+                return;
+            }
+            BaseMediaPlayer baseMediaPlayer = this.a;
+            if (baseMediaPlayer != null) {
+                baseMediaPlayer.p(str);
+            }
+        }
+    }
+
+    public void B() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a != null) {
+            x();
+            this.u = true;
+            this.t = false;
+            this.a.m(null);
+            this.a.t();
+            this.a.j();
+            this.a.i();
+            this.a = null;
+            e eVar = this.k;
+            if (eVar != null) {
+                eVar.a(false);
+            }
+        }
+    }
+
+    public final void t() {
+        BaseMediaPlayer baseMediaPlayer;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048603, this) == null) && (baseMediaPlayer = this.a) != null) {
+            if (this.y) {
+                baseMediaPlayer.l(this.B);
+                this.a.n(true);
+            } else {
+                baseMediaPlayer.o(this.z);
+                this.a.r(this.e, 10);
+            }
+            this.a.s();
+        }
+    }
+
+    public final void v() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
+            IntentFilter intentFilter = new IntentFilter();
+            intentFilter.addAction("android.intent.action.SCREEN_OFF");
+            intentFilter.addAction("android.intent.action.USER_PRESENT");
+            if (this.e != null && this.p == null) {
+                d dVar = new d(this, null);
+                this.p = dVar;
+                this.e.registerReceiver(dVar, intentFilter);
+            }
+        }
+    }
+
+    public final void z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
+            View view2 = this.m;
+            if (view2 == null) {
+                this.m = new ProgressBar(this.e);
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
+                layoutParams.addRule(13);
+                this.m.setLayoutParams(layoutParams);
+                addView(this.m);
+                return;
+            }
+            view2.setVisibility(0);
+        }
+    }
+
+    public final void C() {
+        Context context;
+        d dVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (context = this.e) != null && (dVar = this.p) != null) {
+            try {
+                context.unregisterReceiver(dVar);
+                this.p = null;
+            } catch (Throwable unused) {
+                this.p = null;
+            }
+        }
+    }
+
+    public int getCurrentPosition() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            BaseMediaPlayer baseMediaPlayer = this.a;
+            if (baseMediaPlayer != null) {
+                return baseMediaPlayer.a();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getDuration() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            BaseMediaPlayer baseMediaPlayer = this.a;
+            if (baseMediaPlayer != null) {
+                return baseMediaPlayer.b();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getLastPosition() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.v;
+        }
+        return invokeV.intValue;
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            removeAllViews();
+            this.w = false;
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
+            layoutParams.addRule(13);
+            setBackgroundColor(Color.parseColor("#000000"));
+            addView((View) this.l, layoutParams);
+        }
+    }
+
+    public final void l() {
+        View view2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (view2 = this.m) != null) {
+            view2.setVisibility(8);
+        }
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            o();
+            q(false);
+            j();
+            p();
+        }
+    }
+
+    public final void o() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.a == null) {
+            this.u = false;
+            BaseMediaPlayer baseMediaPlayer = new BaseMediaPlayer(this.e);
+            this.a = baseMediaPlayer;
+            baseMediaPlayer.m(new a(this));
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void onAttachedToWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            super.onAttachedToWindow();
+            v();
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void onDetachedFromWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            super.onDetachedFromWindow();
+            C();
+            B();
+        }
+    }
+
+    public void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            this.q = false;
+            BaseMediaPlayer baseMediaPlayer = this.a;
+            if (baseMediaPlayer != null && baseMediaPlayer.e != BaseMediaPlayer.State.PLAYBACKCOMPLETED) {
+                baseMediaPlayer.g();
+                og1 og1Var = this.b;
+                if (og1Var != null) {
+                    og1Var.b();
+                }
+                x();
+            }
+        }
+    }
+
+    public void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            this.q = true;
+            w();
+        }
+    }
+
+    public final void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
+            og1 og1Var = this.b;
+            if (og1Var != null) {
+                og1Var.a();
+            }
+            l();
+            B();
+        }
+    }
+
+    public final void x() {
+        BaseMediaPlayer baseMediaPlayer;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048607, this) != null) || (baseMediaPlayer = this.a) == null) {
+            return;
+        }
+        this.v = baseMediaPlayer.a();
+    }
+
+    public final void k(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            switch (i) {
+                case 256:
+                    this.v = 0;
+                    this.w = false;
+                    l();
+                    og1 og1Var = this.b;
+                    if (og1Var != null) {
+                        og1Var.d();
+                        return;
+                    }
+                    return;
+                case 257:
+                    this.w = false;
+                    this.v = 0;
+                    u();
+                    return;
+                case ApkSignatureSchemeV2Verifier.SIGNATURE_RSA_PSS_WITH_SHA512 /* 258 */:
+                    og1.b bVar = this.d;
+                    if (bVar != null) {
+                        bVar.onPrepared();
+                    }
+                    int i2 = this.v;
+                    if (i2 > 0) {
+                        this.a.k(i2);
+                    }
+                    setVideoMute(this.n);
+                    qg1 qg1Var = this.l;
+                    if (qg1Var != null) {
+                        qg1Var.onVideoSizeChanged(this.a.d(), this.a.c());
+                    }
+                    AdVideoProgressBar adVideoProgressBar = this.f;
+                    if (adVideoProgressBar != null) {
+                        adVideoProgressBar.setProgress(this.v / getDuration());
+                        e eVar = this.k;
+                        if (eVar != null) {
+                            removeCallbacks(eVar);
+                            this.k.a(true);
+                            postDelayed(this.k, 200L);
+                        }
+                    }
+                    if (this.q && n31.c(this)) {
+                        t();
+                        return;
+                    }
+                    return;
+                case ApkSignatureSchemeV2Verifier.SIGNATURE_RSA_PKCS1_V1_5_WITH_SHA256 /* 259 */:
+                default:
+                    return;
+                case 260:
+                    this.w = true;
+                    l();
+                    og1 og1Var2 = this.b;
+                    if (og1Var2 != null) {
+                        og1Var2.e();
+                        return;
+                    }
+                    return;
+                case 261:
+                    z();
+                    return;
+                case 262:
+                    l();
+                    return;
+            }
+        }
+    }
+
+    public final void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            if (this.i) {
+                AdVideoProgressBar adVideoProgressBar = new AdVideoProgressBar(this.e);
+                this.f = adVideoProgressBar;
+                adVideoProgressBar.setProgressColor(this.g);
+                this.f.setProgressBackgroundColor(this.h);
+                this.f.setProgressHeight(this.j);
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.j);
+                layoutParams.addRule(12);
+                addView(this.f, layoutParams);
+                this.f.setProgress(0.0f);
+                this.f.setVisibility(4);
+                this.k = new e(this);
+                return;
+            }
+            AdVideoProgressBar adVideoProgressBar2 = this.f;
+            if (adVideoProgressBar2 != null) {
+                adVideoProgressBar2.setVisibility(8);
+            }
+        }
+    }
+
+    public final void w() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048606, this) == null) && !TextUtils.isEmpty(this.o) && this.q && this.r) {
+            Context context = this.e;
+            if ((p21.d(context, context.getPackageName()) || !this.s) && this.w) {
+                og1 og1Var = this.b;
+                if (og1Var != null) {
+                    og1Var.c();
+                }
+                if (!this.u) {
+                    t();
+                } else if (!this.t) {
+                    B();
+                    this.t = true;
+                    o();
+                    setVideoUrl(this.o);
+                    t();
+                }
+            }
+        }
+    }
+
+    public final void q(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
+            if (z) {
+                this.y = true;
+                this.l = new BaseSurfaceView(this.e, this.C);
+            } else if (Build.VERSION.SDK_INT >= 14) {
+                this.y = false;
+                this.l = new BaseTextureView(this.e, this.A);
+            } else {
+                this.y = true;
+                this.l = new BaseSurfaceView(this.e, this.C);
+            }
+            this.l.setDisplayMode(this.x);
+        }
+    }
+
+    public void setProgressBar(boolean z, int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+            this.i = z;
+            this.h = i;
+            this.g = i2;
+            this.j = u21.c.a(getContext(), i3);
+        }
     }
 }

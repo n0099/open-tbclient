@@ -68,31 +68,179 @@ public final class g extends d {
         }
     }
 
+    private int b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i)) == null) {
+            int binarySearch = Arrays.binarySearch(this.g, 0, this.f.length, i + 1);
+            if (binarySearch < 0) {
+                return ~binarySearch;
+            }
+            return binarySearch;
+        }
+        return invokeI.intValue;
+    }
+
     private d e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? new d(d()) : (d) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+            return new d(d());
+        }
+        return (d) invokeV.objValue;
     }
 
     @Override // com.baidu.searchbox.v8engine.net.io.d
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? e().a() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return e().a();
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // com.baidu.searchbox.v8engine.net.io.d
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? e().b() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return e().b();
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // com.baidu.searchbox.v8engine.net.io.d
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.g[this.f.length - 1] : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.g[this.f.length - 1];
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.searchbox.v8engine.net.io.d
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return e().toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.v8engine.net.io.d
+    public byte a(int i) {
+        InterceptResult invokeI;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            j.a(this.g[this.f.length - 1], i, 1L);
+            int b = b(i);
+            if (b == 0) {
+                i2 = 0;
+            } else {
+                i2 = this.g[b - 1];
+            }
+            int[] iArr = this.g;
+            byte[][] bArr = this.f;
+            return bArr[b][(i - i2) + iArr[bArr.length + b]];
+        }
+        return invokeI.byteValue;
+    }
+
+    @Override // com.baidu.searchbox.v8engine.net.io.d
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj)) == null) {
+            if (obj == this) {
+                return true;
+            }
+            if (obj instanceof d) {
+                d dVar = (d) obj;
+                if (dVar.c() == c() && a(0, dVar, 0, c())) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.v8engine.net.io.d
+    public d a(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2)) == null) {
+            return e().a(i, i2);
+        }
+        return (d) invokeII.objValue;
+    }
+
+    @Override // com.baidu.searchbox.v8engine.net.io.d
+    public boolean a(int i, d dVar, int i2, int i3) {
+        InterceptResult invokeCommon;
+        int i4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), dVar, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+            if (i < 0 || i > c() - i3) {
+                return false;
+            }
+            int b = b(i);
+            while (i3 > 0) {
+                if (b == 0) {
+                    i4 = 0;
+                } else {
+                    i4 = this.g[b - 1];
+                }
+                int min = Math.min(i3, ((this.g[b] - i4) + i4) - i);
+                int[] iArr = this.g;
+                byte[][] bArr = this.f;
+                if (!dVar.a(i2, bArr[b], (i - i4) + iArr[bArr.length + b], min)) {
+                    return false;
+                }
+                i += min;
+                i2 += min;
+                i3 -= min;
+                b++;
+            }
+            return true;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.v8engine.net.io.d
+    public boolean a(int i, byte[] bArr, int i2, int i3) {
+        InterceptResult invokeCommon;
+        int i4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), bArr, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+            if (i < 0 || i > c() - i3 || i2 < 0 || i2 > bArr.length - i3) {
+                return false;
+            }
+            int b = b(i);
+            while (i3 > 0) {
+                if (b == 0) {
+                    i4 = 0;
+                } else {
+                    i4 = this.g[b - 1];
+                }
+                int min = Math.min(i3, ((this.g[b] - i4) + i4) - i);
+                int[] iArr = this.g;
+                byte[][] bArr2 = this.f;
+                if (!j.a(bArr2[b], (i - i4) + iArr[bArr2.length + b], bArr, i2, min)) {
+                    return false;
+                }
+                i += min;
+                i2 += min;
+                i3 -= min;
+                b++;
+            }
+            return true;
+        }
+        return invokeCommon.booleanValue;
     }
 
     @Override // com.baidu.searchbox.v8engine.net.io.d
@@ -117,25 +265,6 @@ public final class g extends d {
             return bArr2;
         }
         return (byte[]) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.v8engine.net.io.d
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj)) == null) {
-            if (obj == this) {
-                return true;
-            }
-            if (obj instanceof d) {
-                d dVar = (d) obj;
-                if (dVar.c() == c() && a(0, dVar, 0, c())) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
     }
 
     @Override // com.baidu.searchbox.v8engine.net.io.d
@@ -168,98 +297,5 @@ public final class g extends d {
             return i4;
         }
         return invokeV.intValue;
-    }
-
-    @Override // com.baidu.searchbox.v8engine.net.io.d
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? e().toString() : (String) invokeV.objValue;
-    }
-
-    private int b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i)) == null) {
-            int binarySearch = Arrays.binarySearch(this.g, 0, this.f.length, i + 1);
-            return binarySearch >= 0 ? binarySearch : ~binarySearch;
-        }
-        return invokeI.intValue;
-    }
-
-    @Override // com.baidu.searchbox.v8engine.net.io.d
-    public d a(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2)) == null) ? e().a(i, i2) : (d) invokeII.objValue;
-    }
-
-    @Override // com.baidu.searchbox.v8engine.net.io.d
-    public byte a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            j.a(this.g[this.f.length - 1], i, 1L);
-            int b = b(i);
-            int i2 = b == 0 ? 0 : this.g[b - 1];
-            int[] iArr = this.g;
-            byte[][] bArr = this.f;
-            return bArr[b][(i - i2) + iArr[bArr.length + b]];
-        }
-        return invokeI.byteValue;
-    }
-
-    @Override // com.baidu.searchbox.v8engine.net.io.d
-    public boolean a(int i, d dVar, int i2, int i3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), dVar, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
-            if (i < 0 || i > c() - i3) {
-                return false;
-            }
-            int b = b(i);
-            while (i3 > 0) {
-                int i4 = b == 0 ? 0 : this.g[b - 1];
-                int min = Math.min(i3, ((this.g[b] - i4) + i4) - i);
-                int[] iArr = this.g;
-                byte[][] bArr = this.f;
-                if (!dVar.a(i2, bArr[b], (i - i4) + iArr[bArr.length + b], min)) {
-                    return false;
-                }
-                i += min;
-                i2 += min;
-                i3 -= min;
-                b++;
-            }
-            return true;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.v8engine.net.io.d
-    public boolean a(int i, byte[] bArr, int i2, int i3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), bArr, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
-            if (i < 0 || i > c() - i3 || i2 < 0 || i2 > bArr.length - i3) {
-                return false;
-            }
-            int b = b(i);
-            while (i3 > 0) {
-                int i4 = b == 0 ? 0 : this.g[b - 1];
-                int min = Math.min(i3, ((this.g[b] - i4) + i4) - i);
-                int[] iArr = this.g;
-                byte[][] bArr2 = this.f;
-                if (!j.a(bArr2[b], (i - i4) + iArr[bArr2.length + b], bArr, i2, min)) {
-                    return false;
-                }
-                i += min;
-                i2 += min;
-                i3 -= min;
-                b++;
-            }
-            return true;
-        }
-        return invokeCommon.booleanValue;
     }
 }

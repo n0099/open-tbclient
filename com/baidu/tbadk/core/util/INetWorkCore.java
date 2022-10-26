@@ -22,7 +22,7 @@ public interface INetWorkCore {
 
     String getNetString();
 
-    ArrayList<BasicNameValuePair> getPostData();
+    ArrayList getPostData();
 
     boolean isCancel();
 
@@ -32,5 +32,5 @@ public interface INetWorkCore {
 
     void setCancel();
 
-    void setPostData(ArrayList<BasicNameValuePair> arrayList);
+    void setPostData(ArrayList arrayList);
 }

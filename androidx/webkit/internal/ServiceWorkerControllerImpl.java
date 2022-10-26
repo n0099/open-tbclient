@@ -1,9 +1,6 @@
 package androidx.webkit.internal;
 
-import android.annotation.SuppressLint;
 import android.webkit.ServiceWorkerController;
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.webkit.ServiceWorkerClientCompat;
 import androidx.webkit.ServiceWorkerControllerCompat;
 import androidx.webkit.ServiceWorkerWebSettingsCompat;
@@ -23,7 +20,6 @@ public class ServiceWorkerControllerImpl extends ServiceWorkerControllerCompat {
     public ServiceWorkerController mFrameworksImpl;
     public final ServiceWorkerWebSettingsCompat mWebSettings;
 
-    @SuppressLint({"NewApi"})
     public ServiceWorkerControllerImpl() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -65,7 +61,6 @@ public class ServiceWorkerControllerImpl extends ServiceWorkerControllerCompat {
         return (ServiceWorkerControllerBoundaryInterface) invokeV.objValue;
     }
 
-    @RequiresApi(24)
     private ServiceWorkerController getFrameworksImpl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -79,15 +74,16 @@ public class ServiceWorkerControllerImpl extends ServiceWorkerControllerCompat {
     }
 
     @Override // androidx.webkit.ServiceWorkerControllerCompat
-    @NonNull
     public ServiceWorkerWebSettingsCompat getServiceWorkerWebSettings() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mWebSettings : (ServiceWorkerWebSettingsCompat) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mWebSettings;
+        }
+        return (ServiceWorkerWebSettingsCompat) invokeV.objValue;
     }
 
     @Override // androidx.webkit.ServiceWorkerControllerCompat
-    @SuppressLint({"NewApi"})
     public void setServiceWorkerClient(ServiceWorkerClientCompat serviceWorkerClientCompat) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, serviceWorkerClientCompat) == null) {

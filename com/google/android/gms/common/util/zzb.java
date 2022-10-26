@@ -12,6 +12,12 @@ public final class zzb {
     public static boolean zza() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? Looper.getMainLooper() == Looper.myLooper() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            if (Looper.getMainLooper() == Looper.myLooper()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

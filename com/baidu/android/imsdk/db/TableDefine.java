@@ -48,7 +48,7 @@ public class TableDefine {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
-    public static final class DRColumns {
+    public final class DRColumns {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String COLUMN_CATEGORY = "category";
         public static final String COLUMN_CONTACTER = "contacter";
@@ -75,7 +75,7 @@ public class TableDefine {
     }
 
     /* loaded from: classes.dex */
-    public static final class FriendGroupColumns implements BaseColumns {
+    public final class FriendGroupColumns implements BaseColumns {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String COLUMN_FRIEND_GROUP_ID = "friend_group_id";
         public static final String COLUMN_FRIEND_GROUP_NAME = "friend_group_name";
@@ -97,7 +97,7 @@ public class TableDefine {
     }
 
     /* loaded from: classes.dex */
-    public static final class FriendRelationColumns implements BaseColumns {
+    public final class FriendRelationColumns implements BaseColumns {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String COLUMN_FRIEND_GROUP_ID = "friend_group_id";
         public static final String COLUMN_REVERSE_STATUS = "friend_status_reverse";
@@ -121,7 +121,7 @@ public class TableDefine {
     }
 
     /* loaded from: classes.dex */
-    public static final class GroupInfoColumns implements BaseColumns {
+    public final class GroupInfoColumns implements BaseColumns {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String COLUMN_DESCRIPTION = "description";
         public static final String COLUMN_GROUP_ID = "group_id";
@@ -145,7 +145,7 @@ public class TableDefine {
     }
 
     /* loaded from: classes.dex */
-    public static final class GroupMemberColumns implements BaseColumns {
+    public final class GroupMemberColumns implements BaseColumns {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String COLUMN_GROUP_ID = "group_id";
         public static final String COLUMN_NAME = "name";
@@ -169,7 +169,7 @@ public class TableDefine {
     }
 
     /* loaded from: classes.dex */
-    public static final class MessageColumns implements BaseColumns {
+    public final class MessageColumns implements BaseColumns {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String COLUME_EXPIRES_TIME = "expires_time";
         public static final String COLUME_SERVICE_TYPE = "service_type";
@@ -213,7 +213,7 @@ public class TableDefine {
     }
 
     /* loaded from: classes.dex */
-    public static final class NoDuplicateMessageColumns implements BaseColumns {
+    public final class NoDuplicateMessageColumns implements BaseColumns {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String COLUMN_CATEGORY = "category";
         public static final String COLUMN_CONTACTER = "contacter";
@@ -240,7 +240,7 @@ public class TableDefine {
     }
 
     /* loaded from: classes.dex */
-    public static final class PaCmdQueueColumns implements BaseColumns {
+    public final class PaCmdQueueColumns implements BaseColumns {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String COLUMN_EXTRA_DATA = "extra";
         public static final String COLUMN_METHOD_ID = "methodId";
@@ -267,7 +267,7 @@ public class TableDefine {
     }
 
     /* loaded from: classes.dex */
-    public static final class PaSubscribeColumns implements BaseColumns {
+    public final class PaSubscribeColumns implements BaseColumns {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String COLUMN_ACCEPT_PUSH = "acceptpush";
         public static final String COLUMN_AVATAR = "avatar";
@@ -318,7 +318,7 @@ public class TableDefine {
     }
 
     /* loaded from: classes.dex */
-    public static final class ReliableMessageColumns implements BaseColumns {
+    public final class ReliableMessageColumns implements BaseColumns {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String COLUMN_CATEGORY = "category";
         public static final String COLUMN_CONTACTER = "contacter";
@@ -349,7 +349,7 @@ public class TableDefine {
     }
 
     /* loaded from: classes.dex */
-    public static final class SessionColumns implements BaseColumns {
+    public final class SessionColumns implements BaseColumns {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String COLUMN_CATEGORY = "category";
         public static final String COLUMN_CERTIFICATION = "certification";
@@ -400,7 +400,7 @@ public class TableDefine {
     }
 
     /* loaded from: classes.dex */
-    public static final class StudioUsePaMessageColumns implements BaseColumns {
+    public final class StudioUsePaMessageColumns implements BaseColumns {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String COLUMN_CATEGORY = "category";
         public static final String COLUMN_CONTACTER = "contacter";
@@ -429,7 +429,7 @@ public class TableDefine {
     }
 
     /* loaded from: classes.dex */
-    public static final class UserInfoColumns implements BaseColumns {
+    public final class UserInfoColumns implements BaseColumns {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String COLUMN_ACCOUNTTYPE = "account_type";
         public static final String COLUMN_BAIDU_UID = "buid";
@@ -480,7 +480,7 @@ public class TableDefine {
     }
 
     /* loaded from: classes.dex */
-    public static final class ZhiDaColumns implements BaseColumns {
+    public final class ZhiDaColumns implements BaseColumns {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String COLUMN_ACCEPT_PUSH = "acceptpush";
         public static final String COLUMN_APIKEY = "apikey";

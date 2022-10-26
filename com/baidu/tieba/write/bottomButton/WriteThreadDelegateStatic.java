@@ -7,15 +7,14 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.tbadk.mainTab.MaintabBottomIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
-import com.baidu.tieba.l95;
-import com.baidu.tieba.m95;
-import com.baidu.tieba.n95;
+import com.baidu.tieba.p95;
+import com.baidu.tieba.q95;
 import com.baidu.tieba.r95;
+import com.baidu.tieba.v95;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,12 +23,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class WriteThreadDelegateStatic extends l95 {
+public class WriteThreadDelegateStatic extends p95 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.tieba.p95
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
     /* loaded from: classes6.dex */
-    public static class a extends CustomMessageListener {
+    public final class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -55,11 +64,12 @@ public class WriteThreadDelegateStatic extends l95 {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null) {
-                ((n95) customResponsedMessage.getData()).a(new WriteThreadDelegateStatic());
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage.getCmd() != 2007002 || customResponsedMessage.getData() == null) {
+                return;
             }
+            ((r95) customResponsedMessage.getData()).a(new WriteThreadDelegateStatic());
         }
     }
 
@@ -78,9 +88,23 @@ public class WriteThreadDelegateStatic extends l95 {
         }
         a aVar = new a(2007002);
         aVar.setPriority(4);
-        if (UbsABTestHelper.isMainTabShowA()) {
-            MessageManager.getInstance().registerListener(aVar);
+        MessageManager.getInstance().registerListener(aVar);
+    }
+
+    @Override // com.baidu.tieba.p95
+    public q95 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            q95 q95Var = new q95();
+            q95Var.a = new WriteThreadFragment();
+            q95Var.e = 9;
+            q95Var.d = R.drawable.obfuscated_res_0x7f0807fa;
+            q95Var.h = v95.d().c(AlbumActivityConfig.FROM_WRITE);
+            q95Var.i = q95.j;
+            return q95Var;
         }
+        return (q95) invokeV.objValue;
     }
 
     public WriteThreadDelegateStatic() {
@@ -97,23 +121,7 @@ public class WriteThreadDelegateStatic extends l95 {
         }
     }
 
-    @Override // com.baidu.tieba.l95
-    public m95 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            m95 m95Var = new m95();
-            m95Var.a = new WriteThreadFragment();
-            m95Var.e = 9;
-            m95Var.d = R.drawable.obfuscated_res_0x7f0807f5;
-            m95Var.h = r95.d().c(AlbumActivityConfig.FROM_WRITE);
-            m95Var.i = m95.j;
-            return m95Var;
-        }
-        return (m95) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.l95
+    @Override // com.baidu.tieba.p95
     public TbFragmentTabIndicator c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -123,15 +131,5 @@ public class WriteThreadDelegateStatic extends l95 {
             return maintabBottomIndicator;
         }
         return (TbFragmentTabIndicator) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.l95
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
     }
 }

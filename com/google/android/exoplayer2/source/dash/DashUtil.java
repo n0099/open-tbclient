@@ -10,10 +10,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.drm.DrmInitData;
 import com.google.android.exoplayer2.extractor.ChunkIndex;
+import com.google.android.exoplayer2.extractor.Extractor;
 import com.google.android.exoplayer2.extractor.mkv.MatroskaExtractor;
 import com.google.android.exoplayer2.extractor.mp4.FragmentedMp4Extractor;
 import com.google.android.exoplayer2.source.chunk.ChunkExtractorWrapper;
 import com.google.android.exoplayer2.source.chunk.InitializationChunk;
+import com.google.android.exoplayer2.source.dash.manifest.AdaptationSet;
 import com.google.android.exoplayer2.source.dash.manifest.DashManifest;
 import com.google.android.exoplayer2.source.dash.manifest.DashManifestParser;
 import com.google.android.exoplayer2.source.dash.manifest.Period;
@@ -52,26 +54,13 @@ public final class DashUtil {
             if (adaptationSetIndex == -1) {
                 return null;
             }
-            List<Representation> list = period.adaptationSets.get(adaptationSetIndex).representations;
+            List list = ((AdaptationSet) period.adaptationSets.get(adaptationSetIndex)).representations;
             if (list.isEmpty()) {
                 return null;
             }
-            return list.get(0);
+            return (Representation) list.get(0);
         }
         return (Representation) invokeLI.objValue;
-    }
-
-    public static ChunkIndex loadChunkIndex(DataSource dataSource, int i, Representation representation) throws IOException, InterruptedException {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65538, null, dataSource, i, representation)) == null) {
-            ChunkExtractorWrapper loadInitializationData = loadInitializationData(dataSource, i, representation, true);
-            if (loadInitializationData == null) {
-                return null;
-            }
-            return (ChunkIndex) loadInitializationData.getSeekMap();
-        }
-        return (ChunkIndex) invokeLIL.objValue;
     }
 
     public static DrmInitData loadDrmInitData(DataSource dataSource, Period period) throws IOException, InterruptedException {
@@ -98,6 +87,54 @@ public final class DashUtil {
             return loadSampleFormat.drmInitData;
         }
         return (DrmInitData) invokeLL.objValue;
+    }
+
+    public static ChunkExtractorWrapper newWrappedExtractor(int i, Format format) {
+        InterceptResult invokeIL;
+        boolean z;
+        Extractor fragmentedMp4Extractor;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65544, null, i, format)) == null) {
+            String str = format.containerMimeType;
+            if (!str.startsWith(MimeTypes.VIDEO_WEBM) && !str.startsWith(MimeTypes.AUDIO_WEBM)) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (z) {
+                fragmentedMp4Extractor = new MatroskaExtractor();
+            } else {
+                fragmentedMp4Extractor = new FragmentedMp4Extractor();
+            }
+            return new ChunkExtractorWrapper(fragmentedMp4Extractor, i, format);
+        }
+        return (ChunkExtractorWrapper) invokeIL.objValue;
+    }
+
+    public static ChunkIndex loadChunkIndex(DataSource dataSource, int i, Representation representation) throws IOException, InterruptedException {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65538, null, dataSource, i, representation)) == null) {
+            ChunkExtractorWrapper loadInitializationData = loadInitializationData(dataSource, i, representation, true);
+            if (loadInitializationData == null) {
+                return null;
+            }
+            return (ChunkIndex) loadInitializationData.getSeekMap();
+        }
+        return (ChunkIndex) invokeLIL.objValue;
+    }
+
+    public static Format loadSampleFormat(DataSource dataSource, int i, Representation representation) throws IOException, InterruptedException {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65543, null, dataSource, i, representation)) == null) {
+            ChunkExtractorWrapper loadInitializationData = loadInitializationData(dataSource, i, representation, false);
+            if (loadInitializationData == null) {
+                return null;
+            }
+            return loadInitializationData.getSampleFormats()[0];
+        }
+        return (Format) invokeLIL.objValue;
     }
 
     public static ChunkExtractorWrapper loadInitializationData(DataSource dataSource, int i, Representation representation, boolean z) throws IOException, InterruptedException {
@@ -128,6 +165,13 @@ public final class DashUtil {
         return (ChunkExtractorWrapper) invokeCommon.objValue;
     }
 
+    public static void loadInitializationData(DataSource dataSource, Representation representation, ChunkExtractorWrapper chunkExtractorWrapper, RangedUri rangedUri) throws IOException, InterruptedException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65541, null, dataSource, representation, chunkExtractorWrapper, rangedUri) == null) {
+            new InitializationChunk(dataSource, new DataSpec(rangedUri.resolveUri(representation.baseUrl), rangedUri.start, rangedUri.length, representation.getCacheKey()), representation.format, 0, null, chunkExtractorWrapper).load();
+        }
+    }
+
     public static DashManifest loadManifest(DataSource dataSource, Uri uri) throws IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -137,35 +181,5 @@ public final class DashUtil {
             return (DashManifest) parsingLoadable.getResult();
         }
         return (DashManifest) invokeLL.objValue;
-    }
-
-    public static Format loadSampleFormat(DataSource dataSource, int i, Representation representation) throws IOException, InterruptedException {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65543, null, dataSource, i, representation)) == null) {
-            ChunkExtractorWrapper loadInitializationData = loadInitializationData(dataSource, i, representation, false);
-            if (loadInitializationData == null) {
-                return null;
-            }
-            return loadInitializationData.getSampleFormats()[0];
-        }
-        return (Format) invokeLIL.objValue;
-    }
-
-    public static ChunkExtractorWrapper newWrappedExtractor(int i, Format format) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65544, null, i, format)) == null) {
-            String str = format.containerMimeType;
-            return new ChunkExtractorWrapper(str.startsWith(MimeTypes.VIDEO_WEBM) || str.startsWith(MimeTypes.AUDIO_WEBM) ? new MatroskaExtractor() : new FragmentedMp4Extractor(), i, format);
-        }
-        return (ChunkExtractorWrapper) invokeIL.objValue;
-    }
-
-    public static void loadInitializationData(DataSource dataSource, Representation representation, ChunkExtractorWrapper chunkExtractorWrapper, RangedUri rangedUri) throws IOException, InterruptedException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65541, null, dataSource, representation, chunkExtractorWrapper, rangedUri) == null) {
-            new InitializationChunk(dataSource, new DataSpec(rangedUri.resolveUri(representation.baseUrl), rangedUri.start, rangedUri.length, representation.getCacheKey()), representation.format, 0, null, chunkExtractorWrapper).load();
-        }
     }
 }

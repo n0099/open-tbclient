@@ -1,6 +1,5 @@
 package com.baidu.searchbox.bddownload.core.interceptor;
 
-import androidx.annotation.NonNull;
 import com.baidu.searchbox.bddownload.BdDownload;
 import com.baidu.searchbox.bddownload.DownloadTask;
 import com.baidu.searchbox.bddownload.core.dispatcher.CallbackDispatcher;
@@ -26,7 +25,7 @@ public class FetchDataInterceptor implements Interceptor.Fetch {
     public final byte[] readBuffer;
     public final DownloadTask task;
 
-    public FetchDataInterceptor(int i, @NonNull InputStream inputStream, @NonNull MultiPointOutputStream multiPointOutputStream, DownloadTask downloadTask) {
+    public FetchDataInterceptor(int i, InputStream inputStream, MultiPointOutputStream multiPointOutputStream, DownloadTask downloadTask) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

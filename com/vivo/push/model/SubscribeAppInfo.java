@@ -45,17 +45,20 @@ public class SubscribeAppInfo {
             if (this == obj) {
                 return true;
             }
-            if (obj != null && SubscribeAppInfo.class == obj.getClass()) {
-                SubscribeAppInfo subscribeAppInfo = (SubscribeAppInfo) obj;
-                String str = this.mName;
-                if (str == null) {
-                    if (subscribeAppInfo.mName != null) {
-                        return false;
-                    }
-                } else if (!str.equals(subscribeAppInfo.mName)) {
+            if (obj == null || SubscribeAppInfo.class != obj.getClass()) {
+                return false;
+            }
+            SubscribeAppInfo subscribeAppInfo = (SubscribeAppInfo) obj;
+            String str = this.mName;
+            if (str == null) {
+                if (subscribeAppInfo.mName != null) {
                     return false;
                 }
-                return this.mTargetStatus == subscribeAppInfo.mTargetStatus;
+            } else if (!str.equals(subscribeAppInfo.mName)) {
+                return false;
+            }
+            if (this.mTargetStatus == subscribeAppInfo.mTargetStatus) {
+                return true;
             }
             return false;
         }
@@ -65,27 +68,42 @@ public class SubscribeAppInfo {
     public int getActualStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mActualStatus : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mActualStatus;
+        }
+        return invokeV.intValue;
     }
 
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mName : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mName;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getTargetStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mTargetStatus : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mTargetStatus;
+        }
+        return invokeV.intValue;
     }
 
     public int hashCode() {
         InterceptResult invokeV;
+        int hashCode;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             String str = this.mName;
-            return (((str == null ? 0 : str.hashCode()) + 31) * 31) + this.mTargetStatus;
+            if (str == null) {
+                hashCode = 0;
+            } else {
+                hashCode = str.hashCode();
+            }
+            return ((hashCode + 31) * 31) + this.mTargetStatus;
         }
         return invokeV.intValue;
     }

@@ -1,6 +1,7 @@
 package com.google.zxing.maxicode.decoder;
 
 import androidx.core.view.InputDeviceCompat;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -73,7 +74,15 @@ public final class DecodedBitStreamParser {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, bArr, i)) == null) {
             StringBuilder sb = new StringBuilder((int) Cea708Decoder.COMMAND_SPA);
-            if (i == 2 || i == 3) {
+            if (i != 2 && i != 3) {
+                if (i != 4) {
+                    if (i == 5) {
+                        sb.append(getMessage(bArr, 1, 77));
+                    }
+                } else {
+                    sb.append(getMessage(bArr, 1, 93));
+                }
+            } else {
                 if (i == 2) {
                     postCode3 = new DecimalFormat("0000000000".substring(0, getPostCode2Length(bArr))).format(getPostCode2(bArr));
                 } else {
@@ -88,10 +97,6 @@ public final class DecodedBitStreamParser {
                 } else {
                     sb.insert(0, postCode3 + GS + format + GS + format2 + GS);
                 }
-            } else if (i == 4) {
-                sb.append(getMessage(bArr, 1, 93));
-            } else if (i == 5) {
-                sb.append(getMessage(bArr, 1, 77));
             }
             return new DecoderResult(bArr, sb.toString(), null, String.valueOf(i));
         }
@@ -103,15 +108,12 @@ public final class DecodedBitStreamParser {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65539, null, i, bArr)) == null) {
             int i2 = i - 1;
-            return ((1 << (5 - (i2 % 6))) & bArr[i2 / 6]) == 0 ? 0 : 1;
+            if (((1 << (5 - (i2 % 6))) & bArr[i2 / 6]) != 0) {
+                return 1;
+            }
+            return 0;
         }
         return invokeIL.intValue;
-    }
-
-    public static int getCountry(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) ? getInt(bArr, new byte[]{53, 54, 43, Cea608Decoder.CTRL_ERASE_DISPLAYED_MEMORY, 45, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, Cea608Decoder.CTRL_END_OF_CAPTION, 48, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS}) : invokeL.intValue;
     }
 
     public static int getInt(byte[] bArr, byte[] bArr2) {
@@ -128,6 +130,33 @@ public final class DecodedBitStreamParser {
             throw new IllegalArgumentException();
         }
         return invokeLL.intValue;
+    }
+
+    public static int getCountry(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
+            return getInt(bArr, new byte[]{53, 54, 43, Cea608Decoder.CTRL_ERASE_DISPLAYED_MEMORY, 45, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, 47, 48, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS});
+        }
+        return invokeL.intValue;
+    }
+
+    public static int getPostCode2Length(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, bArr)) == null) {
+            return getInt(bArr, new byte[]{Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 40, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, ExifInterface.START_CODE, 31, 32});
+        }
+        return invokeL.intValue;
+    }
+
+    public static int getServiceClass(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, bArr)) == null) {
+            return getInt(bArr, new byte[]{55, 56, 57, 58, 59, 60, 49, 50, 51, 52});
+        }
+        return invokeL.intValue;
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -204,24 +233,18 @@ public final class DecodedBitStreamParser {
     public static int getPostCode2(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, bArr)) == null) ? getInt(bArr, new byte[]{33, 34, Base64.INTERNAL_PADDING, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, 25, 26, 27, 28, 29, 30, 19, 20, 21, 22, 23, 24, StrictLineReader.CR, 14, 15, 16, 17, 18, 7, 8, 9, 10, Constants.GZIP_CAST_TYPE, 12, 1, 2}) : invokeL.intValue;
-    }
-
-    public static int getPostCode2Length(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, bArr)) == null) ? getInt(bArr, new byte[]{Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 40, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, 42, 31, 32}) : invokeL.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, bArr)) == null) {
+            return getInt(bArr, new byte[]{33, 34, Base64.INTERNAL_PADDING, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, 25, 26, 27, 28, 29, 30, 19, 20, 21, 22, 23, 24, StrictLineReader.CR, 14, 15, 16, 17, 18, 7, 8, 9, 10, Constants.GZIP_CAST_TYPE, 12, 1, 2});
+        }
+        return invokeL.intValue;
     }
 
     public static String getPostCode3(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, bArr)) == null) ? String.valueOf(new char[]{SETS[0].charAt(getInt(bArr, new byte[]{Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 40, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, 42, 31, 32})), SETS[0].charAt(getInt(bArr, new byte[]{33, 34, Base64.INTERNAL_PADDING, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, 25, 26})), SETS[0].charAt(getInt(bArr, new byte[]{27, 28, 29, 30, 19, 20})), SETS[0].charAt(getInt(bArr, new byte[]{21, 22, 23, 24, StrictLineReader.CR, 14})), SETS[0].charAt(getInt(bArr, new byte[]{15, 16, 17, 18, 7, 8})), SETS[0].charAt(getInt(bArr, new byte[]{9, 10, Constants.GZIP_CAST_TYPE, 12, 1, 2}))}) : (String) invokeL.objValue;
-    }
-
-    public static int getServiceClass(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, bArr)) == null) ? getInt(bArr, new byte[]{55, 56, 57, 58, 59, 60, 49, 50, 51, 52}) : invokeL.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, bArr)) == null) {
+            return String.valueOf(new char[]{SETS[0].charAt(getInt(bArr, new byte[]{Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 40, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, ExifInterface.START_CODE, 31, 32})), SETS[0].charAt(getInt(bArr, new byte[]{33, 34, Base64.INTERNAL_PADDING, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, 25, 26})), SETS[0].charAt(getInt(bArr, new byte[]{27, 28, 29, 30, 19, 20})), SETS[0].charAt(getInt(bArr, new byte[]{21, 22, 23, 24, StrictLineReader.CR, 14})), SETS[0].charAt(getInt(bArr, new byte[]{15, 16, 17, 18, 7, 8})), SETS[0].charAt(getInt(bArr, new byte[]{9, 10, Constants.GZIP_CAST_TYPE, 12, 1, 2}))});
+        }
+        return (String) invokeL.objValue;
     }
 }

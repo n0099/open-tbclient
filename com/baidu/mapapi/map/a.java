@@ -114,7 +114,7 @@ public class a implements Overlay.a {
                     if (overlay instanceof Marker) {
                         Marker marker = (Marker) overlay;
                         if (marker.b != null) {
-                            ArrayList<BitmapDescriptor> arrayList = marker.o;
+                            ArrayList arrayList = marker.o;
                             if (arrayList != null && arrayList.size() > 1) {
                                 Bundle bundle = new Bundle();
                                 eVar5 = this.a.i;
@@ -129,7 +129,7 @@ public class a implements Overlay.a {
                                 }
                             }
                         } else {
-                            ArrayList<BitmapDescriptor> arrayList2 = marker.o;
+                            ArrayList arrayList2 = marker.o;
                             if (arrayList2 != null && arrayList2.size() != 0) {
                                 list5 = this.a.l;
                                 if (list5.contains(marker)) {

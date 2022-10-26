@@ -1,8 +1,8 @@
 package com.baidu.tieba;
 
 import android.os.Bundle;
+import com.baidu.searchbox.process.ipc.agent.provider.ProcessDelegateBaseProvider;
 import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,7 +33,9 @@ public class vj3 extends ProviderDelegation {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
             Bundle bundle2 = new Bundle();
-            bundle2.putBoolean(TiebaStatic.LogFields.RESULT, mj3.E(getAgent().getContext()));
+            nk3 A = nj3.A(((ProcessDelegateBaseProvider) getAgent()).getContext());
+            bundle2.putString("NICK_NAME", A.a);
+            bundle2.putString("AVATAR_URL", A.b);
             return bundle2;
         }
         return (Bundle) invokeL.objValue;

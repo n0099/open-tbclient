@@ -19,9 +19,10 @@ public final class ArraysKt___ArraysJvmKt$asList$7 extends AbstractList<Boolean>
         return false;
     }
 
-    @Override // kotlin.collections.AbstractList, kotlin.collections.AbstractCollection
-    public int getSize() {
-        return this.$this_asList.length;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // kotlin.collections.AbstractList, java.util.List
+    public Boolean get(int i) {
+        return Boolean.valueOf(this.$this_asList[i]);
     }
 
     @Override // kotlin.collections.AbstractList, java.util.List
@@ -30,11 +31,6 @@ public final class ArraysKt___ArraysJvmKt$asList$7 extends AbstractList<Boolean>
             return indexOf(((Boolean) obj).booleanValue());
         }
         return -1;
-    }
-
-    @Override // kotlin.collections.AbstractCollection, java.util.Collection
-    public boolean isEmpty() {
-        return this.$this_asList.length == 0;
     }
 
     @Override // kotlin.collections.AbstractList, java.util.List
@@ -49,17 +45,24 @@ public final class ArraysKt___ArraysJvmKt$asList$7 extends AbstractList<Boolean>
         return ArraysKt___ArraysKt.contains(this.$this_asList, z);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // kotlin.collections.AbstractList, java.util.List
-    public Boolean get(int i) {
-        return Boolean.valueOf(this.$this_asList[i]);
-    }
-
     public int indexOf(boolean z) {
         return ArraysKt___ArraysKt.indexOf(this.$this_asList, z);
     }
 
     public int lastIndexOf(boolean z) {
         return ArraysKt___ArraysKt.lastIndexOf(this.$this_asList, z);
+    }
+
+    @Override // kotlin.collections.AbstractList, kotlin.collections.AbstractCollection
+    public int getSize() {
+        return this.$this_asList.length;
+    }
+
+    @Override // kotlin.collections.AbstractCollection, java.util.Collection
+    public boolean isEmpty() {
+        if (this.$this_asList.length == 0) {
+            return true;
+        }
+        return false;
     }
 }

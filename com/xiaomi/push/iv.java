@@ -24,7 +24,7 @@ public final class iv {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public static class a implements Comparator {
+    public class a implements Comparator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -262,7 +262,7 @@ public final class iv {
     public static ByteBuffer a(ByteBuffer byteBuffer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65550, null, byteBuffer)) == null) ? m532a(byteBuffer) ? byteBuffer : ByteBuffer.wrap(m533a(byteBuffer)) : (ByteBuffer) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65550, null, byteBuffer)) == null) ? m531a(byteBuffer) ? byteBuffer : ByteBuffer.wrap(m532a(byteBuffer)) : (ByteBuffer) invokeL.objValue;
     }
 
     public static void a(ByteBuffer byteBuffer, StringBuilder sb) {
@@ -285,18 +285,18 @@ public final class iv {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m532a(ByteBuffer byteBuffer) {
+    public static boolean m531a(ByteBuffer byteBuffer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, byteBuffer)) == null) ? byteBuffer.hasArray() && byteBuffer.position() == 0 && byteBuffer.arrayOffset() == 0 && byteBuffer.remaining() == byteBuffer.capacity() : invokeL.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static byte[] m533a(ByteBuffer byteBuffer) {
+    public static byte[] m532a(ByteBuffer byteBuffer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, byteBuffer)) == null) {
-            if (m532a(byteBuffer)) {
+            if (m531a(byteBuffer)) {
                 return byteBuffer.array();
             }
             byte[] bArr = new byte[byteBuffer.remaining()];

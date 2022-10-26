@@ -1,7 +1,5 @@
 package com.baidu.sapi2.activity;
 
-import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -76,7 +74,7 @@ public class LoginActivity extends BaseActivity {
     public transient /* synthetic */ FieldHolder $fh;
     public String A;
     public String B;
-    public List<PassNameValuePair> C;
+    public List C;
     public AuthorizationListener D;
     public boolean mNeedSetContentView;
     public SapiWebView sapiWebView;
@@ -142,20 +140,20 @@ public class LoginActivity extends BaseActivity {
             }
 
             @Override // com.baidu.sapi2.shell.result.WebAuthResult
-            public void finishActivity() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    super.finishActivity();
-                    this.a.a(true);
-                }
-            }
-
-            @Override // com.baidu.sapi2.shell.result.WebAuthResult
             public void finishActivity(boolean z) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
                     super.finishActivity();
                     this.a.a(false);
+                }
+            }
+
+            @Override // com.baidu.sapi2.shell.result.WebAuthResult
+            public void finishActivity() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    super.finishActivity();
+                    this.a.a(true);
                 }
             }
         };
@@ -196,6 +194,15 @@ public class LoginActivity extends BaseActivity {
             }
 
             @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
+            public void onSuccess(AccountType accountType) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048579, this, accountType) == null) {
+                    super.onSuccess(accountType);
+                    this.a.a(accountType, false);
+                }
+            }
+
+            @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
             public void onFailed(int i3, String str) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i3, str) == null) {
@@ -220,20 +227,91 @@ public class LoginActivity extends BaseActivity {
                 }
                 return invokeV.booleanValue;
             }
-
-            @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
-            public void onSuccess(AccountType accountType) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048579, this, accountType) == null) {
-                    super.onSuccess(accountType);
-                    this.a.a(accountType, false);
-                }
-            }
         };
     }
 
+    @Override // android.app.Activity
+    public void onNewIntent(Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, intent) == null) {
+            super.onNewIntent(intent);
+            SapiWebView sapiWebView = this.sapiWebView;
+            if (sapiWebView == null) {
+                return;
+            }
+            sapiWebView.mExcludeTypes = LoginTypes.SHARE;
+            setTitleText(R.string.obfuscated_res_0x7f0f10b2);
+            this.sapiWebView.loadLogin(1, this.C);
+        }
+    }
+
+    private void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+            SapiConfiguration confignation = SapiAccountManager.getInstance().getConfignation();
+            SapiWebView sapiWebView = this.sapiWebView;
+            if (sapiWebView != null && confignation != null && confignation.supportCheckFloatfLayer) {
+                sapiWebView.setOnTouchListener(new View.OnTouchListener(this) { // from class: com.baidu.sapi2.activity.LoginActivity.3
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ LoginActivity a;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.a = this;
+                    }
+
+                    @Override // android.view.View.OnTouchListener
+                    public boolean onTouch(View view2, MotionEvent motionEvent) {
+                        InterceptResult invokeLL;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view2, motionEvent)) == null) {
+                            if (this.a.u) {
+                                return false;
+                            }
+                            if (((motionEvent.getFlags() & 1) != 0 || (motionEvent.getFlags() & 2) != 0) && motionEvent.getAction() == 1) {
+                                int height = this.a.getWindowManager().getDefaultDisplay().getHeight();
+                                Toast makeText = Toast.makeText(this.a, "有悬浮窗遮挡，请注意信息安全！", 0);
+                                makeText.setGravity(80, 0, (height / 2) - ((int) ((Resources.getSystem().getDisplayMetrics().density * 70.0f) + 0.5f)));
+                                makeText.show();
+                                this.a.u = true;
+                                StatService.onEvent(LoginActivity.G, new HashMap());
+                            }
+                            return false;
+                        }
+                        return invokeLL.booleanValue;
+                    }
+                });
+            }
+        }
+    }
+
+    private boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
+            if (this.w == 2003 || CoreViewRouter.getInstance().getWebBindWidgetDTO() != null || CoreViewRouter.getInstance().getAccountCenterDTO() != null) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
     @Override // com.baidu.sapi2.activity.TitleActivity, android.app.Activity
-    @TargetApi(5)
     public void finish() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -249,7 +327,10 @@ public class LoginActivity extends BaseActivity {
     public SapiWebDTO getWebDTO() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? CoreViewRouter.getInstance().getWebLoginDTO() : (SapiWebDTO) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return CoreViewRouter.getInstance().getWebLoginDTO();
+        }
+        return (SapiWebDTO) invokeV.objValue;
     }
 
     @Override // com.baidu.sapi2.activity.TitleActivity
@@ -259,6 +340,64 @@ public class LoginActivity extends BaseActivity {
             super.init();
             this.webAuthResult.activity = this;
             this.v = getIntent().getBooleanExtra(EXTRA_LOGIN_FINISH_AFTER_SUC, true);
+        }
+    }
+
+    @Override // com.baidu.sapi2.activity.TitleActivity
+    public void onBottomBackBtnClick() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.sapiWebView.back();
+        }
+    }
+
+    @Override // com.baidu.sapi2.activity.TitleActivity
+    public void onClose() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            super.onClose();
+            this.webAuthResult.setResultCode(-301);
+            this.webAuthResult.setResultMsg("您已取消操作");
+            loginFail(this.webAuthResult);
+        }
+    }
+
+    @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
+    public void onLeftBtnClick() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            super.onLeftBtnClick();
+            if (!this.executeSubClassMethod) {
+                return;
+            }
+            this.sapiWebView.back();
+        }
+    }
+
+    @Override // com.baidu.sapi2.activity.TitleActivity
+    public void onRightBtnClick() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            super.onRightBtnClick();
+        }
+    }
+
+    private void a(Intent intent) {
+        SapiWebView sapiWebView;
+        SapiJsCallBacks.CallBacks jsCallBacks;
+        JsPromptResult promptResult;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, intent) != null) || (sapiWebView = this.sapiWebView) == null || (jsCallBacks = sapiWebView.getJsCallBacks()) == null || (promptResult = jsCallBacks.getPromptResult()) == null) {
+            return;
+        }
+        if (intent == null) {
+            promptResult.cancel();
+            return;
+        }
+        try {
+            promptResult.confirm(intent.getStringExtra("response"));
+        } catch (Exception unused) {
+            promptResult.cancel();
         }
     }
 
@@ -275,6 +414,54 @@ public class LoginActivity extends BaseActivity {
             }
             finish();
             if (b()) {
+                CoreViewRouter.getInstance().release();
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(AccountType accountType, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65543, this, accountType, z) == null) {
+            PtokenStat ptokenStat = new PtokenStat();
+            ptokenStat.onEvent(PtokenStat.LOGIN + SapiUtils.getLastLoginType());
+            if (this.w == 2003) {
+                SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
+                Intent intent = new Intent();
+                intent.putExtra("bduss", currentAccount.bduss);
+                setResult(-1, intent);
+                if (this.v) {
+                    finish();
+                }
+            } else if (z) {
+                finish();
+                if (b()) {
+                    CoreViewRouter.getInstance().release();
+                }
+            } else {
+                WebAuthListener webAuthListener = CoreViewRouter.getInstance().getWebAuthListener();
+                if (webAuthListener != null) {
+                    WebAuthResult webAuthResult = this.webAuthResult;
+                    webAuthResult.accountType = accountType;
+                    webAuthResult.setResultCode(0);
+                    webAuthListener.onSuccess(this.webAuthResult);
+                }
+                if (this.v) {
+                    finish();
+                    if (b()) {
+                        CoreViewRouter.getInstance().release();
+                    }
+                }
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65544, this, z) == null) {
+            finish();
+            if (b() && z) {
                 CoreViewRouter.getInstance().release();
             }
         }
@@ -313,9 +500,10 @@ public class LoginActivity extends BaseActivity {
                 @Override // com.baidu.sapi2.share.ShareCallPacking.ShareLoginCallBack
                 public void onSuccess() {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.a.a(AccountType.NORMAL, false);
+                    if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
+                        return;
                     }
+                    this.a.a(AccountType.NORMAL, false);
                 }
             }, i, i2, intent, this.C, "pass");
             if ((i == 2001 && i2 == 1001) || this.t) {
@@ -324,11 +512,11 @@ public class LoginActivity extends BaseActivity {
             } else if (i == 2005) {
                 if (i2 == -1) {
                     String str2 = "";
-                    if (intent != null) {
+                    if (intent == null) {
+                        str = "";
+                    } else {
                         str2 = intent.getStringExtra(LoadExternalWebViewActivity.EXTRA_BUSINESS_TYPE);
                         str = intent.getStringExtra("username");
-                    } else {
-                        str = "";
                     }
                     if (LoadExternalWebViewActivity.RESULT_BUSINESS_TYPE_PRE_SET_UNAME.equals(str2)) {
                         this.sapiWebView.preSetUserName(str);
@@ -399,25 +587,6 @@ public class LoginActivity extends BaseActivity {
         }
     }
 
-    @Override // com.baidu.sapi2.activity.TitleActivity
-    public void onBottomBackBtnClick() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.sapiWebView.back();
-        }
-    }
-
-    @Override // com.baidu.sapi2.activity.TitleActivity
-    public void onClose() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            super.onClose();
-            this.webAuthResult.setResultCode(-301);
-            this.webAuthResult.setResultMsg("您已取消操作");
-            loginFail(this.webAuthResult);
-        }
-    }
-
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         SapiWebView sapiWebView;
@@ -426,7 +595,7 @@ public class LoginActivity extends BaseActivity {
             super.onCreate(bundle);
             try {
                 if (this.mNeedSetContentView) {
-                    setContentView(R.layout.obfuscated_res_0x7f0d0508);
+                    setContentView(R.layout.obfuscated_res_0x7f0d0505);
                 }
                 init();
                 setupViews();
@@ -436,10 +605,9 @@ public class LoginActivity extends BaseActivity {
                 if (confignation == null || !confignation.isAgreeDangerousProtocol()) {
                     CommonUtil.showErrorNotice("需要同意隐私协议并同步pass");
                 }
-                if (getWebDTO() == null || (sapiWebView = this.sapiWebView) == null) {
-                    return;
+                if (getWebDTO() != null && (sapiWebView = this.sapiWebView) != null) {
+                    sapiWebView.mExcludeTypes = getWebDTO().excludeTypes;
                 }
-                sapiWebView.mExcludeTypes = getWebDTO().excludeTypes;
             } catch (Throwable th) {
                 reportWebviewError(th);
                 this.webAuthResult.setResultCode(-202);
@@ -450,49 +618,27 @@ public class LoginActivity extends BaseActivity {
     }
 
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
-    public void onLeftBtnClick() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            super.onLeftBtnClick();
-            if (this.executeSubClassMethod) {
-                this.sapiWebView.back();
-            }
-        }
-    }
-
-    @Override // android.app.Activity
-    public void onNewIntent(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, intent) == null) {
-            super.onNewIntent(intent);
-            SapiWebView sapiWebView = this.sapiWebView;
-            if (sapiWebView == null) {
-                return;
-            }
-            sapiWebView.mExcludeTypes = LoginTypes.SHARE;
-            setTitleText(R.string.obfuscated_res_0x7f0f10a0);
-            this.sapiWebView.loadLogin(1, this.C);
-        }
-    }
-
-    @Override // com.baidu.sapi2.activity.TitleActivity
-    public void onRightBtnClick() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            super.onRightBtnClick();
-        }
-    }
-
-    @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void setupViews() {
+        List arrayList;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.setupViews();
             WebLoginDTO webLoginDTO = CoreViewRouter.getInstance().getWebLoginDTO();
-            this.C = webLoginDTO != null ? webLoginDTO.extraParams : new ArrayList<>();
+            if (webLoginDTO != null) {
+                arrayList = webLoginDTO.extraParams;
+            } else {
+                arrayList = new ArrayList();
+            }
+            this.C = arrayList;
             this.w = getIntent().getIntExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, 2001);
             this.x = getIntent().getStringExtra("username");
-            this.y = webLoginDTO != null ? webLoginDTO.preLoginName : "";
+            if (webLoginDTO != null) {
+                str = webLoginDTO.preLoginName;
+            } else {
+                str = "";
+            }
+            this.y = str;
             this.z = getIntent().getStringExtra(EXTRA_LOGIN_TYPE);
             this.A = getIntent().getStringExtra(EXTRA_PARAM_ENCRYPTED_UID);
             this.B = getIntent().getStringExtra("extraJson");
@@ -588,9 +734,10 @@ public class LoginActivity extends BaseActivity {
                                 @Override // com.baidu.sapi2.social.WXInvokeCallback
                                 public void onResult(int i, Intent intent) {
                                     Interceptable interceptable3 = $ic;
-                                    if ((interceptable3 == null || interceptable3.invokeIL(1048576, this, i, intent) == null) && i == 1001) {
-                                        this.a.a.t = true;
+                                    if ((interceptable3 != null && interceptable3.invokeIL(1048576, this, i, intent) != null) || i != 1001) {
+                                        return;
                                     }
+                                    this.a.a.t = true;
                                 }
                             });
                         }
@@ -687,21 +834,21 @@ public class LoginActivity extends BaseActivity {
                     }
 
                     @Override // com.baidu.sapi2.SapiWebView.ShareAccountClickCallback
-                    public void onClick(String str, String str2, String str3, String str4, String str5) {
+                    public void onClick(String str2, String str3, String str4, String str5, String str6) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeLLLLL(1048576, this, str, str2, str3, str4, str5) == null) {
-                            ShareLoginStat.MakeShareLoginStat.statExtMap.put(ShareLoginStat.MakeShareLoginStat.KEY_FROM_PKG, str);
-                            if (ShareLoginModel.getInstance().isMeetShareV4(this.a, str)) {
+                        if (interceptable2 == null || interceptable2.invokeLLLLL(1048576, this, str2, str3, str4, str5, str6) == null) {
+                            ShareLoginStat.MakeShareLoginStat.statExtMap.put(ShareLoginStat.MakeShareLoginStat.KEY_FROM_PKG, str2);
+                            if (ShareLoginModel.getInstance().isMeetShareV4(this.a, str2)) {
                                 Log.d(LoginActivity.E, "openShareLogin: is meet share_v4");
                                 ShareLoginStat.MakeShareLoginStat.statExtMap.put(ShareLoginStat.MakeShareLoginStat.KEY_NEED_AUTH, "0");
-                                ShareLoginModel.getInstance().openV4ShareLogin(this.a, str, "pass");
+                                ShareLoginModel.getInstance().openV4ShareLogin(this.a, str2, "pass");
                                 return;
                             }
                             Log.d(LoginActivity.E, "openShareLogin: is not share_v4");
                             ShareLoginStat.MakeShareLoginStat.statExtMap.put(ShareLoginStat.MakeShareLoginStat.KEY_NEED_AUTH, "1");
                             ShareCallPacking shareCallPacking = new ShareCallPacking();
                             LoginActivity loginActivity = this.a;
-                            shareCallPacking.startLoginShareActivityForResult(loginActivity, str, str2, str3, str4, loginActivity.C, str5, "pass");
+                            shareCallPacking.startLoginShareActivityForResult(loginActivity, str2, str3, str4, str5, loginActivity.C, str6, "pass");
                         }
                     }
                 });
@@ -793,7 +940,7 @@ public class LoginActivity extends BaseActivity {
             setNewLoginTitleAndSetStyleChangeCallBack();
             if (!WebLoginDTO.EXTRA_JOIN_LOGIN_WITH_THIRD_ACCOUNT.equals(this.z) && !WebLoginDTO.EXTRA_JOIN_LOGIN_WITHOUT_THIRD_ACCOUNT.equals(this.z)) {
                 if (WebLoginDTO.EXTRA_LOGIN_WITH_SMS.equals(this.z)) {
-                    setTitleText(R.string.obfuscated_res_0x7f0f10a0);
+                    setTitleText(R.string.obfuscated_res_0x7f0f10b2);
                     this.sapiWebView.loadLogin(1, this.C);
                     return;
                 } else if (WebLoginDTO.EXTRA_LOGIN_WITH_NAME_PHONE_EMAIL.equals(this.z)) {
@@ -809,141 +956,12 @@ public class LoginActivity extends BaseActivity {
                     if (!TextUtils.isEmpty(this.x)) {
                         this.C.add(new PassNameValuePair("loginUserName", this.x));
                     }
-                    setTitleText(R.string.obfuscated_res_0x7f0f1093);
+                    setTitleText(R.string.obfuscated_res_0x7f0f10a5);
                     this.sapiWebView.loadLogin(this.C);
                     return;
                 }
             }
             this.sapiWebView.loadLogin(4, this.C);
-        }
-    }
-
-    private boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) ? this.w != 2003 && CoreViewRouter.getInstance().getWebBindWidgetDTO() == null && CoreViewRouter.getInstance().getAccountCenterDTO() == null : invokeV.booleanValue;
-    }
-
-    @SuppressLint({"ClickableViewAccessibility"})
-    private void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            SapiConfiguration confignation = SapiAccountManager.getInstance().getConfignation();
-            SapiWebView sapiWebView = this.sapiWebView;
-            if (sapiWebView == null || confignation == null || !confignation.supportCheckFloatfLayer) {
-                return;
-            }
-            sapiWebView.setOnTouchListener(new View.OnTouchListener(this) { // from class: com.baidu.sapi2.activity.LoginActivity.3
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ LoginActivity a;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.a = this;
-                }
-
-                @Override // android.view.View.OnTouchListener
-                public boolean onTouch(View view2, MotionEvent motionEvent) {
-                    InterceptResult invokeLL;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view2, motionEvent)) == null) {
-                        if (this.a.u) {
-                            return false;
-                        }
-                        if (((motionEvent.getFlags() & 1) != 0 || (motionEvent.getFlags() & 2) != 0) && motionEvent.getAction() == 1) {
-                            int height = this.a.getWindowManager().getDefaultDisplay().getHeight();
-                            Toast makeText = Toast.makeText(this.a, "有悬浮窗遮挡，请注意信息安全！", 0);
-                            makeText.setGravity(80, 0, (height / 2) - ((int) ((Resources.getSystem().getDisplayMetrics().density * 70.0f) + 0.5f)));
-                            makeText.show();
-                            this.a.u = true;
-                            StatService.onEvent(LoginActivity.G, new HashMap());
-                        }
-                        return false;
-                    }
-                    return invokeLL.booleanValue;
-                }
-            });
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(AccountType accountType, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65543, this, accountType, z) == null) {
-            PtokenStat ptokenStat = new PtokenStat();
-            ptokenStat.onEvent(PtokenStat.LOGIN + SapiUtils.getLastLoginType());
-            if (this.w == 2003) {
-                SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
-                Intent intent = new Intent();
-                intent.putExtra("bduss", currentAccount.bduss);
-                setResult(-1, intent);
-                if (this.v) {
-                    finish();
-                }
-            } else if (z) {
-                finish();
-                if (b()) {
-                    CoreViewRouter.getInstance().release();
-                }
-            } else {
-                WebAuthListener webAuthListener = CoreViewRouter.getInstance().getWebAuthListener();
-                if (webAuthListener != null) {
-                    WebAuthResult webAuthResult = this.webAuthResult;
-                    webAuthResult.accountType = accountType;
-                    webAuthResult.setResultCode(0);
-                    webAuthListener.onSuccess(this.webAuthResult);
-                }
-                if (this.v) {
-                    finish();
-                    if (b()) {
-                        CoreViewRouter.getInstance().release();
-                    }
-                }
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65544, this, z) == null) {
-            finish();
-            if (b() && z) {
-                CoreViewRouter.getInstance().release();
-            }
-        }
-    }
-
-    private void a(Intent intent) {
-        SapiWebView sapiWebView;
-        SapiJsCallBacks.CallBacks jsCallBacks;
-        JsPromptResult promptResult;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, intent) == null) || (sapiWebView = this.sapiWebView) == null || (jsCallBacks = sapiWebView.getJsCallBacks()) == null || (promptResult = jsCallBacks.getPromptResult()) == null) {
-            return;
-        }
-        if (intent == null) {
-            promptResult.cancel();
-            return;
-        }
-        try {
-            promptResult.confirm(intent.getStringExtra("response"));
-        } catch (Exception unused) {
-            promptResult.cancel();
         }
     }
 }

@@ -41,12 +41,12 @@ public abstract class c {
     public AtomicBoolean t = new AtomicBoolean(false);
 
     /* loaded from: classes8.dex */
-    public static class a {
+    public class a {
         public final String a;
         public final Context b;
         public SSLSocketFactory m;
         public HostnameVerifier n;
-        public Class<? extends c> p;
+        public Class p;
         public f c = null;
         public d d = d.POST;
         public com.meizu.cloud.pushsdk.c.b.a e = com.meizu.cloud.pushsdk.c.b.a.Single;
@@ -59,7 +59,7 @@ public abstract class c {
         public TimeUnit l = TimeUnit.SECONDS;
         public com.meizu.cloud.pushsdk.b.c.a o = new com.meizu.cloud.pushsdk.b.c.e();
 
-        public a(String str, Context context, Class<? extends c> cls) {
+        public a(String str, Context context, Class cls) {
             this.a = str;
             this.b = context;
             this.p = cls;
@@ -130,14 +130,14 @@ public abstract class c {
         return new i.a().a(this.e.build().toString()).a().c();
     }
 
-    private i a(ArrayList<com.meizu.cloud.pushsdk.c.a.a> arrayList) {
+    private i a(ArrayList arrayList) {
         ArrayList arrayList2 = new ArrayList();
         StringBuffer stringBuffer = new StringBuffer();
-        Iterator<com.meizu.cloud.pushsdk.c.a.a> it = arrayList.iterator();
+        Iterator it = arrayList.iterator();
         while (it.hasNext()) {
-            com.meizu.cloud.pushsdk.c.a.a next = it.next();
-            stringBuffer.append(next.toString());
-            arrayList2.add(next.a());
+            com.meizu.cloud.pushsdk.c.a.a aVar = (com.meizu.cloud.pushsdk.c.a.a) it.next();
+            stringBuffer.append(aVar.toString());
+            arrayList2.add(aVar.a());
         }
         com.meizu.cloud.pushsdk.c.a.b bVar = new com.meizu.cloud.pushsdk.c.a.b("push_group_data", arrayList2);
         String str = this.u;
@@ -189,34 +189,34 @@ public abstract class c {
         }
     }
 
-    public LinkedList<e> a(b bVar) {
+    public LinkedList a(b bVar) {
         int i;
         int size = bVar.a().size();
-        LinkedList<Long> b = bVar.b();
-        LinkedList<e> linkedList = new LinkedList<>();
+        LinkedList b = bVar.b();
+        LinkedList linkedList = new LinkedList();
         if (this.g == d.GET) {
             for (int i2 = 0; i2 < size; i2++) {
                 LinkedList linkedList2 = new LinkedList();
                 linkedList2.add(b.get(i2));
-                com.meizu.cloud.pushsdk.c.a.a aVar = bVar.a().get(i2);
+                com.meizu.cloud.pushsdk.c.a.a aVar = (com.meizu.cloud.pushsdk.c.a.a) bVar.a().get(i2);
                 linkedList.add(new e(aVar.b() + ((long) this.b) > this.p, a(aVar), linkedList2));
             }
         } else {
             int i3 = 0;
             while (i3 < size) {
                 LinkedList linkedList3 = new LinkedList();
-                ArrayList<com.meizu.cloud.pushsdk.c.a.a> arrayList = new ArrayList<>();
+                ArrayList arrayList = new ArrayList();
                 long j = 0;
                 int i4 = i3;
                 while (i4 < this.h.a() + i3 && i4 < size) {
-                    com.meizu.cloud.pushsdk.c.a.a aVar2 = bVar.a().get(i4);
-                    ArrayList<com.meizu.cloud.pushsdk.c.a.a> arrayList2 = arrayList;
+                    com.meizu.cloud.pushsdk.c.a.a aVar2 = (com.meizu.cloud.pushsdk.c.a.a) bVar.a().get(i4);
+                    ArrayList arrayList2 = arrayList;
                     long b2 = aVar2.b() + this.b;
                     int i5 = this.a;
                     int i6 = i3;
                     LinkedList linkedList4 = linkedList3;
                     if (i5 + b2 > this.q) {
-                        ArrayList<com.meizu.cloud.pushsdk.c.a.a> arrayList3 = new ArrayList<>();
+                        ArrayList arrayList3 = new ArrayList();
                         LinkedList linkedList5 = new LinkedList();
                         arrayList3.add(aVar2);
                         linkedList5.add(b.get(i4));
@@ -229,7 +229,7 @@ public abstract class c {
                         i = i6;
                         if (i5 + j + (arrayList2.size() - 1) > this.q) {
                             linkedList.add(new e(false, a(arrayList2), linkedList4));
-                            ArrayList<com.meizu.cloud.pushsdk.c.a.a> arrayList4 = new ArrayList<>();
+                            ArrayList arrayList4 = new ArrayList();
                             linkedList3 = new LinkedList();
                             arrayList4.add(aVar2);
                             linkedList3.add(b.get(i4));

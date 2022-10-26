@@ -1,37 +1,55 @@
 package com.baidu.tieba;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import javax.crypto.Cipher;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
+import java.text.SimpleDateFormat;
+import java.util.Formatter;
+import java.util.Locale;
 /* loaded from: classes3.dex */
-public final class ci9 {
+public class ci9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static byte[] a(String str, String str2, byte[] bArr) throws Exception {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, str, str2, bArr)) == null) {
-            SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "AES");
-            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-            cipher.init(2, secretKeySpec, new IvParameterSpec(str.getBytes()));
-            return cipher.doFinal(bArr);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947675862, "Lcom/baidu/tieba/ci9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947675862, "Lcom/baidu/tieba/ci9;");
+                return;
+            }
         }
-        return (byte[]) invokeLLL.objValue;
+        new SimpleDateFormat("yyyy年MM月dd HH时mm分ss秒");
     }
 
-    public static byte[] b(String str, String str2, byte[] bArr) throws Exception {
-        InterceptResult invokeLLL;
+    public static boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, bArr)) == null) {
-            SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "AES");
-            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-            cipher.init(1, secretKeySpec, new IvParameterSpec(str.getBytes()));
-            return cipher.doFinal(bArr);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (str != null && str.trim().length() != 0) {
+                return false;
+            }
+            return true;
         }
-        return (byte[]) invokeLLL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public static String b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (i < 1000) {
+                i = 1000;
+            }
+            return new Formatter(new StringBuilder(), Locale.getDefault()).format("%ds", Integer.valueOf(i / 1000)).toString();
+        }
+        return (String) invokeI.objValue;
     }
 }

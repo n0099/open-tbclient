@@ -54,8 +54,7 @@ public class w implements l0 {
                     pBSplashListener.onLoaded();
                     PBSplash.d(this.b, true);
                 }
-            } else if (pBSplash.l.exists()) {
-            } else {
+            } else if (!pBSplash.l.exists()) {
                 File file = this.b.l;
                 v vVar = new v(this);
                 Bitmap.CompressFormat compressFormat = this.a;
@@ -70,10 +69,10 @@ public class w implements l0 {
                         return;
                     }
                     try {
-                        if (file.createNewFile()) {
-                            new j0(file, bitmap, compressFormat, vVar).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new Void[0]);
-                        } else {
+                        if (!file.createNewFile()) {
                             new k0("could not create file");
+                        } else {
+                            new j0(file, bitmap, compressFormat, vVar).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new Void[0]);
                         }
                     } catch (IOException e) {
                         new k0(e);
@@ -88,10 +87,9 @@ public class w implements l0 {
         PBSplash pBSplash;
         PBSplashListener pBSplashListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, k0Var) == null) || (pBSplashListener = (pBSplash = this.b).e) == null || pBSplash.j) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, k0Var) == null) && (pBSplashListener = (pBSplash = this.b).e) != null && !pBSplash.j) {
+            pBSplashListener.onFail(PBError.NO_RESUOURCE);
+            PBSplash.d(this.b, true);
         }
-        pBSplashListener.onFail(PBError.NO_RESUOURCE);
-        PBSplash.d(this.b, true);
     }
 }

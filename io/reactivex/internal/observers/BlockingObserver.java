@@ -15,12 +15,12 @@ import io.reactivex.internal.util.NotificationLite;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class BlockingObserver<T> extends AtomicReference<Disposable> implements Observer<T>, Disposable {
+public final class BlockingObserver extends AtomicReference implements Observer, Disposable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Object TERMINATED;
     public static final long serialVersionUID = -4875965440900746268L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Queue<Object> queue;
+    public final Queue queue;
 
     static {
         InterceptResult invokeClinit;
@@ -38,7 +38,36 @@ public final class BlockingObserver<T> extends AtomicReference<Disposable> imple
         TERMINATED = new Object();
     }
 
-    public BlockingObserver(Queue<Object> queue) {
+    @Override // io.reactivex.disposables.Disposable
+    public void dispose() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && DisposableHelper.dispose(this)) {
+            this.queue.offer(TERMINATED);
+        }
+    }
+
+    @Override // io.reactivex.disposables.Disposable
+    public boolean isDisposed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (get() == DisposableHelper.DISPOSED) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // io.reactivex.Observer
+    public void onComplete() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.queue.offer(NotificationLite.complete());
+        }
+    }
+
+    public BlockingObserver(Queue queue) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -56,29 +85,6 @@ public final class BlockingObserver<T> extends AtomicReference<Disposable> imple
         this.queue = queue;
     }
 
-    @Override // io.reactivex.disposables.Disposable
-    public void dispose() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && DisposableHelper.dispose(this)) {
-            this.queue.offer(TERMINATED);
-        }
-    }
-
-    @Override // io.reactivex.disposables.Disposable
-    public boolean isDisposed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? get() == DisposableHelper.DISPOSED : invokeV.booleanValue;
-    }
-
-    @Override // io.reactivex.Observer
-    public void onComplete() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.queue.offer(NotificationLite.complete());
-        }
-    }
-
     @Override // io.reactivex.Observer
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
@@ -88,10 +94,10 @@ public final class BlockingObserver<T> extends AtomicReference<Disposable> imple
     }
 
     @Override // io.reactivex.Observer
-    public void onNext(T t) {
+    public void onNext(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
-            this.queue.offer(NotificationLite.next(t));
+        if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+            this.queue.offer(NotificationLite.next(obj));
         }
     }
 

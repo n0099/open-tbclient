@@ -59,7 +59,10 @@ public final class TransformationsKt {
                 public final Y apply(X x) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, x)) == null) ? this.$transform.invoke(x) : invokeL.objValue;
+                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, x)) == null) {
+                        return this.$transform.invoke(x);
+                    }
+                    return invokeL.objValue;
                 }
             });
             Intrinsics.checkExpressionValueIsNotNull(map, "Transformations.map(this) { transform(it) }");
@@ -96,15 +99,18 @@ public final class TransformationsKt {
                 }
 
                 @Override // androidx.arch.core.util.Function
-                public final LiveData<Y> apply(X x) {
-                    InterceptResult invokeL;
-                    Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, x)) == null) ? (LiveData) this.$transform.invoke(x) : (LiveData) invokeL.objValue;
+                public /* bridge */ /* synthetic */ Object apply(Object obj) {
+                    return apply((TransformationsKt$switchMap$1<I, O>) obj);
                 }
 
                 @Override // androidx.arch.core.util.Function
-                public /* bridge */ /* synthetic */ Object apply(Object obj) {
-                    return apply((TransformationsKt$switchMap$1<I, O>) obj);
+                public final LiveData<Y> apply(X x) {
+                    InterceptResult invokeL;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, x)) == null) {
+                        return (LiveData) this.$transform.invoke(x);
+                    }
+                    return (LiveData) invokeL.objValue;
                 }
             });
             Intrinsics.checkExpressionValueIsNotNull(switchMap, "Transformations.switchMap(this) { transform(it) }");

@@ -38,12 +38,12 @@ public class a {
 
     /* renamed from: com.qq.e.comm.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C0647a implements NetworkCallBack {
+    public class C0643a implements NetworkCallBack {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PM a;
 
-        public C0647a(a aVar, PM pm) {
+        public C0643a(a aVar, PM pm) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -162,6 +162,20 @@ public class a {
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (a) invokeV.objValue;
     }
 
+    public void a(Context context, SM sm, PM pm, DeviceStatus deviceStatus, APPStatus aPPStatus, long j) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, sm, pm, deviceStatus, aPPStatus, Long.valueOf(j)}) == null) || this.a.booleanValue()) {
+            return;
+        }
+        synchronized (a.class) {
+            if (this.a.booleanValue()) {
+                return;
+            }
+            a(sm, pm, deviceStatus, aPPStatus, context, j);
+            this.a = Boolean.TRUE;
+        }
+    }
+
     /* JADX WARN: Removed duplicated region for block: B:25:0x00c4  */
     /* JADX WARN: Removed duplicated region for block: B:26:0x00c7  */
     /*
@@ -169,6 +183,7 @@ public class a {
     */
     private void a(SM sm, PM pm, DeviceStatus deviceStatus, APPStatus aPPStatus, Context context, long j) {
         JSONObject jSONObject;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{sm, pm, deviceStatus, aPPStatus, context, Long.valueOf(j)}) == null) {
             JSONObject jSONObject2 = new JSONObject();
@@ -207,29 +222,19 @@ public class a {
                     if (StringUtil.isEmpty(sm.getSuid())) {
                     }
                     System.currentTimeMillis();
-                    NetworkClientImpl.getInstance().submit(new S2SSRequest(r7, jSONObject6.getBytes(Charset.forName("UTF-8"))), NetworkClient.Priority.High, new C0647a(this, pm));
+                    NetworkClientImpl.getInstance().submit(new S2SSRequest(str, jSONObject6.getBytes(Charset.forName("UTF-8"))), NetworkClient.Priority.High, new C0643a(this, pm));
                 }
             } catch (JSONException unused2) {
             }
             String jSONObject62 = jSONObject.toString();
             GDTLogger.d("launch request: " + jSONObject62);
-            String str = StringUtil.isEmpty(sm.getSuid()) ? "http://sdk.e.qq.com/launch" : "http://sdk.e.qq.com/activate";
-            System.currentTimeMillis();
-            NetworkClientImpl.getInstance().submit(new S2SSRequest(str, jSONObject62.getBytes(Charset.forName("UTF-8"))), NetworkClient.Priority.High, new C0647a(this, pm));
-        }
-    }
-
-    public void a(Context context, SM sm, PM pm, DeviceStatus deviceStatus, APPStatus aPPStatus, long j) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, sm, pm, deviceStatus, aPPStatus, Long.valueOf(j)}) == null) || this.a.booleanValue()) {
-            return;
-        }
-        synchronized (a.class) {
-            if (this.a.booleanValue()) {
-                return;
+            if (StringUtil.isEmpty(sm.getSuid())) {
+                str = "http://sdk.e.qq.com/launch";
+            } else {
+                str = "http://sdk.e.qq.com/activate";
             }
-            a(sm, pm, deviceStatus, aPPStatus, context, j);
-            this.a = Boolean.TRUE;
+            System.currentTimeMillis();
+            NetworkClientImpl.getInstance().submit(new S2SSRequest(str, jSONObject62.getBytes(Charset.forName("UTF-8"))), NetworkClient.Priority.High, new C0643a(this, pm));
         }
     }
 }

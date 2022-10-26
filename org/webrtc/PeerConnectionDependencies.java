@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.annotation.Nullable;
 import org.webrtc.PeerConnection;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class PeerConnectionDependencies {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -16,38 +16,18 @@ public final class PeerConnectionDependencies {
     public final SSLCertificateVerifier sslCertificateVerifier;
 
     /* renamed from: org.webrtc.PeerConnectionDependencies$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    /* loaded from: classes8.dex */
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes9.dex */
-    public static class Builder {
+    /* loaded from: classes8.dex */
+    public class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public PeerConnection.Observer observer;
         public SSLCertificateVerifier sslCertificateVerifier;
-
-        public /* synthetic */ Builder(PeerConnection.Observer observer, AnonymousClass1 anonymousClass1) {
-            this(observer);
-        }
-
-        public PeerConnectionDependencies createPeerConnectionDependencies() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new PeerConnectionDependencies(this.observer, this.sslCertificateVerifier, null) : (PeerConnectionDependencies) invokeV.objValue;
-        }
-
-        public Builder setSSLCertificateVerifier(SSLCertificateVerifier sSLCertificateVerifier) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sSLCertificateVerifier)) == null) {
-                this.sslCertificateVerifier = sSLCertificateVerifier;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
-        }
 
         public Builder(PeerConnection.Observer observer) {
             Interceptable interceptable = $ic;
@@ -66,29 +46,29 @@ public final class PeerConnectionDependencies {
             }
             this.observer = observer;
         }
-    }
 
-    public /* synthetic */ PeerConnectionDependencies(PeerConnection.Observer observer, SSLCertificateVerifier sSLCertificateVerifier, AnonymousClass1 anonymousClass1) {
-        this(observer, sSLCertificateVerifier);
-    }
+        public Builder setSSLCertificateVerifier(SSLCertificateVerifier sSLCertificateVerifier) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sSLCertificateVerifier)) == null) {
+                this.sslCertificateVerifier = sSLCertificateVerifier;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
+        }
 
-    public static Builder builder(PeerConnection.Observer observer) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, observer)) == null) ? new Builder(observer, null) : (Builder) invokeL.objValue;
-    }
+        public /* synthetic */ Builder(PeerConnection.Observer observer, AnonymousClass1 anonymousClass1) {
+            this(observer);
+        }
 
-    public PeerConnection.Observer getObserver() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.observer : (PeerConnection.Observer) invokeV.objValue;
-    }
-
-    @Nullable
-    public SSLCertificateVerifier getSSLCertificateVerifier() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.sslCertificateVerifier : (SSLCertificateVerifier) invokeV.objValue;
+        public PeerConnectionDependencies createPeerConnectionDependencies() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new PeerConnectionDependencies(this.observer, this.sslCertificateVerifier, null);
+            }
+            return (PeerConnectionDependencies) invokeV.objValue;
+        }
     }
 
     public PeerConnectionDependencies(PeerConnection.Observer observer, SSLCertificateVerifier sSLCertificateVerifier) {
@@ -108,5 +88,37 @@ public final class PeerConnectionDependencies {
         }
         this.observer = observer;
         this.sslCertificateVerifier = sSLCertificateVerifier;
+    }
+
+    public /* synthetic */ PeerConnectionDependencies(PeerConnection.Observer observer, SSLCertificateVerifier sSLCertificateVerifier, AnonymousClass1 anonymousClass1) {
+        this(observer, sSLCertificateVerifier);
+    }
+
+    public static Builder builder(PeerConnection.Observer observer) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, observer)) == null) {
+            return new Builder(observer, null);
+        }
+        return (Builder) invokeL.objValue;
+    }
+
+    public PeerConnection.Observer getObserver() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.observer;
+        }
+        return (PeerConnection.Observer) invokeV.objValue;
+    }
+
+    @Nullable
+    public SSLCertificateVerifier getSSLCertificateVerifier() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.sslCertificateVerifier;
+        }
+        return (SSLCertificateVerifier) invokeV.objValue;
     }
 }

@@ -18,7 +18,7 @@ public class TimerMgr {
     public static TimerMgr mTimerMgr;
     public transient /* synthetic */ FieldHolder $fh;
     public Timer mTimer;
-    public HashMap<String, TimerTaskInfo> workerList;
+    public HashMap workerList;
 
     static {
         InterceptResult invokeClinit;
@@ -48,7 +48,7 @@ public class TimerMgr {
                 return;
             }
         }
-        this.workerList = new HashMap<>();
+        this.workerList = new HashMap();
         this.mTimer = new Timer("Timer-gslb");
     }
 
@@ -64,27 +64,6 @@ public class TimerMgr {
         return (TimerMgr) invokeV.objValue;
     }
 
-    public int addWorker(TimerTaskInfo timerTaskInfo, long j, long j2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{timerTaskInfo, Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            if (timerTaskInfo == null || j2 <= 0) {
-                return 5;
-            }
-            if (this.workerList.containsKey(timerTaskInfo.getTaskName())) {
-                return 0;
-            }
-            try {
-                this.mTimer.schedule(timerTaskInfo.getWorker(), j, j2);
-                this.workerList.put(timerTaskInfo.getTaskName(), timerTaskInfo);
-            } catch (Exception e) {
-                LogTools.printWarning(TAG, e);
-            }
-            return 0;
-        }
-        return invokeCommon.intValue;
-    }
-
     public int stopAllWorker() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -94,5 +73,26 @@ public class TimerMgr {
             return 0;
         }
         return invokeV.intValue;
+    }
+
+    public int addWorker(TimerTaskInfo timerTaskInfo, long j, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{timerTaskInfo, Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            if (timerTaskInfo != null && j2 > 0) {
+                if (this.workerList.containsKey(timerTaskInfo.getTaskName())) {
+                    return 0;
+                }
+                try {
+                    this.mTimer.schedule(timerTaskInfo.getWorker(), j, j2);
+                    this.workerList.put(timerTaskInfo.getTaskName(), timerTaskInfo);
+                } catch (Exception e) {
+                    LogTools.printWarning(TAG, e);
+                }
+                return 0;
+            }
+            return 5;
+        }
+        return invokeCommon.intValue;
     }
 }

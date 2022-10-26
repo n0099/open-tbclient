@@ -1,85 +1,77 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.kf;
+import com.baidu.tieba.mainentrance.RequestSearchPersonHistoryReadMessage;
+import com.baidu.tieba.mainentrance.ResponseSearchPersonHistoryReadMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class nj7 implements Cdo {
+public class nj7 implements CustomMessageTask.CustomRunnable {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948004462, "Lcom/baidu/tieba/nj7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948004462, "Lcom/baidu/tieba/nj7;");
-                return;
-            }
-        }
-        c = BdUniqueId.gen();
-    }
 
     public nj7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = "";
-        this.b = "";
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public static final List a(List list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.b = str;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
+            LinkedList linkedList = new LinkedList();
+            if (list != null) {
+                Iterator it = list.iterator();
+                while (it.hasNext()) {
+                    String str = ((kf.b) it.next()).a;
+                    if (!TextUtils.isEmpty(str)) {
+                        linkedList.add(str);
+                    }
+                }
+            }
+            return linkedList;
         }
+        return (List) invokeL.objValue;
     }
 
-    public void f(String str) {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage run(CustomMessage customMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.a = str;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            if (customMessage != null && (customMessage instanceof RequestSearchPersonHistoryReadMessage)) {
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                if (currentAccount == null) {
+                    currentAccount = "";
+                }
+                ou4.f();
+                List a = a(lj.b(ou4.h("tb.searchperson_history", currentAccount)));
+                ResponseSearchPersonHistoryReadMessage responseSearchPersonHistoryReadMessage = new ResponseSearchPersonHistoryReadMessage();
+                responseSearchPersonHistoryReadMessage.datas.addAll(a);
+                return responseSearchPersonHistoryReadMessage;
+            }
+            return null;
         }
-    }
-
-    @Override // com.baidu.tieba.Cdo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? c : (BdUniqueId) invokeV.objValue;
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

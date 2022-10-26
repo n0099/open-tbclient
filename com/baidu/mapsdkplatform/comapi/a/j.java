@@ -2,7 +2,6 @@ package com.baidu.mapsdkplatform.comapi.a;
 
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
-import android.annotation.TargetApi;
 import android.view.animation.Interpolator;
 import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.InputDeviceCompat;
@@ -53,7 +52,6 @@ public class j extends c {
         this.h = i;
     }
 
-    @TargetApi(11)
     public ObjectAnimator a(Marker marker) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -75,7 +73,6 @@ public class j extends c {
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
-    @TargetApi(11)
     public void a() {
         Animator animator;
         Interceptable interceptable = $ic;
@@ -105,7 +102,6 @@ public class j extends c {
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
-    @TargetApi(11)
     public void a(Animator animator) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048580, this, animator) == null) || animator == null) {
@@ -131,7 +127,6 @@ public class j extends c {
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
-    @TargetApi(11)
     public void a(Marker marker, Animation animation) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, marker, animation) == null) {
@@ -142,7 +137,6 @@ public class j extends c {
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
-    @TargetApi(11)
     public void b() {
         Animator animator;
         Interceptable interceptable = $ic;

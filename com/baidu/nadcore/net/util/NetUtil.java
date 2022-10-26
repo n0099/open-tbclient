@@ -19,7 +19,7 @@ public class NetUtil {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class NetworkStateEnum {
+    public final class NetworkStateEnum {
         public static final /* synthetic */ NetworkStateEnum[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final NetworkStateEnum NO;
@@ -80,13 +80,19 @@ public class NetUtil {
         public static NetworkStateEnum valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (NetworkStateEnum) Enum.valueOf(NetworkStateEnum.class, str) : (NetworkStateEnum) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (NetworkStateEnum) Enum.valueOf(NetworkStateEnum.class, str);
+            }
+            return (NetworkStateEnum) invokeL.objValue;
         }
 
         public static NetworkStateEnum[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (NetworkStateEnum[]) $VALUES.clone() : (NetworkStateEnum[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (NetworkStateEnum[]) $VALUES.clone();
+            }
+            return (NetworkStateEnum[]) invokeV.objValue;
         }
     }
 

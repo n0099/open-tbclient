@@ -44,12 +44,18 @@ public class KeyboardUtils {
     }
 
     public static synchronized void forceToggleSoftInput(Context context, boolean z) {
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65538, null, context, z) == null) {
             synchronized (KeyboardUtils.class) {
                 InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService("input_method");
                 if (inputMethodManager != null) {
-                    inputMethodManager.toggleSoftInput(z ? 2 : 0, 2);
+                    if (z) {
+                        i = 2;
+                    } else {
+                        i = 0;
+                    }
+                    inputMethodManager.toggleSoftInput(i, 2);
                 }
             }
         }

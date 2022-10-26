@@ -13,31 +13,31 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.NoSuchElementException;
 /* loaded from: classes8.dex */
-public final class ObservableElementAt<T> extends AbstractObservableWithUpstream<T, T> {
+public final class ObservableElementAt extends AbstractObservableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final T defaultValue;
+    public final Object defaultValue;
     public final boolean errorOnFewer;
     public final long index;
 
     /* loaded from: classes8.dex */
-    public static final class ElementAtObserver<T> implements Observer<T>, Disposable {
+    public final class ElementAtObserver implements Observer, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer<? super T> actual;
+        public final Observer actual;
         public long count;
-        public final T defaultValue;
+        public final Object defaultValue;
         public boolean done;
         public final boolean errorOnFewer;
         public final long index;
         public Disposable s;
 
-        public ElementAtObserver(Observer<? super T> observer, long j, T t, boolean z) {
+        public ElementAtObserver(Observer observer, long j, Object obj, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {observer, Long.valueOf(j), t, Boolean.valueOf(z)};
+                Object[] objArr = {observer, Long.valueOf(j), obj, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -49,7 +49,7 @@ public final class ObservableElementAt<T> extends AbstractObservableWithUpstream
             }
             this.actual = observer;
             this.index = j;
-            this.defaultValue = t;
+            this.defaultValue = obj;
             this.errorOnFewer = z;
         }
 
@@ -65,25 +65,27 @@ public final class ObservableElementAt<T> extends AbstractObservableWithUpstream
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.s.isDisposed() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.s.isDisposed();
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.Observer
         public void onComplete() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.done) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && !this.done) {
+                this.done = true;
+                Object obj = this.defaultValue;
+                if (obj == null && this.errorOnFewer) {
+                    this.actual.onError(new NoSuchElementException());
+                    return;
+                }
+                if (obj != null) {
+                    this.actual.onNext(obj);
+                }
+                this.actual.onComplete();
             }
-            this.done = true;
-            T t = this.defaultValue;
-            if (t == null && this.errorOnFewer) {
-                this.actual.onError(new NoSuchElementException());
-                return;
-            }
-            if (t != null) {
-                this.actual.onNext(t);
-            }
-            this.actual.onComplete();
         }
 
         @Override // io.reactivex.Observer
@@ -100,23 +102,6 @@ public final class ObservableElementAt<T> extends AbstractObservableWithUpstream
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048580, this, t) == null) || this.done) {
-                return;
-            }
-            long j = this.count;
-            if (j == this.index) {
-                this.done = true;
-                this.s.dispose();
-                this.actual.onNext(t);
-                this.actual.onComplete();
-                return;
-            }
-            this.count = j + 1;
-        }
-
-        @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048581, this, disposable) == null) && DisposableHelper.validate(this.s, disposable)) {
@@ -124,16 +109,33 @@ public final class ObservableElementAt<T> extends AbstractObservableWithUpstream
                 this.actual.onSubscribe(this);
             }
         }
+
+        @Override // io.reactivex.Observer
+        public void onNext(Object obj) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048580, this, obj) != null) || this.done) {
+                return;
+            }
+            long j = this.count;
+            if (j == this.index) {
+                this.done = true;
+                this.s.dispose();
+                this.actual.onNext(obj);
+                this.actual.onComplete();
+                return;
+            }
+            this.count = j + 1;
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableElementAt(ObservableSource<T> observableSource, long j, T t, boolean z) {
+    public ObservableElementAt(ObservableSource observableSource, long j, Object obj, boolean z) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {observableSource, Long.valueOf(j), t, Boolean.valueOf(z)};
+            Object[] objArr = {observableSource, Long.valueOf(j), obj, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -145,12 +147,12 @@ public final class ObservableElementAt<T> extends AbstractObservableWithUpstream
             }
         }
         this.index = j;
-        this.defaultValue = t;
+        this.defaultValue = obj;
         this.errorOnFewer = z;
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer<? super T> observer) {
+    public void subscribeActual(Observer observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             this.source.subscribe(new ElementAtObserver(observer, this.index, this.defaultValue, this.errorOnFewer));

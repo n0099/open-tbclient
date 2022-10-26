@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Comparator;
 /* loaded from: classes.dex */
-public class ComponentNameComparator implements Comparator<ComponentName> {
+public class ComponentNameComparator implements Comparator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -36,22 +36,22 @@ public class ComponentNameComparator implements Comparator<ComponentName> {
             if (componentName == null && componentName2 == null) {
                 return 0;
             }
-            if (componentName == null || componentName2 != null) {
-                if (componentName != null || componentName2 == null) {
-                    if (componentName == null || componentName2 == null) {
-                        return 0;
-                    }
-                    if (TextUtils.equals(componentName.getPackageName(), componentName2.getPackageName()) && TextUtils.equals(componentName.getShortClassName(), componentName2.getShortClassName())) {
-                        return 0;
-                    }
-                    if (componentName != null) {
-                        return componentName.compareTo(componentName2);
-                    }
-                    return -1;
-                }
+            if (componentName != null && componentName2 == null) {
+                return 1;
+            }
+            if (componentName == null && componentName2 != null) {
                 return -1;
             }
-            return 1;
+            if (componentName == null || componentName2 == null) {
+                return 0;
+            }
+            if (TextUtils.equals(componentName.getPackageName(), componentName2.getPackageName()) && TextUtils.equals(componentName.getShortClassName(), componentName2.getShortClassName())) {
+                return 0;
+            }
+            if (componentName == null) {
+                return -1;
+            }
+            return componentName.compareTo(componentName2);
         }
         return invokeLL.intValue;
     }

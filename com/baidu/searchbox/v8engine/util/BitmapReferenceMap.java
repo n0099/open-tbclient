@@ -14,7 +14,7 @@ public class BitmapReferenceMap {
     public static final boolean DEBUG = false;
     public static final String TAG = "BitmapReferenceMap";
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, ImageBitmapBean> map;
+    public final HashMap map;
 
     public BitmapReferenceMap() {
         Interceptable interceptable = $ic;
@@ -29,20 +29,20 @@ public class BitmapReferenceMap {
                 return;
             }
         }
-        this.map = new HashMap<>();
+        this.map = new HashMap();
     }
 
     public ImageBitmapBean decrease(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            ImageBitmapBean imageBitmapBean = this.map.get(str);
-            if (imageBitmapBean == null || imageBitmapBean.getBitmap() == null) {
+            ImageBitmapBean imageBitmapBean = (ImageBitmapBean) this.map.get(str);
+            if (imageBitmapBean != null && imageBitmapBean.getBitmap() != null) {
+                imageBitmapBean.decreaseRefCount();
+                if (imageBitmapBean.getRefCount() <= 0) {
+                    return (ImageBitmapBean) this.map.remove(str);
+                }
                 return null;
-            }
-            imageBitmapBean.decreaseRefCount();
-            if (imageBitmapBean.getRefCount() <= 0) {
-                return this.map.remove(str);
             }
             return null;
         }
@@ -52,18 +52,27 @@ public class BitmapReferenceMap {
     public ImageBitmapBean get(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.map.get(str) : (ImageBitmapBean) invokeL.objValue;
-    }
-
-    public ImageBitmapBean put(String str, ImageBitmapBean imageBitmapBean) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, imageBitmapBean)) == null) ? this.map.put(str, imageBitmapBean) : (ImageBitmapBean) invokeLL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return (ImageBitmapBean) this.map.get(str);
+        }
+        return (ImageBitmapBean) invokeL.objValue;
     }
 
     public ImageBitmapBean remove(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? this.map.remove(str) : (ImageBitmapBean) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return (ImageBitmapBean) this.map.remove(str);
+        }
+        return (ImageBitmapBean) invokeL.objValue;
+    }
+
+    public ImageBitmapBean put(String str, ImageBitmapBean imageBitmapBean) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, imageBitmapBean)) == null) {
+            return (ImageBitmapBean) this.map.put(str, imageBitmapBean);
+        }
+        return (ImageBitmapBean) invokeLL.objValue;
     }
 }

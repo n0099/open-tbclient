@@ -1,7 +1,6 @@
 package com.baidu.searchbox.bddownload.core.download;
 
 import android.net.Uri;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bddownload.BdDownload;
 import com.baidu.searchbox.bddownload.DownloadTask;
@@ -26,7 +25,7 @@ public class BreakpointLocalCheck {
     public final long responseInstanceLength;
     public final DownloadTask task;
 
-    public BreakpointLocalCheck(@NonNull DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo, long j) {
+    public BreakpointLocalCheck(DownloadTask downloadTask, BreakpointInfo breakpointInfo, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -47,17 +46,31 @@ public class BreakpointLocalCheck {
     }
 
     public void check() {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.fileExist = isFileExistToResume();
             this.infoRight = isInfoRightToResume();
             boolean isOutputStreamSupportResume = isOutputStreamSupportResume();
             this.outputStreamSupport = isOutputStreamSupportResume;
-            this.dirty = (this.infoRight && this.fileExist && isOutputStreamSupportResume) ? false : true;
+            if (this.infoRight && this.fileExist && isOutputStreamSupportResume) {
+                z = false;
+            } else {
+                z = true;
+            }
+            this.dirty = z;
         }
     }
 
-    @NonNull
+    public boolean isDirty() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.dirty;
+        }
+        return invokeV.booleanValue;
+    }
+
     public ResumeFailedCause getCauseOrThrow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -76,44 +89,20 @@ public class BreakpointLocalCheck {
         return (ResumeFailedCause) invokeV.objValue;
     }
 
-    public boolean isDirty() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.dirty : invokeV.booleanValue;
-    }
-
     public boolean isFileExistToResume() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             Uri uri = this.task.getUri();
             if (Util.isUriContentScheme(uri)) {
-                return Util.getSizeFromContentUri(uri) > 0;
-            }
-            File file = this.task.getFile();
-            return file != null && file.exists();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean isInfoRightToResume() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int blockCount = this.info.getBlockCount();
-            if (blockCount <= 0 || this.info.isChunked() || this.info.getFile() == null) {
-                return false;
-            }
-            if (this.info.getFile().equals(this.task.getFile()) && this.info.getFile().length() <= this.info.getTotalLength()) {
-                if (this.responseInstanceLength <= 0 || this.info.getTotalLength() == this.responseInstanceLength) {
-                    for (int i = 0; i < blockCount; i++) {
-                        if (this.info.getBlock(i).getContentLength() <= 0) {
-                            return false;
-                        }
-                    }
+                if (Util.getSizeFromContentUri(uri) > 0) {
                     return true;
                 }
                 return false;
+            }
+            File file = this.task.getFile();
+            if (file != null && file.exists()) {
+                return true;
             }
             return false;
         }
@@ -127,7 +116,34 @@ public class BreakpointLocalCheck {
             if (BdDownload.with().outputStreamFactory().supportSeek()) {
                 return true;
             }
-            return this.info.getBlockCount() == 1 && !BdDownload.with().processFileStrategy().isPreAllocateLength(this.task);
+            if (this.info.getBlockCount() == 1 && !BdDownload.with().processFileStrategy().isPreAllocateLength(this.task)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isInfoRightToResume() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            int blockCount = this.info.getBlockCount();
+            if (blockCount <= 0 || this.info.isChunked() || this.info.getFile() == null) {
+                return false;
+            }
+            if (!this.info.getFile().equals(this.task.getFile()) || this.info.getFile().length() > this.info.getTotalLength()) {
+                return false;
+            }
+            if (this.responseInstanceLength > 0 && this.info.getTotalLength() != this.responseInstanceLength) {
+                return false;
+            }
+            for (int i = 0; i < blockCount; i++) {
+                if (this.info.getBlock(i).getContentLength() <= 0) {
+                    return false;
+                }
+            }
+            return true;
         }
         return invokeV.booleanValue;
     }

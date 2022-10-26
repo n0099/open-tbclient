@@ -19,14 +19,14 @@ public final class FloatSpreadBuilder extends PrimitiveSpreadBuilder<float[]> {
         fArr[position] = f;
     }
 
-    public final float[] toArray() {
-        return toArray(this.values, new float[size()]);
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.internal.PrimitiveSpreadBuilder
     public int getSize(float[] getSize) {
         Intrinsics.checkNotNullParameter(getSize, "$this$getSize");
         return getSize.length;
+    }
+
+    public final float[] toArray() {
+        return toArray(this.values, new float[size()]);
     }
 }

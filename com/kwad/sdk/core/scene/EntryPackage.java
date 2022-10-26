@@ -1,7 +1,5 @@
 package com.kwad.sdk.core.scene;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.kwad.sdk.utils.r;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
@@ -14,13 +12,13 @@ public class EntryPackage extends URLPackage {
         this.entryPageSource = "unknown";
     }
 
-    public EntryPackage(@NonNull String str, int i) {
+    public EntryPackage(String str, int i) {
         super(str, i);
         this.entryPageSource = "unknown";
     }
 
     @Override // com.kwad.sdk.core.response.kwai.a, com.kwad.sdk.core.b
-    public void parseJson(@Nullable JSONObject jSONObject) {
+    public void parseJson(JSONObject jSONObject) {
         super.parseJson(jSONObject);
         if (jSONObject == null) {
             return;

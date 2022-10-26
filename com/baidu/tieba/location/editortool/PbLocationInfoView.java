@@ -10,7 +10,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ml8;
+import com.baidu.tieba.tl8;
 import com.baidu.tieba.w9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -45,6 +45,47 @@ public class PbLocationInfoView extends TextView {
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public PbLocationInfoView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        b();
+    }
+
+    public void setState(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) {
+            this.a = i;
+            if (i == 1) {
+                if (str == null) {
+                    str = getResources().getString(R.string.obfuscated_res_0x7f0f0a79);
+                }
+                setText(str);
+            } else {
+                if (str == null) {
+                    str = getResources().getString(R.string.obfuscated_res_0x7f0f0a76);
+                }
+                setText(str);
+            }
+            a();
+        }
+    }
+
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -54,7 +95,7 @@ public class PbLocationInfoView extends TextView {
                     drawable.setBounds(this.b);
                 }
                 setCompoundDrawables(drawable, null, null, null);
-                ml8.b((TbPageContextSupport) w9.b(getContext()), (Animatable) drawable);
+                tl8.b((TbPageContextSupport) w9.b(getContext()), (Animatable) drawable);
                 return;
             }
             Drawable drawable2 = SkinManager.getDrawable(R.drawable.icon_tips_site);
@@ -85,47 +126,9 @@ public class PbLocationInfoView extends TextView {
     public int getState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public void setState(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) {
-            this.a = i;
-            if (i == 1) {
-                if (str == null) {
-                    str = getResources().getString(R.string.obfuscated_res_0x7f0f0a6c);
-                }
-                setText(str);
-            } else {
-                if (str == null) {
-                    str = getResources().getString(R.string.obfuscated_res_0x7f0f0a69);
-                }
-                setText(str);
-            }
-            a();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PbLocationInfoView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        b();
+        return invokeV.intValue;
     }
 }

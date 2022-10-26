@@ -7,18 +7,17 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.z85;
+import com.baidu.tieba.d95;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class AlaNetRefreshView extends z85 {
+public class AlaNetRefreshView extends d95 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView mNetFailTipView;
@@ -66,7 +65,10 @@ public class AlaNetRefreshView extends z85 {
                 SkinManager.setViewTextColor(textView2, (int) R.color.CAM_X0106);
                 SkinManager.setBackgroundResource(this.mNetRefreshBtn, R.drawable.obfuscated_res_0x7f0801e0);
             }
-            boolean z = TbadkApplication.getInst().getSkinType() == 1;
+            boolean z = true;
+            if (TbadkApplication.getInst().getSkinType() != 1) {
+                z = false;
+            }
             ImageView imageView = this.mNetRefreshImg;
             if (imageView != null) {
                 if (z) {
@@ -85,93 +87,41 @@ public class AlaNetRefreshView extends z85 {
         }
     }
 
-    public void setContainerBackgroundColor(int i) {
-        LinearLayout linearLayout;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || (linearLayout = this.mNetRefreshContainer) == null) {
-            return;
-        }
-        linearLayout.setBackgroundColor(i);
-    }
-
     public void setImageResource(int i) {
         ImageView imageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || (imageView = this.mNetRefreshImg) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && (imageView = this.mNetRefreshImg) != null) {
+            imageView.setImageResource(i);
         }
-        imageView.setImageResource(i);
     }
 
     public void setIsShowRefreshButton(boolean z) {
         TextView textView;
+        int i;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048580, this, z) == null) || (textView = this.mNetRefreshBtn) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeZ(1048579, this, z) == null) && (textView = this.mNetRefreshBtn) != null) {
+            if (z) {
+                i = 0;
+            } else {
+                i = 8;
+            }
+            textView.setVisibility(i);
         }
-        textView.setVisibility(z ? 0 : 8);
     }
 
     public void setNetFailTipText(String str) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || (textView = this.mNetFailTipView) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (textView = this.mNetFailTipView) != null) {
+            textView.setText(str);
         }
-        textView.setText(str);
-    }
-
-    public void setNetRefreshBtnBackgroundResource(int i) {
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048582, this, i) == null) || (textView = this.mNetRefreshBtn) == null) {
-            return;
-        }
-        textView.setBackgroundResource(i);
-    }
-
-    public void setNetRefreshBtnText(String str) {
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || (textView = this.mNetRefreshBtn) == null) {
-            return;
-        }
-        textView.setText(str);
-    }
-
-    public void setNetRefreshBtnTextColor(int i) {
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) || (textView = this.mNetRefreshBtn) == null) {
-            return;
-        }
-        textView.setTextColor(i);
-    }
-
-    public void setNetRefreshImgAlpha(float f) {
-        ImageView imageView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048585, this, f) == null) || (imageView = this.mNetRefreshImg) == null) {
-            return;
-        }
-        imageView.setAlpha(f);
-    }
-
-    public void setNetRefreshTipTextColor(int i) {
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048586, this, i) == null) || (textView = this.mNetFailTipView) == null) {
-            return;
-        }
-        textView.setTextColor(i);
     }
 
     public void setOnRefreshClickListener(View.OnClickListener onClickListener) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, onClickListener) == null) || (textView = this.mNetRefreshBtn) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, onClickListener) == null) && (textView = this.mNetRefreshBtn) != null) {
+            textView.setOnClickListener(onClickListener);
         }
-        textView.setOnClickListener(onClickListener);
     }
 }

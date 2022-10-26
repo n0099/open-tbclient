@@ -12,7 +12,7 @@ public class a {
     public int a;
     public Point b;
     public Point c;
-    public ArrayList<ArrayList<Point>> d;
+    public ArrayList d;
 
     public a() {
         Interceptable interceptable = $ic;

@@ -36,11 +36,33 @@ public class SimpleCacheKey implements CacheKey {
         }
     }
 
+    public SimpleCacheKey(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mKey = (String) Preconditions.checkNotNull(str);
+        this.mIsResourceIdForDebugging = z;
+    }
+
     @Override // com.facebook.cache.common.CacheKey
     public boolean containsUri(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, uri)) == null) ? this.mKey.contains(uri.toString()) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, uri)) == null) {
+            return this.mKey.contains(uri.toString());
+        }
+        return invokeL.booleanValue;
     }
 
     @Override // com.facebook.cache.common.CacheKey
@@ -63,46 +85,39 @@ public class SimpleCacheKey implements CacheKey {
     public String getUriString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mKey : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mKey;
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // com.facebook.cache.common.CacheKey
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mKey.hashCode() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mKey.hashCode();
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.facebook.cache.common.CacheKey
     public boolean isResourceIdForDebugging() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mIsResourceIdForDebugging : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mIsResourceIdForDebugging;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.facebook.cache.common.CacheKey
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mKey : (String) invokeV.objValue;
-    }
-
-    public SimpleCacheKey(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mKey;
         }
-        this.mKey = (String) Preconditions.checkNotNull(str);
-        this.mIsResourceIdForDebugging = z;
+        return (String) invokeV.objValue;
     }
 }

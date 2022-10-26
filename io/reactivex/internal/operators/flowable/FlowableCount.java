@@ -12,12 +12,12 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableCount<T> extends AbstractFlowableWithUpstream<T, Long> {
+public final class FlowableCount extends AbstractFlowableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public static final class CountSubscriber extends DeferredScalarSubscription<Long> implements FlowableSubscriber<Object> {
+    public final class CountSubscriber extends DeferredScalarSubscription implements FlowableSubscriber {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4973004223787171406L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -25,7 +25,7 @@ public final class FlowableCount<T> extends AbstractFlowableWithUpstream<T, Long
         public Subscription s;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public CountSubscriber(Subscriber<? super Long> subscriber) {
+        public CountSubscriber(Subscriber subscriber) {
             super(subscriber);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -89,7 +89,7 @@ public final class FlowableCount<T> extends AbstractFlowableWithUpstream<T, Long
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableCount(Flowable<T> flowable) {
+    public FlowableCount(Flowable flowable) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -109,7 +109,7 @@ public final class FlowableCount<T> extends AbstractFlowableWithUpstream<T, Long
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber<? super Long> subscriber) {
+    public void subscribeActual(Subscriber subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             this.source.subscribe((FlowableSubscriber) new CountSubscriber(subscriber));

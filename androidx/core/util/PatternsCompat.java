@@ -1,6 +1,5 @@
 package androidx.core.util;
 
-import androidx.annotation.RestrictTo;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,9 +12,7 @@ import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public final class PatternsCompat {
     public static /* synthetic */ Interceptable $ic = null;
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public static final Pattern AUTOLINK_EMAIL_ADDRESS;
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public static final Pattern AUTOLINK_WEB_URL;
     public static final Pattern DOMAIN_NAME;
     public static final Pattern EMAIL_ADDRESS;

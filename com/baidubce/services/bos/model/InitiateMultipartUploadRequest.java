@@ -40,13 +40,19 @@ public class InitiateMultipartUploadRequest extends GenericObjectRequest {
     public ObjectMetadata getObjectMetadata() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.objectMetadata : (ObjectMetadata) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.objectMetadata;
+        }
+        return (ObjectMetadata) invokeV.objValue;
     }
 
     public String getStorageClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.storageClass : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.storageClass;
+        }
+        return (String) invokeV.objValue;
     }
 
     public void setObjectMetadata(ObjectMetadata objectMetadata) {

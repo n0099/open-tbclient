@@ -77,12 +77,18 @@ public final class BrowserType {
     public static BrowserType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (BrowserType) Enum.valueOf(BrowserType.class, str) : (BrowserType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (BrowserType) Enum.valueOf(BrowserType.class, str);
+        }
+        return (BrowserType) invokeL.objValue;
     }
 
     public static BrowserType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (BrowserType[]) $VALUES.clone() : (BrowserType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (BrowserType[]) $VALUES.clone();
+        }
+        return (BrowserType[]) invokeV.objValue;
     }
 }

@@ -1,15 +1,11 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import com.baidu.pyramid.runtime.service.ServiceReference;
 /* loaded from: classes3.dex */
 public interface cg {
-    @NonNull
-    public static final ServiceReference a = new ServiceReference("tbadkcore", "INetExperiment");
+    public static final ServiceReference a = new ServiceReference("tbadkcore", "IHttpsExperiment");
 
-    boolean netABTest();
+    boolean isIpv6();
 
-    boolean netBdABTest();
-
-    boolean qaHttpsTest();
+    boolean isSwitchOn();
 }

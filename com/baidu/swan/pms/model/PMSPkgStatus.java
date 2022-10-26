@@ -59,12 +59,18 @@ public final class PMSPkgStatus {
     public static PMSPkgStatus valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (PMSPkgStatus) Enum.valueOf(PMSPkgStatus.class, str) : (PMSPkgStatus) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (PMSPkgStatus) Enum.valueOf(PMSPkgStatus.class, str);
+        }
+        return (PMSPkgStatus) invokeL.objValue;
     }
 
     public static PMSPkgStatus[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PMSPkgStatus[]) $VALUES.clone() : (PMSPkgStatus[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (PMSPkgStatus[]) $VALUES.clone();
+        }
+        return (PMSPkgStatus[]) invokeV.objValue;
     }
 }

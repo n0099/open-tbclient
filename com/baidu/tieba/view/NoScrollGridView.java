@@ -33,14 +33,6 @@ public class NoScrollGridView extends GridView {
         }
     }
 
-    @Override // android.widget.GridView, android.widget.AbsListView, android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
-            super.onMeasure(i, View.MeasureSpec.makeMeasureSpec(536870911, Integer.MIN_VALUE));
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NoScrollGridView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -80,6 +72,14 @@ public class NoScrollGridView extends GridView {
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
+        }
+    }
+
+    @Override // android.widget.GridView, android.widget.AbsListView, android.view.View
+    public void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
+            super.onMeasure(i, View.MeasureSpec.makeMeasureSpec(536870911, Integer.MIN_VALUE));
         }
     }
 }

@@ -1,27 +1,36 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class aq3 {
+public class aq3 implements po1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile zp3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized zp3 a() {
-        InterceptResult invokeV;
-        zp3 zp3Var;
+    public aq3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (aq3.class) {
-                if (a == null) {
-                    a = new zp3();
-                }
-                zp3Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return zp3Var;
         }
-        return (zp3) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.po1
+    public aj4 l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new zp3();
+        }
+        return (aj4) invokeV.objValue;
     }
 }

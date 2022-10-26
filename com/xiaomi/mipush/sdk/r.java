@@ -38,14 +38,14 @@ public class r implements dm {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b.m132a(this.a).d() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b.m131a(this.a).d() : (String) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.dm
     public void a(ii iiVar, hj hjVar, hw hwVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iiVar, hjVar, hwVar) == null) {
-            ao.a(this.a).a((ao) iiVar, hjVar, hwVar);
+            ao.a(this.a).a(iiVar, hjVar, hwVar);
         }
     }
 }

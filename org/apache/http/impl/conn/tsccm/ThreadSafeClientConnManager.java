@@ -50,12 +50,56 @@ public class ThreadSafeClientConnManager implements ClientConnectionManager {
         }
     }
 
+    public void finalize() throws Throwable {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    public int getConnectionsInPool() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // org.apache.http.conn.ClientConnectionManager
+    public SchemeRegistry getSchemeRegistry() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (SchemeRegistry) invokeV.objValue;
+    }
+
+    @Override // org.apache.http.conn.ClientConnectionManager
+    public void shutdown() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
     @Override // org.apache.http.conn.ClientConnectionManager
     public void closeIdleConnections(long j, TimeUnit timeUnit) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j, timeUnit) == null) {
             throw new RuntimeException("Stub!");
         }
+    }
+
+    @Override // org.apache.http.conn.ClientConnectionManager
+    public ClientConnectionRequest requestConnection(HttpRoute httpRoute, Object obj) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, httpRoute, obj)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (ClientConnectionRequest) invokeLL.objValue;
     }
 
     public ClientConnectionOperator createConnectionOperator(SchemeRegistry schemeRegistry) {
@@ -76,13 +120,6 @@ public class ThreadSafeClientConnManager implements ClientConnectionManager {
         return (AbstractConnPool) invokeL.objValue;
     }
 
-    public void finalize() throws Throwable {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
     public int getConnectionsInPool(HttpRoute httpRoute) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -93,47 +130,10 @@ public class ThreadSafeClientConnManager implements ClientConnectionManager {
     }
 
     @Override // org.apache.http.conn.ClientConnectionManager
-    public SchemeRegistry getSchemeRegistry() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (SchemeRegistry) invokeV.objValue;
-    }
-
-    @Override // org.apache.http.conn.ClientConnectionManager
     public void releaseConnection(ManagedClientConnection managedClientConnection, long j, TimeUnit timeUnit) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{managedClientConnection, Long.valueOf(j), timeUnit}) == null) {
             throw new RuntimeException("Stub!");
         }
-    }
-
-    @Override // org.apache.http.conn.ClientConnectionManager
-    public ClientConnectionRequest requestConnection(HttpRoute httpRoute, Object obj) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, httpRoute, obj)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (ClientConnectionRequest) invokeLL.objValue;
-    }
-
-    @Override // org.apache.http.conn.ClientConnectionManager
-    public void shutdown() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
-    public int getConnectionsInPool() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeV.intValue;
     }
 }

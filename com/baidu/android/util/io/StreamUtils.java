@@ -97,7 +97,19 @@ public class StreamUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, inputStream)) == null) {
             String readInputStream = FileUtils.readInputStream(inputStream);
-            return readInputStream.startsWith(ResultParser.BYTE_ORDER_MARK) ? readInputStream.substring(1) : readInputStream;
+            if (readInputStream.startsWith(ResultParser.BYTE_ORDER_MARK)) {
+                return readInputStream.substring(1);
+            }
+            return readInputStream;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String streamToString(InputStream inputStream) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, inputStream)) == null) {
+            return streamToString(inputStream, Xml.Encoding.UTF_8.toString());
         }
         return (String) invokeL.objValue;
     }
@@ -105,29 +117,30 @@ public class StreamUtils {
     public static byte[] streamToBytes(InputStream inputStream) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, inputStream)) != null) {
-            return (byte[]) invokeL.objValue;
-        }
-        if (inputStream == null) {
-            return null;
-        }
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        try {
-            byte[] bArr = new byte[8192];
-            while (true) {
-                int read = inputStream.read(bArr);
-                if (-1 != read) {
-                    byteArrayOutputStream.write(bArr, 0, read);
-                } else {
-                    return byteArrayOutputStream.toByteArray();
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, inputStream)) == null) {
+            if (inputStream == null) {
+                return null;
             }
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        } finally {
-            Closeables.closeSafely(inputStream);
-            Closeables.closeSafely(byteArrayOutputStream);
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            try {
+                byte[] bArr = new byte[8192];
+                while (true) {
+                    int read = inputStream.read(bArr);
+                    if (-1 != read) {
+                        byteArrayOutputStream.write(bArr, 0, read);
+                    } else {
+                        return byteArrayOutputStream.toByteArray();
+                    }
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+                return null;
+            } finally {
+                Closeables.closeSafely(inputStream);
+                Closeables.closeSafely(byteArrayOutputStream);
+            }
+        } else {
+            return (byte[]) invokeL.objValue;
         }
     }
 
@@ -194,38 +207,6 @@ public class StreamUtils {
         return invokeLL.booleanValue;
     }
 
-    public static String streamToString(InputStream inputStream) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, inputStream)) == null) ? streamToString(inputStream, Xml.Encoding.UTF_8.toString()) : (String) invokeL.objValue;
-    }
-
-    public static boolean streamToZipFile(InputStream inputStream, ZipOutputStream zipOutputStream, String str) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLLL = interceptable.invokeLLL(65544, null, inputStream, zipOutputStream, str)) != null) {
-            return invokeLLL.booleanValue;
-        }
-        if (inputStream == null || zipOutputStream == null || TextUtils.isEmpty(str)) {
-            return false;
-        }
-        try {
-            byte[] bArr = new byte[4096];
-            zipOutputStream.putNextEntry(new ZipEntry(str));
-            while (true) {
-                int read = inputStream.read(bArr);
-                if (read != -1) {
-                    zipOutputStream.write(bArr, 0, read);
-                } else {
-                    zipOutputStream.closeEntry();
-                    return true;
-                }
-            }
-        } catch (IOException unused) {
-            return false;
-        }
-    }
-
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:20:0x0032 */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:35:0x000d */
     /* JADX WARN: Multi-variable type inference failed */
@@ -290,5 +271,32 @@ public class StreamUtils {
             return inputStream;
         }
         return (String) invokeLL.objValue;
+    }
+
+    public static boolean streamToZipFile(InputStream inputStream, ZipOutputStream zipOutputStream, String str) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, inputStream, zipOutputStream, str)) == null) {
+            if (inputStream == null || zipOutputStream == null || TextUtils.isEmpty(str)) {
+                return false;
+            }
+            try {
+                byte[] bArr = new byte[4096];
+                zipOutputStream.putNextEntry(new ZipEntry(str));
+                while (true) {
+                    int read = inputStream.read(bArr);
+                    if (read != -1) {
+                        zipOutputStream.write(bArr, 0, read);
+                    } else {
+                        zipOutputStream.closeEntry();
+                        return true;
+                    }
+                }
+            } catch (IOException unused) {
+                return false;
+            }
+        } else {
+            return invokeLLL.booleanValue;
+        }
     }
 }

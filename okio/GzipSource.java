@@ -58,17 +58,23 @@ public final class GzipSource implements Source {
 
     private void checkEqual(String str, int i, int i2) throws IOException {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(65537, this, str, i, i2) == null) && i2 != i) {
-            throw new IOException(String.format("%s: actual 0x%08x != expected 0x%08x", str, Integer.valueOf(i2), Integer.valueOf(i)));
+        if ((interceptable != null && interceptable.invokeLII(65537, this, str, i, i2) != null) || i2 == i) {
+            return;
         }
+        throw new IOException(String.format("%s: actual 0x%08x != expected 0x%08x", str, Integer.valueOf(i2), Integer.valueOf(i)));
     }
 
     private void consumeHeader() throws IOException {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             this.source.require(10L);
             byte b = this.source.buffer().getByte(3L);
-            boolean z = ((b >> 1) & 1) == 1;
+            if (((b >> 1) & 1) == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
             if (z) {
                 updateCrc(this.source.buffer(), 0L, 10L);
             }
@@ -156,16 +162,25 @@ public final class GzipSource implements Source {
     }
 
     @Override // okio.Source
+    public Timeout timeout() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.source.timeout();
+        }
+        return (Timeout) invokeV.objValue;
+    }
+
+    @Override // okio.Source
     public long read(Buffer buffer, long j) throws IOException {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j)) == null) {
             int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-            if (i < 0) {
-                throw new IllegalArgumentException("byteCount < 0: " + j);
-            } else if (i == 0) {
-                return 0L;
-            } else {
+            if (i >= 0) {
+                if (i == 0) {
+                    return 0L;
+                }
                 if (this.section == 0) {
                     consumeHeader();
                     this.section = 1;
@@ -188,14 +203,8 @@ public final class GzipSource implements Source {
                 }
                 return -1L;
             }
+            throw new IllegalArgumentException("byteCount < 0: " + j);
         }
         return invokeLJ.longValue;
-    }
-
-    @Override // okio.Source
-    public Timeout timeout() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.source.timeout() : (Timeout) invokeV.objValue;
     }
 }

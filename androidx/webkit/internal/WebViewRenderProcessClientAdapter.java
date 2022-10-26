@@ -1,8 +1,6 @@
 package androidx.webkit.internal;
 
 import android.webkit.WebView;
-import androidx.annotation.NonNull;
-import androidx.annotation.RestrictTo;
 import androidx.webkit.WebViewRenderProcess;
 import androidx.webkit.WebViewRenderProcessClient;
 import com.baidu.android.imsdk.internal.Constants;
@@ -40,6 +38,25 @@ public class WebViewRenderProcessClientAdapter implements WebViewRendererClientB
         sSupportedFeatures = new String[]{"WEB_VIEW_RENDERER_CLIENT_BASIC_USAGE"};
     }
 
+    @Override // org.chromium.support_lib_boundary.FeatureFlagHolderBoundaryInterface
+    public final String[] getSupportedFeatures() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return sSupportedFeatures;
+        }
+        return (String[]) invokeV.objValue;
+    }
+
+    public WebViewRenderProcessClient getWebViewRenderProcessClient() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mWebViewRenderProcessClient;
+        }
+        return (WebViewRenderProcessClient) invokeV.objValue;
+    }
+
     public WebViewRenderProcessClientAdapter(Executor executor, WebViewRenderProcessClient webViewRenderProcessClient) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -59,23 +76,8 @@ public class WebViewRenderProcessClientAdapter implements WebViewRendererClientB
         this.mWebViewRenderProcessClient = webViewRenderProcessClient;
     }
 
-    @Override // org.chromium.support_lib_boundary.FeatureFlagHolderBoundaryInterface
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public final String[] getSupportedFeatures() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? sSupportedFeatures : (String[]) invokeV.objValue;
-    }
-
-    public WebViewRenderProcessClient getWebViewRenderProcessClient() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mWebViewRenderProcessClient : (WebViewRenderProcessClient) invokeV.objValue;
-    }
-
     @Override // org.chromium.support_lib_boundary.WebViewRendererClientBoundaryInterface
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public final void onRendererResponsive(@NonNull WebView webView, @NonNull InvocationHandler invocationHandler) {
+    public final void onRendererResponsive(WebView webView, InvocationHandler invocationHandler) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, invocationHandler) == null) {
             WebViewRenderProcessImpl forInvocationHandler = WebViewRenderProcessImpl.forInvocationHandler(invocationHandler);
@@ -126,8 +128,7 @@ public class WebViewRenderProcessClientAdapter implements WebViewRendererClientB
     }
 
     @Override // org.chromium.support_lib_boundary.WebViewRendererClientBoundaryInterface
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public final void onRendererUnresponsive(@NonNull WebView webView, @NonNull InvocationHandler invocationHandler) {
+    public final void onRendererUnresponsive(WebView webView, InvocationHandler invocationHandler) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, webView, invocationHandler) == null) {
             WebViewRenderProcessImpl forInvocationHandler = WebViewRenderProcessImpl.forInvocationHandler(invocationHandler);

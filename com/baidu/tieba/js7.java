@@ -1,38 +1,85 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.CheckBox;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.BarImageView;
+import com.baidu.tbadk.data.BazhuInfoData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class js7 {
-    public static /* synthetic */ Interceptable $ic;
+public class js7 extends BaseAdapter {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int c = 3;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public View b;
-    public TextView c;
+    public Context a;
+    public List b;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947893947, "Lcom/baidu/tieba/js7;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947893947, "Lcom/baidu/tieba/js7;");
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            return null;
+        }
+        return invokeI.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
 
     /* loaded from: classes4.dex */
-    public class a implements Runnable {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Integer a;
-        public final /* synthetic */ js7 b;
+        public TextView a;
+        public CheckBox b;
+        public BarImageView c;
+        public int d;
+        public Drawable e;
 
-        public a(js7 js7Var, Integer num) {
+        public a(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {js7Var, num};
+                Object[] objArr = {view2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -42,73 +89,107 @@ public class js7 {
                     return;
                 }
             }
-            this.b = js7Var;
-            this.a = num;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Integer num;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (num = this.a) == null || num.intValue() == 0) {
+            this.d = 3;
+            if (view2 == null) {
                 return;
             }
-            this.b.a.setVisibility(0);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09231d);
+            this.b = (CheckBox) view2.findViewById(R.id.obfuscated_res_0x7f09231a);
+            this.c = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090a55);
+        }
+
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (js7.c != this.d) {
+                    SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0105);
+                    this.e = SkinManager.getDrawable(R.drawable.transmit_check_box);
+                }
+                this.d = js7.c;
+            }
+        }
+
+        public void b(BazhuInfoData.BaInfo baInfo) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baInfo) == null) && baInfo != null) {
+                this.a.setText(baInfo.forum_name);
+                this.b.setChecked(baInfo.isChecked);
+                this.c.L(baInfo.forum_Avatar, 10, false);
+                this.b.setButtonDrawable(this.e);
+            }
         }
     }
 
-    public js7(TbPageContext tbPageContext) {
+    public js7(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0264, (ViewGroup) null);
-        this.b = inflate;
-        View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f0908b8);
-        this.a = findViewById;
-        findViewById.setVisibility(8);
-        this.c = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0908be);
+        this.b = new ArrayList();
+        this.a = context;
     }
 
-    public View b() {
+    @Override // android.widget.Adapter
+    public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (View) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b.size();
+        }
+        return invokeV.intValue;
+    }
+
+    public void b(List list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+            this.b.clear();
+            this.b.addAll(list);
+            notifyDataSetChanged();
+        }
     }
 
     public void c(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            View view2 = this.b;
-            if (view2 != null) {
-                SkinManager.setBackgroundColor(view2, R.color.cp_bg_line_d_alpha90, i);
+            if (c != i) {
+                notifyDataSetChanged();
             }
-            View view3 = this.a;
-            if (view3 != null) {
-                SkinManager.setBackgroundColor(view3, R.color.CAM_X0204, i);
-            }
-            TextView textView = this.c;
-            if (textView != null) {
-                SkinManager.setViewTextColor(textView, R.color.CAM_X0107, i);
-            }
+            c = i;
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    public void update(Integer num) {
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, num) == null) {
-            gh.a().post(new a(this, num));
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
+            a aVar = null;
+            if (view2 == null) {
+                view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0509, (ViewGroup) null);
+                aVar = new a(view2);
+                view2.setTag(aVar);
+            } else {
+                Object tag = view2.getTag();
+                if (tag instanceof a) {
+                    aVar = (a) tag;
+                }
+            }
+            if (aVar != null) {
+                aVar.a();
+                aVar.b((BazhuInfoData.BaInfo) this.b.get(i));
+            }
+            return view2;
         }
+        return (View) invokeILL.objValue;
     }
 }

@@ -159,13 +159,19 @@ public class ConstraintAnchor {
         public static Type valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Type) Enum.valueOf(Type.class, str) : (Type) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (Type) Enum.valueOf(Type.class, str);
+            }
+            return (Type) invokeL.objValue;
         }
 
         public static Type[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Type[]) $VALUES.clone() : (Type[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (Type[]) $VALUES.clone();
+            }
+            return (Type[]) invokeV.objValue;
         }
     }
 
@@ -215,36 +221,6 @@ public class ConstraintAnchor {
         return invokeLL.booleanValue;
     }
 
-    public boolean connect(ConstraintAnchor constraintAnchor, int i, int i2, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{constraintAnchor, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            if (constraintAnchor == null) {
-                reset();
-                return true;
-            } else if (z || isValidConnection(constraintAnchor)) {
-                this.mTarget = constraintAnchor;
-                if (constraintAnchor.mDependents == null) {
-                    constraintAnchor.mDependents = new HashSet<>();
-                }
-                HashSet<ConstraintAnchor> hashSet = this.mTarget.mDependents;
-                if (hashSet != null) {
-                    hashSet.add(this);
-                }
-                if (i > 0) {
-                    this.mMargin = i;
-                } else {
-                    this.mMargin = 0;
-                }
-                this.mGoneMargin = i2;
-                return true;
-            } else {
-                return false;
-            }
-        }
-        return invokeCommon.booleanValue;
-    }
-
     public void copyFrom(ConstraintAnchor constraintAnchor, HashMap<ConstraintWidget, ConstraintWidget> hashMap) {
         HashSet<ConstraintAnchor> hashSet;
         Interceptable interceptable = $ic;
@@ -271,34 +247,162 @@ public class ConstraintAnchor {
         }
     }
 
+    public boolean connect(ConstraintAnchor constraintAnchor, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, constraintAnchor, i)) == null) {
+            return connect(constraintAnchor, i, -1, false);
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public boolean isConnectionAllowed(ConstraintWidget constraintWidget, ConstraintAnchor constraintAnchor) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, constraintWidget, constraintAnchor)) == null) {
+            return isConnectionAllowed(constraintWidget);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public boolean connect(ConstraintAnchor constraintAnchor, int i, int i2, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{constraintAnchor, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+            if (constraintAnchor == null) {
+                reset();
+                return true;
+            } else if (!z && !isValidConnection(constraintAnchor)) {
+                return false;
+            } else {
+                this.mTarget = constraintAnchor;
+                if (constraintAnchor.mDependents == null) {
+                    constraintAnchor.mDependents = new HashSet<>();
+                }
+                HashSet<ConstraintAnchor> hashSet = this.mTarget.mDependents;
+                if (hashSet != null) {
+                    hashSet.add(this);
+                }
+                if (i > 0) {
+                    this.mMargin = i;
+                } else {
+                    this.mMargin = 0;
+                }
+                this.mGoneMargin = i2;
+                return true;
+            }
+        }
+        return invokeCommon.booleanValue;
+    }
+
     public void findDependents(int i, ArrayList<WidgetGroup> arrayList, WidgetGroup widgetGroup) {
         HashSet<ConstraintAnchor> hashSet;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeILL(1048579, this, i, arrayList, widgetGroup) == null) || (hashSet = this.mDependents) == null) {
-            return;
-        }
-        Iterator<ConstraintAnchor> it = hashSet.iterator();
-        while (it.hasNext()) {
-            Grouping.findDependents(it.next().mOwner, i, arrayList, widgetGroup);
+        if ((interceptable == null || interceptable.invokeILL(1048579, this, i, arrayList, widgetGroup) == null) && (hashSet = this.mDependents) != null) {
+            Iterator<ConstraintAnchor> it = hashSet.iterator();
+            while (it.hasNext()) {
+                Grouping.findDependents(it.next().mOwner, i, arrayList, widgetGroup);
+            }
         }
     }
 
     public HashSet<ConstraintAnchor> getDependents() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mDependents : (HashSet) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mDependents;
+        }
+        return (HashSet) invokeV.objValue;
     }
 
     public int getFinalValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.mHasFinalValue) {
-                return this.mFinalValue;
+            if (!this.mHasFinalValue) {
+                return 0;
             }
-            return 0;
+            return this.mFinalValue;
         }
         return invokeV.intValue;
+    }
+
+    public ConstraintWidget getOwner() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mOwner;
+        }
+        return (ConstraintWidget) invokeV.objValue;
+    }
+
+    public SolverVariable getSolverVariable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mSolverVariable;
+        }
+        return (SolverVariable) invokeV.objValue;
+    }
+
+    public ConstraintAnchor getTarget() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.mTarget;
+        }
+        return (ConstraintAnchor) invokeV.objValue;
+    }
+
+    public Type getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.mType;
+        }
+        return (Type) invokeV.objValue;
+    }
+
+    public boolean hasDependents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            HashSet<ConstraintAnchor> hashSet = this.mDependents;
+            if (hashSet == null || hashSet.size() <= 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean hasFinalValue() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.mHasFinalValue;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isConnected() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            if (this.mTarget != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void resetFinalResolution() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
+            this.mHasFinalValue = false;
+            this.mFinalValue = 0;
+        }
     }
 
     public int getMargin() {
@@ -315,56 +419,6 @@ public class ConstraintAnchor {
             return this.mMargin;
         }
         return invokeV.intValue;
-    }
-
-    public final ConstraintAnchor getOpposite() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            switch (AnonymousClass1.$SwitchMap$androidx$constraintlayout$solver$widgets$ConstraintAnchor$Type[this.mType.ordinal()]) {
-                case 1:
-                case 6:
-                case 7:
-                case 8:
-                case 9:
-                    return null;
-                case 2:
-                    return this.mOwner.mRight;
-                case 3:
-                    return this.mOwner.mLeft;
-                case 4:
-                    return this.mOwner.mBottom;
-                case 5:
-                    return this.mOwner.mTop;
-                default:
-                    throw new AssertionError(this.mType.name());
-            }
-        }
-        return (ConstraintAnchor) invokeV.objValue;
-    }
-
-    public ConstraintWidget getOwner() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mOwner : (ConstraintWidget) invokeV.objValue;
-    }
-
-    public SolverVariable getSolverVariable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mSolverVariable : (SolverVariable) invokeV.objValue;
-    }
-
-    public ConstraintAnchor getTarget() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mTarget : (ConstraintAnchor) invokeV.objValue;
-    }
-
-    public Type getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mType : (Type) invokeV.objValue;
     }
 
     public boolean hasCenteredDependents() {
@@ -384,34 +438,6 @@ public class ConstraintAnchor {
             return false;
         }
         return invokeV.booleanValue;
-    }
-
-    public boolean hasDependents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            HashSet<ConstraintAnchor> hashSet = this.mDependents;
-            return hashSet != null && hashSet.size() > 0;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean hasFinalValue() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mHasFinalValue : invokeV.booleanValue;
-    }
-
-    public boolean isConnected() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.mTarget != null : invokeV.booleanValue;
-    }
-
-    public boolean isConnectionAllowed(ConstraintWidget constraintWidget, ConstraintAnchor constraintAnchor) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, constraintWidget, constraintAnchor)) == null) ? isConnectionAllowed(constraintWidget) : invokeLL.booleanValue;
     }
 
     public boolean isSideAnchor() {
@@ -435,78 +461,6 @@ public class ConstraintAnchor {
             }
         }
         return invokeV.booleanValue;
-    }
-
-    public boolean isSimilarDimensionConnection(ConstraintAnchor constraintAnchor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, constraintAnchor)) == null) {
-            Type type = constraintAnchor.getType();
-            Type type2 = this.mType;
-            if (type == type2) {
-                return true;
-            }
-            switch (AnonymousClass1.$SwitchMap$androidx$constraintlayout$solver$widgets$ConstraintAnchor$Type[type2.ordinal()]) {
-                case 1:
-                    return type != Type.BASELINE;
-                case 2:
-                case 3:
-                case 7:
-                    return type == Type.LEFT || type == Type.RIGHT || type == Type.CENTER_X;
-                case 4:
-                case 5:
-                case 6:
-                case 8:
-                    return type == Type.TOP || type == Type.BOTTOM || type == Type.CENTER_Y || type == Type.BASELINE;
-                case 9:
-                    return false;
-                default:
-                    throw new AssertionError(this.mType.name());
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean isValidConnection(ConstraintAnchor constraintAnchor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, constraintAnchor)) == null) {
-            boolean z = false;
-            if (constraintAnchor == null) {
-                return false;
-            }
-            Type type = constraintAnchor.getType();
-            Type type2 = this.mType;
-            if (type == type2) {
-                return type2 != Type.BASELINE || (constraintAnchor.getOwner().hasBaseline() && getOwner().hasBaseline());
-            }
-            switch (AnonymousClass1.$SwitchMap$androidx$constraintlayout$solver$widgets$ConstraintAnchor$Type[type2.ordinal()]) {
-                case 1:
-                    return (type == Type.BASELINE || type == Type.CENTER_X || type == Type.CENTER_Y) ? false : true;
-                case 2:
-                case 3:
-                    boolean z2 = type == Type.LEFT || type == Type.RIGHT;
-                    if (constraintAnchor.getOwner() instanceof Guideline) {
-                        return (z2 || type == Type.CENTER_X) ? true : true;
-                    }
-                    return z2;
-                case 4:
-                case 5:
-                    boolean z3 = type == Type.TOP || type == Type.BOTTOM;
-                    if (constraintAnchor.getOwner() instanceof Guideline) {
-                        return (z3 || type == Type.CENTER_Y) ? true : true;
-                    }
-                    return z3;
-                case 6:
-                case 7:
-                case 8:
-                case 9:
-                    return false;
-                default:
-                    throw new AssertionError(this.mType.name());
-            }
-        }
-        return invokeL.booleanValue;
     }
 
     public boolean isVerticalAnchor() {
@@ -552,12 +506,55 @@ public class ConstraintAnchor {
         }
     }
 
-    public void resetFinalResolution() {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            this.mHasFinalValue = false;
-            this.mFinalValue = 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+            return this.mOwner.getDebugName() + ":" + this.mType.toString();
         }
+        return (String) invokeV.objValue;
+    }
+
+    public final ConstraintAnchor getOpposite() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            switch (AnonymousClass1.$SwitchMap$androidx$constraintlayout$solver$widgets$ConstraintAnchor$Type[this.mType.ordinal()]) {
+                case 1:
+                case 6:
+                case 7:
+                case 8:
+                case 9:
+                    return null;
+                case 2:
+                    return this.mOwner.mRight;
+                case 3:
+                    return this.mOwner.mLeft;
+                case 4:
+                    return this.mOwner.mBottom;
+                case 5:
+                    return this.mOwner.mTop;
+                default:
+                    throw new AssertionError(this.mType.name());
+            }
+        }
+        return (ConstraintAnchor) invokeV.objValue;
+    }
+
+    public boolean isConnectionAllowed(ConstraintWidget constraintWidget) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, constraintWidget)) == null) {
+            if (isConnectionToMe(constraintWidget, new HashSet<>())) {
+                return false;
+            }
+            ConstraintWidget parent = getOwner().getParent();
+            if (parent != constraintWidget && constraintWidget.getParent() != parent) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
     public void resetSolverVariable(Cache cache) {
@@ -594,31 +591,100 @@ public class ConstraintAnchor {
         }
     }
 
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
-            return this.mOwner.getDebugName() + ":" + this.mType.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean isConnectionAllowed(ConstraintWidget constraintWidget) {
+    public boolean isSimilarDimensionConnection(ConstraintAnchor constraintAnchor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, constraintWidget)) == null) {
-            if (isConnectionToMe(constraintWidget, new HashSet<>())) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, constraintAnchor)) == null) {
+            Type type = constraintAnchor.getType();
+            Type type2 = this.mType;
+            if (type == type2) {
+                return true;
             }
-            ConstraintWidget parent = getOwner().getParent();
-            return parent == constraintWidget || constraintWidget.getParent() == parent;
+            switch (AnonymousClass1.$SwitchMap$androidx$constraintlayout$solver$widgets$ConstraintAnchor$Type[type2.ordinal()]) {
+                case 1:
+                    if (type != Type.BASELINE) {
+                        return true;
+                    }
+                    return false;
+                case 2:
+                case 3:
+                case 7:
+                    if (type == Type.LEFT || type == Type.RIGHT || type == Type.CENTER_X) {
+                        return true;
+                    }
+                    return false;
+                case 4:
+                case 5:
+                case 6:
+                case 8:
+                    if (type == Type.TOP || type == Type.BOTTOM || type == Type.CENTER_Y || type == Type.BASELINE) {
+                        return true;
+                    }
+                    return false;
+                case 9:
+                    return false;
+                default:
+                    throw new AssertionError(this.mType.name());
+            }
         }
         return invokeL.booleanValue;
     }
 
-    public boolean connect(ConstraintAnchor constraintAnchor, int i) {
-        InterceptResult invokeLI;
+    public boolean isValidConnection(ConstraintAnchor constraintAnchor) {
+        InterceptResult invokeL;
+        boolean z;
+        boolean z2;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, constraintAnchor, i)) == null) ? connect(constraintAnchor, i, -1, false) : invokeLI.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, constraintAnchor)) == null) {
+            boolean z3 = false;
+            if (constraintAnchor == null) {
+                return false;
+            }
+            Type type = constraintAnchor.getType();
+            Type type2 = this.mType;
+            if (type == type2) {
+                if (type2 == Type.BASELINE && (!constraintAnchor.getOwner().hasBaseline() || !getOwner().hasBaseline())) {
+                    return false;
+                }
+                return true;
+            }
+            switch (AnonymousClass1.$SwitchMap$androidx$constraintlayout$solver$widgets$ConstraintAnchor$Type[type2.ordinal()]) {
+                case 1:
+                    if (type == Type.BASELINE || type == Type.CENTER_X || type == Type.CENTER_Y) {
+                        return false;
+                    }
+                    return true;
+                case 2:
+                case 3:
+                    if (type != Type.LEFT && type != Type.RIGHT) {
+                        z = false;
+                    } else {
+                        z = true;
+                    }
+                    if (constraintAnchor.getOwner() instanceof Guideline) {
+                        return (z || type == Type.CENTER_X) ? true : true;
+                    }
+                    return z;
+                case 4:
+                case 5:
+                    if (type != Type.TOP && type != Type.BOTTOM) {
+                        z2 = false;
+                    } else {
+                        z2 = true;
+                    }
+                    if (constraintAnchor.getOwner() instanceof Guideline) {
+                        return (z2 || type == Type.CENTER_Y) ? true : true;
+                    }
+                    return z2;
+                case 6:
+                case 7:
+                case 8:
+                case 9:
+                    return false;
+                default:
+                    throw new AssertionError(this.mType.name());
+            }
+        }
+        return invokeL.booleanValue;
     }
 }

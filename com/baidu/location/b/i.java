@@ -159,7 +159,7 @@ public abstract class i {
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public void a(boolean z) {
-            Map<String, Object> map;
+            Map map;
             String str;
             BDLocation bDLocation;
             Message obtainMessage;

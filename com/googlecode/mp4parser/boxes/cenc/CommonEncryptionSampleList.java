@@ -27,17 +27,17 @@ import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.IvParameterSpec;
 /* loaded from: classes7.dex */
-public class CommonEncryptionSampleList extends AbstractList<Sample> {
+public class CommonEncryptionSampleList extends AbstractList {
     public static /* synthetic */ Interceptable $ic;
     public static Cipher cipher;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<CencSampleAuxiliaryDataFormat> auxiliaryDataFormats;
-    public List<Sample> parent;
+    public List auxiliaryDataFormats;
+    public List parent;
     public SecretKey secretKey;
 
     /* renamed from: com.googlecode.mp4parser.boxes.cenc.CommonEncryptionSampleList$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -64,6 +64,37 @@ public class CommonEncryptionSampleList extends AbstractList<Sample> {
                     classClinitInterceptable.invokePostClinit(-1925688857, "Lcom/googlecode/mp4parser/boxes/cenc/CommonEncryptionSampleList$EncryptedSampleImpl;");
                 }
             }
+        }
+
+        @Override // com.googlecode.mp4parser.authoring.Sample
+        public long getSize() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.clearSample.getSize();
+            }
+            return invokeV.longValue;
+        }
+
+        public EncryptedSampleImpl(CommonEncryptionSampleList commonEncryptionSampleList, Sample sample, CencSampleAuxiliaryDataFormat cencSampleAuxiliaryDataFormat, Cipher cipher) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {commonEncryptionSampleList, sample, cencSampleAuxiliaryDataFormat, cipher};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = commonEncryptionSampleList;
+            this.clearSample = sample;
+            this.cencSampleAuxiliaryDataFormat = cencSampleAuxiliaryDataFormat;
+            this.cipher = cipher;
         }
 
         public /* synthetic */ EncryptedSampleImpl(CommonEncryptionSampleList commonEncryptionSampleList, Sample sample, CencSampleAuxiliaryDataFormat cencSampleAuxiliaryDataFormat, Cipher cipher, EncryptedSampleImpl encryptedSampleImpl) {
@@ -109,13 +140,6 @@ public class CommonEncryptionSampleList extends AbstractList<Sample> {
         }
 
         @Override // com.googlecode.mp4parser.authoring.Sample
-        public long getSize() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.clearSample.getSize() : invokeV.longValue;
-        }
-
-        @Override // com.googlecode.mp4parser.authoring.Sample
         public void writeTo(WritableByteChannel writableByteChannel) throws IOException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, writableByteChannel) == null) {
@@ -146,27 +170,6 @@ public class CommonEncryptionSampleList extends AbstractList<Sample> {
                 }
             }
         }
-
-        public EncryptedSampleImpl(CommonEncryptionSampleList commonEncryptionSampleList, Sample sample, CencSampleAuxiliaryDataFormat cencSampleAuxiliaryDataFormat, Cipher cipher) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {commonEncryptionSampleList, sample, cencSampleAuxiliaryDataFormat, cipher};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = commonEncryptionSampleList;
-            this.clearSample = sample;
-            this.cencSampleAuxiliaryDataFormat = cencSampleAuxiliaryDataFormat;
-            this.cipher = cipher;
-        }
     }
 
     static {
@@ -191,7 +194,7 @@ public class CommonEncryptionSampleList extends AbstractList<Sample> {
         }
     }
 
-    public CommonEncryptionSampleList(SecretKey secretKey, List<Sample> list, List<CencSampleAuxiliaryDataFormat> list2) {
+    public CommonEncryptionSampleList(SecretKey secretKey, List list, List list2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -209,6 +212,17 @@ public class CommonEncryptionSampleList extends AbstractList<Sample> {
         this.auxiliaryDataFormats = list2;
         this.secretKey = secretKey;
         this.parent = list;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.util.AbstractList, java.util.List
+    public Sample get(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return new EncryptedSampleImpl(this, (Sample) this.parent.get(i), (CencSampleAuxiliaryDataFormat) this.auxiliaryDataFormats.get(i), cipher, null);
+        }
+        return (Sample) invokeI.objValue;
     }
 
     public void initCipher(byte[] bArr) {
@@ -230,14 +244,9 @@ public class CommonEncryptionSampleList extends AbstractList<Sample> {
     public int size() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.parent.size() : invokeV.intValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.util.AbstractList, java.util.List
-    public Sample get(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? new EncryptedSampleImpl(this, this.parent.get(i), this.auxiliaryDataFormats.get(i), cipher, null) : (Sample) invokeI.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.parent.size();
+        }
+        return invokeV.intValue;
     }
 }

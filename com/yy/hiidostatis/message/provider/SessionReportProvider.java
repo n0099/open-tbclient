@@ -14,10 +14,10 @@ import com.yy.hiidostatis.provider.Provider;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes8.dex */
-public class SessionReportProvider implements Provider<SessionReport> {
+public class SessionReportProvider implements Provider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, SessionReport> report;
+    public Map report;
 
     public SessionReportProvider() {
         Interceptable interceptable = $ic;
@@ -36,7 +36,6 @@ public class SessionReportProvider implements Provider<SessionReport> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.yy.hiidostatis.provider.Provider
     public synchronized SessionReport generate(MessageConfig messageConfig) {
         InterceptResult invokeL;
@@ -44,7 +43,7 @@ public class SessionReportProvider implements Provider<SessionReport> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, messageConfig)) == null) {
             synchronized (this) {
-                sessionReport = this.report.get(messageConfig.getAppkey());
+                sessionReport = (SessionReport) this.report.get(messageConfig.getAppkey());
                 if (sessionReport == null) {
                     SessionReportImpl sessionReportImpl = new SessionReportImpl(messageConfig, (Packer) GlobalProvider.instance.get(Packer.class, messageConfig));
                     this.report.put(messageConfig.getAppkey(), sessionReportImpl);

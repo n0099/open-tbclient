@@ -1,9 +1,6 @@
 package com.bumptech.glide.load.engine.bitmap_recycle;
 
 import android.graphics.Bitmap;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
-import androidx.annotation.VisibleForTesting;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,19 +10,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.util.Util;
 import java.util.NavigableMap;
-@RequiresApi(19)
 /* loaded from: classes7.dex */
 public final class SizeStrategy implements LruPoolStrategy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_SIZE_MULTIPLE = 8;
     public transient /* synthetic */ FieldHolder $fh;
-    public final GroupedLinkedMap<Key, Bitmap> groupedMap;
+    public final GroupedLinkedMap groupedMap;
     public final KeyPool keyPool;
-    public final NavigableMap<Integer, Integer> sortedSizes;
+    public final NavigableMap sortedSizes;
 
-    @VisibleForTesting
     /* loaded from: classes7.dex */
-    public static final class Key implements Poolable {
+    public final class Key implements Poolable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final KeyPool pool;
@@ -52,13 +47,13 @@ public final class SizeStrategy implements LruPoolStrategy {
         public boolean equals(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? (obj instanceof Key) && this.size == ((Key) obj).size : invokeL.booleanValue;
-        }
-
-        public int hashCode() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.size : invokeV.intValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+                if (!(obj instanceof Key) || this.size != ((Key) obj).size) {
+                    return false;
+                }
+                return true;
+            }
+            return invokeL.booleanValue;
         }
 
         public void init(int i) {
@@ -66,6 +61,15 @@ public final class SizeStrategy implements LruPoolStrategy {
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
                 this.size = i;
             }
+        }
+
+        public int hashCode() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.size;
+            }
+            return invokeV.intValue;
         }
 
         @Override // com.bumptech.glide.load.engine.bitmap_recycle.Poolable
@@ -79,13 +83,15 @@ public final class SizeStrategy implements LruPoolStrategy {
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? SizeStrategy.getBitmapString(this.size) : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return SizeStrategy.getBitmapString(this.size);
+            }
+            return (String) invokeV.objValue;
         }
     }
 
-    @VisibleForTesting
     /* loaded from: classes7.dex */
-    public static class KeyPool extends BaseKeyPool<Key> {
+    public class KeyPool extends BaseKeyPool {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -103,6 +109,17 @@ public final class SizeStrategy implements LruPoolStrategy {
             }
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.bumptech.glide.load.engine.bitmap_recycle.BaseKeyPool
+        public Key create() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return new Key(this);
+            }
+            return (Key) invokeV.objValue;
+        }
+
         public Key get(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
@@ -112,14 +129,6 @@ public final class SizeStrategy implements LruPoolStrategy {
                 return key;
             }
             return (Key) invokeI.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.bumptech.glide.load.engine.bitmap_recycle.BaseKeyPool
-        public Key create() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new Key(this) : (Key) invokeV.objValue;
         }
     }
 
@@ -137,7 +146,7 @@ public final class SizeStrategy implements LruPoolStrategy {
             }
         }
         this.keyPool = new KeyPool();
-        this.groupedMap = new GroupedLinkedMap<>();
+        this.groupedMap = new GroupedLinkedMap();
         this.sortedSizes = new PrettyPrintTreeMap();
     }
 
@@ -153,49 +162,6 @@ public final class SizeStrategy implements LruPoolStrategy {
         }
     }
 
-    public static String getBitmapString(Bitmap bitmap) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bitmap)) == null) ? getBitmapString(Util.getBitmapByteSize(bitmap)) : (String) invokeL.objValue;
-    }
-
-    @Override // com.bumptech.glide.load.engine.bitmap_recycle.LruPoolStrategy
-    @Nullable
-    public Bitmap get(int i, int i2, Bitmap.Config config) {
-        InterceptResult invokeIIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i, i2, config)) == null) {
-            int bitmapByteSize = Util.getBitmapByteSize(i, i2, config);
-            Key key = this.keyPool.get(bitmapByteSize);
-            Integer ceilingKey = this.sortedSizes.ceilingKey(Integer.valueOf(bitmapByteSize));
-            if (ceilingKey != null && ceilingKey.intValue() != bitmapByteSize && ceilingKey.intValue() <= bitmapByteSize * 8) {
-                this.keyPool.offer(key);
-                key = this.keyPool.get(ceilingKey.intValue());
-            }
-            Bitmap bitmap = this.groupedMap.get(key);
-            if (bitmap != null) {
-                bitmap.reconfigure(i, i2, config);
-                decrementBitmapOfSize(ceilingKey);
-            }
-            return bitmap;
-        }
-        return (Bitmap) invokeIIL.objValue;
-    }
-
-    @Override // com.bumptech.glide.load.engine.bitmap_recycle.LruPoolStrategy
-    public int getSize(Bitmap bitmap) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap)) == null) ? Util.getBitmapByteSize(bitmap) : invokeL.intValue;
-    }
-
-    @Override // com.bumptech.glide.load.engine.bitmap_recycle.LruPoolStrategy
-    public String logBitmap(Bitmap bitmap) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bitmap)) == null) ? getBitmapString(bitmap) : (String) invokeL.objValue;
-    }
-
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.LruPoolStrategy
     public void put(Bitmap bitmap) {
         Interceptable interceptable = $ic;
@@ -203,21 +169,96 @@ public final class SizeStrategy implements LruPoolStrategy {
             Key key = this.keyPool.get(Util.getBitmapByteSize(bitmap));
             this.groupedMap.put(key, bitmap);
             Integer num = (Integer) this.sortedSizes.get(Integer.valueOf(key.size));
-            this.sortedSizes.put(Integer.valueOf(key.size), Integer.valueOf(num != null ? 1 + num.intValue() : 1));
+            NavigableMap navigableMap = this.sortedSizes;
+            Integer valueOf = Integer.valueOf(key.size);
+            int i = 1;
+            if (num != null) {
+                i = 1 + num.intValue();
+            }
+            navigableMap.put(valueOf, Integer.valueOf(i));
         }
     }
 
+    public static String getBitmapString(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            return PreferencesUtil.LEFT_MOUNT + i + PreferencesUtil.RIGHT_MOUNT;
+        }
+        return (String) invokeI.objValue;
+    }
+
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.LruPoolStrategy
-    @Nullable
+    public int getSize(Bitmap bitmap) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap)) == null) {
+            return Util.getBitmapByteSize(bitmap);
+        }
+        return invokeL.intValue;
+    }
+
+    @Override // com.bumptech.glide.load.engine.bitmap_recycle.LruPoolStrategy
+    public String logBitmap(Bitmap bitmap) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bitmap)) == null) {
+            return getBitmapString(bitmap);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String getBitmapString(Bitmap bitmap) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bitmap)) == null) {
+            return getBitmapString(Util.getBitmapByteSize(bitmap));
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.bumptech.glide.load.engine.bitmap_recycle.LruPoolStrategy
+    public Bitmap get(int i, int i2, Bitmap.Config config) {
+        InterceptResult invokeIIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i, i2, config)) == null) {
+            int bitmapByteSize = Util.getBitmapByteSize(i, i2, config);
+            Key key = this.keyPool.get(bitmapByteSize);
+            Integer num = (Integer) this.sortedSizes.ceilingKey(Integer.valueOf(bitmapByteSize));
+            if (num != null && num.intValue() != bitmapByteSize && num.intValue() <= bitmapByteSize * 8) {
+                this.keyPool.offer(key);
+                key = this.keyPool.get(num.intValue());
+            }
+            Bitmap bitmap = (Bitmap) this.groupedMap.get(key);
+            if (bitmap != null) {
+                bitmap.reconfigure(i, i2, config);
+                decrementBitmapOfSize(num);
+            }
+            return bitmap;
+        }
+        return (Bitmap) invokeIIL.objValue;
+    }
+
+    @Override // com.bumptech.glide.load.engine.bitmap_recycle.LruPoolStrategy
+    public String logBitmap(int i, int i2, Bitmap.Config config) {
+        InterceptResult invokeIIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, config)) == null) {
+            return getBitmapString(Util.getBitmapByteSize(i, i2, config));
+        }
+        return (String) invokeIIL.objValue;
+    }
+
+    @Override // com.bumptech.glide.load.engine.bitmap_recycle.LruPoolStrategy
     public Bitmap removeLast() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            Bitmap removeLast = this.groupedMap.removeLast();
-            if (removeLast != null) {
-                decrementBitmapOfSize(Integer.valueOf(Util.getBitmapByteSize(removeLast)));
+            Bitmap bitmap = (Bitmap) this.groupedMap.removeLast();
+            if (bitmap != null) {
+                decrementBitmapOfSize(Integer.valueOf(Util.getBitmapByteSize(bitmap)));
             }
-            return removeLast;
+            return bitmap;
         }
         return (Bitmap) invokeV.objValue;
     }
@@ -229,21 +270,5 @@ public final class SizeStrategy implements LruPoolStrategy {
             return "SizeStrategy:\n  " + this.groupedMap + "\n  SortedSizes" + this.sortedSizes;
         }
         return (String) invokeV.objValue;
-    }
-
-    @Override // com.bumptech.glide.load.engine.bitmap_recycle.LruPoolStrategy
-    public String logBitmap(int i, int i2, Bitmap.Config config) {
-        InterceptResult invokeIIL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, config)) == null) ? getBitmapString(Util.getBitmapByteSize(i, i2, config)) : (String) invokeIIL.objValue;
-    }
-
-    public static String getBitmapString(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            return PreferencesUtil.LEFT_MOUNT + i + PreferencesUtil.RIGHT_MOUNT;
-        }
-        return (String) invokeI.objValue;
     }
 }

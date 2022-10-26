@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.text.TextUtils;
-import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -17,9 +16,10 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import com.baidu.tbadk.switchs.IdentifyImageSwitch;
-import com.baidu.tieba.bx4;
-import com.baidu.tieba.cx4;
-import com.baidu.tieba.wg5;
+import com.baidu.tieba.ch5;
+import com.baidu.tieba.hx4;
+import com.baidu.tieba.ix4;
+import com.baidu.tieba.person.ProfileVirtualImageInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -69,6 +69,7 @@ public class ImageViewerConfig extends IntentConfig {
     public static final String KEY_FPS_IMAGE_FROM = "HomeToImgBrowser";
     public static final String KEY_FPS_IMAGE_PAGE = "image";
     public static final String KEY_FPS_IMAGE_TYPE = "tran";
+    public static final String KEY_PROFILE_VIRTUAL_IMAGE_INFO = "key_profile_virtual_image_info";
     public static final String LAST_ID = "last_id";
     public static final String NEED_BROADCAST = "need_broadcast";
     public static final String NEED_REQUEST_AD = "need_request_ad";
@@ -88,10 +89,16 @@ public class ImageViewerConfig extends IntentConfig {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public static final class Builder {
+    public /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public ArrayList<String> a;
+    }
+
+    /* loaded from: classes3.dex */
+    public final class Builder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public ArrayList a;
         public int b;
         public String c;
         public String d;
@@ -99,7 +106,7 @@ public class ImageViewerConfig extends IntentConfig {
         public boolean f;
         public String g;
         public boolean h;
-        public ConcurrentHashMap<String, ImageUrlData> i;
+        public ConcurrentHashMap i;
         public boolean j;
         public boolean k;
         public boolean l;
@@ -137,7 +144,7 @@ public class ImageViewerConfig extends IntentConfig {
             this.w = true;
         }
 
-        public Builder A(ArrayList<String> arrayList) {
+        public Builder A(ArrayList arrayList) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, arrayList)) == null) {
@@ -287,17 +294,6 @@ public class ImageViewerConfig extends IntentConfig {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder P(Rect rect, RectF rectF) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, rect, rectF)) == null) {
-                this.r = rect;
-                this.s = rectF;
-                return this;
-            }
-            return (Builder) invokeLL.objValue;
-        }
-
         public Builder Q(ThreadData threadData) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -318,7 +314,6 @@ public class ImageViewerConfig extends IntentConfig {
             return (Builder) invokeL.objValue;
         }
 
-        @Keep
         public void setNeedRequestAd(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
@@ -329,10 +324,13 @@ public class ImageViewerConfig extends IntentConfig {
         public ImageViewerConfig x(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, context)) == null) ? new ImageViewerConfig(context, this, null) : (ImageViewerConfig) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, context)) == null) {
+                return new ImageViewerConfig(context, this, null);
+            }
+            return (ImageViewerConfig) invokeL.objValue;
         }
 
-        public Builder y(ConcurrentHashMap<String, ImageUrlData> concurrentHashMap) {
+        public Builder y(ConcurrentHashMap concurrentHashMap) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, concurrentHashMap)) == null) {
@@ -351,31 +349,33 @@ public class ImageViewerConfig extends IntentConfig {
             }
             return (Builder) invokeL.objValue;
         }
-    }
 
-    /* loaded from: classes3.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    public /* synthetic */ ImageViewerConfig(Context context, Builder builder, a aVar) {
-        this(context, builder);
+        public Builder P(Rect rect, RectF rectF) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, rect, rectF)) == null) {
+                this.r = rect;
+                this.s = rectF;
+                return this;
+            }
+            return (Builder) invokeLL.objValue;
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ImageViewerConfig(Context context, Builder builder) {
         super(context);
         Intent intent;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context, builder};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -404,15 +404,15 @@ public class ImageViewerConfig extends IntentConfig {
             intent.putExtra(SEE_HOST, builder.l);
             intent.putExtra(NEED_REQUEST_AD, builder.w);
             int size = builder.a.size();
-            for (int i3 = 0; i3 < size; i3++) {
-                String str = (String) builder.a.get(i3);
+            for (int i4 = 0; i4 < size; i4++) {
+                String str = (String) builder.a.get(i4);
                 if (!StringUtils.isNull(str)) {
                     ImageUrlData imageUrlData = builder.i != null ? (ImageUrlData) builder.i.get(str) : null;
                     if (imageUrlData == null) {
                         imageUrlData = new ImageUrlData();
                         imageUrlData.imageUrl = str;
                     }
-                    imageUrlData.overAllIndex = i3 + 1;
+                    imageUrlData.overAllIndex = i4 + 1;
                 }
             }
             TbadkCoreApplication.getInst();
@@ -450,17 +450,21 @@ public class ImageViewerConfig extends IntentConfig {
         }
         intent.putExtra(IS_CAN_DRAG, builder.q);
         if (builder.r != null && builder.s != null) {
-            int statusBarHeight = !UtilHelper.canUseStyleImmersiveSticky() ? UtilHelper.getStatusBarHeight() : 0;
+            if (!UtilHelper.canUseStyleImmersiveSticky()) {
+                i = UtilHelper.getStatusBarHeight();
+            } else {
+                i = 0;
+            }
             JSONArray jSONArray = new JSONArray();
             jSONArray.put((int) builder.s.left);
-            float f = statusBarHeight;
+            float f = i;
             jSONArray.put((int) (builder.s.top - f));
             jSONArray.put((int) builder.s.right);
             jSONArray.put((int) (builder.s.bottom - f));
             jSONArray.put(builder.r.left);
-            jSONArray.put(builder.r.top - statusBarHeight);
+            jSONArray.put(builder.r.top - i);
             jSONArray.put(builder.r.right);
-            jSONArray.put(builder.r.bottom - statusBarHeight);
+            jSONArray.put(builder.r.bottom - i);
             intent.putExtra(IntentConfig.SOURCE_RECT_IN_SCREEN, jSONArray.toString());
         }
         intent.putExtra(IS_SHOW_HOST, builder.t);
@@ -474,12 +478,23 @@ public class ImageViewerConfig extends IntentConfig {
         intent.putExtra("from_forum_id", builder.n);
         intent.putExtra("skin_type", TbadkCoreApplication.getInst().getSkinType());
         intent.putExtra(IS_YOUNGSTER_MODE, false);
-        intent.putExtra(TiebaStatic.Params.WISE_SAMPLE_ID, wg5.c());
-        if (bx4.a() != null && bx4.a().a != null) {
-            intent.putExtra(REMIND_LIVE_DATA, bx4.a().a);
+        intent.putExtra(TiebaStatic.Params.WISE_SAMPLE_ID, ch5.c());
+        if (hx4.a() != null && hx4.a().a != null) {
+            intent.putExtra(REMIND_LIVE_DATA, hx4.a().a);
         }
-        if (cx4.b() != null) {
-            intent.putExtra(REMIND_LIVE_FREQUENCY, cx4.b().a());
+        if (ix4.b() != null) {
+            intent.putExtra(REMIND_LIVE_FREQUENCY, ix4.b().a());
+        }
+    }
+
+    public /* synthetic */ ImageViewerConfig(Context context, Builder builder, a aVar) {
+        this(context, builder);
+    }
+
+    public void setProfileVirtualImageInfo(ProfileVirtualImageInfo profileVirtualImageInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, profileVirtualImageInfo) == null) {
+            getIntent().putExtra(KEY_PROFILE_VIRTUAL_IMAGE_INFO, ProfileVirtualImageInfo.getInstance());
         }
     }
 }

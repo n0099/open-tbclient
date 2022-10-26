@@ -40,12 +40,18 @@ public class WebSocketException extends IOException {
     public WebSocketFrame.CloseCode getCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mCode : (WebSocketFrame.CloseCode) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mCode;
+        }
+        return (WebSocketFrame.CloseCode) invokeV.objValue;
     }
 
     public String getReason() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mReason : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mReason;
+        }
+        return (String) invokeV.objValue;
     }
 }

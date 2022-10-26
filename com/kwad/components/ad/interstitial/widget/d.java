@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.TextView;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
@@ -86,19 +85,19 @@ public final class d extends com.kwad.components.core.i.e implements View.OnClic
     private void h(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, view2) == null) {
-            this.it = (KSCornerImageView) view2.findViewById(R.id.obfuscated_res_0x7f0910d1);
-            this.eQ = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0910d2);
-            this.iu = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0910d5);
-            this.iv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0910d6);
-            this.iw = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0910d3);
-            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0910d4);
+            this.it = (KSCornerImageView) view2.findViewById(R.id.obfuscated_res_0x7f0910c2);
+            this.eQ = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0910c3);
+            this.iu = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0910c6);
+            this.iv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0910c7);
+            this.iw = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0910c4);
+            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0910c5);
             this.ix = textView;
             com.kwad.sdk.b.kwai.a.a(this, this.it, this.eQ, this.iu, this.iv, this.iw, textView);
         }
     }
 
     @Override // com.kwad.components.core.i.e
-    public final View a(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup) {
+    public final View a(LayoutInflater layoutInflater, ViewGroup viewGroup) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, layoutInflater, viewGroup)) == null) {
@@ -111,7 +110,7 @@ public final class d extends com.kwad.components.core.i.e implements View.OnClic
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0434, viewGroup, false);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0431, viewGroup, false);
             h(inflate);
             dT();
             return inflate;

@@ -13,9 +13,21 @@ public class AugmentedFace extends TrackableBase {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    private native Pose nativeGetCenterPose(long j, long j2);
+
+    private native ByteBuffer nativeGetMeshNormalsByteBuffer(long j, long j2);
+
+    private native ByteBuffer nativeGetMeshTextureCoordinatesByteBuffer(long j, long j2);
+
+    private native ByteBuffer nativeGetMeshTriangleIndicesByteBuffer(long j, long j2);
+
+    private native ByteBuffer nativeGetMeshVerticesByteBuffer(long j, long j2);
+
+    private native Pose nativeGetRegionPose(long j, long j2, int i);
+
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public static final class RegionType {
+    public final class RegionType {
         public static final /* synthetic */ RegionType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final RegionType FOREHEAD_LEFT;
@@ -68,13 +80,38 @@ public class AugmentedFace extends TrackableBase {
         public static RegionType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (RegionType) Enum.valueOf(RegionType.class, str) : (RegionType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (RegionType) Enum.valueOf(RegionType.class, str);
+            }
+            return (RegionType) invokeL.objValue;
         }
 
         public static RegionType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (RegionType[]) $VALUES.clone() : (RegionType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (RegionType[]) $VALUES.clone();
+            }
+            return (RegionType[]) invokeV.objValue;
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public AugmentedFace() {
+        super(0L, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super(((Long) objArr[0]).longValue(), (Session) objArr[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
     }
 
@@ -100,18 +137,6 @@ public class AugmentedFace extends TrackableBase {
         a();
     }
 
-    private native Pose nativeGetCenterPose(long j, long j2);
-
-    private native ByteBuffer nativeGetMeshNormalsByteBuffer(long j, long j2);
-
-    private native ByteBuffer nativeGetMeshTextureCoordinatesByteBuffer(long j, long j2);
-
-    private native ByteBuffer nativeGetMeshTriangleIndicesByteBuffer(long j, long j2);
-
-    private native ByteBuffer nativeGetMeshVerticesByteBuffer(long j, long j2);
-
-    private native Pose nativeGetRegionPose(long j, long j2, int i);
-
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -119,25 +144,6 @@ public class AugmentedFace extends TrackableBase {
             Session.a(nativeGetMeshNormalsByteBuffer(this.b.a, this.a)).asFloatBuffer().asReadOnlyBuffer();
             Session.a(nativeGetMeshTextureCoordinatesByteBuffer(this.b.a, this.a)).asFloatBuffer().asReadOnlyBuffer();
             Session.a(nativeGetMeshTriangleIndicesByteBuffer(this.b.a, this.a)).asCharBuffer().asReadOnlyBuffer();
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AugmentedFace() {
-        super(0L, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super(((Long) objArr[0]).longValue(), (Session) objArr[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
         }
     }
 }

@@ -1,67 +1,77 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class rh7 {
+public class rh7 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public int d;
-    public String e;
-    public String f;
-    public String g;
+    public boolean a;
+    public int b;
+    public int c;
+    public boolean d;
+    public xh7 e;
 
-    public rh7() {
+    public rh7(xh7 xh7Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {xh7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.d = false;
+        this.e = xh7Var;
+    }
+
+    public void a(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.b = i;
         }
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    public void b(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.isEmpty(this.c)) {
-                return false;
-            }
-            return this.d == 2 ? (TextUtils.isEmpty(this.e) || TextUtils.isEmpty(this.f) || TextUtils.isEmpty(this.g)) ? false : true : (TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.b)) ? false : true;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.a = z;
         }
-        return invokeV.booleanValue;
     }
 
-    public void b(JSONObject jSONObject) {
-        JSONObject optJSONObject;
+    public void c(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.c = i;
+        }
+    }
+
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.d = z;
+        }
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        xh7 xh7Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || (xh7Var = this.e) == null) {
             return;
         }
-        this.a = jSONObject.optString("pic");
-        this.b = jSONObject.optString("picNight");
-        this.c = jSONObject.optString("scheme");
-        int optInt = jSONObject.optInt("type", 1);
-        this.d = optInt;
-        if (optInt != 2 || (optJSONObject = jSONObject.optJSONObject("extra")) == null) {
-            return;
+        if (!this.d) {
+            xh7Var.j(this.b, this.c, this.a, 2);
         }
-        this.e = optJSONObject.optString("title");
-        this.f = optJSONObject.optString("content");
-        this.g = optJSONObject.optString("imageUrl");
+        this.e.j(this.b, this.c, this.a, 1);
     }
 }

@@ -16,6 +16,12 @@ public abstract class MAFragmentActivity extends FragmentActivity {
     public static final String TAG = "MAFragmentActivity";
     public transient /* synthetic */ FieldHolder $fh;
 
+    public Activity getActivity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (Activity) invokeV.objValue;
+    }
+
     public MAFragmentActivity() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -30,16 +36,13 @@ public abstract class MAFragmentActivity extends FragmentActivity {
         }
     }
 
-    public Activity getActivity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (Activity) invokeV.objValue;
-    }
-
     public final Context getMAParent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? super.getParent() : (Context) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return super.getParent();
+        }
+        return (Context) invokeV.objValue;
     }
 
     public MABottomToolBar onGetBottomBar() {

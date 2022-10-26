@@ -12,6 +12,16 @@ public class FramerateBitrateAdjuster extends BaseBitrateAdjuster {
     public static final int INITIAL_FPS = 30;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // org.webrtc.BaseBitrateAdjuster, org.webrtc.BitrateAdjuster
+    public int getCodecConfigFramerate() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 30;
+        }
+        return invokeV.intValue;
+    }
+
     public FramerateBitrateAdjuster() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -24,16 +34,6 @@ public class FramerateBitrateAdjuster extends BaseBitrateAdjuster {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    @Override // org.webrtc.BaseBitrateAdjuster, org.webrtc.BitrateAdjuster
-    public int getCodecConfigFramerate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 30;
-        }
-        return invokeV.intValue;
     }
 
     @Override // org.webrtc.BaseBitrateAdjuster, org.webrtc.BitrateAdjuster

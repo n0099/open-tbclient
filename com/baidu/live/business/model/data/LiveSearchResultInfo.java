@@ -3,6 +3,7 @@ package com.baidu.live.business.model.data;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.live.interfaces.service.bd.IFavorStateServiceKt;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.mutiprocess.live.YyLiveRoomConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -75,13 +76,25 @@ public class LiveSearchResultInfo {
     public boolean isHasFollowed(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) ? jSONObject.optString("has_follow").equals("1") : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+            if (jSONObject.optString("has_follow").equals("1")) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     public boolean isHasLiving(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) ? jSONObject.optString(IFavorStateServiceKt.KEY_FAVOR_LIVE_STATUS).equals("1") : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
+            if (jSONObject.optString(IFavorStateServiceKt.KEY_FAVOR_LIVE_STATUS).equals("1")) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     public void parseJSONObj(JSONObject jSONObject) {
@@ -107,7 +120,7 @@ public class LiveSearchResultInfo {
                 this.liveType = optJSONObject.optString("live_type");
                 this.yyuid = optJSONObject.optString(TiebaStatic.YYParams.YYUID);
                 this.sid = optJSONObject.optString("sid");
-                this.ssid = optJSONObject.optString("ssid");
+                this.ssid = optJSONObject.optString(YyLiveRoomConfig.KEY_SSID);
                 this.tpl = optJSONObject.optString("tpl");
                 this.templateId = optJSONObject.optString("template_id");
                 LiveStatInfo liveStatInfo = new LiveStatInfo();

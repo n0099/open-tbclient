@@ -148,57 +148,64 @@ public final class CodaBarReader extends OneDReader {
 
     private int toNarrowWidePattern(int i) {
         InterceptResult invokeI;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeI = interceptable.invokeI(65542, this, i)) != null) {
-            return invokeI.intValue;
-        }
-        int i2 = i + 7;
-        if (i2 >= this.counterLength) {
-            return -1;
-        }
-        int[] iArr = this.counters;
-        int i3 = Integer.MAX_VALUE;
-        int i4 = 0;
-        int i5 = Integer.MAX_VALUE;
-        int i6 = 0;
-        for (int i7 = i; i7 < i2; i7 += 2) {
-            int i8 = iArr[i7];
-            if (i8 < i5) {
-                i5 = i8;
-            }
-            if (i8 > i6) {
-                i6 = i8;
-            }
-        }
-        int i9 = (i5 + i6) / 2;
-        int i10 = 0;
-        for (int i11 = i + 1; i11 < i2; i11 += 2) {
-            int i12 = iArr[i11];
-            if (i12 < i3) {
-                i3 = i12;
-            }
-            if (i12 > i10) {
-                i10 = i12;
-            }
-        }
-        int i13 = (i3 + i10) / 2;
-        int i14 = 128;
-        int i15 = 0;
-        for (int i16 = 0; i16 < 7; i16++) {
-            i14 >>= 1;
-            if (iArr[i + i16] > ((i16 & 1) == 0 ? i9 : i13)) {
-                i15 |= i14;
-            }
-        }
-        while (true) {
-            int[] iArr2 = CHARACTER_ENCODINGS;
-            if (i4 >= iArr2.length) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65542, this, i)) == null) {
+            int i3 = i + 7;
+            if (i3 >= this.counterLength) {
                 return -1;
             }
-            if (iArr2[i4] == i15) {
-                return i4;
+            int[] iArr = this.counters;
+            int i4 = Integer.MAX_VALUE;
+            int i5 = 0;
+            int i6 = Integer.MAX_VALUE;
+            int i7 = 0;
+            for (int i8 = i; i8 < i3; i8 += 2) {
+                int i9 = iArr[i8];
+                if (i9 < i6) {
+                    i6 = i9;
+                }
+                if (i9 > i7) {
+                    i7 = i9;
+                }
             }
-            i4++;
+            int i10 = (i6 + i7) / 2;
+            int i11 = 0;
+            for (int i12 = i + 1; i12 < i3; i12 += 2) {
+                int i13 = iArr[i12];
+                if (i13 < i4) {
+                    i4 = i13;
+                }
+                if (i13 > i11) {
+                    i11 = i13;
+                }
+            }
+            int i14 = (i4 + i11) / 2;
+            int i15 = 128;
+            int i16 = 0;
+            for (int i17 = 0; i17 < 7; i17++) {
+                if ((i17 & 1) == 0) {
+                    i2 = i10;
+                } else {
+                    i2 = i14;
+                }
+                i15 >>= 1;
+                if (iArr[i + i17] > i2) {
+                    i16 |= i15;
+                }
+            }
+            while (true) {
+                int[] iArr2 = CHARACTER_ENCODINGS;
+                if (i5 >= iArr2.length) {
+                    return -1;
+                }
+                if (iArr2[i5] == i16) {
+                    return i5;
+                }
+                i5++;
+            }
+        } else {
+            return invokeI.intValue;
         }
     }
 
@@ -244,18 +251,19 @@ public final class CodaBarReader extends OneDReader {
                     }
                     i10 >>= 1;
                 }
-                if (i2 >= length) {
+                if (i2 < length) {
+                    i += 8;
+                    i2++;
+                } else {
                     return;
                 }
-                i += 8;
-                i2++;
             }
             throw NotFoundException.getNotFoundInstance();
         }
     }
 
     @Override // com.google.zxing.oned.OneDReader
-    public Result decodeRow(int i, BitArray bitArray, Map<DecodeHintType, ?> map) throws NotFoundException {
+    public Result decodeRow(int i, BitArray bitArray, Map map) throws NotFoundException {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i, bitArray, map)) == null) {

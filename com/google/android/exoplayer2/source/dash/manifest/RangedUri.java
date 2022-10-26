@@ -44,19 +44,26 @@ public final class RangedUri {
             String resolveUriString = resolveUriString(str);
             if (rangedUri != null && resolveUriString.equals(rangedUri.resolveUriString(str))) {
                 long j = this.length;
+                long j2 = -1;
                 if (j != -1) {
-                    long j2 = this.start;
-                    if (j2 + j == rangedUri.start) {
-                        long j3 = rangedUri.length;
-                        return new RangedUri(resolveUriString, j2, j3 != -1 ? j + j3 : -1L);
+                    long j3 = this.start;
+                    if (j3 + j == rangedUri.start) {
+                        long j4 = rangedUri.length;
+                        if (j4 != -1) {
+                            j2 = j + j4;
+                        }
+                        return new RangedUri(resolveUriString, j3, j2);
                     }
                 }
-                long j4 = rangedUri.length;
-                if (j4 != -1) {
-                    long j5 = rangedUri.start;
-                    if (j5 + j4 == this.start) {
-                        long j6 = this.length;
-                        return new RangedUri(resolveUriString, j5, j6 != -1 ? j4 + j6 : -1L);
+                long j5 = rangedUri.length;
+                if (j5 != -1) {
+                    long j6 = rangedUri.start;
+                    if (j6 + j5 == this.start) {
+                        long j7 = this.length;
+                        if (j7 != -1) {
+                            j2 = j5 + j7;
+                        }
+                        return new RangedUri(resolveUriString, j6, j2);
                     }
                 }
             }
@@ -76,7 +83,10 @@ public final class RangedUri {
                 return false;
             }
             RangedUri rangedUri = (RangedUri) obj;
-            return this.start == rangedUri.start && this.length == rangedUri.length && this.referenceUri.equals(rangedUri.referenceUri);
+            if (this.start == rangedUri.start && this.length == rangedUri.length && this.referenceUri.equals(rangedUri.referenceUri)) {
+                return true;
+            }
+            return false;
         }
         return invokeL.booleanValue;
     }
@@ -96,12 +106,18 @@ public final class RangedUri {
     public Uri resolveUri(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? UriUtil.resolveToUri(str, this.referenceUri) : (Uri) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return UriUtil.resolveToUri(str, this.referenceUri);
+        }
+        return (Uri) invokeL.objValue;
     }
 
     public String resolveUriString(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? UriUtil.resolve(str, this.referenceUri) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            return UriUtil.resolve(str, this.referenceUri);
+        }
+        return (String) invokeL.objValue;
     }
 }

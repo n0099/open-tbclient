@@ -21,7 +21,7 @@ public final class MainHandlerPoster extends Handler implements Poster {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String TAG;
-    public final ConcurrentLinkedQueue<Pair<Object, SubscriptionInfo>> concurrentLinkedQueue;
+    public final ConcurrentLinkedQueue concurrentLinkedQueue;
     public boolean handlerActive;
     public final int maxMillisInsideHandleMessage;
 
@@ -42,7 +42,7 @@ public final class MainHandlerPoster extends Handler implements Poster {
             }
         }
         this.TAG = "MainHandlerPoster";
-        this.concurrentLinkedQueue = new ConcurrentLinkedQueue<>();
+        this.concurrentLinkedQueue = new ConcurrentLinkedQueue();
         this.maxMillisInsideHandleMessage = 10;
     }
 
@@ -53,7 +53,7 @@ public final class MainHandlerPoster extends Handler implements Poster {
             Intrinsics.checkNotNullParameter(event, "event");
             Intrinsics.checkNotNullParameter(subscriptionInfo, "subscriptionInfo");
             synchronized (this) {
-                this.concurrentLinkedQueue.offer(new Pair<>(event, subscriptionInfo));
+                this.concurrentLinkedQueue.offer(new Pair(event, subscriptionInfo));
                 if (!this.handlerActive) {
                     this.handlerActive = true;
                     sendMessage(obtainMessage());
@@ -63,22 +63,31 @@ public final class MainHandlerPoster extends Handler implements Poster {
         }
     }
 
-    public final ConcurrentLinkedQueue<Pair<Object, SubscriptionInfo>> getConcurrentLinkedQueue() {
+    public final ConcurrentLinkedQueue getConcurrentLinkedQueue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.concurrentLinkedQueue : (ConcurrentLinkedQueue) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.concurrentLinkedQueue;
+        }
+        return (ConcurrentLinkedQueue) invokeV.objValue;
     }
 
     public final int getMaxMillisInsideHandleMessage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.maxMillisInsideHandleMessage : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.maxMillisInsideHandleMessage;
+        }
+        return invokeV.intValue;
     }
 
     public final String getTAG() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.TAG : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.TAG;
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // android.os.Handler
@@ -90,21 +99,21 @@ public final class MainHandlerPoster extends Handler implements Poster {
             try {
                 long currentTimeMillis = System.currentTimeMillis();
                 do {
-                    Pair<Object, SubscriptionInfo> poll = this.concurrentLinkedQueue.poll();
-                    if (poll == null) {
+                    Pair pair = (Pair) this.concurrentLinkedQueue.poll();
+                    if (pair == null) {
                         synchronized (this) {
-                            poll = this.concurrentLinkedQueue.poll();
-                            if (poll == null) {
+                            pair = (Pair) this.concurrentLinkedQueue.poll();
+                            if (pair == null) {
                                 this.handlerActive = false;
                                 return;
                             }
                             Unit unit = Unit.INSTANCE;
                         }
                     }
-                    Intrinsics.checkNotNull(poll);
-                    Action<Object> action = poll.getSecond().getAction();
-                    Intrinsics.checkNotNull(poll);
-                    action.call(poll.getFirst());
+                    Intrinsics.checkNotNull(pair);
+                    Action action = ((SubscriptionInfo) pair.getSecond()).getAction();
+                    Intrinsics.checkNotNull(pair);
+                    action.call(pair.getFirst());
                 } while (System.currentTimeMillis() - currentTimeMillis < this.maxMillisInsideHandleMessage);
                 sendMessage(obtainMessage());
                 this.handlerActive = true;

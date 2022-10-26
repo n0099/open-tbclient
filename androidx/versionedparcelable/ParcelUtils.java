@@ -2,9 +2,6 @@ package androidx.versionedparcelable;
 
 import android.os.Bundle;
 import android.os.Parcelable;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -36,14 +33,15 @@ public class ParcelUtils {
         }
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public static <T extends VersionedParcelable> T fromInputStream(InputStream inputStream) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, inputStream)) == null) ? (T) new VersionedParcelStream(inputStream, null).readVersionedParcelable() : (T) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, inputStream)) == null) {
+            return (T) new VersionedParcelStream(inputStream, null).readVersionedParcelable();
+        }
+        return (T) invokeL.objValue;
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public static <T extends VersionedParcelable> T fromParcelable(Parcelable parcelable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -56,8 +54,16 @@ public class ParcelUtils {
         return (T) invokeL.objValue;
     }
 
-    @Nullable
-    public static <T extends VersionedParcelable> T getVersionedParcelable(@NonNull Bundle bundle, @NonNull String str) {
+    public static Parcelable toParcelable(VersionedParcelable versionedParcelable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, versionedParcelable)) == null) {
+            return new ParcelImpl(versionedParcelable);
+        }
+        return (Parcelable) invokeL.objValue;
+    }
+
+    public static <T extends VersionedParcelable> T getVersionedParcelable(Bundle bundle, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, bundle, str)) == null) {
@@ -75,7 +81,6 @@ public class ParcelUtils {
         return (T) invokeLL.objValue;
     }
 
-    @Nullable
     public static <T extends VersionedParcelable> List<T> getVersionedParcelableList(Bundle bundle, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -96,9 +101,9 @@ public class ParcelUtils {
         return (List) invokeLL.objValue;
     }
 
-    public static void putVersionedParcelable(@NonNull Bundle bundle, @NonNull String str, @Nullable VersionedParcelable versionedParcelable) {
+    public static void putVersionedParcelable(Bundle bundle, String str, VersionedParcelable versionedParcelable) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65541, null, bundle, str, versionedParcelable) == null) || versionedParcelable == null) {
+        if ((interceptable != null && interceptable.invokeLLL(65541, null, bundle, str, versionedParcelable) != null) || versionedParcelable == null) {
             return;
         }
         Bundle bundle2 = new Bundle();
@@ -106,7 +111,7 @@ public class ParcelUtils {
         bundle.putParcelable(str, bundle2);
     }
 
-    public static void putVersionedParcelableList(@NonNull Bundle bundle, @NonNull String str, @NonNull List<? extends VersionedParcelable> list) {
+    public static void putVersionedParcelableList(Bundle bundle, String str, List<? extends VersionedParcelable> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65542, null, bundle, str, list) == null) {
             Bundle bundle2 = new Bundle();
@@ -119,7 +124,6 @@ public class ParcelUtils {
         }
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public static void toOutputStream(VersionedParcelable versionedParcelable, OutputStream outputStream) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, null, versionedParcelable, outputStream) == null) {
@@ -127,12 +131,5 @@ public class ParcelUtils {
             versionedParcelStream.writeVersionedParcelable(versionedParcelable);
             versionedParcelStream.closeField();
         }
-    }
-
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public static Parcelable toParcelable(VersionedParcelable versionedParcelable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, versionedParcelable)) == null) ? new ParcelImpl(versionedParcelable) : (Parcelable) invokeL.objValue;
     }
 }

@@ -1,15 +1,12 @@
 package androidx.media;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.media.MediaSessionManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@RequiresApi(21)
 /* loaded from: classes.dex */
 public class MediaSessionManagerImplApi21 extends MediaSessionManagerImplBase {
     public static /* synthetic */ Interceptable $ic;
@@ -36,16 +33,28 @@ public class MediaSessionManagerImplApi21 extends MediaSessionManagerImplBase {
         this.mContext = context;
     }
 
-    private boolean hasMediaControlPermission(@NonNull MediaSessionManager.RemoteUserInfoImpl remoteUserInfoImpl) {
+    private boolean hasMediaControlPermission(MediaSessionManager.RemoteUserInfoImpl remoteUserInfoImpl) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, this, remoteUserInfoImpl)) == null) ? getContext().checkPermission(MediaSessionManagerImplBase.PERMISSION_MEDIA_CONTENT_CONTROL, remoteUserInfoImpl.getPid(), remoteUserInfoImpl.getUid()) == 0 : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, remoteUserInfoImpl)) == null) {
+            if (getContext().checkPermission(MediaSessionManagerImplBase.PERMISSION_MEDIA_CONTENT_CONTROL, remoteUserInfoImpl.getPid(), remoteUserInfoImpl.getUid()) == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     @Override // androidx.media.MediaSessionManagerImplBase, androidx.media.MediaSessionManager.MediaSessionManagerImpl
-    public boolean isTrustedForMediaControl(@NonNull MediaSessionManager.RemoteUserInfoImpl remoteUserInfoImpl) {
+    public boolean isTrustedForMediaControl(MediaSessionManager.RemoteUserInfoImpl remoteUserInfoImpl) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, remoteUserInfoImpl)) == null) ? hasMediaControlPermission(remoteUserInfoImpl) || super.isTrustedForMediaControl(remoteUserInfoImpl) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, remoteUserInfoImpl)) == null) {
+            if (!hasMediaControlPermission(remoteUserInfoImpl) && !super.isTrustedForMediaControl(remoteUserInfoImpl)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

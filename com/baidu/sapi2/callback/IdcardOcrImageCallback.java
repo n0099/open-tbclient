@@ -10,6 +10,10 @@ public abstract class IdcardOcrImageCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract void onFailure(IdcardOcrImageRusult idcardOcrImageRusult);
+
+    public abstract void onSuccess(IdcardOcrImageRusult idcardOcrImageRusult);
+
     public IdcardOcrImageCallback() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -23,8 +27,4 @@ public abstract class IdcardOcrImageCallback {
             }
         }
     }
-
-    public abstract void onFailure(IdcardOcrImageRusult idcardOcrImageRusult);
-
-    public abstract void onSuccess(IdcardOcrImageRusult idcardOcrImageRusult);
 }

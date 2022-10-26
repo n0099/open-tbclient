@@ -31,6 +31,27 @@ public class SeekBarElement extends AbsElement implements ISeekBarListener {
     public transient /* synthetic */ FieldHolder $fh;
     public BdPlayerSeekBar seekBar;
 
+    @Override // com.baidu.searchbox.player.callback.ISeekBarListener
+    public void onProgressChanged(BdThumbSeekBarView bdThumbSeekBarView, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{bdThumbSeekBarView, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.callback.ISeekBarListener
+    public void onProgressForward() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.callback.ISeekBarListener
+    public void onStartTrackingTouch(BdThumbSeekBarView bdThumbSeekBarView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, bdThumbSeekBarView) == null) {
+        }
+    }
+
     public SeekBarElement() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -79,7 +100,7 @@ public class SeekBarElement extends AbsElement implements ISeekBarListener {
             Context context = getContext();
             Intrinsics.checkNotNullExpressionValue(context, "context");
             BdPlayerSeekBar bdPlayerSeekBar = new BdPlayerSeekBar(context, null, 0, 6, null);
-            bdPlayerSeekBar.setId(R.id.obfuscated_res_0x7f09036c);
+            bdPlayerSeekBar.setId(R.id.obfuscated_res_0x7f09036b);
             Unit unit = Unit.INSTANCE;
             this.seekBar = bdPlayerSeekBar;
             if (bdPlayerSeekBar == null) {
@@ -153,44 +174,28 @@ public class SeekBarElement extends AbsElement implements ISeekBarListener {
     }
 
     @Override // com.baidu.searchbox.player.callback.ISeekBarListener
-    public void onProgressChanged(BdThumbSeekBarView bdThumbSeekBarView, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{bdThumbSeekBarView, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.callback.ISeekBarListener
-    public void onProgressForward() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.callback.ISeekBarListener
-    public void onStartTrackingTouch(BdThumbSeekBarView bdThumbSeekBarView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bdThumbSeekBarView) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.callback.ISeekBarListener
     public void onStopTrackingTouch(BdThumbSeekBarView bdThumbSeekBarView) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, bdThumbSeekBarView) == null) || bdThumbSeekBarView == null) {
-            return;
-        }
-        BdPlayerSeekBar bdPlayerSeekBar = this.seekBar;
-        if (bdPlayerSeekBar == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("seekBar");
-        }
-        if (!(bdPlayerSeekBar.getVisibility() == 0)) {
-            bdThumbSeekBarView = null;
-        }
-        if (bdThumbSeekBarView != null) {
-            VideoEvent obtainEvent = LayerEvent.obtainEvent(LayerEvent.ACTION_SEEK);
-            Intrinsics.checkNotNullExpressionValue(obtainEvent, "LayerEvent.obtainEvent(LayerEvent.ACTION_SEEK)");
-            obtainEvent.putExtra(1, Integer.valueOf(bdThumbSeekBarView.getProgress()));
-            sendEvent(obtainEvent);
+        if ((interceptable == null || interceptable.invokeL(1048583, this, bdThumbSeekBarView) == null) && bdThumbSeekBarView != null) {
+            BdPlayerSeekBar bdPlayerSeekBar = this.seekBar;
+            if (bdPlayerSeekBar == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("seekBar");
+            }
+            if (bdPlayerSeekBar.getVisibility() == 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (!z) {
+                bdThumbSeekBarView = null;
+            }
+            if (bdThumbSeekBarView != null) {
+                VideoEvent obtainEvent = LayerEvent.obtainEvent(LayerEvent.ACTION_SEEK);
+                Intrinsics.checkNotNullExpressionValue(obtainEvent, "LayerEvent.obtainEvent(LayerEvent.ACTION_SEEK)");
+                obtainEvent.putExtra(1, Integer.valueOf(bdThumbSeekBarView.getProgress()));
+                sendEvent(obtainEvent);
+            }
         }
     }
 

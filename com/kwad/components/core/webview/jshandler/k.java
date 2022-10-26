@@ -1,7 +1,5 @@
 package com.kwad.components.core.webview.jshandler;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,7 +15,7 @@ public final class k implements com.kwad.sdk.core.webview.kwai.a {
     public final com.kwad.sdk.core.webview.b Lk;
 
     /* loaded from: classes7.dex */
-    public static class a implements com.kwad.sdk.core.b {
+    public final class a implements com.kwad.sdk.core.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int height;
@@ -38,7 +36,7 @@ public final class k implements com.kwad.sdk.core.webview.kwai.a {
         }
 
         @Override // com.kwad.sdk.core.b
-        public final void parseJson(@Nullable JSONObject jSONObject) {
+        public final void parseJson(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
             }
@@ -89,7 +87,7 @@ public final class k implements com.kwad.sdk.core.webview.kwai.a {
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
-    public final void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
+    public final void a(String str, com.kwad.sdk.core.webview.kwai.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar) == null) {
             a aVar = new a();
@@ -105,7 +103,6 @@ public final class k implements com.kwad.sdk.core.webview.kwai.a {
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
-    @NonNull
     public final String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

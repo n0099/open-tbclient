@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.IBinder;
-import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,29 +13,20 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.zui.deviceidservice.IDeviceidInterface;
-@Keep
 /* loaded from: classes8.dex */
 public class OpenDeviceId {
     public static /* synthetic */ Interceptable $ic = null;
-    @Keep
     public static boolean DBG = false;
-    @Keep
     public static String TAG = "OpenDeviceId library";
     public transient /* synthetic */ FieldHolder $fh;
-    @Keep
     public CallBack mCallerCallBack;
-    @Keep
     public ServiceConnection mConnection;
-    @Keep
     public Context mContext;
-    @Keep
     public IDeviceidInterface mDeviceidInterface;
 
-    @Keep
     /* loaded from: classes8.dex */
-    public interface CallBack<T> {
-        @Keep
-        void serviceConnected(T t, OpenDeviceId openDeviceId);
+    public interface CallBack {
+        void serviceConnected(Object obj, OpenDeviceId openDeviceId);
     }
 
     static {
@@ -71,26 +61,20 @@ public class OpenDeviceId {
         this.mCallerCallBack = null;
     }
 
-    @Keep
     private native void logPrintE(String str);
 
     /* JADX INFO: Access modifiers changed from: private */
-    @Keep
     public native void logPrintI(String str);
 
-    @Keep
     public native String getAAID();
 
-    @Keep
     public native String getOAID();
 
-    @Keep
     public native String getUDID();
 
-    @Keep
     public native String getVAID();
 
-    public int init(Context context, CallBack<String> callBack) {
+    public int init(Context context, CallBack callBack) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, context, callBack)) == null) {
@@ -100,7 +84,6 @@ public class OpenDeviceId {
                 this.mConnection = new ServiceConnection(this) { // from class: com.zui.opendeviceidlibrary.OpenDeviceId.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-                    @Keep
                     public final /* synthetic */ OpenDeviceId this$0;
 
                     {
@@ -122,11 +105,9 @@ public class OpenDeviceId {
                     }
 
                     @Override // android.content.ServiceConnection
-                    @Keep
                     public native synchronized void onServiceConnected(ComponentName componentName, IBinder iBinder);
 
                     @Override // android.content.ServiceConnection
-                    @Keep
                     public native void onServiceDisconnected(ComponentName componentName);
                 };
                 Intent intent = new Intent();
@@ -143,12 +124,9 @@ public class OpenDeviceId {
         return invokeLL.intValue;
     }
 
-    @Keep
     public native boolean isSupported();
 
-    @Keep
     public native void setLogEnable(boolean z);
 
-    @Keep
     public native void shutdown();
 }

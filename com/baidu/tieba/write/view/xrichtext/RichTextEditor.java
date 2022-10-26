@@ -10,8 +10,6 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.util.BdLog;
@@ -26,13 +24,13 @@ import com.baidu.tbadk.imageManager.TbFaceManager;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.gh;
-import com.baidu.tieba.hv4;
-import com.baidu.tieba.iz4;
-import com.baidu.tieba.kc;
+import com.baidu.tieba.e29;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.hh;
+import com.baidu.tieba.lc;
+import com.baidu.tieba.nv4;
+import com.baidu.tieba.nz4;
 import com.baidu.tieba.write.view.xrichtext.RichImageItem;
-import com.baidu.tieba.y19;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -50,7 +48,7 @@ public class RichTextEditor extends LinearLayout {
     public int c;
     public WriteImagesInfo d;
     public View.OnClickListener e;
-    public iz4.a f;
+    public nz4.a f;
     public long g;
     public View.OnFocusChangeListener h;
     public TextWatcher i;
@@ -167,32 +165,32 @@ public class RichTextEditor extends LinearLayout {
         @Override // com.baidu.tieba.write.view.xrichtext.RichImageItem.f
         public void a(ImageFileInfo imageFileInfo, View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, imageFileInfo, view2) == null) {
-                this.a.o(view2);
-                this.a.d.getChosedFiles().remove(imageFileInfo);
-                if (imageFileInfo.isTempFile()) {
-                    kc.f().a(new DiskFileOperate(imageFileInfo.getFilePath(), null, DiskFileOperate.Action.DELETE));
-                }
-                if (this.a.k != null) {
-                    this.a.k.a(imageFileInfo, view2);
-                }
+            if (interceptable != null && interceptable.invokeLL(1048576, this, imageFileInfo, view2) != null) {
+                return;
+            }
+            this.a.o(view2);
+            this.a.d.getChosedFiles().remove(imageFileInfo);
+            if (imageFileInfo.isTempFile()) {
+                lc.f().a(new DiskFileOperate(imageFileInfo.getFilePath(), null, DiskFileOperate.Action.DELETE));
+            }
+            if (this.a.k != null) {
+                this.a.k.a(imageFileInfo, view2);
             }
         }
 
         @Override // com.baidu.tieba.write.view.xrichtext.RichImageItem.f
         public void b(ImageFileInfo imageFileInfo, View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageFileInfo, view2) == null) || imageFileInfo == null || imageFileInfo.getImageType() == 1) {
-                return;
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageFileInfo, view2) == null) && imageFileInfo != null && imageFileInfo.getImageType() != 1) {
+                WriteImagesInfo writeImagesInfo = new WriteImagesInfo();
+                writeImagesInfo.copyFrom(this.a.d);
+                LinkedList<ImageFileInfo> linkedList = new LinkedList<>();
+                linkedList.add(imageFileInfo);
+                writeImagesInfo.setChosedFiles(linkedList);
+                writeImagesInfo.setOriginalImgIndex(this.a.d.getChosedFiles().indexOf(imageFileInfo));
+                writeImagesInfo.setOriginalImgViewIndex(this.a.indexOfChild(view2));
+                new WriteMulitImageActivityConfig((Activity) this.a.getContext(), 12012, writeImagesInfo, 0).start();
             }
-            WriteImagesInfo writeImagesInfo = new WriteImagesInfo();
-            writeImagesInfo.copyFrom(this.a.d);
-            LinkedList<ImageFileInfo> linkedList = new LinkedList<>();
-            linkedList.add(imageFileInfo);
-            writeImagesInfo.setChosedFiles(linkedList);
-            writeImagesInfo.setOriginalImgIndex(this.a.d.getChosedFiles().indexOf(imageFileInfo));
-            writeImagesInfo.setOriginalImgViewIndex(this.a.indexOfChild(view2));
-            new WriteMulitImageActivityConfig((Activity) this.a.getContext(), 12012, writeImagesInfo, 0).start();
         }
     }
 
@@ -214,415 +212,6 @@ public class RichTextEditor extends LinearLayout {
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-        }
-    }
-
-    private int getTextContentLength() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
-            int i = 0;
-            for (int i2 = 0; i2 < getChildCount(); i2++) {
-                View childAt = getChildAt(i2);
-                if (childAt instanceof SpanGroupEditText) {
-                    SpanGroupEditText spanGroupEditText = (SpanGroupEditText) childAt;
-                    if (spanGroupEditText.getText() != null) {
-                        i += spanGroupEditText.getText().length();
-                    }
-                }
-            }
-            return i;
-        }
-        return invokeV.intValue;
-    }
-
-    @NonNull
-    public ArrayList<AtSelectData> getAtDataInText() {
-        InterceptResult invokeV;
-        ArrayList<AtSelectData> atDataInText;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList<AtSelectData> arrayList = new ArrayList<>();
-            for (int i = 0; i < getChildCount(); i++) {
-                View childAt = getChildAt(i);
-                if (childAt instanceof SpanGroupEditText) {
-                    SpanGroupEditText spanGroupEditText = (SpanGroupEditText) childAt;
-                    if (spanGroupEditText.getText() != null && (atDataInText = spanGroupEditText.getAtDataInText()) != null && atDataInText.size() > 0) {
-                        arrayList.addAll(atDataInText);
-                    }
-                }
-            }
-            return arrayList;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public EditText getLastFocusEdit() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (EditText) invokeV.objValue;
-    }
-
-    public List<Object> getPlainTextContentData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? q(false) : (List) invokeV.objValue;
-    }
-
-    public List<Object> getPostServerContentData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? q(true) : (List) invokeV.objValue;
-    }
-
-    public void h(@Nullable List<AtSelectData> list) {
-        ArrayList<AtSelectData> atDataInText;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, list) == null) || list == null || list.isEmpty()) {
-            return;
-        }
-        ArrayList arrayList = new ArrayList(list);
-        for (int i = 0; i < getChildCount(); i++) {
-            View childAt = getChildAt(i);
-            if ((childAt instanceof SpanGroupEditText) && childAt != this.b && (atDataInText = ((SpanGroupEditText) childAt).getAtDataInText()) != null && !atDataInText.isEmpty()) {
-                arrayList.removeAll(atDataInText);
-            }
-        }
-        this.b.b(arrayList);
-    }
-
-    public SpanGroupEditText i(int i, CharSequence charSequence) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, charSequence)) == null) {
-            SpanGroupEditText m = m("");
-            if (!TextUtils.isEmpty(charSequence)) {
-                m.setText(TbFaceManager.i().t(getContext(), (String) charSequence, this.j));
-            }
-            setLayoutTransition(null);
-            addView(m, i, new LinearLayout.LayoutParams(-1, -2));
-            return m;
-        }
-        return (SpanGroupEditText) invokeIL.objValue;
-    }
-
-    public void j(int i, @NonNull ImageFileInfo imageFileInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048582, this, i, imageFileInfo) == null) {
-            RichImageItem richImageItem = new RichImageItem(getContext());
-            richImageItem.setImageFileInfo(imageFileInfo);
-            imageFileInfo.setExtra(String.valueOf(i));
-            richImageItem.setItemOperateListener(this.l);
-            addView(richImageItem, i, new LinearLayout.LayoutParams(-1, -2));
-        }
-    }
-
-    public void k(TextWatcher textWatcher) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, textWatcher) == null) {
-            this.i = textWatcher;
-        }
-    }
-
-    public void l(List<AtSelectData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
-            for (int i = 0; i < getChildCount(); i++) {
-                View childAt = getChildAt(i);
-                if (childAt instanceof SpanGroupEditText) {
-                    ((SpanGroupEditText) childAt).e(list);
-                }
-            }
-        }
-    }
-
-    public SpanGroupEditText m(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            SpanGroupEditText spanGroupEditText = new SpanGroupEditText(getContext());
-            spanGroupEditText.setBackgroundResource(0);
-            spanGroupEditText.setPadding(0, 0, 0, 0);
-            spanGroupEditText.setLineSpacing(ej.f(getContext(), R.dimen.M_T_X002), 1.0f);
-            y19.l(spanGroupEditText, R.drawable.obfuscated_res_0x7f0804c2);
-            spanGroupEditText.setTextSize(0, getResources().getDimension(R.dimen.T_X06));
-            hv4.d(spanGroupEditText).v(R.color.CAM_X0105);
-            spanGroupEditText.setDrawingCacheEnabled(false);
-            spanGroupEditText.setGravity(51);
-            spanGroupEditText.setHint(str);
-            spanGroupEditText.setType(SpanGroupEditText.EDIT_TEXT_TYPE.TYPE_COMMODITY);
-            spanGroupEditText.setOnFocusChangeListener(this.a);
-            spanGroupEditText.setOnSpanGroupChangedListener(this.f);
-            spanGroupEditText.setForumId(this.g);
-            spanGroupEditText.setOnClickListener(this.e);
-            spanGroupEditText.addTextChangedListener(this.i);
-            spanGroupEditText.setTag(R.id.obfuscated_res_0x7f09103c, Boolean.TRUE);
-            return spanGroupEditText;
-        }
-        return (SpanGroupEditText) invokeL.objValue;
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            SpanGroupEditText m = m(getContext().getString(R.string.obfuscated_res_0x7f0f0e97));
-            addView(m, new LinearLayout.LayoutParams(-1, -2));
-            this.b = m;
-        }
-    }
-
-    public final void o(@NonNull View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, view2) == null) {
-            this.c = indexOfChild(view2);
-            removeView(view2);
-            v();
-            y();
-        }
-    }
-
-    public void p(@NonNull ImageFileInfo imageFileInfo, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048588, this, imageFileInfo, i) == null) {
-            View childAt = getChildAt(i);
-            if (childAt instanceof RichImageItem) {
-                ((RichImageItem) childAt).setImageFileInfo(imageFileInfo);
-            }
-        }
-    }
-
-    public final List<Object> q(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048589, this, z)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < getChildCount(); i++) {
-                View childAt = getChildAt(i);
-                if (childAt instanceof SpanGroupEditText) {
-                    if (z) {
-                        arrayList.add(((SpanGroupEditText) childAt).getToServerContent());
-                    } else {
-                        arrayList.add(((SpanGroupEditText) childAt).getPlainTextContent());
-                    }
-                } else if (childAt instanceof RichImageItem) {
-                    arrayList.add(((RichImageItem) childAt).getImageFileInfo());
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeZ.objValue;
-    }
-
-    public void r() {
-        InputMethodManager inputMethodManager;
-        SpanGroupEditText spanGroupEditText;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (inputMethodManager = (InputMethodManager) getContext().getSystemService("input_method")) == null || (spanGroupEditText = this.b) == null) {
-            return;
-        }
-        inputMethodManager.hideSoftInputFromWindow(spanGroupEditText.getWindowToken(), 0);
-    }
-
-    public void s(List<Object> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048591, this, list) == null) || list == null) {
-            return;
-        }
-        for (int i = 0; i < list.size(); i++) {
-            Object obj = list.get(i);
-            if (obj instanceof String) {
-                this.b.setText(TbFaceManager.i().t(getContext(), (String) obj, this.j));
-                if (this.b.getText() != null) {
-                    SpanGroupEditText spanGroupEditText = this.b;
-                    spanGroupEditText.setSelection(spanGroupEditText.getText().length());
-                }
-            } else if (obj instanceof ImageFileInfo) {
-                ImageFileInfo imageFileInfo = (ImageFileInfo) obj;
-                WriteImagesInfo writeImagesInfo = this.d;
-                if (writeImagesInfo != null && !ListUtils.isEmpty(writeImagesInfo.getChosedFiles())) {
-                    int i2 = 0;
-                    while (true) {
-                        if (i2 >= this.d.getChosedFiles().size()) {
-                            break;
-                        }
-                        ImageFileInfo imageFileInfo2 = this.d.getChosedFiles().get(i2);
-                        if (StringHelper.equals(imageFileInfo2.getFilePath(), imageFileInfo.getFilePath()) && StringHelper.equals(imageFileInfo2.getExtra(), imageFileInfo.getExtra())) {
-                            imageFileInfo = imageFileInfo2;
-                            break;
-                        }
-                        i2++;
-                    }
-                }
-                t(imageFileInfo);
-            }
-        }
-    }
-
-    public void setBigEmotionSpanHandler(TbFaceManager.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, aVar) == null) {
-            this.j = aVar;
-        }
-    }
-
-    public void setEditOnClickListener(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, onClickListener) == null) {
-            this.e = onClickListener;
-        }
-    }
-
-    public void setEditOnFocusChangeListener(View.OnFocusChangeListener onFocusChangeListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, onFocusChangeListener) == null) {
-            this.h = onFocusChangeListener;
-        }
-    }
-
-    public void setForumId(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048595, this, j) == null) {
-            this.g = j;
-        }
-    }
-
-    public void setOnSpanGroupChangedListener(iz4.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, aVar) == null) {
-            this.f = aVar;
-        }
-    }
-
-    public void setOutImageOperateListener(RichImageItem.f fVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, fVar) == null) {
-            this.k = fVar;
-        }
-    }
-
-    public void setWriteImagesInfo(WriteImagesInfo writeImagesInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, writeImagesInfo) == null) {
-            this.d = writeImagesInfo;
-        }
-    }
-
-    public void t(@NonNull ImageFileInfo imageFileInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, imageFileInfo) == null) {
-            String selectionBeforePlainTextContent = this.b.getSelectionBeforePlainTextContent();
-            String selectionAfterPlainTextContent = this.b.getSelectionAfterPlainTextContent();
-            int indexOfChild = indexOfChild(this.b);
-            if (selectionAfterPlainTextContent.length() == 0) {
-                int i = indexOfChild + 1;
-                SpanGroupEditText i2 = i(i, "");
-                j(i, imageFileInfo);
-                x(i2, 0);
-            } else if (selectionBeforePlainTextContent.length() == 0) {
-                i(indexOfChild, "");
-                j(indexOfChild + 1, imageFileInfo);
-                this.b.setHint("");
-            } else {
-                this.b.setText(TbFaceManager.i().t(getContext(), selectionBeforePlainTextContent, this.j));
-                int i3 = indexOfChild + 1;
-                SpanGroupEditText i4 = i(i3, selectionAfterPlainTextContent);
-                j(i3, imageFileInfo);
-                x(i4, 0);
-            }
-            y();
-            r();
-        }
-    }
-
-    public boolean u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            if (getChildCount() < 1) {
-                return true;
-            }
-            if (getChildCount() == 1) {
-                return TextUtils.isEmpty(((SpanGroupEditText) getChildAt(0)).getPlainTextContent());
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void v() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-            View childAt = getChildAt(this.c - 1);
-            View childAt2 = getChildAt(this.c);
-            if ((childAt instanceof SpanGroupEditText) && (childAt2 instanceof SpanGroupEditText)) {
-                SpanGroupEditText spanGroupEditText = (SpanGroupEditText) childAt;
-                SpanGroupEditText spanGroupEditText2 = (SpanGroupEditText) childAt2;
-                int length = spanGroupEditText.getText().toString() != null ? spanGroupEditText.getText().toString().length() : 0;
-                String plainTextContent = spanGroupEditText.getPlainTextContent();
-                String plainTextContent2 = spanGroupEditText2.getPlainTextContent();
-                if (plainTextContent2.length() > 0) {
-                    if (plainTextContent.length() <= 0) {
-                        plainTextContent = plainTextContent2;
-                    } else if (!plainTextContent.endsWith("\n") && !plainTextContent2.startsWith("\n")) {
-                        plainTextContent = plainTextContent + "\n" + plainTextContent2;
-                    } else {
-                        plainTextContent = plainTextContent + plainTextContent2;
-                    }
-                }
-                removeView(spanGroupEditText2);
-                spanGroupEditText.setText(TbFaceManager.i().t(getContext(), plainTextContent, this.j));
-                x(spanGroupEditText, length);
-            }
-        }
-    }
-
-    public void w() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
-            for (int i = 0; i < getChildCount(); i++) {
-                View childAt = getChildAt(i);
-                if (childAt instanceof RichImageItem) {
-                    ((RichImageItem) childAt).f();
-                } else if (childAt instanceof SpanGroupEditText) {
-                    hv4.d(childAt).v(R.color.CAM_X0105);
-                    ((SpanGroupEditText) childAt).setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
-                }
-            }
-        }
-    }
-
-    public final void x(@NonNull SpanGroupEditText spanGroupEditText, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048603, this, spanGroupEditText, i) == null) {
-            this.b = spanGroupEditText;
-            gh.a().postDelayed(new b(this, i), 300L);
-        }
-    }
-
-    public final void y() {
-        int childCount;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048604, this) == null) || (childCount = getChildCount()) <= 0) {
-            return;
-        }
-        View childAt = getChildAt(0);
-        if (childAt instanceof SpanGroupEditText) {
-            if (childCount > 1) {
-                ((SpanGroupEditText) childAt).setHint("");
-            } else {
-                ((SpanGroupEditText) childAt).setHint(getContext().getString(R.string.obfuscated_res_0x7f0f0e97));
-            }
-        }
-    }
-
-    public final void z(@NonNull SpanGroupEditText spanGroupEditText) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048605, this, spanGroupEditText) == null) {
-            int textContentLength = 2000 - getTextContentLength();
-            if (textContentLength <= 0) {
-                textContentLength = 1;
-            }
-            spanGroupEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(textContentLength)});
         }
     }
 
@@ -670,8 +259,426 @@ public class RichTextEditor extends LinearLayout {
         this.l = new c(this);
         setOrientation(1);
         setLayoutTransition(null);
-        setDividerDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080fe8));
+        setDividerDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080ff9));
         setShowDividers(2);
         this.a = new a(this);
+    }
+
+    public void k(TextWatcher textWatcher) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, textWatcher) == null) {
+            this.i = textWatcher;
+        }
+    }
+
+    public void l(List list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
+            for (int i = 0; i < getChildCount(); i++) {
+                View childAt = getChildAt(i);
+                if (childAt instanceof SpanGroupEditText) {
+                    ((SpanGroupEditText) childAt).e(list);
+                }
+            }
+        }
+    }
+
+    public final void o(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, view2) == null) {
+            this.c = indexOfChild(view2);
+            removeView(view2);
+            v();
+            y();
+        }
+    }
+
+    public void setBigEmotionSpanHandler(TbFaceManager.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, aVar) == null) {
+            this.j = aVar;
+        }
+    }
+
+    public void setEditOnClickListener(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, onClickListener) == null) {
+            this.e = onClickListener;
+        }
+    }
+
+    public void setEditOnFocusChangeListener(View.OnFocusChangeListener onFocusChangeListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, onFocusChangeListener) == null) {
+            this.h = onFocusChangeListener;
+        }
+    }
+
+    public void setForumId(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048595, this, j) == null) {
+            this.g = j;
+        }
+    }
+
+    public void setOnSpanGroupChangedListener(nz4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, aVar) == null) {
+            this.f = aVar;
+        }
+    }
+
+    public void setOutImageOperateListener(RichImageItem.f fVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, fVar) == null) {
+            this.k = fVar;
+        }
+    }
+
+    public void setWriteImagesInfo(WriteImagesInfo writeImagesInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048598, this, writeImagesInfo) == null) {
+            this.d = writeImagesInfo;
+        }
+    }
+
+    public final void z(SpanGroupEditText spanGroupEditText) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048605, this, spanGroupEditText) == null) {
+            int textContentLength = 2000 - getTextContentLength();
+            if (textContentLength <= 0) {
+                textContentLength = 1;
+            }
+            spanGroupEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(textContentLength)});
+        }
+    }
+
+    public void j(int i, ImageFileInfo imageFileInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048582, this, i, imageFileInfo) == null) {
+            RichImageItem richImageItem = new RichImageItem(getContext());
+            richImageItem.setImageFileInfo(imageFileInfo);
+            imageFileInfo.setExtra(String.valueOf(i));
+            richImageItem.setItemOperateListener(this.l);
+            addView(richImageItem, i, new LinearLayout.LayoutParams(-1, -2));
+        }
+    }
+
+    public void p(ImageFileInfo imageFileInfo, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048588, this, imageFileInfo, i) == null) {
+            View childAt = getChildAt(i);
+            if (childAt instanceof RichImageItem) {
+                ((RichImageItem) childAt).setImageFileInfo(imageFileInfo);
+            }
+        }
+    }
+
+    public final void x(SpanGroupEditText spanGroupEditText, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048603, this, spanGroupEditText, i) == null) {
+            this.b = spanGroupEditText;
+            hh.a().postDelayed(new b(this, i), 300L);
+        }
+    }
+
+    private int getTextContentLength() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
+            int i = 0;
+            for (int i2 = 0; i2 < getChildCount(); i2++) {
+                View childAt = getChildAt(i2);
+                if (childAt instanceof SpanGroupEditText) {
+                    SpanGroupEditText spanGroupEditText = (SpanGroupEditText) childAt;
+                    if (spanGroupEditText.getText() != null) {
+                        i += spanGroupEditText.getText().length();
+                    }
+                }
+            }
+            return i;
+        }
+        return invokeV.intValue;
+    }
+
+    public ArrayList getAtDataInText() {
+        InterceptResult invokeV;
+        ArrayList<AtSelectData> atDataInText;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (int i = 0; i < getChildCount(); i++) {
+                View childAt = getChildAt(i);
+                if (childAt instanceof SpanGroupEditText) {
+                    SpanGroupEditText spanGroupEditText = (SpanGroupEditText) childAt;
+                    if (spanGroupEditText.getText() != null && (atDataInText = spanGroupEditText.getAtDataInText()) != null && atDataInText.size() > 0) {
+                        arrayList.addAll(atDataInText);
+                    }
+                }
+            }
+            return arrayList;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public void w() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
+            for (int i = 0; i < getChildCount(); i++) {
+                View childAt = getChildAt(i);
+                if (childAt instanceof RichImageItem) {
+                    ((RichImageItem) childAt).f();
+                } else if (childAt instanceof SpanGroupEditText) {
+                    nv4.d(childAt).v(R.color.CAM_X0105);
+                    ((SpanGroupEditText) childAt).setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
+                }
+            }
+        }
+    }
+
+    public final void y() {
+        int childCount;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048604, this) == null) && (childCount = getChildCount()) > 0) {
+            View childAt = getChildAt(0);
+            if (childAt instanceof SpanGroupEditText) {
+                if (childCount > 1) {
+                    ((SpanGroupEditText) childAt).setHint("");
+                } else {
+                    ((SpanGroupEditText) childAt).setHint(getContext().getString(R.string.obfuscated_res_0x7f0f0ea9));
+                }
+            }
+        }
+    }
+
+    public EditText getLastFocusEdit() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (EditText) invokeV.objValue;
+    }
+
+    public List getPlainTextContentData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return q(false);
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public List getPostServerContentData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return q(true);
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            SpanGroupEditText m = m(getContext().getString(R.string.obfuscated_res_0x7f0f0ea9));
+            addView(m, new LinearLayout.LayoutParams(-1, -2));
+            this.b = m;
+        }
+    }
+
+    public void r() {
+        InputMethodManager inputMethodManager;
+        SpanGroupEditText spanGroupEditText;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && (inputMethodManager = (InputMethodManager) getContext().getSystemService("input_method")) != null && (spanGroupEditText = this.b) != null) {
+            inputMethodManager.hideSoftInputFromWindow(spanGroupEditText.getWindowToken(), 0);
+        }
+    }
+
+    public boolean u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            if (getChildCount() < 1) {
+                return true;
+            }
+            if (getChildCount() != 1) {
+                return false;
+            }
+            return TextUtils.isEmpty(((SpanGroupEditText) getChildAt(0)).getPlainTextContent());
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void h(List list) {
+        ArrayList<AtSelectData> atDataInText;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, list) == null) && list != null && !list.isEmpty()) {
+            ArrayList arrayList = new ArrayList(list);
+            for (int i = 0; i < getChildCount(); i++) {
+                View childAt = getChildAt(i);
+                if ((childAt instanceof SpanGroupEditText) && childAt != this.b && (atDataInText = ((SpanGroupEditText) childAt).getAtDataInText()) != null && !atDataInText.isEmpty()) {
+                    arrayList.removeAll(atDataInText);
+                }
+            }
+            this.b.b(arrayList);
+        }
+    }
+
+    public final List q(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048589, this, z)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (int i = 0; i < getChildCount(); i++) {
+                View childAt = getChildAt(i);
+                if (childAt instanceof SpanGroupEditText) {
+                    if (z) {
+                        arrayList.add(((SpanGroupEditText) childAt).getToServerContent());
+                    } else {
+                        arrayList.add(((SpanGroupEditText) childAt).getPlainTextContent());
+                    }
+                } else if (childAt instanceof RichImageItem) {
+                    arrayList.add(((RichImageItem) childAt).getImageFileInfo());
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeZ.objValue;
+    }
+
+    public SpanGroupEditText i(int i, CharSequence charSequence) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, charSequence)) == null) {
+            SpanGroupEditText m = m("");
+            if (!TextUtils.isEmpty(charSequence)) {
+                m.setText(TbFaceManager.i().t(getContext(), (String) charSequence, this.j));
+            }
+            setLayoutTransition(null);
+            addView(m, i, new LinearLayout.LayoutParams(-1, -2));
+            return m;
+        }
+        return (SpanGroupEditText) invokeIL.objValue;
+    }
+
+    public SpanGroupEditText m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            SpanGroupEditText spanGroupEditText = new SpanGroupEditText(getContext());
+            spanGroupEditText.setBackgroundResource(0);
+            spanGroupEditText.setPadding(0, 0, 0, 0);
+            spanGroupEditText.setLineSpacing(fj.f(getContext(), R.dimen.M_T_X002), 1.0f);
+            e29.l(spanGroupEditText, R.drawable.obfuscated_res_0x7f0804c2);
+            spanGroupEditText.setTextSize(0, getResources().getDimension(R.dimen.T_X06));
+            nv4.d(spanGroupEditText).v(R.color.CAM_X0105);
+            spanGroupEditText.setDrawingCacheEnabled(false);
+            spanGroupEditText.setGravity(51);
+            spanGroupEditText.setHint(str);
+            spanGroupEditText.setType(SpanGroupEditText.EDIT_TEXT_TYPE.TYPE_COMMODITY);
+            spanGroupEditText.setOnFocusChangeListener(this.a);
+            spanGroupEditText.setOnSpanGroupChangedListener(this.f);
+            spanGroupEditText.setForumId(this.g);
+            spanGroupEditText.setOnClickListener(this.e);
+            spanGroupEditText.addTextChangedListener(this.i);
+            spanGroupEditText.setTag(R.id.obfuscated_res_0x7f091030, Boolean.TRUE);
+            return spanGroupEditText;
+        }
+        return (SpanGroupEditText) invokeL.objValue;
+    }
+
+    public void t(ImageFileInfo imageFileInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048599, this, imageFileInfo) == null) {
+            String selectionBeforePlainTextContent = this.b.getSelectionBeforePlainTextContent();
+            String selectionAfterPlainTextContent = this.b.getSelectionAfterPlainTextContent();
+            int indexOfChild = indexOfChild(this.b);
+            if (selectionAfterPlainTextContent.length() == 0) {
+                int i = indexOfChild + 1;
+                SpanGroupEditText i2 = i(i, "");
+                j(i, imageFileInfo);
+                x(i2, 0);
+            } else if (selectionBeforePlainTextContent.length() == 0) {
+                i(indexOfChild, "");
+                j(indexOfChild + 1, imageFileInfo);
+                this.b.setHint("");
+            } else {
+                this.b.setText(TbFaceManager.i().t(getContext(), selectionBeforePlainTextContent, this.j));
+                int i3 = indexOfChild + 1;
+                SpanGroupEditText i4 = i(i3, selectionAfterPlainTextContent);
+                j(i3, imageFileInfo);
+                x(i4, 0);
+            }
+            y();
+            r();
+        }
+    }
+
+    public void s(List list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048591, this, list) == null) && list != null) {
+            for (int i = 0; i < list.size(); i++) {
+                Object obj = list.get(i);
+                if (obj instanceof String) {
+                    this.b.setText(TbFaceManager.i().t(getContext(), (String) obj, this.j));
+                    if (this.b.getText() != null) {
+                        SpanGroupEditText spanGroupEditText = this.b;
+                        spanGroupEditText.setSelection(spanGroupEditText.getText().length());
+                    }
+                } else if (obj instanceof ImageFileInfo) {
+                    ImageFileInfo imageFileInfo = (ImageFileInfo) obj;
+                    WriteImagesInfo writeImagesInfo = this.d;
+                    if (writeImagesInfo != null && !ListUtils.isEmpty(writeImagesInfo.getChosedFiles())) {
+                        int i2 = 0;
+                        while (true) {
+                            if (i2 >= this.d.getChosedFiles().size()) {
+                                break;
+                            }
+                            ImageFileInfo imageFileInfo2 = this.d.getChosedFiles().get(i2);
+                            if (StringHelper.equals(imageFileInfo2.getFilePath(), imageFileInfo.getFilePath()) && StringHelper.equals(imageFileInfo2.getExtra(), imageFileInfo.getExtra())) {
+                                imageFileInfo = imageFileInfo2;
+                                break;
+                            }
+                            i2++;
+                        }
+                    }
+                    t(imageFileInfo);
+                }
+            }
+        }
+    }
+
+    public final void v() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
+            View childAt = getChildAt(this.c - 1);
+            View childAt2 = getChildAt(this.c);
+            if ((childAt instanceof SpanGroupEditText) && (childAt2 instanceof SpanGroupEditText)) {
+                SpanGroupEditText spanGroupEditText = (SpanGroupEditText) childAt;
+                SpanGroupEditText spanGroupEditText2 = (SpanGroupEditText) childAt2;
+                int i = 0;
+                if (spanGroupEditText.getText().toString() != null) {
+                    i = spanGroupEditText.getText().toString().length();
+                }
+                String plainTextContent = spanGroupEditText.getPlainTextContent();
+                String plainTextContent2 = spanGroupEditText2.getPlainTextContent();
+                if (plainTextContent2.length() > 0) {
+                    if (plainTextContent.length() > 0) {
+                        if (!plainTextContent.endsWith("\n") && !plainTextContent2.startsWith("\n")) {
+                            plainTextContent = plainTextContent + "\n" + plainTextContent2;
+                        } else {
+                            plainTextContent = plainTextContent + plainTextContent2;
+                        }
+                    } else {
+                        plainTextContent = plainTextContent2;
+                    }
+                }
+                removeView(spanGroupEditText2);
+                spanGroupEditText.setText(TbFaceManager.i().t(getContext(), plainTextContent, this.j));
+                x(spanGroupEditText, i);
+            }
+        }
     }
 }

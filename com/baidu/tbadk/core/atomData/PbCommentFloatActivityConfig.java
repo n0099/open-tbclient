@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.OriginalForumInfo;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.kt4;
+import com.baidu.tieba.mt4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -178,24 +178,23 @@ public class PbCommentFloatActivityConfig extends IntentConfig {
         Intent intent;
         Context context;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || (intent = getIntent()) == null || (context = this.mContext) == null) {
-            return;
-        }
-        String simpleName = context.getClass().getSimpleName();
-        if ("FrsActivity".equalsIgnoreCase(simpleName)) {
-            intent.putExtra("from_frs", true);
-        } else {
-            intent.putExtra("from_frs", false);
-        }
-        if ("MainTabActivity".equalsIgnoreCase(simpleName)) {
-            intent.putExtra("from_maintab", true);
-        } else {
-            intent.putExtra("from_maintab", false);
-        }
-        if ("HotTopicActivity".equalsIgnoreCase(simpleName)) {
-            intent.putExtra("from_hottopic", true);
-        } else {
-            intent.putExtra("from_hottopic", false);
+        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && (intent = getIntent()) != null && (context = this.mContext) != null) {
+            String simpleName = context.getClass().getSimpleName();
+            if ("FrsActivity".equalsIgnoreCase(simpleName)) {
+                intent.putExtra("from_frs", true);
+            } else {
+                intent.putExtra("from_frs", false);
+            }
+            if ("MainTabActivity".equalsIgnoreCase(simpleName)) {
+                intent.putExtra("from_maintab", true);
+            } else {
+                intent.putExtra("from_maintab", false);
+            }
+            if ("HotTopicActivity".equalsIgnoreCase(simpleName)) {
+                intent.putExtra("from_hottopic", true);
+            } else {
+                intent.putExtra("from_hottopic", false);
+            }
         }
     }
 
@@ -210,6 +209,284 @@ public class PbCommentFloatActivityConfig extends IntentConfig {
             return this;
         }
         return (PbCommentFloatActivityConfig) invokeL.objValue;
+    }
+
+    public void setBjhFrom(int i) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048596, this, i) == null) && (intent = getIntent()) != null) {
+            intent.putExtra("bjh_from", i);
+        }
+    }
+
+    public void setForumId(String str) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048597, this, str) == null) && (intent = getIntent()) != null) {
+            intent.putExtra("forum_id", str);
+        }
+    }
+
+    public void setForumName(String str) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048598, this, str) == null) && (intent = getIntent()) != null) {
+            intent.putExtra("from_forum_name", str);
+        }
+    }
+
+    public void setFrom(String str) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048599, this, str) == null) && (intent = getIntent()) != null) {
+            intent.putExtra("from", str);
+        }
+    }
+
+    public void setFromForumId(String str) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048600, this, str) == null) && (intent = getIntent()) != null) {
+            intent.putExtra("from_forum_id", str);
+        }
+    }
+
+    public void setFromHomePageQuality(boolean z) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048601, this, z) == null) && (intent = getIntent()) != null) {
+            intent.putExtra("from_home_quality_card", z);
+        }
+    }
+
+    public void setFromPageType(int i) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048602, this, i) == null) && (intent = getIntent()) != null) {
+            intent.putExtra(KEY_FROM_PAGE_TYPE, i);
+        }
+    }
+
+    public void setFromSmartFrs(boolean z) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048604, this, z) == null) && (intent = getIntent()) != null) {
+            intent.putExtra("from_smart_frs", z);
+        }
+    }
+
+    public void setFromVideoPageType(int i) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048605, this, i) == null) && (intent = getIntent()) != null) {
+            intent.putExtra(KEY_FROM_VIDEO_PAGE_TYPE, i);
+        }
+    }
+
+    public void setFromVideoPageUniqueId(BdUniqueId bdUniqueId) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048606, this, bdUniqueId) == null) && (intent = getIntent()) != null) {
+            intent.putExtra("key_from_video_page_id", bdUniqueId);
+        }
+    }
+
+    public void setHighLight3sPostId(String str) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048607, this, str) == null) && (intent = getIntent()) != null) {
+            intent.putExtra(KEY_HIGH_LIGHT_3S_POST_ID, str);
+        }
+    }
+
+    public void setHighLightPostId(String str) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048608, this, str) == null) && (intent = getIntent()) != null) {
+            intent.putExtra("high_light_post_id", str);
+        }
+    }
+
+    public void setIsPrivacy(boolean z) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048609, this, z) == null) && (intent = getIntent()) != null) {
+            intent.putExtra("key_is_privacy", z);
+        }
+    }
+
+    public void setIsShareThread(boolean z) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048610, this, z) == null) && (intent = getIntent()) != null) {
+            intent.putExtra("key_is_share_thread", z);
+        }
+    }
+
+    public void setJumpGodReply(boolean z) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048611, this, z) == null) && (intent = getIntent()) != null) {
+            intent.putExtra("key_jump_to_god_reply", z);
+        }
+    }
+
+    public void setJumpToCommentArea(boolean z) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048612, this, z) == null) && (intent = getIntent()) != null) {
+            intent.putExtra("key_jump_to_comment_area", z);
+        }
+    }
+
+    public void setJumpToTopArea(boolean z) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048613, this, z) == null) && (intent = getIntent()) != null) {
+            intent.putExtra("key_jump_to_top", z);
+        }
+    }
+
+    public void setLastTid(String str) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048614, this, str) == null) && (intent = getIntent()) != null) {
+            intent.putExtra("last_tid", str);
+        }
+    }
+
+    public void setNeedPreLoad(boolean z) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048615, this, z) == null) && (intent = getIntent()) != null) {
+            intent.putExtra("key_need_preload", z);
+        }
+    }
+
+    public void setNeedRepostRecommendForum(boolean z) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048616, this, z) == null) && (intent = getIntent()) != null) {
+            intent.putExtra("KEY_NEED_REPOST_RECOMMEND_FORUM", z);
+        }
+    }
+
+    public void setOfficialBarMessageId(String str) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048617, this, str) == null) && (intent = getIntent()) != null) {
+            intent.putExtra("key_official_bar_message_id", str);
+        }
+    }
+
+    public void setPostThreadTip(String str) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048618, this, str) == null) && (intent = getIntent()) != null) {
+            intent.putExtra("KEY_POST_THREAD_TIP", str);
+        }
+    }
+
+    public void setPreLoad(String str) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048619, this, str) == null) && (intent = getIntent()) != null) {
+            intent.putExtra("lego_pre_load_data", str);
+        }
+    }
+
+    public void setRecomData(mt4 mt4Var) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048620, this, mt4Var) == null) && (intent = getIntent()) != null && mt4Var != null) {
+            mt4Var.c(intent);
+        }
+    }
+
+    public void setSmartFrsPosition(int i) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048621, this, i) == null) && (intent = getIntent()) != null) {
+            intent.putExtra("KEY_SMART_FRS_POSITION", i);
+        }
+    }
+
+    public void setSortType(int i) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048622, this, i) == null) && (intent = getIntent()) != null) {
+            intent.putExtra("sort_type", i);
+        }
+    }
+
+    public PbCommentFloatActivityConfig setSquence(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048623, this, z)) == null) {
+            Intent intent = getIntent();
+            if (intent != null) {
+                intent.putExtra("squence", z);
+            }
+            return this;
+        }
+        return (PbCommentFloatActivityConfig) invokeZ.objValue;
+    }
+
+    public void setStartFrom(int i) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048624, this, i) == null) && (intent = getIntent()) != null) {
+            intent.putExtra("key_start_from", i);
+        }
+    }
+
+    public void setUnKnowPbType(String str) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048626, this, str) == null) && (intent = getIntent()) != null) {
+            intent.putExtra("unKnowPbType", str);
+        }
+    }
+
+    public void setUri(Uri uri) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048627, this, uri) == null) && (intent = getIntent()) != null) {
+            intent.putExtra(IntentConfig.KEY_URI, uri);
+        }
+    }
+
+    public void setUserName(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048628, this, str) == null) {
+            getIntent().putExtra("big_pic_type", str);
+        }
+    }
+
+    public PbCommentFloatActivityConfig setVideoOriginArea(Rect rect) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048629, this, rect)) == null) {
+            getIntent().putExtra("video_origin_area", rect);
+            return this;
+        }
+        return (PbCommentFloatActivityConfig) invokeL.objValue;
+    }
+
+    public void setVideo_source(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048630, this, str) == null) {
+            this.key_video_source_value = str;
+            getIntent().putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
+        }
+    }
+
+    public void showOpenEditorTips(String str) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048631, this, str) == null) && (intent = getIntent()) != null) {
+            intent.putExtra("key_open_editor_tips", str);
+        }
     }
 
     public PbCommentFloatActivityConfig createCfgForPbChosen(String str, int i) {
@@ -277,8 +554,34 @@ public class PbCommentFloatActivityConfig extends IntentConfig {
         return (PbCommentFloatActivityConfig) invokeLLII.objValue;
     }
 
+    public PbCommentFloatActivityConfig createNormalCfg(String str, String str2, int i, String str3) {
+        InterceptResult invokeLLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(1048586, this, str, str2, i, str3)) == null) {
+            if (str == null) {
+                return this;
+            }
+            Intent intent = getIntent();
+            intent.putExtra("thread_id", str);
+            intent.putExtra("sort_type", 0);
+            intent.putExtra("post_id", str2);
+            intent.putExtra("thread_type", i);
+            intent.putExtra("st_type", str3);
+            intent.putExtra("KEY_SHOULD_ADD_POST_ID", true);
+            intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
+            if (!(this.mContext instanceof Activity)) {
+                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+            }
+            intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
+            addMoreIntentExtraParam();
+            return this;
+        }
+        return (PbCommentFloatActivityConfig) invokeLLIL.objValue;
+    }
+
     public PbCommentFloatActivityConfig createFromThreadCfg(ThreadData threadData, String str, String str2, int i, boolean z, boolean z2, boolean z3) {
         InterceptResult invokeCommon;
+        long num;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{threadData, str, str2, Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
             if (threadData == null) {
@@ -286,8 +589,8 @@ public class PbCommentFloatActivityConfig extends IntentConfig {
             }
             Intent intent = getIntent();
             intent.putExtra("thread_id", threadData.getTid());
-            if (threadData.getTopAgreePost() != null && !StringUtils.isNull(threadData.getTopAgreePost().L())) {
-                intent.putExtra("god_reply_id", threadData.getTopAgreePost().L());
+            if (threadData.getTopAgreePost() != null && !StringUtils.isNull(threadData.getTopAgreePost().M())) {
+                intent.putExtra("god_reply_id", threadData.getTopAgreePost().M());
             }
             intent.putExtra("is_good", threadData.getIs_good());
             intent.putExtra("is_top", threadData.getIs_top());
@@ -301,7 +604,11 @@ public class PbCommentFloatActivityConfig extends IntentConfig {
             intent.putExtra("is_start_for_result", "1");
             intent.putExtra("request_code", i);
             intent.putExtra("is_from_thread_config", true);
-            long num = threadData.getPraise() == null ? 0L : threadData.getPraise().getNum();
+            if (threadData.getPraise() == null) {
+                num = 0;
+            } else {
+                num = threadData.getPraise().getNum();
+            }
             intent.putExtra("extra_pb_cache_key", "zan=" + num);
             if (threadData.getAuthor() != null && threadData.getAuthor().getGodUserData().getId() != null) {
                 intent.putExtra("extra_pb_funs_count_key", threadData.getAuthor().getFansNum());
@@ -336,6 +643,39 @@ public class PbCommentFloatActivityConfig extends IntentConfig {
             intent.putExtra("is_from_my_god_config", true);
             intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
             return createHistoryCfg(str, str2, z, z2, str3);
+        }
+        return (PbCommentFloatActivityConfig) invokeCommon.objValue;
+    }
+
+    public PbCommentFloatActivityConfig createMessageCfg(String str, String str2, String str3, long j, String str4, String str5, String str6) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, str2, str3, Long.valueOf(j), str4, str5, str6})) == null) {
+            if (str == null) {
+                return this;
+            }
+            Intent intent = getIntent();
+            intent.putExtra("thread_id", str);
+            intent.putExtra("post_id", str2);
+            intent.putExtra("st_type", str3);
+            intent.putExtra("is_pv", true);
+            intent.putExtra("msg_id", j);
+            intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
+            if (str4 != null) {
+                intent.putExtra("op_url", str4);
+            }
+            if (str5 != null) {
+                intent.putExtra("op_stat", str5);
+            }
+            if (str6 != null) {
+                intent.putExtra("op_type", str6);
+            }
+            if (!(this.mContext instanceof Activity)) {
+                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+            }
+            intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
+            addMoreIntentExtraParam();
+            return this;
         }
         return (PbCommentFloatActivityConfig) invokeCommon.objValue;
     }
@@ -415,39 +755,6 @@ public class PbCommentFloatActivityConfig extends IntentConfig {
         return (PbCommentFloatActivityConfig) invokeCommon.objValue;
     }
 
-    public PbCommentFloatActivityConfig createMessageCfg(String str, String str2, String str3, long j, String str4, String str5, String str6) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, str2, str3, Long.valueOf(j), str4, str5, str6})) == null) {
-            if (str == null) {
-                return this;
-            }
-            Intent intent = getIntent();
-            intent.putExtra("thread_id", str);
-            intent.putExtra("post_id", str2);
-            intent.putExtra("st_type", str3);
-            intent.putExtra("is_pv", true);
-            intent.putExtra("msg_id", j);
-            intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
-            if (str4 != null) {
-                intent.putExtra("op_url", str4);
-            }
-            if (str5 != null) {
-                intent.putExtra("op_stat", str5);
-            }
-            if (str6 != null) {
-                intent.putExtra("op_type", str6);
-            }
-            if (!(this.mContext instanceof Activity)) {
-                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-            }
-            intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
-            addMoreIntentExtraParam();
-            return this;
-        }
-        return (PbCommentFloatActivityConfig) invokeCommon.objValue;
-    }
-
     public PbCommentFloatActivityConfig createNormalCfg(String str, String str2, String str3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
@@ -491,477 +798,6 @@ public class PbCommentFloatActivityConfig extends IntentConfig {
             return this;
         }
         return (PbCommentFloatActivityConfig) invokeLLL.objValue;
-    }
-
-    public PbCommentFloatActivityConfig createViewTypeCfg(String str, boolean z, boolean z2, String str2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2), str2})) == null) {
-            if (str == null) {
-                return this;
-            }
-            Intent intent = getIntent();
-            intent.putExtra("thread_id", str);
-            intent.putExtra("st_type", str2);
-            intent.putExtra("host_only", z);
-            intent.putExtra("squence", z2);
-            intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
-            if (!(this.mContext instanceof Activity)) {
-                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-            }
-            intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
-            addMoreIntentExtraParam();
-            return this;
-        }
-        return (PbCommentFloatActivityConfig) invokeCommon.objValue;
-    }
-
-    public PbCommentFloatActivityConfig disablePbKeyPostId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            Intent intent = getIntent();
-            if (intent != null) {
-                intent.putExtra("is_pb_key_need_post_id", true);
-            }
-            return this;
-        }
-        return (PbCommentFloatActivityConfig) invokeV.objValue;
-    }
-
-    public PbCommentFloatActivityConfig setBjhData(BaijiahaoData baijiahaoData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, baijiahaoData)) == null) {
-            Intent intent = getIntent();
-            if (intent != null && baijiahaoData != null && baijiahaoData != null) {
-                int i = baijiahaoData.oriUgcType;
-                boolean z = true;
-                if (i != 1 && i != 2 && i != 3 && i != 4) {
-                    z = false;
-                }
-                intent.putExtra("key_is_from_dynamic", z);
-                intent.putExtra("key_ori_ugc_nid", baijiahaoData.oriUgcNid);
-                intent.putExtra("key_ori_ugc_tid", baijiahaoData.oriUgcTid);
-                intent.putExtra("key_ori_ugc_type", baijiahaoData.oriUgcType);
-                intent.putExtra("key_ori_ugc_vid", baijiahaoData.oriUgcVid);
-            }
-            return this;
-        }
-        return (PbCommentFloatActivityConfig) invokeL.objValue;
-    }
-
-    public void setBjhFrom(int i) {
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048596, this, i) == null) || (intent = getIntent()) == null) {
-            return;
-        }
-        intent.putExtra("bjh_from", i);
-    }
-
-    public void setForumId(String str) {
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048597, this, str) == null) || (intent = getIntent()) == null) {
-            return;
-        }
-        intent.putExtra("forum_id", str);
-    }
-
-    public void setForumName(String str) {
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048598, this, str) == null) || (intent = getIntent()) == null) {
-            return;
-        }
-        intent.putExtra("from_forum_name", str);
-    }
-
-    public void setFrom(String str) {
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048599, this, str) == null) || (intent = getIntent()) == null) {
-            return;
-        }
-        intent.putExtra("from", str);
-    }
-
-    public void setFromForumId(String str) {
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048600, this, str) == null) || (intent = getIntent()) == null) {
-            return;
-        }
-        intent.putExtra("from_forum_id", str);
-    }
-
-    public void setFromHomePageQuality(boolean z) {
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048601, this, z) == null) || (intent = getIntent()) == null) {
-            return;
-        }
-        intent.putExtra("from_home_quality_card", z);
-    }
-
-    public void setFromPageType(int i) {
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048602, this, i) == null) || (intent = getIntent()) == null) {
-            return;
-        }
-        intent.putExtra(KEY_FROM_PAGE_TYPE, i);
-    }
-
-    public void setFromPushNotify() {
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048603, this) == null) || (intent = getIntent()) == null) {
-            return;
-        }
-        intent.putExtra(TbWebViewActivityConfig.INTENT_KEY_IS_FROM_PUSH_NOTIFY, true);
-        intent.putExtra("key_start_from", 7);
-    }
-
-    public void setFromSmartFrs(boolean z) {
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048604, this, z) == null) || (intent = getIntent()) == null) {
-            return;
-        }
-        intent.putExtra("from_smart_frs", z);
-    }
-
-    public void setFromVideoPageType(int i) {
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048605, this, i) == null) || (intent = getIntent()) == null) {
-            return;
-        }
-        intent.putExtra(KEY_FROM_VIDEO_PAGE_TYPE, i);
-    }
-
-    public void setFromVideoPageUniqueId(BdUniqueId bdUniqueId) {
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048606, this, bdUniqueId) == null) || (intent = getIntent()) == null) {
-            return;
-        }
-        intent.putExtra("key_from_video_page_id", bdUniqueId);
-    }
-
-    public void setHighLight3sPostId(String str) {
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048607, this, str) == null) || (intent = getIntent()) == null) {
-            return;
-        }
-        intent.putExtra(KEY_HIGH_LIGHT_3S_POST_ID, str);
-    }
-
-    public void setHighLightPostId(String str) {
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048608, this, str) == null) || (intent = getIntent()) == null) {
-            return;
-        }
-        intent.putExtra("high_light_post_id", str);
-    }
-
-    public void setIsPrivacy(boolean z) {
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048609, this, z) == null) || (intent = getIntent()) == null) {
-            return;
-        }
-        intent.putExtra("key_is_privacy", z);
-    }
-
-    public void setIsShareThread(boolean z) {
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048610, this, z) == null) || (intent = getIntent()) == null) {
-            return;
-        }
-        intent.putExtra("key_is_share_thread", z);
-    }
-
-    public void setJumpGodReply(boolean z) {
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048611, this, z) == null) || (intent = getIntent()) == null) {
-            return;
-        }
-        intent.putExtra("key_jump_to_god_reply", z);
-    }
-
-    public void setJumpToCommentArea(boolean z) {
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048612, this, z) == null) || (intent = getIntent()) == null) {
-            return;
-        }
-        intent.putExtra("key_jump_to_comment_area", z);
-    }
-
-    public void setJumpToTopArea(boolean z) {
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048613, this, z) == null) || (intent = getIntent()) == null) {
-            return;
-        }
-        intent.putExtra("key_jump_to_top", z);
-    }
-
-    public void setLastTid(String str) {
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048614, this, str) == null) || (intent = getIntent()) == null) {
-            return;
-        }
-        intent.putExtra("last_tid", str);
-    }
-
-    public void setNeedPreLoad(boolean z) {
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048615, this, z) == null) || (intent = getIntent()) == null) {
-            return;
-        }
-        intent.putExtra("key_need_preload", z);
-    }
-
-    public void setNeedRepostRecommendForum(boolean z) {
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048616, this, z) == null) || (intent = getIntent()) == null) {
-            return;
-        }
-        intent.putExtra("KEY_NEED_REPOST_RECOMMEND_FORUM", z);
-    }
-
-    public void setOfficialBarMessageId(String str) {
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048617, this, str) == null) || (intent = getIntent()) == null) {
-            return;
-        }
-        intent.putExtra("key_official_bar_message_id", str);
-    }
-
-    public void setPostThreadTip(String str) {
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048618, this, str) == null) || (intent = getIntent()) == null) {
-            return;
-        }
-        intent.putExtra("KEY_POST_THREAD_TIP", str);
-    }
-
-    public void setPreLoad(String str) {
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048619, this, str) == null) || (intent = getIntent()) == null) {
-            return;
-        }
-        intent.putExtra("lego_pre_load_data", str);
-    }
-
-    public void setRecomData(kt4 kt4Var) {
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048620, this, kt4Var) == null) || (intent = getIntent()) == null || kt4Var == null) {
-            return;
-        }
-        kt4Var.c(intent);
-    }
-
-    public void setSmartFrsPosition(int i) {
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048621, this, i) == null) || (intent = getIntent()) == null) {
-            return;
-        }
-        intent.putExtra("KEY_SMART_FRS_POSITION", i);
-    }
-
-    public void setSortType(int i) {
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048622, this, i) == null) || (intent = getIntent()) == null) {
-            return;
-        }
-        intent.putExtra("sort_type", i);
-    }
-
-    public PbCommentFloatActivityConfig setSquence(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048623, this, z)) == null) {
-            Intent intent = getIntent();
-            if (intent != null) {
-                intent.putExtra("squence", z);
-            }
-            return this;
-        }
-        return (PbCommentFloatActivityConfig) invokeZ.objValue;
-    }
-
-    public void setStartFrom(int i) {
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048624, this, i) == null) || (intent = getIntent()) == null) {
-            return;
-        }
-        intent.putExtra("key_start_from", i);
-    }
-
-    public PbCommentFloatActivityConfig setThreadData(ThreadData threadData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048625, this, threadData)) == null) {
-            Intent intent = getIntent();
-            if (intent != null && threadData != null) {
-                BaijiahaoData baijiahaoData = threadData.getBaijiahaoData();
-                if (baijiahaoData != null) {
-                    intent.putExtra("key_is_from_dynamic", threadData.isUgcThreadType());
-                    intent.putExtra("key_ori_ugc_nid", baijiahaoData.oriUgcNid);
-                    intent.putExtra("key_ori_ugc_tid", baijiahaoData.oriUgcTid);
-                    intent.putExtra("key_ori_ugc_type", baijiahaoData.oriUgcType);
-                    intent.putExtra("key_ori_ugc_vid", baijiahaoData.oriUgcVid);
-                }
-                intent.putExtra("key_rec_weight", threadData.mRecomWeight);
-                intent.putExtra("key_rec_source", threadData.mRecomSource);
-                intent.putExtra("key_rec_ab_tag", threadData.mRecomAbTag);
-                intent.putExtra("key_rec_extra", threadData.mRecomExtra);
-            }
-            return this;
-        }
-        return (PbCommentFloatActivityConfig) invokeL.objValue;
-    }
-
-    public void setUnKnowPbType(String str) {
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048626, this, str) == null) || (intent = getIntent()) == null) {
-            return;
-        }
-        intent.putExtra("unKnowPbType", str);
-    }
-
-    public void setUri(Uri uri) {
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048627, this, uri) == null) || (intent = getIntent()) == null) {
-            return;
-        }
-        intent.putExtra(IntentConfig.KEY_URI, uri);
-    }
-
-    public void setUserName(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048628, this, str) == null) {
-            getIntent().putExtra("big_pic_type", str);
-        }
-    }
-
-    public PbCommentFloatActivityConfig setVideoOriginArea(Rect rect) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048629, this, rect)) == null) {
-            getIntent().putExtra("video_origin_area", rect);
-            return this;
-        }
-        return (PbCommentFloatActivityConfig) invokeL.objValue;
-    }
-
-    public void setVideo_source(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048630, this, str) == null) {
-            this.key_video_source_value = str;
-            getIntent().putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
-        }
-    }
-
-    public void showOpenEditorTips(String str) {
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048631, this, str) == null) || (intent = getIntent()) == null) {
-            return;
-        }
-        intent.putExtra("key_open_editor_tips", str);
-    }
-
-    public PbCommentFloatActivityConfig setBjhData(String str, String str2, String str3, String str4) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048595, this, str, str2, str3, str4)) == null) {
-            Intent intent = getIntent();
-            if (intent == null) {
-                return this;
-            }
-            int parseInt = Integer.parseInt(str3);
-            boolean z = true;
-            if (parseInt != 1 && parseInt != 2 && parseInt != 3 && parseInt != 4) {
-                z = false;
-            }
-            intent.putExtra("key_is_from_dynamic", z);
-            intent.putExtra("key_ori_ugc_nid", str);
-            intent.putExtra("key_ori_ugc_tid", str2);
-            intent.putExtra("key_ori_ugc_type", parseInt);
-            intent.putExtra("key_ori_ugc_vid", str4);
-            return this;
-        }
-        return (PbCommentFloatActivityConfig) invokeLLLL.objValue;
-    }
-
-    public PbCommentFloatActivityConfig createNormalCfg(String str, String str2, String str3, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{str, str2, str3, Boolean.valueOf(z)})) == null) {
-            if (str == null) {
-                return this;
-            }
-            Intent intent = getIntent();
-            intent.putExtra("thread_id", str);
-            intent.putExtra("post_id", str2);
-            intent.putExtra("st_type", str3);
-            intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
-            intent.putExtra("is_from_bar_vote", z);
-            if (!(this.mContext instanceof Activity)) {
-                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-            }
-            intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
-            addMoreIntentExtraParam();
-            return this;
-        }
-        return (PbCommentFloatActivityConfig) invokeCommon.objValue;
-    }
-
-    public PbCommentFloatActivityConfig createNormalCfg(String str, String str2, int i, String str3) {
-        InterceptResult invokeLLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(1048586, this, str, str2, i, str3)) == null) {
-            if (str == null) {
-                return this;
-            }
-            Intent intent = getIntent();
-            intent.putExtra("thread_id", str);
-            intent.putExtra("sort_type", 0);
-            intent.putExtra("post_id", str2);
-            intent.putExtra("thread_type", i);
-            intent.putExtra("st_type", str3);
-            intent.putExtra("KEY_SHOULD_ADD_POST_ID", true);
-            intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
-            if (!(this.mContext instanceof Activity)) {
-                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-            }
-            intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
-            addMoreIntentExtraParam();
-            return this;
-        }
-        return (PbCommentFloatActivityConfig) invokeLLIL.objValue;
     }
 
     public PbCommentFloatActivityConfig createNormalCfg(String str, String str2, String str3, String str4) {
@@ -1011,5 +847,142 @@ public class PbCommentFloatActivityConfig extends IntentConfig {
             return this;
         }
         return (PbCommentFloatActivityConfig) invokeLLLLL.objValue;
+    }
+
+    public PbCommentFloatActivityConfig createNormalCfg(String str, String str2, String str3, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{str, str2, str3, Boolean.valueOf(z)})) == null) {
+            if (str == null) {
+                return this;
+            }
+            Intent intent = getIntent();
+            intent.putExtra("thread_id", str);
+            intent.putExtra("post_id", str2);
+            intent.putExtra("st_type", str3);
+            intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
+            intent.putExtra("is_from_bar_vote", z);
+            if (!(this.mContext instanceof Activity)) {
+                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+            }
+            intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
+            addMoreIntentExtraParam();
+            return this;
+        }
+        return (PbCommentFloatActivityConfig) invokeCommon.objValue;
+    }
+
+    public PbCommentFloatActivityConfig createViewTypeCfg(String str, boolean z, boolean z2, String str2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2), str2})) == null) {
+            if (str == null) {
+                return this;
+            }
+            Intent intent = getIntent();
+            intent.putExtra("thread_id", str);
+            intent.putExtra("st_type", str2);
+            intent.putExtra("host_only", z);
+            intent.putExtra("squence", z2);
+            intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
+            if (!(this.mContext instanceof Activity)) {
+                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+            }
+            intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
+            addMoreIntentExtraParam();
+            return this;
+        }
+        return (PbCommentFloatActivityConfig) invokeCommon.objValue;
+    }
+
+    public PbCommentFloatActivityConfig disablePbKeyPostId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            Intent intent = getIntent();
+            if (intent != null) {
+                intent.putExtra("is_pb_key_need_post_id", true);
+            }
+            return this;
+        }
+        return (PbCommentFloatActivityConfig) invokeV.objValue;
+    }
+
+    public void setFromPushNotify() {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048603, this) == null) && (intent = getIntent()) != null) {
+            intent.putExtra(TbWebViewActivityConfig.INTENT_KEY_IS_FROM_PUSH_NOTIFY, true);
+            intent.putExtra("key_start_from", 7);
+        }
+    }
+
+    public PbCommentFloatActivityConfig setBjhData(BaijiahaoData baijiahaoData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, baijiahaoData)) == null) {
+            Intent intent = getIntent();
+            if (intent != null && baijiahaoData != null && baijiahaoData != null) {
+                int i = baijiahaoData.oriUgcType;
+                boolean z = true;
+                if (i != 1 && i != 2 && i != 3 && i != 4) {
+                    z = false;
+                }
+                intent.putExtra("key_is_from_dynamic", z);
+                intent.putExtra("key_ori_ugc_nid", baijiahaoData.oriUgcNid);
+                intent.putExtra("key_ori_ugc_tid", baijiahaoData.oriUgcTid);
+                intent.putExtra("key_ori_ugc_type", baijiahaoData.oriUgcType);
+                intent.putExtra("key_ori_ugc_vid", baijiahaoData.oriUgcVid);
+            }
+            return this;
+        }
+        return (PbCommentFloatActivityConfig) invokeL.objValue;
+    }
+
+    public PbCommentFloatActivityConfig setThreadData(ThreadData threadData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048625, this, threadData)) == null) {
+            Intent intent = getIntent();
+            if (intent != null && threadData != null) {
+                BaijiahaoData baijiahaoData = threadData.getBaijiahaoData();
+                if (baijiahaoData != null) {
+                    intent.putExtra("key_is_from_dynamic", threadData.isUgcThreadType());
+                    intent.putExtra("key_ori_ugc_nid", baijiahaoData.oriUgcNid);
+                    intent.putExtra("key_ori_ugc_tid", baijiahaoData.oriUgcTid);
+                    intent.putExtra("key_ori_ugc_type", baijiahaoData.oriUgcType);
+                    intent.putExtra("key_ori_ugc_vid", baijiahaoData.oriUgcVid);
+                }
+                intent.putExtra("key_rec_weight", threadData.mRecomWeight);
+                intent.putExtra("key_rec_source", threadData.mRecomSource);
+                intent.putExtra("key_rec_ab_tag", threadData.mRecomAbTag);
+                intent.putExtra("key_rec_extra", threadData.mRecomExtra);
+            }
+            return this;
+        }
+        return (PbCommentFloatActivityConfig) invokeL.objValue;
+    }
+
+    public PbCommentFloatActivityConfig setBjhData(String str, String str2, String str3, String str4) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048595, this, str, str2, str3, str4)) == null) {
+            Intent intent = getIntent();
+            if (intent == null) {
+                return this;
+            }
+            int parseInt = Integer.parseInt(str3);
+            boolean z = true;
+            if (parseInt != 1 && parseInt != 2 && parseInt != 3 && parseInt != 4) {
+                z = false;
+            }
+            intent.putExtra("key_is_from_dynamic", z);
+            intent.putExtra("key_ori_ugc_nid", str);
+            intent.putExtra("key_ori_ugc_tid", str2);
+            intent.putExtra("key_ori_ugc_type", parseInt);
+            intent.putExtra("key_ori_ugc_vid", str4);
+            return this;
+        }
+        return (PbCommentFloatActivityConfig) invokeLLLL.objValue;
     }
 }

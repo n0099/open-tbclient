@@ -1,36 +1,151 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.pu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.FrsPage.BrandForumInfo;
 /* loaded from: classes6.dex */
-public class wg6 {
+public class wg6 extends p16 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ImageView i;
+    public final TextView j;
+    public int k;
 
-    public wg6() {
+    @Override // com.baidu.tieba.p16
+    public int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d02c5 : invokeV.intValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.p16
+    /* renamed from: r */
+    public void l(tg6 tg6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, tg6Var) == null) {
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements pu4.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(wg6 wg6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wg6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.pu4.e
+        public void onClick(pu4 pu4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, pu4Var) == null) {
+                sg6.a();
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921020));
+                pu4Var.dismiss();
             }
         }
     }
 
-    public void a(BrandForumInfo brandForumInfo) {
+    /* loaded from: classes6.dex */
+    public class b implements pu4.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(wg6 wg6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wg6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.pu4.e
+        public void onClick(pu4 pu4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, pu4Var) == null) {
+                pu4Var.dismiss();
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wg6(TbPageContext tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, brandForumInfo) == null) || brandForumInfo == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.k = 3;
+        this.i = (ImageView) k().findViewById(R.id.obfuscated_res_0x7f090d7b);
+        this.j = (TextView) k().findViewById(R.id.obfuscated_res_0x7f090d81);
+        this.i.setOnClickListener(this);
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && view2 == this.i) {
+            pu4 pu4Var = new pu4(this.b.getPageActivity());
+            pu4Var.setTitle(R.string.obfuscated_res_0x7f0f043f);
+            pu4Var.setCanceledOnTouchOutside(true);
+            pu4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f043d, new a(this));
+            pu4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0375, new b(this));
+            pu4Var.create(this.b);
+            pu4Var.show();
+        }
+    }
+
+    @Override // com.baidu.tieba.p16
+    public void m(TbPageContext tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) != null) || this.k == i) {
             return;
         }
-        String str = brandForumInfo.brand_desc;
-        String str2 = brandForumInfo.jump_url;
-        String str3 = brandForumInfo.jump_desc;
+        SkinManager.setBackgroundResource(this.i, R.drawable.icon_search_history_del);
+        SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0110);
+        this.k = i;
     }
 }

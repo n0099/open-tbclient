@@ -1,6 +1,5 @@
 package com.xiaomi.push.service;
 
-import android.annotation.TargetApi;
 import android.app.Notification;
 import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
@@ -50,7 +49,7 @@ public final class cd extends al.a {
 
     @Override // com.xiaomi.push.al.a
     /* renamed from: a */
-    public String mo208a() {
+    public String mo207a() {
         InterceptResult invokeV;
         String b;
         Interceptable interceptable = $ic;
@@ -62,7 +61,6 @@ public final class cd extends al.a {
     }
 
     @Override // java.lang.Runnable
-    @TargetApi(19)
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {

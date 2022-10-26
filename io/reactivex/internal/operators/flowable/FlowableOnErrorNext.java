@@ -16,24 +16,24 @@ import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableOnErrorNext<T> extends AbstractFlowableWithUpstream<T, T> {
+public final class FlowableOnErrorNext extends AbstractFlowableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean allowFatal;
-    public final Function<? super Throwable, ? extends Publisher<? extends T>> nextSupplier;
+    public final Function nextSupplier;
 
     /* loaded from: classes8.dex */
-    public static final class OnErrorNextSubscriber<T> implements FlowableSubscriber<T> {
+    public final class OnErrorNextSubscriber implements FlowableSubscriber {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber<? super T> actual;
+        public final Subscriber actual;
         public final boolean allowFatal;
         public final SubscriptionArbiter arbiter;
         public boolean done;
-        public final Function<? super Throwable, ? extends Publisher<? extends T>> nextSupplier;
+        public final Function nextSupplier;
         public boolean once;
 
-        public OnErrorNextSubscriber(Subscriber<? super T> subscriber, Function<? super Throwable, ? extends Publisher<? extends T>> function, boolean z) {
+        public OnErrorNextSubscriber(Subscriber subscriber, Function function, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -57,7 +57,7 @@ public final class FlowableOnErrorNext<T> extends AbstractFlowableWithUpstream<T
         @Override // org.reactivestreams.Subscriber
         public void onComplete() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.done) {
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.done) {
                 return;
             }
             this.done = true;
@@ -84,14 +84,14 @@ public final class FlowableOnErrorNext<T> extends AbstractFlowableWithUpstream<T
                     return;
                 }
                 try {
-                    Publisher<? extends T> apply = this.nextSupplier.apply(th);
-                    if (apply == null) {
+                    Publisher publisher = (Publisher) this.nextSupplier.apply(th);
+                    if (publisher == null) {
                         NullPointerException nullPointerException = new NullPointerException("Publisher is null");
                         nullPointerException.initCause(th);
                         this.actual.onError(nullPointerException);
                         return;
                     }
-                    apply.subscribe(this);
+                    publisher.subscribe(this);
                 } catch (Throwable th2) {
                     Exceptions.throwIfFatal(th2);
                     this.actual.onError(new CompositeException(th, th2));
@@ -100,16 +100,15 @@ public final class FlowableOnErrorNext<T> extends AbstractFlowableWithUpstream<T
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) || this.done) {
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) != null) || this.done) {
                 return;
             }
-            this.actual.onNext(t);
-            if (this.once) {
-                return;
+            this.actual.onNext(obj);
+            if (!this.once) {
+                this.arbiter.produced(1L);
             }
-            this.arbiter.produced(1L);
         }
 
         @Override // io.reactivex.FlowableSubscriber, org.reactivestreams.Subscriber
@@ -122,7 +121,7 @@ public final class FlowableOnErrorNext<T> extends AbstractFlowableWithUpstream<T
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableOnErrorNext(Flowable<T> flowable, Function<? super Throwable, ? extends Publisher<? extends T>> function, boolean z) {
+    public FlowableOnErrorNext(Flowable flowable, Function function, boolean z) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -144,7 +143,7 @@ public final class FlowableOnErrorNext<T> extends AbstractFlowableWithUpstream<T
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber<? super T> subscriber) {
+    public void subscribeActual(Subscriber subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             OnErrorNextSubscriber onErrorNextSubscriber = new OnErrorNextSubscriber(subscriber, this.nextSupplier, this.allowFatal);

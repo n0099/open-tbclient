@@ -10,13 +10,12 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.ho5;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.oo5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -78,7 +77,7 @@ public class AudioCircleProgress extends View {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AudioCircleProgress(Context context, @Nullable AttributeSet attributeSet) {
+    public AudioCircleProgress(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -97,6 +96,48 @@ public class AudioCircleProgress extends View {
             }
         }
         d(context, attributeSet);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public AudioCircleProgress(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        d(context, attributeSet);
+    }
+
+    public final void g(float f, float f2, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Long.valueOf(j)}) == null) {
+            ValueAnimator ofFloat = ValueAnimator.ofFloat(f, f2);
+            this.p = ofFloat;
+            ofFloat.setDuration(j);
+            this.p.setInterpolator(new LinearInterpolator());
+            this.p.addUpdateListener(new a(this));
+            this.p.start();
+        }
+    }
+
+    @Override // android.view.View
+    public void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048583, this, i, i2) == null) {
+            super.onMeasure(i, i2);
+        }
     }
 
     public final void b(Canvas canvas) {
@@ -120,74 +161,6 @@ public class AudioCircleProgress extends View {
         }
     }
 
-    public final void d(Context context, @Nullable AttributeSet attributeSet) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, attributeSet) == null) {
-            this.j = new RectF();
-            this.g = new Point();
-            this.p = new ValueAnimator();
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ho5.voiceCircleProgress);
-            this.b = obtainStyledAttributes.getColor(0, SkinManager.getColor(R.color.CAM_X0302));
-            this.e = obtainStyledAttributes.getColor(2, 0);
-            this.c = obtainStyledAttributes.getDimension(1, 15.0f);
-            this.d = obtainStyledAttributes.getDimension(1, 15.0f);
-            this.m = obtainStyledAttributes.getFloat(5, 270.0f);
-            this.n = obtainStyledAttributes.getFloat(6, 360.0f);
-            this.q = ej.f(context, R.dimen.tbds25);
-            e();
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            Paint paint = new Paint();
-            this.a = paint;
-            paint.setAntiAlias(true);
-            this.a.setColor(this.b);
-            this.a.setStyle(Paint.Style.STROKE);
-            this.a.setStrokeWidth(this.c);
-            this.a.setStrokeCap(Paint.Cap.ROUND);
-            Paint paint2 = new Paint();
-            this.f = paint2;
-            paint2.setColor(this.e);
-            this.f.setStyle(Paint.Style.STROKE);
-            this.f.setStrokeWidth(this.d);
-            this.f.setStrokeCap(Paint.Cap.ROUND);
-            Paint paint3 = new Paint();
-            this.k = paint3;
-            paint3.setAntiAlias(true);
-            this.k.setStyle(Paint.Style.FILL);
-            this.k.setShadowLayer(this.q, 0.0f, 0.0f, SkinManager.getColor(R.color.CAM_X0602));
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (this.l != null) {
-                this.o = 0.0f;
-                invalidate();
-            }
-            ValueAnimator valueAnimator = this.p;
-            if (valueAnimator != null) {
-                valueAnimator.cancel();
-            }
-        }
-    }
-
-    public final void g(float f, float f2, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Long.valueOf(j)}) == null) {
-            ValueAnimator ofFloat = ValueAnimator.ofFloat(f, f2);
-            this.p = ofFloat;
-            ofFloat.setDuration(j);
-            this.p.setInterpolator(new LinearInterpolator());
-            this.p.addUpdateListener(new a(this));
-            this.p.start();
-        }
-    }
-
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
@@ -196,38 +169,6 @@ public class AudioCircleProgress extends View {
             this.l = canvas;
             c(canvas);
             b(canvas);
-        }
-    }
-
-    @Override // android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048583, this, i, i2) == null) {
-            super.onMeasure(i, i2);
-        }
-    }
-
-    @Override // android.view.View
-    public void onSizeChanged(int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2, i3, i4) == null) {
-            super.onSizeChanged(i, i2, i3, i4);
-            float max = Math.max(this.c, this.d);
-            int i5 = ((int) max) * 2;
-            float min = Math.min((((i - getPaddingLeft()) - getPaddingRight()) - i5) - (((int) this.q) * 2), (((i2 - getPaddingTop()) - getPaddingBottom()) - i5) - (((int) this.q) * 2)) / 2;
-            this.h = min;
-            this.i = (i - (((int) this.q) * 2)) / 2;
-            Point point = this.g;
-            int i6 = i / 2;
-            point.x = i6;
-            int i7 = i2 / 2;
-            point.y = i7;
-            RectF rectF = this.j;
-            float f = max / 2.0f;
-            rectF.left = (i6 - min) - f;
-            rectF.top = (i7 - min) - f;
-            rectF.right = i6 + min + f;
-            rectF.bottom = i7 + min + f;
         }
     }
 
@@ -272,25 +213,83 @@ public class AudioCircleProgress extends View {
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AudioCircleProgress(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public final void d(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, attributeSet) == null) {
+            this.j = new RectF();
+            this.g = new Point();
+            this.p = new ValueAnimator();
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, oo5.voiceCircleProgress);
+            this.b = obtainStyledAttributes.getColor(0, SkinManager.getColor(R.color.CAM_X0302));
+            this.e = obtainStyledAttributes.getColor(2, 0);
+            this.c = obtainStyledAttributes.getDimension(1, 15.0f);
+            this.d = obtainStyledAttributes.getDimension(1, 15.0f);
+            this.m = obtainStyledAttributes.getFloat(5, 270.0f);
+            this.n = obtainStyledAttributes.getFloat(6, 360.0f);
+            this.q = fj.f(context, R.dimen.tbds25);
+            e();
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            Paint paint = new Paint();
+            this.a = paint;
+            paint.setAntiAlias(true);
+            this.a.setColor(this.b);
+            this.a.setStyle(Paint.Style.STROKE);
+            this.a.setStrokeWidth(this.c);
+            this.a.setStrokeCap(Paint.Cap.ROUND);
+            Paint paint2 = new Paint();
+            this.f = paint2;
+            paint2.setColor(this.e);
+            this.f.setStyle(Paint.Style.STROKE);
+            this.f.setStrokeWidth(this.d);
+            this.f.setStrokeCap(Paint.Cap.ROUND);
+            Paint paint3 = new Paint();
+            this.k = paint3;
+            paint3.setAntiAlias(true);
+            this.k.setStyle(Paint.Style.FILL);
+            this.k.setShadowLayer(this.q, 0.0f, 0.0f, SkinManager.getColor(R.color.CAM_X0602));
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (this.l != null) {
+                this.o = 0.0f;
+                invalidate();
+            }
+            ValueAnimator valueAnimator = this.p;
+            if (valueAnimator != null) {
+                valueAnimator.cancel();
             }
         }
-        d(context, attributeSet);
+    }
+
+    @Override // android.view.View
+    public void onSizeChanged(int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2, i3, i4) == null) {
+            super.onSizeChanged(i, i2, i3, i4);
+            float max = Math.max(this.c, this.d);
+            int i5 = ((int) max) * 2;
+            float min = Math.min((((i - getPaddingLeft()) - getPaddingRight()) - i5) - (((int) this.q) * 2), (((i2 - getPaddingTop()) - getPaddingBottom()) - i5) - (((int) this.q) * 2)) / 2;
+            this.h = min;
+            this.i = (i - (((int) this.q) * 2)) / 2;
+            Point point = this.g;
+            int i6 = i / 2;
+            point.x = i6;
+            int i7 = i2 / 2;
+            point.y = i7;
+            RectF rectF = this.j;
+            float f = max / 2.0f;
+            rectF.left = (i6 - min) - f;
+            rectF.top = (i7 - min) - f;
+            rectF.right = i6 + min + f;
+            rectF.bottom = i7 + min + f;
+        }
     }
 }

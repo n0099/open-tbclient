@@ -1,6 +1,5 @@
 package com.baidu.searchbox.afx.recode;
 
-import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.graphics.SurfaceTexture;
 import android.opengl.GLES20;
@@ -121,7 +120,6 @@ public class TextureRender {
         return invokeIL.intValue;
     }
 
-    @SuppressLint({"BDThrowableCheck"})
     public static void saveFrame(String str, int i, int i2) {
         FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
@@ -174,24 +172,23 @@ public class TextureRender {
         }
     }
 
-    @SuppressLint({"BDThrowableCheck"})
     public void changeFragmentShader(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             GLES20.glDeleteProgram(this.mProgram);
             int createProgram = createProgram(VERTEX_SHADER, str);
             this.mProgram = createProgram;
-            if (createProgram == 0) {
-                throw new RuntimeException("failed creating program");
+            if (createProgram != 0) {
+                return;
             }
+            throw new RuntimeException("failed creating program");
         }
     }
 
-    @SuppressLint({"BDThrowableCheck"})
     public void checkGlError(String str) {
         int glGetError;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (glGetError = GLES20.glGetError()) == 0) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || (glGetError = GLES20.glGetError()) == 0) {
             return;
         }
         Log.e(TAG, str + ": glError " + glGetError);
@@ -231,10 +228,12 @@ public class TextureRender {
     public int getTextureId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mTextureID : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mTextureID;
+        }
+        return invokeV.intValue;
     }
 
-    @SuppressLint({"BDThrowableCheck"})
     public void surfaceCreated() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {

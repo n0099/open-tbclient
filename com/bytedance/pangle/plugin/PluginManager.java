@@ -3,7 +3,6 @@ package com.bytedance.pangle.plugin;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
-import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +23,6 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import org.json.JSONException;
 import org.json.JSONObject;
-@Keep
 /* loaded from: classes7.dex */
 public class PluginManager {
     public static /* synthetic */ Interceptable $ic = null;
@@ -34,7 +32,7 @@ public class PluginManager {
     public volatile boolean hasInstallFromDownloadDir;
     public ExecutorService mInstallThreadPool;
     public volatile boolean mIsParsePluginConfig;
-    public volatile Map<String, Plugin> mPlugins;
+    public volatile Map mPlugins;
     public final c pluginLoader;
 
     public PluginManager() {
@@ -54,14 +52,6 @@ public class PluginManager {
         this.pluginLoader = new c();
     }
 
-    private void ensurePluginFileExist(Plugin plugin) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, this, plugin) == null) || plugin == null || !plugin.isInstalled() || new File(com.bytedance.pangle.c.c.b(plugin.mPkgName, plugin.getVersion())).exists()) {
-            return;
-        }
-        unInstallPackage(plugin.mPkgName);
-    }
-
     public static PluginManager getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -76,6 +66,56 @@ public class PluginManager {
             return sInstance;
         }
         return (PluginManager) invokeV.objValue;
+    }
+
+    public ExecutorService getInstallThreadPool() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.mInstallThreadPool == null) {
+                this.mInstallThreadPool = e.a(GlobalParam.getInstance().getInstallThreads());
+            }
+            return this.mInstallThreadPool;
+        }
+        return (ExecutorService) invokeV.objValue;
+    }
+
+    private void ensurePluginFileExist(Plugin plugin) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65537, this, plugin) == null) && plugin != null && plugin.isInstalled() && !new File(com.bytedance.pangle.c.c.b(plugin.mPkgName, plugin.getVersion())).exists()) {
+            unInstallPackage(plugin.mPkgName);
+        }
+    }
+
+    public Plugin getPlugin(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return getPlugin(str, true);
+        }
+        return (Plugin) invokeL.objValue;
+    }
+
+    public boolean isLoaded(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            Plugin plugin = getPlugin(str);
+            if (plugin != null && plugin.isLoaded()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean loadPlugin(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            return this.pluginLoader.a(str);
+        }
+        return invokeL.booleanValue;
     }
 
     private synchronized void parsePluginConfig() {
@@ -133,27 +173,20 @@ public class PluginManager {
 
     public boolean checkPluginInstalled(String str) {
         InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             Plugin plugin = getPlugin(str);
             ensurePluginFileExist(plugin);
-            boolean z = plugin != null && plugin.isInstalled();
+            if (plugin != null && plugin.isInstalled()) {
+                z = true;
+            } else {
+                z = false;
+            }
             ZeusLogger.d(ZeusLogger.TAG_PPM, "PluginManager checkPluginInstalled, " + str + " = " + z);
             return z;
         }
         return invokeL.booleanValue;
-    }
-
-    public ExecutorService getInstallThreadPool() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.mInstallThreadPool == null) {
-                this.mInstallThreadPool = e.a(GlobalParam.getInstance().getInstallThreads());
-            }
-            return this.mInstallThreadPool;
-        }
-        return (ExecutorService) invokeV.objValue;
     }
 
     public Plugin getPlugin(String str, boolean z) {
@@ -166,13 +199,23 @@ public class PluginManager {
             if (!this.mIsParsePluginConfig) {
                 parsePluginConfig();
             }
-            Plugin plugin = this.mPlugins.get(str);
+            Plugin plugin = (Plugin) this.mPlugins.get(str);
             if (z && plugin != null) {
                 plugin.init();
             }
             return plugin;
         }
         return (Plugin) invokeLZ.objValue;
+    }
+
+    public boolean syncInstall(String str, File file) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, str, file)) == null) {
+            ZeusLogger.i(ZeusLogger.TAG_INSTALL, "PluginManager syncInstall, file=".concat(String.valueOf(file)));
+            return new a(str, file).a();
+        }
+        return invokeLL.booleanValue;
     }
 
     public synchronized void installFromDownloadDir() {
@@ -191,22 +234,6 @@ public class PluginManager {
         }
     }
 
-    public boolean isLoaded(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            Plugin plugin = getPlugin(str);
-            return plugin != null && plugin.isLoaded();
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean loadPlugin(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) ? this.pluginLoader.a(str) : invokeL.booleanValue;
-    }
-
     public void setAllowDownloadPlugin(String str, int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
@@ -218,16 +245,6 @@ public class PluginManager {
                 ZeusLogger.i(ZeusLogger.TAG_INIT, "ZeusSpUtils markAllowDownloadFlag packageName=" + str + " version=" + i + " allow=" + z);
             }
         }
-    }
-
-    public boolean syncInstall(String str, File file) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, str, file)) == null) {
-            ZeusLogger.i(ZeusLogger.TAG_INSTALL, "PluginManager syncInstall, file=".concat(String.valueOf(file)));
-            return new a(str, file).a();
-        }
-        return invokeLL.booleanValue;
     }
 
     public void tryOfflineInternalPlugin(String str, int i) {
@@ -254,11 +271,5 @@ public class PluginManager {
                 ZeusLogger.i(ZeusLogger.TAG_INIT, "ZeusSpUtils markUnInstallFlag packageName=".concat(String.valueOf(str)));
             }
         }
-    }
-
-    public Plugin getPlugin(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? getPlugin(str, true) : (Plugin) invokeL.objValue;
     }
 }

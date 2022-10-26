@@ -50,33 +50,6 @@ public final class a implements c {
         }
     }
 
-    private SecretKey b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            try {
-                if (this.b != null) {
-                    return this.b;
-                }
-                if (!c()) {
-                    KeyGenerator keyGenerator = KeyGenerator.getInstance("AES", "AndroidKeyStore");
-                    if (Build.VERSION.SDK_INT >= 23) {
-                        keyGenerator.init(new KeyGenParameterSpec.Builder("AesKeyAlias", 3).setBlockModes("GCM").setEncryptionPaddings("NoPadding").setKeySize(256).build());
-                    }
-                    this.b = keyGenerator.generateKey();
-                } else {
-                    this.b = d();
-                }
-                return this.b;
-            } catch (Exception e) {
-                e.printStackTrace();
-                p.a("AesSecurity", "getSecretKey error" + e.getMessage());
-                return null;
-            }
-        }
-        return (SecretKey) invokeV.objValue;
-    }
-
     private boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -104,6 +77,33 @@ public final class a implements c {
             } catch (Exception e) {
                 e.printStackTrace();
                 p.a("AesSecurity", "getAESSecretKey error" + e.getMessage());
+                return null;
+            }
+        }
+        return (SecretKey) invokeV.objValue;
+    }
+
+    private SecretKey b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+            try {
+                if (this.b != null) {
+                    return this.b;
+                }
+                if (!c()) {
+                    KeyGenerator keyGenerator = KeyGenerator.getInstance("AES", "AndroidKeyStore");
+                    if (Build.VERSION.SDK_INT >= 23) {
+                        keyGenerator.init(new KeyGenParameterSpec.Builder("AesKeyAlias", 3).setBlockModes("GCM").setEncryptionPaddings("NoPadding").setKeySize(256).build());
+                    }
+                    this.b = keyGenerator.generateKey();
+                } else {
+                    this.b = d();
+                }
+                return this.b;
+            } catch (Exception e) {
+                e.printStackTrace();
+                p.a("AesSecurity", "getSecretKey error" + e.getMessage());
                 return null;
             }
         }

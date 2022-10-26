@@ -30,19 +30,25 @@ public class OkHttpDownloadManager extends OkHttpRequestManager implements Downl
         }
     }
 
-    @Override // com.baidu.livesdk.api.http.download.DownloadManager
-    public Downloader getLoader(DownloadEntity downloadEntity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadEntity)) == null) ? getRequest((HttpRequestEntity) downloadEntity) : (Downloader) invokeL.objValue;
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.livesdk.sdk.http.OkHttpRequestManager
     public OkHttpDownloader createRequest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new OkHttpDownloader() : (OkHttpDownloader) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return new OkHttpDownloader();
+        }
+        return (OkHttpDownloader) invokeV.objValue;
+    }
+
+    @Override // com.baidu.livesdk.api.http.download.DownloadManager
+    public Downloader getLoader(DownloadEntity downloadEntity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadEntity)) == null) {
+            return getRequest((HttpRequestEntity) downloadEntity);
+        }
+        return (Downloader) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -50,6 +56,9 @@ public class OkHttpDownloadManager extends OkHttpRequestManager implements Downl
     public OkHttpDownloader getRequest(HttpRequestEntity httpRequestEntity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, httpRequestEntity)) == null) ? (OkHttpDownloader) super.getRequest(httpRequestEntity) : (OkHttpDownloader) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, httpRequestEntity)) == null) {
+            return (OkHttpDownloader) super.getRequest(httpRequestEntity);
+        }
+        return (OkHttpDownloader) invokeL.objValue;
     }
 }

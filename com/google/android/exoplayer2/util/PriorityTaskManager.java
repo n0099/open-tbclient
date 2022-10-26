@@ -16,10 +16,10 @@ public final class PriorityTaskManager {
     public transient /* synthetic */ FieldHolder $fh;
     public int highestPriority;
     public final Object lock;
-    public final PriorityQueue<Integer> queue;
+    public final PriorityQueue queue;
 
     /* loaded from: classes7.dex */
-    public static class PriorityTooLowException extends IOException {
+    public class PriorityTooLowException extends IOException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -58,7 +58,7 @@ public final class PriorityTaskManager {
             }
         }
         this.lock = new Object();
-        this.queue = new PriorityQueue<>(10, Collections.reverseOrder());
+        this.queue = new PriorityQueue(10, Collections.reverseOrder());
         this.highestPriority = Integer.MIN_VALUE;
     }
 
@@ -89,7 +89,11 @@ public final class PriorityTaskManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
             synchronized (this.lock) {
-                z = this.highestPriority == i;
+                if (this.highestPriority == i) {
+                    z = true;
+                } else {
+                    z = false;
+                }
             }
             return z;
         }
@@ -108,11 +112,17 @@ public final class PriorityTaskManager {
     }
 
     public void remove(int i) {
+        int intValue;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             synchronized (this.lock) {
                 this.queue.remove(Integer.valueOf(i));
-                this.highestPriority = this.queue.isEmpty() ? Integer.MIN_VALUE : this.queue.peek().intValue();
+                if (this.queue.isEmpty()) {
+                    intValue = Integer.MIN_VALUE;
+                } else {
+                    intValue = ((Integer) this.queue.peek()).intValue();
+                }
+                this.highestPriority = intValue;
                 this.lock.notifyAll();
             }
         }

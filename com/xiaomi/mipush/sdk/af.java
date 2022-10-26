@@ -22,7 +22,7 @@ public class af {
     public Context f49a;
 
     /* renamed from: a  reason: collision with other field name */
-    public List<x> f50a;
+    public List f50a;
 
     static {
         InterceptResult invokeClinit;
@@ -122,7 +122,7 @@ public class af {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m111a(String str) {
+    public void m110a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             synchronized (this.f50a) {
@@ -138,7 +138,7 @@ public class af {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m112a(String str) {
+    public boolean m111a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
@@ -158,14 +158,14 @@ public class af {
                 x xVar = new x();
                 xVar.f89a = str;
                 if (this.f50a.contains(xVar)) {
-                    Iterator<x> it = this.f50a.iterator();
+                    Iterator it = this.f50a.iterator();
                     while (true) {
                         if (!it.hasNext()) {
                             break;
                         }
-                        x next = it.next();
-                        if (xVar.equals(next)) {
-                            xVar = next;
+                        x xVar2 = (x) it.next();
+                        if (xVar.equals(xVar2)) {
+                            xVar = xVar2;
                             break;
                         }
                     }

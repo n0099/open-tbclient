@@ -40,7 +40,10 @@ public class BfbInfoHttpResponseMessage extends TbHttpResponsedMessage {
     public UserBfbInfo getBfbInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.bfbInfo : (UserBfbInfo) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.bfbInfo;
+        }
+        return (UserBfbInfo) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -48,7 +51,7 @@ public class BfbInfoHttpResponseMessage extends TbHttpResponsedMessage {
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         GetUserBfbInfoResIdl getUserBfbInfoResIdl;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (getUserBfbInfoResIdl = (GetUserBfbInfoResIdl) new Wire(new Class[0]).parseFrom(bArr, GetUserBfbInfoResIdl.class)) == null) {
+        if ((interceptable != null && interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) != null) || (getUserBfbInfoResIdl = (GetUserBfbInfoResIdl) new Wire(new Class[0]).parseFrom(bArr, GetUserBfbInfoResIdl.class)) == null) {
             return;
         }
         Error error = getUserBfbInfoResIdl.error;

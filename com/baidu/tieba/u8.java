@@ -25,6 +25,48 @@ public final class u8 {
         return (Class) invokeL.objValue;
     }
 
+    public static w8[] d(Class cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cls)) == null) {
+            Field[] declaredFields = cls.getDeclaredFields();
+            w8[] w8VarArr = new w8[declaredFields.length];
+            int length = declaredFields.length;
+            for (int i = 0; i < length; i++) {
+                w8VarArr[i] = new w8(declaredFields[i]);
+            }
+            return w8VarArr;
+        }
+        return (w8[]) invokeL.objValue;
+    }
+
+    public static String e(Class cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, cls)) == null) {
+            return cls.getSimpleName();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean g(Class cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, cls)) == null) {
+            return cls.isMemberClass();
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean h(Class cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, cls)) == null) {
+            return Modifier.isStatic(cls.getModifiers());
+        }
+        return invokeL.booleanValue;
+    }
+
     public static v8 b(Class cls, Class... clsArr) throws ReflectionException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -55,46 +97,16 @@ public final class u8 {
         return (v8) invokeLL.objValue;
     }
 
-    public static w8[] d(Class cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cls)) == null) {
-            Field[] declaredFields = cls.getDeclaredFields();
-            w8[] w8VarArr = new w8[declaredFields.length];
-            int length = declaredFields.length;
-            for (int i = 0; i < length; i++) {
-                w8VarArr[i] = new w8(declaredFields[i]);
-            }
-            return w8VarArr;
-        }
-        return (w8[]) invokeL.objValue;
-    }
-
-    public static String e(Class cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, cls)) == null) ? cls.getSimpleName() : (String) invokeL.objValue;
-    }
-
     public static boolean f(Class cls, Class cls2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, cls, cls2)) == null) ? cls.isAssignableFrom(cls2) : invokeLL.booleanValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, cls, cls2)) == null) {
+            return cls.isAssignableFrom(cls2);
+        }
+        return invokeLL.booleanValue;
     }
 
-    public static boolean g(Class cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, cls)) == null) ? cls.isMemberClass() : invokeL.booleanValue;
-    }
-
-    public static boolean h(Class cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, cls)) == null) ? Modifier.isStatic(cls.getModifiers()) : invokeL.booleanValue;
-    }
-
-    public static <T> T i(Class<T> cls) throws ReflectionException {
+    public static Object i(Class cls) throws ReflectionException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, cls)) == null) {
@@ -106,6 +118,6 @@ public final class u8 {
                 throw new ReflectionException("Could not instantiate instance of class: " + cls.getName(), e2);
             }
         }
-        return (T) invokeL.objValue;
+        return invokeL.objValue;
     }
 }

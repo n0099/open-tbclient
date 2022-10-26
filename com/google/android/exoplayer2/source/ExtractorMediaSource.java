@@ -42,6 +42,38 @@ public final class ExtractorMediaSource implements MediaSource, ExtractorMediaPe
         void onLoadError(IOException iOException);
     }
 
+    @Override // com.google.android.exoplayer2.source.MediaSource
+    public void maybeThrowSourceInfoRefreshError() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
+    public ExtractorMediaSource(Uri uri, DataSource.Factory factory, ExtractorsFactory extractorsFactory, int i, Handler handler, EventListener eventListener, String str, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {uri, factory, extractorsFactory, Integer.valueOf(i), handler, eventListener, str, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.uri = uri;
+        this.dataSourceFactory = factory;
+        this.extractorsFactory = extractorsFactory;
+        this.minLoadableRetryCount = i;
+        this.eventHandler = handler;
+        this.eventListener = eventListener;
+        this.customCacheKey = str;
+        this.continueLoadingCheckIntervalBytes = i2;
+    }
+
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ExtractorMediaSource(Uri uri, DataSource.Factory factory, ExtractorsFactory extractorsFactory, Handler handler, EventListener eventListener) {
         this(uri, factory, extractorsFactory, handler, eventListener, null);
@@ -63,6 +95,27 @@ public final class ExtractorMediaSource implements MediaSource, ExtractorMediaPe
         }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public ExtractorMediaSource(Uri uri, DataSource.Factory factory, ExtractorsFactory extractorsFactory, Handler handler, EventListener eventListener, String str) {
+        this(uri, factory, extractorsFactory, -1, handler, eventListener, str, 1048576);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {uri, factory, extractorsFactory, handler, eventListener, str};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Uri) objArr2[0], (DataSource.Factory) objArr2[1], (ExtractorsFactory) objArr2[2], ((Integer) objArr2[3]).intValue(), (Handler) objArr2[4], (EventListener) objArr2[5], (String) objArr2[6], ((Integer) objArr2[7]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+    }
+
     private void notifySourceInfoRefreshed(long j, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
@@ -75,19 +128,18 @@ public final class ExtractorMediaSource implements MediaSource, ExtractorMediaPe
     @Override // com.google.android.exoplayer2.source.MediaSource
     public MediaPeriod createPeriod(MediaSource.MediaPeriodId mediaPeriodId, Allocator allocator) {
         InterceptResult invokeLL;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, mediaPeriodId, allocator)) == null) {
-            Assertions.checkArgument(mediaPeriodId.periodIndex == 0);
+            if (mediaPeriodId.periodIndex == 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Assertions.checkArgument(z);
             return new ExtractorMediaPeriod(this.uri, this.dataSourceFactory.createDataSource(), this.extractorsFactory.createExtractors(), this.minLoadableRetryCount, this.eventHandler, this.eventListener, this, allocator, this.customCacheKey, this.continueLoadingCheckIntervalBytes);
         }
         return (MediaPeriod) invokeLL.objValue;
-    }
-
-    @Override // com.google.android.exoplayer2.source.MediaSource
-    public void maybeThrowSourceInfoRefreshError() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
     }
 
     @Override // com.google.android.exoplayer2.source.ExtractorMediaPeriod.Listener
@@ -127,51 +179,5 @@ public final class ExtractorMediaSource implements MediaSource, ExtractorMediaPe
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.sourceListener = null;
         }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ExtractorMediaSource(Uri uri, DataSource.Factory factory, ExtractorsFactory extractorsFactory, Handler handler, EventListener eventListener, String str) {
-        this(uri, factory, extractorsFactory, -1, handler, eventListener, str, 1048576);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {uri, factory, extractorsFactory, handler, eventListener, str};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Uri) objArr2[0], (DataSource.Factory) objArr2[1], (ExtractorsFactory) objArr2[2], ((Integer) objArr2[3]).intValue(), (Handler) objArr2[4], (EventListener) objArr2[5], (String) objArr2[6], ((Integer) objArr2[7]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public ExtractorMediaSource(Uri uri, DataSource.Factory factory, ExtractorsFactory extractorsFactory, int i, Handler handler, EventListener eventListener, String str, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {uri, factory, extractorsFactory, Integer.valueOf(i), handler, eventListener, str, Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.uri = uri;
-        this.dataSourceFactory = factory;
-        this.extractorsFactory = extractorsFactory;
-        this.minLoadableRetryCount = i;
-        this.eventHandler = handler;
-        this.eventListener = eventListener;
-        this.customCacheKey = str;
-        this.continueLoadingCheckIntervalBytes = i2;
     }
 }

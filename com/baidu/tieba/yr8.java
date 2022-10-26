@@ -13,16 +13,16 @@ public class yr8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
-    public final xp8 b;
+    public nt4 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yr8(MainTabActivity mainTabActivity, xp8 xp8Var) {
-        super(2001304);
+    public yr8(MainTabActivity mainTabActivity, eq8 eq8Var) {
+        super(2921333);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, xp8Var};
+            Object[] objArr = {mainTabActivity, eq8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,32 +34,25 @@ public class yr8 extends CustomMessageListener {
             }
         }
         this.a = mainTabActivity;
-        this.b = xp8Var;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        xp8 xp8Var;
+    public void onMessage(CustomResponsedMessage customResponsedMessage) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof Integer) || (xp8Var = this.b) == null || xp8Var.B() == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
             return;
         }
-        int intValue = ((Integer) customResponsedMessage.getData()).intValue();
-        int oldSkinType = TbadkCoreApplication.getInst().getOldSkinType();
-        boolean z = false;
-        if ((intValue == 2 || oldSkinType == 2) ? false : true) {
+        if (this.b == null && !(customResponsedMessage.getData() instanceof nt4)) {
             return;
         }
-        if ((intValue == 3 || intValue == 1 || intValue == 0) && oldSkinType == 2) {
-            z = true;
+        if (customResponsedMessage.getData() != null) {
+            this.b = (nt4) customResponsedMessage.getData();
         }
-        if (z) {
-            this.b.B().d(1);
-        } else if (TbadkCoreApplication.getInst().isThemeIconCover()) {
-            this.b.B().d(2);
-        } else {
-            this.b.B().d(1);
+        if (this.b != null && TbadkCoreApplication.isLogin()) {
+            cq8 cq8Var = this.a.v;
+            nt4 nt4Var = this.b;
+            cq8Var.j(nt4Var.a, nt4Var.b, nt4Var.c);
         }
     }
 }

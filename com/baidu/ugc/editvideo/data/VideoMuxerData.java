@@ -2,7 +2,6 @@ package com.baidu.ugc.editvideo.data;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.minivideo.arface.bean.BeautyType;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrackConfig;
 import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,10 +14,8 @@ import com.baidu.ugc.editvideo.editvideo.data.MusicInfo;
 import com.baidu.ugc.editvideo.filter.FilterValue;
 import com.baidu.ugc.editvideo.magicmusic.VideoEffectData;
 import com.baidu.ugc.editvideo.player.AudioPlayData;
-import com.baidu.ugc.editvideo.player.AudioPlayTrackData;
 import com.baidu.ugc.editvideo.record.transition.VideoFollowData;
 import com.baidu.ugc.editvideo.subtitle.SubTitleConfig;
-import com.baidu.ugc.editvideo.subtitle.SubTitleUnit;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
@@ -26,14 +23,14 @@ import java.util.Map;
 public class VideoMuxerData implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<AudioPlayData> audioPlayDataList;
+    public List audioPlayDataList;
     public String cachePath;
     public boolean isHfps;
     public boolean isKSongHuaTongMode;
-    public Map<BeautyType, Object> mAREditBeautyMap;
-    public Map<BeautyType, Object> mAREditBeautyMapForMale;
+    public Map mAREditBeautyMap;
+    public Map mAREditBeautyMapForMale;
     public AREditSticker mAREditSticker;
-    public List<AudioPlayTrackData> mAudioPlayTrackDataList;
+    public List mAudioPlayTrackDataList;
     public boolean mCompat;
     public boolean mComposeNecessary;
     public String mCoverColor;
@@ -51,7 +48,7 @@ public class VideoMuxerData implements Serializable {
     public boolean mIsDefaultMale;
     public boolean mIsUserNewAudioMixture;
     public String mKSongHuaTongRecordPath;
-    public List<MultiMediaData> mMultiMediaDatas;
+    public List mMultiMediaDatas;
     public MusicData mMusicData;
     public MusicInfo mMusicInfo;
     public AudioPlayData mMuteAudioData;
@@ -64,9 +61,9 @@ public class VideoMuxerData implements Serializable {
     public int mPreviewHeight;
     public int mPreviewWidth;
     public String mRepairAudioPath;
-    public List<MultiMediaData> mStickerDataList;
+    public List mStickerDataList;
     public SubTitleConfig mSubTitleConfig;
-    public List<SubTitleUnit> mSubTitleUnits;
+    public List mSubTitleUnits;
     public VideoEffectData mVideoEffectData;
     public VideoFollowData mVideoFollowData;
     public String mVideoOutPath;
@@ -101,13 +98,13 @@ public class VideoMuxerData implements Serializable {
         this.mFrameRate = 30;
     }
 
-    public Map<BeautyType, Object> getAREditBeautyMap() {
+    public Map getAREditBeautyMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mAREditBeautyMap : (Map) invokeV.objValue;
     }
 
-    public Map<BeautyType, Object> getAREditBeautyMapForMale() {
+    public Map getAREditBeautyMapForMale() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mAREditBeautyMapForMale : (Map) invokeV.objValue;
@@ -119,13 +116,13 @@ public class VideoMuxerData implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mAREditSticker : (AREditSticker) invokeV.objValue;
     }
 
-    public List<AudioPlayData> getAudioPlayDataList() {
+    public List getAudioPlayDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.audioPlayDataList : (List) invokeV.objValue;
     }
 
-    public List<AudioPlayTrackData> getAudioPlayTrackDataList() {
+    public List getAudioPlayTrackDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mAudioPlayTrackDataList : (List) invokeV.objValue;
@@ -292,7 +289,7 @@ public class VideoMuxerData implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.pageTag : (String) invokeV.objValue;
     }
 
-    public List<MultiMediaData> getPhotoDataList() {
+    public List getPhotoDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.mMultiMediaDatas : (List) invokeV.objValue;
@@ -316,7 +313,7 @@ public class VideoMuxerData implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.mRepairAudioPath : (String) invokeV.objValue;
     }
 
-    public List<MultiMediaData> getStickerDataList() {
+    public List getStickerDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.mStickerDataList : (List) invokeV.objValue;
@@ -328,7 +325,7 @@ public class VideoMuxerData implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.mSubTitleConfig : (SubTitleConfig) invokeV.objValue;
     }
 
-    public List<SubTitleUnit> getSubTitleUnits() {
+    public List getSubTitleUnits() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? this.mSubTitleUnits : (List) invokeV.objValue;
@@ -430,14 +427,14 @@ public class VideoMuxerData implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) ? this.mIsUserNewAudioMixture : invokeV.booleanValue;
     }
 
-    public void setAREditBeautyMap(Map<BeautyType, Object> map) {
+    public void setAREditBeautyMap(Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048630, this, map) == null) {
             this.mAREditBeautyMap = map;
         }
     }
 
-    public void setAREditBeautyMapForMale(Map<BeautyType, Object> map) {
+    public void setAREditBeautyMapForMale(Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048631, this, map) == null) {
             this.mAREditBeautyMapForMale = map;
@@ -452,14 +449,14 @@ public class VideoMuxerData implements Serializable {
     }
 
     @Deprecated
-    public void setAudioPlayDataList(List<AudioPlayData> list) {
+    public void setAudioPlayDataList(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048633, this, list) == null) {
             this.audioPlayDataList = list;
         }
     }
 
-    public void setAudioPlayTrackDataList(List<AudioPlayTrackData> list) {
+    public void setAudioPlayTrackDataList(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048634, this, list) == null) {
             this.mAudioPlayTrackDataList = list;
@@ -698,7 +695,7 @@ public class VideoMuxerData implements Serializable {
         }
     }
 
-    public void setPhotoDataList(List<MultiMediaData> list) {
+    public void setPhotoDataList(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048668, this, list) == null) {
             this.mMultiMediaDatas = list;
@@ -726,7 +723,7 @@ public class VideoMuxerData implements Serializable {
         }
     }
 
-    public void setStickerDataList(List<MultiMediaData> list) {
+    public void setStickerDataList(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048672, this, list) == null) {
             this.mStickerDataList = list;
@@ -740,7 +737,7 @@ public class VideoMuxerData implements Serializable {
         }
     }
 
-    public void setSubTitleUnits(List<SubTitleUnit> list) {
+    public void setSubTitleUnits(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048674, this, list) == null) {
             this.mSubTitleUnits = list;

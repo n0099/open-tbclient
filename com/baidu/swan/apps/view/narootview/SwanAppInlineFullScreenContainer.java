@@ -1,6 +1,5 @@
 package com.baidu.swan.apps.view.narootview;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.MotionEvent;
 import android.widget.FrameLayout;
@@ -13,6 +12,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class SwanAppInlineFullScreenContainer extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // android.view.View
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SwanAppInlineFullScreenContainer(Context context) {
@@ -33,16 +42,5 @@ public class SwanAppInlineFullScreenContainer extends FrameLayout {
             }
         }
         setBackgroundColor(context.getResources().getColor(17170444));
-    }
-
-    @Override // android.view.View
-    @SuppressLint({"ClickableViewAccessibility"})
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-            return true;
-        }
-        return invokeL.booleanValue;
     }
 }

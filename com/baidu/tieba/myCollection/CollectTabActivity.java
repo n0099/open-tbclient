@@ -19,12 +19,12 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.km4;
-import com.baidu.tieba.m95;
-import com.baidu.tieba.up7;
-import com.baidu.tieba.vp4;
-import com.baidu.tieba.vp7;
-import com.baidu.tieba.wp7;
+import com.baidu.tieba.fq7;
+import com.baidu.tieba.gq7;
+import com.baidu.tieba.hq7;
+import com.baidu.tieba.lm4;
+import com.baidu.tieba.q95;
+import com.baidu.tieba.wp4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,8 +35,15 @@ import java.util.Map;
 public class CollectTabActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public up7 a;
+    public fq7 a;
     public CustomMessageListener b;
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.zc5
+    public String getCurrentPageKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "a081" : (String) invokeV.objValue;
+    }
 
     /* loaded from: classes5.dex */
     public class a extends CustomMessageListener {
@@ -67,15 +74,15 @@ public class CollectTabActivity extends BaseFragmentActivity {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof Bundle)) {
-                Bundle bundle = (Bundle) customResponsedMessage.getData();
-                boolean z = bundle.getBoolean("is_enable_edit", true);
-                int i = bundle.getInt("fragment_type", -1);
-                if (i == -1 || i != this.a.a.g()) {
-                    return;
-                }
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || !(customResponsedMessage.getData() instanceof Bundle)) {
+                return;
+            }
+            Bundle bundle = (Bundle) customResponsedMessage.getData();
+            boolean z = bundle.getBoolean("is_enable_edit", true);
+            int i = bundle.getInt("fragment_type", -1);
+            if (i != -1 && i == this.a.a.g()) {
                 this.a.a.l(z);
             }
         }
@@ -97,66 +104,21 @@ public class CollectTabActivity extends BaseFragmentActivity {
         this.b = new a(this, 2022209);
     }
 
-    public final void N0(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, intent) == null) || intent == null) {
-            return;
-        }
-        String dataString = intent.getDataString();
-        if (StringUtils.isNull(dataString) || !dataString.startsWith("tbmycollection://")) {
-            return;
-        }
-        String decode = Uri.decode(intent.getData().getEncodedPath());
-        if (decode.startsWith("//")) {
-            decode = decode.substring(2);
-        }
-        Map<String, String> paramPair = UrlManager.getParamPair(decode);
-        if (paramPair != null) {
-            StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_SCHEME_JUMP_CALL_NATIVE).param("obj_locate", paramPair.get("obj_locate")).param("obj_type", 1).param("obj_source", paramPair.get("obj_source")).param(TiebaStatic.Params.OBJ_PARAM2, paramPair.get(TiebaStatic.Params.OBJ_PARAM2)).param(TiebaStatic.Params.OBJ_TO, 4).param("obj_name", TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_PARAM3, 1);
-            km4.b(param, paramPair);
-            TiebaStatic.log(param);
-        }
-    }
-
-    public void O0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            vp4 vp4Var = new vp4(getPageContext().getPageActivity());
-            ThreadDelegateStatic threadDelegateStatic = new ThreadDelegateStatic();
-            vp4Var.a(threadDelegateStatic);
-            if (vp4Var.getContext() != null) {
-                m95 b = threadDelegateStatic.b();
-                if (b == null) {
-                    return;
-                }
-                b.a.setArguments(new Bundle());
-            }
-            this.a.i(vp4Var.b());
-        }
-    }
-
-    public boolean R0() {
+    public boolean O0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.j() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a.j();
+        }
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.uc5
-    public String getCurrentPageKey() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onPause() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "a081" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048580, this, i, i2, intent) == null) {
-            super.onActivityResult(i, i2, intent);
-            Fragment f = this.a.f();
-            if (f != null) {
-                f.onActivityResult(i, i2, intent);
-            }
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            super.onPause();
+            gq7.b().f(false);
         }
     }
 
@@ -175,7 +137,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
         if ((interceptable == null || interceptable.invokeL(1048582, this, view2) == null) && view2 == this.a.e()) {
             boolean z = !this.a.j();
             if (z) {
-                wp7.a("c14067");
+                hq7.a("c14067");
             }
             this.a.c(z);
             setSwipeBackEnabled(!z);
@@ -187,11 +149,11 @@ public class CollectTabActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d01e4);
-            this.a = new up7(this);
+            setContentView(R.layout.obfuscated_res_0x7f0d01e3);
+            this.a = new fq7(this);
             registerListener(this.b);
-            O0();
-            N0(getIntent());
+            N0();
+            M0(getIntent());
         }
     }
 
@@ -200,29 +162,8 @@ public class CollectTabActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, intent) == null) {
             super.onNewIntent(intent);
-            N0(intent);
+            M0(intent);
             setIntent(intent);
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onPause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            super.onPause();
-            vp7.b().f(false);
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            super.onResume();
-            wp7.a("c14061");
-            vp7.b().f(true);
-            vp7.b().e(false);
-            NotificationHelper.cancelNotification(getPageContext().getPageActivity(), 28);
         }
     }
 
@@ -236,6 +177,67 @@ public class CollectTabActivity extends BaseFragmentActivity {
             }
             if (bundle != null) {
                 bundle.remove(FragmentActivity.FRAGMENTS_TAG);
+            }
+        }
+    }
+
+    public final void M0(Intent intent) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, intent) != null) || intent == null) {
+            return;
+        }
+        String dataString = intent.getDataString();
+        if (!StringUtils.isNull(dataString) && dataString.startsWith("tbmycollection://")) {
+            String decode = Uri.decode(intent.getData().getEncodedPath());
+            if (decode.startsWith("//")) {
+                decode = decode.substring(2);
+            }
+            Map paramPair = UrlManager.getParamPair(decode);
+            if (paramPair != null) {
+                StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_SCHEME_JUMP_CALL_NATIVE).param("obj_locate", (String) paramPair.get("obj_locate")).param("obj_type", 1).param("obj_source", (String) paramPair.get("obj_source")).param(TiebaStatic.Params.OBJ_PARAM2, (String) paramPair.get(TiebaStatic.Params.OBJ_PARAM2)).param(TiebaStatic.Params.OBJ_TO, 4).param("obj_name", TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_PARAM3, 1);
+                lm4.b(param, paramPair);
+                TiebaStatic.log(param);
+            }
+        }
+    }
+
+    public void N0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            wp4 wp4Var = new wp4(getPageContext().getPageActivity());
+            ThreadDelegateStatic threadDelegateStatic = new ThreadDelegateStatic();
+            wp4Var.a(threadDelegateStatic);
+            if (wp4Var.getContext() != null) {
+                q95 b = threadDelegateStatic.b();
+                if (b == null) {
+                    return;
+                }
+                b.a.setArguments(new Bundle());
+            }
+            this.a.i(wp4Var.b());
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            super.onResume();
+            hq7.a("c14061");
+            gq7.b().f(true);
+            gq7.b().e(false);
+            NotificationHelper.cancelNotification(getPageContext().getPageActivity(), 28);
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onActivityResult(int i, int i2, Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(1048580, this, i, i2, intent) == null) {
+            super.onActivityResult(i, i2, intent);
+            Fragment f = this.a.f();
+            if (f != null) {
+                f.onActivityResult(i, i2, intent);
             }
         }
     }

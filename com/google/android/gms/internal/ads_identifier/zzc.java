@@ -14,6 +14,20 @@ public final class zzc {
     public static final ClassLoader zza;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public zzc() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -30,20 +44,6 @@ public final class zzc {
         zza = zzc.class.getClassLoader();
     }
 
-    public zzc() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
     public static void zza(Parcel parcel, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65538, null, parcel, z) == null) {
@@ -54,6 +54,12 @@ public final class zzc {
     public static boolean zzb(Parcel parcel) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, parcel)) == null) ? parcel.readInt() != 0 : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, parcel)) == null) {
+            if (parcel.readInt() != 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

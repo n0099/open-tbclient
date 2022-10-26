@@ -17,7 +17,7 @@ public class MyHorizontalScrollView extends HorizontalScrollView {
     public GestureDetector mGestureDetector;
 
     /* loaded from: classes3.dex */
-    public static /* synthetic */ class a {
+    public /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -46,15 +46,21 @@ public class MyHorizontalScrollView extends HorizontalScrollView {
             this.a = myHorizontalScrollView;
         }
 
+        public /* synthetic */ b(MyHorizontalScrollView myHorizontalScrollView, a aVar) {
+            this(myHorizontalScrollView);
+        }
+
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
         public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) ? Math.abs(f) > Math.abs(f2) : invokeCommon.booleanValue;
-        }
-
-        public /* synthetic */ b(MyHorizontalScrollView myHorizontalScrollView, a aVar) {
-            this(myHorizontalScrollView);
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
+                if (Math.abs(f) > Math.abs(f2)) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeCommon.booleanValue;
         }
     }
 
@@ -77,23 +83,6 @@ public class MyHorizontalScrollView extends HorizontalScrollView {
             }
         }
         this.mGestureDetector = new GestureDetector(new b(this, null));
-    }
-
-    @Override // android.widget.HorizontalScrollView, android.view.ViewGroup
-    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-            boolean onInterceptTouchEvent = super.onInterceptTouchEvent(motionEvent);
-            if (this.mGestureDetector.onTouchEvent(motionEvent)) {
-                if (getParent() != null) {
-                    getParent().requestDisallowInterceptTouchEvent(true);
-                }
-                return onInterceptTouchEvent;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -138,5 +127,22 @@ public class MyHorizontalScrollView extends HorizontalScrollView {
             }
         }
         this.mGestureDetector = new GestureDetector(new b(this, null));
+    }
+
+    @Override // android.widget.HorizontalScrollView, android.view.ViewGroup
+    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
+            boolean onInterceptTouchEvent = super.onInterceptTouchEvent(motionEvent);
+            if (this.mGestureDetector.onTouchEvent(motionEvent)) {
+                if (getParent() != null) {
+                    getParent().requestDisallowInterceptTouchEvent(true);
+                }
+                return onInterceptTouchEvent;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

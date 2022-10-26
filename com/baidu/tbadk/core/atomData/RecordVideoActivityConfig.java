@@ -54,20 +54,18 @@ public class RecordVideoActivityConfig extends IntentConfig {
 
     public void setExtraData(AntiData antiData, PostPrefixData postPrefixData, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(1048576, this, antiData, postPrefixData, str, str2) == null) || getIntent() == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLLLL(1048576, this, antiData, postPrefixData, str, str2) == null) && getIntent() != null) {
+            getIntent().putExtra(IntentConfig.FORUM_FIRST_DIR, str);
+            getIntent().putExtra(IntentConfig.FORUM_SECOND_DIR, str2);
+            getIntent().putExtra(BaseWriteConfig.PREFIX_DATA, postPrefixData);
+            getIntent().putExtra("anti_data", antiData);
         }
-        getIntent().putExtra(IntentConfig.FORUM_FIRST_DIR, str);
-        getIntent().putExtra(IntentConfig.FORUM_SECOND_DIR, str2);
-        getIntent().putExtra("prefix_data", postPrefixData);
-        getIntent().putExtra("anti_data", antiData);
     }
 
     public void setShowType(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || getIntent() == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && getIntent() != null) {
+            getIntent().putExtra(SHOW_TYPE, i);
         }
-        getIntent().putExtra(SHOW_TYPE, i);
     }
 }

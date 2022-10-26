@@ -32,25 +32,76 @@ public final class Route {
                 return;
             }
         }
-        if (address == null) {
-            throw new NullPointerException("address == null");
-        }
-        if (proxy == null) {
+        if (address != null) {
+            if (proxy != null) {
+                if (inetSocketAddress != null) {
+                    this.address = address;
+                    this.proxy = proxy;
+                    this.inetSocketAddress = inetSocketAddress;
+                    return;
+                }
+                throw new NullPointerException("inetSocketAddress == null");
+            }
             throw new NullPointerException("proxy == null");
         }
-        if (inetSocketAddress != null) {
-            this.address = address;
-            this.proxy = proxy;
-            this.inetSocketAddress = inetSocketAddress;
-            return;
-        }
-        throw new NullPointerException("inetSocketAddress == null");
+        throw new NullPointerException("address == null");
     }
 
     public Address address() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.address : (Address) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.address;
+        }
+        return (Address) invokeV.objValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return ((((527 + this.address.hashCode()) * 31) + this.proxy.hashCode()) * 31) + this.inetSocketAddress.hashCode();
+        }
+        return invokeV.intValue;
+    }
+
+    public Proxy proxy() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.proxy;
+        }
+        return (Proxy) invokeV.objValue;
+    }
+
+    public boolean requiresTunnel() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.address.sslSocketFactory != null && this.proxy.type() == Proxy.Type.HTTP) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public InetSocketAddress socketAddress() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.inetSocketAddress;
+        }
+        return (InetSocketAddress) invokeV.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return "Route{" + this.inetSocketAddress + "}";
+        }
+        return (String) invokeV.objValue;
     }
 
     public boolean equals(@Nullable Object obj) {
@@ -66,38 +117,5 @@ public final class Route {
             return false;
         }
         return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ((((527 + this.address.hashCode()) * 31) + this.proxy.hashCode()) * 31) + this.inetSocketAddress.hashCode() : invokeV.intValue;
-    }
-
-    public Proxy proxy() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.proxy : (Proxy) invokeV.objValue;
-    }
-
-    public boolean requiresTunnel() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.address.sslSocketFactory != null && this.proxy.type() == Proxy.Type.HTTP : invokeV.booleanValue;
-    }
-
-    public InetSocketAddress socketAddress() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.inetSocketAddress : (InetSocketAddress) invokeV.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "Route{" + this.inetSocketAddress + "}";
-        }
-        return (String) invokeV.objValue;
     }
 }

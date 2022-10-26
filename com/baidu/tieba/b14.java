@@ -1,7 +1,7 @@
 package com.baidu.tieba;
-
-import android.content.Context;
 /* loaded from: classes3.dex */
 public interface b14 {
-    void a(mt2 mt2Var, Context context);
+    void a(a44 a44Var, z34 z34Var);
+
+    void b(r34 r34Var, q34 q34Var);
 }

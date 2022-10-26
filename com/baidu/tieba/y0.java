@@ -7,10 +7,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class y0<E> {
+public class y0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public E[] a;
+    public Object[] a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public y0() {
@@ -30,36 +30,13 @@ public class y0<E> {
         }
     }
 
-    public E a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? this.a[i] : (E) invokeI.objValue;
-    }
-
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.length : invokeV.intValue;
-    }
-
-    public final void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            E[] eArr = this.a;
-            E[] eArr2 = (E[]) new Object[i];
-            this.a = eArr2;
-            System.arraycopy(eArr, 0, eArr2, 0, eArr.length);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a.length;
         }
-    }
-
-    public void d(int i, E e) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, e) == null) {
-            if (i >= this.a.length) {
-                c(i * 2);
-            }
-            this.a[i] = e;
-        }
+        return invokeV.intValue;
     }
 
     public y0(int i) {
@@ -77,6 +54,35 @@ public class y0<E> {
                 return;
             }
         }
-        this.a = (E[]) new Object[i];
+        this.a = new Object[i];
+    }
+
+    public Object a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return this.a[i];
+        }
+        return invokeI.objValue;
+    }
+
+    public final void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            Object[] objArr = this.a;
+            Object[] objArr2 = new Object[i];
+            this.a = objArr2;
+            System.arraycopy(objArr, 0, objArr2, 0, objArr.length);
+        }
+    }
+
+    public void d(int i, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, obj) == null) {
+            if (i >= this.a.length) {
+                c(i * 2);
+            }
+            this.a[i] = obj;
+        }
     }
 }

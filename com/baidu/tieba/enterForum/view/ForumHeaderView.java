@@ -19,8 +19,8 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a96;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.h96;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -32,7 +32,7 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
     public LinearLayout a;
     public TextView b;
     public ImageView c;
-    public a96 d;
+    public h96 d;
     public int e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -55,91 +55,6 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
         }
         this.e = 0;
         a();
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            setOrientation(1);
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0499, (ViewGroup) this, true);
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091de8);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091e14);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091dfa);
-            setDescendantFocusability(262144);
-            this.a.setOnClickListener(this);
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            a96 a96Var = this.d;
-            if (a96Var != null && a96Var.a) {
-                if (a96Var.b > 0) {
-                    SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
-                    SkinManager.setViewTextColor(this.b, (int) R.color.white_alpha50);
-                    SkinManager.setBackgroundResource(this.a, R.drawable.enter_forum_search_ad_bg);
-                    return;
-                }
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
-                SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0109);
-                SkinManager.setBackgroundResource(this.a, R.drawable.enter_forum_search_bg);
-                return;
-            }
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
-            SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0109);
-            SkinManager.setBackgroundResource(this.a, R.drawable.enter_forum_search_bg);
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-            if (!TbadkCoreApplication.isLogin()) {
-                TiebaStatic.eventStat(getContext(), "notlogin_8", "click", 1, new Object[0]);
-            }
-            if (this.e != 1) {
-                TiebaStatic.log(new StatisticItem("c13367").param("obj_location", "1"));
-            } else {
-                TiebaStatic.log(new StatisticItem("c13648").param("uid", TbadkCoreApplication.getCurrentAccountId()));
-            }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2015003, new IntentConfig(getContext())));
-        }
-    }
-
-    @Override // android.widget.LinearLayout, android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
-            super.onMeasure(View.MeasureSpec.makeMeasureSpec(ej.k(getContext()), 1073741824), View.MeasureSpec.makeMeasureSpec(ej.f(getContext(), R.dimen.tbds114), 1073741824));
-        }
-    }
-
-    public void setAdState(a96 a96Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, a96Var) == null) {
-            this.d = a96Var;
-            b();
-        }
-    }
-
-    public void setFrom(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.e = i;
-        }
-    }
-
-    public void setSearchHint(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || this.b == null) {
-            return;
-        }
-        if (TextUtils.isEmpty(str)) {
-            str = "";
-        }
-        this.b.setText(str);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -186,5 +101,90 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
         }
         this.e = 0;
         a();
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            setOrientation(1);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0496, (ViewGroup) this, true);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091de4);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091e10);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091df6);
+            setDescendantFocusability(262144);
+            this.a.setOnClickListener(this);
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            h96 h96Var = this.d;
+            if (h96Var != null && h96Var.a) {
+                if (h96Var.b > 0) {
+                    SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
+                    SkinManager.setViewTextColor(this.b, (int) R.color.white_alpha50);
+                    SkinManager.setBackgroundResource(this.a, R.drawable.enter_forum_search_ad_bg);
+                    return;
+                }
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
+                SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0109);
+                SkinManager.setBackgroundResource(this.a, R.drawable.enter_forum_search_bg);
+                return;
+            }
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
+            SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0109);
+            SkinManager.setBackgroundResource(this.a, R.drawable.enter_forum_search_bg);
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
+            if (!TbadkCoreApplication.isLogin()) {
+                TiebaStatic.eventStat(getContext(), "notlogin_8", "click", 1, new Object[0]);
+            }
+            if (this.e != 1) {
+                TiebaStatic.log(new StatisticItem("c13367").param("obj_location", "1"));
+            } else {
+                TiebaStatic.log(new StatisticItem("c13648").param("uid", TbadkCoreApplication.getCurrentAccountId()));
+            }
+            MessageManager.getInstance().sendMessage(new CustomMessage(2015003, new IntentConfig(getContext())));
+        }
+    }
+
+    @Override // android.widget.LinearLayout, android.view.View
+    public void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            super.onMeasure(View.MeasureSpec.makeMeasureSpec(fj.k(getContext()), 1073741824), View.MeasureSpec.makeMeasureSpec(fj.f(getContext(), R.dimen.tbds114), 1073741824));
+        }
+    }
+
+    public void setAdState(h96 h96Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, h96Var) == null) {
+            this.d = h96Var;
+            b();
+        }
+    }
+
+    public void setFrom(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.e = i;
+        }
+    }
+
+    public void setSearchHint(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, str) != null) || this.b == null) {
+            return;
+        }
+        if (TextUtils.isEmpty(str)) {
+            str = "";
+        }
+        this.b.setText(str);
     }
 }

@@ -8,8 +8,8 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.c41;
-import com.baidu.tieba.wy0;
+import com.baidu.tieba.d41;
+import com.baidu.tieba.xy0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -42,10 +42,10 @@ public class BdVideoBattery extends View {
                 return;
             }
         }
-        d = c41.d(2.0f);
-        e = c41.d(2.0f);
-        f = c41.d(2.0f);
-        g = c41.d(4.0f);
+        d = d41.d(2.0f);
+        e = d41.d(2.0f);
+        f = d41.d(2.0f);
+        g = d41.d(4.0f);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -68,51 +68,6 @@ public class BdVideoBattery extends View {
         }
         this.a = context;
         a();
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Paint paint = new Paint();
-            this.c = paint;
-            paint.setColor(-1);
-        }
-    }
-
-    @Override // android.view.View
-    public void onDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            super.onDraw(canvas);
-            int measuredWidth = getMeasuredWidth();
-            int measuredHeight = getMeasuredHeight();
-            Bitmap bitmap = this.b;
-            if (bitmap != null) {
-                canvas.drawBitmap(bitmap, 0.0f, 0.0f, (Paint) null);
-            }
-            float f2 = (float) (wy0.a / 100.0d);
-            float f3 = f2 >= 0.0f ? f2 > 100.0f ? 100.0f : f2 : 0.0f;
-            int i = measuredWidth - g;
-            int i2 = f;
-            canvas.drawRect(i2, d, i2 + ((i - i2) * f3), measuredHeight - e, this.c);
-        }
-    }
-
-    @Override // android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
-            View.MeasureSpec.getSize(i);
-            View.MeasureSpec.getSize(i2);
-            setMeasuredDimension(this.b.getWidth(), this.b.getHeight());
-        }
-    }
-
-    public void setImage(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.b = BitmapFactory.decodeResource(this.a.getResources(), i);
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -159,5 +114,57 @@ public class BdVideoBattery extends View {
         }
         this.a = context;
         a();
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            Paint paint = new Paint();
+            this.c = paint;
+            paint.setColor(-1);
+        }
+    }
+
+    @Override // android.view.View
+    public void onDraw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
+            super.onDraw(canvas);
+            int measuredWidth = getMeasuredWidth();
+            int measuredHeight = getMeasuredHeight();
+            Bitmap bitmap = this.b;
+            float f2 = 0.0f;
+            if (bitmap != null) {
+                canvas.drawBitmap(bitmap, 0.0f, 0.0f, (Paint) null);
+            }
+            float f3 = (float) (xy0.a / 100.0d);
+            if (f3 >= 0.0f) {
+                if (f3 > 100.0f) {
+                    f2 = 100.0f;
+                } else {
+                    f2 = f3;
+                }
+            }
+            int i = measuredWidth - g;
+            int i2 = f;
+            canvas.drawRect(i2, d, i2 + ((i - i2) * f2), measuredHeight - e, this.c);
+        }
+    }
+
+    @Override // android.view.View
+    public void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            View.MeasureSpec.getSize(i);
+            View.MeasureSpec.getSize(i2);
+            setMeasuredDimension(this.b.getWidth(), this.b.getHeight());
+        }
+    }
+
+    public void setImage(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.b = BitmapFactory.decodeResource(this.a.getResources(), i);
+        }
     }
 }

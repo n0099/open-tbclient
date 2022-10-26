@@ -26,15 +26,15 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ce8;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.gh;
-import com.baidu.tieba.jp5;
-import com.baidu.tieba.jq4;
-import com.baidu.tieba.mp5;
-import com.baidu.tieba.si5;
-import com.baidu.tieba.tm5;
-import com.baidu.tieba.ui;
+import com.baidu.tieba.an5;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.hh;
+import com.baidu.tieba.lq4;
+import com.baidu.tieba.me8;
+import com.baidu.tieba.qp5;
+import com.baidu.tieba.tp5;
+import com.baidu.tieba.vi;
+import com.baidu.tieba.yi5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -50,11 +50,11 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 /* loaded from: classes3.dex */
-public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewActivity> {
+public abstract class AdBaseWebViewActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
-    public static final List<String> s;
+    public static final List s;
     public transient /* synthetic */ FieldHolder $fh;
-    public mp5 a;
+    public tp5 a;
     public String b;
     public final Runnable c;
     public String d;
@@ -63,15 +63,51 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
     public boolean g;
     public boolean h;
     public boolean i;
-    public HashMap<String, e> j;
+    public HashMap j;
     public String k;
     public final Runnable l;
-    public si5.b m;
+    public yi5.b m;
     public Timer n;
     public String o;
     public String p;
     public String q;
     public boolean r;
+
+    /* loaded from: classes3.dex */
+    public interface e {
+        Object a(TbPageContext tbPageContext);
+    }
+
+    public abstract void addJavascriptInterface(Object obj, String str);
+
+    public abstract View createWebView();
+
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.zc5
+    public String getCurrentPageKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? "a012" : (String) invokeV.objValue;
+    }
+
+    public abstract View getWebView();
+
+    public abstract void initCookie();
+
+    public abstract void initWebView();
+
+    public abstract void loadUrl(String str);
+
+    public abstract void onReceivedError(int i);
+
+    public void setFullScreen() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048612, this) == null) {
+        }
+    }
+
+    public abstract void webViewDestory();
+
+    public abstract boolean webViewGoBack();
 
     /* loaded from: classes3.dex */
     public final class InJavaScriptLocalObj {
@@ -108,9 +144,10 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         @JavascriptInterface
         public void getSource(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                this.this$0.k = str;
+            if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) {
+                return;
             }
+            this.this$0.k = str;
         }
     }
 
@@ -175,10 +212,9 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         public void run() {
             ShareItem createShareContent;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (createShareContent = this.a.createShareContent(null, null, null, null)) == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (createShareContent = this.a.createShareContent(null, null, null, null)) != null) {
+                this.a.a.A(createShareContent);
             }
-            this.a.a.C(createShareContent);
         }
     }
 
@@ -211,7 +247,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c59);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c68);
                     return;
                 }
                 this.a.a.f();
@@ -259,11 +295,6 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         }
     }
 
-    /* loaded from: classes3.dex */
-    public interface e {
-        Object a(TbPageContext<?> tbPageContext);
-    }
-
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -277,7 +308,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
                 return;
             }
         }
-        s = new ArrayList<String>() { // from class: com.baidu.tieba.ad.browser.newstyle.AdBaseWebViewActivity.1
+        s = new ArrayList() { // from class: com.baidu.tieba.ad.browser.newstyle.AdBaseWebViewActivity.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -300,6 +331,138 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         };
     }
 
+    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    public void finish() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            setResult(-1);
+            super.finish();
+        }
+    }
+
+    public void hideCrashTip() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            this.a.e();
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity
+    public void hideProgressBar() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            this.a.g();
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onBackPressed() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
+            super.onBackPressed();
+            webViewGoBack();
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onPause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
+            super.onPause();
+            if (getWebView() == null) {
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
+            super.onResume();
+            if (getWebView() != null && getWebView() != null && isNeedUpdateCookie()) {
+                initCookie();
+                this.mHandler.postDelayed(this.c, 100L);
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onStop() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
+            super.onStop();
+            clearAnimatable();
+            clearAnimation();
+            dismissAllDialog();
+            dismissAllPopupWindow();
+            hideListMenu();
+            tp5 tp5Var = this.a;
+            if (tp5Var != null) {
+                tp5Var.c();
+            }
+        }
+    }
+
+    public void refresh() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
+            hideCrashTip();
+            if (URLUtil.isNetworkUrl(this.b)) {
+                showProgressBar();
+                loadUrl(this.b);
+            } else if (!B1(this.b)) {
+                loadUrl(this.b);
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity
+    public void releaseResouce() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
+            super.releaseResouce();
+            finish();
+        }
+    }
+
+    public void showNoDataView() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048613, this) == null) {
+            this.a.y();
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity
+    public void showProgressBar() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
+            this.a.z();
+        }
+    }
+
+    public void startLoadTimer() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048615, this) == null) {
+            Timer timer = this.n;
+            if (timer != null) {
+                timer.cancel();
+                this.n.purge();
+            }
+            this.n = new Timer();
+            this.n.schedule(new d(this), 15000L);
+        }
+    }
+
+    public void stopLoadTimer() {
+        Timer timer;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048616, this) == null) && (timer = this.n) != null) {
+            timer.cancel();
+            this.n.purge();
+            this.n = null;
+        }
+    }
+
     public AdBaseWebViewActivity() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -320,14 +483,139 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         this.r = false;
     }
 
+    public final boolean isNeedUpdateCookie() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            lq4.b c2 = lq4.b().c(TbadkCoreApplication.getCurrentBduss());
+            String str2 = "";
+            if (c2 == null) {
+                str = "";
+            } else {
+                String str3 = c2.a;
+                if (str3 == null) {
+                    str3 = "";
+                }
+                str = c2.b;
+                if (str == null) {
+                    str = "";
+                }
+                str2 = str3;
+            }
+            boolean z = true;
+            yi5.b bVar = new yi5.b(str2, str);
+            yi5.b bVar2 = this.m;
+            if (bVar2 == null || (bVar2 != null && bVar2.equals(bVar))) {
+                z = false;
+            }
+            this.m = bVar;
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
+            Handler handler = this.mHandler;
+            if (handler != null) {
+                handler.removeCallbacks(this.c);
+            }
+            if (getWebView() != null) {
+                getWebView().setVisibility(8);
+            }
+            webViewDestory();
+            TbadkCoreApplication.getInst().delRemoteActivity(this);
+            stopLoadTimer();
+            tp5 tp5Var = this.a;
+            if (tp5Var != null) {
+                tp5Var.n();
+            }
+            super.onDestroy();
+        }
+    }
+
     public boolean B1(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return me8.l(str, getApplicationContext());
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void callHiddenWebViewMethod(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && getWebView() != null) {
+            try {
+                WebView.class.getMethod(str, new Class[0]).invoke(getWebView(), new Object[0]);
+            } catch (Exception e2) {
+                BdLog.e(e2.getMessage());
+            }
+        }
+    }
+
+    @Override // com.baidu.adp.base.BdBaseActivity, android.os.Handler.Callback
+    public boolean handleMessage(Message message) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, message)) == null) {
+            if (message.what == 555) {
+                onReceivedError(-2);
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
+            super.onChangeSkinType(i);
+            if (!this.h) {
+                i = 0;
+            }
+            this.a.l(i);
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity
+    public void onUserChanged(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048609, this, z) == null) {
+            super.onUserChanged(z);
+            tp5 tp5Var = this.a;
+            if (tp5Var != null) {
+                tp5Var.s(z);
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048603, this, i, keyEvent)) == null) {
+            if (i == 4 && webViewGoBack()) {
+                return true;
+            }
+            return super.onKeyDown(i, keyEvent);
+        }
+        return invokeIL.booleanValue;
+    }
+
+    public boolean A1(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            if (tm5.a().m()) {
+            if (an5.a().m()) {
                 return true;
             }
             for (String str2 : s) {
@@ -341,10 +629,19 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         return invokeL.booleanValue;
     }
 
-    public boolean C1(String str) {
-        InterceptResult invokeL;
+    @Override // android.app.Activity
+    public void onNewIntent(Intent intent) {
+        tp5 tp5Var;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? ce8.l(str, getApplicationContext()) : invokeL.booleanValue;
+        if (interceptable == null || interceptable.invokeL(1048604, this, intent) == null) {
+            super.onNewIntent(intent);
+            this.b = intent.getStringExtra(WebViewActivityConfig.TAG_URL);
+            this.q = intent.getStringExtra(WebViewActivityConfig.TAG_URL);
+            if (A1(this.b) && (tp5Var = this.a) != null) {
+                tp5Var.q(false);
+            }
+            refresh();
+        }
     }
 
     @JavascriptInterface
@@ -352,26 +649,12 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (this.j == null) {
-                this.j = new HashMap<>();
+                this.j = new HashMap();
             }
             for (String str : this.j.keySet()) {
-                addJavascriptInterface(this.j.get(str).a(getPageContext()), str);
+                addJavascriptInterface(((e) this.j.get(str)).a(getPageContext()), str);
             }
             addJavascriptInterface(new InJavaScriptLocalObj(this), "local_obj");
-        }
-    }
-
-    public abstract void addJavascriptInterface(Object obj, String str);
-
-    public void callHiddenWebViewMethod(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || getWebView() == null) {
-            return;
-        }
-        try {
-            WebView.class.getMethod(str, new Class[0]).invoke(getWebView(), new Object[0]);
-        } catch (Exception e2) {
-            BdLog.e(e2.getMessage());
         }
     }
 
@@ -381,7 +664,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, str, str2, str3, str4)) == null) {
             ShareItem shareItem = new ShareItem();
             if (StringUtils.isNull(this.d, true)) {
-                shareItem.v = getResources().getString(R.string.obfuscated_res_0x7f0f1156);
+                shareItem.v = getResources().getString(R.string.obfuscated_res_0x7f0f116a);
             } else {
                 shareItem.v = this.d;
             }
@@ -421,8 +704,6 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         return (ShareItem) invokeLLLL.objValue;
     }
 
-    public abstract View createWebView();
-
     public final String findSubString(String str, String str2) {
         InterceptResult invokeLL;
         int indexOf;
@@ -441,59 +722,11 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         return (String) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
-    public void finish() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            setResult(-1);
-            super.finish();
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.uc5
-    public String getCurrentPageKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? "a012" : (String) invokeV.objValue;
-    }
-
-    public abstract View getWebView();
-
-    @Override // com.baidu.adp.base.BdBaseActivity, android.os.Handler.Callback
-    public boolean handleMessage(Message message) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, message)) == null) {
-            if (message.what == 555) {
-                onReceivedError(-2);
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void hideCrashTip() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.a.e();
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity
-    public void hideProgressBar() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.a.g();
-        }
-    }
-
-    public abstract void initCookie();
-
     public final void initData() {
         Intent intent;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || (intent = getIntent()) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048591, this) != null) || (intent = getIntent()) == null) {
             return;
         }
         this.d = intent.getStringExtra(WebViewActivityConfig.TAG_TITLE);
@@ -503,29 +736,31 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         if (str != null && !str.startsWith("http://") && !this.b.startsWith("https://")) {
             this.b = "http://".concat(this.b);
         }
-        if (B1(this.b)) {
-            this.a.r(false);
+        if (A1(this.b)) {
+            this.a.q(false);
         }
         this.e = intent.getBooleanExtra(WebViewActivityConfig.TAG_COOKIE, false);
         this.f = intent.getBooleanExtra(WebViewActivityConfig.TAG_ENABLE_JS, false);
         this.g = intent.getBooleanExtra(WebViewActivityConfig.TAG_NAV_BAR, true);
         this.o = intent.getStringExtra(WebViewActivityConfig.TAG_AD_EXT_INFO);
         this.p = intent.getStringExtra(WebViewActivityConfig.TAG_AD_DEEPLINK_URL);
-        boolean z = this.g && isNeedShowNavigationBar();
+        if (this.g && isNeedShowNavigationBar()) {
+            z = true;
+        } else {
+            z = false;
+        }
         this.g = z;
-        this.a.v(z);
+        this.a.t(z);
         setUseStyleImmersiveSticky(intent.getBooleanExtra(WebViewActivityConfig.TAG_NEED_STYLE_IMMERSIVE_STICKY, true));
         if (TextUtils.isEmpty(this.b)) {
-            ej.N(getPageContext().getPageActivity(), getResources().getString(R.string.obfuscated_res_0x7f0f14f8));
+            fj.N(getPageContext().getPageActivity(), getResources().getString(R.string.obfuscated_res_0x7f0f1511));
             return;
         }
         if (this.b.contains("useImmersive=0") && "Meizu".equalsIgnoreCase(Build.BRAND)) {
-            this.a.z(false);
+            this.a.x(false);
         }
         this.mHandler.postDelayed(this.c, 500L);
     }
-
-    public abstract void initWebView();
 
     public boolean isNeedShowMenuItem() {
         InterceptResult invokeV;
@@ -623,78 +858,23 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         return invokeV.booleanValue;
     }
 
-    public final boolean isNeedUpdateCookie() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            jq4.b c2 = jq4.b().c(TbadkCoreApplication.getCurrentBduss());
-            String str2 = "";
-            if (c2 != null) {
-                String str3 = c2.a;
-                if (str3 == null) {
-                    str3 = "";
-                }
-                str = c2.b;
-                if (str == null) {
-                    str = "";
-                }
-                str2 = str3;
-            } else {
-                str = "";
-            }
-            boolean z = true;
-            si5.b bVar = new si5.b(str2, str);
-            si5.b bVar2 = this.m;
-            if (bVar2 == null || (bVar2 != null && bVar2.equals(bVar))) {
-                z = false;
-            }
-            this.m = bVar;
-            return z;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public abstract void loadUrl(String str);
-
-    @Override // android.app.Activity
-    public void onBackPressed() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            super.onBackPressed();
-            webViewGoBack();
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
-            super.onChangeSkinType(i);
-            if (!this.h) {
-                i = 0;
-            }
-            this.a.m(i);
-        }
-    }
-
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, view2) == null) {
             super.onClick(view2);
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f092666) {
+            if (id == R.id.obfuscated_res_0x7f09264e) {
                 this.a.c();
                 loadUrl("javascript:window.local_obj.getSource(document.getElementsByTagName('html')[0].innerHTML);");
-                gh.a().post(this.l);
-            } else if (id == R.id.obfuscated_res_0x7f092664) {
+                hh.a().post(this.l);
+            } else if (id == R.id.obfuscated_res_0x7f09264c) {
                 this.a.c();
-                jp5.f(getPageContext().getPageActivity(), this.b);
-            } else if (id == R.id.obfuscated_res_0x7f092662) {
+                qp5.f(getPageContext().getPageActivity(), this.b);
+            } else if (id == R.id.obfuscated_res_0x7f09264a) {
                 this.a.c();
-                ui.a(this.b);
-                ej.N(view2.getContext(), view2.getResources().getString(R.string.obfuscated_res_0x7f0f0455));
+                vi.a(this.b);
+                fj.N(view2.getContext(), view2.getResources().getString(R.string.obfuscated_res_0x7f0f045c));
             }
         }
     }
@@ -706,194 +886,17 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
             initWebView();
-            this.a = new mp5(this);
+            this.a = new tp5(this);
             initData();
-            this.a.j();
-            this.a.x(new c(this));
-            this.a.u(this.mIsLogin);
-            this.a.u(isNeedShowMenuItem());
-            this.a.s(this.o);
-            this.a.q(this.p);
-            if (!this.a.l() && UtilHelper.canUseStyleImmersiveSticky()) {
+            this.a.i();
+            this.a.v(new c(this));
+            this.a.s(this.mIsLogin);
+            this.a.s(isNeedShowMenuItem());
+            this.a.p(this.p);
+            if (!this.a.k() && UtilHelper.canUseStyleImmersiveSticky()) {
                 ViewHelper.addStateBarViewSpace(this.a.a, R.color.CAM_X0303, false);
             }
             adjustResizeForSoftInput();
         }
     }
-
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
-            Handler handler = this.mHandler;
-            if (handler != null) {
-                handler.removeCallbacks(this.c);
-            }
-            if (getWebView() != null) {
-                getWebView().setVisibility(8);
-            }
-            webViewDestory();
-            TbadkCoreApplication.getInst().delRemoteActivity(this);
-            stopLoadTimer();
-            mp5 mp5Var = this.a;
-            if (mp5Var != null) {
-                mp5Var.o();
-            }
-            super.onDestroy();
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048603, this, i, keyEvent)) == null) {
-            if (i == 4 && webViewGoBack()) {
-                return true;
-            }
-            return super.onKeyDown(i, keyEvent);
-        }
-        return invokeIL.booleanValue;
-    }
-
-    @Override // android.app.Activity
-    public void onNewIntent(Intent intent) {
-        mp5 mp5Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048604, this, intent) == null) {
-            super.onNewIntent(intent);
-            this.b = intent.getStringExtra(WebViewActivityConfig.TAG_URL);
-            this.q = intent.getStringExtra(WebViewActivityConfig.TAG_URL);
-            if (B1(this.b) && (mp5Var = this.a) != null) {
-                mp5Var.r(false);
-            }
-            refresh();
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onPause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
-            super.onPause();
-            if (getWebView() == null) {
-            }
-        }
-    }
-
-    public abstract void onReceivedError(int i);
-
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
-            super.onResume();
-            if (getWebView() == null || getWebView() == null || !isNeedUpdateCookie()) {
-                return;
-            }
-            initCookie();
-            this.mHandler.postDelayed(this.c, 100L);
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onStop() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
-            super.onStop();
-            clearAnimatable();
-            clearAnimation();
-            dismissAllDialog();
-            dismissAllPopupWindow();
-            hideListMenu();
-            mp5 mp5Var = this.a;
-            if (mp5Var != null) {
-                mp5Var.c();
-            }
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity
-    public void onUserChanged(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048609, this, z) == null) {
-            super.onUserChanged(z);
-            mp5 mp5Var = this.a;
-            if (mp5Var != null) {
-                mp5Var.u(z);
-            }
-        }
-    }
-
-    public void refresh() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
-            hideCrashTip();
-            if (URLUtil.isNetworkUrl(this.b)) {
-                showProgressBar();
-                loadUrl(this.b);
-            } else if (C1(this.b)) {
-            } else {
-                loadUrl(this.b);
-            }
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity
-    public void releaseResouce() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
-            super.releaseResouce();
-            finish();
-        }
-    }
-
-    public void setFullScreen() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048612, this) == null) {
-        }
-    }
-
-    public void showNoDataView() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048613, this) == null) {
-            this.a.A();
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity
-    public void showProgressBar() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
-            this.a.B();
-        }
-    }
-
-    public void startLoadTimer() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048615, this) == null) {
-            Timer timer = this.n;
-            if (timer != null) {
-                timer.cancel();
-                this.n.purge();
-            }
-            this.n = new Timer();
-            this.n.schedule(new d(this), 15000L);
-        }
-    }
-
-    public void stopLoadTimer() {
-        Timer timer;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048616, this) == null) || (timer = this.n) == null) {
-            return;
-        }
-        timer.cancel();
-        this.n.purge();
-        this.n = null;
-    }
-
-    public abstract void webViewDestory();
-
-    public abstract boolean webViewGoBack();
 }

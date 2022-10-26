@@ -4,8 +4,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.BlockPopInfoData;
-import com.baidu.tbadk.core.util.httpNet.HttpResponse;
-import com.baidu.tieba.dj;
+import com.baidu.tieba.ej;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,12 +12,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
+public class UpdateAttentionMessage extends CustomResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public static class a {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
@@ -27,13 +26,10 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
         public boolean d;
         public boolean e;
         public boolean f;
-        public HttpResponse g;
-        public JSONObject h;
-        public boolean i;
-        public boolean j;
-        public String k;
-        public BlockPopInfoData l;
-        public int m;
+        public boolean g;
+        public String h;
+        public BlockPopInfoData i;
+        public int j;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -50,42 +46,40 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
             }
             this.e = false;
             this.f = false;
-            this.m = 0;
+            this.j = 0;
         }
 
         public final void a(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
                 return;
             }
-            this.k = jSONObject.optString("block_dealurl");
+            this.h = jSONObject.optString("block_dealurl");
             String optString = jSONObject.optString("block_content");
             String optString2 = jSONObject.optString("block_confirm");
             String optString3 = jSONObject.optString("block_cancel");
-            if (dj.isEmpty(optString) || dj.isEmpty(this.k) || dj.isEmpty(optString2) || dj.isEmpty(optString3)) {
-                return;
+            if (!ej.isEmpty(optString) && !ej.isEmpty(this.h) && !ej.isEmpty(optString2) && !ej.isEmpty(optString3)) {
+                BlockPopInfoData blockPopInfoData = new BlockPopInfoData();
+                this.i = blockPopInfoData;
+                blockPopInfoData.block_info = optString;
+                blockPopInfoData.ahead_url = this.h;
+                blockPopInfoData.ahead_info = optString2;
+                blockPopInfoData.ok_info = optString3;
             }
-            BlockPopInfoData blockPopInfoData = new BlockPopInfoData();
-            this.l = blockPopInfoData;
-            blockPopInfoData.block_info = optString;
-            blockPopInfoData.ahead_url = this.k;
-            blockPopInfoData.ahead_info = optString2;
-            blockPopInfoData.ok_info = optString3;
         }
 
         public void b(String str, boolean z) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z) == null) || str == null) {
+            if ((interceptable != null && interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z) != null) || str == null) {
                 return;
             }
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.h = jSONObject;
                 JSONObject optJSONObject = jSONObject.optJSONObject("info");
                 if (optJSONObject == null) {
                     return;
                 }
-                this.m = jSONObject.optInt("status");
+                this.j = jSONObject.optInt("status");
                 if (optJSONObject.optInt("is_toast", 0) == 1) {
                 }
                 optJSONObject.optString("toast_text");
@@ -121,10 +115,10 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (getData() == null || !(getData() instanceof a)) {
-                return false;
+            if (getData() != null && (getData() instanceof a)) {
+                return ((a) getData()).d;
             }
-            return getData().d;
+            return false;
         }
         return invokeV.booleanValue;
     }
@@ -133,10 +127,10 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (getData() == null || !(getData() instanceof a)) {
-                return false;
+            if (getData() != null && (getData() instanceof a)) {
+                return ((a) getData()).f;
             }
-            return getData().f;
+            return false;
         }
         return invokeV.booleanValue;
     }
@@ -145,10 +139,10 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (getData() == null || !(getData() instanceof a)) {
-                return false;
+            if (getData() != null && (getData() instanceof a)) {
+                return ((a) getData()).a;
             }
-            return getData().a;
+            return false;
         }
         return invokeV.booleanValue;
     }

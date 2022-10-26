@@ -17,10 +17,10 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public final class TransitRouteResult extends SearchResult implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<TransitRouteResult> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public TaxiInfo a;
-    public List<TransitRouteLine> b;
+    public List b;
     public SuggestAddrInfo c;
 
     static {
@@ -85,7 +85,7 @@ public final class TransitRouteResult extends SearchResult implements Parcelable
         return invokeV.intValue;
     }
 
-    public List<TransitRouteLine> getRouteLines() {
+    public List getRouteLines() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (List) invokeV.objValue;
@@ -103,7 +103,7 @@ public final class TransitRouteResult extends SearchResult implements Parcelable
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (TaxiInfo) invokeV.objValue;
     }
 
-    public void setRoutelines(List<TransitRouteLine> list) {
+    public void setRoutelines(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
             this.b = list;

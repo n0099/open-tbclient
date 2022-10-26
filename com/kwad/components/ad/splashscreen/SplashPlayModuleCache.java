@@ -14,11 +14,11 @@ import java.util.HashMap;
 public final class SplashPlayModuleCache {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, WeakReference<com.kwad.components.ad.splashscreen.c.a>> ya;
+    public HashMap ya;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public static final class Holder {
+    public final class Holder {
         public static final /* synthetic */ Holder[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Holder INSTANCE;
@@ -96,7 +96,7 @@ public final class SplashPlayModuleCache {
                 return;
             }
         }
-        this.ya = new HashMap<>(1);
+        this.ya = new HashMap(1);
     }
 
     public /* synthetic */ SplashPlayModuleCache(byte b) {
@@ -113,9 +113,9 @@ public final class SplashPlayModuleCache {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            WeakReference<com.kwad.components.ad.splashscreen.c.a> weakReference = this.ya.get(str);
+            WeakReference weakReference = (WeakReference) this.ya.get(str);
             if (weakReference != null) {
-                com.kwad.components.ad.splashscreen.c.a aVar = weakReference.get();
+                com.kwad.components.ad.splashscreen.c.a aVar = (com.kwad.components.ad.splashscreen.c.a) weakReference.get();
                 if (aVar != null) {
                     return aVar;
                 }
@@ -129,7 +129,7 @@ public final class SplashPlayModuleCache {
     public final void a(String str, com.kwad.components.ad.splashscreen.c.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, aVar) == null) {
-            this.ya.put(str, new WeakReference<>(aVar));
+            this.ya.put(str, new WeakReference(aVar));
         }
     }
 }

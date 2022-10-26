@@ -13,20 +13,20 @@ import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 /* loaded from: classes8.dex */
-public final class ObservableLastMaybe<T> extends Maybe<T> {
+public final class ObservableLastMaybe extends Maybe {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ObservableSource<T> source;
+    public final ObservableSource source;
 
     /* loaded from: classes8.dex */
-    public static final class LastObserver<T> implements Observer<T>, Disposable {
+    public final class LastObserver implements Observer, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final MaybeObserver<? super T> actual;
-        public T item;
+        public final MaybeObserver actual;
+        public Object item;
         public Disposable s;
 
-        public LastObserver(MaybeObserver<? super T> maybeObserver) {
+        public LastObserver(MaybeObserver maybeObserver) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -44,6 +44,33 @@ public final class ObservableLastMaybe<T> extends Maybe<T> {
             this.actual = maybeObserver;
         }
 
+        @Override // io.reactivex.Observer
+        public void onError(Throwable th) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
+                this.s = DisposableHelper.DISPOSED;
+                this.item = null;
+                this.actual.onError(th);
+            }
+        }
+
+        @Override // io.reactivex.Observer
+        public void onNext(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+                this.item = obj;
+            }
+        }
+
+        @Override // io.reactivex.Observer
+        public void onSubscribe(Disposable disposable) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048581, this, disposable) == null) && DisposableHelper.validate(this.s, disposable)) {
+                this.s = disposable;
+                this.actual.onSubscribe(this);
+            }
+        }
+
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
             Interceptable interceptable = $ic;
@@ -57,7 +84,13 @@ public final class ObservableLastMaybe<T> extends Maybe<T> {
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.s == DisposableHelper.DISPOSED : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (this.s == DisposableHelper.DISPOSED) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.Observer
@@ -65,45 +98,18 @@ public final class ObservableLastMaybe<T> extends Maybe<T> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 this.s = DisposableHelper.DISPOSED;
-                T t = this.item;
-                if (t != null) {
+                Object obj = this.item;
+                if (obj != null) {
                     this.item = null;
-                    this.actual.onSuccess(t);
+                    this.actual.onSuccess(obj);
                     return;
                 }
                 this.actual.onComplete();
             }
         }
-
-        @Override // io.reactivex.Observer
-        public void onError(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
-                this.s = DisposableHelper.DISPOSED;
-                this.item = null;
-                this.actual.onError(th);
-            }
-        }
-
-        @Override // io.reactivex.Observer
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
-                this.item = t;
-            }
-        }
-
-        @Override // io.reactivex.Observer
-        public void onSubscribe(Disposable disposable) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048581, this, disposable) == null) && DisposableHelper.validate(this.s, disposable)) {
-                this.s = disposable;
-                this.actual.onSubscribe(this);
-            }
-        }
     }
 
-    public ObservableLastMaybe(ObservableSource<T> observableSource) {
+    public ObservableLastMaybe(ObservableSource observableSource) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -122,7 +128,7 @@ public final class ObservableLastMaybe<T> extends Maybe<T> {
     }
 
     @Override // io.reactivex.Maybe
-    public void subscribeActual(MaybeObserver<? super T> maybeObserver) {
+    public void subscribeActual(MaybeObserver maybeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, maybeObserver) == null) {
             this.source.subscribe(new LastObserver(maybeObserver));

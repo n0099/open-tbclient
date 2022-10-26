@@ -12,9 +12,17 @@ public class AmrEncoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static native int encode(int i, short[] sArr, byte[] bArr);
+
+    public static native void exit();
+
+    public static native void init(int i);
+
+    public static native void reset();
+
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class Mode {
+    public final class Mode {
         public static final /* synthetic */ Mode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Mode MR102;
@@ -78,13 +86,19 @@ public class AmrEncoder {
         public static Mode valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Mode) Enum.valueOf(Mode.class, str) : (Mode) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (Mode) Enum.valueOf(Mode.class, str);
+            }
+            return (Mode) invokeL.objValue;
         }
 
         public static Mode[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Mode[]) $VALUES.clone() : (Mode[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (Mode[]) $VALUES.clone();
+            }
+            return (Mode[]) invokeV.objValue;
         }
     }
 
@@ -101,12 +115,4 @@ public class AmrEncoder {
             }
         }
     }
-
-    public static native int encode(int i, short[] sArr, byte[] bArr);
-
-    public static native void exit();
-
-    public static native void init(int i);
-
-    public static native void reset();
 }

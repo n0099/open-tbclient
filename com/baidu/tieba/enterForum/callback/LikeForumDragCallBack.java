@@ -1,15 +1,13 @@
 package com.baidu.tieba.enterForum.callback;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.d96;
+import com.baidu.tieba.c96;
 import com.baidu.tieba.enterForum.adapter.LikeForumItemAdapter;
-import com.baidu.tieba.v86;
+import com.baidu.tieba.k96;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,90 +22,11 @@ import org.json.JSONObject;
 public class LikeForumDragCallBack extends ItemTouchHelper.Callback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public v86 a;
+    public c96 a;
     public LikeForumItemAdapter b;
     public String c;
     public String d;
     public boolean e;
-
-    public LikeForumDragCallBack(LikeForumItemAdapter likeForumItemAdapter, v86 v86Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {likeForumItemAdapter, v86Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.e = false;
-        this.b = likeForumItemAdapter;
-        this.a = v86Var;
-    }
-
-    public final String a(List<d96> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return "";
-            }
-            JSONArray jSONArray = new JSONArray();
-            for (int i = 0; i < list.size(); i++) {
-                d96 d96Var = list.get(i);
-                if (d96Var != null) {
-                    try {
-                        JSONObject jSONObject = new JSONObject();
-                        jSONObject.put("forum_id", d96Var.getId());
-                        jSONObject.put("sort_value", String.valueOf(d96Var.t()));
-                        jSONArray.put(jSONObject);
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-            return jSONArray.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // androidx.recyclerview.widget.ItemTouchHelper.Callback
-    public void clearView(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recyclerView, viewHolder) == null) {
-            super.clearView(recyclerView, viewHolder);
-            v86 v86Var = this.a;
-            if (v86Var == null || !this.e) {
-                return;
-            }
-            v86Var.a(this.c, this.d);
-        }
-    }
-
-    @Override // androidx.recyclerview.widget.ItemTouchHelper.Callback
-    public int getMovementFlags(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, recyclerView, viewHolder)) == null) {
-            if (recyclerView.getLayoutManager() instanceof GridLayoutManager) {
-                return ItemTouchHelper.Callback.makeMovementFlags(15, 0);
-            }
-            return 0;
-        }
-        return invokeLL.intValue;
-    }
-
-    @Override // androidx.recyclerview.widget.ItemTouchHelper.Callback
-    public boolean isItemViewSwipeEnabled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? super.isItemViewSwipeEnabled() : invokeV.booleanValue;
-    }
 
     @Override // androidx.recyclerview.widget.ItemTouchHelper.Callback
     public boolean isLongPressDragEnabled() {
@@ -120,7 +39,103 @@ public class LikeForumDragCallBack extends ItemTouchHelper.Callback {
     }
 
     @Override // androidx.recyclerview.widget.ItemTouchHelper.Callback
-    public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder viewHolder2) {
+    public void onSwiped(RecyclerView.ViewHolder viewHolder, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048583, this, viewHolder, i) == null) {
+        }
+    }
+
+    public LikeForumDragCallBack(LikeForumItemAdapter likeForumItemAdapter, c96 c96Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {likeForumItemAdapter, c96Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.e = false;
+        this.b = likeForumItemAdapter;
+        this.a = c96Var;
+    }
+
+    public final String a(List list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+            if (!ListUtils.isEmpty(list)) {
+                JSONArray jSONArray = new JSONArray();
+                for (int i = 0; i < list.size(); i++) {
+                    k96 k96Var = (k96) list.get(i);
+                    if (k96Var != null) {
+                        try {
+                            JSONObject jSONObject = new JSONObject();
+                            jSONObject.put("forum_id", k96Var.getId());
+                            jSONObject.put("sort_value", String.valueOf(k96Var.t()));
+                            jSONArray.put(jSONObject);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+                return jSONArray.toString();
+            }
+            return "";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // androidx.recyclerview.widget.ItemTouchHelper.Callback
+    public void clearView(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recyclerView, viewHolder) == null) {
+            super.clearView(recyclerView, viewHolder);
+            c96 c96Var = this.a;
+            if (c96Var != null && this.e) {
+                c96Var.a(this.c, this.d);
+            }
+        }
+    }
+
+    @Override // androidx.recyclerview.widget.ItemTouchHelper.Callback
+    public int getMovementFlags(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, recyclerView, viewHolder)) == null) {
+            if (!(recyclerView.getLayoutManager() instanceof GridLayoutManager)) {
+                return 0;
+            }
+            return ItemTouchHelper.Callback.makeMovementFlags(15, 0);
+        }
+        return invokeLL.intValue;
+    }
+
+    @Override // androidx.recyclerview.widget.ItemTouchHelper.Callback
+    public void onSelectedChanged(RecyclerView.ViewHolder viewHolder, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048582, this, viewHolder, i) == null) {
+            super.onSelectedChanged(viewHolder, i);
+        }
+    }
+
+    @Override // androidx.recyclerview.widget.ItemTouchHelper.Callback
+    public boolean isItemViewSwipeEnabled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return super.isItemViewSwipeEnabled();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // androidx.recyclerview.widget.ItemTouchHelper.Callback
+    public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder viewHolder2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, recyclerView, viewHolder, viewHolder2)) == null) {
@@ -150,20 +165,5 @@ public class LikeForumDragCallBack extends ItemTouchHelper.Callback {
             return true;
         }
         return invokeLLL.booleanValue;
-    }
-
-    @Override // androidx.recyclerview.widget.ItemTouchHelper.Callback
-    public void onSelectedChanged(@Nullable RecyclerView.ViewHolder viewHolder, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048582, this, viewHolder, i) == null) {
-            super.onSelectedChanged(viewHolder, i);
-        }
-    }
-
-    @Override // androidx.recyclerview.widget.ItemTouchHelper.Callback
-    public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048583, this, viewHolder, i) == null) {
-        }
     }
 }

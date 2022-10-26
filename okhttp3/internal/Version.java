@@ -10,6 +10,12 @@ public final class Version {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static String userAgent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? "okhttp/3.11.0" : (String) invokeV.objValue;
+    }
+
     public Version() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -22,11 +28,5 @@ public final class Version {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    public static String userAgent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? "okhttp/3.11.0" : (String) invokeV.objValue;
     }
 }

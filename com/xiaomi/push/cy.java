@@ -38,10 +38,10 @@ public abstract class cy {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
     }
 
-    public abstract String a(Context context, String str, List<bi> list);
+    public abstract String a(Context context, String str, List list);
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m262a(Context context, String str, List<bi> list) {
+    public boolean m261a(Context context, String str, List list) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, list)) == null) {

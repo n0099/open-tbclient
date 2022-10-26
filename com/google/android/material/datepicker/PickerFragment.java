@@ -9,10 +9,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedHashSet;
 /* loaded from: classes7.dex */
-public abstract class PickerFragment<S> extends Fragment {
+public abstract class PickerFragment extends Fragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final LinkedHashSet<OnSelectionChangedListener<S>> onSelectionChangedListeners;
+    public final LinkedHashSet onSelectionChangedListeners;
+
+    public abstract DateSelector getDateSelector();
 
     public PickerFragment() {
         Interceptable interceptable = $ic;
@@ -27,13 +29,7 @@ public abstract class PickerFragment<S> extends Fragment {
                 return;
             }
         }
-        this.onSelectionChangedListeners = new LinkedHashSet<>();
-    }
-
-    public boolean addOnSelectionChangedListener(OnSelectionChangedListener<S> onSelectionChangedListener) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, onSelectionChangedListener)) == null) ? this.onSelectionChangedListeners.add(onSelectionChangedListener) : invokeL.booleanValue;
+        this.onSelectionChangedListeners = new LinkedHashSet();
     }
 
     public void clearOnSelectionChangedListeners() {
@@ -43,11 +39,21 @@ public abstract class PickerFragment<S> extends Fragment {
         }
     }
 
-    public abstract DateSelector<S> getDateSelector();
-
-    public boolean removeOnSelectionChangedListener(OnSelectionChangedListener<S> onSelectionChangedListener) {
+    public boolean addOnSelectionChangedListener(OnSelectionChangedListener onSelectionChangedListener) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, onSelectionChangedListener)) == null) ? this.onSelectionChangedListeners.remove(onSelectionChangedListener) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, onSelectionChangedListener)) == null) {
+            return this.onSelectionChangedListeners.add(onSelectionChangedListener);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean removeOnSelectionChangedListener(OnSelectionChangedListener onSelectionChangedListener) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, onSelectionChangedListener)) == null) {
+            return this.onSelectionChangedListeners.remove(onSelectionChangedListener);
+        }
+        return invokeL.booleanValue;
     }
 }

@@ -1,87 +1,90 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.ala.alasquare.live_tab.view.SdkDoubleLiveViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class bu5 {
+public class bu5 extends rn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<a> a;
+    public TbPageContext a;
+    public jv5 b;
+    public int c;
+    public boolean d;
 
-    /* loaded from: classes3.dex */
-    public class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(bu5 bu5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bu5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public void a(JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-                return;
-            }
-            jSONObject.optString("user_id");
-            jSONObject.optString("portrait");
-        }
-    }
-
-    public bu5() {
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public bu5(TbPageContext tbPageContext, int i, boolean z) {
+        super(r0, r1);
+        BdUniqueId bdUniqueId;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, Integer.valueOf(i), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        Activity pageActivity = tbPageContext.getPageActivity();
+        if (z) {
+            bdUniqueId = fu5.d;
+        } else {
+            bdUniqueId = fu5.c;
+        }
+        this.a = tbPageContext;
+        this.c = i;
+        this.d = z;
     }
 
-    public void a(JSONObject jSONObject) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.rn
+    /* renamed from: s */
+    public SdkDoubleLiveViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            this.b = new jv5(this.a, viewGroup, this.c, this.d);
+            return new SdkDoubleLiveViewHolder(this.b);
         }
-        JSONObject optJSONObject = jSONObject.optJSONObject("user_follow");
-        if (optJSONObject != null) {
-            optJSONObject.optInt("has_follow_live");
-            JSONArray optJSONArray = optJSONObject.optJSONArray("follow_live_list");
-            if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.a = new ArrayList<>(optJSONArray.length());
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
-                    if (optJSONObject2 != null) {
-                        a aVar = new a(this);
-                        aVar.a(optJSONObject2);
-                        this.a.add(aVar);
-                    }
-                }
+        return (SdkDoubleLiveViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.rn
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, fu5 fu5Var, SdkDoubleLiveViewHolder sdkDoubleLiveViewHolder) {
+        InterceptResult invokeCommon;
+        jv5 jv5Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, fu5Var, sdkDoubleLiveViewHolder})) == null) {
+            if (sdkDoubleLiveViewHolder != null && (jv5Var = sdkDoubleLiveViewHolder.a) != null) {
+                jv5Var.l(fu5Var);
+                sdkDoubleLiveViewHolder.a.m(this.a, TbadkCoreApplication.getInst().getSkinType());
+                return sdkDoubleLiveViewHolder.getView();
             }
+            return null;
         }
-        JSONObject optJSONObject3 = jSONObject.optJSONObject("live_rank");
-        if (optJSONObject3 != null) {
-            optJSONObject3.optString("url");
-        }
+        return (View) invokeCommon.objValue;
     }
 }

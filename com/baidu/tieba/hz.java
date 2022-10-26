@@ -1,18 +1,17 @@
 package com.baidu.tieba;
 
-import android.content.pm.ApplicationInfo;
+import com.baidu.tieba.xz;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class hz {
+public class hz implements xz.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ApplicationInfo a;
-    public int b;
-    public boolean c;
-    public boolean d;
 
     public hz() {
         Interceptable interceptable = $ic;
@@ -24,11 +23,20 @@ public class hz {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = 0;
-        this.c = false;
-        this.d = false;
+    }
+
+    @Override // com.baidu.tieba.xz.a
+    public List a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new zz());
+            arrayList.add(new yz());
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
     }
 }

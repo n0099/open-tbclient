@@ -1,38 +1,63 @@
 package com.baidu.tieba;
 
-import android.graphics.Color;
+import android.util.SparseArray;
+import android.util.SparseIntArray;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.lego.card.exception.CardParseException;
+import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class bh7 {
+public abstract class bh7 {
     public static /* synthetic */ Interceptable $ic;
+    public static final SparseIntArray a;
+    public static final SparseArray b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) ? i == Integer.MAX_VALUE : invokeI.booleanValue;
+    public abstract uh7 a(TbPageContext tbPageContext, ICardInfo iCardInfo, int i);
+
+    public abstract ICardInfo b(JSONObject jSONObject, int i) throws CardParseException;
+
+    public abstract void c();
+
+    public abstract String d();
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947645048, "Lcom/baidu/tieba/bh7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947645048, "Lcom/baidu/tieba/bh7;");
+                return;
+            }
+        }
+        a = new SparseIntArray();
+        b = new SparseArray();
     }
 
-    public static int b(String str) {
-        InterceptResult invokeL;
+    public bh7() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (str != null) {
-                if (str.length() != 0) {
-                    try {
-                        if (!str.startsWith("#")) {
-                            str = "#" + str;
-                        }
-                    } catch (Exception unused) {
-                        return Integer.MAX_VALUE;
-                    }
-                }
-                return Color.parseColor(str);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return Integer.MAX_VALUE;
         }
-        return invokeL.intValue;
+        c();
     }
 }

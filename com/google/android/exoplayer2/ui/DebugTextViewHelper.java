@@ -1,6 +1,5 @@
 package com.google.android.exoplayer2.ui;
 
-import android.annotation.SuppressLint;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -73,10 +72,10 @@ public final class DebugTextViewHelper extends Player.DefaultEventListener imple
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(65539, null, f)) == null) {
-            if (f == -1.0f || f == 1.0f) {
-                return "";
+            if (f != -1.0f && f != 1.0f) {
+                return " par:" + String.format(Locale.US, "%.02f", Float.valueOf(f));
             }
-            return " par:" + String.format(Locale.US, "%.02f", Float.valueOf(f));
+            return "";
         }
         return (String) invokeF.objValue;
     }
@@ -87,17 +86,19 @@ public final class DebugTextViewHelper extends Player.DefaultEventListener imple
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             String str = "playWhenReady:" + this.player.getPlayWhenReady() + " playbackState:";
             int playbackState = this.player.getPlaybackState();
-            if (playbackState == 1) {
-                return str + "idle";
-            } else if (playbackState == 2) {
+            if (playbackState != 1) {
+                if (playbackState != 2) {
+                    if (playbackState != 3) {
+                        if (playbackState != 4) {
+                            return str + "unknown";
+                        }
+                        return str + "ended";
+                    }
+                    return str + "ready";
+                }
                 return str + "buffering";
-            } else if (playbackState == 3) {
-                return str + "ready";
-            } else if (playbackState != 4) {
-                return str + "unknown";
-            } else {
-                return str + "ended";
             }
+            return str + "idle";
         }
         return (String) invokeV.objValue;
     }
@@ -109,6 +110,34 @@ public final class DebugTextViewHelper extends Player.DefaultEventListener imple
             return " window:" + this.player.getCurrentWindowIndex();
         }
         return (String) invokeV.objValue;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            updateAndPost();
+        }
+    }
+
+    public void start() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || this.started) {
+            return;
+        }
+        this.started = true;
+        this.player.addListener(this);
+        updateAndPost();
+    }
+
+    public void stop() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || !this.started) {
+            return;
+        }
+        this.started = false;
+        this.player.removeListener(this);
+        this.textView.removeCallbacks(this);
     }
 
     private String getVideoString() {
@@ -124,7 +153,6 @@ public final class DebugTextViewHelper extends Player.DefaultEventListener imple
         return (String) invokeV.objValue;
     }
 
-    @SuppressLint({"SetTextI18n"})
     private void updateAndPost() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
@@ -148,33 +176,6 @@ public final class DebugTextViewHelper extends Player.DefaultEventListener imple
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             updateAndPost();
-        }
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            updateAndPost();
-        }
-    }
-
-    public void start() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.started) {
-            return;
-        }
-        this.started = true;
-        this.player.addListener(this);
-        updateAndPost();
-    }
-
-    public void stop() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.started) {
-            this.started = false;
-            this.player.removeListener(this);
-            this.textView.removeCallbacks(this);
         }
     }
 }

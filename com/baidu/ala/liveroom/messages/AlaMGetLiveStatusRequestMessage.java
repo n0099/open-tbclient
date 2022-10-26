@@ -6,23 +6,20 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.ala.AlaCmdConfigSocket;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.sh5;
+import com.baidu.tieba.yh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class AlaMGetLiveStatusRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long mAudienceCount;
-    public List<Long> mIds;
-    public List<Object> mOriginDatas;
+    public List mIds;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaMGetLiveStatusRequestMessage() {
@@ -41,7 +38,6 @@ public class AlaMGetLiveStatusRequestMessage extends NetMessage {
                 return;
             }
         }
-        this.mOriginDatas = new ArrayList();
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
@@ -53,7 +49,7 @@ public class AlaMGetLiveStatusRequestMessage extends NetMessage {
             builder.live_ids = this.mIds;
             builder.audience_count = Long.valueOf(this.mAudienceCount);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                sh5.a(builder, true);
+                yh5.a(builder, true);
             }
             AlaMgetLiveStatusReqIdl.Builder builder2 = new AlaMgetLiveStatusReqIdl.Builder();
             builder2.data = builder.build(false);
@@ -62,32 +58,17 @@ public class AlaMGetLiveStatusRequestMessage extends NetMessage {
         return invokeZ.objValue;
     }
 
-    public List<Object> getOrignData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mOriginDatas : (List) invokeV.objValue;
-    }
-
     public void setAudienceCount(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
             this.mAudienceCount = j;
         }
     }
 
-    public void setListIds(List<Long> list) {
+    public void setListIds(List list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
             this.mIds = list;
         }
-    }
-
-    public void setOriginData(List<Object> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, list) == null) || ListUtils.isEmpty(list)) {
-            return;
-        }
-        this.mOriginDatas.clear();
-        this.mOriginDatas.addAll(list);
     }
 }

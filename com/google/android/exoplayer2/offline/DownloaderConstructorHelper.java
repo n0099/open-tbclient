@@ -1,6 +1,5 @@
 package com.google.android.exoplayer2.offline;
 
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -48,41 +47,7 @@ public final class DownloaderConstructorHelper {
         }
     }
 
-    public CacheDataSource buildCacheDataSource(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-            DataSource.Factory factory = this.cacheReadDataSourceFactory;
-            DataSource createDataSource = factory != null ? factory.createDataSource() : new FileDataSource();
-            if (z) {
-                return new CacheDataSource(this.cache, DummyDataSource.INSTANCE, createDataSource, null, 1, null);
-            }
-            DataSink.Factory factory2 = this.cacheWriteDataSinkFactory;
-            DataSink createDataSink = factory2 != null ? factory2.createDataSink() : new CacheDataSink(this.cache, 2097152L);
-            DataSource createDataSource2 = this.upstreamDataSourceFactory.createDataSource();
-            PriorityTaskManager priorityTaskManager = this.priorityTaskManager;
-            return new CacheDataSource(this.cache, priorityTaskManager == null ? createDataSource2 : new PriorityDataSource(createDataSource2, priorityTaskManager, -1000), createDataSource, createDataSink, 1, null);
-        }
-        return (CacheDataSource) invokeZ.objValue;
-    }
-
-    public Cache getCache() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.cache : (Cache) invokeV.objValue;
-    }
-
-    public PriorityTaskManager getPriorityTaskManager() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            PriorityTaskManager priorityTaskManager = this.priorityTaskManager;
-            return priorityTaskManager != null ? priorityTaskManager : new PriorityTaskManager();
-        }
-        return (PriorityTaskManager) invokeV.objValue;
-    }
-
-    public DownloaderConstructorHelper(Cache cache, DataSource.Factory factory, @Nullable DataSource.Factory factory2, @Nullable DataSink.Factory factory3, @Nullable PriorityTaskManager priorityTaskManager) {
+    public DownloaderConstructorHelper(Cache cache, DataSource.Factory factory, DataSource.Factory factory2, DataSink.Factory factory3, PriorityTaskManager priorityTaskManager) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,5 +68,63 @@ public final class DownloaderConstructorHelper {
         this.cacheReadDataSourceFactory = factory2;
         this.cacheWriteDataSinkFactory = factory3;
         this.priorityTaskManager = priorityTaskManager;
+    }
+
+    public CacheDataSource buildCacheDataSource(boolean z) {
+        InterceptResult invokeZ;
+        DataSource fileDataSource;
+        DataSink cacheDataSink;
+        PriorityDataSource priorityDataSource;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+            DataSource.Factory factory = this.cacheReadDataSourceFactory;
+            if (factory != null) {
+                fileDataSource = factory.createDataSource();
+            } else {
+                fileDataSource = new FileDataSource();
+            }
+            DataSource dataSource = fileDataSource;
+            if (z) {
+                return new CacheDataSource(this.cache, DummyDataSource.INSTANCE, dataSource, null, 1, null);
+            }
+            DataSink.Factory factory2 = this.cacheWriteDataSinkFactory;
+            if (factory2 != null) {
+                cacheDataSink = factory2.createDataSink();
+            } else {
+                cacheDataSink = new CacheDataSink(this.cache, 2097152L);
+            }
+            DataSink dataSink = cacheDataSink;
+            DataSource createDataSource = this.upstreamDataSourceFactory.createDataSource();
+            PriorityTaskManager priorityTaskManager = this.priorityTaskManager;
+            if (priorityTaskManager == null) {
+                priorityDataSource = createDataSource;
+            } else {
+                priorityDataSource = new PriorityDataSource(createDataSource, priorityTaskManager, -1000);
+            }
+            return new CacheDataSource(this.cache, priorityDataSource, dataSource, dataSink, 1, null);
+        }
+        return (CacheDataSource) invokeZ.objValue;
+    }
+
+    public Cache getCache() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.cache;
+        }
+        return (Cache) invokeV.objValue;
+    }
+
+    public PriorityTaskManager getPriorityTaskManager() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            PriorityTaskManager priorityTaskManager = this.priorityTaskManager;
+            if (priorityTaskManager == null) {
+                return new PriorityTaskManager();
+            }
+            return priorityTaskManager;
+        }
+        return (PriorityTaskManager) invokeV.objValue;
     }
 }

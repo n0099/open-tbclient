@@ -1,6 +1,5 @@
 package com.baidu.tieba.enterForum.home;
 
-import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -21,7 +20,7 @@ import tbclient.HistoryForumInfo;
 public class RecentlyVisitedForumSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<VisitedForumData> mForumData;
+    public LinkedList mForumData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RecentlyVisitedForumSocketResponseMessage() {
@@ -41,11 +40,18 @@ public class RecentlyVisitedForumSocketResponseMessage extends SocketResponsedMe
         }
     }
 
+    public LinkedList getForumData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mForumData;
+        }
+        return (LinkedList) invokeV.objValue;
+    }
+
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
-        DataRes dataRes;
         Long l;
         String str;
         Integer num;
@@ -63,8 +69,12 @@ public class RecentlyVisitedForumSocketResponseMessage extends SocketResponsedMe
             if (error2 != null && (str = error2.usermsg) != null && str.length() > 0) {
                 setErrorString(getHistoryForumResIdl.error.usermsg);
             }
-            if (getError() == 0 && (dataRes = getHistoryForumResIdl.data) != null && dataRes.history_forum != null) {
-                this.mForumData = new LinkedList<>();
+            if (getError() != 0) {
+                return getHistoryForumResIdl;
+            }
+            DataRes dataRes = getHistoryForumResIdl.data;
+            if (dataRes != null && dataRes.history_forum != null) {
+                this.mForumData = new LinkedList();
                 HashMap hashMap = new HashMap();
                 if (!ListUtils.isEmpty(getHistoryForumResIdl.data.this_week_forums)) {
                     for (HistoryForumInfo historyForumInfo : getHistoryForumResIdl.data.this_week_forums) {
@@ -85,11 +95,5 @@ public class RecentlyVisitedForumSocketResponseMessage extends SocketResponsedMe
             return getHistoryForumResIdl;
         }
         return invokeIL.objValue;
-    }
-
-    public LinkedList<VisitedForumData> getForumData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mForumData : (LinkedList) invokeV.objValue;
     }
 }

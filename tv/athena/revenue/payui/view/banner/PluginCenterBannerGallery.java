@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.widget.SpinnerAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
-import com.baidu.tieba.v5a;
+import com.baidu.tieba.n6a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +14,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.BannerConfigItem;
 import java.util.List;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
@@ -24,7 +23,7 @@ import tv.athena.revenue.payui.model.ImageLoaderSupplier;
 public final class PluginCenterBannerGallery extends AdGallery {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public v5a j;
+    public n6a j;
 
     static {
         InterceptResult invokeClinit;
@@ -38,57 +37,6 @@ public final class PluginCenterBannerGallery extends AdGallery {
         }
         if ((invokeClinit.flags & 1) != 0) {
             classClinitInterceptable.invokePostClinit(-2109212953, "Ltv/athena/revenue/payui/view/banner/PluginCenterBannerGallery;");
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PluginCenterBannerGallery(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        this.j = new v5a(context);
-    }
-
-    public final List<BannerConfigItem.BannerInfo> getData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<BannerConfigItem.BannerInfo> a = this.j.a();
-            Intrinsics.checkExpressionValueIsNotNull(a, "mAdapter.data");
-            return a;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final void setData(List<? extends BannerConfigItem.BannerInfo> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            f();
-            this.j.b(list);
-            setAdapter((SpinnerAdapter) this.j);
-            RLog.debug("PluginCenterBannerGallery", "set data size = " + list.size());
-            i();
-        }
-    }
-
-    public final void setImageLoaderSupplier(ImageLoaderSupplier imageLoaderSupplier) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, imageLoaderSupplier) == null) {
-            this.j.g(imageLoaderSupplier);
         }
     }
 
@@ -110,7 +58,18 @@ public final class PluginCenterBannerGallery extends AdGallery {
                 return;
             }
         }
-        this.j = new v5a(context);
+        this.j = new n6a(context);
+    }
+
+    public final void setData(List list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            f();
+            this.j.b(list);
+            setAdapter((SpinnerAdapter) this.j);
+            RLog.debug("PluginCenterBannerGallery", "set data size = " + list.size());
+            i();
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -132,6 +91,46 @@ public final class PluginCenterBannerGallery extends AdGallery {
                 return;
             }
         }
-        this.j = new v5a(context);
+        this.j = new n6a(context);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public PluginCenterBannerGallery(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.j = new n6a(context);
+    }
+
+    public final List getData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            List a = this.j.a();
+            Intrinsics.checkExpressionValueIsNotNull(a, "mAdapter.data");
+            return a;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final void setImageLoaderSupplier(ImageLoaderSupplier imageLoaderSupplier) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, imageLoaderSupplier) == null) {
+            this.j.g(imageLoaderSupplier);
+        }
     }
 }

@@ -1,5 +1,6 @@
 package kotlin.collections.builders;
 
+import androidx.exifinterface.media.ExifInterface;
 import androidx.lifecycle.SavedStateHandle;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.sapi2.SapiOptions;
@@ -20,7 +21,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.markers.KMutableIterator;
 import kotlin.jvm.internal.markers.KMutableMap;
 import kotlin.ranges.RangesKt___RangesKt;
-@Metadata(d1 = {"\u0000 \u0001\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010%\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u0011\n\u0002\b\u0002\n\u0002\u0010\u0015\n\u0002\b\b\n\u0002\u0010#\n\u0002\u0010'\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u000b\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u001f\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0010$\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0010\u001e\n\u0002\b\u0003\n\u0002\u0010&\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0000\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0018\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\b\b\b\u0000\u0018\u0000 v*\u0004\b\u0000\u0010\u0001*\u0004\b\u0001\u0010\u00022\u000e\u0012\u0004\u0012\u0002H\u0001\u0012\u0004\u0012\u0002H\u00020\u0003:\u0006vwxyz{B\u0007\b\u0016¢\u0006\u0002\u0010\u0004B\u000f\b\u0016\u0012\u0006\u0010\u0005\u001a\u00020\u0006¢\u0006\u0002\u0010\u0007BE\b\u0002\u0012\f\u0010\b\u001a\b\u0012\u0004\u0012\u00028\u00000\t\u0012\u000e\u0010\n\u001a\n\u0012\u0004\u0012\u00028\u0001\u0018\u00010\t\u0012\u0006\u0010\u000b\u001a\u00020\f\u0012\u0006\u0010\r\u001a\u00020\f\u0012\u0006\u0010\u000e\u001a\u00020\u0006\u0012\u0006\u0010\u000f\u001a\u00020\u0006¢\u0006\u0002\u0010\u0010J\u0017\u0010.\u001a\u00020\u00062\u0006\u0010/\u001a\u00028\u0000H\u0000¢\u0006\u0004\b0\u00101J\u0013\u00102\u001a\b\u0012\u0004\u0012\u00028\u00010\tH\u0002¢\u0006\u0002\u00103J\u0012\u00104\u001a\u000e\u0012\u0004\u0012\u00028\u0000\u0012\u0004\u0012\u00028\u000105J\r\u00106\u001a\u000207H\u0000¢\u0006\u0002\b8J\b\u00109\u001a\u000207H\u0016J\b\u0010:\u001a\u000207H\u0002J\u0019\u0010;\u001a\u00020\u001f2\n\u0010<\u001a\u0006\u0012\u0002\b\u00030=H\u0000¢\u0006\u0002\b>J!\u0010?\u001a\u00020\u001f2\u0012\u0010@\u001a\u000e\u0012\u0004\u0012\u00028\u0000\u0012\u0004\u0012\u00028\u00010AH\u0000¢\u0006\u0002\bBJ\u0015\u0010C\u001a\u00020\u001f2\u0006\u0010/\u001a\u00028\u0000H\u0016¢\u0006\u0002\u0010DJ\u0015\u0010E\u001a\u00020\u001f2\u0006\u0010F\u001a\u00028\u0001H\u0016¢\u0006\u0002\u0010DJ\u0018\u0010G\u001a\u00020\u001f2\u000e\u0010H\u001a\n\u0012\u0002\b\u0003\u0012\u0002\b\u000305H\u0002J\u0010\u0010I\u001a\u0002072\u0006\u0010\u0011\u001a\u00020\u0006H\u0002J\u0010\u0010J\u001a\u0002072\u0006\u0010K\u001a\u00020\u0006H\u0002J\u0019\u0010L\u001a\u000e\u0012\u0004\u0012\u00028\u0000\u0012\u0004\u0012\u00028\u00010MH\u0000¢\u0006\u0002\bNJ\u0013\u0010O\u001a\u00020\u001f2\b\u0010H\u001a\u0004\u0018\u00010PH\u0096\u0002J\u0015\u0010Q\u001a\u00020\u00062\u0006\u0010/\u001a\u00028\u0000H\u0002¢\u0006\u0002\u00101J\u0015\u0010R\u001a\u00020\u00062\u0006\u0010F\u001a\u00028\u0001H\u0002¢\u0006\u0002\u00101J\u0018\u0010S\u001a\u0004\u0018\u00018\u00012\u0006\u0010/\u001a\u00028\u0000H\u0096\u0002¢\u0006\u0002\u0010TJ\u0015\u0010U\u001a\u00020\u00062\u0006\u0010/\u001a\u00028\u0000H\u0002¢\u0006\u0002\u00101J\b\u0010V\u001a\u00020\u0006H\u0016J\b\u0010W\u001a\u00020\u001fH\u0016J\u0019\u0010X\u001a\u000e\u0012\u0004\u0012\u00028\u0000\u0012\u0004\u0012\u00028\u00010YH\u0000¢\u0006\u0002\bZJ\u001f\u0010[\u001a\u0004\u0018\u00018\u00012\u0006\u0010/\u001a\u00028\u00002\u0006\u0010F\u001a\u00028\u0001H\u0016¢\u0006\u0002\u0010\\J\u001e\u0010]\u001a\u0002072\u0014\u0010^\u001a\u0010\u0012\u0006\b\u0001\u0012\u00028\u0000\u0012\u0004\u0012\u00028\u000105H\u0016J\"\u0010_\u001a\u00020\u001f2\u0018\u0010^\u001a\u0014\u0012\u0010\u0012\u000e\u0012\u0004\u0012\u00028\u0000\u0012\u0004\u0012\u00028\u00010A0=H\u0002J\u001c\u0010`\u001a\u00020\u001f2\u0012\u0010@\u001a\u000e\u0012\u0004\u0012\u00028\u0000\u0012\u0004\u0012\u00028\u00010AH\u0002J\u0010\u0010a\u001a\u00020\u001f2\u0006\u0010b\u001a\u00020\u0006H\u0002J\u0010\u0010c\u001a\u0002072\u0006\u0010d\u001a\u00020\u0006H\u0002J\u0017\u0010e\u001a\u0004\u0018\u00018\u00012\u0006\u0010/\u001a\u00028\u0000H\u0016¢\u0006\u0002\u0010TJ!\u0010f\u001a\u00020\u001f2\u0012\u0010@\u001a\u000e\u0012\u0004\u0012\u00028\u0000\u0012\u0004\u0012\u00028\u00010AH\u0000¢\u0006\u0002\bgJ\u0010\u0010h\u001a\u0002072\u0006\u0010i\u001a\u00020\u0006H\u0002J\u0017\u0010j\u001a\u00020\u00062\u0006\u0010/\u001a\u00028\u0000H\u0000¢\u0006\u0004\bk\u00101J\u0010\u0010l\u001a\u0002072\u0006\u0010m\u001a\u00020\u0006H\u0002J\u0017\u0010n\u001a\u00020\u001f2\u0006\u0010o\u001a\u00028\u0001H\u0000¢\u0006\u0004\bp\u0010DJ\b\u0010q\u001a\u00020rH\u0016J\u0019\u0010s\u001a\u000e\u0012\u0004\u0012\u00028\u0000\u0012\u0004\u0012\u00028\u00010tH\u0000¢\u0006\u0002\buR\u0014\u0010\u0011\u001a\u00020\u00068BX\u0082\u0004¢\u0006\u0006\u001a\u0004\b\u0012\u0010\u0013R&\u0010\u0014\u001a\u0014\u0012\u0010\u0012\u000e\u0012\u0004\u0012\u00028\u0000\u0012\u0004\u0012\u00028\u00010\u00160\u00158VX\u0096\u0004¢\u0006\u0006\u001a\u0004\b\u0017\u0010\u0018R\u001c\u0010\u0019\u001a\u0010\u0012\u0004\u0012\u00028\u0000\u0012\u0004\u0012\u00028\u0001\u0018\u00010\u001aX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001b\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u0014\u0010\u001c\u001a\u00020\u00068BX\u0082\u0004¢\u0006\u0006\u001a\u0004\b\u001d\u0010\u0013R\u000e\u0010\u001e\u001a\u00020\u001fX\u0082\u000e¢\u0006\u0002\n\u0000R\u001a\u0010 \u001a\b\u0012\u0004\u0012\u00028\u00000\u00158VX\u0096\u0004¢\u0006\u0006\u001a\u0004\b!\u0010\u0018R\u0016\u0010\b\u001a\b\u0012\u0004\u0012\u00028\u00000\tX\u0082\u000e¢\u0006\u0004\n\u0002\u0010\"R\u0016\u0010#\u001a\n\u0012\u0004\u0012\u00028\u0000\u0018\u00010$X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\fX\u0082\u000e¢\u0006\u0002\n\u0000R\u001e\u0010&\u001a\u00020\u00062\u0006\u0010%\u001a\u00020\u0006@RX\u0096\u000e¢\u0006\b\n\u0000\u001a\u0004\b'\u0010\u0013R\u001a\u0010(\u001a\b\u0012\u0004\u0012\u00028\u00010)8VX\u0096\u0004¢\u0006\u0006\u001a\u0004\b*\u0010+R\u0018\u0010\n\u001a\n\u0012\u0004\u0012\u00028\u0001\u0018\u00010\tX\u0082\u000e¢\u0006\u0004\n\u0002\u0010\"R\u0016\u0010,\u001a\n\u0012\u0004\u0012\u00028\u0001\u0018\u00010-X\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006|"}, d2 = {"Lkotlin/collections/builders/MapBuilder;", "K", "V", "", "()V", "initialCapacity", "", "(I)V", "keysArray", "", "valuesArray", "presenceArray", "", "hashArray", "maxProbeDistance", CloudStabilityUBCUtils.KEY_LENGTH, "([Ljava/lang/Object;[Ljava/lang/Object;[I[III)V", "capacity", "getCapacity", "()I", "entries", "", "", "getEntries", "()Ljava/util/Set;", "entriesView", "Lkotlin/collections/builders/MapBuilderEntries;", "hashShift", "hashSize", "getHashSize", "isReadOnly", "", SavedStateHandle.KEYS, "getKeys", "[Ljava/lang/Object;", "keysView", "Lkotlin/collections/builders/MapBuilderKeys;", "<set-?>", "size", "getSize", SavedStateHandle.VALUES, "", "getValues", "()Ljava/util/Collection;", "valuesView", "Lkotlin/collections/builders/MapBuilderValues;", "addKey", "key", "addKey$kotlin_stdlib", "(Ljava/lang/Object;)I", "allocateValuesArray", "()[Ljava/lang/Object;", "build", "", "checkIsMutable", "", "checkIsMutable$kotlin_stdlib", "clear", "compact", "containsAllEntries", "m", "", "containsAllEntries$kotlin_stdlib", "containsEntry", "entry", "", "containsEntry$kotlin_stdlib", "containsKey", "(Ljava/lang/Object;)Z", "containsValue", "value", "contentEquals", ImageViewerConfig.FROM_OTHER, "ensureCapacity", "ensureExtraCapacity", "n", "entriesIterator", "Lkotlin/collections/builders/MapBuilder$EntriesItr;", "entriesIterator$kotlin_stdlib", "equals", "", "findKey", "findValue", "get", "(Ljava/lang/Object;)Ljava/lang/Object;", SapiOptions.KEY_CACHE_MODULE_HASH, TTDownloadField.TT_HASHCODE, "isEmpty", "keysIterator", "Lkotlin/collections/builders/MapBuilder$KeysItr;", "keysIterator$kotlin_stdlib", "put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "putAll", "from", "putAllEntries", "putEntry", "putRehash", "i", "rehash", "newHashSize", "remove", "removeEntry", "removeEntry$kotlin_stdlib", "removeHashAt", "removedHash", "removeKey", "removeKey$kotlin_stdlib", "removeKeyAt", "index", "removeValue", "element", "removeValue$kotlin_stdlib", "toString", "", "valuesIterator", "Lkotlin/collections/builders/MapBuilder$ValuesItr;", "valuesIterator$kotlin_stdlib", "Companion", "EntriesItr", "EntryRef", "Itr", "KeysItr", "ValuesItr", "kotlin-stdlib"}, k = 1, mv = {1, 5, 1})
+@Metadata(d1 = {"\u0000 \u0001\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010%\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u0011\n\u0002\b\u0002\n\u0002\u0010\u0015\n\u0002\b\b\n\u0002\u0010#\n\u0002\u0010'\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u000b\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u001f\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0010$\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0010\u001e\n\u0002\b\u0003\n\u0002\u0010&\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0000\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0018\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\b\b\b\u0000\u0018\u0000 v*\u0004\b\u0000\u0010\u0001*\u0004\b\u0001\u0010\u00022\u000e\u0012\u0004\u0012\u0002H\u0001\u0012\u0004\u0012\u0002H\u00020\u0003:\u0006vwxyz{B\u0007\b\u0016¢\u0006\u0002\u0010\u0004B\u000f\b\u0016\u0012\u0006\u0010\u0005\u001a\u00020\u0006¢\u0006\u0002\u0010\u0007BE\b\u0002\u0012\f\u0010\b\u001a\b\u0012\u0004\u0012\u00028\u00000\t\u0012\u000e\u0010\n\u001a\n\u0012\u0004\u0012\u00028\u0001\u0018\u00010\t\u0012\u0006\u0010\u000b\u001a\u00020\f\u0012\u0006\u0010\r\u001a\u00020\f\u0012\u0006\u0010\u000e\u001a\u00020\u0006\u0012\u0006\u0010\u000f\u001a\u00020\u0006¢\u0006\u0002\u0010\u0010J\u0017\u0010.\u001a\u00020\u00062\u0006\u0010/\u001a\u00028\u0000H\u0000¢\u0006\u0004\b0\u00101J\u0013\u00102\u001a\b\u0012\u0004\u0012\u00028\u00010\tH\u0002¢\u0006\u0002\u00103J\u0012\u00104\u001a\u000e\u0012\u0004\u0012\u00028\u0000\u0012\u0004\u0012\u00028\u000105J\r\u00106\u001a\u000207H\u0000¢\u0006\u0002\b8J\b\u00109\u001a\u000207H\u0016J\b\u0010:\u001a\u000207H\u0002J\u0019\u0010;\u001a\u00020\u001f2\n\u0010<\u001a\u0006\u0012\u0002\b\u00030=H\u0000¢\u0006\u0002\b>J!\u0010?\u001a\u00020\u001f2\u0012\u0010@\u001a\u000e\u0012\u0004\u0012\u00028\u0000\u0012\u0004\u0012\u00028\u00010AH\u0000¢\u0006\u0002\bBJ\u0015\u0010C\u001a\u00020\u001f2\u0006\u0010/\u001a\u00028\u0000H\u0016¢\u0006\u0002\u0010DJ\u0015\u0010E\u001a\u00020\u001f2\u0006\u0010F\u001a\u00028\u0001H\u0016¢\u0006\u0002\u0010DJ\u0018\u0010G\u001a\u00020\u001f2\u000e\u0010H\u001a\n\u0012\u0002\b\u0003\u0012\u0002\b\u000305H\u0002J\u0010\u0010I\u001a\u0002072\u0006\u0010\u0011\u001a\u00020\u0006H\u0002J\u0010\u0010J\u001a\u0002072\u0006\u0010K\u001a\u00020\u0006H\u0002J\u0019\u0010L\u001a\u000e\u0012\u0004\u0012\u00028\u0000\u0012\u0004\u0012\u00028\u00010MH\u0000¢\u0006\u0002\bNJ\u0013\u0010O\u001a\u00020\u001f2\b\u0010H\u001a\u0004\u0018\u00010PH\u0096\u0002J\u0015\u0010Q\u001a\u00020\u00062\u0006\u0010/\u001a\u00028\u0000H\u0002¢\u0006\u0002\u00101J\u0015\u0010R\u001a\u00020\u00062\u0006\u0010F\u001a\u00028\u0001H\u0002¢\u0006\u0002\u00101J\u0018\u0010S\u001a\u0004\u0018\u00018\u00012\u0006\u0010/\u001a\u00028\u0000H\u0096\u0002¢\u0006\u0002\u0010TJ\u0015\u0010U\u001a\u00020\u00062\u0006\u0010/\u001a\u00028\u0000H\u0002¢\u0006\u0002\u00101J\b\u0010V\u001a\u00020\u0006H\u0016J\b\u0010W\u001a\u00020\u001fH\u0016J\u0019\u0010X\u001a\u000e\u0012\u0004\u0012\u00028\u0000\u0012\u0004\u0012\u00028\u00010YH\u0000¢\u0006\u0002\bZJ\u001f\u0010[\u001a\u0004\u0018\u00018\u00012\u0006\u0010/\u001a\u00028\u00002\u0006\u0010F\u001a\u00028\u0001H\u0016¢\u0006\u0002\u0010\\J\u001e\u0010]\u001a\u0002072\u0014\u0010^\u001a\u0010\u0012\u0006\b\u0001\u0012\u00028\u0000\u0012\u0004\u0012\u00028\u000105H\u0016J\"\u0010_\u001a\u00020\u001f2\u0018\u0010^\u001a\u0014\u0012\u0010\u0012\u000e\u0012\u0004\u0012\u00028\u0000\u0012\u0004\u0012\u00028\u00010A0=H\u0002J\u001c\u0010`\u001a\u00020\u001f2\u0012\u0010@\u001a\u000e\u0012\u0004\u0012\u00028\u0000\u0012\u0004\u0012\u00028\u00010AH\u0002J\u0010\u0010a\u001a\u00020\u001f2\u0006\u0010b\u001a\u00020\u0006H\u0002J\u0010\u0010c\u001a\u0002072\u0006\u0010d\u001a\u00020\u0006H\u0002J\u0017\u0010e\u001a\u0004\u0018\u00018\u00012\u0006\u0010/\u001a\u00028\u0000H\u0016¢\u0006\u0002\u0010TJ!\u0010f\u001a\u00020\u001f2\u0012\u0010@\u001a\u000e\u0012\u0004\u0012\u00028\u0000\u0012\u0004\u0012\u00028\u00010AH\u0000¢\u0006\u0002\bgJ\u0010\u0010h\u001a\u0002072\u0006\u0010i\u001a\u00020\u0006H\u0002J\u0017\u0010j\u001a\u00020\u00062\u0006\u0010/\u001a\u00028\u0000H\u0000¢\u0006\u0004\bk\u00101J\u0010\u0010l\u001a\u0002072\u0006\u0010m\u001a\u00020\u0006H\u0002J\u0017\u0010n\u001a\u00020\u001f2\u0006\u0010o\u001a\u00028\u0001H\u0000¢\u0006\u0004\bp\u0010DJ\b\u0010q\u001a\u00020rH\u0016J\u0019\u0010s\u001a\u000e\u0012\u0004\u0012\u00028\u0000\u0012\u0004\u0012\u00028\u00010tH\u0000¢\u0006\u0002\buR\u0014\u0010\u0011\u001a\u00020\u00068BX\u0082\u0004¢\u0006\u0006\u001a\u0004\b\u0012\u0010\u0013R&\u0010\u0014\u001a\u0014\u0012\u0010\u0012\u000e\u0012\u0004\u0012\u00028\u0000\u0012\u0004\u0012\u00028\u00010\u00160\u00158VX\u0096\u0004¢\u0006\u0006\u001a\u0004\b\u0017\u0010\u0018R\u001c\u0010\u0019\u001a\u0010\u0012\u0004\u0012\u00028\u0000\u0012\u0004\u0012\u00028\u0001\u0018\u00010\u001aX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001b\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u0014\u0010\u001c\u001a\u00020\u00068BX\u0082\u0004¢\u0006\u0006\u001a\u0004\b\u001d\u0010\u0013R\u000e\u0010\u001e\u001a\u00020\u001fX\u0082\u000e¢\u0006\u0002\n\u0000R\u001a\u0010 \u001a\b\u0012\u0004\u0012\u00028\u00000\u00158VX\u0096\u0004¢\u0006\u0006\u001a\u0004\b!\u0010\u0018R\u0016\u0010\b\u001a\b\u0012\u0004\u0012\u00028\u00000\tX\u0082\u000e¢\u0006\u0004\n\u0002\u0010\"R\u0016\u0010#\u001a\n\u0012\u0004\u0012\u00028\u0000\u0018\u00010$X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\fX\u0082\u000e¢\u0006\u0002\n\u0000R\u001e\u0010&\u001a\u00020\u00062\u0006\u0010%\u001a\u00020\u0006@RX\u0096\u000e¢\u0006\b\n\u0000\u001a\u0004\b'\u0010\u0013R\u001a\u0010(\u001a\b\u0012\u0004\u0012\u00028\u00010)8VX\u0096\u0004¢\u0006\u0006\u001a\u0004\b*\u0010+R\u0018\u0010\n\u001a\n\u0012\u0004\u0012\u00028\u0001\u0018\u00010\tX\u0082\u000e¢\u0006\u0004\n\u0002\u0010\"R\u0016\u0010,\u001a\n\u0012\u0004\u0012\u00028\u0001\u0018\u00010-X\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006|"}, d2 = {"Lkotlin/collections/builders/MapBuilder;", "K", ExifInterface.GPS_MEASUREMENT_INTERRUPTED, "", "()V", "initialCapacity", "", "(I)V", "keysArray", "", "valuesArray", "presenceArray", "", "hashArray", "maxProbeDistance", CloudStabilityUBCUtils.KEY_LENGTH, "([Ljava/lang/Object;[Ljava/lang/Object;[I[III)V", "capacity", "getCapacity", "()I", "entries", "", "", "getEntries", "()Ljava/util/Set;", "entriesView", "Lkotlin/collections/builders/MapBuilderEntries;", "hashShift", "hashSize", "getHashSize", "isReadOnly", "", SavedStateHandle.KEYS, "getKeys", "[Ljava/lang/Object;", "keysView", "Lkotlin/collections/builders/MapBuilderKeys;", "<set-?>", "size", "getSize", SavedStateHandle.VALUES, "", "getValues", "()Ljava/util/Collection;", "valuesView", "Lkotlin/collections/builders/MapBuilderValues;", "addKey", "key", "addKey$kotlin_stdlib", "(Ljava/lang/Object;)I", "allocateValuesArray", "()[Ljava/lang/Object;", "build", "", "checkIsMutable", "", "checkIsMutable$kotlin_stdlib", "clear", "compact", "containsAllEntries", "m", "", "containsAllEntries$kotlin_stdlib", "containsEntry", "entry", "", "containsEntry$kotlin_stdlib", "containsKey", "(Ljava/lang/Object;)Z", "containsValue", "value", "contentEquals", ImageViewerConfig.FROM_OTHER, "ensureCapacity", "ensureExtraCapacity", "n", "entriesIterator", "Lkotlin/collections/builders/MapBuilder$EntriesItr;", "entriesIterator$kotlin_stdlib", "equals", "", "findKey", "findValue", "get", "(Ljava/lang/Object;)Ljava/lang/Object;", SapiOptions.KEY_CACHE_MODULE_HASH, TTDownloadField.TT_HASHCODE, "isEmpty", "keysIterator", "Lkotlin/collections/builders/MapBuilder$KeysItr;", "keysIterator$kotlin_stdlib", "put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "putAll", "from", "putAllEntries", "putEntry", "putRehash", "i", "rehash", "newHashSize", "remove", "removeEntry", "removeEntry$kotlin_stdlib", "removeHashAt", "removedHash", "removeKey", "removeKey$kotlin_stdlib", "removeKeyAt", "index", "removeValue", "element", "removeValue$kotlin_stdlib", "toString", "", "valuesIterator", "Lkotlin/collections/builders/MapBuilder$ValuesItr;", "valuesIterator$kotlin_stdlib", "Companion", "EntriesItr", "EntryRef", "Itr", "KeysItr", "ValuesItr", "kotlin-stdlib"}, k = 1, mv = {1, 5, 1})
 /* loaded from: classes8.dex */
 public final class MapBuilder<K, V> implements Map<K, V>, KMutableMap {
     public static final Companion Companion = new Companion(null);
@@ -51,6 +52,10 @@ public final class MapBuilder<K, V> implements Map<K, V>, KMutableMap {
         public Companion() {
         }
 
+        public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
         /* JADX INFO: Access modifiers changed from: private */
         public final int computeHashSize(int i) {
             return Integer.highestOneBit(RangesKt___RangesKt.coerceAtLeast(i, 1) * 3);
@@ -60,19 +65,29 @@ public final class MapBuilder<K, V> implements Map<K, V>, KMutableMap {
         public final int computeShift(int i) {
             return Integer.numberOfLeadingZeros(i) + 1;
         }
-
-        public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
     }
 
-    @Metadata(d1 = {"\u0000<\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010)\n\u0002\u0010'\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\b\u0000\u0018\u0000*\u0004\b\u0002\u0010\u0001*\u0004\b\u0003\u0010\u00022\u000e\u0012\u0004\u0012\u0002H\u0001\u0012\u0004\u0012\u0002H\u00020\u00032\u0014\u0012\u0010\u0012\u000e\u0012\u0004\u0012\u0002H\u0001\u0012\u0004\u0012\u0002H\u00020\u00050\u0004B\u0019\u0012\u0012\u0010\u0006\u001a\u000e\u0012\u0004\u0012\u00028\u0002\u0012\u0004\u0012\u00028\u00030\u0007¢\u0006\u0002\u0010\bJ\u0015\u0010\t\u001a\u000e\u0012\u0004\u0012\u00028\u0002\u0012\u0004\u0012\u00028\u00030\nH\u0096\u0002J\u0012\u0010\u000b\u001a\u00020\f2\n\u0010\r\u001a\u00060\u000ej\u0002`\u000fJ\r\u0010\u0010\u001a\u00020\u0011H\u0000¢\u0006\u0002\b\u0012¨\u0006\u0013"}, d2 = {"Lkotlin/collections/builders/MapBuilder$EntriesItr;", "K", "V", "Lkotlin/collections/builders/MapBuilder$Itr;", "", "", "map", "Lkotlin/collections/builders/MapBuilder;", "(Lkotlin/collections/builders/MapBuilder;)V", UnitedSchemeConstants.UNITED_SCHEME_NEXT, "Lkotlin/collections/builders/MapBuilder$EntryRef;", "nextAppendString", "", "sb", "Ljava/lang/StringBuilder;", "Lkotlin/text/StringBuilder;", "nextHashCode", "", "nextHashCode$kotlin_stdlib", "kotlin-stdlib"}, k = 1, mv = {1, 5, 1})
+    @Metadata(d1 = {"\u0000<\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010)\n\u0002\u0010'\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\b\u0000\u0018\u0000*\u0004\b\u0002\u0010\u0001*\u0004\b\u0003\u0010\u00022\u000e\u0012\u0004\u0012\u0002H\u0001\u0012\u0004\u0012\u0002H\u00020\u00032\u0014\u0012\u0010\u0012\u000e\u0012\u0004\u0012\u0002H\u0001\u0012\u0004\u0012\u0002H\u00020\u00050\u0004B\u0019\u0012\u0012\u0010\u0006\u001a\u000e\u0012\u0004\u0012\u00028\u0002\u0012\u0004\u0012\u00028\u00030\u0007¢\u0006\u0002\u0010\bJ\u0015\u0010\t\u001a\u000e\u0012\u0004\u0012\u00028\u0002\u0012\u0004\u0012\u00028\u00030\nH\u0096\u0002J\u0012\u0010\u000b\u001a\u00020\f2\n\u0010\r\u001a\u00060\u000ej\u0002`\u000fJ\r\u0010\u0010\u001a\u00020\u0011H\u0000¢\u0006\u0002\b\u0012¨\u0006\u0013"}, d2 = {"Lkotlin/collections/builders/MapBuilder$EntriesItr;", "K", ExifInterface.GPS_MEASUREMENT_INTERRUPTED, "Lkotlin/collections/builders/MapBuilder$Itr;", "", "", "map", "Lkotlin/collections/builders/MapBuilder;", "(Lkotlin/collections/builders/MapBuilder;)V", UnitedSchemeConstants.UNITED_SCHEME_NEXT, "Lkotlin/collections/builders/MapBuilder$EntryRef;", "nextAppendString", "", "sb", "Ljava/lang/StringBuilder;", "Lkotlin/text/StringBuilder;", "nextHashCode", "", "nextHashCode$kotlin_stdlib", "kotlin-stdlib"}, k = 1, mv = {1, 5, 1})
     /* loaded from: classes8.dex */
     public static final class EntriesItr<K, V> extends Itr<K, V> implements Iterator<Map.Entry<K, V>>, KMutableIterator {
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public EntriesItr(MapBuilder<K, V> map) {
             super(map);
             Intrinsics.checkNotNullParameter(map, "map");
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Iterator
+        public EntryRef<K, V> next() {
+            if (getIndex$kotlin_stdlib() < getMap$kotlin_stdlib().length) {
+                int index$kotlin_stdlib = getIndex$kotlin_stdlib();
+                setIndex$kotlin_stdlib(index$kotlin_stdlib + 1);
+                setLastIndex$kotlin_stdlib(index$kotlin_stdlib);
+                EntryRef<K, V> entryRef = new EntryRef<>(getMap$kotlin_stdlib(), getLastIndex$kotlin_stdlib());
+                initNext$kotlin_stdlib();
+                return entryRef;
+            }
+            throw new NoSuchElementException();
         }
 
         public final void nextAppendString(StringBuilder sb) {
@@ -103,38 +118,33 @@ public final class MapBuilder<K, V> implements Map<K, V>, KMutableMap {
         }
 
         public final int nextHashCode$kotlin_stdlib() {
+            int i;
             if (getIndex$kotlin_stdlib() < getMap$kotlin_stdlib().length) {
                 int index$kotlin_stdlib = getIndex$kotlin_stdlib();
                 setIndex$kotlin_stdlib(index$kotlin_stdlib + 1);
                 setLastIndex$kotlin_stdlib(index$kotlin_stdlib);
                 Object obj = getMap$kotlin_stdlib().keysArray[getLastIndex$kotlin_stdlib()];
-                int hashCode = obj != null ? obj.hashCode() : 0;
+                int i2 = 0;
+                if (obj != null) {
+                    i = obj.hashCode();
+                } else {
+                    i = 0;
+                }
                 Object[] objArr = getMap$kotlin_stdlib().valuesArray;
                 Intrinsics.checkNotNull(objArr);
                 Object obj2 = objArr[getLastIndex$kotlin_stdlib()];
-                int hashCode2 = hashCode ^ (obj2 != null ? obj2.hashCode() : 0);
+                if (obj2 != null) {
+                    i2 = obj2.hashCode();
+                }
+                int i3 = i ^ i2;
                 initNext$kotlin_stdlib();
-                return hashCode2;
-            }
-            throw new NoSuchElementException();
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Iterator
-        public EntryRef<K, V> next() {
-            if (getIndex$kotlin_stdlib() < getMap$kotlin_stdlib().length) {
-                int index$kotlin_stdlib = getIndex$kotlin_stdlib();
-                setIndex$kotlin_stdlib(index$kotlin_stdlib + 1);
-                setLastIndex$kotlin_stdlib(index$kotlin_stdlib);
-                EntryRef<K, V> entryRef = new EntryRef<>(getMap$kotlin_stdlib(), getLastIndex$kotlin_stdlib());
-                initNext$kotlin_stdlib();
-                return entryRef;
+                return i3;
             }
             throw new NoSuchElementException();
         }
     }
 
-    @Metadata(d1 = {"\u00000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010'\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0007\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0000\n\u0002\b\u0005\n\u0002\u0010\u000e\n\u0000\b\u0000\u0018\u0000*\u0004\b\u0002\u0010\u0001*\u0004\b\u0003\u0010\u00022\u000e\u0012\u0004\u0012\u0002H\u0001\u0012\u0004\u0012\u0002H\u00020\u0003B!\u0012\u0012\u0010\u0004\u001a\u000e\u0012\u0004\u0012\u00028\u0002\u0012\u0004\u0012\u00028\u00030\u0005\u0012\u0006\u0010\u0006\u001a\u00020\u0007¢\u0006\u0002\u0010\bJ\u0013\u0010\u000e\u001a\u00020\u000f2\b\u0010\u0010\u001a\u0004\u0018\u00010\u0011H\u0096\u0002J\b\u0010\u0012\u001a\u00020\u0007H\u0016J\u0015\u0010\u0013\u001a\u00028\u00032\u0006\u0010\u0014\u001a\u00028\u0003H\u0016¢\u0006\u0002\u0010\u0015J\b\u0010\u0016\u001a\u00020\u0017H\u0016R\u000e\u0010\u0006\u001a\u00020\u0007X\u0082\u0004¢\u0006\u0002\n\u0000R\u0014\u0010\t\u001a\u00028\u00028VX\u0096\u0004¢\u0006\u0006\u001a\u0004\b\n\u0010\u000bR\u001a\u0010\u0004\u001a\u000e\u0012\u0004\u0012\u00028\u0002\u0012\u0004\u0012\u00028\u00030\u0005X\u0082\u0004¢\u0006\u0002\n\u0000R\u0014\u0010\f\u001a\u00028\u00038VX\u0096\u0004¢\u0006\u0006\u001a\u0004\b\r\u0010\u000b¨\u0006\u0018"}, d2 = {"Lkotlin/collections/builders/MapBuilder$EntryRef;", "K", "V", "", "map", "Lkotlin/collections/builders/MapBuilder;", "index", "", "(Lkotlin/collections/builders/MapBuilder;I)V", "key", "getKey", "()Ljava/lang/Object;", "value", "getValue", "equals", "", ImageViewerConfig.FROM_OTHER, "", TTDownloadField.TT_HASHCODE, "setValue", "newValue", "(Ljava/lang/Object;)Ljava/lang/Object;", "toString", "", "kotlin-stdlib"}, k = 1, mv = {1, 5, 1})
+    @Metadata(d1 = {"\u00000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010'\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0007\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0000\n\u0002\b\u0005\n\u0002\u0010\u000e\n\u0000\b\u0000\u0018\u0000*\u0004\b\u0002\u0010\u0001*\u0004\b\u0003\u0010\u00022\u000e\u0012\u0004\u0012\u0002H\u0001\u0012\u0004\u0012\u0002H\u00020\u0003B!\u0012\u0012\u0010\u0004\u001a\u000e\u0012\u0004\u0012\u00028\u0002\u0012\u0004\u0012\u00028\u00030\u0005\u0012\u0006\u0010\u0006\u001a\u00020\u0007¢\u0006\u0002\u0010\bJ\u0013\u0010\u000e\u001a\u00020\u000f2\b\u0010\u0010\u001a\u0004\u0018\u00010\u0011H\u0096\u0002J\b\u0010\u0012\u001a\u00020\u0007H\u0016J\u0015\u0010\u0013\u001a\u00028\u00032\u0006\u0010\u0014\u001a\u00028\u0003H\u0016¢\u0006\u0002\u0010\u0015J\b\u0010\u0016\u001a\u00020\u0017H\u0016R\u000e\u0010\u0006\u001a\u00020\u0007X\u0082\u0004¢\u0006\u0002\n\u0000R\u0014\u0010\t\u001a\u00028\u00028VX\u0096\u0004¢\u0006\u0006\u001a\u0004\b\n\u0010\u000bR\u001a\u0010\u0004\u001a\u000e\u0012\u0004\u0012\u00028\u0002\u0012\u0004\u0012\u00028\u00030\u0005X\u0082\u0004¢\u0006\u0002\n\u0000R\u0014\u0010\f\u001a\u00028\u00038VX\u0096\u0004¢\u0006\u0006\u001a\u0004\b\r\u0010\u000b¨\u0006\u0018"}, d2 = {"Lkotlin/collections/builders/MapBuilder$EntryRef;", "K", ExifInterface.GPS_MEASUREMENT_INTERRUPTED, "", "map", "Lkotlin/collections/builders/MapBuilder;", "index", "", "(Lkotlin/collections/builders/MapBuilder;I)V", "key", "getKey", "()Ljava/lang/Object;", "value", "getValue", "equals", "", ImageViewerConfig.FROM_OTHER, "", TTDownloadField.TT_HASHCODE, "setValue", "newValue", "(Ljava/lang/Object;)Ljava/lang/Object;", "toString", "", "kotlin-stdlib"}, k = 1, mv = {1, 5, 1})
     /* loaded from: classes8.dex */
     public static final class EntryRef<K, V> implements Map.Entry<K, V>, KMutableMap.Entry {
         public final int index;
@@ -158,6 +168,16 @@ public final class MapBuilder<K, V> implements Map<K, V>, KMutableMap {
         }
 
         @Override // java.util.Map.Entry
+        public V setValue(V v) {
+            this.map.checkIsMutable$kotlin_stdlib();
+            Object[] allocateValuesArray = this.map.allocateValuesArray();
+            int i = this.index;
+            V v2 = (V) allocateValuesArray[i];
+            allocateValuesArray[i] = v;
+            return v2;
+        }
+
+        @Override // java.util.Map.Entry
         public K getKey() {
             return (K) this.map.keysArray[this.index];
         }
@@ -171,20 +191,19 @@ public final class MapBuilder<K, V> implements Map<K, V>, KMutableMap {
 
         @Override // java.util.Map.Entry
         public int hashCode() {
+            int i;
             K key = getKey();
-            int hashCode = key != null ? key.hashCode() : 0;
+            int i2 = 0;
+            if (key != null) {
+                i = key.hashCode();
+            } else {
+                i = 0;
+            }
             V value = getValue();
-            return hashCode ^ (value != null ? value.hashCode() : 0);
-        }
-
-        @Override // java.util.Map.Entry
-        public V setValue(V v) {
-            this.map.checkIsMutable$kotlin_stdlib();
-            Object[] allocateValuesArray = this.map.allocateValuesArray();
-            int i = this.index;
-            V v2 = (V) allocateValuesArray[i];
-            allocateValuesArray[i] = v;
-            return v2;
+            if (value != null) {
+                i2 = value.hashCode();
+            }
+            return i ^ i2;
         }
 
         /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: K : 0x0005: INVOKE  (r1v0 K A[REMOVE]) = (r2v0 'this' kotlin.collections.builders.MapBuilder$EntryRef<K, V> A[IMMUTABLE_TYPE, THIS]) type: VIRTUAL call: kotlin.collections.builders.MapBuilder.EntryRef.getKey():java.lang.Object), ('=' char), (wrap: V : 0x0011: INVOKE  (r1v2 V A[REMOVE]) = (r2v0 'this' kotlin.collections.builders.MapBuilder$EntryRef<K, V> A[IMMUTABLE_TYPE, THIS]) type: VIRTUAL call: kotlin.collections.builders.MapBuilder.EntryRef.getValue():java.lang.Object)] */
@@ -197,7 +216,7 @@ public final class MapBuilder<K, V> implements Map<K, V>, KMutableMap {
         }
     }
 
-    @Metadata(d1 = {"\u0000,\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\n\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\b\u0010\u0018\u0000*\u0004\b\u0002\u0010\u0001*\u0004\b\u0003\u0010\u00022\u00020\u0003B\u0019\u0012\u0012\u0010\u0004\u001a\u000e\u0012\u0004\u0012\u00028\u0002\u0012\u0004\u0012\u00028\u00030\u0005¢\u0006\u0002\u0010\u0006J\u0006\u0010\u0012\u001a\u00020\u0013J\r\u0010\u0014\u001a\u00020\u0015H\u0000¢\u0006\u0002\b\u0016J\u0006\u0010\u0017\u001a\u00020\u0015R\u001a\u0010\u0007\u001a\u00020\bX\u0080\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\t\u0010\n\"\u0004\b\u000b\u0010\fR\u001a\u0010\r\u001a\u00020\bX\u0080\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u000e\u0010\n\"\u0004\b\u000f\u0010\fR \u0010\u0004\u001a\u000e\u0012\u0004\u0012\u00028\u0002\u0012\u0004\u0012\u00028\u00030\u0005X\u0080\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0010\u0010\u0011¨\u0006\u0018"}, d2 = {"Lkotlin/collections/builders/MapBuilder$Itr;", "K", "V", "", "map", "Lkotlin/collections/builders/MapBuilder;", "(Lkotlin/collections/builders/MapBuilder;)V", "index", "", "getIndex$kotlin_stdlib", "()I", "setIndex$kotlin_stdlib", "(I)V", "lastIndex", "getLastIndex$kotlin_stdlib", "setLastIndex$kotlin_stdlib", "getMap$kotlin_stdlib", "()Lkotlin/collections/builders/MapBuilder;", "hasNext", "", "initNext", "", "initNext$kotlin_stdlib", "remove", "kotlin-stdlib"}, k = 1, mv = {1, 5, 1})
+    @Metadata(d1 = {"\u0000,\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\n\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\b\u0010\u0018\u0000*\u0004\b\u0002\u0010\u0001*\u0004\b\u0003\u0010\u00022\u00020\u0003B\u0019\u0012\u0012\u0010\u0004\u001a\u000e\u0012\u0004\u0012\u00028\u0002\u0012\u0004\u0012\u00028\u00030\u0005¢\u0006\u0002\u0010\u0006J\u0006\u0010\u0012\u001a\u00020\u0013J\r\u0010\u0014\u001a\u00020\u0015H\u0000¢\u0006\u0002\b\u0016J\u0006\u0010\u0017\u001a\u00020\u0015R\u001a\u0010\u0007\u001a\u00020\bX\u0080\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\t\u0010\n\"\u0004\b\u000b\u0010\fR\u001a\u0010\r\u001a\u00020\bX\u0080\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u000e\u0010\n\"\u0004\b\u000f\u0010\fR \u0010\u0004\u001a\u000e\u0012\u0004\u0012\u00028\u0002\u0012\u0004\u0012\u00028\u00030\u0005X\u0080\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0010\u0010\u0011¨\u0006\u0018"}, d2 = {"Lkotlin/collections/builders/MapBuilder$Itr;", "K", ExifInterface.GPS_MEASUREMENT_INTERRUPTED, "", "map", "Lkotlin/collections/builders/MapBuilder;", "(Lkotlin/collections/builders/MapBuilder;)V", "index", "", "getIndex$kotlin_stdlib", "()I", "setIndex$kotlin_stdlib", "(I)V", "lastIndex", "getLastIndex$kotlin_stdlib", "setLastIndex$kotlin_stdlib", "getMap$kotlin_stdlib", "()Lkotlin/collections/builders/MapBuilder;", "hasNext", "", "initNext", "", "initNext$kotlin_stdlib", "remove", "kotlin-stdlib"}, k = 1, mv = {1, 5, 1})
     /* loaded from: classes8.dex */
     public static class Itr<K, V> {
         public int index;
@@ -209,6 +228,14 @@ public final class MapBuilder<K, V> implements Map<K, V>, KMutableMap {
             this.map = map;
             this.lastIndex = -1;
             initNext$kotlin_stdlib();
+        }
+
+        public final void setIndex$kotlin_stdlib(int i) {
+            this.index = i;
+        }
+
+        public final void setLastIndex$kotlin_stdlib(int i) {
+            this.lastIndex = i;
         }
 
         public final int getIndex$kotlin_stdlib() {
@@ -224,22 +251,32 @@ public final class MapBuilder<K, V> implements Map<K, V>, KMutableMap {
         }
 
         public final boolean hasNext() {
-            return this.index < this.map.length;
+            if (this.index < this.map.length) {
+                return true;
+            }
+            return false;
         }
 
         public final void initNext$kotlin_stdlib() {
             while (this.index < this.map.length) {
                 int[] iArr = this.map.presenceArray;
                 int i = this.index;
-                if (iArr[i] >= 0) {
+                if (iArr[i] < 0) {
+                    this.index = i + 1;
+                } else {
                     return;
                 }
-                this.index = i + 1;
             }
         }
 
         public final void remove() {
+            boolean z;
             if (this.lastIndex != -1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
                 this.map.checkIsMutable$kotlin_stdlib();
                 this.map.removeKeyAt(this.lastIndex);
                 this.lastIndex = -1;
@@ -247,17 +284,9 @@ public final class MapBuilder<K, V> implements Map<K, V>, KMutableMap {
             }
             throw new IllegalStateException("Call next() before removing element from the iterator.".toString());
         }
-
-        public final void setIndex$kotlin_stdlib(int i) {
-            this.index = i;
-        }
-
-        public final void setLastIndex$kotlin_stdlib(int i) {
-            this.lastIndex = i;
-        }
     }
 
-    @Metadata(d1 = {"\u0000\u001a\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010)\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\b\u0000\u0018\u0000*\u0004\b\u0002\u0010\u0001*\u0004\b\u0003\u0010\u00022\u000e\u0012\u0004\u0012\u0002H\u0001\u0012\u0004\u0012\u0002H\u00020\u00032\b\u0012\u0004\u0012\u0002H\u00010\u0004B\u0019\u0012\u0012\u0010\u0005\u001a\u000e\u0012\u0004\u0012\u00028\u0002\u0012\u0004\u0012\u00028\u00030\u0006¢\u0006\u0002\u0010\u0007J\u000e\u0010\b\u001a\u00028\u0002H\u0096\u0002¢\u0006\u0002\u0010\t¨\u0006\n"}, d2 = {"Lkotlin/collections/builders/MapBuilder$KeysItr;", "K", "V", "Lkotlin/collections/builders/MapBuilder$Itr;", "", "map", "Lkotlin/collections/builders/MapBuilder;", "(Lkotlin/collections/builders/MapBuilder;)V", UnitedSchemeConstants.UNITED_SCHEME_NEXT, "()Ljava/lang/Object;", "kotlin-stdlib"}, k = 1, mv = {1, 5, 1})
+    @Metadata(d1 = {"\u0000\u001a\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010)\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\b\u0000\u0018\u0000*\u0004\b\u0002\u0010\u0001*\u0004\b\u0003\u0010\u00022\u000e\u0012\u0004\u0012\u0002H\u0001\u0012\u0004\u0012\u0002H\u00020\u00032\b\u0012\u0004\u0012\u0002H\u00010\u0004B\u0019\u0012\u0012\u0010\u0005\u001a\u000e\u0012\u0004\u0012\u00028\u0002\u0012\u0004\u0012\u00028\u00030\u0006¢\u0006\u0002\u0010\u0007J\u000e\u0010\b\u001a\u00028\u0002H\u0096\u0002¢\u0006\u0002\u0010\t¨\u0006\n"}, d2 = {"Lkotlin/collections/builders/MapBuilder$KeysItr;", "K", ExifInterface.GPS_MEASUREMENT_INTERRUPTED, "Lkotlin/collections/builders/MapBuilder$Itr;", "", "map", "Lkotlin/collections/builders/MapBuilder;", "(Lkotlin/collections/builders/MapBuilder;)V", UnitedSchemeConstants.UNITED_SCHEME_NEXT, "()Ljava/lang/Object;", "kotlin-stdlib"}, k = 1, mv = {1, 5, 1})
     /* loaded from: classes8.dex */
     public static final class KeysItr<K, V> extends Itr<K, V> implements Iterator<K>, KMutableIterator {
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -280,7 +309,7 @@ public final class MapBuilder<K, V> implements Map<K, V>, KMutableMap {
         }
     }
 
-    @Metadata(d1 = {"\u0000\u001a\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010)\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\b\u0000\u0018\u0000*\u0004\b\u0002\u0010\u0001*\u0004\b\u0003\u0010\u00022\u000e\u0012\u0004\u0012\u0002H\u0001\u0012\u0004\u0012\u0002H\u00020\u00032\b\u0012\u0004\u0012\u0002H\u00020\u0004B\u0019\u0012\u0012\u0010\u0005\u001a\u000e\u0012\u0004\u0012\u00028\u0002\u0012\u0004\u0012\u00028\u00030\u0006¢\u0006\u0002\u0010\u0007J\u000e\u0010\b\u001a\u00028\u0003H\u0096\u0002¢\u0006\u0002\u0010\t¨\u0006\n"}, d2 = {"Lkotlin/collections/builders/MapBuilder$ValuesItr;", "K", "V", "Lkotlin/collections/builders/MapBuilder$Itr;", "", "map", "Lkotlin/collections/builders/MapBuilder;", "(Lkotlin/collections/builders/MapBuilder;)V", UnitedSchemeConstants.UNITED_SCHEME_NEXT, "()Ljava/lang/Object;", "kotlin-stdlib"}, k = 1, mv = {1, 5, 1})
+    @Metadata(d1 = {"\u0000\u001a\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010)\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\b\u0000\u0018\u0000*\u0004\b\u0002\u0010\u0001*\u0004\b\u0003\u0010\u00022\u000e\u0012\u0004\u0012\u0002H\u0001\u0012\u0004\u0012\u0002H\u00020\u00032\b\u0012\u0004\u0012\u0002H\u00020\u0004B\u0019\u0012\u0012\u0010\u0005\u001a\u000e\u0012\u0004\u0012\u00028\u0002\u0012\u0004\u0012\u00028\u00030\u0006¢\u0006\u0002\u0010\u0007J\u000e\u0010\b\u001a\u00028\u0003H\u0096\u0002¢\u0006\u0002\u0010\t¨\u0006\n"}, d2 = {"Lkotlin/collections/builders/MapBuilder$ValuesItr;", "K", ExifInterface.GPS_MEASUREMENT_INTERRUPTED, "Lkotlin/collections/builders/MapBuilder$Itr;", "", "map", "Lkotlin/collections/builders/MapBuilder;", "(Lkotlin/collections/builders/MapBuilder;)V", UnitedSchemeConstants.UNITED_SCHEME_NEXT, "()Ljava/lang/Object;", "kotlin-stdlib"}, k = 1, mv = {1, 5, 1})
     /* loaded from: classes8.dex */
     public static final class ValuesItr<K, V> extends Itr<K, V> implements Iterator<V>, KMutableIterator {
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -305,14 +334,8 @@ public final class MapBuilder<K, V> implements Map<K, V>, KMutableMap {
         }
     }
 
-    public MapBuilder(K[] kArr, V[] vArr, int[] iArr, int[] iArr2, int i, int i2) {
-        this.keysArray = kArr;
-        this.valuesArray = vArr;
-        this.presenceArray = iArr;
-        this.hashArray = iArr2;
-        this.maxProbeDistance = i;
-        this.length = i2;
-        this.hashShift = Companion.computeShift(getHashSize());
+    public MapBuilder() {
+        this(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -353,231 +376,12 @@ public final class MapBuilder<K, V> implements Map<K, V>, KMutableMap {
         this.length = i3;
     }
 
-    private final boolean contentEquals(Map<?, ?> map) {
-        return size() == map.size() && containsAllEntries$kotlin_stdlib(map.entrySet());
-    }
-
-    private final void ensureCapacity(int i) {
-        if (i > getCapacity()) {
-            int capacity = (getCapacity() * 3) / 2;
-            if (i <= capacity) {
-                i = capacity;
-            }
-            this.keysArray = (K[]) ListBuilderKt.copyOfUninitializedElements(this.keysArray, i);
-            V[] vArr = this.valuesArray;
-            this.valuesArray = vArr != null ? (V[]) ListBuilderKt.copyOfUninitializedElements(vArr, i) : null;
-            int[] copyOf = Arrays.copyOf(this.presenceArray, i);
-            Intrinsics.checkNotNullExpressionValue(copyOf, "java.util.Arrays.copyOf(this, newSize)");
-            this.presenceArray = copyOf;
-            int computeHashSize = Companion.computeHashSize(i);
-            if (computeHashSize > getHashSize()) {
-                rehash(computeHashSize);
-            }
-        } else if ((this.length + i) - size() > getCapacity()) {
-            rehash(getHashSize());
-        }
-    }
-
-    private final void ensureExtraCapacity(int i) {
-        ensureCapacity(this.length + i);
-    }
-
-    private final int findKey(K k) {
-        int hash = hash(k);
-        int i = this.maxProbeDistance;
-        while (true) {
-            int i2 = this.hashArray[hash];
-            if (i2 == 0) {
-                return -1;
-            }
-            if (i2 > 0) {
-                int i3 = i2 - 1;
-                if (Intrinsics.areEqual(this.keysArray[i3], k)) {
-                    return i3;
-                }
-            }
-            i--;
-            if (i < 0) {
-                return -1;
-            }
-            hash = hash == 0 ? getHashSize() - 1 : hash - 1;
-        }
-    }
-
-    private final int findValue(V v) {
-        int i = this.length;
-        while (true) {
-            i--;
-            if (i < 0) {
-                return -1;
-            }
-            if (this.presenceArray[i] >= 0) {
-                V[] vArr = this.valuesArray;
-                Intrinsics.checkNotNull(vArr);
-                if (Intrinsics.areEqual(vArr[i], v)) {
-                    return i;
-                }
-            }
-        }
-    }
-
     private final int getCapacity() {
         return this.keysArray.length;
     }
 
     private final int getHashSize() {
         return this.hashArray.length;
-    }
-
-    private final int hash(K k) {
-        return ((k != null ? k.hashCode() : 0) * (-1640531527)) >>> this.hashShift;
-    }
-
-    private final boolean putAllEntries(Collection<? extends Map.Entry<? extends K, ? extends V>> collection) {
-        boolean z = false;
-        if (collection.isEmpty()) {
-            return false;
-        }
-        ensureExtraCapacity(collection.size());
-        for (Map.Entry<? extends K, ? extends V> entry : collection) {
-            if (putEntry(entry)) {
-                z = true;
-            }
-        }
-        return z;
-    }
-
-    private final boolean putEntry(Map.Entry<? extends K, ? extends V> entry) {
-        int addKey$kotlin_stdlib = addKey$kotlin_stdlib(entry.getKey());
-        V[] allocateValuesArray = allocateValuesArray();
-        if (addKey$kotlin_stdlib >= 0) {
-            allocateValuesArray[addKey$kotlin_stdlib] = entry.getValue();
-            return true;
-        }
-        int i = (-addKey$kotlin_stdlib) - 1;
-        if (!Intrinsics.areEqual(entry.getValue(), allocateValuesArray[i])) {
-            allocateValuesArray[i] = entry.getValue();
-            return true;
-        }
-        return false;
-    }
-
-    private final boolean putRehash(int i) {
-        int hash = hash(this.keysArray[i]);
-        int i2 = this.maxProbeDistance;
-        while (true) {
-            int[] iArr = this.hashArray;
-            if (iArr[hash] == 0) {
-                iArr[hash] = i + 1;
-                this.presenceArray[i] = hash;
-                return true;
-            }
-            i2--;
-            if (i2 < 0) {
-                return false;
-            }
-            hash = hash == 0 ? getHashSize() - 1 : hash - 1;
-        }
-    }
-
-    private final void rehash(int i) {
-        if (this.length > size()) {
-            compact();
-        }
-        int i2 = 0;
-        if (i != getHashSize()) {
-            this.hashArray = new int[i];
-            this.hashShift = Companion.computeShift(i);
-        } else {
-            ArraysKt___ArraysJvmKt.fill(this.hashArray, 0, 0, getHashSize());
-        }
-        while (i2 < this.length) {
-            int i3 = i2 + 1;
-            if (!putRehash(i2)) {
-                throw new IllegalStateException("This cannot happen with fixed magic multiplier and grow-only hash array. Have object hashCodes changed?");
-            }
-            i2 = i3;
-        }
-    }
-
-    private final void removeHashAt(int i) {
-        int coerceAtMost = RangesKt___RangesKt.coerceAtMost(this.maxProbeDistance * 2, getHashSize() / 2);
-        int i2 = 0;
-        int i3 = i;
-        do {
-            i = i == 0 ? getHashSize() - 1 : i - 1;
-            i2++;
-            if (i2 > this.maxProbeDistance) {
-                this.hashArray[i3] = 0;
-                return;
-            }
-            int[] iArr = this.hashArray;
-            int i4 = iArr[i];
-            if (i4 == 0) {
-                iArr[i3] = 0;
-                return;
-            }
-            if (i4 < 0) {
-                iArr[i3] = -1;
-            } else {
-                int i5 = i4 - 1;
-                if (((hash(this.keysArray[i5]) - i) & (getHashSize() - 1)) >= i2) {
-                    this.hashArray[i3] = i4;
-                    this.presenceArray[i5] = i3;
-                }
-                coerceAtMost--;
-            }
-            i3 = i;
-            i2 = 0;
-            coerceAtMost--;
-        } while (coerceAtMost >= 0);
-        this.hashArray[i3] = -1;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public final void removeKeyAt(int i) {
-        ListBuilderKt.resetAt(this.keysArray, i);
-        removeHashAt(this.presenceArray[i]);
-        this.presenceArray[i] = -1;
-        this.size = size() - 1;
-    }
-
-    public final int addKey$kotlin_stdlib(K k) {
-        checkIsMutable$kotlin_stdlib();
-        while (true) {
-            int hash = hash(k);
-            int coerceAtMost = RangesKt___RangesKt.coerceAtMost(this.maxProbeDistance * 2, getHashSize() / 2);
-            int i = 0;
-            while (true) {
-                int i2 = this.hashArray[hash];
-                if (i2 <= 0) {
-                    if (this.length >= getCapacity()) {
-                        ensureExtraCapacity(1);
-                    } else {
-                        int i3 = this.length;
-                        int i4 = i3 + 1;
-                        this.length = i4;
-                        this.keysArray[i3] = k;
-                        this.presenceArray[i3] = hash;
-                        this.hashArray[hash] = i4;
-                        this.size = size() + 1;
-                        if (i > this.maxProbeDistance) {
-                            this.maxProbeDistance = i;
-                        }
-                        return i3;
-                    }
-                } else if (Intrinsics.areEqual(this.keysArray[i2 - 1], k)) {
-                    return -i2;
-                } else {
-                    i++;
-                    if (i > coerceAtMost) {
-                        rehash(getHashSize() * 2);
-                        break;
-                    }
-                    hash = hash == 0 ? getHashSize() - 1 : hash - 1;
-                }
-            }
-        }
     }
 
     public final Map<K, V> build() {
@@ -587,9 +391,10 @@ public final class MapBuilder<K, V> implements Map<K, V>, KMutableMap {
     }
 
     public final void checkIsMutable$kotlin_stdlib() {
-        if (this.isReadOnly) {
-            throw new UnsupportedOperationException();
+        if (!this.isReadOnly) {
+            return;
         }
+        throw new UnsupportedOperationException();
     }
 
     @Override // java.util.Map
@@ -620,46 +425,6 @@ public final class MapBuilder<K, V> implements Map<K, V>, KMutableMap {
         this.length = 0;
     }
 
-    public final boolean containsAllEntries$kotlin_stdlib(Collection<?> m) {
-        Intrinsics.checkNotNullParameter(m, "m");
-        for (Object obj : m) {
-            if (obj != null) {
-                try {
-                    if (!containsEntry$kotlin_stdlib((Map.Entry) obj)) {
-                    }
-                } catch (ClassCastException unused) {
-                }
-            }
-            return false;
-        }
-        return true;
-    }
-
-    public final boolean containsEntry$kotlin_stdlib(Map.Entry<? extends K, ? extends V> entry) {
-        Intrinsics.checkNotNullParameter(entry, "entry");
-        int findKey = findKey(entry.getKey());
-        if (findKey < 0) {
-            return false;
-        }
-        V[] vArr = this.valuesArray;
-        Intrinsics.checkNotNull(vArr);
-        return Intrinsics.areEqual(vArr[findKey], entry.getValue());
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // java.util.Map
-    public boolean containsKey(Object obj) {
-        return findKey(obj) >= 0;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // java.util.Map
-    public boolean containsValue(Object obj) {
-        return findValue(obj) >= 0;
-    }
-
     public final EntriesItr<K, V> entriesIterator$kotlin_stdlib() {
         return new EntriesItr<>(this);
     }
@@ -667,24 +432,6 @@ public final class MapBuilder<K, V> implements Map<K, V>, KMutableMap {
     @Override // java.util.Map
     public final /* bridge */ Set<Map.Entry<K, V>> entrySet() {
         return getEntries();
-    }
-
-    @Override // java.util.Map
-    public boolean equals(Object obj) {
-        return obj == this || ((obj instanceof Map) && contentEquals((Map) obj));
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: java.lang.Object */
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // java.util.Map
-    public V get(Object obj) {
-        int findKey = findKey(obj);
-        if (findKey < 0) {
-            return null;
-        }
-        V[] vArr = this.valuesArray;
-        Intrinsics.checkNotNull(vArr);
-        return vArr[findKey];
     }
 
     public Set<Map.Entry<K, V>> getEntries() {
@@ -733,7 +480,10 @@ public final class MapBuilder<K, V> implements Map<K, V>, KMutableMap {
 
     @Override // java.util.Map
     public boolean isEmpty() {
-        return size() == 0;
+        if (size() == 0) {
+            return true;
+        }
+        return false;
     }
 
     @Override // java.util.Map
@@ -746,18 +496,213 @@ public final class MapBuilder<K, V> implements Map<K, V>, KMutableMap {
     }
 
     @Override // java.util.Map
-    public V put(K k, V v) {
-        checkIsMutable$kotlin_stdlib();
-        int addKey$kotlin_stdlib = addKey$kotlin_stdlib(k);
-        V[] allocateValuesArray = allocateValuesArray();
-        if (addKey$kotlin_stdlib < 0) {
-            int i = (-addKey$kotlin_stdlib) - 1;
-            V v2 = allocateValuesArray[i];
-            allocateValuesArray[i] = v;
-            return v2;
+    public final /* bridge */ int size() {
+        return getSize();
+    }
+
+    @Override // java.util.Map
+    public final /* bridge */ Collection<V> values() {
+        return getValues();
+    }
+
+    public final ValuesItr<K, V> valuesIterator$kotlin_stdlib() {
+        return new ValuesItr<>(this);
+    }
+
+    public MapBuilder(int i) {
+        this(ListBuilderKt.arrayOfUninitializedElements(i), null, new int[i], new int[Companion.computeHashSize(i)], 2, 0);
+    }
+
+    private final boolean contentEquals(Map<?, ?> map) {
+        if (size() == map.size() && containsAllEntries$kotlin_stdlib(map.entrySet())) {
+            return true;
         }
-        allocateValuesArray[addKey$kotlin_stdlib] = v;
-        return null;
+        return false;
+    }
+
+    private final void ensureExtraCapacity(int i) {
+        ensureCapacity(this.length + i);
+    }
+
+    private final int findKey(K k) {
+        int hash = hash(k);
+        int i = this.maxProbeDistance;
+        while (true) {
+            int i2 = this.hashArray[hash];
+            if (i2 == 0) {
+                return -1;
+            }
+            if (i2 > 0) {
+                int i3 = i2 - 1;
+                if (Intrinsics.areEqual(this.keysArray[i3], k)) {
+                    return i3;
+                }
+            }
+            i--;
+            if (i < 0) {
+                return -1;
+            }
+            int i4 = hash - 1;
+            if (hash == 0) {
+                hash = getHashSize() - 1;
+            } else {
+                hash = i4;
+            }
+        }
+    }
+
+    private final int findValue(V v) {
+        int i = this.length;
+        while (true) {
+            i--;
+            if (i < 0) {
+                return -1;
+            }
+            if (this.presenceArray[i] >= 0) {
+                V[] vArr = this.valuesArray;
+                Intrinsics.checkNotNull(vArr);
+                if (Intrinsics.areEqual(vArr[i], v)) {
+                    return i;
+                }
+            }
+        }
+    }
+
+    private final int hash(K k) {
+        int i;
+        if (k != null) {
+            i = k.hashCode();
+        } else {
+            i = 0;
+        }
+        return (i * (-1640531527)) >>> this.hashShift;
+    }
+
+    private final boolean putAllEntries(Collection<? extends Map.Entry<? extends K, ? extends V>> collection) {
+        boolean z = false;
+        if (collection.isEmpty()) {
+            return false;
+        }
+        ensureExtraCapacity(collection.size());
+        for (Map.Entry<? extends K, ? extends V> entry : collection) {
+            if (putEntry(entry)) {
+                z = true;
+            }
+        }
+        return z;
+    }
+
+    private final boolean putEntry(Map.Entry<? extends K, ? extends V> entry) {
+        int addKey$kotlin_stdlib = addKey$kotlin_stdlib(entry.getKey());
+        V[] allocateValuesArray = allocateValuesArray();
+        if (addKey$kotlin_stdlib >= 0) {
+            allocateValuesArray[addKey$kotlin_stdlib] = entry.getValue();
+            return true;
+        }
+        int i = (-addKey$kotlin_stdlib) - 1;
+        if (!Intrinsics.areEqual(entry.getValue(), allocateValuesArray[i])) {
+            allocateValuesArray[i] = entry.getValue();
+            return true;
+        }
+        return false;
+    }
+
+    private final boolean putRehash(int i) {
+        int hash = hash(this.keysArray[i]);
+        int i2 = this.maxProbeDistance;
+        while (true) {
+            int[] iArr = this.hashArray;
+            if (iArr[hash] == 0) {
+                iArr[hash] = i + 1;
+                this.presenceArray[i] = hash;
+                return true;
+            }
+            i2--;
+            if (i2 < 0) {
+                return false;
+            }
+            int i3 = hash - 1;
+            if (hash == 0) {
+                hash = getHashSize() - 1;
+            } else {
+                hash = i3;
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public final void removeKeyAt(int i) {
+        ListBuilderKt.resetAt(this.keysArray, i);
+        removeHashAt(this.presenceArray[i]);
+        this.presenceArray[i] = -1;
+        this.size = size() - 1;
+    }
+
+    public final boolean containsAllEntries$kotlin_stdlib(Collection<?> m) {
+        Intrinsics.checkNotNullParameter(m, "m");
+        for (Object obj : m) {
+            if (obj != null) {
+                try {
+                    if (!containsEntry$kotlin_stdlib((Map.Entry) obj)) {
+                    }
+                } catch (ClassCastException unused) {
+                }
+            }
+            return false;
+        }
+        return true;
+    }
+
+    public final boolean containsEntry$kotlin_stdlib(Map.Entry<? extends K, ? extends V> entry) {
+        Intrinsics.checkNotNullParameter(entry, "entry");
+        int findKey = findKey(entry.getKey());
+        if (findKey < 0) {
+            return false;
+        }
+        V[] vArr = this.valuesArray;
+        Intrinsics.checkNotNull(vArr);
+        return Intrinsics.areEqual(vArr[findKey], entry.getValue());
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // java.util.Map
+    public boolean containsKey(Object obj) {
+        if (findKey(obj) >= 0) {
+            return true;
+        }
+        return false;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // java.util.Map
+    public boolean containsValue(Object obj) {
+        if (findValue(obj) >= 0) {
+            return true;
+        }
+        return false;
+    }
+
+    @Override // java.util.Map
+    public boolean equals(Object obj) {
+        if (obj != this && (!(obj instanceof Map) || !contentEquals((Map) obj))) {
+            return false;
+        }
+        return true;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: java.lang.Object */
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // java.util.Map
+    public V get(Object obj) {
+        int findKey = findKey(obj);
+        if (findKey < 0) {
+            return null;
+        }
+        V[] vArr = this.valuesArray;
+        Intrinsics.checkNotNull(vArr);
+        return vArr[findKey];
     }
 
     @Override // java.util.Map
@@ -818,9 +763,159 @@ public final class MapBuilder<K, V> implements Map<K, V>, KMutableMap {
         return true;
     }
 
+    public MapBuilder(K[] kArr, V[] vArr, int[] iArr, int[] iArr2, int i, int i2) {
+        this.keysArray = kArr;
+        this.valuesArray = vArr;
+        this.presenceArray = iArr;
+        this.hashArray = iArr2;
+        this.maxProbeDistance = i;
+        this.length = i2;
+        this.hashShift = Companion.computeShift(getHashSize());
+    }
+
     @Override // java.util.Map
-    public final /* bridge */ int size() {
-        return getSize();
+    public V put(K k, V v) {
+        checkIsMutable$kotlin_stdlib();
+        int addKey$kotlin_stdlib = addKey$kotlin_stdlib(k);
+        V[] allocateValuesArray = allocateValuesArray();
+        if (addKey$kotlin_stdlib < 0) {
+            int i = (-addKey$kotlin_stdlib) - 1;
+            V v2 = allocateValuesArray[i];
+            allocateValuesArray[i] = v;
+            return v2;
+        }
+        allocateValuesArray[addKey$kotlin_stdlib] = v;
+        return null;
+    }
+
+    private final void ensureCapacity(int i) {
+        V[] vArr;
+        if (i > getCapacity()) {
+            int capacity = (getCapacity() * 3) / 2;
+            if (i <= capacity) {
+                i = capacity;
+            }
+            this.keysArray = (K[]) ListBuilderKt.copyOfUninitializedElements(this.keysArray, i);
+            V[] vArr2 = this.valuesArray;
+            if (vArr2 != null) {
+                vArr = (V[]) ListBuilderKt.copyOfUninitializedElements(vArr2, i);
+            } else {
+                vArr = null;
+            }
+            this.valuesArray = vArr;
+            int[] copyOf = Arrays.copyOf(this.presenceArray, i);
+            Intrinsics.checkNotNullExpressionValue(copyOf, "java.util.Arrays.copyOf(this, newSize)");
+            this.presenceArray = copyOf;
+            int computeHashSize = Companion.computeHashSize(i);
+            if (computeHashSize > getHashSize()) {
+                rehash(computeHashSize);
+            }
+        } else if ((this.length + i) - size() > getCapacity()) {
+            rehash(getHashSize());
+        }
+    }
+
+    private final void removeHashAt(int i) {
+        int coerceAtMost = RangesKt___RangesKt.coerceAtMost(this.maxProbeDistance * 2, getHashSize() / 2);
+        int i2 = 0;
+        int i3 = i;
+        do {
+            int i4 = i - 1;
+            if (i == 0) {
+                i = getHashSize() - 1;
+            } else {
+                i = i4;
+            }
+            i2++;
+            if (i2 > this.maxProbeDistance) {
+                this.hashArray[i3] = 0;
+                return;
+            }
+            int[] iArr = this.hashArray;
+            int i5 = iArr[i];
+            if (i5 == 0) {
+                iArr[i3] = 0;
+                return;
+            }
+            if (i5 < 0) {
+                iArr[i3] = -1;
+            } else {
+                int i6 = i5 - 1;
+                if (((hash(this.keysArray[i6]) - i) & (getHashSize() - 1)) >= i2) {
+                    this.hashArray[i3] = i5;
+                    this.presenceArray[i6] = i3;
+                }
+                coerceAtMost--;
+            }
+            i3 = i;
+            i2 = 0;
+            coerceAtMost--;
+        } while (coerceAtMost >= 0);
+        this.hashArray[i3] = -1;
+    }
+
+    private final void rehash(int i) {
+        if (this.length > size()) {
+            compact();
+        }
+        int i2 = 0;
+        if (i != getHashSize()) {
+            this.hashArray = new int[i];
+            this.hashShift = Companion.computeShift(i);
+        } else {
+            ArraysKt___ArraysJvmKt.fill(this.hashArray, 0, 0, getHashSize());
+        }
+        while (i2 < this.length) {
+            int i3 = i2 + 1;
+            if (putRehash(i2)) {
+                i2 = i3;
+            } else {
+                throw new IllegalStateException("This cannot happen with fixed magic multiplier and grow-only hash array. Have object hashCodes changed?");
+            }
+        }
+    }
+
+    public final int addKey$kotlin_stdlib(K k) {
+        checkIsMutable$kotlin_stdlib();
+        while (true) {
+            int hash = hash(k);
+            int coerceAtMost = RangesKt___RangesKt.coerceAtMost(this.maxProbeDistance * 2, getHashSize() / 2);
+            int i = 0;
+            while (true) {
+                int i2 = this.hashArray[hash];
+                if (i2 <= 0) {
+                    if (this.length >= getCapacity()) {
+                        ensureExtraCapacity(1);
+                    } else {
+                        int i3 = this.length;
+                        int i4 = i3 + 1;
+                        this.length = i4;
+                        this.keysArray[i3] = k;
+                        this.presenceArray[i3] = hash;
+                        this.hashArray[hash] = i4;
+                        this.size = size() + 1;
+                        if (i > this.maxProbeDistance) {
+                            this.maxProbeDistance = i;
+                        }
+                        return i3;
+                    }
+                } else if (Intrinsics.areEqual(this.keysArray[i2 - 1], k)) {
+                    return -i2;
+                } else {
+                    i++;
+                    if (i > coerceAtMost) {
+                        rehash(getHashSize() * 2);
+                        break;
+                    }
+                    int i5 = hash - 1;
+                    if (hash == 0) {
+                        hash = getHashSize() - 1;
+                    } else {
+                        hash = i5;
+                    }
+                }
+            }
+        }
     }
 
     public String toString() {
@@ -839,22 +934,5 @@ public final class MapBuilder<K, V> implements Map<K, V>, KMutableMap {
         String sb2 = sb.toString();
         Intrinsics.checkNotNullExpressionValue(sb2, "sb.toString()");
         return sb2;
-    }
-
-    @Override // java.util.Map
-    public final /* bridge */ Collection<V> values() {
-        return getValues();
-    }
-
-    public final ValuesItr<K, V> valuesIterator$kotlin_stdlib() {
-        return new ValuesItr<>(this);
-    }
-
-    public MapBuilder() {
-        this(8);
-    }
-
-    public MapBuilder(int i) {
-        this(ListBuilderKt.arrayOfUninitializedElements(i), null, new int[i], new int[Companion.computeHashSize(i)], 2, 0);
     }
 }

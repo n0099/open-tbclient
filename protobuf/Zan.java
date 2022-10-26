@@ -33,13 +33,19 @@ public final class Zan extends Message {
     public final Integer num;
 
     /* loaded from: classes9.dex */
-    public static final class Builder extends Message.Builder<Zan> {
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes9.dex */
+    public final class Builder extends Message.Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Integer consentType;
         public Integer isLiked;
         public Integer lastTime;
-        public List<Long> likerId;
+        public List likerId;
         public Integer num;
 
         public Builder() {
@@ -89,14 +95,11 @@ public final class Zan extends Message {
         public Zan build(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) ? new Zan(this, z, null) : (Zan) invokeZ.objValue;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+                return new Zan(this, z, null);
+            }
+            return (Zan) invokeZ.objValue;
         }
-    }
-
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
     }
 
     static {
@@ -117,10 +120,6 @@ public final class Zan extends Message {
         DEFAULT_LASTTIME = 0;
         DEFAULT_LIKERID = Collections.emptyList();
         DEFAULT_CONSENTTYPE = 0;
-    }
-
-    public /* synthetic */ Zan(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -160,7 +159,7 @@ public final class Zan extends Message {
             } else {
                 this.lastTime = num3;
             }
-            List<Long> list = builder.likerId;
+            List list = builder.likerId;
             if (list == null) {
                 this.likerId = DEFAULT_LIKERID;
             } else {
@@ -180,5 +179,9 @@ public final class Zan extends Message {
         this.lastTime = builder.lastTime;
         this.likerId = Message.immutableCopyOf(builder.likerId);
         this.consentType = builder.consentType;
+    }
+
+    public /* synthetic */ Zan(Builder builder, boolean z, a aVar) {
+        this(builder, z);
     }
 }

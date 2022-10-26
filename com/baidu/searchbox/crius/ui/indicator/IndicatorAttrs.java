@@ -49,6 +49,7 @@ public class IndicatorAttrs {
             indicatorAttrs.indicatorMargin = jSONObject.optInt("indicator-margin", 6);
             indicatorAttrs.indicatorItemWidth = jSONObject.optInt("indicator-item-width", 6);
             indicatorAttrs.indicatorItemHeight = jSONObject.optInt("indicator-item-height", 6);
+            boolean z = false;
             indicatorAttrs.indicatorContentLRMargin = jSONObject.optInt("indicator-content-left", 0);
             indicatorAttrs.indicatorItemSelectedWidth = jSONObject.optInt("indicator-item-selected-width", -1);
             indicatorAttrs.indicatorMargin = jSONObject.optInt("indicator-margin", 6);
@@ -58,7 +59,10 @@ public class IndicatorAttrs {
             indicatorAttrs.indicatorDefaultColor = jSONObject.optString("indicator-default-color", "");
             indicatorAttrs.indicatorSelectedColorNight = jSONObject.optString("indicator-selected-night-color", "");
             indicatorAttrs.indicatorDefaultColorNight = jSONObject.optString("indicator-default-night-color", "");
-            indicatorAttrs.isHorizontalCenter = jSONObject.optInt("indicator-horizontal-center", 1) == 1;
+            if (jSONObject.optInt("indicator-horizontal-center", 1) == 1) {
+                z = true;
+            }
+            indicatorAttrs.isHorizontalCenter = z;
             return indicatorAttrs;
         }
         return (IndicatorAttrs) invokeL.objValue;

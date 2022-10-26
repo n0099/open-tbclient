@@ -164,23 +164,16 @@ public class QQOauthLoginActivity extends BaseSSOLoginActivity implements com.ba
         }
     }
 
-    @Override // com.baidu.sapi2.activity.BaseActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
+    @Override // com.baidu.sapi2.a.a.a
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, intent) == null) {
-            Log.d(p, "requestCode = " + i + " resultCode = " + i2 + " data = " + intent);
-            if (i == 11101 || i == 10102) {
-                Tencent.onActivityResultData(i, i2, intent, this.n);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            Log.d(p, "onAuthFailure");
+            ThirdLoginCallback thirdLoginCallback = this.o;
+            if (thirdLoginCallback != null) {
+                thirdLoginCallback.onAuthFailure(-100, "QQ授权失败");
             }
-        }
-    }
-
-    @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.social.SocialLoginBase, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
-            super.onCreate(bundle);
-            setupViews();
+            finish();
         }
     }
 
@@ -202,7 +195,7 @@ public class QQOauthLoginActivity extends BaseSSOLoginActivity implements com.ba
 
     private void a(com.baidu.sapi2.a.a.a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, this, aVar) == null) || aVar == null) {
+        if ((interceptable != null && interceptable.invokeL(65537, this, aVar) != null) || aVar == null) {
             return;
         }
         Tencent createInstance = Tencent.createInstance(this.configuration.qqAppID, this);
@@ -229,19 +222,6 @@ public class QQOauthLoginActivity extends BaseSSOLoginActivity implements com.ba
     }
 
     @Override // com.baidu.sapi2.a.a.a
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Log.d(p, "onAuthFailure");
-            ThirdLoginCallback thirdLoginCallback = this.o;
-            if (thirdLoginCallback != null) {
-                thirdLoginCallback.onAuthFailure(-100, "QQ授权失败");
-            }
-            finish();
-        }
-    }
-
-    @Override // com.baidu.sapi2.a.a.a
     public void a(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3) == null) {
@@ -253,6 +233,26 @@ public class QQOauthLoginActivity extends BaseSSOLoginActivity implements com.ba
             }
             com.baidu.sapi2.activity.social.a.a().a(urlQQBind, this.o);
             finish();
+        }
+    }
+
+    @Override // com.baidu.sapi2.activity.BaseActivity, android.app.Activity
+    public void onActivityResult(int i, int i2, Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, intent) == null) {
+            Log.d(p, "requestCode = " + i + " resultCode = " + i2 + " data = " + intent);
+            if (i == 11101 || i == 10102) {
+                Tencent.onActivityResultData(i, i2, intent, this.n);
+            }
+        }
+    }
+
+    @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.social.SocialLoginBase, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+            super.onCreate(bundle);
+            setupViews();
         }
     }
 }

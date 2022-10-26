@@ -14,12 +14,12 @@ public class ListMultipartUploadsResponse extends BosResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String bucketName;
-    public List<String> commonPrefixes;
+    public List commonPrefixes;
     public String delimiter;
     public boolean isTruncated;
     public String keyMarker;
     public int maxUploads;
-    public List<MultipartUploadSummary> multipartUploads;
+    public List multipartUploads;
     public String nextKeyMarker;
     public String prefix;
 
@@ -40,34 +40,49 @@ public class ListMultipartUploadsResponse extends BosResponse {
     public String getBucketName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.bucketName : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.bucketName;
+        }
+        return (String) invokeV.objValue;
     }
 
-    public List<String> getCommonPrefixes() {
+    public List getCommonPrefixes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.commonPrefixes : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.commonPrefixes;
+        }
+        return (List) invokeV.objValue;
     }
 
     public String getDelimiter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.delimiter : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.delimiter;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getKeyMarker() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.keyMarker : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.keyMarker;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getMaxUploads() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.maxUploads : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.maxUploads;
+        }
+        return invokeV.intValue;
     }
 
-    public List<MultipartUploadSummary> getMultipartUploads() {
+    public List getMultipartUploads() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -82,19 +97,28 @@ public class ListMultipartUploadsResponse extends BosResponse {
     public String getNextKeyMarker() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.nextKeyMarker : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.nextKeyMarker;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getPrefix() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.prefix : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.prefix;
+        }
+        return (String) invokeV.objValue;
     }
 
     public boolean isTruncated() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.isTruncated : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.isTruncated;
+        }
+        return invokeV.booleanValue;
     }
 
     public void setBucketName(String str) {
@@ -104,7 +128,7 @@ public class ListMultipartUploadsResponse extends BosResponse {
         }
     }
 
-    public void setCommonPrefixes(List<String> list) {
+    public void setCommonPrefixes(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, list) == null) {
             this.commonPrefixes = list;
@@ -132,7 +156,7 @@ public class ListMultipartUploadsResponse extends BosResponse {
         }
     }
 
-    public void setMultipartUploads(List<MultipartUploadSummary> list) {
+    public void setMultipartUploads(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, list) == null) {
             this.multipartUploads = list;

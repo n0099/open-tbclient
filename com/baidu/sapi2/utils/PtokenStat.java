@@ -39,15 +39,22 @@ public class PtokenStat {
     }
 
     public void onEvent(String str) {
+        String str2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && TextUtils.isEmpty(SapiUtils.getCookiePtoken())) {
-            HashMap hashMap = new HashMap();
-            hashMap.put(Config.DEVICE_PART, "android");
-            hashMap.put("sys_version", Build.VERSION.RELEASE);
-            SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
-            hashMap.put("uid", currentAccount == null ? "uid_is_empty" : currentAccount.uid);
-            hashMap.put("scenes", str);
-            StatService.onEvent("ptoken_is_null", hashMap);
+        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || !TextUtils.isEmpty(SapiUtils.getCookiePtoken())) {
+            return;
         }
+        HashMap hashMap = new HashMap();
+        hashMap.put(Config.DEVICE_PART, "android");
+        hashMap.put("sys_version", Build.VERSION.RELEASE);
+        SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
+        if (currentAccount == null) {
+            str2 = "uid_is_empty";
+        } else {
+            str2 = currentAccount.uid;
+        }
+        hashMap.put("uid", str2);
+        hashMap.put("scenes", str);
+        StatService.onEvent("ptoken_is_null", hashMap);
     }
 }

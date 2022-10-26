@@ -39,6 +39,23 @@ public abstract class Message {
     public boolean needReSend;
     public boolean needReplay;
 
+    public static Message parseBody(Context context, String str, String str2, String str3) throws Exception {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, context, str, str2, str3)) == null) {
+            return null;
+        }
+        return (Message) invokeLLLL.objValue;
+    }
+
+    public abstract void buildBody();
+
+    public void onMsgSending(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, context) == null) {
+        }
+    }
+
     public Message() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -61,9 +78,33 @@ public abstract class Message {
         this.mUUId = UUID.randomUUID().toString();
     }
 
+    public String toString() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            buildBody();
+            if (this.mIsSending) {
+                addRetryTime();
+            }
+            StringBuilder sb = new StringBuilder();
+            sb.append("MsgId: ");
+            sb.append(this.msgId);
+            sb.append(" body: ");
+            if (this.isHeartbeat) {
+                str = "heartbeat";
+            } else {
+                str = this.mBody;
+            }
+            sb.append(str);
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
     private void addRetryTime() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || TextUtils.isEmpty(this.mBody)) {
+        if ((interceptable != null && interceptable.invokeV(65537, this) != null) || TextUtils.isEmpty(this.mBody)) {
             return;
         }
         try {
@@ -82,15 +123,6 @@ public abstract class Message {
         }
     }
 
-    public static Message parseBody(Context context, String str, String str2, String str3) throws Exception {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, context, str, str2, str3)) == null) {
-            return null;
-        }
-        return (Message) invokeLLLL.objValue;
-    }
-
     public static void saveCmdMessage(Context context, Message message, String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLI(65539, null, context, message, str, i) == null) {
@@ -98,12 +130,22 @@ public abstract class Message {
         }
     }
 
-    public abstract void buildBody();
+    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLIL(1048586, this, context, jSONObject, i, str) == null) {
+            if (i == 4001 || i == 4003 || i == 4004 || i == 4005) {
+                LoginManager.getInstance(context).triggleLogoutListener(i, str);
+            }
+        }
+    }
 
     public long getAppid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mAppid : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mAppid;
+        }
+        return invokeV.longValue;
     }
 
     public String getBody() {
@@ -122,7 +164,82 @@ public abstract class Message {
     public String getListenerKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mListenerKey : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mListenerKey;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long getMsgId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.msgId;
+        }
+        return invokeV.longValue;
+    }
+
+    public int getPriority() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mPriority;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mType;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getUUID() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mUUId;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long getUk() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mUk;
+        }
+        return invokeV.longValue;
+    }
+
+    public boolean isHeartbeat() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.isHeartbeat;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isNeedReSend() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.needReSend;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isNeedReplay() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.needReplay;
+        }
+        return invokeV.booleanValue;
     }
 
     public byte[] getMessageBytes() {
@@ -186,45 +303,6 @@ public abstract class Message {
         return (byte[]) invokeV.objValue;
     }
 
-    public long getMsgId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.msgId : invokeV.longValue;
-    }
-
-    public int getPriority() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mPriority : invokeV.intValue;
-    }
-
-    public int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mType : invokeV.intValue;
-    }
-
-    public String getUUID() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mUUId : (String) invokeV.objValue;
-    }
-
-    public long getUk() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mUk : invokeV.longValue;
-    }
-
-    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(1048586, this, context, jSONObject, i, str) == null) {
-            if (i == 4001 || i == 4003 || i == 4004 || i == 4005) {
-                LoginManager.getInstance(context).triggleLogoutListener(i, str);
-            }
-        }
-    }
-
     public void initCommonParameter(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, context) == null) {
@@ -234,34 +312,10 @@ public abstract class Message {
         }
     }
 
-    public boolean isHeartbeat() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.isHeartbeat : invokeV.booleanValue;
-    }
-
-    public boolean isNeedReSend() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.needReSend : invokeV.booleanValue;
-    }
-
-    public boolean isNeedReplay() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.needReplay : invokeV.booleanValue;
-    }
-
     public void isSending(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
             this.mIsSending = z;
-        }
-    }
-
-    public void onMsgSending(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, context) == null) {
         }
     }
 
@@ -333,23 +387,5 @@ public abstract class Message {
         if (interceptable == null || interceptable.invokeJ(1048602, this, j) == null) {
             this.mUk = j;
         }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-            buildBody();
-            if (this.mIsSending) {
-                addRetryTime();
-            }
-            StringBuilder sb = new StringBuilder();
-            sb.append("MsgId: ");
-            sb.append(this.msgId);
-            sb.append(" body: ");
-            sb.append(this.isHeartbeat ? "heartbeat" : this.mBody);
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
     }
 }

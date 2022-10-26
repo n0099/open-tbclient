@@ -28,7 +28,7 @@ public class NativeExpressADViewImpl extends NativeExpressADView {
     public final NativeExpressADCore c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NativeExpressADViewImpl(NEADI neadi, NEADVI neadvi, NativeExpressADData2 nativeExpressADData2, Context context, ADSize aDSize, String str, String str2, String str3, JSONObject jSONObject, HashMap<String, Object> hashMap) {
+    public NativeExpressADViewImpl(NEADI neadi, NEADVI neadvi, NativeExpressADData2 nativeExpressADData2, Context context, ADSize aDSize, String str, String str2, String str3, JSONObject jSONObject, HashMap hashMap) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -54,7 +54,7 @@ public class NativeExpressADViewImpl extends NativeExpressADView {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private AdData a(HashMap<String, Object> hashMap) {
+    private AdData a(HashMap hashMap) {
         InterceptResult invokeL;
         JSONObject jSONObject;
         Object obj;

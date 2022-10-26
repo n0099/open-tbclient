@@ -1,6 +1,5 @@
 package com.baidu.nadcore.player.ui;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
@@ -16,6 +15,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class VerticalVolumeBar extends SeekBar {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // android.widget.AbsSeekBar, android.view.View
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VerticalVolumeBar(Context context) {
@@ -35,48 +44,6 @@ public class VerticalVolumeBar extends SeekBar {
                 return;
             }
         }
-    }
-
-    @Override // android.widget.AbsSeekBar, android.widget.ProgressBar, android.view.View
-    public synchronized void onDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            synchronized (this) {
-                canvas.rotate(-90.0f);
-                canvas.translate(-getHeight(), 0.0f);
-                super.onDraw(canvas);
-            }
-        }
-    }
-
-    @Override // android.widget.AbsSeekBar, android.widget.ProgressBar, android.view.View
-    public synchronized void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
-            synchronized (this) {
-                super.onMeasure(i, i2);
-                setMeasuredDimension(getMeasuredHeight(), getMeasuredWidth());
-            }
-        }
-    }
-
-    @Override // android.widget.AbsSeekBar, android.widget.ProgressBar, android.view.View
-    public void onSizeChanged(int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4) == null) {
-            super.onSizeChanged(i2, i, i4, i3);
-        }
-    }
-
-    @Override // android.widget.AbsSeekBar, android.view.View
-    @SuppressLint({"ClickableViewAccessibility"})
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
-            return true;
-        }
-        return invokeL.booleanValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -118,6 +85,37 @@ public class VerticalVolumeBar extends SeekBar {
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
+        }
+    }
+
+    @Override // android.widget.AbsSeekBar, android.widget.ProgressBar, android.view.View
+    public synchronized void onDraw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
+            synchronized (this) {
+                canvas.rotate(-90.0f);
+                canvas.translate(-getHeight(), 0.0f);
+                super.onDraw(canvas);
+            }
+        }
+    }
+
+    @Override // android.widget.AbsSeekBar, android.widget.ProgressBar, android.view.View
+    public synchronized void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            synchronized (this) {
+                super.onMeasure(i, i2);
+                setMeasuredDimension(getMeasuredHeight(), getMeasuredWidth());
+            }
+        }
+    }
+
+    @Override // android.widget.AbsSeekBar, android.widget.ProgressBar, android.view.View
+    public void onSizeChanged(int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4) == null) {
+            super.onSizeChanged(i2, i, i4, i3);
         }
     }
 }

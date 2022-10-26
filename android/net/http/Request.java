@@ -27,13 +27,6 @@ public class Request {
         throw new RuntimeException("Stub!");
     }
 
-    public void handleSslErrorResponse(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -41,5 +34,12 @@ public class Request {
             throw new RuntimeException("Stub!");
         }
         return (String) invokeV.objValue;
+    }
+
+    public void handleSslErrorResponse(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            throw new RuntimeException("Stub!");
+        }
     }
 }

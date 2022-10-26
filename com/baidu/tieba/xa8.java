@@ -1,11 +1,10 @@
 package com.baidu.tieba;
 
-import android.animation.ObjectAnimator;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import androidx.constraintlayout.motion.widget.Key;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import android.widget.MediaController;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.play.VideoLoadingProgressView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -14,19 +13,82 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class xa8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ViewGroup a;
-    public ImageView b;
-    public VideoLoadingProgressView c;
-    public ObjectAnimator d;
-    public ObjectAnimator e;
-    public ObjectAnimator f;
+    public int a;
+    public int b;
+    public MediaController.MediaPlayerControl c;
+    public b d;
+    public d e;
+    public c f;
+    public Handler g;
 
-    public xa8(ViewGroup viewGroup) {
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a();
+    }
+
+    /* loaded from: classes6.dex */
+    public interface c {
+        void a(int i, int i2);
+    }
+
+    /* loaded from: classes6.dex */
+    public interface d {
+        void a();
+    }
+
+    /* loaded from: classes6.dex */
+    public class a extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ xa8 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(xa8 xa8Var, Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xa8Var, looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = xa8Var;
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message != null && message.what == 1 && this.a.c != null && this.a.c.isPlaying()) {
+                int currentPosition = this.a.c.getCurrentPosition();
+                int duration = this.a.c.getDuration();
+                if (currentPosition < this.a.b) {
+                    if (this.a.d != null) {
+                        this.a.d.a();
+                    }
+                } else if (currentPosition == this.a.b && this.a.e != null) {
+                    this.a.e.a();
+                }
+                if (this.a.f != null) {
+                    this.a.f.a(duration, currentPosition);
+                }
+                this.a.b = currentPosition;
+                this.a.h();
+            }
+        }
+    }
+
+    public xa8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {viewGroup};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,77 +98,60 @@ public class xa8 {
                 return;
             }
         }
-        this.a = viewGroup;
-        this.b = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090303);
-        this.c = (VideoLoadingProgressView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090304);
-        d();
+        this.a = 1000;
+        this.b = 0;
+        this.g = new a(this, Looper.getMainLooper());
     }
 
-    public final void a() {
+    public void i(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+            this.d = bVar;
+        }
+    }
+
+    public void j(c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
+            this.f = cVar;
+        }
+    }
+
+    public void k(d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, dVar) == null) {
+            this.e = dVar;
+        }
+    }
+
+    public void l(MediaController.MediaPlayerControl mediaPlayerControl) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, mediaPlayerControl) == null) {
+            this.c = mediaPlayerControl;
+        }
+    }
+
+    public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.d.cancel();
-            this.e.cancel();
-            this.f.cancel();
+            this.g.removeMessages(1);
+            Handler handler = this.g;
+            handler.sendMessageDelayed(handler.obtainMessage(1), this.a);
         }
     }
 
-    public void b() {
+    public void m() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            a();
-            this.a.setVisibility(8);
-            this.c.h();
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.b = 0;
+            h();
         }
     }
 
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            a();
-            this.e.start();
-            this.f.start();
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.d = ObjectAnimator.ofFloat(this.b, Key.ALPHA, 1.0f, 0.5f);
-            this.e = ObjectAnimator.ofFloat(this.b, Key.ALPHA, 0.5f, 0.0f);
-            this.f = ObjectAnimator.ofFloat(this.c, Key.ALPHA, 1.0f, 0.0f);
-            this.d.setDuration(50L);
-            this.e.setDuration(50L);
-            this.f.setDuration(50L);
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            a();
-            this.c.j();
-        }
-    }
-
-    public void f(VideoLoadingProgressView.c cVar) {
-        VideoLoadingProgressView videoLoadingProgressView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) || (videoLoadingProgressView = this.c) == null) {
-            return;
-        }
-        videoLoadingProgressView.setLoadingAnimationListener(cVar);
-    }
-
-    public void g() {
+    public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            a();
-            this.b.setAlpha(1.0f);
-            this.c.setAlpha(1.0f);
-            this.a.setVisibility(0);
-            this.c.l();
-            this.d.start();
+            this.g.removeMessages(1);
         }
     }
 }

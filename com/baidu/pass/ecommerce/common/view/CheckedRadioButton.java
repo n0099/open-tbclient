@@ -34,19 +34,6 @@ public class CheckedRadioButton extends RadioButton {
         }
     }
 
-    @Override // android.widget.RadioButton, android.widget.CompoundButton, android.widget.Checkable
-    public void toggle() {
-        ViewParent parent;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            setChecked(!isChecked());
-            if (isChecked() || (parent = getParent()) == null || !(parent instanceof RadioGroup)) {
-                return;
-            }
-            ((RadioGroup) parent).clearCheck();
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CheckedRadioButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -85,6 +72,18 @@ public class CheckedRadioButton extends RadioButton {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
+            }
+        }
+    }
+
+    @Override // android.widget.RadioButton, android.widget.CompoundButton, android.widget.Checkable
+    public void toggle() {
+        ViewParent parent;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            setChecked(!isChecked());
+            if (!isChecked() && (parent = getParent()) != null && (parent instanceof RadioGroup)) {
+                ((RadioGroup) parent).clearCheck();
             }
         }
     }

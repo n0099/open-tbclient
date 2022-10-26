@@ -93,12 +93,18 @@ public final class GameCenterDownloadState {
     public static GameCenterDownloadState valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (GameCenterDownloadState) Enum.valueOf(GameCenterDownloadState.class, str) : (GameCenterDownloadState) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return (GameCenterDownloadState) Enum.valueOf(GameCenterDownloadState.class, str);
+        }
+        return (GameCenterDownloadState) invokeL.objValue;
     }
 
     public static GameCenterDownloadState[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (GameCenterDownloadState[]) $VALUES.clone() : (GameCenterDownloadState[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return (GameCenterDownloadState[]) $VALUES.clone();
+        }
+        return (GameCenterDownloadState[]) invokeV.objValue;
     }
 }

@@ -22,7 +22,7 @@ import java.util.Map;
 public class ModelManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static long defaultModelsVersion = 1;
-    public static HashMap<ModelInfoDataProvider.DevicePerformanceModelInfoType, IDevicePerformanceModelInfoProvider> mModelInfoProviderHashMap;
+    public static HashMap mModelInfoProviderHashMap;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,7 +38,7 @@ public class ModelManager {
                 return;
             }
         }
-        mModelInfoProviderHashMap = new HashMap<>();
+        mModelInfoProviderHashMap = new HashMap();
     }
 
     public ModelManager() {
@@ -60,7 +60,7 @@ public class ModelManager {
         DevicePerformanceModelInfo devicePerformanceModelInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, devicePerformanceModelInfoType)) == null) {
-            if (devicePerformanceModelInfoType == null || (devicePerformanceModelInfo = new ModelInfoDataProvider().getDefaultModelInfoMap().get(devicePerformanceModelInfoType)) == null) {
+            if (devicePerformanceModelInfoType == null || (devicePerformanceModelInfo = (DevicePerformanceModelInfo) new ModelInfoDataProvider().getDefaultModelInfoMap().get(devicePerformanceModelInfoType)) == null) {
                 return null;
             }
             return devicePerformanceModelInfo;
@@ -73,8 +73,11 @@ public class ModelManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, devicePerformanceModelInfoType)) == null) {
             DevicePerformanceModelInfo defaultModelInfo = defaultModelInfo(devicePerformanceModelInfoType);
-            IDevicePerformanceModelInfoProvider iDevicePerformanceModelInfoProvider = mModelInfoProviderHashMap.get(devicePerformanceModelInfoType);
-            return iDevicePerformanceModelInfoProvider != null ? iDevicePerformanceModelInfoProvider.getDevicePerformanceModelInfo(devicePerformanceModelInfoType, defaultModelInfo) : defaultModelInfo;
+            IDevicePerformanceModelInfoProvider iDevicePerformanceModelInfoProvider = (IDevicePerformanceModelInfoProvider) mModelInfoProviderHashMap.get(devicePerformanceModelInfoType);
+            if (iDevicePerformanceModelInfoProvider != null) {
+                return iDevicePerformanceModelInfoProvider.getDevicePerformanceModelInfo(devicePerformanceModelInfoType, defaultModelInfo);
+            }
+            return defaultModelInfo;
         }
         return (DevicePerformanceModelInfo) invokeL.objValue;
     }
@@ -87,18 +90,18 @@ public class ModelManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (Long.valueOf(DeviceInfoSharedPreferenceWrapper.getInstance().getLong(ModelInfoDataProvider.defaultModelAssertDir, -1L)).longValue() >= defaultModelsVersion && new File(ModelInfoDataProvider.defaultModelFilePath).exists()) {
-                for (Map.Entry<ModelInfoDataProvider.DevicePerformanceModelInfoType, DevicePerformanceModelInfo> entry : new ModelInfoDataProvider().getDefaultModelInfoMap().entrySet()) {
-                    DevicePerformanceModelInfo value = entry.getValue();
-                    if (value == null || !new File(value.modelPath).exists()) {
-                        return true;
-                    }
-                    while (r0.hasNext()) {
-                    }
-                }
-                return false;
+            if (Long.valueOf(DeviceInfoSharedPreferenceWrapper.getInstance().getLong(ModelInfoDataProvider.defaultModelAssertDir, -1L)).longValue() < defaultModelsVersion || !new File(ModelInfoDataProvider.defaultModelFilePath).exists()) {
+                return true;
             }
-            return true;
+            for (Map.Entry entry : new ModelInfoDataProvider().getDefaultModelInfoMap().entrySet()) {
+                DevicePerformanceModelInfo devicePerformanceModelInfo = (DevicePerformanceModelInfo) entry.getValue();
+                if (devicePerformanceModelInfo == null || !new File(devicePerformanceModelInfo.modelPath).exists()) {
+                    return true;
+                }
+                while (r0.hasNext()) {
+                }
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
@@ -109,34 +112,33 @@ public class ModelManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             boolean needUpdateDefaultModel2 = needUpdateDefaultModel();
-            if (needUpdateDefaultModel2) {
-                synchronized (ModelManager.class) {
-                    needUpdateDefaultModel = needUpdateDefaultModel();
-                    if (needUpdateDefaultModel) {
-                        try {
-                            FileUtil fileUtil = new FileUtil();
-                            fileUtil.deleteFile(new File(ModelInfoDataProvider.defaultModelFilePath));
-                            fileUtil.copyDirFromAssets(AppRuntime.getAppContext(), ModelInfoDataProvider.defaultModelAssertDir, ModelInfoDataProvider.defaultModelFilePath);
-                            DeviceInfoSharedPreferenceWrapper.getInstance().putLong(ModelInfoDataProvider.defaultModelAssertDir, defaultModelsVersion);
-                        } catch (Exception e) {
-                            if (Config.isDebug()) {
-                                e.printStackTrace();
-                            }
+            if (!needUpdateDefaultModel2) {
+                return needUpdateDefaultModel2;
+            }
+            synchronized (ModelManager.class) {
+                needUpdateDefaultModel = needUpdateDefaultModel();
+                if (needUpdateDefaultModel) {
+                    try {
+                        FileUtil fileUtil = new FileUtil();
+                        fileUtil.deleteFile(new File(ModelInfoDataProvider.defaultModelFilePath));
+                        fileUtil.copyDirFromAssets(AppRuntime.getAppContext(), ModelInfoDataProvider.defaultModelAssertDir, ModelInfoDataProvider.defaultModelFilePath);
+                        DeviceInfoSharedPreferenceWrapper.getInstance().putLong(ModelInfoDataProvider.defaultModelAssertDir, defaultModelsVersion);
+                    } catch (Exception e) {
+                        if (Config.isDebug()) {
+                            e.printStackTrace();
                         }
                     }
                 }
-                return needUpdateDefaultModel;
             }
-            return needUpdateDefaultModel2;
+            return needUpdateDefaultModel;
         }
         return invokeV.booleanValue;
     }
 
     public void setModelInfoProvider(IDevicePerformanceModelInfoProvider iDevicePerformanceModelInfoProvider, ModelInfoDataProvider.DevicePerformanceModelInfoType devicePerformanceModelInfoType) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iDevicePerformanceModelInfoProvider, devicePerformanceModelInfoType) == null) || iDevicePerformanceModelInfoProvider == null || devicePerformanceModelInfoType == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iDevicePerformanceModelInfoProvider, devicePerformanceModelInfoType) == null) && iDevicePerformanceModelInfoProvider != null && devicePerformanceModelInfoType != null) {
+            mModelInfoProviderHashMap.put(devicePerformanceModelInfoType, iDevicePerformanceModelInfoProvider);
         }
-        mModelInfoProviderHashMap.put(devicePerformanceModelInfoType, iDevicePerformanceModelInfoProvider);
     }
 }

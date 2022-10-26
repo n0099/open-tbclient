@@ -31,7 +31,7 @@ public final class DoRecordManager {
     public static final String TAG = "DoRecordManager";
     public static DoRecordManager sDoRecordManager;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile List<RecordObserver> mSynchronizedList;
+    public volatile List mSynchronizedList;
 
     static {
         InterceptResult invokeClinit;
@@ -64,33 +64,6 @@ public final class DoRecordManager {
         this.mSynchronizedList = Collections.synchronizedList(new ArrayList(DEFAULT_INITIAL_CAPACITY));
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void broadcast(int i, NetworkStatRecord networkStatRecord) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, this, i, networkStatRecord) == null) {
-            synchronized (this.mSynchronizedList) {
-                for (RecordObserver recordObserver : this.mSynchronizedList) {
-                    recordObserver.doRecord(networkStatRecord, i);
-                }
-            }
-        }
-    }
-
-    private void doAdditionalRecord(NetworkStatRecord networkStatRecord) {
-        IAdditionalRecord additionalRecord;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65541, this, networkStatRecord) == null) || networkStatRecord == null || (additionalRecord = OutbackComponent.getInstance().getAdditionalRecord()) == null) {
-            return;
-        }
-        networkStatRecord.processName = additionalRecord.getProcessName();
-        networkStatRecord.appLaunchTimestamp = additionalRecord.getAppLaunchTimeStamp();
-        networkStatRecord.clientIPv6 = additionalRecord.getClientIPV6();
-        networkStatRecord.httpDnsAreaInfo = additionalRecord.getHttpDnsAreaInfo();
-        networkStatRecord.httpDnsAreaInfoLastUpdateTime = additionalRecord.getHttpDnsAreaInfoLastUpdateTime();
-        networkStatRecord.ipStack = additionalRecord.getIpStack();
-        networkStatRecord.networkQuality = additionalRecord.getNetworkQuality();
-    }
-
     public static DoRecordManager getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -107,19 +80,91 @@ public final class DoRecordManager {
         return (DoRecordManager) invokeV.objValue;
     }
 
-    private List<String> parseRawAddressArray(InetAddress[] inetAddressArr) {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void broadcast(int i, NetworkStatRecord networkStatRecord) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, this, i, networkStatRecord) == null) {
+            synchronized (this.mSynchronizedList) {
+                for (RecordObserver recordObserver : this.mSynchronizedList) {
+                    recordObserver.doRecord(networkStatRecord, i);
+                }
+            }
+        }
+    }
+
+    public void doRecord(NetworkStatRecord networkStatRecord, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, networkStatRecord, i) == null) && networkStatRecord != null) {
+            doAdditionalRecord(networkStatRecord);
+            ExecutorUtilsExt.postOnSerial(new Runnable(this, networkStatRecord, i) { // from class: com.baidu.searchbox.network.outback.statistics.DoRecordManager.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ DoRecordManager this$0;
+                public final /* synthetic */ NetworkStatRecord val$record;
+                public final /* synthetic */ int val$type;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, networkStatRecord, Integer.valueOf(i)};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$record = networkStatRecord;
+                    this.val$type = i;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        if (TextUtils.isEmpty(this.val$record.clientIP)) {
+                            this.val$record.clientIP = ConnectManager.getClientIP();
+                        }
+                        this.this$0.setRecordLocalDnsList(this.val$record);
+                        this.this$0.broadcast(this.val$type, this.val$record);
+                    }
+                }
+            }, "OutbackParseLocalDnsDoRecord");
+        }
+    }
+
+    private void doAdditionalRecord(NetworkStatRecord networkStatRecord) {
+        IAdditionalRecord additionalRecord;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65541, this, networkStatRecord) == null) && networkStatRecord != null && (additionalRecord = OutbackComponent.getInstance().getAdditionalRecord()) != null) {
+            networkStatRecord.processName = additionalRecord.getProcessName();
+            networkStatRecord.appLaunchTimestamp = additionalRecord.getAppLaunchTimeStamp();
+            networkStatRecord.clientIPv6 = additionalRecord.getClientIPV6();
+            networkStatRecord.httpDnsAreaInfo = additionalRecord.getHttpDnsAreaInfo();
+            networkStatRecord.httpDnsAreaInfoLastUpdateTime = additionalRecord.getHttpDnsAreaInfoLastUpdateTime();
+            networkStatRecord.ipStack = additionalRecord.getIpStack();
+            networkStatRecord.networkQuality = additionalRecord.getNetworkQuality();
+        }
+    }
+
+    private List parseRawAddressArray(InetAddress[] inetAddressArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, inetAddressArr)) == null) {
-            if (inetAddressArr == null || inetAddressArr.length <= 0) {
-                return null;
+            if (inetAddressArr != null && inetAddressArr.length > 0) {
+                List<InetAddress> asList = Arrays.asList(inetAddressArr);
+                ArrayList arrayList = new ArrayList(asList.size());
+                for (InetAddress inetAddress : asList) {
+                    arrayList.add(inetAddress.getHostAddress());
+                }
+                return arrayList;
             }
-            List<InetAddress> asList = Arrays.asList(inetAddressArr);
-            ArrayList arrayList = new ArrayList(asList.size());
-            for (InetAddress inetAddress : asList) {
-                arrayList.add(inetAddress.getHostAddress());
-            }
-            return arrayList;
+            return null;
         }
         return (List) invokeL.objValue;
     }
@@ -127,16 +172,14 @@ public final class DoRecordManager {
     /* JADX INFO: Access modifiers changed from: private */
     public void setRecordLocalDnsList(NetworkStatRecord networkStatRecord) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65544, this, networkStatRecord) == null) || networkStatRecord == null) {
-            return;
-        }
-        try {
-            URL url = new URL(networkStatRecord.url);
-            if (TextUtils.isEmpty(url.getHost())) {
-                return;
+        if ((interceptable == null || interceptable.invokeL(65544, this, networkStatRecord) == null) && networkStatRecord != null) {
+            try {
+                URL url = new URL(networkStatRecord.url);
+                if (!TextUtils.isEmpty(url.getHost())) {
+                    networkStatRecord.localDnsIpList = parseRawAddressArray(InetAddress.getAllByName(url.getHost()));
+                }
+            } catch (IllegalArgumentException | NullPointerException | SecurityException | MalformedURLException | UnknownHostException unused) {
             }
-            networkStatRecord.localDnsIpList = parseRawAddressArray(InetAddress.getAllByName(url.getHost()));
-        } catch (IllegalArgumentException | NullPointerException | SecurityException | MalformedURLException | UnknownHostException unused) {
         }
     }
 
@@ -149,56 +192,8 @@ public final class DoRecordManager {
 
     public void detach(RecordObserver recordObserver) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recordObserver) == null) || this.mSynchronizedList.isEmpty()) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recordObserver) == null) && !this.mSynchronizedList.isEmpty()) {
+            this.mSynchronizedList.remove(recordObserver);
         }
-        this.mSynchronizedList.remove(recordObserver);
-    }
-
-    public void doRecord(NetworkStatRecord networkStatRecord, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, networkStatRecord, i) == null) || networkStatRecord == null) {
-            return;
-        }
-        doAdditionalRecord(networkStatRecord);
-        ExecutorUtilsExt.postOnSerial(new Runnable(this, networkStatRecord, i) { // from class: com.baidu.searchbox.network.outback.statistics.DoRecordManager.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ DoRecordManager this$0;
-            public final /* synthetic */ NetworkStatRecord val$record;
-            public final /* synthetic */ int val$type;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this, networkStatRecord, Integer.valueOf(i)};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-                this.val$record = networkStatRecord;
-                this.val$type = i;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    if (TextUtils.isEmpty(this.val$record.clientIP)) {
-                        this.val$record.clientIP = ConnectManager.getClientIP();
-                    }
-                    this.this$0.setRecordLocalDnsList(this.val$record);
-                    this.this$0.broadcast(this.val$type, this.val$record);
-                }
-            }
-        }, "OutbackParseLocalDnsDoRecord");
     }
 }

@@ -25,6 +25,18 @@ public final class TornadoEvent {
         return new TornadoEvent[]{EVENT_BOOSTER_START_OK, EVENT_BOOSTER_START_FAIL, EVENT_BOOSTER_START_FAIL_WITH_TOKEN_INVALID, EVENT_BOOSTER_STOP};
     }
 
+    public static TornadoEvent valueOf(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (TornadoEvent) Enum.valueOf(TornadoEvent.class, str) : (TornadoEvent) invokeL.objValue;
+    }
+
+    public static TornadoEvent[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (TornadoEvent[]) $VALUES.clone() : (TornadoEvent[]) invokeV.objValue;
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -62,17 +74,5 @@ public final class TornadoEvent {
                 interceptable.invokeInitBody(65538, newInitContext);
             }
         }
-    }
-
-    public static TornadoEvent valueOf(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (TornadoEvent) Enum.valueOf(TornadoEvent.class, str) : (TornadoEvent) invokeL.objValue;
-    }
-
-    public static TornadoEvent[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (TornadoEvent[]) $VALUES.clone() : (TornadoEvent[]) invokeV.objValue;
     }
 }

@@ -44,7 +44,7 @@ public class ItemStarData implements Serializable {
 
         public void parseProto(HeadItem headItem) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, headItem) == null) || headItem == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, headItem) != null) || headItem == null) {
                 return;
             }
             this.name = headItem.name;
@@ -69,7 +69,7 @@ public class ItemStarData implements Serializable {
 
     public void parseProto(List<HeadItem> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, list) == null) || ListUtils.getCount(list) == 0) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, list) != null) || ListUtils.getCount(list) == 0) {
             return;
         }
         this.list = new ArrayList();

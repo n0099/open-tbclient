@@ -1,6 +1,5 @@
 package com.baidu.sofire.k;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
@@ -38,35 +37,33 @@ public class f {
         b = new String[]{"space left"};
     }
 
-    public static String a(Context context, String str, String str2) {
-        String a2;
-        InterceptResult invokeLLL;
+    public static long a(File file, JSONArray jSONArray) throws JSONException {
+        InterceptResult invokeLL;
+        File[] listFiles;
+        long length;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, context, str, str2)) == null) {
-            try {
-                char c = 0;
-                if (str.contains(a[0])) {
-                    c = 1;
-                } else if (str.contains(b[0])) {
-                    c = 2;
-                }
-                if (c == 1) {
-                    a2 = a(str, str2);
-                } else if (c != 2) {
-                    return str;
-                } else {
-                    a2 = a(context, str);
-                }
-                return a2;
-            } catch (Throwable unused) {
-                int i = com.baidu.sofire.a.b.a;
-                return str;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, file, jSONArray)) == null) {
+            long j = 0;
+            if (!file.isDirectory()) {
+                return 0L;
             }
+            for (File file2 : file.listFiles()) {
+                if (file2.isDirectory()) {
+                    length = a(file2, jSONArray);
+                } else if (file2.exists()) {
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("path", file2.getAbsolutePath());
+                    jSONObject.put("size", file2.length());
+                    jSONArray.put(jSONObject);
+                    length = file2.length();
+                }
+                j += length;
+            }
+            return j;
         }
-        return (String) invokeLLL.objValue;
+        return invokeLL.longValue;
     }
 
-    @SuppressLint({"NewApi"})
     public static String a(Context context, String str) {
         String str2;
         File[] listFiles;
@@ -96,7 +93,36 @@ public class f {
         return (String) invokeLL.objValue;
     }
 
-    @SuppressLint({"SdCardPath"})
+    public static String a(Context context, String str, String str2) {
+        String a2;
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, context, str, str2)) == null) {
+            try {
+                char c = 0;
+                if (str.contains(a[0])) {
+                    c = 1;
+                } else if (str.contains(b[0])) {
+                    c = 2;
+                }
+                if (c != 1) {
+                    if (c == 2) {
+                        a2 = a(context, str);
+                    } else {
+                        return str;
+                    }
+                } else {
+                    a2 = a(str, str2);
+                }
+                return a2;
+            } catch (Throwable unused) {
+                int i = com.baidu.sofire.a.b.a;
+                return str;
+            }
+        }
+        return (String) invokeLLL.objValue;
+    }
+
     public static String a(String str, String str2) {
         InterceptResult invokeLL;
         ApkInfo b2;
@@ -109,44 +135,17 @@ public class f {
                     File file = new File(str4);
                     if (!file.exists()) {
                         str3 = str3 + "\r\nsubLibPathFile " + str4 + " not exists";
-                    } else if (file.isDirectory()) {
+                    } else if (!file.isDirectory()) {
+                        str3 = str3 + "\r\nsubLibPathFile " + str4 + " not a dir";
+                    } else {
                         for (File file2 : file.listFiles()) {
                             str3 = str3 + "\r\n{" + file2.getAbsolutePath() + ":" + j.a(file2) + "}\r\n";
                         }
-                    } else {
-                        str3 = str3 + "\r\nsubLibPathFile " + str4 + " not a dir";
                     }
                 }
             }
             return str3;
         }
         return (String) invokeLL.objValue;
-    }
-
-    public static long a(File file, JSONArray jSONArray) throws JSONException {
-        InterceptResult invokeLL;
-        File[] listFiles;
-        long length;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, file, jSONArray)) == null) {
-            long j = 0;
-            if (file.isDirectory()) {
-                for (File file2 : file.listFiles()) {
-                    if (file2.isDirectory()) {
-                        length = a(file2, jSONArray);
-                    } else if (file2.exists()) {
-                        JSONObject jSONObject = new JSONObject();
-                        jSONObject.put("path", file2.getAbsolutePath());
-                        jSONObject.put("size", file2.length());
-                        jSONArray.put(jSONObject);
-                        length = file2.length();
-                    }
-                    j += length;
-                }
-                return j;
-            }
-            return 0L;
-        }
-        return invokeLL.longValue;
     }
 }

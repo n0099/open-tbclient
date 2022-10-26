@@ -82,23 +82,9 @@ public abstract class BaseMenuWrapper {
         return (SubMenu) invokeL.objValue;
     }
 
-    public final void internalClear() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SimpleArrayMap<SupportMenuItem, MenuItem> simpleArrayMap = this.mMenuItems;
-            if (simpleArrayMap != null) {
-                simpleArrayMap.clear();
-            }
-            SimpleArrayMap<SupportSubMenu, SubMenu> simpleArrayMap2 = this.mSubMenus;
-            if (simpleArrayMap2 != null) {
-                simpleArrayMap2.clear();
-            }
-        }
-    }
-
     public final void internalRemoveGroup(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || this.mMenuItems == null) {
+        if ((interceptable != null && interceptable.invokeI(1048579, this, i) != null) || this.mMenuItems == null) {
             return;
         }
         int i2 = 0;
@@ -113,13 +99,27 @@ public abstract class BaseMenuWrapper {
 
     public final void internalRemoveItem(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048580, this, i) == null) || this.mMenuItems == null) {
+        if ((interceptable != null && interceptable.invokeI(1048580, this, i) != null) || this.mMenuItems == null) {
             return;
         }
         for (int i2 = 0; i2 < this.mMenuItems.size(); i2++) {
             if (this.mMenuItems.keyAt(i2).getItemId() == i) {
                 this.mMenuItems.removeAt(i2);
                 return;
+            }
+        }
+    }
+
+    public final void internalClear() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            SimpleArrayMap<SupportMenuItem, MenuItem> simpleArrayMap = this.mMenuItems;
+            if (simpleArrayMap != null) {
+                simpleArrayMap.clear();
+            }
+            SimpleArrayMap<SupportSubMenu, SubMenu> simpleArrayMap2 = this.mSubMenus;
+            if (simpleArrayMap2 != null) {
+                simpleArrayMap2.clear();
             }
         }
     }

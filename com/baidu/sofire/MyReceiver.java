@@ -46,7 +46,10 @@ public class MyReceiver extends BroadcastReceiver {
         public Object onEnd(Object... objArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) ? super.onEnd(objArr) : invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
+                return super.onEnd(objArr);
+            }
+            return invokeL.objValue;
         }
     }
 
@@ -69,6 +72,21 @@ public class MyReceiver extends BroadcastReceiver {
         this.c = 0L;
     }
 
+    public MyReceiver a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                this.b = System.currentTimeMillis();
+                this.a = true;
+            } catch (Throwable unused) {
+                int i = b.a;
+            }
+            return this;
+        }
+        return (MyReceiver) invokeV.objValue;
+    }
+
     public static void a(ClassLoader classLoader, Intent intent, Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65537, null, classLoader, intent, context) == null) {
@@ -83,37 +101,24 @@ public class MyReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, intent) == null) || intent == null) {
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, intent) != null) || intent == null) {
             return;
         }
         try {
-            if (!this.a || System.currentTimeMillis() - this.b >= 2000) {
-                if ("android.net.conn.CONNECTIVITY_CHANGE".equals(intent.getAction())) {
-                    if (System.currentTimeMillis() - this.c < 100 || !com.baidu.sofire.k.a.l(context)) {
-                        return;
-                    }
-                    this.c = System.currentTimeMillis();
-                }
-                Context applicationContext = context.getApplicationContext();
-                p.a(applicationContext).a(new f(intent, applicationContext, this.a));
+            if (this.a && System.currentTimeMillis() - this.b < 2000) {
+                return;
             }
+            if ("android.net.conn.CONNECTIVITY_CHANGE".equals(intent.getAction())) {
+                if (System.currentTimeMillis() - this.c >= 100 && com.baidu.sofire.k.a.l(context)) {
+                    this.c = System.currentTimeMillis();
+                } else {
+                    return;
+                }
+            }
+            Context applicationContext = context.getApplicationContext();
+            p.a(applicationContext).a(new f(intent, applicationContext, this.a));
         } catch (Throwable unused) {
             int i = b.a;
         }
-    }
-
-    public MyReceiver a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                this.b = System.currentTimeMillis();
-                this.a = true;
-            } catch (Throwable unused) {
-                int i = b.a;
-            }
-            return this;
-        }
-        return (MyReceiver) invokeV.objValue;
     }
 }

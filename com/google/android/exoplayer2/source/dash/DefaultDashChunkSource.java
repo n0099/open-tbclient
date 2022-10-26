@@ -59,7 +59,7 @@ public class DefaultDashChunkSource implements DashChunkSource {
     public final int trackType;
 
     /* loaded from: classes7.dex */
-    public static final class Factory implements DashChunkSource.Factory {
+    public final class Factory implements DashChunkSource.Factory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final DataSource.Factory dataSourceFactory;
@@ -86,13 +86,6 @@ public class DefaultDashChunkSource implements DashChunkSource {
             }
         }
 
-        @Override // com.google.android.exoplayer2.source.dash.DashChunkSource.Factory
-        public DashChunkSource createDashChunkSource(LoaderErrorThrower loaderErrorThrower, DashManifest dashManifest, int i, int[] iArr, TrackSelection trackSelection, int i2, long j, boolean z, boolean z2) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{loaderErrorThrower, dashManifest, Integer.valueOf(i), iArr, trackSelection, Integer.valueOf(i2), Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? new DefaultDashChunkSource(loaderErrorThrower, dashManifest, i, iArr, trackSelection, i2, this.dataSourceFactory.createDataSource(), j, this.maxSegmentsPerLoad, z, z2) : (DashChunkSource) invokeCommon.objValue;
-        }
-
         public Factory(DataSource.Factory factory, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -111,10 +104,20 @@ public class DefaultDashChunkSource implements DashChunkSource {
             this.dataSourceFactory = factory;
             this.maxSegmentsPerLoad = i;
         }
+
+        @Override // com.google.android.exoplayer2.source.dash.DashChunkSource.Factory
+        public DashChunkSource createDashChunkSource(LoaderErrorThrower loaderErrorThrower, DashManifest dashManifest, int i, int[] iArr, TrackSelection trackSelection, int i2, long j, boolean z, boolean z2) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{loaderErrorThrower, dashManifest, Integer.valueOf(i), iArr, trackSelection, Integer.valueOf(i2), Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+                return new DefaultDashChunkSource(loaderErrorThrower, dashManifest, i, iArr, trackSelection, i2, this.dataSourceFactory.createDataSource(), j, this.maxSegmentsPerLoad, z, z2);
+            }
+            return (DashChunkSource) invokeCommon.objValue;
+        }
     }
 
     /* loaded from: classes7.dex */
-    public static final class RepresentationHolder {
+    public final class RepresentationHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ChunkExtractorWrapper extractorWrapper;
@@ -161,49 +164,79 @@ public class DefaultDashChunkSource implements DashChunkSource {
         public static boolean mimeTypeIsRawText(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? MimeTypes.isText(str) || MimeTypes.APPLICATION_TTML.equals(str) : invokeL.booleanValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+                if (!MimeTypes.isText(str) && !MimeTypes.APPLICATION_TTML.equals(str)) {
+                    return false;
+                }
+                return true;
+            }
+            return invokeL.booleanValue;
         }
 
         public static boolean mimeTypeIsWebm(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? str.startsWith(MimeTypes.VIDEO_WEBM) || str.startsWith(MimeTypes.AUDIO_WEBM) || str.startsWith(MimeTypes.APPLICATION_WEBM) : invokeL.booleanValue;
-        }
-
-        public int getFirstSegmentNum() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.segmentIndex.getFirstSegmentNum() + this.segmentNumShift : invokeV.intValue;
-        }
-
-        public int getSegmentCount() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.segmentIndex.getSegmentCount(this.periodDurationUs) : invokeV.intValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                if (!str.startsWith(MimeTypes.VIDEO_WEBM) && !str.startsWith(MimeTypes.AUDIO_WEBM) && !str.startsWith(MimeTypes.APPLICATION_WEBM)) {
+                    return false;
+                }
+                return true;
+            }
+            return invokeL.booleanValue;
         }
 
         public long getSegmentEndTimeUs(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? getSegmentStartTimeUs(i) + this.segmentIndex.getDurationUs(i - this.segmentNumShift, this.periodDurationUs) : invokeI.longValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                return getSegmentStartTimeUs(i) + this.segmentIndex.getDurationUs(i - this.segmentNumShift, this.periodDurationUs);
+            }
+            return invokeI.longValue;
         }
 
         public int getSegmentNum(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) ? this.segmentIndex.getSegmentNum(j, this.periodDurationUs) + this.segmentNumShift : invokeJ.intValue;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
+                return this.segmentIndex.getSegmentNum(j, this.periodDurationUs) + this.segmentNumShift;
+            }
+            return invokeJ.intValue;
         }
 
         public long getSegmentStartTimeUs(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? this.segmentIndex.getTimeUs(i - this.segmentNumShift) : invokeI.longValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+                return this.segmentIndex.getTimeUs(i - this.segmentNumShift);
+            }
+            return invokeI.longValue;
         }
 
         public RangedUri getSegmentUrl(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? this.segmentIndex.getSegmentUrl(i - this.segmentNumShift) : (RangedUri) invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+                return this.segmentIndex.getSegmentUrl(i - this.segmentNumShift);
+            }
+            return (RangedUri) invokeI.objValue;
+        }
+
+        public int getFirstSegmentNum() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.segmentIndex.getFirstSegmentNum() + this.segmentNumShift;
+            }
+            return invokeV.intValue;
+        }
+
+        public int getSegmentCount() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.segmentIndex.getSegmentCount(this.periodDurationUs);
+            }
+            return invokeV.intValue;
         }
 
         public void updateRepresentation(long j, Representation representation) throws BehindLiveWindowException {
@@ -218,19 +251,20 @@ public class DefaultDashChunkSource implements DashChunkSource {
                     return;
                 }
                 this.segmentIndex = index2;
-                if (index.isExplicit() && (segmentCount = index.getSegmentCount(this.periodDurationUs)) != 0) {
-                    int firstSegmentNum = (index.getFirstSegmentNum() + segmentCount) - 1;
-                    long timeUs = index.getTimeUs(firstSegmentNum) + index.getDurationUs(firstSegmentNum, this.periodDurationUs);
-                    int firstSegmentNum2 = index2.getFirstSegmentNum();
-                    long timeUs2 = index2.getTimeUs(firstSegmentNum2);
-                    int i = (timeUs > timeUs2 ? 1 : (timeUs == timeUs2 ? 0 : -1));
-                    if (i == 0) {
-                        this.segmentNumShift += (firstSegmentNum + 1) - firstSegmentNum2;
-                    } else if (i >= 0) {
-                        this.segmentNumShift += index.getSegmentNum(timeUs2, this.periodDurationUs) - firstSegmentNum2;
-                    } else {
-                        throw new BehindLiveWindowException();
-                    }
+                if (!index.isExplicit() || (segmentCount = index.getSegmentCount(this.periodDurationUs)) == 0) {
+                    return;
+                }
+                int firstSegmentNum = (index.getFirstSegmentNum() + segmentCount) - 1;
+                long timeUs = index.getTimeUs(firstSegmentNum) + index.getDurationUs(firstSegmentNum, this.periodDurationUs);
+                int firstSegmentNum2 = index2.getFirstSegmentNum();
+                long timeUs2 = index2.getTimeUs(firstSegmentNum2);
+                int i = (timeUs > timeUs2 ? 1 : (timeUs == timeUs2 ? 0 : -1));
+                if (i == 0) {
+                    this.segmentNumShift += (firstSegmentNum + 1) - firstSegmentNum2;
+                } else if (i >= 0) {
+                    this.segmentNumShift += index.getSegmentNum(timeUs2, this.periodDurationUs) - firstSegmentNum2;
+                } else {
+                    throw new BehindLiveWindowException();
                 }
             }
         }
@@ -262,10 +296,10 @@ public class DefaultDashChunkSource implements DashChunkSource {
         this.maxSegmentsPerLoad = i3;
         long periodDurationUs = dashManifest.getPeriodDurationUs(i);
         this.liveEdgeTimeUs = C.TIME_UNSET;
-        ArrayList<Representation> representations = getRepresentations();
+        ArrayList representations = getRepresentations();
         this.representationHolders = new RepresentationHolder[trackSelection.length()];
         for (int i6 = 0; i6 < this.representationHolders.length; i6++) {
-            this.representationHolders[i6] = new RepresentationHolder(periodDurationUs, i2, representations.get(trackSelection.getIndexInTrackGroup(i6)), z, z2);
+            this.representationHolders[i6] = new RepresentationHolder(periodDurationUs, i2, (Representation) representations.get(trackSelection.getIndexInTrackGroup(i6)), z, z2);
         }
     }
 
@@ -284,14 +318,27 @@ public class DefaultDashChunkSource implements DashChunkSource {
         return invokeV.longValue;
     }
 
-    private ArrayList<Representation> getRepresentations() {
+    @Override // com.google.android.exoplayer2.source.chunk.ChunkSource
+    public void maybeThrowError() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            IOException iOException = this.fatalError;
+            if (iOException == null) {
+                this.manifestLoaderErrorThrower.maybeThrowError();
+                return;
+            }
+            throw iOException;
+        }
+    }
+
+    private ArrayList getRepresentations() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            List<AdaptationSet> list = this.manifest.getPeriod(this.periodIndex).adaptationSets;
-            ArrayList<Representation> arrayList = new ArrayList<>();
+            List list = this.manifest.getPeriod(this.periodIndex).adaptationSets;
+            ArrayList arrayList = new ArrayList();
             for (int i : this.adaptationSetIndices) {
-                arrayList.addAll(list.get(i).representations);
+                arrayList.addAll(((AdaptationSet) list.get(i)).representations);
             }
             return arrayList;
         }
@@ -340,79 +387,37 @@ public class DefaultDashChunkSource implements DashChunkSource {
 
     private long resolveTimeToLiveEdgeUs(long j) {
         InterceptResult invokeJ;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(65541, this, j)) == null) {
-            return this.manifest.dynamic && (this.liveEdgeTimeUs > C.TIME_UNSET ? 1 : (this.liveEdgeTimeUs == C.TIME_UNSET ? 0 : -1)) != 0 ? this.liveEdgeTimeUs - j : C.TIME_UNSET;
+            if (this.manifest.dynamic && this.liveEdgeTimeUs != C.TIME_UNSET) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (!z) {
+                return C.TIME_UNSET;
+            }
+            return this.liveEdgeTimeUs - j;
         }
         return invokeJ.longValue;
     }
 
     private void updateLiveEdgeTimeUs(RepresentationHolder representationHolder, int i) {
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65542, this, representationHolder, i) == null) {
-            this.liveEdgeTimeUs = this.manifest.dynamic ? representationHolder.getSegmentEndTimeUs(i) : C.TIME_UNSET;
+            if (this.manifest.dynamic) {
+                j = representationHolder.getSegmentEndTimeUs(i);
+            } else {
+                j = C.TIME_UNSET;
+            }
+            this.liveEdgeTimeUs = j;
         }
     }
 
     @Override // com.google.android.exoplayer2.source.chunk.ChunkSource
-    public void getNextChunk(MediaChunk mediaChunk, long j, long j2, ChunkHolder chunkHolder) {
-        int i;
-        int nextChunkIndex;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{mediaChunk, Long.valueOf(j), Long.valueOf(j2), chunkHolder}) == null) && this.fatalError == null) {
-            this.trackSelection.updateSelectedTrack(j, j2 - j, resolveTimeToLiveEdgeUs(j));
-            RepresentationHolder representationHolder = this.representationHolders[this.trackSelection.getSelectedIndex()];
-            ChunkExtractorWrapper chunkExtractorWrapper = representationHolder.extractorWrapper;
-            if (chunkExtractorWrapper != null) {
-                Representation representation = representationHolder.representation;
-                RangedUri initializationUri = chunkExtractorWrapper.getSampleFormats() == null ? representation.getInitializationUri() : null;
-                RangedUri indexUri = representationHolder.segmentIndex == null ? representation.getIndexUri() : null;
-                if (initializationUri != null || indexUri != null) {
-                    chunkHolder.chunk = newInitializationChunk(representationHolder, this.dataSource, this.trackSelection.getSelectedFormat(), this.trackSelection.getSelectionReason(), this.trackSelection.getSelectionData(), initializationUri, indexUri);
-                    return;
-                }
-            }
-            int segmentCount = representationHolder.getSegmentCount();
-            boolean z = false;
-            if (segmentCount == 0) {
-                DashManifest dashManifest = this.manifest;
-                chunkHolder.endOfStream = (!dashManifest.dynamic || this.periodIndex < dashManifest.getPeriodCount() - 1) ? true : true;
-                return;
-            }
-            int firstSegmentNum = representationHolder.getFirstSegmentNum();
-            if (segmentCount == -1) {
-                long nowUnixTimeUs = (getNowUnixTimeUs() - C.msToUs(this.manifest.availabilityStartTime)) - C.msToUs(this.manifest.getPeriod(this.periodIndex).startMs);
-                long j3 = this.manifest.timeShiftBufferDepth;
-                if (j3 != C.TIME_UNSET) {
-                    firstSegmentNum = Math.max(firstSegmentNum, representationHolder.getSegmentNum(nowUnixTimeUs - C.msToUs(j3)));
-                }
-                i = representationHolder.getSegmentNum(nowUnixTimeUs);
-            } else {
-                i = segmentCount + firstSegmentNum;
-            }
-            int i2 = i - 1;
-            updateLiveEdgeTimeUs(representationHolder, i2);
-            if (mediaChunk == null) {
-                nextChunkIndex = Util.constrainValue(representationHolder.getSegmentNum(j2), firstSegmentNum, i2);
-            } else {
-                nextChunkIndex = mediaChunk.getNextChunkIndex();
-                if (nextChunkIndex < firstSegmentNum) {
-                    this.fatalError = new BehindLiveWindowException();
-                    return;
-                }
-            }
-            int i3 = nextChunkIndex;
-            if (i3 <= i2 && (!this.missingLastSegment || i3 < i2)) {
-                chunkHolder.chunk = newMediaChunk(representationHolder, this.dataSource, this.trackType, this.trackSelection.getSelectedFormat(), this.trackSelection.getSelectionReason(), this.trackSelection.getSelectionData(), i3, Math.min(this.maxSegmentsPerLoad, (i2 - i3) + 1));
-                return;
-            }
-            DashManifest dashManifest2 = this.manifest;
-            chunkHolder.endOfStream = (!dashManifest2.dynamic || this.periodIndex < dashManifest2.getPeriodCount() - 1) ? true : true;
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.source.chunk.ChunkSource
-    public int getPreferredQueueSize(long j, List<? extends MediaChunk> list) {
+    public int getPreferredQueueSize(long j, List list) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJL = interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j, list)) == null) {
@@ -425,16 +430,71 @@ public class DefaultDashChunkSource implements DashChunkSource {
     }
 
     @Override // com.google.android.exoplayer2.source.chunk.ChunkSource
-    public void maybeThrowError() throws IOException {
+    public void getNextChunk(MediaChunk mediaChunk, long j, long j2, ChunkHolder chunkHolder) {
+        int i;
+        int nextChunkIndex;
+        RangedUri rangedUri;
+        RangedUri rangedUri2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            IOException iOException = this.fatalError;
-            if (iOException == null) {
-                this.manifestLoaderErrorThrower.maybeThrowError();
+        if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{mediaChunk, Long.valueOf(j), Long.valueOf(j2), chunkHolder}) != null) || this.fatalError != null) {
+            return;
+        }
+        this.trackSelection.updateSelectedTrack(j, j2 - j, resolveTimeToLiveEdgeUs(j));
+        RepresentationHolder representationHolder = this.representationHolders[this.trackSelection.getSelectedIndex()];
+        ChunkExtractorWrapper chunkExtractorWrapper = representationHolder.extractorWrapper;
+        if (chunkExtractorWrapper != null) {
+            Representation representation = representationHolder.representation;
+            if (chunkExtractorWrapper.getSampleFormats() == null) {
+                rangedUri = representation.getInitializationUri();
+            } else {
+                rangedUri = null;
+            }
+            if (representationHolder.segmentIndex == null) {
+                rangedUri2 = representation.getIndexUri();
+            } else {
+                rangedUri2 = null;
+            }
+            if (rangedUri != null || rangedUri2 != null) {
+                chunkHolder.chunk = newInitializationChunk(representationHolder, this.dataSource, this.trackSelection.getSelectedFormat(), this.trackSelection.getSelectionReason(), this.trackSelection.getSelectionData(), rangedUri, rangedUri2);
                 return;
             }
-            throw iOException;
         }
+        int segmentCount = representationHolder.getSegmentCount();
+        boolean z = false;
+        if (segmentCount == 0) {
+            DashManifest dashManifest = this.manifest;
+            chunkHolder.endOfStream = (!dashManifest.dynamic || this.periodIndex < dashManifest.getPeriodCount() - 1) ? true : true;
+            return;
+        }
+        int firstSegmentNum = representationHolder.getFirstSegmentNum();
+        if (segmentCount == -1) {
+            long nowUnixTimeUs = (getNowUnixTimeUs() - C.msToUs(this.manifest.availabilityStartTime)) - C.msToUs(this.manifest.getPeriod(this.periodIndex).startMs);
+            long j3 = this.manifest.timeShiftBufferDepth;
+            if (j3 != C.TIME_UNSET) {
+                firstSegmentNum = Math.max(firstSegmentNum, representationHolder.getSegmentNum(nowUnixTimeUs - C.msToUs(j3)));
+            }
+            i = representationHolder.getSegmentNum(nowUnixTimeUs);
+        } else {
+            i = segmentCount + firstSegmentNum;
+        }
+        int i2 = i - 1;
+        updateLiveEdgeTimeUs(representationHolder, i2);
+        if (mediaChunk == null) {
+            nextChunkIndex = Util.constrainValue(representationHolder.getSegmentNum(j2), firstSegmentNum, i2);
+        } else {
+            nextChunkIndex = mediaChunk.getNextChunkIndex();
+            if (nextChunkIndex < firstSegmentNum) {
+                this.fatalError = new BehindLiveWindowException();
+                return;
+            }
+        }
+        int i3 = nextChunkIndex;
+        if (i3 <= i2 && (!this.missingLastSegment || i3 < i2)) {
+            chunkHolder.chunk = newMediaChunk(representationHolder, this.dataSource, this.trackType, this.trackSelection.getSelectedFormat(), this.trackSelection.getSelectionReason(), this.trackSelection.getSelectionData(), i3, Math.min(this.maxSegmentsPerLoad, (i2 - i3) + 1));
+            return;
+        }
+        DashManifest dashManifest2 = this.manifest;
+        chunkHolder.endOfStream = (!dashManifest2.dynamic || this.periodIndex < dashManifest2.getPeriodCount() - 1) ? true : true;
     }
 
     @Override // com.google.android.exoplayer2.source.chunk.ChunkSource
@@ -443,10 +503,9 @@ public class DefaultDashChunkSource implements DashChunkSource {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, chunk) == null) && (chunk instanceof InitializationChunk)) {
             RepresentationHolder representationHolder = this.representationHolders[this.trackSelection.indexOf(((InitializationChunk) chunk).trackFormat)];
-            if (representationHolder.segmentIndex != null || (seekMap = representationHolder.extractorWrapper.getSeekMap()) == null) {
-                return;
+            if (representationHolder.segmentIndex == null && (seekMap = representationHolder.extractorWrapper.getSeekMap()) != null) {
+                representationHolder.segmentIndex = new DashWrappingSegmentIndex((ChunkIndex) seekMap);
             }
-            representationHolder.segmentIndex = new DashWrappingSegmentIndex((ChunkIndex) seekMap);
         }
     }
 
@@ -457,15 +516,15 @@ public class DefaultDashChunkSource implements DashChunkSource {
         int segmentCount;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{chunk, Boolean.valueOf(z), exc})) == null) {
-            if (z) {
-                if (!this.manifest.dynamic && (chunk instanceof MediaChunk) && (exc instanceof HttpDataSource.InvalidResponseCodeException) && ((HttpDataSource.InvalidResponseCodeException) exc).responseCode == 404 && (segmentCount = (representationHolder = this.representationHolders[this.trackSelection.indexOf(chunk.trackFormat)]).getSegmentCount()) != -1 && segmentCount != 0 && ((MediaChunk) chunk).getNextChunkIndex() > (representationHolder.getFirstSegmentNum() + segmentCount) - 1) {
-                    this.missingLastSegment = true;
-                    return true;
-                }
-                TrackSelection trackSelection = this.trackSelection;
-                return ChunkedTrackBlacklistUtil.maybeBlacklistTrack(trackSelection, trackSelection.indexOf(chunk.trackFormat), exc);
+            if (!z) {
+                return false;
             }
-            return false;
+            if (!this.manifest.dynamic && (chunk instanceof MediaChunk) && (exc instanceof HttpDataSource.InvalidResponseCodeException) && ((HttpDataSource.InvalidResponseCodeException) exc).responseCode == 404 && (segmentCount = (representationHolder = this.representationHolders[this.trackSelection.indexOf(chunk.trackFormat)]).getSegmentCount()) != -1 && segmentCount != 0 && ((MediaChunk) chunk).getNextChunkIndex() > (representationHolder.getFirstSegmentNum() + segmentCount) - 1) {
+                this.missingLastSegment = true;
+                return true;
+            }
+            TrackSelection trackSelection = this.trackSelection;
+            return ChunkedTrackBlacklistUtil.maybeBlacklistTrack(trackSelection, trackSelection.indexOf(chunk.trackFormat), exc);
         }
         return invokeCommon.booleanValue;
     }
@@ -478,9 +537,9 @@ public class DefaultDashChunkSource implements DashChunkSource {
                 this.manifest = dashManifest;
                 this.periodIndex = i;
                 long periodDurationUs = dashManifest.getPeriodDurationUs(i);
-                ArrayList<Representation> representations = getRepresentations();
+                ArrayList representations = getRepresentations();
                 for (int i2 = 0; i2 < this.representationHolders.length; i2++) {
-                    this.representationHolders[i2].updateRepresentation(periodDurationUs, representations.get(this.trackSelection.getIndexInTrackGroup(i2)));
+                    this.representationHolders[i2].updateRepresentation(periodDurationUs, (Representation) representations.get(this.trackSelection.getIndexInTrackGroup(i2)));
                 }
             } catch (BehindLiveWindowException e) {
                 this.fatalError = e;

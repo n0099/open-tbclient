@@ -15,7 +15,7 @@ import java.util.Map;
 public abstract class NativeExpressADView extends FrameLayout implements DownloadConfirmListener, ApkDownloadComplianceInterface {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, String> ext;
+    public Map ext;
 
     /* loaded from: classes8.dex */
     public interface ViewBindStatusListener {

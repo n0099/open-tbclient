@@ -15,11 +15,21 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class ParcelableSparseIntArray extends SparseIntArray implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<ParcelableSparseIntArray> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     /* loaded from: classes7.dex */
-    public static class a implements Parcelable.Creator<ParcelableSparseIntArray> {
+    public final class a implements Parcelable.Creator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -43,7 +53,10 @@ public class ParcelableSparseIntArray extends SparseIntArray implements Parcelab
         public ParcelableSparseIntArray createFromParcel(Parcel parcel) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new ParcelableSparseIntArray(parcel, null) : (ParcelableSparseIntArray) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+                return new ParcelableSparseIntArray(parcel, null);
+            }
+            return (ParcelableSparseIntArray) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -52,7 +65,10 @@ public class ParcelableSparseIntArray extends SparseIntArray implements Parcelab
         public ParcelableSparseIntArray[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new ParcelableSparseIntArray[i] : (ParcelableSparseIntArray[]) invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                return new ParcelableSparseIntArray[i];
+            }
+            return (ParcelableSparseIntArray[]) invokeI.objValue;
         }
     }
 
@@ -72,52 +88,6 @@ public class ParcelableSparseIntArray extends SparseIntArray implements Parcelab
         CREATOR = new a();
     }
 
-    public /* synthetic */ ParcelableSparseIntArray(Parcel parcel, a aVar) {
-        this(parcel);
-    }
-
-    private void append(SparseArray<Integer> sparseArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, this, sparseArray) == null) {
-            int size = sparseArray.size();
-            for (int i = 0; i < size; i++) {
-                put(sparseArray.keyAt(i), sparseArray.valueAt(i).intValue());
-            }
-        }
-    }
-
-    private SparseArray<Object> toSparseArray() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
-            SparseArray<Object> sparseArray = new SparseArray<>();
-            int size = size();
-            for (int i = 0; i < size; i++) {
-                sparseArray.append(keyAt(i), Integer.valueOf(valueAt(i)));
-            }
-            return sparseArray;
-        }
-        return (SparseArray) invokeV.objValue;
-    }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i) == null) {
-            parcel.writeSparseArray(toSparseArray());
-        }
-    }
-
     public ParcelableSparseIntArray() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -130,6 +100,20 @@ public class ParcelableSparseIntArray extends SparseIntArray implements Parcelab
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
+    }
+
+    private SparseArray toSparseArray() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
+            SparseArray sparseArray = new SparseArray();
+            int size = size();
+            for (int i = 0; i < size; i++) {
+                sparseArray.append(keyAt(i), Integer.valueOf(valueAt(i)));
+            }
+            return sparseArray;
+        }
+        return (SparseArray) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -168,5 +152,27 @@ public class ParcelableSparseIntArray extends SparseIntArray implements Parcelab
             }
         }
         append(parcel.readSparseArray(ClassLoader.getSystemClassLoader()));
+    }
+
+    public /* synthetic */ ParcelableSparseIntArray(Parcel parcel, a aVar) {
+        this(parcel);
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i) == null) {
+            parcel.writeSparseArray(toSparseArray());
+        }
+    }
+
+    private void append(SparseArray sparseArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, this, sparseArray) == null) {
+            int size = sparseArray.size();
+            for (int i = 0; i < size; i++) {
+                put(sparseArray.keyAt(i), ((Integer) sparseArray.valueAt(i)).intValue());
+            }
+        }
     }
 }

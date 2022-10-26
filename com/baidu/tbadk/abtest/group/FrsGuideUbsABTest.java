@@ -3,8 +3,6 @@ package com.baidu.tbadk.abtest.group;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.abtest.UsbAbTestSwitch;
-import com.baidu.tieba.debugtool.annotation.ModifyClass;
-import com.baidu.tieba.debugtool.annotation.UbsTest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,7 +11,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-@ModifyClass
 /* loaded from: classes3.dex */
 public class FrsGuideUbsABTest extends AbsGroupUbsABTest {
     public static /* synthetic */ Interceptable $ic = null;
@@ -21,7 +18,7 @@ public class FrsGuideUbsABTest extends AbsGroupUbsABTest {
     public static final String FRS_GUIDE_SID = "11_9_frs_page_guide";
     public static final String FRS_GUIDE_SID_A = "11_9_frs_page_guide_a";
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList<String> mABTestList;
+    public final ArrayList mABTestList;
     public UsbAbTestSwitch mCurrentUsbAbTest;
 
     static {
@@ -40,6 +37,36 @@ public class FrsGuideUbsABTest extends AbsGroupUbsABTest {
         ABTEST_GROUP_KEY = BdUniqueId.gen();
     }
 
+    @Override // com.baidu.tbadk.abtest.group.AbsGroupUbsABTest
+    public ArrayList getABTestKeys() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mABTestList;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tbadk.abtest.group.AbsGroupUbsABTest
+    public UsbAbTestSwitch getCurrentUsbAbTest() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mCurrentUsbAbTest;
+        }
+        return (UsbAbTestSwitch) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tbadk.abtest.group.AbsGroupUbsABTest
+    public BdUniqueId getGroupKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return ABTEST_GROUP_KEY;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
     public FrsGuideUbsABTest() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -53,32 +80,10 @@ public class FrsGuideUbsABTest extends AbsGroupUbsABTest {
                 return;
             }
         }
-        ArrayList<String> arrayList = new ArrayList<>(2);
+        ArrayList arrayList = new ArrayList(2);
         this.mABTestList = arrayList;
         arrayList.add(FRS_GUIDE_SID);
         this.mABTestList.add(FRS_GUIDE_SID_A);
-    }
-
-    @Override // com.baidu.tbadk.abtest.group.AbsGroupUbsABTest
-    public ArrayList<String> getABTestKeys() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mABTestList : (ArrayList) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tbadk.abtest.group.AbsGroupUbsABTest
-    @UbsTest(description = "frs引导弹窗的abtest，FRS页引导关注")
-    public UsbAbTestSwitch getCurrentUsbAbTest() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mCurrentUsbAbTest : (UsbAbTestSwitch) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tbadk.abtest.group.AbsGroupUbsABTest
-    public BdUniqueId getGroupKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ABTEST_GROUP_KEY : (BdUniqueId) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.abtest.group.AbsGroupUbsABTest

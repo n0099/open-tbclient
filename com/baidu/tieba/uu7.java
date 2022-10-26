@@ -1,61 +1,43 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tieba.pb.chosen.cache.ReadChosenPbCacheResponse;
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.text.SpannableStringBuilder;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Wire;
-import tbclient.ExcPbPage.DataRes;
-import tbclient.ExcPbPage.ExcPbPageResIdl;
 /* loaded from: classes6.dex */
-public class uu7 implements CustomMessageTask.CustomRunnable<Object> {
+public class uu7 {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public uu7() {
+    public static String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            if (TextUtils.isEmpty(a)) {
+                a = ux4.k().q("nick_name_activity_link", "");
             }
+            return a;
         }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-        InterceptResult invokeL;
-        ExcPbPageResIdl excPbPageResIdl;
-        DataRes dataRes;
+    public static SpannableStringBuilder b(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            tu7 tu7Var = null;
-            if (customMessage != null && customMessage.getCmd() == 2001314) {
-                mu4.f();
-                byte[] bArr = mu4.d("tb.pb_normal").get("chosen_pb_page_cache");
-                if (bArr != null) {
-                    try {
-                        excPbPageResIdl = (ExcPbPageResIdl) new Wire(new Class[0]).parseFrom(bArr, ExcPbPageResIdl.class);
-                    } catch (Exception unused) {
-                        excPbPageResIdl = null;
-                    }
-                    if (excPbPageResIdl != null && (dataRes = excPbPageResIdl.data) != null) {
-                        tu7Var = new tu7(dataRes.user_info, dataRes.thread_info, dataRes.post_list, dataRes.user_list);
-                    }
-                }
-                return new ReadChosenPbCacheResponse(tu7Var);
-            }
-            return null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+            spannableStringBuilder.append((CharSequence) str);
+            int length = spannableStringBuilder.length();
+            Drawable drawable = context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0808aa);
+            drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+            spannableStringBuilder.append((CharSequence) "tag");
+            spannableStringBuilder.setSpan(new ly4(drawable), length, spannableStringBuilder.length(), 33);
+            return spannableStringBuilder;
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+        return (SpannableStringBuilder) invokeLL.objValue;
     }
 }

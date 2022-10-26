@@ -15,7 +15,7 @@ import java.util.Arrays;
 /* loaded from: classes7.dex */
 public final class PrivFrame extends Id3Frame {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator<PrivFrame> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public static final String ID = "PRIV";
     public transient /* synthetic */ FieldHolder $fh;
     public final String owner;
@@ -34,7 +34,7 @@ public final class PrivFrame extends Id3Frame {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<PrivFrame>() { // from class: com.google.android.exoplayer2.metadata.id3.PrivFrame.1
+        CREATOR = new Parcelable.Creator() { // from class: com.google.android.exoplayer2.metadata.id3.PrivFrame.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -53,23 +53,84 @@ public final class PrivFrame extends Id3Frame {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public PrivFrame createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new PrivFrame(parcel) : (PrivFrame) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new PrivFrame(parcel);
+                }
+                return (PrivFrame) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public PrivFrame[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new PrivFrame[i] : (PrivFrame[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new PrivFrame[i];
+                }
+                return (PrivFrame[]) invokeI.objValue;
             }
         };
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            String str = this.owner;
+            if (str != null) {
+                i = str.hashCode();
+            } else {
+                i = 0;
+            }
+            return ((527 + i) * 31) + Arrays.hashCode(this.privateData);
+        }
+        return invokeV.intValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public PrivFrame(Parcel parcel) {
+        super(ID);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.owner = parcel.readString();
+        this.privateData = parcel.createByteArray();
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj == null || PrivFrame.class != obj.getClass()) {
+                return false;
+            }
+            PrivFrame privFrame = (PrivFrame) obj;
+            if (Util.areEqual(this.owner, privFrame.owner) && Arrays.equals(this.privateData, privFrame.privateData)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -94,32 +155,6 @@ public final class PrivFrame extends Id3Frame {
         this.privateData = bArr;
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj == null || PrivFrame.class != obj.getClass()) {
-                return false;
-            }
-            PrivFrame privFrame = (PrivFrame) obj;
-            return Util.areEqual(this.owner, privFrame.owner) && Arrays.equals(this.privateData, privFrame.privateData);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String str = this.owner;
-            return ((527 + (str != null ? str.hashCode() : 0)) * 31) + Arrays.hashCode(this.privateData);
-        }
-        return invokeV.intValue;
-    }
-
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
@@ -127,27 +162,5 @@ public final class PrivFrame extends Id3Frame {
             parcel.writeString(this.owner);
             parcel.writeByteArray(this.privateData);
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PrivFrame(Parcel parcel) {
-        super(ID);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.owner = parcel.readString();
-        this.privateData = parcel.createByteArray();
     }
 }

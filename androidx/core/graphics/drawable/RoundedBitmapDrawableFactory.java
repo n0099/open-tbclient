@@ -6,8 +6,6 @@ import android.graphics.BitmapFactory;
 import android.graphics.Rect;
 import android.os.Build;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.graphics.BitmapCompat;
 import androidx.core.view.GravityCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -63,7 +61,10 @@ public final class RoundedBitmapDrawableFactory {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 Bitmap bitmap = this.mBitmap;
-                return bitmap != null && BitmapCompat.hasMipMap(bitmap);
+                if (bitmap != null && BitmapCompat.hasMipMap(bitmap)) {
+                    return true;
+                }
+                return false;
             }
             return invokeV.booleanValue;
         }
@@ -72,11 +73,10 @@ public final class RoundedBitmapDrawableFactory {
         public void setMipMap(boolean z) {
             Bitmap bitmap;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || (bitmap = this.mBitmap) == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && (bitmap = this.mBitmap) != null) {
+                BitmapCompat.setHasMipMap(bitmap, z);
+                invalidateSelf();
             }
-            BitmapCompat.setHasMipMap(bitmap, z);
-            invalidateSelf();
         }
     }
 
@@ -94,8 +94,7 @@ public final class RoundedBitmapDrawableFactory {
         }
     }
 
-    @NonNull
-    public static RoundedBitmapDrawable create(@NonNull Resources resources, @Nullable Bitmap bitmap) {
+    public static RoundedBitmapDrawable create(Resources resources, Bitmap bitmap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, resources, bitmap)) == null) {
@@ -107,28 +106,26 @@ public final class RoundedBitmapDrawableFactory {
         return (RoundedBitmapDrawable) invokeLL.objValue;
     }
 
-    @NonNull
-    public static RoundedBitmapDrawable create(@NonNull Resources resources, @NonNull String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, resources, str)) == null) {
-            RoundedBitmapDrawable create = create(resources, BitmapFactory.decodeFile(str));
-            if (create.getBitmap() == null) {
-                Log.w(TAG, "RoundedBitmapDrawable cannot decode " + str);
-            }
-            return create;
-        }
-        return (RoundedBitmapDrawable) invokeLL.objValue;
-    }
-
-    @NonNull
-    public static RoundedBitmapDrawable create(@NonNull Resources resources, @NonNull InputStream inputStream) {
+    public static RoundedBitmapDrawable create(Resources resources, InputStream inputStream) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, resources, inputStream)) == null) {
             RoundedBitmapDrawable create = create(resources, BitmapFactory.decodeStream(inputStream));
             if (create.getBitmap() == null) {
                 Log.w(TAG, "RoundedBitmapDrawable cannot decode " + inputStream);
+            }
+            return create;
+        }
+        return (RoundedBitmapDrawable) invokeLL.objValue;
+    }
+
+    public static RoundedBitmapDrawable create(Resources resources, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, resources, str)) == null) {
+            RoundedBitmapDrawable create = create(resources, BitmapFactory.decodeFile(str));
+            if (create.getBitmap() == null) {
+                Log.w(TAG, "RoundedBitmapDrawable cannot decode " + str);
             }
             return create;
         }

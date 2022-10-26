@@ -92,49 +92,30 @@ public final class PluginInvokeServiceImpl implements PluginInvokeService {
     public int getLiveNpsPluginWillLoadVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? LiveNpsLoadHelper.INSTANCE.getLiveNpsPluginWillLoadVersion() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return LiveNpsLoadHelper.INSTANCE.getLiveNpsPluginWillLoadVersion();
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.searchbox.live.interfaces.mix.PluginInvokeService
-    public Map<String, Object> getMediaLivePlayConfig(String str, Map<String, ? extends Object> map) {
+    public Map getMediaLivePlayConfig(String str, Map map) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, map)) == null) ? LiveNPSPluginManager.getInstance().getMediaLivePlayConfig(str, map) : (Map) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, map)) == null) {
+            return LiveNPSPluginManager.getInstance().getMediaLivePlayConfig(str, map);
+        }
+        return (Map) invokeLL.objValue;
     }
 
     @Override // com.baidu.searchbox.live.interfaces.mix.PluginInvokeService
-    public AssetManager getPluginAssets(String str) {
-        InterceptResult invokeL;
+    public boolean isPluginLoaded(String str, Map map) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? LiveNPSPluginManager.getInstance().getPluginAssets(str) : (AssetManager) invokeL.objValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.mix.PluginInvokeService
-    public ClassLoader getPluginClassLoader(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) ? LiveNPSPluginManager.getInstance().getPluginClassLoader(str) : (ClassLoader) invokeL.objValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.mix.PluginInvokeService
-    public Resources getPluginResource(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) ? LiveNPSPluginManager.getInstance().getPluginResource(str) : (Resources) invokeL.objValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.mix.PluginInvokeService
-    public int getPluginVersionCode(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) ? LiveNPSPluginManager.getInstance().getPluginInstallVersion(str) : invokeL.intValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.mix.PluginInvokeService
-    public boolean isPluginLoaded(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) ? LiveNPSPluginManager.getInstance().isLoaded(str) : invokeL.booleanValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, str, map)) == null) {
+            return LiveNPSPluginManager.getInstance().isLoaded(str);
+        }
+        return invokeLL.booleanValue;
     }
 
     @Override // com.baidu.searchbox.live.interfaces.mix.PluginInvokeService
@@ -150,14 +131,6 @@ public final class PluginInvokeServiceImpl implements PluginInvokeService {
     }
 
     @Override // com.baidu.searchbox.live.interfaces.mix.PluginInvokeService
-    public void loadPlugin(String str, String str2, PluginLoadCallback pluginLoadCallback, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{str, str2, pluginLoadCallback, Boolean.valueOf(z)}) == null) {
-            LiveNPSPluginManager.getInstance().loadPlugin(LiveNpsRuntime.getApplication(), str, str2, z, null, pluginLoadCallback);
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.mix.PluginInvokeService
     public void realJumpYY(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048592, this, context, str) == null) {
@@ -166,18 +139,61 @@ public final class PluginInvokeServiceImpl implements PluginInvokeService {
     }
 
     @Override // com.baidu.searchbox.live.interfaces.mix.PluginInvokeService
+    public AssetManager getPluginAssets(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            return LiveNPSPluginManager.getInstance().getPluginAssets(str);
+        }
+        return (AssetManager) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.mix.PluginInvokeService
+    public ClassLoader getPluginClassLoader(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            return LiveNPSPluginManager.getInstance().getPluginClassLoader(str);
+        }
+        return (ClassLoader) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.mix.PluginInvokeService
+    public Resources getPluginResource(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            return LiveNPSPluginManager.getInstance().getPluginResource(str);
+        }
+        return (Resources) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.mix.PluginInvokeService
+    public int getPluginVersionCode(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            return LiveNPSPluginManager.getInstance().getPluginInstallVersion(str);
+        }
+        return invokeL.intValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.mix.PluginInvokeService
+    public boolean isPluginLoaded(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            return LiveNPSPluginManager.getInstance().isLoaded(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.mix.PluginInvokeService
     public void updateStatInfo(YYStatInfo yYStatInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, yYStatInfo) == null) {
             LiveNPSPluginManager.getInstance().updateStatInfo(yYStatInfo);
         }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.mix.PluginInvokeService
-    public boolean isPluginLoaded(String str, Map<String, String> map) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, str, map)) == null) ? LiveNPSPluginManager.getInstance().isLoaded(str) : invokeLL.booleanValue;
     }
 
     @Override // com.baidu.searchbox.live.interfaces.mix.PluginInvokeService
@@ -197,10 +213,18 @@ public final class PluginInvokeServiceImpl implements PluginInvokeService {
     }
 
     @Override // com.baidu.searchbox.live.interfaces.mix.PluginInvokeService
-    public void loadPlugin(Context context, String str, String str2, boolean z, boolean z2, Map<String, String> map, PluginLoadCallback pluginLoadCallback) {
+    public void loadPlugin(Context context, String str, String str2, boolean z, boolean z2, Map map, PluginLoadCallback pluginLoadCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{context, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), map, pluginLoadCallback}) == null) {
             LiveNPSPluginManager.getInstance().loadPlugin(null, str, str2, z, map, pluginLoadCallback);
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.mix.PluginInvokeService
+    public void loadPlugin(String str, String str2, PluginLoadCallback pluginLoadCallback, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{str, str2, pluginLoadCallback, Boolean.valueOf(z)}) == null) {
+            LiveNPSPluginManager.getInstance().loadPlugin(LiveNpsRuntime.getApplication(), str, str2, z, null, pluginLoadCallback);
         }
     }
 }

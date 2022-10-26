@@ -1,6 +1,10 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Bundle;
+import android.util.Log;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,76 +12,74 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes5.dex */
-public class qc2 {
+public class qc2 extends ProviderDelegation {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<Integer, Integer> a;
 
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final qc2 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-494198260, "Lcom/baidu/tieba/qc2$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-494198260, "Lcom/baidu/tieba/qc2$a;");
-                    return;
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948086953, "Lcom/baidu/tieba/qc2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            a = new qc2();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948086953, "Lcom/baidu/tieba/qc2;");
+                return;
+            }
         }
+        a = wj1.a;
     }
 
     public qc2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = new ConcurrentHashMap();
     }
 
-    public static qc2 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.a : (qc2) invokeV.objValue;
-    }
-
-    public void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.a.put(Integer.valueOf(i), Integer.valueOf(c(i) + 1));
-            l02.k("SwanRecoveryCounter", "addRecoveryCount level=" + i);
-        }
-    }
-
-    public int c(int i) {
+    public static int c(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            Integer num = this.a.get(Integer.valueOf(i));
-            int intValue = num != null ? num.intValue() : 0;
-            l02.k("SwanRecoveryCounter", "getRecoveryCount level=" + i + ";count=" + intValue);
-            return intValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (ProcessUtils.isMainProcess()) {
+                return rc2.b().c(i);
+            }
+            Bundle bundle = new Bundle();
+            bundle.putInt(PollingModel.LEVEL, i);
+            b03 c = zz2.c(qc2.class, bundle);
+            int i2 = 0;
+            if (c.a()) {
+                i2 = c.a.getInt("count", 0);
+            }
+            if (a) {
+                Log.d("RecoveryCountDelegation", "GetRecoveryCount level=" + i + ";count=" + i2);
+            }
+            return i2;
         }
         return invokeI.intValue;
+    }
+
+    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+    public Bundle execCall(Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+            int i = bundle.getInt(PollingModel.LEVEL, -1);
+            Bundle bundle2 = new Bundle();
+            bundle2.putInt("count", rc2.b().c(i));
+            return bundle2;
+        }
+        return (Bundle) invokeL.objValue;
     }
 }

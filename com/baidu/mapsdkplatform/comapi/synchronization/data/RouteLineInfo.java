@@ -16,16 +16,16 @@ import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes2.dex */
 public final class RouteLineInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<RouteLineInfo> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
     public String b;
-    public CopyOnWriteArrayList<RouteSectionInfo> c;
+    public CopyOnWriteArrayList c;
 
     /* loaded from: classes2.dex */
-    public static final class RouteSectionInfo implements Parcelable {
+    public final class RouteSectionInfo implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
-        public static final Parcelable.Creator<RouteSectionInfo> CREATOR;
+        public static final Parcelable.Creator CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
         public LatLng a;
         public LatLng b;
@@ -163,7 +163,7 @@ public final class RouteLineInfo implements Parcelable {
         }
         this.a = false;
         this.b = null;
-        this.c = new CopyOnWriteArrayList<>();
+        this.c = new CopyOnWriteArrayList();
     }
 
     public RouteLineInfo(Parcel parcel) {
@@ -192,7 +192,7 @@ public final class RouteLineInfo implements Parcelable {
     }
 
     public void a(RouteSectionInfo routeSectionInfo) {
-        CopyOnWriteArrayList<RouteSectionInfo> copyOnWriteArrayList;
+        CopyOnWriteArrayList copyOnWriteArrayList;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, routeSectionInfo) == null) || (copyOnWriteArrayList = this.c) == null) {
             return;
@@ -214,7 +214,7 @@ public final class RouteLineInfo implements Parcelable {
         }
     }
 
-    public List<RouteSectionInfo> b() {
+    public List b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : (List) invokeV.objValue;

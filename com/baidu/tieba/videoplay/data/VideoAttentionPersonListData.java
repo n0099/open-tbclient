@@ -22,7 +22,7 @@ public class VideoAttentionPersonListData implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MetaData mUserData;
-    public ArrayList<VideoItemData> mVideoItemDatas;
+    public ArrayList mVideoItemDatas;
 
     public VideoAttentionPersonListData() {
         Interceptable interceptable = $ic;
@@ -37,47 +37,51 @@ public class VideoAttentionPersonListData implements Serializable {
                 return;
             }
         }
-        this.mVideoItemDatas = new ArrayList<>();
+        this.mVideoItemDatas = new ArrayList();
         this.mUserData = new MetaData();
     }
 
     public MetaData getUserData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mUserData : (MetaData) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mUserData;
+        }
+        return (MetaData) invokeV.objValue;
     }
 
-    public ArrayList<VideoItemData> getVideoItemDatas() {
+    public ArrayList getVideoItemDatas() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mVideoItemDatas : (ArrayList) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mVideoItemDatas;
+        }
+        return (ArrayList) invokeV.objValue;
     }
 
     public void parseJson(JSONArray jSONArray, JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jSONArray, jSONObject) == null) || jSONArray == null || jSONObject == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jSONArray, jSONObject) == null) && jSONArray != null && jSONObject != null) {
+            for (int i = 0; i < jSONArray.length(); i++) {
+                VideoItemData videoItemData = new VideoItemData();
+                videoItemData.parseFeedJson(jSONArray.getString(i), "");
+                this.mVideoItemDatas.add(videoItemData);
+            }
+            this.mUserData.parserJson(jSONObject);
         }
-        for (int i = 0; i < jSONArray.length(); i++) {
-            VideoItemData videoItemData = new VideoItemData();
-            videoItemData.parseFeedJson(jSONArray.getString(i), "");
-            this.mVideoItemDatas.add(videoItemData);
-        }
-        this.mUserData.parserJson(jSONObject);
     }
 
-    public void parseProto(List<ThreadInfo> list, User user) {
+    public void parseProto(List list, User user) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, list, user) == null) || list == null || user == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(1048579, this, list, user) == null) && list != null && user != null) {
+            for (int i = 0; i < list.size(); i++) {
+                VideoItemData videoItemData = new VideoItemData();
+                ThreadData threadData = new ThreadData();
+                threadData.parserProtobuf((ThreadInfo) list.get(i));
+                videoItemData.parseProto(threadData);
+                this.mVideoItemDatas.add(videoItemData);
+            }
+            this.mUserData.parserProtobuf(user);
         }
-        for (int i = 0; i < list.size(); i++) {
-            VideoItemData videoItemData = new VideoItemData();
-            ThreadData threadData = new ThreadData();
-            threadData.parserProtobuf(list.get(i));
-            videoItemData.parseProto(threadData);
-            this.mVideoItemDatas.add(videoItemData);
-        }
-        this.mUserData.parserProtobuf(user);
     }
 }

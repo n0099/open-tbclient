@@ -33,30 +33,31 @@ public class n implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                this.a.D = false;
-                Camera camera = this.a.y;
-                if (camera != null) {
-                    if (com.baidu.sofire.face.d.c.f) {
-                        try {
-                            camera.lock();
-                        } catch (Throwable unused) {
-                        }
+        if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+            return;
+        }
+        try {
+            this.a.D = false;
+            Camera camera = this.a.y;
+            if (camera != null) {
+                if (com.baidu.sofire.face.d.c.f) {
+                    try {
+                        camera.lock();
+                    } catch (Throwable unused) {
                     }
-                    this.a.y.setErrorCallback(null);
-                    this.a.y.setPreviewCallback(null);
-                    this.a.y.stopPreview();
-                    a.a(this.a.y);
-                    this.a.y = null;
                 }
-                m mVar = this.a;
-                SurfaceHolder surfaceHolder = mVar.c;
-                if (surfaceHolder != null) {
-                    surfaceHolder.removeCallback(mVar);
-                }
-            } catch (Throwable unused2) {
+                this.a.y.setErrorCallback(null);
+                this.a.y.setPreviewCallback(null);
+                this.a.y.stopPreview();
+                a.a(this.a.y);
+                this.a.y = null;
             }
+            m mVar = this.a;
+            SurfaceHolder surfaceHolder = mVar.c;
+            if (surfaceHolder != null) {
+                surfaceHolder.removeCallback(mVar);
+            }
+        } catch (Throwable unused2) {
         }
     }
 }

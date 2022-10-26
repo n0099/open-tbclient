@@ -16,6 +16,20 @@ public class q0 implements TextWatcher {
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ FeedbackEditActivity a;
 
+    @Override // android.text.TextWatcher
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2, i3) == null) {
+        }
+    }
+
+    @Override // android.text.TextWatcher
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i, i2, i3) == null) {
+        }
+    }
+
     public q0(FeedbackEditActivity feedbackEditActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -38,7 +52,7 @@ public class q0 implements TextWatcher {
     public void afterTextChanged(Editable editable) {
         EditText editText;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, editable) == null) || (editText = this.a.m) == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, editable) != null) || (editText = this.a.m) == null) {
             return;
         }
         if (editText.getText().toString().trim().length() > 30) {
@@ -50,19 +64,5 @@ public class q0 implements TextWatcher {
         }
         FeedbackEditActivity feedbackEditActivity3 = this.a;
         feedbackEditActivity3.F = feedbackEditActivity3.m.getText().toString();
-    }
-
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2, i3) == null) {
-        }
-    }
-
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i, i2, i3) == null) {
-        }
     }
 }

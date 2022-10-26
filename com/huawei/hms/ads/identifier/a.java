@@ -3,7 +3,6 @@ package com.huawei.hms.ads.identifier;
 import android.content.ComponentName;
 import android.content.ServiceConnection;
 import android.os.IBinder;
-import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,27 +13,20 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-@Keep
 /* loaded from: classes7.dex */
 public final class a implements ServiceConnection {
     public static /* synthetic */ Interceptable $ic;
-    @Keep
     public static final ThreadPoolExecutor a;
     public transient /* synthetic */ FieldHolder $fh;
-    @Keep
     public boolean b;
-    @Keep
-    public final LinkedBlockingQueue<IBinder> c;
+    public final LinkedBlockingQueue c;
 
-    @Keep
     /* renamed from: com.huawei.hms.ads.identifier.a$1  reason: invalid class name */
     /* loaded from: classes7.dex */
     public class AnonymousClass1 implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        @Keep
         public final /* synthetic */ IBinder a;
-        @Keep
         public final /* synthetic */ a b;
 
         public AnonymousClass1(a aVar, IBinder iBinder) {
@@ -57,7 +49,6 @@ public final class a implements ServiceConnection {
         }
 
         @Override // java.lang.Runnable
-        @Keep
         public native void run();
     }
 
@@ -91,17 +82,14 @@ public final class a implements ServiceConnection {
             }
         }
         this.b = false;
-        this.c = new LinkedBlockingQueue<>(1);
+        this.c = new LinkedBlockingQueue(1);
     }
 
-    @Keep
     public native IBinder a();
 
     @Override // android.content.ServiceConnection
-    @Keep
     public native void onServiceConnected(ComponentName componentName, IBinder iBinder);
 
     @Override // android.content.ServiceConnection
-    @Keep
     public native void onServiceDisconnected(ComponentName componentName);
 }

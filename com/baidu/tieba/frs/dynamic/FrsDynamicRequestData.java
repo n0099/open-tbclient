@@ -2,9 +2,9 @@ package com.baidu.tieba.frs.dynamic;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pb5;
-import com.baidu.tieba.sb5;
-import com.baidu.tieba.sh5;
+import com.baidu.tieba.ub5;
+import com.baidu.tieba.xb5;
+import com.baidu.tieba.yh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import tbclient.CommonReq;
 import tbclient.StarTrends.DataReq;
 import tbclient.StarTrends.StarTrendsReqIdl;
 /* loaded from: classes4.dex */
-public class FrsDynamicRequestData extends OrmObject implements sb5, pb5 {
+public class FrsDynamicRequestData extends OrmObject implements xb5, ub5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,6 +27,66 @@ public class FrsDynamicRequestData extends OrmObject implements sb5, pb5 {
     public double scrDip;
     public int scrH;
     public int scrW;
+
+    @Override // com.baidu.tieba.tb5
+    public String getCacheKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ub5
+    public boolean isNeedUid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ub5
+    public boolean o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.wb5
+    public HashMap v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return null;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.wb5
+    public HashMap x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return null;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ub5
+    public String y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
 
     public FrsDynamicRequestData() {
         Interceptable interceptable = $ic;
@@ -42,7 +102,7 @@ public class FrsDynamicRequestData extends OrmObject implements sb5, pb5 {
         }
     }
 
-    @Override // com.baidu.tieba.ub5
+    @Override // com.baidu.tieba.zb5
     public Object g(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
@@ -55,71 +115,11 @@ public class FrsDynamicRequestData extends OrmObject implements sb5, pb5 {
             builder.q_type = Integer.valueOf(this.qType);
             builder.last_thread_id = Long.valueOf(this.lastThreadId);
             builder.rn = 30;
-            sh5.c(builder, true, false, true);
+            yh5.c(builder, true, false, true);
             StarTrendsReqIdl.Builder builder2 = new StarTrendsReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);
         }
         return invokeZ.objValue;
-    }
-
-    @Override // com.baidu.tieba.ob5
-    public String getCacheKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.pb5
-    public boolean isNeedUid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.pb5
-    public boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.rb5
-    public HashMap<String, Object> v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return null;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.rb5
-    public HashMap<String, String> x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return null;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.pb5
-    public String y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
     }
 }

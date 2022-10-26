@@ -4,9 +4,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.AttributeSet;
-import android.view.View;
 import android.widget.LinearLayout;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +19,7 @@ import java.util.List;
 public abstract class x extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<View> a;
+    public final List a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public x(Context context) {
@@ -45,7 +43,7 @@ public abstract class x extends LinearLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public x(Context context, @Nullable AttributeSet attributeSet) {
+    public x(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -66,7 +64,7 @@ public abstract class x extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public x(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public x(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -89,7 +87,7 @@ public abstract class x extends LinearLayout {
 
     public abstract void a(KsNativeAd ksNativeAd);
 
-    public final List<View> getClickViews() {
+    public final List getClickViews() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (List) invokeV.objValue;
@@ -98,6 +96,6 @@ public abstract class x extends LinearLayout {
     public Bitmap getSdkLogo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? BitmapFactory.decodeResource(getContext().getResources(), R.drawable.obfuscated_res_0x7f080c75) : (Bitmap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? BitmapFactory.decodeResource(getContext().getResources(), R.drawable.obfuscated_res_0x7f080c85) : (Bitmap) invokeV.objValue;
     }
 }

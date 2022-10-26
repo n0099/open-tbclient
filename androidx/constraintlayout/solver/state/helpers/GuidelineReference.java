@@ -63,15 +63,6 @@ public class GuidelineReference implements Reference {
         }
     }
 
-    public void end(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-            this.mStart = -1;
-            this.mEnd = this.mState.convertDimension(obj);
-            this.mPercent = 0.0f;
-        }
-    }
-
     @Override // androidx.constraintlayout.solver.state.Reference
     public ConstraintWidget getConstraintWidget() {
         InterceptResult invokeV;
@@ -89,13 +80,28 @@ public class GuidelineReference implements Reference {
     public Object getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.key : invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.key;
+        }
+        return invokeV.objValue;
     }
 
     public int getOrientation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mOrientation : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mOrientation;
+        }
+        return invokeV.intValue;
+    }
+
+    public void end(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+            this.mStart = -1;
+            this.mEnd = this.mState.convertDimension(obj);
+            this.mPercent = 0.0f;
+        }
     }
 
     public void percent(float f) {

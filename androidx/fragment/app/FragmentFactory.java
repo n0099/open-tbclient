@@ -1,6 +1,5 @@
 package androidx.fragment.app;
 
-import androidx.annotation.NonNull;
 import androidx.collection.SimpleArrayMap;
 import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.Fragment;
@@ -48,7 +47,7 @@ public class FragmentFactory {
         }
     }
 
-    public static boolean isFragmentClass(@NonNull ClassLoader classLoader, @NonNull String str) {
+    public static boolean isFragmentClass(ClassLoader classLoader, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, classLoader, str)) == null) {
@@ -61,8 +60,7 @@ public class FragmentFactory {
         return invokeLL.booleanValue;
     }
 
-    @NonNull
-    public static Class<?> loadClass(@NonNull ClassLoader classLoader, @NonNull String str) throws ClassNotFoundException {
+    public static Class<?> loadClass(ClassLoader classLoader, String str) throws ClassNotFoundException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, classLoader, str)) == null) {
@@ -78,8 +76,7 @@ public class FragmentFactory {
     }
 
     /* JADX DEBUG: Type inference failed for r4v3. Raw type applied. Possible types: java.lang.Class<?>, java.lang.Class<? extends androidx.fragment.app.Fragment> */
-    @NonNull
-    public static Class<? extends Fragment> loadFragmentClass(@NonNull ClassLoader classLoader, @NonNull String str) {
+    public static Class<? extends Fragment> loadFragmentClass(ClassLoader classLoader, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, classLoader, str)) == null) {
@@ -94,8 +91,7 @@ public class FragmentFactory {
         return (Class) invokeLL.objValue;
     }
 
-    @NonNull
-    public Fragment instantiate(@NonNull ClassLoader classLoader, @NonNull String str) {
+    public Fragment instantiate(ClassLoader classLoader, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, classLoader, str)) == null) {

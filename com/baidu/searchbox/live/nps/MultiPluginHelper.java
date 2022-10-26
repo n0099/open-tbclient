@@ -12,7 +12,7 @@ import com.baidu.nps.pm.manager.NPSPackageManager;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.live.interfaces.service.AbConfigService;
 import com.baidu.searchbox.live.interfaces.service.AppInfoService;
-import com.baidu.tieba.z81;
+import com.baidu.tieba.a91;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -76,33 +76,83 @@ public class MultiPluginHelper {
         }
     }
 
-    public static String bundleToJsonStr(Map<String, String> map) {
+    public static String bundleToJsonStr(Map map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, map)) == null) {
-            if (map == null || map.isEmpty()) {
-                return "";
-            }
-            JSONObject jSONObject = new JSONObject();
-            for (String str : map.keySet()) {
-                try {
-                    jSONObject.put(str, map.get(str));
-                } catch (JSONException e) {
-                    e.printStackTrace();
+            if (map != null && !map.isEmpty()) {
+                JSONObject jSONObject = new JSONObject();
+                for (String str : map.keySet()) {
+                    try {
+                        jSONObject.put(str, map.get(str));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                 }
+                return jSONObject.toString();
             }
-            return jSONObject.toString();
+            return "";
         }
         return (String) invokeL.objValue;
     }
 
-    public static void fillSubBundlePkgName(BundleInfo bundleInfo, Set<String> set) {
+    public static boolean newArchSubPluginNeedForceUpdate(Set set) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65539, null, bundleInfo, set) == null) || bundleInfo == null || !bundleInfo.isMainBundle() || set == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, set)) == null) {
+            Iterator it = set.iterator();
+            while (it.hasNext()) {
+                BundleInfoGroup bundleGroup = NPSPackageManager.getInstance().getBundleGroup((String) it.next());
+                if (bundleGroup != null) {
+                    BundleInfo bundleByType = bundleGroup.getBundleByType(1);
+                    if (bundleByType != null && bundleByType.getVersionCode() >= 508000000 && bundleByType.needForceUpdate()) {
+                        return true;
+                    }
+                    BundleInfo bundleByType2 = bundleGroup.getBundleByType(2);
+                    if (bundleByType2 != null && bundleByType2.getVersionCode() >= 508000000 && bundleByType2.needForceUpdate()) {
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
-        for (SubBundleInfo subBundleInfo : bundleInfo.getSubBundle()) {
-            set.add(subBundleInfo.getPackageName());
+        return invokeL.booleanValue;
+    }
+
+    public static HashMap stringToMap(String str) {
+        InterceptResult invokeL;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            HashMap hashMap = new HashMap();
+            for (String str3 : str.split("&")) {
+                String[] split = str3.split("=");
+                try {
+                    String decode = URLDecoder.decode(split[0], "UTF-8");
+                    if (split.length > 1) {
+                        str2 = URLDecoder.decode(split[1], "UTF-8");
+                    } else {
+                        str2 = "";
+                    }
+                    hashMap.put(decode, str2);
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
+            }
+            return hashMap;
+        }
+        return (HashMap) invokeL.objValue;
+    }
+
+    public static void fillSubBundlePkgName(BundleInfo bundleInfo, Set set) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65539, null, bundleInfo, set) == null) && bundleInfo != null && bundleInfo.isMainBundle() && set != null) {
+            for (SubBundleInfo subBundleInfo : bundleInfo.getSubBundle()) {
+                set.add(subBundleInfo.getPackageName());
+            }
         }
     }
 
@@ -114,12 +164,20 @@ public class MultiPluginHelper {
                 return str;
             }
             int indexOf = str.indexOf("?");
-            if (indexOf > 0) {
-                return str.substring(indexOf + 1);
+            if (indexOf <= 0) {
+                return null;
             }
-            return null;
+            return str.substring(indexOf + 1);
         }
         return (String) invokeL.objValue;
+    }
+
+    public static void log(String str) {
+        AppInfoService appInfoService;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65544, null, str) == null) && (appInfoService = appService) != null && appInfoService.isDebug()) {
+            Log.e("MultiPluginWay", "MultiPluginHelper " + str);
+        }
     }
 
     public static int getPluginArchLaunchType(boolean z) {
@@ -169,10 +227,10 @@ public class MultiPluginHelper {
                     z3 = true;
                 }
                 BundleInfo presetBundle = NPSPackageManager.getInstance().getPresetBundle("com.baidu.searchbox.livenps");
-                if (presetBundle == null || presetBundle.getVersionCode() < 508000000) {
-                    z2 = z3;
-                } else {
+                if (presetBundle != null && presetBundle.getVersionCode() >= 508000000) {
                     log("presetLivenps version: " + presetBundle.getVersionCode());
+                } else {
+                    z2 = z3;
                 }
                 if (z2 && (z || (bundleInfo2 != null && bundleInfo2.getVersionCode() >= 508000000))) {
                     if (bundleInfo2 != null) {
@@ -189,7 +247,7 @@ public class MultiPluginHelper {
                     log("ARCH_TYPE_NEW newArchSubPluginNeedForceUpdate true");
                     return 3;
                 }
-                int c = z81.b().c("com.baidu.searchbox.livenps");
+                int c = a91.b().c("com.baidu.searchbox.livenps");
                 if (bundleByType != null && bundleByType.getVersionCode() < 508000000 && bundleByType.getVersionCode() >= c) {
                     log("installLivenps：" + bundleByType.getVersionCode());
                     log("installLivenps.livenpsHostMinVersion：" + c);
@@ -259,14 +317,6 @@ public class MultiPluginHelper {
         return invokeV.booleanValue;
     }
 
-    public static void log(String str) {
-        AppInfoService appInfoService;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65544, null, str) == null) && (appInfoService = appService) != null && appInfoService.isDebug()) {
-            Log.e("MultiPluginWay", "MultiPluginHelper " + str);
-        }
-    }
-
     public static void logCancelJoinLive(String str, boolean z, UBCManager uBCManager) {
         String str2;
         Interceptable interceptable = $ic;
@@ -278,8 +328,10 @@ public class MultiPluginHelper {
                     str2 = "entrance_download";
                 } else if ("install".equals(str)) {
                     str2 = "entrance_install";
+                } else if ("load".equals(str)) {
+                    str2 = "entrance_load";
                 } else {
-                    str2 = "load".equals(str) ? "entrance_load" : "";
+                    str2 = "";
                 }
                 jSONObject.put("type", str2);
                 jSONObject.put("value", "suc");
@@ -297,29 +349,7 @@ public class MultiPluginHelper {
         }
     }
 
-    public static boolean newArchSubPluginNeedForceUpdate(Set<String> set) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, set)) == null) {
-            for (String str : set) {
-                BundleInfoGroup bundleGroup = NPSPackageManager.getInstance().getBundleGroup(str);
-                if (bundleGroup != null) {
-                    BundleInfo bundleByType = bundleGroup.getBundleByType(1);
-                    if (bundleByType != null && bundleByType.getVersionCode() >= 508000000 && bundleByType.needForceUpdate()) {
-                        return true;
-                    }
-                    BundleInfo bundleByType2 = bundleGroup.getBundleByType(2);
-                    if (bundleByType2 != null && bundleByType2.getVersionCode() >= 508000000 && bundleByType2.needForceUpdate()) {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static Map<String, String> paramsJsonToMap(JSONObject jSONObject) {
+    public static Map paramsJsonToMap(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, jSONObject)) == null) {
@@ -342,45 +372,27 @@ public class MultiPluginHelper {
         return (Map) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Type inference failed for r4v6. Raw type applied. Possible types: java.util.Map<java.lang.String, java.lang.String> */
     /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r4v6, types: [java.util.Map] */
     public static String parserYYSchemaUrl(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
-            HashMap<String, String> stringToMap = stringToMap(getParamsStr(str));
+            HashMap stringToMap = stringToMap(getParamsStr(str));
             boolean containsKey = stringToMap.containsKey("params");
-            Map map = stringToMap;
+            HashMap hashMap = stringToMap;
             if (containsKey) {
                 try {
-                    map = paramsJsonToMap(new JSONObject(stringToMap.get("params")));
+                    hashMap = paramsJsonToMap(new JSONObject((String) stringToMap.get("params")));
                 } catch (Exception unused) {
-                    map = null;
+                    hashMap = null;
                 }
             }
-            return map != null ? map.get("url") : "";
+            if (hashMap != null) {
+                return (String) hashMap.get("url");
+            }
+            return "";
         }
         return (String) invokeL.objValue;
-    }
-
-    public static HashMap<String, String> stringToMap(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            HashMap<String, String> hashMap = new HashMap<>();
-            for (String str2 : str.split("&")) {
-                String[] split = str2.split("=");
-                try {
-                    hashMap.put(URLDecoder.decode(split[0], "UTF-8"), split.length > 1 ? URLDecoder.decode(split[1], "UTF-8") : "");
-                } catch (UnsupportedEncodingException e) {
-                    e.printStackTrace();
-                }
-            }
-            return hashMap;
-        }
-        return (HashMap) invokeL.objValue;
     }
 }

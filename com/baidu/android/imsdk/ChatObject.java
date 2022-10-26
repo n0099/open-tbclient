@@ -22,6 +22,28 @@ public class ChatObject {
     public long mPaid;
     public int mType;
 
+    public ChatObject(Context context, int i, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i), Long.valueOf(j)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mPaid = -1L;
+        this.mType = -1;
+        this.mContext = context;
+        this.mCategory = i;
+        this.mContacter = j;
+    }
+
     public ChatObject(Context context, int i, long j, long j2, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -56,11 +78,14 @@ public class ChatObject {
             if (this == obj) {
                 return true;
             }
-            if (obj instanceof ChatObject) {
-                ChatObject chatObject = (ChatObject) obj;
-                return this.mCategory == chatObject.mCategory && this.mContacter == chatObject.mContacter && this.mPaid == chatObject.mPaid && this.mType == chatObject.mType;
+            if (!(obj instanceof ChatObject)) {
+                return false;
             }
-            return false;
+            ChatObject chatObject = (ChatObject) obj;
+            if (this.mCategory != chatObject.mCategory || this.mContacter != chatObject.mContacter || this.mPaid != chatObject.mPaid || this.mType != chatObject.mType) {
+                return false;
+            }
+            return true;
         }
         return invokeL.booleanValue;
     }
@@ -68,37 +93,64 @@ public class ChatObject {
     public int getCategory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mCategory : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mCategory;
+        }
+        return invokeV.intValue;
     }
 
     public long getContacter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mContacter : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mContacter;
+        }
+        return invokeV.longValue;
     }
 
     public long getPaid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mPaid : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mPaid;
+        }
+        return invokeV.longValue;
     }
 
     public String getToken() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? IMConfigInternal.getInstance().getIMConfig(this.mContext).getToken(this) : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return IMConfigInternal.getInstance().getIMConfig(this.mContext).getToken(this);
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mType : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mType;
+        }
+        return invokeV.intValue;
     }
 
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? ((((((this.mCategory + 31) * 31) + ((int) this.mContacter)) * 31) + ((int) this.mPaid)) * 31) + this.mType : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return ((((((this.mCategory + 31) * 31) + ((int) this.mContacter)) * 31) + ((int) this.mPaid)) * 31) + this.mType;
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return getToken();
+        }
+        return (String) invokeV.objValue;
     }
 
     public void setPaid(long j) {
@@ -116,33 +168,5 @@ public class ChatObject {
             return this;
         }
         return (ChatObject) invokeI.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? getToken() : (String) invokeV.objValue;
-    }
-
-    public ChatObject(Context context, int i, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i), Long.valueOf(j)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.mPaid = -1L;
-        this.mType = -1;
-        this.mContext = context;
-        this.mCategory = i;
-        this.mContacter = j;
     }
 }

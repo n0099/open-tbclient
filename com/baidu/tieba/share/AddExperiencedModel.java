@@ -10,8 +10,8 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.dh;
-import com.baidu.tieba.gh;
+import com.baidu.tieba.eh;
+import com.baidu.tieba.hh;
 import com.baidu.tieba.pb.data.ContriInfo;
 import com.baidu.tieba.r9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -33,6 +33,46 @@ public class AddExperiencedModel extends BdBaseModel {
     public ContriInfo b;
     public Runnable c;
     public HttpMessageListener d;
+
+    /* loaded from: classes5.dex */
+    public interface c {
+        void a(ContriInfo contriInfo);
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-2114131703, "Lcom/baidu/tieba/share/AddExperiencedModel;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-2114131703, "Lcom/baidu/tieba/share/AddExperiencedModel;");
+        }
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
     /* loaded from: classes5.dex */
     public class a implements Runnable {
@@ -61,10 +101,9 @@ public class AddExperiencedModel extends BdBaseModel {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.a == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a != null) {
+                this.a.a.a(this.a.b);
             }
-            this.a.a.a(this.a.b);
         }
     }
 
@@ -102,28 +141,8 @@ public class AddExperiencedModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && (httpResponsedMessage instanceof AddExperiencedResponseMessage)) {
                 this.a.b = ((AddExperiencedResponseMessage) httpResponsedMessage).getContriInfo();
-                gh.a().postDelayed(this.a.c, 2000L);
+                hh.a().postDelayed(this.a.c, 2000L);
             }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public interface c {
-        void a(ContriInfo contriInfo);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-2114131703, "Lcom/baidu/tieba/share/AddExperiencedModel;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-2114131703, "Lcom/baidu/tieba/share/AddExperiencedModel;");
         }
     }
 
@@ -154,7 +173,13 @@ public class AddExperiencedModel extends BdBaseModel {
     public static boolean E(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? dh.g(str, 0L) > 0 && !USELESS_FORUM_ID.equals(str) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (eh.g(str, 0L) > 0 && !USELESS_FORUM_ID.equals(str)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     public void D(String str, String str2) {
@@ -167,30 +192,10 @@ public class AddExperiencedModel extends BdBaseModel {
         }
     }
 
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean loadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            gh.a().removeCallbacks(this.c);
+            hh.a().removeCallbacks(this.c);
         }
     }
 

@@ -17,9 +17,8 @@ public final class CharDirectionality$Companion$directionalityMap$2 extends Lamb
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX DEBUG: Return type fixed from 'java.util.Map<java.lang.Integer, kotlin.text.CharDirectionality>' to match base method */
     @Override // kotlin.jvm.functions.Function0
-    public final Map<Integer, ? extends CharDirectionality> invoke() {
+    public final Map<Integer, CharDirectionality> invoke() {
         CharDirectionality[] values = CharDirectionality.values();
         LinkedHashMap linkedHashMap = new LinkedHashMap(RangesKt___RangesKt.coerceAtLeast(MapsKt__MapsJVMKt.mapCapacity(values.length), 16));
         for (CharDirectionality charDirectionality : values) {

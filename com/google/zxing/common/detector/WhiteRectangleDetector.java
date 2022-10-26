@@ -44,6 +44,40 @@ public final class WhiteRectangleDetector {
         }
     }
 
+    public WhiteRectangleDetector(BitMatrix bitMatrix, int i, int i2, int i3) throws NotFoundException {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bitMatrix, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.image = bitMatrix;
+        this.height = bitMatrix.getHeight();
+        int width = bitMatrix.getWidth();
+        this.width = width;
+        int i6 = i / 2;
+        int i7 = i2 - i6;
+        this.leftInit = i7;
+        int i8 = i2 + i6;
+        this.rightInit = i8;
+        int i9 = i3 - i6;
+        this.upInit = i9;
+        int i10 = i3 + i6;
+        this.downInit = i10;
+        if (i9 >= 0 && i7 >= 0 && i10 < this.height && i8 < width) {
+            return;
+        }
+        throw NotFoundException.getNotFoundInstance();
+    }
+
     private ResultPoint[] centerEdges(ResultPoint resultPoint, ResultPoint resultPoint2, ResultPoint resultPoint3, ResultPoint resultPoint4) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -59,6 +93,27 @@ public final class WhiteRectangleDetector {
             return x < ((float) this.width) / 2.0f ? new ResultPoint[]{new ResultPoint(x4 - 1.0f, y4 + 1.0f), new ResultPoint(x2 + 1.0f, y2 + 1.0f), new ResultPoint(x3 - 1.0f, y3 - 1.0f), new ResultPoint(x + 1.0f, y - 1.0f)} : new ResultPoint[]{new ResultPoint(x4 + 1.0f, y4 + 1.0f), new ResultPoint(x2 + 1.0f, y2 - 1.0f), new ResultPoint(x3 - 1.0f, y3 + 1.0f), new ResultPoint(x - 1.0f, y - 1.0f)};
         }
         return (ResultPoint[]) invokeLLLL.objValue;
+    }
+
+    private ResultPoint getBlackPointOnSegment(float f, float f2, float f3, float f4) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
+            int round = MathUtils.round(MathUtils.distance(f, f2, f3, f4));
+            float f5 = round;
+            float f6 = (f3 - f) / f5;
+            float f7 = (f4 - f2) / f5;
+            for (int i = 0; i < round; i++) {
+                float f8 = i;
+                int round2 = MathUtils.round((f8 * f6) + f);
+                int round3 = MathUtils.round((f8 * f7) + f2);
+                if (this.image.get(round2, round3)) {
+                    return new ResultPoint(round2, round3);
+                }
+            }
+            return null;
+        }
+        return (ResultPoint) invokeCommon.objValue;
     }
 
     private boolean containsBlackPoint(int i, int i2, int i3, boolean z) {
@@ -83,27 +138,6 @@ public final class WhiteRectangleDetector {
             return false;
         }
         return invokeCommon.booleanValue;
-    }
-
-    private ResultPoint getBlackPointOnSegment(float f, float f2, float f3, float f4) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
-            int round = MathUtils.round(MathUtils.distance(f, f2, f3, f4));
-            float f5 = round;
-            float f6 = (f3 - f) / f5;
-            float f7 = (f4 - f2) / f5;
-            for (int i = 0; i < round; i++) {
-                float f8 = i;
-                int round2 = MathUtils.round((f8 * f6) + f);
-                int round3 = MathUtils.round((f8 * f7) + f2);
-                if (this.image.get(round2, round3)) {
-                    return new ResultPoint(round2, round3);
-                }
-            }
-            return null;
-        }
-        return (ResultPoint) invokeCommon.objValue;
     }
 
     public ResultPoint[] detect() throws NotFoundException {
@@ -190,31 +224,31 @@ public final class WhiteRectangleDetector {
                 z = true;
                 break;
             }
-            if (z || !z6) {
-                throw NotFoundException.getNotFoundInstance();
-            }
-            int i5 = i2 - i;
-            ResultPoint resultPoint = null;
-            ResultPoint resultPoint2 = null;
-            for (int i6 = 1; resultPoint2 == null && i6 < i5; i6++) {
-                resultPoint2 = getBlackPointOnSegment(i, i4 - i6, i + i6, i4);
-            }
-            if (resultPoint2 != null) {
-                ResultPoint resultPoint3 = null;
-                for (int i7 = 1; resultPoint3 == null && i7 < i5; i7++) {
-                    resultPoint3 = getBlackPointOnSegment(i, i3 + i7, i + i7, i3);
+            if (!z && z6) {
+                int i5 = i2 - i;
+                ResultPoint resultPoint = null;
+                ResultPoint resultPoint2 = null;
+                for (int i6 = 1; resultPoint2 == null && i6 < i5; i6++) {
+                    resultPoint2 = getBlackPointOnSegment(i, i4 - i6, i + i6, i4);
                 }
-                if (resultPoint3 != null) {
-                    ResultPoint resultPoint4 = null;
-                    for (int i8 = 1; resultPoint4 == null && i8 < i5; i8++) {
-                        resultPoint4 = getBlackPointOnSegment(i2, i3 + i8, i2 - i8, i3);
+                if (resultPoint2 != null) {
+                    ResultPoint resultPoint3 = null;
+                    for (int i7 = 1; resultPoint3 == null && i7 < i5; i7++) {
+                        resultPoint3 = getBlackPointOnSegment(i, i3 + i7, i + i7, i3);
                     }
-                    if (resultPoint4 != null) {
-                        for (int i9 = 1; resultPoint == null && i9 < i5; i9++) {
-                            resultPoint = getBlackPointOnSegment(i2, i4 - i9, i2 - i9, i4);
+                    if (resultPoint3 != null) {
+                        ResultPoint resultPoint4 = null;
+                        for (int i8 = 1; resultPoint4 == null && i8 < i5; i8++) {
+                            resultPoint4 = getBlackPointOnSegment(i2, i3 + i8, i2 - i8, i3);
                         }
-                        if (resultPoint != null) {
-                            return centerEdges(resultPoint, resultPoint2, resultPoint4, resultPoint3);
+                        if (resultPoint4 != null) {
+                            for (int i9 = 1; resultPoint == null && i9 < i5; i9++) {
+                                resultPoint = getBlackPointOnSegment(i2, i4 - i9, i2 - i9, i4);
+                            }
+                            if (resultPoint != null) {
+                                return centerEdges(resultPoint, resultPoint2, resultPoint4, resultPoint3);
+                            }
+                            throw NotFoundException.getNotFoundInstance();
                         }
                         throw NotFoundException.getNotFoundInstance();
                     }
@@ -225,38 +259,5 @@ public final class WhiteRectangleDetector {
             throw NotFoundException.getNotFoundInstance();
         }
         return (ResultPoint[]) invokeV.objValue;
-    }
-
-    public WhiteRectangleDetector(BitMatrix bitMatrix, int i, int i2, int i3) throws NotFoundException {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bitMatrix, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.image = bitMatrix;
-        this.height = bitMatrix.getHeight();
-        int width = bitMatrix.getWidth();
-        this.width = width;
-        int i6 = i / 2;
-        int i7 = i2 - i6;
-        this.leftInit = i7;
-        int i8 = i2 + i6;
-        this.rightInit = i8;
-        int i9 = i3 - i6;
-        this.upInit = i9;
-        int i10 = i3 + i6;
-        this.downInit = i10;
-        if (i9 < 0 || i7 < 0 || i10 >= this.height || i8 >= width) {
-            throw NotFoundException.getNotFoundInstance();
-        }
     }
 }

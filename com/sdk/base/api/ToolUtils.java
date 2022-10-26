@@ -43,17 +43,17 @@ public class ToolUtils {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) ? b.a(str, str2) : (String) invokeLL.objValue;
     }
 
+    public static String getAppMd5(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? AppUtils.getAppMd5(context) : (String) invokeL.objValue;
+    }
+
     public static void clearCache(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
             a.b(com.sdk.b.a.a, "cache clear", com.sdk.b.a.b);
             com.sdk.j.a.a(context, YYInnerSSOLoginActivity.o);
         }
-    }
-
-    public static String getAppMd5(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? AppUtils.getAppMd5(context) : (String) invokeL.objValue;
     }
 }

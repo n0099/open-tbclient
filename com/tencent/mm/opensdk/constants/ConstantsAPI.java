@@ -47,7 +47,7 @@ public interface ConstantsAPI {
     public static final String TOKEN = "_message_token";
 
     /* loaded from: classes8.dex */
-    public static final class AppSupportContentFlag {
+    public final class AppSupportContentFlag {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long MMAPP_SUPPORT_AUDIO = 16;
         public static final long MMAPP_SUPPORT_DOC = 64;
@@ -80,7 +80,7 @@ public interface ConstantsAPI {
     }
 
     /* loaded from: classes8.dex */
-    public static final class LaunchWX {
+    public final class LaunchWX {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int LAUNCH_PENDING_INTENT_REQUEST_CODE = 1;
         public static final int LAUNCH_PENDING_INTENT_SEND_CODE = 2;
@@ -111,7 +111,7 @@ public interface ConstantsAPI {
     }
 
     /* loaded from: classes8.dex */
-    public static final class Token {
+    public final class Token {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String WX_LAUNCH_PARAM_KEY = "launchParam";
         public static final String WX_TOKEN_KEY = "wx_token_key";
@@ -136,7 +136,7 @@ public interface ConstantsAPI {
     }
 
     /* loaded from: classes8.dex */
-    public static final class WXApp {
+    public final class WXApp {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String WXAPP_BROADCAST_PERMISSION = "com.tencent.mm.permission.MM_MESSAGE";
         public static final String WXAPP_MSG_ENTRY_CLASSNAME = "com.tencent.mm.plugin.base.stub.WXEntryActivity";

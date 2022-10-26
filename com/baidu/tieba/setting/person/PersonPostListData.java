@@ -19,10 +19,10 @@ import tbclient.PostInfoList;
 public class PersonPostListData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<PostList> post_list;
+    public List post_list;
 
     /* loaded from: classes5.dex */
-    public static class Abs implements Serializable {
+    public class Abs implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String link;
@@ -64,7 +64,7 @@ public class PersonPostListData extends OrmObject implements Serializable {
     }
 
     /* loaded from: classes5.dex */
-    public static class AnchorInfo implements Serializable {
+    public class AnchorInfo implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long author_id;
@@ -111,31 +111,30 @@ public class PersonPostListData extends OrmObject implements Serializable {
 
         public void parserData(tbclient.AnchorInfo anchorInfo) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, anchorInfo) == null) || anchorInfo == null) {
-                return;
-            }
-            try {
-                this.portrait = anchorInfo.portrait;
-                this.name = anchorInfo.name;
-                this.start_time = anchorInfo.start_time.intValue();
-                this.status = anchorInfo.status.intValue();
-                this.author_id = anchorInfo.author_id.longValue();
-                this.author_name = anchorInfo.author_name;
-                this.listeners = anchorInfo.listeners.intValue();
-                this.likers = anchorInfo.likers.intValue();
-                this.group_id = anchorInfo.group_id.longValue();
-                this.intro = anchorInfo.intro;
-                this.publisherPortrait = anchorInfo.publisherPortrait;
-                this.publisher_name = anchorInfo.publisherName;
-                this.publisher_id = anchorInfo.publisherId.longValue();
-            } catch (Exception e) {
-                BdLog.detailException(e);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, anchorInfo) == null) && anchorInfo != null) {
+                try {
+                    this.portrait = anchorInfo.portrait;
+                    this.name = anchorInfo.name;
+                    this.start_time = anchorInfo.start_time.intValue();
+                    this.status = anchorInfo.status.intValue();
+                    this.author_id = anchorInfo.author_id.longValue();
+                    this.author_name = anchorInfo.author_name;
+                    this.listeners = anchorInfo.listeners.intValue();
+                    this.likers = anchorInfo.likers.intValue();
+                    this.group_id = anchorInfo.group_id.longValue();
+                    this.intro = anchorInfo.intro;
+                    this.publisherPortrait = anchorInfo.publisherPortrait;
+                    this.publisher_name = anchorInfo.publisherName;
+                    this.publisher_id = anchorInfo.publisherId.longValue();
+                } catch (Exception e) {
+                    BdLog.detailException(e);
+                }
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public static class LbsInfo implements Serializable {
+    public class LbsInfo implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String lat;
@@ -158,19 +157,18 @@ public class PersonPostListData extends OrmObject implements Serializable {
 
         public void parserData(tbclient.LbsInfo lbsInfo) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, lbsInfo) == null) || lbsInfo == null) {
-                return;
-            }
-            try {
-                this.lat = lbsInfo.lat;
-            } catch (Exception e) {
-                BdLog.detailException(e);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, lbsInfo) == null) && lbsInfo != null) {
+                try {
+                    this.lat = lbsInfo.lat;
+                } catch (Exception e) {
+                    BdLog.detailException(e);
+                }
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public static class Media implements Serializable {
+    public class Media implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String big_pic;
@@ -219,10 +217,10 @@ public class PersonPostListData extends OrmObject implements Serializable {
     }
 
     /* loaded from: classes5.dex */
-    public static class PostList extends AbstractImageProvider implements Serializable {
+    public class PostList extends AbstractImageProvider implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<Abs> Abstract;
+        public List Abstract;
         public AnchorInfo anchor_info;
         public String content;
         public long create_time;
@@ -231,7 +229,7 @@ public class PersonPostListData extends OrmObject implements Serializable {
         public int is_post_deleted;
         public int is_thread;
         public LbsInfo lbs_info;
-        public List<Media> media;
+        public List media;
         public long post_id;
         public Quote quote;
         public int reply_num;
@@ -276,7 +274,7 @@ public class PersonPostListData extends OrmObject implements Serializable {
     }
 
     /* loaded from: classes5.dex */
-    public static class Quote implements Serializable {
+    public class Quote implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String content;
@@ -307,7 +305,7 @@ public class PersonPostListData extends OrmObject implements Serializable {
 
         public void parserData(tbclient.Quote quote) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, quote) == null) || quote == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, quote) != null) || quote == null) {
                 return;
             }
             try {
@@ -340,103 +338,101 @@ public class PersonPostListData extends OrmObject implements Serializable {
         this.post_list = new ArrayList();
     }
 
-    public void parserData(ProfileSocketResponseMessage profileSocketResponseMessage) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, profileSocketResponseMessage) == null) {
-            List<PostInfoList> GetPostList = profileSocketResponseMessage.GetPostList();
-            ArrayList arrayList = new ArrayList();
-            if (GetPostList == null || GetPostList.size() <= 0) {
-                return;
-            }
-            for (PostInfoList postInfoList : GetPostList) {
-                PostList postList = new PostList();
-                postList.forum_id = postInfoList.forum_id.longValue();
-                postList.thread_id = postInfoList.thread_id.longValue();
-                postList.post_id = postInfoList.post_id.longValue();
-                postList.is_thread = postInfoList.is_thread.intValue();
-                postList.create_time = postInfoList.create_time.intValue();
-                postList.forum_name = postInfoList.forum_name;
-                postList.title = postInfoList.title;
-                postList.user_name = postInfoList.user_name;
-                postList.user_id = postInfoList.user_id.longValue();
-                postList.user_portrait = postInfoList.user_portrait;
-                try {
-                    ArrayList arrayList2 = new ArrayList();
-                    for (Abstract r5 : postInfoList.abstract_thread) {
-                        Abs abs = new Abs();
-                        abs.parserData(r5);
-                        arrayList2.add(abs);
-                    }
-                    postList.Abstract = arrayList2;
-                    postList.content = postInfoList.content_thread;
-                    postList.quote.parserData(postInfoList.quote);
-                    postList.reply_num = postInfoList.reply_num.intValue();
-                    ArrayList arrayList3 = new ArrayList();
-                    for (tbclient.Media media : postInfoList.media) {
-                        Media media2 = new Media();
-                        media2.parserData(media);
-                        arrayList3.add(media2);
-                    }
-                    postList.media = arrayList3;
-                    postList.anchor_info.parserData(postInfoList.anchor_info);
-                    postList.lbs_info.parserData(postInfoList.lbs_info);
-                    postList.is_post_deleted = postInfoList.is_post_deleted.intValue();
-                    arrayList.add(postList);
-                } catch (Exception e) {
-                    BdLog.detailException(e);
-                }
-            }
-            this.post_list = arrayList;
-        }
-    }
-
     public void parserData(ProfileHttpResponseMessage profileHttpResponseMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, profileHttpResponseMessage) == null) {
             List<PostInfoList> GetPostList = profileHttpResponseMessage.GetPostList();
             ArrayList arrayList = new ArrayList();
-            if (GetPostList == null || GetPostList.size() <= 0) {
-                return;
-            }
-            for (PostInfoList postInfoList : GetPostList) {
-                PostList postList = new PostList();
-                postList.forum_id = postInfoList.forum_id.longValue();
-                postList.thread_id = postInfoList.thread_id.longValue();
-                postList.post_id = postInfoList.post_id.longValue();
-                postList.is_thread = postInfoList.is_thread.intValue();
-                postList.create_time = postInfoList.create_time.intValue();
-                postList.forum_name = postInfoList.forum_name;
-                postList.title = postInfoList.title;
-                postList.user_name = postInfoList.user_name;
-                postList.user_id = postInfoList.user_id.longValue();
-                postList.user_portrait = postInfoList.user_portrait;
-                try {
-                    ArrayList arrayList2 = new ArrayList();
-                    for (Abstract r5 : postInfoList.abstract_thread) {
-                        Abs abs = new Abs();
-                        abs.parserData(r5);
-                        arrayList2.add(abs);
+            if (GetPostList != null && GetPostList.size() > 0) {
+                for (PostInfoList postInfoList : GetPostList) {
+                    PostList postList = new PostList();
+                    postList.forum_id = postInfoList.forum_id.longValue();
+                    postList.thread_id = postInfoList.thread_id.longValue();
+                    postList.post_id = postInfoList.post_id.longValue();
+                    postList.is_thread = postInfoList.is_thread.intValue();
+                    postList.create_time = postInfoList.create_time.intValue();
+                    postList.forum_name = postInfoList.forum_name;
+                    postList.title = postInfoList.title;
+                    postList.user_name = postInfoList.user_name;
+                    postList.user_id = postInfoList.user_id.longValue();
+                    postList.user_portrait = postInfoList.user_portrait;
+                    try {
+                        ArrayList arrayList2 = new ArrayList();
+                        for (Abstract r5 : postInfoList.abstract_thread) {
+                            Abs abs = new Abs();
+                            abs.parserData(r5);
+                            arrayList2.add(abs);
+                        }
+                        postList.Abstract = arrayList2;
+                        postList.content = postInfoList.content_thread;
+                        postList.quote.parserData(postInfoList.quote);
+                        postList.reply_num = postInfoList.reply_num.intValue();
+                        ArrayList arrayList3 = new ArrayList();
+                        for (tbclient.Media media : postInfoList.media) {
+                            Media media2 = new Media();
+                            media2.parserData(media);
+                            arrayList3.add(media2);
+                        }
+                        postList.media = arrayList3;
+                        postList.anchor_info.parserData(postInfoList.anchor_info);
+                        postList.lbs_info.parserData(postInfoList.lbs_info);
+                        postList.is_post_deleted = postInfoList.is_post_deleted.intValue();
+                        arrayList.add(postList);
+                    } catch (Exception e) {
+                        BdLog.detailException(e);
                     }
-                    postList.Abstract = arrayList2;
-                    postList.content = postInfoList.content_thread;
-                    postList.quote.parserData(postInfoList.quote);
-                    postList.reply_num = postInfoList.reply_num.intValue();
-                    ArrayList arrayList3 = new ArrayList();
-                    for (tbclient.Media media : postInfoList.media) {
-                        Media media2 = new Media();
-                        media2.parserData(media);
-                        arrayList3.add(media2);
-                    }
-                    postList.media = arrayList3;
-                    postList.anchor_info.parserData(postInfoList.anchor_info);
-                    postList.lbs_info.parserData(postInfoList.lbs_info);
-                    postList.is_post_deleted = postInfoList.is_post_deleted.intValue();
-                    arrayList.add(postList);
-                } catch (Exception e) {
-                    BdLog.detailException(e);
                 }
+                this.post_list = arrayList;
             }
-            this.post_list = arrayList;
+        }
+    }
+
+    public void parserData(ProfileSocketResponseMessage profileSocketResponseMessage) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, profileSocketResponseMessage) == null) {
+            List<PostInfoList> GetPostList = profileSocketResponseMessage.GetPostList();
+            ArrayList arrayList = new ArrayList();
+            if (GetPostList != null && GetPostList.size() > 0) {
+                for (PostInfoList postInfoList : GetPostList) {
+                    PostList postList = new PostList();
+                    postList.forum_id = postInfoList.forum_id.longValue();
+                    postList.thread_id = postInfoList.thread_id.longValue();
+                    postList.post_id = postInfoList.post_id.longValue();
+                    postList.is_thread = postInfoList.is_thread.intValue();
+                    postList.create_time = postInfoList.create_time.intValue();
+                    postList.forum_name = postInfoList.forum_name;
+                    postList.title = postInfoList.title;
+                    postList.user_name = postInfoList.user_name;
+                    postList.user_id = postInfoList.user_id.longValue();
+                    postList.user_portrait = postInfoList.user_portrait;
+                    try {
+                        ArrayList arrayList2 = new ArrayList();
+                        for (Abstract r5 : postInfoList.abstract_thread) {
+                            Abs abs = new Abs();
+                            abs.parserData(r5);
+                            arrayList2.add(abs);
+                        }
+                        postList.Abstract = arrayList2;
+                        postList.content = postInfoList.content_thread;
+                        postList.quote.parserData(postInfoList.quote);
+                        postList.reply_num = postInfoList.reply_num.intValue();
+                        ArrayList arrayList3 = new ArrayList();
+                        for (tbclient.Media media : postInfoList.media) {
+                            Media media2 = new Media();
+                            media2.parserData(media);
+                            arrayList3.add(media2);
+                        }
+                        postList.media = arrayList3;
+                        postList.anchor_info.parserData(postInfoList.anchor_info);
+                        postList.lbs_info.parserData(postInfoList.lbs_info);
+                        postList.is_post_deleted = postInfoList.is_post_deleted.intValue();
+                        arrayList.add(postList);
+                    } catch (Exception e) {
+                        BdLog.detailException(e);
+                    }
+                }
+                this.post_list = arrayList;
+            }
         }
     }
 }

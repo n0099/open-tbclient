@@ -56,8 +56,14 @@ public final class DvbParser {
     public final Paint fillRegionPaint;
     public final SubtitleService subtitleService;
 
+    public static int getColor(int i, int i2, int i3, int i4) {
+        InterceptResult invokeIIII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeIIII = interceptable.invokeIIII(65542, null, i, i2, i3, i4)) == null) ? (i << 24) | (i2 << 16) | (i3 << 8) | i4 : invokeIIII.intValue;
+    }
+
     /* loaded from: classes7.dex */
-    public static final class ClutDefinition {
+    public final class ClutDefinition {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int[] clutEntries2Bit;
@@ -88,7 +94,7 @@ public final class DvbParser {
     }
 
     /* loaded from: classes7.dex */
-    public static final class DisplayDefinition {
+    public final class DisplayDefinition {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int height;
@@ -123,7 +129,7 @@ public final class DvbParser {
     }
 
     /* loaded from: classes7.dex */
-    public static final class ObjectData {
+    public final class ObjectData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final byte[] bottomFieldData;
@@ -154,15 +160,15 @@ public final class DvbParser {
     }
 
     /* loaded from: classes7.dex */
-    public static final class PageComposition {
+    public final class PageComposition {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SparseArray<PageRegion> regions;
+        public final SparseArray regions;
         public final int state;
         public final int timeOutSecs;
         public final int version;
 
-        public PageComposition(int i, int i2, int i3, SparseArray<PageRegion> sparseArray) {
+        public PageComposition(int i, int i2, int i3, SparseArray sparseArray) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -185,7 +191,7 @@ public final class DvbParser {
     }
 
     /* loaded from: classes7.dex */
-    public static final class PageRegion {
+    public final class PageRegion {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int horizontalAddress;
@@ -212,7 +218,7 @@ public final class DvbParser {
     }
 
     /* loaded from: classes7.dex */
-    public static final class RegionComposition {
+    public final class RegionComposition {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int clutId;
@@ -224,10 +230,10 @@ public final class DvbParser {
         public final int pixelCode2Bit;
         public final int pixelCode4Bit;
         public final int pixelCode8Bit;
-        public final SparseArray<RegionObject> regionObjects;
+        public final SparseArray regionObjects;
         public final int width;
 
-        public RegionComposition(int i, boolean z, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, SparseArray<RegionObject> sparseArray) {
+        public RegionComposition(int i, boolean z, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, SparseArray sparseArray) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -257,10 +263,10 @@ public final class DvbParser {
 
         public void mergeFrom(RegionComposition regionComposition) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, regionComposition) == null) || regionComposition == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, regionComposition) != null) || regionComposition == null) {
                 return;
             }
-            SparseArray<RegionObject> sparseArray = regionComposition.regionObjects;
+            SparseArray sparseArray = regionComposition.regionObjects;
             for (int i = 0; i < sparseArray.size(); i++) {
                 this.regionObjects.put(sparseArray.keyAt(i), sparseArray.valueAt(i));
             }
@@ -268,7 +274,7 @@ public final class DvbParser {
     }
 
     /* loaded from: classes7.dex */
-    public static final class RegionObject {
+    public final class RegionObject {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int backgroundPixelCode;
@@ -303,17 +309,17 @@ public final class DvbParser {
     }
 
     /* loaded from: classes7.dex */
-    public static final class SubtitleService {
+    public final class SubtitleService {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SparseArray<ClutDefinition> ancillaryCluts;
-        public final SparseArray<ObjectData> ancillaryObjects;
+        public final SparseArray ancillaryCluts;
+        public final SparseArray ancillaryObjects;
         public final int ancillaryPageId;
-        public final SparseArray<ClutDefinition> cluts;
+        public final SparseArray cluts;
         public DisplayDefinition displayDefinition;
-        public final SparseArray<ObjectData> objects;
+        public final SparseArray objects;
         public PageComposition pageComposition;
-        public final SparseArray<RegionComposition> regions;
+        public final SparseArray regions;
         public final int subtitlePageId;
 
         public SubtitleService(int i, int i2) {
@@ -331,11 +337,11 @@ public final class DvbParser {
                     return;
                 }
             }
-            this.regions = new SparseArray<>();
-            this.cluts = new SparseArray<>();
-            this.objects = new SparseArray<>();
-            this.ancillaryCluts = new SparseArray<>();
-            this.ancillaryObjects = new SparseArray<>();
+            this.regions = new SparseArray();
+            this.cluts = new SparseArray();
+            this.objects = new SparseArray();
+            this.ancillaryCluts = new SparseArray();
+            this.ancillaryObjects = new SparseArray();
             this.subtitlePageId = i;
             this.ancillaryPageId = i2;
         }
@@ -403,6 +409,57 @@ public final class DvbParser {
         this.subtitleService = new SubtitleService(i, i2);
     }
 
+    public static RegionComposition parseRegionComposition(ParsableBitArray parsableBitArray, int i) {
+        InterceptResult invokeLI;
+        int readBits;
+        int readBits2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65552, null, parsableBitArray, i)) == null) {
+            int readBits3 = parsableBitArray.readBits(8);
+            parsableBitArray.skipBits(4);
+            boolean readBit = parsableBitArray.readBit();
+            parsableBitArray.skipBits(3);
+            int i2 = 16;
+            int readBits4 = parsableBitArray.readBits(16);
+            int readBits5 = parsableBitArray.readBits(16);
+            int readBits6 = parsableBitArray.readBits(3);
+            int readBits7 = parsableBitArray.readBits(3);
+            int i3 = 2;
+            parsableBitArray.skipBits(2);
+            int readBits8 = parsableBitArray.readBits(8);
+            int readBits9 = parsableBitArray.readBits(8);
+            int readBits10 = parsableBitArray.readBits(4);
+            int readBits11 = parsableBitArray.readBits(2);
+            parsableBitArray.skipBits(2);
+            int i4 = i - 10;
+            SparseArray sparseArray = new SparseArray();
+            while (i4 > 0) {
+                int readBits12 = parsableBitArray.readBits(i2);
+                int readBits13 = parsableBitArray.readBits(i3);
+                int readBits14 = parsableBitArray.readBits(i3);
+                int readBits15 = parsableBitArray.readBits(12);
+                int i5 = readBits11;
+                parsableBitArray.skipBits(4);
+                int readBits16 = parsableBitArray.readBits(12);
+                i4 -= 6;
+                if (readBits13 != 1 && readBits13 != 2) {
+                    readBits = 0;
+                    readBits2 = 0;
+                } else {
+                    i4 -= 2;
+                    readBits = parsableBitArray.readBits(8);
+                    readBits2 = parsableBitArray.readBits(8);
+                }
+                sparseArray.put(readBits12, new RegionObject(readBits13, readBits14, readBits15, readBits16, readBits, readBits2));
+                readBits11 = i5;
+                i3 = 2;
+                i2 = 16;
+            }
+            return new RegionComposition(readBits3, readBit, readBits4, readBits5, readBits6, readBits7, readBits8, readBits9, readBits10, readBits11, sparseArray);
+        }
+        return (RegionComposition) invokeLI.objValue;
+    }
+
     public static byte[] buildClutMapTable(int i, int i2, ParsableBitArray parsableBitArray) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
@@ -419,20 +476,64 @@ public final class DvbParser {
     public static int[] generateDefault2BitClutEntries() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new int[]{0, -1, -16777216, -8421505} : (int[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return new int[]{0, -1, -16777216, -8421505};
+        }
+        return (int[]) invokeV.objValue;
+    }
+
+    public void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.subtitleService.reset();
+        }
     }
 
     public static int[] generateDefault4BitClutEntries() {
         InterceptResult invokeV;
+        int i;
+        int i2;
+        int i3;
+        int i4;
+        int i5;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             int[] iArr = new int[16];
             iArr[0] = 0;
-            for (int i = 1; i < 16; i++) {
-                if (i < 8) {
-                    iArr[i] = getColor(255, (i & 1) != 0 ? 255 : 0, (i & 2) != 0 ? 255 : 0, (i & 4) != 0 ? 255 : 0);
+            for (int i6 = 1; i6 < 16; i6++) {
+                if (i6 < 8) {
+                    if ((i6 & 1) != 0) {
+                        i3 = 255;
+                    } else {
+                        i3 = 0;
+                    }
+                    if ((i6 & 2) != 0) {
+                        i4 = 255;
+                    } else {
+                        i4 = 0;
+                    }
+                    if ((i6 & 4) != 0) {
+                        i5 = 255;
+                    } else {
+                        i5 = 0;
+                    }
+                    iArr[i6] = getColor(255, i3, i4, i5);
                 } else {
-                    iArr[i] = getColor(255, (i & 1) != 0 ? 127 : 0, (i & 2) != 0 ? 127 : 0, (i & 4) == 0 ? 0 : 127);
+                    int i7 = 127;
+                    if ((i6 & 1) != 0) {
+                        i = 127;
+                    } else {
+                        i = 0;
+                    }
+                    if ((i6 & 2) != 0) {
+                        i2 = 127;
+                    } else {
+                        i2 = 0;
+                    }
+                    if ((i6 & 4) == 0) {
+                        i7 = 0;
+                    }
+                    iArr[i6] = getColor(255, i, i2, i7);
                 }
             }
             return iArr;
@@ -443,48 +544,184 @@ public final class DvbParser {
     public static int[] generateDefault8BitClutEntries() {
         InterceptResult invokeV;
         int i;
+        int i2;
+        int i3;
+        int i4;
+        int i5;
+        int i6;
+        int i7;
+        int i8;
+        int i9;
+        int i10;
+        int i11;
+        int i12;
+        int i13;
+        int i14;
+        int i15;
+        int i16;
+        int i17;
+        int i18;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             int[] iArr = new int[256];
             iArr[0] = 0;
-            for (int i2 = 0; i2 < 256; i2++) {
-                if (i2 < 8) {
-                    iArr[i2] = getColor(63, (i2 & 1) != 0 ? 255 : 0, (i2 & 2) != 0 ? 255 : 0, (i2 & 4) == 0 ? 0 : 255);
+            for (int i19 = 0; i19 < 256; i19++) {
+                int i20 = 255;
+                if (i19 < 8) {
+                    if ((i19 & 1) != 0) {
+                        i17 = 255;
+                    } else {
+                        i17 = 0;
+                    }
+                    if ((i19 & 2) != 0) {
+                        i18 = 255;
+                    } else {
+                        i18 = 0;
+                    }
+                    if ((i19 & 4) == 0) {
+                        i20 = 0;
+                    }
+                    iArr[i19] = getColor(63, i17, i18, i20);
                 } else {
-                    int i3 = i2 & 136;
-                    int i4 = Constants.METHOD_IM_GET_USER_PROFILE_BY_BAIDU_UID;
-                    if (i3 == 0) {
-                        int i5 = ((i2 & 1) != 0 ? 85 : 0) + ((i2 & 16) != 0 ? Constants.METHOD_IM_GET_USER_PROFILE_BY_BAIDU_UID : 0);
-                        int i6 = ((i2 & 2) != 0 ? 85 : 0) + ((i2 & 32) != 0 ? Constants.METHOD_IM_GET_USER_PROFILE_BY_BAIDU_UID : 0);
-                        i = (i2 & 4) == 0 ? 0 : 85;
-                        if ((i2 & 64) == 0) {
+                    int i21 = i19 & 136;
+                    int i22 = Constants.METHOD_IM_GET_USER_PROFILE_BY_BAIDU_UID;
+                    int i23 = 85;
+                    if (i21 != 0) {
+                        if (i21 != 8) {
+                            int i24 = 43;
+                            if (i21 != 128) {
+                                if (i21 == 136) {
+                                    if ((i19 & 1) != 0) {
+                                        i13 = 43;
+                                    } else {
+                                        i13 = 0;
+                                    }
+                                    if ((i19 & 16) != 0) {
+                                        i14 = 85;
+                                    } else {
+                                        i14 = 0;
+                                    }
+                                    int i25 = i13 + i14;
+                                    if ((i19 & 2) != 0) {
+                                        i15 = 43;
+                                    } else {
+                                        i15 = 0;
+                                    }
+                                    if ((i19 & 32) != 0) {
+                                        i16 = 85;
+                                    } else {
+                                        i16 = 0;
+                                    }
+                                    int i26 = i15 + i16;
+                                    if ((i19 & 4) == 0) {
+                                        i24 = 0;
+                                    }
+                                    if ((i19 & 64) == 0) {
+                                        i23 = 0;
+                                    }
+                                    iArr[i19] = getColor(255, i25, i26, i24 + i23);
+                                }
+                            } else {
+                                if ((i19 & 1) != 0) {
+                                    i9 = 43;
+                                } else {
+                                    i9 = 0;
+                                }
+                                int i27 = i9 + 127;
+                                if ((i19 & 16) != 0) {
+                                    i10 = 85;
+                                } else {
+                                    i10 = 0;
+                                }
+                                int i28 = i27 + i10;
+                                if ((i19 & 2) != 0) {
+                                    i11 = 43;
+                                } else {
+                                    i11 = 0;
+                                }
+                                int i29 = i11 + 127;
+                                if ((i19 & 32) != 0) {
+                                    i12 = 85;
+                                } else {
+                                    i12 = 0;
+                                }
+                                int i30 = i29 + i12;
+                                if ((i19 & 4) == 0) {
+                                    i24 = 0;
+                                }
+                                int i31 = i24 + 127;
+                                if ((i19 & 64) == 0) {
+                                    i23 = 0;
+                                }
+                                iArr[i19] = getColor(255, i28, i30, i31 + i23);
+                            }
+                        } else {
+                            if ((i19 & 1) != 0) {
+                                i5 = 85;
+                            } else {
+                                i5 = 0;
+                            }
+                            if ((i19 & 16) != 0) {
+                                i6 = Constants.METHOD_IM_GET_USER_PROFILE_BY_BAIDU_UID;
+                            } else {
+                                i6 = 0;
+                            }
+                            int i32 = i5 + i6;
+                            if ((i19 & 2) != 0) {
+                                i7 = 85;
+                            } else {
+                                i7 = 0;
+                            }
+                            if ((i19 & 32) != 0) {
+                                i8 = Constants.METHOD_IM_GET_USER_PROFILE_BY_BAIDU_UID;
+                            } else {
+                                i8 = 0;
+                            }
+                            int i33 = i7 + i8;
+                            if ((i19 & 4) == 0) {
+                                i23 = 0;
+                            }
+                            if ((i19 & 64) == 0) {
+                                i22 = 0;
+                            }
+                            iArr[i19] = getColor(127, i32, i33, i23 + i22);
+                        }
+                    } else {
+                        if ((i19 & 1) != 0) {
+                            i = 85;
+                        } else {
+                            i = 0;
+                        }
+                        if ((i19 & 16) != 0) {
+                            i2 = Constants.METHOD_IM_GET_USER_PROFILE_BY_BAIDU_UID;
+                        } else {
+                            i2 = 0;
+                        }
+                        int i34 = i + i2;
+                        if ((i19 & 2) != 0) {
+                            i3 = 85;
+                        } else {
+                            i3 = 0;
+                        }
+                        if ((i19 & 32) != 0) {
+                            i4 = Constants.METHOD_IM_GET_USER_PROFILE_BY_BAIDU_UID;
+                        } else {
                             i4 = 0;
                         }
-                        iArr[i2] = getColor(255, i5, i6, i + i4);
-                    } else if (i3 == 8) {
-                        int i7 = ((i2 & 1) != 0 ? 85 : 0) + ((i2 & 16) != 0 ? Constants.METHOD_IM_GET_USER_PROFILE_BY_BAIDU_UID : 0);
-                        int i8 = ((i2 & 2) != 0 ? 85 : 0) + ((i2 & 32) != 0 ? Constants.METHOD_IM_GET_USER_PROFILE_BY_BAIDU_UID : 0);
-                        i = (i2 & 4) == 0 ? 0 : 85;
-                        if ((i2 & 64) == 0) {
-                            i4 = 0;
+                        int i35 = i3 + i4;
+                        if ((i19 & 4) == 0) {
+                            i23 = 0;
                         }
-                        iArr[i2] = getColor(127, i7, i8, i + i4);
-                    } else if (i3 == 128) {
-                        iArr[i2] = getColor(255, ((i2 & 1) != 0 ? 43 : 0) + 127 + ((i2 & 16) != 0 ? 85 : 0), ((i2 & 2) != 0 ? 43 : 0) + 127 + ((i2 & 32) != 0 ? 85 : 0), ((i2 & 4) == 0 ? 0 : 43) + 127 + ((i2 & 64) == 0 ? 0 : 85));
-                    } else if (i3 == 136) {
-                        iArr[i2] = getColor(255, ((i2 & 1) != 0 ? 43 : 0) + ((i2 & 16) != 0 ? 85 : 0), ((i2 & 2) != 0 ? 43 : 0) + ((i2 & 32) != 0 ? 85 : 0), ((i2 & 4) == 0 ? 0 : 43) + ((i2 & 64) == 0 ? 0 : 85));
+                        if ((i19 & 64) == 0) {
+                            i22 = 0;
+                        }
+                        iArr[i19] = getColor(255, i34, i35, i23 + i22);
                     }
                 }
             }
             return iArr;
         }
         return (int[]) invokeV.objValue;
-    }
-
-    public static int getColor(int i, int i2, int i3, int i4) {
-        InterceptResult invokeIIII;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIIII = interceptable.invokeIIII(65542, null, i, i2, i3, i4)) == null) ? (i << 24) | (i2 << 16) | (i3 << 8) | i4 : invokeIIII.intValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:28:0x0067 A[ADDED_TO_REGION] */
@@ -501,79 +738,86 @@ public final class DvbParser {
         int readBits;
         int readBits2;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{parsableBitArray, iArr, bArr, Integer.valueOf(i), Integer.valueOf(i2), paint, canvas})) != null) {
-            return invokeCommon.intValue;
-        }
-        int i4 = i;
-        boolean z2 = false;
-        while (true) {
-            byte readBits3 = parsableBitArray.readBits(2);
-            if (readBits3 != 0) {
-                z = z2;
-            } else {
-                if (parsableBitArray.readBit()) {
-                    readBits = parsableBitArray.readBits(3) + 3;
-                    readBits2 = parsableBitArray.readBits(2);
-                } else if (parsableBitArray.readBit()) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{parsableBitArray, iArr, bArr, Integer.valueOf(i), Integer.valueOf(i2), paint, canvas})) == null) {
+            int i4 = i;
+            boolean z2 = false;
+            while (true) {
+                byte readBits3 = parsableBitArray.readBits(2);
+                if (readBits3 != 0) {
                     z = z2;
-                    readBits3 = 0;
                 } else {
-                    int readBits4 = parsableBitArray.readBits(2);
-                    if (readBits4 == 0) {
-                        readBits3 = 0;
-                        z = true;
-                    } else if (readBits4 == 1) {
+                    if (parsableBitArray.readBit()) {
+                        readBits = parsableBitArray.readBits(3) + 3;
+                        readBits2 = parsableBitArray.readBits(2);
+                    } else if (parsableBitArray.readBit()) {
                         z = z2;
                         readBits3 = 0;
-                        i3 = 2;
-                        if (i3 != 0 && paint != null) {
+                    } else {
+                        int readBits4 = parsableBitArray.readBits(2);
+                        if (readBits4 != 0) {
+                            if (readBits4 != 1) {
+                                if (readBits4 != 2) {
+                                    if (readBits4 != 3) {
+                                        z = z2;
+                                        readBits3 = 0;
+                                    } else {
+                                        readBits = parsableBitArray.readBits(8) + 29;
+                                        readBits2 = parsableBitArray.readBits(2);
+                                    }
+                                } else {
+                                    readBits = parsableBitArray.readBits(4) + 12;
+                                    readBits2 = parsableBitArray.readBits(2);
+                                }
+                            } else {
+                                z = z2;
+                                readBits3 = 0;
+                                i3 = 2;
+                                if (i3 != 0 && paint != null) {
+                                    if (bArr != null) {
+                                        readBits3 = bArr[readBits3];
+                                    }
+                                    paint.setColor(iArr[readBits3]);
+                                    canvas.drawRect(i4, i2, i4 + i3, i2 + 1, paint);
+                                }
+                                i4 += i3;
+                                if (!z) {
+                                    return i4;
+                                }
+                                z2 = z;
+                            }
+                        } else {
+                            readBits3 = 0;
+                            z = true;
+                        }
+                        i3 = 0;
+                        if (i3 != 0) {
                             if (bArr != null) {
-                                readBits3 = bArr[readBits3];
                             }
                             paint.setColor(iArr[readBits3]);
                             canvas.drawRect(i4, i2, i4 + i3, i2 + 1, paint);
                         }
                         i4 += i3;
                         if (!z) {
-                            return i4;
                         }
-                        z2 = z;
-                    } else if (readBits4 == 2) {
-                        readBits = parsableBitArray.readBits(4) + 12;
-                        readBits2 = parsableBitArray.readBits(2);
-                    } else if (readBits4 != 3) {
-                        z = z2;
-                        readBits3 = 0;
-                    } else {
-                        readBits = parsableBitArray.readBits(8) + 29;
-                        readBits2 = parsableBitArray.readBits(2);
                     }
-                    i3 = 0;
+                    z = z2;
+                    i3 = readBits;
+                    readBits3 = readBits2;
                     if (i3 != 0) {
-                        if (bArr != null) {
-                        }
-                        paint.setColor(iArr[readBits3]);
-                        canvas.drawRect(i4, i2, i4 + i3, i2 + 1, paint);
                     }
                     i4 += i3;
                     if (!z) {
                     }
                 }
-                z = z2;
-                i3 = readBits;
-                readBits3 = readBits2;
+                i3 = 1;
                 if (i3 != 0) {
                 }
                 i4 += i3;
                 if (!z) {
                 }
             }
-            i3 = 1;
-            if (i3 != 0) {
-            }
-            i4 += i3;
-            if (!z) {
-            }
+        } else {
+            return invokeCommon.intValue;
         }
     }
 
@@ -589,146 +833,116 @@ public final class DvbParser {
         int i3;
         int readBits;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{parsableBitArray, iArr, bArr, Integer.valueOf(i), Integer.valueOf(i2), paint, canvas})) != null) {
-            return invokeCommon.intValue;
-        }
-        int i4 = i;
-        boolean z2 = false;
-        while (true) {
-            byte readBits2 = parsableBitArray.readBits(4);
-            if (readBits2 != 0) {
-                z = z2;
-            } else {
-                if (!parsableBitArray.readBit()) {
-                    int readBits3 = parsableBitArray.readBits(3);
-                    if (readBits3 != 0) {
-                        z = z2;
-                        i3 = readBits3 + 2;
-                        readBits2 = 0;
-                    } else {
-                        readBits2 = 0;
-                        z = true;
-                        i3 = 0;
-                    }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{parsableBitArray, iArr, bArr, Integer.valueOf(i), Integer.valueOf(i2), paint, canvas})) == null) {
+            int i4 = i;
+            boolean z2 = false;
+            while (true) {
+                byte readBits2 = parsableBitArray.readBits(4);
+                if (readBits2 != 0) {
+                    z = z2;
                 } else {
                     if (!parsableBitArray.readBit()) {
-                        readBits = parsableBitArray.readBits(2) + 4;
-                        readBits2 = parsableBitArray.readBits(4);
-                    } else {
-                        int readBits4 = parsableBitArray.readBits(2);
-                        if (readBits4 == 0) {
+                        int readBits3 = parsableBitArray.readBits(3);
+                        if (readBits3 != 0) {
                             z = z2;
+                            i3 = readBits3 + 2;
                             readBits2 = 0;
-                        } else if (readBits4 == 1) {
-                            z = z2;
-                            readBits2 = 0;
-                            i3 = 2;
-                        } else if (readBits4 == 2) {
-                            readBits = parsableBitArray.readBits(4) + 9;
-                            readBits2 = parsableBitArray.readBits(4);
-                        } else if (readBits4 != 3) {
-                            z = z2;
-                            readBits2 = 0;
-                            i3 = 0;
                         } else {
-                            readBits = parsableBitArray.readBits(8) + 25;
-                            readBits2 = parsableBitArray.readBits(4);
+                            readBits2 = 0;
+                            z = true;
+                            i3 = 0;
                         }
+                    } else {
+                        if (!parsableBitArray.readBit()) {
+                            readBits = parsableBitArray.readBits(2) + 4;
+                            readBits2 = parsableBitArray.readBits(4);
+                        } else {
+                            int readBits4 = parsableBitArray.readBits(2);
+                            if (readBits4 != 0) {
+                                if (readBits4 != 1) {
+                                    if (readBits4 != 2) {
+                                        if (readBits4 != 3) {
+                                            z = z2;
+                                            readBits2 = 0;
+                                            i3 = 0;
+                                        } else {
+                                            readBits = parsableBitArray.readBits(8) + 25;
+                                            readBits2 = parsableBitArray.readBits(4);
+                                        }
+                                    } else {
+                                        readBits = parsableBitArray.readBits(4) + 9;
+                                        readBits2 = parsableBitArray.readBits(4);
+                                    }
+                                } else {
+                                    z = z2;
+                                    readBits2 = 0;
+                                    i3 = 2;
+                                }
+                            } else {
+                                z = z2;
+                                readBits2 = 0;
+                            }
+                        }
+                        z = z2;
+                        i3 = readBits;
                     }
-                    z = z2;
-                    i3 = readBits;
+                    if (i3 != 0 && paint != null) {
+                        if (bArr != null) {
+                            readBits2 = bArr[readBits2];
+                        }
+                        paint.setColor(iArr[readBits2]);
+                        canvas.drawRect(i4, i2, i4 + i3, i2 + 1, paint);
+                    }
+                    i4 += i3;
+                    if (!z) {
+                        return i4;
+                    }
+                    z2 = z;
                 }
-                if (i3 != 0 && paint != null) {
+                i3 = 1;
+                if (i3 != 0) {
                     if (bArr != null) {
-                        readBits2 = bArr[readBits2];
                     }
                     paint.setColor(iArr[readBits2]);
                     canvas.drawRect(i4, i2, i4 + i3, i2 + 1, paint);
                 }
                 i4 += i3;
                 if (!z) {
-                    return i4;
                 }
-                z2 = z;
             }
-            i3 = 1;
-            if (i3 != 0) {
-                if (bArr != null) {
-                }
-                paint.setColor(iArr[readBits2]);
-                canvas.drawRect(i4, i2, i4 + i3, i2 + 1, paint);
-            }
-            i4 += i3;
-            if (!z) {
-            }
-        }
-    }
-
-    public static int paint8BitPixelCodeString(ParsableBitArray parsableBitArray, int[] iArr, byte[] bArr, int i, int i2, Paint paint, Canvas canvas) {
-        InterceptResult invokeCommon;
-        boolean z;
-        int readBits;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{parsableBitArray, iArr, bArr, Integer.valueOf(i), Integer.valueOf(i2), paint, canvas})) != null) {
+        } else {
             return invokeCommon.intValue;
-        }
-        int i3 = i;
-        boolean z2 = false;
-        while (true) {
-            byte readBits2 = parsableBitArray.readBits(8);
-            if (readBits2 != 0) {
-                z = z2;
-                readBits = 1;
-            } else if (!parsableBitArray.readBit()) {
-                int readBits3 = parsableBitArray.readBits(7);
-                if (readBits3 != 0) {
-                    z = z2;
-                    readBits = readBits3;
-                    readBits2 = 0;
-                } else {
-                    readBits2 = 0;
-                    z = true;
-                    readBits = 0;
-                }
-            } else {
-                z = z2;
-                readBits = parsableBitArray.readBits(7);
-                readBits2 = parsableBitArray.readBits(8);
-            }
-            if (readBits != 0 && paint != null) {
-                if (bArr != null) {
-                    readBits2 = bArr[readBits2];
-                }
-                paint.setColor(iArr[readBits2]);
-                canvas.drawRect(i3, i2, i3 + readBits, i2 + 1, paint);
-            }
-            i3 += readBits;
-            if (z) {
-                return i3;
-            }
-            z2 = z;
         }
     }
 
     public static void paintPixelDataSubBlock(byte[] bArr, int[] iArr, int i, int i2, int i3, Paint paint, Canvas canvas) {
         byte[] bArr2;
         byte[] bArr3;
+        byte[] bArr4;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{bArr, iArr, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), paint, canvas}) == null) {
             ParsableBitArray parsableBitArray = new ParsableBitArray(bArr);
             int i4 = i2;
             int i5 = i3;
-            byte[] bArr4 = null;
             byte[] bArr5 = null;
+            byte[] bArr6 = null;
             while (parsableBitArray.bitsLeft() != 0) {
                 int readBits = parsableBitArray.readBits(8);
                 if (readBits != 240) {
                     switch (readBits) {
                         case 16:
                             if (i == 3) {
-                                bArr3 = bArr4 == null ? defaultMap2To8 : bArr4;
+                                if (bArr5 == null) {
+                                    bArr3 = defaultMap2To8;
+                                } else {
+                                    bArr3 = bArr5;
+                                }
                             } else if (i == 2) {
-                                bArr3 = bArr5 == null ? defaultMap2To4 : bArr5;
+                                if (bArr6 == null) {
+                                    bArr3 = defaultMap2To4;
+                                } else {
+                                    bArr3 = bArr6;
+                                }
                             } else {
                                 bArr2 = null;
                                 i4 = paint2BitPixelCodeString(parsableBitArray, iArr, bArr2, i4, i5, paint, canvas);
@@ -740,7 +954,12 @@ public final class DvbParser {
                             parsableBitArray.byteAlign();
                             continue;
                         case 17:
-                            i4 = paint4BitPixelCodeString(parsableBitArray, iArr, i == 3 ? defaultMap4To8 : null, i4, i5, paint, canvas);
+                            if (i == 3) {
+                                bArr4 = defaultMap4To8;
+                            } else {
+                                bArr4 = null;
+                            }
+                            i4 = paint4BitPixelCodeString(parsableBitArray, iArr, bArr4, i4, i5, paint, canvas);
                             parsableBitArray.byteAlign();
                             continue;
                         case 18:
@@ -749,13 +968,13 @@ public final class DvbParser {
                         default:
                             switch (readBits) {
                                 case 32:
-                                    bArr5 = buildClutMapTable(4, 4, parsableBitArray);
+                                    bArr6 = buildClutMapTable(4, 4, parsableBitArray);
                                     continue;
                                 case 33:
-                                    bArr4 = buildClutMapTable(4, 8, parsableBitArray);
+                                    bArr5 = buildClutMapTable(4, 8, parsableBitArray);
                                     continue;
                                 case 34:
-                                    bArr4 = buildClutMapTable(16, 8, parsableBitArray);
+                                    bArr5 = buildClutMapTable(16, 8, parsableBitArray);
                                     continue;
                                 default:
                                     continue;
@@ -766,6 +985,53 @@ public final class DvbParser {
                     i4 = i2;
                 }
             }
+        }
+    }
+
+    public static int paint8BitPixelCodeString(ParsableBitArray parsableBitArray, int[] iArr, byte[] bArr, int i, int i2, Paint paint, Canvas canvas) {
+        InterceptResult invokeCommon;
+        boolean z;
+        int readBits;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{parsableBitArray, iArr, bArr, Integer.valueOf(i), Integer.valueOf(i2), paint, canvas})) == null) {
+            int i3 = i;
+            boolean z2 = false;
+            while (true) {
+                byte readBits2 = parsableBitArray.readBits(8);
+                if (readBits2 != 0) {
+                    z = z2;
+                    readBits = 1;
+                } else if (!parsableBitArray.readBit()) {
+                    int readBits3 = parsableBitArray.readBits(7);
+                    if (readBits3 != 0) {
+                        z = z2;
+                        readBits = readBits3;
+                        readBits2 = 0;
+                    } else {
+                        readBits2 = 0;
+                        z = true;
+                        readBits = 0;
+                    }
+                } else {
+                    z = z2;
+                    readBits = parsableBitArray.readBits(7);
+                    readBits2 = parsableBitArray.readBits(8);
+                }
+                if (readBits != 0 && paint != null) {
+                    if (bArr != null) {
+                        readBits2 = bArr[readBits2];
+                    }
+                    paint.setColor(iArr[readBits2]);
+                    canvas.drawRect(i3, i2, i3 + readBits, i2 + 1, paint);
+                }
+                i3 += readBits;
+                if (z) {
+                    return i3;
+                }
+                z2 = z;
+            }
+        } else {
+            return invokeCommon.intValue;
         }
     }
 
@@ -788,6 +1054,7 @@ public final class DvbParser {
 
     public static ClutDefinition parseClutDefinition(ParsableBitArray parsableBitArray, int i) {
         InterceptResult invokeLI;
+        int[] iArr;
         int readBits;
         int i2;
         int readBits2;
@@ -807,7 +1074,13 @@ public final class DvbParser {
                 int readBits5 = parsableBitArray.readBits(i4);
                 int readBits6 = parsableBitArray.readBits(i4);
                 int i7 = i6 - 2;
-                int[] iArr = (readBits6 & 128) != 0 ? generateDefault2BitClutEntries : (readBits6 & 64) != 0 ? generateDefault4BitClutEntries : generateDefault8BitClutEntries;
+                if ((readBits6 & 128) != 0) {
+                    iArr = generateDefault2BitClutEntries;
+                } else if ((readBits6 & 64) != 0) {
+                    iArr = generateDefault4BitClutEntries;
+                } else {
+                    iArr = generateDefault8BitClutEntries;
+                }
                 if ((readBits6 & 1) != 0) {
                     readBits3 = parsableBitArray.readBits(i4);
                     i3 = parsableBitArray.readBits(i4);
@@ -839,6 +1112,79 @@ public final class DvbParser {
             return new ClutDefinition(readBits4, generateDefault2BitClutEntries, generateDefault4BitClutEntries, generateDefault8BitClutEntries);
         }
         return (ClutDefinition) invokeLI.objValue;
+    }
+
+    public static void parseSubtitlingSegment(ParsableBitArray parsableBitArray, SubtitleService subtitleService) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65553, null, parsableBitArray, subtitleService) == null) {
+            int readBits = parsableBitArray.readBits(8);
+            int readBits2 = parsableBitArray.readBits(16);
+            int readBits3 = parsableBitArray.readBits(16);
+            int bytePosition = parsableBitArray.getBytePosition() + readBits3;
+            if (readBits3 * 8 > parsableBitArray.bitsLeft()) {
+                Log.w(TAG, "Data field length exceeds limit");
+                parsableBitArray.skipBits(parsableBitArray.bitsLeft());
+                return;
+            }
+            switch (readBits) {
+                case 16:
+                    if (readBits2 == subtitleService.subtitlePageId) {
+                        PageComposition pageComposition = subtitleService.pageComposition;
+                        PageComposition parsePageComposition = parsePageComposition(parsableBitArray, readBits3);
+                        if (parsePageComposition.state != 0) {
+                            subtitleService.pageComposition = parsePageComposition;
+                            subtitleService.regions.clear();
+                            subtitleService.cluts.clear();
+                            subtitleService.objects.clear();
+                            break;
+                        } else if (pageComposition != null && pageComposition.version != parsePageComposition.version) {
+                            subtitleService.pageComposition = parsePageComposition;
+                            break;
+                        }
+                    }
+                    break;
+                case 17:
+                    PageComposition pageComposition2 = subtitleService.pageComposition;
+                    if (readBits2 == subtitleService.subtitlePageId && pageComposition2 != null) {
+                        RegionComposition parseRegionComposition = parseRegionComposition(parsableBitArray, readBits3);
+                        if (pageComposition2.state == 0) {
+                            parseRegionComposition.mergeFrom((RegionComposition) subtitleService.regions.get(parseRegionComposition.id));
+                        }
+                        subtitleService.regions.put(parseRegionComposition.id, parseRegionComposition);
+                        break;
+                    }
+                    break;
+                case 18:
+                    if (readBits2 == subtitleService.subtitlePageId) {
+                        ClutDefinition parseClutDefinition = parseClutDefinition(parsableBitArray, readBits3);
+                        subtitleService.cluts.put(parseClutDefinition.id, parseClutDefinition);
+                        break;
+                    } else if (readBits2 == subtitleService.ancillaryPageId) {
+                        ClutDefinition parseClutDefinition2 = parseClutDefinition(parsableBitArray, readBits3);
+                        subtitleService.ancillaryCluts.put(parseClutDefinition2.id, parseClutDefinition2);
+                        break;
+                    }
+                    break;
+                case 19:
+                    if (readBits2 == subtitleService.subtitlePageId) {
+                        ObjectData parseObjectData = parseObjectData(parsableBitArray);
+                        subtitleService.objects.put(parseObjectData.id, parseObjectData);
+                        break;
+                    } else if (readBits2 == subtitleService.ancillaryPageId) {
+                        ObjectData parseObjectData2 = parseObjectData(parsableBitArray);
+                        subtitleService.ancillaryObjects.put(parseObjectData2.id, parseObjectData2);
+                        break;
+                    }
+                    break;
+                case 20:
+                    if (readBits2 == subtitleService.subtitlePageId) {
+                        subtitleService.displayDefinition = parseDisplayDefinition(parsableBitArray);
+                        break;
+                    }
+                    break;
+            }
+            parsableBitArray.skipBytes(bytePosition - parsableBitArray.getBytePosition());
+        }
     }
 
     public static DisplayDefinition parseDisplayDefinition(ParsableBitArray parsableBitArray) {
@@ -926,135 +1272,13 @@ public final class DvbParser {
         return (PageComposition) invokeLI.objValue;
     }
 
-    public static RegionComposition parseRegionComposition(ParsableBitArray parsableBitArray, int i) {
-        InterceptResult invokeLI;
-        int readBits;
-        int readBits2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65552, null, parsableBitArray, i)) == null) {
-            int readBits3 = parsableBitArray.readBits(8);
-            parsableBitArray.skipBits(4);
-            boolean readBit = parsableBitArray.readBit();
-            parsableBitArray.skipBits(3);
-            int i2 = 16;
-            int readBits4 = parsableBitArray.readBits(16);
-            int readBits5 = parsableBitArray.readBits(16);
-            int readBits6 = parsableBitArray.readBits(3);
-            int readBits7 = parsableBitArray.readBits(3);
-            int i3 = 2;
-            parsableBitArray.skipBits(2);
-            int readBits8 = parsableBitArray.readBits(8);
-            int readBits9 = parsableBitArray.readBits(8);
-            int readBits10 = parsableBitArray.readBits(4);
-            int readBits11 = parsableBitArray.readBits(2);
-            parsableBitArray.skipBits(2);
-            int i4 = i - 10;
-            SparseArray sparseArray = new SparseArray();
-            while (i4 > 0) {
-                int readBits12 = parsableBitArray.readBits(i2);
-                int readBits13 = parsableBitArray.readBits(i3);
-                int readBits14 = parsableBitArray.readBits(i3);
-                int readBits15 = parsableBitArray.readBits(12);
-                int i5 = readBits11;
-                parsableBitArray.skipBits(4);
-                int readBits16 = parsableBitArray.readBits(12);
-                i4 -= 6;
-                if (readBits13 == 1 || readBits13 == 2) {
-                    i4 -= 2;
-                    readBits = parsableBitArray.readBits(8);
-                    readBits2 = parsableBitArray.readBits(8);
-                } else {
-                    readBits = 0;
-                    readBits2 = 0;
-                }
-                sparseArray.put(readBits12, new RegionObject(readBits13, readBits14, readBits15, readBits16, readBits, readBits2));
-                readBits11 = i5;
-                i3 = 2;
-                i2 = 16;
-            }
-            return new RegionComposition(readBits3, readBit, readBits4, readBits5, readBits6, readBits7, readBits8, readBits9, readBits10, readBits11, sparseArray);
-        }
-        return (RegionComposition) invokeLI.objValue;
-    }
-
-    public static void parseSubtitlingSegment(ParsableBitArray parsableBitArray, SubtitleService subtitleService) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65553, null, parsableBitArray, subtitleService) == null) {
-            int readBits = parsableBitArray.readBits(8);
-            int readBits2 = parsableBitArray.readBits(16);
-            int readBits3 = parsableBitArray.readBits(16);
-            int bytePosition = parsableBitArray.getBytePosition() + readBits3;
-            if (readBits3 * 8 > parsableBitArray.bitsLeft()) {
-                Log.w(TAG, "Data field length exceeds limit");
-                parsableBitArray.skipBits(parsableBitArray.bitsLeft());
-                return;
-            }
-            switch (readBits) {
-                case 16:
-                    if (readBits2 == subtitleService.subtitlePageId) {
-                        PageComposition pageComposition = subtitleService.pageComposition;
-                        PageComposition parsePageComposition = parsePageComposition(parsableBitArray, readBits3);
-                        if (parsePageComposition.state != 0) {
-                            subtitleService.pageComposition = parsePageComposition;
-                            subtitleService.regions.clear();
-                            subtitleService.cluts.clear();
-                            subtitleService.objects.clear();
-                            break;
-                        } else if (pageComposition != null && pageComposition.version != parsePageComposition.version) {
-                            subtitleService.pageComposition = parsePageComposition;
-                            break;
-                        }
-                    }
-                    break;
-                case 17:
-                    PageComposition pageComposition2 = subtitleService.pageComposition;
-                    if (readBits2 == subtitleService.subtitlePageId && pageComposition2 != null) {
-                        RegionComposition parseRegionComposition = parseRegionComposition(parsableBitArray, readBits3);
-                        if (pageComposition2.state == 0) {
-                            parseRegionComposition.mergeFrom(subtitleService.regions.get(parseRegionComposition.id));
-                        }
-                        subtitleService.regions.put(parseRegionComposition.id, parseRegionComposition);
-                        break;
-                    }
-                    break;
-                case 18:
-                    if (readBits2 == subtitleService.subtitlePageId) {
-                        ClutDefinition parseClutDefinition = parseClutDefinition(parsableBitArray, readBits3);
-                        subtitleService.cluts.put(parseClutDefinition.id, parseClutDefinition);
-                        break;
-                    } else if (readBits2 == subtitleService.ancillaryPageId) {
-                        ClutDefinition parseClutDefinition2 = parseClutDefinition(parsableBitArray, readBits3);
-                        subtitleService.ancillaryCluts.put(parseClutDefinition2.id, parseClutDefinition2);
-                        break;
-                    }
-                    break;
-                case 19:
-                    if (readBits2 == subtitleService.subtitlePageId) {
-                        ObjectData parseObjectData = parseObjectData(parsableBitArray);
-                        subtitleService.objects.put(parseObjectData.id, parseObjectData);
-                        break;
-                    } else if (readBits2 == subtitleService.ancillaryPageId) {
-                        ObjectData parseObjectData2 = parseObjectData(parsableBitArray);
-                        subtitleService.ancillaryObjects.put(parseObjectData2.id, parseObjectData2);
-                        break;
-                    }
-                    break;
-                case 20:
-                    if (readBits2 == subtitleService.subtitlePageId) {
-                        subtitleService.displayDefinition = parseDisplayDefinition(parsableBitArray);
-                        break;
-                    }
-                    break;
-            }
-            parsableBitArray.skipBytes(bytePosition - parsableBitArray.getBytePosition());
-        }
-    }
-
-    public List<Cue> decode(byte[] bArr, int i) {
+    public List decode(byte[] bArr, int i) {
         InterceptResult invokeLI;
         int i2;
+        ObjectData objectData;
         int i3;
-        SparseArray<RegionObject> sparseArray;
+        SparseArray sparseArray;
+        Paint paint;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, bArr, i)) == null) {
             ParsableBitArray parsableBitArray = new ParsableBitArray(bArr, i);
@@ -1076,30 +1300,39 @@ public final class DvbParser {
                 this.canvas.setBitmap(createBitmap);
             }
             ArrayList arrayList = new ArrayList();
-            SparseArray<PageRegion> sparseArray2 = this.subtitleService.pageComposition.regions;
+            SparseArray sparseArray2 = this.subtitleService.pageComposition.regions;
             for (int i4 = 0; i4 < sparseArray2.size(); i4++) {
-                PageRegion valueAt = sparseArray2.valueAt(i4);
-                RegionComposition regionComposition = this.subtitleService.regions.get(sparseArray2.keyAt(i4));
-                int i5 = valueAt.horizontalAddress + displayDefinition.horizontalPositionMinimum;
-                int i6 = valueAt.verticalAddress + displayDefinition.verticalPositionMinimum;
+                PageRegion pageRegion = (PageRegion) sparseArray2.valueAt(i4);
+                RegionComposition regionComposition = (RegionComposition) this.subtitleService.regions.get(sparseArray2.keyAt(i4));
+                int i5 = pageRegion.horizontalAddress + displayDefinition.horizontalPositionMinimum;
+                int i6 = pageRegion.verticalAddress + displayDefinition.verticalPositionMinimum;
                 float f = i5;
                 float f2 = i6;
                 this.canvas.clipRect(f, f2, Math.min(regionComposition.width + i5, displayDefinition.horizontalPositionMaximum), Math.min(regionComposition.height + i6, displayDefinition.verticalPositionMaximum), Region.Op.REPLACE);
-                ClutDefinition clutDefinition = this.subtitleService.cluts.get(regionComposition.clutId);
-                if (clutDefinition == null && (clutDefinition = this.subtitleService.ancillaryCluts.get(regionComposition.clutId)) == null) {
+                ClutDefinition clutDefinition = (ClutDefinition) this.subtitleService.cluts.get(regionComposition.clutId);
+                if (clutDefinition == null && (clutDefinition = (ClutDefinition) this.subtitleService.ancillaryCluts.get(regionComposition.clutId)) == null) {
                     clutDefinition = this.defaultClutDefinition;
                 }
-                SparseArray<RegionObject> sparseArray3 = regionComposition.regionObjects;
+                SparseArray sparseArray3 = regionComposition.regionObjects;
                 int i7 = 0;
                 while (i7 < sparseArray3.size()) {
                     int keyAt = sparseArray3.keyAt(i7);
-                    RegionObject valueAt2 = sparseArray3.valueAt(i7);
-                    ObjectData objectData = this.subtitleService.objects.get(keyAt);
-                    ObjectData objectData2 = objectData == null ? this.subtitleService.ancillaryObjects.get(keyAt) : objectData;
-                    if (objectData2 != null) {
+                    RegionObject regionObject = (RegionObject) sparseArray3.valueAt(i7);
+                    ObjectData objectData2 = (ObjectData) this.subtitleService.objects.get(keyAt);
+                    if (objectData2 == null) {
+                        objectData = (ObjectData) this.subtitleService.ancillaryObjects.get(keyAt);
+                    } else {
+                        objectData = objectData2;
+                    }
+                    if (objectData != null) {
+                        if (objectData.nonModifyingColorFlag) {
+                            paint = null;
+                        } else {
+                            paint = this.defaultPaint;
+                        }
                         i3 = i7;
                         sparseArray = sparseArray3;
-                        paintPixelDataSubBlocks(objectData2, clutDefinition, regionComposition.depth, valueAt2.horizontalPosition + i5, i6 + valueAt2.verticalPosition, objectData2.nonModifyingColorFlag ? null : this.defaultPaint, this.canvas);
+                        paintPixelDataSubBlocks(objectData, clutDefinition, regionComposition.depth, regionObject.horizontalPosition + i5, i6 + regionObject.verticalPosition, paint, this.canvas);
                     } else {
                         i3 = i7;
                         sparseArray = sparseArray3;
@@ -1128,12 +1361,5 @@ public final class DvbParser {
             return arrayList;
         }
         return (List) invokeLI.objValue;
-    }
-
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.subtitleService.reset();
-        }
     }
 }

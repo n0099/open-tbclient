@@ -25,43 +25,6 @@ public final class VoiceRoomListActivity extends BaseFragmentActivity {
     public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public final void a(Context context, Frs$From from, Long l, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLLL(1048576, this, context, from, l, str) == null) {
-                Intrinsics.checkNotNullParameter(context, "context");
-                Intrinsics.checkNotNullParameter(from, "from");
-                Intent intent = new Intent(context, VoiceRoomListActivity.class);
-                intent.putExtra("extra_from", from);
-                intent.putExtra("extra_fid", l);
-                intent.putExtra("extra_forum_name", str);
-                context.startActivity(intent);
-            }
-        }
-    }
-
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -78,6 +41,50 @@ public final class VoiceRoomListActivity extends BaseFragmentActivity {
         a = new a(null);
     }
 
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public final void a(Context context, Frs$From from, Long l, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLLL(1048576, this, context, from, l, str) == null) {
+                Intrinsics.checkNotNullParameter(context, "context");
+                Intrinsics.checkNotNullParameter(from, "from");
+                Intent intent = new Intent(context, VoiceRoomListActivity.class);
+                intent.putExtra("extra_from", from);
+                intent.putExtra("extra_fid", l);
+                intent.putExtra("extra_forum_name", str);
+                context.startActivity(intent);
+            }
+        }
+    }
+
     public VoiceRoomListActivity() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -92,13 +99,6 @@ public final class VoiceRoomListActivity extends BaseFragmentActivity {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-        }
-    }
-
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
@@ -107,7 +107,7 @@ public final class VoiceRoomListActivity extends BaseFragmentActivity {
             setContentView(R.layout.obfuscated_res_0x7f0d005c);
             VoiceRoomListFragment voiceRoomListFragment = new VoiceRoomListFragment();
             voiceRoomListFragment.setArguments(getIntent().getExtras());
-            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f090acc, voiceRoomListFragment).commitAllowingStateLoss();
+            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f090ad6, voiceRoomListFragment).commitAllowingStateLoss();
         }
     }
 }

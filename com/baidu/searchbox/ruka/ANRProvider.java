@@ -1,8 +1,6 @@
 package com.baidu.searchbox.ruka;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.anr.impl.ANRMonitor_Factory;
 import com.baidu.searchbox.ruka.ioc.IANRMonitor;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -12,7 +10,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Autowired
 /* loaded from: classes2.dex */
 public class ANRProvider {
     public static /* synthetic */ Interceptable $ic;
@@ -35,20 +32,6 @@ public class ANRProvider {
         EMPTY = new IANRMonitor() { // from class: com.baidu.searchbox.ruka.ANRProvider.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
 
             @Override // com.baidu.searchbox.ruka.ioc.IANRMonitor
             public boolean enableMonitor() {
@@ -80,6 +63,20 @@ public class ANRProvider {
                 if (interceptable2 == null || interceptable2.invokeV(1048579, this) == null) {
                 }
             }
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
         };
     }
 
@@ -97,10 +94,12 @@ public class ANRProvider {
         }
     }
 
-    @Inject(force = false)
     public static IANRMonitor getANRMonitor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? ANRMonitor_Factory.get() : (IANRMonitor) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return ANRMonitor_Factory.get();
+        }
+        return (IANRMonitor) invokeV.objValue;
     }
 }

@@ -11,18 +11,18 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableHide<T> extends AbstractFlowableWithUpstream<T, T> {
+public final class FlowableHide extends AbstractFlowableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public static final class HideSubscriber<T> implements FlowableSubscriber<T>, Subscription {
+    public final class HideSubscriber implements FlowableSubscriber, Subscription {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber<? super T> actual;
+        public final Subscriber actual;
         public Subscription s;
 
-        public HideSubscriber(Subscriber<? super T> subscriber) {
+        public HideSubscriber(Subscriber subscriber) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -40,22 +40,6 @@ public final class FlowableHide<T> extends AbstractFlowableWithUpstream<T, T> {
             this.actual = subscriber;
         }
 
-        @Override // org.reactivestreams.Subscription
-        public void cancel() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.s.cancel();
-            }
-        }
-
-        @Override // org.reactivestreams.Subscriber
-        public void onComplete() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.actual.onComplete();
-            }
-        }
-
         @Override // org.reactivestreams.Subscriber
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
@@ -65,10 +49,10 @@ public final class FlowableHide<T> extends AbstractFlowableWithUpstream<T, T> {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
-                this.actual.onNext(t);
+            if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
+                this.actual.onNext(obj);
             }
         }
 
@@ -88,10 +72,26 @@ public final class FlowableHide<T> extends AbstractFlowableWithUpstream<T, T> {
                 this.s.request(j);
             }
         }
+
+        @Override // org.reactivestreams.Subscription
+        public void cancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.s.cancel();
+            }
+        }
+
+        @Override // org.reactivestreams.Subscriber
+        public void onComplete() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.actual.onComplete();
+            }
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableHide(Flowable<T> flowable) {
+    public FlowableHide(Flowable flowable) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -111,7 +111,7 @@ public final class FlowableHide<T> extends AbstractFlowableWithUpstream<T, T> {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber<? super T> subscriber) {
+    public void subscribeActual(Subscriber subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             this.source.subscribe((FlowableSubscriber) new HideSubscriber(subscriber));

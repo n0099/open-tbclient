@@ -18,52 +18,6 @@ public class g {
     public static boolean e;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
-    public static abstract class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final a a;
-        public static final a b;
-        public static final /* synthetic */ a[] c;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-2025298577, "Lcom/sdk/f/g$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-2025298577, "Lcom/sdk/f/g$a;");
-                    return;
-                }
-            }
-            a = new e("PRODUCE_STATISTICAL", 0);
-            f fVar = new f("PRODUCE_DZH", 1);
-            b = fVar;
-            c = new a[]{a, fVar};
-        }
-
-        public /* synthetic */ a(String str, int i, d dVar) {
-        }
-
-        public static a valueOf(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (a) Enum.valueOf(a.class, str) : (a) invokeL.objValue;
-        }
-
-        public static a[] values() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) c.clone() : (a[]) invokeV.objValue;
-        }
-
-        public abstract String a();
-    }
-
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -96,6 +50,52 @@ public class g {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
+        }
+    }
+
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    /* loaded from: classes8.dex */
+    public abstract class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final a a;
+        public static final a b;
+        public static final /* synthetic */ a[] c;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-2025298577, "Lcom/sdk/f/g$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-2025298577, "Lcom/sdk/f/g$a;");
+                    return;
+                }
+            }
+            a = new e("PRODUCE_STATISTICAL", 0);
+            f fVar = new f("PRODUCE_DZH", 1);
+            b = fVar;
+            c = new a[]{a, fVar};
+        }
+
+        public static a valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (a) Enum.valueOf(a.class, str) : (a) invokeL.objValue;
+        }
+
+        public static a[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) c.clone() : (a[]) invokeV.objValue;
+        }
+
+        public abstract String a();
+
+        public /* synthetic */ a(String str, int i, d dVar) {
         }
     }
 }

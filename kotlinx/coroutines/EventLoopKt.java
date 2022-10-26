@@ -8,7 +8,6 @@ public final class EventLoopKt {
         return new BlockingEventLoop(Thread.currentThread());
     }
 
-    @InternalCoroutinesApi
     public static final long processNextEventInCurrentThread() {
         EventLoop currentOrNull$kotlinx_coroutines_core = ThreadLocalEventLoop.INSTANCE.currentOrNull$kotlinx_coroutines_core();
         if (currentOrNull$kotlinx_coroutines_core != null) {

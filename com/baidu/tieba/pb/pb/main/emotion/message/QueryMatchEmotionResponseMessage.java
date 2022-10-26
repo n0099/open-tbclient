@@ -18,7 +18,7 @@ import org.json.JSONObject;
 public class QueryMatchEmotionResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<EmotionImageData> mData;
+    public List mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public QueryMatchEmotionResponseMessage(int i) {
@@ -40,30 +40,30 @@ public class QueryMatchEmotionResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    private List<EmotionImageData> parseImageData(JSONArray jSONArray) {
+    private List parseImageData(JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, jSONArray)) == null) {
-            if (jSONArray == null || jSONArray.length() == 0) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList();
-            int min = Math.min(jSONArray.length(), 10);
-            for (int i = 0; i < min; i++) {
-                try {
-                    JSONObject jSONObject = jSONArray.getJSONObject(i);
-                    EmotionImageData emotionImageData = new EmotionImageData();
-                    emotionImageData.setPicId(jSONObject.optString(EmotionDetailActivityConfig.EMOTION_PIC_ID_KEY));
-                    emotionImageData.setPicUrl(jSONObject.optString("pic_url"));
-                    emotionImageData.setThumbUrl(jSONObject.optString("thumbnail"));
-                    emotionImageData.setWidth(jSONObject.optInt("width"));
-                    emotionImageData.setHeight(jSONObject.optInt("height"));
-                    arrayList.add(emotionImageData);
-                } catch (JSONException e) {
-                    e.printStackTrace();
+            if (jSONArray != null && jSONArray.length() != 0) {
+                ArrayList arrayList = new ArrayList();
+                int min = Math.min(jSONArray.length(), 10);
+                for (int i = 0; i < min; i++) {
+                    try {
+                        JSONObject jSONObject = jSONArray.getJSONObject(i);
+                        EmotionImageData emotionImageData = new EmotionImageData();
+                        emotionImageData.setPicId(jSONObject.optString(EmotionDetailActivityConfig.EMOTION_PIC_ID_KEY));
+                        emotionImageData.setPicUrl(jSONObject.optString("pic_url"));
+                        emotionImageData.setThumbUrl(jSONObject.optString("thumbnail"));
+                        emotionImageData.setWidth(jSONObject.optInt("width"));
+                        emotionImageData.setHeight(jSONObject.optInt("height"));
+                        arrayList.add(emotionImageData);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                 }
+                return arrayList;
             }
-            return arrayList;
+            return null;
         }
         return (List) invokeL.objValue;
     }
@@ -75,16 +75,18 @@ public class QueryMatchEmotionResponseMessage extends JsonHttpResponsedMessage {
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
             int statusCode = getStatusCode();
             int error = getError();
-            if (statusCode != 200 || error != 0 || jSONObject == null || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
-                return;
+            if (statusCode == 200 && error == 0 && jSONObject != null && jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
+                this.mData = parseImageData(optJSONObject.optJSONArray("memes"));
             }
-            this.mData = parseImageData(optJSONObject.optJSONArray("memes"));
         }
     }
 
-    public List<EmotionImageData> getData() {
+    public List getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mData;
+        }
+        return (List) invokeV.objValue;
     }
 }

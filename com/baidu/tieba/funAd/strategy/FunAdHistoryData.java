@@ -2,7 +2,7 @@ package com.baidu.tieba.funAd.strategy;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.or4;
+import com.baidu.tieba.qr4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +12,7 @@ import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class FunAdHistoryData extends or4 implements Serializable {
+public class FunAdHistoryData extends qr4 implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String mFunAdKey;
@@ -35,19 +35,41 @@ public class FunAdHistoryData extends or4 implements Serializable {
     public String getFunAdKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mFunAdKey : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mFunAdKey;
+        }
+        return (String) invokeV.objValue;
     }
 
     public long getShowTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mShowTime : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mShowTime;
+        }
+        return invokeV.longValue;
     }
 
-    @Override // com.baidu.tieba.or4
+    public JSONObject toJson() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("show_time", this.mShowTime);
+                jSONObject.put("fun_ad_key", this.mFunAdKey);
+            } catch (JSONException e) {
+                BdLog.detailException(e);
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.qr4
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         try {
@@ -70,21 +92,5 @@ public class FunAdHistoryData extends or4 implements Serializable {
         if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
             this.mShowTime = j;
         }
-    }
-
-    public JSONObject toJson() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("show_time", this.mShowTime);
-                jSONObject.put("fun_ad_key", this.mFunAdKey);
-            } catch (JSONException e) {
-                BdLog.detailException(e);
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
     }
 }

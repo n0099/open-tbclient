@@ -1,120 +1,69 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.frs.recommend.FrsLikeRecommendHolder;
+import com.baidu.tbadk.util.PriorityOrganizer;
+import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ThemeColorInfo;
 /* loaded from: classes6.dex */
-public class zq6 extends qn<yl8, FrsLikeRecommendHolder> {
+public class zq6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ThemeColorInfo a;
+    public PriorityOrganizer a;
+    public tq6 b;
+    public uq6 c;
+    public wq6 d;
+    public xq6 e;
+    public vq6 f;
+    public ar6 g;
+    public br6 h;
+    public yq6 i;
 
-    /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yl8 a;
-        public final /* synthetic */ ViewGroup b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ zq6 d;
-
-        public a(zq6 zq6Var, yl8 yl8Var, ViewGroup viewGroup, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zq6Var, yl8Var, viewGroup, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = zq6Var;
-            this.a = yl8Var;
-            this.b = viewGroup;
-            this.c = i;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.d.getOnAdapterItemClickListener() == null) {
-                return;
-            }
-            this.d.getOnAdapterItemClickListener().b(view2, this.a, yl8.e, this.b, this.c, view2.getId());
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zq6(@NonNull Context context) {
-        super(context, yl8.e);
+    public zq6(FrsActivity frsActivity, FrsFragment frsFragment) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {frsActivity, frsFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = PriorityOrganizer.n();
+        this.b = new tq6(frsActivity, frsFragment);
+        this.c = new uq6(frsActivity, frsFragment);
+        this.d = new wq6(frsActivity, frsFragment);
+        this.e = new xq6(frsActivity, frsFragment);
+        this.f = new vq6(frsActivity, frsFragment);
+        this.g = new ar6(frsActivity, frsFragment);
+        this.h = new br6(frsActivity, frsFragment);
+        yq6 yq6Var = new yq6(frsActivity, frsFragment);
+        this.i = yq6Var;
+        PriorityOrganizer.s(this.b, this.c, this.d, this.e, this.f, this.g, this.h, yq6Var);
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.qn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, yl8 yl8Var, FrsLikeRecommendHolder frsLikeRecommendHolder) {
-        t(i, view2, viewGroup, yl8Var, frsLikeRecommendHolder);
-        return view2;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: s */
-    public FrsLikeRecommendHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public void a(boolean z) {
+        xq6 xq6Var;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new FrsLikeRecommendHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0331, viewGroup, false), this.a) : (FrsLikeRecommendHolder) invokeL.objValue;
-    }
-
-    public View t(int i, View view2, ViewGroup viewGroup, yl8 yl8Var, FrsLikeRecommendHolder frsLikeRecommendHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, yl8Var, frsLikeRecommendHolder})) == null) {
-            if (yl8Var != null && frsLikeRecommendHolder != null) {
-                frsLikeRecommendHolder.a(yl8Var);
-                frsLikeRecommendHolder.c(new a(this, yl8Var, viewGroup, i));
-                frsLikeRecommendHolder.b();
-            }
-            return view2;
+        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && (xq6Var = this.e) != null) {
+            xq6Var.F(z);
         }
-        return (View) invokeCommon.objValue;
     }
 
-    public void u(ThemeColorInfo themeColorInfo) {
+    public void b() {
+        tq6 tq6Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, themeColorInfo) == null) {
-            this.a = themeColorInfo;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (tq6Var = this.b) != null && !tq6Var.v(true)) {
+            this.b.E(true);
+            this.a.v(this.b);
         }
     }
 }

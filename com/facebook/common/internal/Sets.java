@@ -6,7 +6,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.infer.annotation.Nullsafe;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
@@ -16,7 +15,6 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
-@Nullsafe(Nullsafe.Mode.STRICT)
 /* loaded from: classes7.dex */
 public final class Sets {
     public static /* synthetic */ Interceptable $ic;
@@ -36,68 +34,92 @@ public final class Sets {
         }
     }
 
-    public static <E> CopyOnWriteArraySet<E> newCopyOnWriteArraySet() {
+    public static CopyOnWriteArraySet newCopyOnWriteArraySet() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new CopyOnWriteArraySet<>() : (CopyOnWriteArraySet) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new CopyOnWriteArraySet();
+        }
+        return (CopyOnWriteArraySet) invokeV.objValue;
     }
 
-    public static <E> HashSet<E> newHashSet() {
+    public static HashSet newHashSet() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new HashSet<>() : (HashSet) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new HashSet();
+        }
+        return (HashSet) invokeV.objValue;
     }
 
-    public static <E> HashSet<E> newHashSetWithCapacity(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) ? new HashSet<>(i) : (HashSet) invokeI.objValue;
-    }
-
-    public static <E> Set<E> newIdentityHashSet() {
+    public static Set newIdentityHashSet() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? newSetFromMap(new IdentityHashMap()) : (Set) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return newSetFromMap(new IdentityHashMap());
+        }
+        return (Set) invokeV.objValue;
     }
 
-    public static <E> LinkedHashSet<E> newLinkedHashSet() {
+    public static LinkedHashSet newLinkedHashSet() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? new LinkedHashSet<>() : (LinkedHashSet) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return new LinkedHashSet();
+        }
+        return (LinkedHashSet) invokeV.objValue;
     }
 
-    public static <E> Set<E> newSetFromMap(Map<E, Boolean> map) {
+    public static HashSet newHashSet(Iterable iterable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, map)) == null) ? Collections.newSetFromMap(map) : (Set) invokeL.objValue;
-    }
-
-    public static <E> HashSet<E> newHashSet(E... eArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, eArr)) == null) {
-            HashSet<E> newHashSetWithCapacity = newHashSetWithCapacity(eArr.length);
-            Collections.addAll(newHashSetWithCapacity, eArr);
-            return newHashSetWithCapacity;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, iterable)) == null) {
+            if (iterable instanceof Collection) {
+                return new HashSet((Collection) iterable);
+            }
+            return newHashSet(iterable.iterator());
         }
         return (HashSet) invokeL.objValue;
     }
 
-    public static <E> HashSet<E> newHashSet(Iterable<? extends E> iterable) {
-        InterceptResult invokeL;
+    public static HashSet newHashSetWithCapacity(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, iterable)) == null) ? iterable instanceof Collection ? new HashSet<>((Collection) iterable) : newHashSet(iterable.iterator()) : (HashSet) invokeL.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) {
+            return new HashSet(i);
+        }
+        return (HashSet) invokeI.objValue;
     }
 
-    public static <E> HashSet<E> newHashSet(Iterator<? extends E> it) {
+    public static Set newSetFromMap(Map map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, map)) == null) {
+            return Collections.newSetFromMap(map);
+        }
+        return (Set) invokeL.objValue;
+    }
+
+    public static HashSet newHashSet(Iterator it) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, it)) == null) {
-            HashSet<E> newHashSet = newHashSet();
+            HashSet newHashSet = newHashSet();
             while (it.hasNext()) {
                 newHashSet.add(it.next());
             }
             return newHashSet;
+        }
+        return (HashSet) invokeL.objValue;
+    }
+
+    public static HashSet newHashSet(Object... objArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, objArr)) == null) {
+            HashSet newHashSetWithCapacity = newHashSetWithCapacity(objArr.length);
+            Collections.addAll(newHashSetWithCapacity, objArr);
+            return newHashSetWithCapacity;
         }
         return (HashSet) invokeL.objValue;
     }

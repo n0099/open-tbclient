@@ -177,7 +177,7 @@ public final class d extends com.kwad.components.ad.reward.presenter.a implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
             if (view2 == this.sO || view2 == this.sN) {
-                com.kwad.components.core.c.a.a.a(new a.C0570a(view2.getContext()).L(this.nM.mAdTemplate).b(this.nM.mApkDownloadHelper).aj(false).ae(2).a(new a.b(this) { // from class: com.kwad.components.ad.reward.presenter.a.a.d.2
+                com.kwad.components.core.c.a.a.a(new a.C0566a(view2.getContext()).L(this.nM.mAdTemplate).b(this.nM.mApkDownloadHelper).aj(false).ae(2).a(new a.b(this) { // from class: com.kwad.components.ad.reward.presenter.a.a.d.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ d sS;
@@ -217,10 +217,10 @@ public final class d extends com.kwad.components.ad.reward.presenter.a implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onCreate();
-            this.sN = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0910ad);
-            this.sO = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910ac);
-            this.sP = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091096);
-            this.sQ = (TextView) findViewById(R.id.obfuscated_res_0x7f091168);
+            this.sN = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0910a1);
+            this.sO = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910a0);
+            this.sP = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09108a);
+            this.sQ = (TextView) findViewById(R.id.obfuscated_res_0x7f09115c);
         }
     }
 

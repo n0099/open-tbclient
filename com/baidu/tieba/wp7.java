@@ -1,118 +1,94 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.baseEditMark.MarkData;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.os.SystemClock;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class wp7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public long b;
+    public long c;
+    public boolean d;
 
-    public static void a(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65536, null, str) == null) || StringUtils.isNull(str)) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948278347, "Lcom/baidu/tieba/wp7;")) == null) {
             return;
         }
-        StatisticItem statisticItem = new StatisticItem(str);
-        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-        TiebaStatic.log(statisticItem);
-    }
-
-    public static void b(String str, Object obj) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, str, obj) == null) && (obj instanceof MarkData)) {
-            MarkData markData = (MarkData) obj;
-            if (StringUtils.isNull(str)) {
-                return;
-            }
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("tid", markData.getId());
-            statisticItem.param("fname", markData.getForumName());
-            char c = 65535;
-            switch (str.hashCode()) {
-                case -1413831834:
-                    if (str.equals("c14062")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-                case -1413831833:
-                    if (str.equals("c14063")) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case -1413831832:
-                    if (str.equals("c14064")) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case -1413831831:
-                    if (str.equals("c14065")) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-                case -1413831828:
-                    if (str.equals("c14068")) {
-                        c = 5;
-                        break;
-                    }
-                    break;
-                case -1413831827:
-                    if (str.equals("c14069")) {
-                        c = 4;
-                        break;
-                    }
-                    break;
-            }
-            if (c == 0) {
-                d(markData, statisticItem);
-            } else if (c == 1) {
-                d(markData, statisticItem);
-                statisticItem.param("obj_id", markData.getUesrId());
-            } else if (c == 2 || c == 3) {
-                statisticItem.param("obj_id", markData.getUesrId());
-            } else if (c == 4) {
-                d(markData, statisticItem);
-                statisticItem.param("obj_source", "1");
-            }
-            TiebaStatic.log(statisticItem);
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948278347, "Lcom/baidu/tieba/wp7;");
         }
     }
 
-    public static void c(String str, boolean z, MarkData markData) {
+    public wp7() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, Boolean.valueOf(z), markData}) == null) || markData == null || StringUtils.isNull(str)) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
-        StatisticItem statisticItem = new StatisticItem(str);
-        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-        statisticItem.param("tid", markData.getId());
-        statisticItem.param("fname", markData.getForumName());
-        if (z) {
-            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, "1");
-        } else {
-            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, "2");
-        }
-        TiebaStatic.log(statisticItem);
     }
 
-    public static void d(MarkData markData, StatisticItem statisticItem) {
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, markData, statisticItem) == null) {
-            if (markData.is_deleted()) {
-                statisticItem.param("obj_param1", "3");
-            } else if (markData.isRedTipShow() && !StringUtils.isNull(markData.getmState()) && markData.getNewCounts() > 0) {
-                statisticItem.param("obj_param1", "1");
-            } else {
-                statisticItem.param("obj_param1", "2");
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = 0L;
+            this.b = 0L;
+            this.c = 0L;
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.c = SystemClock.elapsedRealtime();
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b = SystemClock.elapsedRealtime();
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.d = true;
+            this.a = SystemClock.elapsedRealtime();
+        }
+    }
+
+    public void d(wa8 wa8Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, wa8Var) == null) && this.d) {
+            this.d = false;
+            long elapsedRealtime = SystemClock.elapsedRealtime();
+            long j = this.b - this.a;
+            long j2 = elapsedRealtime - this.c;
+            long j3 = j2 + j;
+            if ((BdNetTypeUtil.netType() == 2 || j <= 17500) && wa8Var != null) {
+                wa8Var.a(j, j2, j3);
             }
         }
     }

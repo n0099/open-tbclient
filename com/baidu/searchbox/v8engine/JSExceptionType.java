@@ -63,12 +63,18 @@ public final class JSExceptionType {
     public static JSExceptionType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (JSExceptionType) Enum.valueOf(JSExceptionType.class, str) : (JSExceptionType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (JSExceptionType) Enum.valueOf(JSExceptionType.class, str);
+        }
+        return (JSExceptionType) invokeL.objValue;
     }
 
     public static JSExceptionType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (JSExceptionType[]) $VALUES.clone() : (JSExceptionType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (JSExceptionType[]) $VALUES.clone();
+        }
+        return (JSExceptionType[]) invokeV.objValue;
     }
 }

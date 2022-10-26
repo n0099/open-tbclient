@@ -1,6 +1,5 @@
 package com.baidu.android.util.soloader;
 
-import android.annotation.SuppressLint;
 import android.os.Build;
 import android.os.Process;
 import android.text.TextUtils;
@@ -32,7 +31,12 @@ public final class SoUtils implements NoProGuard {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
-    public static final class SOLOG {
+    public interface SoUbcLoggable {
+        void onEvent(String str, String str2);
+    }
+
+    /* loaded from: classes.dex */
+    public final class SOLOG {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String SO_LOAD_LIBRARY = "SO_LOAD_LIBRARY";
         public static final String SO_LOAD_TAG = "SO_LOAD_TAG";
@@ -54,11 +58,6 @@ public final class SoUtils implements NoProGuard {
                 }
             }
         }
-    }
-
-    /* loaded from: classes.dex */
-    public interface SoUbcLoggable {
-        void onEvent(String str, String str2);
     }
 
     static {
@@ -89,6 +88,39 @@ public final class SoUtils implements NoProGuard {
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
+    }
+
+    @Deprecated
+    public static boolean hasGingerbread() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (Build.VERSION.SDK_INT >= 9) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean is64Bit() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 23) {
+                return Process.is64Bit();
+            }
+            if (i < 21) {
+                return false;
+            }
+            String[] strArr = Build.SUPPORTED_64_BIT_ABIS;
+            if (strArr.length <= 0) {
+                return false;
+            }
+            return Build.CPU_ABI.equals(strArr[0]);
+        }
+        return invokeV.booleanValue;
     }
 
     public static long copyStream(InputStream inputStream, OutputStream outputStream, int i) {
@@ -123,15 +155,15 @@ public final class SoUtils implements NoProGuard {
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (str.startsWith("lib")) {
-                str2 = str;
-            } else {
+            if (!str.startsWith("lib")) {
                 str2 = "lib" + str;
+            } else {
+                str2 = str;
             }
-            if (str.endsWith(".so")) {
-                return str2;
+            if (!str.endsWith(".so")) {
+                return str2 + ".so";
             }
-            return str2 + ".so";
+            return str2;
         }
         return (String) invokeL.objValue;
     }
@@ -140,7 +172,13 @@ public final class SoUtils implements NoProGuard {
         InterceptResult invokeL;
         String[] split;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? (!TextUtils.isEmpty(str) && str.startsWith("lib") && str.endsWith(".so") && (split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX)) != null && split.length == 2) ? split[0].substring(3) : str : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (!TextUtils.isEmpty(str) && str.startsWith("lib") && str.endsWith(".so") && (split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX)) != null && split.length == 2) {
+                return split[0].substring(3);
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
     }
 
     public static String getUriName(String str, int i) {
@@ -152,12 +190,12 @@ public final class SoUtils implements NoProGuard {
         return (String) invokeLI.objValue;
     }
 
-    @SuppressLint({"ObsoleteSdkInt"})
-    @Deprecated
-    public static boolean hasGingerbread() {
-        InterceptResult invokeV;
+    public static void onEvent(String str, String str2) {
+        SoUbcLoggable soUbcLoggable;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? Build.VERSION.SDK_INT >= 9 : invokeV.booleanValue;
+        if ((interceptable == null || interceptable.invokeLL(65545, null, str, str2) == null) && (soUbcLoggable = sUbcImpl) != null) {
+            soUbcLoggable.onEvent(str, str2);
+        }
     }
 
     public static void init(SoUbcLoggable soUbcLoggable) {
@@ -167,48 +205,17 @@ public final class SoUtils implements NoProGuard {
         }
     }
 
-    public static boolean is64Bit() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            int i = Build.VERSION.SDK_INT;
-            if (i >= 23) {
-                return Process.is64Bit();
-            }
-            if (i >= 21) {
-                String[] strArr = Build.SUPPORTED_64_BIT_ABIS;
-                if (strArr.length > 0) {
-                    return Build.CPU_ABI.equals(strArr[0]);
-                }
-                return false;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void onEvent(String str, String str2) {
-        SoUbcLoggable soUbcLoggable;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65545, null, str, str2) == null) || (soUbcLoggable = sUbcImpl) == null) {
-            return;
-        }
-        soUbcLoggable.onEvent(str, str2);
-    }
-
-    public static void saveLog(HashMap<String, String> hashMap, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65546, null, hashMap, str, str2) == null) || TextUtils.isEmpty(str2)) {
-            return;
-        }
-        hashMap.put(str, str2);
-    }
-
     public static void sendLog(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65547, null, str) == null) || TextUtils.isEmpty(str)) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(65547, null, str) == null) && !TextUtils.isEmpty(str)) {
+            onEvent("24", str);
         }
-        onEvent("24", str);
+    }
+
+    public static void saveLog(HashMap hashMap, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(65546, null, hashMap, str, str2) == null) && !TextUtils.isEmpty(str2)) {
+            hashMap.put(str, str2);
+        }
     }
 }

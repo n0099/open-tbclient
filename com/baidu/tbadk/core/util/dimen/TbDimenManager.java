@@ -57,6 +57,37 @@ public class TbDimenManager {
         return (TbDimenManager) invokeV.objValue;
     }
 
+    public float getDefaultDensity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mDefaultDensity;
+        }
+        return invokeV.floatValue;
+    }
+
+    public int getDefaultDensityDpi() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mDefaultDensityDpi;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean needAdapt() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            float f = this.mDefaultDensity;
+            if (f > 2.5d && f < 3.0f) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     public static DisplayMetrics getMetrics(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -69,6 +100,29 @@ public class TbDimenManager {
         return (DisplayMetrics) invokeL.objValue;
     }
 
+    public void adaptThisDimen(DisplayMetrics displayMetrics) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, displayMetrics) == null) {
+            setDensity(displayMetrics, 3.0f, 480);
+        }
+    }
+
+    public boolean needAdapt(DisplayMetrics displayMetrics) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, displayMetrics)) == null) {
+            if (displayMetrics == null) {
+                return false;
+            }
+            float f = displayMetrics.density;
+            if (f <= 2.5d || f >= 3.0f) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
     public static DisplayMetrics getMetricsOnMiui(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -77,24 +131,57 @@ public class TbDimenManager {
                 return null;
             }
             Resources resources = context.getResources();
-            if ("MiuiResources".equals(resources.getClass().getSimpleName()) || "XResources".equals(resources.getClass().getSimpleName())) {
-                try {
-                    Field declaredField = Resources.class.getDeclaredField("mTmpMetrics");
-                    declaredField.setAccessible(true);
-                    return (DisplayMetrics) declaredField.get(resources);
-                } catch (Exception unused) {
-                    return null;
-                }
+            if (!"MiuiResources".equals(resources.getClass().getSimpleName()) && !"XResources".equals(resources.getClass().getSimpleName())) {
+                return null;
             }
-            return null;
+            try {
+                Field declaredField = Resources.class.getDeclaredField("mTmpMetrics");
+                declaredField.setAccessible(true);
+                return (DisplayMetrics) declaredField.get(resources);
+            } catch (Exception unused) {
+                return null;
+            }
         }
         return (DisplayMetrics) invokeL.objValue;
+    }
+
+    public void init(Application application) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, application) == null) {
+            this.mApplication = application;
+            Display defaultDisplay = ((WindowManager) application.getSystemService("window")).getDefaultDisplay();
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            defaultDisplay.getMetrics(displayMetrics);
+            float f = displayMetrics.density;
+            this.mDefaultDensity = f;
+            this.mDefaultDensityDpi = displayMetrics.densityDpi;
+            if (f > 2.5d && f < 3.0f) {
+                adaptDimen(null);
+                TbDimenAdaptActivityLifecycle tbDimenAdaptActivityLifecycle = new TbDimenAdaptActivityLifecycle(displayMetrics);
+                this.adaptActivityLifecycle = tbDimenAdaptActivityLifecycle;
+                this.mApplication.registerActivityLifecycleCallbacks(tbDimenAdaptActivityLifecycle);
+            }
+        }
     }
 
     private void setDensity(DisplayMetrics displayMetrics, float f, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{displayMetrics, Float.valueOf(f), Integer.valueOf(i)}) == null) {
             TbDimenUtil.setDensity(displayMetrics, f, i);
+        }
+    }
+
+    public void adaptDimen(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            DisplayMetrics metrics = getMetrics(context);
+            DisplayMetrics metrics2 = getMetrics(this.mApplication);
+            setDensity(metrics, 3.0f, 480);
+            setDensity(metrics2, 3.0f, 480);
+            DisplayMetrics metricsOnMiui = getMetricsOnMiui(context);
+            DisplayMetrics metricsOnMiui2 = getMetricsOnMiui(this.mApplication);
+            setDensity(metricsOnMiui, 3.0f, 480);
+            setDensity(metricsOnMiui2, 3.0f, 480);
         }
     }
 
@@ -109,82 +196,6 @@ public class TbDimenManager {
             DisplayMetrics metricsOnMiui2 = getMetricsOnMiui(this.mApplication);
             setDensity(metricsOnMiui, f, i);
             setDensity(metricsOnMiui2, f, i);
-        }
-    }
-
-    public void adaptThisDimen(DisplayMetrics displayMetrics) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, displayMetrics) == null) {
-            setDensity(displayMetrics, 3.0f, 480);
-        }
-    }
-
-    public float getDefaultDensity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mDefaultDensity : invokeV.floatValue;
-    }
-
-    public int getDefaultDensityDpi() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mDefaultDensityDpi : invokeV.intValue;
-    }
-
-    public void init(Application application) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, application) == null) {
-            this.mApplication = application;
-            Display defaultDisplay = ((WindowManager) application.getSystemService("window")).getDefaultDisplay();
-            DisplayMetrics displayMetrics = new DisplayMetrics();
-            defaultDisplay.getMetrics(displayMetrics);
-            float f = displayMetrics.density;
-            this.mDefaultDensity = f;
-            this.mDefaultDensityDpi = displayMetrics.densityDpi;
-            if (f <= 2.5d || f >= 3.0f) {
-                return;
-            }
-            adaptDimen(null);
-            TbDimenAdaptActivityLifecycle tbDimenAdaptActivityLifecycle = new TbDimenAdaptActivityLifecycle(displayMetrics);
-            this.adaptActivityLifecycle = tbDimenAdaptActivityLifecycle;
-            this.mApplication.registerActivityLifecycleCallbacks(tbDimenAdaptActivityLifecycle);
-        }
-    }
-
-    public boolean needAdapt() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            float f = this.mDefaultDensity;
-            return ((double) f) > 2.5d && f < 3.0f;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean needAdapt(DisplayMetrics displayMetrics) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, displayMetrics)) == null) {
-            if (displayMetrics == null) {
-                return false;
-            }
-            float f = displayMetrics.density;
-            return ((double) f) > 2.5d && f < 3.0f;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void adaptDimen(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            DisplayMetrics metrics = getMetrics(context);
-            DisplayMetrics metrics2 = getMetrics(this.mApplication);
-            setDensity(metrics, 3.0f, 480);
-            setDensity(metrics2, 3.0f, 480);
-            DisplayMetrics metricsOnMiui = getMetricsOnMiui(context);
-            DisplayMetrics metricsOnMiui2 = getMetricsOnMiui(this.mApplication);
-            setDensity(metricsOnMiui, 3.0f, 480);
-            setDensity(metricsOnMiui2, 3.0f, 480);
         }
     }
 }

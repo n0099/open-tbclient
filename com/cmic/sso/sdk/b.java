@@ -11,7 +11,7 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static final class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic = null;
         public static String a = "aes_key";
         public static String b = "aes_iv";

@@ -27,19 +27,19 @@ public class SubSampleInformationBox extends AbstractFullBox {
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_1 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_2 = null;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<SampleEntry> entries;
+    public List entries;
     public long entryCount;
 
     /* loaded from: classes7.dex */
-    public static class SampleEntry {
+    public class SampleEntry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long sampleDelta;
         public int subsampleCount;
-        public List<SubsampleEntry> subsampleEntries;
+        public List subsampleEntries;
 
         /* loaded from: classes7.dex */
-        public static class SubsampleEntry {
+        public class SubsampleEntry {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int discardable;
@@ -64,25 +64,37 @@ public class SubSampleInformationBox extends AbstractFullBox {
             public int getDiscardable() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.discardable : invokeV.intValue;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                    return this.discardable;
+                }
+                return invokeV.intValue;
             }
 
             public long getReserved() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.reserved : invokeV.longValue;
+                if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                    return this.reserved;
+                }
+                return invokeV.longValue;
             }
 
             public int getSubsamplePriority() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.subsamplePriority : invokeV.intValue;
+                if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                    return this.subsamplePriority;
+                }
+                return invokeV.intValue;
             }
 
             public long getSubsampleSize() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.subsampleSize : invokeV.longValue;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                    return this.subsampleSize;
+                }
+                return invokeV.longValue;
             }
 
             public void setDiscardable(int i) {
@@ -139,30 +151,39 @@ public class SubSampleInformationBox extends AbstractFullBox {
             this.subsampleEntries = new ArrayList();
         }
 
+        public long getSampleDelta() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.sampleDelta;
+            }
+            return invokeV.longValue;
+        }
+
+        public int getSubsampleCount() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.subsampleCount;
+            }
+            return invokeV.intValue;
+        }
+
+        public List getSubsampleEntries() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.subsampleEntries;
+            }
+            return (List) invokeV.objValue;
+        }
+
         public void addSubsampleEntry(SubsampleEntry subsampleEntry) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, subsampleEntry) == null) {
                 this.subsampleEntries.add(subsampleEntry);
                 this.subsampleCount++;
             }
-        }
-
-        public long getSampleDelta() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.sampleDelta : invokeV.longValue;
-        }
-
-        public int getSubsampleCount() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.subsampleCount : invokeV.intValue;
-        }
-
-        public List<SubsampleEntry> getSubsampleEntries() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.subsampleEntries : (List) invokeV.objValue;
         }
 
         public void setSampleDelta(long j) {
@@ -205,6 +226,16 @@ public class SubSampleInformationBox extends AbstractFullBox {
         ajc$preClinit();
     }
 
+    public List getEntries() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
+            return this.entries;
+        }
+        return (List) invokeV.objValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SubSampleInformationBox() {
         super(TYPE);
@@ -224,6 +255,38 @@ public class SubSampleInformationBox extends AbstractFullBox {
         this.entries = new ArrayList();
     }
 
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public long getContentSize() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            long j = (this.entryCount * 6) + 8;
+            int i2 = 0;
+            for (SampleEntry sampleEntry : this.entries) {
+                int subsampleCount = sampleEntry.getSubsampleCount();
+                if (getVersion() == 1) {
+                    i = 4;
+                } else {
+                    i = 2;
+                }
+                i2 += subsampleCount * (i + 1 + 1 + 4);
+            }
+            return j + i2;
+        }
+        return invokeV.longValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
+            return "SubSampleInformationBox{entryCount=" + this.entryCount + ", entries=" + this.entries + '}';
+        }
+        return (String) invokeV.objValue;
+    }
+
     public static /* synthetic */ void ajc$preClinit() {
         Factory factory = new Factory("SubSampleInformationBox.java", SubSampleInformationBox.class);
         ajc$tjp_0 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getEntries", "com.coremedia.iso.boxes.SubSampleInformationBox", "", "", "", "java.util.List"), 51);
@@ -233,6 +296,7 @@ public class SubSampleInformationBox extends AbstractFullBox {
 
     @Override // com.googlecode.mp4parser.AbstractBox
     public void _parseDetails(ByteBuffer byteBuffer) {
+        long readUInt16;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, byteBuffer) == null) {
             parseVersionAndFlags(byteBuffer);
@@ -240,10 +304,15 @@ public class SubSampleInformationBox extends AbstractFullBox {
             for (int i = 0; i < this.entryCount; i++) {
                 SampleEntry sampleEntry = new SampleEntry();
                 sampleEntry.setSampleDelta(IsoTypeReader.readUInt32(byteBuffer));
-                int readUInt16 = IsoTypeReader.readUInt16(byteBuffer);
-                for (int i2 = 0; i2 < readUInt16; i2++) {
+                int readUInt162 = IsoTypeReader.readUInt16(byteBuffer);
+                for (int i2 = 0; i2 < readUInt162; i2++) {
                     SampleEntry.SubsampleEntry subsampleEntry = new SampleEntry.SubsampleEntry();
-                    subsampleEntry.setSubsampleSize(getVersion() == 1 ? IsoTypeReader.readUInt32(byteBuffer) : IsoTypeReader.readUInt16(byteBuffer));
+                    if (getVersion() == 1) {
+                        readUInt16 = IsoTypeReader.readUInt32(byteBuffer);
+                    } else {
+                        readUInt16 = IsoTypeReader.readUInt16(byteBuffer);
+                    }
+                    subsampleEntry.setSubsampleSize(readUInt16);
                     subsampleEntry.setSubsamplePriority(IsoTypeReader.readUInt8(byteBuffer));
                     subsampleEntry.setDiscardable(IsoTypeReader.readUInt8(byteBuffer));
                     subsampleEntry.setReserved(IsoTypeReader.readUInt32(byteBuffer));
@@ -277,47 +346,12 @@ public class SubSampleInformationBox extends AbstractFullBox {
         }
     }
 
-    @Override // com.googlecode.mp4parser.AbstractBox
-    public long getContentSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            long j = (this.entryCount * 6) + 8;
-            int i = 0;
-            for (SampleEntry sampleEntry : this.entries) {
-                i += sampleEntry.getSubsampleCount() * ((getVersion() == 1 ? 4 : 2) + 1 + 1 + 4);
-            }
-            return j + i;
-        }
-        return invokeV.longValue;
-    }
-
-    public List<SampleEntry> getEntries() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
-            return this.entries;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public void setEntries(List<SampleEntry> list) {
+    public void setEntries(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, list));
             this.entries = list;
             this.entryCount = list.size();
         }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
-            return "SubSampleInformationBox{entryCount=" + this.entryCount + ", entries=" + this.entries + '}';
-        }
-        return (String) invokeV.objValue;
     }
 }

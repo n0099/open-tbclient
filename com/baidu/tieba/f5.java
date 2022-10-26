@@ -19,6 +19,32 @@ public abstract class f5 implements i7, p7.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.tieba.p7.c
+    public void a(p7 p7Var, JsonValue jsonValue) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, p7Var, jsonValue) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.i7
+    public void dispose() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
+    public void f(n1 n1Var, i5 i5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, n1Var, i5Var) == null) {
+        }
+    }
+
+    public void update() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -55,32 +81,6 @@ public abstract class f5 implements i7, p7.c {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.p7.c
-    public void a(p7 p7Var, JsonValue jsonValue) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, p7Var, jsonValue) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.i7
-    public void dispose() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
-
-    public void f(n1 n1Var, i5 i5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, n1Var, i5Var) == null) {
-        }
-    }
-
-    public void update() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
     }
 }

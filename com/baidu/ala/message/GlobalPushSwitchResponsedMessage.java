@@ -9,9 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class GlobalPushSwitchResponsedMessage extends JsonHttpResponsedMessage {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int SWITCH_OFF = 0;
-    public static final int SWITCH_ON = 1;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int push_switch;
 
@@ -41,15 +39,14 @@ public class GlobalPushSwitchResponsedMessage extends JsonHttpResponsedMessage {
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
             int statusCode = getStatusCode();
             int error = getError();
-            if (statusCode != 200 || error < 0 || jSONObject == null) {
-                return;
-            }
-            try {
-                if (TextUtils.isEmpty(jSONObject.optString("data"))) {
-                    return;
+            if (statusCode == 200 && error >= 0 && jSONObject != null) {
+                try {
+                    if (!TextUtils.isEmpty(jSONObject.optString("data"))) {
+                        this.push_switch = jSONObject.optJSONObject("data").optInt("push_switch");
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-                this.push_switch = jSONObject.optJSONObject("data").optInt("push_switch");
-            } catch (Exception unused) {
             }
         }
     }

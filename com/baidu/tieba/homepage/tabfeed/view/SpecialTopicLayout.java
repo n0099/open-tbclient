@@ -9,8 +9,6 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.adp.BdUniqueId;
@@ -31,13 +29,13 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout;
 import com.baidu.tbadk.widget.horizontalpullview.RefreshView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
 import com.baidu.tieba.homepage.tabfeed.data.SpecialColumnItemData;
 import com.baidu.tieba.homepage.tabfeed.data.SpecialColumnListData;
-import com.baidu.tieba.o37;
-import com.baidu.tieba.qp4;
-import com.baidu.tieba.wx;
+import com.baidu.tieba.rp4;
+import com.baidu.tieba.w37;
 import com.baidu.tieba.xx;
+import com.baidu.tieba.yx;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -46,10 +44,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class SpecialTopicLayout extends LinearLayout implements xx, wx<SpecialColumnListData> {
+public class SpecialTopicLayout extends LinearLayout implements yx, xx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
+    public TbPageContext a;
     public RefreshView b;
     public PullLeftRefreshLayout c;
     public RecyclerView d;
@@ -60,15 +58,21 @@ public class SpecialTopicLayout extends LinearLayout implements xx, wx<SpecialCo
     public View i;
     public String j;
     public int k;
-    public qp4<SpecialColumnItemData> l;
+    public rp4 l;
+
+    public void setPageUniqueId(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) {
+        }
+    }
 
     /* loaded from: classes4.dex */
-    public static class HorizontalAdapter extends RecyclerView.Adapter<a> {
+    public class HorizontalAdapter extends RecyclerView.Adapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public TbPageContext<?> a;
-        public ArrayList<SpecialColumnItemData> b;
-        public qp4<SpecialColumnItemData> c;
+        public TbPageContext a;
+        public ArrayList b;
+        public rp4 c;
 
         /* loaded from: classes4.dex */
         public class a extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -104,27 +108,27 @@ public class SpecialTopicLayout extends LinearLayout implements xx, wx<SpecialCo
                 }
                 this.i = horizontalAdapter;
                 this.a = 3;
-                this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09255c);
-                this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092138);
-                this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092382);
-                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09100f);
+                this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092546);
+                this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092137);
+                this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09236d);
+                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091003);
                 this.b = tbImageView;
                 tbImageView.setConrers(15);
-                this.b.setRadius(ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds10));
+                this.b.setRadius(fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds10));
                 this.b.setDrawCorner(true);
                 this.b.setPlaceHolder(2);
                 this.b.setGifIconSupport(false);
-                this.c = view2.findViewById(R.id.obfuscated_res_0x7f090ce7);
+                this.c = view2.findViewById(R.id.obfuscated_res_0x7f090cf4);
                 this.itemView.setOnClickListener(this);
             }
 
             public void a(SpecialColumnItemData specialColumnItemData) {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, specialColumnItemData) == null) || specialColumnItemData == null) {
+                if ((interceptable != null && interceptable.invokeL(1048576, this, specialColumnItemData) != null) || specialColumnItemData == null) {
                     return;
                 }
                 this.g = specialColumnItemData;
-                this.b.K(specialColumnItemData.image, 10, false);
+                this.b.L(specialColumnItemData.image, 10, false);
                 this.f.setText(specialColumnItemData.text);
                 this.d.setText(specialColumnItemData.title);
                 c(this.g);
@@ -132,20 +136,6 @@ public class SpecialTopicLayout extends LinearLayout implements xx, wx<SpecialCo
                     this.i.c.d(this.itemView, this.g, getAdapterPosition(), getItemId());
                 }
                 b(TbadkCoreApplication.getInst().getSkinType());
-            }
-
-            public final void b(int i) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                    if (this.a != i) {
-                        SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0105);
-                        SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0101);
-                        SkinManager.setBackgroundResourceSelector(this.itemView, R.color.CAM_X0205, R.color.CAM_X0204);
-                        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, this.h, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
-                        TBSelector.makeDrawableSelector().setShape(0).gradient(R.color.CAM_X0601, R.color.CAM_X0607).cornerRadius(ej.f(this.i.a.getPageActivity(), R.dimen.tbds10)).into(this.c);
-                    }
-                    this.a = i;
-                }
             }
 
             public final void c(SpecialColumnItemData specialColumnItemData) {
@@ -158,12 +148,26 @@ public class SpecialTopicLayout extends LinearLayout implements xx, wx<SpecialCo
                         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, this.h, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
                     } else if (specialColumnItemData != null && ((i = specialColumnItemData.specialType) == 3 || i == 4)) {
                         this.e.setVisibility(0);
-                        this.h = R.drawable.obfuscated_res_0x7f080605;
+                        this.h = R.drawable.obfuscated_res_0x7f080606;
                         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, this.h, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
                     } else {
                         this.e.setVisibility(8);
                         this.h = 0;
                     }
+                }
+            }
+
+            public final void b(int i) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+                    if (this.a != i) {
+                        SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0105);
+                        SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0101);
+                        SkinManager.setBackgroundResourceSelector(this.itemView, R.color.CAM_X0205, R.color.CAM_X0204);
+                        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, this.h, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+                        TBSelector.makeDrawableSelector().setShape(0).gradient(R.color.CAM_X0601, R.color.CAM_X0607).cornerRadius(fj.f(this.i.a.getPageActivity(), R.dimen.tbds10)).into(this.c);
+                    }
+                    this.a = i;
                 }
             }
 
@@ -180,7 +184,7 @@ public class SpecialTopicLayout extends LinearLayout implements xx, wx<SpecialCo
             }
         }
 
-        public HorizontalAdapter(TbPageContext<?> tbPageContext) {
+        public HorizontalAdapter(TbPageContext tbPageContext) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -195,14 +199,31 @@ public class SpecialTopicLayout extends LinearLayout implements xx, wx<SpecialCo
                     return;
                 }
             }
-            this.b = new ArrayList<>();
+            this.b = new ArrayList();
             this.a = tbPageContext;
+        }
+
+        public void h(rp4 rp4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, rp4Var) == null) {
+                this.c = rp4Var;
+            }
+        }
+
+        public void setData(List list) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048582, this, list) != null) || list == null) {
+                return;
+            }
+            this.b.clear();
+            this.b.addAll(list);
+            notifyDataSetChanged();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         /* renamed from: f */
-        public void onBindViewHolder(@NonNull a aVar, int i) {
+        public void onBindViewHolder(a aVar, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, aVar, i) == null) {
                 aVar.a((SpecialColumnItemData) ListUtils.getItem(this.b, i));
@@ -211,13 +232,12 @@ public class SpecialTopicLayout extends LinearLayout implements xx, wx<SpecialCo
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-        @NonNull
         /* renamed from: g */
-        public a onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        public a onCreateViewHolder(ViewGroup viewGroup, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i)) == null) {
-                View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07df, (ViewGroup) null);
+                View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07e0, (ViewGroup) null);
                 inflate.setLayoutParams(new RecyclerView.LayoutParams(-2, -2));
                 return new a(this, inflate);
             }
@@ -229,7 +249,7 @@ public class SpecialTopicLayout extends LinearLayout implements xx, wx<SpecialCo
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                ArrayList<SpecialColumnItemData> arrayList = this.b;
+                ArrayList arrayList = this.b;
                 if (arrayList == null) {
                     return 0;
                 }
@@ -237,27 +257,10 @@ public class SpecialTopicLayout extends LinearLayout implements xx, wx<SpecialCo
             }
             return invokeV.intValue;
         }
-
-        public void h(qp4<SpecialColumnItemData> qp4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, qp4Var) == null) {
-                this.c = qp4Var;
-            }
-        }
-
-        public void setData(List<SpecialColumnItemData> list) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048582, this, list) == null) || list == null) {
-                return;
-            }
-            this.b.clear();
-            this.b.addAll(list);
-            notifyDataSetChanged();
-        }
     }
 
     /* loaded from: classes4.dex */
-    public class a implements qp4<SpecialColumnItemData> {
+    public class a implements rp4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SpecialTopicLayout a;
@@ -281,28 +284,28 @@ public class SpecialTopicLayout extends LinearLayout implements xx, wx<SpecialCo
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.qp4
+        @Override // com.baidu.tieba.rp4
         /* renamed from: a */
         public void d(View view2, SpecialColumnItemData specialColumnItemData, int i, long j) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, specialColumnItemData, Integer.valueOf(i), Long.valueOf(j)}) == null) || specialColumnItemData == null) {
+            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, specialColumnItemData, Integer.valueOf(i), Long.valueOf(j)}) != null) || specialColumnItemData == null) {
                 return;
             }
-            o37.b("c13754", specialColumnItemData, i + 1, this.a.j);
+            w37.b("c13754", specialColumnItemData, i + 1, this.a.j);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Code restructure failed: missing block: B:13:0x0013, code lost:
             if (r8 != 4) goto L14;
          */
-        @Override // com.baidu.tieba.qp4
+        @Override // com.baidu.tieba.rp4
         /* renamed from: b */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public void c(View view2, SpecialColumnItemData specialColumnItemData, int i, long j) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, specialColumnItemData, Integer.valueOf(i), Long.valueOf(j)}) == null) || specialColumnItemData == null) {
+            if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, specialColumnItemData, Integer.valueOf(i), Long.valueOf(j)}) != null) || specialColumnItemData == null) {
                 return;
             }
             int i2 = specialColumnItemData.specialType;
@@ -312,15 +315,15 @@ public class SpecialTopicLayout extends LinearLayout implements xx, wx<SpecialCo
                     alaLiveInfoCoreData.liveID = specialColumnItemData.liveId;
                     this.a.a.sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(this.a.getContext(), alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_LIVE_ACTIVE_VIEW, "", false, "")));
                 }
-                o37.a("c13754", specialColumnItemData, i + 1, this.a.j);
+                w37.a("c13754", specialColumnItemData, i + 1, this.a.j);
             }
             this.a.a.sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.a.getContext()).createNormalCfg(String.valueOf(specialColumnItemData.threadId), null, null)));
-            o37.a("c13754", specialColumnItemData, i + 1, this.a.j);
+            w37.a("c13754", specialColumnItemData, i + 1, this.a.j);
         }
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SpecialTopicLayout(TbPageContext<?> tbPageContext) {
+    public SpecialTopicLayout(TbPageContext tbPageContext) {
         this(tbPageContext, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -340,38 +343,12 @@ public class SpecialTopicLayout extends LinearLayout implements xx, wx<SpecialCo
         }
     }
 
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0386, (ViewGroup) this, true);
-            setOrientation(1);
-            setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f092232);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09241a);
-            this.c = (PullLeftRefreshLayout) findViewById(R.id.obfuscated_res_0x7f091bc3);
-            this.d = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091bbb);
-            this.h = findViewById(R.id.obfuscated_res_0x7f090817);
-            this.i = findViewById(R.id.obfuscated_res_0x7f090811);
-            this.e = new HorizontalAdapter(this.a);
-            int f = ej.f(this.a.getPageActivity(), R.dimen.tbds44);
-            int f2 = ej.f(this.a.getPageActivity(), R.dimen.tbds44);
-            this.d.addItemDecoration(new SpaceItemDecoration(f, ej.f(this.a.getPageActivity(), R.dimen.tbds11), f2));
-            this.d.setLayoutManager(new LinearLayoutManager(this.a.getPageActivity(), 0, false));
-            this.d.setAdapter(this.e);
-            this.d.setClipChildren(false);
-            RefreshView refreshView = new RefreshView(getContext());
-            this.b = refreshView;
-            this.c.setRefreshViewAndListener(refreshView);
-            this.e.h(this.l);
-        }
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wx
+    @Override // com.baidu.tieba.xx
     /* renamed from: e */
     public void a(SpecialColumnListData specialColumnListData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, specialColumnListData) == null) || specialColumnListData == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, specialColumnListData) != null) || specialColumnListData == null) {
             return;
         }
         this.g.setText(specialColumnListData.title);
@@ -382,42 +359,8 @@ public class SpecialTopicLayout extends LinearLayout implements xx, wx<SpecialCo
         onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // com.baidu.tieba.xx
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
-            SkinManager.setBackgroundColor(this, R.color.CAM_X0205);
-            SkinManager.setViewTextColor(this.g, this.k);
-            HomeGroupUbsUIHelper.handleLineColor(this.h);
-            this.b.d();
-            this.e.notifyDataSetChanged();
-        }
-    }
-
-    public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) {
-        }
-    }
-
-    public void setShowMore(boolean z) {
-        PullLeftRefreshLayout pullLeftRefreshLayout;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || (pullLeftRefreshLayout = this.c) == null) {
-            return;
-        }
-        pullLeftRefreshLayout.setEnablePull(z);
-    }
-
-    public void setTabCode(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.j = str;
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SpecialTopicLayout(TbPageContext<?> tbPageContext, @Nullable AttributeSet attributeSet) {
+    public SpecialTopicLayout(TbPageContext tbPageContext, AttributeSet attributeSet) {
         super(tbPageContext.getPageActivity(), attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -439,5 +382,58 @@ public class SpecialTopicLayout extends LinearLayout implements xx, wx<SpecialCo
         this.l = new a(this);
         this.a = tbPageContext;
         d();
+    }
+
+    public void setShowMore(boolean z) {
+        PullLeftRefreshLayout pullLeftRefreshLayout;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && (pullLeftRefreshLayout = this.c) != null) {
+            pullLeftRefreshLayout.setEnablePull(z);
+        }
+    }
+
+    public void setTabCode(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.j = str;
+        }
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0385, (ViewGroup) this, true);
+            setOrientation(1);
+            setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
+            this.f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09221c);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f092405);
+            this.c = (PullLeftRefreshLayout) findViewById(R.id.obfuscated_res_0x7f091bbf);
+            this.d = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091bb7);
+            this.h = findViewById(R.id.obfuscated_res_0x7f090820);
+            this.i = findViewById(R.id.obfuscated_res_0x7f09081a);
+            this.e = new HorizontalAdapter(this.a);
+            int f = fj.f(this.a.getPageActivity(), R.dimen.tbds44);
+            int f2 = fj.f(this.a.getPageActivity(), R.dimen.tbds44);
+            this.d.addItemDecoration(new SpaceItemDecoration(f, fj.f(this.a.getPageActivity(), R.dimen.tbds11), f2));
+            this.d.setLayoutManager(new LinearLayoutManager(this.a.getPageActivity(), 0, false));
+            this.d.setAdapter(this.e);
+            this.d.setClipChildren(false);
+            RefreshView refreshView = new RefreshView(getContext());
+            this.b = refreshView;
+            this.c.setRefreshViewAndListener(refreshView);
+            this.e.h(this.l);
+        }
+    }
+
+    @Override // com.baidu.tieba.yx
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
+            SkinManager.setBackgroundColor(this, R.color.CAM_X0205);
+            SkinManager.setViewTextColor(this.g, this.k);
+            HomeGroupUbsUIHelper.handleLineColor(this.h);
+            this.b.d();
+            this.e.notifyDataSetChanged();
+        }
     }
 }

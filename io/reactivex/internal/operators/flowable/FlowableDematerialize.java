@@ -13,19 +13,19 @@ import io.reactivex.plugins.RxJavaPlugins;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableDematerialize<T> extends AbstractFlowableWithUpstream<Notification<T>, T> {
+public final class FlowableDematerialize extends AbstractFlowableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public static final class DematerializeSubscriber<T> implements FlowableSubscriber<Notification<T>>, Subscription {
+    public final class DematerializeSubscriber implements FlowableSubscriber, Subscription {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber<? super T> actual;
+        public final Subscriber actual;
         public boolean done;
         public Subscription s;
 
-        public DematerializeSubscriber(Subscriber<? super T> subscriber) {
+        public DematerializeSubscriber(Subscriber subscriber) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -43,24 +43,6 @@ public final class FlowableDematerialize<T> extends AbstractFlowableWithUpstream
             this.actual = subscriber;
         }
 
-        @Override // org.reactivestreams.Subscription
-        public void cancel() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.s.cancel();
-            }
-        }
-
-        @Override // org.reactivestreams.Subscriber
-        public void onComplete() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.done) {
-                return;
-            }
-            this.done = true;
-            this.actual.onComplete();
-        }
-
         @Override // org.reactivestreams.Subscriber
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
@@ -72,11 +54,6 @@ public final class FlowableDematerialize<T> extends AbstractFlowableWithUpstream
                 this.done = true;
                 this.actual.onError(th);
             }
-        }
-
-        @Override // org.reactivestreams.Subscriber
-        public /* bridge */ /* synthetic */ void onNext(Object obj) {
-            onNext((Notification) ((Notification) obj));
         }
 
         @Override // io.reactivex.FlowableSubscriber, org.reactivestreams.Subscriber
@@ -96,7 +73,27 @@ public final class FlowableDematerialize<T> extends AbstractFlowableWithUpstream
             }
         }
 
-        public void onNext(Notification<T> notification) {
+        @Override // org.reactivestreams.Subscription
+        public void cancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.s.cancel();
+            }
+        }
+
+        @Override // org.reactivestreams.Subscriber
+        public void onComplete() {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.done) {
+                return;
+            }
+            this.done = true;
+            this.actual.onComplete();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // org.reactivestreams.Subscriber
+        public void onNext(Notification notification) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, notification) == null) {
                 if (this.done) {
@@ -117,7 +114,7 @@ public final class FlowableDematerialize<T> extends AbstractFlowableWithUpstream
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableDematerialize(Flowable<Notification<T>> flowable) {
+    public FlowableDematerialize(Flowable flowable) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -137,7 +134,7 @@ public final class FlowableDematerialize<T> extends AbstractFlowableWithUpstream
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber<? super T> subscriber) {
+    public void subscribeActual(Subscriber subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             this.source.subscribe((FlowableSubscriber) new DematerializeSubscriber(subscriber));

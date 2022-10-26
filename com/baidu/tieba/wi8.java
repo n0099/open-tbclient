@@ -1,27 +1,49 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.security.ioc.IHostStateAbiltiy;
+import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class wi8 {
+public class wi8 implements IHostStateAbiltiy {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile vi8 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized vi8 a() {
-        InterceptResult invokeV;
-        vi8 vi8Var;
+    public wi8() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (wi8.class) {
-                if (a == null) {
-                    a = new vi8();
-                }
-                vi8Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return vi8Var;
         }
-        return (vi8) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.common.security.ioc.IHostStateAbiltiy
+    public boolean hasAgreedPrivacyPolicy() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return PermissionUtil.isAgreePrivacyPolicy();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.common.security.ioc.IHostStateAbiltiy
+    public boolean isForeground() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return !mh5.g().k();
+        }
+        return invokeV.booleanValue;
     }
 }

@@ -1,6 +1,5 @@
 package com.facebook.drawee.generic;
 
-import android.annotation.SuppressLint;
 import android.graphics.Canvas;
 import android.graphics.ColorFilter;
 import android.graphics.drawable.Drawable;
@@ -12,7 +11,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.drawee.drawable.ForwardingDrawable;
 import com.facebook.drawee.drawable.VisibilityAwareDrawable;
 import com.facebook.drawee.drawable.VisibilityCallback;
@@ -23,7 +21,6 @@ public class RootDrawable extends ForwardingDrawable implements VisibilityAwareD
     public static ColorFilter sGlobalColorFilter;
     public transient /* synthetic */ FieldHolder $fh;
     public ColorFilter mColorFilter;
-    @VisibleForTesting
     @Nullable
     public Drawable mControllerOverlay;
     public boolean mUserGlobalColorFilter;
@@ -43,6 +40,26 @@ public class RootDrawable extends ForwardingDrawable implements VisibilityAwareD
         if ((invokeClinit.flags & 1) != 0) {
             classClinitInterceptable.invokePostClinit(1647425831, "Lcom/facebook/drawee/generic/RootDrawable;");
         }
+    }
+
+    @Override // com.facebook.drawee.drawable.ForwardingDrawable, android.graphics.drawable.Drawable
+    public int getIntrinsicHeight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return -1;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.facebook.drawee.drawable.ForwardingDrawable, android.graphics.drawable.Drawable
+    public int getIntrinsicWidth() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return -1;
+        }
+        return invokeV.intValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -68,10 +85,45 @@ public class RootDrawable extends ForwardingDrawable implements VisibilityAwareD
         this.mUserGlobalColorFilter = true;
     }
 
+    @Override // com.facebook.drawee.drawable.ForwardingDrawable, android.graphics.drawable.Drawable
+    public void draw(Canvas canvas) {
+        ColorFilter colorFilter;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, canvas) != null) || !isVisible()) {
+            return;
+        }
+        if (this.mUserGlobalColorFilter && (colorFilter = sGlobalColorFilter) != this.mColorFilter) {
+            this.mColorFilter = colorFilter;
+            setColorFilter(colorFilter);
+        }
+        VisibilityCallback visibilityCallback = this.mVisibilityCallback;
+        if (visibilityCallback != null) {
+            visibilityCallback.onDraw();
+        }
+        super.draw(canvas);
+        Drawable drawable = this.mControllerOverlay;
+        if (drawable != null) {
+            drawable.setBounds(getBounds());
+            this.mControllerOverlay.draw(canvas);
+        }
+    }
+
     public static ColorFilter getGlobalColorFilter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? sGlobalColorFilter : (ColorFilter) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return sGlobalColorFilter;
+        }
+        return (ColorFilter) invokeV.objValue;
+    }
+
+    public boolean getUseGlobalColorFilter() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mUserGlobalColorFilter;
+        }
+        return invokeV.booleanValue;
     }
 
     public static void setGlobalColorFilter(ColorFilter colorFilter) {
@@ -79,55 +131,6 @@ public class RootDrawable extends ForwardingDrawable implements VisibilityAwareD
         if (interceptable == null || interceptable.invokeL(65539, null, colorFilter) == null) {
             sGlobalColorFilter = colorFilter;
         }
-    }
-
-    @Override // com.facebook.drawee.drawable.ForwardingDrawable, android.graphics.drawable.Drawable
-    @SuppressLint({"WrongCall"})
-    public void draw(Canvas canvas) {
-        ColorFilter colorFilter;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) && isVisible()) {
-            if (this.mUserGlobalColorFilter && (colorFilter = sGlobalColorFilter) != this.mColorFilter) {
-                this.mColorFilter = colorFilter;
-                setColorFilter(colorFilter);
-            }
-            VisibilityCallback visibilityCallback = this.mVisibilityCallback;
-            if (visibilityCallback != null) {
-                visibilityCallback.onDraw();
-            }
-            super.draw(canvas);
-            Drawable drawable = this.mControllerOverlay;
-            if (drawable != null) {
-                drawable.setBounds(getBounds());
-                this.mControllerOverlay.draw(canvas);
-            }
-        }
-    }
-
-    @Override // com.facebook.drawee.drawable.ForwardingDrawable, android.graphics.drawable.Drawable
-    public int getIntrinsicHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return -1;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.facebook.drawee.drawable.ForwardingDrawable, android.graphics.drawable.Drawable
-    public int getIntrinsicWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return -1;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean getUseGlobalColorFilter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mUserGlobalColorFilter : invokeV.booleanValue;
     }
 
     public void setControllerOverlay(@Nullable Drawable drawable) {

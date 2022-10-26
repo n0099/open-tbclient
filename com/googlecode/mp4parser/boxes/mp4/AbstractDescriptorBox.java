@@ -48,68 +48,14 @@ public class AbstractDescriptorBox extends AbstractFullBox {
         log = Logger.getLogger(AbstractDescriptorBox.class.getName());
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AbstractDescriptorBox(String str) {
-        super(str);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public static /* synthetic */ void ajc$preClinit() {
-        Factory factory = new Factory("AbstractDescriptorBox.java", AbstractDescriptorBox.class);
-        ajc$tjp_0 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getData", "com.googlecode.mp4parser.boxes.mp4.AbstractDescriptorBox", "", "", "", "java.nio.ByteBuffer"), 42);
-        ajc$tjp_1 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getDescriptor", "com.googlecode.mp4parser.boxes.mp4.AbstractDescriptorBox", "", "", "", "com.googlecode.mp4parser.boxes.mp4.objectdescriptors.BaseDescriptor"), 58);
-        ajc$tjp_2 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getDescriptorAsString", "com.googlecode.mp4parser.boxes.mp4.AbstractDescriptorBox", "", "", "", "java.lang.String"), 62);
-        ajc$tjp_3 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setDescriptor", "com.googlecode.mp4parser.boxes.mp4.AbstractDescriptorBox", "com.googlecode.mp4parser.boxes.mp4.objectdescriptors.BaseDescriptor", "descriptor", "", "void"), 66);
-        ajc$tjp_4 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setData", "com.googlecode.mp4parser.boxes.mp4.AbstractDescriptorBox", "java.nio.ByteBuffer", "data", "", "void"), 70);
-    }
-
-    @Override // com.googlecode.mp4parser.AbstractBox
-    public void _parseDetails(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, byteBuffer) == null) {
-            parseVersionAndFlags(byteBuffer);
-            this.data = byteBuffer.slice();
-            byteBuffer.position(byteBuffer.position() + byteBuffer.remaining());
-            try {
-                this.data.rewind();
-                this.descriptor = ObjectDescriptorFactory.createFrom(-1, this.data);
-            } catch (IOException e) {
-                log.log(Level.WARNING, "Error parsing ObjectDescriptor", (Throwable) e);
-            } catch (IndexOutOfBoundsException e2) {
-                log.log(Level.WARNING, "Error parsing ObjectDescriptor", (Throwable) e2);
-            }
-        }
-    }
-
-    @Override // com.googlecode.mp4parser.AbstractBox
-    public void getContent(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, byteBuffer) == null) {
-            writeVersionAndFlags(byteBuffer);
-            this.data.rewind();
-            byteBuffer.put(this.data);
-        }
-    }
-
     @Override // com.googlecode.mp4parser.AbstractBox
     public long getContentSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.data.limit() + 4 : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.data.limit() + 4;
+        }
+        return invokeV.longValue;
     }
 
     public ByteBuffer getData() {
@@ -140,6 +86,63 @@ public class AbstractDescriptorBox extends AbstractFullBox {
             return this.descriptor.toString();
         }
         return (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public AbstractDescriptorBox(String str) {
+        super(str);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public void _parseDetails(ByteBuffer byteBuffer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, byteBuffer) == null) {
+            parseVersionAndFlags(byteBuffer);
+            this.data = byteBuffer.slice();
+            byteBuffer.position(byteBuffer.position() + byteBuffer.remaining());
+            try {
+                this.data.rewind();
+                this.descriptor = ObjectDescriptorFactory.createFrom(-1, this.data);
+            } catch (IOException e) {
+                log.log(Level.WARNING, "Error parsing ObjectDescriptor", (Throwable) e);
+            } catch (IndexOutOfBoundsException e2) {
+                log.log(Level.WARNING, "Error parsing ObjectDescriptor", (Throwable) e2);
+            }
+        }
+    }
+
+    public static /* synthetic */ void ajc$preClinit() {
+        Factory factory = new Factory("AbstractDescriptorBox.java", AbstractDescriptorBox.class);
+        ajc$tjp_0 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getData", "com.googlecode.mp4parser.boxes.mp4.AbstractDescriptorBox", "", "", "", "java.nio.ByteBuffer"), 42);
+        ajc$tjp_1 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getDescriptor", "com.googlecode.mp4parser.boxes.mp4.AbstractDescriptorBox", "", "", "", "com.googlecode.mp4parser.boxes.mp4.objectdescriptors.BaseDescriptor"), 58);
+        ajc$tjp_2 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getDescriptorAsString", "com.googlecode.mp4parser.boxes.mp4.AbstractDescriptorBox", "", "", "", "java.lang.String"), 62);
+        ajc$tjp_3 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setDescriptor", "com.googlecode.mp4parser.boxes.mp4.AbstractDescriptorBox", "com.googlecode.mp4parser.boxes.mp4.objectdescriptors.BaseDescriptor", "descriptor", "", "void"), 66);
+        ajc$tjp_4 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setData", "com.googlecode.mp4parser.boxes.mp4.AbstractDescriptorBox", "java.nio.ByteBuffer", "data", "", "void"), 70);
+    }
+
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public void getContent(ByteBuffer byteBuffer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, byteBuffer) == null) {
+            writeVersionAndFlags(byteBuffer);
+            this.data.rewind();
+            byteBuffer.put(this.data);
+        }
     }
 
     public void setData(ByteBuffer byteBuffer) {

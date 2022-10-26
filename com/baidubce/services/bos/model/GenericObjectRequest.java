@@ -15,6 +15,8 @@ public abstract class GenericObjectRequest extends GenericBucketRequest {
     public transient /* synthetic */ FieldHolder $fh;
     public String key;
 
+    public abstract GenericObjectRequest withKey(String str);
+
     public GenericObjectRequest() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -32,25 +34,11 @@ public abstract class GenericObjectRequest extends GenericBucketRequest {
     public String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.key : (String) invokeV.objValue;
-    }
-
-    public void setKey(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            CheckUtils.isNotNull(str, "key should not be null.");
-            if (str.length() >= 0) {
-                if (str.length() <= 1024) {
-                    this.key = str;
-                    return;
-                }
-                throw new IllegalArgumentException("Invalid objectKey:" + str + ". objectKey should not be greater than 1024.");
-            }
-            throw new IllegalArgumentException("Invalid objectKey:" + str + ". objectKey should not be less than 0.");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.key;
         }
+        return (String) invokeV.objValue;
     }
-
-    public abstract GenericObjectRequest withKey(String str);
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GenericObjectRequest(String str, String str2) {
@@ -71,5 +59,20 @@ public abstract class GenericObjectRequest extends GenericBucketRequest {
             }
         }
         setKey(str2);
+    }
+
+    public void setKey(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            CheckUtils.isNotNull(str, "key should not be null.");
+            if (str.length() >= 0) {
+                if (str.length() <= 1024) {
+                    this.key = str;
+                    return;
+                }
+                throw new IllegalArgumentException("Invalid objectKey:" + str + ". objectKey should not be greater than 1024.");
+            }
+            throw new IllegalArgumentException("Invalid objectKey:" + str + ". objectKey should not be less than 0.");
+        }
     }
 }

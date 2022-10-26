@@ -23,34 +23,38 @@ public class b {
     }
 
     public boolean b() {
-        return j.i().optInt("forbid_invalidte_download_file_install", 0) == 1;
+        if (j.i().optInt("forbid_invalidte_download_file_install", 0) != 1) {
+            return false;
+        }
+        return true;
     }
 
     public void a(Context context, DownloadInfo downloadInfo) {
-        if (b() && downloadInfo != null) {
-            try {
-                File file = new File(downloadInfo.getSavePath(), downloadInfo.getName());
-                if (file.isFile() && file.exists()) {
-                    file.delete();
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            if (this.b == null) {
-                this.b = new Handler(Looper.getMainLooper());
-            }
-            final String url = downloadInfo.getUrl();
-            Downloader.getInstance(context).clearDownloadData(downloadInfo.getId());
-            this.b.post(new Runnable() { // from class: com.ss.android.downloadlib.addownload.b.1
-                @Override // java.lang.Runnable
-                public void run() {
-                    j.c().a(3, j.getContext(), null, "下载失败，请重试！", null, 0);
-                    e a2 = com.ss.android.downloadlib.f.a().a(url);
-                    if (a2 != null) {
-                        a2.g();
-                    }
-                }
-            });
+        if (!b() || downloadInfo == null) {
+            return;
         }
+        try {
+            File file = new File(downloadInfo.getSavePath(), downloadInfo.getName());
+            if (file.isFile() && file.exists()) {
+                file.delete();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if (this.b == null) {
+            this.b = new Handler(Looper.getMainLooper());
+        }
+        final String url = downloadInfo.getUrl();
+        Downloader.getInstance(context).clearDownloadData(downloadInfo.getId());
+        this.b.post(new Runnable() { // from class: com.ss.android.downloadlib.addownload.b.1
+            @Override // java.lang.Runnable
+            public void run() {
+                j.c().a(3, j.getContext(), null, "下载失败，请重试！", null, 0);
+                e a2 = com.ss.android.downloadlib.f.a().a(url);
+                if (a2 != null) {
+                    a2.g();
+                }
+            }
+        });
     }
 }

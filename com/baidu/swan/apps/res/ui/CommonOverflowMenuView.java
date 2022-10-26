@@ -10,15 +10,14 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.annotation.ColorRes;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.sm2;
-import com.baidu.tieba.v23;
+import com.baidu.tieba.a93;
+import com.baidu.tieba.tm2;
 import com.baidu.tieba.w23;
-import com.baidu.tieba.z83;
+import com.baidu.tieba.x23;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,22 +28,22 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes2.dex */
-public class CommonOverflowMenuView extends LinearLayout implements v23.g {
+public class CommonOverflowMenuView extends LinearLayout implements w23.g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public int b;
     public ColorStateList c;
-    public List<ImageView> d;
-    public List<TextView> e;
-    public HashMap<w23, ImageView> f;
+    public List d;
+    public List e;
+    public HashMap f;
     public View g;
     public LinearLayout h;
     public SwanAppScrollView i;
     public Object j;
 
     /* loaded from: classes2.dex */
-    public class a implements z83 {
+    public class a implements a93 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CommonOverflowMenuView a;
@@ -90,112 +89,10 @@ public class CommonOverflowMenuView extends LinearLayout implements v23.g {
         this.b = R.color.obfuscated_res_0x7f0603c7;
         this.d = new ArrayList();
         this.e = new ArrayList();
-        this.f = new HashMap<>();
+        this.f = new HashMap();
         new SparseArray();
         this.j = new Object();
         a(context);
-    }
-
-    public final void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00bc, (ViewGroup) this, true);
-            this.g = inflate;
-            this.h = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09150a);
-            this.i = (SwanAppScrollView) this.g.findViewById(R.id.obfuscated_res_0x7f09150d);
-            setFocusable(true);
-            setFocusableInTouchMode(true);
-            b();
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c = AppCompatResources.getColorStateList(getContext(), R.color.obfuscated_res_0x7f0603aa);
-            setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08014b));
-            for (ImageView imageView : this.d) {
-                imageView.setBackgroundColor(getResources().getColor(this.b));
-            }
-            for (TextView textView : this.e) {
-                textView.setTextColor(this.c);
-            }
-            for (Map.Entry<w23, ImageView> entry : this.f.entrySet()) {
-                entry.getValue().setImageDrawable(entry.getKey().b());
-            }
-        }
-    }
-
-    public int getItemBgRes() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public LinearLayout getLinearContent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.h : (LinearLayout) invokeV.objValue;
-    }
-
-    public ColorStateList getTextColor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : (ColorStateList) invokeV.objValue;
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void onAttachedToWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            super.onAttachedToWindow();
-            sm2.M().f(this.j, new a(this));
-            b();
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void onDetachedFromWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            super.onDetachedFromWindow();
-            sm2.M().g(this.j);
-        }
-    }
-
-    public void setItemBackground(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.a = i;
-        }
-    }
-
-    public void setItemDivider(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2) == null) {
-            this.b = i;
-        }
-    }
-
-    public void setItemTextColor(@ColorRes int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.c = AppCompatResources.getColorStateList(getContext(), i);
-        }
-    }
-
-    public void setMaxHeightPixel(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.i.setMaxHeight(i);
-        }
-    }
-
-    public void setMaxHeightRes(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.i.setMaxHeight(getContext().getResources().getDimensionPixelSize(i));
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -221,9 +118,120 @@ public class CommonOverflowMenuView extends LinearLayout implements v23.g {
         this.b = R.color.obfuscated_res_0x7f0603c7;
         this.d = new ArrayList();
         this.e = new ArrayList();
-        this.f = new HashMap<>();
+        this.f = new HashMap();
         new SparseArray();
         this.j = new Object();
         a(context);
+    }
+
+    public final void a(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00bc, (ViewGroup) this, true);
+            this.g = inflate;
+            this.h = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0914fc);
+            this.i = (SwanAppScrollView) this.g.findViewById(R.id.obfuscated_res_0x7f0914ff);
+            setFocusable(true);
+            setFocusableInTouchMode(true);
+            b();
+        }
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.c = AppCompatResources.getColorStateList(getContext(), R.color.obfuscated_res_0x7f0603aa);
+            setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08014b));
+            for (ImageView imageView : this.d) {
+                imageView.setBackgroundColor(getResources().getColor(this.b));
+            }
+            for (TextView textView : this.e) {
+                textView.setTextColor(this.c);
+            }
+            for (Map.Entry entry : this.f.entrySet()) {
+                ((ImageView) entry.getValue()).setImageDrawable(((x23) entry.getKey()).b());
+            }
+        }
+    }
+
+    public int getItemBgRes() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public LinearLayout getLinearContent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.h;
+        }
+        return (LinearLayout) invokeV.objValue;
+    }
+
+    public ColorStateList getTextColor() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.c;
+        }
+        return (ColorStateList) invokeV.objValue;
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void onAttachedToWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.onAttachedToWindow();
+            tm2.M().f(this.j, new a(this));
+            b();
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void onDetachedFromWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            super.onDetachedFromWindow();
+            tm2.M().g(this.j);
+        }
+    }
+
+    public void setItemBackground(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.a = i;
+        }
+    }
+
+    public void setItemTextColor(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.c = AppCompatResources.getColorStateList(getContext(), i);
+        }
+    }
+
+    public void setMaxHeightPixel(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.i.setMaxHeight(i);
+        }
+    }
+
+    public void setMaxHeightRes(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.i.setMaxHeight(getContext().getResources().getDimensionPixelSize(i));
+        }
+    }
+
+    public void setItemDivider(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2) == null) {
+            this.b = i;
+        }
     }
 }

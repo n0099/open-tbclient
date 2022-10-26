@@ -41,21 +41,6 @@ public class d0 {
         a = StandardCharsets.UTF_8;
     }
 
-    public static RequestBody a(Map<String, String> map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, map)) == null) {
-            FormBody.Builder builder = new FormBody.Builder(a);
-            if (map.size() > 0) {
-                for (Map.Entry<String, String> entry : map.entrySet()) {
-                    builder.add(entry.getKey(), entry.getValue());
-                }
-            }
-            return builder.build();
-        }
-        return (RequestBody) invokeL.objValue;
-    }
-
     public static String a(String str, RequestBody requestBody) {
         InterceptResult invokeLL;
         ResponseBody body;
@@ -67,12 +52,30 @@ public class d0 {
                     b = "UfoSDK/4.1.9.1 (" + c.a() + " " + c.b() + SmallTailInfo.EMOTION_SUFFIX;
                 }
                 Response execute = new OkHttpClient().newBuilder().connectTimeout(3L, TimeUnit.SECONDS).readTimeout(5L, TimeUnit.SECONDS).build().newCall(addHeader.addHeader("User-Agent", b).build()).execute();
-                return (execute == null || !execute.isSuccessful() || (body = execute.body()) == null) ? "" : body.string();
+                if (execute != null && execute.isSuccessful() && (body = execute.body()) != null) {
+                    return body.string();
+                }
+                return "";
             } catch (Exception e) {
                 e.printStackTrace();
                 return "";
             }
         }
         return (String) invokeLL.objValue;
+    }
+
+    public static RequestBody a(Map map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, map)) == null) {
+            FormBody.Builder builder = new FormBody.Builder(a);
+            if (map.size() > 0) {
+                for (Map.Entry entry : map.entrySet()) {
+                    builder.add((String) entry.getKey(), (String) entry.getValue());
+                }
+            }
+            return builder.build();
+        }
+        return (RequestBody) invokeL.objValue;
     }
 }

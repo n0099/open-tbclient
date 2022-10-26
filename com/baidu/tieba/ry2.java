@@ -1,138 +1,129 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.Iterator;
+import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ry2 extends p62 {
+public class ry2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public x42<Boolean> c;
-    public String d;
-    public String e;
-    public long f;
-    public final cb4<mc4> g;
 
-    /* loaded from: classes5.dex */
-    public class a extends q62<ry2> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ry2 b;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(ry2 ry2Var, ry2 ry2Var2) {
-            super(ry2Var2);
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948137886, "Lcom/baidu/tieba/ry2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ry2Var, ry2Var2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((p62) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.b = ry2Var;
-        }
-
-        @Override // com.baidu.tieba.q62
-        public void r(@NonNull mc4 mc4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, mc4Var) == null) {
-                this.b.c.a(Boolean.TRUE);
-            }
-        }
-
-        @Override // com.baidu.tieba.q62
-        public void u(mc4 mc4Var, ef3 ef3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mc4Var, ef3Var) == null) {
-                this.b.c.a(Boolean.FALSE);
-            }
-        }
-    }
-
-    public ry2(String str, String str2, long j, x42<Boolean> x42Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Long.valueOf(j), x42Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948137886, "Lcom/baidu/tieba/ry2;");
                 return;
             }
         }
-        this.g = new a(this, this);
-        this.c = x42Var;
-        this.d = str;
-        this.e = str2;
-        this.f = j;
+        a = wj1.a;
     }
 
-    @Override // com.baidu.tieba.gb4
-    public void C(fc4 fc4Var) {
-        mc4 p;
+    public static void a(SwanAppConfigData swanAppConfigData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, fc4Var) == null) {
-            super.C(fc4Var);
-            if (fc4Var != null) {
-                if (fc4Var.a == 1010 && (p = sy2.p(this.d, this.e, this.f)) != null) {
-                    p.d = p.b();
-                    ib4.i().x(p);
+        if ((interceptable != null && interceptable.invokeL(65537, null, swanAppConfigData) != null) || swanAppConfigData == null) {
+            return;
+        }
+        List<gz2> e = swanAppConfigData.e();
+        if (e != null && !e.isEmpty()) {
+            JSONObject jSONObject = new JSONObject();
+            JSONObject jSONObject2 = new JSONObject();
+            b(e, jSONObject, jSONObject2);
+            if (be2.k()) {
+                boolean z = false;
+                for (gz2 gz2Var : e) {
+                    String h = be2.h(gz2Var.a);
+                    if (!TextUtils.isEmpty(h) && new File(h).exists()) {
+                        gz2Var.e = h;
+                        c(jSONObject, jSONObject2, gz2Var);
+                        z = true;
+                        m02.i("Module-Plugin", "use debug dependencies，name=" + gz2Var.a + " path=" + gz2Var.e);
+                    } else {
+                        m02.o("Module-Plugin", "debug dependencies not exist，name=" + gz2Var.a + " path=" + gz2Var.e);
+                    }
                 }
-                dz2.b("fetch plugin error: " + fc4Var.toString());
-            } else {
-                dz2.b("fetch plugin error");
+                if (!z) {
+                    e33.g(AppRuntime.getAppContext(), "no debug dependency").G();
+                    m02.c("Module-Plugin", "no debug dependency");
+                }
             }
-            this.c.a(Boolean.FALSE);
+            String jSONObject3 = jSONObject.toString();
+            String jSONObject4 = jSONObject2.toString();
+            kz2.c("dependenciesPath", jSONObject3);
+            kz2.c("dependenciesConfig", jSONObject4);
+            return;
+        }
+        kz2.c("dependenciesPath", null);
+        kz2.c("dependenciesConfig", null);
+        if (a) {
+            ez2.b("this swan app not apply on someone dynamic lib");
         }
     }
 
-    @Override // com.baidu.tieba.gb4
-    public void E() {
+    public static void b(List list, JSONObject jSONObject, JSONObject jSONObject2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.E();
-            dz2.b("fetch plugin success");
+        if ((interceptable != null && interceptable.invokeLLL(65538, null, list, jSONObject, jSONObject2) != null) || list.isEmpty()) {
+            return;
+        }
+        Iterator it = list.iterator();
+        while (it.hasNext()) {
+            gz2 gz2Var = (gz2) it.next();
+            if (gz2Var != null) {
+                if (gz2Var.g) {
+                    c(jSONObject, jSONObject2, gz2Var);
+                } else {
+                    nc4 q = jb4.i().q(gz2Var.a, gz2Var.h, gz2Var.i);
+                    if (q == null) {
+                        ez2.a(Log.getStackTraceString(new Throwable(gz2Var.a + " query db fail")));
+                    } else {
+                        File t = im2.t(gz2Var.a, String.valueOf(q.i));
+                        if (t != null && t.exists()) {
+                            gz2Var.e = t.getAbsolutePath();
+                            c(jSONObject, jSONObject2, gz2Var);
+                        } else {
+                            ez2.a(Log.getStackTraceString(new Throwable(gz2Var.a + " local file not exist")));
+                        }
+                    }
+                }
+            }
         }
     }
 
-    @Override // com.baidu.tieba.gb4
-    public void F() {
+    public static void c(JSONObject jSONObject, JSONObject jSONObject2, gz2 gz2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.F();
-            dz2.b("no package");
-            this.c.a(Boolean.FALSE);
+        if (interceptable == null || interceptable.invokeLLL(65539, null, jSONObject, jSONObject2, gz2Var) == null) {
+            String str = gz2Var.e;
+            String str2 = gz2Var.f;
+            if (a) {
+                ez2.b("apply dep path, name = " + gz2Var.a + "; inline = " + gz2Var.g + "; path = " + str + "; config = " + str2);
+            }
+            if (TextUtils.isEmpty(str)) {
+                ez2.b(Log.getStackTraceString(new Throwable(gz2Var.a + " path is empty")));
+                return;
+            }
+            mg3.f(jSONObject, gz2Var.a, str);
+            if (!TextUtils.isEmpty(gz2Var.f)) {
+                File file = new File(str, str2);
+                if (file.exists() && file.isFile()) {
+                    mg3.f(jSONObject2, gz2Var.a, mg3.d(qj4.E(file)));
+                }
+            }
         }
-    }
-
-    @Override // com.baidu.tieba.gb4
-    public void G(tg4 tg4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, tg4Var) == null) {
-            super.G(tg4Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.gb4
-    public cb4<mc4> x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.g : (cb4) invokeV.objValue;
     }
 }

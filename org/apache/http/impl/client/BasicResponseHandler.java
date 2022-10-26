@@ -12,7 +12,7 @@ import org.apache.http.client.HttpResponseException;
 import org.apache.http.client.ResponseHandler;
 @Deprecated
 /* loaded from: classes8.dex */
-public class BasicResponseHandler implements ResponseHandler<String> {
+public class BasicResponseHandler implements ResponseHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 

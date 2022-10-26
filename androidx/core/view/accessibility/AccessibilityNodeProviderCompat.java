@@ -4,8 +4,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.accessibility.AccessibilityNodeProvider;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -21,7 +19,42 @@ public class AccessibilityNodeProviderCompat {
     public transient /* synthetic */ FieldHolder $fh;
     public final Object mProvider;
 
-    @RequiresApi(16)
+    public AccessibilityNodeInfoCompat createAccessibilityNodeInfo(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return null;
+        }
+        return (AccessibilityNodeInfoCompat) invokeI.objValue;
+    }
+
+    public List<AccessibilityNodeInfoCompat> findAccessibilityNodeInfosByText(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
+            return null;
+        }
+        return (List) invokeLI.objValue;
+    }
+
+    public AccessibilityNodeInfoCompat findFocus(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            return null;
+        }
+        return (AccessibilityNodeInfoCompat) invokeI.objValue;
+    }
+
+    public boolean performAction(int i, int i2, Bundle bundle) {
+        InterceptResult invokeIIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048580, this, i, i2, bundle)) == null) {
+            return false;
+        }
+        return invokeIIL.booleanValue;
+    }
+
     /* loaded from: classes.dex */
     public static class AccessibilityNodeProviderApi16 extends AccessibilityNodeProvider {
         public static /* synthetic */ Interceptable $ic;
@@ -83,11 +116,13 @@ public class AccessibilityNodeProviderCompat {
         public boolean performAction(int i, int i2, Bundle bundle) {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, bundle)) == null) ? this.mCompat.performAction(i, i2, bundle) : invokeIIL.booleanValue;
+            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, bundle)) == null) {
+                return this.mCompat.performAction(i, i2, bundle);
+            }
+            return invokeIIL.booleanValue;
         }
     }
 
-    @RequiresApi(19)
     /* loaded from: classes.dex */
     public static class AccessibilityNodeProviderApi19 extends AccessibilityNodeProviderApi16 {
         public static /* synthetic */ Interceptable $ic;
@@ -151,51 +186,6 @@ public class AccessibilityNodeProviderCompat {
         }
     }
 
-    @Nullable
-    public AccessibilityNodeInfoCompat createAccessibilityNodeInfo(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return null;
-        }
-        return (AccessibilityNodeInfoCompat) invokeI.objValue;
-    }
-
-    @Nullable
-    public List<AccessibilityNodeInfoCompat> findAccessibilityNodeInfosByText(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
-            return null;
-        }
-        return (List) invokeLI.objValue;
-    }
-
-    @Nullable
-    public AccessibilityNodeInfoCompat findFocus(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            return null;
-        }
-        return (AccessibilityNodeInfoCompat) invokeI.objValue;
-    }
-
-    public Object getProvider() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mProvider : invokeV.objValue;
-    }
-
-    public boolean performAction(int i, int i2, Bundle bundle) {
-        InterceptResult invokeIIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048580, this, i, i2, bundle)) == null) {
-            return false;
-        }
-        return invokeIIL.booleanValue;
-    }
-
     public AccessibilityNodeProviderCompat(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -212,5 +202,14 @@ public class AccessibilityNodeProviderCompat {
             }
         }
         this.mProvider = obj;
+    }
+
+    public Object getProvider() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mProvider;
+        }
+        return invokeV.objValue;
     }
 }

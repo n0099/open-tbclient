@@ -21,12 +21,32 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class PaymentConfirmModel<T> extends BdBaseModel<T> {
+public class PaymentConfirmModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public r9<T> a;
+    public r9 a;
 
-    public PaymentConfirmModel(r9<T> r9Var) {
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public PaymentConfirmModel(r9 r9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -66,7 +86,7 @@ public class PaymentConfirmModel<T> extends BdBaseModel<T> {
 
     public void C(PaymentConfirmRequestData paymentConfirmRequestData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, paymentConfirmRequestData) == null) || paymentConfirmRequestData == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, paymentConfirmRequestData) != null) || paymentConfirmRequestData == null) {
             return;
         }
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PAYMENT_CONFIRM_INFO);
@@ -81,34 +101,14 @@ public class PaymentConfirmModel<T> extends BdBaseModel<T> {
         httpMessage.addParam("goods_unit", paymentConfirmRequestData.getGoods_unit());
         httpMessage.addParam("goods_duration", String.valueOf(paymentConfirmRequestData.getGoods_duration()));
         httpMessage.addParam("goods_user_level", String.valueOf(paymentConfirmRequestData.getGoods_user_level()));
-        httpMessage.addParam("pay_type", String.valueOf(paymentConfirmRequestData.getPay_type()));
+        httpMessage.addParam(MemberPayActivityConfig.PAY_TYPE, String.valueOf(paymentConfirmRequestData.getPay_type()));
         httpMessage.addParam("currency", paymentConfirmRequestData.getCurrency());
         this.a.sendMessage(httpMessage);
     }
 
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean loadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
     public void z(PayRequestData payRequestData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, payRequestData) == null) || payRequestData == null) {
+        if ((interceptable != null && interceptable.invokeL(1048581, this, payRequestData) != null) || payRequestData == null) {
             return;
         }
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PAYMENT_PAY);

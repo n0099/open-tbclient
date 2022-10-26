@@ -18,9 +18,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ce8;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.fe0;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.ge0;
+import com.baidu.tieba.me8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -44,16 +44,39 @@ public class McnVideoAdView extends FrameLayout {
     public float g;
     public float h;
     public boolean i;
-    public fe0 j;
+    public ge0 j;
     public c k;
     public final Handler l;
     public ViewParent m;
+
+    /* loaded from: classes2.dex */
+    public interface c {
+        void a(ge0 ge0Var);
+
+        void b(ge0 ge0Var);
+
+        void c(ge0 ge0Var);
+    }
 
     /* loaded from: classes2.dex */
     public class a implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ McnVideoAdView a;
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationRepeat(Animation animation) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
+            }
+        }
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationStart(Animation animation) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
+            }
+        }
 
         public a(McnVideoAdView mcnVideoAdView) {
             Interceptable interceptable = $ic;
@@ -76,23 +99,10 @@ public class McnVideoAdView extends FrameLayout {
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.a.j();
+            if (interceptable != null && interceptable.invokeL(1048576, this, animation) != null) {
+                return;
             }
-        }
-
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationRepeat(Animation animation) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
-            }
-        }
-
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationStart(Animation animation) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
-            }
+            this.a.j();
         }
     }
 
@@ -123,21 +133,11 @@ public class McnVideoAdView extends FrameLayout {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.m == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.m != null) {
+                this.a.m.requestDisallowInterceptTouchEvent(false);
+                this.a.m = null;
             }
-            this.a.m.requestDisallowInterceptTouchEvent(false);
-            this.a.m = null;
         }
-    }
-
-    /* loaded from: classes2.dex */
-    public interface c {
-        void a(fe0 fe0Var);
-
-        void b(fe0 fe0Var);
-
-        void c(fe0 fe0Var);
     }
 
     static {
@@ -182,177 +182,18 @@ public class McnVideoAdView extends FrameLayout {
         h();
     }
 
-    private void setData(fe0 fe0Var) {
+    private void setData(ge0 ge0Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65543, this, fe0Var) == null) || fe0Var == null) {
+        if ((interceptable != null && interceptable.invokeL(65543, this, ge0Var) != null) || ge0Var == null) {
             return;
         }
-        this.j = fe0Var;
-        this.b.K(fe0Var.a, 10, false);
-        if (!StringUtils.isNull(fe0Var.b)) {
-            this.c.setText(fe0Var.b);
+        this.j = ge0Var;
+        this.b.L(ge0Var.a, 10, false);
+        if (!StringUtils.isNull(ge0Var.b)) {
+            this.c.setText(ge0Var.b);
         }
-        if (StringUtils.isNull(fe0Var.c)) {
-            return;
-        }
-        this.d.setText(fe0Var.c);
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.l.postDelayed(new b(this), 500L);
-        }
-    }
-
-    public final void e() {
-        Context context;
-        fe0 fe0Var;
-        String str;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (context = this.a) == null || (fe0Var = this.j) == null || (str = fe0Var.d) == null) {
-            return;
-        }
-        ce8.a(context, str, null, null, null);
-        c cVar = this.k;
-        if (cVar != null) {
-            cVar.b(this.j);
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f == null) {
-            return;
-        }
-        clearAnimation();
-        startAnimation(this.f);
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            j();
-        }
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0578, this);
-            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090e43);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090e45);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090e44);
-            this.b.setConrers(5);
-            this.b.setDefaultResource(R.drawable.obfuscated_res_0x7f080d5e);
-            this.b.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080d5e);
-            this.b.setRadius(ej.f(this.a, R.dimen.tbds20));
-            this.e = AnimationUtils.loadAnimation(this.a, R.anim.obfuscated_res_0x7f01009e);
-            Animation loadAnimation = AnimationUtils.loadAnimation(this.a, R.anim.obfuscated_res_0x7f01009d);
-            this.f = loadAnimation;
-            loadAnimation.setAnimationListener(new a(this));
-        }
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.i : invokeV.booleanValue;
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && getParent() != null && (getParent() instanceof ViewGroup)) {
-            ((ViewGroup) getParent()).removeView(this);
-            this.i = false;
-        }
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            j();
-            this.i = false;
-            this.j = null;
-        }
-    }
-
-    public void l(fe0 fe0Var, ViewGroup viewGroup) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, fe0Var, viewGroup) == null) {
-            m(fe0Var, viewGroup);
-            if (this.e != null) {
-                clearAnimation();
-                startAnimation(this.e);
-            }
-        }
-    }
-
-    public void m(fe0 fe0Var, ViewGroup viewGroup) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, fe0Var, viewGroup) == null) {
-            this.i = true;
-            setData(fe0Var);
-            viewGroup.removeView(this);
-            viewGroup.addView(this);
-            if (viewGroup instanceof FrameLayout) {
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(n, o);
-                layoutParams.gravity = 85;
-                layoutParams.bottomMargin = p;
-                setLayoutParams(layoutParams);
-            } else if (viewGroup instanceof RelativeLayout) {
-                RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(n, o);
-                layoutParams2.addRule(11);
-                layoutParams2.addRule(12);
-                layoutParams2.setMargins(0, 0, 0, p);
-                setLayoutParams(layoutParams2);
-            }
-            c cVar = this.k;
-            if (cVar != null) {
-                cVar.c(fe0Var);
-            }
-        }
-    }
-
-    @Override // android.view.View
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, motionEvent)) == null) {
-            int action = motionEvent.getAction();
-            if (action == 0) {
-                this.g = motionEvent.getX();
-                this.h = motionEvent.getY();
-                ViewParent parent = getParent();
-                this.m = parent;
-                if (parent != null) {
-                    parent.requestDisallowInterceptTouchEvent(true);
-                }
-            } else if (action == 1) {
-                d();
-                if (Math.abs(motionEvent.getX() - this.g) < 5.0f && Math.abs(motionEvent.getY() - this.h) < 5.0f) {
-                    e();
-                }
-            } else if (action != 2) {
-                if (action == 3) {
-                    d();
-                }
-            } else if (motionEvent.getX() - this.g > 10.0f && this.i) {
-                f();
-                c cVar = this.k;
-                if (cVar != null) {
-                    cVar.a(this.j);
-                }
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void setIMcnStatListener(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, cVar) == null) {
-            this.k = cVar;
+        if (!StringUtils.isNull(ge0Var.c)) {
+            this.d.setText(ge0Var.c);
         }
     }
 
@@ -381,6 +222,32 @@ public class McnVideoAdView extends FrameLayout {
         h();
     }
 
+    public void m(ge0 ge0Var, ViewGroup viewGroup) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, ge0Var, viewGroup) == null) {
+            this.i = true;
+            setData(ge0Var);
+            viewGroup.removeView(this);
+            viewGroup.addView(this);
+            if (viewGroup instanceof FrameLayout) {
+                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(n, o);
+                layoutParams.gravity = 85;
+                layoutParams.bottomMargin = p;
+                setLayoutParams(layoutParams);
+            } else if (viewGroup instanceof RelativeLayout) {
+                RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(n, o);
+                layoutParams2.addRule(11);
+                layoutParams2.addRule(12);
+                layoutParams2.setMargins(0, 0, 0, p);
+                setLayoutParams(layoutParams2);
+            }
+            c cVar = this.k;
+            if (cVar != null) {
+                cVar.c(ge0Var);
+            }
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public McnVideoAdView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
@@ -404,5 +271,142 @@ public class McnVideoAdView extends FrameLayout {
         this.l = new Handler();
         this.a = context;
         h();
+    }
+
+    public void setIMcnStatListener(c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, cVar) == null) {
+            this.k = cVar;
+        }
+    }
+
+    public void l(ge0 ge0Var, ViewGroup viewGroup) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ge0Var, viewGroup) == null) {
+            m(ge0Var, viewGroup);
+            if (this.e != null) {
+                clearAnimation();
+                startAnimation(this.e);
+            }
+        }
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.l.postDelayed(new b(this), 500L);
+        }
+    }
+
+    public final void e() {
+        Context context;
+        ge0 ge0Var;
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (context = this.a) != null && (ge0Var = this.j) != null && (str = ge0Var.d) != null) {
+            me8.a(context, str, null, null, null);
+            c cVar = this.k;
+            if (cVar != null) {
+                cVar.b(this.j);
+            }
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f != null) {
+            clearAnimation();
+            startAnimation(this.f);
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            j();
+        }
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.i;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && getParent() != null && (getParent() instanceof ViewGroup)) {
+            ((ViewGroup) getParent()).removeView(this);
+            this.i = false;
+        }
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            j();
+            this.i = false;
+            this.j = null;
+        }
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0578, this);
+            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090e37);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090e39);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090e38);
+            this.b.setConrers(5);
+            this.b.setDefaultResource(R.drawable.obfuscated_res_0x7f080d6f);
+            this.b.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080d6f);
+            this.b.setRadius(fj.f(this.a, R.dimen.tbds20));
+            this.e = AnimationUtils.loadAnimation(this.a, R.anim.obfuscated_res_0x7f01009e);
+            Animation loadAnimation = AnimationUtils.loadAnimation(this.a, R.anim.obfuscated_res_0x7f01009d);
+            this.f = loadAnimation;
+            loadAnimation.setAnimationListener(new a(this));
+        }
+    }
+
+    @Override // android.view.View
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, motionEvent)) == null) {
+            int action = motionEvent.getAction();
+            if (action != 0) {
+                if (action != 1) {
+                    if (action != 2) {
+                        if (action == 3) {
+                            d();
+                        }
+                    } else if (motionEvent.getX() - this.g > 10.0f && this.i) {
+                        f();
+                        c cVar = this.k;
+                        if (cVar != null) {
+                            cVar.a(this.j);
+                        }
+                    }
+                } else {
+                    d();
+                    if (Math.abs(motionEvent.getX() - this.g) < 5.0f && Math.abs(motionEvent.getY() - this.h) < 5.0f) {
+                        e();
+                    }
+                }
+            } else {
+                this.g = motionEvent.getX();
+                this.h = motionEvent.getY();
+                ViewParent parent = getParent();
+                this.m = parent;
+                if (parent != null) {
+                    parent.requestDisallowInterceptTouchEvent(true);
+                }
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

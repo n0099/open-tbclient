@@ -14,7 +14,7 @@ import java.util.Arrays;
 /* loaded from: classes7.dex */
 public final class BinaryFrame extends Id3Frame {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<BinaryFrame> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public final byte[] data;
 
@@ -31,7 +31,7 @@ public final class BinaryFrame extends Id3Frame {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<BinaryFrame>() { // from class: com.google.android.exoplayer2.metadata.id3.BinaryFrame.1
+        CREATOR = new Parcelable.Creator() { // from class: com.google.android.exoplayer2.metadata.id3.BinaryFrame.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -50,23 +50,76 @@ public final class BinaryFrame extends Id3Frame {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public BinaryFrame createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new BinaryFrame(parcel) : (BinaryFrame) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new BinaryFrame(parcel);
+                }
+                return (BinaryFrame) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public BinaryFrame[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new BinaryFrame[i] : (BinaryFrame[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new BinaryFrame[i];
+                }
+                return (BinaryFrame[]) invokeI.objValue;
             }
         };
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return ((527 + this.id.hashCode()) * 31) + Arrays.hashCode(this.data);
+        }
+        return invokeV.intValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public BinaryFrame(Parcel parcel) {
+        super(parcel.readString());
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.data = parcel.createByteArray();
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj == null || BinaryFrame.class != obj.getClass()) {
+                return false;
+            }
+            BinaryFrame binaryFrame = (BinaryFrame) obj;
+            if (this.id.equals(binaryFrame.id) && Arrays.equals(this.data, binaryFrame.data)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -90,28 +143,6 @@ public final class BinaryFrame extends Id3Frame {
         this.data = bArr;
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj == null || BinaryFrame.class != obj.getClass()) {
-                return false;
-            }
-            BinaryFrame binaryFrame = (BinaryFrame) obj;
-            return this.id.equals(binaryFrame.id) && Arrays.equals(this.data, binaryFrame.data);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ((527 + this.id.hashCode()) * 31) + Arrays.hashCode(this.data) : invokeV.intValue;
-    }
-
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
@@ -119,26 +150,5 @@ public final class BinaryFrame extends Id3Frame {
             parcel.writeString(this.id);
             parcel.writeByteArray(this.data);
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BinaryFrame(Parcel parcel) {
-        super(parcel.readString());
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.data = parcel.createByteArray();
     }
 }

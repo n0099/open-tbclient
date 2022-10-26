@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.switchs.VideoPreLoadSwitch;
-import com.baidu.tieba.ox4;
+import com.baidu.tieba.ux4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,7 +42,7 @@ public class PreLoadVideoSwitchManager {
         this.mSize = 0;
         VideoPreLoadLog.log("PreLoadVideoSwitchManager init ");
         try {
-            parseJson(ox4.k().q("video_sync_switch_json", ""));
+            parseJson(ux4.k().q("video_sync_switch_json", ""));
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -64,22 +64,13 @@ public class PreLoadVideoSwitchManager {
         return (PreLoadVideoSwitchManager) invokeV.objValue;
     }
 
-    private void parseJson(String str) throws JSONException {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, this, str) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        JSONObject jSONObject = new JSONObject(str);
-        this.mMaxNum = jSONObject.optInt("num", 3);
-        this.isWifi = jSONObject.optInt("is_wifi", 1) == 1;
-        this.mSize = jSONObject.optInt("size", 512000);
-        VideoPreLoadLog.log("PreLoadVideoSwitchManager parseJson:   num: " + this.mMaxNum + " size: " + this.mSize + " isWifi " + this.isWifi);
-    }
-
     public int getMaxPreLoadNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mMaxNum : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mMaxNum;
+        }
+        return invokeV.intValue;
     }
 
     public int getSize() {
@@ -99,13 +90,32 @@ public class PreLoadVideoSwitchManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (VideoPreLoadSwitch.isOn()) {
-                return !this.isWifi || BdNetTypeUtil.isWifiNet();
+            if (!VideoPreLoadSwitch.isOn()) {
+                VideoPreLoadLog.log("PreLoadVideoSwitchManager isOpen switch close ");
+                return false;
+            } else if (this.isWifi && !BdNetTypeUtil.isWifiNet()) {
+                return false;
+            } else {
+                return true;
             }
-            VideoPreLoadLog.log("PreLoadVideoSwitchManager isOpen switch close ");
-            return false;
         }
         return invokeV.booleanValue;
+    }
+
+    private void parseJson(String str) throws JSONException {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65538, this, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        JSONObject jSONObject = new JSONObject(str);
+        this.mMaxNum = jSONObject.optInt("num", 3);
+        boolean z = true;
+        if (jSONObject.optInt("is_wifi", 1) != 1) {
+            z = false;
+        }
+        this.isWifi = z;
+        this.mSize = jSONObject.optInt("size", 512000);
+        VideoPreLoadLog.log("PreLoadVideoSwitchManager parseJson:   num: " + this.mMaxNum + " size: " + this.mSize + " isWifi " + this.isWifi);
     }
 
     public void setSyncSwitchJson(String str) {
@@ -117,7 +127,7 @@ public class PreLoadVideoSwitchManager {
             }
             try {
                 parseJson(str);
-                ox4.k().y("video_sync_switch_json", str);
+                ux4.k().y("video_sync_switch_json", str);
             } catch (JSONException e) {
                 e.printStackTrace();
             }

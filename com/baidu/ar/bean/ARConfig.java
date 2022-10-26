@@ -170,7 +170,7 @@ public class ARConfig {
                 } else {
                     setARLaunchMode(Integer.parseInt(string2));
                 }
-                String string3 = jSONObject.has("ar_id") ? jSONObject.getString("ar_id") : null;
+                String string3 = jSONObject.has(ARConfigKey.AR_ID) ? jSONObject.getString(ARConfigKey.AR_ID) : null;
                 setARId(string3);
                 if (TextUtils.isEmpty(getARKey()) && string3 != null) {
                     try {

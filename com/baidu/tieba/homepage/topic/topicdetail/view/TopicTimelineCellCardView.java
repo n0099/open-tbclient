@@ -19,8 +19,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e57;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.m57;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -35,7 +35,7 @@ public class TopicTimelineCellCardView extends LinearLayout implements View.OnCl
     public TextView d;
     public int e;
     public int f;
-    public e57 g;
+    public m57 g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TopicTimelineCellCardView(Context context) {
@@ -57,93 +57,6 @@ public class TopicTimelineCellCardView extends LinearLayout implements View.OnCl
         }
         this.a = 3;
         a(context);
-    }
-
-    public final void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            setOrientation(1);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01be, (ViewGroup) this, true);
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090592);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090593);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090594);
-            this.e = ej.f(context, R.dimen.tbds340);
-            this.f = ej.f(context, R.dimen.tbds230);
-            setOnClickListener(this);
-            b();
-        }
-    }
-
-    public void b() {
-        int skinType;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.a) {
-            return;
-        }
-        this.a = skinType;
-        SkinManager.setViewTextColor(this.c, (int) R.color.cp_cont_m);
-        SkinManager.setBackgroundResource(this.d, R.drawable.topic_timeline_shade_bg);
-        SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0106);
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) || this.g == null) {
-            return;
-        }
-        TiebaStatic.log(new StatisticItem("c13353").param("tid", this.g.b).param("topic_id", this.g.a).param("obj_locate", this.g.f + 1));
-        MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(getContext()).createNormalCfg(String.valueOf(this.g.b), "", "")));
-    }
-
-    @Override // android.widget.LinearLayout, android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
-            super.onMeasure(i, i2);
-            setMeasuredDimension(this.e, this.f);
-        }
-    }
-
-    public void setData(e57 e57Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, e57Var) == null) {
-            if (e57Var == null) {
-                setVisibility(8);
-                return;
-            }
-            setVisibility(0);
-            this.g = e57Var;
-            this.c.setText(e57Var.d);
-            this.d.setText(e57Var.c);
-            if (StringUtils.isNull(e57Var.e)) {
-                int i = e57Var.f;
-                if (i == 0) {
-                    SkinManager.setBackgroundResource(this.b, R.drawable.topic_timeline_bg_one);
-                    return;
-                } else if (i == 1) {
-                    SkinManager.setBackgroundResource(this.b, R.drawable.topic_timeline_bg_two);
-                    return;
-                } else {
-                    SkinManager.setBackgroundResource(this.b, R.drawable.topic_timeline_bg_three);
-                    return;
-                }
-            }
-            try {
-                GradientDrawable gradientDrawable = (GradientDrawable) getResources().getDrawable(R.drawable.obfuscated_res_0x7f081237);
-                gradientDrawable.setColor(Color.parseColor(e57Var.e));
-                this.b.setBackgroundDrawable(gradientDrawable);
-            } catch (Exception unused) {
-                int i2 = e57Var.f;
-                if (i2 == 0) {
-                    SkinManager.setBackgroundResource(this.b, R.drawable.topic_timeline_bg_one);
-                } else if (i2 == 1) {
-                    SkinManager.setBackgroundResource(this.b, R.drawable.topic_timeline_bg_two);
-                } else {
-                    SkinManager.setBackgroundResource(this.b, R.drawable.topic_timeline_bg_three);
-                }
-            }
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -190,5 +103,92 @@ public class TopicTimelineCellCardView extends LinearLayout implements View.OnCl
         }
         this.a = 3;
         a(context);
+    }
+
+    public final void a(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            setOrientation(1);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01bd, (ViewGroup) this, true);
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09059b);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09059c);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09059d);
+            this.e = fj.f(context, R.dimen.tbds340);
+            this.f = fj.f(context, R.dimen.tbds230);
+            setOnClickListener(this);
+            b();
+        }
+    }
+
+    public void b() {
+        int skinType;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.a) {
+            return;
+        }
+        this.a = skinType;
+        SkinManager.setViewTextColor(this.c, (int) R.color.cp_cont_m);
+        SkinManager.setBackgroundResource(this.d, R.drawable.topic_timeline_shade_bg);
+        SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0106);
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) != null) || this.g == null) {
+            return;
+        }
+        TiebaStatic.log(new StatisticItem("c13353").param("tid", this.g.b).param("topic_id", this.g.a).param("obj_locate", this.g.f + 1));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(getContext()).createNormalCfg(String.valueOf(this.g.b), "", "")));
+    }
+
+    public void setData(m57 m57Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, m57Var) == null) {
+            if (m57Var == null) {
+                setVisibility(8);
+                return;
+            }
+            setVisibility(0);
+            this.g = m57Var;
+            this.c.setText(m57Var.d);
+            this.d.setText(m57Var.c);
+            if (StringUtils.isNull(m57Var.e)) {
+                int i = m57Var.f;
+                if (i == 0) {
+                    SkinManager.setBackgroundResource(this.b, R.drawable.topic_timeline_bg_one);
+                    return;
+                } else if (i == 1) {
+                    SkinManager.setBackgroundResource(this.b, R.drawable.topic_timeline_bg_two);
+                    return;
+                } else {
+                    SkinManager.setBackgroundResource(this.b, R.drawable.topic_timeline_bg_three);
+                    return;
+                }
+            }
+            try {
+                GradientDrawable gradientDrawable = (GradientDrawable) getResources().getDrawable(R.drawable.obfuscated_res_0x7f081248);
+                gradientDrawable.setColor(Color.parseColor(m57Var.e));
+                this.b.setBackgroundDrawable(gradientDrawable);
+            } catch (Exception unused) {
+                int i2 = m57Var.f;
+                if (i2 == 0) {
+                    SkinManager.setBackgroundResource(this.b, R.drawable.topic_timeline_bg_one);
+                } else if (i2 == 1) {
+                    SkinManager.setBackgroundResource(this.b, R.drawable.topic_timeline_bg_two);
+                } else {
+                    SkinManager.setBackgroundResource(this.b, R.drawable.topic_timeline_bg_three);
+                }
+            }
+        }
+    }
+
+    @Override // android.widget.LinearLayout, android.view.View
+    public void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            super.onMeasure(i, i2);
+            setMeasuredDimension(this.e, this.f);
+        }
     }
 }

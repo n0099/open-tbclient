@@ -27,7 +27,7 @@ public final class DefaultImageFormats {
     public static final ImageFormat WEBP_EXTENDED_WITH_ALPHA;
     public static final ImageFormat WEBP_LOSSLESS;
     public static final ImageFormat WEBP_SIMPLE;
-    public static ImmutableList<ImageFormat> sAllDefaultFormats;
+    public static ImmutableList sAllDefaultFormats;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -71,7 +71,7 @@ public final class DefaultImageFormats {
         }
     }
 
-    public static List<ImageFormat> getDefaultFormats() {
+    public static List getDefaultFormats() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
@@ -98,12 +98,24 @@ public final class DefaultImageFormats {
     public static boolean isStaticWebpFormat(ImageFormat imageFormat) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, imageFormat)) == null) ? imageFormat == WEBP_SIMPLE || imageFormat == WEBP_LOSSLESS || imageFormat == WEBP_EXTENDED || imageFormat == WEBP_EXTENDED_WITH_ALPHA : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, imageFormat)) == null) {
+            if (imageFormat != WEBP_SIMPLE && imageFormat != WEBP_LOSSLESS && imageFormat != WEBP_EXTENDED && imageFormat != WEBP_EXTENDED_WITH_ALPHA) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
     public static boolean isWebpFormat(ImageFormat imageFormat) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, imageFormat)) == null) ? isStaticWebpFormat(imageFormat) || imageFormat == WEBP_ANIMATED : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, imageFormat)) == null) {
+            if (!isStaticWebpFormat(imageFormat) && imageFormat != WEBP_ANIMATED) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

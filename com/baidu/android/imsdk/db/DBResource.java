@@ -64,17 +64,19 @@ public class DBResource {
     private void closeDatabase() {
         SQLiteDatabase sQLiteDatabase;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || (sQLiteDatabase = this.mDatabase) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && (sQLiteDatabase = this.mDatabase) != null) {
+            sQLiteDatabase.close();
+            this.mDatabase = null;
         }
-        sQLiteDatabase.close();
-        this.mDatabase = null;
     }
 
     public static Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? mContext : (Context) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return mContext;
+        }
+        return (Context) invokeV.objValue;
     }
 
     public static DBResource getInstance(Context context) {

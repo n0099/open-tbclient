@@ -10,10 +10,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public interface IDevicePortraitManager {
+    float getDefaultScoreThreshold(ThresholdType thresholdType);
+
+    float getStaticDeviceScore(Context context);
+
+    float getStaticDeviceScorePercentage(Context context);
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class ThresholdType {
+    public final class ThresholdType {
         public static final /* synthetic */ ThresholdType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final ThresholdType LOW_MID;
@@ -61,19 +66,19 @@ public interface IDevicePortraitManager {
         public static ThresholdType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (ThresholdType) Enum.valueOf(ThresholdType.class, str) : (ThresholdType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (ThresholdType) Enum.valueOf(ThresholdType.class, str);
+            }
+            return (ThresholdType) invokeL.objValue;
         }
 
         public static ThresholdType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ThresholdType[]) $VALUES.clone() : (ThresholdType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (ThresholdType[]) $VALUES.clone();
+            }
+            return (ThresholdType[]) invokeV.objValue;
         }
     }
-
-    float getDefaultScoreThreshold(ThresholdType thresholdType);
-
-    float getStaticDeviceScore(Context context);
-
-    float getStaticDeviceScorePercentage(Context context);
 }

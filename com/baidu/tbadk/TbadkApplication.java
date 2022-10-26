@@ -12,9 +12,9 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.eh;
-import com.baidu.tieba.ox4;
+import com.baidu.tieba.fh;
 import com.baidu.tieba.service.SignAlertReceiver;
+import com.baidu.tieba.ux4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,7 +31,7 @@ public class TbadkApplication extends TbadkCoreApplication {
     public static TbadkApplication sApp;
     public transient /* synthetic */ FieldHolder $fh;
     public String[] mPatchWhiteList;
-    public eh resourcesWrapper;
+    public fh resourcesWrapper;
     public String tShopUrl;
 
     static {
@@ -68,7 +68,10 @@ public class TbadkApplication extends TbadkCoreApplication {
     public static TbadkApplication getInst() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? sApp : (TbadkApplication) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return sApp;
+        }
+        return (TbadkApplication) invokeV.objValue;
     }
 
     private void prepareForDefaultAlertTime() {
@@ -79,46 +82,13 @@ public class TbadkApplication extends TbadkCoreApplication {
         }
     }
 
-    @Override // com.baidu.tbadk.core.TbadkCoreApplication, com.baidu.adp.base.BdBaseApplication, android.content.ContextWrapper
-    public void attachBaseContext(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            super.attachBaseContext(context);
-        }
-    }
-
-    public Intent createIntentForSignAlarm() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Intent intent = new Intent(TbConfig.getBroadcastActionSignAlert());
-            intent.setData(Uri.parse("tieba_sign://alert"));
-            intent.setClass(getInst().getContext(), SignAlertReceiver.class);
-            return intent;
-        }
-        return (Intent) invokeV.objValue;
-    }
-
     public String getForumName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? mForumName : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseApplication, android.content.ContextWrapper, android.content.Context
-    public Resources getResources() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (BdBaseApplication.getInst() != null && !BdBaseApplication.getInst().getIsPluginResourcOpen()) {
-                if (this.resourcesWrapper == null && super.getResources() != null) {
-                    this.resourcesWrapper = new eh(super.getResources());
-                }
-                return this.resourcesWrapper;
-            }
-            return super.getResources();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return mForumName;
         }
-        return (Resources) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
     public int getSignAlertHours() {
@@ -152,7 +122,10 @@ public class TbadkApplication extends TbadkCoreApplication {
     public String gettShopUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.tShopUrl : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.tShopUrl;
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.TbadkCoreApplication
@@ -167,13 +140,19 @@ public class TbadkApplication extends TbadkCoreApplication {
     public boolean isDaemonProcess() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.isDaemonProcess : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.isDaemonProcess;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isSignAlertOn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? TbadkSettings.getInst().loadBoolean("alert_sign_on", false) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return TbadkSettings.getInst().loadBoolean("alert_sign_on", false);
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isTbCDNTachometerProcess() {
@@ -192,20 +171,16 @@ public class TbadkApplication extends TbadkCoreApplication {
     public String loginShareRead() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? loadString("account_share", null) : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return loadString("account_share", null);
+        }
+        return (String) invokeV.objValue;
     }
 
     public void loginShareRemove() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            ox4.k().D("account_share");
-        }
-    }
-
-    public void loginShareSave(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            saveString("account_share", str);
+            ux4.k().D("account_share");
         }
     }
 
@@ -214,6 +189,21 @@ public class TbadkApplication extends TbadkCoreApplication {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             super.onCreate();
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.TbadkCoreApplication, com.baidu.adp.base.BdBaseApplication, android.content.ContextWrapper
+    public void attachBaseContext(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            super.attachBaseContext(context);
+        }
+    }
+
+    public void loginShareSave(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+            saveString("account_share", str);
         }
     }
 
@@ -232,19 +222,47 @@ public class TbadkApplication extends TbadkCoreApplication {
         }
     }
 
+    public void settShopUrl(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
+            this.tShopUrl = str;
+        }
+    }
+
+    public Intent createIntentForSignAlarm() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            Intent intent = new Intent(TbConfig.getBroadcastActionSignAlert());
+            intent.setData(Uri.parse("tieba_sign://alert"));
+            intent.setClass(getInst().getContext(), SignAlertReceiver.class);
+            return intent;
+        }
+        return (Intent) invokeV.objValue;
+    }
+
+    @Override // com.baidu.adp.base.BdBaseApplication, android.content.ContextWrapper, android.content.Context
+    public Resources getResources() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (BdBaseApplication.getInst() != null && !BdBaseApplication.getInst().getIsPluginResourcOpen()) {
+                if (this.resourcesWrapper == null && super.getResources() != null) {
+                    this.resourcesWrapper = new fh(super.getResources());
+                }
+                return this.resourcesWrapper;
+            }
+            return super.getResources();
+        }
+        return (Resources) invokeV.objValue;
+    }
+
     public void setSignAlertTime(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048593, this, i, i2) == null) {
             TbadkSettings.getInst().saveInt("alert_sign_hours", i);
             TbadkSettings.getInst().saveInt("alert_sign_mins", i2);
             updateSignAlarm();
-        }
-    }
-
-    public void settShopUrl(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
-            this.tShopUrl = str;
         }
     }
 

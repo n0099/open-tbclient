@@ -17,9 +17,71 @@ import java.nio.IntBuffer;
 /* loaded from: classes.dex */
 public final class BufferUtils {
     public static /* synthetic */ Interceptable $ic;
-    public static b7<ByteBuffer> a;
+    public static b7 a;
     public static int b;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public static native void clear(ByteBuffer byteBuffer, int i);
+
+    public static native void copyJni(Buffer buffer, int i, Buffer buffer2, int i2, int i3);
+
+    public static native void copyJni(byte[] bArr, int i, Buffer buffer, int i2, int i3);
+
+    public static native void copyJni(char[] cArr, int i, Buffer buffer, int i2, int i3);
+
+    public static native void copyJni(double[] dArr, int i, Buffer buffer, int i2, int i3);
+
+    public static native void copyJni(float[] fArr, int i, Buffer buffer, int i2, int i3);
+
+    public static native void copyJni(float[] fArr, Buffer buffer, int i, int i2);
+
+    public static native void copyJni(int[] iArr, int i, Buffer buffer, int i2, int i3);
+
+    public static native void copyJni(long[] jArr, int i, Buffer buffer, int i2, int i3);
+
+    public static native void copyJni(short[] sArr, int i, Buffer buffer, int i2, int i3);
+
+    public static native long find(Buffer buffer, int i, int i2, Buffer buffer2, int i3, int i4);
+
+    public static native long find(Buffer buffer, int i, int i2, Buffer buffer2, int i3, int i4, float f);
+
+    public static native long find(Buffer buffer, int i, int i2, float[] fArr, int i3, int i4);
+
+    public static native long find(Buffer buffer, int i, int i2, float[] fArr, int i3, int i4, float f);
+
+    public static native long find(float[] fArr, int i, int i2, Buffer buffer, int i3, int i4);
+
+    public static native long find(float[] fArr, int i, int i2, Buffer buffer, int i3, int i4, float f);
+
+    public static native long find(float[] fArr, int i, int i2, float[] fArr2, int i3, int i4);
+
+    public static native long find(float[] fArr, int i, int i2, float[] fArr2, int i3, int i4, float f);
+
+    public static native void freeMemory(ByteBuffer byteBuffer);
+
+    public static native long getBufferAddress(Buffer buffer);
+
+    public static native ByteBuffer newDisposableByteBuffer(int i);
+
+    public static native void transformV2M3Jni(Buffer buffer, int i, int i2, float[] fArr, int i3);
+
+    public static native void transformV2M3Jni(float[] fArr, int i, int i2, float[] fArr2, int i3);
+
+    public static native void transformV2M4Jni(Buffer buffer, int i, int i2, float[] fArr, int i3);
+
+    public static native void transformV2M4Jni(float[] fArr, int i, int i2, float[] fArr2, int i3);
+
+    public static native void transformV3M3Jni(Buffer buffer, int i, int i2, float[] fArr, int i3);
+
+    public static native void transformV3M3Jni(float[] fArr, int i, int i2, float[] fArr2, int i3);
+
+    public static native void transformV3M4Jni(Buffer buffer, int i, int i2, float[] fArr, int i3);
+
+    public static native void transformV3M4Jni(float[] fArr, int i, int i2, float[] fArr2, int i3);
+
+    public static native void transformV4M4Jni(Buffer buffer, int i, int i2, float[] fArr, int i3);
+
+    public static native void transformV4M4Jni(float[] fArr, int i, int i2, float[] fArr2, int i3);
 
     static {
         InterceptResult invokeClinit;
@@ -34,7 +96,7 @@ public final class BufferUtils {
                 return;
             }
         }
-        a = new b7<>();
+        a = new b7();
         b = 0;
     }
 
@@ -90,26 +152,6 @@ public final class BufferUtils {
         return (FloatBuffer) invokeI.objValue;
     }
 
-    public static native void clear(ByteBuffer byteBuffer, int i);
-
-    public static native void copyJni(Buffer buffer, int i, Buffer buffer2, int i2, int i3);
-
-    public static native void copyJni(byte[] bArr, int i, Buffer buffer, int i2, int i3);
-
-    public static native void copyJni(char[] cArr, int i, Buffer buffer, int i2, int i3);
-
-    public static native void copyJni(double[] dArr, int i, Buffer buffer, int i2, int i3);
-
-    public static native void copyJni(float[] fArr, int i, Buffer buffer, int i2, int i3);
-
-    public static native void copyJni(float[] fArr, Buffer buffer, int i, int i2);
-
-    public static native void copyJni(int[] iArr, int i, Buffer buffer, int i2, int i3);
-
-    public static native void copyJni(long[] jArr, int i, Buffer buffer, int i2, int i3);
-
-    public static native void copyJni(short[] sArr, int i, Buffer buffer, int i2, int i3);
-
     public static IntBuffer d(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -135,46 +177,4 @@ public final class BufferUtils {
         }
         return (ByteBuffer) invokeI.objValue;
     }
-
-    public static native long find(Buffer buffer, int i, int i2, Buffer buffer2, int i3, int i4);
-
-    public static native long find(Buffer buffer, int i, int i2, Buffer buffer2, int i3, int i4, float f);
-
-    public static native long find(Buffer buffer, int i, int i2, float[] fArr, int i3, int i4);
-
-    public static native long find(Buffer buffer, int i, int i2, float[] fArr, int i3, int i4, float f);
-
-    public static native long find(float[] fArr, int i, int i2, Buffer buffer, int i3, int i4);
-
-    public static native long find(float[] fArr, int i, int i2, Buffer buffer, int i3, int i4, float f);
-
-    public static native long find(float[] fArr, int i, int i2, float[] fArr2, int i3, int i4);
-
-    public static native long find(float[] fArr, int i, int i2, float[] fArr2, int i3, int i4, float f);
-
-    public static native void freeMemory(ByteBuffer byteBuffer);
-
-    public static native long getBufferAddress(Buffer buffer);
-
-    public static native ByteBuffer newDisposableByteBuffer(int i);
-
-    public static native void transformV2M3Jni(Buffer buffer, int i, int i2, float[] fArr, int i3);
-
-    public static native void transformV2M3Jni(float[] fArr, int i, int i2, float[] fArr2, int i3);
-
-    public static native void transformV2M4Jni(Buffer buffer, int i, int i2, float[] fArr, int i3);
-
-    public static native void transformV2M4Jni(float[] fArr, int i, int i2, float[] fArr2, int i3);
-
-    public static native void transformV3M3Jni(Buffer buffer, int i, int i2, float[] fArr, int i3);
-
-    public static native void transformV3M3Jni(float[] fArr, int i, int i2, float[] fArr2, int i3);
-
-    public static native void transformV3M4Jni(Buffer buffer, int i, int i2, float[] fArr, int i3);
-
-    public static native void transformV3M4Jni(float[] fArr, int i, int i2, float[] fArr2, int i3);
-
-    public static native void transformV4M4Jni(Buffer buffer, int i, int i2, float[] fArr, int i3);
-
-    public static native void transformV4M4Jni(float[] fArr, int i, int i2, float[] fArr2, int i3);
 }

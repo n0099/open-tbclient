@@ -1,9 +1,7 @@
 package com.baidu.searchbox.player.plugin;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.player.BDVideoPlayer;
-import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +16,7 @@ public class PluginManager {
     public final BDVideoPlayer mPlayer;
     public final ArrayList<AbsPlugin> mPlugins;
 
-    public PluginManager(@NonNull BDVideoPlayer bDVideoPlayer) {
+    public PluginManager(BDVideoPlayer bDVideoPlayer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -37,7 +35,6 @@ public class PluginManager {
         this.mPlayer = bDVideoPlayer;
     }
 
-    @PublicMethod
     public void addPlugin(AbsPlugin absPlugin) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, absPlugin) == null) {
@@ -47,15 +44,24 @@ public class PluginManager {
         }
     }
 
-    @NonNull
-    @PublicMethod
+    public void removePlugin(AbsPlugin absPlugin) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, absPlugin) == null) {
+            absPlugin.detachMessenger();
+            absPlugin.detachManager();
+            this.mPlugins.remove(absPlugin);
+        }
+    }
+
     public BDVideoPlayer getPlayer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mPlayer : (BDVideoPlayer) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mPlayer;
+        }
+        return (BDVideoPlayer) invokeV.objValue;
     }
 
-    @PublicMethod
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -67,16 +73,6 @@ public class PluginManager {
                 next.onPluginRelease();
             }
             this.mPlugins.clear();
-        }
-    }
-
-    @PublicMethod
-    public void removePlugin(AbsPlugin absPlugin) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, absPlugin) == null) {
-            absPlugin.detachMessenger();
-            absPlugin.detachManager();
-            this.mPlugins.remove(absPlugin);
         }
     }
 }

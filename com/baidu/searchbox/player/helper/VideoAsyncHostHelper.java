@@ -1,7 +1,6 @@
 package com.baidu.searchbox.player.helper;
 
 import android.content.SharedPreferences;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.player.BDPlayerConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -19,7 +18,7 @@ public class VideoAsyncHostHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_VIDEO_MPD_HOST = "key_video_mpd_hosts";
     public static final String SP_FILE_NAME = "com.baidu.searchbox_bdvideoplayer";
-    public static volatile ArrayList<String> sVideoHostWhiteList;
+    public static volatile ArrayList sVideoHostWhiteList;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +34,7 @@ public class VideoAsyncHostHelper {
                 return;
             }
         }
-        sVideoHostWhiteList = new ArrayList<>();
+        sVideoHostWhiteList = new ArrayList();
     }
 
     public VideoAsyncHostHelper() {
@@ -52,7 +51,7 @@ public class VideoAsyncHostHelper {
         }
     }
 
-    public static synchronized boolean isVideoUrlNeedAsyncRequest(@Nullable String str) {
+    public static synchronized boolean isVideoUrlNeedAsyncRequest(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
@@ -63,9 +62,9 @@ public class VideoAsyncHostHelper {
                 if (sVideoHostWhiteList.isEmpty()) {
                     updateVideoHostWhiteList();
                 }
-                Iterator<String> it = sVideoHostWhiteList.iterator();
+                Iterator it = sVideoHostWhiteList.iterator();
                 while (it.hasNext()) {
-                    if (str.contains(it.next())) {
+                    if (str.contains((String) it.next())) {
                         return true;
                     }
                 }
@@ -78,10 +77,9 @@ public class VideoAsyncHostHelper {
     public static void setHostConfig(String str) {
         SharedPreferences sharedPreferences;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, str) == null) || (sharedPreferences = BDPlayerConfig.getAppContext().getSharedPreferences(SP_FILE_NAME, 0)) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(65539, null, str) == null) && (sharedPreferences = BDPlayerConfig.getAppContext().getSharedPreferences(SP_FILE_NAME, 0)) != null) {
+            sharedPreferences.edit().putString(KEY_VIDEO_MPD_HOST, str).apply();
         }
-        sharedPreferences.edit().putString(KEY_VIDEO_MPD_HOST, str).apply();
     }
 
     public static void updateVideoHostWhiteList() {

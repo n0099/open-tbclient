@@ -19,6 +19,18 @@ public final class LiveAddressType {
     public transient /* synthetic */ FieldHolder $fh;
     public final String value;
 
+    public static LiveAddressType valueOf(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (LiveAddressType) Enum.valueOf(LiveAddressType.class, str) : (LiveAddressType) invokeL.objValue;
+    }
+
+    public static LiveAddressType[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (LiveAddressType[]) $VALUES.clone() : (LiveAddressType[]) invokeV.objValue;
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -60,21 +72,12 @@ public final class LiveAddressType {
         this.value = str2;
     }
 
-    public static LiveAddressType valueOf(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (LiveAddressType) Enum.valueOf(LiveAddressType.class, str) : (LiveAddressType) invokeL.objValue;
-    }
-
-    public static LiveAddressType[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (LiveAddressType[]) $VALUES.clone() : (LiveAddressType[]) invokeV.objValue;
-    }
-
     public final String getValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.value : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.value;
+        }
+        return (String) invokeV.objValue;
     }
 }

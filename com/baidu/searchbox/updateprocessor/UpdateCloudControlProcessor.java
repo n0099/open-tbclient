@@ -91,10 +91,10 @@ public class UpdateCloudControlProcessor implements ICloudControlProcessor {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, str2, str3)) == null) {
                             List list = this.val$customUpdateBlackList;
-                            if (list == null || !list.contains(String.format("%s/%s", str2, str3))) {
-                                return CloudControlManager.getInstance().isInDegradeList(this.val$degradeJsonObject, str2, str3);
+                            if (list != null && list.contains(String.format("%s/%s", str2, str3))) {
+                                return true;
                             }
-                            return true;
+                            return CloudControlManager.getInstance().isInDegradeList(this.val$degradeJsonObject, str2, str3);
                         }
                         return invokeLL.booleanValue;
                     }
@@ -117,26 +117,25 @@ public class UpdateCloudControlProcessor implements ICloudControlProcessor {
             String serviceName = cloudControlResponseInfo.getServiceName();
             JSONObject serviceData = cloudControlResponseInfo.getServiceData();
             JSONObject option = cloudControlResponseInfo.getOption();
-            if (!"config".equals(serviceName) || serviceData == null) {
-                return;
-            }
-            try {
-                GsonTool gsonTool = new GsonTool(new CommandListenerRegistry());
-                gsonTool.readData(new StringReader(serviceData.toString()), 16, option);
-                JSONObject reportInfo = gsonTool.getReportInfo();
-                if (reportInfo == null) {
-                    return;
+            if ("config".equals(serviceName) && serviceData != null) {
+                try {
+                    GsonTool gsonTool = new GsonTool(new CommandListenerRegistry());
+                    gsonTool.readData(new StringReader(serviceData.toString()), 16, option);
+                    JSONObject reportInfo = gsonTool.getReportInfo();
+                    if (reportInfo == null) {
+                        return;
+                    }
+                    JSONObject jSONObject = new JSONObject();
+                    JSONArray optJSONArray = reportInfo.optJSONArray("detail");
+                    String optString = reportInfo.optString("totalCount");
+                    String optString2 = reportInfo.optString("successCount");
+                    String optString3 = reportInfo.optString("versionFilterCount");
+                    jSONObject.put("items", optJSONArray);
+                    jSONObject.put("count", String.format("%s,%s,%s", optString, optString2, optString3));
+                    iCloudControlUBCCallBack.setServiceInfo(jSONObject);
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
-                JSONObject jSONObject = new JSONObject();
-                JSONArray optJSONArray = reportInfo.optJSONArray("detail");
-                String optString = reportInfo.optString("totalCount");
-                String optString2 = reportInfo.optString("successCount");
-                String optString3 = reportInfo.optString("versionFilterCount");
-                jSONObject.put("items", optJSONArray);
-                jSONObject.put("count", String.format("%s,%s,%s", optString, optString2, optString3));
-                iCloudControlUBCCallBack.setServiceInfo(jSONObject);
-            } catch (IOException e) {
-                e.printStackTrace();
             }
         }
     }

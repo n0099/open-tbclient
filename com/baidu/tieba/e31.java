@@ -1,53 +1,120 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.telephony.PhoneStateListener;
+import android.telephony.TelephonyManager;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public final class e31 {
+public class e31 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
-    public static String b;
-    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947683302, "Lcom/baidu/tieba/e31;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947683302, "Lcom/baidu/tieba/e31;");
-                return;
-            }
-        }
-        b = zi0.b().getApplicationInfo().processName;
-        String a2 = o21.a();
-        a = a2;
-        c = a(a2);
+    /* loaded from: classes3.dex */
+    public interface a {
+        void a(int i);
     }
 
-    public static boolean a(String str) {
+    public static boolean a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.equals(str, b)) {
-                return true;
-            }
-            return str.startsWith(b) && !str.contains(":");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            return true;
         }
         return invokeL.booleanValue;
     }
 
-    public static boolean b() {
-        InterceptResult invokeV;
+    /* loaded from: classes3.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public PhoneStateListener a;
+
+        /* loaded from: classes3.dex */
+        public class a extends PhoneStateListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public a(b bVar, a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar, aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // android.telephony.PhoneStateListener
+            public void onCallStateChanged(int i, String str) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                    this.a.a(i);
+                }
+            }
+        }
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public PhoneStateListener a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a;
+            }
+            return (PhoneStateListener) invokeV.objValue;
+        }
+
+        public void b(a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+                this.a = new a(this, aVar);
+            }
+        }
+    }
+
+    public static boolean b(Context context, TelephonyManager telephonyManager, b bVar) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c : invokeV.booleanValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, context, telephonyManager, bVar)) == null) {
+            telephonyManager.listen(bVar.a(), 32);
+            return true;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public static boolean c(Context context, TelephonyManager telephonyManager, b bVar) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, telephonyManager, bVar)) == null) {
+            telephonyManager.listen(bVar.a(), 0);
+            return true;
+        }
+        return invokeLLL.booleanValue;
     }
 }

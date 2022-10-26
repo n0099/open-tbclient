@@ -17,19 +17,19 @@ import io.reactivex.internal.fuseable.FuseToMaybe;
 import io.reactivex.internal.fuseable.HasUpstreamMaybeSource;
 import io.reactivex.plugins.RxJavaPlugins;
 /* loaded from: classes8.dex */
-public final class MaybeIsEmptySingle<T> extends Single<Boolean> implements HasUpstreamMaybeSource<T>, FuseToMaybe<Boolean> {
+public final class MaybeIsEmptySingle extends Single implements HasUpstreamMaybeSource, FuseToMaybe {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MaybeSource<T> source;
+    public final MaybeSource source;
 
     /* loaded from: classes8.dex */
-    public static final class IsEmptyMaybeObserver<T> implements MaybeObserver<T>, Disposable {
+    public final class IsEmptyMaybeObserver implements MaybeObserver, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SingleObserver<? super Boolean> actual;
+        public final SingleObserver actual;
         public Disposable d;
 
-        public IsEmptyMaybeObserver(SingleObserver<? super Boolean> singleObserver) {
+        public IsEmptyMaybeObserver(SingleObserver singleObserver) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -45,31 +45,6 @@ public final class MaybeIsEmptySingle<T> extends Single<Boolean> implements HasU
                 }
             }
             this.actual = singleObserver;
-        }
-
-        @Override // io.reactivex.disposables.Disposable
-        public void dispose() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.d.dispose();
-                this.d = DisposableHelper.DISPOSED;
-            }
-        }
-
-        @Override // io.reactivex.disposables.Disposable
-        public boolean isDisposed() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d.isDisposed() : invokeV.booleanValue;
-        }
-
-        @Override // io.reactivex.MaybeObserver
-        public void onComplete() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.d = DisposableHelper.DISPOSED;
-                this.actual.onSuccess(Boolean.TRUE);
-            }
         }
 
         @Override // io.reactivex.MaybeObserver
@@ -91,16 +66,44 @@ public final class MaybeIsEmptySingle<T> extends Single<Boolean> implements HasU
         }
 
         @Override // io.reactivex.MaybeObserver
-        public void onSuccess(T t) {
+        public void onSuccess(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
+            if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
                 this.d = DisposableHelper.DISPOSED;
                 this.actual.onSuccess(Boolean.FALSE);
             }
         }
+
+        @Override // io.reactivex.disposables.Disposable
+        public void dispose() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.d.dispose();
+                this.d = DisposableHelper.DISPOSED;
+            }
+        }
+
+        @Override // io.reactivex.disposables.Disposable
+        public boolean isDisposed() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.d.isDisposed();
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // io.reactivex.MaybeObserver
+        public void onComplete() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                this.d = DisposableHelper.DISPOSED;
+                this.actual.onSuccess(Boolean.TRUE);
+            }
+        }
     }
 
-    public MaybeIsEmptySingle(MaybeSource<T> maybeSource) {
+    public MaybeIsEmptySingle(MaybeSource maybeSource) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -118,25 +121,31 @@ public final class MaybeIsEmptySingle<T> extends Single<Boolean> implements HasU
         this.source = maybeSource;
     }
 
-    @Override // io.reactivex.internal.fuseable.FuseToMaybe
-    public Maybe<Boolean> fuseToMaybe() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? RxJavaPlugins.onAssembly(new MaybeIsEmpty(this.source)) : (Maybe) invokeV.objValue;
-    }
-
-    @Override // io.reactivex.internal.fuseable.HasUpstreamMaybeSource
-    public MaybeSource<T> source() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.source : (MaybeSource) invokeV.objValue;
-    }
-
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver<? super Boolean> singleObserver) {
+    public void subscribeActual(SingleObserver singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, singleObserver) == null) {
             this.source.subscribe(new IsEmptyMaybeObserver(singleObserver));
         }
+    }
+
+    @Override // io.reactivex.internal.fuseable.FuseToMaybe
+    public Maybe fuseToMaybe() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return RxJavaPlugins.onAssembly(new MaybeIsEmpty(this.source));
+        }
+        return (Maybe) invokeV.objValue;
+    }
+
+    @Override // io.reactivex.internal.fuseable.HasUpstreamMaybeSource
+    public MaybeSource source() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.source;
+        }
+        return (MaybeSource) invokeV.objValue;
     }
 }

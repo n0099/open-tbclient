@@ -1,7 +1,5 @@
 package com.baidu.searchbox.player.plugin;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.player.event.StatisticsEvent;
 import com.baidu.searchbox.player.event.VideoEvent;
@@ -15,6 +13,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class SpeedMonitorPlugin extends AbsPlugin {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.searchbox.player.interfaces.INeuron
+    public int[] getSubscribeEvent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new int[]{6} : (int[]) invokeV.objValue;
+    }
 
     public SpeedMonitorPlugin() {
         Interceptable interceptable = $ic;
@@ -37,16 +42,8 @@ public class SpeedMonitorPlugin extends AbsPlugin {
         }
     }
 
-    @Override // com.baidu.searchbox.player.interfaces.INeuron
-    @Nullable
-    public int[] getSubscribeEvent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new int[]{6} : (int[]) invokeV.objValue;
-    }
-
     @Override // com.baidu.searchbox.player.plugin.AbsPlugin, com.baidu.searchbox.player.interfaces.INeuron
-    public void onVideoEventNotify(@NonNull VideoEvent videoEvent) {
+    public void onVideoEventNotify(VideoEvent videoEvent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, videoEvent) == null) {
             super.onVideoEventNotify(videoEvent);

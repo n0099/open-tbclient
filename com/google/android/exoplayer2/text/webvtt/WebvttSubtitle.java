@@ -7,7 +7,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.Cue;
 import com.google.android.exoplayer2.text.Subtitle;
 import com.google.android.exoplayer2.util.Assertions;
 import com.google.android.exoplayer2.util.Util;
@@ -20,11 +19,11 @@ public final class WebvttSubtitle implements Subtitle {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long[] cueTimesUs;
-    public final List<WebvttCue> cues;
+    public final List cues;
     public final int numCues;
     public final long[] sortedCueTimesUs;
 
-    public WebvttSubtitle(List<WebvttCue> list) {
+    public WebvttSubtitle(List list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -44,7 +43,7 @@ public final class WebvttSubtitle implements Subtitle {
         this.numCues = size;
         this.cueTimesUs = new long[size * 2];
         for (int i3 = 0; i3 < this.numCues; i3++) {
-            WebvttCue webvttCue = list.get(i3);
+            WebvttCue webvttCue = (WebvttCue) list.get(i3);
             int i4 = i3 * 2;
             long[] jArr = this.cueTimesUs;
             jArr[i4] = webvttCue.startTime;
@@ -57,7 +56,7 @@ public final class WebvttSubtitle implements Subtitle {
     }
 
     @Override // com.google.android.exoplayer2.text.Subtitle
-    public List<Cue> getCues(long j) {
+    public List getCues(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
@@ -71,16 +70,18 @@ public final class WebvttSubtitle implements Subtitle {
                     if (arrayList == null) {
                         arrayList = new ArrayList();
                     }
-                    WebvttCue webvttCue2 = this.cues.get(i);
-                    if (!webvttCue2.isNormalCue()) {
-                        arrayList.add(webvttCue2);
-                    } else if (webvttCue == null) {
-                        webvttCue = webvttCue2;
-                    } else if (spannableStringBuilder == null) {
-                        spannableStringBuilder = new SpannableStringBuilder();
-                        spannableStringBuilder.append(webvttCue.text).append((CharSequence) "\n").append(webvttCue2.text);
+                    WebvttCue webvttCue2 = (WebvttCue) this.cues.get(i);
+                    if (webvttCue2.isNormalCue()) {
+                        if (webvttCue == null) {
+                            webvttCue = webvttCue2;
+                        } else if (spannableStringBuilder == null) {
+                            spannableStringBuilder = new SpannableStringBuilder();
+                            spannableStringBuilder.append(webvttCue.text).append((CharSequence) "\n").append(webvttCue2.text);
+                        } else {
+                            spannableStringBuilder.append((CharSequence) "\n").append(webvttCue2.text);
+                        }
                     } else {
-                        spannableStringBuilder.append((CharSequence) "\n").append(webvttCue2.text);
+                        arrayList.add(webvttCue2);
                     }
                 }
             }
@@ -89,7 +90,10 @@ public final class WebvttSubtitle implements Subtitle {
             } else if (webvttCue != null) {
                 arrayList.add(webvttCue);
             }
-            return arrayList != null ? arrayList : Collections.emptyList();
+            if (arrayList != null) {
+                return arrayList;
+            }
+            return Collections.emptyList();
         }
         return (List) invokeJ.objValue;
     }
@@ -97,20 +101,23 @@ public final class WebvttSubtitle implements Subtitle {
     @Override // com.google.android.exoplayer2.text.Subtitle
     public long getEventTime(int i) {
         InterceptResult invokeI;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            Assertions.checkArgument(i >= 0);
-            Assertions.checkArgument(i < this.sortedCueTimesUs.length);
+            boolean z2 = true;
+            if (i >= 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Assertions.checkArgument(z);
+            if (i >= this.sortedCueTimesUs.length) {
+                z2 = false;
+            }
+            Assertions.checkArgument(z2);
             return this.sortedCueTimesUs[i];
         }
         return invokeI.longValue;
-    }
-
-    @Override // com.google.android.exoplayer2.text.Subtitle
-    public int getEventTimeCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.sortedCueTimesUs.length : invokeV.intValue;
     }
 
     @Override // com.google.android.exoplayer2.text.Subtitle
@@ -119,11 +126,21 @@ public final class WebvttSubtitle implements Subtitle {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
             int binarySearchCeil = Util.binarySearchCeil(this.sortedCueTimesUs, j, false, false);
-            if (binarySearchCeil < this.sortedCueTimesUs.length) {
-                return binarySearchCeil;
+            if (binarySearchCeil >= this.sortedCueTimesUs.length) {
+                return -1;
             }
-            return -1;
+            return binarySearchCeil;
         }
         return invokeJ.intValue;
+    }
+
+    @Override // com.google.android.exoplayer2.text.Subtitle
+    public int getEventTimeCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.sortedCueTimesUs.length;
+        }
+        return invokeV.intValue;
     }
 }

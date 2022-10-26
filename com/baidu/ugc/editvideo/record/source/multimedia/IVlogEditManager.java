@@ -1,11 +1,9 @@
 package com.baidu.ugc.editvideo.record.source.multimedia;
 
 import com.baidu.minivideo.effect.core.vlogedit.MediaAEffectConfig;
-import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrackConfig;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTransitionConfig;
-import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
 import com.baidu.ugc.editvideo.data.MultiMediaData;
 import com.baidu.ugc.editvideo.subtitle.SubTitleConfig;
 import com.baidu.ugc.editvideo.subtitle.SubTitleUnit;
@@ -16,7 +14,7 @@ import java.util.Map;
 public interface IVlogEditManager extends IVLogLifeProtocol, IVLogPlayControlProtocol {
     public static final String FILTER_ORIGINAL = "FILTER_ORIGINAL";
 
-    void addMultiMediaData(int i, List<MultiMediaData> list);
+    void addMultiMediaData(int i, List list);
 
     void addOneTrack(MediaTrack mediaTrack);
 
@@ -30,17 +28,17 @@ public interface IVlogEditManager extends IVLogLifeProtocol, IVLogPlayControlPro
 
     SubTitleUnit getCurrentSubtitle();
 
-    ArrayList<MultiMediaData> getInputMultiMediaData();
+    ArrayList getInputMultiMediaData();
 
     MultiMediaData getMultiMediaData(int i);
 
     MediaTrack getOriginEffectTrack();
 
-    List<MultiMediaData> getStickerMultiMediaDataList(boolean z);
+    List getStickerMultiMediaDataList(boolean z);
 
-    List<MediaSegment> getStickerSegmentsData(boolean z);
+    List getStickerSegmentsData(boolean z);
 
-    List<MediaSegment> getStickerSegmentsDataByType(String str);
+    List getStickerSegmentsDataByType(String str);
 
     float getVideoRatio();
 
@@ -67,7 +65,7 @@ public interface IVlogEditManager extends IVLogLifeProtocol, IVLogPlayControlPro
 
     void setAudioChangeType(int[] iArr, double[] dArr, int[] iArr2);
 
-    void setEffectList(List<MediaSegment> list, Map<String, ShaderConfig> map);
+    void setEffectList(List list, Map map);
 
     void setFilter(float f, String str);
 
@@ -77,15 +75,15 @@ public interface IVlogEditManager extends IVLogLifeProtocol, IVLogPlayControlPro
 
     void setMediaTrackConfig(MediaTrackConfig mediaTrackConfig);
 
-    void setMultiMediaData(List<MultiMediaData> list);
+    void setMultiMediaData(List list);
 
     void setScale(float f, float f2);
 
     void setScaleType(String str);
 
-    void setStickerDataList(List<MultiMediaData> list, List<MediaSegment> list2);
+    void setStickerDataList(List list, List list2);
 
-    void setSubtitle(List<SubTitleUnit> list);
+    void setSubtitle(List list);
 
     void setSubtitleConfig(SubTitleConfig subTitleConfig);
 
@@ -101,7 +99,7 @@ public interface IVlogEditManager extends IVLogLifeProtocol, IVLogPlayControlPro
 
     void split(int i, long j, OnMultiMediaSplitListener onMultiMediaSplitListener);
 
-    void updateInputDataOrder(List<MultiMediaData> list);
+    void updateInputDataOrder(List list);
 
     void updateStickerDataRange(int i, String str, long j, long j2);
 }

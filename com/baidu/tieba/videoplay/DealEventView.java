@@ -24,6 +24,21 @@ public class DealEventView extends FrameLayout {
     public boolean f;
 
     /* loaded from: classes6.dex */
+    public interface b {
+        void onViewClick();
+
+        void onViewDoubleClick();
+
+        void onViewDragToRight();
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
+    /* loaded from: classes6.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -50,20 +65,10 @@ public class DealEventView extends FrameLayout {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.b || !this.a.f || this.a.c == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.a.b && this.a.f && this.a.c != null) {
+                this.a.c.onViewClick();
             }
-            this.a.c.onViewClick();
         }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface b {
-        void onViewClick();
-
-        void onViewDoubleClick();
-
-        void onViewDragToRight();
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -84,71 +89,6 @@ public class DealEventView extends FrameLayout {
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
-
-    @Override // android.view.View
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        b bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
-            int action = motionEvent.getAction();
-            if (action == 0) {
-                this.d = motionEvent.getX();
-                this.e = motionEvent.getY();
-                long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - this.a < 300) {
-                    this.b = true;
-                    b bVar2 = this.c;
-                    if (bVar2 != null) {
-                        bVar2.onViewDoubleClick();
-                    }
-                } else {
-                    this.b = false;
-                }
-                this.a = currentTimeMillis;
-            } else if (action != 1) {
-                if (action == 2 && this.d - motionEvent.getX() > 60.0f && (this.d - motionEvent.getX()) - 10.0f > Math.abs(motionEvent.getY() - this.e) && !this.b && (bVar = this.c) != null) {
-                    bVar.onViewDragToRight();
-                }
-            } else {
-                if (this.d - motionEvent.getX() < 10.0f && this.e - motionEvent.getY() < 10.0f) {
-                    this.f = true;
-                } else {
-                    this.f = false;
-                }
-                postDelayed(new a(this), 300L);
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // android.view.ViewGroup
-    public void removeAllViews() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            for (int i = 0; i < getChildCount(); i++) {
-                View childAt = getChildAt(i);
-                if (childAt.getTag() instanceof AnimatorSet) {
-                    ((AnimatorSet) childAt.getTag()).cancel();
-                }
-            }
-            super.removeAllViews();
-        }
-    }
-
-    public void setOnViewClickListener(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            this.c = bVar;
         }
     }
 
@@ -193,5 +133,66 @@ public class DealEventView extends FrameLayout {
             }
         }
         d();
+    }
+
+    public void setOnViewClickListener(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
+            this.c = bVar;
+        }
+    }
+
+    @Override // android.view.View
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        b bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
+            int action = motionEvent.getAction();
+            if (action != 0) {
+                if (action != 1) {
+                    if (action == 2 && this.d - motionEvent.getX() > 60.0f && (this.d - motionEvent.getX()) - 10.0f > Math.abs(motionEvent.getY() - this.e) && !this.b && (bVar = this.c) != null) {
+                        bVar.onViewDragToRight();
+                    }
+                } else {
+                    if (this.d - motionEvent.getX() < 10.0f && this.e - motionEvent.getY() < 10.0f) {
+                        this.f = true;
+                    } else {
+                        this.f = false;
+                    }
+                    postDelayed(new a(this), 300L);
+                }
+            } else {
+                this.d = motionEvent.getX();
+                this.e = motionEvent.getY();
+                long currentTimeMillis = System.currentTimeMillis();
+                if (currentTimeMillis - this.a < 300) {
+                    this.b = true;
+                    b bVar2 = this.c;
+                    if (bVar2 != null) {
+                        bVar2.onViewDoubleClick();
+                    }
+                } else {
+                    this.b = false;
+                }
+                this.a = currentTimeMillis;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.view.ViewGroup
+    public void removeAllViews() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            for (int i = 0; i < getChildCount(); i++) {
+                View childAt = getChildAt(i);
+                if (childAt.getTag() instanceof AnimatorSet) {
+                    ((AnimatorSet) childAt.getTag()).cancel();
+                }
+            }
+            super.removeAllViews();
+        }
     }
 }

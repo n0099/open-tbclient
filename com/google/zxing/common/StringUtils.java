@@ -24,6 +24,7 @@ public final class StringUtils {
 
     static {
         InterceptResult invokeClinit;
+        boolean z;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
         if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-793589512, "Lcom/google/zxing/common/StringUtils;")) != null) {
             Interceptable interceptable = invokeClinit.interceptor;
@@ -37,7 +38,12 @@ public final class StringUtils {
         }
         String name = Charset.defaultCharset().name();
         PLATFORM_DEFAULT_ENCODING = name;
-        ASSUME_SHIFT_JIS = SHIFT_JIS.equalsIgnoreCase(name) || EUC_JP.equalsIgnoreCase(PLATFORM_DEFAULT_ENCODING);
+        if (!SHIFT_JIS.equalsIgnoreCase(name) && !EUC_JP.equalsIgnoreCase(PLATFORM_DEFAULT_ENCODING)) {
+            z = false;
+        } else {
+            z = true;
+        }
+        ASSUME_SHIFT_JIS = z;
     }
 
     public StringUtils() {
@@ -54,8 +60,9 @@ public final class StringUtils {
         }
     }
 
-    public static String guessEncoding(byte[] bArr, Map<DecodeHintType, ?> map) {
+    public static String guessEncoding(byte[] bArr, Map map) {
         InterceptResult invokeLL;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, map)) == null) {
             byte[] bArr2 = bArr;
@@ -63,9 +70,13 @@ public final class StringUtils {
                 return map.get(DecodeHintType.CHARACTER_SET).toString();
             }
             int length = bArr2.length;
-            boolean z = true;
+            boolean z2 = true;
             int i = 0;
-            boolean z2 = bArr2.length > 3 && bArr2[0] == -17 && bArr2[1] == -69 && bArr2[2] == -65;
+            if (bArr2.length > 3 && bArr2[0] == -17 && bArr2[1] == -69 && bArr2[2] == -65) {
+                z = true;
+            } else {
+                z = false;
+            }
             int i2 = 0;
             boolean z3 = true;
             boolean z4 = true;
@@ -79,7 +90,7 @@ public final class StringUtils {
             int i10 = 0;
             int i11 = 0;
             int i12 = 0;
-            while (i3 < length && (z || z3 || z4)) {
+            while (i3 < length && (z2 || z3 || z4)) {
                 int i13 = bArr2[i3] & 255;
                 if (z4) {
                     if (i4 > 0) {
@@ -107,9 +118,9 @@ public final class StringUtils {
                         z4 = false;
                     }
                 }
-                if (z) {
+                if (z2) {
                     if (i13 > 127 && i13 < 160) {
-                        z = false;
+                        z2 = false;
                     } else if (i13 > 159 && (i13 < 192 || i13 == 215 || i13 == 247)) {
                         i10++;
                     }
@@ -122,30 +133,30 @@ public final class StringUtils {
                         z3 = false;
                     } else {
                         if (i13 != 128 && i13 != 160 && i13 <= 239) {
-                            if (i13 <= 160 || i13 >= 224) {
+                            if (i13 > 160 && i13 < 224) {
+                                i2++;
+                                int i14 = i12 + 1;
+                                if (i14 > i9) {
+                                    i9 = i14;
+                                    i12 = i9;
+                                } else {
+                                    i12 = i14;
+                                }
+                                i11 = 0;
+                            } else {
                                 if (i13 > 127) {
                                     i5++;
-                                    int i14 = i11 + 1;
-                                    if (i14 > i) {
-                                        i = i14;
+                                    int i15 = i11 + 1;
+                                    if (i15 > i) {
+                                        i = i15;
                                         i11 = i;
                                     } else {
-                                        i11 = i14;
+                                        i11 = i15;
                                     }
                                 } else {
                                     i11 = 0;
                                 }
                                 i12 = 0;
-                            } else {
-                                i2++;
-                                int i15 = i12 + 1;
-                                if (i15 > i9) {
-                                    i9 = i15;
-                                    i12 = i9;
-                                } else {
-                                    i12 = i15;
-                                }
-                                i11 = 0;
                             }
                         }
                         z3 = false;
@@ -160,7 +171,28 @@ public final class StringUtils {
             if (z3 && i5 > 0) {
                 z3 = false;
             }
-            return (!z4 || (!z2 && (i6 + i7) + i8 <= 0)) ? (!z3 || (!ASSUME_SHIFT_JIS && i9 < 3 && i < 3)) ? (z && z3) ? (!(i9 == 2 && i2 == 2) && i10 * 10 < length) ? ISO88591 : SHIFT_JIS : z ? ISO88591 : z3 ? SHIFT_JIS : z4 ? UTF8 : PLATFORM_DEFAULT_ENCODING : SHIFT_JIS : UTF8;
+            if (z4 && (z || i6 + i7 + i8 > 0)) {
+                return UTF8;
+            }
+            if (z3 && (ASSUME_SHIFT_JIS || i9 >= 3 || i >= 3)) {
+                return SHIFT_JIS;
+            }
+            if (z2 && z3) {
+                if ((i9 == 2 && i2 == 2) || i10 * 10 >= length) {
+                    return SHIFT_JIS;
+                }
+                return ISO88591;
+            } else if (z2) {
+                return ISO88591;
+            } else {
+                if (z3) {
+                    return SHIFT_JIS;
+                }
+                if (z4) {
+                    return UTF8;
+                }
+                return PLATFORM_DEFAULT_ENCODING;
+            }
         }
         return (String) invokeLL.objValue;
     }

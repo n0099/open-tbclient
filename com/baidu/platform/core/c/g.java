@@ -16,7 +16,6 @@ import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.baidu.platform.base.SearchType;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
-import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -134,7 +133,7 @@ public class g extends com.baidu.platform.base.d {
                             poiInfo.setAddress(jSONObject2.optString("address"));
                             poiInfo.setProvince(jSONObject2.optString("province"));
                             poiInfo.setCity(jSONObject2.optString("city"));
-                            poiInfo.setArea(jSONObject2.optString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA));
+                            poiInfo.setArea(jSONObject2.optString("area"));
                             poiInfo.setStreetId(jSONObject2.optString("street_id"));
                             poiInfo.setUid(jSONObject2.optString("uid"));
                             poiInfo.setPhoneNum(jSONObject2.optString("telephone"));
@@ -200,7 +199,7 @@ public class g extends com.baidu.platform.base.d {
         return (PoiDetailInfo) invokeL.objValue;
     }
 
-    private List<PoiChildrenInfo> b(JSONObject jSONObject) {
+    private List b(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, jSONObject)) == null) {

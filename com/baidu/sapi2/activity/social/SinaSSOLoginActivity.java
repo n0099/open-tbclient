@@ -60,6 +60,19 @@ public class SinaSSOLoginActivity extends BaseSSOLoginActivity {
         }
 
         @Override // com.sina.weibo.sdk.auth.WbAuthListener
+        public void onFailure(WbConnectErrorMessage wbConnectErrorMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wbConnectErrorMessage) == null) {
+                Toast.makeText(this.a, wbConnectErrorMessage.getErrorMessage(), 0).show();
+                SinaSSOLoginActivity sinaSSOLoginActivity = this.a;
+                if (((BaseSSOLoginActivity) sinaSSOLoginActivity).f) {
+                    sinaSSOLoginActivity.b(3001);
+                    this.a.finish();
+                }
+            }
+        }
+
+        @Override // com.sina.weibo.sdk.auth.WbAuthListener
         public void cancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -70,19 +83,6 @@ public class SinaSSOLoginActivity extends BaseSSOLoginActivity {
                     return;
                 }
                 sinaSSOLoginActivity.a(((BaseSSOLoginActivity) sinaSSOLoginActivity).g);
-            }
-        }
-
-        @Override // com.sina.weibo.sdk.auth.WbAuthListener
-        public void onFailure(WbConnectErrorMessage wbConnectErrorMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wbConnectErrorMessage) == null) {
-                Toast.makeText(this.a, wbConnectErrorMessage.getErrorMessage(), 0).show();
-                SinaSSOLoginActivity sinaSSOLoginActivity = this.a;
-                if (((BaseSSOLoginActivity) sinaSSOLoginActivity).f) {
-                    sinaSSOLoginActivity.b(3001);
-                    this.a.finish();
-                }
             }
         }
 
@@ -149,17 +149,6 @@ public class SinaSSOLoginActivity extends BaseSSOLoginActivity {
         }
     }
 
-    @Override // com.baidu.sapi2.activity.BaseActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, intent) == null) {
-            String str = p;
-            Log.d(str, "requestCode = " + i + " resultCode = " + i2 + " data = " + intent);
-            super.onActivityResult(i, i2, intent);
-            this.n.authorizeCallBack(i, i2, intent);
-        }
-    }
-
     @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.social.SocialLoginBase, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
@@ -174,12 +163,23 @@ public class SinaSSOLoginActivity extends BaseSSOLoginActivity {
         }
     }
 
+    @Override // com.baidu.sapi2.activity.BaseActivity, android.app.Activity
+    public void onActivityResult(int i, int i2, Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, intent) == null) {
+            String str = p;
+            Log.d(str, "requestCode = " + i + " resultCode = " + i2 + " data = " + intent);
+            super.onActivityResult(i, i2, intent);
+            this.n.authorizeCallBack(i, i2, intent);
+        }
+    }
+
     @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void setupViews() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.setupViews();
-            setTitleText(R.string.obfuscated_res_0x7f0f109a);
+            setTitleText(R.string.obfuscated_res_0x7f0f10ac);
             RelativeLayout relativeLayout = this.rootView;
             if (relativeLayout != null) {
                 relativeLayout.setVisibility(4);

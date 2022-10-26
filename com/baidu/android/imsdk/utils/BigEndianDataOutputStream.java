@@ -69,6 +69,16 @@ public class BigEndianDataOutputStream {
         }
     }
 
+    public final void writeShort(int i) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            byte[] bArr = this.buff;
+            bArr[1] = (byte) (i >> 8);
+            bArr[0] = (byte) i;
+            this.mDos.write(bArr, 0, 2);
+        }
+    }
+
     public final void writeLong(long j) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
@@ -82,16 +92,6 @@ public class BigEndianDataOutputStream {
             bArr[6] = (byte) (j >> 8);
             bArr[7] = (byte) j;
             this.mDos.write(bArr, 0, 8);
-        }
-    }
-
-    public final void writeShort(int i) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            byte[] bArr = this.buff;
-            bArr[1] = (byte) (i >> 8);
-            bArr[0] = (byte) i;
-            this.mDos.write(bArr, 0, 2);
         }
     }
 }

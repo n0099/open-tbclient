@@ -68,12 +68,18 @@ public final class AdLoadState {
     public static AdLoadState valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (AdLoadState) Enum.valueOf(AdLoadState.class, str) : (AdLoadState) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (AdLoadState) Enum.valueOf(AdLoadState.class, str);
+        }
+        return (AdLoadState) invokeL.objValue;
     }
 
     public static AdLoadState[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (AdLoadState[]) $VALUES.clone() : (AdLoadState[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (AdLoadState[]) $VALUES.clone();
+        }
+        return (AdLoadState[]) invokeV.objValue;
     }
 }

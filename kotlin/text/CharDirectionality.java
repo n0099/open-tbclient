@@ -36,13 +36,17 @@ public enum CharDirectionality {
     @Metadata(d1 = {"\u0000\u001c\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010$\n\u0002\u0010\b\n\u0002\u0018\u0002\n\u0002\b\u0007\b\u0086\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\u000e\u0010\u000b\u001a\u00020\u00062\u0006\u0010\f\u001a\u00020\u0005R'\u0010\u0003\u001a\u000e\u0012\u0004\u0012\u00020\u0005\u0012\u0004\u0012\u00020\u00060\u00048BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\t\u0010\n\u001a\u0004\b\u0007\u0010\b¨\u0006\r"}, d2 = {"Lkotlin/text/CharDirectionality$Companion;", "", "()V", "directionalityMap", "", "", "Lkotlin/text/CharDirectionality;", "getDirectionalityMap", "()Ljava/util/Map;", "directionalityMap$delegate", "Lkotlin/Lazy;", "valueOf", "directionality", "kotlin-stdlib"}, k = 1, mv = {1, 5, 1})
     /* loaded from: classes8.dex */
     public static final class Companion {
-        public Companion() {
-        }
-
         private final Map<Integer, CharDirectionality> getDirectionalityMap() {
             Lazy lazy = CharDirectionality.directionalityMap$delegate;
             Companion companion = CharDirectionality.Companion;
             return (Map) lazy.getValue();
+        }
+
+        public Companion() {
+        }
+
+        public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
         }
 
         public final CharDirectionality valueOf(int i) {
@@ -51,10 +55,6 @@ public enum CharDirectionality {
                 return charDirectionality;
             }
             throw new IllegalArgumentException("Directionality #" + i + " is not defined.");
-        }
-
-        public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
         }
     }
 

@@ -1,20 +1,18 @@
 package androidx.documentfile.provider;
 
+import android.content.ContentResolver;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.DocumentsContract;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@RequiresApi(19)
 /* loaded from: classes.dex */
 public class DocumentsContractApi19 {
     public static /* synthetic */ Interceptable $ic = null;
@@ -39,7 +37,105 @@ public class DocumentsContractApi19 {
     public static boolean canRead(Context context, Uri uri) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, uri)) == null) ? context.checkCallingOrSelfUriPermission(uri, 1) == 0 && !TextUtils.isEmpty(getRawType(context, uri)) : invokeLL.booleanValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, uri)) == null) {
+            if (context.checkCallingOrSelfUriPermission(uri, 1) == 0 && !TextUtils.isEmpty(getRawType(context, uri))) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static long getFlags(Context context, Uri uri) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, uri)) == null) {
+            return queryForLong(context, uri, "flags", 0L);
+        }
+        return invokeLL.longValue;
+    }
+
+    public static String getName(Context context, Uri uri) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, uri)) == null) {
+            return queryForString(context, uri, "_display_name", null);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String getRawType(Context context, Uri uri) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, uri)) == null) {
+            return queryForString(context, uri, "mime_type", null);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String getType(Context context, Uri uri) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, context, uri)) == null) {
+            String rawType = getRawType(context, uri);
+            if ("vnd.android.document/directory".equals(rawType)) {
+                return null;
+            }
+            return rawType;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static boolean isDirectory(Context context, Uri uri) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, context, uri)) == null) {
+            return "vnd.android.document/directory".equals(getRawType(context, uri));
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean isFile(Context context, Uri uri) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, context, uri)) == null) {
+            String rawType = getRawType(context, uri);
+            if (!"vnd.android.document/directory".equals(rawType) && !TextUtils.isEmpty(rawType)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean isVirtual(Context context, Uri uri) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, context, uri)) == null) {
+            if (!DocumentsContract.isDocumentUri(context, uri) || (getFlags(context, uri) & 512) == 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static long lastModified(Context context, Uri uri) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, context, uri)) == null) {
+            return queryForLong(context, uri, "last_modified", 0L);
+        }
+        return invokeLL.longValue;
+    }
+
+    public static long length(Context context, Uri uri) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, context, uri)) == null) {
+            return queryForLong(context, uri, "_size", 0L);
+        }
+        return invokeLL.longValue;
     }
 
     public static boolean canWrite(Context context, Uri uri) {
@@ -57,35 +153,30 @@ public class DocumentsContractApi19 {
             if ((queryForInt & 4) != 0) {
                 return true;
             }
-            if (!"vnd.android.document/directory".equals(rawType) || (queryForInt & 8) == 0) {
-                return (TextUtils.isEmpty(rawType) || (queryForInt & 2) == 0) ? false : true;
+            if ("vnd.android.document/directory".equals(rawType) && (queryForInt & 8) != 0) {
+                return true;
+            }
+            if (TextUtils.isEmpty(rawType) || (queryForInt & 2) == 0) {
+                return false;
             }
             return true;
         }
         return invokeLL.booleanValue;
     }
 
-    public static void closeQuietly(@Nullable AutoCloseable autoCloseable) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, autoCloseable) == null) || autoCloseable == null) {
-            return;
-        }
-        try {
-            autoCloseable.close();
-        } catch (RuntimeException e) {
-            throw e;
-        } catch (Exception unused) {
-        }
-    }
-
     public static boolean exists(Context context, Uri uri) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, uri)) == null) {
+            ContentResolver contentResolver = context.getContentResolver();
+            boolean z = false;
             Cursor cursor = null;
             try {
-                cursor = context.getContentResolver().query(uri, new String[]{"document_id"}, null, null, null);
-                return cursor.getCount() > 0;
+                cursor = contentResolver.query(uri, new String[]{"document_id"}, null, null, null);
+                if (cursor.getCount() > 0) {
+                    z = true;
+                }
+                return z;
             } catch (Exception e) {
                 Log.w("DocumentFile", "Failed query: " + e);
                 return false;
@@ -96,78 +187,25 @@ public class DocumentsContractApi19 {
         return invokeLL.booleanValue;
     }
 
-    public static long getFlags(Context context, Uri uri) {
-        InterceptResult invokeLL;
+    public static void closeQuietly(AutoCloseable autoCloseable) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, uri)) == null) ? queryForLong(context, uri, "flags", 0L) : invokeLL.longValue;
-    }
-
-    @Nullable
-    public static String getName(Context context, Uri uri) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, uri)) == null) ? queryForString(context, uri, "_display_name", null) : (String) invokeLL.objValue;
-    }
-
-    @Nullable
-    public static String getRawType(Context context, Uri uri) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, uri)) == null) ? queryForString(context, uri, "mime_type", null) : (String) invokeLL.objValue;
-    }
-
-    @Nullable
-    public static String getType(Context context, Uri uri) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, context, uri)) == null) {
-            String rawType = getRawType(context, uri);
-            if ("vnd.android.document/directory".equals(rawType)) {
-                return null;
+        if ((interceptable == null || interceptable.invokeL(65539, null, autoCloseable) == null) && autoCloseable != null) {
+            try {
+                autoCloseable.close();
+            } catch (RuntimeException e) {
+                throw e;
+            } catch (Exception unused) {
             }
-            return rawType;
         }
-        return (String) invokeLL.objValue;
-    }
-
-    public static boolean isDirectory(Context context, Uri uri) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, context, uri)) == null) ? "vnd.android.document/directory".equals(getRawType(context, uri)) : invokeLL.booleanValue;
-    }
-
-    public static boolean isFile(Context context, Uri uri) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, context, uri)) == null) {
-            String rawType = getRawType(context, uri);
-            return ("vnd.android.document/directory".equals(rawType) || TextUtils.isEmpty(rawType)) ? false : true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean isVirtual(Context context, Uri uri) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, context, uri)) == null) ? DocumentsContract.isDocumentUri(context, uri) && (getFlags(context, uri) & 512) != 0 : invokeLL.booleanValue;
-    }
-
-    public static long lastModified(Context context, Uri uri) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, context, uri)) == null) ? queryForLong(context, uri, "last_modified", 0L) : invokeLL.longValue;
-    }
-
-    public static long length(Context context, Uri uri) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, context, uri)) == null) ? queryForLong(context, uri, "_size", 0L) : invokeLL.longValue;
     }
 
     public static int queryForInt(Context context, Uri uri, String str, int i) {
         InterceptResult invokeLLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65550, null, context, uri, str, i)) == null) ? (int) queryForLong(context, uri, str, i) : invokeLLLI.intValue;
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65550, null, context, uri, str, i)) == null) {
+            return (int) queryForLong(context, uri, str, i);
+        }
+        return invokeLLLI.intValue;
     }
 
     public static long queryForLong(Context context, Uri uri, String str, long j) {
@@ -177,7 +215,10 @@ public class DocumentsContractApi19 {
             Cursor cursor = null;
             try {
                 cursor = context.getContentResolver().query(uri, new String[]{str}, null, null, null);
-                return (!cursor.moveToFirst() || cursor.isNull(0)) ? j : cursor.getLong(0);
+                if (cursor.moveToFirst() && !cursor.isNull(0)) {
+                    return cursor.getLong(0);
+                }
+                return j;
             } catch (Exception e) {
                 Log.w("DocumentFile", "Failed query: " + e);
                 return j;
@@ -188,15 +229,17 @@ public class DocumentsContractApi19 {
         return invokeCommon.longValue;
     }
 
-    @Nullable
-    public static String queryForString(Context context, Uri uri, String str, @Nullable String str2) {
+    public static String queryForString(Context context, Uri uri, String str, String str2) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65552, null, context, uri, str, str2)) == null) {
             Cursor cursor = null;
             try {
                 cursor = context.getContentResolver().query(uri, new String[]{str}, null, null, null);
-                return (!cursor.moveToFirst() || cursor.isNull(0)) ? str2 : cursor.getString(0);
+                if (cursor.moveToFirst() && !cursor.isNull(0)) {
+                    return cursor.getString(0);
+                }
+                return str2;
             } catch (Exception e) {
                 Log.w("DocumentFile", "Failed query: " + e);
                 return str2;

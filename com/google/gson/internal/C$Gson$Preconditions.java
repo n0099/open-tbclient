@@ -29,9 +29,10 @@ public final class C$Gson$Preconditions {
 
     public static void checkArgument(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(65537, null, z) == null) && !z) {
-            throw new IllegalArgumentException();
+        if ((interceptable != null && interceptable.invokeZ(65537, null, z) != null) || z) {
+            return;
         }
+        throw new IllegalArgumentException();
     }
 
     public static <T> T checkNotNull(T t) {

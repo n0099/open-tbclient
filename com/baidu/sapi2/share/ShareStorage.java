@@ -1,6 +1,5 @@
 package com.baidu.sapi2.share;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
@@ -97,114 +96,130 @@ public class ShareStorage {
         public String uuid;
         public int where;
 
+        public StorageModel() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
         public static void buildFromSystem(Context context, int i, CallBack callBack) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(65538, null, context, i, callBack) == null) {
                 SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
-                if (currentAccount == null || currentAccount.isGuestAccount()) {
+                if (currentAccount != null && !currentAccount.isGuestAccount()) {
+                    if (i != 0 && i != 1) {
+                        SapiAccountManager.getInstance().getAccountService().getUserInfo(new GetUserInfoCallback(callBack, context) { // from class: com.baidu.sapi2.share.ShareStorage.StorageModel.1
+                            public static /* synthetic */ Interceptable $ic;
+                            public transient /* synthetic */ FieldHolder $fh;
+                            public final /* synthetic */ CallBack val$callBack;
+                            public final /* synthetic */ Context val$context;
+
+                            @Override // com.baidu.sapi2.callback.SapiCallback
+                            public void onFinish() {
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 == null || interceptable2.invokeV(1048580, this) == null) {
+                                }
+                            }
+
+                            @Override // com.baidu.sapi2.callback.SapiCallback
+                            public void onStart() {
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 == null || interceptable2.invokeV(1048581, this) == null) {
+                                }
+                            }
+
+                            {
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 != null) {
+                                    InitContext newInitContext = TitanRuntime.newInitContext();
+                                    newInitContext.initArgs = r2;
+                                    Object[] objArr = {callBack, context};
+                                    interceptable2.invokeUnInit(65536, newInitContext);
+                                    int i2 = newInitContext.flag;
+                                    if ((i2 & 1) != 0) {
+                                        int i3 = i2 & 2;
+                                        newInitContext.thisArg = this;
+                                        interceptable2.invokeInitBody(65536, newInitContext);
+                                        return;
+                                    }
+                                }
+                                this.val$callBack = callBack;
+                                this.val$context = context;
+                            }
+
+                            /* JADX DEBUG: Method merged with bridge method */
+                            @Override // com.baidu.sapi2.callback.LoginStatusAware
+                            public void onBdussExpired(GetUserInfoResult getUserInfoResult) {
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 == null || interceptable2.invokeL(1048576, this, getUserInfoResult) == null) {
+                                    StorageModel storageModel = new StorageModel();
+                                    storageModel.flag = 1;
+                                    this.val$callBack.call(storageModel);
+                                }
+                            }
+
+                            /* JADX DEBUG: Method merged with bridge method */
+                            @Override // com.baidu.sapi2.callback.SapiCallback
+                            public void onFailure(GetUserInfoResult getUserInfoResult) {
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, getUserInfoResult) == null) {
+                                    StorageModel storageModel = new StorageModel();
+                                    storageModel.flag = 1;
+                                    this.val$callBack.call(storageModel);
+                                }
+                            }
+
+                            /* JADX DEBUG: Method merged with bridge method */
+                            @Override // com.baidu.sapi2.callback.SapiCallback
+                            public void onSuccess(GetUserInfoResult getUserInfoResult) {
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 == null || interceptable2.invokeL(1048582, this, getUserInfoResult) == null) {
+                                    StorageModel storageModel = new StorageModel();
+                                    SapiAccount currentAccount2 = SapiContext.getInstance().getCurrentAccount();
+                                    if (!TextUtils.isEmpty(getUserInfoResult.portraitHttps)) {
+                                        storageModel.url = getUserInfoResult.portraitHttps;
+                                    } else {
+                                        storageModel.url = ShareStorage.DEFAULT_PORTRAIT;
+                                    }
+                                    SapiContext.getInstance().put(SapiContext.KEY_LAST_LOGIN_USER_PORTRAIT, storageModel.url);
+                                    storageModel.displayname = currentAccount2.displayname;
+                                    storageModel.app = SapiUtils.getAppName(this.val$context);
+                                    storageModel.tpl = SapiAccountManager.getInstance().getSapiConfiguration().tpl;
+                                    storageModel.bduss = currentAccount2.bduss;
+                                    storageModel.pkg = this.val$context.getPackageName();
+                                    storageModel.uuid = UUID.randomUUID().toString();
+                                    storageModel.flag = 0;
+                                    storageModel.env = SapiAccountManager.getInstance().getConfignation().environment.ordinal();
+                                    this.val$callBack.call(storageModel);
+                                }
+                            }
+                        }, SapiContext.getInstance().getCurrentAccount().bduss);
+                        return;
+                    }
                     StorageModel storageModel = new StorageModel();
-                    storageModel.flag = 1;
+                    storageModel.displayname = currentAccount.displayname;
+                    storageModel.url = SapiContext.getInstance().getString(SapiContext.KEY_LAST_LOGIN_USER_PORTRAIT);
+                    storageModel.app = SapiUtils.getAppName(context);
+                    storageModel.pkg = context.getPackageName();
+                    storageModel.tpl = SapiAccountManager.getInstance().getSapiConfiguration().tpl;
+                    storageModel.bduss = currentAccount.bduss;
+                    storageModel.uuid = UUID.randomUUID().toString();
+                    storageModel.flag = 0;
+                    storageModel.env = SapiAccountManager.getInstance().getConfignation().environment.ordinal();
                     callBack.call(storageModel);
-                } else if (i != 0 && i != 1) {
-                    SapiAccountManager.getInstance().getAccountService().getUserInfo(new GetUserInfoCallback(callBack, context) { // from class: com.baidu.sapi2.share.ShareStorage.StorageModel.1
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ CallBack val$callBack;
-                        public final /* synthetic */ Context val$context;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {callBack, context};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.val$callBack = callBack;
-                            this.val$context = context;
-                        }
-
-                        @Override // com.baidu.sapi2.callback.SapiCallback
-                        public void onFinish() {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeV(1048580, this) == null) {
-                            }
-                        }
-
-                        @Override // com.baidu.sapi2.callback.SapiCallback
-                        public void onStart() {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeV(1048581, this) == null) {
-                            }
-                        }
-
-                        /* JADX DEBUG: Method merged with bridge method */
-                        @Override // com.baidu.sapi2.callback.LoginStatusAware
-                        public void onBdussExpired(GetUserInfoResult getUserInfoResult) {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, getUserInfoResult) == null) {
-                                StorageModel storageModel2 = new StorageModel();
-                                storageModel2.flag = 1;
-                                this.val$callBack.call(storageModel2);
-                            }
-                        }
-
-                        /* JADX DEBUG: Method merged with bridge method */
-                        @Override // com.baidu.sapi2.callback.SapiCallback
-                        public void onFailure(GetUserInfoResult getUserInfoResult) {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, getUserInfoResult) == null) {
-                                StorageModel storageModel2 = new StorageModel();
-                                storageModel2.flag = 1;
-                                this.val$callBack.call(storageModel2);
-                            }
-                        }
-
-                        /* JADX DEBUG: Method merged with bridge method */
-                        @Override // com.baidu.sapi2.callback.SapiCallback
-                        public void onSuccess(GetUserInfoResult getUserInfoResult) {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeL(1048582, this, getUserInfoResult) == null) {
-                                StorageModel storageModel2 = new StorageModel();
-                                SapiAccount currentAccount2 = SapiContext.getInstance().getCurrentAccount();
-                                if (TextUtils.isEmpty(getUserInfoResult.portraitHttps)) {
-                                    storageModel2.url = ShareStorage.DEFAULT_PORTRAIT;
-                                } else {
-                                    storageModel2.url = getUserInfoResult.portraitHttps;
-                                }
-                                SapiContext.getInstance().put(SapiContext.KEY_LAST_LOGIN_USER_PORTRAIT, storageModel2.url);
-                                storageModel2.displayname = currentAccount2.displayname;
-                                storageModel2.app = SapiUtils.getAppName(this.val$context);
-                                storageModel2.tpl = SapiAccountManager.getInstance().getSapiConfiguration().tpl;
-                                storageModel2.bduss = currentAccount2.bduss;
-                                storageModel2.pkg = this.val$context.getPackageName();
-                                storageModel2.uuid = UUID.randomUUID().toString();
-                                storageModel2.flag = 0;
-                                storageModel2.env = SapiAccountManager.getInstance().getConfignation().environment.ordinal();
-                                this.val$callBack.call(storageModel2);
-                            }
-                        }
-                    }, SapiContext.getInstance().getCurrentAccount().bduss);
-                } else {
-                    StorageModel storageModel2 = new StorageModel();
-                    storageModel2.displayname = currentAccount.displayname;
-                    storageModel2.url = SapiContext.getInstance().getString(SapiContext.KEY_LAST_LOGIN_USER_PORTRAIT);
-                    storageModel2.app = SapiUtils.getAppName(context);
-                    storageModel2.pkg = context.getPackageName();
-                    storageModel2.tpl = SapiAccountManager.getInstance().getSapiConfiguration().tpl;
-                    storageModel2.bduss = currentAccount.bduss;
-                    storageModel2.uuid = UUID.randomUUID().toString();
-                    storageModel2.flag = 0;
-                    storageModel2.env = SapiAccountManager.getInstance().getConfignation().environment.ordinal();
-                    callBack.call(storageModel2);
+                    return;
                 }
+                StorageModel storageModel2 = new StorageModel();
+                storageModel2.flag = 1;
+                callBack.call(storageModel2);
             }
         }
 
@@ -295,20 +310,6 @@ public class ShareStorage {
             }
             return (JSONObject) invokeV.objValue;
         }
-
-        public StorageModel() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
     }
 
     static {
@@ -325,6 +326,25 @@ public class ShareStorage {
             }
         }
         DEFAULT_PORTRAIT = SapiAccountManager.getInstance().getSapiConfiguration().environment.getConfigHttpsUrl() + SapiEnv.DEFAULT_PORTRAIT;
+    }
+
+    private boolean meetShareInternalGray() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
+            int i = SapiContext.getInstance().getInt(SapiContext.KEY_SHARE_INTERNAL_GRAY, -1);
+            if (i == -1) {
+                Random random = new Random();
+                random.setSeed(System.currentTimeMillis());
+                i = random.nextInt(100);
+                SapiContext.getInstance().put(SapiContext.KEY_SHARE_INTERNAL_GRAY, i);
+            }
+            if (i <= SapiContext.getInstance().getShareInternalGray()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public ShareStorage() {
@@ -350,46 +370,6 @@ public class ShareStorage {
         SapiContext.getInstance().put(KEY_SHARE_MODELS_AES_IV, "2314906973403010");
         this.mAesKey = SapiContext.getInstance().getString(KEY_SHARE_MODELS_AES_KEY);
         this.mAesIv = SapiContext.getInstance().getString(KEY_SHARE_MODELS_AES_IV);
-    }
-
-    @TargetApi(4)
-    private String getDataFromShareInternal(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, this, str, str2)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                str = this.context.getPackageName();
-            }
-            String str3 = this.context.getApplicationInfo().dataDir;
-            String str4 = (str3.replace(this.context.getPackageName(), "") + str) + "/" + SP_FILE_PATH + str2;
-            Log.e(ShareUtils.TAG, "getDataFromShareInternal", "fileName", str4);
-            return FileUtil.read(str4);
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    private boolean meetShareInternalGray() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
-            int i = SapiContext.getInstance().getInt(SapiContext.KEY_SHARE_INTERNAL_GRAY, -1);
-            if (i == -1) {
-                Random random = new Random();
-                random.setSeed(System.currentTimeMillis());
-                i = random.nextInt(100);
-                SapiContext.getInstance().put(SapiContext.KEY_SHARE_INTERNAL_GRAY, i);
-            }
-            return i <= SapiContext.getInstance().getShareInternalGray();
-        }
-        return invokeV.booleanValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void setCloud(int i, StorageModel storageModel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65545, this, i, storageModel) == null) {
-            SapiAccountManager.getInstance().getAccountService().setCloudShareAccount(i, storageModel);
-        }
     }
 
     public void asyncSet(int i) {
@@ -436,168 +416,21 @@ public class ShareStorage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             StorageModel modelFromSp = getModelFromSp(str);
-            return modelFromSp == null ? getModelFromSd(str) : modelFromSp;
+            if (modelFromSp == null) {
+                return getModelFromSd(str);
+            }
+            return modelFromSp;
         }
         return (StorageModel) invokeL.objValue;
-    }
-
-    @TargetApi(8)
-    public StorageModel getModelFromSd(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            try {
-                String sd = getSd(SecurityUtil.md5(str.getBytes(), false));
-                Object[] objArr = new Object[1];
-                StringBuilder sb = new StringBuilder();
-                sb.append("get share model from sd_card pkg=");
-                sb.append(str);
-                sb.append(" value is ");
-                sb.append(TextUtils.isEmpty(sd) ? SchemeCollecter.CLASSIFY_EMPTY : "not empty");
-                objArr[0] = sb.toString();
-                Log.d(ShareUtils.TAG, objArr);
-                if (TextUtils.isEmpty(sd)) {
-                    return null;
-                }
-                StorageModel fromJSON = StorageModel.fromJSON(new JSONObject(new String(SecurityUtil.aesDecrypt(Base64.decode(sd, 0), this.mAesIv, this.mAesKey))));
-                fromJSON.where = 1;
-                return fromJSON;
-            } catch (Exception e) {
-                Log.e(ShareUtils.TAG, e.getMessage());
-                return null;
-            }
-        }
-        return (StorageModel) invokeL.objValue;
-    }
-
-    public StorageModel getModelFromSp(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            try {
-                String sp = getSp(str, SecurityUtil.md5(str.getBytes(), false));
-                Object[] objArr = new Object[1];
-                StringBuilder sb = new StringBuilder();
-                sb.append("get share model from share_preferences pkg=");
-                sb.append(str);
-                sb.append(" value is ");
-                sb.append(TextUtils.isEmpty(sp) ? SchemeCollecter.CLASSIFY_EMPTY : "not empty");
-                objArr[0] = sb.toString();
-                Log.d(ShareUtils.TAG, objArr);
-                if (TextUtils.isEmpty(sp)) {
-                    return null;
-                }
-                StorageModel fromJSON = StorageModel.fromJSON(new JSONObject(new String(SecurityUtil.aesDecrypt(Base64.decode(sp, 0), this.mAesIv, this.mAesKey))));
-                fromJSON.where = 0;
-                return fromJSON;
-            } catch (Exception unused) {
-                return null;
-            }
-        }
-        return (StorageModel) invokeL.objValue;
-    }
-
-    public String getSd(String str) {
-        InterceptResult invokeL;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            try {
-            } catch (Exception e) {
-                Log.e(ShareUtils.TAG, e.getMessage());
-            }
-            if (!SapiUtils.checkRequestPermission(h.i, this.context)) {
-                Log.d(ShareUtils.TAG, "getSd is not has READ_EXTERNAL_STORAGE permission");
-                return null;
-            }
-            if (Build.VERSION.SDK_INT >= 30) {
-                str2 = this.context.getExternalCacheDir().getAbsolutePath() + File.separator + SD_FILE_NAME + str;
-            } else {
-                str2 = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + SD_FILE_NAME + str;
-            }
-            if (FileUtil.isFileExist(str2)) {
-                Log.d(ShareUtils.TAG, "getSd filePath=" + str2);
-                return FileUtil.read(str2);
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
     }
 
     public String getSp(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? getSp(null, str) : (String) invokeL.objValue;
-    }
-
-    public boolean setSd(String str, String str2) {
-        InterceptResult invokeLL;
-        File file;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, str2)) == null) {
-            try {
-                if (SapiUtils.checkRequestPermission("android.permission.WRITE_EXTERNAL_STORAGE", this.context)) {
-                    if (Build.VERSION.SDK_INT >= 30) {
-                        File externalCacheDir = this.context.getExternalCacheDir();
-                        file = new File(externalCacheDir, SD_FILE_NAME + str);
-                    } else {
-                        File externalStorageDirectory = Environment.getExternalStorageDirectory();
-                        file = new File(externalStorageDirectory, SD_FILE_NAME + str);
-                    }
-                    if (TextUtils.isEmpty(str2)) {
-                        FileUtil.deleteFile(file);
-                        return true;
-                    }
-                    FileUtil.write(file, str2.getBytes(), false);
-                    return true;
-                }
-                return false;
-            } catch (IOException unused) {
-                return false;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            return getSp(null, str);
         }
-        return invokeLL.booleanValue;
-    }
-
-    @TargetApi(4)
-    public boolean setSp(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2)) == null) {
-            try {
-                SharedPreferences sharedPreferences = this.context.getSharedPreferences(SP_FILE_NAME, MODE);
-                if (Build.VERSION.SDK_INT > 8) {
-                    sharedPreferences.edit().putString(str, str2).apply();
-                } else {
-                    sharedPreferences.edit().putString(str, str2).commit();
-                }
-                return true;
-            } catch (Throwable unused) {
-                if (Build.VERSION.SDK_INT >= 24 && this.context.getApplicationInfo().targetSdkVersion >= 24 && meetShareInternalGray() && !SapiContext.getInstance().getResetFileExecPer()) {
-                    try {
-                        File file = new File(this.context.getApplicationInfo().dataDir + "/" + SP_FILE_PATH + str);
-                        if (!file.exists()) {
-                            file.getParentFile().mkdirs();
-                            file.createNewFile();
-                            SapiContext.getInstance().setModifiedDirExecPer(SapiCoreUtil.chmodFile(this.context, file));
-                        }
-                        if (!SapiContext.getInstance().getModifiedDirExecPer()) {
-                            boolean chmodFile = SapiCoreUtil.chmodFile(this.context, file);
-                            Log.i(ShareUtils.TAG, "chmodFileSuc", Boolean.valueOf(chmodFile));
-                            SapiContext.getInstance().setModifiedDirExecPer(chmodFile);
-                        }
-                        FileUtil.write(file, str2.getBytes(), false);
-                        return true;
-                    } catch (Throwable th) {
-                        Log.e(th);
-                        return false;
-                    }
-                }
-                Log.i(ShareUtils.TAG, "meetShareInternalGray false");
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
+        return (String) invokeL.objValue;
     }
 
     public void syncSet(int i) {
@@ -646,13 +479,29 @@ public class ShareStorage {
                         this.this$0.setSp(md5, str);
                         this.this$0.setSd(md5, str);
                         int i2 = this.val$shareEvent;
-                        if (i2 == 2 || i2 == 3 || i2 == 4) {
-                            this.this$0.setCloud(this.val$shareEvent, storageModel);
+                        if (i2 != 2 && i2 != 3 && i2 != 4) {
+                            return;
                         }
+                        this.this$0.setCloud(this.val$shareEvent, storageModel);
                     }
                 }
             });
         }
+    }
+
+    private String getDataFromShareInternal(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, this, str, str2)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                str = this.context.getPackageName();
+            }
+            String str3 = this.context.getApplicationInfo().dataDir;
+            String str4 = (str3.replace(this.context.getPackageName(), "") + str) + "/" + SP_FILE_PATH + str2;
+            Log.e(ShareUtils.TAG, "getDataFromShareInternal", "fileName", str4);
+            return FileUtil.read(str4);
+        }
+        return (String) invokeLL.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:15:0x003d  */
@@ -663,9 +512,9 @@ public class ShareStorage {
     public String getSp(String str, String str2) {
         InterceptResult invokeLL;
         SharedPreferences sharedPreferences;
-        String string;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, str2)) == null) {
+            String str3 = null;
             if (Build.VERSION.SDK_INT < 24) {
                 if (TextUtils.isEmpty(str)) {
                     sharedPreferences = this.context.getSharedPreferences(SP_FILE_NAME, MODE);
@@ -676,22 +525,195 @@ public class ShareStorage {
                         Log.e(ShareUtils.TAG, e.getMessage());
                     }
                 }
-                string = sharedPreferences != null ? sharedPreferences.getString(str2, "") : null;
-                if (TextUtils.isEmpty(string)) {
-                    string = getDataFromShareInternal(str, str2);
-                    if (!TextUtils.isEmpty(string)) {
+                if (sharedPreferences != null) {
+                    str3 = sharedPreferences.getString(str2, "");
+                }
+                if (TextUtils.isEmpty(str3)) {
+                    str3 = getDataFromShareInternal(str, str2);
+                    if (!TextUtils.isEmpty(str3)) {
                         this.readSpFromChmodFile = true;
                     }
                 }
-                return string;
+                return str3;
             }
             sharedPreferences = null;
             if (sharedPreferences != null) {
             }
-            if (TextUtils.isEmpty(string)) {
+            if (TextUtils.isEmpty(str3)) {
             }
-            return string;
+            return str3;
         }
         return (String) invokeLL.objValue;
+    }
+
+    public boolean setSd(String str, String str2) {
+        InterceptResult invokeLL;
+        File file;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, str2)) == null) {
+            try {
+                if (!SapiUtils.checkRequestPermission("android.permission.WRITE_EXTERNAL_STORAGE", this.context)) {
+                    return false;
+                }
+                if (Build.VERSION.SDK_INT >= 30) {
+                    File externalCacheDir = this.context.getExternalCacheDir();
+                    file = new File(externalCacheDir, SD_FILE_NAME + str);
+                } else {
+                    File externalStorageDirectory = Environment.getExternalStorageDirectory();
+                    file = new File(externalStorageDirectory, SD_FILE_NAME + str);
+                }
+                if (TextUtils.isEmpty(str2)) {
+                    FileUtil.deleteFile(file);
+                    return true;
+                }
+                FileUtil.write(file, str2.getBytes(), false);
+                return true;
+            } catch (IOException unused) {
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void setCloud(int i, StorageModel storageModel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65545, this, i, storageModel) == null) {
+            SapiAccountManager.getInstance().getAccountService().setCloudShareAccount(i, storageModel);
+        }
+    }
+
+    public StorageModel getModelFromSd(String str) {
+        InterceptResult invokeL;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            try {
+                String sd = getSd(SecurityUtil.md5(str.getBytes(), false));
+                Object[] objArr = new Object[1];
+                StringBuilder sb = new StringBuilder();
+                sb.append("get share model from sd_card pkg=");
+                sb.append(str);
+                sb.append(" value is ");
+                if (TextUtils.isEmpty(sd)) {
+                    str2 = SchemeCollecter.CLASSIFY_EMPTY;
+                } else {
+                    str2 = "not empty";
+                }
+                sb.append(str2);
+                objArr[0] = sb.toString();
+                Log.d(ShareUtils.TAG, objArr);
+                if (!TextUtils.isEmpty(sd)) {
+                    StorageModel fromJSON = StorageModel.fromJSON(new JSONObject(new String(SecurityUtil.aesDecrypt(Base64.decode(sd, 0), this.mAesIv, this.mAesKey))));
+                    fromJSON.where = 1;
+                    return fromJSON;
+                }
+                return null;
+            } catch (Exception e) {
+                Log.e(ShareUtils.TAG, e.getMessage());
+                return null;
+            }
+        }
+        return (StorageModel) invokeL.objValue;
+    }
+
+    public StorageModel getModelFromSp(String str) {
+        String str2;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            try {
+                String sp = getSp(str, SecurityUtil.md5(str.getBytes(), false));
+                Object[] objArr = new Object[1];
+                StringBuilder sb = new StringBuilder();
+                sb.append("get share model from share_preferences pkg=");
+                sb.append(str);
+                sb.append(" value is ");
+                if (TextUtils.isEmpty(sp)) {
+                    str2 = SchemeCollecter.CLASSIFY_EMPTY;
+                } else {
+                    str2 = "not empty";
+                }
+                sb.append(str2);
+                objArr[0] = sb.toString();
+                Log.d(ShareUtils.TAG, objArr);
+                if (!TextUtils.isEmpty(sp)) {
+                    StorageModel fromJSON = StorageModel.fromJSON(new JSONObject(new String(SecurityUtil.aesDecrypt(Base64.decode(sp, 0), this.mAesIv, this.mAesKey))));
+                    fromJSON.where = 0;
+                    return fromJSON;
+                }
+                return null;
+            } catch (Exception unused) {
+                return null;
+            }
+        }
+        return (StorageModel) invokeL.objValue;
+    }
+
+    public String getSd(String str) {
+        InterceptResult invokeL;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            try {
+            } catch (Exception e) {
+                Log.e(ShareUtils.TAG, e.getMessage());
+            }
+            if (!SapiUtils.checkRequestPermission(h.i, this.context)) {
+                Log.d(ShareUtils.TAG, "getSd is not has READ_EXTERNAL_STORAGE permission");
+                return null;
+            }
+            if (Build.VERSION.SDK_INT >= 30) {
+                str2 = this.context.getExternalCacheDir().getAbsolutePath() + File.separator + SD_FILE_NAME + str;
+            } else {
+                str2 = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + SD_FILE_NAME + str;
+            }
+            if (FileUtil.isFileExist(str2)) {
+                Log.d(ShareUtils.TAG, "getSd filePath=" + str2);
+                return FileUtil.read(str2);
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public boolean setSp(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2)) == null) {
+            try {
+                SharedPreferences sharedPreferences = this.context.getSharedPreferences(SP_FILE_NAME, MODE);
+                if (Build.VERSION.SDK_INT > 8) {
+                    sharedPreferences.edit().putString(str, str2).apply();
+                } else {
+                    sharedPreferences.edit().putString(str, str2).commit();
+                }
+                return true;
+            } catch (Throwable unused) {
+                if (Build.VERSION.SDK_INT >= 24 && this.context.getApplicationInfo().targetSdkVersion >= 24 && meetShareInternalGray() && !SapiContext.getInstance().getResetFileExecPer()) {
+                    try {
+                        File file = new File(this.context.getApplicationInfo().dataDir + "/" + SP_FILE_PATH + str);
+                        if (!file.exists()) {
+                            file.getParentFile().mkdirs();
+                            file.createNewFile();
+                            SapiContext.getInstance().setModifiedDirExecPer(SapiCoreUtil.chmodFile(this.context, file));
+                        }
+                        if (!SapiContext.getInstance().getModifiedDirExecPer()) {
+                            boolean chmodFile = SapiCoreUtil.chmodFile(this.context, file);
+                            Log.i(ShareUtils.TAG, "chmodFileSuc", Boolean.valueOf(chmodFile));
+                            SapiContext.getInstance().setModifiedDirExecPer(chmodFile);
+                        }
+                        FileUtil.write(file, str2.getBytes(), false);
+                        return true;
+                    } catch (Throwable th) {
+                        Log.e(th);
+                        return false;
+                    }
+                }
+                Log.i(ShareUtils.TAG, "meetShareInternalGray false");
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
     }
 }

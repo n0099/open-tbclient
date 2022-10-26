@@ -29,7 +29,7 @@ public class DownloadNotificationService extends Service {
     public static volatile long g;
     public static boolean h;
     public g j;
-    public final SparseArray<Notification> k = new SparseArray<>(2);
+    public final SparseArray k = new SparseArray(2);
     public static final String a = DownloadNotificationService.class.getSimpleName();
     public static int b = -1;
     public static int c = -1;
@@ -37,38 +37,16 @@ public class DownloadNotificationService extends Service {
     public static boolean e = false;
     public static long i = 900;
 
-    private void d() {
-        if (this.j == null) {
-            g gVar = new g("DownloaderNotifyThread");
-            this.j = gVar;
-            gVar.a();
-        }
-    }
-
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
         return null;
     }
 
-    @Override // android.app.Service
-    public void onCreate() {
-        super.onCreate();
-        d();
-        c.a(this);
-        com.ss.android.socialbase.downloader.g.a c2 = com.ss.android.socialbase.downloader.g.a.c();
-        int a2 = c2.a("download_service_foreground", 0);
-        if ((a2 == 1 || a2 == 3) && b == -1) {
-            b = 0;
-        }
-        if ((a2 == 2 || a2 == 3) && c == -1) {
-            c = 0;
-        }
-        e = c2.b("non_going_notification_foreground", false);
-        h = c2.b("notify_too_fast", false);
-        long a3 = c2.a("notification_time_window", 900L);
-        i = a3;
-        if (a3 < 0 || a3 > IMLikeRequest.TIME_INTERVAL) {
-            i = 900L;
+    private void d() {
+        if (this.j == null) {
+            g gVar = new g("DownloaderNotifyThread");
+            this.j = gVar;
+            gVar.a();
         }
     }
 
@@ -85,147 +63,16 @@ public class DownloadNotificationService extends Service {
         }
     }
 
-    @Override // android.app.Service
-    public int onStartCommand(Intent intent, int i2, int i3) {
-        a(intent);
-        return 2;
-    }
-
     /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Code restructure failed: missing block: B:12:0x001f, code lost:
-        if (com.ss.android.socialbase.downloader.notification.DownloadNotificationService.b == 0) goto L31;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void b(NotificationManager notificationManager, int i2, Notification notification) {
-        if (a(i2, notification)) {
-            try {
-                boolean z = false;
-                boolean z2 = d.a().a(i2) == 1 && !f.c();
-                if (!z2) {
-                }
-                if (z2 && c == 0) {
-                    z = true;
-                }
-                if (z) {
-                    m c2 = d.a().c(i2);
-                    if (c2.g() && !c2.b()) {
-                        String str = a;
-                        com.ss.android.socialbase.downloader.c.a.c(str, "doNotify, startForeground, ======== id = " + i2 + ", isIndependentProcess = " + z2);
-                        if (z2) {
-                            c = i2;
-                        } else {
-                            b = i2;
-                        }
-                        c2.a(i2, notification);
-                    } else {
-                        String str2 = a;
-                        com.ss.android.socialbase.downloader.c.a.c(str2, "doNotify: canStartForeground = true, but proxy can not startForeground, isIndependentProcess = " + z2);
-                    }
-                }
-            } catch (Throwable th) {
-                th.printStackTrace();
-            }
-        } else if ((b == i2 || c == i2) && e && (notification.flags & 2) == 0) {
-            b(notificationManager, i2);
+    public void a(NotificationManager notificationManager, int i2) {
+        Notification notification;
+        synchronized (this.k) {
+            notification = (Notification) this.k.get(i2);
+            this.k.remove(i2);
         }
-        try {
-            long currentTimeMillis = System.currentTimeMillis();
-            if (f < currentTimeMillis) {
-                f = currentTimeMillis;
-            }
-            notificationManager.notify(i2, notification);
-        } catch (Throwable unused) {
+        if (notification != null) {
+            b(notificationManager, i2, notification);
         }
-    }
-
-    private void a(final Intent intent) {
-        g gVar;
-        if (intent == null) {
-            return;
-        }
-        final String action = intent.getAction();
-        if (TextUtils.isEmpty(action) || (gVar = this.j) == null) {
-            return;
-        }
-        gVar.a(new Runnable() { // from class: com.ss.android.socialbase.downloader.notification.DownloadNotificationService.1
-            @Override // java.lang.Runnable
-            public void run() {
-                ConnectivityManager connectivityManager;
-                NetworkInfo activeNetworkInfo;
-                final NotificationManager notificationManager = (NotificationManager) DownloadNotificationService.this.getSystemService(ActionJsonData.TAG_NOTIFICATION);
-                final int intExtra = intent.getIntExtra("DOWNLOAD_NOTIFICATION_BUNDLE_EXTRA_ID", 0);
-                if (action.equals("android.ss.intent.action.DOWNLOAD_NOTIFICATION_NOTIFY")) {
-                    final Notification notification = (Notification) intent.getParcelableExtra("DOWNLOAD_NOTIFICATION_BUNDLE_EXTRA");
-                    int intExtra2 = intent.getIntExtra("DOWNLOAD_NOTIFICATION_EXTRA_STATUS", 0);
-                    if (intExtra == 0 || notification == null || notificationManager == null) {
-                        return;
-                    }
-                    if (intExtra2 != 4) {
-                        if (intExtra2 == -2 || intExtra2 == -3) {
-                            if (!DownloadNotificationService.h) {
-                                if (DownloadNotificationService.this.j != null) {
-                                    DownloadNotificationService.this.j.a(new Runnable() { // from class: com.ss.android.socialbase.downloader.notification.DownloadNotificationService.1.1
-                                        @Override // java.lang.Runnable
-                                        public void run() {
-                                            DownloadNotificationService.this.b(notificationManager, intExtra, notification);
-                                        }
-                                    }, intExtra2 == -2 ? 50L : 200L);
-                                    return;
-                                }
-                                return;
-                            }
-                            DownloadNotificationService.this.a(notificationManager, intExtra, notification);
-                        } else if (DownloadNotificationService.h) {
-                            DownloadNotificationService.this.a(notificationManager, intExtra, notification);
-                        } else {
-                            DownloadNotificationService.this.b(notificationManager, intExtra, notification);
-                        }
-                    } else if (Downloader.getInstance(c.N()).isDownloading(intExtra)) {
-                        DownloadInfo downloadInfo = Downloader.getInstance(c.N()).getDownloadInfo(intExtra);
-                        if (DownloadNotificationService.h) {
-                            if (downloadInfo == null || !downloadInfo.canNotifyProgress() || System.currentTimeMillis() - DownloadNotificationService.g <= DownloadNotificationService.i) {
-                                return;
-                            }
-                            DownloadNotificationService.this.b(notificationManager, intExtra, notification);
-                            downloadInfo.setLastNotifyProgressTime();
-                        } else if (downloadInfo == null || !downloadInfo.canNotifyProgress()) {
-                        } else {
-                            DownloadNotificationService.this.b(notificationManager, intExtra, notification);
-                            downloadInfo.setLastNotifyProgressTime();
-                        }
-                    }
-                } else if (action.equals("android.ss.intent.action.DOWNLOAD_NOTIFICATION_CANCEL")) {
-                    if (intExtra != 0) {
-                        DownloadNotificationService.this.b(notificationManager, intExtra);
-                    }
-                } else if (action.equals("android.net.conn.CONNECTIVITY_CHANGE")) {
-                    try {
-                        if (f.a((Context) DownloadNotificationService.this, "android.permission.ACCESS_NETWORK_STATE") && (connectivityManager = (ConnectivityManager) DownloadNotificationService.this.getSystemService("connectivity")) != null && (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) != null && activeNetworkInfo.isConnected()) {
-                            ArrayList arrayList = new ArrayList();
-                            if (!TextUtils.isEmpty(e.a)) {
-                                arrayList.add(e.a);
-                            }
-                            arrayList.add("mime_type_plg");
-                            Context applicationContext = DownloadNotificationService.this.getApplicationContext();
-                            if (applicationContext != null) {
-                                Downloader.getInstance(applicationContext).restartAllFailedDownloadTasks(arrayList);
-                                Downloader.getInstance(applicationContext).restartAllPauseReserveOnWifiDownloadTasks(arrayList);
-                            }
-                        }
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
-                    }
-                } else if (action.equals("android.intent.action.MEDIA_UNMOUNTED") || action.equals("android.intent.action.MEDIA_REMOVED") || action.equals("android.intent.action.MEDIA_BAD_REMOVAL") || action.equals("android.intent.action.MEDIA_EJECT")) {
-                    try {
-                        Downloader.getInstance(DownloadNotificationService.this).pauseAll();
-                    } catch (Exception e3) {
-                        e3.printStackTrace();
-                    }
-                }
-            }
-        });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -262,16 +109,123 @@ public class DownloadNotificationService extends Service {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(NotificationManager notificationManager, int i2) {
-        Notification notification;
-        synchronized (this.k) {
-            notification = this.k.get(i2);
-            this.k.remove(i2);
+    private void a(final Intent intent) {
+        g gVar;
+        if (intent == null) {
+            return;
         }
-        if (notification != null) {
-            b(notificationManager, i2, notification);
+        final String action = intent.getAction();
+        if (!TextUtils.isEmpty(action) && (gVar = this.j) != null) {
+            gVar.a(new Runnable() { // from class: com.ss.android.socialbase.downloader.notification.DownloadNotificationService.1
+                @Override // java.lang.Runnable
+                public void run() {
+                    ConnectivityManager connectivityManager;
+                    NetworkInfo activeNetworkInfo;
+                    long j;
+                    final NotificationManager notificationManager = (NotificationManager) DownloadNotificationService.this.getSystemService(ActionJsonData.TAG_NOTIFICATION);
+                    final int intExtra = intent.getIntExtra("DOWNLOAD_NOTIFICATION_BUNDLE_EXTRA_ID", 0);
+                    if (action.equals("android.ss.intent.action.DOWNLOAD_NOTIFICATION_NOTIFY")) {
+                        final Notification notification = (Notification) intent.getParcelableExtra("DOWNLOAD_NOTIFICATION_BUNDLE_EXTRA");
+                        int intExtra2 = intent.getIntExtra("DOWNLOAD_NOTIFICATION_EXTRA_STATUS", 0);
+                        if (intExtra != 0 && notification != null && notificationManager != null) {
+                            if (intExtra2 == 4) {
+                                if (!Downloader.getInstance(c.N()).isDownloading(intExtra)) {
+                                    return;
+                                }
+                                DownloadInfo downloadInfo = Downloader.getInstance(c.N()).getDownloadInfo(intExtra);
+                                if (DownloadNotificationService.h) {
+                                    if (downloadInfo == null || !downloadInfo.canNotifyProgress() || System.currentTimeMillis() - DownloadNotificationService.g <= DownloadNotificationService.i) {
+                                        return;
+                                    }
+                                    DownloadNotificationService.this.b(notificationManager, intExtra, notification);
+                                    downloadInfo.setLastNotifyProgressTime();
+                                } else if (downloadInfo == null || !downloadInfo.canNotifyProgress()) {
+                                } else {
+                                    DownloadNotificationService.this.b(notificationManager, intExtra, notification);
+                                    downloadInfo.setLastNotifyProgressTime();
+                                }
+                            } else if (intExtra2 != -2 && intExtra2 != -3) {
+                                if (DownloadNotificationService.h) {
+                                    DownloadNotificationService.this.a(notificationManager, intExtra, notification);
+                                } else {
+                                    DownloadNotificationService.this.b(notificationManager, intExtra, notification);
+                                }
+                            } else if (!DownloadNotificationService.h) {
+                                if (DownloadNotificationService.this.j != null) {
+                                    g gVar2 = DownloadNotificationService.this.j;
+                                    Runnable runnable = new Runnable() { // from class: com.ss.android.socialbase.downloader.notification.DownloadNotificationService.1.1
+                                        @Override // java.lang.Runnable
+                                        public void run() {
+                                            DownloadNotificationService.this.b(notificationManager, intExtra, notification);
+                                        }
+                                    };
+                                    if (intExtra2 == -2) {
+                                        j = 50;
+                                    } else {
+                                        j = 200;
+                                    }
+                                    gVar2.a(runnable, j);
+                                }
+                            } else {
+                                DownloadNotificationService.this.a(notificationManager, intExtra, notification);
+                            }
+                        }
+                    } else if (action.equals("android.ss.intent.action.DOWNLOAD_NOTIFICATION_CANCEL")) {
+                        if (intExtra == 0) {
+                            return;
+                        }
+                        DownloadNotificationService.this.b(notificationManager, intExtra);
+                    } else if (action.equals("android.net.conn.CONNECTIVITY_CHANGE")) {
+                        try {
+                            if (f.a((Context) DownloadNotificationService.this, "android.permission.ACCESS_NETWORK_STATE") && (connectivityManager = (ConnectivityManager) DownloadNotificationService.this.getSystemService("connectivity")) != null && (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) != null && activeNetworkInfo.isConnected()) {
+                                ArrayList arrayList = new ArrayList();
+                                if (!TextUtils.isEmpty(e.a)) {
+                                    arrayList.add(e.a);
+                                }
+                                arrayList.add("mime_type_plg");
+                                Context applicationContext = DownloadNotificationService.this.getApplicationContext();
+                                if (applicationContext != null) {
+                                    Downloader.getInstance(applicationContext).restartAllFailedDownloadTasks(arrayList);
+                                    Downloader.getInstance(applicationContext).restartAllPauseReserveOnWifiDownloadTasks(arrayList);
+                                }
+                            }
+                        } catch (Exception e2) {
+                            e2.printStackTrace();
+                        }
+                    } else if (action.equals("android.intent.action.MEDIA_UNMOUNTED") || action.equals("android.intent.action.MEDIA_REMOVED") || action.equals("android.intent.action.MEDIA_BAD_REMOVAL") || action.equals("android.intent.action.MEDIA_EJECT")) {
+                        try {
+                            Downloader.getInstance(DownloadNotificationService.this).pauseAll();
+                        } catch (Exception e3) {
+                            e3.printStackTrace();
+                        }
+                    }
+                }
+            });
         }
+    }
+
+    @Override // android.app.Service
+    public int onStartCommand(Intent intent, int i2, int i3) {
+        a(intent);
+        return 2;
+    }
+
+    private boolean a(int i2, Notification notification) {
+        int i3;
+        int i4;
+        if (!d || (i3 = b) == i2 || (i4 = c) == i2) {
+            return false;
+        }
+        if (i3 != 0 && i4 != 0) {
+            return false;
+        }
+        if (e && (notification.flags & 2) == 0) {
+            return false;
+        }
+        if (Build.VERSION.SDK_INT >= 26 && TextUtils.isEmpty(notification.getChannelId())) {
+            return false;
+        }
+        return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -279,6 +233,7 @@ public class DownloadNotificationService extends Service {
         boolean z;
         a aVar;
         int a2;
+        boolean z2;
         if (b != i2 && c != i2) {
             try {
                 notificationManager.cancel(i2);
@@ -287,7 +242,7 @@ public class DownloadNotificationService extends Service {
                 return;
             }
         }
-        boolean z2 = true;
+        boolean z3 = true;
         if (b == i2) {
             b = 0;
             z = false;
@@ -310,47 +265,114 @@ public class DownloadNotificationService extends Service {
             notificationManager.cancel(i2);
         } catch (Throwable unused2) {
         }
-        if (d) {
-            try {
-                SparseArray<a> b2 = b.a().b();
-                if (b2 != null) {
-                    for (int size = b2.size() - 1; size >= 0; size--) {
-                        aVar = b2.valueAt(size);
-                        if (aVar != null && (a2 = aVar.a()) != i2 && a2 != b && a2 != c && aVar.i()) {
-                            if ((d.a().a(aVar.a()) == 1 && !f.c()) == z) {
-                                break;
-                            }
+        if (!d) {
+            return;
+        }
+        try {
+            SparseArray b2 = b.a().b();
+            if (b2 != null) {
+                for (int size = b2.size() - 1; size >= 0; size--) {
+                    aVar = (a) b2.valueAt(size);
+                    if (aVar != null && (a2 = aVar.a()) != i2 && a2 != b && a2 != c && aVar.i()) {
+                        if (d.a().a(aVar.a()) == 1 && !f.c()) {
+                            z2 = true;
+                        } else {
+                            z2 = false;
+                        }
+                        if (z2 == z) {
+                            break;
                         }
                     }
                 }
-                aVar = null;
-                if (aVar != null) {
-                    int a3 = aVar.a();
-                    notificationManager.cancel(a3);
-                    if (Downloader.getInstance(this).getStatus(a3) != 1) {
-                        z2 = false;
-                    }
-                    com.ss.android.socialbase.downloader.c.a.c(a, "doCancel, updateNotification id = " + a3);
-                    aVar.a((BaseException) null, z2);
-                }
-            } catch (Throwable th2) {
-                th2.printStackTrace();
             }
+            aVar = null;
+            if (aVar != null) {
+                int a3 = aVar.a();
+                notificationManager.cancel(a3);
+                if (Downloader.getInstance(this).getStatus(a3) != 1) {
+                    z3 = false;
+                }
+                com.ss.android.socialbase.downloader.c.a.c(a, "doCancel, updateNotification id = " + a3);
+                aVar.a((BaseException) null, z3);
+            }
+        } catch (Throwable th2) {
+            th2.printStackTrace();
         }
     }
 
-    private boolean a(int i2, Notification notification) {
-        int i3;
-        int i4;
-        if (!d || (i3 = b) == i2 || (i4 = c) == i2) {
-            return false;
-        }
-        if (i3 == 0 || i4 == 0) {
-            if (e && (notification.flags & 2) == 0) {
-                return false;
+    /* JADX INFO: Access modifiers changed from: private */
+    /* JADX WARN: Code restructure failed: missing block: B:12:0x001f, code lost:
+        if (com.ss.android.socialbase.downloader.notification.DownloadNotificationService.b == 0) goto L31;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void b(NotificationManager notificationManager, int i2, Notification notification) {
+        boolean z;
+        if (a(i2, notification)) {
+            try {
+                boolean z2 = false;
+                if (d.a().a(i2) == 1 && !f.c()) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (!z) {
+                }
+                if (z && c == 0) {
+                    z2 = true;
+                }
+                if (z2) {
+                    m c2 = d.a().c(i2);
+                    if (c2.g() && !c2.b()) {
+                        String str = a;
+                        com.ss.android.socialbase.downloader.c.a.c(str, "doNotify, startForeground, ======== id = " + i2 + ", isIndependentProcess = " + z);
+                        if (z) {
+                            c = i2;
+                        } else {
+                            b = i2;
+                        }
+                        c2.a(i2, notification);
+                    } else {
+                        String str2 = a;
+                        com.ss.android.socialbase.downloader.c.a.c(str2, "doNotify: canStartForeground = true, but proxy can not startForeground, isIndependentProcess = " + z);
+                    }
+                }
+            } catch (Throwable th) {
+                th.printStackTrace();
             }
-            return Build.VERSION.SDK_INT < 26 || !TextUtils.isEmpty(notification.getChannelId());
+        } else if ((b == i2 || c == i2) && e && (notification.flags & 2) == 0) {
+            b(notificationManager, i2);
         }
-        return false;
+        try {
+            long currentTimeMillis = System.currentTimeMillis();
+            if (f < currentTimeMillis) {
+                f = currentTimeMillis;
+            }
+            notificationManager.notify(i2, notification);
+        } catch (Throwable unused) {
+        }
+    }
+
+    @Override // android.app.Service
+    public void onCreate() {
+        super.onCreate();
+        d();
+        c.a(this);
+        com.ss.android.socialbase.downloader.g.a c2 = com.ss.android.socialbase.downloader.g.a.c();
+        int a2 = c2.a("download_service_foreground", 0);
+        if ((a2 == 1 || a2 == 3) && b == -1) {
+            b = 0;
+        }
+        if ((a2 == 2 || a2 == 3) && c == -1) {
+            c = 0;
+        }
+        e = c2.b("non_going_notification_foreground", false);
+        h = c2.b("notify_too_fast", false);
+        long a3 = c2.a("notification_time_window", 900L);
+        i = a3;
+        if (a3 < 0 || a3 > IMLikeRequest.TIME_INTERVAL) {
+            i = 900L;
+        }
     }
 }

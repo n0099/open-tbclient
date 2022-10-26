@@ -3,7 +3,6 @@ package com.baidu.spswitch.utils;
 import android.content.Context;
 import android.util.DisplayMetrics;
 import android.util.Log;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
@@ -56,7 +55,7 @@ public class UIUtils {
         }
     }
 
-    public static int dip2px(@Nullable Context context, float f) {
+    public static int dip2px(Context context, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLF = interceptable.invokeLF(65538, null, context, f)) == null) {
@@ -71,10 +70,13 @@ public class UIUtils {
     public static float dp2px(Context context, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLF = interceptable.invokeLF(65539, null, context, f)) == null) ? f * (context.getResources().getDisplayMetrics().densityDpi / 160.0f) : invokeLF.floatValue;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65539, null, context, f)) == null) {
+            return f * (context.getResources().getDisplayMetrics().densityDpi / 160.0f);
+        }
+        return invokeLF.floatValue;
     }
 
-    public static float getDensity(@Nullable Context context) {
+    public static float getDensity(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
@@ -86,6 +88,22 @@ public class UIUtils {
             return 0.0f;
         }
         return invokeL.floatValue;
+    }
+
+    public static void initDisplayMetrics(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, null, context) == null) {
+            Context appContext = AppRuntime.getAppContext();
+            if (sDisplayMetrics == null) {
+                if (appContext != null) {
+                    context = appContext;
+                }
+                if (context == null) {
+                    return;
+                }
+                sDisplayMetrics = context.getResources().getDisplayMetrics();
+            }
+        }
     }
 
     public static synchronized int getStatusBarHeight(Context context) {
@@ -123,24 +141,11 @@ public class UIUtils {
                 } catch (Exception unused) {
                 }
             }
-            return i == 0 ? (int) (getDensity(null) * 25.0f) : i;
+            if (i == 0) {
+                return (int) (getDensity(null) * 25.0f);
+            }
+            return i;
         }
         return invokeV.intValue;
-    }
-
-    public static void initDisplayMetrics(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, context) == null) {
-            Context appContext = AppRuntime.getAppContext();
-            if (sDisplayMetrics == null) {
-                if (appContext != null) {
-                    context = appContext;
-                }
-                if (context == null) {
-                    return;
-                }
-                sDisplayMetrics = context.getResources().getDisplayMetrics();
-            }
-        }
     }
 }

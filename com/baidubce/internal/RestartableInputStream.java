@@ -12,6 +12,8 @@ public abstract class RestartableInputStream extends InputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract void restart();
+
     public RestartableInputStream() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -36,6 +38,4 @@ public abstract class RestartableInputStream extends InputStream {
         }
         return (RestartableInputStream) invokeL.objValue;
     }
-
-    public abstract void restart();
 }

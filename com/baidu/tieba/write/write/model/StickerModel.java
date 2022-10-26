@@ -7,13 +7,13 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.g69;
-import com.baidu.tieba.pb;
+import com.baidu.tieba.qb;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.sm8;
 import com.baidu.tieba.write.write.message.RequestGetStickerMessage;
 import com.baidu.tieba.write.write.message.ResponseHttpGetStickerMessage;
 import com.baidu.tieba.write.write.message.ResponseSocketGetStickerMessage;
+import com.baidu.tieba.y69;
+import com.baidu.tieba.zm8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,11 +24,11 @@ import java.util.List;
 public class StickerModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public g69 a;
-    public pb b;
+    public y69 a;
+    public qb b;
 
     /* loaded from: classes6.dex */
-    public class a extends pb {
+    public class a extends qb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ StickerModel a;
@@ -55,29 +55,30 @@ public class StickerModel extends BdBaseModel {
             this.a = stickerModel;
         }
 
-        @Override // com.baidu.tieba.pb
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
+        @Override // com.baidu.tieba.qb
+        public void onMessage(ResponsedMessage responsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
                 return;
             }
             boolean z = responsedMessage instanceof ResponseHttpGetStickerMessage;
-            if (z || (responsedMessage instanceof ResponseSocketGetStickerMessage)) {
-                List<String> list = null;
-                if (z) {
-                    list = ((ResponseHttpGetStickerMessage) responsedMessage).getUrlList();
-                } else if (responsedMessage instanceof ResponseSocketGetStickerMessage) {
-                    list = ((ResponseSocketGetStickerMessage) responsedMessage).getUrlList();
-                }
-                if (this.a.a != null) {
-                    this.a.a.e(list);
-                }
+            if (!z && !(responsedMessage instanceof ResponseSocketGetStickerMessage)) {
+                return;
+            }
+            List list = null;
+            if (z) {
+                list = ((ResponseHttpGetStickerMessage) responsedMessage).getUrlList();
+            } else if (responsedMessage instanceof ResponseSocketGetStickerMessage) {
+                list = ((ResponseSocketGetStickerMessage) responsedMessage).getUrlList();
+            }
+            if (this.a.a != null) {
+                this.a.a.e(list);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public StickerModel(TbPageContext<?> tbPageContext) {
+    public StickerModel(TbPageContext tbPageContext) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -99,10 +100,10 @@ public class StickerModel extends BdBaseModel {
         registerListener(aVar);
     }
 
-    public void A(g69 g69Var) {
+    public void A(y69 y69Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, g69Var) == null) {
-            this.a = g69Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, y69Var) == null) {
+            this.a = y69Var;
         }
     }
 
@@ -129,15 +130,15 @@ public class StickerModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                sm8.h(309475, ResponseSocketGetStickerMessage.class, false, false);
-                sm8.c(309475, CmdConfigHttp.CMD_GET_STICKET_LIST, TbConfig.URL_GET_STICKER_LIST, ResponseHttpGetStickerMessage.class, false, false, true, false);
-                RequestGetStickerMessage requestGetStickerMessage = new RequestGetStickerMessage();
-                requestGetStickerMessage.setTag(this.unique_id);
-                sendMessage(requestGetStickerMessage);
-                return true;
+            if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
+                return false;
             }
-            return false;
+            zm8.h(309475, ResponseSocketGetStickerMessage.class, false, false);
+            zm8.c(309475, CmdConfigHttp.CMD_GET_STICKET_LIST, TbConfig.URL_GET_STICKER_LIST, ResponseHttpGetStickerMessage.class, false, false, true, false);
+            RequestGetStickerMessage requestGetStickerMessage = new RequestGetStickerMessage();
+            requestGetStickerMessage.setTag(this.unique_id);
+            sendMessage(requestGetStickerMessage);
+            return true;
         }
         return invokeV.booleanValue;
     }

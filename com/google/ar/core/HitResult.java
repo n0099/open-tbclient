@@ -12,6 +12,16 @@ public class HitResult {
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
 
+    private native long nativeCreateAnchor(long j, long j2);
+
+    public static native void nativeDestroyHitResult(long j);
+
+    private native float nativeGetDistance(long j, long j2);
+
+    private native Pose nativeGetPose(long j, long j2);
+
+    public native long nativeAcquireTrackable(long j, long j2);
+
     public HitResult() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -28,20 +38,6 @@ public class HitResult {
         this.a = 0L;
     }
 
-    private native long nativeCreateAnchor(long j, long j2);
-
-    public static native void nativeDestroyHitResult(long j);
-
-    private native float nativeGetDistance(long j, long j2);
-
-    private native Pose nativeGetPose(long j, long j2);
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? obj != null && obj.getClass() == HitResult.class && ((HitResult) obj).a == this.a : invokeL.booleanValue;
-    }
-
     public void finalize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -56,8 +52,21 @@ public class HitResult {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Long.valueOf(this.a).hashCode() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return Long.valueOf(this.a).hashCode();
+        }
+        return invokeV.intValue;
     }
 
-    public native long nativeAcquireTrackable(long j, long j2);
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (obj == null || obj.getClass() != HitResult.class || ((HitResult) obj).a != this.a) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
 }

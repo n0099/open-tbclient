@@ -85,39 +85,6 @@ public final class JsonTreeReader extends JsonReader {
         SENTINEL_CLOSED = new Object();
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public JsonTreeReader(JsonElement jsonElement) {
-        super(UNREADABLE_READER);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jsonElement};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Reader) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.stack = new Object[32];
-        this.stackSize = 0;
-        this.pathNames = new String[32];
-        this.pathIndices = new int[32];
-        push(jsonElement);
-    }
-
-    private void expect(JsonToken jsonToken) throws IOException {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, this, jsonToken) == null) || peek() == jsonToken) {
-            return;
-        }
-        throw new IllegalStateException("Expected " + jsonToken + " but was " + peek() + locationString());
-    }
-
     private String locationString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -130,7 +97,10 @@ public final class JsonTreeReader extends JsonReader {
     private Object peekStack() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? this.stack[this.stackSize - 1] : invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
+            return this.stack[this.stackSize - 1];
+        }
+        return invokeV.objValue;
     }
 
     private Object popStack() {
@@ -145,29 +115,6 @@ public final class JsonTreeReader extends JsonReader {
             return obj;
         }
         return invokeV.objValue;
-    }
-
-    private void push(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, this, obj) == null) {
-            int i = this.stackSize;
-            Object[] objArr = this.stack;
-            if (i == objArr.length) {
-                Object[] objArr2 = new Object[i * 2];
-                int[] iArr = new int[i * 2];
-                String[] strArr = new String[i * 2];
-                System.arraycopy(objArr, 0, objArr2, 0, i);
-                System.arraycopy(this.pathIndices, 0, iArr, 0, this.stackSize);
-                System.arraycopy(this.pathNames, 0, strArr, 0, this.stackSize);
-                this.stack = objArr2;
-                this.pathIndices = iArr;
-                this.pathNames = strArr;
-            }
-            Object[] objArr3 = this.stack;
-            int i2 = this.stackSize;
-            this.stackSize = i2 + 1;
-            objArr3[i2] = obj;
-        }
     }
 
     @Override // com.google.gson.stream.JsonReader
@@ -231,6 +178,119 @@ public final class JsonTreeReader extends JsonReader {
     }
 
     @Override // com.google.gson.stream.JsonReader
+    public boolean hasNext() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            JsonToken peek = peek();
+            if (peek != JsonToken.END_OBJECT && peek != JsonToken.END_ARRAY) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.google.gson.stream.JsonReader
+    public boolean nextBoolean() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            expect(JsonToken.BOOLEAN);
+            boolean asBoolean = ((JsonPrimitive) popStack()).getAsBoolean();
+            int i = this.stackSize;
+            if (i > 0) {
+                int[] iArr = this.pathIndices;
+                int i2 = i - 1;
+                iArr[i2] = iArr[i2] + 1;
+            }
+            return asBoolean;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.google.gson.stream.JsonReader
+    public void nextNull() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            expect(JsonToken.NULL);
+            popStack();
+            int i = this.stackSize;
+            if (i > 0) {
+                int[] iArr = this.pathIndices;
+                int i2 = i - 1;
+                iArr[i2] = iArr[i2] + 1;
+            }
+        }
+    }
+
+    @Override // com.google.gson.stream.JsonReader
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return JsonTreeReader.class.getSimpleName();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public JsonTreeReader(JsonElement jsonElement) {
+        super(UNREADABLE_READER);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jsonElement};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Reader) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.stack = new Object[32];
+        this.stackSize = 0;
+        this.pathNames = new String[32];
+        this.pathIndices = new int[32];
+        push(jsonElement);
+    }
+
+    private void expect(JsonToken jsonToken) throws IOException {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65538, this, jsonToken) != null) || peek() == jsonToken) {
+            return;
+        }
+        throw new IllegalStateException("Expected " + jsonToken + " but was " + peek() + locationString());
+    }
+
+    private void push(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, this, obj) == null) {
+            int i = this.stackSize;
+            Object[] objArr = this.stack;
+            if (i == objArr.length) {
+                Object[] objArr2 = new Object[i * 2];
+                int[] iArr = new int[i * 2];
+                String[] strArr = new String[i * 2];
+                System.arraycopy(objArr, 0, objArr2, 0, i);
+                System.arraycopy(this.pathIndices, 0, iArr, 0, this.stackSize);
+                System.arraycopy(this.pathNames, 0, strArr, 0, this.stackSize);
+                this.stack = objArr2;
+                this.pathIndices = iArr;
+                this.pathNames = strArr;
+            }
+            Object[] objArr3 = this.stack;
+            int i2 = this.stackSize;
+            this.stackSize = i2 + 1;
+            objArr3[i2] = obj;
+        }
+    }
+
+    @Override // com.google.gson.stream.JsonReader
     public String getPath() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -262,35 +322,6 @@ public final class JsonTreeReader extends JsonReader {
             return sb.toString();
         }
         return (String) invokeV.objValue;
-    }
-
-    @Override // com.google.gson.stream.JsonReader
-    public boolean hasNext() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            JsonToken peek = peek();
-            return (peek == JsonToken.END_OBJECT || peek == JsonToken.END_ARRAY) ? false : true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.google.gson.stream.JsonReader
-    public boolean nextBoolean() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            expect(JsonToken.BOOLEAN);
-            boolean asBoolean = ((JsonPrimitive) popStack()).getAsBoolean();
-            int i = this.stackSize;
-            if (i > 0) {
-                int[] iArr = this.pathIndices;
-                int i2 = i - 1;
-                iArr[i2] = iArr[i2] + 1;
-            }
-            return asBoolean;
-        }
-        return invokeV.booleanValue;
     }
 
     @Override // com.google.gson.stream.JsonReader
@@ -363,36 +394,6 @@ public final class JsonTreeReader extends JsonReader {
     }
 
     @Override // com.google.gson.stream.JsonReader
-    public String nextName() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            expect(JsonToken.NAME);
-            Map.Entry entry = (Map.Entry) ((Iterator) peekStack()).next();
-            String str = (String) entry.getKey();
-            this.pathNames[this.stackSize - 1] = str;
-            push(entry.getValue());
-            return str;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.google.gson.stream.JsonReader
-    public void nextNull() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            expect(JsonToken.NULL);
-            popStack();
-            int i = this.stackSize;
-            if (i > 0) {
-                int[] iArr = this.pathIndices;
-                int i2 = i - 1;
-                iArr[i2] = iArr[i2] + 1;
-            }
-        }
-    }
-
-    @Override // com.google.gson.stream.JsonReader
     public String nextString() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -414,54 +415,18 @@ public final class JsonTreeReader extends JsonReader {
     }
 
     @Override // com.google.gson.stream.JsonReader
-    public JsonToken peek() throws IOException {
+    public String nextName() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            if (this.stackSize == 0) {
-                return JsonToken.END_DOCUMENT;
-            }
-            Object peekStack = peekStack();
-            if (peekStack instanceof Iterator) {
-                boolean z = this.stack[this.stackSize - 2] instanceof JsonObject;
-                Iterator it = (Iterator) peekStack;
-                if (!it.hasNext()) {
-                    return z ? JsonToken.END_OBJECT : JsonToken.END_ARRAY;
-                } else if (z) {
-                    return JsonToken.NAME;
-                } else {
-                    push(it.next());
-                    return peek();
-                }
-            } else if (peekStack instanceof JsonObject) {
-                return JsonToken.BEGIN_OBJECT;
-            } else {
-                if (peekStack instanceof JsonArray) {
-                    return JsonToken.BEGIN_ARRAY;
-                }
-                if (peekStack instanceof JsonPrimitive) {
-                    JsonPrimitive jsonPrimitive = (JsonPrimitive) peekStack;
-                    if (jsonPrimitive.isString()) {
-                        return JsonToken.STRING;
-                    }
-                    if (jsonPrimitive.isBoolean()) {
-                        return JsonToken.BOOLEAN;
-                    }
-                    if (jsonPrimitive.isNumber()) {
-                        return JsonToken.NUMBER;
-                    }
-                    throw new AssertionError();
-                } else if (peekStack instanceof JsonNull) {
-                    return JsonToken.NULL;
-                } else {
-                    if (peekStack == SENTINEL_CLOSED) {
-                        throw new IllegalStateException("JsonReader is closed");
-                    }
-                    throw new AssertionError();
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            expect(JsonToken.NAME);
+            Map.Entry entry = (Map.Entry) ((Iterator) peekStack()).next();
+            String str = (String) entry.getKey();
+            this.pathNames[this.stackSize - 1] = str;
+            push(entry.getValue());
+            return str;
         }
-        return (JsonToken) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
     public void promoteNameToValue() throws IOException {
@@ -498,9 +463,56 @@ public final class JsonTreeReader extends JsonReader {
     }
 
     @Override // com.google.gson.stream.JsonReader
-    public String toString() {
+    public JsonToken peek() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? JsonTreeReader.class.getSimpleName() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            if (this.stackSize == 0) {
+                return JsonToken.END_DOCUMENT;
+            }
+            Object peekStack = peekStack();
+            if (peekStack instanceof Iterator) {
+                boolean z = this.stack[this.stackSize - 2] instanceof JsonObject;
+                Iterator it = (Iterator) peekStack;
+                if (it.hasNext()) {
+                    if (z) {
+                        return JsonToken.NAME;
+                    }
+                    push(it.next());
+                    return peek();
+                } else if (z) {
+                    return JsonToken.END_OBJECT;
+                } else {
+                    return JsonToken.END_ARRAY;
+                }
+            } else if (peekStack instanceof JsonObject) {
+                return JsonToken.BEGIN_OBJECT;
+            } else {
+                if (peekStack instanceof JsonArray) {
+                    return JsonToken.BEGIN_ARRAY;
+                }
+                if (peekStack instanceof JsonPrimitive) {
+                    JsonPrimitive jsonPrimitive = (JsonPrimitive) peekStack;
+                    if (jsonPrimitive.isString()) {
+                        return JsonToken.STRING;
+                    }
+                    if (jsonPrimitive.isBoolean()) {
+                        return JsonToken.BOOLEAN;
+                    }
+                    if (jsonPrimitive.isNumber()) {
+                        return JsonToken.NUMBER;
+                    }
+                    throw new AssertionError();
+                } else if (peekStack instanceof JsonNull) {
+                    return JsonToken.NULL;
+                } else {
+                    if (peekStack == SENTINEL_CLOSED) {
+                        throw new IllegalStateException("JsonReader is closed");
+                    }
+                    throw new AssertionError();
+                }
+            }
+        }
+        return (JsonToken) invokeV.objValue;
     }
 }

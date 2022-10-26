@@ -32,13 +32,13 @@ public final class FlowableInternalHelper {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public static final class BufferedReplayCallable<T> implements Callable<ConnectableFlowable<T>> {
+    public final class BufferedReplayCallable implements Callable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int bufferSize;
-        public final Flowable<T> parent;
+        public final Flowable parent;
 
-        public BufferedReplayCallable(Flowable<T> flowable, int i) {
+        public BufferedReplayCallable(Flowable flowable, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -59,24 +59,27 @@ public final class FlowableInternalHelper {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
-        public ConnectableFlowable<T> call() {
+        public ConnectableFlowable call() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.parent.replay(this.bufferSize) : (ConnectableFlowable) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.parent.replay(this.bufferSize);
+            }
+            return (ConnectableFlowable) invokeV.objValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public static final class BufferedTimedReplay<T> implements Callable<ConnectableFlowable<T>> {
+    public final class BufferedTimedReplay implements Callable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int bufferSize;
-        public final Flowable<T> parent;
+        public final Flowable parent;
         public final Scheduler scheduler;
         public final long time;
         public final TimeUnit unit;
 
-        public BufferedTimedReplay(Flowable<T> flowable, int i, long j, TimeUnit timeUnit, Scheduler scheduler) {
+        public BufferedTimedReplay(Flowable flowable, int i, long j, TimeUnit timeUnit, Scheduler scheduler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -100,20 +103,23 @@ public final class FlowableInternalHelper {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
-        public ConnectableFlowable<T> call() {
+        public ConnectableFlowable call() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.parent.replay(this.bufferSize, this.time, this.unit, this.scheduler) : (ConnectableFlowable) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.parent.replay(this.bufferSize, this.time, this.unit, this.scheduler);
+            }
+            return (ConnectableFlowable) invokeV.objValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public static final class FlatMapIntoIterable<T, U> implements Function<T, Publisher<U>> {
+    public final class FlatMapIntoIterable implements Function {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Function<? super T, ? extends Iterable<? extends U>> mapper;
+        public final Function mapper;
 
-        public FlatMapIntoIterable(Function<? super T, ? extends Iterable<? extends U>> function) {
+        public FlatMapIntoIterable(Function function) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -131,34 +137,31 @@ public final class FlowableInternalHelper {
             this.mapper = function;
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
-        /* JADX WARN: Multi-variable type inference failed */
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // io.reactivex.functions.Function
-        public /* bridge */ /* synthetic */ Object apply(Object obj) throws Exception {
-            return apply((FlatMapIntoIterable<T, U>) obj);
-        }
-
-        @Override // io.reactivex.functions.Function
-        public Publisher<U> apply(T t) throws Exception {
+        public Publisher apply(Object obj) throws Exception {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t)) == null) ? new FlowableFromIterable((Iterable) ObjectHelper.requireNonNull(this.mapper.apply(t), "The mapper returned a null Iterable")) : (Publisher) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+                return new FlowableFromIterable((Iterable) ObjectHelper.requireNonNull(this.mapper.apply(obj), "The mapper returned a null Iterable"));
+            }
+            return (Publisher) invokeL.objValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public static final class FlatMapWithCombinerInner<U, R, T> implements Function<U, R> {
+    public final class FlatMapWithCombinerInner implements Function {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final BiFunction<? super T, ? super U, ? extends R> combiner;
-        public final T t;
+        public final BiFunction combiner;
+        public final Object t;
 
-        public FlatMapWithCombinerInner(BiFunction<? super T, ? super U, ? extends R> biFunction, T t) {
+        public FlatMapWithCombinerInner(BiFunction biFunction, Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {biFunction, t};
+                Object[] objArr = {biFunction, obj};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -169,26 +172,28 @@ public final class FlowableInternalHelper {
                 }
             }
             this.combiner = biFunction;
-            this.t = t;
+            this.t = obj;
         }
 
-        /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
         @Override // io.reactivex.functions.Function
-        public R apply(U u) throws Exception {
+        public Object apply(Object obj) throws Exception {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, u)) == null) ? this.combiner.apply((T) this.t, u) : (R) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+                return this.combiner.apply(this.t, obj);
+            }
+            return invokeL.objValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public static final class FlatMapWithCombinerOuter<T, R, U> implements Function<T, Publisher<R>> {
+    public final class FlatMapWithCombinerOuter implements Function {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final BiFunction<? super T, ? super U, ? extends R> combiner;
-        public final Function<? super T, ? extends Publisher<? extends U>> mapper;
+        public final BiFunction combiner;
+        public final Function mapper;
 
-        public FlatMapWithCombinerOuter(BiFunction<? super T, ? super U, ? extends R> biFunction, Function<? super T, ? extends Publisher<? extends U>> function) {
+        public FlatMapWithCombinerOuter(BiFunction biFunction, Function function) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -207,28 +212,25 @@ public final class FlowableInternalHelper {
             this.mapper = function;
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
-        /* JADX WARN: Multi-variable type inference failed */
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // io.reactivex.functions.Function
-        public /* bridge */ /* synthetic */ Object apply(Object obj) throws Exception {
-            return apply((FlatMapWithCombinerOuter<T, R, U>) obj);
-        }
-
-        @Override // io.reactivex.functions.Function
-        public Publisher<R> apply(T t) throws Exception {
+        public Publisher apply(Object obj) throws Exception {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t)) == null) ? new FlowableMapPublisher((Publisher) ObjectHelper.requireNonNull(this.mapper.apply(t), "The mapper returned a null Publisher"), new FlatMapWithCombinerInner(this.combiner, t)) : (Publisher) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+                return new FlowableMapPublisher((Publisher) ObjectHelper.requireNonNull(this.mapper.apply(obj), "The mapper returned a null Publisher"), new FlatMapWithCombinerInner(this.combiner, obj));
+            }
+            return (Publisher) invokeL.objValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public static final class ItemDelayFunction<T, U> implements Function<T, Publisher<T>> {
+    public final class ItemDelayFunction implements Function {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Function<? super T, ? extends Publisher<U>> itemDelay;
+        public final Function itemDelay;
 
-        public ItemDelayFunction(Function<? super T, ? extends Publisher<U>> function) {
+        public ItemDelayFunction(Function function) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -246,28 +248,25 @@ public final class FlowableInternalHelper {
             this.itemDelay = function;
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
-        /* JADX WARN: Multi-variable type inference failed */
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // io.reactivex.functions.Function
-        public /* bridge */ /* synthetic */ Object apply(Object obj) throws Exception {
-            return apply((ItemDelayFunction<T, U>) obj);
-        }
-
-        @Override // io.reactivex.functions.Function
-        public Publisher<T> apply(T t) throws Exception {
+        public Publisher apply(Object obj) throws Exception {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t)) == null) ? new FlowableTakePublisher((Publisher) ObjectHelper.requireNonNull(this.itemDelay.apply(t), "The itemDelay returned a null Publisher"), 1L).map(Functions.justFunction(t)).defaultIfEmpty(t) : (Publisher) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+                return new FlowableTakePublisher((Publisher) ObjectHelper.requireNonNull(this.itemDelay.apply(obj), "The itemDelay returned a null Publisher"), 1L).map(Functions.justFunction(obj)).defaultIfEmpty(obj);
+            }
+            return (Publisher) invokeL.objValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public static final class ReplayCallable<T> implements Callable<ConnectableFlowable<T>> {
+    public final class ReplayCallable implements Callable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Flowable<T> parent;
+        public final Flowable parent;
 
-        public ReplayCallable(Flowable<T> flowable) {
+        public ReplayCallable(Flowable flowable) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -287,21 +286,24 @@ public final class FlowableInternalHelper {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
-        public ConnectableFlowable<T> call() {
+        public ConnectableFlowable call() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.parent.replay() : (ConnectableFlowable) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.parent.replay();
+            }
+            return (ConnectableFlowable) invokeV.objValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public static final class ReplayFunction<T, R> implements Function<Flowable<T>, Publisher<R>> {
+    public final class ReplayFunction implements Function {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Scheduler scheduler;
-        public final Function<? super Flowable<T>, ? extends Publisher<R>> selector;
+        public final Function selector;
 
-        public ReplayFunction(Function<? super Flowable<T>, ? extends Publisher<R>> function, Scheduler scheduler) {
+        public ReplayFunction(Function function, Scheduler scheduler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -320,21 +322,21 @@ public final class FlowableInternalHelper {
             this.scheduler = scheduler;
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // io.reactivex.functions.Function
-        public /* bridge */ /* synthetic */ Object apply(Object obj) throws Exception {
-            return apply((Flowable) ((Flowable) obj));
-        }
-
-        public Publisher<R> apply(Flowable<T> flowable) throws Exception {
+        public Publisher apply(Flowable flowable) throws Exception {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, flowable)) == null) ? Flowable.fromPublisher((Publisher) ObjectHelper.requireNonNull(this.selector.apply(flowable), "The selector returned a null Publisher")).observeOn(this.scheduler) : (Publisher) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, flowable)) == null) {
+                return Flowable.fromPublisher((Publisher) ObjectHelper.requireNonNull(this.selector.apply(flowable), "The selector returned a null Publisher")).observeOn(this.scheduler);
+            }
+            return (Publisher) invokeL.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public static final class RequestMax implements Consumer<Subscription> {
+    public final class RequestMax implements Consumer {
         public static final /* synthetic */ RequestMax[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final RequestMax INSTANCE;
@@ -356,6 +358,15 @@ public final class FlowableInternalHelper {
             RequestMax requestMax = new RequestMax("INSTANCE", 0);
             INSTANCE = requestMax;
             $VALUES = new RequestMax[]{requestMax};
+        }
+
+        public static RequestMax[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (RequestMax[]) $VALUES.clone();
+            }
+            return (RequestMax[]) invokeV.objValue;
         }
 
         public RequestMax(String str, int i) {
@@ -380,13 +391,10 @@ public final class FlowableInternalHelper {
         public static RequestMax valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (RequestMax) Enum.valueOf(RequestMax.class, str) : (RequestMax) invokeL.objValue;
-        }
-
-        public static RequestMax[] values() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (RequestMax[]) $VALUES.clone() : (RequestMax[]) invokeV.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (RequestMax) Enum.valueOf(RequestMax.class, str);
+            }
+            return (RequestMax) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -400,12 +408,12 @@ public final class FlowableInternalHelper {
     }
 
     /* loaded from: classes8.dex */
-    public static final class SimpleBiGenerator<T, S> implements BiFunction<S, Emitter<T>, S> {
+    public final class SimpleBiGenerator implements BiFunction {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final BiConsumer<S, Emitter<T>> consumer;
+        public final BiConsumer consumer;
 
-        public SimpleBiGenerator(BiConsumer<S, Emitter<T>> biConsumer) {
+        public SimpleBiGenerator(BiConsumer biConsumer) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -423,31 +431,26 @@ public final class FlowableInternalHelper {
             this.consumer = biConsumer;
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
-        /* JADX WARN: Multi-variable type inference failed */
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // io.reactivex.functions.BiFunction
-        public /* bridge */ /* synthetic */ Object apply(Object obj, Object obj2) throws Exception {
-            return apply((SimpleBiGenerator<T, S>) obj, (Emitter) ((Emitter) obj2));
-        }
-
-        public S apply(S s, Emitter<T> emitter) throws Exception {
+        public Object apply(Object obj, Emitter emitter) throws Exception {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, s, emitter)) == null) {
-                this.consumer.accept(s, emitter);
-                return s;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, emitter)) == null) {
+                this.consumer.accept(obj, emitter);
+                return obj;
             }
-            return (S) invokeLL.objValue;
+            return invokeLL.objValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public static final class SimpleGenerator<T, S> implements BiFunction<S, Emitter<T>, S> {
+    public final class SimpleGenerator implements BiFunction {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Consumer<Emitter<T>> consumer;
+        public final Consumer consumer;
 
-        public SimpleGenerator(Consumer<Emitter<T>> consumer) {
+        public SimpleGenerator(Consumer consumer) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -465,31 +468,26 @@ public final class FlowableInternalHelper {
             this.consumer = consumer;
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
-        /* JADX WARN: Multi-variable type inference failed */
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // io.reactivex.functions.BiFunction
-        public /* bridge */ /* synthetic */ Object apply(Object obj, Object obj2) throws Exception {
-            return apply((SimpleGenerator<T, S>) obj, (Emitter) ((Emitter) obj2));
-        }
-
-        public S apply(S s, Emitter<T> emitter) throws Exception {
+        public Object apply(Object obj, Emitter emitter) throws Exception {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, s, emitter)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, emitter)) == null) {
                 this.consumer.accept(emitter);
-                return s;
+                return obj;
             }
-            return (S) invokeLL.objValue;
+            return invokeLL.objValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public static final class SubscriberOnComplete<T> implements Action {
+    public final class SubscriberOnComplete implements Action {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber<T> subscriber;
+        public final Subscriber subscriber;
 
-        public SubscriberOnComplete(Subscriber<T> subscriber) {
+        public SubscriberOnComplete(Subscriber subscriber) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -517,12 +515,12 @@ public final class FlowableInternalHelper {
     }
 
     /* loaded from: classes8.dex */
-    public static final class SubscriberOnError<T> implements Consumer<Throwable> {
+    public final class SubscriberOnError implements Consumer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber<T> subscriber;
+        public final Subscriber subscriber;
 
-        public SubscriberOnError(Subscriber<T> subscriber) {
+        public SubscriberOnError(Subscriber subscriber) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -551,12 +549,12 @@ public final class FlowableInternalHelper {
     }
 
     /* loaded from: classes8.dex */
-    public static final class SubscriberOnNext<T> implements Consumer<T> {
+    public final class SubscriberOnNext implements Consumer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber<T> subscriber;
+        public final Subscriber subscriber;
 
-        public SubscriberOnNext(Subscriber<T> subscriber) {
+        public SubscriberOnNext(Subscriber subscriber) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -575,24 +573,24 @@ public final class FlowableInternalHelper {
         }
 
         @Override // io.reactivex.functions.Consumer
-        public void accept(T t) throws Exception {
+        public void accept(Object obj) throws Exception {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, t) == null) {
-                this.subscriber.onNext(t);
+            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+                this.subscriber.onNext(obj);
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public static final class TimedReplay<T> implements Callable<ConnectableFlowable<T>> {
+    public final class TimedReplay implements Callable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Flowable<T> parent;
+        public final Flowable parent;
         public final Scheduler scheduler;
         public final long time;
         public final TimeUnit unit;
 
-        public TimedReplay(Flowable<T> flowable, long j, TimeUnit timeUnit, Scheduler scheduler) {
+        public TimedReplay(Flowable flowable, long j, TimeUnit timeUnit, Scheduler scheduler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -615,20 +613,23 @@ public final class FlowableInternalHelper {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
-        public ConnectableFlowable<T> call() {
+        public ConnectableFlowable call() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.parent.replay(this.time, this.unit, this.scheduler) : (ConnectableFlowable) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.parent.replay(this.time, this.unit, this.scheduler);
+            }
+            return (ConnectableFlowable) invokeV.objValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public static final class ZipIterableFunction<T, R> implements Function<List<Publisher<? extends T>>, Publisher<? extends R>> {
+    public final class ZipIterableFunction implements Function {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Function<? super Object[], ? extends R> zipper;
+        public final Function zipper;
 
-        public ZipIterableFunction(Function<? super Object[], ? extends R> function) {
+        public ZipIterableFunction(Function function) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -646,15 +647,15 @@ public final class FlowableInternalHelper {
             this.zipper = function;
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // io.reactivex.functions.Function
-        public /* bridge */ /* synthetic */ Object apply(Object obj) throws Exception {
-            return apply((List) ((List) obj));
-        }
-
-        public Publisher<? extends R> apply(List<Publisher<? extends T>> list) {
+        public Publisher apply(List list) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) ? Flowable.zipIterable(list, this.zipper, false, Flowable.bufferSize()) : (Publisher) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
+                return Flowable.zipIterable(list, this.zipper, false, Flowable.bufferSize());
+            }
+            return (Publisher) invokeL.objValue;
         }
     }
 
@@ -674,87 +675,129 @@ public final class FlowableInternalHelper {
         throw new IllegalStateException("No instances!");
     }
 
-    public static <T, U> Function<T, Publisher<U>> flatMapIntoIterable(Function<? super T, ? extends Iterable<? extends U>> function) {
+    public static Function flatMapIntoIterable(Function function) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, function)) == null) ? new FlatMapIntoIterable(function) : (Function) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, function)) == null) {
+            return new FlatMapIntoIterable(function);
+        }
+        return (Function) invokeL.objValue;
     }
 
-    public static <T, U, R> Function<T, Publisher<R>> flatMapWithCombiner(Function<? super T, ? extends Publisher<? extends U>> function, BiFunction<? super T, ? super U, ? extends R> biFunction) {
+    public static Function itemDelay(Function function) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, function)) == null) {
+            return new ItemDelayFunction(function);
+        }
+        return (Function) invokeL.objValue;
+    }
+
+    public static Callable replayCallable(Flowable flowable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, flowable)) == null) {
+            return new ReplayCallable(flowable);
+        }
+        return (Callable) invokeL.objValue;
+    }
+
+    public static BiFunction simpleBiGenerator(BiConsumer biConsumer) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, biConsumer)) == null) {
+            return new SimpleBiGenerator(biConsumer);
+        }
+        return (BiFunction) invokeL.objValue;
+    }
+
+    public static BiFunction simpleGenerator(Consumer consumer) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, consumer)) == null) {
+            return new SimpleGenerator(consumer);
+        }
+        return (BiFunction) invokeL.objValue;
+    }
+
+    public static Action subscriberOnComplete(Subscriber subscriber) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, subscriber)) == null) {
+            return new SubscriberOnComplete(subscriber);
+        }
+        return (Action) invokeL.objValue;
+    }
+
+    public static Consumer subscriberOnError(Subscriber subscriber) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, subscriber)) == null) {
+            return new SubscriberOnError(subscriber);
+        }
+        return (Consumer) invokeL.objValue;
+    }
+
+    public static Consumer subscriberOnNext(Subscriber subscriber) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, subscriber)) == null) {
+            return new SubscriberOnNext(subscriber);
+        }
+        return (Consumer) invokeL.objValue;
+    }
+
+    public static Function zipIterable(Function function) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, function)) == null) {
+            return new ZipIterableFunction(function);
+        }
+        return (Function) invokeL.objValue;
+    }
+
+    public static Function flatMapWithCombiner(Function function, BiFunction biFunction) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, function, biFunction)) == null) ? new FlatMapWithCombinerOuter(biFunction, function) : (Function) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, function, biFunction)) == null) {
+            return new FlatMapWithCombinerOuter(biFunction, function);
+        }
+        return (Function) invokeLL.objValue;
     }
 
-    public static <T, U> Function<T, Publisher<T>> itemDelay(Function<? super T, ? extends Publisher<U>> function) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, function)) == null) ? new ItemDelayFunction(function) : (Function) invokeL.objValue;
-    }
-
-    public static <T> Callable<ConnectableFlowable<T>> replayCallable(Flowable<T> flowable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, flowable)) == null) ? new ReplayCallable(flowable) : (Callable) invokeL.objValue;
-    }
-
-    public static <T, R> Function<Flowable<T>, Publisher<R>> replayFunction(Function<? super Flowable<T>, ? extends Publisher<R>> function, Scheduler scheduler) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, function, scheduler)) == null) ? new ReplayFunction(function, scheduler) : (Function) invokeLL.objValue;
-    }
-
-    public static <T, S> BiFunction<S, Emitter<T>, S> simpleBiGenerator(BiConsumer<S, Emitter<T>> biConsumer) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, biConsumer)) == null) ? new SimpleBiGenerator(biConsumer) : (BiFunction) invokeL.objValue;
-    }
-
-    public static <T, S> BiFunction<S, Emitter<T>, S> simpleGenerator(Consumer<Emitter<T>> consumer) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, consumer)) == null) ? new SimpleGenerator(consumer) : (BiFunction) invokeL.objValue;
-    }
-
-    public static <T> Action subscriberOnComplete(Subscriber<T> subscriber) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, subscriber)) == null) ? new SubscriberOnComplete(subscriber) : (Action) invokeL.objValue;
-    }
-
-    public static <T> Consumer<Throwable> subscriberOnError(Subscriber<T> subscriber) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65548, null, subscriber)) == null) ? new SubscriberOnError(subscriber) : (Consumer) invokeL.objValue;
-    }
-
-    public static <T> Consumer<T> subscriberOnNext(Subscriber<T> subscriber) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65549, null, subscriber)) == null) ? new SubscriberOnNext(subscriber) : (Consumer) invokeL.objValue;
-    }
-
-    public static <T, R> Function<List<Publisher<? extends T>>, Publisher<? extends R>> zipIterable(Function<? super Object[], ? extends R> function) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65550, null, function)) == null) ? new ZipIterableFunction(function) : (Function) invokeL.objValue;
-    }
-
-    public static <T> Callable<ConnectableFlowable<T>> replayCallable(Flowable<T> flowable, int i) {
+    public static Callable replayCallable(Flowable flowable, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, flowable, i)) == null) ? new BufferedReplayCallable(flowable, i) : (Callable) invokeLI.objValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, flowable, i)) == null) {
+            return new BufferedReplayCallable(flowable, i);
+        }
+        return (Callable) invokeLI.objValue;
     }
 
-    public static <T> Callable<ConnectableFlowable<T>> replayCallable(Flowable<T> flowable, int i, long j, TimeUnit timeUnit, Scheduler scheduler) {
-        InterceptResult invokeCommon;
+    public static Function replayFunction(Function function, Scheduler scheduler) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{flowable, Integer.valueOf(i), Long.valueOf(j), timeUnit, scheduler})) == null) ? new BufferedTimedReplay(flowable, i, j, timeUnit, scheduler) : (Callable) invokeCommon.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, function, scheduler)) == null) {
+            return new ReplayFunction(function, scheduler);
+        }
+        return (Function) invokeLL.objValue;
     }
 
-    public static <T> Callable<ConnectableFlowable<T>> replayCallable(Flowable<T> flowable, long j, TimeUnit timeUnit, Scheduler scheduler) {
+    public static Callable replayCallable(Flowable flowable, int i, long j, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{flowable, Long.valueOf(j), timeUnit, scheduler})) == null) ? new TimedReplay(flowable, j, timeUnit, scheduler) : (Callable) invokeCommon.objValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{flowable, Integer.valueOf(i), Long.valueOf(j), timeUnit, scheduler})) == null) {
+            return new BufferedTimedReplay(flowable, i, j, timeUnit, scheduler);
+        }
+        return (Callable) invokeCommon.objValue;
+    }
+
+    public static Callable replayCallable(Flowable flowable, long j, TimeUnit timeUnit, Scheduler scheduler) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{flowable, Long.valueOf(j), timeUnit, scheduler})) == null) {
+            return new TimedReplay(flowable, j, timeUnit, scheduler);
+        }
+        return (Callable) invokeCommon.objValue;
     }
 }

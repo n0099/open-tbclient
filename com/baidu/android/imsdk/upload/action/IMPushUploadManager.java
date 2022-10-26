@@ -70,62 +70,68 @@ public class IMPushUploadManager {
         private RequestBody gzip(RequestBody requestBody) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65537, this, requestBody)) == null) ? new RequestBody(this, requestBody) { // from class: com.baidu.android.imsdk.upload.action.IMPushUploadManager.GzipRequestInterceptor.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ GzipRequestInterceptor this$1;
-                public final /* synthetic */ RequestBody val$body;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, requestBody)) == null) {
+                return new RequestBody(this, requestBody) { // from class: com.baidu.android.imsdk.upload.action.IMPushUploadManager.GzipRequestInterceptor.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ GzipRequestInterceptor this$1;
+                    public final /* synthetic */ RequestBody val$body;
 
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, requestBody};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
+                    @Override // okhttp3.RequestBody
+                    public long contentLength() {
+                        InterceptResult invokeV;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                            return -1L;
+                        }
+                        return invokeV.longValue;
+                    }
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, requestBody};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$1 = this;
+                        this.val$body = requestBody;
+                    }
+
+                    @Override // okhttp3.RequestBody
+                    public MediaType contentType() {
+                        InterceptResult invokeV;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                            return this.val$body.contentType();
+                        }
+                        return (MediaType) invokeV.objValue;
+                    }
+
+                    @Override // okhttp3.RequestBody
+                    public void writeTo(BufferedSink bufferedSink) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, bufferedSink) == null) {
+                            BufferedSink buffer = Okio.buffer(new GzipSink(bufferedSink));
+                            try {
+                                this.val$body.writeTo(buffer);
+                                buffer.close();
+                            } catch (IOException e) {
+                                Log.e(IMPushUploadConstants.TAG, "RequestBody gzip exception ", e);
+                            }
                         }
                     }
-                    this.this$1 = this;
-                    this.val$body = requestBody;
-                }
-
-                @Override // okhttp3.RequestBody
-                public long contentLength() {
-                    InterceptResult invokeV;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                        return -1L;
-                    }
-                    return invokeV.longValue;
-                }
-
-                @Override // okhttp3.RequestBody
-                public MediaType contentType() {
-                    InterceptResult invokeV;
-                    Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.val$body.contentType() : (MediaType) invokeV.objValue;
-                }
-
-                @Override // okhttp3.RequestBody
-                public void writeTo(BufferedSink bufferedSink) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, bufferedSink) == null) {
-                        BufferedSink buffer = Okio.buffer(new GzipSink(bufferedSink));
-                        try {
-                            this.val$body.writeTo(buffer);
-                            buffer.close();
-                        } catch (IOException e) {
-                            Log.e(IMPushUploadConstants.TAG, "RequestBody gzip exception ", e);
-                        }
-                    }
-                }
-            } : (RequestBody) invokeL.objValue;
+                };
+            }
+            return (RequestBody) invokeL.objValue;
         }
 
         @Override // okhttp3.Interceptor
@@ -169,7 +175,10 @@ public class IMPushUploadManager {
     private RequestBody convertRequestBody(byte[] bArr, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, bArr, str)) == null) ? RequestBody.create(MediaType.parse("application/proto"), createLogRequestContent(bArr, str)) : (RequestBody) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, bArr, str)) == null) {
+            return RequestBody.create(MediaType.parse("application/proto"), createLogRequestContent(bArr, str));
+        }
+        return (RequestBody) invokeLL.objValue;
     }
 
     private byte[] createLogRequestContent(byte[] bArr, String str) {
@@ -190,7 +199,10 @@ public class IMPushUploadManager {
     private OkHttpClient createOkHttpClient() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? new OkHttpClient.Builder().protocols(Arrays.asList(Protocol.HTTP_2, Protocol.HTTP_1_1)).pingInterval(1000L, TimeUnit.MILLISECONDS).addInterceptor(new GzipRequestInterceptor(this)).connectTimeout(30L, TimeUnit.SECONDS).readTimeout(30L, TimeUnit.SECONDS).writeTimeout(30L, TimeUnit.SECONDS).connectionPool(new ConnectionPool()).build() : (OkHttpClient) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
+            return new OkHttpClient.Builder().protocols(Arrays.asList(Protocol.HTTP_2, Protocol.HTTP_1_1)).pingInterval(1000L, TimeUnit.MILLISECONDS).addInterceptor(new GzipRequestInterceptor(this)).connectTimeout(30L, TimeUnit.SECONDS).readTimeout(30L, TimeUnit.SECONDS).writeTimeout(30L, TimeUnit.SECONDS).connectionPool(new ConnectionPool()).build();
+        }
+        return (OkHttpClient) invokeV.objValue;
     }
 
     public static IMPushUploadManager getInstance(Context context) {
@@ -208,7 +220,10 @@ public class IMPushUploadManager {
     private Request getOkHttpRequest(byte[] bArr, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, this, bArr, str, str2)) == null) ? new Request.Builder().addHeader(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE).addHeader("Content-Type", "application/proto").addHeader(IMPushUploadConstants.BIM_LOG_ID, str2).url(IMPushUploadConstants.ONLINE_URL).post(convertRequestBody(bArr, str)).build() : (Request) invokeLLL.objValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, this, bArr, str, str2)) == null) {
+            return new Request.Builder().addHeader(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE).addHeader("Content-Type", "application/proto").addHeader(IMPushUploadConstants.BIM_LOG_ID, str2).url(IMPushUploadConstants.ONLINE_URL).post(convertRequestBody(bArr, str)).build();
+        }
+        return (Request) invokeLLL.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -232,7 +247,7 @@ public class IMPushUploadManager {
         return (String[]) invokeL.objValue;
     }
 
-    public void requestUpload(Map<String, String> map, byte[] bArr, String str, IMPushUploadResponseListener iMPushUploadResponseListener) {
+    public void requestUpload(Map map, byte[] bArr, String str, IMPushUploadResponseListener iMPushUploadResponseListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048576, this, map, bArr, str, iMPushUploadResponseListener) == null) {
             String str2 = "" + ((int) ((Math.random() * 100000.0d) + 1000.0d));

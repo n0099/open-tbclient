@@ -1,81 +1,48 @@
 package com.baidu.tieba;
 
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.widget.multidelmenu.view.MultiDelPostMenuView;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class wk5 extends vk5 {
+public class wk5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MultiDelPostMenuView c;
-    public ViewGroup d;
+    public boolean a;
+    public String b;
+    public xk5 c;
 
-    public wk5(TbPageContext tbPageContext, ViewGroup viewGroup, lk5 lk5Var) {
+    public wk5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, viewGroup, lk5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.d = viewGroup;
-        tk5 tk5Var = new tk5(tbPageContext, new mk5(lk5Var));
-        this.b = tk5Var;
-        tk5Var.d(this);
-        this.c = new MultiDelPostMenuView(tbPageContext, this);
-    }
-
-    @Override // com.baidu.tieba.vk5
-    public void a() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a) {
-            this.a = false;
-            MultiDelPostMenuView multiDelPostMenuView = this.c;
-            if (multiDelPostMenuView != null && this.d != null && multiDelPostMenuView.getParent() != null) {
-                this.d.removeView(this.c);
-            }
-            sk5 sk5Var = this.b;
-            if (sk5Var != null) {
-                sk5Var.dismiss();
-            }
-            this.c = null;
-            this.d = null;
-            this.b = null;
         }
     }
 
-    @Override // com.baidu.tieba.vk5
-    public void d(int i) {
-        MultiDelPostMenuView multiDelPostMenuView;
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || (multiDelPostMenuView = this.c) == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || ej.isEmpty(str)) {
             return;
         }
-        multiDelPostMenuView.setDelCount(i);
-    }
-
-    @Override // com.baidu.tieba.vk5
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.a) {
-            return;
-        }
-        this.a = true;
-        ViewGroup viewGroup = this.d;
-        if (viewGroup != null) {
-            viewGroup.addView(this.c, new ViewGroup.LayoutParams(-1, -1));
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            jSONObject.optInt("error_code");
+            this.b = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
+            xk5 xk5Var = new xk5();
+            this.c = xk5Var;
+            xk5Var.a(jSONObject.optJSONObject("info"));
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 }

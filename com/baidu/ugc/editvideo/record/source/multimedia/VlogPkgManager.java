@@ -7,9 +7,9 @@ import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrackConfig;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTransitionConfig;
-import com.baidu.tieba.kh9;
-import com.baidu.tieba.mg0;
-import com.baidu.tieba.vg9;
+import com.baidu.tieba.ci9;
+import com.baidu.tieba.ng0;
+import com.baidu.tieba.nh9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,9 +28,9 @@ public class VlogPkgManager {
     public static /* synthetic */ Interceptable $ic;
     public static VlogPkgManager mManager;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, MediaAEffectConfig> mMediaAEffectConfigMap;
-    public Map<String, MediaTransitionConfig> mMediaTransitionConfigMap;
-    public Map<String, TemplateInfo> mTemplateInfoMap;
+    public Map mMediaAEffectConfigMap;
+    public Map mMediaTransitionConfigMap;
+    public Map mTemplateInfoMap;
 
     public VlogPkgManager() {
         Interceptable interceptable = $ic;
@@ -70,25 +70,25 @@ public class VlogPkgManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (kh9.a(str) || this.mTemplateInfoMap.get(str) == null) {
+            if (ci9.a(str) || this.mTemplateInfoMap.get(str) == null) {
                 return null;
             }
-            return this.mTemplateInfoMap.get(str);
+            return (TemplateInfo) this.mTemplateInfoMap.get(str);
         }
         return (TemplateInfo) invokeL.objValue;
     }
 
-    public List<MediaSegment> getTrackConfigSegmentData(MediaTrackConfig mediaTrackConfig) {
+    public List getTrackConfigSegmentData(MediaTrackConfig mediaTrackConfig) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaTrackConfig)) == null) {
-            if (mediaTrackConfig == null || vg9.e(mediaTrackConfig.mediaTracks) || !TextUtils.equals(mediaTrackConfig.importType, MediaTrackConfig.AE_IMPORT_TEMPLATE)) {
+            if (mediaTrackConfig == null || nh9.e(mediaTrackConfig.mediaTracks) || !TextUtils.equals(mediaTrackConfig.importType, MediaTrackConfig.AE_IMPORT_TEMPLATE)) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
             for (MediaTrack mediaTrack : mediaTrackConfig.mediaTracks) {
-                if (mg0.m(mediaTrack, "input") || mg0.m(mediaTrack, "multi_input")) {
-                    if (vg9.e(mediaTrack.mediaSegments)) {
+                if (ng0.m(mediaTrack, "input") || ng0.m(mediaTrack, "multi_input")) {
+                    if (nh9.e(mediaTrack.mediaSegments)) {
                         return null;
                     }
                     for (MediaSegment mediaSegment : mediaTrack.mediaSegments) {
@@ -96,7 +96,7 @@ public class VlogPkgManager {
                             arrayList.add(mediaSegment);
                         }
                     }
-                } else if (!vg9.e(mediaTrack.mediaSegments)) {
+                } else if (!nh9.e(mediaTrack.mediaSegments)) {
                     for (MediaSegment mediaSegment2 : mediaTrack.mediaSegments) {
                         if (mediaSegment2 != null && ("input".equals(mediaSegment2.type) || "multi_input".equals(mediaSegment2.type))) {
                             arrayList.add(mediaSegment2);
@@ -117,7 +117,7 @@ public class VlogPkgManager {
                 return null;
             }
             if (this.mMediaAEffectConfigMap.get(str) != null) {
-                return this.mMediaAEffectConfigMap.get(str);
+                return (MediaAEffectConfig) this.mMediaAEffectConfigMap.get(str);
             }
             MediaAEffectConfig loadMediaAEffectConfig = MultiDataSourceUtil.loadMediaAEffectConfig(str);
             this.mMediaAEffectConfigMap.put(str, loadMediaAEffectConfig);
@@ -175,7 +175,7 @@ public class VlogPkgManager {
                 return null;
             }
             if (this.mMediaTransitionConfigMap.get(str) != null) {
-                return this.mMediaTransitionConfigMap.get(str);
+                return (MediaTransitionConfig) this.mMediaTransitionConfigMap.get(str);
             }
             MediaTransitionConfig loadMediaTransitionConfig = MultiDataSourceUtil.loadMediaTransitionConfig(str);
             this.mMediaTransitionConfigMap.put(str, loadMediaTransitionConfig);

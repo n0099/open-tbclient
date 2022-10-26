@@ -90,6 +90,23 @@ public class SlideUtil {
         }
     }
 
+    public static Drawable getImageFromFile(Context context, String str) {
+        InterceptResult invokeLL;
+        Bitmap decodeFile;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, str)) == null) {
+            if (context == null || TextUtils.isEmpty(str) || (decodeFile = BitmapFactory.decodeFile(str)) == null) {
+                return null;
+            }
+            byte[] ninePatchChunk = decodeFile.getNinePatchChunk();
+            if (NinePatch.isNinePatchChunk(ninePatchChunk)) {
+                return new NinePatchDrawable(context.getResources(), decodeFile, ninePatchChunk, new Rect(), null);
+            }
+            return new BitmapDrawable(context.getResources(), decodeFile);
+        }
+        return (Drawable) invokeLL.objValue;
+    }
+
     public static void convertFromTranslucent(Activity activity, OnTranslucentListener onTranslucentListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, activity, onTranslucentListener) == null) {
@@ -124,22 +141,5 @@ public class SlideUtil {
                 }
             }
         }
-    }
-
-    public static Drawable getImageFromFile(Context context, String str) {
-        InterceptResult invokeLL;
-        Bitmap decodeFile;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, str)) == null) {
-            if (context == null || TextUtils.isEmpty(str) || (decodeFile = BitmapFactory.decodeFile(str)) == null) {
-                return null;
-            }
-            byte[] ninePatchChunk = decodeFile.getNinePatchChunk();
-            if (NinePatch.isNinePatchChunk(ninePatchChunk)) {
-                return new NinePatchDrawable(context.getResources(), decodeFile, ninePatchChunk, new Rect(), null);
-            }
-            return new BitmapDrawable(context.getResources(), decodeFile);
-        }
-        return (Drawable) invokeLL.objValue;
     }
 }

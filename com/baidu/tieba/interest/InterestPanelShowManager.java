@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.TimeHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jf7;
-import com.baidu.tieba.kf7;
-import com.baidu.tieba.l15;
-import com.baidu.tieba.lf7;
-import com.baidu.tieba.ox4;
+import com.baidu.tieba.r15;
+import com.baidu.tieba.uf7;
+import com.baidu.tieba.ux4;
+import com.baidu.tieba.vf7;
+import com.baidu.tieba.wf7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,12 +29,12 @@ public class InterestPanelShowManager {
     public static /* synthetic */ Interceptable $ic;
     public static volatile InterestPanelShowManager c;
     public transient /* synthetic */ FieldHolder $fh;
-    public lf7 a;
+    public wf7 a;
     public boolean b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes4.dex */
-    public static final class InterestPanelShowState {
+    public final class InterestPanelShowState {
         public static final /* synthetic */ InterestPanelShowState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final InterestPanelShowState ALL;
@@ -82,13 +82,19 @@ public class InterestPanelShowManager {
         public static InterestPanelShowState valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (InterestPanelShowState) Enum.valueOf(InterestPanelShowState.class, str) : (InterestPanelShowState) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (InterestPanelShowState) Enum.valueOf(InterestPanelShowState.class, str);
+            }
+            return (InterestPanelShowState) invokeL.objValue;
         }
 
         public static InterestPanelShowState[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (InterestPanelShowState[]) $VALUES.clone() : (InterestPanelShowState[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (InterestPanelShowState[]) $VALUES.clone();
+            }
+            return (InterestPanelShowState[]) invokeV.objValue;
         }
     }
 
@@ -126,20 +132,25 @@ public class InterestPanelShowManager {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            l15 interestBoardConfigData = TbadkCoreApplication.getInst().getInterestBoardConfigData();
+            r15 interestBoardConfigData = TbadkCoreApplication.getInst().getInterestBoardConfigData();
             if (interestBoardConfigData == null) {
                 return false;
             }
-            long m = ox4.k().m("key_app_launch_time", 0L);
-            return m != 0 && ((int) (((((j - m) / 1000) / 60) / 60) / 24)) >= interestBoardConfigData.b && TbSingleton.getInstance().interestGuideShowCountInLimit(ox4.k().q("key_interest_guide_show", ""), interestBoardConfigData);
+            long m = ux4.k().m("key_app_launch_time", 0L);
+            int i = (int) (((((j - m) / 1000) / 60) / 60) / 24);
+            boolean interestGuideShowCountInLimit = TbSingleton.getInstance().interestGuideShowCountInLimit(ux4.k().q("key_interest_guide_show", ""), interestBoardConfigData);
+            if (m == 0 || i < interestBoardConfigData.b || !interestGuideShowCountInLimit) {
+                return false;
+            }
+            return true;
         }
         return invokeJ.booleanValue;
     }
 
-    public void c(lf7 lf7Var) {
+    public void c(wf7 wf7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lf7Var) == null) {
-            this.a = lf7Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wf7Var) == null) {
+            this.a = wf7Var;
         }
     }
 
@@ -153,7 +164,7 @@ public class InterestPanelShowManager {
     public void e(Context context, boolean z) {
         InterestPanelShowState f;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048579, this, context, z) == null) || (f = f()) == null) {
+        if ((interceptable != null && interceptable.invokeLZ(1048579, this, context, z) != null) || (f = f()) == null) {
             return;
         }
         InterestGuideActivityConfig interestGuideActivityConfig = new InterestGuideActivityConfig(context);
@@ -163,7 +174,7 @@ public class InterestPanelShowManager {
         if (this.b) {
             interestGuideActivityConfig.setScene(8);
         } else {
-            interestGuideActivityConfig.setCustomTitle(new String[]{context.getResources().getString(R.string.obfuscated_res_0x7f0f0928), context.getResources().getString(R.string.obfuscated_res_0x7f0f0929), context.getResources().getString(R.string.obfuscated_res_0x7f0f0924)});
+            interestGuideActivityConfig.setCustomTitle(new String[]{context.getResources().getString(R.string.obfuscated_res_0x7f0f0935), context.getResources().getString(R.string.obfuscated_res_0x7f0f0936), context.getResources().getString(R.string.obfuscated_res_0x7f0f0931)});
             interestGuideActivityConfig.setScene(9);
         }
         if (z) {
@@ -175,28 +186,28 @@ public class InterestPanelShowManager {
 
     public final InterestPanelShowState f() {
         InterceptResult invokeV;
-        lf7 lf7Var;
+        wf7 wf7Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (!TimeHelper.isSameDay(ox4.k().m("key_interest_panel_show_time", 0L), System.currentTimeMillis()) && (lf7Var = this.a) != null && lf7Var.b() != null && this.a.a() != null) {
+            if (!TimeHelper.isSameDay(ux4.k().m("key_interest_panel_show_time", 0L), System.currentTimeMillis()) && (wf7Var = this.a) != null && wf7Var.b() != null && this.a.a() != null) {
                 long currentTimeMillis = System.currentTimeMillis();
                 int registerTime = (int) (((currentTimeMillis - (this.a.b().getRegisterTime() * 1000)) / 86400000) + 1);
-                jf7 a = this.a.a();
-                List<kf7> b = a.b();
+                uf7 a = this.a.a();
+                List b = a.b();
                 if (ListUtils.isEmpty(b)) {
                     return null;
                 }
                 for (int i = 0; i < b.size(); i++) {
-                    if (b.get(i).a() == registerTime) {
+                    if (((vf7) b.get(i)).a() == registerTime) {
                         if (i == 0) {
                             this.b = true;
                             return InterestPanelShowState.ALL;
                         }
                         this.b = false;
-                        if (a.c() < b.get(i).b() && a.d() == 0) {
+                        if (a.c() < ((vf7) b.get(i)).b() && a.d() == 0) {
                             return InterestPanelShowState.ALL;
                         }
-                        if (a.c() < b.get(i).b() && a.d() == 1) {
+                        if (a.c() < ((vf7) b.get(i)).b() && a.d() == 1) {
                             return InterestPanelShowState.INTEREST_FORUM;
                         }
                     }

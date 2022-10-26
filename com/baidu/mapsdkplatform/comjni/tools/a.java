@@ -52,12 +52,12 @@ public class a {
             }
             for (ParcelItem parcelItem : (ParcelItem[]) bundle.getParcelableArray("poly_line")) {
                 if (aVar.d == null) {
-                    aVar.d = new ArrayList<>();
+                    aVar.d = new ArrayList();
                 }
                 Bundle bundle5 = parcelItem.getBundle();
                 if (bundle5 != null) {
                     ParcelItem[] parcelItemArr = (ParcelItem[]) bundle5.getParcelableArray("point_array");
-                    ArrayList<Point> arrayList = new ArrayList<>();
+                    ArrayList arrayList = new ArrayList();
                     for (ParcelItem parcelItem2 : parcelItemArr) {
                         Bundle bundle6 = parcelItem2.getBundle();
                         if (bundle6 != null) {

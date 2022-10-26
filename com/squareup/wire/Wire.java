@@ -23,6 +23,45 @@ public final class Wire {
     public final Map<Class<? extends Message>, MessageAdapter<? extends Message>> messageAdapters;
     public final ExtensionRegistry registry;
 
+    public static <T> T get(T t, T t2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, t, t2)) == null) ? t != null ? t : t2 : (T) invokeLL.objValue;
+    }
+
+    public Wire(List<Class<?>> list) {
+        Field[] declaredFields;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.messageAdapters = new LinkedHashMap();
+        this.builderAdapters = new LinkedHashMap();
+        this.enumAdapters = new LinkedHashMap();
+        this.registry = new ExtensionRegistry();
+        for (Class<?> cls : list) {
+            for (Field field : cls.getDeclaredFields()) {
+                if (field.getType().equals(Extension.class)) {
+                    try {
+                        this.registry.add((Extension) field.get(null));
+                    } catch (IllegalAccessException e) {
+                        throw new AssertionError(e);
+                    }
+                }
+            }
+        }
+    }
+
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public Wire(Class<?>... clsArr) {
         this(Arrays.asList(clsArr));
@@ -43,10 +82,13 @@ public final class Wire {
         }
     }
 
-    public static <T> T get(T t, T t2) {
+    private <M extends Message> M parseFrom(WireInput wireInput, Class<M> cls) throws IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, t, t2)) == null) ? t != null ? t : t2 : (T) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, wireInput, cls)) == null) {
+            return messageAdapter(cls).read(wireInput);
+        }
+        return (M) invokeLL.objValue;
     }
 
     public synchronized <B extends Message.Builder> BuilderAdapter<B> builderAdapter(Class<B> cls) {
@@ -100,64 +142,6 @@ public final class Wire {
         return (MessageAdapter) invokeL.objValue;
     }
 
-    public <M extends Message> M parseFrom(byte[] bArr, Class<M> cls) throws IOException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, bArr, cls)) == null) {
-            Preconditions.checkNotNull(bArr, "bytes");
-            Preconditions.checkNotNull(cls, "messageClass");
-            return (M) parseFrom(WireInput.newInstance(bArr), cls);
-        }
-        return (M) invokeLL.objValue;
-    }
-
-    public Wire(List<Class<?>> list) {
-        Field[] declaredFields;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.messageAdapters = new LinkedHashMap();
-        this.builderAdapters = new LinkedHashMap();
-        this.enumAdapters = new LinkedHashMap();
-        this.registry = new ExtensionRegistry();
-        for (Class<?> cls : list) {
-            for (Field field : cls.getDeclaredFields()) {
-                if (field.getType().equals(Extension.class)) {
-                    try {
-                        this.registry.add((Extension) field.get(null));
-                    } catch (IllegalAccessException e) {
-                        throw new AssertionError(e);
-                    }
-                }
-            }
-        }
-    }
-
-    public <M extends Message> M parseFrom(byte[] bArr, int i, int i2, Class<M> cls) throws IOException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), cls})) == null) {
-            Preconditions.checkNotNull(bArr, "bytes");
-            Preconditions.checkArgument(i >= 0, "offset < 0");
-            Preconditions.checkArgument(i2 >= 0, "count < 0");
-            Preconditions.checkArgument(i + i2 <= bArr.length, "offset + count > bytes");
-            Preconditions.checkNotNull(cls, "messageClass");
-            return (M) parseFrom(WireInput.newInstance(bArr, i, i2), cls);
-        }
-        return (M) invokeCommon.objValue;
-    }
-
     public <M extends Message> M parseFrom(InputStream inputStream, Class<M> cls) throws IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -169,9 +153,44 @@ public final class Wire {
         return (M) invokeLL.objValue;
     }
 
-    private <M extends Message> M parseFrom(WireInput wireInput, Class<M> cls) throws IOException {
+    public <M extends Message> M parseFrom(byte[] bArr, int i, int i2, Class<M> cls) throws IOException {
+        InterceptResult invokeCommon;
+        boolean z;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), cls})) == null) {
+            Preconditions.checkNotNull(bArr, "bytes");
+            boolean z3 = true;
+            if (i >= 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Preconditions.checkArgument(z, "offset < 0");
+            if (i2 >= 0) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            Preconditions.checkArgument(z2, "count < 0");
+            if (i + i2 > bArr.length) {
+                z3 = false;
+            }
+            Preconditions.checkArgument(z3, "offset + count > bytes");
+            Preconditions.checkNotNull(cls, "messageClass");
+            return (M) parseFrom(WireInput.newInstance(bArr, i, i2), cls);
+        }
+        return (M) invokeCommon.objValue;
+    }
+
+    public <M extends Message> M parseFrom(byte[] bArr, Class<M> cls) throws IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, wireInput, cls)) == null) ? messageAdapter(cls).read(wireInput) : (M) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, bArr, cls)) == null) {
+            Preconditions.checkNotNull(bArr, "bytes");
+            Preconditions.checkNotNull(cls, "messageClass");
+            return (M) parseFrom(WireInput.newInstance(bArr), cls);
+        }
+        return (M) invokeLL.objValue;
     }
 }

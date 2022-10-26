@@ -39,19 +39,21 @@ public interface MetadataDecoderFactory {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, format)) == null) {
                 String str = format.sampleMimeType;
                 int hashCode = str.hashCode();
-                if (hashCode == -1248341703) {
+                if (hashCode != -1248341703) {
+                    if (hashCode != 1154383568) {
+                        if (hashCode == 1652648887 && str.equals(MimeTypes.APPLICATION_SCTE35)) {
+                            c = 2;
+                        }
+                        c = 65535;
+                    } else {
+                        if (str.equals(MimeTypes.APPLICATION_EMSG)) {
+                            c = 1;
+                        }
+                        c = 65535;
+                    }
+                } else {
                     if (str.equals(MimeTypes.APPLICATION_ID3)) {
                         c = 0;
-                    }
-                    c = 65535;
-                } else if (hashCode != 1154383568) {
-                    if (hashCode == 1652648887 && str.equals(MimeTypes.APPLICATION_SCTE35)) {
-                        c = 2;
-                    }
-                    c = 65535;
-                } else {
-                    if (str.equals(MimeTypes.APPLICATION_EMSG)) {
-                        c = 1;
                     }
                     c = 65535;
                 }
@@ -75,7 +77,10 @@ public interface MetadataDecoderFactory {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, format)) == null) {
                 String str = format.sampleMimeType;
-                return MimeTypes.APPLICATION_ID3.equals(str) || MimeTypes.APPLICATION_EMSG.equals(str) || MimeTypes.APPLICATION_SCTE35.equals(str);
+                if (!MimeTypes.APPLICATION_ID3.equals(str) && !MimeTypes.APPLICATION_EMSG.equals(str) && !MimeTypes.APPLICATION_SCTE35.equals(str)) {
+                    return false;
+                }
+                return true;
             }
             return invokeL.booleanValue;
         }

@@ -7,19 +7,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class a<T> {
+public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-    public h<?> b;
-    public a<T> c;
+    public h b;
+    public a c;
 
-    public a(T t) {
+    public a(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {t};
+            Object[] objArr = {obj};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,7 +30,7 @@ public class a<T> {
             }
         }
         this.a = false;
-        a(t);
+        a(obj);
     }
 
     public b a() {
@@ -39,31 +39,30 @@ public class a<T> {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b.a : (b) invokeV.objValue;
     }
 
-    public void a(T t) {
+    public void a(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-            if (t == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+            if (obj == null) {
                 this.b = null;
-            } else if (!(t instanceof h)) {
-                this.b = new h<>(b.d, t);
+            } else if (!(obj instanceof h)) {
+                this.b = new h(b.d, obj);
             } else {
-                this.b = (h) t;
+                this.b = (h) obj;
                 this.a = true;
             }
         }
     }
 
-    /* JADX WARN: Type inference failed for: r0v2, types: [com.sdk.d.h, T, com.sdk.d.h<?>] */
-    public T b() {
+    public Object b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ?? r0 = (T) this.b;
-            if (r0 == 0) {
+            h hVar = this.b;
+            if (hVar == null) {
                 return null;
             }
-            return this.a ? r0 : (T) r0.b;
+            return this.a ? hVar : hVar.b;
         }
-        return (T) invokeV.objValue;
+        return invokeV.objValue;
     }
 }

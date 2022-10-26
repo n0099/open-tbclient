@@ -49,17 +49,17 @@ public class EmotionUtils {
     public static long sLastTimeStampMS;
     public transient /* synthetic */ FieldHolder $fh;
     public String mAllZoneTitle;
-    public Map<String, Bitmap> mEmotionBitmapMap;
-    public Map<String, EmotionClassic> mEmotionClassicList;
-    public List<String> mEmotionPanelList;
+    public Map mEmotionBitmapMap;
+    public Map mEmotionClassicList;
+    public List mEmotionPanelList;
     public MediaPlayer mMediaPlayer;
     public String mOftenZoneTitle;
-    public List<String> mRecommendEmotionPanelList;
+    public List mRecommendEmotionPanelList;
     public Semaphore mSync;
 
     /* renamed from: com.baidu.spswitch.emotion.EmotionUtils$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$spswitch$emotion$EmotionType;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -87,7 +87,7 @@ public class EmotionUtils {
     }
 
     /* loaded from: classes2.dex */
-    public static class EmotionClassic {
+    public class EmotionClassic {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public File file;
@@ -132,6 +132,63 @@ public class EmotionUtils {
         sLastTimeStampMS = 0L;
     }
 
+    private void freeEmotionSound() {
+        MediaPlayer mediaPlayer;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && (mediaPlayer = this.mMediaPlayer) != null) {
+            mediaPlayer.release();
+        }
+    }
+
+    public static EmotionUtils getInstance() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (sInstance == null) {
+                synchronized (EmotionUtils.class) {
+                    if (sInstance == null) {
+                        sInstance = new EmotionUtils();
+                    }
+                }
+            }
+            return sInstance;
+        }
+        return (EmotionUtils) invokeV.objValue;
+    }
+
+    public String getAllZoneTitle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (TextUtils.isEmpty(this.mAllZoneTitle)) {
+                return AppRuntime.getAppContext().getResources().getString(R.string.all_zone_title_default);
+            }
+            return this.mAllZoneTitle;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getOftenZoneTitle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (TextUtils.isEmpty(this.mOftenZoneTitle)) {
+                return AppRuntime.getAppContext().getResources().getString(R.string.often_zone_title_default);
+            }
+            return this.mOftenZoneTitle;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public List getPanelEmotionList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mEmotionPanelList;
+        }
+        return (List) invokeV.objValue;
+    }
+
     public EmotionUtils() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -154,51 +211,25 @@ public class EmotionUtils {
         this.mAllZoneTitle = AppRuntime.getAppContext().getResources().getString(R.string.all_zone_title_default);
     }
 
-    private void freeEmotionSound() {
-        MediaPlayer mediaPlayer;
+    private void initEmotionBitmapCache() {
+        List list;
+        Map map;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || (mediaPlayer = this.mMediaPlayer) == null) {
-            return;
-        }
-        mediaPlayer.release();
-    }
-
-    public static EmotionUtils getInstance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (sInstance == null) {
-                synchronized (EmotionUtils.class) {
-                    if (sInstance == null) {
-                        sInstance = new EmotionUtils();
-                    }
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && (list = this.mEmotionPanelList) != null && !list.isEmpty() && (map = this.mEmotionClassicList) != null && !map.isEmpty()) {
+            ArrayList arrayList = new ArrayList(this.mEmotionPanelList);
+            Iterator it = arrayList.iterator();
+            while (it.hasNext()) {
+                String str = (String) it.next();
+                if (getEmotionBitmapByName(EmotionType.EMOTION_CLASSIC_TYPE, str) == null) {
+                    it.remove();
+                    this.mEmotionClassicList.remove(str);
                 }
             }
-            return sInstance;
-        }
-        return (EmotionUtils) invokeV.objValue;
-    }
-
-    private void initEmotionBitmapCache() {
-        List<String> list;
-        Map<String, EmotionClassic> map;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || (list = this.mEmotionPanelList) == null || list.isEmpty() || (map = this.mEmotionClassicList) == null || map.isEmpty()) {
-            return;
-        }
-        ArrayList arrayList = new ArrayList(this.mEmotionPanelList);
-        Iterator it = arrayList.iterator();
-        while (it.hasNext()) {
-            String str = (String) it.next();
-            if (getEmotionBitmapByName(EmotionType.EMOTION_CLASSIC_TYPE, str) == null) {
-                it.remove();
-                this.mEmotionClassicList.remove(str);
+            this.mEmotionPanelList = new CopyOnWriteArrayList(arrayList);
+            this.mSync.release();
+            if (DEBUG) {
+                Log.d(TAG, "thread:" + Thread.currentThread() + "-------initEmotionBitmapCache, release signal-------");
             }
-        }
-        this.mEmotionPanelList = new CopyOnWriteArrayList(arrayList);
-        this.mSync.release();
-        if (DEBUG) {
-            Log.d(TAG, "thread:" + Thread.currentThread() + "-------initEmotionBitmapCache, release signal-------");
         }
     }
 
@@ -220,13 +251,60 @@ public class EmotionUtils {
     private String queryEmotionNameById(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, this, str)) == null) ? queryEmotionNameById(this.mEmotionClassicList, str) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, str)) == null) {
+            return queryEmotionNameById(this.mEmotionClassicList, str);
+        }
+        return (String) invokeL.objValue;
     }
 
-    public String getAllZoneTitle() {
-        InterceptResult invokeV;
+    public boolean isEmotionLoaded(EmotionType emotionType) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TextUtils.isEmpty(this.mAllZoneTitle) ? AppRuntime.getAppContext().getResources().getString(R.string.all_zone_title_default) : this.mAllZoneTitle : (String) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, emotionType)) == null) {
+            return isEmotionLoaded(emotionType, true);
+        }
+        return invokeL.booleanValue;
+    }
+
+    private String queryEmotionNameById(Map map, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, this, map, str)) == null) {
+            String str2 = "";
+            if (map != null && !map.isEmpty()) {
+                for (Map.Entry entry : map.entrySet()) {
+                    String str3 = (String) entry.getKey();
+                    if (str.equals(((EmotionClassic) entry.getValue()).id)) {
+                        return str3;
+                    }
+                    str2 = str3;
+                }
+            }
+            return str2;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public boolean isEmotionLoaded(EmotionType emotionType, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, emotionType, z)) == null) {
+            boolean z2 = false;
+            if (emotionType == EmotionType.EMOTION_CLASSIC_TYPE && this.mEmotionClassicList.size() > 0 && this.mEmotionPanelList.size() > 0 && this.mRecommendEmotionPanelList.size() > 0) {
+                z2 = true;
+            }
+            if (z && !z2) {
+                long currentTimeMillis = System.currentTimeMillis();
+                if (currentTimeMillis - sLastTimeStampMS >= 10000) {
+                    sLastTimeStampMS = currentTimeMillis;
+                    if (EmotionDownloadRuntime.getDownloadImpl() != null) {
+                        EmotionDownloadRuntime.getDownloadImpl().downloadRetryIfNeeded("from isEmotionLoaded");
+                    }
+                }
+            }
+            return z2;
+        }
+        return invokeLZ.booleanValue;
     }
 
     public Bitmap getEmotionBitmapByName(EmotionType emotionType, String str) {
@@ -238,7 +316,7 @@ public class EmotionUtils {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            Bitmap bitmap = this.mEmotionBitmapMap.get(str);
+            Bitmap bitmap = (Bitmap) this.mEmotionBitmapMap.get(str);
             if (bitmap != null) {
                 return bitmap;
             }
@@ -303,7 +381,7 @@ public class EmotionUtils {
         EmotionClassic emotionClassic;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, emotionType, str)) == null) {
-            if (AnonymousClass1.$SwitchMap$com$baidu$spswitch$emotion$EmotionType[emotionType.ordinal()] == 1 && (emotionClassic = this.mEmotionClassicList.get(str)) != null) {
+            if (AnonymousClass1.$SwitchMap$com$baidu$spswitch$emotion$EmotionType[emotionType.ordinal()] == 1 && (emotionClassic = (EmotionClassic) this.mEmotionClassicList.get(str)) != null) {
                 return emotionClassic.file;
             }
             return null;
@@ -313,40 +391,36 @@ public class EmotionUtils {
 
     public String getEmotionIdByName(EmotionType emotionType, String str) {
         InterceptResult invokeLL;
+        EmotionClassic emotionClassic;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, emotionType, str)) == null) {
-            EmotionClassic emotionClassic = AnonymousClass1.$SwitchMap$com$baidu$spswitch$emotion$EmotionType[emotionType.ordinal()] != 1 ? null : this.mEmotionClassicList.get(str);
-            return emotionClassic == null ? "" : emotionClassic.id;
+            if (AnonymousClass1.$SwitchMap$com$baidu$spswitch$emotion$EmotionType[emotionType.ordinal()] != 1) {
+                emotionClassic = null;
+            } else {
+                emotionClassic = (EmotionClassic) this.mEmotionClassicList.get(str);
+            }
+            if (emotionClassic == null) {
+                return "";
+            }
+            return emotionClassic.id;
         }
         return (String) invokeLL.objValue;
     }
 
-    public String getOftenZoneTitle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? TextUtils.isEmpty(this.mOftenZoneTitle) ? AppRuntime.getAppContext().getResources().getString(R.string.often_zone_title_default) : this.mOftenZoneTitle : (String) invokeV.objValue;
-    }
-
-    public List<String> getPanelEmotionList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mEmotionPanelList : (List) invokeV.objValue;
-    }
-
-    public List<String> getPanelOftenEmotionList() {
+    public List getPanelOftenEmotionList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            List<String> emotionUsageList = EmotionUsageUtil.getEmotionUsageList(this.mEmotionClassicList);
+            List emotionUsageList = EmotionUsageUtil.getEmotionUsageList(this.mEmotionClassicList);
             if (emotionUsageList == null) {
-                emotionUsageList = new ArrayList<>();
+                emotionUsageList = new ArrayList();
             }
             int i = 0;
             int size = this.mRecommendEmotionPanelList.size();
             while (emotionUsageList.size() < 7 && size > 0) {
                 int i2 = i + 1;
-                String str = this.mRecommendEmotionPanelList.get(i);
-                Map<String, EmotionClassic> map = this.mEmotionClassicList;
+                String str = (String) this.mRecommendEmotionPanelList.get(i);
+                Map map = this.mEmotionClassicList;
                 if (map != null && map.containsKey(str) && !TextUtils.isEmpty(str) && emotionUsageList.indexOf(str) == -1) {
                     emotionUsageList.add(str);
                 }
@@ -356,12 +430,6 @@ public class EmotionUtils {
             return emotionUsageList;
         }
         return (List) invokeV.objValue;
-    }
-
-    public boolean isEmotionLoaded(EmotionType emotionType) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, emotionType)) == null) ? isEmotionLoaded(emotionType, true) : invokeL.booleanValue;
     }
 
     public boolean loadEmotionInfo(IResourceProvider iResourceProvider) {
@@ -454,17 +522,16 @@ public class EmotionUtils {
         MediaPlayer mediaPlayer;
         int streamVolume;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (mediaPlayer = this.mMediaPlayer) == null || mediaPlayer.isPlaying() || (streamVolume = ((AudioManager) AppRuntime.getAppContext().getSystemService("audio")).getStreamVolume(2)) <= 0) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (mediaPlayer = this.mMediaPlayer) != null && !mediaPlayer.isPlaying() && (streamVolume = ((AudioManager) AppRuntime.getAppContext().getSystemService("audio")).getStreamVolume(2)) > 0) {
+            float f = streamVolume;
+            this.mMediaPlayer.setVolume(f, f);
+            this.mMediaPlayer.start();
         }
-        float f = streamVolume;
-        this.mMediaPlayer.setVolume(f, f);
-        this.mMediaPlayer.start();
     }
 
     public void waitForEmotionLoadedIfNeeded(long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048587, this, j) == null) || isEmotionLoaded(EmotionType.EMOTION_CLASSIC_TYPE)) {
+        if ((interceptable != null && interceptable.invokeJ(1048587, this, j) != null) || isEmotionLoaded(EmotionType.EMOTION_CLASSIC_TYPE)) {
             return;
         }
         if (j <= 0) {
@@ -481,46 +548,5 @@ public class EmotionUtils {
         if (DEBUG) {
             Log.d(TAG, "thread:" + Thread.currentThread() + "-------waitForEmotionLoaded end-------");
         }
-    }
-
-    private String queryEmotionNameById(Map<String, EmotionClassic> map, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, this, map, str)) == null) {
-            String str2 = "";
-            if (map != null && !map.isEmpty()) {
-                for (Map.Entry<String, EmotionClassic> entry : map.entrySet()) {
-                    String key = entry.getKey();
-                    if (str.equals(entry.getValue().id)) {
-                        return key;
-                    }
-                    str2 = key;
-                }
-            }
-            return str2;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public boolean isEmotionLoaded(EmotionType emotionType, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, emotionType, z)) == null) {
-            boolean z2 = false;
-            if (emotionType == EmotionType.EMOTION_CLASSIC_TYPE && this.mEmotionClassicList.size() > 0 && this.mEmotionPanelList.size() > 0 && this.mRecommendEmotionPanelList.size() > 0) {
-                z2 = true;
-            }
-            if (z && !z2) {
-                long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - sLastTimeStampMS >= 10000) {
-                    sLastTimeStampMS = currentTimeMillis;
-                    if (EmotionDownloadRuntime.getDownloadImpl() != null) {
-                        EmotionDownloadRuntime.getDownloadImpl().downloadRetryIfNeeded("from isEmotionLoaded");
-                    }
-                }
-            }
-            return z2;
-        }
-        return invokeLZ.booleanValue;
     }
 }

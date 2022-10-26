@@ -18,13 +18,13 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public e K;
-    public List<k> O;
+    public List O;
     public Looper mC;
     public Handler mD;
     public int mE;
-    public ArrayList<c> mF;
-    public HashMap<String, Boolean> mG;
-    public HashMap<String, Boolean> mH;
+    public ArrayList mF;
+    public HashMap mG;
+    public HashMap mH;
     public long mI;
 
     /* loaded from: classes.dex */
@@ -93,9 +93,9 @@ public class d {
                 return;
             }
         }
-        this.mF = new ArrayList<>();
-        this.mG = new HashMap<>();
-        this.mH = new HashMap<>();
+        this.mF = new ArrayList();
+        this.mG = new HashMap();
+        this.mH = new HashMap();
         this.mI = 0L;
         this.mE = 180;
         this.mC = looper;
@@ -112,18 +112,18 @@ public class d {
     }
 
     private void a(c cVar) {
-        ArrayList<c> arrayList;
-        List<k> list;
+        ArrayList arrayList;
+        List list;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(65538, this, cVar) == null) || cVar == null || (arrayList = this.mF) == null || arrayList.size() == 0 || (list = this.O) == null || list.size() == 0 || this.K == null) {
             return;
         }
         boolean z = true;
-        Iterator<k> it = this.O.iterator();
+        Iterator it = this.O.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
-            } else if (!cVar.X(it.next().getName())) {
+            } else if (!cVar.X(((k) it.next()).getName())) {
                 z = false;
                 break;
             }
@@ -133,26 +133,26 @@ public class d {
         }
         this.K.a(cVar);
         this.mI = cVar.getTimestamp();
-        ArrayList<c> arrayList2 = this.mF;
+        ArrayList arrayList2 = this.mF;
         arrayList2.subList(0, arrayList2.indexOf(cVar)).clear();
     }
 
     private void dg() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            List<k> list = this.O;
+            List list = this.O;
             if (list != null) {
                 list.clear();
             }
-            ArrayList<c> arrayList = this.mF;
+            ArrayList arrayList = this.mF;
             if (arrayList != null) {
                 arrayList.clear();
             }
-            HashMap<String, Boolean> hashMap = this.mG;
+            HashMap hashMap = this.mG;
             if (hashMap != null) {
                 hashMap.clear();
             }
-            HashMap<String, Boolean> hashMap2 = this.mH;
+            HashMap hashMap2 = this.mH;
             if (hashMap2 != null) {
                 hashMap2.clear();
             }
@@ -164,18 +164,18 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, lVar) == null) {
             this.mG.put(lVar.dc(), Boolean.valueOf(lVar.isSuccess()));
-            Iterator<k> it = this.O.iterator();
+            Iterator it = this.O.iterator();
             boolean z = true;
             boolean z2 = true;
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
-                k next = it.next();
-                if (this.mG.get(next.getName()) == null) {
+                k kVar = (k) it.next();
+                if (this.mG.get(kVar.getName()) == null) {
                     z = false;
                     break;
-                } else if (!this.mG.get(next.getName()).booleanValue()) {
+                } else if (!((Boolean) this.mG.get(kVar.getName())).booleanValue()) {
                     z2 = false;
                 }
             }
@@ -191,7 +191,7 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f(b bVar) {
-        HashMap<String, Boolean> hashMap;
+        HashMap hashMap;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(65545, this, bVar) == null) || this.mF == null || (hashMap = this.mG) == null || hashMap.isEmpty()) {
             return;
@@ -208,18 +208,18 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, this, lVar) == null) {
             this.mH.put(lVar.dc(), Boolean.valueOf(lVar.isSuccess()));
-            Iterator<k> it = this.O.iterator();
+            Iterator it = this.O.iterator();
             boolean z = true;
             boolean z2 = true;
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
-                k next = it.next();
-                if (this.mH.get(next.getName()) == null) {
+                k kVar = (k) it.next();
+                if (this.mH.get(kVar.getName()) == null) {
                     z = false;
                     break;
-                } else if (!this.mH.get(next.getName()).booleanValue()) {
+                } else if (!((Boolean) this.mH.get(kVar.getName())).booleanValue()) {
                     z2 = false;
                 }
             }
@@ -238,12 +238,12 @@ public class d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, this, bVar)) == null) {
-            Iterator<c> it = this.mF.iterator();
+            Iterator it = this.mF.iterator();
             while (it.hasNext()) {
-                c next = it.next();
-                if (next.getTimestamp() == bVar.getTimestamp()) {
-                    next.c(bVar);
-                    return next;
+                c cVar = (c) it.next();
+                if (cVar.getTimestamp() == bVar.getTimestamp()) {
+                    cVar.c(bVar);
+                    return cVar;
                 }
             }
             return null;
@@ -268,7 +268,7 @@ public class d {
         return (c) invokeL.objValue;
     }
 
-    public void a(List<k> list, e eVar) {
+    public void a(List list, e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, list, eVar) == null) {
             this.O = list;
@@ -321,7 +321,7 @@ public class d {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bVar)) == null) {
             synchronized (this) {
                 if (this.mF.size() != 0) {
-                    if (this.mF.get(0).getTimestamp() < bVar.getTimestamp()) {
+                    if (((c) this.mF.get(0)).getTimestamp() < bVar.getTimestamp()) {
                         return false;
                     }
                 }

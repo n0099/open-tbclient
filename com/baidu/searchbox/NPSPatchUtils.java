@@ -34,12 +34,11 @@ public class NPSPatchUtils {
 
     public static void closeSafely(Closeable closeable) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, closeable) == null) || closeable == null) {
-            return;
-        }
-        try {
-            closeable.close();
-        } catch (Exception unused) {
+        if ((interceptable == null || interceptable.invokeL(65537, null, closeable) == null) && closeable != null) {
+            try {
+                closeable.close();
+            } catch (Exception unused) {
+            }
         }
     }
 
@@ -74,7 +73,10 @@ public class NPSPatchUtils {
     public static int patch(String str, String str2, String str3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, str, str2, str3)) == null) ? nativePatch(str, str2, str3) : invokeLLL.intValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, str, str2, str3)) == null) {
+            return nativePatch(str, str2, str3);
+        }
+        return invokeLLL.intValue;
     }
 
     public static String toHexString(byte[] bArr, String str, boolean z) {
@@ -103,31 +105,32 @@ public class NPSPatchUtils {
         FileInputStream fileInputStream;
         MessageDigest messageDigest;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLZ = interceptable.invokeLZ(65541, null, file, z)) != null) {
-            return (String) invokeLZ.objValue;
-        }
-        try {
-            messageDigest = MessageDigest.getInstance("MD5");
-            messageDigest.reset();
-            fileInputStream = new FileInputStream(file);
-        } catch (Throwable unused) {
-            fileInputStream = null;
-        }
-        try {
-            byte[] bArr = new byte[8192];
-            while (true) {
-                int read = fileInputStream.read(bArr);
-                if (read > 0) {
-                    messageDigest.update(bArr, 0, read);
-                } else {
-                    String hexString = toHexString(messageDigest.digest(), "", z);
-                    closeSafely(fileInputStream);
-                    return hexString;
-                }
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65541, null, file, z)) == null) {
+            try {
+                messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.reset();
+                fileInputStream = new FileInputStream(file);
+            } catch (Throwable unused) {
+                fileInputStream = null;
             }
-        } catch (Throwable unused2) {
-            closeSafely(fileInputStream);
-            return null;
+            try {
+                byte[] bArr = new byte[8192];
+                while (true) {
+                    int read = fileInputStream.read(bArr);
+                    if (read > 0) {
+                        messageDigest.update(bArr, 0, read);
+                    } else {
+                        String hexString = toHexString(messageDigest.digest(), "", z);
+                        closeSafely(fileInputStream);
+                        return hexString;
+                    }
+                }
+            } catch (Throwable unused2) {
+                closeSafely(fileInputStream);
+                return null;
+            }
+        } else {
+            return (String) invokeLZ.objValue;
         }
     }
 }

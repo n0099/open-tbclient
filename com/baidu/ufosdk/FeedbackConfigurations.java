@@ -24,7 +24,7 @@ public class FeedbackConfigurations implements IConfigurations {
     public String k;
 
     /* loaded from: classes6.dex */
-    public static class Builder {
+    public class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -63,43 +63,6 @@ public class FeedbackConfigurations implements IConfigurations {
             this.i = "";
             this.j = -1;
             this.k = -1;
-        }
-
-        public IConfigurations build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.k == -1) {
-                    this.k = 0;
-                }
-                if (this.j == -1) {
-                    this.j = 1;
-                }
-                return new FeedbackConfigurations(this);
-            }
-            return (IConfigurations) invokeV.objValue;
-        }
-
-        public Builder setAccount(String str, String str2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-                this.c = str;
-                this.e = str2;
-                return this;
-            }
-            return (Builder) invokeLL.objValue;
-        }
-
-        public Builder setAppIdentifier(String str, String str2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-                this.a = str;
-                this.b = str2;
-                return this;
-            }
-            return (Builder) invokeLL.objValue;
         }
 
         public Builder setBaiduCuid(String str) {
@@ -162,6 +125,43 @@ public class FeedbackConfigurations implements IConfigurations {
             return (Builder) invokeL.objValue;
         }
 
+        public IConfigurations build() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.k == -1) {
+                    this.k = 0;
+                }
+                if (this.j == -1) {
+                    this.j = 1;
+                }
+                return new FeedbackConfigurations(this);
+            }
+            return (IConfigurations) invokeV.objValue;
+        }
+
+        public Builder setAccount(String str, String str2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+                this.c = str;
+                this.e = str2;
+                return this;
+            }
+            return (Builder) invokeLL.objValue;
+        }
+
+        public Builder setAppIdentifier(String str, String str2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+                this.a = str;
+                this.b = str2;
+                return this;
+            }
+            return (Builder) invokeLL.objValue;
+        }
+
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -204,77 +204,110 @@ public class FeedbackConfigurations implements IConfigurations {
     public String getAccountName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // com.baidu.ufosdk.IConfigurations
     public String getAccountUid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // com.baidu.ufosdk.IConfigurations
     public String getAppPkgName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // com.baidu.ufosdk.IConfigurations
     public String getAppVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // com.baidu.ufosdk.IConfigurations
     public int getBackbarType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.i : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.i;
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.ufosdk.IConfigurations
     public String getBaiduCuid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.e : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // com.baidu.ufosdk.IConfigurations
     public String getExtraData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.g : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.g;
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // com.baidu.ufosdk.IConfigurations
     public String getFeedbackChannel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.h : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.h;
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // com.baidu.ufosdk.IConfigurations
     public String getLoaction() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // com.baidu.ufosdk.IConfigurations
     public String getRobotWelcome() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.k : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.k;
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // com.baidu.ufosdk.IConfigurations
     public int getThemeMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.j : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.j;
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.ufosdk.IConfigurations

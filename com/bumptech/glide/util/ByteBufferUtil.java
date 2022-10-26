@@ -1,7 +1,5 @@
 package com.bumptech.glide.util;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -24,19 +22,135 @@ import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class ByteBufferUtil {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final AtomicReference<byte[]> BUFFER_REF;
+    public static final AtomicReference BUFFER_REF;
     public static final int BUFFER_SIZE = 16384;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static final class SafeArray {
+    public class ByteBufferStream extends InputStream {
+        public static /* synthetic */ Interceptable $ic = null;
+        public static final int UNSET = -1;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final ByteBuffer byteBuffer;
+        public int markPos;
+
+        @Override // java.io.InputStream
+        public boolean markSupported() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public ByteBufferStream(ByteBuffer byteBuffer) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {byteBuffer};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.markPos = -1;
+            this.byteBuffer = byteBuffer;
+        }
+
+        @Override // java.io.InputStream
+        public synchronized void mark(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+                synchronized (this) {
+                    this.markPos = this.byteBuffer.position();
+                }
+            }
+        }
+
+        @Override // java.io.InputStream
+        public long skip(long j) throws IOException {
+            InterceptResult invokeJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
+                if (!this.byteBuffer.hasRemaining()) {
+                    return -1L;
+                }
+                long min = Math.min(j, available());
+                ByteBuffer byteBuffer = this.byteBuffer;
+                byteBuffer.position((int) (byteBuffer.position() + min));
+                return min;
+            }
+            return invokeJ.longValue;
+        }
+
+        @Override // java.io.InputStream
+        public int available() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.byteBuffer.remaining();
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // java.io.InputStream
+        public int read() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                if (!this.byteBuffer.hasRemaining()) {
+                    return -1;
+                }
+                return this.byteBuffer.get() & 255;
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // java.io.InputStream
+        public synchronized void reset() throws IOException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+                synchronized (this) {
+                    if (this.markPos != -1) {
+                        this.byteBuffer.position(this.markPos);
+                    } else {
+                        throw new IOException("Cannot reset to unset mark position");
+                    }
+                }
+            }
+        }
+
+        @Override // java.io.InputStream
+        public int read(byte[] bArr, int i, int i2) throws IOException {
+            InterceptResult invokeLII;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, bArr, i, i2)) == null) {
+                if (!this.byteBuffer.hasRemaining()) {
+                    return -1;
+                }
+                int min = Math.min(i2, available());
+                this.byteBuffer.get(bArr, i, min);
+                return min;
+            }
+            return invokeLII.intValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public final class SafeArray {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final byte[] data;
         public final int limit;
         public final int offset;
 
-        public SafeArray(@NonNull byte[] bArr, int i, int i2) {
+        public SafeArray(byte[] bArr, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -70,7 +184,7 @@ public final class ByteBufferUtil {
                 return;
             }
         }
-        BUFFER_REF = new AtomicReference<>();
+        BUFFER_REF = new AtomicReference();
     }
 
     public ByteBufferUtil() {
@@ -87,99 +201,97 @@ public final class ByteBufferUtil {
         }
     }
 
-    @NonNull
-    public static ByteBuffer fromFile(@NonNull File file) throws IOException {
+    public static ByteBuffer fromFile(File file) throws IOException {
         InterceptResult invokeL;
         RandomAccessFile randomAccessFile;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65538, null, file)) != null) {
-            return (ByteBuffer) invokeL.objValue;
-        }
-        FileChannel fileChannel = null;
-        try {
-            long length = file.length();
-            if (length <= 2147483647L) {
-                if (length != 0) {
-                    randomAccessFile = new RandomAccessFile(file, "r");
-                    try {
-                        fileChannel = randomAccessFile.getChannel();
-                        MappedByteBuffer load = fileChannel.map(FileChannel.MapMode.READ_ONLY, 0L, length).load();
-                        if (fileChannel != null) {
-                            try {
-                                fileChannel.close();
-                            } catch (IOException unused) {
-                            }
-                        }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, file)) == null) {
+            FileChannel fileChannel = null;
+            try {
+                long length = file.length();
+                if (length <= 2147483647L) {
+                    if (length != 0) {
+                        randomAccessFile = new RandomAccessFile(file, "r");
                         try {
-                            randomAccessFile.close();
-                        } catch (IOException unused2) {
-                        }
-                        return load;
-                    } catch (Throwable th) {
-                        th = th;
-                        if (fileChannel != null) {
-                            try {
-                                fileChannel.close();
-                            } catch (IOException unused3) {
+                            fileChannel = randomAccessFile.getChannel();
+                            MappedByteBuffer load = fileChannel.map(FileChannel.MapMode.READ_ONLY, 0L, length).load();
+                            if (fileChannel != null) {
+                                try {
+                                    fileChannel.close();
+                                } catch (IOException unused) {
+                                }
                             }
-                        }
-                        if (randomAccessFile != null) {
                             try {
                                 randomAccessFile.close();
-                            } catch (IOException unused4) {
+                            } catch (IOException unused2) {
                             }
+                            return load;
+                        } catch (Throwable th) {
+                            th = th;
+                            if (fileChannel != null) {
+                                try {
+                                    fileChannel.close();
+                                } catch (IOException unused3) {
+                                }
+                            }
+                            if (randomAccessFile != null) {
+                                try {
+                                    randomAccessFile.close();
+                                } catch (IOException unused4) {
+                                }
+                            }
+                            throw th;
                         }
-                        throw th;
                     }
+                    throw new IOException("File unsuitable for memory mapping");
                 }
-                throw new IOException("File unsuitable for memory mapping");
+                throw new IOException("File too large to map into memory");
+            } catch (Throwable th2) {
+                th = th2;
+                randomAccessFile = null;
             }
-            throw new IOException("File too large to map into memory");
-        } catch (Throwable th2) {
-            th = th2;
-            randomAccessFile = null;
-        }
-    }
-
-    @NonNull
-    public static ByteBuffer fromStream(@NonNull InputStream inputStream) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65539, null, inputStream)) != null) {
+        } else {
             return (ByteBuffer) invokeL.objValue;
         }
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(16384);
-        byte[] andSet = BUFFER_REF.getAndSet(null);
-        if (andSet == null) {
-            andSet = new byte[16384];
-        }
-        while (true) {
-            int read = inputStream.read(andSet);
-            if (read >= 0) {
-                byteArrayOutputStream.write(andSet, 0, read);
-            } else {
-                BUFFER_REF.set(andSet);
-                byte[] byteArray = byteArrayOutputStream.toByteArray();
-                return (ByteBuffer) ByteBuffer.allocateDirect(byteArray.length).put(byteArray).position(0);
+    }
+
+    public static ByteBuffer fromStream(InputStream inputStream) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, inputStream)) == null) {
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(16384);
+            byte[] bArr = (byte[]) BUFFER_REF.getAndSet(null);
+            if (bArr == null) {
+                bArr = new byte[16384];
             }
+            while (true) {
+                int read = inputStream.read(bArr);
+                if (read >= 0) {
+                    byteArrayOutputStream.write(bArr, 0, read);
+                } else {
+                    BUFFER_REF.set(bArr);
+                    byte[] byteArray = byteArrayOutputStream.toByteArray();
+                    return (ByteBuffer) ByteBuffer.allocateDirect(byteArray.length).put(byteArray).position(0);
+                }
+            }
+        } else {
+            return (ByteBuffer) invokeL.objValue;
         }
     }
 
-    @Nullable
-    public static SafeArray getSafeArray(@NonNull ByteBuffer byteBuffer) {
+    public static SafeArray getSafeArray(ByteBuffer byteBuffer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, byteBuffer)) == null) {
-            if (byteBuffer.isReadOnly() || !byteBuffer.hasArray()) {
-                return null;
+            if (!byteBuffer.isReadOnly() && byteBuffer.hasArray()) {
+                return new SafeArray(byteBuffer.array(), byteBuffer.arrayOffset(), byteBuffer.limit());
             }
-            return new SafeArray(byteBuffer.array(), byteBuffer.arrayOffset(), byteBuffer.limit());
+            return null;
         }
         return (SafeArray) invokeL.objValue;
     }
 
-    @NonNull
-    public static byte[] toBytes(@NonNull ByteBuffer byteBuffer) {
+    public static byte[] toBytes(ByteBuffer byteBuffer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, byteBuffer)) == null) {
@@ -196,55 +308,54 @@ public final class ByteBufferUtil {
         return (byte[]) invokeL.objValue;
     }
 
-    public static void toFile(@NonNull ByteBuffer byteBuffer, @NonNull File file) throws IOException {
+    public static void toFile(ByteBuffer byteBuffer, File file) throws IOException {
         RandomAccessFile randomAccessFile;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLL(65542, null, byteBuffer, file) != null) {
-            return;
-        }
-        byteBuffer.position(0);
-        FileChannel fileChannel = null;
-        try {
-            randomAccessFile = new RandomAccessFile(file, "rw");
+        if (interceptable == null || interceptable.invokeLL(65542, null, byteBuffer, file) == null) {
+            byteBuffer.position(0);
+            FileChannel fileChannel = null;
             try {
-                fileChannel = randomAccessFile.getChannel();
-                fileChannel.write(byteBuffer);
-                fileChannel.force(false);
-                fileChannel.close();
-                randomAccessFile.close();
-                if (fileChannel != null) {
-                    try {
-                        fileChannel.close();
-                    } catch (IOException unused) {
-                    }
-                }
+                randomAccessFile = new RandomAccessFile(file, "rw");
                 try {
+                    fileChannel = randomAccessFile.getChannel();
+                    fileChannel.write(byteBuffer);
+                    fileChannel.force(false);
+                    fileChannel.close();
                     randomAccessFile.close();
-                } catch (IOException unused2) {
-                }
-            } catch (Throwable th) {
-                th = th;
-                if (fileChannel != null) {
-                    try {
-                        fileChannel.close();
-                    } catch (IOException unused3) {
+                    if (fileChannel != null) {
+                        try {
+                            fileChannel.close();
+                        } catch (IOException unused) {
+                        }
                     }
-                }
-                if (randomAccessFile != null) {
                     try {
                         randomAccessFile.close();
-                    } catch (IOException unused4) {
+                    } catch (IOException unused2) {
                     }
+                } catch (Throwable th) {
+                    th = th;
+                    if (fileChannel != null) {
+                        try {
+                            fileChannel.close();
+                        } catch (IOException unused3) {
+                        }
+                    }
+                    if (randomAccessFile != null) {
+                        try {
+                            randomAccessFile.close();
+                        } catch (IOException unused4) {
+                        }
+                    }
+                    throw th;
                 }
-                throw th;
+            } catch (Throwable th2) {
+                th = th2;
+                randomAccessFile = null;
             }
-        } catch (Throwable th2) {
-            th = th2;
-            randomAccessFile = null;
         }
     }
 
-    public static void toStream(@NonNull ByteBuffer byteBuffer, @NonNull OutputStream outputStream) throws IOException {
+    public static void toStream(ByteBuffer byteBuffer, OutputStream outputStream) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, null, byteBuffer, outputStream) == null) {
             SafeArray safeArray = getSafeArray(byteBuffer);
@@ -254,137 +365,25 @@ public final class ByteBufferUtil {
                 outputStream.write(bArr, i, safeArray.limit + i);
                 return;
             }
-            byte[] andSet = BUFFER_REF.getAndSet(null);
-            if (andSet == null) {
-                andSet = new byte[16384];
+            byte[] bArr2 = (byte[]) BUFFER_REF.getAndSet(null);
+            if (bArr2 == null) {
+                bArr2 = new byte[16384];
             }
             while (byteBuffer.remaining() > 0) {
-                int min = Math.min(byteBuffer.remaining(), andSet.length);
-                byteBuffer.get(andSet, 0, min);
-                outputStream.write(andSet, 0, min);
+                int min = Math.min(byteBuffer.remaining(), bArr2.length);
+                byteBuffer.get(bArr2, 0, min);
+                outputStream.write(bArr2, 0, min);
             }
-            BUFFER_REF.set(andSet);
+            BUFFER_REF.set(bArr2);
         }
     }
 
-    /* loaded from: classes7.dex */
-    public static class ByteBufferStream extends InputStream {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static final int UNSET = -1;
-        public transient /* synthetic */ FieldHolder $fh;
-        @NonNull
-        public final ByteBuffer byteBuffer;
-        public int markPos;
-
-        public ByteBufferStream(@NonNull ByteBuffer byteBuffer) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {byteBuffer};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.markPos = -1;
-            this.byteBuffer = byteBuffer;
-        }
-
-        @Override // java.io.InputStream
-        public int available() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.byteBuffer.remaining() : invokeV.intValue;
-        }
-
-        @Override // java.io.InputStream
-        public synchronized void mark(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                synchronized (this) {
-                    this.markPos = this.byteBuffer.position();
-                }
-            }
-        }
-
-        @Override // java.io.InputStream
-        public boolean markSupported() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // java.io.InputStream
-        public int read() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                if (this.byteBuffer.hasRemaining()) {
-                    return this.byteBuffer.get();
-                }
-                return -1;
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // java.io.InputStream
-        public synchronized void reset() throws IOException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                synchronized (this) {
-                    if (this.markPos != -1) {
-                        this.byteBuffer.position(this.markPos);
-                    } else {
-                        throw new IOException("Cannot reset to unset mark position");
-                    }
-                }
-            }
-        }
-
-        @Override // java.io.InputStream
-        public long skip(long j) throws IOException {
-            InterceptResult invokeJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
-                if (this.byteBuffer.hasRemaining()) {
-                    long min = Math.min(j, available());
-                    ByteBuffer byteBuffer = this.byteBuffer;
-                    byteBuffer.position((int) (byteBuffer.position() + min));
-                    return min;
-                }
-                return -1L;
-            }
-            return invokeJ.longValue;
-        }
-
-        @Override // java.io.InputStream
-        public int read(@NonNull byte[] bArr, int i, int i2) throws IOException {
-            InterceptResult invokeLII;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, bArr, i, i2)) == null) {
-                if (this.byteBuffer.hasRemaining()) {
-                    int min = Math.min(i2, available());
-                    this.byteBuffer.get(bArr, i, min);
-                    return min;
-                }
-                return -1;
-            }
-            return invokeLII.intValue;
-        }
-    }
-
-    @NonNull
-    public static InputStream toStream(@NonNull ByteBuffer byteBuffer) {
+    public static InputStream toStream(ByteBuffer byteBuffer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, byteBuffer)) == null) ? new ByteBufferStream(byteBuffer) : (InputStream) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, byteBuffer)) == null) {
+            return new ByteBufferStream(byteBuffer);
+        }
+        return (InputStream) invokeL.objValue;
     }
 }

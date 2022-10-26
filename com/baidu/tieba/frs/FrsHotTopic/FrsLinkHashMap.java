@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedHashMap;
 import java.util.Map;
 /* loaded from: classes4.dex */
-public class FrsLinkHashMap<String, Long> extends LinkedHashMap<String, Long> {
+public class FrsLinkHashMap extends LinkedHashMap {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_COUNT = 100;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,9 +28,15 @@ public class FrsLinkHashMap<String, Long> extends LinkedHashMap<String, Long> {
     }
 
     @Override // java.util.LinkedHashMap
-    public boolean removeEldestEntry(Map.Entry<String, Long> entry) {
+    public boolean removeEldestEntry(Map.Entry entry) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, entry)) == null) ? size() > 100 : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, entry)) == null) {
+            if (size() > 100) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

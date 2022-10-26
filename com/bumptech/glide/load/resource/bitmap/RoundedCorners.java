@@ -1,7 +1,6 @@
 package com.bumptech.glide.load.resource.bitmap;
 
 import android.graphics.Bitmap;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -40,7 +39,18 @@ public final class RoundedCorners extends BitmapTransformation {
         ID_BYTES = ID.getBytes(Key.CHARSET);
     }
 
+    @Override // com.bumptech.glide.load.Key
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return Util.hashCode(-569625254, Util.hashCode(this.roundingRadius));
+        }
+        return invokeV.intValue;
+    }
+
     public RoundedCorners(int i) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -55,7 +65,12 @@ public final class RoundedCorners extends BitmapTransformation {
                 return;
             }
         }
-        Preconditions.checkArgument(i > 0, "roundingRadius must be greater than 0.");
+        if (i > 0) {
+            z = true;
+        } else {
+            z = false;
+        }
+        Preconditions.checkArgument(z, "roundingRadius must be greater than 0.");
         this.roundingRadius = i;
     }
 
@@ -63,29 +78,31 @@ public final class RoundedCorners extends BitmapTransformation {
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? (obj instanceof RoundedCorners) && this.roundingRadius == ((RoundedCorners) obj).roundingRadius : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (!(obj instanceof RoundedCorners) || this.roundingRadius != ((RoundedCorners) obj).roundingRadius) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
     @Override // com.bumptech.glide.load.Key
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Util.hashCode(-569625254, Util.hashCode(this.roundingRadius)) : invokeV.intValue;
-    }
-
-    @Override // com.bumptech.glide.load.resource.bitmap.BitmapTransformation
-    public Bitmap transform(@NonNull BitmapPool bitmapPool, @NonNull Bitmap bitmap, int i, int i2) {
-        InterceptResult invokeLLII;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLII = interceptable.invokeLLII(Constants.METHOD_SEND_USER_MSG, this, bitmapPool, bitmap, i, i2)) == null) ? TransformationUtils.roundedCorners(bitmapPool, bitmap, this.roundingRadius) : (Bitmap) invokeLLII.objValue;
-    }
-
-    @Override // com.bumptech.glide.load.Key
-    public void updateDiskCacheKey(@NonNull MessageDigest messageDigest) {
+    public void updateDiskCacheKey(MessageDigest messageDigest) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, messageDigest) == null) {
             messageDigest.update(ID_BYTES);
             messageDigest.update(ByteBuffer.allocate(4).putInt(this.roundingRadius).array());
         }
+    }
+
+    @Override // com.bumptech.glide.load.resource.bitmap.BitmapTransformation
+    public Bitmap transform(BitmapPool bitmapPool, Bitmap bitmap, int i, int i2) {
+        InterceptResult invokeLLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(Constants.METHOD_SEND_USER_MSG, this, bitmapPool, bitmap, i, i2)) == null) {
+            return TransformationUtils.roundedCorners(bitmapPool, bitmap, this.roundingRadius);
+        }
+        return (Bitmap) invokeLLII.objValue;
     }
 }

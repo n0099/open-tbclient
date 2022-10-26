@@ -9,8 +9,9 @@ public class aj6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public int b;
-    public boolean c;
+    public String b;
+    public int c;
+    public boolean d;
 
     public aj6() {
         Interceptable interceptable = $ic;
@@ -22,7 +23,9 @@ public class aj6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.d = false;
     }
 }

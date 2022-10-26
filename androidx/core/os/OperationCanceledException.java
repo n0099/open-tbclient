@@ -1,6 +1,5 @@
 package androidx.core.os;
 
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -29,7 +28,7 @@ public class OperationCanceledException extends RuntimeException {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public OperationCanceledException(@Nullable String str) {
+    public OperationCanceledException(String str) {
         super(str == null ? "The operation has been canceled." : str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

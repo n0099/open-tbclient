@@ -20,7 +20,6 @@ import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.ecommerce.AddressStatUtil;
@@ -67,7 +66,7 @@ import java.util.List;
 import java.util.ListIterator;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class AddressListActivity extends BaseAddressActivity<AddressPresenter> implements AdapterView.OnItemLongClickListener, AddrOptionDialog.OptionOnClickListener, AddrListAdapter.EditAddressListener, AdapterView.OnItemClickListener {
+public class AddressListActivity extends BaseAddressActivity implements AdapterView.OnItemLongClickListener, AddrOptionDialog.OptionOnClickListener, AddrListAdapter.EditAddressListener, AdapterView.OnItemClickListener {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CREATE_ADDRESS_CODE = 1001;
@@ -84,11 +83,11 @@ public class AddressListActivity extends BaseAddressActivity<AddressPresenter> i
     public View addAddrBtnWrap;
     public View addAddrBtnWrapLayout;
     public ImageView addAddrImageAtEmptyView;
-    public List<JSONObject> addrJsonObjects;
+    public List addrJsonObjects;
     public View addrListBg;
     public TextView addrListCountTv;
     public FrameLayout addrListLayout;
-    public HashMap<PassAddrColorLocation, Boolean> addrListTextStyle;
+    public HashMap addrListTextStyle;
     public ListView addrListView;
     public CommonDialog authNuoMiAddressDialog;
     public LinearLayout bottomBackLayout;
@@ -96,7 +95,7 @@ public class AddressListActivity extends BaseAddressActivity<AddressPresenter> i
     public AddrListAdapter listAdapter;
     public View loadTimeoutView;
     public SweepLightLoadingView loadingView;
-    public HashMap<PassAddrColorLocation, String> mAddrListColorMap;
+    public HashMap mAddrListColorMap;
     public AddrOptionDialog optionDialog;
     public JSONObject optionJsonObj;
     public View retryLoadAddrListBtn;
@@ -131,13 +130,173 @@ public class AddressListActivity extends BaseAddressActivity<AddressPresenter> i
         }
     }
 
+    private void getUserDisplayName() {
+        SapiAccount currentAccount;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65547, this) == null) && (currentAccount = SapiContext.getInstance().getCurrentAccount()) != null) {
+            this.userDisplayName = currentAccount.displayname;
+        }
+    }
+
+    private void loadAddrList() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65550, this) == null) {
+            setLoadingViewVisibility(0);
+            ((AddressPresenter) this.presenter).getAddressList(true);
+        }
+    }
+
+    private void sortAddrListByTag() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65561, this) == null) {
+            Collections.sort(this.addrJsonObjects, new Comparator(this) { // from class: com.baidu.sapi2.ecommerce.activity.AddressListActivity.3
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ AddressListActivity this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // java.util.Comparator
+                public int compare(JSONObject jSONObject, JSONObject jSONObject2) {
+                    InterceptResult invokeLL;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, jSONObject2)) == null) {
+                        if (1 == jSONObject.optInt(AddressField.KEY_IS_DEFAULT)) {
+                            return -1;
+                        }
+                        if (1 == jSONObject2.optInt(AddressField.KEY_IS_DEFAULT)) {
+                            return 1;
+                        }
+                        String optString = jSONObject.optString("tag");
+                        String optString2 = jSONObject2.optString("tag");
+                        if (!TextUtils.isEmpty(optString) && TextUtils.isEmpty(optString2)) {
+                            return -1;
+                        }
+                        if (TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
+                            return 1;
+                        }
+                        return 0;
+                    }
+                    return invokeLL.intValue;
+                }
+            });
+        }
+    }
+
+    private void updateAddAddrBtnWrapStatus() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65562, this) == null) {
+            this.addrListView.post(new Runnable(this) { // from class: com.baidu.sapi2.ecommerce.activity.AddressListActivity.4
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ AddressListActivity this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        int lastVisiblePosition = this.this$0.addrListView.getLastVisiblePosition() - this.this$0.addrListView.getFirstVisiblePosition();
+                        Log.d(AddressListActivity.TAG, "visibleCount=" + lastVisiblePosition);
+                        if (lastVisiblePosition <= this.this$0.listAdapter.getCount() + 1) {
+                            this.this$0.addAddrBtnWrap.setVisibility(0);
+                        } else {
+                            this.this$0.addAddrBtnWrap.setVisibility(8);
+                        }
+                    }
+                }
+            });
+        }
+    }
+
+    @Override // androidx.activity.ComponentActivity, android.app.Activity
+    public void onBackPressed() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            endProcess();
+            super.onBackPressed();
+        }
+    }
+
+    @Override // com.baidu.pass.ecommerce.common.mvp.BaseMvpActivity, androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            super.onDestroy();
+        }
+    }
+
+    private void processUpdateNuoMiAddrStatus(List list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65556, this, list) == null) {
+            this.listAdapter.setNuoMiAddressIds(list);
+            ((AddressPresenter) this.presenter).getAddressList(false);
+            AddressStatUtil.statAddressOption(StatKey.NUOMI_AUTH_RESULT);
+        }
+    }
+
+    private void setLoadingViewVisibility(int i) {
+        View view2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65557, this, i) == null) {
+            AddressManageDTO addressManageDTO = this.addressManageDTO;
+            if (addressManageDTO != null && (view2 = addressManageDTO.loadingView) != null) {
+                view2.setVisibility(i);
+            } else {
+                this.loadingView.setVisibility(i);
+            }
+        }
+    }
+
+    @Override // com.baidu.pass.ecommerce.common.mvp.BaseMvpActivity, com.baidu.pass.ecommerce.common.mvp.IBaseView
+    public void showLoading(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048589, this, i) == null) && !isFinishing() && !isDestroyed()) {
+            ToastUtil.show("加载中");
+        }
+    }
+
     private void callbackAddressResult(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65544, this, jSONObject) == null) || this.addressManageCallback == null) {
+        if ((interceptable != null && interceptable.invokeL(65544, this, jSONObject) != null) || this.addressManageCallback == null) {
             return;
         }
         AddressManageResult addressManageResult = new AddressManageResult();
-        HashMap<String, String> hashMap = addressManageResult.map;
+        HashMap hashMap = addressManageResult.map;
         hashMap.put("addrId", jSONObject.optString(AddressField.KEY_ADDR_ID));
         hashMap.put("name", jSONObject.optString("name"));
         hashMap.put("mobile", jSONObject.optString("mobile"));
@@ -153,6 +312,41 @@ public class AddressListActivity extends BaseAddressActivity<AddressPresenter> i
         AddressManagerStat.upload();
     }
 
+    @Override // com.baidu.sapi2.activity.BaseOptionActivity, android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, view2) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            Log.d("ONCLICK", "currentTime=" + currentTimeMillis + " lastClickTime=" + BaseOptionActivity.lastClickTime);
+            if (currentTimeMillis - BaseOptionActivity.lastClickTime < 500) {
+                return;
+            }
+            BaseOptionActivity.lastClickTime = currentTimeMillis;
+            if (view2 != this.addAddrBtn && view2 != this.addAddrBtnAtEmptyView) {
+                if (view2.getId() != R.id.sapi_sdk_addr_list_bottom_back && view2.getId() != R.id.sapi_sdk_titlebar_left_back_btn) {
+                    if (view2.getId() == R.id.sapi_sdk_load_timeout_retry_btn) {
+                        this.loadTimeoutView.setVisibility(8);
+                        loadAddrList();
+                        return;
+                    }
+                    return;
+                }
+                endProcess();
+                finish();
+                return;
+            }
+            AddressStatUtil.statAddressOption(StatKey.ADDRLIST_ADDBTN_CLICK);
+            if (this.listAdapter.getCount() >= 30) {
+                ToastUtil.show("地址最多30个，删除一条再添加吧！");
+                return;
+            }
+            Intent intent = new Intent(this, AddressEditActivity.class);
+            intent.putExtra(AddressEditActivity.KEY_BDSTOKEN_FROM_ADDRLIST, ((AddressPresenter) this.presenter).getBdSTokenFromAddrList());
+            startActivityForResult(intent, 1001);
+            overridePendingTransition(R.anim.sapi_sdk_anim_activity_push_bottom_in, R.anim.sapi_sdk_anim_activity_stay);
+        }
+    }
+
     private void changColorByConfigSetting() {
         String str;
         View view2;
@@ -163,31 +357,30 @@ public class AddressListActivity extends BaseAddressActivity<AddressPresenter> i
                 this.addrListLayout.addView(view2);
                 ((FrameLayout.LayoutParams) this.addressManageDTO.loadingView.getLayoutParams()).gravity = 17;
             }
-            HashMap<PassAddrColorLocation, String> hashMap = this.mAddrListColorMap;
+            HashMap hashMap = this.mAddrListColorMap;
             if (hashMap == null) {
                 return;
             }
-            String str2 = hashMap.get(PassAddrColorLocation.ADD_ADDRESS_TEXT_BG);
+            String str2 = (String) hashMap.get(PassAddrColorLocation.ADD_ADDRESS_TEXT_BG);
             if (!TextUtils.isEmpty(str2)) {
                 this.addAddrBtn.setTextColor(Color.parseColor(str2));
             }
             GradientDrawable gradientDrawable = (GradientDrawable) this.addAddrBtn.getBackground();
             if (this.isDarkMode) {
-                str = this.mAddrListColorMap.get(PassAddrColorLocation.ADD_ADDRESS_BTN_BG_DARKMODE);
+                str = (String) this.mAddrListColorMap.get(PassAddrColorLocation.ADD_ADDRESS_BTN_BG_DARKMODE);
             } else {
-                str = this.mAddrListColorMap.get(PassAddrColorLocation.ADD_ADDRESS_BTN_BG);
+                str = (String) this.mAddrListColorMap.get(PassAddrColorLocation.ADD_ADDRESS_BTN_BG);
             }
             if (!TextUtils.isEmpty(str)) {
                 gradientDrawable.setColor(Color.parseColor(str));
             }
-            String str3 = this.mAddrListColorMap.get(PassAddrColorLocation.ADD_ADDRESS_BTN_CORNER_RADIUS);
-            if (TextUtils.isEmpty(str3)) {
-                return;
-            }
-            try {
-                gradientDrawable.setCornerRadius((int) ((Float.parseFloat(str3) * Resources.getSystem().getDisplayMetrics().density) + 0.5f));
-            } catch (NumberFormatException e) {
-                e.printStackTrace();
+            String str3 = (String) this.mAddrListColorMap.get(PassAddrColorLocation.ADD_ADDRESS_BTN_CORNER_RADIUS);
+            if (!TextUtils.isEmpty(str3)) {
+                try {
+                    gradientDrawable.setCornerRadius((int) ((Float.parseFloat(str3) * Resources.getSystem().getDisplayMetrics().density) + 0.5f));
+                } catch (NumberFormatException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
@@ -212,13 +405,22 @@ public class AddressListActivity extends BaseAddressActivity<AddressPresenter> i
         return (String) invokeV.objValue;
     }
 
-    private void getUserDisplayName() {
-        SapiAccount currentAccount;
+    private void showOptionDialog() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65547, this) == null) || (currentAccount = SapiContext.getInstance().getCurrentAccount()) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(65560, this) == null) {
+            AddrOptionDialog addrOptionDialog = new AddrOptionDialog(this.isDarkMode);
+            this.optionDialog = addrOptionDialog;
+            boolean z = true;
+            addrOptionDialog.setCancelable(true);
+            this.optionDialog.setOptionOnClickListener(this);
+            if (1 != this.optionJsonObj.optInt(AddressField.KEY_IS_DEFAULT)) {
+                z = false;
+            }
+            Bundle bundle = new Bundle();
+            bundle.putBoolean(AddrOptionDialog.KEY_IS_DEFAULT_ADDR, z);
+            this.optionDialog.setArguments(bundle);
+            this.optionDialog.show(getSupportFragmentManager(), OPTION_DIALOG_TAG);
         }
-        this.userDisplayName = currentAccount.displayname;
     }
 
     private void initView() {
@@ -302,6 +504,7 @@ public class AddressListActivity extends BaseAddressActivity<AddressPresenter> i
     }
 
     private void insertNewAddress(JSONObject jSONObject) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65549, this, jSONObject) == null) {
             if (this.addrJsonObjects == null) {
@@ -311,30 +514,85 @@ public class AddressListActivity extends BaseAddressActivity<AddressPresenter> i
             if (this.addrJsonObjects.isEmpty()) {
                 this.addrJsonObjects.add(jSONObject);
             } else {
-                boolean z = 1 == jSONObject.optInt(AddressField.KEY_IS_DEFAULT, 0);
-                JSONObject jSONObject2 = this.addrJsonObjects.get(0);
+                int i = 0;
+                if (1 == jSONObject.optInt(AddressField.KEY_IS_DEFAULT, 0)) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                JSONObject jSONObject2 = (JSONObject) this.addrJsonObjects.get(0);
                 if (z) {
                     JsonFieldConverter.putInt(AddressField.KEY_IS_DEFAULT, 0, jSONObject2);
                     this.addrJsonObjects.add(0, jSONObject);
                 } else {
-                    this.addrJsonObjects.add(1 == jSONObject2.optInt(AddressField.KEY_IS_DEFAULT, 0) ? 1 : 0, jSONObject);
+                    if (1 == jSONObject2.optInt(AddressField.KEY_IS_DEFAULT, 0)) {
+                        i = 1;
+                    }
+                    this.addrJsonObjects.add(i, jSONObject);
                 }
             }
             updateAddrListView();
         }
     }
 
-    private void loadAddrList() {
+    private void processUpdateAddrResult(Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65550, this) == null) {
-            setLoadingViewVisibility(0);
-            ((AddressPresenter) this.presenter).getAddressList(true);
+        if ((interceptable != null && interceptable.invokeL(65555, this, intent) != null) || intent == null || this.addrJsonObjects == null) {
+            return;
+        }
+        String stringExtra = intent.getStringExtra(DEL_ADDRESS_ID);
+        if (!TextUtils.isEmpty(stringExtra)) {
+            Iterator it = this.addrJsonObjects.iterator();
+            while (true) {
+                if (!it.hasNext()) {
+                    break;
+                } else if (TextUtils.equals(((JSONObject) it.next()).optString(AddressField.KEY_ADDR_ID), stringExtra)) {
+                    it.remove();
+                    break;
+                }
+            }
+            updateAddrListView();
+            return;
+        }
+        JSONObject createAddressJsonObj = AddressConverter.createAddressJsonObj((MapObject) intent.getParcelableExtra(CREATE_ADDRESS_RESULT), (AddressSelectedBean) intent.getSerializableExtra(CREATE_REGION_RESULT));
+        int i = 0;
+        while (true) {
+            if (i >= this.addrJsonObjects.size()) {
+                break;
+            } else if (TextUtils.equals(((JSONObject) this.addrJsonObjects.get(i)).optString(AddressField.KEY_ADDR_ID), createAddressJsonObj.optString(AddressField.KEY_ADDR_ID))) {
+                this.addrJsonObjects.remove(i);
+                break;
+            } else {
+                i++;
+            }
+        }
+        insertNewAddress(createAddressJsonObj);
+    }
+
+    @Override // com.baidu.pass.ecommerce.dialog.AddrOptionDialog.OptionOnClickListener
+    public void onOptionClick(int i) {
+        JSONObject jSONObject;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048588, this, i) != null) || (jSONObject = this.optionJsonObj) == null) {
+            return;
+        }
+        if (1001 == i) {
+            ((AddressPresenter) this.presenter).setAddressDefaultStatus(jSONObject);
+        } else if (1002 == i) {
+            String optString = jSONObject.optString(AddressField.KEY_ADDR_ID);
+            if (TextUtils.isEmpty(optString)) {
+                return;
+            }
+            ((AddressPresenter) this.presenter).delAddress(optString);
+        } else if (1003 == i) {
+            ((ClipboardManager) getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD)).setPrimaryClip(ClipData.newPlainText("address", this.optionJsonObj.optString("name") + "\n" + this.optionJsonObj.optString("mobile") + "\n" + getOptionRegionStr()));
+            ToastUtil.show(R.drawable.sapi_sdk_common_success_ic, "复制成功");
         }
     }
 
     private void processAddAddrResult(Intent intent) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65551, this, intent) == null) || intent == null) {
+        if ((interceptable != null && interceptable.invokeL(65551, this, intent) != null) || intent == null) {
             return;
         }
         JSONObject createAddressJsonObj = AddressConverter.createAddressJsonObj((MapObject) intent.getParcelableExtra(CREATE_ADDRESS_RESULT), (AddressSelectedBean) intent.getSerializableExtra(CREATE_REGION_RESULT));
@@ -350,18 +608,37 @@ public class AddressListActivity extends BaseAddressActivity<AddressPresenter> i
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65552, this, obj) == null) {
             String str = (String) obj;
-            ListIterator<JSONObject> listIterator = this.addrJsonObjects.listIterator();
+            ListIterator listIterator = this.addrJsonObjects.listIterator();
             while (true) {
                 if (!listIterator.hasNext()) {
                     break;
                 }
-                JSONObject next = listIterator.next();
-                if (next != null && TextUtils.equals(str, next.optString(AddressField.KEY_ADDR_ID))) {
+                JSONObject jSONObject = (JSONObject) listIterator.next();
+                if (jSONObject != null && TextUtils.equals(str, jSONObject.optString(AddressField.KEY_ADDR_ID))) {
                     listIterator.remove();
                     break;
                 }
             }
             updateAddrListView();
+        }
+    }
+
+    @Override // com.baidu.sapi2.ecommerce.activity.BaseAddressActivity, com.baidu.pass.ecommerce.common.mvp.BaseMvpActivity, com.baidu.sapi2.activity.BaseOptionActivity, androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
+            super.onCreate(bundle);
+            AddressStatUtil.statAddressOption(StatKey.ADDRLIST_ENTER);
+            setContentView(R.layout.layout_sapi_sdk_address_list_activity);
+            ViewUtility.enableStatusBarTint(this, getResources().getColor(R.color.sapi_sek_title_bar_bg_start_color));
+            AddressManageDTO addressManageDTO = this.addressManageDTO;
+            if (addressManageDTO != null) {
+                this.mAddrListColorMap = addressManageDTO.addrListColorMap;
+                this.addrListTextStyle = addressManageDTO.addrListTextStyle;
+            }
+            initView();
+            loadAddrList();
+            getUserDisplayName();
         }
     }
 
@@ -447,82 +724,82 @@ public class AddressListActivity extends BaseAddressActivity<AddressPresenter> i
         }
     }
 
+    private void showLoadTimeView() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65559, this) == null) {
+            if (this.loadTimeoutView == null) {
+                ViewStub viewStub = (ViewStub) findViewById(R.id.sapi_sdk_load_time);
+                this.loadTimeoutView = viewStub.inflate();
+                viewStub.setVisibility(0);
+                this.retryLoadAddrListBtn = findViewById(R.id.sapi_sdk_load_timeout_retry_btn);
+                TextView textView = (TextView) findViewById(R.id.sapi_sdk_notice_net_error);
+                TextView textView2 = (TextView) findViewById(R.id.sapi_sdk_load_timeout_retry_btn);
+                this.retryLoadAddrListBtn.setOnClickListener(this);
+                if (this.isDarkMode) {
+                    this.loadTimeoutView.setBackgroundColor(getResources().getColor(R.color.sapi_sdk_addr_list_bg_color));
+                    textView.setTextColor(getResources().getColor(R.color.sapi_sdk_addr_list_item_addr_text_dark_color));
+                    this.retryLoadAddrListBtn.setBackgroundResource(R.drawable.sapi_sdk_common_reload_btn_dark_bg);
+                    textView2.setTextColor(getResources().getColor(R.color.sapi_sdk_common_select_btn_text_dark_color));
+                }
+            }
+            this.loadTimeoutView.setVisibility(0);
+            View view2 = this.emptyView;
+            if (view2 != null) {
+                view2.setVisibility(8);
+            }
+            this.addAddrBtnWrapLayout.setVisibility(8);
+            this.addrListView.setVisibility(8);
+        }
+    }
+
+    private void updateAddrListView() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65563, this) == null) {
+            List list = this.addrJsonObjects;
+            if (list != null && !list.isEmpty()) {
+                View view2 = this.emptyView;
+                if (view2 != null) {
+                    view2.setVisibility(8);
+                }
+                sortAddrListByTag();
+                this.addrListView.setVisibility(0);
+                this.addAddrBtnWrapLayout.setVisibility(0);
+                this.listAdapter.setData(this.addrJsonObjects);
+                updateAddAddrBtnWrapStatus();
+                StringBuilder sb = new StringBuilder(this.userDisplayName);
+                if (sb.length() > 0) {
+                    sb.append("，");
+                }
+                sb.append("你有");
+                sb.append(this.addrJsonObjects.size());
+                sb.append("个地址");
+                this.addrListCountTv.setText(sb.toString());
+                return;
+            }
+            showEmpty();
+        }
+    }
+
     private void processSetAddrDefaultStatus(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65554, this, obj) == null) {
             String str = (String) obj;
-            ListIterator<JSONObject> listIterator = this.addrJsonObjects.listIterator();
+            ListIterator listIterator = this.addrJsonObjects.listIterator();
             while (listIterator.hasNext()) {
-                JSONObject next = listIterator.next();
-                if (next != null) {
-                    if (TextUtils.equals(str, next.optString(AddressField.KEY_ADDR_ID))) {
+                JSONObject jSONObject = (JSONObject) listIterator.next();
+                if (jSONObject != null) {
+                    if (TextUtils.equals(str, jSONObject.optString(AddressField.KEY_ADDR_ID))) {
                         if (1 == this.optionJsonObj.optInt(AddressField.KEY_IS_DEFAULT)) {
-                            JsonFieldConverter.putInt(AddressField.KEY_IS_DEFAULT, 0, next);
+                            JsonFieldConverter.putInt(AddressField.KEY_IS_DEFAULT, 0, jSONObject);
                         } else {
-                            JsonFieldConverter.putInt(AddressField.KEY_IS_DEFAULT, 1, next);
+                            JsonFieldConverter.putInt(AddressField.KEY_IS_DEFAULT, 1, jSONObject);
                         }
                     } else {
-                        JsonFieldConverter.putInt(AddressField.KEY_IS_DEFAULT, 0, next);
+                        JsonFieldConverter.putInt(AddressField.KEY_IS_DEFAULT, 0, jSONObject);
                     }
                 }
             }
             updateAddrListView();
-        }
-    }
-
-    private void processUpdateAddrResult(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65555, this, intent) == null) || intent == null || this.addrJsonObjects == null) {
-            return;
-        }
-        String stringExtra = intent.getStringExtra(DEL_ADDRESS_ID);
-        if (!TextUtils.isEmpty(stringExtra)) {
-            Iterator<JSONObject> it = this.addrJsonObjects.iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    break;
-                } else if (TextUtils.equals(it.next().optString(AddressField.KEY_ADDR_ID), stringExtra)) {
-                    it.remove();
-                    break;
-                }
-            }
-            updateAddrListView();
-            return;
-        }
-        JSONObject createAddressJsonObj = AddressConverter.createAddressJsonObj((MapObject) intent.getParcelableExtra(CREATE_ADDRESS_RESULT), (AddressSelectedBean) intent.getSerializableExtra(CREATE_REGION_RESULT));
-        int i = 0;
-        while (true) {
-            if (i >= this.addrJsonObjects.size()) {
-                break;
-            } else if (TextUtils.equals(this.addrJsonObjects.get(i).optString(AddressField.KEY_ADDR_ID), createAddressJsonObj.optString(AddressField.KEY_ADDR_ID))) {
-                this.addrJsonObjects.remove(i);
-                break;
-            } else {
-                i++;
-            }
-        }
-        insertNewAddress(createAddressJsonObj);
-    }
-
-    private void processUpdateNuoMiAddrStatus(List<String> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65556, this, list) == null) {
-            this.listAdapter.setNuoMiAddressIds(list);
-            ((AddressPresenter) this.presenter).getAddressList(false);
-            AddressStatUtil.statAddressOption(StatKey.NUOMI_AUTH_RESULT);
-        }
-    }
-
-    private void setLoadingViewVisibility(int i) {
-        View view2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65557, this, i) == null) {
-            AddressManageDTO addressManageDTO = this.addressManageDTO;
-            if (addressManageDTO != null && (view2 = addressManageDTO.loadingView) != null) {
-                view2.setVisibility(i);
-            } else {
-                this.loadingView.setVisibility(i);
-            }
         }
     }
 
@@ -555,169 +832,15 @@ public class AddressListActivity extends BaseAddressActivity<AddressPresenter> i
         }
     }
 
-    private void showLoadTimeView() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.pass.ecommerce.common.mvp.BaseMvpActivity
+    public AddressPresenter createPresenter() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65559, this) == null) {
-            if (this.loadTimeoutView == null) {
-                ViewStub viewStub = (ViewStub) findViewById(R.id.sapi_sdk_load_time);
-                this.loadTimeoutView = viewStub.inflate();
-                viewStub.setVisibility(0);
-                this.retryLoadAddrListBtn = findViewById(R.id.sapi_sdk_load_timeout_retry_btn);
-                TextView textView = (TextView) findViewById(R.id.sapi_sdk_notice_net_error);
-                TextView textView2 = (TextView) findViewById(R.id.sapi_sdk_load_timeout_retry_btn);
-                this.retryLoadAddrListBtn.setOnClickListener(this);
-                if (this.isDarkMode) {
-                    this.loadTimeoutView.setBackgroundColor(getResources().getColor(R.color.sapi_sdk_addr_list_bg_color));
-                    textView.setTextColor(getResources().getColor(R.color.sapi_sdk_addr_list_item_addr_text_dark_color));
-                    this.retryLoadAddrListBtn.setBackgroundResource(R.drawable.sapi_sdk_common_reload_btn_dark_bg);
-                    textView2.setTextColor(getResources().getColor(R.color.sapi_sdk_common_select_btn_text_dark_color));
-                }
-            }
-            this.loadTimeoutView.setVisibility(0);
-            View view2 = this.emptyView;
-            if (view2 != null) {
-                view2.setVisibility(8);
-            }
-            this.addAddrBtnWrapLayout.setVisibility(8);
-            this.addrListView.setVisibility(8);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return new AddressPresenter();
         }
-    }
-
-    private void showOptionDialog() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65560, this) == null) {
-            AddrOptionDialog addrOptionDialog = new AddrOptionDialog(this.isDarkMode);
-            this.optionDialog = addrOptionDialog;
-            addrOptionDialog.setCancelable(true);
-            this.optionDialog.setOptionOnClickListener(this);
-            boolean z = 1 == this.optionJsonObj.optInt(AddressField.KEY_IS_DEFAULT);
-            Bundle bundle = new Bundle();
-            bundle.putBoolean(AddrOptionDialog.KEY_IS_DEFAULT_ADDR, z);
-            this.optionDialog.setArguments(bundle);
-            this.optionDialog.show(getSupportFragmentManager(), OPTION_DIALOG_TAG);
-        }
-    }
-
-    private void sortAddrListByTag() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65561, this) == null) {
-            Collections.sort(this.addrJsonObjects, new Comparator<JSONObject>(this) { // from class: com.baidu.sapi2.ecommerce.activity.AddressListActivity.3
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ AddressListActivity this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // java.util.Comparator
-                public int compare(JSONObject jSONObject, JSONObject jSONObject2) {
-                    InterceptResult invokeLL;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, jSONObject2)) == null) {
-                        if (1 == jSONObject.optInt(AddressField.KEY_IS_DEFAULT)) {
-                            return -1;
-                        }
-                        if (1 == jSONObject2.optInt(AddressField.KEY_IS_DEFAULT)) {
-                            return 1;
-                        }
-                        String optString = jSONObject.optString("tag");
-                        String optString2 = jSONObject2.optString("tag");
-                        if (TextUtils.isEmpty(optString) || !TextUtils.isEmpty(optString2)) {
-                            return (!TextUtils.isEmpty(optString) || TextUtils.isEmpty(optString2)) ? 0 : 1;
-                        }
-                        return -1;
-                    }
-                    return invokeLL.intValue;
-                }
-            });
-        }
-    }
-
-    private void updateAddAddrBtnWrapStatus() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65562, this) == null) {
-            this.addrListView.post(new Runnable(this) { // from class: com.baidu.sapi2.ecommerce.activity.AddressListActivity.4
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ AddressListActivity this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        int lastVisiblePosition = this.this$0.addrListView.getLastVisiblePosition() - this.this$0.addrListView.getFirstVisiblePosition();
-                        Log.d(AddressListActivity.TAG, "visibleCount=" + lastVisiblePosition);
-                        if (lastVisiblePosition <= this.this$0.listAdapter.getCount() + 1) {
-                            this.this$0.addAddrBtnWrap.setVisibility(0);
-                        } else {
-                            this.this$0.addAddrBtnWrap.setVisibility(8);
-                        }
-                    }
-                }
-            });
-        }
-    }
-
-    private void updateAddrListView() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65563, this) == null) {
-            List<JSONObject> list = this.addrJsonObjects;
-            if (list != null && !list.isEmpty()) {
-                View view2 = this.emptyView;
-                if (view2 != null) {
-                    view2.setVisibility(8);
-                }
-                sortAddrListByTag();
-                this.addrListView.setVisibility(0);
-                this.addAddrBtnWrapLayout.setVisibility(0);
-                this.listAdapter.setData(this.addrJsonObjects);
-                updateAddAddrBtnWrapStatus();
-                StringBuilder sb = new StringBuilder(this.userDisplayName);
-                if (sb.length() > 0) {
-                    sb.append("，");
-                }
-                sb.append("你有");
-                sb.append(this.addrJsonObjects.size());
-                sb.append("个地址");
-                this.addrListCountTv.setText(sb.toString());
-                return;
-            }
-            showEmpty();
-        }
+        return (AddressPresenter) invokeV.objValue;
     }
 
     @Override // com.baidu.pass.ecommerce.common.mvp.IBaseView
@@ -727,14 +850,40 @@ public class AddressListActivity extends BaseAddressActivity<AddressPresenter> i
             LoadingUtil.cancel();
             setLoadingViewVisibility(8);
             if (i != 1000) {
-                if (TextUtils.isEmpty(str)) {
+                if (!TextUtils.isEmpty(str)) {
+                    ToastUtil.show(R.drawable.sapi_sdk_common_error_ic, str);
                     return;
                 }
-                ToastUtil.show(R.drawable.sapi_sdk_common_error_ic, str);
                 return;
             }
             showLoadTimeView();
         }
+    }
+
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView adapterView, View view2, int i, long j) {
+        int headerViewsCount;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) && (headerViewsCount = i - this.addrListView.getHeaderViewsCount()) >= 0 && headerViewsCount < this.listAdapter.getCount()) {
+            callbackAddressResult((JSONObject) this.listAdapter.getItem(headerViewsCount));
+            finish();
+        }
+    }
+
+    @Override // android.widget.AdapterView.OnItemLongClickListener
+    public boolean onItemLongClick(AdapterView adapterView, View view2, int i, long j) {
+        InterceptResult invokeCommon;
+        int headerViewsCount;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)})) == null) {
+            if (i < this.addrListView.getHeaderViewsCount() || (headerViewsCount = i - this.addrListView.getHeaderViewsCount()) >= this.listAdapter.getCount()) {
+                return false;
+            }
+            this.optionJsonObj = (JSONObject) this.listAdapter.getItem(headerViewsCount);
+            showOptionDialog();
+            return true;
+        }
+        return invokeCommon.booleanValue;
     }
 
     @Override // com.baidu.pass.ecommerce.common.mvp.IBaseView
@@ -743,20 +892,28 @@ public class AddressListActivity extends BaseAddressActivity<AddressPresenter> i
         if (interceptable == null || interceptable.invokeILL(1048579, this, i, obj, str) == null) {
             LoadingUtil.cancel();
             setLoadingViewVisibility(8);
-            if (i == 1000) {
-                this.addrJsonObjects = (List) obj;
-                updateAddrListView();
-                AddressStatUtil.statAddressOption(StatKey.ADDRLIST_LOADTIME, gapTimeFromEnter());
-            } else if (i == 1002) {
+            if (i != 1000) {
+                if (i != 1002) {
+                    if (i != 1003) {
+                        if (i != 10001) {
+                            if (i == 10002) {
+                                processUpdateNuoMiAddrStatus((List) obj);
+                                return;
+                            }
+                            return;
+                        }
+                        processNuoMiAddressStatus();
+                        return;
+                    }
+                    processSetAddrDefaultStatus(str);
+                    return;
+                }
                 processDelAddrResult(str);
-            } else if (i == 1003) {
-                processSetAddrDefaultStatus(str);
-            } else if (i == 10001) {
-                processNuoMiAddressStatus();
-            } else if (i != 10002) {
-            } else {
-                processUpdateNuoMiAddrStatus((List) obj);
+                return;
             }
+            this.addrJsonObjects = (List) obj;
+            updateAddrListView();
+            AddressStatUtil.statAddressOption(StatKey.ADDRLIST_LOADTIME, gapTimeFromEnter());
         }
     }
 
@@ -775,7 +932,7 @@ public class AddressListActivity extends BaseAddressActivity<AddressPresenter> i
     }
 
     @Override // com.baidu.sapi2.activity.BaseOptionActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, @Nullable Intent intent) {
+    public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048581, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
@@ -785,141 +942,5 @@ public class AddressListActivity extends BaseAddressActivity<AddressPresenter> i
                 processUpdateAddrResult(intent);
             }
         }
-    }
-
-    @Override // androidx.activity.ComponentActivity, android.app.Activity
-    public void onBackPressed() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            endProcess();
-            super.onBackPressed();
-        }
-    }
-
-    @Override // com.baidu.sapi2.activity.BaseOptionActivity, android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, view2) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            Log.d("ONCLICK", "currentTime=" + currentTimeMillis + " lastClickTime=" + BaseOptionActivity.lastClickTime);
-            if (currentTimeMillis - BaseOptionActivity.lastClickTime < 500) {
-                return;
-            }
-            BaseOptionActivity.lastClickTime = currentTimeMillis;
-            if (view2 != this.addAddrBtn && view2 != this.addAddrBtnAtEmptyView) {
-                if (view2.getId() != R.id.sapi_sdk_addr_list_bottom_back && view2.getId() != R.id.sapi_sdk_titlebar_left_back_btn) {
-                    if (view2.getId() == R.id.sapi_sdk_load_timeout_retry_btn) {
-                        this.loadTimeoutView.setVisibility(8);
-                        loadAddrList();
-                        return;
-                    }
-                    return;
-                }
-                endProcess();
-                finish();
-                return;
-            }
-            AddressStatUtil.statAddressOption(StatKey.ADDRLIST_ADDBTN_CLICK);
-            if (this.listAdapter.getCount() >= 30) {
-                ToastUtil.show("地址最多30个，删除一条再添加吧！");
-                return;
-            }
-            Intent intent = new Intent(this, AddressEditActivity.class);
-            intent.putExtra(AddressEditActivity.KEY_BDSTOKEN_FROM_ADDRLIST, ((AddressPresenter) this.presenter).getBdSTokenFromAddrList());
-            startActivityForResult(intent, 1001);
-            overridePendingTransition(R.anim.sapi_sdk_anim_activity_push_bottom_in, R.anim.sapi_sdk_anim_activity_stay);
-        }
-    }
-
-    @Override // com.baidu.sapi2.ecommerce.activity.BaseAddressActivity, com.baidu.pass.ecommerce.common.mvp.BaseMvpActivity, com.baidu.sapi2.activity.BaseOptionActivity, androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
-            super.onCreate(bundle);
-            AddressStatUtil.statAddressOption(StatKey.ADDRLIST_ENTER);
-            setContentView(R.layout.layout_sapi_sdk_address_list_activity);
-            ViewUtility.enableStatusBarTint(this, getResources().getColor(R.color.sapi_sek_title_bar_bg_start_color));
-            AddressManageDTO addressManageDTO = this.addressManageDTO;
-            if (addressManageDTO != null) {
-                this.mAddrListColorMap = addressManageDTO.addrListColorMap;
-                this.addrListTextStyle = addressManageDTO.addrListTextStyle;
-            }
-            initView();
-            loadAddrList();
-            getUserDisplayName();
-        }
-    }
-
-    @Override // com.baidu.pass.ecommerce.common.mvp.BaseMvpActivity, androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            super.onDestroy();
-        }
-    }
-
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-        int headerViewsCount;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) || (headerViewsCount = i - this.addrListView.getHeaderViewsCount()) < 0 || headerViewsCount >= this.listAdapter.getCount()) {
-            return;
-        }
-        callbackAddressResult(this.listAdapter.getItem(headerViewsCount));
-        finish();
-    }
-
-    @Override // android.widget.AdapterView.OnItemLongClickListener
-    public boolean onItemLongClick(AdapterView<?> adapterView, View view2, int i, long j) {
-        InterceptResult invokeCommon;
-        int headerViewsCount;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)})) == null) {
-            if (i >= this.addrListView.getHeaderViewsCount() && (headerViewsCount = i - this.addrListView.getHeaderViewsCount()) < this.listAdapter.getCount()) {
-                this.optionJsonObj = this.listAdapter.getItem(headerViewsCount);
-                showOptionDialog();
-                return true;
-            }
-            return false;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    @Override // com.baidu.pass.ecommerce.dialog.AddrOptionDialog.OptionOnClickListener
-    public void onOptionClick(int i) {
-        JSONObject jSONObject;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048588, this, i) == null) || (jSONObject = this.optionJsonObj) == null) {
-            return;
-        }
-        if (1001 == i) {
-            ((AddressPresenter) this.presenter).setAddressDefaultStatus(jSONObject);
-        } else if (1002 == i) {
-            String optString = jSONObject.optString(AddressField.KEY_ADDR_ID);
-            if (TextUtils.isEmpty(optString)) {
-                return;
-            }
-            ((AddressPresenter) this.presenter).delAddress(optString);
-        } else if (1003 == i) {
-            ((ClipboardManager) getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD)).setPrimaryClip(ClipData.newPlainText("address", this.optionJsonObj.optString("name") + "\n" + this.optionJsonObj.optString("mobile") + "\n" + getOptionRegionStr()));
-            ToastUtil.show(R.drawable.sapi_sdk_common_success_ic, "复制成功");
-        }
-    }
-
-    @Override // com.baidu.pass.ecommerce.common.mvp.BaseMvpActivity, com.baidu.pass.ecommerce.common.mvp.IBaseView
-    public void showLoading(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048589, this, i) == null) || isFinishing() || isDestroyed()) {
-            return;
-        }
-        ToastUtil.show("加载中");
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.pass.ecommerce.common.mvp.BaseMvpActivity
-    public AddressPresenter createPresenter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new AddressPresenter() : (AddressPresenter) invokeV.objValue;
     }
 }

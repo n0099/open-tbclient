@@ -14,7 +14,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.poly.widget.PayChannelEntity;
 import com.baidu.poly.widget.SwitchButton;
 import com.baidu.tieba.R;
-import com.baidu.tieba.tc1;
+import com.baidu.tieba.uc1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -29,6 +29,13 @@ public class HostMarketView extends FrameLayout {
     public PayChannelEntity d;
     public c e;
     public boolean f;
+
+    /* loaded from: classes2.dex */
+    public interface c {
+        void a(boolean z, PayChannelEntity payChannelEntity, uc1 uc1Var);
+
+        void b(uc1.a aVar);
+    }
 
     /* loaded from: classes2.dex */
     public class a implements CompoundButton.OnCheckedChangeListener {
@@ -57,14 +64,15 @@ public class HostMarketView extends FrameLayout {
         @Override // android.widget.CompoundButton.OnCheckedChangeListener
         public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLZ(1048576, this, compoundButton, z) == null) {
-                this.a.g(z);
+            if (interceptable != null && interceptable.invokeLZ(1048576, this, compoundButton, z) != null) {
+                return;
             }
+            this.a.g(z);
         }
     }
 
     /* loaded from: classes2.dex */
-    public class b implements tc1 {
+    public class b implements uc1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HostMarketView a;
@@ -87,8 +95,8 @@ public class HostMarketView extends FrameLayout {
             this.a = hostMarketView;
         }
 
-        @Override // com.baidu.tieba.tc1
-        public void a(tc1.a aVar) {
+        @Override // com.baidu.tieba.uc1
+        public void a(uc1.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 this.a.e.b(aVar);
@@ -97,18 +105,11 @@ public class HostMarketView extends FrameLayout {
                 }
                 if (aVar.a != 0) {
                     this.a.c.i();
-                    Toast.makeText(this.a.getContext(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f087c), 0).show();
+                    Toast.makeText(this.a.getContext(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0888), 0).show();
                 }
                 this.a.d.setIsSelected(this.a.c.isChecked() ? 1 : 0);
             }
         }
-    }
-
-    /* loaded from: classes2.dex */
-    public interface c {
-        void a(boolean z, PayChannelEntity payChannelEntity, tc1 tc1Var);
-
-        void b(tc1.a aVar);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -135,68 +136,12 @@ public class HostMarketView extends FrameLayout {
     public final void e(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d039a, (ViewGroup) this, true);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f092219);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091fae);
-            SwitchButton switchButton = (SwitchButton) findViewById(R.id.obfuscated_res_0x7f091fff);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0397, (ViewGroup) this, true);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f092203);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091fac);
+            SwitchButton switchButton = (SwitchButton) findViewById(R.id.obfuscated_res_0x7f091ffe);
             this.c = switchButton;
             switchButton.setOnCheckedChangeListener(new a(this));
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.d == null) {
-                setVisibility(8);
-                return;
-            }
-            setVisibility(0);
-            this.a.setText(this.d.getDisplayName());
-            this.b.setText(this.d.getPayText());
-            if (!TextUtils.isEmpty(this.d.getDisplayColor())) {
-                try {
-                    this.b.setTextColor(Color.parseColor(this.d.getDisplayColor()));
-                } catch (Exception unused) {
-                }
-            }
-            if (this.f) {
-                this.c.setVisibility(4);
-                return;
-            }
-            this.c.setVisibility(0);
-            if (this.d.getIsSelected() == 1) {
-                this.c.setChecked(true);
-            } else {
-                this.c.setChecked(false);
-            }
-        }
-    }
-
-    public final void g(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || this.e == null) {
-            return;
-        }
-        this.d.setIsSelected(this.c.isChecked() ? 1 : 0);
-        this.e.a(z, this.d, new b(this));
-    }
-
-    public void setListener(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
-            this.e = cVar;
-        }
-    }
-
-    public void update(PayChannelEntity payChannelEntity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, payChannelEntity) == null) {
-            this.d = payChannelEntity;
-            if (payChannelEntity != null) {
-                this.f = payChannelEntity.getIsSelected() == 1;
-            }
-            f();
         }
     }
 
@@ -242,5 +187,65 @@ public class HostMarketView extends FrameLayout {
         }
         this.f = false;
         e(context);
+    }
+
+    public final void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) != null) || this.e == null) {
+            return;
+        }
+        this.d.setIsSelected(this.c.isChecked() ? 1 : 0);
+        this.e.a(z, this.d, new b(this));
+    }
+
+    public void setListener(c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
+            this.e = cVar;
+        }
+    }
+
+    public void update(PayChannelEntity payChannelEntity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, payChannelEntity) == null) {
+            this.d = payChannelEntity;
+            if (payChannelEntity != null) {
+                boolean z = true;
+                if (payChannelEntity.getIsSelected() != 1) {
+                    z = false;
+                }
+                this.f = z;
+            }
+            f();
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (this.d == null) {
+                setVisibility(8);
+                return;
+            }
+            setVisibility(0);
+            this.a.setText(this.d.getDisplayName());
+            this.b.setText(this.d.getPayText());
+            if (!TextUtils.isEmpty(this.d.getDisplayColor())) {
+                try {
+                    this.b.setTextColor(Color.parseColor(this.d.getDisplayColor()));
+                } catch (Exception unused) {
+                }
+            }
+            if (this.f) {
+                this.c.setVisibility(4);
+                return;
+            }
+            this.c.setVisibility(0);
+            if (this.d.getIsSelected() == 1) {
+                this.c.setChecked(true);
+            } else {
+                this.c.setChecked(false);
+            }
+        }
     }
 }

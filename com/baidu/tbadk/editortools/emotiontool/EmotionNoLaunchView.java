@@ -11,20 +11,27 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h55;
-import com.baidu.tieba.t55;
+import com.baidu.tieba.l55;
+import com.baidu.tieba.x55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class EmotionNoLaunchView extends AppCompatImageView implements t55 {
+public class EmotionNoLaunchView extends AppCompatImageView implements x55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public EditorTools b;
     public boolean c;
+
+    @Override // com.baidu.tieba.m55
+    public void B(l55 l55Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, l55Var) != null) || l55Var == null) {
+        }
+    }
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -61,10 +68,10 @@ public class EmotionNoLaunchView extends AppCompatImageView implements t55 {
                 }
                 EmotionNoLaunchView emotionNoLaunchView = this.a;
                 emotionNoLaunchView.setSelected(emotionNoLaunchView.c);
-                this.a.K(new h55(1, 3, null));
-                this.a.K(new h55(1, 5, null));
+                this.a.K(new l55(1, 3, null));
+                this.a.K(new l55(1, 5, null));
                 EmotionNoLaunchView emotionNoLaunchView2 = this.a;
-                emotionNoLaunchView2.K(new h55(62, 0, Boolean.valueOf(emotionNoLaunchView2.c)));
+                emotionNoLaunchView2.K(new l55(62, 0, Boolean.valueOf(emotionNoLaunchView2.c)));
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921706, Boolean.TRUE));
             }
         }
@@ -88,82 +95,6 @@ public class EmotionNoLaunchView extends AppCompatImageView implements t55 {
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.i55
-    public void B(h55 h55Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, h55Var) != null) || h55Var == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.t55
-    public void K(h55 h55Var) {
-        EditorTools editorTools;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h55Var) == null) || (editorTools = this.b) == null) {
-            return;
-        }
-        editorTools.A(h55Var);
-    }
-
-    @Override // com.baidu.tieba.t55
-    public void display() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            setVisibility(0);
-            if (this.c) {
-                this.c = false;
-                setSelected(false);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.t55
-    public int getToolId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.t55
-    public void hide() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            setVisibility(8);
-        }
-    }
-
-    @Override // com.baidu.tieba.t55
-    public void init() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            setOnClickListener(new a(this));
-        }
-    }
-
-    @Override // com.baidu.tieba.t55
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            setImageDrawable(WebPManager.getSeletableDrawableForEditorToolsEM(R.drawable.obfuscated_res_0x7f0809bb, R.drawable.obfuscated_res_0x7f08081e, R.color.CAM_X0105, R.color.CAM_X0105, i));
-        }
-    }
-
-    @Override // com.baidu.tieba.t55
-    public void setEditorTools(EditorTools editorTools) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, editorTools) == null) {
-            this.b = editorTools;
-        }
-    }
-
-    @Override // com.baidu.tieba.t55
-    public void setToolId(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.a = i;
         }
     }
 
@@ -209,5 +140,76 @@ public class EmotionNoLaunchView extends AppCompatImageView implements t55 {
         }
         this.a = 0;
         init();
+    }
+
+    @Override // com.baidu.tieba.x55
+    public void K(l55 l55Var) {
+        EditorTools editorTools;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l55Var) == null) && (editorTools = this.b) != null) {
+            editorTools.A(l55Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.x55
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            setImageDrawable(WebPManager.getSeletableDrawableForEditorToolsEM(R.drawable.obfuscated_res_0x7f0809bb, R.drawable.obfuscated_res_0x7f080822, R.color.CAM_X0105, R.color.CAM_X0105, i));
+        }
+    }
+
+    @Override // com.baidu.tieba.x55
+    public void setEditorTools(EditorTools editorTools) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, editorTools) == null) {
+            this.b = editorTools;
+        }
+    }
+
+    @Override // com.baidu.tieba.x55
+    public void setToolId(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.a = i;
+        }
+    }
+
+    @Override // com.baidu.tieba.x55
+    public void display() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            setVisibility(0);
+            if (this.c) {
+                this.c = false;
+                setSelected(false);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.x55
+    public int getToolId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.x55
+    public void hide() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            setVisibility(8);
+        }
+    }
+
+    @Override // com.baidu.tieba.x55
+    public void init() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            setOnClickListener(new a(this));
+        }
     }
 }

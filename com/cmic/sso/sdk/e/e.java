@@ -11,7 +11,7 @@ import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes7.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
-    public static ConcurrentHashMap<String, TokenListener> a;
+    public static ConcurrentHashMap a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,13 +27,32 @@ public class e {
                 return;
             }
         }
-        a = new ConcurrentHashMap<>(16);
+        a = new ConcurrentHashMap(16);
+    }
+
+    public static boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a.isEmpty();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void a(String str, TokenListener tokenListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, tokenListener) == null) {
+            a.put(str, tokenListener);
+        }
     }
 
     public static boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? !a.containsKey(str) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return !a.containsKey(str);
+        }
+        return invokeL.booleanValue;
     }
 
     public static void b(String str) {
@@ -46,19 +65,9 @@ public class e {
     public static TokenListener c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? a.get(str) : (TokenListener) invokeL.objValue;
-    }
-
-    public static void a(String str, TokenListener tokenListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, tokenListener) == null) {
-            a.put(str, tokenListener);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            return (TokenListener) a.get(str);
         }
-    }
-
-    public static boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.isEmpty() : invokeV.booleanValue;
+        return (TokenListener) invokeL.objValue;
     }
 }

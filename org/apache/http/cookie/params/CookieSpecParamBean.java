@@ -35,7 +35,7 @@ public class CookieSpecParamBean extends HttpAbstractParamBean {
         throw new RuntimeException("Stub!");
     }
 
-    public void setDatePatterns(Collection<String> collection) {
+    public void setDatePatterns(Collection collection) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, collection) == null) {
             throw new RuntimeException("Stub!");

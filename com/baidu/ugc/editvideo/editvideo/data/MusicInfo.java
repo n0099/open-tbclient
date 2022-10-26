@@ -14,7 +14,7 @@ import java.io.Serializable;
 /* loaded from: classes6.dex */
 public class MusicInfo implements Parcelable, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator<MusicInfo> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public static final long serialVersionUID = 3;
     public transient /* synthetic */ FieldHolder $fh;
     public String author_name;
@@ -47,7 +47,7 @@ public class MusicInfo implements Parcelable, Serializable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<MusicInfo>() { // from class: com.baidu.ugc.editvideo.editvideo.data.MusicInfo.1
+        CREATOR = new Parcelable.Creator() { // from class: com.baidu.ugc.editvideo.editvideo.data.MusicInfo.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -66,7 +66,6 @@ public class MusicInfo implements Parcelable, Serializable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public MusicInfo createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -75,7 +74,6 @@ public class MusicInfo implements Parcelable, Serializable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public MusicInfo[] newArray(int i) {
                 InterceptResult invokeI;

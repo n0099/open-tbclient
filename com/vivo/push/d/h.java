@@ -33,6 +33,7 @@ public final class h extends z {
 
     @Override // com.vivo.push.l
     public final void a(com.vivo.push.o oVar) {
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, oVar) == null) {
             com.vivo.push.b.t tVar = (com.vivo.push.b.t) oVar;
@@ -66,7 +67,14 @@ public final class h extends z {
                 if (arrayList.size() > 0) {
                     com.vivo.push.e.a().b(arrayList);
                 }
-                com.vivo.push.e.a().a(tVar.g(), arrayList3.size() > 0 ? 10000 : h);
+                com.vivo.push.e a = com.vivo.push.e.a();
+                String g2 = tVar.g();
+                if (arrayList3.size() > 0) {
+                    i = 10000;
+                } else {
+                    i = h;
+                }
+                a.a(g2, i);
                 com.vivo.push.m.b(new i(this, h, arrayList, arrayList3, g));
             }
             if (arrayList2.size() > 0 || arrayList4.size() > 0) {

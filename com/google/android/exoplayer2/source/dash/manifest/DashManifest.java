@@ -22,12 +22,13 @@ public class DashManifest {
     public final Uri location;
     public final long minBufferTime;
     public final long minUpdatePeriod;
-    public final List<Period> periods;
+    public final List periods;
     public final long suggestedPresentationDelay;
     public final long timeShiftBufferDepth;
     public final UtcTimingElement utcTiming;
 
-    public DashManifest(long j, long j2, long j3, boolean z, long j4, long j5, long j6, UtcTimingElement utcTimingElement, Uri uri, List<Period> list) {
+    public DashManifest(long j, long j2, long j3, boolean z, long j4, long j5, long j6, UtcTimingElement utcTimingElement, Uri uri, List list) {
+        List list2;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -51,37 +52,42 @@ public class DashManifest {
         this.suggestedPresentationDelay = j6;
         this.utcTiming = utcTimingElement;
         this.location = uri;
-        this.periods = list == null ? Collections.emptyList() : list;
+        if (list == null) {
+            list2 = Collections.emptyList();
+        } else {
+            list2 = list;
+        }
+        this.periods = list2;
     }
 
-    public static ArrayList<AdaptationSet> copyAdaptationSets(List<AdaptationSet> list, LinkedList<RepresentationKey> linkedList) {
+    public static ArrayList copyAdaptationSets(List list, LinkedList linkedList) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, list, linkedList)) == null) {
-            RepresentationKey poll = linkedList.poll();
-            int i = poll.periodIndex;
-            ArrayList<AdaptationSet> arrayList = new ArrayList<>();
+            RepresentationKey representationKey = (RepresentationKey) linkedList.poll();
+            int i = representationKey.periodIndex;
+            ArrayList arrayList = new ArrayList();
             do {
-                int i2 = poll.adaptationSetIndex;
-                AdaptationSet adaptationSet = list.get(i2);
-                List<Representation> list2 = adaptationSet.representations;
+                int i2 = representationKey.adaptationSetIndex;
+                AdaptationSet adaptationSet = (AdaptationSet) list.get(i2);
+                List list2 = adaptationSet.representations;
                 ArrayList arrayList2 = new ArrayList();
                 do {
-                    arrayList2.add(list2.get(poll.representationIndex));
-                    poll = linkedList.poll();
-                    if (poll.periodIndex != i) {
+                    arrayList2.add((Representation) list2.get(representationKey.representationIndex));
+                    representationKey = (RepresentationKey) linkedList.poll();
+                    if (representationKey.periodIndex != i) {
                         break;
                     }
-                } while (poll.adaptationSetIndex == i2);
+                } while (representationKey.adaptationSetIndex == i2);
                 arrayList.add(new AdaptationSet(adaptationSet.id, adaptationSet.type, arrayList2, adaptationSet.accessibilityDescriptors, adaptationSet.supplementalProperties));
-            } while (poll.periodIndex == i);
-            linkedList.addFirst(poll);
+            } while (representationKey.periodIndex == i);
+            linkedList.addFirst(representationKey);
             return arrayList;
         }
         return (ArrayList) invokeLL.objValue;
     }
 
-    public final DashManifest copy(List<RepresentationKey> list) {
+    public final DashManifest copy(List list) {
         InterceptResult invokeL;
         long j;
         Interceptable interceptable = $ic;
@@ -121,13 +127,28 @@ public class DashManifest {
     public final Period getPeriod(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.periods.get(i) : (Period) invokeI.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return (Period) this.periods.get(i);
+        }
+        return (Period) invokeI.objValue;
+    }
+
+    public final long getPeriodDurationUs(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            return C.msToUs(getPeriodDurationMs(i));
+        }
+        return invokeI.longValue;
     }
 
     public final int getPeriodCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.periods.size() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.periods.size();
+        }
+        return invokeV.intValue;
     }
 
     public final long getPeriodDurationMs(int i) {
@@ -136,16 +157,13 @@ public class DashManifest {
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
             if (i == this.periods.size() - 1) {
                 long j = this.duration;
-                return j == C.TIME_UNSET ? C.TIME_UNSET : j - this.periods.get(i).startMs;
+                if (j == C.TIME_UNSET) {
+                    return C.TIME_UNSET;
+                }
+                return j - ((Period) this.periods.get(i)).startMs;
             }
-            return this.periods.get(i + 1).startMs - this.periods.get(i).startMs;
+            return ((Period) this.periods.get(i + 1)).startMs - ((Period) this.periods.get(i)).startMs;
         }
         return invokeI.longValue;
-    }
-
-    public final long getPeriodDurationUs(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? C.msToUs(getPeriodDurationMs(i)) : invokeI.longValue;
     }
 }

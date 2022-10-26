@@ -10,8 +10,8 @@ public final class c {
     public final String[] a;
 
     /* loaded from: classes8.dex */
-    public static final class a {
-        public final List<String> a = new ArrayList(20);
+    public final class a {
+        public final List a = new ArrayList(20);
 
         private void c(String str, String str2) {
             if (str == null) {
@@ -109,7 +109,7 @@ public final class c {
         return this.a[(i * 2) + 1];
     }
 
-    public Set<String> b() {
+    public Set b() {
         TreeSet treeSet = new TreeSet(String.CASE_INSENSITIVE_ORDER);
         int a2 = a();
         for (int i = 0; i < a2; i++) {

@@ -1,50 +1,37 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.graphics.drawable.Drawable;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.TBAlertBuilder;
-import com.baidu.tbadk.core.dialog.TBAlertConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.callfans.CallFansResMsg;
+import com.baidu.tieba.f16;
+import com.baidu.tieba.p09;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class g16 {
+public class g16 implements f16 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public String b;
+    public p09 a;
+    public TextView b;
+    public f16.c c;
+    public f16.b d;
+    public f16.a e;
 
     /* loaded from: classes4.dex */
-    public class a implements View.OnClickListener {
+    public class a implements p09.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ImageView a;
+        public final /* synthetic */ g16 a;
 
-        public a(g16 g16Var, ImageView imageView) {
+        public a(g16 g16Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {g16Var, imageView};
+                Object[] objArr = {g16Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -54,68 +41,58 @@ public class g16 {
                     return;
                 }
             }
-            this.a = imageView;
+            this.a = g16Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Drawable maskDrawable;
+        @Override // com.baidu.tieba.p09.a
+        public void onProgress(float f) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                view2.setTag(Boolean.valueOf(!((Boolean) view2.getTag()).booleanValue()));
-                ImageView imageView = this.a;
-                if (((Boolean) view2.getTag()).booleanValue()) {
-                    maskDrawable = SvgManager.getInstance().getMaskDrawable(R.drawable.obfuscated_res_0x7f0805f8, null);
-                } else {
-                    maskDrawable = SvgManager.getInstance().getMaskDrawable(R.drawable.obfuscated_res_0x7f0805f7, null);
+            if (interceptable == null || interceptable.invokeF(1048579, this, f) == null) {
+                this.a.b.setText(this.a.h(f));
+            }
+        }
+
+        @Override // com.baidu.tieba.p09.a
+        public void a(float f) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeF(1048576, this, f) == null) {
+                if (this.a.e != null) {
+                    this.a.e.a(f);
                 }
-                imageView.setImageDrawable(maskDrawable);
+                TextView textView = this.a.b;
+                g16 g16Var = this.a;
+                textView.setText(g16Var.h(g16Var.getProgress()));
+            }
+        }
+
+        @Override // com.baidu.tieba.p09.a
+        public float getSpeed() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (this.a.d != null) {
+                    return this.a.d.getSpeed();
+                }
+                return 1.0f;
+            }
+            return invokeV.floatValue;
+        }
+
+        @Override // com.baidu.tieba.p09.a
+        public void onFinish() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a.c != null) {
+                this.a.c.a();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ImageView a;
-        public final /* synthetic */ g16 b;
-
-        public b(g16 g16Var, ImageView imageView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {g16Var, imageView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = g16Var;
-            this.a = imageView;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                ox4.k().u("key_call_fans_no_tip_again", !((Boolean) this.a.getTag()).booleanValue());
-                this.b.c();
-            }
-        }
-    }
-
-    public g16(TbPageContext tbPageContext) {
+    public g16(p09 p09Var, TextView textView, f16.c cVar, f16.b bVar, f16.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {p09Var, textView, cVar, bVar, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -125,87 +102,218 @@ public class g16 {
                 return;
             }
         }
-        this.a = tbPageContext;
-        e();
+        this.a = p09Var;
+        this.b = textView;
+        this.c = cVar;
+        this.d = bVar;
+        this.e = aVar;
+        i();
     }
 
-    public void b() {
+    @Override // com.baidu.tieba.f16
+    public boolean setMaxDuration(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (!TbSingleton.getInstance().mCanCallFans) {
-                this.a.showToast(R.string.obfuscated_res_0x7f0f084e);
-            } else if (ox4.k().h("key_call_fans_no_tip_again", false)) {
-                c();
-            } else {
-                TbPageContext tbPageContext = this.a;
-                if (tbPageContext == null || tbPageContext.getPageActivity() == null) {
-                    return;
-                }
-                Activity pageActivity = this.a.getPageActivity();
-                LinearLayout linearLayout = new LinearLayout(pageActivity);
-                linearLayout.setOrientation(0);
-                linearLayout.setGravity(16);
-                linearLayout.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X012), UtilHelper.getDimenPixelSize(R.dimen.M_H_X008), UtilHelper.getDimenPixelSize(R.dimen.M_W_X012), 0);
-                ImageView imageView = new ImageView(pageActivity);
-                imageView.setImageDrawable(SvgManager.getInstance().getMaskDrawable(R.drawable.obfuscated_res_0x7f0805f7, null));
-                linearLayout.addView(imageView, new LinearLayout.LayoutParams(UtilHelper.getDimenPixelSize(R.dimen.tbds39), UtilHelper.getDimenPixelSize(R.dimen.tbds39)));
-                TextView textView = new TextView(pageActivity);
-                textView.setText(R.string.obfuscated_res_0x7f0f0ca5);
-                textView.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X003), 0, 0, 0);
-                hv4 d = hv4.d(textView);
-                d.z(R.dimen.T_X07);
-                d.v(R.color.CAM_X0108);
-                d.A(R.string.F_X01);
-                linearLayout.addView(textView);
-                imageView.setTag(Boolean.FALSE);
-                imageView.setOnClickListener(new a(this, imageView));
-                TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(pageActivity);
-                tBAlertBuilder.t(R.string.obfuscated_res_0x7f0f043f);
-                tBAlertBuilder.k(R.string.obfuscated_res_0x7f0f0369);
-                tBAlertBuilder.l(3);
-                tBAlertBuilder.m(true);
-                tBAlertBuilder.i(linearLayout);
-                tBAlertBuilder.r(new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0c65, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0368, TBAlertConfig.OperateBtnStyle.MAIN, new b(this, imageView)));
-                tBAlertBuilder.g();
-                tBAlertBuilder.w();
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
+            p09 p09Var = this.a;
+            if (p09Var != null) {
+                p09Var.setMaxDuration(i);
+                this.a.invalidate();
+                return true;
             }
+            return false;
         }
+        return invokeI.booleanValue;
     }
 
-    public final void c() {
+    @Override // com.baidu.tieba.f16
+    public boolean setMinDuration(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CALL_FANS);
-            httpMessage.addParam("thread_id", this.b);
-            MessageManager.getInstance().sendMessage(httpMessage);
-            this.a.showToast(R.string.obfuscated_res_0x7f0f1652);
-            TbSingleton.getInstance().mCallFansTid = this.b;
-            TbSingleton.getInstance().mCanCallFans = false;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
+            p09 p09Var = this.a;
+            if (p09Var != null) {
+                p09Var.setMinDuration(i);
+                this.a.invalidate();
+                return true;
+            }
+            return false;
         }
+        return invokeI.booleanValue;
     }
 
-    public void d(int i, int i2, String str) {
+    @Override // com.baidu.tieba.f16
+    public boolean setProgress(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, str) == null) {
-            TiebaStatic.log(new StatisticItem("c13847").param("obj_source", i).param("obj_type", i2).param("tid", str).param("uid", TbadkCoreApplication.getCurrentAccount()));
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j)) == null) {
+            p09 p09Var = this.a;
+            if (p09Var != null) {
+                p09Var.setProgress(j);
+                return true;
+            }
+            return false;
         }
+        return invokeJ.booleanValue;
     }
 
-    public final void e() {
+    @Override // com.baidu.tieba.f16
+    public boolean setShowDeleteLastTip(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager messageManager = MessageManager.getInstance();
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CALL_FANS, TbConfig.SERVER_ADDRESS + TbConfig.URL_CALL_FANS);
-            tbHttpMessageTask.setResponsedClass(CallFansResMsg.class);
-            tbHttpMessageTask.setIsNeedTbs(true);
-            messageManager.registerTask(tbHttpMessageTask);
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048588, this, z)) == null) {
+            p09 p09Var = this.a;
+            if (p09Var != null) {
+                p09Var.setShowDeleteLastTip(z);
+                return true;
+            }
+            return false;
         }
+        return invokeZ.booleanValue;
     }
 
-    public void f(String str) {
+    @Override // com.baidu.tieba.f16
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.b = str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            p09 p09Var = this.a;
+            if (p09Var != null) {
+                p09Var.a();
+                return true;
+            }
+            return false;
         }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.f16
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            p09 p09Var = this.a;
+            if (p09Var != null) {
+                return p09Var.b();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.f16
+    public int getMaxDuration() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            p09 p09Var = this.a;
+            if (p09Var != null) {
+                return p09Var.getMaxDuration();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.f16
+    public float getProgress() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            p09 p09Var = this.a;
+            if (p09Var != null) {
+                return p09Var.getProgress();
+            }
+            return 0.0f;
+        }
+        return invokeV.floatValue;
+    }
+
+    @Override // com.baidu.tieba.f16
+    public int getSlideNum() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            p09 p09Var = this.a;
+            if (p09Var != null) {
+                return p09Var.getSlideNum();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            p09 p09Var = this.a;
+            if (p09Var == null) {
+                return false;
+            }
+            p09Var.setOnProgressListener(new a(this));
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.f16
+    public boolean pause() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            p09 p09Var = this.a;
+            if (p09Var != null) {
+                p09Var.stop();
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.f16
+    public boolean reset() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            p09 p09Var = this.a;
+            if (p09Var != null) {
+                p09Var.reset();
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.f16
+    public boolean start() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            p09 p09Var = this.a;
+            if (p09Var != null) {
+                p09Var.start();
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final String h(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048581, this, f)) == null) {
+            if (f >= getMaxDuration()) {
+                f = getMaxDuration();
+            }
+            if (f > 60.0f) {
+                return ((int) (f / 60.0f)) + "'" + String.format("%.1f", Float.valueOf(f % 60.0f));
+            }
+            return String.format("%.1f", Float.valueOf(f));
+        }
+        return (String) invokeF.objValue;
     }
 }

@@ -15,7 +15,7 @@ public class EmotionDetailData extends OrmObject {
     public PicInfo pic_info;
 
     /* loaded from: classes4.dex */
-    public static class PckInfo extends OrmObject {
+    public class PckInfo extends OrmObject {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String cover;
@@ -29,7 +29,7 @@ public class EmotionDetailData extends OrmObject {
         public String type;
 
         /* loaded from: classes4.dex */
-        public static class Owner extends OrmObject {
+        public class Owner extends OrmObject {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public String user_id;
@@ -67,7 +67,7 @@ public class EmotionDetailData extends OrmObject {
     }
 
     /* loaded from: classes4.dex */
-    public static class PicInfo extends OrmObject {
+    public class PicInfo extends OrmObject {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int height;

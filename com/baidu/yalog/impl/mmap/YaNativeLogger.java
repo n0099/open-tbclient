@@ -6,53 +6,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class YaNativeLogger {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public YaNativeLogger() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static void a() throws Throwable {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            System.loadLibrary("yalog");
-        }
-    }
-
-    public static boolean b(String str, String str2, String str3, String str4, String str5) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65538, null, str, str2, str3, str4, str5)) == null) {
-            try {
-                log(str, str2, str3, str4, str5);
-                return true;
-            } catch (Throwable unused) {
-                return false;
-            }
-        }
-        return invokeLLLLL.booleanValue;
-    }
-
-    public static native void createLogSnapShot(long j, long j2, String str, String str2, boolean z, boolean z2, String str3, List<String> list);
+    public static native void createLogSnapShot(long j, long j2, String str, String str2, boolean z, boolean z2, String str3, List list);
 
     public static native void flush(String str, boolean z);
 
     public static native void log(String str, String str2, String str3, String str4, String str5);
 
-    public static native void queryLogFiles(long j, long j2, String str, String str2, List<String> list);
+    public static native void queryLogFiles(long j, long j2, String str, String str2, List list);
 
     public static native void requestCleanOverQuotaLog();
 
@@ -89,4 +54,39 @@ public class YaNativeLogger {
     public static native void start();
 
     public static native void stop();
+
+    public YaNativeLogger() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public static void a() throws Throwable {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            System.loadLibrary("yalog");
+        }
+    }
+
+    public static boolean b(String str, String str2, String str3, String str4, String str5) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65538, null, str, str2, str3, str4, str5)) == null) {
+            try {
+                log(str, str2, str3, str4, str5);
+                return true;
+            } catch (Throwable unused) {
+                return false;
+            }
+        }
+        return invokeLLLLL.booleanValue;
+    }
 }

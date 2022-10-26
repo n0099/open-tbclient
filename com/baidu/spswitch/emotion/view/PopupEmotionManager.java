@@ -26,7 +26,7 @@ public class PopupEmotionManager {
     public transient /* synthetic */ FieldHolder $fh;
     public ViewGroup mContainerView;
     public Context mCtx;
-    public LinkedList<DelayedTask> mDelayedTaskQueue;
+    public LinkedList mDelayedTaskQueue;
     public Animation mEnterAnimation;
     public Animation mExitAnimation;
     public boolean mIsPostRunning;
@@ -39,7 +39,12 @@ public class PopupEmotionManager {
     public int mYpos;
 
     /* loaded from: classes2.dex */
-    public static class DelayedTask {
+    public interface IShowListener {
+        void show(int i, String str, int i2, int i3);
+    }
+
+    /* loaded from: classes2.dex */
+    public class DelayedTask {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int TASK_TYPE_DISMISS = 2;
         public static final int TASK_TYPE_DISMISS_WITHOUT_ANIM = 3;
@@ -70,12 +75,7 @@ public class PopupEmotionManager {
     }
 
     /* loaded from: classes2.dex */
-    public interface IShowListener {
-        void show(int i, String str, int i2, int i3);
-    }
-
-    /* loaded from: classes2.dex */
-    public static class ShowParam {
+    public class ShowParam {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int anchorWidth;
@@ -108,13 +108,25 @@ public class PopupEmotionManager {
             InterceptResult invokeL;
             Bitmap bitmap;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, showParam)) == null) ? (showParam == null || TextUtils.isEmpty(showParam.exprName) || (bitmap = showParam.exprBitmap) == null || bitmap.isRecycled() || showParam.anchorWidth <= 0) ? false : true : invokeL.booleanValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, showParam)) == null) {
+                if (showParam == null || TextUtils.isEmpty(showParam.exprName) || (bitmap = showParam.exprBitmap) == null || bitmap.isRecycled() || showParam.anchorWidth <= 0) {
+                    return false;
+                }
+                return true;
+            }
+            return invokeL.booleanValue;
         }
 
         public boolean isDuplicate(ShowParam showParam) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, showParam)) == null) ? showParam != null && TextUtils.equals(showParam.exprName, this.exprName) && showParam.anchorXpos == this.anchorXpos && showParam.anchorYpos == this.anchorYpos : invokeL.booleanValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, showParam)) == null) {
+                if (showParam == null || !TextUtils.equals(showParam.exprName, this.exprName) || showParam.anchorXpos != this.anchorXpos || showParam.anchorYpos != this.anchorYpos) {
+                    return false;
+                }
+                return true;
+            }
+            return invokeL.booleanValue;
         }
     }
 
@@ -134,9 +146,16 @@ public class PopupEmotionManager {
             }
         }
         this.mMainHandler = new Handler(Looper.getMainLooper());
-        this.mDelayedTaskQueue = new LinkedList<>();
+        this.mDelayedTaskQueue = new LinkedList();
         this.mCtx = context;
         this.mContainerView = SoftInputUtil.getContentView();
+    }
+
+    public void setShowListener(IShowListener iShowListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, iShowListener) == null) {
+            this.mShowListener = iShowListener;
+        }
     }
 
     private void calculatePos(ShowParam showParam) {
@@ -193,86 +212,6 @@ public class PopupEmotionManager {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void runDelayedTaskIfNecessary() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65546, this) == null) || this.mDelayedTaskQueue.isEmpty() || this.mDelayedTaskQueue.peek() == null) {
-            return;
-        }
-        DelayedTask poll = this.mDelayedTaskQueue.poll();
-        int i = poll.taskType;
-        if (i == 0) {
-            show((ShowParam) poll.extra);
-        } else if (i == 1) {
-            show((ShowParam) poll.extra);
-        } else if (i == 2) {
-            dismiss();
-        } else if (i == 3) {
-            dismissWithoutAnim();
-        }
-    }
-
-    public void dismiss() {
-        PopupEmotionView popupEmotionView;
-        Animation animation;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (popupEmotionView = this.mPopupEmotionView) == null || (animation = this.mExitAnimation) == null) {
-            return;
-        }
-        if (this.mIsPostRunning) {
-            this.mDelayedTaskQueue.add(new DelayedTask(2, null));
-            return;
-        }
-        popupEmotionView.setAnimation(animation);
-        this.mExitAnimation.setAnimationListener(new Animation.AnimationListener(this) { // from class: com.baidu.spswitch.emotion.view.PopupEmotionManager.3
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ PopupEmotionManager this$0;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-            }
-
-            @Override // android.view.animation.Animation.AnimationListener
-            public void onAnimationEnd(Animation animation2) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, animation2) == null) {
-                    this.this$0.dismissInternal();
-                }
-            }
-
-            @Override // android.view.animation.Animation.AnimationListener
-            public void onAnimationRepeat(Animation animation2) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation2) == null) {
-                }
-            }
-
-            @Override // android.view.animation.Animation.AnimationListener
-            public void onAnimationStart(Animation animation2) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation2) == null) {
-                }
-            }
-        });
-        this.mPopupEmotionView.startAnimation(this.mExitAnimation);
-        this.mIsPostRunning = true;
-    }
-
     public void dismissWithoutAnim() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -287,13 +226,98 @@ public class PopupEmotionManager {
     public boolean isPostRunning() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mIsPostRunning : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mIsPostRunning;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isShowing() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mIsShowing : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mIsShowing;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void runDelayedTaskIfNecessary() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65546, this) == null) && !this.mDelayedTaskQueue.isEmpty() && this.mDelayedTaskQueue.peek() != null) {
+            DelayedTask delayedTask = (DelayedTask) this.mDelayedTaskQueue.poll();
+            int i = delayedTask.taskType;
+            if (i == 0) {
+                show((ShowParam) delayedTask.extra);
+            } else if (i == 1) {
+                show((ShowParam) delayedTask.extra);
+            } else if (i == 2) {
+                dismiss();
+            } else if (i == 3) {
+                dismissWithoutAnim();
+            }
+        }
+    }
+
+    public void dismiss() {
+        PopupEmotionView popupEmotionView;
+        Animation animation;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (popupEmotionView = this.mPopupEmotionView) != null && (animation = this.mExitAnimation) != null) {
+            if (this.mIsPostRunning) {
+                this.mDelayedTaskQueue.add(new DelayedTask(2, null));
+                return;
+            }
+            popupEmotionView.setAnimation(animation);
+            this.mExitAnimation.setAnimationListener(new Animation.AnimationListener(this) { // from class: com.baidu.spswitch.emotion.view.PopupEmotionManager.3
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ PopupEmotionManager this$0;
+
+                @Override // android.view.animation.Animation.AnimationListener
+                public void onAnimationRepeat(Animation animation2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation2) == null) {
+                    }
+                }
+
+                @Override // android.view.animation.Animation.AnimationListener
+                public void onAnimationStart(Animation animation2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation2) == null) {
+                    }
+                }
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
+                @Override // android.view.animation.Animation.AnimationListener
+                public void onAnimationEnd(Animation animation2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null && interceptable2.invokeL(1048576, this, animation2) != null) {
+                        return;
+                    }
+                    this.this$0.dismissInternal();
+                }
+            });
+            this.mPopupEmotionView.startAnimation(this.mExitAnimation);
+            this.mIsPostRunning = true;
+        }
     }
 
     public void reset() {
@@ -304,23 +328,15 @@ public class PopupEmotionManager {
             this.mIsShowing = false;
             this.mLastShowParam = null;
             PopupEmotionView popupEmotionView = this.mPopupEmotionView;
-            if (popupEmotionView == null || popupEmotionView.getParent() == null || !(this.mPopupEmotionView.getParent() instanceof ViewGroup)) {
-                return;
+            if (popupEmotionView != null && popupEmotionView.getParent() != null && (this.mPopupEmotionView.getParent() instanceof ViewGroup)) {
+                ((ViewGroup) this.mPopupEmotionView.getParent()).removeView(this.mPopupEmotionView);
             }
-            ((ViewGroup) this.mPopupEmotionView.getParent()).removeView(this.mPopupEmotionView);
-        }
-    }
-
-    public void setShowListener(IShowListener iShowListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, iShowListener) == null) {
-            this.mShowListener = iShowListener;
         }
     }
 
     public void show(ShowParam showParam) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, showParam) == null) || this.mContainerView == null || !ShowParam.validate(showParam) || showParam.isDuplicate(this.mLastShowParam)) {
+        if ((interceptable != null && interceptable.invokeL(1048582, this, showParam) != null) || this.mContainerView == null || !ShowParam.validate(showParam) || showParam.isDuplicate(this.mLastShowParam)) {
             return;
         }
         if (this.mIsPostRunning) {
@@ -349,6 +365,13 @@ public class PopupEmotionManager {
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ PopupEmotionManager this$0;
 
+                    @Override // android.view.animation.Animation.AnimationListener
+                    public void onAnimationRepeat(Animation animation) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
+                        }
+                    }
+
                     {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 != null) {
@@ -370,48 +393,42 @@ public class PopupEmotionManager {
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationEnd(Animation animation) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, animation) == null) {
-                            this.this$0.mIsPostRunning = false;
-                            this.this$0.mIsShowing = true;
-                            this.this$0.mMainHandler.post(new Runnable(this) { // from class: com.baidu.spswitch.emotion.view.PopupEmotionManager.1.1
-                                public static /* synthetic */ Interceptable $ic;
-                                public transient /* synthetic */ FieldHolder $fh;
-                                public final /* synthetic */ AnonymousClass1 this$1;
+                        if (interceptable2 != null && interceptable2.invokeL(1048576, this, animation) != null) {
+                            return;
+                        }
+                        this.this$0.mIsPostRunning = false;
+                        this.this$0.mIsShowing = true;
+                        this.this$0.mMainHandler.post(new Runnable(this) { // from class: com.baidu.spswitch.emotion.view.PopupEmotionManager.1.1
+                            public static /* synthetic */ Interceptable $ic;
+                            public transient /* synthetic */ FieldHolder $fh;
+                            public final /* synthetic */ AnonymousClass1 this$1;
 
-                                {
-                                    Interceptable interceptable3 = $ic;
-                                    if (interceptable3 != null) {
-                                        InitContext newInitContext = TitanRuntime.newInitContext();
-                                        newInitContext.initArgs = r2;
-                                        Object[] objArr = {this};
-                                        interceptable3.invokeUnInit(65536, newInitContext);
-                                        int i = newInitContext.flag;
-                                        if ((i & 1) != 0) {
-                                            int i2 = i & 2;
-                                            newInitContext.thisArg = this;
-                                            interceptable3.invokeInitBody(65536, newInitContext);
-                                            return;
-                                        }
-                                    }
-                                    this.this$1 = this;
-                                }
-
-                                @Override // java.lang.Runnable
-                                public void run() {
-                                    Interceptable interceptable3 = $ic;
-                                    if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                        this.this$1.this$0.runDelayedTaskIfNecessary();
+                            {
+                                Interceptable interceptable3 = $ic;
+                                if (interceptable3 != null) {
+                                    InitContext newInitContext = TitanRuntime.newInitContext();
+                                    newInitContext.initArgs = r2;
+                                    Object[] objArr = {this};
+                                    interceptable3.invokeUnInit(65536, newInitContext);
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
+                                        newInitContext.thisArg = this;
+                                        interceptable3.invokeInitBody(65536, newInitContext);
+                                        return;
                                     }
                                 }
-                            });
-                        }
-                    }
+                                this.this$1 = this;
+                            }
 
-                    @Override // android.view.animation.Animation.AnimationListener
-                    public void onAnimationRepeat(Animation animation) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
-                        }
+                            @Override // java.lang.Runnable
+                            public void run() {
+                                Interceptable interceptable3 = $ic;
+                                if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
+                                    this.this$1.this$0.runDelayedTaskIfNecessary();
+                                }
+                            }
+                        });
                     }
 
                     @Override // android.view.animation.Animation.AnimationListener

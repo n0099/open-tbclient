@@ -27,98 +27,103 @@ public final class Assertions {
         }
     }
 
-    public static void checkArgument(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(65537, null, z) == null) && !z) {
-            throw new IllegalArgumentException();
-        }
-    }
-
-    public static int checkIndex(int i, int i2, int i3) {
-        InterceptResult invokeIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(65539, null, i, i2, i3)) == null) {
-            if (i < i2 || i >= i3) {
-                throw new IndexOutOfBoundsException();
-            }
-            return i;
-        }
-        return invokeIII.intValue;
-    }
-
     public static void checkMainThread() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) && Looper.myLooper() != Looper.getMainLooper()) {
-            throw new IllegalStateException("Not in applications main thread");
+        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) != null) || Looper.myLooper() == Looper.getMainLooper()) {
+            return;
         }
+        throw new IllegalStateException("Not in applications main thread");
+    }
+
+    public static void checkArgument(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(65537, null, z) != null) || z) {
+            return;
+        }
+        throw new IllegalArgumentException();
     }
 
     public static String checkNotEmpty(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                throw new IllegalArgumentException();
+            if (!TextUtils.isEmpty(str)) {
+                return str;
             }
-            return str;
+            throw new IllegalArgumentException();
         }
         return (String) invokeL.objValue;
     }
 
-    public static <T> T checkNotNull(T t) {
+    public static Object checkNotNull(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, t)) == null) {
-            if (t != null) {
-                return t;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, obj)) == null) {
+            if (obj != null) {
+                return obj;
             }
             throw null;
         }
-        return (T) invokeL.objValue;
+        return invokeL.objValue;
     }
 
     public static void checkState(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(65545, null, z) == null) && !z) {
-            throw new IllegalStateException();
+        if ((interceptable != null && interceptable.invokeZ(65545, null, z) != null) || z) {
+            return;
         }
+        throw new IllegalStateException();
     }
 
     public static void checkArgument(boolean z, Object obj) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZL(65538, null, z, obj) == null) && !z) {
-            throw new IllegalArgumentException(String.valueOf(obj));
+        if ((interceptable != null && interceptable.invokeZL(65538, null, z, obj) != null) || z) {
+            return;
         }
-    }
-
-    public static <T> T checkNotNull(T t, Object obj) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, t, obj)) == null) {
-            if (t != null) {
-                return t;
-            }
-            throw new NullPointerException(String.valueOf(obj));
-        }
-        return (T) invokeLL.objValue;
-    }
-
-    public static void checkState(boolean z, Object obj) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZL(65546, null, z, obj) == null) && !z) {
-            throw new IllegalStateException(String.valueOf(obj));
-        }
+        throw new IllegalArgumentException(String.valueOf(obj));
     }
 
     public static String checkNotEmpty(String str, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, obj)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                throw new IllegalArgumentException(String.valueOf(obj));
+            if (!TextUtils.isEmpty(str)) {
+                return str;
             }
-            return str;
+            throw new IllegalArgumentException(String.valueOf(obj));
         }
         return (String) invokeLL.objValue;
+    }
+
+    public static Object checkNotNull(Object obj, Object obj2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, obj, obj2)) == null) {
+            if (obj != null) {
+                return obj;
+            }
+            throw new NullPointerException(String.valueOf(obj2));
+        }
+        return invokeLL.objValue;
+    }
+
+    public static void checkState(boolean z, Object obj) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZL(65546, null, z, obj) != null) || z) {
+            return;
+        }
+        throw new IllegalStateException(String.valueOf(obj));
+    }
+
+    public static int checkIndex(int i, int i2, int i3) {
+        InterceptResult invokeIII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(65539, null, i, i2, i3)) == null) {
+            if (i >= i2 && i < i3) {
+                return i;
+            }
+            throw new IndexOutOfBoundsException();
+        }
+        return invokeIII.intValue;
     }
 }

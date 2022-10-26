@@ -14,7 +14,7 @@ import okhttp3.MediaType;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 /* loaded from: classes2.dex */
-public class PostStringRequest extends HttpRequest<PostStringRequestBuilder> {
+public class PostStringRequest extends HttpRequest {
     public static /* synthetic */ Interceptable $ic;
     public static final MediaType MEDIA_TYPE_PLAIN;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,7 +22,7 @@ public class PostStringRequest extends HttpRequest<PostStringRequestBuilder> {
     public MediaType mediaType;
 
     /* loaded from: classes2.dex */
-    public static class PostStringRequestBuilder extends HttpRequestBuilder<PostStringRequestBuilder> {
+    public class PostStringRequestBuilder extends HttpRequestBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String content;
@@ -48,33 +48,6 @@ public class PostStringRequest extends HttpRequest<PostStringRequestBuilder> {
             }
         }
 
-        @Override // com.baidu.searchbox.http.request.HttpRequestBuilder
-        public HttpRequest build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new PostStringRequest(this) : (HttpRequest) invokeV.objValue;
-        }
-
-        public PostStringRequestBuilder content(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.content = str;
-                return this;
-            }
-            return (PostStringRequestBuilder) invokeL.objValue;
-        }
-
-        public PostStringRequestBuilder mediaType(MediaType mediaType) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, mediaType)) == null) {
-                this.mediaType = mediaType;
-                return this;
-            }
-            return (PostStringRequestBuilder) invokeL.objValue;
-        }
-
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public PostStringRequestBuilder(PostStringRequest postStringRequest) {
             this(postStringRequest, null);
@@ -94,16 +67,6 @@ public class PostStringRequest extends HttpRequest<PostStringRequestBuilder> {
                     return;
                 }
             }
-        }
-
-        public PostStringRequestBuilder mediaType(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.mediaType = MediaType.parse(str);
-                return this;
-            }
-            return (PostStringRequestBuilder) invokeL.objValue;
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -128,6 +91,46 @@ public class PostStringRequest extends HttpRequest<PostStringRequestBuilder> {
             this.content = postStringRequest.content;
             this.mediaType = postStringRequest.mediaType;
         }
+
+        public PostStringRequestBuilder content(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+                this.content = str;
+                return this;
+            }
+            return (PostStringRequestBuilder) invokeL.objValue;
+        }
+
+        public PostStringRequestBuilder mediaType(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+                this.mediaType = MediaType.parse(str);
+                return this;
+            }
+            return (PostStringRequestBuilder) invokeL.objValue;
+        }
+
+        @Override // com.baidu.searchbox.http.request.HttpRequestBuilder
+        public HttpRequest build() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new PostStringRequest(this);
+            }
+            return (HttpRequest) invokeV.objValue;
+        }
+
+        public PostStringRequestBuilder mediaType(MediaType mediaType) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, mediaType)) == null) {
+                this.mediaType = mediaType;
+                return this;
+            }
+            return (PostStringRequestBuilder) invokeL.objValue;
+        }
     }
 
     static {
@@ -144,6 +147,19 @@ public class PostStringRequest extends HttpRequest<PostStringRequestBuilder> {
             }
         }
         MEDIA_TYPE_PLAIN = MediaType.parse("text/plain");
+    }
+
+    @Override // com.baidu.searchbox.http.request.HttpRequest
+    public RequestBody buildOkRequestBody() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (!TextUtils.isEmpty(this.content)) {
+                return RequestBody.create(this.mediaType, this.content);
+            }
+            return RequestBody.create((MediaType) null, new byte[0]);
+        }
+        return (RequestBody) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -176,20 +192,10 @@ public class PostStringRequest extends HttpRequest<PostStringRequestBuilder> {
     public Request buildOkRequest(RequestBody requestBody) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, requestBody)) == null) ? this.okRequestBuilder.post(requestBody).build() : (Request) invokeL.objValue;
-    }
-
-    @Override // com.baidu.searchbox.http.request.HttpRequest
-    public RequestBody buildOkRequestBody() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!TextUtils.isEmpty(this.content)) {
-                return RequestBody.create(this.mediaType, this.content);
-            }
-            return RequestBody.create((MediaType) null, new byte[0]);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, requestBody)) == null) {
+            return this.okRequestBuilder.post(requestBody).build();
         }
-        return (RequestBody) invokeV.objValue;
+        return (Request) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -208,17 +214,23 @@ public class PostStringRequest extends HttpRequest<PostStringRequestBuilder> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.http.request.HttpRequest
-    public PostStringRequestBuilder newBuilder() {
-        InterceptResult invokeV;
+    public PostStringRequestBuilder newBuilder(AbstractHttpManager abstractHttpManager) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new PostStringRequestBuilder(this) : (PostStringRequestBuilder) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, abstractHttpManager)) == null) {
+            return new PostStringRequestBuilder(this, abstractHttpManager);
+        }
+        return (PostStringRequestBuilder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.http.request.HttpRequest
-    public PostStringRequestBuilder newBuilder(AbstractHttpManager abstractHttpManager) {
-        InterceptResult invokeL;
+    public PostStringRequestBuilder newBuilder() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, abstractHttpManager)) == null) ? new PostStringRequestBuilder(this, abstractHttpManager) : (PostStringRequestBuilder) invokeL.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return new PostStringRequestBuilder(this);
+        }
+        return (PostStringRequestBuilder) invokeV.objValue;
     }
 }

@@ -1,6 +1,5 @@
 package com.baidu.swan.apps.view;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.AttributeSet;
@@ -12,15 +11,13 @@ import android.view.animation.RotateAnimation;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.SchemeRouter;
 import com.baidu.swan.apps.model.SwanAppBearInfo;
 import com.baidu.swan.apps.res.ui.BdBaseImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ii3;
-import com.baidu.tieba.vj1;
+import com.baidu.tieba.ji3;
+import com.baidu.tieba.wj1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -45,6 +42,13 @@ public class BearLayout extends LinearLayout {
     public boolean g;
     public d h;
     public Context i;
+
+    /* loaded from: classes3.dex */
+    public interface d {
+        void a(boolean z);
+
+        void b(String str);
+    }
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -75,9 +79,10 @@ public class BearLayout extends LinearLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.b.j(this.a.bearHomeUrl);
+            if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
+                return;
             }
+            this.b.j(this.a.bearHomeUrl);
         }
     }
 
@@ -85,16 +90,16 @@ public class BearLayout extends LinearLayout {
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ii3 a;
+        public final /* synthetic */ ji3 a;
         public final /* synthetic */ SwanAppBearInfo b;
         public final /* synthetic */ BearLayout c;
 
-        public b(BearLayout bearLayout, ii3 ii3Var, SwanAppBearInfo swanAppBearInfo) {
+        public b(BearLayout bearLayout, ji3 ji3Var, SwanAppBearInfo swanAppBearInfo) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bearLayout, ii3Var, swanAppBearInfo};
+                Object[] objArr = {bearLayout, ji3Var, swanAppBearInfo};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -105,7 +110,7 @@ public class BearLayout extends LinearLayout {
                 }
             }
             this.c = bearLayout;
-            this.a = ii3Var;
+            this.a = ji3Var;
             this.b = swanAppBearInfo;
         }
 
@@ -113,12 +118,12 @@ public class BearLayout extends LinearLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (!this.c.g) {
-                    this.c.l();
-                    this.a.b();
+                if (this.c.g) {
+                    this.c.j(this.b.bearHomeUrl);
                     return;
                 }
-                this.c.j(this.b.bearHomeUrl);
+                this.c.l();
+                this.a.b();
             }
         }
     }
@@ -149,20 +154,40 @@ public class BearLayout extends LinearLayout {
 
         @Override // com.baidu.swan.apps.view.BearLayout.d
         public void a(boolean z) {
+            CharSequence text;
+            int i;
+            int i2;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.a.g = z;
-                if (this.a.f == null || this.a.e == null) {
-                    return;
-                }
+            if (interceptable != null && interceptable.invokeZ(1048576, this, z) != null) {
+                return;
+            }
+            this.a.g = z;
+            if (this.a.f != null && this.a.e != null) {
                 this.a.f.clearAnimation();
                 this.a.f.setVisibility(4);
                 this.a.e.setVisibility(0);
                 TextView textView = this.a.e;
                 BearLayout bearLayout = this.a;
-                textView.setText(z ? bearLayout.i.getText(R.string.obfuscated_res_0x7f0f0116) : bearLayout.i.getText(R.string.obfuscated_res_0x7f0f0161));
-                this.a.e.setTextColor(z ? -16777216 : -1);
-                this.a.d.setBackgroundResource(z ? R.drawable.obfuscated_res_0x7f08012a : R.drawable.obfuscated_res_0x7f08012b);
+                if (z) {
+                    text = bearLayout.i.getText(R.string.obfuscated_res_0x7f0f0116);
+                } else {
+                    text = bearLayout.i.getText(R.string.obfuscated_res_0x7f0f0161);
+                }
+                textView.setText(text);
+                TextView textView2 = this.a.e;
+                if (z) {
+                    i = -16777216;
+                } else {
+                    i = -1;
+                }
+                textView2.setTextColor(i);
+                FrameLayout frameLayout = this.a.d;
+                if (z) {
+                    i2 = R.drawable.obfuscated_res_0x7f08012a;
+                } else {
+                    i2 = R.drawable.obfuscated_res_0x7f08012b;
+                }
+                frameLayout.setBackgroundResource(i2);
             }
         }
 
@@ -173,21 +198,13 @@ public class BearLayout extends LinearLayout {
                 if (BearLayout.j) {
                     Log.d("BearLayout", str);
                 }
-                if (this.a.f == null || this.a.e == null) {
-                    return;
+                if (this.a.f != null && this.a.e != null) {
+                    this.a.f.clearAnimation();
+                    this.a.f.setVisibility(4);
+                    this.a.e.setVisibility(0);
                 }
-                this.a.f.clearAnimation();
-                this.a.f.setVisibility(4);
-                this.a.e.setVisibility(0);
             }
         }
-    }
-
-    /* loaded from: classes3.dex */
-    public interface d {
-        void a(boolean z);
-
-        void b(String str);
     }
 
     static {
@@ -203,7 +220,16 @@ public class BearLayout extends LinearLayout {
                 return;
             }
         }
-        j = vj1.a;
+        j = wj1.a;
+    }
+
+    public d getCallback() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.h;
+        }
+        return (d) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -227,9 +253,50 @@ public class BearLayout extends LinearLayout {
         this.g = false;
     }
 
+    public final void j(String str) {
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            try {
+                str2 = URLEncoder.encode(str, "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                if (j) {
+                    e.printStackTrace();
+                }
+                str2 = null;
+            }
+            if (!TextUtils.isEmpty(str2)) {
+                str = str2;
+            }
+            SchemeRouter.invoke(getContext(), "baiduboxapp://v1/easybrowse/open?url=" + str + "&newbrowser=1&forbidautorotate=1");
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public BearLayout(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.g = false;
+    }
+
     private void setVipLogo(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65548, this, str) == null) || this.c == null) {
+        if ((interceptable != null && interceptable.invokeL(65548, this, str) != null) || this.c == null) {
             return;
         }
         if (TextUtils.isEmpty(str)) {
@@ -263,62 +330,40 @@ public class BearLayout extends LinearLayout {
         } else if (str.equals("10")) {
             c2 = 3;
         }
-        if (c2 == 1) {
+        if (c2 != 1) {
+            if (c2 != 2) {
+                if (c2 == 3) {
+                    i = R.drawable.obfuscated_res_0x7f08015e;
+                }
+            } else {
+                i = R.drawable.obfuscated_res_0x7f080161;
+            }
+        } else {
             i = R.drawable.obfuscated_res_0x7f08015f;
-        } else if (c2 == 2) {
-            i = R.drawable.obfuscated_res_0x7f080161;
-        } else if (c2 == 3) {
-            i = R.drawable.obfuscated_res_0x7f08015e;
         }
         this.c.setVisibility(0);
         this.c.setImageDrawable(this.i.getResources().getDrawable(i));
     }
 
-    public d getCallback() {
-        InterceptResult invokeV;
+    public void k(Context context, SwanAppBearInfo swanAppBearInfo, ji3 ji3Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.h : (d) invokeV.objValue;
-    }
-
-    @SuppressLint({"BDOfflineUrl"})
-    public final void j(String str) {
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            try {
-                str2 = URLEncoder.encode(str, "UTF-8");
-            } catch (UnsupportedEncodingException e) {
-                if (j) {
-                    e.printStackTrace();
-                }
-                str2 = null;
-            }
-            if (!TextUtils.isEmpty(str2)) {
-                str = str2;
-            }
-            SchemeRouter.invoke(getContext(), "baiduboxapp://v1/easybrowse/open?url=" + str + "&newbrowser=1&forbidautorotate=1");
-        }
-    }
-
-    public void k(@NonNull Context context, @NonNull SwanAppBearInfo swanAppBearInfo, ii3 ii3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, swanAppBearInfo, ii3Var) == null) {
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, swanAppBearInfo, ji3Var) == null) {
             this.i = context;
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0097, this);
             linearLayout.setOnClickListener(new a(this, swanAppBearInfo));
-            TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090373);
+            TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090372);
             this.a = textView;
             textView.setText(swanAppBearInfo.bearName);
-            SimpleDraweeView simpleDraweeView = (SimpleDraweeView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090372);
+            SimpleDraweeView simpleDraweeView = (SimpleDraweeView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090371);
             this.b = simpleDraweeView;
             simpleDraweeView.setImageURI(swanAppBearInfo.bearLogo);
-            this.c = (BdBaseImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090374);
+            this.c = (BdBaseImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090373);
             setVipLogo(swanAppBearInfo.bearVipType);
-            this.d = (FrameLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f09036d);
-            TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09036e);
+            this.d = (FrameLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f09036c);
+            TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09036d);
             this.e = textView2;
-            textView2.setOnClickListener(new b(this, ii3Var, swanAppBearInfo));
-            BdBaseImageView bdBaseImageView = (BdBaseImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090371);
+            textView2.setOnClickListener(new b(this, ji3Var, swanAppBearInfo));
+            BdBaseImageView bdBaseImageView = (BdBaseImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090370);
             this.f = bdBaseImageView;
             bdBaseImageView.setVisibility(8);
             this.h = new c(this);
@@ -328,38 +373,15 @@ public class BearLayout extends LinearLayout {
     public final void l() {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f == null || (textView = this.e) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f != null && (textView = this.e) != null) {
+            textView.setVisibility(4);
+            this.f.setVisibility(0);
+            RotateAnimation rotateAnimation = new RotateAnimation(0.0f, 359.0f, 1, 0.5f, 1, 0.5f);
+            rotateAnimation.setRepeatCount(-1);
+            rotateAnimation.setDuration(1000L);
+            rotateAnimation.setFillAfter(true);
+            rotateAnimation.setInterpolator(new LinearInterpolator());
+            this.f.startAnimation(rotateAnimation);
         }
-        textView.setVisibility(4);
-        this.f.setVisibility(0);
-        RotateAnimation rotateAnimation = new RotateAnimation(0.0f, 359.0f, 1, 0.5f, 1, 0.5f);
-        rotateAnimation.setRepeatCount(-1);
-        rotateAnimation.setDuration(1000L);
-        rotateAnimation.setFillAfter(true);
-        rotateAnimation.setInterpolator(new LinearInterpolator());
-        this.f.startAnimation(rotateAnimation);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BearLayout(Context context, @Nullable AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.g = false;
     }
 }

@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class zzd extends ThreadLocal<Long> {
+public final class zzd extends ThreadLocal {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -23,9 +23,8 @@ public final class zzd extends ThreadLocal<Long> {
         }
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // java.lang.ThreadLocal
-    public final /* synthetic */ Long initialValue() {
+    public final /* synthetic */ Object initialValue() {
         return 0L;
     }
 }

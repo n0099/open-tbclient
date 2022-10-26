@@ -39,6 +39,21 @@ public final class Http2Stream {
     public long unacknowledgedBytesRead;
     public final StreamTimeout writeTimeout;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1365971684, "Lokhttp3/internal/http2/Http2Stream;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1365971684, "Lokhttp3/internal/http2/Http2Stream;");
+        }
+    }
+
     /* loaded from: classes8.dex */
     public final class FramingSink implements Sink {
         public static final /* synthetic */ boolean $assertionsDisabled = false;
@@ -86,6 +101,7 @@ public final class Http2Stream {
 
         private void emitFrame(boolean z) throws IOException {
             long min;
+            boolean z2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(65538, this, z) == null) {
                 synchronized (this.this$0) {
@@ -100,7 +116,14 @@ public final class Http2Stream {
                 }
                 this.this$0.writeTimeout.enter();
                 try {
-                    this.this$0.connection.writeData(this.this$0.id, z && min == this.sendBuffer.size(), this.sendBuffer, min);
+                    Http2Connection http2Connection = this.this$0.connection;
+                    int i = this.this$0.id;
+                    if (z && min == this.sendBuffer.size()) {
+                        z2 = true;
+                    } else {
+                        z2 = false;
+                    }
+                    http2Connection.writeData(i, z2, this.sendBuffer, min);
                 } finally {
                     this.this$0.writeTimeout.exitAndThrowIfTimedOut();
                 }
@@ -152,7 +175,10 @@ public final class Http2Stream {
         public Timeout timeout() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.this$0.writeTimeout : (Timeout) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.this$0.writeTimeout;
+            }
+            return (Timeout) invokeV.objValue;
         }
 
         @Override // okio.Sink
@@ -304,7 +330,11 @@ public final class Http2Stream {
                     synchronized (this.this$0) {
                         z = this.finished;
                         z2 = true;
-                        z3 = this.readBuffer.size() + j > this.maxByteCount;
+                        if (this.readBuffer.size() + j > this.maxByteCount) {
+                            z3 = true;
+                        } else {
+                            z3 = false;
+                        }
                     }
                     if (z3) {
                         bufferedSource.skip(j);
@@ -338,7 +368,10 @@ public final class Http2Stream {
         public Timeout timeout() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.this$0.readTimeout : (Timeout) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.this$0.readTimeout;
+            }
+            return (Timeout) invokeV.objValue;
         }
     }
 
@@ -366,13 +399,6 @@ public final class Http2Stream {
             this.this$0 = http2Stream;
         }
 
-        public void exitAndThrowIfTimedOut() throws IOException {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && exit()) {
-                throw newTimeoutException(null);
-            }
-        }
-
         @Override // okio.AsyncTimeout
         public IOException newTimeoutException(IOException iOException) {
             InterceptResult invokeL;
@@ -387,27 +413,20 @@ public final class Http2Stream {
             return (IOException) invokeL.objValue;
         }
 
+        public void exitAndThrowIfTimedOut() throws IOException {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !exit()) {
+                return;
+            }
+            throw newTimeoutException(null);
+        }
+
         @Override // okio.AsyncTimeout
         public void timedOut() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 this.this$0.closeLater(ErrorCode.CANCEL);
             }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1365971684, "Lokhttp3/internal/http2/Http2Stream;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-1365971684, "Lokhttp3/internal/http2/Http2Stream;");
         }
     }
 
@@ -430,22 +449,22 @@ public final class Http2Stream {
         this.readTimeout = new StreamTimeout(this);
         this.writeTimeout = new StreamTimeout(this);
         this.errorCode = null;
-        if (http2Connection == null) {
-            throw new NullPointerException("connection == null");
+        if (http2Connection != null) {
+            if (list != null) {
+                this.id = i;
+                this.connection = http2Connection;
+                this.bytesLeftInWriteWindow = http2Connection.peerSettings.getInitialWindowSize();
+                this.source = new FramingSource(this, http2Connection.okHttpSettings.getInitialWindowSize());
+                FramingSink framingSink = new FramingSink(this);
+                this.sink = framingSink;
+                this.source.finished = z2;
+                framingSink.finished = z;
+                this.requestHeaders = list;
+                return;
+            }
+            throw new NullPointerException("requestHeaders == null");
         }
-        if (list != null) {
-            this.id = i;
-            this.connection = http2Connection;
-            this.bytesLeftInWriteWindow = http2Connection.peerSettings.getInitialWindowSize();
-            this.source = new FramingSource(this, http2Connection.okHttpSettings.getInitialWindowSize());
-            FramingSink framingSink = new FramingSink(this);
-            this.sink = framingSink;
-            this.source.finished = z2;
-            framingSink.finished = z;
-            this.requestHeaders = list;
-            return;
-        }
-        throw new NullPointerException("requestHeaders == null");
+        throw new NullPointerException("connection == null");
     }
 
     private boolean closeInternal(ErrorCode errorCode) {
@@ -468,6 +487,31 @@ public final class Http2Stream {
         return invokeL.booleanValue;
     }
 
+    public void receiveHeaders(List<Header> list) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, list) == null) {
+            synchronized (this) {
+                z = true;
+                this.hasResponseHeaders = true;
+                if (this.responseHeaders == null) {
+                    this.responseHeaders = list;
+                    z = isOpen();
+                    notifyAll();
+                } else {
+                    ArrayList arrayList = new ArrayList();
+                    arrayList.addAll(this.responseHeaders);
+                    arrayList.add(null);
+                    arrayList.addAll(list);
+                    this.responseHeaders = arrayList;
+                }
+            }
+            if (!z) {
+                this.connection.removeStream(this.id);
+            }
+        }
+    }
+
     public void addBytesToWriteWindow(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
@@ -478,19 +522,50 @@ public final class Http2Stream {
         }
     }
 
+    public void close(ErrorCode errorCode) throws IOException {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, errorCode) != null) || !closeInternal(errorCode)) {
+            return;
+        }
+        this.connection.writeSynReset(this.id, errorCode);
+    }
+
+    public void closeLater(ErrorCode errorCode) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, errorCode) != null) || !closeInternal(errorCode)) {
+            return;
+        }
+        this.connection.writeSynResetLater(this.id, errorCode);
+    }
+
+    public synchronized void receiveRstStream(ErrorCode errorCode) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, errorCode) == null) {
+            synchronized (this) {
+                if (this.errorCode == null) {
+                    this.errorCode = errorCode;
+                    notifyAll();
+                }
+            }
+        }
+    }
+
     public void cancelStreamIfNecessary() throws IOException {
         boolean z;
         boolean isOpen;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             synchronized (this) {
-                z = !this.source.finished && this.source.closed && (this.sink.finished || this.sink.closed);
+                if (!this.source.finished && this.source.closed && (this.sink.finished || this.sink.closed)) {
+                    z = true;
+                } else {
+                    z = false;
+                }
                 isOpen = isOpen();
             }
             if (z) {
                 close(ErrorCode.CANCEL);
-            } else if (isOpen) {
-            } else {
+            } else if (!isOpen) {
                 this.connection.removeStream(this.id);
             }
         }
@@ -502,89 +577,15 @@ public final class Http2Stream {
             FramingSink framingSink = this.sink;
             if (!framingSink.closed) {
                 if (!framingSink.finished) {
-                    if (this.errorCode != null) {
-                        throw new StreamResetException(this.errorCode);
+                    if (this.errorCode == null) {
+                        return;
                     }
-                    return;
+                    throw new StreamResetException(this.errorCode);
                 }
                 throw new IOException("stream finished");
             }
             throw new IOException("stream closed");
         }
-    }
-
-    public void close(ErrorCode errorCode) throws IOException {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, errorCode) == null) && closeInternal(errorCode)) {
-            this.connection.writeSynReset(this.id, errorCode);
-        }
-    }
-
-    public void closeLater(ErrorCode errorCode) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, errorCode) == null) && closeInternal(errorCode)) {
-            this.connection.writeSynResetLater(this.id, errorCode);
-        }
-    }
-
-    public Http2Connection getConnection() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.connection : (Http2Connection) invokeV.objValue;
-    }
-
-    public synchronized ErrorCode getErrorCode() {
-        InterceptResult invokeV;
-        ErrorCode errorCode;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            synchronized (this) {
-                errorCode = this.errorCode;
-            }
-            return errorCode;
-        }
-        return (ErrorCode) invokeV.objValue;
-    }
-
-    public int getId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.id : invokeV.intValue;
-    }
-
-    public List<Header> getRequestHeaders() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.requestHeaders : (List) invokeV.objValue;
-    }
-
-    public Sink getSink() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            synchronized (this) {
-                if (!this.hasResponseHeaders && !isLocallyInitiated()) {
-                    throw new IllegalStateException("reply before requesting the sink");
-                }
-            }
-            return this.sink;
-        }
-        return (Sink) invokeV.objValue;
-    }
-
-    public Source getSource() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.source : (Source) invokeV.objValue;
-    }
-
-    public boolean isLocallyInitiated() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.connection.client == ((this.id & 1) == 1);
-        }
-        return invokeV.booleanValue;
     }
 
     public synchronized boolean isOpen() {
@@ -606,17 +607,94 @@ public final class Http2Stream {
         return invokeV.booleanValue;
     }
 
+    public Http2Connection getConnection() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.connection;
+        }
+        return (Http2Connection) invokeV.objValue;
+    }
+
+    public synchronized ErrorCode getErrorCode() {
+        InterceptResult invokeV;
+        ErrorCode errorCode;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            synchronized (this) {
+                errorCode = this.errorCode;
+            }
+            return errorCode;
+        }
+        return (ErrorCode) invokeV.objValue;
+    }
+
+    public int getId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.id;
+        }
+        return invokeV.intValue;
+    }
+
+    public List<Header> getRequestHeaders() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.requestHeaders;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public Sink getSink() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            synchronized (this) {
+                if (!this.hasResponseHeaders && !isLocallyInitiated()) {
+                    throw new IllegalStateException("reply before requesting the sink");
+                }
+            }
+            return this.sink;
+        }
+        return (Sink) invokeV.objValue;
+    }
+
+    public Source getSource() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.source;
+        }
+        return (Source) invokeV.objValue;
+    }
+
+    public boolean isLocallyInitiated() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            if ((this.id & 1) == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (this.connection.client == z) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     public Timeout readTimeout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.readTimeout : (Timeout) invokeV.objValue;
-    }
-
-    public void receiveData(BufferedSource bufferedSource, int i) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048590, this, bufferedSource, i) == null) {
-            this.source.receive(bufferedSource, i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.readTimeout;
         }
+        return (Timeout) invokeV.objValue;
     }
 
     public void receiveFin() {
@@ -628,48 +706,37 @@ public final class Http2Stream {
                 isOpen = isOpen();
                 notifyAll();
             }
-            if (isOpen) {
-                return;
+            if (!isOpen) {
+                this.connection.removeStream(this.id);
             }
-            this.connection.removeStream(this.id);
         }
     }
 
-    public void receiveHeaders(List<Header> list) {
-        boolean z;
+    public void waitForIo() throws InterruptedIOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, list) == null) {
-            synchronized (this) {
-                z = true;
-                this.hasResponseHeaders = true;
-                if (this.responseHeaders == null) {
-                    this.responseHeaders = list;
-                    z = isOpen();
-                    notifyAll();
-                } else {
-                    ArrayList arrayList = new ArrayList();
-                    arrayList.addAll(this.responseHeaders);
-                    arrayList.add(null);
-                    arrayList.addAll(list);
-                    this.responseHeaders = arrayList;
-                }
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+            try {
+                wait();
+            } catch (InterruptedException unused) {
+                Thread.currentThread().interrupt();
+                throw new InterruptedIOException();
             }
-            if (z) {
-                return;
-            }
-            this.connection.removeStream(this.id);
         }
     }
 
-    public synchronized void receiveRstStream(ErrorCode errorCode) {
+    public Timeout writeTimeout() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, errorCode) == null) {
-            synchronized (this) {
-                if (this.errorCode == null) {
-                    this.errorCode = errorCode;
-                    notifyAll();
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return this.writeTimeout;
+        }
+        return (Timeout) invokeV.objValue;
+    }
+
+    public void receiveData(BufferedSource bufferedSource, int i) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048590, this, bufferedSource, i) == null) {
+            this.source.receive(bufferedSource, i);
         }
     }
 
@@ -683,13 +750,13 @@ public final class Http2Stream {
                 synchronized (this) {
                     z2 = true;
                     this.hasResponseHeaders = true;
-                    if (z) {
-                        z3 = false;
-                        z4 = false;
-                    } else {
+                    if (!z) {
                         this.sink.finished = true;
                         z3 = true;
                         z4 = true;
+                    } else {
+                        z3 = false;
+                        z4 = false;
                     }
                 }
                 if (!z3) {
@@ -736,23 +803,5 @@ public final class Http2Stream {
             return list;
         }
         return (List) invokeV.objValue;
-    }
-
-    public void waitForIo() throws InterruptedIOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            try {
-                wait();
-            } catch (InterruptedException unused) {
-                Thread.currentThread().interrupt();
-                throw new InterruptedIOException();
-            }
-        }
-    }
-
-    public Timeout writeTimeout() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.writeTimeout : (Timeout) invokeV.objValue;
     }
 }

@@ -36,7 +36,7 @@ public class VideoDraftTempBean {
         }
     }
 
-    public static List<VideoDraftTempBean> arrayToBean(String str) {
+    public static List arrayToBean(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
@@ -100,24 +100,6 @@ public class VideoDraftTempBean {
         return (JSONArray) invokeLI.objValue;
     }
 
-    public String toJsonString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("path", this.mPath);
-                jSONObject.put("speed", this.mSpeed);
-                jSONObject.put(FaceItem.DIR_STICKER, this.mStickerId);
-                jSONObject.put(CloudControlRequest.REQUEST_KEY_FILTER, this.mFilterId);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
     public static String toJsonString(VideoDraftTempBean videoDraftTempBean) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -134,5 +116,23 @@ public class VideoDraftTempBean {
             return jSONObject.toString();
         }
         return (String) invokeL.objValue;
+    }
+
+    public String toJsonString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("path", this.mPath);
+                jSONObject.put("speed", this.mSpeed);
+                jSONObject.put(FaceItem.DIR_STICKER, this.mStickerId);
+                jSONObject.put(CloudControlRequest.REQUEST_KEY_FILTER, this.mFilterId);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

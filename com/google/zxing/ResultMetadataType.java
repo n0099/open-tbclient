@@ -75,12 +75,18 @@ public final class ResultMetadataType {
     public static ResultMetadataType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (ResultMetadataType) Enum.valueOf(ResultMetadataType.class, str) : (ResultMetadataType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (ResultMetadataType) Enum.valueOf(ResultMetadataType.class, str);
+        }
+        return (ResultMetadataType) invokeL.objValue;
     }
 
     public static ResultMetadataType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ResultMetadataType[]) $VALUES.clone() : (ResultMetadataType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (ResultMetadataType[]) $VALUES.clone();
+        }
+        return (ResultMetadataType[]) invokeV.objValue;
     }
 }

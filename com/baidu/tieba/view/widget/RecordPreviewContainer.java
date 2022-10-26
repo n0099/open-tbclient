@@ -7,16 +7,14 @@ import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.hh9;
-import com.baidu.tieba.uz8;
+import com.baidu.tieba.e09;
+import com.baidu.tieba.fj;
 import com.baidu.tieba.view.capture.camera.AspectGLSurfaceView;
+import com.baidu.tieba.zh9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -52,6 +50,36 @@ public class RecordPreviewContainer extends FrameLayout {
     public boolean w;
 
     /* loaded from: classes6.dex */
+    public interface d {
+    }
+
+    /* loaded from: classes6.dex */
+    public interface e {
+        void a(MotionEvent motionEvent, int i);
+
+        void b(MotionEvent motionEvent, int i, int i2, int i3, int i4);
+
+        void c();
+    }
+
+    /* loaded from: classes6.dex */
+    public interface f {
+        void a(MotionEvent motionEvent);
+
+        void b(MotionEvent motionEvent);
+
+        void c(MotionEvent motionEvent, float f, float f2);
+
+        void d(MotionEvent motionEvent);
+    }
+
+    public void setOnFollowControlClickListener(d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, dVar) == null) {
+        }
+    }
+
+    /* loaded from: classes6.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -78,10 +106,11 @@ public class RecordPreviewContainer extends FrameLayout {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.l();
-                this.a.k();
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
             }
+            this.a.l();
+            this.a.k();
         }
     }
 
@@ -114,7 +143,7 @@ public class RecordPreviewContainer extends FrameLayout {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.b.v == null) {
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.b.v == null) {
                 return;
             }
             f fVar = this.b.v;
@@ -152,39 +181,14 @@ public class RecordPreviewContainer extends FrameLayout {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.b.g || !this.b.h || Math.abs(this.b.l - this.a.getX()) >= 30.0f || this.b.v == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.b.g && this.b.h && Math.abs(this.b.l - this.a.getX()) < 30.0f && this.b.v != null) {
+                this.b.v.d(this.a);
             }
-            this.b.v.d(this.a);
         }
     }
 
-    /* loaded from: classes6.dex */
-    public interface d {
-    }
-
-    /* loaded from: classes6.dex */
-    public interface e {
-        void a(MotionEvent motionEvent, int i);
-
-        void b(MotionEvent motionEvent, int i, int i2, int i3, int i4);
-
-        void c();
-    }
-
-    /* loaded from: classes6.dex */
-    public interface f {
-        void a(MotionEvent motionEvent);
-
-        void b(MotionEvent motionEvent);
-
-        void c(MotionEvent motionEvent, float f, float f2);
-
-        void d(MotionEvent motionEvent);
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public RecordPreviewContainer(@NonNull Context context) {
+    public RecordPreviewContainer(Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -204,27 +208,171 @@ public class RecordPreviewContainer extends FrameLayout {
         }
     }
 
+    public final float n(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, motionEvent)) == null) {
+            if (motionEvent == null) {
+                return 0.0f;
+            }
+            double x = motionEvent.getX(0) - motionEvent.getX(1);
+            double y = motionEvent.getY(0) - motionEvent.getY(1);
+            return (float) Math.sqrt((x * x) + (y * y));
+        }
+        return invokeL.floatValue;
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public RecordPreviewContainer(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public RecordPreviewContainer(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.a = 0;
+        this.i = true;
+        this.w = false;
+        this.q = context;
+    }
+
+    @Override // android.view.View
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, motionEvent)) == null) {
+            j(motionEvent);
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void setCanDragTo(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+            this.i = z;
+        }
+    }
+
+    public void setFollowControlVisible(boolean z) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+            ImageView imageView = this.s;
+            if (imageView != null) {
+                if (z) {
+                    i = 0;
+                } else {
+                    i = 8;
+                }
+                imageView.setVisibility(i);
+            } else if (z) {
+                l();
+            }
+        }
+    }
+
+    public void setOnPreviewStateChangedListener(e eVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, eVar) == null) {
+            this.u = eVar;
+        }
+    }
+
+    public void setOnViewClickListener(f fVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, fVar) == null) {
+            this.v = fVar;
+        }
+    }
+
+    public void setSurfaceView(AspectGLSurfaceView aspectGLSurfaceView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, aspectGLSurfaceView) == null) {
+            this.t = aspectGLSurfaceView;
+        }
+    }
+
     public final void g(MotionEvent motionEvent) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, motionEvent) == null) || this.g || !this.h || Math.abs(this.l - motionEvent.getX()) >= 30.0f || Math.abs(this.m - motionEvent.getY()) >= 30.0f) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, motionEvent) == null) && !this.g && this.h && Math.abs(this.l - motionEvent.getX()) < 30.0f && Math.abs(this.m - motionEvent.getY()) < 30.0f) {
+            this.o.removeCallbacks(this.p);
+            c cVar = new c(this, MotionEvent.obtain(motionEvent));
+            this.p = cVar;
+            this.o.postDelayed(cVar, 300L);
         }
-        this.o.removeCallbacks(this.p);
-        c cVar = new c(this, MotionEvent.obtain(motionEvent));
-        this.p = cVar;
-        this.o.postDelayed(cVar, 300L);
     }
 
     public FocusCircleView getFocusView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.r : (FocusCircleView) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.r;
+        }
+        return (FocusCircleView) invokeV.objValue;
     }
 
     public AspectGLSurfaceView getSurfaceView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.t : (AspectGLSurfaceView) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.t;
+        }
+        return (AspectGLSurfaceView) invokeV.objValue;
+    }
+
+    public final void k() {
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.r == null) {
+            FocusCircleView focusCircleView = new FocusCircleView(getContext());
+            this.r = focusCircleView;
+            if (getChildCount() > 0) {
+                i = 1;
+            } else {
+                i = 0;
+            }
+            addView(focusCircleView, i);
+        }
+    }
+
+    public final void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.o.removeCallbacks(this.p);
+        }
     }
 
     public final boolean h(MotionEvent motionEvent) {
@@ -263,11 +411,11 @@ public class RecordPreviewContainer extends FrameLayout {
             if (motionEvent.getAction() == 1) {
                 int x = (int) motionEvent.getX();
                 int y = (int) motionEvent.getY();
-                if (y > this.c || x < hh9.k(R.dimen.obfuscated_res_0x7f070258)) {
+                if (y > this.c || x < zh9.k(R.dimen.obfuscated_res_0x7f070258)) {
                     return true;
                 }
-                int a2 = uz8.a(x, Cea708Decoder.COMMAND_DF2, this.d - Cea708Decoder.COMMAND_DF2);
-                int a3 = uz8.a(y, Cea708Decoder.COMMAND_DF2, this.c - Cea708Decoder.COMMAND_DF2);
+                int a2 = e09.a(x, Cea708Decoder.COMMAND_DF2, this.d - Cea708Decoder.COMMAND_DF2);
+                int a3 = e09.a(y, Cea708Decoder.COMMAND_DF2, this.c - Cea708Decoder.COMMAND_DF2);
                 e eVar = this.u;
                 if (eVar != null) {
                     eVar.b(motionEvent, 308, 308, a2, a3);
@@ -275,8 +423,8 @@ public class RecordPreviewContainer extends FrameLayout {
                 if (this.r == null) {
                     k();
                 }
-                int k = ej.k(getContext());
-                int i = ej.i(getContext());
+                int k = fj.k(getContext());
+                int i = fj.i(getContext());
                 this.r.setTranslationX(motionEvent.getX() - (k * 0.5f));
                 this.r.setTranslationY(motionEvent.getY() - (i * 0.5f));
                 this.r.d();
@@ -352,53 +500,24 @@ public class RecordPreviewContainer extends FrameLayout {
         return invokeL.booleanValue;
     }
 
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.r == null) {
-            FocusCircleView focusCircleView = new FocusCircleView(getContext());
-            this.r = focusCircleView;
-            addView(focusCircleView, getChildCount() > 0 ? 1 : 0);
-        }
-    }
-
     public final void l() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.s == null) {
-            ImageView imageView = new ImageView(getContext());
-            this.s = imageView;
-            imageView.setImageResource(R.drawable.obfuscated_res_0x7f080a60);
-            if (this.s != null) {
-                int width = getWidth();
-                int width2 = this.s.getWidth();
-                int i = this.d;
-                int i2 = (((i * 3) / 4) - (width2 / 2)) + ((width - i) / 2);
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(UtilHelper.getDimenPixelSize(R.dimen.tbds44), UtilHelper.getDimenPixelSize(R.dimen.tbds52));
-                layoutParams.gravity = 17;
-                layoutParams.leftMargin = i2;
-                this.s.setLayoutParams(layoutParams);
-            }
+        if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || this.s != null) {
+            return;
         }
-    }
-
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.o.removeCallbacks(this.p);
+        ImageView imageView = new ImageView(getContext());
+        this.s = imageView;
+        imageView.setImageResource(R.drawable.obfuscated_res_0x7f080a6f);
+        if (this.s != null) {
+            int width = getWidth();
+            int width2 = this.s.getWidth();
+            int i = this.d;
+            int i2 = (((i * 3) / 4) - (width2 / 2)) + ((width - i) / 2);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(UtilHelper.getDimenPixelSize(R.dimen.tbds44), UtilHelper.getDimenPixelSize(R.dimen.tbds52));
+            layoutParams.gravity = 17;
+            layoutParams.leftMargin = i2;
+            this.s.setLayoutParams(layoutParams);
         }
-    }
-
-    public final float n(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, motionEvent)) == null) {
-            if (motionEvent == null) {
-                return 0.0f;
-            }
-            double x = motionEvent.getX(0) - motionEvent.getX(1);
-            double y = motionEvent.getY(0) - motionEvent.getY(1);
-            return (float) Math.sqrt((x * x) + (y * y));
-        }
-        return invokeL.floatValue;
     }
 
     @Override // android.view.View
@@ -407,114 +526,11 @@ public class RecordPreviewContainer extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onFinishInflate();
             this.n = ViewConfiguration.get(getContext()).getScaledPagingTouchSlop();
-            this.d = ej.k(getContext());
-            this.c = ej.i(getContext());
-            this.t = (AspectGLSurfaceView) findViewById(R.id.obfuscated_res_0x7f0904c5);
+            this.d = fj.k(getContext());
+            this.c = fj.i(getContext());
+            this.t = (AspectGLSurfaceView) findViewById(R.id.obfuscated_res_0x7f0904ce);
             this.o = new Handler();
             postDelayed(new a(this), 4000L);
         }
-    }
-
-    @Override // android.view.View
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, motionEvent)) == null) {
-            j(motionEvent);
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void setCanDragTo(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.i = z;
-        }
-    }
-
-    public void setFollowControlVisible(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            ImageView imageView = this.s;
-            if (imageView != null) {
-                imageView.setVisibility(z ? 0 : 8);
-            } else if (z) {
-                l();
-            }
-        }
-    }
-
-    public void setOnFollowControlClickListener(d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, dVar) == null) {
-        }
-    }
-
-    public void setOnPreviewStateChangedListener(e eVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, eVar) == null) {
-            this.u = eVar;
-        }
-    }
-
-    public void setOnViewClickListener(f fVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, fVar) == null) {
-            this.v = fVar;
-        }
-    }
-
-    public void setSurfaceView(AspectGLSurfaceView aspectGLSurfaceView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, aspectGLSurfaceView) == null) {
-            this.t = aspectGLSurfaceView;
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public RecordPreviewContainer(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RecordPreviewContainer(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.a = 0;
-        this.i = true;
-        this.w = false;
-        this.q = context;
     }
 }

@@ -14,7 +14,7 @@ import com.google.android.exoplayer2.util.Util;
 /* loaded from: classes7.dex */
 public final class UrlLinkFrame extends Id3Frame {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<UrlLinkFrame> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public final String description;
     public final String url;
@@ -32,7 +32,7 @@ public final class UrlLinkFrame extends Id3Frame {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<UrlLinkFrame>() { // from class: com.google.android.exoplayer2.metadata.id3.UrlLinkFrame.1
+        CREATOR = new Parcelable.Creator() { // from class: com.google.android.exoplayer2.metadata.id3.UrlLinkFrame.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -51,23 +51,68 @@ public final class UrlLinkFrame extends Id3Frame {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public UrlLinkFrame createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new UrlLinkFrame(parcel) : (UrlLinkFrame) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new UrlLinkFrame(parcel);
+                }
+                return (UrlLinkFrame) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public UrlLinkFrame[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new UrlLinkFrame[i] : (UrlLinkFrame[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new UrlLinkFrame[i];
+                }
+                return (UrlLinkFrame[]) invokeI.objValue;
             }
         };
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public UrlLinkFrame(Parcel parcel) {
+        super(parcel.readString());
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.description = parcel.readString();
+        this.url = parcel.readString();
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj == null || UrlLinkFrame.class != obj.getClass()) {
+                return false;
+            }
+            UrlLinkFrame urlLinkFrame = (UrlLinkFrame) obj;
+            if (this.id.equals(urlLinkFrame.id) && Util.areEqual(this.description, urlLinkFrame.description) && Util.areEqual(this.url, urlLinkFrame.url)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -92,31 +137,25 @@ public final class UrlLinkFrame extends Id3Frame {
         this.url = str3;
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj == null || UrlLinkFrame.class != obj.getClass()) {
-                return false;
-            }
-            UrlLinkFrame urlLinkFrame = (UrlLinkFrame) obj;
-            return this.id.equals(urlLinkFrame.id) && Util.areEqual(this.description, urlLinkFrame.description) && Util.areEqual(this.url, urlLinkFrame.url);
-        }
-        return invokeL.booleanValue;
-    }
-
     public int hashCode() {
         InterceptResult invokeV;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             int hashCode = (527 + this.id.hashCode()) * 31;
             String str = this.description;
-            int hashCode2 = (hashCode + (str != null ? str.hashCode() : 0)) * 31;
+            int i2 = 0;
+            if (str != null) {
+                i = str.hashCode();
+            } else {
+                i = 0;
+            }
+            int i3 = (hashCode + i) * 31;
             String str2 = this.url;
-            return hashCode2 + (str2 != null ? str2.hashCode() : 0);
+            if (str2 != null) {
+                i2 = str2.hashCode();
+            }
+            return i3 + i2;
         }
         return invokeV.intValue;
     }
@@ -129,27 +168,5 @@ public final class UrlLinkFrame extends Id3Frame {
             parcel.writeString(this.description);
             parcel.writeString(this.url);
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public UrlLinkFrame(Parcel parcel) {
-        super(parcel.readString());
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.description = parcel.readString();
-        this.url = parcel.readString();
     }
 }

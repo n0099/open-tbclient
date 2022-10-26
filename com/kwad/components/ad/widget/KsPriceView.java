@@ -1,6 +1,5 @@
 package com.kwad.components.ad.widget;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.text.SpannableString;
 import android.text.TextUtils;
@@ -9,9 +8,6 @@ import android.text.style.ForegroundColorSpan;
 import android.text.style.StrikethroughSpan;
 import android.util.AttributeSet;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
@@ -25,7 +21,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.components.core.widget.e;
 import com.kwad.components.core.widget.f;
 import com.kwad.sdk.core.e.b;
-@SuppressLint({"AppCompatCustomView"})
 /* loaded from: classes7.dex */
 public class KsPriceView extends TextView implements e {
     public static /* synthetic */ Interceptable $ic = null;
@@ -39,7 +34,7 @@ public class KsPriceView extends TextView implements e {
     public String Cz;
 
     /* loaded from: classes7.dex */
-    public static class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int CC;
@@ -168,7 +163,7 @@ public class KsPriceView extends TextView implements e {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public KsPriceView(Context context, @Nullable AttributeSet attributeSet) {
+    public KsPriceView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -191,7 +186,7 @@ public class KsPriceView extends TextView implements e {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public KsPriceView(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public KsPriceView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -214,7 +209,6 @@ public class KsPriceView extends TextView implements e {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    @RequiresApi(api = 21)
     public KsPriceView(Context context, AttributeSet attributeSet, int i, int i2) {
         super(context, attributeSet, i, i2);
         Interceptable interceptable = $ic;
@@ -250,8 +244,7 @@ public class KsPriceView extends TextView implements e {
         }
     }
 
-    @Nullable
-    public static SpannableString a(String str, @Nullable String str2, boolean z, a aVar) {
+    public static SpannableString a(String str, String str2, boolean z, a aVar) {
         InterceptResult invokeCommon;
         String format;
         Interceptable interceptable = $ic;
@@ -329,7 +322,6 @@ public class KsPriceView extends TextView implements e {
         }
     }
 
-    @NonNull
     public a getConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

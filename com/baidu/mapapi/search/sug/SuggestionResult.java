@@ -20,20 +20,20 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class SuggestionResult extends SearchResult implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<SuggestionResult> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<SuggestionInfo> suggestionList;
+    public ArrayList suggestionList;
 
     /* loaded from: classes2.dex */
-    public static class SuggestionInfo implements Parcelable {
+    public class SuggestionInfo implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
-        public static final Parcelable.Creator<SuggestionInfo> CREATOR;
+        public static final Parcelable.Creator CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
         public String address;
         public String city;
         public String district;
         public String key;
-        public List<PoiChildrenInfo> poiChildrenInfoList;
+        public List poiChildrenInfoList;
         public LatLng pt;
         public String tag;
         public String uid;
@@ -127,7 +127,7 @@ public class SuggestionResult extends SearchResult implements Parcelable {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.key : (String) invokeV.objValue;
         }
 
-        public List<PoiChildrenInfo> getPoiChildrenInfoList() {
+        public List getPoiChildrenInfoList() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.poiChildrenInfoList : (List) invokeV.objValue;
@@ -179,7 +179,7 @@ public class SuggestionResult extends SearchResult implements Parcelable {
             }
         }
 
-        public void setPoiChildrenInfoList(List<PoiChildrenInfo> list) {
+        public void setPoiChildrenInfoList(List list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048589, this, list) == null) {
                 this.poiChildrenInfoList = list;
@@ -232,7 +232,7 @@ public class SuggestionResult extends SearchResult implements Parcelable {
                 stringBuffer.append("; address = ");
                 stringBuffer.append(this.address);
                 stringBuffer.append("; childrenInfo = ");
-                List<PoiChildrenInfo> list = this.poiChildrenInfoList;
+                List list = this.poiChildrenInfoList;
                 if (list == null || list.isEmpty()) {
                     stringBuffer.append(StringUtil.NULL_STRING);
                 } else {
@@ -240,7 +240,7 @@ public class SuggestionResult extends SearchResult implements Parcelable {
                         stringBuffer.append(" ");
                         stringBuffer.append(i);
                         stringBuffer.append(" ");
-                        PoiChildrenInfo poiChildrenInfo = this.poiChildrenInfoList.get(i);
+                        PoiChildrenInfo poiChildrenInfo = (PoiChildrenInfo) this.poiChildrenInfoList.get(i);
                         if (poiChildrenInfo == null) {
                             stringBuffer.append(StringUtil.NULL_STRING);
                         } else {
@@ -347,13 +347,13 @@ public class SuggestionResult extends SearchResult implements Parcelable {
         return invokeV.intValue;
     }
 
-    public List<SuggestionInfo> getAllSuggestions() {
+    public List getAllSuggestions() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.suggestionList : (List) invokeV.objValue;
     }
 
-    public void setSuggestionInfo(ArrayList<SuggestionInfo> arrayList) {
+    public void setSuggestionInfo(ArrayList arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
             this.suggestionList = arrayList;

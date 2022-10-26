@@ -1,6 +1,5 @@
 package com.baidu.android.util;
 
-import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.common.runtime.AppRuntime;
@@ -49,6 +48,15 @@ public class KVStorageFactory {
         }
     }
 
+    public static boolean isKVStorageInitSuccess() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return sIsKVInitSuccessfully;
+        }
+        return invokeV.booleanValue;
+    }
+
     public static SharedPreferences getDefaultSharedPreferences() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -61,16 +69,12 @@ public class KVStorageFactory {
     public static SharedPreferences getSharedPreferences(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? getSharedPreferences(str, 0) : (SharedPreferences) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return getSharedPreferences(str, 0);
+        }
+        return (SharedPreferences) invokeL.objValue;
     }
 
-    public static boolean isKVStorageInitSuccess() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? sIsKVInitSuccessfully : invokeV.booleanValue;
-    }
-
-    @SuppressLint({"LogConditional"})
     public static SharedPreferences getSharedPreferences(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;

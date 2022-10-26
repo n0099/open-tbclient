@@ -26,6 +26,30 @@ public class ImageOriginUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static String toString(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            switch (i) {
+                case 2:
+                    return "network";
+                case 3:
+                    return "disk";
+                case 4:
+                    return "memory_encoded";
+                case 5:
+                    return "memory_bitmap";
+                case 6:
+                    return "memory_bitmap_shortcut";
+                case 7:
+                    return ImagesContract.LOCAL;
+                default:
+                    return "unknown";
+            }
+        }
+        return (String) invokeI.objValue;
+    }
+
     public ImageOriginUtils() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -182,29 +206,5 @@ public class ImageOriginUtils {
             }
         }
         return invokeL.intValue;
-    }
-
-    public static String toString(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            switch (i) {
-                case 2:
-                    return "network";
-                case 3:
-                    return "disk";
-                case 4:
-                    return "memory_encoded";
-                case 5:
-                    return "memory_bitmap";
-                case 6:
-                    return "memory_bitmap_shortcut";
-                case 7:
-                    return ImagesContract.LOCAL;
-                default:
-                    return "unknown";
-            }
-        }
-        return (String) invokeI.objValue;
     }
 }

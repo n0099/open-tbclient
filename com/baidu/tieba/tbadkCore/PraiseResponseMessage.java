@@ -44,24 +44,29 @@ public class PraiseResponseMessage extends JsonHttpResponsedMessage {
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
             int statusCode = getStatusCode();
             int error = getError();
-            if (statusCode != 200 || error < 0 || jSONObject == null) {
-                return;
+            if (statusCode == 200 && error >= 0 && jSONObject != null) {
+                this.errCode = jSONObject.optInt("error_code");
+                this.errMsg = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
             }
-            this.errCode = jSONObject.optInt("error_code");
-            this.errMsg = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
         }
     }
 
     public int getErrCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.errCode : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.errCode;
+        }
+        return invokeV.intValue;
     }
 
     public String getErrMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.errMsg : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.errMsg;
+        }
+        return (String) invokeV.objValue;
     }
 
     public void setErrCode(int i) {

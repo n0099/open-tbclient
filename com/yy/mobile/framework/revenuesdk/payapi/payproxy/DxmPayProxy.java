@@ -25,6 +25,16 @@ public final class DxmPayProxy extends DefaultPayMethod {
     public String TAG;
     public IDxmSdkServiceProxy dxmPayServiceService;
 
+    @Override // com.yy.mobile.framework.revenuesdk.payapi.payservice.DefaultPayMethod, com.yy.mobile.framework.revenuesdk.payapi.payservice.IPayMethod
+    public boolean isSupported(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity)) == null) {
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
     public DxmPayProxy(IDxmSdkServiceProxy iDxmSdkServiceProxy) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -44,23 +54,23 @@ public final class DxmPayProxy extends DefaultPayMethod {
         this.TAG = "DxmPayProxy";
     }
 
+    public final void setDxmPayServiceService(IDxmSdkServiceProxy iDxmSdkServiceProxy) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, iDxmSdkServiceProxy) == null) {
+            this.dxmPayServiceService = iDxmSdkServiceProxy;
+        }
+    }
+
     public final IDxmSdkServiceProxy getDxmPayServiceService() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.dxmPayServiceService : (IDxmSdkServiceProxy) invokeV.objValue;
-    }
-
-    @Override // com.yy.mobile.framework.revenuesdk.payapi.payservice.DefaultPayMethod, com.yy.mobile.framework.revenuesdk.payapi.payservice.IPayMethod
-    public boolean isSupported(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity)) == null) {
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.dxmPayServiceService;
         }
-        return invokeL.booleanValue;
+        return (IDxmSdkServiceProxy) invokeV.objValue;
     }
 
-    public final void onPayResult(int i, String str, IPayCallback<PurchaseInfo> iPayCallback) {
+    public final void onPayResult(int i, String str, IPayCallback iPayCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, str, iPayCallback) == null) {
             String str2 = this.TAG;
@@ -84,7 +94,7 @@ public final class DxmPayProxy extends DefaultPayMethod {
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payapi.payservice.DefaultPayMethod, com.yy.mobile.framework.revenuesdk.payapi.payservice.IPayMethod
-    public void requestPay(Activity activity, long j, ProductInfo productInfo, String str, final IPayCallback<PurchaseInfo> iPayCallback) {
+    public void requestPay(Activity activity, long j, ProductInfo productInfo, String str, final IPayCallback iPayCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{activity, Long.valueOf(j), productInfo, str, iPayCallback}) == null) {
             RLog.info(this.TAG, "requestPay1");
@@ -125,13 +135,14 @@ public final class DxmPayProxy extends DefaultPayMethod {
                 public void onFail(int i, String str2) {
                     String str3;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i, str2) == null) {
-                        str3 = this.this$0.TAG;
-                        RLog.error(str3, "onFail1 failReasonn:" + str2, new Object[0]);
-                        IPayCallback iPayCallback2 = this.$callback;
-                        if (iPayCallback2 != null) {
-                            iPayCallback2.onFail(-1006, PayFailMsg.FAILED_CALL_THIRD_PARTY_SDK, null);
-                        }
+                    if (interceptable2 != null && interceptable2.invokeIL(1048576, this, i, str2) != null) {
+                        return;
+                    }
+                    str3 = this.this$0.TAG;
+                    RLog.error(str3, "onFail1 failReasonn:" + str2, new Object[0]);
+                    IPayCallback iPayCallback2 = this.$callback;
+                    if (iPayCallback2 != null) {
+                        iPayCallback2.onFail(-1006, PayFailMsg.FAILED_CALL_THIRD_PARTY_SDK, null);
                     }
                 }
 
@@ -139,25 +150,19 @@ public final class DxmPayProxy extends DefaultPayMethod {
                 public void onSuccess(int i, String str2) {
                     String str3;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str2) == null) {
-                        str3 = this.this$0.TAG;
-                        RLog.info(str3, "requestPay onSuccess1 state:" + i + " msg:" + str2);
-                        this.this$0.onPayResult(i, str2, this.$callback);
+                    if (interceptable2 != null && interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str2) != null) {
+                        return;
                     }
+                    str3 = this.this$0.TAG;
+                    RLog.info(str3, "requestPay onSuccess1 state:" + i + " msg:" + str2);
+                    this.this$0.onPayResult(i, str2, this.$callback);
                 }
             });
         }
     }
 
-    public final void setDxmPayServiceService(IDxmSdkServiceProxy iDxmSdkServiceProxy) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, iDxmSdkServiceProxy) == null) {
-            this.dxmPayServiceService = iDxmSdkServiceProxy;
-        }
-    }
-
     @Override // com.yy.mobile.framework.revenuesdk.payapi.payservice.DefaultPayMethod, com.yy.mobile.framework.revenuesdk.payapi.payservice.IPayMethod
-    public void requestPay(Activity activity, long j, String str, String str2, final IPayCallback<PurchaseInfo> iPayCallback) {
+    public void requestPay(Activity activity, long j, String str, String str2, final IPayCallback iPayCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{activity, Long.valueOf(j), str, str2, iPayCallback}) == null) {
             RLog.info(this.TAG, "requestPay2");
@@ -198,13 +203,14 @@ public final class DxmPayProxy extends DefaultPayMethod {
                 public void onFail(int i, String str3) {
                     String str4;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i, str3) == null) {
-                        str4 = this.this$0.TAG;
-                        RLog.error(str4, "onFail2 failReasonn:" + str3, new Object[0]);
-                        IPayCallback iPayCallback2 = this.$callback;
-                        if (iPayCallback2 != null) {
-                            iPayCallback2.onFail(-1007, PayFailMsg.FAILED_CALL_THIRD_PARTY_SDK, null);
-                        }
+                    if (interceptable2 != null && interceptable2.invokeIL(1048576, this, i, str3) != null) {
+                        return;
+                    }
+                    str4 = this.this$0.TAG;
+                    RLog.error(str4, "onFail2 failReasonn:" + str3, new Object[0]);
+                    IPayCallback iPayCallback2 = this.$callback;
+                    if (iPayCallback2 != null) {
+                        iPayCallback2.onFail(-1007, PayFailMsg.FAILED_CALL_THIRD_PARTY_SDK, null);
                     }
                 }
 
@@ -212,11 +218,12 @@ public final class DxmPayProxy extends DefaultPayMethod {
                 public void onSuccess(int i, String str3) {
                     String str4;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str3) == null) {
-                        str4 = this.this$0.TAG;
-                        RLog.info(str4, "requestPay onSuccess2 state:" + i + " msg:" + str3);
-                        this.this$0.onPayResult(i, str3, this.$callback);
+                    if (interceptable2 != null && interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str3) != null) {
+                        return;
                     }
+                    str4 = this.this$0.TAG;
+                    RLog.info(str4, "requestPay onSuccess2 state:" + i + " msg:" + str3);
+                    this.this$0.onPayResult(i, str3, this.$callback);
                 }
             });
         }

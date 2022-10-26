@@ -18,7 +18,7 @@ import com.qq.e.comm.util.AdErrorConvertor;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes8.dex */
-public class UnifiedBannerAD extends LiteAbstractAD<UBVI> {
+public class UnifiedBannerAD extends LiteAbstractAD {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public UnifiedBannerADListener g;
@@ -74,22 +74,15 @@ public class UnifiedBannerAD extends LiteAbstractAD<UBVI> {
         a(activity, str, str2);
     }
 
-    @Override // com.qq.e.ads.AbstractAD
-    public Object a(Context context, POFactory pOFactory, String str, String str2, String str3) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, pOFactory, str, str2, str3)) == null) ? pOFactory.getUnifiedBannerViewDelegate(this.l, (Activity) context, str, str2, str3, this.g) : invokeLLLLL.objValue;
-    }
-
     public void a(DownAPPConfirmPolicy downAPPConfirmPolicy) {
-        T t;
+        Object obj;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downAPPConfirmPolicy) == null) {
             this.h = downAPPConfirmPolicy;
-            if (downAPPConfirmPolicy == null || (t = this.a) == 0) {
+            if (downAPPConfirmPolicy == null || (obj = this.a) == null) {
                 return;
             }
-            ((UBVI) t).setDownAPPConfirmPolicy(downAPPConfirmPolicy);
+            ((UBVI) obj).setDownAPPConfirmPolicy(downAPPConfirmPolicy);
         }
     }
 
@@ -113,38 +106,9 @@ public class UnifiedBannerAD extends LiteAbstractAD<UBVI> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             this.j = i;
-            T t = this.a;
-            if (t != 0) {
-                ((UBVI) t).setRefresh(i);
-            }
-        }
-    }
-
-    public void d() {
-        T t;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            DownAPPConfirmPolicy downAPPConfirmPolicy = this.h;
-            if (downAPPConfirmPolicy != null) {
-                this.h = downAPPConfirmPolicy;
-                if (downAPPConfirmPolicy != null && (t = this.a) != 0) {
-                    ((UBVI) t).setDownAPPConfirmPolicy(downAPPConfirmPolicy);
-                }
-            }
-            int i = this.j;
-            this.j = i;
-            T t2 = this.a;
-            if (t2 != 0) {
-                ((UBVI) t2).setRefresh(i);
-            }
-            LoadAdParams loadAdParams = this.k;
-            this.k = loadAdParams;
-            T t3 = this.a;
-            if (t3 != 0) {
-                ((UBVI) t3).setLoadAdParams(loadAdParams);
-            }
-            while (this.i.getAndDecrement() > 0) {
-                loadAD();
+            Object obj = this.a;
+            if (obj != null) {
+                ((UBVI) obj).setRefresh(i);
             }
         }
     }
@@ -152,9 +116,9 @@ public class UnifiedBannerAD extends LiteAbstractAD<UBVI> {
     public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            T t = this.a;
-            if (t != 0) {
-                ((UBVI) t).destroy();
+            Object obj = this.a;
+            if (obj != null) {
+                ((UBVI) obj).destroy();
             } else {
                 a("destroy");
             }
@@ -165,9 +129,9 @@ public class UnifiedBannerAD extends LiteAbstractAD<UBVI> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            T t = this.a;
-            if (t != 0) {
-                return ((UBVI) t).getAdNetWorkName();
+            Object obj = this.a;
+            if (obj != null) {
+                return ((UBVI) obj).getAdNetWorkName();
             }
             a("getAdNetWorkName");
             return null;
@@ -179,9 +143,9 @@ public class UnifiedBannerAD extends LiteAbstractAD<UBVI> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            T t = this.a;
-            if (t != 0) {
-                UBVI ubvi = (UBVI) t;
+            Object obj = this.a;
+            if (obj != null) {
+                UBVI ubvi = (UBVI) obj;
                 return UBVI.ext;
             }
             a("getExt");
@@ -197,9 +161,9 @@ public class UnifiedBannerAD extends LiteAbstractAD<UBVI> {
                 this.i.incrementAndGet();
                 return;
             }
-            T t = this.a;
-            if (t != 0) {
-                ((UBVI) t).fetchAd();
+            Object obj = this.a;
+            if (obj != null) {
+                ((UBVI) obj).fetchAd();
             } else {
                 a("loadAD");
             }
@@ -207,21 +171,60 @@ public class UnifiedBannerAD extends LiteAbstractAD<UBVI> {
     }
 
     public void onWindowFocusChanged(boolean z) {
-        T t;
+        Object obj;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048586, this, z) == null) || (t = this.a) == 0) {
+        if (!(interceptable == null || interceptable.invokeZ(1048586, this, z) == null) || (obj = this.a) == null) {
             return;
         }
-        ((UBVI) t).onWindowFocusChanged(z);
+        ((UBVI) obj).onWindowFocusChanged(z);
     }
 
     public void setLoadAdParams(LoadAdParams loadAdParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, loadAdParams) == null) {
             this.k = loadAdParams;
-            T t = this.a;
-            if (t != 0) {
-                ((UBVI) t).setLoadAdParams(loadAdParams);
+            Object obj = this.a;
+            if (obj != null) {
+                ((UBVI) obj).setLoadAdParams(loadAdParams);
+            }
+        }
+    }
+
+    @Override // com.qq.e.ads.AbstractAD
+    public Object a(Context context, POFactory pOFactory, String str, String str2, String str3) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, pOFactory, str, str2, str3)) == null) {
+            return pOFactory.getUnifiedBannerViewDelegate(this.l, (Activity) context, str, str2, str3, this.g);
+        }
+        return invokeLLLLL.objValue;
+    }
+
+    public void d() {
+        Object obj;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            DownAPPConfirmPolicy downAPPConfirmPolicy = this.h;
+            if (downAPPConfirmPolicy != null) {
+                this.h = downAPPConfirmPolicy;
+                if (downAPPConfirmPolicy != null && (obj = this.a) != null) {
+                    ((UBVI) obj).setDownAPPConfirmPolicy(downAPPConfirmPolicy);
+                }
+            }
+            int i = this.j;
+            this.j = i;
+            Object obj2 = this.a;
+            if (obj2 != null) {
+                ((UBVI) obj2).setRefresh(i);
+            }
+            LoadAdParams loadAdParams = this.k;
+            this.k = loadAdParams;
+            Object obj3 = this.a;
+            if (obj3 != null) {
+                ((UBVI) obj3).setLoadAdParams(loadAdParams);
+            }
+            while (this.i.getAndDecrement() > 0) {
+                loadAD();
             }
         }
     }

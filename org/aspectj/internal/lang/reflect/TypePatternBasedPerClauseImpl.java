@@ -41,7 +41,10 @@ public class TypePatternBasedPerClauseImpl extends PerClauseImpl implements Type
     public TypePattern getTypePattern() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.typePattern : (TypePattern) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.typePattern;
+        }
+        return (TypePattern) invokeV.objValue;
     }
 
     @Override // org.aspectj.internal.lang.reflect.PerClauseImpl

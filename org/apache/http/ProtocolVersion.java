@@ -44,33 +44,6 @@ public class ProtocolVersion implements Serializable {
         return invokeV.objValue;
     }
 
-    public int compareToVersion(ProtocolVersion protocolVersion) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, protocolVersion)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeL.intValue;
-    }
-
-    public final boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeL.booleanValue;
-    }
-
-    public ProtocolVersion forVersion(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048579, this, i, i2)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (ProtocolVersion) invokeII.objValue;
-    }
-
     public final int getMajor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -98,15 +71,6 @@ public class ProtocolVersion implements Serializable {
         return (String) invokeV.objValue;
     }
 
-    public final boolean greaterEquals(ProtocolVersion protocolVersion) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, protocolVersion)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeL.booleanValue;
-    }
-
     public final int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -114,6 +78,42 @@ public class ProtocolVersion implements Serializable {
             throw new RuntimeException("Stub!");
         }
         return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int compareToVersion(ProtocolVersion protocolVersion) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, protocolVersion)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeL.intValue;
+    }
+
+    public final boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final boolean greaterEquals(ProtocolVersion protocolVersion) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, protocolVersion)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeL.booleanValue;
     }
 
     public boolean isComparable(ProtocolVersion protocolVersion) {
@@ -134,12 +134,12 @@ public class ProtocolVersion implements Serializable {
         return invokeL.booleanValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public ProtocolVersion forVersion(int i, int i2) {
+        InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048579, this, i, i2)) == null) {
             throw new RuntimeException("Stub!");
         }
-        return (String) invokeV.objValue;
+        return (ProtocolVersion) invokeII.objValue;
     }
 }

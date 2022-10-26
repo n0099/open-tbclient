@@ -33,7 +33,7 @@ public interface a {
 
     boolean m();
 
-    List<String> n();
+    List n();
 
     Object o();
 

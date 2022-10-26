@@ -1,7 +1,6 @@
 package androidx.media2.session;
 
 import android.os.Bundle;
-import androidx.annotation.Nullable;
 import androidx.versionedparcelable.VersionedParcelable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,28 +34,40 @@ public class ConnectionRequest implements VersionedParcelable {
     public Bundle getConnectionHints() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mConnectionHints : (Bundle) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mConnectionHints;
+        }
+        return (Bundle) invokeV.objValue;
     }
 
     public String getPackageName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mPackageName : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mPackageName;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getPid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mPid : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mPid;
+        }
+        return invokeV.intValue;
     }
 
     public int getVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mVersion : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mVersion;
+        }
+        return invokeV.intValue;
     }
 
-    public ConnectionRequest(String str, int i, @Nullable Bundle bundle) {
+    public ConnectionRequest(String str, int i, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

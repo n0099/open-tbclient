@@ -5,7 +5,6 @@ import android.content.pm.ActivityInfo;
 import android.content.pm.PackageInfo;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sofire.b.l;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +28,7 @@ public class ApkInfo {
     public int duration;
     public Context hostContext;
     public int initStatus;
-    public List<l> intentFilters;
+    public List intentFilters;
     public boolean isMem;
     public boolean isNextLoad;
     public int isOnce;
@@ -61,36 +60,18 @@ public class ApkInfo {
         this.isNextLoad = false;
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj != null && ApkInfo.class == obj.getClass()) {
-                ApkInfo apkInfo = (ApkInfo) obj;
-                String str = this.packageName;
-                if (str == null) {
-                    if (apkInfo.packageName != null) {
-                        return false;
-                    }
-                } else if (!str.equals(apkInfo.packageName)) {
-                    return false;
-                }
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
     public int hashCode() {
         InterceptResult invokeV;
+        int hashCode;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             String str = this.packageName;
-            return (str == null ? 0 : str.hashCode()) + 31;
+            if (str == null) {
+                hashCode = 0;
+            } else {
+                hashCode = str.hashCode();
+            }
+            return hashCode + 31;
         }
         return invokeV.intValue;
     }
@@ -114,28 +95,6 @@ public class ApkInfo {
         this.isMem = false;
         this.isNextLoad = false;
         this.key = i;
-        this.versionName = str;
-        this.pkgPath = str2;
-    }
-
-    public ApkInfo(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
-            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-                return;
-            }
-        }
-        this.priority = -1;
-        this.isMem = false;
-        this.isNextLoad = false;
         this.versionName = str;
         this.pkgPath = str2;
     }
@@ -208,5 +167,51 @@ public class ApkInfo {
         this.priority = apkInfo.priority;
         this.isMem = apkInfo.isMem;
         this.isNextLoad = apkInfo.isNextLoad;
+    }
+
+    public ApkInfo(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+                return;
+            }
+        }
+        this.priority = -1;
+        this.isMem = false;
+        this.isNextLoad = false;
+        this.versionName = str;
+        this.pkgPath = str2;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj == null || ApkInfo.class != obj.getClass()) {
+                return false;
+            }
+            ApkInfo apkInfo = (ApkInfo) obj;
+            String str = this.packageName;
+            if (str == null) {
+                if (apkInfo.packageName != null) {
+                    return false;
+                }
+            } else if (!str.equals(apkInfo.packageName)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

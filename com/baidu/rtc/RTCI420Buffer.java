@@ -171,7 +171,7 @@ public class RTCI420Buffer implements VideoFrame.I420Buffer {
             ByteBuffer slice2 = nativeAllocateByteBuffer.slice();
             nativeAllocateByteBuffer.position(i8);
             nativeAllocateByteBuffer.limit(i8 + i7);
-            return new RTCI420Buffer(i, i2, slice, i, slice2, i4, nativeAllocateByteBuffer.slice(), i4, new Runnable() { // from class: com.baidu.tieba.jf1
+            return new RTCI420Buffer(i, i2, slice, i, slice2, i4, nativeAllocateByteBuffer.slice(), i4, new Runnable() { // from class: com.baidu.tieba.kf1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -190,7 +190,7 @@ public class RTCI420Buffer implements VideoFrame.I420Buffer {
     public static void checkCapacity(ByteBuffer byteBuffer, int i, int i2, int i3) {
         int i4;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIII(InputDeviceCompat.SOURCE_TRACKBALL, null, byteBuffer, i, i2, i3) == null) || byteBuffer.capacity() >= (i4 = (i3 * (i2 - 1)) + i)) {
+        if ((interceptable != null && interceptable.invokeLIII(InputDeviceCompat.SOURCE_TRACKBALL, null, byteBuffer, i, i2, i3) != null) || byteBuffer.capacity() >= (i4 = (i3 * (i2 - 1)) + i)) {
             return;
         }
         throw new IllegalArgumentException("Buffer must be at least " + i4 + " bytes, but was " + byteBuffer.capacity());
@@ -244,56 +244,80 @@ public class RTCI420Buffer implements VideoFrame.I420Buffer {
     public ByteBuffer getDataU() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.dataU.slice() : (ByteBuffer) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.dataU.slice();
+        }
+        return (ByteBuffer) invokeV.objValue;
     }
 
     @Override // org.webrtc.VideoFrame.I420Buffer
     public ByteBuffer getDataV() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.dataV.slice() : (ByteBuffer) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.dataV.slice();
+        }
+        return (ByteBuffer) invokeV.objValue;
     }
 
     @Override // org.webrtc.VideoFrame.I420Buffer
     public ByteBuffer getDataY() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.dataY.slice() : (ByteBuffer) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.dataY.slice();
+        }
+        return (ByteBuffer) invokeV.objValue;
     }
 
     @Override // org.webrtc.VideoFrame.Buffer
     public int getHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.height : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.height;
+        }
+        return invokeV.intValue;
     }
 
     @Override // org.webrtc.VideoFrame.I420Buffer
     public int getStrideU() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.strideU : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.strideU;
+        }
+        return invokeV.intValue;
     }
 
     @Override // org.webrtc.VideoFrame.I420Buffer
     public int getStrideV() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.strideV : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.strideV;
+        }
+        return invokeV.intValue;
     }
 
     @Override // org.webrtc.VideoFrame.I420Buffer
     public int getStrideY() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.strideY : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.strideY;
+        }
+        return invokeV.intValue;
     }
 
     @Override // org.webrtc.VideoFrame.Buffer
     public int getWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.width : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.width;
+        }
+        return invokeV.intValue;
     }
 
     @Override // org.webrtc.VideoFrame.Buffer, org.webrtc.RefCounted

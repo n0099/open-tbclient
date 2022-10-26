@@ -5,7 +5,6 @@ import android.app.AlertDialog;
 import android.app.FragmentManager;
 import android.content.DialogInterface;
 import android.view.KeyEvent;
-import androidx.annotation.NonNull;
 import androidx.core.app.NotificationManagerCompat;
 import com.ss.android.socialbase.appdownloader.c.n;
 import com.ss.android.socialbase.appdownloader.i;
@@ -14,38 +13,9 @@ import java.util.List;
 /* loaded from: classes8.dex */
 public class d {
     public static final String a = "d";
-    public static List<n> b = new ArrayList();
+    public static List b = new ArrayList();
     public static com.ss.android.socialbase.appdownloader.view.a c;
     public static AlertDialog d;
-
-    public static void b(@NonNull Activity activity, @NonNull n nVar) {
-        if (activity != null) {
-            try {
-                if (!activity.isFinishing()) {
-                    FragmentManager fragmentManager = activity.getFragmentManager();
-                    com.ss.android.socialbase.appdownloader.view.a aVar = (com.ss.android.socialbase.appdownloader.view.a) fragmentManager.findFragmentByTag(a);
-                    c = aVar;
-                    if (aVar == null) {
-                        c = new com.ss.android.socialbase.appdownloader.view.a();
-                        fragmentManager.beginTransaction().add(c, a).commitAllowingStateLoss();
-                        fragmentManager.executePendingTransactions();
-                    }
-                    c.a();
-                    return;
-                }
-            } catch (Throwable th) {
-                try {
-                    th.printStackTrace();
-                    nVar.a();
-                    return;
-                } catch (Throwable th2) {
-                    th2.printStackTrace();
-                    return;
-                }
-            }
-        }
-        nVar.a();
-    }
 
     public static boolean a() {
         try {
@@ -56,29 +26,7 @@ public class d {
         }
     }
 
-    public static synchronized void a(boolean z) {
-        synchronized (d.class) {
-            try {
-                if (d != null) {
-                    d.cancel();
-                    d = null;
-                }
-                for (n nVar : b) {
-                    if (nVar != null) {
-                        if (z) {
-                            nVar.a();
-                        } else {
-                            nVar.b();
-                        }
-                    }
-                }
-            } catch (Throwable th) {
-                th.printStackTrace();
-            }
-        }
-    }
-
-    public static synchronized void a(@NonNull final Activity activity, @NonNull final n nVar) {
+    public static synchronized void a(final Activity activity, final n nVar) {
         synchronized (d.class) {
             if (nVar == null) {
                 return;
@@ -111,13 +59,13 @@ public class d {
                         }).setOnKeyListener(new DialogInterface.OnKeyListener() { // from class: com.ss.android.socialbase.appdownloader.e.d.1
                             @Override // android.content.DialogInterface.OnKeyListener
                             public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
-                                if (i == 4) {
-                                    if (keyEvent.getAction() == 1) {
-                                        d.a(false);
-                                    }
-                                    return true;
+                                if (i != 4) {
+                                    return false;
                                 }
-                                return false;
+                                if (keyEvent.getAction() == 1) {
+                                    d.a(false);
+                                }
+                                return true;
                             }
                         }).setCancelable(false).show();
                     }
@@ -126,5 +74,56 @@ public class d {
             }
             nVar.b();
         }
+    }
+
+    public static synchronized void a(boolean z) {
+        synchronized (d.class) {
+            try {
+                if (d != null) {
+                    d.cancel();
+                    d = null;
+                }
+                for (n nVar : b) {
+                    if (nVar != null) {
+                        if (z) {
+                            nVar.a();
+                        } else {
+                            nVar.b();
+                        }
+                    }
+                }
+            } catch (Throwable th) {
+                th.printStackTrace();
+            }
+        }
+    }
+
+    public static void b(Activity activity, n nVar) {
+        if (activity != null) {
+            try {
+                if (!activity.isFinishing()) {
+                    FragmentManager fragmentManager = activity.getFragmentManager();
+                    com.ss.android.socialbase.appdownloader.view.a aVar = (com.ss.android.socialbase.appdownloader.view.a) fragmentManager.findFragmentByTag(a);
+                    c = aVar;
+                    if (aVar == null) {
+                        c = new com.ss.android.socialbase.appdownloader.view.a();
+                        fragmentManager.beginTransaction().add(c, a).commitAllowingStateLoss();
+                        fragmentManager.executePendingTransactions();
+                    }
+                    c.a();
+                    return;
+                }
+            } catch (Throwable th) {
+                try {
+                    th.printStackTrace();
+                    nVar.a();
+                    return;
+                } catch (Throwable th2) {
+                    th2.printStackTrace();
+                    return;
+                }
+            }
+        }
+        nVar.a();
     }
 }

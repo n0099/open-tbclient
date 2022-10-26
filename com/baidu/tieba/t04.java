@@ -1,9 +1,7 @@
 package com.baidu.tieba;
+
+import com.baidu.tieba.ww3;
 /* loaded from: classes5.dex */
 public interface t04 {
-    boolean a(Object obj);
-
-    void b(Object obj);
-
-    void c(Object obj);
+    void b(ww3.d dVar);
 }

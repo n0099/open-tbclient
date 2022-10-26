@@ -3,7 +3,6 @@ package com.google.android.material.animation;
 import android.animation.TimeInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.LinearInterpolator;
-import androidx.annotation.RestrictTo;
 import androidx.interpolator.view.animation.FastOutLinearInInterpolator;
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
 import androidx.interpolator.view.animation.LinearOutSlowInInterpolator;
@@ -14,7 +13,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes7.dex */
 public class AnimationUtils {
     public static /* synthetic */ Interceptable $ic;
@@ -24,6 +22,12 @@ public class AnimationUtils {
     public static final TimeInterpolator LINEAR_INTERPOLATOR;
     public static final TimeInterpolator LINEAR_OUT_SLOW_IN_INTERPOLATOR;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public static float lerp(float f, float f2, float f3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) ? f + (f3 * (f2 - f)) : invokeCommon.floatValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -59,15 +63,12 @@ public class AnimationUtils {
         }
     }
 
-    public static float lerp(float f, float f2, float f3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) ? f + (f3 * (f2 - f)) : invokeCommon.floatValue;
-    }
-
     public static int lerp(int i, int i2, float f) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f)})) == null) ? i + Math.round(f * (i2 - i)) : invokeCommon.intValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f)})) == null) {
+            return i + Math.round(f * (i2 - i));
+        }
+        return invokeCommon.intValue;
     }
 }

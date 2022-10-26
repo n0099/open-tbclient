@@ -131,14 +131,18 @@ public class HorizontalChainReference extends ChainReference {
                 }
             }
             int i = AnonymousClass1.$SwitchMap$androidx$constraintlayout$solver$state$State$Chain[this.mStyle.ordinal()];
-            if (i == 1) {
-                constraintReference2.setHorizontalChainStyle(0);
-            } else if (i == 2) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (i == 3) {
+                        constraintReference2.setHorizontalChainStyle(2);
+                        return;
+                    }
+                    return;
+                }
                 constraintReference2.setHorizontalChainStyle(1);
-            } else if (i != 3) {
-            } else {
-                constraintReference2.setHorizontalChainStyle(2);
+                return;
             }
+            constraintReference2.setHorizontalChainStyle(0);
         }
     }
 

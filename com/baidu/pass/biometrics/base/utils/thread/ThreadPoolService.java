@@ -30,7 +30,7 @@ public class ThreadPoolService {
     public Handler b;
 
     /* loaded from: classes2.dex */
-    public static class SingletonContainer {
+    public class SingletonContainer {
         public static /* synthetic */ Interceptable $ic;
         public static ThreadPoolService mSingleInstance;
         public transient /* synthetic */ FieldHolder $fh;
@@ -116,21 +116,10 @@ public class ThreadPoolService {
     public static ThreadPoolService getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? SingletonContainer.mSingleInstance : (ThreadPoolService) invokeV.objValue;
-    }
-
-    public void run(TPRunnable tPRunnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, tPRunnable) == null) {
-            this.a.submit(tPRunnable);
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return SingletonContainer.mSingleInstance;
         }
-    }
-
-    public void runInUiThread(TPRunnable tPRunnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tPRunnable) == null) {
-            this.b.sendMessage(this.b.obtainMessage(0, tPRunnable));
-        }
+        return (ThreadPoolService) invokeV.objValue;
     }
 
     public ThreadPoolService() {
@@ -177,12 +166,14 @@ public class ThreadPoolService {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, message) == null) {
                     int i3 = message.what;
-                    if (i3 == 0) {
-                        ((TPRunnable) message.obj).run();
-                    } else if (i3 != 1) {
-                    } else {
-                        this.a.a.submit(((TPRunnable) message.obj).runable);
+                    if (i3 != 0) {
+                        if (i3 == 1) {
+                            this.a.a.submit(((TPRunnable) message.obj).runable);
+                            return;
+                        }
+                        return;
                     }
+                    ((TPRunnable) message.obj).run();
                 }
             }
         };
@@ -190,6 +181,20 @@ public class ThreadPoolService {
         this.a = threadPoolExecutor;
         if (Build.VERSION.SDK_INT >= 9) {
             threadPoolExecutor.allowCoreThreadTimeOut(true);
+        }
+    }
+
+    public void run(TPRunnable tPRunnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, tPRunnable) == null) {
+            this.a.submit(tPRunnable);
+        }
+    }
+
+    public void runInUiThread(TPRunnable tPRunnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tPRunnable) == null) {
+            this.b.sendMessage(this.b.obtainMessage(0, tPRunnable));
         }
     }
 }

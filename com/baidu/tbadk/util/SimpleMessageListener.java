@@ -1,7 +1,5 @@
 package com.baidu.tbadk.util;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.OnLifecycleEvent;
@@ -19,9 +17,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public abstract class SimpleMessageListener implements LifecycleObserver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
     public CustomMessageListener a;
     public boolean b;
+
+    /* loaded from: classes3.dex */
+    public interface b {
+        void call(Object obj);
+    }
 
     /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
@@ -52,21 +54,16 @@ public abstract class SimpleMessageListener implements LifecycleObserver {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
                 return;
             }
             this.a.call(customResponsedMessage.getData());
         }
     }
 
-    /* loaded from: classes3.dex */
-    public interface b<T> {
-        void call(@Nullable T t);
-    }
-
-    public SimpleMessageListener(int i, boolean z, @NonNull b bVar) {
+    public SimpleMessageListener(int i, boolean z, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -85,27 +82,27 @@ public abstract class SimpleMessageListener implements LifecycleObserver {
         this.a = new a(this, i, bVar);
     }
 
-    public static <T> void i(int i, @Nullable TbPageContext<?> tbPageContext, @Nullable T t) {
+    public static void i(int i, TbPageContext tbPageContext, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(65537, null, i, tbPageContext, t) == null) {
-            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(i, t);
+        if (interceptable == null || interceptable.invokeILL(65537, null, i, tbPageContext, obj) == null) {
+            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(i, obj);
             if (tbPageContext != null) {
                 CustomMessage customMessage = new CustomMessage(i, tbPageContext.getUniqueId());
-                customMessage.setData(t);
+                customMessage.setData(obj);
                 customResponsedMessage.setOrginalMessage(customMessage);
             }
             MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
         }
     }
 
-    public static <T> void j(int i, @Nullable T t) {
+    public static void j(int i, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65538, null, i, t) == null) {
-            i(i, null, t);
+        if (interceptable == null || interceptable.invokeIL(65538, null, i, obj) == null) {
+            i(i, null, obj);
         }
     }
 
-    public void h(@NonNull TbPageContext<?> tbPageContext) {
+    public void h(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
             this.a.setSelfListener(true);
@@ -116,19 +113,17 @@ public abstract class SimpleMessageListener implements LifecycleObserver {
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     public void onCreate() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.b) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !this.b) {
+            MessageManager.getInstance().registerListener(this.a);
         }
-        MessageManager.getInstance().registerListener(this.a);
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.b) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && !this.b) {
+            MessageManager.getInstance().unRegisterListener(this.a);
         }
-        MessageManager.getInstance().unRegisterListener(this.a);
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)

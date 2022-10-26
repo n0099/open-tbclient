@@ -19,7 +19,13 @@ public final class DelGroupResIdl extends Message {
     public final Error error;
 
     /* loaded from: classes9.dex */
-    public static final class Builder extends Message.Builder<DelGroupResIdl> {
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes9.dex */
+    public final class Builder extends Message.Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public DataRes data;
@@ -69,18 +75,11 @@ public final class DelGroupResIdl extends Message {
         public DelGroupResIdl build(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) ? new DelGroupResIdl(this, z, null) : (DelGroupResIdl) invokeZ.objValue;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+                return new DelGroupResIdl(this, z, null);
+            }
+            return (DelGroupResIdl) invokeZ.objValue;
         }
-    }
-
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    public /* synthetic */ DelGroupResIdl(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -108,5 +107,9 @@ public final class DelGroupResIdl extends Message {
         }
         this.error = builder.error;
         this.data = builder.data;
+    }
+
+    public /* synthetic */ DelGroupResIdl(Builder builder, boolean z, a aVar) {
+        this(builder, z);
     }
 }

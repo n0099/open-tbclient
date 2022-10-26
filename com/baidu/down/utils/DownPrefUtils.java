@@ -83,31 +83,85 @@ public final class DownPrefUtils {
     public static boolean getBoolean(Context context, String str, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, context, str, z)) == null) ? context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0).getBoolean(str, z) : invokeLLZ.booleanValue;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, context, str, z)) == null) {
+            return context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0).getBoolean(str, z);
+        }
+        return invokeLLZ.booleanValue;
     }
 
     public static float getFloat(Context context, String str, float f) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{context, str, Float.valueOf(f)})) == null) ? context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0).getFloat(str, f) : invokeCommon.floatValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{context, str, Float.valueOf(f)})) == null) {
+            return context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0).getFloat(str, f);
+        }
+        return invokeCommon.floatValue;
     }
 
     public static int getInt(Context context, String str, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, i)) == null) ? context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0).getInt(str, i) : invokeLLI.intValue;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, i)) == null) {
+            return context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0).getInt(str, i);
+        }
+        return invokeLLI.intValue;
     }
 
     public static long getLong(Context context, String str, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{context, str, Long.valueOf(j)})) == null) ? context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0).getLong(str, j) : invokeCommon.longValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{context, str, Long.valueOf(j)})) == null) {
+            return context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0).getLong(str, j);
+        }
+        return invokeCommon.longValue;
     }
 
     public static String getString(Context context, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, context, str, str2)) == null) ? context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0).getString(str, str2) : (String) invokeLLL.objValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, context, str, str2)) == null) {
+            return context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0).getString(str, str2);
+        }
+        return (String) invokeLLL.objValue;
+    }
+
+    public static void setBoolean(Context context, String str, boolean z) {
+        SharedPreferences sharedPreferences;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLZ(65544, null, context, str, z) == null) && context != null && str != null && (sharedPreferences = context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0)) != null) {
+            SharedPreferences.Editor edit = sharedPreferences.edit();
+            edit.putBoolean(str, z);
+            edit.commit();
+        }
+    }
+
+    public static void setInt(Context context, String str, int i) {
+        SharedPreferences sharedPreferences;
+        SharedPreferences.Editor edit;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLI(65546, null, context, str, i) == null) && context != null && str != null && (sharedPreferences = context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0)) != null && (edit = sharedPreferences.edit()) != null) {
+            edit.putInt(str, i);
+            edit.commit();
+        }
+    }
+
+    public static void setString(Context context, String str, String str2) {
+        SharedPreferences sharedPreferences;
+        SharedPreferences.Editor edit;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(65548, null, context, str, str2) == null) && context != null && str != null && (sharedPreferences = context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0)) != null && (edit = sharedPreferences.edit()) != null) {
+            edit.putString(str, str2);
+            edit.commit();
+        }
+    }
+
+    public static long testConfigurationGetLong(Context context, String str, long j) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{context, str, Long.valueOf(j)})) == null) {
+            return context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0).getLong(str, j);
+        }
+        return invokeCommon.longValue;
     }
 
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:44:0x00d5 -> B:51:0x00d8). Please submit an issue!!! */
@@ -172,64 +226,23 @@ public final class DownPrefUtils {
         }
     }
 
-    public static void setBoolean(Context context, String str, boolean z) {
-        SharedPreferences sharedPreferences;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(65544, null, context, str, z) == null) || context == null || str == null || (sharedPreferences = context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0)) == null) {
-            return;
-        }
-        SharedPreferences.Editor edit = sharedPreferences.edit();
-        edit.putBoolean(str, z);
-        edit.commit();
-    }
-
     public static void setFloat(Context context, String str, float f) {
         SharedPreferences sharedPreferences;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{context, str, Float.valueOf(f)}) == null) || context == null || str == null || (sharedPreferences = context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0)) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{context, str, Float.valueOf(f)}) == null) && context != null && str != null && (sharedPreferences = context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0)) != null) {
+            SharedPreferences.Editor edit = sharedPreferences.edit();
+            edit.putFloat(str, f);
+            edit.commit();
         }
-        SharedPreferences.Editor edit = sharedPreferences.edit();
-        edit.putFloat(str, f);
-        edit.commit();
-    }
-
-    public static void setInt(Context context, String str, int i) {
-        SharedPreferences sharedPreferences;
-        SharedPreferences.Editor edit;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(65546, null, context, str, i) == null) || context == null || str == null || (sharedPreferences = context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0)) == null || (edit = sharedPreferences.edit()) == null) {
-            return;
-        }
-        edit.putInt(str, i);
-        edit.commit();
     }
 
     public static void setLong(Context context, String str, long j) {
         SharedPreferences sharedPreferences;
         SharedPreferences.Editor edit;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65547, null, new Object[]{context, str, Long.valueOf(j)}) == null) || context == null || (sharedPreferences = context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0)) == null || (edit = sharedPreferences.edit()) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeCommon(65547, null, new Object[]{context, str, Long.valueOf(j)}) == null) && context != null && (sharedPreferences = context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0)) != null && (edit = sharedPreferences.edit()) != null) {
+            edit.putLong(str, j);
+            edit.commit();
         }
-        edit.putLong(str, j);
-        edit.commit();
-    }
-
-    public static void setString(Context context, String str, String str2) {
-        SharedPreferences sharedPreferences;
-        SharedPreferences.Editor edit;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65548, null, context, str, str2) == null) || context == null || str == null || (sharedPreferences = context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0)) == null || (edit = sharedPreferences.edit()) == null) {
-            return;
-        }
-        edit.putString(str, str2);
-        edit.commit();
-    }
-
-    public static long testConfigurationGetLong(Context context, String str, long j) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{context, str, Long.valueOf(j)})) == null) ? context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0).getLong(str, j) : invokeCommon.longValue;
     }
 }

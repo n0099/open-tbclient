@@ -1,119 +1,35 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.pb.pb.main.PbModel;
-import com.baidu.tieba.pb.pb.main.relatelist.RelateRecThreadListModel;
+import android.view.View;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.OriginalThreadInfo;
+import com.baidu.tieba.hx;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.RelateRecThread.DataRes;
-import tbclient.ThreadInfo;
 /* loaded from: classes3.dex */
-public class e18 {
+public abstract class e18 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<Cdo> a;
-    public final RelateRecThreadListModel b;
-    public nz7 c;
-    public PbModel d;
-    public boolean e;
-    public List<Cdo> f;
-    public final kp4 g;
+    public TbPageContext a;
+    public p26 b;
+    public hx.a c;
+    public OriginalThreadInfo d;
+    public int e;
 
-    /* loaded from: classes3.dex */
-    public class a implements kp4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e18 a;
+    public abstract View a();
 
-        public a(e18 e18Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {e18Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = e18Var;
-        }
+    public abstract void b(TbPageContext tbPageContext, int i);
 
-        @Override // com.baidu.tieba.kp4
-        public void onError(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) || this.a.c == null || this.a.c.a1() == null) {
-                return;
-            }
-            this.a.c.a1().N();
-        }
+    public abstract void c(OriginalThreadInfo originalThreadInfo);
 
-        @Override // com.baidu.tieba.kp4
-        public void onSuccess(Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-                if (this.a.d != null && (obj instanceof DataRes)) {
-                    DataRes dataRes = (DataRes) obj;
-                    jv7 S1 = this.a.d.S1();
-                    String first_class = S1.l() != null ? S1.l().getFirst_class() : "";
-                    List<ThreadInfo> list = dataRes.recom_thread_info;
-                    if (ListUtils.isEmpty(list)) {
-                        if (this.a.c == null || this.a.c.a1() == null) {
-                            return;
-                        }
-                        this.a.c.a1().v(S1.t());
-                        this.a.c.a1().N();
-                        if (S1.t()) {
-                            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_PB_FOLD_ICON_SHOW);
-                            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-                            statisticItem.param("fid", S1.m());
-                            statisticItem.param("fname", S1.n());
-                            statisticItem.param("tid", S1.Q());
-                            TiebaStatic.log(statisticItem);
-                            return;
-                        }
-                        return;
-                    }
-                    List<Cdo> b = f18.b(list, first_class, this.a.d.R1());
-                    this.a.a.addAll(b);
-                    S1.O0(this.a.a);
-                    this.a.f.addAll(b);
-                    Integer num = dataRes.rec_type;
-                    S1.L0(num == null ? 0 : num.intValue());
-                }
-                if (this.a.c != null && !ListUtils.isEmpty(this.a.a)) {
-                    this.a.c.R3();
-                }
-                if (this.a.c.a1() == null || !this.a.c.a1().n() || ListUtils.isEmpty(this.a.a)) {
-                    return;
-                }
-                this.a.c.a1().k();
-            }
-        }
-    }
-
-    public e18(t28 t28Var, BdUniqueId bdUniqueId, nz7 nz7Var, PbModel pbModel) {
+    public e18(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {t28Var, bdUniqueId, nz7Var, pbModel};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -123,59 +39,21 @@ public class e18 {
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.f = new ArrayList();
-        this.g = new a(this);
-        this.c = nz7Var;
-        this.d = pbModel;
-        RelateRecThreadListModel relateRecThreadListModel = new RelateRecThreadListModel(t28Var.getPageContext(), bdUniqueId);
-        this.b = relateRecThreadListModel;
-        relateRecThreadListModel.G(this.g);
+        this.e = 3;
+        this.a = tbPageContext;
     }
 
-    public boolean d() {
-        InterceptResult invokeV;
+    public void d(hx.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            PbModel pbModel = this.d;
-            if (pbModel == null || TextUtils.isEmpty(pbModel.m2()) || this.d.S1() == null) {
-                return false;
-            }
-            if (this.e) {
-                return true;
-            }
-            if (this.d.S1().b0()) {
-                return false;
-            }
-            String forumId = this.d.getForumId();
-            if (TextUtils.isEmpty(forumId) && this.d.S1().l() != null) {
-                forumId = this.d.S1().l().getId();
-            }
-            long g = dh.g(forumId, 0L);
-            long g2 = dh.g(this.d.m2(), 0L);
-            int h2 = this.d.h2();
-            String g22 = this.d.g2();
-            if (!this.e) {
-                this.e = true;
-            }
-            return this.b.F(g, g2, 1, h2, g22);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.clear();
-            this.b.onDestroy();
+        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+            this.c = aVar;
         }
     }
 
-    public void f(nz7 nz7Var, PbModel pbModel) {
+    public void e(p26 p26Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, nz7Var, pbModel) == null) {
-            this.c = nz7Var;
-            this.d = pbModel;
+        if (interceptable == null || interceptable.invokeL(1048580, this, p26Var) == null) {
+            this.b = p26Var;
         }
     }
 }

@@ -1,249 +1,126 @@
 package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.squareup.wire2.FieldEncoding;
+import com.squareup.wire2.ProtoAdapter;
 import java.io.IOException;
-import java.io.InputStream;
-import org.brotli.dec.BrotliRuntimeException;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 /* loaded from: classes6.dex */
-public final class xt9 {
+public final class xt9 extends ProtoAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final byte[] a;
-    public final int[] b;
-    public final eu9 c;
-    public InputStream d;
-    public boolean e;
-    public long f;
-    public int g;
-    public int h;
-    public int i;
+    public final Class a;
+    public Method b;
 
-    public xt9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xt9(Class cls) {
+        super(FieldEncoding.VARINT, cls);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cls};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FieldEncoding) objArr2[0], (Class) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new byte[4160];
-        this.b = new int[1040];
-        this.c = new eu9();
-        this.i = 0;
+        this.a = cls;
     }
 
-    public static void a(xt9 xt9Var, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(65537, null, xt9Var, z) == null) && xt9Var.e) {
-            int i = ((xt9Var.h << 2) + ((xt9Var.g + 7) >> 3)) - 8;
-            int i2 = xt9Var.i;
-            if (i > i2) {
-                throw new BrotliRuntimeException("Read after end");
-            }
-            if (z && i != i2) {
-                throw new BrotliRuntimeException("Unused bytes after end");
-            }
-        }
-    }
-
-    public static void b(xt9 xt9Var) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, xt9Var) == null) {
-            InputStream inputStream = xt9Var.d;
-            xt9Var.d = null;
-            if (inputStream != null) {
-                inputStream.close();
-            }
-        }
-    }
-
-    public static void c(xt9 xt9Var, byte[] bArr, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(65539, null, xt9Var, bArr, i, i2) == null) {
-            if ((xt9Var.g & 7) != 0) {
-                throw new BrotliRuntimeException("Unaligned copyBytes");
-            }
-            while (true) {
-                int i3 = xt9Var.g;
-                if (i3 == 64 || i2 == 0) {
-                    break;
-                }
-                bArr[i] = (byte) (xt9Var.f >>> i3);
-                xt9Var.g = i3 + 8;
-                i2--;
-                i++;
-            }
-            if (i2 == 0) {
-                return;
-            }
-            int min = Math.min(f(xt9Var), i2 >> 2);
-            if (min > 0) {
-                int i4 = min << 2;
-                System.arraycopy(xt9Var.a, xt9Var.h << 2, bArr, i, i4);
-                i += i4;
-                i2 -= i4;
-                xt9Var.h += min;
-            }
-            if (i2 == 0) {
-                return;
-            }
-            if (f(xt9Var) <= 0) {
-                while (i2 > 0) {
-                    try {
-                        int read = xt9Var.d.read(bArr, i, i2);
-                        if (read == -1) {
-                            throw new BrotliRuntimeException("Unexpected end of input");
-                        }
-                        i += read;
-                        i2 -= read;
-                    } catch (IOException e) {
-                        throw new BrotliRuntimeException("Failed to read input", e);
-                    }
-                }
-                return;
-            }
-            d(xt9Var);
-            while (i2 != 0) {
-                long j = xt9Var.f;
-                int i5 = xt9Var.g;
-                bArr[i] = (byte) (j >>> i5);
-                xt9Var.g = i5 + 8;
-                i2--;
-                i++;
-            }
-            a(xt9Var, false);
-        }
-    }
-
-    public static void d(xt9 xt9Var) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, xt9Var) == null) || (i = xt9Var.g) < 32) {
-            return;
-        }
-        int[] iArr = xt9Var.b;
-        int i2 = xt9Var.h;
-        xt9Var.h = i2 + 1;
-        xt9Var.f = (iArr[i2] << 32) | (xt9Var.f >>> 32);
-        xt9Var.g = i - 32;
-    }
-
-    public static void e(xt9 xt9Var, InputStream inputStream) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, xt9Var, inputStream) == null) {
-            if (xt9Var.d == null) {
-                eu9.b(xt9Var.c, xt9Var.a, xt9Var.b);
-                xt9Var.d = inputStream;
-                xt9Var.f = 0L;
-                xt9Var.g = 64;
-                xt9Var.h = 1024;
-                xt9Var.e = false;
-                h(xt9Var);
-                return;
-            }
-            throw new IllegalStateException("Bit reader already has associated input stream");
-        }
-    }
-
-    public static int f(xt9 xt9Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.squareup.wire2.ProtoAdapter
+    /* renamed from: a */
+    public zt9 decode(vt9 vt9Var) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, xt9Var)) == null) {
-            return (xt9Var.e ? (xt9Var.i + 3) >> 2 : 1024) - xt9Var.h;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, vt9Var)) == null) {
+            int l = vt9Var.l();
+            try {
+                zt9 zt9Var = (zt9) d().invoke(null, Integer.valueOf(l));
+                if (zt9Var != null) {
+                    return zt9Var;
+                }
+                throw new ProtoAdapter.EnumConstantNotFoundException(l, this.a);
+            } catch (IllegalAccessException | InvocationTargetException e) {
+                throw new AssertionError(e);
+            }
+        }
+        return (zt9) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.squareup.wire2.ProtoAdapter
+    /* renamed from: b */
+    public void encode(wt9 wt9Var, zt9 zt9Var) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wt9Var, zt9Var) == null) {
+            wt9Var.q(zt9Var.getValue());
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.squareup.wire2.ProtoAdapter
+    /* renamed from: c */
+    public int encodedSize(zt9 zt9Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, zt9Var)) == null) {
+            return wt9.i(zt9Var.getValue());
         }
         return invokeL.intValue;
     }
 
-    public static void g(xt9 xt9Var) {
-        int i;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65543, null, xt9Var) == null) && (i = (64 - xt9Var.g) & 7) != 0 && i(xt9Var, i) != 0) {
-            throw new BrotliRuntimeException("Corrupted padding bits");
-        }
-    }
-
-    public static void h(xt9 xt9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, xt9Var) == null) {
-            j(xt9Var);
-            a(xt9Var, false);
-            d(xt9Var);
-            d(xt9Var);
-        }
-    }
-
-    public static int i(xt9 xt9Var, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, xt9Var, i)) == null) {
-            d(xt9Var);
-            long j = xt9Var.f;
-            int i2 = xt9Var.g;
-            int i3 = ((int) (j >>> i2)) & ((1 << i) - 1);
-            xt9Var.g = i2 + i;
-            return i3;
-        }
-        return invokeLI.intValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:19:0x003b, code lost:
-        r4.e = true;
-        r4.i = r1;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:20:0x0040, code lost:
-        r1 = r1 + 3;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void j(xt9 xt9Var) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65546, null, xt9Var) == null) || (i = xt9Var.h) <= 1015) {
-            return;
-        }
-        if (xt9Var.e) {
-            if (f(xt9Var) < -2) {
-                throw new BrotliRuntimeException("No more input");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, obj)) == null) {
+            if ((obj instanceof xt9) && ((xt9) obj).a == this.a) {
+                return true;
             }
-            return;
+            return false;
         }
-        int i2 = i << 2;
-        int i3 = 4096 - i2;
-        byte[] bArr = xt9Var.a;
-        System.arraycopy(bArr, i2, bArr, 0, i3);
-        xt9Var.h = 0;
-        while (true) {
-            if (i3 >= 4096) {
-                break;
+        return invokeL.booleanValue;
+    }
+
+    public final Method d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            Method method = this.b;
+            if (method != null) {
+                return method;
             }
             try {
-                int read = xt9Var.d.read(xt9Var.a, i3, 4096 - i3);
-                if (read <= 0) {
-                    break;
-                }
-                i3 += read;
-            } catch (IOException e) {
-                throw new BrotliRuntimeException("Failed to read input", e);
+                Method method2 = this.a.getMethod("fromValue", Integer.TYPE);
+                this.b = method2;
+                return method2;
+            } catch (NoSuchMethodException e) {
+                throw new AssertionError(e);
             }
         }
-        eu9.a(xt9Var.c, i3 >> 2);
+        return (Method) invokeV.objValue;
     }
 
-    public static void k(xt9 xt9Var) {
+    public int hashCode() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65547, null, xt9Var) == null) && xt9Var.g == 64) {
-            h(xt9Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.a.hashCode();
         }
+        return invokeV.intValue;
     }
 }

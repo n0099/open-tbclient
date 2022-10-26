@@ -1,6 +1,5 @@
 package androidx.webkit;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -11,10 +10,6 @@ import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
-import androidx.annotation.UiThread;
 import androidx.core.view.InputDeviceCompat;
 import androidx.webkit.internal.WebMessagePortImpl;
 import androidx.webkit.internal.WebViewFeatureInternal;
@@ -43,7 +38,6 @@ public class WebViewCompat {
 
     /* loaded from: classes.dex */
     public interface VisualStateCallback {
-        @UiThread
         void onComplete(long j);
     }
 
@@ -78,14 +72,44 @@ public class WebViewCompat {
         }
     }
 
+    public static WebViewProviderFactory getFactory() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return WebViewGlueCommunicator.getFactory();
+        }
+        return (WebViewProviderFactory) invokeV.objValue;
+    }
+
+    public static PackageInfo getLoadedWebViewPackageInfo() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return (PackageInfo) Class.forName("android.webkit.WebViewFactory").getMethod("getLoadedPackageInfo", new Class[0]).invoke(null, new Object[0]);
+        }
+        return (PackageInfo) invokeV.objValue;
+    }
+
+    public static boolean isMultiProcessEnabled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
+            if (WebViewFeatureInternal.getFeature("MULTI_PROCESS_QUERY").isSupportedByWebView()) {
+                return getFactory().getStatics().isMultiProcessEnabled();
+            }
+            throw WebViewFeatureInternal.getUnsupportedOperationException();
+        }
+        return invokeV.booleanValue;
+    }
+
     public static void checkThread(WebView webView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, webView) == null) {
             if (Build.VERSION.SDK_INT >= 28) {
-                if (webView.getWebViewLooper() == Looper.myLooper()) {
-                    return;
+                if (webView.getWebViewLooper() != Looper.myLooper()) {
+                    throw new RuntimeException("A WebView method was called on thread '" + Thread.currentThread().getName() + "'. All WebView methods must be called on the same thread. (Expected Looper " + webView.getWebViewLooper() + " called on " + Looper.myLooper() + ", FYI main Looper is " + Looper.getMainLooper() + SmallTailInfo.EMOTION_SUFFIX);
                 }
-                throw new RuntimeException("A WebView method was called on thread '" + Thread.currentThread().getName() + "'. All WebView methods must be called on the same thread. (Expected Looper " + webView.getWebViewLooper() + " called on " + Looper.myLooper() + ", FYI main Looper is " + Looper.getMainLooper() + SmallTailInfo.EMOTION_SUFFIX);
+                return;
             }
             try {
                 Method declaredMethod = WebView.class.getDeclaredMethod("checkThread", new Class[0]);
@@ -104,12 +128,46 @@ public class WebViewCompat {
     public static WebViewProviderBoundaryInterface createProvider(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, webView)) == null) ? getFactory().createWebView(webView) : (WebViewProviderBoundaryInterface) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, webView)) == null) {
+            return getFactory().createWebView(webView);
+        }
+        return (WebViewProviderBoundaryInterface) invokeL.objValue;
     }
 
-    @NonNull
-    @SuppressLint({"NewApi"})
-    public static WebMessagePortCompat[] createWebMessageChannel(@NonNull WebView webView) {
+    public static WebViewProviderAdapter getProvider(WebView webView) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, webView)) == null) {
+            return new WebViewProviderAdapter(createProvider(webView));
+        }
+        return (WebViewProviderAdapter) invokeL.objValue;
+    }
+
+    public static WebViewRenderProcess getWebViewRenderProcess(WebView webView) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, webView)) == null) {
+            if (WebViewFeatureInternal.getFeature("GET_WEB_VIEW_RENDERER").isSupportedByWebView()) {
+                return getProvider(webView).getWebViewRenderProcess();
+            }
+            throw WebViewFeatureInternal.getUnsupportedOperationException();
+        }
+        return (WebViewRenderProcess) invokeL.objValue;
+    }
+
+    public static WebViewRenderProcessClient getWebViewRenderProcessClient(WebView webView) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, webView)) == null) {
+            if (WebViewFeatureInternal.getFeature("WEB_VIEW_RENDERER_CLIENT_BASIC_USAGE").isSupportedByWebView()) {
+                return getProvider(webView).getWebViewRenderProcessClient();
+            }
+            throw WebViewFeatureInternal.getUnsupportedOperationException();
+        }
+        return (WebViewRenderProcessClient) invokeL.objValue;
+    }
+
+    public static WebMessagePortCompat[] createWebMessageChannel(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, webView)) == null) {
@@ -125,8 +183,7 @@ public class WebViewCompat {
         return (WebMessagePortCompat[]) invokeL.objValue;
     }
 
-    @Nullable
-    public static PackageInfo getCurrentWebViewPackage(@NonNull Context context) {
+    public static PackageInfo getCurrentWebViewPackage(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
@@ -139,7 +196,10 @@ public class WebViewCompat {
             }
             try {
                 PackageInfo loadedWebViewPackageInfo = getLoadedWebViewPackageInfo();
-                return loadedWebViewPackageInfo != null ? loadedWebViewPackageInfo : getNotYetLoadedWebViewPackageInfo(context);
+                if (loadedWebViewPackageInfo != null) {
+                    return loadedWebViewPackageInfo;
+                }
+                return getNotYetLoadedWebViewPackageInfo(context);
             } catch (ClassNotFoundException | IllegalAccessException | NoSuchMethodException | InvocationTargetException unused) {
                 return null;
             }
@@ -147,20 +207,38 @@ public class WebViewCompat {
         return (PackageInfo) invokeL.objValue;
     }
 
-    public static WebViewProviderFactory getFactory() {
-        InterceptResult invokeV;
+    public static WebChromeClient getWebChromeClient(WebView webView) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? WebViewGlueCommunicator.getFactory() : (WebViewProviderFactory) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, webView)) == null) {
+            WebViewFeatureInternal feature = WebViewFeatureInternal.getFeature("GET_WEB_CHROME_CLIENT");
+            if (feature.isSupportedByFramework()) {
+                return webView.getWebChromeClient();
+            }
+            if (feature.isSupportedByWebView()) {
+                return getProvider(webView).getWebChromeClient();
+            }
+            throw WebViewFeatureInternal.getUnsupportedOperationException();
+        }
+        return (WebChromeClient) invokeL.objValue;
     }
 
-    @SuppressLint({"PrivateApi"})
-    public static PackageInfo getLoadedWebViewPackageInfo() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
-        InterceptResult invokeV;
+    public static WebViewClient getWebViewClient(WebView webView) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? (PackageInfo) Class.forName("android.webkit.WebViewFactory").getMethod("getLoadedPackageInfo", new Class[0]).invoke(null, new Object[0]) : (PackageInfo) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, webView)) == null) {
+            WebViewFeatureInternal feature = WebViewFeatureInternal.getFeature("GET_WEB_VIEW_CLIENT");
+            if (feature.isSupportedByFramework()) {
+                return webView.getWebViewClient();
+            }
+            if (feature.isSupportedByWebView()) {
+                return getProvider(webView).getWebViewClient();
+            }
+            throw WebViewFeatureInternal.getUnsupportedOperationException();
+        }
+        return (WebViewClient) invokeL.objValue;
     }
 
-    @SuppressLint({"PrivateApi"})
     public static PackageInfo getNotYetLoadedWebViewPackageInfo(Context context) {
         InterceptResult invokeL;
         String str;
@@ -183,14 +261,6 @@ public class WebViewCompat {
         return (PackageInfo) invokeL.objValue;
     }
 
-    public static WebViewProviderAdapter getProvider(WebView webView) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, webView)) == null) ? new WebViewProviderAdapter(createProvider(webView)) : (WebViewProviderAdapter) invokeL.objValue;
-    }
-
-    @NonNull
-    @SuppressLint({"NewApi"})
     public static Uri getSafeBrowsingPrivacyPolicyUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -207,83 +277,7 @@ public class WebViewCompat {
         return (Uri) invokeV.objValue;
     }
 
-    @Nullable
-    @SuppressLint({"NewApi"})
-    public static WebChromeClient getWebChromeClient(@NonNull WebView webView) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, webView)) == null) {
-            WebViewFeatureInternal feature = WebViewFeatureInternal.getFeature("GET_WEB_CHROME_CLIENT");
-            if (feature.isSupportedByFramework()) {
-                return webView.getWebChromeClient();
-            }
-            if (feature.isSupportedByWebView()) {
-                return getProvider(webView).getWebChromeClient();
-            }
-            throw WebViewFeatureInternal.getUnsupportedOperationException();
-        }
-        return (WebChromeClient) invokeL.objValue;
-    }
-
-    @NonNull
-    @SuppressLint({"NewApi"})
-    public static WebViewClient getWebViewClient(@NonNull WebView webView) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, webView)) == null) {
-            WebViewFeatureInternal feature = WebViewFeatureInternal.getFeature("GET_WEB_VIEW_CLIENT");
-            if (feature.isSupportedByFramework()) {
-                return webView.getWebViewClient();
-            }
-            if (feature.isSupportedByWebView()) {
-                return getProvider(webView).getWebViewClient();
-            }
-            throw WebViewFeatureInternal.getUnsupportedOperationException();
-        }
-        return (WebViewClient) invokeL.objValue;
-    }
-
-    @Nullable
-    @SuppressLint({"NewApi"})
-    public static WebViewRenderProcess getWebViewRenderProcess(@NonNull WebView webView) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, webView)) == null) {
-            if (WebViewFeatureInternal.getFeature("GET_WEB_VIEW_RENDERER").isSupportedByWebView()) {
-                return getProvider(webView).getWebViewRenderProcess();
-            }
-            throw WebViewFeatureInternal.getUnsupportedOperationException();
-        }
-        return (WebViewRenderProcess) invokeL.objValue;
-    }
-
-    @Nullable
-    public static WebViewRenderProcessClient getWebViewRenderProcessClient(@NonNull WebView webView) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, webView)) == null) {
-            if (WebViewFeatureInternal.getFeature("WEB_VIEW_RENDERER_CLIENT_BASIC_USAGE").isSupportedByWebView()) {
-                return getProvider(webView).getWebViewRenderProcessClient();
-            }
-            throw WebViewFeatureInternal.getUnsupportedOperationException();
-        }
-        return (WebViewRenderProcessClient) invokeL.objValue;
-    }
-
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    public static boolean isMultiProcessEnabled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
-            if (WebViewFeatureInternal.getFeature("MULTI_PROCESS_QUERY").isSupportedByWebView()) {
-                return getFactory().getStatics().isMultiProcessEnabled();
-            }
-            throw WebViewFeatureInternal.getUnsupportedOperationException();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void postVisualStateCallback(@NonNull WebView webView, long j, @NonNull VisualStateCallback visualStateCallback) {
+    public static void postVisualStateCallback(WebView webView, long j, VisualStateCallback visualStateCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65552, null, new Object[]{webView, Long.valueOf(j), visualStateCallback}) == null) {
             WebViewFeatureInternal feature = WebViewFeatureInternal.getFeature("VISUAL_STATE_CALLBACK");
@@ -328,8 +322,7 @@ public class WebViewCompat {
         }
     }
 
-    @SuppressLint({"NewApi"})
-    public static void postWebMessage(@NonNull WebView webView, @NonNull WebMessageCompat webMessageCompat, @NonNull Uri uri) {
+    public static void postWebMessage(WebView webView, WebMessageCompat webMessageCompat, Uri uri) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65553, null, webView, webMessageCompat, uri) == null) {
             if (WILDCARD_URI.equals(uri)) {
@@ -346,8 +339,7 @@ public class WebViewCompat {
         }
     }
 
-    @SuppressLint({"NewApi"})
-    public static void setSafeBrowsingWhitelist(@NonNull List<String> list, @Nullable ValueCallback<Boolean> valueCallback) {
+    public static void setSafeBrowsingWhitelist(List<String> list, ValueCallback<Boolean> valueCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65554, null, list, valueCallback) == null) {
             WebViewFeatureInternal feature = WebViewFeatureInternal.getFeature("SAFE_BROWSING_WHITELIST");
@@ -361,19 +353,7 @@ public class WebViewCompat {
         }
     }
 
-    public static void setWebViewRenderProcessClient(@NonNull WebView webView, @NonNull Executor executor, @NonNull WebViewRenderProcessClient webViewRenderProcessClient) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65556, null, webView, executor, webViewRenderProcessClient) == null) {
-            if (WebViewFeatureInternal.getFeature("WEB_VIEW_RENDERER_CLIENT_BASIC_USAGE").isSupportedByWebView()) {
-                getProvider(webView).setWebViewRenderProcessClient(executor, webViewRenderProcessClient);
-                return;
-            }
-            throw WebViewFeatureInternal.getUnsupportedOperationException();
-        }
-    }
-
-    @SuppressLint({"NewApi"})
-    public static void startSafeBrowsing(@NonNull Context context, @Nullable ValueCallback<Boolean> valueCallback) {
+    public static void startSafeBrowsing(Context context, ValueCallback<Boolean> valueCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65557, null, context, valueCallback) == null) {
             WebViewFeatureInternal feature = WebViewFeatureInternal.getFeature("START_SAFE_BROWSING");
@@ -387,11 +367,22 @@ public class WebViewCompat {
         }
     }
 
-    public static void setWebViewRenderProcessClient(@NonNull WebView webView, @Nullable WebViewRenderProcessClient webViewRenderProcessClient) {
+    public static void setWebViewRenderProcessClient(WebView webView, WebViewRenderProcessClient webViewRenderProcessClient) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65555, null, webView, webViewRenderProcessClient) == null) {
             if (WebViewFeatureInternal.getFeature("WEB_VIEW_RENDERER_CLIENT_BASIC_USAGE").isSupportedByWebView()) {
                 getProvider(webView).setWebViewRenderProcessClient(null, webViewRenderProcessClient);
+                return;
+            }
+            throw WebViewFeatureInternal.getUnsupportedOperationException();
+        }
+    }
+
+    public static void setWebViewRenderProcessClient(WebView webView, Executor executor, WebViewRenderProcessClient webViewRenderProcessClient) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65556, null, webView, executor, webViewRenderProcessClient) == null) {
+            if (WebViewFeatureInternal.getFeature("WEB_VIEW_RENDERER_CLIENT_BASIC_USAGE").isSupportedByWebView()) {
+                getProvider(webView).setWebViewRenderProcessClient(executor, webViewRenderProcessClient);
                 return;
             }
             throw WebViewFeatureInternal.getUnsupportedOperationException();

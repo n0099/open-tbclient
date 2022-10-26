@@ -55,27 +55,66 @@ public final class ReedSolomonDecoder {
 
     private int[] findErrorMagnitudes(GenericGFPoly genericGFPoly, int[] iArr) {
         InterceptResult invokeLL;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, genericGFPoly, iArr)) == null) {
             int length = iArr.length;
             int[] iArr2 = new int[length];
-            for (int i = 0; i < length; i++) {
-                int inverse = this.field.inverse(iArr[i]);
-                int i2 = 1;
-                for (int i3 = 0; i3 < length; i3++) {
-                    if (i != i3) {
-                        int multiply = this.field.multiply(iArr[i3], inverse);
-                        i2 = this.field.multiply(i2, (multiply & 1) == 0 ? multiply | 1 : multiply & (-2));
+            for (int i2 = 0; i2 < length; i2++) {
+                int inverse = this.field.inverse(iArr[i2]);
+                int i3 = 1;
+                for (int i4 = 0; i4 < length; i4++) {
+                    if (i2 != i4) {
+                        int multiply = this.field.multiply(iArr[i4], inverse);
+                        if ((multiply & 1) == 0) {
+                            i = multiply | 1;
+                        } else {
+                            i = multiply & (-2);
+                        }
+                        i3 = this.field.multiply(i3, i);
                     }
                 }
-                iArr2[i] = this.field.multiply(genericGFPoly.evaluateAt(inverse), this.field.inverse(i2));
+                iArr2[i2] = this.field.multiply(genericGFPoly.evaluateAt(inverse), this.field.inverse(i3));
                 if (this.field.getGeneratorBase() != 0) {
-                    iArr2[i] = this.field.multiply(iArr2[i], inverse);
+                    iArr2[i2] = this.field.multiply(iArr2[i2], inverse);
                 }
             }
             return iArr2;
         }
         return (int[]) invokeLL.objValue;
+    }
+
+    public void decode(int[] iArr, int i) throws ReedSolomonException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, iArr, i) == null) {
+            GenericGFPoly genericGFPoly = new GenericGFPoly(this.field, iArr);
+            int[] iArr2 = new int[i];
+            boolean z = true;
+            for (int i2 = 0; i2 < i; i2++) {
+                GenericGF genericGF = this.field;
+                int evaluateAt = genericGFPoly.evaluateAt(genericGF.exp(genericGF.getGeneratorBase() + i2));
+                iArr2[(i - 1) - i2] = evaluateAt;
+                if (evaluateAt != 0) {
+                    z = false;
+                }
+            }
+            if (z) {
+                return;
+            }
+            GenericGFPoly[] runEuclideanAlgorithm = runEuclideanAlgorithm(this.field.buildMonomial(i, 1), new GenericGFPoly(this.field, iArr2), i);
+            GenericGFPoly genericGFPoly2 = runEuclideanAlgorithm[0];
+            GenericGFPoly genericGFPoly3 = runEuclideanAlgorithm[1];
+            int[] findErrorLocations = findErrorLocations(genericGFPoly2);
+            int[] findErrorMagnitudes = findErrorMagnitudes(genericGFPoly3, findErrorLocations);
+            for (int i3 = 0; i3 < findErrorLocations.length; i3++) {
+                int length = (iArr.length - 1) - this.field.log(findErrorLocations[i3]);
+                if (length >= 0) {
+                    iArr[length] = GenericGF.addOrSubtract(iArr[length], findErrorMagnitudes[i3]);
+                } else {
+                    throw new ReedSolomonException("Bad error location");
+                }
+            }
+        }
     }
 
     private GenericGFPoly[] runEuclideanAlgorithm(GenericGFPoly genericGFPoly, GenericGFPoly genericGFPoly2, int i) throws ReedSolomonException {
@@ -121,38 +160,5 @@ public final class ReedSolomonDecoder {
             throw new IllegalStateException("Division algorithm failed to reduce polynomial?");
         }
         return (GenericGFPoly[]) invokeLLI.objValue;
-    }
-
-    public void decode(int[] iArr, int i) throws ReedSolomonException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, iArr, i) == null) {
-            GenericGFPoly genericGFPoly = new GenericGFPoly(this.field, iArr);
-            int[] iArr2 = new int[i];
-            boolean z = true;
-            for (int i2 = 0; i2 < i; i2++) {
-                GenericGF genericGF = this.field;
-                int evaluateAt = genericGFPoly.evaluateAt(genericGF.exp(genericGF.getGeneratorBase() + i2));
-                iArr2[(i - 1) - i2] = evaluateAt;
-                if (evaluateAt != 0) {
-                    z = false;
-                }
-            }
-            if (z) {
-                return;
-            }
-            GenericGFPoly[] runEuclideanAlgorithm = runEuclideanAlgorithm(this.field.buildMonomial(i, 1), new GenericGFPoly(this.field, iArr2), i);
-            GenericGFPoly genericGFPoly2 = runEuclideanAlgorithm[0];
-            GenericGFPoly genericGFPoly3 = runEuclideanAlgorithm[1];
-            int[] findErrorLocations = findErrorLocations(genericGFPoly2);
-            int[] findErrorMagnitudes = findErrorMagnitudes(genericGFPoly3, findErrorLocations);
-            for (int i3 = 0; i3 < findErrorLocations.length; i3++) {
-                int length = (iArr.length - 1) - this.field.log(findErrorLocations[i3]);
-                if (length >= 0) {
-                    iArr[length] = GenericGF.addOrSubtract(iArr[length], findErrorMagnitudes[i3]);
-                } else {
-                    throw new ReedSolomonException("Bad error location");
-                }
-            }
-        }
     }
 }

@@ -57,12 +57,18 @@ public final class HttpMultipartMode {
     public static HttpMultipartMode valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (HttpMultipartMode) Enum.valueOf(HttpMultipartMode.class, str) : (HttpMultipartMode) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (HttpMultipartMode) Enum.valueOf(HttpMultipartMode.class, str);
+        }
+        return (HttpMultipartMode) invokeL.objValue;
     }
 
     public static final HttpMultipartMode[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (HttpMultipartMode[]) $VALUES.clone() : (HttpMultipartMode[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (HttpMultipartMode[]) $VALUES.clone();
+        }
+        return (HttpMultipartMode[]) invokeV.objValue;
     }
 }

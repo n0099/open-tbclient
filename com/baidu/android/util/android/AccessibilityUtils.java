@@ -31,13 +31,33 @@ public class AccessibilityUtils {
         }
     }
 
+    public static boolean isTalkBackOpened() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            AccessibilityManager accessibilityManager = (AccessibilityManager) AppRuntime.getAppContext().getSystemService("accessibility");
+            if (accessibilityManager != null && accessibilityManager.isTouchExplorationEnabled()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     public static void addTalkBackChangeListener(AccessibilityManager.TouchExplorationStateChangeListener touchExplorationStateChangeListener) {
         AccessibilityManager accessibilityManager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, touchExplorationStateChangeListener) == null) || (accessibilityManager = (AccessibilityManager) AppRuntime.getAppContext().getSystemService("accessibility")) == null || Build.VERSION.SDK_INT < 19) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(65537, null, touchExplorationStateChangeListener) == null) && (accessibilityManager = (AccessibilityManager) AppRuntime.getAppContext().getSystemService("accessibility")) != null && Build.VERSION.SDK_INT >= 19) {
+            accessibilityManager.addTouchExplorationStateChangeListener(touchExplorationStateChangeListener);
         }
-        accessibilityManager.addTouchExplorationStateChangeListener(touchExplorationStateChangeListener);
+    }
+
+    public static void removeTalkBackChangeListener(AccessibilityManager.TouchExplorationStateChangeListener touchExplorationStateChangeListener) {
+        AccessibilityManager accessibilityManager;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, touchExplorationStateChangeListener) == null) && (accessibilityManager = (AccessibilityManager) AppRuntime.getAppContext().getSystemService("accessibility")) != null && Build.VERSION.SDK_INT >= 19) {
+            accessibilityManager.removeTouchExplorationStateChangeListener(touchExplorationStateChangeListener);
+        }
     }
 
     public static boolean isEnabled() {
@@ -56,24 +76,5 @@ public class AccessibilityUtils {
             }
         }
         return invokeV.booleanValue;
-    }
-
-    public static boolean isTalkBackOpened() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            AccessibilityManager accessibilityManager = (AccessibilityManager) AppRuntime.getAppContext().getSystemService("accessibility");
-            return accessibilityManager != null && accessibilityManager.isTouchExplorationEnabled();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void removeTalkBackChangeListener(AccessibilityManager.TouchExplorationStateChangeListener touchExplorationStateChangeListener) {
-        AccessibilityManager accessibilityManager;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, touchExplorationStateChangeListener) == null) || (accessibilityManager = (AccessibilityManager) AppRuntime.getAppContext().getSystemService("accessibility")) == null || Build.VERSION.SDK_INT < 19) {
-            return;
-        }
-        accessibilityManager.removeTouchExplorationStateChangeListener(touchExplorationStateChangeListener);
     }
 }

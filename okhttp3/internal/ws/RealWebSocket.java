@@ -239,6 +239,124 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
         ONLY_HTTP1 = Collections.singletonList(Protocol.HTTP_1_1);
     }
 
+    private void runWriter() {
+        ScheduledExecutorService scheduledExecutorService;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && (scheduledExecutorService = this.executor) != null) {
+            scheduledExecutorService.execute(this.writerRunnable);
+        }
+    }
+
+    @Override // okhttp3.WebSocket
+    public void cancel() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.call.cancel();
+        }
+    }
+
+    public void loopReader() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            while (this.receivedCloseCode == -1) {
+                this.reader.processNextFrame();
+            }
+        }
+    }
+
+    public boolean processNextFrame() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            try {
+                this.reader.processNextFrame();
+                if (this.receivedCloseCode != -1) {
+                    return false;
+                }
+                return true;
+            } catch (Exception e) {
+                failWebSocket(e, null);
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // okhttp3.WebSocket
+    public synchronized long queueSize() {
+        InterceptResult invokeV;
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            synchronized (this) {
+                j = this.queueSize;
+            }
+            return j;
+        }
+        return invokeV.longValue;
+    }
+
+    public synchronized int receivedPingCount() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            synchronized (this) {
+                i = this.receivedPingCount;
+            }
+            return i;
+        }
+        return invokeV.intValue;
+    }
+
+    public synchronized int receivedPongCount() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            synchronized (this) {
+                i = this.receivedPongCount;
+            }
+            return i;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // okhttp3.WebSocket
+    public Request request() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return this.originalRequest;
+        }
+        return (Request) invokeV.objValue;
+    }
+
+    public synchronized int sentPingCount() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            synchronized (this) {
+                i = this.sentPingCount;
+            }
+            return i;
+        }
+        return invokeV.intValue;
+    }
+
+    public void tearDown() throws InterruptedException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
+            ScheduledFuture<?> scheduledFuture = this.cancelFuture;
+            if (scheduledFuture != null) {
+                scheduledFuture.cancel(false);
+            }
+            this.executor.shutdown();
+            this.executor.awaitTermination(10L, TimeUnit.SECONDS);
+        }
+    }
+
     public RealWebSocket(Request request, WebSocketListener webSocketListener, Random random, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -307,13 +425,82 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
         throw new IllegalArgumentException("Request must be GET: " + request.method());
     }
 
-    private void runWriter() {
-        ScheduledExecutorService scheduledExecutorService;
+    private synchronized boolean send(ByteString byteString, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || (scheduledExecutorService = this.executor) == null) {
-            return;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, this, byteString, i)) == null) {
+            synchronized (this) {
+                if (!this.failed && !this.enqueuedClose) {
+                    if (this.queueSize + byteString.size() > 16777216) {
+                        close(1001, null);
+                        return false;
+                    }
+                    this.queueSize += byteString.size();
+                    this.messageAndCloseQueue.add(new Message(i, byteString));
+                    runWriter();
+                    return true;
+                }
+                return false;
+            }
         }
-        scheduledExecutorService.execute(this.writerRunnable);
+        return invokeLI.booleanValue;
+    }
+
+    public void initReaderAndWriter(String str, Streams streams) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, str, streams) == null) {
+            synchronized (this) {
+                this.streams = streams;
+                this.writer = new WebSocketWriter(streams.client, streams.sink, this.random);
+                ScheduledThreadPoolExecutor scheduledThreadPoolExecutor = new ScheduledThreadPoolExecutor(1, Util.threadFactory(str, false));
+                this.executor = scheduledThreadPoolExecutor;
+                if (this.pingIntervalMillis != 0) {
+                    scheduledThreadPoolExecutor.scheduleAtFixedRate(new PingRunnable(this), this.pingIntervalMillis, this.pingIntervalMillis, TimeUnit.MILLISECONDS);
+                }
+                if (!this.messageAndCloseQueue.isEmpty()) {
+                    runWriter();
+                }
+            }
+            this.reader = new WebSocketReader(streams.client, streams.source, this);
+        }
+    }
+
+    @Override // okhttp3.internal.ws.WebSocketReader.FrameCallback
+    public void onReadClose(int i, String str) {
+        Streams streams;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048585, this, i, str) == null) {
+            if (i != -1) {
+                synchronized (this) {
+                    if (this.receivedCloseCode == -1) {
+                        this.receivedCloseCode = i;
+                        this.receivedCloseReason = str;
+                        streams = null;
+                        if (this.enqueuedClose && this.messageAndCloseQueue.isEmpty()) {
+                            Streams streams2 = this.streams;
+                            this.streams = null;
+                            if (this.cancelFuture != null) {
+                                this.cancelFuture.cancel(false);
+                            }
+                            this.executor.shutdown();
+                            streams = streams2;
+                        }
+                    } else {
+                        throw new IllegalStateException("already closed");
+                    }
+                }
+                try {
+                    this.listener.onClosing(this, i, str);
+                    if (streams != null) {
+                        this.listener.onClosed(this, i, str);
+                    }
+                    return;
+                } finally {
+                    Util.closeQuietly(streams);
+                }
+            }
+            throw new IllegalArgumentException();
+        }
     }
 
     public void awaitTermination(int i, TimeUnit timeUnit) throws InterruptedException {
@@ -324,11 +511,13 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
     }
 
     @Override // okhttp3.WebSocket
-    public void cancel() {
+    public boolean close(int i, String str) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.call.cancel();
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, str)) == null) {
+            return close(i, str, 60000L);
         }
+        return invokeIL.booleanValue;
     }
 
     public void checkResponse(Response response) throws ProtocolException {
@@ -354,11 +543,29 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
         }
     }
 
-    @Override // okhttp3.WebSocket
-    public boolean close(int i, String str) {
-        InterceptResult invokeIL;
+    public synchronized boolean close(int i, String str, long j) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, str)) == null) ? close(i, str, 60000L) : invokeIL.booleanValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j)})) == null) {
+            synchronized (this) {
+                WebSocketProtocol.validateCloseCode(i);
+                ByteString byteString = null;
+                if (str != null) {
+                    byteString = ByteString.encodeUtf8(str);
+                    if (byteString.size() > 123) {
+                        throw new IllegalArgumentException("reason.size() > 123: " + str);
+                    }
+                }
+                if (!this.failed && !this.enqueuedClose) {
+                    this.enqueuedClose = true;
+                    this.messageAndCloseQueue.add(new Close(i, byteString, j));
+                    runWriter();
+                    return true;
+                }
+                return false;
+            }
+        }
+        return invokeCommon.booleanValue;
     }
 
     public void connect(OkHttpClient okHttpClient) {
@@ -453,78 +660,57 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
         }
     }
 
-    public void initReaderAndWriter(String str, Streams streams) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, str, streams) == null) {
-            synchronized (this) {
-                this.streams = streams;
-                this.writer = new WebSocketWriter(streams.client, streams.sink, this.random);
-                ScheduledThreadPoolExecutor scheduledThreadPoolExecutor = new ScheduledThreadPoolExecutor(1, Util.threadFactory(str, false));
-                this.executor = scheduledThreadPoolExecutor;
-                if (this.pingIntervalMillis != 0) {
-                    scheduledThreadPoolExecutor.scheduleAtFixedRate(new PingRunnable(this), this.pingIntervalMillis, this.pingIntervalMillis, TimeUnit.MILLISECONDS);
-                }
-                if (!this.messageAndCloseQueue.isEmpty()) {
-                    runWriter();
-                }
-            }
-            this.reader = new WebSocketReader(streams.client, streams.source, this);
-        }
-    }
-
-    public void loopReader() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            while (this.receivedCloseCode == -1) {
-                this.reader.processNextFrame();
-            }
-        }
-    }
-
-    @Override // okhttp3.internal.ws.WebSocketReader.FrameCallback
-    public void onReadClose(int i, String str) {
-        Streams streams;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048585, this, i, str) == null) {
-            if (i != -1) {
-                synchronized (this) {
-                    if (this.receivedCloseCode == -1) {
-                        this.receivedCloseCode = i;
-                        this.receivedCloseReason = str;
-                        streams = null;
-                        if (this.enqueuedClose && this.messageAndCloseQueue.isEmpty()) {
-                            Streams streams2 = this.streams;
-                            this.streams = null;
-                            if (this.cancelFuture != null) {
-                                this.cancelFuture.cancel(false);
-                            }
-                            this.executor.shutdown();
-                            streams = streams2;
-                        }
-                    } else {
-                        throw new IllegalStateException("already closed");
-                    }
-                }
-                try {
-                    this.listener.onClosing(this, i, str);
-                    if (streams != null) {
-                        this.listener.onClosed(this, i, str);
-                    }
-                    return;
-                } finally {
-                    Util.closeQuietly(streams);
-                }
-            }
-            throw new IllegalArgumentException();
-        }
-    }
-
     @Override // okhttp3.internal.ws.WebSocketReader.FrameCallback
     public void onReadMessage(String str) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
             this.listener.onMessage(this, str);
         }
+    }
+
+    @Override // okhttp3.internal.ws.WebSocketReader.FrameCallback
+    public synchronized void onReadPong(ByteString byteString) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, byteString) == null) {
+            synchronized (this) {
+                this.receivedPongCount++;
+                this.awaitingPong = false;
+            }
+        }
+    }
+
+    @Override // okhttp3.WebSocket
+    public boolean send(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, str)) == null) {
+            if (str != null) {
+                return send(ByteString.encodeUtf8(str), 1);
+            }
+            throw new NullPointerException("text == null");
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // okhttp3.internal.ws.WebSocketReader.FrameCallback
+    public void onReadMessage(ByteString byteString) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, byteString) == null) {
+            this.listener.onMessage(this, byteString);
+        }
+    }
+
+    @Override // okhttp3.WebSocket
+    public boolean send(ByteString byteString) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, byteString)) == null) {
+            if (byteString != null) {
+                return send(byteString, 2);
+            }
+            throw new NullPointerException("bytes == null");
+        }
+        return invokeL.booleanValue;
     }
 
     @Override // okhttp3.internal.ws.WebSocketReader.FrameCallback
@@ -537,17 +723,6 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
                     runWriter();
                     this.receivedPingCount++;
                 }
-            }
-        }
-    }
-
-    @Override // okhttp3.internal.ws.WebSocketReader.FrameCallback
-    public synchronized void onReadPong(ByteString byteString) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, byteString) == null) {
-            synchronized (this) {
-                this.receivedPongCount++;
-                this.awaitingPong = false;
             }
         }
     }
@@ -566,106 +741,6 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
             }
         }
         return invokeL.booleanValue;
-    }
-
-    public boolean processNextFrame() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            try {
-                this.reader.processNextFrame();
-                return this.receivedCloseCode == -1;
-            } catch (Exception e) {
-                failWebSocket(e, null);
-                return false;
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // okhttp3.WebSocket
-    public synchronized long queueSize() {
-        InterceptResult invokeV;
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            synchronized (this) {
-                j = this.queueSize;
-            }
-            return j;
-        }
-        return invokeV.longValue;
-    }
-
-    public synchronized int receivedPingCount() {
-        InterceptResult invokeV;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            synchronized (this) {
-                i = this.receivedPingCount;
-            }
-            return i;
-        }
-        return invokeV.intValue;
-    }
-
-    public synchronized int receivedPongCount() {
-        InterceptResult invokeV;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            synchronized (this) {
-                i = this.receivedPongCount;
-            }
-            return i;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // okhttp3.WebSocket
-    public Request request() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.originalRequest : (Request) invokeV.objValue;
-    }
-
-    @Override // okhttp3.WebSocket
-    public boolean send(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, str)) == null) {
-            if (str != null) {
-                return send(ByteString.encodeUtf8(str), 1);
-            }
-            throw new NullPointerException("text == null");
-        }
-        return invokeL.booleanValue;
-    }
-
-    public synchronized int sentPingCount() {
-        InterceptResult invokeV;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            synchronized (this) {
-                i = this.sentPingCount;
-            }
-            return i;
-        }
-        return invokeV.intValue;
-    }
-
-    public void tearDown() throws InterruptedException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            ScheduledFuture<?> scheduledFuture = this.cancelFuture;
-            if (scheduledFuture != null) {
-                scheduledFuture.cancel(false);
-            }
-            this.executor.shutdown();
-            this.executor.awaitTermination(10L, TimeUnit.SECONDS);
-        }
     }
 
     public boolean writeOneFrame() throws IOException {
@@ -740,6 +815,7 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
     }
 
     public void writePingFrame() {
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
             synchronized (this) {
@@ -747,7 +823,11 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
                     return;
                 }
                 WebSocketWriter webSocketWriter = this.writer;
-                int i = this.awaitingPong ? this.sentPingCount : -1;
+                if (this.awaitingPong) {
+                    i = this.sentPingCount;
+                } else {
+                    i = -1;
+                }
                 this.sentPingCount++;
                 this.awaitingPong = true;
                 if (i != -1) {
@@ -761,72 +841,5 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
                 }
             }
         }
-    }
-
-    public synchronized boolean close(int i, String str, long j) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j)})) == null) {
-            synchronized (this) {
-                WebSocketProtocol.validateCloseCode(i);
-                ByteString byteString = null;
-                if (str != null) {
-                    byteString = ByteString.encodeUtf8(str);
-                    if (byteString.size() > 123) {
-                        throw new IllegalArgumentException("reason.size() > 123: " + str);
-                    }
-                }
-                if (!this.failed && !this.enqueuedClose) {
-                    this.enqueuedClose = true;
-                    this.messageAndCloseQueue.add(new Close(i, byteString, j));
-                    runWriter();
-                    return true;
-                }
-                return false;
-            }
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    @Override // okhttp3.internal.ws.WebSocketReader.FrameCallback
-    public void onReadMessage(ByteString byteString) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, byteString) == null) {
-            this.listener.onMessage(this, byteString);
-        }
-    }
-
-    @Override // okhttp3.WebSocket
-    public boolean send(ByteString byteString) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, byteString)) == null) {
-            if (byteString != null) {
-                return send(byteString, 2);
-            }
-            throw new NullPointerException("bytes == null");
-        }
-        return invokeL.booleanValue;
-    }
-
-    private synchronized boolean send(ByteString byteString, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, this, byteString, i)) == null) {
-            synchronized (this) {
-                if (!this.failed && !this.enqueuedClose) {
-                    if (this.queueSize + byteString.size() > 16777216) {
-                        close(1001, null);
-                        return false;
-                    }
-                    this.queueSize += byteString.size();
-                    this.messageAndCloseQueue.add(new Message(i, byteString));
-                    runWriter();
-                    return true;
-                }
-                return false;
-            }
-        }
-        return invokeLI.booleanValue;
     }
 }

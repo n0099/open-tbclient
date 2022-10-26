@@ -1,8 +1,5 @@
 package androidx.lifecycle;
 
-import androidx.annotation.MainThread;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.arch.core.util.Function;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -28,9 +25,7 @@ public class Transformations {
         }
     }
 
-    @NonNull
-    @MainThread
-    public static <X> LiveData<X> distinctUntilChanged(@NonNull LiveData<X> liveData) {
+    public static <X> LiveData<X> distinctUntilChanged(LiveData<X> liveData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, liveData)) == null) {
@@ -65,7 +60,7 @@ public class Transformations {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, x) == null) {
                         T value = this.val$outputLiveData.getValue();
-                        if (this.mFirstTime || ((value == 0 && x != 0) || !(value == 0 || value.equals(x)))) {
+                        if (this.mFirstTime || ((value == 0 && x != 0) || (value != 0 && !value.equals(x)))) {
                             this.mFirstTime = false;
                             this.val$outputLiveData.setValue(x);
                         }
@@ -77,9 +72,7 @@ public class Transformations {
         return (LiveData) invokeL.objValue;
     }
 
-    @NonNull
-    @MainThread
-    public static <X, Y> LiveData<Y> map(@NonNull LiveData<X> liveData, @NonNull Function<X, Y> function) {
+    public static <X, Y> LiveData<Y> map(LiveData<X> liveData, Function<X, Y> function) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, liveData, function)) == null) {
@@ -110,7 +103,7 @@ public class Transformations {
                 }
 
                 @Override // androidx.lifecycle.Observer
-                public void onChanged(@Nullable X x) {
+                public void onChanged(X x) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, x) == null) {
                         this.val$result.setValue(this.val$mapFunction.apply(x));
@@ -122,9 +115,7 @@ public class Transformations {
         return (LiveData) invokeLL.objValue;
     }
 
-    @NonNull
-    @MainThread
-    public static <X, Y> LiveData<Y> switchMap(@NonNull LiveData<X> liveData, @NonNull Function<X, LiveData<Y>> function) {
+    public static <X, Y> LiveData<Y> switchMap(LiveData<X> liveData, Function<X, LiveData<Y>> function) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, liveData, function)) == null) {
@@ -156,11 +147,11 @@ public class Transformations {
                 }
 
                 @Override // androidx.lifecycle.Observer
-                public void onChanged(@Nullable X x) {
+                public void onChanged(X x) {
                     LiveData<Y> liveData2;
                     Object obj;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, x) == null) || (obj = this.mSource) == (liveData2 = (LiveData) this.val$switchMapFunction.apply(x))) {
+                    if ((interceptable2 != null && interceptable2.invokeL(1048576, this, x) != null) || (obj = this.mSource) == (liveData2 = (LiveData) this.val$switchMapFunction.apply(x))) {
                         return;
                     }
                     if (obj != null) {
@@ -192,7 +183,7 @@ public class Transformations {
                             }
 
                             @Override // androidx.lifecycle.Observer
-                            public void onChanged(@Nullable Y y) {
+                            public void onChanged(Y y) {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeL(1048576, this, y) == null) {
                                     this.this$0.val$result.setValue(y);

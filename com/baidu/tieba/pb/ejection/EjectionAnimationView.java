@@ -9,14 +9,13 @@ import android.os.Message;
 import android.os.Vibrator;
 import android.util.AttributeSet;
 import android.view.View;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.fw7;
-import com.baidu.tieba.gw7;
-import com.baidu.tieba.iw7;
 import com.baidu.tieba.pb.ejection.value.LifeCycleState;
+import com.baidu.tieba.qw7;
+import com.baidu.tieba.rw7;
+import com.baidu.tieba.tw7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -38,16 +37,16 @@ public class EjectionAnimationView extends View {
     public boolean f;
     public int g;
     public int h;
-    public ArrayList<fw7> i;
-    public List<Bitmap> j;
-    public iw7 k;
+    public ArrayList i;
+    public List j;
+    public tw7 k;
     public Vibrator l;
 
     /* loaded from: classes5.dex */
-    public static class a extends Handler {
+    public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final WeakReference<EjectionAnimationView> a;
+        public final WeakReference a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(EjectionAnimationView ejectionAnimationView) {
@@ -67,7 +66,7 @@ public class EjectionAnimationView extends View {
                     return;
                 }
             }
-            this.a = new WeakReference<>(ejectionAnimationView);
+            this.a = new WeakReference(ejectionAnimationView);
         }
 
         @Override // android.os.Handler
@@ -79,15 +78,15 @@ public class EjectionAnimationView extends View {
                     return;
                 }
                 sendEmptyMessageDelayed(0, 10L);
-                if (this.a.get().d == 1) {
-                    this.a.get().f();
+                if (((EjectionAnimationView) this.a.get()).d == 1) {
+                    ((EjectionAnimationView) this.a.get()).f();
                 }
-                EjectionAnimationView.c(this.a.get());
-                if (this.a.get().d == 11) {
-                    this.a.get().d = (this.a.get().d - 11) + 1;
+                EjectionAnimationView.c((EjectionAnimationView) this.a.get());
+                if (((EjectionAnimationView) this.a.get()).d == 11) {
+                    ((EjectionAnimationView) this.a.get()).d = (((EjectionAnimationView) this.a.get()).d - 11) + 1;
                 }
-                this.a.get().invalidate();
-                this.a.get().g();
+                ((EjectionAnimationView) this.a.get()).invalidate();
+                ((EjectionAnimationView) this.a.get()).g();
             }
         }
     }
@@ -113,37 +112,55 @@ public class EjectionAnimationView extends View {
         }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public EjectionAnimationView(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public EjectionAnimationView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.d = 1;
+        this.f = false;
+        h(context);
+    }
+
     public static /* synthetic */ int c(EjectionAnimationView ejectionAnimationView) {
         int i = ejectionAnimationView.d;
         ejectionAnimationView.d = i + 1;
         return i;
-    }
-
-    public final void f() {
-        Bitmap bitmap;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || !this.e || ListUtils.isEmpty(this.j) || (bitmap = this.j.get(new Random().nextInt(this.j.size()))) == null) {
-            return;
-        }
-        this.i.add(new gw7(bitmap, this.g, this.h, this.b, this.c));
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f = true;
-            Iterator<fw7> it = this.i.iterator();
-            while (it.hasNext()) {
-                fw7 next = it.next();
-                if (next.v == LifeCycleState.ACTIVE) {
-                    this.f = false;
-                    next.a();
-                }
-            }
-            if (this.f) {
-                j();
-            }
-        }
     }
 
     public final void h(Context context) {
@@ -154,9 +171,95 @@ public class EjectionAnimationView extends View {
         }
     }
 
+    @Override // android.view.View
+    public void onDraw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, canvas) == null) {
+            super.onDraw(canvas);
+            ArrayList arrayList = this.i;
+            if (arrayList == null) {
+                return;
+            }
+            Iterator it = arrayList.iterator();
+            while (it.hasNext()) {
+                qw7 qw7Var = (qw7) it.next();
+                if (qw7Var.v == LifeCycleState.ACTIVE) {
+                    qw7Var.b(canvas);
+                }
+            }
+        }
+    }
+
+    public void setBitmaps(List list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, list) == null) {
+            this.j = list;
+        }
+    }
+
+    public void setEjectionAnimationViewCallback(tw7 tw7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, tw7Var) == null) {
+            this.k = tw7Var;
+        }
+    }
+
+    public void setAnchorPosition(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048586, this, i, i2) == null) {
+            this.g = i;
+            this.h = i2;
+        }
+    }
+
+    public final void f() {
+        Bitmap bitmap;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.e && !ListUtils.isEmpty(this.j) && (bitmap = (Bitmap) this.j.get(new Random().nextInt(this.j.size()))) != null) {
+            this.i.add(new rw7(bitmap, this.g, this.h, this.b, this.c));
+        }
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.a.removeMessages(0);
+            this.i = new ArrayList();
+            this.e = true;
+            this.d = 1;
+            tw7 tw7Var = this.k;
+            if (tw7Var != null) {
+                tw7Var.onStart();
+            }
+            this.a.sendEmptyMessage(0);
+            Vibrator vibrator = this.l;
+            if (vibrator != null) {
+                vibrator.vibrate(new long[]{50, 80, 100, 80}, 2);
+            }
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.f = true;
+            Iterator it = this.i.iterator();
+            while (it.hasNext()) {
+                qw7 qw7Var = (qw7) it.next();
+                if (qw7Var.v == LifeCycleState.ACTIVE) {
+                    this.f = false;
+                    qw7Var.a();
+                }
+            }
+            if (this.f) {
+                j();
+            }
+        }
+    }
+
     public final void i() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || ListUtils.isEmpty(this.j)) {
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || ListUtils.isEmpty(this.j)) {
             return;
         }
         for (Bitmap bitmap : this.j) {
@@ -169,34 +272,15 @@ public class EjectionAnimationView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.d = 1;
-            this.i = new ArrayList<>();
+            this.i = new ArrayList();
             this.a.removeMessages(0);
-            iw7 iw7Var = this.k;
-            if (iw7Var != null) {
-                iw7Var.onStop();
+            tw7 tw7Var = this.k;
+            if (tw7Var != null) {
+                tw7Var.onStop();
             }
             Vibrator vibrator = this.l;
             if (vibrator != null) {
                 vibrator.cancel();
-            }
-        }
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.a.removeMessages(0);
-            this.i = new ArrayList<>();
-            this.e = true;
-            this.d = 1;
-            iw7 iw7Var = this.k;
-            if (iw7Var != null) {
-                iw7Var.onStart();
-            }
-            this.a.sendEmptyMessage(0);
-            Vibrator vibrator = this.l;
-            if (vibrator != null) {
-                vibrator.vibrate(new long[]{50, 80, 100, 80}, 2);
             }
         }
     }
@@ -223,25 +307,6 @@ public class EjectionAnimationView extends View {
     }
 
     @Override // android.view.View
-    public void onDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, canvas) == null) {
-            super.onDraw(canvas);
-            ArrayList<fw7> arrayList = this.i;
-            if (arrayList == null) {
-                return;
-            }
-            Iterator<fw7> it = arrayList.iterator();
-            while (it.hasNext()) {
-                fw7 next = it.next();
-                if (next.v == LifeCycleState.ACTIVE) {
-                    next.b(canvas);
-                }
-            }
-        }
-    }
-
-    @Override // android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
@@ -249,72 +314,5 @@ public class EjectionAnimationView extends View {
             this.b = getMeasuredWidth();
             this.c = getMeasuredHeight();
         }
-    }
-
-    public void setAnchorPosition(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048586, this, i, i2) == null) {
-            this.g = i;
-            this.h = i2;
-        }
-    }
-
-    public void setBitmaps(List<Bitmap> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, list) == null) {
-            this.j = list;
-        }
-    }
-
-    public void setEjectionAnimationViewCallback(iw7 iw7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, iw7Var) == null) {
-            this.k = iw7Var;
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public EjectionAnimationView(Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public EjectionAnimationView(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.d = 1;
-        this.f = false;
-        h(context);
     }
 }

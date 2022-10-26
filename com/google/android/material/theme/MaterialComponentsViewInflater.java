@@ -2,8 +2,6 @@ package com.google.android.material.theme;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatViewInflater;
 import androidx.appcompat.widget.AppCompatAutoCompleteTextView;
 import androidx.appcompat.widget.AppCompatButton;
@@ -41,42 +39,52 @@ public class MaterialComponentsViewInflater extends AppCompatViewInflater {
     }
 
     @Override // androidx.appcompat.app.AppCompatViewInflater
-    @NonNull
-    public AppCompatAutoCompleteTextView createAutoCompleteTextView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+    public AppCompatAutoCompleteTextView createAutoCompleteTextView(Context context, AttributeSet attributeSet) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, attributeSet)) == null) ? new MaterialAutoCompleteTextView(context, attributeSet) : (AppCompatAutoCompleteTextView) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, attributeSet)) == null) {
+            return new MaterialAutoCompleteTextView(context, attributeSet);
+        }
+        return (AppCompatAutoCompleteTextView) invokeLL.objValue;
     }
 
     @Override // androidx.appcompat.app.AppCompatViewInflater
-    @NonNull
-    public AppCompatButton createButton(@NonNull Context context, @NonNull AttributeSet attributeSet) {
+    public AppCompatButton createButton(Context context, AttributeSet attributeSet) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, attributeSet)) == null) ? new MaterialButton(context, attributeSet) : (AppCompatButton) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, attributeSet)) == null) {
+            return new MaterialButton(context, attributeSet);
+        }
+        return (AppCompatButton) invokeLL.objValue;
     }
 
     @Override // androidx.appcompat.app.AppCompatViewInflater
-    @NonNull
     public AppCompatCheckBox createCheckBox(Context context, AttributeSet attributeSet) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, attributeSet)) == null) ? new MaterialCheckBox(context, attributeSet) : (AppCompatCheckBox) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, attributeSet)) == null) {
+            return new MaterialCheckBox(context, attributeSet);
+        }
+        return (AppCompatCheckBox) invokeLL.objValue;
     }
 
     @Override // androidx.appcompat.app.AppCompatViewInflater
-    @NonNull
     public AppCompatRadioButton createRadioButton(Context context, AttributeSet attributeSet) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, attributeSet)) == null) ? new MaterialRadioButton(context, attributeSet) : (AppCompatRadioButton) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, attributeSet)) == null) {
+            return new MaterialRadioButton(context, attributeSet);
+        }
+        return (AppCompatRadioButton) invokeLL.objValue;
     }
 
     @Override // androidx.appcompat.app.AppCompatViewInflater
-    @NonNull
     public AppCompatTextView createTextView(Context context, AttributeSet attributeSet) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, context, attributeSet)) == null) ? new MaterialTextView(context, attributeSet) : (AppCompatTextView) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, context, attributeSet)) == null) {
+            return new MaterialTextView(context, attributeSet);
+        }
+        return (AppCompatTextView) invokeLL.objValue;
     }
 }

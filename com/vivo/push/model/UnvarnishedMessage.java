@@ -22,7 +22,7 @@ public class UnvarnishedMessage {
     public transient /* synthetic */ FieldHolder $fh;
     public String mMessage;
     public long mMsgId;
-    public Map<String, String> mParams;
+    public Map mParams;
     public int mTargetType;
     public String mTragetContent;
 
@@ -40,6 +40,70 @@ public class UnvarnishedMessage {
             }
         }
         this.mParams = new HashMap();
+    }
+
+    public String getMessage() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mMessage;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long getMsgId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mMsgId;
+        }
+        return invokeV.longValue;
+    }
+
+    public Map getParams() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mParams;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public int getTargetType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mTargetType;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getTragetContent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mTragetContent;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public UnvarnishedMessage(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mParams = new HashMap();
+        packToObj(str);
     }
 
     private void packToObj(String str) {
@@ -62,36 +126,6 @@ public class UnvarnishedMessage {
         }
     }
 
-    public String getMessage() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mMessage : (String) invokeV.objValue;
-    }
-
-    public long getMsgId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mMsgId : invokeV.longValue;
-    }
-
-    public Map<String, String> getParams() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mParams : (Map) invokeV.objValue;
-    }
-
-    public int getTargetType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mTargetType : invokeV.intValue;
-    }
-
-    public String getTragetContent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mTragetContent : (String) invokeV.objValue;
-    }
-
     public void setMessage(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
@@ -106,7 +140,7 @@ public class UnvarnishedMessage {
         }
     }
 
-    public void setParams(Map<String, String> map) {
+    public void setParams(Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, map) == null) {
             this.mParams = map;
@@ -143,24 +177,5 @@ public class UnvarnishedMessage {
             return jSONArray.toString();
         }
         return (String) invokeV.objValue;
-    }
-
-    public UnvarnishedMessage(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mParams = new HashMap();
-        packToObj(str);
     }
 }

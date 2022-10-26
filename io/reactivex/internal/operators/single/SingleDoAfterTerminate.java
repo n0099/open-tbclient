@@ -15,21 +15,21 @@ import io.reactivex.functions.Action;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 /* loaded from: classes8.dex */
-public final class SingleDoAfterTerminate<T> extends Single<T> {
+public final class SingleDoAfterTerminate extends Single {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Action onAfterTerminate;
-    public final SingleSource<T> source;
+    public final SingleSource source;
 
     /* loaded from: classes8.dex */
-    public static final class DoAfterTerminateObserver<T> implements SingleObserver<T>, Disposable {
+    public final class DoAfterTerminateObserver implements SingleObserver, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SingleObserver<? super T> actual;
+        public final SingleObserver actual;
         public Disposable d;
         public final Action onAfterTerminate;
 
-        public DoAfterTerminateObserver(SingleObserver<? super T> singleObserver, Action action) {
+        public DoAfterTerminateObserver(SingleObserver singleObserver, Action action) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -72,7 +72,10 @@ public final class SingleDoAfterTerminate<T> extends Single<T> {
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d.isDisposed() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.d.isDisposed();
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.SingleObserver
@@ -94,16 +97,16 @@ public final class SingleDoAfterTerminate<T> extends Single<T> {
         }
 
         @Override // io.reactivex.SingleObserver
-        public void onSuccess(T t) {
+        public void onSuccess(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
-                this.actual.onSuccess(t);
+            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+                this.actual.onSuccess(obj);
                 onAfterTerminate();
             }
         }
     }
 
-    public SingleDoAfterTerminate(SingleSource<T> singleSource, Action action) {
+    public SingleDoAfterTerminate(SingleSource singleSource, Action action) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -123,7 +126,7 @@ public final class SingleDoAfterTerminate<T> extends Single<T> {
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver<? super T> singleObserver) {
+    public void subscribeActual(SingleObserver singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, singleObserver) == null) {
             this.source.subscribe(new DoAfterTerminateObserver(singleObserver, this.onAfterTerminate));

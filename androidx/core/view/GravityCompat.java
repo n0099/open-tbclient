@@ -31,6 +31,17 @@ public final class GravityCompat {
         }
     }
 
+    public static void apply(int i, int i2, int i3, Rect rect, int i4, int i5, Rect rect2, int i6) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), rect, Integer.valueOf(i4), Integer.valueOf(i5), rect2, Integer.valueOf(i6)}) == null) {
+            if (Build.VERSION.SDK_INT >= 17) {
+                Gravity.apply(i, i2, i3, rect, i4, i5, rect2, i6);
+            } else {
+                Gravity.apply(i, i2, i3, rect, i4, i5, rect2);
+            }
+        }
+    }
+
     public static void apply(int i, int i2, int i3, Rect rect, Rect rect2, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), rect, rect2, Integer.valueOf(i4)}) == null) {
@@ -56,17 +67,12 @@ public final class GravityCompat {
     public static int getAbsoluteGravity(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i, i2)) == null) ? Build.VERSION.SDK_INT >= 17 ? Gravity.getAbsoluteGravity(i, i2) : i & (-8388609) : invokeII.intValue;
-    }
-
-    public static void apply(int i, int i2, int i3, Rect rect, int i4, int i5, Rect rect2, int i6) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), rect, Integer.valueOf(i4), Integer.valueOf(i5), rect2, Integer.valueOf(i6)}) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i, i2)) == null) {
             if (Build.VERSION.SDK_INT >= 17) {
-                Gravity.apply(i, i2, i3, rect, i4, i5, rect2, i6);
-            } else {
-                Gravity.apply(i, i2, i3, rect, i4, i5, rect2);
+                return Gravity.getAbsoluteGravity(i, i2);
             }
+            return i & (-8388609);
         }
+        return invokeII.intValue;
     }
 }

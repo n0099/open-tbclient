@@ -24,31 +24,6 @@ public final class LiveListParamsMix extends MixBaseParams {
     public final String roomId;
     public final String source;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LiveListParamsMix(String str, String str2, String str3, String str4) {
-        super(null, null, 3, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, str4};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), (DefaultConstructorMarker) objArr2[3]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.roomId = str;
-        this.pageSession = str2;
-        this.ext = str3;
-        this.source = str4;
-    }
-
     public static /* synthetic */ LiveListParamsMix copy$default(LiveListParamsMix liveListParamsMix, String str, String str2, String str3, String str4, int i, Object obj) {
         if ((i & 1) != 0) {
             str = liveListParamsMix.roomId;
@@ -111,30 +86,6 @@ public final class LiveListParamsMix extends MixBaseParams {
         return invokeL.booleanValue;
     }
 
-    public final String getExt() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.ext : (String) invokeV.objValue;
-    }
-
-    public final String getPageSession() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.pageSession : (String) invokeV.objValue;
-    }
-
-    public final String getRoomId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.roomId : (String) invokeV.objValue;
-    }
-
-    public final String getSource() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.source : (String) invokeV.objValue;
-    }
-
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -156,6 +107,67 @@ public final class LiveListParamsMix extends MixBaseParams {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             return "LiveListParamsMix(roomId=" + this.roomId + ", pageSession=" + this.pageSession + ", ext=" + this.ext + ", source=" + this.source + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public LiveListParamsMix(String str, String str2, String str3, String str4) {
+        super(null, null, 3, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3, str4};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), (DefaultConstructorMarker) objArr2[3]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.roomId = str;
+        this.pageSession = str2;
+        this.ext = str3;
+        this.source = str4;
+    }
+
+    public final String getExt() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.ext;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String getPageSession() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.pageSession;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String getRoomId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.roomId;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String getSource() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.source;
         }
         return (String) invokeV.objValue;
     }

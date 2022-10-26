@@ -12,6 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import org.json.JSONArray;
@@ -24,10 +25,10 @@ public class NewAckMessage extends Message {
     public Context mContext;
     public JSONArray mJsonArray;
     public long mTriggerId;
-    public List<Tripule> tripules;
+    public List tripules;
 
     /* loaded from: classes.dex */
-    public static class Tripule {
+    public class Tripule {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String accountType;
@@ -187,6 +188,30 @@ public class NewAckMessage extends Message {
         this.mPriority = 16;
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public NewAckMessage(Context context, long j, long j2, boolean z) {
+        this(context, j, j2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r8;
+            Object[] objArr = {context, Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], ((Long) objArr2[1]).longValue(), ((Long) objArr2[2]).longValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        if (!z) {
+            Message.saveCmdMessage(context, this, null, this.mPriority);
+        }
+    }
+
     public static NewAckMessage parseBody(Context context, String str, String str2, String str3) throws Exception {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -203,7 +228,7 @@ public class NewAckMessage extends Message {
         return (NewAckMessage) invokeLLLL.objValue;
     }
 
-    public boolean addTriples(List<Tripule> list) {
+    public boolean addTriples(List list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
@@ -211,6 +236,21 @@ public class NewAckMessage extends Message {
             return toJsonArray(list);
         }
         return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.android.imsdk.request.Message
+    public void onMsgSending(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
+            setSendingState(context);
+        }
+    }
+
+    public void setJsonArray(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, jSONArray) == null) {
+            this.mJsonArray = jSONArray;
+        }
     }
 
     @Override // com.baidu.android.imsdk.request.Message
@@ -238,7 +278,10 @@ public class NewAckMessage extends Message {
     public JSONArray getJsonArray() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mJsonArray : (JSONArray) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mJsonArray;
+        }
+        return (JSONArray) invokeV.objValue;
     }
 
     @Override // com.baidu.android.imsdk.request.Message
@@ -253,22 +296,7 @@ public class NewAckMessage extends Message {
         }
     }
 
-    @Override // com.baidu.android.imsdk.request.Message
-    public void onMsgSending(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
-            setSendingState(context);
-        }
-    }
-
-    public void setJsonArray(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, jSONArray) == null) {
-            this.mJsonArray = jSONArray;
-        }
-    }
-
-    public boolean toJsonArray(List<Tripule> list) {
+    public boolean toJsonArray(List list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, list)) == null) {
@@ -276,40 +304,19 @@ public class NewAckMessage extends Message {
                 return false;
             }
             JSONArray jSONArray = new JSONArray();
-            for (Tripule tripule : list) {
-                JSONObject jsonObject = tripule.toJsonObject();
+            Iterator it = list.iterator();
+            while (it.hasNext()) {
+                JSONObject jsonObject = ((Tripule) it.next()).toJsonObject();
                 if (jsonObject != null) {
                     jSONArray.put(jsonObject);
                 }
             }
             this.mJsonArray = jSONArray;
-            return jSONArray.length() != 0;
+            if (jSONArray.length() == 0) {
+                return false;
+            }
+            return true;
         }
         return invokeL.booleanValue;
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public NewAckMessage(Context context, long j, long j2, boolean z) {
-        this(context, j, j2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r8;
-            Object[] objArr = {context, Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], ((Long) objArr2[1]).longValue(), ((Long) objArr2[2]).longValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        if (z) {
-            return;
-        }
-        Message.saveCmdMessage(context, this, null, this.mPriority);
     }
 }

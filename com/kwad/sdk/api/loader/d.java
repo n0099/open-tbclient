@@ -2,14 +2,12 @@ package com.kwad.sdk.api.loader;
 
 import android.content.Context;
 import android.util.Log;
-import androidx.annotation.Nullable;
 import com.kwad.sdk.api.core.IKsAdSDK;
 import java.lang.Thread;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes7.dex */
 public class d implements Thread.UncaughtExceptionHandler {
     public static d Sh;
-    @Nullable
     public IKsAdSDK Si;
     public Thread.UncaughtExceptionHandler Sj;
     public Context Sk;

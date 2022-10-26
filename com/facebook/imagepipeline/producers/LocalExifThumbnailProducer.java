@@ -14,7 +14,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.ImmutableMap;
-import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.common.logging.FLog;
 import com.facebook.common.memory.PooledByteBuffer;
 import com.facebook.common.memory.PooledByteBufferFactory;
@@ -27,7 +26,6 @@ import com.facebook.imagepipeline.image.EncodedImage;
 import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imageutils.BitmapUtil;
 import com.facebook.imageutils.JfifUtil;
-import com.facebook.soloader.DoNotOptimize;
 import com.google.android.gms.common.internal.ImagesContract;
 import java.io.File;
 import java.io.FileDescriptor;
@@ -36,10 +34,9 @@ import java.util.Map;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
-public class LocalExifThumbnailProducer implements ThumbnailProducer<EncodedImage> {
+public class LocalExifThumbnailProducer implements ThumbnailProducer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int COMMON_EXIF_THUMBNAIL_MAX_DIMENSION = 512;
-    @VisibleForTesting
     public static final String CREATED_THUMBNAIL = "createdThumbnail";
     public static final String PRODUCER_NAME = "LocalExifThumbnailProducer";
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,7 +44,6 @@ public class LocalExifThumbnailProducer implements ThumbnailProducer<EncodedImag
     public final Executor mExecutor;
     public final PooledByteBufferFactory mPooledByteBufferFactory;
 
-    @DoNotOptimize
     /* loaded from: classes7.dex */
     public class Api24Utils {
         public static /* synthetic */ Interceptable $ic;
@@ -105,23 +101,66 @@ public class LocalExifThumbnailProducer implements ThumbnailProducer<EncodedImag
         this.mContentResolver = contentResolver;
     }
 
+    private int getRotationAngle(ExifInterface exifInterface) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, exifInterface)) == null) {
+            return JfifUtil.getAutoRotateAngleFromOrientation(Integer.parseInt(exifInterface.getAttribute(androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION)));
+        }
+        return invokeL.intValue;
+    }
+
+    @Override // com.facebook.imagepipeline.producers.ThumbnailProducer
+    public boolean canProvideImageForSize(ResizeOptions resizeOptions) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, resizeOptions)) == null) {
+            return ThumbnailSizeChecker.isImageBigEnough(512, 512, resizeOptions);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean canReadAsFile(String str) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (str == null) {
+                return false;
+            }
+            File file = new File(str);
+            if (!file.exists() || !file.canRead()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public EncodedImage buildEncodedImage(PooledByteBuffer pooledByteBuffer, ExifInterface exifInterface) {
         InterceptResult invokeLL;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, pooledByteBuffer, exifInterface)) == null) {
-            Pair<Integer, Integer> decodeDimensions = BitmapUtil.decodeDimensions(new PooledByteBufferInputStream(pooledByteBuffer));
+            Pair decodeDimensions = BitmapUtil.decodeDimensions(new PooledByteBufferInputStream(pooledByteBuffer));
             int rotationAngle = getRotationAngle(exifInterface);
-            int intValue = decodeDimensions != null ? ((Integer) decodeDimensions.first).intValue() : -1;
-            int intValue2 = decodeDimensions != null ? ((Integer) decodeDimensions.second).intValue() : -1;
+            int i2 = -1;
+            if (decodeDimensions != null) {
+                i = ((Integer) decodeDimensions.first).intValue();
+            } else {
+                i = -1;
+            }
+            if (decodeDimensions != null) {
+                i2 = ((Integer) decodeDimensions.second).intValue();
+            }
             CloseableReference of = CloseableReference.of(pooledByteBuffer);
             try {
                 EncodedImage encodedImage = new EncodedImage(of);
                 CloseableReference.closeSafely(of);
                 encodedImage.setImageFormat(DefaultImageFormats.JPEG);
                 encodedImage.setRotationAngle(rotationAngle);
-                encodedImage.setWidth(intValue);
-                encodedImage.setHeight(intValue2);
+                encodedImage.setWidth(i);
+                encodedImage.setHeight(i2);
                 return encodedImage;
             } catch (Throwable th) {
                 CloseableReference.closeSafely(of);
@@ -131,34 +170,6 @@ public class LocalExifThumbnailProducer implements ThumbnailProducer<EncodedImag
         return (EncodedImage) invokeLL.objValue;
     }
 
-    private int getRotationAngle(ExifInterface exifInterface) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, exifInterface)) == null) ? JfifUtil.getAutoRotateAngleFromOrientation(Integer.parseInt(exifInterface.getAttribute("Orientation"))) : invokeL.intValue;
-    }
-
-    @Override // com.facebook.imagepipeline.producers.ThumbnailProducer
-    public boolean canProvideImageForSize(ResizeOptions resizeOptions) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, resizeOptions)) == null) ? ThumbnailSizeChecker.isImageBigEnough(512, 512, resizeOptions) : invokeL.booleanValue;
-    }
-
-    @VisibleForTesting
-    public boolean canReadAsFile(String str) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (str == null) {
-                return false;
-            }
-            File file = new File(str);
-            return file.exists() && file.canRead();
-        }
-        return invokeL.booleanValue;
-    }
-
-    @VisibleForTesting
     @Nullable
     public ExifInterface getExifInterface(Uri uri) {
         InterceptResult invokeL;
@@ -185,13 +196,13 @@ public class LocalExifThumbnailProducer implements ThumbnailProducer<EncodedImag
     }
 
     @Override // com.facebook.imagepipeline.producers.Producer
-    public void produceResults(Consumer<EncodedImage> consumer, ProducerContext producerContext) {
+    public void produceResults(Consumer consumer, ProducerContext producerContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, consumer, producerContext) == null) {
             ProducerListener2 producerListener = producerContext.getProducerListener();
             ImageRequest imageRequest = producerContext.getImageRequest();
             producerContext.putOriginExtra(ImagesContract.LOCAL, "exif");
-            StatefulProducerRunnable<EncodedImage> statefulProducerRunnable = new StatefulProducerRunnable<EncodedImage>(this, consumer, producerListener, producerContext, PRODUCER_NAME, imageRequest) { // from class: com.facebook.imagepipeline.producers.LocalExifThumbnailProducer.1
+            StatefulProducerRunnable statefulProducerRunnable = new StatefulProducerRunnable(this, consumer, producerListener, producerContext, PRODUCER_NAME, imageRequest) { // from class: com.facebook.imagepipeline.producers.LocalExifThumbnailProducer.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ LocalExifThumbnailProducer this$0;
@@ -231,11 +242,17 @@ public class LocalExifThumbnailProducer implements ThumbnailProducer<EncodedImag
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.facebook.imagepipeline.producers.StatefulProducerRunnable
-                public Map<String, String> getExtraMapOnSuccess(EncodedImage encodedImage) {
+                public Map getExtraMapOnSuccess(EncodedImage encodedImage) {
                     InterceptResult invokeL;
+                    boolean z;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, encodedImage)) == null) {
-                        return ImmutableMap.of("createdThumbnail", Boolean.toString(encodedImage != null));
+                        if (encodedImage != null) {
+                            z = true;
+                        } else {
+                            z = false;
+                        }
+                        return ImmutableMap.of("createdThumbnail", Boolean.toString(z));
                     }
                     return (Map) invokeL.objValue;
                 }
@@ -248,10 +265,10 @@ public class LocalExifThumbnailProducer implements ThumbnailProducer<EncodedImag
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048580, this)) == null) {
                         ExifInterface exifInterface = this.this$0.getExifInterface(this.val$imageRequest.getSourceUri());
-                        if (exifInterface == null || !exifInterface.hasThumbnail()) {
-                            return null;
+                        if (exifInterface != null && exifInterface.hasThumbnail()) {
+                            return this.this$0.buildEncodedImage(this.this$0.mPooledByteBufferFactory.newByteBuffer(exifInterface.getThumbnail()), exifInterface);
                         }
-                        return this.this$0.buildEncodedImage(this.this$0.mPooledByteBufferFactory.newByteBuffer(exifInterface.getThumbnail()), exifInterface);
+                        return null;
                     }
                     return (EncodedImage) invokeV.objValue;
                 }

@@ -36,7 +36,13 @@ public final class MaskInfo extends Message {
     public final Long userId;
 
     /* loaded from: classes9.dex */
-    public static final class Builder extends Message.Builder<MaskInfo> {
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes9.dex */
+    public final class Builder extends Message.Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String maskFids;
@@ -96,14 +102,11 @@ public final class MaskInfo extends Message {
         public MaskInfo build(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) ? new MaskInfo(this, z, null) : (MaskInfo) invokeZ.objValue;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+                return new MaskInfo(this, z, null);
+            }
+            return (MaskInfo) invokeZ.objValue;
         }
-    }
-
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
     }
 
     static {
@@ -122,10 +125,6 @@ public final class MaskInfo extends Message {
         DEFAULT_USERID = 0L;
         DEFAULT_REMINDMASK = 0;
         DEFAULT_SHIELDSTATUS = 0;
-    }
-
-    public /* synthetic */ MaskInfo(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -193,5 +192,9 @@ public final class MaskInfo extends Message {
         this.shieldStatus = builder.shieldStatus;
         this.maskFids = builder.maskFids;
         this.signMask = builder.signMask;
+    }
+
+    public /* synthetic */ MaskInfo(Builder builder, boolean z, a aVar) {
+        this(builder, z);
     }
 }

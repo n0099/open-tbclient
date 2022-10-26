@@ -1,7 +1,5 @@
 package com.baidu.webkit.sdk;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,7 +26,6 @@ public abstract class TracingController {
         }
     }
 
-    @NonNull
     public static TracingController getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -37,7 +34,7 @@ public abstract class TracingController {
 
     public abstract boolean isTracing();
 
-    public abstract void start(@NonNull TracingConfig tracingConfig);
+    public abstract void start(TracingConfig tracingConfig);
 
-    public abstract boolean stop(@Nullable OutputStream outputStream, @NonNull Executor executor);
+    public abstract boolean stop(OutputStream outputStream, Executor executor);
 }

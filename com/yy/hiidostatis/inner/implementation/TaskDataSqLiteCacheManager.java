@@ -20,6 +20,7 @@ import com.yy.hiidostatis.message.log.TraceLog;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -32,7 +33,7 @@ public class TaskDataSqLiteCacheManager {
     public static final int MAX_CACHE_SIZE = 100;
     public static final int MAX_RETRY_TIMES;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConcurrentHashMap<String, AtomicInteger> actRemain;
+    public ConcurrentHashMap actRemain;
     public boolean isFirstSyncFromFile;
     public ReentrantLock lock;
     public String mCacheFileName;
@@ -41,7 +42,7 @@ public class TaskDataSqLiteCacheManager {
     public int mLastFileSize;
     public TaskDataSet memoryCacheDataSet;
     public MessageMonitor monitor;
-    public List<String> sendingData;
+    public List sendingData;
 
     static {
         InterceptResult invokeClinit;
@@ -84,11 +85,36 @@ public class TaskDataSqLiteCacheManager {
         this.mCacheFileName = str;
     }
 
+    public TaskDataSqLiteCacheManager(Context context, String str, MessageMonitor messageMonitor) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str, messageMonitor};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.memoryCacheDataSet = new TaskDataSet();
+        this.lock = new ReentrantLock();
+        this.mLastFileSize = -1;
+        this.isFirstSyncFromFile = true;
+        this.sendingData = new ArrayList();
+        this.mCtx = context;
+        this.mCacheFileName = str;
+        this.monitor = messageMonitor;
+    }
+
     private int addRemain(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, this, str, i)) == null) {
-            AtomicInteger atomicInteger = this.actRemain.get(str);
+            AtomicInteger atomicInteger = (AtomicInteger) this.actRemain.get(str);
             if (atomicInteger == null) {
                 atomicInteger = new AtomicInteger();
                 this.actRemain.put(str, atomicInteger);
@@ -96,6 +122,46 @@ public class TaskDataSqLiteCacheManager {
             return atomicInteger.addAndGet(i);
         }
         return invokeLI.intValue;
+    }
+
+    private int reduceRemain(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, this, str, i)) == null) {
+            AtomicInteger atomicInteger = (AtomicInteger) this.actRemain.get(str);
+            if (atomicInteger != null) {
+                return atomicInteger.addAndGet(i * (-1));
+            }
+            return 0;
+        }
+        return invokeLI.intValue;
+    }
+
+    public void add(Context context, TaskData taskData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, taskData) == null) {
+            this.lock.lock();
+            try {
+                if (this.memoryCacheDataSet.size() < 100) {
+                    this.memoryCacheDataSet.save(taskData);
+                }
+            } finally {
+                this.lock.unlock();
+            }
+        }
+    }
+
+    public void removeSendListBatch(Context context, List list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, context, list) == null) {
+            this.lock.lock();
+            try {
+                this.sendingData.removeAll(list);
+                getDbManager().remove(list);
+            } finally {
+                this.lock.unlock();
+            }
+        }
     }
 
     private TaskDataSqLiteDBManager getDbManager() {
@@ -124,7 +190,13 @@ public class TaskDataSqLiteCacheManager {
     private boolean isOverMaxTryTimes(TaskData taskData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, this, taskData)) == null) ? taskData.getTryTimes() >= MAX_RETRY_TIMES : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, taskData)) == null) {
+            if (taskData.getTryTimes() >= MAX_RETRY_TIMES) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     private boolean isOverdue(TaskData taskData) {
@@ -132,7 +204,10 @@ public class TaskDataSqLiteCacheManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, taskData)) == null) {
             try {
-                return Util.daysBetween(taskData.getTime(), System.currentTimeMillis()) > MAX_CACHE_DAY;
+                if (Util.daysBetween(taskData.getTime(), System.currentTimeMillis()) <= MAX_CACHE_DAY) {
+                    return false;
+                }
+                return true;
             } catch (Throwable th) {
                 L.debug(this, th.getMessage(), new Object[0]);
                 return false;
@@ -141,71 +216,81 @@ public class TaskDataSqLiteCacheManager {
         return invokeL.booleanValue;
     }
 
-    private int reduceRemain(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, this, str, i)) == null) {
-            AtomicInteger atomicInteger = this.actRemain.get(str);
-            if (atomicInteger != null) {
-                return atomicInteger.addAndGet(i * (-1));
-            }
-            return 0;
-        }
-        return invokeLI.intValue;
-    }
-
     private void syncFromFile(Context context) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeL(65544, this, context) != null) {
-            return;
-        }
-        this.mLastFileSize = getDbManager().size();
-        int i = this.isFirstSyncFromFile ? 50 : 100;
-        this.isFirstSyncFromFile = false;
-        TaskDataSet firstList = getDbManager().getFirstList(i, this.sendingData);
-        if (firstList != null) {
-            TaskDataSet taskDataSet = new TaskDataSet();
-            int i2 = 0;
-            int i3 = 0;
-            while (true) {
-                TaskData removeFirst = firstList.removeFirst();
-                if (removeFirst != null) {
-                    if (removeFirst.verifyMd5()) {
-                        this.memoryCacheDataSet.save(removeFirst);
-                        i2++;
+        if (interceptable == null || interceptable.invokeL(65544, this, context) == null) {
+            this.mLastFileSize = getDbManager().size();
+            if (this.isFirstSyncFromFile) {
+                i = 50;
+            } else {
+                i = 100;
+            }
+            this.isFirstSyncFromFile = false;
+            TaskDataSet firstList = getDbManager().getFirstList(i, this.sendingData);
+            if (firstList != null) {
+                TaskDataSet taskDataSet = new TaskDataSet();
+                int i2 = 0;
+                int i3 = 0;
+                while (true) {
+                    TaskData removeFirst = firstList.removeFirst();
+                    if (removeFirst != null) {
+                        if (removeFirst.verifyMd5()) {
+                            this.memoryCacheDataSet.save(removeFirst);
+                            i2++;
+                        } else {
+                            taskDataSet.save(removeFirst);
+                            i3++;
+                            L.debug(this, "data verify failure ,give up .data=[%s]", removeFirst.getContent());
+                            ActLog.writeSendFailLog(context, "-", null, removeFirst.getContent(), "drop one data.verifyMd5 Failure", "-1", null);
+                            ActLog.writeActLog(null, ActLog.TYPE_DISCARD, removeFirst.getContent(), null, null, null);
+                        }
                     } else {
-                        taskDataSet.save(removeFirst);
-                        i3++;
-                        L.debug(this, "data verify failure ,give up .data=[%s]", removeFirst.getContent());
-                        ActLog.writeSendFailLog(context, "-", null, removeFirst.getContent(), "drop one data.verifyMd5 Failure", "-1", null);
-                        ActLog.writeActLog(null, ActLog.TYPE_DISCARD, removeFirst.getContent(), null, null, null);
+                        getDbManager().removeAll(taskDataSet);
+                        L.debug(this, "syncFromFile. succ dataset size = [%d],fail dataset size = [%d], file dataset size = [%d]", Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(this.mLastFileSize));
+                        return;
                     }
-                } else {
-                    getDbManager().removeAll(taskDataSet);
-                    L.debug(this, "syncFromFile. succ dataset size = [%d],fail dataset size = [%d], file dataset size = [%d]", Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(this.mLastFileSize));
-                    return;
                 }
+            } else {
+                L.debug(this, "syncFromFile dataset size = 0", new Object[0]);
             }
-        } else {
-            L.debug(this, "syncFromFile dataset size = 0", new Object[0]);
         }
     }
 
-    public void add(Context context, TaskData taskData) {
+    public TaskData getFirst(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, taskData) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
             this.lock.lock();
+            TaskData taskData = null;
             try {
-                if (this.memoryCacheDataSet.size() < 100) {
-                    this.memoryCacheDataSet.save(taskData);
+                if (this.memoryCacheDataSet.isEmpty()) {
+                    syncFromFile(context);
                 }
-            } finally {
+                if (!this.memoryCacheDataSet.isEmpty()) {
+                    taskData = this.memoryCacheDataSet.getFirst();
+                }
+                L.verbose(this, "getFirst from  memory cache. memory cache dataset size = %d. mLastFileSize = %d", Integer.valueOf(this.memoryCacheDataSet.size()), Integer.valueOf(this.mLastFileSize));
                 this.lock.unlock();
+                L.brief("getFirst elapsed time :%d ms", Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
+            } catch (Throwable th) {
+                try {
+                    L.error(this, "Failed to getFirst data .Exception:%s", th);
+                    this.lock.unlock();
+                    L.brief("getFirst elapsed time :%d ms", Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
+                } catch (Throwable th2) {
+                    this.lock.unlock();
+                    L.brief("getFirst elapsed time :%d ms", Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
+                    throw th2;
+                }
             }
+            return taskData;
         }
+        return (TaskData) invokeL.objValue;
     }
 
-    public int cacheData(Context context, List<TaskData> list) {
+    public int cacheData(Context context, List list) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, list)) == null) {
@@ -225,8 +310,25 @@ public class TaskDataSqLiteCacheManager {
         return invokeLL.intValue;
     }
 
+    public void restoreSendList(Context context, List list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, context, list) == null) {
+            this.lock.lock();
+            try {
+                Iterator it = list.iterator();
+                while (it.hasNext()) {
+                    String[] strArr = (String[]) it.next();
+                    this.sendingData.remove(strArr[1]);
+                    addRemain(strArr[0], 1);
+                }
+            } finally {
+                this.lock.unlock();
+            }
+        }
+    }
+
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[IGET, INVOKE, MOVE_EXCEPTION, CONST_STR, NEW_ARRAY, APUT, INVOKE, IGET, INVOKE, MOVE_EXCEPTION] complete} */
-    public List<TaskData> getAndMoveToSendingList(Context context, int i) {
+    public List getAndMoveToSendingList(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, context, i)) == null) {
@@ -284,36 +386,6 @@ public class TaskDataSqLiteCacheManager {
         return (List) invokeLI.objValue;
     }
 
-    public TaskData getFirst(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            this.lock.lock();
-            try {
-                if (this.memoryCacheDataSet.isEmpty()) {
-                    syncFromFile(context);
-                }
-                r5 = this.memoryCacheDataSet.isEmpty() ? null : this.memoryCacheDataSet.getFirst();
-                L.verbose(this, "getFirst from  memory cache. memory cache dataset size = %d. mLastFileSize = %d", Integer.valueOf(this.memoryCacheDataSet.size()), Integer.valueOf(this.mLastFileSize));
-                this.lock.unlock();
-                L.brief("getFirst elapsed time :%d ms", Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
-            } catch (Throwable th) {
-                try {
-                    L.error(this, "Failed to getFirst data .Exception:%s", th);
-                    this.lock.unlock();
-                    L.brief("getFirst elapsed time :%d ms", Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
-                } catch (Throwable th2) {
-                    this.lock.unlock();
-                    L.brief("getFirst elapsed time :%d ms", Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
-                    throw th2;
-                }
-            }
-            return r5;
-        }
-        return (TaskData) invokeL.objValue;
-    }
-
     public void remove(Context context, TaskData taskData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, context, taskData) == null) {
@@ -337,34 +409,6 @@ public class TaskDataSqLiteCacheManager {
                     L.brief("remove elapsed time :%d ms", Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
                     throw th2;
                 }
-            }
-        }
-    }
-
-    public void removeSendListBatch(Context context, List<String> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, context, list) == null) {
-            this.lock.lock();
-            try {
-                this.sendingData.removeAll(list);
-                getDbManager().remove(list);
-            } finally {
-                this.lock.unlock();
-            }
-        }
-    }
-
-    public void restoreSendList(Context context, List<String[]> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, context, list) == null) {
-            this.lock.lock();
-            try {
-                for (String[] strArr : list) {
-                    this.sendingData.remove(strArr[1]);
-                    addRemain(strArr[0], 1);
-                }
-            } finally {
-                this.lock.unlock();
             }
         }
     }
@@ -402,7 +446,35 @@ public class TaskDataSqLiteCacheManager {
         return invokeLL.booleanValue;
     }
 
-    public int saveAll(Context context, Collection<TaskData> collection, Map<String, Integer> map) {
+    public boolean update(Context context, TaskData taskData) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, context, taskData)) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            this.lock.lock();
+            try {
+                getDbManager().update(taskData);
+                L.verbose(this, "update data : %s to file . memory cache dataset size = %d. mLastFileSize = %d", taskData.getDataId(), Integer.valueOf(this.memoryCacheDataSet.size()), Integer.valueOf(this.mLastFileSize));
+                this.lock.unlock();
+                L.brief("update elapsed time :%d ms", Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
+                return true;
+            } catch (Throwable th) {
+                try {
+                    L.debug(this, "Failed to update data : %s Exception:%s", taskData.getDataId(), th);
+                    this.lock.unlock();
+                    L.brief("update elapsed time :%d ms", Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
+                    return false;
+                } catch (Throwable th2) {
+                    this.lock.unlock();
+                    L.brief("update elapsed time :%d ms", Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
+                    throw th2;
+                }
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public int saveAll(Context context, Collection collection, Map map) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, collection, map)) == null) {
@@ -414,8 +486,8 @@ public class TaskDataSqLiteCacheManager {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                for (Map.Entry<String, Integer> entry : map.entrySet()) {
-                    addRemain(entry.getKey(), entry.getValue().intValue());
+                for (Map.Entry entry : map.entrySet()) {
+                    addRemain((String) entry.getKey(), ((Integer) entry.getValue()).intValue());
                 }
                 this.memoryCacheDataSet.addAll(collection);
                 if (this.memoryCacheDataSet.size() > 100) {
@@ -470,58 +542,5 @@ public class TaskDataSqLiteCacheManager {
             }
         }
         return invokeL.intValue;
-    }
-
-    public boolean update(Context context, TaskData taskData) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, context, taskData)) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            this.lock.lock();
-            try {
-                getDbManager().update(taskData);
-                L.verbose(this, "update data : %s to file . memory cache dataset size = %d. mLastFileSize = %d", taskData.getDataId(), Integer.valueOf(this.memoryCacheDataSet.size()), Integer.valueOf(this.mLastFileSize));
-                this.lock.unlock();
-                L.brief("update elapsed time :%d ms", Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
-                return true;
-            } catch (Throwable th) {
-                try {
-                    L.debug(this, "Failed to update data : %s Exception:%s", taskData.getDataId(), th);
-                    this.lock.unlock();
-                    L.brief("update elapsed time :%d ms", Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
-                    return false;
-                } catch (Throwable th2) {
-                    this.lock.unlock();
-                    L.brief("update elapsed time :%d ms", Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
-                    throw th2;
-                }
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public TaskDataSqLiteCacheManager(Context context, String str, MessageMonitor messageMonitor) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, messageMonitor};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.memoryCacheDataSet = new TaskDataSet();
-        this.lock = new ReentrantLock();
-        this.mLastFileSize = -1;
-        this.isFirstSyncFromFile = true;
-        this.sendingData = new ArrayList();
-        this.mCtx = context;
-        this.mCacheFileName = str;
-        this.monitor = messageMonitor;
     }
 }

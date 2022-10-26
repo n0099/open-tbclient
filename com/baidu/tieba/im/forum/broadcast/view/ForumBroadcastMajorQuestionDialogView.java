@@ -47,15 +47,15 @@ public class ForumBroadcastMajorQuestionDialogView extends LinearLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02a5, this);
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090a4f);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02a4, this);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090a59);
             this.a = linearLayout;
-            this.c = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090a51);
-            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090a50);
-            this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091043);
-            this.c.setText(R.string.obfuscated_res_0x7f0f123a);
-            this.d.setText(R.string.obfuscated_res_0x7f0f0676);
-            this.e.setText(R.string.obfuscated_res_0x7f0f09b7);
+            this.c = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090a5b);
+            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090a5a);
+            this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091037);
+            this.c.setText(R.string.obfuscated_res_0x7f0f124e);
+            this.d.setText(R.string.obfuscated_res_0x7f0f067f);
+            this.e.setText(R.string.obfuscated_res_0x7f0f09c4);
             SkinManager.setBackgroundResource(this.a, R.drawable.bg_frs_private_dialog);
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0107);
@@ -65,9 +65,8 @@ public class ForumBroadcastMajorQuestionDialogView extends LinearLayout {
 
     public void setConfirmButtonListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) || onClickListener == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) && onClickListener != null) {
+            this.e.setOnClickListener(onClickListener);
         }
-        this.e.setOnClickListener(onClickListener);
     }
 }

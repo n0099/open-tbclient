@@ -67,38 +67,45 @@ public class LinkedArrayList {
     public Object[] head() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.head : (Object[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.head;
+        }
+        return (Object[]) invokeV.objValue;
     }
 
     public int size() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.size : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.size;
+        }
+        return invokeV.intValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(1048579, this)) != null) {
-            return (String) invokeV.objValue;
-        }
-        int i = this.capacityHint;
-        int i2 = this.size;
-        ArrayList arrayList = new ArrayList(i2 + 1);
-        Object[] head = head();
-        int i3 = 0;
-        while (true) {
-            int i4 = 0;
-            while (i3 < i2) {
-                arrayList.add(head[i4]);
-                i3++;
-                i4++;
-                if (i4 == i) {
-                    break;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            int i = this.capacityHint;
+            int i2 = this.size;
+            ArrayList arrayList = new ArrayList(i2 + 1);
+            Object[] head = head();
+            int i3 = 0;
+            while (true) {
+                int i4 = 0;
+                while (i3 < i2) {
+                    arrayList.add(head[i4]);
+                    i3++;
+                    i4++;
+                    if (i4 == i) {
+                        break;
+                    }
                 }
+                return arrayList.toString();
+                head = head[i];
             }
-            return arrayList.toString();
-            head = head[i];
+        } else {
+            return (String) invokeV.objValue;
         }
     }
 }

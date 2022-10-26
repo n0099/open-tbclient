@@ -9,10 +9,9 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tbadk.switchs.GdtPrivacySwitch;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.fv6;
-import com.baidu.tieba.gv6;
-import com.baidu.tieba.wu6;
-import com.baidu.tieba.xu6;
+import com.baidu.tieba.ev6;
+import com.baidu.tieba.mv6;
+import com.baidu.tieba.nv6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +26,7 @@ public class FunAdStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public static class a implements CustomMessageTask.CustomRunnable<wu6.f> {
+    public final class a implements CustomMessageTask.CustomRunnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -46,10 +45,13 @@ public class FunAdStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<wu6.f> run(CustomMessage<wu6.f> customMessage) {
+        public CustomResponsedMessage run(CustomMessage customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2921525, new fv6()) : (CustomResponsedMessage) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+                return new CustomResponsedMessage(2921525, new mv6());
+            }
+            return (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
@@ -67,7 +69,7 @@ public class FunAdStatic {
             }
         }
         GlobalSetting.setAgreePrivacyStrategy(GdtPrivacySwitch.isOpen());
-        xu6.a.set(new gv6());
+        ev6.a.set(new nv6());
         CustomMessageTask customMessageTask = new CustomMessageTask(2921525, new a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);

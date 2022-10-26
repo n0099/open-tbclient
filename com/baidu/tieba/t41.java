@@ -1,30 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.s41;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.content.Context;
+import com.baidu.nadcore.webview.container.base.AbsContainer;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
-public final class t41 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final s41.a a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface t41 {
+    public static final a a = u41.a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948131128, "Lcom/baidu/tieba/t41;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948131128, "Lcom/baidu/tieba/t41;");
-                return;
-            }
-        }
-        a = new u41();
+    /* loaded from: classes5.dex */
+    public interface a {
+        AbsContainer a(z41 z41Var, a51 a51Var, int i);
+
+        boolean b(HashMap hashMap, int i);
+
+        void c(Context context, boolean z, int i);
     }
 }

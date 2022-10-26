@@ -1,6 +1,5 @@
 package com.baidu.webkit.sdk;
 
-import android.annotation.SuppressLint;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
@@ -11,7 +10,6 @@ import android.os.Looper;
 import android.os.Process;
 import android.os.StrictMode;
 import android.util.AndroidRuntimeException;
-import androidx.annotation.RequiresApi;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
@@ -462,7 +460,6 @@ public final class WebViewFactory {
         return (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) ? mNetProbeObject : (INetProbeInterface) invokeV.objValue;
     }
 
-    @SuppressLint({"NewApi"})
     public static File getOptFile() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1277,7 +1274,6 @@ public final class WebViewFactory {
         }
     }
 
-    @RequiresApi(api = 8)
     public static boolean installZesEngineIfNeeded(boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Context context;

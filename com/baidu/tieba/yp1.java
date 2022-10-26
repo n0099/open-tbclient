@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes6.dex */
 public interface yp1 {
-    xp1 a();
+    void a(o22 o22Var);
 
-    wp1 b();
+    void b(o22 o22Var);
 }

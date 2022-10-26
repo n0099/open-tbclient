@@ -1,14 +1,11 @@
 package androidx.media2.common;
 
-import android.annotation.SuppressLint;
 import android.os.Binder;
 import android.os.IBinder;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.RemoteException;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.RestrictTo;
 import androidx.versionedparcelable.ParcelImpl;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -20,8 +17,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-@SuppressLint({"BanParcelableUsage"})
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes.dex */
 public class ParcelImplListSlice implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
@@ -31,6 +26,16 @@ public class ParcelImplListSlice implements Parcelable {
     public static final String TAG = "ParcelImplListSlice";
     public transient /* synthetic */ FieldHolder $fh;
     public final List<ParcelImpl> mList;
+
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -69,7 +74,10 @@ public class ParcelImplListSlice implements Parcelable {
             public ParcelImplListSlice createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new ParcelImplListSlice(parcel) : (ParcelImplListSlice) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new ParcelImplListSlice(parcel);
+                }
+                return (ParcelImplListSlice) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -78,12 +86,73 @@ public class ParcelImplListSlice implements Parcelable {
             public ParcelImplListSlice[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new ParcelImplListSlice[i] : (ParcelImplListSlice[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new ParcelImplListSlice[i];
+                }
+                return (ParcelImplListSlice[]) invokeI.objValue;
             }
         };
     }
 
-    public ParcelImplListSlice(@NonNull List<ParcelImpl> list) {
+    public List<ParcelImpl> getList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public ParcelImplListSlice(Parcel parcel) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        int readInt = parcel.readInt();
+        this.mList = new ArrayList(readInt);
+        if (readInt <= 0) {
+            return;
+        }
+        int i3 = 0;
+        while (i3 < readInt && parcel.readInt() != 0) {
+            this.mList.add((ParcelImpl) parcel.readParcelable(ParcelImpl.class.getClassLoader()));
+            i3++;
+        }
+        if (i3 >= readInt) {
+            return;
+        }
+        IBinder readStrongBinder = parcel.readStrongBinder();
+        while (i3 < readInt) {
+            Parcel obtain = Parcel.obtain();
+            Parcel obtain2 = Parcel.obtain();
+            try {
+                obtain.writeInt(i3);
+                readStrongBinder.transact(1, obtain, obtain2, 0);
+                while (i3 < readInt && obtain2.readInt() != 0) {
+                    this.mList.add((ParcelImpl) obtain2.readParcelable(ParcelImpl.class.getClassLoader()));
+                    i3++;
+                }
+            } catch (RemoteException e) {
+                Log.w(TAG, "Failure retrieving array; only received " + i3 + " of " + readInt, e);
+                return;
+            } finally {
+                obtain2.recycle();
+                obtain.recycle();
+            }
+        }
+    }
+
+    public ParcelImplListSlice(List<ParcelImpl> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,23 +172,6 @@ public class ParcelImplListSlice implements Parcelable {
             return;
         }
         throw new NullPointerException("list shouldn't be null");
-    }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @NonNull
-    public List<ParcelImpl> getList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mList : (List) invokeV.objValue;
     }
 
     @Override // android.os.Parcelable
@@ -185,55 +237,6 @@ public class ParcelImplListSlice implements Parcelable {
                         }
                     });
                 }
-            }
-        }
-    }
-
-    public ParcelImplListSlice(Parcel parcel) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        int readInt = parcel.readInt();
-        this.mList = new ArrayList(readInt);
-        if (readInt <= 0) {
-            return;
-        }
-        int i3 = 0;
-        while (i3 < readInt && parcel.readInt() != 0) {
-            this.mList.add((ParcelImpl) parcel.readParcelable(ParcelImpl.class.getClassLoader()));
-            i3++;
-        }
-        if (i3 >= readInt) {
-            return;
-        }
-        IBinder readStrongBinder = parcel.readStrongBinder();
-        while (i3 < readInt) {
-            Parcel obtain = Parcel.obtain();
-            Parcel obtain2 = Parcel.obtain();
-            try {
-                obtain.writeInt(i3);
-                readStrongBinder.transact(1, obtain, obtain2, 0);
-                while (i3 < readInt && obtain2.readInt() != 0) {
-                    this.mList.add((ParcelImpl) obtain2.readParcelable(ParcelImpl.class.getClassLoader()));
-                    i3++;
-                }
-            } catch (RemoteException e) {
-                Log.w(TAG, "Failure retrieving array; only received " + i3 + " of " + readInt, e);
-                return;
-            } finally {
-                obtain2.recycle();
-                obtain.recycle();
             }
         }
     }

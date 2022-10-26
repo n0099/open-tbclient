@@ -28,6 +28,32 @@ public class GroupInfoActivityConfig extends IntentConfig {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public GroupInfoActivityConfig(int i, Activity activity, long j, int i2) {
+        super(activity);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), activity, Long.valueOf(j), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        getIntent().putExtra(REQUEST_CODE, i);
+        getIntent().putExtra("group_id", j);
+        getIntent().putExtra(ACTION_FROM, i2);
+        if (!(activity instanceof Activity)) {
+            getIntent().addFlags(LaunchTaskConstants.OTHER_PROCESS);
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GroupInfoActivityConfig(Context context, long j, int i) {
         super(context);
         Interceptable interceptable = $ic;
@@ -47,10 +73,9 @@ public class GroupInfoActivityConfig extends IntentConfig {
         }
         getIntent().putExtra("group_id", j);
         getIntent().putExtra(ACTION_FROM, i);
-        if (context instanceof Activity) {
-            return;
+        if (!(context instanceof Activity)) {
+            getIntent().addFlags(LaunchTaskConstants.OTHER_PROCESS);
         }
-        getIntent().addFlags(LaunchTaskConstants.OTHER_PROCESS);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -76,36 +101,8 @@ public class GroupInfoActivityConfig extends IntentConfig {
         getIntent().putExtra(DEFAULT_INVITE_MSG, str);
         getIntent().putExtra(INVITE_USER_ID, j2);
         getIntent().putExtra(JOIN_TYPE, ApplyJoinGroupActivityConfig.JOINTYPE_INVITE);
-        if (context instanceof Activity) {
-            return;
+        if (!(context instanceof Activity)) {
+            getIntent().addFlags(LaunchTaskConstants.OTHER_PROCESS);
         }
-        getIntent().addFlags(LaunchTaskConstants.OTHER_PROCESS);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GroupInfoActivityConfig(int i, Activity activity, long j, int i2) {
-        super(activity);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), activity, Long.valueOf(j), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        getIntent().putExtra(REQUEST_CODE, i);
-        getIntent().putExtra("group_id", j);
-        getIntent().putExtra(ACTION_FROM, i2);
-        if (activity instanceof Activity) {
-            return;
-        }
-        getIntent().addFlags(LaunchTaskConstants.OTHER_PROCESS);
     }
 }

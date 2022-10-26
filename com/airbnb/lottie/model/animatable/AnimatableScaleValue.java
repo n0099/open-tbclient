@@ -2,17 +2,16 @@ package com.airbnb.lottie.model.animatable;
 
 import com.airbnb.lottie.animation.keyframe.BaseKeyframeAnimation;
 import com.airbnb.lottie.animation.keyframe.ScaleKeyframeAnimation;
-import com.airbnb.lottie.value.Keyframe;
 import com.airbnb.lottie.value.ScaleXY;
 import java.util.List;
 /* loaded from: classes.dex */
-public class AnimatableScaleValue extends BaseAnimatableValue<ScaleXY, ScaleXY> {
+public class AnimatableScaleValue extends BaseAnimatableValue {
     public AnimatableScaleValue() {
         this(new ScaleXY(1.0f, 1.0f));
     }
 
     @Override // com.airbnb.lottie.model.animatable.AnimatableValue
-    public BaseKeyframeAnimation<ScaleXY, ScaleXY> createAnimation() {
+    public BaseKeyframeAnimation createAnimation() {
         return new ScaleKeyframeAnimation(this.keyframes);
     }
 
@@ -35,7 +34,7 @@ public class AnimatableScaleValue extends BaseAnimatableValue<ScaleXY, ScaleXY> 
         super(scaleXY);
     }
 
-    public AnimatableScaleValue(List<Keyframe<ScaleXY>> list) {
-        super((List) list);
+    public AnimatableScaleValue(List list) {
+        super(list);
     }
 }

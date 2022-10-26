@@ -32,6 +32,16 @@ public final class BitRateBox extends AbstractBox {
     public long bufferSizeDb;
     public long maxBitrate;
 
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public long getContentSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return 12L;
+        }
+        return invokeV.longValue;
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -66,26 +76,6 @@ public final class BitRateBox extends AbstractBox {
         }
     }
 
-    public static /* synthetic */ void ajc$preClinit() {
-        Factory factory = new Factory("BitRateBox.java", BitRateBox.class);
-        ajc$tjp_0 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getBufferSizeDb", "com.coremedia.iso.boxes.BitRateBox", "", "", "", "long"), 74);
-        ajc$tjp_1 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setBufferSizeDb", "com.coremedia.iso.boxes.BitRateBox", "long", "bufferSizeDb", "", "void"), 82);
-        ajc$tjp_2 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getMaxBitrate", "com.coremedia.iso.boxes.BitRateBox", "", "", "", "long"), 90);
-        ajc$tjp_3 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setMaxBitrate", "com.coremedia.iso.boxes.BitRateBox", "long", "maxBitrate", "", "void"), 98);
-        ajc$tjp_4 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getAvgBitrate", "com.coremedia.iso.boxes.BitRateBox", "", "", "", "long"), 106);
-        ajc$tjp_5 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setAvgBitrate", "com.coremedia.iso.boxes.BitRateBox", "long", "avgBitrate", "", "void"), 114);
-    }
-
-    @Override // com.googlecode.mp4parser.AbstractBox
-    public void _parseDetails(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, byteBuffer) == null) {
-            this.bufferSizeDb = IsoTypeReader.readUInt32(byteBuffer);
-            this.maxBitrate = IsoTypeReader.readUInt32(byteBuffer);
-            this.avgBitrate = IsoTypeReader.readUInt32(byteBuffer);
-        }
-    }
-
     public long getAvgBitrate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -106,26 +96,6 @@ public final class BitRateBox extends AbstractBox {
         return invokeV.longValue;
     }
 
-    @Override // com.googlecode.mp4parser.AbstractBox
-    public void getContent(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, byteBuffer) == null) {
-            IsoTypeWriter.writeUInt32(byteBuffer, this.bufferSizeDb);
-            IsoTypeWriter.writeUInt32(byteBuffer, this.maxBitrate);
-            IsoTypeWriter.writeUInt32(byteBuffer, this.avgBitrate);
-        }
-    }
-
-    @Override // com.googlecode.mp4parser.AbstractBox
-    public long getContentSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return 12L;
-        }
-        return invokeV.longValue;
-    }
-
     public long getMaxBitrate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -134,6 +104,36 @@ public final class BitRateBox extends AbstractBox {
             return this.maxBitrate;
         }
         return invokeV.longValue;
+    }
+
+    public static /* synthetic */ void ajc$preClinit() {
+        Factory factory = new Factory("BitRateBox.java", BitRateBox.class);
+        ajc$tjp_0 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getBufferSizeDb", "com.coremedia.iso.boxes.BitRateBox", "", "", "", "long"), 74);
+        ajc$tjp_1 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setBufferSizeDb", "com.coremedia.iso.boxes.BitRateBox", "long", "bufferSizeDb", "", "void"), 82);
+        ajc$tjp_2 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getMaxBitrate", "com.coremedia.iso.boxes.BitRateBox", "", "", "", "long"), 90);
+        ajc$tjp_3 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setMaxBitrate", "com.coremedia.iso.boxes.BitRateBox", "long", "maxBitrate", "", "void"), 98);
+        ajc$tjp_4 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getAvgBitrate", "com.coremedia.iso.boxes.BitRateBox", "", "", "", "long"), 106);
+        ajc$tjp_5 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setAvgBitrate", "com.coremedia.iso.boxes.BitRateBox", "long", "avgBitrate", "", "void"), 114);
+    }
+
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public void _parseDetails(ByteBuffer byteBuffer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, byteBuffer) == null) {
+            this.bufferSizeDb = IsoTypeReader.readUInt32(byteBuffer);
+            this.maxBitrate = IsoTypeReader.readUInt32(byteBuffer);
+            this.avgBitrate = IsoTypeReader.readUInt32(byteBuffer);
+        }
+    }
+
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public void getContent(ByteBuffer byteBuffer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, byteBuffer) == null) {
+            IsoTypeWriter.writeUInt32(byteBuffer, this.bufferSizeDb);
+            IsoTypeWriter.writeUInt32(byteBuffer, this.maxBitrate);
+            IsoTypeWriter.writeUInt32(byteBuffer, this.avgBitrate);
+        }
     }
 
     public void setAvgBitrate(long j) {

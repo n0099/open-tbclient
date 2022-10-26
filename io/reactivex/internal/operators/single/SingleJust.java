@@ -8,17 +8,17 @@ import io.reactivex.Single;
 import io.reactivex.SingleObserver;
 import io.reactivex.disposables.Disposables;
 /* loaded from: classes8.dex */
-public final class SingleJust<T> extends Single<T> {
+public final class SingleJust extends Single {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final T value;
+    public final Object value;
 
-    public SingleJust(T t) {
+    public SingleJust(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {t};
+            Object[] objArr = {obj};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,16 +28,15 @@ public final class SingleJust<T> extends Single<T> {
                 return;
             }
         }
-        this.value = t;
+        this.value = obj;
     }
 
-    /* JADX DEBUG: Type inference failed for r0v3. Raw type applied. Possible types: T, ? super T */
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver<? super T> singleObserver) {
+    public void subscribeActual(SingleObserver singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, singleObserver) == null) {
             singleObserver.onSubscribe(Disposables.disposed());
-            singleObserver.onSuccess((T) this.value);
+            singleObserver.onSuccess(this.value);
         }
     }
 }

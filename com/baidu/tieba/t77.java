@@ -1,59 +1,189 @@
 package com.baidu.tieba;
 
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class t77 {
+public class t77 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public final List b;
+    public LayoutInflater c;
 
-    public static ImMessageCenterPojo a(ImMessageCenterPojo imMessageCenterPojo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, imMessageCenterPojo)) == null) ? (imMessageCenterPojo == null || imMessageCenterPojo.getCustomGroupType() != -8 || imMessageCenterPojo.getUnread_count() <= 0) ? imMessageCenterPojo : b(imMessageCenterPojo, ma7.o().l()) : (ImMessageCenterPojo) invokeL.objValue;
+    /* loaded from: classes5.dex */
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    public static ImMessageCenterPojo b(ImMessageCenterPojo imMessageCenterPojo, List<ImMessageCenterPojo> list) {
-        InterceptResult invokeLL;
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, imMessageCenterPojo, list)) == null) {
-            ImMessageCenterPojo imMessageCenterPojo2 = new ImMessageCenterPojo();
-            imMessageCenterPojo2.setGid(imMessageCenterPojo.getGid());
-            imMessageCenterPojo2.setGroup_name(imMessageCenterPojo.getGroup_name());
-            imMessageCenterPojo2.setNameShow(imMessageCenterPojo.getNameShow());
-            imMessageCenterPojo2.setGroup_head(imMessageCenterPojo.getGroup_head());
-            imMessageCenterPojo2.setIs_hidden(imMessageCenterPojo.getIs_hidden());
-            imMessageCenterPojo2.setUnread_count(imMessageCenterPojo.getUnread_count());
-            imMessageCenterPojo2.setLast_rid(imMessageCenterPojo.getLast_rid());
-            imMessageCenterPojo2.setLast_user_name(imMessageCenterPojo.getLast_user_name());
-            imMessageCenterPojo2.setLast_content_time(imMessageCenterPojo.getLast_content_time());
-            imMessageCenterPojo2.setLast_content(imMessageCenterPojo.getLast_content());
-            imMessageCenterPojo2.setSend_status(imMessageCenterPojo.getSend_status());
-            imMessageCenterPojo2.setType(imMessageCenterPojo.getType());
-            imMessageCenterPojo2.setSelf(imMessageCenterPojo.isSelf());
-            imMessageCenterPojo2.setIsFriend(imMessageCenterPojo.getIsFriend());
-            imMessageCenterPojo2.setFollowStatus(imMessageCenterPojo.getFollowStatus());
-            imMessageCenterPojo2.setCustomGroupType(imMessageCenterPojo.getCustomGroupType());
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            for (ImMessageCenterPojo imMessageCenterPojo3 : list) {
-                if (imMessageCenterPojo3 != null && imMessageCenterPojo3.getCustomGroupType() == 4) {
-                    if (!mb7.j().c(currentAccount, imMessageCenterPojo3.getGid())) {
-                        imMessageCenterPojo2.setUnread_count(imMessageCenterPojo2.getUnread_count() - imMessageCenterPojo3.getUnread_count());
-                    } else {
-                        lb7.a().c(true);
-                    }
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? i : invokeI.longValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public TextView b;
+        public View c;
+        public View d;
+
+        public b(t77 t77Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {t77Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            if (imMessageCenterPojo2.getUnread_count() <= 0) {
-                imMessageCenterPojo2.setUnread_count(1);
-                lb7.a().c(false);
-            }
-            return imMessageCenterPojo2;
+            this.a = 3;
         }
-        return (ImMessageCenterPojo) invokeLL.objValue;
+
+        public /* synthetic */ b(t77 t77Var, a aVar) {
+            this(t77Var);
+        }
+    }
+
+    public t77(TbPageContext tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = new ArrayList();
+        this.c = LayoutInflater.from(tbPageContext.getPageActivity());
+    }
+
+    public final void a(b bVar, View view2, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLI(1048576, this, bVar, view2, i) == null) && bVar != null && bVar.a != i) {
+            SkinManager.setBackgroundResource(view2, R.drawable.addresslist_item_bg);
+            SkinManager.setBackgroundColor(bVar.d, R.color.CAM_X0204);
+            SkinManager.setBackgroundColor(bVar.c, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(bVar.b, R.color.CAM_X0105, 1);
+            bVar.a = i;
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b.clear();
+            notifyDataSetChanged();
+        }
+    }
+
+    public List d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.b.size();
+        }
+        return invokeV.intValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: c */
+    public v77 getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            return (v77) this.b.get(i);
+        }
+        return (v77) invokeI.objValue;
+    }
+
+    public void e(String str, List list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, list) == null) {
+            this.a = str;
+            this.b.clear();
+            if (list != null) {
+                this.b.addAll(list);
+            }
+            notifyDataSetChanged();
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        b bVar;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, view2, viewGroup)) == null) {
+            v77 item = getItem(i);
+            if (item == null) {
+                return view2;
+            }
+            if (view2 != null && (view2.getTag() instanceof b)) {
+                bVar = (b) view2.getTag();
+            } else {
+                view2 = this.c.inflate(R.layout.obfuscated_res_0x7f0d039e, (ViewGroup) null);
+                bVar = new b(this, null);
+                bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091612);
+                bVar.c = view2.findViewById(R.id.obfuscated_res_0x7f090820);
+                bVar.d = view2.findViewById(R.id.obfuscated_res_0x7f09081a);
+                view2.setTag(bVar);
+            }
+            View view3 = bVar.c;
+            if (i == 0) {
+                i2 = 0;
+            } else {
+                i2 = 8;
+            }
+            view3.setVisibility(i2);
+            bVar.b.setText(StringHelper.highLightText(nh5.a(StringHelper.cutStringWithEllipsisNew(item.b(), 18)), this.a, R.color.CAM_X0302));
+            a(bVar, view2, TbadkCoreApplication.getInst().getSkinType());
+            return view2;
+        }
+        return (View) invokeILL.objValue;
     }
 }

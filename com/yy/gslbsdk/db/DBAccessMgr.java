@@ -18,6 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.gslbsdk.util.GlobalTools;
 import com.yy.gslbsdk.util.LogTools;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
@@ -76,268 +77,32 @@ public class DBAccessMgr {
             this.openDBFailed = true;
             z = true;
         }
-        if (z) {
+        if (!z) {
+            return;
+        }
+        try {
             try {
-                try {
-                    if (this.dbHelper != null) {
-                        this.dbHelper.close();
-                    }
-                    if (this.db != null && this.db.isOpen()) {
-                        this.db.close();
-                    }
-                } catch (Exception e2) {
-                    LogTools.printError(TAG, String.format(Locale.US, "close db failed before open it again. %s ", e2.getMessage()));
+                if (this.dbHelper != null) {
+                    this.dbHelper.close();
                 }
-                try {
-                    DBInitMgr dBInitMgr2 = new DBInitMgr(context, GlobalTools.DB_NAME, null, GlobalTools.DB_VERSION);
-                    this.dbHelper = dBInitMgr2;
-                    this.db = dBInitMgr2.getWritableDatabase();
-                    this.openDBFailed = false;
-                } catch (SQLiteException e3) {
-                    LogTools.printError(TAG, String.format(Locale.US, "open db failed again. %s ", e3.getMessage()));
-                    this.openDBFailed = true;
+                if (this.db != null && this.db.isOpen()) {
+                    this.db.close();
                 }
-            } finally {
-                context.deleteDatabase(GlobalTools.DB_NAME);
+            } catch (Exception e2) {
+                LogTools.printError(TAG, String.format(Locale.US, "close db failed before open it again. %s ", e2.getMessage()));
             }
-        }
-    }
-
-    public static synchronized DBAccessMgr getInstance(Context context) {
-        InterceptResult invokeL;
-        DBAccessMgr dBAccessMgr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            synchronized (DBAccessMgr.class) {
-                if (Build.VERSION.SDK_INT == 28) {
-                    noNeedDB = true;
-                }
-                if (instance == null) {
-                    instance = new DBAccessMgr(context);
-                }
-                dBAccessMgr = instance;
+            try {
+                DBInitMgr dBInitMgr2 = new DBInitMgr(context, GlobalTools.DB_NAME, null, GlobalTools.DB_VERSION);
+                this.dbHelper = dBInitMgr2;
+                this.db = dBInitMgr2.getWritableDatabase();
+                this.openDBFailed = false;
+            } catch (SQLiteException e3) {
+                LogTools.printError(TAG, String.format(Locale.US, "open db failed again. %s ", e3.getMessage()));
+                this.openDBFailed = true;
             }
-            return dBAccessMgr;
+        } finally {
+            context.deleteDatabase(GlobalTools.DB_NAME);
         }
-        return (DBAccessMgr) invokeL.objValue;
-    }
-
-    public synchronized void Close() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this) {
-                this.db.close();
-                this.dbHelper.close();
-            }
-        }
-    }
-
-    public synchronized Long addHijack(HijackTB hijackTB) {
-        InterceptResult invokeL;
-        Long valueOf;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hijackTB)) == null) {
-            synchronized (this) {
-                if (!noNeedDB && !this.openDBFailed) {
-                    ContentValues contentValues = new ContentValues();
-                    contentValues.put("host", hijackTB.getHost());
-                    contentValues.put("nt", Integer.valueOf(hijackTB.getNt()));
-                    contentValues.put("uip", hijackTB.getUip());
-                    contentValues.put(HijackTB.DNSIP, hijackTB.getDnsip());
-                    contentValues.put(HijackTB.HIP, hijackTB.getHip());
-                    Long.valueOf(0L);
-                    try {
-                        valueOf = Long.valueOf(this.db.insert(DBInitMgr.TB_HIJACK, null, contentValues));
-                    } catch (Exception e) {
-                        LogTools.printWarning(TAG, e);
-                    }
-                    return valueOf;
-                }
-                return 0L;
-            }
-        }
-        return (Long) invokeL.objValue;
-    }
-
-    public synchronized Long addHost(HostTB hostTB) {
-        InterceptResult invokeL;
-        Long valueOf;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hostTB)) == null) {
-            synchronized (this) {
-                if (!noNeedDB && !this.openDBFailed) {
-                    ContentValues contentValues = new ContentValues();
-                    contentValues.put("host", hostTB.getHost());
-                    contentValues.put(HostTB.INSERTTIME, Long.valueOf(hostTB.getInsertTime()));
-                    contentValues.put(HostTB.ISPRE, Integer.valueOf(hostTB.getIsPre()));
-                    Long.valueOf(0L);
-                    try {
-                        valueOf = Long.valueOf(this.db.insert(DBInitMgr.TB_HOST, null, contentValues));
-                    } catch (Exception e) {
-                        LogTools.printWarning(TAG, e);
-                    }
-                    return valueOf;
-                }
-                return 0L;
-            }
-        }
-        return (Long) invokeL.objValue;
-    }
-
-    public synchronized Long addOrUpdate(ResultTB resultTB, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, resultTB, z)) == null) {
-            synchronized (this) {
-                if (!noNeedDB && !this.openDBFailed) {
-                    List<ResultTB> resultByNetworkHost = getResultByNetworkHost(resultTB.getNetwork(), resultTB.getHost());
-                    if (resultByNetworkHost.isEmpty()) {
-                        return addResult(resultTB);
-                    }
-                    if (z) {
-                        resultTB.setId(resultByNetworkHost.get(0).getId());
-                        updateResult(resultTB);
-                    }
-                    return 0L;
-                }
-                return 0L;
-            }
-        }
-        return (Long) invokeLZ.objValue;
-    }
-
-    public synchronized Long addOrUpdateV6(ResultTB resultTB, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048580, this, resultTB, z)) == null) {
-            synchronized (this) {
-                if (!noNeedDB && !this.openDBFailed) {
-                    List<ResultTB> resultV6ByNetworkHost = getResultV6ByNetworkHost(resultTB.getNetwork(), resultTB.getHost());
-                    if (resultV6ByNetworkHost.isEmpty()) {
-                        return addResultV6(resultTB);
-                    }
-                    if (z) {
-                        resultTB.setId(resultV6ByNetworkHost.get(0).getId());
-                        updateResultV6(resultTB);
-                    }
-                    return 0L;
-                }
-                return 0L;
-            }
-        }
-        return (Long) invokeLZ.objValue;
-    }
-
-    public synchronized Long addResult(ResultTB resultTB) {
-        InterceptResult invokeL;
-        Long valueOf;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, resultTB)) == null) {
-            synchronized (this) {
-                if (!noNeedDB && !this.openDBFailed) {
-                    ContentValues contentValues = new ContentValues();
-                    contentValues.put("network", resultTB.getNetwork());
-                    contentValues.put("host", resultTB.getHost());
-                    contentValues.put("ip", resultTB.getIp());
-                    contentValues.put(ResultTB.TTL, Integer.valueOf(resultTB.getTtl()));
-                    contentValues.put("end_time", Long.valueOf(resultTB.getEndTime()));
-                    contentValues.put("cmd", resultTB.getCmd());
-                    contentValues.put("update_time", Long.valueOf(resultTB.getUpdateTime()));
-                    contentValues.put(ResultTB.VIEW, resultTB.getView());
-                    contentValues.put("uip", resultTB.getUip());
-                    Long.valueOf(0L);
-                    try {
-                        valueOf = Long.valueOf(this.db.insert(DBInitMgr.TB_RESULT, null, contentValues));
-                    } catch (Exception e) {
-                        LogTools.printWarning(TAG, e);
-                    }
-                    return valueOf;
-                }
-                return 0L;
-            }
-        }
-        return (Long) invokeL.objValue;
-    }
-
-    public synchronized Long addResultV6(ResultTB resultTB) {
-        InterceptResult invokeL;
-        Long valueOf;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, resultTB)) == null) {
-            synchronized (this) {
-                if (!noNeedDB && !this.openDBFailed) {
-                    ContentValues contentValues = new ContentValues();
-                    contentValues.put("network", resultTB.getNetwork());
-                    contentValues.put("host", resultTB.getHost());
-                    contentValues.put("ip", resultTB.getIp());
-                    contentValues.put(ResultTB.TTL, Integer.valueOf(resultTB.getTtl()));
-                    contentValues.put("end_time", Long.valueOf(resultTB.getEndTime()));
-                    contentValues.put("cmd", resultTB.getCmd());
-                    contentValues.put("update_time", Long.valueOf(resultTB.getUpdateTime()));
-                    contentValues.put(ResultTB.VIEW, resultTB.getView());
-                    contentValues.put("uip", resultTB.getUip());
-                    Long.valueOf(0L);
-                    try {
-                        valueOf = Long.valueOf(this.db.insert(DBInitMgr.TB_RESULT_V6, null, contentValues));
-                    } catch (Exception e) {
-                        LogTools.printWarning(TAG, e);
-                    }
-                    return valueOf;
-                }
-                return 0L;
-            }
-        }
-        return (Long) invokeL.objValue;
-    }
-
-    public synchronized Long addServer(ServerTB serverTB) {
-        InterceptResult invokeL;
-        Long valueOf;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, serverTB)) == null) {
-            synchronized (this) {
-                if (!noNeedDB && !this.openDBFailed) {
-                    ContentValues contentValues = new ContentValues();
-                    contentValues.put("isp", Integer.valueOf(serverTB.getIsp()));
-                    contentValues.put("ip", serverTB.getIp());
-                    contentValues.put("ver", Integer.valueOf(serverTB.getVer()));
-                    Long.valueOf(0L);
-                    try {
-                        valueOf = Long.valueOf(this.db.insert(DBInitMgr.TB_SERVER, null, contentValues));
-                    } catch (Exception e) {
-                        LogTools.printWarning(TAG, e);
-                    }
-                    return valueOf;
-                }
-                return 0L;
-            }
-        }
-        return (Long) invokeL.objValue;
-    }
-
-    public synchronized Long addServerV6(ServerV6TB serverV6TB) {
-        InterceptResult invokeL;
-        Long valueOf;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, serverV6TB)) == null) {
-            synchronized (this) {
-                if (!noNeedDB && !this.openDBFailed) {
-                    ContentValues contentValues = new ContentValues();
-                    contentValues.put("isp", Integer.valueOf(serverV6TB.getIsp()));
-                    contentValues.put("ip", serverV6TB.getIp());
-                    contentValues.put("ver", Integer.valueOf(serverV6TB.getVer()));
-                    Long.valueOf(0L);
-                    try {
-                        valueOf = Long.valueOf(this.db.insert(DBInitMgr.TB_SERVER_V6, null, contentValues));
-                    } catch (Exception e) {
-                        LogTools.printWarning(TAG, e);
-                    }
-                    return valueOf;
-                }
-                return 0L;
-            }
-        }
-        return (Long) invokeL.objValue;
     }
 
     public synchronized int delHijack(HijackTB hijackTB) {
@@ -391,39 +156,6 @@ public class DBAccessMgr {
                         LogTools.printWarning(TAG, e2);
                         return -1;
                     }
-                }
-                return 0;
-            }
-        }
-        return invokeL.intValue;
-    }
-
-    public synchronized int delHijackByHost(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            synchronized (this) {
-                int i = 0;
-                if (!noNeedDB && !this.openDBFailed) {
-                    LinkedList linkedList = new LinkedList();
-                    LinkedList linkedList2 = new LinkedList();
-                    if (str != null && str.length() > 0) {
-                        linkedList.add("host=?");
-                        linkedList2.add(str);
-                    }
-                    String str2 = "";
-                    for (int i2 = 0; i2 < linkedList.size(); i2++) {
-                        str2 = str2 + ((String) linkedList.get(i2));
-                        if (i2 != linkedList.size() - 1) {
-                            str2 = str2 + " and ";
-                        }
-                    }
-                    try {
-                        i = this.db.delete(DBInitMgr.TB_HIJACK, str2, (String[]) linkedList2.toArray(new String[0]));
-                    } catch (Exception e) {
-                        LogTools.printWarning(TAG, e);
-                    }
-                    return i;
                 }
                 return 0;
             }
@@ -527,40 +259,6 @@ public class DBAccessMgr {
         return invokeL.intValue;
     }
 
-    public synchronized int delResultByHost(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            synchronized (this) {
-                int i = 0;
-                if (noNeedDB || this.openDBFailed) {
-                    return 0;
-                }
-                if (str == null) {
-                    return 0;
-                }
-                LinkedList linkedList = new LinkedList();
-                LinkedList linkedList2 = new LinkedList();
-                linkedList.add("host=?");
-                linkedList2.add(str);
-                String str2 = "";
-                for (int i2 = 0; i2 < linkedList.size(); i2++) {
-                    str2 = str2 + ((String) linkedList.get(i2));
-                    if (i2 != linkedList.size() - 1) {
-                        str2 = str2 + " and ";
-                    }
-                }
-                try {
-                    i = this.db.delete(DBInitMgr.TB_RESULT, str2, (String[]) linkedList2.toArray(new String[0]));
-                } catch (Exception e) {
-                    LogTools.printWarning(TAG, e);
-                }
-                return i;
-            }
-        }
-        return invokeL.intValue;
-    }
-
     public synchronized int delResultV6(ResultTB resultTB) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -606,40 +304,6 @@ public class DBAccessMgr {
                     }
                 }
                 return 0;
-            }
-        }
-        return invokeL.intValue;
-    }
-
-    public synchronized int delResultV6ByHost(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
-            synchronized (this) {
-                int i = 0;
-                if (noNeedDB || this.openDBFailed) {
-                    return 0;
-                }
-                if (str == null) {
-                    return 0;
-                }
-                LinkedList linkedList = new LinkedList();
-                LinkedList linkedList2 = new LinkedList();
-                linkedList.add("host=?");
-                linkedList2.add(str);
-                String str2 = "";
-                for (int i2 = 0; i2 < linkedList.size(); i2++) {
-                    str2 = str2 + ((String) linkedList.get(i2));
-                    if (i2 != linkedList.size() - 1) {
-                        str2 = str2 + " and ";
-                    }
-                }
-                try {
-                    i = this.db.delete(DBInitMgr.TB_RESULT_V6, str2, (String[]) linkedList2.toArray(new String[0]));
-                } catch (Exception e) {
-                    LogTools.printWarning(TAG, e);
-                }
-                return i;
             }
         }
         return invokeL.intValue;
@@ -730,387 +394,6 @@ public class DBAccessMgr {
                         LogTools.printWarning(TAG, e2);
                         return -1;
                     }
-                }
-                return 0;
-            }
-        }
-        return invokeL.intValue;
-    }
-
-    public synchronized void delSomeServer(List<ServerTB> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, list) == null) {
-            synchronized (this) {
-                if (list == null) {
-                    return;
-                }
-                for (ServerTB serverTB : list) {
-                    delServer(serverTB);
-                }
-            }
-        }
-    }
-
-    public synchronized void delSomeServerV6(List<ServerV6TB> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, list) == null) {
-            synchronized (this) {
-                if (list == null) {
-                    return;
-                }
-                for (ServerV6TB serverV6TB : list) {
-                    delServerV6(serverV6TB);
-                }
-            }
-        }
-    }
-
-    public synchronized List<HijackTB> getAllHijack() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            synchronized (this) {
-                ArrayList arrayList = new ArrayList();
-                if (noNeedDB || this.openDBFailed) {
-                    return arrayList;
-                }
-                try {
-                    Cursor query = this.db.query(DBInitMgr.TB_HIJACK, null, null, null, null, null, null);
-                    query.moveToFirst();
-                    while (!query.isAfterLast()) {
-                        HijackTB hijackTB = new HijackTB();
-                        hijackTB.setId(query.getInt(0));
-                        hijackTB.setHost(query.getString(1));
-                        hijackTB.setNt(query.getInt(2));
-                        hijackTB.setUip(query.getString(3));
-                        hijackTB.setDnsip(query.getString(4));
-                        hijackTB.setHip(query.getString(5));
-                        arrayList.add(hijackTB);
-                        query.moveToNext();
-                    }
-                    query.close();
-                } catch (Exception e) {
-                    LogTools.printWarning(TAG, e);
-                }
-                return arrayList;
-            }
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public synchronized List<HostTB> getAllHost() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            synchronized (this) {
-                ArrayList arrayList = new ArrayList();
-                if (noNeedDB || this.openDBFailed) {
-                    return arrayList;
-                }
-                try {
-                    Cursor query = this.db.query(DBInitMgr.TB_HOST, null, null, null, null, null, "insert_time DESC");
-                    query.moveToFirst();
-                    while (!query.isAfterLast()) {
-                        HostTB hostTB = new HostTB();
-                        hostTB.setId(query.getInt(0));
-                        hostTB.setHost(query.getString(1));
-                        hostTB.setIsPre(query.getInt(2));
-                        hostTB.setInsertTime(query.getLong(3));
-                        arrayList.add(hostTB);
-                        query.moveToNext();
-                    }
-                    query.close();
-                } catch (Exception e) {
-                    LogTools.printWarning(TAG, e);
-                }
-                return arrayList;
-            }
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public synchronized List<ServerTB> getAllServer() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            synchronized (this) {
-                ArrayList arrayList = new ArrayList();
-                if (noNeedDB || this.openDBFailed) {
-                    return arrayList;
-                }
-                try {
-                    Cursor query = this.db.query(DBInitMgr.TB_SERVER, null, null, null, null, null, "_id");
-                    query.moveToFirst();
-                    while (!query.isAfterLast()) {
-                        ServerTB serverTB = new ServerTB();
-                        serverTB.setId(query.getInt(0));
-                        serverTB.setIsp(query.getInt(1));
-                        serverTB.setIp(query.getString(2));
-                        serverTB.setVer(query.getInt(3));
-                        arrayList.add(serverTB);
-                        query.moveToNext();
-                    }
-                    query.close();
-                } catch (Exception e) {
-                    LogTools.printWarning(TAG, e);
-                }
-                return arrayList;
-            }
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public synchronized List<ServerV6TB> getAllServerV6() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            synchronized (this) {
-                ArrayList arrayList = new ArrayList();
-                if (noNeedDB || this.openDBFailed) {
-                    return arrayList;
-                }
-                try {
-                    Cursor query = this.db.query(DBInitMgr.TB_SERVER_V6, null, null, null, null, null, "_id");
-                    query.moveToFirst();
-                    while (!query.isAfterLast()) {
-                        ServerV6TB serverV6TB = new ServerV6TB();
-                        serverV6TB.setId(query.getInt(0));
-                        serverV6TB.setIsp(query.getInt(1));
-                        serverV6TB.setIp(query.getString(2));
-                        serverV6TB.setVer(query.getInt(3));
-                        arrayList.add(serverV6TB);
-                        query.moveToNext();
-                    }
-                    query.close();
-                } catch (Exception e) {
-                    LogTools.printWarning(TAG, e);
-                }
-                return arrayList;
-            }
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public SQLiteDatabase getDb() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.db : (SQLiteDatabase) invokeV.objValue;
-    }
-
-    public DBInitMgr getDbHelper() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.dbHelper : (DBInitMgr) invokeV.objValue;
-    }
-
-    public synchronized List<HostTB> getHostByHost(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, str)) == null) {
-            synchronized (this) {
-                ArrayList arrayList = new ArrayList();
-                if (noNeedDB || this.openDBFailed) {
-                    return arrayList;
-                }
-                try {
-                    Cursor query = this.db.query(DBInitMgr.TB_HOST, null, "host=?", new String[]{String.valueOf(str)}, null, null, null);
-                    query.moveToFirst();
-                    while (!query.isAfterLast()) {
-                        HostTB hostTB = new HostTB();
-                        hostTB.setId(query.getInt(0));
-                        hostTB.setHost(query.getString(1));
-                        hostTB.setIsPre(query.getInt(2));
-                        hostTB.setInsertTime(query.getLong(3));
-                        arrayList.add(hostTB);
-                        query.moveToNext();
-                    }
-                    query.close();
-                } catch (Exception e) {
-                    LogTools.printWarning(TAG, e);
-                }
-                return arrayList;
-            }
-        }
-        return (List) invokeL.objValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:16:0x0099, code lost:
-        if (r1 != null) goto L17;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:17:0x009b, code lost:
-        r1.close();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x00a7, code lost:
-        if (r1 == null) goto L19;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:26:0x00ab, code lost:
-        return r0;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public synchronized List<ResultTB> getResultByNetworkHost(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(1048603, this, str, str2)) != null) {
-            return (List) invokeLL.objValue;
-        }
-        synchronized (this) {
-            ArrayList arrayList = new ArrayList();
-            if (noNeedDB || this.openDBFailed) {
-                return arrayList;
-            }
-            Cursor cursor = null;
-            try {
-                cursor = this.db.query(DBInitMgr.TB_RESULT, null, "network=? and host=?", new String[]{str, str2}, null, null, null);
-                cursor.moveToFirst();
-                while (!cursor.isAfterLast()) {
-                    ResultTB resultTB = new ResultTB();
-                    resultTB.setId(cursor.getInt(0));
-                    resultTB.setNetwork(cursor.getString(1));
-                    resultTB.setHost(cursor.getString(2));
-                    resultTB.setIp(cursor.getString(3));
-                    resultTB.setTtl(cursor.getInt(4));
-                    resultTB.setEndTime(cursor.getLong(5));
-                    resultTB.setCmd(cursor.getString(6));
-                    resultTB.setUpdateTime(cursor.getLong(7));
-                    resultTB.setView(cursor.getString(8));
-                    resultTB.setUip(cursor.getString(9));
-                    resultTB.setSource(cursor.getInt(10));
-                    arrayList.add(resultTB);
-                    cursor.moveToNext();
-                }
-            } catch (Exception e) {
-                LogTools.printWarning(TAG, e);
-            }
-        }
-    }
-
-    public synchronized List<ResultTB> getResultV6ByNetworkHost(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048604, this, str, str2)) == null) {
-            synchronized (this) {
-                ArrayList arrayList = new ArrayList();
-                if (noNeedDB || this.openDBFailed) {
-                    return arrayList;
-                }
-                try {
-                    Cursor query = this.db.query(DBInitMgr.TB_RESULT_V6, null, "network=? and host=?", new String[]{str, str2}, null, null, null);
-                    query.moveToFirst();
-                    while (!query.isAfterLast()) {
-                        ResultTB resultTB = new ResultTB();
-                        resultTB.setId(query.getInt(0));
-                        resultTB.setNetwork(query.getString(1));
-                        resultTB.setHost(query.getString(2));
-                        resultTB.setIp(query.getString(3));
-                        resultTB.setTtl(query.getInt(4));
-                        resultTB.setEndTime(query.getLong(5));
-                        resultTB.setCmd(query.getString(6));
-                        resultTB.setUpdateTime(query.getLong(7));
-                        resultTB.setView(query.getString(8));
-                        resultTB.setUip(query.getString(9));
-                        resultTB.setSource(query.getInt(10));
-                        arrayList.add(resultTB);
-                        query.moveToNext();
-                    }
-                    query.close();
-                } catch (Exception e) {
-                    LogTools.printWarning(TAG, e);
-                }
-                return arrayList;
-            }
-        }
-        return (List) invokeLL.objValue;
-    }
-
-    public synchronized List<ServerTB> getServerByIsp(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048605, this, i)) == null) {
-            synchronized (this) {
-                ArrayList arrayList = new ArrayList();
-                if (noNeedDB || this.openDBFailed) {
-                    return arrayList;
-                }
-                try {
-                    SQLiteDatabase sQLiteDatabase = this.db;
-                    Cursor query = sQLiteDatabase.query(DBInitMgr.TB_SERVER, null, "isp=" + i, null, null, null, "_id");
-                    query.moveToFirst();
-                    while (!query.isAfterLast()) {
-                        ServerTB serverTB = new ServerTB();
-                        serverTB.setId(query.getInt(0));
-                        serverTB.setIsp(query.getInt(1));
-                        serverTB.setIp(query.getString(2));
-                        serverTB.setVer(query.getInt(3));
-                        arrayList.add(serverTB);
-                        query.moveToNext();
-                    }
-                    query.close();
-                } catch (Exception e) {
-                    LogTools.printWarning(TAG, e);
-                }
-                return arrayList;
-            }
-        }
-        return (List) invokeI.objValue;
-    }
-
-    public synchronized List<ServerV6TB> getServerV6ByIsp(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048606, this, i)) == null) {
-            synchronized (this) {
-                ArrayList arrayList = new ArrayList();
-                if (noNeedDB || this.openDBFailed) {
-                    return arrayList;
-                }
-                try {
-                    SQLiteDatabase sQLiteDatabase = this.db;
-                    Cursor query = sQLiteDatabase.query(DBInitMgr.TB_SERVER_V6, null, "isp=" + i, null, null, null, "_id");
-                    query.moveToFirst();
-                    while (!query.isAfterLast()) {
-                        ServerV6TB serverV6TB = new ServerV6TB();
-                        serverV6TB.setId(query.getInt(0));
-                        serverV6TB.setIsp(query.getInt(1));
-                        serverV6TB.setIp(query.getString(2));
-                        serverV6TB.setVer(query.getInt(3));
-                        arrayList.add(serverV6TB);
-                        query.moveToNext();
-                    }
-                    query.close();
-                } catch (Exception e) {
-                    LogTools.printWarning(TAG, e);
-                }
-                return arrayList;
-            }
-        }
-        return (List) invokeI.objValue;
-    }
-
-    public synchronized int updateHost(HostTB hostTB) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048607, this, hostTB)) == null) {
-            synchronized (this) {
-                int i = 0;
-                if (!noNeedDB && !this.openDBFailed) {
-                    ContentValues contentValues = new ContentValues();
-                    if (hostTB.getHost() != null) {
-                        contentValues.put("host", hostTB.getHost());
-                    }
-                    if (hostTB.getIsPre() != -1) {
-                        contentValues.put(HostTB.ISPRE, Integer.valueOf(hostTB.getIsPre()));
-                    }
-                    if (hostTB.getInsertTime() != -1) {
-                        contentValues.put(HostTB.INSERTTIME, Long.valueOf(hostTB.getInsertTime()));
-                    }
-                    try {
-                        i = this.db.update(DBInitMgr.TB_HOST, contentValues, "_id=?", new String[]{String.valueOf(hostTB.getId())});
-                    } catch (Exception e) {
-                        LogTools.printWarning(TAG, e);
-                    }
-                    return i;
                 }
                 return 0;
             }
@@ -1212,5 +495,734 @@ public class DBAccessMgr {
             }
         }
         return invokeL.intValue;
+    }
+
+    public static synchronized DBAccessMgr getInstance(Context context) {
+        InterceptResult invokeL;
+        DBAccessMgr dBAccessMgr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            synchronized (DBAccessMgr.class) {
+                if (Build.VERSION.SDK_INT == 28) {
+                    noNeedDB = true;
+                }
+                if (instance == null) {
+                    instance = new DBAccessMgr(context);
+                }
+                dBAccessMgr = instance;
+            }
+            return dBAccessMgr;
+        }
+        return (DBAccessMgr) invokeL.objValue;
+    }
+
+    public synchronized void Close() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this) {
+                this.db.close();
+                this.dbHelper.close();
+            }
+        }
+    }
+
+    public SQLiteDatabase getDb() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            return this.db;
+        }
+        return (SQLiteDatabase) invokeV.objValue;
+    }
+
+    public DBInitMgr getDbHelper() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            return this.dbHelper;
+        }
+        return (DBInitMgr) invokeV.objValue;
+    }
+
+    public synchronized Long addHijack(HijackTB hijackTB) {
+        InterceptResult invokeL;
+        Long valueOf;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hijackTB)) == null) {
+            synchronized (this) {
+                if (!noNeedDB && !this.openDBFailed) {
+                    ContentValues contentValues = new ContentValues();
+                    contentValues.put("host", hijackTB.getHost());
+                    contentValues.put("nt", Integer.valueOf(hijackTB.getNt()));
+                    contentValues.put("uip", hijackTB.getUip());
+                    contentValues.put(HijackTB.DNSIP, hijackTB.getDnsip());
+                    contentValues.put(HijackTB.HIP, hijackTB.getHip());
+                    Long.valueOf(0L);
+                    try {
+                        valueOf = Long.valueOf(this.db.insert(DBInitMgr.TB_HIJACK, null, contentValues));
+                    } catch (Exception e) {
+                        LogTools.printWarning(TAG, e);
+                    }
+                    return valueOf;
+                }
+                return 0L;
+            }
+        }
+        return (Long) invokeL.objValue;
+    }
+
+    public synchronized Long addHost(HostTB hostTB) {
+        InterceptResult invokeL;
+        Long valueOf;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hostTB)) == null) {
+            synchronized (this) {
+                if (!noNeedDB && !this.openDBFailed) {
+                    ContentValues contentValues = new ContentValues();
+                    contentValues.put("host", hostTB.getHost());
+                    contentValues.put(HostTB.INSERTTIME, Long.valueOf(hostTB.getInsertTime()));
+                    contentValues.put(HostTB.ISPRE, Integer.valueOf(hostTB.getIsPre()));
+                    Long.valueOf(0L);
+                    try {
+                        valueOf = Long.valueOf(this.db.insert(DBInitMgr.TB_HOST, null, contentValues));
+                    } catch (Exception e) {
+                        LogTools.printWarning(TAG, e);
+                    }
+                    return valueOf;
+                }
+                return 0L;
+            }
+        }
+        return (Long) invokeL.objValue;
+    }
+
+    public synchronized Long addServer(ServerTB serverTB) {
+        InterceptResult invokeL;
+        Long valueOf;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, serverTB)) == null) {
+            synchronized (this) {
+                if (!noNeedDB && !this.openDBFailed) {
+                    ContentValues contentValues = new ContentValues();
+                    contentValues.put("isp", Integer.valueOf(serverTB.getIsp()));
+                    contentValues.put("ip", serverTB.getIp());
+                    contentValues.put("ver", Integer.valueOf(serverTB.getVer()));
+                    Long.valueOf(0L);
+                    try {
+                        valueOf = Long.valueOf(this.db.insert(DBInitMgr.TB_SERVER, null, contentValues));
+                    } catch (Exception e) {
+                        LogTools.printWarning(TAG, e);
+                    }
+                    return valueOf;
+                }
+                return 0L;
+            }
+        }
+        return (Long) invokeL.objValue;
+    }
+
+    public synchronized Long addServerV6(ServerV6TB serverV6TB) {
+        InterceptResult invokeL;
+        Long valueOf;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, serverV6TB)) == null) {
+            synchronized (this) {
+                if (!noNeedDB && !this.openDBFailed) {
+                    ContentValues contentValues = new ContentValues();
+                    contentValues.put("isp", Integer.valueOf(serverV6TB.getIsp()));
+                    contentValues.put("ip", serverV6TB.getIp());
+                    contentValues.put("ver", Integer.valueOf(serverV6TB.getVer()));
+                    Long.valueOf(0L);
+                    try {
+                        valueOf = Long.valueOf(this.db.insert(DBInitMgr.TB_SERVER_V6, null, contentValues));
+                    } catch (Exception e) {
+                        LogTools.printWarning(TAG, e);
+                    }
+                    return valueOf;
+                }
+                return 0L;
+            }
+        }
+        return (Long) invokeL.objValue;
+    }
+
+    public synchronized int delHijackByHost(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+            synchronized (this) {
+                int i = 0;
+                if (!noNeedDB && !this.openDBFailed) {
+                    LinkedList linkedList = new LinkedList();
+                    LinkedList linkedList2 = new LinkedList();
+                    if (str != null && str.length() > 0) {
+                        linkedList.add("host=?");
+                        linkedList2.add(str);
+                    }
+                    String str2 = "";
+                    for (int i2 = 0; i2 < linkedList.size(); i2++) {
+                        str2 = str2 + ((String) linkedList.get(i2));
+                        if (i2 != linkedList.size() - 1) {
+                            str2 = str2 + " and ";
+                        }
+                    }
+                    try {
+                        i = this.db.delete(DBInitMgr.TB_HIJACK, str2, (String[]) linkedList2.toArray(new String[0]));
+                    } catch (Exception e) {
+                        LogTools.printWarning(TAG, e);
+                    }
+                    return i;
+                }
+                return 0;
+            }
+        }
+        return invokeL.intValue;
+    }
+
+    public synchronized int delResultByHost(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
+            synchronized (this) {
+                int i = 0;
+                if (noNeedDB || this.openDBFailed) {
+                    return 0;
+                }
+                if (str == null) {
+                    return 0;
+                }
+                LinkedList linkedList = new LinkedList();
+                LinkedList linkedList2 = new LinkedList();
+                linkedList.add("host=?");
+                linkedList2.add(str);
+                String str2 = "";
+                for (int i2 = 0; i2 < linkedList.size(); i2++) {
+                    str2 = str2 + ((String) linkedList.get(i2));
+                    if (i2 != linkedList.size() - 1) {
+                        str2 = str2 + " and ";
+                    }
+                }
+                try {
+                    i = this.db.delete(DBInitMgr.TB_RESULT, str2, (String[]) linkedList2.toArray(new String[0]));
+                } catch (Exception e) {
+                    LogTools.printWarning(TAG, e);
+                }
+                return i;
+            }
+        }
+        return invokeL.intValue;
+    }
+
+    public synchronized int delResultV6ByHost(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
+            synchronized (this) {
+                int i = 0;
+                if (noNeedDB || this.openDBFailed) {
+                    return 0;
+                }
+                if (str == null) {
+                    return 0;
+                }
+                LinkedList linkedList = new LinkedList();
+                LinkedList linkedList2 = new LinkedList();
+                linkedList.add("host=?");
+                linkedList2.add(str);
+                String str2 = "";
+                for (int i2 = 0; i2 < linkedList.size(); i2++) {
+                    str2 = str2 + ((String) linkedList.get(i2));
+                    if (i2 != linkedList.size() - 1) {
+                        str2 = str2 + " and ";
+                    }
+                }
+                try {
+                    i = this.db.delete(DBInitMgr.TB_RESULT_V6, str2, (String[]) linkedList2.toArray(new String[0]));
+                } catch (Exception e) {
+                    LogTools.printWarning(TAG, e);
+                }
+                return i;
+            }
+        }
+        return invokeL.intValue;
+    }
+
+    public synchronized List getHostByHost(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, str)) == null) {
+            synchronized (this) {
+                ArrayList arrayList = new ArrayList();
+                if (!noNeedDB && !this.openDBFailed) {
+                    try {
+                        Cursor query = this.db.query(DBInitMgr.TB_HOST, null, "host=?", new String[]{String.valueOf(str)}, null, null, null);
+                        query.moveToFirst();
+                        while (!query.isAfterLast()) {
+                            HostTB hostTB = new HostTB();
+                            hostTB.setId(query.getInt(0));
+                            hostTB.setHost(query.getString(1));
+                            hostTB.setIsPre(query.getInt(2));
+                            hostTB.setInsertTime(query.getLong(3));
+                            arrayList.add(hostTB);
+                            query.moveToNext();
+                        }
+                        query.close();
+                    } catch (Exception e) {
+                        LogTools.printWarning(TAG, e);
+                    }
+                    return arrayList;
+                }
+                return arrayList;
+            }
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public synchronized List getServerByIsp(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048605, this, i)) == null) {
+            synchronized (this) {
+                ArrayList arrayList = new ArrayList();
+                if (!noNeedDB && !this.openDBFailed) {
+                    try {
+                        SQLiteDatabase sQLiteDatabase = this.db;
+                        Cursor query = sQLiteDatabase.query(DBInitMgr.TB_SERVER, null, "isp=" + i, null, null, null, "_id");
+                        query.moveToFirst();
+                        while (!query.isAfterLast()) {
+                            ServerTB serverTB = new ServerTB();
+                            serverTB.setId(query.getInt(0));
+                            serverTB.setIsp(query.getInt(1));
+                            serverTB.setIp(query.getString(2));
+                            serverTB.setVer(query.getInt(3));
+                            arrayList.add(serverTB);
+                            query.moveToNext();
+                        }
+                        query.close();
+                    } catch (Exception e) {
+                        LogTools.printWarning(TAG, e);
+                    }
+                    return arrayList;
+                }
+                return arrayList;
+            }
+        }
+        return (List) invokeI.objValue;
+    }
+
+    public synchronized List getServerV6ByIsp(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048606, this, i)) == null) {
+            synchronized (this) {
+                ArrayList arrayList = new ArrayList();
+                if (!noNeedDB && !this.openDBFailed) {
+                    try {
+                        SQLiteDatabase sQLiteDatabase = this.db;
+                        Cursor query = sQLiteDatabase.query(DBInitMgr.TB_SERVER_V6, null, "isp=" + i, null, null, null, "_id");
+                        query.moveToFirst();
+                        while (!query.isAfterLast()) {
+                            ServerV6TB serverV6TB = new ServerV6TB();
+                            serverV6TB.setId(query.getInt(0));
+                            serverV6TB.setIsp(query.getInt(1));
+                            serverV6TB.setIp(query.getString(2));
+                            serverV6TB.setVer(query.getInt(3));
+                            arrayList.add(serverV6TB);
+                            query.moveToNext();
+                        }
+                        query.close();
+                    } catch (Exception e) {
+                        LogTools.printWarning(TAG, e);
+                    }
+                    return arrayList;
+                }
+                return arrayList;
+            }
+        }
+        return (List) invokeI.objValue;
+    }
+
+    public synchronized int updateHost(HostTB hostTB) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048607, this, hostTB)) == null) {
+            synchronized (this) {
+                int i = 0;
+                if (!noNeedDB && !this.openDBFailed) {
+                    ContentValues contentValues = new ContentValues();
+                    if (hostTB.getHost() != null) {
+                        contentValues.put("host", hostTB.getHost());
+                    }
+                    if (hostTB.getIsPre() != -1) {
+                        contentValues.put(HostTB.ISPRE, Integer.valueOf(hostTB.getIsPre()));
+                    }
+                    if (hostTB.getInsertTime() != -1) {
+                        contentValues.put(HostTB.INSERTTIME, Long.valueOf(hostTB.getInsertTime()));
+                    }
+                    try {
+                        i = this.db.update(DBInitMgr.TB_HOST, contentValues, "_id=?", new String[]{String.valueOf(hostTB.getId())});
+                    } catch (Exception e) {
+                        LogTools.printWarning(TAG, e);
+                    }
+                    return i;
+                }
+                return 0;
+            }
+        }
+        return invokeL.intValue;
+    }
+
+    public synchronized Long addOrUpdate(ResultTB resultTB, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, resultTB, z)) == null) {
+            synchronized (this) {
+                if (!noNeedDB && !this.openDBFailed) {
+                    List resultByNetworkHost = getResultByNetworkHost(resultTB.getNetwork(), resultTB.getHost());
+                    if (resultByNetworkHost.isEmpty()) {
+                        return addResult(resultTB);
+                    }
+                    if (z) {
+                        resultTB.setId(((ResultTB) resultByNetworkHost.get(0)).getId());
+                        updateResult(resultTB);
+                    }
+                    return 0L;
+                }
+                return 0L;
+            }
+        }
+        return (Long) invokeLZ.objValue;
+    }
+
+    public synchronized Long addOrUpdateV6(ResultTB resultTB, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048580, this, resultTB, z)) == null) {
+            synchronized (this) {
+                if (!noNeedDB && !this.openDBFailed) {
+                    List resultV6ByNetworkHost = getResultV6ByNetworkHost(resultTB.getNetwork(), resultTB.getHost());
+                    if (resultV6ByNetworkHost.isEmpty()) {
+                        return addResultV6(resultTB);
+                    }
+                    if (z) {
+                        resultTB.setId(((ResultTB) resultV6ByNetworkHost.get(0)).getId());
+                        updateResultV6(resultTB);
+                    }
+                    return 0L;
+                }
+                return 0L;
+            }
+        }
+        return (Long) invokeLZ.objValue;
+    }
+
+    public synchronized Long addResult(ResultTB resultTB) {
+        InterceptResult invokeL;
+        Long valueOf;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, resultTB)) == null) {
+            synchronized (this) {
+                if (!noNeedDB && !this.openDBFailed) {
+                    ContentValues contentValues = new ContentValues();
+                    contentValues.put("network", resultTB.getNetwork());
+                    contentValues.put("host", resultTB.getHost());
+                    contentValues.put("ip", resultTB.getIp());
+                    contentValues.put(ResultTB.TTL, Integer.valueOf(resultTB.getTtl()));
+                    contentValues.put("end_time", Long.valueOf(resultTB.getEndTime()));
+                    contentValues.put("cmd", resultTB.getCmd());
+                    contentValues.put("update_time", Long.valueOf(resultTB.getUpdateTime()));
+                    contentValues.put(ResultTB.VIEW, resultTB.getView());
+                    contentValues.put("uip", resultTB.getUip());
+                    Long.valueOf(0L);
+                    try {
+                        valueOf = Long.valueOf(this.db.insert(DBInitMgr.TB_RESULT, null, contentValues));
+                    } catch (Exception e) {
+                        LogTools.printWarning(TAG, e);
+                    }
+                    return valueOf;
+                }
+                return 0L;
+            }
+        }
+        return (Long) invokeL.objValue;
+    }
+
+    public synchronized Long addResultV6(ResultTB resultTB) {
+        InterceptResult invokeL;
+        Long valueOf;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, resultTB)) == null) {
+            synchronized (this) {
+                if (!noNeedDB && !this.openDBFailed) {
+                    ContentValues contentValues = new ContentValues();
+                    contentValues.put("network", resultTB.getNetwork());
+                    contentValues.put("host", resultTB.getHost());
+                    contentValues.put("ip", resultTB.getIp());
+                    contentValues.put(ResultTB.TTL, Integer.valueOf(resultTB.getTtl()));
+                    contentValues.put("end_time", Long.valueOf(resultTB.getEndTime()));
+                    contentValues.put("cmd", resultTB.getCmd());
+                    contentValues.put("update_time", Long.valueOf(resultTB.getUpdateTime()));
+                    contentValues.put(ResultTB.VIEW, resultTB.getView());
+                    contentValues.put("uip", resultTB.getUip());
+                    Long.valueOf(0L);
+                    try {
+                        valueOf = Long.valueOf(this.db.insert(DBInitMgr.TB_RESULT_V6, null, contentValues));
+                    } catch (Exception e) {
+                        LogTools.printWarning(TAG, e);
+                    }
+                    return valueOf;
+                }
+                return 0L;
+            }
+        }
+        return (Long) invokeL.objValue;
+    }
+
+    public synchronized void delSomeServer(List list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, list) == null) {
+            synchronized (this) {
+                if (list == null) {
+                    return;
+                }
+                Iterator it = list.iterator();
+                while (it.hasNext()) {
+                    delServer((ServerTB) it.next());
+                }
+            }
+        }
+    }
+
+    public synchronized void delSomeServerV6(List list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, list) == null) {
+            synchronized (this) {
+                if (list == null) {
+                    return;
+                }
+                Iterator it = list.iterator();
+                while (it.hasNext()) {
+                    delServerV6((ServerV6TB) it.next());
+                }
+            }
+        }
+    }
+
+    public synchronized List getAllHijack() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            synchronized (this) {
+                ArrayList arrayList = new ArrayList();
+                if (!noNeedDB && !this.openDBFailed) {
+                    try {
+                        Cursor query = this.db.query(DBInitMgr.TB_HIJACK, null, null, null, null, null, null);
+                        query.moveToFirst();
+                        while (!query.isAfterLast()) {
+                            HijackTB hijackTB = new HijackTB();
+                            hijackTB.setId(query.getInt(0));
+                            hijackTB.setHost(query.getString(1));
+                            hijackTB.setNt(query.getInt(2));
+                            hijackTB.setUip(query.getString(3));
+                            hijackTB.setDnsip(query.getString(4));
+                            hijackTB.setHip(query.getString(5));
+                            arrayList.add(hijackTB);
+                            query.moveToNext();
+                        }
+                        query.close();
+                    } catch (Exception e) {
+                        LogTools.printWarning(TAG, e);
+                    }
+                    return arrayList;
+                }
+                return arrayList;
+            }
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public synchronized List getAllHost() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            synchronized (this) {
+                ArrayList arrayList = new ArrayList();
+                if (!noNeedDB && !this.openDBFailed) {
+                    try {
+                        Cursor query = this.db.query(DBInitMgr.TB_HOST, null, null, null, null, null, "insert_time DESC");
+                        query.moveToFirst();
+                        while (!query.isAfterLast()) {
+                            HostTB hostTB = new HostTB();
+                            hostTB.setId(query.getInt(0));
+                            hostTB.setHost(query.getString(1));
+                            hostTB.setIsPre(query.getInt(2));
+                            hostTB.setInsertTime(query.getLong(3));
+                            arrayList.add(hostTB);
+                            query.moveToNext();
+                        }
+                        query.close();
+                    } catch (Exception e) {
+                        LogTools.printWarning(TAG, e);
+                    }
+                    return arrayList;
+                }
+                return arrayList;
+            }
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public synchronized List getAllServer() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            synchronized (this) {
+                ArrayList arrayList = new ArrayList();
+                if (!noNeedDB && !this.openDBFailed) {
+                    try {
+                        Cursor query = this.db.query(DBInitMgr.TB_SERVER, null, null, null, null, null, "_id");
+                        query.moveToFirst();
+                        while (!query.isAfterLast()) {
+                            ServerTB serverTB = new ServerTB();
+                            serverTB.setId(query.getInt(0));
+                            serverTB.setIsp(query.getInt(1));
+                            serverTB.setIp(query.getString(2));
+                            serverTB.setVer(query.getInt(3));
+                            arrayList.add(serverTB);
+                            query.moveToNext();
+                        }
+                        query.close();
+                    } catch (Exception e) {
+                        LogTools.printWarning(TAG, e);
+                    }
+                    return arrayList;
+                }
+                return arrayList;
+            }
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public synchronized List getAllServerV6() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            synchronized (this) {
+                ArrayList arrayList = new ArrayList();
+                if (!noNeedDB && !this.openDBFailed) {
+                    try {
+                        Cursor query = this.db.query(DBInitMgr.TB_SERVER_V6, null, null, null, null, null, "_id");
+                        query.moveToFirst();
+                        while (!query.isAfterLast()) {
+                            ServerV6TB serverV6TB = new ServerV6TB();
+                            serverV6TB.setId(query.getInt(0));
+                            serverV6TB.setIsp(query.getInt(1));
+                            serverV6TB.setIp(query.getString(2));
+                            serverV6TB.setVer(query.getInt(3));
+                            arrayList.add(serverV6TB);
+                            query.moveToNext();
+                        }
+                        query.close();
+                    } catch (Exception e) {
+                        LogTools.printWarning(TAG, e);
+                    }
+                    return arrayList;
+                }
+                return arrayList;
+            }
+        }
+        return (List) invokeV.objValue;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:16:0x0099, code lost:
+        if (r1 != null) goto L17;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:17:0x009b, code lost:
+        r1.close();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x00a7, code lost:
+        if (r1 == null) goto L19;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:26:0x00ab, code lost:
+        return r0;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public synchronized List getResultByNetworkHost(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048603, this, str, str2)) == null) {
+            synchronized (this) {
+                ArrayList arrayList = new ArrayList();
+                if (!noNeedDB && !this.openDBFailed) {
+                    Cursor cursor = null;
+                    try {
+                        cursor = this.db.query(DBInitMgr.TB_RESULT, null, "network=? and host=?", new String[]{str, str2}, null, null, null);
+                        cursor.moveToFirst();
+                        while (!cursor.isAfterLast()) {
+                            ResultTB resultTB = new ResultTB();
+                            resultTB.setId(cursor.getInt(0));
+                            resultTB.setNetwork(cursor.getString(1));
+                            resultTB.setHost(cursor.getString(2));
+                            resultTB.setIp(cursor.getString(3));
+                            resultTB.setTtl(cursor.getInt(4));
+                            resultTB.setEndTime(cursor.getLong(5));
+                            resultTB.setCmd(cursor.getString(6));
+                            resultTB.setUpdateTime(cursor.getLong(7));
+                            resultTB.setView(cursor.getString(8));
+                            resultTB.setUip(cursor.getString(9));
+                            resultTB.setSource(cursor.getInt(10));
+                            arrayList.add(resultTB);
+                            cursor.moveToNext();
+                        }
+                    } catch (Exception e) {
+                        LogTools.printWarning(TAG, e);
+                    }
+                } else {
+                    return arrayList;
+                }
+            }
+        } else {
+            return (List) invokeLL.objValue;
+        }
+    }
+
+    public synchronized List getResultV6ByNetworkHost(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048604, this, str, str2)) == null) {
+            synchronized (this) {
+                ArrayList arrayList = new ArrayList();
+                if (!noNeedDB && !this.openDBFailed) {
+                    try {
+                        Cursor query = this.db.query(DBInitMgr.TB_RESULT_V6, null, "network=? and host=?", new String[]{str, str2}, null, null, null);
+                        query.moveToFirst();
+                        while (!query.isAfterLast()) {
+                            ResultTB resultTB = new ResultTB();
+                            resultTB.setId(query.getInt(0));
+                            resultTB.setNetwork(query.getString(1));
+                            resultTB.setHost(query.getString(2));
+                            resultTB.setIp(query.getString(3));
+                            resultTB.setTtl(query.getInt(4));
+                            resultTB.setEndTime(query.getLong(5));
+                            resultTB.setCmd(query.getString(6));
+                            resultTB.setUpdateTime(query.getLong(7));
+                            resultTB.setView(query.getString(8));
+                            resultTB.setUip(query.getString(9));
+                            resultTB.setSource(query.getInt(10));
+                            arrayList.add(resultTB);
+                            query.moveToNext();
+                        }
+                        query.close();
+                    } catch (Exception e) {
+                        LogTools.printWarning(TAG, e);
+                    }
+                    return arrayList;
+                }
+                return arrayList;
+            }
+        }
+        return (List) invokeLL.objValue;
     }
 }

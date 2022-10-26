@@ -47,6 +47,9 @@ public class GetAcceleratorInfoRespondedMessage extends JsonHttpResponsedMessage
     public AcceleratorData getAcceleratorData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.acceleratorData : (AcceleratorData) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.acceleratorData;
+        }
+        return (AcceleratorData) invokeV.objValue;
     }
 }

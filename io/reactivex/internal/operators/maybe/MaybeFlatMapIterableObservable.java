@@ -11,7 +11,6 @@ import io.reactivex.MaybeObserver;
 import io.reactivex.MaybeSource;
 import io.reactivex.Observable;
 import io.reactivex.Observer;
-import io.reactivex.annotations.Nullable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.exceptions.Exceptions;
 import io.reactivex.functions.Function;
@@ -20,24 +19,24 @@ import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.internal.observers.BasicQueueDisposable;
 import java.util.Iterator;
 /* loaded from: classes8.dex */
-public final class MaybeFlatMapIterableObservable<T, R> extends Observable<R> {
+public final class MaybeFlatMapIterableObservable extends Observable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Function<? super T, ? extends Iterable<? extends R>> mapper;
-    public final MaybeSource<T> source;
+    public final Function mapper;
+    public final MaybeSource source;
 
     /* loaded from: classes8.dex */
-    public static final class FlatMapIterableObserver<T, R> extends BasicQueueDisposable<R> implements MaybeObserver<T> {
+    public final class FlatMapIterableObserver extends BasicQueueDisposable implements MaybeObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer<? super R> actual;
+        public final Observer actual;
         public volatile boolean cancelled;
         public Disposable d;
-        public volatile Iterator<? extends R> it;
-        public final Function<? super T, ? extends Iterable<? extends R>> mapper;
+        public volatile Iterator it;
+        public final Function mapper;
         public boolean outputFused;
 
-        public FlatMapIterableObserver(Observer<? super R> observer, Function<? super T, ? extends Iterable<? extends R>> function) {
+        public FlatMapIterableObserver(Observer observer, Function function) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -78,14 +77,23 @@ public final class MaybeFlatMapIterableObservable<T, R> extends Observable<R> {
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.cancelled : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.cancelled;
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.internal.fuseable.SimpleQueue
         public boolean isEmpty() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.it == null : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                if (this.it == null) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.MaybeObserver
@@ -94,6 +102,24 @@ public final class MaybeFlatMapIterableObservable<T, R> extends Observable<R> {
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
                 this.actual.onComplete();
             }
+        }
+
+        @Override // io.reactivex.internal.fuseable.SimpleQueue
+        public Object poll() throws Exception {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                Iterator it = this.it;
+                if (it == null) {
+                    return null;
+                }
+                Object requireNonNull = ObjectHelper.requireNonNull(it.next(), "The iterator returned a null value");
+                if (!it.hasNext()) {
+                    this.it = null;
+                }
+                return requireNonNull;
+            }
+            return invokeV.objValue;
         }
 
         @Override // io.reactivex.MaybeObserver
@@ -114,14 +140,27 @@ public final class MaybeFlatMapIterableObservable<T, R> extends Observable<R> {
             }
         }
 
-        /* JADX DEBUG: Type inference failed for r1v4. Raw type applied. Possible types: R, ? super R */
-        @Override // io.reactivex.MaybeObserver
-        public void onSuccess(T t) {
+        @Override // io.reactivex.internal.fuseable.QueueFuseable
+        public int requestFusion(int i) {
+            InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, t) == null) {
-                Observer<? super R> observer = this.actual;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
+                if ((i & 2) != 0) {
+                    this.outputFused = true;
+                    return 2;
+                }
+                return 0;
+            }
+            return invokeI.intValue;
+        }
+
+        @Override // io.reactivex.MaybeObserver
+        public void onSuccess(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048583, this, obj) == null) {
+                Observer observer = this.actual;
                 try {
-                    Iterator<? extends R> it = this.mapper.apply(t).iterator();
+                    Iterator it = ((Iterable) this.mapper.apply(obj)).iterator();
                     if (!it.hasNext()) {
                         observer.onComplete();
                         return;
@@ -134,7 +173,7 @@ public final class MaybeFlatMapIterableObservable<T, R> extends Observable<R> {
                     }
                     while (!this.cancelled) {
                         try {
-                            observer.onNext((R) it.next());
+                            observer.onNext(it.next());
                             if (this.cancelled) {
                                 return;
                             }
@@ -160,42 +199,9 @@ public final class MaybeFlatMapIterableObservable<T, R> extends Observable<R> {
                 }
             }
         }
-
-        @Override // io.reactivex.internal.fuseable.SimpleQueue
-        @Nullable
-        public R poll() throws Exception {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-                Iterator<? extends R> it = this.it;
-                if (it != null) {
-                    R r = (R) ObjectHelper.requireNonNull(it.next(), "The iterator returned a null value");
-                    if (!it.hasNext()) {
-                        this.it = null;
-                    }
-                    return r;
-                }
-                return null;
-            }
-            return (R) invokeV.objValue;
-        }
-
-        @Override // io.reactivex.internal.fuseable.QueueFuseable
-        public int requestFusion(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
-                if ((i & 2) != 0) {
-                    this.outputFused = true;
-                    return 2;
-                }
-                return 0;
-            }
-            return invokeI.intValue;
-        }
     }
 
-    public MaybeFlatMapIterableObservable(MaybeSource<T> maybeSource, Function<? super T, ? extends Iterable<? extends R>> function) {
+    public MaybeFlatMapIterableObservable(MaybeSource maybeSource, Function function) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -215,7 +221,7 @@ public final class MaybeFlatMapIterableObservable<T, R> extends Observable<R> {
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer<? super R> observer) {
+    public void subscribeActual(Observer observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             this.source.subscribe(new FlatMapIterableObserver(observer, this.mapper));

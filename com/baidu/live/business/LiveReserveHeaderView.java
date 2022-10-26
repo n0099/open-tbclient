@@ -14,9 +14,9 @@ import com.baidu.live.business.base.LiveBaseItemView;
 import com.baidu.live.business.model.data.LiveFeedReserveHeaderInfo;
 import com.baidu.live.business.model.data.LiveRoomEntity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.da0;
-import com.baidu.tieba.qc0;
-import com.baidu.tieba.uc0;
+import com.baidu.tieba.ea0;
+import com.baidu.tieba.rc0;
+import com.baidu.tieba.vc0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,6 +29,20 @@ public class LiveReserveHeaderView extends LiveBaseItemView {
     public View h;
     public TextView i;
     public ImageView j;
+
+    @Override // com.baidu.live.business.base.LiveBaseItemView
+    public void setData(LiveRoomEntity liveRoomEntity, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048581, this, liveRoomEntity, i) == null) {
+        }
+    }
+
+    @Override // com.baidu.live.business.base.LiveBaseItemView
+    public void setIsCurViewing(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LiveReserveHeaderView(Context context) {
@@ -54,18 +68,18 @@ public class LiveReserveHeaderView extends LiveBaseItemView {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            qc0.h(this.i, 1, 13.0f);
-            qc0.f(this.j, da0.c(getContext().getResources(), 12.0f), da0.c(getContext().getResources(), 12.0f));
+            rc0.h(this.i, 1, 13.0f);
+            rc0.f(this.j, ea0.c(getContext().getResources(), 12.0f), ea0.c(getContext().getResources(), 12.0f));
         }
     }
 
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d053d, this);
-            this.h = inflate.findViewById(R.id.obfuscated_res_0x7f091275);
-            this.i = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092418);
-            this.j = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090ff6);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d053c, this);
+            this.h = inflate.findViewById(R.id.obfuscated_res_0x7f091269);
+            this.i = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092403);
+            this.j = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090fea);
             d();
             GradientDrawable gradientDrawable = new GradientDrawable();
             gradientDrawable.setShape(0);
@@ -81,17 +95,17 @@ public class LiveReserveHeaderView extends LiveBaseItemView {
             if (view2 != null) {
                 Drawable background = view2.getBackground();
                 if (background instanceof GradientDrawable) {
-                    ((GradientDrawable) background).setColor(uc0.f().a(getContext(), this.c, "color_F5F5F53"));
+                    ((GradientDrawable) background).setColor(vc0.f().a(getContext(), this.c, "color_F5F5F53"));
                     this.h.setBackgroundDrawable(background);
                 }
             }
             TextView textView = this.i;
             if (textView != null) {
-                textView.setTextColor(uc0.f().a(getContext(), this.c, "color_white4"));
+                textView.setTextColor(vc0.f().a(getContext(), this.c, "color_white4"));
             }
             ImageView imageView = this.j;
             if (imageView != null) {
-                imageView.setImageResource(uc0.f().p(this.c));
+                imageView.setImageResource(vc0.f().p(this.c));
             }
         }
     }
@@ -101,34 +115,22 @@ public class LiveReserveHeaderView extends LiveBaseItemView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             TextView textView = this.i;
-            return (textView == null || textView.getText() == null) ? "" : this.i.getText().toString();
+            if (textView != null && textView.getText() != null) {
+                return this.i.getText().toString();
+            }
+            return "";
         }
         return (String) invokeV.objValue;
     }
 
     public void setData(LiveFeedReserveHeaderInfo liveFeedReserveHeaderInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, liveFeedReserveHeaderInfo) == null) || liveFeedReserveHeaderInfo == null) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, liveFeedReserveHeaderInfo) != null) || liveFeedReserveHeaderInfo == null) {
             return;
         }
         d();
-        if (this.i == null || TextUtils.isEmpty(liveFeedReserveHeaderInfo.tip)) {
-            return;
-        }
-        this.i.setText(liveFeedReserveHeaderInfo.tip);
-    }
-
-    @Override // com.baidu.live.business.base.LiveBaseItemView
-    public void setData(LiveRoomEntity liveRoomEntity, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048581, this, liveRoomEntity, i) == null) {
-        }
-    }
-
-    @Override // com.baidu.live.business.base.LiveBaseItemView
-    public void setIsCurViewing(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+        if (this.i != null && !TextUtils.isEmpty(liveFeedReserveHeaderInfo.tip)) {
+            this.i.setText(liveFeedReserveHeaderInfo.tip);
         }
     }
 }

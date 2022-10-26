@@ -6,7 +6,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.sh5;
+import com.baidu.tieba.yh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -87,7 +87,7 @@ public class SubPbRequestMessage extends NetMessage {
             builder.top_ugc_pid = this.oriUgcTopPid;
             builder.forum_id = Long.valueOf(this.forumId);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                sh5.a(builder, true);
+                yh5.a(builder, true);
             }
             PbFloorReqIdl.Builder builder2 = new PbFloorReqIdl.Builder();
             builder2.data = builder.build(false);
@@ -99,7 +99,10 @@ public class SubPbRequestMessage extends NetMessage {
     public boolean isTreatDelPage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.treatDelPage : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.treatDelPage;
+        }
+        return invokeV.booleanValue;
     }
 
     public void setForumId(long j) {

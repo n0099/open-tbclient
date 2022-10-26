@@ -113,12 +113,18 @@ public class MessageUbc {
 
     private JSONObject generateExt(String str, String str2) {
         InterceptResult invokeLL;
+        String str3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, str, str2)) == null) {
             JSONObject jSONObject = new JSONObject();
             if (this.mSendMsg != null) {
                 try {
-                    jSONObject.put("role", AccountManager.getMediaRole(this.mContext) ? "2" : "1");
+                    if (AccountManager.getMediaRole(this.mContext)) {
+                        str3 = "2";
+                    } else {
+                        str3 = "1";
+                    }
+                    jSONObject.put("role", str3);
                     jSONObject.put("package_name", RetrieveReportRequest.APP_NAME);
                     jSONObject.put("appid", String.valueOf(AccountManager.getAppid(this.mContext)));
                     jSONObject.put(LaunchedTaskSpeedStats.KEY_START_TIME, String.valueOf(this.mStartTime));

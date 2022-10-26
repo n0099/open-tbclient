@@ -32,10 +32,10 @@ public class VideoFreeFlowConfigManager implements INoProGuard {
     public static VideoFreeFlowConfigManager sInstance;
     public transient /* synthetic */ FieldHolder $fh;
     public byte[] mListLock;
-    public ArrayList<a> mPacRulesList;
+    public ArrayList mPacRulesList;
 
     /* loaded from: classes6.dex */
-    public static class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -130,7 +130,7 @@ public class VideoFreeFlowConfigManager implements INoProGuard {
                 return;
             }
         }
-        this.mPacRulesList = new ArrayList<>();
+        this.mPacRulesList = new ArrayList();
         this.mListLock = new byte[0];
     }
 
@@ -181,7 +181,7 @@ public class VideoFreeFlowConfigManager implements INoProGuard {
                     int size = this.mPacRulesList.size();
                     String host = Uri.parse(str).getHost();
                     for (int i = 0; i < size; i++) {
-                        a aVar = this.mPacRulesList.get(i);
+                        a aVar = (a) this.mPacRulesList.get(i);
                         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(aVar.a) && !TextUtils.isEmpty(aVar.b) && !TextUtils.isEmpty(aVar.c)) {
                             if (!aVar.b.equals("*")) {
                                 if (aVar.a.equals(HOST_MATCH)) {

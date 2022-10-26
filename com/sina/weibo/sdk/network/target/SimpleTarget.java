@@ -11,6 +11,8 @@ public abstract class SimpleTarget extends BaseTarget {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract void onSuccess(String str);
+
     public SimpleTarget() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -33,13 +35,14 @@ public abstract class SimpleTarget extends BaseTarget {
         }
     }
 
-    public abstract void onSuccess(String str);
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.sina.weibo.sdk.network.target.Target
     public String transResponse(WbResponse wbResponse) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, wbResponse)) == null) ? wbResponse.body().string() : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, wbResponse)) == null) {
+            return wbResponse.body().string();
+        }
+        return (String) invokeL.objValue;
     }
 }

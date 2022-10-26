@@ -28,34 +28,23 @@ public class UnknownEntry extends GroupEntry {
         }
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj == null || UnknownEntry.class != obj.getClass()) {
-                return false;
-            }
-            ByteBuffer byteBuffer = this.content;
-            ByteBuffer byteBuffer2 = ((UnknownEntry) obj).content;
-            return byteBuffer == null ? byteBuffer2 == null : byteBuffer.equals(byteBuffer2);
-        }
-        return invokeL.booleanValue;
-    }
-
     @Override // com.googlecode.mp4parser.boxes.mp4.samplegrouping.GroupEntry
     public ByteBuffer get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.content.duplicate() : (ByteBuffer) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.content.duplicate();
+        }
+        return (ByteBuffer) invokeV.objValue;
     }
 
     public ByteBuffer getContent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.content : (ByteBuffer) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.content;
+        }
+        return (ByteBuffer) invokeV.objValue;
     }
 
     public int hashCode() {
@@ -69,6 +58,26 @@ public class UnknownEntry extends GroupEntry {
             return 0;
         }
         return invokeV.intValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj == null || UnknownEntry.class != obj.getClass()) {
+                return false;
+            }
+            ByteBuffer byteBuffer = this.content;
+            ByteBuffer byteBuffer2 = ((UnknownEntry) obj).content;
+            if (byteBuffer == null ? byteBuffer2 == null : byteBuffer.equals(byteBuffer2)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     @Override // com.googlecode.mp4parser.boxes.mp4.samplegrouping.GroupEntry

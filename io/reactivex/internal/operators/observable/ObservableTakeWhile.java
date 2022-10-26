@@ -14,21 +14,21 @@ import io.reactivex.functions.Predicate;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 /* loaded from: classes8.dex */
-public final class ObservableTakeWhile<T> extends AbstractObservableWithUpstream<T, T> {
+public final class ObservableTakeWhile extends AbstractObservableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Predicate<? super T> predicate;
+    public final Predicate predicate;
 
     /* loaded from: classes8.dex */
-    public static final class TakeWhileObserver<T> implements Observer<T>, Disposable {
+    public final class TakeWhileObserver implements Observer, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer<? super T> actual;
+        public final Observer actual;
         public boolean done;
-        public final Predicate<? super T> predicate;
+        public final Predicate predicate;
         public Disposable s;
 
-        public TakeWhileObserver(Observer<? super T> observer, Predicate<? super T> predicate) {
+        public TakeWhileObserver(Observer observer, Predicate predicate) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -59,13 +59,16 @@ public final class ObservableTakeWhile<T> extends AbstractObservableWithUpstream
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.s.isDisposed() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.s.isDisposed();
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.Observer
         public void onComplete() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.done) {
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.done) {
                 return;
             }
             this.done = true;
@@ -86,27 +89,6 @@ public final class ObservableTakeWhile<T> extends AbstractObservableWithUpstream
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048580, this, t) == null) || this.done) {
-                return;
-            }
-            try {
-                if (!this.predicate.test(t)) {
-                    this.done = true;
-                    this.s.dispose();
-                    this.actual.onComplete();
-                    return;
-                }
-                this.actual.onNext(t);
-            } catch (Throwable th) {
-                Exceptions.throwIfFatal(th);
-                this.s.dispose();
-                onError(th);
-            }
-        }
-
-        @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048581, this, disposable) == null) && DisposableHelper.validate(this.s, disposable)) {
@@ -114,10 +96,31 @@ public final class ObservableTakeWhile<T> extends AbstractObservableWithUpstream
                 this.actual.onSubscribe(this);
             }
         }
+
+        @Override // io.reactivex.Observer
+        public void onNext(Object obj) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048580, this, obj) != null) || this.done) {
+                return;
+            }
+            try {
+                if (!this.predicate.test(obj)) {
+                    this.done = true;
+                    this.s.dispose();
+                    this.actual.onComplete();
+                    return;
+                }
+                this.actual.onNext(obj);
+            } catch (Throwable th) {
+                Exceptions.throwIfFatal(th);
+                this.s.dispose();
+                onError(th);
+            }
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableTakeWhile(ObservableSource<T> observableSource, Predicate<? super T> predicate) {
+    public ObservableTakeWhile(ObservableSource observableSource, Predicate predicate) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -138,7 +141,7 @@ public final class ObservableTakeWhile<T> extends AbstractObservableWithUpstream
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer<? super T> observer) {
+    public void subscribeActual(Observer observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             this.source.subscribe(new TakeWhileObserver(observer, this.predicate));

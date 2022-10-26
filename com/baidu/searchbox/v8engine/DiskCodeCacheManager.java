@@ -28,6 +28,8 @@ public class DiskCodeCacheManager {
     public static final String TAG = "DiskCodeCacheManager";
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static native boolean nativeClearDiskCodeCache(String str, String str2);
+
     public DiskCodeCacheManager() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -42,55 +44,68 @@ public class DiskCodeCacheManager {
         }
     }
 
-    public static boolean addDiskCodeCacheBusId(Map<String, String> map, File file) {
+    public static boolean addDiskCodeCacheBusId(Map map, File file) {
         InterceptResult invokeLL;
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, map, file)) == null) {
-            if (file.exists() && file.isDirectory()) {
-                File[] listFiles = file.listFiles(new FilenameFilter() { // from class: com.baidu.searchbox.v8engine.DiskCodeCacheManager.2
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
+            if (!file.exists() || !file.isDirectory()) {
+                return false;
+            }
+            File[] listFiles = file.listFiles(new FilenameFilter() { // from class: com.baidu.searchbox.v8engine.DiskCodeCacheManager.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
 
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                            }
-                        }
-                    }
-
-                    @Override // java.io.FilenameFilter
-                    public boolean accept(File file2, String str) {
-                        InterceptResult invokeLL2;
-                        Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeLL2 = interceptable2.invokeLL(1048576, this, file2, str)) == null) ? str.startsWith(DiskCodeCacheManager.DISK_CODE_CACHE_NAME_PREFIX) || str.startsWith(DiskCodeCacheManager.DISK_CODE_CACHE_DIR_NAME_PREFIX) : invokeLL2.booleanValue;
-                    }
-                });
-                if (listFiles == null || listFiles.length <= 0) {
-                    z = true;
-                } else {
-                    z = true;
-                    for (File file2 : listFiles) {
-                        if (file2.isDirectory()) {
-                            z = addDiskCodeCacheBusId(map, file2) && z;
-                        }
-                        String busIdByCodeCacheIndexFile = getBusIdByCodeCacheIndexFile(file2);
-                        String parent = file.getParent();
-                        if (!TextUtils.isEmpty(busIdByCodeCacheIndexFile) && !TextUtils.isEmpty(parent)) {
-                            map.put(parent, busIdByCodeCacheIndexFile);
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
                         }
                     }
                 }
-                return z && file.delete();
+
+                @Override // java.io.FilenameFilter
+                public boolean accept(File file2, String str) {
+                    InterceptResult invokeLL2;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeLL2 = interceptable2.invokeLL(1048576, this, file2, str)) == null) {
+                        if (!str.startsWith(DiskCodeCacheManager.DISK_CODE_CACHE_NAME_PREFIX) && !str.startsWith(DiskCodeCacheManager.DISK_CODE_CACHE_DIR_NAME_PREFIX)) {
+                            return false;
+                        }
+                        return true;
+                    }
+                    return invokeLL2.booleanValue;
+                }
+            });
+            if (listFiles != null && listFiles.length > 0) {
+                z = true;
+                for (File file2 : listFiles) {
+                    if (file2.isDirectory()) {
+                        if (addDiskCodeCacheBusId(map, file2) && z) {
+                            z = true;
+                        } else {
+                            z = false;
+                        }
+                    }
+                    String busIdByCodeCacheIndexFile = getBusIdByCodeCacheIndexFile(file2);
+                    String parent = file.getParent();
+                    if (!TextUtils.isEmpty(busIdByCodeCacheIndexFile) && !TextUtils.isEmpty(parent)) {
+                        map.put(parent, busIdByCodeCacheIndexFile);
+                    }
+                }
+            } else {
+                z = true;
             }
-            return false;
+            if (!z || !file.delete()) {
+                return false;
+            }
+            return true;
         }
         return invokeLL.booleanValue;
     }
@@ -129,16 +144,27 @@ public class DiskCodeCacheManager {
                     public boolean accept(File file2, String str2) {
                         InterceptResult invokeLL2;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeLL2 = interceptable2.invokeLL(1048576, this, file2, str2)) == null) ? str2.startsWith(this.val$oldDiskCodeCacheBaseNamePrefix) : invokeLL2.booleanValue;
+                        if (interceptable2 == null || (invokeLL2 = interceptable2.invokeLL(1048576, this, file2, str2)) == null) {
+                            return str2.startsWith(this.val$oldDiskCodeCacheBaseNamePrefix);
+                        }
+                        return invokeLL2.booleanValue;
                     }
                 })) != null && listFiles.length != 0) {
                     HashMap hashMap = new HashMap();
                     boolean z = true;
                     for (File file2 : listFiles) {
-                        z = addDiskCodeCacheBusId(hashMap, file2) && z;
+                        if (addDiskCodeCacheBusId(hashMap, file2) && z) {
+                            z = true;
+                        } else {
+                            z = false;
+                        }
                     }
                     for (Map.Entry entry : hashMap.entrySet()) {
-                        z = nativeClearDiskCodeCache((String) entry.getKey(), (String) entry.getValue()) && z;
+                        if (nativeClearDiskCodeCache((String) entry.getKey(), (String) entry.getValue()) && z) {
+                            z = true;
+                        } else {
+                            z = false;
+                        }
                     }
                     return z;
                 }
@@ -151,11 +177,15 @@ public class DiskCodeCacheManager {
     public static boolean clearDiskCodeCache(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) ? nativeClearDiskCodeCache(str, str2) : invokeLL.booleanValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
+            return nativeClearDiskCodeCache(str, str2);
+        }
+        return invokeLL.booleanValue;
     }
 
     public static File createDiskCodeCacheDirectory(Context context, String str) {
         InterceptResult invokeLL;
+        boolean z;
         File file;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
@@ -163,26 +193,39 @@ public class DiskCodeCacheManager {
                 Log.w(TAG, "[CodeCache] Invoke createDiskCodeCacheDirectory failed. Context or ApplicationInfo is null.");
                 return null;
             }
+            boolean z2 = true;
             if (TextUtils.isEmpty(str)) {
                 file = new File(context.getCacheDir(), "app_mario");
             } else {
                 ApplicationInfo applicationInfo = context.getApplicationInfo();
                 if (applicationInfo != null && !TextUtils.isEmpty(applicationInfo.dataDir)) {
                     File file2 = new File(applicationInfo.dataDir, str);
-                    file = !(!file2.exists() ? file2.mkdirs() : true) ? new File(context.getCacheDir(), "app_mario") : file2;
+                    if (!file2.exists()) {
+                        z = file2.mkdirs();
+                    } else {
+                        z = true;
+                    }
+                    if (!z) {
+                        file = new File(context.getCacheDir(), "app_mario");
+                    } else {
+                        file = file2;
+                    }
                 } else {
                     Log.w(TAG, "[CodeCache] ApplicationInfo is null or ApplicationInfo.dataDir is empty");
                     return null;
                 }
             }
-            if (!(file.exists() ? true : file.mkdirs())) {
+            if (!file.exists()) {
+                z2 = file.mkdirs();
+            }
+            if (!z2) {
                 Log.w(TAG, "[CodeCache] Crate disk code cache failed.");
                 return null;
-            } else if (file.canWrite()) {
-                return file;
-            } else {
+            } else if (!file.canWrite()) {
                 Log.w(TAG, "[CodeCache] File diskCodeCachePathFile " + file.getName() + "can not be written.");
                 return null;
+            } else {
+                return file;
             }
         }
         return (File) invokeLL.objValue;
@@ -194,10 +237,10 @@ public class DiskCodeCacheManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, file)) == null) {
             String name = file.getName();
-            if (!TextUtils.isEmpty(name) && name.length() >= 1 && name.startsWith(DISK_CODE_CACHE_NAME_PREFIX) && (lastIndexOf = name.lastIndexOf(".")) >= 0 && name.substring(lastIndexOf + 1).equals(DISK_CODE_CACHE_INDEX_SUFFIX)) {
-                return name.substring(9, lastIndexOf);
+            if (TextUtils.isEmpty(name) || name.length() < 1 || !name.startsWith(DISK_CODE_CACHE_NAME_PREFIX) || (lastIndexOf = name.lastIndexOf(".")) < 0 || !name.substring(lastIndexOf + 1).equals(DISK_CODE_CACHE_INDEX_SUFFIX)) {
+                return null;
             }
-            return null;
+            return name.substring(9, lastIndexOf);
         }
         return (String) invokeL.objValue;
     }
@@ -212,23 +255,21 @@ public class DiskCodeCacheManager {
             } else if (context == null) {
                 Log.w(TAG, "[CodeCache] SetCodeCacheSetting failed. Context is null");
                 return false;
-            } else if (codeCacheSetting.id == null || codeCacheSetting.pathList == null) {
+            } else if (codeCacheSetting.id != null && codeCacheSetting.pathList != null) {
+                return true;
+            } else {
                 StringBuilder sb = new StringBuilder("[CodeCache] Invoke setCodeCacheSetting failed. ");
                 if (codeCacheSetting.id == null) {
                     sb.append("Id is null.");
                 }
-                ArrayList<String> arrayList = codeCacheSetting.pathList;
+                ArrayList arrayList = codeCacheSetting.pathList;
                 if (arrayList == null || arrayList.size() == 0) {
                     sb.append("PathList is null or empty");
                 }
                 Log.w(TAG, sb.toString());
                 return false;
-            } else {
-                return true;
             }
         }
         return invokeLL.booleanValue;
     }
-
-    public static native boolean nativeClearDiskCodeCache(String str, String str2);
 }

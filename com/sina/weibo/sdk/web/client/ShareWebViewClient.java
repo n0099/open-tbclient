@@ -1,6 +1,5 @@
 package com.sina.weibo.sdk.web.client;
 
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
@@ -96,22 +95,21 @@ public class ShareWebViewClient extends BaseWebViewClient {
         if (interceptable == null || interceptable.invokeLIL(65538, this, activity, i, str) == null) {
             LogUtil.i("Share", "WebActivity.sendSdkResponse,errCode:" + i + ",errMsg:" + str);
             Bundle extras = activity.getIntent().getExtras();
-            if (extras == null || this.hasCallbacked) {
-                return;
+            if (extras != null && !this.hasCallbacked) {
+                Intent intent = new Intent(WBConstants.ACTIVITY_REQ_SDK);
+                String string = extras.getString("packageName");
+                intent.setFlags(131072);
+                intent.setPackage(string);
+                intent.putExtras(extras);
+                intent.putExtra(WBConstants.Base.APP_PKG, activity.getPackageName());
+                intent.putExtra(WBConstants.Response.ERRCODE, i);
+                intent.putExtra(WBConstants.Response.ERRMSG, str);
+                try {
+                    activity.startActivityForResult(intent, WBConstants.SDK_ACTIVITY_FOR_RESULT_CODE);
+                } catch (ActivityNotFoundException unused) {
+                }
+                this.hasCallbacked = true;
             }
-            Intent intent = new Intent(WBConstants.ACTIVITY_REQ_SDK);
-            String string = extras.getString("packageName");
-            intent.setFlags(131072);
-            intent.setPackage(string);
-            intent.putExtras(extras);
-            intent.putExtra(WBConstants.Base.APP_PKG, activity.getPackageName());
-            intent.putExtra(WBConstants.Response.ERRCODE, i);
-            intent.putExtra(WBConstants.Response.ERRMSG, str);
-            try {
-                activity.startActivityForResult(intent, WBConstants.SDK_ACTIVITY_FOR_RESULT_CODE);
-            } catch (ActivityNotFoundException unused) {
-            }
-            this.hasCallbacked = true;
         }
     }
 
@@ -121,15 +119,6 @@ public class ShareWebViewClient extends BaseWebViewClient {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.closeWeb();
             sendSdkCancleResponse(this.activity);
-        }
-    }
-
-    @Override // com.sina.weibo.sdk.web.client.BaseWebViewClient
-    public void errorBack(Activity activity, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str) == null) {
-            super.errorBack(activity, str);
-            sendSdkErrorResponse(activity, str);
         }
     }
 
@@ -149,6 +138,15 @@ public class ShareWebViewClient extends BaseWebViewClient {
         return invokeV.booleanValue;
     }
 
+    @Override // com.sina.weibo.sdk.web.client.BaseWebViewClient
+    public void errorBack(Activity activity, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str) == null) {
+            super.errorBack(activity, str);
+            sendSdkErrorResponse(activity, str);
+        }
+    }
+
     @Override // android.webkit.WebViewClient
     public void onPageFinished(WebView webView, String str) {
         Interceptable interceptable = $ic;
@@ -159,6 +157,23 @@ public class ShareWebViewClient extends BaseWebViewClient {
                 webViewRequestCallback.onPageFinishedCallBack(webView, str);
             }
         }
+    }
+
+    public void sendSdkErrorResponse(Activity activity, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity, str) == null) {
+            sendSdkResponse(activity, 2, str);
+        }
+    }
+
+    @Override // com.sina.weibo.sdk.web.client.BaseWebViewClient, android.webkit.WebViewClient
+    public boolean shouldOverrideUrlLoading(WebView webView, WebResourceRequest webResourceRequest) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, webView, webResourceRequest)) == null) {
+            return needOverLoad(webResourceRequest.getUrl().toString());
+        }
+        return invokeLL.booleanValue;
     }
 
     @Override // android.webkit.WebViewClient
@@ -185,17 +200,22 @@ public class ShareWebViewClient extends BaseWebViewClient {
         }
     }
 
+    @Override // android.webkit.WebViewClient
+    public void onReceivedError(WebView webView, int i, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLILL(1048581, this, webView, i, str, str2) == null) {
+            super.onReceivedError(webView, i, str, str2);
+            WebViewRequestCallback webViewRequestCallback = this.requestCallback;
+            if (webViewRequestCallback != null) {
+                webViewRequestCallback.onReceivedErrorCallBack(webView, i, str, str2);
+            }
+        }
+    }
+
     public void sendSdkCancleResponse(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, activity) == null) {
             sendSdkResponse(activity, 1, "send cancel!!!");
-        }
-    }
-
-    public void sendSdkErrorResponse(Activity activity, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity, str) == null) {
-            sendSdkResponse(activity, 2, str);
         }
     }
 
@@ -204,14 +224,6 @@ public class ShareWebViewClient extends BaseWebViewClient {
         if (interceptable == null || interceptable.invokeL(1048585, this, activity) == null) {
             sendSdkResponse(activity, 0, "send ok!!!");
         }
-    }
-
-    @Override // com.sina.weibo.sdk.web.client.BaseWebViewClient, android.webkit.WebViewClient
-    @TargetApi(24)
-    public boolean shouldOverrideUrlLoading(WebView webView, WebResourceRequest webResourceRequest) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, webView, webResourceRequest)) == null) ? needOverLoad(webResourceRequest.getUrl().toString()) : invokeLL.booleanValue;
     }
 
     @Override // com.sina.weibo.sdk.web.client.BaseWebViewClient, android.webkit.WebViewClient
@@ -226,17 +238,5 @@ public class ShareWebViewClient extends BaseWebViewClient {
             return needOverLoad(str);
         }
         return invokeLL.booleanValue;
-    }
-
-    @Override // android.webkit.WebViewClient
-    public void onReceivedError(WebView webView, int i, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(1048581, this, webView, i, str, str2) == null) {
-            super.onReceivedError(webView, i, str, str2);
-            WebViewRequestCallback webViewRequestCallback = this.requestCallback;
-            if (webViewRequestCallback != null) {
-                webViewRequestCallback.onReceivedErrorCallBack(webView, i, str, str2);
-            }
-        }
     }
 }

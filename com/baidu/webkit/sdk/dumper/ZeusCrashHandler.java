@@ -63,7 +63,7 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
 
     /* renamed from: com.baidu.webkit.sdk.dumper.ZeusCrashHandler$5  reason: invalid class name */
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class AnonymousClass5 {
+    public /* synthetic */ class AnonymousClass5 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$webkit$sdk$dumper$ZeusCrashHandler$ExtraInfo;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -141,7 +141,7 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes6.dex */
-    public static final class ExtraInfo {
+    public final class ExtraInfo {
         public static final /* synthetic */ ExtraInfo[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final ExtraInfo ANDROID_BASEBAND;
@@ -232,7 +232,7 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
     }
 
     /* loaded from: classes6.dex */
-    public static final class ZeusCrashHandlerClient {
+    public final class ZeusCrashHandlerClient {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String TAG = "CrashHandlerClientImpl";
         public transient /* synthetic */ FieldHolder $fh;

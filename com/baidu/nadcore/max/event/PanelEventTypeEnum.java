@@ -35,6 +35,18 @@ public final class PanelEventTypeEnum {
         $VALUES = new PanelEventTypeEnum[]{panelEventTypeEnum};
     }
 
+    public static PanelEventTypeEnum valueOf(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (PanelEventTypeEnum) Enum.valueOf(PanelEventTypeEnum.class, str) : (PanelEventTypeEnum) invokeL.objValue;
+    }
+
+    public static PanelEventTypeEnum[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PanelEventTypeEnum[]) $VALUES.clone() : (PanelEventTypeEnum[]) invokeV.objValue;
+    }
+
     public PanelEventTypeEnum(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -52,17 +64,5 @@ public final class PanelEventTypeEnum {
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-    }
-
-    public static PanelEventTypeEnum valueOf(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (PanelEventTypeEnum) Enum.valueOf(PanelEventTypeEnum.class, str) : (PanelEventTypeEnum) invokeL.objValue;
-    }
-
-    public static PanelEventTypeEnum[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PanelEventTypeEnum[]) $VALUES.clone() : (PanelEventTypeEnum[]) invokeV.objValue;
     }
 }

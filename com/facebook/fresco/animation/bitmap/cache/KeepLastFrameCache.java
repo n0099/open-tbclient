@@ -12,7 +12,6 @@ import com.facebook.common.references.CloseableReference;
 import com.facebook.fresco.animation.bitmap.BitmapFrameCache;
 import com.facebook.imageutils.BitmapUtil;
 import javax.annotation.Nullable;
-import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes7.dex */
 public class KeepLastFrameCache implements BitmapFrameCache {
     public static /* synthetic */ Interceptable $ic = null;
@@ -20,10 +19,16 @@ public class KeepLastFrameCache implements BitmapFrameCache {
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
     public BitmapFrameCache.FrameCacheListener mFrameCacheListener;
-    @GuardedBy("this")
     @Nullable
-    public CloseableReference<Bitmap> mLastBitmapReference;
+    public CloseableReference mLastBitmapReference;
     public int mLastFrameNumber;
+
+    @Override // com.facebook.fresco.animation.bitmap.BitmapFrameCache
+    public void onFramePrepared(int i, CloseableReference closeableReference, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), closeableReference, Integer.valueOf(i2)}) == null) {
+        }
+    }
 
     public KeepLastFrameCache() {
         Interceptable interceptable = $ic;
@@ -66,6 +71,24 @@ public class KeepLastFrameCache implements BitmapFrameCache {
     }
 
     @Override // com.facebook.fresco.animation.bitmap.BitmapFrameCache
+    public synchronized int getSizeInBytes() {
+        InterceptResult invokeV;
+        int sizeInBytes;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            synchronized (this) {
+                if (this.mLastBitmapReference == null) {
+                    sizeInBytes = 0;
+                } else {
+                    sizeInBytes = BitmapUtil.getSizeInBytes((Bitmap) this.mLastBitmapReference.get());
+                }
+            }
+            return sizeInBytes;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.facebook.fresco.animation.bitmap.BitmapFrameCache
     public synchronized boolean contains(int i) {
         InterceptResult invokeI;
         boolean z;
@@ -73,8 +96,11 @@ public class KeepLastFrameCache implements BitmapFrameCache {
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
             synchronized (this) {
                 if (i == this.mLastFrameNumber) {
-                    z = CloseableReference.isValid(this.mLastBitmapReference);
+                    if (CloseableReference.isValid(this.mLastBitmapReference)) {
+                        z = true;
+                    }
                 }
+                z = false;
             }
             return z;
         }
@@ -82,23 +108,8 @@ public class KeepLastFrameCache implements BitmapFrameCache {
     }
 
     @Override // com.facebook.fresco.animation.bitmap.BitmapFrameCache
-    public synchronized CloseableReference<Bitmap> getBitmapToReuseForFrame(int i, int i2, int i3) {
-        InterceptResult invokeIII;
-        CloseableReference<Bitmap> cloneOrNull;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3)) == null) {
-            synchronized (this) {
-                cloneOrNull = CloseableReference.cloneOrNull(this.mLastBitmapReference);
-                closeAndResetLastBitmapReference();
-            }
-            return cloneOrNull;
-        }
-        return (CloseableReference) invokeIII.objValue;
-    }
-
-    @Override // com.facebook.fresco.animation.bitmap.BitmapFrameCache
     @Nullable
-    public synchronized CloseableReference<Bitmap> getCachedFrame(int i) {
+    public synchronized CloseableReference getCachedFrame(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
@@ -114,9 +125,9 @@ public class KeepLastFrameCache implements BitmapFrameCache {
 
     @Override // com.facebook.fresco.animation.bitmap.BitmapFrameCache
     @Nullable
-    public synchronized CloseableReference<Bitmap> getFallbackFrame(int i) {
+    public synchronized CloseableReference getFallbackFrame(int i) {
         InterceptResult invokeI;
-        CloseableReference<Bitmap> cloneOrNull;
+        CloseableReference cloneOrNull;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
             synchronized (this) {
@@ -128,33 +139,35 @@ public class KeepLastFrameCache implements BitmapFrameCache {
     }
 
     @Override // com.facebook.fresco.animation.bitmap.BitmapFrameCache
-    public synchronized int getSizeInBytes() {
-        InterceptResult invokeV;
-        int sizeInBytes;
+    public void setFrameCacheListener(BitmapFrameCache.FrameCacheListener frameCacheListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, frameCacheListener) == null) {
+            this.mFrameCacheListener = frameCacheListener;
+        }
+    }
+
+    @Override // com.facebook.fresco.animation.bitmap.BitmapFrameCache
+    public synchronized CloseableReference getBitmapToReuseForFrame(int i, int i2, int i3) {
+        InterceptResult invokeIII;
+        CloseableReference cloneOrNull;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3)) == null) {
             synchronized (this) {
-                sizeInBytes = this.mLastBitmapReference == null ? 0 : BitmapUtil.getSizeInBytes(this.mLastBitmapReference.get());
+                cloneOrNull = CloseableReference.cloneOrNull(this.mLastBitmapReference);
+                closeAndResetLastBitmapReference();
             }
-            return sizeInBytes;
+            return cloneOrNull;
         }
-        return invokeV.intValue;
+        return (CloseableReference) invokeIII.objValue;
     }
 
     @Override // com.facebook.fresco.animation.bitmap.BitmapFrameCache
-    public void onFramePrepared(int i, CloseableReference<Bitmap> closeableReference, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), closeableReference, Integer.valueOf(i2)}) == null) {
-        }
-    }
-
-    @Override // com.facebook.fresco.animation.bitmap.BitmapFrameCache
-    public synchronized void onFrameRendered(int i, CloseableReference<Bitmap> closeableReference, int i2) {
+    public synchronized void onFrameRendered(int i, CloseableReference closeableReference, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), closeableReference, Integer.valueOf(i2)}) == null) {
             synchronized (this) {
                 if (closeableReference != null) {
-                    if (this.mLastBitmapReference != null && closeableReference.get().equals(this.mLastBitmapReference.get())) {
+                    if (this.mLastBitmapReference != null && ((Bitmap) closeableReference.get()).equals(this.mLastBitmapReference.get())) {
                         return;
                     }
                 }
@@ -168,14 +181,6 @@ public class KeepLastFrameCache implements BitmapFrameCache {
                 }
                 this.mLastFrameNumber = i;
             }
-        }
-    }
-
-    @Override // com.facebook.fresco.animation.bitmap.BitmapFrameCache
-    public void setFrameCacheListener(BitmapFrameCache.FrameCacheListener frameCacheListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, frameCacheListener) == null) {
-            this.mFrameCacheListener = frameCacheListener;
         }
     }
 }

@@ -11,12 +11,18 @@ public final class n8 {
     public static long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? System.currentTimeMillis() : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return System.currentTimeMillis();
+        }
+        return invokeV.longValue;
     }
 
     public static long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? System.nanoTime() : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return System.nanoTime();
+        }
+        return invokeV.longValue;
     }
 }

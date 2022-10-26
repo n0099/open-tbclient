@@ -30,18 +30,19 @@ public class PBInitialize {
     public static void init(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, context, str) == null) {
-            if (context == null) {
-                throw new RuntimeException("Error:Context is not allowed to be null");
+            if (context != null) {
+                try {
+                    IntentFilter intentFilter = new IntentFilter();
+                    intentFilter.addAction(PackageChangedReceiver.ACTION_INSTALL);
+                    intentFilter.addDataScheme("package");
+                    context.registerReceiver(new WinDReceiver(), intentFilter);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                J1.a().a(context, str);
+                return;
             }
-            try {
-                IntentFilter intentFilter = new IntentFilter();
-                intentFilter.addAction(PackageChangedReceiver.ACTION_INSTALL);
-                intentFilter.addDataScheme("package");
-                context.registerReceiver(new WinDReceiver(), intentFilter);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            J1.a().a(context, str);
+            throw new RuntimeException("Error:Context is not allowed to be null");
         }
     }
 }

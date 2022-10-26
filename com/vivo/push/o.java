@@ -17,6 +17,19 @@ public abstract class o {
     public int a;
     public String b;
 
+    public abstract void c(a aVar);
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public abstract void d(a aVar);
+
     public o(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -49,41 +62,19 @@ public abstract class o {
         }
     }
 
-    public final String a() {
-        InterceptResult invokeV;
+    public final void a(Intent intent) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public final int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public abstract void c(a aVar);
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public abstract void d(a aVar);
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? getClass().getSimpleName() : (String) invokeV.objValue;
-    }
-
-    public final void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.b = str;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent) == null) {
+            a a = a.a(intent);
+            if (a == null) {
+                com.vivo.push.util.p.b("PushCommand", "bundleWapper is null");
+                return;
+            }
+            a(a);
+            Bundle b = a.b();
+            if (b != null) {
+                intent.putExtras(b);
+            }
         }
     }
 
@@ -104,20 +95,31 @@ public abstract class o {
         }
     }
 
-    public final void a(Intent intent) {
+    public final String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent) == null) {
-            a a = a.a(intent);
-            if (a == null) {
-                com.vivo.push.util.p.b("PushCommand", "bundleWapper is null");
-                return;
-            }
-            a(a);
-            Bundle b = a.b();
-            if (b != null) {
-                intent.putExtras(b);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
+        return (String) invokeV.objValue;
+    }
+
+    public final int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return getClass().getSimpleName();
+        }
+        return (String) invokeV.objValue;
     }
 
     public final void a(a aVar) {
@@ -142,6 +144,13 @@ public abstract class o {
                 this.b = aVar.a("client_pkgname");
             }
             d(aVar);
+        }
+    }
+
+    public final void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.b = str;
         }
     }
 }

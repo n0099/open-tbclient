@@ -14,17 +14,17 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h55;
-import com.baidu.tieba.hv4;
-import com.baidu.tieba.o55;
+import com.baidu.tieba.l55;
+import com.baidu.tieba.nv4;
 import com.baidu.tieba.s55;
+import com.baidu.tieba.w55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class DLauncher extends RelativeLayout implements o55 {
+public class DLauncher extends RelativeLayout implements s55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -32,16 +32,23 @@ public class DLauncher extends RelativeLayout implements o55 {
     public TextView c;
     public int d;
     public String e;
-    public s55 f;
+    public w55 f;
+
+    @Override // com.baidu.tieba.s55
+    public void j0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DLauncher(Context context, s55 s55Var) {
+    public DLauncher(Context context, w55 w55Var) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, s55Var};
+            Object[] objArr = {context, w55Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -53,32 +60,32 @@ public class DLauncher extends RelativeLayout implements o55 {
             }
         }
         this.d = 0;
-        if (s55Var == null) {
+        if (w55Var == null) {
             return;
         }
-        this.f = s55Var;
+        this.f = w55Var;
         setLayoutParams(new AbsListView.LayoutParams(-1, -2));
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.topMargin = getResources().getDimensionPixelOffset(R.dimen.M_H_X008);
         layoutParams.leftMargin = getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
         layoutParams.rightMargin = getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
         this.b = new EMTextView(context);
-        setName(s55Var.b);
+        setName(w55Var.b);
         setIcon();
-        setToolId(s55Var.c);
+        setToolId(w55Var.c);
         this.b.setGravity(17);
-        hv4 d = hv4.d(this.b);
+        nv4 d = nv4.d(this.b);
         d.z(R.dimen.T_X09);
         d.v(R.color.CAM_X0106);
         context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07023b);
         addView(this.b, layoutParams);
     }
 
-    @Override // com.baidu.tieba.i55
-    public void B(h55 h55Var) {
+    @Override // com.baidu.tieba.m55
+    public void B(l55 l55Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, h55Var) == null) && h55Var != null && h55Var.a == 2) {
-            Object obj = h55Var.c;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, l55Var) == null) && l55Var != null && l55Var.a == 2) {
+            Object obj = l55Var.c;
             if (obj == null) {
                 c();
             } else if (obj instanceof String) {
@@ -87,9 +94,31 @@ public class DLauncher extends RelativeLayout implements o55 {
         }
     }
 
+    public void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            a(str);
+            this.c.setVisibility(0);
+        }
+    }
+
+    public void setName(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+            this.b.setText(str);
+        }
+    }
+
+    public void setToolId(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.a = i;
+        }
+    }
+
     public final void a(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || TextUtils.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || TextUtils.isEmpty(str)) {
             return;
         }
         this.e = str;
@@ -112,14 +141,6 @@ public class DLauncher extends RelativeLayout implements o55 {
         SkinManager.setBackgroundResource(this.c, R.drawable.icon_news_down_bar_one, this.d);
     }
 
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            a(str);
-            this.c.setVisibility(0);
-        }
-    }
-
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -131,7 +152,7 @@ public class DLauncher extends RelativeLayout implements o55 {
         }
     }
 
-    @Override // com.baidu.tieba.o55
+    @Override // com.baidu.tieba.s55
     public void display() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -142,17 +163,23 @@ public class DLauncher extends RelativeLayout implements o55 {
     public String getText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.e : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.o55
+    @Override // com.baidu.tieba.s55
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.o55
+    @Override // com.baidu.tieba.s55
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -160,14 +187,7 @@ public class DLauncher extends RelativeLayout implements o55 {
         }
     }
 
-    @Override // com.baidu.tieba.o55
-    public void j0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.o55
+    @Override // com.baidu.tieba.s55
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
@@ -175,7 +195,7 @@ public class DLauncher extends RelativeLayout implements o55 {
             if (isEnabled()) {
                 SkinManager.setBackgroundResource(this, R.drawable.btn_editor_selector, i);
             }
-            hv4.d(this.b).v(R.color.CAM_X0106);
+            nv4.d(this.b).v(R.color.CAM_X0106);
             if (this.f == null) {
                 return;
             }
@@ -189,23 +209,6 @@ public class DLauncher extends RelativeLayout implements o55 {
                     SkinManager.setBackgroundResource(this.c, R.drawable.icon_news_down_bar_one, i);
                 }
                 this.c.setPadding(0, 0, 0, 0);
-            }
-        }
-    }
-
-    @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            super.onLayout(z, i, i2, i3, i4);
-            if (this.c != null) {
-                if (getVisibility() == 0) {
-                    int right = this.b.getRight() - (this.c.getMeasuredWidth() / 2);
-                    int top = this.b.getTop() - (this.c.getMeasuredHeight() / 2);
-                    this.c.layout(right, top, this.c.getMeasuredWidth() + right, this.c.getMeasuredHeight() + top);
-                    return;
-                }
-                this.c.layout(0, 0, 0, 0);
             }
         }
     }
@@ -230,15 +233,33 @@ public class DLauncher extends RelativeLayout implements o55 {
         }
     }
 
+    @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            super.onLayout(z, i, i2, i3, i4);
+            if (this.c != null) {
+                if (getVisibility() == 0) {
+                    int right = this.b.getRight() - (this.c.getMeasuredWidth() / 2);
+                    int top = this.b.getTop() - (this.c.getMeasuredHeight() / 2);
+                    this.c.layout(right, top, this.c.getMeasuredWidth() + right, this.c.getMeasuredHeight() + top);
+                    return;
+                }
+                this.c.layout(0, 0, 0, 0);
+            }
+        }
+    }
+
     public void setIcon() {
         Drawable drawable;
+        Drawable drawable2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            s55 s55Var = this.f;
-            int i = s55Var.h;
-            int i2 = s55Var.r;
+            w55 w55Var = this.f;
+            int i = w55Var.h;
+            int i2 = w55Var.r;
             if (i <= 0) {
-                i = s55Var.d;
+                i = w55Var.d;
             }
             if (this.f.i) {
                 drawable = SvgManager.getInstance().getSeletableDrawableForEditorTools(i, this.f.e, this.d);
@@ -248,7 +269,11 @@ public class DLauncher extends RelativeLayout implements o55 {
             if (drawable == null) {
                 return;
             }
-            Drawable drawable2 = i2 > 0 ? SkinManager.getDrawable(this.d, i2) : null;
+            if (i2 > 0) {
+                drawable2 = SkinManager.getDrawable(this.d, i2);
+            } else {
+                drawable2 = null;
+            }
             if (drawable2 != null) {
                 drawable = new LayerDrawable(new Drawable[]{drawable, drawable2});
             }
@@ -262,20 +287,6 @@ public class DLauncher extends RelativeLayout implements o55 {
             drawable.setBounds(0, 0, getResources().getDimensionPixelSize(R.dimen.tbds165), getResources().getDimensionPixelSize(R.dimen.tbds165));
             this.b.setCompoundDrawablePadding(getResources().getDimensionPixelSize(R.dimen.M_H_X002));
             this.b.setCompoundDrawables(null, drawable, null, null);
-        }
-    }
-
-    public void setName(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.b.setText(str);
-        }
-    }
-
-    public void setToolId(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.a = i;
         }
     }
 }

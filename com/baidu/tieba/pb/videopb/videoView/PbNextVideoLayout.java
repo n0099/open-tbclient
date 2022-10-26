@@ -4,18 +4,18 @@ import android.content.Context;
 import android.os.CountDownTimer;
 import android.util.AttributeSet;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -106,102 +106,82 @@ public class PbNextVideoLayout extends RelativeLayout {
         c(context);
     }
 
-    public void b(boolean z, boolean z2) {
+    public void setDate(ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            getLayoutParams().height = ej.f(getContext(), (!z2 || z) ? R.dimen.tbds156 : R.dimen.tbds267);
-            this.b.getLayoutParams().width = ej.f(getContext(), (!z2 || z) ? R.dimen.tbds276 : R.dimen.tbds470);
-            TextView textView = this.d;
-            Context context = getContext();
-            int i = R.dimen.tbds52;
-            int i2 = R.dimen.tbds42;
-            textView.setTextSize(0, ej.f(context, (!z2 || z) ? R.dimen.tbds42 : R.dimen.tbds52));
-            ((LinearLayout.LayoutParams) this.d.getLayoutParams()).topMargin = ej.f(getContext(), (!z2 || z) ? R.dimen.tbds8 : R.dimen.tbds22);
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.e.getLayoutParams();
-            Context context2 = getContext();
-            if (!z2 || z) {
-                i2 = R.dimen.tbds20;
-            }
-            layoutParams.topMargin = ej.f(context2, i2);
-            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.e.getLayoutParams();
-            Context context3 = getContext();
-            if (!z2 || z) {
-                i = R.dimen.tbds44;
-            }
-            layoutParams2.rightMargin = ej.f(context3, i);
-            this.a = (!z2 || z) ? 50 : 25;
-        }
-    }
-
-    public final void c(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            RelativeLayout.inflate(context, R.layout.obfuscated_res_0x7f0d06d9, this);
-            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091860);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091863);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091862);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f09185f);
-            this.f = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091861);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.obfuscated_res_0x7f08093d, R.color.CAM_X0622, null);
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.g = true;
-            this.c.setText(R.string.obfuscated_res_0x7f0f0e18);
-            a aVar = this.i;
-            if (aVar != null) {
-                aVar.cancel();
-            }
-            a aVar2 = new a(this, 5000 - this.f.getProgress(), this.a);
-            this.i = aVar2;
-            aVar2.start();
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.g = false;
-            a aVar = this.i;
-            if (aVar != null) {
-                aVar.cancel();
-            }
-            this.c.setText(R.string.obfuscated_res_0x7f0f0e19);
+        if ((interceptable == null || interceptable.invokeL(1048580, this, threadData) == null) && threadData != null && threadData.getThreadVideoInfo() != null) {
+            this.b.L(threadData.getThreadVideoInfo().thumbnail_url, 10, false);
+            this.c.setText(R.string.obfuscated_res_0x7f0f0e29);
+            this.d.setText(threadData.getTitle());
             this.f.setProgress(0);
         }
     }
 
-    public void setDate(ThreadData threadData) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public PbNextVideoLayout(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, threadData) == null) || threadData == null || threadData.getThreadVideoInfo() == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        this.b.K(threadData.getThreadVideoInfo().thumbnail_url, 10, false);
-        this.c.setText(R.string.obfuscated_res_0x7f0f0e18);
-        this.d.setText(threadData.getTitle());
-        this.f.setProgress(0);
+        this.a = 50;
+        this.g = true;
+        this.h = true;
+        c(context);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public PbNextVideoLayout(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.a = 50;
+        this.g = true;
+        this.h = true;
+        c(context);
     }
 
     public void setIsCountDownValid(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || this.g == z) {
-            return;
-        }
-        this.g = z;
-        if (getVisibility() == 0) {
-            if (z) {
-                d();
-            } else {
-                e();
+        if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && this.g != z) {
+            this.g = z;
+            if (getVisibility() == 0) {
+                if (z) {
+                    d();
+                } else {
+                    e();
+                }
             }
         }
     }
 
     @Override // android.view.View
-    public void setOnClickListener(@Nullable View.OnClickListener onClickListener) {
+    public void setOnClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, onClickListener) == null) {
             super.setOnClickListener(onClickListener);
@@ -231,53 +211,107 @@ public class PbNextVideoLayout extends RelativeLayout {
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PbNextVideoLayout(Context context, @Nullable AttributeSet attributeSet) {
-        super(context, attributeSet);
+    public void b(boolean z, boolean z2) {
+        int i;
+        int i2;
+        int i3;
+        int i4;
+        int i5;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            ViewGroup.LayoutParams layoutParams = getLayoutParams();
+            Context context = getContext();
+            if (z2 && !z) {
+                i = R.dimen.tbds267;
+            } else {
+                i = R.dimen.tbds156;
             }
+            layoutParams.height = fj.f(context, i);
+            ViewGroup.LayoutParams layoutParams2 = this.b.getLayoutParams();
+            Context context2 = getContext();
+            if (z2 && !z) {
+                i2 = R.dimen.tbds470;
+            } else {
+                i2 = R.dimen.tbds276;
+            }
+            layoutParams2.width = fj.f(context2, i2);
+            TextView textView = this.d;
+            Context context3 = getContext();
+            int i6 = R.dimen.tbds52;
+            int i7 = R.dimen.tbds42;
+            if (z2 && !z) {
+                i3 = R.dimen.tbds52;
+            } else {
+                i3 = R.dimen.tbds42;
+            }
+            textView.setTextSize(0, fj.f(context3, i3));
+            LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.d.getLayoutParams();
+            Context context4 = getContext();
+            if (z2 && !z) {
+                i4 = R.dimen.tbds22;
+            } else {
+                i4 = R.dimen.tbds8;
+            }
+            layoutParams3.topMargin = fj.f(context4, i4);
+            RelativeLayout.LayoutParams layoutParams4 = (RelativeLayout.LayoutParams) this.e.getLayoutParams();
+            Context context5 = getContext();
+            if (!z2 || z) {
+                i7 = R.dimen.tbds20;
+            }
+            layoutParams4.topMargin = fj.f(context5, i7);
+            RelativeLayout.LayoutParams layoutParams5 = (RelativeLayout.LayoutParams) this.e.getLayoutParams();
+            Context context6 = getContext();
+            if (!z2 || z) {
+                i6 = R.dimen.tbds44;
+            }
+            layoutParams5.rightMargin = fj.f(context6, i6);
+            if (z2 && !z) {
+                i5 = 25;
+            } else {
+                i5 = 50;
+            }
+            this.a = i5;
         }
-        this.a = 50;
-        this.g = true;
-        this.h = true;
-        c(context);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PbNextVideoLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public final void c(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            RelativeLayout.inflate(context, R.layout.obfuscated_res_0x7f0d06d9, this);
+            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091852);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091855);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091854);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091851);
+            this.f = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091853);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.obfuscated_res_0x7f08093c, R.color.CAM_X0622, null);
         }
-        this.a = 50;
-        this.g = true;
-        this.h = true;
-        c(context);
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.g = true;
+            this.c.setText(R.string.obfuscated_res_0x7f0f0e29);
+            a aVar = this.i;
+            if (aVar != null) {
+                aVar.cancel();
+            }
+            a aVar2 = new a(this, 5000 - this.f.getProgress(), this.a);
+            this.i = aVar2;
+            aVar2.start();
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.g = false;
+            a aVar = this.i;
+            if (aVar != null) {
+                aVar.cancel();
+            }
+            this.c.setText(R.string.obfuscated_res_0x7f0f0e2a);
+            this.f.setProgress(0);
+        }
     }
 }

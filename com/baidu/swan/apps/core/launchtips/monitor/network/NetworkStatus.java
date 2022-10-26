@@ -70,30 +70,45 @@ public final class NetworkStatus {
     public static NetworkStatus valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (NetworkStatus) Enum.valueOf(NetworkStatus.class, str) : (NetworkStatus) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (NetworkStatus) Enum.valueOf(NetworkStatus.class, str);
+        }
+        return (NetworkStatus) invokeL.objValue;
     }
 
     public static NetworkStatus[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (NetworkStatus[]) $VALUES.clone() : (NetworkStatus[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (NetworkStatus[]) $VALUES.clone();
+        }
+        return (NetworkStatus[]) invokeV.objValue;
     }
 
     public String getDesc() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mDesc : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mDesc;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getQuality() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mQuality : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mQuality;
+        }
+        return invokeV.intValue;
     }
 
     public String getStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mStatus : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mStatus;
+        }
+        return (String) invokeV.objValue;
     }
 }

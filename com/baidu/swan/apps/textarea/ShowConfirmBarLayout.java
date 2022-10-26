@@ -18,6 +18,11 @@ public class ShowConfirmBarLayout extends RelativeLayout {
     public b b;
 
     /* loaded from: classes3.dex */
+    public interface b {
+        void onClick(View view2);
+    }
+
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -44,16 +49,10 @@ public class ShowConfirmBarLayout extends RelativeLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.b == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.b != null) {
+                this.a.b.onClick(view2);
             }
-            this.a.b.onClick(view2);
         }
-    }
-
-    /* loaded from: classes3.dex */
-    public interface b {
-        void onClick(View view2);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -74,7 +73,7 @@ public class ShowConfirmBarLayout extends RelativeLayout {
                 return;
             }
         }
-        Button button = (Button) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00d5, this).findViewById(R.id.obfuscated_res_0x7f0906c6);
+        Button button = (Button) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00d5, this).findViewById(R.id.obfuscated_res_0x7f0906cf);
         this.a = button;
         button.setOnClickListener(new a(this));
     }

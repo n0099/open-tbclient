@@ -8,13 +8,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-@NotProguard
 /* loaded from: classes2.dex */
 public class JavaBoundObjectManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "JavaBoundObjectManager";
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<Long, Object> mJavaBoundObjectMap;
+    public Map mJavaBoundObjectMap;
 
     public JavaBoundObjectManager() {
         Interceptable interceptable = $ic;
@@ -54,20 +53,20 @@ public class JavaBoundObjectManager {
         return invokeJ.objValue;
     }
 
-    public synchronized void putJavaBoundObject(long j, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, obj) == null) {
-            synchronized (this) {
-                this.mJavaBoundObjectMap.put(Long.valueOf(j), obj);
-            }
-        }
-    }
-
     public synchronized void removeJavaBoundObject(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
             synchronized (this) {
                 this.mJavaBoundObjectMap.remove(Long.valueOf(j));
+            }
+        }
+    }
+
+    public synchronized void putJavaBoundObject(long j, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, obj) == null) {
+            synchronized (this) {
+                this.mJavaBoundObjectMap.put(Long.valueOf(j), obj);
             }
         }
     }

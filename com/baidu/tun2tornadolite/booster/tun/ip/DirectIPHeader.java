@@ -17,6 +17,16 @@ public abstract class DirectIPHeader extends DirectHeader {
     public transient /* synthetic */ FieldHolder $fh;
     public int packetLength;
 
+    public abstract int getDataLength();
+
+    public abstract int getHeaderLength();
+
+    public abstract int getProtocol();
+
+    public abstract int getVersion();
+
+    public abstract void setVersion(int i);
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DirectIPHeader(byte[] buffer, int i) {
         super(buffer, 0);
@@ -40,19 +50,14 @@ public abstract class DirectIPHeader extends DirectHeader {
         this.packetLength = i;
     }
 
-    public abstract int getDataLength();
-
-    public abstract int getHeaderLength();
-
     public final int getPacketLength() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.packetLength : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.packetLength;
+        }
+        return invokeV.intValue;
     }
-
-    public abstract int getProtocol();
-
-    public abstract int getVersion();
 
     public final void setPacketLength(int i) {
         Interceptable interceptable = $ic;
@@ -60,6 +65,4 @@ public abstract class DirectIPHeader extends DirectHeader {
             this.packetLength = i;
         }
     }
-
-    public abstract void setVersion(int i);
 }

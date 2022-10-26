@@ -45,9 +45,8 @@ public class ImageOriginRequestListener extends BaseRequestListener {
     public void onUltimateProducerReached(String str, String str2, boolean z) {
         ImageOriginListener imageOriginListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, z) == null) || (imageOriginListener = this.mImageOriginLister) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, z) == null) && (imageOriginListener = this.mImageOriginLister) != null) {
+            imageOriginListener.onImageLoaded(this.mControllerId, ImageOriginUtils.mapProducerNameToImageOrigin(str2), z, str2);
         }
-        imageOriginListener.onImageLoaded(this.mControllerId, ImageOriginUtils.mapProducerNameToImageOrigin(str2), z, str2);
     }
 }

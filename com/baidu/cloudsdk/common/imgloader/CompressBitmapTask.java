@@ -16,7 +16,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes.dex */
-public class CompressBitmapTask extends AsyncTask<Uri, Integer, ByteArrayOutputStream> {
+public class CompressBitmapTask extends AsyncTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
@@ -76,24 +76,24 @@ public class CompressBitmapTask extends AsyncTask<Uri, Integer, ByteArrayOutputS
         InputStream inputStreamFromUri;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, uriArr)) == null) {
-            if (uriArr[0] == null || (inputStreamFromUri = getInputStreamFromUri(uriArr[0])) == null) {
-                return null;
-            }
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            byte[] bArr = new byte[1024];
-            while (true) {
-                try {
-                    int read = inputStreamFromUri.read(bArr);
-                    if (read == -1) {
-                        break;
+            if (uriArr[0] != null && (inputStreamFromUri = getInputStreamFromUri(uriArr[0])) != null) {
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                byte[] bArr = new byte[1024];
+                while (true) {
+                    try {
+                        int read = inputStreamFromUri.read(bArr);
+                        if (read == -1) {
+                            break;
+                        }
+                        byteArrayOutputStream.write(bArr, 0, read);
+                    } catch (IOException e) {
+                        e.printStackTrace();
                     }
-                    byteArrayOutputStream.write(bArr, 0, read);
-                } catch (IOException e) {
-                    e.printStackTrace();
                 }
+                inputStreamFromUri.close();
+                return byteArrayOutputStream;
             }
-            inputStreamFromUri.close();
-            return byteArrayOutputStream;
+            return null;
         }
         return (ByteArrayOutputStream) invokeL.objValue;
     }
@@ -103,9 +103,8 @@ public class CompressBitmapTask extends AsyncTask<Uri, Integer, ByteArrayOutputS
     public void onPostExecute(ByteArrayOutputStream byteArrayOutputStream) {
         ICompressBitmapListener iCompressBitmapListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, byteArrayOutputStream) == null) || (iCompressBitmapListener = this.mListener) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, byteArrayOutputStream) == null) && (iCompressBitmapListener = this.mListener) != null) {
+            iCompressBitmapListener.onComplete(byteArrayOutputStream);
         }
-        iCompressBitmapListener.onComplete(byteArrayOutputStream);
     }
 }

@@ -202,44 +202,13 @@ public class ThreadPool {
         return (ScheduledExecutorService) invokeV.objValue;
     }
 
-    public void execute(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-            IYYTaskExecutor iYYTaskExecutor = this.taskExecutor;
-            if (iYYTaskExecutor != null) {
-                try {
-                    iYYTaskExecutor.execute(runnable, 0L);
-                    return;
-                } catch (Throwable unused) {
-                    getSpareExecutor().execute(runnable);
-                    return;
-                }
-            }
-            this.executorService.execute(runnable);
-        }
-    }
-
-    public void executeQueue(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable) == null) {
-            IQueueTaskExecutor iQueueTaskExecutor = this.singleTaskExecutor;
-            if (iQueueTaskExecutor != null) {
-                try {
-                    iQueueTaskExecutor.execute(runnable, 0L);
-                    return;
-                } catch (Throwable unused) {
-                    getSpareExecutor().execute(runnable);
-                    return;
-                }
-            }
-            this.singleExecutorService.execute(runnable);
-        }
-    }
-
     public SharedThreadTimer getTimer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.timer : (SharedThreadTimer) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.timer;
+        }
+        return (SharedThreadTimer) invokeV.objValue;
     }
 
     public void shutdown() {
@@ -288,7 +257,41 @@ public class ThreadPool {
         }
     }
 
-    public <T> Future<T> submit(Callable<T> callable) {
+    public void execute(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
+            IYYTaskExecutor iYYTaskExecutor = this.taskExecutor;
+            if (iYYTaskExecutor != null) {
+                try {
+                    iYYTaskExecutor.execute(runnable, 0L);
+                    return;
+                } catch (Throwable unused) {
+                    getSpareExecutor().execute(runnable);
+                    return;
+                }
+            }
+            this.executorService.execute(runnable);
+        }
+    }
+
+    public void executeQueue(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable) == null) {
+            IQueueTaskExecutor iQueueTaskExecutor = this.singleTaskExecutor;
+            if (iQueueTaskExecutor != null) {
+                try {
+                    iQueueTaskExecutor.execute(runnable, 0L);
+                    return;
+                } catch (Throwable unused) {
+                    getSpareExecutor().execute(runnable);
+                    return;
+                }
+            }
+            this.singleExecutorService.execute(runnable);
+        }
+    }
+
+    public Future submit(Callable callable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, callable)) == null) {
@@ -299,7 +302,7 @@ public class ThreadPool {
         return (Future) invokeL.objValue;
     }
 
-    public <T> Future<T> submitQueue(Callable<T> callable) {
+    public Future submitQueue(Callable callable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, callable)) == null) {

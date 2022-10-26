@@ -12,7 +12,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.imagepipeline.common.BytesRange;
-import com.facebook.imagepipeline.image.EncodedImage;
 import com.facebook.imagepipeline.producers.BaseNetworkFetcher;
 import com.facebook.imagepipeline.producers.BaseProducerContextCallbacks;
 import com.facebook.imagepipeline.producers.Consumer;
@@ -31,7 +30,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 /* loaded from: classes7.dex */
-public class OkHttpNetworkFetcher extends BaseNetworkFetcher<OkHttpNetworkFetchState> {
+public class OkHttpNetworkFetcher extends BaseNetworkFetcher {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_USER_AGENT = "Mozilla/5.0 (Linux; Android 4.4.2; Nexus 5 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36";
     public static final String FETCH_TIME = "fetch_time";
@@ -46,7 +45,7 @@ public class OkHttpNetworkFetcher extends BaseNetworkFetcher<OkHttpNetworkFetchS
     public Context mContext;
 
     /* loaded from: classes7.dex */
-    public static class OkHttpNetworkFetchState extends FetchState {
+    public class OkHttpNetworkFetchState extends FetchState {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long fetchCompleteTime;
@@ -54,7 +53,7 @@ public class OkHttpNetworkFetcher extends BaseNetworkFetcher<OkHttpNetworkFetchS
         public long submitTime;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public OkHttpNetworkFetchState(Consumer<EncodedImage> consumer, ProducerContext producerContext) {
+        public OkHttpNetworkFetchState(Consumer consumer, ProducerContext producerContext) {
             super(consumer, producerContext);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -93,6 +92,46 @@ public class OkHttpNetworkFetcher extends BaseNetworkFetcher<OkHttpNetworkFetchS
         this.mContext = context;
     }
 
+    public OkHttpNetworkFetcher(Call.Factory factory, Executor executor) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {factory, executor};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mCallFactory = factory;
+        this.mCancellationExecutor = executor;
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public OkHttpNetworkFetcher(OkHttpClient okHttpClient) {
+        this(okHttpClient, okHttpClient.dispatcher().executorService());
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {okHttpClient};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Call.Factory) objArr2[0], (Executor) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+    }
+
     private void getOkHttpClientIfNeeded() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65541, this) == null) && this.mCancellationExecutor == null) {
@@ -116,11 +155,6 @@ public class OkHttpNetworkFetcher extends BaseNetworkFetcher<OkHttpNetworkFetchS
                 callback.onFailure(exc);
             }
         }
-    }
-
-    @Override // com.facebook.imagepipeline.producers.NetworkFetcher
-    public /* bridge */ /* synthetic */ FetchState createFetchState(Consumer consumer, ProducerContext producerContext) {
-        return createFetchState((Consumer<EncodedImage>) consumer, producerContext);
     }
 
     public void fetchWithRequest(OkHttpNetworkFetchState okHttpNetworkFetchState, NetworkFetcher.Callback callback, Request request) {
@@ -156,7 +190,9 @@ public class OkHttpNetworkFetcher extends BaseNetworkFetcher<OkHttpNetworkFetchS
                 public void onCancellationRequested() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        if (Looper.myLooper() == Looper.getMainLooper()) {
+                        if (Looper.myLooper() != Looper.getMainLooper()) {
+                            this.val$call.cancel();
+                        } else {
                             this.this$0.mCancellationExecutor.execute(new Runnable(this) { // from class: com.facebook.imagepipeline.backends.okhttp3.OkHttpNetworkFetcher.1.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
@@ -188,8 +224,6 @@ public class OkHttpNetworkFetcher extends BaseNetworkFetcher<OkHttpNetworkFetchS
                                     }
                                 }
                             });
-                        } else {
-                            this.val$call.cancel();
                         }
                     }
                 }
@@ -224,9 +258,10 @@ public class OkHttpNetworkFetcher extends BaseNetworkFetcher<OkHttpNetworkFetchS
                 @Override // okhttp3.Callback
                 public void onFailure(Call call, IOException iOException) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLL(1048576, this, call, iOException) == null) {
-                        this.this$0.handleException(call, iOException, this.val$callback);
+                    if (interceptable2 != null && interceptable2.invokeLL(1048576, this, call, iOException) != null) {
+                        return;
                     }
+                    this.this$0.handleException(call, iOException, this.val$callback);
                 }
 
                 @Override // okhttp3.Callback
@@ -263,11 +298,24 @@ public class OkHttpNetworkFetcher extends BaseNetworkFetcher<OkHttpNetworkFetchS
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.imagepipeline.producers.NetworkFetcher
-    public OkHttpNetworkFetchState createFetchState(Consumer<EncodedImage> consumer, ProducerContext producerContext) {
+    public OkHttpNetworkFetchState createFetchState(Consumer consumer, ProducerContext producerContext) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, consumer, producerContext)) == null) ? new OkHttpNetworkFetchState(consumer, producerContext) : (OkHttpNetworkFetchState) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, consumer, producerContext)) == null) {
+            return new OkHttpNetworkFetchState(consumer, producerContext);
+        }
+        return (OkHttpNetworkFetchState) invokeLL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.facebook.imagepipeline.producers.BaseNetworkFetcher, com.facebook.imagepipeline.producers.NetworkFetcher
+    public void onFetchCompletion(OkHttpNetworkFetchState okHttpNetworkFetchState, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048583, this, okHttpNetworkFetchState, i) == null) {
+            okHttpNetworkFetchState.fetchCompleteTime = SystemClock.elapsedRealtime();
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -284,15 +332,15 @@ public class OkHttpNetworkFetcher extends BaseNetworkFetcher<OkHttpNetworkFetchS
                 if (bytesRange != null) {
                     builder.addHeader("Range", bytesRange.toHttpRangeHeaderValue());
                 }
-                Map<String, String> netRequestHeader = okHttpNetworkFetchState.getNetRequestHeader();
+                Map netRequestHeader = okHttpNetworkFetchState.getNetRequestHeader();
                 if (netRequestHeader == null) {
                     builder.addHeader("User-Agent", DEFAULT_USER_AGENT);
                 } else {
                     if (!netRequestHeader.containsKey("User-Agent")) {
                         builder.addHeader("User-Agent", DEFAULT_USER_AGENT);
                     }
-                    for (Map.Entry<String, String> entry : netRequestHeader.entrySet()) {
-                        builder.addHeader(entry.getKey(), entry.getValue());
+                    for (Map.Entry entry : netRequestHeader.entrySet()) {
+                        builder.addHeader((String) entry.getKey(), (String) entry.getValue());
                     }
                 }
                 fetchWithRequest(okHttpNetworkFetchState, callback, builder.build());
@@ -304,7 +352,7 @@ public class OkHttpNetworkFetcher extends BaseNetworkFetcher<OkHttpNetworkFetchS
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.imagepipeline.producers.BaseNetworkFetcher, com.facebook.imagepipeline.producers.NetworkFetcher
-    public Map<String, String> getExtraMap(OkHttpNetworkFetchState okHttpNetworkFetchState, int i) {
+    public Map getExtraMap(OkHttpNetworkFetchState okHttpNetworkFetchState, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, okHttpNetworkFetchState, i)) == null) {
@@ -316,54 +364,5 @@ public class OkHttpNetworkFetcher extends BaseNetworkFetcher<OkHttpNetworkFetchS
             return hashMap;
         }
         return (Map) invokeLI.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.facebook.imagepipeline.producers.BaseNetworkFetcher, com.facebook.imagepipeline.producers.NetworkFetcher
-    public void onFetchCompletion(OkHttpNetworkFetchState okHttpNetworkFetchState, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048583, this, okHttpNetworkFetchState, i) == null) {
-            okHttpNetworkFetchState.fetchCompleteTime = SystemClock.elapsedRealtime();
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public OkHttpNetworkFetcher(OkHttpClient okHttpClient) {
-        this(okHttpClient, okHttpClient.dispatcher().executorService());
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {okHttpClient};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Call.Factory) objArr2[0], (Executor) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public OkHttpNetworkFetcher(Call.Factory factory, Executor executor) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {factory, executor};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mCallFactory = factory;
-        this.mCancellationExecutor = executor;
     }
 }

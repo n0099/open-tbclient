@@ -12,9 +12,9 @@ import com.baidu.tbadk.clientConfig.ClientConfigSocketResponse;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bd5;
-import com.baidu.tieba.ed5;
-import com.baidu.tieba.pb;
+import com.baidu.tieba.gd5;
+import com.baidu.tieba.jd5;
+import com.baidu.tieba.qb;
 import com.baidu.tieba.r9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -27,11 +27,31 @@ import tbclient.GetClientConfig.DataRes;
 public class PayConfigModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public bd5 a;
-    public final pb b;
+    public gd5 a;
+    public final qb b;
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
     /* loaded from: classes3.dex */
-    public class a extends pb {
+    public class a extends qb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PayConfigModel a;
@@ -58,41 +78,42 @@ public class PayConfigModel extends BdBaseModel {
             this.a = payConfigModel;
         }
 
-        @Override // com.baidu.tieba.pb
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
+        @Override // com.baidu.tieba.qb
+        public void onMessage(ResponsedMessage responsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) && this.a.C(responsedMessage)) {
-                if (!responsedMessage.hasError() && responsedMessage.getError() == 0) {
-                    if (responsedMessage instanceof ClientConfigHttpProtoResponse) {
-                        this.a.D(((ClientConfigHttpProtoResponse) responsedMessage).getData());
-                        return;
-                    } else if (responsedMessage instanceof ClientConfigSocketResponse) {
-                        this.a.D(((ClientConfigSocketResponse) responsedMessage).getData());
-                        return;
-                    } else {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || !this.a.C(responsedMessage)) {
+                return;
+            }
+            if (!responsedMessage.hasError() && responsedMessage.getError() == 0) {
+                if (!(responsedMessage instanceof ClientConfigHttpProtoResponse)) {
+                    if (!(responsedMessage instanceof ClientConfigSocketResponse)) {
                         return;
                     }
+                    this.a.D(((ClientConfigSocketResponse) responsedMessage).getData());
+                    return;
                 }
-                String errorString = responsedMessage.getErrorString();
-                String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c59);
-                if (StringUtils.isNull(errorString)) {
-                    errorString = string;
-                }
-                if (this.a.a != null) {
-                    this.a.a.onError(errorString);
-                }
+                this.a.D(((ClientConfigHttpProtoResponse) responsedMessage).getData());
+                return;
+            }
+            String errorString = responsedMessage.getErrorString();
+            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c68);
+            if (StringUtils.isNull(errorString)) {
+                errorString = string;
+            }
+            if (this.a.a != null) {
+                this.a.a.onError(errorString);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PayConfigModel(TbPageContext tbPageContext, bd5 bd5Var) {
+    public PayConfigModel(TbPageContext tbPageContext, gd5 gd5Var) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bd5Var};
+            Object[] objArr = {tbPageContext, gd5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -105,14 +126,20 @@ public class PayConfigModel extends BdBaseModel {
         }
         a aVar = new a(this, CmdConfigHttp.CMD_CLIENT_CONFIG, 303039);
         this.b = aVar;
-        this.a = bd5Var;
+        this.a = gd5Var;
         registerListener(aVar);
     }
 
-    public final boolean C(ResponsedMessage<?> responsedMessage) {
+    public final boolean C(ResponsedMessage responsedMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, responsedMessage)) == null) ? (responsedMessage == null || responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() != getUniqueId()) ? false : true : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, responsedMessage)) == null) {
+            if (responsedMessage == null || responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() != getUniqueId()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
     public final void D(DataRes dataRes) {
@@ -121,23 +148,23 @@ public class PayConfigModel extends BdBaseModel {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) {
             if (dataRes != null && (cPayType = dataRes.payType) != null) {
                 if (cPayType.pay_type.intValue() == 1) {
-                    bd5 bd5Var = this.a;
-                    if (bd5Var != null) {
-                        bd5Var.b();
+                    gd5 gd5Var = this.a;
+                    if (gd5Var != null) {
+                        gd5Var.b();
                     }
                 } else if (dataRes.payType.pay_type.intValue() == 2) {
-                    bd5 bd5Var2 = this.a;
-                    if (bd5Var2 != null) {
-                        bd5Var2.a();
+                    gd5 gd5Var2 = this.a;
+                    if (gd5Var2 != null) {
+                        gd5Var2.a();
                     }
                 } else {
-                    bd5 bd5Var3 = this.a;
-                    if (bd5Var3 != null) {
-                        bd5Var3.onError("");
+                    gd5 gd5Var3 = this.a;
+                    if (gd5Var3 != null) {
+                        gd5Var3.onError("");
                     }
                 }
             } else if (this.a != null) {
-                this.a.onError(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f048c));
+                this.a.onError(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0494));
             }
         }
     }
@@ -145,15 +172,15 @@ public class PayConfigModel extends BdBaseModel {
     public void E() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (!ed5.c().d()) {
-                bd5 bd5Var = this.a;
-                if (bd5Var != null) {
-                    bd5Var.a();
+            if (!jd5.c().d()) {
+                gd5 gd5Var = this.a;
+                if (gd5Var != null) {
+                    gd5Var.a();
                 }
             } else if (TbadkCoreApplication.getInst().checkInterrupt()) {
-                bd5 bd5Var2 = this.a;
-                if (bd5Var2 != null) {
-                    bd5Var2.b();
+                gd5 gd5Var2 = this.a;
+                if (gd5Var2 != null) {
+                    gd5Var2.b();
                 }
             } else {
                 ClientConfigNetMessage clientConfigNetMessage = new ClientConfigNetMessage();
@@ -161,26 +188,6 @@ public class PayConfigModel extends BdBaseModel {
                 sendMessage(clientConfigNetMessage);
             }
         }
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean loadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 
     public void onDestroy() {

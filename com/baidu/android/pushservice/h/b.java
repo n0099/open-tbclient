@@ -226,7 +226,7 @@ public class b {
         return (byte[]) invokeLL.objValue;
     }
 
-    public void a(Map<String, String> map, byte[] bArr, String str, c cVar) {
+    public void a(Map map, byte[] bArr, String str, c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048576, this, map, bArr, str, cVar) == null) {
             Request a2 = a(bArr, str, "" + ((int) ((Math.random() * 100000.0d) + 1000.0d)));

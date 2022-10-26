@@ -3,7 +3,6 @@ package com.facebook.drawee.view;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
-import android.annotation.TargetApi;
 import android.graphics.PointF;
 import android.graphics.Rect;
 import android.transition.ChangeBounds;
@@ -19,8 +18,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.drawee.drawable.ScalingUtils;
+import com.facebook.drawee.generic.GenericDraweeHierarchy;
 import javax.annotation.Nullable;
-@TargetApi(19)
 /* loaded from: classes7.dex */
 public class DraweeTransition extends Transition {
     public static /* synthetic */ Interceptable $ic = null;
@@ -32,6 +31,27 @@ public class DraweeTransition extends Transition {
     @Nullable
     public final PointF mToFocusPoint;
     public final ScalingUtils.ScaleType mToScale;
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public DraweeTransition(ScalingUtils.ScaleType scaleType, ScalingUtils.ScaleType scaleType2) {
+        this(scaleType, scaleType2, null, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {scaleType, scaleType2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((ScalingUtils.ScaleType) objArr2[0], (ScalingUtils.ScaleType) objArr2[1], (PointF) objArr2[2], (PointF) objArr2[3]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
 
     public DraweeTransition(ScalingUtils.ScaleType scaleType, ScalingUtils.ScaleType scaleType2, @Nullable PointF pointF, @Nullable PointF pointF2) {
         Interceptable interceptable = $ic;
@@ -61,12 +81,6 @@ public class DraweeTransition extends Transition {
         }
     }
 
-    public static TransitionSet createTransitionSet(ScalingUtils.ScaleType scaleType, ScalingUtils.ScaleType scaleType2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, scaleType, scaleType2)) == null) ? createTransitionSet(scaleType, scaleType2, null, null) : (TransitionSet) invokeLL.objValue;
-    }
-
     @Override // android.transition.Transition
     public void captureEndValues(TransitionValues transitionValues) {
         Interceptable interceptable = $ic;
@@ -81,6 +95,27 @@ public class DraweeTransition extends Transition {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, transitionValues) == null) {
             captureValues(transitionValues);
         }
+    }
+
+    public static TransitionSet createTransitionSet(ScalingUtils.ScaleType scaleType, ScalingUtils.ScaleType scaleType2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, scaleType, scaleType2)) == null) {
+            return createTransitionSet(scaleType, scaleType2, null, null);
+        }
+        return (TransitionSet) invokeLL.objValue;
+    }
+
+    public static TransitionSet createTransitionSet(ScalingUtils.ScaleType scaleType, ScalingUtils.ScaleType scaleType2, @Nullable PointF pointF, @Nullable PointF pointF2) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65542, null, scaleType, scaleType2, pointF, pointF2)) == null) {
+            TransitionSet transitionSet = new TransitionSet();
+            transitionSet.addTransition(new ChangeBounds());
+            transitionSet.addTransition(new DraweeTransition(scaleType, scaleType2, pointF, pointF2));
+            return transitionSet;
+        }
+        return (TransitionSet) invokeLLLL.objValue;
     }
 
     @Override // android.transition.Transition
@@ -98,7 +133,7 @@ public class DraweeTransition extends Transition {
                     }
                     GenericDraweeView genericDraweeView = (GenericDraweeView) transitionValues.view;
                     ScalingUtils.InterpolatingScaleType interpolatingScaleType = new ScalingUtils.InterpolatingScaleType(this.mFromScale, this.mToScale, rect, rect2, this.mFromFocusPoint, this.mToFocusPoint);
-                    genericDraweeView.getHierarchy().setActualImageScaleType(interpolatingScaleType);
+                    ((GenericDraweeHierarchy) genericDraweeView.getHierarchy()).setActualImageScaleType(interpolatingScaleType);
                     ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
                     ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this, interpolatingScaleType) { // from class: com.facebook.drawee.view.DraweeTransition.1
                         public static /* synthetic */ Interceptable $ic;
@@ -162,9 +197,9 @@ public class DraweeTransition extends Transition {
                         public void onAnimationEnd(Animator animator) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, animator) == null) {
-                                this.val$draweeView.getHierarchy().setActualImageScaleType(this.this$0.mToScale);
+                                ((GenericDraweeHierarchy) this.val$draweeView.getHierarchy()).setActualImageScaleType(this.this$0.mToScale);
                                 if (this.this$0.mToFocusPoint != null) {
-                                    this.val$draweeView.getHierarchy().setActualImageFocusPoint(this.this$0.mToFocusPoint);
+                                    ((GenericDraweeHierarchy) this.val$draweeView.getHierarchy()).setActualImageFocusPoint(this.this$0.mToFocusPoint);
                                 }
                             }
                         }
@@ -175,38 +210,5 @@ public class DraweeTransition extends Transition {
             return null;
         }
         return (Animator) invokeLLL.objValue;
-    }
-
-    public static TransitionSet createTransitionSet(ScalingUtils.ScaleType scaleType, ScalingUtils.ScaleType scaleType2, @Nullable PointF pointF, @Nullable PointF pointF2) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65542, null, scaleType, scaleType2, pointF, pointF2)) == null) {
-            TransitionSet transitionSet = new TransitionSet();
-            transitionSet.addTransition(new ChangeBounds());
-            transitionSet.addTransition(new DraweeTransition(scaleType, scaleType2, pointF, pointF2));
-            return transitionSet;
-        }
-        return (TransitionSet) invokeLLLL.objValue;
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public DraweeTransition(ScalingUtils.ScaleType scaleType, ScalingUtils.ScaleType scaleType2) {
-        this(scaleType, scaleType2, null, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {scaleType, scaleType2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((ScalingUtils.ScaleType) objArr2[0], (ScalingUtils.ScaleType) objArr2[1], (PointF) objArr2[2], (PointF) objArr2[3]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
     }
 }

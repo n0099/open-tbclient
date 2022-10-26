@@ -50,6 +50,15 @@ public final class LogTo {
         }
     }
 
+    public final boolean getDebug() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return debug;
+        }
+        return invokeV.booleanValue;
+    }
+
     public final void d(String tag, String msg) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, tag, msg) == null) {
@@ -70,12 +79,6 @@ public final class LogTo {
                 Log.e(tag, msg);
             }
         }
-    }
-
-    public final boolean getDebug() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? debug : invokeV.booleanValue;
     }
 
     public final void i(String tag, String msg) {

@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class EnterForumInfoMessage extends CustomResponsedMessage<List<String>> {
+public class EnterForumInfoMessage extends CustomResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<String> likeForumData;
+    public List likeForumData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public EnterForumInfoMessage(int i, List<String> list) {
+    public EnterForumInfoMessage(int i, List list) {
         super(2001329, list);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -36,13 +36,16 @@ public class EnterForumInfoMessage extends CustomResponsedMessage<List<String>> 
         this.likeForumData = list;
     }
 
-    public List<String> getLikeForumData() {
+    public List getLikeForumData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.likeForumData : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.likeForumData;
+        }
+        return (List) invokeV.objValue;
     }
 
-    public void setLikeForumData(List<String> list) {
+    public void setLikeForumData(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
             this.likeForumData = list;

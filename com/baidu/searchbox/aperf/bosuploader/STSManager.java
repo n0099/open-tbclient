@@ -2,7 +2,6 @@ package com.baidu.searchbox.aperf.bosuploader;
 
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.io.Closeables;
 import com.baidu.searchbox.common.runtime.AppRuntime;
@@ -26,8 +25,8 @@ public class STSManager {
     public static final String STS_FILE = ".sts";
     public static final String STS_FILE_PATH = "stsfile";
     public static final String TAG = "STSManager";
-    public static final HashMap<String, STSInfo> infoMap;
-    public static HashMap<String, Long> retryTime;
+    public static final HashMap infoMap;
+    public static HashMap retryTime;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -43,8 +42,8 @@ public class STSManager {
                 return;
             }
         }
-        infoMap = new HashMap<>();
-        retryTime = new HashMap<>();
+        infoMap = new HashMap();
+        retryTime = new HashMap();
         RETRY_TIME_LIMIT_HOUR = TimeUnit.MINUTES.toMillis(20L);
     }
 
@@ -62,13 +61,18 @@ public class STSManager {
         }
     }
 
-    public static boolean checkRetry(@NonNull String str) {
+    public static boolean checkRetry(String str) {
         InterceptResult invokeL;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            long longValue = retryTime.containsKey(str) ? retryTime.get(str).longValue() : 0L;
+            if (retryTime.containsKey(str)) {
+                j = ((Long) retryTime.get(str)).longValue();
+            } else {
+                j = 0;
+            }
             long currentTimeMillis = System.currentTimeMillis();
-            if (Math.abs(currentTimeMillis - longValue) > RETRY_TIME_LIMIT_HOUR) {
+            if (Math.abs(currentTimeMillis - j) > RETRY_TIME_LIMIT_HOUR) {
                 retryTime.put(str, Long.valueOf(currentTimeMillis));
                 return true;
             }
@@ -77,17 +81,20 @@ public class STSManager {
         return invokeL.booleanValue;
     }
 
-    public static STSInfo getCurrentStsInfo(@NonNull String str) {
+    public static STSInfo getCurrentStsInfo(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            STSInfo sTSInfo = infoMap.get(str);
+            STSInfo sTSInfo = (STSInfo) infoMap.get(str);
             if (sTSInfo == null && (sTSInfo = loadStsFromFile(str)) != null) {
                 synchronized (infoMap) {
                     infoMap.put(str, sTSInfo);
                 }
             }
-            return ContentUtil.checkStsValid(sTSInfo) ? sTSInfo : retryGetStsInfo(str);
+            if (ContentUtil.checkStsValid(sTSInfo)) {
+                return sTSInfo;
+            }
+            return retryGetStsInfo(str);
         }
         return (STSInfo) invokeL.objValue;
     }

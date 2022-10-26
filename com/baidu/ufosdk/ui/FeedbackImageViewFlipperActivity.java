@@ -30,6 +30,50 @@ public class FeedbackImageViewFlipperActivity extends Activity implements Gestur
     public boolean f;
     public boolean g;
 
+    @Override // android.view.GestureDetector.OnGestureListener
+    public boolean onDown(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.view.GestureDetector.OnGestureListener
+    public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            return true;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    @Override // android.view.GestureDetector.OnGestureListener
+    public void onLongPress(MotionEvent motionEvent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, motionEvent) == null) {
+        }
+    }
+
+    @Override // android.view.GestureDetector.OnGestureListener
+    public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            return false;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    @Override // android.view.GestureDetector.OnGestureListener
+    public void onShowPress(MotionEvent motionEvent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, motionEvent) == null) {
+        }
+    }
+
     public FeedbackImageViewFlipperActivity() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -49,13 +93,34 @@ public class FeedbackImageViewFlipperActivity extends Activity implements Gestur
     }
 
     @Override // android.app.Activity
+    public void onRestart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.onRestart();
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.onResume();
+        }
+    }
+
+    @Override // android.app.Activity
     public void onCreate(Bundle bundle) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             super.onCreate(bundle);
             requestWindowFeature(1);
             setRequestedOrientation(1);
-            boolean z = b.m() == 1;
+            if (b.m() == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
             this.g = z;
             if (z) {
                 if (this.f) {
@@ -89,70 +154,9 @@ public class FeedbackImageViewFlipperActivity extends Activity implements Gestur
             this.b.addView(imageView, new ViewGroup.LayoutParams(-1, -1));
             this.b.setAutoStart(false);
             this.b.setFlipInterval(3000);
-            if (!this.b.isAutoStart() || this.b.isFlipping()) {
-                return;
+            if (this.b.isAutoStart() && !this.b.isFlipping()) {
+                this.b.startFlipping();
             }
-            this.b.startFlipping();
-        }
-    }
-
-    @Override // android.view.GestureDetector.OnGestureListener
-    public boolean onDown(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // android.view.GestureDetector.OnGestureListener
-    public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
-            return true;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    @Override // android.view.GestureDetector.OnGestureListener
-    public void onLongPress(MotionEvent motionEvent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, motionEvent) == null) {
-        }
-    }
-
-    @Override // android.app.Activity
-    public void onRestart() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.onRestart();
-        }
-    }
-
-    @Override // android.app.Activity
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            super.onResume();
-        }
-    }
-
-    @Override // android.view.GestureDetector.OnGestureListener
-    public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
-            return false;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    @Override // android.view.GestureDetector.OnGestureListener
-    public void onShowPress(MotionEvent motionEvent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, motionEvent) == null) {
         }
     }
 

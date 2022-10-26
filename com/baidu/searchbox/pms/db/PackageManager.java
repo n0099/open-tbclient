@@ -1,7 +1,5 @@
 package com.baidu.searchbox.pms.db;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.pms.bean.PackageInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,26 +31,44 @@ public class PackageManager {
 
     public static boolean deleteLatestPackageFile(String str, String str2) {
         InterceptResult invokeLL;
+        PackageInfo packageInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            Map<String, PackageInfo> finishedPackageInfo = getFinishedPackageInfo(str, str2);
-            PackageInfo packageInfo = (finishedPackageInfo == null || finishedPackageInfo.size() <= 0) ? null : finishedPackageInfo.get(str2);
+            Map finishedPackageInfo = getFinishedPackageInfo(str, str2);
+            if (finishedPackageInfo != null && finishedPackageInfo.size() > 0) {
+                packageInfo = (PackageInfo) finishedPackageInfo.get(str2);
+            } else {
+                packageInfo = null;
+            }
             if (packageInfo != null) {
-                PackageControl packageControl = PackageControl.getInstance();
-                return packageControl.deleteFinishedItem(str, str2, "" + packageInfo.updateVersion);
+                return PackageControl.getInstance().deleteFinishedItem(str, str2, "" + packageInfo.updateVersion);
             }
             return PackageControl.getInstance().deleteFinishedItem(str, str2, null);
         }
         return invokeLL.booleanValue;
     }
 
-    public static List<PackageInfo> getFinishedPackageFiles(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
+    public static Map getFinishedPackageFiles(String str, List list) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, str3)) == null) ? PackageControl.getInstance().queryFinishedItems(str, str2, str3) : (List) invokeLLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, list)) == null) {
+            HashMap hashMap = new HashMap();
+            List<PackageInfo> queryFinishedItems = PackageControl.getInstance().queryFinishedItems(str, list);
+            if (queryFinishedItems != null && queryFinishedItems.size() > 0) {
+                for (PackageInfo packageInfo : queryFinishedItems) {
+                    if (!hashMap.containsKey(packageInfo.packageName)) {
+                        hashMap.put(packageInfo.packageName, packageInfo);
+                    } else if (packageInfo.updateVersion > ((PackageInfo) hashMap.get(packageInfo.packageName)).updateVersion) {
+                        hashMap.put(packageInfo.packageName, packageInfo);
+                    }
+                }
+            }
+            return hashMap;
+        }
+        return (Map) invokeLL.objValue;
     }
 
-    public static Map<String, PackageInfo> getFinishedPackageInfo(String str, String str2) {
+    public static Map getFinishedPackageInfo(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
@@ -72,43 +88,34 @@ public class PackageManager {
         return (Map) invokeLL.objValue;
     }
 
+    public static List getFinishedPackageFiles(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, str3)) == null) {
+            return PackageControl.getInstance().queryFinishedItems(str, str2, str3);
+        }
+        return (List) invokeLLL.objValue;
+    }
+
     public static PackageInfo getLastPackageFile(String str, String str2, String str3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, str, str2, str3)) == null) {
-            List<PackageInfo> finishedPackageFiles = getFinishedPackageFiles(str, str2, str3);
-            if (finishedPackageFiles == null || finishedPackageFiles.size() <= 0) {
-                return null;
+            List finishedPackageFiles = getFinishedPackageFiles(str, str2, str3);
+            if (finishedPackageFiles != null && finishedPackageFiles.size() > 0) {
+                return (PackageInfo) finishedPackageFiles.get(0);
             }
-            return finishedPackageFiles.get(0);
+            return null;
         }
         return (PackageInfo) invokeLLL.objValue;
     }
 
-    public static int resetUpdateVersion(String str, List<String> list) {
+    public static int resetUpdateVersion(String str, List list) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, list)) == null) ? PackageControl.getInstance().resetFinishedUpdateVersion(str, list) : invokeLL.intValue;
-    }
-
-    @NonNull
-    public static Map<String, PackageInfo> getFinishedPackageFiles(@NonNull String str, @Nullable List<String> list) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, list)) == null) {
-            HashMap hashMap = new HashMap();
-            List<PackageInfo> queryFinishedItems = PackageControl.getInstance().queryFinishedItems(str, list);
-            if (queryFinishedItems != null && queryFinishedItems.size() > 0) {
-                for (PackageInfo packageInfo : queryFinishedItems) {
-                    if (!hashMap.containsKey(packageInfo.packageName)) {
-                        hashMap.put(packageInfo.packageName, packageInfo);
-                    } else if (packageInfo.updateVersion > ((PackageInfo) hashMap.get(packageInfo.packageName)).updateVersion) {
-                        hashMap.put(packageInfo.packageName, packageInfo);
-                    }
-                }
-            }
-            return hashMap;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, list)) == null) {
+            return PackageControl.getInstance().resetFinishedUpdateVersion(str, list);
         }
-        return (Map) invokeLL.objValue;
+        return invokeLL.intValue;
     }
 }

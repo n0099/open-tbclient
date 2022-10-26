@@ -16,6 +16,40 @@ public class SingleDownloadTask extends DownloadTaskImpl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.minivideo.plugin.capture.download.core.DownloadTaskImpl
+    public Map getHttpHeaders(ThreadRecord threadRecord) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadRecord)) == null) {
+            return null;
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    @Override // com.baidu.minivideo.plugin.capture.download.core.DownloadTaskImpl
+    public int getResponseCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 200;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.minivideo.plugin.capture.download.core.DownloadTaskImpl
+    public void insertIntoDB(ThreadRecord threadRecord) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, threadRecord) == null) {
+        }
+    }
+
+    @Override // com.baidu.minivideo.plugin.capture.download.core.DownloadTaskImpl
+    public void updateDB(ThreadRecord threadRecord) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, threadRecord) == null) {
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SingleDownloadTask(DownloadInfo downloadInfo, ThreadRecord threadRecord, DownloadTask.OnDownloadListener onDownloadListener) {
         super(downloadInfo, threadRecord, onDownloadListener);
@@ -50,43 +84,12 @@ public class SingleDownloadTask extends DownloadTaskImpl {
     }
 
     @Override // com.baidu.minivideo.plugin.capture.download.core.DownloadTaskImpl
-    public Map<String, String> getHttpHeaders(ThreadRecord threadRecord) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadRecord)) == null) {
-            return null;
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    @Override // com.baidu.minivideo.plugin.capture.download.core.DownloadTaskImpl
-    public int getResponseCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 200;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.minivideo.plugin.capture.download.core.DownloadTaskImpl
     public String getTag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? SingleDownloadTask.class.getSimpleName() : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.minivideo.plugin.capture.download.core.DownloadTaskImpl
-    public void insertIntoDB(ThreadRecord threadRecord) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, threadRecord) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return SingleDownloadTask.class.getSimpleName();
         }
-    }
-
-    @Override // com.baidu.minivideo.plugin.capture.download.core.DownloadTaskImpl
-    public void updateDB(ThreadRecord threadRecord) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, threadRecord) == null) {
-        }
+        return (String) invokeV.objValue;
     }
 }

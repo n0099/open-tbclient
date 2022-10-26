@@ -10,6 +10,14 @@ public abstract class ResponseWrapper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract void close();
+
+    public abstract String getBody() throws IOException;
+
+    public abstract String getMessage();
+
+    public abstract boolean isSuccessful();
+
     public ResponseWrapper() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -23,12 +31,4 @@ public abstract class ResponseWrapper {
             }
         }
     }
-
-    public abstract void close();
-
-    public abstract String getBody() throws IOException;
-
-    public abstract String getMessage();
-
-    public abstract boolean isSuccessful();
 }

@@ -48,44 +48,11 @@ public class a {
         return (String) invokeIL.objValue;
     }
 
-    public static String a(Context context, int i, String str) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65538, null, context, i, str)) == null) {
-            if (SDKManager.useCache) {
-                String a2 = a(i, str);
-                if (com.sdk.n.a.b(a2).booleanValue()) {
-                    String c = com.sdk.j.a.c(context, a2);
-                    if (com.sdk.n.a.b(c).booleanValue()) {
-                        String b2 = b(c);
-                        String a3 = com.sdk.t.a.a(a(c));
-                        if (!com.sdk.t.a.b(a3)) {
-                            com.sdk.n.a.b(a, "can use cache", b);
-                            JSONObject jSONObject = new JSONObject(a3);
-                            if (i == 1) {
-                                jSONObject.remove(OneKeyLoginOptResult.OptResultFields.SECURITY_PHONE);
-                            }
-                            StringBuilder sb = new StringBuilder();
-                            sb.append(jSONObject.toString());
-                            sb.append("-");
-                            sb.append(b2);
-                            return sb.toString();
-                        }
-                        com.sdk.n.a.b(a, "OutDate cache invalid", b);
-                    }
-                }
-                return null;
-            }
-            return null;
-        }
-        return (String) invokeLIL.objValue;
-    }
-
-    public static <T> String a(T t, String str) {
+    public static String a(Object obj, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, t, str)) == null) {
-            return t + "-" + str;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, obj, str)) == null) {
+            return obj + "-" + str;
         }
         return (String) invokeLL.objValue;
     }
@@ -108,6 +75,39 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) ? str.split("-")[1] : (String) invokeL.objValue;
+    }
+
+    public static String a(Context context, int i, String str) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65538, null, context, i, str)) == null) {
+            if (!SDKManager.useCache) {
+                return null;
+            }
+            String a2 = a(i, str);
+            if (com.sdk.n.a.b(a2).booleanValue()) {
+                String c = com.sdk.j.a.c(context, a2);
+                if (com.sdk.n.a.b(c).booleanValue()) {
+                    String b2 = b(c);
+                    String a3 = com.sdk.t.a.a(a(c));
+                    if (!com.sdk.t.a.b(a3)) {
+                        com.sdk.n.a.b(a, "can use cache", b);
+                        JSONObject jSONObject = new JSONObject(a3);
+                        if (i == 1) {
+                            jSONObject.remove(OneKeyLoginOptResult.OptResultFields.SECURITY_PHONE);
+                        }
+                        StringBuilder sb = new StringBuilder();
+                        sb.append(jSONObject.toString());
+                        sb.append("-");
+                        sb.append(b2);
+                        return sb.toString();
+                    }
+                    com.sdk.n.a.b(a, "OutDate cache invalid", b);
+                }
+            }
+            return null;
+        }
+        return (String) invokeLIL.objValue;
     }
 
     public static void a(Context context, int i, String str, String str2) {

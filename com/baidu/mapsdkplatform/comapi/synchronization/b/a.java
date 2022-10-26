@@ -33,13 +33,13 @@ public class a extends Handler {
     public static boolean h;
     public transient /* synthetic */ FieldHolder $fh;
     public HistoryTraceData c;
-    public List<HistoryTraceData.HistoryTracePoint> d;
+    public List d;
     public b.a e;
     public HistoryTraceQueryOptions f;
     public boolean g;
     public int i;
     public String j;
-    public SparseArray<List<HistoryTraceData.HistoryTracePoint>> k;
+    public SparseArray k;
 
     static {
         InterceptResult invokeClinit;
@@ -81,7 +81,7 @@ public class a extends Handler {
         this.j = HistoryTraceConstant.LBS_HISTORY_TRACE_MESSAGE_SUCCESS;
         this.d = new ArrayList();
         this.c = new HistoryTraceData();
-        this.k = new SparseArray<>();
+        this.k = new SparseArray();
     }
 
     private LatLng a(String str) {
@@ -112,7 +112,7 @@ public class a extends Handler {
         return (LatLng) invokeL.objValue;
     }
 
-    private List<HistoryTraceData.HistoryTracePoint> a(JSONArray jSONArray) {
+    private List a(JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, jSONArray)) == null) {
@@ -194,11 +194,11 @@ public class a extends Handler {
                 historyTraceData.setCurrentOrderState(jSONObject.optInt("o_status"));
                 historyTraceData.setOrderStartPosition(a(jSONObject.optString("o_start_point")));
                 historyTraceData.setOrderEndPosition(a(jSONObject.optString("o_end_point")));
-                List<HistoryTraceData.HistoryTracePoint> list = this.d;
+                List list = this.d;
                 if (list != null && !list.isEmpty()) {
                     this.d.clear();
                 }
-                List<HistoryTraceData.HistoryTracePoint> a2 = a(jSONObject.optJSONArray("points"));
+                List a2 = a(jSONObject.optJSONArray("points"));
                 if (a2 != null && !a2.isEmpty()) {
                     this.d.addAll(a2);
                 }
@@ -243,7 +243,7 @@ public class a extends Handler {
             if (b != null) {
                 b = null;
             }
-            List<HistoryTraceData.HistoryTracePoint> list = this.d;
+            List list = this.d;
             if (list != null) {
                 list.clear();
                 this.d = null;
@@ -299,7 +299,7 @@ public class a extends Handler {
             }
             ArrayList arrayList = new ArrayList();
             for (int i2 = 0; i2 < this.k.size(); i2++) {
-                List<HistoryTraceData.HistoryTracePoint> list = this.k.get(i2);
+                List list = (List) this.k.get(i2);
                 if (list != null && !list.isEmpty()) {
                     arrayList.addAll(list);
                 }

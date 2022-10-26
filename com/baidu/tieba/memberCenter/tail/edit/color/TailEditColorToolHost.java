@@ -10,27 +10,48 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.view.NoPressedLinearLayout;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ao7;
-import com.baidu.tieba.bo7;
-import com.baidu.tieba.do7;
-import com.baidu.tieba.h55;
-import com.baidu.tieba.t55;
-import com.baidu.tieba.zn7;
+import com.baidu.tieba.ko7;
+import com.baidu.tieba.l55;
+import com.baidu.tieba.lo7;
+import com.baidu.tieba.mo7;
+import com.baidu.tieba.oo7;
+import com.baidu.tieba.x55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class TailEditColorToolHost extends NoPressedLinearLayout implements t55 {
+public class TailEditColorToolHost extends NoPressedLinearLayout implements x55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public zn7 b;
-    public bo7 c;
-    public do7 d;
+    public ko7 b;
+    public mo7 c;
+    public oo7 d;
     public EditorTools e;
     public View.OnClickListener f;
+
+    @Override // com.baidu.tieba.m55
+    public void B(l55 l55Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, l55Var) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.x55
+    public void init() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.x55
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+        }
+    }
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
@@ -58,19 +79,19 @@ public class TailEditColorToolHost extends NoPressedLinearLayout implements t55 
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            ao7 ao7Var;
+            lo7 lo7Var;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (ao7Var = (ao7) view2.getTag()) == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || (lo7Var = (lo7) view2.getTag()) == null) {
                 return;
             }
-            this.a.c.c(ao7Var.b());
+            this.a.c.c(lo7Var.b());
             this.a.b.notifyDataSetChanged();
-            this.a.e.A(new h55(26, -1, ao7Var.b()));
+            this.a.e.A(new l55(26, -1, lo7Var.b()));
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TailEditColorToolHost(TbPageContext<?> tbPageContext, String str) {
+    public TailEditColorToolHost(TbPageContext tbPageContext, String str) {
         super(tbPageContext.getPageActivity());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -92,75 +113,16 @@ public class TailEditColorToolHost extends NoPressedLinearLayout implements t55 
         f(tbPageContext, str);
     }
 
-    @Override // com.baidu.tieba.i55
-    public void B(h55 h55Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, h55Var) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.t55
-    public void K(h55 h55Var) {
+    @Override // com.baidu.tieba.x55
+    public void K(l55 l55Var) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h55Var) == null) || (editorTools = this.e) == null) {
-            return;
-        }
-        editorTools.A(h55Var);
-    }
-
-    @Override // com.baidu.tieba.t55
-    public void display() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            setVisibility(0);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l55Var) == null) && (editorTools = this.e) != null) {
+            editorTools.A(l55Var);
         }
     }
 
-    public final void f(TbPageContext<?> tbPageContext, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, tbPageContext, str) == null) {
-            LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0857, (ViewGroup) this, true);
-            this.d = new do7(this);
-            bo7 bo7Var = new bo7(tbPageContext);
-            this.c = bo7Var;
-            bo7Var.c(str);
-            zn7 zn7Var = new zn7(tbPageContext, this.c, this.f);
-            this.b = zn7Var;
-            this.d.a(zn7Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.t55
-    public int getToolId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.t55
-    public void hide() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            setVisibility(8);
-        }
-    }
-
-    @Override // com.baidu.tieba.t55
-    public void init() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.t55
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.t55
+    @Override // com.baidu.tieba.x55
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, editorTools) == null) {
@@ -168,11 +130,51 @@ public class TailEditColorToolHost extends NoPressedLinearLayout implements t55 
         }
     }
 
-    @Override // com.baidu.tieba.t55
+    @Override // com.baidu.tieba.x55
     public void setToolId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
             this.a = i;
+        }
+    }
+
+    @Override // com.baidu.tieba.x55
+    public void display() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            setVisibility(0);
+        }
+    }
+
+    @Override // com.baidu.tieba.x55
+    public int getToolId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.x55
+    public void hide() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            setVisibility(8);
+        }
+    }
+
+    public final void f(TbPageContext tbPageContext, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, tbPageContext, str) == null) {
+            LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0858, (ViewGroup) this, true);
+            this.d = new oo7(this);
+            mo7 mo7Var = new mo7(tbPageContext);
+            this.c = mo7Var;
+            mo7Var.c(str);
+            ko7 ko7Var = new ko7(tbPageContext, this.c, this.f);
+            this.b = ko7Var;
+            this.d.a(ko7Var);
         }
     }
 }

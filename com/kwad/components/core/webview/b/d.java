@@ -52,7 +52,7 @@ public class d {
     public com.kwad.components.core.webview.b.b.d Ne;
     public e Nf;
     public com.kwad.components.core.offline.api.kwai.a Ng;
-    public Future<?> Nh;
+    public Future Nh;
     public h Ni;
     public j Nj;
     public g Nk;
@@ -75,7 +75,7 @@ public class d {
 
     /* renamed from: com.kwad.components.core.webview.b.d$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public class AnonymousClass1 implements Runnable {
+    public final class AnonymousClass1 implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ d Nv;
@@ -157,7 +157,7 @@ public class d {
                                 this.Nx.Nv.a(this.Nw, new a(this) { // from class: com.kwad.components.core.webview.b.d.1.1.1
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
-                                    public final /* synthetic */ RunnableC05851 Ny;
+                                    public final /* synthetic */ RunnableC05811 Ny;
 
                                     {
                                         Interceptable interceptable3 = $ic;
@@ -1085,7 +1085,7 @@ public class d {
     public final void pF() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            Future<?> future = this.Nh;
+            Future future = this.Nh;
             if (future != null) {
                 future.cancel(true);
             }

@@ -19,7 +19,7 @@ import java.util.concurrent.atomic.AtomicLong;
 public final class UrlResponseInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<String> a;
+    public final List a;
     public final int b;
     public final String c;
     public final boolean d;
@@ -29,13 +29,13 @@ public final class UrlResponseInfo {
     public final HeaderBlock h;
 
     /* loaded from: classes6.dex */
-    public static final class HeaderBlock {
+    public final class HeaderBlock {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final List<Map.Entry<String, String>> a;
-        public Map<String, List<String>> b;
+        public final List a;
+        public Map b;
 
-        public HeaderBlock(List<Map.Entry<String, String>> list) {
+        public HeaderBlock(List list) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -53,22 +53,25 @@ public final class UrlResponseInfo {
             this.a = list;
         }
 
-        public List<Map.Entry<String, String>> a() {
+        public List a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (List) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a;
+            }
+            return (List) invokeV.objValue;
         }
 
-        public Map<String, List<String>> b() {
+        public Map b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                Map<String, List<String>> map = this.b;
+                Map map = this.b;
                 if (map != null) {
                     return map;
                 }
                 TreeMap treeMap = new TreeMap(String.CASE_INSENSITIVE_ORDER);
-                for (Map.Entry<String, String> entry : this.a) {
+                for (Map.Entry entry : this.a) {
                     ArrayList arrayList = new ArrayList();
                     if (treeMap.containsKey(entry.getKey())) {
                         arrayList.addAll((Collection) treeMap.get(entry.getKey()));
@@ -76,7 +79,7 @@ public final class UrlResponseInfo {
                     arrayList.add(entry.getValue());
                     treeMap.put(entry.getKey(), Collections.unmodifiableList(arrayList));
                 }
-                Map<String, List<String>> unmodifiableMap = Collections.unmodifiableMap(treeMap);
+                Map unmodifiableMap = Collections.unmodifiableMap(treeMap);
                 this.b = unmodifiableMap;
                 return unmodifiableMap;
             }
@@ -84,7 +87,7 @@ public final class UrlResponseInfo {
         }
     }
 
-    public UrlResponseInfo(List<String> list, int i, String str, List<Map.Entry<String, String>> list2, boolean z, String str2, String str3) {
+    public UrlResponseInfo(List list, int i, String str, List list2, boolean z, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -109,62 +112,95 @@ public final class UrlResponseInfo {
         this.g = new AtomicLong();
     }
 
-    public Map<String, List<String>> a() {
+    public Map a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.h.b() : (Map) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.h.b();
+        }
+        return (Map) invokeV.objValue;
     }
 
-    public List<Map.Entry<String, String>> b() {
+    public List b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.h.a() : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.h.a();
+        }
+        return (List) invokeV.objValue;
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.e : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
     }
 
     public long g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.g.get() : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.g.get();
+        }
+        return invokeV.longValue;
     }
 
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            List<String> list = this.a;
-            return list.get(list.size() - 1);
+            List list = this.a;
+            return (String) list.get(list.size() - 1);
         }
         return (String) invokeV.objValue;
     }
 
-    public List<String> i() {
+    public List i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.a : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.a;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
     }
 
     public void j(long j) {
@@ -174,15 +210,12 @@ public final class UrlResponseInfo {
         }
     }
 
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.d : invokeV.booleanValue;
-    }
-
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? String.format(Locale.ROOT, "UrlResponseInfo@[%s][%s]: urlChain = %s, httpStatus = %d %s, headers = %s, wasCached = %b, negotiatedProtocol = %s, proxyServer= %s, receivedBytesCount = %d", Integer.toHexString(System.identityHashCode(this)), h(), i().toString(), Integer.valueOf(c()), d(), b().toString(), Boolean.valueOf(k()), e(), f(), Long.valueOf(g())) : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return String.format(Locale.ROOT, "UrlResponseInfo@[%s][%s]: urlChain = %s, httpStatus = %d %s, headers = %s, wasCached = %b, negotiatedProtocol = %s, proxyServer= %s, receivedBytesCount = %d", Integer.toHexString(System.identityHashCode(this)), h(), i().toString(), Integer.valueOf(c()), d(), b().toString(), Boolean.valueOf(k()), e(), f(), Long.valueOf(g()));
+        }
+        return (String) invokeV.objValue;
     }
 }

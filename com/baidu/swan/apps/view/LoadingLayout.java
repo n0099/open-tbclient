@@ -43,37 +43,17 @@ public class LoadingLayout extends LinearLayout {
         }
     }
 
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0824, (ViewGroup) null);
-            inflate.setBackgroundColor(-1);
-            this.a = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09024a);
-            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09024b);
-            addView(inflate);
-        }
-    }
-
     public void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
             if (z) {
                 setVisibility(0);
                 Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f01013e);
-                this.a.setImageResource(R.drawable.obfuscated_res_0x7f08118d);
+                this.a.setImageResource(R.drawable.obfuscated_res_0x7f08119e);
                 this.a.startAnimation(loadAnimation);
                 return;
             }
             setVisibility(8);
-        }
-    }
-
-    @Override // android.view.View
-    public void onFinishInflate() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.onFinishInflate();
-            a();
         }
     }
 
@@ -95,6 +75,26 @@ public class LoadingLayout extends LinearLayout {
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
+        }
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0825, (ViewGroup) null);
+            inflate.setBackgroundColor(-1);
+            this.a = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09024a);
+            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09024b);
+            addView(inflate);
+        }
+    }
+
+    @Override // android.view.View
+    public void onFinishInflate() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.onFinishInflate();
+            a();
         }
     }
 }

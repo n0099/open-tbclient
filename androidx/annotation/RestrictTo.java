@@ -15,6 +15,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.CLASS)
 /* loaded from: classes.dex */
 public @interface RestrictTo {
+    Scope[] value();
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
@@ -75,15 +76,19 @@ public @interface RestrictTo {
         public static Scope valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Scope) Enum.valueOf(Scope.class, str) : (Scope) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (Scope) Enum.valueOf(Scope.class, str);
+            }
+            return (Scope) invokeL.objValue;
         }
 
         public static Scope[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Scope[]) $VALUES.clone() : (Scope[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (Scope[]) $VALUES.clone();
+            }
+            return (Scope[]) invokeV.objValue;
         }
     }
-
-    Scope[] value();
 }

@@ -119,7 +119,7 @@ public class FavoriteManager {
         i.b();
     }
 
-    public List<FavoritePoiInfo> getAllFavPois() {
+    public List getAllFavPois() {
         InterceptResult invokeV;
         JSONArray optJSONArray;
         Interceptable interceptable = $ic;

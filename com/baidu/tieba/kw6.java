@@ -1,25 +1,21 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.webkit.WebChromeClient;
-import android.webkit.WebView;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.MtjConfig;
-import com.baidu.mobstat.StatService;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ms8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class kw6 implements ms8.a {
+public class kw6 extends ob {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public kw6() {
+        super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -27,40 +23,33 @@ public class kw6 implements ms8.a {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        String version = TbConfig.getVersion();
-        if (TextUtils.isEmpty(version)) {
-            return;
-        }
-        StatService.setAppVersionName(TbadkCoreApplication.getInst(), version);
     }
 
-    @Override // com.baidu.tieba.ms8.a
-    public void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            StatService.setFeedTrack(MtjConfig.FeedTrackStrategy.TRACK_NONE);
-            StatService.autoTrace(context);
-        }
+    @Override // com.baidu.tieba.lb
+    public /* bridge */ /* synthetic */ ResponsedMessage a(ResponsedMessage responsedMessage) {
+        SocketResponsedMessage socketResponsedMessage = (SocketResponsedMessage) responsedMessage;
+        c(socketResponsedMessage);
+        return socketResponsedMessage;
     }
 
-    @Override // com.baidu.tieba.ms8.a
-    public void b(Context context, WebView webView, WebChromeClient webChromeClient) {
+    public SocketResponsedMessage c(SocketResponsedMessage socketResponsedMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, webView, webChromeClient) == null) {
-            StatService.trackWebView(context, webView, webChromeClient);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage)) == null) {
+            if (socketResponsedMessage == null) {
+                return socketResponsedMessage;
+            }
+            if (socketResponsedMessage.getError() == 1990055 && !iw6.c(socketResponsedMessage.getCmd())) {
+                iw6.d();
+            }
+            return socketResponsedMessage;
         }
-    }
-
-    @Override // com.baidu.tieba.ms8.a
-    public void c(Context context, String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, context, str, z) == null) {
-            StatService.setAppChannel(context, str, z);
-        }
+        return (SocketResponsedMessage) invokeL.objValue;
     }
 }

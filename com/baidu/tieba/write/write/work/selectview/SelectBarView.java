@@ -19,8 +19,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.data.SelectForumData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.hv4;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.nv4;
 import com.baidu.tieba.write.write.work.selectview.SelectBarView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -66,6 +66,52 @@ public class SelectBarView extends LinearLayout {
         b();
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public SelectBarView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.i = true;
+        b();
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public SelectBarView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.i = true;
+        b();
+    }
+
     public static final void c(SelectBarView this$0, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, this$0, view2) == null) {
@@ -79,20 +125,26 @@ public class SelectBarView extends LinearLayout {
     }
 
     public final void a(SelectForumData selectForumData) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, selectForumData) == null) {
             if (selectForumData != null) {
                 String str = selectForumData.forumId;
-                boolean z = true;
-                if (!(str == null || str.length() == 0)) {
+                boolean z2 = true;
+                if (str != null && str.length() != 0) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                if (!z) {
                     String str2 = selectForumData.forumName;
                     if (str2 != null && str2.length() != 0) {
-                        z = false;
+                        z2 = false;
                     }
-                    if (!z) {
+                    if (!z2) {
                         getMCenterContent().setVisibility(0);
                         getMCenterContentTips().setVisibility(8);
-                        getMCenterContent().setText(Intrinsics.stringPlus(selectForumData.forumName, getContext().getString(R.string.obfuscated_res_0x7f0f066e)));
+                        getMCenterContent().setText(Intrinsics.stringPlus(selectForumData.forumName, getContext().getString(R.string.obfuscated_res_0x7f0f0677)));
                         return;
                     }
                 }
@@ -105,30 +157,30 @@ public class SelectBarView extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08f1, (ViewGroup) this, true);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f0912da);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08f2, (ViewGroup) this, true);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f0912ce);
             Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.left_title)");
             setMLeftTitle((TextView) findViewById);
-            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f0905e0);
+            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f0905e9);
             Intrinsics.checkNotNullExpressionValue(findViewById2, "findViewById(R.id.center_content_tips)");
             setMCenterContentTips((TextView) findViewById2);
-            View findViewById3 = findViewById(R.id.obfuscated_res_0x7f0905de);
+            View findViewById3 = findViewById(R.id.obfuscated_res_0x7f0905e7);
             Intrinsics.checkNotNullExpressionValue(findViewById3, "findViewById(R.id.center_content)");
             setMCenterContent((TextView) findViewById3);
-            getMCenterContent().setCompoundDrawablePadding(ej.f(getContext(), R.dimen.M_W_X002));
-            View findViewById4 = findViewById(R.id.obfuscated_res_0x7f0905df);
+            getMCenterContent().setCompoundDrawablePadding(fj.f(getContext(), R.dimen.M_W_X002));
+            View findViewById4 = findViewById(R.id.obfuscated_res_0x7f0905e8);
             Intrinsics.checkNotNullExpressionValue(findViewById4, "findViewById(R.id.center_content_pos)");
             setMCenterContentPos((TextView) findViewById4);
-            getMCenterContentPos().setCompoundDrawablePadding(ej.f(getContext(), R.dimen.M_W_X002));
+            getMCenterContentPos().setCompoundDrawablePadding(fj.f(getContext(), R.dimen.M_W_X002));
             getMCenterContentPos().setVisibility(8);
-            View findViewById5 = findViewById(R.id.obfuscated_res_0x7f091c2f);
+            View findViewById5 = findViewById(R.id.obfuscated_res_0x7f091c2b);
             Intrinsics.checkNotNullExpressionValue(findViewById5, "findViewById(R.id.right_arrow)");
             setMRightArrow((ImageView) findViewById5);
-            View findViewById6 = findViewById(R.id.obfuscated_res_0x7f0903ee);
+            View findViewById6 = findViewById(R.id.obfuscated_res_0x7f0903f7);
             Intrinsics.checkNotNullExpressionValue(findViewById6, "findViewById(R.id.bottom_line)");
             setMBottomLine(findViewById6);
             d();
-            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.w79
+            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.o89
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -148,10 +200,10 @@ public class SelectBarView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             SkinManager.setViewTextColor(getMLeftTitle(), (int) R.color.CAM_X0105);
-            WebPManager.setPureDrawable(getMRightArrow(), R.drawable.obfuscated_res_0x7f0807aa, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL);
+            WebPManager.setPureDrawable(getMRightArrow(), R.drawable.obfuscated_res_0x7f0807ad, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL);
             SkinManager.setBackgroundColor(getMBottomLine(), R.color.CAM_X0210);
             getMCenterContentTips().setTextColor(SkinManager.getColor(R.color.CAM_X0109));
-            hv4 d = hv4.d(getMCenterContent());
+            nv4 d = nv4.d(getMCenterContent());
             d.A(R.string.F_X01);
             d.z(R.dimen.T_X09);
             d.v(R.color.CAM_X0105);
@@ -160,15 +212,15 @@ public class SelectBarView extends LinearLayout {
             d.l(R.dimen.L_X02);
             d.k(R.color.CAM_X0204);
             d.f(R.color.CAM_X0204);
-            Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080926, SkinManager.getColor(R.color.CAM_X0110), WebPManager.ResourceStateType.NORMAL_PRESS);
+            Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080925, SkinManager.getColor(R.color.CAM_X0110), WebPManager.ResourceStateType.NORMAL_PRESS);
             Intrinsics.checkNotNullExpressionValue(pureDrawable, "getPureDrawable(R.drawab…ceStateType.NORMAL_PRESS)");
             setMIconDrawable(pureDrawable);
-            int f = ej.f(getContext(), R.dimen.tbds32);
+            int f = fj.f(getContext(), R.dimen.tbds32);
             getMIconDrawable().setBounds(0, 0, f, f);
             getMCenterContent().setCompoundDrawables(getMIconDrawable(), null, null, null);
-            getMCenterContent().setCompoundDrawablePadding(ej.f(getContext(), R.dimen.M_W_X002));
-            getMCenterContent().setPadding(ej.f(getContext(), R.dimen.M_W_X004), 0, ej.f(getContext(), R.dimen.M_W_X004), 0);
-            hv4 d2 = hv4.d(getMCenterContentPos());
+            getMCenterContent().setCompoundDrawablePadding(fj.f(getContext(), R.dimen.M_W_X002));
+            getMCenterContent().setPadding(fj.f(getContext(), R.dimen.M_W_X004), 0, fj.f(getContext(), R.dimen.M_W_X004), 0);
+            nv4 d2 = nv4.d(getMCenterContentPos());
             d2.A(R.string.F_X01);
             d2.z(R.dimen.T_X09);
             d2.v(R.color.CAM_X0105);
@@ -177,13 +229,13 @@ public class SelectBarView extends LinearLayout {
             d2.l(R.dimen.L_X02);
             d2.k(R.color.CAM_X0204);
             d2.f(R.color.CAM_X0204);
-            Drawable pureDrawable2 = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080615, SkinManager.getColor(R.color.CAM_X0110), WebPManager.ResourceStateType.NORMAL);
+            Drawable pureDrawable2 = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080616, SkinManager.getColor(R.color.CAM_X0110), WebPManager.ResourceStateType.NORMAL);
             Intrinsics.checkNotNullExpressionValue(pureDrawable2, "getPureDrawable(R.drawab…ResourceStateType.NORMAL)");
             setMPosDrawable(pureDrawable2);
             getMPosDrawable().setBounds(0, 0, f, f);
             getMCenterContentPos().setCompoundDrawables(getMPosDrawable(), null, null, null);
-            getMCenterContentPos().setCompoundDrawablePadding(ej.f(getContext(), R.dimen.M_W_X004));
-            getMCenterContentPos().setPadding(ej.f(getContext(), R.dimen.M_W_X004), 0, ej.f(getContext(), R.dimen.M_W_X002), 0);
+            getMCenterContentPos().setCompoundDrawablePadding(fj.f(getContext(), R.dimen.M_W_X004));
+            getMCenterContentPos().setPadding(fj.f(getContext(), R.dimen.M_W_X004), 0, fj.f(getContext(), R.dimen.M_W_X002), 0);
         }
     }
 
@@ -204,7 +256,10 @@ public class SelectBarView extends LinearLayout {
     public final boolean getMCanChangeBarName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.i : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.i;
+        }
+        return invokeV.booleanValue;
     }
 
     public final TextView getMCenterContent() {
@@ -374,51 +429,5 @@ public class SelectBarView extends LinearLayout {
             Intrinsics.checkNotNullParameter(imageView, "<set-?>");
             this.e = imageView;
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SelectBarView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.i = true;
-        b();
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SelectBarView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.i = true;
-        b();
     }
 }

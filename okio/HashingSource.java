@@ -46,46 +46,6 @@ public final class HashingSource extends ForwardingSource {
         }
     }
 
-    public static HashingSource hmacSha1(Source source, ByteString byteString) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, source, byteString)) == null) ? new HashingSource(source, byteString, "HmacSHA1") : (HashingSource) invokeLL.objValue;
-    }
-
-    public static HashingSource hmacSha256(Source source, ByteString byteString) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, source, byteString)) == null) ? new HashingSource(source, byteString, "HmacSHA256") : (HashingSource) invokeLL.objValue;
-    }
-
-    public static HashingSource md5(Source source) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, source)) == null) ? new HashingSource(source, "MD5") : (HashingSource) invokeL.objValue;
-    }
-
-    public static HashingSource sha1(Source source) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, source)) == null) ? new HashingSource(source, "SHA-1") : (HashingSource) invokeL.objValue;
-    }
-
-    public static HashingSource sha256(Source source) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, source)) == null) ? new HashingSource(source, "SHA-256") : (HashingSource) invokeL.objValue;
-    }
-
-    public ByteString hash() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            MessageDigest messageDigest = this.messageDigest;
-            return ByteString.of(messageDigest != null ? messageDigest.digest() : this.mac.doFinal());
-        }
-        return (ByteString) invokeV.objValue;
-    }
-
     @Override // okio.ForwardingSource, okio.Source
     public long read(Buffer buffer, long j) throws IOException {
         InterceptResult invokeLJ;
@@ -146,5 +106,66 @@ public final class HashingSource extends ForwardingSource {
         } catch (NoSuchAlgorithmException unused) {
             throw new AssertionError();
         }
+    }
+
+    public static HashingSource hmacSha1(Source source, ByteString byteString) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, source, byteString)) == null) {
+            return new HashingSource(source, byteString, "HmacSHA1");
+        }
+        return (HashingSource) invokeLL.objValue;
+    }
+
+    public static HashingSource hmacSha256(Source source, ByteString byteString) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, source, byteString)) == null) {
+            return new HashingSource(source, byteString, "HmacSHA256");
+        }
+        return (HashingSource) invokeLL.objValue;
+    }
+
+    public static HashingSource md5(Source source) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, source)) == null) {
+            return new HashingSource(source, "MD5");
+        }
+        return (HashingSource) invokeL.objValue;
+    }
+
+    public static HashingSource sha1(Source source) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, source)) == null) {
+            return new HashingSource(source, "SHA-1");
+        }
+        return (HashingSource) invokeL.objValue;
+    }
+
+    public static HashingSource sha256(Source source) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, source)) == null) {
+            return new HashingSource(source, "SHA-256");
+        }
+        return (HashingSource) invokeL.objValue;
+    }
+
+    public ByteString hash() {
+        InterceptResult invokeV;
+        byte[] doFinal;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            MessageDigest messageDigest = this.messageDigest;
+            if (messageDigest != null) {
+                doFinal = messageDigest.digest();
+            } else {
+                doFinal = this.mac.doFinal();
+            }
+            return ByteString.of(doFinal);
+        }
+        return (ByteString) invokeV.objValue;
     }
 }

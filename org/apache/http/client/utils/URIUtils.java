@@ -49,13 +49,13 @@ public class URIUtils {
         return (URI) invokeLL.objValue;
     }
 
-    public static URI rewriteURI(URI uri, HttpHost httpHost, boolean z) throws URISyntaxException {
-        InterceptResult invokeLLZ;
+    public static URI rewriteURI(URI uri, HttpHost httpHost) throws URISyntaxException {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65541, null, uri, httpHost, z)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, uri, httpHost)) == null) {
             throw new RuntimeException("Stub!");
         }
-        return (URI) invokeLLZ.objValue;
+        return (URI) invokeLL.objValue;
     }
 
     public static URI resolve(URI uri, URI uri2) {
@@ -67,12 +67,12 @@ public class URIUtils {
         return (URI) invokeLL.objValue;
     }
 
-    public static URI rewriteURI(URI uri, HttpHost httpHost) throws URISyntaxException {
-        InterceptResult invokeLL;
+    public static URI rewriteURI(URI uri, HttpHost httpHost, boolean z) throws URISyntaxException {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, uri, httpHost)) == null) {
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65541, null, uri, httpHost, z)) == null) {
             throw new RuntimeException("Stub!");
         }
-        return (URI) invokeLL.objValue;
+        return (URI) invokeLLZ.objValue;
     }
 }

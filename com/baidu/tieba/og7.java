@@ -1,197 +1,232 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.lego.card.exception.CardParseException;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.lego.card.model.BaseLegoCardInfo;
 import com.baidu.tieba.lego.card.model.ICardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class og7 extends qg7 {
+public class og7 implements kg7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<qg7> c;
+    public final StatisticItem a;
 
     /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
+    public /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes5.dex */
-    public static class b {
+    public class b implements kg7 {
         public static /* synthetic */ Interceptable $ic;
-        public static final og7 a;
         public transient /* synthetic */ FieldHolder $fh;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-547613492, "Lcom/baidu/tieba/og7$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-547613492, "Lcom/baidu/tieba/og7$b;");
-                    return;
-                }
-            }
-            a = new og7(null);
-        }
-    }
-
-    public /* synthetic */ og7(a aVar) {
-        this();
-    }
-
-    public static og7 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (og7) invokeV.objValue;
-    }
-
-    public static ICardInfo i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            try {
-                ICardInfo j = j(new JSONObject(str));
-                if (j != null) {
-                    if (j.isValid()) {
-                        return j;
-                    }
-                }
-                return null;
-            } catch (CardParseException e) {
-                BdLog.detailException("CardFactory.getPageCardInfo", e);
-                return null;
-            } catch (JSONException e2) {
-                BdLog.detailException("CardFactory.getPageCardInfo", e2);
-                return null;
+        @Override // com.baidu.tieba.kg7
+        public void a(ICardInfo iCardInfo) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, iCardInfo) == null) {
             }
         }
-        return (ICardInfo) invokeL.objValue;
-    }
 
-    public static ICardInfo j(JSONObject jSONObject) throws CardParseException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject)) == null) ? h().b(jSONObject, jSONObject.optInt("card_type")) : (ICardInfo) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.qg7
-    public <T> jh7 a(TbPageContext<T> tbPageContext, ICardInfo iCardInfo, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, tbPageContext, iCardInfo, i)) == null) {
-            jh7 e = e(tbPageContext, iCardInfo, i);
-            if (e != null) {
-                e.setBusinessType(i);
-            }
-            return e;
+        @Override // com.baidu.tieba.kg7
+        public kg7 b(String str, int i) {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) ? this : (kg7) invokeLI.objValue;
         }
-        return (jh7) invokeLLI.objValue;
-    }
 
-    @Override // com.baidu.tieba.qg7
-    public ICardInfo b(JSONObject jSONObject, int i) throws CardParseException {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, i)) == null) ? f(jSONObject, i) : (ICardInfo) invokeLI.objValue;
-    }
-
-    @Override // com.baidu.tieba.qg7
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        @Override // com.baidu.tieba.kg7
+        public kg7 c(String str, long j) {
+            InterceptResult invokeLJ;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j)) == null) ? this : (kg7) invokeLJ.objValue;
         }
-    }
 
-    @Override // com.baidu.tieba.qg7
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "lego_main" : (String) invokeV.objValue;
-    }
+        @Override // com.baidu.tieba.kg7
+        public kg7 d(String str, String str2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) ? this : (kg7) invokeLL.objValue;
+        }
 
-    public final <T> jh7 e(TbPageContext<T> tbPageContext, ICardInfo iCardInfo, int i) {
-        InterceptResult invokeLLI;
-        jh7 a2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, tbPageContext, iCardInfo, i)) == null) {
-            for (qg7 qg7Var : this.c) {
-                try {
-                    a2 = qg7Var.a(tbPageContext, iCardInfo, i);
-                } catch (Throwable th) {
-                    BdLog.detailException("factory <" + qg7Var.d() + "> respond exception", th);
-                }
-                if (a2 != null) {
-                    return a2;
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            StringBuilder sb = new StringBuilder();
-            sb.append("No card factory for card type ");
-            sb.append(iCardInfo == null ? -1 : iCardInfo.getCardType());
-            BdLog.e(sb.toString());
-            return null;
         }
-        return (jh7) invokeLLI.objValue;
-    }
 
-    public final ICardInfo f(JSONObject jSONObject, int i) throws CardParseException {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, jSONObject, i)) == null) {
-            for (qg7 qg7Var : this.c) {
-                try {
-                    ICardInfo b2 = qg7Var.b(jSONObject, i);
-                    if (b2 != null) {
-                        return b2;
-                    }
-                } catch (Throwable th) {
-                    throw new CardParseException("Card type " + i + ", factory <" + qg7Var.d() + "> respond exception", th);
-                }
-            }
-            BdLog.e("No card factory for card type " + i);
-            return null;
-        }
-        return (ICardInfo) invokeLI.objValue;
-    }
-
-    public synchronized void g(qg7 qg7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, qg7Var) == null) {
-            synchronized (this) {
-                this.c.add(qg7Var);
-            }
+        public /* synthetic */ b(a aVar) {
+            this();
         }
     }
 
-    public og7() {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public og7(BaseLegoCardInfo baseLegoCardInfo) {
+        this(baseLegoCardInfo.getStatistics(), baseLegoCardInfo.getStatTab(), baseLegoCardInfo.getCardType(), baseLegoCardInfo.getItemId());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseLegoCardInfo};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), (String) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new ArrayList(4);
+    }
+
+    public og7(String str, int i, int i2, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), str2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        StatisticItem statisticItem = new StatisticItem(str);
+        this.a = statisticItem;
+        statisticItem.param("obj_source", i);
+        this.a.param("obj_type", i2);
+        if (!TextUtils.isEmpty(str2)) {
+            this.a.param("obj_card", str2);
+        }
+    }
+
+    public static kg7 e(BaseLegoCardInfo baseLegoCardInfo) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, baseLegoCardInfo)) == null) {
+            if (baseLegoCardInfo != null && !TextUtils.isEmpty(baseLegoCardInfo.getStatistics())) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
+                return new og7(baseLegoCardInfo);
+            }
+            return new b(null);
+        }
+        return (kg7) invokeL.objValue;
+    }
+
+    public static kg7 f(String str, int i, int i2, String str2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), str2})) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                return new og7(str, i, i2, str2);
+            }
+            return new b(null);
+        }
+        return (kg7) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.tieba.kg7
+    public void a(ICardInfo iCardInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, iCardInfo) == null) {
+            g(iCardInfo);
+            TiebaStatic.log(this.a);
+        }
+    }
+
+    @Override // com.baidu.tieba.kg7
+    public kg7 b(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                this.a.param(str, i);
+            }
+            return this;
+        }
+        return (kg7) invokeLI.objValue;
+    }
+
+    @Override // com.baidu.tieba.kg7
+    public kg7 c(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                this.a.param(str, String.valueOf(j));
+            }
+            return this;
+        }
+        return (kg7) invokeLJ.objValue;
+    }
+
+    @Override // com.baidu.tieba.kg7
+    public kg7 d(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                this.a.param(str, str2);
+            }
+            return this;
+        }
+        return (kg7) invokeLL.objValue;
+    }
+
+    public final void g(ICardInfo iCardInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, iCardInfo) == null) {
+            BaseLegoCardInfo baseLegoCardInfo = (BaseLegoCardInfo) iCardInfo;
+            if (!TextUtils.isEmpty(baseLegoCardInfo.getStatistics()) && !TextUtils.isEmpty(baseLegoCardInfo.getsExtras())) {
+                List<Object> params = this.a.getParams();
+                for (String str : baseLegoCardInfo.getsExtras().split("&")) {
+                    String[] split = str.split("=");
+                    if (split.length == 2) {
+                        String str2 = split[0];
+                        String str3 = split[1];
+                        boolean z = false;
+                        for (int i = 0; i < params.size() && !z; i += 2) {
+                            if (TextUtils.equals(str2, params.get(i).toString())) {
+                                int i2 = i + 1;
+                                if (i2 < params.size()) {
+                                    params.set(i2, str3);
+                                }
+                                z = true;
+                            }
+                        }
+                        if (!z) {
+                            this.a.param(str2, str3);
+                        }
+                    }
+                }
+                d(TiebaStatic.Params.OBJ_PARAM3, a26.e());
+            }
+        }
     }
 }

@@ -5,7 +5,6 @@ import android.os.Parcelable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.model.CoordUtil;
-import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.search.core.RouteLine;
 import com.baidu.mapapi.search.core.RouteNode;
 import com.baidu.mapapi.search.core.RouteStep;
@@ -18,15 +17,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes2.dex */
-public class WalkingRouteLine extends RouteLine<WalkingStep> implements Parcelable {
+public class WalkingRouteLine extends RouteLine implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<WalkingRouteLine> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public static class WalkingStep extends RouteStep implements Parcelable {
+    public class WalkingStep extends RouteStep implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
-        public static final Parcelable.Creator<WalkingStep> CREATOR;
+        public static final Parcelable.Creator CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
         public int d;
         public RouteNode e;
@@ -140,7 +139,7 @@ public class WalkingRouteLine extends RouteLine<WalkingStep> implements Parcelab
         }
 
         @Override // com.baidu.mapapi.search.core.RouteStep
-        public List<LatLng> getWayPoints() {
+        public List getWayPoints() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -278,7 +277,7 @@ public class WalkingRouteLine extends RouteLine<WalkingStep> implements Parcelab
     }
 
     @Override // com.baidu.mapapi.search.core.RouteLine
-    public List<WalkingStep> getAllStep() {
+    public List getAllStep() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? super.getAllStep() : (List) invokeV.objValue;

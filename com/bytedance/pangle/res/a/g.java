@@ -32,6 +32,42 @@ public final class g extends f {
         }
     }
 
+    public final void b(int i) {
+        int readInt;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            while (true) {
+                readInt = readInt();
+                if (readInt != i && readInt >= 1835009) {
+                    break;
+                }
+                i = -1;
+            }
+            if (readInt == 1835009) {
+                return;
+            }
+            throw new IOException(String.format("Expected: 0x%08x, got: 0x%08x", 1835009, Integer.valueOf(readInt)));
+        }
+    }
+
+    public final void a() {
+        short readShort;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (readShort = readShort()) == 8) {
+            return;
+        }
+        throw new IOException(String.format("Expected: 0x%08x, got: 0x%08x", (short) 8, Short.valueOf(readShort)));
+    }
+
+    public final void b() {
+        byte readByte;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || (readByte = readByte()) == 0) {
+            return;
+        }
+        throw new IOException(String.format("Expected: 0x%08x, got: 0x%08x", (byte) 0, Byte.valueOf(readByte)));
+    }
+
     public final int[] a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -43,14 +79,6 @@ public final class g extends f {
             return iArr;
         }
         return (int[]) invokeI.objValue;
-    }
-
-    public final void b() {
-        byte readByte;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (readByte = readByte()) != 0) {
-            throw new IOException(String.format("Expected: 0x%08x, got: 0x%08x", (byte) 0, Byte.valueOf(readByte)));
-        }
     }
 
     @Override // com.bytedance.pangle.res.a.f, java.io.DataInput
@@ -69,30 +97,5 @@ public final class g extends f {
             return i2;
         }
         return invokeI.intValue;
-    }
-
-    public final void a() {
-        short readShort;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (readShort = readShort()) != 8) {
-            throw new IOException(String.format("Expected: 0x%08x, got: 0x%08x", (short) 8, Short.valueOf(readShort)));
-        }
-    }
-
-    public final void b(int i) {
-        int readInt;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            while (true) {
-                readInt = readInt();
-                if (readInt != i && readInt >= 1835009) {
-                    break;
-                }
-                i = -1;
-            }
-            if (readInt != 1835009) {
-                throw new IOException(String.format("Expected: 0x%08x, got: 0x%08x", 1835009, Integer.valueOf(readInt)));
-            }
-        }
     }
 }

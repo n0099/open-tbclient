@@ -23,10 +23,10 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dj;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.jq4;
-import com.baidu.tieba.nu4;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.lq4;
+import com.baidu.tieba.pu4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,7 +37,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes4.dex */
-public class FaceBuyWebViewActivity extends BaseActivity<FaceBuyWebViewActivity> implements BaseWebView.d, BaseWebView.f, BaseWebView.e {
+public class FaceBuyWebViewActivity extends BaseActivity implements BaseWebView.d, BaseWebView.f, BaseWebView.e {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern j;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,7 +47,7 @@ public class FaceBuyWebViewActivity extends BaseActivity<FaceBuyWebViewActivity>
     public String d;
     public String e;
     public int f;
-    public nu4 g;
+    public pu4 g;
     public final Handler h;
     public final Runnable i;
 
@@ -114,14 +114,15 @@ public class FaceBuyWebViewActivity extends BaseActivity<FaceBuyWebViewActivity>
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.F1();
+            if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
+                return;
             }
+            this.a.E1();
         }
     }
 
     /* loaded from: classes4.dex */
-    public class c implements nu4.e {
+    public class c implements pu4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FaceBuyWebViewActivity a;
@@ -144,18 +145,18 @@ public class FaceBuyWebViewActivity extends BaseActivity<FaceBuyWebViewActivity>
             this.a = faceBuyWebViewActivity;
         }
 
-        @Override // com.baidu.tieba.nu4.e
-        public void onClick(nu4 nu4Var) {
+        @Override // com.baidu.tieba.pu4.e
+        public void onClick(pu4 pu4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, nu4Var) == null) {
-                nu4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, pu4Var) == null) {
+                pu4Var.dismiss();
                 this.a.closeActivity();
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class d implements nu4.e {
+    public class d implements pu4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FaceBuyWebViewActivity a;
@@ -178,11 +179,11 @@ public class FaceBuyWebViewActivity extends BaseActivity<FaceBuyWebViewActivity>
             this.a = faceBuyWebViewActivity;
         }
 
-        @Override // com.baidu.tieba.nu4.e
-        public void onClick(nu4 nu4Var) {
+        @Override // com.baidu.tieba.pu4.e
+        public void onClick(pu4 pu4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, nu4Var) == null) {
-                nu4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, pu4Var) == null) {
+                pu4Var.dismiss();
             }
         }
     }
@@ -220,78 +221,28 @@ public class FaceBuyWebViewActivity extends BaseActivity<FaceBuyWebViewActivity>
         this.i = new a(this);
     }
 
-    @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.f
-    public void D0(WebView webView, String str) {
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
-            showProgressBar();
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            super.onDestroy();
+            this.h.removeCallbacks(this.i);
         }
     }
 
-    public final void D1(Bundle bundle) {
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            if (bundle != null) {
-                this.c = bundle.getString(WebViewActivityConfig.TAG_URL);
-                this.d = bundle.getString("tag_hook_url");
-                this.e = bundle.getString(WebViewActivityConfig.TAG_TITLE);
-                this.f = bundle.getInt("tag_position");
-            } else {
-                this.c = getIntent().getStringExtra(WebViewActivityConfig.TAG_URL);
-                this.d = getIntent().getStringExtra("tag_hook_url");
-                this.e = getIntent().getStringExtra(WebViewActivityConfig.TAG_TITLE);
-                this.f = getIntent().getIntExtra("tag_position", -1);
-            }
-            this.b.setTitleText(this.e);
-            this.h.postDelayed(this.i, 150L);
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            super.onPause();
         }
     }
 
-    public final void E1() {
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d0280);
-            ((LinearLayout.LayoutParams) ((TextView) findViewById(R.id.obfuscated_res_0x7f0922b8)).getLayoutParams()).height = UtilHelper.getLightStatusBarHeight() + ej.f(getActivity(), R.dimen.obfuscated_res_0x7f070282);
-            this.a = (BaseWebView) findViewById(R.id.obfuscated_res_0x7f09265a);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c5);
-            this.b = navigationBar;
-            navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new b(this));
-            this.b.setTitleText("");
-            this.a.setOnLoadUrlListener(this);
-            this.a.setOnPageFinishedListener(this);
-            this.a.setOnPageStartedListener(this);
-            this.a.setHorizontalScrollBarEnabled(false);
-        }
-    }
-
-    public final void F1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.g == null) {
-                nu4 nu4Var = new nu4(getPageContext().getPageActivity());
-                this.g = nu4Var;
-                nu4Var.setTitle(R.string.obfuscated_res_0x7f0f0907);
-                this.g.setCancelable(false);
-                this.g.setMessageId(R.string.obfuscated_res_0x7f0f0f99);
-                this.g.setPositiveButton(R.string.obfuscated_res_0x7f0f026a, new c(this));
-                this.g.setNegativeButton(R.string.obfuscated_res_0x7f0f0375, new d(this));
-                this.g.create(getPageContext());
-            }
-            this.g.show();
-        }
-    }
-
-    public void initCookie() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            try {
-                jq4.b().c(TbadkCoreApplication.getCurrentBduss());
-                CookieSyncManager.createInstance(getPageContext().getContext());
-                CookieManager.getInstance().setAcceptCookie(true);
-                CookieSyncManager.getInstance().sync();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            super.onResume();
         }
     }
 
@@ -316,56 +267,9 @@ public class FaceBuyWebViewActivity extends BaseActivity<FaceBuyWebViewActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
-            E1();
-            D1(bundle);
+            D1();
+            C1(bundle);
             initCookie();
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            super.onDestroy();
-            this.h.removeCallbacks(this.i);
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, keyEvent)) == null) {
-            if (i == 4) {
-                F1();
-                return true;
-            }
-            return super.onKeyDown(i, keyEvent);
-        }
-        return invokeIL.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.e
-    public void onPageFinished(WebView webView, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, webView, str) == null) {
-            hideProgressBar();
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onPause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            super.onPause();
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            super.onResume();
         }
     }
 
@@ -381,12 +285,109 @@ public class FaceBuyWebViewActivity extends BaseActivity<FaceBuyWebViewActivity>
         }
     }
 
+    public final void C1(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            if (bundle != null) {
+                this.c = bundle.getString(WebViewActivityConfig.TAG_URL);
+                this.d = bundle.getString("tag_hook_url");
+                this.e = bundle.getString(WebViewActivityConfig.TAG_TITLE);
+                this.f = bundle.getInt("tag_position");
+            } else {
+                this.c = getIntent().getStringExtra(WebViewActivityConfig.TAG_URL);
+                this.d = getIntent().getStringExtra("tag_hook_url");
+                this.e = getIntent().getStringExtra(WebViewActivityConfig.TAG_TITLE);
+                this.f = getIntent().getIntExtra("tag_position", -1);
+            }
+            this.b.setTitleText(this.e);
+            this.h.postDelayed(this.i, 150L);
+        }
+    }
+
+    public final void D1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            setContentView(R.layout.obfuscated_res_0x7f0d027f);
+            ((LinearLayout.LayoutParams) ((TextView) findViewById(R.id.obfuscated_res_0x7f0922a2)).getLayoutParams()).height = UtilHelper.getLightStatusBarHeight() + fj.f(getActivity(), R.dimen.obfuscated_res_0x7f070282);
+            this.a = (BaseWebView) findViewById(R.id.obfuscated_res_0x7f092642);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925ad);
+            this.b = navigationBar;
+            navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new b(this));
+            this.b.setTitleText("");
+            this.a.setOnLoadUrlListener(this);
+            this.a.setOnPageFinishedListener(this);
+            this.a.setOnPageStartedListener(this);
+            this.a.setHorizontalScrollBarEnabled(false);
+        }
+    }
+
+    public final void E1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (this.g == null) {
+                pu4 pu4Var = new pu4(getPageContext().getPageActivity());
+                this.g = pu4Var;
+                pu4Var.setTitle(R.string.obfuscated_res_0x7f0f0914);
+                this.g.setCancelable(false);
+                this.g.setMessageId(R.string.obfuscated_res_0x7f0f0fab);
+                this.g.setPositiveButton(R.string.obfuscated_res_0x7f0f026a, new c(this));
+                this.g.setNegativeButton(R.string.obfuscated_res_0x7f0f0375, new d(this));
+                this.g.create(getPageContext());
+            }
+            this.g.show();
+        }
+    }
+
+    public void initCookie() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            try {
+                lq4.b().c(TbadkCoreApplication.getCurrentBduss());
+                CookieSyncManager.createInstance(getPageContext().getContext());
+                CookieManager.getInstance().setAcceptCookie(true);
+                CookieSyncManager.getInstance().sync();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.f
+    public void m(WebView webView, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, webView, str) == null) {
+            showProgressBar();
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, keyEvent)) == null) {
+            if (i == 4) {
+                E1();
+                return true;
+            }
+            return super.onKeyDown(i, keyEvent);
+        }
+        return invokeIL.booleanValue;
+    }
+
+    @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.e
+    public void onPageFinished(WebView webView, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, webView, str) == null) {
+            hideProgressBar();
+        }
+    }
+
     @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.d
     public boolean shouldOverrideUrlLoading(WebView webView, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, webView, str)) == null) {
-            if (str != null && !dj.isEmpty(str) && !dj.isEmpty(this.d)) {
+            if (str != null && !ej.isEmpty(str) && !ej.isEmpty(this.d)) {
                 String lowerCase = str.toLowerCase();
                 if (lowerCase.contains(this.d.toLowerCase())) {
                     Matcher matcher = j.matcher(str);

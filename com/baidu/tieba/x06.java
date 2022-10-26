@@ -1,69 +1,103 @@
 package com.baidu.tieba;
 
-import android.app.AlertDialog;
-import android.content.Context;
-import android.view.View;
-import android.view.Window;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 /* loaded from: classes6.dex */
-public class x06 extends AlertDialog {
+public class x06 {
     public static /* synthetic */ Interceptable $ic;
+    public static Timer a;
+    public static int b;
+    public static ExecutorService c;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public TextView b;
-    public String c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public x06(Context context) {
-        super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes6.dex */
+    public final class a extends TimerTask {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Runnable a;
+
+        public a(Runnable runnable) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {runnable};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = runnable;
+        }
+
+        @Override // java.util.TimerTask, java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.run();
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948246603, "Lcom/baidu/tieba/x06;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948246603, "Lcom/baidu/tieba/x06;");
                 return;
             }
         }
+        int availableProcessors = Runtime.getRuntime().availableProcessors();
+        b = availableProcessors;
+        c = Executors.newFixedThreadPool(availableProcessors);
     }
 
-    public void a(int i) {
+    public static void a() {
+        Timer timer;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            SkinManager.setBackgroundShapeDrawable(this.a, ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds5), R.color.cp_cont_b_alpha80, R.color.cp_cont_b_alpha80, i);
+        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && (timer = a) != null) {
+            timer.cancel();
+            a = null;
         }
     }
 
-    @Override // android.app.Dialog
-    public void show() {
+    public static Timer b(Runnable runnable) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.show();
-            Window window = getWindow();
-            if (window != null) {
-                window.setDimAmount(0.0f);
-                window.setContentView(R.layout.obfuscated_res_0x7f0d03ba);
-                this.a = window.findViewById(R.id.obfuscated_res_0x7f092276);
-                this.b = (TextView) window.findViewById(R.id.obfuscated_res_0x7f09227f);
-                if (!StringUtils.isNull(this.c)) {
-                    this.b.setText(this.c);
-                }
-                a(TbadkCoreApplication.getInst().getSkinType());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, runnable)) == null) {
+            Timer timer = a;
+            if (timer != null) {
+                return timer;
             }
+            a = new Timer();
+            a.scheduleAtFixedRate(new a(runnable), 0L, 2000L);
+            return a;
+        }
+        return (Timer) invokeL.objValue;
+    }
+
+    public static void c(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, runnable) == null) {
+            c.execute(runnable);
         }
     }
 }

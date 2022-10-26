@@ -1,6 +1,5 @@
 package com.bumptech.glide.manager;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,7 +15,7 @@ public class ActivityFragmentLifecycle implements Lifecycle {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isDestroyed;
     public boolean isStarted;
-    public final Set<LifecycleListener> lifecycleListeners;
+    public final Set lifecycleListeners;
 
     public ActivityFragmentLifecycle() {
         Interceptable interceptable = $ic;
@@ -32,21 +31,6 @@ public class ActivityFragmentLifecycle implements Lifecycle {
             }
         }
         this.lifecycleListeners = Collections.newSetFromMap(new WeakHashMap());
-    }
-
-    @Override // com.bumptech.glide.manager.Lifecycle
-    public void addListener(@NonNull LifecycleListener lifecycleListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, lifecycleListener) == null) {
-            this.lifecycleListeners.add(lifecycleListener);
-            if (this.isDestroyed) {
-                lifecycleListener.onDestroy();
-            } else if (this.isStarted) {
-                lifecycleListener.onStart();
-            } else {
-                lifecycleListener.onStop();
-            }
-        }
     }
 
     public void onDestroy() {
@@ -80,7 +64,22 @@ public class ActivityFragmentLifecycle implements Lifecycle {
     }
 
     @Override // com.bumptech.glide.manager.Lifecycle
-    public void removeListener(@NonNull LifecycleListener lifecycleListener) {
+    public void addListener(LifecycleListener lifecycleListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, lifecycleListener) == null) {
+            this.lifecycleListeners.add(lifecycleListener);
+            if (this.isDestroyed) {
+                lifecycleListener.onDestroy();
+            } else if (this.isStarted) {
+                lifecycleListener.onStart();
+            } else {
+                lifecycleListener.onStop();
+            }
+        }
+    }
+
+    @Override // com.bumptech.glide.manager.Lifecycle
+    public void removeListener(LifecycleListener lifecycleListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, lifecycleListener) == null) {
             this.lifecycleListeners.remove(lifecycleListener);

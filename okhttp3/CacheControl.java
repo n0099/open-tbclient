@@ -70,7 +70,10 @@ public final class CacheControl {
         public CacheControl build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new CacheControl(this) : (CacheControl) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new CacheControl(this);
+            }
+            return (CacheControl) invokeV.objValue;
         }
 
         public Builder immutable() {
@@ -81,48 +84,6 @@ public final class CacheControl {
                 return this;
             }
             return (Builder) invokeV.objValue;
-        }
-
-        public Builder maxAge(int i, TimeUnit timeUnit) {
-            InterceptResult invokeIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, timeUnit)) == null) {
-                if (i >= 0) {
-                    long seconds = timeUnit.toSeconds(i);
-                    this.maxAgeSeconds = seconds > 2147483647L ? Integer.MAX_VALUE : (int) seconds;
-                    return this;
-                }
-                throw new IllegalArgumentException("maxAge < 0: " + i);
-            }
-            return (Builder) invokeIL.objValue;
-        }
-
-        public Builder maxStale(int i, TimeUnit timeUnit) {
-            InterceptResult invokeIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, timeUnit)) == null) {
-                if (i >= 0) {
-                    long seconds = timeUnit.toSeconds(i);
-                    this.maxStaleSeconds = seconds > 2147483647L ? Integer.MAX_VALUE : (int) seconds;
-                    return this;
-                }
-                throw new IllegalArgumentException("maxStale < 0: " + i);
-            }
-            return (Builder) invokeIL.objValue;
-        }
-
-        public Builder minFresh(int i, TimeUnit timeUnit) {
-            InterceptResult invokeIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIL = interceptable.invokeIL(1048580, this, i, timeUnit)) == null) {
-                if (i >= 0) {
-                    long seconds = timeUnit.toSeconds(i);
-                    this.minFreshSeconds = seconds > 2147483647L ? Integer.MAX_VALUE : (int) seconds;
-                    return this;
-                }
-                throw new IllegalArgumentException("minFresh < 0: " + i);
-            }
-            return (Builder) invokeIL.objValue;
         }
 
         public Builder noCache() {
@@ -164,6 +125,66 @@ public final class CacheControl {
             }
             return (Builder) invokeV.objValue;
         }
+
+        public Builder maxAge(int i, TimeUnit timeUnit) {
+            InterceptResult invokeIL;
+            int i2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, timeUnit)) == null) {
+                if (i >= 0) {
+                    long seconds = timeUnit.toSeconds(i);
+                    if (seconds > 2147483647L) {
+                        i2 = Integer.MAX_VALUE;
+                    } else {
+                        i2 = (int) seconds;
+                    }
+                    this.maxAgeSeconds = i2;
+                    return this;
+                }
+                throw new IllegalArgumentException("maxAge < 0: " + i);
+            }
+            return (Builder) invokeIL.objValue;
+        }
+
+        public Builder maxStale(int i, TimeUnit timeUnit) {
+            InterceptResult invokeIL;
+            int i2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, timeUnit)) == null) {
+                if (i >= 0) {
+                    long seconds = timeUnit.toSeconds(i);
+                    if (seconds > 2147483647L) {
+                        i2 = Integer.MAX_VALUE;
+                    } else {
+                        i2 = (int) seconds;
+                    }
+                    this.maxStaleSeconds = i2;
+                    return this;
+                }
+                throw new IllegalArgumentException("maxStale < 0: " + i);
+            }
+            return (Builder) invokeIL.objValue;
+        }
+
+        public Builder minFresh(int i, TimeUnit timeUnit) {
+            InterceptResult invokeIL;
+            int i2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIL = interceptable.invokeIL(1048580, this, i, timeUnit)) == null) {
+                if (i >= 0) {
+                    long seconds = timeUnit.toSeconds(i);
+                    if (seconds > 2147483647L) {
+                        i2 = Integer.MAX_VALUE;
+                    } else {
+                        i2 = (int) seconds;
+                    }
+                    this.minFreshSeconds = i2;
+                    return this;
+                }
+                throw new IllegalArgumentException("minFresh < 0: " + i);
+            }
+            return (Builder) invokeIL.objValue;
+        }
     }
 
     static {
@@ -181,6 +202,35 @@ public final class CacheControl {
         }
         FORCE_NETWORK = new Builder().noCache().build();
         FORCE_CACHE = new Builder().onlyIfCached().maxStale(Integer.MAX_VALUE, TimeUnit.SECONDS).build();
+    }
+
+    public CacheControl(Builder builder) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {builder};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.noCache = builder.noCache;
+        this.noStore = builder.noStore;
+        this.maxAgeSeconds = builder.maxAgeSeconds;
+        this.sMaxAgeSeconds = -1;
+        this.isPrivate = false;
+        this.isPublic = false;
+        this.mustRevalidate = false;
+        this.maxStaleSeconds = builder.maxStaleSeconds;
+        this.minFreshSeconds = builder.minFreshSeconds;
+        this.onlyIfCached = builder.onlyIfCached;
+        this.noTransform = builder.noTransform;
+        this.immutable = builder.immutable;
     }
 
     public CacheControl(boolean z, boolean z2, int i, int i2, boolean z3, boolean z4, boolean z5, int i3, int i4, boolean z6, boolean z7, boolean z8, @Nullable String str) {
@@ -277,16 +327,17 @@ public final class CacheControl {
     */
     public static CacheControl parse(Headers headers) {
         InterceptResult invokeL;
+        String str;
         int i;
         int i2;
-        String str;
+        String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, headers)) == null) {
             Headers headers2 = headers;
             int size = headers.size();
             int i3 = 0;
             boolean z = true;
-            String str2 = null;
+            String str3 = null;
             boolean z2 = false;
             boolean z3 = false;
             int i4 = -1;
@@ -303,34 +354,34 @@ public final class CacheControl {
                 String name = headers2.name(i3);
                 String value = headers2.value(i3);
                 if (name.equalsIgnoreCase(com.baidubce.http.Headers.CACHE_CONTROL)) {
-                    if (str2 == null) {
-                        str2 = value;
+                    if (str3 == null) {
+                        str3 = value;
                         for (i = 0; i < value.length(); i = i2) {
                             int skipUntil = HttpHeaders.skipUntil(value, i, "=,;");
                             String trim = value.substring(i, skipUntil).trim();
-                            if (skipUntil == value.length() || value.charAt(skipUntil) == ',' || value.charAt(skipUntil) == ';') {
-                                i2 = skipUntil + 1;
-                                str = null;
-                            } else {
+                            if (skipUntil != value.length() && value.charAt(skipUntil) != ',' && value.charAt(skipUntil) != ';') {
                                 int skipWhitespace = HttpHeaders.skipWhitespace(value, skipUntil + 1);
                                 if (skipWhitespace < value.length() && value.charAt(skipWhitespace) == '\"') {
                                     int i8 = skipWhitespace + 1;
                                     int skipUntil2 = HttpHeaders.skipUntil(value, i8, "\"");
-                                    str = value.substring(i8, skipUntil2);
+                                    str2 = value.substring(i8, skipUntil2);
                                     i2 = skipUntil2 + 1;
                                 } else {
                                     i2 = HttpHeaders.skipUntil(value, skipWhitespace, ",;");
-                                    str = value.substring(skipWhitespace, i2).trim();
+                                    str2 = value.substring(skipWhitespace, i2).trim();
                                 }
+                            } else {
+                                i2 = skipUntil + 1;
+                                str2 = null;
                             }
                             if ("no-cache".equalsIgnoreCase(trim)) {
                                 z2 = true;
                             } else if ("no-store".equalsIgnoreCase(trim)) {
                                 z3 = true;
                             } else if (ClientCookie.MAX_AGE_ATTR.equalsIgnoreCase(trim)) {
-                                i4 = HttpHeaders.parseSeconds(str, -1);
+                                i4 = HttpHeaders.parseSeconds(str2, -1);
                             } else if ("s-maxage".equalsIgnoreCase(trim)) {
-                                i5 = HttpHeaders.parseSeconds(str, -1);
+                                i5 = HttpHeaders.parseSeconds(str2, -1);
                             } else if (PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_PRIVATE.equalsIgnoreCase(trim)) {
                                 z4 = true;
                             } else if ("public".equalsIgnoreCase(trim)) {
@@ -338,9 +389,9 @@ public final class CacheControl {
                             } else if ("must-revalidate".equalsIgnoreCase(trim)) {
                                 z6 = true;
                             } else if ("max-stale".equalsIgnoreCase(trim)) {
-                                i6 = HttpHeaders.parseSeconds(str, Integer.MAX_VALUE);
+                                i6 = HttpHeaders.parseSeconds(str2, Integer.MAX_VALUE);
                             } else if ("min-fresh".equalsIgnoreCase(trim)) {
-                                i7 = HttpHeaders.parseSeconds(str, -1);
+                                i7 = HttpHeaders.parseSeconds(str2, -1);
                             } else if ("only-if-cached".equalsIgnoreCase(trim)) {
                                 z7 = true;
                             } else if ("no-transform".equalsIgnoreCase(trim)) {
@@ -362,7 +413,12 @@ public final class CacheControl {
                 i3++;
                 headers2 = headers;
             }
-            return new CacheControl(z2, z3, i4, i5, z4, z5, z6, i6, i7, z7, z8, z9, !z ? null : str2);
+            if (!z) {
+                str = null;
+            } else {
+                str = str3;
+            }
+            return new CacheControl(z2, z3, i4, i5, z4, z5, z6, i6, i7, z7, z8, z9, str);
         }
         return (CacheControl) invokeL.objValue;
     }
@@ -370,73 +426,109 @@ public final class CacheControl {
     public boolean immutable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.immutable : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.immutable;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isPrivate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.isPrivate : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.isPrivate;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isPublic() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.isPublic : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.isPublic;
+        }
+        return invokeV.booleanValue;
     }
 
     public int maxAgeSeconds() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.maxAgeSeconds : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.maxAgeSeconds;
+        }
+        return invokeV.intValue;
     }
 
     public int maxStaleSeconds() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.maxStaleSeconds : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.maxStaleSeconds;
+        }
+        return invokeV.intValue;
     }
 
     public int minFreshSeconds() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.minFreshSeconds : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.minFreshSeconds;
+        }
+        return invokeV.intValue;
     }
 
     public boolean mustRevalidate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mustRevalidate : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mustRevalidate;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean noCache() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.noCache : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.noCache;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean noStore() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.noStore : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.noStore;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean noTransform() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.noTransform : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.noTransform;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean onlyIfCached() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.onlyIfCached : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.onlyIfCached;
+        }
+        return invokeV.booleanValue;
     }
 
     public int sMaxAgeSeconds() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.sMaxAgeSeconds : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.sMaxAgeSeconds;
+        }
+        return invokeV.intValue;
     }
 
     public String toString() {
@@ -444,42 +536,13 @@ public final class CacheControl {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             String str = this.headerValue;
-            if (str != null) {
-                return str;
+            if (str == null) {
+                String headerValue = headerValue();
+                this.headerValue = headerValue;
+                return headerValue;
             }
-            String headerValue = headerValue();
-            this.headerValue = headerValue;
-            return headerValue;
+            return str;
         }
         return (String) invokeV.objValue;
-    }
-
-    public CacheControl(Builder builder) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {builder};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.noCache = builder.noCache;
-        this.noStore = builder.noStore;
-        this.maxAgeSeconds = builder.maxAgeSeconds;
-        this.sMaxAgeSeconds = -1;
-        this.isPrivate = false;
-        this.isPublic = false;
-        this.mustRevalidate = false;
-        this.maxStaleSeconds = builder.maxStaleSeconds;
-        this.minFreshSeconds = builder.minFreshSeconds;
-        this.onlyIfCached = builder.onlyIfCached;
-        this.noTransform = builder.noTransform;
-        this.immutable = builder.immutable;
     }
 }

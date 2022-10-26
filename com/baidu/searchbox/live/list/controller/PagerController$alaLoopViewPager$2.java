@@ -20,7 +20,7 @@ import kotlin.jvm.internal.Lambda;
 import org.json.JSONObject;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\b\n\u0000\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "Lcom/baidu/searchbox/live/livepager/AlaLoopViewPager;", "invoke"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
-public final class PagerController$alaLoopViewPager$2 extends Lambda implements Function0<AlaLoopViewPager> {
+public final class PagerController$alaLoopViewPager$2 extends Lambda implements Function0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ PagerController this$0;
@@ -47,7 +47,6 @@ public final class PagerController$alaLoopViewPager$2 extends Lambda implements 
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
     @Override // kotlin.jvm.functions.Function0
     public final AlaLoopViewPager invoke() {
         InterceptResult invokeV;
@@ -90,18 +89,27 @@ public final class PagerController$alaLoopViewPager$2 extends Lambda implements 
                     InterceptResult invokeL;
                     boolean isFirstLive;
                     IMixActivityInterface iMixActivityInterface;
+                    Boolean bool;
                     JSONObject mixEventDispatcher;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, motionEvent)) == null) {
                         isFirstLive = this.this$0.this$0.isFirstLive();
-                        boolean z = !isFirstLive;
-                        if (z) {
+                        boolean z = true;
+                        boolean z2 = !isFirstLive;
+                        if (z2) {
                             iMixActivityInterface = this.this$0.this$0.mixActivity;
-                            Boolean valueOf = (iMixActivityInterface == null || (mixEventDispatcher = iMixActivityInterface.setMixEventDispatcher(MixConstants.KEY_GET_AUDIO_ROOM_SCROLLABLE, motionEvent)) == null) ? null : Boolean.valueOf(mixEventDispatcher.optBoolean(MixConstants.RES_GET_AUDIO_ROOM_SCROLLABLE, true));
-                            z = valueOf != null ? valueOf.booleanValue() : true;
+                            if (iMixActivityInterface != null && (mixEventDispatcher = iMixActivityInterface.setMixEventDispatcher(MixConstants.KEY_GET_AUDIO_ROOM_SCROLLABLE, motionEvent)) != null) {
+                                bool = Boolean.valueOf(mixEventDispatcher.optBoolean(MixConstants.RES_GET_AUDIO_ROOM_SCROLLABLE, true));
+                            } else {
+                                bool = null;
+                            }
+                            if (bool != null) {
+                                z = bool.booleanValue();
+                            }
+                            z2 = z;
                         }
-                        ListLogKt.log(MixTagConstants.MIX_PAGER, "isEnableScrollDown " + z);
-                        return z;
+                        ListLogKt.log(MixTagConstants.MIX_PAGER, "isEnableScrollDown " + z2);
+                        return z2;
                     }
                     return invokeL.booleanValue;
                 }
@@ -111,18 +119,27 @@ public final class PagerController$alaLoopViewPager$2 extends Lambda implements 
                     InterceptResult invokeL;
                     boolean isLastLive;
                     IMixActivityInterface iMixActivityInterface;
+                    Boolean bool;
                     JSONObject mixEventDispatcher;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
                         isLastLive = this.this$0.this$0.isLastLive();
-                        boolean z = !isLastLive;
-                        if (z) {
+                        boolean z = true;
+                        boolean z2 = !isLastLive;
+                        if (z2) {
                             iMixActivityInterface = this.this$0.this$0.mixActivity;
-                            Boolean valueOf = (iMixActivityInterface == null || (mixEventDispatcher = iMixActivityInterface.setMixEventDispatcher(MixConstants.KEY_GET_AUDIO_ROOM_SCROLLABLE, motionEvent)) == null) ? null : Boolean.valueOf(mixEventDispatcher.optBoolean(MixConstants.RES_GET_AUDIO_ROOM_SCROLLABLE, true));
-                            z = valueOf != null ? valueOf.booleanValue() : true;
+                            if (iMixActivityInterface != null && (mixEventDispatcher = iMixActivityInterface.setMixEventDispatcher(MixConstants.KEY_GET_AUDIO_ROOM_SCROLLABLE, motionEvent)) != null) {
+                                bool = Boolean.valueOf(mixEventDispatcher.optBoolean(MixConstants.RES_GET_AUDIO_ROOM_SCROLLABLE, true));
+                            } else {
+                                bool = null;
+                            }
+                            if (bool != null) {
+                                z = bool.booleanValue();
+                            }
+                            z2 = z;
                         }
-                        ListLogKt.log(MixTagConstants.MIX_PAGER, "isEnableScrollUp " + z);
-                        return z;
+                        ListLogKt.log(MixTagConstants.MIX_PAGER, "isEnableScrollUp " + z2);
+                        return z2;
                     }
                     return invokeL.booleanValue;
                 }

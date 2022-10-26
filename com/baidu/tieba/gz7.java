@@ -1,15 +1,5 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.pb.pb.main.PbModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -18,17 +8,34 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class gz7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
+    public boolean a;
     public boolean b;
-    public et4 c;
+    public boolean c;
+    public boolean d;
+    public boolean e;
+    public boolean f;
+    public boolean g;
+    public boolean h;
+    public boolean i;
+    public boolean j;
+    public boolean k;
+    public boolean l;
+    public boolean m;
+    public boolean n;
+    public boolean o;
+    public boolean p;
+    public boolean q;
+    public boolean r;
+    public boolean s;
+    public boolean t;
+    public boolean u;
+    public boolean v;
+    public boolean w;
 
-    public gz7(TbPageContext tbPageContext) {
-        Uri uri;
+    public gz7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,36 +45,26 @@ public class gz7 {
                 return;
             }
         }
+        this.a = false;
         this.b = false;
-        this.a = tbPageContext;
-        if (tbPageContext.getPageActivity() == null || this.a.getPageActivity().getIntent() == null || (uri = (Uri) this.a.getPageActivity().getIntent().getParcelableExtra(IntentConfig.KEY_URI)) == null) {
-            return;
-        }
-        String queryParameter = uri.getQueryParameter("tid");
-        uri.getQueryParameter(TiebaStatic.Params.EQID);
-        et4 et4Var = new et4();
-        this.c = et4Var;
-        et4Var.a = uri.getQueryParameter("tid");
-        this.c.b = uri.getQueryParameter(TiebaStatic.Params.EQID);
-        if (TextUtils.isEmpty(queryParameter) || n9.g().h() > 3) {
-            return;
-        }
-        this.b = true;
-    }
-
-    public void a(PbModel pbModel) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, pbModel) == null) || !this.b || this.c == null || pbModel == null || pbModel.S1() == null || pbModel.S1().l() == null) {
-            return;
-        }
-        ForumData l = pbModel.S1().l();
-        this.c.c = l.getFirst_class();
-        this.c.d = l.getSecond_class();
-        TbSingleton.getInstance().setPbToHomeUpdateData(this.c);
-        if (n9.g().i("MainTabActivity")) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921455));
-        } else {
-            TbSingleton.getInstance().setForceRefreshHomeRecommend(true);
-        }
+        this.d = false;
+        this.e = false;
+        this.f = false;
+        this.g = false;
+        this.h = false;
+        this.i = false;
+        this.j = false;
+        this.k = false;
+        this.l = false;
+        this.m = false;
+        this.n = false;
+        this.o = false;
+        this.p = false;
+        this.q = false;
+        this.r = false;
+        this.s = false;
+        this.t = false;
+        this.v = false;
+        this.w = false;
     }
 }

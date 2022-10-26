@@ -59,12 +59,18 @@ public final class SymbolShapeHint {
     public static SymbolShapeHint valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (SymbolShapeHint) Enum.valueOf(SymbolShapeHint.class, str) : (SymbolShapeHint) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (SymbolShapeHint) Enum.valueOf(SymbolShapeHint.class, str);
+        }
+        return (SymbolShapeHint) invokeL.objValue;
     }
 
     public static SymbolShapeHint[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (SymbolShapeHint[]) $VALUES.clone() : (SymbolShapeHint[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (SymbolShapeHint[]) $VALUES.clone();
+        }
+        return (SymbolShapeHint[]) invokeV.objValue;
     }
 }

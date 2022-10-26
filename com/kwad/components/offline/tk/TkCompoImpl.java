@@ -1,7 +1,6 @@
 package com.kwad.components.offline.tk;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +24,7 @@ public class TkCompoImpl extends DefaultOfflineCompo implements com.kwad.compone
     public final ITkOfflineCompo mOfflineCompo;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TkCompoImpl(@NonNull ITkOfflineCompo iTkOfflineCompo) {
+    public TkCompoImpl(ITkOfflineCompo iTkOfflineCompo) {
         super(iTkOfflineCompo);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -107,7 +106,7 @@ public class TkCompoImpl extends DefaultOfflineCompo implements com.kwad.compone
         return (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, context, str)) == null) ? this.mOfflineCompo.loadTkFileByTemplateId(context, str) : (StyleTemplate) invokeLL.objValue;
     }
 
-    public void onConfigRefresh(Context context, @NonNull JSONObject jSONObject) {
+    public void onConfigRefresh(Context context, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, jSONObject) == null) || jSONObject == null) {
             return;

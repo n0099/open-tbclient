@@ -6,7 +6,6 @@ import android.graphics.RectF;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
-import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,7 +14,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@RestrictTo({RestrictTo.Scope.LIBRARY})
 /* loaded from: classes.dex */
 public class ViewGroupUtils {
     public static /* synthetic */ Interceptable $ic;
@@ -72,10 +70,9 @@ public class ViewGroupUtils {
                 matrix.preTranslate(-view3.getScrollX(), -view3.getScrollY());
             }
             matrix.preTranslate(view2.getLeft(), view2.getTop());
-            if (view2.getMatrix().isIdentity()) {
-                return;
+            if (!view2.getMatrix().isIdentity()) {
+                matrix.preConcat(view2.getMatrix());
             }
-            matrix.preConcat(view2.getMatrix());
         }
     }
 

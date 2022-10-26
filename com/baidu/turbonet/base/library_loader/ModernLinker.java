@@ -28,6 +28,12 @@ public class ModernLinker extends Linker {
         }
     }
 
+    public static native boolean nativeCreateSharedRelro(String str, long j, String str2, Linker.LibInfo libInfo);
+
+    public static native String nativeGetCpuAbi();
+
+    public static native boolean nativeLoadLibrary(String str, long j, Linker.LibInfo libInfo);
+
     public ModernLinker() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -41,10 +47,4 @@ public class ModernLinker extends Linker {
             }
         }
     }
-
-    public static native boolean nativeCreateSharedRelro(String str, long j, String str2, Linker.LibInfo libInfo);
-
-    public static native String nativeGetCpuAbi();
-
-    public static native boolean nativeLoadLibrary(String str, long j, Linker.LibInfo libInfo);
 }

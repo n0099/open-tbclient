@@ -29,7 +29,7 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class SapiAccount implements Parcelable, Cloneable {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator<SapiAccount> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public static final String SAPI_ACCOUNT_APP = "app";
     public static final String SAPI_ACCOUNT_BDUSS = "bduss";
     public static final String SAPI_ACCOUNT_DISPLAYNAME = "displayname";
@@ -61,11 +61,21 @@ public class SapiAccount implements Parcelable, Cloneable {
     public String uid;
     public String username;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     /* loaded from: classes2.dex */
-    public static final class DispersionCertification implements NoProguard {
+    public final class DispersionCertification implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Map<String, String> tplStokenMap;
+        public Map tplStokenMap;
 
         public DispersionCertification() {
             Interceptable interceptable = $ic;
@@ -97,7 +107,7 @@ public class SapiAccount implements Parcelable, Cloneable {
             return (DispersionCertification) invokeL.objValue;
         }
 
-        public static Map<String, String> getTplStokenMap(JSONObject jSONObject) {
+        public static Map getTplStokenMap(JSONObject jSONObject) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
@@ -116,7 +126,7 @@ public class SapiAccount implements Parcelable, Cloneable {
     }
 
     /* loaded from: classes2.dex */
-    public static final class ExtraProperty implements NoProguard {
+    public final class ExtraProperty implements NoProguard {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String EXTRA_ACCOUNT_TYPE = "account_type";
         public static final String EXTRA_IS_GUEST_ACCOUNT = "is_guest_account";
@@ -215,7 +225,7 @@ public class SapiAccount implements Parcelable, Cloneable {
         } catch (Throwable th) {
             Log.e(th);
         }
-        CREATOR = new Parcelable.Creator<SapiAccount>() { // from class: com.baidu.sapi2.SapiAccount.1
+        CREATOR = new Parcelable.Creator() { // from class: com.baidu.sapi2.SapiAccount.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -234,23 +244,42 @@ public class SapiAccount implements Parcelable, Cloneable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public SapiAccount createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new SapiAccount(parcel) : (SapiAccount) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new SapiAccount(parcel);
+                }
+                return (SapiAccount) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public SapiAccount[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new SapiAccount[i] : (SapiAccount[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new SapiAccount[i];
+                }
+                return (SapiAccount[]) invokeI.objValue;
             }
         };
+    }
+
+    public void deleteStokens() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            try {
+                if (!TextUtils.isEmpty(this.extra)) {
+                    ExtraProperty fromJSONObject = ExtraProperty.fromJSONObject(new JSONObject(this.extra));
+                    fromJSONObject.dispersionCertification.tplStokenMap.clear();
+                    this.extra = fromJSONObject.toJSONObject().toString();
+                }
+            } catch (JSONException e) {
+                Log.e(e);
+            }
+        }
     }
 
     public SapiAccount() {
@@ -269,27 +298,140 @@ public class SapiAccount implements Parcelable, Cloneable {
         this.fromType = FromType.LOGIN.getValue();
     }
 
-    public static List<SapiAccount> fromJSONArray(JSONArray jSONArray) {
-        InterceptResult invokeL;
+    public AccountType getAccountType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONArray)) == null) {
-            if (jSONArray != null && jSONArray.length() != 0) {
-                ArrayList arrayList = new ArrayList();
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    try {
-                        SapiAccount fromJSONObject = fromJSONObject(jSONArray.getJSONObject(i));
-                        if (fromJSONObject != null) {
-                            arrayList.add(fromJSONObject);
-                        }
-                    } catch (JSONException e) {
-                        Log.e(e);
-                    }
-                }
-                return arrayList;
-            }
-            return new ArrayList();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return AccountType.getAccountType(getIntExtra("account_type", AccountType.UNKNOWN.getType()));
         }
-        return (List) invokeL.objValue;
+        return (AccountType) invokeV.objValue;
+    }
+
+    public String getCompletePortrait() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return "https://himg.bdimg.com/sys/portrait/item/" + this.portrait + ".jpg";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getPtoken() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            if (isValidPackage()) {
+                return this.ptoken;
+            }
+            return "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getShareAccountPkg() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return getStringExtra("pkg", null);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getShareAccountTpl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return getStringExtra("tpl", "");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getSocialNickname() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return getStringExtra(ExtraProperty.EXTRA_SOCIAL_NICKNAME, null);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getSocialPortrait() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return getStringExtra(ExtraProperty.EXTRA_SOCIAL_PORTRAIT, null);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public SocialType getSocialType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return SocialType.getSocialType(getIntExtra("social_type", SocialType.UNKNOWN.getType()));
+        }
+        return (SocialType) invokeV.objValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            String str = this.uid;
+            if (str != null) {
+                return str.hashCode();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean isGuestAccount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return "1".equals(getStringExtra(ExtraProperty.EXTRA_IS_GUEST_ACCOUNT, "0"));
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isSocialAccount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return getBooleanExtra(ExtraProperty.EXTRA_IS_SOCIAL_ACCOUNT, false);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public SapiAccount(Parcel parcel) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.fromType = FromType.LOGIN.getValue();
+        this.uid = parcel.readString();
+        this.displayname = parcel.readString();
+        this.username = parcel.readString();
+        this.email = parcel.readString();
+        this.phone = parcel.readString();
+        this.bduss = parcel.readString();
+        this.app = parcel.readString();
+        this.ptoken = parcel.readString();
+        this.stoken = parcel.readString();
+        this.devicetoken = parcel.readString();
+        this.extra = parcel.readString();
+        this.portrait = parcel.readString();
     }
 
     public static SapiAccount fromJSONObject(JSONObject jSONObject) {
@@ -312,36 +454,77 @@ public class SapiAccount implements Parcelable, Cloneable {
             sapiAccount.extra = jSONObject.optString("extra");
             sapiAccount.portrait = jSONObject.optString("portrait");
             sapiAccount.fromType = jSONObject.optString(SAPI_ACCOUNT_FROMTYPE, FromType.LOGIN.getValue());
-            if (isValidAccount(sapiAccount)) {
-                return sapiAccount;
+            if (!isValidAccount(sapiAccount)) {
+                return null;
             }
-            return null;
+            return sapiAccount;
         }
         return (SapiAccount) invokeL.objValue;
+    }
+
+    public void updateSession(SapiAccount sapiAccount) {
+        ExtraProperty extraProperty;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048603, this, sapiAccount) == null) && isValidAccount(sapiAccount) && this.uid.equals(sapiAccount.uid)) {
+            this.bduss = sapiAccount.bduss;
+            this.ptoken = sapiAccount.ptoken;
+            if (TextUtils.isEmpty(sapiAccount.extra)) {
+                return;
+            }
+            try {
+                if (!TextUtils.isEmpty(this.extra)) {
+                    extraProperty = ExtraProperty.fromJSONObject(new JSONObject(this.extra));
+                } else {
+                    extraProperty = new ExtraProperty();
+                }
+                ExtraProperty fromJSONObject = ExtraProperty.fromJSONObject(new JSONObject(sapiAccount.extra));
+                extraProperty.dispersionCertification.tplStokenMap = fromJSONObject.dispersionCertification.tplStokenMap;
+                extraProperty.extraSocialPortrait = fromJSONObject.extraSocialPortrait;
+                extraProperty.extraAccountType = fromJSONObject.extraAccountType;
+                extraProperty.extraIsGuestAccount = fromJSONObject.extraIsGuestAccount;
+                this.extra = extraProperty.toJSONObject().toString();
+            } catch (JSONException e) {
+                Log.e(e);
+            }
+        }
+    }
+
+    public static List fromJSONArray(JSONArray jSONArray) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONArray)) == null) {
+            if (jSONArray != null && jSONArray.length() != 0) {
+                ArrayList arrayList = new ArrayList();
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    try {
+                        SapiAccount fromJSONObject = fromJSONObject(jSONArray.getJSONObject(i));
+                        if (fromJSONObject != null) {
+                            arrayList.add(fromJSONObject);
+                        }
+                    } catch (JSONException e) {
+                        Log.e(e);
+                    }
+                }
+                return arrayList;
+            }
+            return new ArrayList();
+        }
+        return (List) invokeL.objValue;
     }
 
     public static boolean isValidAccount(SapiAccount sapiAccount) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, sapiAccount)) == null) ? (sapiAccount == null || TextUtils.isEmpty(sapiAccount.bduss) || TextUtils.isEmpty(sapiAccount.ptoken) || TextUtils.isEmpty(sapiAccount.uid) || TextUtils.isEmpty(sapiAccount.displayname)) ? false : true : invokeL.booleanValue;
-    }
-
-    private boolean isValidPackage() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
-            Context context = ServiceManager.getInstance().getIsAccountManager().getConfignation().context;
-            for (String str : SapiContext.getInstance().getSapiOptions().getAuthorizedPackagesForPtoken()) {
-                if (context.getPackageName().matches(str)) {
-                    return true;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, sapiAccount)) == null) {
+            if (sapiAccount != null && !TextUtils.isEmpty(sapiAccount.bduss) && !TextUtils.isEmpty(sapiAccount.ptoken) && !TextUtils.isEmpty(sapiAccount.uid) && !TextUtils.isEmpty(sapiAccount.displayname)) {
+                return true;
             }
             return false;
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public static JSONArray toJSONArray(List<SapiAccount> list) {
+    public static JSONArray toJSONArray(List list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, list)) == null) {
@@ -349,8 +532,9 @@ public class SapiAccount implements Parcelable, Cloneable {
                 return null;
             }
             JSONArray jSONArray = new JSONArray();
-            for (SapiAccount sapiAccount : list) {
-                JSONObject jSONObject = sapiAccount.toJSONObject();
+            Iterator it = list.iterator();
+            while (it.hasNext()) {
+                JSONObject jSONObject = ((SapiAccount) it.next()).toJSONObject();
                 if (jSONObject != null) {
                     jSONArray.put(jSONObject);
                 }
@@ -358,79 +542,6 @@ public class SapiAccount implements Parcelable, Cloneable {
             return jSONArray;
         }
         return (JSONArray) invokeL.objValue;
-    }
-
-    public void addDispersionCertification(Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-            putExtra("stoken_list", new JSONObject(map));
-        }
-    }
-
-    public void addIsGuestAccount(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            putExtra(ExtraProperty.EXTRA_IS_GUEST_ACCOUNT, str);
-        }
-    }
-
-    public void addSocialInfo(SocialType socialType, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, socialType, str, str2) == null) {
-            putExtra(ExtraProperty.EXTRA_IS_SOCIAL_ACCOUNT, Boolean.TRUE);
-            putExtra("social_type", Integer.valueOf(socialType.getType()));
-            putExtra(ExtraProperty.EXTRA_SOCIAL_NICKNAME, str2);
-            putExtra(ExtraProperty.EXTRA_SOCIAL_PORTRAIT, str);
-        }
-    }
-
-    public Object clone() throws CloneNotSupportedException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            super.clone();
-            SapiAccount sapiAccount = new SapiAccount();
-            sapiAccount.uid = this.uid;
-            sapiAccount.displayname = this.displayname;
-            sapiAccount.username = this.username;
-            sapiAccount.email = this.email;
-            sapiAccount.phone = this.phone;
-            sapiAccount.bduss = this.bduss;
-            sapiAccount.ptoken = this.ptoken;
-            sapiAccount.stoken = this.stoken;
-            sapiAccount.app = this.app;
-            sapiAccount.extra = this.extra;
-            sapiAccount.portrait = this.portrait;
-            sapiAccount.fromType = this.fromType;
-            return sapiAccount;
-        }
-        return invokeV.objValue;
-    }
-
-    public void deleteStokens() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            try {
-                if (TextUtils.isEmpty(this.extra)) {
-                    return;
-                }
-                ExtraProperty fromJSONObject = ExtraProperty.fromJSONObject(new JSONObject(this.extra));
-                fromJSONObject.dispersionCertification.tplStokenMap.clear();
-                this.extra = fromJSONObject.toJSONObject().toString();
-            } catch (JSONException e) {
-                Log.e(e);
-            }
-        }
-    }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
     }
 
     public boolean equals(Object obj) {
@@ -457,10 +568,97 @@ public class SapiAccount implements Parcelable, Cloneable {
         return invokeL.booleanValue;
     }
 
-    public AccountType getAccountType() {
+    private boolean isValidPackage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? AccountType.getAccountType(getIntExtra("account_type", AccountType.UNKNOWN.getType())) : (AccountType) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
+            Context context = ServiceManager.getInstance().getIsAccountManager().getConfignation().context;
+            for (String str : SapiContext.getInstance().getSapiOptions().getAuthorizedPackagesForPtoken()) {
+                if (context.getPackageName().matches(str)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public Object clone() throws CloneNotSupportedException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            super.clone();
+            SapiAccount sapiAccount = new SapiAccount();
+            sapiAccount.uid = this.uid;
+            sapiAccount.displayname = this.displayname;
+            sapiAccount.username = this.username;
+            sapiAccount.email = this.email;
+            sapiAccount.phone = this.phone;
+            sapiAccount.bduss = this.bduss;
+            sapiAccount.ptoken = this.ptoken;
+            sapiAccount.stoken = this.stoken;
+            sapiAccount.app = this.app;
+            sapiAccount.extra = this.extra;
+            sapiAccount.portrait = this.portrait;
+            sapiAccount.fromType = this.fromType;
+            return sapiAccount;
+        }
+        return invokeV.objValue;
+    }
+
+    public void updatePtoken() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
+            if (!TextUtils.isEmpty(this.bduss) && !TextUtils.isEmpty(this.ptoken)) {
+                return;
+            }
+            SapiAccount accountFromBduss = SapiContext.getInstance().getAccountFromBduss(this.bduss);
+            String cookiePtoken = SapiUtils.getCookiePtoken();
+            String cookieBduss = SapiUtils.getCookieBduss();
+            if (accountFromBduss != null && !TextUtils.isEmpty(accountFromBduss.ptoken)) {
+                this.ptoken = accountFromBduss.ptoken;
+            } else if (this.bduss.equals(cookieBduss) && !TextUtils.isEmpty(cookiePtoken)) {
+                this.ptoken = cookiePtoken;
+            }
+        }
+    }
+
+    public void addDispersionCertification(Map map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
+            putExtra("stoken_list", new JSONObject(map));
+        }
+    }
+
+    public void addIsGuestAccount(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            putExtra(ExtraProperty.EXTRA_IS_GUEST_ACCOUNT, str);
+        }
+    }
+
+    public void setAccountPkg(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048598, this, str) == null) {
+            putExtra("pkg", str);
+        }
+    }
+
+    public void setPtoken(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048599, this, str) == null) && isValidPackage()) {
+            this.ptoken = str;
+        }
+    }
+
+    public void addSocialInfo(SocialType socialType, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, socialType, str, str2) == null) {
+            putExtra(ExtraProperty.EXTRA_IS_SOCIAL_ACCOUNT, Boolean.TRUE);
+            putExtra("social_type", Integer.valueOf(socialType.getType()));
+            putExtra(ExtraProperty.EXTRA_SOCIAL_NICKNAME, str2);
+            putExtra(ExtraProperty.EXTRA_SOCIAL_PORTRAIT, str);
+        }
     }
 
     public boolean getBooleanExtra(String str, boolean z) {
@@ -479,15 +677,6 @@ public class SapiAccount implements Parcelable, Cloneable {
         return invokeLZ.booleanValue;
     }
 
-    public String getCompletePortrait() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return "https://himg.bdimg.com/sys/portrait/item/" + this.portrait + ".jpg";
-        }
-        return (String) invokeV.objValue;
-    }
-
     public int getIntExtra(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
@@ -502,42 +691,6 @@ public class SapiAccount implements Parcelable, Cloneable {
             return i;
         }
         return invokeLI.intValue;
-    }
-
-    public String getPtoken() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? isValidPackage() ? this.ptoken : "" : (String) invokeV.objValue;
-    }
-
-    public String getShareAccountPkg() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? getStringExtra("pkg", null) : (String) invokeV.objValue;
-    }
-
-    public String getShareAccountTpl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? getStringExtra("tpl", "") : (String) invokeV.objValue;
-    }
-
-    public String getSocialNickname() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? getStringExtra(ExtraProperty.EXTRA_SOCIAL_NICKNAME, null) : (String) invokeV.objValue;
-    }
-
-    public String getSocialPortrait() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? getStringExtra(ExtraProperty.EXTRA_SOCIAL_PORTRAIT, null) : (String) invokeV.objValue;
-    }
-
-    public SocialType getSocialType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? SocialType.getSocialType(getIntExtra("social_type", SocialType.UNKNOWN.getType())) : (SocialType) invokeV.objValue;
     }
 
     public String getStringExtra(String str, String str2) {
@@ -556,67 +709,46 @@ public class SapiAccount implements Parcelable, Cloneable {
         return (String) invokeLL.objValue;
     }
 
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            String str = this.uid;
-            if (str != null) {
-                return str.hashCode();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean isGuestAccount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? "1".equals(getStringExtra(ExtraProperty.EXTRA_IS_GUEST_ACCOUNT, "0")) : invokeV.booleanValue;
-    }
-
-    public boolean isSocialAccount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? getBooleanExtra(ExtraProperty.EXTRA_IS_SOCIAL_ACCOUNT, false) : invokeV.booleanValue;
-    }
-
     public void putExtra(String str, Object obj) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048597, this, str, obj) == null) || TextUtils.isEmpty(str) || obj == null) {
-            return;
-        }
-        if (TextUtils.isEmpty(this.extra)) {
+        if ((interceptable == null || interceptable.invokeLL(1048597, this, str, obj) == null) && !TextUtils.isEmpty(str) && obj != null) {
+            if (TextUtils.isEmpty(this.extra)) {
+                try {
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put(str, obj);
+                    this.extra = jSONObject.toString();
+                    return;
+                } catch (JSONException e) {
+                    Log.e(e);
+                    return;
+                }
+            }
             try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put(str, obj);
-                this.extra = jSONObject.toString();
-                return;
-            } catch (JSONException e) {
-                Log.e(e);
-                return;
+                JSONObject jSONObject2 = new JSONObject(this.extra);
+                jSONObject2.put(str, obj);
+                this.extra = jSONObject2.toString();
+            } catch (JSONException e2) {
+                Log.e(e2);
             }
         }
-        try {
-            JSONObject jSONObject2 = new JSONObject(this.extra);
-            jSONObject2.put(str, obj);
-            this.extra = jSONObject2.toString();
-        } catch (JSONException e2) {
-            Log.e(e2);
-        }
     }
 
-    public void setAccountPkg(String str) {
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, str) == null) {
-            putExtra("pkg", str);
-        }
-    }
-
-    public void setPtoken(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048599, this, str) == null) && isValidPackage()) {
-            this.ptoken = str;
+        if (interceptable == null || interceptable.invokeLI(1048604, this, parcel, i) == null) {
+            parcel.writeString(this.uid);
+            parcel.writeString(this.displayname);
+            parcel.writeString(this.username);
+            parcel.writeString(this.email);
+            parcel.writeString(this.phone);
+            parcel.writeString(this.bduss);
+            parcel.writeString(this.app);
+            parcel.writeString(this.ptoken);
+            parcel.writeString(this.stoken);
+            parcel.writeString(this.devicetoken);
+            parcel.writeString(this.extra);
+            parcel.writeString(this.portrait);
         }
     }
 
@@ -654,98 +786,5 @@ public class SapiAccount implements Parcelable, Cloneable {
             return "SapiAccount{uid='" + this.uid + "', displayname='" + this.displayname + "', username='" + this.username + "', email='" + this.email + "', phone='" + this.phone + "', bduss='" + this.bduss + "', app='" + this.app + "', ptoken='" + this.ptoken + "', stoken='" + this.stoken + "', extra='" + this.extra + "', portrait='" + this.portrait + "', fromType='" + this.fromType + "'}";
         }
         return (String) invokeV.objValue;
-    }
-
-    public void updatePtoken() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
-            if (TextUtils.isEmpty(this.bduss) || TextUtils.isEmpty(this.ptoken)) {
-                SapiAccount accountFromBduss = SapiContext.getInstance().getAccountFromBduss(this.bduss);
-                String cookiePtoken = SapiUtils.getCookiePtoken();
-                String cookieBduss = SapiUtils.getCookieBduss();
-                if (accountFromBduss != null && !TextUtils.isEmpty(accountFromBduss.ptoken)) {
-                    this.ptoken = accountFromBduss.ptoken;
-                } else if (!this.bduss.equals(cookieBduss) || TextUtils.isEmpty(cookiePtoken)) {
-                } else {
-                    this.ptoken = cookiePtoken;
-                }
-            }
-        }
-    }
-
-    public void updateSession(SapiAccount sapiAccount) {
-        ExtraProperty extraProperty;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048603, this, sapiAccount) == null) && isValidAccount(sapiAccount) && this.uid.equals(sapiAccount.uid)) {
-            this.bduss = sapiAccount.bduss;
-            this.ptoken = sapiAccount.ptoken;
-            if (TextUtils.isEmpty(sapiAccount.extra)) {
-                return;
-            }
-            try {
-                if (!TextUtils.isEmpty(this.extra)) {
-                    extraProperty = ExtraProperty.fromJSONObject(new JSONObject(this.extra));
-                } else {
-                    extraProperty = new ExtraProperty();
-                }
-                ExtraProperty fromJSONObject = ExtraProperty.fromJSONObject(new JSONObject(sapiAccount.extra));
-                extraProperty.dispersionCertification.tplStokenMap = fromJSONObject.dispersionCertification.tplStokenMap;
-                extraProperty.extraSocialPortrait = fromJSONObject.extraSocialPortrait;
-                extraProperty.extraAccountType = fromJSONObject.extraAccountType;
-                extraProperty.extraIsGuestAccount = fromJSONObject.extraIsGuestAccount;
-                this.extra = extraProperty.toJSONObject().toString();
-            } catch (JSONException e) {
-                Log.e(e);
-            }
-        }
-    }
-
-    @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048604, this, parcel, i) == null) {
-            parcel.writeString(this.uid);
-            parcel.writeString(this.displayname);
-            parcel.writeString(this.username);
-            parcel.writeString(this.email);
-            parcel.writeString(this.phone);
-            parcel.writeString(this.bduss);
-            parcel.writeString(this.app);
-            parcel.writeString(this.ptoken);
-            parcel.writeString(this.stoken);
-            parcel.writeString(this.devicetoken);
-            parcel.writeString(this.extra);
-            parcel.writeString(this.portrait);
-        }
-    }
-
-    public SapiAccount(Parcel parcel) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.fromType = FromType.LOGIN.getValue();
-        this.uid = parcel.readString();
-        this.displayname = parcel.readString();
-        this.username = parcel.readString();
-        this.email = parcel.readString();
-        this.phone = parcel.readString();
-        this.bduss = parcel.readString();
-        this.app = parcel.readString();
-        this.ptoken = parcel.readString();
-        this.stoken = parcel.readString();
-        this.devicetoken = parcel.readString();
-        this.extra = parcel.readString();
-        this.portrait = parcel.readString();
     }
 }

@@ -18,10 +18,13 @@ public class GradientFillParser {
     public static final JsonReader.Options GRADIENT_NAMES = JsonReader.Options.of("p", "k");
 
     public static GradientFill parse(JsonReader jsonReader, LottieComposition lottieComposition) throws IOException {
-        AnimatableIntegerValue animatableIntegerValue = null;
-        Path.FillType fillType = Path.FillType.WINDING;
+        AnimatableIntegerValue animatableIntegerValue;
+        GradientType gradientType;
+        Path.FillType fillType;
+        AnimatableIntegerValue animatableIntegerValue2 = null;
+        Path.FillType fillType2 = Path.FillType.WINDING;
         String str = null;
-        GradientType gradientType = null;
+        GradientType gradientType2 = null;
         AnimatableGradientColorValue animatableGradientColorValue = null;
         AnimatablePointValue animatablePointValue = null;
         AnimatablePointValue animatablePointValue2 = null;
@@ -36,22 +39,29 @@ public class GradientFillParser {
                     jsonReader.beginObject();
                     while (jsonReader.hasNext()) {
                         int selectName = jsonReader.selectName(GRADIENT_NAMES);
-                        if (selectName == 0) {
-                            i = jsonReader.nextInt();
-                        } else if (selectName != 1) {
-                            jsonReader.skipName();
-                            jsonReader.skipValue();
+                        if (selectName != 0) {
+                            if (selectName != 1) {
+                                jsonReader.skipName();
+                                jsonReader.skipValue();
+                            } else {
+                                animatableGradientColorValue = AnimatableValueParser.parseGradientColor(jsonReader, lottieComposition, i);
+                            }
                         } else {
-                            animatableGradientColorValue = AnimatableValueParser.parseGradientColor(jsonReader, lottieComposition, i);
+                            i = jsonReader.nextInt();
                         }
                     }
                     jsonReader.endObject();
                     break;
                 case 2:
-                    animatableIntegerValue = AnimatableValueParser.parseInteger(jsonReader, lottieComposition);
+                    animatableIntegerValue2 = AnimatableValueParser.parseInteger(jsonReader, lottieComposition);
                     break;
                 case 3:
-                    gradientType = jsonReader.nextInt() == 1 ? GradientType.LINEAR : GradientType.RADIAL;
+                    if (jsonReader.nextInt() == 1) {
+                        gradientType = GradientType.LINEAR;
+                    } else {
+                        gradientType = GradientType.RADIAL;
+                    }
+                    gradientType2 = gradientType;
                     break;
                 case 4:
                     animatablePointValue = AnimatableValueParser.parsePoint(jsonReader, lottieComposition);
@@ -60,7 +70,12 @@ public class GradientFillParser {
                     animatablePointValue2 = AnimatableValueParser.parsePoint(jsonReader, lottieComposition);
                     break;
                 case 6:
-                    fillType = jsonReader.nextInt() == 1 ? Path.FillType.WINDING : Path.FillType.EVEN_ODD;
+                    if (jsonReader.nextInt() == 1) {
+                        fillType = Path.FillType.WINDING;
+                    } else {
+                        fillType = Path.FillType.EVEN_ODD;
+                    }
+                    fillType2 = fillType;
                     break;
                 case 7:
                     z = jsonReader.nextBoolean();
@@ -71,6 +86,11 @@ public class GradientFillParser {
                     break;
             }
         }
-        return new GradientFill(str, gradientType, fillType, animatableGradientColorValue, animatableIntegerValue == null ? new AnimatableIntegerValue(Collections.singletonList(new Keyframe(100))) : animatableIntegerValue, animatablePointValue, animatablePointValue2, null, null, z);
+        if (animatableIntegerValue2 == null) {
+            animatableIntegerValue = new AnimatableIntegerValue(Collections.singletonList(new Keyframe(100)));
+        } else {
+            animatableIntegerValue = animatableIntegerValue2;
+        }
+        return new GradientFill(str, gradientType2, fillType2, animatableGradientColorValue, animatableIntegerValue, animatablePointValue, animatablePointValue2, null, null, z);
     }
 }

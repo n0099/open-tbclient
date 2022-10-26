@@ -10,12 +10,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 /* loaded from: classes5.dex */
-public class q8<T> {
+public class q8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Future<T> a;
+    public final Future a;
 
-    public q8(Future<T> future) {
+    public q8(Future future) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -33,7 +33,7 @@ public class q8<T> {
         this.a = future;
     }
 
-    public T a() {
+    public Object a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -45,12 +45,15 @@ public class q8<T> {
                 throw new GdxRuntimeException(e.getCause());
             }
         }
-        return (T) invokeV.objValue;
+        return invokeV.objValue;
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.isDone() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a.isDone();
+        }
+        return invokeV.booleanValue;
     }
 }

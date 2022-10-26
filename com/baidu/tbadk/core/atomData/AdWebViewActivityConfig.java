@@ -12,6 +12,13 @@ public class AdWebViewActivityConfig extends WebViewActivityConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.tbadk.core.atomData.WebViewActivityConfig
+    public String addTiebaParams(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? str : (String) invokeL.objValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AdWebViewActivityConfig(Context context, String str, String str2, boolean z, boolean z2, boolean z3, Bundle bundle) {
         super(context, str, str2, z, z2, z3);
@@ -34,12 +41,5 @@ public class AdWebViewActivityConfig extends WebViewActivityConfig {
         if (bundle != null) {
             getIntent().putExtras(bundle);
         }
-    }
-
-    @Override // com.baidu.tbadk.core.atomData.WebViewActivityConfig
-    public String addTiebaParams(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? str : (String) invokeL.objValue;
     }
 }

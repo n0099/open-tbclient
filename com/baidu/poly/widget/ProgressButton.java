@@ -12,7 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ra1;
+import com.baidu.tieba.sa1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -45,69 +45,6 @@ public class ProgressButton extends FrameLayout {
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-        }
-    }
-
-    public final void a(Context context, AttributeSet attributeSet) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) {
-            this.e = context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d016d, (ViewGroup) this, true);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09213e);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091ac0);
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ra1.ProgressButton);
-            this.a.setTextColor(obtainStyledAttributes.getColor(0, -1));
-            obtainStyledAttributes.recycle();
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b.setVisibility(0);
-            Animation loadAnimation = AnimationUtils.loadAnimation(this.e, R.anim.obfuscated_res_0x7f010098);
-            this.c = loadAnimation;
-            this.b.startAnimation(loadAnimation);
-            this.a.setVisibility(4);
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b.clearAnimation();
-            this.b.setVisibility(8);
-            this.a.setVisibility(0);
-        }
-    }
-
-    public void setEnable(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            super.setEnabled(z);
-            this.d = z;
-        }
-    }
-
-    @Override // android.view.View
-    public void setPressed(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            super.setPressed(z);
-            if (this.d) {
-                setAlpha(z ? 0.2f : 1.0f);
-            } else {
-                setAlpha(0.2f);
-            }
-        }
-    }
-
-    public void setText(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.a.setText(str);
-            this.b.setVisibility(4);
-            this.a.setVisibility(0);
         }
     }
 
@@ -152,5 +89,72 @@ public class ProgressButton extends FrameLayout {
             }
         }
         a(context, attributeSet);
+    }
+
+    public final void a(Context context, AttributeSet attributeSet) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) {
+            this.e = context;
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d016c, (ViewGroup) this, true);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09213d);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091abc);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, sa1.ProgressButton);
+            this.a.setTextColor(obtainStyledAttributes.getColor(0, -1));
+            obtainStyledAttributes.recycle();
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b.setVisibility(0);
+            Animation loadAnimation = AnimationUtils.loadAnimation(this.e, R.anim.obfuscated_res_0x7f010098);
+            this.c = loadAnimation;
+            this.b.startAnimation(loadAnimation);
+            this.a.setVisibility(4);
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b.clearAnimation();
+            this.b.setVisibility(8);
+            this.a.setVisibility(0);
+        }
+    }
+
+    public void setEnable(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            super.setEnabled(z);
+            this.d = z;
+        }
+    }
+
+    @Override // android.view.View
+    public void setPressed(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            super.setPressed(z);
+            float f = 0.2f;
+            if (this.d) {
+                if (!z) {
+                    f = 1.0f;
+                }
+                setAlpha(f);
+                return;
+            }
+            setAlpha(0.2f);
+        }
+    }
+
+    public void setText(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.a.setText(str);
+            this.b.setVisibility(4);
+            this.a.setVisibility(0);
+        }
     }
 }

@@ -1,6 +1,5 @@
 package com.baidu.android.ddmlib.tools.perflib.vmtrace;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -51,7 +50,28 @@ public class MethodInfo {
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
             String str = this.className;
             int lastIndexOf = str.lastIndexOf(47);
-            return lastIndexOf > 0 ? str.substring(lastIndexOf + 1) : str;
+            if (lastIndexOf > 0) {
+                return str.substring(lastIndexOf + 1);
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public MethodProfileData getProfileData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mProfileData;
+        }
+        return (MethodProfileData) invokeV.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.className + "." + this.methodName + this.signature;
         }
         return (String) invokeV.objValue;
     }
@@ -68,13 +88,6 @@ public class MethodInfo {
         return (String) invokeV.objValue;
     }
 
-    @NonNull
-    public MethodProfileData getProfileData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mProfileData : (MethodProfileData) invokeV.objValue;
-    }
-
     public String getShortName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -87,20 +100,10 @@ public class MethodInfo {
         return (String) invokeV.objValue;
     }
 
-    public void setProfileData(@NonNull MethodProfileData methodProfileData) {
+    public void setProfileData(MethodProfileData methodProfileData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, methodProfileData) == null) {
             this.mProfileData = methodProfileData;
         }
-    }
-
-    @NonNull
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.className + "." + this.methodName + this.signature;
-        }
-        return (String) invokeV.objValue;
     }
 }

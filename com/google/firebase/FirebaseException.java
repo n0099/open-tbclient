@@ -1,6 +1,5 @@
 package com.google.firebase;
 
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -27,7 +26,7 @@ public class FirebaseException extends Exception {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FirebaseException(@NonNull String str) {
+    public FirebaseException(String str) {
         super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -48,7 +47,7 @@ public class FirebaseException extends Exception {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FirebaseException(@NonNull String str, @NonNull Throwable th) {
+    public FirebaseException(String str, Throwable th) {
         super(str, th);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

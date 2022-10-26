@@ -13,8 +13,23 @@ public class HiidoReport {
     public static volatile HiidoReport sInstance;
     public transient /* synthetic */ FieldHolder $fh;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-909729196, "Lcom/yy/mobile/framework/revenuesdk/baseapi/reporter/HiidoReport;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-909729196, "Lcom/yy/mobile/framework/revenuesdk/baseapi/reporter/HiidoReport;");
+        }
+    }
+
     /* loaded from: classes8.dex */
-    public static final class CReportParam {
+    public final class CReportParam {
         public static /* synthetic */ Interceptable $ic = null;
         public static int REVENUE_SCODE = 50552;
         public transient /* synthetic */ FieldHolder $fh;
@@ -50,7 +65,7 @@ public class HiidoReport {
     }
 
     /* loaded from: classes8.dex */
-    public static final class CReportResponse {
+    public final class CReportResponse {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int mCmd;
@@ -87,21 +102,6 @@ public class HiidoReport {
             this.mOrderId = "";
             this.mPayTraceId = "";
             this.mCmd = 0;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-909729196, "Lcom/yy/mobile/framework/revenuesdk/baseapi/reporter/HiidoReport;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-909729196, "Lcom/yy/mobile/framework/revenuesdk/baseapi/reporter/HiidoReport;");
         }
     }
 

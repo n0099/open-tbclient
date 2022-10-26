@@ -11,14 +11,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.common.internal.VisibleForTesting;
 /* loaded from: classes7.dex */
 public class OrientedDrawable extends ForwardingDrawable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int mExifOrientation;
     public int mRotationAngle;
-    @VisibleForTesting
     public final Matrix mRotationMatrix;
     public final Matrix mTempMatrix;
     public final RectF mTempRectF;
@@ -44,6 +42,31 @@ public class OrientedDrawable extends ForwardingDrawable {
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public OrientedDrawable(Drawable drawable, int i, int i2) {
+        super(drawable);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {drawable, Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                super((Drawable) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mTempMatrix = new Matrix();
+        this.mTempRectF = new RectF();
+        this.mRotationMatrix = new Matrix();
+        this.mRotationAngle = i - (i % 90);
+        this.mExifOrientation = (i2 < 0 || i2 > 8) ? 0 : 0;
+    }
+
     @Override // com.facebook.drawee.drawable.ForwardingDrawable, android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
         int i;
@@ -57,6 +80,17 @@ public class OrientedDrawable extends ForwardingDrawable {
             canvas.concat(this.mRotationMatrix);
             super.draw(canvas);
             canvas.restoreToCount(save);
+        }
+    }
+
+    @Override // com.facebook.drawee.drawable.ForwardingDrawable, com.facebook.drawee.drawable.TransformCallback
+    public void getTransform(Matrix matrix) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, matrix) == null) {
+            getParentTransform(matrix);
+            if (!this.mRotationMatrix.isIdentity()) {
+                matrix.preConcat(this.mRotationMatrix);
+            }
         }
     }
 
@@ -88,18 +122,6 @@ public class OrientedDrawable extends ForwardingDrawable {
         return invokeV.intValue;
     }
 
-    @Override // com.facebook.drawee.drawable.ForwardingDrawable, com.facebook.drawee.drawable.TransformCallback
-    public void getTransform(Matrix matrix) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, matrix) == null) {
-            getParentTransform(matrix);
-            if (this.mRotationMatrix.isIdentity()) {
-                return;
-            }
-            matrix.preConcat(this.mRotationMatrix);
-        }
-    }
-
     @Override // com.facebook.drawee.drawable.ForwardingDrawable, android.graphics.drawable.Drawable
     public void onBoundsChange(Rect rect) {
         int i;
@@ -111,18 +133,24 @@ public class OrientedDrawable extends ForwardingDrawable {
                 return;
             }
             int i2 = this.mExifOrientation;
-            if (i2 == 2) {
-                this.mRotationMatrix.setScale(-1.0f, 1.0f);
-            } else if (i2 == 7) {
-                this.mRotationMatrix.setRotate(270.0f, rect.centerX(), rect.centerY());
-                this.mRotationMatrix.postScale(-1.0f, 1.0f);
-            } else if (i2 == 4) {
-                this.mRotationMatrix.setScale(1.0f, -1.0f);
-            } else if (i2 != 5) {
-                this.mRotationMatrix.setRotate(this.mRotationAngle, rect.centerX(), rect.centerY());
+            if (i2 != 2) {
+                if (i2 != 7) {
+                    if (i2 != 4) {
+                        if (i2 != 5) {
+                            this.mRotationMatrix.setRotate(this.mRotationAngle, rect.centerX(), rect.centerY());
+                        } else {
+                            this.mRotationMatrix.setRotate(270.0f, rect.centerX(), rect.centerY());
+                            this.mRotationMatrix.postScale(1.0f, -1.0f);
+                        }
+                    } else {
+                        this.mRotationMatrix.setScale(1.0f, -1.0f);
+                    }
+                } else {
+                    this.mRotationMatrix.setRotate(270.0f, rect.centerX(), rect.centerY());
+                    this.mRotationMatrix.postScale(-1.0f, 1.0f);
+                }
             } else {
-                this.mRotationMatrix.setRotate(270.0f, rect.centerX(), rect.centerY());
-                this.mRotationMatrix.postScale(1.0f, -1.0f);
+                this.mRotationMatrix.setScale(-1.0f, 1.0f);
             }
             this.mTempMatrix.reset();
             this.mRotationMatrix.invert(this.mTempMatrix);
@@ -131,30 +159,5 @@ public class OrientedDrawable extends ForwardingDrawable {
             RectF rectF = this.mTempRectF;
             current.setBounds((int) rectF.left, (int) rectF.top, (int) rectF.right, (int) rectF.bottom);
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public OrientedDrawable(Drawable drawable, int i, int i2) {
-        super(drawable);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {drawable, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                super((Drawable) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mTempMatrix = new Matrix();
-        this.mTempRectF = new RectF();
-        this.mRotationMatrix = new Matrix();
-        this.mRotationAngle = i - (i % 90);
-        this.mExifOrientation = (i2 < 0 || i2 > 8) ? 0 : 0;
     }
 }

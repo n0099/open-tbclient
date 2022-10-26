@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
 import com.baidu.tieba.R;
 /* loaded from: classes8.dex */
 public class d extends Dialog {
@@ -22,8 +21,20 @@ public class d extends Dialog {
     public String h;
     public String i;
 
+    public int a() {
+        return R.layout.obfuscated_res_0x7f0d08a5;
+    }
+
+    public int b() {
+        return R.id.obfuscated_res_0x7f0906d5;
+    }
+
+    public int c() {
+        return R.id.obfuscated_res_0x7f0904ac;
+    }
+
     /* loaded from: classes8.dex */
-    public static class a {
+    public class a {
         public Activity a;
         public String b;
         public String c;
@@ -35,8 +46,8 @@ public class d extends Dialog {
             this.a = activity;
         }
 
-        public a a(String str) {
-            this.b = str;
+        public a a(c cVar) {
+            this.f = cVar;
             return this;
         }
 
@@ -50,13 +61,13 @@ public class d extends Dialog {
             return this;
         }
 
-        public a a(boolean z) {
-            this.e = z;
+        public a a(String str) {
+            this.b = str;
             return this;
         }
 
-        public a a(c cVar) {
-            this.f = cVar;
+        public a a(boolean z) {
+            this.e = z;
             return this;
         }
 
@@ -65,8 +76,8 @@ public class d extends Dialog {
         }
     }
 
-    public d(@NonNull Activity activity, String str, String str2, String str3, boolean z, @NonNull c cVar) {
-        super(activity, R.style.obfuscated_res_0x7f10041e);
+    public d(Activity activity, String str, String str2, String str3, boolean z, c cVar) {
+        super(activity, R.style.obfuscated_res_0x7f10041f);
         this.f = activity;
         this.d = cVar;
         this.g = str;
@@ -76,11 +87,19 @@ public class d extends Dialog {
         d();
     }
 
+    @Override // android.app.Dialog, android.view.Window.Callback
+    public boolean dispatchKeyEvent(KeyEvent keyEvent) {
+        if (keyEvent.getKeyCode() == 4) {
+            return true;
+        }
+        return super.dispatchKeyEvent(keyEvent);
+    }
+
     private void d() {
         setContentView(LayoutInflater.from(this.f.getApplicationContext()).inflate(a(), (ViewGroup) null));
         this.a = (TextView) findViewById(b());
         this.b = (TextView) findViewById(c());
-        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09152c);
+        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09151e);
         if (!TextUtils.isEmpty(this.h)) {
             this.a.setText(this.h);
         }
@@ -115,18 +134,6 @@ public class d extends Dialog {
         dismiss();
     }
 
-    public int a() {
-        return R.layout.obfuscated_res_0x7f0d08a4;
-    }
-
-    public int b() {
-        return R.id.obfuscated_res_0x7f0906cc;
-    }
-
-    public int c() {
-        return R.id.obfuscated_res_0x7f0904a3;
-    }
-
     @Override // android.app.Dialog, android.content.DialogInterface
     public void dismiss() {
         super.dismiss();
@@ -138,13 +145,5 @@ public class d extends Dialog {
         } else {
             this.d.b();
         }
-    }
-
-    @Override // android.app.Dialog, android.view.Window.Callback
-    public boolean dispatchKeyEvent(@NonNull KeyEvent keyEvent) {
-        if (keyEvent.getKeyCode() == 4) {
-            return true;
-        }
-        return super.dispatchKeyEvent(keyEvent);
     }
 }

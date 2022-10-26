@@ -9,6 +9,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AlaInfoData;
 import com.baidu.tbadk.core.data.YyExtData;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.mutiprocess.live.YyLiveRoomConfig;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -54,6 +55,7 @@ public class YYLiveUtil {
     public static final String SOURCE_HOME_RECOMMEND_VIDEO_HEAD = "home_recommend_video_head";
     public static final String SOURCE_NOT_DEFINE = "not_define";
     public static final String SOURCE_PB_BIG_IMAGE_HEAD = "pb_datu_head";
+    public static final String SOURCE_PB_DATU_EOF = "pb_datu_eof";
     public static final String SOURCE_PB_LIVE_BANNER = "pb_live_banner";
     public static final String SOURCE_PB_LIVE_HEAD = "pb_live_head";
     public static final String SOURCE_PB_VIDEO_RECOMMEND_LIVE_CARD = "pb_video_recommend_live_card";
@@ -85,7 +87,7 @@ public class YYLiveUtil {
             try {
                 Uri parse = Uri.parse(str);
                 String queryParameter = parse.getQueryParameter("sid");
-                String queryParameter2 = parse.getQueryParameter("ssid");
+                String queryParameter2 = parse.getQueryParameter(YyLiveRoomConfig.KEY_SSID);
                 String queryParameter3 = parse.getQueryParameter(TiebaStatic.YYParams.YYUID);
                 String queryParameter4 = parse.getQueryParameter("templateId");
                 String queryParameter5 = parse.getQueryParameter("liveId");
@@ -113,7 +115,11 @@ public class YYLiveUtil {
             }
             YyExtData yyExtData = alaInfoData.mYyExtData;
             if (yyExtData != null) {
-                i = yyExtData.isYyGame ? 3 : 2;
+                if (yyExtData.isYyGame) {
+                    i = 3;
+                } else {
+                    i = 2;
+                }
             } else if (alaInfoData.live_type == 1) {
                 i = 1;
             }
@@ -126,71 +132,22 @@ public class YYLiveUtil {
     public static void copyLiveIdToYYExtData(AlaInfoData alaInfoData) {
         YyExtData yyExtData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, alaInfoData) == null) || alaInfoData == null || (yyExtData = alaInfoData.mYyExtData) == null || !TextUtils.isEmpty(yyExtData.liveId)) {
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, alaInfoData) != null) || alaInfoData == null || (yyExtData = alaInfoData.mYyExtData) == null || !TextUtils.isEmpty(yyExtData.liveId)) {
             return;
         }
         alaInfoData.mYyExtData.liveId = String.valueOf(alaInfoData.live_id);
     }
 
-    public static boolean isLiveRoom(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            return TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f021d).equals(str) || TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f021e).equals(str);
-        }
-        return invokeL.booleanValue;
-    }
-
     public static boolean isYYLiveLink(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? !TextUtils.isEmpty(str) && str.contains("bdtiebalive://video/yylive") : invokeL.booleanValue;
-    }
-
-    public static void jumpToYYLiveRoom(TbPageContext tbPageContext, YyExtData yyExtData, String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65543, null, tbPageContext, yyExtData, str) == null) || yyExtData == null) {
-            return;
-        }
-        jumpToYYLiveRoom(tbPageContext, yyExtData.mSid, yyExtData.mSsid, yyExtData.mTemplateId, "", str);
-    }
-
-    public static void jumpYYLiveRoom(TbPageContext tbPageContext, AlaInfoData alaInfoData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65547, null, tbPageContext, alaInfoData) == null) && alaInfoData != null && alaInfoData.isLegalYYLiveData()) {
-            YyExtData yyExtData = alaInfoData.mYyExtData;
-            String str = yyExtData.mSid;
-            String str2 = yyExtData.mSsid;
-            String str3 = yyExtData.mTemplateId;
-            jumpToYYLiveRoom(tbPageContext, str, str2, str3, "" + alaInfoData.roomId);
-        }
-    }
-
-    public static String makeJumpToYYLiveRoomUrl(String str, String str2, String str3, String str4, String str5, String str6) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{str, str2, str3, str4, str5, str6})) == null) {
-            StringBuilder sb = new StringBuilder(UrlSchemaHelper.SCHEMA_YY_LIVE_JOIN_LIVE_PREFIX);
-            sb.append("sid=");
-            sb.append(str);
-            sb.append("&ssid=");
-            sb.append(str2);
-            sb.append("&templateId=");
-            sb.append(str3);
-            sb.append("&roomId=");
-            sb.append(str4);
-            sb.append("&source=");
-            sb.append(str6);
-            if (!StringUtils.isNull(str5)) {
-                sb.append("&streamInfo=");
-                sb.append(urlEncoded(str5));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            if (!TextUtils.isEmpty(str) && str.contains("bdtiebalive://video/yylive")) {
+                return true;
             }
-            return sb.toString();
+            return false;
         }
-        return (String) invokeCommon.objValue;
+        return invokeL.booleanValue;
     }
 
     public static String urlEncoded(String str) {
@@ -209,6 +166,44 @@ public class YYLiveUtil {
         return (String) invokeL.objValue;
     }
 
+    public static int calculateLiveType(YyExtData yyExtData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, yyExtData)) == null) {
+            if (yyExtData != null) {
+                if (yyExtData.isYyGame) {
+                    return 3;
+                }
+                return 2;
+            }
+            return 5;
+        }
+        return invokeL.intValue;
+    }
+
+    public static boolean isLiveRoom(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            if (!TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f021d).equals(str) && !TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f021e).equals(str)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void jumpToYYLiveRoom(TbPageContext tbPageContext, YyExtData yyExtData, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(65543, null, tbPageContext, yyExtData, str) != null) || yyExtData == null) {
+            return;
+        }
+        jumpToYYLiveRoom(tbPageContext, yyExtData.mSid, yyExtData.mSsid, yyExtData.mTemplateId, "", str);
+    }
+
     public static void jumpToYYLiveRoom(TbPageContext tbPageContext, String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(65544, null, tbPageContext, str, str2, str3, str4) == null) {
@@ -220,17 +215,6 @@ public class YYLiveUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{tbPageContext, str, str2, str3, str4, str5}) == null) {
             jumpToYYLiveRoom(tbPageContext, str, str2, str3, str4, null, str5);
-        }
-    }
-
-    public static void jumpYYLiveRoom(TbPageContext tbPageContext, AlaInfoData alaInfoData, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65548, null, tbPageContext, alaInfoData, str) == null) && alaInfoData != null && alaInfoData.isLegalYYLiveData()) {
-            YyExtData yyExtData = alaInfoData.mYyExtData;
-            String str2 = yyExtData.mSid;
-            String str3 = yyExtData.mSsid;
-            String str4 = yyExtData.mTemplateId;
-            jumpToYYLiveRoom(tbPageContext, str2, str3, str4, "" + alaInfoData.roomId, str);
         }
     }
 
@@ -256,15 +240,49 @@ public class YYLiveUtil {
         }
     }
 
-    public static int calculateLiveType(YyExtData yyExtData) {
-        InterceptResult invokeL;
+    public static void jumpYYLiveRoom(TbPageContext tbPageContext, AlaInfoData alaInfoData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, yyExtData)) == null) {
-            if (yyExtData != null) {
-                return yyExtData.isYyGame ? 3 : 2;
-            }
-            return 5;
+        if ((interceptable == null || interceptable.invokeLL(65547, null, tbPageContext, alaInfoData) == null) && alaInfoData != null && alaInfoData.isLegalYYLiveData()) {
+            YyExtData yyExtData = alaInfoData.mYyExtData;
+            String str = yyExtData.mSid;
+            String str2 = yyExtData.mSsid;
+            String str3 = yyExtData.mTemplateId;
+            jumpToYYLiveRoom(tbPageContext, str, str2, str3, "" + alaInfoData.roomId);
         }
-        return invokeL.intValue;
+    }
+
+    public static void jumpYYLiveRoom(TbPageContext tbPageContext, AlaInfoData alaInfoData, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(65548, null, tbPageContext, alaInfoData, str) == null) && alaInfoData != null && alaInfoData.isLegalYYLiveData()) {
+            YyExtData yyExtData = alaInfoData.mYyExtData;
+            String str2 = yyExtData.mSid;
+            String str3 = yyExtData.mSsid;
+            String str4 = yyExtData.mTemplateId;
+            jumpToYYLiveRoom(tbPageContext, str2, str3, str4, "" + alaInfoData.roomId, str);
+        }
+    }
+
+    public static String makeJumpToYYLiveRoomUrl(String str, String str2, String str3, String str4, String str5, String str6) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{str, str2, str3, str4, str5, str6})) == null) {
+            StringBuilder sb = new StringBuilder(UrlSchemaHelper.SCHEMA_YY_LIVE_JOIN_LIVE_PREFIX);
+            sb.append("sid=");
+            sb.append(str);
+            sb.append("&ssid=");
+            sb.append(str2);
+            sb.append("&templateId=");
+            sb.append(str3);
+            sb.append("&roomId=");
+            sb.append(str4);
+            sb.append("&source=");
+            sb.append(str6);
+            if (!StringUtils.isNull(str5)) {
+                sb.append("&streamInfo=");
+                sb.append(urlEncoded(str5));
+            }
+            return sb.toString();
+        }
+        return (String) invokeCommon.objValue;
     }
 }

@@ -42,7 +42,10 @@ public class HttpResponse {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             int i = this.mNetErrorCode;
-            return i == 200 || i == 206;
+            if (i != 200 && i != 206) {
+                return false;
+            }
+            return true;
         }
         return invokeV.booleanValue;
     }
@@ -50,12 +53,24 @@ public class HttpResponse {
     public boolean isNetSuccess() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mNetErrorCode == 200 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.mNetErrorCode == 200) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isRequestSuccess() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mNetErrorCode == 200 && this.mServerErrorCode == 0 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.mNetErrorCode == 200 && this.mServerErrorCode == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

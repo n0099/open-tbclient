@@ -1,15 +1,23 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public interface wm0 {
-    public static final wm0 a = new a();
+    public static final ServiceReference a = new ServiceReference("nad.core", "exp");
+    public static final wm0 b = new a();
+
+    vm0 a();
+
+    xm0 request();
 
     /* loaded from: classes6.dex */
-    public static class a implements wm0 {
+    public final class a implements wm0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,12 +36,23 @@ public interface wm0 {
         }
 
         @Override // com.baidu.tieba.wm0
-        public void a(boolean z) {
+        public vm0 a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return vm0.a;
             }
+            return (vm0) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.wm0
+        public xm0 request() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return xm0.a;
+            }
+            return (xm0) invokeV.objValue;
         }
     }
-
-    void a(boolean z);
 }

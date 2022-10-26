@@ -1,199 +1,305 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
+import android.content.Context;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.prologue.business.data.BaseVM;
+import com.baidu.tbadk.core.util.TbEnum;
+import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkItem;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.net.URLDecoder;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tencent.mm.opensdk.modelbiz.WXLaunchMiniProgram;
+import com.tencent.mm.opensdk.openapi.IWXAPI;
+import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 import java.util.HashMap;
-import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class oe1 {
+public class oe1 extends ke1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String[] a;
+    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(int i) {
-        InterceptResult invokeI;
+    /* loaded from: classes5.dex */
+    public class a implements he1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(oe1 oe1Var, ge1 ge1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {oe1Var, ge1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements ui0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ boolean[] a;
+
+        public b(oe1 oe1Var, boolean[] zArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {oe1Var, zArr};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = zArr;
+        }
+
+        @Override // com.baidu.tieba.ui0
+        public void onResult(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                this.a[0] = z;
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948029262, "Lcom/baidu/tieba/oe1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948029262, "Lcom/baidu/tieba/oe1;");
+                return;
+            }
+        }
+        a = new String[]{"deeplink", "open", "mnprogram"};
+        b = rj0.a().a();
+    }
+
+    public oe1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            if (i != 0) {
-                if (i != 101) {
-                    if (i != 201) {
-                        if (i != 202) {
-                            if (i != 301) {
-                                if (i != 302) {
-                                    switch (i) {
-                                        case 401:
-                                            return he1.a().getString(R.string.obfuscated_res_0x7f0f0f47);
-                                        case 402:
-                                            return he1.a().getString(R.string.obfuscated_res_0x7f0f0f44);
-                                        case 403:
-                                            return he1.a().getString(R.string.obfuscated_res_0x7f0f0f45);
-                                        default:
-                                            return he1.a().getString(R.string.obfuscated_res_0x7f0f0f4c);
-                                    }
-                                }
-                                return he1.a().getString(R.string.obfuscated_res_0x7f0f0f46);
-                            }
-                            return he1.a().getString(R.string.obfuscated_res_0x7f0f0f48);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.ke1
+    public void a(HashMap hashMap) {
+        String[] strArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) {
+            for (String str : a) {
+                hashMap.put("splash/ad/" + str, "splash_ad/" + str);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.ke1
+    public boolean c(Context context, me1 me1Var, ge1 ge1Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, me1Var, ge1Var)) == null) {
+            String d = me1Var.d(true);
+            if (!TextUtils.isEmpty(d) && context != null) {
+                if (me1Var.e()) {
+                    return true;
+                }
+                char c = 65535;
+                int hashCode = d.hashCode();
+                if (hashCode != -1317819965) {
+                    if (hashCode != 3417674) {
+                        if (hashCode == 629233382 && d.equals("deeplink")) {
+                            c = 0;
                         }
-                        return he1.a().getString(R.string.obfuscated_res_0x7f0f0f4b);
+                    } else if (d.equals("open")) {
+                        c = 1;
                     }
-                    return he1.a().getString(R.string.obfuscated_res_0x7f0f0f4c);
+                } else if (d.equals("mnprogram")) {
+                    c = 2;
                 }
-                return he1.a().getString(R.string.obfuscated_res_0x7f0f0f49);
-            }
-            return he1.a().getString(R.string.obfuscated_res_0x7f0f0f4a);
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public static HashMap<String, String> b(String str) {
-        InterceptResult invokeL;
-        String substring;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            HashMap<String, String> hashMap = new HashMap<>();
-            if (TextUtils.isEmpty(str)) {
-                return hashMap;
-            }
-            int indexOf = str.indexOf("?");
-            int indexOf2 = str.indexOf("#");
-            if (indexOf < 0) {
-                return hashMap;
-            }
-            if (indexOf2 < 0) {
-                substring = str.substring(indexOf + 1);
-            } else {
-                substring = str.substring(indexOf + 1, indexOf2);
-            }
-            String[] split = substring.split("&");
-            if (split == null) {
-                return hashMap;
-            }
-            for (String str2 : split) {
-                int indexOf3 = str2.indexOf("=");
-                if (indexOf3 > 0) {
-                    try {
-                        hashMap.put(URLDecoder.decode(str2.substring(0, indexOf3)), URLDecoder.decode(str2.substring(indexOf3 + 1)));
-                    } catch (IllegalArgumentException unused) {
+                if (c != 0) {
+                    if (c != 1) {
+                        if (c != 2) {
+                            return false;
+                        }
+                        return f(context, me1Var, ge1Var);
                     }
+                    return g(me1Var, ge1Var);
                 }
+                return e(context, me1Var, ge1Var);
             }
-            return hashMap;
+            me1Var.i = pe1.h(201);
+            return false;
         }
-        return (HashMap) invokeL.objValue;
+        return invokeLLL.booleanValue;
     }
 
-    public static String[] c(Uri uri) {
-        InterceptResult invokeL;
+    public final boolean e(Context context, me1 me1Var, ge1 ge1Var) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, uri)) == null) {
-            if (uri == null) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList(uri.getPathSegments());
-            if (!d(uri)) {
-                arrayList.add(0, uri.getHost());
-            }
-            if (arrayList.size() <= 0) {
-                return null;
-            }
-            return (String[]) arrayList.toArray(new String[0]);
-        }
-        return (String[]) invokeL.objValue;
-    }
-
-    public static boolean d(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, uri)) == null) {
-            if (uri == null) {
-                return false;
-            }
-            String host = uri.getHost();
-            return !TextUtils.isEmpty(host) && host.startsWith("v") && e(host);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? Pattern.compile("[0-9]").matcher(str).find() : invokeL.booleanValue;
-    }
-
-    public static boolean f(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, uri)) == null) {
-            if (uri == null) {
-                return false;
-            }
-            return TextUtils.equals(ke1.a, uri.getScheme()) && !TextUtils.isEmpty(uri.getHost());
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, me1Var, ge1Var)) == null) {
+            String str = (String) me1Var.c().get("params");
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            return f(Uri.parse(str));
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static JSONObject h(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) ? j(null, i) : (JSONObject) invokeI.objValue;
-    }
-
-    public static JSONObject i(int i, String str) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65544, null, i, str)) == null) {
-            JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("status", String.valueOf(i));
-                jSONObject.put("message", str);
+                JSONObject jSONObject = new JSONObject(str);
+                String optString = jSONObject.optString(DeepLinkItem.DEEPLINK_APPURL_KEY);
+                String optString2 = jSONObject.optString(DeepLinkItem.DEEPLINK_WEBURL_KEY);
+                String optString3 = jSONObject.optString("pkgName");
+                if (!TextUtils.isEmpty(optString)) {
+                    boolean[] zArr = new boolean[1];
+                    wi0.a(context, optString, optString3, new b(this, zArr), false);
+                    if (zArr[0]) {
+                        BaseVM.f("APP");
+                        return true;
+                    }
+                }
+                if (!TextUtils.isEmpty(optString3) && wi0.b(context, optString3)) {
+                    BaseVM.f("APP");
+                    return true;
+                } else if (TextUtils.isEmpty(optString2)) {
+                    return false;
+                } else {
+                    BaseVM.f("URL");
+                    return h(optString2, ge1Var);
+                }
             } catch (JSONException e) {
                 e.printStackTrace();
+                return false;
             }
-            return jSONObject;
         }
-        return (JSONObject) invokeIL.objValue;
+        return invokeLLL.booleanValue;
     }
 
-    public static JSONObject j(JSONObject jSONObject, int i) {
-        InterceptResult invokeLI;
+    public final boolean f(Context context, me1 me1Var, ge1 ge1Var) {
+        InterceptResult invokeLLL;
+        String str;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, jSONObject, i)) == null) ? k(jSONObject, i, a(i)) : (JSONObject) invokeLI.objValue;
-    }
-
-    public static JSONObject k(JSONObject jSONObject, int i, String str) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65546, null, jSONObject, i, str)) == null) {
-            JSONObject i2 = i(i, str);
-            if (jSONObject != null) {
-                try {
-                    i2.put("data", jSONObject);
-                } catch (JSONException e) {
-                    e.printStackTrace();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, context, me1Var, ge1Var)) == null) {
+            if (TextUtils.isEmpty(b)) {
+                if (ge1Var != null) {
+                    ge1Var.handleSchemeDispatchCallback(String.valueOf(303), null);
                 }
+                return false;
             }
-            return i2;
+            String str2 = (String) me1Var.c().get("params");
+            if (TextUtils.isEmpty(str2)) {
+                return false;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(str2);
+                if (TextUtils.isEmpty(jSONObject.optString("mnProgramType"))) {
+                    if (ge1Var != null) {
+                        ge1Var.handleSchemeDispatchCallback(String.valueOf(202), null);
+                    }
+                    return false;
+                }
+                WXLaunchMiniProgram.Req req = new WXLaunchMiniProgram.Req();
+                req.userName = jSONObject.optString(TbEnum.SystemMessage.KEY_USER_NAME);
+                req.path = jSONObject.optString("path");
+                req.miniprogramType = jSONObject.optInt("mnProgramType");
+                String optString = jSONObject.optString("extInfo");
+                IWXAPI createWXAPI = WXAPIFactory.createWXAPI(context, b);
+                boolean sendReq = createWXAPI.sendReq(req);
+                if (!sendReq) {
+                    if (!createWXAPI.isWXAppInstalled()) {
+                        str = "1001";
+                    } else {
+                        str = "1002";
+                    }
+                    i("URL", optString, str);
+                    return h(jSONObject.optString(DeepLinkItem.DEEPLINK_WEBURL_KEY), ge1Var);
+                }
+                i(ClogBuilder.Area.APP.type, optString, null);
+                ge1Var.handleSchemeDispatchCallback(String.valueOf(0), null);
+                return sendReq;
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return false;
+            }
         }
-        return (JSONObject) invokeLIL.objValue;
+        return invokeLLL.booleanValue;
+    }
+
+    public final boolean g(me1 me1Var, ge1 ge1Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, me1Var, ge1Var)) == null) {
+            String str = (String) me1Var.c().get("params");
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                String optString = jSONObject.optString(DeepLinkItem.DEEPLINK_WEBURL_KEY);
+                if (TextUtils.isEmpty(optString)) {
+                    optString = jSONObject.optString("innerUrl");
+                }
+                return h(optString, ge1Var);
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public final boolean h(String str, ge1 ge1Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, ge1Var)) == null) {
+            boolean a2 = od1.b().a(str, new a(this, ge1Var));
+            if (!a2 && ge1Var != null) {
+                return ge1Var.c(str);
+            }
+            return a2;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public final void i(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(1048582, this, str, str2, str3) == null) && !TextUtils.isEmpty(str2)) {
+            ClogBuilder clogBuilder = new ClogBuilder();
+            clogBuilder.u(ClogBuilder.Page.MINI_PROGRAM);
+            clogBuilder.y(ClogBuilder.LogType.MINI_PROGRAM);
+            clogBuilder.j(str);
+            clogBuilder.p(str2);
+            if (!TextUtils.isEmpty(str3)) {
+                clogBuilder.k(str3);
+            }
+            i01.b(clogBuilder);
+        }
     }
 }

@@ -38,6 +38,20 @@ public class UriPatternMatcher {
         return invokeL.objValue;
     }
 
+    public void setHandlers(Map map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, map) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    public void unregister(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
     public boolean matchUriRequestPattern(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -50,20 +64,6 @@ public class UriPatternMatcher {
     public void register(String str, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, obj) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
-    public void setHandlers(Map map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, map) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
-    public void unregister(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
             throw new RuntimeException("Stub!");
         }
     }

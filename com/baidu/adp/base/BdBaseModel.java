@@ -8,8 +8,8 @@ import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pb;
 import com.baidu.tieba.q9;
+import com.baidu.tieba.qb;
 import com.baidu.tieba.r9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public abstract class BdBaseModel<T> extends OrmObject {
+public abstract class BdBaseModel extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
     public static final int MODE_INVALID = 0;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,6 +26,10 @@ public abstract class BdBaseModel<T> extends OrmObject {
     public q9 mLoadDataCallBack;
     public int mLoadDataMode;
     public BdUniqueId unique_id;
+
+    public abstract boolean cancelLoadData();
+
+    public abstract boolean loadData();
 
     public BdBaseModel() {
         Interceptable interceptable = $ic;
@@ -47,8 +51,6 @@ public abstract class BdBaseModel<T> extends OrmObject {
         this.mErrorString = null;
     }
 
-    public abstract boolean cancelLoadData();
-
     public void cancelMessage() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -59,30 +61,86 @@ public abstract class BdBaseModel<T> extends OrmObject {
     public int getErrorCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mErrorCode : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mErrorCode;
+        }
+        return invokeV.intValue;
     }
 
     public String getErrorString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mErrorString : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mErrorString;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getLoadDataMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mLoadDataMode : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mLoadDataMode;
+        }
+        return invokeV.intValue;
     }
 
     public BdUniqueId getUniqueId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.unique_id : (BdUniqueId) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.unique_id;
+        }
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    public abstract boolean loadData();
+    public BdBaseModel(r9 r9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {r9Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mLoadDataMode = 0;
+        this.unique_id = null;
+        this.mLoadDataCallBack = null;
+        this.mErrorCode = 0;
+        this.mErrorString = null;
+        if (r9Var == null) {
+            return;
+        }
+        this.unique_id = r9Var.getUniqueId();
+    }
 
-    public void registerListener(MessageListener<?> messageListener) {
+    public void registerListener(int i, MessageListener messageListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048583, this, i, messageListener) == null) {
+            if (messageListener != null && messageListener.getTag() == null) {
+                messageListener.setTag(this.unique_id);
+            }
+            MessageManager.getInstance().registerListener(i, messageListener);
+        }
+    }
+
+    public void registerListener(int i, qb qbVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, qbVar) == null) {
+            if (qbVar != null && qbVar.getTag() == null) {
+                qbVar.setTag(this.unique_id);
+            }
+            MessageManager.getInstance().registerListener(i, qbVar);
+        }
+    }
+
+    public void registerListener(MessageListener messageListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, messageListener) == null) {
             if (messageListener != null && messageListener.getTag() == null) {
@@ -92,9 +150,9 @@ public abstract class BdBaseModel<T> extends OrmObject {
         }
     }
 
-    public void sendMessage(Message<?> message) {
+    public void sendMessage(Message message) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, message) == null) || message == null) {
+        if ((interceptable != null && interceptable.invokeL(1048587, this, message) != null) || message == null) {
             return;
         }
         if (message.getTag() == null) {
@@ -131,70 +189,24 @@ public abstract class BdBaseModel<T> extends OrmObject {
         }
     }
 
-    public void registerListener(int i, MessageListener<?> messageListener) {
+    public void registerListener(qb qbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048583, this, i, messageListener) == null) {
-            if (messageListener != null && messageListener.getTag() == null) {
-                messageListener.setTag(this.unique_id);
+        if (interceptable == null || interceptable.invokeL(1048586, this, qbVar) == null) {
+            if (qbVar != null && qbVar.getTag() == null) {
+                qbVar.setTag(this.unique_id);
             }
-            MessageManager.getInstance().registerListener(i, messageListener);
+            MessageManager.getInstance().registerListener(qbVar);
         }
     }
 
     public void sendMessage(NetMessage netMessage) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048588, this, netMessage) == null) || netMessage == null) {
+        if ((interceptable != null && interceptable.invokeL(1048588, this, netMessage) != null) || netMessage == null) {
             return;
         }
         if (netMessage.getTag() == null) {
             netMessage.setTag(this.unique_id);
         }
         MessageManager.getInstance().sendMessage(netMessage);
-    }
-
-    public BdBaseModel(r9<T> r9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {r9Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mLoadDataMode = 0;
-        this.unique_id = null;
-        this.mLoadDataCallBack = null;
-        this.mErrorCode = 0;
-        this.mErrorString = null;
-        if (r9Var == null) {
-            return;
-        }
-        this.unique_id = r9Var.getUniqueId();
-    }
-
-    public void registerListener(pb pbVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, pbVar) == null) {
-            if (pbVar != null && pbVar.getTag() == null) {
-                pbVar.setTag(this.unique_id);
-            }
-            MessageManager.getInstance().registerListener(pbVar);
-        }
-    }
-
-    public void registerListener(int i, pb pbVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, pbVar) == null) {
-            if (pbVar != null && pbVar.getTag() == null) {
-                pbVar.setTag(this.unique_id);
-            }
-            MessageManager.getInstance().registerListener(i, pbVar);
-        }
     }
 }

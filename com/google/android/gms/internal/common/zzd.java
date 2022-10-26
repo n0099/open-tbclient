@@ -39,6 +39,9 @@ public final class zzd {
     public static PendingIntent zza(Context context, int i, Intent intent, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, Integer.valueOf(i), intent, Integer.valueOf(i2)})) == null) ? PendingIntent.getActivity(context, i, intent, i2) : (PendingIntent) invokeCommon.objValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, Integer.valueOf(i), intent, Integer.valueOf(i2)})) == null) {
+            return PendingIntent.getActivity(context, i, intent, i2);
+        }
+        return (PendingIntent) invokeCommon.objValue;
     }
 }

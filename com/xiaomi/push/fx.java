@@ -50,7 +50,7 @@ public class fx implements Cloneable {
         c = null;
     }
 
-    public fx(Map<String, Integer> map, int i, String str, ga gaVar) {
+    public fx(Map map, int i, String str, ga gaVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -75,7 +75,7 @@ public class fx implements Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             String str = c;
-            return str != null ? str : ae.m164a() ? "sandbox.xmpush.xiaomi.com" : ae.b() ? b : "app.chat.xiaomi.net";
+            return str != null ? str : ae.m163a() ? "sandbox.xmpush.xiaomi.com" : ae.b() ? b : "app.chat.xiaomi.net";
         }
         return (String) invokeV.objValue;
     }
@@ -83,14 +83,14 @@ public class fx implements Cloneable {
     public static final void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            if (m.m562a(v.m688a()) && ae.b()) {
+            if (m.m561a(v.m687a()) && ae.b()) {
                 return;
             }
             c = str;
         }
     }
 
-    private void a(Map<String, Integer> map, int i, String str, ga gaVar) {
+    private void a(Map map, int i, String str, ga gaVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLILL(InputDeviceCompat.SOURCE_TRACKBALL, this, map, i, str, gaVar) == null) {
             this.f419a = i;
@@ -100,7 +100,7 @@ public class fx implements Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public int mo362a() {
+    public int mo361a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f419a : invokeV.intValue;
@@ -114,14 +114,14 @@ public class fx implements Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m363a() {
+    public boolean m362a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f421a : invokeV.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m364a() {
+    public byte[] m363a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {

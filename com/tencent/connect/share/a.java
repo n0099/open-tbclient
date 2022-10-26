@@ -30,34 +30,170 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final boolean b(String str, int i, int i2) {
+    public static final int a(BitmapFactory.Options options, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65543, null, str, i, i2)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65536, null, options, i, i2)) == null) {
+            int b = b(options, i, i2);
+            if (b <= 8) {
+                int i3 = 1;
+                while (i3 < b) {
+                    i3 <<= 1;
+                }
+                return i3;
+            }
+            return ((b + 7) / 8) * 8;
+        }
+        return invokeLII.intValue;
+    }
+
+    public static Bitmap a(Bitmap bitmap, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, bitmap, i)) == null) {
+            Matrix matrix = new Matrix();
+            int width = bitmap.getWidth();
+            int height = bitmap.getHeight();
+            if (width <= height) {
+                width = height;
+            }
+            float f = i / width;
+            matrix.postScale(f, f);
+            return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+        }
+        return (Bitmap) invokeLI.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:33:0x0058  */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x005e  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static final Bitmap a(String str, int i) {
+        InterceptResult invokeLI;
+        Bitmap bitmap;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
             if (TextUtils.isEmpty(str)) {
-                return false;
+                return null;
             }
             BitmapFactory.Options options = new BitmapFactory.Options();
             options.inJustDecodeBounds = true;
             try {
                 BitmapFactory.decodeFile(str, options);
             } catch (OutOfMemoryError e) {
-                SLog.e("openSDK_LOG.AsynScaleCompressImage", "isBitMapNeedToCompress exception:", e);
+                SLog.e("openSDK_LOG.AsynScaleCompressImage", "scaleBitmap exception1:", e);
             }
-            int i3 = options.outWidth;
-            int i4 = options.outHeight;
-            if (options.mCancel || i3 == -1 || i4 == -1) {
-                return false;
+            int i2 = options.outWidth;
+            int i3 = options.outHeight;
+            if (options.mCancel || i2 == -1 || i3 == -1) {
+                return null;
             }
-            int i5 = i3 > i4 ? i3 : i4;
-            if (i3 >= i4) {
-                i3 = i4;
+            if (i2 <= i3) {
+                i2 = i3;
             }
-            SLog.d("openSDK_LOG.AsynScaleCompressImage", "longSide=" + i5 + "shortSide=" + i3);
             options.inPreferredConfig = Bitmap.Config.RGB_565;
-            return i5 > i2 || i3 > i;
+            if (i2 > i) {
+                options.inSampleSize = a(options, -1, i * i);
+            }
+            options.inJustDecodeBounds = false;
+            try {
+                bitmap = BitmapFactory.decodeFile(str, options);
+            } catch (Exception e2) {
+                SLog.e("openSDK_LOG.AsynScaleCompressImage", "scaleBitmap exception2:", e2);
+                bitmap = null;
+                if (bitmap == null) {
+                }
+            } catch (OutOfMemoryError e3) {
+                SLog.e("openSDK_LOG.AsynScaleCompressImage", "scaleBitmap OutOfMemoryError:", e3);
+                bitmap = null;
+                if (bitmap == null) {
+                }
+            }
+            if (bitmap == null) {
+                SLog.e("openSDK_LOG.AsynScaleCompressImage", "scaleBitmap return null");
+                return null;
+            }
+            int i4 = options.outWidth;
+            int i5 = options.outHeight;
+            if (i4 <= i5) {
+                i4 = i5;
+            }
+            if (i4 > i) {
+                return a(bitmap, i);
+            }
+            return bitmap;
         }
-        return invokeLII.booleanValue;
+        return (Bitmap) invokeLI.objValue;
+    }
+
+    public static final String a(Bitmap bitmap, String str, String str2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, bitmap, str, str2)) == null) {
+            File file = new File(str);
+            if (!file.exists()) {
+                file.mkdirs();
+            }
+            StringBuffer stringBuffer = new StringBuffer(str);
+            stringBuffer.append(str2);
+            String stringBuffer2 = stringBuffer.toString();
+            File file2 = new File(stringBuffer2);
+            if (file2.exists()) {
+                file2.delete();
+            }
+            if (bitmap != null) {
+                try {
+                    FileOutputStream fileOutputStream = new FileOutputStream(file2);
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, 80, fileOutputStream);
+                    fileOutputStream.flush();
+                    fileOutputStream.close();
+                    bitmap.recycle();
+                    return stringBuffer2;
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                    return null;
+                } catch (IOException e2) {
+                    e2.printStackTrace();
+                    return null;
+                }
+            }
+            return null;
+        }
+        return (String) invokeLLL.objValue;
+    }
+
+    public static int b(BitmapFactory.Options options, int i, int i2) {
+        InterceptResult invokeLII;
+        int ceil;
+        int min;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65542, null, options, i, i2)) == null) {
+            double d = options.outWidth;
+            double d2 = options.outHeight;
+            if (i2 == -1) {
+                ceil = 1;
+            } else {
+                ceil = (int) Math.ceil(Math.sqrt((d * d2) / i2));
+            }
+            if (i == -1) {
+                min = 128;
+            } else {
+                double d3 = i;
+                min = (int) Math.min(Math.floor(d / d3), Math.floor(d2 / d3));
+            }
+            if (min < ceil) {
+                return ceil;
+            }
+            if (i2 == -1 && i == -1) {
+                return 1;
+            }
+            if (i == -1) {
+                return ceil;
+            }
+            return min;
+        }
+        return invokeLII.intValue;
     }
 
     public static final void a(Context context, String str, d dVar) {
@@ -100,13 +236,15 @@ public class a {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, message) == null) {
                             int i = message.what;
-                            if (i == 101) {
-                                this.a.a(0, (ArrayList) message.obj);
-                            } else if (i != 102) {
-                                super.handleMessage(message);
-                            } else {
+                            if (i != 101) {
+                                if (i != 102) {
+                                    super.handleMessage(message);
+                                    return;
+                                }
                                 this.a.a(message.arg1, (String) null);
+                                return;
                             }
+                            this.a.a(0, (ArrayList) message.obj);
                         }
                     }
                 }, context) { // from class: com.tencent.connect.share.a.2
@@ -213,158 +351,41 @@ public class a {
         }
     }
 
-    public static Bitmap a(Bitmap bitmap, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, bitmap, i)) == null) {
-            Matrix matrix = new Matrix();
-            int width = bitmap.getWidth();
-            int height = bitmap.getHeight();
-            if (width <= height) {
-                width = height;
-            }
-            float f = i / width;
-            matrix.postScale(f, f);
-            return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
-        }
-        return (Bitmap) invokeLI.objValue;
-    }
-
-    public static int b(BitmapFactory.Options options, int i, int i2) {
+    public static final boolean b(String str, int i, int i2) {
         InterceptResult invokeLII;
-        int min;
+        int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65542, null, options, i, i2)) == null) {
-            double d = options.outWidth;
-            double d2 = options.outHeight;
-            int ceil = i2 == -1 ? 1 : (int) Math.ceil(Math.sqrt((d * d2) / i2));
-            if (i == -1) {
-                min = 128;
-            } else {
-                double d3 = i;
-                min = (int) Math.min(Math.floor(d / d3), Math.floor(d2 / d3));
-            }
-            if (min < ceil) {
-                return ceil;
-            }
-            if (i2 == -1 && i == -1) {
-                return 1;
-            }
-            return i == -1 ? ceil : min;
-        }
-        return invokeLII.intValue;
-    }
-
-    public static final String a(Bitmap bitmap, String str, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, bitmap, str, str2)) == null) {
-            File file = new File(str);
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            StringBuffer stringBuffer = new StringBuffer(str);
-            stringBuffer.append(str2);
-            String stringBuffer2 = stringBuffer.toString();
-            File file2 = new File(stringBuffer2);
-            if (file2.exists()) {
-                file2.delete();
-            }
-            if (bitmap != null) {
-                try {
-                    FileOutputStream fileOutputStream = new FileOutputStream(file2);
-                    bitmap.compress(Bitmap.CompressFormat.JPEG, 80, fileOutputStream);
-                    fileOutputStream.flush();
-                    fileOutputStream.close();
-                    bitmap.recycle();
-                    return stringBuffer2;
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                    return null;
-                } catch (IOException e2) {
-                    e2.printStackTrace();
-                    return null;
-                }
-            }
-            return null;
-        }
-        return (String) invokeLLL.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:33:0x0058  */
-    /* JADX WARN: Removed duplicated region for block: B:35:0x005e  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static final Bitmap a(String str, int i) {
-        InterceptResult invokeLI;
-        Bitmap bitmap;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65543, null, str, i, i2)) == null) {
             if (TextUtils.isEmpty(str)) {
-                return null;
+                return false;
             }
             BitmapFactory.Options options = new BitmapFactory.Options();
             options.inJustDecodeBounds = true;
             try {
                 BitmapFactory.decodeFile(str, options);
             } catch (OutOfMemoryError e) {
-                SLog.e("openSDK_LOG.AsynScaleCompressImage", "scaleBitmap exception1:", e);
-            }
-            int i2 = options.outWidth;
-            int i3 = options.outHeight;
-            if (options.mCancel || i2 == -1 || i3 == -1) {
-                return null;
-            }
-            if (i2 <= i3) {
-                i2 = i3;
-            }
-            options.inPreferredConfig = Bitmap.Config.RGB_565;
-            if (i2 > i) {
-                options.inSampleSize = a(options, -1, i * i);
-            }
-            options.inJustDecodeBounds = false;
-            try {
-                bitmap = BitmapFactory.decodeFile(str, options);
-            } catch (Exception e2) {
-                SLog.e("openSDK_LOG.AsynScaleCompressImage", "scaleBitmap exception2:", e2);
-                bitmap = null;
-                if (bitmap == null) {
-                }
-            } catch (OutOfMemoryError e3) {
-                SLog.e("openSDK_LOG.AsynScaleCompressImage", "scaleBitmap OutOfMemoryError:", e3);
-                bitmap = null;
-                if (bitmap == null) {
-                }
-            }
-            if (bitmap == null) {
-                SLog.e("openSDK_LOG.AsynScaleCompressImage", "scaleBitmap return null");
-                return null;
+                SLog.e("openSDK_LOG.AsynScaleCompressImage", "isBitMapNeedToCompress exception:", e);
             }
             int i4 = options.outWidth;
             int i5 = options.outHeight;
-            if (i4 <= i5) {
+            if (options.mCancel || i4 == -1 || i5 == -1) {
+                return false;
+            }
+            if (i4 > i5) {
+                i3 = i4;
+            } else {
+                i3 = i5;
+            }
+            if (i4 >= i5) {
                 i4 = i5;
             }
-            return i4 > i ? a(bitmap, i) : bitmap;
-        }
-        return (Bitmap) invokeLI.objValue;
-    }
-
-    public static final int a(BitmapFactory.Options options, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65536, null, options, i, i2)) == null) {
-            int b = b(options, i, i2);
-            if (b <= 8) {
-                int i3 = 1;
-                while (i3 < b) {
-                    i3 <<= 1;
-                }
-                return i3;
+            SLog.d("openSDK_LOG.AsynScaleCompressImage", "longSide=" + i3 + "shortSide=" + i4);
+            options.inPreferredConfig = Bitmap.Config.RGB_565;
+            if (i3 <= i2 && i4 <= i) {
+                return false;
             }
-            return ((b + 7) / 8) * 8;
+            return true;
         }
-        return invokeLII.intValue;
+        return invokeLII.booleanValue;
     }
 }

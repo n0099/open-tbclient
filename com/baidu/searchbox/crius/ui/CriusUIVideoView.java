@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class CriusUIVideoView extends CriusUI<View> {
+public class CriusUIVideoView extends CriusUI {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -39,6 +39,9 @@ public class CriusUIVideoView extends CriusUI<View> {
     public View createView(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? NativeRenderFactory.getInstance().createView(context, "video") : (View) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            return NativeRenderFactory.getInstance().createView(context, "video");
+        }
+        return (View) invokeL.objValue;
     }
 }

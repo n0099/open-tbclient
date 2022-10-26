@@ -51,32 +51,11 @@ public class x1 {
         j = "jy/da?";
     }
 
-    public static /* synthetic */ void a(w1 w1Var) {
-        String str;
-        if (w1Var != null) {
-            str = w1Var.c;
-            if (TextUtils.isEmpty(str) || w1Var.a == null || TextUtils.isEmpty(w1Var.b)) {
-                return;
-            }
-            b2.a(new v1(w1Var));
-        }
-    }
-
-    public static /* synthetic */ void a(w1 w1Var, HashMap hashMap) {
-        if (w1Var.b.startsWith("602")) {
-            hashMap.put("lo_timeout", String.valueOf(Z1.d(w1Var.a)));
-            float a2 = Z1.a(w1Var.a, "splash_width", 0.0f);
-            if (a2 > 0.0f) {
-                hashMap.put("sp_w", String.valueOf(a2));
-            }
-            float a3 = Z1.a(w1Var.a, "splash_height", 0.0f);
-            if (a3 > 0.0f) {
-                hashMap.put("sp_h", String.valueOf(a3));
-            }
-        }
-    }
-
     public static /* synthetic */ J a(JSONObject jSONObject, Context context) {
+        String optString;
+        String optString2;
+        String optString3;
+        String optString4;
         if (jSONObject != null) {
             try {
                 if (jSONObject.length() != 0) {
@@ -121,9 +100,24 @@ public class x1 {
                                 info.setImage(optJSONObject.optString("image", ""));
                                 info.setBtndesc(optJSONObject.optString("btndesc", ""));
                                 info.setOpent(optJSONObject.optInt("opent", 0));
-                                info.setDl_pkg(optJSONObject.isNull("dl_pkg") ? "" : optJSONObject.optString("dl_pkg", ""));
-                                info.setDl_name(optJSONObject.isNull("dl_name") ? "" : optJSONObject.optString("dl_name", ""));
-                                info.setDpl(optJSONObject.isNull("dpl") ? "" : optJSONObject.optString("dpl", ""));
+                                if (optJSONObject.isNull("dl_pkg")) {
+                                    optString = "";
+                                } else {
+                                    optString = optJSONObject.optString("dl_pkg", "");
+                                }
+                                info.setDl_pkg(optString);
+                                if (optJSONObject.isNull("dl_name")) {
+                                    optString2 = "";
+                                } else {
+                                    optString2 = optJSONObject.optString("dl_name", "");
+                                }
+                                info.setDl_name(optString2);
+                                if (optJSONObject.isNull("dpl")) {
+                                    optString3 = "";
+                                } else {
+                                    optString3 = optJSONObject.optString("dpl", "");
+                                }
+                                info.setDpl(optString3);
                                 info.setDl_vsc(optJSONObject.optInt("dl_vsc", 0));
                                 info.setVvamount(optJSONObject.optLong("vvamount", 0L));
                                 info.setSpet(optJSONObject.optLong("spet", 500L));
@@ -147,14 +141,19 @@ public class x1 {
                                 ArrayList arrayList2 = new ArrayList();
                                 if (optJSONArray2 != null && optJSONArray2.length() > 0) {
                                     for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
-                                        String optString = optJSONArray2.optString(i3);
-                                        if (!TextUtils.isEmpty(optString)) {
-                                            arrayList2.add(optString);
+                                        String optString5 = optJSONArray2.optString(i3);
+                                        if (!TextUtils.isEmpty(optString5)) {
+                                            arrayList2.add(optString5);
                                         }
                                     }
                                 }
                                 info.setMaterial(arrayList2);
-                                info.setMaterial_type(optJSONObject.isNull("material_type") ? "" : optJSONObject.optString("material_type", ""));
+                                if (optJSONObject.isNull("material_type")) {
+                                    optString4 = "";
+                                } else {
+                                    optString4 = optJSONObject.optString("material_type", "");
+                                }
+                                info.setMaterial_type(optString4);
                                 arrayList.add(info);
                             }
                         }
@@ -166,5 +165,29 @@ public class x1 {
             }
         }
         return null;
+    }
+
+    public static /* synthetic */ void a(w1 w1Var) {
+        String str;
+        if (w1Var != null) {
+            str = w1Var.c;
+            if (!TextUtils.isEmpty(str) && w1Var.a != null && !TextUtils.isEmpty(w1Var.b)) {
+                b2.a(new v1(w1Var));
+            }
+        }
+    }
+
+    public static /* synthetic */ void a(w1 w1Var, HashMap hashMap) {
+        if (w1Var.b.startsWith("602")) {
+            hashMap.put("lo_timeout", String.valueOf(Z1.d(w1Var.a)));
+            float a2 = Z1.a(w1Var.a, "splash_width", 0.0f);
+            if (a2 > 0.0f) {
+                hashMap.put("sp_w", String.valueOf(a2));
+            }
+            float a3 = Z1.a(w1Var.a, "splash_height", 0.0f);
+            if (a3 > 0.0f) {
+                hashMap.put("sp_h", String.valueOf(a3));
+            }
+        }
     }
 }

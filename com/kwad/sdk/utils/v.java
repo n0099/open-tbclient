@@ -3,7 +3,6 @@ package com.kwad.sdk.utils;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.WorkerThread;
 import com.kwad.sdk.c;
 import com.kwad.sdk.service.ServiceProvider;
 import java.util.Map;
@@ -13,7 +12,6 @@ public final class v {
     public static AtomicInteger anB = new AtomicInteger(0);
     public static volatile boolean anC = false;
 
-    @WorkerThread
     public static void P(final String str, final String str2) {
         com.kwad.sdk.core.threads.b.vq().execute(new Runnable() { // from class: com.kwad.sdk.utils.v.1
             @Override // java.lang.Runnable
@@ -72,7 +70,7 @@ public final class v {
             return;
         }
         com.kwad.sdk.utils.kwai.c ej = com.kwad.sdk.utils.kwai.e.ej(str);
-        Map<String, Object> all = ej.getAll();
+        Map all = ej.getAll();
         if (all.isEmpty()) {
             aw.h(str, "kv_to_sp_transfer_flag", true);
             return;
@@ -127,7 +125,6 @@ public final class v {
         });
     }
 
-    @WorkerThread
     public static com.kwad.sdk.utils.a.a zq() {
         Map<String, ?> all;
         com.kwad.sdk.utils.a.a aVar = new com.kwad.sdk.utils.a.a();

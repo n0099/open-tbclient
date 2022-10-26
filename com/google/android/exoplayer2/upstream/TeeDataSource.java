@@ -51,7 +51,10 @@ public final class TeeDataSource implements DataSource {
     public Uri getUri() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.upstream.getUri() : (Uri) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.upstream.getUri();
+        }
+        return (Uri) invokeV.objValue;
     }
 
     @Override // com.google.android.exoplayer2.upstream.DataSource

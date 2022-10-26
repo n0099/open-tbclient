@@ -2,7 +2,6 @@ package androidx.core.os;
 
 import android.content.res.Configuration;
 import android.os.Build;
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,10 +26,15 @@ public final class ConfigurationCompat {
         }
     }
 
-    @NonNull
-    public static LocaleListCompat getLocales(@NonNull Configuration configuration) {
+    public static LocaleListCompat getLocales(Configuration configuration) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, configuration)) == null) ? Build.VERSION.SDK_INT >= 24 ? LocaleListCompat.wrap(configuration.getLocales()) : LocaleListCompat.create(configuration.locale) : (LocaleListCompat) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, configuration)) == null) {
+            if (Build.VERSION.SDK_INT >= 24) {
+                return LocaleListCompat.wrap(configuration.getLocales());
+            }
+            return LocaleListCompat.create(configuration.locale);
+        }
+        return (LocaleListCompat) invokeL.objValue;
     }
 }

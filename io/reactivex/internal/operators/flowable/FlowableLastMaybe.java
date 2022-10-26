@@ -14,20 +14,20 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableLastMaybe<T> extends Maybe<T> {
+public final class FlowableLastMaybe extends Maybe {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Publisher<T> source;
+    public final Publisher source;
 
     /* loaded from: classes8.dex */
-    public static final class LastSubscriber<T> implements FlowableSubscriber<T>, Disposable {
+    public final class LastSubscriber implements FlowableSubscriber, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final MaybeObserver<? super T> actual;
-        public T item;
+        public final MaybeObserver actual;
+        public Object item;
         public Subscription s;
 
-        public LastSubscriber(MaybeObserver<? super T> maybeObserver) {
+        public LastSubscriber(MaybeObserver maybeObserver) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -45,6 +45,34 @@ public final class FlowableLastMaybe<T> extends Maybe<T> {
             this.actual = maybeObserver;
         }
 
+        @Override // org.reactivestreams.Subscriber
+        public void onError(Throwable th) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
+                this.s = SubscriptionHelper.CANCELLED;
+                this.item = null;
+                this.actual.onError(th);
+            }
+        }
+
+        @Override // org.reactivestreams.Subscriber
+        public void onNext(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+                this.item = obj;
+            }
+        }
+
+        @Override // io.reactivex.FlowableSubscriber, org.reactivestreams.Subscriber
+        public void onSubscribe(Subscription subscription) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048581, this, subscription) == null) && SubscriptionHelper.validate(this.s, subscription)) {
+                this.s = subscription;
+                this.actual.onSubscribe(this);
+                subscription.request(Long.MAX_VALUE);
+            }
+        }
+
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
             Interceptable interceptable = $ic;
@@ -58,7 +86,13 @@ public final class FlowableLastMaybe<T> extends Maybe<T> {
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.s == SubscriptionHelper.CANCELLED : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (this.s == SubscriptionHelper.CANCELLED) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // org.reactivestreams.Subscriber
@@ -66,46 +100,18 @@ public final class FlowableLastMaybe<T> extends Maybe<T> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 this.s = SubscriptionHelper.CANCELLED;
-                T t = this.item;
-                if (t != null) {
+                Object obj = this.item;
+                if (obj != null) {
                     this.item = null;
-                    this.actual.onSuccess(t);
+                    this.actual.onSuccess(obj);
                     return;
                 }
                 this.actual.onComplete();
             }
         }
-
-        @Override // org.reactivestreams.Subscriber
-        public void onError(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
-                this.s = SubscriptionHelper.CANCELLED;
-                this.item = null;
-                this.actual.onError(th);
-            }
-        }
-
-        @Override // org.reactivestreams.Subscriber
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
-                this.item = t;
-            }
-        }
-
-        @Override // io.reactivex.FlowableSubscriber, org.reactivestreams.Subscriber
-        public void onSubscribe(Subscription subscription) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048581, this, subscription) == null) && SubscriptionHelper.validate(this.s, subscription)) {
-                this.s = subscription;
-                this.actual.onSubscribe(this);
-                subscription.request(Long.MAX_VALUE);
-            }
-        }
     }
 
-    public FlowableLastMaybe(Publisher<T> publisher) {
+    public FlowableLastMaybe(Publisher publisher) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -124,7 +130,7 @@ public final class FlowableLastMaybe<T> extends Maybe<T> {
     }
 
     @Override // io.reactivex.Maybe
-    public void subscribeActual(MaybeObserver<? super T> maybeObserver) {
+    public void subscribeActual(MaybeObserver maybeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, maybeObserver) == null) {
             this.source.subscribe(new LastSubscriber(maybeObserver));

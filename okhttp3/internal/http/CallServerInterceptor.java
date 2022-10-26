@@ -132,10 +132,10 @@ public final class CallServerInterceptor implements Interceptor {
             if ("close".equalsIgnoreCase(build.request().header(HTTP.CONN_DIRECTIVE)) || "close".equalsIgnoreCase(build.header(HTTP.CONN_DIRECTIVE))) {
                 streamAllocation.noNewStreams();
             }
-            if ((code == 204 || code == 205) && build.body().contentLength() > 0) {
-                throw new ProtocolException("HTTP " + code + " had non-zero Content-Length: " + build.body().contentLength());
+            if ((code != 204 && code != 205) || build.body().contentLength() <= 0) {
+                return build;
             }
-            return build;
+            throw new ProtocolException("HTTP " + code + " had non-zero Content-Length: " + build.body().contentLength());
         }
         return (Response) invokeL.objValue;
     }

@@ -1,6 +1,5 @@
 package androidx.fragment.app;
 
-import androidx.annotation.MainThread;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelLazy;
 import androidx.lifecycle.ViewModelProvider;
@@ -20,7 +19,6 @@ public final class FragmentViewModelLazyKt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @MainThread
     public static final /* synthetic */ <VM extends ViewModel> Lazy<VM> activityViewModels(Fragment fragment, Function0<? extends ViewModelProvider.Factory> function0) {
         Intrinsics.reifiedOperationMarker(4, "VM");
         KClass orCreateKotlinClass = Reflection.getOrCreateKotlinClass(ViewModel.class);
@@ -44,7 +42,6 @@ public final class FragmentViewModelLazyKt {
         return createViewModelLazy(fragment, orCreateKotlinClass, fragmentViewModelLazyKt$activityViewModels$1, function0);
     }
 
-    @MainThread
     public static final <VM extends ViewModel> Lazy<VM> createViewModelLazy(Fragment fragment, KClass<VM> kClass, Function0<? extends ViewModelStore> function0, Function0<? extends ViewModelProvider.Factory> function02) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;

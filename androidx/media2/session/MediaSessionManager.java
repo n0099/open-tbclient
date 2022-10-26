@@ -7,8 +7,6 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.pm.ServiceInfo;
 import android.util.Log;
-import androidx.annotation.GuardedBy;
-import androidx.annotation.NonNull;
 import androidx.collection.ArraySet;
 import androidx.media.MediaBrowserServiceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -27,7 +25,6 @@ public final class MediaSessionManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
     public static final String TAG = "MediaSessionManager";
-    @GuardedBy("sLock")
     public static MediaSessionManager sInstance;
     public static final Object sLock;
     public transient /* synthetic */ FieldHolder $fh;
@@ -68,8 +65,7 @@ public final class MediaSessionManager {
         this.mContext = context;
     }
 
-    @NonNull
-    public static MediaSessionManager getInstance(@NonNull Context context) {
+    public static MediaSessionManager getInstance(Context context) {
         InterceptResult invokeL;
         MediaSessionManager mediaSessionManager;
         Interceptable interceptable = $ic;
@@ -88,7 +84,6 @@ public final class MediaSessionManager {
         return (MediaSessionManager) invokeL.objValue;
     }
 
-    @NonNull
     public Set<SessionToken> getSessionServiceTokens() {
         InterceptResult invokeV;
         ServiceInfo serviceInfo;

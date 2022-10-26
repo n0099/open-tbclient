@@ -11,6 +11,8 @@ public abstract class BitstreamElement {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract void write(OutputStream outputStream) throws IOException;
+
     public BitstreamElement() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -24,6 +26,4 @@ public abstract class BitstreamElement {
             }
         }
     }
-
-    public abstract void write(OutputStream outputStream) throws IOException;
 }

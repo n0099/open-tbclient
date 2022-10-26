@@ -1,28 +1,29 @@
 package com.baidu.tieba;
 
+import android.widget.BaseAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.baseEditMark.MarkData;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tieba.myCollection.baseEditMark.MarkModel;
-import com.baidu.tieba.qo4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes3.dex */
-public class bq7 extends qo4 {
+public abstract class bq7 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MarkModel a;
+    public ArrayList a;
+    public boolean b;
+    public boolean c;
 
-    public bq7(BaseActivity baseActivity) {
+    public abstract void a(it4 it4Var);
+
+    public abstract boolean d(long j);
+
+    public bq7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,86 +34,41 @@ public class bq7 extends qo4 {
             }
         }
         this.a = null;
-        this.a = new MarkModel(baseActivity);
+        this.b = false;
+        this.c = false;
     }
 
-    @Override // com.baidu.tieba.qo4
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.C();
-        }
-    }
-
-    @Override // com.baidu.tieba.qo4
-    public void d() {
+    public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.D();
-        }
-    }
-
-    @Override // com.baidu.tieba.qo4
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.E() : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.qo4
-    public MarkData f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.F() : (MarkData) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.qo4
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.G() : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.qo4
-    public void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.a.H(z);
-        }
-    }
-
-    @Override // com.baidu.tieba.qo4
-    public void i(MarkData markData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, markData) == null) {
-            this.a.I(markData);
-        }
-    }
-
-    @Override // com.baidu.tieba.qo4
-    public void j(qo4.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
-            this.a.J(aVar);
-        }
-    }
-
-    public bq7(BaseFragmentActivity baseFragmentActivity) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragmentActivity};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+            this.b = false;
+            ArrayList arrayList = this.a;
+            if (arrayList != null && arrayList.size() == 0) {
+                this.b = true;
             }
         }
-        this.a = null;
-        this.a = new MarkModel(baseFragmentActivity);
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.a.clear();
+        }
+    }
+
+    public void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.c = z;
+        }
     }
 }

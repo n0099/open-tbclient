@@ -12,7 +12,6 @@ import android.util.Property;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import androidx.transition.TransitionUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -85,6 +84,17 @@ public class ChangeImageTransform extends Transition {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // android.animation.TypeEvaluator
+            public Matrix evaluate(float f, Matrix matrix, Matrix matrix2) {
+                InterceptResult invokeCommon;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), matrix, matrix2})) == null) {
+                    return null;
+                }
+                return (Matrix) invokeCommon.objValue;
+            }
+
             {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 != null) {
@@ -98,21 +108,21 @@ public class ChangeImageTransform extends Transition {
                     }
                 }
             }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // android.animation.TypeEvaluator
-            public Matrix evaluate(float f, Matrix matrix, Matrix matrix2) {
-                InterceptResult invokeCommon;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), matrix, matrix2})) == null) {
-                    return null;
-                }
-                return (Matrix) invokeCommon.objValue;
-            }
         };
         ANIMATED_TRANSFORM_PROPERTY = new Property<ImageView, Matrix>(Matrix.class, "animatedTransform") { // from class: androidx.transition.ChangeImageTransform.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // android.util.Property
+            public Matrix get(ImageView imageView) {
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, imageView)) == null) {
+                    return null;
+                }
+                return (Matrix) invokeL.objValue;
+            }
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -137,17 +147,6 @@ public class ChangeImageTransform extends Transition {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.util.Property
-            public Matrix get(ImageView imageView) {
-                InterceptResult invokeL;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, imageView)) == null) {
-                    return null;
-                }
-                return (Matrix) invokeL.objValue;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // android.util.Property
             public void set(ImageView imageView, Matrix matrix) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, imageView, matrix) == null) {
@@ -167,6 +166,37 @@ public class ChangeImageTransform extends Transition {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    @Override // androidx.transition.Transition
+    public String[] getTransitionProperties() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return sTransitionProperties;
+        }
+        return (String[]) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ChangeImageTransform(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
             }
         }
     }
@@ -209,19 +239,19 @@ public class ChangeImageTransform extends Transition {
         return (Matrix) invokeL.objValue;
     }
 
-    @NonNull
-    public static Matrix copyImageMatrix(@NonNull ImageView imageView) {
+    public static Matrix copyImageMatrix(ImageView imageView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, imageView)) == null) {
             Drawable drawable = imageView.getDrawable();
             if (drawable.getIntrinsicWidth() > 0 && drawable.getIntrinsicHeight() > 0) {
                 int i = AnonymousClass3.$SwitchMap$android$widget$ImageView$ScaleType[imageView.getScaleType().ordinal()];
-                if (i == 1) {
+                if (i != 1) {
+                    if (i == 2) {
+                        return centerCropMatrix(imageView);
+                    }
+                } else {
                     return fitXYMatrix(imageView);
-                }
-                if (i == 2) {
-                    return centerCropMatrix(imageView);
                 }
             }
             return new Matrix(imageView.getImageMatrix());
@@ -232,11 +262,13 @@ public class ChangeImageTransform extends Transition {
     private ObjectAnimator createMatrixAnimator(ImageView imageView, Matrix matrix, Matrix matrix2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, this, imageView, matrix, matrix2)) == null) ? ObjectAnimator.ofObject(imageView, (Property<ImageView, V>) ANIMATED_TRANSFORM_PROPERTY, (TypeEvaluator) new TransitionUtils.MatrixEvaluator(), (Object[]) new Matrix[]{matrix, matrix2}) : (ObjectAnimator) invokeLLL.objValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, this, imageView, matrix, matrix2)) == null) {
+            return ObjectAnimator.ofObject(imageView, (Property<ImageView, V>) ANIMATED_TRANSFORM_PROPERTY, (TypeEvaluator) new TransitionUtils.MatrixEvaluator(), (Object[]) new Matrix[]{matrix, matrix2});
+        }
+        return (ObjectAnimator) invokeLLL.objValue;
     }
 
-    @NonNull
-    private ObjectAnimator createNullAnimator(@NonNull ImageView imageView) {
+    private ObjectAnimator createNullAnimator(ImageView imageView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, imageView)) == null) {
@@ -246,6 +278,22 @@ public class ChangeImageTransform extends Transition {
             return ObjectAnimator.ofObject(imageView, (Property<ImageView, V>) property, (TypeEvaluator) typeEvaluator, (Object[]) new Matrix[]{matrix, matrix});
         }
         return (ObjectAnimator) invokeL.objValue;
+    }
+
+    @Override // androidx.transition.Transition
+    public void captureEndValues(TransitionValues transitionValues) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, transitionValues) == null) {
+            captureValues(transitionValues);
+        }
+    }
+
+    @Override // androidx.transition.Transition
+    public void captureStartValues(TransitionValues transitionValues) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, transitionValues) == null) {
+            captureValues(transitionValues);
+        }
     }
 
     public static Matrix fitXYMatrix(ImageView imageView) {
@@ -261,24 +309,9 @@ public class ChangeImageTransform extends Transition {
     }
 
     @Override // androidx.transition.Transition
-    public void captureEndValues(@NonNull TransitionValues transitionValues) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, transitionValues) == null) {
-            captureValues(transitionValues);
-        }
-    }
-
-    @Override // androidx.transition.Transition
-    public void captureStartValues(@NonNull TransitionValues transitionValues) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, transitionValues) == null) {
-            captureValues(transitionValues);
-        }
-    }
-
-    @Override // androidx.transition.Transition
-    public Animator createAnimator(@NonNull ViewGroup viewGroup, TransitionValues transitionValues, TransitionValues transitionValues2) {
+    public Animator createAnimator(ViewGroup viewGroup, TransitionValues transitionValues, TransitionValues transitionValues2) {
         InterceptResult invokeLLL;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, viewGroup, transitionValues, transitionValues2)) == null) {
             if (transitionValues == null || transitionValues2 == null) {
@@ -291,7 +324,11 @@ public class ChangeImageTransform extends Transition {
             }
             Matrix matrix = (Matrix) transitionValues.values.get(PROPNAME_MATRIX);
             Matrix matrix2 = (Matrix) transitionValues2.values.get(PROPNAME_MATRIX);
-            boolean z = (matrix == null && matrix2 == null) || (matrix != null && matrix.equals(matrix2));
+            if ((matrix == null && matrix2 == null) || (matrix != null && matrix.equals(matrix2))) {
+                z = true;
+            } else {
+                z = false;
+            }
             if (rect.equals(rect2) && z) {
                 return null;
             }
@@ -312,33 +349,5 @@ public class ChangeImageTransform extends Transition {
             return createNullAnimator(imageView);
         }
         return (Animator) invokeLLL.objValue;
-    }
-
-    @Override // androidx.transition.Transition
-    public String[] getTransitionProperties() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? sTransitionProperties : (String[]) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ChangeImageTransform(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
     }
 }

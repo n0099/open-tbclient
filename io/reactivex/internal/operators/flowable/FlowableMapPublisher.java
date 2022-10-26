@@ -10,13 +10,13 @@ import io.reactivex.internal.operators.flowable.FlowableMap;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 /* loaded from: classes8.dex */
-public final class FlowableMapPublisher<T, U> extends Flowable<U> {
+public final class FlowableMapPublisher extends Flowable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Function<? super T, ? extends U> mapper;
-    public final Publisher<T> source;
+    public final Function mapper;
+    public final Publisher source;
 
-    public FlowableMapPublisher(Publisher<T> publisher, Function<? super T, ? extends U> function) {
+    public FlowableMapPublisher(Publisher publisher, Function function) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -36,7 +36,7 @@ public final class FlowableMapPublisher<T, U> extends Flowable<U> {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber<? super U> subscriber) {
+    public void subscribeActual(Subscriber subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             this.source.subscribe(new FlowableMap.MapSubscriber(subscriber, this.mapper));

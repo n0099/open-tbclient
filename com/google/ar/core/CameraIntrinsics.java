@@ -10,6 +10,16 @@ public class CameraIntrinsics {
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
 
+    private native long nativeCreateIntrinsics(long j, float f, float f2, float f3, float f4, int i, int i2);
+
+    private native void nativeDestroyCameraIntrinsics(long j);
+
+    private native void nativeGetFocalLength(long j, long j2, float[] fArr, int i);
+
+    private native void nativeGetImageDimensions(long j, long j2, int[] iArr, int i);
+
+    private native void nativeGetPrincipalPoint(long j, long j2, float[] fArr, int i);
+
     public CameraIntrinsics() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -26,16 +36,6 @@ public class CameraIntrinsics {
         this.a = 0L;
         this.a = 0L;
     }
-
-    private native long nativeCreateIntrinsics(long j, float f, float f2, float f3, float f4, int i, int i2);
-
-    private native void nativeDestroyCameraIntrinsics(long j);
-
-    private native void nativeGetFocalLength(long j, long j2, float[] fArr, int i);
-
-    private native void nativeGetImageDimensions(long j, long j2, int[] iArr, int i);
-
-    private native void nativeGetPrincipalPoint(long j, long j2, float[] fArr, int i);
 
     public void finalize() {
         Interceptable interceptable = $ic;

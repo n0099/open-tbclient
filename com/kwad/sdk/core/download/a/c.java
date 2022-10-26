@@ -3,7 +3,6 @@ package com.kwad.sdk.core.download.a;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.widget.RemoteViews;
-import androidx.annotation.Nullable;
 import com.kwad.sdk.api.core.IProgressRemoteView;
 import com.kwad.sdk.api.core.RemoteViewBuilder;
 import com.kwad.sdk.service.ServiceProvider;
@@ -16,7 +15,6 @@ public final class c {
         this.Xn = iProgressRemoteView;
     }
 
-    @Nullable
     public static c a(Context context, int i, boolean z) {
         c cVar;
         try {

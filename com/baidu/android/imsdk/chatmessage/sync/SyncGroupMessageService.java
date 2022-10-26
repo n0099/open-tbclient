@@ -26,9 +26,9 @@ public class SyncGroupMessageService {
     public static Object synobject;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean mComplete;
-    public ConcurrentLinkedQueue<DialogRecord> mDialogRecords;
-    public Map<ChatObject, SyncGroupMessage> mGroupSyncMap;
-    public ConcurrentLinkedQueue<DialogRecord> mNewRecords;
+    public ConcurrentLinkedQueue mDialogRecords;
+    public Map mGroupSyncMap;
+    public ConcurrentLinkedQueue mNewRecords;
 
     static {
         InterceptResult invokeClinit;
@@ -46,29 +46,13 @@ public class SyncGroupMessageService {
         synobject = new Object();
     }
 
-    public SyncGroupMessageService() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mComplete = true;
-        this.mGroupSyncMap = new ConcurrentHashMap();
-        this.mDialogRecords = new ConcurrentLinkedQueue<>();
-        this.mNewRecords = new ConcurrentLinkedQueue<>();
-    }
-
     private DialogRecord get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) ? this.mDialogRecords.peek() : (DialogRecord) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
+            return (DialogRecord) this.mDialogRecords.peek();
+        }
+        return (DialogRecord) invokeV.objValue;
     }
 
     public static SyncGroupMessageService getInstance() {
@@ -90,59 +74,124 @@ public class SyncGroupMessageService {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
             LogUtils.d(TAG, "get new dialogRecord ");
-            return this.mNewRecords.peek();
+            return (DialogRecord) this.mNewRecords.peek();
         }
         return (DialogRecord) invokeV.objValue;
     }
 
+    public void clear() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            LogUtils.d(TAG, "BB clear");
+            this.mDialogRecords.clear();
+            Map map = this.mGroupSyncMap;
+            if (map != null) {
+                map.clear();
+            }
+        }
+    }
+
+    public boolean isComplete() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mComplete;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public SyncGroupMessageService() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mComplete = true;
+        this.mGroupSyncMap = new ConcurrentHashMap();
+        this.mDialogRecords = new ConcurrentLinkedQueue();
+        this.mNewRecords = new ConcurrentLinkedQueue();
+    }
+
+    public int getState(Context context) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
+            if (DialogRecordDBManager.getInstance(context).getUnCompleteItemCount() > 0) {
+                i = 0;
+            } else {
+                i = 1;
+            }
+            if (i == 0 && this.mComplete) {
+                return 1;
+            }
+            return i;
+        }
+        return invokeL.intValue;
+    }
+
+    public ChatObject getChatObject(Context context, DialogRecord dialogRecord) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, dialogRecord)) == null) {
+            return new ChatObject(context, dialogRecord.getCategory(), dialogRecord.getContacter());
+        }
+        return (ChatObject) invokeLL.objValue;
+    }
+
     private void put(DialogRecord dialogRecord) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65544, this, dialogRecord) == null) || dialogRecord == null) {
+        if ((interceptable != null && interceptable.invokeL(65544, this, dialogRecord) != null) || dialogRecord == null) {
             return;
         }
         String str = TAG;
         LogUtils.d(str, "put dialogRecord " + dialogRecord.getContacter());
         boolean z = false;
-        Iterator<DialogRecord> it = this.mDialogRecords.iterator();
+        Iterator it = this.mDialogRecords.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
             }
-            DialogRecord next = it.next();
-            if (next.getCategory() == dialogRecord.getCategory() && next.getContacter() == dialogRecord.getContacter()) {
+            DialogRecord dialogRecord2 = (DialogRecord) it.next();
+            if (dialogRecord2.getCategory() == dialogRecord.getCategory() && dialogRecord2.getContacter() == dialogRecord.getContacter()) {
                 z = true;
                 break;
             }
         }
-        if (z) {
-            return;
+        if (!z) {
+            this.mDialogRecords.add(dialogRecord);
         }
-        this.mDialogRecords.add(dialogRecord);
     }
 
     private void putNew(DialogRecord dialogRecord) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65545, this, dialogRecord) == null) || dialogRecord == null) {
+        if ((interceptable != null && interceptable.invokeL(65545, this, dialogRecord) != null) || dialogRecord == null) {
             return;
         }
         String str = TAG;
         LogUtils.d(str, "put new dialogRecord " + dialogRecord.getContacter());
         boolean z = false;
-        Iterator<DialogRecord> it = this.mNewRecords.iterator();
+        Iterator it = this.mNewRecords.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
             }
-            DialogRecord next = it.next();
-            if (next.getCategory() == dialogRecord.getCategory() && next.getContacter() == dialogRecord.getContacter()) {
+            DialogRecord dialogRecord2 = (DialogRecord) it.next();
+            if (dialogRecord2.getCategory() == dialogRecord.getCategory() && dialogRecord2.getContacter() == dialogRecord.getContacter()) {
                 z = true;
                 break;
             }
         }
-        if (z) {
-            return;
+        if (!z) {
+            this.mNewRecords.add(dialogRecord);
         }
-        this.mNewRecords.add(dialogRecord);
     }
 
     private void remove(DialogRecord dialogRecord, int i) {
@@ -158,16 +207,18 @@ public class SyncGroupMessageService {
         }
     }
 
-    public void clear() {
+    public int getState(Context context, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LogUtils.d(TAG, "BB clear");
-            this.mDialogRecords.clear();
-            Map<ChatObject, SyncGroupMessage> map = this.mGroupSyncMap;
-            if (map != null) {
-                map.clear();
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048581, this, context, j)) == null) {
+            String str = TAG;
+            LogUtils.d(str, "getState --->" + j);
+            if (DialogRecordDBManager.getInstance(context).getUnCompleteItemCount(j) != 0 && !this.mComplete) {
+                return 0;
             }
+            return 1;
         }
+        return invokeLJ.intValue;
     }
 
     public void execute(Context context, int i, long j, long j2, int i2) {
@@ -198,42 +249,6 @@ public class SyncGroupMessageService {
                 execute(context, dialogRecord, i2);
             }
         }
-    }
-
-    public ChatObject getChatObject(Context context, DialogRecord dialogRecord) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, dialogRecord)) == null) ? new ChatObject(context, dialogRecord.getCategory(), dialogRecord.getContacter()) : (ChatObject) invokeLL.objValue;
-    }
-
-    public int getState(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
-            int i = DialogRecordDBManager.getInstance(context).getUnCompleteItemCount() > 0 ? 0 : 1;
-            if (i == 0 && this.mComplete) {
-                return 1;
-            }
-            return i;
-        }
-        return invokeL.intValue;
-    }
-
-    public boolean isComplete() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mComplete : invokeV.booleanValue;
-    }
-
-    public int getState(Context context, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048581, this, context, j)) == null) {
-            String str = TAG;
-            LogUtils.d(str, "getState --->" + j);
-            return (DialogRecordDBManager.getInstance(context).getUnCompleteItemCount(j) == 0 || this.mComplete) ? 1 : 0;
-        }
-        return invokeLJ.intValue;
     }
 
     public void execute(Context context, DialogRecord dialogRecord, int i) {
@@ -267,7 +282,10 @@ public class SyncGroupMessageService {
                     return;
                 }
                 ChatObject chatObject = getChatObject(context, dialogRecord2);
-                SyncGroupMessage syncGroupMessage = this.mGroupSyncMap.size() < 1 ? new SyncGroupMessage(context) : null;
+                SyncGroupMessage syncGroupMessage = null;
+                if (this.mGroupSyncMap.size() < 1) {
+                    syncGroupMessage = new SyncGroupMessage(context);
+                }
                 if (syncGroupMessage != null) {
                     LogUtils.d(TAG, "find sync group message worker!");
                     remove(dialogRecord2, i2);

@@ -1,5 +1,7 @@
 package com.baidu.tieba;
+
+import java.util.List;
 /* loaded from: classes6.dex */
 public interface wg2 {
-    void onResult(boolean z);
+    void a(List list);
 }

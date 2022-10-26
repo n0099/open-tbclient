@@ -3,20 +3,19 @@ package com.baidu.swan.apps.publisher.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.d13;
-import com.baidu.tieba.m13;
-import com.baidu.tieba.o13;
+import com.baidu.tieba.e13;
+import com.baidu.tieba.n13;
+import com.baidu.tieba.p13;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class SPSwitchFSPanelLinearLayout extends LinearLayout implements o13 {
+public class SPSwitchFSPanelLinearLayout extends LinearLayout implements p13 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public d13 a;
+    public e13 a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public SPSwitchFSPanelLinearLayout(Context context) {
@@ -39,31 +38,8 @@ public class SPSwitchFSPanelLinearLayout extends LinearLayout implements o13 {
         }
     }
 
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = new d13(this);
-        }
-    }
-
-    @Override // com.baidu.tieba.o13
-    public void onSoftInputShowing(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.a.a(z);
-        }
-    }
-
-    @Override // com.baidu.tieba.o13
-    public void refreshHeight(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            m13.g(this, i);
-        }
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SPSwitchFSPanelLinearLayout(Context context, @Nullable AttributeSet attributeSet) {
+    public SPSwitchFSPanelLinearLayout(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -84,7 +60,7 @@ public class SPSwitchFSPanelLinearLayout extends LinearLayout implements o13 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SPSwitchFSPanelLinearLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public SPSwitchFSPanelLinearLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -103,5 +79,28 @@ public class SPSwitchFSPanelLinearLayout extends LinearLayout implements o13 {
             }
         }
         a();
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = new e13(this);
+        }
+    }
+
+    @Override // com.baidu.tieba.p13
+    public void onSoftInputShowing(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.a.a(z);
+        }
+    }
+
+    @Override // com.baidu.tieba.p13
+    public void refreshHeight(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            n13.g(this, i);
+        }
     }
 }

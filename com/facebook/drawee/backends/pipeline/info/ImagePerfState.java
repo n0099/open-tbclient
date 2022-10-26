@@ -89,32 +89,6 @@ public class ImagePerfState {
         this.mImageDrawTimeMs = -1L;
     }
 
-    @Nullable
-    public DimensionsInfo getDimensionsInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mDimensionsInfo : (DimensionsInfo) invokeV.objValue;
-    }
-
-    @Nullable
-    public Object getExtraData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mExtraData : invokeV.objValue;
-    }
-
-    public long getImageDrawTimeMs() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mImageDrawTimeMs : invokeV.longValue;
-    }
-
-    public int getImageLoadStatus() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mImageLoadStatus : invokeV.intValue;
-    }
-
     public void reset() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -138,6 +112,44 @@ public class ImagePerfState {
             this.mExtraData = null;
             resetPointsTimestamps();
         }
+    }
+
+    @Nullable
+    public DimensionsInfo getDimensionsInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mDimensionsInfo;
+        }
+        return (DimensionsInfo) invokeV.objValue;
+    }
+
+    @Nullable
+    public Object getExtraData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mExtraData;
+        }
+        return invokeV.objValue;
+    }
+
+    public long getImageDrawTimeMs() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mImageDrawTimeMs;
+        }
+        return invokeV.longValue;
+    }
+
+    public int getImageLoadStatus() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mImageLoadStatus;
+        }
+        return invokeV.intValue;
     }
 
     public void resetPointsTimestamps() {
@@ -194,15 +206,6 @@ public class ImagePerfState {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
             this.mControllerId = str;
-        }
-    }
-
-    public void setControllerImageRequests(@Nullable ImageRequest imageRequest, @Nullable ImageRequest imageRequest2, @Nullable ImageRequest[] imageRequestArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048588, this, imageRequest, imageRequest2, imageRequestArr) == null) {
-            this.mControllerImageRequest = imageRequest;
-            this.mControllerLowResImageRequest = imageRequest2;
-            this.mControllerFirstAvailableImageRequests = imageRequestArr;
         }
     }
 
@@ -340,15 +343,33 @@ public class ImagePerfState {
     }
 
     public void setVisible(boolean z) {
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048608, this, z) == null) {
-            this.mVisibilityState = z ? 1 : 2;
+            if (z) {
+                i = 1;
+            } else {
+                i = 2;
+            }
+            this.mVisibilityState = i;
+        }
+    }
+
+    public void setControllerImageRequests(@Nullable ImageRequest imageRequest, @Nullable ImageRequest imageRequest2, @Nullable ImageRequest[] imageRequestArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048588, this, imageRequest, imageRequest2, imageRequestArr) == null) {
+            this.mControllerImageRequest = imageRequest;
+            this.mControllerLowResImageRequest = imageRequest2;
+            this.mControllerFirstAvailableImageRequests = imageRequestArr;
         }
     }
 
     public ImagePerfData snapshot() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? new ImagePerfData(this.mControllerId, this.mRequestId, this.mImageRequest, this.mCallerContext, this.mImageInfo, this.mControllerImageRequest, this.mControllerLowResImageRequest, this.mControllerFirstAvailableImageRequests, this.mControllerSubmitTimeMs, this.mControllerIntermediateImageSetTimeMs, this.mControllerFinalImageSetTimeMs, this.mControllerFailureTimeMs, this.mControllerCancelTimeMs, this.mImageRequestStartTimeMs, this.mImageRequestEndTimeMs, this.mImageOrigin, this.mUltimateProducerName, this.mIsPrefetch, this.mOnScreenWidthPx, this.mOnScreenHeightPx, this.mErrorThrowable, this.mVisibilityState, this.mVisibilityEventTimeMs, this.mInvisibilityEventTimeMs, this.mComponentTag, this.mImageDrawTimeMs, this.mDimensionsInfo, this.mExtraData) : (ImagePerfData) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
+            return new ImagePerfData(this.mControllerId, this.mRequestId, this.mImageRequest, this.mCallerContext, this.mImageInfo, this.mControllerImageRequest, this.mControllerLowResImageRequest, this.mControllerFirstAvailableImageRequests, this.mControllerSubmitTimeMs, this.mControllerIntermediateImageSetTimeMs, this.mControllerFinalImageSetTimeMs, this.mControllerFailureTimeMs, this.mControllerCancelTimeMs, this.mImageRequestStartTimeMs, this.mImageRequestEndTimeMs, this.mImageOrigin, this.mUltimateProducerName, this.mIsPrefetch, this.mOnScreenWidthPx, this.mOnScreenHeightPx, this.mErrorThrowable, this.mVisibilityState, this.mVisibilityEventTimeMs, this.mInvisibilityEventTimeMs, this.mComponentTag, this.mImageDrawTimeMs, this.mDimensionsInfo, this.mExtraData);
+        }
+        return (ImagePerfData) invokeV.objValue;
     }
 }

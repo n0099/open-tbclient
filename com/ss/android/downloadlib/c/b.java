@@ -17,6 +17,9 @@ public class b implements m {
 
     @Override // com.ss.android.socialbase.downloader.depend.m
     public boolean b(DownloadInfo downloadInfo) {
-        return downloadInfo != null && com.ss.android.downloadlib.g.e.b() && downloadInfo.getPackageInfo() == null;
+        if (downloadInfo != null && com.ss.android.downloadlib.g.e.b() && downloadInfo.getPackageInfo() == null) {
+            return true;
+        }
+        return false;
     }
 }

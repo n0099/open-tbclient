@@ -35,11 +35,10 @@ public class b0 implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
             ScreenCapEditActivity screenCapEditActivity = this.a;
-            if (screenCapEditActivity.a == null || screenCapEditActivity.c == null) {
-                return;
+            if (screenCapEditActivity.a != null && screenCapEditActivity.c != null) {
+                screenCapEditActivity.a(true);
+                this.a.L.obtainMessage(0).sendToTarget();
             }
-            screenCapEditActivity.a(true);
-            this.a.L.obtainMessage(0).sendToTarget();
         }
     }
 }

@@ -78,60 +78,6 @@ public class LoadingBar extends TextView {
         init(context);
     }
 
-    public static /* synthetic */ int access$008(LoadingBar loadingBar) {
-        int i = loadingBar.mProgress;
-        loadingBar.mProgress = i + 1;
-        return i;
-    }
-
-    private Rect getRect() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
-            return new Rect(0, 0, (getLeft() + (((getRight() - getLeft()) * this.mProgress) / 100)) - getLeft(), getBottom() - getTop());
-        }
-        return (Rect) invokeV.objValue;
-    }
-
-    private void init(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, this, context) == null) {
-            this.mHander = new Handler();
-            this.mPaint = new Paint();
-            initSkin();
-        }
-    }
-
-    public void drawProgress(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            if (i < 7) {
-                this.mHander.postDelayed(this.mRunnable, 70L);
-            } else {
-                this.mHander.removeCallbacks(this.mRunnable);
-                this.mProgress = i;
-            }
-            invalidate();
-        }
-    }
-
-    public void initSkin() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.mProgressColor = -11693826;
-        }
-    }
-
-    @Override // android.widget.TextView, android.view.View
-    public void onDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
-            super.onDraw(canvas);
-            this.mPaint.setColor(this.mProgressColor);
-            canvas.drawRect(getRect(), this.mPaint);
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LoadingBar(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -240,5 +186,59 @@ public class LoadingBar extends TextView {
             }
         };
         init(context);
+    }
+
+    public static /* synthetic */ int access$008(LoadingBar loadingBar) {
+        int i = loadingBar.mProgress;
+        loadingBar.mProgress = i + 1;
+        return i;
+    }
+
+    private void init(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, this, context) == null) {
+            this.mHander = new Handler();
+            this.mPaint = new Paint();
+            initSkin();
+        }
+    }
+
+    public void drawProgress(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            if (i < 7) {
+                this.mHander.postDelayed(this.mRunnable, 70L);
+            } else {
+                this.mHander.removeCallbacks(this.mRunnable);
+                this.mProgress = i;
+            }
+            invalidate();
+        }
+    }
+
+    @Override // android.widget.TextView, android.view.View
+    public void onDraw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
+            super.onDraw(canvas);
+            this.mPaint.setColor(this.mProgressColor);
+            canvas.drawRect(getRect(), this.mPaint);
+        }
+    }
+
+    private Rect getRect() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
+            return new Rect(0, 0, (getLeft() + (((getRight() - getLeft()) * this.mProgress) / 100)) - getLeft(), getBottom() - getTop());
+        }
+        return (Rect) invokeV.objValue;
+    }
+
+    public void initSkin() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.mProgressColor = -11693826;
+        }
     }
 }

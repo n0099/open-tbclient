@@ -32,7 +32,7 @@ public class a {
     }
 
     /* loaded from: classes.dex */
-    public static class b extends Handler {
+    public class b extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public c lS;

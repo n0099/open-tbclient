@@ -1,7 +1,6 @@
 package com.bun.miitmdid;
 
 import android.content.Context;
-import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,23 +8,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bun.miitmdid.interfaces.IIdConfig;
 import org.json.JSONObject;
-@Keep
 /* loaded from: classes7.dex */
 public class b implements IIdConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Keep
     public a a;
 
-    @Keep
     /* loaded from: classes7.dex */
     public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        @Keep
         public w a;
 
-        @Keep
         public a(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -59,7 +53,6 @@ public class b implements IIdConfig {
         this.a = new a(this);
     }
 
-    @Keep
     public static native b a(Context context);
 
     public static boolean a(b bVar, JSONObject jSONObject) {
@@ -81,6 +74,5 @@ public class b implements IIdConfig {
     }
 
     @Override // com.bun.miitmdid.interfaces.IIdConfig
-    @Keep
     public native String getVivoAppID();
 }

@@ -4,7 +4,6 @@ import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.data.TransmitForumData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -63,13 +62,19 @@ public class ShareFriendActivityConfig extends IntentConfig {
     public ForumData forumData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? mForumData : (ForumData) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return mForumData;
+        }
+        return (ForumData) invokeV.objValue;
     }
 
     public ThreadData getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? mThreadData : (ThreadData) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return mThreadData;
+        }
+        return (ThreadData) invokeV.objValue;
     }
 
     public void setForumData(ForumData forumData) {
@@ -79,20 +84,18 @@ public class ShareFriendActivityConfig extends IntentConfig {
         }
     }
 
-    public void setForumList(ArrayList<TransmitForumData> arrayList) {
+    public void setForumList(ArrayList arrayList) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) || getIntent() == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) && getIntent() != null) {
+            getIntent().putParcelableArrayListExtra(KEY_SHARE_FRIEND_LIST, arrayList);
         }
-        getIntent().putParcelableArrayListExtra(KEY_SHARE_FRIEND_LIST, arrayList);
     }
 
     public void setFrom(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048580, this, i) == null) || getIntent() == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeI(1048580, this, i) == null) && getIntent() != null) {
+            getIntent().putExtra("key_from", i);
         }
-        getIntent().putExtra("key_from", i);
     }
 
     public void setIsForChat(boolean z) {

@@ -17,8 +17,28 @@ public final class RandomTrackSelection extends BaseTrackSelection {
     public final Random random;
     public int selectedIndex;
 
+    @Override // com.google.android.exoplayer2.trackselection.TrackSelection
+    public Object getSelectionData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
+        }
+        return invokeV.objValue;
+    }
+
+    @Override // com.google.android.exoplayer2.trackselection.TrackSelection
+    public int getSelectionReason() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 3;
+        }
+        return invokeV.intValue;
+    }
+
     /* loaded from: classes7.dex */
-    public static final class Factory implements TrackSelection.Factory {
+    public final class Factory implements TrackSelection.Factory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Random random;
@@ -39,14 +59,6 @@ public final class RandomTrackSelection extends BaseTrackSelection {
             this.random = new Random();
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.android.exoplayer2.trackselection.TrackSelection.Factory
-        public RandomTrackSelection createTrackSelection(TrackGroup trackGroup, int... iArr) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, trackGroup, iArr)) == null) ? new RandomTrackSelection(trackGroup, iArr, this.random) : (RandomTrackSelection) invokeLL.objValue;
-        }
-
         public Factory(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -63,6 +75,17 @@ public final class RandomTrackSelection extends BaseTrackSelection {
                 }
             }
             this.random = new Random(i);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.android.exoplayer2.trackselection.TrackSelection.Factory
+        public RandomTrackSelection createTrackSelection(TrackGroup trackGroup, int... iArr) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, trackGroup, iArr)) == null) {
+                return new RandomTrackSelection(trackGroup, iArr, this.random);
+            }
+            return (RandomTrackSelection) invokeLL.objValue;
         }
     }
 
@@ -88,61 +111,6 @@ public final class RandomTrackSelection extends BaseTrackSelection {
         Random random = new Random();
         this.random = random;
         this.selectedIndex = random.nextInt(this.length);
-    }
-
-    @Override // com.google.android.exoplayer2.trackselection.TrackSelection
-    public int getSelectedIndex() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.selectedIndex : invokeV.intValue;
-    }
-
-    @Override // com.google.android.exoplayer2.trackselection.TrackSelection
-    public Object getSelectionData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
-        }
-        return invokeV.objValue;
-    }
-
-    @Override // com.google.android.exoplayer2.trackselection.TrackSelection
-    public int getSelectionReason() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 3;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.google.android.exoplayer2.trackselection.TrackSelection
-    public void updateSelectedTrack(long j, long j2, long j3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            long elapsedRealtime = SystemClock.elapsedRealtime();
-            int i = 0;
-            for (int i2 = 0; i2 < this.length; i2++) {
-                if (!isBlacklisted(i2, elapsedRealtime)) {
-                    i++;
-                }
-            }
-            this.selectedIndex = this.random.nextInt(i);
-            if (i != this.length) {
-                int i3 = 0;
-                for (int i4 = 0; i4 < this.length; i4++) {
-                    if (!isBlacklisted(i4, elapsedRealtime)) {
-                        int i5 = i3 + 1;
-                        if (this.selectedIndex == i3) {
-                            this.selectedIndex = i4;
-                            return;
-                        }
-                        i3 = i5;
-                    }
-                }
-            }
-        }
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -187,5 +155,43 @@ public final class RandomTrackSelection extends BaseTrackSelection {
         }
         this.random = random;
         this.selectedIndex = random.nextInt(this.length);
+    }
+
+    @Override // com.google.android.exoplayer2.trackselection.TrackSelection
+    public int getSelectedIndex() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.selectedIndex;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.google.android.exoplayer2.trackselection.TrackSelection
+    public void updateSelectedTrack(long j, long j2, long j3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+            long elapsedRealtime = SystemClock.elapsedRealtime();
+            int i = 0;
+            for (int i2 = 0; i2 < this.length; i2++) {
+                if (!isBlacklisted(i2, elapsedRealtime)) {
+                    i++;
+                }
+            }
+            this.selectedIndex = this.random.nextInt(i);
+            if (i != this.length) {
+                int i3 = 0;
+                for (int i4 = 0; i4 < this.length; i4++) {
+                    if (!isBlacklisted(i4, elapsedRealtime)) {
+                        int i5 = i3 + 1;
+                        if (this.selectedIndex == i3) {
+                            this.selectedIndex = i4;
+                            return;
+                        }
+                        i3 = i5;
+                    }
+                }
+            }
+        }
     }
 }

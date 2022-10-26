@@ -43,12 +43,12 @@ public class TaskManagerNew implements ITaskManager {
     public volatile boolean mIsStoreWorking;
     public volatile boolean mIsWorking;
     public String mLastSucDataId;
-    public Vector<TaskData> mPreStoreVectors;
+    public Vector mPreStoreVectors;
     public final TaskExecutor mSaveExecutor;
     public AtomicInteger sendFailedCount;
 
     /* loaded from: classes8.dex */
-    public static class FailSendControler {
+    public class FailSendControler {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long SEND_FAIL_SLEEP_TIMES = 10000;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,13 +79,19 @@ public class TaskManagerNew implements ITaskManager {
         public int getFailContinuous() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.failContinuous : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.failContinuous;
+            }
+            return invokeV.intValue;
         }
 
         public long getSleepTime() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.sleepTime : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.sleepTime;
+            }
+            return invokeV.longValue;
         }
 
         public void increase() {
@@ -99,7 +105,13 @@ public class TaskManagerNew implements ITaskManager {
         public boolean isOverTime() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? System.currentTimeMillis() - this.lastFailTime > getSleepTime() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                if (System.currentTimeMillis() - this.lastFailTime > getSleepTime()) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
         }
 
         public void reset() {
@@ -128,6 +140,39 @@ public class TaskManagerNew implements ITaskManager {
         MAX_CACHE_DAY = AbstractConfig.MAX_DATA_CACHE_DAY;
     }
 
+    private IStatisHttpUtil getHttpUtilCache() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
+            IStatisHttpUtil iStatisHttpUtil = this.mHttpUtil;
+            if (iStatisHttpUtil != null) {
+                return iStatisHttpUtil;
+            }
+            IStatisHttpUtil httpUtil = getHttpUtil();
+            this.mHttpUtil = httpUtil;
+            return httpUtil;
+        }
+        return (IStatisHttpUtil) invokeV.objValue;
+    }
+
+    private boolean isAbroad() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
+            return this.mConfig.isAbroad();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public TaskExecutor getExecutor() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mExecutor;
+        }
+        return (TaskExecutor) invokeV.objValue;
+    }
+
     public TaskManagerNew(Context context, AbstractConfig abstractConfig) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -150,7 +195,7 @@ public class TaskManagerNew implements ITaskManager {
         this.mLastSucDataId = null;
         this.mHttpUtil = null;
         this.sendFailedCount = new AtomicInteger(0);
-        this.mPreStoreVectors = new Vector<>();
+        this.mPreStoreVectors = new Vector();
         this.mIsStoreWorking = false;
         this.BATCH_STORE_SIZE = 100;
         this.BATCH_STORE_WAITING_TIME = 50L;
@@ -193,10 +238,115 @@ public class TaskManagerNew implements ITaskManager {
         this.mExecutor = new TaskExecutor(null, "Statis_SDK_Send_Worker");
     }
 
+    private boolean isOverMaxTryTimes(TaskData taskData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, this, taskData)) == null) {
+            if (taskData.getTryTimes() >= MAX_RETRY_TIMES) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    private boolean isOverdue(TaskData taskData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, this, taskData)) == null) {
+            try {
+                if (Util.daysBetween(taskData.getTime(), System.currentTimeMillis()) <= MAX_CACHE_DAY) {
+                    return false;
+                }
+                return true;
+            } catch (Throwable th) {
+                L.debug(this, th.getMessage(), new Object[0]);
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int cacheSize(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            return this.cacheManager.size(context);
+        }
+        return invokeL.intValue;
+    }
+
+    @Override // com.yy.hiidostatis.inner.implementation.ITaskManager
+    public void enableSend(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.isEnableSend = z;
+        }
+    }
+
+    @Override // com.yy.hiidostatis.inner.implementation.ITaskManager
+    public void flush(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
+            this.failSendControler.reset();
+            createSendTask(context, true, 0);
+        }
+    }
+
+    @Override // com.yy.hiidostatis.inner.implementation.ITaskManager
+    public void sendTemporary(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, context, str) == null) {
+            ThreadPool.getPool().execute(new Runnable(this, str) { // from class: com.yy.hiidostatis.inner.implementation.TaskManagerNew.3
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ TaskManagerNew this$0;
+                public final /* synthetic */ String val$content;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, str};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$content = str;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
+                        return;
+                    }
+                    try {
+                        IStatisHttpUtil httpUtil = this.this$0.getHttpUtil();
+                        httpUtil.setLastTryTimes(0);
+                        httpUtil.setRetryTimeHost(0);
+                        httpUtil.setTryTimeIp(1);
+                        httpUtil.setCacheIp(this.this$0.mCacheIpTemporary);
+                        L.debug(this, "sendTemporary:lastTryTimes:%d . Return value: %B to send command %s. ", Integer.valueOf(httpUtil.getLastTryTimes()), Boolean.valueOf(httpUtil.sendSync(this.val$content)), this.val$content);
+                    } catch (Throwable th) {
+                        L.debug(this, "sendTemporary error = %s", th);
+                    }
+                }
+            });
+        }
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public void createSendTask(Context context, boolean z, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{context, Boolean.valueOf(z), Integer.valueOf(i)}) == null) || this.mIsWorking) {
+        if ((interceptable != null && interceptable.invokeCommon(65544, this, new Object[]{context, Boolean.valueOf(z), Integer.valueOf(i)}) != null) || this.mIsWorking) {
             return;
         }
         this.mIsWorking = true;
@@ -251,9 +401,10 @@ public class TaskManagerNew implements ITaskManager {
                             }
                         } while (i2 == 0);
                         this.this$0.mIsWorking = false;
-                        if (i2 > 0) {
-                            this.this$0.createSendTask(this.val$c, true, i2);
+                        if (i2 <= 0) {
+                            return;
                         }
+                        this.this$0.createSendTask(this.val$c, true, i2);
                     }
                 }
             }, i);
@@ -333,27 +484,6 @@ public class TaskManagerNew implements ITaskManager {
         return (IStatisHttpUtil) invokeV.objValue;
     }
 
-    private IStatisHttpUtil getHttpUtilCache() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
-            IStatisHttpUtil iStatisHttpUtil = this.mHttpUtil;
-            if (iStatisHttpUtil != null) {
-                return iStatisHttpUtil;
-            }
-            IStatisHttpUtil httpUtil = getHttpUtil();
-            this.mHttpUtil = httpUtil;
-            return httpUtil;
-        }
-        return (IStatisHttpUtil) invokeV.objValue;
-    }
-
-    private boolean isAbroad() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) ? this.mConfig.isAbroad() : invokeV.booleanValue;
-    }
-
     private boolean isEncrypt() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -361,32 +491,15 @@ public class TaskManagerNew implements ITaskManager {
             boolean isEncryptTestServer = this.mConfig.isEncryptTestServer();
             String testServer = this.mConfig.getTestServer();
             L.brief("isEncrypt[%b],isEncryptTestServer[%b],testServer[%s]", Boolean.valueOf(this.mConfig.isEncrypt()), Boolean.valueOf(isEncryptTestServer), testServer);
-            if (this.mConfig.isEncrypt()) {
-                return isEncryptTestServer || Util.empty(testServer);
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    private boolean isOverMaxTryTimes(TaskData taskData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65550, this, taskData)) == null) ? taskData.getTryTimes() >= MAX_RETRY_TIMES : invokeL.booleanValue;
-    }
-
-    private boolean isOverdue(TaskData taskData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, this, taskData)) == null) {
-            try {
-                return Util.daysBetween(taskData.getTime(), System.currentTimeMillis()) > MAX_CACHE_DAY;
-            } catch (Throwable th) {
-                L.debug(this, th.getMessage(), new Object[0]);
+            if (!this.mConfig.isEncrypt()) {
                 return false;
             }
+            if (!isEncryptTestServer && !Util.empty(testServer)) {
+                return false;
+            }
+            return true;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
     }
 
     private void removeInvalid(Context context, TaskData taskData) {
@@ -441,35 +554,6 @@ public class TaskManagerNew implements ITaskManager {
         return invokeCommon.intValue;
     }
 
-    public int cacheSize(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? this.cacheManager.size(context) : invokeL.intValue;
-    }
-
-    @Override // com.yy.hiidostatis.inner.implementation.ITaskManager
-    public void enableSend(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.isEnableSend = z;
-        }
-    }
-
-    @Override // com.yy.hiidostatis.inner.implementation.ITaskManager
-    public void flush(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            this.failSendControler.reset();
-            createSendTask(context, true, 0);
-        }
-    }
-
-    public TaskExecutor getExecutor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mExecutor : (TaskExecutor) invokeV.objValue;
-    }
-
     @Override // com.yy.hiidostatis.inner.implementation.ITaskManager
     public boolean send(Context context, String str, String str2) {
         InterceptResult invokeLLL;
@@ -485,55 +569,6 @@ public class TaskManagerNew implements ITaskManager {
             return save;
         }
         return invokeLLL.booleanValue;
-    }
-
-    @Override // com.yy.hiidostatis.inner.implementation.ITaskManager
-    public void sendTemporary(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, context, str) == null) {
-            ThreadPool.getPool().execute(new Runnable(this, str) { // from class: com.yy.hiidostatis.inner.implementation.TaskManagerNew.3
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ TaskManagerNew this$0;
-                public final /* synthetic */ String val$content;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, str};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$content = str;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        try {
-                            IStatisHttpUtil httpUtil = this.this$0.getHttpUtil();
-                            httpUtil.setLastTryTimes(0);
-                            httpUtil.setRetryTimeHost(0);
-                            httpUtil.setTryTimeIp(1);
-                            httpUtil.setCacheIp(this.this$0.mCacheIpTemporary);
-                            L.debug(this, "sendTemporary:lastTryTimes:%d . Return value: %B to send command %s. ", Integer.valueOf(httpUtil.getLastTryTimes()), Boolean.valueOf(httpUtil.sendSync(this.val$content)), this.val$content);
-                        } catch (Throwable th) {
-                            L.debug(this, "sendTemporary error = %s", th);
-                        }
-                    }
-                }
-            });
-        }
     }
 
     @Override // com.yy.hiidostatis.inner.implementation.ITaskManager

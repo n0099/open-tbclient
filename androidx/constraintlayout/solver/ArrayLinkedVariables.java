@@ -82,19 +82,19 @@ public class ArrayLinkedVariables implements ArrayRow.ArrayRowVariables {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{solverVariable, Float.valueOf(f), Boolean.valueOf(z)}) == null) {
             float f2 = epsilon;
-            if (f <= (-f2) || f >= f2) {
-                int i = this.mHead;
-                if (i == -1) {
-                    this.mHead = 0;
-                    this.mArrayValues[0] = f;
-                    this.mArrayIndices[0] = solverVariable.id;
-                    this.mArrayNextIndices[0] = -1;
-                    solverVariable.usageInRowCount++;
-                    solverVariable.addToRow(this.mRow);
-                    this.currentSize++;
-                    if (this.mDidFillOnce) {
-                        return;
-                    }
+            if (f > (-f2) && f < f2) {
+                return;
+            }
+            int i = this.mHead;
+            if (i == -1) {
+                this.mHead = 0;
+                this.mArrayValues[0] = f;
+                this.mArrayIndices[0] = solverVariable.id;
+                this.mArrayNextIndices[0] = -1;
+                solverVariable.usageInRowCount++;
+                solverVariable.addToRow(this.mRow);
+                this.currentSize++;
+                if (!this.mDidFillOnce) {
                     int i2 = this.mLast + 1;
                     this.mLast = i2;
                     int[] iArr = this.mArrayIndices;
@@ -105,100 +105,101 @@ public class ArrayLinkedVariables implements ArrayRow.ArrayRowVariables {
                     }
                     return;
                 }
-                int i3 = -1;
-                for (int i4 = 0; i != -1 && i4 < this.currentSize; i4++) {
-                    int[] iArr2 = this.mArrayIndices;
-                    int i5 = iArr2[i];
-                    int i6 = solverVariable.id;
-                    if (i5 == i6) {
-                        float f3 = this.mArrayValues[i] + f;
-                        float f4 = epsilon;
-                        if (f3 > (-f4) && f3 < f4) {
-                            f3 = 0.0f;
+                return;
+            }
+            int i3 = -1;
+            for (int i4 = 0; i != -1 && i4 < this.currentSize; i4++) {
+                int[] iArr2 = this.mArrayIndices;
+                int i5 = iArr2[i];
+                int i6 = solverVariable.id;
+                if (i5 == i6) {
+                    float f3 = this.mArrayValues[i] + f;
+                    float f4 = epsilon;
+                    if (f3 > (-f4) && f3 < f4) {
+                        f3 = 0.0f;
+                    }
+                    this.mArrayValues[i] = f3;
+                    if (f3 == 0.0f) {
+                        if (i == this.mHead) {
+                            this.mHead = this.mArrayNextIndices[i];
+                        } else {
+                            int[] iArr3 = this.mArrayNextIndices;
+                            iArr3[i3] = iArr3[i];
                         }
-                        this.mArrayValues[i] = f3;
-                        if (f3 == 0.0f) {
-                            if (i == this.mHead) {
-                                this.mHead = this.mArrayNextIndices[i];
-                            } else {
-                                int[] iArr3 = this.mArrayNextIndices;
-                                iArr3[i3] = iArr3[i];
-                            }
-                            if (z) {
-                                solverVariable.removeFromRow(this.mRow);
-                            }
-                            if (this.mDidFillOnce) {
-                                this.mLast = i;
-                            }
-                            solverVariable.usageInRowCount--;
-                            this.currentSize--;
-                            return;
+                        if (z) {
+                            solverVariable.removeFromRow(this.mRow);
                         }
+                        if (this.mDidFillOnce) {
+                            this.mLast = i;
+                        }
+                        solverVariable.usageInRowCount--;
+                        this.currentSize--;
                         return;
                     }
-                    if (iArr2[i] < i6) {
-                        i3 = i;
+                    return;
+                }
+                if (iArr2[i] < i6) {
+                    i3 = i;
+                }
+                i = this.mArrayNextIndices[i];
+            }
+            int i7 = this.mLast;
+            int i8 = i7 + 1;
+            if (this.mDidFillOnce) {
+                int[] iArr4 = this.mArrayIndices;
+                if (iArr4[i7] != -1) {
+                    i7 = iArr4.length;
+                }
+            } else {
+                i7 = i8;
+            }
+            int[] iArr5 = this.mArrayIndices;
+            if (i7 >= iArr5.length && this.currentSize < iArr5.length) {
+                int i9 = 0;
+                while (true) {
+                    int[] iArr6 = this.mArrayIndices;
+                    if (i9 >= iArr6.length) {
+                        break;
+                    } else if (iArr6[i9] == -1) {
+                        i7 = i9;
+                        break;
+                    } else {
+                        i9++;
                     }
-                    i = this.mArrayNextIndices[i];
                 }
-                int i7 = this.mLast;
-                int i8 = i7 + 1;
-                if (this.mDidFillOnce) {
-                    int[] iArr4 = this.mArrayIndices;
-                    if (iArr4[i7] != -1) {
-                        i7 = iArr4.length;
-                    }
-                } else {
-                    i7 = i8;
-                }
-                int[] iArr5 = this.mArrayIndices;
-                if (i7 >= iArr5.length && this.currentSize < iArr5.length) {
-                    int i9 = 0;
-                    while (true) {
-                        int[] iArr6 = this.mArrayIndices;
-                        if (i9 >= iArr6.length) {
-                            break;
-                        } else if (iArr6[i9] == -1) {
-                            i7 = i9;
-                            break;
-                        } else {
-                            i9++;
-                        }
-                    }
-                }
-                int[] iArr7 = this.mArrayIndices;
-                if (i7 >= iArr7.length) {
-                    i7 = iArr7.length;
-                    int i10 = this.ROW_SIZE * 2;
-                    this.ROW_SIZE = i10;
-                    this.mDidFillOnce = false;
-                    this.mLast = i7 - 1;
-                    this.mArrayValues = Arrays.copyOf(this.mArrayValues, i10);
-                    this.mArrayIndices = Arrays.copyOf(this.mArrayIndices, this.ROW_SIZE);
-                    this.mArrayNextIndices = Arrays.copyOf(this.mArrayNextIndices, this.ROW_SIZE);
-                }
-                this.mArrayIndices[i7] = solverVariable.id;
-                this.mArrayValues[i7] = f;
-                if (i3 != -1) {
-                    int[] iArr8 = this.mArrayNextIndices;
-                    iArr8[i7] = iArr8[i3];
-                    iArr8[i3] = i7;
-                } else {
-                    this.mArrayNextIndices[i7] = this.mHead;
-                    this.mHead = i7;
-                }
-                solverVariable.usageInRowCount++;
-                solverVariable.addToRow(this.mRow);
-                this.currentSize++;
-                if (!this.mDidFillOnce) {
-                    this.mLast++;
-                }
-                int i11 = this.mLast;
-                int[] iArr9 = this.mArrayIndices;
-                if (i11 >= iArr9.length) {
-                    this.mDidFillOnce = true;
-                    this.mLast = iArr9.length - 1;
-                }
+            }
+            int[] iArr7 = this.mArrayIndices;
+            if (i7 >= iArr7.length) {
+                i7 = iArr7.length;
+                int i10 = this.ROW_SIZE * 2;
+                this.ROW_SIZE = i10;
+                this.mDidFillOnce = false;
+                this.mLast = i7 - 1;
+                this.mArrayValues = Arrays.copyOf(this.mArrayValues, i10);
+                this.mArrayIndices = Arrays.copyOf(this.mArrayIndices, this.ROW_SIZE);
+                this.mArrayNextIndices = Arrays.copyOf(this.mArrayNextIndices, this.ROW_SIZE);
+            }
+            this.mArrayIndices[i7] = solverVariable.id;
+            this.mArrayValues[i7] = f;
+            if (i3 != -1) {
+                int[] iArr8 = this.mArrayNextIndices;
+                iArr8[i7] = iArr8[i3];
+                iArr8[i3] = i7;
+            } else {
+                this.mArrayNextIndices[i7] = this.mHead;
+                this.mHead = i7;
+            }
+            solverVariable.usageInRowCount++;
+            solverVariable.addToRow(this.mRow);
+            this.currentSize++;
+            if (!this.mDidFillOnce) {
+                this.mLast++;
+            }
+            int i11 = this.mLast;
+            int[] iArr9 = this.mArrayIndices;
+            if (i11 >= iArr9.length) {
+                this.mDidFillOnce = true;
+                this.mLast = iArr9.length - 1;
             }
         }
     }
@@ -243,23 +244,6 @@ public class ArrayLinkedVariables implements ArrayRow.ArrayRowVariables {
     }
 
     @Override // androidx.constraintlayout.solver.ArrayRow.ArrayRowVariables
-    public void display() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            int i = this.currentSize;
-            System.out.print("{ ");
-            for (int i2 = 0; i2 < i; i2++) {
-                SolverVariable variable = getVariable(i2);
-                if (variable != null) {
-                    PrintStream printStream = System.out;
-                    printStream.print(variable + " = " + getVariableValue(i2) + " ");
-                }
-            }
-            System.out.println(" }");
-        }
-    }
-
-    @Override // androidx.constraintlayout.solver.ArrayRow.ArrayRowVariables
     public void divideByAmount(float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048580, this, f) == null) {
@@ -289,29 +273,85 @@ public class ArrayLinkedVariables implements ArrayRow.ArrayRowVariables {
         return invokeL.floatValue;
     }
 
-    @Override // androidx.constraintlayout.solver.ArrayRow.ArrayRowVariables
-    public int getCurrentSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.currentSize : invokeV.intValue;
-    }
-
-    public int getHead() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mHead : invokeV.intValue;
-    }
-
     public final int getId(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) ? this.mArrayIndices[i] : invokeI.intValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+            return this.mArrayIndices[i];
+        }
+        return invokeI.intValue;
     }
 
     public final int getNextIndice(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) ? this.mArrayNextIndices[i] : invokeI.intValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
+            return this.mArrayNextIndices[i];
+        }
+        return invokeI.intValue;
+    }
+
+    public final float getValue(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
+            return this.mArrayValues[i];
+        }
+        return invokeI.floatValue;
+    }
+
+    @Override // androidx.constraintlayout.solver.ArrayRow.ArrayRowVariables
+    public float getVariableValue(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
+            int i2 = this.mHead;
+            for (int i3 = 0; i2 != -1 && i3 < this.currentSize; i3++) {
+                if (i3 == i) {
+                    return this.mArrayValues[i2];
+                }
+                i2 = this.mArrayNextIndices[i2];
+            }
+            return 0.0f;
+        }
+        return invokeI.floatValue;
+    }
+
+    @Override // androidx.constraintlayout.solver.ArrayRow.ArrayRowVariables
+    public int indexOf(SolverVariable solverVariable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, solverVariable)) == null) {
+            int i = this.mHead;
+            if (i == -1) {
+                return -1;
+            }
+            for (int i2 = 0; i != -1 && i2 < this.currentSize; i2++) {
+                if (this.mArrayIndices[i] == solverVariable.id) {
+                    return i;
+                }
+                i = this.mArrayNextIndices[i];
+            }
+            return -1;
+        }
+        return invokeL.intValue;
+    }
+
+    @Override // androidx.constraintlayout.solver.ArrayRow.ArrayRowVariables
+    public void display() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            int i = this.currentSize;
+            System.out.print("{ ");
+            for (int i2 = 0; i2 < i; i2++) {
+                SolverVariable variable = getVariable(i2);
+                if (variable != null) {
+                    PrintStream printStream = System.out;
+                    printStream.print(variable + " = " + getVariableValue(i2) + " ");
+                }
+            }
+            System.out.println(" }");
+        }
     }
 
     public SolverVariable getPivotCandidate() {
@@ -338,10 +378,62 @@ public class ArrayLinkedVariables implements ArrayRow.ArrayRowVariables {
         return (SolverVariable) invokeV.objValue;
     }
 
-    public final float getValue(int i) {
-        InterceptResult invokeI;
+    @Override // androidx.constraintlayout.solver.ArrayRow.ArrayRowVariables
+    public int getCurrentSize() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) ? this.mArrayValues[i] : invokeI.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.currentSize;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getHead() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mHead;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean hasAtLeastOnePositiveVariable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            int i = this.mHead;
+            for (int i2 = 0; i != -1 && i2 < this.currentSize; i2++) {
+                if (this.mArrayValues[i] > 0.0f) {
+                    return true;
+                }
+                i = this.mArrayNextIndices[i];
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // androidx.constraintlayout.solver.ArrayRow.ArrayRowVariables
+    public void invert() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            int i = this.mHead;
+            for (int i2 = 0; i != -1 && i2 < this.currentSize; i2++) {
+                float[] fArr = this.mArrayValues;
+                fArr[i] = fArr[i] * (-1.0f);
+                i = this.mArrayNextIndices[i];
+            }
+        }
+    }
+
+    @Override // androidx.constraintlayout.solver.ArrayRow.ArrayRowVariables
+    public int sizeInBytes() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return (this.mArrayIndices.length * 4 * 3) + 0 + 36;
+        }
+        return invokeV.intValue;
     }
 
     @Override // androidx.constraintlayout.solver.ArrayRow.ArrayRowVariables
@@ -362,72 +454,6 @@ public class ArrayLinkedVariables implements ArrayRow.ArrayRowVariables {
     }
 
     @Override // androidx.constraintlayout.solver.ArrayRow.ArrayRowVariables
-    public float getVariableValue(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
-            int i2 = this.mHead;
-            for (int i3 = 0; i2 != -1 && i3 < this.currentSize; i3++) {
-                if (i3 == i) {
-                    return this.mArrayValues[i2];
-                }
-                i2 = this.mArrayNextIndices[i2];
-            }
-            return 0.0f;
-        }
-        return invokeI.floatValue;
-    }
-
-    public boolean hasAtLeastOnePositiveVariable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            int i = this.mHead;
-            for (int i2 = 0; i != -1 && i2 < this.currentSize; i2++) {
-                if (this.mArrayValues[i] > 0.0f) {
-                    return true;
-                }
-                i = this.mArrayNextIndices[i];
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // androidx.constraintlayout.solver.ArrayRow.ArrayRowVariables
-    public int indexOf(SolverVariable solverVariable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, solverVariable)) == null) {
-            int i = this.mHead;
-            if (i == -1) {
-                return -1;
-            }
-            for (int i2 = 0; i != -1 && i2 < this.currentSize; i2++) {
-                if (this.mArrayIndices[i] == solverVariable.id) {
-                    return i;
-                }
-                i = this.mArrayNextIndices[i];
-            }
-            return -1;
-        }
-        return invokeL.intValue;
-    }
-
-    @Override // androidx.constraintlayout.solver.ArrayRow.ArrayRowVariables
-    public void invert() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            int i = this.mHead;
-            for (int i2 = 0; i != -1 && i2 < this.currentSize; i2++) {
-                float[] fArr = this.mArrayValues;
-                fArr[i] = fArr[i] * (-1.0f);
-                i = this.mArrayNextIndices[i];
-            }
-        }
-    }
-
-    @Override // androidx.constraintlayout.solver.ArrayRow.ArrayRowVariables
     public final void put(SolverVariable solverVariable, float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLF(1048593, this, solverVariable, f) == null) {
@@ -444,15 +470,15 @@ public class ArrayLinkedVariables implements ArrayRow.ArrayRowVariables {
                 solverVariable.usageInRowCount++;
                 solverVariable.addToRow(this.mRow);
                 this.currentSize++;
-                if (this.mDidFillOnce) {
-                    return;
-                }
-                int i2 = this.mLast + 1;
-                this.mLast = i2;
-                int[] iArr = this.mArrayIndices;
-                if (i2 >= iArr.length) {
-                    this.mDidFillOnce = true;
-                    this.mLast = iArr.length - 1;
+                if (!this.mDidFillOnce) {
+                    int i2 = this.mLast + 1;
+                    this.mLast = i2;
+                    int[] iArr = this.mArrayIndices;
+                    if (i2 >= iArr.length) {
+                        this.mDidFillOnce = true;
+                        this.mLast = iArr.length - 1;
+                        return;
+                    }
                     return;
                 }
                 return;
@@ -575,13 +601,6 @@ public class ArrayLinkedVariables implements ArrayRow.ArrayRowVariables {
             return 0.0f;
         }
         return invokeLZ.floatValue;
-    }
-
-    @Override // androidx.constraintlayout.solver.ArrayRow.ArrayRowVariables
-    public int sizeInBytes() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? (this.mArrayIndices.length * 4 * 3) + 0 + 36 : invokeV.intValue;
     }
 
     public String toString() {

@@ -1,6 +1,5 @@
 package com.baidu.searchbox.player.pool;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.player.BDPlayerConfig;
 import com.baidu.searchbox.player.kernel.AbsVideoKernel;
@@ -14,18 +13,18 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class VideoKernelPool {
     public static /* synthetic */ Interceptable $ic;
-    public static final FIFOPool<AbsVideoKernel> sPool;
+    public static final FIFOPool sPool;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.searchbox.player.pool.VideoKernelPool$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes2.dex */
-    public static class InstanceHolder {
+    public class InstanceHolder {
         public static /* synthetic */ Interceptable $ic;
         public static final VideoKernelPool INSTANCE;
         public transient /* synthetic */ FieldHolder $fh;
@@ -74,43 +73,7 @@ public class VideoKernelPool {
                 return;
             }
         }
-        sPool = new FIFOPool<>(5);
-    }
-
-    public /* synthetic */ VideoKernelPool(AnonymousClass1 anonymousClass1) {
-        this();
-    }
-
-    public static VideoKernelPool getInstance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? InstanceHolder.INSTANCE : (VideoKernelPool) invokeV.objValue;
-    }
-
-    @NonNull
-    public synchronized AbsVideoKernel obtain() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this) {
-                AbsVideoKernel acquire = sPool.acquire(AbsVideoKernel.NORMAL_PLAYER);
-                if (acquire != null) {
-                    return acquire;
-                }
-                sPool.add(BDPlayerConfig.getKernelFactory().create(AbsVideoKernel.NORMAL_PLAYER));
-                return sPool.acquire();
-            }
-        }
-        return (AbsVideoKernel) invokeV.objValue;
-    }
-
-    public synchronized void recycle(AbsVideoKernel absVideoKernel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, absVideoKernel) == null) {
-            synchronized (this) {
-                sPool.release((FIFOPool<AbsVideoKernel>) absVideoKernel);
-            }
-        }
+        sPool = new FIFOPool(5);
     }
 
     public VideoKernelPool() {
@@ -127,18 +90,55 @@ public class VideoKernelPool {
         }
     }
 
-    @NonNull
+    public static VideoKernelPool getInstance() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return InstanceHolder.INSTANCE;
+        }
+        return (VideoKernelPool) invokeV.objValue;
+    }
+
+    public /* synthetic */ VideoKernelPool(AnonymousClass1 anonymousClass1) {
+        this();
+    }
+
+    public synchronized void recycle(AbsVideoKernel absVideoKernel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, absVideoKernel) == null) {
+            synchronized (this) {
+                sPool.release((IPoolItem) absVideoKernel);
+            }
+        }
+    }
+
+    public synchronized AbsVideoKernel obtain() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                AbsVideoKernel absVideoKernel = (AbsVideoKernel) sPool.acquire(AbsVideoKernel.NORMAL_PLAYER);
+                if (absVideoKernel != null) {
+                    return absVideoKernel;
+                }
+                sPool.add(BDPlayerConfig.getKernelFactory().create(AbsVideoKernel.NORMAL_PLAYER));
+                return (AbsVideoKernel) sPool.acquire();
+            }
+        }
+        return (AbsVideoKernel) invokeV.objValue;
+    }
+
     public synchronized AbsVideoKernel obtain(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             synchronized (this) {
-                AbsVideoKernel acquire = sPool.acquire(str);
-                if (acquire != null) {
-                    return acquire;
+                AbsVideoKernel absVideoKernel = (AbsVideoKernel) sPool.acquire(str);
+                if (absVideoKernel != null) {
+                    return absVideoKernel;
                 }
                 sPool.add(BDPlayerConfig.getKernelFactory().create(str));
-                return sPool.acquire();
+                return (AbsVideoKernel) sPool.acquire();
             }
         }
         return (AbsVideoKernel) invokeL.objValue;

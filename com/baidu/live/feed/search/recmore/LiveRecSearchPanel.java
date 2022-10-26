@@ -4,14 +4,12 @@ import android.content.Context;
 import android.os.Build;
 import android.view.View;
 import android.widget.EditText;
-import androidx.annotation.ColorInt;
-import androidx.annotation.DrawableRes;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.feed.search.recmore.ILiveRecSearchPanel;
 import com.baidu.live.feed.search.view.LiveSearchPanel;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.va0;
+import com.baidu.tieba.wa0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -50,7 +48,10 @@ public final class LiveRecSearchPanel implements ILiveRecSearchPanel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             LiveSearchPanel liveSearchPanel = this.searchPanel;
-            return (liveSearchPanel == null || (currentQueryHint = liveSearchPanel.getCurrentQueryHint()) == null) ? "" : currentQueryHint;
+            if (liveSearchPanel == null || (currentQueryHint = liveSearchPanel.getCurrentQueryHint()) == null) {
+                return "";
+            }
+            return currentQueryHint;
         }
         return (String) invokeV.objValue;
     }
@@ -76,7 +77,10 @@ public final class LiveRecSearchPanel implements ILiveRecSearchPanel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             LiveSearchPanel liveSearchPanel = this.searchPanel;
-            return (liveSearchPanel == null || (text = liveSearchPanel.getText()) == null) ? "" : text;
+            if (liveSearchPanel == null || (text = liveSearchPanel.getText()) == null) {
+                return "";
+            }
+            return text;
         }
         return (String) invokeV.objValue;
     }
@@ -85,7 +89,144 @@ public final class LiveRecSearchPanel implements ILiveRecSearchPanel {
     public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.searchPanel : (View) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.searchPanel;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    @Override // com.baidu.live.feed.search.recmore.ILiveRecSearchPanel
+    public void onDestroy() {
+        LiveSearchPanel liveSearchPanel;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (liveSearchPanel = this.searchPanel) != null) {
+            liveSearchPanel.j();
+        }
+    }
+
+    @Override // com.baidu.live.feed.search.recmore.ILiveRecSearchPanel
+    public void requestInput() {
+        LiveSearchPanel liveSearchPanel;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (liveSearchPanel = this.searchPanel) != null) {
+            liveSearchPanel.m();
+        }
+    }
+
+    @Override // com.baidu.live.feed.search.recmore.ILiveRecSearchPanel
+    public void resetView() {
+        LiveSearchPanel liveSearchPanel;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (liveSearchPanel = this.searchPanel) != null) {
+            liveSearchPanel.n();
+        }
+    }
+
+    @Override // com.baidu.live.feed.search.recmore.ILiveRecSearchPanel
+    public void setBackgroundResource(int i) {
+        LiveSearchPanel liveSearchPanel;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) && (liveSearchPanel = this.searchPanel) != null) {
+            liveSearchPanel.setBackgroundResource(i);
+        }
+    }
+
+    @Override // com.baidu.live.feed.search.recmore.ILiveRecSearchPanel
+    public void setEditable(boolean z) {
+        LiveSearchPanel liveSearchPanel;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048585, this, z) == null) && (liveSearchPanel = this.searchPanel) != null) {
+            liveSearchPanel.setEditable(z);
+        }
+    }
+
+    @Override // com.baidu.live.feed.search.recmore.ILiveRecSearchPanel
+    public void setHintTextColor(int i) {
+        LiveSearchPanel liveSearchPanel;
+        EditText editText;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048586, this, i) == null) && (liveSearchPanel = this.searchPanel) != null && (editText = liveSearchPanel.getEditText()) != null) {
+            editText.setHintTextColor(i);
+        }
+    }
+
+    @Override // com.baidu.live.feed.search.recmore.ILiveRecSearchPanel
+    public void setOnEditClickListener(View.OnClickListener onClickListener) {
+        LiveSearchPanel liveSearchPanel;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048587, this, onClickListener) == null) && (liveSearchPanel = this.searchPanel) != null) {
+            liveSearchPanel.setOnEditClickListener(onClickListener);
+        }
+    }
+
+    @Override // com.baidu.live.feed.search.recmore.ILiveRecSearchPanel
+    public void setQueryListener(ILiveRecSearchPanel.OnSearchPanelListener onSearchPanelListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, onSearchPanelListener) == null) {
+            this.searchListener = onSearchPanelListener;
+        }
+    }
+
+    @Override // com.baidu.live.feed.search.recmore.ILiveRecSearchPanel
+    public void setText(String str) {
+        LiveSearchPanel liveSearchPanel;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048590, this, str) == null) && (liveSearchPanel = this.searchPanel) != null) {
+            if (str == null) {
+                str = "";
+            }
+            liveSearchPanel.setText(str);
+        }
+    }
+
+    @Override // com.baidu.live.feed.search.recmore.ILiveRecSearchPanel
+    public void setTextColor(int i) {
+        LiveSearchPanel liveSearchPanel;
+        EditText editText;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048591, this, i) == null) && (liveSearchPanel = this.searchPanel) != null && (editText = liveSearchPanel.getEditText()) != null) {
+            editText.setTextColor(i);
+        }
+    }
+
+    @Override // com.baidu.live.feed.search.recmore.ILiveRecSearchPanel
+    public void setTextCursorDrawable(int i) {
+        EditText editText;
+        EditText editText2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            if (Build.VERSION.SDK_INT >= 29) {
+                LiveSearchPanel liveSearchPanel = this.searchPanel;
+                if (liveSearchPanel != null && (editText2 = liveSearchPanel.getEditText()) != null) {
+                    editText2.setTextCursorDrawable(i);
+                    return;
+                }
+                return;
+            }
+            LiveSearchPanel liveSearchPanel2 = this.searchPanel;
+            if (liveSearchPanel2 != null && (editText = liveSearchPanel2.getEditText()) != null) {
+                wa0.a(editText, i);
+            }
+        }
+    }
+
+    @Override // com.baidu.live.feed.search.recmore.ILiveRecSearchPanel
+    public void setTextSize(float f) {
+        LiveSearchPanel liveSearchPanel;
+        EditText editText;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeF(1048593, this, f) == null) && (liveSearchPanel = this.searchPanel) != null && (editText = liveSearchPanel.getEditText()) != null) {
+            editText.setTextSize(0, f);
+        }
+    }
+
+    @Override // com.baidu.live.feed.search.recmore.ILiveRecSearchPanel
+    public void setQueryHintList(String str, List list) {
+        LiveSearchPanel liveSearchPanel;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048588, this, str, list) == null) && (liveSearchPanel = this.searchPanel) != null) {
+            liveSearchPanel.setQueryHintList(str, list);
+        }
     }
 
     @Override // com.baidu.live.feed.search.recmore.ILiveRecSearchPanel
@@ -128,29 +269,12 @@ public final class LiveRecSearchPanel implements ILiveRecSearchPanel {
                 /*
                     Code decompiled incorrectly, please refer to instructions dump.
                 */
-                public void onCancelClick() {
-                    ILiveRecSearchPanel.OnSearchPanelListener onSearchPanelListener;
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || onSearchPanelListener == null) {
-                        return;
-                    }
-                    onSearchPanelListener.onCancelClick();
-                }
-
-                /* JADX WARN: Code restructure failed: missing block: B:4:0x0004, code lost:
-                    r0 = r4.this$0.searchListener;
-                 */
-                @Override // com.baidu.live.feed.search.view.LiveSearchPanel.g
-                /*
-                    Code decompiled incorrectly, please refer to instructions dump.
-                */
                 public void onQueryTextChange(String str) {
                     ILiveRecSearchPanel.OnSearchPanelListener onSearchPanelListener;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || onSearchPanelListener == null) {
-                        return;
+                    if ((interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && onSearchPanelListener != null) {
+                        onSearchPanelListener.onQueryTextChange(str);
                     }
-                    onSearchPanelListener.onQueryTextChange(str);
                 }
 
                 /* JADX WARN: Code restructure failed: missing block: B:4:0x0004, code lost:
@@ -163,161 +287,29 @@ public final class LiveRecSearchPanel implements ILiveRecSearchPanel {
                 public void onQueryTextSubmit(String str) {
                     ILiveRecSearchPanel.OnSearchPanelListener onSearchPanelListener;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || onSearchPanelListener == null) {
-                        return;
+                    if ((interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && onSearchPanelListener != null) {
+                        onSearchPanelListener.onQueryTextSubmit(str);
                     }
-                    onSearchPanelListener.onQueryTextSubmit(str);
+                }
+
+                /* JADX WARN: Code restructure failed: missing block: B:4:0x0004, code lost:
+                    r0 = r4.this$0.searchListener;
+                 */
+                @Override // com.baidu.live.feed.search.view.LiveSearchPanel.g
+                /*
+                    Code decompiled incorrectly, please refer to instructions dump.
+                */
+                public void onCancelClick() {
+                    ILiveRecSearchPanel.OnSearchPanelListener onSearchPanelListener;
+                    Interceptable interceptable2 = $ic;
+                    if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && onSearchPanelListener != null) {
+                        onSearchPanelListener.onCancelClick();
+                    }
                 }
             });
             this.searchPanel = liveSearchPanel;
             return liveSearchPanel;
         }
         return (View) invokeL.objValue;
-    }
-
-    @Override // com.baidu.live.feed.search.recmore.ILiveRecSearchPanel
-    public void onDestroy() {
-        LiveSearchPanel liveSearchPanel;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (liveSearchPanel = this.searchPanel) == null) {
-            return;
-        }
-        liveSearchPanel.j();
-    }
-
-    @Override // com.baidu.live.feed.search.recmore.ILiveRecSearchPanel
-    public void requestInput() {
-        LiveSearchPanel liveSearchPanel;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (liveSearchPanel = this.searchPanel) == null) {
-            return;
-        }
-        liveSearchPanel.m();
-    }
-
-    @Override // com.baidu.live.feed.search.recmore.ILiveRecSearchPanel
-    public void resetView() {
-        LiveSearchPanel liveSearchPanel;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (liveSearchPanel = this.searchPanel) == null) {
-            return;
-        }
-        liveSearchPanel.n();
-    }
-
-    @Override // com.baidu.live.feed.search.recmore.ILiveRecSearchPanel
-    public void setBackgroundResource(@DrawableRes int i) {
-        LiveSearchPanel liveSearchPanel;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) || (liveSearchPanel = this.searchPanel) == null) {
-            return;
-        }
-        liveSearchPanel.setBackgroundResource(i);
-    }
-
-    @Override // com.baidu.live.feed.search.recmore.ILiveRecSearchPanel
-    public void setEditable(boolean z) {
-        LiveSearchPanel liveSearchPanel;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048585, this, z) == null) || (liveSearchPanel = this.searchPanel) == null) {
-            return;
-        }
-        liveSearchPanel.setEditable(z);
-    }
-
-    @Override // com.baidu.live.feed.search.recmore.ILiveRecSearchPanel
-    public void setHintTextColor(@ColorInt int i) {
-        LiveSearchPanel liveSearchPanel;
-        EditText editText;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048586, this, i) == null) || (liveSearchPanel = this.searchPanel) == null || (editText = liveSearchPanel.getEditText()) == null) {
-            return;
-        }
-        editText.setHintTextColor(i);
-    }
-
-    @Override // com.baidu.live.feed.search.recmore.ILiveRecSearchPanel
-    public void setOnEditClickListener(View.OnClickListener onClickListener) {
-        LiveSearchPanel liveSearchPanel;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, onClickListener) == null) || (liveSearchPanel = this.searchPanel) == null) {
-            return;
-        }
-        liveSearchPanel.setOnEditClickListener(onClickListener);
-    }
-
-    @Override // com.baidu.live.feed.search.recmore.ILiveRecSearchPanel
-    public void setQueryHintList(String str, List<String> list) {
-        LiveSearchPanel liveSearchPanel;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048588, this, str, list) == null) || (liveSearchPanel = this.searchPanel) == null) {
-            return;
-        }
-        liveSearchPanel.setQueryHintList(str, list);
-    }
-
-    @Override // com.baidu.live.feed.search.recmore.ILiveRecSearchPanel
-    public void setQueryListener(ILiveRecSearchPanel.OnSearchPanelListener onSearchPanelListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, onSearchPanelListener) == null) {
-            this.searchListener = onSearchPanelListener;
-        }
-    }
-
-    @Override // com.baidu.live.feed.search.recmore.ILiveRecSearchPanel
-    public void setText(String str) {
-        LiveSearchPanel liveSearchPanel;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048590, this, str) == null) || (liveSearchPanel = this.searchPanel) == null) {
-            return;
-        }
-        if (str == null) {
-            str = "";
-        }
-        liveSearchPanel.setText(str);
-    }
-
-    @Override // com.baidu.live.feed.search.recmore.ILiveRecSearchPanel
-    public void setTextColor(@ColorInt int i) {
-        LiveSearchPanel liveSearchPanel;
-        EditText editText;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048591, this, i) == null) || (liveSearchPanel = this.searchPanel) == null || (editText = liveSearchPanel.getEditText()) == null) {
-            return;
-        }
-        editText.setTextColor(i);
-    }
-
-    @Override // com.baidu.live.feed.search.recmore.ILiveRecSearchPanel
-    public void setTextCursorDrawable(@DrawableRes int i) {
-        EditText editText;
-        EditText editText2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            if (Build.VERSION.SDK_INT >= 29) {
-                LiveSearchPanel liveSearchPanel = this.searchPanel;
-                if (liveSearchPanel == null || (editText2 = liveSearchPanel.getEditText()) == null) {
-                    return;
-                }
-                editText2.setTextCursorDrawable(i);
-                return;
-            }
-            LiveSearchPanel liveSearchPanel2 = this.searchPanel;
-            if (liveSearchPanel2 == null || (editText = liveSearchPanel2.getEditText()) == null) {
-                return;
-            }
-            va0.a(editText, i);
-        }
-    }
-
-    @Override // com.baidu.live.feed.search.recmore.ILiveRecSearchPanel
-    public void setTextSize(float f) {
-        LiveSearchPanel liveSearchPanel;
-        EditText editText;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048593, this, f) == null) || (liveSearchPanel = this.searchPanel) == null || (editText = liveSearchPanel.getEditText()) == null) {
-            return;
-        }
-        editText.setTextSize(0, f);
     }
 }

@@ -20,10 +20,10 @@ import java.util.ArrayList;
 public class h0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<String> a;
-    public ArrayList<String> b;
+    public ArrayList a;
+    public ArrayList b;
     public Context c;
-    public ArrayList<String> d;
+    public ArrayList d;
     public i0 e;
     public boolean f;
     public int g;
@@ -70,7 +70,7 @@ public class h0 {
                     this.b.d.remove(customCheckBox2.getText());
                 }
                 for (int i = 0; i < this.b.d.size(); i++) {
-                    String str = "选中的原因：" + this.b.d.get(i);
+                    String str = "选中的原因：" + ((String) this.b.d.get(i));
                 }
                 if (!this.b.d.contains("抄袭") && !this.b.d.contains("疑似抄袭") && !this.b.d.contains("恶意抄袭")) {
                     if (this.b.d.contains("虚假欺诈")) {
@@ -128,14 +128,13 @@ public class h0 {
             h0 h0Var;
             i0 i0Var;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (i0Var = (h0Var = this.a).e) == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (i0Var = (h0Var = this.a).e) != null) {
+                ((FeedbackReportActivity.d) i0Var).a(h0Var.d, 1001);
             }
-            ((FeedbackReportActivity.d) i0Var).a(h0Var.d, 1001);
         }
     }
 
-    public h0(ArrayList<String> arrayList, Context context, i0 i0Var, Boolean bool) {
+    public h0(ArrayList arrayList, Context context, i0 i0Var, Boolean bool) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -155,13 +154,85 @@ public class h0 {
         this.c = context;
         this.e = i0Var;
         this.f = bool.booleanValue();
-        this.a = new ArrayList<>();
-        this.b = new ArrayList<>();
-        this.d = new ArrayList<>();
+        this.a = new ArrayList();
+        this.b = new ArrayList();
+        this.d = new ArrayList();
         a(arrayList);
     }
 
-    public final void a(ArrayList<String> arrayList) {
+    public LinearLayout a() {
+        InterceptResult invokeV;
+        int i;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            LinearLayout linearLayout = new LinearLayout(this.c);
+            linearLayout.setOrientation(1);
+            if (this.f) {
+                i = BDEmotionBagVerticalLayout.NIGHT_COLOR_EMOTION_BAG;
+            } else {
+                i = -1;
+            }
+            linearLayout.setBackgroundColor(i);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
+            layoutParams.setMargins(p1.a(this.c, 5.0f), p1.a(this.c, 0.0f), p1.a(this.c, 15.0f), p1.a(this.c, 14.0f));
+            int size = this.b.size();
+            if (!this.h && q1.a()) {
+                size = this.b.size() - 1;
+            }
+            for (int i3 = 0; i3 < size; i3++) {
+                CustomCheckBox customCheckBox = new CustomCheckBox(this.c, this.f);
+                if (this.f) {
+                    i2 = -10066330;
+                } else {
+                    i2 = -13421773;
+                }
+                customCheckBox.setTextColor(i2);
+                customCheckBox.setText((String) this.b.get(i3));
+                customCheckBox.setTextSize(14.0f);
+                linearLayout.addView(customCheckBox, layoutParams);
+                customCheckBox.setOnClickListener(new a(this, customCheckBox));
+            }
+            if (!this.h && q1.a()) {
+                linearLayout.addView(a((String) this.b.get(size)), layoutParams);
+            }
+            return linearLayout;
+        }
+        return (LinearLayout) invokeV.objValue;
+    }
+
+    public LinearLayout a(String str) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            LinearLayout linearLayout = new LinearLayout(this.c);
+            linearLayout.setOrientation(0);
+            linearLayout.setGravity(48);
+            ImageView imageView = new ImageView(this.c);
+            imageView.setBackgroundDrawable(new BitmapDrawable(p1.b(this.c, "ufo_tort_icon.png")));
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(p1.a(this.c, 15.0f), p1.a(this.c, 15.0f));
+            layoutParams.setMargins(0, p1.a(this.c, 3.0f), 0, 0);
+            linearLayout.addView(imageView, layoutParams);
+            TextView textView = new TextView(this.c);
+            textView.setText(str);
+            textView.setTextSize(14.0f);
+            if (this.f) {
+                i = -10066330;
+            } else {
+                i = -13421773;
+            }
+            textView.setTextColor(i);
+            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
+            layoutParams2.setMargins(p1.a(this.c, 10.0f), 0, 0, 0);
+            linearLayout.addView(textView, layoutParams2);
+            linearLayout.setOnClickListener(new b(this));
+            return linearLayout;
+        }
+        return (LinearLayout) invokeL.objValue;
+    }
+
+    public final void a(ArrayList arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
             if (q1.a()) {
@@ -181,59 +252,5 @@ public class h0 {
                 i = i2;
             }
         }
-    }
-
-    public LinearLayout a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            LinearLayout linearLayout = new LinearLayout(this.c);
-            linearLayout.setOrientation(1);
-            linearLayout.setBackgroundColor(this.f ? BDEmotionBagVerticalLayout.NIGHT_COLOR_EMOTION_BAG : -1);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
-            layoutParams.setMargins(p1.a(this.c, 5.0f), p1.a(this.c, 0.0f), p1.a(this.c, 15.0f), p1.a(this.c, 14.0f));
-            int size = this.b.size();
-            if (!this.h && q1.a()) {
-                size = this.b.size() - 1;
-            }
-            for (int i = 0; i < size; i++) {
-                CustomCheckBox customCheckBox = new CustomCheckBox(this.c, this.f);
-                customCheckBox.setTextColor(this.f ? -10066330 : -13421773);
-                customCheckBox.setText(this.b.get(i));
-                customCheckBox.setTextSize(14.0f);
-                linearLayout.addView(customCheckBox, layoutParams);
-                customCheckBox.setOnClickListener(new a(this, customCheckBox));
-            }
-            if (!this.h && q1.a()) {
-                linearLayout.addView(a(this.b.get(size)), layoutParams);
-            }
-            return linearLayout;
-        }
-        return (LinearLayout) invokeV.objValue;
-    }
-
-    public LinearLayout a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            LinearLayout linearLayout = new LinearLayout(this.c);
-            linearLayout.setOrientation(0);
-            linearLayout.setGravity(48);
-            ImageView imageView = new ImageView(this.c);
-            imageView.setBackgroundDrawable(new BitmapDrawable(p1.b(this.c, "ufo_tort_icon.png")));
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(p1.a(this.c, 15.0f), p1.a(this.c, 15.0f));
-            layoutParams.setMargins(0, p1.a(this.c, 3.0f), 0, 0);
-            linearLayout.addView(imageView, layoutParams);
-            TextView textView = new TextView(this.c);
-            textView.setText(str);
-            textView.setTextSize(14.0f);
-            textView.setTextColor(this.f ? -10066330 : -13421773);
-            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
-            layoutParams2.setMargins(p1.a(this.c, 10.0f), 0, 0, 0);
-            linearLayout.addView(textView, layoutParams2);
-            linearLayout.setOnClickListener(new b(this));
-            return linearLayout;
-        }
-        return (LinearLayout) invokeL.objValue;
     }
 }

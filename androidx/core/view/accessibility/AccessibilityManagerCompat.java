@@ -3,8 +3,6 @@ package androidx.core.view.accessibility;
 import android.accessibilityservice.AccessibilityServiceInfo;
 import android.os.Build;
 import android.view.accessibility.AccessibilityManager;
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,6 +21,11 @@ public final class AccessibilityManagerCompat {
     public interface AccessibilityStateChangeListener {
         @Deprecated
         void onAccessibilityStateChanged(boolean z);
+    }
+
+    /* loaded from: classes.dex */
+    public interface TouchExplorationStateChangeListener {
+        void onTouchExplorationStateChanged(boolean z);
     }
 
     @Deprecated
@@ -52,7 +55,7 @@ public final class AccessibilityManagerCompat {
         public transient /* synthetic */ FieldHolder $fh;
         public AccessibilityStateChangeListener mListener;
 
-        public AccessibilityStateChangeListenerWrapper(@NonNull AccessibilityStateChangeListener accessibilityStateChangeListener) {
+        public AccessibilityStateChangeListenerWrapper(AccessibilityStateChangeListener accessibilityStateChangeListener) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -77,18 +80,12 @@ public final class AccessibilityManagerCompat {
                 if (this == obj) {
                     return true;
                 }
-                if (obj instanceof AccessibilityStateChangeListenerWrapper) {
-                    return this.mListener.equals(((AccessibilityStateChangeListenerWrapper) obj).mListener);
+                if (!(obj instanceof AccessibilityStateChangeListenerWrapper)) {
+                    return false;
                 }
-                return false;
+                return this.mListener.equals(((AccessibilityStateChangeListenerWrapper) obj).mListener);
             }
             return invokeL.booleanValue;
-        }
-
-        public int hashCode() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mListener.hashCode() : invokeV.intValue;
         }
 
         @Override // android.view.accessibility.AccessibilityManager.AccessibilityStateChangeListener
@@ -98,21 +95,24 @@ public final class AccessibilityManagerCompat {
                 this.mListener.onAccessibilityStateChanged(z);
             }
         }
+
+        public int hashCode() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.mListener.hashCode();
+            }
+            return invokeV.intValue;
+        }
     }
 
-    /* loaded from: classes.dex */
-    public interface TouchExplorationStateChangeListener {
-        void onTouchExplorationStateChanged(boolean z);
-    }
-
-    @RequiresApi(19)
     /* loaded from: classes.dex */
     public static final class TouchExplorationStateChangeListenerWrapper implements AccessibilityManager.TouchExplorationStateChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final TouchExplorationStateChangeListener mListener;
 
-        public TouchExplorationStateChangeListenerWrapper(@NonNull TouchExplorationStateChangeListener touchExplorationStateChangeListener) {
+        public TouchExplorationStateChangeListenerWrapper(TouchExplorationStateChangeListener touchExplorationStateChangeListener) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -137,18 +137,12 @@ public final class AccessibilityManagerCompat {
                 if (this == obj) {
                     return true;
                 }
-                if (obj instanceof TouchExplorationStateChangeListenerWrapper) {
-                    return this.mListener.equals(((TouchExplorationStateChangeListenerWrapper) obj).mListener);
+                if (!(obj instanceof TouchExplorationStateChangeListenerWrapper)) {
+                    return false;
                 }
-                return false;
+                return this.mListener.equals(((TouchExplorationStateChangeListenerWrapper) obj).mListener);
             }
             return invokeL.booleanValue;
-        }
-
-        public int hashCode() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mListener.hashCode() : invokeV.intValue;
         }
 
         @Override // android.view.accessibility.AccessibilityManager.TouchExplorationStateChangeListener
@@ -157,6 +151,15 @@ public final class AccessibilityManagerCompat {
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
                 this.mListener.onTouchExplorationStateChanged(z);
             }
+        }
+
+        public int hashCode() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.mListener.hashCode();
+            }
+            return invokeV.intValue;
         }
     }
 
@@ -203,21 +206,10 @@ public final class AccessibilityManagerCompat {
     public static List<AccessibilityServiceInfo> getEnabledAccessibilityServiceList(AccessibilityManager accessibilityManager, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, accessibilityManager, i)) == null) ? accessibilityManager.getEnabledAccessibilityServiceList(i) : (List) invokeLI.objValue;
-    }
-
-    @Deprecated
-    public static List<AccessibilityServiceInfo> getInstalledAccessibilityServiceList(AccessibilityManager accessibilityManager) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, accessibilityManager)) == null) ? accessibilityManager.getInstalledAccessibilityServiceList() : (List) invokeL.objValue;
-    }
-
-    @Deprecated
-    public static boolean isTouchExplorationEnabled(AccessibilityManager accessibilityManager) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, accessibilityManager)) == null) ? accessibilityManager.isTouchExplorationEnabled() : invokeL.booleanValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, accessibilityManager, i)) == null) {
+            return accessibilityManager.getEnabledAccessibilityServiceList(i);
+        }
+        return (List) invokeLI.objValue;
     }
 
     @Deprecated
@@ -243,5 +235,25 @@ public final class AccessibilityManagerCompat {
             return accessibilityManager.removeTouchExplorationStateChangeListener(new TouchExplorationStateChangeListenerWrapper(touchExplorationStateChangeListener));
         }
         return invokeLL.booleanValue;
+    }
+
+    @Deprecated
+    public static List<AccessibilityServiceInfo> getInstalledAccessibilityServiceList(AccessibilityManager accessibilityManager) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, accessibilityManager)) == null) {
+            return accessibilityManager.getInstalledAccessibilityServiceList();
+        }
+        return (List) invokeL.objValue;
+    }
+
+    @Deprecated
+    public static boolean isTouchExplorationEnabled(AccessibilityManager accessibilityManager) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, accessibilityManager)) == null) {
+            return accessibilityManager.isTouchExplorationEnabled();
+        }
+        return invokeL.booleanValue;
     }
 }

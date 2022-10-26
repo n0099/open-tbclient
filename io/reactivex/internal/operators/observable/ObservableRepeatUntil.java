@@ -14,22 +14,22 @@ import io.reactivex.functions.BooleanSupplier;
 import io.reactivex.internal.disposables.SequentialDisposable;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes8.dex */
-public final class ObservableRepeatUntil<T> extends AbstractObservableWithUpstream<T, T> {
+public final class ObservableRepeatUntil extends AbstractObservableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final BooleanSupplier until;
 
     /* loaded from: classes8.dex */
-    public static final class RepeatUntilObserver<T> extends AtomicInteger implements Observer<T> {
+    public final class RepeatUntilObserver extends AtomicInteger implements Observer {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7098360935104053232L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer<? super T> actual;
+        public final Observer actual;
         public final SequentialDisposable sd;
-        public final ObservableSource<? extends T> source;
+        public final ObservableSource source;
         public final BooleanSupplier stop;
 
-        public RepeatUntilObserver(Observer<? super T> observer, BooleanSupplier booleanSupplier, SequentialDisposable sequentialDisposable, ObservableSource<? extends T> observableSource) {
+        public RepeatUntilObserver(Observer observer, BooleanSupplier booleanSupplier, SequentialDisposable sequentialDisposable, ObservableSource observableSource) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -67,30 +67,6 @@ public final class ObservableRepeatUntil<T> extends AbstractObservableWithUpstre
             }
         }
 
-        @Override // io.reactivex.Observer
-        public void onError(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                this.actual.onError(th);
-            }
-        }
-
-        @Override // io.reactivex.Observer
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-                this.actual.onNext(t);
-            }
-        }
-
-        @Override // io.reactivex.Observer
-        public void onSubscribe(Disposable disposable) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, disposable) == null) {
-                this.sd.replace(disposable);
-            }
-        }
-
         public void subscribeNext() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && getAndIncrement() == 0) {
@@ -101,10 +77,34 @@ public final class ObservableRepeatUntil<T> extends AbstractObservableWithUpstre
                 } while (i != 0);
             }
         }
+
+        @Override // io.reactivex.Observer
+        public void onError(Throwable th) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+                this.actual.onError(th);
+            }
+        }
+
+        @Override // io.reactivex.Observer
+        public void onNext(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+                this.actual.onNext(obj);
+            }
+        }
+
+        @Override // io.reactivex.Observer
+        public void onSubscribe(Disposable disposable) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, disposable) == null) {
+                this.sd.replace(disposable);
+            }
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableRepeatUntil(Observable<T> observable, BooleanSupplier booleanSupplier) {
+    public ObservableRepeatUntil(Observable observable, BooleanSupplier booleanSupplier) {
         super(observable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -125,7 +125,7 @@ public final class ObservableRepeatUntil<T> extends AbstractObservableWithUpstre
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer<? super T> observer) {
+    public void subscribeActual(Observer observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             SequentialDisposable sequentialDisposable = new SequentialDisposable();

@@ -48,33 +48,184 @@ public class Oauth2AccessToken {
         this.mPhoneNum = "";
     }
 
+    public Bundle getBundle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.bundle;
+        }
+        return (Bundle) invokeV.objValue;
+    }
+
+    public long getExpiresTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mExpiresTime;
+        }
+        return invokeV.longValue;
+    }
+
+    public String getPhoneNum() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mPhoneNum;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getRefreshToken() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mRefreshToken;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getToken() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mAccessToken;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getUid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mUid;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean isSessionValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return !TextUtils.isEmpty(this.mAccessToken);
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Deprecated
+    public Oauth2AccessToken(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mUid = "";
+        this.mAccessToken = "";
+        this.mRefreshToken = "";
+        this.mExpiresTime = 0L;
+        this.mPhoneNum = "";
+        if (str != null && str.indexOf("{") >= 0) {
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                setUid(jSONObject.optString("uid"));
+                setToken(jSONObject.optString("access_token"));
+                setExpiresIn(jSONObject.optString("expires_in"));
+                setRefreshToken(jSONObject.optString("refresh_token"));
+                setPhoneNum(jSONObject.optString(KEY_PHONE_NUM));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public Oauth2AccessToken(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.mUid = "";
+        this.mAccessToken = "";
+        this.mRefreshToken = "";
+        this.mExpiresTime = 0L;
+        this.mPhoneNum = "";
+        this.mAccessToken = str;
+        long currentTimeMillis = System.currentTimeMillis();
+        this.mExpiresTime = currentTimeMillis;
+        if (str2 != null) {
+            this.mExpiresTime = currentTimeMillis + (Long.parseLong(str2) * 1000);
+        }
+    }
+
     public static String getString(Bundle bundle, String str, String str2) {
         InterceptResult invokeLLL;
         String string;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, bundle, str, str2)) == null) ? (bundle == null || (string = bundle.getString(str)) == null) ? str2 : string : (String) invokeLLL.objValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, bundle, str, str2)) == null) {
+            if (bundle != null && (string = bundle.getString(str)) != null) {
+                return string;
+            }
+            return str2;
+        }
+        return (String) invokeLLL.objValue;
+    }
+
+    public static Oauth2AccessToken parseAccessToken(Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bundle)) == null) {
+            if (bundle != null) {
+                Oauth2AccessToken oauth2AccessToken = new Oauth2AccessToken();
+                oauth2AccessToken.setUid(getString(bundle, "uid", ""));
+                oauth2AccessToken.setToken(getString(bundle, "access_token", ""));
+                oauth2AccessToken.setExpiresIn(getString(bundle, "expires_in", ""));
+                oauth2AccessToken.setRefreshToken(getString(bundle, "refresh_token", ""));
+                oauth2AccessToken.setPhoneNum(getString(bundle, KEY_PHONE_NUM, ""));
+                oauth2AccessToken.setBundle(bundle);
+                return oauth2AccessToken;
+            }
+            return null;
+        }
+        return (Oauth2AccessToken) invokeL.objValue;
     }
 
     public static Oauth2AccessToken parseAccessToken(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (TextUtils.isEmpty(str) || str.indexOf("{") < 0) {
-                return null;
+            if (!TextUtils.isEmpty(str) && str.indexOf("{") >= 0) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    Oauth2AccessToken oauth2AccessToken = new Oauth2AccessToken();
+                    oauth2AccessToken.setUid(jSONObject.optString("uid"));
+                    oauth2AccessToken.setToken(jSONObject.optString("access_token"));
+                    oauth2AccessToken.setExpiresIn(jSONObject.optString("expires_in"));
+                    oauth2AccessToken.setRefreshToken(jSONObject.optString("refresh_token"));
+                    oauth2AccessToken.setPhoneNum(jSONObject.optString(KEY_PHONE_NUM));
+                    return oauth2AccessToken;
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    return null;
+                }
             }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                Oauth2AccessToken oauth2AccessToken = new Oauth2AccessToken();
-                oauth2AccessToken.setUid(jSONObject.optString("uid"));
-                oauth2AccessToken.setToken(jSONObject.optString("access_token"));
-                oauth2AccessToken.setExpiresIn(jSONObject.optString("expires_in"));
-                oauth2AccessToken.setRefreshToken(jSONObject.optString("refresh_token"));
-                oauth2AccessToken.setPhoneNum(jSONObject.optString(KEY_PHONE_NUM));
-                return oauth2AccessToken;
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return null;
-            }
+            return null;
         }
         return (Oauth2AccessToken) invokeL.objValue;
     }
@@ -86,48 +237,6 @@ public class Oauth2AccessToken {
         }
     }
 
-    public Bundle getBundle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.bundle : (Bundle) invokeV.objValue;
-    }
-
-    public long getExpiresTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mExpiresTime : invokeV.longValue;
-    }
-
-    public String getPhoneNum() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mPhoneNum : (String) invokeV.objValue;
-    }
-
-    public String getRefreshToken() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mRefreshToken : (String) invokeV.objValue;
-    }
-
-    public String getToken() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mAccessToken : (String) invokeV.objValue;
-    }
-
-    public String getUid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mUid : (String) invokeV.objValue;
-    }
-
-    public boolean isSessionValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? !TextUtils.isEmpty(this.mAccessToken) : invokeV.booleanValue;
-    }
-
     public void setBundle(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
@@ -137,10 +246,9 @@ public class Oauth2AccessToken {
 
     public void setExpiresIn(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) || TextUtils.isEmpty(str) || str.equals("0")) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) && !TextUtils.isEmpty(str) && !str.equals("0")) {
+            setExpiresTime(System.currentTimeMillis() + (Long.parseLong(str) * 1000));
         }
-        setExpiresTime(System.currentTimeMillis() + (Long.parseLong(str) * 1000));
     }
 
     public void setExpiresTime(long j) {
@@ -178,88 +286,5 @@ public class Oauth2AccessToken {
             return "uid: " + this.mUid + StringUtil.ARRAY_ELEMENT_SEPARATOR + "access_token: " + this.mAccessToken + StringUtil.ARRAY_ELEMENT_SEPARATOR + "refresh_token: " + this.mRefreshToken + StringUtil.ARRAY_ELEMENT_SEPARATOR + KEY_PHONE_NUM + ": " + this.mPhoneNum + StringUtil.ARRAY_ELEMENT_SEPARATOR + "expires_in: " + Long.toString(this.mExpiresTime);
         }
         return (String) invokeV.objValue;
-    }
-
-    @Deprecated
-    public Oauth2AccessToken(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mUid = "";
-        this.mAccessToken = "";
-        this.mRefreshToken = "";
-        this.mExpiresTime = 0L;
-        this.mPhoneNum = "";
-        if (str == null || str.indexOf("{") < 0) {
-            return;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            setUid(jSONObject.optString("uid"));
-            setToken(jSONObject.optString("access_token"));
-            setExpiresIn(jSONObject.optString("expires_in"));
-            setRefreshToken(jSONObject.optString("refresh_token"));
-            setPhoneNum(jSONObject.optString(KEY_PHONE_NUM));
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static Oauth2AccessToken parseAccessToken(Bundle bundle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bundle)) == null) {
-            if (bundle != null) {
-                Oauth2AccessToken oauth2AccessToken = new Oauth2AccessToken();
-                oauth2AccessToken.setUid(getString(bundle, "uid", ""));
-                oauth2AccessToken.setToken(getString(bundle, "access_token", ""));
-                oauth2AccessToken.setExpiresIn(getString(bundle, "expires_in", ""));
-                oauth2AccessToken.setRefreshToken(getString(bundle, "refresh_token", ""));
-                oauth2AccessToken.setPhoneNum(getString(bundle, KEY_PHONE_NUM, ""));
-                oauth2AccessToken.setBundle(bundle);
-                return oauth2AccessToken;
-            }
-            return null;
-        }
-        return (Oauth2AccessToken) invokeL.objValue;
-    }
-
-    public Oauth2AccessToken(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.mUid = "";
-        this.mAccessToken = "";
-        this.mRefreshToken = "";
-        this.mExpiresTime = 0L;
-        this.mPhoneNum = "";
-        this.mAccessToken = str;
-        long currentTimeMillis = System.currentTimeMillis();
-        this.mExpiresTime = currentTimeMillis;
-        if (str2 != null) {
-            this.mExpiresTime = currentTimeMillis + (Long.parseLong(str2) * 1000);
-        }
     }
 }

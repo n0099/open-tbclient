@@ -1,6 +1,5 @@
 package com.airbnb.lottie.model.content;
 
-import android.graphics.PointF;
 import com.airbnb.lottie.LottieDrawable;
 import com.airbnb.lottie.animation.content.Content;
 import com.airbnb.lottie.animation.content.EllipseContent;
@@ -12,10 +11,10 @@ public class CircleShape implements ContentModel {
     public final boolean hidden;
     public final boolean isReversed;
     public final String name;
-    public final AnimatableValue<PointF, PointF> position;
+    public final AnimatableValue position;
     public final AnimatablePointValue size;
 
-    public CircleShape(String str, AnimatableValue<PointF, PointF> animatableValue, AnimatablePointValue animatablePointValue, boolean z, boolean z2) {
+    public CircleShape(String str, AnimatableValue animatableValue, AnimatablePointValue animatablePointValue, boolean z, boolean z2) {
         this.name = str;
         this.position = animatableValue;
         this.size = animatablePointValue;
@@ -27,7 +26,7 @@ public class CircleShape implements ContentModel {
         return this.name;
     }
 
-    public AnimatableValue<PointF, PointF> getPosition() {
+    public AnimatableValue getPosition() {
         return this.position;
     }
 

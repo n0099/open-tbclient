@@ -10,10 +10,21 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.annotation.Annotation;
 /* loaded from: classes8.dex */
 public interface DeclareAnnotation {
+    Annotation getAnnotation();
+
+    String getAnnotationAsText();
+
+    AjType getDeclaringType();
+
+    Kind getKind();
+
+    SignaturePattern getSignaturePattern();
+
+    TypePattern getTypePattern();
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public static final class Kind {
+    public final class Kind {
         public static final /* synthetic */ Kind[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Kind Constructor;
@@ -65,25 +76,19 @@ public interface DeclareAnnotation {
         public static Kind valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Kind) Enum.valueOf(Kind.class, str) : (Kind) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (Kind) Enum.valueOf(Kind.class, str);
+            }
+            return (Kind) invokeL.objValue;
         }
 
         public static Kind[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Kind[]) $VALUES.clone() : (Kind[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (Kind[]) $VALUES.clone();
+            }
+            return (Kind[]) invokeV.objValue;
         }
     }
-
-    Annotation getAnnotation();
-
-    String getAnnotationAsText();
-
-    AjType<?> getDeclaringType();
-
-    Kind getKind();
-
-    SignaturePattern getSignaturePattern();
-
-    TypePattern getTypePattern();
 }

@@ -42,7 +42,7 @@ public class c extends k {
         }
     }
 
-    private RouteNode a(JSONArray jSONArray, List<RouteNode> list) {
+    private RouteNode a(JSONArray jSONArray, List list) {
         InterceptResult invokeLL;
         int length;
         Interceptable interceptable = $ic;
@@ -86,7 +86,7 @@ public class c extends k {
         return (RouteNode) invokeL.objValue;
     }
 
-    private List<LatLng> a(JSONArray jSONArray) {
+    private List a(JSONArray jSONArray) {
         InterceptResult invokeL;
         int length;
         Interceptable interceptable = $ic;
@@ -114,7 +114,7 @@ public class c extends k {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private List<DrivingRouteLine.DrivingStep> a(JSONArray jSONArray, JSONArray jSONArray2) {
+    private List a(JSONArray jSONArray, JSONArray jSONArray2) {
         InterceptResult invokeLL;
         int length;
         int i;
@@ -166,14 +166,14 @@ public class c extends k {
                             drivingStep.setEntranceInstructions(optString2);
                             drivingStep.setExitInstructions(optJSONObject.optString("end_instructions"));
                             drivingStep.setNumTurns(optJSONObject.optInt("turn"));
-                            List<LatLng> a = a(optJSONObject.optJSONArray("spath"));
+                            List a = a(optJSONObject.optJSONArray("spath"));
                             drivingStep.setPathList(a);
                             if (a != null) {
                                 RouteNode routeNode = new RouteNode();
-                                routeNode.setLocation(a.get(0));
+                                routeNode.setLocation((LatLng) a.get(0));
                                 drivingStep.setEntrance(routeNode);
                                 RouteNode routeNode2 = new RouteNode();
-                                routeNode2.setLocation(a.get(a.size() - 1));
+                                routeNode2.setLocation((LatLng) a.get(a.size() - 1));
                                 drivingStep.setExit(routeNode2);
                             }
                             i = i3;
@@ -199,7 +199,7 @@ public class c extends k {
         return (List) invokeLL.objValue;
     }
 
-    private List<TaxiInfo> b(String str) {
+    private List b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, str)) == null) {
@@ -232,7 +232,7 @@ public class c extends k {
         return (List) invokeL.objValue;
     }
 
-    private List<DrivingRouteLine.DrivingStep> b(JSONArray jSONArray, List<DrivingRouteLine.DrivingStep> list) {
+    private List b(JSONArray jSONArray, List list) {
         InterceptResult invokeLL;
         int length;
         Interceptable interceptable = $ic;
@@ -295,7 +295,7 @@ public class c extends k {
                 RouteNode a = a(optJSONObject3.optJSONObject("start"));
                 ArrayList arrayList = new ArrayList();
                 RouteNode a2 = a(optJSONObject3.optJSONArray("end"), arrayList);
-                List<DrivingRouteLine.DrivingStep> a3 = a(optJSONObject4.optJSONArray("steps"), optJSONObject4.optJSONArray("stepts"));
+                List a3 = a(optJSONObject4.optJSONArray("steps"), optJSONObject4.optJSONArray("stepts"));
                 ArrayList arrayList2 = new ArrayList();
                 JSONArray optJSONArray = optJSONObject4.optJSONArray("routes");
                 if (optJSONArray == null) {
@@ -327,7 +327,7 @@ public class c extends k {
                             if (optJSONObject6 != null) {
                                 i4 += optJSONObject6.optInt("distance");
                                 i2 += optJSONObject6.optInt("duration");
-                                List<DrivingRouteLine.DrivingStep> b = b(optJSONObject6.optJSONArray("stepis"), a3);
+                                List b = b(optJSONObject6.optJSONArray("stepis"), a3);
                                 if (b != null) {
                                     arrayList3.addAll(b);
                                 }

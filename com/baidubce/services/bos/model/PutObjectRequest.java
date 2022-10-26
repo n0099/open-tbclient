@@ -44,34 +44,143 @@ public class PutObjectRequest extends GenericObjectRequest {
         CheckUtils.isNotNull(file, "file should not be null.");
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public PutObjectRequest(String str, String str2, File file, ObjectMetadata objectMetadata) {
+        this(str, str2, file, null, objectMetadata);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, file, objectMetadata};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((String) objArr2[0], (String) objArr2[1], (File) objArr2[2], (InputStream) objArr2[3], (ObjectMetadata) objArr2[4]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        CheckUtils.isNotNull(file, "file should not be null.");
+        CheckUtils.isNotNull(objectMetadata, "metadata should not be null.");
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public PutObjectRequest(String str, String str2, File file, InputStream inputStream, ObjectMetadata objectMetadata) {
+        super(str, str2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, file, inputStream, objectMetadata};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.objectMetadata = new ObjectMetadata();
+        this.progressCallback = null;
+        this.file = file;
+        this.inputStream = inputStream;
+        this.objectMetadata = objectMetadata;
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public PutObjectRequest(String str, String str2, InputStream inputStream) {
+        this(str, str2, null, inputStream, new ObjectMetadata());
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, inputStream};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((String) objArr2[0], (String) objArr2[1], (File) objArr2[2], (InputStream) objArr2[3], (ObjectMetadata) objArr2[4]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        CheckUtils.isNotNull(inputStream, "inputStream should not be null.");
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public PutObjectRequest(String str, String str2, InputStream inputStream, ObjectMetadata objectMetadata) {
+        this(str, str2, null, inputStream, objectMetadata);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, inputStream, objectMetadata};
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((String) objArr2[0], (String) objArr2[1], (File) objArr2[2], (InputStream) objArr2[3], (ObjectMetadata) objArr2[4]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+                return;
+            }
+        }
+        CheckUtils.isNotNull(inputStream, "inputStream should not be null.");
+        CheckUtils.isNotNull(objectMetadata, "metadata should not be null.");
+    }
+
     public File getFile() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.file : (File) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.file;
+        }
+        return (File) invokeV.objValue;
     }
 
     public InputStream getInputStream() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.inputStream : (InputStream) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.inputStream;
+        }
+        return (InputStream) invokeV.objValue;
     }
 
     public ObjectMetadata getObjectMetadata() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.objectMetadata : (ObjectMetadata) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.objectMetadata;
+        }
+        return (ObjectMetadata) invokeV.objValue;
     }
 
     public BosProgressCallback getProgressCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.progressCallback : (BosProgressCallback) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.progressCallback;
+        }
+        return (BosProgressCallback) invokeV.objValue;
     }
 
     public String getStorageClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.storageClass : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.storageClass;
+        }
+        return (String) invokeV.objValue;
     }
 
     public void setFile(File file) {
@@ -95,7 +204,7 @@ public class PutObjectRequest extends GenericObjectRequest {
         }
     }
 
-    public <T extends PutObjectRequest> void setProgressCallback(BosProgressCallback<T> bosProgressCallback) {
+    public void setProgressCallback(BosProgressCallback bosProgressCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bosProgressCallback) == null) {
             this.progressCallback = bosProgressCallback;
@@ -139,7 +248,7 @@ public class PutObjectRequest extends GenericObjectRequest {
         return (PutObjectRequest) invokeL.objValue;
     }
 
-    public <T extends PutObjectRequest> PutObjectRequest withProgressCallback(BosProgressCallback<T> bosProgressCallback) {
+    public PutObjectRequest withProgressCallback(BosProgressCallback bosProgressCallback) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, bosProgressCallback)) == null) {
@@ -193,99 +302,5 @@ public class PutObjectRequest extends GenericObjectRequest {
             return this;
         }
         return (PutObjectRequest) invokeL.objValue;
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public PutObjectRequest(String str, String str2, File file, ObjectMetadata objectMetadata) {
-        this(str, str2, file, null, objectMetadata);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, file, objectMetadata};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((String) objArr2[0], (String) objArr2[1], (File) objArr2[2], (InputStream) objArr2[3], (ObjectMetadata) objArr2[4]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        CheckUtils.isNotNull(file, "file should not be null.");
-        CheckUtils.isNotNull(objectMetadata, "metadata should not be null.");
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public PutObjectRequest(String str, String str2, InputStream inputStream) {
-        this(str, str2, null, inputStream, new ObjectMetadata());
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, inputStream};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((String) objArr2[0], (String) objArr2[1], (File) objArr2[2], (InputStream) objArr2[3], (ObjectMetadata) objArr2[4]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        CheckUtils.isNotNull(inputStream, "inputStream should not be null.");
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public PutObjectRequest(String str, String str2, InputStream inputStream, ObjectMetadata objectMetadata) {
-        this(str, str2, null, inputStream, objectMetadata);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, inputStream, objectMetadata};
-            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((String) objArr2[0], (String) objArr2[1], (File) objArr2[2], (InputStream) objArr2[3], (ObjectMetadata) objArr2[4]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-                return;
-            }
-        }
-        CheckUtils.isNotNull(inputStream, "inputStream should not be null.");
-        CheckUtils.isNotNull(objectMetadata, "metadata should not be null.");
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PutObjectRequest(String str, String str2, File file, InputStream inputStream, ObjectMetadata objectMetadata) {
-        super(str, str2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, file, inputStream, objectMetadata};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.objectMetadata = new ObjectMetadata();
-        this.progressCallback = null;
-        this.file = file;
-        this.inputStream = inputStream;
-        this.objectMetadata = objectMetadata;
     }
 }

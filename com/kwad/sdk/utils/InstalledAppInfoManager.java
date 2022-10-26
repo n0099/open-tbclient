@@ -8,11 +8,10 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.kwad.sdk.service.ServiceProvider;
 import java.io.Serializable;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
@@ -21,7 +20,7 @@ import org.json.JSONObject;
 public final class InstalledAppInfoManager {
 
     /* loaded from: classes8.dex */
-    public static class AppPackageInfo implements Serializable {
+    public class AppPackageInfo implements Serializable {
         public static final long serialVersionUID = -324393456884895874L;
         public String appName;
         public long firstInstallTime;
@@ -32,7 +31,7 @@ public final class InstalledAppInfoManager {
         public String versionName;
     }
 
-    public static AppPackageInfo a(@NonNull PackageInfo packageInfo, @Nullable PackageManager packageManager) {
+    public static AppPackageInfo a(PackageInfo packageInfo, PackageManager packageManager) {
         ApplicationInfo applicationInfo;
         AppPackageInfo appPackageInfo = new AppPackageInfo();
         appPackageInfo.packageName = packageInfo.packageName;
@@ -73,8 +72,7 @@ public final class InstalledAppInfoManager {
         return (applicationInfo.flags & 128) != 0;
     }
 
-    @NonNull
-    public static JSONArray[] c(Context context, List<String> list) {
+    public static JSONArray[] c(Context context, List list) {
         JSONArray[] jSONArrayArr = new JSONArray[2];
         com.kwad.sdk.service.kwai.f fVar = (com.kwad.sdk.service.kwai.f) ServiceProvider.get(com.kwad.sdk.service.kwai.f.class);
         if (context == null || list == null || list.isEmpty() || fVar == null || fVar.i(16L)) {
@@ -82,7 +80,9 @@ public final class InstalledAppInfoManager {
         }
         HashMap hashMap = new HashMap();
         HashMap hashMap2 = new HashMap();
-        for (String str : list) {
+        Iterator it = list.iterator();
+        while (it.hasNext()) {
+            String str = (String) it.next();
             try {
                 PackageManager packageManager = context.getPackageManager();
                 PackageInfo packageInfo = packageManager.getPackageInfo(str, 0);
@@ -105,13 +105,11 @@ public final class InstalledAppInfoManager {
         return jSONArrayArr;
     }
 
-    @NonNull
     public static JSONArray ch(Context context) {
         return d(ci(context));
     }
 
-    @NonNull
-    public static Map<String, AppPackageInfo> ci(Context context) {
+    public static Map ci(Context context) {
         HashMap hashMap = new HashMap();
         if (context == null) {
             return hashMap;
@@ -173,11 +171,12 @@ public final class InstalledAppInfoManager {
         return hashMap;
     }
 
-    @NonNull
-    public static Map<String, AppPackageInfo> d(Context context, List<String> list) {
+    public static Map d(Context context, List list) {
         HashMap hashMap = new HashMap();
         if (context != null && list != null) {
-            for (String str : list) {
+            Iterator it = list.iterator();
+            while (it.hasNext()) {
+                String str = (String) it.next();
                 try {
                     PackageManager packageManager = context.getPackageManager();
                     PackageInfo packageInfo = packageManager.getPackageInfo(str, 0);
@@ -192,12 +191,11 @@ public final class InstalledAppInfoManager {
         return hashMap;
     }
 
-    @NonNull
-    public static JSONArray d(@NonNull Map<String, AppPackageInfo> map) {
+    public static JSONArray d(Map map) {
         JSONArray jSONArray = new JSONArray();
         try {
             for (String str : map.keySet()) {
-                AppPackageInfo appPackageInfo = map.get(str);
+                AppPackageInfo appPackageInfo = (AppPackageInfo) map.get(str);
                 if (appPackageInfo != null && !TextUtils.isEmpty(appPackageInfo.packageName)) {
                     r.putValue(jSONArray, a(appPackageInfo));
                 }

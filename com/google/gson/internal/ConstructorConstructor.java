@@ -153,7 +153,10 @@ public final class ConstructorConstructor {
                         public T construct() {
                             InterceptResult invokeV;
                             Interceptable interceptable2 = $ic;
-                            return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? new TreeSet() : invokeV.objValue;
+                            if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                                return new TreeSet();
+                            }
+                            return invokeV.objValue;
                         }
                     };
                 }
@@ -234,7 +237,10 @@ public final class ConstructorConstructor {
                         public T construct() {
                             InterceptResult invokeV;
                             Interceptable interceptable2 = $ic;
-                            return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? new LinkedHashSet() : invokeV.objValue;
+                            if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                                return new LinkedHashSet();
+                            }
+                            return invokeV.objValue;
                         }
                     };
                 }
@@ -268,7 +274,10 @@ public final class ConstructorConstructor {
                         public T construct() {
                             InterceptResult invokeV;
                             Interceptable interceptable2 = $ic;
-                            return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? new ArrayDeque() : invokeV.objValue;
+                            if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                                return new ArrayDeque();
+                            }
+                            return invokeV.objValue;
                         }
                     };
                 }
@@ -301,7 +310,10 @@ public final class ConstructorConstructor {
                     public T construct() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? new ArrayList() : invokeV.objValue;
+                        if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                            return new ArrayList();
+                        }
+                        return invokeV.objValue;
                     }
                 };
             } else if (Map.class.isAssignableFrom(cls)) {
@@ -335,7 +347,10 @@ public final class ConstructorConstructor {
                         public T construct() {
                             InterceptResult invokeV;
                             Interceptable interceptable2 = $ic;
-                            return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? new ConcurrentSkipListMap() : invokeV.objValue;
+                            if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                                return new ConcurrentSkipListMap();
+                            }
+                            return invokeV.objValue;
                         }
                     };
                 }
@@ -369,7 +384,10 @@ public final class ConstructorConstructor {
                         public T construct() {
                             InterceptResult invokeV;
                             Interceptable interceptable2 = $ic;
-                            return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? new ConcurrentHashMap() : invokeV.objValue;
+                            if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                                return new ConcurrentHashMap();
+                            }
+                            return invokeV.objValue;
                         }
                     };
                 }
@@ -403,7 +421,10 @@ public final class ConstructorConstructor {
                         public T construct() {
                             InterceptResult invokeV;
                             Interceptable interceptable2 = $ic;
-                            return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? new TreeMap() : invokeV.objValue;
+                            if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                                return new TreeMap();
+                            }
+                            return invokeV.objValue;
                         }
                     };
                 }
@@ -437,7 +458,10 @@ public final class ConstructorConstructor {
                         public T construct() {
                             InterceptResult invokeV;
                             Interceptable interceptable2 = $ic;
-                            return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? new LinkedHashMap() : invokeV.objValue;
+                            if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                                return new LinkedHashMap();
+                            }
+                            return invokeV.objValue;
                         }
                     };
                 }
@@ -470,7 +494,10 @@ public final class ConstructorConstructor {
                     public T construct() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? new LinkedTreeMap() : invokeV.objValue;
+                        if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                            return new LinkedTreeMap();
+                        }
+                        return invokeV.objValue;
                     }
                 };
             } else {
@@ -483,51 +510,54 @@ public final class ConstructorConstructor {
     private <T> ObjectConstructor<T> newUnsafeAllocator(Type type, Class<? super T> cls) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, type, cls)) == null) ? new ObjectConstructor<T>(this, cls, type) { // from class: com.google.gson.internal.ConstructorConstructor.14
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ ConstructorConstructor this$0;
-            public final UnsafeAllocator unsafeAllocator;
-            public final /* synthetic */ Class val$rawType;
-            public final /* synthetic */ Type val$type;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, type, cls)) == null) {
+            return new ObjectConstructor<T>(this, cls, type) { // from class: com.google.gson.internal.ConstructorConstructor.14
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ ConstructorConstructor this$0;
+                public final UnsafeAllocator unsafeAllocator;
+                public final /* synthetic */ Class val$rawType;
+                public final /* synthetic */ Type val$type;
 
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this, cls, type};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, cls, type};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
                     }
+                    this.this$0 = this;
+                    this.val$rawType = cls;
+                    this.val$type = type;
+                    this.unsafeAllocator = UnsafeAllocator.create();
                 }
-                this.this$0 = this;
-                this.val$rawType = cls;
-                this.val$type = type;
-                this.unsafeAllocator = UnsafeAllocator.create();
-            }
 
-            /* JADX WARN: Type inference failed for: r0v3, types: [T, java.lang.Object] */
-            /* JADX WARN: Type inference failed for: r1v2, types: [T, java.lang.Object] */
-            @Override // com.google.gson.internal.ObjectConstructor
-            public T construct() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    try {
-                        return this.unsafeAllocator.newInstance(this.val$rawType);
-                    } catch (Exception e) {
-                        throw new RuntimeException("Unable to invoke no-args constructor for " + this.val$type + ". Registering an InstanceCreator with Gson for this type may fix this problem.", e);
+                /* JADX WARN: Type inference failed for: r0v3, types: [T, java.lang.Object] */
+                /* JADX WARN: Type inference failed for: r1v2, types: [T, java.lang.Object] */
+                @Override // com.google.gson.internal.ObjectConstructor
+                public T construct() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                        try {
+                            return this.unsafeAllocator.newInstance(this.val$rawType);
+                        } catch (Exception e) {
+                            throw new RuntimeException("Unable to invoke no-args constructor for " + this.val$type + ". Registering an InstanceCreator with Gson for this type may fix this problem.", e);
+                        }
                     }
+                    return invokeV.objValue;
                 }
-                return invokeV.objValue;
-            }
-        } : (ObjectConstructor) invokeLL.objValue;
+            };
+        }
+        return (ObjectConstructor) invokeLL.objValue;
     }
 
     public <T> ObjectConstructor<T> get(TypeToken<T> typeToken) {
@@ -571,7 +601,10 @@ public final class ConstructorConstructor {
                     public T construct() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.val$typeCreator.createInstance(this.val$type) : invokeV.objValue;
+                        if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                            return this.val$typeCreator.createInstance(this.val$type);
+                        }
+                        return invokeV.objValue;
                     }
                 };
             }
@@ -610,7 +643,10 @@ public final class ConstructorConstructor {
                     public T construct() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.val$rawTypeCreator.createInstance(this.val$type) : invokeV.objValue;
+                        if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                            return this.val$rawTypeCreator.createInstance(this.val$type);
+                        }
+                        return invokeV.objValue;
                     }
                 };
             }
@@ -619,7 +655,10 @@ public final class ConstructorConstructor {
                 return newDefaultConstructor;
             }
             ObjectConstructor<T> newDefaultImplementationConstructor = newDefaultImplementationConstructor(type, rawType);
-            return newDefaultImplementationConstructor != null ? newDefaultImplementationConstructor : newUnsafeAllocator(type, rawType);
+            if (newDefaultImplementationConstructor != null) {
+                return newDefaultImplementationConstructor;
+            }
+            return newUnsafeAllocator(type, rawType);
         }
         return (ObjectConstructor) invokeL.objValue;
     }
@@ -627,6 +666,9 @@ public final class ConstructorConstructor {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.instanceCreators.toString() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.instanceCreators.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -17,10 +17,31 @@ import java.util.TreeSet;
 public final class CachedContent {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TreeSet<SimpleCacheSpan> cachedSpans;
+    public final TreeSet cachedSpans;
     public final int id;
     public final String key;
     public long length;
+
+    public CachedContent(int i, String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str, Long.valueOf(j)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.id = i;
+        this.key = str;
+        this.length = j;
+        this.cachedSpans = new TreeSet();
+    }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public CachedContent(DataInputStream dataInputStream) throws IOException {
@@ -43,84 +64,44 @@ public final class CachedContent {
         }
     }
 
-    public void addSpan(SimpleCacheSpan simpleCacheSpan) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, simpleCacheSpan) == null) {
-            this.cachedSpans.add(simpleCacheSpan);
-        }
-    }
-
-    public long getCachedBytes(long j, long j2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            SimpleCacheSpan span = getSpan(j);
-            if (span.isHoleSpan()) {
-                return -Math.min(span.isOpenEnded() ? Long.MAX_VALUE : span.length, j2);
-            }
-            long j3 = j + j2;
-            long j4 = span.position + span.length;
-            if (j4 < j3) {
-                for (SimpleCacheSpan simpleCacheSpan : this.cachedSpans.tailSet(span, false)) {
-                    long j5 = simpleCacheSpan.position;
-                    if (j5 > j4) {
-                        break;
-                    }
-                    j4 = Math.max(j4, j5 + simpleCacheSpan.length);
-                    if (j4 >= j3) {
-                        break;
-                    }
-                }
-            }
-            return Math.min(j4 - j, j2);
-        }
-        return invokeCommon.longValue;
-    }
-
-    public long getLength() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.length : invokeV.longValue;
-    }
-
     public SimpleCacheSpan getSpan(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
             SimpleCacheSpan createLookup = SimpleCacheSpan.createLookup(this.key, j);
-            SimpleCacheSpan floor = this.cachedSpans.floor(createLookup);
-            if (floor == null || floor.position + floor.length <= j) {
-                SimpleCacheSpan ceiling = this.cachedSpans.ceiling(createLookup);
-                if (ceiling == null) {
-                    return SimpleCacheSpan.createOpenHole(this.key, j);
-                }
-                return SimpleCacheSpan.createClosedHole(this.key, j, ceiling.position - j);
+            SimpleCacheSpan simpleCacheSpan = (SimpleCacheSpan) this.cachedSpans.floor(createLookup);
+            if (simpleCacheSpan != null && simpleCacheSpan.position + simpleCacheSpan.length > j) {
+                return simpleCacheSpan;
             }
-            return floor;
+            SimpleCacheSpan simpleCacheSpan2 = (SimpleCacheSpan) this.cachedSpans.ceiling(createLookup);
+            if (simpleCacheSpan2 == null) {
+                return SimpleCacheSpan.createOpenHole(this.key, j);
+            }
+            return SimpleCacheSpan.createClosedHole(this.key, j, simpleCacheSpan2.position - j);
         }
         return (SimpleCacheSpan) invokeJ.objValue;
     }
 
-    public TreeSet<SimpleCacheSpan> getSpans() {
-        InterceptResult invokeV;
+    public SimpleCacheSpan touch(SimpleCacheSpan simpleCacheSpan) throws Cache.CacheException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.cachedSpans : (TreeSet) invokeV.objValue;
-    }
-
-    public int headerHashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            long j = this.length;
-            return (((this.id * 31) + this.key.hashCode()) * 31) + ((int) (j ^ (j >>> 32)));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, simpleCacheSpan)) == null) {
+            Assertions.checkState(this.cachedSpans.remove(simpleCacheSpan));
+            SimpleCacheSpan copyWithUpdatedLastAccessTime = simpleCacheSpan.copyWithUpdatedLastAccessTime(this.id);
+            if (simpleCacheSpan.file.renameTo(copyWithUpdatedLastAccessTime.file)) {
+                this.cachedSpans.add(copyWithUpdatedLastAccessTime);
+                return copyWithUpdatedLastAccessTime;
+            }
+            throw new Cache.CacheException("Renaming of " + simpleCacheSpan.file + " to " + copyWithUpdatedLastAccessTime.file + " failed.");
         }
-        return invokeV.intValue;
+        return (SimpleCacheSpan) invokeL.objValue;
     }
 
-    public boolean isEmpty() {
-        InterceptResult invokeV;
+    public void addSpan(SimpleCacheSpan simpleCacheSpan) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.cachedSpans.isEmpty() : invokeV.booleanValue;
+        if (interceptable == null || interceptable.invokeL(1048576, this, simpleCacheSpan) == null) {
+            this.cachedSpans.add(simpleCacheSpan);
+        }
     }
 
     public boolean removeSpan(CacheSpan cacheSpan) {
@@ -143,21 +124,6 @@ public final class CachedContent {
         }
     }
 
-    public SimpleCacheSpan touch(SimpleCacheSpan simpleCacheSpan) throws Cache.CacheException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, simpleCacheSpan)) == null) {
-            Assertions.checkState(this.cachedSpans.remove(simpleCacheSpan));
-            SimpleCacheSpan copyWithUpdatedLastAccessTime = simpleCacheSpan.copyWithUpdatedLastAccessTime(this.id);
-            if (simpleCacheSpan.file.renameTo(copyWithUpdatedLastAccessTime.file)) {
-                this.cachedSpans.add(copyWithUpdatedLastAccessTime);
-                return copyWithUpdatedLastAccessTime;
-            }
-            throw new Cache.CacheException("Renaming of " + simpleCacheSpan.file + " to " + copyWithUpdatedLastAccessTime.file + " failed.");
-        }
-        return (SimpleCacheSpan) invokeL.objValue;
-    }
-
     public void writeToStream(DataOutputStream dataOutputStream) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, dataOutputStream) == null) {
@@ -167,24 +133,73 @@ public final class CachedContent {
         }
     }
 
-    public CachedContent(int i, String str, long j) {
+    public long getCachedBytes(long j, long j2) {
+        InterceptResult invokeCommon;
+        long j3;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, Long.valueOf(j)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            SimpleCacheSpan span = getSpan(j);
+            if (span.isHoleSpan()) {
+                if (span.isOpenEnded()) {
+                    j3 = Long.MAX_VALUE;
+                } else {
+                    j3 = span.length;
+                }
+                return -Math.min(j3, j2);
             }
+            long j4 = j + j2;
+            long j5 = span.position + span.length;
+            if (j5 < j4) {
+                for (SimpleCacheSpan simpleCacheSpan : this.cachedSpans.tailSet(span, false)) {
+                    long j6 = simpleCacheSpan.position;
+                    if (j6 > j5) {
+                        break;
+                    }
+                    j5 = Math.max(j5, j6 + simpleCacheSpan.length);
+                    if (j5 >= j4) {
+                        break;
+                    }
+                }
+            }
+            return Math.min(j5 - j, j2);
         }
-        this.id = i;
-        this.key = str;
-        this.length = j;
-        this.cachedSpans = new TreeSet<>();
+        return invokeCommon.longValue;
+    }
+
+    public long getLength() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.length;
+        }
+        return invokeV.longValue;
+    }
+
+    public TreeSet getSpans() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.cachedSpans;
+        }
+        return (TreeSet) invokeV.objValue;
+    }
+
+    public int headerHashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            long j = this.length;
+            return (((this.id * 31) + this.key.hashCode()) * 31) + ((int) (j ^ (j >>> 32)));
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean isEmpty() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.cachedSpans.isEmpty();
+        }
+        return invokeV.booleanValue;
     }
 }

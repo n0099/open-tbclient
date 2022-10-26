@@ -52,23 +52,6 @@ public final class DumperService extends Service implements ZeusLogUploader.OnFi
         this.mEncryptKey = "";
     }
 
-    private boolean isNetworkConnected(Context context) {
-        InterceptResult invokeL;
-        NetworkInfo activeNetworkInfo;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, this, context)) == null) ? (context == null || (activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo()) == null || !activeNetworkInfo.isAvailable()) ? false : true : invokeL.booleanValue;
-    }
-
-    @Override // android.app.Service
-    public IBinder onBind(Intent intent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
-            throw new UnsupportedOperationException("Cannot bind to DumperService.");
-        }
-        return (IBinder) invokeL.objValue;
-    }
-
     @Override // android.app.Service
     public void onCreate() {
         Interceptable interceptable = $ic;
@@ -84,6 +67,29 @@ public final class DumperService extends Service implements ZeusLogUploader.OnFi
             super.onDestroy();
             System.exit(0);
         }
+    }
+
+    private boolean isNetworkConnected(Context context) {
+        InterceptResult invokeL;
+        NetworkInfo activeNetworkInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, context)) == null) {
+            if (context == null || (activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo()) == null || !activeNetworkInfo.isAvailable()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.app.Service
+    public IBinder onBind(Intent intent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
+            throw new UnsupportedOperationException("Cannot bind to DumperService.");
+        }
+        return (IBinder) invokeL.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:26:0x0048  */

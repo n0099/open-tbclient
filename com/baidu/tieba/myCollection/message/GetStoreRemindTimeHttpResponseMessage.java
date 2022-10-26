@@ -17,7 +17,7 @@ import tbclient.GetStoreRemindTime.GetStoreRemindTimeResIdl;
 public class GetStoreRemindTimeHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<String> timeList;
+    public List timeList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetStoreRemindTimeHttpResponseMessage(int i) {
@@ -40,12 +40,6 @@ public class GetStoreRemindTimeHttpResponseMessage extends TbHttpResponsedMessag
         this.timeList = Collections.EMPTY_LIST;
     }
 
-    public List<String> getTimeList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.timeList : (List) invokeV.objValue;
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
@@ -62,5 +56,14 @@ public class GetStoreRemindTimeHttpResponseMessage extends TbHttpResponsedMessag
                 this.timeList = dataRes.remind_time;
             }
         }
+    }
+
+    public List getTimeList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.timeList;
+        }
+        return (List) invokeV.objValue;
     }
 }

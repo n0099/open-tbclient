@@ -76,12 +76,18 @@ public final class Cmatch {
     public static Cmatch valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Cmatch) Enum.valueOf(Cmatch.class, str) : (Cmatch) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (Cmatch) Enum.valueOf(Cmatch.class, str);
+        }
+        return (Cmatch) invokeL.objValue;
     }
 
     public static Cmatch[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Cmatch[]) $VALUES.clone() : (Cmatch[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (Cmatch[]) $VALUES.clone();
+        }
+        return (Cmatch[]) invokeV.objValue;
     }
 }

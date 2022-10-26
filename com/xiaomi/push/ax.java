@@ -27,7 +27,7 @@ public class ax {
         }
     }
 
-    public static void a(Class<?> cls, Context context) {
+    public static void a(Class cls, Context context) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(65537, null, cls, context) == null) || a) {
             return;
@@ -36,7 +36,7 @@ public class ax {
             a = true;
             cls.getDeclaredMethod("InitEntry", Context.class).invoke(cls, context);
         } catch (Throwable th) {
-            com.xiaomi.channel.commonutils.logger.b.m90a("mdid:load lib error " + th);
+            com.xiaomi.channel.commonutils.logger.b.m89a("mdid:load lib error " + th);
         }
     }
 
@@ -45,14 +45,14 @@ public class ax {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             try {
-                Class<?> a2 = v.a(context, "com.bun.miitmdid.core.JLibrary");
+                Class a2 = v.a(context, "com.bun.miitmdid.core.JLibrary");
                 if (a2 != null) {
                     a(a2, context);
                     return true;
                 }
                 return false;
             } catch (Throwable th) {
-                com.xiaomi.channel.commonutils.logger.b.m90a("mdid:check error " + th);
+                com.xiaomi.channel.commonutils.logger.b.m89a("mdid:check error " + th);
                 return false;
             }
         }

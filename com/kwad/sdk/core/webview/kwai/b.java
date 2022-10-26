@@ -1,17 +1,16 @@
 package com.kwad.sdk.core.webview.kwai;
 
-import androidx.annotation.Nullable;
 import com.baidu.webkit.sdk.WebChromeClient;
 import com.kwad.sdk.utils.r;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class b implements com.kwad.sdk.core.b {
     public String agi;
     public String agj;
     public String data;
 
     @Override // com.kwad.sdk.core.b
-    public final void parseJson(@Nullable JSONObject jSONObject) {
+    public final void parseJson(JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }

@@ -1,8 +1,5 @@
 package androidx.media2.common;
 
-import androidx.annotation.IntRange;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.versionedparcelable.VersionedParcelable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,37 +28,22 @@ public class VideoSize implements VersionedParcelable {
         }
     }
 
-    public boolean equals(@Nullable Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (obj == null) {
-                return false;
-            }
-            if (this == obj) {
-                return true;
-            }
-            if (obj instanceof VideoSize) {
-                VideoSize videoSize = (VideoSize) obj;
-                return this.mWidth == videoSize.mWidth && this.mHeight == videoSize.mHeight;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @IntRange(from = 0)
     public int getHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mHeight : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mHeight;
+        }
+        return invokeV.intValue;
     }
 
-    @IntRange(from = 0)
     public int getWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mWidth : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mWidth;
+        }
+        return invokeV.intValue;
     }
 
     public int hashCode() {
@@ -75,7 +57,6 @@ public class VideoSize implements VersionedParcelable {
         return invokeV.intValue;
     }
 
-    @NonNull
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -85,7 +66,7 @@ public class VideoSize implements VersionedParcelable {
         return (String) invokeV.objValue;
     }
 
-    public VideoSize(@IntRange(from = 0) int i, @IntRange(from = 0) int i2) {
+    public VideoSize(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -100,14 +81,36 @@ public class VideoSize implements VersionedParcelable {
                 return;
             }
         }
-        if (i < 0) {
-            throw new IllegalArgumentException("width can not be negative");
+        if (i >= 0) {
+            if (i2 >= 0) {
+                this.mWidth = i;
+                this.mHeight = i2;
+                return;
+            }
+            throw new IllegalArgumentException("height can not be negative");
         }
-        if (i2 >= 0) {
-            this.mWidth = i;
-            this.mHeight = i2;
-            return;
+        throw new IllegalArgumentException("width can not be negative");
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (obj == null) {
+                return false;
+            }
+            if (this == obj) {
+                return true;
+            }
+            if (!(obj instanceof VideoSize)) {
+                return false;
+            }
+            VideoSize videoSize = (VideoSize) obj;
+            if (this.mWidth != videoSize.mWidth || this.mHeight != videoSize.mHeight) {
+                return false;
+            }
+            return true;
         }
-        throw new IllegalArgumentException("height can not be negative");
+        return invokeL.booleanValue;
     }
 }

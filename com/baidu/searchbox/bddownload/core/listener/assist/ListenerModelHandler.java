@@ -1,39 +1,36 @@
 package com.baidu.searchbox.bddownload.core.listener.assist;
 
 import android.util.SparseArray;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bddownload.DownloadTask;
 import com.baidu.searchbox.bddownload.core.breakpoint.BreakpointInfo;
-import com.baidu.searchbox.bddownload.core.listener.assist.ListenerModelHandler.ListenerModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class ListenerModelHandler<T extends ListenerModel> implements ListenerAssist {
+public class ListenerModelHandler implements ListenerAssist {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Boolean alwaysRecoverModel;
-    public final ModelCreator<T> creator;
-    public final SparseArray<T> modelList;
-    public volatile T singleTaskModel;
+    public final ModelCreator creator;
+    public final SparseArray modelList;
+    public volatile ListenerModel singleTaskModel;
 
     /* loaded from: classes2.dex */
     public interface ListenerModel {
         int getId();
 
-        void onInfoValid(@NonNull BreakpointInfo breakpointInfo);
+        void onInfoValid(BreakpointInfo breakpointInfo);
     }
 
     /* loaded from: classes2.dex */
-    public interface ModelCreator<T extends ListenerModel> {
-        T create(int i);
+    public interface ModelCreator {
+        ListenerModel create(int i);
     }
 
-    public ListenerModelHandler(ModelCreator<T> modelCreator) {
+    public ListenerModelHandler(ModelCreator modelCreator) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -48,16 +45,15 @@ public class ListenerModelHandler<T extends ListenerModel> implements ListenerAs
                 return;
             }
         }
-        this.modelList = new SparseArray<>();
+        this.modelList = new SparseArray();
         this.creator = modelCreator;
     }
 
-    @NonNull
-    public T addAndGetModel(@NonNull DownloadTask downloadTask, @Nullable BreakpointInfo breakpointInfo) {
+    public ListenerModel addAndGetModel(DownloadTask downloadTask, BreakpointInfo breakpointInfo) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, downloadTask, breakpointInfo)) == null) {
-            T create = this.creator.create(downloadTask.getId());
+            ListenerModel create = this.creator.create(downloadTask.getId());
             synchronized (this) {
                 if (this.singleTaskModel == null) {
                     this.singleTaskModel = create;
@@ -70,25 +66,31 @@ public class ListenerModelHandler<T extends ListenerModel> implements ListenerAs
             }
             return create;
         }
-        return (T) invokeLL.objValue;
+        return (ListenerModel) invokeLL.objValue;
     }
 
-    @Nullable
-    public T getOrRecoverModel(@NonNull DownloadTask downloadTask, @Nullable BreakpointInfo breakpointInfo) {
+    public ListenerModel getOrRecoverModel(DownloadTask downloadTask, BreakpointInfo breakpointInfo) {
         InterceptResult invokeLL;
-        T t;
+        ListenerModel listenerModel;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadTask, breakpointInfo)) == null) {
             int id = downloadTask.getId();
             synchronized (this) {
-                t = (this.singleTaskModel == null || this.singleTaskModel.getId() != id) ? null : this.singleTaskModel;
+                if (this.singleTaskModel != null && this.singleTaskModel.getId() == id) {
+                    listenerModel = this.singleTaskModel;
+                } else {
+                    listenerModel = null;
+                }
             }
-            if (t == null) {
-                t = this.modelList.get(id);
+            if (listenerModel == null) {
+                listenerModel = (ListenerModel) this.modelList.get(id);
             }
-            return (t == null && isAlwaysRecoverAssistModel()) ? addAndGetModel(downloadTask, breakpointInfo) : t;
+            if (listenerModel == null && isAlwaysRecoverAssistModel()) {
+                return addAndGetModel(downloadTask, breakpointInfo);
+            }
+            return listenerModel;
         }
-        return (T) invokeLL.objValue;
+        return (ListenerModel) invokeLL.objValue;
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.assist.ListenerAssist
@@ -97,36 +99,38 @@ public class ListenerModelHandler<T extends ListenerModel> implements ListenerAs
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             Boolean bool = this.alwaysRecoverModel;
-            return bool != null && bool.booleanValue();
+            if (bool != null && bool.booleanValue()) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    @NonNull
-    public T removeOrCreate(@NonNull DownloadTask downloadTask, @Nullable BreakpointInfo breakpointInfo) {
+    public ListenerModel removeOrCreate(DownloadTask downloadTask, BreakpointInfo breakpointInfo) {
         InterceptResult invokeLL;
-        T t;
+        ListenerModel listenerModel;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, downloadTask, breakpointInfo)) == null) {
             int id = downloadTask.getId();
             synchronized (this) {
                 if (this.singleTaskModel != null && this.singleTaskModel.getId() == id) {
-                    t = this.singleTaskModel;
+                    listenerModel = this.singleTaskModel;
                     this.singleTaskModel = null;
                 } else {
-                    t = this.modelList.get(id);
+                    listenerModel = (ListenerModel) this.modelList.get(id);
                     this.modelList.remove(id);
                 }
             }
-            if (t == null) {
-                t = this.creator.create(id);
+            if (listenerModel == null) {
+                listenerModel = this.creator.create(id);
                 if (breakpointInfo != null) {
-                    t.onInfoValid(breakpointInfo);
+                    listenerModel.onInfoValid(breakpointInfo);
                 }
             }
-            return t;
+            return listenerModel;
         }
-        return (T) invokeLL.objValue;
+        return (ListenerModel) invokeLL.objValue;
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.assist.ListenerAssist

@@ -11,7 +11,7 @@ import java.util.HashMap;
 /* loaded from: classes8.dex */
 public class aa {
     public static /* synthetic */ Interceptable $ic;
-    public static final HashMap<String, String> a;
+    public static final HashMap a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,7 +27,7 @@ public class aa {
                 return;
             }
         }
-        HashMap<String, String> hashMap = new HashMap<>();
+        HashMap hashMap = new HashMap();
         a = hashMap;
         hashMap.put("FFD8FF", "jpg");
         a.put("89504E47", "png");

@@ -3,6 +3,7 @@ package com.baidu.tieba.ala.alasquare.special_forum.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,16 +19,26 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class SpecialLiveTabInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<SpecialLiveTabInfo> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public int objType;
-    public List<String> sortTypeList;
+    public List sortTypeList;
     public int tabId;
     public String tabName;
     public int tabType;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 1;
+        }
+        return invokeV.intValue;
+    }
+
     /* loaded from: classes3.dex */
-    public static class a implements Parcelable.Creator<SpecialLiveTabInfo> {
+    public final class a implements Parcelable.Creator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -51,7 +62,10 @@ public class SpecialLiveTabInfo implements Parcelable {
         public SpecialLiveTabInfo createFromParcel(Parcel parcel) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new SpecialLiveTabInfo(parcel) : (SpecialLiveTabInfo) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+                return new SpecialLiveTabInfo(parcel);
+            }
+            return (SpecialLiveTabInfo) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -60,7 +74,10 @@ public class SpecialLiveTabInfo implements Parcelable {
         public SpecialLiveTabInfo[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new SpecialLiveTabInfo[i] : (SpecialLiveTabInfo[]) invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                return new SpecialLiveTabInfo[i];
+            }
+            return (SpecialLiveTabInfo[]) invokeI.objValue;
         }
     }
 
@@ -96,48 +113,6 @@ public class SpecialLiveTabInfo implements Parcelable {
         this.tabType = -1;
     }
 
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 1;
-        }
-        return invokeV.intValue;
-    }
-
-    public void parse(JSONObject jSONObject) throws JSONException {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        this.tabId = jSONObject.optInt("tab_id");
-        this.tabName = jSONObject.optString("tab_name");
-        this.tabType = jSONObject.optInt("icon_type");
-        this.objType = jSONObject.optInt("obj_type");
-        JSONArray optJSONArray = jSONObject.optJSONArray("live_tab_type");
-        if (optJSONArray == null || optJSONArray.length() <= 0) {
-            return;
-        }
-        int length = optJSONArray.length();
-        this.sortTypeList = new ArrayList(length);
-        for (int i = 0; i < length; i++) {
-            this.sortTypeList.add(optJSONArray.optString(i));
-        }
-    }
-
-    @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i) == null) {
-            parcel.writeInt(this.tabId);
-            parcel.writeString(this.tabName);
-            parcel.writeInt(this.tabType);
-            parcel.writeStringList(this.sortTypeList);
-            parcel.writeInt(this.objType);
-        }
-    }
-
     public SpecialLiveTabInfo(Parcel parcel) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -159,5 +134,36 @@ public class SpecialLiveTabInfo implements Parcelable {
         this.tabType = parcel.readInt();
         this.sortTypeList = parcel.createStringArrayList();
         this.objType = parcel.readInt();
+    }
+
+    public void parse(JSONObject jSONObject) throws JSONException {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        this.tabId = jSONObject.optInt(TiebaStatic.Params.TAB_ID);
+        this.tabName = jSONObject.optString("tab_name");
+        this.tabType = jSONObject.optInt("icon_type");
+        this.objType = jSONObject.optInt("obj_type");
+        JSONArray optJSONArray = jSONObject.optJSONArray("live_tab_type");
+        if (optJSONArray != null && optJSONArray.length() > 0) {
+            int length = optJSONArray.length();
+            this.sortTypeList = new ArrayList(length);
+            for (int i = 0; i < length; i++) {
+                this.sortTypeList.add(optJSONArray.optString(i));
+            }
+        }
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i) == null) {
+            parcel.writeInt(this.tabId);
+            parcel.writeString(this.tabName);
+            parcel.writeInt(this.tabType);
+            parcel.writeStringList(this.sortTypeList);
+            parcel.writeInt(this.objType);
+        }
     }
 }

@@ -7,19 +7,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.material.R;
 import com.google.android.material.color.MaterialColors;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes7.dex */
 public class SnackbarContentLayout extends LinearLayout implements ContentViewCallback {
     public static /* synthetic */ Interceptable $ic;
@@ -30,7 +26,7 @@ public class SnackbarContentLayout extends LinearLayout implements ContentViewCa
     public TextView messageView;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SnackbarContentLayout(@NonNull Context context) {
+    public SnackbarContentLayout(Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -50,35 +46,29 @@ public class SnackbarContentLayout extends LinearLayout implements ContentViewCa
         }
     }
 
-    public static void updateTopBottomPadding(@NonNull View view2, int i, int i2) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public SnackbarContentLayout(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65538, null, view2, i, i2) == null) {
-            if (ViewCompat.isPaddingRelative(view2)) {
-                ViewCompat.setPaddingRelative(view2, ViewCompat.getPaddingStart(view2), i, ViewCompat.getPaddingEnd(view2), i2);
-            } else {
-                view2.setPadding(view2.getPaddingLeft(), i, view2.getPaddingRight(), i2);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-    }
-
-    private boolean updateViewsWithinLayout(int i, int i2, int i3) {
-        InterceptResult invokeIII;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(65539, this, i, i2, i3)) == null) {
-            if (i != getOrientation()) {
-                setOrientation(i);
-                z = true;
-            } else {
-                z = false;
-            }
-            if (this.messageView.getPaddingTop() == i2 && this.messageView.getPaddingBottom() == i3) {
-                return z;
-            }
-            updateTopBottomPadding(this.messageView, i2, i3);
-            return true;
-        }
-        return invokeIII.booleanValue;
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.SnackbarLayout);
+        this.maxWidth = obtainStyledAttributes.getDimensionPixelSize(0, -1);
+        this.maxInlineActionWidth = obtainStyledAttributes.getDimensionPixelSize(7, -1);
+        obtainStyledAttributes.recycle();
     }
 
     @Override // com.google.android.material.snackbar.ContentViewCallback
@@ -111,16 +101,53 @@ public class SnackbarContentLayout extends LinearLayout implements ContentViewCa
         }
     }
 
+    public static void updateTopBottomPadding(View view2, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(65538, null, view2, i, i2) == null) {
+            if (ViewCompat.isPaddingRelative(view2)) {
+                ViewCompat.setPaddingRelative(view2, ViewCompat.getPaddingStart(view2), i, ViewCompat.getPaddingEnd(view2), i2);
+            } else {
+                view2.setPadding(view2.getPaddingLeft(), i, view2.getPaddingRight(), i2);
+            }
+        }
+    }
+
+    private boolean updateViewsWithinLayout(int i, int i2, int i3) {
+        InterceptResult invokeIII;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(65539, this, i, i2, i3)) == null) {
+            if (i != getOrientation()) {
+                setOrientation(i);
+                z = true;
+            } else {
+                z = false;
+            }
+            if (this.messageView.getPaddingTop() == i2 && this.messageView.getPaddingBottom() == i3) {
+                return z;
+            }
+            updateTopBottomPadding(this.messageView, i2, i3);
+            return true;
+        }
+        return invokeIII.booleanValue;
+    }
+
     public Button getActionView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.actionView : (Button) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.actionView;
+        }
+        return (Button) invokeV.objValue;
     }
 
     public TextView getMessageView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.messageView : (TextView) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.messageView;
+        }
+        return (TextView) invokeV.objValue;
     }
 
     @Override // android.view.View
@@ -128,8 +155,8 @@ public class SnackbarContentLayout extends LinearLayout implements ContentViewCa
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onFinishInflate();
-            this.messageView = (TextView) findViewById(R.id.obfuscated_res_0x7f091f10);
-            this.actionView = (Button) findViewById(R.id.obfuscated_res_0x7f091f0f);
+            this.messageView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091f0f);
+            this.actionView = (Button) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091f0e);
         }
     }
 
@@ -147,6 +174,7 @@ public class SnackbarContentLayout extends LinearLayout implements ContentViewCa
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void onMeasure(int i, int i2) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
             super.onMeasure(i, i2);
@@ -158,16 +186,20 @@ public class SnackbarContentLayout extends LinearLayout implements ContentViewCa
                     super.onMeasure(i, i2);
                 }
             }
-            int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07021e);
-            int dimensionPixelSize2 = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07021c);
-            boolean z = false;
-            boolean z2 = this.messageView.getLayout().getLineCount() > 1;
-            if (!z2 || this.maxInlineActionWidth <= 0 || this.actionView.getMeasuredWidth() <= this.maxInlineActionWidth) {
-                if (!z2) {
+            int dimensionPixelSize = getResources().getDimensionPixelSize(com.baidu.tieba.R.dimen.obfuscated_res_0x7f07021e);
+            int dimensionPixelSize2 = getResources().getDimensionPixelSize(com.baidu.tieba.R.dimen.obfuscated_res_0x7f07021c);
+            boolean z2 = false;
+            if (this.messageView.getLayout().getLineCount() > 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (!z || this.maxInlineActionWidth <= 0 || this.actionView.getMeasuredWidth() <= this.maxInlineActionWidth) {
+                if (!z) {
                     dimensionPixelSize = dimensionPixelSize2;
                 }
             }
-            if (z) {
+            if (z2) {
                 super.onMeasure(i, i2);
             }
         }
@@ -182,34 +214,8 @@ public class SnackbarContentLayout extends LinearLayout implements ContentViewCa
 
     public void updateActionTextColorAlphaIfNeeded(float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048583, this, f) == null) || f == 1.0f) {
-            return;
+        if ((interceptable == null || interceptable.invokeF(1048583, this, f) == null) && f != 1.0f) {
+            this.actionView.setTextColor(MaterialColors.layer(MaterialColors.getColor(this, com.baidu.tieba.R.attr.obfuscated_res_0x7f04017e), this.actionView.getCurrentTextColor(), f));
         }
-        this.actionView.setTextColor(MaterialColors.layer(MaterialColors.getColor(this, R.attr.obfuscated_res_0x7f04017e), this.actionView.getCurrentTextColor(), f));
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SnackbarContentLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.google.android.material.R.styleable.SnackbarLayout);
-        this.maxWidth = obtainStyledAttributes.getDimensionPixelSize(0, -1);
-        this.maxInlineActionWidth = obtainStyledAttributes.getDimensionPixelSize(7, -1);
-        obtainStyledAttributes.recycle();
     }
 }

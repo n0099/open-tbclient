@@ -13,7 +13,7 @@ public interface SimpleDraweeControllerBuilder {
 
     SimpleDraweeControllerBuilder setUri(Uri uri);
 
-    SimpleDraweeControllerBuilder setUri(Uri uri, Map<String, String> map);
+    SimpleDraweeControllerBuilder setUri(Uri uri, Map map);
 
     SimpleDraweeControllerBuilder setUri(@Nullable String str);
 }

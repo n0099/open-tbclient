@@ -54,6 +54,42 @@ public class RequestCall implements Cancelable {
         buildCall();
     }
 
+    public Cancelable executeAsync(ResponseCallback responseCallback) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, responseCallback)) == null) {
+            return executeAsyncWithHandler(null, responseCallback);
+        }
+        return (Cancelable) invokeL.objValue;
+    }
+
+    public Cancelable executeAsyncOnUIBack(ResponseCallback responseCallback) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, responseCallback)) == null) {
+            return executeAsyncWithHandler(this.deliver, responseCallback);
+        }
+        return (Cancelable) invokeL.objValue;
+    }
+
+    public Cancelable executeStat(ResponseCallback responseCallback) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, responseCallback)) == null) {
+            return executeStatWithHandler(null, responseCallback);
+        }
+        return (Cancelable) invokeL.objValue;
+    }
+
+    public Cancelable executeStatUIBack(ResponseCallback responseCallback) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, responseCallback)) == null) {
+            return executeStatWithHandler(this.deliver, responseCallback);
+        }
+        return (Cancelable) invokeL.objValue;
+    }
+
     private void buildCall() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
@@ -75,6 +111,42 @@ public class RequestCall implements Cancelable {
         }
     }
 
+    @Override // com.baidu.searchbox.network.outback.Cancelable
+    public void cancel() {
+        Call call;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (call = this.realCall) != null) {
+            call.cancel();
+        }
+    }
+
+    public Response executeStat() throws RequestCallException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return executeSync();
+        }
+        return (Response) invokeV.objValue;
+    }
+
+    public Call getCall() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.realCall;
+        }
+        return (Call) invokeV.objValue;
+    }
+
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return OutbackComponent.getInstance().getContext();
+        }
+        return (Context) invokeV.objValue;
+    }
+
     private void recordStatusCode(int i, String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(65543, this, i, str) == null) && StatusCodeException.isStatusCodeMatched(i)) {
@@ -88,14 +160,24 @@ public class RequestCall implements Cancelable {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void sendFailResult(Handler handler, ResponseCallback responseCallback, Exception exc) {
+        Exception wrapNoNetworkExceptionWithDetail;
+        String message;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65544, this, handler, responseCallback, exc) == null) {
             if (responseCallback != null) {
-                Exception wrapNoNetworkExceptionWithDetail = ConnectManager.isNetworkConnected(getContext()) ? exc : ResponseException.wrapNoNetworkExceptionWithDetail(exc);
+                if (ConnectManager.isNetworkConnected(getContext())) {
+                    wrapNoNetworkExceptionWithDetail = exc;
+                } else {
+                    wrapNoNetworkExceptionWithDetail = ResponseException.wrapNoNetworkExceptionWithDetail(exc);
+                }
                 this.request.onException4NetworkStatRecord(wrapNoNetworkExceptionWithDetail);
-                String name = TextUtils.isEmpty(wrapNoNetworkExceptionWithDetail.getMessage()) ? exc.getClass().getName() : wrapNoNetworkExceptionWithDetail.getMessage();
+                if (TextUtils.isEmpty(wrapNoNetworkExceptionWithDetail.getMessage())) {
+                    message = exc.getClass().getName();
+                } else {
+                    message = wrapNoNetworkExceptionWithDetail.getMessage();
+                }
                 if (handler != null) {
-                    handler.post(new Runnable(this, responseCallback, name, wrapNoNetworkExceptionWithDetail) { // from class: com.baidu.searchbox.network.outback.request.RequestCall.3
+                    handler.post(new Runnable(this, responseCallback, message, wrapNoNetworkExceptionWithDetail) { // from class: com.baidu.searchbox.network.outback.request.RequestCall.3
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ RequestCall this$0;
@@ -108,7 +190,7 @@ public class RequestCall implements Cancelable {
                             if (interceptable2 != null) {
                                 InitContext newInitContext = TitanRuntime.newInitContext();
                                 newInitContext.initArgs = r2;
-                                Object[] objArr = {this, responseCallback, name, wrapNoNetworkExceptionWithDetail};
+                                Object[] objArr = {this, responseCallback, message, wrapNoNetworkExceptionWithDetail};
                                 interceptable2.invokeUnInit(65536, newInitContext);
                                 int i = newInitContext.flag;
                                 if ((i & 1) != 0) {
@@ -120,7 +202,7 @@ public class RequestCall implements Cancelable {
                             }
                             this.this$0 = this;
                             this.val$callback = responseCallback;
-                            this.val$message = name;
+                            this.val$message = message;
                             this.val$wrappedException = wrapNoNetworkExceptionWithDetail;
                         }
 
@@ -133,7 +215,7 @@ public class RequestCall implements Cancelable {
                         }
                     });
                 } else {
-                    responseCallback.onFail(new RequestCallException(name, wrapNoNetworkExceptionWithDetail, this.request.getNetworkStatRecord()));
+                    responseCallback.onFail(new RequestCallException(message, wrapNoNetworkExceptionWithDetail, this.request.getNetworkStatRecord()));
                 }
             }
             DoRecordManager.getInstance().doRecord(this.request.getNetworkStatRecord(), DoRecordManager.FAILED_MSG);
@@ -141,93 +223,70 @@ public class RequestCall implements Cancelable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public <T> void sendSuccessResult(Handler handler, ResponseCallback<T> responseCallback, Response response) {
+    public void sendSuccessResult(Handler handler, ResponseCallback responseCallback, Response response) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65545, this, handler, responseCallback, response) == null) || response == null) {
-            return;
-        }
-        try {
-            recordStatusCode(response.code(), response.message());
-            if (responseCallback != null) {
-                T parseResponse = responseCallback.parseResponse(response, response.code());
-                if (handler != null) {
-                    handler.post(new Runnable(this, parseResponse, responseCallback, response) { // from class: com.baidu.searchbox.network.outback.request.RequestCall.4
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ RequestCall this$0;
-                        public final /* synthetic */ ResponseCallback val$callback;
-                        public final /* synthetic */ Object val$entity;
-                        public final /* synthetic */ Response val$response;
+        if ((interceptable == null || interceptable.invokeLLL(65545, this, handler, responseCallback, response) == null) && response != null) {
+            try {
+                recordStatusCode(response.code(), response.message());
+                if (responseCallback != null) {
+                    Object parseResponse = responseCallback.parseResponse(response, response.code());
+                    if (handler != null) {
+                        handler.post(new Runnable(this, parseResponse, responseCallback, response) { // from class: com.baidu.searchbox.network.outback.request.RequestCall.4
+                            public static /* synthetic */ Interceptable $ic;
+                            public transient /* synthetic */ FieldHolder $fh;
+                            public final /* synthetic */ RequestCall this$0;
+                            public final /* synthetic */ ResponseCallback val$callback;
+                            public final /* synthetic */ Object val$entity;
+                            public final /* synthetic */ Response val$response;
 
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this, parseResponse, responseCallback, response};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i = newInitContext.flag;
-                                if ((i & 1) != 0) {
-                                    int i2 = i & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
+                            {
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 != null) {
+                                    InitContext newInitContext = TitanRuntime.newInitContext();
+                                    newInitContext.initArgs = r2;
+                                    Object[] objArr = {this, parseResponse, responseCallback, response};
+                                    interceptable2.invokeUnInit(65536, newInitContext);
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
+                                        newInitContext.thisArg = this;
+                                        interceptable2.invokeInitBody(65536, newInitContext);
+                                        return;
+                                    }
+                                }
+                                this.this$0 = this;
+                                this.val$entity = parseResponse;
+                                this.val$callback = responseCallback;
+                                this.val$response = response;
+                            }
+
+                            @Override // java.lang.Runnable
+                            public void run() {
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                    Object obj = this.val$entity;
+                                    if (obj != null) {
+                                        this.val$callback.onSuccess(obj, this.val$response.code());
+                                    } else {
+                                        this.val$callback.onFail(new IOException("parse response return null"));
+                                    }
                                 }
                             }
-                            this.this$0 = this;
-                            this.val$entity = parseResponse;
-                            this.val$callback = responseCallback;
-                            this.val$response = response;
-                        }
-
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                Object obj = this.val$entity;
-                                if (obj != null) {
-                                    this.val$callback.onSuccess(obj, this.val$response.code());
-                                } else {
-                                    this.val$callback.onFail(new IOException("parse response return null"));
-                                }
-                            }
-                        }
-                    });
-                } else if (parseResponse != null) {
-                    responseCallback.onSuccess(parseResponse, response.code());
-                } else {
-                    responseCallback.onFail(new IOException("parse response return null"));
+                        });
+                    } else if (parseResponse != null) {
+                        responseCallback.onSuccess(parseResponse, response.code());
+                    } else {
+                        responseCallback.onFail(new IOException("parse response return null"));
+                    }
                 }
+                DoRecordManager.getInstance().doRecord(response.getStatRecord(), DoRecordManager.SUCCESSFUL_MSG);
+            } catch (Exception e) {
+                sendFailResult(handler, responseCallback, e);
             }
-            DoRecordManager.getInstance().doRecord(response.getStatRecord(), DoRecordManager.SUCCESSFUL_MSG);
-        } catch (Exception e) {
-            sendFailResult(handler, responseCallback, e);
         }
     }
 
-    @Override // com.baidu.searchbox.network.outback.Cancelable
-    public void cancel() {
-        Call call;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (call = this.realCall) == null) {
-            return;
-        }
-        call.cancel();
-    }
-
-    public <T> Cancelable executeAsync(ResponseCallback<T> responseCallback) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, responseCallback)) == null) ? executeAsyncWithHandler(null, responseCallback) : (Cancelable) invokeL.objValue;
-    }
-
-    public <T> Cancelable executeAsyncOnUIBack(ResponseCallback<T> responseCallback) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, responseCallback)) == null) ? executeAsyncWithHandler(this.deliver, responseCallback) : (Cancelable) invokeL.objValue;
-    }
-
-    public <T> Cancelable executeAsyncWithHandler(Handler handler, ResponseCallback<T> responseCallback) {
+    public Cancelable executeAsyncWithHandler(Handler handler, ResponseCallback responseCallback) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, handler, responseCallback)) == null) {
@@ -285,19 +344,7 @@ public class RequestCall implements Cancelable {
         return (Cancelable) invokeLL.objValue;
     }
 
-    public Response executeStat() throws RequestCallException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? executeSync() : (Response) invokeV.objValue;
-    }
-
-    public <T> Cancelable executeStatUIBack(ResponseCallback<T> responseCallback) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, responseCallback)) == null) ? executeStatWithHandler(this.deliver, responseCallback) : (Cancelable) invokeL.objValue;
-    }
-
-    public <T> Cancelable executeStatWithHandler(Handler handler, ResponseCallback<T> responseCallback) {
+    public Cancelable executeStatWithHandler(Handler handler, ResponseCallback responseCallback) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, handler, responseCallback)) == null) {
@@ -357,6 +404,8 @@ public class RequestCall implements Cancelable {
 
     public Response executeSync() throws RequestCallException {
         InterceptResult invokeV;
+        Exception wrapNoNetworkExceptionWithDetail;
+        String message;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             int i = DoRecordManager.FAILED_MSG;
@@ -372,35 +421,26 @@ public class RequestCall implements Cancelable {
                     }
                     return execute;
                 } catch (Exception e) {
-                    Exception wrapNoNetworkExceptionWithDetail = ConnectManager.isNetworkConnected(getContext()) ? e : ResponseException.wrapNoNetworkExceptionWithDetail(e);
+                    if (ConnectManager.isNetworkConnected(getContext())) {
+                        wrapNoNetworkExceptionWithDetail = e;
+                    } else {
+                        wrapNoNetworkExceptionWithDetail = ResponseException.wrapNoNetworkExceptionWithDetail(e);
+                    }
                     wrapNoNetworkExceptionWithDetail.printStackTrace();
                     this.request.onException4NetworkStatRecord(wrapNoNetworkExceptionWithDetail);
                     this.request.getNetworkStatRecord();
                     int i2 = DoRecordManager.FAILED_MSG;
-                    throw new RequestCallException(TextUtils.isEmpty(wrapNoNetworkExceptionWithDetail.getMessage()) ? Log.getStackTraceString(e) : wrapNoNetworkExceptionWithDetail.getMessage(), wrapNoNetworkExceptionWithDetail, this.request.getNetworkStatRecord());
+                    if (TextUtils.isEmpty(wrapNoNetworkExceptionWithDetail.getMessage())) {
+                        message = Log.getStackTraceString(e);
+                    } else {
+                        message = wrapNoNetworkExceptionWithDetail.getMessage();
+                    }
+                    throw new RequestCallException(message, wrapNoNetworkExceptionWithDetail, this.request.getNetworkStatRecord());
                 }
             } finally {
                 DoRecordManager.getInstance().doRecord(networkStatRecord, i);
             }
         }
         return (Response) invokeV.objValue;
-    }
-
-    public Call getCall() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.realCall : (Call) invokeV.objValue;
-    }
-
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? OutbackComponent.getInstance().getContext() : (Context) invokeV.objValue;
-    }
-
-    public <T> Cancelable executeStat(ResponseCallback<T> responseCallback) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, responseCallback)) == null) ? executeStatWithHandler(null, responseCallback) : (Cancelable) invokeL.objValue;
     }
 }

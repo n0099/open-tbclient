@@ -1,40 +1,47 @@
 package com.baidu.tieba;
 
+import android.util.SparseArray;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.card.view.FollowUserDecorView;
+import com.baidu.card.view.ForumEnterLayout;
+import com.baidu.card.view.UnfollowedDecorView;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout;
+import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class o16 extends i16<f76> {
+public abstract class o16 extends p16 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbImageView i;
-    public LinearLayout j;
-    public TextView k;
-    public TextView l;
-    public TextView m;
-    public LinearLayout n;
-    public ImageView o;
-    public ImageView p;
-    public ImageView q;
-    public ImageView r;
-    public ImageView s;
-    public TextView t;
-    public f76 u;
-    public View v;
+    public TbPageContext i;
+    public BdUniqueId j;
+    public ar4 k;
+    public ThreadCommentAndPraiseInfoLayout l;
+    public ThreadCommentAndPraiseInfoLayout m;
+    public NEGFeedBackView n;
+    public UnfollowedDecorView o;
+    public FollowUserDecorView p;
+    public ForumEnterLayout q;
+    public boolean r;
+    public boolean s;
+    public boolean t;
+    public View u;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public o16(TbPageContext<?> tbPageContext) {
+    public o16(TbPageContext tbPageContext) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -51,136 +58,365 @@ public class o16 extends i16<f76> {
                 return;
             }
         }
-        r(h());
+        this.n = null;
+        this.o = null;
+        this.r = false;
+        this.s = false;
+        this.t = false;
     }
 
-    @Override // com.baidu.tieba.i16
-    public int d() {
+    public void D(ViewGroup viewGroup) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, viewGroup) == null) {
+            G(viewGroup, H(viewGroup));
+            I(viewGroup);
+            F();
+            if (u()) {
+                ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout = this.l;
+                if (threadCommentAndPraiseInfoLayout != null) {
+                    threadCommentAndPraiseInfoLayout.setVisibility(8);
+                }
+                ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout2 = this.m;
+                if (threadCommentAndPraiseInfoLayout2 != null) {
+                    threadCommentAndPraiseInfoLayout2.setVisibility(8);
+                }
+                View view2 = this.u;
+                if (view2 != null) {
+                    view2.setVisibility(0);
+                }
+            } else {
+                E();
+            }
+            r();
+        }
+    }
+
+    public void A(View view2, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) && view2 != null && (view2.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view2.getLayoutParams();
+            if (marginLayoutParams.topMargin != i) {
+                marginLayoutParams.topMargin = i;
+                view2.setLayoutParams(marginLayoutParams);
+            }
+        }
+    }
+
+    public void B(NEGFeedBackView.b bVar) {
+        NEGFeedBackView nEGFeedBackView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) && (nEGFeedBackView = this.n) != null) {
+            nEGFeedBackView.setEventCallback(bVar);
+        }
+    }
+
+    public void C(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.h = i;
+            ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout = this.l;
+            if (threadCommentAndPraiseInfoLayout != null) {
+                threadCommentAndPraiseInfoLayout.S = i;
+            }
+            ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout2 = this.m;
+            if (threadCommentAndPraiseInfoLayout2 != null) {
+                threadCommentAndPraiseInfoLayout2.S = i;
+            }
+        }
+    }
+
+    public int s(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
+            return fj.f(TbadkCoreApplication.getInst(), i);
+        }
+        return invokeI.intValue;
+    }
+
+    public void x(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048591, this, bdUniqueId) != null) || bdUniqueId == null) {
+            return;
+        }
+        o(bdUniqueId);
+        NEGFeedBackView nEGFeedBackView = this.n;
+        if (nEGFeedBackView != null) {
+            nEGFeedBackView.setUniqueId(bdUniqueId);
+        }
+        FollowUserDecorView followUserDecorView = this.p;
+        if (followUserDecorView != null) {
+            followUserDecorView.setPageUniqueId(bdUniqueId);
+        }
+    }
+
+    public void y(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
+            this.t = z;
+        }
+    }
+
+    public void z(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
+            this.s = z;
+        }
+    }
+
+    public void E() {
+        ar4 ar4Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (ar4Var = this.k) != null && ar4Var.getThreadData() != null) {
+            ThreadData threadData = this.k.getThreadData();
+            this.l.setVisibility(8);
+            this.m.setData(threadData);
+        }
+    }
+
+    public boolean u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d018e : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.t;
+        }
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.i16
-    public void j(TbPageContext<?> tbPageContext, int i) {
+    public final void F() {
+        ar4 ar4Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            if (this.a != i) {
-                SkinManager.setBackgroundResource(h(), R.color.CAM_X0201);
-                SkinManager.setBackgroundResource(this.v, R.color.CAM_X0205);
-                SkinManager.setViewTextColor(this.k, R.color.CAM_X0105, 1);
-                SkinManager.setViewTextColor(this.l, R.color.CAM_X0107, 1);
-                SkinManager.setViewTextColor(this.m, R.color.CAM_X0106, 1);
-                SkinManager.setViewTextColor(this.t, R.color.CAM_X0107, 1);
-                t(this.u);
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (ar4Var = this.k) != null && ar4Var.getThreadData() != null && this.q != null) {
+            if (this.k.showCardEnterFourm()) {
+                this.q.setData(this.k.getThreadData());
+            } else if (this.r) {
+                this.q.setData(this.k.getThreadData());
             }
-            this.a = i;
         }
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    public final void r() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, view2) == null) || e() == null) {
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            ForumEnterLayout forumEnterLayout = this.q;
+            if ((forumEnterLayout == null || forumEnterLayout.getVisibility() != 0) && !UbsABTestHelper.showNewUI()) {
+                A(this.l, s(R.dimen.tbds20));
+                A(this.m, s(R.dimen.tbds20));
+                return;
+            }
+            A(this.l, 0);
+            A(this.m, 0);
+        }
+    }
+
+    public final void G(ViewGroup viewGroup, boolean z) {
+        ar4 ar4Var;
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(1048582, this, viewGroup, z) == null) && (ar4Var = this.k) != null && ar4Var.getThreadData() != null) {
+            if (this.p == null) {
+                FollowUserDecorView followUserDecorView = new FollowUserDecorView(this.i.getPageActivity());
+                this.p = followUserDecorView;
+                followUserDecorView.setIsShowIcon(this.s);
+                viewGroup.addView(this.p);
+            }
+            if (v()) {
+                this.p.setPageUniqueId(this.j);
+                this.p.setSvgIconResId(0);
+                int s = s(R.dimen.tbds166);
+                int s2 = s(R.dimen.tbds78);
+                int i2 = R.dimen.tbds44;
+                if (z) {
+                    i = R.dimen.tbds104;
+                } else {
+                    i = R.dimen.tbds44;
+                }
+                int s3 = s(i);
+                int s4 = s(R.dimen.tbds50);
+                if (UbsABTestHelper.showNewUI()) {
+                    s = s(R.dimen.tbds177);
+                    s2 = s(R.dimen.tbds76);
+                    if (z) {
+                        i2 = R.dimen.tbds126;
+                    }
+                    s3 = s(i2);
+                    s4 = s(R.dimen.tbds52);
+                    this.p.setUseNewStyle(true);
+                }
+                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(s, s2);
+                layoutParams.topMargin = s4;
+                layoutParams.rightMargin = s3;
+                layoutParams.gravity = 53;
+                this.p.setLayoutParams(layoutParams);
+                this.p.setData(this.k.getThreadData());
+                return;
+            }
+            FollowUserDecorView followUserDecorView2 = this.p;
+            if (followUserDecorView2 != null) {
+                followUserDecorView2.setVisibility(8);
+            }
+        }
+    }
+
+    public final boolean H(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        SparseArray<String> sparseArray;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, viewGroup)) == null) {
+            ar4 ar4Var = this.k;
+            if (ar4Var == null || ar4Var.getThreadData() == null) {
+                return false;
+            }
+            if (this.k.getThreadData() != null && (sparseArray = this.k.feedBackReasonMap) != null && sparseArray.size() > 0) {
+                if (this.n == null) {
+                    NEGFeedBackView nEGFeedBackView = new NEGFeedBackView(g());
+                    this.n = nEGFeedBackView;
+                    viewGroup.addView(nEGFeedBackView);
+                }
+                this.n.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
+                int f = fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds90);
+                int f2 = fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds14);
+                int f3 = fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds14);
+                int f4 = fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds42);
+                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(f, f);
+                layoutParams.rightMargin = f3;
+                layoutParams.topMargin = f4;
+                layoutParams.gravity = 53;
+                this.n.setPadding(f2, f2, f2, f2);
+                this.n.setLayoutParams(layoutParams);
+                xs4 xs4Var = new xs4();
+                xs4Var.o(this.k.getThreadData().getTid());
+                xs4Var.k(this.k.getThreadData().getFid());
+                xs4Var.n(this.k.getThreadData().getNid());
+                xs4Var.j(this.k.feedBackReasonMap);
+                this.n.setVisibility(0);
+                this.n.setData(xs4Var);
+                this.n.setFirstRowSingleColumn(true);
+                return true;
+            }
+            NEGFeedBackView nEGFeedBackView2 = this.n;
+            if (nEGFeedBackView2 == null) {
+                return false;
+            }
+            nEGFeedBackView2.setVisibility(8);
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void I(ViewGroup viewGroup) {
+        ar4 ar4Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup) == null) && (ar4Var = this.k) != null && ar4Var.getThreadData() != null) {
+            if (this.o == null) {
+                UnfollowedDecorView unfollowedDecorView = new UnfollowedDecorView(this.i.getPageActivity());
+                this.o = unfollowedDecorView;
+                viewGroup.addView(unfollowedDecorView);
+            }
+            if (this.k.getThreadData().isFromConcern && !ThreadCardUtils.isSelf(this.k.getThreadData())) {
+                this.o.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
+                int f = fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds90);
+                int f2 = fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds14);
+                int f3 = fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds14);
+                int f4 = fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds42);
+                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(f, f);
+                layoutParams.rightMargin = f3;
+                layoutParams.topMargin = f4;
+                layoutParams.gravity = 53;
+                this.o.setPadding(f2, f2, f2, f2);
+                this.o.setLayoutParams(layoutParams);
+                this.o.setVisibility(0);
+                this.o.f(this.k.getThreadData());
+                return;
+            }
+            UnfollowedDecorView unfollowedDecorView2 = this.o;
+            if (unfollowedDecorView2 != null) {
+                unfollowedDecorView2.setVisibility(8);
+            }
+        }
+    }
+
+    public void t(ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048587, this, threadCommentAndPraiseInfoLayout) != null) || threadCommentAndPraiseInfoLayout == null) {
             return;
         }
-        e().a(h(), this.u);
+        threadCommentAndPraiseInfoLayout.setOnClickListener(this);
+        threadCommentAndPraiseInfoLayout.setReplyTimeVisible(false);
+        threadCommentAndPraiseInfoLayout.setShowPraiseNum(true);
+        threadCommentAndPraiseInfoLayout.setCommentNumEnable(true);
+        threadCommentAndPraiseInfoLayout.setNeedAddReplyIcon(true);
+        threadCommentAndPraiseInfoLayout.setNeedAddPraiseIcon(true);
+        if (threadCommentAndPraiseInfoLayout.getCommentContainer() != null) {
+            threadCommentAndPraiseInfoLayout.getCommentContainer().setOnClickListener(this);
+        }
+        threadCommentAndPraiseInfoLayout.setShareVisible(true);
+        threadCommentAndPraiseInfoLayout.setFrom(7);
+        threadCommentAndPraiseInfoLayout.setShareReportFrom(3);
+        threadCommentAndPraiseInfoLayout.hideDisagree();
+        gr4 gr4Var = new gr4();
+        gr4Var.b = 7;
+        gr4Var.h = 1;
+        threadCommentAndPraiseInfoLayout.setAgreeStatisticData(gr4Var);
     }
 
-    public final void r(View view2) {
+    public final boolean v() {
+        InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            this.i = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090515);
-            this.j = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090516);
-            this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090520);
-            this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090517);
-            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090519);
-            this.n = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09051f);
-            this.o = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09051a);
-            this.p = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09051b);
-            this.q = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09051c);
-            this.r = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09051d);
-            this.s = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09051e);
-            this.t = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090514);
-            this.i.setDefaultResource(17170445);
-            this.i.setDefaultBgResource(R.color.CAM_X0205);
-            this.i.setDrawBorder(true);
-            this.i.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
-            this.i.setBorderWidth(this.c.getResources().getDimensionPixelSize(R.dimen.tbds1));
-            this.i.setRadius(getContext().getResources().getDimensionPixelSize(R.dimen.tbds26));
-            h().setOnClickListener(this);
-            this.v = view2.findViewById(R.id.divider_line);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            ar4 ar4Var = this.k;
+            if (ar4Var == null || ar4Var.getThreadData() == null || this.k.getThreadData().getAuthor() == null) {
+                return false;
+            }
+            ThreadData threadData = this.k.getThreadData();
+            if (ThreadCardUtils.isSelf(threadData)) {
+                return false;
+            }
+            if (!threadData.isBjhDynamicThread() && !threadData.isBJHArticleThreadType() && !threadData.isBJHVideoThreadType()) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if ((!z || !threadData.isFromHomPage) && (!z || !threadData.isFromVideoTab || threadData.getAuthor().hadConcerned())) {
+                if (threadData.getThreadAlaInfo() == null || !d36.W(threadData)) {
+                    return false;
+                }
+                if (!threadData.isFromHomPage && !threadData.isFromFeedTab) {
+                    return false;
+                }
+            }
+            return true;
         }
+        return invokeV.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.i16
-    /* renamed from: s */
-    public void i(f76 f76Var) {
+    public void w(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, f76Var) == null) || f76Var == null || f76Var.c() == null) {
-            return;
-        }
-        this.u = f76Var;
-        this.i.K(f76Var.c().avatar, 10, false);
-        this.k.setText(f76Var.c().game_name);
-        this.l.setText(f76Var.c().title_small);
-        this.m.setText(String.valueOf(f76Var.c().game_score));
-        t(f76Var);
-        this.t.setText(this.c.getResources().getString(R.string.obfuscated_res_0x7f0f070d, StringHelper.numberUniform(f76Var.c().game_score_num)));
-    }
-
-    public final void t(f76 f76Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, f76Var) == null) || f76Var == null) {
-            return;
-        }
-        SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_empty_bg);
-        SkinManager.setImageResource(this.p, R.drawable.game_comment_score_btn_small_empty_bg);
-        SkinManager.setImageResource(this.q, R.drawable.game_comment_score_btn_small_empty_bg);
-        SkinManager.setImageResource(this.r, R.drawable.game_comment_score_btn_small_empty_bg);
-        SkinManager.setImageResource(this.s, R.drawable.game_comment_score_btn_small_empty_bg);
-        if (f76Var.c().game_score > 0.0d) {
-            if (f76Var.c().game_score < 2.0d) {
-                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_half_bg);
-            } else if (f76Var.c().game_score == 2.0d) {
-                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_full_bg);
-            } else if (f76Var.c().game_score < 4.0d) {
-                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.p, R.drawable.game_comment_score_btn_small_half_bg);
-            } else if (f76Var.c().game_score == 4.0d) {
-                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.p, R.drawable.game_comment_score_btn_small_full_bg);
-            } else if (f76Var.c().game_score < 6.0d) {
-                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.p, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.q, R.drawable.game_comment_score_btn_small_half_bg);
-            } else if (f76Var.c().game_score == 6.0d) {
-                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.p, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.q, R.drawable.game_comment_score_btn_small_full_bg);
-            } else if (f76Var.c().game_score < 8.0d) {
-                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.p, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.q, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.r, R.drawable.game_comment_score_btn_small_half_bg);
-            } else if (f76Var.c().game_score == 8.0d) {
-                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.p, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.q, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.r, R.drawable.game_comment_score_btn_small_full_bg);
-            } else if (f76Var.c().game_score < 10.0d) {
-                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.p, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.q, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.r, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.s, R.drawable.game_comment_score_btn_small_half_bg);
-            } else if (f76Var.c().game_score == 10.0d) {
-                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.p, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.q, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.r, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.s, R.drawable.game_comment_score_btn_small_full_bg);
+        if (interceptable == null || interceptable.invokeLI(1048590, this, tbPageContext, i) == null) {
+            ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout = this.l;
+            if (threadCommentAndPraiseInfoLayout != null) {
+                threadCommentAndPraiseInfoLayout.onChangeSkinType();
+            }
+            ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout2 = this.m;
+            if (threadCommentAndPraiseInfoLayout2 != null) {
+                threadCommentAndPraiseInfoLayout2.onChangeSkinType();
+            }
+            NEGFeedBackView nEGFeedBackView = this.n;
+            if (nEGFeedBackView != null) {
+                nEGFeedBackView.q();
+            }
+            UnfollowedDecorView unfollowedDecorView = this.o;
+            if (unfollowedDecorView != null) {
+                unfollowedDecorView.k();
+            }
+            ForumEnterLayout forumEnterLayout = this.q;
+            if (forumEnterLayout != null) {
+                forumEnterLayout.n(tbPageContext, i);
+            }
+            FollowUserDecorView followUserDecorView = this.p;
+            if (followUserDecorView != null) {
+                followUserDecorView.r(i);
             }
         }
     }

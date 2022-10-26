@@ -1,8 +1,7 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
+import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,9 +9,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class cw3 extends rv3 {
+public class cw3 extends sv3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,12 +30,12 @@ public class cw3 extends rv3 {
                 return;
             }
         }
-        c = vj1.a;
+        c = wj1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public cw3() {
-        super("StartAppUsagePage");
+        super("GetSwanGameDuration");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -51,30 +51,55 @@ public class cw3 extends rv3 {
         }
     }
 
-    @Override // com.baidu.tieba.rv3
-    public lv1 a(@NonNull JSONObject jSONObject, @NonNull pg2 pg2Var) {
+    public static boolean b(Long l, Long l2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, pg2Var)) == null) {
-            l33 b0 = l33.b0();
-            if (b0 != null && b0.w() != null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, l, l2)) == null) {
+            if (l.longValue() / 86400000 == l2.longValue() / 86400000) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.sv3
+    public mv1 a(JSONObject jSONObject, qg2 qg2Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, qg2Var)) == null) {
+            if (jSONObject == null) {
+                qg2Var.onFail(202, "params may be error");
+                return null;
+            }
+            if (c) {
+                Log.e("GetSwanGameDuration", "params is " + jSONObject.toString());
+            }
+            String optString = jSONObject.optString("swanGameId");
+            if (TextUtils.isEmpty(optString)) {
+                qg2Var.onFail(202, "params may be error");
+            } else {
+                ub3 a = ac3.a();
+                if (!b(Long.valueOf(a.getLong(optString + "_LastPause", 0L)), Long.valueOf(System.currentTimeMillis()))) {
+                    ub3 a2 = ac3.a();
+                    a2.putLong(optString + "_Duration", 0L);
+                }
+                ub3 a3 = ac3.a();
+                long j = a3.getLong(optString + "_Duration", 0L);
+                JSONObject jSONObject2 = new JSONObject();
+                JSONObject jSONObject3 = new JSONObject();
                 try {
-                    b0.w().startActivity(new Intent("android.settings.USAGE_ACCESS_SETTINGS"));
-                } catch (Exception e) {
+                    jSONObject3.put("swanGameDuration", j);
+                    jSONObject2.put("data", jSONObject3);
+                } catch (JSONException e) {
                     if (c) {
                         e.printStackTrace();
                     }
-                    pg3.f(b0.w());
                 }
-                pg2Var.a(null);
-            } else {
-                pg2Var.onFail(100, "swan or activity is null");
-                if (c) {
-                    Log.d("StartAppUsagePage", "swan or activity is null");
-                }
+                qg2Var.a(jSONObject2);
             }
             return null;
         }
-        return (lv1) invokeLL.objValue;
+        return (mv1) invokeLL.objValue;
     }
 }

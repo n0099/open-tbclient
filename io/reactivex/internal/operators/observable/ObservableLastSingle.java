@@ -14,27 +14,27 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.NoSuchElementException;
 /* loaded from: classes8.dex */
-public final class ObservableLastSingle<T> extends Single<T> {
+public final class ObservableLastSingle extends Single {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final T defaultItem;
-    public final ObservableSource<T> source;
+    public final Object defaultItem;
+    public final ObservableSource source;
 
     /* loaded from: classes8.dex */
-    public static final class LastObserver<T> implements Observer<T>, Disposable {
+    public final class LastObserver implements Observer, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SingleObserver<? super T> actual;
-        public final T defaultItem;
-        public T item;
+        public final SingleObserver actual;
+        public final Object defaultItem;
+        public Object item;
         public Disposable s;
 
-        public LastObserver(SingleObserver<? super T> singleObserver, T t) {
+        public LastObserver(SingleObserver singleObserver, Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {singleObserver, t};
+                Object[] objArr = {singleObserver, obj};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -45,7 +45,7 @@ public final class ObservableLastSingle<T> extends Single<T> {
                 }
             }
             this.actual = singleObserver;
-            this.defaultItem = t;
+            this.defaultItem = obj;
         }
 
         @Override // io.reactivex.disposables.Disposable
@@ -61,7 +61,13 @@ public final class ObservableLastSingle<T> extends Single<T> {
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.s == DisposableHelper.DISPOSED : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (this.s == DisposableHelper.DISPOSED) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.Observer
@@ -69,15 +75,15 @@ public final class ObservableLastSingle<T> extends Single<T> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 this.s = DisposableHelper.DISPOSED;
-                T t = this.item;
-                if (t != null) {
+                Object obj = this.item;
+                if (obj != null) {
                     this.item = null;
-                    this.actual.onSuccess(t);
+                    this.actual.onSuccess(obj);
                     return;
                 }
-                T t2 = this.defaultItem;
-                if (t2 != null) {
-                    this.actual.onSuccess(t2);
+                Object obj2 = this.defaultItem;
+                if (obj2 != null) {
+                    this.actual.onSuccess(obj2);
                 } else {
                     this.actual.onError(new NoSuchElementException());
                 }
@@ -95,10 +101,10 @@ public final class ObservableLastSingle<T> extends Single<T> {
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
-                this.item = t;
+            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+                this.item = obj;
             }
         }
 
@@ -112,12 +118,12 @@ public final class ObservableLastSingle<T> extends Single<T> {
         }
     }
 
-    public ObservableLastSingle(ObservableSource<T> observableSource, T t) {
+    public ObservableLastSingle(ObservableSource observableSource, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {observableSource, t};
+            Object[] objArr = {observableSource, obj};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -128,11 +134,11 @@ public final class ObservableLastSingle<T> extends Single<T> {
             }
         }
         this.source = observableSource;
-        this.defaultItem = t;
+        this.defaultItem = obj;
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver<? super T> singleObserver) {
+    public void subscribeActual(SingleObserver singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, singleObserver) == null) {
             this.source.subscribe(new LastObserver(singleObserver, this.defaultItem));

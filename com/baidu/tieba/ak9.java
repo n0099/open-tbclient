@@ -1,19 +1,9 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Typeface;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 /* loaded from: classes3.dex */
-public class ak9 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract boolean a(String str);
-
-    public abstract String b(String str);
-
-    public abstract Typeface c(String str, int i, String str2);
-
-    public abstract Bitmap d(String str);
+public interface ak9 {
+    static {
+        new ServiceReference("yaLog", "yaLogConfig");
+    }
 }

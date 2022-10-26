@@ -7,6 +7,10 @@ import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.ss.android.downloadlib.addownload.j;
 /* loaded from: classes8.dex */
 public class b {
+    public static String a() {
+        return b(j.getContext());
+    }
+
     public static String a(Context context) {
         try {
             return a(c.a(a(), "MD5"));
@@ -23,11 +27,10 @@ public class b {
             e.printStackTrace();
             str = null;
         }
-        return TextUtils.isEmpty(str) ? "normal" : str;
-    }
-
-    public static String a() {
-        return b(j.getContext());
+        if (TextUtils.isEmpty(str)) {
+            return "normal";
+        }
+        return str;
     }
 
     public static String a(byte[] bArr) {

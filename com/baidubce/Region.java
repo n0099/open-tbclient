@@ -18,7 +18,7 @@ public final class Region {
     public static /* synthetic */ Interceptable $ic;
     public static final Region CN_N1;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<String> regionIds;
+    public List regionIds;
 
     static {
         InterceptResult invokeClinit;
@@ -39,6 +39,7 @@ public final class Region {
     }
 
     public Region(String str, int i, String... strArr) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -57,7 +58,12 @@ public final class Region {
             }
         }
         CheckUtils.isNotNull(strArr, "regionIds should not be null.");
-        CheckUtils.checkArgument(strArr.length > 0, "regionIds should not be empty");
+        if (strArr.length > 0) {
+            z = true;
+        } else {
+            z = false;
+        }
+        CheckUtils.checkArgument(z, "regionIds should not be empty");
         this.regionIds = Arrays.asList(strArr);
     }
 
@@ -68,7 +74,7 @@ public final class Region {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             CheckUtils.isNotNull(str, "regionId should not be null.");
             for (Region region : values()) {
-                List<String> list = region.regionIds;
+                List list = region.regionIds;
                 if (list != null && list.contains(str)) {
                     return region;
                 }
@@ -81,19 +87,28 @@ public final class Region {
     public static Region valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (Region) Enum.valueOf(Region.class, str) : (Region) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return (Region) Enum.valueOf(Region.class, str);
+        }
+        return (Region) invokeL.objValue;
     }
 
     public static Region[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (Region[]) $VALUES.clone() : (Region[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return (Region[]) $VALUES.clone();
+        }
+        return (Region[]) invokeV.objValue;
     }
 
     @Override // java.lang.Enum
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.regionIds.get(0) : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return (String) this.regionIds.get(0);
+        }
+        return (String) invokeV.objValue;
     }
 }

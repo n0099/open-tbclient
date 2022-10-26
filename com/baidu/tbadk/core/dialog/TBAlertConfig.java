@@ -1,8 +1,6 @@
 package com.baidu.tbadk.core.dialog;
 
 import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.annotation.StringRes;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -19,7 +17,7 @@ public final class TBAlertConfig {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
-    public static final class OperateBtnStyle {
+    public final class OperateBtnStyle {
         public static final /* synthetic */ OperateBtnStyle[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final OperateBtnStyle ALERT;
@@ -71,19 +69,25 @@ public final class TBAlertConfig {
         public static OperateBtnStyle valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (OperateBtnStyle) Enum.valueOf(OperateBtnStyle.class, str) : (OperateBtnStyle) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (OperateBtnStyle) Enum.valueOf(OperateBtnStyle.class, str);
+            }
+            return (OperateBtnStyle) invokeL.objValue;
         }
 
         public static OperateBtnStyle[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (OperateBtnStyle[]) $VALUES.clone() : (OperateBtnStyle[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (OperateBtnStyle[]) $VALUES.clone();
+            }
+            return (OperateBtnStyle[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
-    public static final class OperateType {
+    public final class OperateType {
         public static final /* synthetic */ OperateType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final OperateType ONE;
@@ -133,18 +137,24 @@ public final class TBAlertConfig {
         public static OperateType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (OperateType) Enum.valueOf(OperateType.class, str) : (OperateType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (OperateType) Enum.valueOf(OperateType.class, str);
+            }
+            return (OperateType) invokeL.objValue;
         }
 
         public static OperateType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (OperateType[]) $VALUES.clone() : (OperateType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (OperateType[]) $VALUES.clone();
+            }
+            return (OperateType[]) invokeV.objValue;
         }
     }
 
     /* loaded from: classes3.dex */
-    public static class a {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -153,35 +163,7 @@ public final class TBAlertConfig {
         public View.OnClickListener d;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public a(@NonNull String str, @NonNull OperateBtnStyle operateBtnStyle) {
-            this(str, operateBtnStyle, (View.OnClickListener) null);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, operateBtnStyle};
-                interceptable.invokeUnInit(65539, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    this((String) objArr2[0], (OperateBtnStyle) objArr2[1], (View.OnClickListener) objArr2[2]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65539, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        public void a(View.OnClickListener onClickListener) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
-                this.d = onClickListener;
-            }
-        }
-
-        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public a(@StringRes int i, @NonNull OperateBtnStyle operateBtnStyle) {
+        public a(int i, OperateBtnStyle operateBtnStyle) {
             this(i, operateBtnStyle, (View.OnClickListener) null);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -201,28 +183,27 @@ public final class TBAlertConfig {
             }
         }
 
-        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public a(@NonNull String str, @NonNull OperateBtnStyle operateBtnStyle, View.OnClickListener onClickListener) {
-            this(str, 0, operateBtnStyle, onClickListener);
+        public a(int i, OperateBtnStyle operateBtnStyle, View.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, operateBtnStyle, onClickListener};
-                interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    this((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (OperateBtnStyle) objArr2[2], (View.OnClickListener) objArr2[3]);
+                Object[] objArr = {Integer.valueOf(i), operateBtnStyle, onClickListener};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+                    interceptable.invokeInitBody(65537, newInitContext);
                     return;
                 }
             }
+            this.a = TbadkCoreApplication.getInst().getResources().getString(i);
+            this.c = operateBtnStyle;
+            this.d = onClickListener;
         }
 
-        public a(@NonNull String str, int i, @NonNull OperateBtnStyle operateBtnStyle, View.OnClickListener onClickListener) {
+        public a(String str, int i, OperateBtnStyle operateBtnStyle, View.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -243,29 +224,58 @@ public final class TBAlertConfig {
             this.d = onClickListener;
         }
 
-        public a(@StringRes int i, @NonNull OperateBtnStyle operateBtnStyle, View.OnClickListener onClickListener) {
+        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+        public a(String str, OperateBtnStyle operateBtnStyle) {
+            this(str, operateBtnStyle, (View.OnClickListener) null);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), operateBtnStyle, onClickListener};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                Object[] objArr = {str, operateBtnStyle};
+                interceptable.invokeUnInit(65539, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    this((String) objArr2[0], (OperateBtnStyle) objArr2[1], (View.OnClickListener) objArr2[2]);
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
+                    interceptable.invokeInitBody(65539, newInitContext);
                     return;
                 }
             }
-            this.a = TbadkCoreApplication.getInst().getResources().getString(i);
-            this.c = operateBtnStyle;
-            this.d = onClickListener;
+        }
+
+        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+        public a(String str, OperateBtnStyle operateBtnStyle, View.OnClickListener onClickListener) {
+            this(str, 0, operateBtnStyle, onClickListener);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, operateBtnStyle, onClickListener};
+                interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    this((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (OperateBtnStyle) objArr2[2], (View.OnClickListener) objArr2[3]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        public void a(View.OnClickListener onClickListener) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
+                this.d = onClickListener;
+            }
         }
     }
 
     /* loaded from: classes3.dex */
-    public static class b {
+    public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final OperateType a;
@@ -331,18 +341,27 @@ public final class TBAlertConfig {
     public static b a(a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, aVar)) == null) ? b.a(aVar) : (b) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, aVar)) == null) {
+            return b.a(aVar);
+        }
+        return (b) invokeL.objValue;
     }
 
     public static b b(a aVar, a aVar2, a aVar3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, aVar, aVar2, aVar3)) == null) ? b.b(aVar, aVar2, aVar3) : (b) invokeLLL.objValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, aVar, aVar2, aVar3)) == null) {
+            return b.b(aVar, aVar2, aVar3);
+        }
+        return (b) invokeLLL.objValue;
     }
 
     public static b c(a aVar, a aVar2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, aVar, aVar2)) == null) ? b.c(aVar, aVar2) : (b) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, aVar, aVar2)) == null) {
+            return b.c(aVar, aVar2);
+        }
+        return (b) invokeLL.objValue;
     }
 }

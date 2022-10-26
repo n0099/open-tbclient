@@ -42,15 +42,6 @@ public class V8ExceptionInfo {
         }
     }
 
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "V8ExceptionInfo{exceptionTime=" + this.exceptionTime + ", exceptionMsg='" + this.exceptionMsg + "', exceptionTrace='" + this.exceptionTrace + "', exceptionType='" + this.exceptionType + "', filePath='" + this.filePath + "'}";
-        }
-        return (String) invokeV.objValue;
-    }
-
     public V8ExceptionInfo(long j, String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -82,5 +73,14 @@ public class V8ExceptionInfo {
             this.exceptionType = str3;
             this.filePath = str4;
         }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return "V8ExceptionInfo{exceptionTime=" + this.exceptionTime + ", exceptionMsg='" + this.exceptionMsg + "', exceptionTrace='" + this.exceptionTrace + "', exceptionType='" + this.exceptionType + "', filePath='" + this.filePath + "'}";
+        }
+        return (String) invokeV.objValue;
     }
 }

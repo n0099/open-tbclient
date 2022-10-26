@@ -7,12 +7,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class DelegatingConsumer<I, O> extends BaseConsumer<I> {
+public abstract class DelegatingConsumer extends BaseConsumer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Consumer<O> mConsumer;
+    public final Consumer mConsumer;
 
-    public DelegatingConsumer(Consumer<O> consumer) {
+    public DelegatingConsumer(Consumer consumer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -30,20 +30,6 @@ public abstract class DelegatingConsumer<I, O> extends BaseConsumer<I> {
         this.mConsumer = consumer;
     }
 
-    public Consumer<O> getConsumer() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mConsumer : (Consumer) invokeV.objValue;
-    }
-
-    @Override // com.facebook.imagepipeline.producers.BaseConsumer
-    public void onCancellationImpl() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.mConsumer.onCancellation();
-        }
-    }
-
     @Override // com.facebook.imagepipeline.producers.BaseConsumer
     public void onFailureImpl(Throwable th) {
         Interceptable interceptable = $ic;
@@ -57,6 +43,23 @@ public abstract class DelegatingConsumer<I, O> extends BaseConsumer<I> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048579, this, f) == null) {
             this.mConsumer.onProgressUpdate(f);
+        }
+    }
+
+    public Consumer getConsumer() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mConsumer;
+        }
+        return (Consumer) invokeV.objValue;
+    }
+
+    @Override // com.facebook.imagepipeline.producers.BaseConsumer
+    public void onCancellationImpl() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.mConsumer.onCancellation();
         }
     }
 }

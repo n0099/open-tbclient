@@ -48,7 +48,7 @@ import com.baidu.sapi2.utils.enums.Enums;
 import com.baidu.sapi2.utils.enums.LoginShareStrategy;
 import com.baidu.sofire.ac.FH;
 import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkCode;
-import com.baidu.tieba.ih1;
+import com.baidu.tieba.jh1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -86,7 +86,7 @@ public final class SapiAccountManager implements ISAccountManager {
     public static SapiAccountService sapiAccountService;
     public static SapiConfiguration sapiConfiguration;
     public static ServiceManager serviceManager;
-    public static final List<String> sessionKeys;
+    public static final List sessionKeys;
     public static TidConvertSidCallback tidConvertSidCallback;
     public transient /* synthetic */ FieldHolder $fh;
     public char isUseOpenBdussTpl;
@@ -97,6 +97,13 @@ public final class SapiAccountManager implements ISAccountManager {
         void handleWebPageUrl(String str);
 
         boolean onCheckUrlIsAvailable(String str);
+    }
+
+    @Override // com.baidu.sapi2.service.interfaces.ISAccountManager
+    public String getVersionName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? "9.6.3.3" : (String) invokeV.objValue;
     }
 
     static {
@@ -135,52 +142,13 @@ public final class SapiAccountManager implements ISAccountManager {
         this.isUseOpenBdussTpl = (char) 0;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void checkIntegratedEnviroment() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            try {
-                Class.forName("com.baidu.pass.Constant");
-            } catch (Exception unused) {
-                CommonUtil.throwException("please update pass-httpclient sdk to last version");
-            }
-            try {
-                Class.forName("com.baidu.sofire.ac.FH");
-            } catch (Exception unused2) {
-                CommonUtil.throwException("please import the package : sofire-sdk-*.aar");
-            }
-            if (sapiConfiguration.supportFaceLogin) {
-                try {
-                    Class.forName("com.baidu.pass.biometrics.face.liveness.PassFaceRecogManager");
-                } catch (Throwable unused3) {
-                    CommonUtil.throwException("please import the package :pass-module-face.aar");
-                }
-            }
-            if (sapiConfiguration.loginShareStrategy() == LoginShareStrategy.DISABLED || globalCallback != null) {
-                return;
-            }
-            CommonUtil.showErrorNotice("please register globalCallback to support share login function");
-        }
-    }
-
-    private String getAppProcessName(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, context)) == null) {
-            try {
-                return context.getPackageManager().getApplicationInfo(context.getPackageName(), 128).processName;
-            } catch (Throwable th) {
-                Log.e(th);
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
     public static CheckUrlIsAvailableListener getCheckUrlIsAvailablelister() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? checkUrlIsAvailablelister : (CheckUrlIsAvailableListener) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return checkUrlIsAvailablelister;
+        }
+        return (CheckUrlIsAvailableListener) invokeV.objValue;
     }
 
     public static GlobalCallback getGlobalCallback() {
@@ -188,38 +156,41 @@ public final class SapiAccountManager implements ISAccountManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
             GlobalCallback globalCallback2 = globalCallback;
-            return globalCallback2 == null ? new GlobalCallback() { // from class: com.baidu.sapi2.SapiAccountManager.8
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
+            if (globalCallback2 == null) {
+                return new GlobalCallback() { // from class: com.baidu.sapi2.SapiAccountManager.8
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
 
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
+                    @Override // com.baidu.sapi2.callback.GlobalCallback
+                    public void onLoginStatusChange() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         }
                     }
-                }
 
-                @Override // com.baidu.sapi2.callback.GlobalCallback
-                public void onLoginStatusChange() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    @Override // com.baidu.sapi2.callback.GlobalCallback
+                    public void onNeedInitPassSdk() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                        }
                     }
-                }
 
-                @Override // com.baidu.sapi2.callback.GlobalCallback
-                public void onNeedInitPassSdk() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                            }
+                        }
                     }
-                }
-            } : globalCallback2;
+                };
+            }
+            return globalCallback2;
         }
         return (GlobalCallback) invokeV.objValue;
     }
@@ -243,7 +214,182 @@ public final class SapiAccountManager implements ISAccountManager {
     public static TidConvertSidCallback getTidConvertSidCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? tidConvertSidCallback : (TidConvertSidCallback) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            return tidConvertSidCallback;
+        }
+        return (TidConvertSidCallback) invokeV.objValue;
+    }
+
+    public static void unregisterCheckUrlIsAvailableListener() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65556, null) == null) {
+            checkUrlIsAvailablelister = null;
+        }
+    }
+
+    public SapiAccountService getAccountService() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            checkInitialization();
+            return sapiAccountService;
+        }
+        return (SapiAccountService) invokeV.objValue;
+    }
+
+    @Override // com.baidu.sapi2.service.interfaces.ISAccountManager
+    public SapiConfiguration getConfignation() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return sapiConfiguration;
+        }
+        return (SapiConfiguration) invokeV.objValue;
+    }
+
+    @Override // com.baidu.sapi2.service.interfaces.ISAccountManager
+    public ISAccountService getIsAccountService() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return getAccountService();
+        }
+        return (ISAccountService) invokeV.objValue;
+    }
+
+    public List getLoginAccounts() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            checkInitialization();
+            return SapiContext.getInstance().getLoginAccounts();
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public SapiSafeFacade getSafeFacade() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            checkInitialization();
+            return SapiSafeFacade.getInstance();
+        }
+        return (SapiSafeFacade) invokeV.objValue;
+    }
+
+    public SapiConfiguration getSapiConfiguration() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            checkInitialization();
+            return sapiConfiguration;
+        }
+        return (SapiConfiguration) invokeV.objValue;
+    }
+
+    public int getSmsCodeLength() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return EnhancedService.getInstance(sapiConfiguration, "9.6.3.3").getSmsCodeLength();
+        }
+        return invokeV.intValue;
+    }
+
+    public String getTpl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            SapiConfiguration sapiConfiguration2 = sapiConfiguration;
+            if (sapiConfiguration2 == null) {
+                return "";
+            }
+            return sapiConfiguration2.tpl;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.sapi2.service.interfaces.ISAccountManager
+    public UbcUploadImplCallback getUbcUploadImplCallback() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            UbcUploadImplCallback ubcUploadImplCallback = this.ubcUploadImplCallback;
+            if (ubcUploadImplCallback == null) {
+                return new UbcUploadImplCallback(this) { // from class: com.baidu.sapi2.SapiAccountManager.9
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ SapiAccountManager this$0;
+
+                    @Override // com.baidu.sapi2.callback.UbcUploadImplCallback
+                    public void onEvent(String str, JSONObject jSONObject) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeLL(1048576, this, str, jSONObject) == null) {
+                        }
+                    }
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                    }
+                };
+            }
+            return ubcUploadImplCallback;
+        }
+        return (UbcUploadImplCallback) invokeV.objValue;
+    }
+
+    public List getV2ShareModelList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return getV2ShareModelList("");
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public boolean isLogin() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            checkInitialization();
+            return SapiAccount.isValidAccount(SapiContext.getInstance().getCurrentAccount());
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void logout() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
+            logout(0);
+        }
+    }
+
+    private String getAppProcessName(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, context)) == null) {
+            try {
+                return context.getPackageManager().getApplicationInfo(context.getPackageName(), 128).processName;
+            } catch (Throwable th) {
+                Log.e(th);
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -251,6 +397,245 @@ public final class SapiAccountManager implements ISAccountManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65548, this, sapiConfiguration2) == null) {
             FH.init(sapiConfiguration2.context, sapiConfiguration2.sofireAppKey, sapiConfiguration2.sofireSecKey, 1);
+        }
+    }
+
+    public static void registerCheckUrlIsAvailableListener(CheckUrlIsAvailableListener checkUrlIsAvailableListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65552, null, checkUrlIsAvailableListener) == null) {
+            checkUrlIsAvailablelister = checkUrlIsAvailableListener;
+        }
+    }
+
+    public static void setGlobalCallback(GlobalCallback globalCallback2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65553, null, globalCallback2) == null) {
+            globalCallback = globalCallback2;
+        }
+    }
+
+    public static void setTidConvertSidCallback(TidConvertSidCallback tidConvertSidCallback2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65554, null, tidConvertSidCallback2) == null) {
+            tidConvertSidCallback = tidConvertSidCallback2;
+        }
+    }
+
+    @Override // com.baidu.sapi2.service.interfaces.ISAccountManager
+    public String getCurrentZid(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
+            return SapiSafeFacade.getInstance().getCurrentZid(context);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void getOneKeyLoginIsAvailable(OneKeyLoginCallback oneKeyLoginCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, oneKeyLoginCallback) == null) {
+            GetOneKeyLoginStateDTO getOneKeyLoginStateDTO = new GetOneKeyLoginStateDTO();
+            getOneKeyLoginStateDTO.connectTimeout = 15000;
+            sapiAccountService.getOneKeyLoginIsAvailable(getOneKeyLoginStateDTO, oneKeyLoginCallback);
+        }
+    }
+
+    public String getSession(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
+            checkInitialization();
+            return getSession(str, null);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public List getV2ShareModelList(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, str)) == null) {
+            checkInitialization();
+            ShareLoginStat.GetShareListStat.statExtMap.put(ShareLoginStat.GetShareListStat.KEY_API_NAME, ShareLoginStat.GetShareListStat.VALUE_API_NAME_V2);
+            List v2ShareModelList = ShareLoginModel.getInstance().getV2ShareModelList(str);
+            ShareLoginStat.GetShareListStat.upload();
+            return v2ShareModelList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public boolean isValidSessionKey(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, str)) == null) {
+            if (!TextUtils.isEmpty(str) && sessionKeys.contains(str)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void setUbcUploadImplCallback(UbcUploadImplCallback ubcUploadImplCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048610, this, ubcUploadImplCallback) == null) {
+            this.ubcUploadImplCallback = ubcUploadImplCallback;
+        }
+    }
+
+    public void getShareModels(long j, ShareModelCallback shareModelCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJL(1048589, this, j, shareModelCallback) == null) {
+            checkInitialization();
+            ShareLoginStat.GetShareListStat.statExtMap.put(ShareLoginStat.GetShareListStat.KEY_API_NAME, ShareLoginStat.GetShareListStat.VALUE_API_NAME_NEW);
+            ShareLoginModel.getInstance().getShareModels(j, new ShareModelWithCheckCallback(this, shareModelCallback) { // from class: com.baidu.sapi2.SapiAccountManager.6
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ SapiAccountManager this$0;
+                public final /* synthetic */ ShareModelCallback val$callback;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, shareModelCallback};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$callback = shareModelCallback;
+                }
+
+                public void compatibilityOld(List list, String str) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLL(1048576, this, list, str) == null) {
+                        this.this$0.onShareEvent(list, str);
+                        this.val$callback.onReceiveShareModels(list);
+                    }
+                }
+
+                @Override // com.baidu.sapi2.callback.ShareModelWithCheckCallback
+                public void onSuccess(List list, String str) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, list, str) == null) {
+                        compatibilityOld(list, str);
+                    }
+                }
+
+                @Override // com.baidu.sapi2.callback.ShareModelWithCheckCallback
+                public void onFailure(int i, String str, String str2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, str2) == null) {
+                        compatibilityOld(new ArrayList(), str2);
+                    }
+                }
+            });
+        }
+    }
+
+    public void loadHistoryActionLoginFromNa(LoginHistoryModel loginHistoryModel, LoginHistoryCallback loginHistoryCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048602, this, loginHistoryModel, loginHistoryCallback) == null) {
+            loadHistoryActionLogin(loginHistoryModel, loginHistoryCallback, true);
+            HistoryLoginStat.HistoryClickLoginStat.sValueSence = "out";
+        }
+    }
+
+    public void loadHistoryActionLoginFromWap(LoginHistoryModel loginHistoryModel, LoginHistoryCallback loginHistoryCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048603, this, loginHistoryModel, loginHistoryCallback) == null) {
+            loadHistoryActionLogin(loginHistoryModel, loginHistoryCallback, false);
+            HistoryLoginStat.HistoryClickLoginStat.sValueSence = "in";
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void checkIntegratedEnviroment() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
+            try {
+                Class.forName("com.baidu.pass.Constant");
+            } catch (Exception unused) {
+                CommonUtil.throwException("please update pass-httpclient sdk to last version");
+            }
+            try {
+                Class.forName("com.baidu.sofire.ac.FH");
+            } catch (Exception unused2) {
+                CommonUtil.throwException("please import the package : sofire-sdk-*.aar");
+            }
+            if (sapiConfiguration.supportFaceLogin) {
+                try {
+                    Class.forName("com.baidu.pass.biometrics.face.liveness.PassFaceRecogManager");
+                } catch (Throwable unused3) {
+                    CommonUtil.throwException("please import the package :pass-module-face.aar");
+                }
+            }
+            if (sapiConfiguration.loginShareStrategy() != LoginShareStrategy.DISABLED && globalCallback == null) {
+                CommonUtil.showErrorNotice("please register globalCallback to support share login function");
+            }
+        }
+    }
+
+    public void checkInitialization() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (sapiConfiguration == null) {
+                getGlobalCallback().onNeedInitPassSdk();
+            }
+            if (sapiConfiguration == null) {
+                if (!Log.enabled) {
+                    android.util.Log.e(Log.TAG, "pass sdk have not been initialized");
+                    return;
+                }
+                throw new IllegalStateException(SapiAccountManager.class.getSimpleName() + " have not been initialized");
+            }
+        }
+    }
+
+    @Override // com.baidu.sapi2.service.interfaces.ISAccountManager
+    public SapiAccount getSession() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            checkInitialization();
+            SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
+            if (this.isUseOpenBdussTpl == 0) {
+                SapiOptions sapiOptions = SapiContext.getInstance().getSapiOptions();
+                if (sapiOptions.getOpenBdussTpls().contains(getConfignation().tpl) && !sapiOptions.canGetBduss) {
+                    this.isUseOpenBdussTpl = (char) 1;
+                } else {
+                    this.isUseOpenBdussTpl = (char) 2;
+                }
+            }
+            if (currentAccount != null && this.isUseOpenBdussTpl == 1) {
+                currentAccount.uid = "";
+                currentAccount.bduss = "";
+            }
+            return currentAccount;
+        }
+        return (SapiAccount) invokeV.objValue;
+    }
+
+    public void setSid() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
+            if (tidConvertSidCallback != null) {
+                String tid = SapiContext.getInstance().getTid();
+                if (!TextUtils.isEmpty(tid)) {
+                    SapiContext.getInstance().setSearchBoxSid(tidConvertSidCallback.tidConvertSid(tid.split("-")));
+                    return;
+                } else {
+                    Log.d(TAG, "tid is null or empty");
+                    return;
+                }
+            }
+            Log.d(TAG, "convert tid to sid failed, because tidConvertSidCallback is null");
         }
     }
 
@@ -266,7 +651,74 @@ public final class SapiAccountManager implements ISAccountManager {
             if (TextUtils.isEmpty(appProcessName)) {
                 return false;
             }
-            return curProcessName.equals(appProcessName) || curProcessName.equals(sapiConfiguration.processName);
+            if (!curProcessName.equals(appProcessName) && !curProcessName.equals(sapiConfiguration.processName)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void removeLoginAccount(SapiAccount sapiAccount) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048607, this, sapiAccount) == null) {
+            checkInitialization();
+            SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
+            SapiContext.getInstance().removeLoginAccount(sapiAccount);
+            new ShareCallPacking().asyncMarkLoginState(3);
+            if (currentAccount != null && !TextUtils.isEmpty(sapiAccount.uid) && sapiAccount.uid.equals(currentAccount.uid)) {
+                getGlobalCallback().onLogoutSuccess(sapiAccount);
+            }
+        }
+    }
+
+    public void setAgreeDangerousProtocol(boolean z) {
+        SapiConfiguration sapiConfiguration2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048608, this, z) == null) && (sapiConfiguration2 = getSapiConfiguration()) != null) {
+            sapiConfiguration2.setAgreeDangerousProtocol(z);
+            jh1.d().i(sapiConfiguration2.context, sapiConfiguration2.isAgreeDangerousProtocol());
+            sapiConfiguration2.clientIp = SapiUtils.getLocalIpAddress();
+            if (sapiConfiguration2.supportFaceLogin) {
+                new PassBiometricCall().setFaceModuleAgreeDangerousProtocol(z);
+            }
+        }
+    }
+
+    @Override // com.baidu.sapi2.service.interfaces.ISAccountManager
+    public boolean validate(SapiAccount sapiAccount) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048611, this, sapiAccount)) == null) {
+            checkInitialization();
+            if (sapiAccount == null) {
+                return false;
+            }
+            ShareAccountAccessor.getAccessor().updatePtoken(sapiAccount);
+            SapiContext sapiContext = SapiContext.getInstance();
+            sapiContext.setCurrentAccount(sapiAccount);
+            sapiContext.addLoginAccount(sapiAccount);
+            new PtokenStat().onEvent(PtokenStat.NATIVE_2_WEB);
+            new ShareStorage().asyncSet(2);
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean validateWithoutShare(SapiAccount sapiAccount) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048612, this, sapiAccount)) == null) {
+            checkInitialization();
+            if (sapiAccount == null) {
+                return false;
+            }
+            ShareAccountAccessor.getAccessor().updatePtoken(sapiAccount);
+            SapiContext sapiContext = SapiContext.getInstance();
+            sapiContext.setCurrentAccount(sapiAccount);
+            sapiContext.addLoginAccount(sapiAccount);
+            new PtokenStat().onEvent(PtokenStat.NATIVE_2_WEB);
+            return true;
         }
         return invokeL.booleanValue;
     }
@@ -274,11 +726,11 @@ public final class SapiAccountManager implements ISAccountManager {
     private void loadHistoryActionLogin(LoginHistoryModel loginHistoryModel, LoginHistoryCallback loginHistoryCallback, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(65550, this, loginHistoryModel, loginHistoryCallback, z) == null) {
-            List<AccountLoginAction> loadHistoryAccounts = LoginHistoryLoginModel.loadHistoryAccounts();
+            List loadHistoryAccounts = LoginHistoryLoginModel.loadHistoryAccounts();
             if (loadHistoryAccounts != null && loadHistoryAccounts.size() != 0) {
                 int size = loadHistoryAccounts.size();
                 for (int i = 0; i < size; i++) {
-                    AccountLoginAction accountLoginAction = loadHistoryAccounts.get(i);
+                    AccountLoginAction accountLoginAction = (AccountLoginAction) loadHistoryAccounts.get(i);
                     if (TextUtils.equals(SecurityUtil.md5(accountLoginAction.sapiAccount.bduss.getBytes(), false), loginHistoryModel.bduss)) {
                         statLoginHistoryLogin(z, true);
                         validate(accountLoginAction.sapiAccount);
@@ -305,7 +757,7 @@ public final class SapiAccountManager implements ISAccountManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void processAvailableHistory(List<LoginHistoryItem> list, JSONArray jSONArray, LoginHistoryCallback loginHistoryCallback) {
+    public void processAvailableHistory(List list, JSONArray jSONArray, LoginHistoryCallback loginHistoryCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65551, this, list, jSONArray, loginHistoryCallback) == null) {
             ArrayList arrayList = new ArrayList();
@@ -316,10 +768,10 @@ public final class SapiAccountManager implements ISAccountManager {
                     String optString = jSONObject.optString("loginType");
                     String optString2 = jSONObject.optString("bduss");
                     if (!TextUtils.isEmpty(optString2) && TextUtils.equals(optString, "history")) {
-                        List<AccountLoginAction> loadHistoryAccounts = LoginHistoryLoginModel.loadHistoryAccounts();
+                        List loadHistoryAccounts = LoginHistoryLoginModel.loadHistoryAccounts();
                         if (loadHistoryAccounts != null && !loadHistoryAccounts.isEmpty()) {
                             for (int i2 = 0; i2 < loadHistoryAccounts.size(); i2++) {
-                                AccountLoginAction accountLoginAction = loadHistoryAccounts.get(i2);
+                                AccountLoginAction accountLoginAction = (AccountLoginAction) loadHistoryAccounts.get(i2);
                                 if (TextUtils.equals(SecurityUtil.md5(accountLoginAction.sapiAccount.bduss.getBytes(), false), optString2)) {
                                     jSONObject.put("uid", accountLoginAction.sapiAccount.uid);
                                 }
@@ -346,57 +798,70 @@ public final class SapiAccountManager implements ISAccountManager {
         }
     }
 
-    public static void registerCheckUrlIsAvailableListener(CheckUrlIsAvailableListener checkUrlIsAvailableListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65552, null, checkUrlIsAvailableListener) == null) {
-            checkUrlIsAvailablelister = checkUrlIsAvailableListener;
-        }
-    }
-
-    public static void setGlobalCallback(GlobalCallback globalCallback2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65553, null, globalCallback2) == null) {
-            globalCallback = globalCallback2;
-        }
-    }
-
-    public static void setTidConvertSidCallback(TidConvertSidCallback tidConvertSidCallback2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65554, null, tidConvertSidCallback2) == null) {
-            tidConvertSidCallback = tidConvertSidCallback2;
-        }
-    }
-
     private void statLoginHistoryLogin(boolean z, boolean z2) {
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65555, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             HashMap hashMap = new HashMap();
+            String str2 = "1";
             hashMap.put("show_count", "1");
-            hashMap.put("success_count", z2 ? "1" : "0");
-            hashMap.put("f", z ? "na" : DeepLinkCode.OpenAppSource.OPEN_SOURCE_WEB);
+            if (!z2) {
+                str2 = "0";
+            }
+            hashMap.put("success_count", str2);
+            if (z) {
+                str = "na";
+            } else {
+                str = DeepLinkCode.OpenAppSource.OPEN_SOURCE_WEB;
+            }
+            hashMap.put("f", str);
             StatService.onEventAutoStat("na_history_login", hashMap);
         }
     }
 
-    public static void unregisterCheckUrlIsAvailableListener() {
+    public void onShareEvent(List list, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65556, null) == null) {
-            checkUrlIsAvailablelister = null;
+        if (interceptable == null || interceptable.invokeLL(1048606, this, list, str) == null) {
+            if (list != null && !list.isEmpty()) {
+                JSONArray jSONArray = new JSONArray();
+                JSONArray jSONArray2 = new JSONArray();
+                int i = 0;
+                Iterator it = list.iterator();
+                while (it.hasNext()) {
+                    ShareStorage.StorageModel storageModel = (ShareStorage.StorageModel) it.next();
+                    if (storageModel != null) {
+                        jSONArray.put(storageModel.tpl);
+                        jSONArray2.put(storageModel.app);
+                        i++;
+                    }
+                }
+                ShareLoginStat.GetShareListStat.statExtMap.put(ShareLoginStat.GetShareListStat.KEY_ACCOUNT_APPS, jSONArray2);
+                ShareLoginStat.GetShareListStat.statExtMap.put(ShareLoginStat.GetShareListStat.KEY_ACCOUNT_TPLS, jSONArray);
+                ShareLoginStat.GetShareListStat.statExtMap.put(ShareLoginStat.GetShareListStat.KEY_ACCOUNT_SIZE, Integer.valueOf(i));
+                ShareLoginStat.GetShareListStat.upload();
+                return;
+            }
+            ShareLoginStat.GetShareListStat.upload();
         }
     }
 
     public void checkAvailableLoginHistory(LoginHistoryCallback loginHistoryCallback) {
+        String jSONArray;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, loginHistoryCallback) == null) {
-            List<LoginHistoryItem> availableLoginHistoryItems = LoginHistoryLoginModel.getAvailableLoginHistoryItems();
-            JSONArray jSONArray = LoginHistoryItem.toJSONArray(availableLoginHistoryItems);
-            String jSONArray2 = jSONArray == null ? null : jSONArray.toString();
+            List availableLoginHistoryItems = LoginHistoryLoginModel.getAvailableLoginHistoryItems();
+            JSONArray jSONArray2 = LoginHistoryItem.toJSONArray(availableLoginHistoryItems);
+            if (jSONArray2 == null) {
+                jSONArray = null;
+            } else {
+                jSONArray = jSONArray2.toString();
+            }
             if (availableLoginHistoryItems != null) {
                 HistoryLoginStat.HistoryShowStat.statExtMap.put(HistoryLoginStat.HistoryShowStat.KEY_EXT_HISTORY_COUNT, Integer.valueOf(availableLoginHistoryItems.size()));
             } else {
                 HistoryLoginStat.HistoryShowStat.statExtMap.put(HistoryLoginStat.HistoryShowStat.KEY_EXT_HISTORY_COUNT, 0);
             }
-            if (TextUtils.isEmpty(jSONArray2)) {
+            if (TextUtils.isEmpty(jSONArray)) {
                 HashMap hashMap = new HashMap();
                 hashMap.put(HistoryLoginStat.HistoryShowStat.KEY_EXT_HISTORY_COUNT, "0");
                 hashMap.put(HistoryLoginStat.HistoryShowStat.KEY_EXT_AVAILABLE_COUNT, "0");
@@ -404,7 +869,7 @@ public final class SapiAccountManager implements ISAccountManager {
                 loginHistoryCallback.onFailure();
                 return;
             }
-            getInstance().getAccountService().checkAvailableLoginHistory(jSONArray2, new LoginHistoryCallback(this, availableLoginHistoryItems, loginHistoryCallback) { // from class: com.baidu.sapi2.SapiAccountManager.4
+            getInstance().getAccountService().checkAvailableLoginHistory(jSONArray, new LoginHistoryCallback(this, availableLoginHistoryItems, loginHistoryCallback) { // from class: com.baidu.sapi2.SapiAccountManager.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ SapiAccountManager this$0;
@@ -444,98 +909,13 @@ public final class SapiAccountManager implements ISAccountManager {
                 @Override // com.baidu.sapi2.callback.inner.LoginHistoryCallback
                 public void onResult(JSONArray jSONArray3) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray3) == null) {
-                        this.this$0.processAvailableHistory(this.val$historyItems, jSONArray3, this.val$callback);
+                    if (interceptable2 != null && interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray3) != null) {
+                        return;
                     }
+                    this.this$0.processAvailableHistory(this.val$historyItems, jSONArray3, this.val$callback);
                 }
             });
         }
-    }
-
-    public void checkInitialization() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (sapiConfiguration == null) {
-                getGlobalCallback().onNeedInitPassSdk();
-            }
-            if (sapiConfiguration == null) {
-                if (!Log.enabled) {
-                    android.util.Log.e(Log.TAG, "pass sdk have not been initialized");
-                    return;
-                }
-                throw new IllegalStateException(SapiAccountManager.class.getSimpleName() + " have not been initialized");
-            }
-        }
-    }
-
-    public SapiAccountService getAccountService() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            checkInitialization();
-            return sapiAccountService;
-        }
-        return (SapiAccountService) invokeV.objValue;
-    }
-
-    @Override // com.baidu.sapi2.service.interfaces.ISAccountManager
-    public SapiConfiguration getConfignation() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? sapiConfiguration : (SapiConfiguration) invokeV.objValue;
-    }
-
-    @Override // com.baidu.sapi2.service.interfaces.ISAccountManager
-    public String getCurrentZid(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) ? SapiSafeFacade.getInstance().getCurrentZid(context) : (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.sapi2.service.interfaces.ISAccountManager
-    public ISAccountService getIsAccountService() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? getAccountService() : (ISAccountService) invokeV.objValue;
-    }
-
-    public List<SapiAccount> getLoginAccounts() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            checkInitialization();
-            return SapiContext.getInstance().getLoginAccounts();
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public void getOneKeyLoginIsAvailable(OneKeyLoginCallback oneKeyLoginCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, oneKeyLoginCallback) == null) {
-            GetOneKeyLoginStateDTO getOneKeyLoginStateDTO = new GetOneKeyLoginStateDTO();
-            getOneKeyLoginStateDTO.connectTimeout = 15000;
-            sapiAccountService.getOneKeyLoginIsAvailable(getOneKeyLoginStateDTO, oneKeyLoginCallback);
-        }
-    }
-
-    public SapiSafeFacade getSafeFacade() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            checkInitialization();
-            return SapiSafeFacade.getInstance();
-        }
-        return (SapiSafeFacade) invokeV.objValue;
-    }
-
-    public SapiConfiguration getSapiConfiguration() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            checkInitialization();
-            return sapiConfiguration;
-        }
-        return (SapiConfiguration) invokeV.objValue;
     }
 
     public String getSession(String str, String str2) {
@@ -545,28 +925,31 @@ public final class SapiAccountManager implements ISAccountManager {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, str, str2)) == null) {
             checkInitialization();
             SapiAccount session = getSession();
-            return (!isValidSessionKey(str) || !isLogin() || session == null || (jSONObject = session.toJSONObject()) == null) ? str2 : jSONObject.optString(str, str2);
+            if (isValidSessionKey(str) && isLogin() && session != null && (jSONObject = session.toJSONObject()) != null) {
+                return jSONObject.optString(str, str2);
+            }
+            return str2;
         }
         return (String) invokeLL.objValue;
     }
 
-    public void getShareModels(long j, ShareModelCallback shareModelCallback) {
+    public void getShareModels(long j, ShareModelResultCallback shareModelResultCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048589, this, j, shareModelCallback) == null) {
+        if (interceptable == null || interceptable.invokeJL(1048590, this, j, shareModelResultCallback) == null) {
             checkInitialization();
             ShareLoginStat.GetShareListStat.statExtMap.put(ShareLoginStat.GetShareListStat.KEY_API_NAME, ShareLoginStat.GetShareListStat.VALUE_API_NAME_NEW);
-            ShareLoginModel.getInstance().getShareModels(j, new ShareModelWithCheckCallback(this, shareModelCallback) { // from class: com.baidu.sapi2.SapiAccountManager.6
+            ShareLoginModel.getInstance().getShareModels(j, new ShareModelWithCheckCallback(this, shareModelResultCallback) { // from class: com.baidu.sapi2.SapiAccountManager.7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ SapiAccountManager this$0;
-                public final /* synthetic */ ShareModelCallback val$callback;
+                public final /* synthetic */ ShareModelResultCallback val$callback;
 
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, shareModelCallback};
+                        Object[] objArr = {this, shareModelResultCallback};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -577,95 +960,35 @@ public final class SapiAccountManager implements ISAccountManager {
                         }
                     }
                     this.this$0 = this;
-                    this.val$callback = shareModelCallback;
-                }
-
-                public void compatibilityOld(List<ShareStorage.StorageModel> list, String str) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLL(1048576, this, list, str) == null) {
-                        this.this$0.onShareEvent(list, str);
-                        this.val$callback.onReceiveShareModels(list);
-                    }
+                    this.val$callback = shareModelResultCallback;
                 }
 
                 @Override // com.baidu.sapi2.callback.ShareModelWithCheckCallback
                 public void onFailure(int i, String str, String str2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, str2) == null) {
-                        compatibilityOld(new ArrayList(), str2);
+                    if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i, str, str2) == null) {
+                        this.this$0.onShareEvent(new ArrayList(), str2);
+                        ShareModelResultCallback shareModelResultCallback2 = this.val$callback;
+                        if (shareModelResultCallback2 != null) {
+                            shareModelResultCallback2.onFailure(i, str);
+                        }
                     }
                 }
 
                 @Override // com.baidu.sapi2.callback.ShareModelWithCheckCallback
-                public void onSuccess(List<ShareStorage.StorageModel> list, String str) {
+                public void onSuccess(List list, String str) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, list, str) == null) {
-                        compatibilityOld(list, str);
+                    if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, str) == null) {
+                        this.val$callback.onSuccess(list);
                     }
                 }
             });
         }
     }
 
-    public int getSmsCodeLength() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? EnhancedService.getInstance(sapiConfiguration, "9.6.3.3").getSmsCodeLength() : invokeV.intValue;
-    }
-
-    public String getTpl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            SapiConfiguration sapiConfiguration2 = sapiConfiguration;
-            return sapiConfiguration2 == null ? "" : sapiConfiguration2.tpl;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.sapi2.service.interfaces.ISAccountManager
-    public UbcUploadImplCallback getUbcUploadImplCallback() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            UbcUploadImplCallback ubcUploadImplCallback = this.ubcUploadImplCallback;
-            return ubcUploadImplCallback == null ? new UbcUploadImplCallback(this) { // from class: com.baidu.sapi2.SapiAccountManager.9
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ SapiAccountManager this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // com.baidu.sapi2.callback.UbcUploadImplCallback
-                public void onEvent(String str, JSONObject jSONObject) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLL(1048576, this, str, jSONObject) == null) {
-                    }
-                }
-            } : ubcUploadImplCallback;
-        }
-        return (UbcUploadImplCallback) invokeV.objValue;
-    }
-
     public void getUserInfoAndRefershAccount(SapiAccount sapiAccount, int i, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(1048594, this, sapiAccount, i, str) == null) || sapiAccount == null) {
+        if ((interceptable != null && interceptable.invokeLIL(1048594, this, sapiAccount, i, str) != null) || sapiAccount == null) {
             return;
         }
         getInstance().getAccountService().getUserInfo(new GetUserInfoCallback(this, sapiAccount) { // from class: com.baidu.sapi2.SapiAccountManager.5
@@ -673,25 +996,6 @@ public final class SapiAccountManager implements ISAccountManager {
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ SapiAccountManager this$0;
             public final /* synthetic */ SapiAccount val$account;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this, sapiAccount};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-                this.val$account = sapiAccount;
-            }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.sapi2.callback.LoginStatusAware
@@ -723,40 +1027,48 @@ public final class SapiAccountManager implements ISAccountManager {
                 }
             }
 
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this, sapiAccount};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+                this.val$account = sapiAccount;
+            }
+
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.sapi2.callback.SapiCallback
             public void onSuccess(GetUserInfoResult getUserInfoResult) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeL(1048582, this, getUserInfoResult) == null) || getUserInfoResult == null || TextUtils.isEmpty(this.val$account.uid) || !this.val$account.uid.equals(getUserInfoResult.uid)) {
-                    return;
+                if ((interceptable2 == null || interceptable2.invokeL(1048582, this, getUserInfoResult) == null) && getUserInfoResult != null && !TextUtils.isEmpty(this.val$account.uid) && this.val$account.uid.equals(getUserInfoResult.uid)) {
+                    SapiAccount sapiAccount2 = this.val$account;
+                    sapiAccount2.username = getUserInfoResult.username;
+                    sapiAccount2.displayname = getUserInfoResult.displayname;
+                    sapiAccount2.portrait = getUserInfoResult.portraitSign;
+                    SapiAccountManager.getInstance().validate(this.val$account);
                 }
-                SapiAccount sapiAccount2 = this.val$account;
-                sapiAccount2.username = getUserInfoResult.username;
-                sapiAccount2.displayname = getUserInfoResult.displayname;
-                sapiAccount2.portrait = getUserInfoResult.portraitSign;
-                SapiAccountManager.getInstance().validate(this.val$account);
             }
         }, sapiAccount.bduss, String.valueOf(i), str);
-    }
-
-    public List<ShareStorage.StorageModel> getV2ShareModelList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? getV2ShareModelList("") : (List) invokeV.objValue;
-    }
-
-    @Override // com.baidu.sapi2.service.interfaces.ISAccountManager
-    public String getVersionName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? "9.6.3.3" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.sapi2.service.interfaces.ISAccountManager
     public String getZidAndCheckSafe(Context context, String str, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048598, this, context, str, i)) == null) ? SapiSafeFacade.getInstance().getZidAndCheckSafe(context, str, i) : (String) invokeLLI.objValue;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048598, this, context, str, i)) == null) {
+            return SapiSafeFacade.getInstance().getZidAndCheckSafe(context, str, i);
+        }
+        return (String) invokeLLI.objValue;
     }
 
     public synchronized void init(SapiConfiguration sapiConfiguration2) {
@@ -802,87 +1114,96 @@ public final class SapiAccountManager implements ISAccountManager {
 
                                 @Override // java.lang.Runnable
                                 public void run() {
+                                    int i;
                                     boolean z;
                                     Interceptable interceptable2 = $ic;
-                                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                        try {
-                                            this.this$0.checkIntegratedEnviroment();
-                                        } catch (RuntimeException e) {
-                                            new Handler(Looper.getMainLooper()).post(new Runnable(this, e) { // from class: com.baidu.sapi2.SapiAccountManager.1.1
-                                                public static /* synthetic */ Interceptable $ic;
-                                                public transient /* synthetic */ FieldHolder $fh;
-                                                public final /* synthetic */ AnonymousClass1 this$1;
-                                                public final /* synthetic */ RuntimeException val$e;
+                                    if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
+                                        return;
+                                    }
+                                    try {
+                                        this.this$0.checkIntegratedEnviroment();
+                                    } catch (RuntimeException e) {
+                                        new Handler(Looper.getMainLooper()).post(new Runnable(this, e) { // from class: com.baidu.sapi2.SapiAccountManager.1.1
+                                            public static /* synthetic */ Interceptable $ic;
+                                            public transient /* synthetic */ FieldHolder $fh;
+                                            public final /* synthetic */ AnonymousClass1 this$1;
+                                            public final /* synthetic */ RuntimeException val$e;
 
-                                                {
-                                                    Interceptable interceptable3 = $ic;
-                                                    if (interceptable3 != null) {
-                                                        InitContext newInitContext = TitanRuntime.newInitContext();
-                                                        newInitContext.initArgs = r2;
-                                                        Object[] objArr = {this, e};
-                                                        interceptable3.invokeUnInit(65536, newInitContext);
-                                                        int i = newInitContext.flag;
-                                                        if ((i & 1) != 0) {
-                                                            int i2 = i & 2;
-                                                            newInitContext.thisArg = this;
-                                                            interceptable3.invokeInitBody(65536, newInitContext);
-                                                            return;
-                                                        }
-                                                    }
-                                                    this.this$1 = this;
-                                                    this.val$e = e;
-                                                }
-
-                                                @Override // java.lang.Runnable
-                                                public void run() {
-                                                    Interceptable interceptable3 = $ic;
-                                                    if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                                        throw this.val$e;
+                                            {
+                                                Interceptable interceptable3 = $ic;
+                                                if (interceptable3 != null) {
+                                                    InitContext newInitContext = TitanRuntime.newInitContext();
+                                                    newInitContext.initArgs = r2;
+                                                    Object[] objArr = {this, e};
+                                                    interceptable3.invokeUnInit(65536, newInitContext);
+                                                    int i2 = newInitContext.flag;
+                                                    if ((i2 & 1) != 0) {
+                                                        int i3 = i2 & 2;
+                                                        newInitContext.thisArg = this;
+                                                        interceptable3.invokeInitBody(65536, newInitContext);
+                                                        return;
                                                     }
                                                 }
-                                            });
-                                        }
-                                        SapiContext sapiContext = SapiContext.getInstance();
-                                        sapiContext.setShareStorage(null);
-                                        new ShareCallPacking().syncMarkLoginState((!sapiContext.isFirstLaunch() || SapiAccountManager.sapiConfiguration.loginShareStrategy() == LoginShareStrategy.DISABLED) ? 0 : 4);
-                                        this.val$configuration.clientIp = SapiUtils.getLocalIpAddress();
-                                        List<String> initialCachePackagesWhiteList = SapiOptions.getInitialCachePackagesWhiteList();
-                                        String packageName = this.val$configuration.context.getPackageName();
-                                        Iterator<String> it = initialCachePackagesWhiteList.iterator();
-                                        while (true) {
-                                            if (!it.hasNext()) {
-                                                z = true;
-                                                break;
-                                            } else if (packageName.matches(it.next())) {
+                                                this.this$1 = this;
+                                                this.val$e = e;
+                                            }
+
+                                            @Override // java.lang.Runnable
+                                            public void run() {
+                                                Interceptable interceptable3 = $ic;
+                                                if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
+                                                    throw this.val$e;
+                                                }
+                                            }
+                                        });
+                                    }
+                                    SapiContext sapiContext = SapiContext.getInstance();
+                                    sapiContext.setShareStorage(null);
+                                    if (sapiContext.isFirstLaunch() && SapiAccountManager.sapiConfiguration.loginShareStrategy() != LoginShareStrategy.DISABLED) {
+                                        i = 4;
+                                    } else {
+                                        i = 0;
+                                    }
+                                    new ShareCallPacking().syncMarkLoginState(i);
+                                    this.val$configuration.clientIp = SapiUtils.getLocalIpAddress();
+                                    List initialCachePackagesWhiteList = SapiOptions.getInitialCachePackagesWhiteList();
+                                    String packageName = this.val$configuration.context.getPackageName();
+                                    Iterator it = initialCachePackagesWhiteList.iterator();
+                                    while (true) {
+                                        if (it.hasNext()) {
+                                            if (packageName.matches((String) it.next())) {
                                                 z = false;
                                                 break;
                                             }
+                                        } else {
+                                            z = true;
+                                            break;
                                         }
-                                        if (z) {
-                                            new SapiCache().init(this.val$configuration.context);
-                                        }
-                                        sapiContext.setHostsHijacked(SapiDeviceUtils.checkHosts(this.val$configuration.context));
-                                        if (this.val$configuration.supportFaceLogin) {
-                                            try {
-                                                Class.forName("com.baidu.pass.face.platform.FaceSDKManager");
-                                                new PassBiometricCall().initPassBioSDK(SapiAccountManager.sapiConfiguration);
-                                            } catch (Exception unused) {
-                                                Log.e("SDK_INIT", "VIS SDK可能未集成，请集成正确的VIS SDK");
-                                                this.val$configuration.supportFaceLogin = false;
-                                            }
-                                        }
-                                        if (!SapiContext.getInstance().getSapiOptions().gray.getGrayModuleByFunName(SapiOptions.Gray.KEY_NEW_INIT_SOFIRE).meetGray) {
-                                            Log.e("SDK_INIT", "old sofire init run");
-                                            this.this$0.initSofireSDK(this.val$configuration);
-                                        }
-                                        if (TextUtils.isEmpty(SapiUtils.getCookieBduss()) || TextUtils.isEmpty(SapiUtils.getCookiePtoken())) {
-                                            SapiAccountManager.getInstance().getAccountService().webLogin(this.val$configuration.context);
-                                        }
-                                        Log.d("SDK_INIT", "end time=" + System.currentTimeMillis());
-                                        LoginHistoryLoginModel.updateLoginHistoryInfo();
-                                        SapiConfiguration sapiConfiguration3 = this.val$configuration;
-                                        SapiUtils.setCookiesTPLCuid(sapiConfiguration3.context, sapiConfiguration3.mTPLCuid);
                                     }
+                                    if (z) {
+                                        new SapiCache().init(this.val$configuration.context);
+                                    }
+                                    sapiContext.setHostsHijacked(SapiDeviceUtils.checkHosts(this.val$configuration.context));
+                                    if (this.val$configuration.supportFaceLogin) {
+                                        try {
+                                            Class.forName("com.baidu.pass.face.platform.FaceSDKManager");
+                                            new PassBiometricCall().initPassBioSDK(SapiAccountManager.sapiConfiguration);
+                                        } catch (Exception unused) {
+                                            Log.e("SDK_INIT", "VIS SDK可能未集成，请集成正确的VIS SDK");
+                                            this.val$configuration.supportFaceLogin = false;
+                                        }
+                                    }
+                                    if (!SapiContext.getInstance().getSapiOptions().gray.getGrayModuleByFunName(SapiOptions.Gray.KEY_NEW_INIT_SOFIRE).meetGray) {
+                                        Log.e("SDK_INIT", "old sofire init run");
+                                        this.this$0.initSofireSDK(this.val$configuration);
+                                    }
+                                    if (TextUtils.isEmpty(SapiUtils.getCookieBduss()) || TextUtils.isEmpty(SapiUtils.getCookiePtoken())) {
+                                        SapiAccountManager.getInstance().getAccountService().webLogin(this.val$configuration.context);
+                                    }
+                                    Log.d("SDK_INIT", "end time=" + System.currentTimeMillis());
+                                    LoginHistoryLoginModel.updateLoginHistoryInfo();
+                                    SapiConfiguration sapiConfiguration3 = this.val$configuration;
+                                    SapiUtils.setCookiesTPLCuid(sapiConfiguration3.context, sapiConfiguration3.mTPLCuid);
                                 }
                             }));
                             if (SapiContext.getInstance().getSapiOptions().gray.getGrayModuleByFunName(SapiOptions.Gray.KEY_NEW_INIT_SOFIRE).meetGray) {
@@ -971,172 +1292,6 @@ public final class SapiAccountManager implements ISAccountManager {
         }
     }
 
-    public boolean isLogin() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            checkInitialization();
-            return SapiAccount.isValidAccount(SapiContext.getInstance().getCurrentAccount());
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean isValidSessionKey(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, str)) == null) ? !TextUtils.isEmpty(str) && sessionKeys.contains(str) : invokeL.booleanValue;
-    }
-
-    public void loadHistoryActionLoginFromNa(LoginHistoryModel loginHistoryModel, LoginHistoryCallback loginHistoryCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048602, this, loginHistoryModel, loginHistoryCallback) == null) {
-            loadHistoryActionLogin(loginHistoryModel, loginHistoryCallback, true);
-            HistoryLoginStat.HistoryClickLoginStat.sValueSence = "out";
-        }
-    }
-
-    public void loadHistoryActionLoginFromWap(LoginHistoryModel loginHistoryModel, LoginHistoryCallback loginHistoryCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048603, this, loginHistoryModel, loginHistoryCallback) == null) {
-            loadHistoryActionLogin(loginHistoryModel, loginHistoryCallback, false);
-            HistoryLoginStat.HistoryClickLoginStat.sValueSence = "in";
-        }
-    }
-
-    public void logout() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
-            logout(0);
-        }
-    }
-
-    public void onShareEvent(List<ShareStorage.StorageModel> list, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048606, this, list, str) == null) {
-            if (list != null && !list.isEmpty()) {
-                JSONArray jSONArray = new JSONArray();
-                JSONArray jSONArray2 = new JSONArray();
-                int i = 0;
-                for (ShareStorage.StorageModel storageModel : list) {
-                    if (storageModel != null) {
-                        jSONArray.put(storageModel.tpl);
-                        jSONArray2.put(storageModel.app);
-                        i++;
-                    }
-                }
-                ShareLoginStat.GetShareListStat.statExtMap.put(ShareLoginStat.GetShareListStat.KEY_ACCOUNT_APPS, jSONArray2);
-                ShareLoginStat.GetShareListStat.statExtMap.put(ShareLoginStat.GetShareListStat.KEY_ACCOUNT_TPLS, jSONArray);
-                ShareLoginStat.GetShareListStat.statExtMap.put(ShareLoginStat.GetShareListStat.KEY_ACCOUNT_SIZE, Integer.valueOf(i));
-                ShareLoginStat.GetShareListStat.upload();
-                return;
-            }
-            ShareLoginStat.GetShareListStat.upload();
-        }
-    }
-
-    public void removeLoginAccount(SapiAccount sapiAccount) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048607, this, sapiAccount) == null) {
-            checkInitialization();
-            SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
-            SapiContext.getInstance().removeLoginAccount(sapiAccount);
-            new ShareCallPacking().asyncMarkLoginState(3);
-            if (currentAccount == null || TextUtils.isEmpty(sapiAccount.uid) || !sapiAccount.uid.equals(currentAccount.uid)) {
-                return;
-            }
-            getGlobalCallback().onLogoutSuccess(sapiAccount);
-        }
-    }
-
-    public void setAgreeDangerousProtocol(boolean z) {
-        SapiConfiguration sapiConfiguration2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048608, this, z) == null) || (sapiConfiguration2 = getSapiConfiguration()) == null) {
-            return;
-        }
-        sapiConfiguration2.setAgreeDangerousProtocol(z);
-        ih1.d().i(sapiConfiguration2.context, sapiConfiguration2.isAgreeDangerousProtocol());
-        sapiConfiguration2.clientIp = SapiUtils.getLocalIpAddress();
-        if (sapiConfiguration2.supportFaceLogin) {
-            new PassBiometricCall().setFaceModuleAgreeDangerousProtocol(z);
-        }
-    }
-
-    public void setSid() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
-            if (tidConvertSidCallback != null) {
-                String tid = SapiContext.getInstance().getTid();
-                if (!TextUtils.isEmpty(tid)) {
-                    SapiContext.getInstance().setSearchBoxSid(tidConvertSidCallback.tidConvertSid(tid.split("-")));
-                    return;
-                } else {
-                    Log.d(TAG, "tid is null or empty");
-                    return;
-                }
-            }
-            Log.d(TAG, "convert tid to sid failed, because tidConvertSidCallback is null");
-        }
-    }
-
-    public void setUbcUploadImplCallback(UbcUploadImplCallback ubcUploadImplCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048610, this, ubcUploadImplCallback) == null) {
-            this.ubcUploadImplCallback = ubcUploadImplCallback;
-        }
-    }
-
-    @Override // com.baidu.sapi2.service.interfaces.ISAccountManager
-    public boolean validate(SapiAccount sapiAccount) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048611, this, sapiAccount)) == null) {
-            checkInitialization();
-            if (sapiAccount == null) {
-                return false;
-            }
-            ShareAccountAccessor.getAccessor().updatePtoken(sapiAccount);
-            SapiContext sapiContext = SapiContext.getInstance();
-            sapiContext.setCurrentAccount(sapiAccount);
-            sapiContext.addLoginAccount(sapiAccount);
-            new PtokenStat().onEvent(PtokenStat.NATIVE_2_WEB);
-            new ShareStorage().asyncSet(2);
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean validateWithoutShare(SapiAccount sapiAccount) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048612, this, sapiAccount)) == null) {
-            checkInitialization();
-            if (sapiAccount == null) {
-                return false;
-            }
-            ShareAccountAccessor.getAccessor().updatePtoken(sapiAccount);
-            SapiContext sapiContext = SapiContext.getInstance();
-            sapiContext.setCurrentAccount(sapiAccount);
-            sapiContext.addLoginAccount(sapiAccount);
-            new PtokenStat().onEvent(PtokenStat.NATIVE_2_WEB);
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public List<ShareStorage.StorageModel> getV2ShareModelList(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, str)) == null) {
-            checkInitialization();
-            ShareLoginStat.GetShareListStat.statExtMap.put(ShareLoginStat.GetShareListStat.KEY_API_NAME, ShareLoginStat.GetShareListStat.VALUE_API_NAME_V2);
-            List<ShareStorage.StorageModel> v2ShareModelList = ShareLoginModel.getInstance().getV2ShareModelList(str);
-            ShareLoginStat.GetShareListStat.upload();
-            return v2ShareModelList;
-        }
-        return (List) invokeL.objValue;
-    }
-
     public void logout(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048605, this, i) == null) {
@@ -1165,20 +1320,32 @@ public final class SapiAccountManager implements ISAccountManager {
 
                 @Override // com.baidu.sapi2.callback.UserLogoutCallback
                 public void onFailure(SapiResult sapiResult) {
+                    Object valueOf;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, sapiResult) == null) {
                         Object[] objArr = new Object[1];
-                        objArr[0] = sapiResult == null ? "result is null" : Integer.valueOf(sapiResult.getResultCode());
+                        if (sapiResult == null) {
+                            valueOf = "result is null";
+                        } else {
+                            valueOf = Integer.valueOf(sapiResult.getResultCode());
+                        }
+                        objArr[0] = valueOf;
                         Log.e(Log.TAG, objArr);
                     }
                 }
 
                 @Override // com.baidu.sapi2.callback.UserLogoutCallback
                 public void onSuccess(SapiResult sapiResult) {
+                    Object valueOf;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sapiResult) == null) {
                         Object[] objArr = new Object[1];
-                        objArr[0] = sapiResult == null ? "result is null" : Integer.valueOf(sapiResult.getResultCode());
+                        if (sapiResult == null) {
+                            valueOf = "result is null";
+                        } else {
+                            valueOf = Integer.valueOf(sapiResult.getResultCode());
+                        }
+                        objArr[0] = valueOf;
                         Log.e(Log.TAG, objArr);
                     }
                 }
@@ -1190,92 +1357,5 @@ public final class SapiAccountManager implements ISAccountManager {
                 SapiContext.getInstance().putEncryptStr(SapiContext.KEY_LAST_LOGIN_UID, currentAccount.uid);
             }
         }
-    }
-
-    public void getShareModels(long j, ShareModelResultCallback shareModelResultCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048590, this, j, shareModelResultCallback) == null) {
-            checkInitialization();
-            ShareLoginStat.GetShareListStat.statExtMap.put(ShareLoginStat.GetShareListStat.KEY_API_NAME, ShareLoginStat.GetShareListStat.VALUE_API_NAME_NEW);
-            ShareLoginModel.getInstance().getShareModels(j, new ShareModelWithCheckCallback(this, shareModelResultCallback) { // from class: com.baidu.sapi2.SapiAccountManager.7
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ SapiAccountManager this$0;
-                public final /* synthetic */ ShareModelResultCallback val$callback;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, shareModelResultCallback};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$callback = shareModelResultCallback;
-                }
-
-                @Override // com.baidu.sapi2.callback.ShareModelWithCheckCallback
-                public void onFailure(int i, String str, String str2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i, str, str2) == null) {
-                        this.this$0.onShareEvent(new ArrayList(), str2);
-                        ShareModelResultCallback shareModelResultCallback2 = this.val$callback;
-                        if (shareModelResultCallback2 != null) {
-                            shareModelResultCallback2.onFailure(i, str);
-                        }
-                    }
-                }
-
-                @Override // com.baidu.sapi2.callback.ShareModelWithCheckCallback
-                public void onSuccess(List<ShareStorage.StorageModel> list, String str) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, str) == null) {
-                        this.val$callback.onSuccess(list);
-                    }
-                }
-            });
-        }
-    }
-
-    public String getSession(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            checkInitialization();
-            return getSession(str, null);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.sapi2.service.interfaces.ISAccountManager
-    public SapiAccount getSession() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            checkInitialization();
-            SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
-            if (this.isUseOpenBdussTpl == 0) {
-                SapiOptions sapiOptions = SapiContext.getInstance().getSapiOptions();
-                if (sapiOptions.getOpenBdussTpls().contains(getConfignation().tpl) && !sapiOptions.canGetBduss) {
-                    this.isUseOpenBdussTpl = (char) 1;
-                } else {
-                    this.isUseOpenBdussTpl = (char) 2;
-                }
-            }
-            if (currentAccount != null && this.isUseOpenBdussTpl == 1) {
-                currentAccount.uid = "";
-                currentAccount.bduss = "";
-            }
-            return currentAccount;
-        }
-        return (SapiAccount) invokeV.objValue;
     }
 }

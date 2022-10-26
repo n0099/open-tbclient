@@ -1,12 +1,15 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.os.Bundle;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.facade.init.SwanAppInitHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.advert.sdk.data.AdInfo;
+import com.baidu.tieba.advert.sdk.data.SplashHttpRequest;
+import com.baidu.tieba.advert.sdk.data.SplashHttpResponse;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,73 +17,82 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.drawee.backends.pipeline.Fresco;
 /* loaded from: classes5.dex */
 public class nr5 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
+    public static nr5 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public b a;
+    public final HttpMessageListener b;
 
     /* loaded from: classes5.dex */
-    public static class a implements u20<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public interface b {
+        void a(String str);
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
+        void b(String str);
+    }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.u20
-        /* renamed from: a */
-        public void onResult(String str, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, str, bundle) == null) {
-            }
-        }
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? "http://baichuan.baidu.com/rs/adpmobile/downloadstatistics" : (String) invokeV.objValue;
+    }
 
-        @Override // com.baidu.tieba.u20
-        public void onError(int i, Throwable th, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, th, bundle) == null) {
-            }
-        }
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? "http://baichuan.baidu.com/rs/adpmobile/successdisplaystatistics" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes5.dex */
-    public static class b implements Runnable {
+    public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ nr5 a;
 
-        public b() {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(nr5 nr5Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nr5Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = nr5Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                gq3.a();
+            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
+                if (httpResponsedMessage instanceof SplashHttpResponse) {
+                    SplashHttpResponse splashHttpResponse = (SplashHttpResponse) httpResponsedMessage;
+                    if (!splashHttpResponse.hasError() && splashHttpResponse.getErrno() == 0) {
+                        if (this.a.a != null) {
+                            this.a.a.b(splashHttpResponse.getResultMsg());
+                            return;
+                        }
+                        return;
+                    }
+                    BdLog.e("Response of splash has error");
+                    if (this.a.a != null) {
+                        this.a.a.a(splashHttpResponse.getResultMsg());
+                        return;
+                    }
+                    return;
+                }
+                BdLog.e("Not response of splash request");
             }
         }
     }
@@ -88,36 +100,51 @@ public class nr5 {
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948012088, "Lcom/baidu/tieba/nr5;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948012088, "Lcom/baidu/tieba/nr5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948012088, "Lcom/baidu/tieba/nr5;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948012088, "Lcom/baidu/tieba/nr5;");
-        }
+        c = new nr5();
     }
 
-    public static void a() {
+    public nr5() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, null) == null) || a) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        a = true;
-        SwanAppInitHelper.initContext(TbadkCoreApplication.getInst());
-        SwanAppInitHelper.initModules(TbadkCoreApplication.getInst(), false);
-        if (Build.VERSION.SDK_INT <= 21 || TbadkCoreApplication.getInst().isRemoteProcess()) {
-            return;
+        this.b = new a(this, CmdConfigHttp.CMD_GET_SPLASH_INFO);
+    }
+
+    public static nr5 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return c;
         }
-        vs5.b();
-        if (ProcessUtils.isMainProcess() && !Fresco.hasBeenInitialized()) {
-            Fresco.initialize(AppRuntime.getAppContext());
+        return (nr5) invokeV.objValue;
+    }
+
+    public void e(TbPageContext tbPageContext, b bVar, AdInfo adInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, tbPageContext, bVar, adInfo) == null) {
+            this.a = bVar;
+            this.b.setTag(tbPageContext.getUniqueId());
+            MessageManager.getInstance().registerListener(this.b);
+            SplashHttpRequest.sendRequest(new SplashHttpRequest(tbPageContext.getPageActivity(), adInfo));
         }
-        pr5.l().q(TbadkCoreApplication.getInst());
-        ss5.a().b(TbadkCoreApplication.getInst());
-        s20.e(TbadkCoreApplication.getInst()).l(new a());
-        fh3.b0(new b(), 3000L);
     }
 }

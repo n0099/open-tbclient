@@ -31,6 +31,38 @@ public class IMJoinStarGroupRequest extends GroupBaseHttpRequest {
     public String mGroupId;
     public String mKey;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-261378060, "Lcom/baidu/android/imsdk/group/request/IMJoinStarGroupRequest;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-261378060, "Lcom/baidu/android/imsdk/group/request/IMJoinStarGroupRequest;");
+        }
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getContentType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "application/x-www-form-urlencoded" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public boolean shouldAbort() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     /* loaded from: classes.dex */
     public class Mytask extends TaskManager.Task {
         public static /* synthetic */ Interceptable $ic;
@@ -83,26 +115,10 @@ public class IMJoinStarGroupRequest extends GroupBaseHttpRequest {
                     str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
                 }
                 IMListener removeListener = ListenerManager.getInstance().removeListener(this.this$0.mKey);
-                if (removeListener == null || !(removeListener instanceof BIMValueCallBack)) {
-                    return;
+                if (removeListener != null && (removeListener instanceof BIMValueCallBack)) {
+                    ((BIMValueCallBack) removeListener).onResult(i, str, this.this$0.mGroupId);
                 }
-                ((BIMValueCallBack) removeListener).onResult(i, str, this.this$0.mGroupId);
             }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-261378060, "Lcom/baidu/android/imsdk/group/request/IMJoinStarGroupRequest;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-261378060, "Lcom/baidu/android/imsdk/group/request/IMJoinStarGroupRequest;");
         }
     }
 
@@ -125,13 +141,6 @@ public class IMJoinStarGroupRequest extends GroupBaseHttpRequest {
         this.mAppid = j;
         this.mKey = str;
         this.mGroupId = str2;
-    }
-
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public String getContentType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "application/x-www-form-urlencoded" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.android.imsdk.group.request.GroupBaseHttpRequest, com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -163,12 +172,11 @@ public class IMJoinStarGroupRequest extends GroupBaseHttpRequest {
     public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048579, this, i, bArr, th) == null) {
-            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
+            Pair transErrorCode = transErrorCode(i, bArr, th);
             IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
-            if (removeListener == null || !(removeListener instanceof BIMValueCallBack)) {
-                return;
+            if (removeListener != null && (removeListener instanceof BIMValueCallBack)) {
+                ((BIMValueCallBack) removeListener).onResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, this.mGroupId);
             }
-            ((BIMValueCallBack) removeListener).onResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, this.mGroupId);
         }
     }
 
@@ -181,15 +189,5 @@ public class IMJoinStarGroupRequest extends GroupBaseHttpRequest {
             LogUtils.d(str2, "json is " + str);
             TaskManager.getInstance(this.mContext).submitForNetWork(new Mytask(this, this.mContext, this.mKey, str));
         }
-    }
-
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public boolean shouldAbort() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

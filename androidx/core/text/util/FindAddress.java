@@ -1,7 +1,5 @@
 package androidx.core.text.util;
 
-import androidx.annotation.RestrictTo;
-import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,7 +12,6 @@ import java.util.Locale;
 import java.util.regex.MatchResult;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class FindAddress {
     public static /* synthetic */ Interceptable $ic = null;
@@ -76,7 +73,10 @@ public class FindAddress {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
                 int parseInt = Integer.parseInt(str.substring(0, 2));
-                return (this.mLow <= parseInt && parseInt <= this.mHigh) || parseInt == this.mException1 || parseInt == this.mException2;
+                if ((this.mLow > parseInt || parseInt > this.mHigh) && parseInt != this.mException1 && parseInt != this.mException2) {
+                    return false;
+                }
+                return true;
             }
             return invokeL.booleanValue;
         }
@@ -144,43 +144,49 @@ public class FindAddress {
         int length;
         MatchResult matchState;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(65538, null, str, matchResult)) != null) {
-            return invokeLL.intValue;
-        }
-        int end = matchResult.end();
-        Matcher matcher = sWordRe.matcher(str);
-        String str2 = "";
-        int i = 1;
-        int i2 = 1;
-        boolean z = true;
-        boolean z2 = false;
-        int i3 = -1;
-        int i4 = -1;
-        while (true) {
-            if (end < str.length()) {
-                if (!matcher.find(end)) {
-                    length = str.length();
-                    break;
-                } else if (matcher.end() - matcher.start() > 25) {
-                    length = matcher.end();
-                    break;
-                } else {
-                    while (end < matcher.start()) {
-                        int i5 = end + 1;
-                        if (NL.indexOf(str.charAt(end)) != -1) {
-                            i++;
-                        }
-                        end = i5;
-                    }
-                    if (i > 5 || (i2 = i2 + 1) > 14) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, matchResult)) == null) {
+            int end = matchResult.end();
+            Matcher matcher = sWordRe.matcher(str);
+            String str2 = "";
+            int i = 1;
+            int i2 = 1;
+            boolean z = true;
+            boolean z2 = false;
+            int i3 = -1;
+            int i4 = -1;
+            while (true) {
+                if (end < str.length()) {
+                    if (!matcher.find(end)) {
+                        length = str.length();
                         break;
-                    }
-                    if (matchHouseNumber(str, end) == null) {
-                        if (!isValidLocationName(matcher.group(0))) {
-                            if (i2 == 5 && !z2) {
-                                end = matcher.end();
-                                break;
+                    } else if (matcher.end() - matcher.start() > 25) {
+                        length = matcher.end();
+                        break;
+                    } else {
+                        while (end < matcher.start()) {
+                            int i5 = end + 1;
+                            if (NL.indexOf(str.charAt(end)) != -1) {
+                                i++;
                             }
+                            end = i5;
+                        }
+                        if (i > 5 || (i2 = i2 + 1) > 14) {
+                            break;
+                        }
+                        if (matchHouseNumber(str, end) != null) {
+                            if (z && i > 1) {
+                                return -end;
+                            }
+                            if (i3 == -1) {
+                                i3 = end;
+                            }
+                        } else if (isValidLocationName(matcher.group(0))) {
+                            z = false;
+                            z2 = true;
+                        } else if (i2 == 5 && !z2) {
+                            end = matcher.end();
+                            break;
+                        } else {
                             if (z2 && i2 > 4 && (matchState = matchState(str, end)) != null) {
                                 if (str2.equals("et") && matchState.group(0).equals("al")) {
                                     end = matchState.end();
@@ -196,23 +202,16 @@ public class FindAddress {
                                 }
                             }
                             z = false;
-                        } else {
-                            z = false;
-                            z2 = true;
                         }
-                    } else if (z && i > 1) {
-                        return -end;
-                    } else {
-                        if (i3 == -1) {
-                            i3 = end;
-                        }
+                        str2 = matcher.group(0);
+                        end = matcher.end();
                     }
-                    str2 = matcher.group(0);
-                    end = matcher.end();
+                } else {
+                    break;
                 }
-            } else {
-                break;
             }
+        } else {
+            return invokeLL.intValue;
         }
     }
 
@@ -230,24 +229,35 @@ public class FindAddress {
                 return false;
             }
             Matcher matcher = sSuffixedNumberRe.matcher(str);
-            if (matcher.find()) {
-                int parseInt = Integer.parseInt(matcher.group(1));
-                if (parseInt == 0) {
-                    return false;
-                }
-                String lowerCase = matcher.group(2).toLowerCase(Locale.getDefault());
-                int i3 = parseInt % 10;
-                if (i3 == 1) {
-                    return lowerCase.equals(parseInt % 100 != 11 ? "st" : "th");
-                } else if (i3 == 2) {
-                    return lowerCase.equals(parseInt % 100 != 12 ? "nd" : "th");
-                } else if (i3 != 3) {
-                    return lowerCase.equals("th");
-                } else {
-                    return lowerCase.equals(parseInt % 100 != 13 ? "rd" : "th");
-                }
+            if (!matcher.find()) {
+                return true;
             }
-            return true;
+            int parseInt = Integer.parseInt(matcher.group(1));
+            if (parseInt == 0) {
+                return false;
+            }
+            String lowerCase = matcher.group(2).toLowerCase(Locale.getDefault());
+            int i3 = parseInt % 10;
+            String str2 = "th";
+            if (i3 != 1) {
+                if (i3 != 2) {
+                    if (i3 != 3) {
+                        return lowerCase.equals("th");
+                    }
+                    if (parseInt % 100 != 13) {
+                        str2 = "rd";
+                    }
+                    return lowerCase.equals(str2);
+                }
+                if (parseInt % 100 != 12) {
+                    str2 = "nd";
+                }
+                return lowerCase.equals(str2);
+            }
+            if (parseInt % 100 != 11) {
+                str2 = "st";
+            }
+            return lowerCase.equals(str2);
         }
         return invokeL.booleanValue;
     }
@@ -275,11 +285,31 @@ public class FindAddress {
         return (String) invokeL.objValue;
     }
 
-    @VisibleForTesting
     public static boolean isValidLocationName(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? sLocationNameRe.matcher(str).matches() : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            return sLocationNameRe.matcher(str).matches();
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean isValidZipCode(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            return sZipCodeRe.matcher(str).matches();
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean isValidZipCode(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, str2)) == null) {
+            return isValidZipCode(str, matchState(str2, 0));
+        }
+        return invokeLL.booleanValue;
     }
 
     public static boolean isValidZipCode(String str, MatchResult matchResult) {
@@ -301,59 +331,46 @@ public class FindAddress {
                 }
                 groupCount = i;
             }
-            return sZipCodeRe.matcher(str).matches() && sStateZipCodeRanges[groupCount].matches(str);
+            if (!sZipCodeRe.matcher(str).matches() || !sStateZipCodeRanges[groupCount].matches(str)) {
+                return false;
+            }
+            return true;
         }
         return invokeLL.booleanValue;
     }
 
-    @VisibleForTesting
-    public static MatchResult matchHouseNumber(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, str, i)) == null) {
-            if (i <= 0 || HOUSE_PRE_DELIM.indexOf(str.charAt(i - 1)) != -1) {
-                Matcher region = sHouseNumberRe.matcher(str).region(i, str.length());
-                if (region.lookingAt()) {
-                    MatchResult matchResult = region.toMatchResult();
-                    if (checkHouseNumber(matchResult.group(0))) {
-                        return matchResult;
-                    }
-                }
-                return null;
-            }
-            return null;
-        }
-        return (MatchResult) invokeLI.objValue;
-    }
-
-    @VisibleForTesting
     public static MatchResult matchState(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65546, null, str, i)) == null) {
-            if (i <= 0 || WORD_DELIM.indexOf(str.charAt(i - 1)) != -1) {
-                Matcher region = sStateRe.matcher(str).region(i, str.length());
-                if (region.lookingAt()) {
-                    return region.toMatchResult();
-                }
+            if (i > 0 && WORD_DELIM.indexOf(str.charAt(i - 1)) == -1) {
                 return null;
             }
-            return null;
+            Matcher region = sStateRe.matcher(str).region(i, str.length());
+            if (!region.lookingAt()) {
+                return null;
+            }
+            return region.toMatchResult();
         }
         return (MatchResult) invokeLI.objValue;
     }
 
-    @VisibleForTesting
-    public static boolean isValidZipCode(String str, String str2) {
-        InterceptResult invokeLL;
+    public static MatchResult matchHouseNumber(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, str2)) == null) ? isValidZipCode(str, matchState(str2, 0)) : invokeLL.booleanValue;
-    }
-
-    @VisibleForTesting
-    public static boolean isValidZipCode(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? sZipCodeRe.matcher(str).matches() : invokeL.booleanValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, str, i)) == null) {
+            if (i > 0 && HOUSE_PRE_DELIM.indexOf(str.charAt(i - 1)) == -1) {
+                return null;
+            }
+            Matcher region = sHouseNumberRe.matcher(str).region(i, str.length());
+            if (region.lookingAt()) {
+                MatchResult matchResult = region.toMatchResult();
+                if (checkHouseNumber(matchResult.group(0))) {
+                    return matchResult;
+                }
+            }
+            return null;
+        }
+        return (MatchResult) invokeLI.objValue;
     }
 }

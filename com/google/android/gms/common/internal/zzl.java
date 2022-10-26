@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelReader;
 /* loaded from: classes7.dex */
-public final class zzl implements Parcelable.Creator<ConnectionTelemetryConfiguration> {
+public final class zzl implements Parcelable.Creator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,9 +26,8 @@ public final class zzl implements Parcelable.Creator<ConnectionTelemetryConfigur
         }
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // android.os.Parcelable.Creator
-    public final /* bridge */ /* synthetic */ ConnectionTelemetryConfiguration createFromParcel(Parcel parcel) {
+    public final /* bridge */ /* synthetic */ Object createFromParcel(Parcel parcel) {
         int validateObjectHeader = SafeParcelReader.validateObjectHeader(parcel);
         RootTelemetryConfiguration rootTelemetryConfiguration = null;
         int[] iArr = null;
@@ -66,9 +65,8 @@ public final class zzl implements Parcelable.Creator<ConnectionTelemetryConfigur
         return new ConnectionTelemetryConfiguration(rootTelemetryConfiguration, z, z2, iArr, i, iArr2);
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object[]' to match base method */
     @Override // android.os.Parcelable.Creator
-    public final /* synthetic */ ConnectionTelemetryConfiguration[] newArray(int i) {
+    public final /* synthetic */ Object[] newArray(int i) {
         return new ConnectionTelemetryConfiguration[i];
     }
 }

@@ -1,6 +1,5 @@
 package com.baidu.webkit.sdk.system;
 
-import android.annotation.TargetApi;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,7 +10,6 @@ import com.baidu.webkit.sdk.ClientCertRequest;
 import java.security.Principal;
 import java.security.PrivateKey;
 import java.security.cert.X509Certificate;
-@TargetApi(21)
 /* loaded from: classes6.dex */
 public final class ClientCertRequestImpl extends ClientCertRequest {
     public static /* synthetic */ Interceptable $ic;

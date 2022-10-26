@@ -30,7 +30,19 @@ public final class ServiceStaticInitAutoGenerateUrlCollectorImpl implements ICmd
     }
 
     @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
-    public Map<String, String> getCmdRouterMap() {
+    public Map getConfigRouterMap() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("com.baidu.tbadk.core.ServiceStaticInit", new ArrayList());
+            return hashMap;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
+    public Map getCmdRouterMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -42,18 +54,6 @@ public final class ServiceStaticInitAutoGenerateUrlCollectorImpl implements ICmd
             hashMap.put("2005012", "com.baidu.tbadk.core.ServiceStaticInit");
             hashMap.put("2005013", "com.baidu.tbadk.core.ServiceStaticInit");
             hashMap.put("2005015", "com.baidu.tbadk.core.ServiceStaticInit");
-            return hashMap;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
-    public Map<String, ArrayList<String>> getConfigRouterMap() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("com.baidu.tbadk.core.ServiceStaticInit", new ArrayList());
             return hashMap;
         }
         return (Map) invokeV.objValue;

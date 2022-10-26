@@ -29,7 +29,10 @@ public class GetObjectResponse extends BosResponse {
     public BosObject getObject() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.object : (BosObject) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.object;
+        }
+        return (BosObject) invokeV.objValue;
     }
 
     public void setObject(BosObject bosObject) {

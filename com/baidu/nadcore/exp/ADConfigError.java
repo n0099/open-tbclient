@@ -55,6 +55,9 @@ public class ADConfigError extends Exception {
     public static ADConfigError error(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) ? new ADConfigError(str, str2) : (ADConfigError) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            return new ADConfigError(str, str2);
+        }
+        return (ADConfigError) invokeLL.objValue;
     }
 }

@@ -27,6 +27,35 @@ public abstract class WidgetRun implements Dependency {
     public DependencyNode start;
     public ConstraintWidget widget;
 
+    public abstract void apply();
+
+    public abstract void applyToWidget();
+
+    public abstract void clear();
+
+    public abstract void reset();
+
+    public abstract boolean supportsWrapComputation();
+
+    @Override // androidx.constraintlayout.solver.widgets.analyzer.Dependency
+    public void update(Dependency dependency) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, dependency) == null) {
+        }
+    }
+
+    public void updateRunEnd(Dependency dependency) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, dependency) == null) {
+        }
+    }
+
+    public void updateRunStart(Dependency dependency) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, dependency) == null) {
+        }
+    }
+
     /* renamed from: androidx.constraintlayout.solver.widgets.analyzer.WidgetRun$1  reason: invalid class name */
     /* loaded from: classes.dex */
     public static /* synthetic */ class AnonymousClass1 {
@@ -126,13 +155,19 @@ public abstract class WidgetRun implements Dependency {
         public static RunType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (RunType) Enum.valueOf(RunType.class, str) : (RunType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (RunType) Enum.valueOf(RunType.class, str);
+            }
+            return (RunType) invokeL.objValue;
         }
 
         public static RunType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (RunType[]) $VALUES.clone() : (RunType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (RunType[]) $VALUES.clone();
+            }
+            return (RunType[]) invokeV.objValue;
         }
     }
 
@@ -158,97 +193,6 @@ public abstract class WidgetRun implements Dependency {
         this.end = new DependencyNode(this);
         this.mRunType = RunType.NONE;
         this.widget = constraintWidget;
-    }
-
-    private void resolveDimension(int i, int i2) {
-        int i3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65537, this, i, i2) == null) {
-            int i4 = this.matchConstraintsType;
-            if (i4 == 0) {
-                this.dimension.resolve(getLimitedDimension(i2, i));
-            } else if (i4 == 1) {
-                this.dimension.resolve(Math.min(getLimitedDimension(this.dimension.wrapValue, i), i2));
-            } else if (i4 == 2) {
-                ConstraintWidget parent = this.widget.getParent();
-                if (parent != null) {
-                    WidgetRun widgetRun = i == 0 ? parent.horizontalRun : parent.verticalRun;
-                    if (widgetRun.dimension.resolved) {
-                        ConstraintWidget constraintWidget = this.widget;
-                        this.dimension.resolve(getLimitedDimension((int) ((widgetRun.dimension.value * (i == 0 ? constraintWidget.mMatchConstraintPercentWidth : constraintWidget.mMatchConstraintPercentHeight)) + 0.5f), i));
-                    }
-                }
-            } else if (i4 != 3) {
-            } else {
-                ConstraintWidget constraintWidget2 = this.widget;
-                HorizontalWidgetRun horizontalWidgetRun = constraintWidget2.horizontalRun;
-                ConstraintWidget.DimensionBehaviour dimensionBehaviour = horizontalWidgetRun.dimensionBehavior;
-                ConstraintWidget.DimensionBehaviour dimensionBehaviour2 = ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT;
-                if (dimensionBehaviour == dimensionBehaviour2 && horizontalWidgetRun.matchConstraintsType == 3) {
-                    VerticalWidgetRun verticalWidgetRun = constraintWidget2.verticalRun;
-                    if (verticalWidgetRun.dimensionBehavior == dimensionBehaviour2 && verticalWidgetRun.matchConstraintsType == 3) {
-                        return;
-                    }
-                }
-                ConstraintWidget constraintWidget3 = this.widget;
-                WidgetRun widgetRun2 = i == 0 ? constraintWidget3.verticalRun : constraintWidget3.horizontalRun;
-                if (widgetRun2.dimension.resolved) {
-                    float dimensionRatio = this.widget.getDimensionRatio();
-                    if (i == 1) {
-                        i3 = (int) ((widgetRun2.dimension.value / dimensionRatio) + 0.5f);
-                    } else {
-                        i3 = (int) ((dimensionRatio * widgetRun2.dimension.value) + 0.5f);
-                    }
-                    this.dimension.resolve(i3);
-                }
-            }
-        }
-    }
-
-    public final void addTarget(DependencyNode dependencyNode, DependencyNode dependencyNode2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048576, this, dependencyNode, dependencyNode2, i) == null) {
-            dependencyNode.targets.add(dependencyNode2);
-            dependencyNode.margin = i;
-            dependencyNode2.dependencies.add(dependencyNode);
-        }
-    }
-
-    public abstract void apply();
-
-    public abstract void applyToWidget();
-
-    public abstract void clear();
-
-    public final int getLimitedDimension(int i, int i2) {
-        InterceptResult invokeII;
-        int max;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048581, this, i, i2)) == null) {
-            if (i2 == 0) {
-                ConstraintWidget constraintWidget = this.widget;
-                int i3 = constraintWidget.mMatchConstraintMaxWidth;
-                max = Math.max(constraintWidget.mMatchConstraintMinWidth, i);
-                if (i3 > 0) {
-                    max = Math.min(i3, i);
-                }
-                if (max == i) {
-                    return i;
-                }
-            } else {
-                ConstraintWidget constraintWidget2 = this.widget;
-                int i4 = constraintWidget2.mMatchConstraintMaxHeight;
-                max = Math.max(constraintWidget2.mMatchConstraintMinHeight, i);
-                if (i4 > 0) {
-                    max = Math.min(i4, i);
-                }
-                if (max == i) {
-                    return i;
-                }
-            }
-            return max;
-        }
-        return invokeII.intValue;
     }
 
     public final DependencyNode getTarget(ConstraintAnchor constraintAnchor) {
@@ -281,6 +225,159 @@ public abstract class WidgetRun implements Dependency {
         return (DependencyNode) invokeL.objValue;
     }
 
+    private void resolveDimension(int i, int i2) {
+        WidgetRun widgetRun;
+        float f;
+        WidgetRun widgetRun2;
+        int i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(65537, this, i, i2) == null) {
+            int i4 = this.matchConstraintsType;
+            if (i4 != 0) {
+                if (i4 != 1) {
+                    if (i4 != 2) {
+                        if (i4 == 3) {
+                            ConstraintWidget constraintWidget = this.widget;
+                            HorizontalWidgetRun horizontalWidgetRun = constraintWidget.horizontalRun;
+                            ConstraintWidget.DimensionBehaviour dimensionBehaviour = horizontalWidgetRun.dimensionBehavior;
+                            ConstraintWidget.DimensionBehaviour dimensionBehaviour2 = ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT;
+                            if (dimensionBehaviour == dimensionBehaviour2 && horizontalWidgetRun.matchConstraintsType == 3) {
+                                VerticalWidgetRun verticalWidgetRun = constraintWidget.verticalRun;
+                                if (verticalWidgetRun.dimensionBehavior == dimensionBehaviour2 && verticalWidgetRun.matchConstraintsType == 3) {
+                                    return;
+                                }
+                            }
+                            ConstraintWidget constraintWidget2 = this.widget;
+                            if (i == 0) {
+                                widgetRun2 = constraintWidget2.verticalRun;
+                            } else {
+                                widgetRun2 = constraintWidget2.horizontalRun;
+                            }
+                            if (widgetRun2.dimension.resolved) {
+                                float dimensionRatio = this.widget.getDimensionRatio();
+                                if (i == 1) {
+                                    i3 = (int) ((widgetRun2.dimension.value / dimensionRatio) + 0.5f);
+                                } else {
+                                    i3 = (int) ((dimensionRatio * widgetRun2.dimension.value) + 0.5f);
+                                }
+                                this.dimension.resolve(i3);
+                                return;
+                            }
+                            return;
+                        }
+                        return;
+                    }
+                    ConstraintWidget parent = this.widget.getParent();
+                    if (parent != null) {
+                        if (i == 0) {
+                            widgetRun = parent.horizontalRun;
+                        } else {
+                            widgetRun = parent.verticalRun;
+                        }
+                        if (widgetRun.dimension.resolved) {
+                            ConstraintWidget constraintWidget3 = this.widget;
+                            if (i == 0) {
+                                f = constraintWidget3.mMatchConstraintPercentWidth;
+                            } else {
+                                f = constraintWidget3.mMatchConstraintPercentHeight;
+                            }
+                            this.dimension.resolve(getLimitedDimension((int) ((widgetRun.dimension.value * f) + 0.5f), i));
+                            return;
+                        }
+                        return;
+                    }
+                    return;
+                }
+                this.dimension.resolve(Math.min(getLimitedDimension(this.dimension.wrapValue, i), i2));
+                return;
+            }
+            this.dimension.resolve(getLimitedDimension(i2, i));
+        }
+    }
+
+    public final void addTarget(DependencyNode dependencyNode, DependencyNode dependencyNode2, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048576, this, dependencyNode, dependencyNode2, i) == null) {
+            dependencyNode.targets.add(dependencyNode2);
+            dependencyNode.margin = i;
+            dependencyNode2.dependencies.add(dependencyNode);
+        }
+    }
+
+    public final void addTarget(DependencyNode dependencyNode, DependencyNode dependencyNode2, int i, DimensionDependency dimensionDependency) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dependencyNode, dependencyNode2, i, dimensionDependency) == null) {
+            dependencyNode.targets.add(dependencyNode2);
+            dependencyNode.targets.add(this.dimension);
+            dependencyNode.marginFactor = i;
+            dependencyNode.marginDependency = dimensionDependency;
+            dependencyNode2.dependencies.add(dependencyNode);
+            dimensionDependency.dependencies.add(dependencyNode);
+        }
+    }
+
+    public final int getLimitedDimension(int i, int i2) {
+        InterceptResult invokeII;
+        int max;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048581, this, i, i2)) == null) {
+            if (i2 == 0) {
+                ConstraintWidget constraintWidget = this.widget;
+                int i3 = constraintWidget.mMatchConstraintMaxWidth;
+                max = Math.max(constraintWidget.mMatchConstraintMinWidth, i);
+                if (i3 > 0) {
+                    max = Math.min(i3, i);
+                }
+                if (max == i) {
+                    return i;
+                }
+            } else {
+                ConstraintWidget constraintWidget2 = this.widget;
+                int i4 = constraintWidget2.mMatchConstraintMaxHeight;
+                max = Math.max(constraintWidget2.mMatchConstraintMinHeight, i);
+                if (i4 > 0) {
+                    max = Math.min(i4, i);
+                }
+                if (max == i) {
+                    return i;
+                }
+            }
+            return max;
+        }
+        return invokeII.intValue;
+    }
+
+    public final DependencyNode getTarget(ConstraintAnchor constraintAnchor, int i) {
+        InterceptResult invokeLI;
+        WidgetRun widgetRun;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, constraintAnchor, i)) == null) {
+            ConstraintAnchor constraintAnchor2 = constraintAnchor.mTarget;
+            if (constraintAnchor2 == null) {
+                return null;
+            }
+            ConstraintWidget constraintWidget = constraintAnchor2.mOwner;
+            if (i == 0) {
+                widgetRun = constraintWidget.horizontalRun;
+            } else {
+                widgetRun = constraintWidget.verticalRun;
+            }
+            int i2 = AnonymousClass1.$SwitchMap$androidx$constraintlayout$solver$widgets$ConstraintAnchor$Type[constraintAnchor.mTarget.mType.ordinal()];
+            if (i2 != 1) {
+                if (i2 != 2) {
+                    if (i2 != 3) {
+                        if (i2 != 5) {
+                            return null;
+                        }
+                    }
+                }
+                return widgetRun.end;
+            }
+            return widgetRun.start;
+        }
+        return (DependencyNode) invokeLI.objValue;
+    }
+
     public long getWrapDimension() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -292,6 +389,24 @@ public abstract class WidgetRun implements Dependency {
             return 0L;
         }
         return invokeV.longValue;
+    }
+
+    public boolean isDimensionResolved() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.dimension.resolved;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isResolved() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.resolved;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isCenterConnection() {
@@ -311,35 +426,16 @@ public abstract class WidgetRun implements Dependency {
                     i++;
                 }
             }
-            return i >= 2;
+            if (i < 2) {
+                return false;
+            }
+            return true;
         }
         return invokeV.booleanValue;
     }
 
-    public boolean isDimensionResolved() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.dimension.resolved : invokeV.booleanValue;
-    }
-
-    public boolean isResolved() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.resolved : invokeV.booleanValue;
-    }
-
-    public abstract void reset();
-
-    public abstract boolean supportsWrapComputation();
-
-    @Override // androidx.constraintlayout.solver.widgets.analyzer.Dependency
-    public void update(Dependency dependency) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, dependency) == null) {
-        }
-    }
-
     public void updateRunCenter(Dependency dependency, ConstraintAnchor constraintAnchor, ConstraintAnchor constraintAnchor2, int i) {
+        float verticalBiasPercent;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLI(1048591, this, dependency, constraintAnchor, constraintAnchor2, i) == null) {
             DependencyNode target = getTarget(constraintAnchor);
@@ -352,35 +448,28 @@ public abstract class WidgetRun implements Dependency {
                     resolveDimension(i, i2);
                 }
                 DimensionDependency dimensionDependency = this.dimension;
-                if (dimensionDependency.resolved) {
-                    if (dimensionDependency.value == i2) {
-                        this.start.resolve(margin);
-                        this.end.resolve(margin2);
-                        return;
-                    }
-                    ConstraintWidget constraintWidget = this.widget;
-                    float horizontalBiasPercent = i == 0 ? constraintWidget.getHorizontalBiasPercent() : constraintWidget.getVerticalBiasPercent();
-                    if (target == target2) {
-                        margin = target.value;
-                        margin2 = target2.value;
-                        horizontalBiasPercent = 0.5f;
-                    }
-                    this.start.resolve((int) (margin + 0.5f + (((margin2 - margin) - this.dimension.value) * horizontalBiasPercent)));
-                    this.end.resolve(this.start.value + this.dimension.value);
+                if (!dimensionDependency.resolved) {
+                    return;
                 }
+                if (dimensionDependency.value == i2) {
+                    this.start.resolve(margin);
+                    this.end.resolve(margin2);
+                    return;
+                }
+                ConstraintWidget constraintWidget = this.widget;
+                if (i == 0) {
+                    verticalBiasPercent = constraintWidget.getHorizontalBiasPercent();
+                } else {
+                    verticalBiasPercent = constraintWidget.getVerticalBiasPercent();
+                }
+                if (target == target2) {
+                    margin = target.value;
+                    margin2 = target2.value;
+                    verticalBiasPercent = 0.5f;
+                }
+                this.start.resolve((int) (margin + 0.5f + (((margin2 - margin) - this.dimension.value) * verticalBiasPercent)));
+                this.end.resolve(this.start.value + this.dimension.value);
             }
-        }
-    }
-
-    public void updateRunEnd(Dependency dependency) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, dependency) == null) {
-        }
-    }
-
-    public void updateRunStart(Dependency dependency) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, dependency) == null) {
         }
     }
 
@@ -404,43 +493,5 @@ public abstract class WidgetRun implements Dependency {
             return 0L;
         }
         return invokeI.longValue;
-    }
-
-    public final void addTarget(DependencyNode dependencyNode, DependencyNode dependencyNode2, int i, DimensionDependency dimensionDependency) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dependencyNode, dependencyNode2, i, dimensionDependency) == null) {
-            dependencyNode.targets.add(dependencyNode2);
-            dependencyNode.targets.add(this.dimension);
-            dependencyNode.marginFactor = i;
-            dependencyNode.marginDependency = dimensionDependency;
-            dependencyNode2.dependencies.add(dependencyNode);
-            dimensionDependency.dependencies.add(dependencyNode);
-        }
-    }
-
-    public final DependencyNode getTarget(ConstraintAnchor constraintAnchor, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, constraintAnchor, i)) == null) {
-            ConstraintAnchor constraintAnchor2 = constraintAnchor.mTarget;
-            if (constraintAnchor2 == null) {
-                return null;
-            }
-            ConstraintWidget constraintWidget = constraintAnchor2.mOwner;
-            WidgetRun widgetRun = i == 0 ? constraintWidget.horizontalRun : constraintWidget.verticalRun;
-            int i2 = AnonymousClass1.$SwitchMap$androidx$constraintlayout$solver$widgets$ConstraintAnchor$Type[constraintAnchor.mTarget.mType.ordinal()];
-            if (i2 != 1) {
-                if (i2 != 2) {
-                    if (i2 != 3) {
-                        if (i2 != 5) {
-                            return null;
-                        }
-                    }
-                }
-                return widgetRun.end;
-            }
-            return widgetRun.start;
-        }
-        return (DependencyNode) invokeLI.objValue;
     }
 }

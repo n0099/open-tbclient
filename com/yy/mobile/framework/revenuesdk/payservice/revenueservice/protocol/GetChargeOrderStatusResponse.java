@@ -31,7 +31,7 @@ public class GetChargeOrderStatusResponse implements IBaseJsonResponse {
     public int currencyType;
     public String expand;
     public boolean finish;
-    public List<GiftBagsInfo> giftbags;
+    public List giftbags;
     public int hasGotSalePromotion;
     public String message;
     public int result;
@@ -63,10 +63,13 @@ public class GetChargeOrderStatusResponse implements IBaseJsonResponse {
     public GetChargeOrderStatusResult getResponse() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new GetChargeOrderStatusResult(this.expand, this.status, this.message, this.hasGotSalePromotion, this.currencyType, this.amount, this.currencyAmount, this.finish, this.giftbags) : (GetChargeOrderStatusResult) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new GetChargeOrderStatusResult(this.expand, this.status, this.message, this.hasGotSalePromotion, this.currencyType, this.amount, this.currencyAmount, this.finish, this.giftbags);
+        }
+        return (GetChargeOrderStatusResult) invokeV.objValue;
     }
 
-    public List<GiftBagItemInfo> optGiftBagItemInfoList(JSONArray jSONArray) {
+    public List optGiftBagItemInfoList(JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray)) == null) {
@@ -94,7 +97,7 @@ public class GetChargeOrderStatusResponse implements IBaseJsonResponse {
         return (List) invokeL.objValue;
     }
 
-    public List<GiftBagsInfo> optGiftBagsInfoList(JSONArray jSONArray) {
+    public List optGiftBagsInfoList(JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray)) == null) {

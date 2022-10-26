@@ -4,7 +4,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ox4;
+import com.baidu.tieba.ux4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,8 +37,26 @@ public class FrsTabTestHelper {
                 return;
             }
         }
-        HOT_TAB_NAME = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0723);
-        NEW_AREA_TAB_NAME = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0743);
+        HOT_TAB_NAME = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f072f);
+        NEW_AREA_TAB_NAME = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f074f);
+    }
+
+    public static int getDefaultShowTabId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (UbsABTestHelper.isFrsTabLocationTestA()) {
+                return 1;
+            }
+            if (UbsABTestHelper.isFrsTabLocationTestB()) {
+                return 503;
+            }
+            if (!UbsABTestHelper.isFrsTabLocationTestC()) {
+                return 1;
+            }
+            return tabNameToIdMap(getUserLastAccessTab());
+        }
+        return invokeV.intValue;
     }
 
     public FrsTabTestHelper() {
@@ -73,40 +91,28 @@ public class FrsTabTestHelper {
         return (String) invokeV.objValue;
     }
 
-    public static int getDefaultShowTabId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (UbsABTestHelper.isFrsTabLocationTestA()) {
-                return 1;
-            }
-            if (UbsABTestHelper.isFrsTabLocationTestB()) {
-                return 503;
-            }
-            if (UbsABTestHelper.isFrsTabLocationTestC()) {
-                return tabNameToIdMap(getUserLastAccessTab());
-            }
-            return 1;
-        }
-        return invokeV.intValue;
-    }
-
     public static int getFrsNewAreaTabSort() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? ox4.k().l(generateFrsNewAreaTabSortKey(), HAVE_NOT_RECORD_SORT) : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return ux4.k().l(generateFrsNewAreaTabSortKey(), HAVE_NOT_RECORD_SORT);
+        }
+        return invokeV.intValue;
     }
 
     public static String getUserLastAccessTab() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? ox4.k().q(generateUserLastAccessKey(), HOT_TAB_NAME) : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return ux4.k().q(generateUserLastAccessKey(), HOT_TAB_NAME);
+        }
+        return (String) invokeV.objValue;
     }
 
     public static void storeFrsNewAreaTabSort(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65543, null, i) == null) {
-            ox4.k().w(generateFrsNewAreaTabSortKey(), i);
+            ux4.k().w(generateFrsNewAreaTabSortKey(), i);
         }
     }
 
@@ -114,7 +120,7 @@ public class FrsTabTestHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
             if (HOT_TAB_NAME.equals(str) || NEW_AREA_TAB_NAME.equals(str)) {
-                ox4.k().y(generateUserLastAccessKey(), str);
+                ux4.k().y(generateUserLastAccessKey(), str);
             }
         }
     }
@@ -122,6 +128,12 @@ public class FrsTabTestHelper {
     public static int tabNameToIdMap(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) ? (!HOT_TAB_NAME.equals(str) && NEW_AREA_TAB_NAME.equals(str)) ? 503 : 1 : invokeL.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
+            if (HOT_TAB_NAME.equals(str) || !NEW_AREA_TAB_NAME.equals(str)) {
+                return 1;
+            }
+            return 503;
+        }
+        return invokeL.intValue;
     }
 }

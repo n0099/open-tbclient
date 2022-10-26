@@ -4,17 +4,17 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.IDataResponseMessage;
-import com.baidu.tieba.vn7;
+import com.baidu.tieba.go7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class SetTailHttpResponseMessage extends HttpResponsedMessage implements IDataResponseMessage<vn7> {
+public class SetTailHttpResponseMessage extends HttpResponsedMessage implements IDataResponseMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public vn7 resultData;
+    public go7 resultData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SetTailHttpResponseMessage() {
@@ -35,20 +35,22 @@ public class SetTailHttpResponseMessage extends HttpResponsedMessage implements 
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tbadk.core.util.IDataResponseMessage
+    public go7 getResultData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.resultData;
+        }
+        return (go7) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             this.resultData = SetTailSocketResponseMessage.getResult(this, i, bArr);
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tbadk.core.util.IDataResponseMessage
-    public vn7 getResultData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.resultData : (vn7) invokeV.objValue;
     }
 }

@@ -20,8 +20,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Interpolator;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.constraintlayout.motion.utils.StopLogic;
 import androidx.constraintlayout.motion.widget.MotionScene;
 import androidx.constraintlayout.solver.widgets.ConstraintAnchor;
@@ -42,6 +40,7 @@ import androidx.constraintlayout.widget.R;
 import androidx.constraintlayout.widget.StateSet;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.NestedScrollingParent3;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
@@ -145,6 +144,86 @@ public class MotionLayout extends ConstraintLayout implements NestedScrollingPar
     public TransitionState mTransitionState;
     public boolean mUndergoingMotion;
     public int mWidthMeasureMode;
+
+    /* loaded from: classes.dex */
+    public interface MotionTracker {
+        void addMovement(MotionEvent motionEvent);
+
+        void clear();
+
+        void computeCurrentVelocity(int i);
+
+        void computeCurrentVelocity(int i, float f);
+
+        float getXVelocity();
+
+        float getXVelocity(int i);
+
+        float getYVelocity();
+
+        float getYVelocity(int i);
+
+        void recycle();
+    }
+
+    /* loaded from: classes.dex */
+    public interface TransitionListener {
+        void onTransitionChange(MotionLayout motionLayout, int i, int i2, float f);
+
+        void onTransitionCompleted(MotionLayout motionLayout, int i);
+
+        void onTransitionStarted(MotionLayout motionLayout, int i, int i2);
+
+        void onTransitionTrigger(MotionLayout motionLayout, int i, boolean z, float f);
+    }
+
+    public static boolean willJump(float f, float f2, float f3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65572, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+            if (f > 0.0f) {
+                float f4 = f / f3;
+                return f2 + ((f * f4) - (((f3 * f4) * f4) / 2.0f)) > 1.0f;
+            }
+            float f5 = (-f) / f3;
+            return f2 + ((f * f5) + (((f3 * f5) * f5) / 2.0f)) < 0.0f;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
+    public boolean onNestedFling(View view2, float f, float f2, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048611, this, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2), Boolean.valueOf(z)})) == null) {
+            return false;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
+    public boolean onNestedPreFling(View view2, float f, float f2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048612, this, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            return false;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    @Override // androidx.core.view.NestedScrollingParent2
+    public void onNestedScroll(View view2, int i, int i2, int i3, int i4, int i5) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048614, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+        }
+    }
+
+    @Override // androidx.core.view.NestedScrollingParent2
+    public void onNestedScrollAccepted(View view2, View view3, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLII(1048616, this, view2, view3, i, i2) == null) {
+        }
+    }
 
     /* renamed from: androidx.constraintlayout.motion.widget.MotionLayout$2  reason: invalid class name */
     /* loaded from: classes.dex */
@@ -265,7 +344,10 @@ public class MotionLayout extends ConstraintLayout implements NestedScrollingPar
         public float getVelocity() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.this$0.mLastVelocity : invokeV.floatValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.this$0.mLastVelocity;
+            }
+            return invokeV.floatValue;
         }
     }
 
@@ -367,6 +449,14 @@ public class MotionLayout extends ConstraintLayout implements NestedScrollingPar
             }
         }
 
+        private void drawPathRelative(Canvas canvas) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(65541, this, canvas) == null) {
+                float[] fArr = this.mPoints;
+                canvas.drawLine(fArr[0], fArr[1], fArr[fArr.length - 2], fArr[fArr.length - 1], this.mPaintGraph);
+            }
+        }
+
         private void drawPathAsConfigured(Canvas canvas) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65538, this, canvas) == null) {
@@ -422,14 +512,6 @@ public class MotionLayout extends ConstraintLayout implements NestedScrollingPar
                 getTextBounds(str2, this.mTextPaint);
                 canvas.drawText(str2, f + 5.0f, max - ((max2 / 2.0f) - (this.mBounds.height() / 2)), this.mTextPaint);
                 canvas.drawLine(f, f2, f, Math.max(f4, f6), this.mPaintGraph);
-            }
-        }
-
-        private void drawPathRelative(Canvas canvas) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(65541, this, canvas) == null) {
-                float[] fArr = this.mPoints;
-                canvas.drawLine(fArr[0], fArr[1], fArr[fArr.length - 2], fArr[fArr.length - 1], this.mPaintGraph);
             }
         }
 
@@ -574,61 +656,60 @@ public class MotionLayout extends ConstraintLayout implements NestedScrollingPar
             }
         }
 
+        public void draw(Canvas canvas, HashMap<View, MotionController> hashMap, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLLII(1048576, this, canvas, hashMap, i, i2) == null) && hashMap != null && hashMap.size() != 0) {
+                canvas.save();
+                if (!this.this$0.isInEditMode() && (i2 & 1) == 2) {
+                    String str = this.this$0.getContext().getResources().getResourceName(this.this$0.mEndState) + ":" + this.this$0.getProgress();
+                    canvas.drawText(str, 10.0f, this.this$0.getHeight() - 30, this.mTextPaint);
+                    canvas.drawText(str, 11.0f, this.this$0.getHeight() - 29, this.mPaint);
+                }
+                for (MotionController motionController : hashMap.values()) {
+                    int drawPath = motionController.getDrawPath();
+                    if (i2 > 0 && drawPath == 0) {
+                        drawPath = 1;
+                    }
+                    if (drawPath != 0) {
+                        this.mKeyFrameCount = motionController.buildKeyFrames(this.mKeyFramePoints, this.mPathMode);
+                        if (drawPath >= 1) {
+                            int i3 = i / 16;
+                            float[] fArr = this.mPoints;
+                            if (fArr == null || fArr.length != i3 * 2) {
+                                this.mPoints = new float[i3 * 2];
+                                this.mPath = new Path();
+                            }
+                            int i4 = this.mShadowTranslate;
+                            canvas.translate(i4, i4);
+                            this.mPaint.setColor(1996488704);
+                            this.mFillPaint.setColor(1996488704);
+                            this.mPaintKeyframes.setColor(1996488704);
+                            this.mPaintGraph.setColor(1996488704);
+                            motionController.buildPath(this.mPoints, i3);
+                            drawAll(canvas, drawPath, this.mKeyFrameCount, motionController);
+                            this.mPaint.setColor(-21965);
+                            this.mPaintKeyframes.setColor(-2067046);
+                            this.mFillPaint.setColor(-2067046);
+                            this.mPaintGraph.setColor(-13391360);
+                            int i5 = this.mShadowTranslate;
+                            canvas.translate(-i5, -i5);
+                            drawAll(canvas, drawPath, this.mKeyFrameCount, motionController);
+                            if (drawPath == 5) {
+                                drawRectangle(canvas, motionController);
+                            }
+                        }
+                    }
+                }
+                canvas.restore();
+            }
+        }
+
         private void drawTranslation(Canvas canvas, float f, float f2, float f3, float f4) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(65546, this, new Object[]{canvas, Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
                 canvas.drawRect(f, f2, f3, f4, this.mPaintGraph);
                 canvas.drawLine(f, f2, f3, f4, this.mPaintGraph);
             }
-        }
-
-        public void draw(Canvas canvas, HashMap<View, MotionController> hashMap, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLII(1048576, this, canvas, hashMap, i, i2) == null) || hashMap == null || hashMap.size() == 0) {
-                return;
-            }
-            canvas.save();
-            if (!this.this$0.isInEditMode() && (i2 & 1) == 2) {
-                String str = this.this$0.getContext().getResources().getResourceName(this.this$0.mEndState) + ":" + this.this$0.getProgress();
-                canvas.drawText(str, 10.0f, this.this$0.getHeight() - 30, this.mTextPaint);
-                canvas.drawText(str, 11.0f, this.this$0.getHeight() - 29, this.mPaint);
-            }
-            for (MotionController motionController : hashMap.values()) {
-                int drawPath = motionController.getDrawPath();
-                if (i2 > 0 && drawPath == 0) {
-                    drawPath = 1;
-                }
-                if (drawPath != 0) {
-                    this.mKeyFrameCount = motionController.buildKeyFrames(this.mKeyFramePoints, this.mPathMode);
-                    if (drawPath >= 1) {
-                        int i3 = i / 16;
-                        float[] fArr = this.mPoints;
-                        if (fArr == null || fArr.length != i3 * 2) {
-                            this.mPoints = new float[i3 * 2];
-                            this.mPath = new Path();
-                        }
-                        int i4 = this.mShadowTranslate;
-                        canvas.translate(i4, i4);
-                        this.mPaint.setColor(1996488704);
-                        this.mFillPaint.setColor(1996488704);
-                        this.mPaintKeyframes.setColor(1996488704);
-                        this.mPaintGraph.setColor(1996488704);
-                        motionController.buildPath(this.mPoints, i3);
-                        drawAll(canvas, drawPath, this.mKeyFrameCount, motionController);
-                        this.mPaint.setColor(-21965);
-                        this.mPaintKeyframes.setColor(-2067046);
-                        this.mFillPaint.setColor(-2067046);
-                        this.mPaintGraph.setColor(-13391360);
-                        int i5 = this.mShadowTranslate;
-                        canvas.translate(-i5, -i5);
-                        drawAll(canvas, drawPath, this.mKeyFrameCount, motionController);
-                        if (drawPath == 5) {
-                            drawRectangle(canvas, motionController);
-                        }
-                    }
-                }
-            }
-            canvas.restore();
         }
 
         public void drawAll(Canvas canvas, int i, int i2, MotionController motionController) {
@@ -691,93 +772,273 @@ public class MotionLayout extends ConstraintLayout implements NestedScrollingPar
         }
 
         private void debugLayout(String str, ConstraintWidgetContainer constraintWidgetContainer) {
+            String str2;
+            String str3;
+            String str4;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(65537, this, str, constraintWidgetContainer) == null) {
-                String str2 = str + " " + Debug.getName((View) constraintWidgetContainer.getCompanionWidget());
-                Log.v(MotionLayout.TAG, str2 + "  ========= " + constraintWidgetContainer);
+                String str5 = str + " " + Debug.getName((View) constraintWidgetContainer.getCompanionWidget());
+                Log.v(MotionLayout.TAG, str5 + "  ========= " + constraintWidgetContainer);
                 int size = constraintWidgetContainer.getChildren().size();
                 for (int i = 0; i < size; i++) {
-                    String str3 = str2 + PreferencesUtil.LEFT_MOUNT + i + "] ";
+                    String str6 = str5 + PreferencesUtil.LEFT_MOUNT + i + "] ";
                     ConstraintWidget constraintWidget = constraintWidgetContainer.getChildren().get(i);
                     StringBuilder sb = new StringBuilder();
                     sb.append("");
-                    sb.append(constraintWidget.mTop.mTarget != null ? "T" : "_");
+                    String str7 = "_";
+                    if (constraintWidget.mTop.mTarget == null) {
+                        str2 = "_";
+                    } else {
+                        str2 = ExifInterface.GPS_DIRECTION_TRUE;
+                    }
+                    sb.append(str2);
                     String sb2 = sb.toString();
                     StringBuilder sb3 = new StringBuilder();
                     sb3.append(sb2);
-                    sb3.append(constraintWidget.mBottom.mTarget != null ? "B" : "_");
+                    if (constraintWidget.mBottom.mTarget == null) {
+                        str3 = "_";
+                    } else {
+                        str3 = "B";
+                    }
+                    sb3.append(str3);
                     String sb4 = sb3.toString();
                     StringBuilder sb5 = new StringBuilder();
                     sb5.append(sb4);
-                    sb5.append(constraintWidget.mLeft.mTarget != null ? "L" : "_");
+                    if (constraintWidget.mLeft.mTarget == null) {
+                        str4 = "_";
+                    } else {
+                        str4 = "L";
+                    }
+                    sb5.append(str4);
                     String sb6 = sb5.toString();
                     StringBuilder sb7 = new StringBuilder();
                     sb7.append(sb6);
-                    sb7.append(constraintWidget.mRight.mTarget != null ? "R" : "_");
+                    if (constraintWidget.mRight.mTarget != null) {
+                        str7 = "R";
+                    }
+                    sb7.append(str7);
                     String sb8 = sb7.toString();
                     View view2 = (View) constraintWidget.getCompanionWidget();
                     String name = Debug.getName(view2);
                     if (view2 instanceof TextView) {
                         name = name + "(" + ((Object) ((TextView) view2).getText()) + SmallTailInfo.EMOTION_SUFFIX;
                     }
-                    Log.v(MotionLayout.TAG, str3 + GlideException.IndentedAppendable.INDENT + name + " " + constraintWidget + " " + sb8);
+                    Log.v(MotionLayout.TAG, str6 + GlideException.IndentedAppendable.INDENT + name + " " + constraintWidget + " " + sb8);
                 }
-                Log.v(MotionLayout.TAG, str2 + " done. ");
+                Log.v(MotionLayout.TAG, str5 + " done. ");
             }
         }
 
         private void debugLayoutParam(String str, ConstraintLayout.LayoutParams layoutParams) {
+            String str2;
+            String str3;
+            String str4;
+            String str5;
+            String str6;
+            String str7;
+            String str8;
+            String str9;
+            String str10;
+            String str11;
+            String str12;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(65538, this, str, layoutParams) == null) {
                 StringBuilder sb = new StringBuilder();
                 sb.append(" ");
-                sb.append(layoutParams.startToStart != -1 ? "SS" : "__");
+                if (layoutParams.startToStart != -1) {
+                    str2 = "SS";
+                } else {
+                    str2 = "__";
+                }
+                sb.append(str2);
                 String sb2 = sb.toString();
                 StringBuilder sb3 = new StringBuilder();
                 sb3.append(sb2);
-                sb3.append(layoutParams.startToEnd != -1 ? "|SE" : "|__");
+                String str13 = "|__";
+                if (layoutParams.startToEnd == -1) {
+                    str3 = "|__";
+                } else {
+                    str3 = "|SE";
+                }
+                sb3.append(str3);
                 String sb4 = sb3.toString();
                 StringBuilder sb5 = new StringBuilder();
                 sb5.append(sb4);
-                sb5.append(layoutParams.endToStart != -1 ? "|ES" : "|__");
+                if (layoutParams.endToStart == -1) {
+                    str4 = "|__";
+                } else {
+                    str4 = "|ES";
+                }
+                sb5.append(str4);
                 String sb6 = sb5.toString();
                 StringBuilder sb7 = new StringBuilder();
                 sb7.append(sb6);
-                sb7.append(layoutParams.endToEnd != -1 ? "|EE" : "|__");
+                if (layoutParams.endToEnd == -1) {
+                    str5 = "|__";
+                } else {
+                    str5 = "|EE";
+                }
+                sb7.append(str5);
                 String sb8 = sb7.toString();
                 StringBuilder sb9 = new StringBuilder();
                 sb9.append(sb8);
-                sb9.append(layoutParams.leftToLeft != -1 ? "|LL" : "|__");
+                if (layoutParams.leftToLeft == -1) {
+                    str6 = "|__";
+                } else {
+                    str6 = "|LL";
+                }
+                sb9.append(str6);
                 String sb10 = sb9.toString();
                 StringBuilder sb11 = new StringBuilder();
                 sb11.append(sb10);
-                sb11.append(layoutParams.leftToRight != -1 ? "|LR" : "|__");
+                if (layoutParams.leftToRight == -1) {
+                    str7 = "|__";
+                } else {
+                    str7 = "|LR";
+                }
+                sb11.append(str7);
                 String sb12 = sb11.toString();
                 StringBuilder sb13 = new StringBuilder();
                 sb13.append(sb12);
-                sb13.append(layoutParams.rightToLeft != -1 ? "|RL" : "|__");
+                if (layoutParams.rightToLeft == -1) {
+                    str8 = "|__";
+                } else {
+                    str8 = "|RL";
+                }
+                sb13.append(str8);
                 String sb14 = sb13.toString();
                 StringBuilder sb15 = new StringBuilder();
                 sb15.append(sb14);
-                sb15.append(layoutParams.rightToRight != -1 ? "|RR" : "|__");
+                if (layoutParams.rightToRight == -1) {
+                    str9 = "|__";
+                } else {
+                    str9 = "|RR";
+                }
+                sb15.append(str9);
                 String sb16 = sb15.toString();
                 StringBuilder sb17 = new StringBuilder();
                 sb17.append(sb16);
-                sb17.append(layoutParams.topToTop != -1 ? "|TT" : "|__");
+                if (layoutParams.topToTop == -1) {
+                    str10 = "|__";
+                } else {
+                    str10 = "|TT";
+                }
+                sb17.append(str10);
                 String sb18 = sb17.toString();
                 StringBuilder sb19 = new StringBuilder();
                 sb19.append(sb18);
-                sb19.append(layoutParams.topToBottom != -1 ? "|TB" : "|__");
+                if (layoutParams.topToBottom == -1) {
+                    str11 = "|__";
+                } else {
+                    str11 = "|TB";
+                }
+                sb19.append(str11);
                 String sb20 = sb19.toString();
                 StringBuilder sb21 = new StringBuilder();
                 sb21.append(sb20);
-                sb21.append(layoutParams.bottomToTop != -1 ? "|BT" : "|__");
+                if (layoutParams.bottomToTop == -1) {
+                    str12 = "|__";
+                } else {
+                    str12 = "|BT";
+                }
+                sb21.append(str12);
                 String sb22 = sb21.toString();
                 StringBuilder sb23 = new StringBuilder();
                 sb23.append(sb22);
-                sb23.append(layoutParams.bottomToBottom != -1 ? "|BB" : "|__");
+                if (layoutParams.bottomToBottom != -1) {
+                    str13 = "|BB";
+                }
+                sb23.append(str13);
                 String sb24 = sb23.toString();
                 Log.v(MotionLayout.TAG, str + sb24);
+            }
+        }
+
+        public void measure(int i, int i2) {
+            boolean z;
+            boolean z2;
+            boolean z3;
+            boolean z4;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
+                int mode = View.MeasureSpec.getMode(i);
+                int mode2 = View.MeasureSpec.getMode(i2);
+                MotionLayout motionLayout = this.this$0;
+                motionLayout.mWidthMeasureMode = mode;
+                motionLayout.mHeightMeasureMode = mode2;
+                int optimizationLevel = motionLayout.getOptimizationLevel();
+                MotionLayout motionLayout2 = this.this$0;
+                if (motionLayout2.mCurrentState != motionLayout2.getStartState()) {
+                    if (this.mStart != null) {
+                        this.this$0.resolveSystem(this.mLayoutStart, optimizationLevel, i, i2);
+                    }
+                    this.this$0.resolveSystem(this.mLayoutEnd, optimizationLevel, i, i2);
+                } else {
+                    this.this$0.resolveSystem(this.mLayoutEnd, optimizationLevel, i, i2);
+                    if (this.mStart != null) {
+                        this.this$0.resolveSystem(this.mLayoutStart, optimizationLevel, i, i2);
+                    }
+                }
+                if ((this.this$0.getParent() instanceof MotionLayout) && mode == 1073741824 && mode2 == 1073741824) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                if (z) {
+                    MotionLayout motionLayout3 = this.this$0;
+                    motionLayout3.mWidthMeasureMode = mode;
+                    motionLayout3.mHeightMeasureMode = mode2;
+                    if (motionLayout3.mCurrentState != motionLayout3.getStartState()) {
+                        if (this.mStart != null) {
+                            this.this$0.resolveSystem(this.mLayoutStart, optimizationLevel, i, i2);
+                        }
+                        this.this$0.resolveSystem(this.mLayoutEnd, optimizationLevel, i, i2);
+                    } else {
+                        this.this$0.resolveSystem(this.mLayoutEnd, optimizationLevel, i, i2);
+                        if (this.mStart != null) {
+                            this.this$0.resolveSystem(this.mLayoutStart, optimizationLevel, i, i2);
+                        }
+                    }
+                    this.this$0.mStartWrapWidth = this.mLayoutStart.getWidth();
+                    this.this$0.mStartWrapHeight = this.mLayoutStart.getHeight();
+                    this.this$0.mEndWrapWidth = this.mLayoutEnd.getWidth();
+                    this.this$0.mEndWrapHeight = this.mLayoutEnd.getHeight();
+                    MotionLayout motionLayout4 = this.this$0;
+                    if (motionLayout4.mStartWrapWidth == motionLayout4.mEndWrapWidth && motionLayout4.mStartWrapHeight == motionLayout4.mEndWrapHeight) {
+                        z4 = false;
+                    } else {
+                        z4 = true;
+                    }
+                    motionLayout4.mMeasureDuringTransition = z4;
+                }
+                MotionLayout motionLayout5 = this.this$0;
+                int i3 = motionLayout5.mStartWrapWidth;
+                int i4 = motionLayout5.mStartWrapHeight;
+                int i5 = motionLayout5.mWidthMeasureMode;
+                if (i5 == Integer.MIN_VALUE || i5 == 0) {
+                    MotionLayout motionLayout6 = this.this$0;
+                    int i6 = motionLayout6.mStartWrapWidth;
+                    i3 = (int) (i6 + (motionLayout6.mPostInterpolationPosition * (motionLayout6.mEndWrapWidth - i6)));
+                }
+                int i7 = i3;
+                int i8 = this.this$0.mHeightMeasureMode;
+                if (i8 == Integer.MIN_VALUE || i8 == 0) {
+                    MotionLayout motionLayout7 = this.this$0;
+                    int i9 = motionLayout7.mStartWrapHeight;
+                    i4 = (int) (i9 + (motionLayout7.mPostInterpolationPosition * (motionLayout7.mEndWrapHeight - i9)));
+                }
+                int i10 = i4;
+                if (!this.mLayoutStart.isWidthMeasuredTooSmall() && !this.mLayoutEnd.isWidthMeasuredTooSmall()) {
+                    z2 = false;
+                } else {
+                    z2 = true;
+                }
+                if (!this.mLayoutStart.isHeightMeasuredTooSmall() && !this.mLayoutEnd.isHeightMeasuredTooSmall()) {
+                    z3 = false;
+                } else {
+                    z3 = true;
+                }
+                this.this$0.resolveMeasuredDimension(i, i2, i7, i10, z2, z3);
             }
         }
 
@@ -785,42 +1046,59 @@ public class MotionLayout extends ConstraintLayout implements NestedScrollingPar
             String str2;
             String str3;
             String str4;
+            String str5;
+            String str6;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(65539, this, str, constraintWidget) == null) {
                 StringBuilder sb = new StringBuilder();
                 sb.append(" ");
-                String str5 = "__";
-                if (constraintWidget.mTop.mTarget != null) {
-                    StringBuilder sb2 = new StringBuilder();
-                    sb2.append("T");
-                    sb2.append(constraintWidget.mTop.mTarget.mType == ConstraintAnchor.Type.TOP ? "T" : "B");
-                    str2 = sb2.toString();
-                } else {
+                String str7 = "B";
+                String str8 = "__";
+                if (constraintWidget.mTop.mTarget == null) {
                     str2 = "__";
+                } else {
+                    StringBuilder sb2 = new StringBuilder();
+                    sb2.append(ExifInterface.GPS_DIRECTION_TRUE);
+                    if (constraintWidget.mTop.mTarget.mType != ConstraintAnchor.Type.TOP) {
+                        str6 = "B";
+                    } else {
+                        str6 = ExifInterface.GPS_DIRECTION_TRUE;
+                    }
+                    sb2.append(str6);
+                    str2 = sb2.toString();
                 }
                 sb.append(str2);
                 String sb3 = sb.toString();
                 StringBuilder sb4 = new StringBuilder();
                 sb4.append(sb3);
-                if (constraintWidget.mBottom.mTarget != null) {
+                if (constraintWidget.mBottom.mTarget == null) {
+                    str3 = "__";
+                } else {
                     StringBuilder sb5 = new StringBuilder();
                     sb5.append("B");
-                    sb5.append(constraintWidget.mBottom.mTarget.mType == ConstraintAnchor.Type.TOP ? "T" : "B");
+                    if (constraintWidget.mBottom.mTarget.mType == ConstraintAnchor.Type.TOP) {
+                        str7 = ExifInterface.GPS_DIRECTION_TRUE;
+                    }
+                    sb5.append(str7);
                     str3 = sb5.toString();
-                } else {
-                    str3 = "__";
                 }
                 sb4.append(str3);
                 String sb6 = sb4.toString();
                 StringBuilder sb7 = new StringBuilder();
                 sb7.append(sb6);
-                if (constraintWidget.mLeft.mTarget != null) {
+                String str9 = "R";
+                if (constraintWidget.mLeft.mTarget == null) {
+                    str4 = "__";
+                } else {
                     StringBuilder sb8 = new StringBuilder();
                     sb8.append("L");
-                    sb8.append(constraintWidget.mLeft.mTarget.mType == ConstraintAnchor.Type.LEFT ? "L" : "R");
+                    if (constraintWidget.mLeft.mTarget.mType != ConstraintAnchor.Type.LEFT) {
+                        str5 = "R";
+                    } else {
+                        str5 = "L";
+                    }
+                    sb8.append(str5);
                     str4 = sb8.toString();
-                } else {
-                    str4 = "__";
                 }
                 sb7.append(str4);
                 String sb9 = sb7.toString();
@@ -829,10 +1107,13 @@ public class MotionLayout extends ConstraintLayout implements NestedScrollingPar
                 if (constraintWidget.mRight.mTarget != null) {
                     StringBuilder sb11 = new StringBuilder();
                     sb11.append("R");
-                    sb11.append(constraintWidget.mRight.mTarget.mType == ConstraintAnchor.Type.LEFT ? "L" : "R");
-                    str5 = sb11.toString();
+                    if (constraintWidget.mRight.mTarget.mType == ConstraintAnchor.Type.LEFT) {
+                        str9 = "L";
+                    }
+                    sb11.append(str9);
+                    str8 = sb11.toString();
                 }
-                sb10.append(str5);
+                sb10.append(str8);
                 String sb12 = sb10.toString();
                 Log.v(MotionLayout.TAG, str + sb12 + " ---  " + constraintWidget);
             }
@@ -1021,69 +1302,20 @@ public class MotionLayout extends ConstraintLayout implements NestedScrollingPar
         public boolean isNotConfiguredWith(int i, int i2) {
             InterceptResult invokeII;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeII = interceptable.invokeII(1048580, this, i, i2)) == null) ? (i == this.mStartId && i2 == this.mEndId) ? false : true : invokeII.booleanValue;
+            if (interceptable == null || (invokeII = interceptable.invokeII(1048580, this, i, i2)) == null) {
+                if (i == this.mStartId && i2 == this.mEndId) {
+                    return false;
+                }
+                return true;
+            }
+            return invokeII.booleanValue;
         }
 
-        public void measure(int i, int i2) {
+        public void setMeasuredId(int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
-                int mode = View.MeasureSpec.getMode(i);
-                int mode2 = View.MeasureSpec.getMode(i2);
-                MotionLayout motionLayout = this.this$0;
-                motionLayout.mWidthMeasureMode = mode;
-                motionLayout.mHeightMeasureMode = mode2;
-                int optimizationLevel = motionLayout.getOptimizationLevel();
-                MotionLayout motionLayout2 = this.this$0;
-                if (motionLayout2.mCurrentState == motionLayout2.getStartState()) {
-                    this.this$0.resolveSystem(this.mLayoutEnd, optimizationLevel, i, i2);
-                    if (this.mStart != null) {
-                        this.this$0.resolveSystem(this.mLayoutStart, optimizationLevel, i, i2);
-                    }
-                } else {
-                    if (this.mStart != null) {
-                        this.this$0.resolveSystem(this.mLayoutStart, optimizationLevel, i, i2);
-                    }
-                    this.this$0.resolveSystem(this.mLayoutEnd, optimizationLevel, i, i2);
-                }
-                if (((this.this$0.getParent() instanceof MotionLayout) && mode == 1073741824 && mode2 == 1073741824) ? false : true) {
-                    MotionLayout motionLayout3 = this.this$0;
-                    motionLayout3.mWidthMeasureMode = mode;
-                    motionLayout3.mHeightMeasureMode = mode2;
-                    if (motionLayout3.mCurrentState == motionLayout3.getStartState()) {
-                        this.this$0.resolveSystem(this.mLayoutEnd, optimizationLevel, i, i2);
-                        if (this.mStart != null) {
-                            this.this$0.resolveSystem(this.mLayoutStart, optimizationLevel, i, i2);
-                        }
-                    } else {
-                        if (this.mStart != null) {
-                            this.this$0.resolveSystem(this.mLayoutStart, optimizationLevel, i, i2);
-                        }
-                        this.this$0.resolveSystem(this.mLayoutEnd, optimizationLevel, i, i2);
-                    }
-                    this.this$0.mStartWrapWidth = this.mLayoutStart.getWidth();
-                    this.this$0.mStartWrapHeight = this.mLayoutStart.getHeight();
-                    this.this$0.mEndWrapWidth = this.mLayoutEnd.getWidth();
-                    this.this$0.mEndWrapHeight = this.mLayoutEnd.getHeight();
-                    MotionLayout motionLayout4 = this.this$0;
-                    motionLayout4.mMeasureDuringTransition = (motionLayout4.mStartWrapWidth == motionLayout4.mEndWrapWidth && motionLayout4.mStartWrapHeight == motionLayout4.mEndWrapHeight) ? false : true;
-                }
-                MotionLayout motionLayout5 = this.this$0;
-                int i3 = motionLayout5.mStartWrapWidth;
-                int i4 = motionLayout5.mStartWrapHeight;
-                int i5 = motionLayout5.mWidthMeasureMode;
-                if (i5 == Integer.MIN_VALUE || i5 == 0) {
-                    MotionLayout motionLayout6 = this.this$0;
-                    int i6 = motionLayout6.mStartWrapWidth;
-                    i3 = (int) (i6 + (motionLayout6.mPostInterpolationPosition * (motionLayout6.mEndWrapWidth - i6)));
-                }
-                int i7 = i3;
-                int i8 = this.this$0.mHeightMeasureMode;
-                if (i8 == Integer.MIN_VALUE || i8 == 0) {
-                    MotionLayout motionLayout7 = this.this$0;
-                    int i9 = motionLayout7.mStartWrapHeight;
-                    i4 = (int) (i9 + (motionLayout7.mPostInterpolationPosition * (motionLayout7.mEndWrapHeight - i9)));
-                }
-                this.this$0.resolveMeasuredDimension(i, i2, i7, i4, this.mLayoutStart.isWidthMeasuredTooSmall() || this.mLayoutEnd.isWidthMeasuredTooSmall(), this.mLayoutStart.isHeightMeasuredTooSmall() || this.mLayoutEnd.isHeightMeasuredTooSmall());
+            if (interceptable == null || interceptable.invokeII(1048583, this, i, i2) == null) {
+                this.mStartId = i;
+                this.mEndId = i2;
             }
         }
 
@@ -1094,35 +1326,155 @@ public class MotionLayout extends ConstraintLayout implements NestedScrollingPar
                 this.this$0.setupMotionViews();
             }
         }
-
-        public void setMeasuredId(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(1048583, this, i, i2) == null) {
-                this.mStartId = i;
-                this.mEndId = i2;
-            }
-        }
     }
 
     /* loaded from: classes.dex */
-    public interface MotionTracker {
-        void addMovement(MotionEvent motionEvent);
+    public static class MyTracker implements MotionTracker {
+        public static /* synthetic */ Interceptable $ic;
+        public static MyTracker me;
+        public transient /* synthetic */ FieldHolder $fh;
+        public VelocityTracker tracker;
 
-        void clear();
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-2095498381, "Landroidx/constraintlayout/motion/widget/MotionLayout$MyTracker;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-2095498381, "Landroidx/constraintlayout/motion/widget/MotionLayout$MyTracker;");
+                    return;
+                }
+            }
+            me = new MyTracker();
+        }
 
-        void computeCurrentVelocity(int i);
+        public MyTracker() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
 
-        void computeCurrentVelocity(int i, float f);
+        public static MyTracker obtain() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+                me.tracker = VelocityTracker.obtain();
+                return me;
+            }
+            return (MyTracker) invokeV.objValue;
+        }
 
-        float getXVelocity();
+        @Override // androidx.constraintlayout.motion.widget.MotionLayout.MotionTracker
+        public void clear() {
+            VelocityTracker velocityTracker;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (velocityTracker = this.tracker) != null) {
+                velocityTracker.clear();
+            }
+        }
 
-        float getXVelocity(int i);
+        @Override // androidx.constraintlayout.motion.widget.MotionLayout.MotionTracker
+        public float getXVelocity() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                VelocityTracker velocityTracker = this.tracker;
+                if (velocityTracker != null) {
+                    return velocityTracker.getXVelocity();
+                }
+                return 0.0f;
+            }
+            return invokeV.floatValue;
+        }
 
-        float getYVelocity();
+        @Override // androidx.constraintlayout.motion.widget.MotionLayout.MotionTracker
+        public float getYVelocity() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                VelocityTracker velocityTracker = this.tracker;
+                if (velocityTracker != null) {
+                    return velocityTracker.getYVelocity();
+                }
+                return 0.0f;
+            }
+            return invokeV.floatValue;
+        }
 
-        float getYVelocity(int i);
+        @Override // androidx.constraintlayout.motion.widget.MotionLayout.MotionTracker
+        public void recycle() {
+            VelocityTracker velocityTracker;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (velocityTracker = this.tracker) != null) {
+                velocityTracker.recycle();
+                this.tracker = null;
+            }
+        }
 
-        void recycle();
+        @Override // androidx.constraintlayout.motion.widget.MotionLayout.MotionTracker
+        public void addMovement(MotionEvent motionEvent) {
+            VelocityTracker velocityTracker;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, motionEvent) == null) && (velocityTracker = this.tracker) != null) {
+                velocityTracker.addMovement(motionEvent);
+            }
+        }
+
+        @Override // androidx.constraintlayout.motion.widget.MotionLayout.MotionTracker
+        public void computeCurrentVelocity(int i) {
+            VelocityTracker velocityTracker;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && (velocityTracker = this.tracker) != null) {
+                velocityTracker.computeCurrentVelocity(i);
+            }
+        }
+
+        @Override // androidx.constraintlayout.motion.widget.MotionLayout.MotionTracker
+        public float getXVelocity(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+                VelocityTracker velocityTracker = this.tracker;
+                if (velocityTracker != null) {
+                    return velocityTracker.getXVelocity(i);
+                }
+                return 0.0f;
+            }
+            return invokeI.floatValue;
+        }
+
+        @Override // androidx.constraintlayout.motion.widget.MotionLayout.MotionTracker
+        public float getYVelocity(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+                if (this.tracker != null) {
+                    return getYVelocity(i);
+                }
+                return 0.0f;
+            }
+            return invokeI.floatValue;
+        }
+
+        @Override // androidx.constraintlayout.motion.widget.MotionLayout.MotionTracker
+        public void computeCurrentVelocity(int i, float f) {
+            VelocityTracker velocityTracker;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) && (velocityTracker = this.tracker) != null) {
+                velocityTracker.computeCurrentVelocity(i, f);
+            }
+        }
     }
 
     /* loaded from: classes.dex */
@@ -1260,17 +1612,6 @@ public class MotionLayout extends ConstraintLayout implements NestedScrollingPar
         }
     }
 
-    /* loaded from: classes.dex */
-    public interface TransitionListener {
-        void onTransitionChange(MotionLayout motionLayout, int i, int i2, float f);
-
-        void onTransitionCompleted(MotionLayout motionLayout, int i);
-
-        void onTransitionStarted(MotionLayout motionLayout, int i, int i2);
-
-        void onTransitionTrigger(MotionLayout motionLayout, int i, boolean z, float f);
-    }
-
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
     public static final class TransitionState {
@@ -1325,18 +1666,24 @@ public class MotionLayout extends ConstraintLayout implements NestedScrollingPar
         public static TransitionState valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (TransitionState) Enum.valueOf(TransitionState.class, str) : (TransitionState) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (TransitionState) Enum.valueOf(TransitionState.class, str);
+            }
+            return (TransitionState) invokeL.objValue;
         }
 
         public static TransitionState[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (TransitionState[]) $VALUES.clone() : (TransitionState[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (TransitionState[]) $VALUES.clone();
+            }
+            return (TransitionState[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MotionLayout(@NonNull Context context) {
+    public MotionLayout(Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -1396,6 +1743,527 @@ public class MotionLayout extends ConstraintLayout implements NestedScrollingPar
         init(null);
     }
 
+    private void init(AttributeSet attributeSet) {
+        MotionScene motionScene;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65569, this, attributeSet) == null) {
+            IS_IN_EDIT_MODE = isInEditMode();
+            if (attributeSet != null) {
+                TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.MotionLayout);
+                int indexCount = obtainStyledAttributes.getIndexCount();
+                boolean z = true;
+                for (int i = 0; i < indexCount; i++) {
+                    int index = obtainStyledAttributes.getIndex(i);
+                    int i2 = 2;
+                    if (index == 2) {
+                        this.mScene = new MotionScene(getContext(), this, obtainStyledAttributes.getResourceId(index, -1));
+                    } else if (index == 1) {
+                        this.mCurrentState = obtainStyledAttributes.getResourceId(index, -1);
+                    } else if (index == 4) {
+                        this.mTransitionGoalPosition = obtainStyledAttributes.getFloat(index, 0.0f);
+                        this.mInTransition = true;
+                    } else if (index == 0) {
+                        z = obtainStyledAttributes.getBoolean(index, z);
+                    } else if (index == 5) {
+                        if (this.mDebugPath == 0) {
+                            if (!obtainStyledAttributes.getBoolean(index, false)) {
+                                i2 = 0;
+                            }
+                            this.mDebugPath = i2;
+                        }
+                    } else if (index == 3) {
+                        this.mDebugPath = obtainStyledAttributes.getInt(index, 0);
+                    }
+                }
+                obtainStyledAttributes.recycle();
+                if (this.mScene == null) {
+                    Log.e(TAG, "WARNING NO app:layoutDescription tag");
+                }
+                if (!z) {
+                    this.mScene = null;
+                }
+            }
+            if (this.mDebugPath != 0) {
+                checkStructure();
+            }
+            if (this.mCurrentState == -1 && (motionScene = this.mScene) != null) {
+                this.mCurrentState = motionScene.getStartId();
+                this.mBeginState = this.mScene.getStartId();
+                this.mEndState = this.mScene.getEndId();
+            }
+        }
+    }
+
+    @Override // android.view.ViewGroup
+    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        MotionScene.Transition transition;
+        TouchResponse touchResponse;
+        int touchRegionId;
+        RectF touchRegion;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048608, this, motionEvent)) == null) {
+            MotionScene motionScene = this.mScene;
+            if (motionScene != null && this.mInteractionEnabled && (transition = motionScene.mCurrentTransition) != null && transition.isEnabled() && (touchResponse = transition.getTouchResponse()) != null && ((motionEvent.getAction() != 0 || (touchRegion = touchResponse.getTouchRegion(this, new RectF())) == null || touchRegion.contains(motionEvent.getX(), motionEvent.getY())) && (touchRegionId = touchResponse.getTouchRegionId()) != -1)) {
+                View view2 = this.mRegionView;
+                if (view2 == null || view2.getId() != touchRegionId) {
+                    this.mRegionView = findViewById(touchRegionId);
+                }
+                View view3 = this.mRegionView;
+                if (view3 != null) {
+                    this.mBoundsCheck.set(view3.getLeft(), this.mRegionView.getTop(), this.mRegionView.getRight(), this.mRegionView.getBottom());
+                    if (this.mBoundsCheck.contains(motionEvent.getX(), motionEvent.getY()) && !handlesTouchEvent(0.0f, 0.0f, this.mRegionView, motionEvent)) {
+                        return onTouchEvent(motionEvent);
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void setTransition(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048639, this, i) == null) && this.mScene != null) {
+            MotionScene.Transition transition = getTransition(i);
+            this.mBeginState = transition.getStartConstraintSetId();
+            this.mEndState = transition.getEndConstraintSetId();
+            if (!isAttachedToWindow()) {
+                if (this.mStateCache == null) {
+                    this.mStateCache = new StateCache(this);
+                }
+                this.mStateCache.setStartState(this.mBeginState);
+                this.mStateCache.setEndState(this.mEndState);
+                return;
+            }
+            float f = Float.NaN;
+            int i2 = this.mCurrentState;
+            float f2 = 0.0f;
+            if (i2 == this.mBeginState) {
+                f = 0.0f;
+            } else if (i2 == this.mEndState) {
+                f = 1.0f;
+            }
+            this.mScene.setTransition(transition);
+            this.mModel.initFrom(this.mLayoutWidget, this.mScene.getConstraintSet(this.mBeginState), this.mScene.getConstraintSet(this.mEndState));
+            rebuildScene();
+            if (!Float.isNaN(f)) {
+                f2 = f;
+            }
+            this.mTransitionLastPosition = f2;
+            if (Float.isNaN(f)) {
+                Log.v(TAG, Debug.getLocation() + " transitionToStart ");
+                transitionToStart();
+                return;
+            }
+            setProgress(f);
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public MotionLayout(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mLastVelocity = 0.0f;
+        this.mBeginState = -1;
+        this.mCurrentState = -1;
+        this.mEndState = -1;
+        this.mLastWidthMeasureSpec = 0;
+        this.mLastHeightMeasureSpec = 0;
+        this.mInteractionEnabled = true;
+        this.mFrameArrayList = new HashMap<>();
+        this.mAnimationStartTime = 0L;
+        this.mTransitionDuration = 1.0f;
+        this.mTransitionPosition = 0.0f;
+        this.mTransitionLastPosition = 0.0f;
+        this.mTransitionGoalPosition = 0.0f;
+        this.mInTransition = false;
+        this.mIndirectTransition = false;
+        this.mDebugPath = 0;
+        this.mTemporalInterpolator = false;
+        this.mStopLogic = new StopLogic();
+        this.mDecelerateLogic = new DecelerateInterpolator(this);
+        this.firstDown = true;
+        this.mUndergoingMotion = false;
+        this.mKeepAnimating = false;
+        this.mOnShowHelpers = null;
+        this.mOnHideHelpers = null;
+        this.mTransitionListeners = null;
+        this.mFrames = 0;
+        this.mLastDrawTime = -1L;
+        this.mLastFps = 0.0f;
+        this.mListenerState = 0;
+        this.mListenerPosition = 0.0f;
+        this.mIsAnimating = false;
+        this.mMeasureDuringTransition = false;
+        this.mKeyCache = new KeyCache();
+        this.mInLayout = false;
+        this.mTransitionState = TransitionState.UNDEFINED;
+        this.mModel = new Model(this);
+        this.mNeedsFireTransitionCompleted = false;
+        this.mBoundsCheck = new RectF();
+        this.mRegionView = null;
+        this.mTransitionCompleted = new ArrayList<>();
+        init(attributeSet);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public MotionLayout(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.mLastVelocity = 0.0f;
+        this.mBeginState = -1;
+        this.mCurrentState = -1;
+        this.mEndState = -1;
+        this.mLastWidthMeasureSpec = 0;
+        this.mLastHeightMeasureSpec = 0;
+        this.mInteractionEnabled = true;
+        this.mFrameArrayList = new HashMap<>();
+        this.mAnimationStartTime = 0L;
+        this.mTransitionDuration = 1.0f;
+        this.mTransitionPosition = 0.0f;
+        this.mTransitionLastPosition = 0.0f;
+        this.mTransitionGoalPosition = 0.0f;
+        this.mInTransition = false;
+        this.mIndirectTransition = false;
+        this.mDebugPath = 0;
+        this.mTemporalInterpolator = false;
+        this.mStopLogic = new StopLogic();
+        this.mDecelerateLogic = new DecelerateInterpolator(this);
+        this.firstDown = true;
+        this.mUndergoingMotion = false;
+        this.mKeepAnimating = false;
+        this.mOnShowHelpers = null;
+        this.mOnHideHelpers = null;
+        this.mTransitionListeners = null;
+        this.mFrames = 0;
+        this.mLastDrawTime = -1L;
+        this.mLastFps = 0.0f;
+        this.mListenerState = 0;
+        this.mListenerPosition = 0.0f;
+        this.mIsAnimating = false;
+        this.mMeasureDuringTransition = false;
+        this.mKeyCache = new KeyCache();
+        this.mInLayout = false;
+        this.mTransitionState = TransitionState.UNDEFINED;
+        this.mModel = new Model(this);
+        this.mNeedsFireTransitionCompleted = false;
+        this.mBoundsCheck = new RectF();
+        this.mRegionView = null;
+        this.mTransitionCompleted = new ArrayList<>();
+        init(attributeSet);
+    }
+
+    public void touchAnimateTo(int i, float f, float f2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(1048646, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Float.valueOf(f2)}) != null) || this.mScene == null || this.mTransitionLastPosition == f) {
+            return;
+        }
+        this.mTemporalInterpolator = true;
+        this.mAnimationStartTime = getNanoTime();
+        this.mTransitionDuration = this.mScene.getDuration() / 1000.0f;
+        this.mTransitionGoalPosition = f;
+        this.mInTransition = true;
+        if (i != 0 && i != 1 && i != 2) {
+            if (i != 4) {
+                if (i == 5) {
+                    if (willJump(f2, this.mTransitionLastPosition, this.mScene.getMaxAcceleration())) {
+                        this.mDecelerateLogic.config(f2, this.mTransitionLastPosition, this.mScene.getMaxAcceleration());
+                        this.mInterpolator = this.mDecelerateLogic;
+                    } else {
+                        this.mStopLogic.config(this.mTransitionLastPosition, f, f2, this.mTransitionDuration, this.mScene.getMaxAcceleration(), this.mScene.getMaxVelocity());
+                        this.mLastVelocity = 0.0f;
+                        int i2 = this.mCurrentState;
+                        this.mTransitionGoalPosition = f;
+                        this.mCurrentState = i2;
+                        this.mInterpolator = this.mStopLogic;
+                    }
+                }
+            } else {
+                this.mDecelerateLogic.config(f2, this.mTransitionLastPosition, this.mScene.getMaxAcceleration());
+                this.mInterpolator = this.mDecelerateLogic;
+            }
+        } else {
+            if (i == 1) {
+                f = 0.0f;
+            } else if (i == 2) {
+                f = 1.0f;
+            }
+            this.mStopLogic.config(this.mTransitionLastPosition, f, f2, this.mTransitionDuration, this.mScene.getMaxAcceleration(), this.mScene.getMaxVelocity());
+            int i3 = this.mCurrentState;
+            this.mTransitionGoalPosition = f;
+            this.mCurrentState = i3;
+            this.mInterpolator = this.mStopLogic;
+        }
+        this.mTransitionInstantly = false;
+        this.mAnimationStartTime = getNanoTime();
+        invalidate();
+    }
+
+    public void addTransitionListener(TransitionListener transitionListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, transitionListener) == null) {
+            if (this.mTransitionListeners == null) {
+                this.mTransitionListeners = new ArrayList<>();
+            }
+            this.mTransitionListeners.add(transitionListener);
+        }
+    }
+
+    public void disableAutoTransition(boolean z) {
+        MotionScene motionScene;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) != null) || (motionScene = this.mScene) == null) {
+            return;
+        }
+        motionScene.disableAutoTransition(z);
+    }
+
+    public ConstraintSet getConstraintSet(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
+            MotionScene motionScene = this.mScene;
+            if (motionScene == null) {
+                return null;
+            }
+            return motionScene.getConstraintSet(i);
+        }
+        return (ConstraintSet) invokeI.objValue;
+    }
+
+    public String getConstraintSetNames(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
+            MotionScene motionScene = this.mScene;
+            if (motionScene == null) {
+                return null;
+            }
+            return motionScene.lookUpConstraintName(i);
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public void getDebugMode(boolean z) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+            if (z) {
+                i = 2;
+            } else {
+                i = 1;
+            }
+            this.mDebugPath = i;
+            invalidate();
+        }
+    }
+
+    public MotionScene.Transition getTransition(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i)) == null) {
+            return this.mScene.getTransitionById(i);
+        }
+        return (MotionScene.Transition) invokeI.objValue;
+    }
+
+    public int lookUpConstraintId(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, str)) == null) {
+            MotionScene motionScene = this.mScene;
+            if (motionScene == null) {
+                return 0;
+            }
+            return motionScene.lookUpConstraintId(str);
+        }
+        return invokeL.intValue;
+    }
+
+    @Override // android.view.View
+    public void onRtlPropertiesChanged(int i) {
+        MotionScene motionScene;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048618, this, i) == null) && (motionScene = this.mScene) != null) {
+            motionScene.setRtl(isRtl());
+        }
+    }
+
+    @Override // androidx.constraintlayout.widget.ConstraintLayout, android.view.ViewGroup
+    public void onViewRemoved(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048623, this, view2) == null) {
+            super.onViewRemoved(view2);
+            ArrayList<MotionHelper> arrayList = this.mOnShowHelpers;
+            if (arrayList != null) {
+                arrayList.remove(view2);
+            }
+            ArrayList<MotionHelper> arrayList2 = this.mOnHideHelpers;
+            if (arrayList2 != null) {
+                arrayList2.remove(view2);
+            }
+        }
+    }
+
+    @Override // androidx.constraintlayout.widget.ConstraintLayout
+    public void parseLayoutDescription(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048624, this, i) == null) {
+            this.mConstraintLayoutSpec = null;
+        }
+    }
+
+    public boolean removeTransitionListener(TransitionListener transitionListener) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048627, this, transitionListener)) == null) {
+            ArrayList<TransitionListener> arrayList = this.mTransitionListeners;
+            if (arrayList == null) {
+                return false;
+            }
+            return arrayList.remove(transitionListener);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void setDebugMode(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048629, this, i) == null) {
+            this.mDebugPath = i;
+            invalidate();
+        }
+    }
+
+    public void setInteractionEnabled(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048630, this, z) == null) {
+            this.mInteractionEnabled = z;
+        }
+    }
+
+    public void setInterpolatedProgress(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048631, this, f) == null) {
+            if (this.mScene != null) {
+                setState(TransitionState.MOVING);
+                Interpolator interpolator = this.mScene.getInterpolator();
+                if (interpolator != null) {
+                    setProgress(interpolator.getInterpolation(f));
+                    return;
+                }
+            }
+            setProgress(f);
+        }
+    }
+
+    public void setOnHide(float f) {
+        ArrayList<MotionHelper> arrayList;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeF(1048632, this, f) == null) && (arrayList = this.mOnHideHelpers) != null) {
+            int size = arrayList.size();
+            for (int i = 0; i < size; i++) {
+                this.mOnHideHelpers.get(i).setProgress(f);
+            }
+        }
+    }
+
+    public void setOnShow(float f) {
+        ArrayList<MotionHelper> arrayList;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeF(1048633, this, f) == null) && (arrayList = this.mOnShowHelpers) != null) {
+            int size = arrayList.size();
+            for (int i = 0; i < size; i++) {
+                this.mOnShowHelpers.get(i).setProgress(f);
+            }
+        }
+    }
+
+    public void setScene(MotionScene motionScene) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048636, this, motionScene) == null) {
+            this.mScene = motionScene;
+            motionScene.setRtl(isRtl());
+            rebuildScene();
+        }
+    }
+
+    public void setTransitionDuration(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048642, this, i) == null) {
+            MotionScene motionScene = this.mScene;
+            if (motionScene == null) {
+                Log.e(TAG, "MotionScene not defined");
+            } else {
+                motionScene.setDuration(i);
+            }
+        }
+    }
+
+    public void setTransitionListener(TransitionListener transitionListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048643, this, transitionListener) == null) {
+            this.mTransitionListener = transitionListener;
+        }
+    }
+
+    public void setTransitionState(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048644, this, bundle) == null) {
+            if (this.mStateCache == null) {
+                this.mStateCache = new StateCache(this);
+            }
+            this.mStateCache.setTransitionState(bundle);
+            if (isAttachedToWindow()) {
+                this.mStateCache.apply();
+            }
+        }
+    }
+
+    public void transitionToState(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048649, this, i) == null) {
+            if (!isAttachedToWindow()) {
+                if (this.mStateCache == null) {
+                    this.mStateCache = new StateCache(this);
+                }
+                this.mStateCache.setEndState(i);
+                return;
+            }
+            transitionToState(i, -1, -1);
+        }
+    }
+
     private void checkStructure() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65560, this) == null) {
@@ -1438,6 +2306,213 @@ public class MotionLayout extends ConstraintLayout implements NestedScrollingPar
         }
     }
 
+    private void checkStructure(int i, ConstraintSet constraintSet) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65561, this, i, constraintSet) == null) {
+            String name = Debug.getName(getContext(), i);
+            int childCount = getChildCount();
+            for (int i2 = 0; i2 < childCount; i2++) {
+                View childAt = getChildAt(i2);
+                int id = childAt.getId();
+                if (id == -1) {
+                    Log.w(TAG, "CHECK: " + name + " ALL VIEWS SHOULD HAVE ID's " + childAt.getClass().getName() + " does not!");
+                }
+                if (constraintSet.getConstraint(id) == null) {
+                    Log.w(TAG, "CHECK: " + name + " NO CONSTRAINTS for " + Debug.getName(childAt));
+                }
+            }
+            int[] knownIds = constraintSet.getKnownIds();
+            for (int i3 = 0; i3 < knownIds.length; i3++) {
+                int i4 = knownIds[i3];
+                String name2 = Debug.getName(getContext(), i4);
+                if (findViewById(knownIds[i3]) == null) {
+                    Log.w(TAG, "CHECK: " + name + " NO View matches id " + name2);
+                }
+                if (constraintSet.getHeight(i4) == -1) {
+                    Log.w(TAG, "CHECK: " + name + "(" + name2 + ") no LAYOUT_HEIGHT");
+                }
+                if (constraintSet.getWidth(i4) == -1) {
+                    Log.w(TAG, "CHECK: " + name + "(" + name2 + ") no LAYOUT_HEIGHT");
+                }
+            }
+        }
+    }
+
+    @Override // androidx.constraintlayout.widget.ConstraintLayout, android.view.View
+    public void onMeasure(int i, int i2) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048610, this, i, i2) == null) {
+            if (this.mScene == null) {
+                super.onMeasure(i, i2);
+                return;
+            }
+            boolean z2 = false;
+            if (this.mLastWidthMeasureSpec == i && this.mLastHeightMeasureSpec == i2) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (this.mNeedsFireTransitionCompleted) {
+                this.mNeedsFireTransitionCompleted = false;
+                onNewStateAttachHandlers();
+                processTransitionCompleted();
+                z = true;
+            }
+            if (this.mDirtyHierarchy) {
+                z = true;
+            }
+            this.mLastWidthMeasureSpec = i;
+            this.mLastHeightMeasureSpec = i2;
+            int startId = this.mScene.getStartId();
+            int endId = this.mScene.getEndId();
+            if ((z || this.mModel.isNotConfiguredWith(startId, endId)) && this.mBeginState != -1) {
+                super.onMeasure(i, i2);
+                this.mModel.initFrom(this.mLayoutWidget, this.mScene.getConstraintSet(startId), this.mScene.getConstraintSet(endId));
+                this.mModel.reEvaluateState();
+                this.mModel.setMeasuredId(startId, endId);
+            } else {
+                z2 = true;
+            }
+            if (this.mMeasureDuringTransition || z2) {
+                int paddingTop = getPaddingTop() + getPaddingBottom();
+                int width = this.mLayoutWidget.getWidth() + getPaddingLeft() + getPaddingRight();
+                int height = this.mLayoutWidget.getHeight() + paddingTop;
+                int i3 = this.mWidthMeasureMode;
+                if (i3 == Integer.MIN_VALUE || i3 == 0) {
+                    int i4 = this.mStartWrapWidth;
+                    width = (int) (i4 + (this.mPostInterpolationPosition * (this.mEndWrapWidth - i4)));
+                    requestLayout();
+                }
+                int i5 = this.mHeightMeasureMode;
+                if (i5 == Integer.MIN_VALUE || i5 == 0) {
+                    int i6 = this.mStartWrapHeight;
+                    height = (int) (i6 + (this.mPostInterpolationPosition * (this.mEndWrapHeight - i6)));
+                    requestLayout();
+                }
+                setMeasuredDimension(width, height);
+            }
+            evaluateLayout();
+        }
+    }
+
+    private void checkStructure(MotionScene.Transition transition) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65562, this, transition) == null) {
+            Log.v(TAG, "CHECK: transition = " + transition.debugString(getContext()));
+            Log.v(TAG, "CHECK: transition.setDuration = " + transition.getDuration());
+            if (transition.getStartConstraintSetId() == transition.getEndConstraintSetId()) {
+                Log.e(TAG, "CHECK: start and end constraint set should not be the same!");
+            }
+        }
+    }
+
+    public void animateTo(float f) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) != null) || this.mScene == null) {
+            return;
+        }
+        float f2 = this.mTransitionLastPosition;
+        float f3 = this.mTransitionPosition;
+        if (f2 != f3 && this.mTransitionInstantly) {
+            this.mTransitionLastPosition = f3;
+        }
+        float f4 = this.mTransitionLastPosition;
+        if (f4 == f) {
+            return;
+        }
+        this.mTemporalInterpolator = false;
+        this.mTransitionGoalPosition = f;
+        this.mTransitionDuration = this.mScene.getDuration() / 1000.0f;
+        setProgress(this.mTransitionGoalPosition);
+        this.mInterpolator = this.mScene.getInterpolator();
+        this.mTransitionInstantly = false;
+        this.mAnimationStartTime = getNanoTime();
+        this.mInTransition = true;
+        this.mTransitionPosition = f4;
+        this.mTransitionLastPosition = f4;
+        invalidate();
+    }
+
+    @Override // androidx.constraintlayout.widget.ConstraintLayout
+    public void loadLayoutDescription(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048604, this, i) == null) {
+            if (i != 0) {
+                try {
+                    this.mScene = new MotionScene(getContext(), this, i);
+                    if (Build.VERSION.SDK_INT < 19 || isAttachedToWindow()) {
+                        this.mScene.readFallback(this);
+                        this.mModel.initFrom(this.mLayoutWidget, this.mScene.getConstraintSet(this.mBeginState), this.mScene.getConstraintSet(this.mEndState));
+                        rebuildScene();
+                        this.mScene.setRtl(isRtl());
+                        return;
+                    }
+                    return;
+                } catch (Exception e) {
+                    throw new IllegalArgumentException("unable to parse MotionScene file", e);
+                }
+            }
+            this.mScene = null;
+        }
+    }
+
+    @Override // androidx.constraintlayout.widget.ConstraintLayout, android.view.ViewGroup
+    public void onViewAdded(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048622, this, view2) == null) {
+            super.onViewAdded(view2);
+            if (view2 instanceof MotionHelper) {
+                MotionHelper motionHelper = (MotionHelper) view2;
+                if (this.mTransitionListeners == null) {
+                    this.mTransitionListeners = new ArrayList<>();
+                }
+                this.mTransitionListeners.add(motionHelper);
+                if (motionHelper.isUsedOnShow()) {
+                    if (this.mOnShowHelpers == null) {
+                        this.mOnShowHelpers = new ArrayList<>();
+                    }
+                    this.mOnShowHelpers.add(motionHelper);
+                }
+                if (motionHelper.isUseOnHide()) {
+                    if (this.mOnHideHelpers == null) {
+                        this.mOnHideHelpers = new ArrayList<>();
+                    }
+                    this.mOnHideHelpers.add(motionHelper);
+                }
+            }
+        }
+    }
+
+    public void setState(TransitionState transitionState) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048638, this, transitionState) == null) {
+            if (transitionState == TransitionState.FINISHED && this.mCurrentState == -1) {
+                return;
+            }
+            TransitionState transitionState2 = this.mTransitionState;
+            this.mTransitionState = transitionState;
+            TransitionState transitionState3 = TransitionState.MOVING;
+            if (transitionState2 == transitionState3 && transitionState == transitionState3) {
+                fireTransitionChange();
+            }
+            int i = AnonymousClass2.$SwitchMap$androidx$constraintlayout$motion$widget$MotionLayout$TransitionState[transitionState2.ordinal()];
+            if (i != 1 && i != 2) {
+                if (i == 3 && transitionState == TransitionState.FINISHED) {
+                    fireTransitionCompleted();
+                    return;
+                }
+                return;
+            }
+            if (transitionState == TransitionState.MOVING) {
+                fireTransitionChange();
+            }
+            if (transitionState == TransitionState.FINISHED) {
+                fireTransitionCompleted();
+            }
+        }
+    }
+
     private void computeCurrentPositions() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65563, this) == null) {
@@ -1452,6 +2527,219 @@ public class MotionLayout extends ConstraintLayout implements NestedScrollingPar
         }
     }
 
+    public int[] getConstraintSetIds() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            MotionScene motionScene = this.mScene;
+            if (motionScene == null) {
+                return null;
+            }
+            return motionScene.getConstraintSetIds();
+        }
+        return (int[]) invokeV.objValue;
+    }
+
+    public int getCurrentState() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.mCurrentState;
+        }
+        return invokeV.intValue;
+    }
+
+    public ArrayList<MotionScene.Transition> getDefinedTransitions() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            MotionScene motionScene = this.mScene;
+            if (motionScene == null) {
+                return null;
+            }
+            return motionScene.getDefinedTransitions();
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public DesignTool getDesignTool() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            if (this.mDesignTool == null) {
+                this.mDesignTool = new DesignTool(this);
+            }
+            return this.mDesignTool;
+        }
+        return (DesignTool) invokeV.objValue;
+    }
+
+    public int getEndState() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.mEndState;
+        }
+        return invokeV.intValue;
+    }
+
+    public long getNanoTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return System.nanoTime();
+        }
+        return invokeV.longValue;
+    }
+
+    public float getProgress() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return this.mTransitionLastPosition;
+        }
+        return invokeV.floatValue;
+    }
+
+    public int getStartState() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return this.mBeginState;
+        }
+        return invokeV.intValue;
+    }
+
+    public float getTargetPosition() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return this.mTransitionGoalPosition;
+        }
+        return invokeV.floatValue;
+    }
+
+    public Bundle getTransitionState() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            if (this.mStateCache == null) {
+                this.mStateCache = new StateCache(this);
+            }
+            this.mStateCache.recordState();
+            return this.mStateCache.getTransitionState();
+        }
+        return (Bundle) invokeV.objValue;
+    }
+
+    public long getTransitionTimeMs() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            MotionScene motionScene = this.mScene;
+            if (motionScene != null) {
+                this.mTransitionDuration = motionScene.getDuration() / 1000.0f;
+            }
+            return this.mTransitionDuration * 1000.0f;
+        }
+        return invokeV.longValue;
+    }
+
+    public float getVelocity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            return this.mLastVelocity;
+        }
+        return invokeV.floatValue;
+    }
+
+    @Override // android.view.View
+    public boolean isAttachedToWindow() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            if (Build.VERSION.SDK_INT >= 19) {
+                return super.isAttachedToWindow();
+            }
+            if (getWindowToken() != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isInteractionEnabled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            return this.mInteractionEnabled;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public MotionTracker obtainVelocityTracker() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+            return MyTracker.obtain();
+        }
+        return (MotionTracker) invokeV.objValue;
+    }
+
+    @Deprecated
+    public void rebuildMotion() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048625, this) == null) {
+            Log.e(TAG, "This method is deprecated. Please call rebuildScene() instead.");
+            rebuildScene();
+        }
+    }
+
+    public void rebuildScene() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048626, this) == null) {
+            this.mModel.reEvaluateState();
+            invalidate();
+        }
+    }
+
+    @Override // androidx.constraintlayout.widget.ConstraintLayout, android.view.View, android.view.ViewParent
+    public void requestLayout() {
+        MotionScene motionScene;
+        MotionScene.Transition transition;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048628, this) == null) {
+            if (!this.mMeasureDuringTransition && this.mCurrentState == -1 && (motionScene = this.mScene) != null && (transition = motionScene.mCurrentTransition) != null && transition.getLayoutDuringTransition() == 0) {
+                return;
+            }
+            super.requestLayout();
+        }
+    }
+
+    public void transitionToEnd() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048647, this) == null) {
+            animateTo(1.0f);
+        }
+    }
+
+    public void transitionToStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048648, this) == null) {
+            animateTo(0.0f);
+        }
+    }
+
+    public void updateState() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048651, this) == null) {
+            this.mModel.initFrom(this.mLayoutWidget, this.mScene.getConstraintSet(this.mBeginState), this.mScene.getConstraintSet(this.mEndState));
+            rebuildScene();
+        }
+    }
+
     private void debugPos() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65564, this) == null) {
@@ -1462,86 +2750,91 @@ public class MotionLayout extends ConstraintLayout implements NestedScrollingPar
         }
     }
 
+    private void fireTransitionChange() {
+        ArrayList<TransitionListener> arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65566, this) == null) {
+            if ((this.mTransitionListener != null || ((arrayList = this.mTransitionListeners) != null && !arrayList.isEmpty())) && this.mListenerPosition != this.mTransitionPosition) {
+                if (this.mListenerState != -1) {
+                    TransitionListener transitionListener = this.mTransitionListener;
+                    if (transitionListener != null) {
+                        transitionListener.onTransitionStarted(this, this.mBeginState, this.mEndState);
+                    }
+                    ArrayList<TransitionListener> arrayList2 = this.mTransitionListeners;
+                    if (arrayList2 != null) {
+                        Iterator<TransitionListener> it = arrayList2.iterator();
+                        while (it.hasNext()) {
+                            it.next().onTransitionStarted(this, this.mBeginState, this.mEndState);
+                        }
+                    }
+                    this.mIsAnimating = true;
+                }
+                this.mListenerState = -1;
+                float f = this.mTransitionPosition;
+                this.mListenerPosition = f;
+                TransitionListener transitionListener2 = this.mTransitionListener;
+                if (transitionListener2 != null) {
+                    transitionListener2.onTransitionChange(this, this.mBeginState, this.mEndState, f);
+                }
+                ArrayList<TransitionListener> arrayList3 = this.mTransitionListeners;
+                if (arrayList3 != null) {
+                    Iterator<TransitionListener> it2 = arrayList3.iterator();
+                    while (it2.hasNext()) {
+                        it2.next().onTransitionChange(this, this.mBeginState, this.mEndState, this.mTransitionPosition);
+                    }
+                }
+                this.mIsAnimating = true;
+            }
+        }
+    }
+
     private void evaluateLayout() {
+        float f;
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65565, this) == null) {
             float signum = Math.signum(this.mTransitionGoalPosition - this.mTransitionLastPosition);
             long nanoTime = getNanoTime();
-            float f = this.mTransitionLastPosition + (!(this.mInterpolator instanceof StopLogic) ? ((((float) (nanoTime - this.mTransitionLastTime)) * signum) * 1.0E-9f) / this.mTransitionDuration : 0.0f);
+            if (!(this.mInterpolator instanceof StopLogic)) {
+                f = ((((float) (nanoTime - this.mTransitionLastTime)) * signum) * 1.0E-9f) / this.mTransitionDuration;
+            } else {
+                f = 0.0f;
+            }
+            float f2 = this.mTransitionLastPosition + f;
             if (this.mTransitionInstantly) {
-                f = this.mTransitionGoalPosition;
+                f2 = this.mTransitionGoalPosition;
             }
             int i = (signum > 0.0f ? 1 : (signum == 0.0f ? 0 : -1));
-            if ((i <= 0 || f < this.mTransitionGoalPosition) && (signum > 0.0f || f > this.mTransitionGoalPosition)) {
-                z = false;
-            } else {
-                f = this.mTransitionGoalPosition;
+            if ((i > 0 && f2 >= this.mTransitionGoalPosition) || (signum <= 0.0f && f2 <= this.mTransitionGoalPosition)) {
+                f2 = this.mTransitionGoalPosition;
                 z = true;
+            } else {
+                z = false;
             }
             Interpolator interpolator = this.mInterpolator;
             if (interpolator != null && !z) {
                 if (this.mTemporalInterpolator) {
-                    f = interpolator.getInterpolation(((float) (nanoTime - this.mAnimationStartTime)) * 1.0E-9f);
+                    f2 = interpolator.getInterpolation(((float) (nanoTime - this.mAnimationStartTime)) * 1.0E-9f);
                 } else {
-                    f = interpolator.getInterpolation(f);
+                    f2 = interpolator.getInterpolation(f2);
                 }
             }
-            if ((i > 0 && f >= this.mTransitionGoalPosition) || (signum <= 0.0f && f <= this.mTransitionGoalPosition)) {
-                f = this.mTransitionGoalPosition;
+            if ((i > 0 && f2 >= this.mTransitionGoalPosition) || (signum <= 0.0f && f2 <= this.mTransitionGoalPosition)) {
+                f2 = this.mTransitionGoalPosition;
             }
-            this.mPostInterpolationPosition = f;
+            this.mPostInterpolationPosition = f2;
             int childCount = getChildCount();
             long nanoTime2 = getNanoTime();
             for (int i2 = 0; i2 < childCount; i2++) {
                 View childAt = getChildAt(i2);
                 MotionController motionController = this.mFrameArrayList.get(childAt);
                 if (motionController != null) {
-                    motionController.interpolate(childAt, f, nanoTime2, this.mKeyCache);
+                    motionController.interpolate(childAt, f2, nanoTime2, this.mKeyCache);
                 }
             }
             if (this.mMeasureDuringTransition) {
                 requestLayout();
             }
-        }
-    }
-
-    private void fireTransitionChange() {
-        ArrayList<TransitionListener> arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65566, this) == null) {
-            if ((this.mTransitionListener == null && ((arrayList = this.mTransitionListeners) == null || arrayList.isEmpty())) || this.mListenerPosition == this.mTransitionPosition) {
-                return;
-            }
-            if (this.mListenerState != -1) {
-                TransitionListener transitionListener = this.mTransitionListener;
-                if (transitionListener != null) {
-                    transitionListener.onTransitionStarted(this, this.mBeginState, this.mEndState);
-                }
-                ArrayList<TransitionListener> arrayList2 = this.mTransitionListeners;
-                if (arrayList2 != null) {
-                    Iterator<TransitionListener> it = arrayList2.iterator();
-                    while (it.hasNext()) {
-                        it.next().onTransitionStarted(this, this.mBeginState, this.mEndState);
-                    }
-                }
-                this.mIsAnimating = true;
-            }
-            this.mListenerState = -1;
-            float f = this.mTransitionPosition;
-            this.mListenerPosition = f;
-            TransitionListener transitionListener2 = this.mTransitionListener;
-            if (transitionListener2 != null) {
-                transitionListener2.onTransitionChange(this, this.mBeginState, this.mEndState, f);
-            }
-            ArrayList<TransitionListener> arrayList3 = this.mTransitionListeners;
-            if (arrayList3 != null) {
-                Iterator<TransitionListener> it2 = arrayList3.iterator();
-                while (it2.hasNext()) {
-                    it2.next().onTransitionChange(this, this.mBeginState, this.mEndState, this.mTransitionPosition);
-                }
-            }
-            this.mIsAnimating = true;
         }
     }
 
@@ -1558,6 +2851,26 @@ public class MotionLayout extends ConstraintLayout implements NestedScrollingPar
                 while (it.hasNext()) {
                     it.next().onTransitionStarted(motionLayout, i, i2);
                 }
+            }
+        }
+    }
+
+    @Override // androidx.constraintlayout.widget.ConstraintLayout
+    public void setState(int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIII(1048637, this, i, i2, i3) == null) {
+            setState(TransitionState.SETUP);
+            this.mCurrentState = i;
+            this.mBeginState = -1;
+            this.mEndState = -1;
+            ConstraintLayoutStates constraintLayoutStates = this.mConstraintLayoutSpec;
+            if (constraintLayoutStates != null) {
+                constraintLayoutStates.updateConstraints(i, i2, i3);
+                return;
+            }
+            MotionScene motionScene = this.mScene;
+            if (motionScene != null) {
+                motionScene.getConstraintSet(i).applyTo(this);
             }
         }
     }
@@ -1588,54 +2901,6 @@ public class MotionLayout extends ConstraintLayout implements NestedScrollingPar
         return invokeCommon.booleanValue;
     }
 
-    private void init(AttributeSet attributeSet) {
-        MotionScene motionScene;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65569, this, attributeSet) == null) {
-            IS_IN_EDIT_MODE = isInEditMode();
-            if (attributeSet != null) {
-                TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.MotionLayout);
-                int indexCount = obtainStyledAttributes.getIndexCount();
-                boolean z = true;
-                for (int i = 0; i < indexCount; i++) {
-                    int index = obtainStyledAttributes.getIndex(i);
-                    if (index == 2) {
-                        this.mScene = new MotionScene(getContext(), this, obtainStyledAttributes.getResourceId(index, -1));
-                    } else if (index == 1) {
-                        this.mCurrentState = obtainStyledAttributes.getResourceId(index, -1);
-                    } else if (index == 4) {
-                        this.mTransitionGoalPosition = obtainStyledAttributes.getFloat(index, 0.0f);
-                        this.mInTransition = true;
-                    } else if (index == 0) {
-                        z = obtainStyledAttributes.getBoolean(index, z);
-                    } else if (index == 5) {
-                        if (this.mDebugPath == 0) {
-                            this.mDebugPath = obtainStyledAttributes.getBoolean(index, false) ? 2 : 0;
-                        }
-                    } else if (index == 3) {
-                        this.mDebugPath = obtainStyledAttributes.getInt(index, 0);
-                    }
-                }
-                obtainStyledAttributes.recycle();
-                if (this.mScene == null) {
-                    Log.e(TAG, "WARNING NO app:layoutDescription tag");
-                }
-                if (!z) {
-                    this.mScene = null;
-                }
-            }
-            if (this.mDebugPath != 0) {
-                checkStructure();
-            }
-            if (this.mCurrentState != -1 || (motionScene = this.mScene) == null) {
-                return;
-            }
-            this.mCurrentState = motionScene.getStartId();
-            this.mBeginState = this.mScene.getStartId();
-            this.mEndState = this.mScene.getEndId();
-        }
-    }
-
     private void processTransitionCompleted() {
         ArrayList<TransitionListener> arrayList;
         Interceptable interceptable = $ic;
@@ -1663,13 +2928,80 @@ public class MotionLayout extends ConstraintLayout implements NestedScrollingPar
         }
     }
 
+    public void fireTransitionCompleted() {
+        int i;
+        ArrayList<TransitionListener> arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            if ((this.mTransitionListener != null || ((arrayList = this.mTransitionListeners) != null && !arrayList.isEmpty())) && this.mListenerState == -1) {
+                this.mListenerState = this.mCurrentState;
+                if (!this.mTransitionCompleted.isEmpty()) {
+                    ArrayList<Integer> arrayList2 = this.mTransitionCompleted;
+                    i = arrayList2.get(arrayList2.size() - 1).intValue();
+                } else {
+                    i = -1;
+                }
+                int i2 = this.mCurrentState;
+                if (i != i2 && i2 != -1) {
+                    this.mTransitionCompleted.add(Integer.valueOf(i2));
+                }
+            }
+            processTransitionCompleted();
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void onAttachedToWindow() {
+        MotionScene.Transition transition;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
+            super.onAttachedToWindow();
+            MotionScene motionScene = this.mScene;
+            if (motionScene != null && (i = this.mCurrentState) != -1) {
+                ConstraintSet constraintSet = motionScene.getConstraintSet(i);
+                this.mScene.readFallback(this);
+                if (constraintSet != null) {
+                    constraintSet.applyTo(this);
+                }
+                this.mBeginState = this.mCurrentState;
+            }
+            onNewStateAttachHandlers();
+            StateCache stateCache = this.mStateCache;
+            if (stateCache != null) {
+                stateCache.apply();
+                return;
+            }
+            MotionScene motionScene2 = this.mScene;
+            if (motionScene2 != null && (transition = motionScene2.mCurrentTransition) != null && transition.getAutoTransition() == 4) {
+                transitionToEnd();
+                setState(TransitionState.SETUP);
+                setState(TransitionState.MOVING);
+            }
+        }
+    }
+
+    @Override // android.view.View
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048645, this)) == null) {
+            Context context = getContext();
+            return Debug.getName(context, this.mBeginState) + "->" + Debug.getName(context, this.mEndState) + " (pos:" + this.mTransitionLastPosition + " Dpos/Dt:" + this.mLastVelocity;
+        }
+        return (String) invokeV.objValue;
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public void setupMotionViews() {
+        boolean z;
+        float f;
+        float f2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65571, this) == null) {
             int childCount = getChildCount();
             this.mModel.build();
-            boolean z = true;
+            boolean z2 = true;
             this.mInTransition = true;
             int width = getWidth();
             int height = getHeight();
@@ -1692,126 +3024,80 @@ public class MotionLayout extends ConstraintLayout implements NestedScrollingPar
             }
             float staggered = this.mScene.getStaggered();
             if (staggered != 0.0f) {
-                boolean z2 = ((double) staggered) < 0.0d;
-                float abs = Math.abs(staggered);
-                float f = -3.4028235E38f;
-                float f2 = Float.MAX_VALUE;
-                int i4 = 0;
-                float f3 = Float.MAX_VALUE;
-                float f4 = -3.4028235E38f;
-                while (true) {
-                    if (i4 >= childCount) {
-                        z = false;
-                        break;
-                    }
-                    MotionController motionController3 = this.mFrameArrayList.get(getChildAt(i4));
-                    if (!Float.isNaN(motionController3.mMotionStagger)) {
-                        break;
-                    }
-                    float finalX = motionController3.getFinalX();
-                    float finalY = motionController3.getFinalY();
-                    float f5 = z2 ? finalY - finalX : finalY + finalX;
-                    f3 = Math.min(f3, f5);
-                    f4 = Math.max(f4, f5);
-                    i4++;
+                if (staggered < 0.0d) {
+                    z = true;
+                } else {
+                    z = false;
                 }
-                if (!z) {
+                float abs = Math.abs(staggered);
+                float f3 = -3.4028235E38f;
+                float f4 = Float.MAX_VALUE;
+                int i4 = 0;
+                float f5 = Float.MAX_VALUE;
+                float f6 = -3.4028235E38f;
+                while (true) {
+                    if (i4 < childCount) {
+                        MotionController motionController3 = this.mFrameArrayList.get(getChildAt(i4));
+                        if (!Float.isNaN(motionController3.mMotionStagger)) {
+                            break;
+                        }
+                        float finalX = motionController3.getFinalX();
+                        float finalY = motionController3.getFinalY();
+                        if (z) {
+                            f2 = finalY - finalX;
+                        } else {
+                            f2 = finalY + finalX;
+                        }
+                        f5 = Math.min(f5, f2);
+                        f6 = Math.max(f6, f2);
+                        i4++;
+                    } else {
+                        z2 = false;
+                        break;
+                    }
+                }
+                if (z2) {
+                    for (int i5 = 0; i5 < childCount; i5++) {
+                        MotionController motionController4 = this.mFrameArrayList.get(getChildAt(i5));
+                        if (!Float.isNaN(motionController4.mMotionStagger)) {
+                            f4 = Math.min(f4, motionController4.mMotionStagger);
+                            f3 = Math.max(f3, motionController4.mMotionStagger);
+                        }
+                    }
                     while (i < childCount) {
-                        MotionController motionController4 = this.mFrameArrayList.get(getChildAt(i));
-                        float finalX2 = motionController4.getFinalX();
-                        float finalY2 = motionController4.getFinalY();
-                        float f6 = z2 ? finalY2 - finalX2 : finalY2 + finalX2;
-                        motionController4.mStaggerScale = 1.0f / (1.0f - abs);
-                        motionController4.mStaggerOffset = abs - (((f6 - f3) * abs) / (f4 - f3));
+                        MotionController motionController5 = this.mFrameArrayList.get(getChildAt(i));
+                        if (!Float.isNaN(motionController5.mMotionStagger)) {
+                            motionController5.mStaggerScale = 1.0f / (1.0f - abs);
+                            if (z) {
+                                motionController5.mStaggerOffset = abs - (((f3 - motionController5.mMotionStagger) / (f3 - f4)) * abs);
+                            } else {
+                                motionController5.mStaggerOffset = abs - (((motionController5.mMotionStagger - f4) * abs) / (f3 - f4));
+                            }
+                        }
                         i++;
                     }
                     return;
                 }
-                for (int i5 = 0; i5 < childCount; i5++) {
-                    MotionController motionController5 = this.mFrameArrayList.get(getChildAt(i5));
-                    if (!Float.isNaN(motionController5.mMotionStagger)) {
-                        f2 = Math.min(f2, motionController5.mMotionStagger);
-                        f = Math.max(f, motionController5.mMotionStagger);
-                    }
-                }
                 while (i < childCount) {
                     MotionController motionController6 = this.mFrameArrayList.get(getChildAt(i));
-                    if (!Float.isNaN(motionController6.mMotionStagger)) {
-                        motionController6.mStaggerScale = 1.0f / (1.0f - abs);
-                        if (z2) {
-                            motionController6.mStaggerOffset = abs - (((f - motionController6.mMotionStagger) / (f - f2)) * abs);
-                        } else {
-                            motionController6.mStaggerOffset = abs - (((motionController6.mMotionStagger - f2) * abs) / (f - f2));
-                        }
+                    float finalX2 = motionController6.getFinalX();
+                    float finalY2 = motionController6.getFinalY();
+                    if (z) {
+                        f = finalY2 - finalX2;
+                    } else {
+                        f = finalY2 + finalX2;
                     }
+                    motionController6.mStaggerScale = 1.0f / (1.0f - abs);
+                    motionController6.mStaggerOffset = abs - (((f - f5) * abs) / (f6 - f5));
                     i++;
                 }
             }
         }
     }
 
-    public static boolean willJump(float f, float f2, float f3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65572, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            if (f > 0.0f) {
-                float f4 = f / f3;
-                return f2 + ((f * f4) - (((f3 * f4) * f4) / 2.0f)) > 1.0f;
-            }
-            float f5 = (-f) / f3;
-            return f2 + ((f * f5) + (((f3 * f5) * f5) / 2.0f)) < 0.0f;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public void addTransitionListener(TransitionListener transitionListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, transitionListener) == null) {
-            if (this.mTransitionListeners == null) {
-                this.mTransitionListeners = new ArrayList<>();
-            }
-            this.mTransitionListeners.add(transitionListener);
-        }
-    }
-
-    public void animateTo(float f) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) || this.mScene == null) {
-            return;
-        }
-        float f2 = this.mTransitionLastPosition;
-        float f3 = this.mTransitionPosition;
-        if (f2 != f3 && this.mTransitionInstantly) {
-            this.mTransitionLastPosition = f3;
-        }
-        float f4 = this.mTransitionLastPosition;
-        if (f4 == f) {
-            return;
-        }
-        this.mTemporalInterpolator = false;
-        this.mTransitionGoalPosition = f;
-        this.mTransitionDuration = this.mScene.getDuration() / 1000.0f;
-        setProgress(this.mTransitionGoalPosition);
-        this.mInterpolator = this.mScene.getInterpolator();
-        this.mTransitionInstantly = false;
-        this.mAnimationStartTime = getNanoTime();
-        this.mInTransition = true;
-        this.mTransitionPosition = f4;
-        this.mTransitionLastPosition = f4;
-        invalidate();
-    }
-
-    public void disableAutoTransition(boolean z) {
-        MotionScene motionScene;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || (motionScene = this.mScene) == null) {
-            return;
-        }
-        motionScene.disableAutoTransition(z);
-    }
-
     @Override // androidx.constraintlayout.widget.ConstraintLayout, android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
+        String state;
         long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
@@ -1842,7 +3128,12 @@ public class MotionLayout extends ConstraintLayout implements NestedScrollingPar
                 sb.append(((int) (getProgress() * 1000.0f)) / 10.0f);
                 sb.append(" ) state=");
                 int i = this.mCurrentState;
-                sb.append(i == -1 ? SessionMonitorEngine.PUBLIC_DATA_UNDIFNED : Debug.getState(this, i));
+                if (i == -1) {
+                    state = SessionMonitorEngine.PUBLIC_DATA_UNDIFNED;
+                } else {
+                    state = Debug.getState(this, i);
+                }
+                sb.append(state);
                 String sb2 = sb.toString();
                 paint.setColor(-16777216);
                 canvas.drawText(sb2, 11.0f, getHeight() - 29, paint);
@@ -1884,12 +3175,54 @@ public class MotionLayout extends ConstraintLayout implements NestedScrollingPar
         }
     }
 
+    public void setProgress(float f, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048635, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            if (!isAttachedToWindow()) {
+                if (this.mStateCache == null) {
+                    this.mStateCache = new StateCache(this);
+                }
+                this.mStateCache.setProgress(f);
+                this.mStateCache.setVelocity(f2);
+                return;
+            }
+            setProgress(f);
+            setState(TransitionState.MOVING);
+            this.mLastVelocity = f2;
+            animateTo(1.0f);
+        }
+    }
+
+    public void setTransition(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048640, this, i, i2) == null) {
+            if (!isAttachedToWindow()) {
+                if (this.mStateCache == null) {
+                    this.mStateCache = new StateCache(this);
+                }
+                this.mStateCache.setStartState(i);
+                this.mStateCache.setEndState(i2);
+                return;
+            }
+            MotionScene motionScene = this.mScene;
+            if (motionScene != null) {
+                this.mBeginState = i;
+                this.mEndState = i2;
+                motionScene.setTransition(i, i2);
+                this.mModel.initFrom(this.mLayoutWidget, this.mScene.getConstraintSet(i), this.mScene.getConstraintSet(i2));
+                rebuildScene();
+                this.mTransitionLastPosition = 0.0f;
+                transitionToStart();
+            }
+        }
+    }
+
     public void evaluate(boolean z) {
         float f;
         boolean z2;
+        boolean z3;
         int i;
         float interpolation;
-        boolean z3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
             if (this.mTransitionLastTime == -1) {
@@ -1899,27 +3232,28 @@ public class MotionLayout extends ConstraintLayout implements NestedScrollingPar
             if (f2 > 0.0f && f2 < 1.0f) {
                 this.mCurrentState = -1;
             }
-            boolean z4 = false;
+            boolean z4 = true;
+            boolean z5 = false;
             if (this.mKeepAnimating || (this.mInTransition && (z || this.mTransitionGoalPosition != this.mTransitionLastPosition))) {
                 float signum = Math.signum(this.mTransitionGoalPosition - this.mTransitionLastPosition);
                 long nanoTime = getNanoTime();
-                if (this.mInterpolator instanceof MotionInterpolator) {
-                    f = 0.0f;
-                } else {
+                if (!(this.mInterpolator instanceof MotionInterpolator)) {
                     f = ((((float) (nanoTime - this.mTransitionLastTime)) * signum) * 1.0E-9f) / this.mTransitionDuration;
                     this.mLastVelocity = f;
+                } else {
+                    f = 0.0f;
                 }
                 float f3 = this.mTransitionLastPosition + f;
                 if (this.mTransitionInstantly) {
                     f3 = this.mTransitionGoalPosition;
                 }
                 int i2 = (signum > 0.0f ? 1 : (signum == 0.0f ? 0 : -1));
-                if ((i2 <= 0 || f3 < this.mTransitionGoalPosition) && (signum > 0.0f || f3 > this.mTransitionGoalPosition)) {
-                    z2 = false;
-                } else {
+                if ((i2 > 0 && f3 >= this.mTransitionGoalPosition) || (signum <= 0.0f && f3 <= this.mTransitionGoalPosition)) {
                     f3 = this.mTransitionGoalPosition;
                     this.mInTransition = false;
                     z2 = true;
+                } else {
+                    z2 = false;
                 }
                 this.mTransitionLastPosition = f3;
                 this.mTransitionPosition = f3;
@@ -1982,19 +3316,23 @@ public class MotionLayout extends ConstraintLayout implements NestedScrollingPar
                         this.mKeepAnimating = motionController.interpolate(childAt, f3, nanoTime2, this.mKeyCache) | this.mKeepAnimating;
                     }
                 }
-                boolean z5 = (i2 > 0 && f3 >= this.mTransitionGoalPosition) || (signum <= 0.0f && f3 <= this.mTransitionGoalPosition);
-                if (!this.mKeepAnimating && !this.mInTransition && z5) {
+                if ((i2 > 0 && f3 >= this.mTransitionGoalPosition) || (signum <= 0.0f && f3 <= this.mTransitionGoalPosition)) {
+                    z3 = true;
+                } else {
+                    z3 = false;
+                }
+                if (!this.mKeepAnimating && !this.mInTransition && z3) {
                     setState(TransitionState.FINISHED);
                 }
                 if (this.mMeasureDuringTransition) {
                     requestLayout();
                 }
-                this.mKeepAnimating = (!z5) | this.mKeepAnimating;
+                this.mKeepAnimating = (!z3) | this.mKeepAnimating;
                 if (f3 <= 0.0f && (i = this.mBeginState) != -1 && this.mCurrentState != i) {
                     this.mCurrentState = i;
                     this.mScene.getConstraintSet(i).applyCustomAttributes(this);
                     setState(TransitionState.FINISHED);
-                    z4 = true;
+                    z5 = true;
                 }
                 if (f3 >= 1.0d) {
                     int i5 = this.mCurrentState;
@@ -2003,13 +3341,15 @@ public class MotionLayout extends ConstraintLayout implements NestedScrollingPar
                         this.mCurrentState = i6;
                         this.mScene.getConstraintSet(i6).applyCustomAttributes(this);
                         setState(TransitionState.FINISHED);
-                        z4 = true;
+                        z5 = true;
                     }
                 }
-                if (this.mKeepAnimating || this.mInTransition) {
+                if (!this.mKeepAnimating && !this.mInTransition) {
+                    if ((i2 > 0 && i3 == 0) || (signum < 0.0f && f3 == 0.0f)) {
+                        setState(TransitionState.FINISHED);
+                    }
+                } else {
                     invalidate();
-                } else if ((i2 > 0 && i3 == 0) || (signum < 0.0f && f3 == 0.0f)) {
-                    setState(TransitionState.FINISHED);
                 }
                 if ((!this.mKeepAnimating && this.mInTransition && i2 > 0 && i3 == 0) || (signum < 0.0f && f3 == 0.0f)) {
                     onNewStateAttachHandlers();
@@ -2017,47 +3357,29 @@ public class MotionLayout extends ConstraintLayout implements NestedScrollingPar
             }
             float f4 = this.mTransitionLastPosition;
             if (f4 >= 1.0f) {
-                z3 = this.mCurrentState == this.mEndState ? z4 : true;
+                if (this.mCurrentState == this.mEndState) {
+                    z4 = z5;
+                }
                 this.mCurrentState = this.mEndState;
             } else {
                 if (f4 <= 0.0f) {
-                    z3 = this.mCurrentState == this.mBeginState ? z4 : true;
+                    if (this.mCurrentState == this.mBeginState) {
+                        z4 = z5;
+                    }
                     this.mCurrentState = this.mBeginState;
                 }
-                this.mNeedsFireTransitionCompleted |= z4;
-                if (z4 && !this.mInLayout) {
+                this.mNeedsFireTransitionCompleted |= z5;
+                if (z5 && !this.mInLayout) {
                     requestLayout();
                 }
                 this.mTransitionPosition = this.mTransitionLastPosition;
             }
-            z4 = z3;
-            this.mNeedsFireTransitionCompleted |= z4;
-            if (z4) {
+            z5 = z4;
+            this.mNeedsFireTransitionCompleted |= z5;
+            if (z5) {
                 requestLayout();
             }
             this.mTransitionPosition = this.mTransitionLastPosition;
-        }
-    }
-
-    public void fireTransitionCompleted() {
-        int i;
-        ArrayList<TransitionListener> arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if ((this.mTransitionListener != null || ((arrayList = this.mTransitionListeners) != null && !arrayList.isEmpty())) && this.mListenerState == -1) {
-                this.mListenerState = this.mCurrentState;
-                if (this.mTransitionCompleted.isEmpty()) {
-                    i = -1;
-                } else {
-                    ArrayList<Integer> arrayList2 = this.mTransitionCompleted;
-                    i = arrayList2.get(arrayList2.size() - 1).intValue();
-                }
-                int i2 = this.mCurrentState;
-                if (i != i2 && i2 != -1) {
-                    this.mTransitionCompleted.add(Integer.valueOf(i2));
-                }
-            }
-            processTransitionCompleted();
         }
     }
 
@@ -2102,150 +3424,30 @@ public class MotionLayout extends ConstraintLayout implements NestedScrollingPar
         }
     }
 
-    public ConstraintSet getConstraintSet(int i) {
-        InterceptResult invokeI;
+    @Override // androidx.constraintlayout.widget.ConstraintLayout, android.view.ViewGroup, android.view.View
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
-            MotionScene motionScene = this.mScene;
-            if (motionScene == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeCommon(1048609, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            this.mInLayout = true;
+            try {
+                if (this.mScene == null) {
+                    super.onLayout(z, i, i2, i3, i4);
+                    return;
+                }
+                int i5 = i3 - i;
+                int i6 = i4 - i2;
+                if (this.mLastLayoutWidth != i5 || this.mLastLayoutHeight != i6) {
+                    rebuildScene();
+                    evaluate(true);
+                }
+                this.mLastLayoutWidth = i5;
+                this.mLastLayoutHeight = i6;
+                this.mOldWidth = i5;
+                this.mOldHeight = i6;
+            } finally {
+                this.mInLayout = false;
             }
-            return motionScene.getConstraintSet(i);
         }
-        return (ConstraintSet) invokeI.objValue;
-    }
-
-    public int[] getConstraintSetIds() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            MotionScene motionScene = this.mScene;
-            if (motionScene == null) {
-                return null;
-            }
-            return motionScene.getConstraintSetIds();
-        }
-        return (int[]) invokeV.objValue;
-    }
-
-    public String getConstraintSetNames(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
-            MotionScene motionScene = this.mScene;
-            if (motionScene == null) {
-                return null;
-            }
-            return motionScene.lookUpConstraintName(i);
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public int getCurrentState() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mCurrentState : invokeV.intValue;
-    }
-
-    public void getDebugMode(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            this.mDebugPath = z ? 2 : 1;
-            invalidate();
-        }
-    }
-
-    public ArrayList<MotionScene.Transition> getDefinedTransitions() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            MotionScene motionScene = this.mScene;
-            if (motionScene == null) {
-                return null;
-            }
-            return motionScene.getDefinedTransitions();
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public DesignTool getDesignTool() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            if (this.mDesignTool == null) {
-                this.mDesignTool = new DesignTool(this);
-            }
-            return this.mDesignTool;
-        }
-        return (DesignTool) invokeV.objValue;
-    }
-
-    public int getEndState() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.mEndState : invokeV.intValue;
-    }
-
-    public long getNanoTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? System.nanoTime() : invokeV.longValue;
-    }
-
-    public float getProgress() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.mTransitionLastPosition : invokeV.floatValue;
-    }
-
-    public int getStartState() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.mBeginState : invokeV.intValue;
-    }
-
-    public float getTargetPosition() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.mTransitionGoalPosition : invokeV.floatValue;
-    }
-
-    public MotionScene.Transition getTransition(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i)) == null) ? this.mScene.getTransitionById(i) : (MotionScene.Transition) invokeI.objValue;
-    }
-
-    public Bundle getTransitionState() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            if (this.mStateCache == null) {
-                this.mStateCache = new StateCache(this);
-            }
-            this.mStateCache.recordState();
-            return this.mStateCache.getTransitionState();
-        }
-        return (Bundle) invokeV.objValue;
-    }
-
-    public long getTransitionTimeMs() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            MotionScene motionScene = this.mScene;
-            if (motionScene != null) {
-                this.mTransitionDuration = motionScene.getDuration() / 1000.0f;
-            }
-            return this.mTransitionDuration * 1000.0f;
-        }
-        return invokeV.longValue;
-    }
-
-    public float getVelocity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.mLastVelocity : invokeV.floatValue;
     }
 
     public void getViewVelocity(View view2, float f, float f2, float[] fArr, int i) {
@@ -2280,226 +3482,6 @@ public class MotionLayout extends ConstraintLayout implements NestedScrollingPar
         }
     }
 
-    @Override // android.view.View
-    public boolean isAttachedToWindow() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            if (Build.VERSION.SDK_INT >= 19) {
-                return super.isAttachedToWindow();
-            }
-            return getWindowToken() != null;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean isInteractionEnabled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.mInteractionEnabled : invokeV.booleanValue;
-    }
-
-    @Override // androidx.constraintlayout.widget.ConstraintLayout
-    public void loadLayoutDescription(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048604, this, i) == null) {
-            if (i != 0) {
-                try {
-                    this.mScene = new MotionScene(getContext(), this, i);
-                    if (Build.VERSION.SDK_INT < 19 || isAttachedToWindow()) {
-                        this.mScene.readFallback(this);
-                        this.mModel.initFrom(this.mLayoutWidget, this.mScene.getConstraintSet(this.mBeginState), this.mScene.getConstraintSet(this.mEndState));
-                        rebuildScene();
-                        this.mScene.setRtl(isRtl());
-                        return;
-                    }
-                    return;
-                } catch (Exception e) {
-                    throw new IllegalArgumentException("unable to parse MotionScene file", e);
-                }
-            }
-            this.mScene = null;
-        }
-    }
-
-    public int lookUpConstraintId(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, str)) == null) {
-            MotionScene motionScene = this.mScene;
-            if (motionScene == null) {
-                return 0;
-            }
-            return motionScene.lookUpConstraintId(str);
-        }
-        return invokeL.intValue;
-    }
-
-    public MotionTracker obtainVelocityTracker() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? MyTracker.obtain() : (MotionTracker) invokeV.objValue;
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void onAttachedToWindow() {
-        MotionScene.Transition transition;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
-            super.onAttachedToWindow();
-            MotionScene motionScene = this.mScene;
-            if (motionScene != null && (i = this.mCurrentState) != -1) {
-                ConstraintSet constraintSet = motionScene.getConstraintSet(i);
-                this.mScene.readFallback(this);
-                if (constraintSet != null) {
-                    constraintSet.applyTo(this);
-                }
-                this.mBeginState = this.mCurrentState;
-            }
-            onNewStateAttachHandlers();
-            StateCache stateCache = this.mStateCache;
-            if (stateCache != null) {
-                stateCache.apply();
-                return;
-            }
-            MotionScene motionScene2 = this.mScene;
-            if (motionScene2 == null || (transition = motionScene2.mCurrentTransition) == null || transition.getAutoTransition() != 4) {
-                return;
-            }
-            transitionToEnd();
-            setState(TransitionState.SETUP);
-            setState(TransitionState.MOVING);
-        }
-    }
-
-    @Override // android.view.ViewGroup
-    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        MotionScene.Transition transition;
-        TouchResponse touchResponse;
-        int touchRegionId;
-        RectF touchRegion;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048608, this, motionEvent)) == null) {
-            MotionScene motionScene = this.mScene;
-            if (motionScene != null && this.mInteractionEnabled && (transition = motionScene.mCurrentTransition) != null && transition.isEnabled() && (touchResponse = transition.getTouchResponse()) != null && ((motionEvent.getAction() != 0 || (touchRegion = touchResponse.getTouchRegion(this, new RectF())) == null || touchRegion.contains(motionEvent.getX(), motionEvent.getY())) && (touchRegionId = touchResponse.getTouchRegionId()) != -1)) {
-                View view2 = this.mRegionView;
-                if (view2 == null || view2.getId() != touchRegionId) {
-                    this.mRegionView = findViewById(touchRegionId);
-                }
-                View view3 = this.mRegionView;
-                if (view3 != null) {
-                    this.mBoundsCheck.set(view3.getLeft(), this.mRegionView.getTop(), this.mRegionView.getRight(), this.mRegionView.getBottom());
-                    if (this.mBoundsCheck.contains(motionEvent.getX(), motionEvent.getY()) && !handlesTouchEvent(0.0f, 0.0f, this.mRegionView, motionEvent)) {
-                        return onTouchEvent(motionEvent);
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // androidx.constraintlayout.widget.ConstraintLayout, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048609, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            this.mInLayout = true;
-            try {
-                if (this.mScene == null) {
-                    super.onLayout(z, i, i2, i3, i4);
-                    return;
-                }
-                int i5 = i3 - i;
-                int i6 = i4 - i2;
-                if (this.mLastLayoutWidth != i5 || this.mLastLayoutHeight != i6) {
-                    rebuildScene();
-                    evaluate(true);
-                }
-                this.mLastLayoutWidth = i5;
-                this.mLastLayoutHeight = i6;
-                this.mOldWidth = i5;
-                this.mOldHeight = i6;
-            } finally {
-                this.mInLayout = false;
-            }
-        }
-    }
-
-    @Override // androidx.constraintlayout.widget.ConstraintLayout, android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048610, this, i, i2) == null) {
-            if (this.mScene == null) {
-                super.onMeasure(i, i2);
-                return;
-            }
-            boolean z = false;
-            boolean z2 = (this.mLastWidthMeasureSpec == i && this.mLastHeightMeasureSpec == i2) ? false : true;
-            if (this.mNeedsFireTransitionCompleted) {
-                this.mNeedsFireTransitionCompleted = false;
-                onNewStateAttachHandlers();
-                processTransitionCompleted();
-                z2 = true;
-            }
-            if (this.mDirtyHierarchy) {
-                z2 = true;
-            }
-            this.mLastWidthMeasureSpec = i;
-            this.mLastHeightMeasureSpec = i2;
-            int startId = this.mScene.getStartId();
-            int endId = this.mScene.getEndId();
-            if ((z2 || this.mModel.isNotConfiguredWith(startId, endId)) && this.mBeginState != -1) {
-                super.onMeasure(i, i2);
-                this.mModel.initFrom(this.mLayoutWidget, this.mScene.getConstraintSet(startId), this.mScene.getConstraintSet(endId));
-                this.mModel.reEvaluateState();
-                this.mModel.setMeasuredId(startId, endId);
-            } else {
-                z = true;
-            }
-            if (this.mMeasureDuringTransition || z) {
-                int paddingTop = getPaddingTop() + getPaddingBottom();
-                int width = this.mLayoutWidget.getWidth() + getPaddingLeft() + getPaddingRight();
-                int height = this.mLayoutWidget.getHeight() + paddingTop;
-                int i3 = this.mWidthMeasureMode;
-                if (i3 == Integer.MIN_VALUE || i3 == 0) {
-                    int i4 = this.mStartWrapWidth;
-                    width = (int) (i4 + (this.mPostInterpolationPosition * (this.mEndWrapWidth - i4)));
-                    requestLayout();
-                }
-                int i5 = this.mHeightMeasureMode;
-                if (i5 == Integer.MIN_VALUE || i5 == 0) {
-                    int i6 = this.mStartWrapHeight;
-                    height = (int) (i6 + (this.mPostInterpolationPosition * (this.mEndWrapHeight - i6)));
-                    requestLayout();
-                }
-                setMeasuredDimension(width, height);
-            }
-            evaluateLayout();
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public boolean onNestedFling(View view2, float f, float f2, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048611, this, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2), Boolean.valueOf(z)})) == null) {
-            return false;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public boolean onNestedPreFling(View view2, float f, float f2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048612, this, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
-            return false;
-        }
-        return invokeCommon.booleanValue;
-    }
-
     @Override // androidx.core.view.NestedScrollingParent2
     public void onNestedPreScroll(View view2, int i, int i2, int[] iArr, int i3) {
         MotionScene motionScene;
@@ -2507,86 +3489,79 @@ public class MotionLayout extends ConstraintLayout implements NestedScrollingPar
         TouchResponse touchResponse;
         int touchRegionId;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048613, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), iArr, Integer.valueOf(i3)}) == null) || (motionScene = this.mScene) == null || (transition = motionScene.mCurrentTransition) == null || !transition.isEnabled()) {
+        if ((interceptable != null && interceptable.invokeCommon(1048613, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), iArr, Integer.valueOf(i3)}) != null) || (motionScene = this.mScene) == null || (transition = motionScene.mCurrentTransition) == null || !transition.isEnabled()) {
             return;
         }
         MotionScene.Transition transition2 = this.mScene.mCurrentTransition;
-        if (transition2 == null || !transition2.isEnabled() || (touchResponse = transition2.getTouchResponse()) == null || (touchRegionId = touchResponse.getTouchRegionId()) == -1 || view2.getId() == touchRegionId) {
-            MotionScene motionScene2 = this.mScene;
-            if (motionScene2 != null && motionScene2.getMoveWhenScrollAtTop()) {
-                float f = this.mTransitionPosition;
-                if ((f == 1.0f || f == 0.0f) && view2.canScrollVertically(-1)) {
-                    return;
-                }
-            }
-            if (transition2.getTouchResponse() != null && (this.mScene.mCurrentTransition.getTouchResponse().getFlags() & 1) != 0) {
-                float progressDirection = this.mScene.getProgressDirection(i, i2);
-                if ((this.mTransitionLastPosition <= 0.0f && progressDirection < 0.0f) || (this.mTransitionLastPosition >= 1.0f && progressDirection > 0.0f)) {
-                    if (Build.VERSION.SDK_INT >= 21) {
-                        view2.setNestedScrollingEnabled(false);
-                        view2.post(new Runnable(this, view2) { // from class: androidx.constraintlayout.motion.widget.MotionLayout.1
-                            public static /* synthetic */ Interceptable $ic;
-                            public transient /* synthetic */ FieldHolder $fh;
-                            public final /* synthetic */ MotionLayout this$0;
-                            public final /* synthetic */ View val$target;
-
-                            {
-                                Interceptable interceptable2 = $ic;
-                                if (interceptable2 != null) {
-                                    InitContext newInitContext = TitanRuntime.newInitContext();
-                                    newInitContext.initArgs = r2;
-                                    Object[] objArr = {this, view2};
-                                    interceptable2.invokeUnInit(65536, newInitContext);
-                                    int i4 = newInitContext.flag;
-                                    if ((i4 & 1) != 0) {
-                                        int i5 = i4 & 2;
-                                        newInitContext.thisArg = this;
-                                        interceptable2.invokeInitBody(65536, newInitContext);
-                                        return;
-                                    }
-                                }
-                                this.this$0 = this;
-                                this.val$target = view2;
-                            }
-
-                            @Override // java.lang.Runnable
-                            public void run() {
-                                Interceptable interceptable2 = $ic;
-                                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                    this.val$target.setNestedScrollingEnabled(true);
-                                }
-                            }
-                        });
-                        return;
-                    }
-                    return;
-                }
-            }
-            float f2 = this.mTransitionPosition;
-            long nanoTime = getNanoTime();
-            float f3 = i;
-            this.mScrollTargetDX = f3;
-            float f4 = i2;
-            this.mScrollTargetDY = f4;
-            this.mScrollTargetDT = (float) ((nanoTime - this.mScrollTargetTime) * 1.0E-9d);
-            this.mScrollTargetTime = nanoTime;
-            this.mScene.processScrollMove(f3, f4);
-            if (f2 != this.mTransitionPosition) {
-                iArr[0] = i;
-                iArr[1] = i2;
-            }
-            evaluate(false);
-            if (iArr[0] == 0 && iArr[1] == 0) {
+        if (transition2 != null && transition2.isEnabled() && (touchResponse = transition2.getTouchResponse()) != null && (touchRegionId = touchResponse.getTouchRegionId()) != -1 && view2.getId() != touchRegionId) {
+            return;
+        }
+        MotionScene motionScene2 = this.mScene;
+        if (motionScene2 != null && motionScene2.getMoveWhenScrollAtTop()) {
+            float f = this.mTransitionPosition;
+            if ((f == 1.0f || f == 0.0f) && view2.canScrollVertically(-1)) {
                 return;
             }
-            this.mUndergoingMotion = true;
         }
-    }
+        if (transition2.getTouchResponse() != null && (this.mScene.mCurrentTransition.getTouchResponse().getFlags() & 1) != 0) {
+            float progressDirection = this.mScene.getProgressDirection(i, i2);
+            if ((this.mTransitionLastPosition <= 0.0f && progressDirection < 0.0f) || (this.mTransitionLastPosition >= 1.0f && progressDirection > 0.0f)) {
+                if (Build.VERSION.SDK_INT >= 21) {
+                    view2.setNestedScrollingEnabled(false);
+                    view2.post(new Runnable(this, view2) { // from class: androidx.constraintlayout.motion.widget.MotionLayout.1
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+                        public final /* synthetic */ MotionLayout this$0;
+                        public final /* synthetic */ View val$target;
 
-    @Override // androidx.core.view.NestedScrollingParent2
-    public void onNestedScroll(View view2, int i, int i2, int i3, int i4, int i5) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048614, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {this, view2};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i4 = newInitContext.flag;
+                                if ((i4 & 1) != 0) {
+                                    int i5 = i4 & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.this$0 = this;
+                            this.val$target = view2;
+                        }
+
+                        @Override // java.lang.Runnable
+                        public void run() {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                this.val$target.setNestedScrollingEnabled(true);
+                            }
+                        }
+                    });
+                    return;
+                }
+                return;
+            }
+        }
+        float f2 = this.mTransitionPosition;
+        long nanoTime = getNanoTime();
+        float f3 = i;
+        this.mScrollTargetDX = f3;
+        float f4 = i2;
+        this.mScrollTargetDY = f4;
+        this.mScrollTargetDT = (float) ((nanoTime - this.mScrollTargetTime) * 1.0E-9d);
+        this.mScrollTargetTime = nanoTime;
+        this.mScene.processScrollMove(f3, f4);
+        if (f2 != this.mTransitionPosition) {
+            iArr[0] = i;
+            iArr[1] = i2;
+        }
+        evaluate(false);
+        if (iArr[0] != 0 || iArr[1] != 0) {
+            this.mUndergoingMotion = true;
         }
     }
 
@@ -2602,17 +3577,10 @@ public class MotionLayout extends ConstraintLayout implements NestedScrollingPar
         }
     }
 
-    @Override // androidx.core.view.NestedScrollingParent2
-    public void onNestedScrollAccepted(View view2, View view3, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(1048616, this, view2, view3, i, i2) == null) {
-        }
-    }
-
     public void onNewStateAttachHandlers() {
         MotionScene motionScene;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048617, this) == null) || (motionScene = this.mScene) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048617, this) != null) || (motionScene = this.mScene) == null) {
             return;
         }
         if (motionScene.autoTransition(this, this.mCurrentState)) {
@@ -2628,16 +3596,6 @@ public class MotionLayout extends ConstraintLayout implements NestedScrollingPar
         }
     }
 
-    @Override // android.view.View
-    public void onRtlPropertiesChanged(int i) {
-        MotionScene motionScene;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048618, this, i) == null) || (motionScene = this.mScene) == null) {
-            return;
-        }
-        motionScene.setRtl(isRtl());
-    }
-
     @Override // androidx.core.view.NestedScrollingParent2
     public boolean onStartNestedScroll(View view2, View view3, int i, int i2) {
         InterceptResult invokeLLII;
@@ -2645,7 +3603,10 @@ public class MotionLayout extends ConstraintLayout implements NestedScrollingPar
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048619, this, view2, view3, i, i2)) == null) {
             MotionScene motionScene = this.mScene;
-            return (motionScene == null || (transition = motionScene.mCurrentTransition) == null || transition.getTouchResponse() == null || (this.mScene.mCurrentTransition.getTouchResponse().getFlags() & 2) != 0) ? false : true;
+            if (motionScene != null && (transition = motionScene.mCurrentTransition) != null && transition.getTouchResponse() != null && (this.mScene.mCurrentTransition.getTouchResponse().getFlags() & 2) == 0) {
+                return true;
+            }
+            return false;
         }
         return invokeLLII.booleanValue;
     }
@@ -2654,12 +3615,26 @@ public class MotionLayout extends ConstraintLayout implements NestedScrollingPar
     public void onStopNestedScroll(View view2, int i) {
         MotionScene motionScene;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048620, this, view2, i) == null) || (motionScene = this.mScene) == null) {
+        if ((interceptable != null && interceptable.invokeLI(1048620, this, view2, i) != null) || (motionScene = this.mScene) == null) {
             return;
         }
         float f = this.mScrollTargetDX;
         float f2 = this.mScrollTargetDT;
         motionScene.processScrollUp(f / f2, this.mScrollTargetDY / f2);
+    }
+
+    public void updateState(int i, ConstraintSet constraintSet) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048652, this, i, constraintSet) == null) {
+            MotionScene motionScene = this.mScene;
+            if (motionScene != null) {
+                motionScene.setConstraintSet(i, constraintSet);
+            }
+            updateState();
+            if (this.mCurrentState == i) {
+                constraintSet.applyTo(this);
+            }
+        }
     }
 
     @Override // android.view.View
@@ -2681,511 +3656,81 @@ public class MotionLayout extends ConstraintLayout implements NestedScrollingPar
         return invokeL.booleanValue;
     }
 
-    @Override // androidx.constraintlayout.widget.ConstraintLayout, android.view.ViewGroup
-    public void onViewAdded(View view2) {
+    public void setProgress(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048622, this, view2) == null) {
-            super.onViewAdded(view2);
-            if (view2 instanceof MotionHelper) {
-                MotionHelper motionHelper = (MotionHelper) view2;
-                if (this.mTransitionListeners == null) {
-                    this.mTransitionListeners = new ArrayList<>();
-                }
-                this.mTransitionListeners.add(motionHelper);
-                if (motionHelper.isUsedOnShow()) {
-                    if (this.mOnShowHelpers == null) {
-                        this.mOnShowHelpers = new ArrayList<>();
-                    }
-                    this.mOnShowHelpers.add(motionHelper);
-                }
-                if (motionHelper.isUseOnHide()) {
-                    if (this.mOnHideHelpers == null) {
-                        this.mOnHideHelpers = new ArrayList<>();
-                    }
-                    this.mOnHideHelpers.add(motionHelper);
-                }
+        if (interceptable == null || interceptable.invokeF(1048634, this, f) == null) {
+            int i = (f > 0.0f ? 1 : (f == 0.0f ? 0 : -1));
+            if (i < 0 || f > 1.0f) {
+                Log.w(TAG, "Warning! Progress is defined for values between 0.0 and 1.0 inclusive");
             }
-        }
-    }
-
-    @Override // androidx.constraintlayout.widget.ConstraintLayout, android.view.ViewGroup
-    public void onViewRemoved(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048623, this, view2) == null) {
-            super.onViewRemoved(view2);
-            ArrayList<MotionHelper> arrayList = this.mOnShowHelpers;
-            if (arrayList != null) {
-                arrayList.remove(view2);
-            }
-            ArrayList<MotionHelper> arrayList2 = this.mOnHideHelpers;
-            if (arrayList2 != null) {
-                arrayList2.remove(view2);
-            }
-        }
-    }
-
-    @Override // androidx.constraintlayout.widget.ConstraintLayout
-    public void parseLayoutDescription(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048624, this, i) == null) {
-            this.mConstraintLayoutSpec = null;
-        }
-    }
-
-    @Deprecated
-    public void rebuildMotion() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048625, this) == null) {
-            Log.e(TAG, "This method is deprecated. Please call rebuildScene() instead.");
-            rebuildScene();
-        }
-    }
-
-    public void rebuildScene() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048626, this) == null) {
-            this.mModel.reEvaluateState();
-            invalidate();
-        }
-    }
-
-    public boolean removeTransitionListener(TransitionListener transitionListener) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048627, this, transitionListener)) == null) {
-            ArrayList<TransitionListener> arrayList = this.mTransitionListeners;
-            if (arrayList == null) {
-                return false;
-            }
-            return arrayList.remove(transitionListener);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // androidx.constraintlayout.widget.ConstraintLayout, android.view.View, android.view.ViewParent
-    public void requestLayout() {
-        MotionScene motionScene;
-        MotionScene.Transition transition;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048628, this) == null) {
-            if (this.mMeasureDuringTransition || this.mCurrentState != -1 || (motionScene = this.mScene) == null || (transition = motionScene.mCurrentTransition) == null || transition.getLayoutDuringTransition() != 0) {
-                super.requestLayout();
-            }
-        }
-    }
-
-    public void setDebugMode(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048629, this, i) == null) {
-            this.mDebugPath = i;
-            invalidate();
-        }
-    }
-
-    public void setInteractionEnabled(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048630, this, z) == null) {
-            this.mInteractionEnabled = z;
-        }
-    }
-
-    public void setInterpolatedProgress(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048631, this, f) == null) {
-            if (this.mScene != null) {
-                setState(TransitionState.MOVING);
-                Interpolator interpolator = this.mScene.getInterpolator();
-                if (interpolator != null) {
-                    setProgress(interpolator.getInterpolation(f));
-                    return;
-                }
-            }
-            setProgress(f);
-        }
-    }
-
-    public void setOnHide(float f) {
-        ArrayList<MotionHelper> arrayList;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048632, this, f) == null) || (arrayList = this.mOnHideHelpers) == null) {
-            return;
-        }
-        int size = arrayList.size();
-        for (int i = 0; i < size; i++) {
-            this.mOnHideHelpers.get(i).setProgress(f);
-        }
-    }
-
-    public void setOnShow(float f) {
-        ArrayList<MotionHelper> arrayList;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048633, this, f) == null) || (arrayList = this.mOnShowHelpers) == null) {
-            return;
-        }
-        int size = arrayList.size();
-        for (int i = 0; i < size; i++) {
-            this.mOnShowHelpers.get(i).setProgress(f);
-        }
-    }
-
-    public void setProgress(float f, float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048635, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
             if (!isAttachedToWindow()) {
                 if (this.mStateCache == null) {
                     this.mStateCache = new StateCache(this);
                 }
                 this.mStateCache.setProgress(f);
-                this.mStateCache.setVelocity(f2);
                 return;
             }
-            setProgress(f);
-            setState(TransitionState.MOVING);
-            this.mLastVelocity = f2;
-            animateTo(1.0f);
-        }
-    }
-
-    public void setScene(MotionScene motionScene) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048636, this, motionScene) == null) {
-            this.mScene = motionScene;
-            motionScene.setRtl(isRtl());
-            rebuildScene();
-        }
-    }
-
-    public void setState(TransitionState transitionState) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048638, this, transitionState) == null) {
-            if (transitionState == TransitionState.FINISHED && this.mCurrentState == -1) {
-                return;
-            }
-            TransitionState transitionState2 = this.mTransitionState;
-            this.mTransitionState = transitionState;
-            TransitionState transitionState3 = TransitionState.MOVING;
-            if (transitionState2 == transitionState3 && transitionState == transitionState3) {
-                fireTransitionChange();
-            }
-            int i = AnonymousClass2.$SwitchMap$androidx$constraintlayout$motion$widget$MotionLayout$TransitionState[transitionState2.ordinal()];
-            if (i != 1 && i != 2) {
-                if (i == 3 && transitionState == TransitionState.FINISHED) {
-                    fireTransitionCompleted();
-                    return;
+            if (i <= 0) {
+                this.mCurrentState = this.mBeginState;
+                if (this.mTransitionLastPosition == 0.0f) {
+                    setState(TransitionState.FINISHED);
                 }
-                return;
-            }
-            if (transitionState == TransitionState.MOVING) {
-                fireTransitionChange();
-            }
-            if (transitionState == TransitionState.FINISHED) {
-                fireTransitionCompleted();
-            }
-        }
-    }
-
-    public void setTransition(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048640, this, i, i2) == null) {
-            if (!isAttachedToWindow()) {
-                if (this.mStateCache == null) {
-                    this.mStateCache = new StateCache(this);
+            } else if (f >= 1.0f) {
+                this.mCurrentState = this.mEndState;
+                if (this.mTransitionLastPosition == 1.0f) {
+                    setState(TransitionState.FINISHED);
                 }
-                this.mStateCache.setStartState(i);
-                this.mStateCache.setEndState(i2);
-                return;
-            }
-            MotionScene motionScene = this.mScene;
-            if (motionScene != null) {
-                this.mBeginState = i;
-                this.mEndState = i2;
-                motionScene.setTransition(i, i2);
-                this.mModel.initFrom(this.mLayoutWidget, this.mScene.getConstraintSet(i), this.mScene.getConstraintSet(i2));
-                rebuildScene();
-                this.mTransitionLastPosition = 0.0f;
-                transitionToStart();
-            }
-        }
-    }
-
-    public void setTransitionDuration(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048642, this, i) == null) {
-            MotionScene motionScene = this.mScene;
-            if (motionScene == null) {
-                Log.e(TAG, "MotionScene not defined");
             } else {
-                motionScene.setDuration(i);
+                this.mCurrentState = -1;
+                setState(TransitionState.MOVING);
             }
-        }
-    }
-
-    public void setTransitionListener(TransitionListener transitionListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048643, this, transitionListener) == null) {
-            this.mTransitionListener = transitionListener;
-        }
-    }
-
-    public void setTransitionState(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048644, this, bundle) == null) {
-            if (this.mStateCache == null) {
-                this.mStateCache = new StateCache(this);
+            if (this.mScene == null) {
+                return;
             }
-            this.mStateCache.setTransitionState(bundle);
-            if (isAttachedToWindow()) {
-                this.mStateCache.apply();
-            }
-        }
-    }
-
-    @Override // android.view.View
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048645, this)) == null) {
-            Context context = getContext();
-            return Debug.getName(context, this.mBeginState) + "->" + Debug.getName(context, this.mEndState) + " (pos:" + this.mTransitionLastPosition + " Dpos/Dt:" + this.mLastVelocity;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void touchAnimateTo(int i, float f, float f2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048646, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Float.valueOf(f2)}) == null) || this.mScene == null || this.mTransitionLastPosition == f) {
-            return;
-        }
-        this.mTemporalInterpolator = true;
-        this.mAnimationStartTime = getNanoTime();
-        this.mTransitionDuration = this.mScene.getDuration() / 1000.0f;
-        this.mTransitionGoalPosition = f;
-        this.mInTransition = true;
-        if (i == 0 || i == 1 || i == 2) {
-            if (i == 1) {
-                f = 0.0f;
-            } else if (i == 2) {
-                f = 1.0f;
-            }
-            this.mStopLogic.config(this.mTransitionLastPosition, f, f2, this.mTransitionDuration, this.mScene.getMaxAcceleration(), this.mScene.getMaxVelocity());
-            int i2 = this.mCurrentState;
+            this.mTransitionInstantly = true;
             this.mTransitionGoalPosition = f;
-            this.mCurrentState = i2;
-            this.mInterpolator = this.mStopLogic;
-        } else if (i == 4) {
-            this.mDecelerateLogic.config(f2, this.mTransitionLastPosition, this.mScene.getMaxAcceleration());
-            this.mInterpolator = this.mDecelerateLogic;
-        } else if (i == 5) {
-            if (willJump(f2, this.mTransitionLastPosition, this.mScene.getMaxAcceleration())) {
-                this.mDecelerateLogic.config(f2, this.mTransitionLastPosition, this.mScene.getMaxAcceleration());
-                this.mInterpolator = this.mDecelerateLogic;
+            this.mTransitionPosition = f;
+            this.mTransitionLastTime = -1L;
+            this.mAnimationStartTime = -1L;
+            this.mInterpolator = null;
+            this.mInTransition = true;
+            invalidate();
+        }
+    }
+
+    public void setTransition(MotionScene.Transition transition) {
+        long nanoTime;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048641, this, transition) == null) {
+            this.mScene.setTransition(transition);
+            setState(TransitionState.SETUP);
+            if (this.mCurrentState == this.mScene.getEndId()) {
+                this.mTransitionLastPosition = 1.0f;
+                this.mTransitionPosition = 1.0f;
+                this.mTransitionGoalPosition = 1.0f;
             } else {
-                this.mStopLogic.config(this.mTransitionLastPosition, f, f2, this.mTransitionDuration, this.mScene.getMaxAcceleration(), this.mScene.getMaxVelocity());
-                this.mLastVelocity = 0.0f;
-                int i3 = this.mCurrentState;
-                this.mTransitionGoalPosition = f;
-                this.mCurrentState = i3;
-                this.mInterpolator = this.mStopLogic;
+                this.mTransitionLastPosition = 0.0f;
+                this.mTransitionPosition = 0.0f;
+                this.mTransitionGoalPosition = 0.0f;
             }
-        }
-        this.mTransitionInstantly = false;
-        this.mAnimationStartTime = getNanoTime();
-        invalidate();
-    }
-
-    public void transitionToEnd() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048647, this) == null) {
-            animateTo(1.0f);
-        }
-    }
-
-    public void transitionToStart() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048648, this) == null) {
-            animateTo(0.0f);
-        }
-    }
-
-    public void transitionToState(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048649, this, i) == null) {
-            if (!isAttachedToWindow()) {
-                if (this.mStateCache == null) {
-                    this.mStateCache = new StateCache(this);
-                }
-                this.mStateCache.setEndState(i);
+            if (transition.isTransitionFlag(1)) {
+                nanoTime = -1;
+            } else {
+                nanoTime = getNanoTime();
+            }
+            this.mTransitionLastTime = nanoTime;
+            int startId = this.mScene.getStartId();
+            int endId = this.mScene.getEndId();
+            if (startId == this.mBeginState && endId == this.mEndState) {
                 return;
             }
-            transitionToState(i, -1, -1);
-        }
-    }
-
-    public void updateState(int i, ConstraintSet constraintSet) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048652, this, i, constraintSet) == null) {
-            MotionScene motionScene = this.mScene;
-            if (motionScene != null) {
-                motionScene.setConstraintSet(i, constraintSet);
-            }
-            updateState();
-            if (this.mCurrentState == i) {
-                constraintSet.applyTo(this);
-            }
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public static class MyTracker implements MotionTracker {
-        public static /* synthetic */ Interceptable $ic;
-        public static MyTracker me;
-        public transient /* synthetic */ FieldHolder $fh;
-        public VelocityTracker tracker;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-2095498381, "Landroidx/constraintlayout/motion/widget/MotionLayout$MyTracker;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-2095498381, "Landroidx/constraintlayout/motion/widget/MotionLayout$MyTracker;");
-                    return;
-                }
-            }
-            me = new MyTracker();
-        }
-
-        public MyTracker() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-
-        public static MyTracker obtain() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-                me.tracker = VelocityTracker.obtain();
-                return me;
-            }
-            return (MyTracker) invokeV.objValue;
-        }
-
-        @Override // androidx.constraintlayout.motion.widget.MotionLayout.MotionTracker
-        public void addMovement(MotionEvent motionEvent) {
-            VelocityTracker velocityTracker;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, motionEvent) == null) || (velocityTracker = this.tracker) == null) {
-                return;
-            }
-            velocityTracker.addMovement(motionEvent);
-        }
-
-        @Override // androidx.constraintlayout.motion.widget.MotionLayout.MotionTracker
-        public void clear() {
-            VelocityTracker velocityTracker;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (velocityTracker = this.tracker) == null) {
-                return;
-            }
-            velocityTracker.clear();
-        }
-
-        @Override // androidx.constraintlayout.motion.widget.MotionLayout.MotionTracker
-        public void computeCurrentVelocity(int i) {
-            VelocityTracker velocityTracker;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || (velocityTracker = this.tracker) == null) {
-                return;
-            }
-            velocityTracker.computeCurrentVelocity(i);
-        }
-
-        @Override // androidx.constraintlayout.motion.widget.MotionLayout.MotionTracker
-        public float getXVelocity() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                VelocityTracker velocityTracker = this.tracker;
-                if (velocityTracker != null) {
-                    return velocityTracker.getXVelocity();
-                }
-                return 0.0f;
-            }
-            return invokeV.floatValue;
-        }
-
-        @Override // androidx.constraintlayout.motion.widget.MotionLayout.MotionTracker
-        public float getYVelocity() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                VelocityTracker velocityTracker = this.tracker;
-                if (velocityTracker != null) {
-                    return velocityTracker.getYVelocity();
-                }
-                return 0.0f;
-            }
-            return invokeV.floatValue;
-        }
-
-        @Override // androidx.constraintlayout.motion.widget.MotionLayout.MotionTracker
-        public void recycle() {
-            VelocityTracker velocityTracker;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (velocityTracker = this.tracker) == null) {
-                return;
-            }
-            velocityTracker.recycle();
-            this.tracker = null;
-        }
-
-        @Override // androidx.constraintlayout.motion.widget.MotionLayout.MotionTracker
-        public void computeCurrentVelocity(int i, float f) {
-            VelocityTracker velocityTracker;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) || (velocityTracker = this.tracker) == null) {
-                return;
-            }
-            velocityTracker.computeCurrentVelocity(i, f);
-        }
-
-        @Override // androidx.constraintlayout.motion.widget.MotionLayout.MotionTracker
-        public float getXVelocity(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-                VelocityTracker velocityTracker = this.tracker;
-                if (velocityTracker != null) {
-                    return velocityTracker.getXVelocity(i);
-                }
-                return 0.0f;
-            }
-            return invokeI.floatValue;
-        }
-
-        @Override // androidx.constraintlayout.motion.widget.MotionLayout.MotionTracker
-        public float getYVelocity(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-                if (this.tracker != null) {
-                    return getYVelocity(i);
-                }
-                return 0.0f;
-            }
-            return invokeI.floatValue;
+            this.mBeginState = startId;
+            this.mEndState = endId;
+            this.mScene.setTransition(startId, endId);
+            this.mModel.initFrom(this.mLayoutWidget, this.mScene.getConstraintSet(this.mBeginState), this.mScene.getConstraintSet(this.mEndState));
+            this.mModel.setMeasuredId(this.mBeginState, this.mEndState);
+            this.mModel.reEvaluateState();
+            rebuildScene();
         }
     }
 
@@ -3269,307 +3814,5 @@ public class MotionLayout extends ConstraintLayout implements NestedScrollingPar
                 invalidate();
             }
         }
-    }
-
-    public void updateState() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048651, this) == null) {
-            this.mModel.initFrom(this.mLayoutWidget, this.mScene.getConstraintSet(this.mBeginState), this.mScene.getConstraintSet(this.mEndState));
-            rebuildScene();
-        }
-    }
-
-    public void setProgress(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048634, this, f) == null) {
-            int i = (f > 0.0f ? 1 : (f == 0.0f ? 0 : -1));
-            if (i < 0 || f > 1.0f) {
-                Log.w(TAG, "Warning! Progress is defined for values between 0.0 and 1.0 inclusive");
-            }
-            if (!isAttachedToWindow()) {
-                if (this.mStateCache == null) {
-                    this.mStateCache = new StateCache(this);
-                }
-                this.mStateCache.setProgress(f);
-                return;
-            }
-            if (i <= 0) {
-                this.mCurrentState = this.mBeginState;
-                if (this.mTransitionLastPosition == 0.0f) {
-                    setState(TransitionState.FINISHED);
-                }
-            } else if (f >= 1.0f) {
-                this.mCurrentState = this.mEndState;
-                if (this.mTransitionLastPosition == 1.0f) {
-                    setState(TransitionState.FINISHED);
-                }
-            } else {
-                this.mCurrentState = -1;
-                setState(TransitionState.MOVING);
-            }
-            if (this.mScene == null) {
-                return;
-            }
-            this.mTransitionInstantly = true;
-            this.mTransitionGoalPosition = f;
-            this.mTransitionPosition = f;
-            this.mTransitionLastTime = -1L;
-            this.mAnimationStartTime = -1L;
-            this.mInterpolator = null;
-            this.mInTransition = true;
-            invalidate();
-        }
-    }
-
-    @Override // androidx.constraintlayout.widget.ConstraintLayout
-    public void setState(int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(1048637, this, i, i2, i3) == null) {
-            setState(TransitionState.SETUP);
-            this.mCurrentState = i;
-            this.mBeginState = -1;
-            this.mEndState = -1;
-            ConstraintLayoutStates constraintLayoutStates = this.mConstraintLayoutSpec;
-            if (constraintLayoutStates != null) {
-                constraintLayoutStates.updateConstraints(i, i2, i3);
-                return;
-            }
-            MotionScene motionScene = this.mScene;
-            if (motionScene != null) {
-                motionScene.getConstraintSet(i).applyTo(this);
-            }
-        }
-    }
-
-    public void setTransition(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048639, this, i) == null) || this.mScene == null) {
-            return;
-        }
-        MotionScene.Transition transition = getTransition(i);
-        this.mBeginState = transition.getStartConstraintSetId();
-        this.mEndState = transition.getEndConstraintSetId();
-        if (!isAttachedToWindow()) {
-            if (this.mStateCache == null) {
-                this.mStateCache = new StateCache(this);
-            }
-            this.mStateCache.setStartState(this.mBeginState);
-            this.mStateCache.setEndState(this.mEndState);
-            return;
-        }
-        float f = Float.NaN;
-        int i2 = this.mCurrentState;
-        if (i2 == this.mBeginState) {
-            f = 0.0f;
-        } else if (i2 == this.mEndState) {
-            f = 1.0f;
-        }
-        this.mScene.setTransition(transition);
-        this.mModel.initFrom(this.mLayoutWidget, this.mScene.getConstraintSet(this.mBeginState), this.mScene.getConstraintSet(this.mEndState));
-        rebuildScene();
-        this.mTransitionLastPosition = Float.isNaN(f) ? 0.0f : f;
-        if (Float.isNaN(f)) {
-            Log.v(TAG, Debug.getLocation() + " transitionToStart ");
-            transitionToStart();
-            return;
-        }
-        setProgress(f);
-    }
-
-    private void checkStructure(int i, ConstraintSet constraintSet) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65561, this, i, constraintSet) == null) {
-            String name = Debug.getName(getContext(), i);
-            int childCount = getChildCount();
-            for (int i2 = 0; i2 < childCount; i2++) {
-                View childAt = getChildAt(i2);
-                int id = childAt.getId();
-                if (id == -1) {
-                    Log.w(TAG, "CHECK: " + name + " ALL VIEWS SHOULD HAVE ID's " + childAt.getClass().getName() + " does not!");
-                }
-                if (constraintSet.getConstraint(id) == null) {
-                    Log.w(TAG, "CHECK: " + name + " NO CONSTRAINTS for " + Debug.getName(childAt));
-                }
-            }
-            int[] knownIds = constraintSet.getKnownIds();
-            for (int i3 = 0; i3 < knownIds.length; i3++) {
-                int i4 = knownIds[i3];
-                String name2 = Debug.getName(getContext(), i4);
-                if (findViewById(knownIds[i3]) == null) {
-                    Log.w(TAG, "CHECK: " + name + " NO View matches id " + name2);
-                }
-                if (constraintSet.getHeight(i4) == -1) {
-                    Log.w(TAG, "CHECK: " + name + "(" + name2 + ") no LAYOUT_HEIGHT");
-                }
-                if (constraintSet.getWidth(i4) == -1) {
-                    Log.w(TAG, "CHECK: " + name + "(" + name2 + ") no LAYOUT_HEIGHT");
-                }
-            }
-        }
-    }
-
-    public void setTransition(MotionScene.Transition transition) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048641, this, transition) == null) {
-            this.mScene.setTransition(transition);
-            setState(TransitionState.SETUP);
-            if (this.mCurrentState == this.mScene.getEndId()) {
-                this.mTransitionLastPosition = 1.0f;
-                this.mTransitionPosition = 1.0f;
-                this.mTransitionGoalPosition = 1.0f;
-            } else {
-                this.mTransitionLastPosition = 0.0f;
-                this.mTransitionPosition = 0.0f;
-                this.mTransitionGoalPosition = 0.0f;
-            }
-            this.mTransitionLastTime = transition.isTransitionFlag(1) ? -1L : getNanoTime();
-            int startId = this.mScene.getStartId();
-            int endId = this.mScene.getEndId();
-            if (startId == this.mBeginState && endId == this.mEndState) {
-                return;
-            }
-            this.mBeginState = startId;
-            this.mEndState = endId;
-            this.mScene.setTransition(startId, endId);
-            this.mModel.initFrom(this.mLayoutWidget, this.mScene.getConstraintSet(this.mBeginState), this.mScene.getConstraintSet(this.mEndState));
-            this.mModel.setMeasuredId(this.mBeginState, this.mEndState);
-            this.mModel.reEvaluateState();
-            rebuildScene();
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MotionLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mLastVelocity = 0.0f;
-        this.mBeginState = -1;
-        this.mCurrentState = -1;
-        this.mEndState = -1;
-        this.mLastWidthMeasureSpec = 0;
-        this.mLastHeightMeasureSpec = 0;
-        this.mInteractionEnabled = true;
-        this.mFrameArrayList = new HashMap<>();
-        this.mAnimationStartTime = 0L;
-        this.mTransitionDuration = 1.0f;
-        this.mTransitionPosition = 0.0f;
-        this.mTransitionLastPosition = 0.0f;
-        this.mTransitionGoalPosition = 0.0f;
-        this.mInTransition = false;
-        this.mIndirectTransition = false;
-        this.mDebugPath = 0;
-        this.mTemporalInterpolator = false;
-        this.mStopLogic = new StopLogic();
-        this.mDecelerateLogic = new DecelerateInterpolator(this);
-        this.firstDown = true;
-        this.mUndergoingMotion = false;
-        this.mKeepAnimating = false;
-        this.mOnShowHelpers = null;
-        this.mOnHideHelpers = null;
-        this.mTransitionListeners = null;
-        this.mFrames = 0;
-        this.mLastDrawTime = -1L;
-        this.mLastFps = 0.0f;
-        this.mListenerState = 0;
-        this.mListenerPosition = 0.0f;
-        this.mIsAnimating = false;
-        this.mMeasureDuringTransition = false;
-        this.mKeyCache = new KeyCache();
-        this.mInLayout = false;
-        this.mTransitionState = TransitionState.UNDEFINED;
-        this.mModel = new Model(this);
-        this.mNeedsFireTransitionCompleted = false;
-        this.mBoundsCheck = new RectF();
-        this.mRegionView = null;
-        this.mTransitionCompleted = new ArrayList<>();
-        init(attributeSet);
-    }
-
-    private void checkStructure(MotionScene.Transition transition) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65562, this, transition) == null) {
-            Log.v(TAG, "CHECK: transition = " + transition.debugString(getContext()));
-            Log.v(TAG, "CHECK: transition.setDuration = " + transition.getDuration());
-            if (transition.getStartConstraintSetId() == transition.getEndConstraintSetId()) {
-                Log.e(TAG, "CHECK: start and end constraint set should not be the same!");
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MotionLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.mLastVelocity = 0.0f;
-        this.mBeginState = -1;
-        this.mCurrentState = -1;
-        this.mEndState = -1;
-        this.mLastWidthMeasureSpec = 0;
-        this.mLastHeightMeasureSpec = 0;
-        this.mInteractionEnabled = true;
-        this.mFrameArrayList = new HashMap<>();
-        this.mAnimationStartTime = 0L;
-        this.mTransitionDuration = 1.0f;
-        this.mTransitionPosition = 0.0f;
-        this.mTransitionLastPosition = 0.0f;
-        this.mTransitionGoalPosition = 0.0f;
-        this.mInTransition = false;
-        this.mIndirectTransition = false;
-        this.mDebugPath = 0;
-        this.mTemporalInterpolator = false;
-        this.mStopLogic = new StopLogic();
-        this.mDecelerateLogic = new DecelerateInterpolator(this);
-        this.firstDown = true;
-        this.mUndergoingMotion = false;
-        this.mKeepAnimating = false;
-        this.mOnShowHelpers = null;
-        this.mOnHideHelpers = null;
-        this.mTransitionListeners = null;
-        this.mFrames = 0;
-        this.mLastDrawTime = -1L;
-        this.mLastFps = 0.0f;
-        this.mListenerState = 0;
-        this.mListenerPosition = 0.0f;
-        this.mIsAnimating = false;
-        this.mMeasureDuringTransition = false;
-        this.mKeyCache = new KeyCache();
-        this.mInLayout = false;
-        this.mTransitionState = TransitionState.UNDEFINED;
-        this.mModel = new Model(this);
-        this.mNeedsFireTransitionCompleted = false;
-        this.mBoundsCheck = new RectF();
-        this.mRegionView = null;
-        this.mTransitionCompleted = new ArrayList<>();
-        init(attributeSet);
     }
 }

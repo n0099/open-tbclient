@@ -1,17 +1,11 @@
 package com.kwad.components.offline.api.core.network;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.WorkerThread;
-import com.kwad.components.offline.api.core.network.IOfflineCompoRequest;
 import com.kwad.components.offline.api.core.network.model.BaseOfflineCompoResultData;
 /* loaded from: classes7.dex */
-public interface IOfflineCompoRequestListener<R extends IOfflineCompoRequest, T extends BaseOfflineCompoResultData> {
-    @WorkerThread
-    void onError(@NonNull R r, int i, String str);
+public interface IOfflineCompoRequestListener {
+    void onError(IOfflineCompoRequest iOfflineCompoRequest, int i, String str);
 
-    @WorkerThread
-    void onStartRequest(@NonNull R r);
+    void onStartRequest(IOfflineCompoRequest iOfflineCompoRequest);
 
-    @WorkerThread
-    void onSuccess(@NonNull R r, @NonNull T t);
+    void onSuccess(IOfflineCompoRequest iOfflineCompoRequest, BaseOfflineCompoResultData baseOfflineCompoResultData);
 }

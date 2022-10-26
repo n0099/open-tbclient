@@ -1,116 +1,35 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
 public class jx4 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static ix4 a = null;
-    public static int b = 0;
-    public static int c = 0;
-    public static int d = 0;
-    public static int e = 1;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947898659, "Lcom/baidu/tieba/jx4;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947898659, "Lcom/baidu/tieba/jx4;");
-        }
-    }
-
-    public static int a() {
-        InterceptResult invokeV;
+    public static void a(String str, long j, int i, String str2, int i2, String str3, Object... objArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            ix4 ix4Var = a;
-            if (ix4Var == null) {
-                return -1;
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, Long.valueOf(j), Integer.valueOf(i), str2, Integer.valueOf(i2), str3, objArr}) == null) {
+            mh mhVar = new mh();
+            mhVar.c("cmd", Integer.valueOf(i));
+            if (!TextUtils.isEmpty(str2)) {
+                mhVar.b("action", str2);
             }
-            return ix4Var.getCurrentTabType();
-        }
-        return invokeV.intValue;
-    }
-
-    public static Class<?> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            ix4 ix4Var = a;
-            if (ix4Var == null) {
-                return null;
+            mhVar.b("errNo", String.valueOf(i2));
+            if (!TextUtils.isEmpty(str3) && i2 != 0) {
+                mhVar.b(StatConstants.KEY_EXT_ERR_MSG, str3);
             }
-            return ix4Var.d();
-        }
-        return (Class) invokeV.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            ix4 ix4Var = a;
-            if (ix4Var == null) {
-                return null;
+            if (objArr != null && objArr.length > 0) {
+                mhVar.c(objArr);
             }
-            return ix4Var.f();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static void d(Context context) {
-        ix4 ix4Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) || (ix4Var = a) == null) {
-            return;
-        }
-        ix4Var.a(context);
-    }
-
-    public static void e(Context context, int i) {
-        ix4 ix4Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65541, null, context, i) == null) || (ix4Var = a) == null) {
-            return;
-        }
-        ix4Var.b(context, i);
-    }
-
-    public static void f(Context context, int i, boolean z) {
-        ix4 ix4Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z)}) == null) || (ix4Var = a) == null) {
-            return;
-        }
-        ix4Var.c(context, i, z);
-    }
-
-    public static void g(Context context, int i, boolean z) {
-        ix4 ix4Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z)}) == null) || (ix4Var = a) == null) {
-            return;
-        }
-        ix4Var.e(context, i, z);
-    }
-
-    public static void h(ix4 ix4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, ix4Var) == null) {
-            a = ix4Var;
+            if (i2 == 0) {
+                BdStatisticsManager.getInstance().debug(str, j, null, mhVar);
+            } else {
+                BdStatisticsManager.getInstance().error(str, j, (String) null, mhVar);
+            }
         }
     }
 }

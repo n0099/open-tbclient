@@ -20,11 +20,18 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class VideoMsg extends RichMediaMsg implements Parcelable, NoProGuard {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<VideoMsg> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public final String TAG;
     public int mDuration;
     public int mFormat;
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
+    public String getRecommendDescription() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "[短视频]" : (String) invokeV.objValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -39,7 +46,7 @@ public class VideoMsg extends RichMediaMsg implements Parcelable, NoProGuard {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<VideoMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.VideoMsg.1
+        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.VideoMsg.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -58,118 +65,55 @@ public class VideoMsg extends RichMediaMsg implements Parcelable, NoProGuard {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public VideoMsg createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new VideoMsg(parcel) : (VideoMsg) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new VideoMsg(parcel);
+                }
+                return (VideoMsg) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public VideoMsg[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new VideoMsg[i] : (VideoMsg[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new VideoMsg[i];
+                }
+                return (VideoMsg[]) invokeI.objValue;
             }
         };
-    }
-
-    private String getVideoContent(String str, int i, int i2, byte[] bArr) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), bArr})) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
-            }
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("url", str);
-                jSONObject.put("format", i);
-                jSONObject.put("duration", i2);
-                jSONObject.put("thumbnail", Base64.encode(bArr));
-                return jSONObject.toString();
-            } catch (JSONException e) {
-                LogUtils.e(LogUtils.TAG, "getVideoContent", e);
-                return "";
-            }
-        }
-        return (String) invokeCommon.objValue;
     }
 
     public int getDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mDuration : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mDuration;
+        }
+        return invokeV.intValue;
     }
 
     public int getFormat() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mFormat : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mFormat;
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.RichMediaMsg
     public int getProgress() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mProgress : invokeV.intValue;
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
-    public String getRecommendDescription() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "[短视频]" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
-    public boolean parseJsonString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (!TextUtils.isEmpty(getJsonContent())) {
-                try {
-                    JSONObject jSONObject = new JSONObject(getJsonContent());
-                    this.mRemoteUrl = jSONObject.optString("url");
-                    this.mFormat = jSONObject.optInt("format");
-                    this.mDuration = jSONObject.optInt("duration");
-                    return true;
-                } catch (JSONException e) {
-                    LogUtils.e(LogUtils.TAG, "parseJsonString", e);
-                }
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mProgress;
         }
-        return invokeV.booleanValue;
-    }
-
-    public void setContent(String str, int i, int i2, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), bArr}) == null) {
-            setMsgContent(getVideoContent(str, i, i2, bArr));
-        }
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.messages.RichMediaMsg
-    public void setProgress(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.mProgress = i;
-        }
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.messages.RichMediaMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048583, this, parcel, i) == null) {
-            super.writeToParcel(parcel, i);
-            parcel.writeInt(this.mFormat);
-            parcel.writeInt(this.mDuration);
-            parcel.writeInt(this.mProgress);
-        }
+        return invokeV.intValue;
     }
 
     public VideoMsg() {
@@ -215,5 +159,74 @@ public class VideoMsg extends RichMediaMsg implements Parcelable, NoProGuard {
         this.mFormat = parcel.readInt();
         this.mDuration = parcel.readInt();
         this.mProgress = parcel.readInt();
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.RichMediaMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048583, this, parcel, i) == null) {
+            super.writeToParcel(parcel, i);
+            parcel.writeInt(this.mFormat);
+            parcel.writeInt(this.mDuration);
+            parcel.writeInt(this.mProgress);
+        }
+    }
+
+    private String getVideoContent(String str, int i, int i2, byte[] bArr) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), bArr})) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                try {
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("url", str);
+                    jSONObject.put("format", i);
+                    jSONObject.put("duration", i2);
+                    jSONObject.put("thumbnail", Base64.encode(bArr));
+                    return jSONObject.toString();
+                } catch (JSONException e) {
+                    LogUtils.e(LogUtils.TAG, "getVideoContent", e);
+                    return "";
+                }
+            }
+            return "";
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
+    public boolean parseJsonString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (!TextUtils.isEmpty(getJsonContent())) {
+                try {
+                    JSONObject jSONObject = new JSONObject(getJsonContent());
+                    this.mRemoteUrl = jSONObject.optString("url");
+                    this.mFormat = jSONObject.optInt("format");
+                    this.mDuration = jSONObject.optInt("duration");
+                    return true;
+                } catch (JSONException e) {
+                    LogUtils.e(LogUtils.TAG, "parseJsonString", e);
+                }
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void setContent(String str, int i, int i2, byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), bArr}) == null) {
+            setMsgContent(getVideoContent(str, i, i2, bArr));
+        }
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.RichMediaMsg
+    public void setProgress(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.mProgress = i;
+        }
     }
 }

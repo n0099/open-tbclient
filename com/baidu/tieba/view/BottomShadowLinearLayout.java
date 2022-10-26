@@ -6,11 +6,10 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -49,68 +48,8 @@ public class BottomShadowLinearLayout extends LinearLayout {
         }
     }
 
-    public final void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            Paint paint = new Paint();
-            this.e = paint;
-            paint.reset();
-            this.e.setAntiAlias(true);
-            this.e.setStyle(Paint.Style.FILL);
-            this.e.setDither(true);
-            Paint paint2 = new Paint();
-            this.f = paint2;
-            paint2.reset();
-            this.f.setAntiAlias(true);
-            this.f.setStyle(Paint.Style.FILL);
-            this.f.setDither(true);
-            this.c = ej.f(context, R.dimen.obfuscated_res_0x7f0701d5);
-            this.d = ej.f(context, R.dimen.obfuscated_res_0x7f070287);
-            setLayerType(1, this.e);
-            b();
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.e.setColor(SkinManager.getColor(R.color.CAM_X0207));
-            this.f.setColor(SkinManager.getColor(R.color.CAM_X0207));
-            this.e.setShadowLayer(25.0f, 0.0f, 0.0f, SkinManager.getColor(R.color.CAM_X0805));
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void dispatchDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) || this.a <= 0 || this.b <= 0) {
-            return;
-        }
-        if (this.g == null) {
-            this.g = new RectF(0.0f, 0.0f, this.a, this.b - this.d);
-        }
-        RectF rectF = this.g;
-        float f = this.c;
-        canvas.drawRoundRect(rectF, f, f, this.e);
-        if (this.h == null) {
-            this.h = new RectF(0.0f, 0.0f, this.a, this.b / 2);
-        }
-        canvas.drawRect(this.h, this.f);
-        super.dispatchDraw(canvas);
-    }
-
-    @Override // android.widget.LinearLayout, android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
-            super.onMeasure(i, i2);
-            this.a = getMeasuredWidth();
-            this.b = getMeasuredHeight();
-        }
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public BottomShadowLinearLayout(Context context, @Nullable AttributeSet attributeSet) {
+    public BottomShadowLinearLayout(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -131,7 +70,7 @@ public class BottomShadowLinearLayout extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BottomShadowLinearLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public BottomShadowLinearLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -150,5 +89,64 @@ public class BottomShadowLinearLayout extends LinearLayout {
             }
         }
         a(context);
+    }
+
+    public final void a(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            Paint paint = new Paint();
+            this.e = paint;
+            paint.reset();
+            this.e.setAntiAlias(true);
+            this.e.setStyle(Paint.Style.FILL);
+            this.e.setDither(true);
+            Paint paint2 = new Paint();
+            this.f = paint2;
+            paint2.reset();
+            this.f.setAntiAlias(true);
+            this.f.setStyle(Paint.Style.FILL);
+            this.f.setDither(true);
+            this.c = fj.f(context, R.dimen.obfuscated_res_0x7f0701d5);
+            this.d = fj.f(context, R.dimen.obfuscated_res_0x7f070287);
+            setLayerType(1, this.e);
+            b();
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void dispatchDraw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) && this.a > 0 && this.b > 0) {
+            if (this.g == null) {
+                this.g = new RectF(0.0f, 0.0f, this.a, this.b - this.d);
+            }
+            RectF rectF = this.g;
+            float f = this.c;
+            canvas.drawRoundRect(rectF, f, f, this.e);
+            if (this.h == null) {
+                this.h = new RectF(0.0f, 0.0f, this.a, this.b / 2);
+            }
+            canvas.drawRect(this.h, this.f);
+            super.dispatchDraw(canvas);
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.e.setColor(SkinManager.getColor(R.color.CAM_X0207));
+            this.f.setColor(SkinManager.getColor(R.color.CAM_X0207));
+            this.e.setShadowLayer(25.0f, 0.0f, 0.0f, SkinManager.getColor(R.color.CAM_X0805));
+        }
+    }
+
+    @Override // android.widget.LinearLayout, android.view.View
+    public void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            super.onMeasure(i, i2);
+            this.a = getMeasuredWidth();
+            this.b = getMeasuredHeight();
+        }
     }
 }

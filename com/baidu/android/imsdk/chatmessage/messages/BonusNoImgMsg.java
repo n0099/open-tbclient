@@ -18,7 +18,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class BonusNoImgMsg extends NormalMsg {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator<BonusNoImgMsg> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public static final String TAG = "BonusNoImgMsg";
     public transient /* synthetic */ FieldHolder $fh;
     public String mDescription;
@@ -31,6 +31,13 @@ public class BonusNoImgMsg extends NormalMsg {
     public int mSkipType;
     public String mSource;
     public String mText;
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
+    public String getRecommendDescription() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? IMConstants.BONUS_MSG_RECOMMEND_DESC : (String) invokeV.objValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -45,7 +52,7 @@ public class BonusNoImgMsg extends NormalMsg {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<BonusNoImgMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.BonusNoImgMsg.1
+        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.BonusNoImgMsg.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -64,23 +71,117 @@ public class BonusNoImgMsg extends NormalMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public BonusNoImgMsg createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new BonusNoImgMsg(parcel) : (BonusNoImgMsg) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new BonusNoImgMsg(parcel);
+                }
+                return (BonusNoImgMsg) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public BonusNoImgMsg[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new BonusNoImgMsg[i] : (BonusNoImgMsg[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new BonusNoImgMsg[i];
+                }
+                return (BonusNoImgMsg[]) invokeI.objValue;
             }
         };
+    }
+
+    public String getDescription() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mDescription;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getDiscountCondition() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mDiscountCondition;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getDiscountType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mDiscountType;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getDiscountValue() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mDiscountValue;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getIdentity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mIdentity;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getOperationText() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mOperationText;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getSkipAddr() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mSkipAddr;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getSkipType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mSkipType;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getSource() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mSource;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getText() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.mText;
+        }
+        return (String) invokeV.objValue;
     }
 
     public BonusNoImgMsg() {
@@ -109,71 +210,44 @@ public class BonusNoImgMsg extends NormalMsg {
         setMsgType(35);
     }
 
-    public String getDescription() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public BonusNoImgMsg(Parcel parcel) {
+        super(parcel);
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mDescription : (String) invokeV.objValue;
-    }
-
-    public String getDiscountCondition() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mDiscountCondition : (String) invokeV.objValue;
-    }
-
-    public int getDiscountType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mDiscountType : invokeV.intValue;
-    }
-
-    public String getDiscountValue() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mDiscountValue : (String) invokeV.objValue;
-    }
-
-    public String getIdentity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mIdentity : (String) invokeV.objValue;
-    }
-
-    public String getOperationText() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mOperationText : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
-    public String getRecommendDescription() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? IMConstants.BONUS_MSG_RECOMMEND_DESC : (String) invokeV.objValue;
-    }
-
-    public String getSkipAddr() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mSkipAddr : (String) invokeV.objValue;
-    }
-
-    public int getSkipType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mSkipType : invokeV.intValue;
-    }
-
-    public String getSource() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mSource : (String) invokeV.objValue;
-    }
-
-    public String getText() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mText : (String) invokeV.objValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Parcel) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.mText = "";
+        this.mSource = "";
+        this.mIdentity = "";
+        this.mDescription = "";
+        this.mDiscountType = 0;
+        this.mDiscountValue = "";
+        this.mDiscountCondition = "";
+        this.mOperationText = "";
+        this.mSkipType = 0;
+        this.mSkipAddr = "";
+        this.mText = parcel.readString();
+        this.mSource = parcel.readString();
+        this.mIdentity = parcel.readString();
+        this.mDescription = parcel.readString();
+        this.mDiscountType = parcel.readInt();
+        this.mDiscountValue = parcel.readString();
+        this.mDiscountCondition = parcel.readString();
+        this.mOperationText = parcel.readString();
+        this.mSkipType = parcel.readInt();
+        this.mSkipAddr = parcel.readString();
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
@@ -290,45 +364,5 @@ public class BonusNoImgMsg extends NormalMsg {
             parcel.writeInt(this.mSkipType);
             parcel.writeString(this.mSkipAddr);
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BonusNoImgMsg(Parcel parcel) {
-        super(parcel);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Parcel) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.mText = "";
-        this.mSource = "";
-        this.mIdentity = "";
-        this.mDescription = "";
-        this.mDiscountType = 0;
-        this.mDiscountValue = "";
-        this.mDiscountCondition = "";
-        this.mOperationText = "";
-        this.mSkipType = 0;
-        this.mSkipAddr = "";
-        this.mText = parcel.readString();
-        this.mSource = parcel.readString();
-        this.mIdentity = parcel.readString();
-        this.mDescription = parcel.readString();
-        this.mDiscountType = parcel.readInt();
-        this.mDiscountValue = parcel.readString();
-        this.mDiscountCondition = parcel.readString();
-        this.mOperationText = parcel.readString();
-        this.mSkipType = parcel.readInt();
-        this.mSkipAddr = parcel.readString();
     }
 }

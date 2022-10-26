@@ -2,7 +2,6 @@ package androidx.core.content.pm;
 
 import android.content.pm.PackageInfo;
 import android.os.Build;
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +26,7 @@ public final class PackageInfoCompat {
         }
     }
 
-    public static long getLongVersionCode(@NonNull PackageInfo packageInfo) {
+    public static long getLongVersionCode(PackageInfo packageInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, packageInfo)) == null) {

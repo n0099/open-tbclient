@@ -3,37 +3,18 @@ package kotlinx.coroutines;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.Future;
 import kotlin.Metadata;
-import kotlin.Unit;
 import kotlin.coroutines.Continuation;
 import kotlin.coroutines.CoroutineContext;
 import kotlin.jvm.functions.Function0;
 @Metadata(bv = {1, 0, 3}, d1 = {"kotlinx/coroutines/JobKt__FutureKt", "kotlinx/coroutines/JobKt__JobKt"}, d2 = {}, k = 4, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
 /* loaded from: classes8.dex */
 public final class JobKt {
-    @InternalCoroutinesApi
-    public static final DisposableHandle DisposableHandle(Function0<Unit> function0) {
+    public static final DisposableHandle DisposableHandle(Function0 function0) {
         return JobKt__JobKt.DisposableHandle(function0);
     }
 
     public static final CompletableJob Job(Job job) {
         return JobKt__JobKt.Job(job);
-    }
-
-    public static final Object cancelAndJoin(Job job, Continuation<? super Unit> continuation) {
-        return JobKt__JobKt.cancelAndJoin(job, continuation);
-    }
-
-    public static final void cancelFutureOnCancellation(CancellableContinuation<?> cancellableContinuation, Future<?> future) {
-        JobKt__FutureKt.cancelFutureOnCancellation(cancellableContinuation, future);
-    }
-
-    @InternalCoroutinesApi
-    public static final DisposableHandle cancelFutureOnCompletion(Job job, Future<?> future) {
-        return JobKt__FutureKt.cancelFutureOnCompletion(job, future);
-    }
-
-    public static final DisposableHandle disposeOnCompletion(Job job, DisposableHandle disposableHandle) {
-        return JobKt__JobKt.disposeOnCompletion(job, disposableHandle);
     }
 
     public static final void ensureActive(CoroutineContext coroutineContext) {
@@ -44,16 +25,32 @@ public final class JobKt {
         return JobKt__JobKt.isActive(coroutineContext);
     }
 
-    public static final void cancel(CoroutineContext coroutineContext, CancellationException cancellationException) {
-        JobKt__JobKt.cancel(coroutineContext, cancellationException);
-    }
-
     public static final void ensureActive(Job job) {
         JobKt__JobKt.ensureActive(job);
     }
 
     public static final void cancel(Job job, String str, Throwable th) {
         JobKt__JobKt.cancel(job, str, th);
+    }
+
+    public static final void cancel(CoroutineContext coroutineContext, CancellationException cancellationException) {
+        JobKt__JobKt.cancel(coroutineContext, cancellationException);
+    }
+
+    public static final Object cancelAndJoin(Job job, Continuation continuation) {
+        return JobKt__JobKt.cancelAndJoin(job, continuation);
+    }
+
+    public static final void cancelFutureOnCancellation(CancellableContinuation cancellableContinuation, Future future) {
+        JobKt__FutureKt.cancelFutureOnCancellation(cancellableContinuation, future);
+    }
+
+    public static final DisposableHandle cancelFutureOnCompletion(Job job, Future future) {
+        return JobKt__FutureKt.cancelFutureOnCompletion(job, future);
+    }
+
+    public static final DisposableHandle disposeOnCompletion(Job job, DisposableHandle disposableHandle) {
+        return JobKt__JobKt.disposeOnCompletion(job, disposableHandle);
     }
 
     public static final void cancelChildren(CoroutineContext coroutineContext, CancellationException cancellationException) {
